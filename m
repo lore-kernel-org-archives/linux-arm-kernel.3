@@ -4,173 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5B5C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924E0C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvwk3rDsTi0CUYTRWDKTxNknuMe7upJNcwuegNGFoNk=; b=G3rx5PSD7MXM3Z9P2U99QOn5cZ
-	LEpXyAhEiIEmltkkcLIkmksCDDEDDKRpC3QCQJ49OQ5W/Gx37t2PGWZbu+vZzUsgyRNRIuForjG3J
-	Bh6+hfQGXofR06+BnBVGDUfnj6kRXA1hObNgjBtfpttQNC6VQaVCr1LtqJeuHA7Ar1qRbEXswsat2
-	zet/aKbGRHOkwzQQ4NR5ioxi3p1R5dbqtaGRlSdJXrzAlv8xI/IhNVO9eNAgh9k7/Q5Q2sAT/PdbA
-	+oW3mn4+1oNVASMc9YdJmIYGmJRtYDGx3QlI1PddQ7ETdT8g9afeRoswZMG6ODEIL0+5EfvIjs3fM
-	2pUxIxuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5dbenD8GKtkjYZ738ASAU+dThcr6sBtkgM85GethDcM=; b=A643MZUmDQv8dx/bsyPxv4B5DR
+	Xu9gaGP+o9F8tbkLj6yUmWOBjvUmevLQf+c4atf5Ft1clj41KyUFMCTc5oced40Kzq6OLRM4JvePE
+	LFlxjDY+wMBw8ZAtpg8jSiVMxgtRl/61qGjU/HyyV1pGyfqTfnxLuksABLEnnW2IvNJ3uZSTFHMOE
+	d0w9LKufsUL0dQX1a0RYmRGKSe8XABok6ADaGNkXoE34Rk5e2gRtu1JvgUX1yJyuwVBTz4jXI4IiE
+	HdTDOBX8WEXuEnGfMsyGARu5TSG/h9HKlxKi/FHY6mFvRteom0I4TOA770++vcBYPvDAPSbDa/2t9
+	HWbkS5lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrlY-0000000BMnT-1t4D;
-	Tue, 12 Aug 2025 16:22:24 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ulrlc-0000000BMtt-1TRT;
+	Tue, 12 Aug 2025 16:22:28 +0000
+Received: from ni.piap.pl ([195.187.100.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulnxr-0000000AftJ-20K5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 12:18:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wv25ILJ2jBLyMWtkL1mED74DwLPFr+VzzQMx0dU5tAHCCPNeYjN785PdFJlN7QeRzsSwpaiPvWEdyodGkABB5mQ6uRDd1sUIk0icLyPgdKxId9DYJtsGyq4XcTSEMrSHvQIKPf3MwYlc7VwOrOsyh7FBHPvCcW3+NUO368lOgrVqVS6jiGOwxPZqkaN5ni38n0dAg9gmH4tlifwkNM9zjQ5h480b7kTh3CPyoVFVK86o8WJgBEtjFjrYeOef82Qgyh29O9FFv+Ef2QDWtfkD2SEB0GwpLIT9JZimXn/4pLrdbcw2ceOJc5HgTwI6dINr4RInbsYviGrpWO3CPP/opw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uvwk3rDsTi0CUYTRWDKTxNknuMe7upJNcwuegNGFoNk=;
- b=RJX9A9BmdbzoKaf5CwUyOJYi3bFBUTDznNiZ2fhkVAdcHOXdbHfXzlZ5pQlV24LaUFQivv/FVZ9aGjjhq4cZO9xbYuUFP+M7SyZC0U5SMRvySyyAgc9AhmKZ6ejYht1C7au6/q1dRi8HvEl1vPeyBuarc6EL8hZqMowh1Ne5E8JJCgomvk442+JCOU1KzQp4RaDs7/DpVMTO0zFMwTGb/asDiPjo44hyaAi29obSSwqsQproa7sOShOQ2VbGEoMllVyhsb11rxsoj9yFu22qB27i9RPLSYTdkJvA2IrGdIfuY8b7PML84+pBdW+o3y+PiuRDYXIdNUt3M9ltYAp/kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uvwk3rDsTi0CUYTRWDKTxNknuMe7upJNcwuegNGFoNk=;
- b=WDekmqUABle76jgh9a60uXpV7L2vKFwkZpWlfFLExQQZFbalKnNOpAe5J2W4pvFkGvvWdNIEGxdcqcFxrx1ogmnGOYsEn7Ce8YYFbpiPj/F0y0bF8A2rwytXfV09cULlAk4zwKGy8V6kWz8MuKvTfpFLlVqWNHhcLx7O1n+g6xwJA1VklavXNqc4XbGxIubTC1OJW4M7xV7lWlSM0JodOqjrCsVTMayhWn5As7SQR+paqrSoXLpb8oZvzL2t5Jw0G72EX9G51rQY7pqYrnDeMZ1fsQ4tEw7puk4cP69H43Dlc/9gGPYUon56Qc7SSt8A6BT0+CdB568xDKjBFHZ9nQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBBPR04MB7721.eurprd04.prod.outlook.com (2603:10a6:10:1f6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
- 2025 12:18:46 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 12:18:46 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Tue, 12 Aug 2025 20:17:07 +0800
-Subject: [PATCH 3/3] clk: scmi: Support Spread Spectrum for NXP i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250812-clk-ssc-version1-v1-3-cef60f20d770@nxp.com>
-References: <20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com>
-In-Reply-To: <20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Marco Felsch <m.felsch@pengutronix.de>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, linux-clk@vger.kernel.org, 
- linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755001109; l=6023;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=I8dZ1Y+pdQi1FtS7fxvS86sC7Z6ORGJMrVZmOLkKcuM=;
- b=Y63nLYWfsBcsu3qpBPbq4VVy2k2jfVn4DMN7IceRxycqVpCVkDMUtAgRclOfqF2YbK8TNzcJ3
- 2aOjZnDWpKdBFFD5DEKK5qyGTZksjX2rXKpif9OFSJZtw3POMTCajHV
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR03CA0103.apcprd03.prod.outlook.com
- (2603:1096:4:7c::31) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1ulo6y-0000000AgYW-1IgD;
+	Tue, 12 Aug 2025 12:28:18 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 2EB4CC3E4DE9;
+	Tue, 12 Aug 2025 14:28:08 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 2EB4CC3E4DE9
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Stefan Klug <stefan.klug@ideasonboard.com>,  Dafna Hirschfeld
+ <dafna@fastmail.com>,  Heiko Stuebner <heiko@sntech.de>,  Paul Elder
+ <paul.elder@ideasonboard.com>,  Jacopo Mondi
+ <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
+  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption: resolved
+In-Reply-To: <20250812103243.GK30054@pendragon.ideasonboard.com> (Laurent
+	Pinchart's message of "Tue, 12 Aug 2025 13:32:43 +0300")
+References: <175308758352.3134829.9472501038683860006@localhost>
+	<m31pq9y98z.fsf@t19.piap.pl>
+	<175326599663.2811177.16620980968274114885@localhost>
+	<m3h5z2vw12.fsf@t19.piap.pl>
+	<175344176070.2811177.10693943493658922992@localhost>
+	<m3qzxyug1s.fsf@t19.piap.pl> <m3cy9futcj.fsf@t19.piap.pl>
+	<m34iumujcs.fsf@t19.piap.pl> <m3zfcet41n.fsf@t19.piap.pl>
+	<m3a545t789.fsf@t19.piap.pl>
+	<20250812103243.GK30054@pendragon.ideasonboard.com>
+Date: Tue, 12 Aug 2025 14:28:07 +0200
+Message-ID: <m3zfc4sp0o.fsf@t19.piap.pl>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBBPR04MB7721:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6a98400-db4a-40bb-b08c-08ddd99a62ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vkl1WTg2ZDNvdVpPa0J2OHl2bmpzN0tNRkdNYi9LNW5nR1RpY252b0w0WW1C?=
- =?utf-8?B?ay9KNUxITTFoNWx2Z3lhalgzeUg1Z05uVGVoYjBZbnFhbXVLcGpmMlFiMzJV?=
- =?utf-8?B?SlBpUkZhRWZRcHVZeHU1dVFRc1hwT1gydmNwUk9XVDF5OWo4b0p6aGxiZkFt?=
- =?utf-8?B?RDN4aWRHdWtaMEx6bG4yTnd1RW9ZcE01VW1QQ0lMdWpQZmVsK3VEYldxWlZo?=
- =?utf-8?B?V3NKWnQxOFZrc1FkemwxdGxqU2NBSUNwZGt0dElDNmtTb2YxZ0UvVFZEWDEz?=
- =?utf-8?B?Rm51TFRmSE92eElnL2d5ZGlxNTUyMndFTDVXNTlWaG5YeVgwK2Jub1h0R1hz?=
- =?utf-8?B?alJCTDFCc3VpUmJiYnd2dlZvNnE2bEVYc1RXTUtMdmJxbUZwRktIMmlWa1o1?=
- =?utf-8?B?VVQ2UHF3TDQvZ0NtdEJaeitDcmVlYmNuemtacmpwSGJnRDQvQVQ0ZC9ldGJN?=
- =?utf-8?B?WWNPMndGeUwxRkU4NkJsd1djdEcyUFNCeHZzVC9wUzVxd0VJOEhCRmlaU2VK?=
- =?utf-8?B?MlJuWlpRaWNrRy9HVDVTK3pHQUhSTkh4QzNvTENZcmRUTllrVFM0T0gzS1Av?=
- =?utf-8?B?N1NZYzA4a2FIaTJSRlhzM0FDMWptRWVFWEJrRlhML3gremlTbE1YaWxpZ254?=
- =?utf-8?B?bGNnNjdITGp5M2VYaDR1RElYZ1hIVXpVV0VOQ1RibFVUQ3BOc0h5LzBBQkxs?=
- =?utf-8?B?OURWRGlmYThpVnZIQVVpczQ5cSs2czRVT0x0c3YvWnBSdGhxYzczanY4UkdV?=
- =?utf-8?B?MEJjVjdDYlN1L3ppTzRmSlgrMDE1ZERuRndITlZqT3FmZlJ0amZQa3llcFRo?=
- =?utf-8?B?QUJiLzgrWEtZMzdDQm5MZmU3WWhSTktiTjNTOExYT0JjbDR6eEpQalFEN1Qy?=
- =?utf-8?B?SW1lR0JFbi9HZjNuWC9YeXBYZkFDcDZsYys2cE13TmtPdW1TRTVZV1ZqNkQ2?=
- =?utf-8?B?TjdQV0hRbmhUWGR4UG4wM1R6dlY3ejJJTDQxQlhaUjJiQzJOMFA0Q05DZHJp?=
- =?utf-8?B?Y0pvMjBXZ1RYY1NIdTRkUXlXNFc2bUZvVDhXTnNHWW5DdW03WjZFNHZ3V3Ux?=
- =?utf-8?B?bVFNQkNNNnNhbDYveTNJRis1WHJtcldqcHNyblE4b1NDbklkMVRpTTRkZHVs?=
- =?utf-8?B?akxDU2VETXdsQXRvZS9SdVpMWGRxNTExbExWZ0p3K29PWE4zZnVDd1dXa2FC?=
- =?utf-8?B?UytONXdMTFluekxvWmlEUVpiT3B5MW9VZ085bmNNTlZjNmhhcHNFU3dpRGFS?=
- =?utf-8?B?dXpwVEM4SGIyVTVRY3dwRGtRYUNmNEIzOHlVc09vdWRXZ2JCQTlQRDdXbldX?=
- =?utf-8?B?QWFnLzJKelMzSndUOUhWQkRTU2duaWZ3VEFBVHlsOWxVMDhjTkVBRTZFRlNF?=
- =?utf-8?B?cVMxVk1CZFhJd1pKbnE3R2Z3Rm9mS0orWDk4RldhR0RRZ2toQzJwZzdTNUE0?=
- =?utf-8?B?QWM5Qlp0N3IwSGZDRmxrM1RBZ0c0WHZhdjJHWVkwUG9kU3RTbVhWNmZ6cEZ5?=
- =?utf-8?B?QUdxdzY2NGx3QlcveVhtNVU2UFJoOFZuK09YU01NOWtrZWtkVGdiV2tqclF3?=
- =?utf-8?B?dGFUM0ozdDllM3cyWXFzbWl0eTJLaDZGYUpDK3JXNDZlOUtTby9KNzRpTDBs?=
- =?utf-8?B?eWYzYkJaNUZDQkhSa2RxZmN4aFFOaU9sOWUrUUMyLzZNVW14UWZuVnUxeFor?=
- =?utf-8?B?SDVRRldTSWJxU09VUmhhb0NhSFhhTjZNUlNTb1lNYVVjeFVTT0kreW1YYlhu?=
- =?utf-8?B?TjNraEozblZjWWxZQ2ZGTlgyVWFSc0xaQnRFbTZrUDhLaXhrV1JDUjNsSHNN?=
- =?utf-8?B?ZGtWMURhM1ZIMk1XUlQ4RTAzU0d5WE85bkc1Rmo2UHZ2QmtlSjJrdmFwV1Yw?=
- =?utf-8?B?UTlUUHhKUzJJN0liV2YwbDFCR1JzeE9VNzAydGpzNXJ3WEJ0NkNwLyt4dDhZ?=
- =?utf-8?B?MVhyWXlyVExwaW42blRxSjlZR1Uwei9ZTWxiUGRyR05xY1VjZlh4R0xkZG5Y?=
- =?utf-8?B?aUZCbE4yNDF3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3QyWWpDT2Y5R29FRGtBaHoxMEtKRUNmK3NjU2FKczZFeEFRVDA5TGROU0ZT?=
- =?utf-8?B?ZndKaFIwQmEzRlhrUDY4R0hLR2dvL25nUkNPZFp6NitpVGtIVFZOdWplZEta?=
- =?utf-8?B?QW8wcS9ZV0dOSXV2NytlTUs3OFNIQTQ0RWQyMHFqdEZOOWM5RVJ0YjE3UlAz?=
- =?utf-8?B?MGF2TFVSODA2YTJoVjl1M1hrYnZYcVUySi9mRGtwYXJYQ3BTSnptbEJhdjFJ?=
- =?utf-8?B?K1JmMUFDLzU0dW4wTllmeXFkWWhaOTEvVXhvVWw1WFJnbHV6bHRkNWtQbnhQ?=
- =?utf-8?B?VTltYWFtSW41dzZGWGFHbG41eDZiaW10YkZkcEpMR0lMZmxMNUlYdFBRcWRL?=
- =?utf-8?B?SHpmRWtIRytyMHJCUVRsSkVkL211SmZLc0pFQ29oa0VlSmZRM1FZVXMvd1la?=
- =?utf-8?B?YTZ1Sk1yNjJZZE1CSHZHUkRBN0lRK2kwendLKzZlZUprOE9tVmdUeFlDTFBo?=
- =?utf-8?B?bFRkeStFRGVpOHVVaWg3b3NqVTgwSjJEMkJEaHpkd1VEaUMzNE1GdmN4WndM?=
- =?utf-8?B?NVptUU5PQzdRQzFOSUpYang4ZVN1K2VqN3I0dzh1N2UxTUVNcDRmb1VRTlp0?=
- =?utf-8?B?TmREZ1dPVGtDRlBINlIrNUN5ZzBnS3AwbFFxdndONUdlU2sxQ2szSy9qL3dG?=
- =?utf-8?B?aWZRUzNvVWoyN1BlTk5HbG41RWljVUw3d2xpTzZhSSt1NUZyRVhIeVlBV1lD?=
- =?utf-8?B?R1FGNkJmTzhhcDNhb09xdEtBS0l0NmJBQlRCVXZ0ZGk2SDlBM0UyWUc5bHpi?=
- =?utf-8?B?cjZRMWcvaXJmdVpRQkVSR0dIVFNEWlpPcTlMaVlsaHh6VnVIYnRiY1BzL2ZK?=
- =?utf-8?B?VE9WcmN2dHRrTzRjdWt3dFcxNUg4bUw4NUtiZ2dzTDBSRjI4ZXRxeWJhZmxt?=
- =?utf-8?B?OHJsN2krWWhqNHFFNnQ5bVNNV1FsZVJMNDVBYlFNbHZKa0txNXNoaHFoUWRV?=
- =?utf-8?B?cjFqcGVYOEY4cmNUQVhZRFdtNS9QNk9XZ0Exb1JUeWdlNm1GZUsxMVNGTGhs?=
- =?utf-8?B?ZVdkNUlYSDI1bVFxVkM5NFgwN2hOdTRCTVlEVmVaTFVQY2h2UnpHTkZyWXQ1?=
- =?utf-8?B?Z2tBakM5SlNwTWg3d1Q5dmpUcnJaMHIvTndzYUVmZERxKzBHMk92MkNkZEVD?=
- =?utf-8?B?UXlBVHlRRWlYSTZzNngxZk1JTGVST1BsY1RWU0daV1ZrMXFMUG4xV3lhZmtL?=
- =?utf-8?B?NG1rcWwzN1NZZG80S2l6SXhIQTV5THRwTTB6Wmt2ekNNMW9xTUVIWk0rSktY?=
- =?utf-8?B?NkNTbUlxRXhpTU1XVHRQWkJwZVZDYmtRVEk1SjJQTVZoS0xBSGtVbGFGUGZi?=
- =?utf-8?B?a3hGUzFJRm1oOTV0eTZqNFc1dGVkdmNxMlJnNFBGeVpsYnJYcGhkaytDbkRa?=
- =?utf-8?B?RnBnZDdEUHNta3Q5Q1pNZFdIV28zZW5MWkN3SjBJZjYrelY3c1ArZ2pvK3A3?=
- =?utf-8?B?UGlqMUlmTVNtY2ViNmlNRzRTdFptV01yUWI5bm1sRVV2NlNKaGIyWHlRRFVK?=
- =?utf-8?B?U0tLU1NXK0dWNlBLUGd2N01HVkdIUGw4UllXMytRcTM5QVMzdFBxYWIwQUhR?=
- =?utf-8?B?MVVza2lDTUgxQVd6WFN6VWt6blJrcWtSTGVXd0pRWS9sRy82N0NSM2lralJy?=
- =?utf-8?B?bUdvQXVOemNDMjBLaFBFRExqb2VvYnJPb0VqMGVNUDFHM1VuazdNL2lJTjRh?=
- =?utf-8?B?TkU3TGYwV21OVTdYTW1lUWsrUHpMTFRWMU5lOUxVR0dxNHNnNHVHNCtHQVRR?=
- =?utf-8?B?dUNyK0laZlFISE9JYnA0Y2hRVWVYdUxHYlBZZTlrbUVLeCs1eUlzWUdFeFJ1?=
- =?utf-8?B?TVdoU3ZqOHh5S0JrZ3lkaWVQK0J0R2tWT2pxQXJtcTNobnNxTS9IL2dPUWE2?=
- =?utf-8?B?Y0hHZEE1ZURtVU5Yek5oaElod1VmYjBMWmk3a1FEeExNRDYwazZVOUVkSUZl?=
- =?utf-8?B?KzFDNEdueWRGTWhxc3o3a2hXOUh3VWo5WFE2Q0tScHQyaFBMQ1VwUWxaUmRk?=
- =?utf-8?B?aXFxYitsMVhuTnoyRTcxdUpkaUpsZktnTlkrazFqWGlaajc3RGhPdk5JU1Vi?=
- =?utf-8?B?SVIwcm9pdTVtMDAwM09vaXpGWXVVdlBDRWFpRTZkbFZWYVNqTFJTM1lPcXVt?=
- =?utf-8?Q?Od5lhAUYrQUnX2AXFD9afMZi4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6a98400-db4a-40bb-b08c-08ddd99a62ef
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 12:18:46.5689
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: txMf3/jHUovjkfhLSU9s1hPXM9iMWoracn6coceGerQNjXzBONj2VW2iLlia55KlX7Ezn7ke9AL8o7gKkIvpKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7721
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_051851_668677_F728BC63 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20250812_052816_511475_997CA90C 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,174 +72,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PLL clocks on NXP i.MX95 SoCs support Spread Spectrum (SS).
-This patch introduces scmi_clk_imx_set_spread_spectrum to pass SS
-configuration to the SCMI firmware, which handles the actual
-implementation.
+Hi Laurent,
 
-To ensure this feature is only enabled on NXP platforms,
-scmi_clk_imx_extended_config_oem is added. Since SS is only applicable
-to PLL clocks, config_oem_get is used to verify SS support for a given
-clock.
+>> - anyway, lowering the frequencies of ISP and MEDIA root clocks fixes
+>>   the ISP2 MI corruption. I'm currently investigating PMIC settings
+>>   (both my Compulab and SolidRun modules use PCA9450C PMICs), so perhaps
+>>   I'll be able to use the higher 500 MHz clocks. It doesn't matter much,
+>>   though.
 
-i.MX95 SCMI firmware Spread Spectrum extConfigValue definition is as
-below, no modulation method because firmware forces to use down spread.
-	 extConfigValue[7:0]   - spread percentage (%)
-	 extConfigValue[23:8]  - Modulation Frequency (KHz)
-	 extConfigValue[24]    - Enable/Disable
-	 extConfigValue[31:25] - Reserved
+Well, apparently my Compulab UCM module provides overdrive power. At
+least the PMIC driver says so (in /sys pseudofiles). I guess SolidRun
+won't be different.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/clk-scmi.c        | 64 ++++++++++++++++++++++++++++++++++++++++---
- include/linux/scmi_protocol.h |  5 ++++
- 2 files changed, 65 insertions(+), 4 deletions(-)
+1. At least two different designs are affected (Compulab and SolidRun),
+2. the PCA9450C is THE i.MX8MP PMIC, most probably connected to the CPU
+   exactly as in the datasheet (at least WRT VDD_SOC power lines),
+3. NXP people experienced the problem on their (which ones?) boards, too
 
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index d2408403283fc72f0cf902e65f4c08bcbc7b4b0b..bb5e20dab18e92932ab4b99192b496e0c4d96417 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/module.h>
- #include <linux/scmi_protocol.h>
-+#include <linux/scmi_imx_protocol.h>
- #include <asm/div64.h>
- 
- #define NOT_ATOMIC	false
-@@ -23,6 +24,7 @@ enum scmi_clk_feats {
- 	SCMI_CLK_RATE_CTRL_SUPPORTED,
- 	SCMI_CLK_PARENT_CTRL_SUPPORTED,
- 	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_IMX_SSC_SUPPORTED,
- 	SCMI_CLK_FEATS_COUNT
- };
- 
-@@ -98,6 +100,35 @@ static int scmi_clk_set_parent(struct clk_hw *hw, u8 parent_index)
- 	return scmi_proto_clk_ops->parent_set(clk->ph, clk->id, parent_index);
- }
- 
-+static int scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-+					    struct clk_spread_spectrum *clk_ss)
-+{
-+	struct scmi_clk *clk = to_scmi_clk(hw);
-+	int ret;
-+	u32 val;
-+
-+	/*
-+	 * extConfigValue[7:0]   - spread percentage (%)
-+	 * extConfigValue[23:8]  - Modulation Frequency
-+	 * extConfigValue[24]    - Enable/Disable
-+	 * extConfigValue[31:25] - Reserved
-+	 */
-+	val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, clk_ss->spread_bp / 10000);
-+	val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, clk_ss->modfreq_hz);
-+	if (clk_ss->method != CLK_SSC_NO_SPREAD)
-+		val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-+	ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 val, false);
-+	if (ret)
-+		dev_warn(clk->dev,
-+			 "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-+			 clk_ss->modfreq_hz, clk_ss->spread_bp, clk_ss->method,
-+			 clk->id);
-+
-+	return ret;
-+}
-+
- static u8 scmi_clk_get_parent(struct clk_hw *hw)
- {
- 	struct scmi_clk *clk = to_scmi_clk(hw);
-@@ -316,11 +347,33 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
- 		ops->set_duty_cycle = scmi_clk_set_duty_cycle;
- 	}
- 
-+	if (feats_key & BIT(SCMI_CLK_IMX_SSC_SUPPORTED))
-+		ops->set_spread_spectrum = scmi_clk_imx_set_spread_spectrum;
-+
- 	return ops;
- }
- 
-+static void scmi_clk_imx_extended_config_oem(const struct scmi_handle *handle,
-+					     struct scmi_clk *sclk,
-+					     unsigned int *feats_key)
-+{
-+	int ret;
-+	u32 val;
-+
-+	if (strcmp(handle->version->vendor_id, SCMI_IMX_VENDOR) ||
-+	    strcmp(handle->version->sub_vendor_id, SCMI_IMX_SUBVENDOR))
-+		return;
-+
-+	ret = scmi_proto_clk_ops->config_oem_get(sclk->ph, sclk->id,
-+						 SCMI_CLOCK_CFG_IMX_SSC,
-+						 &val, NULL, false);
-+	if (!ret)
-+		*feats_key |= BIT(SCMI_CLK_IMX_SSC_SUPPORTED);
-+}
-+
- /**
-  * scmi_clk_ops_select() - Select a proper set of clock operations
-+ * @handle: A reference to an SCMI entity
-  * @sclk: A reference to an SCMI clock descriptor
-  * @atomic_capable: A flag to indicate if atomic mode is supported by the
-  *		    transport
-@@ -345,8 +398,8 @@ scmi_clk_ops_alloc(struct device *dev, unsigned long feats_key)
-  *	   NULL otherwise.
-  */
- static const struct clk_ops *
--scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
--		    unsigned int atomic_threshold_us,
-+scmi_clk_ops_select(const struct scmi_handle *handle, struct scmi_clk *sclk,
-+		    bool atomic_capable, unsigned int atomic_threshold_us,
- 		    const struct clk_ops **clk_ops_db, size_t db_size)
- {
- 	const struct scmi_clock_info *ci = sclk->info;
-@@ -370,9 +423,12 @@ scmi_clk_ops_select(struct scmi_clk *sclk, bool atomic_capable,
- 	if (!ci->parent_ctrl_forbidden)
- 		feats_key |= BIT(SCMI_CLK_PARENT_CTRL_SUPPORTED);
- 
--	if (ci->extended_config)
-+	if (ci->extended_config) {
- 		feats_key |= BIT(SCMI_CLK_DUTY_CYCLE_SUPPORTED);
- 
-+		scmi_clk_imx_extended_config_oem(handle, sclk, &feats_key);
-+	}
-+
- 	if (WARN_ON(feats_key >= db_size))
- 		return NULL;
- 
-@@ -459,7 +515,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		 * to avoid sharing the devm_ allocated clk_ops between multiple
- 		 * SCMI clk driver instances.
- 		 */
--		scmi_ops = scmi_clk_ops_select(sclk, transport_is_atomic,
-+		scmi_ops = scmi_clk_ops_select(handle, sclk, transport_is_atomic,
- 					       atomic_threshold_us,
- 					       scmi_clk_ops_db,
- 					       ARRAY_SIZE(scmi_clk_ops_db));
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 688466a0e816247d24704f7ba109667a14226b67..6f9f197ee671540e38470a5666eb5ba8ec9de439 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -80,9 +80,14 @@ enum scmi_clock_oem_config {
- 	SCMI_CLOCK_CFG_DUTY_CYCLE = 0x1,
- 	SCMI_CLOCK_CFG_PHASE,
- 	SCMI_CLOCK_CFG_OEM_START = 0x80,
-+	SCMI_CLOCK_CFG_IMX_SSC = 0x80,
- 	SCMI_CLOCK_CFG_OEM_END = 0xFF,
- };
- 
-+#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK	GENMASK(7, 0)
-+#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK		GENMASK(23, 8)
-+#define SCMI_CLOCK_IMX_SS_ENABLE_MASK		BIT(24)
-+
- /**
-  * struct scmi_clk_proto_ops - represents the various operations provided
-  *	by SCMI Clock Protocol
+Well... They specify (IMX8MPIEC =3D the datasheet):
 
--- 
-2.37.1
+"Two instances of 4-lane MIPI CSI interface and HDR ISP
+=E2=80=A2 For single Camera, MIPI CSI 1 can support up to 400/500 MHz pixel
+  clock in the Nominal/Overdrive mode.
+=E2=80=A2 For single Camera, MIPI CSI 2 can support up to 277 MHz pixel clo=
+ck.
+=E2=80=A2 For dual Camera, both MIPI CSI can support up to 266 MHz pixel cl=
+ock.
+=E2=80=A2 2x ISP supporting 375 Mpixel/s aggregate performance and up to
+  3-exposure HDR processing.
+    =E2=80=A2When one camera is used, support up to 12MP@30fps or 4kp45
+    =E2=80=A2When two cameras are used, each supports up to 1080p80"
 
+So, while ISP clock is not exactly pixel clock, perhaps they mean that
+the ISP clock is to be limited as well.
+
+ISP2 at 400 MHz (single camera) works for me (with a 1080p60 12-bit
+IMX462 sensor), but I haven't tested in extreme conditions etc.
+
+> I think it would make sense to lower the default clock frequencies, and
+> provide an overlay to enable overdrive mode.
+>
+> It's also interesting that the issue only affected the second ISP, as
+> the first one should also be limited to 400 MHz in normal mode.
+
+Right. Maybe it's not the overdrive mode after all. I will do more tests
+soon.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
