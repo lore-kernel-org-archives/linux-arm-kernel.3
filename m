@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A3ECA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9304CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyXtN74VkBaQLErnP6Oirfq2yZX1obNwJfBjqV4IEtw=; b=A19PAzeeXBxU/iI0+4N86eIgEL
-	Nk1DM3v7SL9ggVf0i8q/bZ9PqmLUgc7vMTDYyIysFxdX87f9DDfbyALNVwp3HZyxcZu/Grr3VjM5F
-	fn9iqUYI/yy9DF81LdWGGA4/s0Z3AbaL7QfgSFxy4uuKmmk6zncSu5jFpwBl1FiTT/L1IyqaI2CVt
-	2LuLJ4QPN8kPgAw5J187IumlSn9tN6P9iBP8Dmo6X0FkA+j+xGrYhu4cm/xfOk2TKMDb6ddHBYoYI
-	zxPm0ELO4kLYeql4aqmeTmO1yfsrlFo1hTdgNaxbo0GyiGYoKmnl0+IJaMA52YQunIEk+iyn2sadk
-	hFI2nbhg==;
+	bh=ACBF/XewF9ltNTPIvrsgsmJlHAjTuMQ64yXm9zsSnVo=; b=ciH6Tg7VHs+RZGUt9+suEeQMNb
+	HCqV4EzyG2MtXj2iY1ZRcXKwTty582fC+3F9iNamAmijygAim6uMA+Z5UM2A3HCOaM1obm7HVWh3l
+	I3sagmvBV3YPCf7ItbqFTuifJJG4S4Xasbadc14nAL/g50UAQR+JkJWxpbbzKmZ+wuzI3FLMTQzqY
+	H50Py/7zq1qbExYvDXn0OnVicHgXgj9zj7jVvyPYbkehn/Ci+KoPW/g3uoDepukTnaaV8/5lLa1Do
+	Oq0YIPMh7b8Q6afoL1tMnaZRzxjA5jet41APN8O7Gv49PPNNepVkklnivqz8MIpsUyz6LrcyZHG51
+	eYposqOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsb6-0000000BWxy-3teL;
-	Tue, 12 Aug 2025 17:15:40 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ulsdd-0000000BXL1-2wFJ;
+	Tue, 12 Aug 2025 17:18:17 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpPE-0000000AyVh-15Po
+	id 1ulpPM-0000000AybZ-1o2n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:51:17 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CDRMS6015833;
-	Tue, 12 Aug 2025 15:50:58 +0200
+	Tue, 12 Aug 2025 13:51:21 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CCM5mY016353;
+	Tue, 12 Aug 2025 15:51:10 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	kyXtN74VkBaQLErnP6Oirfq2yZX1obNwJfBjqV4IEtw=; b=hNbYqjuwH5xRxzy0
-	bHTmCU7hzteq17vcbXPKqYGqC5MVQ5/Qsi1IChhY90UNQfEPCnmNJW1WerJLG0kS
-	6DLLUDqGse8laVA6FYtLgLHCkNk80OS5XZyhDB+L0GH4aZ93eOHykAidvK8qdvjI
-	GvL0iea4dhHDehiql7nOsUDk2Kd2shFqS6pKaio38+DV5Cj3w/8KLwXkCyVGN5XP
-	c6gtPcnq/vJuZKmC3k5Wvn98BqOr73o9lYhepgf6H1LgHYYetOfp/bb/qMTPr6zf
-	8j3ghUUNKpCSeT+LupiZ1w2xqi6BdP70/OR+CWWuU0sBwRrEGSutK3HdTsQYLHgr
-	UcewCQ==
+	ACBF/XewF9ltNTPIvrsgsmJlHAjTuMQ64yXm9zsSnVo=; b=ofvFiU8T9zR0gGeK
+	gZZI1WUFkDmCK8+9N/xNXLZDpREqfGtp2+0Odc6YIA06BpTYdBAIqWXfjx7L07kY
+	F1YbwZ29ktQaJthCdu+q6jxFF5vBpUQpldWG+qtB+8fbOSPMupH/Z1InIUYIb592
+	mquBOGQe49brJvI7dR8V4HfWtsce4FPJUIpY7/J0evOV7IrPdqkokEPQrvELKhtD
+	FMBlHYbRP+QMy5NdOx0pzLeeSZRZIKD7yBb2F0YUX0bWd37HYhoNQ5qEPHY+Dygg
+	h3h0f7j37Xy+bztM580DjaMZEFpx6XVmjtb6Xlab168oFnK+7U91q1vrQddOcCoA
+	mSWx4g==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48dw7gad8q-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48eh9n8c2m-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Aug 2025 15:50:58 +0200 (MEST)
+	Tue, 12 Aug 2025 15:51:10 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C31134006E;
-	Tue, 12 Aug 2025 15:49:25 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E6CE7400AE;
+	Tue, 12 Aug 2025 15:49:27 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A3C4878BFD5;
-	Tue, 12 Aug 2025 15:49:03 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2486678C45C;
+	Tue, 12 Aug 2025 15:49:08 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
- 2025 15:49:03 +0200
+ 2025 15:49:07 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Tue, 12 Aug 2025 15:49:03 +0200
-Subject: [PATCH v2 06/13] dt-bindings: arm: stm32: add required
- #clock-cells property
+Date: Tue, 12 Aug 2025 15:49:10 +0200
+Subject: [PATCH v2 13/13] arm64: dts: st: add loopback clocks on LTDC node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250812-drm-misc-next-v2-6-132fd84463d7@foss.st.com>
+Message-ID: <20250812-drm-misc-next-v2-13-132fd84463d7@foss.st.com>
 References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
 In-Reply-To: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,8 +94,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-12_07,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_065112_567473_DB418ECA 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250812_065120_752660_84ECD990 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +110,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
-subsystem through a multiplexer.  Since it only provides a single clock,
-the cell value is 0.
+ck_ker_ltdc has the CLK_SET_RATE_PARENT flag.  While having this flag is
+semantically correct, it for now leads to an improper setting of the
+clock rate.  The ck_ker_ltdc parent clock is the flexgen 27, which does
+not support changing rates yet.  To overcome this issue, a fixed clock
+can be used for the kernel clock.
 
-Doing so allows the clock consumers to reach the peripheral and gate the
-clock accordingly.
+Add the clocks needed for the LTDC to work.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
- 1 file changed, 21 insertions(+), 10 deletions(-)
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 6 ++++++
+ arch/arm64/boot/dts/st/stm32mp255.dtsi | 5 +++++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -36,20 +36,31 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  "#clock-cells":
-+    const: 0
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index d833b2b7904bef1cf1db8f1da210a1abd8a87d09..55f63cb7b881a91498042a71fcd39ac5191ad47d 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -52,6 +52,12 @@ clk_rcbsec: clk-rcbsec {
+ 			compatible = "fixed-clock";
+ 			clock-frequency = <64000000>;
+ 		};
 +
- required:
-   - compatible
-   - reg
++		clk_flexgen_27_fixed: clk-54000000 {
++			#clock-cells = <0>;
++			compatible = "fixed-clock";
++			clock-frequency = <54000000>;
++		};
+ 	};
  
--if:
--  properties:
--    compatible:
--      contains:
--        enum:
--          - st,stm32mp157-syscfg
--          - st,stm32f4-gcan
--then:
--  required:
--    - clocks
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - st,stm32mp157-syscfg
-+              - st,stm32f4-gcan
-+    then:
-+      required:
-+        - clocks
-+  - if:
-+      properties:
-+        compatible:
-+          const: st,stm32mp25-syscfg
-+    then:
-+      required:
-+        - "#clock-cells"
+ 	firmware {
+diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+index a3b5ae25d28c83ade12c2ff69b82c9cccfd29b00..07c200470b2cedde771ae987f2267d6097ea78f0 100644
+--- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+@@ -5,6 +5,11 @@
+  */
+ #include "stm32mp253.dtsi"
  
- additionalProperties: false
- 
++&ltdc {
++	clocks = <&clk_flexgen_27_fixed>, <&rcc CK_BUS_LTDC>, <&syscfg>, <&lvds>;
++	clock-names = "lcd", "bus", "ref", "lvds";
++};
++
+ &rifsc {
+ 	lvds: lvds@48060000 {
+ 		compatible = "st,stm32mp255-lvds", "st,stm32mp25-lvds";
 
 -- 
 2.25.1
