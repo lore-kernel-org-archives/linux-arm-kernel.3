@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEACCA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30275CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMj/X7ByCnHio4E+HPJpAiwgeu61rKX0epElnm7c0rA=; b=fNAHcnmjVOCmUbMp0f/vHEuTUP
-	0IaJ3R5Z/AAJp3X4dHLDIxwSpA6+daRlj6LGtfSXGHGpVQMyJK4lAmLqlqNjPIdg12jXyTQXcmeZy
-	Y5moYtTUqXxnicsTYCzy0V2Rleo+2izbojNIiz2HeODixYZupv3qaPMwyPkn5NjMyNCWTMM+Cl1Zx
-	uIfC1YagftIAQt5Vso2qC3L18rk5wzp2ByWT2n5ljWgePWjF95DNF8Ey8uB5W0aSqFOjao2y/VpXT
-	DMpgzWyfRgQaGdky5FzHTkVu9ctAWx4Ji2bVG5K2gs468tjCQIoC//4On4/FggnznMUHyFVw0ifd+
-	ZBopswQA==;
+	bh=CEiF06+TEUUIqDR3VvN9MkJtr/XidlGtx2MqKgonKEg=; b=hivzWwiiZUOPCf0Dxlh3meDWBR
+	AVtgSD8cng4SaH0jvlEieUWJLiFAGdmjOS3BgskogMgYv1QmfUmRZKVSLlRK/24rewdkbq8m+W4uF
+	MlkBrYuqr2VZECFScVFOVSvMaD9mSQDYOPHANI6Rwfo06JWsZZlYsgNLMRkdKXaxP3EYYiIbkO508
+	AtlU0NdH5y67KpL1l78uJE/LsKd/twZpYKDhSprKDxegFnmt+dqtvWopkr/ZEvWHyES/PXRLJYhT8
+	BBhxpxcu6cXTcvLqwXSvzN6p97SSw744l1cLoSu4On2Cwl2Aq55LVsZhf3i23oW5nYCT1nodP1ZuP
+	1JCMI30w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uluak-0000000Bmxv-0ryF;
-	Tue, 12 Aug 2025 19:23:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ulual-0000000Bmze-20mP;
+	Tue, 12 Aug 2025 19:23:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulqr0-0000000BA9d-20Qf
+	id 1ulqxO-0000000BAr8-0Nbs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 15:23:59 +0000
+	Tue, 12 Aug 2025 15:30:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 635225C692E;
-	Tue, 12 Aug 2025 15:23:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60CF1C4CEF6;
-	Tue, 12 Aug 2025 15:23:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67033A5684E;
+	Tue, 12 Aug 2025 15:30:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55DDBC4CEF0;
+	Tue, 12 Aug 2025 15:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755012237;
-	bh=mX6tR4+Ke57loofg2X/TVfboE2bhITCHejUM+A1Udjg=;
+	s=k20201202; t=1755012633;
+	bh=fSpC7xHCqIbWLnou6SZi6B0P5Vb+1fpce9qaTi/b3gA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H4uw3FOFtceDyVXfp2hkab8EBMAGh6+jXNXurLp3g7xpXd899UiLoYprwvEiDFj8g
-	 ysEXiSt0VNG2Vh142IEL2VQ3/otMit935/8wPO28T1lsOoxTYwvBiiB1LhVjcJ2qk+
-	 3PeRKrEQYmduxF/DJpS733Ojbu/CyCCKM6B5Guov+rJPQKeaeEAjNMeV3tqYnHIE4B
-	 GK82buDJxXO2p26YhMNXKvnSujwDkBCKgjVYpM7kgqwnUk2jJTPnxRRCGMSNDtFklu
-	 SBACn4xSHt8YauzOcYZ6KXAGsesPB1FO8SizrDD+iOInWtve73k4VoP1A18RyZfpGN
-	 21xQd2dgEtuiA==
-Message-ID: <0fd6fefc-9fad-4ea6-a619-e9f480747ac0@kernel.org>
-Date: Tue, 12 Aug 2025 17:23:52 +0200
+	b=j6s1h4hhIOSVDqhNeSAI3iCo3Yl4LfJRBM4UYOH7ygRYj+ll1xhynNsETQEDKb/8M
+	 Dth1dKho/DG7cb560HHymVZYFnVOAMW9EPyNeigdcq1v+5uzIeiq6NFPQRbwyY0gtI
+	 eRrbrg1T+TL1cZhkuXhYt8unQoTvjSVE7LfJHjxwuCRQOfPrm7WQ76mvUKtKBbXIu7
+	 Sp7ALBfaCC/BowA1ZsrH5R5jX29v3tjKATyWOkAZ82dKCNeI06st4jx/R/PUad49Kx
+	 hBXoqG5S3tDCH74pTpGYxxkm7BHkwOUrBSxuf5bPbeiyN4EuL+2tnFQCRalv2inXyw
+	 zkA75PhP/BJmA==
+Message-ID: <fd39f667-9153-4c62-9993-2156f2cebf1d@kernel.org>
+Date: Tue, 12 Aug 2025 17:30:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] dt-bindings: soc: fsl: qe: Add an interrupt
- controller for QUICC Engine Ports
+Subject: Re: [PATCH 3/4] soc: fsl: qe: Add support of IRQ in QE GPIO
 To: Christophe Leroy <christophe.leroy@csgroup.eu>,
  Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
@@ -56,7 +55,7 @@ Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
  linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  devicetree@vger.kernel.org
 References: <cover.1754996033.git.christophe.leroy@csgroup.eu>
- <0b56ef403a7c8d0f8305e847d68959a1037d365e.1754996033.git.christophe.leroy@csgroup.eu>
+ <22b3847fd0011024c10aff48f1e5223894ce718a.1754996033.git.christophe.leroy@csgroup.eu>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <0b56ef403a7c8d0f8305e847d68959a1037d365e.1754996033.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <22b3847fd0011024c10aff48f1e5223894ce718a.1754996033.git.christophe.leroy@csgroup.eu>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_082358_600654_B1C1D312 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20250812_083034_260976_59A3510F 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +123,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/08/2025 13:02, Christophe Leroy wrote:
-> The QUICC Engine provides interrupts for a few I/O ports. This is
-> handled via a separate interrupt ID and managed via a triplet of
-> dedicated registers hosted by the SoC.
-> 
-> Implement an interrupt driver for it for that those IRQs can then
-> be linked to the related GPIOs.
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> ---
->  .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       | 63 +++++++++++++++++++
->  1 file changed, 63 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> new file mode 100644
-> index 0000000000000..7c98706d03dd1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
-> @@ -0,0 +1,63 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +
-> +title: Freescale QUICC Engine I/O Ports Interrupt Controller
-> +
-> +maintainers:
-> +  - name: Christophe Leroy
-> +    email: christophe.leroy@csgroup.eu
+>  
+>  	qe_gc = kzalloc(sizeof(*qe_gc), GFP_KERNEL);
+>  	if (!qe_gc) {
+> @@ -313,6 +324,14 @@ static int qe_gpio_probe(struct platform_device *ofdev)
+>  
+>  	spin_lock_init(&qe_gc->lock);
+>  
+> +	if (!of_property_read_u32(np, "fsl,qe-gpio-irq-mask", &mask)) {
 
-Oh no...
+Undocumented ABI. You cannot add such stuff and testing your DTS would
+point it out.
 
-> +
-> +description: |
-> +  Interrupt controller for the QUICC Engine I/O ports found on some
-> +  Freescale/NXP PowerQUICC and QorIQ SoCs.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - fsl,mpc8323-qe-ports-ic
-> +      - fsl,mpc8360-qe-ports-ic
-> +      - fsl,mpc8568-qe-ports-ic
-> +
-> +  reg:
-> +    description: Base address and size of the QE I/O Ports Interrupt Controller registers.
-> +    minItems: 1
-> +    maxItems: 1
-
-This was never tested but more important this and everything further
-looks like generated by AI. Please don't do that or at least mark it
-clearly, so I will prioritize accordingly (hint: AI generates poor code
-and burden to decipher AI slop should not be on open source reviewers
-but on users of AI, but as one of maintainers probably you already know
-that, so sorry for lecturing).
 
 Best regards,
 Krzysztof
