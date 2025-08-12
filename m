@@ -4,79 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21F8CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 22:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734B4CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 23:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lRkL6rI56VizezYwLeWm0zrgjPeBK553qzrGBGrNUbM=; b=OysRdZ/TghwOLVn0oekSDA2yse
-	Tq9CIL7+Eoxh7ykODNhAJZ5t+tPFNLxGCH19Ck/39OYuxj69xOSmv/Y29+Olrq9QdrIFgf95pqJCl
-	iPhFvNww+Y1jbFlXh44S53laBr5tv7HakKruitpFfMv5TuApiohnwUyAwYO+rLBBHlomZ4EW3svom
-	SBXfWqECmSClzJnZjOVGUTHRTH9E+DwZbj0IPw4Y9UQwzAHUGJ0NWJw+4nIKbKJ3ZrXkUWQ12NpqP
-	OotJWN0xheRRiwZNRtR39m5R+5ibcH0XHFM44vgRJskN/H1SQBhmW+M1Asgvr/FN3k/WkR4KefKwh
-	q5cH9LlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TEs3pZaBMklhh+NrYbwXmuYb6QQTIhWhkZHo5K/d/DI=; b=kejE+MVmRDxNzN2UfwUWjgV0aw
+	ts6TnOaPe+am4ZruK/v2W4AzAbjx+rF0mSd8LpgSKTyZb+EiFvzhS0hLQwVrqiqm/1WQGAAxoT5iJ
+	aWRhkqV6A131n2zfAlgGlabPL0/Zu7wSSrzHgzVC4/q7kbiNInOEZPn8FvOzYnUvEcqc5AJLzLOd4
+	7oC/HQOYy6BIGusjw6S4FMNi5B7WEcEqwih2BPiC2EPhxlwmeaLHEvd8hrNb4p3BHKchxwLO4L6cY
+	t7eUh74cEQEjke/Y+C1DlIsSUDkGSYcdHM2Qw5jrXLF4q3whVir9VSfbD/EUc2fS28VKGEtcgfeNZ
+	g5vjY++A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulx4a-0000000C7Xx-2rVa;
-	Tue, 12 Aug 2025 22:02:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulybo-0000000CD76-1pBQ;
+	Tue, 12 Aug 2025 23:40:48 +0000
+Received: from mail-mw2nam10on20625.outbound.protection.outlook.com ([2a01:111:f403:2412::625] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwz2-0000000C6Ha-3MXx
+	id 1ulyZF-0000000CCn4-1K7u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 21:56:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10D0B45962;
-	Tue, 12 Aug 2025 21:56:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28C98C4CEFA;
-	Tue, 12 Aug 2025 21:56:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755035798;
-	bh=VgXxxA2NG8Ilx12xVQPJsG3ZIK+2Y0VaQVCI/PW05JA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a/X2ApBGlWSt/wUjFLkE827HNM4kEH6sJT6jzf2+DbfQ6oM3dy0rXjqWVZUksM7lS
-	 lh2oEmxSJT8p6yFq3g+yzPeIZTJY/qQfi5bgFuKBM8M6LBQ+WDlnIfkxYtwidI+Cle
-	 Wcp3c9X+zRTVNvpZjBpBphLwvAlyZp9glAMT+HEaqVMceQ2iDSr8dCd8NqwYcVPYIY
-	 WvDSR+T9HmeDaMmftRvDHlpr7GYWU5BHDkL0oDp0K51zYT8ntpzHCGfHZJn7cMZ9+H
-	 jmmj/Htb2u1Rpc6j5bdKG2aqtNVsK2HZ61OKUaEYgXhPkiNAVDDATfZkLpJ53hwvIU
-	 Q0pKm2BoOmz5g==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Taniya Das <quic_tdas@quicinc.com>
-Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
-	Imran Shaik <quic_imrashai@quicinc.com>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: (subset) [PATCH v11 00/10] Add support for videocc, camcc, dispcc and gpucc on Qualcomm QCS615 platform
-Date: Tue, 12 Aug 2025 16:56:19 -0500
-Message-ID: <175503322859.231048.11811110407884093606.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
-References: <20250702-qcs615-mm-v10-clock-controllers-v11-0-9c216e1615ab@quicinc.com>
+	Tue, 12 Aug 2025 23:38:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kzKxjJn/cfUPbMQ0Qavt5Q8p/wA6zXVWpmD/oZ/c9ZSPfthvBOgXd/h4lhJK/J2BiqlOO48K1RnFnW0dyfqRpoUhUhKd3ZzWy7Oby5hAr/ZZaICq2mt5u5EV9bIRnIGsssyUjTep1tUwanKTv7hkFUnh5YcF7T5IZGkie98rT87mBXOAQPSpCWqOhNmNv5nOI0FzwRzi1RJjuLI5xn62qTiJIICEdjnktId7JCwQe/erwl59Hm0gyCC0AxmnkYtnC6JR7VhWCWzQbGcHqH5dyzL5CgS50wVhc8Kj5YmFGvGJq4FNXnVqPeRuCaA6kb883VYc90sFB6/HSCGcgCI2HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TEs3pZaBMklhh+NrYbwXmuYb6QQTIhWhkZHo5K/d/DI=;
+ b=k9W3eRwxBWrcC8PxtBpt9LiGEMNAQIRwCMEZFMjYUI/EamcRBs4Ws2RFbWyPbWzcRzoweUjjI7ANDI9/sk69QAjm77deWiZo34Ej3k6FNDChoQuKnDJTQvpKhF5//Z86NJUeRXc5RI7PNx8blR/q/5JcUhiKt6XddBHanFI5tLCNE9gM0WqXSDefEHu6AtTz1e8kIgFOoDQsPj5b4KLrE+83BjS/4gRQ7CkCVlYs38C2z2tbkS1KDJ8vCzFMGC1R2BQMer1yd72ixdZKM1X3FDHsB5dMxgmSYedtazTtMJxGA6d74gp0vfNwZBvmlUC0MdLMCmlf6XkpiUm/gPMMWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TEs3pZaBMklhh+NrYbwXmuYb6QQTIhWhkZHo5K/d/DI=;
+ b=R88Jlz9bokDg+LAKdRazFa+Lsflp5W91UPr5dZYnxi3v9rRMlv0ijgJR5QEpUFHJATiKRfAyqDmTRXNkzjuISsA/1Dr6cIJ9zNi+XEUTPlxGsOzLQvku9PnyHa1a8/qh0k1sKJDad98I07xyzYViDlgMujrUYOPA7NkCf7S8XelsT9fo1nFQiq4GBcGzx5gW0UHRn37cOrl/D84EABwN5MDLdCCxnm/Ng4oYfaGNnAOciCBf3btog0v8dMWaJxl5kbJXM2mWi+2rEGg7AnOUqso9pLA1K6GvM4Az73wVVJmmEUzPgStN/bI36jbY8+jyVJIoAuC4VHv6+BaCZ+P1Sg==
+Received: from SN7PR04CA0191.namprd04.prod.outlook.com (2603:10b6:806:126::16)
+ by SJ2PR12MB8806.namprd12.prod.outlook.com (2603:10b6:a03:4d0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Tue, 12 Aug
+ 2025 23:38:01 +0000
+Received: from SA2PEPF00001509.namprd04.prod.outlook.com
+ (2603:10b6:806:126:cafe::5b) by SN7PR04CA0191.outlook.office365.com
+ (2603:10b6:806:126::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.22 via Frontend Transport; Tue,
+ 12 Aug 2025 23:38:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SA2PEPF00001509.mail.protection.outlook.com (10.167.242.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9031.11 via Frontend Transport; Tue, 12 Aug 2025 23:38:01 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 12 Aug
+ 2025 16:37:57 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 12 Aug 2025 16:37:57 -0700
+Received: from build-bwicaksono-focal-20241114.internal (10.127.8.12) by
+ mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.1544.14
+ via Frontend Transport; Tue, 12 Aug 2025 16:37:57 -0700
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <suzuki.poulose@arm.com>,
+	<robin.murphy@arm.com>, <ilkka@os.amperecomputing.com>,
+	<mark.rutland@arm.com>, <treding@nvidia.com>, <jonathanh@nvidia.com>,
+	<vsethi@nvidia.com>, <rwiley@nvidia.com>, <sdonthineni@nvidia.com>, "Besar
+ Wicaksono" <bwicaksono@nvidia.com>
+Subject: [PATCH 1/5] perf/arm_cspmu: Export arm_cspmu_apmt_node
+Date: Tue, 12 Aug 2025 23:34:07 +0000
+Message-ID: <20250812233411.1694012-2-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250812233411.1694012-1-bwicaksono@nvidia.com>
+References: <20250812233411.1694012-1-bwicaksono@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001509:EE_|SJ2PR12MB8806:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f5a8fd9-29fc-4950-d5b9-08ddd9f946d3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?T/T3L2g+C+fJM412stfGr+mnlCtKjE2Tu2jIl0aGKA827WYF9QJV2Eqk/PBc?=
+ =?us-ascii?Q?2aST0DID0jn8ZpD8uirm2o5smNa7QbJMI3H7dxTFlAfwOMEOvowXkDo3lNm8?=
+ =?us-ascii?Q?7/fvq5k0f+9v3QPsxUdy5G58S56pM0c3QIikzazGVIYmFfQC02IvEv/xD054?=
+ =?us-ascii?Q?qaEH8/PiyvT/VXZpaydk2QOheDOrdQhLeesgPcbM+gJ8QNrEIgjkcajPDQAh?=
+ =?us-ascii?Q?IbsshagFx2oHP/tHnvz/l2QrS0OtGGLk+e/iGxnSkRiQhDaPcnQsmqIbpYMY?=
+ =?us-ascii?Q?pYdV9KIvc6diuR9ZI9DYEgDyUXddlH3KwU5zfhmMMLCVnO2GtFJUuRXldydz?=
+ =?us-ascii?Q?tD850I327I6/ZT9KHRh6aXWnFT6owDz0dpNd8xG/QRTdKsEMXD6D1gBubl42?=
+ =?us-ascii?Q?2bZ8PLv2n/5nKRXoEPBIfxNMcx4lX2AvrGHtS/yBR01CC6HtXz8xsrstWNWN?=
+ =?us-ascii?Q?pVugW/Yl/uPlv02305RGZzIyiNVXJMH49G/R23gzHlSfmtdUsiUCAJ4V3mxG?=
+ =?us-ascii?Q?kd6F7Tuz/oM6Get/t0+WqH3ieVqjiT21Mz7wDDxlXiWm2mAujDa+/qkiA4Uo?=
+ =?us-ascii?Q?kUOioF21CIaP2nqzh6IphFtiJ7JycOdIkgXk2PhABPK66IZbgHqHKzVUWKpj?=
+ =?us-ascii?Q?RGxgxUhbU4382tLRaYMdlryz3AyShcQz8HXJsyA4Z8Tf8CtdRdJVnIUfIgeQ?=
+ =?us-ascii?Q?sI1Ovx5x7fZV0OpERk7Ho1pSz49tIdbDKNeHltUMFA6vT1K/CfGByPXL/Go5?=
+ =?us-ascii?Q?JW5OSfSTD0/88f0Dxe5ILUfBOA02ExLBab7z5jh53VnbAUAfVU1QcrNV5fi+?=
+ =?us-ascii?Q?voVFipechfGWtvFJlttd1l0txBMe1p89XE96RjnFRBpXP02EG7Dw0yF2TnjB?=
+ =?us-ascii?Q?Oci4B+SF2J9Mn26YeNJMbahYbCJtlkNGlBHaAZuLkqZ+hoP/746g3kiMYuaY?=
+ =?us-ascii?Q?vLXxD9NAXNEab1CD2qVTQQVlB/BrzLr63x4XZ4rEjZGAbTwIrPywWHTklFmw?=
+ =?us-ascii?Q?2YaOHZcrhsGebyFIzM7duBaCfQPHeRN86uLu0X1L7GDhvEcFy9ULOIBix23J?=
+ =?us-ascii?Q?hXVjE7fM4FqwXt7Gbj2TzWFQuwLL6KAWMjjBGaYk4+M8m9qGLt9Aoou8jPxQ?=
+ =?us-ascii?Q?fxUYRumV0pW5qq1wp63TJGeZhYlpCY/4g9YBhiMpPbs4/wXrUPcgSikf3hTq?=
+ =?us-ascii?Q?KWP71KqvrLgCSHC+NE5it0cpnKPk8e8VnmEzFDWB6VImCQa2e6kt/oQRmBAo?=
+ =?us-ascii?Q?OpUm0en42G9QFltaEfYy88IuTq52R/2gyj57rv813P4ePyUNwjKmcWgmsKo7?=
+ =?us-ascii?Q?zFS9ashG3FAYrza1m2rlVNanSfT91pvZH8orQoufH2aBtUY7NJ7/ozBCZ2WL?=
+ =?us-ascii?Q?Vg5ig2LHNbTtorDBCueR/DyvsBS4ZXJCWC8F2DWoWdkZOxAB7kF2maoC+rSj?=
+ =?us-ascii?Q?rYlGn2oqC5uwm9n8BNFcdyO2TrRVSmys/OryRXQh5U33IsONKaxf8p4sFfHT?=
+ =?us-ascii?Q?E/ll33as+nnnEHAcrdTGeDPIB0U1O6euDh3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 23:38:01.3577
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f5a8fd9-29fc-4950-d5b9-08ddd9f946d3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001509.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_145640_856224_34574E1D 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250812_163809_356004_1EF3FE8D 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +153,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Make arm_cspmu_apmt_node API accessible to vendor driver.
 
-On Wed, 02 Jul 2025 14:34:20 +0530, Taniya Das wrote:
-> Add support for multimedia clock controllers on Qualcomm QCS615 platform.
-> Update the defconfig to enable these clock controllers.
-> 
-> Changes in v11:
-> - Add a new reusable helper function to extract PLL_L_VAL, PLL_ALPHA_VAL and
->   PLL_USER_CTL / PLL_VCO_MASK [Dmitry]
-> - Add static to fix bot error in gpucc
-> - Link to v10: https://lore.kernel.org/r/20250625-qcs615-mm-v10-clock-controllers-v10-0-ec48255f90d8@quicinc.com
-> 
-> [...]
+Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+---
+ drivers/perf/arm_cspmu/arm_cspmu.c | 3 ++-
+ drivers/perf/arm_cspmu/arm_cspmu.h | 4 ++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-Applied, thanks!
-
-[10/10] arm64: defconfig: Enable QCS615 clock controllers
-        commit: 4e4afd6bb9657d7cf23f6becf23706882b9822c0
-
-Best regards,
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index efa9b229e701..e4b98cfa606c 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -70,12 +70,13 @@ static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
+ static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
+ 				    const struct perf_event *event);
+ 
+-static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
++struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
+ {
+ 	struct acpi_apmt_node **ptr = dev_get_platdata(dev);
+ 
+ 	return ptr ? *ptr : NULL;
+ }
++EXPORT_SYMBOL_GPL(arm_cspmu_apmt_node);
+ 
+ /*
+  * In CoreSight PMU architecture, all of the MMIO registers are 32-bit except
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index 19684b76bd96..36c1dcce33d6 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -8,6 +8,7 @@
+ #ifndef __ARM_CSPMU_H__
+ #define __ARM_CSPMU_H__
+ 
++#include <linux/acpi.h>
+ #include <linux/bitfield.h>
+ #include <linux/cpumask.h>
+ #include <linux/device.h>
+@@ -222,4 +223,7 @@ int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
+ /* Unregister vendor backend. */
+ void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match);
+ 
++/* Get ACPI APMT node. */
++struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev);
++
+ #endif /* __ARM_CSPMU_H__ */
 -- 
-Bjorn Andersson <andersson@kernel.org>
+2.47.0
+
 
