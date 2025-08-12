@@ -4,124 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DE9C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B9ECA0EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CvvFVEBAadFWgjLlbo5X8OVvt+9c6CEAJCOkS71be4w=; b=Pk+j26oxeF56zK0mvIE/H1Y0uK
-	UzqOjWBY3UxVSuj3A7IKLT7A2CmavF7klM3mUOJIMEsoPu9qJMV3vDl7+p1ebpW3RYAHW2MBUswTB
-	WtjwE7nsZo6aCL8WNsgOxS44Y1ezhgwscBcybReAaOaFSnfLKKPnfhNiJbQKsv5gn5zzDQ7bbgmsu
-	R+LMqIVFLHfLx9z9kM82GeHLFxf4c/85s/30szS4R7O49+WOOPQAJValetR/grhn9LWqd2z6AiS0x
-	FkbwI1sOVPyMhpH+1mNJ3WQ0L6U6y3QSCEEYweeaXVOiyBTmZb9UReFtYI6ojrOagkJcOhvXNbs+D
-	yftmGs3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p8kjeP1Y315we4HO1L60USysyc5o325vVN090wb89hg=; b=FZkeGNlXFIYAvljobdviQrYu/X
+	gT40XM2kLOmFo1n24ycUhPBGptQLCuKbjCiQT3tq4Wn0073KhzuwbLeUPHru9Rzz799XR0uwr1jY2
+	GtjU3+pkONY8FGeaj041+CG13O693GrTkWGWBDK0gETFZM2OCMSqH3cx7u4ivMzPXNWL8afXDa43a
+	EQrB+Jj4Ydr/LP23NnjpMoaXIZ5h6QbseaGjL9dMWLO5SNhAlJ0x3h7wQtRpWATOlbFwwD6AT/79i
+	NuxrCr9X8zDfmSsYJvBpTsCS+6xSQIl9DIWGNEmXORJxrA88jrXlOgjSRun/9jjEiyD/RMvuoShsT
+	f1OhYJpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloEu-0000000Ai1c-0adw;
-	Tue, 12 Aug 2025 12:36:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uloEj-0000000AhsH-3cGH;
+	Tue, 12 Aug 2025 12:36:17 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkJR-0000000AEBY-0XPb
+	id 1ulk0v-0000000ACHv-2l2D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:24:54 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C6XLF6008382
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 08:24:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=CvvFVEBAadFWgjLlbo5X8O
-	Vvt+9c6CEAJCOkS71be4w=; b=cFFloetjzxbMfzxTJqyUzEGMbz0jrS4LFVtrhH
-	QnqBbEIAk5vPf7SvgtsNQ/nmTOHZuBMp3Sdpa9OPPrbTHpoPiAoElw2IRC2ZsdLp
-	dA9wKzPjBXIbLCcE2nAtGhJN3TBsOE7o5fJ4Ubpan/tA93C2UBMcDRqJsfNfuW1q
-	irlm5ewCVMgpmcnIym1a15eErRzA4dvSs5c239U0qZb8O4T5ZVRJnlCd7CWtN4f+
-	bkUgnS6VxYdGfgz7+tuZ7Fl9hcMIShgEwoba5ubC9CqFLTJSwaN/jL9uPGbSj8+1
-	UZdiSDPVdkSR5GO6C3j1q9yupu0hHGIk02BqG+XZIsV7farA==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ffhjk73t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 08:24:52 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-76bc9259f63so5217705b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:24:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754987091; x=1755591891;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CvvFVEBAadFWgjLlbo5X8OVvt+9c6CEAJCOkS71be4w=;
-        b=rPplhJcVQfiI6G48K6zPolsFBEtRaD5/U6ybjSgs4scy+OLYhhLmN6iBcmbnBLM3DN
-         aRhyKQdG9+vqs3v/OEoljWgTsujLc1ieM3MPYqcBCqrq//yyWiKzeZsUYvBUJT+5paSI
-         y06GnHdogdD4mF1JBKX+uNBEg4+cpFuYNqgOkI8zHazU/VlzziROGwU5OWH2x9JDCwRc
-         elPiZxQxDPNHqoEY3xTKsnWKkkExkWoKFuIJRxybM+IXN+5pPioEo3H6KiKCpDshHqRP
-         o9E9Xoc5lLKTYpCT5/K8UYyVEex8pAIgZAXmdHSSadrKUh9EzR/x5SBZj0TyYT33oidc
-         qnaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWU14J0VJxAEhuJQgU7YuEObASsimy5vXM14KG8LP25uHgMK8pDybULnD7pOjdRDYHAEb+ItH/qBJhUDBx/8029@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7sfi+y8c6NKxAw0vpIoVcCsar2jw/cNkZE0/Kq0W8Kbcf1G5t
-	CmwqLKdDc9yg0oJ4MXmSYM0I8ADUuIxOGJg7OdlA/1PGfbMEa/Q2MqBhs+KBVr/7o59JBYPec6Y
-	1BRIBB8ebGXmr+Rn7UyqaTrt3XWkggjtAPkdfqUSFNXMJXPUeWeCM4sZxpszh/60TLaHIxQr+kq
-	mk8w==
-X-Gm-Gg: ASbGncsgofgryjQ6XzurrTknfk6viAOr0Ivwt+NdJjkbHyfrhyeF6tzdoH3IDU3l721
-	dlyayvrLaOf1qR1R9yGG0Q+r00IPcnAj/LfuWYOLkEH/kyCHMeHldxiuXJkmmRx976+9NHpQsri
-	F29uafydc/yYZF5N3w8VyUmbiioGge0dMH1thXsH3QY+9MfUDHplToXToeuD0oWp8aOHAsxj0xV
-	QVI/s3g8AGWUWqI6d7FYnV1S7JoDr2ltcUNC7fHUK+uT/J+YfKC+DshBkkcwpnrMwB/lT6FeBVY
-	tI4BCkYumlG6gBE13TEOtI4s/lTjpYZJHBiT2YoQwOP7+axbJTHttqHY2O4jnzA8pTt8l3yTF8U
-	YAdH6xq45OH18YF3E+njVVg==
-X-Received: by 2002:a05:6a00:2286:b0:76b:f16b:b186 with SMTP id d2e1a72fcca58-76c461419eemr19972766b3a.17.1754987090697;
-        Tue, 12 Aug 2025 01:24:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFwQXBR35j59DRJhzNptfgFRmw0DHELJGAGq2oy+ZJTpCDVjfDFKXkVTK8fwhHEmYG8UWf0lQ==
-X-Received: by 2002:a05:6a00:2286:b0:76b:f16b:b186 with SMTP id d2e1a72fcca58-76c461419eemr19972729b3a.17.1754987090187;
-        Tue, 12 Aug 2025 01:24:50 -0700 (PDT)
-Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bccfbcea9sm28877018b3a.61.2025.08.12.01.24.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 01:24:49 -0700 (PDT)
-From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Tue, 12 Aug 2025 01:24:45 -0700
-Subject: [PATCH v2] coresight-etm4x: Conditionally access register
- TRCEXTINSELR
-MIME-Version: 1.0
+	Tue, 12 Aug 2025 08:05:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uAwRcQGQ5kAUsCeFuCXTOamjiLcCr5j2nkU5mAmljTclnEx0e992c2IyqplTxFszdVFFpyWjm/EFJ3XuOrZ+s8Xa6QGtQ3ITqqSiOStAm+U66fgwi4iodwdWb/eOttr3SpDi2kdvVclH4ljctdsMe+RFqMpjtDP/3ryNz0DRY5dFQYPlrtgnsmUnlkBvpyUeR+rsKwEbxlgxbbI7lO/Sa5MDGe5PtzRGm8zk0pLVudUlcPNhh268kSbbVcJ+zucni++GR9m3/5et5AlvEwnOdUwVJmwtQR+6DBs8zzNyNGZd7fc3HRk6o4/8Q7p6uNCjM86CKzDidAKttnTH70wYYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p8kjeP1Y315we4HO1L60USysyc5o325vVN090wb89hg=;
+ b=Ro9bulhRsoRTHMbuqX0ixHUqeDVz7wfapoiIoN1xX3lD5Z9qUykYckEqij2cNLiM03fbdgYv7HSw+efJ5WcPxzvwTQHhtt15mEA8foTB2FUnr1VJgb8nEhCoNER+bshde9y3Zd5YpfPb9hzVhzFvffiGlGG/e8tbozeRIZX9VLfuXCK3R7Ed+GgoxbX7pj/0bNQd4nHmB6yJ9iqtmaejGxOoxE7Hoem1761Qx+4KIcBOLbmyNG2uLOwwzQkWHouVu9LoUhG3UxTNEgwKeU/kmGzstl9/sjXOX7Oy94BJ0L+NVLe6xi/fBg3FLRjovN3HbbPruIGRUHNuGHy2L43FpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p8kjeP1Y315we4HO1L60USysyc5o325vVN090wb89hg=;
+ b=FYNuhxfmbNM/c/BmZx6eqivyedaiHAP6RfVYWrWmignLwARulrLMvIVYMJtUjKlz0cGuSrTq5hKL1Jr99dYUvshJ4MjIqcSBsVqnISE8mfIQdBpf8CdZ6sdQuBizH1kYo+X4mCu1gWjnA8bRNJ/Qh6h2QHASwtkE06BVPm+aN4RgOVZ3OOyeaRYP0mjhSIB0JZdkPYToefG+YWvBS+1/WMKRu0tGzryGJfqFe80+LgIG1rBRi6x2nkK430o5Mfsr00OGUZND3L98ZyoPg6pMMWpOup/q7qXOHihYDs7J4WO5KuLwc3//ioyAxEhKWinaSlwq1XC0EWFe9Eb16YIdBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by PA4PR04MB7984.eurprd04.prod.outlook.com (2603:10a6:102:ce::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
+ 2025 08:05:35 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::4fa3:7420:14ed:5334]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::4fa3:7420:14ed:5334%4]) with mapi id 15.20.9031.011; Tue, 12 Aug 2025
+ 08:05:35 +0000
+From: Haibo Chen <haibo.chen@nxp.com>
+Subject: [PATCH v2 0/2] Keep imx93 ADC works even calibration failed.
+Date: Tue, 12 Aug 2025 16:04:21 +0800
+Message-Id: <20250812-adc-v2-0-0260833f13b8@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250812-trcextinselr_issue-v2-1-e6eb121dfcf4@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAEz6mmgC/32NUQqDMBBEryL73UiSkir96j2KlBA3dUGTNhvFI
- t69qQfoz8AbmDcbMCZChmu1QcKFmGIooE8VuMGGJwrqC4OW2shWKZGTwzVTYBzTg5hnFF5fGuu
- tRIM9lOEroaf1kN67wgNxjulzfCzq1/7VLUoogX3T+rNWxkh9i8z1e7aji9NUl4Bu3/cvBwyGx
- LsAAAA=
-X-Change-ID: 20250811-trcextinselr_issue-f267afa0e5ed
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAIX1mmgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0Mj3cSUZF0LY8tUE8sUU9OUREsloMqCotS0zAqwKdGxtbUAVzqADVU
+ AAAA=
+X-Change-ID: 20250812-adc-839e49d55da9
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, primoz.fiser@norik.com
+Cc: linux-iio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Haibo Chen <haibo.chen@nxp.com>
 X-Mailer: b4 0.14.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODExMDA3NCBTYWx0ZWRfX7gpX8FNiqQIl
- IVBTSmEtJHSzYG2I8Vy6FkOn3NwRiursIwqDiYDwDeB0H8MF7UAajDFklawsvJntxAimIq2RxkP
- u0n33mxAshxQby8+UqkjHFMI8cqAdNt0gEu+g2Zq7ZmTsnzVRglL7EyYlN8O8hHMC64riOwaLBe
- iywqXAvGoGPjJhWmGY+uysnzqoWi3NGx3Rme51lpcqdVEc49K//DkZpt30LPN5WjfhRgyQa4aIa
- kg3b/ZBG1pPaHCguvmBeqEhW3FN+Md+3lQnmA0XLh1KC07peu5TwgiE8qbbpg6CumzQsGA8Tuew
- F1o6ZSBSRHLvPcYFRvL4qHgUUwtImU/x4wN0qeJtZvPp0BBcl+iMvUKCr8q8aco7WnsD+AH4SHh
- RpXRce4D
-X-Proofpoint-GUID: z6orXxOasysSUUXfZm3K96WUPbhO1xMN
-X-Authority-Analysis: v=2.4 cv=TJFFS0la c=1 sm=1 tr=0 ts=689afa54 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=E-Az336nn5kJS1Kr1xEA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-ORIG-GUID: z6orXxOasysSUUXfZm3K96WUPbhO1xMN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_04,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 adultscore=0 impostorscore=0 malwarescore=0
- phishscore=0 clxscore=1015 spamscore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508110074
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754985925; l=1557;
+ i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
+ bh=KPXh7I3tBHiASF3Tj7lVPAfyDZcBnrLHYK0UAzxoNOg=;
+ b=fiwnurpNMTz3rI3EP2JfXt0kCcKPU1U7QAAVqtmJEgrdKEv1ITAXclpK627fNphxLn1QPLvfY
+ FEJnwlAYQuiCLJ8DwnJbvZHSnfC8JmL8oRo/Xv37Se2W7UmwAH4J66d
+X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
+ pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
+X-ClientProxiedBy: SG2PR06CA0192.apcprd06.prod.outlook.com (2603:1096:4:1::24)
+ To DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|PA4PR04MB7984:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1145adc9-4cd7-48c1-5327-08ddd977043d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z2R1QWZGd1JPOS9ncEgzOW1hNlNxRThjYi9VeHFCbDV2NGpIZXdwcWx2NC9Q?=
+ =?utf-8?B?Z01pZ2JyV2ZRZHBZaEQyWlY1MWVZTi9QcGpnTlM2dENRVTFkUFpJNGxpTU5Z?=
+ =?utf-8?B?Tk5jTFM3a1ZIQjQ1T1RvYytJN2hlVTQwWXh5bFRIYzJ5RnhMakdPMjNzSlZP?=
+ =?utf-8?B?TkhBMS9JZXRuQ01ucFZ2RVE5RWs5Qml1VnJqeklzQ09Cb2JFdnl0cEJ2Z3No?=
+ =?utf-8?B?U3k0T0lQUzJaK1h3eFI4R0kxcVZlb1pXNG5NWWYvd0pUN1ZmQUxzMXZmWVlC?=
+ =?utf-8?B?NWhuMzdHODY5czBPVWhEalJmdVFSTTZVVkNCUlRQK2N2S0FZeXgxVUdYSDY1?=
+ =?utf-8?B?N29KTy9sMGdHT3hXaHpmbk9YOThLYVhBY1F6RFVaVUJpYXZaNU5MME04UkVn?=
+ =?utf-8?B?UE1jTWU5SFdrRStBMC9kSFFKdEtldmx5ZFM4dVpveWhQTEFxSEdmY2lRTjNi?=
+ =?utf-8?B?VzYrZjlOK09jc2ovVUk1SjRPNHErVUlRZFY5OUlpeUxYbUdNSUpsUSt3Uy9o?=
+ =?utf-8?B?VDJGd003WGNOclVhTFkxU2ZoaWZ6RmhySHltaXQ4NkVWVFZaVzlXd0JIbUs3?=
+ =?utf-8?B?MFBLTmE0SUF0enRRZVRLRENhVUQ5U1J3aS9ydk9odTVRY3VvV0xBWWpoNTVv?=
+ =?utf-8?B?Q1N4S0pRM2hWOFFUZk1DOUhmQjRtNXdGU0dSWWFmSHExL1hPTUVWeU5iditY?=
+ =?utf-8?B?UW1GMVMvaUllWTVmb1VDUW5ucEpQVXg3OXVrYW9VQndMNXYxUGhqQURnanow?=
+ =?utf-8?B?NzJjUXJpKzNDbkpaancycE5uZ1ROWHZrdzFoa3dHR0dKWTJpQVZhZm55em1o?=
+ =?utf-8?B?MWQvaTFPSW50RGM2TGJId3NtUHpFQ0dYUkJWNlJ4Z3BMUVFXUkxvSVBOaWZs?=
+ =?utf-8?B?VjJaZVprcEtFOFlVbW1laWdvNWhEcVFSQUJ3STVkV1FuRFBuYld1cXNCV2Nn?=
+ =?utf-8?B?eUkyZ3R0SFRkVkJ0bzJERkRISjA0Y0UwOFJsTDNzdTlrZzA3c1dMaFZRbTJK?=
+ =?utf-8?B?c3NpL3NNdGpSeWVtMXdESWdvcGhUbE5TNHpuYjlqMnFWK2RzS2cvUVVzOG9t?=
+ =?utf-8?B?ay96M1I2dTRpZkxJdTZFTFJYZTRSWWpEODJiZTJPeGhJblF0NkoyclNkcHM4?=
+ =?utf-8?B?MjVXeUVqbk56a05uUEJrL0lRVUZpV2JlQ0lmak1XMEFNL1RpVVk5TmtVNllH?=
+ =?utf-8?B?RlFOSjJhLytNMFhITHFWL0tSQUZyTk4vdUFaNWtBREVxUDhPMC94N1R5ZmNl?=
+ =?utf-8?B?RmdUK25xSFI5N2tMWUlHckVEWVp3MG1nNHVSUjVmV3p1cm1RSUxnVWYrTll0?=
+ =?utf-8?B?RjFLbUZIaldJRTJ4TlhXYTVjbE1oeHFHSjF5dlE5dXVtUnNUazQxQ0RBOWY1?=
+ =?utf-8?B?N0hPclFVSmFFUTBCcTRScHQwSksyMnJielVMbWxOTmNBaFpOZ3pUY0ZFOC9U?=
+ =?utf-8?B?RjJzcm9adHZsbmRzT1JtZjIvbHVKckZtc2h1UjdJMVhWU2h4NWdBMlFFczRP?=
+ =?utf-8?B?cmkrL1hMc1AwL1FQaXRyQ2xDak1XcGdKNHFXVGdtcndObWZDcGlMQ2JhVjZn?=
+ =?utf-8?B?UDhpazF2T0ZoUFRrN3hHam9INmhmaFlnUzlpZWtYWW9qejRHQUh3bWNuZ21Q?=
+ =?utf-8?B?anlOR3E3VXBVZlRUWVBobEs2ZWRsVnA3SnMrQll6MHlORUY0eU5HSE5obW1D?=
+ =?utf-8?B?LzlMZm8vNG9GaUJmUmwzb00zNHNCRDFwRnVDU3FrVHR6cXIxZWF5akJIQnF0?=
+ =?utf-8?B?M3ZBNk9IVlhOdGhNa08wVDQ5YmVMOHdNUnBjVFR4M0FnVGV1dDJDY2R3TjBo?=
+ =?utf-8?B?VXc0YXl0VW4wUmxNR3I3NkJ3SFZuWGpYVEtxcDVmTWx4Uk1pRVJpWnpjR1Bv?=
+ =?utf-8?B?OFZQVkl2OXB4SktjL3k3YTJZdTRkRVp2WlIwYjV6cllzTStsZkRkeXhrM2hi?=
+ =?utf-8?B?QnNwQUhBU2tSK29XdGdQOWRCSWRhZ2VmZ2xFdUZrVTlqMU0ra0svTWZzZXFC?=
+ =?utf-8?B?SXpkbjhmTkh3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N0tKeXoraXNubHpIemZSU3FENUZGSEh5UzlMRDY0K0hqSCtnZWRmeFZpTE5G?=
+ =?utf-8?B?L0NDVXNIR0lWN2N5Ym16ZFBNaVFLOVR3eENIK2pZVXNiSXJkQzBuOVNLUU5Q?=
+ =?utf-8?B?WkNjQS9Zcm1Fa0MxQ0J3a0JGQW5YZ3ZGcjE4VFBXV2EwTk9nNEJzcFAvMzUw?=
+ =?utf-8?B?ZWZVUUtFeUFtTTJJYTgwRE9DQjBwV1dwVlZVc1B4WUU5eXRSMUI5dG4zOXlB?=
+ =?utf-8?B?Q1pGME14SjBUc1czWUxPUlhKQ0xQcjMyVlNWMEhBVzROWjdsODRoaUNlbGpr?=
+ =?utf-8?B?NFZQL0FkK3NqLzlWYTQ4Q210NE90dlUyU1piNytBNk1KRWt6TDJRZFFQVGs3?=
+ =?utf-8?B?bUZIYmdlY1dBcDNuY0R5NGswZnEycmZBRVBGbXJ0MkdVb2N5S3hZc21LTVgx?=
+ =?utf-8?B?QW1BaWdvUWF2bVg2V01lckNOMWRLc1RMcDBreFN6V3U2RWlUcE9rNFQwaVJB?=
+ =?utf-8?B?VlhhcnltNVd2OEVsakZueitHaGJSSWwxcGo0MkpLb3lTZjRzcTZRUzNnOHdO?=
+ =?utf-8?B?WVAwcnE0UXhoNkloVXhrMWxFRzJ2YUtSVGIwNEJ1NkIzaXFsRGdmOTNwOEJL?=
+ =?utf-8?B?bHJVOUtwVXdwNFBtVTN5VjJLb3lPSklRd0tncHVJd01salF3dGN1N0NyQ0NL?=
+ =?utf-8?B?QlV6WDM1VkM2eUhYNEV3ZDRhWUthRDJVUjljemQ3SFhPWmZZcDg2clBzc1pU?=
+ =?utf-8?B?bFR2c2RIQTl5RnNXQzJGVVRCUHZjUlkrMVJxbC9mUVBxd3FWbk5pSDhvaHZG?=
+ =?utf-8?B?TFNpdUhleG0xNnRrNERTV0ZycEQwa0ZXUGltSG1CRzVXY0hOTk5sbEJvOXln?=
+ =?utf-8?B?dkw2MGVkbnlRYlltMklDZEdyeVVmZUIrdG5DRnppQXM4VFVFajJYSEpFMmZp?=
+ =?utf-8?B?WWlzWjRHM3F5U3BlbEJxRC9EVW56a25HVUhLZW56SlFZcS9ZYy9XM1M1c2ti?=
+ =?utf-8?B?NXdTOWMxSlBjQ1YvbnF4SmdKUERGWGZLSnRQVEZlY0VxeEMzQ1lMUW9QOWsy?=
+ =?utf-8?B?eTg5QWdUazVGVzBRMVFiaWh5b1FGL3pYN0dDTkR5ZWFvUjZSUWhIaG1pWnYy?=
+ =?utf-8?B?cUM0Mi9lVkJCVjZ5R3h1bHJsWEtteTFqQU9QUEZENnFVK2pKNkd3dWF2YWpu?=
+ =?utf-8?B?Qis0bGNaejUwSkZNSU5LaElwc1REa0IyaUZxLzJwZXBzWS9GM08rZW5TUi9z?=
+ =?utf-8?B?ZzdSVm5RdVNBQkg3OHFwL1E1N3E3LzdnaHkzTUhQRE90MTN2N2RDVWhTZWUz?=
+ =?utf-8?B?STRYNktvUXQzZEE3SFNqaFUzaEZMVGxxeVZNSXZxT1RTOEgwbVhzd096QWg1?=
+ =?utf-8?B?Sm1qdm1iUFlWZXVHbXdRV3VONCtIbTZ0em5hWWl2TnQyUmc5Nk4vSzBwRmJD?=
+ =?utf-8?B?YXNzdzNYZEtFdVFza3hEeGRDQ3d3dklYY0NPT0lYcGdSUUlrWTlJTmNFMTRm?=
+ =?utf-8?B?alNUbDJhUVIxeDRaMjZuSkJETUNMNjUrUG5LWVVpUGxBUHJTNXRpOXZFN2o0?=
+ =?utf-8?B?ZmdCRzFBNkF5M0FqQ2pNbTJna1ZRR0dIYjZOZ2sxRWFCbk5kWnkwanB5Tk42?=
+ =?utf-8?B?SVRMY01CbkxiRmdGTXZMQ2dPQzVuUXIyenhOSGVRL01WVEM1THNQNnR6WXZV?=
+ =?utf-8?B?OTZYMHYwQkFlS1RaeHBQRFRVa2FGWU1Sdjk0SnQzdzBwWjJSaEFBM1FkYjcy?=
+ =?utf-8?B?SWxBSDRUSUFibHRCbHg3UndGdFVWSzdxMGlxelhpdEhPNWZzMDRIeWRZRUM1?=
+ =?utf-8?B?UWY2cTRDazJPdkFJUzVkYXJ4WlUzcU9rVk5RNEE4L1FuNEhySG5jcUljOTJ6?=
+ =?utf-8?B?YU9KcHd5MXBVdE9VNGdRTDFpdW1zdVI5ck9iZDJMUXJobHppL2dBeEtvZFd6?=
+ =?utf-8?B?Z0h2RHl3dThCN00rMU5VaElBeXR5dld0UlB2L2RZMUwrZ1RsMG8vMkhoaWVu?=
+ =?utf-8?B?aUszTjVENis5RXYwT2c0a1ZJeUhJTDBhOFJlZ0pLMGY2bFY5aWxobkp5bUZ0?=
+ =?utf-8?B?K1ZjVEpLdEErRGZRZXIzSm1WRUdnQmhOUjJHbDJ6WWhLTkdGbUcvalpVckVs?=
+ =?utf-8?B?QXN5bWdnejhYZTJLeDhHR0Y3WjJqaUgyN0UybkRNbUxoVDZxWXhyTjAwZ3gx?=
+ =?utf-8?Q?BrPpsO92131tsLGMws5QLrA4R?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1145adc9-4cd7-48c1-5327-08ddd977043d
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 08:05:35.4316
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dHiAaHc1kWRQLCBv0kPbhevzl1cC9ckXH1barNv/V6xli1tl3QTPnVkfaAPSTQQ8M2x0q27cQHB99LY8UX+sMg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7984
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_012453_286123_AD4ECCBA 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250812_010545_722459_F1C868A7 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,92 +190,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TRCEXTINSELR is only implemented if TRCIDR5.NUMEXTINSEL > 0.
-To avoid invalid accesses, introduce a check on numextinsel
-(derived from TRCIDR5[11:9]) before reading or writing to this register.
+imx93 ADC calibration has requirement for reference voltage:
+  ADC reference voltage Noise < 1.8V * 1/2^ENOB
 
-Fixes: f5bd523690d2 ("coresight: etm4x: Convert all register accesses")
-Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
----
-Changes in v2:
-- Add fixes tag.
-- Replace "if (drvdata->nrseqstate)" with "if (drvdata->numextinsel)"
-- Link to v1: https://lore.kernel.org/r/20250811-trcextinselr_issue-v1-1-ed78f3215502@oss.qualcomm.com
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++++++---
- drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
- 2 files changed, 10 insertions(+), 3 deletions(-)
+Some boards can't meet such requirement, ADC calibration failed on these
+boards, and adc can't be used. This is not appropriate, board can't meet
+this requirement do not means ADC can't work, just means ADC can't work
+that accurate. Here add an optimization, keep adc works even calibration
+failed.
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 42e5d37403addc6ec81f2e3184522d67d1677c04..4e411427303981104d11720d3c73af91030f8df3 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -528,7 +528,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
- 		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
- 		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
- 	}
--	etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
-+	if (drvdata->numextinsel)
-+		etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
- 	for (i = 0; i < drvdata->nr_cntr; i++) {
- 		etm4x_relaxed_write32(csa, config->cntrldvr[i], TRCCNTRLDVRn(i));
- 		etm4x_relaxed_write32(csa, config->cntr_ctrl[i], TRCCNTCTLRn(i));
-@@ -1423,6 +1424,7 @@ static void etm4_init_arch_data(void *info)
- 	etmidr5 = etm4x_relaxed_read32(csa, TRCIDR5);
- 	/* NUMEXTIN, bits[8:0] number of external inputs implemented */
- 	drvdata->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
-+	drvdata->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
- 	/* TRACEIDSIZE, bits[21:16] indicates the trace ID width */
- 	drvdata->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
- 	/* ATBTRIG, bit[22] implementation can support ATB triggers? */
-@@ -1852,7 +1854,9 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
- 		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
- 		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
- 	}
--	state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
-+
-+	if (drvdata->numextinsel)
-+		state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
- 
- 	for (i = 0; i < drvdata->nr_cntr; i++) {
- 		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
-@@ -1984,7 +1988,8 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
- 		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
- 		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
- 	}
--	etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
-+	if (drvdata->numextinsel)
-+		etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
- 
- 	for (i = 0; i < drvdata->nr_cntr; i++) {
- 		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index ac649515054d905fa365203bd35f1d839b03292f..823914fefa90a36a328b652b0dc3828b9bddd990 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -162,6 +162,7 @@
- #define TRCIDR4_NUMVMIDC_MASK			GENMASK(31, 28)
- 
- #define TRCIDR5_NUMEXTIN_MASK			GENMASK(8, 0)
-+#define TRCIDR5_NUMEXTINSEL_MASK               GENMASK(11, 9)
- #define TRCIDR5_TRACEIDSIZE_MASK		GENMASK(21, 16)
- #define TRCIDR5_ATBTRIG				BIT(22)
- #define TRCIDR5_LPOVERRIDE			BIT(23)
-@@ -999,6 +1000,7 @@ struct etmv4_drvdata {
- 	u8				nr_cntr;
- 	u8				nr_ext_inp;
- 	u8				numcidc;
-+	u8				numextinsel;
- 	u8				numvmidc;
- 	u8				nrseqstate;
- 	u8				nr_event;
+Changes in V2:
+- add patch 1 to keep one style of the hex values according to
+  Andy Shevchenko's suggestion.
+- keep {} when give the calibration failed warning log.
 
+For the register 0x3A0, it is a new added register in latest imx93 RM,
+please refer to this link:
+https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-9-processors/i-mx-93-applications-processor-family-arm-cortex-a55-ml-acceleration-power-efficient-mpu:i.MX93
+
+Patch v1 also pass test on one customer board, refer to this topic:
+https://patchwork.kernel.org/project/linux-iio/patch/20250710073905.1105417-2-primoz.fiser@norik.com/
+
+Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
 ---
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250811-trcextinselr_issue-f267afa0e5ed
+Haibo Chen (2):
+      iio: adc: imx93_adc: keep one style of the hex values
+      iio: adc: imx93_adc: load calibrated values even calibration failed
+
+ drivers/iio/adc/imx93_adc.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+---
+base-commit: 2674d1eadaa2fd3a918dfcdb6d0bb49efe8a8bb9
+change-id: 20250812-adc-839e49d55da9
 
 Best regards,
 -- 
-Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Haibo Chen <haibo.chen@nxp.com>
 
 
