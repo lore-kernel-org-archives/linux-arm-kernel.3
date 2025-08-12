@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A92CCA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223C7CA0EE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKnpTmEVMtNXocWw+l66Q3zN1z1F7NIXesotsKstlss=; b=SDvlmeqchNdRiImZ9yd2JAP9/C
-	/Dm08ou3PnYUxDBCAqVRhspBKp/y0S5PaIU5M4TNJH5ExbNB1TwdDbihQiEwVyGgyvpLfiks3clSA
-	3rxONkr8PjRTQX8OgcNiJgnGLdsC3iDgPylwr6vxzRjRzhCylB4kPOnqA+nD/J4fsg+9+OikKNrv3
-	Xe378TJIRE1Yx0qE6PKwTcstnuGD5ah3N2c8bWdFC22XYBhLpPeEE0I/EBNK8eCrxBEnovDFQMT32
-	DRx0F0Ji8J2ftTp/hT2kKI11T1LgmPEtxMWHuKBq3PaHG7kfP0shBIpFcaac+YpNmvyTXInuyTlH9
-	Sd3gx5eA==;
+	bh=LOmjsXmqCWA4di6y5u68t1EfDl23WiN72KUfy9a1XZg=; b=t5etwBrvgNJif8IwmQ61ppcyh9
+	iQqdTGvQETsSQlfOmgwJOVGoBmx7HMFSAQZZJkfKSBlJ+s2baku0DT2leh1fqBkfHPxh3KeiizhTi
+	UtpOD9EXXoUZ2OPrk8J16vrlApx+iFbfbAXRJcFFV+EuAQdMP3Evk7cn9L10GwyV1H8DZzZ7jtApU
+	BznfgdNZhRjoaMkvQMrOaz68oaccuC5WNVTdR120NM5Q9jJip7ZH99FiahPNxVom9gk3xeK5VATZB
+	C3kp2SE+BoOcuMSHdbTMVFql8UTDhFSemuRL0KlsFqcHSgPXfmaGufEqE9pokxtRcHaJ8rOsSZbJU
+	M1/K4jXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulspy-0000000BZIY-2jeF;
-	Tue, 12 Aug 2025 17:31:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulspz-0000000BZJ3-12Vm;
+	Tue, 12 Aug 2025 17:31:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulmoT-0000000AYnC-2h6i
+	id 1ulmoh-0000000AYpq-1rpF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:05:06 +0000
+	Tue, 12 Aug 2025 11:05:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04C3DA56A9C;
-	Tue, 12 Aug 2025 11:05:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 443CFC4CEF4;
-	Tue, 12 Aug 2025 11:05:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F95A4612E;
+	Tue, 12 Aug 2025 11:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB2FDC4CEF0;
+	Tue, 12 Aug 2025 11:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754996704;
-	bh=+sjD5DBMwZ01KvsXUAV5SJn+sj8/ohUTnEVYWG/4NUM=;
+	s=k20201202; t=1754996719;
+	bh=0BwRILpusAVrivTLcsAixdNdRY4nvTJgi3xEFY4YsN8=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=qidwNdk5LLHuh+RkonL10l5tIMuz1EL1iLZsnU6Y4QMR9aGNbmkxH7776FpFuodKp
-	 lFELFbWkzrAVpLNGIBxOEgpd5P1I4Oe3lhnyQpWxcckU3Lda8qEusVUL241OWOoVSd
-	 R8vI01bQF4eogEX9fkP2VVWKoSZsjvE8oFWxQaZkySPQM7dYCXtMLPZ+AdRq2Z0Vd+
-	 UdD3wEDzneXPBzyQV/EEIrdC5FzbbqrjEz9u63C49Q/uE1nub1OMh5Jsz6IN9I8Fl/
-	 1ZdChx9KQyQRCsVIpqIGpF0Ma9ajCc60c+ltAWQ3YlwMXN73/vRK8I87rwaBwbKbuQ
-	 LkM2p84dzj6wg==
+	b=PWSKHm9maPZ82AuMYOrCQxHej/6dypc7ijXS9T0jfJ7mV9Ii54WMJrtrYOjOksuVA
+	 X4QUGxJMgUrqHN3kw2FSiTDb/mh8v2wPpKJK+etKn6Mj296uUUQm4ZJw1/QUtv/vZO
+	 BgQDfr5WgcaFsPh/NajPl62ZKwYH7YBNu3MDpILaW6DabjIrPWv0JVCd5aiBPgHcWQ
+	 R00UEF8FIFTq8Xksz44XIfAhxuIDYZ2+TYc65zyroiBhvEqrP4Wt3pctmfgYqESXlL
+	 BdONDglSkxV6WWf7ICTwrn3bW9ydDnZ7odVOmgQRiUuRUUNJGKTbcnkaVBiHmjwkE1
+	 s9YeWIuV7Y8vg==
 From: Mark Brown <broonie@kernel.org>
 To: Liam Girdwood <lgirdwood@gmail.com>, 
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
- Bard Liao <yung-chuan.liao@linux.intel.com>, 
- Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Waqar Hameed <waqar.hameed@axis.com>
-Cc: kernel@axis.com, sound-open-firmware@alsa-project.org, 
- linux-sound@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <pndpldam7tf.a.out@axis.com>
-References: <pndpldam7tf.a.out@axis.com>
-Subject: Re: [PATCH v2] ASoC: SOF: imx: Remove error print for
- devm_add_action_or_reset()
-Message-Id: <175499670102.16031.12835450413879680065.b4-ty@kernel.org>
-Date: Tue, 12 Aug 2025 12:05:01 +0100
+ Fabio Estevam <festevam@gmail.com>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250807214358.4172451-1-robh@kernel.org>
+References: <20250807214358.4172451-1-robh@kernel.org>
+Subject: Re: [PATCH] ASoC: dt-bindings: Drop imx-audio-sgtl5000.txt
+Message-Id: <175499671651.16031.1365399416603486475.b4-ty@kernel.org>
+Date: Tue, 12 Aug 2025 12:05:16 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-cff91
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_040505_765085_DA9BA6AC 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250812_040519_506951_680286B1 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,15 +78,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 Aug 2025 11:33:32 +0200, Waqar Hameed wrote:
-> When `devm_add_action_or_reset()` fails, it is due to a failed memory
-> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
-> anything when error is `-ENOMEM`. Therefore, remove the useless call to
-> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
-> return the value instead.
+On Thu, 07 Aug 2025 16:43:57 -0500, Rob Herring (Arm) wrote:
+> The "fsl,imx-audio-sgtl5000" binding is already covered by
+> fsl-asoc-card.yaml, so remove the old text binding.
 > 
 > 
-> [...]
 
 Applied to
 
@@ -100,8 +90,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: SOF: imx: Remove error print for devm_add_action_or_reset()
-      commit: 9d6a51651faa577e5d2be9d67915b7621c5c589a
+[1/1] ASoC: dt-bindings: Drop imx-audio-sgtl5000.txt
+      commit: 605d902bb6b6f5b12a5baeaca0dc359ced7685cb
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
