@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9F2CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F6ACA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9g1SG7f+EGslJg8ECDOBi4Rhdygb73Nc23atyvk73c=; b=4eiN3nny7yYSs/m3SmkGUVSHvH
-	Z2eLqytimz3F0Dhz2bLRnxENRkH1IzVQ7AHXnWz3DjtWL7EWXMahXa8zLzSTflL3Uhz+sX6QeHSYC
-	0+Y4vZ8ODhq83XAhrzjjr64eCIq6aMgWH+wre+L/FnKIgeEzV5Aydk+Kc5O1cP/m6CPp1NTLgLvRQ
-	fdztBGuFCsw+TLQCk2+VLZCMrHR6GHhApG2mFqFfAoH1KRnhC66qG+f4RNZyju+omcrokZuSW6roV
-	AjGtd1ym1AM8cb74iqCwDDi8szANaI1UZmliOpN+NV8j1x/43g9AM7euNJSLAbcfMIdkehwyUrY2C
-	oPlAqI6w==;
+	bh=Q/5nvAzY4noSQdn3JSFOqq5epYivB4Xu7Z3NLcJ9cec=; b=xqC9cvOMSDp00NeeYVZuJxOPgU
+	VfEbfnjlzjOChZe/3ru6ywGcAXwx96oQfXUDQrbbPlxkrOdokuS2WnECIhWJ9v55HNxNmYuJ+RWGO
+	pRZ9xtiKnfX9xhYC+o4vRaPcxS+JxjLo2O5SkyLyK0uXgJ6P6X2i4KPZpdZl0hAW2kctMSSZDcB1E
+	09j72Fr4B+BtmckZlmKD71BiajrjJN8h53eKhHSmfV+zQFqZJj42Q0QN8VxYxEa03W0i8nXsoQLI8
+	NYuTLpin5o7TU8/kN84Jx7eNOT0D/OkpiU+6KEzKXtWYreKI13fKJkIoPMs46AUYX0eWVYoB9sOuy
+	EPHYSfxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uls6J-0000000BSSb-0ngW;
-	Tue, 12 Aug 2025 16:43:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uls8p-0000000BSpi-1Bhm;
+	Tue, 12 Aug 2025 16:46:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulp8B-0000000Aw9Y-306c
+	id 1ulp9a-0000000AwKb-0xml
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:33:36 +0000
+	Tue, 12 Aug 2025 13:35:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DD1740C2B;
-	Tue, 12 Aug 2025 13:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43663C4CEF0;
-	Tue, 12 Aug 2025 13:33:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B13BA5C63AB;
+	Tue, 12 Aug 2025 13:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D032C4CEF0;
+	Tue, 12 Aug 2025 13:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755005615;
-	bh=dS4y36QAOmFxGB3IF5rTASgVCuJo6srS84clRq8Bg1g=;
+	s=k20201202; t=1755005701;
+	bh=EbSOUxZj4Dk5TROM6zew5g6CUwMUu1vUz6Zv2WHGHJA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GSNgCxpWNzfLytjJp0Y1T36No9Z0k5sKzohw1PUPPYsUuofA9cjlW0leejkQnvCs3
-	 BdEiaQZD7XTiCrNmCEE5SLwEHsFs4z0MKscQlPaf4heIYtknhFbCBxcWC7NjDOT3GI
-	 ZfD6sDdbGh/sCnsbt+xmkcVaPiR/xYKMCfz0biIBFGs0TlNgO9yTBtTT4tKIk/lBJe
-	 pGdzdV+I4jUcdZScGDQbFOBz7VaQ3qwtTKo+Kyde+ztrFPdtfcWYA1d0sj9Tt4nk/c
-	 4ezbmx32Z7zi1ERFImujsqEYQne0LpVocgrJNmc0MxYJAqal0tbMrDXzt4WKqI+OZ5
-	 K6NOgWC4ACf1Q==
-Message-ID: <45ec2fee-9b76-4f36-8476-000fbce775c6@kernel.org>
-Date: Tue, 12 Aug 2025 15:33:29 +0200
+	b=OrOpgvI3yZlVLT2n9n52cdCbXRIVq/NYDRmzuoUKn0xzH1ARomtKhBhi8yRbTKzFY
+	 YnG+X1GJuMVRIKIloJoDI6oG+OG12VA+Av82DNXxGRi7P6Q2+hZK8gTUX/nFPiPKtA
+	 J1ro95LCEXtkOgcowlNZ8sjLCHFhf07ICeI80SS1+RYDyJgFw1UWMIvHSy0NzJX1eu
+	 5ARh+jsEmt5ZztqFnAXtwsRCL3GP2NesLCtRSr/uZEY7pKrO/Erm4yAuCbNZNqdcnq
+	 FgE1VfCYT867B3vraZCaIiv9PdgQG0MJUybSIu3qKTtBT8ca7cb0BvLqJXFe5bT2+T
+	 pcw/qkwHVZOMQ==
+Message-ID: <d5e0f41e-34c1-44af-ac0d-8362a72a2ff1@kernel.org>
+Date: Tue, 12 Aug 2025 15:34:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 8/8] MAINTAINERS: add and consolidate Black Sesame
- Technologies (BST) ARM SoC support
+Subject: Re: [PATCH v3 1/8] dt-bindings: vendor-prefixes: Add Black Sesame
+ Technologies Co., Ltd.
 To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
  catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
@@ -57,7 +57,7 @@ Cc: bst-upstream@bstai.top, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
  linux-kernel@vger.kernel.org
 References: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
- <20250812123110.2090460-9-yangzh0906@thundersoft.com>
+ <20250812123110.2090460-2-yangzh0906@thundersoft.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250812123110.2090460-9-yangzh0906@thundersoft.com>
+In-Reply-To: <20250812123110.2090460-2-yangzh0906@thundersoft.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_063335_801650_FB9FFFB7 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250812_063502_355721_C9B5E31A 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +124,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/08/2025 14:31, Albert Yang wrote:
-> Add and consolidate the MAINTAINERS entry for Black Sesame Technologies
-
-I do not see consolidation in the patch, so this part and subject are
-incorrect. You only add.
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-
-> ARM SoC support. This entry covers device tree bindings, drivers, and board
-> files for BST SoCs, including MMC, and platform support.
+> Black Sesame Technologies Co., Ltd.s a leading automotive-grade
+> computing SoC and SoC-based
+> intelligent vehicle solution provider. Link: https://bst.ai/.
 > 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
 
-What does this SoB represent? Who wrote the code?
+Odd order of tags. When was the patch written, by who and when was the
+Ack given?
 
-You added that SoB everywhere so I have worries it was automatic or
-manager's decision. That isn't what SoB is about.
-
-And looking at actual M: entry, this should be rather publicly Acked.
-That's what Ack is. Not SoB.
 
 > Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+
 > ---
-> Change for v3:
+> Changes for v3:
 > - No changes
 > 
-> Change for v2:
+> Changes for v2:
 > - No changes
 > ---
->  MAINTAINERS | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index efb51ee92683..e3236384c28a 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2441,6 +2441,16 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/arm/blaize.yaml
->  F:	arch/arm64/boot/dts/blaize/
->  
-> +ARM/BST SOC SUPPORT
-> +M:	Ge Gordon <gordon.ge@bst.ai>
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> index 5d2a7a8d3ac6..3c2031417232 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -222,6 +222,8 @@ patternProperties:
+>      description: Shenzhen BigTree Tech Co., LTD
+>    "^bitmain,.*":
+>      description: Bitmain Technologies
+> +  "^bst,.*":
+> +    description: Black Sesame Technologies Co., Ltd.
+
+Messed ordering.
+
+>    "^blaize,.*":
+>      description: Blaize, Inc.
+>    "^blutek,.*":
+
+
 Best regards,
 Krzysztof
 
