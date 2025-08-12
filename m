@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00026CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF044CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=; b=3Z7NaScaGxA45oF5U4+4IYtbva
-	acRkIXVaqopZiV5dvZGCZyHuLHmN0bQADBngPT6uPYED1wAofHwyn1G34GxpUg4A87oI6wRQ5tdbf
-	e/x+cgkuqQ4mpL1CCuTfKbH4uyJzgKQYciyPIgrXaBI0AlU1rgTU4DiSGr52ILyGhJjVr2B2aUolj
-	O9SKleFS7amKS7wAAHPdixbYZ5fOi67oYIUt7WEOqGAU6uAuFkWXuIRgqq7l5Xs0HzRc4tG1QDOJO
-	+HIN5fy19vQ5OCQGcrEG1PXiyaOPQUHLpXFcdXRh4IVRzDcD8lx7Sbr+cbQMFg9vYMsONu1XuzuOG
-	KYLxAbbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3huHVWh1kF0qHcGRWxpys1fWPp33qz0IdA6aub7Z2I4=; b=z+vi+rw4sLCFyFDke42l5tyPbu
+	e3vezEcYz93/coV9pxK1FUoRJjwcEEokRDkEuq4iMB4lNwUctx78BSt5KK0YRGq3KYfiXHQJuIk6l
+	yZ12OQnJJQJxCHNFJX/0S5OqlMBCrAY+CUdFuOD6JELcESYJ9AdeBrkDFWrkgU1ta8dqyvgdfNvKM
+	UEFz/HfzxcH+K1qBhjkenaaEf3eG6CEFNVGcGgKlLz/7mSyPLb6N8uFK16JpSYov4oguW6l2fT2MR
+	7Y2A5oPhb1EHE8R3lYMvwYJAww19YbnU9JJNIAtk+CIYXlSAVHM7Rts3MaJOsGdn12CIIom8TGMO4
+	wuR7Hq7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljhh-0000000A9SD-46Ay;
-	Tue, 12 Aug 2025 07:45:53 +0000
+	id 1uljqW-0000000AANe-1iYr;
+	Tue, 12 Aug 2025 07:55:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliXW-0000000A22u-0Cnp
+	id 1uljnu-0000000A9zL-11pI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 Aug 2025 06:31:18 +0000
+	Tue, 12 Aug 2025 07:52:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=; b=PxSEUJGUq9QtaS6rJcLpGHnGaq
-	1DEjkznrJ3bECJprMP3J/nCQAcsHbhXQjv/S1URehZovn3vg8AOzEFbiphQXrKfRhV/kEmCahHJqJ
-	3+9GSLQvGASvt7UA0zb3Pgc7vAqPtFvs9UlmvhsG8Pj1AUa5PlShLt3cOf/wDqMu3TzHDlh2WpdNu
-	L16e2QfmRtMfEFDJ0jH62oE5YGCihhXOi9av+NBbeVVIAkBoz2KTBIoGIlyJhNK1BhZu+FgrMZkwo
-	i0NzG0m8g31Qk94oCAwLNapDOQpbhO9/oagb4Rmd2CVz+8F+hp25arOXTQrWpgPU3WFcg+EAJJ0E1
-	0jeRWwWA==;
-Received: from mail-ed1-f52.google.com ([209.85.208.52])
+	bh=3huHVWh1kF0qHcGRWxpys1fWPp33qz0IdA6aub7Z2I4=; b=nTl9QfeVXyhaU+/mQrAt2Bb3bk
+	UvAbzatXFauRgbe4EB7aAn/jzaSAHEZAtpm0vi7e557o+Yc3sSfFaLzDTGXkS+zSiTkJWmD873HAm
+	ahQrZWPXTZn2ii8hMJPTYn0wxgLnPzO5LK4li85HTM0+6lgA2Fh5uvt8xo3Xw8eaSUsSXTUd2K0eS
+	j07dejGz4Ifby+f6evYu0f5p9CNQ0Ltm3jAlUf81+AoZynvVwgXb5WXW6w8yXIotoxEGK5RQI0wal
+	dn91DicSOSuWmMfuMTK+nawbbCFPlnR/kY8vecEiuqMBlk9XdHbKDSKLH4sizpTLSs3MfiaqvGJuJ
+	DWH4aA3w==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliXS-0000000FhwQ-3cgk
+	id 1uljnr-0000000FjdG-1UJg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 06:31:16 +0000
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6180b9e4e74so5504669a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:31:14 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754980273; x=1755585073;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=;
-        b=vLbLKmQVv1V7T5e9a7JuE0d+fIJwW3V4DUaq25UXiIUSMoaoqYODgJYOCRajkDeIeK
-         wRIKo2WI497X4qOt1mRnsOadbUeOX7R5lbsRTZh2VDW5J1Hz1EujXLAtcU2m1f7DWErM
-         JuxssEPYeXTjrzNPQGXSvfVRPh6wUygHrs67hDH4WxH/0nN8dAjjhw2amtff1Fzpt0cQ
-         zJ2Q0idmupAF3fJarnXgf51jvt2MLI81BJCSBQaMsXgwe4WCRR7yoIARVWR8EAf49F+Q
-         GodrbERZL0L37eVwNNl4GaPB55/paapCIX2aAJz5IMXqwZR1p0ZoArNbQB5wrVVJKdhO
-         vtiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUgUigGK8uThrr2aNC5E+Ox+q4vVv3zNXApP6Ts6ag7qLsfakp1ZpIwe9MFv2MZnnMZfj1PCN/LRP+gVTd+LXGN@lists.infradead.org
-X-Gm-Message-State: AOJu0YycFt1zF6MZAu4r0r/8iiC1dLGdix0ru5fXbiy/f6/TKCwhsZGj
-	8ySVsZRGvmczz7DBlWxe69m4psV10vbWdKYMRMI9yJ9JDOV34Akc9LS/apbXR/T5pm4=
-X-Gm-Gg: ASbGncvN3Caj01XhJn1xFgprwMfM4SVY3vnWLHzDjKu0ZlfE5xfBLsS+e5IwV4ahsFw
-	twM4LG9a4tUf6Bxr8gn07aMKviMy+noaQW4BXTSQuLU78a18KmZZHaSLEcGYA2THIqmHgPvnUwY
-	FVSHEKOwnx8jsfTKSnAJaZAsL/bU7kXsZoaFkZimnEPADsC0/tM9xsIqciJ428s4HtYjBllx5kJ
-	bViFZOQdOh6BGWRlSssumAmZS8/JuzhJDZl6pRmJQtbJ77vuO0cRm+OPTwR6X0t+tFvfaP/6fFO
-	k1W2Ole6pd/7tsmkDnqBgRjqhlyBzYHTAEU2ehriUvjI95PtFqQMqMs3eTZSNnzqwaa+/XWZlmH
-	I3yzIljjYUWfqRx6Sv7OYO9Ew6C2kwd1H3XFdZ4awpIfRUcLl4Vu+1GJhWg==
-X-Google-Smtp-Source: AGHT+IHe00QtJNxd0HPQg2Pai2cMpRtSbdwGpYr4ZSbnNjrwjf4Cirv9mUoZ+gRBvnSBE7RnJpb9zQ==
-X-Received: by 2002:a17:907:940c:b0:af2:42e8:ad92 with SMTP id a640c23a62f3a-af9c65b2f50mr1404278566b.61.1754980272765;
-        Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af92b650c8asm2002114566b.65.2025.08.11.23.31.12
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-60bfcada295so8417468a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWA2/PFNQcEGERG6Os0jGBP7W7G86RJGzJ9KR/KFCQJeDp2pvYRcTzYvkgRcNxtYdMHcQlShmhymIo+D53NvKbv@lists.infradead.org
-X-Received: by 2002:a17:906:7952:b0:af9:1184:68b3 with SMTP id
- a640c23a62f3a-af9c658d4e5mr1347054566b.55.1754980272254; Mon, 11 Aug 2025
- 23:31:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250810220921.14307-1-will@willwhang.com> <20250810220921.14307-2-will@willwhang.com>
- <20250811-successful-military-dragon-d72486@kuoka> <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
- <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
-In-Reply-To: <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
-From: Will Whang <will@willwhang.com>
-Date: Mon, 11 Aug 2025 23:31:01 -0700
-X-Gmail-Original-Message-ID: <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
-X-Gm-Features: Ac12FXxUPGaJyzFRIVDPhYuVZhaEvNZeEF-rPdc7e_SppFMnCWmGszG5kWhfTm4
-Message-ID: <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image sensor
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	Tue, 12 Aug 2025 07:52:17 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8F2E9346;
+	Tue, 12 Aug 2025 09:51:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1754985080;
+	bh=WeWSSBL8Nap6xqIoJm/Yt88k6wGSmXOsdouTKmVORWU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZbJW4ZCWkm05mqCROZZAxuq57T8H+l4IBFBE/7mq92UnDXATIteQjeKsBfQLBUy8l
+	 Q5LMDKOeoDjxPZe3W8VintEGuP3lc199qpw4TAjT8OG8uL6IPdSYWMqDkV7l4tAasN
+	 quJ9QQsKveyFC51uAzweu3wB4YY+eT0y2UZX8U7o=
+Date: Tue, 12 Aug 2025 10:51:55 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+Cc: linux-media@vger.kernel.org,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
 	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 56/76] media: s5p-jpeg: Access v4l2_fh from file
+Message-ID: <20250812075155.GG30054@pendragon.ideasonboard.com>
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+ <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
+ <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_073115_009227_7994F0B4 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20250812_085215_539308_88099715 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,71 +89,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Andrzej,
 
-Reply inline,
-Thanks,
-Will Whang
+On Tue, Aug 12, 2025 at 08:13:39AM +0200, Andrzej Pietrasiewicz wrote:
+> Hi Laurent & Jacopo,
+> 
+> Thanks for taking care of this, this generally looks good to me,
+> but please see inline.
+> 
+> W dniu 10.08.2025 o 03:30, Laurent Pinchart pisze:
+> > From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > 
+> > The v4l2_fh associated with an open file handle is now guaranteed
+> > to be available in file->private_data, initialised by v4l2_fh_add().
+> > 
+> > Access the v4l2_fh, and from there the driver-specific structure,
+> > from the file * in all ioctl handlers.
+> > 
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+> > Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> > ---
+> > Changes since v1:
+> > 
+> > - Update file-to-ctx macro due to removal of fh-to-ctx macro
+> > ---
+> >   .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
+> >   1 file changed, 11 insertions(+), 16 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > index 65f256db4c76..81792f7f8b16 100644
+> > --- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > +++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > @@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
+> >   	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
+> >   }
+> >   
+> > -static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
+> > -{
+> > -	return container_of(fh, struct s5p_jpeg_ctx, fh);
+> > -}
+> > -
+> >   static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
+> >   {
+> > -	return fh_to_ctx(file_to_v4l2_fh(filp));
+> > +	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
+> >   }
+> >   
+> >   static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
+> > @@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
+> >   
+> >   static int s5p_jpeg_release(struct file *file)
+> >   {
+> > -	struct s5p_jpeg *jpeg = video_drvdata(file);
+> >   	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > +	struct s5p_jpeg *jpeg = video_drvdata(file);
+> 
+> What is the purpose of this change?
 
-On Mon, Aug 11, 2025 at 11:23=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 12/08/2025 04:47, Will Whang wrote:
-> > Hi Krzysztof,
-> > Reply inline.
-> > Thanks,
-> > Will Whang
-> >
-> > On Mon, Aug 11, 2025 at 1:01=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
-> >>> +description:
-> >>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
-> >>> +
-> >>> +properties:
-> >>> +  compatible:
-> >>> +    enum:
-> >>> +      - sony,imx585
-> >>> +      - sony,imx585-mono
-> >>
-> >> I don't understand this second compatible. Is this different hardware?
-> >> Can you point me to "mono" datasheet?
-> >>
-> >> Your description should explain this. Commit msg as well, instead of
-> >> speaking about driver (in fact drop all driver related comments).
-> >>
-> > Mono version of this sensor is basically just removing the bayer
-> > filter, so the sensor itself actually doesn't know if it is color or
-> > mono and from my knowledge there are no registers programmed in the
-> > factory that will show the variant and model number. (That is why when
-> > the driver probing it only test blacklevel register because there are
-> > no ID registers)
-> > Originally in V1 patch I've made the switch between color and mono in
-> > dtoverlay config but reviewer comments is to move it to compatible
-> > string and not property.(https://lore.kernel.org/linux-media/2025070317=
-5121.GA17709@pendragon.ideasonboard.com/)
->
-> You only partially answer and judging by mentioning driver below:
->
->
-> >
-> > In this case, what would you recommend?
-> >
-> > compatible:
-> >   enum:
-> >     - sony,imx585
-> >     - sony,imx585-mono
-> >   description: IMX585 has two variants, color and mono which the
-> > driver supports both.
->
-> ... I still have doubts that you really understand what I am asking. Is
-> this one device or two different devices?
-One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
-(Color). Silicon-wise the difference is just with or without bayer
-filter.
->
->
-> Best regards,
-> Krzysztof
+I don't think this is needed, I believe it can be dropped.
+
+I'll send a new version (of this patch only, I don't want to respin the
+whole series and spam everybody).
+
+> >   
+> >   	mutex_lock(&jpeg->lock);
+> >   	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+> > @@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
+> >   static int s5p_jpeg_querycap(struct file *file, void *priv,
+> >   			   struct v4l2_capability *cap)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   
+> >   	if (ctx->mode == S5P_JPEG_ENCODE) {
+> >   		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
+> > @@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
+> >   static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+> >   				   struct v4l2_fmtdesc *f)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   
+> >   	if (ctx->mode == S5P_JPEG_ENCODE)
+> >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> > @@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+> >   static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
+> >   				   struct v4l2_fmtdesc *f)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   
+> >   	if (ctx->mode == S5P_JPEG_ENCODE)
+> >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> > @@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+> >   	struct vb2_queue *vq;
+> >   	struct s5p_jpeg_q_data *q_data = NULL;
+> >   	struct v4l2_pix_format *pix = &f->fmt.pix;
+> > -	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
+> >   
+> >   	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
+> >   	if (!vq)
+> > @@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
+> >   static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+> >   				  struct v4l2_format *f)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   	struct v4l2_pix_format *pix = &f->fmt.pix;
+> >   	struct s5p_jpeg_fmt *fmt;
+> >   	int ret;
+> > @@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+> >   static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
+> >   				  struct v4l2_format *f)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   	struct s5p_jpeg_fmt *fmt;
+> >   
+> >   	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
+> > @@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
+> >   	if (ret)
+> >   		return ret;
+> >   
+> > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+> >   }
+> >   
+> >   static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+> > @@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+> >   	if (ret)
+> >   		return ret;
+> >   
+> > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+> >   }
+> >   
+> >   static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
+> > @@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
+> >   static int s5p_jpeg_g_selection(struct file *file, void *priv,
+> >   			 struct v4l2_selection *s)
+> >   {
+> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> >   
+> >   	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
+> >   	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
+
+-- 
+Regards,
+
+Laurent Pinchart
 
