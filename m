@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F4ECA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C76C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGM7nEY6NYiDKjxuLRDBDWBK9WK4nrQst0vQmnSP7Z0=; b=uc200/DSud8LPIPcH7uNs8Wi/a
-	pvHTWupFlsbBoQEk90BfRtwQGsLHYkZrKOj6PdnTN0/Hh79PeWQL72AoNPoKsucikqrOZOKR1+0SL
-	v7B+qj+qvzdgKWpFqaAwFo56HwwYi43JrRU8JFZ1W7GgSJ2AI35aN38NdAScwCVJcIOQcE67wfAd7
-	pXE40gPW0a0aKmbRgOS8L33opW3XUfZ/XiW3wdG3yhkl1NDZrqlO4A515vcc7k9G+HjJvsRHQnQg/
-	wmEHqzM2SoKcXMiz8woCkQ2JDjAlX9RXqaQnJUW2QiNr15ZjXu5HXerrvHblHd16XQqnrGoChx95N
-	ybh8v9Pg==;
+	bh=STsiX3U6ZROthdqSqYD4iHUcnIhAtxIDiSKSzzTI1zw=; b=x3wARUTD8h0NcNUe7uwd1LBSxf
+	HQfqDOJ77stG6r098ycecuE5ITPGLKzGi3XrPBeS91mvOuQhhqXOxHfhiyxOaqqZmiSPxu99JEk2r
+	bMVDX7GFJ8r2ybTtuOLPyh5OvnTYA4OpF8wRu1UCmtp0VxJJkzipHMflPmewOlMDO4U3udKxy1u4b
+	2FOSL20iF8KuUHI86yQ7kwfxyndetL4WuoO69pSxSkN/UASx27ojRzpKVlpNpZdmgVAcAW2cafXo/
+	flNM3E0+VbWHNpX5auBN1OnHHY3rK5p9I9xD7RxEMEnLODX06ZIiE7FV0KF4YZurlPC1cjidRBixd
+	jhea0tuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliSk-0000000A1VE-2kap;
-	Tue, 12 Aug 2025 06:26:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ulicj-0000000A2UY-3Kok;
+	Tue, 12 Aug 2025 06:36:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliQ7-0000000A1Ej-1rcF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 Aug 2025 06:23:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TGM7nEY6NYiDKjxuLRDBDWBK9WK4nrQst0vQmnSP7Z0=; b=ninhc7Vx3PkPNMcadTzOoL4fYI
-	kHwuRelm/7TaJ1tudB+mn8yER4maSN0xYTbd94yLQEFkP/bCNBTtbo84J14uOq1mW2fu99oKjmqAB
-	CJ7VOSZZlHam1uZBY7f6rzoS8k8wA95GC6lAV/5ydvTD9iVFG+ejKqE8emBUrGivc6K1zA5rNFu43
-	YdxZodXfLp/e7pImivSUByb/xwl4qHzCt/rHDMhVkOjxHSkC/tbeV4I2cTTTqaFFldrPMyY1W577n
-	07mxG4VEXmHWpc8YpLD43hCOHgcYKM1c8L8Kl9cCDiNA0u0muWihRVK2orQrAuLbkBt00gcCVUK3O
-	t5LP7sgw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliQ4-0000000Fhjx-0YxJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 06:23:38 +0000
+	id 1uliYN-0000000A26r-1UUa;
+	Tue, 12 Aug 2025 06:32:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 305135C4CF7;
-	Tue, 12 Aug 2025 06:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDAEC4CEF0;
-	Tue, 12 Aug 2025 06:23:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57ACE5C667E;
+	Tue, 12 Aug 2025 06:32:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F55EC4CEF0;
+	Tue, 12 Aug 2025 06:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754979811;
-	bh=EEWQDK8PVcCe68a7MGsKFYvPTrTUfqREIsgj+DSHaqc=;
+	s=k20201202; t=1754980330;
+	bh=otaBZh9TNVNUn4n+KFk4zIkvpGN9iEpnVss/ZcBnHBM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MxSoZxYVHru27TJzAn2moqCQlvxr0Mkt1ePeqiuKoYzb0yuorBpSmyUsL6bb/jfSh
-	 tRjxSZTSDYrwnnAHqOjitJqCH8e5umZ6r7rtDDmwx6wGn2wN3W9k7OuEGFCKWpz0Cd
-	 hCb5KKBJaZ5NfvDDbbQmNFe+H2ZsfBMJN+RqkfFm1D69i9LFQWz5pp6BG7piSKMlxJ
-	 TQhQCDpp/Mkq+8uQzTbau98BukpqDuqt6Pa2RM5diqCq2RcAOcH6aLn6I1PzfC8LKB
-	 X4cA3VAp/JBbJNftodJ3NvvONgUtYIVa7mhaH1VjYO+TYI8IPRKo6kj7IEStCBQc1e
-	 UqsOIplVhwtqA==
-Message-ID: <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
-Date: Tue, 12 Aug 2025 08:23:25 +0200
+	b=dEBiK2bMfsD5IpNQj20sm4pOp7cKkzzvO9rSw4Gc4mSvnL/LXBIClBjlBy62c4S7M
+	 rfwQdg/BnNkCGdBP3kGdr9AKfczzi+2jHXCQmDZP17F55Y1pNSNbQltkKeSP1idjn4
+	 Mz/44PhO+5nt8U3jsM3jW3W07IqePKAdArDZy70bBM92HV6nONtFFedk17iGAHAVIx
+	 KvK3rhg/cIVEyjTpRr82UQpTH5O2+4tWhJPTQmil/LFV1jsSS+vRu0Gcq/FuawBsC1
+	 SiPbsZ3LBDb8cB8e6Apc5MLF6hlQvArB64uhltW9jZIlumYpHy17P5kdYmjK/tZUeh
+	 2yCqq2tPYPW9A==
+Message-ID: <4a47b758-5c20-4e30-bc61-206acd48bdd0@kernel.org>
+Date: Tue, 12 Aug 2025 08:32:03 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
- sensor
-To: Will Whang <will@willwhang.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-2-will@willwhang.com>
- <20250811-successful-military-dragon-d72486@kuoka>
- <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+Subject: Re: [PATCH v3 06/12] dt-bindings: PCI: Split exynos host into two
+ files
+To: Shradha Todi <shradha.t@samsung.com>, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org
+Cc: mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+ krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+ vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
+ m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com
+References: <20250811154638.95732-1-shradha.t@samsung.com>
+ <CGME20250811154721epcas5p26c9e2880ca55a470f595d914b4030745@epcas5p2.samsung.com>
+ <20250811154638.95732-7-shradha.t@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+In-Reply-To: <20250811154638.95732-7-shradha.t@samsung.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_072336_514101_44C5AA99 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20250811_233211_480871_FD45C70D 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,55 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2025 04:47, Will Whang wrote:
-> Hi Krzysztof,
-> Reply inline.
-> Thanks,
-> Will Whang
+On 11/08/2025 17:46, Shradha Todi wrote:
+> The current Exynos PCIe yaml binding file is hard to reuse by
+> other Samsung SoCs. Refactoring it by:
+>  - Moving common Samsung PCIe properties into samsung,exynos-pcie.yaml
+>  - Creating a dedicated samsung,exynos5433-pcie.yaml file for properties
+>    and constraints specific to the Exynos5433 SoC
 > 
-> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
->>> +description:
->>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    enum:
->>> +      - sony,imx585
->>> +      - sony,imx585-mono
->>
->> I don't understand this second compatible. Is this different hardware?
->> Can you point me to "mono" datasheet?
->>
->> Your description should explain this. Commit msg as well, instead of
->> speaking about driver (in fact drop all driver related comments).
->>
-> Mono version of this sensor is basically just removing the bayer
-> filter, so the sensor itself actually doesn't know if it is color or
-> mono and from my knowledge there are no registers programmed in the
-> factory that will show the variant and model number. (That is why when
-> the driver probing it only test blacklevel register because there are
-> no ID registers)
-> Originally in V1 patch I've made the switch between color and mono in
-> dtoverlay config but reviewer comments is to move it to compatible
-> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
-
-You only partially answer and judging by mentioning driver below:
-
-
+> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
+> ---
+>  .../bindings/pci/samsung,exynos-pcie.yaml     | 70 +--------------
+>  .../bindings/pci/samsung,exynos5433-pcie.yaml | 89 +++++++++++++++++++
+>  2 files changed, 91 insertions(+), 68 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/samsung,exynos5433-pcie.yaml
 > 
-> In this case, what would you recommend?
-> 
-> compatible:
->   enum:
->     - sony,imx585
->     - sony,imx585-mono
->   description: IMX585 has two variants, color and mono which the
-> driver supports both.
+> diff --git a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
+> index f20ed7e709f7..fd0b97b30821 100644
+> --- a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
+> @@ -11,7 +11,7 @@ maintainers:
+>    - Jaehoon Chung <jh80.chung@samsung.com>
+>  
+>  description: |+
+> -  Exynos5433 SoC PCIe host controller is based on the Synopsys DesignWare
+> +  Samsung SoCs PCIe host controller is based on the Synopsys DesignWare
+>    PCIe IP and thus inherits all the common properties defined in
+>    snps,dw-pcie.yaml.
+>  
+> @@ -19,9 +19,6 @@ allOf:
+>    - $ref: /schemas/pci/snps,dw-pcie.yaml#
+>  
+>  properties:
+> -  compatible:
+> -    const: samsung,exynos5433-pcie
+> -
+>    reg:
+>      items:
+>        - description: Data Bus Interface (DBI) registers.
 
-... I still have doubts that you really understand what I am asking. Is
-this one device or two different devices?
+
+So the only common part left here is reg and phy? I don't think such
+common file brings any value.
 
 
 Best regards,
