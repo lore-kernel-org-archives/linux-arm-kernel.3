@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFB2CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756A8CA0EDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TTUcrdifStXL6GATjqBCYRd4F/ZA+bb/RY/o5VKd3ZQ=; b=nVcavYHubCRn+/47eO9ad4Fo/4
-	Pd0gUB11Fm/yTqQPQUL2diS8Yh6uFKCRzNfnO2sQwpeFuqQIp+ZuUAGlGfYDpjMwCtnK1grrzOYzD
-	vCi2ady8tgPaoD8H4nVa28AfPblxRrusF4B4yiHzY490Hv31mLKPWcoFOkZl1GR9Zp8/ihldFFYDG
-	TFJ4vxy4XWmfopUN0hlb76bDGhQzZgU0RNXPCJruuExfSlpD0t1AvN1GF6BObtIP2uyyyW8K5tERb
-	06bbXB+9HBsxipDnynO95xPkExbLaXOrAG2xX0lWpIwWOAoI2OgBALMiZizXVSbQHzKRcCaQxBBgQ
-	4/XEYJcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b2t7hapSvuD12xX2RQBv6KxWIYjp8Yr6JWro08pU7dQ=; b=1QPGTy/OUAfS5AyfohQCqi0KlM
+	1sWwpnHWlGjfvL7MDBOW7+M3Hy874H/3BZ+FRzasgot2sqOniGyFz3TjRycY5pSEP3VN2CdnSj5uV
+	iNB394aCn9TW8f2Dv6ZPjy8IWxXUz6YtLmNLVzUaY38BmcObpyPIMr7UzD/llUHHxpn/8D0Mek7lU
+	VlH3eDdhbospbUe3swW1fWf3TwsG+TxBXB31hzHb7zhGmWwJTiX8DqM9UUInZNUhMdcP+Piz7k+cC
+	llS6lFWIPvEtiK6vrtvfBE2u8I2SBgTDWZT/78Vcv1X0aOlrFfdS52/SE6pneFMgmLbv/Nl95LWhe
+	yQrBscKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwPY-0000000C2j7-37zx;
-	Tue, 12 Aug 2025 21:20:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ulwSL-0000000C3Ni-2VRH;
+	Tue, 12 Aug 2025 21:22:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgv-0000000BxZE-0gqz
+	id 1ulwPn-0000000C2v9-1BBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 20:33:54 +0000
+	Tue, 12 Aug 2025 21:20:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6654F5C632F;
-	Tue, 12 Aug 2025 20:33:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD36C4CEF1;
-	Tue, 12 Aug 2025 20:33:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 988DD5C69CB;
+	Tue, 12 Aug 2025 21:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F4CC4CEF0;
+	Tue, 12 Aug 2025 21:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755030832;
-	bh=mWhbbcbduLWHpW3yyWfH8Gm+wrKvibaa+3ueYfo3yAE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LbnzfOGAz5/fsL/OZLsczEK36ca7W3f9wRPBcMeQPBzjyrOjZB8Yo+zO58AcrBRJG
-	 JdCwruN1IMlLggsci/6cMvkzmWXGhw+n77p8SEGr6NNkYa1lgNSZwulr2MOuTjTcJQ
-	 fl3yYPWsuOqglY1ivfH5H7PokOH0/dbx2fs7dtMom/t1o1kwiv3MC+wSpkPPO8UM/o
-	 q7i+HZbMflfDL8NJds/ugLVZrArnavQeAv9iMqARw3Vfcctyr6NRZCO4y2nkDbhjk/
-	 h3862VtxwnLF9e8eQLCweQpcWTWVdq94Z3uOjU/UxLAOcyxYDE+wnRb8uih6m/LDqF
-	 CZZSwcuUKOtnA==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: pinctrl: Convert brcm,iproc-gpio to DT schema
-Date: Tue, 12 Aug 2025 15:33:47 -0500
-Message-ID: <20250812203348.733749-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	s=k20201202; t=1755033614;
+	bh=coaleDkEw2ri40zMf0iBd5QOXvs/OQOHQ7AAZgHkX3g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=D+6srMj6RQUdBm/eEwEuvGo5CanVDw95qZeJkB2llEU87IEDO7Ufes75U15DWr1kL
+	 xno7pVgUhvpqg5pezP0yKUZ4k02aDrAyVKslLrXTxiFJzrejnE+iisSuLfiNM+cHap
+	 bM3JtTtZtPtvYT6uF6zNhI/4AiVBpRCuACoJbWj+9Lj4obeREh7F2d/BIC7CjxPStK
+	 p7M7ujXf8RgO1tmSaLrLGsQFUgnURx23151+WWFzJcx8RfhpYGGULadM4pXvinZIT8
+	 htQRSCaKGz2IPPZsGR3a8RJmZ4EEKPsPAO9Qa+W9b0Ew8lfBjZ5RZR0NUGM5BelP04
+	 6BwyEvJkXEO0Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DC1383BF51;
+	Tue, 12 Aug 2025 21:20:27 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] net: stmmac: make variable data a u32
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175503362599.2827924.4642075233156887123.git-patchwork-notify@kernel.org>
+Date: Tue, 12 Aug 2025 21:20:25 +0000
+References: <20250811111211.1646600-1-colin.i.king@gmail.com>
+In-Reply-To: <20250811111211.1646600-1-colin.i.king@gmail.com>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel-janitors@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_133353_333342_C0B43EFC 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20250812_142015_358171_CF3C932A 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,274 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Broadcom iProc/Cygnus GPIO/Pinconf binding to DT schema
-format.
+Hello:
 
-The child node structure is based on the example as there's not any
-actual .dts files with child nodes.
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-The binding wasn't clear that "reg" can be 1 or 2 entries. The number of
-"reg" entries doesn't appear to be based on compatible, so no per
-compatible constraints for it
+On Mon, 11 Aug 2025 12:12:11 +0100 you wrote:
+> Make data a u32 instead of an unsigned long, this way it is
+> explicitly the same width as the operations performed on it
+> and the same width as a writel store, and it cleans up sign
+> extention warnings when 64 bit static analysis is performed
+> on the code.
+> 
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+> 
+> [...]
 
-The "brcm,iproc-stingray-gpio" could possibly be dropped. There are no
-.dts files using it, but the driver uses it.
+Here is the summary with links:
+  - net: stmmac: make variable data a u32
+    https://git.kernel.org/netdev/net-next/c/11b99886d194
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/pinctrl/brcm,iproc-gpio.txt      | 123 ------------------
- .../bindings/pinctrl/brcm,iproc-gpio.yaml     | 111 ++++++++++++++++
- 2 files changed, 111 insertions(+), 123 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
- create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
-
-diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
-deleted file mode 100644
-index a73cbeb0f309..000000000000
---- a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
-+++ /dev/null
-@@ -1,123 +0,0 @@
--Broadcom iProc GPIO/PINCONF Controller
--
--Required properties:
--
--- compatible:
--    "brcm,iproc-gpio" for the generic iProc based GPIO controller IP that
--    supports full-featured pinctrl and GPIO functions used in various iProc
--    based SoCs
--
--    May contain an SoC-specific compatibility string to accommodate any
--    SoC-specific features
--
--    "brcm,cygnus-ccm-gpio", "brcm,cygnus-asiu-gpio", or
--    "brcm,cygnus-crmu-gpio" for Cygnus SoCs
--
--    "brcm,iproc-nsp-gpio" for the iProc NSP SoC that has drive strength support
--    disabled
--
--    "brcm,iproc-stingray-gpio" for the iProc Stingray SoC that has the general
--    pinctrl support completely disabled in this IP block. In Stingray, a
--    different IP block is used to handle pinctrl related functions
--
--- reg:
--    Define the base and range of the I/O address space that contains SoC
--GPIO/PINCONF controller registers
--
--- ngpios:
--    Total number of in-use slots in GPIO controller
--
--- #gpio-cells:
--    Must be two. The first cell is the GPIO pin number (within the
--controller's pin space) and the second cell is used for the following:
--    bit[0]: polarity (0 for active high and 1 for active low)
--
--- gpio-controller:
--    Specifies that the node is a GPIO controller
--
--Optional properties:
--
--- interrupts:
--    Interrupt ID
--
--- interrupt-controller:
--    Specifies that the node is an interrupt controller
--
--- gpio-ranges:
--    Specifies the mapping between gpio controller and pin-controllers pins.
--    This requires 4 fields in cells defined as -
--    1. Phandle of pin-controller.
--    2. GPIO base pin offset.
--    3  Pin-control base pin offset.
--    4. number of gpio pins which are linearly mapped from pin base.
--
--Supported generic PINCONF properties in child nodes:
--
--- pins:
--    The list of pins (within the controller's own pin space) that properties
--in the node apply to. Pin names are "gpio-<pin>"
--
--- bias-disable:
--    Disable pin bias
--
--- bias-pull-up:
--    Enable internal pull up resistor
--
--- bias-pull-down:
--    Enable internal pull down resistor
--
--- drive-strength:
--    Valid drive strength values include 2, 4, 6, 8, 10, 12, 14, 16 (mA)
--
--Example:
--	gpio_ccm: gpio@1800a000 {
--		compatible = "brcm,cygnus-ccm-gpio";
--		reg = <0x1800a000 0x50>,
--		      <0x0301d164 0x20>;
--		ngpios = <24>;
--		#gpio-cells = <2>;
--		gpio-controller;
--		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-controller;
--
--		touch_pins: touch_pins {
--			pwr: pwr {
--				pins = "gpio-0";
--				drive-strength = <16>;
--			};
--
--			event: event {
--				pins = "gpio-1";
--				bias-pull-up;
--			};
--		};
--	};
--
--	gpio_asiu: gpio@180a5000 {
--		compatible = "brcm,cygnus-asiu-gpio";
--		reg = <0x180a5000 0x668>;
--		ngpios = <146>;
--		#gpio-cells = <2>;
--		gpio-controller;
--		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-controller;
--		gpio-ranges = <&pinctrl 0 42 1>,
--				<&pinctrl 1 44 3>;
--	};
--
--	/*
--	 * Touchscreen that uses the CCM GPIO 0 and 1
--	 */
--	tsc {
--		...
--		...
--		gpio-pwr = <&gpio_ccm 0 0>;
--		gpio-event = <&gpio_ccm 1 0>;
--	};
--
--	/* Bluetooth that uses the ASIU GPIO 5, with polarity inverted */
--	bluetooth {
--		...
--		...
--		bcm,rfkill-bank-sel = <&gpio_asiu 5 1>
--	}
-diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
-new file mode 100644
-index 000000000000..a0ed308b7fc8
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
-@@ -0,0 +1,111 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/brcm,iproc-gpio.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Broadcom iProc GPIO/PINCONF Controller
-+
-+maintainers:
-+  - Ray Jui <rjui@broadcom.com>
-+  - Scott Branden <sbranden@broadcom.com>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - brcm,cygnus-asiu-gpio
-+          - brcm,cygnus-ccm-gpio
-+          - brcm,cygnus-crmu-gpio
-+          - brcm,iproc-gpio
-+          - brcm,iproc-stingray-gpio
-+      - items:
-+          - enum:
-+              - brcm,iproc-hr2-gpio
-+              - brcm,iproc-nsp-gpio
-+          - const: brcm,iproc-gpio
-+
-+  reg:
-+    minItems: 1
-+    items:
-+      - description: GPIO Bank registers
-+      - description: IO Ctrl registers
-+
-+  "#gpio-cells":
-+    const: 2
-+
-+  gpio-controller: true
-+
-+  gpio-ranges: true
-+
-+  ngpios: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#gpio-cells"
-+  - gpio-controller
-+  - ngpios
-+
-+patternProperties:
-+  '-pins$':
-+    type: object
-+    additionalProperties:
-+      description: Pin configuration child nodes.
-+      allOf:
-+        - $ref: pincfg-node.yaml#
-+        - $ref: pinmux-node.yaml#
-+      additionalProperties: false
-+
-+      properties:
-+        pins:
-+          items:
-+            pattern: '^gpio-'
-+
-+        bias-disable: true
-+        bias-pull-up: true
-+        bias-pull-down: true
-+
-+        drive-strength:
-+          enum: [ 2, 4, 6, 8, 10, 12, 14, 16 ]
-+
-+      required:
-+        - pins
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    gpio@1800a000 {
-+        compatible = "brcm,cygnus-ccm-gpio";
-+        reg = <0x1800a000 0x50>,
-+              <0x0301d164 0x20>;
-+        ngpios = <24>;
-+        #gpio-cells = <2>;
-+        gpio-controller;
-+        #interrupt-cells = <2>;
-+        interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-controller;
-+
-+        touch-pins {
-+            pwr {
-+                pins = "gpio-0";
-+                drive-strength = <16>;
-+            };
-+
-+            event {
-+                pins = "gpio-1";
-+                bias-pull-up;
-+            };
-+        };
-+    };
+You are awesome, thank you!
 -- 
-2.47.2
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
