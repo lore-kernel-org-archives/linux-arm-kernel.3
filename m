@@ -4,162 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD6BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25D4C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BgntejMXkGfNWGR0fvdwL10031c8H3yGFaP1A//X7ew=; b=Skw5cv7Soik+RqJoRx5YeltFaS
-	gOyKMfDSmedq1s2byE6Wgs78ACUBRIG0S9nPaFvxAjGvSR/A/psnNGPorCPYrJUY7daWqBn/kDzM4
-	KsTxeJES4sRNFPAPme/qFURbiDc5ddZvPnrMejvTmGe5EHKDVtQ+WghNv69z0gxzOTp5+/CPn1DH9
-	RAhxnNNi6ayxA2bZP9+5rbziMS0sVGZzSDh4Q14ro3rSzFGZfcKwegN9UCdjv/Rnc2ZLIpx/6oimS
-	VwSRNtGvxipNCn8np7okv4s5qRPOBMkO7DRgRAUY+CnznLU4ZV2BawCfAGDeCCbCqtb081Rzda1pv
-	yCiN0r5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=; b=NjE+ZCoDzgAUMExmt3Rx9m19b+
+	7ViDHsA2UpEY2fxIZyu4x9myXHALECyAmcmRJwTLrvXlLIH1jfnN56Y0Axos/UAuLGZwKcZshY/oV
+	ZJEbNyvMW1MXetC+gjIne6oWxUIWPyAqSQ5tyJTZXjny7Z0hl4o1hEl9aBRKKVW5qg5TLl2Ja0RZ7
+	agY5rIByVYtWgYOCyhCeh4gyL3DCuvSDtErxR7MIUOSS92beM1x8ecJSrzOK1EGHsJxpDpmhwDEDv
+	v7O+Ywa/k8Ba3QJTT4JCcUmb/qd1oyrZDZ2iLyQO21wiHoZ9X71mOw9SKcxoTKL063jlPoNdNQUQB
+	F29wEyCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloHQ-0000000AlIh-0mtC;
-	Tue, 12 Aug 2025 12:39:04 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uloHT-0000000AlN9-013f;
+	Tue, 12 Aug 2025 12:39:07 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkcP-0000000AHSd-0OJ9
+	id 1ulkcp-0000000AHWE-2OIc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:44:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uvCW5C3iCOGbd/Q8olqkQa44ZdRSrNFgJmX6E2tJNV5hq3Ew8H4ZMafnG/NEXxEgXcrOtzkxcjI2HxnXMGqDEKlwHWQbvRm2NTHIKZkGx/KApQ9HGGR809mXdGCrmTfj9nBQC9KD6CthRL1wxKTg3kUkUTF2N7xYXkzvnsgnXZd1IXteRF7ffxflcmtEwgOl3edBlmXQT39L9OkYsHi69mT++mnjqjBLaXriZ48qXgCNDdKkyF/fuGY5pgkTsYtjTvJg7O6KOTIWXdXaeoXI3f/Z8NFe7fPOaTVK3oON6424Uy2JXX26/bgJaWTa7pZyq+UbwqtafrciHRVxVNvj3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BgntejMXkGfNWGR0fvdwL10031c8H3yGFaP1A//X7ew=;
- b=qTJee5SByHHvtNCFS7YMp64XqVmcCZpet3Amujkt6xxAbP9quklfidr+ARP3ybx/qpnwKX+tMEx9sWXR1YfP2GtkhcqpWX9XLY0WTwZ4aJkoduZt11p1rI4occGKSjPoiToSqkBwWDSJAR9v0yFq9t7UNHiTachD27UTeDK3lFFFt+iazSW7KQ6GgqYDlKQDTsg8vIx10UhE1WxRBSPVseS/u1jHzUjTLSymf7SAb4CIUMJgVICS+/4Iq0y1w6EMpesPyAWhRueYALwSYyY3c4LbMPA04B4jpORAIO4giAWMqm+zy+StjHKF8ZopccxOwBi2Vqe94NRCwM5htE3fTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BgntejMXkGfNWGR0fvdwL10031c8H3yGFaP1A//X7ew=;
- b=Zm+wO1olfgdm15Z7FdpItCCXaz24ROVpNdqNw635OBAn/W+bfv7VWBDLiKbDhtb4AorIyVIEq9t5S5MkuOKSIdbTPguBtKuwL5pAMJG7McIEsiV3Wwo80q9kVjj6hkCzICt9d7HX2EUpNR77QjfUDbwyAUSRDtjO1nndV5C5UC+cXMLvdcgt/RXUBXMEqS3qUWSi3Exqoeyz0GmjEnrvwC5eDpMsgmeRtf5uxOeliMRwb+Kt52m6HWVOmaogjKldqwxX+SCV6rPyLG4FDINcx3bRCFi71Kpp7YLsXg5BULrdPtPFEfp/7XbGBfQOtzi8/+BPOBEg8+GD+9ozHZtflA==
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by GVXPR04MB10517.eurprd04.prod.outlook.com (2603:10a6:150:1e1::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
- 2025 08:44:24 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 08:44:24 +0000
-From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
-To: Frank Li <frank.li@nxp.com>, "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
-CC: "rmfrfs@gmail.com" <rmfrfs@gmail.com>, Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>, "martink@posteo.de" <martink@posteo.de>,
-	"kernel@puri.sm" <kernel@puri.sm>, "mchehab@kernel.org" <mchehab@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 1/3] media: imx8mq-mipi-csi2: Add data type field in pixel
- format
-Thread-Topic: [PATCH 1/3] media: imx8mq-mipi-csi2: Add data type field in
- pixel format
-Thread-Index: AQHb9uoTaRb/UjHDJEmrnljv6LKfWLQ2dUOAgChiarA=
-Date: Tue, 12 Aug 2025 08:44:23 +0000
-Message-ID: <AS8PR04MB9080696B20FE05EEC6EACA2BFA2BA@AS8PR04MB9080.eurprd04.prod.outlook.com>
-References: <20250717071359.1910515-1-guoniu.zhou@oss.nxp.com>
- <20250717071359.1910515-2-guoniu.zhou@oss.nxp.com>
- <aHkaI/bA1EM3/Omn@lizhi-Precision-Tower-5810>
-In-Reply-To: <aHkaI/bA1EM3/Omn@lizhi-Precision-Tower-5810>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|GVXPR04MB10517:EE_
-x-ms-office365-filtering-correlation-id: 5b4104ec-c6d9-4f5d-d1a6-08ddd97c705f
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|7053199007|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Ccy3NK2Axari3EjlnhBvI2rIZBXMs0MaVcxshcNZXFxKcyGo6J2pLASTCniu?=
- =?us-ascii?Q?VnwecncpWLRitwQdeYoJc39GYr3QKo0jtuvmf0AK75nkgCAFBKojI0gdMJqS?=
- =?us-ascii?Q?towMgrNhZn0Cu5gzuslUAKpraJX1G36SNfteZNcrOx/7dN4zL4yFOPjCsQLt?=
- =?us-ascii?Q?GKkpwvL1NVz6cUt7tsLdHi33vvozs3+rBZbmzfHLuSDwGxqD5KttPxyitILm?=
- =?us-ascii?Q?qj114FGik2Vp3BWfKyRu9BPhbjZDBvkJqb2WEuMls02A3qa8Gmr2N/9dfKEq?=
- =?us-ascii?Q?cCazf5uFIb9x+g/wXQ+ho3oIiNIR60kXxfHTgZ5TfKQF0zuPt16J2iwUUAZO?=
- =?us-ascii?Q?RT9ycdzi5fni2e9HC8wCy5rrEDkyqX2lXmhotLJNEINbXRF/pizieKw1erBS?=
- =?us-ascii?Q?hgoVKarRHsYlkmNJa8TmxZpDVhdts7Ybm3UQ7cEBTloRRxLFoN/DNJSf1uSw?=
- =?us-ascii?Q?hCKi6bzrrpDQ0PlDOHdpmHMOqKw3AFnMye3dab8mIRjNNzZ/CRyAB+BUX080?=
- =?us-ascii?Q?BwVcAhhpWVsBNYHgaqh480+hHpOIXT6RBV+6L0agtL/NXyf0n7bVaIwH1CB1?=
- =?us-ascii?Q?p/uZdqWXQUzwrxainjaZhnTjtOdz+nPAYdGkUqTacSbz0xuYjxG1XpVFsk4a?=
- =?us-ascii?Q?PyDPTlQ0HsKBON3ypWB+uZrB9jet5H26LSlTRT23NEYZg6O3RV97W/1bCj2V?=
- =?us-ascii?Q?8kJFW4GHGHDz/HywQfSyVXhkY6MWmcVWnywjXClQsuQWCelKgaMqzPIkyBzz?=
- =?us-ascii?Q?7ElEIkypa6kdj5fbmuuylVqfUTPGp0ZqatEZwUdKLL2Frvc5WhOhHv5f00gf?=
- =?us-ascii?Q?HClsXi2Cr6Xd9y31Hu3ZK5d5UPCmd4joudDVNgANBamiUf5iP+TIIqTbriIk?=
- =?us-ascii?Q?S4IL48vXyZ7m3J2Uo11JVCrBrjWxxCPTPIarFmqSa1b1Wkz5N+InWpZIZxCo?=
- =?us-ascii?Q?pJFsV8awi6QoamnXO/AEyT5t9luoieP2I8TfUKE6ppeFbwwouPHUUGcQ3B/z?=
- =?us-ascii?Q?gCik/uR7Mz74auode6PZP9qf7TNdp804Lgv3CDM5DwmYq6nzKpbm7aQ93imK?=
- =?us-ascii?Q?lMhJRYGgQwPHO74cUKDdqDmudRo0YlgbQ+EkvvIddZUYduPB4QtBNhzdIqfm?=
- =?us-ascii?Q?OS6oGgOTQmfCb5gXoPGAfgIBG25RKC1p1Fonha6q0Z9FRttwTMih1YAYans8?=
- =?us-ascii?Q?hbLLKd9dGX+a1UDcsxcSYt6bhXsRyGo5+epbNXi/6xFkHzJGwA0+hB353ZJP?=
- =?us-ascii?Q?NLpnvIHgzyxkaFoj5ZLOu7pB0ks5LLwJDsCU3FmXvaJq5kAua5ze/+ddFX1P?=
- =?us-ascii?Q?8xl++gC1pPU9J9EOZAkuqXx9AvFyTA7FNxVwzUjMmtgLKJq0n0rcmNZrB8vz?=
- =?us-ascii?Q?YmMKBeyY7IM7zEFFmZ61VEIQsgZRf94t76yL7uJ88cei8Qn++RFy9gWbVPXE?=
- =?us-ascii?Q?iZF2NfZh1olmh6febJAS8NcUht7ssGQTfCW8ZjsVLyJBYfTaJF1gyQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(7053199007)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ckQzSRMuJuoKTfUqEeWJMRADufPJ93YVixpz28CridC1cT7OZ5qc8BfllWzm?=
- =?us-ascii?Q?McoaM5/QdbfQEUTvqUU1xX3bDdGL95ld0lMimhMkXDoZWefWgUalAAr7eXNy?=
- =?us-ascii?Q?9a6mQ9ip84uPyPU2efJzWIN6rW6taE9sAJnKMt3RcIAzsjmVhTOFwWnVcQ0K?=
- =?us-ascii?Q?Jr43Ztrunm/kpvMffoFkoOrbcNMQYrp8Q+mO5S/6LyNIgSeVpH/on6i2RA7h?=
- =?us-ascii?Q?NaHfU3w2Vw0WX1HtwqP9jrTT5W+5G4mdI8UwAlNvBGlZp0G9CQle+6+RZbU+?=
- =?us-ascii?Q?IJCwj1zZ3Gogec5zqfWttWi9QI2jiTALoUwK17uyEmlY5u4/bBejA2PgCJ6L?=
- =?us-ascii?Q?RjqlmI6JCdUH4yZHPcPUJlbaBwc/TN7jFxr1QVoiBXWlV1H9WiSmOjDezaOG?=
- =?us-ascii?Q?ibsuVvia1El/YQ9uM1y874acuWAWVdVmtkqZBfVfRvXGETseQYdCeHYW70OP?=
- =?us-ascii?Q?HFEfuS2qDSgWsTM4MPAHHykzZYlvnOF68NVPgKES4J+WVPtk97JfFooxHgZ9?=
- =?us-ascii?Q?ESeARMYgWWUz4EUo9O6BV20mspCtdwHgQOO7/ss7HGIQpEqrRNzqjmlAYO1S?=
- =?us-ascii?Q?0kS37a+xIWYzpPrc/SjU+u3kW2EzhZHUjTb5OaM2fKgCfiL0G2a0j2Ez2J4A?=
- =?us-ascii?Q?AmsGYHTTAlgUstWGtemFWEKYZlbURZnM7TILaSUeRCRJ0i/uqJ9loxkSjaQ8?=
- =?us-ascii?Q?nVao38eCr+kHgRPq3pVzbu4J1K/pgwoXqW39N8nGeYGr3kt2Yb+AsgDhuQRI?=
- =?us-ascii?Q?SX1PKS1h5NOrNDCXxuF8hiQsMgjSyEjPygImA4cKI5Hgm4hrp0BC9ooc/ZWh?=
- =?us-ascii?Q?VZ5nPa0neBR4p2yXva46OTLqjO6YYnFUhPaOk7L0OtYztsXkrtNuHZ1gvL8S?=
- =?us-ascii?Q?dB+oIcG+xEzJLyTU6XtmGny6W0vNKw2py5WRBTvOokd0FMqumCwMADeOjxzz?=
- =?us-ascii?Q?plTadAaVafmiCGNXH3WjgbbOrhpnIoMrzzJeDhpjfmJPkghcbH2MgrkerfJo?=
- =?us-ascii?Q?GMe3mgKUxQ5mwt2IWmeO2fldFwmXyjnDAL5oebSw3n0Nb+grDQq8KWvzDNDo?=
- =?us-ascii?Q?ZAo8GijbFoRBoMMfbVnLdGwDLT1/un29p7CPnMB9qG0njQ51Z97qH65ANapI?=
- =?us-ascii?Q?+p3bXTqmQvf4gpDrxcm+y8CExTDy+nflQFTiHJ6uSqyDeKeJJ2eyHFAoxXt8?=
- =?us-ascii?Q?dxZDps1qih0SRQMrerFl80uUw92Y11XYOegVH4AZUWRNENbjcrWioux8xCM7?=
- =?us-ascii?Q?SSOzx9PxNlzBOGdaaQyM1ZeTHkRks6hdzK+xWUr9y/F2XMBdZ9t9phqVDpo8?=
- =?us-ascii?Q?QxGnqF93xu1un+3W7CPySQOpbxrARuBCH5voVUc0lemlwPdlm7vFTPbLtejx?=
- =?us-ascii?Q?mJ/9xniYpVZ2Qb83iFd1LM1ZuCPCsBtlyr757L4N+AvAEPV5ZrDylJ7LSdto?=
- =?us-ascii?Q?t6kItRqfK/yqz2ma82D/iqmQlx/uGfcT0BSLvqgqotzQLNvp7Ca5Hv40oF45?=
- =?us-ascii?Q?+UEJRzqnKrDIKFUJwViUd25aw6HRl4HthfrJ/Ojy+wtjWH9Nfh9K6Hn5wgVv?=
- =?us-ascii?Q?SS2+sFu6jVYd3g/IW+RBBVxrPbHnpU4//44//Ur2?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 12 Aug 2025 08:44:56 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-af66d49daffso869938266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:44:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1754988294; x=1755593094; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=;
+        b=byiwgO+esT8bsXMVU5bR+L0A24L+mEsBKaIMbhjpBo6t/elXPrENRIY8WGpgM+Accq
+         r6bLz/Z/iNeqDx2dOFQXE8oWFmBlyZMSMVsWQYigzVh5W1d4eiTECjLwHEFgWAYKcCUz
+         CSVZLfId0Cxe3T48PXGL+KynGApceMEq6cFyisTjVbb6vEqsx/RK/uYFWzJU/KlUTLYM
+         G6nOqH74gZN4+qMXQeIOuXfAefzxrqVjfuSrUXO8W8fK8HEbG8h0/8peme0kUSShNXAs
+         2ZxzkDihRxuuoiX0YLO3gKHvVEU/z/xWHZrb/zpfozXTywXD4sOWstbFhkt+JZ4x++bB
+         Fmow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754988294; x=1755593094;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=;
+        b=Yp9Cs2VrEqLHLd3meu+aiTxvU3QsixMRSDILf9A6L0V3Lvi7W63vL2mKCw+PzhdXaV
+         dEHS0YWXzuR80KWnudaaf6cb5hRzahMLg2fOG7VxlLW8vTG9Q9lcyNe86IP/ApaaG444
+         l2lBjVWFnbNGQWr9GDHApnbbDnj0um7e7XlHb563rWcJaqvSaOOo06rjgW0S6hPDW0x5
+         8SxcYmff7+LjlT6aLaNcvnvQT1IuBlf3Omksp6ZhT6emgJpW3R40Q+Rq4bou44xSswMh
+         xM9S9AQ5OcBuR7Q01gjjFvmvNQf/2dDxn/kxtHSwSgPQI0/A/ID1oP7pj7lTL6sJvLAI
+         izwA==
+X-Forwarded-Encrypted: i=1; AJvYcCU3HraRKx4Uit2xKwG3jDE8Gou41iKbu20E+ruLAihZGvBnxhSsYfGcAVLWJOr8cExUaze+wjgyjRFUM5oxwwnG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlgdVp2OWZM6s+YJjNbIlivF6RexXnYdS5MSjQkDTrahX9plX9
+	+lMgArQxpUFLVthrQVBf1CEdIxF1wRyi2uwZFm+2drFNhqkwrCSAoR4oDummCiZVGWQ=
+X-Gm-Gg: ASbGncv5y0w0txmusYY93DALv/LZjpzECjPskpUJeZQw4C0oVvyP1fzywcmjnRM28U/
+	41VL5s9YPg67iAG/NuxE4lNHq3q0gHItPFpmu9X5FIQ4BQgDEMF4aEmsitXt5ToaM/Al5Zn22CF
+	QnXsiWzH7OWq5WNhiSQTgBINyzrNBRH/nSDB94JEFbguGAOYf+yjyA0gjrESJU1wk+bpVgv0cML
+	ua2WqYMs47XqbQiC4xVyPurV+Ec6O3HH06cBejJUfNqa6ac2URGahQFIh23KPSNQnDhM1GP0a6Y
+	D+S0ZmbyKOmz9OSDsGHY8RBMiL85YSSmPlF5dFWnbqGFi9vYlb9iRM24/UKtU9YBhqI2yzaMUm2
+	+M0y030J/1xjjo/xXKSuV4nAC8ufHSwOHt79RISMdnWAJ3XFUprgvaSDlp5eOfHiJ4A==
+X-Google-Smtp-Source: AGHT+IHGS28WyNhkMEqCYl++k5tXKsI+SYF4vISQjhRE5gJkG3IUVoDSvuT7pIyGxqFMWkpcex+/TQ==
+X-Received: by 2002:a17:907:3f94:b0:af9:14cf:d808 with SMTP id a640c23a62f3a-af9c654272amr1559960166b.55.1754988293947;
+        Tue, 12 Aug 2025 01:44:53 -0700 (PDT)
+Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a078afbsm2158282666b.4.2025.08.12.01.44.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 01:44:53 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	andrea.porta@suse.com,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: [PATCH] dt-bindings: pinctrl: rp1: Describe groups for RP1 pin controller
+Date: Tue, 12 Aug 2025 10:46:39 +0200
+Message-ID: <20250812084639.13442-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b4104ec-c6d9-4f5d-d1a6-08ddd97c705f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Aug 2025 08:44:24.0302
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Iq1VXQDsNpx1VgWUe4798WKuAoTpGFT7iTW0O6sOJ0N2ICGspVsjtjMy9VpcRiU/YNyWv38kRoXAdKiySEFghA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10517
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_014429_282101_38572B84 
-X-CRM114-Status: GOOD (  23.83  )
+X-CRM114-CacheID: sfid-20250812_014455_635937_5721EAAA 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,181 +108,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+The DT binding for RP1 pin controller currently lacks the group
+definitions.
 
-Thanks for your feedback.
+Add groups enumeration to the schema.
 
-> -----Original Message-----
-> From: Frank Li <frank.li@nxp.com>
-> Sent: Thursday, July 17, 2025 11:44 PM
-> To: G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
-> Cc: rmfrfs@gmail.com; Laurent Pinchart
-> <laurent.pinchart@ideasonboard.com>; martink@posteo.de; kernel@puri.sm;
-> mchehab@kernel.org; shawnguo@kernel.org; s.hauer@pengutronix.de;
-> kernel@pengutronix.de; festevam@gmail.com; linux-media@vger.kernel.org;
-> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Subject: Re: [PATCH 1/3] media: imx8mq-mipi-csi2: Add data type field in =
-pixel
-> format
->=20
-> On Thu, Jul 17, 2025 at 03:13:57PM +0800, guoniu.zhou@oss.nxp.com wrote:
-> > From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
-> >
-> > Add data type field in CSI pixel format info since the downstream
-> > subdev in the pipeline need to know.
-> >
-> > Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
->=20
-> double signed off line.
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ .../pinctrl/raspberrypi,rp1-gpio.yaml         | 35 ++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
 
-[G.N] Will remove it in next version.
+diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+index eec9a9b58542..af6fbbd4feea 100644
+--- a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
+@@ -72,10 +72,36 @@ $defs:
+       pins:
+         description:
+           List of gpio pins affected by the properties specified in this
+-          subnode.
++          subnode (either this or "groups" must be specified).
+         items:
+           pattern: '^gpio([0-9]|[1-4][0-9]|5[0-3])$'
+ 
++      groups:
++        description:
++          List of groups affected by the properties specified in this
++          subnode (either this or "pins" must be specified).
++        items:
++          anyOf:
++            - pattern: '^gpio([0-9]|[1-4][0-9]|5[0-3])$'
++            - enum: [ uart0, uart0_ctrl, uart1, uart1_ctrl, uart2, uart2_ctrl,
++                      uart3, uart3_ctrl, uart4, uart4_ctrl, uart5_0,
++                      uart5_0_ctrl, uart5_1, uart5_1_ctrl, uart5_2,
++                      uart5_2_ctrl, uart5_3,
++                      sd0, sd1,
++                      i2s0, i2s0_dual, i2s0_quad, i2s1, i2s1_dual, i2s1_quad,
++                      i2s2_0, i2s2_0_dual, i2s2_1, i2s2_1_dual,
++                      i2c4_0, i2c4_1, i2c4_2, i2c4_3, i2c6_0, i2c6_1, i2c5_0,
++                      i2c5_1, i2c5_2, i2c5_3, i2c0_0, i2c0_1, i2c1_0, i2c1_1,
++                      i2c2_0, i2c2_1, i2c3_0, i2c3_1, i2c3_2,
++                      dpi_16bit, dpi_16bit_cpadhi, dpi_16bit_pad666,
++                      dpi_18bit, dpi_18bit_cpadhi, dpi_24bit,
++                      spi0, spi0_quad, spi1, spi2, spi3, spi4, spi5, spi6_0,
++                      spi6_1, spi7_0, spi7_1, spi8_0, spi8_1,
++                      aaud_0, aaud_1, aaud_2, aaud_3, aaud_4,
++                      vbus0_0, vbus0_1, vbus1, vbus2, vbus3,
++                      mic_0, mic_1, mic_2, mic_3,
++                      ir ]
++
+       function:
+         enum: [ alt0, alt1, alt2, alt3, alt4, gpio, alt6, alt7, alt8, none,
+                 aaud, dcd0, dpi, dsi0_te_ext, dsi1_te_ext, dsr0, dtr0, gpclk0,
+@@ -103,6 +129,13 @@ $defs:
+       drive-strength:
+         enum: [ 2, 4, 8, 12 ]
+ 
++    required:
++      - function
++
++    oneOf:
++      - required: [ groups ]
++      - required: [ pins ]
++
+     additionalProperties: false
+ 
+ allOf:
+-- 
+2.35.3
 
->=20
-> > ---
-> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 23
-> > +++++++++++++++++++
-> >  1 file changed, 23 insertions(+)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > index 3a4645f59a44..7495400adc22 100644
-> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > @@ -25,6 +25,7 @@
-> >  #include <linux/reset.h>
-> >  #include <linux/spinlock.h>
-> >
-> > +#include <media/mipi-csi2.h>
-> >  #include <media/v4l2-common.h>
-> >  #include <media/v4l2-device.h>
-> >  #include <media/v4l2-fwnode.h>
-> > @@ -138,6 +139,7 @@ struct csi_state {
-> >
-> >  struct csi2_pix_format {
-> >  	u32 code;
-> > +	u32 data_type;
-> >  	u8 width;
-> >  };
-> >
-> > @@ -262,68 +264,89 @@ static const struct csi2_pix_format
-> imx8mq_mipi_csi_formats[] =3D {
-> >  	/* RAW (Bayer and greyscale) formats. */
-> >  	{
-> >  		.code =3D MEDIA_BUS_FMT_SBGGR8_1X8,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW8,
->=20
-> I found many place have similar convert. Is it fixed map for csi2?  If ye=
-s,
-
-[G.N] Most of them are fixed, but some of them may depend on device specifi=
-c, so I suggest to let driver to handle it.
-
->=20
-> Can you add helper function, like
->=20
-> in include mipi-csi2.h
->=20
-> media_bus_fmt_to_csi(int bus_fmt)
-> {
-> 	switch (buf_fmt)
-> 	{
-> 	case MEDIA_BUS_FMT_SBGGR8_1X8:
-> 		return MIPI_CSI2_DT_RAW8;
->=20
-> 	...
-> 	}
-> }
->=20
-> Frank
->=20
-> >  		.width =3D 8,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGBRG8_1X8,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW8,
-> >  		.width =3D 8,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGRBG8_1X8,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW8,
-> >  		.width =3D 8,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SRGGB8_1X8,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW8,
-> >  		.width =3D 8,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_Y8_1X8,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW8,
-> >  		.width =3D 8,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SBGGR10_1X10,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW10,
-> >  		.width =3D 10,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGBRG10_1X10,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW10,
-> >  		.width =3D 10,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGRBG10_1X10,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW10,
-> >  		.width =3D 10,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SRGGB10_1X10,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW10,
-> >  		.width =3D 10,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_Y10_1X10,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW10,
-> >  		.width =3D 10,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SBGGR12_1X12,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW12,
-> >  		.width =3D 12,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGBRG12_1X12,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW12,
-> >  		.width =3D 12,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGRBG12_1X12,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW12,
-> >  		.width =3D 12,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SRGGB12_1X12,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW12,
-> >  		.width =3D 12,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_Y12_1X12,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW12,
-> >  		.width =3D 12,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SBGGR14_1X14,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW14,
-> >  		.width =3D 14,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGBRG14_1X14,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW14,
-> >  		.width =3D 14,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SGRBG14_1X14,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW14,
-> >  		.width =3D 14,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_SRGGB14_1X14,
-> > +		.data_type =3D MIPI_CSI2_DT_RAW14,
-> >  		.width =3D 14,
-> >  	},
-> >  	/* YUV formats */
-> >  	{
-> >  		.code =3D MEDIA_BUS_FMT_YUYV8_1X16,
-> > +		.data_type =3D MIPI_CSI2_DT_YUV422_8B,
-> >  		.width =3D 16,
-> >  	}, {
-> >  		.code =3D MEDIA_BUS_FMT_UYVY8_1X16,
-> > +		.data_type =3D MIPI_CSI2_DT_YUV422_8B,
-> >  		.width =3D 16,
-> >  	}
-> >  };
-> > --
-> > 2.34.1
-> >
 
