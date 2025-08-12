@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CBEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93066CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A05cKNMzRYhBI6ulx0aKEKqHG+wpJ5H4d7xcAsFDnQ0=; b=5EFwuVqzZe7aDG/wOrFegj8Ytu
-	pkMJ65DZBhIsKAOpRmO353/2ChdYVBBBArohKPI2pmEM5faKQwtNo/e6t5fIkaqzjhIXrxaLXpHAM
-	HN2UiKQU4/k43O5zWpCVFuZWYhWkwiJ7En4EBTZ3Vw8QascnLXgjRZ9V24jelaZxGUBJjkIdZQR5t
-	xiwVsqmzdN4c9Vh85eiqBisNZ4gvGJc57C1mIF+Y8GVXFfOeT8IVU/oAjoavWmdNY1tT3GLZ00ooq
-	fW7ojdJnfissaQv1awbwGNLstaXfTLDoEv7GYVotyMkNTpkDjJQt3ME1IZD9v/Sa57i49olMcnka+
-	iJRBZh3g==;
+	bh=HT2hqwAZZG0UAbHiYEwWNljrR3mJBNDjqO64v62M4Fo=; b=x/NjWAFU8JpvNh8iR/PPOw7AHK
+	0zWWNKQyvc76kIuuH9T9XNa/A2rS0M50e7Mz/iu6QVRJfxEuolKd20w90HKfkbhklGwKWpPLeHZ5m
+	/eOGD/DabUDIQGqusYFDWCAngsOBgeDrvuNDE7z1lu4OH0zwxcs4eYshxYyQU6JL2PaH9cBEbd5kR
+	pQsMy3/UTvicxqBdN/TMyV2YnKb1mUlH7EI9oiXk6Ak+kRLzxkWfkjHsyJoVCF0cCG3tnez4K+jom
+	DE9m7k0e5e/ZfBJ2WOrznSrgS7l/2SIo6gdArIjPH/aXLHGap5geziU3Hm9cwGYBCyfqqinEIBn/6
+	66UKTc7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrwA-0000000BQYO-24oL;
-	Tue, 12 Aug 2025 16:33:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ulryg-0000000BR8K-2ufR;
+	Tue, 12 Aug 2025 16:35:58 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulopt-0000000AtEW-0oU5;
-	Tue, 12 Aug 2025 13:14:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=A05cKNMzRYhBI6ulx0aKEKqHG+wpJ5H4d7xcAsFDnQ0=; b=FAEhxy06gCiuMHaj908xWGGaxI
-	fxJuHk9fsIlcuMVijewNwrKZTL6eQLyxoj2c/SFp0vJHUIg7wOBHpyX/lK5bbu9VAcfQTHb1OCWAM
-	SzlxEXxzvSak2LBM7cba+AQF/2IXW7bth1ouE0QhwnGt2PhV5mNu649DWB5RFxLZwg5OUGTySiL33
-	PvV0ZuXGzHgTNR8aBPdRJrAAU6yWhMnbv/OjfCQqk9JfuyAHqSomr9HHUQwM16RD2k8nQWUCKvj5c
-	mhTrE0ote+w1RYpuOcYc7EbdB+BO28FQgkc5ZZIkWDa1fvlvq1iiC+C60FaaRIARwMjpacv+eyRfB
-	Lcv4xhnA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulopp-0000000Fof2-47mo;
-	Tue, 12 Aug 2025 13:14:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA2D3A5683D;
-	Tue, 12 Aug 2025 13:14:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 672C2C4CEF5;
-	Tue, 12 Aug 2025 13:14:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755004474;
-	bh=N31Jk7sk2wXqUWlbJqfBRZI21Hu0ZuXuWWLfYwq5Akw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qAYzFzJpb3+GWjgjuiff8vRWHltE0MgI/+D0MvqHcg/E1fJs4QZopkMhyCS7HaxGn
-	 Tj4yzWtlKEYCepLwpucu+QKKbxfRC6wLiL6S3fJTcYFZsn9tr4BmiTpaUleocDfcf0
-	 S3jJ201CYCcMLcVeBe968r5kcxlrewbjbmSllG6wL8MqvQaGXG7OsbznGCi8QVH6Ny
-	 /ZOxgeKakz/XJgtWLdWt8nR7w7jfUmR4lColyUe4x8YVmeWz1KReHFt0ozjwFlGUmS
-	 UEYyYgWvRS/JL5e0kg4PZaEqKyWazZ4WRWFhpUj06dJft9qlkoNAgNZ09YRR+8X+h1
-	 qH2EUD6DHPqew==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ulope-006gas-Mr;
-	Tue, 12 Aug 2025 14:14:26 +0100
-Date: Tue, 12 Aug 2025 14:14:25 +0100
-Message-ID: <86ldno8yxa.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Coiby Xu <coxu@redhat.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org
-Subject: Re: [Regression] kdump fails to get DHCP address unless booting with pci=nomsi or without nr_cpus=1
-In-Reply-To: <gec2yl5wx6vvt67smx5emhcoifvtp4orw6sub24b2nrqwryhp2@i4h7qbtwjo3r>
-References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
-	<87bjom8106.ffs@tglx>
-	<878qjq80yu.ffs@tglx>
-	<86v7mt9ai3.wl-maz@kernel.org>
-	<i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
-	<86ms84974v.wl-maz@kernel.org>
-	<gec2yl5wx6vvt67smx5emhcoifvtp4orw6sub24b2nrqwryhp2@i4h7qbtwjo3r>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coxu@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1ulozW-0000000AuUl-1ohX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 13:24:39 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1755005066;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HT2hqwAZZG0UAbHiYEwWNljrR3mJBNDjqO64v62M4Fo=;
+	b=fO1COuL7ORNxs3B9H3eGGgHU9jirAwVsKZdXfDYQgh+bWhrPOwnFtvbFpwFtmMrK8h7QSx
+	G1R1zOR/S018416supYWIA/skr45GD15EDyxzwf5e02YMHZ3gWFQuWrV2108YVFoKmMHyc
+	hbuoLiHAtfyt6ZgiYCo20JrHBiT6byXF+QYtTvctbCorhcpSW/GeEyUGP3zR/E0lWMdhHe
+	BjWQezA7xH3eHnGuTxNraXzhvJ0fQLGcXrAI64bheWpRKS/FiWloe/KEsydGnJK9vU4bHC
+	SXnUYbPFfsivpYnu++s2au44lOTAWHdj3xDLn+7hr1tUQUVkX9R1EGDKhsOHuw==
+Content-Type: multipart/signed;
+ boundary=72ec2ff28c27c182335a5ca95df6427b9de7efab639d68f403e5354ccd1f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 12 Aug 2025 15:23:55 +0200
+Message-Id: <DC0HD39JC201.N1K8MVD1P7OI@cknow.org>
+Subject: Re: [PATCH v2] rockchip/drm: vop2: make vp registers nonvolatile
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Piotr Zalewski"
+ <pZ010001011111@proton.me>
+Cc: <hjc@rock-chips.com>, <andy.yan@rock-chips.com>,
+ <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+ <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+ <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250706083629.140332-2-pZ010001011111@proton.me>
+ <OWFHI491RHadO01jlQPA34GX28LC7SseKfNRwqQy4etkkJyP1YeF_0EDdAgpSXx5RW7go62EAOkedW5nbyn_hlz_K-NUrnNJeDFWv0OOSO8=@proton.me> <DB4WNMVBIWYS.273Z54K6O7DTM@cknow.org> <4207630.fIoEIV5pvu@diego>
+In-Reply-To: <4207630.fIoEIV5pvu@diego>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_141438_280046_CCE2D508 
-X-CRM114-Status: GOOD (  47.83  )
+X-CRM114-CacheID: sfid-20250812_062438_612642_91178453 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,129 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 12:07:56 +0100,
-Coiby Xu <coxu@redhat.com> wrote:
-> 
-> On Tue, Aug 12, 2025 at 11:17:04AM +0100, Marc Zyngier wrote:
-> > On Tue, 12 Aug 2025 11:09:12 +0100,
-> > Coiby Xu <coxu@redhat.com> wrote:
-> >> 
-> >> On Mon, Aug 11, 2025 at 03:52:04PM +0100, Marc Zyngier wrote:
-> >> > On Mon, 11 Aug 2025 14:03:21 +0100,
-> >> > Thomas Gleixner <tglx@linutronix.de> wrote:
-> >> >>
-> >> >> On Mon, Aug 11 2025 at 15:02, Thomas Gleixner wrote:
-> >> >>
-> >> >> CC+ Marc
-> >> >>
-> >> >> > On Mon, Aug 11 2025 at 11:23, Coiby Xu wrote:
-> >> >> >> Recently I met an issue that on certain virtual machines, the kdump
-> >> >> >> kernel fails to get DHCP IP address most of times starting from
-> >> >> >> 6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
-> >> >> >> Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
-> >> >> >>
-> >> >> >>      # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
-> >> >> >>      # MSI_FLAG_PCI_MSI_MASK_PARENT
-> >> >> >>      git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
-> >> >> >>      # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
-> >> >> >>      # Provide MSI parent infrastructure
-> >> >> >>      git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
-> >> >> >>      # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
-> >> >> >>      # Prepare for PCI MSI/MSIX
-> >> >> >>      git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
-> >> >> >>      # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
-> >> >> >>      # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
-> >> >> >
-> >> >> > There were follow up fixes on this, so isolating this one is not really
-> >> >> > conclusive.
-> >> >> >
-> >> >> > Is the problem still there on v6.16 and v6.17-rc1?
-> >> >
-> >> > Yeah, there are way too many things that have been addressed since.
-> >> > kdump is also a particularly nasty case, as it tends to rely on the
-> >> > redistributor tables programmed by the previous kernel.
-> >> 
-> >> Thanks for providing a clue. This may also explain explain why I fails
-> >> to reproduce this issue against 1st kernel even with the same cmdline of
-> >> the kdump kernel.
-> > 
-> > I'm not sure that's a clue. It's only an indication that things are
-> > not necessarily easy to spot.
-> > 
-> > Has it ever been reproduced on bare metal? Have you tried v6.16 as
-> > instructed?
-> 
-> Thanks for replying so quickly!
-> 
-> No, I haven't reproduced it on a bare metal machine and our QE engineers
-> haven't noticed this issue on any bare metal machine either. 
-> And I can confirm this issue still happens to 6.16.0-200.fc42.aarch64
-> and 6.17.0-0.rc1.17.fc43.aarch64 on the type of KVM VMS (QEMU PnP device
-> PNP0c02) where the issue was found.
+--72ec2ff28c27c182335a5ca95df6427b9de7efab639d68f403e5354ccd1f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-What is that device? Is that the emulated PCI bridge?
+Hi Heiko,
 
-> >> > Also, this says "virtual machines". What's the hypervisor?
-> >> 
-> >> I'll contact the lab administrator. What kinds of info I should collect
-> >> to help you narrow down the issue?
-> > 
-> > Surely you know what hypervisor you're running on, right?
-> 
-> Yes, the hypervisor is KVM. Sorry, I thought merely providing the
-> hypervisor info isn't sufficient and also misunderstood your request as
-> providing more details on the host machine.
+On Sun Jul 6, 2025 at 12:46 PM CEST, Heiko St=C3=BCbner wrote:
+> Am Sonntag, 6. Juli 2025, 12:37:40 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Diederik de Haas:
+>> On Sun Jul 6, 2025 at 12:20 PM CEST, Piotr Zalewski wrote:
+>> >> With a new version of a patch, you're supposed to add the tags you
+>> >> received for previous versions, like my Tested-by tag [1].
+>> >>=20
+>> >> (unless the new version has changed so much you feel they should not =
+be
+>> >> carried over; you then need to explicitly describe that and why you
+>> >> dropped them)
+>> > =20
+>> > Forgot... Should i send it as PATCH v2 RESEND?
+>>=20
+>> I don't think that's needed; the maintainer will let you know if that's
+>> desirable or that they will add it (back) when committing.
+>
+> The problem is then remembering to manually collect the tags from a
+> previous series.
+>
+> For my reference, it was
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>
+>
+> So hopefully I'll remember now :-) and there is no need for a resend
+> at this time.
 
-Well, knowing that it is KVM is definitely relevant, given that this
-is my own turf.
+Is more needed to get this patch accepted? If so, can I help with that?
 
-> >> > How hard is it to reproduce?
-> >> 
-> >> It can be reproduced reliably on certain machines. But as of writing I
-> >> haven't reproduced it on other KVM virtual machines on three different
-> >> host machines.
-> > 
-> > Which machines? I'm sorry, but if you want help on this, you'll have
-> > to provide actual information.
-> 
-> Sorry, I didn't mean to be vague. I thought you question is on how
-> reproducible this issue is and there is no need to provide the details
-> on the machines where I can't reproduce this issue. Since you explicitly
-> request it, I'll be glad to share the details.
-> 
-> I just grabbed three arbitrary bare metal machines having Fedora-42
-> installed and launched some KVM VMs to see if this issue can be
-> reproduced easily. Two host machines are as follows (sorry I can't find
-> the info of the 3rd one)
-> - GIGABYTE PnP device PNP0c02, ARMv8 (M128-30)
-> - LTHPCSR112 (01234567890123456789AB), ARMv8 (Q80-30)
+Cheers,
+  Diederik
 
-Are these both Ampere Altra boxes?
+--72ec2ff28c27c182335a5ca95df6427b9de7efab639d68f403e5354ccd1f
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> The virtual machine image is downloaded from
-> https://download.fedoraproject.org/pub/fedora/linux/releases/42/Cloud/aarch64/images/Fedora-Cloud-Base-Generic-42-1.1.aarch64.qcow2.
-> I tried different vCPUs (2, 4), different RAM (4G, 35G) and also two
-> different UEFI firmware (the default one and one from edk2-experimental
-> package) but haven't reproduced this issue so far.
+-----BEGIN PGP SIGNATURE-----
 
-Hold on. Above, you say that you have reproduced it with
-6.16.0-200.fc42.aarch64. So have you, or have you not reproduced it?
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaJtAgAAKCRDXblvOeH7b
+blk/AP9qVD2EKzBtPo/59n2gdL4G9t/u9M80pLQJzj/tM0PwowEA/d9FYzxx/rFZ
+lfZGkb8gpfOqw60ZYCxDwIfQQoqU7wQ=
+=3G71
+-----END PGP SIGNATURE-----
 
-Can you at the very least share:
-
-- the boot log of the guest on its first kernel
-
-- the boot log of the guest running kdump
-
-- the content of /sys/kernel/debug/kvm/$PID-xx/vgic*state* when
-  running both kernels
-
-- the QEMU command-line to get to run the whole thing
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--72ec2ff28c27c182335a5ca95df6427b9de7efab639d68f403e5354ccd1f--
 
