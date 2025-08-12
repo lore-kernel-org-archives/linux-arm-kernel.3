@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D15CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B4ACA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72qXvrI1abXH3Guw+vBZYFqWh6SdLLj7B8w8ungRwZk=; b=4a863OBZUMZ3IMxxViZUuFMbLc
-	DBTg89iGP2KsbJxOFqhY3NsREO+2L15xLIxmuxWUcWhiAc1gMLLcqwjRzDS8pTxt1gpFjwAYT4opw
-	UYx7lDoCnVbZO2rEbRjUvZumQvikZ/2dgjC2i9VItSjJdfDJd7EBI2dAxKZdpufHqF7zak9Ws+gBW
-	D+/hL09T/s+XCKtGaobw1i0f0HmzyP1FY4OjsPVFuozu8Mev7cI0x2DborhDV2KaqKV/C3cKkWW8S
-	RFJqaP2fg/ANrXBYtnvGpz1D6v13EXdZ2g2UpA5QWoym5FhuerbfT0SsqygOrgo/drDwxDw7PCIal
-	KksWoHBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JbxGqq6JaFT/Nkk+dr+a6MvdLzycJysZKuCblzsAY+E=; b=bjmRun0YuDRhw4AqsqNBFZBGwR
+	4/xo1z8pzBNP1HHP5LTjcMVdbep2PE1QVH61O9AWhGkOoZWtqwFT8ozPDpZZDVAMZSA5hC232dVON
+	ZQGooU6rZHKZ29GIONGMVCpSpRWgUdCnF0Wn9t4b08FZIyTWS3bnziXAP55gc0dsjHTHNgZUtgRux
+	NXmx+xmVzuRxKBfCq7w3jY0sktT/xmcOtFAcpHdhnUxBwJSDO/7PJxy34N50URzSbFDHd0bCSBc0D
+	c5gAuiVNTKoDQa5tzIiwnNm4RCKkCEEwlHhi/h47Zcm8Aw1XFKynGZhMlsEMrGcaf/HDik1RXn9wZ
+	+IGO8kJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgi-0000000BxCS-2JCe;
-	Tue, 12 Aug 2025 20:33:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ulvgk-0000000BxG9-2Pr8;
+	Tue, 12 Aug 2025 20:33:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultgg-0000000BhsE-3KNi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:25:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DD03E5C4186;
-	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 798D5C4CEF0;
-	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755023129;
-	bh=dp8uCVb8LD0lYnS4gp/nmqX07iPx3Lp8CElZzc5oZ9w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DZ7ogL+qgE00dLCMdHJEe+tUmi2xnlLw9iFhMilVpyw6QenSDCCMzRXsWQ9mOPqDg
-	 piZ8FnQEOz3w4WkGtOHodhyFKynAfbbghB4CeaCfBngYKrUiJ9STmfSCBSoij5A7vI
-	 jDq0B0iGDtWoVl1hriGB+BXFVWXiQL6NqnIgHV7RijZQipmHkPUdmLGx3weujXCXyR
-	 a7Jb8FH6U6pOCzfDnaKSdnKFBA2jbqIQ9doilM3sH5BkG6y6bdiiYUFRKfEAxQGvHh
-	 NX8b/k1rKvSc+/7XquExUS4lk8xp701ytWb2rDCJxPPrVozFT96ZmZl054/HxsUD/M
-	 52RRJqW6nEV0A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6AB0BCA0EDB;
-	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Tue, 12 Aug 2025 18:25:15 +0000
-Subject: [PATCH 1/3] dt-bindings: rtc: Add Apple SMC RTC
+	id 1ulthv-0000000Bhz1-2OC3;
+	Tue, 12 Aug 2025 18:26:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755023204;
+	bh=69/IXjK3yV6/KOHFU1P3cPM9KgocQb+6h8pn3YliXQg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=c6eBDRSGAzq1MJtGpLaDtmEdS4kvrirKcJrrDOzzCPK4q+aJLTKgy8KMbqNO8Fffw
+	 0Bd80jew4vb/AOLCWZt3JjE0whNfBJFjnRPSEJZqWbz7Mr9q2mkoc2484kfYYeVBo+
+	 dnoGEHcIncM4IPzHv6gzKJuJ95Oe+HsFeh5+M5oHM5Kzn2xjXqsONUL1QxnjwLtWOP
+	 3ZzOkljxXqjr7Ufw/BSRTnvrSX7eainxdUioGObpcLfzmqc/LxYiu7dBiD5DJnj5BA
+	 1yC/zRsDvSPtwCRWtRRDvBV3L2v59T2Bba5ZenhVIi0UNagmWNq3RVjVcw25WYpKp0
+	 frHK2da8L1aGQ==
+Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4D2C717E011A;
+	Tue, 12 Aug 2025 20:26:43 +0200 (CEST)
+Message-ID: <25ce30446e8e8d038273fcdfb398c90995c242db.camel@collabora.com>
+Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Alex Bee <knaerzche@gmail.com>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 12 Aug 2025 14:26:41 -0400
+In-Reply-To: <efdf8c99-d166-4b78-afc5-d4a6eb5ac046@kwiboo.se>
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+	 <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
+	 <1dd29158-0660-4254-ac00-1316768d9b82@kwiboo.se>
+	 <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
+	 <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+	 <efdf8c99-d166-4b78-afc5-d4a6eb5ac046@kwiboo.se>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPW0RE5pY29sYXMgRHVmcmVzbmUgKEIuIFNjLiBJbmZvcm1hdGlxdW
+ UpIDxuaWNvbGFzZEBibHVlc3RyZWFrdGVjaC5jb20+iGAEExECACAFAkZjGzoCGwMGCwkIBwMCBBU
+ CCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHBl7AJ0d2lrzshMmJaik/EaDEakzEwqgxQCg0JVZMZm9
+ gRfEou1FvinuZxwf/ms=
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
+	boundary="=-1m44GyIlgc9M/VdWhbhx"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250812-wip-smc-rtc-v1-1-66a8e96dad60@kernel.org>
-References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
-In-Reply-To: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
-To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rtc@vger.kernel.org, Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3344; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=dp8uCVb8LD0lYnS4gp/nmqX07iPx3Lp8CElZzc5oZ9w=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ8bsduEX7/Z6lM9Yvq0o43917LSnIVejivfbfJKYYiL3I
- DHj2H3hjlIWBjEOBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBEfr5m+F922LHmQ1id1jnz
- NrO9PLN+27Wcc3OO+3byXuD98xt/cX5gZLihr9tVlH6LWe/itZ8H+MU2ZCzZoTvlrlWRXotlvpb
- re14A
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_112530_925547_6F2F5978 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250812_112647_764053_79697477 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,100 +109,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
-but most of the PMU functionality is abstracted out by the SMC.
-An additional RTC offset stored inside NVMEM is required to compute
-the current date/time.
 
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- .../devicetree/bindings/mfd/apple,smc.yaml         |  9 ++++++
- .../devicetree/bindings/rtc/apple,smc-rtc.yaml     | 35 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 3 files changed, 45 insertions(+)
+--=-1m44GyIlgc9M/VdWhbhx
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-index 8a10e270d421ecd703848f64af597de351fcfd74..38f077867bdeedba8a486a63e366e9c943a75681 100644
---- a/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-+++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-@@ -41,6 +41,9 @@ properties:
-   reboot:
-     $ref: /schemas/power/reset/apple,smc-reboot.yaml
- 
-+  rtc:
-+    $ref: /schemas/rtc/apple,smc-rtc.yaml
-+
- additionalProperties: false
- 
- required:
-@@ -75,5 +78,11 @@ examples:
-           nvmem-cell-names = "shutdown_flag", "boot_stage",
-                              "boot_error_count", "panic_count";
-         };
-+
-+        rtc {
-+          compatible = "apple,smc-rtc";
-+          nvmem-cells = <&rtc_offset>;
-+          nvmem-cell-names = "rtc_offset";
-+       };
-       };
-     };
-diff --git a/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml b/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..607b610665a28b3ea2e86bd90cb5f3f28ebac726
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
-@@ -0,0 +1,35 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/apple,smc-rtc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple SMC RTC
-+
-+description:
-+  Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
-+  but most of the PMU functionality is abstracted out by the SMC.
-+  An additional RTC offset stored inside NVMEM is required to compute
-+  the current date/time.
-+
-+maintainers:
-+  - Sven Peter <sven@kernel.org>
-+
-+properties:
-+  compatible:
-+    const: apple,smc-rtc
-+
-+  nvmem-cells:
-+    items:
-+      - description: 48bit RTC offset, specified in 32768 (2^15) Hz clock ticks
-+
-+  nvmem-cell-names:
-+    items:
-+      - const: rtc_offset
-+
-+required:
-+  - compatible
-+  - nvmem-cells
-+  - nvmem-cell-names
-+
-+additionalProperties: false
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe168477caa45799dfe07de2f54de6d6a1ce0615..aaef8634985b35f54de1123ebb4176602066d177 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2397,6 +2397,7 @@ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
- F:	Documentation/devicetree/bindings/power/apple*
- F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
- F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-+F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
- F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
- F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
- F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+Hi Jonas,
 
--- 
-2.34.1
+Le mardi 12 ao=C3=BBt 2025 =C3=A0 19:31 +0200, Jonas Karlman a =C3=A9crit=
+=C2=A0:
+> On 8/12/2025 2:44 PM, Nicolas Dufresne wrote:
+> > I forgot,=20
+> >=20
+> > Le mardi 12 ao=C3=BBt 2025 =C3=A0 08:38 -0400, Nicolas Dufresne a =C3=
+=A9crit=C2=A0:
+> > > > JCT-VC-HEVC_V1 on GStreamer-H.265-V4L2SL-Gst1.0:
+> > > >=20
+> > > > - DBLK_D_VIXS_2 (fail)
+> > > > - DSLICE_A_HHI_5 (fail)
+> > > > - EXT_A_ericsson_4 (fail)
+> > > > - PICSIZE_A_Bossen_1 (error)
+> > > > - PICSIZE_B_Bossen_1 (error)
+> > > > - PICSIZE_C_Bossen_1 (error)
+> > > > - PICSIZE_D_Bossen_1 (error)
+> > > > - SAODBLK_A_MainConcept_4 (fail)
+> > > > - SAODBLK_B_MainConcept_4 (fail)
+> > > > - TSUNEQBD_A_MAIN10_Technicolor_2 (error)
+> >=20
+> > I'me getting the same result if I force a single job in fluster. The te=
+st I
+> > posted was with 2 jobs. Detlev found that the iommu reset is required i=
+n
+> > more
+> > cases on RK3588/3576, perhaps the HEVC decoder in older hardware needs =
+the
+> > same,
+> > I will try and report.
+>=20
+> Vendor kernel [1] check following bits from RKVDEC_REG_INTERRUPT reg to
+> decide if a full HW reset should be done.
+>=20
+> =C2=A0 err_mask =3D RKVDEC_BUF_EMPTY_STA
+> =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_BUS_STA
+> =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_COLMV_REF_ERR_STA
+> =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_ERR_STA
+> =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_TIMEOUT_STA;
+>=20
+> Adding proper reset support can be rather involved and main reason why
+> this series does not handle it, better suited for a separate future
+> series.
+>=20
+> Proper HW reset will require e.g. dt-bindings, DT updates, pmu idle
+> request integration and for rk3328 vendor even moved VPU reset to TF-A.
+>=20
+> Doing the iommu detach/attach dance not only on RKVDEC_SOFTRESET_RDY
+> could possible improve some cases, until full reset can be implemented.
 
+Rockchip is following VSI design of "self reset" on error. But since the io=
+mmu
+is part of the device, it also gets reset, which imply having to reprogram =
+it.
+This showed to be very reliable logic, despite RK doing a hard reset.
 
+Since self reset is documented for RKVDEC_BUS_STA, RKVDEC_ERR_STA,
+RKVDEC_TIMEOUT_STA, it would seem that RKVDEC_BUF_EMPTY_STA is redundant, u=
+nless
+its asynchronous operation that need to be polled. Possibly something to
+investigate. RKVDEC_BUF_EMPTY_STA and RKVDEC_COLMV_REF_ERR_STA are not
+documented a such, so its not quite logical to reprogram the iommu.
+
+I don't immediately trust reference software for these type of things, we s=
+hould
+find what works best and have a rationale for. The hard reset is every
+expensive, and hard to upstream.
+
+Nicolas
+
+>=20
+> [1]
+> https://github.com/Kwiboo/linux-rockchip/blob/linux-6.1-stan-rkr6.1/drive=
+rs/video/rockchip/mpp/mpp_rkvdec.c#L924-L931
+>=20
+> Regards,
+> Jonas
+>=20
+> >=20
+> > Nicolas
+
+--=-1m44GyIlgc9M/VdWhbhx
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJuHYQAKCRBxUwItrAao
+HGFAAKCCjxsKHnwiBkJhZl1nzpBQCCMhtQCdHzRB3yV4I1LVEzFyzTbwZPxMo8A=
+=mrJE
+-----END PGP SIGNATURE-----
+
+--=-1m44GyIlgc9M/VdWhbhx--
 
