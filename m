@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E6CC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DD0CA0EDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5nnZKtUiilDivRmsxMYOh+vKL6+puQDJ6xyxH4ExM8=; b=QjolCSzL8KemcGr+Xw1rxLDNIx
-	MMHzN+auv0RQvQ4Wo/qaz90GjhfnBejy1imy5bYpvn7ADw7akz8WOCM5Pf8+RYfqNG7zwP71Z56Oa
-	C5yFn4m4uULRGhrz4BnChXTwtIOFyGHzwoq3goW9CnfSRQz1SbFxb4LGBGzqppO8PUc+hzRzf95ZB
-	lDN7Vcbnq7Wic7u/270Mws1hIcBGKMu/9WNFYNeTKl1xP37JzB3c6HxSqMyhi1zSfGKUdkf9LmIeT
-	dQiy4u1yNYujxtiqpjsN8G6iQIUieRpQcKlxk+ln/QYrmUyybxjGdTI3pN2536gCtXAqRyP9Il2gd
-	aMLOv8qg==;
+	bh=8au1BkNQCBnNySZYfiMEj46zoU7WWHs+Ju163gDFc6o=; b=BIHKD2yyi0qTXhW2Pk3kVhEh6g
+	xzAo27++L3O1J7eHQG7KhIxd3+MMbMwd+1+M9M+BB+zaI923v88GV/6iotKNW3xTvJYpCCVFCr6ES
+	SgKZHCD3JFgibceoFW9p62u/7bJEtiisUXNaI2dLepZIMZysEoWV9qi0h12/sdOTM2+t0r21Kwl2K
+	Up2jvLnY4+MNOWy5PygnCp8WwmWDn+1zek0/dDlLescvz7vIngTqpQ7nzc8Qg28hmsLS/jMUCjzW7
+	xz1knTb+33u2aInIjCTelWJTI5q2Y5vrCfED83bEnvQJcGYZKrJExOxm9r63MmM5ie10tIm2svD3I
+	WvjYJs6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ult3H-0000000BdKJ-44rU;
-	Tue, 12 Aug 2025 17:44:47 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1ult3G-0000000BdIg-0GVy;
+	Tue, 12 Aug 2025 17:44:46 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpne-0000000B1hA-0x1H
+	id 1ulphb-0000000B10Q-43dC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 14:16:27 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55b85413019so6521690e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 07:16:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1755008184; x=1755612984; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=R5nnZKtUiilDivRmsxMYOh+vKL6+puQDJ6xyxH4ExM8=;
-        b=Gz6XT+k3DoWjnb5roqcgSxmCLNTJWVrD9j69wZHWQFGN93av94wGPeG1dDm3tiIFH/
-         yNT3b3Hofadx6UXtLjZ64HTFnWHbDMmGqkLmeWDoTaA5w4uKHsHjWpaY4lp90rvcuhhC
-         /VsdeQ2f3rgTjfQtc2ja1Nk4Ze553rPueliUpSLmWCffexa6WZo3LWlLbJv5Y5B/z925
-         va91wkJVZTYeVAyFu2qW8tCJ+YkBKVg/Q19U27DwMP3qwpix0w/V/pRDYn1RVNfBzT2I
-         PrgYjhmDwA/ULHUOU+D876w2ECqRRhDqg2xkq4jTu60BtTae0td8R+SYIbcj+lAiWkdR
-         mdTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755008184; x=1755612984;
-        h=cc:to:subject:message-id:date:references:mime-version:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=R5nnZKtUiilDivRmsxMYOh+vKL6+puQDJ6xyxH4ExM8=;
-        b=lT86aLw9mexQ3Kh1ym9HhUrhrA1bR9EtIKA8tWZDrW+/+WYZMEjWfLpk1ED5cziXdX
-         VDK4D87nzm6vD+KqtE3zmtEuDM9r0trRoFyHEhl9J2iEi84dDdKy8MFF9oGSavKfXMac
-         J9qLNz2lMVz0QTlJr6d8jpHUxaUiX8qqlgqQXMZvSLyf2X+xiRhQvQ2ZIN7uzM7tuCIa
-         uMP/PCUWftAjjZFHdS+ZUCdAD9H/BExr+jhmdUkSNTEzkzc+HMjYr5OSFk0xS9xbKbih
-         QcGfa+mzc+w2atGsUAweRkhTcdn0ZNAuHqGz5PRkZST2XV6V+83yS3atZper4BBSFZJx
-         sT2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXI1c2pgg/A4AVPSOU6IjYGO/jZgnZrz7T6z8y+vCjpeoqs9UR95X9KCtnjxcWGHMwDSSTyHvuDgo3+U2hWTTKB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdsLKoXR0oIktCebScU2Pou0xY3WdDsgSDEi4uIadyaXyHo5Ue
-	e5J3rexOn9OVA1VdPVvyqfTLiKWj0IVLXeQHbkp8ShO3cJsfyQjsnK3dNpfqL16ofoHuk1fZoiR
-	TAzho2YqagsbUeSECNGTNM81Mt4lRAWYrr7tLLIBaNQ==
-X-Gm-Gg: ASbGnctLiePePObNHSWqsvjAdnVVD8Cq8lhSxcliw/oWG8+woS/hvYNc3W/JvZE3207
-	i5PI6QcJCfXS8o1dDA7Ht7xeXUDqLJw2CXGJs1sfGGsqw32MbDxNHVrVR/gXmQKVzCw3pN6ghvo
-	1VpIz6NMkx+hwVYwHD2exxJht0vNMxOYbd4V+oZY4AyvTF5ZajfYMbArAvlR2PxXVrw2iklZPNY
-	ADiMAqHkmHkPvXhrMKU44zzxUCeuyOuvLgY
-X-Google-Smtp-Source: AGHT+IFSWGaG+YAxuC5QAHmmbcboQlauIZZLZgo0OwDLSkIV0ywA07Ks+Bfh+bGhzN53ifgDGqSDL8YW+yRt/PdEog4=
-X-Received: by 2002:a05:6512:1329:b0:553:2480:2309 with SMTP id
- 2adb3069b0e04-55cd7581e05mr1175047e87.3.1755008183964; Tue, 12 Aug 2025
- 07:16:23 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 12 Aug 2025 10:16:23 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 12 Aug 2025 10:16:23 -0400
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-In-Reply-To: <f4d04d0c9d72d089af7490c6ce91bb4c455fbffd.1754996033.git.christophe.leroy@csgroup.eu>
-MIME-Version: 1.0
-References: <cover.1754996033.git.christophe.leroy@csgroup.eu> <f4d04d0c9d72d089af7490c6ce91bb4c455fbffd.1754996033.git.christophe.leroy@csgroup.eu>
-Date: Tue, 12 Aug 2025 10:16:23 -0400
-X-Gm-Features: Ac12FXwr1ZykknKcViL5DSBC6TTWTpzY9rOvoc9OKAJoev5KLP9n85B_Vyoqws8
-Message-ID: <CAMRc=Mc_MMwsiGybyMdY0T+QiRuZWFGEifxV4Kz7oqZaY_-kzg@mail.gmail.com>
-Subject: Re: [PATCH 2/4] soc: fsl: qe: Change GPIO driver to a proper platform driver
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, Qiang Zhao <qiang.zhao@nxp.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 12 Aug 2025 14:10:13 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1755007809;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8au1BkNQCBnNySZYfiMEj46zoU7WWHs+Ju163gDFc6o=;
+	b=xunq7241M6hc19Bn3WAarEymwrckCDjykmgAvQZ4VQbsrTAClXRwweHiQoupA3SOzTdnI8
+	FZanaU4w22jwRoeytpngU5w8uLV7rdvFGZYDsZxbTUn3IaHEez09tTu1MiNOYtU4/+okcV
+	hAxO9R4FzzqnRUmgcOI+bHjHjcVFGMhusj8cgNFM6lW7fU/p5k2EztxCZ8RymMhPxPpI5f
+	lphtG9rMtLYs4vFZLko7nQWNTfLwpXVtY3z8P9Lz3ERwf/7JXkNzWAf1ENoXmhLmw2/qG6
+	7yoFHtpTcnm+XlsGz6oWcZSxY0CV916mhxpnQhUZFTZdoZBBfqtaf1sxz3e7rQ==
+Content-Type: multipart/signed;
+ boundary=2acb74a24eb3823e8a8b290ffe7c02819ac18ce13497a3a8eecc3891ed83;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 12 Aug 2025 16:09:56 +0200
+Message-Id: <DC0ICB8ESISQ.1111XINSCI29S@cknow.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Nicolas Dufresne" <nicolas.dufresne@collabora.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>,
+ "Detlev Casanova" <detlev.casanova@collabora.com>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>
+Cc: "Alex Bee" <knaerzche@gmail.com>, <linux-media@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+ <DC0FTXJNW0KB.3I8DLNHJVL21O@cknow.org>
+ <DC0GRKB9V014.1J7A2PO1B7U8H@cknow.org>
+ <816fa42715e8bc4bf538371975f97b6d102a74f5.camel@collabora.com>
+In-Reply-To: <816fa42715e8bc4bf538371975f97b6d102a74f5.camel@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_071626_270678_58180EE1 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250812_071012_308714_B8865B2A 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +77,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 13:02:52 +0200, Christophe Leroy
-<christophe.leroy@csgroup.eu> said:
-> In order to be able to add interrupts to the GPIOs, first change the
-> QE GPIO driver to the proper platform driver in order to allow
-> initialisation to be done in the right order, otherwise the GPIOs
-> get added before the interrupts are registered.
->
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> ---
+--2acb74a24eb3823e8a8b290ffe7c02819ac18ce13497a3a8eecc3891ed83
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue Aug 12, 2025 at 3:27 PM CEST, Nicolas Dufresne wrote:
+> Le mardi 12 ao=C3=BBt 2025 =C3=A0 14:55 +0200, Diederik de Haas a =C3=A9c=
+rit=C2=A0:
+>> On Tue Aug 12, 2025 at 2:11 PM CEST, Diederik de Haas wrote:
+>> > On Sun Aug 10, 2025 at 11:24 PM CEST, Jonas Karlman wrote:
+>> > > This series add a HEVC backend to the Rockchip Video Decoder driver.
+>> > >=20
+>> > > Patch 1 add the new HEVC backend.
+>> > > Patch 2-3 add variants support to the driver.
+>> > > Patch 4 add support for a rk3288 variant.
+>> > > Patch 5 add a rk3328 variant to work around hw quirks.
+>> > > Patch 6-7 add device tree node for rk3288.
+>> >=20
+>> > It looks like I had a previous version of linuxtv-rkvdec-hevc-v2 branc=
+h
+>> > locally and that also had this commit:
+>> > - media: rkvdec: Keep decoder clocks gated
+>> >=20
+>> > Is that one no longer needed/useful/etc ?
+>> >=20
+>> > And 'chewitt' also had a commit to fix 8/10-bit selection:
+>> > https://github.com/chewitt/linux/commit/4b93b05d2ca608bc23f1d52bcc32df=
+926d435c7c
+>> > "WIP: media: rkvdec: fix 8-bit/10-bit format selection"
+>> >=20
+>> > I haven't tried that one (yet), but did=C2=A0 try an other variant wit=
+h
+>> > changing the ordering in rkvdec_hevc_decoded_fmts but that didn't work
+>> > in my tests. (Can ofc be PEBKAC)
+>> >=20
+>> > Would that be useful? I do/did have consistent problems with playing
+>> > 10-bit encoded video files.
+>>=20
+>> nvm about the 10-bit problem. It exists, but it's not restricted to HEVC
+>> as it also exists with with H.264 files.
+>
+> The referred patch is against some out-dated kernel. In mainline linux wi=
+th
+> have:
+>
+> 	if (sps->bit_depth_luma_minus8 =3D=3D 0) {
+> 		if (sps->chroma_format_idc =3D=3D 2)
+> 			return RKVDEC_IMG_FMT_422_8BIT;
+> 		else
+> 			return RKVDEC_IMG_FMT_420_8BIT;
+> 	} else if (sps->bit_depth_luma_minus8 =3D=3D 2) {
+> 		if (sps->chroma_format_idc =3D=3D 2)
+> 			return RKVDEC_IMG_FMT_422_10BIT;
+> 		else
+> 			return RKVDEC_IMG_FMT_420_10BIT;
+> 	}
+
+That's indeed the code for H.264.
+
+> Which covers all cases supporte by the hardware. Chewitt seem to add a
+> previously missing 10bit case, and forcing downconversion from 422 to 420=
+. A
+> downconversion is something to be chosen and applied by userspace, the ke=
+rnel
+> should pick a non-destructive format by default.
+
+It's based on the 6.16 mainline kernel, but that patch is a 'fix' on a
+not (yet) accepted patch he added on top of that for HEVC. So it not
+working for me on H.264 must be from somewhere else in the/my stack.
+
+Sorry for the noise.
+
+--2acb74a24eb3823e8a8b290ffe7c02819ac18ce13497a3a8eecc3891ed83
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaJtLOQAKCRDXblvOeH7b
+bs3HAQCxT5YbN/2lR7MNLL4Ut6pvl9wf/Pgc1qE3anE5JNfU7wEA9hiJInBMZsPp
+WQpNfZk10b6mmxacnf912uguESmwRgU=
+=rf9k
+-----END PGP SIGNATURE-----
+
+--2acb74a24eb3823e8a8b290ffe7c02819ac18ce13497a3a8eecc3891ed83--
 
