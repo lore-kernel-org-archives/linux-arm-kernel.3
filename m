@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0014FC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7BEC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pop17sRTC1J4QM2g1gDBdkXPQTCmQ4U5JexeXk2oGBg=; b=NI4HpZxdE4O0owhRTJIRKUPG3Z
-	jsWmUnRDyuyihiWsyCzpSga3pxmVCoW0TSZGs+i7gF/IcGnSaHpBfbfmFddGnhS+fnxU67dA3KcTP
-	VbtgSemoda35NhyOA1bgkwhXPdx1AG+qT96hz+FfAee3UX1SVKwupsTyhaNos+vpSO/Rt8EEH6vXi
-	O1S+39th8pHICKMc4wWCXZBdrsecyygORMzC54N7Kneyxh/tgjqHZzZshWl1dUIQPv487hKl5WQQG
-	dqpZQ1jCy21kr1+4Vhm763SxILfRtebCYhHHmgKz6gKCppKeyHjpqbFWkgaGLs/4fblzm5G2tBcO0
-	D/NrlgVg==;
+	bh=EKgUCuvkxnrGfpgJntdePQt93ZROzNuJFzpPEPxAwFI=; b=gW0WktLzg8w0/Q+Xz8MEa1T1IT
+	5r+WD90T+ZeFwVijCjr80OitYTgQkj4b2Uby4MxI5oBPaBtvdruuwMzUUCfR+tKhI3wUzGBg52wOl
+	Gz/8CprJ/LEhOjkM8Mxog4ri5qj3dzzFdRn8DLVI7XbaIMILC4tBAir8K8219I8Mz/cxxVe0tqzNc
+	vQNCuVCyhdeIbc9Laata70NNAEcUPHjWnbOwIl6/+Z1sr7lIHBquahtcfeqSbKDtHSTKjoTOmasCZ
+	ZvQEsWfaVK0DXQZq2cKVi+xdvToDTDlfUKcvhhgrJ9KbsKwD6X6ZquZOTHCcUAS9WKv6DzgiSfHFE
+	rwAXHoQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um89h-0000000DHQV-0rqD;
-	Wed, 13 Aug 2025 09:52:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1um8Ej-0000000DILM-1v8P;
+	Wed, 13 Aug 2025 09:57:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um879-0000000DH78-07Jq
+	id 1um8B5-0000000DHo3-1gig
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 09:49:48 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3394A43;
-	Wed, 13 Aug 2025 11:48:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755078529;
-	bh=tad6RttfNGtNcWBsq7Prb8747qumHdECnVZhvaOGkec=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lDC3CUpRtw0zV8JucUdEq1933fQtCi97ni3MEusJfyPNMGDzBGnSlAB39954tXz1o
-	 8RKpK/53FRqeyq4eYKt/bWjO7KMWbTaZI8pfgATwb/ozNI3tll9MfmS7BzVSgTFKCB
-	 puIMpHRtk8zCZfKLRcaL/oXdZePx1sgCodVPs7Fg=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org
-Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Dongchun Zhu <dongchun.zhu@mediatek.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Todor Tomov <todor.too@gmail.com>,
-	linux-arm-msm@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v2.1 01/72] dt-bindings: media: Deprecate clock-frequency property for camera sensors
-Date: Wed, 13 Aug 2025 12:49:23 +0300
-Message-ID: <20250813094923.23695-1-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
-References: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
+	Wed, 13 Aug 2025 09:53:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D1D88601F5;
+	Wed, 13 Aug 2025 09:53:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E650C4CEFD;
+	Wed, 13 Aug 2025 09:53:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755078830;
+	bh=Ha5dEuqV8NyStkOm/Hu12jV5CVCm/XkYT4uR220+Lss=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=M67J4EERGcUplYJuGDjL9tQgqb74vyC5oU4EvnobEEgKyg1qGffMQ0Pqrv+/dALKm
+	 CF46C9aTvB/EqBATFcA9LM0s2+cSdFLGZwN15jRAMZWVKAUxU/833cTGparhhVUglY
+	 ZqOpIPEbxjHGh4OSe8SkTVTdCXaRjUX6ZTyeDp2XDkYnvTg/nwe0kP2dP7gD2XuC5z
+	 qgnuZp+xIDOfaYV3YOGtp/kME275f5cW/bdrMtjBKNKfBTFSZXfTSV9XOp03VAlEIh
+	 UAapdOkQryyXc63CAPCBPMl2hx2MSf/1BbVeJpwPXEIc4pteV27su+/TbA4Fetw53F
+	 9ak0knWU+vxSg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 45E30CA0EE6;
+	Wed, 13 Aug 2025 09:53:50 +0000 (UTC)
+From: Janne Grunau via B4 Relay <devnull+j.jannau.net@kernel.org>
+Date: Wed, 13 Aug 2025 11:53:35 +0200
+Subject: [PATCH 3/5] arm64: dts: apple: t600x: Add bluetooth device nodes
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_024947_505019_61F1EBE5 
-X-CRM114-Status: GOOD (  11.15  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250813-apple-dt-sync-6-17-v1-3-209f15d10aa0@jannau.net>
+References: <20250813-apple-dt-sync-6-17-v1-0-209f15d10aa0@jannau.net>
+In-Reply-To: <20250813-apple-dt-sync-6-17-v1-0-209f15d10aa0@jannau.net>
+To: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+ Hector Martin <marcan@marcan.st>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5002; i=j@jannau.net;
+ s=yk2024; h=from:subject:message-id;
+ bh=C2YwY38W49BVPlqekZccmVQQ104q7sB0ZkEUHkDIXu8=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhow5CWuYtHo0f/1vSt+eLWglGlpdeSL2geTTZU0lMgohR
+ ydJTjrXUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCJyoowMF9nPxilazN7M9eP+
+ lHzWNZv+W4TZrhPbOW1P6Jss5vw3sYwMd2Ifrxfc0bTw+5R2+Y1XRJ6sWSm6Ycq+qiuOT1f+ito
+ XygIA
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-Endpoint-Received: by B4 Relay for j@jannau.net/yk2024 with auth_id=264
+X-Original-From: Janne Grunau <j@jannau.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,322 +85,159 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: j@jannau.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Usage of the clock-frequency property for camera sensors is discouraged
-in favour of using assigned-clock-rates (and assigned-clock-parents
-where needed). Mark the property as deprecated.
+From: Hector Martin <marcan@marcan.st>
 
-Update the examples accordingly. In DT examples where the sensor input
-clock appears to come from a programmable clock generator, replace
-clock-frequency by the assigned-clocks and assigned-clock-rates
-properties. Otherwise, just drop clock-frequency.
+Add bluetooth PCIe device nodes to specify per device brcm,board-type
+and provide the bootloader filled "local-bd-address" and calibration
+data.
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
-Changes since v2:
+ arch/arm64/boot/dts/apple/t6000-j314s.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t6000-j316s.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t6001-j314c.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t6001-j316c.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t6001-j375c.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t6002-j375d.dts      | 4 ++++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 8 ++++++++
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 8 ++++++++
+ 8 files changed, 40 insertions(+)
 
-- Don't remove clocks property in samsung,exynos4212-fimc-is.yaml
+diff --git a/arch/arm64/boot/dts/apple/t6000-j314s.dts b/arch/arm64/boot/dts/apple/t6000-j314s.dts
+index ac35870ca129ce353b04296800b197bf684d0bd7..1430b91ff1b152e5a23025d5377f189601bb5a09 100644
+--- a/arch/arm64/boot/dts/apple/t6000-j314s.dts
++++ b/arch/arm64/boot/dts/apple/t6000-j314s.dts
+@@ -20,3 +20,7 @@ / {
+ &wifi0 {
+ 	brcm,board-type = "apple,maldives";
+ };
++
++&bluetooth0 {
++	brcm,board-type = "apple,maldives";
++};
+diff --git a/arch/arm64/boot/dts/apple/t6000-j316s.dts b/arch/arm64/boot/dts/apple/t6000-j316s.dts
+index 77d6d8c14d741e9b6a0dc44f764ea54f966e0d59..da0cbe7d96736b1491497243bdbd1d13c9ab6c62 100644
+--- a/arch/arm64/boot/dts/apple/t6000-j316s.dts
++++ b/arch/arm64/boot/dts/apple/t6000-j316s.dts
+@@ -20,3 +20,7 @@ / {
+ &wifi0 {
+ 	brcm,board-type = "apple,madagascar";
+ };
++
++&bluetooth0 {
++	brcm,board-type = "apple,madagascar";
++};
+diff --git a/arch/arm64/boot/dts/apple/t6001-j314c.dts b/arch/arm64/boot/dts/apple/t6001-j314c.dts
+index 0a5655792a8f1cb6d0029bf9f967aa74cf6c01f7..c37097dcfdb304d8fcdf77de82e494e158d94c72 100644
+--- a/arch/arm64/boot/dts/apple/t6001-j314c.dts
++++ b/arch/arm64/boot/dts/apple/t6001-j314c.dts
+@@ -20,3 +20,7 @@ / {
+ &wifi0 {
+ 	brcm,board-type = "apple,maldives";
+ };
++
++&bluetooth0 {
++	brcm,board-type = "apple,maldives";
++};
+diff --git a/arch/arm64/boot/dts/apple/t6001-j316c.dts b/arch/arm64/boot/dts/apple/t6001-j316c.dts
+index 9c215531ea543e9afe8c131f7c8dc68cfaae666c..3bc6e0c3294cf98c89dddfb4891eefbe8aae7020 100644
+--- a/arch/arm64/boot/dts/apple/t6001-j316c.dts
++++ b/arch/arm64/boot/dts/apple/t6001-j316c.dts
+@@ -20,3 +20,7 @@ / {
+ &wifi0 {
+ 	brcm,board-type = "apple,madagascar";
+ };
++
++&bluetooth0 {
++	brcm,board-type = "apple,madagascar";
++};
+diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
+index 88ca2037556cec4307d27bba0244d7ba7f45b184..2e7c23714d4d0007b7096d469f32c689944c85ff 100644
+--- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
++++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
+@@ -20,3 +20,7 @@ / {
+ &wifi0 {
+ 	brcm,board-type = "apple,okinawa";
+ };
++
++&bluetooth0 {
++	brcm,board-type = "apple,okinawa";
++};
+diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
+index f56d13b37eaff1c3c14815575a71024661669296..2b7f80119618ad1b497b67597c55968585bd92a9 100644
+--- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
++++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
+@@ -42,6 +42,10 @@ &wifi0 {
+ 	brcm,board-type = "apple,okinawa";
+ };
+ 
++&bluetooth0 {
++	brcm,board-type = "apple,okinawa";
++};
++
+ /* delete unused always-on power-domains on die 1 */
+ 
+ /delete-node/ &ps_atc2_usb_aon_die1;
+diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
+index b699672a5543c1c172f9a788d36287c0b09051e1..c0aac59a6fae4f6f4b387483665349a8e2521c1e 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
+@@ -13,6 +13,7 @@
+ 
+ / {
+ 	aliases {
++		bluetooth0 = &bluetooth0;
+ 		serial0 = &serial0;
+ 		wifi0 = &wifi0;
+ 	};
+@@ -105,6 +106,13 @@ wifi0: wifi@0,0 {
+ 		local-mac-address = [00 10 18 00 00 10];
+ 		apple,antenna-sku = "XX";
+ 	};
++
++	bluetooth0: bluetooth@0,1 {
++		compatible = "pci14e4,5f71";
++		reg = <0x10100 0x0 0x0 0x0 0x0>;
++		/* To be filled by the loader */
++		local-bd-address = [00 00 00 00 00 00];
++	};
+ };
+ 
+ &port01 {
+diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+index 95560bf3798bfebe133afafba674005a3e62ddcc..ed38acc0dfc36a1e30b1d44f1a8dcee089e87232 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+@@ -11,6 +11,7 @@
+ 
+ / {
+ 	aliases {
++		bluetooth0 = &bluetooth0;
+ 		serial0 = &serial0;
+ 		wifi0 = &wifi0;
+ 	};
+@@ -90,6 +91,13 @@ wifi0: wifi@0,0 {
+ 		local-mac-address = [00 10 18 00 00 10];
+ 		apple,antenna-sku = "XX";
+ 	};
++
++	bluetooth0: bluetooth@0,1 {
++		compatible = "pci14e4,5f71";
++		reg = <0x10100 0x0 0x0 0x0 0x0>;
++		/* To be filled by the loader */
++		local-bd-address = [00 00 00 00 00 00];
++	};
+ };
+ 
+ &port01 {
 
-Changes since v1:
-
-- Adapt examples in bindings that reference sensors
----
- Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
- Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml  | 7 +++++--
- .../devicetree/bindings/media/i2c/ovti,ov02a10.yaml        | 3 +--
- .../devicetree/bindings/media/i2c/ovti,ov5645.yaml         | 6 +++++-
- .../devicetree/bindings/media/i2c/ovti,ov7251.yaml         | 6 +++++-
- .../devicetree/bindings/media/i2c/ovti,ov8856.yaml         | 3 +--
- .../devicetree/bindings/media/i2c/samsung,s5k5baf.yaml     | 6 +++++-
- .../devicetree/bindings/media/i2c/samsung,s5k6a3.yaml      | 6 +++++-
- .../devicetree/bindings/media/i2c/sony,imx290.yaml         | 5 +++--
- .../bindings/media/samsung,exynos4212-fimc-is.yaml         | 3 ++-
- Documentation/devicetree/bindings/media/samsung,fimc.yaml  | 3 ++-
- 11 files changed, 38 insertions(+), 16 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-index 73144473b9b2..1687b069e032 100644
---- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-+++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-@@ -292,7 +292,8 @@ examples:
- 
-                 clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
-                 clock-names = "xvclk";
--                clock-frequency = <19200000>;
-+                assigned-clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
-+                assigned-clock-rates = <19200000>;
- 
-                 dovdd-supply = <&vreg_lvs1a_1p8>;
-                 avdd-supply = <&cam0_avdd_2v8>;
-@@ -324,7 +325,8 @@ examples:
- 
-                 clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
-                 clock-names = "xclk";
--                clock-frequency = <24000000>;
-+                assigned-clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
-+                assigned-clock-rates = <24000000>;
- 
-                 vdddo-supply = <&vreg_lvs1a_1p8>;
-                 vdda-supply = <&cam3_avdd_2v8>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
-index bc664a016396..217b08c8cbbd 100644
---- a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
-@@ -55,6 +55,7 @@ properties:
- 
-   clock-frequency:
-     description: Frequency of the external clock to the sensor in Hz.
-+    deprecated: true
- 
-   reset-gpios:
-     description: Reset GPIO. Also commonly called XSHUTDOWN in hardware
-@@ -93,7 +94,6 @@ properties:
- required:
-   - compatible
-   - reg
--  - clock-frequency
-   - clocks
- 
- additionalProperties: false
-@@ -114,8 +114,11 @@ examples:
-             reg = <0x10>;
-             reset-gpios = <&gpio3 20 GPIO_ACTIVE_LOW>;
-             vana-supply = <&vaux3>;
-+
-             clocks = <&omap3_isp 0>;
--            clock-frequency = <9600000>;
-+            assigned-clocks = <&omap3_isp 0>;
-+            assigned-clock-rates = <9600000>;
-+
-             port {
-                 ccs_ep: endpoint {
-                     data-lanes = <1 2>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
-index 67c1c291327b..0e1d9c390180 100644
---- a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
-@@ -39,6 +39,7 @@ properties:
-   clock-frequency:
-     description:
-       Frequency of the eclk clock in Hz.
-+    deprecated: true
- 
-   dovdd-supply:
-     description:
-@@ -100,7 +101,6 @@ required:
-   - reg
-   - clocks
-   - clock-names
--  - clock-frequency
-   - dovdd-supply
-   - avdd-supply
-   - dvdd-supply
-@@ -127,7 +127,6 @@ examples:
- 
-             clocks = <&ov02a10_clk>;
-             clock-names = "eclk";
--            clock-frequency = <24000000>;
- 
-             rotation = <180>;
- 
-diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
-index bc9b27afe3ea..a583714b1ac7 100644
---- a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
-@@ -21,6 +21,7 @@ properties:
- 
-   clock-frequency:
-     description: Frequency of the xclk clock in Hz.
-+    deprecated: true
- 
-   vdda-supply:
-     description: Analog voltage supply, 2.8 volts
-@@ -83,8 +84,11 @@ examples:
-         camera@3c {
-             compatible = "ovti,ov5645";
-             reg = <0x3c>;
-+
-             clocks = <&clks 1>;
--            clock-frequency = <24000000>;
-+            assigned-clocks = <&clks 1>;
-+            assigned-clock-rates = <24000000>;
-+
-             vdddo-supply = <&ov5645_vdddo_1v8>;
-             vdda-supply = <&ov5645_vdda_2v8>;
-             vddd-supply = <&ov5645_vddd_1v5>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
-index 2e5187acbbb8..922996da59b2 100644
---- a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
-@@ -29,6 +29,7 @@ properties:
- 
-   clock-frequency:
-     description: Frequency of the xclk clock in Hz.
-+    deprecated: true
- 
-   vdda-supply:
-     description: Analog voltage supply, 2.8 volts
-@@ -89,8 +90,11 @@ examples:
-         camera@3c {
-             compatible = "ovti,ov7251";
-             reg = <0x3c>;
-+
-             clocks = <&clks 1>;
--            clock-frequency = <24000000>;
-+            assigned-clocks = <&clks 1>;
-+            assigned-clock-rates = <24000000>;
-+
-             vdddo-supply = <&ov7251_vdddo_1v8>;
-             vdda-supply = <&ov7251_vdda_2v8>;
-             vddd-supply = <&ov7251_vddd_1v5>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
-index 3f6f72c35485..fa71f24823f2 100644
---- a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
-@@ -37,6 +37,7 @@ properties:
-   clock-frequency:
-     description:
-       Frequency of the xvclk clock in Hertz.
-+    deprecated: true
- 
-   dovdd-supply:
-     description:
-@@ -87,7 +88,6 @@ required:
-   - reg
-   - clocks
-   - clock-names
--  - clock-frequency
-   - dovdd-supply
-   - avdd-supply
-   - dvdd-supply
-@@ -114,7 +114,6 @@ examples:
- 
-             clocks = <&cam_osc>;
-             clock-names = "xvclk";
--            clock-frequency = <19200000>;
- 
-             avdd-supply = <&mt6358_vcama2_reg>;
-             dvdd-supply = <&mt6358_vcamd_reg>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
-index c8f2955e0825..ebd95a8d9b2f 100644
---- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
-@@ -26,6 +26,7 @@ properties:
-   clock-frequency:
-     default: 24000000
-     description: mclk clock frequency
-+    deprecated: true
- 
-   rstn-gpios:
-     maxItems: 1
-@@ -82,9 +83,12 @@ examples:
-         sensor@2d {
-             compatible = "samsung,s5k5baf";
-             reg = <0x2d>;
-+
-             clocks = <&camera 0>;
-+            assigned-clocks = <&camera 0>;
-+            assigned-clock-rates = <24000000>;
-+
-             clock-names = "mclk";
--            clock-frequency = <24000000>;
-             rstn-gpios = <&gpl2 1 GPIO_ACTIVE_LOW>;
-             stbyn-gpios = <&gpl2 0 GPIO_ACTIVE_LOW>;
-             vdda-supply = <&cam_io_en_reg>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
-index 7e83a94124b5..e563e35920c4 100644
---- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
-@@ -30,6 +30,7 @@ properties:
-   clock-frequency:
-     default: 24000000
-     description: extclk clock frequency
-+    deprecated: true
- 
-   gpios:
-     maxItems: 1
-@@ -80,8 +81,11 @@ examples:
-         sensor@10 {
-             compatible = "samsung,s5k6a3";
-             reg = <0x10>;
--            clock-frequency = <24000000>;
-+
-             clocks = <&camera 1>;
-+            assigned-clocks = <&camera 1>;
-+            assigned-clock-rates = <24000000>;
-+
-             clock-names = "extclk";
-             gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
-             afvdd-supply = <&ldo19_reg>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
-index 990acf89af8f..484039671cd1 100644
---- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
-@@ -51,6 +51,7 @@ properties:
- 
-   clock-frequency:
-     description: Frequency of the xclk clock in Hz
-+    deprecated: true
- 
-   vdda-supply:
-     description: Analog power supply (2.9V)
-@@ -100,7 +101,6 @@ required:
-   - reg
-   - clocks
-   - clock-names
--  - clock-frequency
-   - vdda-supply
-   - vddd-supply
-   - vdddo-supply
-@@ -125,7 +125,8 @@ examples:
- 
-             clocks = <&gcc 90>;
-             clock-names = "xclk";
--            clock-frequency = <37125000>;
-+            assigned-clocks = <&clks 1>;
-+            assigned-clock-rates = <37125000>;
- 
-             vdddo-supply = <&camera_vdddo_1v8>;
-             vdda-supply = <&camera_vdda_2v8>;
-diff --git a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
-index 3a5ff3f47060..71d63bb9abb5 100644
---- a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
-+++ b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
-@@ -209,9 +209,10 @@ examples:
-                 svdda-supply = <&cam_io_reg>;
-                 svddio-supply = <&ldo19_reg>;
-                 afvdd-supply = <&ldo19_reg>;
--                clock-frequency = <24000000>;
-                 clocks = <&camera 1>;
-                 clock-names = "extclk";
-+                assigned-clocks = <&camera 1>;
-+                assigned-clock-rates = <24000000>;
-                 gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
- 
-                 port {
-diff --git a/Documentation/devicetree/bindings/media/samsung,fimc.yaml b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
-index 7808d61f1fa3..2a54379d9509 100644
---- a/Documentation/devicetree/bindings/media/samsung,fimc.yaml
-+++ b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
-@@ -259,10 +259,11 @@ examples:
-                     svdda-supply = <&cam_io_reg>;
-                     svddio-supply = <&ldo19_reg>;
-                     afvdd-supply = <&ldo19_reg>;
--                    clock-frequency = <24000000>;
-                     /* CAM_B_CLKOUT */
-                     clocks = <&camera 1>;
-                     clock-names = "extclk";
-+                    assigned-clocks = <&camera 1>;
-+                    assigned-clock-rates = <24000000>;
-                     gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
- 
-                     port {
 -- 
-Regards,
+2.50.1
 
-Laurent Pinchart
 
 
