@@ -4,177 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9728CCA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0014FC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBfJsMhQ0i4DRO0Kssp0QO1kb/Mn7gusEwwQERJifZk=; b=QZoFrLU0MoRRi+TY+PSsq4Lw/4
-	3VxEZTdXZw+3vY/UhF4E7qI0Hux/lAnKslV3HzUCkybnBkn/23DEegYagUakAGRfCMWeDSQvdJVKK
-	3LlVRRIecBrLgwUe3sueXFlYIsWghN9YfcWj7E2+amA40fwjXdQFn7lMWsdF15Ue8tYtGDK+D8s6j
-	0CKwGLFiAJEkrZSAYTvJ9Mhjy7z6BnKc5MhMFrelitpAPq6u7Zbspz/PWVB1Il3zjA6vnXUTBjyKB
-	RixdJVhPp/qF727RcCNX3bVeaGkikv6VgD6UpaDpXGO5eW7BrcTLEWoa0pN7tAmt2JccrNe84yjxy
-	Rn4ns6yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pop17sRTC1J4QM2g1gDBdkXPQTCmQ4U5JexeXk2oGBg=; b=NI4HpZxdE4O0owhRTJIRKUPG3Z
+	jsWmUnRDyuyihiWsyCzpSga3pxmVCoW0TSZGs+i7gF/IcGnSaHpBfbfmFddGnhS+fnxU67dA3KcTP
+	VbtgSemoda35NhyOA1bgkwhXPdx1AG+qT96hz+FfAee3UX1SVKwupsTyhaNos+vpSO/Rt8EEH6vXi
+	O1S+39th8pHICKMc4wWCXZBdrsecyygORMzC54N7Kneyxh/tgjqHZzZshWl1dUIQPv487hKl5WQQG
+	dqpZQ1jCy21kr1+4Vhm763SxILfRtebCYhHHmgKz6gKCppKeyHjpqbFWkgaGLs/4fblzm5G2tBcO0
+	D/NrlgVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um85W-0000000DGuZ-18Q3;
-	Wed, 13 Aug 2025 09:48:06 +0000
-Received: from mail-co1nam11on20629.outbound.protection.outlook.com ([2a01:111:f403:2416::629] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1um89h-0000000DHQV-0rqD;
+	Wed, 13 Aug 2025 09:52:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um82x-0000000DGTO-2C8q;
-	Wed, 13 Aug 2025 09:45:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lQDV/YPDsgOo6EYKcJo3qfS9mwtuwxBEqUPM8cuyiJFJQtHH85Qgp8V63LPFzv/TkkU1PbRX2fwqT6kXj1maT+x8j0uamaQstg/p80VQsbHyROw5SyGFXZD+l1zOeR4JqO5g3WDttkjEeNSTsJ3U1We1/I422H91bXVovbQ74TVaFzHyE+i6OjAnAOb7ORm4y1rBHSpdXwUzKPW9NfPqcXp6ZqMwhNDlPtdTzmv8Yuz+WeY60U4whOhIqfjR1MLdNwT/N3nfKqauIxUmvE5dFuT7VWX9RUfEPxywBrS+D4YoYkP4Gv48tFB7Hd2dDqtalgInwTFwKKq6KTSagQ126Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lBfJsMhQ0i4DRO0Kssp0QO1kb/Mn7gusEwwQERJifZk=;
- b=X3Z6S4vFaQ9+GSdrySKjb5A3d2BQN5tT9c9sqNueGDIWKMdYvYaeuXyZ/2TPkEnaP4zHaoqNWlb9L5r3hzz71fEShB0klfXOUcrxvehnpGhj17Izmb7/K2Zigo9Z7HxKOTiRTJc1ZlQlFHxjJcWbIyMUhvNCzmegHScr2+oprn05M4KUn62lU5biMCyHbl0DTz17+Wq5OJSp9ZN81nw+jT6QqWUBwQcXJlBIbI5sDmS2ovV8Vdgfg//2cynuDYD+54Dkk9n7+ZuBtW7+AbTkAEgvXTvFu22mdmdFX2fn4AfzRQeAcFTjbBtFDdnetCnLJ++ceCfHx2UjdXwQVlvTrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lBfJsMhQ0i4DRO0Kssp0QO1kb/Mn7gusEwwQERJifZk=;
- b=2plrLN+Ixc5sNWiYxkqgpSeNe3V7a/oNrQnnmxoAZ+J2nVKmTkcJge3JEm8ZYlCPmq7tdccrJvn3MzMYU6XlTR36/Q+lczY5OByWvVr6vkHDj5VHOOPgCx6jbhRitkzd2s2B3ExpzLgL3+qGjAbEGnY2cNsMaYbs5c0rbEuqXIo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13)
- by MW4PR12MB7438.namprd12.prod.outlook.com (2603:10b6:303:219::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.22; Wed, 13 Aug
- 2025 09:45:22 +0000
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291]) by PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291%4]) with mapi id 15.20.9009.021; Wed, 13 Aug 2025
- 09:45:22 +0000
-Message-ID: <7df64e7c-73aa-4296-9879-cb97047823bd@amd.com>
-Date: Wed, 13 Aug 2025 15:15:06 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Dapeng Mi <dapeng1.mi@linux.intel.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
-Content-Language: en-US
-From: Sandipan Das <sandipan.das@amd.com>
-In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BMXP287CA0010.INDP287.PROD.OUTLOOK.COM
- (2603:1096:b00:2c::20) To PH7PR12MB5712.namprd12.prod.outlook.com
- (2603:10b6:510:1e3::13)
+	id 1um879-0000000DH78-07Jq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 09:49:48 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3394A43;
+	Wed, 13 Aug 2025 11:48:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755078529;
+	bh=tad6RttfNGtNcWBsq7Prb8747qumHdECnVZhvaOGkec=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lDC3CUpRtw0zV8JucUdEq1933fQtCi97ni3MEusJfyPNMGDzBGnSlAB39954tXz1o
+	 8RKpK/53FRqeyq4eYKt/bWjO7KMWbTaZI8pfgATwb/ozNI3tll9MfmS7BzVSgTFKCB
+	 puIMpHRtk8zCZfKLRcaL/oXdZePx1sgCodVPs7Fg=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Dongchun Zhu <dongchun.zhu@mediatek.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Todor Tomov <todor.too@gmail.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH v2.1 01/72] dt-bindings: media: Deprecate clock-frequency property for camera sensors
+Date: Wed, 13 Aug 2025 12:49:23 +0300
+Message-ID: <20250813094923.23695-1-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
+References: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5712:EE_|MW4PR12MB7438:EE_
-X-MS-Office365-Filtering-Correlation-Id: adb187d6-1272-4026-c899-08ddda4e1ef2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020|13003099007|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?b3VHbXFGSWNuNkhBUWZNVW1wZXFzSlh6VXVUSjEzdkpWNWpwWVdESmhCdVlD?=
- =?utf-8?B?WEJabHVuUGx1ZTF1dUpNWXBaa0RNUDRSWTkwa00yclQ0MU50L1p5T1VkOXBi?=
- =?utf-8?B?Y2JyOE5BWFFyb2RQazcyY3k4MEx4cHZ1R3NEK0FkS09Cdm5iWFBCMnk5bDlX?=
- =?utf-8?B?eFZ3TzVGL1JmSy9hZnhZUDN4OVlhMlZUYVdtK3ZPeVZQUENtVmFoMDJiOC85?=
- =?utf-8?B?UWs3bkRoZlpOdHlPZWNSRENKT3BKeEhwYWNkSnIzdEZhSGFvWU1IM1B4WUF6?=
- =?utf-8?B?cEtEaDdXcE16cjBpUjd2ZG5iRXM5RWNvc2pDRjVScTY2bE5iY0hCYUJ3SjJj?=
- =?utf-8?B?ZS9pR0U4MEZUd085bzlxZXBJMmtBMnVmOTNyTkdKRTFEc2ZldTNDS05lMnJS?=
- =?utf-8?B?eFd3QkRwZi9kWkxGbXFtRlNDVnFSZDVYYnZJN293a2kzakRxVlhUa0w4NE9M?=
- =?utf-8?B?QTZTKzlzUmlIWkNwREFqNlU5dDN5c2pJTVQ2QXVyOURIQVlxbUpjUWVCYTJt?=
- =?utf-8?B?MGpRblRONHJwZGdtbFQ1MmlLYnVPT3lWSjZGamhjQyttS2NZc3dQQ0JmVnFv?=
- =?utf-8?B?d0l0QXZUSTJyamNqQnhVbWw3ZnhvSmVObmlOMytsNkdjclFSQnpKSUVaQStQ?=
- =?utf-8?B?UDRLcnI1NldOZ01JRlpGeUtMU29odE9qMUh4OVpncC9uZ0RYaGVrbVFVS0JH?=
- =?utf-8?B?dHZFMWNudy9wbkEra3VEVDEwR0lENW05RmhmUGhOOGxNZGtaZ0d5NHg0QWFY?=
- =?utf-8?B?SjhvMlRITTNqaEtLTUN0TGF1NDFaSXYvUFRTQzZFZ3NNSlFMRjAwOUZIRzJ0?=
- =?utf-8?B?WFRDMU56cUJqNHBCZ1UwbW1iTisva213MnlsY1lDR2FLbW1vSzBsa0hhM1Nu?=
- =?utf-8?B?Wlc4cHRQVkRhVk1ZNVJ6R3ZsYjIrZ3B2Ti9vU1NDNG95YTVHN2V3cW8rUTZQ?=
- =?utf-8?B?NjArekw1Qlgwc3I3L1JubXpFRW5VRTg1YUo5SWtCRnJreEhuR3BsemdHU3FQ?=
- =?utf-8?B?Y3ovTndITGxXd1BSdU9OdnUwd0FoOHE4cTI3L1hQdk8zcktvcHdpOHk0eGxG?=
- =?utf-8?B?L08xN0tWbk5EUVdvbW11TndLc1JVbVZHOUJOeUZlUS9wbWRoUEIwNWF1VzNI?=
- =?utf-8?B?am9BNG5MUFlCdnNpcnRRRm02aWo2OG1hVjBINzE3NGZWazFDMk0wR1h6UktC?=
- =?utf-8?B?T2xMaTNCNHdkSU4vR2M0eXEzNXJETE1RbENTWWJHOUVXdy83Z1lRVExwOC81?=
- =?utf-8?B?bjB6QTdaQnRJemtmRzBCZS93S1NXOGxSZHZFVU9nN0gzbVRVTDBWTGhBdjQ3?=
- =?utf-8?B?VE1PMFdEQnBzczlvS0tqdEMzUlB1d2wzSmlFd1JFT0RuWHEzbm1xOGxSVEtE?=
- =?utf-8?B?OHMrSFYzbGIwdVBKYk00RlJtMndjZE13RXl5WEs2dkpObUdsT2JDZ2ZXbkRi?=
- =?utf-8?B?cVRGZ0IrVzlEdzFrMWp5SG8wS21zK3h3bjE3UDlFNmh2Y3FiWTFxdzZxdHVI?=
- =?utf-8?B?cy8veXRoOGpYOHROck5lbmFEdkRGcVZFRnF2UmJsTEUvd2o2WTZSd2NGUGFx?=
- =?utf-8?B?NC9Ob3hOTnpkOHJLM3ZXVnl0THFMcVk0OWVYM3YyM0syb1k3Wk5ORmFlazFj?=
- =?utf-8?B?a2dqUmxsSHYwb2hMckpUVkdzbTd4cUNXZkhvWURybkMwcVpxUEtXbUx5SDEz?=
- =?utf-8?B?eTVmTFBRRGYwVzBVakx4Y2dMWjJMaUhDYVN0L2U0UGQvZmF5NGhKTEgvSExn?=
- =?utf-8?B?eThicWNjelRWRUFPZlE4T3hITEdNQk5PTWZWQmphVVVva25nOTNZeWVZUzg5?=
- =?utf-8?B?dFFyMlNHdUdIY1VrcGFhZzRrdUplSEE4TkhmQnMwK2Y0NUloUkFTV0lUdVd6?=
- =?utf-8?B?NlpzTmhkTlNXWHNGaWxUZkpjMndHVEtEdy9uTG9LRGpvUFpzTlhMZVVCMmhw?=
- =?utf-8?B?VXI3UGFna0ZsMWZzTEhSVm5xbDVZWWJxM3JmaWM4bzVsM0dueXRNbVVmdHpX?=
- =?utf-8?B?ZzNLOTVNNHZBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5712.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020)(13003099007)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2tST2NVaDJRajBaOHlGakp0L3JNTHA5R0VqdDNvY1R0Tk9pV21lRGpQUW1i?=
- =?utf-8?B?VUg3d0ZsTmkxU3cvYlRKcUJWSkRuampoZmtaKythQ1JEK2RjQVNkcnNxRWd3?=
- =?utf-8?B?Ri8vQTRhWEI2d3pFQzU5YXQvbGMySmZMVkYyRnpUNS9WSkYrc2NXNEtSTFRW?=
- =?utf-8?B?VFBpbXRrUjJ3RXIwK1cvdHExL0ZoaUpxRlg4U2Y2R09xYkg1QTdDTVpPaUJV?=
- =?utf-8?B?bHRjZC8vNlgvUGUwR2RwdnFCZkNQbURobmhkZFE5VklCWWQwWHF0U2JWTTNT?=
- =?utf-8?B?Y2NGTjYyK1pLdW02aHF1bGlvZWpIMldmdzhKUlJoUUxYbXVWYXdvVWRjT09M?=
- =?utf-8?B?cThydGQwWTJRK1daKzJDMm1wekNDMUprVmxJbzFCbXJSSDlqZ25ZcXpEdDFG?=
- =?utf-8?B?NFhpTk42dThzRnlpZ0ZDdks2WVhpUis1TFNvSkxPSjU3MTZGbE15VC9aZWVE?=
- =?utf-8?B?ZllTM2lpU2k0Q2s5MHBQSTBEOEtlbnk2NnJDUUFRVFRqSXdWbDZFa1ZlTTRx?=
- =?utf-8?B?aCtYY0VQNldCYW40OXhIQ1VmTmhKK3RkWHRhVHMzaFdLN0hSQTNCdGRualpl?=
- =?utf-8?B?YjRVQVA3dTJSYWJFUTRydUwrYmdWaURHR2RxRU4rTUZsa1lldzlxRG1Samx5?=
- =?utf-8?B?R0JSS2YrM09Gd1ZQN2FyeHhkZnJ5eURYejc4MlRyckx1aFJQNVQwR2ZtSGJQ?=
- =?utf-8?B?bytWV0NYOTFYdEpSZy81RW9wTi9WNjhUTnI3SmR6VjNwaTNKamJGT2FVVWs4?=
- =?utf-8?B?WXdsc2xTUVA2RTlnZVBTQi9Ld3RFWElwSTBTR0ZkMTMwc1Yza2pJeEFuNmFi?=
- =?utf-8?B?bDVjQUUvaGloaitqaTNLSzJDdTdka0x2ZVMvSk40dVZwQVRINWxsb1E0MzF5?=
- =?utf-8?B?dEg1YVo4S09pcWlqMlpwTjRLU3VBQU9Pbzd5eDMxTFdUZGdiMU9TRGpFbFVW?=
- =?utf-8?B?eWlBaVAvajA2UmZzRldJbHdjaVROWU84V2ZOV1lRU245UGY0VGhLeUtTNDA0?=
- =?utf-8?B?RmoyaFR1NklJNStEa2RkMWRkN0EzR055SW1BbVpBZElYTERiSUhmZ1VjVjlQ?=
- =?utf-8?B?dnBUbUhQMnN6YXdncnVMQUtCRkJmUmpUeEE2SnVhSE94UFVMVVUrcVlTa3pi?=
- =?utf-8?B?T0ZpcXkraUtkSmhDVnNYM0IvVU1idE5tRzBIajRWaUF3aHVKUGJ2dGdhS3R2?=
- =?utf-8?B?OVZXKzVWUmpjWDc2YldzRVpGSDYyaWtJRHlZM3plTGorREtybnlqanQybXE0?=
- =?utf-8?B?UGxOVVRJNzNjaUxMZmN5bld5cnErWnF4Uk90Ujk1US8rWDJXdVdZUVpTTlVJ?=
- =?utf-8?B?NXJ4NHVRa2MvbzI0WTlBaUJoOVBVWWpqZTR4anFDNmVpVE1memhlemZUVkh5?=
- =?utf-8?B?c1ppYXFYN3BsNTJyVjVmVUlsdmxhQ2Z5VG5wVjd6Z211dXRkdmZVTG1RejVu?=
- =?utf-8?B?a1lUOTMwSC9jSUNoUVc4REt5WHdPemQvREFmbEhTaS9McGNkNThvMTg0SkxH?=
- =?utf-8?B?U201SDVDVXpFQ3l3aTFjUXNDYmVzakxvNVVoQmdqbTh0OU40c2ZpZWZjMnJy?=
- =?utf-8?B?L2xqUndZUW54bFNvSlBCMW1qMGFITGRicWZScVNDS3AxSEpnMDg2NTR2VkVz?=
- =?utf-8?B?czBrMWk1STFUZWJ6enAycSsvVWxhTUtIRHhKbXBWNmxiUmxWVnJSUkUrcXEv?=
- =?utf-8?B?a3VqZVpFK25vaVlzMmxIUlR2dkkvdWFNcU94TFpxdUpwZE12MWUxVmR5RllL?=
- =?utf-8?B?ODVHTHVQUy9yQU5USEZiRklUd2NLcGIzRjgrSzR3bk9vWEVKL1kyblFNbkJ2?=
- =?utf-8?B?ZURMd3I3QzNhQjdzV01ha3pXU2cyS0QrYzZUSzVaVm9McnNPMDJMMU1yb0Zz?=
- =?utf-8?B?TUpDWGRBeFNOM0o4ZlgvYS9mQ2wxYVpDRUVGL25Gd2FrS2FDUFlKS1dCUGxG?=
- =?utf-8?B?OTNxZ2M1U29ZTVppbTJ5ZW9KSThmbXU1YkpjSkpWeHNKWXpKK1FhWTV6THFp?=
- =?utf-8?B?SitPYUdEKzlHUS9FL3k2Mm9TaUtXY0RLQm55R21rTm55dVprQmhxbEZNemZs?=
- =?utf-8?B?QXhUQ3pmejQwSXpzek1KOWlhMit5S0ZDUWNZVmRyY2V1ZWp3NnI0V0F4OUNl?=
- =?utf-8?Q?cfKPvywWpshEFaBehOSuiOBCy?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: adb187d6-1272-4026-c899-08ddda4e1ef2
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5712.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 09:45:22.2047
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xn1BHYGqYyiJW1R26sNSxeWZU+oW42oWzI1F779mnymB+F1koheKvlo1AM5SBUPNqdAF0P/DZr0BwoZm+1dGdw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7438
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_024527_645660_AAC11A9F 
-X-CRM114-Status: GOOD (  35.89  )
+X-CRM114-CacheID: sfid-20250813_024947_505019_61F1EBE5 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,228 +82,319 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-08-2025 01:26, Sean Christopherson wrote:
-> This series is based on the fastpath+PMU cleanups series[*] (which is based on
-> kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
-> I.e. if you only care about the perf changes, I would just apply on whatever
-> branch is convenient and stop when you hit the KVM changes.
-> 
-> My hope/plan is that the perf changes will go through the tip tree with a
-> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
-> 
-> Non-x86 KVM folks, y'all are getting Cc'd due to minor changes in "KVM: Add a
-> simplified wrapper for registering perf callbacks".
-> 
-> The full set is also available at:
-> 
->   https://github.com/sean-jc/linux.git tags/mediated-vpmu-v5
-> 
-> Add support for mediated vPMUs in KVM x86, where "mediated" aligns with the
-> standard definition of intercepting control operations (e.g. event selectors),
-> while allowing the guest to perform data operations (e.g. read PMCs, toggle
-> counters on/off) without KVM getting involed.
-> 
-> For an in-depth description of the what and why, please see the cover letter
-> from the original RFC:
-> 
->   https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
-> 
-> All KVM tests pass (or fail the same before and after), and I've manually
-> verified MSR/PMC are passed through as expected, but I haven't done much at all
-> to actually utilize the PMU in a guest.  I'll be amazed if I didn't make at
-> least one major goof.
-> 
-> Similarly, I tried to address all feedback, but there are many, many changes
-> relative to v4.  If I missed something, I apologize in advance.
-> 
-> In other words, please thoroughly review and test.
-> 
-> [*] https://lore.kernel.org/all/20250805190526.1453366-1-seanjc@google.com
-> 
-> v5:
->  - Add a patch to call security_perf_event_free() from __free_event()
->    instead of _free_event() (necessitated by the __cleanup() changes).
->  - Add CONFIG_PERF_GUEST_MEDIATED_PMU to guard the new perf functionality.
->  - Ensure the PMU is fully disabled in perf_{load,put}_guest_context() when
->    when switching between guest and host context. [Kan, Namhyung]
->  - Route the new system IRQ, PERF_GUEST_MEDIATED_PMI_VECTOR, through perf,
->    not KVM, and play nice with FRED.
->  - Rename and combine perf_{guest,host}_{enter,exit}() to a single set of
->    APIs, perf_{load,put}_guest_context().
->  - Rename perf_{get,put}_mediated_pmu() to perf_{create,release}_mediated_pmu()
->    to (hopefully) better differentiate them from perf_{load,put}_guest_context().
->  - Change the param to the load/put APIs from "u32 guest_lvtpc" to
->    "unsigned long data" to decouple arch code as much as possible.  E.g. if
->    a non-x86 arch were to ever support a mediated vPMU, @data could be used
->    to pass a pointer to a struct.
->  - Use pmu->version to detect if a vCPU has a mediated PMU.
->  - Use a kvm_x86_ops hook to check for mediated PMU support.
->  - Cull "passthrough" from as many places as I could find.
->  - Improve the changelog/documentation related to RDPMC interception.
->  - Check harware capabilities, not KVM capabilities, when calculating
->    MSR and RDPMC intercepts.
->  - Rework intercept (re)calculation to use a request and the existing (well,
->    will be existing as of 6.17-rc1) vendor hooks for recalculating intercepts.
->  - Always read PERF_GLOBAL_CTRL on VM-Exit if writes weren't intercepted while
->    running the vCPU.
->  - Call setup_vmcs_config() before kvm_x86_vendor_init() so that the golden
->    VMCS configuration is known before kvm_init_pmu_capability() is called.
->  - Keep as much refresh/init code in common x86 as possible.
->  - Context switch PMCs and event selectors in common x86, not vendor code.
->  - Bail from the VM-Exit fastpath if the guest is counting instructions
->    retired and the mediated PMU is enabled (because guest state hasn't yet
->    been synchronized with hardware).
->  - Don't require an userspace to opt-in via KVM_CAP_PMU_CAPABILITY, and instead
->    automatically "create" a mediated PMU on the first KVM_CREATE_VCPU call if
->    the VM has an in-kernel local APIC.
->  - Add entries in kernel-parameters.txt for the PMU params.
->  - Add a patch to elide PMC writes when possible.
->  - Many more fixups and tweaks...
-> 
-> v4:
->  - https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
->  - Rebase whole patchset on 6.14-rc3 base.
->  - Address Peter's comments on Perf part.
->  - Address Sean's comments on KVM part.
->    * Change key word "passthrough" to "mediated" in all patches
->    * Change static enabling to user space dynamic enabling via KVM_CAP_PMU_CAPABILITY.
->    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
->      save/retore list support for GLOBAL_CTRL, thus the support of mediated
->      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
->    * Merge some small changes into a single patch.
->  - Address Sandipan's comment on invalid pmu pointer.
->  - Add back "eventsel_hw" and "fixed_ctr_ctrl_hw" to avoid to directly
->    manipulate pmc->eventsel and pmu->fixed_ctr_ctrl.
-> 
-> v3: https://lore.kernel.org/all/20240801045907.4010984-1-mizhang@google.com
-> v2: https://lore.kernel.org/all/20240506053020.3911940-1-mizhang@google.com
-> v1: https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
-> 
-> Dapeng Mi (15):
->   KVM: x86/pmu: Start stubbing in mediated PMU support
->   KVM: x86/pmu: Implement Intel mediated PMU requirements and
->     constraints
->   KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
->   KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
->   KVM: VMX: Add helpers to toggle/change a bit in VMCS execution
->     controls
->   KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
->   KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated
->     PMU
->   KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
->   KVM: x86/pmu: Disable interception of select PMU MSRs for mediated
->     vPMUs
->   KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter
->     accesses
->   KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter
->     updates
->   KVM: x86/pmu: Load/put mediated PMU context when entering/exiting
->     guest
->   KVM: x86/pmu: Handle emulated instruction for mediated vPMU
->   KVM: nVMX: Add macros to simplify nested MSR interception setting
->   KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
-> 
-> Kan Liang (7):
->   perf: Skip pmu_ctx based on event_type
->   perf: Add generic exclude_guest support
->   perf: Add APIs to create/release mediated guest vPMUs
->   perf: Clean up perf ctx time
->   perf: Add a EVENT_GUEST flag
->   perf: Add APIs to load/put guest mediated PMU context
->   perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
-> 
-> Mingwei Zhang (3):
->   perf/x86/core: Plumb mediated PMU capability from x86_pmu to
->     x86_pmu_cap
->   KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
->   KVM: nVMX: Disable PMU MSR interception as appropriate while running
->     L2
-> 
-> Sandipan Das (3):
->   perf/x86/core: Do not set bit width for unavailable counters
->   perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
->   KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on
->     AMD
-> 
-> Sean Christopherson (15):
->   perf: Move security_perf_event_free() call to __free_event()
->   perf: core/x86: Register a new vector for handling mediated guest PMIs
->   perf/x86: Switch LVTPC to/from mediated PMI vector on guest load/put
->     context
->   KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
->   KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
->   KVM: Add a simplified wrapper for registering perf callbacks
->   KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
->   KVM: x86/pmu: Implement AMD mediated PMU requirements
->   KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic
->     RECALC_INTERCEPTS
->   KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
->   KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
->   KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to
->     PMU v2+
->   KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are
->     active
->   KVM: nSVM: Disable PMU MSR interception as appropriate while running
->     L2
->   KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already
->     match
-> 
-> Xiong Zhang (1):
->   KVM: x86/pmu: Register PMI handler for mediated vPMU
-> 
->  .../admin-guide/kernel-parameters.txt         |  49 ++
->  arch/arm64/kvm/arm.c                          |   2 +-
->  arch/loongarch/kvm/main.c                     |   2 +-
->  arch/riscv/kvm/main.c                         |   2 +-
->  arch/x86/entry/entry_fred.c                   |   1 +
->  arch/x86/events/amd/core.c                    |   2 +
->  arch/x86/events/core.c                        |  32 +-
->  arch/x86/events/intel/core.c                  |   5 +
->  arch/x86/include/asm/hardirq.h                |   3 +
->  arch/x86/include/asm/idtentry.h               |   6 +
->  arch/x86/include/asm/irq_vectors.h            |   4 +-
->  arch/x86/include/asm/kvm-x86-ops.h            |   2 +-
->  arch/x86/include/asm/kvm-x86-pmu-ops.h        |   4 +
->  arch/x86/include/asm/kvm_host.h               |   7 +-
->  arch/x86/include/asm/msr-index.h              |  17 +-
->  arch/x86/include/asm/perf_event.h             |   1 +
->  arch/x86/include/asm/vmx.h                    |   1 +
->  arch/x86/kernel/idt.c                         |   3 +
->  arch/x86/kernel/irq.c                         |  19 +
->  arch/x86/kvm/Kconfig                          |   1 +
->  arch/x86/kvm/cpuid.c                          |   2 +
->  arch/x86/kvm/pmu.c                            | 272 ++++++++-
->  arch/x86/kvm/pmu.h                            |  37 +-
->  arch/x86/kvm/svm/nested.c                     |  18 +-
->  arch/x86/kvm/svm/pmu.c                        |  51 +-
->  arch/x86/kvm/svm/svm.c                        |  54 +-
->  arch/x86/kvm/vmx/capabilities.h               |  11 +-
->  arch/x86/kvm/vmx/main.c                       |  14 +-
->  arch/x86/kvm/vmx/nested.c                     |  65 ++-
->  arch/x86/kvm/vmx/pmu_intel.c                  | 169 ++++--
->  arch/x86/kvm/vmx/pmu_intel.h                  |  15 +
->  arch/x86/kvm/vmx/vmx.c                        | 143 +++--
->  arch/x86/kvm/vmx/vmx.h                        |  11 +-
->  arch/x86/kvm/vmx/x86_ops.h                    |   2 +-
->  arch/x86/kvm/x86.c                            |  69 ++-
->  arch/x86/kvm/x86.h                            |   1 +
->  include/linux/kvm_host.h                      |  11 +-
->  include/linux/perf_event.h                    |  38 +-
->  init/Kconfig                                  |   4 +
->  kernel/events/core.c                          | 521 ++++++++++++++----
->  .../beauty/arch/x86/include/asm/irq_vectors.h |   3 +-
->  virt/kvm/kvm_main.c                           |   6 +-
->  42 files changed, 1385 insertions(+), 295 deletions(-)
-> 
-> 
-> base-commit: 53d61a43a7973f812caa08fa922b607574befef4
+Usage of the clock-frequency property for camera sensors is discouraged
+in favour of using assigned-clock-rates (and assigned-clock-parents
+where needed). Mark the property as deprecated.
 
-No issues seen with KUT and KVM kselftest runs on the following types of
-AMD host systems.
-- Milan (does not have PerfMonV2, cannot use Mediated PMU)
-- Genoa and Turin (have PerfMonV2)
+Update the examples accordingly. In DT examples where the sensor input
+clock appears to come from a programmable clock generator, replace
+clock-frequency by the assigned-clocks and assigned-clock-rates
+properties. Otherwise, just drop clock-frequency.
 
-Tested with all combinations of kvm.force_emulation_prefix and
-kvm_amd.enable_mediated_pmu. The issue seen previously where RDPMC gets
-intercepted on secondary vCPUs has also been addressed.
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes since v2:
+
+- Don't remove clocks property in samsung,exynos4212-fimc-is.yaml
+
+Changes since v1:
+
+- Adapt examples in bindings that reference sensors
+---
+ Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
+ Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml  | 7 +++++--
+ .../devicetree/bindings/media/i2c/ovti,ov02a10.yaml        | 3 +--
+ .../devicetree/bindings/media/i2c/ovti,ov5645.yaml         | 6 +++++-
+ .../devicetree/bindings/media/i2c/ovti,ov7251.yaml         | 6 +++++-
+ .../devicetree/bindings/media/i2c/ovti,ov8856.yaml         | 3 +--
+ .../devicetree/bindings/media/i2c/samsung,s5k5baf.yaml     | 6 +++++-
+ .../devicetree/bindings/media/i2c/samsung,s5k6a3.yaml      | 6 +++++-
+ .../devicetree/bindings/media/i2c/sony,imx290.yaml         | 5 +++--
+ .../bindings/media/samsung,exynos4212-fimc-is.yaml         | 3 ++-
+ Documentation/devicetree/bindings/media/samsung,fimc.yaml  | 3 ++-
+ 11 files changed, 38 insertions(+), 16 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+index 73144473b9b2..1687b069e032 100644
+--- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
++++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+@@ -292,7 +292,8 @@ examples:
+ 
+                 clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
+                 clock-names = "xvclk";
+-                clock-frequency = <19200000>;
++                assigned-clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
++                assigned-clock-rates = <19200000>;
+ 
+                 dovdd-supply = <&vreg_lvs1a_1p8>;
+                 avdd-supply = <&cam0_avdd_2v8>;
+@@ -324,7 +325,8 @@ examples:
+ 
+                 clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
+                 clock-names = "xclk";
+-                clock-frequency = <24000000>;
++                assigned-clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
++                assigned-clock-rates = <24000000>;
+ 
+                 vdddo-supply = <&vreg_lvs1a_1p8>;
+                 vdda-supply = <&cam3_avdd_2v8>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
+index bc664a016396..217b08c8cbbd 100644
+--- a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
+@@ -55,6 +55,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the external clock to the sensor in Hz.
++    deprecated: true
+ 
+   reset-gpios:
+     description: Reset GPIO. Also commonly called XSHUTDOWN in hardware
+@@ -93,7 +94,6 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - clock-frequency
+   - clocks
+ 
+ additionalProperties: false
+@@ -114,8 +114,11 @@ examples:
+             reg = <0x10>;
+             reset-gpios = <&gpio3 20 GPIO_ACTIVE_LOW>;
+             vana-supply = <&vaux3>;
++
+             clocks = <&omap3_isp 0>;
+-            clock-frequency = <9600000>;
++            assigned-clocks = <&omap3_isp 0>;
++            assigned-clock-rates = <9600000>;
++
+             port {
+                 ccs_ep: endpoint {
+                     data-lanes = <1 2>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
+index 67c1c291327b..0e1d9c390180 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
+@@ -39,6 +39,7 @@ properties:
+   clock-frequency:
+     description:
+       Frequency of the eclk clock in Hz.
++    deprecated: true
+ 
+   dovdd-supply:
+     description:
+@@ -100,7 +101,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - dovdd-supply
+   - avdd-supply
+   - dvdd-supply
+@@ -127,7 +127,6 @@ examples:
+ 
+             clocks = <&ov02a10_clk>;
+             clock-names = "eclk";
+-            clock-frequency = <24000000>;
+ 
+             rotation = <180>;
+ 
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
+index bc9b27afe3ea..a583714b1ac7 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
+@@ -21,6 +21,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz.
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog voltage supply, 2.8 volts
+@@ -83,8 +84,11 @@ examples:
+         camera@3c {
+             compatible = "ovti,ov5645";
+             reg = <0x3c>;
++
+             clocks = <&clks 1>;
+-            clock-frequency = <24000000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <24000000>;
++
+             vdddo-supply = <&ov5645_vdddo_1v8>;
+             vdda-supply = <&ov5645_vdda_2v8>;
+             vddd-supply = <&ov5645_vddd_1v5>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
+index 2e5187acbbb8..922996da59b2 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
+@@ -29,6 +29,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz.
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog voltage supply, 2.8 volts
+@@ -89,8 +90,11 @@ examples:
+         camera@3c {
+             compatible = "ovti,ov7251";
+             reg = <0x3c>;
++
+             clocks = <&clks 1>;
+-            clock-frequency = <24000000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <24000000>;
++
+             vdddo-supply = <&ov7251_vdddo_1v8>;
+             vdda-supply = <&ov7251_vdda_2v8>;
+             vddd-supply = <&ov7251_vddd_1v5>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
+index 3f6f72c35485..fa71f24823f2 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
+@@ -37,6 +37,7 @@ properties:
+   clock-frequency:
+     description:
+       Frequency of the xvclk clock in Hertz.
++    deprecated: true
+ 
+   dovdd-supply:
+     description:
+@@ -87,7 +88,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - dovdd-supply
+   - avdd-supply
+   - dvdd-supply
+@@ -114,7 +114,6 @@ examples:
+ 
+             clocks = <&cam_osc>;
+             clock-names = "xvclk";
+-            clock-frequency = <19200000>;
+ 
+             avdd-supply = <&mt6358_vcama2_reg>;
+             dvdd-supply = <&mt6358_vcamd_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
+index c8f2955e0825..ebd95a8d9b2f 100644
+--- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
+@@ -26,6 +26,7 @@ properties:
+   clock-frequency:
+     default: 24000000
+     description: mclk clock frequency
++    deprecated: true
+ 
+   rstn-gpios:
+     maxItems: 1
+@@ -82,9 +83,12 @@ examples:
+         sensor@2d {
+             compatible = "samsung,s5k5baf";
+             reg = <0x2d>;
++
+             clocks = <&camera 0>;
++            assigned-clocks = <&camera 0>;
++            assigned-clock-rates = <24000000>;
++
+             clock-names = "mclk";
+-            clock-frequency = <24000000>;
+             rstn-gpios = <&gpl2 1 GPIO_ACTIVE_LOW>;
+             stbyn-gpios = <&gpl2 0 GPIO_ACTIVE_LOW>;
+             vdda-supply = <&cam_io_en_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
+index 7e83a94124b5..e563e35920c4 100644
+--- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
+@@ -30,6 +30,7 @@ properties:
+   clock-frequency:
+     default: 24000000
+     description: extclk clock frequency
++    deprecated: true
+ 
+   gpios:
+     maxItems: 1
+@@ -80,8 +81,11 @@ examples:
+         sensor@10 {
+             compatible = "samsung,s5k6a3";
+             reg = <0x10>;
+-            clock-frequency = <24000000>;
++
+             clocks = <&camera 1>;
++            assigned-clocks = <&camera 1>;
++            assigned-clock-rates = <24000000>;
++
+             clock-names = "extclk";
+             gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+             afvdd-supply = <&ldo19_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+index 990acf89af8f..484039671cd1 100644
+--- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+@@ -51,6 +51,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog power supply (2.9V)
+@@ -100,7 +101,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - vdda-supply
+   - vddd-supply
+   - vdddo-supply
+@@ -125,7 +125,8 @@ examples:
+ 
+             clocks = <&gcc 90>;
+             clock-names = "xclk";
+-            clock-frequency = <37125000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <37125000>;
+ 
+             vdddo-supply = <&camera_vdddo_1v8>;
+             vdda-supply = <&camera_vdda_2v8>;
+diff --git a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
+index 3a5ff3f47060..71d63bb9abb5 100644
+--- a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
++++ b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
+@@ -209,9 +209,10 @@ examples:
+                 svdda-supply = <&cam_io_reg>;
+                 svddio-supply = <&ldo19_reg>;
+                 afvdd-supply = <&ldo19_reg>;
+-                clock-frequency = <24000000>;
+                 clocks = <&camera 1>;
+                 clock-names = "extclk";
++                assigned-clocks = <&camera 1>;
++                assigned-clock-rates = <24000000>;
+                 gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+ 
+                 port {
+diff --git a/Documentation/devicetree/bindings/media/samsung,fimc.yaml b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
+index 7808d61f1fa3..2a54379d9509 100644
+--- a/Documentation/devicetree/bindings/media/samsung,fimc.yaml
++++ b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
+@@ -259,10 +259,11 @@ examples:
+                     svdda-supply = <&cam_io_reg>;
+                     svddio-supply = <&ldo19_reg>;
+                     afvdd-supply = <&ldo19_reg>;
+-                    clock-frequency = <24000000>;
+                     /* CAM_B_CLKOUT */
+                     clocks = <&camera 1>;
+                     clock-names = "extclk";
++                    assigned-clocks = <&camera 1>;
++                    assigned-clock-rates = <24000000>;
+                     gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+ 
+                     port {
+-- 
+Regards,
+
+Laurent Pinchart
+
 
