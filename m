@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1015AC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB69C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 17:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqYS3VaYXkKa4Y2ba/jlry/eBEmss+btji6RsrdYjVU=; b=QHnSWxLEUCtEHXcfN+76AMfBlh
-	rMwxkNGxC6geDqa4GrajyOGebgWs5QG48quQNbtTxJ2o9PqmxWMycqmgJbs7WisiJTnRd1y6zcrrx
-	sVi3ACD7iQ3+u5CG0JLMrZi2k19Yd7sDZH4OsYw2BNAW0u/nthgWwCqZFJXEQJc+Ka6Oy0uIiSgwU
-	I7p7MLUgrV9tsu3rEA7za2xOzylu78nKzX7iCWm/euSYH9imRy0VMQeD2P2mEvdm+KIQt28s4mBR3
-	KB5wI6IBNH0mNXF/2Nef/i1EwqyBRn2JqVof0jHkYWNk998Y3Qfd9EHEyHP8Uyy7ai1I1LfpemKAb
-	42f4alsQ==;
+	bh=OYn6F3avixjtER6E0ohkY1hi7mX0fUkF12CsoRFU9/k=; b=kiNNBe3dnWNX9sYLEtpi1ta1PC
+	wyLkUzhyIaOC6HfggeS+BlLMSCIJPbO/YUC12s+QByru5nfND3TUU/jAYJUdlFWDZL5NCwHbc3Qnv
+	3RdsZ5T1w9Ygeo8diboVQr3s0p7siz9wpi+uWrh7FQ4w+P4717SH9VEjL/kEx1bakPG2v8MDB5jnZ
+	fEacdtR1UkuV06O9W0wXQG9ZJzGszzjhVJIV+2RdXYzy29+hzE7MnRmZf6YzlWK6tjcwTwqylPR4X
+	Y9jwaa3F5Euo4ty2XhhkezrPZLMNbfPm5Qa6h6QcXh5CyxZkDhvw5mNN4y6UbbJyFGQSBCX4aHdtb
+	vpwQaZuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEoS-0000000EUdn-32jt;
-	Wed, 13 Aug 2025 16:58:56 +0000
+	id 1umEr3-0000000EVOi-1qK6;
+	Wed, 13 Aug 2025 17:01:37 +0000
 Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umE9S-0000000ELjP-0DoZ
+	id 1umE9U-0000000ELkL-3tMP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 16:16:35 +0000
+	Wed, 13 Aug 2025 16:16:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	sang-engineering.com; h=from:to:cc:subject:date:message-id
 	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=jqYS3VaYXkKa4Y2ba/jlry/eBEmss+btji6RsrdYjVU=; b=lSaAJl
-	j3P1xa5oxGrMEvCrsh3RyGYeFMscjLCAjWJnIdt1JfkZ2z4cNtf56pvgM0AQfOgH
-	SOLdvtmj5SrBs+xRO1orIA2A1dl558KFNtNwEjLsa1K9UxBcmvqX45lv2vUo/bEf
-	0SoMKabQ2jAoqXekq0GczZgV7A220vdGHLSDl1Akr4AQgWnbZpoaRCOwoXBPON5R
-	u75pCXD2p+dZCU1fpoza2Wp3FmzJxk4qVjLcBrHJHS8Tw7D5XYGsKjKAvNbeT6tH
-	Rzb+NkbDV5fP5aa+cGSqRgpmu4zbFkpH+9QEvjTdQfMGz7TMtoTx60zbq/h7a7Ic
-	0vfMA8FhcDPdJ+fw==
-Received: (qmail 695377 invoked from network); 13 Aug 2025 18:16:22 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 18:16:22 +0200
-X-UD-Smtp-Session: l3s3148p1@FsI7ekE8sJFtKLKq
+	 s=k1; bh=OYn6F3avixjtER6E0ohkY1hi7mX0fUkF12CsoRFU9/k=; b=PmD+yI
+	vxRAKaGAXHba17GAjQPiz7VPVfkfzMuO6zPxsF1nZa9rVY9CeAaEqnG7TAD41SMS
+	R5xL6MkdHdi+wybfV4oir8xCoY906vOOCo4nvVWtAGKXDTG7k0SFV0/lx269u0Ah
+	zqrAAh0BIugpdiD/qAMcRQIIep/oYijYEChahm2FVrjxfgTd0nGNW12fr0T03NTz
+	dd4LHlmwDBip4OJC+GrvXSJkA51U/V9Bxr6hH27NQWC75e4Nu6I1I0h8lTiU2zlK
+	fugrvsMltZjD55+XQromft7/jqKW5muWgDoWzF7TJYYl2p4egtdSldez7VIOOwjJ
+	+kBv/8blVSmjwt+g==
+Received: (qmail 695593 invoked from network); 13 Aug 2025 18:16:27 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 18:16:27 +0200
+X-UD-Smtp-Session: l3s3148p1@cDWKekE8xJFtKLKq
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-kernel@vger.kernel.org
 Cc: Mark Brown <broonie@kernel.org>,
 	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 14/21] pmdomain: remove unneeded 'fast_io' parameter in regmap_config
-Date: Wed, 13 Aug 2025 18:15:00 +0200
-Message-ID: <20250813161517.4746-15-wsa+renesas@sang-engineering.com>
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-rtc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH 17/21] rtc: remove unneeded 'fast_io' parameter in regmap_config
+Date: Wed, 13 Aug 2025 18:15:03 +0200
+Message-ID: <20250813161517.4746-18-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_091634_370440_54B9DA02 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250813_091637_240329_C86CCBB9 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,21 +85,21 @@ Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 No dependencies, can be applied directly to the subsystem tree. Buildbot is
 happy, too.
 
- drivers/pmdomain/imx/gpc.c | 1 -
+ drivers/rtc/rtc-meson.c | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-index f18c7e6e75dd..33991f3c6b55 100644
---- a/drivers/pmdomain/imx/gpc.c
-+++ b/drivers/pmdomain/imx/gpc.c
-@@ -343,7 +343,6 @@ static const struct regmap_config imx_gpc_regmap_config = {
- 	.rd_table = &access_table,
- 	.wr_table = &access_table,
- 	.max_register = 0x2ac,
--	.fast_io = true,
+diff --git a/drivers/rtc/rtc-meson.c b/drivers/rtc/rtc-meson.c
+index 47e9ebf58ffc..21eceb9e2e13 100644
+--- a/drivers/rtc/rtc-meson.c
++++ b/drivers/rtc/rtc-meson.c
+@@ -72,7 +72,6 @@ static const struct regmap_config meson_rtc_peripheral_regmap_config = {
+ 	.val_bits	= 32,
+ 	.reg_stride	= 4,
+ 	.max_register	= RTC_REG4,
+-	.fast_io	= true,
  };
  
- static struct generic_pm_domain *imx_gpc_onecell_domains[] = {
+ /* RTC front-end serialiser controls */
 -- 
 2.47.2
 
