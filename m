@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A964CC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AF6CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQKMkzuKZ8aQNaYA0xm+uguK3peEC/PfCD9otnle504=; b=r9m9zEV0C2rKQmR2o5s940NulX
-	vRnXMVPiI74KO+7VK0Y+6RAxZXwcgn/pbotKaICVmW24PsLWcWfcDh47Fp2+YB3L9+byR3Ng850Pu
-	Odj6PbzY4obtG+oQa/7oAly4MwN2uV5uMFHstfONIke5EEqwFHClYEI+ep5CKXhawHdgQyXcDxpw8
-	LWqSLUzWOhZLzURDKpdpbFoETBGNGVf0vzhbzA5fJbpEXssrZBI0xy2xJEXR33zj5hNMtb4HK4Jqk
-	cIEf7kHgjCPX6WVWij3QsGtpbXKELvnZpNPd6sPELZl8hH/2yIhS/EHfsmFoGYDzbjNfc0/rikDeo
-	5N/opF1A==;
+	bh=r9QekULDTpKT2sp/tU5XfRCPn/3eOKEKt4xinUDGYWs=; b=ObjytGiDYAbaneq9Ubz1jtQUxs
+	K+1U6In+ctf2qi8B5wBPAZ2e+rgNMbjQVF+IdibwT8YKBkhPWyJkizIDOBFbwSYWPZd90gsQBEf53
+	1g1R+HkGWqpWaOP2KeSRVRTigctKLJ8M3NjqHg1eAwFiOve6+Buy/zm+nSqhPyR7PM6c0PAWhhvd8
+	0IM4CwisyL8Ivs51zSzpM5T9Ev1vdoxQeg0sKCDkOK6mXfBUemjlH4v5Cn5r5h9Nq/EEJrIkR1/A9
+	J3+qI3CVNPjlnP5BrnTm/YARnhOnTdlqsw7pr8QFFPT4W0TRy1KcU5lkFwCXwiGCLeckoA8ZakXOn
+	0seCL1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5tq-0000000CvgJ-3ln4;
-	Wed, 13 Aug 2025 07:27:54 +0000
+	id 1um5wM-0000000Cw2P-2lEH;
+	Wed, 13 Aug 2025 07:30:30 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um52u-0000000Cniu-3T9v
+	id 1um52w-0000000Cniu-2TDj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 06:33:14 +0000
+	Wed, 13 Aug 2025 06:33:15 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 13 Aug
@@ -47,9 +47,9 @@ CC: Simon Horman <horms@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<taoren@meta.com>, <bmc-sw2@aspeedtech.com>
-Subject: [net-next v2 1/4] dt-bindings: net: ftgmac100: Restrict phy-mode and delay properties for AST2600
-Date: Wed, 13 Aug 2025 14:32:58 +0800
-Message-ID: <20250813063301.338851-2-jacky_chou@aspeedtech.com>
+Subject: [net-next v2 2/4] ARM: dts: aspeed-g6: Add ethernet alise and update MAC compatible
+Date: Wed, 13 Aug 2025 14:32:59 +0800
+Message-ID: <20250813063301.338851-3-jacky_chou@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
 References: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
@@ -57,8 +57,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_233312_869283_385EEA69 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250812_233314_631317_E256CFE9 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,108 +74,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create the new compatibles to identify AST2600 MAC0/1 and MAC3/4.
-Add conditional schema constraints for Aspeed AST2600 MAC controllers:
-- For "aspeed,ast2600-mac01", restrict phy-mode to "rgmii-id" and
-  "rgmii-rxid", and require rx/tx-internal-delay-ps properties with 45ps
-  step.
-- For "aspeed,ast2600-mac23", require rx/tx-internal-delay-ps properties
-  with 250ps step.
-- Both require the "scu" property.
-Other compatible values remain unrestricted.
-
-Because the RGMII delay on AST2600 MAC0/1 is 45ps and its total delay
-step is 32, cannot cover 2ns delay for RGMII to meet center. We need
-the PHY side enables RX internal delay and the phy_mode must be
-"rgmii-id" or "rgmii-rxid".
+For RGMII delay setting, the MAC0 and MAC1 use the SCU0x340 to configure
+the RGMII delay. We use the ethernet alise to identify the index of MAC.
+And add the new compatible for MAC0/1 and MAC2/3 to calculate the
+RGMII delay with different delay unit.
+Finally, the RGMII delay of AST2600 is configured in SCU region and add
+the scu phandle for configuration.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- .../bindings/net/faraday,ftgmac100.yaml       | 50 +++++++++++++++++--
- 1 file changed, 47 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 24 ++++++++++++++++++++----
+ 1 file changed, 20 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-index 55d6a8379025..82c7c81eab10 100644
---- a/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-+++ b/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml
-@@ -6,9 +6,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 8ed715bd53aa..6be17b18da46 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -40,6 +40,10 @@ aliases {
+ 		mdio1 = &mdio1;
+ 		mdio2 = &mdio2;
+ 		mdio3 = &mdio3;
++		ethernet0 = &mac0;
++		ethernet1 = &mac1;
++		ethernet2 = &mac2;
++		ethernet3 = &mac3;
+ 	};
  
- title: Faraday Technology FTGMAC100 gigabit ethernet controller
  
--allOf:
--  - $ref: ethernet-controller.yaml#
--
- maintainers:
-   - Po-Yu Chuang <ratbert@faraday-tech.com>
+@@ -232,34 +236,46 @@ mdio3: mdio@1e650018 {
+ 		};
  
-@@ -21,6 +18,8 @@ properties:
-               - aspeed,ast2400-mac
-               - aspeed,ast2500-mac
-               - aspeed,ast2600-mac
-+              - aspeed,ast2600-mac01
-+              - aspeed,ast2600-mac23
-           - const: faraday,ftgmac100
+ 		mac0: ethernet@1e660000 {
+-			compatible = "aspeed,ast2600-mac", "faraday,ftgmac100";
++			compatible = "aspeed,ast2600-mac01",
++				     "aspeed,ast2600-mac",
++				     "faraday,ftgmac100";
+ 			reg = <0x1e660000 0x180>;
+ 			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>;
++			scu = <&syscon>;
+ 			status = "disabled";
+ 		};
  
-   reg:
-@@ -69,6 +68,12 @@ properties:
-   mdio:
-     $ref: /schemas/net/mdio.yaml#
+ 		mac1: ethernet@1e680000 {
+-			compatible = "aspeed,ast2600-mac", "faraday,ftgmac100";
++			compatible = "aspeed,ast2600-mac01",
++				     "aspeed,ast2600-mac",
++				     "faraday,ftgmac100";
+ 			reg = <0x1e680000 0x180>;
+ 			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&syscon ASPEED_CLK_GATE_MAC2CLK>;
++			scu = <&syscon>;
+ 			status = "disabled";
+ 		};
  
-+  scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the SCU (System Control Unit) syscon node for Aspeed platform.
-+      This reference is used by the MAC controller to configure the RGMII delays.
-+
- required:
-   - compatible
-   - reg
-@@ -76,6 +81,45 @@ required:
+ 		mac2: ethernet@1e670000 {
+-			compatible = "aspeed,ast2600-mac", "faraday,ftgmac100";
++			compatible = "aspeed,ast2600-mac23",
++				     "aspeed,ast2600-mac",
++				     "faraday,ftgmac100";
+ 			reg = <0x1e670000 0x180>;
+ 			interrupts = <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&syscon ASPEED_CLK_GATE_MAC3CLK>;
++			scu = <&syscon>;
+ 			status = "disabled";
+ 		};
  
- unevaluatedProperties: false
+ 		mac3: ethernet@1e690000 {
+-			compatible = "aspeed,ast2600-mac", "faraday,ftgmac100";
++			compatible = "aspeed,ast2600-mac23",
++				     "aspeed,ast2600-mac",
++				     "faraday,ftgmac100";
+ 			reg = <0x1e690000 0x180>;
+ 			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&syscon ASPEED_CLK_GATE_MAC4CLK>;
++			scu = <&syscon>;
+ 			status = "disabled";
+ 		};
  
-+allOf:
-+  - $ref: ethernet-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: aspeed,ast2600-mac01
-+    then:
-+      properties:
-+        phy-mode:
-+          enum: [rgmii-id, rgmii-rxid]
-+        rx-internal-delay-ps:
-+          minimum: 0
-+          maximum: 1395
-+          multipleOf: 45
-+        tx-internal-delay-ps:
-+          minimum: 0
-+          maximum: 1395
-+          multipleOf: 45
-+      required:
-+        - scu
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: aspeed,ast2600-mac23
-+    then:
-+      properties:
-+        rx-internal-delay-ps:
-+          minimum: 0
-+          maximum: 7750
-+          multipleOf: 250
-+        tx-internal-delay-ps:
-+          minimum: 0
-+          maximum: 7750
-+          multipleOf: 250
-+      required:
-+        - scu
-+
- examples:
-   - |
-     ethernet@1e660000 {
 -- 
 2.43.0
 
