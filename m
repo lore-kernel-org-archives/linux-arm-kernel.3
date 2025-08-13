@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BBBCA0EE5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7043CA0EE6
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i58vDD8ciCG4tqEiOdS2g0gU9MJ6vUoA6yHuonpgaXs=; b=xQATQDN7a9hUeGF4C6eDQkMsia
-	LpP95jheRyuVrXWp8sYDHeX6lvOJrTPcVG/B3TzGxKhpS5MrC4lHXMysmeKNhosFZHvo2LrnGdPvE
-	Aq4ZMOVvux6+9wpMViyTDQ1Q3DuX+lFEsOX9O/FpAlfzgBEIpljIKw0AlnDHdZaoII5svQG1kLBpE
-	lfO11NZ2rybcVC57UiXkKSpUGUdIF8SGaT0C2gpdjc4qeo2erWZWRLC/uPOzQ6Gl3uQlKLgajFCKz
-	GCoiyodZ2iS9QbrFqbxHTIWcQsom4eY0tZMTKRmpOSBACFvgD79YQrh5+3JL2lXbCKfS5haDNhMlx
-	VTW+fKGA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2sp3aPSAtyo6I6rR6nNXHOeKvBEwtpMGHhEmiY/HzQI=; b=RNNR8JvJuQs9nbbb/B5A0wOjoo
+	/sgLL9K71bduQQX+gI7+kmdMp4mdvDk10SsLB2L/Y41EVbUogUsHElp3cXmeS3SYGN53EoQ1F/MUH
+	1zxj7nA9qpUmO4O80L+ZM0rDppDb4tJtCCQflipz+WkOxDlhXuKRXhABKhzyP3wSqlKyX6FAN66Uc
+	UpaWPePwOMvPMNqnMLTfbBJXxZ2JdV6ckSGBSPB6CSnf5Ypvb2gNHIplTz8zyaYwQx3Md17TS6Gmf
+	iKNqskJCymSHbZfH5Am2cCrMjdqspzHD/oIemaIkaLODtQfbyseq7AWdGxRCWC3IM+IesyCoPepIv
+	4zaGGwHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFrA-0000000EeVH-2TWt;
-	Wed, 13 Aug 2025 18:05:48 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1umFrB-0000000EeWA-38Uu;
+	Wed, 13 Aug 2025 18:05:49 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEb8-0000000ESkW-00dL
+	id 1umEbA-0000000ESkm-0vCi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 16:45:11 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-61865148a8fso1024854a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 09:45:09 -0700 (PDT)
+	Wed, 13 Aug 2025 16:45:13 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-459dfbece11so35313765e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 09:45:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755103508; x=1755708308; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=i58vDD8ciCG4tqEiOdS2g0gU9MJ6vUoA6yHuonpgaXs=;
-        b=dS7LNSFVN46wvijnd4SzVqS8ge33iCZ8+Z2nsWEWfcS9uB52sP5ArAhcsABRo5YqTn
-         dhHS1WIDKGPnHTPZjL2dwdDysMZAdmGbTHD1EHoscT5zOcPgwooKs3mYrKuGPgjbGKPB
-         0r18/Jn87lFL2lkgwaiKaZh815g3hcMIuTpwV5sB2qN5yrwvUlexDHU02H321SPzPrf1
-         1EtUp7X4B2hPuyPFCgZJ3kCuWa9n8//3xiRMEFYaFuOcH4GQT1JO34bKnXSSDQ7N5wUO
-         9nVR4JKgrEEySU95rxgGF0IcwnA121dyUKCkRR0gCxHq+ZbFZQVmc7bNjSwUCaBOePXg
-         K8vQ==
+        d=google.com; s=20230601; t=1755103510; x=1755708310; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2sp3aPSAtyo6I6rR6nNXHOeKvBEwtpMGHhEmiY/HzQI=;
+        b=f/WutEbAx+rF5S0th3VPwFva/nXXhT1n8zyZ+f4Aya5nMOLcrAO2cbE/aPBna2LEmM
+         CEa8iIkXWAS8wxK+yqg5TXaDSjlF4azhfQGHKoCX+OEY8Su34Y34McpSz28wRly3At9Y
+         CUbgUwa6xMgEbGhdAPX9LrE1bEpBGWNvGE+xChQ/bCpt7NmHI/AKCfYqtlU9h/yf9ZQD
+         KyRsKyEVrSHLUgxK5MyHFwPxhu0+B64hKHngbZBXuT+5NLVGvTeb/cErYDgQWeU36gyc
+         tDKXYVpqwgodNSRKqN8QehKfen7TnJOFHF4XCApbUPsU4LNOoD2kpDu3kKu98Yh1jcJ0
+         TStw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755103508; x=1755708308;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=i58vDD8ciCG4tqEiOdS2g0gU9MJ6vUoA6yHuonpgaXs=;
-        b=KTctmV1Mrqxg0IwSlBTIHKCBiHVn1IKZsYcSK0u4TEnNnGfrTP2JKVSyTMA8k9jzb5
-         aeNnlckChEPqBHbRq/N6ECneTc4iyFFttb89QzkSPQyhBqRGMZhlfujdzJ1dgBxgEHHQ
-         377gRSIXviA0FHin49xZjSVxQe+avzvq6goiFInC98AP/xOa7koPKGUS0xi73CWSL0B6
-         RYMmUeXMRC5hcfoZhg1gvL8uRq56OsX1AxV0l0zohUfhOosxz1Ml7IsMxoSGNZn+28HL
-         DiLAiDSUHoVlukvinLWmdvlnSoEt5IIEMRJYj0pmMU/tpOjpmlzv8LO2xwfEY7xBXxUX
-         Nu/w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+oT+D/Ue1tj/KdcXQNWam9+w7TwMeRdwjzFiT7wE9zWsjEsJTdwlxwL8cifjwosdohKsRotIXydd6U5zTcTzw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvJ0HKsXmbEorK9ZwF4tImqst6MkOnryL1B2Q7M5GpFPfn36DS
-	gq595C4s5M5UIUJ2IFiI/mKDPcQYdV6B22TPvMSg3bPl+CYfZbons0SKhxR/F2ECCrDvdzZzAGP
-	kmA==
-X-Google-Smtp-Source: AGHT+IF0drcCjeBdG/uPQgP82HDkur1vntaYSIKvrMuZrEM2KABBBPD2dmHvJX65Xz6iE3/3L6JbiBwVPQ==
-X-Received: from edj1.prod.google.com ([2002:a05:6402:3241:b0:617:b625:f131])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a50:a6d3:0:b0:615:a847:c179
- with SMTP id 4fb4d7f45d1cf-6186bfc2c65mr2002154a12.18.1755103507594; Wed, 13
- Aug 2025 09:45:07 -0700 (PDT)
-Date: Wed, 13 Aug 2025 17:45:04 +0100
+        d=1e100.net; s=20230601; t=1755103510; x=1755708310;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2sp3aPSAtyo6I6rR6nNXHOeKvBEwtpMGHhEmiY/HzQI=;
+        b=MKNlhfUlCIkMaPSD0Yc7CyTKpYYZmulm6ODtyfnNrty9PADYgt6MOh9iaCgQzKbBuM
+         5CZLDWE35b7T2w0JEay0z4GDUK/vBkNH1vLTfweL5d8V0Zc9nau6xhtkHr2lbOI1FOks
+         FVCDyM/RFoiWSmQOoqtIvHb4VkqbICrGpYYscXozN062OluBLkvnoVb5G3gWt+I5vU69
+         mZIaxOJfQkDXL42/M9g18GyXjExfls45WxRfaYfN8wnh+a0P5Ct2izpKZpgcqhp4rjZy
+         uWGhONfZbrTTnOciVd9pt2QY5LLQfTi6qQVVq5zczV23SquZzMR585Dyr3VmGtRLCec4
+         wsVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUti8PTU8lTOHcB0IeGkWKeEQ3tsRctNAvn4E1H38oSod1sbsp35VCij2MllOcyEsUnMqcvSyFjwui2B7eW/yVI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGOxz1fH8BYNDnu8JL1beqDAfJDvQhfIP1eUe7XqogcsX/I4g+
+	aOfY+WkWzsedQ7FbcwKm2ivZOc5/Yg/0MUItzd3hUB1b5QPUWXKmJr95I6gKYqeTyFdP5AUaZvj
+	dow==
+X-Google-Smtp-Source: AGHT+IHSkTxAvev72EiizIpa601N7yiEbIYtlzv/L++w8V6rBQLkl95wQlGjod9UkIaNfBEXvNzWjE/1PQ==
+X-Received: from wmby11-n2.prod.google.com ([2002:a05:600c:c04b:20b0:458:6799:d779])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b23:b0:456:eab:6344
+ with SMTP id 5b1f17b1804b1-45a165c4f74mr36679425e9.15.1755103509761; Wed, 13
+ Aug 2025 09:45:09 -0700 (PDT)
+Date: Wed, 13 Aug 2025 17:45:06 +0100
+In-Reply-To: <20250813164506.1203851-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20250813164506.1203851-1-tabba@google.com>
 X-Mailer: git-send-email 2.51.0.rc0.215.g125493bb4a-goog
-Message-ID: <20250813164506.1203851-1-tabba@google.com>
-Subject: [PATCH v2 0/2] arm64: sysreg: Fix sysreg field definitions and
+Message-ID: <20250813164506.1203851-3-tabba@google.com>
+Subject: [PATCH v2 2/2] arm64: sysreg: Add validation checks to sysreg header
  generation script
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
@@ -75,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_094510_040086_1E1EFF97 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250813_094512_258546_B05AF026 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +93,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sysreg file has an erroronous value in the Security Enum, where
-NSACR_RFR is set to 0b0001 instead of the spec value of 0b0010.
-Moreover, the file has some redundant definitions, e.g., RCWSMASK_EL1.
-While these redundant definitions are not wrong per se, they add
-unnecessary code into the header file and could be a source of future
-bugs.
+The gen_sysreg.awk script processes the system register specification in
+the sysreg text file to generate C macro definitions. The current script
+will silently accept certain errors in the specification file, leading
+to incorrect header generation.
 
-Fix the Enum value, remove the redundant Sysreg definitions, and while
-at it, tidy up the sysreg file a bit.
+For example, a Sysreg or SysregFields can be accidentally duplicated,
+causing its macros to be emitted twice. Or an Enum can contain duplicate
+values for different items, which is architecturally incorrect.
 
-To reduce the chance of this happening in the future, add validation to
-the sysreg header generation script. I didn't want to go overboard with
-validation, so I only added validation that would catch the errors that
-I've seen, which also are errors that wouldn't generate a build error
-later on.
+Add checks to catch these errors at build time. The script now tracks
+all seen Sysreg and SysregFields definitions and checks for duplicates.
+It also tracks values within each Enum block to ensure entries are
+unique.
 
-Changes since v1 [1]:
-- Remove redundant definition of CPACR_EL12
-- New patch that adds validation to the sysreg header generation script
-- Rebase on 6.17-rc1
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20250808123744.2087648-1-tabba@google.com/
-
-Fuad Tabba (2):
-  arm64: sysreg: Fix and tidyup sysreg field definitions
-  arm64: sysreg: Add validation checks to sysreg header generation
-    script
-
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
  arch/arm64/tools/gen-sysreg.awk | 20 ++++++++++++++++++++
- arch/arm64/tools/sysreg         | 18 +++++-------------
- 2 files changed, 25 insertions(+), 13 deletions(-)
+ 1 file changed, 20 insertions(+)
 
-
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+index f2a1732cb1f6..bbbb812603e8 100755
+--- a/arch/arm64/tools/gen-sysreg.awk
++++ b/arch/arm64/tools/gen-sysreg.awk
+@@ -122,6 +122,10 @@ $1 == "SysregFields" && block_current() == "Root" {
+ 	res1 = "UL(0)"
+ 	unkn = "UL(0)"
+ 
++	if (reg in defined_fields)
++		fatal("Duplicate SysregFields definition for " reg)
++	defined_fields[reg] = 1
++
+ 	next_bit = 63
+ 
+ 	next
+@@ -162,6 +166,10 @@ $1 == "Sysreg" && block_current() == "Root" {
+ 	res1 = "UL(0)"
+ 	unkn = "UL(0)"
+ 
++	if (reg in defined_regs)
++		fatal("Duplicate Sysreg definition for " reg)
++	defined_regs[reg] = 1
++
+ 	define("REG_" reg, "S" op0 "_" op1 "_C" crn "_C" crm "_" op2)
+ 	define("SYS_" reg, "sys_reg(" op0 ", " op1 ", " crn ", " crm ", " op2 ")")
+ 
+@@ -284,6 +292,8 @@ $1 == "SignedEnum" && (block_current() == "Sysreg" || block_current() == "Sysreg
+ 	define_field(reg, field, msb, lsb)
+ 	define_field_sign(reg, field, "true")
+ 
++	delete seen_enum_vals
++
+ 	next
+ }
+ 
+@@ -297,6 +307,8 @@ $1 == "UnsignedEnum" && (block_current() == "Sysreg" || block_current() == "Sysr
+ 	define_field(reg, field, msb, lsb)
+ 	define_field_sign(reg, field, "false")
+ 
++	delete seen_enum_vals
++
+ 	next
+ }
+ 
+@@ -309,6 +321,8 @@ $1 == "Enum" && (block_current() == "Sysreg" || block_current() == "SysregFields
+ 
+ 	define_field(reg, field, msb, lsb)
+ 
++	delete seen_enum_vals
++
+ 	next
+ }
+ 
+@@ -320,6 +334,8 @@ $1 == "EndEnum" && block_current() == "Enum" {
+ 	lsb = null
+ 	print ""
+ 
++	delete seen_enum_vals
++
+ 	block_pop()
+ 	next
+ }
+@@ -329,6 +345,10 @@ $1 == "EndEnum" && block_current() == "Enum" {
+ 	val = $1
+ 	name = $2
+ 
++	if (val in seen_enum_vals)
++		fatal("Duplicate Enum value " val " for " name)
++	seen_enum_vals[val] = 1
++
+ 	define(reg "_" field "_" name, "UL(" val ")")
+ 	next
+ }
 -- 
 2.51.0.rc0.215.g125493bb4a-goog
 
