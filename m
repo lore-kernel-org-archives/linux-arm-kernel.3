@@ -4,85 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB49C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C20C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TvgJRbKZgcDP62aWN+XSTDcVuXGJa/6Gej/4auMyvgI=; b=uFbjpJM5lMijCcLHM582BlVSGT
-	7w7WdFbTDl9YOu4jIUq31EJQ+Yn04CMfxeYl28QJyTDRsVeoles7+tD2bYW3PSZ1QfTI3Yc4EaQ6a
-	zKJrBMAxPPVSqI2BBTBxwmDb5nk7SVmtDfDEGc9I+4hyd11KkFnb6eqBpPYESxfZ4iKdvttyAzK91
-	hj/Ki84mDsuphwBKLx+qQQyHbyAPZdzi0Z6Sk8KBjLqWSYIYkivLhZOfIR6d+H4o6ic8CqBaCJQqx
-	CJXl38PzRKAPzMsxtI/JouOoTRDd11oKBhyfVHFNspGtFdwxZyEEKRWYhXfu9UKNmlGmBQU5C4UoE
-	XZvPPykA==;
+	bh=vxmECPBPso4KWNhUWl/Ls35ZjmgMUGlsvP8YdROvqnQ=; b=znroYTG0qdRgRqDgQhjZ2WwpYf
+	ymbV1+PWlT5dc86UolKTo0ngQvLFsox9FOlJYpzOJVt1k4niDEJvPAHyFC0VfL0cy8Idgapt7jPQW
+	Ig6T2ext+vZnY4HOwrI2aZmoa7HWxtJDtYfWM0+XSVL3KFMbuE94yviLpGw80epx4H+exPa/0myzb
+	rFP7gMyNbWo4VHWtc5mPIFpBcuEEkkf7yZxnTNEciSbib5tZWENgKa6Ta006PHOG8Fr5jtwl8W93y
+	NUw5dbni6s31Bssbs9rqRgh/9hBL2ggKUF4Fb4Tb2S8BpVammN5GlchxurBoiulxUFZ916Vc2IKsT
+	itsCEVwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6xC-0000000D7IL-3VBr;
-	Wed, 13 Aug 2025 08:35:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1um6zp-0000000D7dt-0Am3;
+	Wed, 13 Aug 2025 08:38:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6ue-0000000D6vu-2RyA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 08:32:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:CC:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=TvgJRbKZgcDP62aWN+XSTDcVuXGJa/6Gej/4auMyvgI=; b=WbVVdJ9a/y6KUODTa6mKwRiZOh
-	FJc1528Is6zTGIYF8iB467EoZ3E8rvcJehLGewgQETfsBQkP2WYAf/PqM1S9lPtr7+gGW2OLyWeIB
-	cN+fqfKrbnPtUPSGtG4Nx1gKvqZBQeGBG3PVVVv43/mxhM+GL5EXmyEroXxrvyhRtGX6oB8db3ev2
-	Ah9aT5NWSGXXeCtO/WAZgkN0nJFbY5xKoh55l3qYa4KcU4nfNnJkaPFNOVnjKskK3dDK6FBUMSbjU
-	b19uWW2Im3bk3vNc5QLcUUA6q6y0mhOCKM0kpcuSrobvBXa68RrVTWhAC62NmUt0jVBaIqD1kVyqT
-	igRsOmkA==;
-Received: from szxga01-in.huawei.com ([45.249.212.187])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6uZ-0000000G0le-0Wnt
+	id 1um6vS-0000000D71T-3aLH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 08:32:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c21hG2n1pz14MWD;
-	Wed, 13 Aug 2025 16:27:26 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id C038414027A;
-	Wed, 13 Aug 2025 16:32:25 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 Aug 2025 16:32:25 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 Aug 2025 16:32:24 +0800
-CC: <yangyicong@hisilicon.com>, <robh@kernel.org>,
-	<anshuman.khandual@arm.com>, <jonathan.cameron@huawei.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH 2/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
-To: James Clark <james.clark@linaro.org>, <will@kernel.org>,
-	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>
-References: <20250812080830.20796-1-yangyicong@huawei.com>
- <20250812080830.20796-3-yangyicong@huawei.com>
- <3d37844a-63c5-49c2-9d6d-7c3665a95466@linaro.org>
- <931e26ef-bdc6-5f9e-8976-d5a4b8e6e81f@huawei.com>
- <647299e8-26e4-4b6c-b655-a072a3c8ee72@linaro.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <14d13d00-3bba-1edf-5eb3-7879d3dbaf4d@huawei.com>
-Date: Wed, 13 Aug 2025 16:32:24 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 13 Aug 2025 08:33:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 23C205C4D0F;
+	Wed, 13 Aug 2025 08:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC7FDC4CEEB;
+	Wed, 13 Aug 2025 08:33:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755074017;
+	bh=aNX693JpdEi3jkK/KscxbmLH3dske+t5Muwetmm1v7U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pnhNB5mIJgNsi/3cJw8WKIqONcc+6C8gLx6Qaxe6jbP1PzrKsLib1PCr8u8UdDW7Y
+	 iK1PDECLq6juszO1/Tf9eOgTG8hA8nkmOmHWA2LbDR+KTL/6KXeirxkM3ielkmy+xY
+	 Z2djvCLRjzx6DOb+5996ZH9rLp0GI5Jwl0fOQBwhndXNMzh0EgLusxZ9rETXCL9wTX
+	 DcZGpRnUunrUTxc0AQ+ci2gBQmKrUNrXv4UnltKB9MKAig50ZzEv6QIZAxmFH2qfu8
+	 xHrICZMVhtq0m/QwDaIuI/g8jPQcuG4n60Xba4c5S2eILrBJkdZKD92Olj5d+jeFDV
+	 ypye6Xra+/7qA==
+Message-ID: <eac01571-13cb-44a8-b724-76e1b2af4c0b@kernel.org>
+Date: Wed, 13 Aug 2025 10:33:32 +0200
 MIME-Version: 1.0
-In-Reply-To: <647299e8-26e4-4b6c-b655-a072a3c8ee72@linaro.org>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: imx6-display5: Replace license text comment
+ with SPDX identifier
+To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>,
+ Lukasz Majewski <lukma@denx.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250709-display5-dts-lic-v1-1-81e46a650d3d@prolan.hu>
+ <d9e81ff2-5621-49db-92a1-acf304b225f8@prolan.hu>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <d9e81ff2-5621-49db-92a1-acf304b225f8@prolan.hu>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_093244_250194_5EF278AD 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20250813_013338_975045_1BEF73A9 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +124,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/12 18:31, James Clark wrote:
+On 13/08/2025 10:29, Csókás Bence wrote:
+> Hi,
 > 
-> 
-> On 12/08/2025 11:14 am, Yicong Yang wrote:
->> On 2025/8/12 18:00, James Clark wrote:
->>>
->>>
->>> On 12/08/2025 9:08 am, Yicong Yang wrote:
->>>> From: Yicong Yang <yangyicong@hisilicon.com>
->>>>
->>>> CPU_CYCLES is expected to count the logical CPU (PE) clock. Currently it's
->>>> preferred to use PMCCNTR_EL0 for counting CPU_CYCLES, but it'll count
->>>> processor clock rather than the PE clock (ARM DDI0487 L.b D13.1.3) if
->>>> one of the SMT siblings is not idle on a multi-threaded implementation.
->>>> So don't use it on SMT cores.
->>>>
->>>> When counting cycles on SMT CPU 2-3 and CPU 3 is idle, without this
->>>> patch we'll get:
->>>> [root@client1 tmp]# perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
->>>> --taskset 2 --timeout 1
->>>> [...]
->>>>    Performance counter stats for 'CPU(s) 2-3':
->>>>
->>>> CPU2           2880457316      cycles
->>>> CPU3           2880459810      cycles
->>>>          1.254688470 seconds time elapsed
->>>>
->>>> With this patch the idle state of CPU3 is observed as expected:
->>>> [root@client1 ~]#  perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
->>>> --taskset 2 --timeout 1
->>>> [...]
->>>>    Performance counter stats for 'CPU(s) 2-3':
->>>>
->>>> CPU2           2558580492      cycles
->>>> CPU3               305749      cycles
->>>>          1.113626410 seconds time elapsed
->>>>
->>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->>>> ---
->>>>    drivers/perf/arm_pmuv3.c | 9 +++++++++
->>>>    1 file changed, 9 insertions(+)
->>>>
->>>> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
->>>> index 95c899d07df5..ed3149632b71 100644
->>>> --- a/drivers/perf/arm_pmuv3.c
->>>> +++ b/drivers/perf/arm_pmuv3.c
->>>> @@ -1002,6 +1002,15 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
->>>>        if (has_branch_stack(event))
->>>>            return false;
->>>>    +    /*
->>>> +     * The PMCCNTR_EL0 increments from the processor clock rather than
->>>> +     * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
->>>> +     * counting on a WFI PE if one of its SMT silbing is not idle on a
->>>> +     * multi-threaded implementation. So don't use it on SMT cores.
->>>> +     */
->>>> +    if (cpumask_weight(topology_sibling_cpumask(smp_processor_id())) > 1)
->>>> +        return false;
->>>> +
->>>
->>> Isn't this something that's static to the PMU? If all CPUs in each PMU are always the same then this doesn't need to be probed every time and can be set once.
->>>
->> we can make use of PMCCNTR_EL0 if the SMT is runtime disabled, e.g. by /sys/devices/system/cpu/smt/control
->> if set this at probe time then we permanently lose the chance to use PMCCNTR_EL0.
+> On 2025. 07. 09. 9:32, Bence Csókás wrote:
+>> Replace verbatim license text with a `SPDX-License-Identifier`.
 >>
-> 
-> Is that a valuable usecase though? I don't actually know the answer to this. How common is disabling SMT on SMT cores and then also using PMU events in a way that you would miss having the extra cycles counter, despite not minding that you didn't have it when SMT was enabled?
-> 
-
-I suppose it won't be frequent. just an example to show that the SMT can be runtime disabled and in such case we can
-make use of PMCCNTR_EL0. but...
-
-> And would it correctly handle enabling and disabling SMT after the event has already started? Feels like it wouldn't if you start the event with it disabled and it puts it onto PMCCNTR_EL0 then you enable it and the counts become wrong again.
-> 
-
-...as you mentioned it will be a problem if we use PMCCNTR_EL0 but the SMT is later enabled.
-
+>> The comment header mis-attributes this license to be "X11", but the
+>> license text does not include the last line "Except as contained in this
+>> notice, the name of the X Consortium shall not be used in advertising or
+>> otherwise to promote the sale, use or other dealings in this Software
+>> without prior written authorization from the X Consortium.". Therefore,
+>> this license is actually equivalent to the SPDX "MIT" license (confirmed
+>> by text diffing).
 >>
->>> Also you can't call smp_processor_id() from here because this is also called in armpmu_event_init() -> __hw_perf_event_init() -> validate_group() before the event is actually scheduled on a CPU. With CONFIG_DEBUG_PREEMPT you'd see the error.
->>
->> ok, will use raw_smp_processor_id() instead. it won't affect the validation checking in pmu::event_init().
->> in pmu::add() the cpu id is always stable so it'll also be fine.
->>
->> Thanks.
->>
->>
+>> Cc: Lukasz Majewski <lukma@denx.de>
+>> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 > 
-> That feels a bit wrong but I suppose it will work. Maybe the real problem is that validation is doing too much. I know it's to re-use code, but then we're doing things as part of the validation that don't make sense. That can confuse the reader or it's just wasted effort. Also using raw removes the safety check which might mean it gets refactored into somewhere were it isn't valid to call it in the future.
-> 
+> So, what do you all think, is this patch acceptable?
 
-ok. as Mark mentioned in this way the group validation will be affected.
+Yes, you just need Acks from all contributors there.
 
-thanks.
-
-
+Best regards,
+Krzysztof
 
