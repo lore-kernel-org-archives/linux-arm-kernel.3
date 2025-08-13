@@ -4,59 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0917C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 20:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB6EC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 20:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJbWmd+5rlSC/lNK7S9cwoHNEuZl7f1HTJCBq4ENjzc=; b=bVpxXSEW2j69UC+Izst9FHUenU
-	RVCLgYzCwHMq1HXAOQuAqVch4xNOI9Llc753LXDj5tL2tRIsAn3asn5TiKt84QkLIzoD1WxF+cffo
-	krbNrY0ce3nWTrxUL6BOjCcKsoixqqWHIZ3L/vzXsioQ+3CAFttWM4ko/Px2dov3LnDlFL86FVq57
-	vj4drGHiooCeJlNez0pqccwCPLX4zysU9Js8RpM2woOmNsnRnbwDnQIQ36mIbk5qek39HXDPQz4+b
-	6w6SqiDsGoAqvJ+NjUFQxJz0uGXuc29ZLMb6IbQlM63QfrPWML9uji3YO/Fj9+3ZsPhgioRMWd/r2
-	2vikoSIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lBleD+055ltSM9SLVyMdhGo/eyX/NfyNWllMpqcy3W8=; b=OhG1/nx749Gbtm614ptQuBN4Uh
+	3QBSDp156ta2uq+7E8Dkmi5kpS27iOWixeSvqDd68xqz7H0GxFUbmH7AGfnUDitenL7w7Ll4ard8A
+	n4erJjmd49PsE2G6veGi9cYpAFrhGpdNgHVXmn0bgrObi1ACFTUWhUh3qfXMBVFeZgcKTVYqmhDKO
+	g3EKUCsh0SqHmzfkCJ2hzu0r85e6OJGY0P4AJuIPUyBw+SElR+aElaKE/HQANsjn7sJE1qlhMU9v2
+	lMwX6erjghqqGsKX5PQzzoDUxX6sNvh4uX0bZHyOnvg2GyHwx6r6qh2DJunwk2Wb6gueCq0J3HUsQ
+	UvBhq7fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHfn-0000000EtsR-1E8U;
-	Wed, 13 Aug 2025 20:02:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1umILw-0000000Ewwo-25JA;
+	Wed, 13 Aug 2025 20:45:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHG8-0000000EnvX-31ul
+	id 1umIJN-0000000EwtA-2db6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 19:35:42 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D67D97E0;
-	Wed, 13 Aug 2025 21:34:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755113685;
-	bh=bMbVsAZq2NrrBqQmP/DM8qoB7Sl1vzylaZcuXmtKzE0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=wcq2HCjH9AWWCIS+E6EzXB2ch4JiYLkTpyJwgUciSK9fuyp7nr/j53W7XCAp4UvIw
-	 gc0M2Y+ZcVq8ocfsYz8f8CSBTMZj2QePzlJwcw0vfIFQG7GyHVSkWV6phpyYIXskPY
-	 ycmbykTLw3qFxtD3NHL+FNWYLQdfQr8YiNXMNwZE=
-Date: Wed, 13 Aug 2025 22:35:19 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Richard Leitner <richard.leitner@linux.dev>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: nxp: imx8-isi: fix streaming cleanup on release
-Message-ID: <20250813193519.GA5740@pendragon.ideasonboard.com>
-References: <20250709-imx8-isi-release-fix-v1-1-c47c659ce1a6@linux.dev>
+	Wed, 13 Aug 2025 20:43:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755117784;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lBleD+055ltSM9SLVyMdhGo/eyX/NfyNWllMpqcy3W8=;
+	b=KX3vN8OY0l3gpjdfd/5CiM9p7HEQZip8MPxbI83SqqATe0h1dbmo1bAWJGxd/N7UN0j3AW
+	uEM5/BS8jENZ/FmJmGuORNYtBYKzWcoDmlsCCvjk/fmsAviPFIxrMTQzp/nVIz+xCgs6a+
+	8zHJTsUavh474c55P71ZN+aSm1tylAE=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-606-Nk9SGiRUNMqWN5c88qpRFQ-1; Wed, 13 Aug 2025 16:41:32 -0400
+X-MC-Unique: Nk9SGiRUNMqWN5c88qpRFQ-1
+X-Mimecast-MFC-AGG-ID: Nk9SGiRUNMqWN5c88qpRFQ_1755117692
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b05b15eso908455e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 13:41:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755117691; x=1755722491;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lBleD+055ltSM9SLVyMdhGo/eyX/NfyNWllMpqcy3W8=;
+        b=ZOUbkcZrf4Pw0ogsUs5yUkDSmDbGR1Le/HOsmT5/tLnGip7fut1SgdFc2MxUlbWnmJ
+         QyHlIFxnybiOYHl3rYSl3WuuM3lXkAYENdLVaxiXd5Bq1yAqwC/sbz+5oRe+mPLeelpo
+         NePkk+mMga074OCG2WYvFmD4+FEUMgHiTsegFsBXX5MfR4emt0GFf4lNQZGZulicWtOH
+         yH7O1Wae/r1hzg5HaKIilnzeFZ7GVMDuNoWuYdkL7MWjb6G3bABm/4oUaS7IUfS4ugNc
+         ZJ9bzArRERZBJ68AeFvFdWC749UDXeCSTnxpSiFwLC8KOMZckbYqdicpAHCoopZHlexh
+         /HGA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1LxR2d+zduc3MjE/YhaZT+grNBBhIGVjh/cJrY/dldbMewiLHP6wec32rqDv/dKdyBFqWneXD8wSAufvv7LUq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkPpkR7PnTJoWEYftKP3atL+ypFgRhmV2p5gE2NnZoWeSXOzWO
+	ecYxPr0dGoRDEvyWhTc1Jam/escyBL7LPagOBUoVG+wUxnLq42ePdrK+O0PJ/VGOpMG6QoqRbzB
+	RnvNFJbvDggN2soLJU2mTIZA1COsLw/qWVDj9zrWrgIEcCeMnyR/WrmXUQ2NnZCy4L8nlrw9rMF
+	P+
+X-Gm-Gg: ASbGncvEUeOg3Y7KEzoSLfRqpVxDf+bjOVOdKGyiKblGl0xdNu7xTDnvhGQhqoLWMQ5
+	d2RZeAJ7U1lq2H5OMcJ5sTDDm4RZ21LK5uw8Krsn00F91mjNbbQf0Zi/IU7lC5xeUq7CwPDQ4IA
+	53/BxIn+ZUF2DD11VZzubbG5WAyFmNsG+B0nYKOqrg4XVwA/9LS5veXRjZv+UK1SEqBYSthMMBm
+	JLKsodAq0unR2ERnWNhQQ2m5tYx2AMcY/fOfMw3xafSAK4QQjiNrmcoa8mmuAsY2eDsXGAw1Tq4
+	m+SaWlHGbW8093sm2eYI3/tTSXOkmOQEISyi+eUWcA==
+X-Received: by 2002:a05:600c:19d1:b0:453:2066:4a26 with SMTP id 5b1f17b1804b1-45a1b6614bamr1774415e9.16.1755117691541;
+        Wed, 13 Aug 2025 13:41:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHZUnYwIAOPn7DHgmGP8oaqqq7HJdTWwhYbAqJhLDNgROKech4NZKaObKqud71WSCyJ04rPfg==
+X-Received: by 2002:a05:600c:19d1:b0:453:2066:4a26 with SMTP id 5b1f17b1804b1-45a1b6614bamr1774235e9.16.1755117691090;
+        Wed, 13 Aug 2025 13:41:31 -0700 (PDT)
+Received: from [192.168.0.115] ([216.128.11.133])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8f8b1bc81sm26709722f8f.69.2025.08.13.13.41.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 13:41:30 -0700 (PDT)
+Message-ID: <146fd5f7-c694-4606-afa5-522c5c05d9ff@redhat.com>
+Date: Wed, 13 Aug 2025 22:41:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250709-imx8-isi-release-fix-v1-1-c47c659ce1a6@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] Virtio networking issues on v6.17-rc1
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Jason Wang <jasowang@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>
+References: <aJycJvs3xztfD5Rm@pluto> <aJzU1JsV5we-QqgQ@pluto>
+ <aa46dd09-a450-4633-a647-b04781599c87@redhat.com> <aJz1_HzPsEyvY6HN@pluto>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <aJz1_HzPsEyvY6HN@pluto>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UlJLFvt4by_yuX3XCGALv-w9LMdAGH-7Wr-gSsZXj0A_1755117692
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_123541_039662_8BCE4FD1 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250813_134305_744855_7D661CD5 
+X-CRM114-Status: GOOD (  30.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,124 +113,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
-
-Thank you for the patch. I'm going through my imx8-isi backlog, sorry it
-took so long.
-
-On Wed, Jul 09, 2025 at 04:57:03PM +0200, Richard Leitner wrote:
-> The current implementation unconditionally calls
-> mxc_isi_video_cleanup_streaming() in mxc_isi_video_release(). This can
-> lead to situations where any release call (like from a simple
-> "v4l2-ctl -l") may release a currently streaming queue when called on
-> such a device.
-
-Oops.
-
-> Address this issue by calling mxc_isi_video_cleanup_streaming() only if
-> the queue owner is NULL (which is set by vb2_fop_release() when called
-> by the current owner).
+On 8/13/25 10:31 PM, Cristian Marussi wrote:
+> On Wed, Aug 13, 2025 at 09:51:30PM +0200, Paolo Abeni wrote:
+>> On 8/13/25 8:09 PM, Cristian Marussi wrote:
+>>> On Wed, Aug 13, 2025 at 03:07:34PM +0100, Cristian Marussi wrote:
+>>>> Not sure if it has been already reported but in a kvmtool/guest setup moving
+>>>> the guest kernel from v6.16 to v6.17-rc1 I completely lost host-guest network
+>>>> functionality....in a very funny way, though, I'd say...
+>>>>
+>>>> In fact NO error is apparently reported in the guest kernel log and the
+>>>> interfaces seems perfectly up an running both sides, but looking at the
+>>>> host/guest interfaces you can see that ALL received frames are indeed dropped:
+>>>>
+>>>>
+>>>> enp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+>>>> ....
+>>>>         ether 02:15:15:15:15:15  txqueuelen 1000  (Ethernet)           <<<<<<<<<<<<<<<<
+>>>>         RX packets 125  bytes 17948 (17.5 KiB)
+>>>>         RX errors 0  dropped 125 overruns 0  frame 0
+>>>>         TX packets 1207  bytes 51182 (49.9 KiB)
+>>>>         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+>>>>
+>>>>
+>>>> ...on the host same..(taken later on...)
+>>>>
+>>>> tap0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+>>>>         inet 192.168.33.1  netmask 255.255.255.0  broadcast 192.168.33.255
+>>>>         ether 8a:10:f6:df:a1:70  txqueuelen 1000  (Ethernet)
+>>>>         RX packets 804  bytes 43904 (42.8 KiB)
+>>>>         RX errors 0  dropped 804  overruns 0  frame 0
+>>>>         TX packets 101  bytes 14408 (14.0 KiB)
+>>>>         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+>>>>
+>>>> ....and for a good reason, apparently, since sniffing around on the Host TAP
+>>>> interface I can see a never ending stream of:
+>>>>
+>>>> $ sudo tcpdump -i tap0
+>>>> listening on tap0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+>>>> 22:40:42.309158 00:00:00:00:00:00 (oui Ethernet) > 00:00:00:00:00:00 (oui Ethernet), ethertype Unknown (0xffff), length 54:
+>>>> 	0x0000:  ffff ffff 0215 1515 1515 0806 0001 0800  ................       <<<<<<<<<<<<<
+>>>> 	0x0010:  0604 0001 0215 1515 1515 c0a8 2102 0000  ............!...
+>>>> 	0x0020:  0000 0000 c0a8 2101                      ......!.
+>>>>
+>>>> ... DST/SRC Macs are just all zeros WHILE in the payload you can spot my guest
+>>>> SRC mac address 0215 1515 1515  :P
+>>>>
+>>>
+>>> I bisected this regression to:
+>>>
+>>> 56a06bd40fab64448aa6b84aa06b3dc470c1254a is the first bad commit
+>>>
+>>> commit 56a06bd40fab64448aa6b84aa06b3dc470c1254a
+>>> Author: Paolo Abeni <pabeni@redhat.com>
+>>> Date:   Tue Jul 8 17:55:02 2025 +0200
+>>>
+>>>     virtio_net: enable gso over UDP tunnel support.
+>>>     
+>>>     If the related virtio feature is set, enable transmission and reception
+>>>     of gso over UDP tunnel packets.
+>>>     
+>>>     Most of the work is done by the previously introduced helper, just need
+>>>     to determine the UDP tunnel features inside the virtio_net_hdr and
+>>>     update accordingly the virtio net hdr size.
+>>>     
+>>>     Acked-by: Jason Wang <jasowang@redhat.com>
+>>>     Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+>>>
+>>>  drivers/net/virtio_net.c | 85 ++++++++++++++++++++++++++++++++++++------------
+>>>
+>>> Reverting this commit on top of v6.17-rc1 solves for me and network works fine again.
+>>
+>> Thanks for reporting, I was not aware yet of this regression.
+>>
 > 
-> This was reproducible on an i.MX8MP board by streaming from an ISI
-> capture device using gstreamer:
+> Hi Paolo,
 > 
-> 	gst-launch-1.0 -v v4l2src device=/dev/videoX ! \
-> 	    video/x-raw,format=GRAY8,width=1280,height=800,framerate=1/120 ! \
-> 	    fakesink
+> I spotted this issue on my setup this morning.
 > 
-> While this stream is running, querying the caps of the same device
-> provokes the error state:
+>> Apparently there is mismatch between the negotiated features (that
+>> determinate the virtio net header size) and the actually virtio header
+>> used by both the guest and the host, which is totally unexpected.
+>>
 > 
-> 	v4l2-ctl -l -d /dev/videoX
-> 
-> This resulted in the following trace:
-> 
-> [  155.452152] ------------[ cut here ]------------
-> [  155.452163] WARNING: CPU: 0 PID: 1708 at /drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c:713 mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-> [  157.004248] Modules linked in: cfg80211 rpmsg_ctrl rpmsg_char rpmsg_tty virtio_rpmsg_bus rpmsg_ns rpmsg_core rfkill nft_ct nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 nf_tables mcp251x6
-> [  157.053499] CPU: 0 UID: 0 PID: 1708 Comm: python3 Not tainted 6.15.4-00114-g1f61ca5cad76 #1 PREEMPT
-> [  157.064369] Hardware name: imx8mp_board_01 (DT)
-> [  157.068205] pstate: 400000c5 (nZcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [  157.075169] pc : mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi]
-> [  157.081195] lr : mxc_isi_pipe_irq_handler+0x38/0x1b0 [imx8_isi]
-> [  157.087126] sp : ffff800080003ee0
-> [  157.090438] x29: ffff800080003ee0 x28: ffff0000c3688000 x27: 0000000000000000
-> [  157.097580] x26: 0000000000000000 x25: ffff0000c1e7ac00 x24: ffff800081b5ad50
-> [  157.104723] x23: 00000000000000d1 x22: 0000000000000000 x21: ffff0000c25e4000
-> [  157.111866] x20: 0000000060000200 x19: ffff80007a0608d0 x18: 0000000000000000
-> [  157.119008] x17: ffff80006a4e3000 x16: ffff800080000000 x15: 0000000000000000
-> [  157.126146] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-> [  157.133287] x11: 0000000000000040 x10: ffff0000c01445f0 x9 : ffff80007a053a38
-> [  157.140425] x8 : ffff0000c04004b8 x7 : 0000000000000000 x6 : 0000000000000000
-> [  157.147567] x5 : ffff0000c0400490 x4 : ffff80006a4e3000 x3 : ffff0000c25e4000
-> [  157.154706] x2 : 0000000000000000 x1 : ffff8000825c0014 x0 : 0000000060000200
-> [  157.161850] Call trace:
-> [  157.164296]  mxc_isi_pipe_irq_handler+0x19c/0x1b0 [imx8_isi] (P)
-> [  157.170319]  __handle_irq_event_percpu+0x58/0x218
-> [  157.175029]  handle_irq_event+0x54/0xb8
-> [  157.178867]  handle_fasteoi_irq+0xac/0x248
-> [  157.182968]  handle_irq_desc+0x48/0x68
-> [  157.186723]  generic_handle_domain_irq+0x24/0x38
-> [  157.191346]  gic_handle_irq+0x54/0x120
-> [  157.195098]  call_on_irq_stack+0x24/0x30
-> [  157.199027]  do_interrupt_handler+0x88/0x98
-> [  157.203212]  el0_interrupt+0x44/0xc0
-> [  157.206792]  __el0_irq_handler_common+0x18/0x28
-> [  157.211328]  el0t_64_irq_handler+0x10/0x20
-> [  157.215429]  el0t_64_irq+0x198/0x1a0
-> [  157.219009] ---[ end trace 0000000000000000 ]---
-> 
-> Signed-off-by: Richard Leitner <richard.leitner@linux.dev>
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 11 ++++++++++-
->  1 file changed, 10 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> index 8654150728a8692b480cfbfebdc0f2596c172a00..bf1b6bd42ef77c98fdacba7bff3b5dd6c048883f 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> @@ -1207,6 +1207,11 @@ static int mxc_isi_video_streamon(struct file *file, void *priv,
->  	return ret;
->  }
->  
-> +/*
-> + * Stop streaming, discard buffers and release the pipeline without further
-> + * checking if we are or there is any queue owner. This function asserts the
-> + * &video->lock is held.
-> + */
->  static void mxc_isi_video_cleanup_streaming(struct mxc_isi_video *video)
->  {
->  	lockdep_assert_held(&video->lock);
-> @@ -1333,7 +1338,11 @@ static int mxc_isi_video_release(struct file *file)
->  		dev_err(video->pipe->isi->dev, "%s fail\n", __func__);
->  
->  	mutex_lock(&video->lock);
-> -	mxc_isi_video_cleanup_streaming(video);
-> +	/* cleanup streaming if there's no queue owner (if we were queue
-> +	 * owner this was cleaned already by vb2_fop_release())
-> +	 */
-> +	if (!video->vdev.queue->owner)
-> +		mxc_isi_video_cleanup_streaming(video);
+> Have the UAPI headers been updated ? ... I could not see any change...
+> (not that I am very familiar with virtio core :D)
 
-Wouldn't it be better to turn mxc_isi_video_cleanup_streaming() into a
-.unprepare_streaming() handler ? That would allow dropping the owner
-check here, vb2_fop_release() would do its job.
+The virtio feature space has been extended from 64 bits to 128 and the
+blamed commit is the first using the 'extended' virtio features
+negotiation.
 
-Part of (or maybe the whole of) the streamon function should then be
-turned into a .prepare_streaming() handler.
+But, modulo bugs, the extended space should be used only if the
+hypervisors exposes the relevant capabilities. kvmtool does not do that.
 
-Could you give this a try ? If you have any trouble, I can help too.
-
->  	mutex_unlock(&video->lock);
->  
->  	pm_runtime_put(video->pipe->isi->dev);
+>> Could you please share the host kernel version, the arch and the kvmtool
+>> version? Also I understand you only upgraded the guest kernel, without
+>> any other setup changes, am I correct?
+>>
 > 
-> ---
-> base-commit: 733923397fd95405a48f165c9b1fbc8c4b0a4681
-> change-id: 20250709-imx8-isi-release-fix-182edee8ae32
+> The arch is arm64, I could reproduce on a Raspberry Pi5 with host v6.6 and on
+> an Apple M1 (running Linux natively) with a v6.12.
+> 
+> Both host kernels are from the original distros unchanged (Debian and Fedora)
+> 
+> In both cases I compiled from scratch (make clean && make) kvmtool on the
+> respective arm64 Host using the current top of tree from origin/master at:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/log/
+> 
+> 	commit 	ba6830eec0f5 ("vfio: include libgen.h (for musl compatibility)")
+> 
+> Run kvmtoool baer simple with
+> 	
+> 	lkvm run -c 4 -m 4G -k $IMAGE_DEF --network virtio -d $ROOTFS_DEF -p "earlycon loglevel=8"
+> 
+> All was fine till v6.16, and it is my usual setup and update procedure that never failed really
+> as long as I update kvmtool in sync.
+> Not sure if something is still missing from kvmtool master repo for v6.17 but it seems reasonably
+> updated (July25).
+> 
+> I wonder if no one else had this issue on arm64/kvmtool....that would made my 'regression'
+> suspiciously tied tomy setup..
 
--- 
-Regards,
+Thanks for the detailed reproduction steps.
 
-Laurent Pinchart
+I agree it should be some bad iteration with the arm arch and/or
+kvmtool. I hope an arm system is not required to reproduce the issue,
+because I don't have any of them handy.
+
+I should be able to dig into this tomorrow afternoon my time.
+
+Cheers,
+
+Paolo
+
 
