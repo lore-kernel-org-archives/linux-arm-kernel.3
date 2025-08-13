@@ -4,96 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F415CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC90CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHmzj/owjBnWQXccQqjtqoeZzUsvFVlqZRdyc+4n9B0=; b=YmzcP0i4q+b317JO3QACFiIpSW
-	/tpzYPMWpYzin5L/wjLGvJXYLDM/JIeKqd9r2jtzR7Ljtx92eFuAQhyLEZaSUqkbbU46VeRZj8th+
-	66J2cZGHnWaGSPf5J2E28V3fotgE+tKVjtkRsfdbW/cbs6stgRrEToXG4tvA0SI//6N0bMX9qiYtI
-	dQTLR/xpXpOi6aDWqUwxHv3ttqZbY9kXJ96xl38XvCOS4mSZ0EvzcxDE2CrM85/5oA3JnoWaFrftp
-	WESuCu9/zMIgdhsIT/Yru3BlJU4MSaQiK55F0B8LGKmX3vSEA0uUtmFexemitEJKwPDDdQpClZBJ+
-	QcVC1ZRg==;
+	bh=f6EBEMYOHLBS/mOMhxKpJJOh8alzp/LH8jTecCxA9Aw=; b=Ebd2DUw07VGGailHFH9cbhITHe
+	pxIRrW2eM3NdBXnptEfw+T1WlLmmdtvGjxHZHSieObmkPRChe32azXgvSwkI3q9XfbVXq+UfC7fxU
+	RXw/ASOvOE0AapBdxccqX8W+Pi068fkJAsibFhivGf4IYkyQtpJJUTbv+7rY0xFJ+hXhG3hHobA42
+	ClcjxJjTWuxjKnNjnzyunkxL1rjGK798n89LYQ/Ue8gBXXJEr0Tpv0QPMVHX2YtyOJRIy6W+GZhyR
+	Wzih3FBz5CUKtJHsWQOqdhfglDOyaQ/Ek6u5NZLC98lEaHOajob78VQ+dS+JiXHbZkt502TbaWQ1F
+	UhSxI/ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umE67-0000000EKqD-0AvP;
-	Wed, 13 Aug 2025 16:13:07 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1umE8f-0000000ELSp-3hP2;
+	Wed, 13 Aug 2025 16:15:45 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umDMp-0000000EBJo-3NmC
+	id 1umDN0-0000000EBLC-481P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 15:26:20 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b78315ff04so5687567f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 08:26:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755098778; x=1755703578; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bHmzj/owjBnWQXccQqjtqoeZzUsvFVlqZRdyc+4n9B0=;
-        b=dedr8CXXIoHvK9T4WQ/QS0F2Nt32ZeP/77btXjPspBighRUkMBqEeTMeZ+pwfPOik+
-         7xnh9vgNpBBfpiCNvrfSntpAKJv/Q3yl+FVqKWaYVPFolxcU2m5Rr6AQ/WF/IDnReWF7
-         4Ztc9bcgDmPo/kxQD4SNJOel3xf6c9ynvKhtRcGC60pGb4e8pAUt703j+ssxZWiTkfp1
-         EKubcUFDrlmbzxnrGhIiBCI8XQ/OKooTu1jJOco3vl0XXtTdNqYupWiPGvJIfRuK7BZy
-         XAUNVOHcH5Tn8fASzwYxMy97egZa8a7PBeoECWpUxuJ6vamq+RyxoMdSlz00PmaGiEia
-         FX4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755098778; x=1755703578;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bHmzj/owjBnWQXccQqjtqoeZzUsvFVlqZRdyc+4n9B0=;
-        b=uV+zP/5Qdgt0aBoerCSoEh9SWJFjRiryqftzHkINItZJAdg5BqUwYnf3z+/NPgPX0G
-         IBOFhGU3GTW+U7X0kHeHarS3YIzFQwY9NK7H/dtTHaHpwKyroen5yJf/8FToqKSr8W60
-         6IykVZyDO0BgStbruGmm6uMRPzexh4OfzaIpHbCuVWvqDXFaNGEEMHPR6/dE6kE2VkzH
-         dO27p/ibVNw9R36canek7Mo6z0xzTZMSrLBVJMRr8cTSBHCH/Z3dbp9ibE9CZMtkclQ0
-         1emQvxy9zru23SUTWxfQbk2/v+wI+vnKoYrlyp2sW64WOubcBxhB+pXihVCqEwpoQBZQ
-         dVww==
-X-Forwarded-Encrypted: i=1; AJvYcCVqlQKjKCf118pTpG2mOLw7deWFNoTNd69KcywggbIiiTtTH8bOWsrWudf9mobFaFNdV0sJqCdq4OJ/emTVPFzF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeE6tuBHdponnBGeo3/7WsQPwcLnjFH3o8Mot5EimUHDf8KDFi
-	QqpCHZ/waKSTJpKnVuG+xJt1JKFpQppIAom6D0XN71nH4+pAF1B5w6Ep
-X-Gm-Gg: ASbGncszH3pL2kbqk8W1TZFSDekWERewVMHNYuX16TX8S33Nv3VXtqBAVLPD2zC9Stl
-	E2aelyk26i62cGtTcTv1wIw5Bes4pzGm77mwu/IHKMxHnHJoiojThrE6NKVdDAP0QWAdI0bxP5k
-	7+xccQePfHJo85mj+HfOAgyvjr/bS/mt1DbHgi3GR1VBXA6zthnVizWepqVpMvvpThKUqHyFN0M
-	SgFFbQpISer2bkwx0W4LjWxy0QRhlQYQ7Dg/rXVHkYTIH4YtcTZQv0yh2UpTuMI2SutsJgiAuR9
-	75rLW2CoKAYSE+ufIkyA/N0KC3ikk3R5qT+bSfdMJn17ai3JRN/4LC2PKKOJOil6z5G31jSIwwM
-	dEfEgxx5QOkIcTih8ciWimxux0topg52lzS50pGxCQflaakzMZeS8FlUtb3ELn+hsElkZ3vyTuS
-	USNUNIZbgH
-X-Google-Smtp-Source: AGHT+IHUC2ftwzSvSylSdT06ajBela8u5SU+ijYkDLGHo9/q750n74l021ps+CiYV2OdEDDglYn8Pw==
-X-Received: by 2002:a05:600c:19cf:b0:458:bfe1:4a91 with SMTP id 5b1f17b1804b1-45a166350a2mr28993085e9.20.1755098778076;
-        Wed, 13 Aug 2025 08:26:18 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a50b99bsm6611325e9.5.2025.08.13.08.26.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 08:26:17 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Chen-Yu Tsai <wens@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v2 05/10] arm64: dts: allwinner: a523: Add GMAC200
- ethernet controller
-Date: Wed, 13 Aug 2025 17:26:15 +0200
-Message-ID: <5030505.31r3eYUQgx@jernej-laptop>
-In-Reply-To: <20250813145540.2577789-6-wens@kernel.org>
-References: <20250813145540.2577789-1-wens@kernel.org>
- <20250813145540.2577789-6-wens@kernel.org>
+	Wed, 13 Aug 2025 15:26:32 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DFQBdF1728877;
+	Wed, 13 Aug 2025 10:26:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755098771;
+	bh=f6EBEMYOHLBS/mOMhxKpJJOh8alzp/LH8jTecCxA9Aw=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=s4wtRnQrLPtZvTOm8HT2J2f0fERCIvleTqauRAsIg8rBdOGs04emppWtMWLSehjEr
+	 BhxqgKtR7G/6gMDl9tES4wpZUnnmLFnksGeoSPXoto11DfOt+RVfDGVW7O6gaOxWqA
+	 bHdTe7Hzl4B8jkNuMAz3iEddS8Z7pTsLZKqjl4e8=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DFQBLq153772
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 13 Aug 2025 10:26:11 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
+ Aug 2025 10:26:10 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 13 Aug 2025 10:26:10 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DFQApP2503743;
+	Wed, 13 Aug 2025 10:26:10 -0500
+Date: Wed, 13 Aug 2025 10:26:10 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Guillaume La Roque <glaroque@baylibre.com>
+CC: Thomas Gleixner <tglx@linutronix.de>, <vigneshr@ti.com>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>,
+        Tero Kristo <kristo@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 2/2] soc: ti: ti_sci_inta_msi: Enable module
+ compilation support
+Message-ID: <20250813152610.akcdxrzhev6e2kfa@unturned>
+References: <20250812-timsi-v2-0-90c8500f3f18@baylibre.com>
+ <20250812-timsi-v2-2-90c8500f3f18@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250812-timsi-v2-2-90c8500f3f18@baylibre.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_082619_844442_2756363A 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250813_082631_106481_201EE585 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,108 +87,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 13. avgust 2025 ob 16:55:35 Srednjeevropski poletni =C4=8Das je =
-Chen-Yu Tsai napisal(a):
-> From: Chen-Yu Tsai <wens@csie.org>
->=20
-> The A523 SoC family has a second ethernet controller, called the
-> GMAC200. It is not exposed on all the SoCs in the family.
->=20
-> Add a device node for it. All the hardware specific settings are from
-> the vendor BSP.
->=20
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-
-Best regards,
-Jernej
-
+On 22:36-20250812, Guillaume La Roque wrote:
+> Add module support to the TI SCI INTA MSI driver:
+> - Change Kconfig from bool to tristate to allow module compilation
+> - Add linux/module.h include for module functionality
+> - Add MODULE_LICENSE, MODULE_DESCRIPTION, and MODULE_AUTHOR macros
+> 
+> This allows the driver to be compiled as a loadable kernel module
+> named ti_sci_inta_msi.
+> 
+> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
 > ---
->=20
-> Changes since v1:
-> - Fixed typo in tx-queues-config
-> ---
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 55 +++++++++++++++++++
->  1 file changed, 55 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun55i-a523.dtsi
-> index 6b6f2296bdff..449bcafbddcd 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -180,6 +180,16 @@ rgmii0_pins: rgmii0-pins {
->  				bias-disable;
->  			};
-> =20
-> +			rgmii1_pins: rgmii1-pins {
-> +				pins =3D "PJ0", "PJ1", "PJ2", "PJ3", "PJ4",
-> +				       "PJ5", "PJ6", "PJ7", "PJ8", "PJ9",
-> +				       "PJ11", "PJ12", "PJ13", "PJ14", "PJ15";
-> +				allwinner,pinmux =3D <5>;
-> +				function =3D "gmac1";
-> +				drive-strength =3D <40>;
-> +				bias-disable;
-> +			};
+>  drivers/soc/ti/Kconfig           | 5 ++++-
+>  drivers/soc/ti/ti_sci_inta_msi.c | 5 +++++
+>  2 files changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
+> index 1a93001c9e36..0a9eb5ac264b 100644
+> --- a/drivers/soc/ti/Kconfig
+> +++ b/drivers/soc/ti/Kconfig
+> @@ -85,7 +85,10 @@ config TI_PRUSS
+>  endif # SOC_TI
+>  
+>  config TI_SCI_INTA_MSI_DOMAIN
+> -	bool
+> +	tristate "TI SCI INTA MSI Domain driver"
+>  	select GENERIC_MSI_IRQ
+>  	help
+>  	  Driver to enable Interrupt Aggregator specific MSI Domain.
 > +
->  			uart0_pb_pins: uart0-pb-pins {
->  				pins =3D "PB9", "PB10";
->  				allwinner,pinmux =3D <2>;
-> @@ -601,6 +611,51 @@ mdio0: mdio {
->  			};
->  		};
-> =20
-> +		gmac1: ethernet@4510000 {
-> +			compatible =3D "allwinner,sun55i-a523-gmac200",
-> +				     "snps,dwmac-4.20a";
-> +			reg =3D <0x04510000 0x10000>;
-> +			clocks =3D <&ccu CLK_BUS_EMAC1>, <&ccu CLK_MBUS_EMAC1>;
-> +			clock-names =3D "stmmaceth", "mbus";
-> +			resets =3D <&ccu RST_BUS_EMAC1>;
-> +			reset-names =3D "stmmaceth";
-> +			interrupts =3D <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names =3D "macirq";
-> +			pinctrl-names =3D "default";
-> +			pinctrl-0 =3D <&rgmii1_pins>;
-> +			power-domains =3D <&pck600 PD_VO1>;
-> +			syscon =3D <&syscon>;
-> +			snps,fixed-burst;
-> +			snps,axi-config =3D <&gmac1_stmmac_axi_setup>;
-> +			snps,mtl-rx-config =3D <&gmac1_mtl_rx_setup>;
-> +			snps,mtl-tx-config =3D <&gmac1_mtl_tx_setup>;
-> +			status =3D "disabled";
+> +	  Say Y here to compile it into the kernel or M to compile it as a
+> +	  module. The module will be called ti_sci_inta_msi.
+> diff --git a/drivers/soc/ti/ti_sci_inta_msi.c b/drivers/soc/ti/ti_sci_inta_msi.c
+> index 193266f5e3f9..d92cab319d57 100644
+> --- a/drivers/soc/ti/ti_sci_inta_msi.c
+> +++ b/drivers/soc/ti/ti_sci_inta_msi.c
+> @@ -8,6 +8,7 @@
+>  
+>  #include <linux/irq.h>
+>  #include <linux/irqdomain.h>
+> +#include <linux/module.h>
+>  #include <linux/msi.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> @@ -115,3 +116,7 @@ int ti_sci_inta_msi_domain_alloc_irqs(struct device *dev,
+>  	return ret;
+>  }
+>  EXPORT_SYMBOL_GPL(ti_sci_inta_msi_domain_alloc_irqs);
 > +
-> +			mdio1: mdio {
-> +				compatible =3D "snps,dwmac-mdio";
-> +				#address-cells =3D <1>;
-> +				#size-cells =3D <0>;
-> +			};
-> +
-> +			gmac1_mtl_rx_setup: rx-queues-config {
-> +				snps,rx-queues-to-use =3D <1>;
-> +
-> +				queue0 {};
-> +			};
-> +
-> +			gmac1_stmmac_axi_setup: stmmac-axi-config {
-> +				snps,wr_osr_lmt =3D <0xf>;
-> +				snps,rd_osr_lmt =3D <0xf>;
-> +				snps,blen =3D <256 128 64 32 16 8 4>;
-> +			};
-> +
-> +			gmac1_mtl_tx_setup: tx-queues-config {
-> +				snps,tx-queues-to-use =3D <1>;
-> +
-> +				queue0 {};
-> +			};
-> +		};
-> +
->  		ppu: power-controller@7001400 {
->  			compatible =3D "allwinner,sun55i-a523-ppu";
->  			reg =3D <0x07001400 0x400>;
->=20
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Texas Instruments K3 Interrupt Aggregator MSI bus");
+> +MODULE_AUTHOR("Lokesh Vutla <lokeshvutla@ti.com>");
+> 
+> -- 
+> 2.34.1
+> 
 
+If Thomas doesn't mind picking the full series,
 
+Acked-by: Nishanth Menon <nm@ti.com>
 
+This is probably one of the last hold outs for us to move SoC support
+into kernel modules.
 
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
