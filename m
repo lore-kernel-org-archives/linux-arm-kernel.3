@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56433C87FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3511CA0EE4
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=du591Tkp6MY1pZEI92hOmTvxfNKepbcwESeiRPgLFUw=; b=4QJqbxUdSeHT4wT+nj1nO2w6sx
-	A+d7CIG2PbWu/snJPVZino0iCTEUWul0bpW/OfRl+FnY0yNFmNm+oRG/Qt8Yo5k5B9kWcZMl6Ncmb
-	OYf33hyHS7/o8sD25lJVwE9JLMNSTkvN8tASnY4AK6L2MhPJAxPoeMpF1pFS2yW42zOr7dJf+VscR
-	1ZVVIWz0Aa4ufOBx9JqOdnFbKtWsDQSMkoJExRr+juI8vaqGae6LpSRB6KX33WvlWH+TFafDDk/26
-	nxUjk9HTuJoEDLGQagM0igpe0BkUIjx7qUsjo+5wgunGKSO369ZJyw98mUugUzLPmlZUR0BnvaFL9
-	l0E5NTpA==;
+	bh=itfQeuJgZ6yMyr17lXJ1F1UsA0C2s68L7ZMyeo8E+LE=; b=gNRtSXvNPr7+nX+giCZXZSPC4C
+	bkasJB5/nmsgomBdYwjPRzG2Lz5UCWOu991qDDli1VZVqlIXN8+5mUe19pAbdpkvL0KD8HEQXmD3R
+	RDhgN0F24a3mu9h/kvc7u0gLdAzy/1ZTOP4svyXQns1v/E2sHepk2Q0sIfs8tFaVPn/bV6U1VTyiV
+	55whlzttaM08zoh/vZzuDmYVKbPOw5bsSIZlaxUtuaLymwfswzl27ioXu3xQ3iCIpIHeDD0mXcX9Z
+	4C4dhqEmBdRvy3cyT0D3h9zKCPS1oV56e9fRLqY38UXZOFntiWsMDmX6Idm8JOdUBywdhzynYzI/6
+	KUqraALg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCo8-0000000Dy7z-49lK;
-	Wed, 13 Aug 2025 14:50:28 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1umCo7-0000000Dy5e-3u6H;
+	Wed, 13 Aug 2025 14:50:27 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCdJ-0000000DwDF-3FHy
+	id 1umCZh-0000000DvfB-21aX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:39:19 +0000
+	Wed, 13 Aug 2025 14:35:35 +0000
 Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEdDUY2168109;
-	Wed, 13 Aug 2025 09:39:13 -0500
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEZULa2093635;
+	Wed, 13 Aug 2025 09:35:30 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755095953;
-	bh=du591Tkp6MY1pZEI92hOmTvxfNKepbcwESeiRPgLFUw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=F2ZfgSqMKEk8nBWeqf1VY0CBy52MvnVIHAJTzAn5C6Ranx4qpBbYn0BFanZ7D8srI
-	 y4KAQGPyBCwIxtmNKFjt/4lWT+Sz/qQWQofmNfCk2wALiZY9QUMILUk5lXgPJxnCeq
-	 HdJrB3oJCXlgAc45X+/IXtrb8ATA/7cE9sJ+QQJQ=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEdDp8128062
+	s=ti-com-17Q1; t=1755095730;
+	bh=itfQeuJgZ6yMyr17lXJ1F1UsA0C2s68L7ZMyeo8E+LE=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=H56pN8DacZuRV0udq5J4QuMR/9tF4DDPtpsxxag/DFNfwpF6XldLasLNPdyNCHPDQ
+	 5zuVCjjeBE3vDT5UFsALLlnItp/SflOKshQEx2bTVFDqMT/ClOJvS+pHt8j7w1InAZ
+	 YTIc9Ufe6hJhby7RLG7tXnpbAh/Xq9CIklcMcZlw=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEZU5o125880
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 09:39:13 -0500
-Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 13 Aug 2025 09:35:30 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 09:39:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 09:35:30 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 09:39:13 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEd9lO2142416;
-	Wed, 13 Aug 2025 09:39:10 -0500
-Message-ID: <39f2bc33-e35c-4de4-9377-cf41f510ecc2@ti.com>
-Date: Wed, 13 Aug 2025 20:08:29 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining macros
-To: Akashdeep Kaur <a-kaur@ti.com>, <praneeth@ti.com>, <nm@ti.com>,
-        <afd@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ Frontend Transport; Wed, 13 Aug 2025 09:35:30 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEZUrA2137696;
+	Wed, 13 Aug 2025 09:35:30 -0500
+From: Nishanth Menon <nm@ti.com>
+To: <linux-kernel@vger.kernel.org>, Brandon Brnich <b-brnich@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-References: <20250731115631.3263798-1-a-kaur@ti.com>
- <20250731115631.3263798-4-a-kaur@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <20250731115631.3263798-4-a-kaur@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+        Devarsh
+ Thakkar <devarsht@ti.com>, Udit Kumar <u-kumar1@ti.com>,
+        Darren Etheridge
+	<detheridge@ti.com>
+Subject: Re: [PATCH v3] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
+Date: Wed, 13 Aug 2025 09:35:28 -0500
+Message-ID: <175509562183.158870.18075844501777832548.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250808155555.2632451-1-b-brnich@ti.com>
+References: <20250808155555.2632451-1-b-brnich@ti.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_073917_908400_CF511863 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20250813_073533_609261_AB6BF7BB 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,144 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Brandon Brnich,
 
-
-On 31/07/25 17:26, Akashdeep Kaur wrote:
-> Add the drive strength, schmitt trigger enable macros to pinctrl file.
-> Add the missing macros for deep sleep configuration control.
-> Reword the existing deep sleep macros to provide combinations that can
-> directly be used in device tree files.
+On Fri, 08 Aug 2025 10:55:55 -0500, Brandon Brnich wrote:
+> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
+> present in J722s SoC, supporting baseline encoding of semiplanar based
+> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
+> supported from 64x64 to 8kx8k.
 > 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 66 +++++++++++++++++++++++------
->  1 file changed, 54 insertions(+), 12 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index c0f09be8d3f9..f26f1fcf6f74 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -3,7 +3,7 @@
->   * This header provides constants for pinctrl bindings for TI's K3 SoC
->   * family.
->   *
-> - * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
->   */
->  #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->  #define DTS_ARM64_TI_K3_PINCTRL_H
-> @@ -19,6 +19,13 @@
->  #define DS_OUT_VAL_SHIFT	(26)
->  #define DS_PULLUD_EN_SHIFT	(27)
->  #define DS_PULLTYPE_SEL_SHIFT	(28)
 
+I have applied the following to branch ti-k3-dts-next on [1].
 
-> +#define WKUP_EN_SHIFT		    (29)
-> +#define WKUP_LVL_EN_SHIFT	    (7)
-> +#define WKUP_LVL_POL_SHIFT	    (8)
-> +#define ST_EN_SHIFT		        (14)
-> +#define DRV_STR_SHIFT		    (19)
-> +#define DS_ISO_OVERRIDE_EN_SHIFT (22)
-> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
+NOTE: I looked at the comment from Krzysztof[2] about the generic node name, and
+I am assuming that jpeg-encoder is generic enough here.
 
-These *_SHIFT macros are mostly arranged in ascending order of bit
-position, please follow the same.
+Thank you!
 
-Also, ST_EN_SHIFT is already defined ?
+[1/1] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
+      commit: 47a32605c6e7f283f373b56e9caf97c56b7e5634
 
->  
->  /* Schmitt trigger configuration */
->  #define ST_DISABLE		(0 << ST_EN_SHIFT)
-> @@ -33,6 +40,26 @@
->  #define INPUT_EN		(1 << RXACTIVE_SHIFT)
->  #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
->  
-> +#define DS_PULL_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-> +#define DS_PULL_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-> +
-> +#define DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-> +#define DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-> +
-> +#define DS_INPUT_EN		    (1 << DS_OUT_DIS_SHIFT)
-> +#define DS_INPUT_DISABLE    (0 << DS_OUT_DIS_SHIFT)
-> +
-> +#define DS_OUT_VALUE_ZERO   (0 << DS_OUT_VAL_SHIFT)
-> +#define DS_OUT_VALUE_ONE    (1 << DS_OUT_VAL_SHIFT)
-> +
-> +#define WKUP_ENABLE		    (1 << WKUP_EN_SHIFT)
-> +#define WKUP_ON_LEVEL		(1 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_ON_EDGE        (0 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_LEVEL_LOW      (0 << WKUP_LVL_POL_SHIFT)
-> +#define WKUP_LEVEL_HIGH		(1 << WKUP_LVL_POL_SHIFT)
-> +
-> +#define WKUP_DISABLE        (0 << WKUP_EN_SHIFT)
-> +
->  /* Only these macros are expected be used directly in device tree files */
->  #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
->  #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
-> @@ -53,18 +80,33 @@
->  #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
->  #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
->  
-> +#define PIN_DRIVE_STRENGTH_NOMINAL	(0 << DRV_STR_SHIFT)
-> +#define PIN_DRIVE_STRENGTH_SLOW	    (1 << DRV_STR_SHIFT)
-> +#define PIN_DRIVE_STRENGTH_FAST	    (2 << DRV_STR_SHIFT)
-> +
-> +#define PIN_SCHMITT_TRIGGER_DISABLE	(0 << ST_EN_SHIFT)
-> +#define PIN_SCHMITT_TRIGGER_ENABLE	(1 << ST_EN_SHIFT)
-> +
->  #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
-> -#define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
-> -#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
-> -#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
-> -#define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
-> -#define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
-> -#define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-> -#define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-> -#define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
-> -#define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-No we cannot delete these. There maybe downstream dts files already
-using these macros and thus can cause incompatibilities.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> +#define PIN_DS_FORCE_ENABLE		    (1 << FORCE_DS_EN_SHIFT)
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-> +#define PIN_DS_ISO_OVERRIDE_DISABLE	(0 << DS_ISO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_OVERRIDE	        (1 << DS_ISO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_BYPASS           (1 << DS_ISO_BYPASS_EN_SHIFT)
-> +#define PIN_DS_ISO_BYPASS_DISABLE   (0 << DS_ISO_BYPASS_EN_SHIFT)
-> +
-> +#define DS_STATE_VAL        (1 << DS_EN_SHIFT)
-> +#define ACTIVE_STATE_VAL    (0 << DS_EN_SHIFT)
-> +
-> +#define PIN_DS_OUTPUT_LOW       (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
-> +#define PIN_DS_OUTPUT_HIGH      (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
-> +#define PIN_DS_INPUT            (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DISABLE)
-> +#define PIN_DS_INPUT_PULLUP	    (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_UP)
-> +#define PIN_DS_INPUT_PULLDOWN   (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DOWN)
-> +
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-> +#define WKUP_EN_EDGE		(WKUP_ENABLE | WKUP_ON_EDGE)
-> +#define WKUP_EN_LEVEL_LOW	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
-> +#define WKUP_EN_LEVEL_HIGH	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
-> +#define WKUP_EN		        WKUP_EN_EDGE
-
-All existing macros in this block have PIN_* suffix. Please align with
-the same.
-
->  
->  /* Default mux configuration for gpio-ranges to use with pinctrl */
->  #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
-
-
-For future versions, please split the changes to 2 patches: one for
-white-space changes only and one for addition of new macros.
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+[2] https://lore.kernel.org/all/b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org/
 -- 
-Regards
-Vignesh
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 https://ti.com/opensource
 
 
