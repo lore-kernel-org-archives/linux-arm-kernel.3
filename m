@@ -4,78 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 395D2C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A40AECA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/N6L/iDMXiJ0jIm1ilu4+o+zlu1qgBDAbPtzXAqMRnY=; b=0crQWhcSy6Js/So6Nv76VA/tS7
-	MCRsSk3BIvmkeuyK0Twi7Ft5FxnfUFI71BYEhEtezi0nFis35WBsCUtbfH2giE4hJTp7dO2sjGhIf
-	pG+sf3U4tRuwaUuD0Q6NQJ02y/YWtzTqpV9HIzd7pLobyeVYLGeaL0dzXcfN0y244VeWfPqcGwUPM
-	ahdDftBQcHZzLAoyJGdvID4WgoqKdSetD8u1anIYpLYdn1o/K8B7bfeIDHH2mDR2Pe9VE1xWidG81
-	DuPyeQNiH5x5RlQxUxcUNQTz9DNk1WnCpJcjrlswpBdtWD9/niuMWUJfilv1EfmVfMDurG9xBLLZs
-	a0UAaC2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q26Q+ekksGKEwhnH7ILghZQnmCPvicAfclZHAIY3oOU=; b=IVCaGLXCNbKxo8+boLEb6Mgz+q
+	COEG0HsrcRcvzOw+6A/rWgQqkHLl9H5rAQc28mYjfWSlvyTNZOy+EccqNa4oYxmxxPeStQU8/ewDR
+	u4dIPjRXVAGpsL5ciKYvX7j2gqflSuYq6yM0RWajPSbxxKUlD8grz5QAScbFrNZSMxGdhAUmaNx1l
+	HymKQlP6sw7xBHiiM6tlLMJoVygB8KSz+pa0NXr81K+zpUyt5PgjlC+Kne+MteMSdK5o9IZh5TsSu
+	vrKui0eNK+ijcpxLCQbhWNUvSs2m9Ru7Xr+0hbi4zF+LuJ3N0mLRVd7+zjKDvwUNCda1tJVaQFboh
+	GPHU951w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJiE-0000000F7uO-0IK2;
-	Wed, 13 Aug 2025 22:12:50 +0000
+	id 1umJlB-0000000F8Zd-25J3;
+	Wed, 13 Aug 2025 22:15:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJLq-0000000F4yk-2oJQ;
-	Wed, 13 Aug 2025 21:49:42 +0000
+	id 1umJN6-0000000F5AD-1hIs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 Aug 2025 21:51:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
 	Content-Description:In-Reply-To:References;
-	bh=/N6L/iDMXiJ0jIm1ilu4+o+zlu1qgBDAbPtzXAqMRnY=; b=CIa7W7fBONzTi+vXy+reqg8QMG
-	G3xXEPcub07wo36mxCaWyUg0UchSszm5WmlhzFwoLFRsSK4y/YLhpYzFnIQyY3mLsVvPaeo5syGH8
-	yxql9CKct0UEKxXOKz1o7QkGiW82MRNpOxUJLkuBMDu3NoIEwF71MImQQRbk2xCMbZqI88VYMVLHH
-	E29xgMdI7kvbSW/YVbC3lvY+GF9sWUj1Q9WTjnXnvpLsKQs5JPAiEFq8oMfMWHuEe6hltXD/8+Yrl
-	EaVyYqACL3bdiUHkJJnPXyE6KeCJ6cdXHFLTS6EL9HX38iNXGzKvTdkyPr0aLlQElfTwmIK7F8mPP
-	vxZz15HQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=Q26Q+ekksGKEwhnH7ILghZQnmCPvicAfclZHAIY3oOU=; b=gepYDc8I5Px0UdpOGmKamcDVoZ
+	2T0oJRQbg5EOt8Zh2RQtu8p/iwP6qXjr4UreOqMBO6pnzh+G2OgkPYvwcjFyZ2z/EoKYHWy81b1xn
+	CHHkGDoveFXWaBZwOTiPCOYMYLoiuBljjZiQn6lK0EPTCBJ5okkpTKS39MyMA5XiLpxIqyzBSACj8
+	lFKWbLMtL6MPcR5INtQOCGtxRl8WMSPG/kT3XDomZrHGz4I5RiQ1lzm6Ql7ACyvdJOs2CvtFirx/J
+	NywePuSY5ichy+OhrYPkEKTrh+HgJm1HKd3oCwFN9FJDUSD9eSBN/hj39gnGIPZb0331wkqE2ls/X
+	eMnHsO9Q==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJLZ-0000000GD9R-19DV;
-	Wed, 13 Aug 2025 21:49:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58E2044F65;
-	Wed, 13 Aug 2025 21:49:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13E86C4CEEB;
-	Wed, 13 Aug 2025 21:49:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755121762;
-	bh=NAKVChDx7eHSjPyS9MwFrZDTgCpBq7ZuI5Zr92sTTO8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aGc/QnujCD9uIgZSKrwSkf0iKw/C5GI82Lb9ZYTkZ4gg/Mz/ZX5vikZEsa5CHp/PG
-	 +vBXy2DI+CGC3CzFRDroBbXu+II/zZ9rxO6b1jwkMc6e4VPv2afCKNNqd8zVJLiDO+
-	 TjepeY7kzSwFUZCy2iJuae2kjYiaNGMCD++xvsRgeG9QBj+knuPMyh9SZAuxTMsMtS
-	 mUodmlszGUa+1ABTY1KOrl5nC5azPGNTX4kt+U3mKpdpYv1WcRN/w6FAhVM+wTjtBC
-	 FL8CHRpXAtQNVR8qhYPTXo0XVh1DKJBBt/Efz85XyLbNRB9j+63O8pc/VINmeiL5gO
-	 LCOkMcU9Tuo9Q==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v3] wifi: mt76: Use of_reserved_mem_region_to_resource() for "memory-region"
-Date: Wed, 13 Aug 2025 16:49:16 -0500
-Message-ID: <20250813214917.897113-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	id 1umJN1-0000000GDDU-02xM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 21:50:57 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DLok371738293;
+	Wed, 13 Aug 2025 16:50:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755121846;
+	bh=Q26Q+ekksGKEwhnH7ILghZQnmCPvicAfclZHAIY3oOU=;
+	h=From:To:CC:Subject:Date;
+	b=E+VfenYNF7AsJdVz/1vTGkcQ3zgZH/C4/m3/A1KJDP3xYur4NZ57+DxkereeE2/Wy
+	 fH871ColrjISBzB/Id2mEKPqNG2RGJyE0jJgXxYtFkuIjvrT43ERfmlGz0MnhiHouv
+	 njv4blOwIOCnIfJC4XlatyOBk+vS9TboQaMzW0G8=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DLok3E357657
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 13 Aug 2025 16:50:46 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
+ Aug 2025 16:50:46 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 13 Aug 2025 16:50:46 -0500
+Received: from fllvem-mr07.itg.ti.com ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DLoj9r2619389;
+	Wed, 13 Aug 2025 16:50:45 -0500
+From: Andrew Davis <afd@ti.com>
+To: Russell King <linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Andrew Davis <afd@ti.com>
+Subject: [PATCH] ARM: setup: Use register_sys_off_handler(SYS_OFF_MODE_RESTART)
+Date: Wed, 13 Aug 2025 16:50:45 -0500
+Message-ID: <20250813215045.543957-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_224939_012897_7D33A8C3 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250813_225055_999593_EEF058EC 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +96,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the newly added of_reserved_mem_region_to_resource() function to
-handle "memory-region" properties.
+Function register_restart_handler() is deprecated. Using this new API
+removes our need to keep and manage a struct notifier_block.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Andrew Davis <afd@ti.com>
 ---
-v3:
- - Rebase on v6.17-rc1
+ arch/arm/kernel/setup.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-v2:
-  - Split to separate patch
----
- .../net/wireless/mediatek/mt76/mt7915/soc.c   | 21 +++++++------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-index c823a7554a3a..5f19b506cc50 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-@@ -284,20 +284,15 @@ static int mt798x_wmac_coninfra_check(struct mt7915_dev *dev)
- static int mt798x_wmac_coninfra_setup(struct mt7915_dev *dev)
+diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
+index 0bfd66c7ada05..8e21634109ef8 100644
+--- a/arch/arm/kernel/setup.c
++++ b/arch/arm/kernel/setup.c
+@@ -1081,18 +1081,12 @@ void __init hyp_mode_check(void)
+ 
+ static void (*__arm_pm_restart)(enum reboot_mode reboot_mode, const char *cmd);
+ 
+-static int arm_restart(struct notifier_block *nb, unsigned long action,
+-		       void *data)
++static int arm_restart(struct sys_off_data *data)
  {
- 	struct device *pdev = dev->mt76.dev;
--	struct reserved_mem *rmem;
--	struct device_node *np;
-+	struct resource res;
- 	u32 val;
-+	int ret;
+-	__arm_pm_restart(action, data);
++	__arm_pm_restart(data->mode, data->cmd);
+ 	return NOTIFY_DONE;
+ }
  
--	np = of_parse_phandle(pdev->of_node, "memory-region", 0);
--	if (!np)
--		return -EINVAL;
+-static struct notifier_block arm_restart_nb = {
+-	.notifier_call = arm_restart,
+-	.priority = 128,
+-};
 -
--	rmem = of_reserved_mem_lookup(np);
--	of_node_put(np);
--	if (!rmem)
--		return -EINVAL;
-+	ret = of_reserved_mem_region_to_resource(pdev->of_node, 0, &res);
-+	if (ret)
-+		return ret;
+ void __init setup_arch(char **cmdline_p)
+ {
+ 	const struct machine_desc *mdesc = NULL;
+@@ -1160,7 +1154,7 @@ void __init setup_arch(char **cmdline_p)
  
--	val = (rmem->base >> 16) & MT_TOP_MCU_EMI_BASE_MASK;
-+	val = (res.start >> 16) & MT_TOP_MCU_EMI_BASE_MASK;
- 
- 	if (is_mt7986(&dev->mt76)) {
- 		/* Set conninfra subsys PLL check */
-@@ -318,8 +313,8 @@ static int mt798x_wmac_coninfra_setup(struct mt7915_dev *dev)
- 			       MT_TOP_EFUSE_BASE_MASK, 0x11f20000 >> 16);
+ 	if (mdesc->restart) {
+ 		__arm_pm_restart = mdesc->restart;
+-		register_restart_handler(&arm_restart_nb);
++		register_sys_off_handler(SYS_OFF_MODE_RESTART, 128, arm_restart, NULL);
  	}
  
--	mt76_wr(dev, MT_INFRA_BUS_EMI_START, rmem->base);
--	mt76_wr(dev, MT_INFRA_BUS_EMI_END, rmem->size);
-+	mt76_wr(dev, MT_INFRA_BUS_EMI_START, res.start);
-+	mt76_wr(dev, MT_INFRA_BUS_EMI_END, resource_size(&res));
- 
- 	mt76_rr(dev, MT_CONN_INFRA_EFUSE);
- 
+ 	unflatten_device_tree();
 -- 
-2.47.2
+2.39.2
 
 
