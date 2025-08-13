@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE0CC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E735BC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IPXPkObct2Bs3tFQz0c3H79KmxSoBx9liY5wCkk/izg=; b=JcoAIVfCGW2vabnfTNZfykaDJj
-	p8UuV7DAFKNfjL4aOl+MLoMpgRucROONuLA0WDMIgTrD81ge6spF5nklj2WS/TDk5Ih/Imn3NZExO
-	uya/noyh4oc/74q1w+OX5zYdX0kd0EnMmaiLnhUKkDFvm33mTHoUqVRFCgrHyJwgBTJM5m85Ac2rG
-	P3peaEdUVckCL/5KW5uOFSkLumYjs/N256gH0FBoF1L1J24oYz/mKmFLiC7wgNdDdqCsle+POm/yG
-	Tnsy2quUZ4w4Go3PNTbFsekvMty4QKtytC7HHRaFt45L2NlaiZ/eOPkApLgr4+U3C6V9BqpAKqwaN
-	UxxsZcqQ==;
+	bh=9dCXGQ3wCen5hO/RhZ9y8kY2psIxwBZyCJWwI1Ahh5o=; b=T7dULecW7Tz40WvOAzLz+rL47A
+	sXdNTKtMsi3vtb/7NBuT3p7000kpuqYP+hH++t0lkA6222g4J62X0H9quoOuFrrGLnojH3ZYiXaSv
+	SwzjNS1ccflQfphGsH2owJAod+O7G/5U+MNZh0CpIvSgbZYNstlzO7nfPQSSHZx07pdErF0hTZ/6H
+	tBnBmwZluYdcvJVdtJMycjr6a6vxl0TK52mvbQoFVbHVnlm9Y1igTCMaxvFRoKWfZ6Fro6VrCM+WS
+	9AwQLjp/DkIk4WvDGWn//e/k/3K5EJS57X2J+vZPiNL2Ff0fejF/k5+CjlTc/I85TBEYEDkoz45J+
+	OVScAHrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEDo-0000000EMoJ-27mB;
-	Wed, 13 Aug 2025 16:21:04 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1umEGN-0000000ENMC-17gB;
+	Wed, 13 Aug 2025 16:23:43 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umDO2-0000000EBTZ-31VC
+	id 1umDOU-0000000EBWJ-1lrX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 15:27:35 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-459d4d7c745so61462755e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 08:27:34 -0700 (PDT)
+	Wed, 13 Aug 2025 15:28:03 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-455fdfb5d04so34830835e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 08:28:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755098853; x=1755703653; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755098881; x=1755703681; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IPXPkObct2Bs3tFQz0c3H79KmxSoBx9liY5wCkk/izg=;
-        b=gTBW+zy9EpBa+vRIb+1drJO7pxOUu9jAxxcT7bwe7FC8Vfnk+JquSUX2YpZnJbS39p
-         4ymYfw0REDeZYFyQtNw0AvA/AxEOJEir1AhR33qqlXUvKW1XmzAM5WZErJdQB+VgGbJu
-         1uDw1X7Rk+KRmhDSI6rsEREi6h+u4AlfAubcXfT2vVZWWbPipVutKa05JGDAaXU3ZiWe
-         cxhpdtN0z5CfbHdt4Bg4eD+fc18e34t8JRskIpR3OgfkzkhhK7vRFYRN3D0bsQu21zcy
-         EM3Fy0YhP48IBLNjxzjU4eReNRn/H6c+sv7ThPmG64qb5jm5mWW5jbveHFQXPAdXut/Q
-         3K0Q==
+        bh=9dCXGQ3wCen5hO/RhZ9y8kY2psIxwBZyCJWwI1Ahh5o=;
+        b=AQvsOeunxl6I88Obuw9BVdCTqucNEzXQCUb69LRfOQ3QctC5wy9suiatEXaJa6w+qg
+         uyFqVpm+n8oOtey+NJwJizMVqub1Mes94e6vYFHN+LDBMtYiXFQJxvnqSfk1rljdejJd
+         SEBU5sjxUye1os6jSBDLekRQQsnJ+8hzq/Ljd1L1BqI7f4HhLr101EMrtGTcXvtgqFa+
+         uXtnZEioduGkpF3UIty5KhlucvY7eHtIzQyFzSKqg0L50qBzJG3mdo6Vu+saqAH1ZXTM
+         CBWl9swQhm/TtyMz6clky2/BiM7DWFjtHIeIAAkTbH888+5DWIt5qnDin1HqsXo70GmD
+         007w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755098853; x=1755703653;
+        d=1e100.net; s=20230601; t=1755098881; x=1755703681;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IPXPkObct2Bs3tFQz0c3H79KmxSoBx9liY5wCkk/izg=;
-        b=n9CN1MH/X9xw0AZmA5w9hwZCIDF+G+Sd5+YheYcWOqwJ21GJA/YKpJhwA+A3Xz0XO0
-         HTqVoBlQqXIK4SSZJ4JoHd3LHiowis+ndrlUggAkJE1OfuGOieygMCPbJKihjNJqZ09R
-         JHY9cf7HTSaFerh3irziI9WrF4iAJ0hc6ovh+lgH6e4MOkWrmc7BdGmPbPN+YY2oz9PY
-         BYxs/kruZrAiTGsM5Fzfli5zf3MoHma98fojLYZw4pJPkR+OyXMoqEKtUeysc1n2p++3
-         2QuZA7NMuu/mGztLm3ZnYrMOYwGtd8v1ilRyUnFKcuYEOl42Q1u295M5zuTRkunxksV1
-         Cq3A==
-X-Forwarded-Encrypted: i=1; AJvYcCV/Fgc2cjNKdq4rVUYDM1sDm9qMVfq6dqQ5Qt9zkmVqKPphvE7AfWjxqpRhK9+py+q9qCUmdezFyyFMm/WRU4vi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+0PFW6Vatn8R0Umn6Tv9Db4J69KX+5SeKjhIR+X4FcZ+pYRx3
-	aeKjygiIqMUZsOO7+0K9IpdRBrx4bZl4fW6IkB39DnXas8pojXTGZQ82
-X-Gm-Gg: ASbGnctb+PUhJH2jbHETlN87oE6cooB7QpEkrP/uVYScMqQE2RQhg0F/p+qWratEK7q
-	d2h2ETGLC6ktRWCEdpiwIN8IKuCT6Iw6MdOPM1/LV7k/oscgB8T8a8DHrehCVRu/GDixvSj2XKg
-	PAh92q0sElE/UR2Z8UHOglvSn5ADe0oFddKhep2M0K3MoYX5HkTr3Tl9ZOk5WUJGOj6rZzY2ZZZ
-	pmj9UEVTXxT6qKaVLMkzm11noPDyOJa4aeVrc7vchJbNYpbG+pg2DVEezmcTL3TS0XsuzYYyOds
-	0K0dhVSfrkgvwkFyz9yv71Dp+nBLLYXwMPEEAPptnMzc/UBx+nKZgV19sPz9kvF/aPOQepCiQu9
-	n63oE4dEV4V46UPNo/3xdCR14LvFVcQYL4JwekWQgODeKye81p1KhjK8iCz/qcIXtvyK0AdhzbF
-	2fpzrP6swgQ0ocbkDJ8A==
-X-Google-Smtp-Source: AGHT+IFGLxAAuIuAWtxyOeZe/1vszbnNDC/nHj+B9y42HewYnwzUn1i2VqNgC/DnOaT+IjRwn6AcUA==
-X-Received: by 2002:a5d:5f8c:0:b0:3b3:c4b1:a212 with SMTP id ffacd0b85a97d-3b917d1d646mr2962333f8f.7.1755098853098;
-        Wed, 13 Aug 2025 08:27:33 -0700 (PDT)
+        bh=9dCXGQ3wCen5hO/RhZ9y8kY2psIxwBZyCJWwI1Ahh5o=;
+        b=VVBLqK/asPi3O3pb70I8HPCFRad7GnBJs3f3qckC6KA1+dnYytaRRk9xpniO4bekRM
+         pMuSz+JrNrgkNNBT3hJyhTf9LLVxQf4ITdSivBBb1pnnkE1b/XujeO3tPd7j7rgMU+Vo
+         SUcb8HxyxB7am+qqAQpI+CeXBkqK9eNY70TsNFDhWpiB5NuWb5Vk2yEaNp5fPabY3UQ4
+         72Hp52CPl4bp1t118Bq2k3tE/ECTn86/jWLGj6yr2SQWFKJ2vuLiuYLHJKIcRB6nMqvA
+         rTPIUg3cPRWcAfVSKjBv9xF2+zuY1dFZmPcudNmYH9N8urChJlqM3vwxcmCky1wXMJLt
+         rshw==
+X-Forwarded-Encrypted: i=1; AJvYcCXI0x/xRmb9jqeQ7vcWNGCQs8n9ta1dVhtrVuNzvvjBuJrj8BJUwlpH3QQK6J0LowMjaOPOeSXhzSanYAkxZCcs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuT6RnhObddlhFIF7txMoYGEahZpWYsC5vKFYw7+GkoEmDvEoB
+	Dqp1PBei+scqqtA8KRUAnbk3sTOUpBpK71JzVGX1kqcIgnmkzikUJ3VC
+X-Gm-Gg: ASbGncsA1ABUkk1Nk+JVGTwfWnFcaDzpnibJLKs9DQ5gjCd++U5J/58U/BbB/Tbblh8
+	peg9bPHg7AkckqocNwoWWSm9JP91QY6Ua5DbDFeks0xwAlUj9NGZUVyhXNg5OT77OHwmRvL/nJm
+	JgULdE5r2QUod8sU7IrO5EBtQuJlzXBA0W2oBsOKUQgGlnjYxFjhNHnYytKsQf90aiWC1zUIsWJ
+	2P8umL7R6myNPAAGn6TWZCJUwe8A31ZIkZYL23711hiUOuc57gi3xGFKtCCfe/0TU32y6yBuMim
+	m+efqo7C6CA9Jb64+Hl4B6UMWHY2dGplUHXrtU4XMy6ZsVPQg9OAvfgp6KnRqqPj7jyZkz4p7+w
+	O+mC+BppQhW/idksGhEL1Ubh56eYmZSESlTejEkg5sG802rr3fv5VNhE3uUQWvIAxq/WcKa+yUf
+	A48aF17X5s
+X-Google-Smtp-Source: AGHT+IGvCYpe77xXC4O8RNzirUxA7cMzbuFpGjarjyQuF4h4e0X7kLLiXN7Oa7TmkKyvCs586LY0fA==
+X-Received: by 2002:a05:6000:2dc8:b0:3b8:d955:c598 with SMTP id ffacd0b85a97d-3b917e90664mr2385608f8f.30.1755098880683;
+        Wed, 13 Aug 2025 08:28:00 -0700 (PDT)
 Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c469582sm46991138f8f.52.2025.08.13.08.27.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a53905asm6336365e9.22.2025.08.13.08.27.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 08:27:32 -0700 (PDT)
+        Wed, 13 Aug 2025 08:28:00 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
@@ -81,19 +81,19 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v2 08/10] arm64: dts: allwinner: t527: avaota-a1: Add
- ethernet PHY reset setting
-Date: Wed, 13 Aug 2025 17:27:30 +0200
-Message-ID: <1928131.tdWV9SEqCh@jernej-laptop>
-In-Reply-To: <20250813145540.2577789-9-wens@kernel.org>
+Subject: Re: [PATCH net-next v2 09/10] arm64: dts: allwinner: t527: avaota-a1: enable
+ second Ethernet port
+Date: Wed, 13 Aug 2025 17:27:58 +0200
+Message-ID: <13821245.uLZWGnKmhe@jernej-laptop>
+In-Reply-To: <20250813145540.2577789-10-wens@kernel.org>
 References: <20250813145540.2577789-1-wens@kernel.org>
- <20250813145540.2577789-9-wens@kernel.org>
+ <20250813145540.2577789-10-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_082734_758669_40205ED7 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250813_082802_460953_B531E939 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,17 +108,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 13. avgust 2025 ob 16:55:38 Srednjeevropski poletni =C4=8Das je =
+Dne sreda, 13. avgust 2025 ob 16:55:39 Srednjeevropski poletni =C4=8Das je =
 Chen-Yu Tsai napisal(a):
 > From: Chen-Yu Tsai <wens@csie.org>
 >=20
-> The external Ethernet PHY has a reset pin that is connected to the SoC.
-> It is missing from the original submission.
+> On the Avaota A1 board, the second Ethernet controller, aka the GMAC200,
+> is connected to a second external RTL8211F-CG PHY. The PHY uses an
+> external 25MHz crystal, and has the SoC's PJ16 pin connected to its
+> reset pin.
 >=20
-> Add it to complete the description.
+> Enable the second Ethernet port. Also fix up the label for the existing
+> external PHY connected to the first Ethernet port.
 >=20
-> Fixes: c6800f15998b ("arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1=
- board")
 > Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 
 Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
@@ -127,24 +128,78 @@ Best regards,
 Jernej
 
 > ---
->  arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 3 +++
->  1 file changed, 3 insertions(+)
+>=20
+> Changes since v1:
+> - Switch to generic (tx|rx)-internal-delay-ps properties
+> ---
+>  .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 26 +++++++++++++++++--
+>  1 file changed, 24 insertions(+), 2 deletions(-)
 >=20
 > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/ar=
 ch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> index b9eeb6753e9e..e7713678208d 100644
+> index e7713678208d..f540965ffaa4 100644
 > --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
 > +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> @@ -85,6 +85,9 @@ &mdio0 {
->  	ext_rgmii_phy: ethernet-phy@1 {
+> @@ -13,6 +13,7 @@ / {
+> =20
+>  	aliases {
+>  		ethernet0 =3D &gmac0;
+> +		ethernet1 =3D &gmac1;
+>  		serial0 =3D &uart0;
+>  	};
+> =20
+> @@ -67,7 +68,7 @@ &ehci1 {
+> =20
+>  &gmac0 {
+>  	phy-mode =3D "rgmii-id";
+> -	phy-handle =3D <&ext_rgmii_phy>;
+> +	phy-handle =3D <&ext_rgmii0_phy>;
+>  	phy-supply =3D <&reg_dcdc4>;
+> =20
+>  	allwinner,tx-delay-ps =3D <100>;
+> @@ -76,13 +77,24 @@ &gmac0 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&gmac1 {
+> +	phy-mode =3D "rgmii-id";
+> +	phy-handle =3D <&ext_rgmii1_phy>;
+> +	phy-supply =3D <&reg_dcdc4>;
+> +
+> +	tx-internal-delay-ps =3D <100>;
+> +	rx-internal-delay-ps =3D <100>;
+> +
+> +	status =3D "okay";
+> +};
+> +
+>  &gpu {
+>  	mali-supply =3D <&reg_dcdc2>;
+>  	status =3D "okay";
+>  };
+> =20
+>  &mdio0 {
+> -	ext_rgmii_phy: ethernet-phy@1 {
+> +	ext_rgmii0_phy: ethernet-phy@1 {
 >  		compatible =3D "ethernet-phy-ieee802.3-c22";
 >  		reg =3D <1>;
-> +		reset-gpios =3D <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-> +		reset-assert-us =3D <10000>;
-> +		reset-deassert-us =3D <150000>;
+>  		reset-gpios =3D <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
+> @@ -91,6 +103,16 @@ ext_rgmii_phy: ethernet-phy@1 {
 >  	};
 >  };
 > =20
+> +&mdio1 {
+> +	ext_rgmii1_phy: ethernet-phy@1 {
+> +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> +		reg =3D <1>;
+> +		reset-gpios =3D <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
+> +		reset-assert-us =3D <10000>;
+> +		reset-deassert-us =3D <150000>;
+> +	};
+> +};
+> +
+>  &mmc0 {
+>  	vmmc-supply =3D <&reg_cldo3>;
+>  	cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 >=20
 
 
