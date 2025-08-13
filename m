@@ -4,135 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60918CA0EE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C3ECA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=; b=GrOMjLnb0TAIV4HjaCHDVOkv+X
-	ngxMFikCDVvczoem76ZaSvY3AMsE6B/ZAbbIEPmHoI2RjcuqdADnhtEHaff41JW+SgQl+6/cucQOW
-	LigdIM2T0iAliDNSfPnJbpjSXplEk6HntYIdpSzckoZ9882pivirahOiYVGw/bTwcLYIhYzDI/p+S
-	sUS/bMRBh2OSFuQllgboSmMpzWPn7rSge/dpEdLYxGnpf8E9NN+g/guoOe/wDFI2zXdldGmbPUZJn
-	G6XxoN0n9WUYq34iyP98tVTF7jrHelBJ+XuzBv6BBUY8kc/j8KnU0h7wPPGBNQnV63Na2FQOOgFjy
-	Z9H8J5WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yRh53LhwzwIVu2CoRYc8EdlqoIGtiq5RV6ngg5LPmCE=; b=qZyMErYd7LOFulbJB/CId/6GAg
+	+hggBkTve2qktDA2XDeSLs6J6X3hTA3yNjhJTORM52xWzu6tYar78qt7giatJ8lzynnB/dWKopYWw
+	grL/I9n4s4fpauVsj6Ctqez6Vs2Q+50KPH42DZAgJxBspBKim+SJQPCzWNaVDjgoR0xEQ9P1lWCmJ
+	6w70xIEN/kwjE0zxsNJlkUN/r7i94TgXZhV5udQLASgsaRxNe9Jj9hwoRVtNkEmQWv0ZKw/5cvRyQ
+	QI6XQBm7M8+8/f/msBs/Jq1E36Vf7qsKgnfdhnU/KQHt09oYP6CkI4SSS2GiFho2kxEas4OvqTecx
+	6fhAmNqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCMO-0000000Dta2-0JxY;
-	Wed, 13 Aug 2025 14:21:48 +0000
-Received: from mail-mw2nam10on20605.outbound.protection.outlook.com ([2a01:111:f403:2412::605] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1umCMN-0000000DtZQ-2E2y;
+	Wed, 13 Aug 2025 14:21:47 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBxt-0000000Dq4Y-0p2F
+	id 1umBuK-0000000DpPy-2rLw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:56:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X1bw9ApJDujHPEjMlA1AHVtu/6FQ9ehstqErbkxMGnNi/ptHJaEVleM4pJ95u0e0FcSzr8AI8FXMbjXDB4XRXP9FxLD0PKjQyjxm7gWt5UFe83Xi61NjakFAyztGR4kjZTrBIzblmLatj86F5S0pVgqYQgUeqkNnDnCdxS2WXNqjBliu23oVgNsIx1VDHkXWc6gyu8lBn2BNCiJfMa9kdQNqORJNe+Q3Kyjo6aI6yHFrZUfgjRqs0MFHltxmMrDU/fPTqWF1475+3CNl/0R5b0a6BNw7/Hcm8RtxGVu5ebfIWLWXFPxAH7T1oU18xOaNe6zt8ilkFGM8lPyr8mj7Vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=;
- b=fKaoQU8lIK+tbp+LqANJNvy+Jr44KNrE8M8VHPjI7mQcaDAgnXwpAzQb1ryFA5m54uTcAf96na8XRsMWipE038ACO5bKKTLUm2r/buMLtkyyos1QrDVcS+hFaml1ke++vgYhA8Ji+nPzhIeKUxNG3qbZrSZaOHzkzzxVtfEXR/MDcP3DdlfOeHjTZn0ofgUPwUaiX3oa43eEJY/u/eCy95jOa7LuwLVRef4muW33TdRg13Iyd8V3yNhr21bovwC2by1bV62fsybgY75fHQCEDB5sxcn63J7LxV31dRA7h+ByAYwvgNYtL0QNH20JH/bKTC+WYUPE4u0Djb+w0BsohQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=;
- b=FzpMFYMo1+PdQRNHdWo98K1wQk9sMw/EsudDFHnX4LtA6H9c2LYthu18SbwCHUhQKEKIpUGf8PGwBzWTPcfsDwsM2hVqPwJZhld4d9jETT/S5reai76WDvu+JRsqqplt7f6sbw3w3ziG1aAgMvf5ilU/SRkP/bbtpGL9d4iWcmM=
-Received: from SJ0PR05CA0034.namprd05.prod.outlook.com (2603:10b6:a03:33f::9)
- by BL1PR12MB5900.namprd12.prod.outlook.com (2603:10b6:208:398::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.22; Wed, 13 Aug
- 2025 13:56:06 +0000
-Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
- (2603:10b6:a03:33f:cafe::cc) by SJ0PR05CA0034.outlook.office365.com
- (2603:10b6:a03:33f::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.14 via Frontend Transport; Wed,
- 13 Aug 2025 13:56:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9031.11 via Frontend Transport; Wed, 13 Aug 2025 13:56:05 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 13 Aug
- 2025 08:56:03 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 13 Aug
- 2025 08:56:03 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 13 Aug 2025 08:56:00 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
-	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
-Subject: [PATCH net V2] net: xilinx: axienet: Fix RX skb ring management in DMAengine mode
-Date: Wed, 13 Aug 2025 19:25:59 +0530
-Message-ID: <20250813135559.1555652-1-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 13 Aug 2025 13:52:49 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-459fc675d11so56815e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:52:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1755093166; x=1755697966; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yRh53LhwzwIVu2CoRYc8EdlqoIGtiq5RV6ngg5LPmCE=;
+        b=rMv91PKgx3nGL7QzItcKP3dOmNcxzM/caWh33OWG2lLW0TyCaoWLZucYeHsy30myis
+         m7sS+a0Rg2niYjvDuXZZGsCaw8INoAHsE0c57625oo451OQ7PvFEvu2WyLG60rlNZCOD
+         kNB9gAs5o85HhTx9ORW7hdoOBY+UvzcAck0UasnxiEuCHgCl0EF2uBVSFNA/HyvPTEYp
+         +Xme7K4rlKCsrdN9qUYpyIbhVLhKwQuglbTIcZZJQwO7k/jxMoEvCg1R7qd+jBI4xMN6
+         dmdCJu5uhLp3iYYc2wRW1uu/hsq48P+UsFq0OezsVvo40VYhrH5csFc74wzCOcGpT5xl
+         wMjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755093166; x=1755697966;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yRh53LhwzwIVu2CoRYc8EdlqoIGtiq5RV6ngg5LPmCE=;
+        b=FMa99qinR6BjOSWry+ZAfUK+QOHh5OQZLbvK8WOrtkmLlfoTgGoQppWRvGdBFz5hSZ
+         UdsFqEXUwJpkQP8mSuNYOYE6w4bhS9AY7y+8Ou+U3nUtw3bhMXHC7K/gpYNSb+oj7FEy
+         SpgNkkCg5E66rM5IAR3JZ+5V0Qpxl0wYrlmz84P/bsW888RJ/lcQPQeEe4rb1eDmdr4/
+         dvR8g9uRkQ8gxiQH303mU9EG+i5hFnsPPacI4MqQgkHD+ZzAQcVH0+h/k0XSSqlKG/+c
+         TWJoSewkwx70OT7y733qs8+N9nAEBJI6BOZ3CbEDkQ7HlBK3vNptlx/sNLP88o/ZF9au
+         HS4g==
+X-Forwarded-Encrypted: i=1; AJvYcCWBXDi118vNa2UaOctg5MQnEL23B5DkDg08qtMAq77OxxCWbgwk0iixfStYNHwk9BmLfBWFTPDBnRv3vC55IVzg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5hzH8/Xq303XN+QQYtXGOPTyVqv7KOHWMJkn25xsz28SRZ06H
+	N/6xJfl/WEeVSZ+lWnwZM92O4u58zmvWyCEhcCJkLiSZgDQoQxWZOcfYUAdrYgmcl+xNNTA3wFu
+	x50Llbw==
+X-Gm-Gg: ASbGncvfd7CUATa6hhtYbmH7yVn7S8+gCe2a+KgbJzSnw6hxoU20GIevmH8Ij6tj1qV
+	X7eN0ROKX9/xYUA82xWXjSrMv87bKr8i8Gi+3Tlq/dDryv6JRGPhs2ZDmE0nJkDBDPlfJSr1CYC
+	SnSFIqBRBW3afNCMxYGmiw0gMi4mfVLcqFDEs9w/BBHUSuQHGVmjMAY+sA4OoRelj3dIdMzMujs
+	3BgSa+T1UKnKXxGxYzOU5InyaqnSu2igoD9lvQgjY9mnd+BjKrbRNSCviiJzyDw302UuZ8laVN7
+	MU+W60eVjWvu2YgD++q0m4dGaIMB79OIp8fNvYTIPUo0Ei+R5vQ3Hmv7BD9dg1BXEl27X+cgHaD
+	jYmPHequWycgoMvHI0xI4pw/UG4GU58eWH5IBMeJxjIZ7ZJbk6cKlBveILlaeHry4e979tcl3pq
+	ws
+X-Google-Smtp-Source: AGHT+IFChMgXbcY7CfRuwbBbzu+f+Z+kFs7pTSJpSto9E0MCkZ9ZxRMPiVmiGbuQ06PfA2dGw4w1jg==
+X-Received: by 2002:a05:600c:4e53:b0:450:cb25:ead with SMTP id 5b1f17b1804b1-45a16e80868mr1336535e9.7.1755093166147;
+        Wed, 13 Aug 2025 06:52:46 -0700 (PDT)
+Received: from google.com (110.121.148.146.bc.googleusercontent.com. [146.148.121.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a537193sm3359695e9.21.2025.08.13.06.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 06:52:45 -0700 (PDT)
+Date: Wed, 13 Aug 2025 13:52:42 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
+Message-ID: <aJyYquSQl_OfNDA-@google.com>
+References: <aIurlx5QzEtjpFLd@google.com>
+ <20250801185930.GH26511@ziepe.ca>
+ <aJDGm02ihZyrBalY@google.com>
+ <20250805175753.GY26511@ziepe.ca>
+ <aJNiW48DdXIAFz8r@google.com>
+ <20250811185523.GG377696@ziepe.ca>
+ <aJsXkidmcSl3jUJP@google.com>
+ <20250812121056.GB599331@ziepe.ca>
+ <aJs1dMiomjtxVwl4@google.com>
+ <20250812134808.GC599331@ziepe.ca>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|BL1PR12MB5900:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd1cd7cb-b106-4ccd-8acb-08ddda71257e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CD3NWvFyx/cXv/c0n5a8yMPQoQKbA+rw+RyF9fjG3hlwY7Z5yRSJz15Pg1Kq?=
- =?us-ascii?Q?GPB1nPIbPCAJAtc5vlmSeNe1Xt2oVcl42DL5ivWH8k8XXBRZmh3k7oM/uVlL?=
- =?us-ascii?Q?FFCjOYftGBr1ax6mGyA/w4Wrhxq+FAGS3ezbWx6JQ2Lwm9wOlcpF/0O6XzXR?=
- =?us-ascii?Q?kM4VfZFHTXRYKhGZ5jlgXhj73EzdFreh67j7BtmKQ7cBKEkewwWvrF+XMP/7?=
- =?us-ascii?Q?b+2mZfenzzcX1gAWouPji6qbBISamwfrYQwHK2t27Pp8Q36mcH78rFk0uIE6?=
- =?us-ascii?Q?NdsUUWjHV8E+TofXm+sqC26DEV1p7ETNd7fJEcu3Nws2Uo3seg8yIjhGtOpo?=
- =?us-ascii?Q?QMVXkzc0k0jtLaHy1hphBsBjKIY6K5MYZ4UwNH2H6UP9G2z8A2BgKYHsXJtI?=
- =?us-ascii?Q?Z6mTUZeF6hBxyww6vYkaiJGawS0Tpdfm3wPY5AFGjhV3rFgVURVuRqOoDSrS?=
- =?us-ascii?Q?gNr5NOzAai7Wtbkwr2NIEVn8Dtw09N9K3yGcH4aVViDbKXSB1HnZX+Gk45so?=
- =?us-ascii?Q?C9VABWWS/5ETj7IbCGAJILahdC0RKGS0SP33xg8ZjL964oK4F86zThZJmR9i?=
- =?us-ascii?Q?LXLDG/lG/7sr5clQeIlEEbyK24WRK7/lUxiGZxKh483Y4mEMRAGWdytFpDiB?=
- =?us-ascii?Q?x2x+EPeJQ0qnfNMQtDMlyC2vSrQ3tRaXo22gJWzeFxNy354hei+unJp/S5UP?=
- =?us-ascii?Q?V59rXOV5PonBRimlRL50pTdT1Z0FutnHWjy+Y3fZXaWm7ba0oo/iMgDgc/yT?=
- =?us-ascii?Q?71tJapjKIRwy2Eruma0J2bm7QWJfWyZGrRRF8zAL3C0fjbuHI+8jh8ORa2Ux?=
- =?us-ascii?Q?8fheB7eaP7g3ITR8rwHXT7QmIBlyUf8jAx3/4PywmU1wrJFv2wMu8l1IMYC6?=
- =?us-ascii?Q?PUZ2z1oacB/t7gaiHoK1hv2XEMRgL8ExYR+MsFMRouh4xaPGqKUKwq9jQSVk?=
- =?us-ascii?Q?hy793kzX6RP3QtSANtym6xV4WKouePesv6FkBK2aSmkQgh6VIKPzj5JyCfjv?=
- =?us-ascii?Q?ONI5oMPe8oMjLXgKeypLwcdP0Y+mAuGCBAwxAZe9zclm3slW6PO3XE7GByxo?=
- =?us-ascii?Q?v/LxULyMqiH9gJLgQENdivyimfgkr+GvqKwIXoGoxQRdc+u9hUOOAlSvIiYP?=
- =?us-ascii?Q?QNbTYOYYQTy2sQtdIqw6Yx3+HBp/zXK5uBhGXzdVt5IlHdF9zjXAhJjOpEfA?=
- =?us-ascii?Q?ZUG/6pf6PIgesFOJRlJUM2JI2ucyfLZ9cQoCOztLfDorkjTqJsVRXkyqFdE8?=
- =?us-ascii?Q?5Y7TdrRsEOZBqQtTIowtDArsibxg/r4rCXq+3Qrw2hzoDz1+KgLE1GqXfNO1?=
- =?us-ascii?Q?DXHXfBZHvUJPVnoP+UGzD8qGjTZ5rn2mT8XtItUf39QbKnQGOroIfJLb69/D?=
- =?us-ascii?Q?idvOvjGdAAQd7ShtNGpAzUIxEcNcXoe0RLylylhsi85tDrteBwv0Nq1M1tEb?=
- =?us-ascii?Q?y7RFfWYWOeKVT6SGNMrAMVT4TZ+GZ2JlfL+hE0IDOONfqgl5PQMB2bHABkGa?=
- =?us-ascii?Q?byohBzQ011YBk3qMT2VtTgLbMJrrBNfMC0IY?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 13:56:05.0335
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd1cd7cb-b106-4ccd-8acb-08ddda71257e
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5900
+In-Reply-To: <20250812134808.GC599331@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_065629_372898_F7E9019E 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250813_065248_742071_C7DD9B48 
+X-CRM114-Status: GOOD (  48.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,68 +115,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Submit multiple descriptors in axienet_rx_cb() to fill Rx skb ring. This
-ensures the ring "catches up" on previously missed allocations.
+On Tue, Aug 12, 2025 at 10:48:08AM -0300, Jason Gunthorpe wrote:
+> On Tue, Aug 12, 2025 at 12:37:08PM +0000, Mostafa Saleh wrote:
+> > I see, but most of the code in KVM mode is exactly the same as in the
+> > current driver, as the driver is not HW agnostic (unlike virtio-iommu).
+> > In fact it does almost everything, and just delegates
+> > attach_identity/blocked to the hypervisor.
+> 
+> How is that possible? the kvm driver for smmuv3 should be very
+> different than the iommu subsystem driver. That seemed to be what this
+> series was showing.. Even the memory allocations and page table code
+> were all modified?
+> 
+> This delta seems to only get bigger as you move on toward having full
+> emulation in the hypervisor.
+> 
+> So, I'm confused what is being shared here and why are we trying so
+> hard to force two different things to share some unclear amount of
+> code?
+> 
 
-Increment Rx skb ring head pointer after BD is successfully allocated.
-Previously, head pointer was incremented before verifying if descriptor is
-successfully allocated and has valid entries, which could lead to ring
-state inconsistency if descriptor setup failed.
+Originally, this series from v1-v3(currently), just split the common
+code (SMMUv3 and io-pgtable) to separate files and added a new driver
+so it was a clear boundary.
 
-These changes improve reliability by maintaining adequate descriptor
-availability and ensuring proper ring buffer state management.
+But, I started re-working the series as I mentioned based on the feedback
+to have KVM as mode in the driver.
 
-Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
-Changes in V2:
-- Submit multiple descriptors in axienet_rx_cb().
-- Modify commit subject and description.
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+IMO, there is a value in either approaches (single or 2 drivers), a
+single driver is less intrusive to the current driver as it doesn't do
+any splitting, and just add few hooks.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 6011d7eae0c7..0d8a05fe541a 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1160,6 +1160,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- 	struct axienet_local *lp = data;
- 	struct sk_buff *skb;
- 	u32 *app_metadata;
-+	int i;
- 
- 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
- 	skb = skbuf_dma->skb;
-@@ -1178,7 +1179,10 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- 	u64_stats_add(&lp->rx_packets, 1);
- 	u64_stats_add(&lp->rx_bytes, rx_len);
- 	u64_stats_update_end(&lp->rx_stat_sync);
--	axienet_rx_submit_desc(lp->ndev);
-+
-+	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
-+				   RX_BUF_NUM_DEFAULT); i++)
-+		axienet_rx_submit_desc(lp->ndev);
- 	dma_async_issue_pending(lp->rx_chan);
- }
- 
-@@ -1457,7 +1461,6 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
- 	if (!skbuf_dma)
- 		return;
- 
--	lp->rx_ring_head++;
- 	skb = netdev_alloc_skb(ndev, lp->max_frm_size);
- 	if (!skb)
- 		return;
-@@ -1482,6 +1485,7 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
- 	skbuf_dma->desc = dma_rx_desc;
- 	dma_rx_desc->callback_param = lp;
- 	dma_rx_desc->callback_result = axienet_dma_rx_cb;
-+	lp->rx_ring_head++;
- 	dmaengine_submit(dma_rx_desc);
- 
- 	return;
--- 
-2.25.1
+As I mentioned I open to both, not trying to force anything :)
 
+> > In addition, with no standard iommu-binding, this driver has to be
+> > enlightened somehow about how to deal with device operations.
+> > 
+> > As mentioned before, when nesting is added, many of the hooks will be
+> > removed anyway as KVM would rely on trap and emulate instead of HVCs.
+> > 
+> > Otherwise, we can skip this series and I can post nesting directly
+> > (which would be a relatively bigger one), that probably would rely
+> > on the same concept of the driver bootstrapping the hypervisor driver.
+> 
+> I think you end up with the same design I am suggesting here, it is
+> nonsense to have one smmu driver when it is actually split into two
+> instances where one is running inside the protected world and one is
+> the normal iommu subsystem driver. That's not just bootstrapping, that
+> is two full instances running in parallel that are really very
+> different things.
+
+But they don’t do the same thing? they collaborate to configure the IOMMUs.
+That’s how the kernel boots, it starts as one object then splits between
+EL1 and EL2, which runs in parallel. At run time KVM will decide if it
+runs fully in EL2 or in split mode and either do function calls or
+hypercalls. It makes sense for KVM drivers to follow the same model.
+See kvm_call_* for example.
+
+> 
+> > I am generally open to any path to move this forward, as Robin and
+> > Will originally suggested the KVM mode in the upstream driver approach,
+> > what do you think?
+> 
+> Well, I'd like to see you succeed here too, but it these series are
+> very big and seem a pretty invasive. I'm very keen we are still able
+> to support the smmuv3 driver in all the non-pkvm configurations
+> without hassle, and I don't want to become blocked on inscrutible pkvm
+> problems because we have decided to share a few lines of code..
+
+Makes sense, but making changes is part of evolving the driver, for
+example attaching devices looks nothing at the moment as 3 years ago
+when I started working on this.
+Many of the cmdq code has been reworked for tegra which is not part of
+the SMMUv3 architecture.
+
+IMHO, we can’t just reject changes because it’s invasive, or some people
+doesn't care about it.
+
+Instead based on maintainability of new changes and whether it makes
+sense or not.
+
+> 
+> Are you sure there isn't some inbetween you can do that allows getting
+> to the full emulation of smmuv3 without so much churn to existing
+> code?
+> 
+> This is why I prefer adding new stuff that you then just erase vs
+> mangling the existing drivers potentially forever..
+> 
+
+What I can do is to hold back v4, and I can revive my nesting patches,
+it doesn’t need any hooks in iommu_ops nor hypercalls.
+
+However, the tricky part would be the probe, as the hypervisor has to know
+about the SMMUs before the kernel doesn’t any anything significant with,
+but the same time we don't to repeat the probe path.
+
+If that goes well, I can post something next week with nesting instead
+of the current approach.
+
+Thanks,
+Mostafa
+
+> Jason
 
