@@ -4,72 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78739CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D33CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L7kltxc9AxkHU+Y8mgVevfgEZLiChPaiG8eQ8e+4t/g=; b=JzQf5o0zJ8s3J6DO3LBWHlH4m5
-	z823OFpxxdrZlwpdHKU9ZSuaWNFPTIjV6+4awxJgaS2i16zYqQ/0XPg/6LWQrPmKup9z7QQpk6Agn
-	qkx09RwUCJs7Erpka/8+BmPuC31FYbGSlC4BBnn2ApCpc/1fm+XPosc5Xg+4U79YoZpoeRSCLOozZ
-	zZ/STLIdCCM9AeG+m7GyP7urYSYPAufrK8jPPJG8T4uYwVmtU9XPy3WLU6faI5w2N0dkag9b/HuMl
-	k9XNMkdsKW/1ZQtT5W6Ypb5SQzajp/gRnOjJPQgclipswGLYcROP3U5ZQ/hHvwFw2zeZooE1iW6uE
-	OhZ8t7og==;
+	bh=3XvjMpS+8oWnYVArmJHtXmTPeaMaVACHoQ9sHAWIeo4=; b=ZyD7KoMsKvmdc9T6TgOj11R8vT
+	CB3a9zI6B4F7z43t/mJ8wk3F0csE1O1Qr38qxTCVTBSUacj2C3WQ+YG/rfLi91yB1zW3O/3pLVlW1
+	qsEoR01Tl2q+wgV0E3N5gY3oXJbxXR9r0VNKFDaqRBJbvbVifZ1eqd0lJ0f7XqvmSkjap5O6OS4Eg
+	Cyq3KDsuagORuUlIhysFRaS6P6GrBWfbSSBRohJX7a66mB6u65Nx865MlxuOzWpOZVJxkvT+UxTBZ
+	6zbnkL9rSC8cN041mQLTxpreCWYy8mh+19ULjqc/SqO8dsRkI8yM0MguMZzoDpg6/37HQ8wQCZWTf
+	fq1qS9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBCi-0000000DiYd-1XKo;
-	Wed, 13 Aug 2025 13:07:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umAAp-0000000DaY1-11zC
+	id 1umBFF-0000000Diuf-0MiC;
+	Wed, 13 Aug 2025 13:10:21 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umACj-0000000DamA-1znY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 12:01:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5758312FC;
-	Wed, 13 Aug 2025 05:01:34 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 204DA3F5A1;
-	Wed, 13 Aug 2025 05:01:39 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v3 5/5] arm64: make the per-task SCTLR2_EL1
-Date: Wed, 13 Aug 2025 13:01:18 +0100
-Message-Id: <20250813120118.3953541-6-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250813120118.3953541-1-yeoreum.yun@arm.com>
-References: <20250813120118.3953541-1-yeoreum.yun@arm.com>
+	Wed, 13 Aug 2025 12:03:42 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b7910123a0so5790100f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 05:03:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755086620; x=1755691420; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3XvjMpS+8oWnYVArmJHtXmTPeaMaVACHoQ9sHAWIeo4=;
+        b=qVqwSd2pUF+Og5+XvrxksNjSBNEAAlOuOz00L4CXd/m/T0hXE/eA1P8it+4Xq6ai90
+         NyriQc5ZYlhL1g7iippvXMJklpQvH1hTm7b7y5CvFlmMHg/dyLX0d2kUUQDeb6yihTxT
+         zG876UJlxI9OG37QNegoanAKNmEm4/wC0g5mN21QVJ7uYmA+m9/vPLCT5TegVNBOEhcK
+         faDPqw9/KiwJ8sEsbM9fabxw1ogFxGfLFCazEwidiOLdPLtrHw51qmyFqrYo6FnVGBY5
+         l4w896LoIgR1+0RHrWrt+KRLOhUYGGPxF1qYgphpP2/bptp4WUs8unxkVK5cT/Z+u4+L
+         AVSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755086620; x=1755691420;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3XvjMpS+8oWnYVArmJHtXmTPeaMaVACHoQ9sHAWIeo4=;
+        b=XxQYTykoeqTgyJd9839TqFVHHq7AQTx9xOQiLgyzMjU+x2I5xWuxO0yw1i6Rjd2mtf
+         TeZZoWmZcudE1rDDslzf/jcbhIVvS3g1iihfmu/Xlbr2oj3f++np76o3Sh1O543XUfLM
+         GgkS71bTytXS/fzvdZwwdUwCdxRg1PBplSezwkice7NiGiQ+i0celO/NPgBw7sI7XZOX
+         gqKaZ2rOq8i7Mmvvzq60UE2sBsfWJtSoIondYa3yEk2/rv81bDKs+4l0TIIOJz6WMDya
+         nxy634qJX0JM1kAlUUHVJCEP2hkV+jtJaqg9dFcpJeYEOhGMLPPXRGtQQF3yF3dUgcxe
+         r2GQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUc9cmGqkzGB6TltG+6VqQvRjU+Okp3VnzRf0eK1LQ4wR37qWBhlUx09KPhCkbqCtpWR/0zh/zmH1q4dUfxK5oB@lists.infradead.org
+X-Gm-Message-State: AOJu0YznGYNaaq5BfwMpR0Xay73raJqJMYfBbSohYQknk4/jmtxun8QL
+	hJItWPBIL29+BVCETz2pzwTwTguB4SuAN+Tsw4vHCLnkQETQT/HkI95F69OUOD5jvg8=
+X-Gm-Gg: ASbGncsXMtXUaMGjiD60GAS2t01Xc+9PTKiRuTkoHZVycGEjQJ9VuvUgP5CCpDLDbl5
+	USQ/aA4IfkTjq0U3KErT2zuivEibdZ3WDjJ1Dqe/1mJVeP/xDBlddxIstrAOaWmkCb86BxE7ELG
+	/s8Cdvhf2VYUMeGIQndXE7eYadPRxkhmPPh8eNK1CESYaMcNYAVUXGhkE4xn1w0INzzHuWONcdH
+	0TGGFZjKLkOvf86hOR9GHTIAZC+6mhEVJEn2oSjiiHIA4MNYN1xWOjABPLuDNlXNoEa/qbE+mHU
+	ecz/bCr85Op79YdvrTsydCBDuRnU6D9NjxQ+ShaNuWCSpiNvi+qIGc7I3O8wfgY62QQ7CmWD5Yq
+	kD4yr6fs8coLPSCVjVj5hYm0IxLGvYEHJEnN7CZxPIt2Awjf0MPmEnSYRuAV+SQ==
+X-Google-Smtp-Source: AGHT+IHxp+VeWjHiqQ8aBd+gz91GtrFP/7x1AqDysrQKifIk/EESEugnh5wrM4RvHZhNCnsTelpLKQ==
+X-Received: by 2002:a05:6000:290c:b0:3a6:f2a7:d0bb with SMTP id ffacd0b85a97d-3b917d29dacmr2224481f8f.12.1755086619388;
+        Wed, 13 Aug 2025 05:03:39 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3b90fdc85a4sm8298461f8f.60.2025.08.13.05.03.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 05:03:38 -0700 (PDT)
+Message-ID: <f7f01234-ce5f-41d2-8a73-17f6b86dcd1f@linaro.org>
+Date: Wed, 13 Aug 2025 14:03:38 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] clocksource: Add standalone MMIO ARM arch timer
+ driver
+To: Marc Zyngier <maz@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
+References: <20250807160243.1970533-1-maz@kernel.org>
+ <20250813-macho-snobbish-alpaca-ff07fa@sudeepholla> <aJx4g8z3l438Qgnv@raptor>
+ <86ikir8mqw.wl-maz@kernel.org>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <86ikir8mqw.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_050143_325601_7DEBE931 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250813_050341_529091_0048F0D7 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCTLR2_EL1 register is optional starting from ARMv8.8/ARMv9.3,
-and becomes mandatory from ARMv8.9/ARMv9.4
-and serveral architectural feature are controled by bits in
-these registers and some of bits could be configurable per task
-not globally -- i.e) FEAT_CPA2 related field and etc.
+On 13/08/2025 13:49, Marc Zyngier wrote:
+> On Wed, 13 Aug 2025 12:35:31 +0100,
+> Alexandru Elisei <alexandru.elisei@arm.com> wrote:
 
-For future usage of these fields, make the per-task SCTLR2_EL1.
+[ ... ]
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/processor.h | 5 +++++
- arch/arm64/kernel/process.c        | 9 +++++++++
- 2 files changed, 14 insertions(+)
+>> ls: cannot access '/dev/kvm': No such file or directory
+>>
+>> With this series, if firmware doesn't configure access to the memory-mapped
+>> timer:
+>>
+>> [    0.549399] kvm [1]: Hyp nVHE mode initialized successfully
+>> ..
+>> [    2.018050] arch-timer-mmio 2a810000.timer: Unable to find a suitable frame in timer @ 0x000000002a810000
+>> [    2.018123] arch-timer-mmio 2a810000.timer: probe with driver arch-timer-mmio failed with error -22
+> 
+> Ah, you have managed to test the error path. Thanks for that!
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 61d62bfd5a7b..2c962816de70 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -184,6 +184,7 @@ struct thread_struct {
- 	u64			mte_ctrl;
- #endif
- 	u64			sctlr_user;
-+	u64			sctlr2_user;
- 	u64			svcr;
- 	u64			tpidr2_el0;
- 	u64			por_el0;
-@@ -258,6 +259,9 @@ static inline void task_set_sve_vl_onexec(struct task_struct *task,
- 	(SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
- 	 SCTLR_EL1_TCF0_MASK)
- 
-+#define SCTLR2_USER_MASK	\
-+	(SCTLR2_EL1_EnPACM0 | SCTLR2_EL1_CPTA0 | SCTLR2_EL1_CPTM0)
-+
- static inline void arch_thread_struct_whitelist(unsigned long *offset,
- 						unsigned long *size)
- {
-@@ -370,6 +374,7 @@ struct task_struct;
- unsigned long __get_wchan(struct task_struct *p);
- 
- void update_sctlr_el1(u64 sctlr);
-+void update_sctlr2_el1(u64 sctlr2);
- 
- /* Thread switching */
- extern struct task_struct *cpu_switch_to(struct task_struct *prev,
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 96482a1412c6..9191180c4875 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -698,6 +698,11 @@ void update_sctlr_el1(u64 sctlr)
- 	isb();
- }
- 
-+void update_sctlr2_el1(u64 sctlr2)
-+{
-+	sysreg_clear_set_s(SYS_SCTLR2_EL1, SCTLR2_USER_MASK, sctlr2);
-+}
-+
- /*
-  * Thread switching.
-  */
-@@ -737,6 +742,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	if (prev->thread.sctlr_user != next->thread.sctlr_user)
- 		update_sctlr_el1(next->thread.sctlr_user);
- 
-+	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2) &&
-+	    prev->thread.sctlr2_user != next->thread.sctlr2_user)
-+		update_sctlr2_el1(next->thread.sctlr2_user);
-+
- 	/* the actual thread switch */
- 	last = cpu_switch_to(prev, next);
- 
+Applied (including patch 1/4)
+
+Thanks
+
 -- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
