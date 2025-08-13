@@ -4,157 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAF9CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CEACA0EE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=; b=isUHoUdXuKZKq0gp9h6kcKDS/+
-	r7AR4+5ybENIyLzz+YNKBZTYzLZdCjNMIwiS/0WBpvpGw0Sl3wZXfo/WM8wkHUrG3JS04B9UdXt8J
-	sgZn+VQtgZY6y18K3gJ+55BRTWK7R5xomhXZzI8J3WjpBUP7zUuX24B2fSz2SU0RVNbsCyJRyOG7g
-	ubD2sF7yPlUVdSM8O6FSJy5JtrcyE+xZzMq6Ujb/qBcvZi1fIy/DM4pBqkqE95i0IDgetW85qtZB/
-	5in598bbhq/J7ll5YIwBZZNWjn+krCKL5u+qcjsDY626rBX6RScfYg+4b5qSvabwfbTPHDFRmc3m9
-	pc4xFL7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jx412liuOMoaTXioPhpKB7KsmO+qzyQ4aq5jTPxjUB0=; b=a0kL/6SQb1UYeIOivNdHBT+AsY
+	MWpFahPxi1rJ5p7776ON5xs23QqSPrNdAUrxrPHZZMkqqH+Ik28He4k+qK/hMx2GpSY0bo0Ie659n
+	3MU+gm5V69TMdRhANRToYtP3USNujPUOlVqTqofjrZOM+Smm7f7C6fiKpX56edX9FmZg2vMqp8XpL
+	TZTrgPJxUkN/8gmrymBAKpBhExq0PgqlzSCBG5saFZac7ba/uhCCCoRUwtBE03xyuP2sBtNMGL+lX
+	FYfxjoZ5Z9l7BIC/1mTVhmqGt4ZMrDGXveY73VOPZrW/o1a8nU08xCo76YprenoAcmiHlebf91TQh
+	hiHUD3dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8Wf-0000000DLXT-1EeF;
+	id 1um8Wf-0000000DLXl-3mMJ;
 	Wed, 13 Aug 2025 10:16:09 +0000
-Received: from mail-sn1nam02on2062c.outbound.protection.outlook.com ([2a01:111:f403:2406::62c] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5L4-0000000CqHU-23V4
+	id 1um5b1-0000000CseJ-31YK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 06:51:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HSVt3JOkd01EGEbRt92Dag7kHQXppico0wxd92jktgMigfqZ2bxBINctj3v6FoBZzi4/K5XkkhkHTK5BNWlPAfj9f3+sd7YOjUofIFM7w4tLoztz2LI8Sjhj8R+xWBSOKHuAjepNf2/8vFl75enjLHYVQjm8Mf592bXQPsf+HoSa+is+rHP12N4xVVMGFnIC/6cCB3FicSawNF77AyRoV4NQlQM+daa5fcp5UAVlwHYCsvAq7BYWySsXApw25L9EcbNUNMae3ta/XME07EH4v8VmLz9mvTvDqHBRinwzxqrOSlv77clZzE/7gevBiOAgKAutlt19u1WRwmu/4SEzEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=;
- b=Wnt6Wlj9GKYz4EfsB1I7QVA/8U2lG46kaqqumV0LintpRrNJXkKyTByn1hMwRTibBB9SBLH4boQfygTgtgXeeCcbUa06WVypxbFB94AiMjpX6KmEMmNU2DMdxnHFMo+N8F3YjJzwv9QhFRbSvJwbJsClaYk3jvEC7lFQl9FGzdSZCM05dSrUbGCTRTWbD0vm0OZ5v/XZtBiQgAeqlUKuL/zBz2eq1lE9QrcO/J+hfn2B4TgtPuUa0mKyW8W3YxKMhX5TFq4lKZMs72PkcFaAkSrRAB/rroPTjYaUfolsJ0QN3y5ijkrrPA3DvDRyYwT2wQxXBY7VUB35fSl1CBvfzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=;
- b=xbrOMBE/MeACTsoqi0+jNbb09l4m+UvrrtjnVMs21pA+BNfoxlpMvKKuOzpDfR3S2JCvsecQ829M8k1yJxDEoRmbfiRnon0kvdoTZZY+Sn1BPFyH+AnLvIRLR6rdXgZ01Y/wZLDYKVASaYs+G3OHntRCYihidKU8u0IGnDupj/8=
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
- by SJ2PR12MB8875.namprd12.prod.outlook.com (2603:10b6:a03:543::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.23; Wed, 13 Aug
- 2025 06:51:11 +0000
-Received: from MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
- ([fe80::6798:13c6:d7ba:e01c%6]) with mapi id 15.20.9009.018; Wed, 13 Aug 2025
- 06:51:10 +0000
-From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
-To: "Joseph, Abin" <Abin.Joseph@amd.com>, "vkoul@kernel.org"
-	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
-	"yanzhen@vivo.com" <yanzhen@vivo.com>, "palmer@rivosinc.com"
-	<palmer@rivosinc.com>, "u.kleine-koenig@baylibre.com"
-	<u.kleine-koenig@baylibre.com>
-CC: "git (AMD-Xilinx)" <git@amd.com>, "Joseph, Abin" <Abin.Joseph@amd.com>,
-	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
-Thread-Topic: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
-Thread-Index: AQHb+tcJSqMhsTa22EugsKlmtOnZL7RgR0FQ
-Date: Wed, 13 Aug 2025 06:51:10 +0000
-Message-ID: <MN0PR12MB5953134843F6FD10B839FCA5B72AA@MN0PR12MB5953.namprd12.prod.outlook.com>
-References: <20250722070255.28944-1-abin.joseph@amd.com>
-In-Reply-To: <20250722070255.28944-1-abin.joseph@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-08-13T06:50:55.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
- Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|SJ2PR12MB8875:EE_
-x-ms-office365-filtering-correlation-id: 572f859a-14f0-4833-7da8-08ddda35c96c
-x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?h4Bo5nJK5FLJhnnqUQBNzdXpXKCefwx/McPdjt8SayJj/eqivgsobPQOWgfS?=
- =?us-ascii?Q?AqxodE0TXoWd7PPQV4t25zkeNKXPRti3+DPemLZzvcewroQjZx0DPDvGZ2nB?=
- =?us-ascii?Q?ju6OQmJZNBAdX95SZg4Q+Tu5fDtmhdZ83or6nJA8vd0Kqe2ZQ1FS36+p0ojP?=
- =?us-ascii?Q?vM3q8FjReB0Ci0x5aDrRTIjrv6QcO9pJMNEmY1tTXTTV7055D/+ryagiE2Zh?=
- =?us-ascii?Q?0bJHmBy3oEJSQw/XPhykpfphQ4GJsz4DzwxDWzdek6CFZqNwEalmOBdlNHXh?=
- =?us-ascii?Q?gadpYiRrxygQ6F2N1LpRe8xS4bqrb2eISDxMPSeMaxsyeABaIsqVB6g3fS86?=
- =?us-ascii?Q?N2OcQ6MWqrk69xvuBWeMpaTq7e6gID3noMhV85qJ+rDsYbil96Enfi7vGHBA?=
- =?us-ascii?Q?Ia/miuOKZTT25E7DAEHErEFoWYyx8P618hP4UqbLBdNpd9g7B/HzPx1tGblW?=
- =?us-ascii?Q?A0PaQoQoPwEtvtxSaELW/tsqtJUQPI2HAcyjox3HkLBkZxPUul0pmGCQWjaP?=
- =?us-ascii?Q?b7sCBDYXe7AuPx0KtGun324QzVPI4fzSYVeNmATzvDGsJ4oApd+UUqdB+9qa?=
- =?us-ascii?Q?OqgoHOEVCRaHYYEApDwewwJBOh6uoIejAYXBNc10tP40Ba5G5aQLw2YdfmSP?=
- =?us-ascii?Q?HVxjWhOB2fdIRkDRldrEDBGCui1h7Fypsq+tENQ0yetBbqKFPogccEe7J+i0?=
- =?us-ascii?Q?dbdIUCDjcWhrBS3svDGV07MZgTWFr8yxe+C6Ck7y3HONfbDYpnUYim25rx85?=
- =?us-ascii?Q?ZjV2BpRd2T/pgxpcULCshxkz7r1NIf5W04UYkqJDqspXvkAGpEH7lSQ3io4M?=
- =?us-ascii?Q?/ImI/79vmEWJc1Rlb7fluwdabmh3SCOHhvK3MLa3jVsBOQg5lLamt+qggPRo?=
- =?us-ascii?Q?suw8B+GbzlDAK6lH1kivxxLA/ML7dyyv58IMQNlPzZspoxgTCRWnFNqhBh3p?=
- =?us-ascii?Q?74MM4ip3hNlDMHNIJZ7Xq55L+8dCVNwNiGUEKb7h3kLiI8Br6FjMhYu3x0d4?=
- =?us-ascii?Q?4lwCNp8bWVrdfz0ESsrnKVSc5KKJDz9MFlRoio3w8pgXHO42qrI31Zj3P4gN?=
- =?us-ascii?Q?i8l9W/eDakPxUKm66+0+BhvL++G86TcLenNGaNCbOtI2bZgVLoXzN6V71osy?=
- =?us-ascii?Q?k100QrX/R6Znz5y0n0aF1fOs/sHOq3pABqCs7HMmNNzsFEDlVvLIBjqzP9mg?=
- =?us-ascii?Q?7F9Lh7LZdp8fH1nwAeuIeKFX28h12RxNm+n8H7rTFYZZ4q93b0J7ZJqpWusN?=
- =?us-ascii?Q?YwJyH1K1ZyV3HJP8S7cNwxlRGr10XqjoKDKn/ZDFh55x8/P7prqdibX5IzJc?=
- =?us-ascii?Q?0D3eZJCvk6I5W3BppKnGkzvn3iJrLamfqSz6uxr9sBlk7OYTSMF2HOM68uBt?=
- =?us-ascii?Q?vL6O1UxPv3bJPquU0pVuQzkP4RroaMgGE/aPATnUMpo64PusVdFjMAQ1bM7s?=
- =?us-ascii?Q?SFpliBTSxb5L5XpOuMJLAOPicDS8FhxRCYYq74Rl7BsyOZy8gfDOAN3sLvFM?=
- =?us-ascii?Q?LThnyIyB6uCI3Is=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?T+7FvCo+UydjaKrFFt67YjAu2tM3b2kw/ICVfSnW9fFUKcAIRMw9ZYIzrcgi?=
- =?us-ascii?Q?fhCC5JO2GFmHFQ4/9WLU2RfDgX0EMSm3UCrDX593Z9lzx1LaALlRGbQ5R9Dr?=
- =?us-ascii?Q?PE0jNAtRFbdHEPZbkH+mhs6qsPHxXxmk78o+ZWx6QJ5ZMfoBmttNm2Ff5Nqy?=
- =?us-ascii?Q?yk/2YHSx1go7Ef4NeeBP678niHSCz5pXyxKpPEzK3u5qLJhAKgmTpHEYELEK?=
- =?us-ascii?Q?pvDSlTrNhU1S8sTGAUHqfCcbRZfOFPT76NTgNLdnfjTeg9It6psGb+PVsMAY?=
- =?us-ascii?Q?JdNJtH81FtUAZrt0nRQnK6qmPKBpzYGsa5lrSH9YB0UZKp5mV1fTdR6bKFg0?=
- =?us-ascii?Q?VAhKq7N9h3oGOWGuuNmhezEoM5OvjEDDTIKBN+3GAwEu3JuHmSvY7KfYkHof?=
- =?us-ascii?Q?NoINdzuBTvoEC7Dl7XrBfh77nksD98e2mckAMFRIMezBxLh+MvmMVhoAm9d4?=
- =?us-ascii?Q?v2xSu0KBDxSHIdRh/ETULkm72PVYTn/ipgze60Q2+4aDVWRUgie90nKwksf3?=
- =?us-ascii?Q?pH+kujKPgAJsOanj2FZYeEetnQBqGrlwABFXzwJz/0SOUGmqiCcJTgnUV/iN?=
- =?us-ascii?Q?0I76+HgwWVCcCBFDOZaxtnihkAYA3ZPXI0QeO2QyQIUeSX6SsASSonzw+OcZ?=
- =?us-ascii?Q?G4IF2ovPXn6KnaQMfOytnO/VYFC6+E2SNdoSmm2l4AFZbNyWMCtz3Df3PPoj?=
- =?us-ascii?Q?i7PVt5s4Xps+3KBEDMhIg+rgrM0mlE0+TvNJtQU14t0bwygZqmxVcyVMmGvK?=
- =?us-ascii?Q?ZIuby9dKV1Q2N7oZ3dwEJaiHPY/nqmkGBQsgEUrpUSAbRvKdbe8LeJmvgeGR?=
- =?us-ascii?Q?ClhLPBeoZIntymwU4FP9QPov17m9XOs2s73rNlrdB6J6bJn07uTTz1NWVaAc?=
- =?us-ascii?Q?14PLWbBCf7z0Jno5mJRMaxyKlxpZgGo5SM9RPkugnT3aq/p2ntfIoTZZ+/Tb?=
- =?us-ascii?Q?ClIgo11ugcXRH4MP8Tw6ghVb5+GGpmAZn4snOsx6qMg/7VW6noVLccyep0hw?=
- =?us-ascii?Q?mU0/pVmj0AtcDLFnEDqoXHJii++ZOWqC2GOENELu0XAY0E2l6eEgQBM87jHm?=
- =?us-ascii?Q?G8CumkJsqbJp0VU424WralB+Yp2o/fizlTDjjzbF2KueJnF803qWjmMuAP7c?=
- =?us-ascii?Q?sDaI0DTcWe9rCkrD/HGUtnI4alu4lBhrvob6MSY8IGc8KHRt+OuKOrUb7uPg?=
- =?us-ascii?Q?6B2DMecM8IDeusAAlkRgIMgW5gXx+vZR2LN9lGPf1tjJ4EbGIUMOA3ffQq+X?=
- =?us-ascii?Q?FpGZxtYGncjL5+4LuC6ZapXaDuh4xK5ba3KZJ5vDClyb98n7o6QuADIcL3ok?=
- =?us-ascii?Q?0WMwUoMA3ALhryTGeTr361tA1goFHbaTC2QbeuyW3+ZWj/rXNeBiZdiABtCF?=
- =?us-ascii?Q?StqSk7XQZa0AdHDtRQM/PyKX3JEcMdjKqqOPW9IWsygQC2syNbsAkfuNFTN8?=
- =?us-ascii?Q?vywZ06+/nlyi9sXfAV6EJpCAYUl32dMtZCRALMyUnB91qmxHi0qWOgCGO1TN?=
- =?us-ascii?Q?onbP6jHKRsmB3A0FYvrqQ1PCb1h0nlW0zrMAX609XUSR7UWmzc+ygqKT3rIF?=
- =?us-ascii?Q?iH/a0AY7yWgJODZ1WxM=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 13 Aug 2025 07:08:29 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4c1zx45l32z9sl4;
+	Wed, 13 Aug 2025 09:08:24 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1755068904;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Jx412liuOMoaTXioPhpKB7KsmO+qzyQ4aq5jTPxjUB0=;
+	b=be2GvR5PjGdLsRDVeKDc1cnRq4/iehkh9zYS6fqrgjdJkJGVe9Zl0VVMGuoyV8eCn5usXS
+	ZdAfRTeKJD6ayxp035LtJl1ZQSZ2Rho5lCA12iwkOEsXKAy41EwYgy3I4sQ29r0mFue3JW
+	w4sNJdRbY2IRxlU0jLdSCEeb0s/EX4HUyKXMyIgAqDQRwUOUMwEef1WWe5UJirscUsYNw6
+	UPj1az7blxW5btpHf8lmeuDFavqgLN7B7JYsLypuB2WF/BlWs44tCSehsxCRY+QC+b5u8z
+	fxGk6nLX3D8C1rwcB2aZLwjo51EdR6mO5+jLBWcwm3Lv6ymABfGOgwbEh5Y63Q==
+From: Lukasz Majewski <lukasz.majewski@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1755068901;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Jx412liuOMoaTXioPhpKB7KsmO+qzyQ4aq5jTPxjUB0=;
+	b=n1x4RR65RWbRAGZQRAw62GmWmkCwL12ssrZICjBE+rHa1wB1wB6YG8AyaTEw9/1o1sn9Sz
+	EJZllCvf0r4bKkemKwL+03cZUjTvljD3yJSgHWoiTbdjBeNGIhHeFNsLIEpLeNv+GCI3CJ
+	FIVldhV2F9iYjWfiAUkXbrt2exaijWCKNO40zBeEsNW+qRKPjBcWcxmzhWp4fL9YY6Vy5i
+	eYVlg9YVGU2XodUTwP9phLA1N8E0x8xh9L1FkMLpycDL/1vG2LLLEmDw+m2PI5pfO+R4kZ
+	mg2t5popvk2+GN8lSyCJijHuiZZto8WMU1Oi0SO90lXVVOs9qbCMdAM8bCU76Q==
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukasz.majewski@mailbox.org>
+Subject: [net-next v18 0/7] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Wed, 13 Aug 2025 09:07:48 +0200
+Message-Id: <20250813070755.1523898-1-lukasz.majewski@mailbox.org>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 572f859a-14f0-4833-7da8-08ddda35c96c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Aug 2025 06:51:10.3632
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: NJ6fgwFJaQOS2g/AsfUCSj8CRXrPR5ipuyxybgiI8H6Q+gJHZoTrYvrtJCOLHu67
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8875
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 338903585974bf3fda8
+X-MBO-RS-META: 9px7gfx7w8dhiekizhdqkkcem7sqnugd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_235158_530799_6312EC3C 
-X-CRM114-Status: GOOD (  25.92  )
+X-CRM114-CacheID: sfid-20250813_000827_905961_45BE5435 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,82 +101,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Public]
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
-> -----Original Message-----
-> From: Abin Joseph <abin.joseph@amd.com>
-> Sent: Tuesday, July 22, 2025 12:33 PM
-> To: vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
-> yanzhen@vivo.com; Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
-> palmer@rivosinc.com; u.kleine-koenig@baylibre.com
-> Cc: git (AMD-Xilinx) <git@amd.com>; Joseph, Abin <Abin.Joseph@amd.com>;
-> dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Subject: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
->
-> Add shutdown callback to ensure that DMA operations are properly stopped
-> and resources are released during system shutdown or kexec operations.
-> Fix incorrect PM state handling in the remove function that was causing
-> clock disable warnings during the shutdown operations, which was not
-> implemented earlier. The original logic used pm_runtime_enabled() check
-> after calling the pm_runtime_disable(), would always evaluate to true
-> after the disable call, which leads to unconditionally calling the
-> runtime_suspend regardless of the device's actual power state.
->
-> During shutdown, the device may already be suspended with clock disabled
-> from the autosuspend timer, causing the clock framework to warn about
-> the double-disable attempt. The pm_runtime_active() function checks the
-> actual device power state rather than the PM subsystem's enabled/disabled
-> status. ensuring the runtime_suspend is only called when the device is in
-> active power state. This prevents clock warnings during shutdown while
-> maintaining proper cleanup during normal remove operations.
->
-> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
+In the past there has been performed some attempts to upstream this driver:
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
-> ---
->
-> Changes in v3:
-> Update the commit description
-> Update to call remove directly from shutdown hook.
->
-> Changes in v2:
-> Update the shutdown to perform same operations as remove.
->
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_=
-dma.c
-> index d05fc5fcc77d..f7e584de4335 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -1173,9 +1173,9 @@ static void zynqmp_dma_remove(struct platform_devic=
-e
-> *pdev)
->       dma_async_device_unregister(&zdev->common);
->
->       zynqmp_dma_chan_remove(zdev->chan);
-> -     pm_runtime_disable(zdev->dev);
-> -     if (!pm_runtime_enabled(zdev->dev))
-> +     if (pm_runtime_active(zdev->dev))
->               zynqmp_dma_runtime_suspend(zdev->dev);
-> +     pm_runtime_disable(zdev->dev);
->  }
->
->  static const struct of_device_id zynqmp_dma_of_match[] =3D {
-> @@ -1193,6 +1193,7 @@ static struct platform_driver zynqmp_dma_driver =3D=
- {
->       },
->       .probe =3D zynqmp_dma_probe,
->       .remove =3D zynqmp_dma_remove,
-> +     .shutdown =3D zynqmp_dma_remove,
->  };
->
->  module_platform_driver(zynqmp_dma_driver);
-> --
-> 2.43.0
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
+
+All three approaches were not accepted as eligible for upstreaming.
+
+The driver from this series has floowing features:
+
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
+
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
+
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+5. Clang build:
+	make LLVM_SUFFIX=-19 LLVM=1 mrproper
+	cp ./arch/arm/configs/mxs_defconfig .config
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
+
+        make LLVM_SUFFIX=-19 LLVM=1 mrproper
+        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
+        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
+
+6. Kernel compliance checks:
+	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
+	~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
+
+7. GCC
+        make mrproper
+        make allmodconfig
+        make W=1 drivers/net/ethernet/freescale/mtipsw/
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+Lukasz Majewski (7):
+  dt-bindings: net: Add MTIP L2 switch description
+  net: mtip: The L2 switch driver for imx287
+  net: mtip: Add buffers management functions to the L2 switch driver
+  net: mtip: Add net_device_ops functions to the L2 switch driver
+  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
+  net: mtip: Extend the L2 switch driver with management operations
+  net: mtip: Extend the L2 switch driver for imx287 with bridge
+    operations
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
+ MAINTAINERS                                   |    7 +
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1962 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  651 ++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  132 ++
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
+ 10 files changed, 3364 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+
+-- 
+2.39.5
 
 
