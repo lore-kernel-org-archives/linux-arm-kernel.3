@@ -4,108 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A72BCA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F89C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o4YSl3lutpA2XrrRXb5QsKR+qXAUq4uZ8NufFEtq8Gg=; b=uuZvyWZKn1OoW6JQ6tjkePYVk5
-	+8kv08sIz6oyicy4+ofO+ylqWYCtBNY+rWgu4jsojANF9C/Cev2baC+hPAe7VxP6qIrNWqu1VT1qQ
-	mrqP3TwLnH/q0Je3UqL4q4mrsZ4KTZ7dgB6HLo/nNXvATGqgbhtG96jeAAS4LDG0eNS6K97TTV/x3
-	kcKWWg09r4fFpJukmNHtd1W5KWqNF340Z05QaGrT/EnO6VpUULg1JCdzozK0FDtSkvXT67S1h2Hk0
-	aX1WAPx88uABDOB7OIyzNsOb8/enbXwnS+m2tR6J+sCC6kS/Jktcrv8CIm+WKLgwlP95XM2oMYLUN
-	T2ksz6pQ==;
+	bh=SpiYdySHhrFSLFvt+ZXWlE3IvVelgPZB7slyigr8p3I=; b=NldK5NktWsRTfRAyahghUsGAiC
+	2BDVNi3bXKolGfZuI1dnpzFRc9L28FfsjDgKFJKcLghnxQCsmW3fAjqwc9QXEwhglTp+1Qx4EjRcX
+	aAXS3LVOBq0f2xIyv1hC1aaz37Dyb31OUpOQYtYaESCoGWWzWAYyDX2nG83iNQtopjyWDwL3f2KLG
+	cCeQy0Gj1ylWh0Jy18UlEj0JpWRxkeHk3+01AtnTajUTNOharmp2IcuTzBa0CET/g5FMQKjOVViA1
+	cK0x0Dr0h6S5KYeEoX2/2G7vb8j1ndw0GwgHg04kVVSyvg3UL4dK7qvHcgm48unMw5S+jcV5cqq7C
+	hredQJiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6Mb-0000000D0et-0HGR;
-	Wed, 13 Aug 2025 07:57:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1um6P8-0000000D1DY-1X5L;
+	Wed, 13 Aug 2025 08:00:14 +0000
+Received: from mail-pj1-f46.google.com ([209.85.216.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um66R-0000000CxIp-3Ltw
+	id 1um67z-0000000Cxxx-0IAm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 07:40:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B26BD418E5;
-	Wed, 13 Aug 2025 07:40:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52192C4CEEB;
-	Wed, 13 Aug 2025 07:40:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755070852;
-	bh=aReFe2KJcBdQd6zG5T7obRTQA2hioawTWLXEUpS2Y84=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H2PW4HPRIpZI0u292//kLzhMZsBS/qmDV4H4njT3oDBpiJhjrijzhwKSZD7W6EPPO
-	 9x831ooOPq/1f2tyT1Bw05mnfBVOWNNWOhWIAzk1ToLJvvI7jFjcNhHxnv0lSud9xa
-	 bDCiRVM/POFWGHA4rD8AC73neC1GEp/OdAkHcU7JGJcFb/3Yhk+uJZz8jGKE86pS5j
-	 PLUZsXMTkNt3g8FqS1lukWXNnTUEVy/h6iIDv7J4EPXh0+93EN3DvnM2/6aY9QU5eQ
-	 AXqNtcD5R/5eSuE8+edB5c9ZModCQR+5E/X0UT5UTUxjTzug4wn1Y0SHKNSbOYdRW0
-	 i53a16YsW+FjQ==
-Message-ID: <09a9eaec-a98f-4c0c-a9c9-86b85918e250@kernel.org>
-Date: Wed, 13 Aug 2025 09:40:48 +0200
+	Wed, 13 Aug 2025 07:42:32 +0000
+Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-32127d5f63eso775905a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 00:42:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755070950; x=1755675750;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SpiYdySHhrFSLFvt+ZXWlE3IvVelgPZB7slyigr8p3I=;
+        b=vDYOP+tHqRLV4n8ePvgPGwuPNl72hda/rHpmbeXik5zJzU5HDLfdnfnIGYTFBNAmrq
+         QpxMdKcZ8w991qI3jZIn57A6dm2rnT20tyXA82lTB0gfWssQX2ZkFIOv+jdeKeIyA0bf
+         vg+OF5jBHhsC8nfWnD6r70YHtLrvP2OREC/XnL1jyyKxipRYrTwfqVt3K/epmgPZMtSf
+         Brrvs2vVaAg/xMZzGN5fctPNtCeBeMLIGMZzqDPRWjgE8XcK//ynPyNxODBLJcjXmrGi
+         zQyA7KvXs/P7yVjI7NnzZyKHksq3diS/RWestsoKl1+bw7PG2JtCGyhF0pnueyLvItM+
+         cjag==
+X-Forwarded-Encrypted: i=1; AJvYcCXioTQnaXliIULMYgy2JgdpAsYhXgyp7brad9+uLslh+zKn8ubBu5eKElqFPaDHXmHIK/sopFVNW6HRBFAAOei+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAIKl+7p8JCstB1dZ8kcrbp/q7A2JUUXtRM+dGbG1v3mZB7hzW
+	y9K8tUKeFshwzeEczgw0GWsTDDUN2rsd1+kHie3/yLkvt9THxBUQ7v6r
+X-Gm-Gg: ASbGncutgtl8vOMISC4XL+r7Kf/NaBaTRRAOoKutL7n8WC2cj+HOY/7JJELL7nobgsP
+	tyZU4JM/VJ7JR6NMgRyuQaJQiVa8//4j4QqXXT405XhPEE43VZ0CsT+x+8PRN6drNbYmQGJfbH5
+	OIZNfmodfK+JQcOkxZirpBIqZ/zzRmLUFMwyu8fVWR0Z/uh7NsaFMGvuonuEmmN38DPDosk9Oej
+	4IeDj4RHS8xZX0M0WlRRxjDiV3mZ/rTMddTqnMNxJFATiMoJOYuYFRTz0v4BnY/myw54v/wZvuR
+	LinOLMnLmwc2MX11v34Z7qvoP+ddnNSovZTaBuUG3xNLOdRGDhR4nbbSEp3liaFrULyxGTNDSx5
+	8U5x1ro++cCpb+E3ccP9U5dTVjPigt9Mi
+X-Google-Smtp-Source: AGHT+IFyRulOk2yEiytouE8c1ifGVIrW23F74ZO8AVJB/Bv0ruH/ZKMqF0l+0q/T60XygCbCXcCjWw==
+X-Received: by 2002:a17:90b:224f:b0:31f:23f0:2df8 with SMTP id 98e67ed59e1d1-321d0ecb6aamr1294794a91.6.1755070950304;
+        Wed, 13 Aug 2025 00:42:30 -0700 (PDT)
+Received: from [192.168.50.136] ([118.32.98.101])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b429920ab6dsm11951099a12.58.2025.08.13.00.42.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 00:42:29 -0700 (PDT)
+Message-ID: <17f91b9a-0a3a-47e1-bdfb-06237ae5da55@kzalloc.com>
+Date: Wed, 13 Aug 2025 16:42:24 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: mfd: add Traverse Ten64 board
- controller
-To: Mathew McBride <matt@traverse.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
-References: <20230501064727.8921-1-matt@traverse.com.au>
- <20250813023435.27776-2-matt@traverse.com.au>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [BUG] arm64: Sleeping function called from invalid context in
+ do_debug_exception on PREEMPT_RT
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>,
+ Naresh Kamboju <naresh.kamboju@linaro.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Austin Kim <austindh.kim@gmail.com>,
+ linux-rt-devel@lists.linux.dev, syzkaller@googlegroups.com,
+ stable@vger.kernel.org
+References: <c36e8dca-d466-40ad-ad51-2b75e769ff47@kzalloc.com>
+ <aJw3L7B7u5qAPOMz@e129823.arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250813023435.27776-2-matt@traverse.com.au>
+From: Yunseong Kim <ysk@kzalloc.com>
+Organization: kzalloc
+In-Reply-To: <aJw3L7B7u5qAPOMz@e129823.arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_004055_884883_07C0B25A 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20250813_004231_113936_5930C49E 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,102 +97,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 04:34, Mathew McBride wrote:
-> This adds the device tree binding for the board
+Hi Yeoreum,
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+Thank you for pointing it!
 
-
-> (micro)controller on Ten64 family boards[1].
+On 8/13/25 3:56 PM, Yeoreum Yun wrote:
+> Hi Yunseong,
 > 
-> The schema is simple and is (presently) only
-> consumed by U-Boot, but it is possible that
-> it could be consumed by nvmem or other type
-> drivers in the future, as well as extended
-> to future Traverse boards.
+>>
+>> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+>> | in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 20466, name: syz.0.1689
+>> | preempt_count: 1, expected: 0
+>> | RCU nest depth: 0, expected: 0
+>> | Preemption disabled at:
+>> | [<ffff800080241600>] debug_exception_enter arch/arm64/mm/fault.c:978 [inline]
+>> | [<ffff800080241600>] do_debug_exception+0x68/0x2fc arch/arm64/mm/fault.c:997
+>> | CPU: 0 UID: 0 PID: 20466 Comm: syz.0.1689 Not tainted 6.16.0-rc1-rt1-dirty #12 PREEMPT_RT
+>> | Hardware name: QEMU KVM Virtual Machine, BIOS 2025.02-8 05/13/2025
+>> | Call trace:
+>> |  show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:466 (C)
+>> |  __dump_stack+0x30/0x40 lib/dump_stack.c:94
+>> |  dump_stack_lvl+0x148/0x1d8 lib/dump_stack.c:120
+>> |  dump_stack+0x1c/0x3c lib/dump_stack.c:129
+>> |  __might_resched+0x2e4/0x52c kernel/sched/core.c:8800
+>> |  __rt_spin_lock kernel/locking/spinlock_rt.c:48 [inline]
+>> |  rt_spin_lock+0xa8/0x1bc kernel/locking/spinlock_rt.c:57
+>> |  spin_lock include/linux/spinlock_rt.h:44 [inline]
+>> |  force_sig_info_to_task+0x6c/0x4a8 kernel/signal.c:1302
+>> |  force_sig_fault_to_task kernel/signal.c:1699 [inline]
+>> |  force_sig_fault+0xc4/0x110 kernel/signal.c:1704
+>> |  arm64_force_sig_fault+0x6c/0x80 arch/arm64/kernel/traps.c:265
+>> |  send_user_sigtrap arch/arm64/kernel/debug-monitors.c:237 [inline]
+>> |  single_step_handler+0x1f4/0x36c arch/arm64/kernel/debug-monitors.c:257
+>> |  do_debug_exception+0x154/0x2fc arch/arm64/mm/fault.c:1002
+>> |  el0_dbg+0x44/0x120 arch/arm64/kernel/entry-common.c:756
+>> |  el0t_64_sync_handler+0x3c/0x108 arch/arm64/kernel/entry-common.c:832
+>> |  el0t_64_sync+0x1ac/0x1b0 arch/arm64/kernel/entry.S:600
+>>
+>>
+>> It seems that commit eaff68b32861 ("arm64: entry: Add entry and exit functions
+>> for debug exception") in 6.17-rc1, also present as 6fb44438a5e1 in mainline,
+>> removed code that previously avoided sleeping context issues when handling
+>> debug exceptions:
+>> Link: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/arch/arm64/mm/fault.c?id=eaff68b3286116d499a3d4e513a36d772faba587
+> 
+> No. Her patch commit 31575e11ecf7 (arm64: debug: split brk64 exception entry)
+> solves your splat since el0_brk64() doesn't call debug_exception_enter()
+> by spliting el0/el1 brk64 entry exception entry.
+> 
+> Formerly, el(0/1)_dbg() are handled in do_debug_exception() together
+> and it calls debug_exception_enter() disabling preemption and this makes
+> your splat while handling brk excepttion from el0.
+> 
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+Do you think a fix is necessary if this issue also affects the LTS kernel
+before 6.17-rc1? As far as I know, most production RT kernels are still
+based on the existing LTS versions.
 
 > 
-> [1] https://ten64doc.traverse.com.au/hardware/microcontroller/
-> 
-> Signed-off-by: Mathew McBride <matt@traverse.com.au>
-> ---
->  .../mfd/traverse,ten64-controller.yaml        | 44 +++++++++++++++++++
->  1 file changed, 44 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
-> new file mode 100644
-> index 000000000000..13fed94e8406
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
-> @@ -0,0 +1,44 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/traverse,ten64-controller.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Traverse Ten64 board microontroller
+> --
+> Sincerely,
+> Yeoreum Yun
 
-typo
+Thank you,
+Yunseong
 
-> +
-> +maintainers:
-> +  - Mathew McBride <matt@traverse.com.au>
-> +
-> +description: |
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The board microcontroller on the Ten64 board family is
-> +  reponsible for management of power sources on the board,
-
-typo
-
-> +  as well as signalling the SoC to power on and reset.
-> +  It also implements useful auxiliary functions like bootcount,
-> +  serial/MAC address storage and scratch registers.
-> +
-> +properties:
-> +  compatible:
-> +    const: traverse,ten64-controller
-> +
-> +  reg:
-> +    description:
-> +      I2C device address.
-
-Drop description, obvious.
-
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        board-controller@7e {
-> +          compatible = "traverse,ten64-controller";
-
-Inconsistent indentation.
-
-> +          reg = <0x7e>;
-> +        };
-> +    };
-
-
-Best regards,
-Krzysztof
 
