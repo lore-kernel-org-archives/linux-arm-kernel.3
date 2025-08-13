@@ -4,83 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74CECA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964E5C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmTse71ZxUB+igTg1Ns0lYuIJGh3Zk0jV2ybZcG55QA=; b=Xv3RndY7XWf/+AY2O82yYQkyXt
-	HEJHqCpu0+ubq5jzFNCigQhu6oaICeGqYDH1EzLD/L4VxRxCbrACxIr/bMZxNnF4D5X1TIQaJlgJr
-	v/T25L91e/cKl+Pwcv8KH2G22srhNn5u6kcd7La2ANrEwmQ3iFaKtQlxU7iXJWF3gvD+4F1dTaPQ5
-	QIW9clo4dtTDO58ASHMSv2vEoRjIDcqSvBety7EfDoo7y9KQKJOhdiY4PtT4zU2mdSUPnNfcEJvuq
-	25tDx6evw8fxJW9cKnvOhVN1JVROyJpyKWgtRHgMhtUW+NVCcSzrcV3LorvlRoOVWKy+Bc6ftLs+Y
-	5l5gdE9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tb9T+VDg4ONC6Ljfke5yv2G/lTBCiQP3F1g2w7/ExMI=; b=ipRDtCAV3NpApZvIzb7L761zD1
+	az1RdfFab3rPtTRC/XOPvnPH8hDlNXXXQV+T7aJba5qgy7ZDdi+eWTtXWsB52Esxv8Nux8iz2nb90
+	7k4EVcQejgd8UCbBxbNVGMt14SI9or6foH4Wvjgfp4+ML4j3YhkszjSVw6cgSgCqqB3UlaLrUZr+P
+	llNr6rmojstBn1e8Yf7z0LYjFpZvlQafliptmqscK2FT5LITbiLV7BZA2IiVjHuByN3gBUpBjLR2X
+	PAokQj6Ql7hz/h/VT1OvDn6eiw8ooH+bMupBcfCPdg5QfpNtF6aEJoihDIZAEDpSvJir6jCxHqxbn
+	Mb+Y0gUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6HX-0000000CzYY-1Pnn;
-	Wed, 13 Aug 2025 07:52:23 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1um6K4-0000000D0Bj-3fk4;
+	Wed, 13 Aug 2025 07:55:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5Pc-0000000Cr0q-11Vm;
-	Wed, 13 Aug 2025 06:56:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755068200; x=1786604200;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=2b1COblDpAIUuYejzeV5esO2WB8etW2fL7OBAJ4d5UU=;
-  b=FU88SFlrOjTwOT5dnRqOAWHecRYQ59ZpvBEoUyCLRMJqzeZWIxPnhouG
-   Yhcamd0LbT4UGEspFRmOmgkvumHAecHxO8nsEz55hTP9weE0RA4lLV0x1
-   2HNCKTa6ck95QVhw0WK6zJEto13KS4ys2PSac8F6fGfE1tLSm5wrezV3D
-   mIbqWXLFdv9/PtAmovY3N5whYipkTnm1bjcbJVZoCsEFb2iDeJhGXIsHV
-   6B/36jQ32vsb2ZJhG0PCFVCfXOQ3vOvD16wQM0hYz6OgBthmszHhbv05E
-   cawz5uImnd2XFOZu9imzKWB1pjUvGdg0hoLeiBmgMPO+3eXWAdj77mmvi
-   Q==;
-X-CSE-ConnectionGUID: HW4Q/53OR8yqxCRuvO9bog==
-X-CSE-MsgGUID: VXgyK+TMShOjt1BAn/xX6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="56563438"
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="56563438"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2025 23:56:39 -0700
-X-CSE-ConnectionGUID: 4Be4PehFTYqPSTxVpOFDGg==
-X-CSE-MsgGUID: W0wSj/oQRMODQtEyk6Xq7w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="165616782"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 12 Aug 2025 23:56:36 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1um5PV-0009dE-0P;
-	Wed, 13 Aug 2025 06:56:33 +0000
-Date: Wed, 13 Aug 2025 14:56:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Peter Xu <peterx@redhat.com>, Oscar Salvador <osalvador@suse.de>
-Subject: Re: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-Message-ID: <202508131402.ZaPLdNsY-lkp@intel.com>
-References: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
+	id 1um60B-0000000CwXF-1Di2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 07:34:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 959D4601DB;
+	Wed, 13 Aug 2025 07:34:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C75BC4CEEB;
+	Wed, 13 Aug 2025 07:34:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755070466;
+	bh=LOw47lq3lTR3OffAqvYBcY7aTdLFREjOhrLME4xQV7k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IgS2znVOJsb/2yQQhCk1/XOsk+ALrk5kbMtqU25i8vDD5NQrfftFwFA/g+YUx1Lxr
+	 xvpbUjzDsFRLNZSQe4fyJZqyN48QvKuMCUdc7QP2dtGDlRp0CG/1HR1i60+JmYwhau
+	 Ts0bXuajM4QBb8Ah2QcyXbkvUAJ3tl+9P+Sl6Km+ZX+j5lcr5emk38sKtv3XZS/ywp
+	 6UkQQnhQXq/vKbSpiZ61ozXwQR6AeA19ov4U1UMQJ7hDK0+kmbzh/HfRZbFD+oejTY
+	 OGDhVwHorYMpMamFr8MorTN+w2urXI4l6gxkmWctNhW2bGuR9NEmtzgee5mdd8hw/n
+	 zh1Lhefw+iyCQ==
+Message-ID: <faf398eb-2be4-43cd-a5bf-2c688dd7bc18@kernel.org>
+Date: Wed, 13 Aug 2025 09:34:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_235640_325950_0F83399C 
-X-CRM114-Status: GOOD (  10.62  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
+ sensor
+To: Will Whang <will@willwhang.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250810220921.14307-1-will@willwhang.com>
+ <20250810220921.14307-2-will@willwhang.com>
+ <20250811-successful-military-dragon-d72486@kuoka>
+ <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+ <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+ <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
+ <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
+ <20250812095543.GJ30054@pendragon.ideasonboard.com>
+ <CAFoNnrzWot_Bf=YZFac1GkZgOOnJycwpidvwL93p3p-C-zn8BA@mail.gmail.com>
+ <6d6dc9e6-751f-4079-b21e-2e3461885b03@kernel.org>
+ <CAFoNnrwoRbtvTHHnjarDTKEHnQMaMDERPKi_vnYym3n8tVpzOA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAFoNnrwoRbtvTHHnjarDTKEHnQMaMDERPKi_vnYym3n8tVpzOA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +132,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+On 13/08/2025 08:38, Will Whang wrote:
+> On Tue, Aug 12, 2025 at 11:08 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 13/08/2025 06:30, Will Whang wrote:
+>>> On Tue, Aug 12, 2025 at 2:56 AM Laurent Pinchart
+>>> <laurent.pinchart@ideasonboard.com> wrote:
+>>>>
+>>>> On Tue, Aug 12, 2025 at 08:47:12AM +0200, Krzysztof Kozlowski wrote:
+>>>>> On 12/08/2025 08:31, Will Whang wrote:
+>>>>>> On Mon, Aug 11, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>>>> On 12/08/2025 04:47, Will Whang wrote:
+>>>>>>>> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>>>>>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
+>>>>>>>>>> +description:
+>>>>>>>>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
+>>>>>>>>>> +
+>>>>>>>>>> +properties:
+>>>>>>>>>> +  compatible:
+>>>>>>>>>> +    enum:
+>>>>>>>>>> +      - sony,imx585
+>>>>>>>>>> +      - sony,imx585-mono
+>>>>>>>>>
+>>>>>>>>> I don't understand this second compatible. Is this different hardware?
+>>>>>>>>> Can you point me to "mono" datasheet?
+>>>>>>>>>
+>>>>>>>>> Your description should explain this. Commit msg as well, instead of
+>>>>>>>>> speaking about driver (in fact drop all driver related comments).
+>>>>>>>>>
+>>>>>>>> Mono version of this sensor is basically just removing the bayer
+>>>>>>>> filter, so the sensor itself actually doesn't know if it is color or
+>>>>>>>> mono and from my knowledge there are no registers programmed in the
+>>>>>>>> factory that will show the variant and model number. (That is why when
+>>>>>>>> the driver probing it only test blacklevel register because there are
+>>>>>>>> no ID registers)
+>>>>>>>> Originally in V1 patch I've made the switch between color and mono in
+>>>>>>>> dtoverlay config but reviewer comments is to move it to compatible
+>>>>>>>> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
+>>>>>>>
+>>>>>>> You only partially answer and judging by mentioning driver below:
+>>>>>>>
+>>>>>>>> In this case, what would you recommend?
+>>>>>>>>
+>>>>>>>> compatible:
+>>>>>>>>   enum:
+>>>>>>>>     - sony,imx585
+>>>>>>>>     - sony,imx585-mono
+>>>>>>>>   description: IMX585 has two variants, color and mono which the
+>>>>>>>> driver supports both.
+>>>>>>>
+>>>>>>> ... I still have doubts that you really understand what I am asking. Is
+>>>>>>> this one device or two different devices?
+>>>>>>
+>>>>>> One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
+>>>>>> (Color). Silicon-wise the difference is just with or without bayer
+>>>>>> filter.
+>>>>>
+>>>>> Then I would propose to use sony,imx585-aamj1 and -aaqj1 with short
+>>>>> explanation either in comment or description about difference in RGB
+>>>>> mosaic filter.
+>>>>
+>>>> Works for me. We could possibly omit the "j1" suffix too.
+>>>>
+>>> My thinking is that imx585 and imx585-mono are easier to comprehend
+>>> than IMX585-AAM and IMX585-AAQ.
+>>> Because in dtoverlay for the users/me they will have to know what is
+>>> the exact name instead of easy to remember name.
+>>>
+>>> dtoverlay=imx585-aam
+>>> is not as nice as
+>>> dtoverlay=imx585-mono
+>>
+>> I have datasheet for AAQ, so how above is easier for me to figure out
+>> which compatible I am using?
+>>
+> I propose this:
+> 
+> compatible:
+>   enum:
+>     - sony,imx585
+>     - sony,imx585-mono
+>     - sony,imx585-AAQJ1
+>     - sony,imx585-AAMJ1
+> 
+>   description: IMX585 has two variants, color (IMX585-AAQ) and mono
+> (IMX585-AAM) which
+> the driver supports both.
 
-kernel test robot noticed the following build errors:
+So why four compatibles? BTW, driver does not matter.
 
-[auto build test ERROR on akpm-mm/mm-everything]
+> 
+> Description is there for a reason, dtoverlay has description also. See
+> sony,imx296.yaml as an example.
+> If you are looking at AAQ you know it is a color sensor and all the
+> color sensors from sony can be used with imx+three numbers in the
+> current list.
+> This is following the established convention.
+Which? Sorry, point me anywhere to convention that we do not use proper
+full model names but shortened version for some variant of a device?
+Such approach lead to many issues in the past, for example current
+Risc-v reset mess where contributor wants to remove completely
+incomplete compatible :/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Christophe-Leroy/mm-Remove-pud_user-from-asm-generic-pgtable-nopmd-h/20250812-195212
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy%40csgroup.eu
-patch subject: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-config: arm64-randconfig-002-20250813 (https://download.01.org/0day-ci/archive/20250813/202508131402.ZaPLdNsY-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250813/202508131402.ZaPLdNsY-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508131402.ZaPLdNsY-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/pgtable.h:6,
-                    from arch/arm64/include/asm/io.h:12,
-                    from include/linux/io.h:12,
-                    from include/linux/irq.h:20,
-                    from include/asm-generic/hardirq.h:17,
-                    from arch/arm64/include/asm/hardirq.h:17,
-                    from include/linux/hardirq.h:11,
-                    from include/linux/interrupt.h:11,
-                    from include/linux/trace_recursion.h:5,
-                    from include/linux/ftrace.h:10,
-                    from arch/arm64/kernel/asm-offsets.c:12:
-   arch/arm64/include/asm/pgtable.h: In function 'pud_user_accessible_page':
->> arch/arm64/include/asm/pgtable.h:958:33: error: called object is not a function or function pointer
-     958 | #define pud_user                false /* Always 0 with folding */
-         |                                 ^~~~~
-   arch/arm64/include/asm/pgtable.h:1307:54: note: in expansion of macro 'pud_user'
-    1307 |         return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
-         |                                                      ^~~~~~~~
->> arch/arm64/include/asm/pgtable.h:958:33: error: called object is not a function or function pointer
-     958 | #define pud_user                false /* Always 0 with folding */
-         |                                 ^~~~~
-   arch/arm64/include/asm/pgtable.h:959:33: note: in expansion of macro 'pud_user'
-     959 | #define pud_user_exec(pud)      pud_user(pud) /* Always 0 with folding */
-         |                                 ^~~~~~~~
-   arch/arm64/include/asm/pgtable.h:1307:71: note: in expansion of macro 'pud_user_exec'
-    1307 |         return pud_valid(pud) && !pud_table(pud) && (pud_user(pud) || pud_user_exec(pud));
-         |                                                                       ^~~~~~~~~~~~~
-   make[3]: *** [scripts/Makefile.build:182: arch/arm64/kernel/asm-offsets.s] Error 1 shuffle=3093671401
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1281: prepare0] Error 2 shuffle=3093671401
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=3093671401
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2 shuffle=3093671401
-   make: Target 'prepare' not remade because of errors.
-
-
-vim +958 arch/arm64/include/asm/pgtable.h
-
-   955	
-   956	#define pud_valid(pud)		false
-   957	#define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
- > 958	#define pud_user		false /* Always 0 with folding */
-   959	#define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
-   960	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
