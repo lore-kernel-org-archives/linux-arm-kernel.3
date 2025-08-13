@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C5EC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7603C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9iqVe+R8c3zfM/uPK79C2n38w+wRWE9/HfoR+oRT0g=; b=zL8pPrHrd5DvspTj1cfhSG1WVY
-	dk6As7LxoUxEsLjOndz7y9plecNzZGjxsvJAB551Z0xORqjbIoDpzhgeIp6QcBIdq7pQzxvAau6mF
-	zpNu/ayTo0UduuUqks2ytarIsC5SPASVgmcKoWr8oP4FAegdMOaXBktnRdqyHkMpOuO8ElEDsfXXG
-	G91VIKiT038qOmd/71vD0K3bKKK11OQsfrRf255pKhmQjzB0wyEJdWUpHINOnN8mIxQJjmJF41p0+
-	295C3jUPY+y4sHUBGxT12wIq2Zy8WjgKna+CngvFMt6PFbcNvWGGLuUwbAdAOwATajWg7FTlahxJ7
-	rf/Sdp9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=92PIXEVT8Ixzby8qIvoqZV3y8yASO5P1j9bblpffSDI=; b=hP6pNX4ZeYSv/6AypfvjJGbnPW
+	0emz6/c+UtMgxqQbOq8lMX53yN13S1G87OtKaRh880oYGG4mJfHEL2ZXQc9R0XS+jLkNyyxyNqq/D
+	Vv2RZLu33qWDEI2nZRZp4teGTlrp26ANY+jLvPRKVtdoGUw9divkqdo44ssMqwz1iL3ke/F7fAr18
+	XcE7U9Aeri4zIDJSa2FcK72+pixBH9M8WIJO+WOnkW241+T2kWZ0+1RyrArPgx3u9e+7kFhpaJ/0F
+	j8QUvRJqc9vziw4zQwRsN1PUrKjU/b8JXnmAKwl0YJtU6HtQniAlkJrPvmnbz0FS2mb9Tb6u0eT7K
+	2llCQTpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um93C-0000000DQlk-400M;
-	Wed, 13 Aug 2025 10:49:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1um95i-0000000DR25-3H8p;
+	Wed, 13 Aug 2025 10:52:22 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8Ns-0000000DKA7-1jcc
+	id 1um8Nt-0000000DKAT-3pJw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 10:07:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755079622;
+	Wed, 13 Aug 2025 10:07:07 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 010A943A0E;
+	Wed, 13 Aug 2025 10:07:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1755079624;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j9iqVe+R8c3zfM/uPK79C2n38w+wRWE9/HfoR+oRT0g=;
-	b=NR0bOv3UCwRdRBkRTonBc4DoD/Heb/YYug0yYH7fDby98U/MIfGkhoaNhGnTkBGT/Pg0BS
-	SiG6znUfO3pYM9DOUZ9dWMOTOSr8+qV5PX0OXTULNFn+nuYNuzlYc1O4IKF/iFjOC4m6bK
-	3vwFOhcPQZgNPcGDKb5te9zA8fyfYis=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-148-LBRarVM-PTaDi3FS6q2eaA-1; Wed,
- 13 Aug 2025 06:07:00 -0400
-X-MC-Unique: LBRarVM-PTaDi3FS6q2eaA-1
-X-Mimecast-MFC-AGG-ID: LBRarVM-PTaDi3FS6q2eaA_1755079618
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4B6CF1956087;
-	Wed, 13 Aug 2025 10:06:57 +0000 (UTC)
-Received: from localhost (unknown [10.22.64.44])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1DCA51955F43;
-	Wed, 13 Aug 2025 10:06:55 +0000 (UTC)
-Date: Wed, 13 Aug 2025 07:06:54 -0300
-From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [BUG] arm64: Sleeping function called from invalid context in
- do_debug_exception on PREEMPT_RT
-Message-ID: <aJxjvh4sAcUOJT2V@uudg.org>
-References: <c36e8dca-d466-40ad-ad51-2b75e769ff47@kzalloc.com>
- <aJw3L7B7u5qAPOMz@e129823.arm.com>
- <17f91b9a-0a3a-47e1-bdfb-06237ae5da55@kzalloc.com>
- <aJxT2ie1wW2+/OCg@e129823.arm.com>
+	bh=92PIXEVT8Ixzby8qIvoqZV3y8yASO5P1j9bblpffSDI=;
+	b=Lx0+IBzyJDg5esoCFnwqsP2JW9x31tMSRoSLDz7BcU+YI+doD+qy6tqzxdbFQATuZpzIfU
+	Yfy7+yt96LT5AcQ8eq/UDwR3GhDFAWNz5noQFA7aUuay/RFWrMbPlzb+BpZAcH9ypNcb1W
+	IhZEabkj2nITM+Tgu5l7jFyOpcOdkj9uk3nq4CHkf3AxAYJaotHVZbDMU3p2eOIAwssMkh
+	QHWUnqNyX56qzHLIn3YzSJLhv4mj5lWcVupbf/UEubRv5rfYXlILE21tsIkj8J3jo3Cdh6
+	bacpjidH0UHPx3/8yDWeLdkGmGnAApfuxued2TIDSrh0K0Oz4dJPlt5GFvLZRA==
+Date: Wed, 13 Aug 2025 12:07:03 +0200
+From: Herve Codina <herve.codina@bootlin.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, Shengjiu Wang
+ <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam
+ <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Jaroslav Kysela
+ <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] ASoC: fsl: fsl_qmc_audio: Only request
+ completion on last channel
+Message-ID: <20250813120703.6e8eed30@bootlin.com>
+In-Reply-To: <21eb89cc03a1c2135bdaba6a4dd1d0c2e624ce29.1754993232.git.christophe.leroy@csgroup.eu>
+References: <cover.1754993232.git.christophe.leroy@csgroup.eu>
+ <21eb89cc03a1c2135bdaba6a4dd1d0c2e624ce29.1754993232.git.christophe.leroy@csgroup.eu>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aJxT2ie1wW2+/OCg@e129823.arm.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeejleefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefflefhieduteegffeifeeggfffvdeuvdeutddvfeduudeukeffleehheffkeetnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggstdekmeelkeeltgemkedttddtmehfugekudemleehgegvmedvudehrgemfeeluddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdtkeemleeklegtmeektddttdemfhgukedumeelheegvgemvdduhegrmeefledutddphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedugedprhgtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtohepqhhirghnghdriihhrghosehngihprdgtohhmpdhrtghpthhtohepshhhvghnghhjihhurdifr
+ ghnghesghhmrghilhdrtghomhdprhgtphhtthhopegiihhusghordfnvggvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhhitgholhgvohhtshhukhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhgihhrugifohhougesghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_030704_524725_376465A2 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20250813_030706_079658_7A3E548F 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +81,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, "Paul E. McKenney" <paulmck@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Naresh Kamboju <naresh.kamboju@linaro.org>, Austin Kim <austindh.kim@gmail.com>, stable@vger.kernel.org, syzkaller@googlegroups.com, Masami Hiramatsu <mhiramat@kernel.org>, Will Deacon <will@kernel.org>, linux-rt-devel@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Yunseong Kim <ysk@kzalloc.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 09:59:06AM +0100, Yeoreum Yun wrote:
-> +Ada Couprie Diaz
-> 
-> > Hi Yeoreum,
-> >
-> > Thank you for pointing it!
-> >
-> > On 8/13/25 3:56 PM, Yeoreum Yun wrote:
-> > > Hi Yunseong,
-> > >
-> > >>
-> > >> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> > >> | in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 20466, name: syz.0.1689
-> > >> | preempt_count: 1, expected: 0
-> > >> | RCU nest depth: 0, expected: 0
-> > >> | Preemption disabled at:
-> > >> | [<ffff800080241600>] debug_exception_enter arch/arm64/mm/fault.c:978 [inline]
-> > >> | [<ffff800080241600>] do_debug_exception+0x68/0x2fc arch/arm64/mm/fault.c:997
-> > >> | CPU: 0 UID: 0 PID: 20466 Comm: syz.0.1689 Not tainted 6.16.0-rc1-rt1-dirty #12 PREEMPT_RT
-> > >> | Hardware name: QEMU KVM Virtual Machine, BIOS 2025.02-8 05/13/2025
-> > >> | Call trace:
-> > >> |  show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:466 (C)
-> > >> |  __dump_stack+0x30/0x40 lib/dump_stack.c:94
-> > >> |  dump_stack_lvl+0x148/0x1d8 lib/dump_stack.c:120
-> > >> |  dump_stack+0x1c/0x3c lib/dump_stack.c:129
-> > >> |  __might_resched+0x2e4/0x52c kernel/sched/core.c:8800
-> > >> |  __rt_spin_lock kernel/locking/spinlock_rt.c:48 [inline]
-> > >> |  rt_spin_lock+0xa8/0x1bc kernel/locking/spinlock_rt.c:57
-> > >> |  spin_lock include/linux/spinlock_rt.h:44 [inline]
-> > >> |  force_sig_info_to_task+0x6c/0x4a8 kernel/signal.c:1302
-> > >> |  force_sig_fault_to_task kernel/signal.c:1699 [inline]
-> > >> |  force_sig_fault+0xc4/0x110 kernel/signal.c:1704
-> > >> |  arm64_force_sig_fault+0x6c/0x80 arch/arm64/kernel/traps.c:265
-> > >> |  send_user_sigtrap arch/arm64/kernel/debug-monitors.c:237 [inline]
-> > >> |  single_step_handler+0x1f4/0x36c arch/arm64/kernel/debug-monitors.c:257
-> > >> |  do_debug_exception+0x154/0x2fc arch/arm64/mm/fault.c:1002
-> > >> |  el0_dbg+0x44/0x120 arch/arm64/kernel/entry-common.c:756
-> > >> |  el0t_64_sync_handler+0x3c/0x108 arch/arm64/kernel/entry-common.c:832
-> > >> |  el0t_64_sync+0x1ac/0x1b0 arch/arm64/kernel/entry.S:600
-> > >>
-> > >>
-> > >> It seems that commit eaff68b32861 ("arm64: entry: Add entry and exit functions
-> > >> for debug exception") in 6.17-rc1, also present as 6fb44438a5e1 in mainline,
-> > >> removed code that previously avoided sleeping context issues when handling
-> > >> debug exceptions:
-> > >> Link: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/arch/arm64/mm/fault.c?id=eaff68b3286116d499a3d4e513a36d772faba587
-> > >
-> > > No. Her patch commit 31575e11ecf7 (arm64: debug: split brk64 exception entry)
-> > > solves your splat since el0_brk64() doesn't call debug_exception_enter()
-> > > by spliting el0/el1 brk64 entry exception entry.
-> > >
-> > > Formerly, el(0/1)_dbg() are handled in do_debug_exception() together
-> > > and it calls debug_exception_enter() disabling preemption and this makes
-> > > your splat while handling brk excepttion from el0.
-> > >
-> >
-> > Do you think a fix is necessary if this issue also affects the LTS kernel
-> > before 6.17-rc1? As far as I know, most production RT kernels are still
-> > based on the existing LTS versions.
-> 
-> IMHO, I think her patch should be backedported.
+On Tue, 12 Aug 2025 12:50:57 +0200
+Christophe Leroy <christophe.leroy@csgroup.eu> wrote:
 
-I also strongly suggest backporting Ada's patch series, as without them
-using anything that resorts to debug exceptions (ptrace, gdb, ...) on
-aarch64 with PREEMPT_RT enabled may result in a backtrace or worse.
+> In non-interleaved mode, several QMC channels are used in sync.
+> More details can be found in commit 188d9cae5438 ("ASoC: fsl:
+> fsl_qmc_audio: Add support for non-interleaved mode.")
+> At the time being, an interrupt is requested on each channel to
+> perform capture/playback completion, allthough the completion is
+> really performed only once all channels have completed their work.
+> 
+> This leads to a lot more interrupts than really needed. Looking at
+> /proc/interrupts shows ~3800 interrupts per second when using
+> 4 capture and 4 playback devices with 5ms periods while
+> only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
+> 
+> The QMC channels work in sync, the one started first is the one
+> finishing first and the one started last is the one finishing last,
+> so when the last one finishes it is guaranteed that the other ones are
+> finished as well. Therefore only request completion processing on the
+> last QMC channel.
+> 
+> On my board with the above exemple, on a kernel started with
+> 'threadirqs' option, the QMC irq thread uses 16% CPU time with this
+> patch while it uses 26% CPU time without this patch.
+> 
+> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+> ---
+>  sound/soc/fsl/fsl_qmc_audio.c | 46 +++++------------------------------
+>  1 file changed, 6 insertions(+), 40 deletions(-)
+> 
 
-Luis
+Acked-by: Herve Codina <herve.codina@bootlin.com>
 
-> 
-> [0]: https://lore.kernel.org/all/20250707114109.35672-1-ada.coupriediaz@arm.com/
-> 
-> Thanks.
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
-> 
----end quoted text---
+Best regards,
+Hervé
 
+
+
+-- 
+Hervé Codina, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
