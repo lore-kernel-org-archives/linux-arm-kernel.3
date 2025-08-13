@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7197CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA63CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQ/41hIPpTTrAOpCVHmiPSB53W+ewMMCnOjW1KAGW9M=; b=TnZRZjmTi050wDHEGzSU5ftzYX
-	prfAv9C2u+YlbVf/jYPOhDzaK4schig45FfdrgzMzW9uFm8DGyY90peWkFD9lZKk4MB9VljRt4Edz
-	i2lm0PWhIifNFpYF1fnhede3aQ8gK3p0g2AU+swlKHvmImHhChtNbD3/xYQhZy0vv3+IGPaDF9ylt
-	0bkU7KhqyBLMpw2+QWb2IAaoJsoe5tJGsXNmpSdIgLn44ezx/CqToV0hILoHVgb/e3++qzq0FgQwy
-	1R7kFsIQd9f7fxiRFcyPezVA8tAp6UGU5nXItf+WF4FrSt7zbTGTsLIGSvHsxZ/yNgLY/DtGzoMdm
-	aheYEQ5g==;
+	bh=Nz+u1JngWsAw13fJm7/UYIPeybjCoK5Tnna+BzNIE3c=; b=Covm7t6Hwi3Q91DB4kq3PplONs
+	1PJ8r3StyHj7nUo60aQEQze87e5nD81+PDiGrEHgMtLtS7r/y0CvLuj3IoJEeOxX2CMvYFN2GzAQ4
+	Tb7BJ0ZBHDTh/m9k4PJhi/bDrGcbvD13I3FO2j1VjBx7yiZy/faY69odDCxikFC1WxCSr25o+ap1F
+	uHPUBTfLPGqA9M4Ghl8rWc0YwbW10rtrLekWcdz12v+8G7VCVCePhV/yTwE21eXpckxadTq2UgUQ6
+	LUTN5yGeydvIDGJ3COKes1DcpA+FfPOqC0mXyvd7e81S5iTnTeQ49w6QeQeTOC9sAk8QS8xXIynoL
+	frDPjiQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFrd-0000000Ef90-2uGM;
-	Wed, 13 Aug 2025 18:06:17 +0000
+	id 1umFwL-0000000Egtb-0ScS;
+	Wed, 13 Aug 2025 18:11:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEr5-0000000EVQM-0eGY;
-	Wed, 13 Aug 2025 17:01:40 +0000
+	id 1umEs6-0000000EWDI-2tze;
+	Wed, 13 Aug 2025 17:02:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 901F71BD0;
-	Wed, 13 Aug 2025 10:01:30 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07FDF1E7D;
+	Wed, 13 Aug 2025 10:02:34 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 776713F738;
-	Wed, 13 Aug 2025 10:01:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE9203F738;
+	Wed, 13 Aug 2025 10:02:37 -0700 (PDT)
 From: Robin Murphy <robin.murphy@arm.com>
 To: peterz@infradead.org,
 	mingo@redhat.com,
@@ -71,17 +71,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-cxl@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 03/19] perf/imx8_ddr: Fix group validation
-Date: Wed, 13 Aug 2025 18:00:55 +0100
-Message-Id: <bfb1445bc741a170302b77e3f513b01cd676c9d8.1755096883.git.robin.murphy@arm.com>
+Subject: [PATCH 17/19] perf: Retire PERF_PMU_CAP_NO_INTERRUPT
+Date: Wed, 13 Aug 2025 18:01:09 +0100
+Message-Id: <32bf39943eef7c7f516d814d749cdbe322eec204.1755096883.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
 References: <cover.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100139_332053_798598A4 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250813_100242_888327_23157417 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +96,454 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The group validation here is erroneously inspecting software events,
-as well as other hardware siblings, which are only checked for *after*
-they've already been misinterpreted. Once again, just ignore events
-which don't belong to our PMU, and don't duplicate what
-perf_event_open() will already check for us.
+Now that we have a well-defined cap for sampling support, clean up the
+remains of the mildly unintuitive and inconsistently-applied
+PERF_PMU_CAP_NO_INTERRUPT. Not to mention the obvious redundancy of
+some of these drivers still checking for sampling in event_init too.
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/perf/fsl_imx8_ddr_perf.c | 21 +++++----------------
- 1 file changed, 5 insertions(+), 16 deletions(-)
+ arch/arc/kernel/perf_event.c              |  4 +---
+ arch/csky/kernel/perf_event.c             |  1 -
+ arch/powerpc/perf/8xx-pmu.c               |  3 +--
+ arch/powerpc/perf/hv-24x7.c               |  3 ---
+ arch/powerpc/perf/hv-gpci.c               |  3 ---
+ arch/powerpc/perf/kvm-hv-pmu.c            |  2 +-
+ arch/powerpc/perf/vpa-pmu.c               |  6 +-----
+ arch/powerpc/platforms/pseries/papr_scm.c |  7 +------
+ arch/s390/kernel/perf_cpum_cf.c           |  3 ---
+ arch/sh/kernel/perf_event.c               |  1 -
+ arch/x86/events/amd/uncore.c              |  6 +++---
+ arch/x86/events/core.c                    |  1 -
+ arch/x86/events/intel/cstate.c            |  9 +++------
+ arch/x86/events/msr.c                     |  5 +----
+ drivers/fpga/dfl-fme-perf.c               |  6 ++----
+ drivers/perf/arm_cspmu/arm_cspmu.c        | 14 ++------------
+ drivers/perf/arm_pmu_platform.c           |  1 -
+ drivers/perf/marvell_cn10k_tad_pmu.c      |  3 +--
+ drivers/perf/riscv_pmu_legacy.c           |  1 -
+ drivers/perf/riscv_pmu_sbi.c              |  1 -
+ drivers/powercap/intel_rapl_common.c      |  2 +-
+ include/linux/perf_event.h                |  1 -
+ 22 files changed, 18 insertions(+), 65 deletions(-)
 
-diff --git a/drivers/perf/fsl_imx8_ddr_perf.c b/drivers/perf/fsl_imx8_ddr_perf.c
-index b989ffa95d69..56fe281974d2 100644
---- a/drivers/perf/fsl_imx8_ddr_perf.c
-+++ b/drivers/perf/fsl_imx8_ddr_perf.c
-@@ -331,6 +331,9 @@ static u32 ddr_perf_filter_val(struct perf_event *event)
- static bool ddr_perf_filters_compatible(struct perf_event *a,
- 					struct perf_event *b)
- {
-+	/* Ignore grouped events that aren't ours */
-+	if (a->pmu != b->pmu)
-+		return true;
- 	if (!ddr_perf_is_filtered(a))
- 		return true;
- 	if (!ddr_perf_is_filtered(b))
-@@ -409,16 +412,8 @@ static int ddr_perf_event_init(struct perf_event *event)
- 		return -EOPNOTSUPP;
+diff --git a/arch/arc/kernel/perf_event.c b/arch/arc/kernel/perf_event.c
+index 1b99b0215027..7e154f6f0abd 100644
+--- a/arch/arc/kernel/perf_event.c
++++ b/arch/arc/kernel/perf_event.c
+@@ -816,9 +816,7 @@ static int arc_pmu_device_probe(struct platform_device *pdev)
+ 
  	}
  
--	/*
--	 * We must NOT create groups containing mixed PMUs, although software
--	 * events are acceptable (for example to create a CCN group
--	 * periodically read when a hrtimer aka cpu-clock leader triggers).
--	 */
--	if (event->group_leader->pmu != event->pmu &&
--			!is_software_event(event->group_leader))
+-	if (irq == -1)
+-		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+-	else
++	if (irq != -1)
+ 		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
+ 
+ 	/*
+diff --git a/arch/csky/kernel/perf_event.c b/arch/csky/kernel/perf_event.c
+index c5ba6e235a6f..ecf4b2863f78 100644
+--- a/arch/csky/kernel/perf_event.c
++++ b/arch/csky/kernel/perf_event.c
+@@ -1316,7 +1316,6 @@ int csky_pmu_device_probe(struct platform_device *pdev,
+ 	ret = csky_pmu_request_irq(csky_pmu_handle_irq);
+ 	if (ret) {
+ 		csky_pmu.pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
+-		csky_pmu.pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		pr_notice("[perf] PMU request irq fail!\n");
+ 	}
+ 
+diff --git a/arch/powerpc/perf/8xx-pmu.c b/arch/powerpc/perf/8xx-pmu.c
+index 1d2972229e3a..71c35bd72eae 100644
+--- a/arch/powerpc/perf/8xx-pmu.c
++++ b/arch/powerpc/perf/8xx-pmu.c
+@@ -181,8 +181,7 @@ static struct pmu mpc8xx_pmu = {
+ 	.add		= mpc8xx_pmu_add,
+ 	.del		= mpc8xx_pmu_del,
+ 	.read		= mpc8xx_pmu_read,
+-	.capabilities	= PERF_PMU_CAP_NO_INTERRUPT |
+-			  PERF_PMU_CAP_NO_NMI,
++	.capabilities	= PERF_PMU_CAP_NO_NMI,
+ };
+ 
+ static int init_mpc8xx_pmu(void)
+diff --git a/arch/powerpc/perf/hv-24x7.c b/arch/powerpc/perf/hv-24x7.c
+index e42677cc254a..ab906616e570 100644
+--- a/arch/powerpc/perf/hv-24x7.c
++++ b/arch/powerpc/perf/hv-24x7.c
+@@ -1726,9 +1726,6 @@ static int hv_24x7_init(void)
+ 	if (!hv_page_cache)
+ 		return -ENOMEM;
+ 
+-	/* sampling not supported */
+-	h_24x7_pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+-
+ 	r = create_events_from_catalog(&event_group.attrs,
+ 				   &event_desc_group.attrs,
+ 				   &event_long_desc_group.attrs);
+diff --git a/arch/powerpc/perf/hv-gpci.c b/arch/powerpc/perf/hv-gpci.c
+index 241551d1282f..1726690396ec 100644
+--- a/arch/powerpc/perf/hv-gpci.c
++++ b/arch/powerpc/perf/hv-gpci.c
+@@ -1008,9 +1008,6 @@ static int hv_gpci_init(void)
+ 	if (r)
+ 		return r;
+ 
+-	/* sampling not supported */
+-	h_gpci_pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+-
+ 	arg = (void *)get_cpu_var(hv_gpci_reqb);
+ 	memset(arg, 0, HGPCI_REQ_BUFFER_SIZE);
+ 
+diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
+index ae264c9080ef..1c6bc65c986c 100644
+--- a/arch/powerpc/perf/kvm-hv-pmu.c
++++ b/arch/powerpc/perf/kvm-hv-pmu.c
+@@ -391,7 +391,7 @@ static struct pmu kvmppc_pmu = {
+ 	.attr_groups = kvmppc_pmu_attr_groups,
+ 	.type = -1,
+ 	.scope = PERF_PMU_SCOPE_SYS_WIDE,
+-	.capabilities = PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++	.capabilities = PERF_PMU_CAP_NO_EXCLUDE,
+ };
+ 
+ static int __init kvmppc_register_pmu(void)
+diff --git a/arch/powerpc/perf/vpa-pmu.c b/arch/powerpc/perf/vpa-pmu.c
+index 840733468959..1d360b5bf67c 100644
+--- a/arch/powerpc/perf/vpa-pmu.c
++++ b/arch/powerpc/perf/vpa-pmu.c
+@@ -75,10 +75,6 @@ static int vpa_pmu_event_init(struct perf_event *event)
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+ 
+-	/* it does not support event sampling mode */
+-	if (is_sampling_event(event))
+-		return -EOPNOTSUPP;
+-
+ 	/* no branch sampling */
+ 	if (has_branch_stack(event))
+ 		return -EOPNOTSUPP;
+@@ -164,7 +160,7 @@ static struct pmu vpa_pmu = {
+ 	.del		= vpa_pmu_del,
+ 	.read		= vpa_pmu_read,
+ 	.attr_groups	= vpa_pmu_attr_groups,
+-	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ };
+ 
+ static int __init pseries_vpa_pmu_init(void)
+diff --git a/arch/powerpc/platforms/pseries/papr_scm.c b/arch/powerpc/platforms/pseries/papr_scm.c
+index f7c9271bda58..d752cdaf8422 100644
+--- a/arch/powerpc/platforms/pseries/papr_scm.c
++++ b/arch/powerpc/platforms/pseries/papr_scm.c
+@@ -379,10 +379,6 @@ static int papr_scm_pmu_event_init(struct perf_event *event)
+ 	if (event->attr.type != event->pmu->type)
+ 		return -ENOENT;
+ 
+-	/* it does not support event sampling mode */
+-	if (is_sampling_event(event))
+-		return -EOPNOTSUPP;
+-
+ 	/* no branch sampling */
+ 	if (has_branch_stack(event))
+ 		return -EOPNOTSUPP;
+@@ -463,8 +459,7 @@ static void papr_scm_pmu_register(struct papr_scm_priv *p)
+ 	nd_pmu->pmu.add = papr_scm_pmu_add;
+ 	nd_pmu->pmu.del = papr_scm_pmu_del;
+ 
+-	nd_pmu->pmu.capabilities = PERF_PMU_CAP_NO_INTERRUPT |
+-				PERF_PMU_CAP_NO_EXCLUDE;
++	nd_pmu->pmu.capabilities = PERF_PMU_CAP_NO_EXCLUDE;
+ 
+ 	/*updating the cpumask variable */
+ 	nodeid = numa_map_to_online_node(dev_to_node(&p->pdev->dev));
+diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
+index 7d10842d54f0..1a94e0944bc5 100644
+--- a/arch/s390/kernel/perf_cpum_cf.c
++++ b/arch/s390/kernel/perf_cpum_cf.c
+@@ -760,8 +760,6 @@ static int __hw_perf_event_init(struct perf_event *event, unsigned int type)
+ 		break;
+ 
+ 	case PERF_TYPE_HARDWARE:
+-		if (is_sampling_event(event))	/* No sampling support */
+-			return -ENOENT;
+ 		ev = attr->config;
+ 		if (!attr->exclude_user && attr->exclude_kernel) {
+ 			/*
+@@ -1056,7 +1054,6 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
+ /* Performance monitoring unit for s390x */
+ static struct pmu cpumf_pmu = {
+ 	.task_ctx_nr  = perf_sw_context,
+-	.capabilities = PERF_PMU_CAP_NO_INTERRUPT,
+ 	.pmu_enable   = cpumf_pmu_enable,
+ 	.pmu_disable  = cpumf_pmu_disable,
+ 	.event_init   = cpumf_pmu_event_init,
+diff --git a/arch/sh/kernel/perf_event.c b/arch/sh/kernel/perf_event.c
+index 1d2507f22437..d1b534538524 100644
+--- a/arch/sh/kernel/perf_event.c
++++ b/arch/sh/kernel/perf_event.c
+@@ -352,7 +352,6 @@ int register_sh_pmu(struct sh_pmu *_pmu)
+ 	 * no interrupts, and are therefore unable to do sampling without
+ 	 * further work and timer assistance.
+ 	 */
+-	pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 
+ 	WARN_ON(_pmu->num_events > MAX_HWEVENTS);
+ 
+diff --git a/arch/x86/events/amd/uncore.c b/arch/x86/events/amd/uncore.c
+index e8b6af199c73..050a5567291a 100644
+--- a/arch/x86/events/amd/uncore.c
++++ b/arch/x86/events/amd/uncore.c
+@@ -767,7 +767,7 @@ int amd_uncore_df_ctx_init(struct amd_uncore *uncore, unsigned int cpu)
+ 		.start		= amd_uncore_start,
+ 		.stop		= amd_uncore_stop,
+ 		.read		= amd_uncore_read,
+-		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 		.module		= THIS_MODULE,
+ 	};
+ 
+@@ -903,7 +903,7 @@ int amd_uncore_l3_ctx_init(struct amd_uncore *uncore, unsigned int cpu)
+ 		.start		= amd_uncore_start,
+ 		.stop		= amd_uncore_stop,
+ 		.read		= amd_uncore_read,
+-		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 		.module		= THIS_MODULE,
+ 	};
+ 
+@@ -1068,7 +1068,7 @@ int amd_uncore_umc_ctx_init(struct amd_uncore *uncore, unsigned int cpu)
+ 				.start		= amd_uncore_umc_start,
+ 				.stop		= amd_uncore_stop,
+ 				.read		= amd_uncore_umc_read,
+-				.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
++				.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 				.module		= THIS_MODULE,
+ 			};
+ 
+diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+index 72a4c43951ee..789dfca2fa67 100644
+--- a/arch/x86/events/core.c
++++ b/arch/x86/events/core.c
+@@ -1836,7 +1836,6 @@ static void __init pmu_check_apic(void)
+ 	 * events (user-space has to fall back and
+ 	 * sample via a hrtimer based software event):
+ 	 */
+-	pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 	pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
+ }
+ 
+diff --git a/arch/x86/events/intel/cstate.c b/arch/x86/events/intel/cstate.c
+index ec753e39b007..2a79717b898f 100644
+--- a/arch/x86/events/intel/cstate.c
++++ b/arch/x86/events/intel/cstate.c
+@@ -281,9 +281,6 @@ static int cstate_pmu_event_init(struct perf_event *event)
+ 		return -ENOENT;
+ 
+ 	/* unsupported modes and filters */
+-	if (event->attr.sample_period) /* no sampling */
 -		return -EINVAL;
 -
--	if (pmu->devtype_data->quirks & DDR_CAP_AXI_ID_FILTER) {
-+	if (event != event->group_leader &&
-+	    pmu->devtype_data->quirks & DDR_CAP_AXI_ID_FILTER) {
- 		if (!ddr_perf_filters_compatible(event, event->group_leader))
- 			return -EINVAL;
- 		for_each_sibling_event(sibling, event->group_leader) {
-@@ -427,12 +422,6 @@ static int ddr_perf_event_init(struct perf_event *event)
- 		}
- 	}
+ 	if (event->cpu < 0)
+ 		return -EINVAL;
  
--	for_each_sibling_event(sibling, event->group_leader) {
--		if (sibling->pmu != event->pmu &&
--				!is_software_event(sibling))
--			return -EINVAL;
+@@ -397,7 +394,7 @@ static struct pmu cstate_core_pmu = {
+ 	.start		= cstate_pmu_event_start,
+ 	.stop		= cstate_pmu_event_stop,
+ 	.read		= cstate_pmu_event_update,
+-	.capabilities	= PERF_PMU_CAP_NO_INTERRUPT | PERF_PMU_CAP_NO_EXCLUDE,
++	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 	.scope		= PERF_PMU_SCOPE_CORE,
+ 	.module		= THIS_MODULE,
+ };
+@@ -413,7 +410,7 @@ static struct pmu cstate_pkg_pmu = {
+ 	.start		= cstate_pmu_event_start,
+ 	.stop		= cstate_pmu_event_stop,
+ 	.read		= cstate_pmu_event_update,
+-	.capabilities	= PERF_PMU_CAP_NO_INTERRUPT | PERF_PMU_CAP_NO_EXCLUDE,
++	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 	.scope		= PERF_PMU_SCOPE_PKG,
+ 	.module		= THIS_MODULE,
+ };
+@@ -429,7 +426,7 @@ static struct pmu cstate_module_pmu = {
+ 	.start		= cstate_pmu_event_start,
+ 	.stop		= cstate_pmu_event_stop,
+ 	.read		= cstate_pmu_event_update,
+-	.capabilities	= PERF_PMU_CAP_NO_INTERRUPT | PERF_PMU_CAP_NO_EXCLUDE,
++	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 	.scope		= PERF_PMU_SCOPE_CLUSTER,
+ 	.module		= THIS_MODULE,
+ };
+diff --git a/arch/x86/events/msr.c b/arch/x86/events/msr.c
+index 7f5007a4752a..3285c1f3bb90 100644
+--- a/arch/x86/events/msr.c
++++ b/arch/x86/events/msr.c
+@@ -210,9 +210,6 @@ static int msr_event_init(struct perf_event *event)
+ 		return -ENOENT;
+ 
+ 	/* unsupported modes and filters */
+-	if (event->attr.sample_period) /* no sampling */
+-		return -EINVAL;
+-
+ 	if (cfg >= PERF_MSR_EVENT_MAX)
+ 		return -EINVAL;
+ 
+@@ -298,7 +295,7 @@ static struct pmu pmu_msr = {
+ 	.start		= msr_event_start,
+ 	.stop		= msr_event_stop,
+ 	.read		= msr_event_update,
+-	.capabilities	= PERF_PMU_CAP_NO_INTERRUPT | PERF_PMU_CAP_NO_EXCLUDE,
++	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 	.attr_update	= attr_update,
+ };
+ 
+diff --git a/drivers/fpga/dfl-fme-perf.c b/drivers/fpga/dfl-fme-perf.c
+index 7422d2bc6f37..a1e2e7f28a3a 100644
+--- a/drivers/fpga/dfl-fme-perf.c
++++ b/drivers/fpga/dfl-fme-perf.c
+@@ -806,9 +806,8 @@ static int fme_perf_event_init(struct perf_event *event)
+ 	/*
+ 	 * fme counters are shared across all cores.
+ 	 * Therefore, it does not support per-process mode.
+-	 * Also, it does not support event sampling mode.
+ 	 */
+-	if (is_sampling_event(event) || event->attach_state & PERF_ATTACH_TASK)
++	if (event->attach_state & PERF_ATTACH_TASK)
+ 		return -EINVAL;
+ 
+ 	if (event->cpu < 0)
+@@ -921,8 +920,7 @@ static int fme_perf_pmu_register(struct platform_device *pdev,
+ 	pmu->start =		fme_perf_event_start;
+ 	pmu->stop =		fme_perf_event_stop;
+ 	pmu->read =		fme_perf_event_read;
+-	pmu->capabilities =	PERF_PMU_CAP_NO_INTERRUPT |
+-				PERF_PMU_CAP_NO_EXCLUDE;
++	pmu->capabilities =	PERF_PMU_CAP_NO_EXCLUDE;
+ 
+ 	name = devm_kasprintf(priv->dev, GFP_KERNEL, "dfl_fme%d", pdev->id);
+ 
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index 7f5ea749b85c..761b438db231 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -608,12 +608,6 @@ static int arm_cspmu_event_init(struct perf_event *event)
+ 	 * Following other "uncore" PMUs, we do not support sampling mode or
+ 	 * attach to a task (per-process mode).
+ 	 */
+-	if (is_sampling_event(event)) {
+-		dev_dbg(cspmu->pmu.dev,
+-			"Can't support sampling events\n");
+-		return -EOPNOTSUPP;
 -	}
 -
- 	event->cpu = pmu->cpu;
- 	hwc->idx = -1;
+ 	if (event->cpu < 0 || event->attach_state & PERF_ATTACH_TASK) {
+ 		dev_dbg(cspmu->pmu.dev,
+ 			"Can't support per-task counters\n");
+@@ -1128,7 +1122,7 @@ static int arm_cspmu_get_cpus(struct arm_cspmu *cspmu)
  
+ static int arm_cspmu_register_pmu(struct arm_cspmu *cspmu)
+ {
+-	int ret, capabilities;
++	int ret;
+ 
+ 	ret = arm_cspmu_alloc_attr_groups(cspmu);
+ 	if (ret)
+@@ -1139,10 +1133,6 @@ static int arm_cspmu_register_pmu(struct arm_cspmu *cspmu)
+ 	if (ret)
+ 		return ret;
+ 
+-	capabilities = PERF_PMU_CAP_NO_EXCLUDE;
+-	if (cspmu->irq == 0)
+-		capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+-
+ 	cspmu->pmu = (struct pmu){
+ 		.task_ctx_nr	= perf_invalid_context,
+ 		.module		= cspmu->impl.module,
+@@ -1156,7 +1146,7 @@ static int arm_cspmu_register_pmu(struct arm_cspmu *cspmu)
+ 		.stop		= arm_cspmu_stop,
+ 		.read		= arm_cspmu_read,
+ 		.attr_groups	= cspmu->attr_groups,
+-		.capabilities	= capabilities,
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 	};
+ 
+ 	/* Hardware counter init */
+diff --git a/drivers/perf/arm_pmu_platform.c b/drivers/perf/arm_pmu_platform.c
+index ab7a802cd0d6..754dba9e4528 100644
+--- a/drivers/perf/arm_pmu_platform.c
++++ b/drivers/perf/arm_pmu_platform.c
+@@ -110,7 +110,6 @@ static int pmu_parse_irqs(struct arm_pmu *pmu)
+ 	if (num_irqs == 0) {
+ 		dev_warn(dev, "no irqs for PMU, sampling events not supported\n");
+ 		pmu->pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
+-		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		cpumask_setall(&pmu->supported_cpus);
+ 		return 0;
+ 	}
+diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
+index ee6505cb01a7..a162e707a639 100644
+--- a/drivers/perf/marvell_cn10k_tad_pmu.c
++++ b/drivers/perf/marvell_cn10k_tad_pmu.c
+@@ -360,8 +360,7 @@ static int tad_pmu_probe(struct platform_device *pdev)
+ 	tad_pmu->pmu = (struct pmu) {
+ 
+ 		.module		= THIS_MODULE,
+-		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE |
+-				  PERF_PMU_CAP_NO_INTERRUPT,
++		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
+ 		.task_ctx_nr	= perf_invalid_context,
+ 
+ 		.event_init	= tad_pmu_event_init,
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 93c8e0fdb589..40140e457454 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -123,7 +123,6 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+ 	pmu->event_mapped = pmu_legacy_event_mapped;
+ 	pmu->event_unmapped = pmu_legacy_event_unmapped;
+ 	pmu->csr_index = pmu_legacy_csr_index;
+-	pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 	pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+ 
+ 	perf_pmu_register(&pmu->pmu, "cpu", PERF_TYPE_RAW);
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index d185ea8c47ba..4fb1aab0b547 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1359,7 +1359,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	ret = pmu_sbi_setup_irqs(pmu, pdev);
+ 	if (ret < 0) {
+ 		pr_info("Perf sampling/filtering is not supported as sscof extension is not available\n");
+-		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+ 	} else {
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
+diff --git a/drivers/powercap/intel_rapl_common.c b/drivers/powercap/intel_rapl_common.c
+index c7e7f9bf5313..38470351217b 100644
+--- a/drivers/powercap/intel_rapl_common.c
++++ b/drivers/powercap/intel_rapl_common.c
+@@ -2014,7 +2014,7 @@ static int rapl_pmu_update(struct rapl_package *rp)
+ 	rapl_pmu.pmu.stop = rapl_pmu_event_stop;
+ 	rapl_pmu.pmu.read = rapl_pmu_event_read;
+ 	rapl_pmu.pmu.module = THIS_MODULE;
+-	rapl_pmu.pmu.capabilities = PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT;
++	rapl_pmu.pmu.capabilities = PERF_PMU_CAP_NO_EXCLUDE;
+ 	ret = perf_pmu_register(&rapl_pmu.pmu, "power", -1);
+ 	if (ret) {
+ 		pr_info("Failed to register PMU\n");
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index bf2cfbeabba2..183b7c48b329 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -305,7 +305,6 @@ struct perf_event_pmu_context;
+ #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
+ #define PERF_PMU_CAP_AUX_PAUSE		0x0200
+ #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
+-#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
+ 
+ /**
+  * pmu::scope
 -- 
 2.39.2.101.g768bb238c484.dirty
 
