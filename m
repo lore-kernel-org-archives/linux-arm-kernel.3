@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA787CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A214C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nWQztojHSUKmxOM0A1xBva0HMuzQs6VFCBe2/UxgM9g=; b=tEbDypROhNvneqTnSNUdQ2vvfy
-	JdMDyxMtsOgdttYH73o1exMRcMFv024BL0d4R9tNkwnleUxwZB5hwLz6ztiAsC9z/48PXN0ADr6ps
-	puAc/5ZX5NLhOe8QYJqekvfF2OP2JJof5+KSjj5QJQd4mGurSGic86C+lqCt/acewHRgUmGgV9thN
-	IqLSztt23N6X2zXOUKrpqk8IKvAM8FEXxc34VPvuD3qcXtKw41t3Di/dEUNVlGzgcKBckroMOzkFb
-	O9cmx48C5RpH5zLBOh/01pA5JlFLw5OksFn++q+zh/MVNfpaO1ekTO0kqjVC77cbxsIZg/A5TZg6K
-	AMFfY+OQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ABvd6CTSJ7p/g3ZC71MYAclHGZvox/NvrF3NkQ5xxi8=; b=pgy2+wvI9DvXx/KUJGoaRWnzCr
+	j7gEZlozGAMcN1oXoL7WcVm5C89pzffCMp0pUBKhKnKV/AZNNK+xxrq5GekceoUSRIhEczj9Edcdv
+	/7FWcnaPKNaKtX137bWpcuRCyTFA+UdmOg1uGzNcc82gtQDZZNGsMECFLUqGTQePTcnOb5SN8fo7J
+	QQcLIywmWxmQKsmSitAdhmKDGRTDrdiXQMZiwIv8mMZuM4kCbSqkTMhlmX1cvdHcXVwmD+H+wlB9c
+	lmaZDWA8PkIW2F5iYpkvbQMg2WBuGYKSS1baDz+kTXLsgXF9i7hgE9kigMa5s+wjwmWaBLA8zOk0V
+	bj0NmgUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umDGq-0000000EAGd-2BO8;
-	Wed, 13 Aug 2025 15:20:08 +0000
+	id 1umDJP-0000000EAhf-1ZWg;
+	Wed, 13 Aug 2025 15:22:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtQ-0000000E4qr-0PqD
+	id 1umCtR-0000000E4si-1r4S
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 14:55:56 +0000
+	Wed, 13 Aug 2025 14:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=nWQztojHSUKmxOM0A1xBva0HMuzQs6VFCBe2/UxgM9g=; b=WyudDcWJ/3kbxdDSUVvfyoQkP5
-	RF4at6ReVGuSTWLSiEYadbIGwxaZVRT05wLqLIupPvFILEL9Lm/3F4Tk0Bs1wWM1WcwcKY4z+am6y
-	27kkD3je+GND4PqFCbLI8B++P70qYdDfPskMq+tiqtuMvFTjTQxRvo3JuAAs7qKH05qiDX8kfP0EF
-	hQXNVCeNYF94dkarjIM2pt/K9sYfGzUAx6dp4lKxs+KfAhpGihCMifZly8IFlXaGM1REH1++FHaVA
-	OUlhvFZ2xIGkYD0HfpWh6M0DecO/Z9t5UNtTTc2jWfdVtl8pYal3NWl6dvV+AIWVpN31AVv2nLm//
-	9P4MgfdA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ABvd6CTSJ7p/g3ZC71MYAclHGZvox/NvrF3NkQ5xxi8=; b=ooGMmG9k+WLJUHmV6UdszsYoWM
+	ADLUz6oNsGH2xpwSU8Z6f/Q7sQ4vL9QnYtghsCsM0K06dL8bYdRNRIlP1B2Rh7XvC6yzUCWpy2FoI
+	+imVzDG7KRhqLu+b9knhMWWSGzU3vjVY2CZR4M7Cst5F0J3aZEL0Ts3XTunf8Bn6MT0XaJ9f/COK9
+	T2qI2Asn2sNcVxjbrA4h8YuEXKMVaey3DJ2RH8z8zCjo+mRNbF01fYjdN/4B3YtVQwZE2915scbCO
+	xzZo4jC8OX8tQXTpJ5TcbgfrLROpmT3qdlVRRMu4W6tpthnJyiBVG8OW0j4WeRV/t06eYcSodqR81
+	R9y19jRQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtL-0000000G72P-0SiX
+	id 1umCtM-0000000G73O-3ccV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:55:54 +0000
+	Wed, 13 Aug 2025 14:55:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 01EE55C6674;
-	Wed, 13 Aug 2025 14:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C07AC4CEEB;
-	Wed, 13 Aug 2025 14:55:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 527FD5C6942;
+	Wed, 13 Aug 2025 14:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E748AC4CEF8;
+	Wed, 13 Aug 2025 14:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755096947;
-	bh=hAT2AG68xUXY62jigIBmqfIHprMnHyI6CONCwZEzwKg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sWcYaESI32ZDvmKSZZqpBdJXEm1N/4q1jWlZM6Us2DNn650qgvvSek/K+TOCwlGq4
-	 1jsRHPADBIAU1V0oQp1N4tDyk9WLRgT1NpNMfu700E95gcDi76yqqhla6w3/HVsaja
-	 Tsq+ImgpjUvwXfBllUtZEMvPgY2v8VPAH6U9rZ52yNTeuyV11TlvJ9DqF/riJwj3hf
-	 Mlub68yUsknGXQ3Wy7xX83V1YcyLcxVCozM+YuHZ8J9fjoc9gAIo4zSOuFKAoyDcML
-	 bMHt3fsp3nuvo15WvOokvVN1j+dYBnQ+KqFjvFn56ibCZJ+LsMrMVp283RE6bT0KjM
-	 IUckiLGlLjZHQ==
+	s=k20201202; t=1755096950;
+	bh=efhUDQe2jwo6mMDNsNwWZlvEPFGFYGTDZhRv4W8Y2gI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dZ9gTHp8VjxKV0gtmhGBRwHECZQqSCBqWMAw6/AUvhnNoZjT2Dg6zwNsjY80VZ4j3
+	 Ys99ZxZJJXj3mRgxEXZuU7A1ChzYtOV96zIqt4enqaN4iS3Wv8dFziiqu1jafO59OG
+	 skRZNZTXsZnmPm01UO3NYJ4MhJqxlyN3DOlWxG3cQn22EfHXAUTXxvFbdGo5PMSuXa
+	 8uO8Ct2Ap8oGfVw7EbuPn4KK/3A7gLBouRYeFXEIwVYRFqh5DxMvLivhmx1dyV8n8U
+	 OVlCQf8Xl+NM3hYe7jLpx9Z/kSZ6iUtKIjg4LqF9wTJot801a4aKcQVqNnFWKwLkHf
+	 2HXvv9XHT7a3w==
 Received: by wens.tw (Postfix, from userid 1000)
-	id E0B705FBFA; Wed, 13 Aug 2025 22:55:44 +0800 (CST)
+	id 551005FF75; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -77,15 +77,17 @@ Cc: netdev@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v2 00/10] net: stmmac: Add support for Allwinner A523 GMAC200
-Date: Wed, 13 Aug 2025 22:55:30 +0800
-Message-Id: <20250813145540.2577789-1-wens@kernel.org>
+Subject: [PATCH net-next v2 09/10] arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
+Date: Wed, 13 Aug 2025 22:55:39 +0800
+Message-Id: <20250813145540.2577789-10-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250813145540.2577789-1-wens@kernel.org>
+References: <20250813145540.2577789-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_155551_524912_761D2CEA 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250813_155553_227834_AAFBA3D4 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,101 +104,87 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-Hi everyone,
+On the Avaota A1 board, the second Ethernet controller, aka the GMAC200,
+is connected to a second external RTL8211F-CG PHY. The PHY uses an
+external 25MHz crystal, and has the SoC's PJ16 pin connected to its
+reset pin.
 
-This is v2 of my Allwinner A523 GMAC200 support series.
+Enable the second Ethernet port. Also fix up the label for the existing
+external PHY connected to the first Ethernet port.
+
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
 
 Changes since v1:
-- Dropped RFT tag
-- Switched to generic (tx|rx)-internal-delay-ps 
-- dwmac-sun55i driver bits
-  - Changed dev_err() + return to dev_err_probe()
-  - Added check of return value from syscon regmap write
-  - Changed driver name to match file name
-- sram driver bits
-  - Fixed check on return value
-  - Expanded commit message
-- dtsi
-  - Fixed typo in tx-queues-config
-- cubie a5e
-  - Add PHY regulator delay
-- Link to v1:
-https://lore.kernel.org/all/20250701165756.258356-1-wens@kernel.org/
+- Switch to generic (tx|rx)-internal-delay-ps properties
+---
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 26 +++++++++++++++++--
+ 1 file changed, 24 insertions(+), 2 deletions(-)
 
-This series adds support for the second Ethernet controller found on the
-Allwinner A523 SoC family. This controller, dubbed GMAC200, is a DWMAC4
-core with an integration layer around it. The integration layer is
-similar to older Allwinner generations, but with an extra memory bus
-gate and separate power domain.
-
-Patch 1 adds a new compatible string combo to the existing Allwinner
-EMAC binding.
-
-Patch 2 adds a new driver for this core and integration combo.
-
-Patch 3 extends the sunxi SRAM driver to allow access to the clock delay
-controls for the second Ethernet controller.
-
-Patch 4 registers the special regmap for the clock delay controls as a
-syscon. This allows the new network driver to use the syscon interface,
-instead of the following dance which the existing dwmac-sun8i driver
-does:
-
-    of_parse_phandle();
-    of_find_device_by_node();
-    dev_get_regmap();
-
-With this change in place we can also drop the above from the
-dwmac-sun8i driver.
-
-Patch 5 adds a device node and pinmux settings for the GMAC200.
-
-Patches 6 and 8 add missing Ethernet PHY reset settings for the
-already enabled controller.
-
-Patches 7, 9, and 10 enable the GMAC200 on three boards. I only
-have the Orangepi 4A, so I am asking for people to help test the
-two other boards. The RX/TX clock delay settings were taken from
-their respective BSPs, though those numbers don't always work, as
-is was the case for the Orangepi 4A.
-
-
-Please have a look and help test on the Avaota A1. I don't expect
-any issues there though, since the PHY is always on, unlike on the
-Cubie A5E.
-
-Patches 1 and 2 should go through net-next, and I will take all the
-other patches through the sunxi tree.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (10):
-  dt-bindings: net: sun8i-emac: Add A523 GMAC200 compatible
-  net: stmmac: Add support for Allwinner A523 GMAC200
-  soc: sunxi: sram: add entry for a523
-  soc: sunxi: sram: register regmap as syscon
-  arm64: dts: allwinner: a523: Add GMAC200 ethernet controller
-  arm64: dts: allwinner: a527: cubie-a5e: Add ethernet PHY reset setting
-  arm64: dts: allwinner: a527: cubie-a5e: Enable second Ethernet port
-  arm64: dts: allwinner: t527: avaota-a1: Add ethernet PHY reset setting
-  arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
-  arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
-
- .../net/allwinner,sun8i-a83t-emac.yaml        |  81 ++++++++-
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  55 ++++++
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |  31 +++-
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   |  29 +++-
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts |  23 +++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
- drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
- .../ethernet/stmicro/stmmac/dwmac-sun55i.c    | 161 ++++++++++++++++++
- drivers/soc/sunxi/sunxi_sram.c                |  14 ++
- 9 files changed, 401 insertions(+), 6 deletions(-)
- create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c
-
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index e7713678208d..f540965ffaa4 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -13,6 +13,7 @@ / {
+ 
+ 	aliases {
+ 		ethernet0 = &gmac0;
++		ethernet1 = &gmac1;
+ 		serial0 = &uart0;
+ 	};
+ 
+@@ -67,7 +68,7 @@ &ehci1 {
+ 
+ &gmac0 {
+ 	phy-mode = "rgmii-id";
+-	phy-handle = <&ext_rgmii_phy>;
++	phy-handle = <&ext_rgmii0_phy>;
+ 	phy-supply = <&reg_dcdc4>;
+ 
+ 	allwinner,tx-delay-ps = <100>;
+@@ -76,13 +77,24 @@ &gmac0 {
+ 	status = "okay";
+ };
+ 
++&gmac1 {
++	phy-mode = "rgmii-id";
++	phy-handle = <&ext_rgmii1_phy>;
++	phy-supply = <&reg_dcdc4>;
++
++	tx-internal-delay-ps = <100>;
++	rx-internal-delay-ps = <100>;
++
++	status = "okay";
++};
++
+ &gpu {
+ 	mali-supply = <&reg_dcdc2>;
+ 	status = "okay";
+ };
+ 
+ &mdio0 {
+-	ext_rgmii_phy: ethernet-phy@1 {
++	ext_rgmii0_phy: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+ 		reg = <1>;
+ 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
+@@ -91,6 +103,16 @@ ext_rgmii_phy: ethernet-phy@1 {
+ 	};
+ };
+ 
++&mdio1 {
++	ext_rgmii1_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
++		reset-assert-us = <10000>;
++		reset-deassert-us = <150000>;
++	};
++};
++
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+ 	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
 -- 
 2.39.5
 
