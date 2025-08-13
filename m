@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA811CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F680C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zMyqiCv2M/U2yYZT3qMYAKyPv8u005FDdR0kHpu8uw=; b=sTAB6UBJFm7bObZGGooDk9+R65
-	fFYcA7nWZR2OwKZDuJeEYHE/FjHOfgj2GNEJHGWT2snElGcDiwEafySUMic4BtGDiZOloC2R8R2ht
-	+c/93XyGGxVl57d9Zfa8R6VkP5wrFaQ7w8SJWZmfhtDIro5ZBqKwxDjNaK1ugplMMkCQ3E3/Bkrqb
-	ebfEJVGicUUxB3cNi3jLNUj0ZeWo3yFr9sbOLQ6+ocV80wE8pw+BiFV4kGi1QtNebrd8HnaD5Lo/V
-	Klzc6im4H06W3yR1hsIsAagR03TJsouNgMd3/kfZAOxxxH3woMZEy3oRxWd3Nsj5jW5BLnx0agIH9
-	naN0B2rw==;
+	bh=Z1fPRqYnV6aR5TuB9Je51zw0t5F0DkBhJ3b+qU0qgjg=; b=40uAogkD/BdckvUFzrsIPHFBJR
+	0KRHVlwTEILsD3RYDaNiiK9Dt+cYazCHpYT+X74TBiEySqyiAKLFsqQE41An2NZF3b2RUacJeHEq2
+	WSwafupByV4q9pFV0dCq2qPW/9IkmOe04sSA2Lkn4kQSomddIXfWrmMh1H3i3eNItIs3ADZp782dU
+	NyemTEP3lh04h+krYuxBttiaOSXcXxMWtTRB1D/xPXYFiEKanHX4PDsWFPdyysXcxevr5BZlCaslA
+	c2jL06oKqPQTq4kfN3+tTMQZ7CkpBUoSpfFtEEYgqVhYxcodBT4OhVgud7w/uYVHQchnkIN9MgrAI
+	3ldRbGmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHO4-0000000EoVf-13WO;
-	Wed, 13 Aug 2025 19:43:52 +0000
+	id 1umHO7-0000000Eoax-1jJw;
+	Wed, 13 Aug 2025 19:43:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umErW-0000000EVjg-1MII;
-	Wed, 13 Aug 2025 17:02:08 +0000
+	id 1umErb-0000000EVnr-0YPq;
+	Wed, 13 Aug 2025 17:02:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEBB71CE0;
-	Wed, 13 Aug 2025 10:01:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AAD71CE2;
+	Wed, 13 Aug 2025 10:02:02 -0700 (PDT)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 95E5A3F738;
-	Wed, 13 Aug 2025 10:02:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1F4713F738;
+	Wed, 13 Aug 2025 10:02:06 -0700 (PDT)
 From: Robin Murphy <robin.murphy@arm.com>
 To: peterz@infradead.org,
 	mingo@redhat.com,
@@ -71,17 +71,17 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-cxl@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 09/19] perf/qcom: Improve group validation
-Date: Wed, 13 Aug 2025 18:01:01 +0100
-Message-Id: <ae74987481902e3937a8aa7ceaee4adcc681d7b4.1755096883.git.robin.murphy@arm.com>
+Subject: [PATCH 10/19] perf/arm-ni: Improve event validation
+Date: Wed, 13 Aug 2025 18:01:02 +0100
+Message-Id: <b1cf78c0f67dda1069f5132db9093fe0dec4c66e.1755096883.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
 References: <cover.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100206_472445_C4CFC8EA 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20250813_100211_281607_011EEF61 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,158 +96,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The L3 driver's group validation is almost right, except for erroneously
-counting a software group leader - which is benign other than
-artificially limiting the maximum size of such a group to one less than
-it could be. Correct that with the now-established pattern of simply
-ignoring all events which do not belong to our PMU.
-
-The L2 driver gets a cleanup of some slightly suspicious logic, and both
-can have the same overall simplification to not duplicate things that perf
-core will already do, and avoid racy access to the sibling list of group
-leader events.
+Although it is entirely benign for arm_ni_val_count_event() to count
+any old hardware leader/sibling as an NI event (perf core will still
+ultimately reject the cross-PMU group), it would still be nicer if it
+didn't. Stop trying to special-case software events and simply skip any
+event which doesn't belong to our PMU. Similarly drop the early return
+paths since they can almost never actually return early.
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
- drivers/perf/qcom_l2_pmu.c | 81 +++++++++++++++-----------------------
- drivers/perf/qcom_l3_pmu.c | 14 +++----
- 2 files changed, 37 insertions(+), 58 deletions(-)
+ drivers/perf/arm-ni.c | 29 +++++++++++++----------------
+ 1 file changed, 13 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/perf/qcom_l2_pmu.c b/drivers/perf/qcom_l2_pmu.c
-index ea8c85729937..9c4e1d89718d 100644
---- a/drivers/perf/qcom_l2_pmu.c
-+++ b/drivers/perf/qcom_l2_pmu.c
-@@ -468,23 +468,6 @@ static int l2_cache_event_init(struct perf_event *event)
- 		return -EINVAL;
+diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+index 1615a0564031..d6b683a0264e 100644
+--- a/drivers/perf/arm-ni.c
++++ b/drivers/perf/arm-ni.c
+@@ -271,40 +271,37 @@ static void arm_ni_pmu_disable(struct pmu *pmu)
+ }
+ 
+ struct arm_ni_val {
++	const struct pmu *pmu;
+ 	unsigned int evcnt;
+ 	unsigned int ccnt;
+ };
+ 
+-static bool arm_ni_val_count_event(struct perf_event *evt, struct arm_ni_val *val)
++static void arm_ni_val_count_event(struct perf_event *evt, struct arm_ni_val *val)
+ {
+-	if (is_software_event(evt))
+-		return true;
+-
+-	if (NI_EVENT_TYPE(evt) == NI_PMU) {
+-		val->ccnt++;
+-		return val->ccnt <= 1;
++	if (evt->pmu == val->pmu) {
++		if (NI_EVENT_TYPE(evt) == NI_PMU)
++			val->ccnt++;
++		else
++			val->evcnt++;
  	}
+-
+-	val->evcnt++;
+-	return val->evcnt <= NI_NUM_COUNTERS;
+ }
  
--	/* Don't allow groups with mixed PMUs, except for s/w events */
--	if (event->group_leader->pmu != event->pmu &&
--	    !is_software_event(event->group_leader)) {
--		dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
--			 "Can't create mixed PMU group\n");
--		return -EINVAL;
--	}
--
--	for_each_sibling_event(sibling, event->group_leader) {
--		if (sibling->pmu != event->pmu &&
--		    !is_software_event(sibling)) {
--			dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
--				 "Can't create mixed PMU group\n");
--			return -EINVAL;
--		}
--	}
--
- 	cluster = get_cluster_pmu(l2cache_pmu, event->cpu);
- 	if (!cluster) {
- 		/* CPU has not been initialised */
-@@ -493,39 +476,6 @@ static int l2_cache_event_init(struct perf_event *event)
+ static int arm_ni_validate_group(struct perf_event *event)
+ {
+ 	struct perf_event *sibling, *leader = event->group_leader;
+-	struct arm_ni_val val = { 0 };
++	struct arm_ni_val val = { .pmu = event->pmu };
+ 
+ 	if (leader == event)
+ 		return 0;
+ 
+ 	arm_ni_val_count_event(event, &val);
+-	if (!arm_ni_val_count_event(leader, &val))
++	arm_ni_val_count_event(leader, &val);
++	for_each_sibling_event(sibling, leader)
++		arm_ni_val_count_event(sibling, &val);
++
++	if (val.evcnt > NI_NUM_COUNTERS || val.ccnt > 1)
  		return -EINVAL;
- 	}
  
--	/* Ensure all events in a group are on the same cpu */
--	if ((event->group_leader != event) &&
--	    (cluster->on_cpu != event->group_leader->cpu)) {
--		dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
--			 "Can't create group on CPUs %d and %d",
--			 event->cpu, event->group_leader->cpu);
--		return -EINVAL;
--	}
--
--	if ((event != event->group_leader) &&
--	    !is_software_event(event->group_leader) &&
--	    (L2_EVT_GROUP(event->group_leader->attr.config) ==
--	     L2_EVT_GROUP(event->attr.config))) {
--		dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
--			 "Column exclusion: conflicting events %llx %llx\n",
--		       event->group_leader->attr.config,
--		       event->attr.config);
--		return -EINVAL;
--	}
--
--	for_each_sibling_event(sibling, event->group_leader) {
--		if ((sibling != event) &&
--		    !is_software_event(sibling) &&
--		    (L2_EVT_GROUP(sibling->attr.config) ==
--		     L2_EVT_GROUP(event->attr.config))) {
--			dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
--			     "Column exclusion: conflicting events %llx %llx\n",
--					    sibling->attr.config,
--					    event->attr.config);
+-	for_each_sibling_event(sibling, leader) {
+-		if (!arm_ni_val_count_event(sibling, &val))
 -			return -EINVAL;
--		}
 -	}
--
- 	hwc->idx = -1;
- 	hwc->config_base = event->attr.config;
- 
-@@ -534,6 +484,37 @@ static int l2_cache_event_init(struct perf_event *event)
- 	 * same cpu context, to avoid races on pmu_enable etc.
- 	 */
- 	event->cpu = cluster->on_cpu;
-+	if (event->cpu != event->group_leader->cpu) {
-+		dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
-+			 "Can't create group on CPUs %d and %d",
-+			 event->cpu, event->group_leader->cpu);
-+		return -EINVAL;
-+	}
-+
-+	if (event == event->group_leader)
-+		return 0;
-+
-+	if ((event->group_leader->pmu == event->pmu) &&
-+	    (L2_EVT_GROUP(event->group_leader->attr.config) ==
-+	     L2_EVT_GROUP(event->attr.config))) {
-+		dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
-+			 "Column exclusion: conflicting events %llx %llx\n",
-+		       event->group_leader->attr.config,
-+		       event->attr.config);
-+		return -EINVAL;
-+	}
-+
-+	for_each_sibling_event(sibling, event->group_leader) {
-+		if ((sibling->pmu == event->pmu) &&
-+		    (L2_EVT_GROUP(sibling->attr.config) ==
-+		     L2_EVT_GROUP(event->attr.config))) {
-+			dev_dbg_ratelimited(&l2cache_pmu->pdev->dev,
-+			     "Column exclusion: conflicting events %llx %llx\n",
-+					    sibling->attr.config,
-+					    event->attr.config);
-+			return -EINVAL;
-+		}
-+	}
- 
  	return 0;
  }
-diff --git a/drivers/perf/qcom_l3_pmu.c b/drivers/perf/qcom_l3_pmu.c
-index 66e6cabd6fff..f0cf6c33418d 100644
---- a/drivers/perf/qcom_l3_pmu.c
-+++ b/drivers/perf/qcom_l3_pmu.c
-@@ -454,18 +454,16 @@ static bool qcom_l3_cache__validate_event_group(struct perf_event *event)
- 	struct perf_event *sibling;
- 	int counters = 0;
  
--	if (leader->pmu != event->pmu && !is_software_event(leader))
--		return false;
-+	if (leader == event)
-+		return true;
- 
- 	counters = event_num_counters(event);
--	counters += event_num_counters(leader);
-+	if (leader->pmu == event->pmu)
-+		counters += event_num_counters(leader);
- 
- 	for_each_sibling_event(sibling, leader) {
--		if (is_software_event(sibling))
--			continue;
--		if (sibling->pmu != event->pmu)
--			return false;
--		counters += event_num_counters(sibling);
-+		if (sibling->pmu == event->pmu)
-+			counters += event_num_counters(sibling);
- 	}
- 
- 	/*
 -- 
 2.39.2.101.g768bb238c484.dirty
 
