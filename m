@@ -4,81 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9B5C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 06:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC18CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 06:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7BRD/FiSa0hIxPhbV2v5R9dmUKhZt4vQoKPKl+drGfw=; b=Z5xLO0lSJyi82E8wP0XKzeHU06
-	G0gLcz+yIvleS+d4Oir0ArOgfjwqrBESG8gDm3MjsUVLFojApxoqjiCCKplqUw+xO7WOjKZk+Ezoc
-	IU1sdeHYHu19OtIghFAD7mmGIsugRPpJ2wZ1sgn1hb0e1Z1u9dxIJkyVrlQH57PZ8vy/yBoiozFxZ
-	nB0yRJw9o+uWDCXYxn69o6Tg8AiEi3sE8+5+xsCwv1G311qIzzJIxW6HzTgpaycAcNYyQ6OPdW19A
-	ais1ze1eSN62t7mp3nvf05Q0H9liovgz4tq6x9iiY6+NTFLABAjVLMzB9VzXZqFo/RzRnbBKImRso
-	wGEXtEEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OJcxeOvlQA4/mQtVFEUX9x9acWelJSB6OExIMyScObs=; b=DizEO5yYnzfFrwaNklwoQAfk6/
+	RfVqj09wahHJHLOQAR1BJuLlSsUTt0sDXwSseSFPybGoTNN8xqn1OoT4I9bUayoL1kLFRY3ds1nrI
+	ofZxnfTsFrf4a7L8sKC/0bfH2m1rKOkQd53OtjIaL2kxR/lvjTxXnsicxzfDaQSrTM2fVpUs8EJKf
+	rMecFShwPRXaPxQjQD4YwhBiRfdfgDT4Ln2Yb4Ol1TCQSc7MIbXd6koTavD0WGdfqVPyHAQj/rk+O
+	+WY8AdaJ6MBBN9Qypk/lIkPbmNZhCePlde6InpOoPJ2rl5+8EZG5GKG0TnJjKoIdnIEvD93Riw6Ql
+	vN2nDwxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um4b7-0000000Cjen-14C4;
-	Wed, 13 Aug 2025 06:04:29 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1um4dd-0000000Ck1z-0OMl;
+	Wed, 13 Aug 2025 06:07:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um4Sn-0000000Ci57-0L0r
+	id 1um4XA-0000000Cimk-2ntz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 05:55:54 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-23fe28867b7so84803625ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 22:55:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755064552; x=1755669352; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7BRD/FiSa0hIxPhbV2v5R9dmUKhZt4vQoKPKl+drGfw=;
-        b=rHrSFaJWX7dTWM9ZSIGJYTgshr3LBfCrCETrrESDRqLgcyvYmd03eWpUqWtwAM2KD+
-         eEe/swy7ma7uuW32IzO2wZGP/Y5kWv8mQxQG+7w3sCB9+aNyU5oCZGI3PQrOg8ajc3LY
-         P98nuRjD8kGB70RgfGlaV2NQZ/R0icEb8DEMJejDrN32MBKaJhHi6IWNxTNhfNDc3cHM
-         tE8HqMIr/vE/japnSqkMzavsrdSngQapdkJsMgmtlnu4rGMPToojrOX8GFjnq5OYlVDG
-         L22YGAcxEuNKUn7QzbNhtBI1TfmJBMDHQjlbE2FNvx75Vr3K54zFrMHRt5WyC4kcqX5P
-         qvCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755064552; x=1755669352;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7BRD/FiSa0hIxPhbV2v5R9dmUKhZt4vQoKPKl+drGfw=;
-        b=VsVN/FoX7DRG/ebLkqpIXfhpGjDLA05Q3Z6ASkcW3WLd7jJNjP22kCXaqJnd5T1Y9J
-         EGZzr+/Twio+Hrbusf1jo8gjOGrG5zOk4R/fyU0p4ilWorlz1L6RPdfsJgjvmKDlOnjv
-         nY9XeXWcXeBklud4HDrsCI+Eq6GNRfqsJqu21Jma/1x6iBvgwaeU56QgEnswHs34lMnw
-         AYs0B5hHv1xRzb/PgESjsiQEO19zYjsybPZOkWT87Y9O0kD4uhNEqFRYl7psh17OGM6V
-         CIrx+5viAIil0yI6KfWIm1oVSS7Hqs2pDJrFAhNPBYNG+Lvv+arGquowHvj2wS3fyyYa
-         MClg==
-X-Forwarded-Encrypted: i=1; AJvYcCUohdoWaMqHKMlXQQCDoYX7/Mpvi1BP0/tlcqerD2/ox95an4qXCFuSRYa+5N+Oe+J5BoAucF4rqZFSpOSzYBgI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwK5ASpNrxHmeu2nBwaarDXactc0dhQpCXP0Vkw9E/e8hNtCEZt
-	HmVyRjEeFVSrMGpb00wM7mJSS9lpsqiHN8IaPM57DCj+uA1ccxeW5dof9wg6Xh+CHtQCfLfOXpk
-	QIlnLyQ==
-X-Google-Smtp-Source: AGHT+IFoxYNoLghmdpptP7tDhzLk87CD3oeZhiQZUU42sNUj217+eYJVUow5Fo+S87ldA3ZHGB6RAPq/1Sw=
-X-Received: from pjbsq11.prod.google.com ([2002:a17:90b:530b:b0:321:c475:716e])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e812:b0:23f:c760:fdf0
- with SMTP id d9443c01a7336-2430d1f71e5mr29923185ad.45.1755064551813; Tue, 12
- Aug 2025 22:55:51 -0700 (PDT)
-Date: Wed, 13 Aug 2025 05:55:48 +0000
-In-Reply-To: <20250813014819.262405-2-dqfext@gmail.com>
-Mime-Version: 1.0
-References: <20250813014819.262405-2-dqfext@gmail.com>
-X-Mailer: git-send-email 2.51.0.rc0.205.g4a044479a3-goog
-Message-ID: <20250813055550.98488-1-kuniyu@google.com>
-Subject: Re: [PATCH net v2 2/2] net: ethernet: mtk_ppe: add RCU lock around dev_fill_forward_path
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: dqfext@gmail.com
-Cc: andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, lorenzo@kernel.org, 
-	matthias.bgg@gmail.com, nbd@nbd.name, netdev@vger.kernel.org, 
-	pabeni@redhat.com, sean.wang@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_225553_117686_84445EE2 
-X-CRM114-Status: GOOD (  13.41  )
+	Wed, 13 Aug 2025 06:00:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C47AB601DB;
+	Wed, 13 Aug 2025 06:00:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E416DC4CEEB;
+	Wed, 13 Aug 2025 06:00:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755064823;
+	bh=yiqnatmjL9df9H+0s0wS55bl9IzIhgx0qIsceSspp+I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uecDUHo7bJz6sZeGzPnthW+Y8sFrPrI8j0TdQq6orhxeryF91g/nhLE25qJSLyWeg
+	 db/rXkyYO5OFMFDaSTIlxo6QVT4u58am4on63OvwPbmOdItygk2C7N1XY/QjkJFLiK
+	 0G2lMLWJaqCDNgNmfj+Axh3waeIap+MWfXm2R8qj7hHenjw+i6X81NOWmBuNKWWJSN
+	 lH3YPW2l0zbXakuR/4GrECy2wFoev4lfND8cbSRWAEpD6nqzAuxNIEU7753wspL/BF
+	 7THfta6TK/NEhVcy2nkMs9jxa3vL2VtIByRPlvuPDECrKU9vLGduLoBFTAU3Z3UK7+
+	 X1ebz3yFLGeOg==
+Message-ID: <6d6dc9e6-751f-4079-b21e-2e3461885b03@kernel.org>
+Date: Wed, 13 Aug 2025 08:00:17 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
+ sensor
+To: Will Whang <will@willwhang.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250810220921.14307-1-will@willwhang.com>
+ <20250810220921.14307-2-will@willwhang.com>
+ <20250811-successful-military-dragon-d72486@kuoka>
+ <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+ <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+ <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
+ <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
+ <20250812095543.GJ30054@pendragon.ideasonboard.com>
+ <CAFoNnrzWot_Bf=YZFac1GkZgOOnJycwpidvwL93p3p-C-zn8BA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAFoNnrzWot_Bf=YZFac1GkZgOOnJycwpidvwL93p3p-C-zn8BA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +130,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qingfang Deng <dqfext@gmail.com>
-Date: Wed, 13 Aug 2025 09:48:18 +0800
-> Ensure ndo_fill_forward_path() is called with RCU lock held.
+On 13/08/2025 06:30, Will Whang wrote:
+> On Tue, Aug 12, 2025 at 2:56 AM Laurent Pinchart
+> <laurent.pinchart@ideasonboard.com> wrote:
+>>
+>> On Tue, Aug 12, 2025 at 08:47:12AM +0200, Krzysztof Kozlowski wrote:
+>>> On 12/08/2025 08:31, Will Whang wrote:
+>>>> On Mon, Aug 11, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>> On 12/08/2025 04:47, Will Whang wrote:
+>>>>>> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>>>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
+>>>>>>>> +description:
+>>>>>>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
+>>>>>>>> +
+>>>>>>>> +properties:
+>>>>>>>> +  compatible:
+>>>>>>>> +    enum:
+>>>>>>>> +      - sony,imx585
+>>>>>>>> +      - sony,imx585-mono
+>>>>>>>
+>>>>>>> I don't understand this second compatible. Is this different hardware?
+>>>>>>> Can you point me to "mono" datasheet?
+>>>>>>>
+>>>>>>> Your description should explain this. Commit msg as well, instead of
+>>>>>>> speaking about driver (in fact drop all driver related comments).
+>>>>>>>
+>>>>>> Mono version of this sensor is basically just removing the bayer
+>>>>>> filter, so the sensor itself actually doesn't know if it is color or
+>>>>>> mono and from my knowledge there are no registers programmed in the
+>>>>>> factory that will show the variant and model number. (That is why when
+>>>>>> the driver probing it only test blacklevel register because there are
+>>>>>> no ID registers)
+>>>>>> Originally in V1 patch I've made the switch between color and mono in
+>>>>>> dtoverlay config but reviewer comments is to move it to compatible
+>>>>>> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
+>>>>>
+>>>>> You only partially answer and judging by mentioning driver below:
+>>>>>
+>>>>>> In this case, what would you recommend?
+>>>>>>
+>>>>>> compatible:
+>>>>>>   enum:
+>>>>>>     - sony,imx585
+>>>>>>     - sony,imx585-mono
+>>>>>>   description: IMX585 has two variants, color and mono which the
+>>>>>> driver supports both.
+>>>>>
+>>>>> ... I still have doubts that you really understand what I am asking. Is
+>>>>> this one device or two different devices?
+>>>>
+>>>> One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
+>>>> (Color). Silicon-wise the difference is just with or without bayer
+>>>> filter.
+>>>
+>>> Then I would propose to use sony,imx585-aamj1 and -aaqj1 with short
+>>> explanation either in comment or description about difference in RGB
+>>> mosaic filter.
+>>
+>> Works for me. We could possibly omit the "j1" suffix too.
+>>
+> My thinking is that imx585 and imx585-mono are easier to comprehend
+> than IMX585-AAM and IMX585-AAQ.
+> Because in dtoverlay for the users/me they will have to know what is
+> the exact name instead of easy to remember name.
 > 
-> Fixes: 2830e314778d ("net: ethernet: mtk-ppe: fix traffic offload with bridged wlan")
-> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
-> ---
-> v2: New patch
-> 
->  drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> index c855fb799ce1..e9bd32741983 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> @@ -101,7 +101,9 @@ mtk_flow_get_wdma_info(struct net_device *dev, const u8 *addr, struct mtk_wdma_i
->  	if (!IS_ENABLED(CONFIG_NET_MEDIATEK_SOC_WED))
->  		return -1;
->  
-> +	rcu_read_lock();
->  	err = dev_fill_forward_path(dev, addr, &stack);
-> +	rcu_read_unlock();
+> dtoverlay=imx585-aam
+> is not as nice as
+> dtoverlay=imx585-mono
 
-This should be squashed to patch 1 or reorded as patch 1.
+I have datasheet for AAQ, so how above is easier for me to figure out
+which compatible I am using?
 
-
->  	if (err)
->  		return err;
->  
-> -- 
-> 2.43.0
 > 
+> which is what it does, a mono variant of the sensor.
+> 
+> I really don't understand the standard for compatible string naming
+> here, is there something I missed? Is it required to use the full name
+> of the sensor parts number as a compatible string?
+
+It's not part number. You have there different models. We don't add
+prose to compatibles, but use device or model names.
+
+Best regards,
+Krzysztof
 
