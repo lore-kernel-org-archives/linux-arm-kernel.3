@@ -4,114 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60FE7CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 17:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7535BCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 17:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjAX2/LhHjkP4rTS8b1FppYeRZTcGybCFtXL4zZ0x3E=; b=Fs9o5pVrQPlkr5E+jL5hOKfgFe
-	RyQ8AU8QLzMwsuvF0yhl8m2nUabp4JvcRDxZxsWLaLwQT6Z0IH7KOeDQ87bNG4PHDwsvziH+Jb4rO
-	Ap7OEmqUzGepVNP2IowRQkt1/qkvkXS9N0pNPtKJOPKZXX7dEOMjtoT/LVN7aZ57b9rpKXxHMwzBJ
-	3odj33TMSqkfeamm9u8tQUMj885bPNNV0elBdZShpQfZZtWViHCvcvWnj2cc7C6224e7J/WmHSNyG
-	NuBwD1T1Ah/xNrA9AeNjOs8RAX3JJLVErE+jr3PoA6DEUcp/buRc1Hqf872xEOZLntaC2ynAMHleO
-	rhCRyfgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=va1iWFb58hS7RAbK7e0FHh68Xc18EBZdhWQef4KXTY4=; b=S45wUS9l1iVq92paqU+LoGo4oi
+	sdU/07WLnaFG3YrkRPopSB8BqMG9bb1D8BBNef8FXwPK8x97ImflS4Ijw6ebUPGv+3brc/CaF55nz
+	9JfHURABYMLHIV+AHtTcLLUNpgDZkv4NdfHia8pFgB5/sbV0zD20YUD1lG/0MIBxmK+Muq8qM4ty8
+	ZR6u60KZDSPUcMTWQr1lhBcTfiPV7X7SGIWVY9Vv3dVieq8+X4Yj1T9SeEjs5kBQlfnpIcMhYG5sP
+	JEYiGiEcba4wgLwaLp55zPkZ80vq0Js3UVo4rLUKCUH86IAGwAO1ZVbmAgqlwaPch+VSq2qPkPPsR
+	3QoalFow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEwI-0000000EXW7-3KL3;
-	Wed, 13 Aug 2025 17:07:02 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1umEyp-0000000EXuS-2VuV;
+	Wed, 13 Aug 2025 17:09:39 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEMo-0000000EOZn-0Ubn
+	id 1umE0S-0000000EJmR-2uKJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 16:30:24 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 13EE314000F9;
-	Wed, 13 Aug 2025 12:30:19 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 13 Aug 2025 12:30:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1755102619;
-	 x=1755189019; bh=vjAX2/LhHjkP4rTS8b1FppYeRZTcGybCFtXL4zZ0x3E=; b=
-	aJCV0ycEe4E/b3iJZLFGdEdPwf9zKYu5wPBV6/lYmnmHnXLqkzURwWDhQqhcar+k
-	0up0qu66Lq0ssSgF4qdUDzmGyBkOIboI7dzaxYwKXscSRnTS/DHQE+HCTjX6RC/2
-	w8dWciQKLWngikuOpwYzn6i5UOytqREebA5WW8z2t/a0zlCvQ60pbWtni6j2MPCY
-	9r9mtAPBIEhhlS5H7LkD21mluvvlKNym6++s/hlVA5Tn70haUKgGIg5XzscvRdNL
-	UA5a8rW8BoK0QGpzQ/d1gZqPp1dVR0ZX0mIBwhB0W86CngPdcwW+jLIuLKdME/L+
-	X3TI8/69BPwGpN1c/0xtag==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755102619; x=
-	1755189019; bh=vjAX2/LhHjkP4rTS8b1FppYeRZTcGybCFtXL4zZ0x3E=; b=j
-	f2QT+uwbg4ma5rRkOjbVDAMjhL3GNTO/HJLRKmT27dDW46cYweMgIAkn3x/uYxKX
-	uV5QOhuU5f6a/k3j1MzMehMcl+kfPvyw7xBOos94SbYsvsvXZ0idy/2wAudsbXI+
-	0GjgoIoN7XgUn3kHENC3Lr2jncSPkc9T1XXm1iETAVHmUksAedJkvBNTvFxRVcEW
-	1OxNga5lvIpJVk6a6zgmQW7mxeJubgs/rZkgOAovSkQY3PxH+AeomqHKzmejC9eS
-	qOtGguMzoAtXjbTymQFXuDULLrau9gHwyANF8YJHq7cORrVdOZPntEJ6jShzZwMT
-	YtgdPmfFAfApGy06gZL/g==
-X-ME-Sender: <xms:mb2caFvCbGaTtUkUQE7kJ9XzlyfC0jQl2wjl22xJk3l1Fs-tf287gA>
-    <xme:mb2caOeexrCh9D_2r5I5S3EXCmwpQBd6wyy4b9Je0IupWt2z00to3iYFq4RLseR92
-    r2l9_KN68w_2bkrZuE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeekjedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddupdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehhrghrihhsohhknhesrghmrgiiohhnrdgtohhmpdhrtghpthhtoh
-    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
-    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegtlhesghgvnhhtfihord
-    horhhgpdhrtghpthhtohepmhgvmhigohhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
-    iihhvghnghhlihhfvghnghdusehhuhgrfigvihdrtghomhdprhgtphhtthhopehpvghtvg
-    hriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:mb2caPqPzvcl5q4h1-36ODgbpQZ_uLkeb7SMfQ40uYxH1Jcjtqa6Hg>
-    <xmx:mb2caKGwMrqbZvjZpMGOqrjzw3XCehG5617fvvVFWBmA3se_3nyZ5g>
-    <xmx:mb2caBoecBnN6iAjMGu80iWahRWxyQt1TGHMMhiNUKuGy9LsCXnwmA>
-    <xmx:mb2caA2E-PFvuHi_ugtJ1Up5bnSy-_UrWFsmoMTg-WwJpU6coxWOmA>
-    <xmx:m72caGyCugxt8xU_oZbvTtN6yTgbZBFZo1n6I8P7cKKy0CEGgapGRhf6>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 67320700068; Wed, 13 Aug 2025 12:30:17 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 13 Aug 2025 16:07:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1755100536;
+	bh=N4JCyCl3TMqGdxL8z8nyy4b0wwx4vjcVA+ne1uluhZo=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=iLZpmoWpVApJyh/MbWULYTT+MrxPWB884CI1fKVacIcDXp6PMJbZNxlv5xjj6s4EE
+	 +V19nVSCemZ5TY9cj27OLG63WxO6hTKf96CxuDRjT8B7Gq+26M39qNVya6GxBnA0ny
+	 87ap3K00EQEpcVZU4nqiP3VgHFPGZl1TSIwGWXEc=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 47644401FB; Wed, 13 Aug 2025 08:55:36 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 453694010E;
+	Wed, 13 Aug 2025 08:55:36 -0700 (PDT)
+Date: Wed, 13 Aug 2025 08:55:36 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+cc: Jeremy Linton <jeremy.linton@arm.com>, 
+    Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com, 
+    will@kernel.org, patches@amperecomputing.com, 
+    Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org, 
+    bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be, arnd@arndb.de, 
+    nm@ti.com, ebiggers@kernel.org, nfraprado@collabora.com, 
+    prabhakar.mahadev-lad.rj@bp.renesas.com, 
+    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
+In-Reply-To: <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
+Message-ID: <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+References: <20250808025533.6422-1-shijie@os.amperecomputing.com> <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com> <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org> <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
+ <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
 MIME-Version: 1.0
-X-ThreadId: Tf2626a88c2a27380
-Date: Wed, 13 Aug 2025 18:29:37 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Ankur Arora" <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Mark Rutland" <mark.rutland@arm.com>, harisokn@amazon.com, cl@gentwo.org,
- "Alexei Starovoitov" <ast@kernel.org>,
- "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, zhenglifeng1@huawei.com,
- xueshuai@linux.alibaba.com, "Joao Martins" <joao.m.martins@oracle.com>,
- "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
- "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>
-Message-Id: <67b6b738-0f1c-4dd4-817d-95f55ec9272b@app.fastmail.com>
-In-Reply-To: <aJy414YufthzC1nv@arm.com>
-References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
- <20250627044805.945491-2-ankur.a.arora@oracle.com> <aJXWyxzkA3x61fKA@arm.com>
- <877bz98sqb.fsf@oracle.com> <aJy414YufthzC1nv@arm.com>
-Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add smp_cond_load_relaxed_timewait()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_093022_506049_AD169996 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250813_090716_769055_30AFB9F2 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,23 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025, at 18:09, Catalin Marinas wrote:
-> On Mon, Aug 11, 2025 at 02:15:56PM -0700, Ankur Arora wrote:
->
->> This also gives the WFET a clear end time (though it would still need
->> to be converted to timer cycles) but the WFE path could stay simple
->> by allowing an overshoot instead of falling back to polling.
->
-> For arm64, both WFE and WFET would be woken up by the event stream
-> (which is enabled on all production systems). The only reason to use
-> WFET is if you need smaller granularity than the event stream period
-> (100us). In this case, we should probably also add a fallback from WFE
-> to a busy loop.
+On Wed, 13 Aug 2025, Sudeep Holla wrote:
 
-I think there is a reasonable chance that in the future we may want
-to turn the event stream off on systems that support WFET, since that
-is better for both low-power systems and virtual machines with CPU
-overcommit.
+> > The problem is that this information is being sourced from the ACPI PPTT.
+> > The ACPI specification (AFAIK) doesn't define a cluster, so the linux
+> > cluster information is being 'invented' based on however the firmware vendor
+> > choose to group CPU nodes in the PPTT. Which means its possible for them to
+> > unknowingly create clusters, or also fail to create them when they make
+> > sense.
+>
+> +1, completely agree. As Jeremy mentioned, it is hit or miss and cluster
+> is loosely defined and IIRC Huawei pushed this based on their platform at
+> the time and it did break some benchmarks on few other platforms. So it
+> is not a good idea to make it default config IMO.
 
-    Arnd
+Can we figure out which platforms benchmarks were affected and why?
+
+It seems the notion of a "cluster" on ARM64 is derived (I guess a better
+word than "invented" hehe)  from sibling information instead of PPTT. But
+using that information should work fine right?
+
 
