@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A8AC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CBDCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45M5OAWmMv3cWr9Cy8BjqGgy8yitsIlrEUM+L8HwhI0=; b=Ypr5chQ6jtwU1FRpFloXRJ2QhP
-	VJUq5U20TtsEVcgNeatEbU9vG37OmIPg3jcmyM2E3k4WZuiY653Is442T68GCWi3pnSdYe0KxW9ye
-	ReZC7G5FUKeLrWWoTfU5OrxgEcm9IK+IItr952ldrRoIohvFRu+Ovu6JroKUIxuIa4JkFPSGS5jVh
-	+hceKKw0ChXZzFQ0Pb/aSk4JEOXIe46J1ml8Y2dA1Ui3DLx5M2Gk7x+6z5FH0PKPNM3GjpB8HqAX0
-	QrG7n0x94qLdF//yBcbZ3q52zvu5sEeF3e62A6TFHDejG1tWHBk6ALcz3s0T+SkdG71fiL9AcSDQf
-	iyuRbbqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wsbRxHD9xo+7R0EcGZLaztCae868kFf5aK+E5Gk9/qY=; b=rwse71SpakTztWXiwuctNA9ft1
+	BxCf9LQGRWwEEn00TjYKabOBUdBqYDAkpvFR4xzJwND72NtzH3Oz0nPAsv32xr0E6yZ67G9yPUEZq
+	Zz1MewxBPq8A2UdXvvETsqRQCcLhWC9Jn2KAadPTgac65qqsO4RJ8ryx9quET8BIpL70scah7QFXi
+	dVNdLcix8SFAMVY7U1T4csE9kN3wrWik/cncRbrpgRvFjXqFXIX3huSujR1qpoD3pGGmpyyWwYtim
+	OBqa9p+j7mn/gn7K3ZG26nkg2DkQqbokS/lI2MG5W0y+hAilYagJCoQ9Ea+53bzi5xJ32YEoqynDG
+	PI2XuhZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6jf-0000000D5DH-0jEi;
-	Wed, 13 Aug 2025 08:21:27 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1um6t4-0000000D6Wc-1sZ7;
+	Wed, 13 Aug 2025 08:31:10 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6g2-0000000D45V-27LA
+	id 1um52s-0000000Cniu-3qUF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 08:17:44 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4c21Mt0hzBzdcHH;
-	Wed, 13 Aug 2025 16:13:14 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id E5D96180B51;
-	Wed, 13 Aug 2025 16:17:33 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 Aug 2025 16:17:33 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 Aug 2025 16:17:33 +0800
-CC: <yangyicong@hisilicon.com>, James Clark <james.clark@linaro.org>,
-	<will@kernel.org>, <linux-arm-kernel@lists.infradead.org>, <robh@kernel.org>,
-	<anshuman.khandual@arm.com>, <jonathan.cameron@huawei.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH 2/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
-To: Mark Rutland <mark.rutland@arm.com>
-References: <20250812080830.20796-1-yangyicong@huawei.com>
- <20250812080830.20796-3-yangyicong@huawei.com>
- <3d37844a-63c5-49c2-9d6d-7c3665a95466@linaro.org>
- <931e26ef-bdc6-5f9e-8976-d5a4b8e6e81f@huawei.com>
- <aJsV7nzlILHd_ZMa@J2N7QTR9R3>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <500cd725-ccb2-83f4-35a1-def9551a3719@huawei.com>
-Date: Wed, 13 Aug 2025 16:17:32 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Wed, 13 Aug 2025 06:33:12 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 13 Aug
+ 2025 14:33:01 +0800
+Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 13 Aug 2025 14:33:01 +0800
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: Simon Horman <horms@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Po-Yu
+ Chuang <ratbert@faraday-tech.com>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<taoren@meta.com>, <bmc-sw2@aspeedtech.com>
+Subject: [net-next v2 0/4] Add AST2600 RGMII delay into ftgmac100
+Date: Wed, 13 Aug 2025 14:32:57 +0800
+Message-ID: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <aJsV7nzlILHd_ZMa@J2N7QTR9R3>
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_011742_870662_6B4063AE 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20250812_233310_964559_B2E0348B 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/12 18:22, Mark Rutland wrote:
-> On Tue, Aug 12, 2025 at 06:14:33PM +0800, Yicong Yang wrote:
->> On 2025/8/12 18:00, James Clark wrote:
->>> On 12/08/2025 9:08 am, Yicong Yang wrote:
->>>> @@ -1002,6 +1002,15 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
->>>>       if (has_branch_stack(event))
->>>>           return false;
->>>>   +    /*
->>>> +     * The PMCCNTR_EL0 increments from the processor clock rather than
->>>> +     * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
->>>> +     * counting on a WFI PE if one of its SMT silbing is not idle on a
->>>> +     * multi-threaded implementation. So don't use it on SMT cores.
->>>> +     */
->>>> +    if (cpumask_weight(topology_sibling_cpumask(smp_processor_id())) > 1)
->>>> +        return false;
->>>> +
->>>
->>> Isn't this something that's static to the PMU? If all CPUs in each PMU are always the same then this doesn't need to be probed every time and can be set once.
->>>
->> we can make use of PMCCNTR_EL0 if the SMT is runtime disabled, e.g. by /sys/devices/system/cpu/smt/control
->> if set this at probe time then we permanently lose the chance to use PMCCNTR_EL0.
-> 
-> Can it be runtime enabled too?
-> 
+This patch series adds support for configuring RGMII internal delays for the 
+Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to 
+distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration 
+units differ.
+The device tree bindings are updated to restrict the allowed phy-mode and delay 
+properties for each MAC type. Corresponding changes are made to the device tree 
+source files and the FTGMAC100 driver to support the new delay configuration.
 
-yes.
+Summary of changes:
+- dt-bindings: net: ftgmac100: Add conditional schema for AST2600 MAC0/1 and 
+  MAC2/3, restrict phy-mode and delay properties, and require SCU phandle.
+- ARM: dts: aspeed-g6: Add ethernet aliases, update MAC compatibles, and add 
+  SCU phandle for delay configuration.
+- ARM: dts: aspeed-ast2600-evb: Add rx/tx-internal-delay-ps properties and 
+  update phy-mode for MACs.
+- net: ftgmac100: Add driver support for configuring RGMII delay for AST2600 
+  MACs via SCU.
 
-> If so, then we can't use PMCCNTR_EL0 in case we later dynamically go
-> from disabled to enabled.
-> 
+This enables precise RGMII timing configuration for AST2600-based platforms, 
+improving interoperability with various PHYs.
 
-ok, this will be a problem.
+Jacky Chou (4):
+  dt-bindings: net: ftgmac100: Restrict phy-mode and delay properties
+    for AST2600
+  ARM: dts: aspeed-g6: Add ethernet alise and update MAC compatible
+  ARM: dts: aspeed: ast2600evb: Add delay setting for MAC
+  net: ftgmac100: Add RGMII delay configuration for AST2600
 
-> I do not think this should be handled dynamically.
-> 
->>> Also you can't call smp_processor_id() from here because this is
->>> also called in armpmu_event_init() -> __hw_perf_event_init() ->
->>> validate_group() before the event is actually scheduled on a CPU.
->>> With CONFIG_DEBUG_PREEMPT you'd see the error.
->>
->> ok, will use raw_smp_processor_id() instead. it won't affect the validation checking in pmu::event_init().
->> in pmu::add() the cpu id is always stable so it'll also be fine.
-> 
-> NAK to this.
-> 
-> It *will* affect validation since it affects the number of events that
-> can be placed into a single group (by virtue of allowing or forbidding
-> an additional cycles events). That would be non-deterministic, which is
-> horrible to debug.
-> 
+ .../bindings/net/faraday,ftgmac100.yaml       | 50 ++++++++++-
+ .../boot/dts/aspeed/aspeed-ast2600-evb.dts    | 16 +++-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 24 +++++-
+ drivers/net/ethernet/faraday/ftgmac100.c      | 86 +++++++++++++++++++
+ drivers/net/ethernet/faraday/ftgmac100.h      | 12 +++
+ 5 files changed, 179 insertions(+), 9 deletions(-)
 
-ok.
+---
+v2:
+ - added new compatible strings for MAC0/1 and MAC2/3
+ - updated device tree bindings to restrict phy-mode and delay properties
+ - refactored driver code to handle rgmii delay configuration
+---
 
-if we want to do it at probed time, we have no general way for knowing the CPU
-is in a multi-threaded implementation - the ACPI and OF detect this in different
-ways. the topology_sibling_cpumask() only contains the online CPUs so also have the
-problem mentioned above. can we simply rely on the mpidr_el1.mt (maybe not, spec
-mentions it doesn't indicate the multi-threaded implementations) or any suggestion?
-
-thanks.
-
+-- 
+2.43.0
 
 
