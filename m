@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2415C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 12:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50423CA0EE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 12:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wG/tkb3NcTBP0jWt0hS4K7M0cbXY0HBQFOfQ3FlaDxA=; b=DPasn+oGjN4oXqo6VW9hO2n1P8
-	7EXh672lxqtqadBzvLe0HmGDzIwAi/AQQqQ6DECggbANECIxcFOHzYhYgfWAIoftzP5VSZ/raUvmn
-	MJuFDqkXBO9bowT0TN8S53vYrZ5gavlF0c+EXiq17llYgdAx/Yb7esp6FXDGy/dizPIjnm4FxVMgH
-	ez0pLBKqoTSX/5iajKYCzqau+c8tN3N6JuvLJ3iWysYoWT/1/J7SKPyozb2rBWJXwgo7DTpgLEVwd
-	HQ+cWxY4Fv+vLDKVT6RDCOf646sjnSF2QlPKAAWpTcANCr2BQ0QVI6i8yollX4UwSQFV4dMJYeKcH
-	UBVoQKgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PFZKPQG+k1gfjsY3a1ZAOkYj+KM4A3F6NxUPB1WMPvo=; b=AcVsgCLv5u1OjFmz6MI/qEj9LB
+	Hjysu3kNma1+zlOHiB7AY/1qipUNTTIGR8je6gtOg0i2sJWpQxhXunWZzpz9Sx55nZRKgMe6VimxZ
+	k6erU8UZmZXYqAoM53GvOlTOUtxddGd7gxZ5E/EnqeeSOdQcN6ab72N3CAqcy5Mizskrwha4VO/Lt
+	ou1kSZVq/ZajpJEiI5oG5A8o9622z6Ve3i81OL+BsgBnJdgDIEbdYTpsHYUek4TlttzAlq5EWLyye
+	F2J3VNdm1G7H5+tBhvdJarrBMGJQdz50cMJeF2LZZkxYS6Uco9iIwJRW+sGO++nrSymLde9HtB40f
+	iEBCV0Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umAnT-0000000DeuF-3yMi;
-	Wed, 13 Aug 2025 12:41:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1umAq0-0000000DfGC-35W7;
+	Wed, 13 Aug 2025 12:44:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9zH-0000000DYuM-1ON7
+	id 1umA4y-0000000DZWK-19st
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 Aug 2025 11:55:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=PFZKPQG+k1gfjsY3a1ZAOkYj+KM4A3F6NxUPB1WMPvo=; b=QZvxOFLBfjFu5w9iQSAxyi7W+u
+	0SZot6nD9d2sHW2Sw67FckEUuSS8M2uLvLa7s73tywgSGzMHUen2t59I5kiUvJVljBPNonKsKDbP3
+	bsfwJGdZJXZtkDFciQsaSLkFHNoy0j2BSRQLSx4JIFtfuVKur4X7kLu4mHGnxJca/OyJc/O7InMgp
+	lqF8h94pa6sjtdDsg76j7C0g6XuScL1qK4Wow0qkzuMRTZ6RmOZ3oh882se1VKJsv7tbLVgwqEcCO
+	n09PeXZqajk+KHBO+1dx4fptu2gl6FIahNfs0u1AEn1iPv38tRYzLpPpo+iWJbEmTz77PhtZ5csSl
+	LWYE6MPA==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umA4u-0000000G5Ga-2Wsd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 11:49:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 50883A575F3;
-	Wed, 13 Aug 2025 11:49:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED93FC4CEEB;
-	Wed, 13 Aug 2025 11:49:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755085786;
-	bh=jbUHFRMCEJ633GL1BbQLDmJ+7eS9XZAeMgSV7aBmOmo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PiJQgE2LerNskr6vM/T/80oJLRM2vlDTXhyVo903ONQCKltOF3ZuXRT0zLwEpxZTa
-	 1uZWo1zU1D+drWqqnmb4zOWY6LaDOQB3Ft6ydJxfytCXL5cylLSREdHUIZJY7dS19n
-	 HCgVcZEFj8V5dfTgro2d600JDos1TP2h1RAuZEbKDtrLeWs73xaxSzlr/+YfaUhWsT
-	 dwjEYdpl2UNy7cVrMHvFz2ANQJzggtNGnFMMdNvyTU0y1uZG0//yWVb4Z/5lLnf09J
-	 osDe046Jm3cMrslAlUymtYzyQXBYfyS3kZibc8REgUOFCfGY20E2pvxYX03Xk5ivP3
-	 rlJa9RaSbaSmw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1um9zD-0072kI-H4;
-	Wed, 13 Aug 2025 12:49:43 +0100
-Date: Wed, 13 Aug 2025 12:49:43 +0100
-Message-ID: <86ikir8mqw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 0/4] clocksource: Add standalone MMIO ARM arch timer driver
-In-Reply-To: <aJx4g8z3l438Qgnv@raptor>
-References: <20250807160243.1970533-1-maz@kernel.org>
-	<20250813-macho-snobbish-alpaca-ff07fa@sudeepholla>
-	<aJx4g8z3l438Qgnv@raptor>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sudeep.holla@arm.com, alexandru.elisei@arm.com, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, rafael@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 13 Aug 2025 11:55:39 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57DBn5Bn008281;
+	Wed, 13 Aug 2025 13:55:24 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=PFZKPQG+k1gfjsY3a1ZAOk
+	Yj+KM4A3F6NxUPB1WMPvo=; b=15NOOiACV8P2LRL/T3X7nWZjJ2DyJJTPufMbmy
+	0tVJpCRAlu0UdNJV1KWcgrIuxrzGI6HfioEEaReCJkrNEjkCyjiHPECc2r++KA1f
+	SU514XoFEogWxO9wmVEa8zAlEqrKImNsr3aYFJI4YEzC877HS4G1szBlj4X7ZiZo
+	NcBpjxyo9U86COA4KQEIwnNAwiwxhycVmn9pY9VgLlveBz1/eP1wd+yCS3zdx9oJ
+	ySJv3LqK9CoUs1UOC9Jbrnk+F9ArQ+hsR7BbO2L/24nGzHVA5VGFw9NFhO1KaxVr
+	4IwgjNz2Jm4qVL70aZGStpHmdd0Z1ehOxXhCoLd6Wm9JbN8g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48duf8xsg8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 13:55:24 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C20314002D;
+	Wed, 13 Aug 2025 13:54:19 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0A72073FE23;
+	Wed, 13 Aug 2025 13:53:32 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 13 Aug
+ 2025 13:53:31 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>
+CC: <linux-pci@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, kernel test robot <lkp@intel.com>
+Subject: [PATCH v1] PCI: stm32: use pinctrl_pm_select_init_state() in stm32_pcie_resume_noirq()
+Date: Wed, 13 Aug 2025 13:53:19 +0200
+Message-ID: <20250813115319.212721-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_01,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_044947_498584_3848A0F2 
-X-CRM114-Status: GOOD (  34.56  )
+X-CRM114-CacheID: sfid-20250813_125537_045037_4FF9535D 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025 12:35:31 +0100,
-Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> 
-> Hello,
-> 
-> On Wed, Aug 13, 2025 at 11:55:48AM +0100, Sudeep Holla wrote:
-> > +Alexandru
-> > 
-> > On Thu, Aug 07, 2025 at 05:02:39PM +0100, Marc Zyngier wrote:
-> > > For the past 10 years, both Mark and I have been lamenting about the
-> > > sorry state of the badly named "arch_timer" driver, and about the way
-> > > the MMIO part is intricately weaved into the system-register part.
-> > > 
-> > > The time has finally come to have a stab at it.
-> > > 
-> > > This small series simply creates a new timer driver for the MMIO arch
-> > > timer, and only that. It is an actual driver, and not some kludge that
-> > > has to run super early (that's what the per-CPU timers are for). This
-> > > allows, in turn, a pretty large cleanup of the per-CPU driver, though
-> > > there is more to come -- one thing at a time.
-> > > 
-> > > As an added bonus, we get a clocksource, which the original code
-> > > didn't provide. Just in case it might be useful. The end-result is far
-> > > more readable, and about 100 lines smaller.
-> > > 
-> > 
-> > (Tested it on Juno R2 and FVP in both DT and ACPI boot)
-> > 
-> > Tested-by: Sudeep Holla <sudeep.holla@arm.com>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Replace direct access to dev->pins->init_state with the new helper
+pinctrl_pm_select_init_state() to select the init pinctrl state.
+This fixes build issues when CONFIG_PINCTRL is not defined.
 
-Thanks!
+Depends-on: <20250813081139.93201-3-christian.bruel@foss.st.com>
+Reported-by: Bjorn Helgaas <bhelgaas@google.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202506260920.bmQ9hQ9s-lkp@intel.com/
+Fixes: 633f42f48af5 ("PCI: stm32: Add PCIe host support for STM32MP25")
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+Changes in v1:
+ - pinctrl_pm_select_init_state() return 0 if the state is not defined.
+   No need to test as pinctrl_pm_select_default_state() is called.
+---
+ drivers/pci/controller/dwc/pcie-stm32.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-> > 
-> > Alexandru found it useful(avoids some unexpected hang IIUC) in his setup
-> > based on bootwrapper which doesn't initialise MMIO timers.
-> 
-> Just FYI, this is the testing that I did.
-> 
-> Without this series, if firmware (boot-wrapper-aarch64 in my testing) doesn't
-> configure access to the memory-mapped timer:
-> 
-> [    0.000000] arch_timer: Unable to find a suitable frame in timer @ 0x000000002a810000
-> [    0.000000] Failed to initialize '/timer@2a810000': -22
-> ..
-> [    0.528000] kvm [1]: kvm_arch_timer: uninitialized timecounter
-> ..
-
-Right, that's one of the many problems with the tight coupling between
-sysreg and MMIO timers -- if one fails, they both fail, and you're
-pretty lucky if you manage to limp along after that.
-
-> # ls /dev/kvm
-> ls: cannot access '/dev/kvm': No such file or directory
-> 
-> With this series, if firmware doesn't configure access to the memory-mapped
-> timer:
-> 
-> [    0.549399] kvm [1]: Hyp nVHE mode initialized successfully
-> ..
-> [    2.018050] arch-timer-mmio 2a810000.timer: Unable to find a suitable frame in timer @ 0x000000002a810000
-> [    2.018123] arch-timer-mmio 2a810000.timer: probe with driver arch-timer-mmio failed with error -22
-
-Ah, you have managed to test the error path. Thanks for that!
-
-	M.
-
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+index 50fae5f5ced2..8501b9ed0633 100644
+--- a/drivers/pci/controller/dwc/pcie-stm32.c
++++ b/drivers/pci/controller/dwc/pcie-stm32.c
+@@ -90,14 +90,10 @@ static int stm32_pcie_resume_noirq(struct device *dev)
+ 
+ 	/*
+ 	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
+-	 * thus if no device is present, must force it low with an init pinmux
+-	 * to be able to access the DBI registers.
++	 * thus if no device is present, must deassert it with a GPIO from
++	 * pinctrl pinmux before accessing the DBI registers.
+ 	 */
+-	if (!IS_ERR(dev->pins->init_state))
+-		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+-	else
+-		ret = pinctrl_pm_select_default_state(dev);
+-
++	ret = pinctrl_pm_select_init_state(dev);
+ 	if (ret) {
+ 		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+ 		return ret;
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
