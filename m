@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB02CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB07CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LJ0jpiugHLgI/5Z1g0NOk55lz83PPv65RbA/jaeoNyA=; b=C/q8kVL6hbHEGjrOL4R/fcXx5z
-	SzzqwMjtaZhODOPtoZnS0wN+tDxHmogyBXUJz/ImnCYXtJruYxkJKE2L6ncjhyQVXXNjXXr7HzDTc
-	nBS1HNwEfqofPWq/5X4CYdaYudOoUoA+VvtAIFyY11U5YEFqXp3eXbaEALMbjoO9iPTrbPP698Lq7
-	YThS6vlQZb+0RQSfNh1QKCixDYyAO9DDUQcvtU309nVwZVPIZIZTfnxMV3GdGbUsFYt0SN/1aKroE
-	AvLm44ZKYBlwUB0ubiSi1uAEFWex37tGy98N0ASsrjFHhLhaYThwk29tDccPIcCqTYPdzeO8WW2Mt
-	Dvy7kaIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0Md1MjnRbVsA3QHspXApHKzqfrIcS9N1iDkxacrYYKA=; b=CWPLgSWUixL//hJsrLKHTV6KBO
+	BgMSw/HzTTlhWGyWWIqxYX82KJvs92dkxP0Ccp2rNUdHMKLm7rchD9wcccAwnpwKOt7xpEYwaXWtv
+	Z4zW6R40VLV34vD4/DnuyfEUqB/yWkBi+UvIO1blvqWY7ddPxAEGaGj29nPVhsKPsRLNuPdqfCZ0Y
+	lyGf2mADFziuZOUWlWIMwjVKv9L4cJFwqFNb5x4eI8RI8UcHwYzypmj8wtJmzsa7zyx5tipXPuyfg
+	l2n51itUPYWG2KQFEuerCCSJiUmsXSr0gpob7A7tLJm+AqYz9Lh9dsNlqnSeZUrG5Jqb4xjnVhejn
+	2ajSdxxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umKD9-0000000FBFO-04Br;
-	Wed, 13 Aug 2025 22:44:47 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1umKEf-0000000FBSe-40m4;
+	Wed, 13 Aug 2025 22:46:21 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umK8g-0000000FAVX-2W88
+	id 1umEsl-0000000EWWR-0d1r
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 22:40:11 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3b9d41baedeso174760f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 15:40:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755124808; x=1755729608; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LJ0jpiugHLgI/5Z1g0NOk55lz83PPv65RbA/jaeoNyA=;
-        b=GqYOfQV79R9vwS6gOdbZvHT2tr9akVDTx+fTLRI31HjQcri8Si+amsIIdaQjwjn6pX
-         0FVQ6ym+wxwKREydS5+kLZJWI+NO076U4R/36ilm2lb+o8Dl/xXzr5yThtS1NsYjlNfn
-         DVQKrbey4r5GS2OeP7ECHqS96VipXU31XR3E0yDl9bryOYiZw8Po8wwNIR+6MdLeeCFy
-         /rMsjkd7JitNzFLcp69cClWkZWtP6Xdq4wP+GwQ90n4e/I9xZuTW4RXCgPonvIL5Zeu/
-         IfWEyo5SVNJcxGM4PtbdZec2T5w+RlwQc5qVBTzt56gVT3IaobE38ubPNGKt9/QPG8Qz
-         PQSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755124808; x=1755729608;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LJ0jpiugHLgI/5Z1g0NOk55lz83PPv65RbA/jaeoNyA=;
-        b=bTT7mR6qOTv8/C1rjo5h6VZD0KoprGaZwIbG5p0YvJ8+QEpu7lZUyzkODPwwiQFrAG
-         2rUcd5qu3m16zQDx5aq0VTIAkWrUM2vRW1wyGIHgaBxkMZCYZgE1N9/6mIeuJ9AO8PWU
-         a88EibphhcWcYwVdXkam/947VgTqzKL3BjgMlkCmJNcJFpQxU90LZCDTzygA/83du+c8
-         td/bpPTD5EMRng16SlekuxKUcOZCuPfFeYNM5SiZHcaXboTzxWKAL5DtSyhuVGH5klNT
-         tGQgSfBLEBOZIeixt75UMk66BColVcJU2FhRSfyKF2Z3HG53hhjQ04jcw+Kpk1V7bSLM
-         UnZA==
-X-Forwarded-Encrypted: i=1; AJvYcCW1I36r9ZhIOfY2NdHfqnuLNp3ZW8ENFaeA1uzq6FPWKqhPSZsVyx5/otQKIhOw72BRxWQlSzF6zHij0iaAVKQu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXBYrYCNXOG9B5DiEdXYqGNLZG6AJDWNP+xphZTiR1P/dbATzb
-	t1R7aVwnShdWW1K2QMqTMNv1PgH5iVCBBoKQtw7N5V/klk1Ah8eB91WZ
-X-Gm-Gg: ASbGncvRjeYFn1l2Z4B7p80+wO6Ai3ubkw/x7YUjcl7WWrT9kLEfMkz2xkfwhCev6pm
-	ORP2BetI339IKJKRHGWWxa9FMSKoBQTvsl8H63gEqDUSd6cMqvEgMY9/7YBZ4h1pxfCZNRKFYKg
-	gIrX/BSbrLspkpa9yGyax7TsXigar9pkYCBcYb56KtRVbFBwHlZQL+27b0fmUhwtDKg0XoR8N10
-	VwxEucgqeeyHSAivNbPDrSWi7PoEATf9yokQywjTCxIrIIBQm7GaizrY2HM97pG/ySoJhr6ed6b
-	kzl16eT0p+zTe6LjVngQArLeqRVBAyQiDlSqIeUiYwNlwOKLTI4Yeo+z/qo/ckU3/GAsusOt5+q
-	uxxZgeOXXpLzBCOrtgwWCZQeYIT4OH6qUjmPOgfhxkw3S78l3pXWezCSIrcoHL355X5BgRUYNjt
-	L4W379m5IN
-X-Google-Smtp-Source: AGHT+IHoUgJngPB4year933qgBkg1hDcTIbk0ko+wffW2kEKlhvVPX96a6fiNTTXlbNSCzCTKhjEOA==
-X-Received: by 2002:a05:6000:2311:b0:3a3:7593:818b with SMTP id ffacd0b85a97d-3b9edfb6e7dmr643402f8f.21.1755124808309;
-        Wed, 13 Aug 2025 15:40:08 -0700 (PDT)
-Received: from ekhafagy-ROG-Zephyrus-M16-GU603HR-GU603HR.. ([156.204.193.65])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a541c3bsm16550085e9.29.2025.08.13.15.40.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 15:40:07 -0700 (PDT)
-From: Eslam Khafagy <eslam.medhat1993@gmail.com>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>,
-	Dharma Balasubiramani <dharma.b@microchip.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: skhan@linuxfoundation.com,
-	eslam.medhat1993@gmail.com
-Subject: [PATCH v4] drm: atmel-hlcdc: replace dev_* print functions with drm_* variants
-Date: Thu, 14 Aug 2025 01:39:52 +0300
-Message-ID: <20250813224000.130292-1-eslam.medhat1993@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 13 Aug 2025 17:03:24 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DH39Y21693731;
+	Wed, 13 Aug 2025 12:03:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755104589;
+	bh=0Md1MjnRbVsA3QHspXApHKzqfrIcS9N1iDkxacrYYKA=;
+	h=From:To:CC:Subject:Date;
+	b=iJUVujfQqYTeaGlwtS87WXJCvzTu/HMtB5Gf25j/ov15Rg/4m5t+qBz7kdsoNZpUa
+	 E8tEQCHgFOeaKCVihG9IHU26R3jR9D2ZPu2AYe2nfD/YWFkZpdYi6wmhUxzImJTY7T
+	 YmJi9k6HpXYEi8QH1XoScw/UuPbBdH8BDOH4elU0=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DH39Aj1113140
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 13 Aug 2025 12:03:09 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
+ Aug 2025 12:03:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 13 Aug 2025 12:03:09 -0500
+Received: from lelvem-mr06.itg.ti.com ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DH386F2615165;
+	Wed, 13 Aug 2025 12:03:09 -0500
+From: Andrew Davis <afd@ti.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+        Russell King
+	<linux@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+        Jean-Marie Verdun
+	<verdun@hpe.com>,
+        Nick Hawkins <nick.hawkins@hpe.com>
+CC: <soc@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
+Subject: [PATCH] ARM: mach-hpe: Rework support and directory structure
+Date: Wed, 13 Aug 2025 12:03:08 -0500
+Message-ID: <20250813170308.290349-1-afd@ti.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_154010_641825_0D503381 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250813_100323_471220_02C39C3A 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,223 +86,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the Atmel HLCDC code to use DRM print macros drm_*() instead of
-dev_warn() and dev_err(). This change ensures consistency with DRM
-subsystem logging conventions [1].
+Having a platform need a mach-* directory should be seen as a negative,
+it means the platform needs special non-standard handling. ARM64 support
+does not allow mach-* directories at all. While we may not get to that
+given all the non-standard architectures we support, we should still try
+to get as close as we can and reduce the number of mach directories.
 
-[1]
-Link: https://docs.kernel.org/gpu/todo.html#convert-logging-to-drm-functions-with-drm-device-parameter
+The mach-hpe/ directory and files, provides just one "feature":
+having the kernel print the machine name if the DTB does not also contain
+a "model" string (which they always do). To reduce the number of mach-*
+directories let's do without that feature and remove this directory.
 
-Signed-off-by: Eslam Khafagy <eslam.medhat1993@gmail.com>
+Note, we drop the l2c_aux_mask = ~0 line, but this is safe as
+the fallback GENERIC_DT machine has that as the default.
+
+Signed-off-by: Andrew Davis <afd@ti.com>
 ---
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 21 ++++++++++---------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c  | 14 ++++++-------
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c  |  3 ++-
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c   |  6 +++---
- 4 files changed, 23 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-index 0f7ffb3ced20..e0efc7309b1b 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-@@ -20,6 +20,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_crtc.h>
- #include <drm/drm_modeset_helper_vtables.h>
-+#include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_vblank.h>
+Changes for v3:
+ - Rebased on v6.17-rc1
+
+Changes for v2:
+ - Rebased on v6.13-rc1
+
+ MAINTAINERS                |  1 -
+ arch/arm/Kconfig           |  2 --
+ arch/arm/Kconfig.platforms | 25 +++++++++++++++++++++++++
+ arch/arm/Makefile          |  1 -
+ arch/arm/mach-hpe/Kconfig  | 23 -----------------------
+ arch/arm/mach-hpe/Makefile |  1 -
+ arch/arm/mach-hpe/gxp.c    | 15 ---------------
+ 7 files changed, 25 insertions(+), 43 deletions(-)
+ delete mode 100644 arch/arm/mach-hpe/Kconfig
+ delete mode 100644 arch/arm/mach-hpe/Makefile
+ delete mode 100644 arch/arm/mach-hpe/gxp.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index fe168477caa45..bf5dbbea85782 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2728,7 +2728,6 @@ F:	Documentation/devicetree/bindings/spi/hpe,gxp-spifi.yaml
+ F:	Documentation/devicetree/bindings/timer/hpe,gxp-timer.yaml
+ F:	Documentation/hwmon/gxp-fan-ctrl.rst
+ F:	arch/arm/boot/dts/hpe/
+-F:	arch/arm/mach-hpe/
+ F:	drivers/clocksource/timer-gxp.c
+ F:	drivers/hwmon/gxp-fan-ctrl.c
+ F:	drivers/i2c/busses/i2c-gxp.c
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index b1f3df39ed406..f8faa15c6a15f 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -393,8 +393,6 @@ source "arch/arm/mach-highbank/Kconfig"
  
-@@ -215,32 +216,32 @@ static void atmel_hlcdc_crtc_atomic_disable(struct drm_crtc *c,
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     !(status & ATMEL_XLCDC_CM),
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register CMSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register CMSTS timeout\n");
+ source "arch/arm/mach-hisi/Kconfig"
  
- 		regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_XLCDC_SD);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     status & ATMEL_XLCDC_SD,
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register SDSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register SDSTS timeout\n");
- 	}
+-source "arch/arm/mach-hpe/Kconfig"
+-
+ source "arch/arm/mach-imx/Kconfig"
  
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_DISP);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_DISP),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register DISPSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register DISPSTS timeout\n");
+ source "arch/arm/mach-ixp4xx/Kconfig"
+diff --git a/arch/arm/Kconfig.platforms b/arch/arm/Kconfig.platforms
+index 845ab08e20a4b..5c19c1f2cff61 100644
+--- a/arch/arm/Kconfig.platforms
++++ b/arch/arm/Kconfig.platforms
+@@ -87,6 +87,31 @@ config MACH_ASM9260
+ 	help
+ 	  Support for Alphascale ASM9260 based platform.
  
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_SYNC);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_SYNC),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register LCDSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register LCDSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_PIXEL_CLK);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_PIXEL_CLK),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register CLKSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
- 
- 	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
- 	pinctrl_pm_select_sleep_state(dev->dev);
-@@ -269,32 +270,32 @@ static void atmel_hlcdc_crtc_atomic_enable(struct drm_crtc *c,
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_PIXEL_CLK,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register CLKSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_SYNC);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_SYNC,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register LCDSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register LCDSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_DISP);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_DISP,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register DISPSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register DISPSTS timeout\n");
- 
- 	if (crtc->dc->desc->is_xlcdc) {
- 		regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_XLCDC_CM);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     status & ATMEL_XLCDC_CM,
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register CMSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register CMSTS timeout\n");
- 
- 		regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_XLCDC_SD);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     !(status & ATMEL_XLCDC_SD),
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register SDSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register SDSTS timeout\n");
- 	}
- 
- 	pm_runtime_put_sync(dev->dev);
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-index fa8ad94e431a..acb017a2486b 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-@@ -724,19 +724,19 @@ static int atmel_hlcdc_dc_modeset_init(struct drm_device *dev)
- 
- 	ret = atmel_hlcdc_create_outputs(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create HLCDC outputs: %d\n", ret);
-+		drm_err(dev, "failed to create HLCDC outputs: %d\n", ret);
- 		return ret;
- 	}
- 
- 	ret = atmel_hlcdc_create_planes(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create planes: %d\n", ret);
-+		drm_err(dev, "failed to create planes: %d\n", ret);
- 		return ret;
- 	}
- 
- 	ret = atmel_hlcdc_crtc_create(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create crtc\n");
-+		drm_err(dev, "failed to create crtc\n");
- 		return ret;
- 	}
- 
-@@ -778,7 +778,7 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 
- 	ret = clk_prepare_enable(dc->hlcdc->periph_clk);
- 	if (ret) {
--		dev_err(dev->dev, "failed to enable periph_clk\n");
-+		drm_err(dev, "failed to enable periph_clk\n");
- 		return ret;
- 	}
- 
-@@ -786,13 +786,13 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 
- 	ret = drm_vblank_init(dev, 1);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to initialize vblank\n");
-+		drm_err(dev, "failed to initialize vblank\n");
- 		goto err_periph_clk_disable;
- 	}
- 
- 	ret = atmel_hlcdc_dc_modeset_init(dev);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to initialize mode setting\n");
-+		drm_err(dev, "failed to initialize mode setting\n");
- 		goto err_periph_clk_disable;
- 	}
- 
-@@ -802,7 +802,7 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 	ret = atmel_hlcdc_dc_irq_install(dev, dc->hlcdc->irq);
- 	pm_runtime_put_sync(dev->dev);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to install IRQ handler\n");
-+		drm_err(dev, "failed to install IRQ handler\n");
- 		goto err_periph_clk_disable;
- 	}
- 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-index 50fee6a93964..0b8a86afb096 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-@@ -15,6 +15,7 @@
- #include <drm/drm_bridge.h>
- #include <drm/drm_encoder.h>
- #include <drm/drm_of.h>
-+#include <drm/drm_print.h>
- #include <drm/drm_simple_kms_helper.h>
- 
- #include "atmel_hlcdc_dc.h"
-@@ -92,7 +93,7 @@ static int atmel_hlcdc_attach_endpoint(struct drm_device *dev, int endpoint)
- 	output->bus_fmt = atmel_hlcdc_of_bus_fmt(ep);
- 	of_node_put(ep);
- 	if (output->bus_fmt < 0) {
--		dev_err(dev->dev, "endpoint %d: invalid bus width\n", endpoint);
-+		drm_err(dev, "endpoint %d: invalid bus width\n", endpoint);
- 		return -EINVAL;
- 	}
- 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-index 4a7ba0918eca..817284509b57 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-@@ -1034,7 +1034,7 @@ static void atmel_hlcdc_irq_dbg(struct atmel_hlcdc_plane *plane,
- 	if (isr &
- 	    (ATMEL_HLCDC_LAYER_OVR_IRQ(0) | ATMEL_HLCDC_LAYER_OVR_IRQ(1) |
- 	     ATMEL_HLCDC_LAYER_OVR_IRQ(2)))
--		dev_dbg(plane->base.dev->dev, "overrun on plane %s\n",
-+		drm_dbg(plane->base.dev, "overrun on plane %s\n",
- 			desc->name);
- }
- 
-@@ -1051,7 +1051,7 @@ static void atmel_xlcdc_irq_dbg(struct atmel_hlcdc_plane *plane,
- 	if (isr &
- 	    (ATMEL_XLCDC_LAYER_OVR_IRQ(0) | ATMEL_XLCDC_LAYER_OVR_IRQ(1) |
- 	     ATMEL_XLCDC_LAYER_OVR_IRQ(2)))
--		dev_dbg(plane->base.dev->dev, "overrun on plane %s\n",
-+		drm_dbg(plane->base.dev, "overrun on plane %s\n",
- 			desc->name);
- }
- 
-@@ -1140,7 +1140,7 @@ static void atmel_hlcdc_plane_reset(struct drm_plane *p)
- 	if (state) {
- 		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
- 			kfree(state);
--			dev_err(p->dev->dev,
-+			drm_err(p->dev,
- 				"Failed to allocate initial plane state\n");
- 			return;
- 		}
++menuconfig ARCH_HPE
++	bool "HPE SoC support"
++	depends on ARCH_MULTI_V7
++	help
++	  This enables support for HPE ARM based BMC chips.
++
++if ARCH_HPE
++
++config ARCH_HPE_GXP
++	bool "HPE GXP SoC"
++	depends on ARCH_MULTI_V7
++	select ARM_VIC
++	select GENERIC_IRQ_CHIP
++	select CLKSRC_MMIO
++	help
++	  HPE GXP is the name of the HPE Soc. This SoC is used to implement many
++	  BMC features at HPE. It supports ARMv7 architecture based on the Cortex
++	  A9 core. It is capable of using an AXI bus to which a memory controller
++	  is attached. It has multiple SPI interfaces to connect boot flash and
++	  BIOS flash. It uses a 10/100/1000 MAC for network connectivity. It
++	  has multiple i2c engines to drive connectivity with a host
++	  infrastructure.
++
++endif
++
+ menuconfig ARCH_MOXART
+ 	bool "MOXA ART SoC"
+ 	depends on ARCH_MULTI_V4
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index e31e95ffd33fc..b7de4b6b284ca 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -189,7 +189,6 @@ machine-$(CONFIG_ARCH_FOOTBRIDGE)	+= footbridge
+ machine-$(CONFIG_ARCH_GEMINI)		+= gemini
+ machine-$(CONFIG_ARCH_HIGHBANK)		+= highbank
+ machine-$(CONFIG_ARCH_HISI)		+= hisi
+-machine-$(CONFIG_ARCH_HPE)		+= hpe
+ machine-$(CONFIG_ARCH_IXP4XX)		+= ixp4xx
+ machine-$(CONFIG_ARCH_KEYSTONE)		+= keystone
+ machine-$(CONFIG_ARCH_LPC18XX)		+= lpc18xx
+diff --git a/arch/arm/mach-hpe/Kconfig b/arch/arm/mach-hpe/Kconfig
+deleted file mode 100644
+index 3372bbf38d383..0000000000000
+--- a/arch/arm/mach-hpe/Kconfig
++++ /dev/null
+@@ -1,23 +0,0 @@
+-menuconfig ARCH_HPE
+-	bool "HPE SoC support"
+-	depends on ARCH_MULTI_V7
+-	help
+-	  This enables support for HPE ARM based BMC chips.
+-if ARCH_HPE
+-
+-config ARCH_HPE_GXP
+-	bool "HPE GXP SoC"
+-	depends on ARCH_MULTI_V7
+-	select ARM_VIC
+-	select GENERIC_IRQ_CHIP
+-	select CLKSRC_MMIO
+-	help
+-	  HPE GXP is the name of the HPE Soc. This SoC is used to implement many
+-	  BMC features at HPE. It supports ARMv7 architecture based on the Cortex
+-	  A9 core. It is capable of using an AXI bus to which a memory controller
+-	  is attached. It has multiple SPI interfaces to connect boot flash and
+-	  BIOS flash. It uses a 10/100/1000 MAC for network connectivity. It
+-	  has multiple i2c engines to drive connectivity with a host
+-	  infrastructure.
+-
+-endif
+diff --git a/arch/arm/mach-hpe/Makefile b/arch/arm/mach-hpe/Makefile
+deleted file mode 100644
+index 8b0a91234df4e..0000000000000
+--- a/arch/arm/mach-hpe/Makefile
++++ /dev/null
+@@ -1 +0,0 @@
+-obj-$(CONFIG_ARCH_HPE_GXP) += gxp.o
+diff --git a/arch/arm/mach-hpe/gxp.c b/arch/arm/mach-hpe/gxp.c
+deleted file mode 100644
+index 581c8da517b86..0000000000000
+--- a/arch/arm/mach-hpe/gxp.c
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/* Copyright (C) 2022 Hewlett-Packard Enterprise Development Company, L.P. */
+-
+-#include <asm/mach/arch.h>
+-
+-static const char * const gxp_board_dt_compat[] = {
+-	"hpe,gxp",
+-	NULL,
+-};
+-
+-DT_MACHINE_START(GXP_DT, "HPE GXP")
+-	.dt_compat	= gxp_board_dt_compat,
+-	.l2c_aux_val = 0,
+-	.l2c_aux_mask = ~0,
+-MACHINE_END
 -- 
-2.43.0
+2.39.2
 
 
