@@ -4,51 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E30CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60918CA0EE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+qAQfbsxZ2xxEAtuat8FTD4yEQiHGG+mhE5xvfud54U=; b=Q8xh1brZl0/Ozk+f8sAPF2vSyt
-	4vAXkV2jYzP5QQzO0Uad+NwY/QVb5FxuRpl2/j/PL9tJkaz531GiHgU7ANZVlssmf0feraH7LLzk1
-	yYg5r47HNf3MWEA0224Kd638hulYr80QXBFGNzADMMH+IitP7SbbAIVP8LVFu0v730/ImqpINvK2P
-	WyI3U6qzOXfzC6PvsOvp8KUiyh1TvHqLMD1eMsbR0kejC647JUlRd8GZW/xv/TvW+NEjU4+ei0Ou3
-	ZUh0nhT6/c4SraBmyD8Vbt4dmSPzO3jljY9whGpAU6cNPLqx8iipkQ315a5FHWB7OFn5Gap4RVbQf
-	w3GIQ/ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=; b=GrOMjLnb0TAIV4HjaCHDVOkv+X
+	ngxMFikCDVvczoem76ZaSvY3AMsE6B/ZAbbIEPmHoI2RjcuqdADnhtEHaff41JW+SgQl+6/cucQOW
+	LigdIM2T0iAliDNSfPnJbpjSXplEk6HntYIdpSzckoZ9882pivirahOiYVGw/bTwcLYIhYzDI/p+S
+	sUS/bMRBh2OSFuQllgboSmMpzWPn7rSge/dpEdLYxGnpf8E9NN+g/guoOe/wDFI2zXdldGmbPUZJn
+	G6XxoN0n9WUYq34iyP98tVTF7jrHelBJ+XuzBv6BBUY8kc/j8KnU0h7wPPGBNQnV63Na2FQOOgFjy
+	Z9H8J5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCML-0000000DtXr-2ZLT;
-	Wed, 13 Aug 2025 14:21:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1umCMO-0000000Dta2-0JxY;
+	Wed, 13 Aug 2025 14:21:48 +0000
+Received: from mail-mw2nam10on20605.outbound.protection.outlook.com ([2a01:111:f403:2412::605] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBfI-0000000Dmkp-1zF3
+	id 1umBxt-0000000Dq4Y-0p2F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:37:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 48748A57CFE;
-	Wed, 13 Aug 2025 13:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6B4C4CEF5;
-	Wed, 13 Aug 2025 13:37:12 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/2] arm64: dts: renesas: rzg2: Increase CANFD clock rates
-Date: Wed, 13 Aug 2025 15:37:04 +0200
-Message-ID: <0dd1c17135707587e9e9d6d68b2eaa1921fbcb7a.1755090456.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1755090456.git.geert+renesas@glider.be>
-References: <cover.1755090456.git.geert+renesas@glider.be>
+	Wed, 13 Aug 2025 13:56:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X1bw9ApJDujHPEjMlA1AHVtu/6FQ9ehstqErbkxMGnNi/ptHJaEVleM4pJ95u0e0FcSzr8AI8FXMbjXDB4XRXP9FxLD0PKjQyjxm7gWt5UFe83Xi61NjakFAyztGR4kjZTrBIzblmLatj86F5S0pVgqYQgUeqkNnDnCdxS2WXNqjBliu23oVgNsIx1VDHkXWc6gyu8lBn2BNCiJfMa9kdQNqORJNe+Q3Kyjo6aI6yHFrZUfgjRqs0MFHltxmMrDU/fPTqWF1475+3CNl/0R5b0a6BNw7/Hcm8RtxGVu5ebfIWLWXFPxAH7T1oU18xOaNe6zt8ilkFGM8lPyr8mj7Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=;
+ b=fKaoQU8lIK+tbp+LqANJNvy+Jr44KNrE8M8VHPjI7mQcaDAgnXwpAzQb1ryFA5m54uTcAf96na8XRsMWipE038ACO5bKKTLUm2r/buMLtkyyos1QrDVcS+hFaml1ke++vgYhA8Ji+nPzhIeKUxNG3qbZrSZaOHzkzzxVtfEXR/MDcP3DdlfOeHjTZn0ofgUPwUaiX3oa43eEJY/u/eCy95jOa7LuwLVRef4muW33TdRg13Iyd8V3yNhr21bovwC2by1bV62fsybgY75fHQCEDB5sxcn63J7LxV31dRA7h+ByAYwvgNYtL0QNH20JH/bKTC+WYUPE4u0Djb+w0BsohQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P9HDrqSl4eAGAcQQtTWAZCB6ff/9x8DN76oajFwBjts=;
+ b=FzpMFYMo1+PdQRNHdWo98K1wQk9sMw/EsudDFHnX4LtA6H9c2LYthu18SbwCHUhQKEKIpUGf8PGwBzWTPcfsDwsM2hVqPwJZhld4d9jETT/S5reai76WDvu+JRsqqplt7f6sbw3w3ziG1aAgMvf5ilU/SRkP/bbtpGL9d4iWcmM=
+Received: from SJ0PR05CA0034.namprd05.prod.outlook.com (2603:10b6:a03:33f::9)
+ by BL1PR12MB5900.namprd12.prod.outlook.com (2603:10b6:208:398::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.22; Wed, 13 Aug
+ 2025 13:56:06 +0000
+Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
+ (2603:10b6:a03:33f:cafe::cc) by SJ0PR05CA0034.outlook.office365.com
+ (2603:10b6:a03:33f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.14 via Frontend Transport; Wed,
+ 13 Aug 2025 13:56:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9031.11 via Frontend Transport; Wed, 13 Aug 2025 13:56:05 +0000
+Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 13 Aug
+ 2025 08:56:03 -0500
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB06.amd.com
+ (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 13 Aug
+ 2025 08:56:03 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Wed, 13 Aug 2025 08:56:00 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <michal.simek@amd.com>,
+	<sean.anderson@linux.dev>, <radhey.shyam.pandey@amd.com>, <horms@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
+Subject: [PATCH net V2] net: xilinx: axienet: Fix RX skb ring management in DMAengine mode
+Date: Wed, 13 Aug 2025 19:25:59 +0530
+Message-ID: <20250813135559.1555652-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|BL1PR12MB5900:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd1cd7cb-b106-4ccd-8acb-08ddda71257e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CD3NWvFyx/cXv/c0n5a8yMPQoQKbA+rw+RyF9fjG3hlwY7Z5yRSJz15Pg1Kq?=
+ =?us-ascii?Q?GPB1nPIbPCAJAtc5vlmSeNe1Xt2oVcl42DL5ivWH8k8XXBRZmh3k7oM/uVlL?=
+ =?us-ascii?Q?FFCjOYftGBr1ax6mGyA/w4Wrhxq+FAGS3ezbWx6JQ2Lwm9wOlcpF/0O6XzXR?=
+ =?us-ascii?Q?kM4VfZFHTXRYKhGZ5jlgXhj73EzdFreh67j7BtmKQ7cBKEkewwWvrF+XMP/7?=
+ =?us-ascii?Q?b+2mZfenzzcX1gAWouPji6qbBISamwfrYQwHK2t27Pp8Q36mcH78rFk0uIE6?=
+ =?us-ascii?Q?NdsUUWjHV8E+TofXm+sqC26DEV1p7ETNd7fJEcu3Nws2Uo3seg8yIjhGtOpo?=
+ =?us-ascii?Q?QMVXkzc0k0jtLaHy1hphBsBjKIY6K5MYZ4UwNH2H6UP9G2z8A2BgKYHsXJtI?=
+ =?us-ascii?Q?Z6mTUZeF6hBxyww6vYkaiJGawS0Tpdfm3wPY5AFGjhV3rFgVURVuRqOoDSrS?=
+ =?us-ascii?Q?gNr5NOzAai7Wtbkwr2NIEVn8Dtw09N9K3yGcH4aVViDbKXSB1HnZX+Gk45so?=
+ =?us-ascii?Q?C9VABWWS/5ETj7IbCGAJILahdC0RKGS0SP33xg8ZjL964oK4F86zThZJmR9i?=
+ =?us-ascii?Q?LXLDG/lG/7sr5clQeIlEEbyK24WRK7/lUxiGZxKh483Y4mEMRAGWdytFpDiB?=
+ =?us-ascii?Q?x2x+EPeJQ0qnfNMQtDMlyC2vSrQ3tRaXo22gJWzeFxNy354hei+unJp/S5UP?=
+ =?us-ascii?Q?V59rXOV5PonBRimlRL50pTdT1Z0FutnHWjy+Y3fZXaWm7ba0oo/iMgDgc/yT?=
+ =?us-ascii?Q?71tJapjKIRwy2Eruma0J2bm7QWJfWyZGrRRF8zAL3C0fjbuHI+8jh8ORa2Ux?=
+ =?us-ascii?Q?8fheB7eaP7g3ITR8rwHXT7QmIBlyUf8jAx3/4PywmU1wrJFv2wMu8l1IMYC6?=
+ =?us-ascii?Q?PUZ2z1oacB/t7gaiHoK1hv2XEMRgL8ExYR+MsFMRouh4xaPGqKUKwq9jQSVk?=
+ =?us-ascii?Q?hy793kzX6RP3QtSANtym6xV4WKouePesv6FkBK2aSmkQgh6VIKPzj5JyCfjv?=
+ =?us-ascii?Q?ONI5oMPe8oMjLXgKeypLwcdP0Y+mAuGCBAwxAZe9zclm3slW6PO3XE7GByxo?=
+ =?us-ascii?Q?v/LxULyMqiH9gJLgQENdivyimfgkr+GvqKwIXoGoxQRdc+u9hUOOAlSvIiYP?=
+ =?us-ascii?Q?QNbTYOYYQTy2sQtdIqw6Yx3+HBp/zXK5uBhGXzdVt5IlHdF9zjXAhJjOpEfA?=
+ =?us-ascii?Q?ZUG/6pf6PIgesFOJRlJUM2JI2ucyfLZ9cQoCOztLfDorkjTqJsVRXkyqFdE8?=
+ =?us-ascii?Q?5Y7TdrRsEOZBqQtTIowtDArsibxg/r4rCXq+3Qrw2hzoDz1+KgLE1GqXfNO1?=
+ =?us-ascii?Q?DXHXfBZHvUJPVnoP+UGzD8qGjTZ5rn2mT8XtItUf39QbKnQGOroIfJLb69/D?=
+ =?us-ascii?Q?idvOvjGdAAQd7ShtNGpAzUIxEcNcXoe0RLylylhsi85tDrteBwv0Nq1M1tEb?=
+ =?us-ascii?Q?y7RFfWYWOeKVT6SGNMrAMVT4TZ+GZ2JlfL+hE0IDOONfqgl5PQMB2bHABkGa?=
+ =?us-ascii?Q?byohBzQ011YBk3qMT2VtTgLbMJrrBNfMC0IY?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 13:56:05.0335
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd1cd7cb-b106-4ccd-8acb-08ddda71257e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5900
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_063716_650769_D170EF03 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250813_065629_372898_F7E9019E 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,75 +147,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, all RZ/G2 .dtsi files configure the CANFD core clocks to 40
-MHz, which limits CAN-FD data transfer rates to 4 Mbps.  However, all
-RZ/G2 SoCs support CANFD clock rates up to 80 MHz.
+Submit multiple descriptors in axienet_rx_cb() to fill Rx skb ring. This
+ensures the ring "catches up" on previously missed allocations.
 
-Now the R-Car CAN-FD driver has gained support for Transceiver Delay
-Compensation, increase all appropriate CANFD clock rates to the
-documented maximum, to support data rates up to 8 Mbps.
+Increment Rx skb ring head pointer after BD is successfully allocated.
+Previously, head pointer was incremented before verifying if descriptor is
+successfully allocated and has valid entries, which could lead to ring
+state inconsistency if descriptor setup failed.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+These changes improve reliability by maintaining adequate descriptor
+availability and ensuring proper ring buffer state management.
+
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
 ---
- arch/arm64/boot/dts/renesas/r8a774a1.dtsi | 2 +-
- arch/arm64/boot/dts/renesas/r8a774b1.dtsi | 2 +-
- arch/arm64/boot/dts/renesas/r8a774c0.dtsi | 2 +-
- arch/arm64/boot/dts/renesas/r8a774e1.dtsi | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+Changes in V2:
+- Submit multiple descriptors in axienet_rx_cb().
+- Modify commit subject and description.
+---
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a774a1.dtsi b/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
-index c8b87aed92a368b1..6b737d91b320f483 100644
---- a/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
-@@ -1186,7 +1186,7 @@ canfd: can@e66c0000 {
- 				 <&can_clk>;
- 			clock-names = "fck", "canfd", "can_clk";
- 			assigned-clocks = <&cpg CPG_CORE R8A774A1_CLK_CANFD>;
--			assigned-clock-rates = <40000000>;
-+			assigned-clock-rates = <80000000>;
- 			power-domains = <&sysc R8A774A1_PD_ALWAYS_ON>;
- 			resets = <&cpg 914>;
- 			status = "disabled";
-diff --git a/arch/arm64/boot/dts/renesas/r8a774b1.dtsi b/arch/arm64/boot/dts/renesas/r8a774b1.dtsi
-index f2fc2a2035a1d491..3f15d656215e15e8 100644
---- a/arch/arm64/boot/dts/renesas/r8a774b1.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a774b1.dtsi
-@@ -1070,7 +1070,7 @@ canfd: can@e66c0000 {
- 				 <&can_clk>;
- 			clock-names = "fck", "canfd", "can_clk";
- 			assigned-clocks = <&cpg CPG_CORE R8A774B1_CLK_CANFD>;
--			assigned-clock-rates = <40000000>;
-+			assigned-clock-rates = <80000000>;
- 			power-domains = <&sysc R8A774B1_PD_ALWAYS_ON>;
- 			resets = <&cpg 914>;
- 			status = "disabled";
-diff --git a/arch/arm64/boot/dts/renesas/r8a774c0.dtsi b/arch/arm64/boot/dts/renesas/r8a774c0.dtsi
-index 530ffd29cf13da00..55df063cb32327c2 100644
---- a/arch/arm64/boot/dts/renesas/r8a774c0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a774c0.dtsi
-@@ -1029,7 +1029,7 @@ canfd: can@e66c0000 {
- 				 <&can_clk>;
- 			clock-names = "fck", "canfd", "can_clk";
- 			assigned-clocks = <&cpg CPG_CORE R8A774C0_CLK_CANFD>;
--			assigned-clock-rates = <40000000>;
-+			assigned-clock-rates = <80000000>;
- 			power-domains = <&sysc R8A774C0_PD_ALWAYS_ON>;
- 			resets = <&cpg 914>;
- 			status = "disabled";
-diff --git a/arch/arm64/boot/dts/renesas/r8a774e1.dtsi b/arch/arm64/boot/dts/renesas/r8a774e1.dtsi
-index e4dbda8c34d9eaef..5d730b488d46f24b 100644
---- a/arch/arm64/boot/dts/renesas/r8a774e1.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a774e1.dtsi
-@@ -1298,7 +1298,7 @@ canfd: can@e66c0000 {
- 				 <&can_clk>;
- 			clock-names = "fck", "canfd", "can_clk";
- 			assigned-clocks = <&cpg CPG_CORE R8A774E1_CLK_CANFD>;
--			assigned-clock-rates = <40000000>;
-+			assigned-clock-rates = <80000000>;
- 			power-domains = <&sysc R8A774E1_PD_ALWAYS_ON>;
- 			resets = <&cpg 914>;
- 			status = "disabled";
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index 6011d7eae0c7..0d8a05fe541a 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -1160,6 +1160,7 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	struct axienet_local *lp = data;
+ 	struct sk_buff *skb;
+ 	u32 *app_metadata;
++	int i;
+ 
+ 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
+ 	skb = skbuf_dma->skb;
+@@ -1178,7 +1179,10 @@ static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+ 	u64_stats_add(&lp->rx_packets, 1);
+ 	u64_stats_add(&lp->rx_bytes, rx_len);
+ 	u64_stats_update_end(&lp->rx_stat_sync);
+-	axienet_rx_submit_desc(lp->ndev);
++
++	for (i = 0; i < CIRC_SPACE(lp->rx_ring_head, lp->rx_ring_tail,
++				   RX_BUF_NUM_DEFAULT); i++)
++		axienet_rx_submit_desc(lp->ndev);
+ 	dma_async_issue_pending(lp->rx_chan);
+ }
+ 
+@@ -1457,7 +1461,6 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
+ 	if (!skbuf_dma)
+ 		return;
+ 
+-	lp->rx_ring_head++;
+ 	skb = netdev_alloc_skb(ndev, lp->max_frm_size);
+ 	if (!skb)
+ 		return;
+@@ -1482,6 +1485,7 @@ static void axienet_rx_submit_desc(struct net_device *ndev)
+ 	skbuf_dma->desc = dma_rx_desc;
+ 	dma_rx_desc->callback_param = lp;
+ 	dma_rx_desc->callback_result = axienet_dma_rx_cb;
++	lp->rx_ring_head++;
+ 	dmaengine_submit(dma_rx_desc);
+ 
+ 	return;
 -- 
-2.43.0
+2.25.1
 
 
