@@ -4,47 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B2DC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F67C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2r+YvwUMTdRXgaHGTUxzpAdECRkvs+ADcectHSFWKx8=; b=nJfTIjbp5sqJ04tgGfzQj99qJk
-	FeyhMkGNVQubFJwaxDV81yYe+eWb6AwxO5v0r6hAnLrBJliIrlINmt2DyZa0zcZ44qRqcXe0/mtyy
-	6C7vbxPhCVu7DbTioZZx1RkAJq6xjX/aPwl/ZIg8/C/AhorMOfm7cIXs7WW7NNE8HxmxnhyT7L9+P
-	1ViMvdfZ2tI/RVeQezs4aFhZn9/munzjQIl1eJqy2TgYbqUIOEbrzjbedgKoIb45O0fEBp2bnY2WI
-	zViVhTUZkZ8MB9KBnHLcn3UW4BHtMLIztYfvOwendCCx+LHX07SH7yvIupcJiV70q1/VSgTINXg+8
-	lzhqllEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SJZXS5Y9aHrIczypKO6ef3Wj3AFrPGLvZe4rLGJS3xk=; b=LykHQiVpCZ3YoTAoLo95j8bGU5
+	FEhBxZcw9UHCPhX3wRQEKsWxu18l+XPenxJcIxwRYcDtYem+WTATEuwAJLxcJ11lmM/XEyog4jgqD
+	iQaU5CQQNHIg/TCbwOv2CdvX0rAs81wlZqZaCdAjfmzujgqGEE9hlbjyPg+qy+VQZTqu2GW5svBsD
+	tLKCc7CGFj8N6pV28tMSbcZKCyJ7t+ggeICwd0Q6tmVas5xzfa+C0HoIhs5z6EqNrVkoNgJ5e6U3K
+	pRomif2kcjktNe5pkPOi7CdEAdteOnmHmK3dFoopBk7SKesLWknb5hmBQHb+BZ3Jqob0lxSKF6lk0
+	RJMKzuLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCMQ-0000000DtcW-1SCC;
-	Wed, 13 Aug 2025 14:21:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umC8r-0000000DsOt-30ug
+	id 1umCYn-0000000DvSn-0e3d;
+	Wed, 13 Aug 2025 14:34:37 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umCWD-0000000Dv10-1CnC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:07:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A0D112FC;
-	Wed, 13 Aug 2025 07:07:40 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91DEF3F5A1;
-	Wed, 13 Aug 2025 07:07:47 -0700 (PDT)
-Date: Wed, 13 Aug 2025 15:07:34 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: cristian.marussi@arm.com
-Subject: [REGRESSION] Virtio networking issues on v6.17-rc1
-Message-ID: <aJycJvs3xztfD5Rm@pluto>
+	Wed, 13 Aug 2025 14:31:58 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEVdDU1666826;
+	Wed, 13 Aug 2025 09:31:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755095499;
+	bh=SJZXS5Y9aHrIczypKO6ef3Wj3AFrPGLvZe4rLGJS3xk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=hmEMQZUTT/pXyUFwBoyXlc4tJ48HL8cxn8e7BBGxI+xqNdD2l/hqey9hBgBwSSuq9
+	 2WpYoSEpuagwD0P4c8Nr/naQigy7Qign6Dm2aqQtm8YsQNm3GxHze/61uEz7g945M+
+	 3N8sakLTAXiPBvdYaUCsrB8wHwT79+Et3Sw8I380=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEVdW81036454
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 13 Aug 2025 09:31:39 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
+ Aug 2025 09:31:38 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 13 Aug 2025 09:31:38 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEVcTu2133995;
+	Wed, 13 Aug 2025 09:31:38 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Santosh Shilimkar <ssantosh@kernel.org>,
+        =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+CC: Nishanth Menon <nm@ti.com>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2] soc: ti: pruss: don't use %pK through printk
+Date: Wed, 13 Aug 2025 09:31:36 -0500
+Message-ID: <175509547996.156478.5117406591592033849.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250811-restricted-pointers-soc-v2-1-7af7ed993546@linutronix.de>
+References: <20250811-restricted-pointers-soc-v2-1-7af7ed993546@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_070749_794526_395B1E68 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250813_073157_410739_3B5DD8FA 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,78 +84,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Thomas Weißschuh,
 
-Not sure if it has been already reported but in a kvmtool/guest setup moving
-the guest kernel from v6.16 to v6.17-rc1 I completely lost host-guest network
-functionality....in a very funny way, though, I'd say...
+On Mon, 11 Aug 2025 09:48:30 +0200, Thomas Weißschuh wrote:
+> In the past %pK was preferable to %p as it would not leak raw pointer
+> values into the kernel log.
+> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+> the regular %p has been improved to avoid this issue.
+> Furthermore, restricted pointers ("%pK") were never meant to be used
+> through printk(). They can still unintentionally leak raw pointers or
+> acquire sleeping locks in atomic contexts.
+> 
+> [...]
 
-In fact NO error is apparently reported in the guest kernel log and the
-interfaces seems perfectly up an running both sides, but looking at the
-host/guest interfaces you can see that ALL received frames are indeed dropped:
+I have applied the following to branch ti-drivers-soc-next on [1].
+Thank you!
 
+[1/1] soc: ti: pruss: don't use %pK through printk
+      commit: a5039648f86424885aae37f03dc39bc9cb972ecb
 
-enp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-....
-        ether 02:15:15:15:15:15  txqueuelen 1000  (Ethernet)           <<<<<<<<<<<<<<<<
-        RX packets 125  bytes 17948 (17.5 KiB)
-        RX errors 0  dropped 125 overruns 0  frame 0
-        TX packets 1207  bytes 51182 (49.9 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-...on the host same..(taken later on...)
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-tap0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.168.33.1  netmask 255.255.255.0  broadcast 192.168.33.255
-        ether 8a:10:f6:df:a1:70  txqueuelen 1000  (Ethernet)
-        RX packets 804  bytes 43904 (42.8 KiB)
-        RX errors 0  dropped 804  overruns 0  frame 0
-        TX packets 101  bytes 14408 (14.0 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-....and for a good reason, apparently, since sniffing around on the Host TAP
-interface I can see a never ending stream of:
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
-$ sudo tcpdump -i tap0
-listening on tap0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-22:40:42.309158 00:00:00:00:00:00 (oui Ethernet) > 00:00:00:00:00:00 (oui Ethernet), ethertype Unknown (0xffff), length 54:
-	0x0000:  ffff ffff 0215 1515 1515 0806 0001 0800  ................       <<<<<<<<<<<<<
-	0x0010:  0604 0001 0215 1515 1515 c0a8 2102 0000  ............!...
-	0x0020:  0000 0000 c0a8 2101                      ......!.
-
-... DST/SRC Macs are just all zeros WHILE in the payload you can spot my guest
-SRC mac address 0215 1515 1515  :P
-
-...or on a different instance:
-
-tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
-listening on tap0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-14:57:57.127171 00:00:00:00:00:00 (oui Ethernet) > 00:00:00:00:00:00 (oui Ethernet), ethertype Unknown (0x3333), length 82: 
-	0x0000:  0000 0002 0215 1515 1515 86dd 6000 0000  ............`...
-	0x0010:  0010 3aff fe80 0000 0000 0000 0015 15ff  ..:.............
-	0x0020:  fe15 1515 ff02 0000 0000 0000 0000 0000  ................
-	0x0030:  0000 0002 8500 26b0 0000 0000 0101 0215  ......&.........
-	0x0040:  1515 1515                                ....
-
-...so it seems the frame is 'shifted' by 10 bytes or more and random
-garbage pollutes the Ether frame...
-
-I am using a vanilla kvmtool at:
-
-	ba6830e vfio: include libgen.h (for musl compatibility)
-
-and run with:
-
-	lkvm run -c 4 -m 4G -k $IMAGE_DEF --network virtio -d $ROOTFS_DEF -p "earlycon loglevel=8"
-
-and I could reproduce this on a RaspberryPI_5 with a Host Kernel v6.6 and on an APPLE M1
-with Host Kernel v6.12.
-
-Has anybody seen something similar ? Did I miss something obvious ?
-
-...never saw this happening before on any previous kernel version.
-
-Thanks,
-Cristian
 
