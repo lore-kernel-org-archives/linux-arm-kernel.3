@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE25C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 04:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C8CCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 05:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CwnKkZvZhkX1RtkJBhO4reJAws7TqPxb+7QzLl+JFuI=; b=k109zyA2Etf1E6KqXxUCoaJX/F
-	CUWIe8I9N9Sijm7n9dioB//HXnBzphm6gEJGLxUp+UcvK4pT99fjF/UkXWWCGfmeKq7K+K9p5Xx19
-	3hh+uQMy9cLkcWzpD2uPikSlK7txjK3jNi6PAPtUOkEE1lnNnE/vAvNzO3qoYNfKuFG2b8qKDsE/6
-	1v51bMR4UXQd2UCZzS3UybdbxH1B2p7LVi7b9+QvO7JDGMUVhOz+3WJvzd9uGuAMRpFCZghI9QJ54
-	dXXnbo9uiEPYCGXO6HziKtXso3preMccuQ+xBPXynrTeJSqhCtsPl4PhbstndzLUtvmGlcXUbMvTn
-	1feZrLeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fEZpKy93KwsZzwDENO82mv0vqJLUvc/sxgMgyLQLjXY=; b=TyS0dSqZpd1YB6u/aKZehIKKyY
+	HlzXpBSByauZyb+vWSZbi7uKQTiPQHFyW7AID4PqOqLfDXjDY00vpFPKb+gY8u9ZObcQfIUDJWSSv
+	oVWrVqrerVd5S+6lNc7+z+TDiGJrLikzySjbNhOOWpZIU/E+FjCxfl0TLj0cDs5IMORncuwx0FA/O
+	TZFznQgsG+vZoAn64jOnfhE0jcy/78B8phiQBiXrHRxjqVKv7fvb/OdxrFT/0mxC3ry/o7o0VWERn
+	WAOm5O9rz5UYKIZ5fAjXMFyoyHwVNK28070uMAhRf7dSRqj3Q79Fg87bTwO2/BY94idn6b2Ml8nX6
+	ZBV+sdjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um3OW-0000000CboI-3mR6;
-	Wed, 13 Aug 2025 04:47:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1um3f5-0000000CdA1-2th1;
+	Wed, 13 Aug 2025 05:04:31 +0000
+Received: from mail-pg1-f180.google.com ([209.85.215.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um3Lz-0000000CbXL-0HfU
+	id 1um3cX-0000000Cd4j-3nuY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 04:44:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B849601F3;
-	Wed, 13 Aug 2025 04:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEBC4C4CEEB;
-	Wed, 13 Aug 2025 04:44:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755060283;
-	bh=mLumtAp+bbBtgP7qUvg6ku56O+DpRiPGVHcqO7y1glo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=WffvXXt28pnoVIhHLjWzUtfZCMtH4qYK5bBaPX4HWz5kB7T3MoapSkhW4wH40s4bG
-	 QJ/2350vbeL82pY0E5uF1s4YkpTE02LxibIdv/cecRDVWgnv/Xl9z553rzzD9/BtPP
-	 JEzZYZOxeXxVfFug9meWaJSPUOswUcrfseuM0oYrDOhSESMb//mpQMczfRBQQSt1hh
-	 ogJv1wv6YOXYHfoBWB7VvG/kLWHRdhZL8ZkmH967yBMxZ2X7scDnAOGp2nVTA3sQT2
-	 W0XPT6Wjcl1Ml4trN4AmYBqLWA/5kSy8oBiYjrmsJ4zxrbdNDhVd1j79DLTU6rjQAa
-	 0Pze0RK9bFLQQ==
-Date: Tue, 12 Aug 2025 23:44:42 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 13 Aug 2025 05:01:55 +0000
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-b46f2570acbso321538a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 22:01:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755061313; x=1755666113;
+        h=content-transfer-encoding:subject:organization:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fEZpKy93KwsZzwDENO82mv0vqJLUvc/sxgMgyLQLjXY=;
+        b=bNnULwQebfqjUn6mbIA8K66lcRRSDNE098iXXRzCHmoicfKKbIHvRb85IfqVOnYwyi
+         J7X/T+cAUnYKhF/fsfY4h/PjRq5dB7Wi9KN4M01fx1IEjxRB3kgPck7/ETuDMj8EF/hW
+         01X7OHXTW1W/ULKhmyBh8KklqzKD8KdeJLNXzEuhQ+5R0WNhAHpMT3pxlszq711ly9n4
+         +WTj4iqe+aWkF8wwMLZ2c0pyAGaB7JRVlrhOdw9HlpX72KDcGIOEAZobFeJfBHmtioxO
+         e11j6Juz0Mc94l/+/PAxwrA/fYDB1aZJvMBiEEy700HRZT6ka3LL42WWoI/k41x2Gt0V
+         GZCw==
+X-Forwarded-Encrypted: i=1; AJvYcCVT2S8fW34x+oIS4JEGJvb51xuXdoK7frq4FIAvr56O58gSI7jZRxObX14CwbN/+fO0zsqlDf8s6cP3xZl0jRBm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLC2mcXoPcmLEhc+HxdBaGm+ljxiJe3XNlZjOXbIUWMfyaRuH1
+	fOZBWLnfpemUUf5Mneba58vfPuldPBO+fWmLXvtvCO5GXQYGwAOSD59T5ugZgw==
+X-Gm-Gg: ASbGncvChJRyGZseOT6+gpupI9EXSCzNSxvoeF6YqE30x8qgYbg7XDIm+tn3p3+Mp1e
+	BBNK9VCIX5Lyff7n9atfCcAFdqiv50+3LApV4PmI+3SNtm5DMUDiImYoX9efTOZAPX9Wh9rByJn
+	JaUSg0MAYoSfLB2Jqj1n/8pn3vg0rtUcdSvt2jeiJdEh4S9i/px6AD6Oi2hhMh5ONKH0Jf7Qzpi
+	X0RyImq0sRZ59q0ftIK3cyXJ+j3t8KYxCULdg+Ljk8EQRrda4MJkez7TReZ4UyRKpT1NTFPDpDY
+	FdMOWTpkh9RmIa4SlqC0VPwU6/kowq7XATyY0KN2jplXVgg9nVY/cGeRbMxwAQak2SZi2Fis7Dk
+	clvE6XmFBsiwBfbiJ6Gs+JMDvycGYVNBa
+X-Google-Smtp-Source: AGHT+IGY5yLj/I/IkcPxLpksicKcihBsAfqxMOagl8R5SrYJsF+l3779kjiHTiFGMZhZcU8311NzNw==
+X-Received: by 2002:a05:6a00:815:b0:730:87b2:e848 with SMTP id d2e1a72fcca58-76e20fae24dmr1088857b3a.5.1755061313110;
+        Tue, 12 Aug 2025 22:01:53 -0700 (PDT)
+Received: from [192.168.50.136] ([118.32.98.101])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bf606978bsm25154871b3a.89.2025.08.12.22.01.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Aug 2025 22:01:52 -0700 (PDT)
+Message-ID: <c36e8dca-d466-40ad-ad51-2b75e769ff47@kzalloc.com>
+Date: Wed, 13 Aug 2025 14:01:47 +0900
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Robert Foss <rfoss@kernel.org>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- linux-arm-msm@vger.kernel.org, linux-i2c@vger.kernel.org, 
- Manivannan Sadhasivam <mani@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Todor Tomov <todor.too@gmail.com>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-samsung-soc@vger.kernel.org, 
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Dongchun Zhu <dongchun.zhu@mediatek.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-In-Reply-To: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
-References: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
- <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
-Message-Id: <175506028291.2605875.11473205221167147078.robh@kernel.org>
-Subject: Re: [PATCH v2 01/72] dt-bindings: media: Deprecate clock-frequency
- property for camera sensors
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Naresh Kamboju <naresh.kamboju@linaro.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Austin Kim <austindh.kim@gmail.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-rt-devel@lists.linux.dev,
+ syzkaller@googlegroups.com, stable@vger.kernel.org
+From: Yunseong Kim <ysk@kzalloc.com>
+Organization: kzalloc
+Subject: [BUG] arm64: Sleeping function called from invalid context in
+ do_debug_exception on PREEMPT_RT
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250812_220153_954140_3276D57C 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,67 +93,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Wed, 13 Aug 2025 00:45:09 +0300, Laurent Pinchart wrote:
-> Usage of the clock-frequency property for camera sensors is discouraged
-> in favour of using assigned-clock-rates (and assigned-clock-parents
-> where needed). Mark the property as deprecated.
-> 
-> Update the examples accordingly. In DT examples where the sensor input
-> clock appears to come from a programmable clock generator, replace
-> clock-frequency by the assigned-clocks and assigned-clock-rates
-> properties. Otherwise, just drop clock-frequency.
-> 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> Changes since v1:
-> 
-> - Adapt examples in bindings that reference sensors
-> ---
->  Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
->  Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml  | 7 +++++--
->  .../devicetree/bindings/media/i2c/ovti,ov02a10.yaml        | 3 +--
->  .../devicetree/bindings/media/i2c/ovti,ov5645.yaml         | 6 +++++-
->  .../devicetree/bindings/media/i2c/ovti,ov7251.yaml         | 6 +++++-
->  .../devicetree/bindings/media/i2c/ovti,ov8856.yaml         | 3 +--
->  .../devicetree/bindings/media/i2c/samsung,s5k5baf.yaml     | 6 +++++-
->  .../devicetree/bindings/media/i2c/samsung,s5k6a3.yaml      | 6 +++++-
->  .../devicetree/bindings/media/i2c/sony,imx290.yaml         | 5 +++--
->  .../bindings/media/samsung,exynos4212-fimc-is.yaml         | 4 ++--
->  Documentation/devicetree/bindings/media/samsung,fimc.yaml  | 3 ++-
->  11 files changed, 38 insertions(+), 17 deletions(-)
-> 
+On a PREEMPT_RT kernel based on v6.16-rc1, I hit the following splat:
 
-My bot found errors running 'make dt_binding_check' on your patch:
+| BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+| in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 20466, name: syz.0.1689
+| preempt_count: 1, expected: 0
+| RCU nest depth: 0, expected: 0
+| Preemption disabled at:
+| [<ffff800080241600>] debug_exception_enter arch/arm64/mm/fault.c:978 [inline]
+| [<ffff800080241600>] do_debug_exception+0x68/0x2fc arch/arm64/mm/fault.c:997
+| CPU: 0 UID: 0 PID: 20466 Comm: syz.0.1689 Not tainted 6.16.0-rc1-rt1-dirty #12 PREEMPT_RT
+| Hardware name: QEMU KVM Virtual Machine, BIOS 2025.02-8 05/13/2025
+| Call trace:
+|  show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:466 (C)
+|  __dump_stack+0x30/0x40 lib/dump_stack.c:94
+|  dump_stack_lvl+0x148/0x1d8 lib/dump_stack.c:120
+|  dump_stack+0x1c/0x3c lib/dump_stack.c:129
+|  __might_resched+0x2e4/0x52c kernel/sched/core.c:8800
+|  __rt_spin_lock kernel/locking/spinlock_rt.c:48 [inline]
+|  rt_spin_lock+0xa8/0x1bc kernel/locking/spinlock_rt.c:57
+|  spin_lock include/linux/spinlock_rt.h:44 [inline]
+|  force_sig_info_to_task+0x6c/0x4a8 kernel/signal.c:1302
+|  force_sig_fault_to_task kernel/signal.c:1699 [inline]
+|  force_sig_fault+0xc4/0x110 kernel/signal.c:1704
+|  arm64_force_sig_fault+0x6c/0x80 arch/arm64/kernel/traps.c:265
+|  send_user_sigtrap arch/arm64/kernel/debug-monitors.c:237 [inline]
+|  single_step_handler+0x1f4/0x36c arch/arm64/kernel/debug-monitors.c:257
+|  do_debug_exception+0x154/0x2fc arch/arm64/mm/fault.c:1002
+|  el0_dbg+0x44/0x120 arch/arm64/kernel/entry-common.c:756
+|  el0t_64_sync_handler+0x3c/0x108 arch/arm64/kernel/entry-common.c:832
+|  el0t_64_sync+0x1ac/0x1b0 arch/arm64/kernel/entry.S:600
 
-yamllint warnings/errors:
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'clocks' is a required property
-	from schema $id: http://devicetree.org/schemas/media/i2c/samsung,s5k6a3.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'clocks' is a dependency of 'clock-names'
-	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'anyOf' conditional failed, one must be fixed:
-	'clocks' is a required property
-	'#clock-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+It seems that commit eaff68b32861 ("arm64: entry: Add entry and exit functions
+for debug exception") in 6.17-rc1, also present as 6fb44438a5e1 in mainline,
+removed code that previously avoided sleeping context issues when handling
+debug exceptions:
+Link: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/arch/arm64/mm/fault.c?id=eaff68b3286116d499a3d4e513a36d772faba587
 
-doc reference errors (make refcheckdocs):
+This appears to be triggered when force_sig_fault() is called from
+debug exception context, which is not sleepable under PREEMPT_RT.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250812214620.30425-2-laurent.pinchart@ideasonboard.com
+I understand that this path is primarily for debugging, but I would like
+to discuss whether the patch needs some adjustment for PREEMPT_RT.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+I also found that the issue can be reproduced depending on the changes
+introduced by the following commit:
+Link: https://github.com/torvalds/linux/commit/d8bb6718c4d
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+  arm64: Make debug exception handlers visible from RCU
+  Make debug exceptions visible from RCU so that synchronize_rcu()
+  correctly tracks the debug exception handler.
 
-pip3 install dtschema --upgrade
+  This also introduces sanity checks for user-mode exceptions as same
+  as x86's ist_enter()/ist_exit().
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+  The debug exception can interrupt in idle task. For example, it warns
+  if we put a kprobe on a function called from idle task as below.
+  The warning message showed that the rcu_read_lock() caused this
+  problem. But actually, this means the RCU lost the context which
+  was already in NMI/IRQ.
 
+    /sys/kernel/debug/tracing # echo p default_idle_call >> kprobe_events
+    /sys/kernel/debug/tracing # echo 1 > events/kprobes/enable
+    ...
+
+For reference:
+- v5.2.10: https://elixir.bootlin.com/linux/v5.2.10/source/arch/arm64/mm/fault.c#L810
+- v5.3-rc3: https://elixir.bootlin.com/linux/v5.3-rc3/source/arch/arm64/mm/fault.c#L787
+
+
+Do we need to restore some form of non-sleeping signal delivery in debug
+exception context for PREEMPT_RT, or is there another preferred fix?
+
+Thanks,
+Yunseong
 
