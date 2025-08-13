@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED291CA0EE5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A277CA0EE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RmjA/0wiM4s7TkHx13AGbryUZlazMaMKFUlnrneZd8=; b=O0lz2wyZBLLnMh0JynN7yRIiiA
-	aWRrVrhPF6m9BBvhVvazsbfkcT+sYYia9SoMi6GJCeMs4r+GmyKTwGWDzjo/jPM2mTERzbGW8/zUE
-	f5JXtCbJWwJGgAcJw5lgep7jliWumGZtOIDrukLRF6RNqE9uc9JlEtjCYjqzpJY6Bh+tnvm5pMoMF
-	8qxsyFQD4v25Pu+m/+eC0q4M9A2RxDEKJ4/N86C0KxmjbPFcxbSahzvGjnD1v6DHMuoMCb+spQfLh
-	JgBBQBAYjj+b3PUEDxvINBfBPMKiCy/Ubj0M5jNnwl1TYNHuZPoggFV3sznqTO+d5sHXzUKHyTgs9
-	oXXDLrUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NHREWrH7Mbs7rvCbLIz7UIapzcu/f0n2BpaQMkaLxAk=; b=fCBMUfvayhwxsnbClIM6oIYtbv
+	HJ8vgytP7mxnMRSck0RZV0OjuTIqEYQ2HL9vhwRi9drnrfiolvz0D0eH6ZiDGLSNqJz8SeDH0PL8b
+	gxBfY4Mpo3BOn/MCW+vCXcv0o7hXyjefu20k0ndW11ZBzYcf3DtnzsmEUfJatWXm618HTb0jgZDW5
+	ks6ydCG34L5lUcAXvjx3My2UDYXRPpBjno9Q05R7fPVWKbTznAaD/jIQVO+7nX3YZQkr3lpT3PVLO
+	9Vz0EQQDpXsZYmwvnzL6tgfWeOwNOrqMrH1Ie8iuOF83GjeS3l7jNP7d8An+3hwB5PpFPpRMLHdAB
+	f9Cw5Q3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFr8-0000000EeTm-2pR5;
-	Wed, 13 Aug 2025 18:05:46 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEVc-0000000ERgU-1Ecf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 16:39:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=0RmjA/0wiM4s7TkHx13AGbryUZlazMaMKFUlnrneZd8=; b=sLdiBpUQ6Yi+E7x3xU6hlF9M8i
-	PnCofosIIGDvBfpg1eNpOM7+bfa0aFRmpvdr80QrtJ4ZAihQqJI/yt8SHMhnaL94kqYLIq/Vl7sZ0
-	z3r12w8VXITbqpgNB981DFKF4qjjhw8HfynZBRCAj8z4okX0Ycn1Rz3UiGNTrvHkkME9mEPB7FNWZ
-	BBgiPuymq90exhf6beW9yubxMbXDTN8qvjdqdrtcLR8kcITjAccHv0uuZQXY6Eitdn/sEdYKOe8Dn
-	5ijge/Vtvg4pvrx9GIfPJI9NslD/y4GbqhV+tGVBGiBoVPEPbcCojGZJgv1lX+SULMrBi/WpbjN5e
-	wE7F558w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34320)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1umEVL-00073q-0M;
-	Wed, 13 Aug 2025 17:39:11 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1umEVF-0005uD-34;
-	Wed, 13 Aug 2025 17:39:06 +0100
-Date: Wed, 13 Aug 2025 17:39:05 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH net-next v2 06/10] arm64: dts: allwinner: a527:
- cubie-a5e: Add ethernet PHY reset setting
-Message-ID: <aJy_qUbmqoOG-GBC@shell.armlinux.org.uk>
-References: <20250813145540.2577789-1-wens@kernel.org>
- <20250813145540.2577789-7-wens@kernel.org>
- <aJyraGJ3JbvfGfEw@shell.armlinux.org.uk>
- <CAGb2v67cKrQygew2CVaq5GCGvzcpkSdU_12Gjq9KR7tFFBow0Q@mail.gmail.com>
+	id 1umFrS-0000000Eeoo-3hdr;
+	Wed, 13 Aug 2025 18:06:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umEqw-0000000EVJX-1l85;
+	Wed, 13 Aug 2025 17:01:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8977914BF;
+	Wed, 13 Aug 2025 10:01:21 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 704653F738;
+	Wed, 13 Aug 2025 10:01:25 -0700 (PDT)
+From: Robin Murphy <robin.murphy@arm.com>
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com
+Cc: linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	coresight@lists.linaro.org,
+	iommu@lists.linux.dev,
+	linux-amlogic@lists.infradead.org,
+	linux-cxl@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 01/19] perf/arm-cmn: Fix event validation
+Date: Wed, 13 Aug 2025 18:00:53 +0100
+Message-Id: <0716da3e77065f005ef6ea0d10ddf67fc53e76cb.1755096883.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
+In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
+References: <cover.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v67cKrQygew2CVaq5GCGvzcpkSdU_12Gjq9KR7tFFBow0Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_093928_336020_B8655E2F 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20250813_100130_505794_FECC0653 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 11:51:18PM +0800, Chen-Yu Tsai wrote:
-> On Wed, Aug 13, 2025 at 11:12 PM Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > On Wed, Aug 13, 2025 at 10:55:36PM +0800, Chen-Yu Tsai wrote:
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > index 70d439bc845c..d4cee2222104 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > > @@ -94,6 +94,9 @@ &mdio0 {
-> > >       ext_rgmii_phy: ethernet-phy@1 {
-> > >               compatible = "ethernet-phy-ieee802.3-c22";
-> > >               reg = <1>;
-> > > +             reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-> > > +             reset-assert-us = <10000>;
-> > > +             reset-deassert-us = <150000>;
-> >
-> > Please verify that kexec works with this, as if the calling kernel
-> > places the PHY in reset and then kexec's, and the reset remains
-> > asserted, the PHY will not be detected.
-> 
-> I found this to be a bit confusing to be honest.
-> 
-> If I put the reset description in the PHY (where I think it belongs),
-> then it wouldn't work if the reset isn't by default deasserted (through
-> some pull-up). This would be similar to the kexec scenario.
+In the hypothetical case where a CMN event is opened with a software
+group leader that already has some other hardware sibling, currently
+arm_cmn_val_add_event() could try to interpret the other event's data
+as an arm_cmn_hw_event, which is not great since we dereference a
+pointer from there... Thankfully the way to be more robust is to be
+less clever - stop trying to special-case software events and simply
+skip any event that isn't for our PMU.
 
-The reason for this is quite simple. While it's logical to put it in
-there, the problem is that the PHY doesn't respond on the MDIO bus
-while it's reset pin is asserted.
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm-cmn.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-Consequently, when we probe the MDIO bus to detect PHYs and discover
-the PHY IDs, we get no response, and thus we believe there isn't a
-device at the address. That means we don't create a device, and thus
-there's no mdio device for the address.
-
-There is a work-around, which is to encode the PHY ID in the DT
-compatible (check the ethernet-phy binding). However, note that we
-will then not read the actual PHY ID (maybe we should?) which means
-if the driver wants to know e.g. the revision, or during production
-the PHY changes, it will require DT to change.
-
+diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+index 11fb2234b10f..f8c9be9fa6c0 100644
+--- a/drivers/perf/arm-cmn.c
++++ b/drivers/perf/arm-cmn.c
+@@ -1652,7 +1652,7 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
+ 	enum cmn_node_type type;
+ 	int i;
+ 
+-	if (is_software_event(event))
++	if (event->pmu != &cmn->pmu)
+ 		return;
+ 
+ 	type = CMN_EVENT_TYPE(event);
+@@ -1693,9 +1693,6 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+ 	if (leader == event)
+ 		return 0;
+ 
+-	if (event->pmu != leader->pmu && !is_software_event(leader))
+-		return -EINVAL;
+-
+ 	val = kzalloc(sizeof(*val), GFP_KERNEL);
+ 	if (!val)
+ 		return -ENOMEM;
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.39.2.101.g768bb238c484.dirty
+
 
