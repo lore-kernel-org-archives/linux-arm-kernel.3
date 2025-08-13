@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF39C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41008CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVMjeVimj9bigs3Ft2HZzQg53xmlBKzfvvopzZb05O0=; b=EgybUjkpuDnf5k5UqvA7dNV72p
-	9Z0q/q7Oj2fZSgmYudlgUAmkMfWLtoa/QyK7wtwduEIsdA1dx27SAtJ7wRruhZpkwk72N+6q/TLzG
-	QLoBNlIqn1wtPbvJuJ+CL3Zkv9trpqDB+fkS2XDH9GoU8Y/jqWftUarxRBUrrYDR4o/OY45b+XxC2
-	7ObnKlZt2EV5o4uwEAPxqxqTiOAYc7amDxtwNzyohsYz3NmCFrAfHWV4KVZequ7d1exV+DJcLivgt
-	lf++eDAivoVt47so43eCba+h2qzU012xs9GmJG0RFchP/MDEnF1chfOPrQSTPwe3T2FJ7eYM15j60
-	LJ9xdZew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4Dgy8jq4R2IqnWuz1ndUSN51GAE4XrI97K/D4HrNy4=; b=dy5V+2ChZ7dssJqe0w+jXkwe5+
+	70XNDACC6Qzj0LQaIvyBvfej3XAtKkW1QD0bgVBM+ZPBTXvs8yNb5L7DzEUahZ6uNuw1pLOK8JRM8
+	XbOlx/G6veyaBJhCJ+qHIWURZVXwID6Gkr7OyE+/SQVpxraT+hyr0jx1En04Yvflyc7c59qAAFXZv
+	IkF0b3XXTVQ23xHSDpArEmfZEc5rFCmCt2CvI77aU5Vi+O31zi2zgPraxymuAwRfqYHDRWzpqHan1
+	JjNhT4cRiuteFP1n951ZXHFwMv9BJWTSjrrG5LZvF5XJwoHv7PSKCBs9jg/AfvJ472uMDu4z1n43u
+	2sLS3YGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8zj-0000000DQBm-1jU1;
-	Wed, 13 Aug 2025 10:46:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1um8zl-0000000DQCd-1Bu6;
+	Wed, 13 Aug 2025 10:46:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6ra-0000000D6J5-0NPo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 08:29:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kVMjeVimj9bigs3Ft2HZzQg53xmlBKzfvvopzZb05O0=; b=bi7DiA2U8uYprqpJPU3FfNBkPv
-	EuNF9bzG+ALxIdErKMM5Lj1Ze6YkvAbOl05GdXoSButNQMO9Kgj3oy2JGM24g/5tKLO96skHGJTT7
-	HdmvDG/M9s09vFRSEWNgnlf73Yk2VNuqn28aLwV+lSmL5fZstJqE5SJr12lt5YPLJ8O67IO4QMd5s
-	aMeDk+C9ByY+X5PRIsSAqjUvkkLoV6DMzHXyR3q9eQEZ7d/9tdIlcdB9ulSr5bT+uObT6YR0pN1Uq
-	sfoFRsnoxrLnopr451WRnTEHGqcl7n5aN4P2eCYwXOjqUWZWUCe+m8ilKikAp6sU9fPlTkSNqzJHL
-	QkLZP1cg==;
-Received: from fw2.prolan.hu ([193.68.50.107])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6rW-0000000G0cn-3LlF
+	id 1um73f-0000000D8EL-2b82
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 08:29:36 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 823A8A024B;
-	Wed, 13 Aug 2025 10:29:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=kVMjeVimj9bigs3Ft2HZ
-	zQg53xmlBKzfvvopzZb05O0=; b=E5tytUhXXMptxH2U2Z5HK9cD5DDwOqB7OZuA
-	8Ygm0pG+3d782Fv89BRFsm8NkmD7QbU/u/3kvdhQqzduShzMMjvvZNOEOv/fV2gp
-	4afRxcHV7UN68ndSGmlPYAQymy0uwyeLf/bBXyBTEiyrtC2tjKiXr6u7XcY52We9
-	L7sh6wQNJIWw/HIZrdCI2A8Mcqsx/mlUFvC5L4UxEmqicv359Ny3LN5maWsezGR2
-	yF6LYNebXletH93zeqoigFtnNTJkGrJRNnRA1P4dQkiUilVBItfLNTyOZnm28S6g
-	CmMZ5+Mpla0H7r1FKoiSxcVI2DXtbDBzeadP8jgGzA2/CdgjZ7ASsfOhnGxHz5av
-	7DY2DOY56lXRTumCOJ4qFj3H6ET62QN6oacTOzWLy+CSTtLl5VUd2oGMS/8ZAIzf
-	jjM8WiuxexfXJW68Ace1O4xNFTJiU1kqU+YoiRt4E4qYcvuNP2PRIHJZbPbnNPRf
-	RNwvL1x9oWH0F320FQE62Mi+OhDFe8RwxHsX1deMRvyeRg03xeiKLRYnlZqybeqW
-	JDEQVur9QKioq/TaELXoN/qjPGE6xdNFmKmoH8xk9xczCw3b5E/825u2NLiDoqiN
-	teOBNoUYQ9swJ05cgU6x/OzIuE0w74I5KqWYL7gk0ZV2I+gKIgrYgCHCx2+YfXnD
-	G1eC+g0=
-Message-ID: <d9e81ff2-5621-49db-92a1-acf304b225f8@prolan.hu>
-Date: Wed, 13 Aug 2025 10:29:22 +0200
+	Wed, 13 Aug 2025 08:42:09 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 1E0A2346;
+	Wed, 13 Aug 2025 10:41:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755074472;
+	bh=Md87crP7XvrIg/32S+o/qDrdc4VwxcksNoXwwhiGwsg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pIi2UAXc77OYxdCzuJVZEoMcuMzkf39RZGUsU40DeVBghp7VCoEc7LbqVhsaKcBMz
+	 Ms3GxWk4hvXhWkKiaCMZGs5+1OmF9qv5vpbApxxLAZ9MZFdTrnSnYYymrC/8kL+yRb
+	 QQ7kK/NO9iB7L3mnvwpmvDA84BEMtlPSs27evlT4=
+Date: Wed, 13 Aug 2025 11:41:46 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Robert Foss <rfoss@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-arm-msm@vger.kernel.org, linux-i2c@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Todor Tomov <todor.too@gmail.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Dongchun Zhu <dongchun.zhu@mediatek.com>
+Subject: Re: [PATCH v2 01/72] dt-bindings: media: Deprecate clock-frequency
+ property for camera sensors
+Message-ID: <20250813084146.GA6440@pendragon.ideasonboard.com>
+References: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
+ <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
+ <175506028291.2605875.11473205221167147078.robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Subject: Re: [PATCH] ARM: dts: imx6-display5: Replace license text comment
- with SPDX identifier
-To: Lukasz Majewski <lukma@denx.de>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"Pengutronix Kernel Team" <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250709-display5-dts-lic-v1-1-81e46a650d3d@prolan.hu>
-Content-Language: en-US
-In-Reply-To: <20250709-display5-dts-lic-v1-1-81e46a650d3d@prolan.hu>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155E617761
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <175506028291.2605875.11473205221167147078.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_092935_282107_98F18B98 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_014207_797773_6A79BA05 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +81,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2025. 07. 09. 9:32, Bence Csókás wrote:
-> Replace verbatim license text with a `SPDX-License-Identifier`.
+On Tue, Aug 12, 2025 at 11:44:42PM -0500, Rob Herring (Arm) wrote:
 > 
-> The comment header mis-attributes this license to be "X11", but the
-> license text does not include the last line "Except as contained in this
-> notice, the name of the X Consortium shall not be used in advertising or
-> otherwise to promote the sale, use or other dealings in this Software
-> without prior written authorization from the X Consortium.". Therefore,
-> this license is actually equivalent to the SPDX "MIT" license (confirmed
-> by text diffing).
+> On Wed, 13 Aug 2025 00:45:09 +0300, Laurent Pinchart wrote:
+> > Usage of the clock-frequency property for camera sensors is discouraged
+> > in favour of using assigned-clock-rates (and assigned-clock-parents
+> > where needed). Mark the property as deprecated.
+> > 
+> > Update the examples accordingly. In DT examples where the sensor input
+> > clock appears to come from a programmable clock generator, replace
+> > clock-frequency by the assigned-clocks and assigned-clock-rates
+> > properties. Otherwise, just drop clock-frequency.
+> > 
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > Changes since v1:
+> > 
+> > - Adapt examples in bindings that reference sensors
+> > ---
+> >  Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
+> >  Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml  | 7 +++++--
+> >  .../devicetree/bindings/media/i2c/ovti,ov02a10.yaml        | 3 +--
+> >  .../devicetree/bindings/media/i2c/ovti,ov5645.yaml         | 6 +++++-
+> >  .../devicetree/bindings/media/i2c/ovti,ov7251.yaml         | 6 +++++-
+> >  .../devicetree/bindings/media/i2c/ovti,ov8856.yaml         | 3 +--
+> >  .../devicetree/bindings/media/i2c/samsung,s5k5baf.yaml     | 6 +++++-
+> >  .../devicetree/bindings/media/i2c/samsung,s5k6a3.yaml      | 6 +++++-
+> >  .../devicetree/bindings/media/i2c/sony,imx290.yaml         | 5 +++--
+> >  .../bindings/media/samsung,exynos4212-fimc-is.yaml         | 4 ++--
+> >  Documentation/devicetree/bindings/media/samsung,fimc.yaml  | 3 ++-
+> >  11 files changed, 38 insertions(+), 17 deletions(-)
+> > 
 > 
-> Cc: Lukasz Majewski <lukma@denx.de>
-> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'clocks' is a required property
+> 	from schema $id: http://devicetree.org/schemas/media/i2c/samsung,s5k6a3.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'clocks' is a dependency of 'clock-names'
+> 	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.example.dtb: image-sensor@10 (samsung,s5k6a3): 'anyOf' conditional failed, one must be fixed:
+> 	'clocks' is a required property
+> 	'#clock-cells' is a required property
+> 	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
 
-So, what do you all think, is this patch acceptable?
+This is what I get for relying blindly on CI :-/ Sorry about that, I'll
+fix it (and try to fix CI too).
 
-Bence
+> doc reference errors (make refcheckdocs):
+> 
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250812214620.30425-2-laurent.pinchart@ideasonboard.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
 
+-- 
+Regards,
+
+Laurent Pinchart
 
