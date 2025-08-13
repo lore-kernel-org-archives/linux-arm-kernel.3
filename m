@@ -4,79 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C3AC87FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE23CA0EE4
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5oWkkSzvP8gm8v9+kLB6DzRHYImOIXHSxltOc96ZVhw=; b=hXrOvHuEBj3JHqyCwZIm1HlvFh
-	Atqw13vOkrKPhshnAOoSMWMkrdcrh6GlGfow8XN6bSPpUruHaFFLzOkcF46LPHRs3G7Unrl01Tob+
-	9HUirxOW7oBF7WgtiW8EmvT+/VfnwGnyvXd3VGvUPUlQAX83dBS56529F6P5jwViq4UA3HF/HhnRp
-	Al1Cs4d4qeirLDEdMYeZuYnIpnytR2uNdQsNIEaNcWEG1YSZR4AUQmHVLxdNEjFUvTd+stME73HTW
-	xBA+EjaHND2p0rZipfFsvwlpXp6h8rQ0kj/C91uJbHGJKe56+YUfWsQCpqt54O9FTB/068Ff5GqVh
-	KE3it1+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PZ2CqpN6TY1CUJal15iLiTwlFidA8+74uvwknyoMa/U=; b=x9KTcV06+PGQQkqLG1ZrbCZcNV
+	zG6GBFqvsxpLZ+9mwKoD4HlnCgQVbvF+a9MXkCGw2RTpk7IquhmXxoqceeTk+eYzrCIyzA6MBiqm/
+	yufjJF3DQ7vMnIcB04nnt73zwjILgSAgkFElnffrVp8x2ZkNuHsu+kXWPFLbcSrIXDt75oYy/oFb9
+	5I0+IIGXYuUoR65pAJ1MAa1QFiCByacSGDML1R/okSr1NH8q3KMrCjdambbQSIt5rECkEdAhOQy/0
+	rakzpTVsOIDsFyiE3Vk7DSZGT0dPKuPK0Fq6uW/FLzBwM2KqBYJStyt9GtQ2v3F3Priu6dbZmTRO2
+	ZYhjsjFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCMM-0000000DtYZ-0iMW;
-	Wed, 13 Aug 2025 14:21:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1umCML-0000000DtX3-0E06;
+	Wed, 13 Aug 2025 14:21:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBlh-0000000DnnE-33W2
+	id 1umBfF-0000000Dmka-0mel
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:43:55 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DDhlk81709691;
-	Wed, 13 Aug 2025 08:43:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755092627;
-	bh=5oWkkSzvP8gm8v9+kLB6DzRHYImOIXHSxltOc96ZVhw=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=l4RB3NRwwfDL51ZKCns7amrY1l+if04W/WF7cUHLI92hqpwqBffyXVJWFsfLfmrzG
-	 0AONFJl0d3z0sABG0qtlYKRKCcCxkmtQD18UbsaO/tN461u31wy7+5e5V3nbM6ZHL7
-	 W9Gb5U9fABBa7fg9ar6YulmWPG4ohsj8tHVhHdi4=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DDhlsW1111824
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 08:43:47 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 08:43:47 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 08:43:47 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DDhlik2377645;
-	Wed, 13 Aug 2025 08:43:47 -0500
-Date: Wed, 13 Aug 2025 08:43:47 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v4 2/3] arm64: dts: ti: Add support for Variscite
- VAR-SOM-AM62P
-Message-ID: <20250813134347.6dmoniycumnzuezy@implosion>
-References: <20250711140507.17574-1-stefano.radaelli21@gmail.com>
- <20250711140507.17574-3-stefano.radaelli21@gmail.com>
+	Wed, 13 Aug 2025 13:37:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9CE0A601FB;
+	Wed, 13 Aug 2025 13:37:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A02CC4CEF7;
+	Wed, 13 Aug 2025 13:37:10 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH 1/2] arm64: dts: renesas: rcar-gen3: Increase CANFD clock rates
+Date: Wed, 13 Aug 2025 15:37:03 +0200
+Message-ID: <d1ca3cd184193084b6de4332d47d0aee1923f6a6.1755090456.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1755090456.git.geert+renesas@glider.be>
+References: <cover.1755090456.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250711140507.17574-3-stefano.radaelli21@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_064353_865879_90FFA729 
-X-CRM114-Status: GOOD (  27.08  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,498 +60,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:04-20250711, Stefano Radaelli wrote:
-> Add device tree support for the Variscite VAR-SOM-AM62P system on module.
-> This SOM is designed to be used with various carrier boards.
-> 
-> The module includes:
-> - AM62P Sitara MPU processor
-> - Up to 8GB of DDR4-3733 memory
-> - eMMC storage memory
-> - PS6522430 chip as a Power Management Integrated circuit (PMIC)
-> - Integrated 10/100/1000 Mbps Ethernet Transceiver Analog Devices ADIN1300
-> - Resistive touch panel interface controller TI TSC2046
-> - I2C interfaces
-> 
-> Only SOM-specific peripherals are enabled by default. Carrier board
-> specific interfaces are left disabled to be enabled in the respective
-> carrier board device trees.
-> 
-> Link: https://www.variscite.it/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
-> 
-> Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
-> ---
+Currently, all R-Car Gen3 .dtsi files configure the CANFD core clocks to
+40 MHz, which limits CAN-FD data transfer rates to 4 Mbps.  However, all
+R-Car Gen3 SoCs except for R-Car D3 support CANFD clock rates up to 80
+MHz.
 
-Could you update to match up with coding guidelines for device tree?
+Now the R-Car CAN-FD driver has gained support for Transceiver Delay
+Compensation, increase all appropriate CANFD clock rates to the
+documented maximum, to support data rates up to 8 Mbps.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ arch/arm64/boot/dts/renesas/r8a77951.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77960.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77961.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77965.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77970.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77980.dtsi | 2 +-
+ arch/arm64/boot/dts/renesas/r8a77990.dtsi | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
 
-I see a few ones below that I tagged.
-
-> v4:
->  - Moved every MCUs-related node into the SOM dtsi
->  - Removed unused audio node
-> v3:
->  - Change compatible string to match existing mainline format
->  - Lower case hex digits
->  - Generic node names
-> v2:
->  - Fixed warnings and cleanup
-> 
->  arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 408 ++++++++++++++++++
->  1 file changed, 408 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> new file mode 100644
-> index 000000000000..9c8046111701
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-> @@ -0,0 +1,408 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Common dtsi for Variscite VAR-SOM-AM62P
-
-Please add the link to the SoM here, I think it is
-https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-am62p-ti-sitara-am62px/
-
-> + *
-> + * Copyright (C) 2025 Variscite Ltd. - https://www.variscite.com/
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pwm/pwm.h>
-> +#include "k3-am62p5.dtsi"
-> +
-> +/ {
-> +	compatible = "variscite,var-som-am62p", "ti,am62p5";
-> +
-> +	wifi_pwrseq: wifi-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		post-power-on-delay-ms = <100>;
-> +		power-off-delay-us = <10000>;
-> +		reset-gpios = <&main_gpio0 54 GPIO_ACTIVE_LOW>,	/* WIFI_PWR_EN */
-> +			      <&main_gpio0 59 GPIO_ACTIVE_LOW>;	/* WIFI_EN */
-> +	};
-> +
-> +	mmc_pwrseq: mmc-pwrseq {
-> +		compatible = "mmc-pwrseq-emmc";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_mmc_pwrseq>;
-> +		reset-gpios = <&main_gpio0 49 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	memory@80000000 {
-> +		/* 8G RAM */
-> +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-> +		      <0x00000008 0x80000000 0x00000001 0x80000000>;
-> +		device_type = "memory";
-> +		bootph-pre-ram;
-> +	};
-> +
-> +	opp-table {
-> +		/* Add 1.4GHz OPP for am62p5-sk board. Requires VDD_CORE at 0v85 */
-> +		opp-1400000000 {
-> +			opp-hz = /bits/ 64 <1400000000>;
-> +			opp-supported-hw = <0x01 0x0004>;
-> +			clock-latency-ns = <6000000>;
-> +		};
-> +	};
-> +
-> +	reserved_memory: reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b500000 0x00 0x00300000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x00100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0x00f00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x00100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_tfa_ddr: tfa@9e780000 {
-> +			reg = <0x00 0x9e780000 0x00 0x80000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_ddr: optee@9e800000 {
-> +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	reg_3v3: regulator-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "On-module +V3.3";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	reg_1v8: regulator-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "On-module +V1.8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&reg_3v3>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	reg_3v3_phy: regulator-3v3-phy {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "On-module +V3.3_PHY";
-> +		gpios = <&main_gpio0 45 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +		regulator-always-on;
-> +		status="okay";
-
-
-Why status = "okay"  - default is okay.
-
-> +	};
-> +};
-> +
-> +&cpsw3g {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rgmii1>;
-> +};
-> +
-> +&cpsw3g_mdio {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_mdio1>;
-Please move status here
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
-
-Please add an EoL here
-
-> +	cpsw3g_phy0: ethernet-phy@4 {
-> +		reg = <4>;
-> +		compatible = "ethernet-phy-id0283.bc30";
-
-reg after compatible
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
-
-> +		reset-gpios = <&main_gpio0 46 GPIO_ACTIVE_LOW>;
-> +		reset-assert-us = <10000>;
-> +		reset-deassert-us = <100000>;
-> +	};
-> +};
-> +
-> +&cpsw_port1 {
-> +	/*
-> +	 * The required RGMII TX and RX 2ns delays are implemented directly
-> +	 * in hardware via passive delay elements on the SOM PCB.
-> +	 * No delay configuration is needed in software via PHY driver.
-> +	 */
-> +	phy-mode = "rgmii";
-> +	phy-handle = <&cpsw3g_phy0>;
-> +	status = "okay";
-> +};
-> +
-> +&main_i2c2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c2>;
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +};
-> +
-> +&main_i2c3 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_i2c3>;
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +};
-> +
-> +&main_pmx0 {
-> +	pinctrl_mmc_pwrseq: main-emmc-pwrseq-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00c8, PIN_OUTPUT, 7) /* (AB23) VOUT0_DATA4.GPIO0_49 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c2: main-i2c2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (T22) GPMC0_CSn2.I2C2_SCL */
-> +			AM62PX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (U25) GPMC0_CSn3.I2C2_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_i2c3: main-i2c3-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01d0, PIN_INPUT_PULLUP, 2) /* (A23) UART0_CTSn.I2C3_SCL */
-> +			AM62PX_IOPAD(0x01d4, PIN_INPUT_PULLUP, 2) /* (C22) UART0_RTSn.I2C3_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mdio1: main-mdio1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
-> +			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
-> +		>;
-> +	};
-> +
-> +	pinctrl_mmc2: main-mmc2-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0120, PIN_INPUT_PULLUP, 0) /* (K24) MMC2_CMD */
-> +			AM62PX_IOPAD(0x0118, PIN_INPUT_PULLDOWN, 0) /* (K21) MMC2_CLK */
-> +			AM62PX_IOPAD(0x011c, PIN_INPUT_PULLUP, 0) /* () MMC2_CLKLB */
-> +			AM62PX_IOPAD(0x0114, PIN_INPUT_PULLUP, 0) /* (K23) MMC2_DAT0 */
-> +			AM62PX_IOPAD(0x0110, PIN_INPUT_PULLUP, 0) /* (K22) MMC2_DAT1 */
-> +			AM62PX_IOPAD(0x010c, PIN_INPUT_PULLUP, 0) /* (L20) MMC2_DAT2 */
-> +			AM62PX_IOPAD(0x0108, PIN_INPUT_PULLUP, 0) /* (L21) MMC2_DAT3 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_rgmii1: main-rgmii1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x014c, PIN_INPUT, 0) /* (B15) RGMII1_RD0 */
-> +			AM62PX_IOPAD(0x0150, PIN_INPUT, 0) /* (B16) RGMII1_RD1 */
-> +			AM62PX_IOPAD(0x0154, PIN_INPUT, 0) /* (A14) RGMII1_RD2 */
-> +			AM62PX_IOPAD(0x0158, PIN_INPUT, 0) /* (B14) RGMII1_RD3 */
-> +			AM62PX_IOPAD(0x0148, PIN_INPUT, 0) /* (A16) RGMII1_RXC */
-> +			AM62PX_IOPAD(0x0144, PIN_INPUT, 0) /* (A15) RGMII1_RX_CTL */
-> +			AM62PX_IOPAD(0x0134, PIN_INPUT, 0) /* (A18) RGMII1_TD0 */
-> +			AM62PX_IOPAD(0x0138, PIN_INPUT, 0) /* (C17) RGMII1_TD1 */
-> +			AM62PX_IOPAD(0x013c, PIN_INPUT, 0) /* (A17) RGMII1_TD2 */
-> +			AM62PX_IOPAD(0x0140, PIN_INPUT, 0) /* (C16) RGMII1_TD3 */
-> +			AM62PX_IOPAD(0x0130, PIN_INPUT, 0) /* (B17) RGMII1_TXC */
-> +			AM62PX_IOPAD(0x012c, PIN_INPUT, 0) /* (B18) RGMII1_TX_CTL */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pinctrl_spi0: main-spi0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x01bc, PIN_OUTPUT, 0) /* (B21) SPI0_CLK */
-> +			AM62PX_IOPAD(0x01b4, PIN_OUTPUT, 0) /* (D20) SPI0_CS0 */
-> +			AM62PX_IOPAD(0x01c0, PIN_OUTPUT, 0) /* (B20) SPI0_D0 */
-> +			AM62PX_IOPAD(0x01c4, PIN_INPUT, 0) /* (C21) SPI0_D1 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_uart5: main-uart5-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00ec, PIN_INPUT, 4) /* (AC21) VOUT0_DATA13.UART5_CTSn */
-> +			AM62PX_IOPAD(0x00e8, PIN_OUTPUT, 4) /* (AD21) VOUT0_DATA12.UART5_RTSn */
-> +			AM62PX_IOPAD(0x00d0, PIN_INPUT, 4) /* (AC23) VOUT0_DATA6.UART5_RXD */
-> +			AM62PX_IOPAD(0x00d4, PIN_OUTPUT, 4) /* (AE23) VOUT0_DATA7.UART5_TXD */
-> +		>;
-> +	};
-> +
-> +	pinctrl_bt: main-btgrp-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00f4, PIN_OUTPUT, 7) /* (Y20) VOUT0_DATA15.GPIO0_60 (BT_EN) */
-> +		>;
-> +	};
-> +
-> +	pinctrl_restouch: main-restouch-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00c4, PIN_INPUT_PULLUP, 7) /* (Y23) VOUT0_DATA3.GPIO0_48 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_wifi: main-wifi-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x00dc, PIN_OUTPUT, 7) /* (AC22) VOUT0_DATA9.GPIO0_54 - WIFI_PWR_EN - */
-> +			AM62PX_IOPAD(0x00f0, PIN_OUTPUT, 7) /* (AA20) VOUT0_DATA14.GPIO0_59 - WIFI_EN - */
-> +		>;
-> +	};
-> +};
-> +
-> +&mcu_pmx0 {
-> +	pinctrl_wkup_clkout0: wkup-clkout0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_MCU_IOPAD(0x0084, PIN_OUTPUT, 0) /* (F13) WKUP_CLKOUT0 */
-> +		>;
-> +	};
-> +};
-> +
-> +&main_spi0 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_spi0>;
-> +	ti,pindir-d0-out-d1-in;
-
-Status here
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
-
-> +
-> +	touchscreen@0 {
-> +		compatible = "ti,ads7846";
-
-Do you have the touch screen controller on the SoM? Typically they tend
-to be on the display panel, no? If that is the case, you might want to
-do an overlay for the display panel and add the touchscreen there.
-
-> +		reg = <0>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pinctrl_restouch>;
-> +		interrupt-parent = <&main_gpio0>;
-> +		interrupts = <48 IRQ_TYPE_EDGE_FALLING>;
-> +		spi-max-frequency = <1500000>;
-> +		pendown-gpio = <&main_gpio0 48 GPIO_ACTIVE_LOW>;
-> +		ti,x-min = /bits/ 16 <125>;
-> +		ti,x-max = /bits/ 16 <4008>;
-> +		ti,y-min = /bits/ 16 <282>;
-> +		ti,y-max = /bits/ 16 <3864>;
-> +		ti,x-plate-ohms = /bits/ 16 <180>;
-> +		ti,pressure-max = /bits/ 16 <255>;
-> +		ti,debounce-max = /bits/ 16 <10>;
-> +		ti,debounce-tol = /bits/ 16 <3>;
-> +		ti,debounce-rep = /bits/ 16 <1>;
-> +		ti,settle-delay-usec = /bits/ 16 <150>;
-> +		ti,keep-vref-on;
-> +		wakeup-source;
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n117
-
-> +	};
-> +};
-> +
-> +&main_uart5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_uart5>, <&pinctrl_bt>;
-> +	uart-has-rtscts;
-> +	status = "okay";
-> +
-> +	bluetooth {
-> +		compatible = "nxp,88w8987-bt";
-> +	};
-> +};
-> +
-> +&sdhci0 {
-> +	status = "okay";
-> +	ti,driver-strength-ohm = <50>;
-> +	mmc-pwrseq = <&mmc_pwrseq>;
-> +	disable-wp;
-> +	bootph-all;
-> +};
-> +
-> +&sdhci2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_mmc2>, <&pinctrl_wifi>;
-> +	bus-width = <4>;
-> +	disable-wp;
-> +	non-removable;
-> +	keep-power-in-suspend;
-> +	mmc-pwrseq = <&wifi_pwrseq>;
-> +	ti,fails-without-test-cd;
-> +	status = "okay";
-> +};
-> +
-> +&usbss0 {
-> +	ti,vbus-divider;
-> +};
-> +
-> +&usbss1 {
-> +	ti,vbus-divider;
-> +};
-> +
-> +&mailbox0_cluster0 {
-> +	status = "okay";
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mailbox0_cluster1 {
-> +	status = "okay";
-> +
-> +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-> +		ti,mbox-rx = <0 0 0>;
-> +		ti,mbox-tx = <1 0 0>;
-> +	};
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +/* mcu_gpio0 and mcu_gpio_intr are reserved for mcu firmware usage */
-> +&mcu_gpio0 {
-> +	status = "reserved";
-> +};
-> +
-> +&mcu_gpio_intr {
-> +	status = "reserved";
-> +};
-> +
-> +&wkup_rtc0 {
-> +	status = "disabled";
-> +};
-> +
-> +&wkup_rti0 {
-> +	/* WKUP RTI0 is used by DM firmware */
-> +	status = "reserved";
-> +};
-> +
-> +&wkup_uart0 {
-> +	/* WKUP UART0 is used by DM firmware */
-> +	status = "reserved";
-> +};
-> +
-> +&main_uart1 {
-> +	/* Main UART1 is used by TIFS firmware */
-> +	status = "reserved";
-> +};
-> -- 
-> 2.43.0
-> 
-
+diff --git a/arch/arm64/boot/dts/renesas/r8a77951.dtsi b/arch/arm64/boot/dts/renesas/r8a77951.dtsi
+index 6ee9cdeb5a3ab478..c389ebc7e6ce8f00 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77951.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77951.dtsi
+@@ -1373,7 +1373,7 @@ canfd: can@e66c0000 {
+ 			       <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A7795_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A7795_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77960.dtsi b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
+index a323ac47ca70f3db..6d039019905ded0a 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77960.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
+@@ -1245,7 +1245,7 @@ canfd: can@e66c0000 {
+ 			       <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A7796_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A7796_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77961.dtsi b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
+index 49f6d31c5903b8b3..1637b534fc68b19d 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77961.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
+@@ -1245,7 +1245,7 @@ canfd: can@e66c0000 {
+ 			       <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A77961_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A77961_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77965.dtsi b/arch/arm64/boot/dts/renesas/r8a77965.dtsi
+index 136a22ca50b78674..353a771870893994 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77965.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77965.dtsi
+@@ -1108,7 +1108,7 @@ canfd: can@e66c0000 {
+ 			       <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A77965_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A77965_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77970.dtsi b/arch/arm64/boot/dts/renesas/r8a77970.dtsi
+index 01744496805c3200..e7a5800bf74216fa 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77970.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77970.dtsi
+@@ -568,7 +568,7 @@ canfd: can@e66c0000 {
+ 				 <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A77970_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A77970_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77980.dtsi b/arch/arm64/boot/dts/renesas/r8a77980.dtsi
+index f7e506ad7a211a57..964aa14f3e65d925 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77980.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77980.dtsi
+@@ -621,7 +621,7 @@ canfd: can@e66c0000 {
+ 				 <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A77980_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A77980_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/renesas/r8a77990.dtsi b/arch/arm64/boot/dts/renesas/r8a77990.dtsi
+index 6b8742045836b9b9..e16ede6eb3791ad1 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77990.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77990.dtsi
+@@ -1061,7 +1061,7 @@ canfd: can@e66c0000 {
+ 			       <&can_clk>;
+ 			clock-names = "fck", "canfd", "can_clk";
+ 			assigned-clocks = <&cpg CPG_CORE R8A77990_CLK_CANFD>;
+-			assigned-clock-rates = <40000000>;
++			assigned-clock-rates = <80000000>;
+ 			power-domains = <&sysc R8A77990_PD_ALWAYS_ON>;
+ 			resets = <&cpg 914>;
+ 			status = "disabled";
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.43.0
+
 
