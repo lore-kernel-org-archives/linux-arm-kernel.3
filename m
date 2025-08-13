@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BFFBCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A67CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9leDqlTwloKcsFxYAmKVFGK4PesEjHuq0/P+M58cvtI=; b=kown3ntsmBatcYSgn1wksMmgwq
-	o9VeK2eRXuVmDSRkt6RLrG15VZj02/UGlJ2RdMFm9S0xPgX0zk0JQxBqTz2rheKUddw0NWaoFPWQt
-	lOmQkFIoZV5rRchQnyjeTIObDwXjCtXySSWw/z62JcnUFxZKVinyNgIOPwsRJgtAK3MMO1PziFw/j
-	AZot7dkk78eHyvLLEUERx1EFbsodXiNOvAxYQ1qHo3ZjQx78daI+Wjo/1DTxy4StJkWxGYoyRnn0w
-	5XZVaMapvWb7dkGboUlPw+l4/Hwiqh1KEI625lMn2yJcv2H8VCIDQtMaPLKY2O/fDiHixnm0O+qDm
-	C1mxtGfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iy7VOH8rjAnxxyRVyA8fKvdyXX0EbkCp0PC9FG7+JKo=; b=H/8j9lH4w8mK9eXg7w9HQM3/A2
+	eHgJ2pIaF3AMXt100mBfhMlbTzD4qnCMil7sGeLa4wA0WIU9MTotQjlmM10ny9D45Rms8L8+HHuOo
+	R1lhMuUkK1MuUSjKh6DNyRFuBUTZboZQCCcE/sxb19YA2zFieMPjj+bA/v9CMscgceJP5mNfI8SzN
+	01/BDTaCLUaiQefHJ8Y9rIUU37x+PtjkmlZ43SVJ5QSAxPwatgcqm+9ImIyIzr8iJyp5TzLbSQ4ql
+	NLDVo6mSZtHdMv69q+GSQsED/xK8fbqIRfF8JXzsgq969nMoPkPbew2R8oyyKgABCkBmhCTzAX4XL
+	6lmwhq6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHOp-0000000Epdj-47fP;
-	Wed, 13 Aug 2025 19:44:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEs1-0000000EW9B-3dqo;
-	Wed, 13 Aug 2025 17:02:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 497041E7D;
-	Wed, 13 Aug 2025 10:02:29 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 304C73F738;
-	Wed, 13 Aug 2025 10:02:33 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	kan.liang@linux.intel.com
-Cc: linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	coresight@lists.linaro.org,
-	iommu@lists.linux.dev,
-	linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 16/19] perf: Introduce positive capability for sampling
-Date: Wed, 13 Aug 2025 18:01:08 +0100
-Message-Id: <ae81cb65b38555c628e395cce67ac6c7eaafdd23.1755096883.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
-References: <cover.1755096883.git.robin.murphy@arm.com>
+	id 1umHP3-0000000Epz3-08HZ;
+	Wed, 13 Aug 2025 19:44:53 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umF74-0000000EZZH-10tF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 17:18:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755105491; x=1786641491;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WV0Vo+K02OhsbWV4KFB/mzIPWVvcS25gBWrGy1wIQZE=;
+  b=MH1bZYbtoTQ80hK3PZQOVQEpl+qrYrKbFo6Pxy6M82C5Xkhrzf5ke5bJ
+   7KNNWolPiEG4zGWH9ZEhaZ7CuVL+wKoMINcWO/cDkUWzEE+mSsZWUxSI4
+   SVwclPFLrav8DwSN4k6inT7XEfi7UNut+Tgr3RvjO3iNkxpnaJjVnWRBy
+   xjj/vOtHs1rZqjG8xayCfH9HbJTFV1Qsc24QgCyZNJbhom6h2IuC/l9ap
+   9HnaURCdI9xKtIKNNzHO/jq/R0WJsCW6V80inyqJGsWLsjv0NSUDKRabq
+   QeTaUB9WegubXL6tDUOtKrlPMXs3mkpL+cN2BqrNsMc2ge+OduXLKaNoj
+   Q==;
+X-CSE-ConnectionGUID: x3C6uUx4R2Szxhh/3xNxTg==
+X-CSE-MsgGUID: 88VPgXoOTyWKwgJaQOjRzA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="67683612"
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="67683612"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 10:18:09 -0700
+X-CSE-ConnectionGUID: SLv3rjliRGejYsPzB8JYLQ==
+X-CSE-MsgGUID: So1G6vd/Qpa6singFRjHbQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="171857712"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa005.jf.intel.com with ESMTP; 13 Aug 2025 10:18:04 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1umF6W-000A9U-3B;
+	Wed, 13 Aug 2025 17:17:44 +0000
+Date: Thu, 14 Aug 2025 01:16:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels
+ are ordered in TDM bus
+Message-ID: <202508140002.NBrWOZJL-lkp@intel.com>
+References: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100237_990943_856D55B3 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250813_101810_343929_F8738F6A 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,430 +98,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sampling is inherently a feature for CPU PMUs, given that the thing
-to be sampled is a CPU context. These days, we have many more
-uncore/system PMUs than CPU PMUs, so it no longer makes much sense to
-assume sampling support by default and force the ever-growing majority
-of drivers to opt out of it (or erroneously fail to). Instead, let's
-introduce a positive opt-in capability that's more obvious and easier to
-maintain.
+Hi Christophe,
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- arch/alpha/kernel/perf_event.c       |  3 ++-
- arch/arc/kernel/perf_event.c         |  2 ++
- arch/csky/kernel/perf_event.c        |  2 ++
- arch/loongarch/kernel/perf_event.c   |  1 +
- arch/mips/kernel/perf_event_mipsxx.c |  1 +
- arch/powerpc/perf/core-book3s.c      |  1 +
- arch/powerpc/perf/core-fsl-emb.c     |  1 +
- arch/powerpc/perf/imc-pmu.c          |  1 +
- arch/s390/kernel/perf_cpum_cf.c      |  1 +
- arch/s390/kernel/perf_cpum_sf.c      |  2 ++
- arch/s390/kernel/perf_pai_crypto.c   |  1 +
- arch/s390/kernel/perf_pai_ext.c      |  1 +
- arch/sparc/kernel/perf_event.c       |  1 +
- arch/x86/events/amd/ibs.c            |  2 ++
- arch/x86/events/core.c               |  4 +++-
- arch/xtensa/kernel/perf_event.c      |  1 +
- drivers/perf/arm_pmu.c               |  3 ++-
- drivers/perf/arm_pmu_platform.c      |  1 +
- drivers/perf/arm_spe_pmu.c           |  3 ++-
- drivers/perf/riscv_pmu_sbi.c         |  2 ++
- include/linux/perf_event.h           |  3 ++-
- kernel/events/core.c                 | 20 +++++++++++---------
- kernel/events/hw_breakpoint.c        |  1 +
- 23 files changed, 44 insertions(+), 14 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/arch/alpha/kernel/perf_event.c b/arch/alpha/kernel/perf_event.c
-index 8557165e64c0..4de1802d249f 100644
---- a/arch/alpha/kernel/perf_event.c
-+++ b/arch/alpha/kernel/perf_event.c
-@@ -761,7 +761,8 @@ static struct pmu pmu = {
- 	.start		= alpha_pmu_start,
- 	.stop		= alpha_pmu_stop,
- 	.read		= alpha_pmu_read,
--	.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING |
-+			  PERF_PMU_CAP_NO_EXCLUDE,
- };
- 
- 
-diff --git a/arch/arc/kernel/perf_event.c b/arch/arc/kernel/perf_event.c
-index ed6d4f0cd621..1b99b0215027 100644
---- a/arch/arc/kernel/perf_event.c
-+++ b/arch/arc/kernel/perf_event.c
-@@ -818,6 +818,8 @@ static int arc_pmu_device_probe(struct platform_device *pdev)
- 
- 	if (irq == -1)
- 		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
-+	else
-+		arc_pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 
- 	/*
- 	 * perf parser doesn't really like '-' symbol in events name, so let's
-diff --git a/arch/csky/kernel/perf_event.c b/arch/csky/kernel/perf_event.c
-index e0a36acd265b..c5ba6e235a6f 100644
---- a/arch/csky/kernel/perf_event.c
-+++ b/arch/csky/kernel/perf_event.c
-@@ -1204,6 +1204,7 @@ int init_hw_perf_events(void)
- 	}
- 
- 	csky_pmu.pmu = (struct pmu) {
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.pmu_enable	= csky_pmu_enable,
- 		.pmu_disable	= csky_pmu_disable,
- 		.event_init	= csky_pmu_event_init,
-@@ -1314,6 +1315,7 @@ int csky_pmu_device_probe(struct platform_device *pdev,
- 
- 	ret = csky_pmu_request_irq(csky_pmu_handle_irq);
- 	if (ret) {
-+		csky_pmu.pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- 		csky_pmu.pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pr_notice("[perf] PMU request irq fail!\n");
- 	}
-diff --git a/arch/loongarch/kernel/perf_event.c b/arch/loongarch/kernel/perf_event.c
-index 8ad098703488..341b17bedd0e 100644
---- a/arch/loongarch/kernel/perf_event.c
-+++ b/arch/loongarch/kernel/perf_event.c
-@@ -571,6 +571,7 @@ static int loongarch_pmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= loongarch_pmu_enable,
- 	.pmu_disable	= loongarch_pmu_disable,
- 	.event_init	= loongarch_pmu_event_init,
-diff --git a/arch/mips/kernel/perf_event_mipsxx.c b/arch/mips/kernel/perf_event_mipsxx.c
-index 196a070349b0..4c5d64d1158e 100644
---- a/arch/mips/kernel/perf_event_mipsxx.c
-+++ b/arch/mips/kernel/perf_event_mipsxx.c
-@@ -687,6 +687,7 @@ static int mipspmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= mipspmu_enable,
- 	.pmu_disable	= mipspmu_disable,
- 	.event_init	= mipspmu_event_init,
-diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-index d67f7d511f13..cfe7d3c120e1 100644
---- a/arch/powerpc/perf/core-book3s.c
-+++ b/arch/powerpc/perf/core-book3s.c
-@@ -2207,6 +2207,7 @@ ssize_t power_events_sysfs_show(struct device *dev,
- }
- 
- static struct pmu power_pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= power_pmu_enable,
- 	.pmu_disable	= power_pmu_disable,
- 	.event_init	= power_pmu_event_init,
-diff --git a/arch/powerpc/perf/core-fsl-emb.c b/arch/powerpc/perf/core-fsl-emb.c
-index 509932b91b75..62038ff3663f 100644
---- a/arch/powerpc/perf/core-fsl-emb.c
-+++ b/arch/powerpc/perf/core-fsl-emb.c
-@@ -570,6 +570,7 @@ static int fsl_emb_pmu_event_init(struct perf_event *event)
- }
- 
- static struct pmu fsl_emb_pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= fsl_emb_pmu_enable,
- 	.pmu_disable	= fsl_emb_pmu_disable,
- 	.event_init	= fsl_emb_pmu_event_init,
-diff --git a/arch/powerpc/perf/imc-pmu.c b/arch/powerpc/perf/imc-pmu.c
-index 8664a7d297ad..f352dda3baf9 100644
---- a/arch/powerpc/perf/imc-pmu.c
-+++ b/arch/powerpc/perf/imc-pmu.c
-@@ -1507,6 +1507,7 @@ static int update_pmu_ops(struct imc_pmu *pmu)
- 		pmu->pmu.commit_txn = thread_imc_pmu_commit_txn;
- 		break;
- 	case IMC_DOMAIN_TRACE:
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 		pmu->pmu.event_init = trace_imc_event_init;
- 		pmu->pmu.add = trace_imc_event_add;
- 		pmu->pmu.del = trace_imc_event_del;
-diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
-index 4d09954ebf49..7d10842d54f0 100644
---- a/arch/s390/kernel/perf_cpum_cf.c
-+++ b/arch/s390/kernel/perf_cpum_cf.c
-@@ -1861,6 +1861,7 @@ static const struct attribute_group *cfdiag_attr_groups[] = {
-  */
- static struct pmu cf_diag = {
- 	.task_ctx_nr  = perf_sw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = cfdiag_event_init,
- 	.pmu_enable   = cpumf_pmu_enable,
- 	.pmu_disable  = cpumf_pmu_disable,
-diff --git a/arch/s390/kernel/perf_cpum_sf.c b/arch/s390/kernel/perf_cpum_sf.c
-index f432869f8921..3d2c400f0aaa 100644
---- a/arch/s390/kernel/perf_cpum_sf.c
-+++ b/arch/s390/kernel/perf_cpum_sf.c
-@@ -1892,6 +1892,8 @@ static const struct attribute_group *cpumsf_pmu_attr_groups[] = {
- };
- 
- static struct pmu cpumf_sampling = {
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
-+
- 	.pmu_enable   = cpumsf_pmu_enable,
- 	.pmu_disable  = cpumsf_pmu_disable,
- 
-diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
-index f373a1009c45..a64b6b056a21 100644
---- a/arch/s390/kernel/perf_pai_crypto.c
-+++ b/arch/s390/kernel/perf_pai_crypto.c
-@@ -569,6 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paicrypt = {
- 	.task_ctx_nr  = perf_hw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = paicrypt_event_init,
- 	.add	      = paicrypt_add,
- 	.del	      = paicrypt_del,
-diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
-index d827473e7f87..1261f80c6d52 100644
---- a/arch/s390/kernel/perf_pai_ext.c
-+++ b/arch/s390/kernel/perf_pai_ext.c
-@@ -595,6 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paiext = {
- 	.task_ctx_nr  = perf_hw_context,
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.event_init   = paiext_event_init,
- 	.add	      = paiext_add,
- 	.del	      = paiext_del,
-diff --git a/arch/sparc/kernel/perf_event.c b/arch/sparc/kernel/perf_event.c
-index 706127749c66..6ecea8e7b592 100644
---- a/arch/sparc/kernel/perf_event.c
-+++ b/arch/sparc/kernel/perf_event.c
-@@ -1573,6 +1573,7 @@ static int sparc_pmu_commit_txn(struct pmu *pmu)
- }
- 
- static struct pmu pmu = {
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable	= sparc_pmu_enable,
- 	.pmu_disable	= sparc_pmu_disable,
- 	.event_init	= sparc_pmu_event_init,
-diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
-index 95de309fc7d5..ed07d80b6fe0 100644
---- a/arch/x86/events/amd/ibs.c
-+++ b/arch/x86/events/amd/ibs.c
-@@ -768,6 +768,7 @@ static struct perf_ibs perf_ibs_fetch = {
- 	.pmu = {
- 		.task_ctx_nr	= perf_hw_context,
- 
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.event_init	= perf_ibs_init,
- 		.add		= perf_ibs_add,
- 		.del		= perf_ibs_del,
-@@ -793,6 +794,7 @@ static struct perf_ibs perf_ibs_op = {
- 	.pmu = {
- 		.task_ctx_nr	= perf_hw_context,
- 
-+		.capabilities	= PERF_PMU_CAP_SAMPLING,
- 		.event_init	= perf_ibs_init,
- 		.add		= perf_ibs_add,
- 		.del		= perf_ibs_del,
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index eca5bb49aa85..72a4c43951ee 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -1837,7 +1837,7 @@ static void __init pmu_check_apic(void)
- 	 * sample via a hrtimer based software event):
- 	 */
- 	pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
--
-+	pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- }
- 
- static struct attribute_group x86_pmu_format_group __ro_after_init = {
-@@ -2698,6 +2698,8 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
- }
- 
- static struct pmu pmu = {
-+	.capabilities		= PERF_PMU_CAP_SAMPLING,
-+
- 	.pmu_enable		= x86_pmu_enable,
- 	.pmu_disable		= x86_pmu_disable,
- 
-diff --git a/arch/xtensa/kernel/perf_event.c b/arch/xtensa/kernel/perf_event.c
-index 223f1d452310..b03a2feb0f92 100644
---- a/arch/xtensa/kernel/perf_event.c
-+++ b/arch/xtensa/kernel/perf_event.c
-@@ -397,6 +397,7 @@ irqreturn_t xtensa_pmu_irq_handler(int irq, void *dev_id)
- }
- 
- static struct pmu xtensa_pmu = {
-+	.capabilities = PERF_PMU_CAP_SAMPLING,
- 	.pmu_enable = xtensa_pmu_enable,
- 	.pmu_disable = xtensa_pmu_disable,
- 	.event_init = xtensa_pmu_event_init,
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 2c1af3a0207c..72d8f38d0aa5 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -876,7 +876,8 @@ struct arm_pmu *armpmu_alloc(void)
- 		 * PERF_TYPE_HARDWARE and PERF_TYPE_HW_CACHE events on a
- 		 * specific PMU.
- 		 */
--		.capabilities	= PERF_PMU_CAP_EXTENDED_REGS |
-+		.capabilities	= PERF_PMU_CAP_SAMPLING |
-+				  PERF_PMU_CAP_EXTENDED_REGS |
- 				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
- 	};
- 
-diff --git a/drivers/perf/arm_pmu_platform.c b/drivers/perf/arm_pmu_platform.c
-index 118170a5cede..ab7a802cd0d6 100644
---- a/drivers/perf/arm_pmu_platform.c
-+++ b/drivers/perf/arm_pmu_platform.c
-@@ -109,6 +109,7 @@ static int pmu_parse_irqs(struct arm_pmu *pmu)
- 	 */
- 	if (num_irqs == 0) {
- 		dev_warn(dev, "no irqs for PMU, sampling events not supported\n");
-+		pmu->pmu.capabilities &= ~PERF_PMU_CAP_SAMPLING;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		cpumask_setall(&pmu->supported_cpus);
- 		return 0;
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 369e77ad5f13..dbd52851f5c6 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -955,7 +955,8 @@ static int arm_spe_pmu_perf_init(struct arm_spe_pmu *spe_pmu)
- 	spe_pmu->pmu = (struct pmu) {
- 		.module = THIS_MODULE,
- 		.parent		= &spe_pmu->pdev->dev,
--		.capabilities	= PERF_PMU_CAP_EXCLUSIVE | PERF_PMU_CAP_ITRACE,
-+		.capabilities	= PERF_PMU_CAP_SAMPLING |
-+				  PERF_PMU_CAP_EXCLUSIVE | PERF_PMU_CAP_ITRACE,
- 		.attr_groups	= arm_spe_pmu_attr_groups,
- 		/*
- 		 * We hitch a ride on the software context here, so that
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 698de8ddf895..d185ea8c47ba 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1361,6 +1361,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 		pr_info("Perf sampling/filtering is not supported as sscof extension is not available\n");
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
- 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
-+	} else {
-+		pmu->pmu.capabilities |= PERF_PMU_CAP_SAMPLING;
- 	}
- 
- 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 4d439c24c901..bf2cfbeabba2 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -294,7 +294,7 @@ struct perf_event_pmu_context;
- /**
-  * pmu::capabilities flags
-  */
--#define PERF_PMU_CAP_NO_INTERRUPT	0x0001
-+#define PERF_PMU_CAP_SAMPLING		0x0001
- #define PERF_PMU_CAP_NO_NMI		0x0002
- #define PERF_PMU_CAP_AUX_NO_SG		0x0004
- #define PERF_PMU_CAP_EXTENDED_REGS	0x0008
-@@ -305,6 +305,7 @@ struct perf_event_pmu_context;
- #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
- #define PERF_PMU_CAP_AUX_PAUSE		0x0200
- #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-+#define PERF_PMU_CAP_NO_INTERRUPT	0x0800
- 
- /**
-  * pmu::scope
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 8060c2857bb2..71b2a6730705 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -4359,7 +4359,7 @@ perf_adjust_freq_unthr_context(struct perf_event_context *ctx, bool unthrottle)
- 			continue;
- 		if (!perf_pmu_ctx_is_active(pmu_ctx))
- 			continue;
--		if (pmu_ctx->pmu->capabilities & PERF_PMU_CAP_NO_INTERRUPT)
-+		if (!(pmu_ctx->pmu->capabilities & PERF_PMU_CAP_SAMPLING))
- 			continue;
- 
- 		perf_pmu_disable(pmu_ctx->pmu);
-@@ -10819,7 +10819,7 @@ static int perf_swevent_init(struct perf_event *event)
- static struct pmu perf_swevent = {
- 	.task_ctx_nr	= perf_sw_context,
- 
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 
- 	.event_init	= perf_swevent_init,
- 	.add		= perf_swevent_add,
-@@ -10861,6 +10861,7 @@ static int perf_tp_event_init(struct perf_event *event)
- static struct pmu perf_tracepoint = {
- 	.task_ctx_nr	= perf_sw_context,
- 
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.event_init	= perf_tp_event_init,
- 	.add		= perf_trace_add,
- 	.del		= perf_trace_del,
-@@ -11066,6 +11067,7 @@ static struct pmu perf_kprobe = {
- 	.stop		= perf_swevent_stop,
- 	.read		= perf_swevent_read,
- 	.attr_groups	= kprobe_attr_groups,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- };
- 
- static int perf_kprobe_event_init(struct perf_event *event)
-@@ -11125,6 +11127,7 @@ static struct pmu perf_uprobe = {
- 	.stop		= perf_swevent_stop,
- 	.read		= perf_swevent_read,
- 	.attr_groups	= uprobe_attr_groups,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- };
- 
- static int perf_uprobe_event_init(struct perf_event *event)
-@@ -11899,7 +11902,7 @@ static int cpu_clock_event_init(struct perf_event *event)
- static struct pmu perf_cpu_clock = {
- 	.task_ctx_nr	= perf_sw_context,
- 
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 	.dev		= PMU_NULL_DEV,
- 
- 	.event_init	= cpu_clock_event_init,
-@@ -11982,7 +11985,7 @@ static int task_clock_event_init(struct perf_event *event)
- static struct pmu perf_task_clock = {
- 	.task_ctx_nr	= perf_sw_context,
- 
--	.capabilities	= PERF_PMU_CAP_NO_NMI,
-+	.capabilities	= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_NO_NMI,
- 	.dev		= PMU_NULL_DEV,
- 
- 	.event_init	= task_clock_event_init,
-@@ -13476,11 +13479,10 @@ SYSCALL_DEFINE5(perf_event_open,
- 		goto err_task;
- 	}
- 
--	if (is_sampling_event(event)) {
--		if (event->pmu->capabilities & PERF_PMU_CAP_NO_INTERRUPT) {
--			err = -EOPNOTSUPP;
--			goto err_alloc;
--		}
-+	if (is_sampling_event(event) &&
-+	    !(event->pmu->capabilities & PERF_PMU_CAP_SAMPLING)) {
-+		err = -EOPNOTSUPP;
-+		goto err_alloc;
- 	}
- 
- 	/*
-diff --git a/kernel/events/hw_breakpoint.c b/kernel/events/hw_breakpoint.c
-index 8ec2cb688903..604be7d7aecf 100644
---- a/kernel/events/hw_breakpoint.c
-+++ b/kernel/events/hw_breakpoint.c
-@@ -996,6 +996,7 @@ static void hw_breakpoint_stop(struct perf_event *bp, int flags)
- static struct pmu perf_breakpoint = {
- 	.task_ctx_nr	= perf_sw_context, /* could eventually get its own */
- 
-+	.capabilities	= PERF_PMU_CAP_SAMPLING,
- 	.event_init	= hw_breakpoint_event_init,
- 	.add		= hw_breakpoint_add,
- 	.del		= hw_breakpoint_del,
+[auto build test WARNING on broonie-sound/for-next]
+[also build test WARNING on linus/master v6.17-rc1 next-20250813]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Christophe-Leroy/soc-fsl-qmc-Only-set-completion-interrupt-when-needed/20250812-193812
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+patch link:    https://lore.kernel.org/r/8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy%40csgroup.eu
+patch subject: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
+config: powerpc64-randconfig-r073-20250813 (https://download.01.org/0day-ci/archive/20250814/202508140002.NBrWOZJL-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 3769ce013be2879bf0b329c14a16f5cb766f26ce)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250814/202508140002.NBrWOZJL-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508140002.NBrWOZJL-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   sound/soc/fsl/fsl_qmc_audio.c:888:39: error: no member named 'qmc_chans' in 'struct qmc_dai'
+     888 |                 ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
+         |                                            ~~~~~~~  ^
+>> sound/soc/fsl/fsl_qmc_audio.c:900:21: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
+     899 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
+         |                                                                                                     ~~~
+         |                                                                                                     %d
+     900 |                                 qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
+         |                                                 ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   sound/soc/fsl/fsl_qmc_audio.c:900:38: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
+     899 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
+         |                                                                                                                ~~~
+         |                                                                                                                %d
+     900 |                                 qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
+         |                                                                  ^~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   sound/soc/fsl/fsl_qmc_audio.c:905:21: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
+     904 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
+         |                                                                                                     ~~~
+         |                                                                                                     %d
+     905 |                                 qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
+         |                                                 ^~~~~~~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   sound/soc/fsl/fsl_qmc_audio.c:905:38: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
+     904 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
+         |                                                                                                                ~~~
+         |                                                                                                                %d
+     905 |                                 qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
+         |                                                                  ^~~~~~~~~~
+   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
+     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
+         |                                                                ~~~     ^~~~~~~~~~~
+   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                              ~~~    ^~~~~~~~~~~
+   4 warnings and 1 error generated.
+
+
+vim +900 sound/soc/fsl/fsl_qmc_audio.c
+
+   789	
+   790	static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *np,
+   791				       struct qmc_dai *qmc_dai,
+   792				       struct snd_soc_dai_driver *qmc_soc_dai_driver)
+   793	{
+   794		struct qmc_chan_ts_info ts_info;
+   795		struct qmc_chan_info info;
+   796		unsigned long rx_fs_rate;
+   797		unsigned long tx_fs_rate;
+   798		int prev_last_rx_ts = 0;
+   799		int prev_last_tx_ts = 0;
+   800		unsigned int nb_tx_ts;
+   801		unsigned int nb_rx_ts;
+   802		unsigned int i;
+   803		int last_rx_ts;
+   804		int last_tx_ts;
+   805		int count;
+   806		u32 val;
+   807		int ret;
+   808	
+   809		qmc_dai->dev = qmc_audio->dev;
+   810	
+   811		ret = of_property_read_u32(np, "reg", &val);
+   812		if (ret) {
+   813			dev_err(qmc_audio->dev, "%pOF: failed to read reg\n", np);
+   814			return ret;
+   815		}
+   816		qmc_dai->id = val;
+   817	
+   818		qmc_dai->name = devm_kasprintf(qmc_audio->dev, GFP_KERNEL, "%s.%d",
+   819					       np->parent->name, qmc_dai->id);
+   820		if (!qmc_dai->name)
+   821			return -ENOMEM;
+   822	
+   823		count = qmc_chan_count_phandles(np, "fsl,qmc-chan");
+   824		if (count < 0)
+   825			return dev_err_probe(qmc_audio->dev, count,
+   826					     "dai %d get number of QMC channel failed\n", qmc_dai->id);
+   827		if (!count)
+   828			return dev_err_probe(qmc_audio->dev, -EINVAL,
+   829					     "dai %d no QMC channel defined\n", qmc_dai->id);
+   830	
+   831		qmc_dai->chans = devm_kcalloc(qmc_audio->dev, count, sizeof(*qmc_dai->chans), GFP_KERNEL);
+   832		if (!qmc_dai->chans)
+   833			return -ENOMEM;
+   834	
+   835		for (i = 0; i < count; i++) {
+   836			qmc_dai->chans[i].qmc_chan = devm_qmc_chan_get_byphandles_index(qmc_audio->dev, np,
+   837											"fsl,qmc-chan", i);
+   838			if (IS_ERR(qmc_dai->chans[i].qmc_chan)) {
+   839				return dev_err_probe(qmc_audio->dev, PTR_ERR(qmc_dai->chans[i].qmc_chan),
+   840						     "dai %d get QMC channel %d failed\n", qmc_dai->id, i);
+   841			}
+   842	
+   843			ret = qmc_chan_get_info(qmc_dai->chans[i].qmc_chan, &info);
+   844			if (ret) {
+   845				dev_err(qmc_audio->dev, "dai %d get QMC %d channel info failed %d\n",
+   846					qmc_dai->id, i, ret);
+   847				return ret;
+   848			}
+   849	
+   850			if (info.mode != QMC_TRANSPARENT) {
+   851				dev_err(qmc_audio->dev, "dai %d QMC chan %d mode %d is not QMC_TRANSPARENT\n",
+   852					qmc_dai->id, i, info.mode);
+   853				return -EINVAL;
+   854			}
+   855	
+   856			/*
+   857			 * All channels must have the same number of Tx slots and the
+   858			 * same numbers of Rx slots.
+   859			 */
+   860			if (i == 0) {
+   861				nb_tx_ts = info.nb_tx_ts;
+   862				nb_rx_ts = info.nb_rx_ts;
+   863				tx_fs_rate = info.tx_fs_rate;
+   864				rx_fs_rate = info.rx_fs_rate;
+   865			} else {
+   866				if (nb_tx_ts != info.nb_tx_ts) {
+   867					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent number of Tx timeslots (%u instead of %u)\n",
+   868						qmc_dai->id, i, info.nb_tx_ts, nb_tx_ts);
+   869					return -EINVAL;
+   870				}
+   871				if (nb_rx_ts != info.nb_rx_ts) {
+   872					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent number of Rx timeslots (%u instead of %u)\n",
+   873						qmc_dai->id, i, info.nb_rx_ts, nb_rx_ts);
+   874					return -EINVAL;
+   875				}
+   876				if (tx_fs_rate != info.tx_fs_rate) {
+   877					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent Tx frame sample rate (%lu instead of %lu)\n",
+   878						qmc_dai->id, i, info.tx_fs_rate, tx_fs_rate);
+   879					return -EINVAL;
+   880				}
+   881				if (rx_fs_rate != info.rx_fs_rate) {
+   882					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent Rx frame sample rate (%lu instead of %lu)\n",
+   883						qmc_dai->id, i, info.rx_fs_rate, rx_fs_rate);
+   884					return -EINVAL;
+   885				}
+   886			}
+   887	
+ > 888			ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
+   889			if (ret) {
+   890				dev_err(qmc_audio->dev, "dai %d get QMC %d channel TS info failed %d\n",
+   891					qmc_dai->id, i, ret);
+   892				return ret;
+   893			}
+   894	
+   895			last_rx_ts = fls64(ts_info.rx_ts_mask);
+   896			last_tx_ts = fls64(ts_info.rx_ts_mask);
+   897	
+   898			if (prev_last_rx_ts > last_rx_ts) {
+   899				dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
+ > 900					qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
+   901				return -EINVAL;
+   902			}
+   903			if (prev_last_tx_ts > last_tx_ts) {
+   904				dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
+   905					qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
+   906				return -EINVAL;
+   907			}
+   908	
+   909			prev_last_rx_ts = last_rx_ts;
+   910			prev_last_tx_ts = last_tx_ts;
+   911		}
+   912	
+   913		qmc_dai->nb_chans_avail = count;
+   914		qmc_dai->nb_tx_ts = nb_tx_ts * count;
+   915		qmc_dai->nb_rx_ts = nb_rx_ts * count;
+   916	
+   917		qmc_soc_dai_driver->id = qmc_dai->id;
+   918		qmc_soc_dai_driver->name = qmc_dai->name;
+   919	
+   920		qmc_soc_dai_driver->playback.channels_min = 0;
+   921		qmc_soc_dai_driver->playback.channels_max = 0;
+   922		if (nb_tx_ts) {
+   923			qmc_soc_dai_driver->playback.channels_min = 1;
+   924			qmc_soc_dai_driver->playback.channels_max = count > 1 ? count : nb_tx_ts;
+   925		}
+   926		qmc_soc_dai_driver->playback.formats = qmc_audio_formats(nb_tx_ts,
+   927									 count > 1);
+   928	
+   929		qmc_soc_dai_driver->capture.channels_min = 0;
+   930		qmc_soc_dai_driver->capture.channels_max = 0;
+   931		if (nb_rx_ts) {
+   932			qmc_soc_dai_driver->capture.channels_min = 1;
+   933			qmc_soc_dai_driver->capture.channels_max = count > 1 ? count : nb_rx_ts;
+   934		}
+   935		qmc_soc_dai_driver->capture.formats = qmc_audio_formats(nb_rx_ts,
+   936									count > 1);
+   937	
+   938		qmc_soc_dai_driver->playback.rates = snd_pcm_rate_to_rate_bit(tx_fs_rate);
+   939		qmc_soc_dai_driver->playback.rate_min = tx_fs_rate;
+   940		qmc_soc_dai_driver->playback.rate_max = tx_fs_rate;
+   941		qmc_soc_dai_driver->capture.rates = snd_pcm_rate_to_rate_bit(rx_fs_rate);
+   942		qmc_soc_dai_driver->capture.rate_min = rx_fs_rate;
+   943		qmc_soc_dai_driver->capture.rate_max = rx_fs_rate;
+   944	
+   945		qmc_soc_dai_driver->ops = &qmc_dai_ops;
+   946	
+   947		return 0;
+   948	}
+   949	
+
 -- 
-2.39.2.101.g768bb238c484.dirty
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
