@@ -4,194 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66001C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C091BC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANNzez2+A72pY6Li6PUxeAaCTICHgXuRUhiFPeC6Bhw=; b=OAUTCqjftJjRHBzYWRcJhCd3B/
-	qg0J/ifGgOBboL1Ts4caFUOllg2Pbysw1kQBvCR5a2o+2Fz64DbflRhoyB2Je5H4Xs4TsRQ3cjxwI
-	LowIXtlD+vEEhKueehOWJFvQRJWm7YwOBXhkyRIY3PzG7PLVOR0IYRC5um1UQGLwj+PJnUmgYcvC4
-	z2uKnJg7cksV7OFH5puxtlEwDRuYl2w8RRZtoLshLT2NIkWGfNJw5sTSKSkW8NoCHCNKMrtdk3vtk
-	aYt7DkpnWCdBAPWJffVvZBcEV7IuoblJCgnf0soGsX0jiBBBdjiJkFZ7l1+Rfnhjp1rvd7PaBcgyt
-	kh1IKjEw==;
+	bh=BD9mYFd1u23jd9bY4yS5jYMiHbnf6ExovqrXmISXZVo=; b=YMgNzJRpliCuzUw+9ISVMUOveu
+	rEaMlH5sfeYc2YXtPxl8rcuE2cb3pKQzPBmGMr0vtod+GcUSrRNuLkVOkTKMEzTy/1pYJAo61NNco
+	FRzXTNNTFVQmXn/83I3YoJGrWcUuvVhtz+wsq0JbtGDfOtBnoj/3xZp4P+RlRGs+oNIiJcqeqVkHE
+	YkpUcKt4iRdAr1rm7+4dvF6UpAxVHz2f20ebFXdBolm7xJCnQWC/pzg2wj68HskpqQacdne4d3TM9
+	bp8wj4Q+kEksmmYTukFaKiogqFOntdSiQyjr/cwWALNACqPoKvmKIwil9y4GOlHgBOeeGlvXLHNxX
+	PmNRmwig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um69a-0000000CyA8-1oQ0;
-	Wed, 13 Aug 2025 07:44:10 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1um6F1-0000000Cz8t-249c;
+	Wed, 13 Aug 2025 07:49:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5QW-0000000Cr8c-2dLb
+	id 1um5O6-0000000CqoU-327p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 06:57:38 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=yShZTW8kBkM0C0pp6xhaaCWdQOj7NooWEWIC0UWhkP0k70fW5i1QpPHk0HIPiGV1JY6mXT3tON3o61xLzn7x81RNDaDQiy2KvIBwLyOXjUFOqY7Vof2gg25oo9yyjSNOO+Kgl+FhUS7jafWIF3UX3aHEK2+5D4Zv71qOEARD7tGp9BydhK7b9h4Uas0zrT6f10vM7Z4GvkhgJfj978ClyQxOy0jClW2fhvMiCDuq1Afcxj0/4O2qKNtp4bxuIVGyU2Vsh2/5iKnRBMR8AooLuf3Gr73fjXz5e45vV3cNW8cOTnzA2J74efnOT2NHcRKX1bXOZJamSCGACtlRVp08NQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ANNzez2+A72pY6Li6PUxeAaCTICHgXuRUhiFPeC6Bhw=;
- b=r0w1PRC1+n7AoAIeC7HZVj3cgmMFHJZWdu7Q3kPKbZanhpkg/ADGKM/QBmUfRY2jKDhaDqrWzuIVToW3mY57TjZnAUUztdnYu34Izk2fVVpZzFi0n3e4Jk0C/8Cx9rDU+iwCIidjO7IgA8xj3/8LBIDViwpx+mIiFWbtZzKS5Ll3UHF6JuQMXQE13w1ZpO3c/vCdd47827WdFr6ymPsCI8pyBB33Bp0P1ME4rszslw6dFy//oBzUIE4/LUB96YHBGqGgI6qXnrrj9j8a5tSlhSNOi8wCnzA5l9UW1dVkaR9HHglRQ8XIK2g3CkHtJrgiIXk6zpr1FhUklw7hF+sAmQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kzalloc.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ANNzez2+A72pY6Li6PUxeAaCTICHgXuRUhiFPeC6Bhw=;
- b=ZR1OXq4I7Q4UnNdsd1j/1vDp/bkhOu5isaCyDi5t3nM16dkyp6FCs1/qZmBLSASjWcBpPAQBuHnLzKccFDk3+NQRPj26o50fU7npOpLV0Rl1aZomQgWAZpcqNaiVTRdrOZyHovMCeEijnb7/GTmq+Mqk4UzrfrocNuKtBGbqxaw=
-Received: from AM0PR02CA0167.eurprd02.prod.outlook.com (2603:10a6:20b:28d::34)
- by PAVPR08MB8967.eurprd08.prod.outlook.com (2603:10a6:102:326::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Wed, 13 Aug
- 2025 06:57:25 +0000
-Received: from AMS0EPF000001AF.eurprd05.prod.outlook.com
- (2603:10a6:20b:28d:cafe::49) by AM0PR02CA0167.outlook.office365.com
- (2603:10a6:20b:28d::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.15 via Frontend Transport; Wed,
- 13 Aug 2025 06:57:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001AF.mail.protection.outlook.com (10.167.16.155) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.11
- via Frontend Transport; Wed, 13 Aug 2025 06:57:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jf22AwKQfV3TpcKaco0kG17OcC+FcMmXZ62wv+UkSTjLFvNY5orZ5KeK3gTI0GhXnW3g3FUr5Su+ecO+z1680Yy+T2nehb2WsyzSq2iAOC7t2YFlV17cLjngyW1YMWu4l9hxS1/OtTjhY2+EYaG+7alSLFvVEGrgU+uNNMXEr4jcDoNxbNiKfJxnmh+xt6tnQElJyIXVBITaeN5yK3qhbzuuFh3+STj0Z6qs+WtnX1UEVay/NULUNXiGKzfkR3eWm/jjdAO8UAcwCk3qkBmUAbHLZo8BqC4fT/htQJwMnS+rhWdDFyOzaGLhxKLL6sJcRX/YFjr1BUvhvVNttYuRMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ANNzez2+A72pY6Li6PUxeAaCTICHgXuRUhiFPeC6Bhw=;
- b=EULFpBVhPV7KPZ52p/iAGlt2ElB1esw7KTD7XQ1q1qgh9Ih2C2yULstsz+RGaDNNzOPqxf2XuqXxZl/eDYQLtUiJ+v1fGOaDZDfBarfkvVIgtAN1LPUxopBcdGK3osk2s0DS7lua+MK/8qx1Zk5U6k6DP5DMSfyqcwz/j/VYNjfeUiKGbYQy5zLrEC5FChlDtdDk4lOHZxGh8xBpdt/XbcnS+ewsgjMrdJxyXJWp7CGOlYZKbH56ybvwfisKBNNozsD+evUq9+iPrR0/FXiLhSTw2L08XtvKYvVv8MaipcbsZgBvpri2UdIRNGf3n93amutQ47wY3eFWUQtiB2VjWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ANNzez2+A72pY6Li6PUxeAaCTICHgXuRUhiFPeC6Bhw=;
- b=ZR1OXq4I7Q4UnNdsd1j/1vDp/bkhOu5isaCyDi5t3nM16dkyp6FCs1/qZmBLSASjWcBpPAQBuHnLzKccFDk3+NQRPj26o50fU7npOpLV0Rl1aZomQgWAZpcqNaiVTRdrOZyHovMCeEijnb7/GTmq+Mqk4UzrfrocNuKtBGbqxaw=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU0PR08MB9680.eurprd08.prod.outlook.com
- (2603:10a6:10:444::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Wed, 13 Aug
- 2025 06:56:50 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9031.012; Wed, 13 Aug 2025
- 06:56:49 +0000
-Date: Wed, 13 Aug 2025 07:56:47 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Yunseong Kim <ysk@kzalloc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Austin Kim <austindh.kim@gmail.com>, linux-rt-devel@lists.linux.dev,
-	syzkaller@googlegroups.com, stable@vger.kernel.org
-Subject: Re: [BUG] arm64: Sleeping function called from invalid context in
- do_debug_exception on PREEMPT_RT
-Message-ID: <aJw3L7B7u5qAPOMz@e129823.arm.com>
-References: <c36e8dca-d466-40ad-ad51-2b75e769ff47@kzalloc.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c36e8dca-d466-40ad-ad51-2b75e769ff47@kzalloc.com>
-X-ClientProxiedBy: LO4P123CA0692.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:37b::15) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB9680:EE_|AMS0EPF000001AF:EE_|PAVPR08MB8967:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64d003ef-38a8-459f-cfe2-08ddda36a7c2
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?pRgRizlifORx/NSHgjIvRAMrnPBP5uEAhYgZQ+HN8Mdqm5d1NtjlgWU/xffT?=
- =?us-ascii?Q?zHcH3KhfrLogWDesbqzhdupIRkyph7gSHiWaUyb1SqHKp9cl+E1f2c2s1dY+?=
- =?us-ascii?Q?yJE2f3PMx6urfx4owVe4ykieZ/aj/cnu+e5z4FYEugj/ztnxQH0WXYExrCgN?=
- =?us-ascii?Q?+xKEjNwNYD5H3wULUsbYKUd6jDey5AJja6qe5E35alcGMkqUvyfTJ1uYAHcM?=
- =?us-ascii?Q?KzzjMruNywhrh0/HtvFe8oMThiI/ZfviyR7Y3QW4a0mUiI+PgIJYZgcyvZ2c?=
- =?us-ascii?Q?irKFDX55UsuaGcvkAv5hGi/MnzNVzs245UnaPXLBiLjcDESZuZSJWRYgHIFL?=
- =?us-ascii?Q?Dih0dByJkf9QqlUYvBk3pPdi9fhW0SMDo3dfCTFDsCbL0umaxGSiTfgsme1a?=
- =?us-ascii?Q?8UhArJekbxjPfz3BACIRQoZEpn65tR4bQx7QAF3r0HVcj2xByvY5mS2nbqRP?=
- =?us-ascii?Q?Ic6lJL9HhsG3hv4faPI7z9dx5xLvCazTRaaGIkZ183EM13KrLvwC+2nzQdbc?=
- =?us-ascii?Q?rcXzdOKIjhim8HBDv2P47xTJqjhJr7xyrsdLklOOnfCfSnKSWcedU8D+GonI?=
- =?us-ascii?Q?Zhh5ku8BEirF3CECsQ/VhLqx6muYJy60QCHUh8zayNrCkTLhl5iRU3JLK7rM?=
- =?us-ascii?Q?8+tWvnn79Ch6Y4In5k0PAhUN3QrPyZISAZrJd0fmKH97MwFNy/8ZkZt7qSHj?=
- =?us-ascii?Q?L3SQke16W5UNiSTvvi+iheHCuEV0QlI2xO2a3sjls6WBGCor79IrIuFBxjWp?=
- =?us-ascii?Q?DtRJHyZJ3XQ/Pnggv1ZWdsrGW1gvx/U/Aoe+mkYt8YjtGkw2giYvqSwxQNgv?=
- =?us-ascii?Q?SutbM73EJ0Ms88kJ+PR+OlcVPM5Vj/CHKbnddjGNOgFUWtMckbf/iGpMNWXq?=
- =?us-ascii?Q?dwCrAEvUiL02U+uL4QIX0x7TDZBcvt2MZu0i378pcBzWMs6pXQ6TFybOEP/M?=
- =?us-ascii?Q?qvFv9mhB4tNo4PrrCuM9tqqBbAEa40glRKIRHcIM8+cEHWrMXdvrxvjhuyr1?=
- =?us-ascii?Q?6VtkN7kKNziQYmSJdRL5Fi+pBX8a90QgRwWjf1HXGvn33wNt36sQd+G+Ayl1?=
- =?us-ascii?Q?bAbKNSe34FaDJ/TzkWwzSlKzxg6XwdUthVBrWvoYoy43K+QKiyOYVceKaDu9?=
- =?us-ascii?Q?Ff8G1IxMrOTAlem9xs+o/kpySc2wYRYmdTC8Nz15/tXalrSn/LHrcFcphtZ/?=
- =?us-ascii?Q?oD8PuGPtBSFb98wfLD4BvDu5vhV6/svy1PiyZNMzi4m93VegrQnOWVZT4OHa?=
- =?us-ascii?Q?oZeWyLk0i/4cWtzaUGLkfCNOosJNIQDuZL4YEw78OUwqbSobgwEOo9zARgYv?=
- =?us-ascii?Q?e0rulaPaVkPLyO464fnBvjS+4v+43/b80D33wQWWQY6Fq6cdrApjmqiPgMH5?=
- =?us-ascii?Q?+VVZHVAnUbfavloQuBOEBH21ppBfFcg+H1gUpndikMS0crXRnEKfJ+vn51zs?=
- =?us-ascii?Q?NRsL72IWI4I=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9680
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001AF.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 86f4ab2d-3c41-4b82-e505-08ddda3693af
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026|14060799003|35042699022|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WyOhCmuwUMNjF4axEVETzWMTQo/1cvcPcc3g35Rx3URNinX0QM4kwUMuvHUZ?=
- =?us-ascii?Q?xYhayak/BV9NjwIV6K6hUshtbic/bClsx6DreBAhGgjmhY845MQCzvwwcjGI?=
- =?us-ascii?Q?T3hbbIGCstw/vMBjOF8Lgb912aJdY9gBpAbPXzq7y9zMatohLYPtLFhAJ6wH?=
- =?us-ascii?Q?AHFi1hwmjaTAdsL/nxg8VQE6TbTle4k0kD73Ys22p8VbWC/b9RN9+GJcEBtK?=
- =?us-ascii?Q?0HOIf78P59fLWVrBYLEeVoTeZsgI7rjdHYMqv7EQhy5Mdb2xnJhOh8myZ/4n?=
- =?us-ascii?Q?LhMX9AdcubencboLIgrHfUnq2jBBgUonf55KQ8s5r0J4MGU7A4h7yOEXq0Zu?=
- =?us-ascii?Q?K3GFPX+PoNY3w+wXgcVdgeSa186J6Xkecv+SpRZw3N2JUvtLE3ZUKY9T8Ss2?=
- =?us-ascii?Q?mKiCKf7DcYLBJCJC931mSMjWpeTuehwdjPIxsr4tbDeTlVgYiT+/Agn1Ukt6?=
- =?us-ascii?Q?veXt7r2ERJLnUsga15RASU09JeNoSaR5TX3IAzKR8trhYmLTgi3zqhlU448S?=
- =?us-ascii?Q?biYSZYwioRKo3hTuQQ2LMIBVQZpMJEcv48kpGswm8LJr22dg29WJ1teYC8x4?=
- =?us-ascii?Q?FNEisPgpV4gWBpej1fVYLOLzpcpdPPkXksU/uUaDbTDeWC9mm80rGjNAAjnE?=
- =?us-ascii?Q?1UFma1Q2xkgbNp06BX/J0nN0NclduSGApJ/h3kcCLzd3D6niWqJcaA4xcrlv?=
- =?us-ascii?Q?MwFXZ5ApzW3qeb7JJLl5DRKsbOjn6tfKa6cU2GHY9YWSOE/ICqyhsKcZqBqq?=
- =?us-ascii?Q?MRyrOGDjp0n+JSLkpfAlwAJfj7gKSgJLXrsyROkqTPoT3IRNcZYwrHYRvxjI?=
- =?us-ascii?Q?o/WN22F/kQSveWzLJnbiCNpRZrTUwgbqxBNPJbDdIPI16+eaBuipmAul8+M+?=
- =?us-ascii?Q?QiN+n7GqhOV/qoZ6btw4jMAyQL/8VdWaltli9RiC3osfn/mogMi6CAr6jJ2O?=
- =?us-ascii?Q?BGhIz7VjZw6MEFKuTeQidSxo2HwxEfihZNG+0YkmAZA4MViRULUrxNEYJciG?=
- =?us-ascii?Q?wqTKg2KOJtQ0z6YV8zn8hLQBI0kopc9cB1dKBlkiZlNkMSRw/ngV9iOfjWXs?=
- =?us-ascii?Q?QG30Diz7WxTQj97w9Vt46J8+P5Mtl+v5UZBBnXnoZlTnDDlayLXH6HfdkL+9?=
- =?us-ascii?Q?ywgoswMACnmopWo9TAHpW5/NLaM1IVOPHygLa8RZczn/JbxWdduVna25X+Nu?=
- =?us-ascii?Q?6z0qAehpFANdqy1Kw3YXxDdVrE/wJQq7JPkQzDtGXEiuf+IyZG21jVmMjwN4?=
- =?us-ascii?Q?goxzXiIIyiEsbHZWFE0el2K+JJTlBLVo4pXoVqJqmFqCagUsNgae9Y99YHDw?=
- =?us-ascii?Q?PugEButqdF4Zkr/IUeFBurnJFNf7OD26WYPNSfa9snPMHNLTm+Egr7XZRQHZ?=
- =?us-ascii?Q?yhS+kAtjnpU8aw3GScn4hI77V2eZknzl+tI7/1iMPFOcwnidsZUfOal1vslB?=
- =?us-ascii?Q?viFX1NhXfr4wPnX2+qZY1e2FWywyIaJRi4k88QzQ400aS6ePxStn7Wf/MmB8?=
- =?us-ascii?Q?XG9G3lsMz2bDlFRkvdYVFqYVi8OCQh4yQHxUO/pl/ANAb4vEsV+xoHdGQg?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026)(14060799003)(35042699022)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 06:57:23.3197
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64d003ef-38a8-459f-cfe2-08ddda36a7c2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AF.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB8967
+	Wed, 13 Aug 2025 06:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2092A43B88;
+	Wed, 13 Aug 2025 06:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000C2C4CEEB;
+	Wed, 13 Aug 2025 06:55:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755068106;
+	bh=R697c/HBZYtRS8/J/tGfw/3B8h/z4SXcEWejW3uErCI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sljCin8SEFm48vxdfwnj+wQpjbnb8rGMLQKURBN92hKOvOwcJc9k0pPl6dfbzWyOM
+	 xXcswj+NSQ6Zn1QGFxpj6KKZGbmPLfMw5TTP//HXCij5s0ffjFefxCGuyLetXTFvEZ
+	 0tLdVHIn65PQuQCPYBtH7ag4X7O81sPjxf64UPqZDKa1njY4b4W3TMNBU4mvouCW6Z
+	 38YPuo0qccrITHN55Gm1Pmut472oeI5LmHe5EN2MClR5FRBLQvzKiok4eHvYpn+qy9
+	 OZH50wZzvc8Cb5t91+/l1zwHuJvHUMqrJT34mE+PRX07zMp80VuR+Xtt07sLToA916
+	 p2Lp4myYT12Mw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1um5Ny-006x5m-Fu;
+	Wed, 13 Aug 2025 07:54:58 +0100
+Date: Wed, 13 Aug 2025 07:54:58 +0100
+Message-ID: <86jz3790e5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Volodymyr Babchuk <volodymyr_babchuk@epam.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 2/2] KVM: arm64: Fix vcpu_{read,write}_sys_reg() accessors
+In-Reply-To: <aJuixWlc87f2UlK0@linux.dev>
+References: <20250809144811.2314038-1-maz@kernel.org>
+	<20250809144811.2314038-3-maz@kernel.org>
+	<aJuixWlc87f2UlK0@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, volodymyr_babchuk@epam.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_235736_833276_1B156419 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250812_235506_812518_A31E1923 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,58 +90,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yunseong,
+Hey Oliver,
 
->
-> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> | in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 20466, name: syz.0.1689
-> | preempt_count: 1, expected: 0
-> | RCU nest depth: 0, expected: 0
-> | Preemption disabled at:
-> | [<ffff800080241600>] debug_exception_enter arch/arm64/mm/fault.c:978 [inline]
-> | [<ffff800080241600>] do_debug_exception+0x68/0x2fc arch/arm64/mm/fault.c:997
-> | CPU: 0 UID: 0 PID: 20466 Comm: syz.0.1689 Not tainted 6.16.0-rc1-rt1-dirty #12 PREEMPT_RT
-> | Hardware name: QEMU KVM Virtual Machine, BIOS 2025.02-8 05/13/2025
-> | Call trace:
-> |  show_stack+0x2c/0x3c arch/arm64/kernel/stacktrace.c:466 (C)
-> |  __dump_stack+0x30/0x40 lib/dump_stack.c:94
-> |  dump_stack_lvl+0x148/0x1d8 lib/dump_stack.c:120
-> |  dump_stack+0x1c/0x3c lib/dump_stack.c:129
-> |  __might_resched+0x2e4/0x52c kernel/sched/core.c:8800
-> |  __rt_spin_lock kernel/locking/spinlock_rt.c:48 [inline]
-> |  rt_spin_lock+0xa8/0x1bc kernel/locking/spinlock_rt.c:57
-> |  spin_lock include/linux/spinlock_rt.h:44 [inline]
-> |  force_sig_info_to_task+0x6c/0x4a8 kernel/signal.c:1302
-> |  force_sig_fault_to_task kernel/signal.c:1699 [inline]
-> |  force_sig_fault+0xc4/0x110 kernel/signal.c:1704
-> |  arm64_force_sig_fault+0x6c/0x80 arch/arm64/kernel/traps.c:265
-> |  send_user_sigtrap arch/arm64/kernel/debug-monitors.c:237 [inline]
-> |  single_step_handler+0x1f4/0x36c arch/arm64/kernel/debug-monitors.c:257
-> |  do_debug_exception+0x154/0x2fc arch/arm64/mm/fault.c:1002
-> |  el0_dbg+0x44/0x120 arch/arm64/kernel/entry-common.c:756
-> |  el0t_64_sync_handler+0x3c/0x108 arch/arm64/kernel/entry-common.c:832
-> |  el0t_64_sync+0x1ac/0x1b0 arch/arm64/kernel/entry.S:600
->
->
-> It seems that commit eaff68b32861 ("arm64: entry: Add entry and exit functions
-> for debug exception") in 6.17-rc1, also present as 6fb44438a5e1 in mainline,
-> removed code that previously avoided sleeping context issues when handling
-> debug exceptions:
-> Link: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/arch/arm64/mm/fault.c?id=eaff68b3286116d499a3d4e513a36d772faba587
+Thanks for looking into this.
 
-No. Her patch commit 31575e11ecf7 (arm64: debug: split brk64 exception entry)
-solves your splat since el0_brk64() doesn't call debug_exception_enter()
-by spliting el0/el1 brk64 entry exception entry.
+On Tue, 12 Aug 2025 21:23:33 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> On Sat, Aug 09, 2025 at 03:48:11PM +0100, Marc Zyngier wrote:
+> > @@ -144,125 +156,120 @@ static bool get_el2_to_el1_mapping(unsigned int reg,
+> >  		MAPPED_EL2_SYSREG(ZCR_EL2,     ZCR_EL1,     NULL	     );
+> >  		MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
+> >  		MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
+> > +	case CNTHCTL_EL2:
+> > +		/* CNTHCTL_EL2 is super special, until we support NV2.1 */
+> > +		loc->loc = ((is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu)) ?
+> > +			    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+> > +		break;
+> > +	case TPIDR_EL0:
+> > +	case TPIDRRO_EL0:
+> > +	case TPIDR_EL1:
+> > +	case PAR_EL1:
+> > +		/* These registers are always loaded, no matter what */
+> > +		loc->loc = SR_LOC_LOADED;
+> > +		break;
+> >  	default:
+> > -		return false;
+> > +		/*
+> > +		 * Non-mapped EL2 registers are by definition in memory, but
+> > +		 * we don't need to distinguish them here, as the CPU
+> > +		 * register accessors will bail out and we'll end-up using
+> > +		 * the backing store.
+> > +		 *
+> > +		 * EL1 registers are, however, only loaded if we're
+> > +		 * not in hypervisor context.
+> > +		 */
+> > +		loc->loc = is_hyp_ctxt(vcpu) ? SR_LOC_MEMORY : SR_LOC_LOADED;
+> 
+> Hmm... I get the feeling that this flow is becoming even more subtle.
+> There's some implicit coupling between this switch statement and the
+> __vcpu_{read,write}_sys_reg_from_cpu() which feels like it could be
+> error prone. Especially since we're gonna lose the WARN() that would
+> inform us if an on-CPU register was actually redirected to memory.
 
-Formerly, el(0/1)_dbg() are handled in do_debug_exception() together
-and it calls debug_exception_enter() disabling preemption and this makes
-your splat while handling brk excepttion from el0.
+This implicit behaviour was already present, and nobody noticed it.
+See how the FGT2 registers are currently missing from the list of
+"pure" registers. We didn't see the problem because the fallback saves
+us. This is what decided me to throw away the "pure" annotation and
+lump both non-remapped EL2 and EL1 registers together.
 
-[...]
+> I'm wondering if we need some macro hell containing the block of
+> registers we handle on-CPU and expand that can be expanded into this
+> triage switch case as well as the sysreg accessor.
 
-Thanks.
+That's an interesting approach. A bit tricky, because we do rely on
+heavy inlining and constant propagation in the CPU accessors, but
+maybe there's a way to deal with that...
 
---
-Sincerely,
-Yeoreum Yun
+> What you have definitely seems correct, though. I'll twiddle a bit and
+> see if I come up with something, although I imagine what you have is
+> what we'll use in the end anyway.
+
+I'll have a look in parallel and post my findings, if any.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
