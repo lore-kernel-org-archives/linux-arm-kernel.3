@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378AFC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CD9CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4F86Ss5ZDMwE+bMtUpttaC71xy+/6MJqMSZw67R4Rmc=; b=a6MTl3y+9AL10duUsqh69dev53
-	l6+wAYRlosdmD0diO4CqdFsqDH1ApCeVPW6+wP6SgKRQv+xy+d9wfMPegis3AQdN/AQJYEVmY4Msd
-	9euGg84wiCniZGlzXBTvJTn1j7VzT6oWm+l67g3DYU7dNw4YN+6it+cRdOdPt6O9+XW3TJFWR6J7N
-	Eng634CR2HdTR8NlOyV1FRZOtnPT1YuCeWPO0PGnC75XBosko6Xu8JD2/Q1SRr1glLRtpGijnNKN8
-	3LPK/tw8ofTGUIWT0cZi/1K33Pc3KFSzDQL+ovMdia0RyKpGkOy7sl/Q0KFf13SmRUhWnCzbWYfqc
-	fhlVl9JA==;
+	bh=oQ3oRqQ+8vYvglVmqAsoCg5Z9YqosZmgqcxx5cVr1YU=; b=LieN4iKikjueEV7mx1wCN4qjfu
+	JYH7rfpDCR+3JW2zKbrdpexbID/73+3+o3pl6JT1gMySAMTRHg3gcAEh/W4dRAi71rPSbIR5Q786P
+	SB5Q4dekLilKkYODbQHEH2xFwG2Z6+hFwGZQXk4G944QcsBZ3nt8Q0RIYh8V+a2T0p4Zn2JU3g+mD
+	+diyZaeIT457GGakwEG0PwbP05EM5GMFWvfhT1FwZ8nnRBJPiprM5JJXnAiFdj/izkzdPSN6STa1z
+	vTcXiCwIvall16cVQGAdKsyKF+4USIbyJ6wZ+byqkksL01Q7VZpY4U1AczyzQXzCMwKBf5Xo/uMAZ
+	itnqZkiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9XS-0000000DVK9-04Ir;
-	Wed, 13 Aug 2025 11:21:02 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1um9Zx-0000000DVg2-38Az;
+	Wed, 13 Aug 2025 11:23:37 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8qa-0000000DOyr-289Y
+	id 1um8qe-0000000DOzp-1IH3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 10:36:45 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-615957f4884so962971a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 03:36:44 -0700 (PDT)
+	Wed, 13 Aug 2025 10:36:49 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-458bf6d69e4so57729615e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 03:36:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755081402; x=1755686202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4F86Ss5ZDMwE+bMtUpttaC71xy+/6MJqMSZw67R4Rmc=;
-        b=rp/xStLRdIMI66KLBZWj6ZabIF0s5ObYHMd854u0mXQHCTvU4gu/VIf1fNRQ2eSNGy
-         OSLR+Cir9fl+jBR71XdkizwwptkJBGaC73laWXIftv3rR7Aj2s9ujI8zTRlRlrgoQ1FX
-         MZIrWWxis96EZR0nTClpVHyLgQZSXo6E9sDsA1yACttu2RPSxdqKWOlcWBlvmTaSGxfA
-         HWKFgM27EdJaTPlNKwJF2laW1nEMOarlc04uMaqDq9NV0EN55Ck5msh9+P9/RSD4vRYW
-         o/IWSxIsrpqd67XyzUkPjPsEcz2fcuN/2B9MeweMz8TYXSTzqW1LI+VoJVLYfXqNbzHt
-         JFOQ==
+        d=gmail.com; s=20230601; t=1755081407; x=1755686207; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oQ3oRqQ+8vYvglVmqAsoCg5Z9YqosZmgqcxx5cVr1YU=;
+        b=Lrge7S246swgeQhDjj5Plv8Ckmne3/Px4bMp8/cuGs1qE5vHxSSrKrWIsi9dRytUcq
+         og0cRe30ye7bINh+9JWPGhtocjk80e/mgNE1zxkXihKy69m29U0c95DAGacrdV0HrKvg
+         S19DdLd2jhWa6f0f1X6Rfq0q3OfxWJsx6P+EKlqJejCxToEu5JpPbrgyuYpzl6layVpG
+         RU6zM9V2KDXBckSabuko6OzAQzia4B4slIOKWChbGVp+kAGZC6L3gYRVUTheriwJhUyD
+         djypAliw6P+Xvv4M4nEpTt7O83ZClyry5bOj6uYjZEDdus2/w8IhBlYVPkRGzL4B7ZX5
+         /fLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755081402; x=1755686202;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4F86Ss5ZDMwE+bMtUpttaC71xy+/6MJqMSZw67R4Rmc=;
-        b=V/bKyM0CGy4aH8tO1UUAK6o3c01koC5X7HsKSvIMnHhwHWvLTFeK0BYe00jT8YX2V0
-         ISJkj2dmOTt1SA6u7dqgIDNdoP9OjdQZWFjt/ElzMhEAEwqgFy8lL8HfPNxCVuvy7zpo
-         spvj+Ur8B44N5ivhPy9D1zHaZ7W4azHS0teIRF61Rsp9RE1JOQ3KKaBlwW5gCqokKc2T
-         l6/bZ0siwRU5MEQrsguG0YCO/tajJaRpku7FYaurhsl98NDqry1qKWCZoKW9UVFCMzee
-         gpyCQ6xn4oO1oUoZ3ITDnSOURFyv3zOOC2o6hxUcflDwMCnZxCXKyzv/ltkuD4WUS9lR
-         /yLw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXwvWFMScLwvs3FfPyrEwP7+rk6j2eCVDnn0CoXmsMpq2eeBr4VIUlqRIFmP84Tz9osIUIHNtZ1sc4bEULPCHq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCIboJBbCQ3hGqrG5l4xbxeMqnjMi/zkdrNad0SvXTMOna2HTG
-	H8iyCA8yIWr02KGkZZpmHZNziaxR0tDZ7YY/5YMIQzgtUaYQAuKIaLuFj9b69kiqDbjzasljqKK
-	wsaWR
-X-Gm-Gg: ASbGncvV9hDJHIIn/C4L94l8cJblh+WyVRts0IKRlW1BzIOgsmSiCX0cHF8yHO9HOKl
-	JspWyllxVjbFBvX53hlBPFmKc7UtFQ7W5dQpS6yZs4MADPR9VZWCwjY3iOydBBPrUMa21SCGBiq
-	JK/feHe/4LY+a1IpWH5k+DKamMu1/CUJBIvv2+5Si9EUaARJH74sywoSCXVz3LVD8U+N3hXYFn/
-	6G8hokBl2yN+Dhk9D9+ZNR0Bc2XyfnkRTHmlm+xZ2vl+aQW06zvUORYK59Fe3cBT/cB+YBzMbse
-	UgJXb3jxwKka4KeqToFxCRG4q0IeHjdhcWLSFuhZYo4j0JUCLSNLpCDXphDeZJ3MhDDP1qKnTXd
-	Vy2iXR8leEDKqSW93sJ9+t/mD1TxbXcjh6I4+HK0baiA0Ixwx+g==
-X-Google-Smtp-Source: AGHT+IEt6eCGHIHdgJ5Hbdvmi361TPvwrKg2DTzTL0d0QkRcJbr+DkoNmxRzQ+Jj9IKe7RsN66mllQ==
-X-Received: by 2002:a17:907:1c0a:b0:ae3:63fd:c3b4 with SMTP id a640c23a62f3a-afca4cff92dmr105537666b.5.1755081402373;
-        Wed, 13 Aug 2025 03:36:42 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c0e7sm2367644366b.114.2025.08.13.03.36.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 03:36:41 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: linux-mips@vger.kernel.org, 
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250729205213.3392481-2-florian.fainelli@broadcom.com>
-References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
- <20250729205213.3392481-2-florian.fainelli@broadcom.com>
-Subject: Re: (subset) [PATCH 1/2] dt-bindings: memory: Update
- brcmstb-memc-ddr binding with older chips
-Message-Id: <175508140104.40429.8279921018476182386.b4-ty@linaro.org>
-Date: Wed, 13 Aug 2025 12:36:41 +0200
+        d=1e100.net; s=20230601; t=1755081407; x=1755686207;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oQ3oRqQ+8vYvglVmqAsoCg5Z9YqosZmgqcxx5cVr1YU=;
+        b=IWgzgFpKeIwOKCpWylw+mRnDBBKFrjDkKNnouAbxlJphJ5HfLaC5JGLbjpQx+uqQNr
+         cPJ50P60ZZzp616q13KHsaEsRcfcNwSMBxB2EXsR/OmLtWeAhDQF+VvAEYBu4I6QeqDX
+         WjjYcnyE5ljZ6IWslT3AXyGYjH1kaUu4W/Fw0NKYZC81W601AwB7YHpxCj6uI1ozM2Ck
+         TU14abDOnaZ0mijMu0UpDdZj7Dx0oqsgP7U+oXmwYIC1tbUOnxAhluHy/Q4QXMu8sRfw
+         pyNyc4ShK1WjOzRGvTrM5U1eMTsOcYSoJyH0f7PsHSTiVWeyGTqitOnLfiTfJSkBKfWw
+         2zaw==
+X-Forwarded-Encrypted: i=1; AJvYcCVYHvwPPZappwhOT7Hr8fNf+PHsUcorBVBCCIpprqBVycY/gbzhiuQu5Zw5Bv6vQldsWrvpOLH+4TqjXvV/Unod@lists.infradead.org
+X-Gm-Message-State: AOJu0YwT1yEM6XIuAFjQHRRy2+8BJJD5nuNWrvpxsJSA69lbdfi74lfa
+	kqYPdEGQlMULZCRich0bxwneR9svlz/15gLSS3FkDwGRnRhbb/LE0oZU
+X-Gm-Gg: ASbGncvMxkOGMxTTu4FaIYYw4jKxapKEujX9wZV6jUWAILFd1HL56knXsCzfB5JYRZJ
+	NOclHzbtxSerd/icB3kAgsvTPsKAC4mEGxwL85w9iOsk5W+QdRlR+9/4rM9yFsoOm/B4QcxOkoe
+	Q9k9uR4dR2Qqn9cCLGpBZaam0OGjb0Kldsj5qGkFg7c9DNINuF1rCaUaCpXFO0sZ4ZKwe3Y/olE
+	rcpqMHLrJaJ81gD3I/R44dAbJko5OP/PrQ+z8BfsqTHkZJOZK29CvVGFDG/U22qjrKMzrDumW0U
+	fi/K7Lbre0D7IxJ5LcvSqpXy+7EaKGbJ1SrnJxBydYu6VIIJRqq4Ejn/ms1feaoKFfeYtc6Euh9
+	xxJ+lNtB6+BBWiMNZOr77SCBeVRjB0zix0lzehH5OcLPj7oILHC6yKpUvIumSxj4=
+X-Google-Smtp-Source: AGHT+IE8WeKKOgBp5vzp5Q2PpKaxjTyK+WTuLbyXBXngT5e/LuA9NlvZe1k5fxp4u22Kge47Qc9xEQ==
+X-Received: by 2002:a05:600c:3b09:b0:456:a1b:e906 with SMTP id 5b1f17b1804b1-45a16614befmr18524185e9.33.1755081406323;
+        Wed, 13 Aug 2025 03:36:46 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a16de5f27sm25743625e9.13.2025.08.13.03.36.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 03:36:45 -0700 (PDT)
+Message-ID: <8cb62eb9-9137-44b4-86f6-82f69813e83f@gmail.com>
+Date: Wed, 13 Aug 2025 12:36:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+From: Gabor Juhos <j4g8y7@gmail.com>
+Subject: Re: [PATCH v2 2/3] i2c: pxa: prevent calling of the generic recovery
+ init code
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
+ Hanna Hawa <hhhawa@amazon.com>, Robert Marko <robert.marko@sartura.hr>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-2-ca42ea818dc9@gmail.com>
+ <aJpR96Kkj12BwW-M@smile.fi.intel.com>
+Content-Language: hu
+In-Reply-To: <aJpR96Kkj12BwW-M@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_033644_561383_587BCDDE 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_033648_348748_CBD28FBC 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +109,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 29 Jul 2025 13:52:12 -0700, Florian Fainelli wrote:
-> The older MIPS-based chips incorporated a memory controller with the
-> revision A.0.0, update the binding to list that compatible.
+2025. 08. 11. 22:26 keltezéssel, Andy Shevchenko írta:
+> On Mon, Aug 11, 2025 at 09:49:56PM +0200, Gabor Juhos wrote:
+>> The I2C communication is completely broken on the Armada 3700 platform
+>> since commit 0b01392c18b9 ("i2c: pxa: move to generic GPIO recovery").
+>>
+>> For example, on the Methode uDPU board, probing of the two onboard
+>> temperature sensors fails ...
+>>
+>>   [    7.271713] i2c i2c-0: using pinctrl states for GPIO recovery
+>>   [    7.277503] i2c i2c-0:  PXA I2C adapter
+>>   [    7.282199] i2c i2c-1: using pinctrl states for GPIO recovery
+>>   [    7.288241] i2c i2c-1:  PXA I2C adapter
+>>   [    7.292947] sfp sfp-eth1: Host maximum power 3.0W
+>>   [    7.299614] sfp sfp-eth0: Host maximum power 3.0W
+>>   [    7.308178] lm75 1-0048: supply vs not found, using dummy regulator
+>>   [   32.489631] lm75 1-0048: probe with driver lm75 failed with error -121
+>>   [   32.496833] lm75 1-0049: supply vs not found, using dummy regulator
+>>   [   82.890614] lm75 1-0049: probe with driver lm75 failed with error -121
+>>
+>> ... and accessing the plugged-in SFP modules also does not work:
+>>
+>>   [  511.298537] sfp sfp-eth1: please wait, module slow to respond
+>>   [  536.488530] sfp sfp-eth0: please wait, module slow to respond
+>>   ...
+>>   [ 1065.688536] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+>>   [ 1090.888532] sfp sfp-eth0: failed to read EEPROM: -EREMOTEIO
+>>
+>> After a discussion [1], there was an attempt to fix the problem by
+>> reverting the offending change by commit 7b211c767121 ("Revert "i2c:
+>> pxa: move to generic GPIO recovery""), but that only helped to fix
+>> the issue in the 6.1.y stable tree. The reason behind the partial succes
+>> is that there was another change in commit 20cb3fce4d60 ("i2c: Set i2c
+>> pinctrl recovery info from it's device pinctrl") in the 6.3-rc1 cycle
+>> which broke things further.
+>>
+>> The cause of the problem is the same in case of both offending commits
+>> mentioned above. Namely, the I2C core code changes the pinctrl state to
+>> GPIO while running the recovery initialization code. Although the PXA
+>> specific initialization also does this, but the key difference is that
+>> it happens before the conrtoller is getting enabled in i2c_pxa_reset(),
+>> whereas in the case of the generic initialization it happens after that.
+>>
+>> To resolve the problem, provide an empty init_recovery() callback
+>> function thus preventing the I2C core to call the generic recovery
+>> initialization code.
+>>
+>> As the result this change restores the original behaviour, which in
+>> turn makes the I2C communication to work again as it can be seen from
+>> the following log:
+>>
+>>   [    7.305277] i2c i2c-0:  PXA I2C adapter
+>>   [    7.310198] i2c i2c-1:  PXA I2C adapter
+>>   [    7.315012] sfp sfp-eth1: Host maximum power 3.0W
+>>   [    7.324061] lm75 1-0048: supply vs not found, using dummy regulator
+>>   [    7.331738] sfp sfp-eth0: Host maximum power 3.0W
+>>   [    7.337000] hwmon hwmon0: temp1_input not attached to any thermal zone
+>>   [    7.343593] lm75 1-0048: hwmon0: sensor 'tmp75c'
+>>   [    7.348526] lm75 1-0049: supply vs not found, using dummy regulator
+>>   [    7.356858] hwmon hwmon1: temp1_input not attached to any thermal zone
+>>   [    7.363463] lm75 1-0049: hwmon1: sensor 'tmp75c'
+>>   ...
+>>   [    7.730315] sfp sfp-eth1: module Mikrotik         S-RJ01           rev 1.0  sn 61B103C55C58     dc 201022
+>>   [    7.840318] sfp sfp-eth0: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
+>>   [    7.850083] mvneta d0030000.ethernet eth0: unsupported SFP module: no common interface modes
+>>   [    7.990335] hwmon hwmon2: temp1_input not attached to any thermal zone
 > 
+> TBH this sounds to me like trying to hack the solution and as you pointed out
+> the problem is in pinctrl state changes. I think it may affect not only I2C case.
+
+It is not an error in the pinctrl code. I have checked and even fixed a few bugs
+in that.
+
+> And I didn't get how recovery code affects the initialisation (enumeration).
+
+Without the fix, it is not possible to initiate a transaction on the bus, which
+in turn prevents enumeration.
+
+
+> Do we set pin control state back and forth during probe? May be this is a root cause?
+
+Yes, basically. The state gets changed back and forth twice. Once in driver
+probe before the controller gets initialized, then once again in
+i2c_gpio_init_generic_recovery(). The problem is caused by the second state
+change as it runs after the controller gets enabled which confuses the hardware.
+
+> ...
+> 
+>> [1] https://lore.kernel.org/r/20230926160255.330417-1-robert.marko@sartura.hr
+>>
+> 
+> Can you make this a Link tag?
+> Link: $URL #1
+
+Sure, I can change that.
+
+>> Cc: stable@vger.kernel.org # 6.3+
+>> Fixes: 20cb3fce4d60 ("i2c: Set i2c pinctrl recovery info from it's device pinctrl")
+>> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+>> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+> 
+> ...
+> 
+>>  static int i2c_pxa_init_recovery(struct pxa_i2c *i2c)
+>>  {
+>>  	struct i2c_bus_recovery_info *bri = &i2c->recovery;
+> 
+>>  		return 0;
+>>  	}
+>>  
+>> +	bri->init_recovery = i2c_pxa_init_recovery_cb;
+> 
+> This is unfortunate. I would keep the naming schema consistent, i.e. rename
+> existing function and use its original name for the new callback.
+
+I agree, but since the change is targeted also to stable kernels, I wanted to
+keep the change as minimal as possible.
+
+> 
+>>  	bri->prepare_recovery = i2c_pxa_prepare_recovery;
+>>  	bri->unprepare_recovery = i2c_pxa_unprepare_recovery;
+>>  	bri->recover_bus = i2c_generic_scl_recovery;
 > 
 
-Applied, thanks!
-
-[1/2] dt-bindings: memory: Update brcmstb-memc-ddr binding with older chips
-      https://git.kernel.org/krzk/linux-mem-ctrl/c/1aba1eab0bd896928ae20dbf1f60a175a6e1ad0f
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Reards,
+Gabor
 
