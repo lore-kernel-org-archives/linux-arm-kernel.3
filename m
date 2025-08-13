@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C134CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB698C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2tHDy55HOk9ijWDaN+WcgImYxYAQUJs9dgbDmjxfPA=; b=WgWDUep6ROu0rCUPRaYRzGf/iC
-	4Z4OLBBhuHuIjG4E9jDlqt+jkMwsep79ouZP9ineICblQQZBSSLfdFCPEjXQv2jqfeTj5/53okKaG
-	/7Tl0azCRZ2RPWeXE3qbzHdpUIXQdSlvgIlAR9ex2ADTmVPIiprKZ9c+1C8iEc2GZWeSjFKZT68xn
-	1T6PSBjixK+jnR8F3XcuqFNDTPmxj8Wk3wS7lV4cK764LgyWOdVBqsskePf20ZoT2DsbHOi5DoTHw
-	KsxunxZJYTqVk3oYM+STCofZtIWu1t5jPC+o+obQnoZ06XgPD7e+brN1/wMt4LICwls29MFPrsW/q
-	xtw3rfPQ==;
+	bh=Fx76AsyvtvoyRayROVw+SOYuFOjuoLnHKIZ+8qybc/o=; b=XdVKGznFqjCY/Y1/Bsan+Ma6OC
+	gim+6/854Fk1EUnqB/zVqYTeOnwx9s9vhb2jiVksQwSXhEcDgteczVkr45POdut+kr80FSpkRvsWL
+	V1pM6fC59h32sMfZ/EDangQaaZouMfui5ysYe4hw9u+JivOZyQWCNwXOQSvO+qu+26gJIE8M5j240
+	mQrZU1cx5ZrPubKnj1Q/d+rsnerSdKB1wt6V8bhCBGL9cs8p1PSMo7hgAPeP8jxfdXXy0T8+o83TC
+	ej2psK9CM0wCuMyD6w/UJL7eNt/xV/uEulb1hhn94bBjgh/H6q9G9Q3EPHwAKEZ7CXC7dxV8HkVT9
+	vQ8h55OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBSB-0000000DlEU-3ca9;
-	Wed, 13 Aug 2025 13:23:43 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1umBUi-0000000DlZY-30e0;
+	Wed, 13 Aug 2025 13:26:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBGP-0000000DjAG-0BGP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:11:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755090693; x=1786626693;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=q8TIZHVsbpGiRDf0kANTJMdQ12mBUINz3XeIl5TqG6M=;
-  b=RxEgLO6qTdht6eSrG3r7qsqxy5aQJOzs9J9NdyTL2tmlaYH9JvQkE/vc
-   DlCk5j5UGlnBwGX10u2Dsz3niY1yVhrsTbWSdGFpccAHizOJCpc0iAGbh
-   Jm8ukuYNjT4cH9TMKkkOo+/tkkp8onJT50nh5bz4obOoI5IOp8yx/WMpL
-   1cUcTCLXLGZZND2D0vBAf4P0Aviit2Z3wECT85ttweHVTXghMgW6qtTbB
-   NSK79JnEOhH8jyMT24O+CVjIgq2CnsIgm2PJJgCzmNpSieGdFZRfQ9/D0
-   qbOPeIhHCh32r9hrxfqwHhCvy2TQgyzhLPzn4DFwKLO5T9+/tXm6DnJr5
-   Q==;
-X-CSE-ConnectionGUID: U2ItcfFiSESSrx6mpcfsww==
-X-CSE-MsgGUID: Ky8wz1NUQMK4tUZzpFf/tw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="57304121"
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="57304121"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:11:31 -0700
-X-CSE-ConnectionGUID: cMXgOAqRTC2XlX23mmY/7A==
-X-CSE-MsgGUID: sRK+mKWDQBuKDzCZdZkvgg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
-   d="scan'208";a="170680302"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:11:27 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1umBGF-00000005RPp-1iZD;
-	Wed, 13 Aug 2025 16:11:23 +0300
-Date: Wed, 13 Aug 2025 16:11:23 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Wolfram Sang <wsa@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
-	Robert Marko <robert.marko@sartura.hr>,
-	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] i2c: pxa: handle 'Early Bus Busy' condition on
- Armada 3700
-Message-ID: <aJyO-5k29AAAnHdz@smile.fi.intel.com>
-References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
- <20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com>
- <aJpTHKbLbTz-Z3bo@smile.fi.intel.com>
- <27906f7b-b137-4af2-aa87-49519495a34d@gmail.com>
+	id 1umAoH-0000000Df4M-3wtf;
+	Wed, 13 Aug 2025 12:42:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 50582443D3;
+	Wed, 13 Aug 2025 12:42:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B6E1C4CEEB;
+	Wed, 13 Aug 2025 12:42:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755088949;
+	bh=xP7ntQZYFxDDcd4ELFoAFkis6twZtrBEioZreOWlOO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=On55YdP8xBGxXiG0h3+ieSi//EnMc12FwKlfKErdvgj0u4/AHCRQRi7Ys5Xm1nFY9
+	 WAkeW8AocEWyRHfBfZrT0Ne06SLXog6qKFIRJvnkLVV7texQaiHiCmFpcFKu6rTk33
+	 gDRisf6bPZh0doJRF8i5OvGle7wiKH8jI5BuabBHWAG9UoVV2nGSAGdoc82UN3dzhq
+	 HuZmQ9mYLuaqb1D76STC3d0cIR/mdnDCBx2BfBw1W9ifpIGOEhRAxYUzogWwSZfPAA
+	 8tWrwakkTxIT/vDDmJ2CaDKNkkBXA9SBIWzg5rTWdFtAbwqiRnWzlEZEubCM8guZa3
+	 SwuDLF4jRjMpA==
+Date: Wed, 13 Aug 2025 14:42:22 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: bhelgaas@google.com
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Hans Zhang <18255117159@163.com>
+Subject: Re: [PATCH v5 0/2] Configure root port MPS during host probing
+Message-ID: <aJyILhOnXDJB4GgD@ryzen>
+References: <20250620155507.1022099-1-18255117159@163.com>
+ <aHdXwr-UZz6jZX3f@ryzen>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <27906f7b-b137-4af2-aa87-49519495a34d@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <aHdXwr-UZz6jZX3f@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_061133_092463_06BA9B0A 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250813_054229_998111_C1F821F9 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 12:50:35PM +0200, Gabor Juhos wrote:
-> 2025. 08. 11. 22:31 keltezéssel, Andy Shevchenko írta:
-> > On Mon, Aug 11, 2025 at 09:49:57PM +0200, Gabor Juhos wrote:
-
-...
-
-> >> Note: the patch is included in this series for completeness however
-> >> it can be applied independently from the preceding patches. On kernels
-> >> 6.3+, it restores I2C functionality even in itself because it recovers
-> >> the controller from the bad state described in the previous patch.
+On Wed, Jul 16, 2025 at 09:41:54AM +0200, Niklas Cassel wrote:
+> On Fri, Jun 20, 2025 at 11:55:05PM +0800, Hans Zhang wrote:
+> (snip)
+> > ---
 > > 
-> > Sounds to me like this one should be applied first independently on the
-> > discussion / conclusion on the patch 1.
+> > Hans Zhang (2):
+> >   PCI: Configure root port MPS during host probing
+> >   PCI: dwc: Remove redundant MPS configuration
+> > 
+> >  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+> >  drivers/pci/probe.c                    | 10 ++++++++++
+> >  2 files changed, 10 insertions(+), 17 deletions(-)
+> > 
+> > 
+> > base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+> > -- 
+> > 2.25.1
+> > 
 > 
-> Yes. At least the users would have a working although not optimal solution in
-> the meantime.
+> Any chance of this series getting picked up?
 
-Then please reorder in the next version.
-
--- 
-With Best Regards,
-Andy Shevchenko
+Gentle ping.
 
 
+Kind regards,
+Niklas
 
