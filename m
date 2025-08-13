@@ -4,178 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DEAC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C457CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OrSkvfYToHTUyge/jo6dP5fOjlkp1/mR//tsyWA3By8=; b=Pu5v3u1DBS0YqnFOkZ3qN4T97+
-	TGmLHRN+y1MHd/Ph/prCA3dAHelz0nXSXWci3vW8fwhsdHhDBJnKdm8LRooZ/is94cEDWb2P5Gvf6
-	U5XswcEGyLGRyJ1x+wXQYwiNx4WePaNbRaK5ViwMWqtam/MPFKsUkKeTGnfwGBoF3LiTpq6/qryrr
-	j5d0vNHSVRYsoLC+FAqrvDt542ZZSUGoZdLl+ABE3vy2kKYAlVmJNKPXnq9MFee8+DHM/8yvyhhyF
-	5pVOIFENeGY7AiTiH8eMANzBZuVcdu7xjIk+Ng1+6nEzCCnd4jFj067HZ8iThxkamDajmpAfHmdn1
-	NKNKAUNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a1IrfPdE6QLZXdQUDzLzjcbVxWiyhbyZqOYPhedX2AM=; b=PRK2p4CZkO0Lal4PssXJvsBGvF
+	ZYdSW9ZTeIPJPaJFcdQ2lhYJpegx+fbupSOwv1KIu02fqza/vYycWabn7q4x4vSU1n+THWh4ux4mj
+	bJnAJ2ZHKeV2rjzCJLAicUfFsh3XFyuJ2g1lxEw3SIG+hz3NivhK7PT+A60hjehxioc2DLtN4dBJM
+	hbWD3/ma4kFhOIid00/wcCn9Gr8k2lazW9sZfba7tI9iXVzDOEKfa76IvPg7X0EinR2z/GZKxtiLL
+	4T6rkIYE3Z9Oh4rGU/SISVDJVT2gzyImn1V8tfb1VHymhM7tHF1CaMlC6GB5zH5mzIY0HduOdZZyw
+	ThzKOmew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9Al-0000000DRZg-0xc0;
-	Wed, 13 Aug 2025 10:57:35 +0000
-Received: from mail-mw2nam12on20622.outbound.protection.outlook.com ([2a01:111:f403:200a::622] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1um9DH-0000000DS3v-13Pb;
+	Wed, 13 Aug 2025 11:00:11 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8QC-0000000DKWU-1SQG;
-	Wed, 13 Aug 2025 10:09:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QnRZ2LCgnfqaPZ2spfbhslsly1921CV+QBJ67XxcXPmS6imDXwn+GM5p8rHdyDHgk4EvOOBAMl1jX8PPRQGKoO8I/NoGy2gI1cdOMwnjfAk90E/P//PytysXWClP1SptfVFPhppWInCXTCQ6q356i0gassL3mU8d1T/asxD1DsnRusxM3/EVXnd6h88eF8wTmch8oPbSISPygbfhNN/ssi2y0+jeIUsqOZNcDDFA1CYotnlZDCAsclU6TwizKGf8QB4C9wnWRiPj069zq+iTwBmdh5ZFllDpMuXNIgCRHbC6Ggll6k2St//5JzgIHYPThnA/Zn5kfaWXOUnTgVhtwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OrSkvfYToHTUyge/jo6dP5fOjlkp1/mR//tsyWA3By8=;
- b=QIAezNpwH+QyUP7eQFpleyDMnb8l2Y1ruOOCI3gdZuEhz+KhUivF4j1Qyxuzh/CcUp/nXOMNRKlpkAGTY4aO1hpU3kRkjSFWs7NyHTm+4dJkEiEkfMzWQLrHGi7oz8+6rEiCK0KiUI4KOnzOWS3lJ9cEuiyGDCPyH4eVCKosif3yO+lnnNnbg0E2URV6gDfgqdj4ZVEqeC4YLGQQZJ8HieM64VKpLoHFWy2GSeA9YoZaA29q3aPhW09E3vegBd9dk1aQ1qsV8yYkuRYHMBFr42gqgLXrOwDlXnCGmUJksGxfG+Cpa0vQhWCtUa1ehuhMVGCIXWOhgfgy0ptmv3FYdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OrSkvfYToHTUyge/jo6dP5fOjlkp1/mR//tsyWA3By8=;
- b=YnrY86LooqEckW9JF4w/L2AQ4vxx8nfTJcBh/cGnKB0Ezy0E2Xz48jbJdQSkn2byOkawYe5rYNrfrmwEIsysDubam4JEC7KtPAQiS3wyLWqPl+VVFW+TrPFhnr78CwbOUjvQS2cWhsHSKNwflvblgibkzNjOaZUNxMtf/hSceJo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13)
- by MW3PR12MB4458.namprd12.prod.outlook.com (2603:10b6:303:5d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Wed, 13 Aug
- 2025 09:53:31 +0000
-Received: from PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291]) by PH7PR12MB5712.namprd12.prod.outlook.com
- ([fe80::2efc:dc9f:3ba8:3291%4]) with mapi id 15.20.9009.021; Wed, 13 Aug 2025
- 09:53:31 +0000
-Message-ID: <91412178-04c6-4319-a5bc-a957217fea14@amd.com>
-Date: Wed, 13 Aug 2025 15:23:17 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 38/44] KVM: x86/pmu: Disallow emulation in the fastpath
- if mediated PMCs are active
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Dapeng Mi <dapeng1.mi@linux.intel.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-39-seanjc@google.com>
-Content-Language: en-US
-From: Sandipan Das <sandipan.das@amd.com>
-In-Reply-To: <20250806195706.1650976-39-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BMXP287CA0011.INDP287.PROD.OUTLOOK.COM
- (2603:1096:b00:2c::21) To PH7PR12MB5712.namprd12.prod.outlook.com
- (2603:10b6:510:1e3::13)
+	id 1um8Qd-0000000DKZm-3dhB;
+	Wed, 13 Aug 2025 10:09:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 35E554336F;
+	Wed, 13 Aug 2025 10:09:50 +0000 (UTC)
+Message-ID: <c6488202-7721-4f08-8b27-bddbda70296a@ghiti.fr>
+Date: Wed, 13 Aug 2025 12:09:49 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5712:EE_|MW3PR12MB4458:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27a5bb88-324e-4748-b788-08ddda4f428c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?enVDWW9LNVRwNjNZQ2I0M2EwanphTmJ0M1ltcUtHSVpyVTE4NW5mVFd6ZXlE?=
- =?utf-8?B?dTNkakplY09mKzMrTWVMYndTSHQweVlBQWh6QUsxYW5EakNTTEgyeGdwQ1Vp?=
- =?utf-8?B?c1UzMFRsSmg0dU5mUWFhN3A1aEdqQnQrZzdtYVg5MGZad29aVnd1TXdPeU5U?=
- =?utf-8?B?ckNBMUlRNTBNNWJoMkhTOVEwRmREZkdHNVpIMkx5aVRTa090V1g0dW5KVFJ4?=
- =?utf-8?B?SE8yMmhkMVhGSTBsbnVJYnpkSDVKN1FKZG0rUG1leHhKTllUbEJuYkpzeUlE?=
- =?utf-8?B?TXA0eTdUMEV5NEdwUTF4MGxxSkpFa1VYSVJjRXpWTytRYjBiRjBhS3VXakxD?=
- =?utf-8?B?V3JTdWxXN3VZcW11bmQyb2hNcFZnYXN6eTVGclA2c0hNWXBqYWZCU3I1bjc5?=
- =?utf-8?B?c0lmdWl3OFI0M01Qc2dLWXVqSDFxeWRhbGxsQ0dNaGNETFNSU3A5VzdxN1dX?=
- =?utf-8?B?TzY2Y0Z2ODhTZGhsRUVuUWhVeHBhV2RHeGR3T0Vhc0N5STJ3dWZFc2JDcHJL?=
- =?utf-8?B?YTVWL3pURW9OdEZnU1Nsd0lLUTBvQTZoODVUK1FyQ05tYkRORVUwYVZMUENU?=
- =?utf-8?B?RzZPaTcrbmZiS0ROT0QxWkRtRFJCck9UemlXMU5tMHg1cXVMVXdVYW5Fellp?=
- =?utf-8?B?WTN3UWFMZG1mSDMwZDJ6bTV6TytaWXBsT0ZXUDNEK09ub0NZNWNsczRTZHNy?=
- =?utf-8?B?K3dQKy9uTEhGa2dWVjNPekFNSnN3Q0Rqa1YzY0FydFcvQ0RaeDg4ZTJiNTVE?=
- =?utf-8?B?T29VQ0tKVkJHc0NsMUMrOXdVZ2Jta0JjYkJPQ2N2VlpmcHpkV2Y1d1RlQWtu?=
- =?utf-8?B?MGprTFNXTGt4TUEzTElyTjJVUkJIMkZCTTc2SXVnUDNESkF3YkJiRU5CbEVz?=
- =?utf-8?B?S295NW94STh3Z2VGVzlWT3JOeGdhMXNMN0lGYkFnRzRYU1dzMlFHWmNmNWlo?=
- =?utf-8?B?SkZSUzNEYkRQWmtKVjdHOFBrV1ovRkVlQWpVVmxXcS9YMXY4TytQQ240TDhl?=
- =?utf-8?B?UEFHY0hHWmJ3TkNlOEptM2lRVTBycDV1d1YwWG93clpqbFpoUDhSQ21BWGo3?=
- =?utf-8?B?TWJkd1BvZUZaemlJZzFtb2ZGd1lqWUxvRjlTN0w4MURnYnY0QjNLVVFFQy9X?=
- =?utf-8?B?a3cvamVpU0w5S0dPaFI2eFlsQnRlWDBnWk4raFh5OUlhai9sU3FYME1QNUU5?=
- =?utf-8?B?OEsyd00rWnNOcWJaRFdURnd1dnl2RDBNY2RMNk5PRVl2dG9ES3JVeCtPekI2?=
- =?utf-8?B?Qm1jQVVXQ2hCdHdUYlRsaGJMcFp0eGFLWWl2eWJ2VkV5MDVOTWZFKzVQcTls?=
- =?utf-8?B?OWhqcjgxd1VmdFNDaGdLRXdxWVBtM2w0YWlhVThkNkFoTW5VRUpieFRBS2Ix?=
- =?utf-8?B?c0pEN3dabk43U1N4OU5tTjNtK0gvbkVRbEFRa2MvWlJIYUNjQjhLaWdoMGZC?=
- =?utf-8?B?VXBHQ0FUczloT0FCSktsbE9GWDBQaE9jZDdoQ1FlbStRWGp1dG43VUdhS2dv?=
- =?utf-8?B?dVRsQW54UUxCNVl3WGQ5cUo3VFZRSWVVMW1Ga0JTeXY4a3Nta3E4YkZmanhZ?=
- =?utf-8?B?M0lONlozYjBMWXBlUW1nVUsvSTBPeUVUMW9sNTNBc1ltek5YcWtDRVBibU44?=
- =?utf-8?B?VkJkVzRTcnp3cUZGZkQ5UEp0aDBzWHFDMUlhQnNOa0txQWdKeTNjZFhLVCtN?=
- =?utf-8?B?R2xPd1pkN3JXN3hMZWhmMlczS2h4akxJTDc0d3FqKzRUU3VhbXBOVDhLLzVY?=
- =?utf-8?B?aDl5VlZUeGxvVSt2YTRBL3pPZjM3UU8wdU9VVnlxbU42U0p3c01zTlJ1S0Zz?=
- =?utf-8?B?cGgxTjB0WFZhQVJxTDNnSnBVWDhLTjFXNEo1djVuelgrdlA3cXFJbmpiUGpj?=
- =?utf-8?B?Tmc0QjVTMVJnY3FYQTRIZkVMZnJRWU1oNFJKRlVTM20xWUs0QUR5R09oWGVj?=
- =?utf-8?Q?AAwdYzsWewVRG7/fpQMIbtjDNQ4dtkO7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5712.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NE1ic3VKQlN6ZG1PckYxMHdUbXVJZXV6eDh3bGlRbHNNdnN4UmgrSXJlTUQ5?=
- =?utf-8?B?YmpEb3Bkb3psWWJCYlVjVVNrTE0yUDFOK2FhVC9wQ3hXc3V4RmhqVmhLRzly?=
- =?utf-8?B?T1VCZDhISFRvaXczcmlpMUVkTzh6SEwzVndJMHBVVThKVjdDRHhiR2xiZy9W?=
- =?utf-8?B?YlhySElJQ3c2dDVKNGVRNGRpbHZ5eDFkNEVVY2hNMGhyMHQxVXM3SENhaHdK?=
- =?utf-8?B?LzV3T0wralBvbFFSRmRiRmlxQVhpSitJTE9sUjdpc3N3WXVTeEM5bGJCVjNT?=
- =?utf-8?B?V1liUUltWTNNRFExZjNWaEdZTUVHK0lRNmZDNnZrcktDa3IyYTJZckpLNkFI?=
- =?utf-8?B?akU3aG1BRkxrNnl4QVFXS3Z6NkFxZ2JKVVVDRWhlbVI3NjlDSEhYeFlTbGts?=
- =?utf-8?B?REFXaGxJbTIycjBFcFE2NldqN1ZkOGxVaFA3OGpxenhObjZMYVluM3FVUjBN?=
- =?utf-8?B?THEzbU5QTFkvU0EyaWMvRG5CRmtmOG80Zk5nOE5aRW14QmNPZ2g1dHlRVyt1?=
- =?utf-8?B?VzVyRlZ4QnF0UkU3OTQzemZNWnp6Q3c2ZHJxUDBKdWlPSUNYeWgrcll6ckRk?=
- =?utf-8?B?ZE1NckF6ZDJURHk2WVp2QTMzUWY0ZXB0c3hyMy9lYXpCY3ZFOVVLRVoxYWVZ?=
- =?utf-8?B?Ujl3UE53amhSa2d2MUV0azFRV0QzdHZwV3gwTVZlR1Z4VzdFdUhMVnEzeTdx?=
- =?utf-8?B?UE1jVXo0NDg5aHFUV2tZQU5OemE5US9xQzREWk5IYVNVZGcxTmk5aDZLZXdp?=
- =?utf-8?B?K0xwZ3JiL3JTTU1nTkt2YUE2U0Rycmt3Q0VMM0tWYTZOcWdsNFhoeDFWUVdh?=
- =?utf-8?B?OUJ2cnI5SEpRUUIxNTBjaWJnY09DQW5VUnV0bHlNV2FOZk1qeFYrNzdKL3Rm?=
- =?utf-8?B?THdMSTg3enFGOW11VU8rcVlGR2hzT2RhMXdZM2J4ejBwOGNhdzQvNGgzS0hn?=
- =?utf-8?B?YTFuQ0h6VDNhaEJyQ3l1SjZhVnRXRVlCbm05c3Q3bERuWm4xZGI2Ti90Y0ZC?=
- =?utf-8?B?U1AzbjI1UFFUc0xqZU1WaGFPTUVKajVQUkRkd1hmdWkvb2RrT2lRQm0xa2tM?=
- =?utf-8?B?MFcxQllzUGhBVDR2VU5MRGZoZUFpK0dWRmNocTdESklOaG9MUEJpeHloYjBZ?=
- =?utf-8?B?Q0pkYlVQaDVBV1hOejdNVVRqdjBPZmUxcllPSWNiWXlLZkFKaUhZakpZQlpI?=
- =?utf-8?B?dHFNNENoYktaZEtwTDQwUTJweS9jOTg5SG1TUi8wQmVOKzRMZjcrZzB1MWM1?=
- =?utf-8?B?Z1ZxTjRGRWErR1dPU1pIZzhFMmF6cVJvN2ZzZlgvSEFjeVYvS3ZhdXpKU29p?=
- =?utf-8?B?UVdlQ2dtelVwZjgxUmxrVW1HMzlyb2RCTUhNdi9XQlBndzVTZDRsTDQrN01j?=
- =?utf-8?B?RWRpT1l4OC9qZnBRZnk4Ukdob3ZrT25WQzdiSHBCQmg1bmtaVFZDR29BUDZi?=
- =?utf-8?B?SStsM0g4WmNsTDhpaWkrR2p2WG5NRm12a1ovNVhLMkFsOVB0SFVhTW5nZHV4?=
- =?utf-8?B?Zk9GbDR5aTJFbXJxalpqUG1tamhaWFNzNDA0NVkwWCtyZDRjQjJ0RkVwdzIx?=
- =?utf-8?B?Sk8wNnllV0xTcVV3ZVAyZFdIMzJBR29zQm8zT2Raak9yNEZiS2k5STdReEQ1?=
- =?utf-8?B?WUp0b01JYlhsenYxVm5OMllOaEgrcnZvSXl5Z0RUS0duRHU1cWo2aDBvaVQ4?=
- =?utf-8?B?bDhVZ3FOLytKbXJYR1RFclFNSnFnNzI5S2d4Q0Y1NWlMdzVabnVaMVB2OEUx?=
- =?utf-8?B?MTlNeDdFUEdoOWdPeHF3SjhKcngzcytsQUJSQnplVzhacHg4SWx1MTdiZVBk?=
- =?utf-8?B?cjBxWTJzTjFxa0NJS3FUR1ZzZkJtNHhBYXVVcXRqaXR5c0pWUU1BYnFoRmdG?=
- =?utf-8?B?TjRYS3FzNkNzYVZLVWdRNEZBSmIxQWJSbkxaVkpLRG40cnNpUnlNdW5mSHJz?=
- =?utf-8?B?S3JydWhrN3d2WGNjWERaQ1ZkeThvNFRYa3RMbitXNkYwTGg2WWJNay8yeXdk?=
- =?utf-8?B?ZjZlZHhQWloyTThXZ2xVRDJuTDlBbnJWT2h2U2UzcmhwVUxWYnAzeWN5djRU?=
- =?utf-8?B?VllwSmJFQ1pnRjRoV0dMR29JSDlXWm8xQStrenNGTzJGb1VJekZ3Situazl5?=
- =?utf-8?Q?0DR3pU4XF5pa0g+hKrRhnFMYX?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27a5bb88-324e-4748-b788-08ddda4f428c
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5712.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 09:53:31.4109
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bize9yUD5qWua65zTBWx+3wLS0cbG3sZINjDIPP2BKXuIRRBRWVh6tIANH+/uxhl03w2b38dluC87g9Qh9dTLA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4458
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] riscv: add support for SBI Supervisor Software
+ Events extension
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
+ Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
+ Atish Patra <atishp@atishpatra.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Yunhui Cui <cuiyunhui@bytedance.com>
+References: <20250808153901.2477005-1-cleger@rivosinc.com>
+ <20250808153901.2477005-3-cleger@rivosinc.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250808153901.2477005-3-cleger@rivosinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeejleefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeefteevgfehfeejveefkeeltdekkeefvdeuleeglefhkedukeejffekuefgtdehjeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhsshgvpggvnhhtrhihrdhssgenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheptghlvghgvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepl
+ hhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohephhgthhgruhhhrghnsehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_030928_381768_0A1A2770 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250813_030956_174257_475EE154 
+X-CRM114-Status: GOOD (  42.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,75 +71,690 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07-08-2025 01:27, Sean Christopherson wrote:
-> Don't handle exits in the fastpath if emulation is required, i.e. if an
-> instruction needs to be skipped, the mediated PMU is enabled, and one or
-> more PMCs is counting instructions.  With the mediated PMU, KVM's cache of
-> PMU state is inconsistent with respect to hardware until KVM exits the
-> inner run loop (when the mediated PMU is "put").
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On 8/8/25 17:38, Clément Léger wrote:
+> The SBI SSE extension allows the supervisor software to be notified by
+
+
+I would change "notified" with "interrupted" no?
+
+
+> the SBI of specific events that are not maskable. The context switch is
+
+
+Nit: s/the SBI/the SBI implementation
+
+
+> handled partially by the firmware which will save registers a6 and a7.
+> When entering kernel we can rely on these 2 registers to setup the stack
+> and save all the registers.
+>
+> Since SSE events can be delivered at any time to the kernel (including
+> during exception handling, we need a way to locate the current_task for
+
+
+s/handling/handling)
+
+
+> context tracking. On RISC-V, it is sotred in scratch when in user space
+
+s/sotred/stored
+
+> or tp when in kernel space (in which case SSCRATCH is zero). But at a
+
+
+Remove "at a"
+
+
+> at the beginning of exception handling, SSCRATCH is used to swap tp and
+> check the origin of the exception. If interrupted at that point, then,
+> there is no way to reliably know were is located the current
+
+
+s/were/where
+
+
+> task_struct. Even checking the interruption location won't work as SSE
+> event can be nested on top of each other so the original interruption
+> site might be lost at some point. In order to retrieve it reliably,
+> store the current task in an additional __sse_entry_task per_cpu array.
+> This array is then used to retrieve the current task based on the
+> hart ID that is passed to the SSE event handler in a6.
+>
+> That being said, the way the current task struct is stored should
+> probably be reworked to find a better reliable alternative.
+>
+> Since each events (and each CPU for local events) have their own
+
+
+"Since each event has its own"
+
+
+> context and can preempt each other, allocate a stack (and a shadow stack
+> if needed for each of them (and for each cpu for local events).
+
+
+s/needed/needed)
+
+
+>
+> When completing the event, if we were coming from kernel with interrupts
+> disabled, simply return there. If coming from userspace or kernel with
+> interrupts enabled, simulate an interrupt exception by setting IE_SIE in
+> CSR_IP to allow delivery of signals to user task. For instance this can
+> happen, when a RAS event has been generated by a user application and a
+> SIGBUS has been sent to a task.
+>
+> Signed-off-by: Clément Léger <cleger@rivosinc.com>
 > ---
->  arch/x86/kvm/pmu.h | 10 ++++++++++
->  arch/x86/kvm/x86.c |  9 +++++++++
->  2 files changed, 19 insertions(+)
-> 
-> diff --git a/arch/x86/kvm/pmu.h b/arch/x86/kvm/pmu.h
-> index e2e2d8476a3f..a0cd42cbea9d 100644
-> --- a/arch/x86/kvm/pmu.h
-> +++ b/arch/x86/kvm/pmu.h
-> @@ -234,6 +234,16 @@ static inline bool pmc_is_globally_enabled(struct kvm_pmc *pmc)
->  	return test_bit(pmc->idx, (unsigned long *)&pmu->global_ctrl);
->  }
->  
-> +static inline bool kvm_pmu_is_fastpath_emulation_allowed(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>   arch/riscv/include/asm/asm.h         |  14 ++-
+>   arch/riscv/include/asm/scs.h         |   7 ++
+>   arch/riscv/include/asm/sse.h         |  47 +++++++
+>   arch/riscv/include/asm/switch_to.h   |  14 +++
+>   arch/riscv/include/asm/thread_info.h |   1 +
+>   arch/riscv/kernel/Makefile           |   1 +
+>   arch/riscv/kernel/asm-offsets.c      |  14 +++
+>   arch/riscv/kernel/sse.c              | 154 +++++++++++++++++++++++
+>   arch/riscv/kernel/sse_entry.S        | 180 +++++++++++++++++++++++++++
+>   9 files changed, 429 insertions(+), 3 deletions(-)
+>   create mode 100644 arch/riscv/include/asm/sse.h
+>   create mode 100644 arch/riscv/kernel/sse.c
+>   create mode 100644 arch/riscv/kernel/sse_entry.S
+>
+> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+> index a8a2af6dfe9d..982c4be9a9c3 100644
+> --- a/arch/riscv/include/asm/asm.h
+> +++ b/arch/riscv/include/asm/asm.h
+> @@ -90,16 +90,24 @@
+>   #define PER_CPU_OFFSET_SHIFT 3
+>   #endif
+>   
+> -.macro asm_per_cpu dst sym tmp
+> -	REG_L \tmp, TASK_TI_CPU_NUM(tp)
+> -	slli  \tmp, \tmp, PER_CPU_OFFSET_SHIFT
+> +.macro asm_per_cpu_with_cpu dst sym tmp cpu
+> +	slli  \tmp, \cpu, PER_CPU_OFFSET_SHIFT
+>   	la    \dst, __per_cpu_offset
+>   	add   \dst, \dst, \tmp
+>   	REG_L \tmp, 0(\dst)
+>   	la    \dst, \sym
+>   	add   \dst, \dst, \tmp
+>   .endm
 > +
-> +	return !kvm_vcpu_has_mediated_pmu(vcpu) ||
-> +	       !bitmap_intersects(pmu->pmc_counting_instructions,
-> +				  (unsigned long *)&pmu->global_ctrl,
-> +				  X86_PMC_IDX_MAX);
+> +.macro asm_per_cpu dst sym tmp
+> +	REG_L \tmp, TASK_TI_CPU_NUM(tp)
+
+
+cpu is not xlen-wide, see 
+https://lore.kernel.org/linux-riscv/20250725165410.2896641-3-rkrcmar@ventanamicro.com/. 
+Can you rebase your next version on top my fixes branch which contains 
+this fix? Here it is 
+https://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux.git/log/?h=alex-fixes
+
+
+> +	asm_per_cpu_with_cpu \dst \sym \tmp \tmp
+> +.endm
+>   #else /* CONFIG_SMP */
+> +.macro asm_per_cpu_with_cpu dst sym tmp cpu
+> +	la    \dst, \sym
+> +.endm
+> +
+>   .macro asm_per_cpu dst sym tmp
+>   	la    \dst, \sym
+>   .endm
+> diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
+> index 0e45db78b24b..62344daad73d 100644
+> --- a/arch/riscv/include/asm/scs.h
+> +++ b/arch/riscv/include/asm/scs.h
+> @@ -18,6 +18,11 @@
+>   	load_per_cpu gp, irq_shadow_call_stack_ptr, \tmp
+>   .endm
+>   
+> +/* Load the per-CPU IRQ shadow call stack to gp. */
+> +.macro scs_load_sse_stack reg_evt
+> +	REG_L gp, SSE_REG_EVT_SHADOW_STACK(\reg_evt)
+> +.endm
+> +
+>   /* Load task_scs_sp(current) to gp. */
+>   .macro scs_load_current
+>   	REG_L	gp, TASK_TI_SCS_SP(tp)
+> @@ -41,6 +46,8 @@
+>   .endm
+>   .macro scs_load_irq_stack tmp
+>   .endm
+> +.macro scs_load_sse_stack reg_evt
+> +.endm
+>   .macro scs_load_current
+>   .endm
+>   .macro scs_load_current_if_task_changed prev
+> diff --git a/arch/riscv/include/asm/sse.h b/arch/riscv/include/asm/sse.h
+> new file mode 100644
+> index 000000000000..8929a268462c
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/sse.h
+> @@ -0,0 +1,47 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2024 Rivos Inc.
+> + */
+> +#ifndef __ASM_SSE_H
+> +#define __ASM_SSE_H
+> +
+> +#include <asm/sbi.h>
+> +
+> +#ifdef CONFIG_RISCV_SSE
+> +
+> +struct sse_event_interrupted_state {
+> +	unsigned long a6;
+> +	unsigned long a7;
+> +};
+> +
+> +struct sse_event_arch_data {
+> +	void *stack;
+> +	void *shadow_stack;
+> +	unsigned long tmp;
+> +	struct sse_event_interrupted_state interrupted;
+> +	unsigned long interrupted_phys;
+> +	u32 evt_id;
+> +	unsigned int hart_id;
+> +	unsigned int cpu_id;
+> +};
+> +
+> +static inline bool sse_event_is_global(u32 evt)
+> +{
+> +	return !!(evt & SBI_SSE_EVENT_GLOBAL);
 > +}
 > +
->  void kvm_pmu_deliver_pmi(struct kvm_vcpu *vcpu);
->  void kvm_pmu_handle_event(struct kvm_vcpu *vcpu);
->  int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned pmc, u64 *data);
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 7fb94ef64e18..6bdf7ef0b535 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -2092,6 +2092,9 @@ EXPORT_SYMBOL_GPL(kvm_emulate_invd);
->  
->  fastpath_t handle_fastpath_invd(struct kvm_vcpu *vcpu)
->  {
-> +	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-> +		return EXIT_FASTPATH_NONE;
+> +void arch_sse_event_update_cpu(struct sse_event_arch_data *arch_evt, int cpu);
+> +int arch_sse_init_event(struct sse_event_arch_data *arch_evt, u32 evt_id,
+> +			int cpu);
+> +void arch_sse_free_event(struct sse_event_arch_data *arch_evt);
+> +int arch_sse_register_event(struct sse_event_arch_data *arch_evt);
 > +
->  	if (!kvm_emulate_invd(vcpu))
->  		return EXIT_FASTPATH_EXIT_USERSPACE;
->  
-> @@ -2151,6 +2154,9 @@ fastpath_t handle_fastpath_set_msr_irqoff(struct kvm_vcpu *vcpu)
->  	u64 data = kvm_read_edx_eax(vcpu);
->  	u32 msr = kvm_rcx_read(vcpu);
->  
-> +	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-> +		return EXIT_FASTPATH_NONE;
+> +void sse_handle_event(struct sse_event_arch_data *arch_evt,
+> +		      struct pt_regs *regs);
+> +asmlinkage void handle_sse(void);
+> +asmlinkage void do_sse(struct sse_event_arch_data *arch_evt,
+> +		       struct pt_regs *reg);
 > +
->  	switch (msr) {
->  	case APIC_BASE_MSR + (APIC_ICR >> 4):
->  		if (!lapic_in_kernel(vcpu) || !apic_x2apic_mode(vcpu->arch.apic) ||
-> @@ -11267,6 +11273,9 @@ EXPORT_SYMBOL_GPL(kvm_emulate_halt);
->  
->  fastpath_t handle_fastpath_hlt(struct kvm_vcpu *vcpu)
->  {
-> +	if (!kvm_pmu_is_fastpath_emulation_allowed(vcpu))
-> +		return EXIT_FASTPATH_NONE;
+> +#endif
 > +
->  	if (!kvm_emulate_halt(vcpu))
->  		return EXIT_FASTPATH_EXIT_USERSPACE;
->  
+> +#endif
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index 0e71eb82f920..cd1cead0c682 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -88,6 +88,19 @@ static inline void __switch_to_envcfg(struct task_struct *next)
+>   			:: "r" (next->thread.envcfg) : "memory");
+>   }
+>   
+> +#ifdef CONFIG_RISCV_SSE
+> +DECLARE_PER_CPU(struct task_struct *, __sse_entry_task);
+> +
+> +static inline void __switch_sse_entry_task(struct task_struct *next)
+> +{
+> +	__this_cpu_write(__sse_entry_task, next);
+> +}
+> +#else
+> +static inline void __switch_sse_entry_task(struct task_struct *next)
+> +{
+> +}
+> +#endif
+> +
+>   extern struct task_struct *__switch_to(struct task_struct *,
+>   				       struct task_struct *);
+>   
+> @@ -122,6 +135,7 @@ do {							\
+>   	if (switch_to_should_flush_icache(__next))	\
+>   		local_flush_icache_all();		\
+>   	__switch_to_envcfg(__next);			\
+> +	__switch_sse_entry_task(__next);			\
+>   	((last) = __switch_to(__prev, __next));		\
+>   } while (0)
+>   
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index f5916a70879a..28e9805e61fc 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -36,6 +36,7 @@
+>   #define OVERFLOW_STACK_SIZE     SZ_4K
+>   
+>   #define IRQ_STACK_SIZE		THREAD_SIZE
+> +#define SSE_STACK_SIZE		THREAD_SIZE
+>   
+>   #ifndef __ASSEMBLY__
+>   
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index c7b542573407..62e4490b34ee 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -99,6 +99,7 @@ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+>   obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+>   obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+>   obj-$(CONFIG_RISCV_SBI)		+= sbi.o sbi_ecall.o
+> +obj-$(CONFIG_RISCV_SSE)		+= sse.o sse_entry.o
+>   ifeq ($(CONFIG_RISCV_SBI), y)
+>   obj-$(CONFIG_SMP)		+= sbi-ipi.o
+>   obj-$(CONFIG_SMP) += cpu_ops_sbi.o
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index 6e8c0d6feae9..315547c3a2ef 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -14,6 +14,8 @@
+>   #include <asm/ptrace.h>
+>   #include <asm/cpu_ops_sbi.h>
+>   #include <asm/stacktrace.h>
+> +#include <asm/sbi.h>
+> +#include <asm/sse.h>
+>   #include <asm/suspend.h>
+>   
+>   void asm_offsets(void);
+> @@ -528,4 +530,16 @@ void asm_offsets(void)
+>   	DEFINE(FREGS_A6,	    offsetof(struct __arch_ftrace_regs, a6));
+>   	DEFINE(FREGS_A7,	    offsetof(struct __arch_ftrace_regs, a7));
+>   #endif
+> +
+> +#ifdef CONFIG_RISCV_SSE
+> +	OFFSET(SSE_REG_EVT_STACK, sse_event_arch_data, stack);
+> +	OFFSET(SSE_REG_EVT_SHADOW_STACK, sse_event_arch_data, shadow_stack);
+> +	OFFSET(SSE_REG_EVT_TMP, sse_event_arch_data, tmp);
+> +	OFFSET(SSE_REG_HART_ID, sse_event_arch_data, hart_id);
+> +	OFFSET(SSE_REG_CPU_ID, sse_event_arch_data, cpu_id);
+> +
+> +	DEFINE(SBI_EXT_SSE, SBI_EXT_SSE);
+> +	DEFINE(SBI_SSE_EVENT_COMPLETE, SBI_SSE_EVENT_COMPLETE);
+> +	DEFINE(ASM_NR_CPUS, NR_CPUS);
+> +#endif
+>   }
+> diff --git a/arch/riscv/kernel/sse.c b/arch/riscv/kernel/sse.c
+> new file mode 100644
+> index 000000000000..d2da7e23a74a
+> --- /dev/null
+> +++ b/arch/riscv/kernel/sse.c
+> @@ -0,0 +1,154 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright (C) 2024 Rivos Inc.
+> + */
+> +#include <linux/nmi.h>
+> +#include <linux/scs.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/riscv_sse.h>
+> +#include <linux/percpu-defs.h>
+> +
+> +#include <asm/asm-prototypes.h>
+> +#include <asm/switch_to.h>
+> +#include <asm/irq_stack.h>
+> +#include <asm/sbi.h>
+> +#include <asm/sse.h>
+> +
+> +DEFINE_PER_CPU(struct task_struct *, __sse_entry_task);
+> +
+> +void __weak sse_handle_event(struct sse_event_arch_data *arch_evt, struct pt_regs *regs)
+> +{
+> +}
+> +
+> +void do_sse(struct sse_event_arch_data *arch_evt, struct pt_regs *regs)
+> +{
+> +	nmi_enter();
+> +
+> +	/* Retrieve missing GPRs from SBI */
+> +	sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_ATTR_READ, arch_evt->evt_id,
+> +		  SBI_SSE_ATTR_INTERRUPTED_A6,
+> +		  (SBI_SSE_ATTR_INTERRUPTED_A7 - SBI_SSE_ATTR_INTERRUPTED_A6) + 1,
+> +		  arch_evt->interrupted_phys, 0, 0);
+> +
+> +	memcpy(&regs->a6, &arch_evt->interrupted, sizeof(arch_evt->interrupted));
+> +
+> +	sse_handle_event(arch_evt, regs);
+> +
+> +	/*
+> +	 * The SSE delivery path does not uses the "standard" exception path
+> +	 * (see sse_entry.S) and does not process any pending signal/softirqs
+> +	 * due to being similar to a NMI.
+> +	 * Some drivers (PMU, RAS) enqueue pending work that needs to be handled
+> +	 * as soon as possible by bottom halves. For that purpose, set the SIP
+> +	 * software interrupt pending bit which will force a software interrupt
+> +	 * to be serviced once interrupts are reenabled in the interrupted
+> +	 * context if they were masked or directly if unmasked.
+> +	 */
+> +	csr_set(CSR_IP, IE_SIE);
+> +
+> +	nmi_exit();
+> +}
+> +
+> +static void *alloc_to_stack_pointer(void *alloc)
+> +{
+> +	return alloc ? alloc + SSE_STACK_SIZE : NULL;
+> +}
+> +
+> +static void *stack_pointer_to_alloc(void *stack)
+> +{
+> +	return stack - SSE_STACK_SIZE;
+> +}
+> +
+> +#ifdef CONFIG_VMAP_STACK
+> +static void *sse_stack_alloc(unsigned int cpu)
+> +{
+> +	void *stack = arch_alloc_vmap_stack(SSE_STACK_SIZE, cpu_to_node(cpu));
 
-Reviewed-by: Sandipan Das <sandipan.das@amd.com>
+
+I'm wondering what could happen if, in case of Svvptc, we take a trap in 
+the sse path because the vmalloced stack page table entry is not yet 
+seen by the page table walker, would that be an issue?
+
+
+> +
+> +	return alloc_to_stack_pointer(stack);
+> +}
+> +
+> +static void sse_stack_free(void *stack)
+> +{
+> +	vfree(stack_pointer_to_alloc(stack));
+> +}
+> +#else /* CONFIG_VMAP_STACK */
+> +static void *sse_stack_alloc(unsigned int cpu)
+> +{
+> +	void *stack = kmalloc(SSE_STACK_SIZE, GFP_KERNEL);
+> +
+> +	return alloc_to_stack_pointer(stack);
+> +}
+> +
+> +static void sse_stack_free(void *stack)
+> +{
+> +	kfree(stack_pointer_to_alloc(stack));
+> +}
+> +#endif /* CONFIG_VMAP_STACK */
+> +
+> +static int sse_init_scs(int cpu, struct sse_event_arch_data *arch_evt)
+> +{
+> +	void *stack;
+> +
+> +	if (!scs_is_enabled())
+> +		return 0;
+> +
+> +	stack = scs_alloc(cpu_to_node(cpu));
+> +	if (!stack)
+> +		return -ENOMEM;
+> +
+> +	arch_evt->shadow_stack = stack;
+> +
+> +	return 0;
+> +}
+> +
+> +void arch_sse_event_update_cpu(struct sse_event_arch_data *arch_evt, int cpu)
+> +{
+> +	arch_evt->cpu_id = cpu;
+> +	arch_evt->hart_id = cpuid_to_hartid_map(cpu);
+> +}
+> +
+> +int arch_sse_init_event(struct sse_event_arch_data *arch_evt, u32 evt_id, int cpu)
+> +{
+> +	void *stack;
+> +
+> +	arch_evt->evt_id = evt_id;
+> +	stack = sse_stack_alloc(cpu);
+> +	if (!stack)
+> +		return -ENOMEM;
+> +
+> +	arch_evt->stack = stack;
+> +
+> +	if (sse_init_scs(cpu, arch_evt)) {
+> +		sse_stack_free(arch_evt->stack);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	if (sse_event_is_global(evt_id)) {
+> +		arch_evt->interrupted_phys =
+> +					virt_to_phys(&arch_evt->interrupted);
+
+
+I may be missing something but I don't see why interrupted could not be 
+a userspace address?
+
+
+> +	} else {
+> +		arch_evt->interrupted_phys =
+> +				per_cpu_ptr_to_phys(&arch_evt->interrupted);
+> +	}
+> +
+> +	arch_sse_event_update_cpu(arch_evt, cpu);
+> +
+> +	return 0;
+> +}
+> +
+> +void arch_sse_free_event(struct sse_event_arch_data *arch_evt)
+> +{
+> +	scs_free(arch_evt->shadow_stack);
+> +	sse_stack_free(arch_evt->stack);
+> +}
+> +
+> +int arch_sse_register_event(struct sse_event_arch_data *arch_evt)
+> +{
+> +	struct sbiret sret;
+> +
+> +	sret = sbi_ecall(SBI_EXT_SSE, SBI_SSE_EVENT_REGISTER, arch_evt->evt_id,
+> +			 (unsigned long)handle_sse, (unsigned long)arch_evt, 0,
+> +			 0, 0);
+> +
+> +	return sbi_err_map_linux_errno(sret.error);
+> +}
+> diff --git a/arch/riscv/kernel/sse_entry.S b/arch/riscv/kernel/sse_entry.S
+> new file mode 100644
+> index 000000000000..112bdb7d4369
+> --- /dev/null
+> +++ b/arch/riscv/kernel/sse_entry.S
+> @@ -0,0 +1,180 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2024 Rivos Inc.
+> + */
+> +
+> +#include <linux/init.h>
+> +#include <linux/linkage.h>
+> +
+> +#include <asm/asm.h>
+> +#include <asm/csr.h>
+> +#include <asm/scs.h>
+> +
+> +/* When entering handle_sse, the following registers are set:
+> + * a6: contains the hartid
+> + * a7: contains a sse_event_arch_data struct pointer
+> + */
+> +SYM_CODE_START(handle_sse)
+> +	/* Save stack temporarily */
+> +	REG_S sp, SSE_REG_EVT_TMP(a7)
+> +	/* Set entry stack */
+> +	REG_L sp, SSE_REG_EVT_STACK(a7)
+> +
+> +	addi sp, sp, -(PT_SIZE_ON_STACK)
+> +	REG_S ra, PT_RA(sp)
+> +	REG_S s0, PT_S0(sp)
+> +	REG_S s1, PT_S1(sp)
+> +	REG_S s2, PT_S2(sp)
+> +	REG_S s3, PT_S3(sp)
+> +	REG_S s4, PT_S4(sp)
+> +	REG_S s5, PT_S5(sp)
+> +	REG_S s6, PT_S6(sp)
+> +	REG_S s7, PT_S7(sp)
+> +	REG_S s8, PT_S8(sp)
+> +	REG_S s9, PT_S9(sp)
+> +	REG_S s10, PT_S10(sp)
+> +	REG_S s11, PT_S11(sp)
+> +	REG_S tp, PT_TP(sp)
+> +	REG_S t0, PT_T0(sp)
+> +	REG_S t1, PT_T1(sp)
+> +	REG_S t2, PT_T2(sp)
+> +	REG_S t3, PT_T3(sp)
+> +	REG_S t4, PT_T4(sp)
+> +	REG_S t5, PT_T5(sp)
+> +	REG_S t6, PT_T6(sp)
+> +	REG_S gp, PT_GP(sp)
+> +	REG_S a0, PT_A0(sp)
+> +	REG_S a1, PT_A1(sp)
+> +	REG_S a2, PT_A2(sp)
+> +	REG_S a3, PT_A3(sp)
+> +	REG_S a4, PT_A4(sp)
+> +	REG_S a5, PT_A5(sp)
+> +
+> +	/* Retrieve entry sp */
+> +	REG_L a4, SSE_REG_EVT_TMP(a7)
+> +	/* Save CSRs */
+> +	csrr a0, CSR_EPC
+> +	csrr a1, CSR_SSTATUS
+> +	csrr a2, CSR_STVAL
+> +	csrr a3, CSR_SCAUSE
+> +
+> +	REG_S a0, PT_EPC(sp)
+> +	REG_S a1, PT_STATUS(sp)
+> +	REG_S a2, PT_BADADDR(sp)
+> +	REG_S a3, PT_CAUSE(sp)
+> +	REG_S a4, PT_SP(sp)
+> +
+> +	/* Disable user memory access and floating/vector computing */
+> +	li t0, SR_SUM | SR_FS_VS
+> +	csrc CSR_STATUS, t0
+> +
+> +	load_global_pointer
+> +	scs_load_sse_stack a7
+> +
+> +	/* Restore current task struct from __sse_entry_task */
+> +	li t1, ASM_NR_CPUS
+> +	mv t3, zero
+
+
+t1 is only used in find_hart_id_slowpath and shouldn't we use the real 
+number of present cpus instead of NR_CPUS?
+
+t3 is clobbered by cpu_id below, is that correct?
+
+
+> +
+> +#ifdef CONFIG_SMP
+> +	REG_L t4, SSE_REG_HART_ID(a7)
+> +	REG_L t3, SSE_REG_CPU_ID(a7)
+
+
+hart_id and cpu_id are "unsigned int", not xlen-wide fields so you must 
+use lw here, not REG_L (a lot of bugs lately on the usage of this macro).
+
+
+> +
+> +	bne t4, a6, .Lfind_hart_id_slowpath
+> +
+> +.Lcpu_id_found:
+> +#endif
+> +	asm_per_cpu_with_cpu t2 __sse_entry_task t1 t3
+> +	REG_L tp, 0(t2)
+> +
+> +	mv a1, sp /* pt_regs on stack */
+> +
+> +	/*
+> +	 * Save sscratch for restoration since we might have interrupted the
+> +	 * kernel in early exception path and thus, we don't know the content of
+> +	 * sscratch.
+> +	 */
+> +	csrr s4, CSR_SSCRATCH
+> +	/* In-kernel scratch is 0 */
+> +	csrw CSR_SCRATCH, x0
+
+
+csrrw s4, CSR_SSCRATCH, x0 instead?
+
+
+> +
+> +	mv a0, a7
+> +
+> +	call do_sse
+> +
+> +	csrw CSR_SSCRATCH, s4
+> +
+> +	REG_L a0, PT_STATUS(sp)
+> +	REG_L a1, PT_EPC(sp)
+> +	REG_L a2, PT_BADADDR(sp)
+> +	REG_L a3, PT_CAUSE(sp)
+> +	csrw CSR_SSTATUS, a0
+> +	csrw CSR_EPC, a1
+> +	csrw CSR_STVAL, a2
+> +	csrw CSR_SCAUSE, a3
+> +
+> +	REG_L ra, PT_RA(sp)
+> +	REG_L s0, PT_S0(sp)
+> +	REG_L s1, PT_S1(sp)
+> +	REG_L s2, PT_S2(sp)
+> +	REG_L s3, PT_S3(sp)
+> +	REG_L s4, PT_S4(sp)
+> +	REG_L s5, PT_S5(sp)
+> +	REG_L s6, PT_S6(sp)
+> +	REG_L s7, PT_S7(sp)
+> +	REG_L s8, PT_S8(sp)
+> +	REG_L s9, PT_S9(sp)
+> +	REG_L s10, PT_S10(sp)
+> +	REG_L s11, PT_S11(sp)
+> +	REG_L tp, PT_TP(sp)
+> +	REG_L t0, PT_T0(sp)
+> +	REG_L t1, PT_T1(sp)
+> +	REG_L t2, PT_T2(sp)
+> +	REG_L t3, PT_T3(sp)
+> +	REG_L t4, PT_T4(sp)
+> +	REG_L t5, PT_T5(sp)
+> +	REG_L t6, PT_T6(sp)
+> +	REG_L gp, PT_GP(sp)
+> +	REG_L a0, PT_A0(sp)
+> +	REG_L a1, PT_A1(sp)
+> +	REG_L a2, PT_A2(sp)
+> +	REG_L a3, PT_A3(sp)
+> +	REG_L a4, PT_A4(sp)
+> +	REG_L a5, PT_A5(sp)
+> +
+> +	REG_L sp, PT_SP(sp)
+> +
+> +	li a7, SBI_EXT_SSE
+> +	li a6, SBI_SSE_EVENT_COMPLETE
+> +	ecall
+> +
+> +#ifdef CONFIG_SMP
+> +.Lfind_hart_id_slowpath:
+> +
+> +/* Slowpath to find the CPU id associated to the hart id */
+> +la t0, __cpuid_to_hartid_map
+
+
+^ Missing tab
+
+
+> +
+> +.Lhart_id_loop:
+> +	REG_L t2, 0(t0)
+> +	beq t2, a6, .Lcpu_id_found
+> +
+> +	/* Increment pointer and CPU number */
+> +	addi t3, t3, 1
+> +	addi t0, t0, RISCV_SZPTR
+> +	bltu t3, t1, .Lhart_id_loop
+> +
+> +	/*
+> +	 * This should never happen since we expect the hart_id to match one
+> +	 * of our CPU, but better be safe than sorry
+> +	 */
+> +	la tp, init_task
+> +	la a0, sse_hart_id_panic_string
+> +	la t0, panic
+> +	jalr t0
+> +
+
+This newline is not needed ^
+
+> +#endif
+> +
+> +SYM_CODE_END(handle_sse)
+> +
+> +SYM_DATA_START_LOCAL(sse_hart_id_panic_string)
+> +    .ascii "Unable to match hart_id with cpu\0"
+> +SYM_DATA_END(sse_hart_id_panic_string)
+
+
+Thanks,
+
+Alex
 
 
