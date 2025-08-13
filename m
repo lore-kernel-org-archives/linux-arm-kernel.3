@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53C1CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0509ACA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyvusIEXjAre/xttjCZZR35LjwYPJuaLUvaZ9xyV3Z8=; b=LORmpMPQRexcTyI1rO+WCfYuUA
-	Qd2AcYJ24sPhnYI92DTrIWFCbUj7x91xBK9odL8AHOy38jxZIWzO/IurxM+ubGXbpAwz+2WhMizbz
-	Fh1BHqR66+YdaqLynrTEC4PkNyT/cCj6SntO3VojIgBqkn+pvwBUfUr2YwyyhHAdwJ9BclitzSYS+
-	jLKibaHA+GBe+dFvru4i2X5EV/yPzIGO/uPnk9VwVXQe7aa+cJD5eotHJbtgJF0ZAOTVQvEaXLwlz
-	xxYrwpB+pfIzQ4QBmSXTdR63EHwlaFtvS2GdKWs2/FbwOqE2Nni3YaGgdmGZDinY/fJmeNKVQ5Muv
-	IihBxbdg==;
+	bh=yST2b7wD2arSD76lVcjJyJHchsSv2Uz5YStSaS0YJzY=; b=2RnqC0QuQskanxAu17AVCtR444
+	TnUFiZLoLamj++tLkT1ppyEdnrzvabyrblnrXHfGE+Svi5p/n73FAiNQ6eMleb7FO/D16fPQ5iYk8
+	T6ReDeee044z1GjeSYmc3gGAhCJxCcJQVB2XFeZK8M3zMzO2BSeWyvJ/ctBGqeoGRKX9brkSatRKR
+	2dAmgkrQtBWByR1jo4fTgyDkaVnYebidv9yOpaolIw716BNFF7SBEOSpX31emNk1uZZozKxkV8PAV
+	s+twTCcPO4OxqT3anhXXE3PZTvjKq0SpFeKOd5yiuGHi/wZqyP0yOzXBNgR8VPMICAB1b0k/s6xMC
+	xPCRT98A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBcG-0000000DmKy-0qtV;
-	Wed, 13 Aug 2025 13:34:08 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1umBem-0000000DmgJ-0NUO;
+	Wed, 13 Aug 2025 13:36:44 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBAX-0000000DiKV-3JVD
+	id 1umBBd-0000000DiRs-3ZIT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:05:31 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DD5ODJ2152796;
-	Wed, 13 Aug 2025 08:05:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755090324;
-	bh=OyvusIEXjAre/xttjCZZR35LjwYPJuaLUvaZ9xyV3Z8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=cAW4mthz+eHWDjhCFx18wqQmgxjqWJVY/281sbD/5YMHzdqsigvxPfiyRDDHGZxA3
-	 OkzoEL4zLGmM3MUB5JoNChRxVAnCCG2QioJhHelWzMAD8EHXE04J6oUtLKWsKhlgQ+
-	 LXs9zc2DmDq9V1iizq6CdlIMzj1HVmejfd1S9jjo=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DD5OZi1086160
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 08:05:24 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 08:05:23 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 08:05:23 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DD5MkH2333843;
-	Wed, 13 Aug 2025 08:05:22 -0500
-Date: Wed, 13 Aug 2025 18:35:21 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Akashdeep Kaur <a-kaur@ti.com>
-CC: <vigneshr@ti.com>, <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <vishalm@ti.com>, <sebin.francis@ti.com>
-Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining macros
-Message-ID: <20250813130521.zpe7lguful6gyhjz@lcpd911>
-References: <20250731115631.3263798-1-a-kaur@ti.com>
- <20250731115631.3263798-4-a-kaur@ti.com>
+	Wed, 13 Aug 2025 13:06:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755090398; x=1786626398;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=cRZd5t149Cj/63+HodENGqLUU8711RdMcrqet0Uojk0=;
+  b=L9Hiyi55cnI4KJACG4OPZvhN3g6ePubzLSGM/srSfjUwoLjM/Ru3xuSU
+   NFcLQHObjcw7VUt20N78FqHBwHnomdLFTaMZY6VzcrDp0qci5TIqVfFGM
+   +KUDjwrxezjuckz1tNZEOiEtzinelfaH/eZ+lBd7rYKDhIlF3DfEGf9Dn
+   v7sGWg5vTRUm8GG5Mv7H4l+rvsr2DoWnI52V0V2L3C1ofsLwTUkB2gN9y
+   Kh5XFmVibr/GIC94Gf4TpoTmAHlZn+wVyfiR3AaJsPs+Xe6rucwZzJM3w
+   zG/M6szzp/CEBqUY3E22k3+Z3PjZqCR5eoeVyQXlE9zOnpUdSy/OoiEJs
+   A==;
+X-CSE-ConnectionGUID: KJ9LrGzaR8i8Umpf4dY/AA==
+X-CSE-MsgGUID: jAj0payGTKaYBaXQWF7NFQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="74959656"
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="74959656"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:06:37 -0700
+X-CSE-ConnectionGUID: FWTQedAvQjCEPjDDCDuanQ==
+X-CSE-MsgGUID: /zQqES/kR5idr7cSacS7sg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="170673829"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:06:34 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1umBBX-00000005RN2-0SOW;
+	Wed, 13 Aug 2025 16:06:31 +0300
+Date: Wed, 13 Aug 2025 16:06:30 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
+	Robert Marko <robert.marko@sartura.hr>,
+	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] i2c: add init_recovery() callback
+Message-ID: <aJyN1uX60BJQYDHj@smile.fi.intel.com>
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-1-ca42ea818dc9@gmail.com>
+ <aJpP5eABTYnQRV82@smile.fi.intel.com>
+ <27cc9ae5-1c13-4ec9-ab10-ae95d6339116@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250731115631.3263798-4-a-kaur@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <27cc9ae5-1c13-4ec9-ab10-ae95d6339116@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_060530_115217_D46DD5EA 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250813_060637_898708_152B7916 
+X-CRM114-Status: GOOD (  29.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +100,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Akashdeep,
+On Wed, Aug 13, 2025 at 12:24:22PM +0200, Gabor Juhos wrote:
+> 2025. 08. 11. 22:17 keltezéssel, Andy Shevchenko írta:
+> > On Mon, Aug 11, 2025 at 09:49:55PM +0200, Gabor Juhos wrote:
 
-On Jul 31, 2025 at 17:26:31 +0530, Akashdeep Kaur wrote:
-> Add the drive strength, schmitt trigger enable macros to pinctrl file.
-> Add the missing macros for deep sleep configuration control.
+...
 
-Please can you add sources/ links to the TRM/collateral and sections where you get
-all this information from?
+> >> This is needed for the 'i2c-pxa' driver in order to be able to fix
+> >> a long standing bug for which the fix will be implemented in a
 
-> Reword the existing deep sleep macros to provide combinations that can
-> directly be used in device tree files.
+The above left for some context for the below discussion.
 
-I am not very clear on what this line is trying to say. Can you explain
-a bit more with an example of a reword and how it is helping?
+...
+
+> > The first traditional question is why the generic recovery is not working.
+> 
+> The details are in the driver specific patches. Should I write it all down here too?
+
+Instead of the above paragraph, give a summary of your use case to answer 'why'
+it can not be done differently.
+
+...
+
+> >> -	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
+> >> +	if (bri->init_recovery) {
+> >> +		ret = bri->init_recovery(adap);
+> >> +		if (ret)
+> >> +			return ret;
+> > 
+> >> +	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
+> >>  		return -EPROBE_DEFER;
+> >> +	}
+> > 
+> > If the above stays, I think we would drop the last and always have
+> > init_recovery to be assigned.
+> 
+> In that case we would have something like this:
+> 
+>     if (!bri->init_recovery)
+>         bri->init_recovery = i2c_gpio_init_recovery;
+> 
+>     ret = bri->init_recovery(adap);
+>     if (ret)
+>         return ret;
+> 
+> Since the callback is used only once, and within the same fuction where it is
+> assigned, I don't really see the advantage of the assignment. Although it
+> definitely looks cleaner as far as error handling is concerned.
+> 
+> Originally, I have used the following solution:
+> 
+>     if (bri->init_recovery)
+>         ret = bri->init_recovery(adap);
+>     else
+>         ret = i2c_gpio_init_recovery(adap);
 
 > 
-> Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-pinctrl.h | 66 +++++++++++++++++++++++------
->  1 file changed, 54 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> index c0f09be8d3f9..f26f1fcf6f74 100644
-> --- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> +++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-> @@ -3,7 +3,7 @@
->   * This header provides constants for pinctrl bindings for TI's K3 SoC
->   * family.
->   *
-> - * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
-> + * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
->   */
->  #ifndef DTS_ARM64_TI_K3_PINCTRL_H
->  #define DTS_ARM64_TI_K3_PINCTRL_H
-> @@ -19,6 +19,13 @@
->  #define DS_OUT_VAL_SHIFT	(26)
->  #define DS_PULLUD_EN_SHIFT	(27)
->  #define DS_PULLTYPE_SEL_SHIFT	(28)
-> +#define WKUP_EN_SHIFT		    (29)
-> +#define WKUP_LVL_EN_SHIFT	    (7)
-> +#define WKUP_LVL_POL_SHIFT	    (8)
-> +#define ST_EN_SHIFT		        (14)
-> +#define DRV_STR_SHIFT		    (19)
-> +#define DS_ISO_OVERRIDE_EN_SHIFT (22)
-> +#define DS_ISO_BYPASS_EN_SHIFT  (23)
 
-Seeing it on lore and in my git log -p as well, the alignment looks off.
-Please fix it.
+Without this blank line...
 
->  
->  /* Schmitt trigger configuration */
->  #define ST_DISABLE		(0 << ST_EN_SHIFT)
-> @@ -33,6 +40,26 @@
->  #define INPUT_EN		(1 << RXACTIVE_SHIFT)
->  #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
->  
-> +#define DS_PULL_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-> +#define DS_PULL_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-> +
-> +#define DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-> +#define DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-> +
-> +#define DS_INPUT_EN		    (1 << DS_OUT_DIS_SHIFT)
-> +#define DS_INPUT_DISABLE    (0 << DS_OUT_DIS_SHIFT)
-> +
-> +#define DS_OUT_VALUE_ZERO   (0 << DS_OUT_VAL_SHIFT)
-> +#define DS_OUT_VALUE_ONE    (1 << DS_OUT_VAL_SHIFT)
-> +
-> +#define WKUP_ENABLE		    (1 << WKUP_EN_SHIFT)
-> +#define WKUP_ON_LEVEL		(1 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_ON_EDGE        (0 << WKUP_LVL_EN_SHIFT)
-> +#define WKUP_LEVEL_LOW      (0 << WKUP_LVL_POL_SHIFT)
-> +#define WKUP_LEVEL_HIGH		(1 << WKUP_LVL_POL_SHIFT)
-> +
-> +#define WKUP_DISABLE        (0 << WKUP_EN_SHIFT)
-> +
+>     if (ret)
+>         return ret;
 
-These too, fix all alignment issues please.
+...this looks like the best compromise among proposed implementations.
 
->  /* Only these macros are expected be used directly in device tree files */
->  #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
->  #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
-> @@ -53,18 +80,33 @@
->  #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
->  #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
->  
-> +#define PIN_DRIVE_STRENGTH_NOMINAL	(0 << DRV_STR_SHIFT)
-> +#define PIN_DRIVE_STRENGTH_SLOW	    (1 << DRV_STR_SHIFT)
-> +#define PIN_DRIVE_STRENGTH_FAST	    (2 << DRV_STR_SHIFT)
-> +
-> +#define PIN_SCHMITT_TRIGGER_DISABLE	(0 << ST_EN_SHIFT)
-> +#define PIN_SCHMITT_TRIGGER_ENABLE	(1 << ST_EN_SHIFT)
-> +
->  #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
-> -#define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
-> -#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
-> -#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
-> -#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
-> -#define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
-> -#define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
-> -#define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-> -#define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-> -#define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
-> -#define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
-> +#define PIN_DS_FORCE_ENABLE		    (1 << FORCE_DS_EN_SHIFT)
-> +#define PIN_DS_ISO_OVERRIDE_DISABLE	(0 << DS_ISO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_OVERRIDE	        (1 << DS_ISO_OVERRIDE_EN_SHIFT)
-> +#define PIN_DS_ISO_BYPASS           (1 << DS_ISO_BYPASS_EN_SHIFT)
-> +#define PIN_DS_ISO_BYPASS_DISABLE   (0 << DS_ISO_BYPASS_EN_SHIFT)
-> +
-> +#define DS_STATE_VAL        (1 << DS_EN_SHIFT)
-> +#define ACTIVE_STATE_VAL    (0 << DS_EN_SHIFT)
-> +
-> +#define PIN_DS_OUTPUT_LOW       (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
-> +#define PIN_DS_OUTPUT_HIGH      (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
-> +#define PIN_DS_INPUT            (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DISABLE)
-> +#define PIN_DS_INPUT_PULLUP	    (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_UP)
-> +#define PIN_DS_INPUT_PULLDOWN   (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DOWN)
-> +
-> +#define WKUP_EN_EDGE		(WKUP_ENABLE | WKUP_ON_EDGE)
-> +#define WKUP_EN_LEVEL_LOW	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
-> +#define WKUP_EN_LEVEL_HIGH	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
-> +#define WKUP_EN		        WKUP_EN_EDGE
-
+> However the existing code ignores errors from i2c_gpio_init_recovery() except
+> EPROBE_DEFER, so I changed this to the code proposed in the patch in order to
+> keep the existing behaviour.
 
 -- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+With Best Regards,
+Andy Shevchenko
+
+
 
