@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F67C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9B8CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJZXS5Y9aHrIczypKO6ef3Wj3AFrPGLvZe4rLGJS3xk=; b=LykHQiVpCZ3YoTAoLo95j8bGU5
-	FEhBxZcw9UHCPhX3wRQEKsWxu18l+XPenxJcIxwRYcDtYem+WTATEuwAJLxcJ11lmM/XEyog4jgqD
-	iQaU5CQQNHIg/TCbwOv2CdvX0rAs81wlZqZaCdAjfmzujgqGEE9hlbjyPg+qy+VQZTqu2GW5svBsD
-	tLKCc7CGFj8N6pV28tMSbcZKCyJ7t+ggeICwd0Q6tmVas5xzfa+C0HoIhs5z6EqNrVkoNgJ5e6U3K
-	pRomif2kcjktNe5pkPOi7CdEAdteOnmHmK3dFoopBk7SKesLWknb5hmBQHb+BZ3Jqob0lxSKF6lk0
-	RJMKzuLw==;
+	bh=OkMcffknhH0plsKNwHSL+7lnnw/2npQ9Z/QcYbws7mc=; b=htLUpB0pP9Ww7f+jaAzxIavW3O
+	L/FvaSS8W1EIWk0OX549CxFrd+9qIHguyg/Q2Nv2PWrRYH/BS/gOH8SoRR2jJZbDwp05CWDJ2IYT7
+	BuVTKcuugWTTVUo8SFDgHNQMf9CIvJ51TPO+t99tF3WDk1xsDpEXHQcNPpRsd8FhIc37z9itRUfhh
+	AZF4+h61bb2SopT24c4If+j4Mlt4irYKmCtw84va//tsRMFzcX9uDxJgQsdsOAlsYB3YmWiYqC9VA
+	jGd2SIM6jikJIa82lSjVkEBmYCe1yeX/za8bMhyHAG5/LlcuEPwbaSJu/bFe3mUtwp0LITn4nkIIW
+	38LhmUbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCYn-0000000DvSn-0e3d;
-	Wed, 13 Aug 2025 14:34:37 +0000
+	id 1umCnv-0000000DxqM-1iKx;
+	Wed, 13 Aug 2025 14:50:15 +0000
 Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCWD-0000000Dv10-1CnC
+	id 1umCXC-0000000DvAX-3GLp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:31:58 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEVdDU1666826;
-	Wed, 13 Aug 2025 09:31:39 -0500
+	Wed, 13 Aug 2025 14:33:00 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEWuho1666946;
+	Wed, 13 Aug 2025 09:32:56 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755095499;
-	bh=SJZXS5Y9aHrIczypKO6ef3Wj3AFrPGLvZe4rLGJS3xk=;
+	s=ti-com-17Q1; t=1755095576;
+	bh=OkMcffknhH0plsKNwHSL+7lnnw/2npQ9Z/QcYbws7mc=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=hmEMQZUTT/pXyUFwBoyXlc4tJ48HL8cxn8e7BBGxI+xqNdD2l/hqey9hBgBwSSuq9
-	 2WpYoSEpuagwD0P4c8Nr/naQigy7Qign6Dm2aqQtm8YsQNm3GxHze/61uEz7g945M+
-	 3N8sakLTAXiPBvdYaUCsrB8wHwT79+Et3Sw8I380=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEVdW81036454
+	b=UE9QDjauVlJnN9agNwVAf69XPR8UMMbKkiImnww1nvWgYsERpBKYLNKz5a6vb0zlP
+	 5LNhf1jplkisclGi2KtPNBc3vAzpk/Wsu7Kw3OddsGxN776NCvZOMnVl61tKAIgmHv
+	 /j1Vy/cXMuDbj9QCKEjUY3i5C8hhyHi802Xc9Tjc=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEWtCu124821
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 09:31:39 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 13 Aug 2025 09:32:56 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 09:31:38 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 09:32:55 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 09:31:38 -0500
+ Frontend Transport; Wed, 13 Aug 2025 09:32:55 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEVcTu2133995;
-	Wed, 13 Aug 2025 09:31:38 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEWtYi2441154;
+	Wed, 13 Aug 2025 09:32:55 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Santosh Shilimkar <ssantosh@kernel.org>,
-        =?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-CC: Nishanth Menon <nm@ti.com>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2] soc: ti: pruss: don't use %pK through printk
-Date: Wed, 13 Aug 2025 09:31:36 -0500
-Message-ID: <175509547996.156478.5117406591592033849.b4-ty@ti.com>
+To: <vigneshr@ti.com>, Jayesh Choudhary <j-choudhary@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <devarsht@ti.com>
+Subject: Re: [PATCH v3 0/7] Add DSI display support for TI's Jacinto platforms
+Date: Wed, 13 Aug 2025 09:32:53 -0500
+Message-ID: <175509556140.158218.9231249933519133970.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250811-restricted-pointers-soc-v2-1-7af7ed993546@linutronix.de>
-References: <20250811-restricted-pointers-soc-v2-1-7af7ed993546@linutronix.de>
+In-Reply-To: <20250716060114.52122-1-j-choudhary@ti.com>
+References: <20250716060114.52122-1-j-choudhary@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_073157_410739_3B5DD8FA 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20250813_073258_905312_960734C7 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,24 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas Weißschuh,
+Hi Jayesh Choudhary,
 
-On Mon, 11 Aug 2025 09:48:30 +0200, Thomas Weißschuh wrote:
-> In the past %pK was preferable to %p as it would not leak raw pointer
-> values into the kernel log.
-> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
-> the regular %p has been improved to avoid this issue.
-> Furthermore, restricted pointers ("%pK") were never meant to be used
-> through printk(). They can still unintentionally leak raw pointers or
-> acquire sleeping locks in atomic contexts.
+On Wed, 16 Jul 2025 11:31:07 +0530, Jayesh Choudhary wrote:
+> This series adds the dts support to enable DSI on 3 platforms for TI SoCs:
+> - J784S4-EVM
+> - J721S2-EVM
+> - AM68-SK
+> 
+> SN65DSI86 driver fix that was essential for display is now merged.
 > 
 > [...]
 
-I have applied the following to branch ti-drivers-soc-next on [1].
+I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] soc: ti: pruss: don't use %pK through printk
-      commit: a5039648f86424885aae37f03dc39bc9cb972ecb
+[1/7] arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
+      commit: 09449e48be7390ebc53812ab898d669e3832c704
+[2/7] arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
+      commit: a5ed774877a38f2feeb45f0c2cd16184b47b476b
+[3/7] arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
+      commit: 19a4472e591d9945f4983d052adf7d7fa67efcce
+[4/7] arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
+      commit: 722a128adaf97fc2ecb64610a482f1399b3f4c2a
+[5/7] arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
+      commit: 3c29300dcef587df697750e99f6375e2ca8907fb
+[6/7] arm64: dts: ti: k3-j721s2-common-proc-board: Enable DisplayPort-1
+      commit: 2bca9f69225e8c6e3c270f20c69a1460761f9bd2
+[7/7] arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
+      commit: 11b9e4517bfa8edecbef0acfcad1bdca4f4a4192
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
