@@ -4,59 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CBDCA0EE0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD70C87FCF
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wsbRxHD9xo+7R0EcGZLaztCae868kFf5aK+E5Gk9/qY=; b=rwse71SpakTztWXiwuctNA9ft1
-	BxCf9LQGRWwEEn00TjYKabOBUdBqYDAkpvFR4xzJwND72NtzH3Oz0nPAsv32xr0E6yZ67G9yPUEZq
-	Zz1MewxBPq8A2UdXvvETsqRQCcLhWC9Jn2KAadPTgac65qqsO4RJ8ryx9quET8BIpL70scah7QFXi
-	dVNdLcix8SFAMVY7U1T4csE9kN3wrWik/cncRbrpgRvFjXqFXIX3huSujR1qpoD3pGGmpyyWwYtim
-	OBqa9p+j7mn/gn7K3ZG26nkg2DkQqbokS/lI2MG5W0y+hAilYagJCoQ9Ea+53bzi5xJ32YEoqynDG
-	PI2XuhZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eiXaxF/2FesV3QwgvKJIyZZY1xNNOwJjwTbuT5306No=; b=0rEf3U94X76hdv1NezjbMU6iD8
+	lT27575ZSQSiZ7oFj+CTIHLD2Yjs7yF8NAeqgESlRNmW6orDZI56iBG5aPwy+6tnDH3+AvTFdftXJ
+	vFOpWbhbOHg4G5BYdmfmMvFE81ybZYEWaTLDgntgbcbppmkcfcPS2IDl5C7CZE3uitPbNYiGybWNa
+	eqrmFwexQeLPVmy0uyWfIaBbThyOgKtEFLNhSCLjk8NZRHUfFKtGsS3loQ9IeLCI/lheUWgn27bgY
+	SPU/h46bqEean0H4enzU3Ooq+Y4iz3YfzydwI/kCfDEFnmoVoxG7trTWFysRtA73cF2fPe900hp7W
+	BjlpwVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6t4-0000000D6Wc-1sZ7;
-	Wed, 13 Aug 2025 08:31:10 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1um6t2-0000000D6Vg-1YTa;
+	Wed, 13 Aug 2025 08:31:08 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um52s-0000000Cniu-3qUF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 06:33:12 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 13 Aug
- 2025 14:33:01 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 13 Aug 2025 14:33:01 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>
-CC: Simon Horman <horms@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Po-Yu
- Chuang <ratbert@faraday-tech.com>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<taoren@meta.com>, <bmc-sw2@aspeedtech.com>
-Subject: [net-next v2 0/4] Add AST2600 RGMII delay into ftgmac100
-Date: Wed, 13 Aug 2025 14:32:57 +0800
-Message-ID: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
+	id 1um4y1-0000000CmoQ-3CGG;
+	Wed, 13 Aug 2025 06:28:10 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CNQDmt015942;
+	Wed, 13 Aug 2025 06:28:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=eiXaxF/2FesV3Qwgv
+	KJIyZZY1xNNOwJjwTbuT5306No=; b=eupqUGzaOe0LROPmZ8pBHXZ1fPIeEjKKY
+	vW5P/PnB8912HzOj1dGjiQC4Q7xtTlKhuerXQO7YQIiaOH/JbTpH2tR9amAbnoa8
+	6ALA5NK4kzTRygXfsH1BCNLab6+i0RU/pAGDYfH8mS3O+oWlO4MkbkVnH9Z4p4ZM
+	KhP48LlsZmLWQvQsKu3F0d1JGgJsP+aOUdQdauK79150p+pmj0vcIMG/yqiGDi/1
+	UlTLORRgo7Iw8l7Z7c3bbhjEwM1DlOo2AEHjlDNxLBKvrpQ5uHg6Nq0hEBRv92Ln
+	DzL5HX8zQQhGNFFVkKADiUW/zM8IVnvqT5WCucnMZEKXY67RCxueg==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48dx14jvny-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:28:01 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57D2DcFW026275;
+	Wed, 13 Aug 2025 06:28:00 GMT
+Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 48eh2165ab-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:28:00 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57D6Rw8k30605842
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 13 Aug 2025 06:27:58 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8874C5805F;
+	Wed, 13 Aug 2025 06:27:58 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A779F58059;
+	Wed, 13 Aug 2025 06:27:52 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.10.70])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 13 Aug 2025 06:27:52 +0000 (GMT)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
+Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
+        Rohan McLure <rmclure@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>
+Subject: [PATCH v16 11/13] powerpc: mm: Implement *_user_accessible_page() for ptes
+Date: Wed, 13 Aug 2025 16:26:12 +1000
+Message-ID: <20250813062614.51759-12-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250813062614.51759-1-ajd@linux.ibm.com>
+References: <20250813062614.51759-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: vwi9nY3EkfENzDbblq-1gKe2rkFchBw5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDIyNCBTYWx0ZWRfX43G1C/hRaikI
+ C+ganIrle+xEXUSw66+k17xT19f5rdO2ycX73H2pCk7z78Q0MTK198EKCwGJkTFYPllgwdblZi4
+ Q/cy+RgfCiUbLpaUvMTb7etE7dXtvMH0B8gVJ4ufp/xkHSz1RyiBnG1VVOPeXlxS+Gux9SCOec9
+ OiM+vZPh98e5HIPAh8nn7b3QdFzoH+XAgVKwpA5M0iO3xKNBoU0ozoeCXIqZYcap3JAdV/0xxsi
+ rjPNkIg31q0trK//SegfMUbC0s6T4j5Gce7ht0CMSfpwmGa3xw8rdJLFBL8jY/ErhgryUeSUNe0
+ GktLbr5wfdXPgFCQ1AXoCTuWfJ70mwnjeIyt59aqlDVmI+ACqlXmoars9VPvEvjGSI6gYAmy9U2
+ VtbjNmy9
+X-Proofpoint-GUID: vwi9nY3EkfENzDbblq-1gKe2rkFchBw5
+X-Authority-Analysis: v=2.4 cv=fLg53Yae c=1 sm=1 tr=0 ts=689c3071 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=7ipKWUHlAAAA:8 a=a65a1E2n8xkc5m_RgcEA:9
+ a=gpc5p9EgBqZVLdJeV_V1:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_08,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 spamscore=0 priorityscore=1501 impostorscore=0
+ phishscore=0 malwarescore=0 bulkscore=0 suspectscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508120224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_233310_964559_B2E0348B 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250812_232809_801884_D4645136 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +117,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for configuring RGMII internal delays for the 
-Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to 
-distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration 
-units differ.
-The device tree bindings are updated to restrict the allowed phy-mode and delay 
-properties for each MAC type. Corresponding changes are made to the device tree 
-source files and the FTGMAC100 driver to support the new delay configuration.
+From: Rohan McLure <rmclure@linux.ibm.com>
 
-Summary of changes:
-- dt-bindings: net: ftgmac100: Add conditional schema for AST2600 MAC0/1 and 
-  MAC2/3, restrict phy-mode and delay properties, and require SCU phandle.
-- ARM: dts: aspeed-g6: Add ethernet aliases, update MAC compatibles, and add 
-  SCU phandle for delay configuration.
-- ARM: dts: aspeed-ast2600-evb: Add rx/tx-internal-delay-ps properties and 
-  update phy-mode for MACs.
-- net: ftgmac100: Add driver support for configuring RGMII delay for AST2600 
-  MACs via SCU.
+Page table checking depends on architectures providing an
+implementation of p{te,md,ud}_user_accessible_page. With
+refactorisations made on powerpc/mm, the pte_access_permitted() and
+similar methods verify whether a userland page is accessible with the
+required permissions.
 
-This enables precise RGMII timing configuration for AST2600-based platforms, 
-improving interoperability with various PHYs.
+Since page table checking is the only user of
+p{te,md,ud}_user_accessible_page(), implement these for all platforms,
+using some of the same preliminary checks taken by pte_access_permitted()
+on that platform.
 
-Jacky Chou (4):
-  dt-bindings: net: ftgmac100: Restrict phy-mode and delay properties
-    for AST2600
-  ARM: dts: aspeed-g6: Add ethernet alise and update MAC compatible
-  ARM: dts: aspeed: ast2600evb: Add delay setting for MAC
-  net: ftgmac100: Add RGMII delay configuration for AST2600
+Since commit 8e9bd41e4ce1 ("powerpc/nohash: Replace pte_user() by pte_read()")
+pte_user() is no longer required to be present on all platforms as it
+may be equivalent to or implied by pte_read(). Hence implementations of
+pte_user_accessible_page() are specialised.
 
- .../bindings/net/faraday,ftgmac100.yaml       | 50 ++++++++++-
- .../boot/dts/aspeed/aspeed-ast2600-evb.dts    | 16 +++-
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 24 +++++-
- drivers/net/ethernet/faraday/ftgmac100.c      | 86 +++++++++++++++++++
- drivers/net/ethernet/faraday/ftgmac100.h      | 12 +++
- 5 files changed, 179 insertions(+), 9 deletions(-)
-
+[ajd@linux.ibm.com: rebase and fix commit message]
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
 ---
-v2:
- - added new compatible strings for MAC0/1 and MAC2/3
- - updated device tree bindings to restrict phy-mode and delay properties
- - refactored driver code to handle rgmii delay configuration
----
+ arch/powerpc/include/asm/book3s/32/pgtable.h |  5 +++++
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 17 +++++++++++++++++
+ arch/powerpc/include/asm/nohash/pgtable.h    |  5 +++++
+ arch/powerpc/include/asm/pgtable.h           |  8 ++++++++
+ 4 files changed, 35 insertions(+)
 
+diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+index 92d21c6faf1e..b225967f85ea 100644
+--- a/arch/powerpc/include/asm/book3s/32/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+@@ -437,6 +437,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return true;
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && !is_kernel_addr(addr);
++}
++
+ /* Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+  *
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index c19800365315..48f3a41317dd 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -539,6 +539,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return arch_pte_access_permitted(pte_val(pte), write, 0);
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && pte_user(pte);
++}
++
+ /*
+  * Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+@@ -1381,5 +1386,17 @@ static inline bool is_pte_rw_upgrade(unsigned long old_val, unsigned long new_va
+ 	return false;
+ }
+ 
++#define pmd_user_accessible_page pmd_user_accessible_page
++static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
++{
++	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
++}
++
++#define pud_user_accessible_page pud_user_accessible_page
++static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
++{
++	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
++}
++
+ #endif /* __ASSEMBLY__ */
+ #endif /* _ASM_POWERPC_BOOK3S_64_PGTABLE_H_ */
+diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
+index 7d6b9e5b286e..a8bc4f24beb1 100644
+--- a/arch/powerpc/include/asm/nohash/pgtable.h
++++ b/arch/powerpc/include/asm/nohash/pgtable.h
+@@ -243,6 +243,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return true;
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && !is_kernel_addr(addr);
++}
++
+ /* Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+  *
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index 0f73a9ade0ed..d0938e9c33fb 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -223,6 +223,14 @@ static inline int pud_pfn(pud_t pud)
+ }
+ #endif
+ 
++#ifndef pmd_user_accessible_page
++#define pmd_user_accessible_page(pmd, addr)	false
++#endif
++
++#ifndef pud_user_accessible_page
++#define pud_user_accessible_page(pud, addr)	false
++#endif
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_POWERPC_PGTABLE_H */
 -- 
-2.43.0
+2.50.1
 
 
