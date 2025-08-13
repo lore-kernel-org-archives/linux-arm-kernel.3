@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAA0CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6807BC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xup+Q4w/5VrYct9OQiMGtseZ+FfWwPJHt1ncLSJ/hM=; b=4ckcafEI4NSMqsARfVY3JGIybu
-	jkp3j6yvFyzRyFuigwHnhzE5RXYH33kFbPvcAtgB/LHR2a00SfRp6koyrL+hzi7X3fpHi8Lf6DTB7
-	UHhIXAJ3AWehXs2rYlWYXpY1CZ8/aCBa6XWcf1oQ2zNvum3n9HRc4d+XXQEWh4g++Al5+8HTI3/1x
-	KOX1PCAmYKhUA7KIaWANTZ7NmbTexE974Q3nyphMDo3HQ2lElpdAvcsyB12i1n/Mobz5vaKwk532h
-	njMAM+PK7VyGq8srpPhAAKJTUnmFQENK0wULRQmBsAoB0ij/N6slnqmjEoiwMxRcZZt33TVce91W7
-	tdw8dZ8g==;
+	bh=MxOU5BqEnowXuyKmHs41c8c7RySK/7yzIpqPjsqWrqk=; b=xU5bmtH/tm6PHlYyqRQYiH1yMk
+	OTq9/txE+FTRXuA2zH4hpRk1q7uF4aYu6LRTlrAaWkS5G3D1VKApWWUFaJBfHrjYM++d7K4IrCrXA
+	Ty5WmTyfgy0c3fHlhaVWJUTEeeqqKsPQUa1fjsHVeimQ7+dZt3D+drA8o9aCCk/KEQuqtPlGw0D/Q
+	p+5mw/YJ8jWSeuBuxPXtQaNy2jedXs7ARgY46BU+9GCFLYZQnX/aKVCVKgNZL3b+1tSF+XTsMVMvq
+	LIE5WuC6sYkv4B67th09DbD5WTFY3uDI1sGzBZFMDwcSwit9eUrcCMBuvtzkx9noItzMauC5TyyFN
+	mNdV152Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umD4A-0000000E89L-1ZqD;
-	Wed, 13 Aug 2025 15:07:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1umD6h-0000000E8ZP-0SNT;
+	Wed, 13 Aug 2025 15:09:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtJ-0000000E4jO-2JLR
+	id 1umCtO-0000000E4p6-1gob
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 Aug 2025 14:55:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=MxOU5BqEnowXuyKmHs41c8c7RySK/7yzIpqPjsqWrqk=; b=CDWLDNpk12EP8n3XX7IlQyWWSc
+	QgaGPW/ZF8+/Rn3SoW4DzudeHEpvCRymkAaeiMbkCcb6RcesYASdVHohdx3U7rMAiOIa8PsFHyXmt
+	g8xqL0i4Hx8soz9UAt1x1fIMu/1GSI9zZ9jDWbelg5h+Is0LhuQjsxKKf7rW+pC9xwp8iR9a+F07E
+	0IKWX0LuMzFO12VZoJbKuHZ1dGcAjQKGu49xBwc3JNNQ/6SGVpz+Slbx7ISfqS6TnOfY1uG6WgPHa
+	eus1E1b+CK95GHeh/CZa3iGDqoyKzLaljrFM+1df+27Z5PkVlGTDlSMAS7zQUyLbUyISbbYU1X1Xe
+	yZpH9/Cw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umCtK-0000000G72O-3Z3g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:55:49 +0000
+	Wed, 13 Aug 2025 14:55:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86560601FB;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 89C16A57D98;
 	Wed, 13 Aug 2025 14:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4AEAC4AF0B;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FF2C4CEF7;
 	Wed, 13 Aug 2025 14:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755096947;
-	bh=VH0N7W47+kOQX4MCst8bkGtFUp56xeT53SSsWcTl1lA=;
+	bh=0IUVHkNpNiVd4dKfHNtccXkcqQYA1UMken7l+DdOKgk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j54Zd/IRCdHbdteiJ/3WB5SmJxLTENox/6+0h8gnY3oDL7I+CnDTpEYMQO9ntpzLD
-	 Uw0ZjCwC78QtmvVGClqZA+XJ4q4aKlHQa7njPt7OQq6ZTPuqTB6hGRaj+my1wbwra1
-	 WQ94vtqT4OBZX8Vx0/L6oxUfFswvc1Gho/kuS33P+qmC2I/vH8copLv5r9Ru9zgE1A
-	 cld74mX1dawuaMGvM7zIwzMhy1ubTBoWmJ2IJA1w75nVBoVL1s2en+JWfueSo8n5UW
-	 F6P+LHb4OJd1FUlPPln05QtnYCH1gpobIIloWGMeIq39Q6ah1dPqW1F9t7h+1aq0FW
-	 S6g4oj44JN5hg==
+	b=Sx9Yd2EydQjztnnpSEbWNgnePm2SzoWEmawHNyY1iaTZyU0Q0m5Efl/ryspfKRvSz
+	 5cO0hlFkGO46n6/ZE0k2WB0PJJ0cjfDqjCGqfJxccRDjwnCkR45t84zLTRthAVEJ5/
+	 yMHXcjNoGE4NUgKcUjpEAiPQtCJPv+cHXzOsH9h03FqRmp7O7lO+xYEwsdPlxXsbe1
+	 VsVFPVrsKPXhqPDykufgDRfZu+ooiDSW4/cEkokwazTTDObTiHmnpCfQpCgJRqS+py
+	 yb8KiMse7KuH4OoHA2Z8clDZNddv8RqjA8EU5fDcLfP6YrW2ZLE0xcQRRwc6d5dzmh
+	 2/yhI+JRjbbDA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 1658D5FE8C; Wed, 13 Aug 2025 22:55:44 +0800 (CST)
+	id 209F45FE68; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -62,14 +77,17 @@ Cc: netdev@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v2 01/10] dt-bindings: net: sun8i-emac: Add A523 GMAC200 compatible
-Date: Wed, 13 Aug 2025 22:55:31 +0800
-Message-Id: <20250813145540.2577789-2-wens@kernel.org>
+Subject: [PATCH net-next v2 03/10] soc: sunxi: sram: add entry for a523
+Date: Wed, 13 Aug 2025 22:55:33 +0800
+Message-Id: <20250813145540.2577789-4-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250813145540.2577789-1-wens@kernel.org>
 References: <20250813145540.2577789-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250813_155551_128942_56D4EABF 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,145 +104,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The Allwinner A523 SoC family has a second Ethernet controller, called
-the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-numbering. This controller, according to BSP sources, is fully
-compatible with a slightly newer version of the Synopsys DWMAC core.
-The glue layer around the controller is the same as found around older
-DWMAC cores on Allwinner SoCs. The only slight difference is that since
-this is the second controller on the SoC, the register for the clock
-delay controls is at a different offset. Last, the integration includes
-a dedicated clock gate for the memory bus and the whole thing is put in
-a separately controllable power domain.
+The A523 has two Ethernet controllers. So in the system controller
+address space, there are two registers for Ethernet clock delays,
+one for each controller.
 
-Add a compatible string entry for it, and work in the requirements for
-a second clock and a power domain.
+Add a new entry for the A523 system controller that allows access to
+the second register.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
-Changes since v1:
-- Switch to generic (tx|rx)-internal-delay-ps properties
----
- .../net/allwinner,sun8i-a83t-emac.yaml        | 81 ++++++++++++++++++-
- 1 file changed, 79 insertions(+), 2 deletions(-)
+ drivers/soc/sunxi/sunxi_sram.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-index 2ac709a4c472..b4358e6456fa 100644
---- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-+++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-@@ -26,6 +26,9 @@ properties:
-               - allwinner,sun50i-h616-emac0
-               - allwinner,sun55i-a523-gmac0
-           - const: allwinner,sun50i-a64-emac
-+      - items:
-+          - const: allwinner,sun55i-a523-gmac200
-+          - const: snps,dwmac-4.20a
+diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
+index 08e264ea0697..4f8d510b7e1e 100644
+--- a/drivers/soc/sunxi/sunxi_sram.c
++++ b/drivers/soc/sunxi/sunxi_sram.c
+@@ -320,6 +320,10 @@ static const struct sunxi_sramc_variant sun50i_h616_sramc_variant = {
+ 	.has_ths_offset = true,
+ };
  
-   reg:
-     maxItems: 1
-@@ -37,14 +40,19 @@ properties:
-     const: macirq
- 
-   clocks:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
- 
-   clock-names:
--    const: stmmaceth
-+    minItems: 1
-+    maxItems: 2
- 
-   phy-supply:
-     description: PHY regulator
- 
-+  power-domains:
-+    maxItems: 1
++static const struct sunxi_sramc_variant sun55i_a523_sramc_variant = {
++	.num_emac_clocks = 2,
++};
 +
-   syscon:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-@@ -191,6 +199,45 @@ allOf:
-             - mdio-parent-bus
-             - mdio@1
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun55i-a523-gmac200
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 2
-+        clock-names:
-+          items:
-+            - const: stmmaceth
-+            - const: mbus
-+        tx-internal-delay-ps:
-+          default: 0
-+          minimum: 0
-+          maximum: 700
-+          multipleOf: 100
-+          description:
-+            External RGMII PHY TX clock delay chain value in ps.
-+        rx-internal-delay-ps:
-+          default: 0
-+          minimum: 0
-+          maximum: 3100
-+          multipleOf: 100
-+          description:
-+            External RGMII PHY TX clock delay chain value in ps.
-+      required:
-+        - power-domains
-+    else:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+        clock-names:
-+          items:
-+            - const: stmmaceth
-+        power-domains: false
-+
-+
- unevaluatedProperties: false
- 
- examples:
-@@ -323,4 +370,34 @@ examples:
-         };
-     };
- 
-+  - |
-+    ethernet@4510000 {
-+        compatible = "allwinner,sun55i-a523-gmac200",
-+                     "snps,dwmac-4.20a";
-+        reg = <0x04510000 0x10000>;
-+        clocks = <&ccu 117>, <&ccu 79>;
-+        clock-names = "stmmaceth", "mbus";
-+        resets = <&ccu 43>;
-+        reset-names = "stmmaceth";
-+        interrupts = <0 47 4>;
-+        interrupt-names = "macirq";
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&rgmii1_pins>;
-+        power-domains = <&pck600 4>;
-+        syscon = <&syscon>;
-+        phy-handle = <&ext_rgmii_phy_1>;
-+        phy-mode = "rgmii-id";
-+        snps,fixed-burst;
-+        snps,axi-config = <&gmac1_stmmac_axi_setup>;
-+
-+        mdio {
-+            compatible = "snps,dwmac-mdio";
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ext_rgmii_phy_1: ethernet-phy@1 {
-+                reg = <1>;
-+            };
-+        };
-+    };
- ...
+ #define SUNXI_SRAM_THS_OFFSET_REG	0x0
+ #define SUNXI_SRAM_EMAC_CLOCK_REG	0x30
+ #define SUNXI_SYS_LDO_CTRL_REG		0x150
+@@ -440,6 +444,10 @@ static const struct of_device_id sunxi_sram_dt_match[] = {
+ 		.compatible = "allwinner,sun50i-h616-system-control",
+ 		.data = &sun50i_h616_sramc_variant,
+ 	},
++	{
++		.compatible = "allwinner,sun55i-a523-system-control",
++		.data = &sun55i_a523_sramc_variant,
++	},
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, sunxi_sram_dt_match);
 -- 
 2.39.5
 
