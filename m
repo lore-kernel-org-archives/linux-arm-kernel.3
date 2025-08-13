@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA686CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F9DC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtMzSO7UPmjR47X20+ZqBD1uhyLdG+1s/Zrtcgs7erg=; b=4UPLEawQmBWyf5Q5hmWUvyksrb
-	OrMipbyCqxCrbh6N85j8Yr2kPfGvn1mc35BEUlrNoy5V6PZBAAtcJS4L7sZJXxLX6rCSSeOR7cGZL
-	g9TN68KyEWAKZaieI6KJVthQFkNKeNC3AaNxtIh7FaPUkCVnxmsxkyRhGiVaLqdSO1a6L4ru/NpFV
-	ZvesGomtYbXqKNj3m0XPG3XZ0+4BbAjQtoTm0JdwJJ34hy3tIXBwpDIY8pzPO6mGFEd7moEoaxtsp
-	vmUky/Zcprasb3OhzTrtNf3kxN9H9MJRimzbAG7g9Aa6CTzDOhYsA1Xlzy31EcfFMJV6ENtisW2e2
-	/byb6jsw==;
+	bh=bLNf+0ZsNl67A+boQNElFMCPPvbgNyj3cPEZ0b5ZYx0=; b=rUXHRC7QJg/NkHioX8twWYq319
+	qAVtvjNqRzJu3XlyPuy/EqvFMSG7+V+MC2TqxV5yxnh3J2xM8249OyeWohOPNS0Oy2X9HvD+keZD1
+	hHhWOtjrkg/dGWbBcQkVfR0Ze+WwzNmUfuzmpEwYb9UaOHfi5AwdzyvU/h46biqgbuXYZGV2tVoSP
+	02rKklpt/v0OaXRfJ2FfNwIx2NzDkVzG7NrfS/S4rpMaACGSOrpcFS/VHFC7/Y2/YHceaeb7i+zgf
+	AfUDa9ky19N7L9PTJ0G/h3264n2yIpD9GcU+Wy+D/chWuHZ0GJ43n+ZCxhm4q3ul88PNkxl9oOHLB
+	GQG5jBAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHPI-0000000EqPr-04dd;
-	Wed, 13 Aug 2025 19:45:08 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1umHPL-0000000EqVl-2rtO;
+	Wed, 13 Aug 2025 19:45:11 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFZd-0000000Ec15-0msO
+	id 1umFZz-0000000Ec5c-12lA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 17:47:42 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7e87061d120so6218285a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 10:47:40 -0700 (PDT)
+	Wed, 13 Aug 2025 17:48:04 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7e8706a6863so6868285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 10:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1755107260; x=1755712060; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1755107282; x=1755712082; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mtMzSO7UPmjR47X20+ZqBD1uhyLdG+1s/Zrtcgs7erg=;
-        b=Qqqlwz7kvhutgHO7vrppH6aNWo7qtiCz4cZ9MRP/gaE+KAKgamyVKSJKfsYtaqrysf
-         B8gG7lUVRTEpuUDkKJcRSdHAW2Og2FmoPk4Z1KeAYzvTaKDMh9YDbfe89XgHOEGqecpq
-         vRiH9iAQ7ey89Rg2leFTQShp/oNBfS/wlrZevPhcifsNXZOpiqH78Biinvx/FN2poH2v
-         xZOwUACGMJer2etluf+XbPaMSnPQ75xsMoL2MSZxXADu0j5WdP58CiH3n1nvQ90VehYk
-         wKKZfkdM4zrzIs4BH7wHNBnH4AJb7tpvV6gcf62OA+Hc0z4qNLDxSasOJ4keniRqp4/2
-         ExCg==
+        bh=bLNf+0ZsNl67A+boQNElFMCPPvbgNyj3cPEZ0b5ZYx0=;
+        b=Whslsie9LoPba4dTHRcEL9YlmBHkZXkxzPUgQ1fcC6FaV0g0hqtsriPOXg0opNdXIH
+         sS7XLWhAE//4NejsY5sK9Nf70+uQxXfcwGP6nGjKTtEhFqL4RBcyZfFazy5Myf+v7G2b
+         rb4nPZDrq4XcNL7oQrmggbhPZv1jenw3pBpbGRVue+mfBlGzTk2zqpQcIrGL/297YycI
+         1l82anqjQ9UZHw7N521a0ipP/z+FxX3WXdUkjNEEpp14P2ia1pCSIWf4EkTBa40ylFqd
+         TlsXiSeGSILQu8WaGxqu4CkmrLfX8Ix+XPbu91FH/BNl+pGYVIpoWtwBSwHrvyR2y/y6
+         CxgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755107260; x=1755712060;
+        d=1e100.net; s=20230601; t=1755107282; x=1755712082;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mtMzSO7UPmjR47X20+ZqBD1uhyLdG+1s/Zrtcgs7erg=;
-        b=bzXmKtxLcRxg9DABOot09rsCsLzEKXGaiARCTjRFqrsEdv2MaCq89iPvWeFdORFFvs
-         k+q/2W7JdrU0RA8zOulJim1ihCeI9tICv97HHWOaBI7EZ+Bropx+jII8Rq/O7GJ91Rmz
-         7b5Il8/UUZdQ3PA6PC58c1GzjiXVIG0U+kJd76W7Oi0HwxRiwARyju8AjB9/DEQ4p2fA
-         3Uxyzu7llraR3zgzcJnlJiKKJYuGPG82N8IVoU6KUSqoCbD4ezf98RXBxIfhSeCUJD7f
-         j7/R3+TEc+Ugbjxyfj1g+zyrNZnDKiDSh4J/vfkb8od+vIb/xDdNiHuWp4mPys3Kj9Wb
-         +lgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVGoe/++PjRSmib/ZbTuQu2TrlKMlKJRfMuCbrgFrD6T0gWx9tv7UsBSpvuzpj7JPeS7wV+qH35Wd5WYDWTyVer@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywva3/XCWLMjPgUid1PHXw1DogXchenS1JQ5Vol6Ia/qXRnaYK9
-	9xPHvrbDMbUHeA6wRvWn0hJvUYR2kwR4a5A+ZeJ5gSjTEJZ+gWfgtX+gjQHLqJXR0D0=
-X-Gm-Gg: ASbGnctZ6DO85izLjCW14X0jNbwV9MAaeoQSI1nIJo0dlWLekZfEYZ4rG4voJGNJuhM
-	ky/ymLmADRRdoUKwagFnBTPL02VsrTJoVmWbkn0wTxJiaMXRC6Q1/HhGJGKxuKopdlpOcoXO6hV
-	XNZV7LbZqBtXFKCcx39+Koz0H8urZMgp6iYYk/ekn9z0DxaSUhZis+dWkAydlhcprimj8S6MfTp
-	ZfsEkSRpQNhcjlA6icKh1plawYUKzE0JnGyTRqy4xUySgFkpiZUsTwtjDUq0lF2MgoEWqn/hGch
-	8lhkkVE9dI3rOk7S6sKmuH5PuGwV30/2U3DqHrGlTET4Zw8fN5/EFFSPTgNvgLh2O9dfNTcU0dO
-	OYYwbSV8Qsh7/oTLMHRS+0AmtNwL81QPvMueR5OnK6jCWLtSXg98b
-X-Google-Smtp-Source: AGHT+IEOA4KVOCs5eFfidLnPllBwbdP8If2rCIZC+fPOPK1dPvbgpwik/9+siLqevJw3jKgUeh5nYA==
-X-Received: by 2002:a05:620a:bc3:b0:7e3:60cf:c037 with SMTP id af79cd13be357-7e870593e0amr23464085a.34.1755107260046;
-        Wed, 13 Aug 2025 10:47:40 -0700 (PDT)
+        bh=bLNf+0ZsNl67A+boQNElFMCPPvbgNyj3cPEZ0b5ZYx0=;
+        b=rLFDzZKl0pLqoXnseX6j9pVamvXJH24fCSCQ0EhOzjhzXH9sAVAD4TxCKOo+zROFy7
+         usWFsXl0UAPHUctyIVszJWjrVnXHCivjWxq6eAzBHts/azFrCK5FnShEIox9JW32eITJ
+         9/e9Y0RrKjnqDneQ7FeBTY6RIPTUReUlyRH40807WCissyQ2yosVTCT9QA8xtD8T8OCg
+         826SEoyP8GmjRE+0hKYYHPqw7C+nDFt+rbQStuuIhYvbw2M83Hsew4aswP7J7F0RN26l
+         IEZHOKuqJIs9TP00NBPGDQy7uDRmET9BNWDdY7UTICyCtygQ7ZJIo/qNXy/cqSiyWty3
+         QwuA==
+X-Forwarded-Encrypted: i=1; AJvYcCWg4pKuyxRwbE58UkffGQBSqvGhucGkKsGtgaxUC8ECdepcZDkiVraI+rvNSuzN2xoS68p7rj6SNSbfWVT+6gwR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUQN61cmfn4VN45avyGmzvncdIAQxHZQceQUXp565RSBNMUkNc
+	CQPs0NfHWZ9kqtjqrU0E/IIBiuCnxVgLJxBbseCUSTlG+lhsuHPSr+0HzVoSp5NRnjw=
+X-Gm-Gg: ASbGnctDeW8ax5qGUlEyhJwPhQ06SP0qpmQVILf6FVLIdMK5i6L+cLp0KnEN15X4TbM
+	vktMK4DFB8taG5KJ/dy8sLUd8goqZ8/dyQvq6L2yu+Xmw/KWE5PDVpvmJmazYiVK3mN4jwaTG3v
+	16F10ydvyuW3LW9zBQheTrTxedL2r/M+6vKl7NR1cnfXhc47zLYHb3I+40JF23j6i4ozHgpVCm9
+	voSIW6SR1LKuyMpkh49XcS5f43W6HqBXBMF4Vz5VsP6WOFhSWSm33q8Y6+NYPzGXmmVIejeD97q
+	iqV6u4ndRBbwKAGEFweCY2kAs++Ldag57t1iS7Zna50GZk0Pg0CRyibylLy7jYCR7fOFpRZDfKH
+	mxk1Pu2m5N9+yVZ5WkoQu6sGsoUte2y34Tgr7w6CbqQ==
+X-Google-Smtp-Source: AGHT+IG/snJ5W/RG0E/erOkIvUu/WH4PIM7qXx4xAitymXiD3NRL3HZn1ijMkWxa/MDJZoHs07TE8A==
+X-Received: by 2002:a05:620a:270b:b0:7e6:9a4f:a299 with SMTP id af79cd13be357-7e87041fe25mr33631785a.16.1755107280240;
+        Wed, 13 Aug 2025 10:48:00 -0700 (PDT)
 Received: from fedora (d-zg2-251.globalnet.hr. [213.149.37.251])
-        by smtp.googlemail.com with ESMTPSA id af79cd13be357-7e7fa87e7d0sm1627122385a.82.2025.08.13.10.47.36
+        by smtp.googlemail.com with ESMTPSA id af79cd13be357-7e7fa87e7d0sm1627122385a.82.2025.08.13.10.47.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 10:47:39 -0700 (PDT)
+        Wed, 13 Aug 2025 10:47:59 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: linux@armlinux.org.uk,
 	nicolas.ferre@microchip.com,
@@ -95,17 +95,17 @@ To: linux@armlinux.org.uk,
 	daniel.machon@microchip.com
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v9 2/9] ARM: at91: select ARCH_MICROCHIP
-Date: Wed, 13 Aug 2025 19:44:38 +0200
-Message-ID: <20250813174720.540015-3-robert.marko@sartura.hr>
+Subject: [PATCH v9 7/9] i2c: at91: make it selectable for ARCH_MICROCHIP
+Date: Wed, 13 Aug 2025 19:44:43 +0200
+Message-ID: <20250813174720.540015-8-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250813174720.540015-1-robert.marko@sartura.hr>
 References: <20250813174720.540015-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_104741_232841_A0B22ABC 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250813_104803_285324_6B094A63 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like with the ARM64 Microchip platforms, lets add a generic ARCH_MICROCHIP
-symbol and select it so that drivers that are reused for multiple product
-generation or lines, can just depend on it instead of adding each SoC
-symbol as their dependencies.
+LAN969x uses the Atmel TWI I2C, so make it selectable for ARCH_MICROCHIP to
+avoid needing to update depends in future if other Microchip SoC-s use it
+as well.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- arch/arm/mach-at91/Kconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+Changes in v8:
+* Use ARCH_MICROCHIP for depends as its now selected by both ARM and ARM64
+Microchip SoC-s
 
-diff --git a/arch/arm/mach-at91/Kconfig b/arch/arm/mach-at91/Kconfig
-index 04bd91c72521..c5ef27e3cd8f 100644
---- a/arch/arm/mach-at91/Kconfig
-+++ b/arch/arm/mach-at91/Kconfig
-@@ -1,4 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+config ARCH_MICROCHIP
-+	bool
-+
- menuconfig ARCH_AT91
- 	bool "AT91/Microchip SoCs"
- 	depends on (CPU_LITTLE_ENDIAN && (ARCH_MULTI_V4T || ARCH_MULTI_V5)) || \
-@@ -8,6 +11,7 @@ menuconfig ARCH_AT91
- 	select GPIOLIB
- 	select PINCTRL
- 	select SOC_BUS
-+	select ARCH_MICROCHIP
+ drivers/i2c/busses/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index 070d014fdc5d..c0aea0920f61 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -414,7 +414,7 @@ config I2C_ASPEED
  
- if ARCH_AT91
- config SOC_SAMV7
+ config I2C_AT91
+ 	tristate "Atmel AT91 I2C Two-Wire interface (TWI)"
+-	depends on ARCH_AT91 || COMPILE_TEST
++	depends on ARCH_MICROCHIP || COMPILE_TEST
+ 	help
+ 	  This supports the use of the I2C interface on Atmel AT91
+ 	  processors.
 -- 
 2.50.1
 
