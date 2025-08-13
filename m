@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC16CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 12:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2415C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 12:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGEMf+kx4WLJmVw8JTp49EZBctT7DwMQSlPQQBqb3vc=; b=pGdFpgSIeKYCakDrAapigT5JAK
-	5BLhlwkojHD4jYIhj5huwznybarFD32vTXqGVgx7oEyv4c9t2pSFIK6IjEs9F4mwADfogDyu5UTGf
-	gq9AW1t9bTRtyVJq9a3HTT6riV0iNsgC64d7R6xET18C4pPK6n4QPd8i99BOGA0tvHDTGwxAYgozM
-	zPvu1NRJh/gdo34tfsR22ED690KyMCHTCbnm4I/XXCvgeH2L1WTNfwhOFb8bpA0cURllsvbuqkR9O
-	opoKD80XAwIhPNknPMbSSqxUH3KcUkclSxVSWN1mlPHLzxNEp/r/ZC2mp6T2CAv/oVs+Jjzm2fUL5
-	D6VxvxFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wG/tkb3NcTBP0jWt0hS4K7M0cbXY0HBQFOfQ3FlaDxA=; b=DPasn+oGjN4oXqo6VW9hO2n1P8
+	7EXh672lxqtqadBzvLe0HmGDzIwAi/AQQqQ6DECggbANECIxcFOHzYhYgfWAIoftzP5VSZ/raUvmn
+	MJuFDqkXBO9bowT0TN8S53vYrZ5gavlF0c+EXiq17llYgdAx/Yb7esp6FXDGy/dizPIjnm4FxVMgH
+	ez0pLBKqoTSX/5iajKYCzqau+c8tN3N6JuvLJ3iWysYoWT/1/J7SKPyozb2rBWJXwgo7DTpgLEVwd
+	HQ+cWxY4Fv+vLDKVT6RDCOf646sjnSF2QlPKAAWpTcANCr2BQ0QVI6i8yollX4UwSQFV4dMJYeKcH
+	UBVoQKgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umAky-0000000DejB-0PmF;
-	Wed, 13 Aug 2025 12:39:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9wq-0000000DYUk-45hB
+	id 1umAnT-0000000DeuF-3yMi;
+	Wed, 13 Aug 2025 12:41:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1um9zH-0000000DYuM-1ON7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 11:47:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 895BE12FC;
-	Wed, 13 Aug 2025 04:47:08 -0700 (PDT)
-Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DE6D3F738;
-	Wed, 13 Aug 2025 04:47:13 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
+	Wed, 13 Aug 2025 11:49:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50883A575F3;
+	Wed, 13 Aug 2025 11:49:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED93FC4CEEB;
+	Wed, 13 Aug 2025 11:49:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755085786;
+	bh=jbUHFRMCEJ633GL1BbQLDmJ+7eS9XZAeMgSV7aBmOmo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PiJQgE2LerNskr6vM/T/80oJLRM2vlDTXhyVo903ONQCKltOF3ZuXRT0zLwEpxZTa
+	 1uZWo1zU1D+drWqqnmb4zOWY6LaDOQB3Ft6ydJxfytCXL5cylLSREdHUIZJY7dS19n
+	 HCgVcZEFj8V5dfTgro2d600JDos1TP2h1RAuZEbKDtrLeWs73xaxSzlr/+YfaUhWsT
+	 dwjEYdpl2UNy7cVrMHvFz2ANQJzggtNGnFMMdNvyTU0y1uZG0//yWVb4Z/5lLnf09J
+	 osDe046Jm3cMrslAlUymtYzyQXBYfyS3kZibc8REgUOFCfGY20E2pvxYX03Xk5ivP3
+	 rlJa9RaSbaSmw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1um9zD-0072kI-H4;
+	Wed, 13 Aug 2025 12:49:43 +0100
+Date: Wed, 13 Aug 2025 12:49:43 +0100
+Message-ID: <86ikir8mqw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: [PATCH 8/8] powercap: arm_scmi: Enable multiple constraints support
-Date: Wed, 13 Aug 2025 12:46:09 +0100
-Message-ID: <20250813114609.1305571-9-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250813114609.1305571-1-cristian.marussi@arm.com>
-References: <20250813114609.1305571-1-cristian.marussi@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 0/4] clocksource: Add standalone MMIO ARM arch timer driver
+In-Reply-To: <aJx4g8z3l438Qgnv@raptor>
+References: <20250807160243.1970533-1-maz@kernel.org>
+	<20250813-macho-snobbish-alpaca-ff07fa@sudeepholla>
+	<aJx4g8z3l438Qgnv@raptor>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sudeep.holla@arm.com, alexandru.elisei@arm.com, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, rafael@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_044717_050934_F926F4A0 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250813_044947_498584_3848A0F2 
+X-CRM114-Status: GOOD (  34.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +92,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize the domains with all the discovered available constraints,
-making available multiple per-domain constraints when the platform has
-advertised support for multiple concurrent power limits.
+On Wed, 13 Aug 2025 12:35:31 +0100,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> 
+> Hello,
+> 
+> On Wed, Aug 13, 2025 at 11:55:48AM +0100, Sudeep Holla wrote:
+> > +Alexandru
+> > 
+> > On Thu, Aug 07, 2025 at 05:02:39PM +0100, Marc Zyngier wrote:
+> > > For the past 10 years, both Mark and I have been lamenting about the
+> > > sorry state of the badly named "arch_timer" driver, and about the way
+> > > the MMIO part is intricately weaved into the system-register part.
+> > > 
+> > > The time has finally come to have a stab at it.
+> > > 
+> > > This small series simply creates a new timer driver for the MMIO arch
+> > > timer, and only that. It is an actual driver, and not some kludge that
+> > > has to run super early (that's what the per-CPU timers are for). This
+> > > allows, in turn, a pretty large cleanup of the per-CPU driver, though
+> > > there is more to come -- one thing at a time.
+> > > 
+> > > As an added bonus, we get a clocksource, which the original code
+> > > didn't provide. Just in case it might be useful. The end-result is far
+> > > more readable, and about 100 lines smaller.
+> > > 
+> > 
+> > (Tested it on Juno R2 and FVP in both DT and ACPI boot)
+> > 
+> > Tested-by: Sudeep Holla <sudeep.holla@arm.com>
+> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
-CC: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: linux-pm@vger.kernel.org
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
- drivers/powercap/arm_scmi_powercap.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks!
 
-diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index de2dc1f6f2a9..559767e143b0 100644
---- a/drivers/powercap/arm_scmi_powercap.c
-+++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -2,7 +2,7 @@
- /*
-  * SCMI Powercap support.
-  *
-- * Copyright (C) 2022 ARM Ltd.
-+ * Copyright (C) 2022-2025 ARM Ltd.
-  */
- 
- #include <linux/device.h>
-@@ -311,7 +311,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
- 
- 	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
- 				   parent ? &parent->zone : NULL,
--				   &zone_ops, 1, &constraint_ops);
-+				   &zone_ops, spz->info->num_cpli, &constraint_ops);
- 	if (!IS_ERR(z)) {
- 		spz->height = scmi_powercap_get_zone_height(spz);
- 		spz->registered = true;
+> > 
+> > Alexandru found it useful(avoids some unexpected hang IIUC) in his setup
+> > based on bootwrapper which doesn't initialise MMIO timers.
+> 
+> Just FYI, this is the testing that I did.
+> 
+> Without this series, if firmware (boot-wrapper-aarch64 in my testing) doesn't
+> configure access to the memory-mapped timer:
+> 
+> [    0.000000] arch_timer: Unable to find a suitable frame in timer @ 0x000000002a810000
+> [    0.000000] Failed to initialize '/timer@2a810000': -22
+> ..
+> [    0.528000] kvm [1]: kvm_arch_timer: uninitialized timecounter
+> ..
+
+Right, that's one of the many problems with the tight coupling between
+sysreg and MMIO timers -- if one fails, they both fail, and you're
+pretty lucky if you manage to limp along after that.
+
+> # ls /dev/kvm
+> ls: cannot access '/dev/kvm': No such file or directory
+> 
+> With this series, if firmware doesn't configure access to the memory-mapped
+> timer:
+> 
+> [    0.549399] kvm [1]: Hyp nVHE mode initialized successfully
+> ..
+> [    2.018050] arch-timer-mmio 2a810000.timer: Unable to find a suitable frame in timer @ 0x000000002a810000
+> [    2.018123] arch-timer-mmio 2a810000.timer: probe with driver arch-timer-mmio failed with error -22
+
+Ah, you have managed to test the error path. Thanks for that!
+
+	M.
+
 -- 
-2.47.0
-
+Without deviation from the norm, progress is not possible.
 
