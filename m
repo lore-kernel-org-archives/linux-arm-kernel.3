@@ -4,72 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 964E5C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A72BCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 07:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tb9T+VDg4ONC6Ljfke5yv2G/lTBCiQP3F1g2w7/ExMI=; b=ipRDtCAV3NpApZvIzb7L761zD1
-	az1RdfFab3rPtTRC/XOPvnPH8hDlNXXXQV+T7aJba5qgy7ZDdi+eWTtXWsB52Esxv8Nux8iz2nb90
-	7k4EVcQejgd8UCbBxbNVGMt14SI9or6foH4Wvjgfp4+ML4j3YhkszjSVw6cgSgCqqB3UlaLrUZr+P
-	llNr6rmojstBn1e8Yf7z0LYjFpZvlQafliptmqscK2FT5LITbiLV7BZA2IiVjHuByN3gBUpBjLR2X
-	PAokQj6Ql7hz/h/VT1OvDn6eiw8ooH+bMupBcfCPdg5QfpNtF6aEJoihDIZAEDpSvJir6jCxHqxbn
-	Mb+Y0gUw==;
+	bh=o4YSl3lutpA2XrrRXb5QsKR+qXAUq4uZ8NufFEtq8Gg=; b=uuZvyWZKn1OoW6JQ6tjkePYVk5
+	+8kv08sIz6oyicy4+ofO+ylqWYCtBNY+rWgu4jsojANF9C/Cev2baC+hPAe7VxP6qIrNWqu1VT1qQ
+	mrqP3TwLnH/q0Je3UqL4q4mrsZ4KTZ7dgB6HLo/nNXvATGqgbhtG96jeAAS4LDG0eNS6K97TTV/x3
+	kcKWWg09r4fFpJukmNHtd1W5KWqNF340Z05QaGrT/EnO6VpUULg1JCdzozK0FDtSkvXT67S1h2Hk0
+	aX1WAPx88uABDOB7OIyzNsOb8/enbXwnS+m2tR6J+sCC6kS/Jktcrv8CIm+WKLgwlP95XM2oMYLUN
+	T2ksz6pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6K4-0000000D0Bj-3fk4;
-	Wed, 13 Aug 2025 07:55:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1um6Mb-0000000D0et-0HGR;
+	Wed, 13 Aug 2025 07:57:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um60B-0000000CwXF-1Di2
+	id 1um66R-0000000CxIp-3Ltw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 07:34:27 +0000
+	Wed, 13 Aug 2025 07:40:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 959D4601DB;
-	Wed, 13 Aug 2025 07:34:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C75BC4CEEB;
-	Wed, 13 Aug 2025 07:34:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B26BD418E5;
+	Wed, 13 Aug 2025 07:40:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52192C4CEEB;
+	Wed, 13 Aug 2025 07:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755070466;
-	bh=LOw47lq3lTR3OffAqvYBcY7aTdLFREjOhrLME4xQV7k=;
+	s=k20201202; t=1755070852;
+	bh=aReFe2KJcBdQd6zG5T7obRTQA2hioawTWLXEUpS2Y84=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IgS2znVOJsb/2yQQhCk1/XOsk+ALrk5kbMtqU25i8vDD5NQrfftFwFA/g+YUx1Lxr
-	 xvpbUjzDsFRLNZSQe4fyJZqyN48QvKuMCUdc7QP2dtGDlRp0CG/1HR1i60+JmYwhau
-	 Ts0bXuajM4QBb8Ah2QcyXbkvUAJ3tl+9P+Sl6Km+ZX+j5lcr5emk38sKtv3XZS/ywp
-	 6UkQQnhQXq/vKbSpiZ61ozXwQR6AeA19ov4U1UMQJ7hDK0+kmbzh/HfRZbFD+oejTY
-	 OGDhVwHorYMpMamFr8MorTN+w2urXI4l6gxkmWctNhW2bGuR9NEmtzgee5mdd8hw/n
-	 zh1Lhefw+iyCQ==
-Message-ID: <faf398eb-2be4-43cd-a5bf-2c688dd7bc18@kernel.org>
-Date: Wed, 13 Aug 2025 09:34:20 +0200
+	b=H2PW4HPRIpZI0u292//kLzhMZsBS/qmDV4H4njT3oDBpiJhjrijzhwKSZD7W6EPPO
+	 9x831ooOPq/1f2tyT1Bw05mnfBVOWNNWOhWIAzk1ToLJvvI7jFjcNhHxnv0lSud9xa
+	 bDCiRVM/POFWGHA4rD8AC73neC1GEp/OdAkHcU7JGJcFb/3Yhk+uJZz8jGKE86pS5j
+	 PLUZsXMTkNt3g8FqS1lukWXNnTUEVy/h6iIDv7J4EPXh0+93EN3DvnM2/6aY9QU5eQ
+	 AXqNtcD5R/5eSuE8+edB5c9ZModCQR+5E/X0UT5UTUxjTzug4wn1Y0SHKNSbOYdRW0
+	 i53a16YsW+FjQ==
+Message-ID: <09a9eaec-a98f-4c0c-a9c9-86b85918e250@kernel.org>
+Date: Wed, 13 Aug 2025 09:40:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
- sensor
-To: Will Whang <will@willwhang.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 1/2] dt-bindings: mfd: add Traverse Ten64 board
+ controller
+To: Mathew McBride <matt@traverse.com.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-2-will@willwhang.com>
- <20250811-successful-military-dragon-d72486@kuoka>
- <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
- <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
- <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
- <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
- <20250812095543.GJ30054@pendragon.ideasonboard.com>
- <CAFoNnrzWot_Bf=YZFac1GkZgOOnJycwpidvwL93p3p-C-zn8BA@mail.gmail.com>
- <6d6dc9e6-751f-4079-b21e-2e3461885b03@kernel.org>
- <CAFoNnrwoRbtvTHHnjarDTKEHnQMaMDERPKi_vnYym3n8tVpzOA@mail.gmail.com>
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
+References: <20230501064727.8921-1-matt@traverse.com.au>
+ <20250813023435.27776-2-matt@traverse.com.au>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,9 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAFoNnrwoRbtvTHHnjarDTKEHnQMaMDERPKi_vnYym3n8tVpzOA@mail.gmail.com>
+In-Reply-To: <20250813023435.27776-2-matt@traverse.com.au>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250813_004055_884883_07C0B25A 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,107 +120,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 08:38, Will Whang wrote:
-> On Tue, Aug 12, 2025 at 11:08 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 13/08/2025 06:30, Will Whang wrote:
->>> On Tue, Aug 12, 2025 at 2:56 AM Laurent Pinchart
->>> <laurent.pinchart@ideasonboard.com> wrote:
->>>>
->>>> On Tue, Aug 12, 2025 at 08:47:12AM +0200, Krzysztof Kozlowski wrote:
->>>>> On 12/08/2025 08:31, Will Whang wrote:
->>>>>> On Mon, Aug 11, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>>>> On 12/08/2025 04:47, Will Whang wrote:
->>>>>>>> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>>>>>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
->>>>>>>>>> +description:
->>>>>>>>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
->>>>>>>>>> +
->>>>>>>>>> +properties:
->>>>>>>>>> +  compatible:
->>>>>>>>>> +    enum:
->>>>>>>>>> +      - sony,imx585
->>>>>>>>>> +      - sony,imx585-mono
->>>>>>>>>
->>>>>>>>> I don't understand this second compatible. Is this different hardware?
->>>>>>>>> Can you point me to "mono" datasheet?
->>>>>>>>>
->>>>>>>>> Your description should explain this. Commit msg as well, instead of
->>>>>>>>> speaking about driver (in fact drop all driver related comments).
->>>>>>>>>
->>>>>>>> Mono version of this sensor is basically just removing the bayer
->>>>>>>> filter, so the sensor itself actually doesn't know if it is color or
->>>>>>>> mono and from my knowledge there are no registers programmed in the
->>>>>>>> factory that will show the variant and model number. (That is why when
->>>>>>>> the driver probing it only test blacklevel register because there are
->>>>>>>> no ID registers)
->>>>>>>> Originally in V1 patch I've made the switch between color and mono in
->>>>>>>> dtoverlay config but reviewer comments is to move it to compatible
->>>>>>>> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
->>>>>>>
->>>>>>> You only partially answer and judging by mentioning driver below:
->>>>>>>
->>>>>>>> In this case, what would you recommend?
->>>>>>>>
->>>>>>>> compatible:
->>>>>>>>   enum:
->>>>>>>>     - sony,imx585
->>>>>>>>     - sony,imx585-mono
->>>>>>>>   description: IMX585 has two variants, color and mono which the
->>>>>>>> driver supports both.
->>>>>>>
->>>>>>> ... I still have doubts that you really understand what I am asking. Is
->>>>>>> this one device or two different devices?
->>>>>>
->>>>>> One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
->>>>>> (Color). Silicon-wise the difference is just with or without bayer
->>>>>> filter.
->>>>>
->>>>> Then I would propose to use sony,imx585-aamj1 and -aaqj1 with short
->>>>> explanation either in comment or description about difference in RGB
->>>>> mosaic filter.
->>>>
->>>> Works for me. We could possibly omit the "j1" suffix too.
->>>>
->>> My thinking is that imx585 and imx585-mono are easier to comprehend
->>> than IMX585-AAM and IMX585-AAQ.
->>> Because in dtoverlay for the users/me they will have to know what is
->>> the exact name instead of easy to remember name.
->>>
->>> dtoverlay=imx585-aam
->>> is not as nice as
->>> dtoverlay=imx585-mono
->>
->> I have datasheet for AAQ, so how above is easier for me to figure out
->> which compatible I am using?
->>
-> I propose this:
-> 
-> compatible:
->   enum:
->     - sony,imx585
->     - sony,imx585-mono
->     - sony,imx585-AAQJ1
->     - sony,imx585-AAMJ1
-> 
->   description: IMX585 has two variants, color (IMX585-AAQ) and mono
-> (IMX585-AAM) which
-> the driver supports both.
+On 13/08/2025 04:34, Mathew McBride wrote:
+> This adds the device tree binding for the board
 
-So why four compatibles? BTW, driver does not matter.
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+
+
+> (micro)controller on Ten64 family boards[1].
+> 
+> The schema is simple and is (presently) only
+> consumed by U-Boot, but it is possible that
+> it could be consumed by nvmem or other type
+> drivers in the future, as well as extended
+> to future Traverse boards.
+
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
 
 > 
-> Description is there for a reason, dtoverlay has description also. See
-> sony,imx296.yaml as an example.
-> If you are looking at AAQ you know it is a color sensor and all the
-> color sensors from sony can be used with imx+three numbers in the
-> current list.
-> This is following the established convention.
-Which? Sorry, point me anywhere to convention that we do not use proper
-full model names but shortened version for some variant of a device?
-Such approach lead to many issues in the past, for example current
-Risc-v reset mess where contributor wants to remove completely
-incomplete compatible :/
+> [1] https://ten64doc.traverse.com.au/hardware/microcontroller/
+> 
+> Signed-off-by: Mathew McBride <matt@traverse.com.au>
+> ---
+>  .../mfd/traverse,ten64-controller.yaml        | 44 +++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
+> new file mode 100644
+> index 000000000000..13fed94e8406
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
+> @@ -0,0 +1,44 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/traverse,ten64-controller.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Traverse Ten64 board microontroller
+
+typo
+
+> +
+> +maintainers:
+> +  - Mathew McBride <matt@traverse.com.au>
+> +
+> +description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +  The board microcontroller on the Ten64 board family is
+> +  reponsible for management of power sources on the board,
+
+typo
+
+> +  as well as signalling the SoC to power on and reset.
+> +  It also implements useful auxiliary functions like bootcount,
+> +  serial/MAC address storage and scratch registers.
+> +
+> +properties:
+> +  compatible:
+> +    const: traverse,ten64-controller
+> +
+> +  reg:
+> +    description:
+> +      I2C device address.
+
+Drop description, obvious.
+
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        board-controller@7e {
+> +          compatible = "traverse,ten64-controller";
+
+Inconsistent indentation.
+
+> +          reg = <0x7e>;
+> +        };
+> +    };
+
 
 Best regards,
 Krzysztof
