@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B099C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00896C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Lffc0WMub0rTiOOasAgzp27lbUXwGqsfsYixfeu01z4=; b=uw9oZUaBJweJsj
-	uTpFqoWZloObM21pP5XTuOsVJ6FumN1/cokYIUNfp0X/2RE15/jEFPAC8+8XUbFAECpfmDGn0Xhwn
-	Vs1chmVBeATFPpnVPPMs6opP1XCTlR88ulsAzcabWiTPfHtbkg5jBlR4iWCyKKJpPmOgsg05QYu/v
-	0pCgx12mFmS4xoPo0e0cDTD73SbIJzIVgXzjVZqEB2At7tjYxDRpBZutTVRVEDsc+HSz3x1c1+KtO
-	4jC3sd1fDKmWTut39lsHYlq99O+JFHNOv4tMqnbZHPKRT+KrfFfSMaeQYnzMNMSXoUi9BE4u9su7A
-	Blgt15JSLDZyrYd7SxCA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZO2XUavc0L7m5udbs78sYa29349pafumHXfuQ1QHuGg=; b=hqmL8Ul+c5gtCaiuV6Bsr7rO9x
+	P2zvrCm9Q/iZ1AmnR+1rxxmn2pQ4HwUVNutspo/s3MfcUPLWktATC09CJIv3rzsedOv33sXxN6GRR
+	DwjPfs9yTJQ1GY/o/Z6h3xuH/bblqmx/fIWgmT11XMWH0fEA2wDPZMEVivOSohjQghQg9WRToTFgQ
+	hkCAFOm9YWj8G6VzSnw5Unu+nyQRUK9P1Yw93+U+8nDL1kmCRRei9axWaDvs2TTsDzW7J55JXbz6+
+	OExtVbKdSjiXgnWbX3tTuYMDz5BU/OROJan08KtSUrFsecMivL8OOsaNHVfL3xuBtr24mYRY5qSQk
+	UmAndvEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJnh-0000000F97S-3WOb;
-	Wed, 13 Aug 2025 22:18:29 +0000
-Received: from mail-io1-xd4a.google.com ([2607:f8b0:4864:20::d4a])
+	id 1umKAd-0000000FAqc-0yQH;
+	Wed, 13 Aug 2025 22:42:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJXd-0000000F6az-1TJm
+	id 1umK84-0000000FANP-1HPF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 22:01:54 +0000
-Received: by mail-io1-xd4a.google.com with SMTP id ca18e2360f4ac-88432e1f068so41876639f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 15:01:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755122512; x=1755727312; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Lffc0WMub0rTiOOasAgzp27lbUXwGqsfsYixfeu01z4=;
-        b=nMekaqDT5P+iqYskN1467Vtlbc3Ko03ea6yKtJUsYfMQyehdo6B4Jka08keSgAn/ul
-         S89FUXXDpyFWvVcqfMssND7MqmMwxYtJT0MD1Fv5ZzwWRrxGjNOvIupDZ0W7KLSWKB2f
-         nmFo1TVx14atvQ7PRBFynwxP+j9vY3I3yM5SjWfHMouWLOCafp+OUDmK2cXUMNGRXk5R
-         H2COryM70RrjTNEaXJ1UEtU9TUfElDtDpH4qJXO9JwFUzfXw/+E/0YERjbGgN3Cjw40G
-         c4xUfSaoRtE/0gh0MZ8SIT94hzH4sJA6mOzSMbQzfElKt1RDVh+E8ugKiHMg/OzP7wiE
-         j8/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755122512; x=1755727312;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lffc0WMub0rTiOOasAgzp27lbUXwGqsfsYixfeu01z4=;
-        b=KHn/l2bVuKQ7Li2iRGFyEXJzFqvuOjGR4WJzW0BIIJHiGzelMO/+36s21Ins6veAEm
-         rc4XV/pwz5YMnb/8JuWd7KXubEzLr+p7ZIQqF3t0IY+cDiL0Arv3EEIGEYuK4GEof+vx
-         LIkFNaOI2gLT65njfx1Rll3MjjK1SLAt2Ak3Lp7c/U+K6gPBhKLKYoHzqaFHAttZSfsR
-         0BvbVrk5iRkZYf7I0xZyejB2MFzGMULt4P9bpA7x+IJdAGRX/GBAbrOVxaxIO2v+7chz
-         NkpFuKjsrMiUY2qrNDslgaY3bD16SxJidl0P/eElqVTHZsERRxhFAFi9aFdaJ+W3bBz8
-         6/3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWUYw/7+fd370J5CmxWNoRa5t7IkCdfio5MIWU2YR8Qiz6LDw4S4jY/Kbyd1Re6RcqHPGBvStYftR3bHzrqhAd+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3XvX92P+hXhSeTDPkI6VGJtyShEBzxyVLvI7ERqEFaqw2EBFv
-	zXJCO+yB6JrCIbeW8NcVHIbBUl4ia/JZujC3ZRgh/xNBImMr0wK4m0/+sT+ut2zyIA/XrxF5K18
-	WnoVScE91lwjY4GgLLnQEkPNCRw==
-X-Google-Smtp-Source: AGHT+IG5r8vYJD9ejnNmOkd2D/b3gPNw0HLwazt4Xo6qZB5BPCocG+3nQgDyMNKMBq/qXmrpxMezac4YdgIdTVzxSA==
-X-Received: from iosu8.prod.google.com ([2002:a05:6602:29a8:b0:87c:58a2:24c5])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6602:26cd:b0:86a:84f:7a45 with SMTP id ca18e2360f4ac-8843382aa8cmr146631439f.8.1755122511931;
- Wed, 13 Aug 2025 15:01:51 -0700 (PDT)
-Date: Wed, 13 Aug 2025 22:01:50 +0000
-In-Reply-To: <20250714225917.1396543-11-coltonlewis@google.com> (message from
- Colton Lewis on Mon, 14 Jul 2025 22:59:04 +0000)
-Mime-Version: 1.0
-Message-ID: <gsntwm76ricx.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v4 10/23] KVM: arm64: Writethrough trapped PMEVTYPER register
-From: Colton Lewis <coltonlewis@google.com>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	Wed, 13 Aug 2025 22:39:33 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8B0387E0;
+	Thu, 14 Aug 2025 00:38:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755124715;
+	bh=RSzrbNuZ/ezGEZBB5B8+3JnfSmbDh3D2Pjh9jwrpZrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lsCbZ1TfT/ZSYGrS6tdKV3bjyuKkyZgskNkXTZz1Av7msvcZTLQVnPzvjnek8ekzm
+	 Tqb/7L3l623lYEhQB8f+Ng4P0g6XSuMBaACdp2E5GmhvG0EqVfDZ+bUUp8d/8H1HFN
+	 c0cOLrQyJLjh+mk106bnhM1i2OyXJaREbnud0ZR0=
+Date: Thu, 14 Aug 2025 01:39:10 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: guoniu.zhou@oss.nxp.com
+Cc: rmfrfs@gmail.com, martink@posteo.de, kernel@puri.sm, mchehab@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: nxp: imx8-isi: Add suspend/resume support for ISI
+ mem2mem
+Message-ID: <20250813223910.GA11412@pendragon.ideasonboard.com>
+References: <20250717024353.1811576-1-guoniu.zhou@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250717024353.1811576-1-guoniu.zhou@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_150153_390515_938404AA 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250813_153932_488199_6CFCF844 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +69,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Colton Lewis <coltonlewis@google.com> writes:
+Hi Guoniu,
 
-> With FGT in place, the remaining trapped registers need to be written
-> through to the underlying physical registers as well as the virtual
-> ones. Failing to do this means delaying when guest writes take effect.
+Thank you for the patch.
 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+On Thu, Jul 17, 2025 at 10:43:54AM +0800, guoniu.zhou@oss.nxp.com wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> 
+> Add suspend/resume support for ISI when work at memory to memory mode.
+> 
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 > ---
->   arch/arm64/kvm/sys_regs.c | 28 +++++++++++++++++++++++++++-
->   1 file changed, 27 insertions(+), 1 deletion(-)
+>  .../platform/nxp/imx8-isi/imx8-isi-core.c     |  8 ++++
+>  .../platform/nxp/imx8-isi/imx8-isi-core.h     | 11 +++++
+>  .../platform/nxp/imx8-isi/imx8-isi-m2m.c      | 48 +++++++++++++++++++
+>  3 files changed, 67 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 981648a03113..6eef45302e6c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -372,6 +372,7 @@ static int mxc_isi_pm_suspend(struct device *dev)
+>  		struct mxc_isi_pipe *pipe = &isi->pipes[i];
+>  
+>  		mxc_isi_video_suspend(pipe);
+> +		mxc_isi_m2m_suspend(pipe);
+>  	}
 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index b3f97980b11f..704e5d45ce52 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1036,6 +1036,30 @@ static bool access_pmu_evcntr(struct kvm_vcpu  
-> *vcpu,
->   	return true;
->   }
+Given that only the first pipe can be used for M2M, I would move the
+mxc_isi_m2m_suspend() call after the loop, and pass it a &isi->m2m
+argument.
 
-> +static bool writethrough_pmevtyper(struct kvm_vcpu *vcpu, struct  
-> sys_reg_params *p,
-> +				   u64 reg, u64 idx)
+>  
+>  	return pm_runtime_force_suspend(dev);
+> @@ -401,6 +402,13 @@ static int mxc_isi_pm_resume(struct device *dev)
+>  			 */
+>  			err = ret;
+>  		}
+> +
+> +		ret = mxc_isi_m2m_resume(pipe);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to resume ISI%u (%d) for m2m\n", i,
+> +				ret);
+> +			err = ret;
+> +		}
+
+Same here, that can be moved after the loop.
+
+>  	}
+>  
+>  	return err;
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 206995bedca4..b979b79b5525 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -343,6 +343,8 @@ int mxc_isi_video_buffer_prepare(struct mxc_isi_dev *isi, struct vb2_buffer *vb2
+>  #ifdef CONFIG_VIDEO_IMX8_ISI_M2M
+>  int mxc_isi_m2m_register(struct mxc_isi_dev *isi, struct v4l2_device *v4l2_dev);
+>  int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi);
+> +void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe);
+> +int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe);
+>  #else
+>  static inline int mxc_isi_m2m_register(struct mxc_isi_dev *isi,
+>  				       struct v4l2_device *v4l2_dev)
+> @@ -353,6 +355,15 @@ static inline int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi)
+>  {
+>  	return 0;
+>  }
+> +
+> +static inline void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe)
 > +{
-> +	u64 eventsel;
-> +
-> +	if (idx == ARMV8_PMU_CYCLE_IDX)
-> +		eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
-> +	else
-> +		eventsel = p->regval & kvm_pmu_evtyper_mask(vcpu->kvm);
-> +
-> +	if (vcpu->kvm->arch.pmu_filter &&
-> +	    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
-> +		return false;
-
-I made a mistake here. The thing tested in the pmu_filter should be &
-kvm_pmu_event_mask(), not & kvm_pmu_evtyper_mask()
-
-Then, the value written to the register should be &
-kvm_pmu_evtyper_mask()
-
-There might be a similar mistake in Patch 17 where I enforce the filter
-at vcpu load time.
-
-> +
-> +	__vcpu_assign_sys_reg(vcpu, reg, eventsel);
-> +
-> +	if (idx == ARMV8_PMU_CYCLE_IDX)
-> +		write_pmccfiltr(eventsel);
-> +	else
-> +		write_pmevtypern(idx, eventsel);
-> +
-> +	return true;
 > +}
 > +
->   static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct  
-> sys_reg_params *p,
->   			       const struct sys_reg_desc *r)
->   {
-> @@ -1062,7 +1086,9 @@ static bool access_pmu_evtyper(struct kvm_vcpu  
-> *vcpu, struct sys_reg_params *p,
->   	if (!pmu_counter_idx_valid(vcpu, idx))
->   		return false;
+> +static inline int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  int mxc_isi_channel_acquire(struct mxc_isi_pipe *pipe,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 22e49d3a1287..fe9d85335b6c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -732,6 +732,54 @@ static const struct v4l2_file_operations mxc_isi_m2m_fops = {
+>  	.mmap		= v4l2_m2m_fop_mmap,
+>  };
+>  
+> +/* -----------------------------------------------------------------------------
+> + * Suspend & resume
+> + */
+> +
+> +void mxc_isi_m2m_suspend(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_m2m *m2m = &pipe->isi->m2m;
+> +	struct mxc_isi_m2m_ctx *ctx = m2m->last_ctx;
+> +
+> +	/*
+> +	 * Check pipe for ISI memory to memory since only
+> +	 * channel 0 support this feature.
+> +	 */
+> +	if (m2m->pipe != pipe || m2m->usage_count == 0)
 
-> -	if (p->is_write) {
-> +	if (kvm_vcpu_pmu_is_partitioned(vcpu) && p->is_write) {
-> +		writethrough_pmevtyper(vcpu, p, reg, idx);
-> +	} else if (p->is_write) {
->   		kvm_pmu_set_counter_event_type(vcpu, p->regval, idx);
->   		kvm_vcpu_pmu_restore_guest(vcpu);
->   	} else {
-> --
-> 2.50.0.727.gbf7dc18ff4-goog
+If we pass the mxc_isi_m2m pointer to the function, you can drop the
+comment and the first part of the condition. Same in
+mxc_isi_m2m_resume().
+
+> +		return;
+> +
+> +	v4l2_m2m_suspend(m2m->m2m_dev);
+> +
+> +	if (ctx->chained)
+
+Shouldn't you check m2m->chained_count instead ? Same in
+mxc_isi_m2m_resume().
+
+> +		mxc_isi_channel_unchain(pipe);
+> +
+> +	mxc_isi_channel_disable(pipe);
+> +	mxc_isi_channel_put(pipe);
+> +}
+> +
+> +int mxc_isi_m2m_resume(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_m2m *m2m = &pipe->isi->m2m;
+> +	struct mxc_isi_m2m_ctx *ctx = m2m->last_ctx;
+> +
+> +	/*
+> +	 * Check pipe for ISI memory to memory since only
+> +	 * channel 0 support this feature.
+> +	 */
+> +	if (m2m->pipe != pipe || m2m->usage_count == 0)
+> +		return 0;
+> +
+> +	mxc_isi_channel_get(pipe);
+> +
+> +	if (ctx->chained)
+> +		mxc_isi_channel_chain(pipe, false);
+> +
+> +	m2m->last_ctx = NULL;
+> +	v4l2_m2m_resume(m2m->m2m_dev);
+> +
+> +	return 0;
+> +}
+> +
+>  /* -----------------------------------------------------------------------------
+>   * Registration
+>   */
+
+-- 
+Regards,
+
+Laurent Pinchart
 
