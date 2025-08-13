@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80530C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78491CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyPewJh5BEy9NySFtfgH7rwsbuyu4A/VIdLsXjU3RwY=; b=FYnSpp/qHbGqSHYtiwb50jZiD1
-	lm2WLpqrrzT/B+l6Jfwzyi8psF0Y5p29pcrpjVWjIUoJnjscftvzqCgdcmiLvk/gw2LUnuwd3xVFK
-	u1w7caukGTTM0f4sJneDfKTUSBqL0CdIfVYcpkKwNaqMt5mMmqpIKJ5A/wEjXxJiyU8JCIZ5WIQMn
-	K3GkijiHoTK7nyEpJOh0VCLMENvbcziakEfqEoFQqyAik6oO1hbO51HubILn99OLm+IFLAWZYpn7g
-	9a20Ed7cqNp6lViUfIOTvDOHwfwfxfYTsxwnFdQOVhFCfR5skzvrw2FuSEFqN251GMt8AiVp36TAA
-	WprcD9+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dsYg9uVTT31vg0XjgaWQbCUWMl3ZH+Hy93R1PBOM/ME=; b=YxUTYLB6AhWqnQDYfh6dlioS+i
+	WeCFbcm4V0CfJwJ/hz9NwReSXruuuIQp2VzPxtj5WeISQHREcr45nMVYOOqWaL03nwg8gI+Ztoytx
+	7MxUPwKdDwGake4CEgjnYuwiGMAAuvtxz+UYZZMTAl2IVMIbs+cdJ9NVORi6AZcwvMWrCg/wN2Tps
+	ye8lrESr8bte+Yg5IUvbkICw65oGNosw6dP/szkjjSjSXjuxGmiQVM3ljBnjzaCdmG8mGRlpV0VIV
+	TO8nyqVXk2xMX+rIs4XcljfTpWv+Cc3sx2wWJqpULVwEQmWvAss/ZRgnGYpc9oaCKbq3AUXrMjh6x
+	968pL4xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHQd-0000000EsSN-2NF5;
-	Wed, 13 Aug 2025 19:46:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1umHTD-0000000Esow-2xZi;
+	Wed, 13 Aug 2025 19:49:13 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umGac-0000000EjtC-1YlB
+	id 1umGn8-0000000ElN0-2B6K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 18:52:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 896645C6E7C;
-	Wed, 13 Aug 2025 18:52:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8478C4CEEB;
-	Wed, 13 Aug 2025 18:52:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755111165;
-	bh=I8r3tBkgphht3SwtUg5nL9KzEgLdeknTCCzdfgQO5b4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fGGQFzHTOutY+PikQOg+P+YHiU6NjTociyTwlUlMKJNB909IdYw+OmZ514aIBwUs1
-	 4dU57N13Jqjkoh53Tqk7MoBxkLa9cYBLd+fphd5tjEnN4YsVyTDJiI8PZo4aNayqNF
-	 cfCwRyAcwrvqeUStvHdnotiJzLpsxSm1iT19dxR8xEypH5xBPt4HPSTuo7K9yXf26E
-	 UgStl/gwBTGBOnu61VjcwfVKX7u/FTfcqEtgBCi/PD76cmwdP6rXqfMW9Cu9FZvM6o
-	 MtvtvEohCqNZ/Ukws+f1+wuFo8M/e5nAKepbnCtqmcgxvUZKODgK78EZ/wYQp1dxWh
-	 4ISy8/MduRniA==
-Date: Wed, 13 Aug 2025 13:52:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Wed, 13 Aug 2025 19:05:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=dsYg9uVTT31vg0
+	XjgaWQbCUWMl3ZH+Hy93R1PBOM/ME=; b=l2lpybtzBjreR2b6u3ViQ1/UyacbNF
+	/9x2byoTVM+OIXRDhd/ePUPQsHzzQZgkr55wr7ZGx0FXKgRa3wKFss5LDkgSFcDO
+	qB0dO+dkHBiAdTWmF7PXHENsWUg0ne7tI5tZNVh7VQA0Zwc7LD/OYnNOWba4QdWf
+	MSeIom1ONHeAHWcTRoxbu2gglD9qzpOyPoFQT5OBZohUtw9xTxyijdEdizAmVChw
+	pKuzewYY8aKdzIY4+RDg6Xg8ELsR8/TGNcyZ4aaGkEUBEqAE875W1hn5+QZ1G99d
+	vsR+aGQMC4y3ps2wr+7sEIbOlqOmEdvf8dJpJALFQkIGktVAn59iWGzg==
+Received: (qmail 732673 invoked from network); 13 Aug 2025 21:05:40 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 21:05:40 +0200
+X-UD-Smtp-Session: l3s3148p1@hr6u10M8jtltKDDX
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-watchdog@vger.kernel.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Guenter Roeck <linux@roeck-us.net>,
 	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] of/irq: Convert of_msi_map_id() callers to of_msi_xlate()
-Message-ID: <20250813185244.GA553867-robh@kernel.org>
-References: <20250805133443.936955-1-lpieralisi@kernel.org>
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>
+Subject: [PATCH 0/3] watchdog: don't print superfluous errors
+Date: Wed, 13 Aug 2025 21:05:08 +0200
+Message-ID: <20250813190507.3408-5-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250805133443.936955-1-lpieralisi@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_115246_452054_AD538093 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250813_120542_831789_B9382D58 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +70,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 03:34:43PM +0200, Lorenzo Pieralisi wrote:
-> With the introduction of the of_msi_xlate() function, the OF layer
-> provides an API to map a device ID and retrieve the MSI controller
-> node the ID is mapped to with a single call.
-> 
-> of_msi_map_id() is currently used to map a deviceID to a specific
-> MSI controller node; of_msi_xlate() can be used for that purpose
-> too, there is no need to keep the two functions.
-> 
-> Convert of_msi_map_id() to of_msi_xlate() calls and update the
-> of_msi_xlate() documentation to describe how the struct device_node
-> pointer passed in should be set-up to either provide the MSI controller
-> node target or receive its pointer upon mapping completion.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
-> As suggested by RobH:
-> 
-> https://lore.kernel.org/lkml/20250627213241.GA168190-robh@kernel.org/
-> 
->  drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c |  2 +-
->  drivers/of/irq.c                            | 25 +++++----------------
->  drivers/pci/msi/irqdomain.c                 |  2 +-
->  include/linux/of_irq.h                      |  6 -----
->  4 files changed, 7 insertions(+), 28 deletions(-)
+I found this needless printout in the Renesas RZ drivers. Then, I
+updated an existing coccinelle script to find more of these in the tree.
 
-Looks good to me. I'm happy to take it with some acks.
+No dependencies, buildbot is happy, based on v6.17-rc1.
 
-Rob
+
+Wolfram Sang (3):
+  watchdog: rzg2l_wdt: don't print superfluous errors
+  watchdog: rzv2h_wdt: don't print superfluous errors
+  watchdog: visconti: don't print superfluous errors
+
+ drivers/watchdog/rzg2l_wdt.c    | 4 +---
+ drivers/watchdog/rzv2h_wdt.c    | 4 +---
+ drivers/watchdog/visconti_wdt.c | 5 +----
+ 3 files changed, 3 insertions(+), 10 deletions(-)
+
+-- 
+2.47.2
+
 
