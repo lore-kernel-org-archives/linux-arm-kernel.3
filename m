@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6807BC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E138CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MxOU5BqEnowXuyKmHs41c8c7RySK/7yzIpqPjsqWrqk=; b=xU5bmtH/tm6PHlYyqRQYiH1yMk
-	OTq9/txE+FTRXuA2zH4hpRk1q7uF4aYu6LRTlrAaWkS5G3D1VKApWWUFaJBfHrjYM++d7K4IrCrXA
-	Ty5WmTyfgy0c3fHlhaVWJUTEeeqqKsPQUa1fjsHVeimQ7+dZt3D+drA8o9aCCk/KEQuqtPlGw0D/Q
-	p+5mw/YJ8jWSeuBuxPXtQaNy2jedXs7ARgY46BU+9GCFLYZQnX/aKVCVKgNZL3b+1tSF+XTsMVMvq
-	LIE5WuC6sYkv4B67th09DbD5WTFY3uDI1sGzBZFMDwcSwit9eUrcCMBuvtzkx9noItzMauC5TyyFN
-	mNdV152Q==;
+	bh=y7sfbOPHJbYAEokWohXYUSXoQZPN1z7qIsKonuRcYrA=; b=T89jf8tfb5fBUUmYjuICM5qOWD
+	FQh0EIx606eOS0uBgcUuXa2iBn6lUBze7Hq5qU+A8RDPkIqgLsAebG5YbCkWPLXjOra8L6BN16RSY
+	7L2F6KrmAwFz5ycrNSOxMzphWTcDwrMIH7hQVdaFDmd9ZRK+zdKK87TZIbXenuRxR5tI6X64/p8KL
+	Bovq0V81K312IIv+Of8IvD7PNewa5nB/tpg92bSvh74SVWPIlylIyGQHiqtEEa8oJl2jjFDJF0PxQ
+	nooifdoT3zqbarNv/nysS58eqOQYgnVOweUTKhTJQtVjGl+9lqIGo0qaBLjSPkIxvg1zP4RctgZDo
+	WBQ/g4GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umD6h-0000000E8ZP-0SNT;
-	Wed, 13 Aug 2025 15:09:39 +0000
+	id 1umD9D-0000000E8oW-0CXo;
+	Wed, 13 Aug 2025 15:12:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtO-0000000E4p6-1gob
+	id 1umCtR-0000000E4sI-1JlJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 14:55:54 +0000
+	Wed, 13 Aug 2025 14:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=MxOU5BqEnowXuyKmHs41c8c7RySK/7yzIpqPjsqWrqk=; b=CDWLDNpk12EP8n3XX7IlQyWWSc
-	QgaGPW/ZF8+/Rn3SoW4DzudeHEpvCRymkAaeiMbkCcb6RcesYASdVHohdx3U7rMAiOIa8PsFHyXmt
-	g8xqL0i4Hx8soz9UAt1x1fIMu/1GSI9zZ9jDWbelg5h+Is0LhuQjsxKKf7rW+pC9xwp8iR9a+F07E
-	0IKWX0LuMzFO12VZoJbKuHZ1dGcAjQKGu49xBwc3JNNQ/6SGVpz+Slbx7ISfqS6TnOfY1uG6WgPHa
-	eus1E1b+CK95GHeh/CZa3iGDqoyKzLaljrFM+1df+27Z5PkVlGTDlSMAS7zQUyLbUyISbbYU1X1Xe
-	yZpH9/Cw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=y7sfbOPHJbYAEokWohXYUSXoQZPN1z7qIsKonuRcYrA=; b=lHl1obV0IXRb4FYnJm2qm4UYp4
+	0gwFi1VaAtFBMioo8E76fqOIlqvHieiy2jhYw9LvRvtptakRcARvcGNqNH1d5Hf+hwde1BjlwpKT3
+	+khEEDooDrFc+pF/wlkLCqZWo874eqIaqRhMwds+rGPj1uBCXehXIiI+pPRRSHDAgOdnCcgO7F9yy
+	PVwRgB+vC0ePzhj9bSfyon+sqiKeC2Y8t5TgVF/c+Nwi5ui/UBo6KjE536SFm4zRIaDGlAAiR2jid
+	b7fitR6HRvrNRjNE/yCY+a45t2gNBe08CJ22qLiq7I9rKhiXpPv6mztDbQYjbMFB3tPhVhYmAkHNk
+	keSI7WkA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtK-0000000G72O-3Z3g
+	id 1umCtM-0000000G73S-3ce0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:55:52 +0000
+	Wed, 13 Aug 2025 14:55:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 89C16A57D98;
-	Wed, 13 Aug 2025 14:55:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FF2C4CEF7;
-	Wed, 13 Aug 2025 14:55:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5A84F5C6C50;
+	Wed, 13 Aug 2025 14:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3CE7C116B1;
+	Wed, 13 Aug 2025 14:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755096947;
-	bh=0IUVHkNpNiVd4dKfHNtccXkcqQYA1UMken7l+DdOKgk=;
+	s=k20201202; t=1755096950;
+	bh=W5wn3NeKGRyaF5afVGlpCWkJIlaztzO4EVZV0lTaqQg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Sx9Yd2EydQjztnnpSEbWNgnePm2SzoWEmawHNyY1iaTZyU0Q0m5Efl/ryspfKRvSz
-	 5cO0hlFkGO46n6/ZE0k2WB0PJJ0cjfDqjCGqfJxccRDjwnCkR45t84zLTRthAVEJ5/
-	 yMHXcjNoGE4NUgKcUjpEAiPQtCJPv+cHXzOsH9h03FqRmp7O7lO+xYEwsdPlxXsbe1
-	 VsVFPVrsKPXhqPDykufgDRfZu+ooiDSW4/cEkokwazTTDObTiHmnpCfQpCgJRqS+py
-	 yb8KiMse7KuH4OoHA2Z8clDZNddv8RqjA8EU5fDcLfP6YrW2ZLE0xcQRRwc6d5dzmh
-	 2/yhI+JRjbbDA==
+	b=gKjmu7gDM/sY1ung+b2oB69H9t9KqVNJfZZG37yj0ObpM930lYQpvllOBqy57EVBb
+	 BYqjyn77jC9dpRjHpPpBFufMN/jl3clDlr5WPou97L63ucspEq6u7JFy0XYc4X0PXX
+	 SdyDkwbhXhpagqemeI2U66L1rSFi++CLCfbjmXNcTaAahu1KUqq8Lzuj23I9fw3xgR
+	 wAIXot0CwvTBXFjN29c36eSgEoFcyIIWdS3fsX/uiK+jOb4kw+0zLbtfq/NYDklvhq
+	 YvH6l6B1Q3zb0qe7/veWRGMicVkemt+H1NaNIoOZ6Dmx4zNkTT3wXZGTU41C5zm9P+
+	 YrWKodIMh+YSw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 209F45FE68; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
+	id 341B15FF5B; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -77,17 +77,17 @@ Cc: netdev@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v2 03/10] soc: sunxi: sram: add entry for a523
-Date: Wed, 13 Aug 2025 22:55:33 +0800
-Message-Id: <20250813145540.2577789-4-wens@kernel.org>
+Subject: [PATCH net-next v2 04/10] soc: sunxi: sram: register regmap as syscon
+Date: Wed, 13 Aug 2025 22:55:34 +0800
+Message-Id: <20250813145540.2577789-5-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250813145540.2577789-1-wens@kernel.org>
 References: <20250813145540.2577789-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_155551_128942_56D4EABF 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250813_155553_145898_F65E0F34 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +104,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-The A523 has two Ethernet controllers. So in the system controller
-address space, there are two registers for Ethernet clock delays,
-one for each controller.
+If the system controller had a ethernet controller glue layer control
+register, a limited access regmap would be registered and tied to the
+system controller struct device for the ethernet driver to use.
 
-Add a new entry for the A523 system controller that allows access to
-the second register.
+Until now, for the ethernet driver to acquire this regmap, it had to
+do a of_parse_phandle() + find device + dev_get_regmap() sequence.
+Since the syscon framework allows a provider to register a custom
+regmap for its device node, and the ethernet driver already uses
+syscon for one platform, this provides a much more easier way to
+pass the regmap.
+
+Use of_syscon_register_regmap() to register our regmap with the
+syscon framework so that consumers can retrieve it that way.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+
 ---
- drivers/soc/sunxi/sunxi_sram.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changes since v1:
+- Fix check on return value
+- Expand commit message
+---
+ drivers/soc/sunxi/sunxi_sram.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/drivers/soc/sunxi/sunxi_sram.c b/drivers/soc/sunxi/sunxi_sram.c
-index 08e264ea0697..4f8d510b7e1e 100644
+index 4f8d510b7e1e..1837e1b5dce8 100644
 --- a/drivers/soc/sunxi/sunxi_sram.c
 +++ b/drivers/soc/sunxi/sunxi_sram.c
-@@ -320,6 +320,10 @@ static const struct sunxi_sramc_variant sun50i_h616_sramc_variant = {
- 	.has_ths_offset = true,
- };
+@@ -12,6 +12,7 @@
  
-+static const struct sunxi_sramc_variant sun55i_a523_sramc_variant = {
-+	.num_emac_clocks = 2,
-+};
+ #include <linux/debugfs.h>
+ #include <linux/io.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+@@ -377,6 +378,7 @@ static int __init sunxi_sram_probe(struct platform_device *pdev)
+ 	const struct sunxi_sramc_variant *variant;
+ 	struct device *dev = &pdev->dev;
+ 	struct regmap *regmap;
++	int ret;
+ 
+ 	sram_dev = &pdev->dev;
+ 
+@@ -394,6 +396,10 @@ static int __init sunxi_sram_probe(struct platform_device *pdev)
+ 		regmap = devm_regmap_init_mmio(dev, base, &sunxi_sram_regmap_config);
+ 		if (IS_ERR(regmap))
+ 			return PTR_ERR(regmap);
 +
- #define SUNXI_SRAM_THS_OFFSET_REG	0x0
- #define SUNXI_SRAM_EMAC_CLOCK_REG	0x30
- #define SUNXI_SYS_LDO_CTRL_REG		0x150
-@@ -440,6 +444,10 @@ static const struct of_device_id sunxi_sram_dt_match[] = {
- 		.compatible = "allwinner,sun50i-h616-system-control",
- 		.data = &sun50i_h616_sramc_variant,
- 	},
-+	{
-+		.compatible = "allwinner,sun55i-a523-system-control",
-+		.data = &sun55i_a523_sramc_variant,
-+	},
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, sunxi_sram_dt_match);
++		ret = of_syscon_register_regmap(dev->of_node, regmap);
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	of_platform_populate(dev->of_node, NULL, NULL, dev);
 -- 
 2.39.5
 
