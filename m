@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9F7C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A23C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOIOq894v+zaK4XV37kMzgRxg3LpyHPgMP/RL2Mj3a4=; b=HaB6Z3vcoivl6TWfDv+CiA5c0g
-	YixlGfo6q2sx/bXzD9JgEeVIRspaQ8nZuNpv4M1Pw97ZMfTnezOOjT5Cpwavy6Mbu+lwj6hx+TY0C
-	yiMPUjzi9yYkylD+PJgna4nfo9zAKDBqYCYxvGj0wAoNefR5s9YhCoVjfUJcErZ/tiO4JUG2FdGoq
-	ZUMBzqms+R9b9RcWCNokRgKuyHfWZo/e1bYgf0MCVUrVkFT+f62wxB73h7URTTlu+flmGHSU0JmCK
-	2S9kEamaUep8siMCgEXax2CoDwfEbsSWH6yG3FffOSEKw4q+GKQE9Kc1WyMhxCCRD2IPBpmlJOZPw
-	TOexYkBQ==;
+	bh=JM9SpV/fnrsLvvM+Go1VUM4DNlcYiERXiLNTjdx9OJo=; b=JreWmX7iDlxr2Jzru7R6sZkYbe
+	9fFuZ0ue3RXZnWVxkHNqyl9Yqmo4/JbLxQjRzDMZImzA97CjhTPgIrDMCmquJaG+KOvZm+QB1VwLT
+	rPk/wR+7s4vkqIVJKDk2PKkobRLWHbf0R23WgndICHPQeb5rRNvbcVF2yg5dyPOfQrlEQlExOeGGO
+	j52ppYAqdxQ+6QHnpohljGxfwCfPtmLgDLDiVRz+lsSewL/aMdFvbHWKPU9DH6tI7pNgY0adpRtw8
+	v+aecFMnIFWOeJleh4TKoiYFVY5+wt3/0Gba3extuTip6op4oA8NQfiz3Qy697XU4NMOuT+JXU1gR
+	ZE38Gaiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEjL-0000000ETi5-0t4g;
-	Wed, 13 Aug 2025 16:53:39 +0000
+	id 1umElt-0000000EU6O-3dr5;
+	Wed, 13 Aug 2025 16:56:17 +0000
 Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umE9N-0000000ELhM-1w9M
+	id 1umE9Q-0000000ELif-13aP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 16:16:30 +0000
+	Wed, 13 Aug 2025 16:16:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	sang-engineering.com; h=from:to:cc:subject:date:message-id
 	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=JOIOq894v+zaK4XV37kMzgRxg3LpyHPgMP/RL2Mj3a4=; b=gQgD4H
-	D9eZ10uOMPdefygxiftpeI0O9E4P2jdt5Ft+P6+nRtsbPFJo/Rx7oP5R4qfkLOlk
-	K8yTgsKitD2MGbLSdu7nsxjvMIzS4QRN6PDl/lbizFjApUYmaqz0FU1/+UYXoJHr
-	kfREh1l1caSGge8T+0wGQD9Q8LrToK/Mt10h7u14NxdhGIQr9CG+MqtDfcTBCIOh
-	scvODsgiNRQbNO/DX8xchORmLrWw13AXbSHx1ceMwnmtnr5AQ4Yqi8fbgjgH+cEz
-	W+QTokqZBfvPTn0uK0cUMiu6aKSevxnWHJuTMBTDNSQ5F8jlJEmKsQnaf8WCp+Y6
-	M9lCqwuXQ+wny+cw==
-Received: (qmail 695008 invoked from network); 13 Aug 2025 18:16:13 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 18:16:13 +0200
-X-UD-Smtp-Session: l3s3148p1@Tie5eUE8HNttKLKq
+	 s=k1; bh=JM9SpV/fnrsLvvM+Go1VUM4DNlcYiERXiLNTjdx9OJo=; b=Bl4jGz
+	19fCVHEkw3GF9z/XPPvj6W0oFoFPA4oyVLyTay1YOjYq/cUbOU0gz2M9cv/StJt5
+	sYW/iA+17QUVaXMeCgsb4sRxA18MUEqjh6qY3z/cbwKNlRbkGIyujiz+1I4D1sLq
+	4DSoO25xGzEBl7sAK8DKuVviOi2QncDrj6cgtzaUjjqwXHGlCLxNFww69Xuh6WG3
+	4g2ibSfe63bjqBj/aVosx4tQH8z1d3UhPmKkwoDvcX0li5f0gjfFYJj6xlif6vLh
+	BIrNJN8cBzoGFA2QuLwCB7LcO32aWRqp+xNwHBl/MiATlnMP2h1O83iqOm+hmI1c
+	XJjkX/jq6h4NAOdA==
+Received: (qmail 695217 invoked from network); 13 Aug 2025 18:16:19 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 18:16:19 +0200
+X-UD-Smtp-Session: l3s3148p1@EGQLekE8npFtKLKq
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-kernel@vger.kernel.org
 Cc: Mark Brown <broonie@kernel.org>,
 	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Lee Jones <lee@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH 09/21] mfd: remove unneeded 'fast_io' parameter in regmap_config
-Date: Wed, 13 Aug 2025 18:14:55 +0200
-Message-ID: <20250813161517.4746-10-wsa+renesas@sang-engineering.com>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 12/21] phy: remove unneeded 'fast_io' parameter in regmap_config
+Date: Wed, 13 Aug 2025 18:14:58 +0200
+Message-ID: <20250813161517.4746-13-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_091629_773776_0EA97CD6 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250813_091632_574420_0B33CDDE 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +83,60 @@ Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 No dependencies, can be applied directly to the subsystem tree. Buildbot is
 happy, too.
 
- drivers/mfd/exynos-lpass.c    | 1 -
- drivers/mfd/fsl-imx25-tsadc.c | 1 -
- drivers/mfd/stm32-lptimer.c   | 1 -
- drivers/mfd/sun4i-gpadc.c     | 1 -
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 1 -
+ drivers/phy/rockchip/phy-rockchip-usbdp.c         | 1 -
+ drivers/phy/ti/phy-am654-serdes.c                 | 1 -
+ drivers/phy/ti/phy-j721e-wiz.c                    | 1 -
  4 files changed, 4 deletions(-)
 
-diff --git a/drivers/mfd/exynos-lpass.c b/drivers/mfd/exynos-lpass.c
-index 44797001a432..9bb2687c2835 100644
---- a/drivers/mfd/exynos-lpass.c
-+++ b/drivers/mfd/exynos-lpass.c
-@@ -101,7 +101,6 @@ static const struct regmap_config exynos_lpass_reg_conf = {
- 	.reg_stride	= 4,
- 	.val_bits	= 32,
- 	.max_register	= 0xfc,
--	.fast_io	= true,
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 79db57ee90d1..01bbf668e05e 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -795,7 +795,6 @@ static const struct regmap_config rk_hdptx_phy_regmap_config = {
+ 	.val_bits = 32,
+ 	.writeable_reg = rk_hdptx_phy_is_rw_reg,
+ 	.readable_reg = rk_hdptx_phy_is_rw_reg,
+-	.fast_io = true,
+ 	.max_register = 0x18b4,
  };
  
- static void exynos_lpass_disable_lpass(void *data)
-diff --git a/drivers/mfd/fsl-imx25-tsadc.c b/drivers/mfd/fsl-imx25-tsadc.c
-index 0aab6428e042..467b1a23faeb 100644
---- a/drivers/mfd/fsl-imx25-tsadc.c
-+++ b/drivers/mfd/fsl-imx25-tsadc.c
-@@ -17,7 +17,6 @@
- #include <linux/regmap.h>
- 
- static const struct regmap_config mx25_tsadc_regmap_config = {
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index c066cc0a7b4f..010e9d2d6fac 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1430,7 +1430,6 @@ static const struct regmap_config rk_udphy_pma_regmap_cfg = {
+ 	.reg_bits = 32,
+ 	.reg_stride = 4,
+ 	.val_bits = 32,
 -	.fast_io = true,
- 	.max_register = 8,
+ 	.max_register = 0x20dc,
+ };
+ 
+diff --git a/drivers/phy/ti/phy-am654-serdes.c b/drivers/phy/ti/phy-am654-serdes.c
+index 431b223996e0..5b6c27aa7e8b 100644
+--- a/drivers/phy/ti/phy-am654-serdes.c
++++ b/drivers/phy/ti/phy-am654-serdes.c
+@@ -99,7 +99,6 @@ static const struct regmap_config serdes_am654_regmap_config = {
  	.reg_bits = 32,
  	.val_bits = 32,
-diff --git a/drivers/mfd/stm32-lptimer.c b/drivers/mfd/stm32-lptimer.c
-index 09073dbc9c80..123659178cc2 100644
---- a/drivers/mfd/stm32-lptimer.c
-+++ b/drivers/mfd/stm32-lptimer.c
-@@ -19,7 +19,6 @@ static const struct regmap_config stm32_lptimer_regmap_cfg = {
- 	.val_bits = 32,
- 	.reg_stride = sizeof(u32),
- 	.max_register = STM32_LPTIM_MAX_REGISTER,
+ 	.reg_stride = 4,
 -	.fast_io = true,
+ 	.max_register = 0x1ffc,
  };
  
- static int stm32_lptimer_detect_encoder(struct stm32_lptimer *ddata)
-diff --git a/drivers/mfd/sun4i-gpadc.c b/drivers/mfd/sun4i-gpadc.c
-index 3029d48e982c..bf2f6fdaf8bf 100644
---- a/drivers/mfd/sun4i-gpadc.c
-+++ b/drivers/mfd/sun4i-gpadc.c
-@@ -72,7 +72,6 @@ static const struct regmap_config sun4i_gpadc_regmap_config = {
+diff --git a/drivers/phy/ti/phy-j721e-wiz.c b/drivers/phy/ti/phy-j721e-wiz.c
+index ab2a4f2c0a5b..a8b440c6c46b 100644
+--- a/drivers/phy/ti/phy-j721e-wiz.c
++++ b/drivers/phy/ti/phy-j721e-wiz.c
+@@ -1319,7 +1319,6 @@ static const struct regmap_config wiz_regmap_config = {
  	.reg_bits = 32,
  	.val_bits = 32,
  	.reg_stride = 4,
 -	.fast_io = true,
  };
  
- static const struct of_device_id sun4i_gpadc_of_match[] = {
+ static struct wiz_data j721e_16g_data = {
 -- 
 2.47.2
 
