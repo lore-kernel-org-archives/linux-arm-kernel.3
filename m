@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2EA3C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6BFCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CrCCxt9LnmsigKPVdVmcqS5xxwRjrbB/Gczktjsh5x4=; b=s4qmZyBgCvqG7vgl7hXApVHlCu
-	XY2No4kb8JdCm/7ieEQhE2mNGFeKV4SY0oSci18HMofw3lkOFJ861ne5De6EgXesSmt0j3M0gxzIr
-	M3+c9q2ZXtuJSO+Du+C5rSujMJyE4Z/eEq/kBdBru7sA+19PX3sxfhNGgvlBvdNvJMopLa/SdATus
-	whp6wLKLuZsyoXE3XiEXJeM0Xj3ryVgurJHeUXo7eL4SG2rKn+wyMqQYvjWjW3Kdz74HK4rNA7uP1
-	wlN12kHVbZQLi+h3IwPW+4H1AfLHtd/fMwXsXSIPkwX1LfjFwAtL5Gel4kWfuiZKcqC+8hofPt9yV
-	mY2L6wGQ==;
+	bh=hBvMcb9A/AFLPKQ8t4bKDq8tGZPD9sVSSm5Hx/aM1sg=; b=QgdJ0AhqW8TNxZGosSI99dvqEr
+	cxKRKn6R9xDlZEOtDgDfpqePy4qB+6W2EZHb+NpNZtjZASu59SsclT5RUWrg9zkdZyRHL+hSGo7xk
+	8vRcLauJ1Ijco/F7ku4TjQ/CI+7rx6v9UTl7fFNRWW+pHsQp6ZmFNSuUBBOf6/VrMoS4BGfsPhAqg
+	idevyLSynGm4f3GhfaMhMNHMeA63cZUeSK3xFS6nnJMQIPK4PA2EdDVbG77pMjktvMoSTI27w998/
+	DP4HdHfjDqFI366TNl7S2NohcEatQPBJe5QpyCfB7nvQeMf3NV5ojZR18zyGxSjqEnpIO+Hrdgjbm
+	wWCTOvng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9NO-0000000DUDw-1XWW;
-	Wed, 13 Aug 2025 11:10:38 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1um9Pu-0000000DUUJ-0Po9;
+	Wed, 13 Aug 2025 11:13:14 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8YZ-0000000DMB9-3vVd
+	id 1um8ef-0000000DN5q-1Nsw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 10:18:09 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4c242m0HR2z2Cg89;
-	Wed, 13 Aug 2025 18:13:36 +0800 (CST)
-Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9C76F1A016C;
-	Wed, 13 Aug 2025 18:17:55 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
- (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 13 Aug
- 2025 18:17:54 +0800
-Message-ID: <561a9474-7be6-4c8a-8a5d-40efb186b3d2@huawei.com>
-Date: Wed, 13 Aug 2025 18:17:54 +0800
+	Wed, 13 Aug 2025 10:24:26 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b783d851e6so5462369f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 03:24:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755080664; x=1755685464; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hBvMcb9A/AFLPKQ8t4bKDq8tGZPD9sVSSm5Hx/aM1sg=;
+        b=G1g62r70H2PkksChhT7SrvMIQrSWKHXYu2AZGYytlcibwV9gdy/lj1eEv1qPaT3HFY
+         34J1eNOnFAK+dY5gutG346NZVC6oVjvVNnkhYnRI1DEkFzUeEarNwIOIO58Cka6sMFoz
+         zzk2sIPJbohN8ArEVbYnmW2IS9SGBz9hsPEatdgPIFEY1KDmZuod5nj/XtS9ORXqvP5b
+         tJAao4Rr41IBLLavsma4FeiIqOYgM2Ma1ZhDZiXaf9jhFs8OsKIFiPQKDHLA7GCngtg2
+         mlVyJ6OeahsfxkdFI+L32tmtAhHDm1LLzYIB4N/klrOH7HtlBMKA05kmFHmMT3+VGxFi
+         U2og==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755080664; x=1755685464;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hBvMcb9A/AFLPKQ8t4bKDq8tGZPD9sVSSm5Hx/aM1sg=;
+        b=cuu1MTKzM5nZ+cXHXbRY+mF7yTY+yTgN8GEOcjcsLMGt0J4wr0ew9LuUq8X2wyp7XG
+         dhBDQ8W1E6Y0Q1v6ns2Gs+nuvk2UvAg2mGZqB5zGZagRyI/fweZY14LcC5vXV/yjZo+Z
+         nyN1/U/vL9TVFGuH2EAW1VFtRUHScCer2Mh6k4hhqXIqdGVb5LIWsk9+d8yJXTooASGb
+         mGz6Ej/FrOZjWNMGpGsl1AeAoKsp2rIGHKNbt4tOg4ujXhyB5cLTL9uqLYcZTShZ0419
+         jMo2qdYg8uBUwl79Sniu9Lgm2+to9iqBf2o948ZtOhz6BrTDfilsjQxdol1yAFuu52m3
+         cFCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWNkBtFf+USkUK5NnxnhQSlQnCwMzbxCyEQ2I5thyQy/oMDDI9zqsc7ytzEyrJG1IpJwAoo2m0i1M+OJTcmlt3B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw2sb6C3xL2bjWD5uYWOOQjrrrxX+zSrQQtMdqaH6jm4MpP++G
+	T9g6js3rwtZKNJpvH2exAGZbX6InBGR9KFDDgDoSFjadRTw0AzPd2AqF
+X-Gm-Gg: ASbGncvclLVKvC7atPhTkyxHGB3nHe8UBLDP+VSpmHxMk/33esUJtuh2gMvi40/uhNz
+	1bRsG52X10aqLtnNqy7J3NlOyVoAc1ubyhC1kEX/Z4Pv8e5kEyWPhjyMlF5aUqb5AeB7CbwKENC
+	zKx1bCNaLAdpTnuqnqcaniV6zcZUHjzaEKug8Iz+qMozXCXGx50GqdDnq1oD3wuBsVJf7LdPsbq
+	W1xy42kRImiLhLQdqwTbWWGw/fgECOANqXhL2dopntaUnAWUx5EKPdU8NDOSret1UzT5a7qgssd
+	9XSPkmlBoonbG/EYU++sBPXMIQEPRrOR9eKkEnQNWpkGnI+Ksm/jo6qg+eok3mel1pVh/CAx94e
+	7EtCbHgpLmsqpoQ5mnhlN98ybWSsH9HmsoTwFl+StcPsRQWJI7ahFFQdoTEJlyKw=
+X-Google-Smtp-Source: AGHT+IEJHjTQQo8npkV7yU/QWSo8+r2RnFWIg51TLG4KaWGQtT16a4oEJjJRn79a5sY1UbdD0pjCsw==
+X-Received: by 2002:a05:6000:2006:b0:3b7:8880:184a with SMTP id ffacd0b85a97d-3b917f42040mr1913827f8f.54.1755080663628;
+        Wed, 13 Aug 2025 03:24:23 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c3bf93dsm47351880f8f.27.2025.08.13.03.24.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 03:24:23 -0700 (PDT)
+Message-ID: <27cc9ae5-1c13-4ec9-ab10-ae95d6339116@gmail.com>
+Date: Wed, 13 Aug 2025 12:24:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs
- only
-To: Beata Michalska <beata.michalska@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
-	<viresh.kumar@linaro.org>, <sudeep.holla@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <linhongye@h-partners.com>
-References: <20250805093330.3715444-1-zhenglifeng1@huawei.com>
- <20250805093330.3715444-4-zhenglifeng1@huawei.com> <aJMmjKenJaDnRskH@arm.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <aJMmjKenJaDnRskH@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemh100008.china.huawei.com (7.202.181.93)
+Subject: Re: [PATCH v2 1/3] i2c: add init_recovery() callback
+Content-Language: hu
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
+ Hanna Hawa <hhhawa@amazon.com>, Robert Marko <robert.marko@sartura.hr>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-1-ca42ea818dc9@gmail.com>
+ <aJpP5eABTYnQRV82@smile.fi.intel.com>
+From: Gabor Juhos <j4g8y7@gmail.com>
+In-Reply-To: <aJpP5eABTYnQRV82@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_031808_293940_ACA25968 
-X-CRM114-Status: GOOD (  41.13  )
+X-CRM114-CacheID: sfid-20250813_032425_376031_871DD064 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,159 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/6 17:55, Beata Michalska wrote:
-
-> On Tue, Aug 05, 2025 at 05:33:30PM +0800, Lifeng Zheng wrote:
->> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
->> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
->> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
->> when it shares a cpufreq policy with other CPU(s). After that, when other
->> CPUs are finally online and the support AMU flags of them are set, they'll
->> never have a chance to set up AMU FIE, even though they're eligible.
+2025. 08. 11. 22:17 keltezéssel, Andy Shevchenko írta:
+> On Mon, Aug 11, 2025 at 09:49:55PM +0200, Gabor Juhos wrote:
+>> Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
+>> and modify the i2c_init_recovery() function to call that if specified
+>> instead of the generic i2c_gpio_init_recovery() function.
 >>
->> To solve this problem, the process of setting up AMU FIE needs to be
->> modified as follows:
+>> This allows controller drivers to skip calling the generic code by
+>> implementing a dummy callback function, or alternatively to run a
+>> fine tuned custom implementation.
 >>
->> 1. Set up AMU FIE only for the online CPUs.
->>
->> 2. Try to set up AMU FIE each time a CPU goes online and do the
->> freq_counters_valid() check. If this check fails, clear scale freq source
->> of all the CPUs related to the same policy, in case they use different
->> source of the freq scale.
->>
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> ---
->>  arch/arm64/kernel/topology.c | 54 ++++++++++++++++++++++++++++++++++--
->>  1 file changed, 52 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
->> index 9317a618bb87..b68621b3c071 100644
->> --- a/arch/arm64/kernel/topology.c
->> +++ b/arch/arm64/kernel/topology.c
->> @@ -385,7 +385,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
->>  	struct cpufreq_policy *policy = data;
->>  
->>  	if (val == CPUFREQ_CREATE_POLICY)
->> -		amu_fie_setup(policy->related_cpus);
->> +		amu_fie_setup(policy->cpus);
-> I think my previous comment still stands.
-> This will indeed set the AMU FIE support for online cpus.
-> Still, on each frequency change, arch_set_freq_scale will be called with
-> `related_cpus`, and that mask will be used to verify support for AMU counters,
-> and it will report there is none as 'related_cpus' won't be a subset of
-> `scale_freq_counters_mask`. As a consequence, new scale will be set, as seen by
-> the cpufreq. Now this will be corrected on next tick but it might cause
-> disruptions. So this change should also be applied to cpufreq - if feasible, or
-> at least be proven not to be an issue. Unless I am missing smth.
+>> This is needed for the 'i2c-pxa' driver in order to be able to fix
+>> a long standing bug for which the fix will be implemented in a
+> 
+>> followup patch.
+> 
+> "...next change."
 
-I know what you mean now. Yes, I think you are right, this change should
-also be applied to cpufreq too. Thanks!
-
->>  
->>  	/*
->>  	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
->> @@ -404,10 +404,60 @@ static struct notifier_block init_amu_fie_notifier = {
->>  	.notifier_call = init_amu_fie_callback,
->>  };
->>  
->> +static int cpuhp_topology_online(unsigned int cpu)
->> +{
->> +	struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
->> +
->> +	/*
->> +	 * If the online CPUs are not all AMU FIE CPUs or the new one is already
->> +	 * an AMU FIE one, no need to set it.
->> +	 */
->> +	if (!policy || !cpumask_available(amu_fie_cpus) ||
->> +	    !cpumask_subset(policy->cpus, amu_fie_cpus) ||
->> +	    cpumask_test_cpu(cpu, amu_fie_cpus))
->> +		return 0;
-> This is getting rather cumbersome as the CPU that is coming online might belong
-> to a policy that is yet to be created. Both AMU FIE support, as well as cpufreq,
-> rely on dynamic hp state so, in theory, we cannot be certain that the cpufreq
-> callback will be fired first (although that seems to be the case).
-> If that does not happen, the policy will not exist, and as such given CPU
-> will not use AMUs for FIE. The problem might be hypothetical but it at least
-> deservers a comment I think.
-
-Actually, this callback will always be fired before the cpufreq one,
-because init_amu_fie() is called before any cpufreq driver init func (It
-has to be, otherwise the init_amu_fie_notifier cannot be registered before
-it is needed.). And the callback that is setup first will be called first
-when online if rely on dynamic hp state. So in your hypothetical scenario,
-yes, the policy will not exist and this funcion will do nothing. But that's
-OK because the notifier callback will do what should be done when the
-policy is being created.
-
-> Second problem is cpumask_available use: this might be the very fist CPU that
-> might potentially rely on AMUs for frequency invariance so that mask may not be
-> available yet. That does not mean AMUs setup should be skipped. Not just yet,
-> at least. Again more hypothetical.
-
-Same, things will be done in the notifier callback when the policy is being
-created.
-
-> BTW, there should be `amu_fie_cpu_supported'.
-
-Sorry, I can't see why it is needed. Could you explained further?
-
->> +
->> +	/*
->> +	 * If the new online CPU cannot pass this check, all the CPUs related to
->> +	 * the same policy should be clear from amu_fie_cpus mask, otherwise they
->> +	 * may use different source of the freq scale.
->> +	 */
->> +	if (!freq_counters_valid(cpu)) {
->> +		topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
->> +						 policy->related_cpus);
->> +		cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
-> I think it might deserve a warning as this probably should not happen.
-
-Yes, makes sense. Thanks!
+Ok.
 
 > 
-> ---
-> BR
-> Beata
->> +		return 0;
->> +	}
->> +
->> +	cpumask_set_cpu(cpu, amu_fie_cpus);
->> +
->> +	topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
->> +
->> +	pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
->> +
->> +	return 0;
->> +}
->> +
->>  static int __init init_amu_fie(void)
->>  {
->> -	return cpufreq_register_notifier(&init_amu_fie_notifier,
->> +	int ret;
->> +
->> +	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
->>  					CPUFREQ_POLICY_NOTIFIER);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
->> +					"arm64/topology:online",
->> +					cpuhp_topology_online,
->> +					NULL);
->> +	if (ret < 0) {
->> +		cpufreq_unregister_notifier(&init_amu_fie_notifier,
->> +					    CPUFREQ_POLICY_NOTIFIER);
->> +		return ret;
->> +	}
->> +
->> +	return 0;
->>  }
->>  core_initcall(init_amu_fie);
->>  
->> -- 
->> 2.33.0
->>
+> ...
 > 
+> The first traditional question is why the generic recovery is not working.
+
+
+The details are in the driver specific patches. Should I write it all down here too?
+
+> 
+> ...
+> 
+>> -	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
+>> +	if (bri->init_recovery) {
+>> +		ret = bri->init_recovery(adap);
+>> +		if (ret)
+>> +			return ret;
+> 
+>> +	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
+>>  		return -EPROBE_DEFER;
+>> +	}
+> 
+> If the above stays, I think we would drop the last and always have
+> init_recovery to be assigned.
+> 
+
+In that case we would have something like this:
+
+    if (!bri->init_recovery)
+        bri->init_recovery = i2c_gpio_init_recovery;
+
+    ret = bri->init_recovery(adap);
+    if (ret)
+        return ret;
+
+Since the callback is used only once, and within the same fuction where it is
+assigned, I don't really see the advantage of the assignment. Although it
+definitely looks cleaner as far as error handling is concerned.
+
+Originally, I have used the following solution:
+
+    if (bri->init_recovery)
+        ret = bri->init_recovery(adap);
+    else
+        ret = i2c_gpio_init_recovery(adap);
+
+    if (ret)
+        return ret;
+
+However the existing code ignores errors from i2c_gpio_init_recovery() except
+EPROBE_DEFER, so I changed this to the code proposed in the patch in order to
+keep the existing behaviour.
+
+Regards,
+Gabor
 
 
