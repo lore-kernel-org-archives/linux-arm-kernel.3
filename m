@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD756CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DC5C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OUP69zR8aHNAmQlT93cdQxLtLhdkhob28vAK60QH8A=; b=cLdS0VlM5uAC3eQgDSE0cmKBdI
-	/6w7eEyrc4rmoM5EqrXvDOBPrBixaYlrpMzFx277DgKYOy/cvLnINi366vYriPZdrYfUWvAZ0/D2l
-	iZvLAEC1npQY2uk3ElR1Cmz3kuSKgthM1tOV9tY1iNM6cr8PS1A7647DGMitzaUoB862jlgJOZB0G
-	5cbQGR8be/9/Jnk6kDfYSk6myLjmvABQttg2Jv2SAYj8p3S6t4snpHFBaUNkZ+VV/Su/Y3A2nf/lv
-	Z1XsKHDia6WFtYA62jMvfZ+PNqs3hD86YfLOXTFgcLkK94sZis8NdSTMw48GgNKcobOuspVQ/5IuS
-	rLdhvRxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pkX+5kdo8xyrCaXTJncZfIB0wbMDb34S8kX12oXZKio=; b=lRQxrCbW8f+7wYKFDTXIpPT2p0
+	lESkZLM3jPFxD50BCWNNOCTYP0y7BYc1FIIE56f7vNhkv0FhJgouoXuX4LeFemAi+j9TI5gAk0oul
+	HsVpQsFhyJ9K50bEukBtHSLwrMBGzqQ6aF+coJqiGTPjjaZ3+fYvSupsbB/ZjT42EWETGfeBuhv9v
+	mDkQNougGsMOwv9uJibV3nP3xui3CRL8r8u7LplKlLtsWsBv7Pz9VAXGVqthOxKVHo570YpMSpN3u
+	Riyaj1l2s5cG/QmcYJrVkv5ibFDb4RL4OtkCjN8+p8GtdLJOkPjW8Oj6KnbQG8CrNbNFAE57vTBqA
+	PuZGPmGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7yG-0000000DFba-3NYF;
-	Wed, 13 Aug 2025 09:40:36 +0000
+	id 1um80m-0000000DFwQ-2QHj;
+	Wed, 13 Aug 2025 09:43:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7mw-0000000DE8a-0HHZ
+	id 1um7oA-0000000DELw-3EBE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 09:28:55 +0000
+	Wed, 13 Aug 2025 09:30:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A614312FC;
-	Wed, 13 Aug 2025 02:28:44 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6C003F63F;
-	Wed, 13 Aug 2025 02:28:49 -0700 (PDT)
-Date: Wed, 13 Aug 2025 10:28:47 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Huang Shijie <shijie@os.amperecomputing.com>,
-	catalin.marinas@arm.com, will@kernel.org,
-	patches@amperecomputing.com, Shubhang@os.amperecomputing.com,
-	krzysztof.kozlowski@linaro.org, bjorn.andersson@oss.qualcomm.com,
-	geert+renesas@glider.be, arnd@arndb.de, nm@ti.com,
-	ebiggers@kernel.org, nfraprado@collabora.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-Message-ID: <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
-References: <20250808025533.6422-1-shijie@os.amperecomputing.com>
- <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
- <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
- <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0498C12FC;
+	Wed, 13 Aug 2025 02:30:00 -0700 (PDT)
+Received: from [10.57.2.66] (unknown [10.57.2.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D4303F63F;
+	Wed, 13 Aug 2025 02:30:03 -0700 (PDT)
+Message-ID: <80c46a5c-7559-4763-bbf2-6c755a4b067c@arm.com>
+Date: Wed, 13 Aug 2025 10:30:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 19/43] arm64: RME: Allow populating initial contents
+To: Vishal Annapurve <vannapurve@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-20-steven.price@arm.com>
+ <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_022854_147149_9C198FEA 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250813_023010_900437_B7314273 
+X-CRM114-Status: GOOD (  39.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +78,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 12:32:36PM -0500, Jeremy Linton wrote:
-> On 8/12/25 11:33 AM, Christoph Lameter (Ampere) wrote:
-> > On Mon, 11 Aug 2025, Jeremy Linton wrote:
-> > 
-> > >  From what I've seen, SCHED_CLUSTER seems to be a bit of give and take
-> > > depending on benchmark and machine. I'm not sure if it should be default
-> > > enabled or not, but it would really be nice to have at least a larger sweep of
-> > > benchmarks/machines in order to be sure of the decision.
-> > 
-> > If the hardware provides a clusterid then I think this clusterid should be
-> > used for the sched domains. CONFIG_SCHED_CLUSTER does that. So it should
-> > be the default.
+On 01/08/2025 02:56, Vishal Annapurve wrote:
+> On Wed, Jun 11, 2025 at 3:59 AM Steven Price <steven.price@arm.com> wrote:
+>>
+>> +static int realm_create_protected_data_page(struct realm *realm,
+>> +                                           unsigned long ipa,
+>> +                                           kvm_pfn_t dst_pfn,
+>> +                                           kvm_pfn_t src_pfn,
+>> +                                           unsigned long flags)
+>> +{
+>> +       unsigned long rd = virt_to_phys(realm->rd);
+>> +       phys_addr_t dst_phys, src_phys;
+>> +       bool undelegate_failed = false;
+>> +       int ret, offset;
+>> +
+>> +       dst_phys = __pfn_to_phys(dst_pfn);
+>> +       src_phys = __pfn_to_phys(src_pfn);
+>> +
+>> +       for (offset = 0; offset < PAGE_SIZE; offset += RMM_PAGE_SIZE) {
+>> +               ret = realm_create_protected_data_granule(realm,
+>> +                                                         ipa,
+>> +                                                         dst_phys,
+>> +                                                         src_phys,
+>> +                                                         flags);
+>> +               if (ret)
+>> +                       goto err;
+>> +
+>> +               ipa += RMM_PAGE_SIZE;
+>> +               dst_phys += RMM_PAGE_SIZE;
+>> +               src_phys += RMM_PAGE_SIZE;
+>> +       }
+>> +
+>> +       return 0;
+>> +
+>> +err:
+>> +       if (ret == -EIO) {
+>> +               /* current offset needs undelegating */
+>> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+>> +                       undelegate_failed = true;
+>> +       }
+>> +       while (offset > 0) {
+>> +               ipa -= RMM_PAGE_SIZE;
+>> +               offset -= RMM_PAGE_SIZE;
+>> +               dst_phys -= RMM_PAGE_SIZE;
+>> +
+>> +               rmi_data_destroy(rd, ipa, NULL, NULL);
+>> +
+>> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+>> +                       undelegate_failed = true;
+>> +       }
+>> +
+>> +       if (undelegate_failed) {
+>> +               /*
+>> +                * A granule could not be undelegated,
+>> +                * so the page has to be leaked
+>> +                */
+>> +               get_page(pfn_to_page(dst_pfn));
 > 
-> Hi,
+> I would like to point out that the support for in-place conversion
+> with guest_memfd using hugetlb pages [1] is under discussion.
 > 
-> The problem is that this information is being sourced from the ACPI PPTT.
-> The ACPI specification (AFAIK) doesn't define a cluster, so the linux
-> cluster information is being 'invented' based on however the firmware vendor
-> choose to group CPU nodes in the PPTT. Which means its possible for them to
-> unknowingly create clusters, or also fail to create them when they make
-> sense.
+> As part of the in-place conversion, the policy we are routing for is
+> to avoid any "refcounts" from KVM on folios supplied by guest_memfd as
+> in-place conversion works by splitting and merging folios during
+> memory conversion as per discussion at LPC [2].
 
-+1, completely agree. As Jeremy mentioned, it is hit or miss and cluster
-is loosely defined and IIRC Huawei pushed this based on their platform at
-the time and it did break some benchmarks on few other platforms. So it
-is not a good idea to make it default config IMO.
+CCA doesn't really support "in-place" conversions (see more detail
+below). But here the issue is that something has gone wrong and the RMM
+is refusing to give us a page back.
 
--- 
-Regards,
-Sudeep
+> 
+> The best way to avoid further use of this page with huge page support
+> around would be either:
+> 1) Explicitly Inform guest_memfd of a particular pfn being in use by
+> KVM without relying on page refcounts or
+
+This might work, but note that the page is unavailable even after user
+space has freed the guest_memfd. So at some point the page needs to be
+marked so that it cannot be reallocated by the kernel. Holding a
+refcount isn't ideal but I haven't come up with a better idea.
+
+Note that this is a "should never happen" situation - the code will have
+WARN()ed already - so this is just a best effort to allow the system to
+limp on.
+
+> 2) Set the page as hwpoisoned. (Needs further discussion)
+
+This certainly sounds like a closer fit - but I'm not very familiar with
+hwpoison so I don't know how easy it would be to integrate with this.
+
+> This page refcounting strategy will have to be revisited depending on
+> which series lands first. That being said, it would be great if ARM
+> could review/verify if the series [1] works for backing CCA VMs with
+> huge pages.
+> 
+> [1] https://lore.kernel.org/kvm/cover.1747264138.git.ackerleytng@google.com/
+> [2] https://lpc.events/event/18/contributions/1764/
+> 
+>> +       }
+>> +
+>> +       return -ENXIO;
+>> +}
+>> +
+>> +static int populate_region(struct kvm *kvm,
+>> +                          phys_addr_t ipa_base,
+>> +                          phys_addr_t ipa_end,
+>> +                          unsigned long data_flags)
+>> +{
+>> +       struct realm *realm = &kvm->arch.realm;
+>> +       struct kvm_memory_slot *memslot;
+>> +       gfn_t base_gfn, end_gfn;
+>> +       int idx;
+>> +       phys_addr_t ipa = ipa_base;
+>> +       int ret = 0;
+>> +
+>> +       base_gfn = gpa_to_gfn(ipa_base);
+>> +       end_gfn = gpa_to_gfn(ipa_end);
+>> +
+>> +       idx = srcu_read_lock(&kvm->srcu);
+>> +       memslot = gfn_to_memslot(kvm, base_gfn);
+>> +       if (!memslot) {
+>> +               ret = -EFAULT;
+>> +               goto out;
+>> +       }
+>> +
+>> +       /* We require the region to be contained within a single memslot */
+>> +       if (memslot->base_gfn + memslot->npages < end_gfn) {
+>> +               ret = -EINVAL;
+>> +               goto out;
+>> +       }
+>> +
+>> +       if (!kvm_slot_can_be_private(memslot)) {
+>> +               ret = -EPERM;
+>> +               goto out;
+>> +       }
+>> +
+>> +       while (ipa < ipa_end) {
+>> +               struct vm_area_struct *vma;
+>> +               unsigned long hva;
+>> +               struct page *page;
+>> +               bool writeable;
+>> +               kvm_pfn_t pfn;
+>> +               kvm_pfn_t priv_pfn;
+>> +               struct page *gmem_page;
+>> +
+>> +               hva = gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
+>> +               vma = vma_lookup(current->mm, hva);
+>> +               if (!vma) {
+>> +                       ret = -EFAULT;
+>> +                       break;
+>> +               }
+>> +
+>> +               pfn = __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FOLL_WRITE,
+>> +                                       &writeable, &page);
+> 
+> Is this assuming double backing of guest memory ranges? Is this logic
+> trying to simulate a shared fault?
+
+Yes and yes...
+
+> Does memory population work with CCA if priv_pfn and pfn are the same?
+> I am curious how the memory population will work with in-place
+> conversion support available for guest_memfd files.
+
+The RMM interface doesn't support an in-place conversion. The
+RMI_DATA_CREATE operation takes the PA of the already delegated
+granule[1] along with the PA of a non-delegated granule with the data.
+
+So to mimic an in-place conversion requires copying the data from the
+page, delegating the (original) page and then using RMI_DATA_CREATE
+which copies the data back. Fundamentally because there may be memory
+encryption involved there is going to be a requirement for this double
+memcpy() approach. Note that this is only relevant during the initial
+setup phase - CCA doesn't (at least currently) permit populated pages to
+be provided to the guest when it is running.
+
+The approach this series takes pre-dates the guest_memfd discussions and
+so is assuming that the shared memory is not (directly) provided by the
+guest_memfd but is using the user space pointer provided in the memslot.
+It would be possible (with the patches proposed) for the VMM to mmap()
+the guest_memfd when the memory is being shared so as to reuse the
+physical pages.
+
+I do also plan to look at supporting the use of the guest_memfd for the
+shared memory directly. But I've been waiting for the discussions to
+conclude before attempting to implement that.
+
+[1] A 'granule' is the RMM's idea of a page size (RMM_PAGE_SIZE), which
+is currently (RMM v1.0) always 4k. So may be different when Linux is
+running with a larger page size.
+
+Thanks,
+Steve
+
+>> +
+>> +               if (is_error_pfn(pfn)) {
+>> +                       ret = -EFAULT;
+>> +                       break;
+>> +               }
+>> +
+>> +               ret = kvm_gmem_get_pfn(kvm, memslot,
+>> +                                      ipa >> PAGE_SHIFT,
+>> +                                      &priv_pfn, &gmem_page, NULL);
+>> +               if (ret)
+>> +                       break;
+>> +
+>> +               ret = realm_create_protected_data_page(realm, ipa,
+>> +                                                      priv_pfn,
+>> +                                                      pfn,
+>> +                                                      data_flags);
+>> +
+>> +               kvm_release_page_clean(page);
+>> +
+>> +               if (ret)
+>> +                       break;
+>> +
+>> +               ipa += PAGE_SIZE;
+>> +       }
+>> +
+>> +out:
+>> +       srcu_read_unlock(&kvm->srcu, idx);
+>> +       return ret;
+>> +}
+>> +
+
 
