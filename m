@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355BDCA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41712CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=; b=gV4oMVrhotAozd6N/3o+4wjRp6
-	pY5RDDAsZYIZz1LdIuJ/Oy581+6gEGV/AT2e3Ih7973mWoHZL3egL5F/AKlLvkZcmmpBICm8MT7+T
-	bV615HkOgXUwk56OA+KxBR+KHJBEIuOPabtP4nm3/Z+FjpHs9nsv3OpFoPPCc76WRwn2X2Ftzusyo
-	O5+0b7mIClUUfDC8Xwqdx8lUVth/+uVD1s1M2ez5g9fWHX4b+qW8SsF4H1crNu24GaqXSGVKK/HM7
-	/uYX5R7j4IGeXd3BAfdbb6HqjCbBr8jMxmDq53iwArBiN15ULdrZ+mAIh6c7aaphfZFMrZRaD9ThS
-	iNmsS9yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRyIsMkNokpmxx9GN/yAItTPslS9LxJi1dQAwPc8yL4=; b=VUJS598rDek6d5PqoP0wkRB7V4
+	6Ntqm+jMGS2Jj8bkZA+A8uTLN7aKYqcpq716FC3APtULVT3iliytqe5LjLQM/d0BEpTCJwYuQp2n0
+	CpprNilDP+wtJ0y6q6t919ew+z2VzIJURhNC2PMtYiq5x0qXbXWCDkuBcMn2PVAuNHQvvdoBG5WZD
+	sHauQ7mhRZkabAZqEbQe1n4KbNoz8gFApto04pYo8RKuOFIOhAW+b2+dScGnslE3r4StjZcfE9d95
+	xa84NwJrpuph0T/yH5eCFOhskQ9eHDVsmEWfmpzO0mOokT2PAVYMGmeN/4eA0zdUYPXZbBrA/e0Ca
+	2xpTr3kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJGU-0000000F3zk-00xk;
-	Wed, 13 Aug 2025 21:44:10 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJA9-0000000F2yq-3MVp
+	id 1umJIc-0000000F4JO-3qnF;
+	Wed, 13 Aug 2025 21:46:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umI83-0000000EwKX-2dDB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 21:37:38 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b9a342e8ffso229626f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 14:37:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755121056; x=1755725856; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=;
-        b=edn+pVyREljRWtOL77fzyia+B3EcsGRu9H64Bu0ZvKHwdW7364w6qOMgmCPv1HOXe5
-         Lvzp8RBVPfsSNUMd8kXLlEOBFbxzdZb33v/vPX3+/m7+KzIOwB3yt+6py1MvXKYFulyl
-         WfuB12qYXbrXb6QySE0I3mIvUtqB6JWb223T0Q7T1h7Tx9y5k1hJr8Qd4kIRC8K3UkEn
-         MFtdngUbKbqBtpDMzJUhdhYdA8/RAf+HnXZX6FOKAAg2uiQiiAiUSLUMp5OX26pBxUqH
-         Tq5KCAjbZHP7GeSWefq8+hbejzrADOelsaVgDglyEb7huYoDscinxTn7OM+iIT9AT8v0
-         808A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755121056; x=1755725856;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=;
-        b=cgPvjGXIPkbOsRl6VgCzMpxkyAuuoIgmUvRXAFqzTT0ZXLfqXxjogQwQBrtp2BkWvT
-         NYXzq7MA/UHRkHrQ9VcP0pkfEDxWU6YHco3+jOcuusAoITgNSJkai2xL1EWL0mAJtd0j
-         PbnCq0JszmgHSx7mcdN4DUPL2ENX+9ZcR46gN7AZAS7Dvi8Zqalewlk8SNABfDXmp+9h
-         KWHh2/r7FIAimaNC7CXtMIz2nBu/VrlJX1fF7yJR3Dd73YgMWUhXdNR9XYsJa8W9yBM6
-         hhLNkTpxMaDan8ZgIwBVx7pWDzylzhSZ6vkyr+S/AIRRYSQFinGmz3uYu7b3nqinf3mi
-         +GAQ==
-X-Gm-Message-State: AOJu0YwRw7wx4SEv/IdnVfAYaWo3fbdaQHK3CZbSWHGVs/yy9rezw8yy
-	g/xKGeCw3EohCfuUM09wr1b6EJbDwPCgV7G2yq2g/jnO9QgKokDQsffxry0FDhdNS14=
-X-Gm-Gg: ASbGncvRx9nnsCy7QjvP8VdlTyrFoE4LkgsFB35GRimUxPVzUGUDZADpBkPK69vt9DS
-	kWKLk8UwHRGVT7vp3VZ1gZWauQ2LCR3mlvG8fx/rM/pyuhiwW+hz5/0iOq7rxncDvyAywDhPrwb
-	VhqHcmTqJ2FllRy27MOiYSWskyVmxZOHgeOb8o8joSe/NhyCILKaXUrNYCF+YG0D1OBAzP6Cvlc
-	tMw15vF+zi2Oj56Zj9ysYn7ecWt/0oN4HoT2J8Oj7FOa/pC5AvsYTsOTEEZIi2OM9K0z27+M78z
-	AnjVomsojWj7VbGeqY0H9Y0MMioaWrnkUg1FG91ZD/jleMQQnR8/WHNhaR657XT0WxXvSNnig+2
-	+G5xQJ73xzu8chSG/CBTwM0CGxC+FOsdQSEYhNVpvicMn/lb3ElW1fwoEL+kHnz4A
-X-Google-Smtp-Source: AGHT+IHDgkAiDoUCfIGsD1JHcyl15RLIs40KyXWWTRPJ8npwc6pR4KZc9S2TTnaRFinIsu9wVY/smQ==
-X-Received: by 2002:a05:6000:400b:b0:3b7:775d:e923 with SMTP id ffacd0b85a97d-3ba506624edmr206323f8f.4.1755121056198;
-        Wed, 13 Aug 2025 14:37:36 -0700 (PDT)
-Received: from [192.168.0.13] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a540945sm15247815e9.26.2025.08.13.14.37.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Aug 2025 14:37:35 -0700 (PDT)
-Message-ID: <03947c1c-1d60-472b-883f-c9875df20245@linaro.org>
-Date: Wed, 13 Aug 2025 22:37:33 +0100
+	Wed, 13 Aug 2025 20:31:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D346114BF;
+	Wed, 13 Aug 2025 13:31:13 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E7FE3F5A1;
+	Wed, 13 Aug 2025 13:31:20 -0700 (PDT)
+Date: Wed, 13 Aug 2025 21:31:07 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	virtualization@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Jason Wang <jasowang@redhat.com>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>
+Subject: Re: [REGRESSION] Virtio networking issues on v6.17-rc1
+Message-ID: <aJz1_HzPsEyvY6HN@pluto>
+References: <aJycJvs3xztfD5Rm@pluto>
+ <aJzU1JsV5we-QqgQ@pluto>
+ <aa46dd09-a450-4633-a647-b04781599c87@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/7] arm64: dts: qcom: qcs8300: Add support for camss
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
- <20250813053724.232494-8-quic_vikramsa@quicinc.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20250813053724.232494-8-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aa46dd09-a450-4633-a647-b04781599c87@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_143737_847213_2ADCED3E 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250813_133123_756993_286D6313 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,199 +69,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 06:37, Vikram Sharma wrote:
-> Add changes to support the camera subsystem on the QCS8300.
+On Wed, Aug 13, 2025 at 09:51:30PM +0200, Paolo Abeni wrote:
+> On 8/13/25 8:09 PM, Cristian Marussi wrote:
+> > On Wed, Aug 13, 2025 at 03:07:34PM +0100, Cristian Marussi wrote:
+> >> Not sure if it has been already reported but in a kvmtool/guest setup moving
+> >> the guest kernel from v6.16 to v6.17-rc1 I completely lost host-guest network
+> >> functionality....in a very funny way, though, I'd say...
+> >>
+> >> In fact NO error is apparently reported in the guest kernel log and the
+> >> interfaces seems perfectly up an running both sides, but looking at the
+> >> host/guest interfaces you can see that ALL received frames are indeed dropped:
+> >>
+> >>
+> >> enp0s1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+> >> ....
+> >>         ether 02:15:15:15:15:15  txqueuelen 1000  (Ethernet)           <<<<<<<<<<<<<<<<
+> >>         RX packets 125  bytes 17948 (17.5 KiB)
+> >>         RX errors 0  dropped 125 overruns 0  frame 0
+> >>         TX packets 1207  bytes 51182 (49.9 KiB)
+> >>         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+> >>
+> >>
+> >> ...on the host same..(taken later on...)
+> >>
+> >> tap0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+> >>         inet 192.168.33.1  netmask 255.255.255.0  broadcast 192.168.33.255
+> >>         ether 8a:10:f6:df:a1:70  txqueuelen 1000  (Ethernet)
+> >>         RX packets 804  bytes 43904 (42.8 KiB)
+> >>         RX errors 0  dropped 804  overruns 0  frame 0
+> >>         TX packets 101  bytes 14408 (14.0 KiB)
+> >>         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+> >>
+> >> ....and for a good reason, apparently, since sniffing around on the Host TAP
+> >> interface I can see a never ending stream of:
+> >>
+> >> $ sudo tcpdump -i tap0
+> >> listening on tap0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+> >> 22:40:42.309158 00:00:00:00:00:00 (oui Ethernet) > 00:00:00:00:00:00 (oui Ethernet), ethertype Unknown (0xffff), length 54:
+> >> 	0x0000:  ffff ffff 0215 1515 1515 0806 0001 0800  ................       <<<<<<<<<<<<<
+> >> 	0x0010:  0604 0001 0215 1515 1515 c0a8 2102 0000  ............!...
+> >> 	0x0020:  0000 0000 c0a8 2101                      ......!.
+> >>
+> >> ... DST/SRC Macs are just all zeros WHILE in the payload you can spot my guest
+> >> SRC mac address 0215 1515 1515  :P
+> >>
+> > 
+> > I bisected this regression to:
+> > 
+> > 56a06bd40fab64448aa6b84aa06b3dc470c1254a is the first bad commit
+> > 
+> > commit 56a06bd40fab64448aa6b84aa06b3dc470c1254a
+> > Author: Paolo Abeni <pabeni@redhat.com>
+> > Date:   Tue Jul 8 17:55:02 2025 +0200
+> > 
+> >     virtio_net: enable gso over UDP tunnel support.
+> >     
+> >     If the related virtio feature is set, enable transmission and reception
+> >     of gso over UDP tunnel packets.
+> >     
+> >     Most of the work is done by the previously introduced helper, just need
+> >     to determine the UDP tunnel features inside the virtio_net_hdr and
+> >     update accordingly the virtio net hdr size.
+> >     
+> >     Acked-by: Jason Wang <jasowang@redhat.com>
+> >     Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+> > 
+> >  drivers/net/virtio_net.c | 85 ++++++++++++++++++++++++++++++++++++------------
+> > 
+> > Reverting this commit on top of v6.17-rc1 solves for me and network works fine again.
 > 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
->   1 file changed, 171 insertions(+)
+> Thanks for reporting, I was not aware yet of this regression.
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> index 3cf1d4bc7e4a..538b55a89f28 100644
-> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-> @@ -4641,6 +4641,177 @@ videocc: clock-controller@abf0000 {
->   			#power-domain-cells = <1>;
->   		};
->   
-> +		camss: isp@ac78000 {
-> +			compatible = "qcom,qcs8300-camss";
-> +
-> +			reg = <0x0 0xac78000 0x0 0x1000>,
-> +			      <0x0 0xac7a000 0x0 0x0f00>,
-> +			      <0x0 0xac7c000 0x0 0x0f00>,
-> +			      <0x0 0xac84000 0x0 0x0f00>,
-> +			      <0x0 0xac88000 0x0 0x0f00>,
-> +			      <0x0 0xac8c000 0x0 0x0f00>,
-> +			      <0x0 0xac90000 0x0 0x0f00>,
-> +			      <0x0 0xac94000 0x0 0x0f00>,
-> +			      <0x0 0xac9c000 0x0 0x2000>,
-> +			      <0x0 0xac9e000 0x0 0x2000>,
-> +			      <0x0 0xaca0000 0x0 0x2000>,
-> +			      <0x0 0xacac000 0x0 0x0400>,
-> +			      <0x0 0xacad000 0x0 0x0400>,
-> +			      <0x0 0xacae000 0x0 0x0400>,
-> +			      <0x0 0xac4d000 0x0 0xf000>,
-> +			      <0x0 0xac60000 0x0 0xf000>,
-> +			      <0x0 0xac85000 0x0 0x0d00>,
-> +			      <0x0 0xac89000 0x0 0x0d00>,
-> +			      <0x0 0xac8d000 0x0 0x0d00>,
-> +			      <0x0 0xac91000 0x0 0x0d00>,
-> +			      <0x0 0xac95000 0x0 0x0d00>;
-> +			reg-names = "csid_wrapper",
-> +				    "csid0",
-> +				    "csid1",
-> +				    "csid_lite0",
-> +				    "csid_lite1",
-> +				    "csid_lite2",
-> +				    "csid_lite3",
-> +				    "csid_lite4",
-> +				    "csiphy0",
-> +				    "csiphy1",
-> +				    "csiphy2",
-> +				    "tpg0",
-> +				    "tpg1",
-> +				    "tpg2",
-> +				    "vfe0",
-> +				    "vfe1",
-> +				    "vfe_lite0",
-> +				    "vfe_lite1",
-> +				    "vfe_lite2",
-> +				    "vfe_lite3",
-> +				    "vfe_lite4";
-> +
-> +			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-> +				 <&camcc CAM_CC_CORE_AHB_CLK>,
-> +				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-> +				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
-> +				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
-> +				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
-> +				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
-> +				 <&camcc CAM_CC_CSID_CLK>,
-> +				 <&camcc CAM_CC_CSIPHY0_CLK>,
-> +				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-> +				 <&camcc CAM_CC_CSIPHY1_CLK>,
-> +				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-> +				 <&camcc CAM_CC_CSIPHY2_CLK>,
-> +				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-> +				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-> +				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
-> +				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
-> +				 <&camcc CAM_CC_ICP_AHB_CLK>,
-> +				 <&camcc CAM_CC_IFE_0_CLK>,
-> +				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
-> +				 <&camcc CAM_CC_IFE_1_CLK>,
-> +				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
-> +				 <&camcc CAM_CC_IFE_LITE_CLK>,
-> +				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
-> +				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
-> +				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
-> +			clock-names = "camnoc_axi",
-> +				      "core_ahb",
-> +				      "cpas_ahb",
-> +				      "cpas_fast_ahb_clk",
-> +				      "cpas_vfe_lite",
-> +				      "cpas_vfe0",
-> +				      "cpas_vfe1",
-> +				      "csid",
-> +				      "csiphy0",
-> +				      "csiphy0_timer",
-> +				      "csiphy1",
-> +				      "csiphy1_timer",
-> +				      "csiphy2",
-> +				      "csiphy2_timer",
-> +				      "csiphy_rx",
-> +				      "gcc_axi_hf",
-> +				      "gcc_axi_sf",
-> +				      "icp_ahb",
-> +				      "vfe0",
-> +				      "vfe0_fast_ahb",
-> +				      "vfe1",
-> +				      "vfe1_fast_ahb",
-> +				      "vfe_lite",
-> +				      "vfe_lite_ahb",
-> +				      "vfe_lite_cphy_rx",
-> +				      "vfe_lite_csid";
-> +
-> +			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
-> +				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
-> +			interrupt-names = "csid0",
-> +					  "csid1",
-> +					  "csid_lite0",
-> +					  "csid_lite1",
-> +					  "csid_lite2",
-> +					  "csid_lite3",
-> +					  "csid_lite4",
-> +					  "csiphy0",
-> +					  "csiphy1",
-> +					  "csiphy2",
-> +					  "tpg0",
-> +					  "tpg1",
-> +					  "tpg2",
-> +					  "vfe0",
-> +					  "vfe1",
-> +					  "vfe_lite0",
-> +					  "vfe_lite1",
-> +					  "vfe_lite2",
-> +					  "vfe_lite3",
-> +					  "vfe_lite4";
-> +
-> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-> +			interconnect-names = "ahb",
-> +					     "hf_0";
-> +
-> +			iommus = <&apps_smmu 0x2400 0x20>;
-> +
-> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +			power-domain-names = "top";
-> +
-> +			status = "disabled";
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +				port@0 {
-> +					reg = <0>;
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +				};
-> +
-> +				port@2 {
-> +					reg = <2>;
-> +				};
-> +			};
-> +		};
-> +
->   		camcc: clock-controller@ade0000 {
->   			compatible = "qcom,qcs8300-camcc";
->   			reg = <0x0 0x0ade0000 0x0 0x20000>;
 
+Hi Paolo,
 
-"Eat recycled food, it's good for the environment and okay for you"
+I spotted this issue on my setup this morning.
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Apparently there is mismatch between the negotiated features (that
+> determinate the virtio net header size) and the actually virtio header
+> used by both the guest and the host, which is totally unexpected.
+> 
+
+Have the UAPI headers been updated ? ... I could not see any change...
+(not that I am very familiar with virtio core :D)
+
+> Could you please share the host kernel version, the arch and the kvmtool
+> version? Also I understand you only upgraded the guest kernel, without
+> any other setup changes, am I correct?
+> 
+
+The arch is arm64, I could reproduce on a Raspberry Pi5 with host v6.6 and on
+an Apple M1 (running Linux natively) with a v6.12.
+
+Both host kernels are from the original distros unchanged (Debian and Fedora)
+
+In both cases I compiled from scratch (make clean && make) kvmtool on the
+respective arm64 Host using the current top of tree from origin/master at:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/will/kvmtool.git/log/
+
+	commit 	ba6830eec0f5 ("vfio: include libgen.h (for musl compatibility)")
+
+Run kvmtoool baer simple with
+	
+	lkvm run -c 4 -m 4G -k $IMAGE_DEF --network virtio -d $ROOTFS_DEF -p "earlycon loglevel=8"
+
+All was fine till v6.16, and it is my usual setup and update procedure that never failed really
+as long as I update kvmtool in sync.
+Not sure if something is still missing from kvmtool master repo for v6.17 but it seems reasonably
+updated (July25).
+
+I wonder if no one else had this issue on arm64/kvmtool....that would made my 'regression'
+suspiciously tied tomy setup..
+
+Thanks for having a look,
+Cristian
 
