@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9D1C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A364BCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wj4vTcYCniQX5Gp3+DCpz2aKfs6tGH9A2hzHV0N2wq8=; b=Rme7KH6yQo3SUiwKodNliu76tf
-	TvTxAuTlNsCSSUdItotOml4qTKiwImRTOmme8czAchMSiF0uelmgJhD+XCokYXcQCIifrZmO80cn1
-	z4F8FTwtf6VFkyhMdjuyJUHjK3Z81o6SPtdCtMFxDzs9a/qNOjc6NqpW+2X2CNXduxJb1eej7+cAX
-	f6JDWJ/5zU9eLEPqTFJ4Iod3HBdyCU4XgdZ96iFWVykJEwwne+/uLU3sCiv/kU5Uht7F+rLGua1mM
-	bWqi0ANdGqJ2mregnPUmauxh2U27yz6sKujVXp4tFLaK8nycTcslQ85vpEnTlny5IxDM1exPR3k5P
-	fYTL/SoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=B/SbbIh/UPzLJt5QjkGkLKx+WkXKR44CtyWN9RDUfVo=; b=R7QB0M7pBgp+oV
+	fOZfgopjvx0Er+qk7G7qW+s6oQt3tDSVZdM2pWB1iII8Gggch66YPzr77ZYM8PFbfC48JvPSnmZnz
+	G+e/IeZn7ZqBq0EQ1uV/kfF9fw3bVbCo+lmcbza3M0kcAezo2yKyUSsbHKtah8Sns8sG81m3c4v8c
+	rjujfi5Ew44jlV/pTHBdZASUS+AuAld/c006KqAEtJHVO8v9/umwAxoWfkwOebBfG85Ea5qIHLJ8I
+	9u6QOauPfXjlYszY1R6EquBb9MLWXtbwWeSl0QoEhCPpIIKUj2+4NzQoUAL66rDXNk/D963+jQE85
+	xAbC6/K1Dj7WenrayOFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umIb3-0000000EyXD-2hJt;
-	Wed, 13 Aug 2025 21:01:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1umIb4-0000000EyXy-0wNf;
+	Wed, 13 Aug 2025 21:01:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umH3W-0000000EmrL-3PmN;
-	Wed, 13 Aug 2025 19:22:40 +0000
+	id 1umHAg-0000000EnXl-2jPy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 19:30:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F03BCA575F3;
-	Wed, 13 Aug 2025 19:22:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 577B0C4CEEB;
-	Wed, 13 Aug 2025 19:22:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1F2105C5780;
+	Wed, 13 Aug 2025 19:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53035C4CEEB;
+	Wed, 13 Aug 2025 19:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755112957;
-	bh=N477yPAUgF8MFDSi5oZ2xy5+NriyaZW/5Ft0lXfFS6Y=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=IheAlBBIQ2Bt+CcdnxUFDJSj2gXEDefMs+XsgEE9N6Y7yBu0Nv5mj9qbxNsshF6QQ
-	 Y1vQB3DWs+KMaZnajrrrq2CzT6s40dejdd7D9ok5zgISoO7dOBqAlKHY5WArlFW8Mn
-	 Rb4xQESpYfHP+rUhzQjpScWPSkgmoaC571N4HTfNCBYaaXn3EqCrRwCEiGcSdpu1Tf
-	 akFZy6tccfWufnGlQvXMmfWkIsatrUjjjh/JlFUTUThMpEXzfyOoQUPq1bqI6/p4YI
-	 wJVkE8y/Oke8jyVdAfTBBYslChMgHuPBRgCpWNStuJuFgzKykTqzT3q56hRM3fp6DZ
-	 mmOdd0TYoKq4Q==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250812203356.735234-1-robh@kernel.org>
-References: <20250812203356.735234-1-robh@kernel.org>
-Subject: Re: [PATCH] ASoC: dt-bindings: Convert brcm,bcm2835-i2s to DT
- schema
-Message-Id: <175511295510.250237.5224980225208974771.b4-ty@kernel.org>
-Date: Wed, 13 Aug 2025 20:22:35 +0100
+	s=k20201202; t=1755113398;
+	bh=+KleZOfIR7Tgv+Cm5hENb583tl/maKQ6Wbwic1dx42Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=gcQcJAMz/aJU2jtU6wJXD2tC2X1kCT4tt9bQatt0b0t9UqD6izDfFKpXOZQvib0mq
+	 0wOGJ9asL/R8Pp0YgHkrKBk4jWc9n1LJTstztrVJUalEm0VJ0BVLCbwZ45aB1YzFOv
+	 hcaETsMw5eHSbIegmqtEHivoQhR/AMC5SM/RGJb6pTFmElIDZliUrT7c/xQWpwWLy4
+	 w5gFJXbHI12U17FZtykl3WDBrckMujtI+8UfEyoaCzN0EgwVMjSZRYwPCfNC/tN9Sl
+	 27GQAx8DZAa2/3PCVW1s7zox6Esj7tMoYIuU6oJ71cNQ6HTn+kPVvWOsg4K9800Rit
+	 2uOwym6XQvJSw==
+Date: Wed, 13 Aug 2025 14:29:57 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
+	johan+linaro@kernel.org, cassel@kernel.org, shradha.t@samsung.com,
+	thippeswamy.havalige@amd.com, quic_schintav@quicinc.com,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v12 2/9] PCI: stm32: Add PCIe host support for STM32MP25
+Message-ID: <20250813192957.GA286749@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cff91
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610090714.3321129-3-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_122238_922603_0D24598B 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250813_123002_949893_FF15D01E 
+X-CRM114-Status: GOOD (  32.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +77,422 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 15:33:55 -0500, Rob Herring (Arm) wrote:
-> Convert the Broadcom BCM2835 I2S/PCM binding to DT schema format. It's a
-> straightforward conversion.
+On Tue, Jun 10, 2025 at 11:07:07AM +0200, Christian Bruel wrote:
+> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
+> controller based on the DesignWare PCIe core.
+> ...
+
+> +struct stm32_pcie {
+> +	struct dw_pcie pci;
+> +	struct regmap *regmap;
+> +	struct reset_control *rst;
+> +	struct phy *phy;
+> +	struct clk *clk;
+> +	struct gpio_desc *perst_gpio;
+> +	struct gpio_desc *wake_gpio;
+> +};
+> +
+> +static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
+> +{
+> +	/* Delay PERST# de-assertion until the power stabilizes */
+> +	msleep(PCIE_T_PVPERL_MS);
+> +
+> +	gpiod_set_value(stm32_pcie->perst_gpio, 0);
+> +
+> +	/* Wait for the REFCLK to stabilize */
+> +	if (stm32_pcie->perst_gpio)
+> +		msleep(PCIE_T_RRS_READY_MS);
+
+This obviously relies on gpiod_set_value(stm32_pcie->perst_gpio, 0)
+being a no-op when perst_gpio == NULL.  Since we're testing perst_gpio
+anyway, I think it might be more readable to avoid relying on
+gpiod_set_value() being a no-op:
+
+  msleep(PCIE_T_PVPERL_MS);
+
+  if (stm32_pcie->perst_gpio) {
+    gpiod_set_value(stm32_pcie->perst_gpio, 0);
+    msleep(PCIE_T_RRS_READY_MS);
+  }
+
+(And a similar change in stm32_pcie_assert_perst())
+
+But this seems wrong because PCIE_T_PVPERL_MS is a delay before PERST#
+is deasserted, but when perst_gpio == NULL, PERST# has already *been*
+deasserted.
+
+So it seems like it would make more sense as:
+
+  if (stm32_pcie->perst_gpio) {
+    msleep(PCIE_T_PVPERL_MS);
+    gpiod_set_value(stm32_pcie->perst_gpio, 0);
+  }
+
+  msleep(PCIE_T_RRS_READY_MS);
+
+> +}
+> +
+> +static void stm32_pcie_assert_perst(struct stm32_pcie *stm32_pcie)
+> +{
+> +	gpiod_set_value(stm32_pcie->perst_gpio, 1);
+> +}
+> +
+> +static int stm32_pcie_start_link(struct dw_pcie *pci)
+> +{
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +
+> +	return regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +				  STM32MP25_PCIECR_LTSSM_EN,
+> +				  STM32MP25_PCIECR_LTSSM_EN);
+> +}
+> +
+> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
+> +{
+> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
+> +
+> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
+> +}
+> +
+> +static int stm32_pcie_suspend_noirq(struct device *dev)
+> +{
+> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = dw_pcie_suspend_noirq(&stm32_pcie->pci);
+> +	if (ret)
+> +		return ret;
+> +
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +	if (!device_wakeup_path(dev))
+> +		phy_exit(stm32_pcie->phy);
+> +
+> +	return pinctrl_pm_select_sleep_state(dev);
+> +}
+> +
+> +static int stm32_pcie_resume_noirq(struct device *dev)
+> +{
+> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	/*
+> +	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
+> +	 * thus if no device is present, must force it low with an init pinmux
+> +	 * to be able to access the DBI registers.
+
+What happens on initial probe if no device is present?  I assume we
+access DBI registers in the dw_pcie_host_init() path, and it seems
+like we'd have the same issue with DBI not being accessible when no
+device is present.
+
+> +	if (!IS_ERR(dev->pins->init_state))
+> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+> +	else
+> +		ret = pinctrl_pm_select_default_state(dev);
+> +
+> +	if (ret) {
+> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	if (!device_wakeup_path(dev)) {
+> +		ret = phy_init(stm32_pcie->phy);
+> +		if (ret) {
+> +			pinctrl_pm_select_default_state(dev);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	ret = clk_prepare_enable(stm32_pcie->clk);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	stm32_pcie_deassert_perst(stm32_pcie);
+> +
+> +	ret = dw_pcie_resume_noirq(&stm32_pcie->pci);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	pinctrl_pm_select_default_state(dev);
+> +
+> +	return 0;
+> +
+> +err_disable_clk:
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +err_phy_exit:
+> +	phy_exit(stm32_pcie->phy);
+> +	pinctrl_pm_select_default_state(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct dev_pm_ops stm32_pcie_pm_ops = {
+> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
+> +				  stm32_pcie_resume_noirq)
+> +};
+> +
+> +static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
+> +};
+> +
+> +static const struct dw_pcie_ops dw_pcie_ops = {
+> +	.start_link = stm32_pcie_start_link,
+> +	.stop_link = stm32_pcie_stop_link
+> +};
+> +
+> +static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie)
+> +{
+> +	struct device *dev = stm32_pcie->pci.dev;
+> +	unsigned int wake_irq;
+> +	int ret;
+> +
+> +	/* Start to enable resources with PERST# asserted */
+
+I guess if device tree doesn't describe PERST#, we assume PERST# is
+actually *deasserted* already at this point (because
+stm32_pcie_deassert_perst() does nothing other than the delay)?
+
+> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = phy_init(stm32_pcie->phy);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
+> +				 STM32MP25_PCIECR_TYPE_MASK,
+> +				 STM32MP25_PCIECR_RC);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	stm32_pcie_deassert_perst(stm32_pcie);
+> +
+> +	if (stm32_pcie->wake_gpio) {
+> +		wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
+> +		ret = dev_pm_set_dedicated_wake_irq(dev, wake_irq);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to enable wakeup irq %d\n", ret);
+> +			goto err_assert_perst;
+> +		}
+> +		irq_set_irq_type(wake_irq, IRQ_TYPE_EDGE_FALLING);
+> +	}
+> +
+> +	return 0;
+> +
+> +err_assert_perst:
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +
+> +err_phy_exit:
+> +	phy_exit(stm32_pcie->phy);
+> +
+> +	return ret;
+> +}
+> +
+> +static void stm32_remove_pcie_port(struct stm32_pcie *stm32_pcie)
+> +{
+> +	dev_pm_clear_wake_irq(stm32_pcie->pci.dev);
+> +
+> +	stm32_pcie_assert_perst(stm32_pcie);
+> +
+> +	phy_exit(stm32_pcie->phy);
+> +}
+> +
+> +static int stm32_pcie_parse_port(struct stm32_pcie *stm32_pcie)
+> +{
+> +	struct device *dev = stm32_pcie->pci.dev;
+> +	struct device_node *root_port;
+> +
+> +	root_port = of_get_next_available_child(dev->of_node, NULL);
+> +
+> +	stm32_pcie->phy = devm_of_phy_get(dev, root_port, NULL);
+> +	if (IS_ERR(stm32_pcie->phy)) {
+> +		of_node_put(root_port);
+> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
+> +				     "Failed to get pcie-phy\n");
+> +	}
+> +
+> +	stm32_pcie->perst_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
+> +						       "reset", GPIOD_OUT_HIGH, NULL);
+> +	if (IS_ERR(stm32_pcie->perst_gpio)) {
+> +		if (PTR_ERR(stm32_pcie->perst_gpio) != -ENOENT) {
+> +			of_node_put(root_port);
+> +			return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
+> +					     "Failed to get reset GPIO\n");
+> +		}
+> +		stm32_pcie->perst_gpio = NULL;
+
+This looks like perst_gpio is optional in device tree?  Is that really
+the case?  It seems hard to ensure we have the PCIE_T_PVPERL_MS and
+PCIE_T_RRS_READY_MS delays in the right place if we don't have
+perst_gpio.
+
+> +	}
+> +
+> +	stm32_pcie->wake_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
+> +						      "wake", GPIOD_IN, NULL);
+> +
+> +	if (IS_ERR(stm32_pcie->wake_gpio)) {
+> +		if (PTR_ERR(stm32_pcie->wake_gpio) != -ENOENT) {
+> +			of_node_put(root_port);
+> +			return dev_err_probe(dev, PTR_ERR(stm32_pcie->wake_gpio),
+> +					     "Failed to get wake GPIO\n");
+> +		}
+> +		stm32_pcie->wake_gpio = NULL;
+> +	}
+> +
+> +	of_node_put(root_port);
+> +
+> +	return 0;
+> +}
+> +
+> +static int stm32_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct stm32_pcie *stm32_pcie;
+> +	struct device *dev = &pdev->dev;
+> +	int ret;
+> +
+> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
+> +	if (!stm32_pcie)
+> +		return -ENOMEM;
+> +
+> +	stm32_pcie->pci.dev = dev;
+> +	stm32_pcie->pci.ops = &dw_pcie_ops;
+> +	stm32_pcie->pci.pp.ops = &stm32_pcie_host_ops;
+> +
+> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
+> +	if (IS_ERR(stm32_pcie->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
+> +				     "No syscfg specified\n");
+> +
+> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(stm32_pcie->clk))
+> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
+> +				     "Failed to get PCIe clock source\n");
+> +
+> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(stm32_pcie->rst))
+> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
+> +				     "Failed to get PCIe reset\n");
+> +
+> +	ret = stm32_pcie_parse_port(stm32_pcie);
+> +	if (ret)
+> +		return ret;
+> +
+> +	platform_set_drvdata(pdev, stm32_pcie);
+> +
+> +	ret = stm32_add_pcie_port(stm32_pcie);
+> +	if (ret)
+> +		return ret;
+> +
+> +	reset_control_assert(stm32_pcie->rst);
+> +	reset_control_deassert(stm32_pcie->rst);
+> +
+> +	ret = clk_prepare_enable(stm32_pcie->clk);
+> +	if (ret) {
+> +		dev_err(dev, "Core clock enable failed %d\n", ret);
+> +		goto err_remove_port;
+> +	}
+> +
+> +	ret = pm_runtime_set_active(dev);
+> +	if (ret < 0) {
+> +		clk_disable_unprepare(stm32_pcie->clk);
+> +		stm32_remove_pcie_port(stm32_pcie);
+> +		return dev_err_probe(dev, ret, "Failed to activate runtime PM\n");
+> +	}
+> +
+> +	pm_runtime_no_callbacks(dev);
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret < 0) {
+> +		clk_disable_unprepare(stm32_pcie->clk);
+> +		stm32_remove_pcie_port(stm32_pcie);
+> +		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
+> +	}
+> +
+> +	ret = dw_pcie_host_init(&stm32_pcie->pci.pp);
+> +	if (ret)
+> +		goto err_disable_clk;
+> +
+> +	if (stm32_pcie->wake_gpio)
+> +		device_init_wakeup(dev, true);
+> +
+> +	return 0;
+> +
+> +err_disable_clk:
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +err_remove_port:
+> +	stm32_remove_pcie_port(stm32_pcie);
+> +
+> +	return ret;
+> +}
+> +
+> +static void stm32_pcie_remove(struct platform_device *pdev)
+> +{
+> +	struct stm32_pcie *stm32_pcie = platform_get_drvdata(pdev);
+> +	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
+> +
+> +	if (stm32_pcie->wake_gpio)
+> +		device_init_wakeup(&pdev->dev, false);
+> +
+> +	dw_pcie_host_deinit(pp);
+> +
+> +	clk_disable_unprepare(stm32_pcie->clk);
+> +
+> +	stm32_remove_pcie_port(stm32_pcie);
+> +
+> +	pm_runtime_put_noidle(&pdev->dev);
+> +}
+> +
+> +static const struct of_device_id stm32_pcie_of_match[] = {
+> +	{ .compatible = "st,stm32mp25-pcie-rc" },
+> +	{},
+> +};
+> +
+> +static struct platform_driver stm32_pcie_driver = {
+> +	.probe = stm32_pcie_probe,
+> +	.remove = stm32_pcie_remove,
+> +	.driver = {
+> +		.name = "stm32-pcie",
+> +		.of_match_table = stm32_pcie_of_match,
+> +		.pm = &stm32_pcie_pm_ops,
+> +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
+> +	},
+> +};
+> +
+> +module_platform_driver(stm32_pcie_driver);
+> +
+> +MODULE_AUTHOR("Christian Bruel <christian.bruel@foss.st.com>");
+> +MODULE_DESCRIPTION("STM32MP25 PCIe Controller driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_DEVICE_TABLE(of, stm32_pcie_of_match);
+> diff --git a/drivers/pci/controller/dwc/pcie-stm32.h b/drivers/pci/controller/dwc/pcie-stm32.h
+> new file mode 100644
+> index 000000000000..387112c4e42c
+> --- /dev/null
+> +++ b/drivers/pci/controller/dwc/pcie-stm32.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * ST PCIe driver definitions for STM32-MP25 SoC
+> + *
+> + * Copyright (C) 2025 STMicroelectronics - All Rights Reserved
+> + * Author: Christian Bruel <christian.bruel@foss.st.com>
+> + */
+> +
+> +#define to_stm32_pcie(x)	dev_get_drvdata((x)->dev)
+> +
+> +#define STM32MP25_PCIECR_TYPE_MASK	GENMASK(11, 8)
+> +#define STM32MP25_PCIECR_LTSSM_EN	BIT(2)
+> +#define STM32MP25_PCIECR_RC		BIT(10)
+> +
+> +#define SYSCFG_PCIECR			0x6000
+> -- 
+> 2.34.1
 > 
-> 
-
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/1] ASoC: dt-bindings: Convert brcm,bcm2835-i2s to DT schema
-      commit: bab4ab484a6ca170847da9bffe86f1fa90df4bbe
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
 
