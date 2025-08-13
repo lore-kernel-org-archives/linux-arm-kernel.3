@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7230FCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856B6CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XimLamn4Mz+6hg6tinLd+SKZfD3TGjk59OoPPjemj7E=; b=Q3vDPozKLaWa8VKd7MC6015kOT
-	IF5E/VLzwJiHZWV2mNRzgB2HD/MFGaJSM/t5RBxfOVyO+kKENveEwJ/BXP9hMnwq6qQh9gWb09bRb
-	hCiECGx68B8PREdX+Q+IyYpy5jNzIqziMdlYbd6F5Lw/njFnFz6JoUVtKJcGJIuF82+am8ejCnV9l
-	+sfrbLzM7ze9aplmK87pK6xg3pU0vXmILLbqq9/oCd7m2dchPzNd24XY8IvVYKzmu/tFWmHLwOCHe
-	IXYYmQeWA2sbZeNYm7oYK76IhdVysWzKBh80W/0zcjycwsyKIVY26jGFw/NZ2Jr77kGfrSLtUZevt
-	uf9po/NQ==;
+	bh=iB0oG4jCZar+MlBWg1xIuSPYx68EeANpTAsftMM0gM4=; b=P2x8krq/MUWbgh6/TxdjpPR6L9
+	Qbj4Jz2bTR1yQOzwNOTfwTkkl/zXUUP03z7aogoNaW7HNf+xlhx70WgE2W2jP6cLE17hmkgwlhYC9
+	ZyGbIM7Fpx53gZ3ypZKW8TKwJYgqejamkcwL7Dm8hd2syoN6edpWQeHTRKuQJcI37T3Fk+gqIgYRY
+	HYl2ShDIVVa5yofrvX9ibvkTPMZLhB+IK4VgkHfUBQIUKdrbdLZZPKtYgt7jYVJKejS4FdNrNgnd2
+	tT0u2NPSS1dYzk9CYCi03J69FHa50X/ZCq6e+TFXM3VkCcEZL5IczD7EJPim3pE1Cuu9z0WKVaZKU
+	DLi2r2Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCnu-0000000Dxpu-19p4;
+	id 1umCnu-0000000DxqA-3UDy;
 	Wed, 13 Aug 2025 14:50:14 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCWS-0000000Dv3C-3mWM
+	id 1umCWm-0000000Dv79-44X1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:32:14 +0000
+	Wed, 13 Aug 2025 14:32:34 +0000
 Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEW9wU2093149;
-	Wed, 13 Aug 2025 09:32:09 -0500
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEWTrN1718718;
+	Wed, 13 Aug 2025 09:32:29 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755095529;
-	bh=XimLamn4Mz+6hg6tinLd+SKZfD3TGjk59OoPPjemj7E=;
+	s=ti-com-17Q1; t=1755095549;
+	bh=iB0oG4jCZar+MlBWg1xIuSPYx68EeANpTAsftMM0gM4=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ZiAeBJYcGeXF0blL7GEu+qezR4zKyDyG0liZ8Q2gEdU28tOdE0EGbXjdNQH2h1rKr
-	 a4NlX2rUY6kTny2zdqzQyDrxlwHz+vM3x6+MIedtQeynskZQNRV4/ZwHayHszfZGQA
-	 8saQ+zCMVTHfqqmpC9k9HN8IbHDs04qZkD00h8zo=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEW92Z1036690
+	b=jtn0YPtS0sv9JQ4EvXOhP04JPA1WSKMCJf0Jbhvxy6Ea1yvYMwK2knaDZIaNYZzfG
+	 c9lJdlH0EbFjvZjO4jhwhCmKH9LJXPBVtAKIIspCseiXnY9A/VVzJiSIaFPdJMMg2C
+	 B0jeBb3sqnmMBfFzJsYShZs674OyjihfqvaV7C3g=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEWTVI1036777
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 09:32:09 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 13 Aug 2025 09:32:29 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 09:32:09 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 09:32:28 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 09:32:08 -0500
+ Frontend Transport; Wed, 13 Aug 2025 09:32:29 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEW9pp2440532;
-	Wed, 13 Aug 2025 09:32:09 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEWT9A2134792;
+	Wed, 13 Aug 2025 09:32:29 -0500
 From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <obh@kernel.org>,
+To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
         Wadim Egorov
 	<w.egorov@phytec.de>
 CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <upstream@lists.phytec.de>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am642-phyboard-electra: Add ti,pa-stats property
-Date: Wed, 13 Aug 2025 09:32:07 -0500
-Message-ID: <175509551721.157835.6025291111862070229.b4-ty@ti.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62a-phycore-som: Add 1.4GHz opp entry
+Date: Wed, 13 Aug 2025 09:32:27 -0500
+Message-ID: <175509553406.158007.6562770238537192028.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250804105450.2322647-1-w.egorov@phytec.de>
-References: <20250804105450.2322647-1-w.egorov@phytec.de>
+In-Reply-To: <20250805090021.1407753-2-w.egorov@phytec.de>
+References: <20250805090021.1407753-1-w.egorov@phytec.de> <20250805090021.1407753-2-w.egorov@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_073213_029777_01C564C6 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250813_073233_096871_F5D51BA0 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,17 +89,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Wadim Egorov,
 
-On Mon, 04 Aug 2025 12:54:50 +0200, Wadim Egorov wrote:
-> Add ti,pa-stats phandles. This is a phandle to PA_STATS syscon regmap
-> and will be used to dump IET related statistics for ICSSG Driver.
+On Tue, 05 Aug 2025 11:00:21 +0200, Wadim Egorov wrote:
+> The phyCORE-AM62Ax is capable of supplying 0v85 to the VDD_CORE
+> which allows the Cortex-A53s to operate at 1.4GHz according to chapter
+> 7.5 of the SoC's data sheet[0]. Append the 1.4Ghz entry to the OPP table
+> to enable this OPP
 > 
+> [0] https://www.ti.com/lit/ds/symlink/am62a3.pdf
 > 
+> [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-am642-phyboard-electra: Add ti,pa-stats property
-      commit: 6aa4c1a38cf10c9760f81d456b7f92ff157e5f83
+[1/1] arm64: dts: ti: k3-am62a-phycore-som: Add 1.4GHz opp entry
+      commit: f13db4f77d54a6db644f09a168919ad1b3432f52
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
