@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075C8C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0993CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 11:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E/I/UV4/s1jFi57l1/zTRTSQC+EHyYYP8Y1oNeYIevY=; b=gD/qlSg7OrsZRX961lH4JhpGKu
-	wFwYRzeGMklQNmRJy54KYEVIlYdBszd7IA1RokKY3VRqmVMa02HuFbo4gvcW+y9vxJsIdjP0QuNAw
-	pyjtBjdM8X5N1bqqkS3su+FJA2O8PYI0xeCa2JgcDdre9i1sz1lARs1yls9e6XH90EkotAzC5WAUz
-	jcKj0FMNPARdqlxzt2r5ahzuv599GdwiEXDHAygP5MaQC8qdHNIL8XKvMaaaBAdU2NjsLM04ItKM2
-	AcUGeuQS6sLB4XSJmOOlx8M/YjQwrLqMOTu09hheogmVjohNRqZcqbVR1VAqnTEwNtKOiEQl0nuMJ
-	mTGuN7zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EFj0wmDTsUVhWeJA+d2RJE6nx0800NRXvTpEOrCXHNk=; b=a4erlvzzR+4FTw28k2iLCSZasP
+	mv+DjAafKlg1GqV3lPJpZRzFns+Ho82UD46lGFMToOR5lLjktKfphhmXCKSqVHMyTRQPs8iJWQQvz
+	1iLFlZIKm+7mzecJe9QWlY+7Qstz4zCuhlCnQF1qCEX2A8vgKY1b3cxHLpcC4nYg57YEjtF7OiHSS
+	M5eNY/wrZkRlpWebctsD/6+RTxKXdb3snhfwqvwZo2H5D2woxLhn88kIi9JL4+Ken5UfKJ+/dfMPc
+	EC3CeOytv8WJWsjVwpzIczs8M+zlJ6UisP8UYHdF32c8phqBuCgCH6qaOtFyo7qJhKhTnkr7iTzyZ
+	N0L5fy6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um9cT-0000000DVu4-2R6r;
-	Wed, 13 Aug 2025 11:26:13 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1um9ez-0000000DW9T-3HPF;
+	Wed, 13 Aug 2025 11:28:49 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8r2-0000000DP5n-2Xsq
+	id 1um8zi-0000000DQBC-0N42
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 10:37:13 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-61539f6815fso1035697a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 03:37:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755081431; x=1755686231; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E/I/UV4/s1jFi57l1/zTRTSQC+EHyYYP8Y1oNeYIevY=;
-        b=gsoNnFhqbm2fuYwp1cbLFcqGnGITYZKapmRMVEfLKQu6jUcscRCWoGOaE/BMLplUZ7
-         aUO0Du5nfna3Np4R40utf65A9Dtc14p79s+1lSou6ZIjYKOqW3JGTQItuXjI/cx48IGS
-         yrKULfxkNrDYR6bFCgrF4zgtKAQKMsRmomvtYw1YcTyxHbkxOscgsTO8o/RufeqhJBXy
-         W7jgLNlEfP3QDDlZBHcJabYhhHx7168Z5xA76KjC66HLQK/LRe796tYyrOraoh4nlAqh
-         b1eP6YW+XUHSCbX37B/slWPqrClIE8/zN4vtiBgO7Ya9IAY+JqSRUPUhTWZk1v7tWvWW
-         BtWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755081431; x=1755686231;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E/I/UV4/s1jFi57l1/zTRTSQC+EHyYYP8Y1oNeYIevY=;
-        b=dXlp0ii+oCX4sqTOwMtvEiWUL4Eoz6AD90OOywCH8sMl8y74E9tJ5NQek2fSam/m1k
-         VxzitN0X/HZQtRLYh0rB2ftegoldJI9Cx+t7Jb54LsBSN99AZ3uQGiTWDXaEBOoUDURl
-         FInK5t/OkWZzUBGBV82WjcoV4DMJGdXHFp0yR2YGrpNSsCYsJ4lvXp2D9JVBJWfhbz2G
-         hPAGTb+ZH9nzpg2DehD70iB2mY3Bwu0wpAMhuGyLm0uNZfolNrEnRgAWi+igKKtnadgI
-         pGi4OdphDAUUIK0VwsR11dfDjb3wEt4stDazMSyMhyGbTBOXXbroYPcX4dRulTq572oA
-         sftQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV7m9yCPO5kOLU9aAiGGoRrVI2A7uIlda5cfp8eVqURgeNtemPmtQRpiXpi2GKA2gEtF+/Sv594YKqfjFa//dGB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMJ1LoGL4I3VjefJPY2kAH4Fxq8qGJ/Y3yihQLb1SfjBMv3T6O
-	wuqRDKJIKkZaFVVPLCQb/Iv0ZpUUSn7KqPcseQWguWZej1v9g9DzYxk2tfCmFjuHAiRvmqWUAKE
-	mW8qt
-X-Gm-Gg: ASbGnctPbrUSQwf4gyYLvVvzSNzodFcRH8xC0FleQDhwQTjE8iK7G/TCMvapHj+Wuol
-	rVBGyK86Z3+n1W03X+aSi0xxe0RZYrPAnu50yRz77ebN0A8dpOhiVl7RiUdsNVL9CLItEpxHYLs
-	q/awB/YPsZE+yiQCsuSL++QBxmCCMDQIa9Cx9+ijKbYD9X75qTXPJKN7cRV3XYKsnRtB61/T4Bm
-	GoZHu/envTTzKmqRlZiBp6+Dr9MFb6X1oXk+xUvj3YaMPYVg3OV0JxSKOAj4NS8Pbgp8gS+Hx8p
-	IdoEByj75nfLBWP8czAND3zlvyMdSeBAZkpXiH2YDAasvX6UA7HUkxoKB3fwA+vsQsYydT0sMh3
-	IuY0AQeVV3vSva1xgneBg2AhuplXVc2aOExDGjCY=
-X-Google-Smtp-Source: AGHT+IGly2ZK68mNw/1W/aNJtrzffPyIHLrPFRXdd6pjFMKVKce3Kx6411EXu07l2T6GFNjgHfafyQ==
-X-Received: by 2002:a05:6402:3591:b0:607:eea1:1038 with SMTP id 4fb4d7f45d1cf-6186bfe6deamr918459a12.6.1755081430915;
-        Wed, 13 Aug 2025 03:37:10 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8fe7995sm21042215a12.36.2025.08.13.03.37.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 03:37:10 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250710-resends-july-exynos990-dt-v2-0-55033f73d1b0@mentallysanemainliners.org>
-References: <20250710-resends-july-exynos990-dt-v2-0-55033f73d1b0@mentallysanemainliners.org>
-Subject: Re: [PATCH v2 0/5] Add watchdog and USB nodes for the Exynos990
- SoC
-Message-Id: <175508142927.40586.1715682122583711068.b4-ty@linaro.org>
-Date: Wed, 13 Aug 2025 12:37:09 +0200
+	Wed, 13 Aug 2025 10:46:11 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 1290F379;
+	Wed, 13 Aug 2025 12:45:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755081914;
+	bh=X0gm3TU0EO1LhkcEuDmhEGdw+KMdvnLjq07FmddfPW8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cz8FsycvLohfuBrR41qKMNx14yEtKsVtwV6bJS7HWPAlOMXyCZo1s6eL5afllkkk6
+	 klsfGql7km8AnFaPRiMKyf/LUNfPSnta02HtNahzWV8mkNx0Eub2wQbFZFxLqD59cy
+	 02ru76BIIn81jb+pDOi73MPoKm3X7I3fOW7EmwIE=
+Date: Wed, 13 Aug 2025 13:45:48 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+Cc: linux-media@vger.kernel.org,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 56/76] media: s5p-jpeg: Access v4l2_fh from file
+Message-ID: <20250813104548.GE6440@pendragon.ideasonboard.com>
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+ <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
+ <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
+ <20250812075155.GG30054@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250812075155.GG30054@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_033712_649127_1D5A24CE 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20250813_034610_268142_EE363BB0 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,32 +75,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 10 Jul 2025 18:50:04 +0200, Igor Belwon wrote:
-> This series adds the nodes to enable the watchdog and USB support for
-> the Exynos990 SoC.
+On Tue, Aug 12, 2025 at 10:51:57AM +0300, Laurent Pinchart wrote:
+> On Tue, Aug 12, 2025 at 08:13:39AM +0200, Andrzej Pietrasiewicz wrote:
+> > Hi Laurent & Jacopo,
+> > 
+> > Thanks for taking care of this, this generally looks good to me,
+> > but please see inline.
+> > 
+> > W dniu 10.08.2025 o 03:30, Laurent Pinchart pisze:
+> > > From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > > 
+> > > The v4l2_fh associated with an open file handle is now guaranteed
+> > > to be available in file->private_data, initialised by v4l2_fh_add().
+> > > 
+> > > Access the v4l2_fh, and from there the driver-specific structure,
+> > > from the file * in all ioctl handlers.
+> > > 
+> > > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > > Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+> > > Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> > > Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> > > ---
+> > > Changes since v1:
+> > > 
+> > > - Update file-to-ctx macro due to removal of fh-to-ctx macro
+> > > ---
+> > >   .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
+> > >   1 file changed, 11 insertions(+), 16 deletions(-)
+> > > 
+> > > diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > > index 65f256db4c76..81792f7f8b16 100644
+> > > --- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > > +++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> > > @@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
+> > >   	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
+> > >   }
+> > >   
+> > > -static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
+> > > -{
+> > > -	return container_of(fh, struct s5p_jpeg_ctx, fh);
+> > > -}
+> > > -
+> > >   static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
+> > >   {
+> > > -	return fh_to_ctx(file_to_v4l2_fh(filp));
+> > > +	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
+> > >   }
+> > >   
+> > >   static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
+> > > @@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
+> > >   
+> > >   static int s5p_jpeg_release(struct file *file)
+> > >   {
+> > > -	struct s5p_jpeg *jpeg = video_drvdata(file);
+> > >   	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > > +	struct s5p_jpeg *jpeg = video_drvdata(file);
+> > 
+> > What is the purpose of this change?
 > 
-> The watchdog consists of two clusters (cl0 and cl2). Unsure why Samsung has
-> skipped cl1 on this SoC. Both are enabled and working - tested on a
-> device from the -x1s family.
+> I don't think this is needed, I believe it can be dropped.
 > 
-> [...]
+> I'll send a new version (of this patch only, I don't want to respin the
+> whole series and spam everybody).
 
-Applied, thanks!
+The series got merged before I could send a new version of this patch.
+Sorry about that. The new order of the variables doesn't really make a
+difference as far as I can see, so I won't send a patch to revert it. If
+there's an issue I'm missing that requires a fix, please let me know.
 
-[1/5] arm64: dts: exynos990: Enable watchdog timer
-      https://git.kernel.org/krzk/linux/c/ad211501fff48d0cda35dd187aa7e356a4fb5581
-[2/5] arm64: dts: exynos990: Add USB nodes
-      https://git.kernel.org/krzk/linux/c/d3830b5b0db59d0b8e33083462e4c0dd021ed300
-[3/5] arm64: dts: exynos990-x1s-common: Enable USB
-      https://git.kernel.org/krzk/linux/c/707181264badf4f82c78c18348684cd06db31ce0
-[4/5] arm64: dts: exynos990-c1s: Enable USB
-      https://git.kernel.org/krzk/linux/c/32532687a9ce2f1c5556e082f957200a81ba0ad7
-[5/5] arm64: dts: exynos990-r8s: Enable USB
-      https://git.kernel.org/krzk/linux/c/e28c1117deda5a80df14b579170c1a90fc82bf5f
+> > >   
+> > >   	mutex_lock(&jpeg->lock);
+> > >   	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+> > > @@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
+> > >   static int s5p_jpeg_querycap(struct file *file, void *priv,
+> > >   			   struct v4l2_capability *cap)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   
+> > >   	if (ctx->mode == S5P_JPEG_ENCODE) {
+> > >   		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
+> > > @@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
+> > >   static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+> > >   				   struct v4l2_fmtdesc *f)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   
+> > >   	if (ctx->mode == S5P_JPEG_ENCODE)
+> > >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> > > @@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+> > >   static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
+> > >   				   struct v4l2_fmtdesc *f)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   
+> > >   	if (ctx->mode == S5P_JPEG_ENCODE)
+> > >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> > > @@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+> > >   	struct vb2_queue *vq;
+> > >   	struct s5p_jpeg_q_data *q_data = NULL;
+> > >   	struct v4l2_pix_format *pix = &f->fmt.pix;
+> > > -	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
+> > >   
+> > >   	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
+> > >   	if (!vq)
+> > > @@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
+> > >   static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+> > >   				  struct v4l2_format *f)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   	struct v4l2_pix_format *pix = &f->fmt.pix;
+> > >   	struct s5p_jpeg_fmt *fmt;
+> > >   	int ret;
+> > > @@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+> > >   static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
+> > >   				  struct v4l2_format *f)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   	struct s5p_jpeg_fmt *fmt;
+> > >   
+> > >   	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
+> > > @@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
+> > >   	if (ret)
+> > >   		return ret;
+> > >   
+> > > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> > > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+> > >   }
+> > >   
+> > >   static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+> > > @@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+> > >   	if (ret)
+> > >   		return ret;
+> > >   
+> > > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> > > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+> > >   }
+> > >   
+> > >   static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
+> > > @@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
+> > >   static int s5p_jpeg_g_selection(struct file *file, void *priv,
+> > >   			 struct v4l2_selection *s)
+> > >   {
+> > > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> > > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> > >   
+> > >   	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
+> > >   	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
 
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Regards,
 
+Laurent Pinchart
 
