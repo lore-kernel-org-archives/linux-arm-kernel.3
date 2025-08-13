@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF42FC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C134CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zqPaz0acpSH3c3quLtrlZmoX4aThGp3mzoNckla2JY=; b=k5CM1uVGlMUdUQ6Tm/ePMu4Yoa
-	pX3HCLGg+qb+jQ5QEiV6Ye9UpeSjZ3Z55IulD33XWIixCfSJ2rbnM9JHWOfxRoKrnEK5XL+a9qePm
-	UICY5SpYq11XQYtytGQBXiCqIhPlLVq4KHJC9WQqZktEnO0L8zJKQGPg4ok84XKYb/6x/3Vrz1pdq
-	hirPVQG2D/WfO3PE4/O/nkKgTPca5gxay1inHp5nmdYhu1XcW7sotFGlRpVnVluRyewGQB/s4bsYE
-	ELOG/vgjjGl22NIbDDzJFn0KuJOrw0YkOdf2foOhKzqIaJGOAbKZxf9K76ROQHDVXinp//wZwqm6i
-	6o8740Lw==;
+	bh=L2tHDy55HOk9ijWDaN+WcgImYxYAQUJs9dgbDmjxfPA=; b=WgWDUep6ROu0rCUPRaYRzGf/iC
+	4Z4OLBBhuHuIjG4E9jDlqt+jkMwsep79ouZP9ineICblQQZBSSLfdFCPEjXQv2jqfeTj5/53okKaG
+	/7Tl0azCRZ2RPWeXE3qbzHdpUIXQdSlvgIlAR9ex2ADTmVPIiprKZ9c+1C8iEc2GZWeSjFKZT68xn
+	1T6PSBjixK+jnR8F3XcuqFNDTPmxj8Wk3wS7lV4cK764LgyWOdVBqsskePf20ZoT2DsbHOi5DoTHw
+	KsxunxZJYTqVk3oYM+STCofZtIWu1t5jPC+o+obQnoZ06XgPD7e+brN1/wMt4LICwls29MFPrsW/q
+	xtw3rfPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBOm-0000000DkVM-1B7S;
-	Wed, 13 Aug 2025 13:20:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umAf5-0000000DeLH-1dI6
+	id 1umBSB-0000000DlEU-3ca9;
+	Wed, 13 Aug 2025 13:23:43 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umBGP-0000000DjAG-0BGP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 12:33:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6AF212FC;
-	Wed, 13 Aug 2025 05:32:50 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D37813F5A1;
-	Wed, 13 Aug 2025 05:32:56 -0700 (PDT)
-Date: Wed, 13 Aug 2025 13:32:54 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 0/4] clocksource: Add standalone MMIO ARM arch timer
- driver
-Message-ID: <20250813-opalescent-boisterous-viper-d0061d@sudeepholla>
-References: <20250807160243.1970533-1-maz@kernel.org>
- <20250813-macho-snobbish-alpaca-ff07fa@sudeepholla>
- <aJx4g8z3l438Qgnv@raptor>
+	Wed, 13 Aug 2025 13:11:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755090693; x=1786626693;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=q8TIZHVsbpGiRDf0kANTJMdQ12mBUINz3XeIl5TqG6M=;
+  b=RxEgLO6qTdht6eSrG3r7qsqxy5aQJOzs9J9NdyTL2tmlaYH9JvQkE/vc
+   DlCk5j5UGlnBwGX10u2Dsz3niY1yVhrsTbWSdGFpccAHizOJCpc0iAGbh
+   Jm8ukuYNjT4cH9TMKkkOo+/tkkp8onJT50nh5bz4obOoI5IOp8yx/WMpL
+   1cUcTCLXLGZZND2D0vBAf4P0Aviit2Z3wECT85ttweHVTXghMgW6qtTbB
+   NSK79JnEOhH8jyMT24O+CVjIgq2CnsIgm2PJJgCzmNpSieGdFZRfQ9/D0
+   qbOPeIhHCh32r9hrxfqwHhCvy2TQgyzhLPzn4DFwKLO5T9+/tXm6DnJr5
+   Q==;
+X-CSE-ConnectionGUID: U2ItcfFiSESSrx6mpcfsww==
+X-CSE-MsgGUID: Ky8wz1NUQMK4tUZzpFf/tw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="57304121"
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="57304121"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:11:31 -0700
+X-CSE-ConnectionGUID: cMXgOAqRTC2XlX23mmY/7A==
+X-CSE-MsgGUID: sRK+mKWDQBuKDzCZdZkvgg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="170680302"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:11:27 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1umBGF-00000005RPp-1iZD;
+	Wed, 13 Aug 2025 16:11:23 +0300
+Date: Wed, 13 Aug 2025 16:11:23 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
+	Robert Marko <robert.marko@sartura.hr>,
+	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] i2c: pxa: handle 'Early Bus Busy' condition on
+ Armada 3700
+Message-ID: <aJyO-5k29AAAnHdz@smile.fi.intel.com>
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com>
+ <aJpTHKbLbTz-Z3bo@smile.fi.intel.com>
+ <27906f7b-b137-4af2-aa87-49519495a34d@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <aJx4g8z3l438Qgnv@raptor>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <27906f7b-b137-4af2-aa87-49519495a34d@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_053259_472230_716966EE 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20250813_061133_092463_06BA9B0A 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +101,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 12:35:31PM +0100, Alexandru Elisei wrote:
-> Hello,
-> 
-> On Wed, Aug 13, 2025 at 11:55:48AM +0100, Sudeep Holla wrote:
-> > +Alexandru
-> > 
-> > On Thu, Aug 07, 2025 at 05:02:39PM +0100, Marc Zyngier wrote:
-> > > For the past 10 years, both Mark and I have been lamenting about the
-> > > sorry state of the badly named "arch_timer" driver, and about the way
-> > > the MMIO part is intricately weaved into the system-register part.
-> > > 
-> > > The time has finally come to have a stab at it.
-> > > 
-> > > This small series simply creates a new timer driver for the MMIO arch
-> > > timer, and only that. It is an actual driver, and not some kludge that
-> > > has to run super early (that's what the per-CPU timers are for). This
-> > > allows, in turn, a pretty large cleanup of the per-CPU driver, though
-> > > there is more to come -- one thing at a time.
-> > > 
-> > > As an added bonus, we get a clocksource, which the original code
-> > > didn't provide. Just in case it might be useful. The end-result is far
-> > > more readable, and about 100 lines smaller.
-> > > 
-> > 
-> > (Tested it on Juno R2 and FVP in both DT and ACPI boot)
-> > 
-> > Tested-by: Sudeep Holla <sudeep.holla@arm.com>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > 
-> > Alexandru found it useful(avoids some unexpected hang IIUC) in his setup
-> > based on bootwrapper which doesn't initialise MMIO timers.
-> 
-> Just FYI, this is the testing that I did.
-> 
-> Without this series, if firmware (boot-wrapper-aarch64 in my testing) doesn't
-> configure access to the memory-mapped timer:
-> 
-> [    0.000000] arch_timer: Unable to find a suitable frame in timer @ 0x000000002a810000
-> [    0.000000] Failed to initialize '/timer@2a810000': -22
-> ..
-> [    0.528000] kvm [1]: kvm_arch_timer: uninitialized timecounter
-> ..
-> # ls /dev/kvm
-> ls: cannot access '/dev/kvm': No such file or directory
-> 
-> With this series, if firmware doesn't configure access to the memory-mapped
-> timer:
-> 
-> [    0.549399] kvm [1]: Hyp nVHE mode initialized successfully
-> ..
-> [    2.018050] arch-timer-mmio 2a810000.timer: Unable to find a suitable frame in timer @ 0x000000002a810000
-> [    2.018123] arch-timer-mmio 2a810000.timer: probe with driver arch-timer-mmio failed with error -22
-> ..
-> # ls /dev/kvm
-> /dev/kvm
-> 
+On Wed, Aug 13, 2025 at 12:50:35PM +0200, Gabor Juhos wrote:
+> 2025. 08. 11. 22:31 keltezéssel, Andy Shevchenko írta:
+> > On Mon, Aug 11, 2025 at 09:49:57PM +0200, Gabor Juhos wrote:
 
-Thanks for the details. I misunderstood as some VM boot hang and was wondering
-why I couldn't reproduce it(was failing gracefully though no KVM and hence
-VM fails to launch).
+...
+
+> >> Note: the patch is included in this series for completeness however
+> >> it can be applied independently from the preceding patches. On kernels
+> >> 6.3+, it restores I2C functionality even in itself because it recovers
+> >> the controller from the bad state described in the previous patch.
+> > 
+> > Sounds to me like this one should be applied first independently on the
+> > discussion / conclusion on the patch 1.
+> 
+> Yes. At least the users would have a working although not optimal solution in
+> the meantime.
+
+Then please reorder in the next version.
 
 -- 
-Regards,
-Sudeep
+With Best Regards,
+Andy Shevchenko
+
+
 
