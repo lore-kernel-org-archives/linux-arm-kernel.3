@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEF2CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF45CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 18:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6fScnDH6lTMLcH6ISVcCscZOQGAvklOYrVqwtq5sjMw=; b=vmWmBvG2vTHQ2U+/zXp5nHprY7
-	3Ri3ndAS5u4aZvZ0tMhoaI00DSil8MQ2LBWYyVBjtU0mAAp8RBNmghZfusvkktmg4ixvgnt4T4Ba0
-	G7ic6pJUqXDEzyJr/GGuD9FftCFHrT1M5tyt5CF637N9tizsGHoNvy7Yca1dUvZBpcqedT9DXpod9
-	g22Q1gc1puwAtXgKbunWQW67UAgH9m0rxQf/Utv/Rq1sGOIgqbIMgPQCnFHMIyAiDRHDReM5w3E3o
-	motjzXBHEw+TEC0I5MCokDHFip0oNCKk8jtxBkmFd+QrXumiKznSKPPB1Xihu1bXkcywAYDzBMRyB
-	TpCOgL6A==;
+	bh=rSNYE0+8wGItL53UywO960XlXbzNXz6cVLTWx6ycvcQ=; b=j/L/7ZDQKnT5Hk4sp1xcgNs34h
+	84Abn0g0JbEKM6wa1BvbrP7dHPAoEmP3rcwbMBjeg5AcgbS49w/bS7A+QWfGxsIZuLW8ld2WxAJyi
+	h6tlL43QHVq86Tv6xtYKp/g0z2grlaMT8ziuih8npQTHfNvTni9P+UwM1W1iIUBQhDL4fhyYYAeEr
+	Cj5LrXXxiW+oPJFQESjEatvdkZbQqqQkeeM1YMoct8ZnngqMt2MJffDj4ZpBXJ9CsuNdTOlvjUWJl
+	o/imC2rQRW7oF/AIX5E+vXdb3WgrTESteq+JMB65hI0kT4Dvy7w/cKrtUFUMcl3WXWJ3cKQskkcko
+	SuCMezCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFyt-0000000EhCm-0x9B;
-	Wed, 13 Aug 2025 18:13:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umEsB-0000000EWHC-05Nm;
-	Wed, 13 Aug 2025 17:02:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 696B21E7D;
-	Wed, 13 Aug 2025 10:02:38 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 520FE3F77D;
-	Wed, 13 Aug 2025 10:02:42 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	kan.liang@linux.intel.com
-Cc: linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-csky@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
+	id 1umG1F-0000000EhVF-2ptC;
+	Wed, 13 Aug 2025 18:16:14 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umE9X-0000000ELlZ-40me
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 Aug 2025 16:16:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:in-reply-to:references:mime-version:content-transfer-encoding;
+	 s=k1; bh=rSNYE0+8wGItL53UywO960XlXbzNXz6cVLTWx6ycvcQ=; b=ISvYTg
+	WhDGx+Wy35plAXwYUFhPtCCl8PJ7ohyke+YARSl/rdaBMTQW3aCYHG03tjxQ3RL5
+	lS+Qt6fczyFDZiUyiSsLcOqjcPnHweE45GquDtv3yDwOOfJeYqX+FO04280N2not
+	qNchAZ5650rZh7EQu6rRzKGoSADIcpQhBz80xUCVduS4Du5I+EMJhGuv8Yq0Z39i
+	5J72ESW08BF/zWZ9VMrTzGrzFYsdgA8xRK1ieDgD1AMY0mQvc1NIvwMO8n3wT90R
+	7v2ibIbmJc/R/xdY1JWKehrd2NVpNVmXDKcn9IwCnPHabtpqVE+Y8XbYFgnTkCz+
+	TRfrV52Gre5fOrPA==
+Received: (qmail 695845 invoked from network); 13 Aug 2025 18:16:32 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Aug 2025 18:16:32 +0200
+X-UD-Smtp-Session: l3s3148p1@1HHeekE8Er1tKLKq
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Yangtao Li <tiny.windzz@gmail.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
 	linux-pm@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	dmaengine@vger.kernel.org,
-	linux-fpga@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	coresight@lists.linaro.org,
-	iommu@lists.linux.dev,
-	linux-amlogic@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 18/19] perf: Introduce positive capability for raw events
-Date: Wed, 13 Aug 2025 18:01:10 +0100
-Message-Id: <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1755096883.git.robin.murphy@arm.com>
-References: <cover.1755096883.git.robin.murphy@arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 20/21] thermal: remove unneeded 'fast_io' parameter in regmap_config
+Date: Wed, 13 Aug 2025 18:15:06 +0200
+Message-ID: <20250813161517.4746-21-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
+References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_100247_169223_7B016F7D 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20250813_091640_267996_2CB6DCC8 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,136 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only a handful of CPU PMUs accept PERF_TYPE_{RAW,HARDWARE,HW_CACHE}
-events without registering themselves as PERF_TYPE_RAW in the first
-place. Add an explicit opt-in for these special cases, so that we can
-make life easier for every other driver (and probably also speed up the
-slow-path search) by having perf_try_init_event() do the basic type
-checking to cover the majority of cases.
+When using MMIO with regmap, fast_io is implied. No need to set it
+again.
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
+No dependencies, can be applied directly to the subsystem tree. Buildbot is
+happy, too.
 
-A further possibility is to automatically add the cap to PERF_TYPE_RAW
-PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
-undecided...
----
- arch/s390/kernel/perf_cpum_cf.c    |  1 +
- arch/s390/kernel/perf_pai_crypto.c |  2 +-
- arch/s390/kernel/perf_pai_ext.c    |  2 +-
- arch/x86/events/core.c             |  2 +-
- drivers/perf/arm_pmu.c             |  1 +
- include/linux/perf_event.h         |  1 +
- kernel/events/core.c               | 15 +++++++++++++++
- 7 files changed, 21 insertions(+), 3 deletions(-)
+ drivers/thermal/armada_thermal.c | 1 -
+ drivers/thermal/sun8i_thermal.c  | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
-index 1a94e0944bc5..782ab755ddd4 100644
---- a/arch/s390/kernel/perf_cpum_cf.c
-+++ b/arch/s390/kernel/perf_cpum_cf.c
-@@ -1054,6 +1054,7 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
- /* Performance monitoring unit for s390x */
- static struct pmu cpumf_pmu = {
- 	.task_ctx_nr  = perf_sw_context,
-+	.capabilities = PERF_PMU_CAP_RAW_EVENTS,
- 	.pmu_enable   = cpumf_pmu_enable,
- 	.pmu_disable  = cpumf_pmu_disable,
- 	.event_init   = cpumf_pmu_event_init,
-diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
-index a64b6b056a21..b5b6d8b5d943 100644
---- a/arch/s390/kernel/perf_pai_crypto.c
-+++ b/arch/s390/kernel/perf_pai_crypto.c
-@@ -569,7 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paicrypt = {
- 	.task_ctx_nr  = perf_hw_context,
--	.capabilities = PERF_PMU_CAP_SAMPLING,
-+	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
- 	.event_init   = paicrypt_event_init,
- 	.add	      = paicrypt_add,
- 	.del	      = paicrypt_del,
-diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
-index 1261f80c6d52..bcd28c38da70 100644
---- a/arch/s390/kernel/perf_pai_ext.c
-+++ b/arch/s390/kernel/perf_pai_ext.c
-@@ -595,7 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
- /* Performance monitoring unit for mapped counters */
- static struct pmu paiext = {
- 	.task_ctx_nr  = perf_hw_context,
--	.capabilities = PERF_PMU_CAP_SAMPLING,
-+	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
- 	.event_init   = paiext_event_init,
- 	.add	      = paiext_add,
- 	.del	      = paiext_del,
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index 789dfca2fa67..764728bb80ae 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -2697,7 +2697,7 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
- }
+diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_thermal.c
+index c2fbdb534f61..252d5afecea1 100644
+--- a/drivers/thermal/armada_thermal.c
++++ b/drivers/thermal/armada_thermal.c
+@@ -722,7 +722,6 @@ static const struct regmap_config armada_thermal_regmap_config = {
+ 	.reg_bits = 32,
+ 	.reg_stride = 4,
+ 	.val_bits = 32,
+-	.fast_io = true,
+ };
  
- static struct pmu pmu = {
--	.capabilities		= PERF_PMU_CAP_SAMPLING,
-+	.capabilities		= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
- 
- 	.pmu_enable		= x86_pmu_enable,
- 	.pmu_disable		= x86_pmu_disable,
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 72d8f38d0aa5..bc772a3bf411 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -877,6 +877,7 @@ struct arm_pmu *armpmu_alloc(void)
- 		 * specific PMU.
- 		 */
- 		.capabilities	= PERF_PMU_CAP_SAMPLING |
-+				  PERF_PMU_CAP_RAW_EVENTS |
- 				  PERF_PMU_CAP_EXTENDED_REGS |
- 				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
- 	};
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 183b7c48b329..c6ad036c0037 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -305,6 +305,7 @@ struct perf_event_pmu_context;
- #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
- #define PERF_PMU_CAP_AUX_PAUSE		0x0200
- #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-+#define PERF_PMU_CAP_RAW_EVENTS		0x0800
- 
- /**
-  * pmu::scope
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 71b2a6730705..2ecee76d2ae2 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -12556,11 +12556,26 @@ static inline bool has_extended_regs(struct perf_event *event)
- 	       (event->attr.sample_regs_intr & PERF_REG_EXTENDED_MASK);
- }
- 
-+static bool is_raw_pmu(const struct pmu *pmu)
-+{
-+	return pmu->type == PERF_TYPE_RAW ||
-+	       pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
-+}
-+
- static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
- {
- 	struct perf_event_context *ctx = NULL;
- 	int ret;
- 
-+	/*
-+	 * Before touching anything, we can safely skip:
-+	 * - any event for a specific PMU which is not this one
-+	 * - any common event if this PMU doesn't support them
-+	 */
-+	if (event->attr.type != pmu->type &&
-+	    (event->attr.type >= PERF_TYPE_MAX || is_raw_pmu(pmu)))
-+		return -ENOENT;
-+
- 	if (!try_module_get(pmu->module))
- 		return -ENODEV;
+ static int armada_thermal_probe_legacy(struct platform_device *pdev,
+diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
+index 22674790629a..284684137c43 100644
+--- a/drivers/thermal/sun8i_thermal.c
++++ b/drivers/thermal/sun8i_thermal.c
+@@ -149,7 +149,6 @@ static const struct regmap_config config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+-	.fast_io = true,
+ 	.max_register = 0xfc,
+ };
  
 -- 
-2.39.2.101.g768bb238c484.dirty
+2.47.2
 
 
