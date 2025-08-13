@@ -4,98 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA178CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAF9CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 10:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JD54AIE7oiRCs4woHpfhB+93xFqsIDDkOL27IqJM270=; b=E2qm+dHJDGdnwZRrDdR9I7a46v
-	G9ouC4Rb9B+ZH9z8RydC0hVgcEPH4RJKsTCFexTZXKPAiAt2zRTXu8G5BosJFyYUMC5VFUUzh7Rgl
-	8ITf6M/jIEhWeQ17h/PYaf++F5gIET3aOzlnrterTsf99PNQKpmrwJtXFkk/BaQgnCaFUNYi2RtkE
-	AqPuDI0gR+7xXKzX/FRMrbyAuj9AlMre/1/iV0VzPE2JHMiH7imDSl3z8R4W1D+LkdbsVigPeSiSF
-	H6LF+hS2n5xPSrODJr5RiD+Q70YA6exRySMHSy7RRzy4XfoPTfiDtaExK9ryf/1SURQq6C6FU9m/P
-	Jd88k3wQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=; b=isUHoUdXuKZKq0gp9h6kcKDS/+
+	r7AR4+5ybENIyLzz+YNKBZTYzLZdCjNMIwiS/0WBpvpGw0Sl3wZXfo/WM8wkHUrG3JS04B9UdXt8J
+	sgZn+VQtgZY6y18K3gJ+55BRTWK7R5xomhXZzI8J3WjpBUP7zUuX24B2fSz2SU0RVNbsCyJRyOG7g
+	ubD2sF7yPlUVdSM8O6FSJy5JtrcyE+xZzMq6Ujb/qBcvZi1fIy/DM4pBqkqE95i0IDgetW85qtZB/
+	5in598bbhq/J7ll5YIwBZZNWjn+krCKL5u+qcjsDY626rBX6RScfYg+4b5qSvabwfbTPHDFRmc3m9
+	pc4xFL7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8WN-0000000DLTS-01II;
-	Wed, 13 Aug 2025 10:15:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1um8Wf-0000000DLXT-1EeF;
+	Wed, 13 Aug 2025 10:16:09 +0000
+Received: from mail-sn1nam02on2062c.outbound.protection.outlook.com ([2a01:111:f403:2406::62c] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8CY-0000000DHzj-2H8P
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 09:55:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=JD54AIE7oiRCs4woHpfhB+93xFqsIDDkOL27IqJM270=; b=lFwTrcNhjA1QeWHqH9ggFF2oq6
-	wxvmudzzcVbuBBaXQ/MLyWjll+kC9Yb5UKr1J9EA+SqAslDMFz0368GkYNjHSaj2X8Lnyr+pC6PVO
-	qp73bqlv7jJfXLzAHAA7LPBI6CaUPxq9jFAeNMk11wlANQFHCaBWwlXZQML4foK22wTzmluDPao02
-	jW8I+j9SIe/W+8bNjvu5CBlI2FFGA7saJbtGLCUWkFpyYx1aUxe5OA0tXynqTWemfJYhIP6mm5oy/
-	EDmxRNgsNB3wldS8bOlIO2qSVvc45FFvJM/dxx26DLt3g/Ajt5EOV3H7BnP51Hyj3tR21t8GIN+XE
-	QWMvQfWA==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um8CV-0000000G3MT-2WUQ
+	id 1um5L4-0000000CqHU-23V4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 09:55:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D85BFA57C24;
-	Wed, 13 Aug 2025 09:55:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F0FEBC4CEF5;
-	Wed, 13 Aug 2025 09:55:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755078916;
-	bh=MvImjylXrI4+Mq4Y6GK4o5eaE5CpofQt90d5HdqT8Gs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=u97YZHYGHoZNFIG8AIJ0X3727Xj+X01qP0U/D/kqhn3kym8gT2w2YmGh6DKGaEm3F
-	 bO5xsR1dt5WoLf3JjYrYATszkm/eE/yNWdNTEjZL3vnnrMt6OvjtD1UF+V5G7Ko5Ga
-	 T/Zpd7h979sCcAUPH12b9EQjvxY4MVhkKy1gvM4/1mECaoVktn/40D3p0zCFAuxJ1h
-	 vXJ0KNZ9IJ8/8v4WILbdnaRscOUk4Hu/TmToV/7yxQAqMO5dF7fHQcF8PfjsMRxn1V
-	 BvNoQjXva42VrC4WSEVZpc6Cms8B90SnpH2sXfIGo5HqsqmCoQMMo221m3Vw2X8XiV
-	 CTJbCGjW/X89A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E9A22CA0EE3;
-	Wed, 13 Aug 2025 09:55:15 +0000 (UTC)
-From: Yassine Ouaissa via B4 Relay <devnull+yassine.ouaissa.allegrodvt.com@kernel.org>
-Date: Wed, 13 Aug 2025 09:54:53 +0000
-Subject: [PATCH v5 1/4] media: allegro-dvt: Move the current driver to a
- subdirectory
+	Wed, 13 Aug 2025 06:51:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HSVt3JOkd01EGEbRt92Dag7kHQXppico0wxd92jktgMigfqZ2bxBINctj3v6FoBZzi4/K5XkkhkHTK5BNWlPAfj9f3+sd7YOjUofIFM7w4tLoztz2LI8Sjhj8R+xWBSOKHuAjepNf2/8vFl75enjLHYVQjm8Mf592bXQPsf+HoSa+is+rHP12N4xVVMGFnIC/6cCB3FicSawNF77AyRoV4NQlQM+daa5fcp5UAVlwHYCsvAq7BYWySsXApw25L9EcbNUNMae3ta/XME07EH4v8VmLz9mvTvDqHBRinwzxqrOSlv77clZzE/7gevBiOAgKAutlt19u1WRwmu/4SEzEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=;
+ b=Wnt6Wlj9GKYz4EfsB1I7QVA/8U2lG46kaqqumV0LintpRrNJXkKyTByn1hMwRTibBB9SBLH4boQfygTgtgXeeCcbUa06WVypxbFB94AiMjpX6KmEMmNU2DMdxnHFMo+N8F3YjJzwv9QhFRbSvJwbJsClaYk3jvEC7lFQl9FGzdSZCM05dSrUbGCTRTWbD0vm0OZ5v/XZtBiQgAeqlUKuL/zBz2eq1lE9QrcO/J+hfn2B4TgtPuUa0mKyW8W3YxKMhX5TFq4lKZMs72PkcFaAkSrRAB/rroPTjYaUfolsJ0QN3y5ijkrrPA3DvDRyYwT2wQxXBY7VUB35fSl1CBvfzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+3s8RCBEi54+U7lsMBCecbu7/MoniJWSwNGs2KNpNss=;
+ b=xbrOMBE/MeACTsoqi0+jNbb09l4m+UvrrtjnVMs21pA+BNfoxlpMvKKuOzpDfR3S2JCvsecQ829M8k1yJxDEoRmbfiRnon0kvdoTZZY+Sn1BPFyH+AnLvIRLR6rdXgZ01Y/wZLDYKVASaYs+G3OHntRCYihidKU8u0IGnDupj/8=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by SJ2PR12MB8875.namprd12.prod.outlook.com (2603:10b6:a03:543::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.23; Wed, 13 Aug
+ 2025 06:51:11 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%6]) with mapi id 15.20.9009.018; Wed, 13 Aug 2025
+ 06:51:10 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: "Joseph, Abin" <Abin.Joseph@amd.com>, "vkoul@kernel.org"
+	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+	"yanzhen@vivo.com" <yanzhen@vivo.com>, "palmer@rivosinc.com"
+	<palmer@rivosinc.com>, "u.kleine-koenig@baylibre.com"
+	<u.kleine-koenig@baylibre.com>
+CC: "git (AMD-Xilinx)" <git@amd.com>, "Joseph, Abin" <Abin.Joseph@amd.com>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
+Thread-Topic: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
+Thread-Index: AQHb+tcJSqMhsTa22EugsKlmtOnZL7RgR0FQ
+Date: Wed, 13 Aug 2025 06:51:10 +0000
+Message-ID: <MN0PR12MB5953134843F6FD10B839FCA5B72AA@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250722070255.28944-1-abin.joseph@amd.com>
+In-Reply-To: <20250722070255.28944-1-abin.joseph@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-08-13T06:50:55.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
+ Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|SJ2PR12MB8875:EE_
+x-ms-office365-filtering-correlation-id: 572f859a-14f0-4833-7da8-08ddda35c96c
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?h4Bo5nJK5FLJhnnqUQBNzdXpXKCefwx/McPdjt8SayJj/eqivgsobPQOWgfS?=
+ =?us-ascii?Q?AqxodE0TXoWd7PPQV4t25zkeNKXPRti3+DPemLZzvcewroQjZx0DPDvGZ2nB?=
+ =?us-ascii?Q?ju6OQmJZNBAdX95SZg4Q+Tu5fDtmhdZ83or6nJA8vd0Kqe2ZQ1FS36+p0ojP?=
+ =?us-ascii?Q?vM3q8FjReB0Ci0x5aDrRTIjrv6QcO9pJMNEmY1tTXTTV7055D/+ryagiE2Zh?=
+ =?us-ascii?Q?0bJHmBy3oEJSQw/XPhykpfphQ4GJsz4DzwxDWzdek6CFZqNwEalmOBdlNHXh?=
+ =?us-ascii?Q?gadpYiRrxygQ6F2N1LpRe8xS4bqrb2eISDxMPSeMaxsyeABaIsqVB6g3fS86?=
+ =?us-ascii?Q?N2OcQ6MWqrk69xvuBWeMpaTq7e6gID3noMhV85qJ+rDsYbil96Enfi7vGHBA?=
+ =?us-ascii?Q?Ia/miuOKZTT25E7DAEHErEFoWYyx8P618hP4UqbLBdNpd9g7B/HzPx1tGblW?=
+ =?us-ascii?Q?A0PaQoQoPwEtvtxSaELW/tsqtJUQPI2HAcyjox3HkLBkZxPUul0pmGCQWjaP?=
+ =?us-ascii?Q?b7sCBDYXe7AuPx0KtGun324QzVPI4fzSYVeNmATzvDGsJ4oApd+UUqdB+9qa?=
+ =?us-ascii?Q?OqgoHOEVCRaHYYEApDwewwJBOh6uoIejAYXBNc10tP40Ba5G5aQLw2YdfmSP?=
+ =?us-ascii?Q?HVxjWhOB2fdIRkDRldrEDBGCui1h7Fypsq+tENQ0yetBbqKFPogccEe7J+i0?=
+ =?us-ascii?Q?dbdIUCDjcWhrBS3svDGV07MZgTWFr8yxe+C6Ck7y3HONfbDYpnUYim25rx85?=
+ =?us-ascii?Q?ZjV2BpRd2T/pgxpcULCshxkz7r1NIf5W04UYkqJDqspXvkAGpEH7lSQ3io4M?=
+ =?us-ascii?Q?/ImI/79vmEWJc1Rlb7fluwdabmh3SCOHhvK3MLa3jVsBOQg5lLamt+qggPRo?=
+ =?us-ascii?Q?suw8B+GbzlDAK6lH1kivxxLA/ML7dyyv58IMQNlPzZspoxgTCRWnFNqhBh3p?=
+ =?us-ascii?Q?74MM4ip3hNlDMHNIJZ7Xq55L+8dCVNwNiGUEKb7h3kLiI8Br6FjMhYu3x0d4?=
+ =?us-ascii?Q?4lwCNp8bWVrdfz0ESsrnKVSc5KKJDz9MFlRoio3w8pgXHO42qrI31Zj3P4gN?=
+ =?us-ascii?Q?i8l9W/eDakPxUKm66+0+BhvL++G86TcLenNGaNCbOtI2bZgVLoXzN6V71osy?=
+ =?us-ascii?Q?k100QrX/R6Znz5y0n0aF1fOs/sHOq3pABqCs7HMmNNzsFEDlVvLIBjqzP9mg?=
+ =?us-ascii?Q?7F9Lh7LZdp8fH1nwAeuIeKFX28h12RxNm+n8H7rTFYZZ4q93b0J7ZJqpWusN?=
+ =?us-ascii?Q?YwJyH1K1ZyV3HJP8S7cNwxlRGr10XqjoKDKn/ZDFh55x8/P7prqdibX5IzJc?=
+ =?us-ascii?Q?0D3eZJCvk6I5W3BppKnGkzvn3iJrLamfqSz6uxr9sBlk7OYTSMF2HOM68uBt?=
+ =?us-ascii?Q?vL6O1UxPv3bJPquU0pVuQzkP4RroaMgGE/aPATnUMpo64PusVdFjMAQ1bM7s?=
+ =?us-ascii?Q?SFpliBTSxb5L5XpOuMJLAOPicDS8FhxRCYYq74Rl7BsyOZy8gfDOAN3sLvFM?=
+ =?us-ascii?Q?LThnyIyB6uCI3Is=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?T+7FvCo+UydjaKrFFt67YjAu2tM3b2kw/ICVfSnW9fFUKcAIRMw9ZYIzrcgi?=
+ =?us-ascii?Q?fhCC5JO2GFmHFQ4/9WLU2RfDgX0EMSm3UCrDX593Z9lzx1LaALlRGbQ5R9Dr?=
+ =?us-ascii?Q?PE0jNAtRFbdHEPZbkH+mhs6qsPHxXxmk78o+ZWx6QJ5ZMfoBmttNm2Ff5Nqy?=
+ =?us-ascii?Q?yk/2YHSx1go7Ef4NeeBP678niHSCz5pXyxKpPEzK3u5qLJhAKgmTpHEYELEK?=
+ =?us-ascii?Q?pvDSlTrNhU1S8sTGAUHqfCcbRZfOFPT76NTgNLdnfjTeg9It6psGb+PVsMAY?=
+ =?us-ascii?Q?JdNJtH81FtUAZrt0nRQnK6qmPKBpzYGsa5lrSH9YB0UZKp5mV1fTdR6bKFg0?=
+ =?us-ascii?Q?VAhKq7N9h3oGOWGuuNmhezEoM5OvjEDDTIKBN+3GAwEu3JuHmSvY7KfYkHof?=
+ =?us-ascii?Q?NoINdzuBTvoEC7Dl7XrBfh77nksD98e2mckAMFRIMezBxLh+MvmMVhoAm9d4?=
+ =?us-ascii?Q?v2xSu0KBDxSHIdRh/ETULkm72PVYTn/ipgze60Q2+4aDVWRUgie90nKwksf3?=
+ =?us-ascii?Q?pH+kujKPgAJsOanj2FZYeEetnQBqGrlwABFXzwJz/0SOUGmqiCcJTgnUV/iN?=
+ =?us-ascii?Q?0I76+HgwWVCcCBFDOZaxtnihkAYA3ZPXI0QeO2QyQIUeSX6SsASSonzw+OcZ?=
+ =?us-ascii?Q?G4IF2ovPXn6KnaQMfOytnO/VYFC6+E2SNdoSmm2l4AFZbNyWMCtz3Df3PPoj?=
+ =?us-ascii?Q?i7PVt5s4Xps+3KBEDMhIg+rgrM0mlE0+TvNJtQU14t0bwygZqmxVcyVMmGvK?=
+ =?us-ascii?Q?ZIuby9dKV1Q2N7oZ3dwEJaiHPY/nqmkGBQsgEUrpUSAbRvKdbe8LeJmvgeGR?=
+ =?us-ascii?Q?ClhLPBeoZIntymwU4FP9QPov17m9XOs2s73rNlrdB6J6bJn07uTTz1NWVaAc?=
+ =?us-ascii?Q?14PLWbBCf7z0Jno5mJRMaxyKlxpZgGo5SM9RPkugnT3aq/p2ntfIoTZZ+/Tb?=
+ =?us-ascii?Q?ClIgo11ugcXRH4MP8Tw6ghVb5+GGpmAZn4snOsx6qMg/7VW6noVLccyep0hw?=
+ =?us-ascii?Q?mU0/pVmj0AtcDLFnEDqoXHJii++ZOWqC2GOENELu0XAY0E2l6eEgQBM87jHm?=
+ =?us-ascii?Q?G8CumkJsqbJp0VU424WralB+Yp2o/fizlTDjjzbF2KueJnF803qWjmMuAP7c?=
+ =?us-ascii?Q?sDaI0DTcWe9rCkrD/HGUtnI4alu4lBhrvob6MSY8IGc8KHRt+OuKOrUb7uPg?=
+ =?us-ascii?Q?6B2DMecM8IDeusAAlkRgIMgW5gXx+vZR2LN9lGPf1tjJ4EbGIUMOA3ffQq+X?=
+ =?us-ascii?Q?FpGZxtYGncjL5+4LuC6ZapXaDuh4xK5ba3KZJ5vDClyb98n7o6QuADIcL3ok?=
+ =?us-ascii?Q?0WMwUoMA3ALhryTGeTr361tA1goFHbaTC2QbeuyW3+ZWj/rXNeBiZdiABtCF?=
+ =?us-ascii?Q?StqSk7XQZa0AdHDtRQM/PyKX3JEcMdjKqqOPW9IWsygQC2syNbsAkfuNFTN8?=
+ =?us-ascii?Q?vywZ06+/nlyi9sXfAV6EJpCAYUl32dMtZCRALMyUnB91qmxHi0qWOgCGO1TN?=
+ =?us-ascii?Q?onbP6jHKRsmB3A0FYvrqQ1PCb1h0nlW0zrMAX609XUSR7UWmzc+ygqKT3rIF?=
+ =?us-ascii?Q?iH/a0AY7yWgJODZ1WxM=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250813-allegro_dvt_al300_dec_driver-v5-1-a312ddebc4d8@allegrodvt.com>
-References: <20250813-allegro_dvt_al300_dec_driver-v5-0-a312ddebc4d8@allegrodvt.com>
-In-Reply-To: <20250813-allegro_dvt_al300_dec_driver-v5-0-a312ddebc4d8@allegrodvt.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Michael Tretter <m.tretter@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>, 
- Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7230;
- i=yassine.ouaissa@allegrodvt.com; h=from:subject:message-id;
- bh=6nWciogZPWrY76bSytf/OtHi/QUgfGdILTn620+ZtjE=;
- b=owGbwMvMwCV2oHftXqU9jLMZT6slMWTMSWScFlixpKWFqfVd1Je+pMq0SslFj1liXi0+uSDh/
- cvK8vsdHaUsDGJcDLJiiiwfDJY++8JW4zOjhW0+zBxWJpAhDFycAjCRgvsM/7NlPSdpyO2d7t/O
- F7v4V1hS0dPgy4mFayODG9a7fPbvPcvIsC7+RfWer3pMW8skMmrKXTVlHubrZ3oYz+U7Uat7+sx
- OLgA=
-X-Developer-Key: i=yassine.ouaissa@allegrodvt.com; a=openpgp;
- fpr=B0CE218FC8E89064DAED6179042F935CFB3AD0CC
-X-Endpoint-Received: by B4 Relay for yassine.ouaissa@allegrodvt.com/default
- with auth_id=423
-X-Original-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 572f859a-14f0-4833-7da8-08ddda35c96c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Aug 2025 06:51:10.3632
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NJ6fgwFJaQOS2g/AsfUCSj8CRXrPR5ipuyxybgiI8H6Q+gJHZoTrYvrtJCOLHu67
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8875
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_105519_886538_CD9ADC27 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250812_235158_530799_6312EC3C 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,160 +166,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: yassine.ouaissa@allegrodvt.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+[Public]
 
-In preparation for the upcoming driver update, we need to relocate the
-current driver.
-This will help ensure a clean transition and avoid any potential
-conflicts with the new driver.
-This patch is crucial for keeping our directory organized and
-facilitating a smooth integration of the new driver.
+> -----Original Message-----
+> From: Abin Joseph <abin.joseph@amd.com>
+> Sent: Tuesday, July 22, 2025 12:33 PM
+> To: vkoul@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> yanzhen@vivo.com; Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> palmer@rivosinc.com; u.kleine-koenig@baylibre.com
+> Cc: git (AMD-Xilinx) <git@amd.com>; Joseph, Abin <Abin.Joseph@amd.com>;
+> dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: [PATCH v3] dmaengine: zynqmp_dma: Add shutdown operation support
+>
+> Add shutdown callback to ensure that DMA operations are properly stopped
+> and resources are released during system shutdown or kexec operations.
+> Fix incorrect PM state handling in the remove function that was causing
+> clock disable warnings during the shutdown operations, which was not
+> implemented earlier. The original logic used pm_runtime_enabled() check
+> after calling the pm_runtime_disable(), would always evaluate to true
+> after the disable call, which leads to unconditionally calling the
+> runtime_suspend regardless of the device's actual power state.
+>
+> During shutdown, the device may already be suspended with clock disabled
+> from the autosuspend timer, causing the clock framework to warn about
+> the double-disable attempt. The pm_runtime_active() function checks the
+> actual device power state rather than the PM subsystem's enabled/disabled
+> status. ensuring the runtime_suspend is only called when the device is in
+> active power state. This prevents clock warnings during shutdown while
+> maintaining proper cleanup during normal remove operations.
+>
+> Signed-off-by: Abin Joseph <abin.joseph@amd.com>
 
-Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
----
- MAINTAINERS                                             |  2 +-
- drivers/media/platform/allegro-dvt/Kconfig              | 16 +---------------
- drivers/media/platform/allegro-dvt/Makefile             |  5 +----
- drivers/media/platform/allegro-dvt/zynqmp/Kconfig       | 17 +++++++++++++++++
- drivers/media/platform/allegro-dvt/zynqmp/Makefile      |  6 ++++++
- .../platform/allegro-dvt/{ => zynqmp}/allegro-core.c    |  0
- .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.c    |  0
- .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.h    |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h  |  0
- 14 files changed, 26 insertions(+), 20 deletions(-)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe168477caa45799dfe07de2f54de6d6a1ce0615..88a76452956eb3b91e7813cbdc16c361f26216a5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -820,7 +820,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
--F:	drivers/media/platform/allegro-dvt/
-+F:	drivers/media/platform/allegro-dvt/zynqmp
- 
- ALLIED VISION ALVIUM CAMERA DRIVER
- M:	Tommaso Merciai <tomm.merciai@gmail.com>
-diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
-index 2182e1277568a407f51a23ea437811c50b1183c8..e9008614c27b9490d1cd29fab887977a1918ede4 100644
---- a/drivers/media/platform/allegro-dvt/Kconfig
-+++ b/drivers/media/platform/allegro-dvt/Kconfig
-@@ -2,18 +2,4 @@
- 
- comment "Allegro DVT media platform drivers"
- 
--config VIDEO_ALLEGRO_DVT
--	tristate "Allegro DVT Video IP Core"
--	depends on V4L_MEM2MEM_DRIVERS
--	depends on VIDEO_DEV
--	depends on ARCH_ZYNQMP || COMPILE_TEST
--	select V4L2_MEM2MEM_DEV
--	select VIDEOBUF2_DMA_CONTIG
--	select REGMAP_MMIO
--	help
--	  Support for the encoder video IP core by Allegro DVT. This core is
--	  found for example on the Xilinx ZynqMP SoC in the EV family and is
--	  called VCU in the reference manual.
--
--	  To compile this driver as a module, choose M here: the module
--	  will be called allegro.
-+source "drivers/media/platform/allegro-dvt/zynqmp/Kconfig"
-diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
-index 66108a3037747020d549bc0a427881e0667a3f0a..d2aa6875edcf7760901996aac4d5ac98282cce20 100644
---- a/drivers/media/platform/allegro-dvt/Makefile
-+++ b/drivers/media/platform/allegro-dvt/Makefile
-@@ -1,6 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--allegro-objs := allegro-core.o allegro-mail.o
--allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
--
--obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-+obj-y += zynqmp/
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Kconfig b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..0a0a697c420da47f87f05153a2dbfbe5d3ccf988
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config VIDEO_ALLEGRO_DVT
-+	tristate "Allegro DVT Video IP Core for ZynqMP"
-+	depends on V4L_MEM2MEM_DRIVERS
-+	depends on VIDEO_DEV
-+	depends on ARCH_ZYNQMP || COMPILE_TEST
-+	select V4L2_MEM2MEM_DEV
-+	select VIDEOBUF2_DMA_CONTIG
-+	select REGMAP_MMIO
-+	help
-+	  Support for the encoder video IP core by Allegro DVT. This core is
-+	  found for example on the Xilinx ZynqMP SoC in the EV family and is
-+	  called VCU in the reference manual.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called allegro.
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..66108a3037747020d549bc0a427881e0667a3f0a
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+allegro-objs := allegro-core.o allegro-mail.o
-+allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
-+
-+obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-core.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-
--- 
-2.30.2
-
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
+> ---
+>
+> Changes in v3:
+> Update the commit description
+> Update to call remove directly from shutdown hook.
+>
+> Changes in v2:
+> Update the shutdown to perform same operations as remove.
+>
+> ---
+>  drivers/dma/xilinx/zynqmp_dma.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_=
+dma.c
+> index d05fc5fcc77d..f7e584de4335 100644
+> --- a/drivers/dma/xilinx/zynqmp_dma.c
+> +++ b/drivers/dma/xilinx/zynqmp_dma.c
+> @@ -1173,9 +1173,9 @@ static void zynqmp_dma_remove(struct platform_devic=
+e
+> *pdev)
+>       dma_async_device_unregister(&zdev->common);
+>
+>       zynqmp_dma_chan_remove(zdev->chan);
+> -     pm_runtime_disable(zdev->dev);
+> -     if (!pm_runtime_enabled(zdev->dev))
+> +     if (pm_runtime_active(zdev->dev))
+>               zynqmp_dma_runtime_suspend(zdev->dev);
+> +     pm_runtime_disable(zdev->dev);
+>  }
+>
+>  static const struct of_device_id zynqmp_dma_of_match[] =3D {
+> @@ -1193,6 +1193,7 @@ static struct platform_driver zynqmp_dma_driver =3D=
+ {
+>       },
+>       .probe =3D zynqmp_dma_probe,
+>       .remove =3D zynqmp_dma_remove,
+> +     .shutdown =3D zynqmp_dma_remove,
+>  };
+>
+>  module_platform_driver(zynqmp_dma_driver);
+> --
+> 2.43.0
 
 
