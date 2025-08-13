@@ -4,215 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4102ECA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 06:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0CABC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 06:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgsnuYhmf4nbO6Kttw/oLMavKD4JKFavy6PjPHgHCSU=; b=cdNSuSAL9lP+qtn+O95m97Oes/
-	o63Dvpc4fAI2U6J8w4uN4SeoSuwiz32A0AfkQVkYiwABdrcewk1j2eDeIruzLsB1afjALyOMDaFwP
-	+lHUKZnrOUHZhgnBH683uNsOm1FC2IaSyuMVTGOkD5pAMZQ3hh4qkw7ZI9ZvTjCChea0bpUzCs90E
-	d8IaBFhhBjiGTkdbfn3VENjBVwrBxgTRb7kZVzjz9uSVpPJQWFAIVxVoVp4UmqubALga20Jgol8X7
-	U7PdwkKYUk2J8+nMEhPONqSJ05qPhE7MpjE7AXNAIL1HgLsox6UoLQmA5M0iDfhn+HCeTjuokywdc
-	WI4daw0Q==;
+	bh=1GHaxAI7e7Jm7zWrZVTIcSrlfyTmfiyqNti8b4TFpOc=; b=ECazNmwxUS8ZrbHdLBo46iYOw9
+	8mMi+56LMrDaLTYkvY8CYI2WYe437K82Q1wSVyUfGIIdxNZ0nmm2MEdE/vbPJsxRAS2OHzqsX3NX+
+	JFi985EzdvTgvTSamQVfpMOdx1wwYr7xWJbkGxegf+ehRf6a1ncvh+Lzf8/PJMD+a++IV1U5mtbCJ
+	kYvetkr9EDBONGEZeSV1Ytwuj5AwTsoP+jr5aagT2vGm6SeI/lwAAi9gZEwHyPS54BMP39KpbvW6y
+	Kb3iTUCgsieoS32LnS6j1f+Ujrcp5FHygPb4tckRtKa9G4hRnuDK9kSt2lF6flBccuUX5aaUNreZ6
+	ULF/p1WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um5Hx-0000000CpqE-3hxA;
-	Wed, 13 Aug 2025 06:48:45 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1um5KT-0000000Cq9J-0wnF;
+	Wed, 13 Aug 2025 06:51:21 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um4x0-0000000CmP5-2WfL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 06:27:08 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=X84Jlx/p2PRhdduHcskf0RAE4GMYJhjhYlRmm3p9akkmDvBXq8NuyJ52UK73TcTX8Vcd8ce6oa4ubKNJCuy0U+PWK1b9PYZIumTjDta++Jt8M5V0OyhJ3vpW4doKVek8kP0KlMemHjgt52xU8VWnFBXkbAZycbuazDMtYxkUo5uSJwxgPmRR2nStUvrsFSI7Zep7v0zRsOIIkikTqG/b6lf2iDzmgLm3tehb9FYRE65joBkxTWmFnR0Ix8aD8kOYB+yE15wTRUXo2XtDYiO5VHwndIDPdMW0ZGGxDmlrIJWsSAo/+Ns26Hwdld2ErW5t4o0ewy+NzT2fPjcO/YQFlg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bgsnuYhmf4nbO6Kttw/oLMavKD4JKFavy6PjPHgHCSU=;
- b=nnn+bkC3fw4X235UtQSuL1Ad70X4W8FkDWRDX3ptD9pPvhHFZAaWBQtjZwjo2cK3ubeemaEmuzLV/9NlVX0YtZfbvRgvYvn1+C5HUMco1zH4okx51DQETE1vBZR50mSHRAZJkMjtUuxICOe7Xf7rOOK/HA3VbFSBbUj/rQvG0CZLqOkX9oX0bd0pUHVbmq+iKZi3ghWqUlGuyNm+XVJON3CW7RTezhSI1knFFRllEZM0O+kv2j0B3/JRnOfJ+HW3+C8AabT5gjm82cj/0LH4fiiiDaIqdcyklcEHwFMPyL3L7U7/TUK8MSq+1Gc71xJvKMygwVJc5twQIs0HXgNCUA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgsnuYhmf4nbO6Kttw/oLMavKD4JKFavy6PjPHgHCSU=;
- b=QFJXkta/HbsE0WHV3A6bhJLtBoIGslBY/mzePfa93xxP3XBS2oKDd79YqThKpkElfWiy6rH09SeNPfc5Mdyb5plKMKqgdASewFz1Le+8SCE7J2RYbcORrDAX5Y4GER+8djs3bP0Jt1iiGlSpBoGBzWafyATPeut0WPoWJ2fIK3c=
-Received: from PAZP264CA0207.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:237::25)
- by DU0PR08MB8977.eurprd08.prod.outlook.com (2603:10a6:10:465::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Wed, 13 Aug
- 2025 06:26:59 +0000
-Received: from AM4PEPF00025F98.EURPRD83.prod.outlook.com
- (2603:10a6:102:237:cafe::d) by PAZP264CA0207.outlook.office365.com
- (2603:10a6:102:237::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.15 via Frontend Transport; Wed,
- 13 Aug 2025 06:26:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00025F98.mail.protection.outlook.com (10.167.16.7) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.0 via
- Frontend Transport; Wed, 13 Aug 2025 06:26:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ehRyYh0G4+RAbXI4u91OJkNMcfjaH2E7nmX2TQpyLaqt0FSpKG+1Kbxgr7RmD5B0t0oIkQ97fXa6XkxclSbqjZjPzEuaYa8Rb8iuU6uaTlcCQh2RYf2jnaUl9bDkE5GdOY4vq24iyJu78w6EcoXzBpmW3bUxTvGdNJxUlv0sYJRawvRoq9lNxMbRUkOd2iZa31eKQMly9HlG6hDU1UUrhpCFaASlkX14o3dAaFvmcwo9hVxtNtq6SxOfCESSD7CgORLZMVsg9TAMbDMoyU/d7Apx29uCX1gCLqoLPY1rPlljvVdo0KbuVXHXWCfFFEsoQ1PNOfcI+9ESg6WN6Z9XDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bgsnuYhmf4nbO6Kttw/oLMavKD4JKFavy6PjPHgHCSU=;
- b=PyheTsSeAB5bmB0NFUQ8EQf/8+MAqnvdupWJD94PIl9tJ4dEcHGCLSYFVQuzRP8hryKuNdNLrcbrbNRQ6dw9MQv9cnQp7/m2DfMHWEYWJHCsMWNXFr7NPHJWvwBUHD/QIlr+qskyfeehbxr0qdYmyHSXcP9NkKZj2XnLgBPWqc9XyaoCArWlahs851ltMHr0rgzBRIYHYJs8w6Ul448Xan1jcVkA0lRS2zR3uUYpvuicrVpvEzWV9C9ts1C1q8BB0bWRByrvlmz/LRzTsWCTlS9phIAvnkNcDDJHAuV6MkWdEVYoSdj5SBnbBY4HSyzBHbotfcH2WgjQ1EMUZcPZNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgsnuYhmf4nbO6Kttw/oLMavKD4JKFavy6PjPHgHCSU=;
- b=QFJXkta/HbsE0WHV3A6bhJLtBoIGslBY/mzePfa93xxP3XBS2oKDd79YqThKpkElfWiy6rH09SeNPfc5Mdyb5plKMKqgdASewFz1Le+8SCE7J2RYbcORrDAX5Y4GER+8djs3bP0Jt1iiGlSpBoGBzWafyATPeut0WPoWJ2fIK3c=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU2PR08MB10230.eurprd08.prod.outlook.com
- (2603:10a6:10:46e::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Wed, 13 Aug
- 2025 06:26:26 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9031.012; Wed, 13 Aug 2025
- 06:26:26 +0000
-Date: Wed, 13 Aug 2025 07:26:22 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com,
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH 1/2] kasan/hw-tags: introduce store only mode
-Message-ID: <aJwwDs9bGGFSYWTk@e129823.arm.com>
-References: <20250811173626.1878783-1-yeoreum.yun@arm.com>
- <20250811173626.1878783-2-yeoreum.yun@arm.com>
- <CA+fCnZe6F9dn8qGbNsgWXkQ_3e8oSQ80sd3X=aHFa-AUy_7kjg@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+fCnZe6F9dn8qGbNsgWXkQ_3e8oSQ80sd3X=aHFa-AUy_7kjg@mail.gmail.com>
-X-ClientProxiedBy: LO2P265CA0045.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:61::33) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1um4x3-0000000CmQG-4BJh;
+	Wed, 13 Aug 2025 06:27:11 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CNQNMr030080;
+	Wed, 13 Aug 2025 06:27:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=1GHaxAI7e7Jm7zWrZ
+	VTIcSrlfyTmfiyqNti8b4TFpOc=; b=H+4Fl0r5RNAABMjE43pwrHunsUzTtQiNm
+	4wu3QQ5Qpv88TgfBTEGocIFBkqPYGX+CPOxvAk8Bk/nUO7kVJWXFql8LMEMJOQni
+	v++FT8b+FS0QoSJFb0ZiuDwG6tNsq0sGj9S8NkcP7wwNI/QtksYvD3/Gl2daulHt
+	f4bwZLAy12EYS+2Cxlr6KSlo3To0q44YseR1DzhS+hZ4yZQqJqX+rC3SLKe1E3xq
+	v3Es7w2GKPQtKq8oDGCgSqMBnOHm3VdRBM+DAw5pZFOTFRBEvyIKuSE/yc+5rsi2
+	aUmdnGbvbg3SHawWVqTTWUSy8D9EJbCzDl50I1ZdSQdjypawtgGQg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48dwudax2a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:27:00 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 57D4NHRH017588;
+	Wed, 13 Aug 2025 06:26:59 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 48ekc3np1s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Aug 2025 06:26:59 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 57D6QxC632637630
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 13 Aug 2025 06:26:59 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 07DA95805D;
+	Wed, 13 Aug 2025 06:26:59 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2B5E45805C;
+	Wed, 13 Aug 2025 06:26:54 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com.com (unknown [9.36.10.70])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 13 Aug 2025 06:26:53 +0000 (GMT)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org
+Cc: akpm@linux-foundation.org, x86@kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu
+Subject: [PATCH v16 02/13] arm64/mm: Add addr parameter to __ptep_get_and_clear_anysz()
+Date: Wed, 13 Aug 2025 16:26:03 +1000
+Message-ID: <20250813062614.51759-3-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250813062614.51759-1-ajd@linux.ibm.com>
+References: <20250813062614.51759-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU2PR08MB10230:EE_|AM4PEPF00025F98:EE_|DU0PR08MB8977:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1d20319-bf3d-4599-67c6-08ddda3267e0
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?RSt1V3ByWjBuR2hyQUZkeW9pZ2E2MkhFT1VkS09IUXVHZEwyNFY3NTdOdWY1?=
- =?utf-8?B?dkVld2k0b01IYXV5RmdjMDIyWDJYOGZRYjdkRHFaTWtqN2RpYTAwWnlFenZv?=
- =?utf-8?B?ajVNR2VzaWxkUnpPSmtSMXB0akxUbVd0TmpDUmdqdTc0ZEVJclVKVzhaNEgv?=
- =?utf-8?B?RFZ2WEUvQUh6Zy9VWWFTNkxpak54d2ZVU3NuV2c2VWZXdkZTT01qdmg1RDhw?=
- =?utf-8?B?NWQ0R3l3cVZ5WmxvSnFoMGY4MFMxMXUvYld2MXpBMm1Tc2hRYjZlVzNZT1Fh?=
- =?utf-8?B?eEpFdnlEZHppRVZ5Rmg0MmQvS2ovMDVPUkltcHJvcTN2akdkYVhOY3ZHN0Nu?=
- =?utf-8?B?dmVId1Zrc2dtVVhDdEpuVWdiYiszRSthVWZjeUw4YityN2FjbXQ2dkpwcVVx?=
- =?utf-8?B?R1FsWVlXSkYraHpKdmw0T283aTdCQStZR24ycEhpMi8xME1zNXF1VlA2Smx2?=
- =?utf-8?B?MHFXaTJ1ODF5UCtidENyVklwVktTQWpycDFWc1B3YVpwN1VEcmtBb2dIQTFq?=
- =?utf-8?B?U2QwTFhYcVFUVmMxa1FsMEUyYWNaRDRaQ2NpWUFKYlUzbXlicnF3bVBIdzV4?=
- =?utf-8?B?SFAyTjRuQ1VRT3YvVFJnVVhBV1pVTXVrRXM4TzV5TkwyNUY1NTZudHo2cFNX?=
- =?utf-8?B?ZGJhUVhOMnMxZEg4STN5VEI4bVNNMUF3MkczaWtLNkVmS3R5VlMwTGtqcDUz?=
- =?utf-8?B?ZnYzdDR0c285ZHNveno1N2I0ejRtdmFUcHNJOWlyMHF4QUpFNDNUQ2swbFpl?=
- =?utf-8?B?K1IwQURYd1grZkpWNHZacXV0TnpOem5oWVR0cVZaRnpJYmMwRE51MjhLRXp3?=
- =?utf-8?B?OXRjZ0dGZ3MwcWhBZ25LZHhVWGh6dDhtMEJaTlBuU0Y5WSs3S3hzYUVuak5H?=
- =?utf-8?B?MFFKZjRZNWhodnhhVG5XQ1RJcUtnK2QvOExmbWhGOEhWSXFRRGFMemZxRzVk?=
- =?utf-8?B?Wk9EaC9ocDU4RGJFd3BMN0VVUXRCaGs3M3ZyeG5hUHA5bTk4TmYvWHdDTHRJ?=
- =?utf-8?B?MkxtbmtsUklUb21TSUloTFk5TENHMWhRaGUyY3QzR2Q5Y1NPNVBkTmdMOHZi?=
- =?utf-8?B?d2pIRUlYZXRxcWNjY3lTUTc3Y3V2MGVIVE5CTVdPRzdlMnNMYU1GVno0N2Qz?=
- =?utf-8?B?NnhycEt4T01mN2d6eCtkTVN6bmVrZFF1MGZ2bDEvNUgrbVQyMm5TendZQXlP?=
- =?utf-8?B?WW5MY2s2R1Q0MkRLamhJczdrZ1pTQndIK1RMQ0RpRjFaVVdmbUJUSExSbVhX?=
- =?utf-8?B?S2lpdEhITHAwd3FnWDhNZDgzZ0k1Q0xISmlJdnQ4MGtLazVaZFJSZjdhcDN4?=
- =?utf-8?B?VWZubklhVlJuWDNRMGtBVHI2RDVaUWFoUGtBZm9ya29XM3pZek82T0hRTnFM?=
- =?utf-8?B?TmdvQ2d2MXJzS3lwcDA1SmpMQkRKUjgrcXFkcXlleUwvYlZhWUV6T05aRGlJ?=
- =?utf-8?B?RkJ2TDBRSmx3a1JDL2FtZVJMK1lwVHBaZmw1R24zVlRMa1JBek5Cd0s0MXI2?=
- =?utf-8?B?NlhvcTFtWUtlWHBhaVBLVkFRTlhkeWRrcEZrMWhTVDJ0ckI3UktNRkM3bjgr?=
- =?utf-8?B?eWFiTGw4RG0vV3ZRY3JEODcvWG5uenZBcHNlZlIvTVRKbUdya21kc09OU1Vq?=
- =?utf-8?B?SURtVVk4elkrci90S0ZoSjFPRUJ2MUQwS3p2eElQNEVONlZicVg1djRQZ1Ro?=
- =?utf-8?B?Zm5XVmNDUGlDelczdHRqTVhncWRZQ3BzTTY1djJ3ZWoxamdKUG90ZTNnWkhO?=
- =?utf-8?B?aWRpTmFvWE55MUVSK0pRcmpDU3hPRjFvanRxdW44UWIxU2RGWVM5WE5OTEFs?=
- =?utf-8?B?NFEzQyttT2lUeCtzczMvTGQxbG1hMFJyM05xZ1JjUWV3S0lSQUQrQ0NOMkhw?=
- =?utf-8?B?enFPVm9DOGdIYWN5K0ZWcjhCS3BLS2c2Z1ZKSWFOZXFYb1RqT2FtSjdvWU8v?=
- =?utf-8?Q?+DO8nP1aRzg=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10230
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F98.EURPRD83.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d36912ec-9cc3-4a3d-49a4-08ddda325499
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|35042699022|14060799003|376014|7416014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L2c1RXd1Uld4SlcyVllFZlB6akN2MGNhSXlZdHRGUVpGT3R6R2o2Rktabmc3?=
- =?utf-8?B?YlU1M3pSSWdiaUdIdFhscmJ5RDY3dzdzakF2QzJMcnNTMFVyOW9QQXhxSTlN?=
- =?utf-8?B?bGUwTm5VQkJMYmg0Y0F5Q0FWcnBxdWVKT29xUjVnN1p4eHJrTWNicFNBVUVn?=
- =?utf-8?B?R3lhaGtWTXFQM2tXRDQ4ZVZRSGhvbFNOOVQ0YWhJcXdUYm5EeEM5aWJ3WVM4?=
- =?utf-8?B?eU5RNUdsc0R3TU56Y3QyTjlDc2x3cHhrSEN0bS8xWm5MM2lGcWw0aEgyUWsx?=
- =?utf-8?B?K1FLV0plRW05S040VGtFYUdjYU9GMVhZVTdTRncwRzROczNKak1PSHBZWHlP?=
- =?utf-8?B?czFTdVNvTnd1L1ZtOW15emZuTGgrZ0R0UTVUR1NuZ1JFWWRqNzUvVGdTdTRy?=
- =?utf-8?B?OTg0S2c2S01oMlY1OUR4ajZEQUszOWhSL01XNW1ZZEowd21IQUFBRncrQTdm?=
- =?utf-8?B?Tnpyc2N2Q1F1ZnVJUFpxaHJDaHFGVzQ3UnAzNjNybEhRNU9KaHJMU0lGRVR6?=
- =?utf-8?B?TVYzcGk0ZWtGeFhGQVhRaldxOFJxaTJ5WERUUlMrL1pGR1FnUStlM0paSWp2?=
- =?utf-8?B?OXJUc1VXTXN3eHN4N3MvMnVuOGdMTFZhTVFlcjkxcWNha0gvTUQ5S1FOVmFH?=
- =?utf-8?B?bUtrM2hTUXdpWXRJRHNXcnZ0bG9EYzJCRncxMzJ2dHdHQy9LN3gxcFZseG56?=
- =?utf-8?B?Wm1tcEtSalo3cWdWMmVXZ0xXZHVmU3FpV1ZIWFF4LytPdEwzS01XRndFQXNT?=
- =?utf-8?B?YTM3VVVIL1l6UVB6WXVkZUVIOFpzekx6aE9FdGtWK2YxdjFrUW5KbHRPaGla?=
- =?utf-8?B?RnZRMTVoUUZuR3diWFBDVGxaTXJPVU1CVlU0OWp6S01rWitZUmc4SmdOUkhq?=
- =?utf-8?B?SjJkZVU0L0RwazBPZkcreURSd2VSRnU4SGR3cWo4YU9WOHNmQ0ozbS9UcWJW?=
- =?utf-8?B?cnpiNTRlUDNzaFNZeWIvNWJUUTRSa1p3Yy9pRkluaFlxTThNbUFZSVlHZWVP?=
- =?utf-8?B?UXQ3bCtUdHdieDcwS2dMTmZ3R1FuQlhWSVloWTkwdVdjQ0RlMFZKcWUrcFh2?=
- =?utf-8?B?WTBLWDBIelpXeFpoTHFrUUJ2ZjcvL1R4UG42dmNCdDlyU0Y1THhuclp2aEl3?=
- =?utf-8?B?TzdnZlBwVTQyU0VNWWRJTU1EMG5YV3lVQUY2UEFoUm1SemhzYmNQTFlXaEgz?=
- =?utf-8?B?c0drRlVnVWMyZTJLVUtYUEFtaXNMWVBaRWN2TkdRU3ZkWE9zT2ZrbFJUc0tl?=
- =?utf-8?B?Z2FSdjJvVjlBMHFWL1NBSTVrS3ovU1RBajczajQvbVJyS3ZrMS9rZzFtNlVh?=
- =?utf-8?B?TDZFL09PV2tiZ0hNWGF6Unc0UmdScXlaNDZOVG5YTzdyU0hkTDVHbU9xY2dX?=
- =?utf-8?B?cUEyWjJNZmFhN2pORkNncGRKdjFCZ25PTDBXZFBXdmJUNjlmeGc4Vnl2NHBq?=
- =?utf-8?B?aUI5aGZBQlpCeDNRNGxOUE1aZ2EvSGFMUXNNcWJ2M1d4eFZwaEQ5VVBrZXd1?=
- =?utf-8?B?dzVoZVpWTW52LzBQZkp5Y3VyYUNPakpmL2Z2SEFVaXNpWGNVQkxMYVg2bkJT?=
- =?utf-8?B?dnYrR2oxODNCbWF3TTgvUFU0bUFlT0RoZWJ6Rnh3ZVorUEdZcEh6VUM2ZEp5?=
- =?utf-8?B?c0w3SlgrWW44L2U1NTZ3dCt5dFIxYmt3SGQ3VUdPbDZjWVhCYUNiMlF2a2Vo?=
- =?utf-8?B?Q2FiUE0xTS9pc0RzYmt4eXdrOElDNm9vQW1PcUxvNzZaa2U3cTRQM29zK2or?=
- =?utf-8?B?NEhWNXQ4dXJKNGxNT3ZWV0k0TlpFRGQzdTJjMDVoblJwQWR4Z1JSUnl0SlpW?=
- =?utf-8?B?ZFo2TmF4d01pY1gwUnZEaFNFK0ZHV1pRVFhGbk5jU00ra0JXeU1WMUpTNDMw?=
- =?utf-8?B?MS9KYWExb2h4Q3RUUVIwSlFyTGxqQ3FQMGpGenMySmVtOEx0dzFVNmthNjgy?=
- =?utf-8?B?Tnd1dXQ0aGpKUENycTgrN1pkRzJxMUw5YXVTNmRMbVVoWnF6S3lxK0RGZ1FU?=
- =?utf-8?B?TkFzeWlCSUZsT09ZQTBqTzFKQyswdExMcjVINlZaU0ZPZ0JyWnN5TEJRa21H?=
- =?utf-8?Q?ABz5da?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(35042699022)(14060799003)(376014)(7416014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2025 06:26:58.1399
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1d20319-bf3d-4599-67c6-08ddda3267e0
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F98.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8977
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDIyNCBTYWx0ZWRfX92rkpoWMsRic
+ I8pbfee7csCpHoGV5IQyOP1Bu3bGHdnndHqWCrjTMw7WiwGZ55lEK5b7w+LXdqMPfdB4Xzdzh8M
+ 7sz3MYUhdh1ruANSfG0kdVNDGehMHgEKc5Z/oINS2zn5TybVjBRnr+3yfpMaDMNTeDQsthOXKJ/
+ iG4HEtNq+aOyDwYaK7dyHRUDZtSL4/oW2sOjVGjbwGN4ScZBN+KtbMqGRSMB5vI3kMDQ18pRfda
+ qvsLt/OaxALcmYykh3f1GE/wBSmOpdlBqRHoSAUADQuDG87Xagm9Pw/8ZVijqFxEVAL5nOKOmmQ
+ ErjKnKJN2TAlx6x4Yn3sjLEyyWOxBw5DNphs1VezYsl7Ai4WHPgr1W0MSXC9E2ySBEwhzf3Li2Z
+ 3TB9zyXM
+X-Authority-Analysis: v=2.4 cv=d/31yQjE c=1 sm=1 tr=0 ts=689c3034 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=_22z2SZoHydJqXFBeZgA:9
+X-Proofpoint-GUID: 4ZBlhpz1er1xIozkgnQsN3_4eZX4o7m0
+X-Proofpoint-ORIG-GUID: 4ZBlhpz1er1xIozkgnQsN3_4eZX4o7m0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_08,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 suspectscore=0 impostorscore=0 priorityscore=1501 phishscore=0
+ spamscore=0 adultscore=0 bulkscore=0 malwarescore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508120224
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_232706_810226_FD1E871B 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250812_232710_038514_7BB2251D 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,192 +114,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrey,
+To provide support for page table check on powerpc, we need to reinstate the
+address parameter in several functions, including
+page_table_check_{pte,pmd,pud}_clear().
 
-> On Mon, Aug 11, 2025 at 7:36 PM Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> >
-> > Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
-> > raise of tag check fault on store operation only.
->
-> To clarify: this feature is independent on the sync/async/asymm modes?
-> So any mode can be used together with FEATURE_MTE_STORE_ONLY?
+In preparation for this, add the addr parameter to arm64's
+__ptep_get_and_clear_anysz() and change its callsites accordingly.
 
-Yes it is. the ARM64_MTE_STORE_ONLY is separate SYSTEM_FEATURE then
-ARM64_MTE and ARM64_MTE_ASYMM.
-0 So any mode can be used together with ARM64_MTE_STORE_ONLY.
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+---
+v15: new patch
+---
+ arch/arm64/include/asm/pgtable.h | 5 +++--
+ arch/arm64/mm/hugetlbpage.c      | 7 ++++---
+ 2 files changed, 7 insertions(+), 5 deletions(-)
 
->
-> > Introcude KASAN store only mode based on this feature.
-> >
-> > KASAN store only mode restricts KASAN checks operation for store only and
-> > omits the checks for fetch/read operation when accessing memory.
-> > So it might be used not only debugging enviroment but also normal
-> > enviroment to check memory safty.
-> >
-> > This features can be controlled with "kasan.stonly" arguments.
-> > When "kasan.stonly=on", KASAN checks store only mode otherwise
-> > KASAN checks all operations.
->
-> "stonly" looks cryptic, how about "kasan.store_only"?
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index ed644be48d87..66b5309fcad8 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1357,6 +1357,7 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+ 
+ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
++					       unsigned long address,
+ 					       pte_t *ptep,
+ 					       unsigned long pgsize)
+ {
+@@ -1384,7 +1385,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+ static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+ 				       unsigned long address, pte_t *ptep)
+ {
+-	return __ptep_get_and_clear_anysz(mm, ptep, PAGE_SIZE);
++	return __ptep_get_and_clear_anysz(mm, address, ptep, PAGE_SIZE);
+ }
+ 
+ static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+@@ -1423,7 +1424,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
+ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ 					    unsigned long address, pmd_t *pmdp)
+ {
+-	return pte_pmd(__ptep_get_and_clear_anysz(mm, (pte_t *)pmdp, PMD_SIZE));
++	return pte_pmd(__ptep_get_and_clear_anysz(mm, address, (pte_t *)pmdp, PMD_SIZE));
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 1003b5020752..bcc28031eb7a 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -159,11 +159,12 @@ static pte_t get_clear_contig(struct mm_struct *mm,
+ 	pte_t pte, tmp_pte;
+ 	bool present;
+ 
+-	pte = __ptep_get_and_clear_anysz(mm, ptep, pgsize);
++	pte = __ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
+ 	present = pte_present(pte);
+ 	while (--ncontig) {
+ 		ptep++;
+-		tmp_pte = __ptep_get_and_clear_anysz(mm, ptep, pgsize);
++		addr += pgsize;
++		tmp_pte = __ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
+ 		if (present) {
+ 			if (pte_dirty(tmp_pte))
+ 				pte = pte_mkdirty(pte);
+@@ -207,7 +208,7 @@ static void clear_flush(struct mm_struct *mm,
+ 	unsigned long i, saddr = addr;
+ 
+ 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+-		__ptep_get_and_clear_anysz(mm, ptep, pgsize);
++		__ptep_get_and_clear_anysz(mm, addr, ptep, pgsize);
+ 
+ 	if (mm == &init_mm)
+ 		flush_tlb_kernel_range(saddr, addr);
+-- 
+2.50.1
 
-Okay.
-
->
-> Also, are there any existing/planned modes/extensions of the feature?
-> E.g. read only? Knowing this will allow to better plan the
-> command-line parameter format.
-
-AFAIK, there will be no plan for new feature like "read only"
-and any other modes to be added.
-Also "store only" feature can be used with all mode
-currently, I seems good to leave it as it is.
-
->
-> >
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  Documentation/dev-tools/kasan.rst  |  3 ++
-> >  arch/arm64/include/asm/memory.h    |  1 +
-> >  arch/arm64/include/asm/mte-kasan.h |  6 +++
-> >  arch/arm64/kernel/cpufeature.c     |  6 +++
-> >  arch/arm64/kernel/mte.c            | 14 ++++++
-> >  include/linux/kasan.h              |  2 +
-> >  mm/kasan/hw_tags.c                 | 76 +++++++++++++++++++++++++++++-
-> >  mm/kasan/kasan.h                   | 10 ++++
-> >  8 files changed, 116 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
-> > index 0a1418ab72fd..7567a2ca0e39 100644
-> > --- a/Documentation/dev-tools/kasan.rst
-> > +++ b/Documentation/dev-tools/kasan.rst
-> > @@ -163,6 +163,9 @@ disabling KASAN altogether or controlling its features:
-> >    This parameter is intended to allow sampling only large page_alloc
-> >    allocations, which is the biggest source of the performance overhead.
-> >
-> > +- ``kasan.stonly=off`` or ``kasan.stonly=on`` controls whether KASAN checks
-> > +  store operation only or all operation.
->
-> How about:
->
-> ``kasan.store_only=off`` or ``=on`` controls whether KASAN checks only
-> the store (write) accesses only or all accesses (default: ``off``).
->
-> And let's put this next to kasan.mode, as the new parameter is related.
-
-Thanks for your suggetion. I'll change it.
-
->
-> > +
-> >  Error reports
-> >  ~~~~~~~~~~~~~
-> >
-> > diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-> > index 5213248e081b..9d8c72c9c91f 100644
-> > --- a/arch/arm64/include/asm/memory.h
-> > +++ b/arch/arm64/include/asm/memory.h
-> > @@ -308,6 +308,7 @@ static inline const void *__tag_set(const void *addr, u8 tag)
-> >  #define arch_enable_tag_checks_sync()          mte_enable_kernel_sync()
-> >  #define arch_enable_tag_checks_async()         mte_enable_kernel_async()
-> >  #define arch_enable_tag_checks_asymm()         mte_enable_kernel_asymm()
-> > +#define arch_enable_tag_checks_stonly()        mte_enable_kernel_stonly()
-> >  #define arch_suppress_tag_checks_start()       mte_enable_tco()
-> >  #define arch_suppress_tag_checks_stop()                mte_disable_tco()
-> >  #define arch_force_async_tag_fault()           mte_check_tfsr_exit()
-> > diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/mte-kasan.h
-> > index 2e98028c1965..d75908ed9d0f 100644
-> > --- a/arch/arm64/include/asm/mte-kasan.h
-> > +++ b/arch/arm64/include/asm/mte-kasan.h
-> > @@ -200,6 +200,7 @@ static inline void mte_set_mem_tag_range(void *addr, size_t size, u8 tag,
-> >  void mte_enable_kernel_sync(void);
-> >  void mte_enable_kernel_async(void);
-> >  void mte_enable_kernel_asymm(void);
-> > +int mte_enable_kernel_stonly(void);
-> >
-> >  #else /* CONFIG_ARM64_MTE */
-> >
-> > @@ -251,6 +252,11 @@ static inline void mte_enable_kernel_asymm(void)
-> >  {
-> >  }
-> >
-> > +static inline int mte_enable_kenrel_stonly(void)
-> > +{
-> > +       return -EINVAL;
-> > +}
-> > +
-> >  #endif /* CONFIG_ARM64_MTE */
-> >
-> >  #endif /* __ASSEMBLY__ */
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index 9ad065f15f1d..fdc510fe0187 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2404,6 +2404,11 @@ static void cpu_enable_mte(struct arm64_cpu_capabilities const *cap)
-> >
-> >         kasan_init_hw_tags_cpu();
-> >  }
-> > +
-> > +static void cpu_enable_mte_stonly(struct arm64_cpu_capabilities const *cap)
-> > +{
-> > +       kasan_late_init_hw_tags_cpu();
-> > +}
-> >  #endif /* CONFIG_ARM64_MTE */
-> >
-> >  static void user_feature_fixup(void)
-> > @@ -2922,6 +2927,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> >                 .capability = ARM64_MTE_STORE_ONLY,
-> >                 .type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> >                 .matches = has_cpuid_feature,
-> > +               .cpu_enable = cpu_enable_mte_stonly,
-> >                 ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
-> >         },
-> >  #endif /* CONFIG_ARM64_MTE */
-> > diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-> > index e5e773844889..a1cb2a8a79a1 100644
-> > --- a/arch/arm64/kernel/mte.c
-> > +++ b/arch/arm64/kernel/mte.c
-> > @@ -157,6 +157,20 @@ void mte_enable_kernel_asymm(void)
-> >                 mte_enable_kernel_sync();
-> >         }
-> >  }
-> > +
-> > +int mte_enable_kernel_stonly(void)
-> > +{
-> > +       if (!cpus_have_cap(ARM64_MTE_STORE_ONLY))
-> > +               return -EINVAL;
-> > +
-> > +       sysreg_clear_set(sctlr_el1, SCTLR_EL1_TCSO_MASK,
-> > +                        SYS_FIELD_PREP(SCTLR_EL1, TCSO, 1));
-> > +       isb();
-> > +
-> > +       pr_info_once("MTE: enabled stonly mode at EL1\n");
-> > +
-> > +       return 0;
-> > +}
-> >  #endif
-> >
-> >  #ifdef CONFIG_KASAN_HW_TAGS
-> > diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-> > index 890011071f2b..28951b29c593 100644
-> > --- a/include/linux/kasan.h
-> > +++ b/include/linux/kasan.h
-> > @@ -552,9 +552,11 @@ static inline void kasan_init_sw_tags(void) { }
-> >  #ifdef CONFIG_KASAN_HW_TAGS
-> >  void kasan_init_hw_tags_cpu(void);
-> >  void __init kasan_init_hw_tags(void);
-> > +void kasan_late_init_hw_tags_cpu(void);
->
-> Why do we need a separate late init function? Can we not enable
-> store-only at the same place where we enable async/asymm?
-
-It couldn't since the ARM64_MTE_ASYMM and ARM64_MTE are boot feature
-So the kasan_init_hw_tags() is called by boot cpu before other cpus're on.
-But, ARM64_MTE_STORE_ONLY is SYSTEM_FEATURE so this feature is enabled
-only when all cpus're on and they can use this system feature.
-
-[...]
-
-Thanks!
---
-Sincerely,
-Yeoreum Yun
 
