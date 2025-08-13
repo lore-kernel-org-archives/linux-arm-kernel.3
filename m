@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC07C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E00CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 08:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+d4fpbg8cVp0cLOcPq7QZRzVfJ1X8qN/EHFagHK5hq8=; b=NJXEnX2JKR8g1VAKC36bKAfMju
-	IIqMeg6hmyFHMvyW4G21m1vOt9CK4QJNeUDrhGl+kXhE/Zm6pO4IaUFkIo67PgyjGbms+oKD0+Ml6
-	qMfCnXo6C/A1O9Ysd6oOd5OdbmXdskgmm7y02+jJbDwNvonWvK8Z+MLBocpBeBR2naHjWkEbWX5PT
-	VRqHX95ftHh8vxoj7WxBAH2UpNyxlIAHZszurPhyAwN0WtsCWl5Umvm78AYQS/brsqwkZOfC68mB7
-	5gLAAQ3N8/nrKEIZPwWjDpe4opi/DZn5mXpZWTQSxW3KzawsUCnJf97o45jADmJa1YfzPPT7L7HbZ
-	GAGa9ADg==;
+	bh=np67QUqUZxpVxxW9on+bnIaa1eTPBywJmdPHWna/8zY=; b=u7KiW0lfn3tX0BxCg5fc7WQvYb
+	7m6QyYU9oOXUMBzYtYA1Ah+QoDfI1Ol373aI7jYTwmzpRj0hzrzLNgf1ld3+aps2EBGPJNgyfo7qY
+	QwDH+bvOjq/Z70vwJR48BZ8kMz1C7zfREt7x50Ehpjy3WLlZR17yt75C3xYZYxM3lIEBmgshkyV6J
+	6q9yo63Z5bkfDnajwVqiQLF6YCpBForqDRpJ7JGeeRQKanTOBPXL3oOlxP3V9B8U8Cse9Tns4Dkv5
+	3BHeeWEkuH2r/g6JGSPb61Gg1/KMrTSK8DdGT+Znr+ITg+qTn2pov1e393tcSn6lIBNDVqp1fDbs9
+	o+f9OAxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6bi-0000000D3HM-2zVY;
-	Wed, 13 Aug 2025 08:13:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1um6eF-0000000D3hi-2Ad3;
+	Wed, 13 Aug 2025 08:15:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um6N6-0000000D0lV-0o9h
+	id 1um6Q1-0000000D1Tb-1R8F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 07:58:09 +0000
+	Wed, 13 Aug 2025 08:01:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B1B865C3AC4;
-	Wed, 13 Aug 2025 07:58:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 286C7C4CEEB;
-	Wed, 13 Aug 2025 07:58:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B8FD943857;
+	Wed, 13 Aug 2025 08:01:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 480C7C4CEEB;
+	Wed, 13 Aug 2025 08:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755071887;
-	bh=eKYp0uIBZIMuaOiXjjT5VkfmOtK1hJ338ApEda24Owc=;
+	s=k20201202; t=1755072068;
+	bh=ik3RRtJNXNQz3MHEcfgevkOsyPm9dZmKKxQvnQGEwKw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mYtnb3Z78YECNeFBj8PmQGq2QA6/Ko3beUHRA+bnDltRSY3Njft0EZ8FxF7DFdyVl
-	 KSNnaOj+vJ7ezl2DwWSCmHzWVtjcvlOgoZRq90COv3D/mYjxj6Yn9ckompydndA3FW
-	 RRlKjySb6vhk0qoOB4mk16utzPRcYYidf+jE/1BzvVCm0JT4pIBIK54N1VUvN8pY0J
-	 NXVRwFv5dz6GIWFk3uhL/5wz9Ha3zt2uLJvocmEZZRqRBAiGbz/tB6vCsGje5wbG2j
-	 VPbDy7kUADaAXeC7RuzYqUjo+arKnjH4XGijUmmPBRJuvfc2Jlen1VnSaw5l2B3ypt
-	 spZ3bmSB0koKQ==
-Message-ID: <3f4f28cf-417b-4f12-8a3d-c1f70f6871c4@kernel.org>
-Date: Wed, 13 Aug 2025 09:58:03 +0200
+	b=t83xbZU6jvSLu4cvvrf+c+Qg1DzqBKCNvl+j3mMg/8FMgCuCbfYqwY3b+MUohZnwH
+	 taLYlaMHQNZPk/TJ+tFNpcqnyYN3D/gvy1OpbNq5M43TGDz98nz0BuNiNm/PBkePeL
+	 MKF9Hy76P8YQcDuNrho4oLbx8zxkry5tUeINgxTvBgKy3Q6in6YqWytWb+5lp3xeoJ
+	 8Gj4unrcrPZ/0YPKZRbr8It/uxsnM1OLZe0QFFuORsuba0ues++gvURHvw/QwsalPh
+	 0ODFA0TiIB7UYHOpi0Z6d4nuUxgs3a5hdu8zCAh0Qzjt/IdqfW8PRYWyIn3XGkCdOu
+	 vlCiw2zJjNhBQ==
+Message-ID: <c2e3aa26-7d9e-4423-9209-c882143310ce@kernel.org>
+Date: Wed, 13 Aug 2025 10:01:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/6] Support for Exynos7870's display stack (DECON,
- MIPIPHY, DSIM, etc.)
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+Subject: Re: [PATCH v1 0/1] Enable CMU_HSI1 for Exynos990
+To: Umer Uddin <umer.uddin@mentallysanemainliners.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
+References: <20250528105821.158140-1-umer.uddin@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,13 +98,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
+In-Reply-To: <20250528105821.158140-1-umer.uddin@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_005808_319393_3F5D4C28 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_010109_426243_EC4B27B2 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +118,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2025 22:13, Kaustabh Chakraborty wrote:
-> This series implements changes in the SoC subsystem, which includes
-> devicetree additions. It depends on all sub-series listed below:
-> (Legend: [R]eviewed, [A]ccepted)
+On 28/05/2025 12:58, Umer Uddin wrote:
+> Hi all.
 > 
-> exynosdrm-decon            - https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
-> exynos7870-mipi-phy        A https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
-> exynos7870-mipi-phy-fix    - https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
-> exynos7870-dsim            - https://lore.kernel.org/r/20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org
-> panel-samsung-s6e8aa5x01   - https://lore.kernel.org/r/20250625-panel-samsung-s6e8aa5x01-v3-0-9a1494fe6c50@disroot.org
-> panel-synaptics-tddi       - https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
+> This series enables a new clock block (CMU_HSI1) for the Exynos990
+> SoC. This clock block provides clocks for the DesignWare MMC
+> Controller, PCIE subsystem and UFS subsystem.
 > 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> This patch depends on the following series:
+> 
+> [CMU_HSI1] https://lore.kernel.org/linux-samsung-soc/20250528105252.157533-1-umer.uddin@mentallysanemainliners.org/
+> 
+I think dependency was not merged (received comments), so I will drop
+this from my queue. If that is not accurate, anyway please resend once
+dependency is ready/merged. Patch itself looked ok.
 
-What is the status of the bindings from dependencies? I think they were
-not accepted.
-
-I also replied with few nits for one of DTS patches. Everything else
-looks fine.
-
-BTW, really great job you did here, I am impressed!
+BTW, I take clock and SoC changes, so it is fine to send DTS with clock
+dependency together. DTS should not be mixed with driver code for Greg's
+subsystems, preferred not to mix for netdev.
 
 Best regards,
 Krzysztof
