@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3436CA0EE9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF92CA0EE8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 22:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aikCCzA4JV8uW58QUohJldBg0J+53SfENsyjedVm5m4=; b=O8o1T1k5UuX/z7z1vNlIyBGg1A
-	/nqGmbQJk4bmz+9sM/k7UhUYjtZG4RCZ4NZhX/ryqjve2Slxsa4IpS/wqZfGePCGnYzdXayWMDhtT
-	siEdOH6it+GLUBNoPKGZynZvgB9nplkb83C0D29P5ywpRW62kaQH91KeFEwm3dvWo9wIjEVhEAy7w
-	n7CQvPLU6NB25o7NQrgeH+IBHGbco3IMnyiA/zEDcTrN+gkpl9uusCgV2P1p6HSUwPFA1JokeQCbg
-	2VG6Azb3KOyctoR11J3+nJC6i1j5FWbSU0B32kQzj8+x4qARY4f7i17l90F1bSOta+8FfSalAuJ3g
-	TZcoK9Ag==;
+	bh=KHeBX+bcrAsO9afYXWyPr7+HVV+gOxB4ZyOYt9ZHb8s=; b=qcrAg8KMP0PnnRPksFfcm8hswF
+	nyrXqRaBAoiq9SDcWwn35TBvy4o54obB0GJsLm1zLQca9G1OCkj8BWa4lzx2+JKtfmWnvT6hfh0eb
+	jdeuaZ40YKz3v4hyMk7q1loWpLaI2GiPTvEK3RGNjq8YhCfBSmUqRRRSdDpTRfmWbyvx/a6/jd61l
+	978UJKvNEwXXBbzqAO42aKpZpSAbOAXDkuGT8+/kQje4qb4MI/hlBtOJjDhq//4LNRHzC6Lovn+sM
+	oiQsg8cQBPijIHJe3MRaeTEBdQTUPDcIFtByGD9ICCDFwNl0K7yBmUmm3o0Yws0FGjfBUhKe/7D0F
+	abWWK5xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umKEm-0000000FBYW-0fsS;
-	Wed, 13 Aug 2025 22:46:28 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1umKEl-0000000FBXe-2ECW;
+	Wed, 13 Aug 2025 22:46:27 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umFZt-0000000Ec3z-1qA8
+	id 1umFZp-0000000Ec3X-1afl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 17:47:58 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7e8706ac44eso8378985a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 10:47:57 -0700 (PDT)
+	Wed, 13 Aug 2025 17:47:54 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7e87050b077so8359385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 10:47:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1755107276; x=1755712076; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1755107272; x=1755712072; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=aikCCzA4JV8uW58QUohJldBg0J+53SfENsyjedVm5m4=;
-        b=lUQ559l7hD9ZroEwPo+wOxmEf8yZ4pQxG27FTMU8cIeRcj8PDcBMGUJ30HcWTg0m0D
-         Lcr/RsEoKr7p7pdHQgiUIvWlb3RUibKnWVn4oSKqvuqJufcK3OYnOOH+D9TSMWWIXIfV
-         WZU0uDk03HI9vhfCPq5JkBV/yOITK1oUYr5/m5pYiNXXLyhtvmGpwOkiaVQQPOqJBGPK
-         Y6kQ33Ig4LZWoV0kAQvIkHsUDsic3S5DNuuJvBplDVw8kFVtFkVgBgqPRr5D11RWQwyH
-         VX0KVeuzCu6jpbhNYP5KYOLuPel0V2sLocG1twq2FH3DAqjze3tcgPx7Kzc0bgpOjJwX
-         Il8A==
+        bh=KHeBX+bcrAsO9afYXWyPr7+HVV+gOxB4ZyOYt9ZHb8s=;
+        b=JsL8wQv1WYOPY6jTzrRQMGxnqAgo/Naj+e7OMa9Xb608eK5Qjlirlv7d90023aDJFs
+         zRnSIoERkhSwEKhpTi03RGBVWx3wGVZVHH/4kvVh8xrgEfjUnKqS4A1vEuXBn4LcC2Y5
+         JqueGoOYy0OIlnNegNCAzpKbcbodNmO8AhDL9D4VUMqhCOwosZDeKbWHajK/rcX+1j6S
+         IYEdQULpr6WUbNBVIMfQvw3pGljGAnrrq0ZKHff0QSSkSGYZDq/oLzPzj32JLFgH3Ffi
+         yE9PJMtpr/4kx3eSKFEua97gDLNSqJ4h/M4mXn0MS2M3JesFfRI30b7xT/fR2o2N9XmH
+         RbCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755107276; x=1755712076;
+        d=1e100.net; s=20230601; t=1755107272; x=1755712072;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aikCCzA4JV8uW58QUohJldBg0J+53SfENsyjedVm5m4=;
-        b=xQRmELBmcnAKhWTs7O9COGZa+6PWA4YZh4JDMlCoj8vDzdvlRLF93cqtAABksYZxDF
-         EfSXPnhxYONGrEvZbUq94YrOsJzokpVZ7IVX1FPXk1RGc3GIbmb1oGIOo8z1eQ8nj9WG
-         Tm6VlZsL+82EzIl/MlmVCdNjVB3vaw4vVZyuHi4nh7TdKHpkHgIFKLyEwb3hravgz9CB
-         xwwLgOi0QVqBkAVh3eO+nC4PMkmkS3RPsE9tPh6fiLnG6yxblRYULg/FviIMHdsPntKs
-         w2mV3sKDTCrnIvDonO6De9fCw5W18Dw/LiV3yUIM45WjXa+2KNlYAm45SEwLMTHKsp/O
-         Zwbw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXFJqjuUxRDew51sqCNb45D7l1yQWauwm3j+2huz1DA2tnHy7EbLzJw0mlUVb7ocMFzZ6zqb9ArYcxNkRZUOyd@lists.infradead.org
-X-Gm-Message-State: AOJu0YywRzterP3eRnbtyeIOQ0wy83gsc+av3818D1XXXZE4/v/7bYkr
-	uXEf60G645qE5tF2yUHs0L6v2BUp90SK7Ph+OpL5WrGR6BlCETUcvM6+B6fwmmLsUBA=
-X-Gm-Gg: ASbGncstoj1xUO7s11ck4e+91WEl/UgzdPsNc27dTl8jS+lXiB0Iw2uQFUw3vIw3Z8m
-	f7RZZp2q+LPa6/pvQAZVSlsCgrW0QLJKvBiXn2ECUHqYhOhJooZbFTtoHSp5yruiTLH3KFA7auQ
-	m3S4uyHVh8Ls1hZKOQw5U2Gu9O1kJooY/s4Q5pga4yUdR0LqSTNOw3qh0Wc7+DinYyyT+lizM6F
-	hWFBn+/RvjbY/G12R8sJs5pXlctyfYguiVL7hsIN8ibtqrZk9Nu/JCU8FWSxrlxINjFjkkUIH3o
-	CcKG8gf1V7cVlqUXTRw7fKxrAjpS9JCIzOhSP+0Lt7o2t/Ss3mutij2bJkAOvQnsi98hpwqlr0C
-	X3s2oWe2A1KrZx4aGt0JLRWNhRf6EApC6XVnOADwZIoh+qDh7qHf9
-X-Google-Smtp-Source: AGHT+IEg3SSFyFBuMzj7VtB0BXbM4b6FpFJkYNn6QJWw/Ig9p6dazfZbmEC4UpkoJX3lIwDtCnuVhw==
-X-Received: by 2002:a05:620a:201d:b0:7e8:6a84:e82e with SMTP id af79cd13be357-7e8705753c2mr21068085a.32.1755107276240;
-        Wed, 13 Aug 2025 10:47:56 -0700 (PDT)
+        bh=KHeBX+bcrAsO9afYXWyPr7+HVV+gOxB4ZyOYt9ZHb8s=;
+        b=I6SyAiyAsx4tFFbgYvv72UxfI+YnvV82xASmQlyVyJHpppKPTc2tbVPaAyy2FR2ph3
+         7yeYFrBULSU4L+bs9WhvTdDkTjWlx5Uln/+Lyc8SKqJrtQ33hi15/Eb0HzuXJ4OsaO/f
+         Wqt0Ti0jLjwrGMeGEjr6a/hVM0M64tW5IOSfZzcnlPfSKzUeZQfuQM73Pp11k6CeQsN2
+         2zESMoaxsRBU3SQeJ/5MxaGsvlvaNqxkueNWZbbJ8OD9wX2ushtI71NTKaElp5PLYkg+
+         9UzJrNSKiSnm8IQgvhTfM1Ogqj3G5VLNf8zfFEi6sPZxOvg4Y47PvCZqQNGUJhC/bqXb
+         yPWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqr41Kiy2bgwIxXtroOF5qedqEtCejqW/PHsSE/Hv97Qz9r9c1WqS0NG0hVHS9qWgYDOAToYfnkCyELbKNCbys@lists.infradead.org
+X-Gm-Message-State: AOJu0YwolyhEp/zpnx9yXV45xdFDKqln/9KfK0eUIbMtJjhAGZczqcxc
+	jcPRMtw5Fr2S5Rr5oVqcO7n3LCi1vP5B0I3kr5cHtZTKSYCbTWf6MLTJpDn3KNrjC7g=
+X-Gm-Gg: ASbGncuOqMPRE4d9b6cAdwSSwv4A/tPPWLtz9YV4u2OCOlKP2msz+io+pGxd+jNEKNO
+	6HZ0+Sc3cMFDpTjOZTPnkqhSg8nGhHyQx5iP2cc/pZdoaHCN+vj5KDIvzvh+WNTPXxGVyOssppk
+	E5oFFGut1u3HqfuxeW+yuPGWYm+6bMWHg8AztCohB8R5woUjtDZVUT8pjvs+xfnVt9fxBNBGyNg
+	GTa/vpLgwVXuRrZAZStw3efNi+/yT2vvFYuLsRqe1jZVR1WME4pFOstee8pCDnD8t3Q7TsdGohq
+	o+V2ex3BDkQyyXeG7C36EuHIk2g5Yk2ilkc9EM5n0wTI0Ua/A1HfZwlIQTtekqeiFnWET2tRqos
+	4SYSxh9yIzAnM3/1Z6KG84Ir/Dh+TNF24qgZz+DSm7EVgwgk91Z11/wQFv38u52E=
+X-Google-Smtp-Source: AGHT+IFBbRD05COD+4uOC97ucvpHyx0jBQqfnQDIsz8+GmCzNdE1TPU770o9CrOuegUdmCbSDq2ITA==
+X-Received: by 2002:a37:f50d:0:b0:7e6:5ef5:c7e4 with SMTP id af79cd13be357-7e8705d2e04mr26126585a.64.1755107272247;
+        Wed, 13 Aug 2025 10:47:52 -0700 (PDT)
 Received: from fedora (d-zg2-251.globalnet.hr. [213.149.37.251])
-        by smtp.googlemail.com with ESMTPSA id af79cd13be357-7e7fa87e7d0sm1627122385a.82.2025.08.13.10.47.52
+        by smtp.googlemail.com with ESMTPSA id af79cd13be357-7e7fa87e7d0sm1627122385a.82.2025.08.13.10.47.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 10:47:55 -0700 (PDT)
+        Wed, 13 Aug 2025 10:47:51 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: linux@armlinux.org.uk,
 	nicolas.ferre@microchip.com,
@@ -95,17 +95,17 @@ To: linux@armlinux.org.uk,
 	daniel.machon@microchip.com
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v9 6/9] spi: atmel: make it selectable for ARCH_MICROCHIP
-Date: Wed, 13 Aug 2025 19:44:42 +0200
-Message-ID: <20250813174720.540015-7-robert.marko@sartura.hr>
+Subject: [PATCH v9 5/9] tty: serial: atmel: make it selectable for ARCH_MICROCHIP
+Date: Wed, 13 Aug 2025 19:44:41 +0200
+Message-ID: <20250813174720.540015-6-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250813174720.540015-1-robert.marko@sartura.hr>
 References: <20250813174720.540015-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_104757_474393_8E5C1537 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250813_104753_414611_FA3906E1 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,32 +120,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LAN969x uses the Atmel SPI, so make it selectable for ARCH_MICROCHIP to
-avoid needing to update depends in future if other Microchip SoC-s use it
-as well.
+LAN969x uses the Atmel USART serial, so make it selectable for
+ARCH_MICROCHIP to avoid needing to update depends in future if other
+Microchip SoC-s use it as well.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
-Changes in v8:
-* Use ARCH_MICROCHIP for depends as its now selected by both ARM and ARM64
-Microchip SoC-s
-
- drivers/spi/Kconfig | 2 +-
+ drivers/tty/serial/Kconfig | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index 891729c9c564..320b23e92cbd 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -154,7 +154,7 @@ config SPI_ASPEED_SMC
- 
- config SPI_ATMEL
- 	tristate "Atmel SPI Controller"
--	depends on ARCH_AT91 || COMPILE_TEST
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index 44427415a80d..724ad4f3cbee 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -128,7 +128,7 @@ config SERIAL_SB1250_DUART_CONSOLE
+ config SERIAL_ATMEL
+ 	bool "AT91 on-chip serial port support"
+ 	depends on COMMON_CLK
+-	depends on ARCH_AT91 || ARCH_LAN969X || COMPILE_TEST
 +	depends on ARCH_MICROCHIP || COMPILE_TEST
- 	depends on OF
- 	help
- 	  This selects a driver for the Atmel SPI Controller, present on
+ 	select SERIAL_CORE
+ 	select SERIAL_MCTRL_GPIO if GPIOLIB
+ 	select MFD_AT91_USART
 -- 
 2.50.1
 
