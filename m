@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952DACA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A638C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqYPU935xT6Mbxf99JNTihbkL+VHpmHTTHKi4lhwoZ8=; b=mmfKa3BithRcs+FAn8n/FMP/xm
-	auRRuH4ipSb37WY7fcNwfVVWFMgvpUQbSj7XEMcCc0Eq7659jjsryL9xMTH3x6dGKQ6A6nexV/I2G
-	s9P8fllCwbgSaDQMhvypgPmZfneVHZtCk3T0NJVqnjozENdQvg0Wxzx4K3cqbtBHaNjPgECu4qO+1
-	xUZ0CpPiWo31z4mWgISz9eVUe5DHBldGPpVPkn4s2zRMZrMjqwu1MgrJcjODA2oeOCnVp3olZ/AK0
-	9RUyMeWr/dfRZNWSbStTTuUKr4NSDXaKSsiSyDS+HoPjYsLhr2BNd118IawOxVLuZeXneNmyASPpQ
-	LwyABv7A==;
+	bh=PMqGPn5i1dBgX26P0LPYzxtUAGEpZYYhsp9BiJes8v0=; b=KzS60tDyzIqzS61KuBuabT+dPV
+	o1AxK/Sl1yFqXe/oJGUok2+7PR2C4eKxBy6X0ZIdLNfwsNMt0VSTpC1fLWByQLktfQpnIgXieWHmq
+	CX1QkEGPvLFqt6+aVUq/k8lq9xKxto3cCCiUerhyj5qTg79U0NY+DtbiE2ord0QnsTv7NlwF4ftqj
+	P0RJpt0uCwJw6mTLYkRIJdREhTegLRik6lba7qLffZ6LgMCx26moYHBPzd7kg74fjizK7SeE6+yZ+
+	H5wFS+BA8gQ8P5cDgDcWoL+bY9piiiK8jQrt1EMl7bsuPQsi4ekcRDCgVn+P/DgeHkBYhdmJ6a2r5
+	+SFc/QmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umByx-0000000DqE8-17jg;
-	Wed, 13 Aug 2025 13:57:35 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1umC1U-0000000Dr2u-0CCr;
+	Wed, 13 Aug 2025 14:00:12 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBFx-0000000Dj4O-1efx
+	id 1umBG5-0000000Dj6G-0yCS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:11:06 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-b47052620a6so715080a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:11:05 -0700 (PDT)
+	Wed, 13 Aug 2025 13:11:14 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-31efefd2655so702552a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:11:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755090665; x=1755695465; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755090672; x=1755695472; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fqYPU935xT6Mbxf99JNTihbkL+VHpmHTTHKi4lhwoZ8=;
-        b=UfVK8FlPUNnGwkbGXz+gsL5myXcm7M8wUo7t7YprSOWFnZGs4DM+SgioQYfl5NIzUM
-         PUecc8p417xxTiGf61OASJks6uILYhkaqzyY54wXz8cWbJa1wdqNfaqSNNGhSaJATrgC
-         hUiwLbLylF32VI1EZe376o5epAM4SKibfYv8/ocUZ03FCgX0/jJOGKjWvf44tDgaMsp8
-         G4XreagurSmpzJtAI1yvgZRU9DiJ8MG36HaodFLLYbMM9Ljyt32SczZRaGrF5wbdFUWr
-         weWY5D4KhLYKHlLJDKu2LRIvzW9HK7WjzW7c8ARNGVAcOoIAr5OYgBHOYXBty9tmZX3o
-         oCzQ==
+        bh=PMqGPn5i1dBgX26P0LPYzxtUAGEpZYYhsp9BiJes8v0=;
+        b=dDW+t6MUx9AhlZIpOalfneU3AmMe1MVB36VW7szrkF/ygDTH0VS68WTRSu0bwzm7DY
+         qFNIfo694rX9+OTjfzNl+u+ryeVnyGH2oely20ISG5yaSwsKDQEf4uYJF0akRrGc9Xe6
+         8huNniI3nO86pdponXJVmPnM8cORp2kgqkj2/Tzd9yU8b0Krtryr2TIu/itiqPQgjIjj
+         osa5PKTqdIyHTqWsmlkjG9bdUXQeo4FBeUn/YegbvYGkJBinIApEcwFPPGEFRFgAsnUd
+         /6EAysGEgTa0ZrhRuyeMD174ZaM9AvEVgitYvxM7rRvr1bfNkPMIBDSarz7JJ2RNsJya
+         AUSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755090665; x=1755695465;
+        d=1e100.net; s=20230601; t=1755090672; x=1755695472;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fqYPU935xT6Mbxf99JNTihbkL+VHpmHTTHKi4lhwoZ8=;
-        b=SR793tmSTMzwTjiZYiHgIViQrWcUeAcN7UfBWNnFWZPI6lqr2EVEvVBSJYoDsIuxUZ
-         dsfnXUu3SuvrvERd15KvFPPa8W0lYsKxzAbT73JbD0Fnf82Bt0y87/MPtT9+Ttbs28ok
-         9kqs/hX7cVq/lSB8MhOZtr1W2ja8l/ZO5G2nkp+e6jqv5fYCeXi6gZ0uNIozf1W2U9bo
-         t3FvwpZyx48mYi0TEBvpfAeI7JZuSIOcxQmOisGUeh1IDdXPmR/gcSg5p55yYSSNzMaD
-         yrrA4xS/fLW3bohkGv/YhmABmqy00+5t/Tljs7gfOr9UDxyzoJaljx2w0UE0EwBFYXU6
-         lVZg==
-X-Forwarded-Encrypted: i=1; AJvYcCXcXej7ncmd6km6S4SHQP6vjZ6ivgIZPGpazRCVzY3YokX7XbcqHYUvKCfVkmg3CPgNKnKslaXB1uHsctCZL7N0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUP3VTQ0MB7fTkbdfAhvzwI9tK76a5AnAJvR24RXqOprrgDXX4
-	xkZXtxNntm6ciP8AQjdNr3zun0iJIBNhEJ45AS8GEd3LwMOy7kCGoc1e
-X-Gm-Gg: ASbGncukby31o/UziDGEuZNdvbUeip56HTNISOW8t8um9JMNZGO4a3kWI5cHuIEYxHY
-	PWfJZNksH/DmDzhz19fpGxqWHYuk47n3y0W4+Wt/g+WUxijr3/5pgArRJCW4yH5GUbU8y20/GYj
-	O7z4mmKdrLHfxb50Bt7rFECvYHA5wr0HuwlMELH2FzmZXwexkdEova+vKLztcw7Ya/FuEnoMO/B
-	RMgxeumAyhkOZE/7JVy7LoAkpk+mnWUg1eP/j/pJF37E+03RHKL5LSM209+sH369zEZqRnYf2SM
-	zmzvwFV3M7JqF8MX2NplL31F6mtfy/bx11tvr8KKwNP8ZEmaQGRfHCA226pM957TbSF5lm7vMEY
-	ZHJWKd7N0Wz7FIaO4Vq7N
-X-Google-Smtp-Source: AGHT+IEr3XOImum0AShefQhjlb0HC1vQdpy7jXh1LMHfhhnS2hv+Ey/hdEltC+XWyCUiKfzsSfAP4A==
-X-Received: by 2002:a17:90b:2fc3:b0:321:9462:49b7 with SMTP id 98e67ed59e1d1-321d289505cmr3515824a91.12.1755090664483;
-        Wed, 13 Aug 2025 06:11:04 -0700 (PDT)
+        bh=PMqGPn5i1dBgX26P0LPYzxtUAGEpZYYhsp9BiJes8v0=;
+        b=S70tZWv56zHuyTnzABLAdo6qr0giaoAW+ri3qs6sFeeOEwcSFM/MOT+/yknKzK4eOQ
+         fRsypAyf9+H3Fr2+D7RchAhrxi4/5Ol5dcfGB2U5c79cIswilltG3LKA+BxrwA+j4L9T
+         3Xe16ZPfbWGbqGjV3pFD1booaiLvGwv38qPrZ7CQ2gpU/ubriR/NBQ//fETSPaPHYXwX
+         kvnpqfN3gc1juV7S6VLu4BO27NsQ0xhvlUryJSUZHK13NEAor+cAg4CNl6MRCpy4IbNx
+         Vk6Aya5EYf9B5Bi3hNEKK+fmWagZan0WN7PIHwXp5pK+zLMuVVSatDVyzG0QemS67fuh
+         PWKg==
+X-Forwarded-Encrypted: i=1; AJvYcCVoCmpM6s4xdwelF4xL0F8CPhHN7OsFJULlNIgauTRiAOEqgNxQ/dGdxCNzV9/ANUOY6rGR0V0jHKLYPS9wBFme@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJz1y64iHRnyXTsip0Gal8fhRnSYTjD0PuDDRVwAPIt/p2N79l
+	+HUT0oBNPenJvG6wVvjkETTWAUOXslGeZ4Zbd4N0wh4eeHgMyL6KmTR2
+X-Gm-Gg: ASbGnctlttEmwpJ18AbVtOKAA9S2na5iaM3ULpMox+iaARehxQZynmiXvQaUeJjem7a
+	k6ci9TdAAOXjsTl1aKMJxF4+Awl+Svhc8HUyQOf+plfLDcyB1xFrT/FJaVU7BHGLL+2iITbd+7q
+	zIoqgwPhIapzPGxHtA9Wr22FM8zaJQUNMaATP8blT3wL2WdHUe4mR9Br/L1uOe6+xirPXTWjhsf
+	og/icCA5hXtv2qGh4RHD/SbV9ywdS/foaT8v68IWV++We8KuZ1rvsgqGcq+UWYA31iAogVrO22I
+	qBNysqq1pctC7Uqx+Kyjv2osfDUwWwYwlbQseUFjBwU1t535kyT4YeYuojrw+lEKuBWY3lA6+Gk
+	pn2t1e/9Akbd0T4S+0scYA2dMQ6ze01M=
+X-Google-Smtp-Source: AGHT+IEPKcFPf/H6yHGsr0sS7omSEBlqNNcKUaAqL1joOuoGej9xA/Vpwpo3atGz6DL927Y0FQPKsg==
+X-Received: by 2002:a17:90a:c2c8:b0:320:e145:26f3 with SMTP id 98e67ed59e1d1-321d27e34cbmr3948954a91.8.1755090672310;
+        Wed, 13 Aug 2025 06:11:12 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32325765df6sm161504a91.12.2025.08.13.06.10.58
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32325765df6sm161504a91.12.2025.08.13.06.11.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 06:11:03 -0700 (PDT)
+        Wed, 13 Aug 2025 06:11:11 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -88,17 +88,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
 Cc: Anand Moon <linux.amoon@gmail.com>,
 	Mateusz Majewski <m.majewski2@samsung.com>
-Subject: [PATCH v7 6/7] thermal/drivers/exynos: Handle temperature threshold IRQs with SoC-specific mapping
-Date: Wed, 13 Aug 2025 18:39:50 +0530
-Message-ID: <20250813131007.343402-7-linux.amoon@gmail.com>
+Subject: [PATCH v7 7/7] thermal/drivers/exynos: Refactor IRQ clear logic using SoC-specific config
+Date: Wed, 13 Aug 2025 18:39:51 +0530
+Message-ID: <20250813131007.343402-8-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250813131007.343402-1-linux.amoon@gmail.com>
 References: <20250813131007.343402-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_061105_432531_26E4628E 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20250813_061113_270468_9E480F90 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,119 +113,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos TMU interrupt handling mechanism has been refined to utilize
-SoC-specific mappings for interrupt clear registers, targeting rising and
-falling edge events. This change introduces a tmu_irq_map structure that
-defines these edge-specific interrupt bits, improving the accuracy of
-thermal event handling by ensuring that only relevant interrupts are
-acknowledged and cleared. The exynos4210_tmu_clear_irqs() function has
-been refactored to incorporate this mapping. Notably, for Exynos4210,
-a check has been added to prevent clearing unsupported falling edge
-interrupt bits.
-
-As per user manuals, specific mappings for interrupt status and clear
-registers include:
-
-Exynos4412: Falling edge bits at 20, 16, 12, and
-		rising edge bits at 8, 4, 0.
-Exynos5422: Falling edge bits at 24, 20, 16, and
-		rising edge bits at 8, 4, 0.
-Exynos5433: Falling edge bits at 23, 17, 16, and
-		rising edge bits at 7, 1, 0.
+The Exynos TMU driver's IRQ clear logic has been refactored for improved
+maintainability and reduced code duplication. A unified
+exynos4210_tmu_clear_irqs() implementation now replaces the previous
+reliance on SoC-specific functions and hardcoded register mappings.
+This new implementation leverages SoC-specific configuration fields
+(tmu_intstat, tmu_intclear, and IRQ bit mappings) stored within
+exynos_tmu_data. These fields are populated during device setup within
+exynos_map_dt_data(), thereby streamlining new SoC integration, ensuring
+correct interrupt handling, and improving code clarity. This refactor
+simplifies the addition of new SoC support, ensures correct interrupt
+handling across platforms, and improves overall code clarity.
 
 Cc: Mateusz Majewski <m.majewski2@samsung.com>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-v7: New patch in this series
-    simpilfy the logic for set and clear rising and failling
-    edges of the IRQ clear register.
-[0] https://lore.kernel.org/all/20250624075815.132207-1-m.majewski2@samsung.com/
+v7: new patch in this series
+    split the IRQ function handler per SoC.
 ---
- drivers/thermal/samsung/exynos_tmu.c | 70 ++++++++++++++++++++++++----
- 1 file changed, 60 insertions(+), 10 deletions(-)
+ drivers/thermal/samsung/exynos_tmu.c | 150 +++++++++++++++++----------
+ 1 file changed, 96 insertions(+), 54 deletions(-)
 
 diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index 146f29fadea9..5e581055e3f3 100644
+index 5e581055e3f3..9f94c58e1e74 100644
 --- a/drivers/thermal/samsung/exynos_tmu.c
 +++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -197,6 +197,12 @@ struct exynos_tmu_data {
- 	void (*tmu_clear_irqs)(struct exynos_tmu_data *data);
- };
+@@ -158,6 +158,8 @@ enum soc_type {
+  *	0 < reference_voltage <= 31
+  * @tzd: pointer to thermal_zone_device structure
+  * @enabled: current status of TMU device
++ * @tmu_intstat: interrupt status register
++ * @tmu_intclear: interrupt clear register
+  * @tmu_set_low_temp: SoC specific method to set trip (falling threshold)
+  * @tmu_set_high_temp: SoC specific method to set trip (rising threshold)
+  * @tmu_set_crit_temp: SoC specific method to set critical temperature
+@@ -184,6 +186,8 @@ struct exynos_tmu_data {
+ 	u8 reference_voltage;
+ 	struct thermal_zone_device *tzd;
+ 	bool enabled;
++	u32 tmu_intstat;
++	u32 tmu_intclear;
  
-+/* Map Rise and Falling edges for IRQ Clean */
-+struct tmu_irq_map {
-+	u32 fall[3];
-+	u32 rise[3];
-+};
-+
- /*
-  * TMU treats temperature as a mapped temperature code.
-  * The temperature is converted differently depending on the calibration type.
-@@ -765,8 +771,9 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
+ 	void (*tmu_set_low_temp)(struct exynos_tmu_data *data, u8 temp);
+ 	void (*tmu_set_high_temp)(struct exynos_tmu_data *data, u8 temp);
+@@ -770,67 +774,90 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
+ }
  
  static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
- {
--	unsigned int val_irq;
-+	unsigned int val_irq, clear_irq = 0;
- 	u32 tmu_intstat, tmu_intclear;
-+	struct tmu_irq_map irq_map = {0};
- 
- 	if (data->soc == SOC_ARCH_EXYNOS5260) {
- 		tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
-@@ -783,15 +790,58 @@ static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
- 	}
- 
- 	val_irq = readl(data->base + tmu_intstat);
--	/*
--	 * Clear the interrupts.  Please note that the documentation for
--	 * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
--	 * states that INTCLEAR register has a different placing of bits
--	 * responsible for FALL IRQs than INTSTAT register.  Exynos5420
--	 * and Exynos5440 documentation is correct (Exynos4210 doesn't
--	 * support FALL IRQs at all).
--	 */
--	writel(val_irq, data->base + tmu_intclear);
++{
++	unsigned int val_irq;
++	u32 tmu_intstat = data->tmu_intstat;
++	u32 tmu_intclear = data->tmu_intclear;
++
++	val_irq = readl(data->base + tmu_intstat);
 +
 +	/* Exynos4210 doesn't support FALL interrupts */
-+	if (data->soc == SOC_ARCH_EXYNOS4210) {
-+		writel(val_irq, data->base + tmu_intclear);
-+		return;
-+	}
++	writel(val_irq, data->base + tmu_intclear);
++}
++
++static void exynos4412_tmu_clear_irqs(struct exynos_tmu_data *data)
+ {
+ 	unsigned int val_irq, clear_irq = 0;
+-	u32 tmu_intstat, tmu_intclear;
++	u32 tmu_intstat = data->tmu_intstat;
++	u32 tmu_intclear = data->tmu_intclear;
+ 	struct tmu_irq_map irq_map = {0};
+ 
+-	if (data->soc == SOC_ARCH_EXYNOS5260) {
+-		tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
+-		tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
+-	} else if (data->soc == SOC_ARCH_EXYNOS7) {
+-		tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
+-		tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
+-	} else if (data->soc == SOC_ARCH_EXYNOS5433) {
+-		tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
+-		tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
+-	} else {
+-		tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
+-		tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
++	val_irq = readl(data->base + tmu_intstat);
 +
 +	/* Set SoC-specific interrupt bit mappings */
-+	switch (data->soc) {
-+	case SOC_ARCH_EXYNOS3250:
-+	case SOC_ARCH_EXYNOS4412:
-+	case SOC_ARCH_EXYNOS5250:
-+	case SOC_ARCH_EXYNOS5260:
-+		irq_map.fall[2] = BIT(20);
-+		irq_map.fall[1] = BIT(16);
-+		irq_map.fall[0] = BIT(12);
-+		irq_map.rise[2] = BIT(8);
-+		irq_map.rise[1] = BIT(4);
-+		irq_map.rise[0] = BIT(0);
-+		break;
-+	case SOC_ARCH_EXYNOS5420:
-+	case SOC_ARCH_EXYNOS5420_TRIMINFO:
-+		irq_map.fall[2] = BIT(24);
-+		irq_map.fall[1] = BIT(20);
-+		irq_map.fall[0] = BIT(16);
-+		irq_map.rise[2] = BIT(8);
-+		irq_map.rise[1] = BIT(4);
-+		irq_map.rise[0] = BIT(0);
-+		break;
-+	case SOC_ARCH_EXYNOS5433:
-+	case SOC_ARCH_EXYNOS7:
-+		irq_map.fall[2] = BIT(23);
-+		irq_map.fall[1] = BIT(17);
-+		irq_map.fall[0] = BIT(16);
-+		irq_map.rise[2] = BIT(7);
-+		irq_map.rise[1] = BIT(1);
-+		irq_map.rise[0] = BIT(0);
-+		break;
-+	default:
-+		pr_warn("exynos-tmu: Unknown SoC type %d, using fallback IRQ mapping\n", soc);
-+		break;
++	irq_map.fall[2] = BIT(20);
++	irq_map.fall[1] = BIT(16);
++	irq_map.fall[0] = BIT(12);
++	irq_map.rise[2] = BIT(8);
++	irq_map.rise[1] = BIT(4);
++	irq_map.rise[0] = BIT(0);
 +
 +	/* Map active INTSTAT bits to INTCLEAR */
 +	for (int i = 0; i < 3; i++) {
@@ -233,13 +207,154 @@ index 146f29fadea9..5e581055e3f3 100644
 +			clear_irq |= irq_map.fall[i];
 +		if (val_irq & irq_map.rise[i])
 +			clear_irq |= irq_map.rise[i];
-+	}
-+
+ 	}
+ 
 +	if (clear_irq)
 +		writel(clear_irq, data->base + tmu_intclear);
- }
++}
++
++static void exynos5420_tmu_clear_irqs(struct exynos_tmu_data *data)
++{
++	unsigned int val_irq, clear_irq = 0;
++	u32 tmu_intstat = data->tmu_intstat;
++	u32 tmu_intclear = data->tmu_intclear;
++	struct tmu_irq_map irq_map = {0};
++
+ 	val_irq = readl(data->base + tmu_intstat);
  
- static const struct of_device_id exynos_tmu_match[] = {
+-	/* Exynos4210 doesn't support FALL interrupts */
+-	if (data->soc == SOC_ARCH_EXYNOS4210) {
+-		writel(val_irq, data->base + tmu_intclear);
+-		return;
++	/* Set SoC-specific interrupt bit mappings */
++	irq_map.fall[2] = BIT(24);
++	irq_map.fall[1] = BIT(20);
++	irq_map.fall[0] = BIT(16);
++	irq_map.rise[2] = BIT(8);
++	irq_map.rise[1] = BIT(4);
++	irq_map.rise[0] = BIT(0);
++
++	for (int i = 0; i < 3; i++) {
++		if (val_irq & irq_map.fall[i])
++			clear_irq |= irq_map.fall[i];
++		if (val_irq & irq_map.rise[i])
++			clear_irq |= irq_map.rise[i];
+ 	}
+ 
++	if (clear_irq)
++		writel(clear_irq, data->base + tmu_intclear);
++}
++
++static void exynos5433_tmu_clear_irqs(struct exynos_tmu_data *data)
++{
++	unsigned int val_irq, clear_irq = 0;
++	u32 tmu_intstat = data->tmu_intstat;
++	u32 tmu_intclear = data->tmu_intclear;
++	struct tmu_irq_map irq_map = {0};
++
++	val_irq = readl(data->base + tmu_intstat);
++
+ 	/* Set SoC-specific interrupt bit mappings */
+-	switch (data->soc) {
+-	case SOC_ARCH_EXYNOS3250:
+-	case SOC_ARCH_EXYNOS4412:
+-	case SOC_ARCH_EXYNOS5250:
+-	case SOC_ARCH_EXYNOS5260:
+-		irq_map.fall[2] = BIT(20);
+-		irq_map.fall[1] = BIT(16);
+-		irq_map.fall[0] = BIT(12);
+-		irq_map.rise[2] = BIT(8);
+-		irq_map.rise[1] = BIT(4);
+-		irq_map.rise[0] = BIT(0);
+-		break;
+-	case SOC_ARCH_EXYNOS5420:
+-	case SOC_ARCH_EXYNOS5420_TRIMINFO:
+-		irq_map.fall[2] = BIT(24);
+-		irq_map.fall[1] = BIT(20);
+-		irq_map.fall[0] = BIT(16);
+-		irq_map.rise[2] = BIT(8);
+-		irq_map.rise[1] = BIT(4);
+-		irq_map.rise[0] = BIT(0);
+-		break;
+-	case SOC_ARCH_EXYNOS5433:
+-	case SOC_ARCH_EXYNOS7:
+-		irq_map.fall[2] = BIT(23);
+-		irq_map.fall[1] = BIT(17);
+-		irq_map.fall[0] = BIT(16);
+-		irq_map.rise[2] = BIT(7);
+-		irq_map.rise[1] = BIT(1);
+-		irq_map.rise[0] = BIT(0);
+-		break;
+-	default:
+-		pr_warn("exynos-tmu: Unknown SoC type %d, using fallback IRQ mapping\n", soc);
+-		break;
++	irq_map.fall[2] = BIT(23);
++	irq_map.fall[1] = BIT(17);
++	irq_map.fall[0] = BIT(16);
++	irq_map.rise[2] = BIT(7);
++	irq_map.rise[1] = BIT(1);
++	irq_map.rise[0] = BIT(0);
+ 
+ 	/* Map active INTSTAT bits to INTCLEAR */
+ 	for (int i = 0; i < 3; i++) {
+@@ -915,6 +942,8 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos4210_tmu_control;
+ 		data->tmu_read = exynos4210_tmu_read;
+ 		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
++		data->tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
+ 		data->gain = 15;
+ 		data->reference_voltage = 7;
+ 		data->efuse_value = 55;
+@@ -934,7 +963,14 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos4210_tmu_control;
+ 		data->tmu_read = exynos4412_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos4412_tmu_clear_irqs;
++		if (data->soc == SOC_ARCH_EXYNOS5260) {
++			data->tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
++			data->tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
++		} else {
++			data->tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
++			data->tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
++		}
+ 		data->gain = 8;
+ 		data->reference_voltage = 16;
+ 		data->efuse_value = 55;
+@@ -952,7 +988,9 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos4210_tmu_control;
+ 		data->tmu_read = exynos4412_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos5420_tmu_clear_irqs;
++		data->tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
++		data->tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
+ 		data->gain = 8;
+ 		data->reference_voltage = 16;
+ 		data->efuse_value = 55;
+@@ -969,7 +1007,9 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos5433_tmu_control;
+ 		data->tmu_read = exynos4412_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos5433_tmu_clear_irqs;
++		data->tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
++		data->tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
+ 		data->gain = 8;
+ 		if (res.start == EXYNOS5433_G3D_BASE)
+ 			data->reference_voltage = 23;
+@@ -989,7 +1029,9 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos7_tmu_control;
+ 		data->tmu_read = exynos7_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos5433_tmu_clear_irqs;
++		data->tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
++		data->tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
+ 		data->gain = 9;
+ 		data->reference_voltage = 17;
+ 		data->efuse_value = 75;
 -- 
 2.50.1
 
