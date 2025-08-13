@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC90CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993EEC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 16:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6EBEMYOHLBS/mOMhxKpJJOh8alzp/LH8jTecCxA9Aw=; b=Ebd2DUw07VGGailHFH9cbhITHe
-	pxIRrW2eM3NdBXnptEfw+T1WlLmmdtvGjxHZHSieObmkPRChe32azXgvSwkI3q9XfbVXq+UfC7fxU
-	RXw/ASOvOE0AapBdxccqX8W+Pi068fkJAsibFhivGf4IYkyQtpJJUTbv+7rY0xFJ+hXhG3hHobA42
-	ClcjxJjTWuxjKnNjnzyunkxL1rjGK798n89LYQ/Ue8gBXXJEr0Tpv0QPMVHX2YtyOJRIy6W+GZhyR
-	Wzih3FBz5CUKtJHsWQOqdhfglDOyaQ/Ek6u5NZLC98lEaHOajob78VQ+dS+JiXHbZkt502TbaWQ1F
-	UhSxI/ug==;
+	bh=LZIyAAVxGkCRQr9BUYAZ8nPgNM4Ndhfq5a5jE1scOa0=; b=Cy/q4jLw/eAO/f62qEWqEsDMwo
+	Q76CyXySMpWvD2HQP1V6AVPIPJ9KLI2Vh7oBJP/SprwQdT2fk/bLYzn3PNxAxwICiMekNWb4HPKvw
+	p5lt9n+3ySfDoEkjitfuMy/iYWjAzcwoSfHpwWPtIvL/ifqfMjOKpPYYrJyOlzVYlr5czcBc5Fjfa
+	ct54AT6+pmPag/MGpBfuY/CKg8q4wE7EjBrV/NcUw1Z3ondhJaQPMsNxJlsAEnZgpVaooQPMpmsGs
+	dHujLmr6kHm4MByikwjxnvD2mN2p3Wj1OX256gNmq6juOvsmoAYi0787srOT71yKfu/9WAS1ey2U6
+	4tGzbbVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umE8f-0000000ELSp-3hP2;
-	Wed, 13 Aug 2025 16:15:45 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1umEBE-0000000EMBE-2p11;
+	Wed, 13 Aug 2025 16:18:24 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umDN0-0000000EBLC-481P
+	id 1umDNe-0000000EBPn-3BG5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 15:26:32 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DFQBdF1728877;
-	Wed, 13 Aug 2025 10:26:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755098771;
-	bh=f6EBEMYOHLBS/mOMhxKpJJOh8alzp/LH8jTecCxA9Aw=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=s4wtRnQrLPtZvTOm8HT2J2f0fERCIvleTqauRAsIg8rBdOGs04emppWtMWLSehjEr
-	 BhxqgKtR7G/6gMDl9tES4wpZUnnmLFnksGeoSPXoto11DfOt+RVfDGVW7O6gaOxWqA
-	 bHdTe7Hzl4B8jkNuMAz3iEddS8Z7pTsLZKqjl4e8=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DFQBLq153772
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 10:26:11 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 10:26:10 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 10:26:10 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DFQApP2503743;
-	Wed, 13 Aug 2025 10:26:10 -0500
-Date: Wed, 13 Aug 2025 10:26:10 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Guillaume La Roque <glaroque@baylibre.com>
-CC: Thomas Gleixner <tglx@linutronix.de>, <vigneshr@ti.com>,
-        Santosh Shilimkar
-	<ssantosh@kernel.org>,
-        Tero Kristo <kristo@kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 2/2] soc: ti: ti_sci_inta_msi: Enable module
- compilation support
-Message-ID: <20250813152610.akcdxrzhev6e2kfa@unturned>
-References: <20250812-timsi-v2-0-90c8500f3f18@baylibre.com>
- <20250812-timsi-v2-2-90c8500f3f18@baylibre.com>
+	Wed, 13 Aug 2025 15:27:11 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-459d40d16bdso43068035e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 08:27:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755098829; x=1755703629; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LZIyAAVxGkCRQr9BUYAZ8nPgNM4Ndhfq5a5jE1scOa0=;
+        b=Lj2GUKnvZ1Hv9hCl+DcFDB4Vk1amc8bxD9BftuA4R7SyIOPkwcH10wTXALAQ3vBOZb
+         HCTwptBtCkDEHZUWKK2EvMWeU/6SibPoApYTDzwX6coF/Ul7ChCHijQ5cE9oq3ZTb8JC
+         Q7ZQEMbWoqt7rwNyozHiaCetExKlufGNUcgHalykWUQDhDTHpQmAmec5Ada5aXdePWnU
+         QNxXQoYDtxiUtI0X8GWrb4ep2oBOy9vCYvldzu6uUMCtYQBGaPcJqOAqFAeO8qLYZ+Og
+         UC9JgB6xJQpo1u/CbUo8eQGMYtRGhL0rHMi3D7HX1q7vI3G6IhlgYMcTEQt2S2/jbreW
+         n6/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755098829; x=1755703629;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LZIyAAVxGkCRQr9BUYAZ8nPgNM4Ndhfq5a5jE1scOa0=;
+        b=KgoUGVVKYEc9mMbB14sxNT6KFYykJ6A3SZWFZr7YBYo/anoGxPmnR+EcMBpoxs+1T2
+         b+5xz+KEGTglhELFmbyvLtLkdVJOvjLcWOks5ABYYXQQj8FfTWCu/yoVJxfXIF5ZvAcu
+         PNXU5enMJ5WA/gasiuJmm7aMVMqjO+eaLYvzWsivITD3ZTM0sMTmk3iG9P2AsN/UT4YF
+         eSDtUhJahPZ+iPXDMoee66XTnM2QG2s7UvaQ3NQRwS133FREDEKdRgswIKgYoAINMRmr
+         g6qgE/kgLemhFsRiAwk4kz/piaUyQ5bVAq25/LXCLwjwbMTv03gJwcc1a4iz3UBXnYbT
+         yJRg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1taAy/lCL0sfTB+FWXRTIZylSKCrd86iBJqszzLbBy99iwkHSP9tlxXqKHmYoY6zNsIZIlj1ISlwCdNEzS6VJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjezeZ9dLvgDZqIA2vvdUnDjX65Wxgh6QgWX489zqZTt1vsYtC
+	xJXkhhpmHYyDGOqgI36WS9SCT64tLyae/EVFbw10WuSoRO8l9UuuwPP9
+X-Gm-Gg: ASbGnctUD64aYO776Wyq42fX8SBdDLaVqOtgdF7qbaris8bNm8Eq8B9XeUZnh1/jkxY
+	ajnhmsbVCs0RZZk9HB3iqM337dWCary+ciYUoJvYrDjmh/7o90higU6WgWZBk2beQ7edXkvi4KE
+	qM3gCS1EbqscEU9QMUn1WKFQwvQkCLggXl8x1SelxPl4qNgqJVixogq1k1D74VS/17fBR74q+Wx
+	78uY16L45edNrhnHwdL7Z/RbzM4nXc2NG76e4ne+goN1bi77jik3so4JqLtW1OmKY7QM+4aFO/w
+	iM4qrAmK/kSqjdzpsopo6w44hzUIKA/ka5XLAllkvJgt285Entyn4L5MmV7Y+/XuwET1kzMQKj1
+	DcEr47ZZzk4PZpEjVbIV9l6AGQscTY1/GnZ20pEeQ8izb10P+rVUJYJbwckmlvoQQhWjTFYqnVx
+	Id8cF+Frtx
+X-Google-Smtp-Source: AGHT+IEX4BDNa5mzqwSGmhUw6KuEqvUFZNcO+D5WjOPXTrwn2jJiUF7/1VKfEyNQ34hedf4mE52tig==
+X-Received: by 2002:a05:600c:5254:b0:459:ddad:a3bd with SMTP id 5b1f17b1804b1-45a165d4d2emr30205835e9.15.1755098829053;
+        Wed, 13 Aug 2025 08:27:09 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a509b9bsm6560505e9.6.2025.08.13.08.27.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 08:27:08 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH net-next v2 07/10] arm64: dts: allwinner: a527: cubie-a5e: Enable
+ second Ethernet port
+Date: Wed, 13 Aug 2025 17:27:06 +0200
+Message-ID: <2376533.ElGaqSPkdT@jernej-laptop>
+In-Reply-To: <20250813145540.2577789-8-wens@kernel.org>
+References: <20250813145540.2577789-1-wens@kernel.org>
+ <20250813145540.2577789-8-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250812-timsi-v2-2-90c8500f3f18@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_082631_106481_201EE585 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250813_082710_796927_A81C6FC8 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,72 +108,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22:36-20250812, Guillaume La Roque wrote:
-> Add module support to the TI SCI INTA MSI driver:
-> - Change Kconfig from bool to tristate to allow module compilation
-> - Add linux/module.h include for module functionality
-> - Add MODULE_LICENSE, MODULE_DESCRIPTION, and MODULE_AUTHOR macros
-> 
-> This allows the driver to be compiled as a loadable kernel module
-> named ti_sci_inta_msi.
-> 
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+Dne sreda, 13. avgust 2025 ob 16:55:37 Srednjeevropski poletni =C4=8Das je =
+Chen-Yu Tsai napisal(a):
+> From: Chen-Yu Tsai <wens@csie.org>
+>=20
+> On the Radxa Cubie A5E board, the second Ethernet controller, aka the
+> GMAC200, is connected to a second external Maxio MAE0621A PHY. The PHY
+> uses an external 25MHz crystal, and has the SoC's PJ16 pin connected to
+> its reset pin.
+>=20
+> Enable the second Ethernet port. Also fix up the label for the existing
+> external PHY connected to the first Ethernet port. An enable delay for the
+> PHY supply regulator is added to make sure the PHY's internal regulators
+> are fully powered and the PHY is operational.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Best regards,
+Jernej
+
 > ---
->  drivers/soc/ti/Kconfig           | 5 ++++-
->  drivers/soc/ti/ti_sci_inta_msi.c | 5 +++++
->  2 files changed, 9 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
-> index 1a93001c9e36..0a9eb5ac264b 100644
-> --- a/drivers/soc/ti/Kconfig
-> +++ b/drivers/soc/ti/Kconfig
-> @@ -85,7 +85,10 @@ config TI_PRUSS
->  endif # SOC_TI
->  
->  config TI_SCI_INTA_MSI_DOMAIN
-> -	bool
-> +	tristate "TI SCI INTA MSI Domain driver"
->  	select GENERIC_MSI_IRQ
->  	help
->  	  Driver to enable Interrupt Aggregator specific MSI Domain.
+>=20
+> Changes since v1:
+> - Switch to generic (tx|rx)-internal-delay-ps properties
+> - Add PHY regulator delay
+> ---
+>  .../dts/allwinner/sun55i-a527-cubie-a5e.dts   | 28 +++++++++++++++++--
+>  1 file changed, 26 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/ar=
+ch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> index d4cee2222104..e96a419faf21 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> @@ -14,6 +14,7 @@ / {
+> =20
+>  	aliases {
+>  		ethernet0 =3D &gmac0;
+> +		ethernet1 =3D &gmac1;
+>  		serial0 =3D &uart0;
+>  	};
+> =20
+> @@ -76,7 +77,7 @@ &ehci1 {
+> =20
+>  &gmac0 {
+>  	phy-mode =3D "rgmii-id";
+> -	phy-handle =3D <&ext_rgmii_phy>;
+> +	phy-handle =3D <&ext_rgmii0_phy>;
+>  	phy-supply =3D <&reg_cldo3>;
+> =20
+>  	allwinner,tx-delay-ps =3D <300>;
+> @@ -85,13 +86,24 @@ &gmac0 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&gmac1 {
+> +	phy-mode =3D "rgmii-id";
+> +	phy-handle =3D <&ext_rgmii1_phy>;
+> +	phy-supply =3D <&reg_cldo4>;
 > +
-> +	  Say Y here to compile it into the kernel or M to compile it as a
-> +	  module. The module will be called ti_sci_inta_msi.
-> diff --git a/drivers/soc/ti/ti_sci_inta_msi.c b/drivers/soc/ti/ti_sci_inta_msi.c
-> index 193266f5e3f9..d92cab319d57 100644
-> --- a/drivers/soc/ti/ti_sci_inta_msi.c
-> +++ b/drivers/soc/ti/ti_sci_inta_msi.c
-> @@ -8,6 +8,7 @@
->  
->  #include <linux/irq.h>
->  #include <linux/irqdomain.h>
-> +#include <linux/module.h>
->  #include <linux/msi.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -115,3 +116,7 @@ int ti_sci_inta_msi_domain_alloc_irqs(struct device *dev,
->  	return ret;
->  }
->  EXPORT_SYMBOL_GPL(ti_sci_inta_msi_domain_alloc_irqs);
+> +	tx-internal-delay-ps =3D <300>;
+> +	rx-internal-delay-ps =3D <400>;
 > +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("Texas Instruments K3 Interrupt Aggregator MSI bus");
-> +MODULE_AUTHOR("Lokesh Vutla <lokeshvutla@ti.com>");
-> 
-> -- 
-> 2.34.1
-> 
+> +	status =3D "okay";
+> +};
+> +
+>  &gpu {
+>  	mali-supply =3D <&reg_dcdc2>;
+>  	status =3D "okay";
+>  };
+> =20
+>  &mdio0 {
+> -	ext_rgmii_phy: ethernet-phy@1 {
+> +	ext_rgmii0_phy: ethernet-phy@1 {
+>  		compatible =3D "ethernet-phy-ieee802.3-c22";
+>  		reg =3D <1>;
+>  		reset-gpios =3D <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
+> @@ -100,6 +112,16 @@ ext_rgmii_phy: ethernet-phy@1 {
+>  	};
+>  };
+> =20
+> +&mdio1 {
+> +	ext_rgmii1_phy: ethernet-phy@1 {
+> +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> +		reg =3D <1>;
+> +		reset-gpios =3D <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
+> +		reset-assert-us =3D <10000>;
+> +		reset-deassert-us =3D <150000>;
+> +	};
+> +};
+> +
+>  &mmc0 {
+>  	vmmc-supply =3D <&reg_cldo3>;
+>  	cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+> @@ -240,6 +262,8 @@ reg_cldo4: cldo4 {
+>  				regulator-min-microvolt =3D <3300000>;
+>  				regulator-max-microvolt =3D <3300000>;
+>  				regulator-name =3D "vcc-pj-phy";
+> +				/* enough time for the PHY to fully power on */
+> +				regulator-enable-ramp-delay =3D <150000>;
+>  			};
+> =20
+>  			reg_cpusldo: cpusldo {
+>=20
 
-If Thomas doesn't mind picking the full series,
 
-Acked-by: Nishanth Menon <nm@ti.com>
 
-This is probably one of the last hold outs for us to move SoC support
-into kernel modules.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
 
