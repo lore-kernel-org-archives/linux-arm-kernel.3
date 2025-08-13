@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A67CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A48C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 19:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iy7VOH8rjAnxxyRVyA8fKvdyXX0EbkCp0PC9FG7+JKo=; b=H/8j9lH4w8mK9eXg7w9HQM3/A2
-	eHgJ2pIaF3AMXt100mBfhMlbTzD4qnCMil7sGeLa4wA0WIU9MTotQjlmM10ny9D45Rms8L8+HHuOo
-	R1lhMuUkK1MuUSjKh6DNyRFuBUTZboZQCCcE/sxb19YA2zFieMPjj+bA/v9CMscgceJP5mNfI8SzN
-	01/BDTaCLUaiQefHJ8Y9rIUU37x+PtjkmlZ43SVJ5QSAxPwatgcqm+9ImIyIzr8iJyp5TzLbSQ4ql
-	NLDVo6mSZtHdMv69q+GSQsED/xK8fbqIRfF8JXzsgq969nMoPkPbew2R8oyyKgABCkBmhCTzAX4XL
-	6lmwhq6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SBsfJFWg1o3SQZ+JkXCo0QRsi2YIFRfM5g31219RL4A=; b=KUNG8YcqOjZ+Bm6K9NjjgNge63
+	UdQDYyoo8M4edCPgFH8I7JsV2iWrECkMnl+g4R5MbXuNySCdYWbKwBP39VsUA5JvlpSY67covYxKO
+	LthJqf2YM9Lv8LJGxpWGJt7ZOvQF5FMYaqc+RoHjUnL9w3hEocSUvTlDAnbHkonrQ5Iul1s1qMa+W
+	7d48SF38kcVrnJI0heX5b+PiLHXHOjRkDHJVvJoDe/R6S2y24GT7a7F8PDtaWip94tzLSeqT5OVqb
+	zOksU4Hgg9sl5e057Kd7FA2lvRg5Tn7SPYugxwMHxYDKxs+N+SD6vssZGlAFQMVR5DL1o+fyvpmhi
+	wRjFE9Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umHP3-0000000Epz3-08HZ;
-	Wed, 13 Aug 2025 19:44:53 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1umHPG-0000000EqMQ-05Uo;
+	Wed, 13 Aug 2025 19:45:06 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umF74-0000000EZZH-10tF
+	id 1umFZW-0000000Ebzd-0lK8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 17:18:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755105491; x=1786641491;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WV0Vo+K02OhsbWV4KFB/mzIPWVvcS25gBWrGy1wIQZE=;
-  b=MH1bZYbtoTQ80hK3PZQOVQEpl+qrYrKbFo6Pxy6M82C5Xkhrzf5ke5bJ
-   7KNNWolPiEG4zGWH9ZEhaZ7CuVL+wKoMINcWO/cDkUWzEE+mSsZWUxSI4
-   SVwclPFLrav8DwSN4k6inT7XEfi7UNut+Tgr3RvjO3iNkxpnaJjVnWRBy
-   xjj/vOtHs1rZqjG8xayCfH9HbJTFV1Qsc24QgCyZNJbhom6h2IuC/l9ap
-   9HnaURCdI9xKtIKNNzHO/jq/R0WJsCW6V80inyqJGsWLsjv0NSUDKRabq
-   QeTaUB9WegubXL6tDUOtKrlPMXs3mkpL+cN2BqrNsMc2ge+OduXLKaNoj
-   Q==;
-X-CSE-ConnectionGUID: x3C6uUx4R2Szxhh/3xNxTg==
-X-CSE-MsgGUID: 88VPgXoOTyWKwgJaQOjRzA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="67683612"
-X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
-   d="scan'208";a="67683612"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 10:18:09 -0700
-X-CSE-ConnectionGUID: SLv3rjliRGejYsPzB8JYLQ==
-X-CSE-MsgGUID: So1G6vd/Qpa6singFRjHbQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
-   d="scan'208";a="171857712"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 13 Aug 2025 10:18:04 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1umF6W-000A9U-3B;
-	Wed, 13 Aug 2025 17:17:44 +0000
-Date: Thu, 14 Aug 2025 01:16:58 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels
- are ordered in TDM bus
-Message-ID: <202508140002.NBrWOZJL-lkp@intel.com>
-References: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
+	Wed, 13 Aug 2025 17:47:35 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7e870608598so6374785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 10:47:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1755107251; x=1755712051; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SBsfJFWg1o3SQZ+JkXCo0QRsi2YIFRfM5g31219RL4A=;
+        b=GhPRscYs5kfoBJbi9fRNIbl/WPV3c2Awpr1cZseA5yzKka5Qe4D//LggTpSPLF5Tpp
+         SPVOme7zDkAT9aH8I37yc6zF6UI7I6F1DAGny1bR26Avkzu4/G1xTzaaSVB5IvCoyRS4
+         hEsYoqmdkcy6UINWuWGnUij3aB28q/APtZaekVnFs5s5KJEz/oAPOD3uv90oPVKrs8sr
+         0Yuqu+fFOZmKQjLynpGbJw4km9Z7pxYNC1pC91SkNfFjFbq2EDC60ijOeugw1vMp69a5
+         Gal3xbr/wiRm9qV8a1Ji1vXX/kWeW7spBIFeDBgUfFSZdo3vFluegFlKEAXw6n9aG7PK
+         AnsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755107251; x=1755712051;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SBsfJFWg1o3SQZ+JkXCo0QRsi2YIFRfM5g31219RL4A=;
+        b=e1tYimb6XWxjZ6ZTQ8Z40iizBV4/2FloPI3gX8C146K4KbycndQkvT+4/exdf1bOCw
+         +UDiXt8Cc6YkY3n2guoKfD7Ieif5ZePkHPGG8FIKMKa3tYv5YgtHHREtv3zSNz4qlyBs
+         GA78Sa8be87Ni4yyCYFd9mrRPYnVOfU3M5pU4CrtjOgyOwg9w7azj7F+aQgkhKV00hdp
+         usjDt9HIXLYQn97vMFIpK3KlYP0diJwsEVkRvfKhYNYqe80Y0oBGSsJUBHDc2p5XpECc
+         rgTBoIPi5f7qE6yQN3IkqUR3nIJSxJ+ozk6LQej+QhkVeomPrDrOLxwK6rR6/9FnWh9B
+         tfAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVXsT15AV9h9r6In5AGzYOMpP1hRC3f1j+g8qMrxmrb1JS/3EFBTjYwy2PLzhrnXca554UwWa8DwXGrsKF071Qb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxL2LLgEmvJw04NOhjQH0cgFGpqgKSuZgK42r6N/PQs8kBRZeB4
+	Ugp8o8Vvw/PLAiTg5Dy8BctpHs3/LjfTdbatp3LvRNCX6egrVLHqrhL6TpORPIxww1k=
+X-Gm-Gg: ASbGncvzxPWGDcELj/17ay/RJy3SAOGhBda+wr2Jp8Mp9OHxJmzFt33mZfOi1hPnvV8
+	0QG1sK9L3/wZi1r+FFkP68PEfcwixLRhWlAuPNoyrFnjB5CjcmbqeekPe43d0xQa+zOkFngwdB0
+	x1vz/9XfGpQFjPWXVyKght+kAZrSRSEJIldOaNDBxL/YaPgLgZDoCAnxDUp9JYMefYWNGj6ypco
+	9Tu0ErCAD7EeHEpppMAFhWaptuD4Aenvp76q8VTVnb/cBdw76gt6b3Yu7E35fta5uJ3vGSPgrYM
+	FLw+z7A7+sK5KvHRvzUSOxanhZ6g9sgMtoRyfmDeWfMuxhcVuQwViuZNABKV0IWB6WRqmz5GcJT
+	zOli2+uRJzeQrdMO4KVz4+7uZjnPrQgDGtCBv0SdxjA==
+X-Google-Smtp-Source: AGHT+IEB/95DXkKwomIf9ip6/yfm146L3qIifjKU7bl9DaOBgZQZz5rMpVm/bhHv87pLjMhka3uuqw==
+X-Received: by 2002:a05:620a:a102:b0:7e8:434f:ffa7 with SMTP id af79cd13be357-7e8704761a0mr24882585a.52.1755107251577;
+        Wed, 13 Aug 2025 10:47:31 -0700 (PDT)
+Received: from fedora (d-zg2-251.globalnet.hr. [213.149.37.251])
+        by smtp.googlemail.com with ESMTPSA id af79cd13be357-7e7fa87e7d0sm1627122385a.82.2025.08.13.10.47.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 10:47:31 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: linux@armlinux.org.uk,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	olivia@selenic.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	andi.shyti@kernel.org,
+	lee@kernel.org,
+	broonie@kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	arnd@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	o.rempel@pengutronix.de,
+	daniel.machon@microchip.com
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v9 0/9] arm64: lan969x: Add support for Microchip LAN969x SoC
+Date: Wed, 13 Aug 2025 19:44:36 +0200
+Message-ID: <20250813174720.540015-1-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_101810_343929_F8738F6A 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250813_104734_231159_96D9D2A7 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,250 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+This patch series adds basic support for Microchip LAN969x SoC.
 
-kernel test robot noticed the following build warnings:
+It introduces the SoC ARCH symbol itself under the ARCH_MICROCHIP symbol
+which allows to avoid the need to change dependencies of the drivers that
+are shared for Microchip SoC-s in the future.
 
-[auto build test WARNING on broonie-sound/for-next]
-[also build test WARNING on linus/master v6.17-rc1 next-20250813]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+DTS and further driver will be added in follow-up series.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Christophe-Leroy/soc-fsl-qmc-Only-set-completion-interrupt-when-needed/20250812-193812
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-patch link:    https://lore.kernel.org/r/8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy%40csgroup.eu
-patch subject: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
-config: powerpc64-randconfig-r073-20250813 (https://download.01.org/0day-ci/archive/20250814/202508140002.NBrWOZJL-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 3769ce013be2879bf0b329c14a16f5cb766f26ce)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250814/202508140002.NBrWOZJL-lkp@intel.com/reproduce)
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+Changes in v9:
+* Make ARCH_MICROCHIP hidden symbol that is selected by SparX-5 and LAN969x
+directly, this avoids breaking existing configs with ARCH_SPARX5
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508140002.NBrWOZJL-lkp@intel.com/
+Changes in v8:
+* Move to using ARCH_MICROCHIP as suggested by Arnd
+* Dropped any review tags due to changes
 
-All warnings (new ones prefixed by >>):
+Robert Marko (9):
+  arm64: Add config for Microchip SoC platforms
+  ARM: at91: select ARCH_MICROCHIP
+  arm64: lan969x: Add support for Microchip LAN969x SoC
+  mfd: at91-usart: Make it selectable for ARCH_MICROCHIP
+  tty: serial: atmel: make it selectable for ARCH_MICROCHIP
+  spi: atmel: make it selectable for ARCH_MICROCHIP
+  i2c: at91: make it selectable for ARCH_MICROCHIP
+  char: hw_random: atmel: make it selectable for ARCH_MICROCHIP
+  crypto: atmel-aes: make it selectable for ARCH_MICROCHIP
 
-   sound/soc/fsl/fsl_qmc_audio.c:888:39: error: no member named 'qmc_chans' in 'struct qmc_dai'
-     888 |                 ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
-         |                                            ~~~~~~~  ^
->> sound/soc/fsl/fsl_qmc_audio.c:900:21: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
-     899 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
-         |                                                                                                     ~~~
-         |                                                                                                     %d
-     900 |                                 qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
-         |                                                 ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                ~~~     ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ~~~    ^~~~~~~~~~~
-   sound/soc/fsl/fsl_qmc_audio.c:900:38: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
-     899 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
-         |                                                                                                                ~~~
-         |                                                                                                                %d
-     900 |                                 qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
-         |                                                                  ^~~~~~~~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                ~~~     ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ~~~    ^~~~~~~~~~~
-   sound/soc/fsl/fsl_qmc_audio.c:905:21: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
-     904 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
-         |                                                                                                     ~~~
-         |                                                                                                     %d
-     905 |                                 qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
-         |                                                 ^~~~~~~~~~~~~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                ~~~     ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ~~~    ^~~~~~~~~~~
-   sound/soc/fsl/fsl_qmc_audio.c:905:38: warning: format specifies type 'unsigned long' but the argument has type 'int' [-Wformat]
-     904 |                         dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
-         |                                                                                                                ~~~
-         |                                                                                                                %d
-     905 |                                 qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
-         |                                                                  ^~~~~~~~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                ~~~     ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                              ~~~    ^~~~~~~~~~~
-   4 warnings and 1 error generated.
-
-
-vim +900 sound/soc/fsl/fsl_qmc_audio.c
-
-   789	
-   790	static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *np,
-   791				       struct qmc_dai *qmc_dai,
-   792				       struct snd_soc_dai_driver *qmc_soc_dai_driver)
-   793	{
-   794		struct qmc_chan_ts_info ts_info;
-   795		struct qmc_chan_info info;
-   796		unsigned long rx_fs_rate;
-   797		unsigned long tx_fs_rate;
-   798		int prev_last_rx_ts = 0;
-   799		int prev_last_tx_ts = 0;
-   800		unsigned int nb_tx_ts;
-   801		unsigned int nb_rx_ts;
-   802		unsigned int i;
-   803		int last_rx_ts;
-   804		int last_tx_ts;
-   805		int count;
-   806		u32 val;
-   807		int ret;
-   808	
-   809		qmc_dai->dev = qmc_audio->dev;
-   810	
-   811		ret = of_property_read_u32(np, "reg", &val);
-   812		if (ret) {
-   813			dev_err(qmc_audio->dev, "%pOF: failed to read reg\n", np);
-   814			return ret;
-   815		}
-   816		qmc_dai->id = val;
-   817	
-   818		qmc_dai->name = devm_kasprintf(qmc_audio->dev, GFP_KERNEL, "%s.%d",
-   819					       np->parent->name, qmc_dai->id);
-   820		if (!qmc_dai->name)
-   821			return -ENOMEM;
-   822	
-   823		count = qmc_chan_count_phandles(np, "fsl,qmc-chan");
-   824		if (count < 0)
-   825			return dev_err_probe(qmc_audio->dev, count,
-   826					     "dai %d get number of QMC channel failed\n", qmc_dai->id);
-   827		if (!count)
-   828			return dev_err_probe(qmc_audio->dev, -EINVAL,
-   829					     "dai %d no QMC channel defined\n", qmc_dai->id);
-   830	
-   831		qmc_dai->chans = devm_kcalloc(qmc_audio->dev, count, sizeof(*qmc_dai->chans), GFP_KERNEL);
-   832		if (!qmc_dai->chans)
-   833			return -ENOMEM;
-   834	
-   835		for (i = 0; i < count; i++) {
-   836			qmc_dai->chans[i].qmc_chan = devm_qmc_chan_get_byphandles_index(qmc_audio->dev, np,
-   837											"fsl,qmc-chan", i);
-   838			if (IS_ERR(qmc_dai->chans[i].qmc_chan)) {
-   839				return dev_err_probe(qmc_audio->dev, PTR_ERR(qmc_dai->chans[i].qmc_chan),
-   840						     "dai %d get QMC channel %d failed\n", qmc_dai->id, i);
-   841			}
-   842	
-   843			ret = qmc_chan_get_info(qmc_dai->chans[i].qmc_chan, &info);
-   844			if (ret) {
-   845				dev_err(qmc_audio->dev, "dai %d get QMC %d channel info failed %d\n",
-   846					qmc_dai->id, i, ret);
-   847				return ret;
-   848			}
-   849	
-   850			if (info.mode != QMC_TRANSPARENT) {
-   851				dev_err(qmc_audio->dev, "dai %d QMC chan %d mode %d is not QMC_TRANSPARENT\n",
-   852					qmc_dai->id, i, info.mode);
-   853				return -EINVAL;
-   854			}
-   855	
-   856			/*
-   857			 * All channels must have the same number of Tx slots and the
-   858			 * same numbers of Rx slots.
-   859			 */
-   860			if (i == 0) {
-   861				nb_tx_ts = info.nb_tx_ts;
-   862				nb_rx_ts = info.nb_rx_ts;
-   863				tx_fs_rate = info.tx_fs_rate;
-   864				rx_fs_rate = info.rx_fs_rate;
-   865			} else {
-   866				if (nb_tx_ts != info.nb_tx_ts) {
-   867					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent number of Tx timeslots (%u instead of %u)\n",
-   868						qmc_dai->id, i, info.nb_tx_ts, nb_tx_ts);
-   869					return -EINVAL;
-   870				}
-   871				if (nb_rx_ts != info.nb_rx_ts) {
-   872					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent number of Rx timeslots (%u instead of %u)\n",
-   873						qmc_dai->id, i, info.nb_rx_ts, nb_rx_ts);
-   874					return -EINVAL;
-   875				}
-   876				if (tx_fs_rate != info.tx_fs_rate) {
-   877					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent Tx frame sample rate (%lu instead of %lu)\n",
-   878						qmc_dai->id, i, info.tx_fs_rate, tx_fs_rate);
-   879					return -EINVAL;
-   880				}
-   881				if (rx_fs_rate != info.rx_fs_rate) {
-   882					dev_err(qmc_audio->dev, "dai %d QMC chan %d inconsistent Rx frame sample rate (%lu instead of %lu)\n",
-   883						qmc_dai->id, i, info.rx_fs_rate, rx_fs_rate);
-   884					return -EINVAL;
-   885				}
-   886			}
-   887	
- > 888			ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
-   889			if (ret) {
-   890				dev_err(qmc_audio->dev, "dai %d get QMC %d channel TS info failed %d\n",
-   891					qmc_dai->id, i, ret);
-   892				return ret;
-   893			}
-   894	
-   895			last_rx_ts = fls64(ts_info.rx_ts_mask);
-   896			last_tx_ts = fls64(ts_info.rx_ts_mask);
-   897	
-   898			if (prev_last_rx_ts > last_rx_ts) {
-   899				dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
- > 900					qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
-   901				return -EINVAL;
-   902			}
-   903			if (prev_last_tx_ts > last_tx_ts) {
-   904				dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
-   905					qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
-   906				return -EINVAL;
-   907			}
-   908	
-   909			prev_last_rx_ts = last_rx_ts;
-   910			prev_last_tx_ts = last_tx_ts;
-   911		}
-   912	
-   913		qmc_dai->nb_chans_avail = count;
-   914		qmc_dai->nb_tx_ts = nb_tx_ts * count;
-   915		qmc_dai->nb_rx_ts = nb_rx_ts * count;
-   916	
-   917		qmc_soc_dai_driver->id = qmc_dai->id;
-   918		qmc_soc_dai_driver->name = qmc_dai->name;
-   919	
-   920		qmc_soc_dai_driver->playback.channels_min = 0;
-   921		qmc_soc_dai_driver->playback.channels_max = 0;
-   922		if (nb_tx_ts) {
-   923			qmc_soc_dai_driver->playback.channels_min = 1;
-   924			qmc_soc_dai_driver->playback.channels_max = count > 1 ? count : nb_tx_ts;
-   925		}
-   926		qmc_soc_dai_driver->playback.formats = qmc_audio_formats(nb_tx_ts,
-   927									 count > 1);
-   928	
-   929		qmc_soc_dai_driver->capture.channels_min = 0;
-   930		qmc_soc_dai_driver->capture.channels_max = 0;
-   931		if (nb_rx_ts) {
-   932			qmc_soc_dai_driver->capture.channels_min = 1;
-   933			qmc_soc_dai_driver->capture.channels_max = count > 1 ? count : nb_rx_ts;
-   934		}
-   935		qmc_soc_dai_driver->capture.formats = qmc_audio_formats(nb_rx_ts,
-   936									count > 1);
-   937	
-   938		qmc_soc_dai_driver->playback.rates = snd_pcm_rate_to_rate_bit(tx_fs_rate);
-   939		qmc_soc_dai_driver->playback.rate_min = tx_fs_rate;
-   940		qmc_soc_dai_driver->playback.rate_max = tx_fs_rate;
-   941		qmc_soc_dai_driver->capture.rates = snd_pcm_rate_to_rate_bit(rx_fs_rate);
-   942		qmc_soc_dai_driver->capture.rate_min = rx_fs_rate;
-   943		qmc_soc_dai_driver->capture.rate_max = rx_fs_rate;
-   944	
-   945		qmc_soc_dai_driver->ops = &qmc_dai_ops;
-   946	
-   947		return 0;
-   948	}
-   949	
+ arch/arm/mach-at91/Kconfig     |  4 +++
+ arch/arm64/Kconfig.platforms   | 51 ++++++++++++++++++++++++----------
+ drivers/char/hw_random/Kconfig |  2 +-
+ drivers/crypto/Kconfig         |  2 +-
+ drivers/i2c/busses/Kconfig     |  2 +-
+ drivers/mfd/Kconfig            |  2 +-
+ drivers/spi/Kconfig            |  2 +-
+ drivers/tty/serial/Kconfig     |  2 +-
+ 8 files changed, 47 insertions(+), 20 deletions(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
