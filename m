@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D240CC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355BDCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XmXvWLJhlSpXOiiF4u4DdYe3hF2nbQcNLrAb9SCIeY=; b=EcEgNva+UtTkFqUv1Zh2kfOfaL
-	yMyuJS2dgG5bD4BLEIalBeGgKCVdG4DoWD8U4OfxCwJ0f5E9TxXURN/MseMQ546AD4F9Ipx+1LbLg
-	BLItlrMoZ6lHvqRgxQhwlCqFUaKDTAmQgslX31Afeb8lEekPzkdp+4Q7eyx7ob3U9DuhVzIW7YtCN
-	D5LCiICyP82AkorWKpZvmL8QCyzhdg9zvmdHM9664pj0mYoXl5+2ViEHzpztfhAJW0CkjwlNZ/xMZ
-	8QS2mcCZh1Et5XzpIJsg65kGyMQz0hrmGAe6LqTs6uAunWmeSUj4Gi0knFiJXRLHRimktLLw7+C0P
-	Pzx4Kr9g==;
+	bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=; b=gV4oMVrhotAozd6N/3o+4wjRp6
+	pY5RDDAsZYIZz1LdIuJ/Oy581+6gEGV/AT2e3Ih7973mWoHZL3egL5F/AKlLvkZcmmpBICm8MT7+T
+	bV615HkOgXUwk56OA+KxBR+KHJBEIuOPabtP4nm3/Z+FjpHs9nsv3OpFoPPCc76WRwn2X2Ftzusyo
+	O5+0b7mIClUUfDC8Xwqdx8lUVth/+uVD1s1M2ez5g9fWHX4b+qW8SsF4H1crNu24GaqXSGVKK/HM7
+	/uYX5R7j4IGeXd3BAfdbb6HqjCbBr8jMxmDq53iwArBiN15ULdrZ+mAIh6c7aaphfZFMrZRaD9ThS
+	iNmsS9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJDx-0000000F3bA-3ohY;
-	Wed, 13 Aug 2025 21:41:33 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1umJGU-0000000F3zk-00xk;
+	Wed, 13 Aug 2025 21:44:10 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJ83-0000000F2V4-0GpD
+	id 1umJA9-0000000F2yq-3MVp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 21:35:28 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b9e4147690so129050f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 14:35:26 -0700 (PDT)
+	Wed, 13 Aug 2025 21:37:38 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b9a342e8ffso229626f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 14:37:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755120925; x=1755725725; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755121056; x=1755725856; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=1XmXvWLJhlSpXOiiF4u4DdYe3hF2nbQcNLrAb9SCIeY=;
-        b=kEyaokpEVdLsmIxkHzRZ3Jte+qv4YPn7lRXGxLBHip7Vo4yxyOmXy3+EeST3YDp3pi
-         BxsKvcY/es/e3iA9T2u0578BjUqCV23WXKxkSB8ZGacczYCMQxTPhtdK8qIXhtdLDGiz
-         YNGNT1Q/uutp1JznbtL4mRB2g94audRgJwmbXL2w/Qj1FmTZb30e/WqIyLJ8qwoNN7y0
-         u7aTQ7ylC3+B9vqaoeVFBOmhJGiUhI8jgr4+gR/Fi0MAwWUpt5qoA/ndnC3Q/sPN42BF
-         Fsy9SUFrhXpfrb4RN7JAfH0evElPsBlltxq0Ssag/G11fgWD01lei/k4+uQsQq9ktJwQ
-         g8BQ==
+        bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=;
+        b=edn+pVyREljRWtOL77fzyia+B3EcsGRu9H64Bu0ZvKHwdW7364w6qOMgmCPv1HOXe5
+         Lvzp8RBVPfsSNUMd8kXLlEOBFbxzdZb33v/vPX3+/m7+KzIOwB3yt+6py1MvXKYFulyl
+         WfuB12qYXbrXb6QySE0I3mIvUtqB6JWb223T0Q7T1h7Tx9y5k1hJr8Qd4kIRC8K3UkEn
+         MFtdngUbKbqBtpDMzJUhdhYdA8/RAf+HnXZX6FOKAAg2uiQiiAiUSLUMp5OX26pBxUqH
+         Tq5KCAjbZHP7GeSWefq8+hbejzrADOelsaVgDglyEb7huYoDscinxTn7OM+iIT9AT8v0
+         808A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755120925; x=1755725725;
+        d=1e100.net; s=20230601; t=1755121056; x=1755725856;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1XmXvWLJhlSpXOiiF4u4DdYe3hF2nbQcNLrAb9SCIeY=;
-        b=HxB+XMGSoiiw6roHRPTCV3MOu6/MVYilVoAMGBabktaryObsZofjNybc3zzJA+5Lci
-         9BWDljLMctTl1QHYuHfvUEwUWWY8TenTvz2veYL3n+xUF/DM3Tqk5bwuf2ZDjOba7apd
-         RdPf9Fol7UcgJ+w7gPuRHF/msrEJo+JU1W3cA2IUPS+JCymd3yy5WjTV/TPcQNVt8/8f
-         jJJ0iz2NFTIukLghA10cx9sEmWBYxUalNLfQZY0Ak5cV/+j0Iuvo4zDAFXw6cY/WhIlP
-         J1naLOpbg6JvsF9D1YzGpwq2u9V8vdheFzOOligiJY73a0rJmoHSecKfN3WqUEPv65+P
-         3U6A==
-X-Gm-Message-State: AOJu0YxyPfoT3c94H+LVhadPRoJ96OqIaf1lgNyHvt0bG/qMgf9miJ3W
-	cgZlvhb8uuZuaDXJoSPnvoX07A7gu7qSeMDLxLTBfAseA8AW8A8M4QIlR3fmejkQwAQ=
-X-Gm-Gg: ASbGncudd+mct9m/VA83Gxc/p4gI5Y2nux8vezqiKa6JPSPN2aOt8co0u9WAK3miOfK
-	giPXmWN0g8oTLMnSON766rsc6L/16Uc4D3JMSdKmg3NpEKSkSeAKqDswn2emAd4uJgDOJZ36KzX
-	8+B9TIlf5f8a6Ynr/xGNFGO6Y9t5QBLcDJ68lRtoleSyIDmnZGqx3QvnYoTXGDAoFSTpTOkFYSE
-	Hkk11lIi4bHgCsdjHVkF226J7U5OzS6REq+faxZupgiMbmCODJCh5+5J4PzCLuZf/rPyZffZQgW
-	Mj2b2bHmY5SbKtLKeLObZ/QHh4qvIOOkVW8YvEvL0bS8roGnY+Yz9C57oRz1s5tbIWL4BdstnBG
-	CIQR5vge0Awf7pi02xHCZicQQVzkL6Eq57iuZsQeh2qXo59zmQyeSkyvkH4mTVjWM
-X-Google-Smtp-Source: AGHT+IEXpcW7O5Udyxtt77HddjjtyRdwKlGTXAk1h299MQ76Ljg2rx6jkkZiaE782uOxs2v38udmMg==
-X-Received: by 2002:a05:6000:25c6:b0:3a4:dc2a:924e with SMTP id ffacd0b85a97d-3b9e7438457mr554485f8f.6.1755120925461;
-        Wed, 13 Aug 2025 14:35:25 -0700 (PDT)
+        bh=/R0PLr1UJ15LH0yUiipvHzrelupSAOLxlwfOAUkKpZE=;
+        b=cgPvjGXIPkbOsRl6VgCzMpxkyAuuoIgmUvRXAFqzTT0ZXLfqXxjogQwQBrtp2BkWvT
+         NYXzq7MA/UHRkHrQ9VcP0pkfEDxWU6YHco3+jOcuusAoITgNSJkai2xL1EWL0mAJtd0j
+         PbnCq0JszmgHSx7mcdN4DUPL2ENX+9ZcR46gN7AZAS7Dvi8Zqalewlk8SNABfDXmp+9h
+         KWHh2/r7FIAimaNC7CXtMIz2nBu/VrlJX1fF7yJR3Dd73YgMWUhXdNR9XYsJa8W9yBM6
+         hhLNkTpxMaDan8ZgIwBVx7pWDzylzhSZ6vkyr+S/AIRRYSQFinGmz3uYu7b3nqinf3mi
+         +GAQ==
+X-Gm-Message-State: AOJu0YwRw7wx4SEv/IdnVfAYaWo3fbdaQHK3CZbSWHGVs/yy9rezw8yy
+	g/xKGeCw3EohCfuUM09wr1b6EJbDwPCgV7G2yq2g/jnO9QgKokDQsffxry0FDhdNS14=
+X-Gm-Gg: ASbGncvRx9nnsCy7QjvP8VdlTyrFoE4LkgsFB35GRimUxPVzUGUDZADpBkPK69vt9DS
+	kWKLk8UwHRGVT7vp3VZ1gZWauQ2LCR3mlvG8fx/rM/pyuhiwW+hz5/0iOq7rxncDvyAywDhPrwb
+	VhqHcmTqJ2FllRy27MOiYSWskyVmxZOHgeOb8o8joSe/NhyCILKaXUrNYCF+YG0D1OBAzP6Cvlc
+	tMw15vF+zi2Oj56Zj9ysYn7ecWt/0oN4HoT2J8Oj7FOa/pC5AvsYTsOTEEZIi2OM9K0z27+M78z
+	AnjVomsojWj7VbGeqY0H9Y0MMioaWrnkUg1FG91ZD/jleMQQnR8/WHNhaR657XT0WxXvSNnig+2
+	+G5xQJ73xzu8chSG/CBTwM0CGxC+FOsdQSEYhNVpvicMn/lb3ElW1fwoEL+kHnz4A
+X-Google-Smtp-Source: AGHT+IHDgkAiDoUCfIGsD1JHcyl15RLIs40KyXWWTRPJ8npwc6pR4KZc9S2TTnaRFinIsu9wVY/smQ==
+X-Received: by 2002:a05:6000:400b:b0:3b7:775d:e923 with SMTP id ffacd0b85a97d-3ba506624edmr206323f8f.4.1755121056198;
+        Wed, 13 Aug 2025 14:37:36 -0700 (PDT)
 Received: from [192.168.0.13] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c45346asm48738067f8f.39.2025.08.13.14.35.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a540945sm15247815e9.26.2025.08.13.14.37.34
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 Aug 2025 14:35:24 -0700 (PDT)
-Message-ID: <0a049417-6545-4cdb-95cb-cf41c810b57c@linaro.org>
-Date: Wed, 13 Aug 2025 22:35:23 +0100
+        Wed, 13 Aug 2025 14:37:35 -0700 (PDT)
+Message-ID: <03947c1c-1d60-472b-883f-c9875df20245@linaro.org>
+Date: Wed, 13 Aug 2025 22:37:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/7] media: qcom: camss: enable vfe 690 for qcs8300
+Subject: Re: [PATCH v3 7/7] arm64: dts: qcom: qcs8300: Add support for camss
 To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
  todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
@@ -82,15 +82,15 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20250813053724.232494-1-quic_vikramsa@quicinc.com>
- <20250813053724.232494-6-quic_vikramsa@quicinc.com>
+ <20250813053724.232494-8-quic_vikramsa@quicinc.com>
 From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Content-Language: en-US
-In-Reply-To: <20250813053724.232494-6-quic_vikramsa@quicinc.com>
+In-Reply-To: <20250813053724.232494-8-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_143527_107484_05517327 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250813_143737_847213_2ADCED3E 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,55 +106,198 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/08/2025 06:37, Vikram Sharma wrote:
-> The vfe in qcs8300 is version 690, it is same as vfe used in
-> lemans(sa8775p). vfe gen3 have support for vfe 690.
+> Add changes to support the camera subsystem on the QCS8300.
 > 
 > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 > ---
->   drivers/media/platform/qcom/camss/camss-vfe-gen3.c | 3 ++-
->   drivers/media/platform/qcom/camss/camss-vfe.c      | 2 ++
->   2 files changed, 4 insertions(+), 1 deletion(-)
+>   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
+>   1 file changed, 171 insertions(+)
 > 
-> diff --git a/drivers/media/platform/qcom/camss/camss-vfe-gen3.c b/drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-> index f2001140ead1..22579617def7 100644
-> --- a/drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-> +++ b/drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-> @@ -13,7 +13,8 @@
->   #include "camss-vfe.h"
+> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> index 3cf1d4bc7e4a..538b55a89f28 100644
+> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> @@ -4641,6 +4641,177 @@ videocc: clock-controller@abf0000 {
+>   			#power-domain-cells = <1>;
+>   		};
 >   
->   #define IS_VFE_690(vfe) \
-> -	    (vfe->camss->res->version == CAMSS_8775P)
-> +	    ((vfe->camss->res->version == CAMSS_8775P) \
-> +	    || (vfe->camss->res->version == CAMSS_8300))
+> +		camss: isp@ac78000 {
+> +			compatible = "qcom,qcs8300-camss";
+> +
+> +			reg = <0x0 0xac78000 0x0 0x1000>,
+> +			      <0x0 0xac7a000 0x0 0x0f00>,
+> +			      <0x0 0xac7c000 0x0 0x0f00>,
+> +			      <0x0 0xac84000 0x0 0x0f00>,
+> +			      <0x0 0xac88000 0x0 0x0f00>,
+> +			      <0x0 0xac8c000 0x0 0x0f00>,
+> +			      <0x0 0xac90000 0x0 0x0f00>,
+> +			      <0x0 0xac94000 0x0 0x0f00>,
+> +			      <0x0 0xac9c000 0x0 0x2000>,
+> +			      <0x0 0xac9e000 0x0 0x2000>,
+> +			      <0x0 0xaca0000 0x0 0x2000>,
+> +			      <0x0 0xacac000 0x0 0x0400>,
+> +			      <0x0 0xacad000 0x0 0x0400>,
+> +			      <0x0 0xacae000 0x0 0x0400>,
+> +			      <0x0 0xac4d000 0x0 0xf000>,
+> +			      <0x0 0xac60000 0x0 0xf000>,
+> +			      <0x0 0xac85000 0x0 0x0d00>,
+> +			      <0x0 0xac89000 0x0 0x0d00>,
+> +			      <0x0 0xac8d000 0x0 0x0d00>,
+> +			      <0x0 0xac91000 0x0 0x0d00>,
+> +			      <0x0 0xac95000 0x0 0x0d00>;
+> +			reg-names = "csid_wrapper",
+> +				    "csid0",
+> +				    "csid1",
+> +				    "csid_lite0",
+> +				    "csid_lite1",
+> +				    "csid_lite2",
+> +				    "csid_lite3",
+> +				    "csid_lite4",
+> +				    "csiphy0",
+> +				    "csiphy1",
+> +				    "csiphy2",
+> +				    "tpg0",
+> +				    "tpg1",
+> +				    "tpg2",
+> +				    "vfe0",
+> +				    "vfe1",
+> +				    "vfe_lite0",
+> +				    "vfe_lite1",
+> +				    "vfe_lite2",
+> +				    "vfe_lite3",
+> +				    "vfe_lite4";
+> +
+> +			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
+> +				 <&camcc CAM_CC_CORE_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
+> +				 <&camcc CAM_CC_CSID_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY0_CLK>,
+> +				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY1_CLK>,
+> +				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY2_CLK>,
+> +				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
+> +				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
+> +				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
+> +				 <&camcc CAM_CC_ICP_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_0_CLK>,
+> +				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_1_CLK>,
+> +				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
+> +			clock-names = "camnoc_axi",
+> +				      "core_ahb",
+> +				      "cpas_ahb",
+> +				      "cpas_fast_ahb_clk",
+> +				      "cpas_vfe_lite",
+> +				      "cpas_vfe0",
+> +				      "cpas_vfe1",
+> +				      "csid",
+> +				      "csiphy0",
+> +				      "csiphy0_timer",
+> +				      "csiphy1",
+> +				      "csiphy1_timer",
+> +				      "csiphy2",
+> +				      "csiphy2_timer",
+> +				      "csiphy_rx",
+> +				      "gcc_axi_hf",
+> +				      "gcc_axi_sf",
+> +				      "icp_ahb",
+> +				      "vfe0",
+> +				      "vfe0_fast_ahb",
+> +				      "vfe1",
+> +				      "vfe1_fast_ahb",
+> +				      "vfe_lite",
+> +				      "vfe_lite_ahb",
+> +				      "vfe_lite_cphy_rx",
+> +				      "vfe_lite_csid";
+> +
+> +			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
+> +			interrupt-names = "csid0",
+> +					  "csid1",
+> +					  "csid_lite0",
+> +					  "csid_lite1",
+> +					  "csid_lite2",
+> +					  "csid_lite3",
+> +					  "csid_lite4",
+> +					  "csiphy0",
+> +					  "csiphy1",
+> +					  "csiphy2",
+> +					  "tpg0",
+> +					  "tpg1",
+> +					  "tpg2",
+> +					  "vfe0",
+> +					  "vfe1",
+> +					  "vfe_lite0",
+> +					  "vfe_lite1",
+> +					  "vfe_lite2",
+> +					  "vfe_lite3",
+> +					  "vfe_lite4";
+> +
+> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
+> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
+> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
+> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
+> +			interconnect-names = "ahb",
+> +					     "hf_0";
+> +
+> +			iommus = <&apps_smmu 0x2400 0x20>;
+> +
+> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
+> +			power-domain-names = "top";
+> +
+> +			status = "disabled";
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				port@0 {
+> +					reg = <0>;
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +				};
+> +
+> +				port@2 {
+> +					reg = <2>;
+> +				};
+> +			};
+> +		};
+> +
+>   		camcc: clock-controller@ade0000 {
+>   			compatible = "qcom,qcs8300-camcc";
+>   			reg = <0x0 0x0ade0000 0x0 0x20000>;
 
-I'd really prefer a patch setting the CSID and VFE versions as 
-properties of their respective data-structures.
 
-BUT, again this will do for now.
-
->   
->   #define BUS_REG_BASE_690 \
->   	    (vfe_is_lite(vfe) ? 0x480 : 0x400)
-> diff --git a/drivers/media/platform/qcom/camss/camss-vfe.c b/drivers/media/platform/qcom/camss/camss-vfe.c
-> index 99cbe09343f2..1d40184d7d04 100644
-> --- a/drivers/media/platform/qcom/camss/camss-vfe.c
-> +++ b/drivers/media/platform/qcom/camss/camss-vfe.c
-> @@ -344,6 +344,7 @@ static u32 vfe_src_pad_code(struct vfe_line *line, u32 sink_code,
->   	case CAMSS_8x96:
->   	case CAMSS_8250:
->   	case CAMSS_8280XP:
-> +	case CAMSS_8300:
->   	case CAMSS_845:
->   	case CAMSS_8550:
->   	case CAMSS_8775P:
-> @@ -1974,6 +1975,7 @@ static int vfe_bpl_align(struct vfe_device *vfe)
->   	case CAMSS_7280:
->   	case CAMSS_8250:
->   	case CAMSS_8280XP:
-> +	case CAMSS_8300:
->   	case CAMSS_845:
->   	case CAMSS_8550:
->   	case CAMSS_8775P:
+"Eat recycled food, it's good for the environment and okay for you"
 
 Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
