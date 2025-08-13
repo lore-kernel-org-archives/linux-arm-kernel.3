@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421B6C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 23:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC23CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 23:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2TmOU/FysjsHnOJuDF0/FyfY9rYX5x9MA3yl9yoYVc=; b=uAYGRDXUic/rx+ovoWDObhWEV+
-	dxB6HjouNv3jACBw3goWZvCTPECkpl7ckfsiarndjvOD7w7reco8fEKDhmXEMetqykJxePlLBADrL
-	hwfU+Vo/mYS58G9QcQBrXUtQZtUvO6b/FmfJnO7iSk4HNepNexF8nGaCNcr4yuqYiixAhbNG+ohcw
-	gZlGeAUnv4jpQwmc3SffRwi9g+LSZPI+NwNl8se1R2qTPiMYJv+UMnydbCMP9z5sH6NRB3CSlC0Tk
-	WQ3uVDSVArv+IFoOjuqt6XrxCvBQ2MZGsLtGAzSHr5ZGzZDXrxbyJEvs3ZwWOa3ClfmshAes2TfRH
-	cknI4XoA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=F3INQ3Ble9nCD0Cyp7FvoAhRyVVOScpM4c1BCcXRwYg=; b=D3YjPCHAOOdAha
+	MwgwsjIXPrfsNssLTox64R8X0MsfkP1pWDKOsWW3VEIAkFsiQcQ9PESQTmZPR66ExBEuam7dXKiV/
+	m5naeBqGIEQazM8u7YMAwUvlP5dA7w4LUhlNWYcO0ESAqilDP9uT5mV1pvGgwvHY0t27iK+VCEC7m
+	6ML1Kz481mLNhSX/m1O3Y5h3CwnYK476XJv6brqfeshkaEIFBIpnUajerXCofEX8r37yKl01X1Pxn
+	W2LCCG3X8rV08FfUt2SkYcZPMxlAyWq1lMoq0001WVOY0r8S2JPpYRCGixMi+oIjieee8k+RL93ll
+	R9qJGl1BQjnqOc5NjLOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umKbS-0000000FER6-1gdM;
-	Wed, 13 Aug 2025 23:09:54 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1umKdy-0000000FEeV-0fwa;
+	Wed, 13 Aug 2025 23:12:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umKYt-0000000FE8H-3ZPm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 23:07:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1755125807;
-	bh=yVULnksl4OKg12CxxFYhPKFfdwxXkGZSNGl9YwQ9v2c=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=c9cXknZDA7jyMse2KwiTCmhQnLux9UKA/5fhjfEmP5A5B2TlCljggrqBrGgxMyVbs
-	 uvPkj/FSbvMznPSZdPr95SfEj6EpM9re3w44gRah73+XyU05DKRl+AmPV2FjXmKZoB
-	 FCBoKE4TInJVdKQyFAb3GKWl0c9/xEjxlIc5Sh+8=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id C26E3401FB; Wed, 13 Aug 2025 15:56:47 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id C15174010E;
-	Wed, 13 Aug 2025 15:56:47 -0700 (PDT)
-Date: Wed, 13 Aug 2025 15:56:47 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-cc: Jeremy Linton <jeremy.linton@arm.com>, 
-    Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com, 
-    will@kernel.org, patches@amperecomputing.com, 
-    Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org, 
-    bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be, arnd@arndb.de, 
-    nm@ti.com, ebiggers@kernel.org, nfraprado@collabora.com, 
-    prabhakar.mahadev-lad.rj@bp.renesas.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-In-Reply-To: <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
-Message-ID: <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org>
-References: <20250808025533.6422-1-shijie@os.amperecomputing.com> <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com> <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org> <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com> <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
- <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+	id 1umKZD-0000000FEAR-3pIC;
+	Wed, 13 Aug 2025 23:07:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 34C31601F7;
+	Wed, 13 Aug 2025 23:07:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAF59C4CEEB;
+	Wed, 13 Aug 2025 23:07:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755126454;
+	bh=RQj7R/jUfcb1J1MF9Yb8oU2r7g6moV6/qYad+4ZXOe4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=gpTjru7i4m4RoZ4EYlG4lFGBOruosmV4U/17OhCTtwc+ykzNjEe3rqSxnfDIYHzlD
+	 G9XuNJcVxwlaC6A+75nCAaf7zKVwbp/3S50yhzQdWy06TltL8KoOE4wruyWkOH5Sbb
+	 SJtXMVB5WUas49uX21yhB13ir/9JnOmaZ7O8Y9Hu5TUuDTHaJs7STOqKbNfIM5JcEp
+	 x5JWQUaanvYepl7WByJCFtY0DbsIdImDNv4fL6hex6xdmRErwx3c/KbAZH+3FLeDc0
+	 I4YTaUOVAjyiIkJ827QL863oHECSlTcaTX9dDLcutLc+5uBW/ef2RwO3tyxoUTcKpU
+	 vfJcISNe5BuiQ==
+Date: Wed, 13 Aug 2025 18:07:33 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, mani@kernel.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
+	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
+	jh80.chung@samsung.com, pankaj.dubey@samsung.com
+Subject: Re: [PATCH v3 05/12] PCI: exynos: Add resource ops, soc variant and
+ device mode
+Message-ID: <20250813230733.GA299608@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_160715_926298_A77D8038 
-X-CRM114-Status: GOOD (  13.84  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250811154638.95732-6-shradha.t@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +74,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025, Christoph Lameter (Ampere) wrote:
+On Mon, Aug 11, 2025 at 09:16:31PM +0530, Shradha Todi wrote:
+> Some resources might differ based on platforms and we need platform
+> specific functions to initialize or alter them. For better code
+> re-usability, making a separate res_ops which will hold all such
+> function pointers or other resource specific data. Include ops like
+>  - init_regulator (initialize the regulator data)
+>  - pcie_irq_handler (interrupt handler for PCIe)
+>  - set_device_mode (set device mode to EP or RC)
+> 
+> Some operations maybe specific to certain SoCs and not applicable
+> to others. For such use cases, adding an SoC variant data field
+> which can be used to distinguish between the variants.
+> 
+> Some SoCs may have dual-role PCIe controller which can work as
+> RC or EP. Add device_mode to store the role and take decisions
+> accordingly.
+> 
+> Make enable/disable of regulator and initialization of IRQ as
+> common functions to be used by all Samsung SoCs.
 
-> Can we figure out which platforms benchmarks were affected and why?
->
-> It seems the notion of a "cluster" on ARM64 is derived (I guess a better
-> word than "invented" hehe)  from sibling information instead of PPTT. But
-> using that information should work fine right?
+As hinted above, this patch ends up being a mixture of several things
+that makes this kind of hard to review.  Separating these into their
+own patches would make it easier.
 
-Sorry no that is not correct. The cluster information is correctly read
-from the ACPI tables and the cluster ids are avaialble in
+> Suggested-by: Pankaj Dubey <pankaj.dubey@samsung.com>
+> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
+> ---
+>  drivers/pci/controller/dwc/pci-exynos.c | 143 +++++++++++++++++++-----
+>  1 file changed, 116 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-exynos.c b/drivers/pci/controller/dwc/pci-exynos.c
+> index c830b20d54f0..ef1f42236575 100644
+> --- a/drivers/pci/controller/dwc/pci-exynos.c
+> +++ b/drivers/pci/controller/dwc/pci-exynos.c
+> @@ -49,10 +49,18 @@
+>  #define EXYNOS_PCIE_ELBI_SLV_ARMISC		0x120
+>  #define EXYNOS_PCIE_ELBI_SLV_DBI_ENABLE		BIT(21)
+>  
+> +/* to store different SoC variants of Samsung */
+> +enum samsung_pcie_variants {
+> +	EXYNOS_5433,
+> +};
+> +
+>  struct samsung_pcie_pdata {
+>  	struct pci_ops				*pci_ops;
+>  	const struct dw_pcie_ops		*dwc_ops;
+>  	const struct dw_pcie_host_ops		*host_ops;
+> +	const struct samsung_res_ops		*res_ops;
+> +	unsigned int				soc_variant;
+> +	enum dw_pcie_device_mode		device_mode;
+>  };
+>  
+>  struct exynos_pcie {
+> @@ -61,7 +69,14 @@ struct exynos_pcie {
+>  	const struct samsung_pcie_pdata	*pdata;
+>  	struct clk_bulk_data		*clks;
+>  	struct phy			*phy;
+> -	struct regulator_bulk_data	supplies[2];
+> +	struct regulator_bulk_data	*supplies;
+> +	int				supplies_cnt;
+> +};
+> +
+> +struct samsung_res_ops {
+> +	int (*init_regulator)(struct exynos_pcie *ep);
+> +	irqreturn_t (*pcie_irq_handler)(int irq, void *arg);
+> +	void (*set_device_mode)(struct exynos_pcie *ep);
+>  };
+>  
+>  static void exynos_pcie_writel(void __iomem *base, u32 val, u32 reg)
+> @@ -74,6 +89,31 @@ static u32 exynos_pcie_readl(void __iomem *base, u32 reg)
+>  	return readl(base + reg);
+>  }
+>  
+> +static int samsung_regulator_enable(struct exynos_pcie *ep)
+> +{
+> +	int ret;
+> +
+> +	if (ep->supplies_cnt == 0)
+> +		return 0;
+> +
+> +	ret = regulator_bulk_enable(ep->supplies_cnt, ep->supplies);
+> +
+> +	return ret;
 
-	/sys/devices/system/cpu/cpuXX/topology/cluster_id
+Unless you want a warning here, there's no need for "ret":
 
-if CONFIG_SCHED_CLUSTER is enabled.
+  return regulator_bulk_enable(ep->supplies_cnt, ep->supplies);
 
-If there is an issue then it is a problem with the vendor firmware
-providing cluster id configurations via ACPI that cause regressions.
+> +}
+> +
+> +static void samsung_regulator_disable(struct exynos_pcie *ep)
+> +{
+> +	struct device *dev = ep->pci.dev;
+> +	int ret;
+> +
+> +	if (ep->supplies_cnt == 0)
+> +		return;
+> +
+> +	ret = regulator_bulk_disable(ep->supplies_cnt, ep->supplies);
+> +	if (ret)
+> +		dev_warn(dev, "failed to disable regulators: %d\n", ret);
+> +}
+> +
+>  static void exynos_pcie_sideband_dbi_w_mode(struct exynos_pcie *ep, bool on)
+>  {
+>  	u32 val;
+> @@ -244,7 +284,26 @@ static const struct dw_pcie_host_ops exynos_pcie_host_ops = {
+>  	.init = exynos_pcie_host_init,
+>  };
+>  
+> -static int exynos_add_pcie_port(struct exynos_pcie *ep,
+> +static int exynos_init_regulator(struct exynos_pcie *ep)
+> +{
+> +	struct device *dev = ep->pci.dev;
+> +	int ret = 0;
+> +
+> +	ep->supplies_cnt = 2;
+> +
+> +	ep->supplies = devm_kcalloc(dev, ep->supplies_cnt, sizeof(*ep->supplies), GFP_KERNEL);
+> +	if (!ep->supplies)
+> +		return -ENOMEM;
+> +
+> +	ep->supplies[0].supply = "vdd18";
+> +	ep->supplies[1].supply = "vdd10";
+> +
+> +	ret = devm_regulator_bulk_get(dev, ep->supplies_cnt, ep->supplies);
+> +
+> +	return ret;
 
-We could add a blacklist for those platforms to avoid regressions but we
-should not allow that to hinder us to enable full support for clustering
-on ARM64.
+No need for ret.
 
+> +}
+> +
+> +static int samsung_irq_init(struct exynos_pcie *ep,
+>  				       struct platform_device *pdev)
+>  {
+>  	struct dw_pcie *pci = &ep->pci;
+> @@ -256,22 +315,15 @@ static int exynos_add_pcie_port(struct exynos_pcie *ep,
+>  	if (pp->irq < 0)
+>  		return pp->irq;
+>  
+> -	ret = devm_request_irq(dev, pp->irq, exynos_pcie_irq_handler,
+> +	ret = devm_request_irq(dev, pp->irq, ep->pdata->res_ops->pcie_irq_handler,
+>  			       IRQF_SHARED, "exynos-pcie", ep);
+>  	if (ret) {
+>  		dev_err(dev, "failed to request irq\n");
+>  		return ret;
+>  	}
+>  
+> -	pp->ops = &exynos_pcie_host_ops;
+>  	pp->msi_irq[0] = -ENODEV;
+>  
+> -	ret = dw_pcie_host_init(pp);
+> -	if (ret) {
+> -		dev_err(dev, "failed to initialize host\n");
+> -		return ret;
+> -	}
+> -
+>  	return 0;
+>  }
+>  
+> @@ -282,6 +334,11 @@ static const struct dw_pcie_ops exynos_dw_pcie_ops = {
+>  	.start_link = exynos_pcie_start_link,
+>  };
+>  
+> +static const struct samsung_res_ops exynos_res_ops_data = {
+> +	.init_regulator		= exynos_init_regulator,
+> +	.pcie_irq_handler	= exynos_pcie_irq_handler,
+> +};
+> +
+>  static int exynos_pcie_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -313,28 +370,46 @@ static int exynos_pcie_probe(struct platform_device *pdev)
+>  	if (ret < 0)
+>  		return ret;
+>  
+> -	ep->supplies[0].supply = "vdd18";
+> -	ep->supplies[1].supply = "vdd10";
+> -	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(ep->supplies),
+> -				      ep->supplies);
+> -	if (ret)
+> -		return ret;
+> +	if (pdata->res_ops && pdata->res_ops->init_regulator) {
+> +		ret = ep->pdata->res_ops->init_regulator(ep);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+> -	ret = regulator_bulk_enable(ARRAY_SIZE(ep->supplies), ep->supplies);
+> +	ret = samsung_regulator_enable(ep);
+>  	if (ret)
+>  		return ret;
+>  
+>  	platform_set_drvdata(pdev, ep);
+>  
+> -	ret = exynos_add_pcie_port(ep, pdev);
+> -	if (ret < 0)
+> -		goto fail_probe;
+> +	if (pdata->res_ops && pdata->res_ops->set_device_mode)
+> +		pdata->res_ops->set_device_mode(ep);
+> +
+> +	switch (ep->pdata->device_mode) {
+> +	case DW_PCIE_RC_TYPE:
+> +		ret = samsung_irq_init(ep, pdev);
+> +		if (ret)
+> +			goto fail_regulator;
+> +
+> +		ep->pci.pp.ops = pdata->host_ops;
+> +
+> +		ret = dw_pcie_host_init(&ep->pci.pp);
+> +		if (ret < 0)
+> +			goto fail_phy_init;
+> +
+> +		break;
+> +	default:
+> +		dev_err(dev, "invalid device type\n");
+> +		ret = -EINVAL;
+> +		goto fail_regulator;
+> +	}
+>  
+>  	return 0;
+>  
+> -fail_probe:
+> +fail_phy_init:
+>  	phy_exit(ep->phy);
+> -	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
+> +fail_regulator:
+> +	samsung_regulator_disable(ep);
+>  
+>  	return ret;
+>  }
+> @@ -343,21 +418,29 @@ static void exynos_pcie_remove(struct platform_device *pdev)
+>  {
+>  	struct exynos_pcie *ep = platform_get_drvdata(pdev);
+>  
+> +	if (ep->pdata->device_mode == DW_PCIE_EP_TYPE)
+> +		return;
+>  	dw_pcie_host_deinit(&ep->pci.pp);
+> -	exynos_pcie_assert_core_reset(ep);
+> +	if (ep->pdata->soc_variant == EXYNOS_5433)
+> +		exynos_pcie_assert_core_reset(ep);
 
+I think it's a mistake to test for specific soc_variants.  Better to
+test a *property* (or use a function pointer than can be SoC-specific)
+because it's likely that several SoCs will share the same property.
 
+>  	phy_power_off(ep->phy);
+>  	phy_exit(ep->phy);
+> -	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
+> +	samsung_regulator_disable(ep);
+>  }
+>  
+>  static int exynos_pcie_suspend_noirq(struct device *dev)
+>  {
+>  	struct exynos_pcie *ep = dev_get_drvdata(dev);
+> +	struct dw_pcie *pci = &ep->pci;
+>  
+> -	exynos_pcie_assert_core_reset(ep);
+> +	if (ep->pdata->device_mode == DW_PCIE_EP_TYPE)
+> +		return 0;
+> +
+> +	if (ep->pdata->soc_variant == EXYNOS_5433)
+> +		exynos_pcie_assert_core_reset(ep);
+>  	phy_power_off(ep->phy);
+>  	phy_exit(ep->phy);
+> -	regulator_bulk_disable(ARRAY_SIZE(ep->supplies), ep->supplies);
+> +	samsung_regulator_disable(ep);
+>  
+>  	return 0;
+>  }
+> @@ -369,7 +452,10 @@ static int exynos_pcie_resume_noirq(struct device *dev)
+>  	struct dw_pcie_rp *pp = &pci->pp;
+>  	int ret;
+>  
+> -	ret = regulator_bulk_enable(ARRAY_SIZE(ep->supplies), ep->supplies);
+> +	if (ep->pdata->device_mode == DW_PCIE_EP_TYPE)
+> +		return 0;
+> +
+> +	ret = samsung_regulator_enable(ep);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -389,6 +475,9 @@ static const struct samsung_pcie_pdata exynos_5433_pcie_rc_pdata = {
+>  	.dwc_ops		= &exynos_dw_pcie_ops,
+>  	.pci_ops		= &exynos_pci_ops,
+>  	.host_ops		= &exynos_pcie_host_ops,
+> +	.res_ops		= &exynos_res_ops_data,
+> +	.soc_variant		= EXYNOS_5433,
+> +	.device_mode		= DW_PCIE_RC_TYPE,
+>  };
+>  
+>  static const struct of_device_id exynos_pcie_of_match[] = {
+> -- 
+> 2.49.0
+> 
 
