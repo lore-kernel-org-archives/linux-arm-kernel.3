@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC14ACA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECAACA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVrou259Nqx2mf6vUTvrTuOu7ushA+qQgGCR5MKGSus=; b=nojgOhKmyPdpx/LsjmEHaBxiW5
-	eH59/N1E0FC2my7g4GJPK6l5wYOvhsDY8rhBHRKgZoNewyi2SM71c0kTFaXG+mSXtVWu43nHeSak6
-	IfA7m8qYwIcIPfW2yd9JuKhj07ab0VTRVQeDaa5EqRXgR+feAJ0UYV8i1bDb1ElS4Q71qP8e8P6tW
-	ozt0vopY4MCftJRqaxV1d25S9E0QUTIxgAg31IlJNO+w35ucM7mZgn5ahLMBtqX/lT0RxFkkUKzrM
-	jTDhw/95lCB8WsWqD0UOjdsbIHZe0Sajj1OiB8h5r2Qvlwz8ZBoV5lJvxLqQW6xEE8dmYpBLat+xP
-	audSJNwA==;
+	bh=eEgfXQmBvwIZTKnjUPX92QY8u5Mv9cN/Yg04BQtYTgI=; b=CYq09agakSBc1LPILihCwLmn/t
+	EDoUZk30nxMW90w12xOtU02VJinEIohqQCIgtz2sVgrtGHVeVcS2f2uE7AucWE8+fVt2ZrkxLLVbC
+	j3BUfO80kuLph50klhJeUFDpdulXq1OQDh5PgaG51TMDHDwcyLcg1D0yz7DQ97Y5TEK0L+oK9zaTo
+	89DyrOohslhOXwnoSb4ClcTTEI5jmDUOR7UYMi1qg1j8XtbjAupGN5lZNrvNM5BuuTRBnQekaLik8
+	ABLc+Bw95op2ktVQGpZDz1VtM/zAk70eV1WZCSyWMDIsHV4fNx03W77i7UaiTjX6U2Hau/p0UerjQ
+	uVKDoqsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBrO-0000000Don7-3Laa;
-	Wed, 13 Aug 2025 13:49:46 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1umBtu-0000000DpKh-2q34;
+	Wed, 13 Aug 2025 13:52:22 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBFa-0000000Dizq-1t0f
+	id 1umBFh-0000000Dj1T-3lel
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:10:43 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-31ecd40352fso5812694a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:10:42 -0700 (PDT)
+	Wed, 13 Aug 2025 13:10:50 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2406fe901fcso68852855ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:10:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755090642; x=1755695442; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755090649; x=1755695449; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MVrou259Nqx2mf6vUTvrTuOu7ushA+qQgGCR5MKGSus=;
-        b=ZeH2cgeiatIv3J+u56Y18YyPHFfdTs2F1TlYZCiu2gU4hvMIyCSpc7SDL+nmi4oO/N
-         2alcAJSCP1PLurtwL9BaeTjEO8JAB4Z/kYPvrlQ1G7mXLPSxPm81HnuoYrIYqyrIlKTs
-         6kZGQtt0+V0BFOq0LrEs9FnbJxOOADW2IIHAsqW+cq5p+eMXxdVmlExMYtQGK9n/fc4I
-         tfxxwoNPWMPQFCYCoXRZRbY4Kx/Tj6KegiallDtkrnnYn2xPApOwYXauXvTpvIBmj+mh
-         xFddByIlTw64Wtk3WsUDk0abGpY45eFSyZHlJw78H1az/WP4iMb/qnrhLgTQ4vbAptHp
-         sGNA==
+        bh=eEgfXQmBvwIZTKnjUPX92QY8u5Mv9cN/Yg04BQtYTgI=;
+        b=jhaR66KMXzfosZYNP4hEF3lRcO3JO/J50qiNWnONUoI5c0UtKmUGQXEaTvu1Ac5Wp9
+         2+KqqWerlRLmnA+zMiWKya2sVdtEbmuEImltX1Vo1/SSZwCSDbzPXCd9T3XI7ZFW4Zqr
+         Q26SIkYuL+ltAiNvzIgkswSTaGwVNkT4VF9iQMZ70fcHUoWwAf7jtwKtmPpmsVo8RRi8
+         UgiYrK1/vLwm9PZLMFBGKlt08SVMc2e83xZMxNXJO+CZVehw8t4MwaaVkupoObCWG+5r
+         CAc9HnkEZyAEQLI2kdIdyVHu8BUq5zRLLSQ1OpMcGzTz7m9SV+Fnt+uPp+mzxj1lmzLU
+         +XDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755090642; x=1755695442;
+        d=1e100.net; s=20230601; t=1755090649; x=1755695449;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MVrou259Nqx2mf6vUTvrTuOu7ushA+qQgGCR5MKGSus=;
-        b=F/R2dRsoNskpnrO8f90QkrADfWX5BZ7GFymtYZCsW5s9TbYkcN90FUHWss7qeDXuEe
-         gT/FF3ETZtpqyuXQIPUtA4i1cQSMekXTLYfOE4msYwQZ6JX9EJ4vgSkLP7vlo5vVeOyz
-         S/ZpDSF0fm/B2RFlXa3w2vVN01ZPAbfVApF5a/E/7gmSErP7TzB7/BCHGXDT1xXYGaA6
-         Jf4DS1S3M1Xbg7siUWlimLuwEfIyq9jWzUs+4sIfpi2qzEWkiqjrowJGhOxPMqzsPP55
-         pqwVQE05oRpVOjGGLPsbJpzNaKN13BW2GVkfpry+a6MkOIW4ST8wO0oH/4cOxtyPaQZz
-         KkDA==
-X-Forwarded-Encrypted: i=1; AJvYcCVViHGFLzV7gJGRIdgRHnLT5NYs24NNBZ0N1tOjYe9O+q+Y5lVPW/F4OTrQnqX8oe/hoHWgdKixOgGmPZ+iIfLs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwV3Ypy4TIJnohXiPaHX7MDOYC2U4ZklTGO7mZVKVQgu29xmuYB
-	YLswRbtCPLNh7n4d5pZn1f4oRe43ENwgtZvIS57KTYns0+W+vV0gPUn4
-X-Gm-Gg: ASbGncvOKLLwInEOzWB6h0gOqbWa5z6xEusOWVhYq2nUkd9JLEi9v5GtC/CXY4ZjUb3
-	tAMxVDHBEKQDLtXXQhOzdFwV+T1MkedtX2tKuDnQohJQW2Na2jzyHmmUV9SAnprA4PkzejMyFOY
-	sBBaBANykwKCm//fMaHzQ7QRSls74UXPLAKVj0mex513f14VGSiJTszs8fmYQ4zo75hNmBPbXCi
-	dH2VvyWT4N4F65nObyJNIzLWBw+d9NNo1mUlRV493k9oH+DyztprHUWLFx4/tuSyPpE+902/LUh
-	MuKf9VNFCJwdBNx3rkDb9x3AVs8wMmrc088sRYajJRGHSy0G6XTh2BeCMkqnRUCQDgKL0jjK0sj
-	U3KJh4LVdLeZyTBpmLSgJQM6lo6ZUb0w=
-X-Google-Smtp-Source: AGHT+IF9eIDvu72BaiBaVH/s5UjG5F3YVyyMdRM4uurQwBv+OhAFEyxqshUJkkmFATqSx/qzFuLPNw==
-X-Received: by 2002:a17:90b:58e7:b0:312:26d9:d5b2 with SMTP id 98e67ed59e1d1-321d0b2940dmr4886750a91.0.1755090641390;
-        Wed, 13 Aug 2025 06:10:41 -0700 (PDT)
+        bh=eEgfXQmBvwIZTKnjUPX92QY8u5Mv9cN/Yg04BQtYTgI=;
+        b=ik0v/HzMN2Uhai2w1nbvWTDFKMwX8Yw7R1/PLvBsBGOOyAyRddOhfkQsLBDCDH+9Il
+         F5UcpFhHBPTfC0VtnezhUVUP0222/MqnRWOPpLPJlPM9xRrBkKpXUW33O24x2lx5Kezk
+         egF5iuB+04KVygE7DAiebN3aRr/sw8Er+SQjHftL3mjcfuPzl+Pn6MPI8F+e4Rw4hWi4
+         CG3e0qsKq1fqI23ezRm8fvV8FrzNTNiqeDBWE6hHQs7THNqzwbbI7xGGwpzVywBgayEl
+         dS9A1hWvf+ySGm8goBOxK+fHlpnahNUlHss4De+W2sYbKz5LhQQLGikxQnyMxr6AbF1G
+         ynDA==
+X-Forwarded-Encrypted: i=1; AJvYcCW2SaSTSlZl7UJZFaRjujvhe+4hdfwipnYnOOYW7vnp9KD4xiCLRvJLck6HT54gYdabMqPESNqp738qaj897lla@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzphdPpLEdoALHwgEqFYmSkc5TFW+R9IQDectyFMwo4Si9ROi/
+	XYYLvO4np6jqSLc7+IXeSp1mqQrRc31p1S552YOel5j9raHZoo1S+2jZ
+X-Gm-Gg: ASbGnctx4RqmprDHkFRw/2yqIBcPGKFj2FFUGktbvJWD0SUacI8dQWOOifrDkjcY7Jn
+	6FwtUEeecCUTIE8CUWeBZ2lZvItNlZ0MkaXcPNGWgKDOcWVFaYP+6SjGw9ABFOvdVQ8XjCcJgC/
+	ATIi3wYuNFpOVKvVW7+BvTTB33xAESyfIh8V9n7hryYP3cH7Vqze7GEMBYnu4ncZeZs0PKXq7TE
+	RwEQ5DUz3fcKdpHQzTGnFb3Yd8sF72s6sZya0YudUMmvChDAdYYKvMMMkyug+yw+pdRT0GflFBU
+	hkirYitFJxOqBnh40ghkzyYHU1svkLSXMVYH6or1ZpzcvmCRlGIK2f6eCiq5ZooPuGKdQetPIoW
+	1HIsd/y2D6tht4c+c7V2GKfos4M3aqxI=
+X-Google-Smtp-Source: AGHT+IGQetOgmxbvgH8GlqPCrs2OPO9JHPjy7ZNd3WOoXSBNnPAm/Dj6z2ZNFN01W49Z7HuDNX97gQ==
+X-Received: by 2002:a17:903:1965:b0:242:a3fc:5900 with SMTP id d9443c01a7336-2430d0dc1eamr41861055ad.8.1755090649047;
+        Wed, 13 Aug 2025 06:10:49 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32325765df6sm161504a91.12.2025.08.13.06.10.35
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32325765df6sm161504a91.12.2025.08.13.06.10.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 06:10:40 -0700 (PDT)
+        Wed, 13 Aug 2025 06:10:48 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -88,17 +88,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
 Cc: Anand Moon <linux.amoon@gmail.com>,
 	Mateusz Majewski <m.majewski2@samsung.com>
-Subject: [PATCH v7 3/7] thermal/drivers/exynos: Remove redundant IS_ERR() checks for clk_sec clock
-Date: Wed, 13 Aug 2025 18:39:47 +0530
-Message-ID: <20250813131007.343402-4-linux.amoon@gmail.com>
+Subject: [PATCH v7 4/7] thermal/drivers/exynos: Fixed the efuse min max value for exynos5422
+Date: Wed, 13 Aug 2025 18:39:48 +0530
+Message-ID: <20250813131007.343402-5-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250813131007.343402-1-linux.amoon@gmail.com>
 References: <20250813131007.343402-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_061042_488634_6064DC93 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250813_061049_935503_FFC45455 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,47 +113,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary IS_ERR() checks for the clk_sec clock,
-the clk_enable() and clk_disable() functions can handle NULL clock
-pointers, so the additional checks are redundant and have been removed
-to simplify the code.
+As per Exynos5422 user manual e-Fuse range min~max range is 16~76.
+if e-Fuse value is out of this range, then thermal sensor may not
+sense thermal data properly. Additionally, refactors the efuse
+initialization logic in exynos_map_dt_data() by replacing nested
+if-else blocks with a switch statement for better readability
+and maintainability. Ensures correct efuse setup based on SoC type.
 
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-v7: None
-v6: Add Rb - Lukasz and Fix the typo in the subject
+v7: drop the Rb Llukasz, as we dropped the nested switch to set efuse.
+v6: Add Rb Lukasz and fix typo in subject
 v5: None
-v4: drop IE_ERR() for clk_unprepare() as its handle in earlier code.
-v3: improve the commit message.
+V4: None
 ---
- drivers/thermal/samsung/exynos_tmu.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/thermal/samsung/exynos_tmu.c | 24 ++++++++++++++++++------
+ 1 file changed, 18 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index aa0726b33c84..5f017a78f437 100644
+index 5f017a78f437..3d12e95703bf 100644
 --- a/drivers/thermal/samsung/exynos_tmu.c
 +++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -258,8 +258,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 
- 	mutex_lock(&data->lock);
- 	clk_enable(data->clk);
--	if (!IS_ERR(data->clk_sec))
--		clk_enable(data->clk_sec);
-+	clk_enable(data->clk_sec);
- 
- 	status = readb(data->base + EXYNOS_TMU_REG_STATUS);
- 	if (!status) {
-@@ -269,8 +268,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 		data->tmu_clear_irqs(data);
- 	}
- 
--	if (!IS_ERR(data->clk_sec))
--		clk_disable(data->clk_sec);
-+	clk_disable(data->clk_sec);
- 	clk_disable(data->clk);
- 	mutex_unlock(&data->lock);
- 
+@@ -884,6 +884,22 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 	case SOC_ARCH_EXYNOS4412:
+ 	case SOC_ARCH_EXYNOS5250:
+ 	case SOC_ARCH_EXYNOS5260:
++		data->tmu_set_low_temp = exynos4412_tmu_set_low_temp;
++		data->tmu_set_high_temp = exynos4412_tmu_set_high_temp;
++		data->tmu_disable_low = exynos4412_tmu_disable_low;
++		data->tmu_disable_high = exynos4210_tmu_disable_high;
++		data->tmu_set_crit_temp = exynos4412_tmu_set_crit_temp;
++		data->tmu_initialize = exynos4412_tmu_initialize;
++		data->tmu_control = exynos4210_tmu_control;
++		data->tmu_read = exynos4412_tmu_read;
++		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
++		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->gain = 8;
++		data->reference_voltage = 16;
++		data->efuse_value = 55;
++		data->min_efuse_value = 0;
++		data->max_efuse_value = 100;
++		break;
+ 	case SOC_ARCH_EXYNOS5420:
+ 	case SOC_ARCH_EXYNOS5420_TRIMINFO:
+ 		data->tmu_set_low_temp = exynos4412_tmu_set_low_temp;
+@@ -899,12 +915,8 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->gain = 8;
+ 		data->reference_voltage = 16;
+ 		data->efuse_value = 55;
+-		if (data->soc != SOC_ARCH_EXYNOS5420 &&
+-		    data->soc != SOC_ARCH_EXYNOS5420_TRIMINFO)
+-			data->min_efuse_value = 40;
+-		else
+-			data->min_efuse_value = 0;
+-		data->max_efuse_value = 100;
++		data->min_efuse_value = 16;
++		data->max_efuse_value = 76;
+ 		break;
+ 	case SOC_ARCH_EXYNOS5433:
+ 		data->tmu_set_low_temp = exynos5433_tmu_set_low_temp;
 -- 
 2.50.1
 
