@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C13FC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5409BC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 09:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2Nwp2MU876d7dPdKtR5qFqYelXFxh3gg4ETa1w6iR0=; b=Kl1GJ979ywNgU1HFxAEhNV3gAP
-	Ol8GNhHRiQAfNcjYR3KKo4DUjjMZaZ3F+A7rvQ3vqW21DmghfzbpOYATk8hGgDscqlm6E6ZY5ZtPv
-	tzpO/q7HUQVkkt4XYKUdtInupevErK/E7faiIultSDDutqh+/0lbwb6W8A/Y/WXbkTUgYo5ic09E1
-	wNwmfFMFNqWILYEL4ZUVGk2AOB++24+2saU8GmtaC8peGm4Oqd3K/FFfRdnieJrxVRgxmD/FD9B1K
-	NHLqkw2MWORfyoUw5EaBHJytAt/M9F1B1EeMaojzdCGLU+ddOJODezmz8jEhYNg+i7+XwOnpyKiyr
-	9HGWqHNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XUhTVge3Mi59i3O4KRCXPOy8FOAvEA/jSRr+8q7BNi8=; b=TDrDVkWEM8TbJE
+	vIK9BsFo3lp4hZQMvrpamvmMTvsuHzNnBDtd8gOl1oh02DS82IrFlDblvbyfRJn0aQWDTkeM+ZjeI
+	dBXKB3QpIOC1P8scUJ0/CjnsZL2P9fHnGfuSnth6UgrDzzHtzanpecSgaHDJoXzRFtnYyaymy2jcM
+	ELNUFsZcpwparhW6iND/J7XYEZ+lgd3fpVEBA54OXXWkA1uKscTwhKFnWLBJDScqauJRxLcSKFiZg
+	fl6YuTzaQm7DIJCIW/NiVoyI7/ei/LTA+wVjxIxX2AeYBV07Etkr4JkxMl+SxUw0+p0nVBhGlDwgX
+	TzhXtOm6XP6HtO/HCARA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7lg-0000000DDwv-2W6q;
-	Wed, 13 Aug 2025 09:27:36 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1um7oD-0000000DEMM-1cfp;
+	Wed, 13 Aug 2025 09:30:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um7j6-0000000DDUI-3N2f
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 09:24:58 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250813092452euoutp02f75f9d6d0437c3758780eea98e4bcddd~bSVEAe_dM1164611646euoutp02Y
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 09:24:52 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250813092452euoutp02f75f9d6d0437c3758780eea98e4bcddd~bSVEAe_dM1164611646euoutp02Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755077092;
-	bh=a2Nwp2MU876d7dPdKtR5qFqYelXFxh3gg4ETa1w6iR0=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=cgLdIUmc0uLWncfkW57OWD9w8L/LM9xrFTd0Uk372B/uNWAUCD2kvSsngN14RA0Fx
-	 5pWE3tqh4SlbYfc/nQA64IxjQlTDfZ14ExrlQjNOHK77MeYIs6MNXp4ZYutbt1Ja9X
-	 wgBkzRo+XsLbteVMfYx2L2kqS4O9wekVQoXjdI+A=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250813092451eucas1p11e109563279fd9f71d87ae0ae7054be1~bSVDoQDWX1974719747eucas1p1R;
-	Wed, 13 Aug 2025 09:24:51 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250813092450eusmtip236af12d762e8b79623dc70cf3787ce72~bSVCeBDGD2419424194eusmtip2a;
-	Wed, 13 Aug 2025 09:24:50 +0000 (GMT)
-Message-ID: <7b505aac-0b2d-40b4-9a0b-98b74b0bf987@samsung.com>
-Date: Wed, 13 Aug 2025 11:24:49 +0200
+	id 1um7kz-0000000DDpU-3mKb;
+	Wed, 13 Aug 2025 09:26:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755077211;
+	bh=AoywWFXPt1U7hz3T4fQSeToA2u6EsmMVO0TClTJKObI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=V0UuzWKWUDTBXGCPUe5Zs6i+g5/6hNgJ5Rv9wRPJjMHRUWqTsSjH11YEUubVDqh0G
+	 wrUrTXdiUJN9u9UeE/6COEBfJDScc1Xmt/o9Ut+rzw2Nyx64jH8GuL4P4SI27u1YJ3
+	 U/wjejqfbeyHVuxLE5GXj61S9dRHUW24PtIzRHdxNJW6r4d/wcU/8Ue0HFAK+hZfEe
+	 AVJLMPO/sl3SnkZwLpvHV0/hSsQI0Cpsmo0lDMSep4cFlbfkwZW1us/noYgJ8wXYWm
+	 ++K6w3f87i1IslPZ4Pt6wk2RV7eHARYTKwhbLvnMhsSIeLlVT7UA3mxcVZ2ft2nU/r
+	 +DEq4ux5Mn41A==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3FBA517E00A3;
+	Wed, 13 Aug 2025 11:26:51 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH 0/3] Add Mali GPU support for Mediatek MT8365 SoC
+Date: Wed, 13 Aug 2025 11:25:41 +0200
+Message-Id: <20250813-mt8365-enable-gpu-v1-0-46c44c6c1566@collabora.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2] dma/pool: Ensure DMA_DIRECT_REMAP allocations are
- decrypted
-To: Shanker Donthineni <sdonthineni@nvidia.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Robin Murphy <robin.murphy@arm.com>, Gavin Shan <gshan@redhat.com>, Mike
-	Rapoport <rppt@kernel.org>, Vikram Sethi <vsethi@nvidia.com>, Jason Sequeira
-	<jsequeira@nvidia.com>, Dev Jain <dev.jain@arm.com>, David Rientjes
-	<rientjes@google.com>, linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	stable@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250811181759.998805-1-sdonthineni@nvidia.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20250813092451eucas1p11e109563279fd9f71d87ae0ae7054be1
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250811181833eucas1p2632002b6854b082632247829ea0a944c
-X-EPHeader: CA
-X-CMS-RootMailID: 20250811181833eucas1p2632002b6854b082632247829ea0a944c
-References: <CGME20250811181833eucas1p2632002b6854b082632247829ea0a944c@eucas1p2.samsung.com>
-	<20250811181759.998805-1-sdonthineni@nvidia.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABZanGgC/y3MQQqDMBCF4auEWXdAE2JTr1JcxDjagSbaJBZBv
+ HuDdvk/eN8OiSJTglbsEOnLiedQor4JcC8bJkIeSoOspK5MLdFnoxqNFGz/JpyWFa16GKUHZ++
+ jg/JbIo28neazuzrSZy10vkbobSJ0s/ecWxFoy/jnFXTH8QNDPM2GlAAAAA==
+X-Change-ID: 20250812-mt8365-enable-gpu-a39835dca7fc
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755077211; l=4686;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=AoywWFXPt1U7hz3T4fQSeToA2u6EsmMVO0TClTJKObI=;
+ b=0NhWTT+jKcB7ZY2xJGYPN6+qAi8eG2/oFgZrzPKyRDahaVDGorLQEDi4LcQD+kDz18Qabl/zC
+ JLlUNU0bU3nBE0xwPDn20/0P5BWQIFuiBuZWoWeMYdLCk3sxruFy5CS
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_022456_981664_292A8F95 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250813_022654_102793_68C72E83 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,31 +91,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11.08.2025 20:17, Shanker Donthineni wrote:
-> When CONFIG_DMA_DIRECT_REMAP is enabled, atomic pool pages are
-> remapped via dma_common_contiguous_remap() using the supplied
-> pgprot. Currently, the mapping uses
-> pgprot_dmacoherent(PAGE_KERNEL), which leaves the memory encrypted
-> on systems with memory encryption enabled (e.g., ARM CCA Realms).
->
-> This can cause the DMA layer to fail or crash when accessing the
-> memory, as the underlying physical pages are not configured as
-> expected.
->
-> Fix this by requesting a decrypted mapping in the vmap() call:
-> pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL))
->
-> This ensures that atomic pool memory is consistently mapped
-> unencrypted.
->
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+This patchset adds the support of the ARM Mali G52 MC1 GPU (Bifrost),
+integrated to the Mediatek MT8365 SoC, and its enablement to the
+Mediatek Genio 350-EVK board.
 
-Thanks, applied to dma-mapping-fixes branch.
+I've tested this patchset on a Mediatek Genio 350-EVK board,
+with a kernel based on linux-next (tag: next-20250813).
 
-Best regards
+The panfrost driver probed with the following messages:
+```
+panfrost 13040000.gpu: clock rate = 450000031
+panfrost 13040000.gpu: mali-g52 id 0x7402 major 0x1 minor 0x0 status
+  0x0
+panfrost 13040000.gpu: features: 00000000,00000df7, issues: 00000000,
+  00000400
+panfrost 13040000.gpu: Features: L2:0x07110206 Shader:0x00000003
+  Tiler:0x00000209 Mem:0x1 MMU:0x00002823 AS:0xff JS:0x7
+panfrost 13040000.gpu: shader_present=0x1 l2_present=0x1
+[drm] Initialized panfrost 1.4.0 for 13040000.gpu on minor 1
+```
+
+Running glmark2-es2-drm with MESA 25.2 is also OK:
+```
+=======================================================
+    glmark2 2023.01
+=======================================================
+    OpenGL Information
+    GL_VENDOR:      Mesa
+    GL_RENDERER:    Mali-G52 r1 (Panfrost)
+    GL_VERSION:     OpenGL ES 3.1 Mesa 25.2.0-1
+    Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
+    Surface Size:   1200x1920 fullscreen
+=======================================================
+[build] use-vbo=false: FPS: 513 FrameTime: 1.950 ms
+[build] use-vbo=true: FPS: 507 FrameTime: 1.976 ms
+[texture] texture-filter=nearest: FPS: 484 FrameTime: 2.070 ms
+[texture] texture-filter=linear: FPS: 483 FrameTime: 2.074 ms
+[texture] texture-filter=mipmap: FPS: 476 FrameTime: 2.105 ms
+[shading] shading=gouraud: FPS: 432 FrameTime: 2.318 ms
+[shading] shading=blinn-phong-inf: FPS: 389 FrameTime: 2.571 ms
+[shading] shading=phong: FPS: 257 FrameTime: 3.903 ms
+[shading] shading=cel: FPS: 235 FrameTime: 4.267 ms
+[bump] bump-render=high-poly: FPS: 267 FrameTime: 3.756 ms
+[bump] bump-render=normals: FPS: 427 FrameTime: 2.344 ms
+[bump] bump-render=height: FPS: 349 FrameTime: 2.869 ms
+[effect2d] kernel=0,1,0;1,-4,1;0,1,0;: FPS: 134 FrameTime: 7.504 ms
+[effect2d] kernel=1,1,1,1,1;1,1,1,1,1;1,1,1,1,1;: FPS: 46 FrameTime:
+  22.139 ms
+[pulsar] light=false:quads=5:texture=false: FPS: 384 FrameTime: 2.610 ms
+[desktop] blur-radius=5:effect=blur:passes=1:separable=true:windows=4:
+  FPS: 58 FrameTime: 17.476 ms
+[desktop] effect=shadow:windows=4: FPS: 250 FrameTime: 4.001 ms
+[buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction
+  =0.5:update-method=map: FPS: 80 FrameTime: 12.596 ms
+[buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction
+  =0.5:update-method=subdata: FPS: 80 FrameTime: 12.536 ms
+[buffer] columns=200:interleave=true:update-dispersion=0.9:update-fraction
+  =0.5:update-method=map: FPS: 99 FrameTime: 10.127 ms
+[ideas] speed=duration: FPS: 286 FrameTime: 3.506 ms
+[jellyfish] <default>: FPS: 113 FrameTime: 8.878 ms
+[terrain] <default>: FPS: 13 FrameTime: 78.283 ms
+[shadow] <default>: FPS: 155 FrameTime: 6.457 ms
+[refract] <default>: FPS: 29 FrameTime: 35.077 ms
+[conditionals] fragment-steps=0:vertex-steps=0: FPS: 528 FrameTime:
+  1.896 ms
+[conditionals] fragment-steps=5:vertex-steps=0: FPS: 333 FrameTime:
+  3.011 ms
+[conditionals] fragment-steps=0:vertex-steps=5: FPS: 533 FrameTime:
+  1.878 ms
+[function] fragment-complexity=low:fragment-steps=5: FPS: 471 FrameTime:
+  2.126 ms
+[function] fragment-complexity=medium:fragment-steps=5: FPS: 232 FrameTime:
+  4.326 ms
+[loop] fragment-loop=false:fragment-steps=5:vertex-steps=5: FPS: 468 FrameTime:
+  2.138 ms
+[loop] fragment-steps=5:fragment-uniform=false:vertex-steps=5: FPS: 469
+  FrameTime: 2.133 ms
+[loop] fragment-steps=5:fragment-uniform=true:vertex-steps=5: FPS: 231
+  FrameTime: 4.337 ms
+=======================================================
+                                  glmark2 Score: 296 
+=======================================================
+
+```
+
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Louis-Alexis Eyraud (3):
+      dt-bindings: gpu: mali-bifrost: Add compatible for MT8365 SoC
+      arm64: dts: mediatek: mt8365: Add GPU support
+      arm64: dts: mediatek: mt8365-evk: Enable GPU support
+
+ .../devicetree/bindings/gpu/arm,mali-bifrost.yaml  |  1 +
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts        |  9 +++++
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi           | 41 +++++++++++++++++++++-
+ 3 files changed, 50 insertions(+), 1 deletion(-)
+---
+base-commit: b07a7e2e073bce5df5974fb07be06d869149948e
+change-id: 20250812-mt8365-enable-gpu-a39835dca7fc
+
+Best regards,
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
