@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EA8C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C206C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 21:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTbVVjSoROXPn4Xu4layLkxNIqGNzrm2kx+jdejNJ9M=; b=KH/KbKrt0STDw5FkSBCwdHYlXw
-	De6+B5Nz45vB2/P78ifpVHRb96qhW7vE+Y7E9zkP8R7uhHx3T1EmhaAUwplVLAjg7MEwy/FHVLyGZ
-	6T/U5Q2mabYGAObCpfBRCdHENyP03PF12uf8/fr9IAngoSCJRgZHHy/1YlBr39bmaO4e5zClssNj+
-	C3oSnmbWGg7e0VYhPffu4IDgcSjTSgTo521sDdegXjqHLlyAnIqmMlZBrRQzQVJk13DIwd8aJWNBb
-	PwL0E6wt6vVPzXk3xozxDdnfbCLW4hYnfhE9SFxUQZLsMq360XlC3uAgGf+sVHddNUZ2d2oslTesO
-	/hOsaGeA==;
+	bh=wWksHDBmgI3dIadKYWOJxAKOIZlW7syLhIJmTFxpaxA=; b=15lUWcNNf6Z5nUer/plwyuy785
+	xDQTfeYgI8RDMi54hmRvoyGRsBz7wLxGu0pWJxluoPLsi/GEaUQ5YCJKVik14GWKEdH0GsKuZet+M
+	v16SMnS+ccVxqIkldQJlEfEPpZ+Jwcyv7AvHmTicuVXeNwQtspJNv+pdYGx4qdRyJ1OXRX0iYPinQ
+	+Gct8A1KGKxkm8npVMnxZQTXxf3cr7xLifBAi18qMx2QivQMafIlffjx0cMLMpcEu66ak4TfJI+Xz
+	rIi+60y2vzLgptEWCMmwXfqZ7HSLndQmCkMnvDtgYJQFew9vL9v4wfvUUWit26A5AH9HvWrld+crt
+	ZOHsnsmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJT5-0000000F5kK-3bKu;
-	Wed, 13 Aug 2025 21:57:11 +0000
+	id 1umJVb-0000000F65s-3697;
+	Wed, 13 Aug 2025 21:59:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJES-0000000F3i3-2SDI
+	id 1umJET-0000000F3iE-2A3o
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 Aug 2025 21:42:04 +0000
+	Wed, 13 Aug 2025 21:42:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kTbVVjSoROXPn4Xu4layLkxNIqGNzrm2kx+jdejNJ9M=; b=M6dnJNDFl4NG7xqjcB15gu5Tcu
-	1KIlwYTaYZcocrIdKsINAtQNxLU27j02Va80A/PTs0kTIRxR2YH8XFjm/YD41lOxCwqYoJ5PwVnsa
-	0i7iN8l/sazcSb2tNvM7GnfiqSA185wVhAly9GRDLXx5/Mz8h4Rt2iJpEh2IsRwBvltxJsmE6lyDN
-	+oFPMwQVpqExyFha/rQ9hbROflzeAOWsUFCAohFGubT3/DgxkiBb4IPTj5TWsp5SBLYq+ercCDgon
-	bAxs7zBzb3kYVe5+24teaMv/toHlJYFBXBEeaMVZ7gxZEmZ1QoPP7dT19NIF9WyKH6KPS/aeZSLyX
-	vHqusnHg==;
+	bh=wWksHDBmgI3dIadKYWOJxAKOIZlW7syLhIJmTFxpaxA=; b=SyPU68tOYLhgeANTsiLA+2xhpq
+	STcZ8KtYxxM8aHUrqV6ONVc+2fYRJcDB+6KRi3Y4siDcHJl4nXXpuNDL7TScg0aeCMMD65JId0f+w
+	RJQij3I5SN2wmc+BvJkfmGIknc9lNad4MNzXN4XItevuU8dWwlHbLPwk0i3h+mP6z/ks2OyuK2HVo
+	MY3VE2Ha/oCgI6abZSAB7GRxZN9Rij6PPJ9GPgQ34ERGLuIuIlIcKkQTmOsU+Jjq0lEi4wWgBMBhx
+	RF2opDXlNhiFkOlrLJt8vM6vIyW9nkLhljcDPLsFsq/reToqJsExJKZDnDtH/FIDUWk4LmRhCAA22
+	dAWk9YEA==;
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umJEJ-0000000GCxA-3KMZ
+	id 1umJEK-0000000GCxB-3Cv2
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 13 Aug 2025 21:42:03 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DLfffA1788741;
-	Wed, 13 Aug 2025 16:41:41 -0500
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DLfeK01788737;
+	Wed, 13 Aug 2025 16:41:40 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1755121301;
-	bh=kTbVVjSoROXPn4Xu4layLkxNIqGNzrm2kx+jdejNJ9M=;
+	bh=wWksHDBmgI3dIadKYWOJxAKOIZlW7syLhIJmTFxpaxA=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Iiehth8m/X0TJpR/V3cdN0vn47nZSceK3Zt2k0G4Vhn197OGr7C2z/57+h70aDR3j
-	 gjhm3U9XtutYStd4Bk2asboJJIrjXKB/mWQvtsmP758rpPl0O8O9GwkbIxu2pGiy6/
-	 yHIOpcKyNKcyXcwP3UAMToeKET/YGjXIfh/UX/pY=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DLffcl1253252
+	b=hwprcvhEofD7vETt+EIe1r/OT111emuuxsiAP1mZzCEyDtFBHXdfEa8rVgei90vYb
+	 E3ZMoDDXI+YxhUJm9Zlh4m848bhKcfFM0svNuie7XtNwopBm8LpT2HBhqlcCT8TKCl
+	 fMFRLZqkmMx+0yUXmcI3ZYpkjtYHUdgqVNB/yknY=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DLfeTR678594
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 16:41:41 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 13 Aug 2025 16:41:40 -0500
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
  Aug 2025 16:41:40 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
  Frontend Transport; Wed, 13 Aug 2025 16:41:40 -0500
 Received: from fllvem-mr07.itg.ti.com ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DLfdNH2611079;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DLfdNG2611079;
 	Wed, 13 Aug 2025 16:41:40 -0500
 From: Andrew Davis <afd@ti.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
@@ -74,9 +74,9 @@ To: Philipp Zabel <p.zabel@pengutronix.de>, Vladimir Zapolskiy <vz@mleia.com>,
  Jian <qinjian@cqplus1.com>
 CC: <openbmc@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH 2/6] reset: intel: Use devm_register_restart_handler()
-Date: Wed, 13 Aug 2025 16:41:34 -0500
-Message-ID: <20250813214138.477659-3-afd@ti.com>
+Subject: [PATCH 1/6] reset: ath79: Use devm_register_restart_handler()
+Date: Wed, 13 Aug 2025 16:41:33 -0500
+Message-ID: <20250813214138.477659-2-afd@ti.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250813214138.477659-1-afd@ti.com>
 References: <20250813214138.477659-1-afd@ti.com>
@@ -85,8 +85,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_224157_512429_CD24CD18 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250813_224158_916847_19EC813B 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,47 +107,47 @@ later unregister the handler.
 
 Signed-off-by: Andrew Davis <afd@ti.com>
 ---
- drivers/reset/reset-intel-gw.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+ drivers/reset/reset-ath79.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/reset/reset-intel-gw.c b/drivers/reset/reset-intel-gw.c
-index a5a01388ae7fa..97671b99f565a 100644
---- a/drivers/reset/reset-intel-gw.c
-+++ b/drivers/reset/reset-intel-gw.c
-@@ -28,7 +28,6 @@ struct intel_reset_soc {
+diff --git a/drivers/reset/reset-ath79.c b/drivers/reset/reset-ath79.c
+index b5d620132052d..4c4e69eb32bbc 100644
+--- a/drivers/reset/reset-ath79.c
++++ b/drivers/reset/reset-ath79.c
+@@ -15,7 +15,6 @@
  
- struct intel_reset_data {
+ struct ath79_reset {
  	struct reset_controller_dev rcdev;
 -	struct notifier_block restart_nb;
- 	const struct intel_reset_soc *soc_data;
- 	struct regmap *regmap;
- 	struct device *dev;
-@@ -154,12 +153,10 @@ static int intel_reset_xlate(struct reset_controller_dev *rcdev,
- 	return id;
- }
+ 	void __iomem *base;
+ 	spinlock_t lock;
+ };
+@@ -72,11 +71,9 @@ static const struct reset_control_ops ath79_reset_ops = {
+ 	.status = ath79_reset_status,
+ };
  
--static int intel_reset_restart_handler(struct notifier_block *nb,
--				       unsigned long action, void *data)
-+static int intel_reset_restart_handler(struct sys_off_data *data)
+-static int ath79_reset_restart_handler(struct notifier_block *nb,
+-				unsigned long action, void *data)
++static int ath79_reset_restart_handler(struct sys_off_data *data)
  {
--	struct intel_reset_data *reset_data;
-+	struct intel_reset_data *reset_data = data->cb_data;
+-	struct ath79_reset *ath79_reset =
+-		container_of(nb, struct ath79_reset, restart_nb);
++	struct ath79_reset *ath79_reset = data->cb_data;
  
--	reset_data = container_of(nb, struct intel_reset_data, restart_nb);
- 	intel_assert_device(&reset_data->rcdev, reset_data->reboot_id);
+ 	ath79_reset_assert(&ath79_reset->rcdev, FULL_CHIP_RESET);
  
- 	return NOTIFY_DONE;
-@@ -216,9 +213,7 @@ static int intel_reset_probe(struct platform_device *pdev)
- 	if (data->soc_data->legacy)
- 		data->reboot_id |= FIELD_PREP(STAT_BIT_OFFSET_MASK, rb_id[2]);
+@@ -108,10 +105,7 @@ static int ath79_reset_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return err;
  
--	data->restart_nb.notifier_call =	intel_reset_restart_handler;
--	data->restart_nb.priority =		128;
--	register_restart_handler(&data->restart_nb);
-+	devm_register_restart_handler(&pdev->dev, intel_reset_restart_handler, data);
+-	ath79_reset->restart_nb.notifier_call = ath79_reset_restart_handler;
+-	ath79_reset->restart_nb.priority = 128;
+-
+-	err = register_restart_handler(&ath79_reset->restart_nb);
++	err = devm_register_restart_handler(&pdev->dev, ath79_reset_restart_handler, ath79_reset);
+ 	if (err)
+ 		dev_warn(&pdev->dev, "Failed to register restart handler\n");
  
- 	return 0;
- }
 -- 
 2.39.2
 
