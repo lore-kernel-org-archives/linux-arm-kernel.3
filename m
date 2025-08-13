@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A214C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C00AC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 15:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ABvd6CTSJ7p/g3ZC71MYAclHGZvox/NvrF3NkQ5xxi8=; b=pgy2+wvI9DvXx/KUJGoaRWnzCr
-	j7gEZlozGAMcN1oXoL7WcVm5C89pzffCMp0pUBKhKnKV/AZNNK+xxrq5GekceoUSRIhEczj9Edcdv
-	/7FWcnaPKNaKtX137bWpcuRCyTFA+UdmOg1uGzNcc82gtQDZZNGsMECFLUqGTQePTcnOb5SN8fo7J
-	QQcLIywmWxmQKsmSitAdhmKDGRTDrdiXQMZiwIv8mMZuM4kCbSqkTMhlmX1cvdHcXVwmD+H+wlB9c
-	lmaZDWA8PkIW2F5iYpkvbQMg2WBuGYKSS1baDz+kTXLsgXF9i7hgE9kigMa5s+wjwmWaBLA8zOk0V
-	bj0NmgUg==;
+	bh=e96lqBbt+a5mVKiKm8ju8Tz8O5PGPr04HwmLOn7N++I=; b=Rsc2cra2ppBcK4RDIGXXJcnap/
+	7GZgVpktl1Gqsf7GqIg/2WXgtf+iEIWlOiENEtSmnEwVivtFgyDbCnY3d5zrruCt0QsvcdcyBrF4V
+	AcktqFVLmLV9pIHSUA5K/SNWrYQqEWJRUtZIRyvImLdOySjFKFKsVVzt4BC0CXLxam+Xpiqqhm513
+	uqx55Aaieaym1dxLMYcj74d19wZsO/TXGYD92kcvSNu9d1L/zwedd1bMF2x74kHnvN+KAL9VuW3jG
+	oP4J+eOIsrR4mM15zqLpebuO3Hyt6imc2eYqvpSxXEGvJyrSpyFhZXcYtTcZSs3I3InIM76JAu/yi
+	+zpTM1HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umDJP-0000000EAhf-1ZWg;
-	Wed, 13 Aug 2025 15:22:47 +0000
+	id 1umDLy-0000000EBBZ-1h8h;
+	Wed, 13 Aug 2025 15:25:26 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtR-0000000E4si-1r4S
+	id 1umCtR-0000000E4ss-2bnj
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 13 Aug 2025 14:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ABvd6CTSJ7p/g3ZC71MYAclHGZvox/NvrF3NkQ5xxi8=; b=ooGMmG9k+WLJUHmV6UdszsYoWM
-	ADLUz6oNsGH2xpwSU8Z6f/Q7sQ4vL9QnYtghsCsM0K06dL8bYdRNRIlP1B2Rh7XvC6yzUCWpy2FoI
-	+imVzDG7KRhqLu+b9knhMWWSGzU3vjVY2CZR4M7Cst5F0J3aZEL0Ts3XTunf8Bn6MT0XaJ9f/COK9
-	T2qI2Asn2sNcVxjbrA4h8YuEXKMVaey3DJ2RH8z8zCjo+mRNbF01fYjdN/4B3YtVQwZE2915scbCO
-	xzZo4jC8OX8tQXTpJ5TcbgfrLROpmT3qdlVRRMu4W6tpthnJyiBVG8OW0j4WeRV/t06eYcSodqR81
-	R9y19jRQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=e96lqBbt+a5mVKiKm8ju8Tz8O5PGPr04HwmLOn7N++I=; b=gLLQ6ZP+B7MXK/ZvhimQOKdEG4
+	B8lvBO9669cwZhTbG+NFcCqNHaOD9znQs09pockJqTSuqKnZ7N0RjkIiKYIsXBDMy17iczyjzptXP
+	n1BPj4FcQ4eLAzlA3aU9UpEyuztLXVR4WwazRyVkZpJqfnTaLn9JzPddhgQHkYVoFylH/SrjcUnS6
+	etr38V98npMPRMn/9H3YbCaon7azVM8PDMq3jWhZGr1Sor+YL36m1DAQBJatOS7OXaTsDgb2YRI2F
+	zW6DURghGz7Y5Mb6uqsYpNabpiw2uhJX51BMfGUNk89PkbM+TXzW4AeG6vSxbkGHFDMumZjyEpOEM
+	AmYfsRrw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCtM-0000000G73O-3ccV
+	id 1umCtN-0000000G73P-2DYf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:55:55 +0000
+	Wed, 13 Aug 2025 14:55:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 527FD5C6942;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E4A545CAF;
 	Wed, 13 Aug 2025 14:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E748AC4CEF8;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1FF8C4CEF7;
 	Wed, 13 Aug 2025 14:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755096950;
-	bh=efhUDQe2jwo6mMDNsNwWZlvEPFGFYGTDZhRv4W8Y2gI=;
+	bh=5v1d2ZPdszghDIrJGhbTRJ0+vB3QSvZx9Rmgr+KUWTs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dZ9gTHp8VjxKV0gtmhGBRwHECZQqSCBqWMAw6/AUvhnNoZjT2Dg6zwNsjY80VZ4j3
-	 Ys99ZxZJJXj3mRgxEXZuU7A1ChzYtOV96zIqt4enqaN4iS3Wv8dFziiqu1jafO59OG
-	 skRZNZTXsZnmPm01UO3NYJ4MhJqxlyN3DOlWxG3cQn22EfHXAUTXxvFbdGo5PMSuXa
-	 8uO8Ct2Ap8oGfVw7EbuPn4KK/3A7gLBouRYeFXEIwVYRFqh5DxMvLivhmx1dyV8n8U
-	 OVlCQf8Xl+NM3hYe7jLpx9Z/kSZ6iUtKIjg4LqF9wTJot801a4aKcQVqNnFWKwLkHf
-	 2HXvv9XHT7a3w==
+	b=i/tw9UyRi9WYAJpGYKFhq/mzhwsoJ9WvfHDmvHoORmD9os65C3G8v7G8n24guF39l
+	 +Ul0dpo0nlD7HyHP3LtVb+SZWbE535S8lmnQ8CLUkVnlKvK9KpInLx0xFvEXmsj2L8
+	 zQM85epB76RtyEyelkpmpDJ4rgfCAknVgEb5G2P/F2N6bylYEvM7fKunH1d57hMNTA
+	 nkkM/PInbP33R62/RmZcV+eQSuajZ/mNwvdA/7pCMAj1kZVEBFTtbw/El6Me9CiYh+
+	 pej+180DDPjBxq0ukp/6CpuidncOY0o7R/fXd7Hu/v61+5cUqhWT9bTU5cDuOY/JJQ
+	 UqZD7RENdW0hQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 551005FF75; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
+	id 610145FF91; Wed, 13 Aug 2025 22:55:45 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -77,17 +77,17 @@ Cc: netdev@vger.kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH net-next v2 09/10] arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
-Date: Wed, 13 Aug 2025 22:55:39 +0800
-Message-Id: <20250813145540.2577789-10-wens@kernel.org>
+Subject: [PATCH net-next v2 10/10] arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
+Date: Wed, 13 Aug 2025 22:55:40 +0800
+Message-Id: <20250813145540.2577789-11-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250813145540.2577789-1-wens@kernel.org>
 References: <20250813145540.2577789-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_155553_227834_AAFBA3D4 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20250813_155553_860058_DCD0A00C 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,13 +104,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chen-Yu Tsai <wens@csie.org>
 
-On the Avaota A1 board, the second Ethernet controller, aka the GMAC200,
-is connected to a second external RTL8211F-CG PHY. The PHY uses an
-external 25MHz crystal, and has the SoC's PJ16 pin connected to its
-reset pin.
+On the Orangepi 4A board, the second Ethernet controller, aka the GMAC200,
+is connected to an external Motorcomm YT8531 PHY. The PHY uses an external
+25MHz crystal, has the SoC's PI15 pin connected to its reset pin, and
+the PI16 pin for its interrupt pin.
 
-Enable the second Ethernet port. Also fix up the label for the existing
-external PHY connected to the first Ethernet port.
+Enable it.
 
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
@@ -118,41 +117,32 @@ Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 Changes since v1:
 - Switch to generic (tx|rx)-internal-delay-ps properties
 ---
- .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 26 +++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-index e7713678208d..f540965ffaa4 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-@@ -13,6 +13,7 @@ / {
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+index d07bb9193b43..b604d961c4fd 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
+@@ -15,6 +15,7 @@ / {
+ 	compatible = "xunlong,orangepi-4a", "allwinner,sun55i-t527";
  
  	aliases {
- 		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
++		ethernet0 = &gmac1;
  		serial0 = &uart0;
  	};
  
-@@ -67,7 +68,7 @@ &ehci1 {
- 
- &gmac0 {
- 	phy-mode = "rgmii-id";
--	phy-handle = <&ext_rgmii_phy>;
-+	phy-handle = <&ext_rgmii0_phy>;
- 	phy-supply = <&reg_dcdc4>;
- 
- 	allwinner,tx-delay-ps = <100>;
-@@ -76,13 +77,24 @@ &gmac0 {
+@@ -95,11 +96,33 @@ &ehci1 {
  	status = "okay";
  };
  
 +&gmac1 {
 +	phy-mode = "rgmii-id";
-+	phy-handle = <&ext_rgmii1_phy>;
-+	phy-supply = <&reg_dcdc4>;
++	phy-handle = <&ext_rgmii_phy>;
++	phy-supply = <&reg_cldo4>;
 +
-+	tx-internal-delay-ps = <100>;
-+	rx-internal-delay-ps = <100>;
++	tx-internal-delay-ps = <0>;
++	rx-internal-delay-ps = <300>;
 +
 +	status = "okay";
 +};
@@ -162,21 +152,12 @@ index e7713678208d..f540965ffaa4 100644
  	status = "okay";
  };
  
- &mdio0 {
--	ext_rgmii_phy: ethernet-phy@1 {
-+	ext_rgmii0_phy: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
- 		reset-gpios = <&pio 7 8 GPIO_ACTIVE_LOW>; /* PH8 */
-@@ -91,6 +103,16 @@ ext_rgmii_phy: ethernet-phy@1 {
- 	};
- };
- 
 +&mdio1 {
-+	ext_rgmii1_phy: ethernet-phy@1 {
++	ext_rgmii_phy: ethernet-phy@1 {
 +		compatible = "ethernet-phy-ieee802.3-c22";
 +		reg = <1>;
-+		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>; /* PJ16 */
++		interrupts-extended = <&pio 8 16 IRQ_TYPE_LEVEL_LOW>; /* PI16 */
++		reset-gpios = <&pio 8 15 GPIO_ACTIVE_LOW>; /* PI15 */
 +		reset-assert-us = <10000>;
 +		reset-deassert-us = <150000>;
 +	};
