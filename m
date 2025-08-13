@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD7C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8534FCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 13:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UG4pARlDAw18OrFTiRSr5DlsNU8/MwRx1OXaTCPN6v8=; b=Wp7cbRmoDKPJexxduIQoD1dhmS
-	wzcEcu5TnjbxNtydBqL1tLTOzibJyyRCUjoqElxv3Erlym9obrlffCx1UHj/EoiCeY9qcwEVZwPzF
-	wXGZh2JbiDlzlbhyor5Dgq3Sfu3HWUZY6q7Gp26TxyemeImhmE3/YFHbz0bTo7RFNRf853lugpr3Q
-	Y3lFslscPw4OQYoi4ePSCte4wQeoMWGpol6h2LrX3zzwlXSMUxYyNo2gtETwhEsdyhl3Hmh1v0LX/
-	i1/iB0z7IPDdnTsmfMbUvqYUPcJg9kpATrpCX5anfb5r75+aY5RSj3zotqrRR/yRKkRXa4YA0cUBG
-	pnKjfDGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBIHNrKa3q0TcAPhv7FZnqmIPWWJ4xBe477HBYWJmbI=; b=jHQl9OZCwHA2eJVN0+joRDJ0D+
+	79H8krVH0DJy7u9GkkIk2yTiSnJuSWgkMbghJQklpAAI7IB9OfT32kLjlTZPJFOgNTEt2kiYD1ZuN
+	Sb7nMllyBqQtFDMviUiIgfU/emyQDfALUkK+8eJMXl75aCvwHKuqcpfCAnU5MoM5HdmqpIEz8/gyA
+	ggaFbZuvW8Q7PkNhZR0pvnggrfaHykl3IvlmzBRolPKpbZq7Zx7FXP7OkRtm6goolqgA9N6BotE5+
+	acaoZ6JLXwlD1VmJCprCU4H4W0ve3KW08tO94Lgm8Cu039GushHDYsaAaBf9Wq+Oaybxm3q8ygMOv
+	tU3xN42w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBjp-0000000DnYD-1rdk;
-	Wed, 13 Aug 2025 13:41:57 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1umBmM-0000000Dnth-0xtf;
+	Wed, 13 Aug 2025 13:44:34 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umBFK-0000000Diwl-2niz
+	id 1umBFM-0000000DixI-09Re
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 13:10:27 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b4245235a77so5549214a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 06:10:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755090626; x=1755695426; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UG4pARlDAw18OrFTiRSr5DlsNU8/MwRx1OXaTCPN6v8=;
-        b=H1CM/GQ28Q7yqPi0Qbh7SNhlotwsfWj7U8u8pLdwF2FZHdXPT0kWpLGobOpFWAuYsd
-         9bCtOc6UoBZKaTxY7+NdiNrMN/TZ9RUvCStTuT36qP19xBc2cr4pGSZqDYgPSS8rIUke
-         jYdkj7s+XCI/CX8Q5BYRY2UhGz2Jf1KEu5be/SAL45huVQXuxQzMQMAWpdCpsNJ0z2r6
-         pRKp6ex9auQvxeGKgNEJ4/7VoOfSbgB5LLkf7o/L/nnPBgJPXN7Fk9mEdqXUdpo0ablZ
-         NSH2qytUx4kaTYacxvwCay85qYF7SH6uMHlbqXkJL2gDr+7E6bEwh0allQLCR1XbsJYw
-         OfSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755090626; x=1755695426;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UG4pARlDAw18OrFTiRSr5DlsNU8/MwRx1OXaTCPN6v8=;
-        b=K2CoYH4bguTfU5cLCg9q+xeHp284iL5N/79gSaTSr0wS52Bo5e7YgfMM4dNGhdVprg
-         dbhZGabW6jfoIULn506K+w+8hg+IyaNl9ssiilyMAqyQSLh3qYtK6I5s1k4bhKkzi18X
-         SCHuv0REK4Qb4F1gkMSWpIwysTb0Mt/dUdFx49+e6o/813BJuOGQFS5a1vGnilmlQPmZ
-         zrmdEq6hhjbVPuABHkWF1qCNoiWsrUKhrBmi9B8XCjrD5ztsRhibB8UBDIIrK+fyGJdj
-         eHrfL+BITxVQtIvsB2G3I1uBwrGExSUymw2WiyX3+Gc1rsQW7iDyJDpM9QzVSykAUo1W
-         0Qfg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhhYL9Ai281lF/0dbf/8RUZCu5v0Mh+XMX0DjCeCwSoZEzyZZQ3JUXMbLNMm0dbpkNpWaWP6oDWBTzbcQKSTTA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd+N6Cc+5WYuyamfZjY4xCOk13jyl7CLccCKYgZyZwBbpQts2s
-	/VTp0DEofVL0VziOhBfGMoYCAnFDinehm+1jwC+5ghdnqiwjdHzx5aAS
-X-Gm-Gg: ASbGncuyjP+j29ETorH7t8KhL0S3UwSHXSOheZ4POYagOVIKjeWbSQSYjKzlYk1Mwuw
-	djjSFqCZuqmqHzAYlPcSLfpex5gWbyUJacZ8IP/IvO0GRx9jlTEkuq261N8fIfBgRCGRQ0TxLLa
-	+N+aXbq5BTk8hwWYxvbTwAh4hgRf3s/ZT1o19Caf3ATfg4FoUd4NFt+0EXj+80rbi+hayyCOrSP
-	AQDOUqQwc0aHWJBBMduCH/fMzLFckE9W7uNQ8zVFCZf9dHcGE/9GsP43Laqzg1kX8f2wR3Lu4Mj
-	q8tJvz8oqGLRPmRKk0a5zifplRXoToKbXk5HE/iv4E9ps+3INwar5FO2e9R+cR+OyvXRglEFBcw
-	TWDNBCZQDtHhdgVBdYN23nckHXIuO4tc=
-X-Google-Smtp-Source: AGHT+IFd57vkbF7WYJea3UbzrtHWKTatJ8rhcobI1fZJUuNQHNPJZ1FbYMb+zauhjR0/EwOIHErpFA==
-X-Received: by 2002:a17:903:2290:b0:243:3c4:ccaa with SMTP id d9443c01a7336-2430d0d4d45mr48870055ad.19.1755090625823;
-        Wed, 13 Aug 2025 06:10:25 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-32325765df6sm161504a91.12.2025.08.13.06.10.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 06:10:25 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list),
-	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
-Cc: Anand Moon <linux.amoon@gmail.com>,
-	Mateusz Majewski <m.majewski2@samsung.com>
-Subject: [PATCH v7 1/7] thermal/drivers/exynos: Refactor clk_sec initialization inside SOC-specific case
-Date: Wed, 13 Aug 2025 18:39:45 +0530
-Message-ID: <20250813131007.343402-2-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250813131007.343402-1-linux.amoon@gmail.com>
-References: <20250813131007.343402-1-linux.amoon@gmail.com>
+	Wed, 13 Aug 2025 13:10:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755090628; x=1786626628;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=nktccLI6Vyh+dNjuTt+DN10VQm+RUmARhoT+8pH3d+I=;
+  b=ekmeMIj7tNCxymP1neABoV2/jAyUXlcQ/sZtTuO60G3k8FQjcZctNKiN
+   20wy7AVO4h6/2lwVvZk1+W14i8Nbfc7Q4ZbBPXMTf4CKOfLIpY5Ne0qh3
+   /3SK9y0mH+ySLoHuSpI9PGqr6PX735sTKQs4Fiqv/lWHGyXmBdRFmIDOa
+   qnO3ic2WNA+45LnrmSbjxM1Gbtc3tBVeBHBd9JHe0qa6s/FZKbfe9vqSM
+   M+ubQHTVTJRDd8ow6B5P0uepP3tQwjxWC/JzsCzSH3IFBpQy4iyX7WGx5
+   zym2hyyrTy3TMXR1bSEYfO6pasENAogP2aZNpecBJp1qr8npPTPKQv1Au
+   g==;
+X-CSE-ConnectionGUID: qkG+wzbmRSSlBxlQuD0g5g==
+X-CSE-MsgGUID: NqD5KeK4TP+3nK175iW6Mg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="61184715"
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="61184715"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:10:27 -0700
+X-CSE-ConnectionGUID: PzikrBUYRHyezXnZN6ASeg==
+X-CSE-MsgGUID: bobAyAJ5TbG0sdG9yjNitQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,285,1747724400"; 
+   d="scan'208";a="166732304"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2025 06:10:24 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1umBFD-00000005RP9-3obq;
+	Wed, 13 Aug 2025 16:10:19 +0300
+Date: Wed, 13 Aug 2025 16:10:19 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
+	Robert Marko <robert.marko@sartura.hr>,
+	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] i2c: pxa: prevent calling of the generic recovery
+ init code
+Message-ID: <aJyOu_GUlDPuJXO5@smile.fi.intel.com>
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-2-ca42ea818dc9@gmail.com>
+ <aJpR96Kkj12BwW-M@smile.fi.intel.com>
+ <8cb62eb9-9137-44b4-86f6-82f69813e83f@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <8cb62eb9-9137-44b4-86f6-82f69813e83f@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_061026_709496_7B1F3B0F 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250813_061028_086129_66E00143 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the initialization of the clk_sec clock to be inside the
-SOC_ARCH_EXYNOS5420_TRIMINFO case. It ensures that the clk_sec clock
-is only initialized for the specified SOC and not for other SOCs,
-thereby simplifying the code. The clk_sec clock is used by the TMU
-for GPU on the Exynos 542x platform.
+On Wed, Aug 13, 2025 at 12:36:45PM +0200, Gabor Juhos wrote:
+> 2025. 08. 11. 22:26 keltezéssel, Andy Shevchenko írta:
+> > On Mon, Aug 11, 2025 at 09:49:56PM +0200, Gabor Juhos wrote:
 
-Removed redundant IS_ERR() checks for the clk_sec clock since error
-handling is already managed internally by clk_unprepare() functions.
+...
 
-Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v7: None
-v6: Add Rb Lukasz and try to address Daniel review coments.
-v5: None
-v4: Fix the aligment of code clk for clk_prepare in proper if/else block.
-    update the commit for clk_sec used.
-    checked to goto clean up all the clks are proper.
-    drop IS_ERR() check for clk_sec.
-v3: improve the commit message.
----
- drivers/thermal/samsung/exynos_tmu.c | 36 +++++++++++++---------------
- 1 file changed, 17 insertions(+), 19 deletions(-)
+> > TBH this sounds to me like trying to hack the solution and as you pointed out
+> > the problem is in pinctrl state changes. I think it may affect not only I2C case.
+> 
+> It is not an error in the pinctrl code. I have checked and even fixed a few bugs
+> in that.
+> 
+> > And I didn't get how recovery code affects the initialisation (enumeration).
+> 
+> Without the fix, it is not possible to initiate a transaction on the bus, which
+> in turn prevents enumeration.
 
-diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index 47a99b3c5395..04517d52afbd 100644
---- a/drivers/thermal/samsung/exynos_tmu.c
-+++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -1040,26 +1040,26 @@ static int exynos_tmu_probe(struct platform_device *pdev)
- 	if (IS_ERR(data->clk))
- 		return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to get clock\n");
- 
--	data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
--	if (IS_ERR(data->clk_sec)) {
--		if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
--			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
--					     "Failed to get triminfo clock\n");
--	} else {
--		ret = clk_prepare(data->clk_sec);
--		if (ret) {
--			dev_err(dev, "Failed to get clock\n");
--			return ret;
--		}
--	}
--
- 	ret = clk_prepare(data->clk);
- 	if (ret) {
- 		dev_err(dev, "Failed to get clock\n");
--		goto err_clk_sec;
-+		return ret;
- 	}
- 
- 	switch (data->soc) {
-+	case SOC_ARCH_EXYNOS5420_TRIMINFO:
-+		data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
-+		if (IS_ERR(data->clk_sec)) {
-+			ret = dev_err_probe(dev, PTR_ERR(data->clk_sec),
-+					    "Failed to get clk_sec clock\n");
-+			goto err_clk;
-+		}
-+		ret = clk_prepare(data->clk_sec);
-+		if (ret) {
-+			dev_err(dev, "Failed to prepare clk_sec clock\n");
-+			goto err_clk_sec;
-+		}
-+		break;
- 	case SOC_ARCH_EXYNOS5433:
- 	case SOC_ARCH_EXYNOS7:
- 		data->sclk = devm_clk_get(dev, "tmu_sclk");
-@@ -1112,11 +1112,10 @@ static int exynos_tmu_probe(struct platform_device *pdev)
- 
- err_sclk:
- 	clk_disable_unprepare(data->sclk);
-+err_clk_sec:
-+	clk_unprepare(data->clk_sec);
- err_clk:
- 	clk_unprepare(data->clk);
--err_clk_sec:
--	if (!IS_ERR(data->clk_sec))
--		clk_unprepare(data->clk_sec);
- 	return ret;
- }
- 
-@@ -1128,8 +1127,7 @@ static void exynos_tmu_remove(struct platform_device *pdev)
- 
- 	clk_disable_unprepare(data->sclk);
- 	clk_unprepare(data->clk);
--	if (!IS_ERR(data->clk_sec))
--		clk_unprepare(data->clk_sec);
-+	clk_unprepare(data->clk_sec);
- }
- 
- #ifdef CONFIG_PM_SLEEP
+But why? As you said below the first pin control state is changed during the
+probe, which is fine, and the culprit one happens on the recovery. Why is
+recovery involved in probe? This is quite confusing...
+
+> > Do we set pin control state back and forth during probe? May be this is a root cause?
+> 
+> Yes, basically. The state gets changed back and forth twice. Once in driver
+> probe before the controller gets initialized, then once again in
+> i2c_gpio_init_generic_recovery(). The problem is caused by the second state
+> change as it runs after the controller gets enabled which confuses the hardware.
+
+...
+
+> >>  static int i2c_pxa_init_recovery(struct pxa_i2c *i2c)
+> >>  {
+> >>  	struct i2c_bus_recovery_info *bri = &i2c->recovery;
+> > 
+> >>  		return 0;
+> >>  	}
+> >>  
+> >> +	bri->init_recovery = i2c_pxa_init_recovery_cb;
+> > 
+> > This is unfortunate. I would keep the naming schema consistent, i.e. rename
+> > existing function and use its original name for the new callback.
+> 
+> I agree, but since the change is targeted also to stable kernels, I wanted to
+> keep the change as minimal as possible.
+
+Renaming is not a big deal AFAICS, but leaving this _cb will be confusing in a
+long term. I prefer name to be changed.
+
+> >>  	bri->prepare_recovery = i2c_pxa_prepare_recovery;
+> >>  	bri->unprepare_recovery = i2c_pxa_unprepare_recovery;
+> >>  	bri->recover_bus = i2c_generic_scl_recovery;
+
 -- 
-2.50.1
+With Best Regards,
+Andy Shevchenko
+
 
 
