@@ -4,63 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56012CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 01:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C183CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 01:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJUYcTOJUJSu2mPwLc7qg64eNYE1cCnM1aoJb8LiDXM=; b=Hd5bXvFkgujdLZ/4iZH1a7h7R8
-	dCRRPw9NOKye9YaQRUZo+1V3PDytD/LOmCbsTaUeQEymXNvi+a8UatXiQy6zytVXgW8H4muKzaS+/
-	0J7NEqwKeuLhDBBGjtNwzh5JTfCFoJuwYpnF20WQ7PHNQG+d29N6R0J5e6CwiM0T2EjL1ABiZpyyT
-	L0WsrPtmSZ6qPjPlidD7i/0R3b4tNCE5MjuF7ntH6lBAhUYffrRgyG50EghJ1k0yovOpjtWroFCGN
-	v2zbDpTLQtqIhxQhD8I8ORv5479Ia2HXUCoXmaXtEIQuUVGay7NKWhUBBJvTk11LSDsYmK+uoKQED
-	fo49BJNw==;
+	bh=ZNEPtiVWNyz0k5hfirppPx2xAhRHwAbBlwAlyZNXQBs=; b=CXsNDvxxyGoHNe1HbeuJQzF1fu
+	xiYuNYjIY2CiiAHpZH8l94YboiiOxSqBhnkNjMdYsMynpgJpSGC6jKgMd67MG6Y7+TcJl68ODw8ll
+	5ONDIUGkzs0jRBDR3k+THoSOGeva9Xc9v7YPwkbQrt6CzmEXvHKf5+G/+3D2eNMcOlPgd7NdUm8v0
+	L298TNigEDtkVtZlb9lK4P63p1l7twUwOcOXZZJfSQ64Mr4PP228EQLVwRFnzhKcL9RWqsrF40C6M
+	U6RC8n536wsv7szn6LyQVE8EUr4K3i51Pumqcc4T0Cat/IaA+5FWyDtOaBAMYlFbHZGDv249Kw95H
+	5UYvRWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um0CW-0000000CKeG-15CU;
-	Wed, 13 Aug 2025 01:22:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1um0eD-0000000CMqG-38AL;
+	Wed, 13 Aug 2025 01:51:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1um09y-0000000CKUp-2KLe;
-	Wed, 13 Aug 2025 01:20:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7EBD3600B0;
-	Wed, 13 Aug 2025 01:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12942C4CEF0;
-	Wed, 13 Aug 2025 01:20:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755048009;
-	bh=0OvQcSBq7+nWfUTs0J8PYw0DBRmzFTWE1hI4XBot3Ek=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=rckoJnAbdr6SDwFTCpifJP3CXyIKCp2JAyVGAJCMzU2Yb50Z8L2QyT+g+C36PYcIQ
-	 XbAU7olp91xZdfzeOjZYFmIRQKuN4Mn4RpwaXGLq00JHa98ZITidgRvOudkM9pkArv
-	 xCkatqb2CpqtPbhIVJNeIwtxDVdctGOgDKWNqRZ4+A7e4aSczfe/3S44AEgbnIDbtH
-	 FrVu1y0ffWLJ6WZFmy//1Pq4cEoFEAaPEv42JmzTNQuZ4UgxeakTaq6z618Row18qu
-	 rFte8M4R022SDwy1JvuKYyP2XqQb6Z4cM+JqUGnWDQyRfzMVJ17+lcAKFlHqtS/j9E
-	 QlYDpSdwp2Jyw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34A9C39D0C2E;
-	Wed, 13 Aug 2025 01:20:22 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1um0bg-0000000CMRd-2JnH;
+	Wed, 13 Aug 2025 01:48:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZNEPtiVWNyz0k5hfirppPx2xAhRHwAbBlwAlyZNXQBs=; b=gBbxYZN4joRlMGgpL50KzYqf+6
+	YuaYqx9/JbtQqf1+n8uJ+ue4af5SCVdSCASwn63E+zvd/I5JBo2hYwxNOcgKmiDxMpMy0W7lGRrbZ
+	k6XjD4t3wuo5Clqb84hBBKrhLfPFo8ijAL191ukrpMvYg471neDSuagmCojT4eDA+R+6t8IwxnMzQ
+	CecFdQMW9VnvKsczNti+cfZhLG1ATWWuHoNCcJQfKWIIF/idSGn2M9kTZqcfC0A+TXt5kaKq4WBhN
+	/cnyGs7dhdQwEFDfiEwTRoNbTn5LqqFm6xDHAG8KSh7hR/K7JDLPSi9yuwDjsOfLfhKw4q8IHGNDU
+	OeurGMMA==;
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1um0bb-0000000FwEc-2HwF;
+	Wed, 13 Aug 2025 01:48:47 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-31f255eb191so6278706a91.0;
+        Tue, 12 Aug 2025 18:48:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755049720; x=1755654520; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZNEPtiVWNyz0k5hfirppPx2xAhRHwAbBlwAlyZNXQBs=;
+        b=ThkXBktAyFXa9htUeqweMuysZEB9kYkwlx3zmfW85AqBRCwYp5KMxPx0xOfgT6YDSh
+         Q1NjasOtukR5iGUvUwJk0IUFiCkF8I/iz8UExGrgzafD5H6XpRpQqNSwZ1mimenroALv
+         6tp4vLoY11WnjHzgXRj0tPtYbItRd4pxKB+SWy/baEsG9WMXjH7Z4MJuxBM78vo5Gv6Y
+         mdseORuiP77xLdRuqyrDwuyV271efUP4FUXrRvz9HafIG7nBF1GHkii92Q8eJQDE0oS/
+         Z4CRBNDX+if0lCbg17IwA0lX3yvpB62bzE5pElA2rEczQgNq7JhxmHjg94SAdoyAmSTQ
+         CveA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755049720; x=1755654520;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZNEPtiVWNyz0k5hfirppPx2xAhRHwAbBlwAlyZNXQBs=;
+        b=QtjosvNHS9hFKP8/ub6Jzk0Xg0TM9/eLT5hoYF3REtjXTjBXualmXEkBZsLdRm/5Fv
+         FCAKNoR0dv8i4tNxOd2++oJlVwP9xbTDmOswpLhipavgksrMjUilnt0/YYcgeF0CZw09
+         3n28s80RAV/ZT2EYVMpTGrPxfSRmN3cQoeMF4t78zN5ViX1uYreNxOmYZe0iOdpAskd2
+         415smpyAgHWfKo7CRHyw4fUuSCy+2Ig16J+0XgZtKiGrO1PRJdGc9+r64Y4G89xSvbLK
+         2Xv8h9u1T3p23kbDMPVoSZ0awiQ1DN6T5QXKjamqJm/ON9kwWGPNAfS1PVLQgP8RH6LK
+         7DGA==
+X-Forwarded-Encrypted: i=1; AJvYcCUAOJ9HR3EmSeghJ8hHvQCJIb7BQwoUXNrkkPYT6RBLHIs9P2xsXugEUVH2j1CrJwl1hlcj4sP5bUFyBP899iA=@lists.infradead.org, AJvYcCWSTSbw59bHSTRrupuBU4NDODcOQDVpz6rcSWX0R5beBCZXwvBdSdM1QhwG16uMvUMgNIJhNxhUtoiDC6sbv+3O@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmfxzRsmQOO3G1AGsQuJZ6vwXv/6L+TxhyFi+SjqQAgrxg0C9S
+	k4PiqDepn8rFp73aqd4UpiHFrVzfrpxMBnnQaLFV6YwtDv8g5e+1ou8S
+X-Gm-Gg: ASbGnctc6uUKcn87YpHjcz7OUbd3dc8SrGWsT2Agn/CP3J3BBBE8Zs/ime5FFMAZd8t
+	dumBcjao7VbhIL98IUl6p//bTN/1p84No+WP6hDgn5C4ZBeO7Jau4u0h/mPjQcQGlADBmKqtHi+
+	SjyqN4Ik83KrM5qC0YYX6TYEeMPGKEhaN9v7xH70mPC6OYNQbdBGME3pw3YkbTNvABxpz/s43ri
+	1pPVJgF+jzmm3jkuXI2fnWUyW8COAylpAt+M2hzeE20t4Rs6nqJJ/baJiK/3wrTCzLIBMf7T6H4
+	xraRj1WR9FuYHy2pcqk0Fu5juTwHl3o9HdPr8YnRW9+NWr2v2fLq52basvk5m6m4zqKqt2IFE3L
+	03tWk0XgfqbT5Og==
+X-Google-Smtp-Source: AGHT+IHiC1yym5R0/cDYZlkWZUsUpaQJz4hN+5buzIoy6vEiOa0/vzx/BS8PkkCS6nRqniff6QWxOw==
+X-Received: by 2002:a17:90b:180d:b0:31e:cc6b:321f with SMTP id 98e67ed59e1d1-321d0e98677mr1783138a91.29.1755049719944;
+        Tue, 12 Aug 2025 18:48:39 -0700 (PDT)
+Received: from gmail.com ([223.166.85.91])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-321d1db52e0sm449652a91.17.2025.08.12.18.48.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 18:48:39 -0700 (PDT)
+From: Qingfang Deng <dqfext@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net v2 2/2] net: ethernet: mtk_ppe: add RCU lock around dev_fill_forward_path
+Date: Wed, 13 Aug 2025 09:48:18 +0800
+Message-ID: <20250813014819.262405-2-dqfext@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250813014819.262405-1-dqfext@gmail.com>
+References: <20250813014819.262405-1-dqfext@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/9] net: stmmac: improbe suspend/resume
- architecture
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175504802100.2913300.7913222842711784004.git-patchwork-notify@kernel.org>
-Date: Wed, 13 Aug 2025 01:20:21 +0000
-References: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
-In-Reply-To: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, matthias.bgg@gmail.com,
- mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250813_024843_739245_096F1F95 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Ensure ndo_fill_forward_path() is called with RCU lock held.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Fixes: 2830e314778d ("net: ethernet: mtk-ppe: fix traffic offload with bridged wlan")
+Signed-off-by: Qingfang Deng <dqfext@gmail.com>
+---
+v2: New patch
 
-On Mon, 11 Aug 2025 19:50:58 +0100 you wrote:
-> Hi,
-> 
-> This series improves the stmmac suspend/resume architecture by
-> providing a couple of method hooks in struct plat_stmmacenet_data which
-> are called by core code, and thus are available for any of the
-> platform glue drivers, whether using a platform or PCI device.
-> 
-> [...]
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Here is the summary with links:
-  - [net-next,1/9] net: stmmac: add suspend()/resume() platform ops
-    https://git.kernel.org/netdev/net-next/c/07bbbfe7addf
-  - [net-next,2/9] net: stmmac: provide a set of simple PM ops
-    https://git.kernel.org/netdev/net-next/c/7e84b3fae58c
-  - [net-next,3/9] net: stmmac: platform: legacy hooks for suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/b51f34bc85e3
-  - [net-next,4/9] net: stmmac: intel: convert to suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/062b42801733
-  - [net-next,5/9] net: stmmac: loongson: convert to suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/38772638d6d1
-  - [net-next,6/9] net: stmmac: pci: convert to suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/c91918a1e976
-  - [net-next,7/9] net: stmmac: rk: convert to suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/d7a276a5768f
-  - [net-next,8/9] net: stmmac: stm32: convert to suspend()/resume() methods
-    https://git.kernel.org/netdev/net-next/c/c7308b2f3d0d
-  - [net-next,9/9] net: stmmac: mediatek: convert to resume() method
-    https://git.kernel.org/netdev/net-next/c/d6e1f2272960
-
-You are awesome, thank you!
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+index c855fb799ce1..e9bd32741983 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -101,7 +101,9 @@ mtk_flow_get_wdma_info(struct net_device *dev, const u8 *addr, struct mtk_wdma_i
+ 	if (!IS_ENABLED(CONFIG_NET_MEDIATEK_SOC_WED))
+ 		return -1;
+ 
++	rcu_read_lock();
+ 	err = dev_fill_forward_path(dev, addr, &stack);
++	rcu_read_unlock();
+ 	if (err)
+ 		return err;
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
