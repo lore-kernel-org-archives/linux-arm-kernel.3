@@ -4,80 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3511CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DD2C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 Aug 2025 14:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itfQeuJgZ6yMyr17lXJ1F1UsA0C2s68L7ZMyeo8E+LE=; b=gNRtSXvNPr7+nX+giCZXZSPC4C
-	bkasJB5/nmsgomBdYwjPRzG2Lz5UCWOu991qDDli1VZVqlIXN8+5mUe19pAbdpkvL0KD8HEQXmD3R
-	RDhgN0F24a3mu9h/kvc7u0gLdAzy/1ZTOP4svyXQns1v/E2sHepk2Q0sIfs8tFaVPn/bV6U1VTyiV
-	55whlzttaM08zoh/vZzuDmYVKbPOw5bsSIZlaxUtuaLymwfswzl27ioXu3xQ3iCIpIHeDD0mXcX9Z
-	4C4dhqEmBdRvy3cyT0D3h9zKCPS1oV56e9fRLqY38UXZOFntiWsMDmX6Idm8JOdUBywdhzynYzI/6
-	KUqraALg==;
+	bh=6ezPPApvQ2xGo1Tf2IGGI/q/jNbwVwsEJODPGA7ESnU=; b=4dEh8SSNY2DO9YorgZGQSp1XvD
+	gNf36Nv6ZIGdzi8yHW8TaXYxmEBXCTxnVPplHKAI7zZ1QDgbejdLniWu+LUdb0fyz0OgRiDmaMtmq
+	Xu/F/x8t8vwxG0iT7vUr6OFiei8aY05iHZzSjruRipVsf/IKD7hJnhpzH1fCeweNXpbHM6VMJPDe/
+	io00rLTVgX7dG9pGgdBaaG5OvUzQMqfRInF/OSE9TjhuOMobji07iaahh6JEDLZ7F1GdC+HYXkcaK
+	VH0asEF25nHHj3UTR/HdI75t61F/cZLmLWmlKlgdaOz8KFTYIPkViEUZJ8Du/8Sn2Op7NhWbRBHTw
+	sdh9gOig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCo7-0000000Dy5e-3u6H;
-	Wed, 13 Aug 2025 14:50:27 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1umCtA-0000000E4YD-2mqI;
+	Wed, 13 Aug 2025 14:55:40 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umCZh-0000000DvfB-21aX
+	id 1umCoC-0000000DyCt-2w5e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 Aug 2025 14:35:35 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57DEZULa2093635;
-	Wed, 13 Aug 2025 09:35:30 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755095730;
-	bh=itfQeuJgZ6yMyr17lXJ1F1UsA0C2s68L7ZMyeo8E+LE=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=H56pN8DacZuRV0udq5J4QuMR/9tF4DDPtpsxxag/DFNfwpF6XldLasLNPdyNCHPDQ
-	 5zuVCjjeBE3vDT5UFsALLlnItp/SflOKshQEx2bTVFDqMT/ClOJvS+pHt8j7w1InAZ
-	 YTIc9Ufe6hJhby7RLG7tXnpbAh/Xq9CIklcMcZlw=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57DEZU5o125880
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 13 Aug 2025 09:35:30 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 13
- Aug 2025 09:35:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 13 Aug 2025 09:35:30 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57DEZUrA2137696;
-	Wed, 13 Aug 2025 09:35:30 -0500
-From: Nishanth Menon <nm@ti.com>
-To: <linux-kernel@vger.kernel.org>, Brandon Brnich <b-brnich@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Devarsh
- Thakkar <devarsht@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-        Darren Etheridge
-	<detheridge@ti.com>
-Subject: Re: [PATCH v3] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
-Date: Wed, 13 Aug 2025 09:35:28 -0500
-Message-ID: <175509562183.158870.18075844501777832548.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250808155555.2632451-1-b-brnich@ti.com>
-References: <20250808155555.2632451-1-b-brnich@ti.com>
+	Wed, 13 Aug 2025 14:50:33 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-459ddf9019cso22096875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 07:50:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755096631; x=1755701431; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6ezPPApvQ2xGo1Tf2IGGI/q/jNbwVwsEJODPGA7ESnU=;
+        b=ViVd+SaZLPgXLa8pOHZnTaFbFVBIkmpjRo6e1s1apLHrwzHXJ3xMFA5YtZrEgNd1sU
+         xK77W5lV8W87rZwtM6mNQ8Scz63tw7M4czVrf0EpMcXU+3eEGyDZm/GFhj/tazy3zomV
+         1UtheqlzfRchA79SroPmYQTvFyZjqObdjNZ10fbF4BVMdFC41/3QSEW57G9w7RnzSU0m
+         GUiMEdldN+sf8N+dKPoB4sMQHzW5tHbW36M+ilzTFP1euFHbaWHp+alyxhG79WnGVULv
+         qXNDCfg7Msw0gWmLa2GqAnglRt62Q1zKejvxXWv0B5bKco7hxJFYV+b+Vf58cK9UmneK
+         1lPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755096631; x=1755701431;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6ezPPApvQ2xGo1Tf2IGGI/q/jNbwVwsEJODPGA7ESnU=;
+        b=pR3yfbnCKZ8S65PR1I4lRW2Zolb8orfTwvFGHAEmKON3HydX9PpvoMxflCosnDKxWC
+         jPdjnBa4RZ55LAecWDMhVrDnvCkdLbxgz/FYkyEJGLJ6KGiL6S613BlSFUR7lJQiaR2k
+         2G9gql4VifU+yVPY7jvte/RxkBBfmSFsfN+0ynhNPiYkAMabrFwvT0QKKFTl45txLQUj
+         R7J1soQ9w1+SD4B3767QTNluYlhMtAL0BTe+kORut4Ixpl3Wrc0Oby06px/iuExra8/9
+         2UzZphmG65gKJ7e9aV9y699t9euRaKa04vAfZowrUhMrLqEyxj4Kd9DUoISL7LmCFQAm
+         wEUg==
+X-Forwarded-Encrypted: i=1; AJvYcCW53dHkGEIaPyIwHfKjNSlmup+INafyN+Riheic+IWpTMCdH1CEaGNgsadnzBmKDLLPo7aDPnEcBy8EQQhWCxFi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh3gBbDbokvzkoAeXIJcMMzPaZ3q1Io5/tl3HpI5MCAjph0DRw
+	rnscgw4+ym9zyS13VkUFFRa1fkN45zoDatI79xP9ChL88xtQ39dPxwt5
+X-Gm-Gg: ASbGncuqB6WnPJnrF9hp4iJY8nKPVdgZ+kZ9NHgUb25/VbCz00roC5pe2qjJ9mlCxUW
+	TmyIMq5O/sPG6F5UNCCvyMtUBeluB8FDoh/7KgbhZFNwgftAe2hu4xMMGGGKxzIKjks34vj07l1
+	HyCT70d8UDC17IfiokVcTp0uiR0YAiueSTZ34o2DCxizpFjBE5U9Lfu5Qdb2As6/ZtvOhdPgwKa
+	UiPt51qzYK6uf+5A0QZHlrDezlIh3Q9pxeAMX9DML4vt549JUoaezQvJt08oRzQW1dONfMs3Z3j
+	Pq2qu0AYpXmenWTyA+Sj9ej8+pXX2GvXm3MMbMChTHSJcMrw5GGmLgr8av6yA/hWggVAWHUoJLe
+	GiQQ3yRiUharCqWldSVsd+MIL83h7nItPZGOu0QEHnpOrKSd0na/CaUo8aLUS9EabRUsNW/GnYw
+	==
+X-Google-Smtp-Source: AGHT+IFJSSZ94OtT4ZHv+bwsJzRMHFPjwQlds7MccjDC0e78z0RxSH+Y9lq/9TY/OBkJJzrfnQpY0g==
+X-Received: by 2002:a05:600c:a41:b0:456:191b:9e8d with SMTP id 5b1f17b1804b1-45a1aa66e72mr980515e9.11.1755096630808;
+        Wed, 13 Aug 2025 07:50:30 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1a50b9e6sm6265605e9.6.2025.08.13.07.50.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Aug 2025 07:50:30 -0700 (PDT)
+Message-ID: <2b106715-de6f-4455-a558-42eb3a95982b@gmail.com>
+Date: Wed, 13 Aug 2025 16:50:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Gabor Juhos <j4g8y7@gmail.com>
+Subject: Re: [PATCH v2 0/3] i2c: pxa: fix I2C communication on Armada 3700
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
+ Hanna Hawa <hhhawa@amazon.com>, Robert Marko <robert.marko@sartura.hr>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <aJpOyWKzBt-tDWUF@smile.fi.intel.com>
+ <4cd3efbd-4798-4f25-9440-879ee289d8ed@gmail.com>
+ <aJyM3N9T4xI4Xo1G@smile.fi.intel.com>
+Content-Language: hu
+In-Reply-To: <aJyM3N9T4xI4Xo1G@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_073533_609261_AB6BF7BB 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250813_075032_769632_4C7AEA4C 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brandon Brnich,
-
-On Fri, 08 Aug 2025 10:55:55 -0500, Brandon Brnich wrote:
-> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
-> present in J722s SoC, supporting baseline encoding of semiplanar based
-> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
-> supported from 64x64 to 8kx8k.
+2025. 08. 13. 15:02 keltezéssel, Andy Shevchenko írta:
+> On Wed, Aug 13, 2025 at 12:13:26PM +0200, Gabor Juhos wrote:
+>> 2025. 08. 11. 22:12 keltezéssel, Andy Shevchenko írta:
+>>> On Mon, Aug 11, 2025 at 09:49:54PM +0200, Gabor Juhos wrote:
 > 
+> ...
 > 
+>>>> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+>>>> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+>>>
+>>> I didn't get this SoB chain. Who is Imre here and what is his role in all this?
+>>
+>> Imre reviewed the patches before publishing those, but we were unsure about that
+>> the Reviewed-by tag can be used when it is offered privately before the
+>> publicaton, so we decided to use the SoB tag instead.
+> 
+> It's exactly what should have been done. As a such the SoB chain is confusing
+> (taking into account the authorship of the patches).
 
-I have applied the following to branch ti-k3-dts-next on [1].
+Thanks for confirming!
 
-NOTE: I looked at the comment from Krzysztof[2] about the generic node name, and
-I am assuming that jpeg-encoder is generic enough here.
+> 
+>> It can be changed to the Rewieved-by tag if that is applicable in this case.
+> 
+> Please do so.
 
-Thank you!
+Ok.
 
-[1/1] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
-      commit: 47a32605c6e7f283f373b56e9caf97c56b7e5634
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
-[2] https://lore.kernel.org/all/b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org/
--- 
 Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
-
+Gabor
 
