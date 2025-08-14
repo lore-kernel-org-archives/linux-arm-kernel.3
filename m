@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BA3CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE68CA0EE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2i0Cdjqr+B1x1Ccl3ICcu1SWBJISGBc/2dDLOPYWZfc=; b=gZ992nGagH5JJZ8zPUTpTM39GE
-	TYCOd+HW1Z1rzjO7nzIo+Jz+QEQUG4fAKr4Xlj0a/zwVKFueEpkXHP8Wkpx9MxZ574EQ1aHYJxlNG
-	TOABEP82wDIArd99RBprRB8k7tWUSCgQzkG6NZQZl3q1rhU7mIS/3ToS73mkI8U1WrThGJPY27iJU
-	ZIrkNXG4umzzP1Z4490PzZrzXew5+x8UGIIRZ/dPDxHmby6rz13xXFpD4NVRy8zYPnsjGq0uDbdVe
-	naYwI9uTaN8mM5zD1w8Q/bO/blt9fRLtmj2hng4r4f4w3K2+yrs0e+nXCoPsEMUvxjNDxHgxEiGCQ
-	Amdbh3KQ==;
+	bh=Jd+mW0dqDBBNJFPpLDeqYPCWuu1dhZ7cjyPln0mpEfo=; b=VwkegONO0YXSq4d1QYyGR6BoOg
+	SlXu0MzDhwKWvB8hNDFf7VrIdDg3PFHkt4hgH4+OEV0wz+/ubk68PIc8GXcVxDHIUsxBrsAangS0l
+	fCBpt693rsHYuoutUdo74+Dy38q9TzhnPto7dRp0FWedsohMsKdlSFTAXIbdt9Orx4SDhv5U/lepo
+	YZvTfGuBVnqmKxAgBcu6MS3yOcd/jBfD7a2/xtH6mvs+sYEgngfmKJ9ZebCOpvpFRQxAJIB9DznyJ
+	5oTpx/xx76Fmx1Jnsu3zXnn9HiTebqgOmlNavWJwxdMA1waoEEHxAoZzK4KC6DOnRChXQkmBYogoI
+	KqvcWtXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umT88-0000000GDPF-2NLZ;
-	Thu, 14 Aug 2025 08:16:12 +0000
+	id 1umTAg-0000000GDix-2ofv;
+	Thu, 14 Aug 2025 08:18:50 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSgt-0000000G8mW-3ma7
+	id 1umSgt-0000000G8md-45K4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 07:48:05 +0000
+	Thu, 14 Aug 2025 07:48:06 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 91116A01CE;
-	Thu, 14 Aug 2025 09:47:50 +0200 (CEST)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 004D1A0F98;
+	Thu, 14 Aug 2025 09:47:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=2i0Cdjqr+B1x1Ccl3ICc
-	u1SWBJISGBc/2dDLOPYWZfc=; b=QTQTliAPR5SNi9P8kbQ8HIXh2pXmNURNQD51
-	KGWWyQm1eCLGurubSm6TKEWmjqhogSyWKIqJeePhreiKI27g0cQD5GttCYTHRg7d
-	Ngj4euPSp8gHjieyYh8I+LWmDXc+3iTO+7uDYhokDRFpguJFusUdAiLMTv/PrSHA
-	tMIDt13JSayjjGnLGedCSuPeBKhLc0XmBM4JwCHPMq/EpwWDITYruI5H4nSPINVI
-	TT7z7QfcHVce4CdhpzOUSDnyJN2VtgNKf7UwB5OeD+M0bQg3r8g2UzJuSewXpAHW
-	Hpc4/bGONfehD3zLFPe0Fv6tf+EgHdti/Yc1i8KcUkqxSU1eQ3LaWngR4w9iEFub
-	A0PAYJ8rufqIYCz4TwwdlPNFZgt1Gu+3MU8LEv5Zn+mORb7fEeDjDrc6HYCyskEv
-	erzrIE3DtAmrbs5FrNxwuwcLunRMLrIhf47rwoP0S498AMhIgot6ZNMKz6AytnF4
-	Qt4XRdCYdBQkTE7Ovjok8r3m6keytIWQqZHNYeoYILBHSARoslL/AIVxqMQ7UeAR
-	Sw73Vs+HWgwEb0DaBhuVbNWHMX5xod4SKiyW8vAt2r0mpqXnonm6SFH1pS9+13gj
-	V5DtFlnu9e87cCzH/JpDZ+9Hu3/81gkACPdnObghYY2zX8qvwsvAMQm4jPdXVRA6
-	Fb2PFLQ=
+	:reply-to:subject:subject:to:to; s=mail; bh=Jd+mW0dqDBBNJFPpLDeq
+	YPCWuu1dhZ7cjyPln0mpEfo=; b=DMJ2TZxkHpKPFgOJTdF1CzOMsBy3itSpvwTF
+	blsfCORJF6FUU/gmybuRsg0wBY47dgdGX8WLLvRFeFU+6i7+hT6YduGJoR9oh7rP
+	nS3w7XMjtEQu1evodDNQ8ofq3fd9AIqz0KNq1NZ5qLtMlu9HC/GhBVkbc5expFld
+	Ie3wQrxab/BOgnQwcgDBXtA94+89afMNsdDxii03SVcODvo1QY4YauAdSMrw08n8
+	ZD7n0Uz/syC4hgiOSYFhPutL6kMc96smA8976YURK5uAIH2UXaaPhI+ubV739WtX
+	h2E0Ez3A7PD+8gj5FPiZNfXrpqunzmk72/YqDTne5C4eFNOUGNGKC87mZ8pL24LP
+	YC66begiOvIjOEaffJstP0DP7ACmti4JeWjf1Xf/waxOvFFi9VRbTF5cYz9qoX0m
+	vfLSOQDHfiKpB4AVUegyJpfuZ93sqKw0djpW6LZ/z7Z378m32cI4TXAE5IUTpQ6s
+	lWCv9LoI/SGzSLUQ7M9DdqGW8SN+uJlDyLuWAUXeJ0KQlfLneNoz29v4FoIp3LSm
+	c/27WXbZcROAZDGXEp21D9P0lV5ZbLJMmowu17VOZlY+ocXsrEQ31PpqioYUwZlc
+	rEQprMA/k/Ht9/SfzLN3k2UivX8BTQq0e8uhLfXbc+Dcj+f8hT0JwmeQrEaGGGeS
+	e6CYP2U=
 From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Thu, 14 Aug 2025 09:47:48 +0200
-Subject: [PATCH v2 6/8] ARM: dts: imx6-pistachio: Replace license text
- comment with SPDX identifier
+Date: Thu, 14 Aug 2025 09:47:50 +0200
+Subject: [PATCH v2 8/8] ARM: dts: imx6-warp: Replace license text comment
+ with SPDX identifier
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250814-imx-misc-dts-lic-v2-6-faff7db49a5f@prolan.hu>
+Message-ID: <20250814-imx-misc-dts-lic-v2-8-faff7db49a5f@prolan.hu>
 References: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
 In-Reply-To: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -62,16 +62,16 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
 CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Wig Cheng
-	<onlywig@gmail.com>
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Otavio Salvador
+	<otavio@ossystems.com.br>
 X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755157669;VERSION=7995;MC=3082572828;ID=1088346;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755157670;VERSION=7995;MC=2051148838;ID=1088348;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A2998FD515E617667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_004804_099393_104E15A2 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250814_004804_186097_4868EFC5 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +96,20 @@ without prior written authorization from the X Consortium.". Therefore,
 this license is actually equivalent to the SPDX "MIT" license (confirmed
 by text diffing).
 
-Cc: Wig Cheng <onlywig@gmail.com>
+Cc: Otavio Salvador <otavio@ossystems.com.br>
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm/boot/dts/nxp/imx/imx6q-pistachio.dts | 39 +--------------------------
- 1 file changed, 1 insertion(+), 38 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6sl-warp.dts | 44 +------------------------------
+ 1 file changed, 1 insertion(+), 43 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-pistachio.dts b/arch/arm/boot/dts/nxp/imx/imx6q-pistachio.dts
-index 56b77cc0af2be51d8eb6a9b0931d977e1f267670..4757093af3b7f2329f3fa119b2184a09a30f447e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-pistachio.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-pistachio.dts
-@@ -1,45 +1,8 @@
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-warp.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-warp.dts
+index a5d48c38231467cbb6ecbfaae47c17b68b7d46cb..da58477ae80d27a4d52adc772e83addd8186fec4 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6sl-warp.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6sl-warp.dts
+@@ -1,48 +1,6 @@
 +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
  /*
-  * Copyright (C) 2017 NutsBoard.Org
-  *
-  * Author: Wig Cheng <onlywig@gmail.com>
+  * Copyright 2014, 2015 O.S. Systems Software LTDA.
 - *
 - * This file is dual-licensed: you can use it either under the terms
 - * of the GPL or the X11 license, at your option. Note that this dual
@@ -120,13 +118,18 @@ index 56b77cc0af2be51d8eb6a9b0931d977e1f267670..4757093af3b7f2329f3fa119b2184a09
 - *
 - *  a) This file is free software; you can redistribute it and/or
 - *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
+- *     published by the Free Software Foundation; either version 2 of
+- *     the License, or (at your option) any later version.
 - *
 - *     This file is distributed in the hope that it will be useful,
 - *     but WITHOUT ANY WARRANTY; without even the implied warranty of
 - *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 - *     GNU General Public License for more details.
+- *
+- *     You should have received a copy of the GNU General Public
+- *     License along with this file; if not, write to the Free
+- *     Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+- *     MA 02110-1301 USA
 - *
 - * Or, alternatively,
 - *
