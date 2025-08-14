@@ -4,103 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9717CCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA7FCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8eKDxpRJVTIzyGI66oWlYnjcg0q+lXbGUZBFK9SZ3r8=; b=ciAAQmKu/VZ5lAXgxkI3MW325p
-	qrTWkWtrIKh8BgdlhmKR8jrsq2BFB5hFDfHOXYEWyee9yxdUPE3oTv0ZUqtWgTwea4hkiUq98P2Zu
-	EoYkRDZNYpmNwmXVggJoIt+eTsW+gVOlPieBVYZkaHcrKTKRfUz5vQTFoeiMaVytc/K2gAv5wNwbq
-	m6wUph/5tGwc+0P0HH7BeKOqOX6VbfsRMcXcRcoY+9WvKPGtRVk2FWvGNM9JHOboshc275zciAIdn
-	Dbd7Dw1JLpNNPKA4EFjTHugOwGJWXFdXO844ITL6dAsDVb0Az8vxLtAAEaroYwxF1t+rBsdcMa4Xs
-	Vj0obVKg==;
+	bh=p2VPK+LGzPHiwIqFk3Ohj/RoTK5gsaz46bIEazLhBRA=; b=X0uppW3a/2Lqyis0BGh17S3v11
+	m6Du743LzYO9rqL2Du6jLd3z5RFKPSXCN2syprUQzlumFQlk9W0Zl21r9Whrw3pEgoOe7K2wTOE0/
+	WzW9dakkduU5BZu2HLGLIX3WNAQ0C75NihHse9WyuoSI7CnnxvlLYqqHBMq8y3Ri0h8Fvsme2SJEZ
+	YT4N0huW7gBeLxkvdzM1q3U7wqsVpt5SHaOxKmZY+5dyU8v24eMGt0BAWWxBH8BCyixsGwDqButTa
+	tbaKdcvQ13wUAEip9JrpwGsvufH2D+p5iDPCsKzPDBx7Qdu+jrDqTsQeaUlPJNkuMdLfMh03NqJ68
+	cpZ84FgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma1Z-0000000HUP9-2ptD;
-	Thu, 14 Aug 2025 15:37:53 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uma1c-0000000HUS9-0epR;
+	Thu, 14 Aug 2025 15:37:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZ8H-0000000HIbx-09Vp
+	id 1umZAH-0000000HIyF-0bad
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 14:40:46 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3b9e415a68eso547841f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 07:40:44 -0700 (PDT)
+	Thu, 14 Aug 2025 14:42:50 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45a1b004a31so7024675e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 07:42:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755182441; x=1755787241; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755182567; x=1755787367; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=8eKDxpRJVTIzyGI66oWlYnjcg0q+lXbGUZBFK9SZ3r8=;
-        b=K4DX7TKWK5aRT06My5dd7QqN9yB0ZJU8NZXk5cH2dNvuMvLa7L3b1ZPK79xLEBGke0
-         MRLMllSnjIQaCT3FBRCuffb/gac9HrpBJNe1/JyY5ORE1Sdf6XNOdtg/0MVtal6QE+c4
-         8HvRGtAuWnhBc8NMoKzHbefk/jnFzSoQBHBkMHhSXx68lwBDJhDt2lG+TyqtfZCcW18/
-         /Gb8aHxfn07ZkFLtbBJ/qHm1jPOL6d0qhOsvH0E5H2VvSW1sAzQDa0oez1idiqgaaoho
-         8adWy9p1RQ650/lmo1egT7y2fOf85tD2XJV1w2WhG4klQOr8Df2Mn3E6Ts1YrcVN3Mj5
-         y13g==
+        bh=p2VPK+LGzPHiwIqFk3Ohj/RoTK5gsaz46bIEazLhBRA=;
+        b=JVrzyCT9klkQaEZ3NGIwq2dG1q6R1XS1hJ9GoxSlWYEle8DFdgntk+7I+tIxakeNtR
+         e+i1NxwC0+E3fHMGZyUVp57yK49g6qM3FNIyNZQ64J2pUYCB/poCEG2SKY5CiGyuymNT
+         ISbKAl3FFoYwGo/Q0NrayBkoaFUCFynlmbJ4IMHMxzEceJwNWlNynPEt0FFgg7B2suHO
+         vDvzlWY7eNPG5D6iZNZibcc1ieDMdMW0uhuBJf1Mb3ynBM7Gv/oFQ4LcyrlMCI0a7bOL
+         3BMC+btGgtJJpOx8mbQpvKfDdIxjVBIp5VBmmZEyKRQ7R3KXSsjAgDThLEm4JfjqUPXX
+         MUlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755182441; x=1755787241;
+        d=1e100.net; s=20230601; t=1755182567; x=1755787367;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8eKDxpRJVTIzyGI66oWlYnjcg0q+lXbGUZBFK9SZ3r8=;
-        b=cHkuqBk5oboo1ibj2j734N2wkQlf3W+m5VcWgf465/eDVSRS4ep/xZJ4X7p/9xhAlP
-         H8mKlA9AGMFxDlUr9lpnJNriPrpUzt3kyRHl/0Vkr443y9EZQPsZSncSuUiUxT/IYkty
-         /biw7GC4FqO1p7z8IRou0Cium99cs9DfhRPItdaMKR8SLOsgYTQ/4uQ+zz616sQl/9ZT
-         xFmgYzGDbNdAJHb/Jowp8/HV5viDpanpqTywYyXwG1sL2LK1UFCqtpDybQV+exxoi7fe
-         9xSgvj9zi1NCr3czyqz6hQyJXgiXPcrEr9apk/DEhIcd80uPf0TzJFYQxIiLSWJa6ovP
-         ja0w==
-X-Forwarded-Encrypted: i=1; AJvYcCX3x7MkDCZtlqWCBa//M7KuL+n6/i7GhLUqqNNcW8t06IllJuGNp3F9XO05Lz03oYN/xRfax0FO9MxsybZbA4Z9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHf2DYqG8OZb36rJm98EwUVnpfOO1AmLauIVghYuk8nsnU9YME
-	378f9+6Eel6d7KRqYKOWMmLYPWYniOmhYwJXCvRdqxCcMLljyjcEY16g
-X-Gm-Gg: ASbGncuZ0iIqmsyTqM+qglMisg/T6JMcOEK32BvLjhT8FoFgt8BmUsAsSuAVkFflkaR
-	Xi9xIZWeIEdwh40q232+ejFcSxMRQpRpIc016vMTfgA0NAgw6EK+IAczePE2DxwAR/UpkA/9AwI
-	GrPa2JNenwU3vACdnMSAtJySS08iqxvT/NLs5EC0RKoMaMLSGCzcCz4+kAYh3Zed/otP2yfJADt
-	k1/z3SfpbjHHp3J2YOwDNNmMU6ditTQOV9UyFiJY1BQPPDlvbAesUtDMLpgiBszwyU+WocAgNf8
-	MQyJ5oOnigTiao9rhul6hh1zUFKM5CPzdC/9PsTbwkTpZCuRdQdAeqQFeUuDRhQoLsnGn21DAHf
-	5JU8jNf9D7L8X3EHDdBby/Nr3c2lPum4IV3aC0qKIrEcXdZfmNd2vWM8GFD1i/J73KJkv290rfT
-	1QuoFxVWe0GhNL84vJaCLWJ8vQQ7ifIESVbnLH3ZPz1P+1QgzKB244GIGwQqfwItE6
-X-Google-Smtp-Source: AGHT+IGIl6W6nr22Y4YoVoUfpGIRuQbb/HUttEupcp6PwkaGiEDhgt7ofHOiURySJSgcpN1jAaaG6Q==
-X-Received: by 2002:a05:6000:4006:b0:3b7:98bc:b856 with SMTP id ffacd0b85a97d-3b9edf5b3bemr3100715f8f.41.1755182441060;
-        Thu, 14 Aug 2025 07:40:41 -0700 (PDT)
+        bh=p2VPK+LGzPHiwIqFk3Ohj/RoTK5gsaz46bIEazLhBRA=;
+        b=M8T0bA9W/9anuSQ1Rhuc/hxqy7Ib4BNkaMh14W7eIjQLemS9/jqV8Jy1RgitgsDDUY
+         b3EWWPq5usFvDRHSUOm1t2zIM4tLjHQ8xdHLACdSFCV6KFqmixgEGN8aVwb0dgVKYcXu
+         eYSZZgVooCwWWLkopT6modtZnJxyruKhI9AgKiy7RCYdpoHZjUxlNh3b/AX0S7yybzVe
+         SRjUr8Paws+f0Xf0tK7NHagoVUu60rdBmwb+/TSxCYB5z7A/EnjUgVU3IBN/jUE9UWNg
+         sSk0v2pYPjsfahZkcEMv9q9NIEbP1wqEsQsfA4A5e58JMiGIgCBd24cFHRnXmv2meIND
+         lj6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXmAAu6muXMGDyivz8d400w6cm/XuB/o8ZbNIcBgUaMYdycriOj4C6WrJ9OsLxIU2U79FfNPO2rwcxAopuvQgKQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8DUKC6ccFbQIfS6zMQQnAfr9kwvO6uuSI4IJpIJHfO8cCgeSD
+	aYwWK8nP9I3e7HMHBu/spQQzNna569TYqT3pNA5XeD1BXtmarte0uqFW
+X-Gm-Gg: ASbGncuYTW+immgykjykyGB1iX9pX7CaQlW3BPhhBU5Ive/gA2u66OuWJk3fygMazCd
+	zAglulQKCR1YeTUWo472hZBpxeIsS64CYVuSNy3jZeKlCmNVr7+hfC2+avgJpPDjbvKg4s5t3Ft
+	QVFmcelny4TCkoMccYYuT6g06Abp00MQh4ru1QRNxceR21Kmi9ZRUvl6MxWJiyScBxsaFDjGdWf
+	3tA2a6DEjdzHA1P9XwO285DeIrAjzG5eWTdGReU+rR/apVGADAK7HbsNSlGiz6Hs/Ns6dzLW/a0
+	PvJb04j1FZKFDJ9xHHj6MIS7IOW7Pu2TgDI/cNWWvJbyFyWuLK5TbB2MZoX1c8V1PWrrnd0abdl
+	BVklMC/t1GIhL70Iqwe5UqQHXw4ECRUVzzsAk45IzE32mNeKcPOp8VxcgrUVdsgSDmb5Mbd1Fqa
+	i3sRWd8WOJ9M6VS3ZPyA4UaalIGW4SN2LGggZQWbzy6GcUD1IBaPwxoF8nAy028OrcAJXcrwQoY
+	9Y=
+X-Google-Smtp-Source: AGHT+IFhCWJEojvA7i+pME+fago4vJDtFzuQD2e2yOvIROciTuu5CIqY7MvPDw7EgLATDPP7poH6og==
+X-Received: by 2002:a05:600c:4f49:b0:440:6a1a:d89f with SMTP id 5b1f17b1804b1-45a1fe78624mr4900695e9.4.1755182567395;
+        Thu, 14 Aug 2025 07:42:47 -0700 (PDT)
 Received: from ?IPV6:2a01:cb08:941b:4c00:f383:4db2:82a:81e9? (2a01cb08941b4c00f3834db2082a81e9.ipv6.abo.wanadoo.fr. [2a01:cb08:941b:4c00:f383:4db2:82a:81e9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1b1d4220sm17216425e9.0.2025.08.14.07.40.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1c718769sm24256305e9.30.2025.08.14.07.42.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 07:40:40 -0700 (PDT)
-Message-ID: <05cc39e7-9ec1-4ac1-903d-873f77c3c79d@gmail.com>
-Date: Thu, 14 Aug 2025 16:40:38 +0200
+        Thu, 14 Aug 2025 07:42:46 -0700 (PDT)
+Message-ID: <da8578ae-3f79-4082-b0fb-760553004c93@gmail.com>
+Date: Thu, 14 Aug 2025 16:42:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 06/20] dt-bindings: memory: introduce DDR4
-To: Julius Werner <jwerner@chromium.org>,
+To: Rob Herring <robh@kernel.org>,
  =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
 Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  Alexandre Torgue <alexandre.torgue@foss.st.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
  Gatien Chevallier <gatien.chevallier@foss.st.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-clk@vger.kernel.org
+ Krzysztof Kozlowski <krzk@kernel.org>, Julius Werner <jwerner@chromium.org>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-clk@vger.kernel.org
 References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
  <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
- <CAODwPW8ZXfMdFL2=6ht+BvQq5_LQkwHhQJT5j9DcseEx9naXxg@mail.gmail.com>
+ <20250730211151.GA1749004-robh@kernel.org>
 Content-Language: en-US
 From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <CAODwPW8ZXfMdFL2=6ht+BvQq5_LQkwHhQJT5j9DcseEx9naXxg@mail.gmail.com>
+In-Reply-To: <20250730211151.GA1749004-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_074045_072182_28630E60 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250814_074249_180424_F222FF24 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,21 +116,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Julius,
+Hi Rob,
 
-On 30/07/2025 20:29, Julius Werner wrote:
+On 30/07/2025 23:11, Rob Herring wrote:
+> On Mon, Jul 28, 2025 at 05:29:37PM +0200, Clément Le Goffic wrote:
+>> Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> ---
+>>   .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+>>   1 file changed, 34 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>> new file mode 100644
+>> index 000000000000..f457066a2f8b
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>> @@ -0,0 +1,34 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
 >> +title: DDR3 SDRAM compliant to JEDEC JESD79-4D
+>> +
+>> +maintainers:
+>> +  - Krzysztof Kozlowski <krzk@kernel.org>
+>> +
+>> +allOf:
+>> +  - $ref: jedec,sdram-props.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - pattern: "^ddr4-[0-9a-f]{2},[0-9a-f]{1}$"
 > 
-> Should this say DDR4?
-Yes, absolutely.
+> Shouldn't this be 'jedec,ddr4-...'
+
+That's not the case for lpddr bindings, I wanted both lpddr and ddr 
+bindings to be similar but this can change.
+
 > 
+>> +      - const: jedec,ddr4
+>> +
+>> +required:
+>> +  - compatible
+>> +  - density
+>> +  - io-width
+>> +
+>> +unevaluatedProperties: false
+>> +
 >> +examples:
 >> +  - |
 >> +    ddr {
 >> +        compatible = "ddr4-ff,f", "jedec,ddr4";
-> 
-> This is not a valid example for the way you're defining it now anymore.
-Yes will fix it.
+>> +        density = <8192>;
+>> +        io-width = <8>;
+>> +    };
+>>
+>> -- 
+>> 2.43.0
+>>
 
 Best regards,
 Clément
