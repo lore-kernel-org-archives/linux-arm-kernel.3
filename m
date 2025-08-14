@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D326CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB54CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3GDsN9LxSDEitQ0pzvRQqf9bGA4AutUNUEYwRrkhQ70=; b=O1Nq/uUYOlk0DeFDu4J7QEoqnh
-	DE+hEWE93GF4xi9XOED1A99WQY6VZLJ+US6Cih+ixg2kXv9g3UmApCXyLk/NZJGjTPJlwRcWKwlaw
-	+d05dK6nb6eXSym6AHMapVFRDjsdNONgsTE8zmnnVTe88PyxM569oAY8JCg4H0kyiJm+s7SAAGR1T
-	gy3JWim/bgCh16jBgyRButMI5h/kjtMwn4rBLPz89yQqGUijq9SFYkOA1NXZC0Sdu1LgHNihXgZXI
-	4XGloGj9pT/gGV2IlfqrIZpjn0bpoYyUgJEd/ZjC75gMwCgRBOz7mbX5PWmDMTCoz9RDbTHNY+f4B
-	/vaXEimA==;
+	bh=H01zn369l1+d16Y17AfT9LhhX/ISoHIVQEH1hZMV2AU=; b=bHOdjhZt9aRvk6XxAgot1fIyoZ
+	6fA/tSBjIFhcHH+o7/M/JjWR8WrBKEivbUdo/OA6m/DJmlQNcSYJfPbJRGbsu4aDMybz4kwOO4X9Y
+	VJvfipKkdrQdtuW0ttjplurzNuNoVM9cVgaCAZaOUenE4yjXzA2OBA1DBK0LEAqOg2D01T4AQd0wT
+	PH7B+EUFjq4GVJLzpdLCFdNjZneHNR7UT7jtEoCOKqSbn+JX5ocXNmmt1dDbqNZ4h/dhUQWsb0VMp
+	2B142vHrSfWGdn+fwmrP1zcznFWuq4eVYuYx2okBq4yX1zirCUJfG5KZCPhStQy90k5vV7u8YPLlt
+	ZGPsJ7kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma0c-0000000HT8o-31pV;
-	Thu, 14 Aug 2025 15:36:54 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uma0Z-0000000HT3K-1Djo;
+	Thu, 14 Aug 2025 15:36:51 +0000
+Received: from mail-m49241.qiye.163.com ([45.254.49.241])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVYK-0000000Gf7r-2W28
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:51:25 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3b9edf504e6so383377f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 03:51:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755168683; x=1755773483; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3GDsN9LxSDEitQ0pzvRQqf9bGA4AutUNUEYwRrkhQ70=;
-        b=CJ1lf/bTJh+arAqqGGXYmepCP5mi6X76AVcxlcr1MqF+EmieSrIrQ0MP7eH/tMqlxI
-         c9pCKSoy1QgKTfunHg5tN0fGy1sFyfjXbAdRBhO1M+vQOQqUbgONXjZwuAeuEJX0gHXr
-         ZEnEfTqDU9aj2rIfRdny3COaWMQWuwe33f4vmTiDvyFgVQu+96aZhH8I4arVaryIC4hh
-         PxJbdjHg73RGcl5CWLZ50Z+UCrYz1XK7khir4uH+aPepb4avfFlgp8qhqIO83jdUvVgr
-         LFCHSXpHdc2/0Ty3gOSVLlr2xybTozLm2llewz6OTFlXQ59IWv6WxZnPHAR9L73/sU7Z
-         OdVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755168683; x=1755773483;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3GDsN9LxSDEitQ0pzvRQqf9bGA4AutUNUEYwRrkhQ70=;
-        b=UUJb5Cu4zwty9OAVhyPXgrH2F1Gx58eQjGlBS3utturnbThArI47UaaILlX5U/Mga5
-         UFSTd2MjrMN2wmui6EZiqvYh+jUB851yHiJNqXcFwfT7PtsRtJDFaFaytKRbn+ZXRfEz
-         77ZMPWo7/h8A22KYkVLblazFTaN+w5gx3RQnFBZbQTwh3EAfKsfoGjDNjJYlIlzr5tjg
-         ncFx7xWGDioxdmKE3SGIWhZF6/VHTfBn0HtfgDtizfKCvSPoK4efe9wxYfMYA29bhgKm
-         F4yGPjEa5RHvNf5vkVN+J2sLSCCUh1Tapdj21YIMRSH0beFc0GaqWoLauBVf1Q9OPeSM
-         /sKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWlzYSlmLRKP+9wj/FdWeTP21GVnnAuM21auuPEOhh5PVI8dSmyvHIsCbOv/ktxl19osFYaaEDi8HyzHzjKhMjF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfF/z9CC1mH1tYyERN80RIlXHuej0aZwrSQEaKmCSC9OKCrVR4
-	EvR/ocVhKXmVrKEWX63UvnGMXjfiwwtEg+iSIzRWGYjgjkFeTkNFm5Qn7JqOL5ejHCc=
-X-Gm-Gg: ASbGncvlPXVPWieas2fhpNhvNrM3HlQzHoEWs/Wec0uf15mJaP8jlc1tZEjdjogJAdD
-	JYyNucP59XkkEjlZyLqSpBaS+4UQsqU2lILb0gXKSgeZ5QahdiKybfjMHhfyOmEWafA4/J6R2tW
-	Epbkjqgjk1Y05H2vXMYX1uoPi7yTvubjO0Um/vZ5LcKYA4qQidmmX8V+A8ijzAEBHk6ODlCFAgJ
-	kaun5t1ohrid8W3XT+nL1q1G450QswpCrsrXrOviAUGjrxiWSNXX/BtqfatCOnoFgEue9erof5z
-	53S9T5D3aWb6NaL94V90B0cZ7dQuQBetNmQ4Th0KDaw/jBp6SxKo9j3VQzWH8fBpGhsytShr1xc
-	c0FdJbrS74Q2NOqOs4pmV50/3w2+L4Tg=
-X-Google-Smtp-Source: AGHT+IF5P4dyVkR12cBMw+uYpwiYnNAlcSu0vH+8udQzxGRbHLddJ/1K+6aeezIw6lInsN/G1CLYWg==
-X-Received: by 2002:a05:6000:1889:b0:3b9:7c1f:86b1 with SMTP id ffacd0b85a97d-3b9edf35019mr1847829f8f.37.1755168682900;
-        Thu, 14 Aug 2025 03:51:22 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1b226eecsm14228345e9.1.2025.08.14.03.51.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 03:51:22 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 14 Aug 2025 11:49:54 +0100
-Subject: [PATCH v2 3/6] coresight: Repack struct etmv4_drvdata
+	id 1umVVV-0000000GeX5-3z9F;
+	Thu, 14 Aug 2025 10:48:31 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63a9a45;
+	Thu, 14 Aug 2025 18:48:25 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	jingoohan1@gmail.com,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	l.stach@pengutronix.de,
+	dianders@chromium.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v4 13/13] drm/bridge: analogix_dp: Apply panel_bridge helper
+Date: Thu, 14 Aug 2025 18:47:53 +0800
+Message-Id: <20250814104753.195255-14-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
+References: <20250814104753.195255-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-james-cs-syncfreq-v2-3-c76fcb87696d@linaro.org>
-References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
-In-Reply-To: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98a831ffba03a3kunm254826283f235e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk0eSFZOHU5PQ0IYSB8ZSElWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=bOuKMXQg8Rup1J2MedckZ+VVvhF64MypXOqwvZq3mdJxdovCpPjMuBEIoLIh/lX5uYxdzOrkdv6bQg0HBk7AEMMGHGlle06d2eTBpcX8bM9QQsBDu5/Ylo5qPtns4ddU8C8KDVkc6O5/P6FZcJfp5Qt1VGT6Y05WcylFm3n6hIU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=H01zn369l1+d16Y17AfT9LhhX/ISoHIVQEH1hZMV2AU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_035124_662521_AB84A5D1 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_034830_175993_0FC14425 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,69 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix holes and convert the long list of bools to single bits to save
-some space because there's one of these for each ETM.
+In order to unify the handling of the panel and bridge, apply
+panel_bridge helpers for Analogix DP driver. With this patch, the
+bridge support will also become available.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
+The following changes have ben made:
+- Apply plane_bridge helper to wrap the panel as the bridge.
+- Remove the explicit panel APIs calls, which can be replaced with
+  the automic bridge APIs calls wrapped by the panel.
+- Unify the API of getting modes to drm_bridge_get_modes().
+
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+
 ---
- drivers/hwtracing/coresight/coresight-etm4x.h | 39 ++++++++++++++-------------
- 1 file changed, 20 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index a355a1e9606d..1c67b263b01b 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -1020,29 +1020,30 @@ struct etmv4_drvdata {
- 	u8				ns_ex_level;
- 	u8				q_support;
- 	u8				os_lock_model;
--	bool				sticky_enable;
--	bool				boot_enable;
--	bool				os_unlock;
--	bool				instrp0;
--	bool				q_filt;
--	bool				trcbb;
--	bool				trccond;
--	bool				retstack;
--	bool				trccci;
--	bool				trc_error;
--	bool				syncpr;
--	bool				stallctl;
--	bool				sysstall;
--	bool				nooverflow;
--	bool				atbtrig;
--	bool				lpoverride;
-+	bool				sticky_enable : 1;
-+	bool				boot_enable : 1;
-+	bool				os_unlock : 1;
-+	bool				instrp0 : 1;
-+	bool				q_filt : 1;
-+	bool				trcbb : 1;
-+	bool				trccond : 1;
-+	bool				retstack : 1;
-+	bool				trccci : 1;
-+	bool				trc_error : 1;
-+	bool				syncpr : 1;
-+	bool				stallctl : 1;
-+	bool				sysstall : 1;
-+	bool				nooverflow : 1;
-+	bool				atbtrig : 1;
-+	bool				lpoverride : 1;
-+	bool				state_needs_restore : 1;
-+	bool				skip_power_up : 1;
-+	bool				paused : 1;
- 	u64				trfcr;
- 	struct etmv4_config		config;
- 	u64				save_trfcr;
- 	struct etmv4_save_state		*save_state;
--	bool				state_needs_restore;
--	bool				skip_power_up;
--	bool				paused;
-+
- 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
- };
+Changes in v4:
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
+---
+ .../drm/bridge/analogix/analogix_dp_core.c    | 31 +++++++++++--------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index a14c065254fa..0529bfb02884 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -948,11 +948,7 @@ static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_co
+ 	struct analogix_dp_device *dp = to_dp(bridge);
+ 	int num_modes = 0;
  
-
+-	if (dp->plat_data->panel)
+-		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
+-
+-	if (dp->plat_data->next_bridge)
+-		num_modes += drm_bridge_get_modes(dp->plat_data->next_bridge, connector);
++	num_modes += drm_bridge_get_modes(dp->plat_data->next_bridge, connector);
+ 
+ 	if (dp->plat_data->get_modes)
+ 		num_modes += dp->plat_data->get_modes(dp->plat_data, connector);
+@@ -995,7 +991,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+ 	struct analogix_dp_device *dp = to_dp(bridge);
+ 	enum drm_connector_status status = connector_status_disconnected;
+ 
+-	if (dp->plat_data->panel)
++	if (drm_bridge_is_panel(dp->plat_data->next_bridge))
+ 		return connector_status_connected;
+ 
+ 	if (!analogix_dp_detect_hpd(dp))
+@@ -1080,8 +1076,6 @@ static void analogix_dp_bridge_atomic_pre_enable(struct drm_bridge *bridge,
+ 	/* Don't touch the panel if we're coming back from PSR */
+ 	if (old_crtc_state && old_crtc_state->self_refresh_active)
+ 		return;
+-
+-	drm_panel_prepare(dp->plat_data->panel);
+ }
+ 
+ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
+@@ -1236,7 +1230,6 @@ static void analogix_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	while (timeout_loop < MAX_PLL_LOCK_LOOP) {
+ 		if (analogix_dp_set_bridge(dp) == 0) {
+ 			dp->dpms_mode = DRM_MODE_DPMS_ON;
+-			drm_panel_enable(dp->plat_data->panel);
+ 			return;
+ 		}
+ 		dev_err(dp->dev, "failed to set bridge, retry: %d\n",
+@@ -1254,16 +1247,12 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
+ 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
+ 		return;
+ 
+-	drm_panel_disable(dp->plat_data->panel);
+-
+ 	disable_irq(dp->irq);
+ 
+ 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
+ 
+ 	pm_runtime_put_sync(dp->dev);
+ 
+-	drm_panel_unprepare(dp->plat_data->panel);
+-
+ 	dp->fast_train_enable = false;
+ 	dp->psr_supported = false;
+ 	dp->dpms_mode = DRM_MODE_DPMS_OFF;
+@@ -1599,6 +1588,22 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
+ 		goto err_unregister_aux;
+ 	}
+ 
++	if (dp->plat_data->panel) {
++		dp->plat_data->next_bridge = devm_drm_panel_bridge_add(dp->dev,
++								       dp->plat_data->panel);
++		if (IS_ERR(dp->plat_data->next_bridge)) {
++			ret = PTR_ERR(bridge);
++			goto err_unregister_aux;
++		}
++	}
++
++	ret = drm_bridge_attach(dp->encoder, dp->plat_data->next_bridge, bridge,
++				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (ret) {
++		dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
++		goto err_unregister_aux;
++	}
++
+ 	return 0;
+ 
+ err_unregister_aux:
 -- 
 2.34.1
 
