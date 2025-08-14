@@ -4,106 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19014CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2826CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2s7Jc+p7OxIRDQycGCBZuUwPYET86zvD/Y54fqN9nk0=; b=MVWrVGWb0U5yfFr/PKeEGIWB93
-	2EUWPP8OnCS5bZpDpIyxSrq9wEQXR9NO/gb4DwuXZ3iAu/aDZiKwd+UcWTu+HjcRdMf+SB0ZKJDeo
-	f1RNCsnu9pEK3G8LTFPTJJSey2uJo6nPHZnvOpvJ8ty9ut207ENX7biMkhmEeh5PYuhA/3xcvoqJ8
-	A6Fl0arDPa1AnoreBdghiwoFnfu/kPlZktGnCJR9Xzqir/oEDHeCZ5+dkJ5EVmxE5fJTc8BKkbtpU
-	BGQGFMJ5wHWuUEkgTaFCMmh2UgXNATRhAct3Nz88ScS5UOHhscnRlsZRtnFxY34hlEn/p5HXE9hkr
-	yP1A31Uw==;
+	bh=FpGkbSZTH0YknQyYJZMYGzUvtXXPiBXKw7DK+s5tWTc=; b=iSapxRwaLxyxRnyVhPXGT3Tdor
+	iegX69zKmGYg5W04PFOECdl7pEr4SBe/7SY4C2Oc90LnL8OJ8DK7srha+M8iRG4jAB54JjzGLFLyE
+	QVWTvXKsCjbduP5LxO9mT+fVbB3TWzO7YSDp0jpvEKOmOhnmb9KbrDHny3d28l2PGsw76w2wS48rn
+	gNKL3V0Y9Vsn6pmcV992ITnSq/rO6bNq0A5ophXjeXJEmIDgPSR7kt7eDhxL1bKD57F3F03OChfKr
+	GGTe4PoDOBNet4QYKVMF/ILzWEyxuVRKI802B45oTzwHQ8D2gxuV01QN92VYBkZYTWspbAsoSqb3d
+	gTj0x/ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYkp-0000000HCiO-1PqB;
-	Thu, 14 Aug 2025 14:16:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1umYkv-0000000HCnK-08zF;
+	Thu, 14 Aug 2025 14:16:37 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umV1p-0000000GYqq-10PQ
+	id 1umV9F-0000000Ga8p-4BGA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:17:50 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57E9m9bM027115;
-	Thu, 14 Aug 2025 10:17:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2s7Jc+p7OxIRDQycGCBZuUwPYET86zvD/Y54fqN9nk0=; b=oapd3h0lbppkGdEc
-	WDtDU/KlT3q59knUYntXDQJff1ftlwUBfM452eTH5KlLM/4O2H4qWWcDbi3kRP6d
-	9VkzSPeCRwQNHB64e9Tpdfy6nw4OAt0oQt6xyTFeHfz7J1IqqFDSR1Vtefs69G6U
-	goMyrb8A0PUQlLPXy0DmElV3braV/p6M2AiM+UmIdKEzWNy0N6r0U5J5I8UZhFMn
-	NbLFR6KMleqSGg9ODN5kqN3147+VWnSPxw6LMyJtREb2+0s4aiGe62cztkWFRpWk
-	czlH+owcThijR+KXcBONYLZRiCbVxccs5c2lNrnkyDZVnV5Xtx3mnzMIFOLce1LW
-	JM4fwg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48dy3gf7ey-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Aug 2025 10:17:42 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57EAHfuh028680
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Aug 2025 10:17:41 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 14 Aug 2025 03:17:35 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
-        <quic_vikramsa@quicinc.com>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Konrad Dybcio
-	<konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH v5 9/9] arm64: dts: qcom: lemans: Add support for camss
-Date: Thu, 14 Aug 2025 15:46:15 +0530
-Message-ID: <20250814101615.1102795-10-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
-References: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
+	Thu, 14 Aug 2025 10:25:32 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-32326e71c31so756039a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 03:25:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755167129; x=1755771929; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FpGkbSZTH0YknQyYJZMYGzUvtXXPiBXKw7DK+s5tWTc=;
+        b=CbJ6wQ1kXy9RJ6rwe1UOxiJYrMGPARiGZz5FFiWStz/iFRT7txy9CejHJxNCtg68u/
+         8gXMVM1magKmf9YJ85vHtsHjJ7+SxttPdf9q37UgZ539n69X+CyfoOe1xcSD6USG5wIK
+         RqcqUnz1FfClzih9lSR4y0NqFV4EsPwv+mF5sLVYOon49a+PK3C+OLIKXB9ixgrjfElz
+         yZS8W+MtLxdJgqGDfZb0varMJfNN0xwTCIj5sUTpla2DQV+WtKs2PUUPsosKw499joC5
+         1CQc0pO0DYchgQm9yX847qoILCLlMgX4EDEaNP3GF916Lf6ar3KMCpVDlqKo6oirwLOP
+         R1RA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755167129; x=1755771929;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FpGkbSZTH0YknQyYJZMYGzUvtXXPiBXKw7DK+s5tWTc=;
+        b=m4vZJatc+yhoJaVCLzaHfHlCZQMl5/GRBiz0NhHlJLLVrU+x4ndSNZmLX8HTCmRvWw
+         a2rhAhKoCq9hbwRMBkVdRIXcxID+n6dphCLpkzMcI783uz7HEQNbisQyd9PSA5X+8AXy
+         Dg4uoyJQ6a0gaDql0x5ox+Xl/7bIwL0943ZJNk/61H1Nwa9hZbaKk/a3ayMTYWvDbiqK
+         eI5ou+pzkjnW1ly03j1o1FeKqwy1Z9dRpQOIvOM9ts9uIFDYv2GQCLK03RRCCNaJaIcF
+         m7VwsY9tpsX2k2jy1wcsqOTjIKCBJxQJYuyKRjRGbnCU0dDGhOmnMau12v8OrmzIRV64
+         e3yQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWevhM+nxB/FWb2sXpNN0ZQWEOvuLRhhNUxIk8At2RIMg2PTQMZf9aPVoOcHGljEqOSnxMNcGp/Lvo4Z0rdMgmw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKzVAyrQI7eA74/4Er5FWvRM2ZeK0bvwd/DfZpZuBf/ZEWzDz0
+	25nsyBW/AF+Y+IUQNQhaWbphmYK01wS4BVU7n2u5+cI3Q0NqQ3gX4n87H6qPJfuAJHCBAkt5vZG
+	uCoACLKyN1LDX1s3MrdvGPMERcDja3A73utCJjHzN2w==
+X-Gm-Gg: ASbGncsXANszC9opoZF5FeAFRYVwSS5o+VWAWJgrizwiez6Gt7lfTj4MORCpa3CLm8Z
+	g2nqr5E/1+fe76tGOR6obnPA6b1H+Cp77x3HhEUMuuVajmzfoCrLopSNWsvYhcM4e7yXC3pVflX
+	WRnV97Zuen7WVJLyOjGWrMCbXhw9+2bcbwFAo+ZqEx7ZKftZaCZcSC1A4KPGaF4mSAoubq5VJGn
+	ec+GPqs
+X-Google-Smtp-Source: AGHT+IGz30+Hy3gFiTg1KnKcd85era+jIMkvNCETz576JOwHJ8XIWA/KFX2Wu3mbC41FRqHMX/pJpTpFJUrAJtDL5aM=
+X-Received: by 2002:a17:90a:d888:b0:323:284a:5c3f with SMTP id
+ 98e67ed59e1d1-323284a5ce1mr4106502a91.8.1755167129058; Thu, 14 Aug 2025
+ 03:25:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=X4lSKHTe c=1 sm=1 tr=0 ts=689db7c6 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
- a=KKAkSRfTAAAA:8 a=ffUvFpYhAsioIrtRiZgA:9 a=TjNXssC_j7lpFel5tvFf:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA5MDAzMSBTYWx0ZWRfXy82eImsSmqiW
- rn++wfUd6h0ujV4HVF6YIDZN5akID5d1s7Pm//2mIoGwpP+90phzfn6KCxTTy111gp3UmoKl9tU
- PMSKw8FhBMLW8PWmDrKeiphdzrJK3YQMLiO7fNyvpQjgvw+pJylzKnNwLFx3cv+2vlw/AuAe1HR
- 0f645RXLQ09tmWDEL0a4B1eAngNPOMzq/Fvxl2yn2r2XPxt8gMa0zCD/KqH3TMTTZ2Jq59BtFCg
- vWDCspgKeMf49G5ddsacpgBnDBCpJ0d+hdvYkG0uL31Rr8yxvPAnAfh9brb/T86vODLIC7UtebZ
- usYIo5Pjf+rieko3Lo991HSWR6YNnGAdEP6G5pRLoUyM258Z6wEGBwwlXnGgpDKliO3S9+2LIEN
- mFlmt+MJ
-X-Proofpoint-GUID: iQMe__bze3CaNG-TlplzqWvbKVFFQogD
-X-Proofpoint-ORIG-GUID: iQMe__bze3CaNG-TlplzqWvbKVFFQogD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 adultscore=0
- spamscore=0 bulkscore=0 suspectscore=0 impostorscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508090031
+References: <20250812-trcextinselr_issue-v2-1-e6eb121dfcf4@oss.qualcomm.com> <272077d5-12b1-4922-b924-a96c34b3b1c9@linaro.org>
+In-Reply-To: <272077d5-12b1-4922-b924-a96c34b3b1c9@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 14 Aug 2025 11:25:17 +0100
+X-Gm-Features: Ac12FXxwDyviVwWfUtpF9l-HP2Uc7nKXb1Mzv3kyYVuoGcSStUR2CgS_3D4d4W4
+Message-ID: <CAJ9a7Vif9__iXasPWi0uUhXNJ63xQBtBksT17MvQ-+rDMVxuAQ@mail.gmail.com>
+Subject: Re: [PATCH v2] coresight-etm4x: Conditionally access register TRCEXTINSELR
+To: James Clark <james.clark@linaro.org>
+Cc: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, kernel@oss.qualcomm.com, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_031749_289956_F2B33C30 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250814_032530_107567_DD27B421 
+X-CRM114-Status: GOOD (  24.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,221 +95,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add changes to support the camera subsystem on the lemans.
+On Thu, 14 Aug 2025 at 10:51, James Clark <james.clark@linaro.org> wrote:
+>
+>
+>
+> On 12/08/2025 9:24 am, Yuanfang Zhang wrote:
+> > The TRCEXTINSELR is only implemented if TRCIDR5.NUMEXTINSEL > 0.
+> > To avoid invalid accesses, introduce a check on numextinsel
+> > (derived from TRCIDR5[11:9]) before reading or writing to this register.
+> >
+> > Fixes: f5bd523690d2 ("coresight: etm4x: Convert all register accesses")
+>
+> This tag isn't right. Although this is where the register accesses were
+> last touched, the root issue was present from the introduction of the
+> driver.
+>
 
-Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 185 +++++++++++++++++++++++++++
- 1 file changed, 185 insertions(+)
+Memory mapped access to unimplemented registers are RES0 so won't fail
+- the issue is the system register access where an undefined exception
+can be triggered.
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index 64f5378c6a47..67d1e2938619 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -12,6 +12,7 @@
- #include <dt-bindings/clock/qcom,sa8775p-gcc.h>
- #include <dt-bindings/clock/qcom,sa8775p-gpucc.h>
- #include <dt-bindings/clock/qcom,sa8775p-videocc.h>
-+#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
- #include <dt-bindings/dma/qcom-gpi.h>
- #include <dt-bindings/interconnect/qcom,osm-l3.h>
- #include <dt-bindings/interconnect/qcom,sa8775p-rpmh.h>
-@@ -4357,6 +4358,190 @@ videocc: clock-controller@abf0000 {
- 			#power-domain-cells = <1>;
- 		};
- 
-+		camss: isp@ac78000 {
-+			compatible = "qcom,sa8775p-camss";
-+
-+			reg = <0x0 0xac78000 0x0 0x1000>,
-+			      <0x0 0xac7a000 0x0 0x0f00>,
-+			      <0x0 0xac7c000 0x0 0x0f00>,
-+			      <0x0 0xac84000 0x0 0x0f00>,
-+			      <0x0 0xac88000 0x0 0x0f00>,
-+			      <0x0 0xac8c000 0x0 0x0f00>,
-+			      <0x0 0xac90000 0x0 0x0f00>,
-+			      <0x0 0xac94000 0x0 0x0f00>,
-+			      <0x0 0xac9c000 0x0 0x2000>,
-+			      <0x0 0xac9e000 0x0 0x2000>,
-+			      <0x0 0xaca0000 0x0 0x2000>,
-+			      <0x0 0xaca2000 0x0 0x2000>,
-+			      <0x0 0xacac000 0x0 0x0400>,
-+			      <0x0 0xacad000 0x0 0x0400>,
-+			      <0x0 0xacae000 0x0 0x0400>,
-+			      <0x0 0xac4d000 0x0 0xd000>,
-+			      <0x0 0xac5a000 0x0 0xd000>,
-+			      <0x0 0xac85000 0x0 0x0d00>,
-+			      <0x0 0xac89000 0x0 0x0d00>,
-+			      <0x0 0xac8d000 0x0 0x0d00>,
-+			      <0x0 0xac91000 0x0 0x0d00>,
-+			      <0x0 0xac95000 0x0 0x0d00>;
-+			reg-names = "csid_wrapper",
-+				    "csid0",
-+				    "csid1",
-+				    "csid_lite0",
-+				    "csid_lite1",
-+				    "csid_lite2",
-+				    "csid_lite3",
-+				    "csid_lite4",
-+				    "csiphy0",
-+				    "csiphy1",
-+				    "csiphy2",
-+				    "csiphy3",
-+				    "tpg0",
-+				    "tpg1",
-+				    "tpg2",
-+				    "vfe0",
-+				    "vfe1",
-+				    "vfe_lite0",
-+				    "vfe_lite1",
-+				    "vfe_lite2",
-+				    "vfe_lite3",
-+				    "vfe_lite4";
-+
-+			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+				 <&camcc CAM_CC_CORE_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
-+				 <&camcc CAM_CC_CSID_CLK>,
-+				 <&camcc CAM_CC_CSIPHY0_CLK>,
-+				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY1_CLK>,
-+				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY2_CLK>,
-+				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY3_CLK>,
-+				 <&camcc CAM_CC_CSI3PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-+				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
-+				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
-+				 <&camcc CAM_CC_ICP_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
-+			clock-names = "camnoc_axi",
-+				      "core_ahb",
-+				      "cpas_ahb",
-+				      "cpas_fast_ahb_clk",
-+				      "cpas_vfe_lite",
-+				      "cpas_vfe0",
-+				      "cpas_vfe1",
-+				      "csid",
-+				      "csiphy0",
-+				      "csiphy0_timer",
-+				      "csiphy1",
-+				      "csiphy1_timer",
-+				      "csiphy2",
-+				      "csiphy2_timer",
-+				      "csiphy3",
-+				      "csiphy3_timer",
-+				      "csiphy_rx",
-+				      "gcc_axi_hf",
-+				      "gcc_axi_sf",
-+				      "icp_ahb",
-+				      "vfe0",
-+				      "vfe0_fast_ahb",
-+				      "vfe1",
-+				      "vfe1_fast_ahb",
-+				      "vfe_lite",
-+				      "vfe_lite_ahb",
-+				      "vfe_lite_cphy_rx",
-+				      "vfe_lite_csid";
-+
-+			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 448 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "csid0",
-+					  "csid1",
-+					  "csid_lite0",
-+					  "csid_lite1",
-+					  "csid_lite2",
-+					  "csid_lite3",
-+					  "csid_lite4",
-+					  "csiphy0",
-+					  "csiphy1",
-+					  "csiphy2",
-+					  "csiphy3",
-+					  "tpg0",
-+					  "tpg1",
-+					  "tpg2",
-+					  "vfe0",
-+					  "vfe1",
-+					  "vfe_lite0",
-+					  "vfe_lite1",
-+					  "vfe_lite2",
-+					  "vfe_lite3",
-+					  "vfe_lite4";
-+
-+			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-+					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-+			interconnect-names = "ahb",
-+					     "hf_0";
-+
-+			iommus = <&apps_smmu 0x3400 0x20>;
-+
-+			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-+			power-domain-names = "top";
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+				};
-+
-+				port@3 {
-+					reg = <3>;
-+				};
-+			};
-+		};
-+
- 		camcc: clock-controller@ade0000 {
- 			compatible = "qcom,sa8775p-camcc";
- 			reg = <0x0 0x0ade0000 0x0 0x20000>;
+Mike
+
+> > Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> > ---
+> > Changes in v2:
+> > - Add fixes tag.
+> > - Replace "if (drvdata->nrseqstate)" with "if (drvdata->numextinsel)"
+> > - Link to v1: https://lore.kernel.org/r/20250811-trcextinselr_issue-v1-1-ed78f3215502@oss.qualcomm.com
+> > ---
+> >   drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++++++---
+> >   drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
+> >   2 files changed, 10 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > index 42e5d37403addc6ec81f2e3184522d67d1677c04..4e411427303981104d11720d3c73af91030f8df3 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> > @@ -528,7 +528,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >               etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
+> >               etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
+> >       }
+> > -     etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
+> > +     if (drvdata->numextinsel)
+> > +             etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
+> >       for (i = 0; i < drvdata->nr_cntr; i++) {
+> >               etm4x_relaxed_write32(csa, config->cntrldvr[i], TRCCNTRLDVRn(i));
+> >               etm4x_relaxed_write32(csa, config->cntr_ctrl[i], TRCCNTCTLRn(i));
+> > @@ -1423,6 +1424,7 @@ static void etm4_init_arch_data(void *info)
+> >       etmidr5 = etm4x_relaxed_read32(csa, TRCIDR5);
+> >       /* NUMEXTIN, bits[8:0] number of external inputs implemented */
+> >       drvdata->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
+> > +     drvdata->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
+> >       /* TRACEIDSIZE, bits[21:16] indicates the trace ID width */
+> >       drvdata->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
+> >       /* ATBTRIG, bit[22] implementation can support ATB triggers? */
+> > @@ -1852,7 +1854,9 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+> >               state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
+> >               state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
+> >       }
+> > -     state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
+> > +
+> > +     if (drvdata->numextinsel)
+> > +             state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
+> >
+> >       for (i = 0; i < drvdata->nr_cntr; i++) {
+> >               state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
+> > @@ -1984,7 +1988,8 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+> >               etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
+> >               etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
+> >       }
+> > -     etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
+> > +     if (drvdata->numextinsel)
+> > +             etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
+> >
+> >       for (i = 0; i < drvdata->nr_cntr; i++) {
+> >               etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > index ac649515054d905fa365203bd35f1d839b03292f..823914fefa90a36a328b652b0dc3828b9bddd990 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > @@ -162,6 +162,7 @@
+> >   #define TRCIDR4_NUMVMIDC_MASK                       GENMASK(31, 28)
+> >
+> >   #define TRCIDR5_NUMEXTIN_MASK                       GENMASK(8, 0)
+> > +#define TRCIDR5_NUMEXTINSEL_MASK               GENMASK(11, 9)
+> >   #define TRCIDR5_TRACEIDSIZE_MASK            GENMASK(21, 16)
+> >   #define TRCIDR5_ATBTRIG                             BIT(22)
+> >   #define TRCIDR5_LPOVERRIDE                  BIT(23)
+> > @@ -999,6 +1000,7 @@ struct etmv4_drvdata {
+> >       u8                              nr_cntr;
+> >       u8                              nr_ext_inp;
+> >       u8                              numcidc;
+> > +     u8                              numextinsel;
+> >       u8                              numvmidc;
+> >       u8                              nrseqstate;
+> >       u8                              nr_event;
+> >
+> > ---
+> > base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> > change-id: 20250811-trcextinselr_issue-f267afa0e5ed
+> >
+> > Best regards,
+>
+
+
 -- 
-2.25.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
