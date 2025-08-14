@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1939CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E29FCA0EE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1AAD98/pMC4llkuyRBMvH/G0ZNX1c8a6i9RG3YNpCM=; b=VVf79V9piLF5iQ6TeSW4BwM7uC
-	Z29cRGOR8JLdEI8k+/7u+MnmpPzrzGvnfsPLskML9wpsdRnHlDmEwDWKjkLGpJ9KfvYrAXRh0/rQN
-	jVn2jyn9Zr3zubMuvY79QHfsXm+uA7xt2Pp37XqdXX39lSt0Ini76DTkZKIRV+ANUSnBYzqco6F2S
-	ZH3F7zRdTlsPirIW0vA3oEzYUXpgVk5R3LhspTQjRTBMHdYUYgCgLj2tDaIqaS7+Uc9muCfy01vB8
-	ZpKEJoUF14ncfN3EKWEJLjahwW2WRMBIw9gt+619AJuY4L722R83+jNCDssE2HynO1Geza9lQXV0A
-	nc7CyUIw==;
+	bh=eM1G/c39uEqIVKhxwV8fJqXZsNf9cxuXzgjWjd3QebQ=; b=mwujryii9DDi9fAW9v3SpByvPJ
+	UPz+BeRBufNtSJknuCK0lilQknv+OLq++sU4nwW9zoul4zW9tOY1PPeaM9MUOhI5j3/QAnLB4YTlV
+	nSIBoF7g/Bv7hLNKZAngysJI+hUmVQgxQr1ZolOx6OJv2GkDy9bm4EucVpMdI1Ey8JquZEB7yZEzJ
+	QLPCiScR7EhIsMf70i5H3iCJciabtVzJ0on1Gnh8V9XcjHuNgyoFgqpGSaZdK8G+qpk19lTkaROgy
+	qm6lhFJdAnOc6PPcmrDBSnKX4irtzWKCYfVO5PE9WmsmDyGAdJYqOxcGt5euMN01ElHngdvKKlfUx
+	/NZs+dmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTKq-0000000GFED-0Btj;
-	Thu, 14 Aug 2025 08:29:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1umTOS-0000000GG5V-26nw;
+	Thu, 14 Aug 2025 08:33:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSwG-0000000GBjM-1WuF
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 08:03:57 +0000
+	id 1umT5f-0000000GD0n-1e2G;
+	Thu, 14 Aug 2025 08:13:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6D5E44518;
-	Thu, 14 Aug 2025 08:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 342F5C4CEEF;
-	Thu, 14 Aug 2025 08:03:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B247D60209;
+	Thu, 14 Aug 2025 08:13:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC14C4CEF4;
+	Thu, 14 Aug 2025 08:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755158635;
-	bh=X3Zkv1GgYGEV/PFrhjV6JjLBSwA81+ffdc9QPdchXLk=;
+	s=k20201202; t=1755159218;
+	bh=2D1OOFtNbdpnycHdnojgPyCPrVecspF1AWE0YpTc5Ms=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y0QPM3oCyMK9LWNRNmg59i3pAgrctvv8lnJBbGzCuDxjDcLS7utfL0DmwKI0yFcs3
-	 KL+xoza2Ywl9NslWcJ9zrBL25photeR9qQI+4PtMKU0RrWpuWjwSmj+ujtvvkyKqWi
-	 xcC9OH2qzbJOqjV6OHFgnYBbEiwPKUllpthQbNaTQqhk+piDNONSb2KXV6HuC3O3nx
-	 zRw2GLuDnxvEYkz0oYB8TnHK690hqLWxX884VsND1y8fe7d+sxk37Pcxs9k8HHS9RP
-	 OAFT8UjwaXQ02146plSOQyVNK4hhbUb3WIrFLwX7wWywlsx4m8yZFvSbWRt4UvVQPN
-	 EW6hIEZvRnGEQ==
-Date: Thu, 14 Aug 2025 10:03:52 +0200
+	b=UmDFlGeuPH1XfHlUH4Z3k2aCt3AaRHbvrNWNEngpXoKELe0G7p8j9wn597XTJ6iRN
+	 L3uQCWlFV7V11dHkYcctJnDXVUiM/pnqLIpHn5b6459R2ZpjsJfxczmbkz0dyiIr6k
+	 lRmDayR2Z4PLhL5m8hChhnNuaQ2eJT6crOpObWEpHB59dqLxSjv7imEUReeqZk4Z3Z
+	 vWNlmem+zPdfiStTM7Gsgo9euIJOjnoSjYx9dEXDLUFQ84fUlCDU8TYPkepLsnbB0n
+	 VYJJgnTxtFcVsbm1BqiBT7BQtfg9fASWovDCmdB+MXojxqkC+WjgOCGfrg4DLdXPZD
+	 4qmMis49DPJYQ==
+Date: Thu, 14 Aug 2025 10:13:35 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Kevin Chen <kevin_chen@aspeedtech.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: interrupt-controller: aspeed: Add
- parent compatibles and refine documentation
-Message-ID: <20250814-auspicious-thundering-jaybird-b76f4f@kuoka>
-References: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
- <20250812100830.145578-2-ryan_chen@aspeedtech.com>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org, 
+	arnd@arndb.de, m.szyprowski@samsung.com, jh80.chung@samsung.com, 
+	pankaj.dubey@samsung.com
+Subject: Re: [PATCH v3 08/12] dt-bindings: phy: Add PCIe PHY support for FSD
+ SoC
+Message-ID: <20250814-refreshing-watchful-lemming-4feb03@kuoka>
+References: <20250811154638.95732-1-shradha.t@samsung.com>
+ <CGME20250811154729epcas5p456ddb0d1ba34b992204f54724b57a401@epcas5p4.samsung.com>
+ <20250811154638.95732-9-shradha.t@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250812100830.145578-2-ryan_chen@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_010356_443913_C8FFB5D6 
-X-CRM114-Status: GOOD (  27.23  )
+In-Reply-To: <20250811154638.95732-9-shradha.t@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,217 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 06:08:29PM +0800, Ryan Chen wrote:
-> AST2700 contains two independent top-level interrupt controllers (INTC0,
-> INTC1). Each occupies its own register space and handles different sets of
-> peripherals. Above them, the PSP (CA35) GIC is the root interrupt
-> aggregator. In hardware, INTC1 outputs are routed into INTC0, and INTC0
-> outputs are routed into the GIC.
+On Mon, Aug 11, 2025 at 09:16:34PM +0530, Shradha Todi wrote:
+> Since Tesla FSD SoC uses Samsung PCIe PHY, add support in
+> exynos PCIe PHY bindings.
 > 
-> Introduce distinct compatibles for these parent blocks so the DT can model
-> the hierarchy and register space layout accurately:
+> In Tesla FSD SoC, the two PHY instances, although having identical
+> hardware design and register maps, are placed in different locations
+> (Placement and routing) inside the SoC and have distinct
+> PHY-to-Controller topologies. (One instance is connected to two PCIe
+> controllers, while the other is connected to only one). As a result,
+> they experience different analog environments, including varying
+> channel losses and noise profiles.
 > 
->   - aspeed,ast2700-intc0  (parent node at 0x12100000)
->   - aspeed,ast2700-intc1  (parent node at 0x14c18000)
-> 
-> The existing child compatible:
-> 
->   - aspeed,ast2700-intc-ic
-> 
-> continues to describe the interrupt-controller instances within each INTC
-> block (e.g. INTC0_0..INTC0_11 and INTC1_0..INTC1_5).
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
->  .../aspeed,ast2700-intc.yaml                  | 158 +++++++++++++-----
->  1 file changed, 115 insertions(+), 43 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-> index 55636d06a674..81304b53c112 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
-> @@ -10,6 +10,33 @@ description:
->    This interrupt controller hardware is second level interrupt controller that
->    is hooked to a parent interrupt controller. It's useful to combine multiple
->    interrupt sources into 1 interrupt to parent interrupt controller.
-> +  Depend to which INTC0 or INTC1 used.
-> +  INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
-> +  status registers for use.
-> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
-> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
-> +  +-----+   +---------+
-> +  | GIC |---|  INTC0  |
-> +  +-----+   +---------+
+> Since these PHYs lack internal adaptation mechanisms and f/w based
+> tuning, manual register programming is required for analog tuning.
+> To ensure optimal signal integrity, it is essential to use different
+> register values for each PHY instance, despite their identical hardware
+> design. This is because the same register values may not be suitable
+> for both instances due to their differing environments and topologies.
 
-Same problem as last time. This tells me intc0 has not children...
+Would be nice if above (or most of it) would be reflected in binding
+description. Please do so and:
 
-> +            +---------+
-> +            |         |---module0
-> +            | INTC0_0 |---module1
-> +            |         |---...
-> +            +---------+---module31
-> +            |---....  |
-> +            +---------+
-> +            |         |     +---------+
-> +            | INTC0_11| +---| INTC1   |
-> +            |         |     +---------+
-
-...This tells that inc1 has no children (only intc0_11, which you said
-is aspeed,ast2700-intc-ic !!!)....
-(keep scrolling)
-
-> +            +---------+     +---------+---module0
-> +                            | INTC1_0 |---module1
-> +                            |         |---...
-> +                            +---------+---module31
-> +                            ...
-> +                            +---------+---module0
-> +                            | INTC1_5 |---module1
-> +                            |         |---...
-> +                            +---------+---module31
->  
->  maintainers:
->    - Kevin Chen <kevin_chen@aspeedtech.com>
-> @@ -17,49 +44,70 @@ maintainers:
->  properties:
->    compatible:
->      enum:
-> -      - aspeed,ast2700-intc-ic
-> +      - aspeed,ast2700-intc0
-> +      - aspeed,ast2700-intc1
->  
->    reg:
->      maxItems: 1
->  
-> -  interrupt-controller: true
-> +  '#address-cells':
-> +    const: 2
->  
-> -  '#interrupt-cells':
-> +  '#size-cells':
->      const: 2
-> -    description:
-> -      The first cell is the IRQ number, the second cell is the trigger
-> -      type as defined in interrupt.txt in this directory.
-> -
-> -  interrupts:
-> -    maxItems: 6
-> -    description: |
-> -      Depend to which INTC0 or INTC1 used.
-> -      INTC0 and INTC1 are two kinds of interrupt controller with enable and raw
-> -      status registers for use.
-> -      INTC0 is used to assert GIC if interrupt in INTC1 asserted.
-> -      INTC1 is used to assert INTC0 if interrupt of modules asserted.
-> -      +-----+   +-------+     +---------+---module0
-> -      | GIC |---| INTC0 |--+--| INTC1_0 |---module2
-> -      |     |   |       |  |  |         |---...
-> -      +-----+   +-------+  |  +---------+---module31
-> -                           |
-> -                           |   +---------+---module0
-> -                           +---| INTC1_1 |---module2
-> -                           |   |         |---...
-> -                           |   +---------+---module31
-> -                          ...
-> -                           |   +---------+---module0
-> -                           +---| INTC1_5 |---module2
-> -                               |         |---...
-> -                               +---------+---module31
->  
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^interrupt-controller@":
-
-... but this tells me that intc0 and intc1 has children.
-
-> +    type: object
-> +    description: Interrupt group child nodes
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - aspeed,ast2700-intc-ic
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      interrupt-controller: true
-> +
-> +      '#interrupt-cells':
-> +        const: 2
-> +        description:
-> +          The first cell is the IRQ number, the second cell is the trigger
-> +          type.
-> +
-> +      interrupts:
-> +        minItems: 1
-> +        maxItems: 6
-> +        description: |
-> +          The interrupts provided by this interrupt controller.
-> +
-> +      interrupts-extended:
-> +        minItems: 1
-> +        maxItems: 6
-> +        description: |
-> +          This property is required when defining a cascaded interrupt controller
-> +          that is connected under another interrupt controller. It specifies the
-> +          parent interrupt(s) in the upstream controller to which this controller
-> +          is connected.
-
-No, you do not define two. Only interrupts.
-
-> +
-> +    oneOf:
-> +      - required: [interrupts]
-> +      - required: [interrupts-extended]
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - interrupt-controller
-> +      - '#interrupt-cells'
->  
->  required:
->    - compatible
->    - reg
-> -  - interrupt-controller
-> -  - '#interrupt-cells'
-> -  - interrupts
->  
->  additionalProperties: false
->  
-> @@ -68,19 +116,43 @@ examples:
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
->  
->      bus {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      intc0: interrupt-controller@12100000 {
-> +        compatible = "aspeed,ast2700-intc0";
-> +        reg = <0 0x12100000 0 0x4000>;
-> +        ranges = <0x0 0x0 0x0 0x12100000 0x0 0x4000>;
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        intc0_11: interrupt-controller@1b00 {
-> +          compatible = "aspeed,ast2700-intc-ic";
-> +          reg = <0 0x12101b00 0 0x10>;
-
-
-... and that's quite wrong unit address. Also no resources in the
-parent, so this entire split seems superficial and incorrect.
-
-This binding is not improving. You are not responding to REAL problems
-described to you. What's more, you send it in a way making our life
-difficult, look:
-
-b4 diff '20250812100830.145578-2-ryan_chen@aspeedtech.com'
-Using cached copy of the lookup
----
-Analyzing 3 messages in the thread
-Could not find lower series to compare against.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
