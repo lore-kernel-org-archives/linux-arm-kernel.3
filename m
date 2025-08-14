@@ -4,168 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB5ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 06:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6602CCA0EE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 06:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sObWBleM26XlRHBt5J4SMak3+y3gQjEogba0jvTT/g=; b=FzAbPL0V4bqXz5R1akQ6IYhh1J
-	afuvTWNrKWENCshR8BNpYmUydt23qMak4iBnLvLjC5jXoiRnHACBnjKBk2KaBlTSsmX81BNQZMKHo
-	2tcD8eW0sQJ5Asp1/VDcey3C7G8BPxZNeRmRtkHLDOtpjYODBH6eA7DLcH5XIpXDZ11X2IwkvhMSt
-	bVRzSvjbjUnod6ZEvC//CVpNqQ3d7vRIrijb9/EVXG2C69FTGTamnKgIhFVOe2Cht4B8nfjHxODAW
-	amGgYfXUo7C49jBfN8wH7c7Svxd/XVJ6fD4B7fTxu+3ht1fp+7rxZfOZcUnRLXbTmBs5X8szYvxIV
-	ZPS6m+mw==;
+	bh=owhi08C/M/NN6d0s604Ju+m1uDGPJY3DmSHO26z2ljg=; b=y7WBZ48C84A95Fj+bjdOly4gET
+	N1MeTPEwqdjbO/etG9syeG7vwufZ2qlkJJdCtqzs0SaYY8jdd8CzV4pTdHnsPWqaexLM8trzE/r1p
+	hvWMIkgXUz/O7A11wA2vm6aev+jiyvN2aMj/Y/Wzt6ixBx8LUPUx2CC9ElsxNfcOH5+MBDta4aiZ5
+	SOnTm1FHRYaVIcTD7IzxGB/Ukrsqnp4gTIgx0fKfbSrZvcUHcL9xcGZNXfX9L4PykwYj+OZJxzOoi
+	bUssmfj3yk1DHD0Dx65pXrg/WNdU3kmPEzoHv6zAK44gCoGyRcdk9nR9yPKxG9cXEPizpqvXv7jL5
+	d0OkQeEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umRnL-0000000FymR-4C1O;
-	Thu, 14 Aug 2025 06:50:40 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1umRrQ-0000000FzKR-0EIk;
+	Thu, 14 Aug 2025 06:54:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umRkl-0000000FyJM-0VQo;
-	Thu, 14 Aug 2025 06:48:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LLUiAZ9sODlZ8YP6SDOOh71SdQtsmg6Lu0wi6VpBlpIQW9xrOw/jQbSWLTHnG7X0PYihr0XpJPqYsZCbw/ykFwv8wagBZCK19NrUybXDOD3LWI0v001g66lwXw26jCahiSzKh/JTJGSPYMeGldNAf14/jo87vNcKJaU9jMFK+Vyv+acSbZU1SWWJqiyvzkwio8dsw0utPkmY3q9B3RW3bIWbSzfMr/ZM6nO9Ki+lz3jq8Wrre65zZd7LPpI2koXcWLhrX+mPUoeTObG4PfFPq5HwOiXYJQPh/Br/60VYIk4GrkpDcsILqSFomO0x+Awqj9PH/6wk0/frZwi64NTupg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/sObWBleM26XlRHBt5J4SMak3+y3gQjEogba0jvTT/g=;
- b=uqgaFnZDftDRjaUp+3IUSuYG7rufa85pFJ08VC33F+2cTydDs7jD1s9j87H7zqvoAYJ/0SF2mB5r42UA0OTqB0IohxJBzW2itcgp9WyLQNxpntSfpFGY5g8HJdDTwf+AXS9nC6wvFPuiIfBou0jD1RgAx5R0NklLCM6TWfnP+Z4MbwYZfojZtf0YMM8sZXgDILkyHtCkZIMjy30RrKty8LZV5AJbqd458QmNaKch1p15b5jVzs8/b44+vIFpolWoTve0jMGBiGpXm23+19PM6C2eqPREt0IPWCXZOzV2vY5TPh5oBWn+D2gYfLMgbHM69z7NgMETJp8OP8b2z17flA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/sObWBleM26XlRHBt5J4SMak3+y3gQjEogba0jvTT/g=;
- b=dNNzFPi4orHdCOifJWoCi871h3vU1U01MU6nw4fUvFvA2YRSkwVcLwOic3xR1Z2c0EtMFEfaya18pcSWLfHDfvh8f9XmG7eAwnCAl7ILkDSTLjTb2DTs6q36DD1dog89JOg5gefjjJMODiVrQ2cD1JZET4oSi5XCo5BX6aeN0IQfNxvV9MA9JXD0QKyUpGD0zVVXxjhs93NLhr2ewi94Bogqli/bzhn00hMBL4VHIM0XX5BIu8810p1ye8n3QJBvqyz3UKqJZp8LwAhr4pikfklfPxekzc56yakbEmKrvjvLMnh1hDl+IXX34lahkHRY4bo6xOcebulzZXR3gGkhEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by JH0PR03MB8116.apcprd03.prod.outlook.com (2603:1096:990:37::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Thu, 14 Aug
- 2025 06:47:51 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::9d11:d1f6:1097:22ca%4]) with mapi id 15.20.9009.018; Thu, 14 Aug 2025
- 06:47:51 +0000
-Message-ID: <a1f548e3-ba3b-415a-9bde-9d96c93a8d8e@amlogic.com>
-Date: Thu, 14 Aug 2025 14:47:13 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: clock: add video clock indices for
- Amlogic S4 SoC
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250814-add_video_clk-v2-0-bb2b5a5f2904@amlogic.com>
- <20250814-add_video_clk-v2-1-bb2b5a5f2904@amlogic.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <20250814-add_video_clk-v2-1-bb2b5a5f2904@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SGXP274CA0013.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::25)
- To KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+	id 1umRop-0000000Fz1a-3X25
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 06:52:13 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57DNS9f4031956
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 06:52:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=owhi08C/M/NN6d0s604Ju+m1
+	uDGPJY3DmSHO26z2ljg=; b=HWf9WJA4YNEMkKYqHshBP/5z3OILqxFW/kix8dkM
+	vK7hhkcNIW6Z6wLB0qzaxVobXrjPpm0oHj/cf+9I8ekd/7n6sCapHX0xL+7OYFUO
+	tlphFb/YO+WjWPA77qQo9NyWmiIzZp///U1dSDaniiwTO6+HOLofNpXqS4UvXm21
+	Rrmxj9m4pUAlhrZTpRYAKGiZKP5U/t4mOcJbUA+Y079iS3GQtjJJKDeJEgvgH3vf
+	FlbrLIP2J2Cb6dW/swQDMycluZponh4VUfKH4zGf0g6i5KqdVxtVwF5ZQ048dOXu
+	mTkeCQF3aFCfHT8WLdIVG7NGqsmIaVT9u2ToswO/rwA4Jg==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48fem4jmj5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 06:52:09 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4b109c7ad98so24428601cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 23:52:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755154329; x=1755759129;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=owhi08C/M/NN6d0s604Ju+m1uDGPJY3DmSHO26z2ljg=;
+        b=PfJ0w9Q2TGO31KsuKdsHzxg2hcrUG2+ktV3mwfhuNwn8yOK9qxBhBZkJGjWtpe28xp
+         y/uRqngOsmW0acnGiZlRR2NytbaoZTnKwb/ossFHehGLP9shEfVZ5eJJUvizNgsaGz8K
+         KObfLcaGdcxI7f15HEQLFMXeauY3Aj/ze2h44iAIxo30j7UFXzzvbTXoeJzhCOtmrjSS
+         ei+By4uBb17/RYjkdoyV3OgAD3XtZ05cwKYUKb08LPvycZdPmixLdlpD34+2B9AyvsPZ
+         YhZoFy3/5B3inCPw4xEDgtLPjWCT/IT5U0vqS9U88wpIvU3ZKf3Jm42VU6I7pJrhqp3W
+         XYvA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLm6vZ69t7g5PwaXzoP/U8XtE4lfIdoSxWEdD4yTUBz942K2thYtk8EeYpSf1U3iOdfuakfdOgeN0cMlQvOt28@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGlJUPIOCQztQZPL8dw/mnBsWkTYacFtV7J6RAPq2EpW31NDGk
+	6V2NwoemoJ2pnfWMX25V6aVeTUPyUGbBQ4JA7DALIvOgd68wl698uHTX+SLN6z5QpqUlEdkVbNe
+	0Jf56fKci3UlsMlf3zDd5FZU2jb6sOEQG/s9/7/8hLhWpdzgy5ylx2HdwE/qxKESVHBfSMEjyKO
+	ZGdA==
+X-Gm-Gg: ASbGncvCsYnKZXksTEg5kKXDSnM4MNNWnBBjev36JbWLlVwf0ZE66BnHO4DDUgTWZec
+	e+yCyEWzbv9TTSsPoAVe7oxPAhJlPjyV7EkAN3zHx3H66YkumypgFwnTtXj2uBAYefhTBOvuea+
+	Q8idEeyKbeub4nb+QMMrfAd7g0s9p+xkk2BpaT5maPaOnrMgpE8qCeeR8h9NPfWWimyr0s8qj5x
+	Ate95vG0rk+MDUMXgzusCwCcJko47BsFqG9jO+9vmRNM1SpYMxCBbZymOdNzeTvAboUyE07EqnA
+	sCb8ijXgPXhOSWeTfn98ptLRZfqyvGU4BelHyKrqAz/5T0NQPYSkh9wKp14p4ZejBfr/llF90CY
+	HM8DZY62XbpoS9vqT5Xmw59ApQkYHG3nFnK5iq1Er92eCHnUo/U2Q
+X-Received: by 2002:ac8:5808:0:b0:4b0:7f93:3cdb with SMTP id d75a77b69052e-4b10ab647c5mr31568061cf.43.1755154328723;
+        Wed, 13 Aug 2025 23:52:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEM0qr1LVcYRMByeamQSKE14P39HiE+Ci5RWjhuXSylU1tRHSO3/y8Hd3syjoumZhxu28HzQw==
+X-Received: by 2002:ac8:5808:0:b0:4b0:7f93:3cdb with SMTP id d75a77b69052e-4b10ab647c5mr31567601cf.43.1755154328087;
+        Wed, 13 Aug 2025 23:52:08 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b8898bdcfsm5494037e87.32.2025.08.13.23.52.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 23:52:07 -0700 (PDT)
+Date: Thu, 14 Aug 2025 09:52:05 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Magnus Damm <magnus.damm@gmail.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-renesas-soc@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v4] remoteproc: Use of_reserved_mem_region_* functions
+ for "memory-region"
+Message-ID: <te2o47dxihjsckaigfdhbrbyqxaeqmchmtx5xbx5y2smu6yaja@t7uccvfsxmay>
+References: <20250813214808.895654-1-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|JH0PR03MB8116:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b5ff9cb-bb23-4702-0ae3-08dddafe7d32
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d1J3dUVlckQvSTZQbGFzYm1oa1dwQkViUnc5WEZhU0lvRjh0NGR2N2JtQ1FM?=
- =?utf-8?B?N3Npdmh3MmtTTk9CMEVNSHN2TE41K20rYUtZZ201dEUvTG9JYnpoRTNUbDF1?=
- =?utf-8?B?eWJlVk5hWDdmWHBzY1p2V0xRNld3L0liU0RDQmxBUURJa29lZGVQaEFNb21U?=
- =?utf-8?B?Uk9NNGJxU3d6Qm9ES2F1WnpuVjh6RkNacFRTNnZaVWVQZjlIT0dTc3V2MHNJ?=
- =?utf-8?B?b1M1MHBnTStBK0xhWW9CWkNWK3hnYndqdWg4VHZ6bzRubzhwenlZU1pwQmVh?=
- =?utf-8?B?ZWFRVUp1QitGNVF3Q2hjSzFpNTJVTzJpK3NtbGpaVHA2dlBkTElQOWJITFZt?=
- =?utf-8?B?QUpLUnBraGdUdFFEOXBQTFdyTFlSTHhYTlU1Q2tjM2hLdGkreHY3d0JrQTBZ?=
- =?utf-8?B?RktPZm5PeVVlUVZQVzdqNCtlS3FEK0hSbVR4bkZVUUhkcWwyMHBDUDJ4bW9K?=
- =?utf-8?B?RnVxMlY4dVdhMVJmdG9OVEZXbGtMekl1b2JFSXVROTJNbnBIVFA3akRTWUxP?=
- =?utf-8?B?Rzdoamh3MmZxa2dGNEszZ0F4NmRCVXZpeXR6VkhjRUFZOVppNGRzczBLUlF5?=
- =?utf-8?B?MGlEUzNic1RVcmV5dXZDNDJqa2dDQUI1Z0NwNEg1QlJySDRxd2w3aG5RdWF3?=
- =?utf-8?B?MHJXd3VYWDFDRUxtRGc1MjFLeHRPVTVpUTFoOVhsbGdmMjd0ZWxYdkN0VmVs?=
- =?utf-8?B?Y084dkFDWUU3TUR2d2ZXZURkbmJ5SWZQeFNkd3VGakg4N050YmUzWWRiSmJW?=
- =?utf-8?B?VEkwQzlONFl1ZStTSVZCMmRteThqUmhOcHFPRXZiaWp4VzlUdEpzeHFLWmZ2?=
- =?utf-8?B?NzU5TmVJSGFTRGt4cDVTcURGMlFwUDcwZ2tvWHF3aUlSRlJ5YTBBWGtjeGpa?=
- =?utf-8?B?cmcyeFhFajhYdlNtSWtrMkgrTlJxNEJ2VjJiTTZRT2lCaG1pQTR5RzlXRUcy?=
- =?utf-8?B?R2J2WUl3Um1HUXdYeW4wTm04bWRVN2F6ZU1QTytJTmdscDVQUGY4cDRkVWVK?=
- =?utf-8?B?Ym1HQmJvSk9iTXVWdEFwOGNkZVZKMkJQdVk1V3FXcDJSaWZ3Z09yZE1DVEUz?=
- =?utf-8?B?ME5hWVhIbkJ2TGs4R1JBa3J6aDByOWdBWU03N0dkdERxLzhhV0x0S2JvMFNS?=
- =?utf-8?B?T3BZVFM5RkFjOWtsS0s3Z2RiaXJWeVdjQzVLUlFVNnhXaFRqTTNqUEhJM2Jh?=
- =?utf-8?B?ZWJMdHV1aWRlTFVRVGU0c2lSUVh2K01qQTUyMy9sTTYzR29sRXhGNVZuQmtV?=
- =?utf-8?B?dlJ4TWRhT0ptdXh3dEFmUlBKSFByMkp4YVJZS0pCbHZGMXdMa25tdGxUNE9M?=
- =?utf-8?B?a21MT0ZqN2RQUElzcUJ3OGRVZTZURE1ZNTBPWjZhd1FFVFFscFF1QlZkTDVt?=
- =?utf-8?B?dlJVVnlYWHdrKzR6MTJsYVY0UGU5K1djUFpqZ2xLRCsyRy83Q2RzVk9JRkJK?=
- =?utf-8?B?bWxYdU5sR00rVDN5Vmx4NDh0ZWpNcUtjYks1dHJubzFacVoxS2J1TDBDTG5L?=
- =?utf-8?B?TDJEYWRUMmhNTDdaV2Zxa2R2N044dGU4bU1kaEc2VG1GbWZaWi9PZDEyZlRR?=
- =?utf-8?B?bmRvaGVCa2FBUjczUEtkeStyZDJEY2o3TDVyN2NmZU5jVzc2eTVjUk1zNnNu?=
- =?utf-8?B?aGZvSGh0L0RQcGZHQkxUZVlDUDV5VmFlcHNyc2U4RUhlaS9QbVNYMnA5OGVr?=
- =?utf-8?B?SFY2eFBlajdWK3VPWkxPMEJaeHRuQ3BZMFdNOVdjNU40dzVUWENCNDdKUC9J?=
- =?utf-8?B?QVFYeFNnTGhQcVZNZExIb2p5Q2laRGY3eG9pOFd5R1hjc2owc1FBM0JvOUVE?=
- =?utf-8?B?YStCRktXK1hrV3ZGeWo0elZscElYeDRFcHVVeGF4U3hkaVc4ZU1rZXp6dk4v?=
- =?utf-8?B?OEV5QVdDbi9LSjFtZ0NYdDhRWDJ0NGl4Vk1JTmZ0VWx1NkhjNnUyelpOMzQw?=
- =?utf-8?Q?qAylsonboCU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S3ZoQ2tVTTlyNUVmbnkrMGNaWDdrOVdJM2crcWZUL3JVL1B6VTQrNnVPOUdV?=
- =?utf-8?B?ZVF2RVBGbkkwbDE1Zkl5YnVjVE13K212TjFJZW5OL2hKRmszNmtRUlpXYk1t?=
- =?utf-8?B?MDZLTERQMm9BOE5TbkprM1RFQ0NDOG9icEdybW1Gb2xERVdaZzZ3UjBFZ3Zy?=
- =?utf-8?B?U0J3K2RoV0Y2RnZMWG9QaWM1ZXhueHRKTHI4am5RSzRpWXhaSXdQZ3F0MUdK?=
- =?utf-8?B?NmVGbXl3OWphTU5Td2NZMjJoVVcwYzF3NnJwckRCeWVJeGNTZDRLM0R4SFVK?=
- =?utf-8?B?ZUg1c3BlVFAyUXJ1R2cwbzdnTUpPQVMwRnN6c3VlUkFGd3krdXl3a1JneFZy?=
- =?utf-8?B?Vkszc253Tm8wcW9pWnZnZ3JkRkY0dnBDM1lYRW0vdkdwT0RWbjQ0VlpyZDk0?=
- =?utf-8?B?MVVNbWIzMjhwd1VZdXdpRU40MUxFayt3UFhnQWZmYktEOGRyOWtGSTZ3Zzcr?=
- =?utf-8?B?K21uMlVzalpHQ0lWbXRSSC9NWHQyWHpRM01mZ21ZZHZrdHQzMDNQY2lYd0w4?=
- =?utf-8?B?NlhOclhGRGZ2NjZpODJJUU8yU1BVakU1TW12VlVvTmMxS1l5cnBhU0QycVlU?=
- =?utf-8?B?bFF1a25zZ3J6Zmk3OXB1cEd1dFl0Qk9YakgzOFlDNnRHQldWQzdUL0xZUzlJ?=
- =?utf-8?B?M1BmTGxBYzFsUDFKWEV3eWZrRnJnaWNjYnJKa2pLbUcyNWVsaEIvaStBY3VB?=
- =?utf-8?B?b0s4eTB0b1BQQXR4ZUQ4OTVXUGJYMlEzRk9WS0hYTm9hdmtnUmcvYWRDNHFR?=
- =?utf-8?B?dzJQOFdjRkNHN2g3azhYL3UvdWk2b1hWMDhKN0FWTjZJUi8yTGkvd1pSb0o2?=
- =?utf-8?B?K3hFc09OS3A3dm1YYzBQNHZBQmJodHRBZFAvVjBRWFZLaXFqNStnSXkrMUx2?=
- =?utf-8?B?YllYVHlMVlVDejljOTd1OVdQSXZvbDNzVzlPckJJM0hremROYkcxalFteVlo?=
- =?utf-8?B?K0djZnhJZk1GY0JFRjI2UFFPZnBleTE2ZDZBYldwck5CMmR3aW5ZRzhKeEEv?=
- =?utf-8?B?WlJya05ZOUh1OENSeXJmTFNhOE1nK2tBMUhCemNpdnJEdDNvb2Jyd3pLSnhH?=
- =?utf-8?B?UmZ3WUF5U2R5UjQwZDRkdnkveGVrQ1VTMEtZSXhNN2JhVDBGWTJJRWVKQVhq?=
- =?utf-8?B?MlBWeGxjQzN0em9jYWVMUzJPbU9HK0JQTktRZ3ozRVlLcHc1Yk01bUFnKzlt?=
- =?utf-8?B?Skcyb29STTJQWkxGVC94WWxLVjZGVmRScnJmT0x1RUlqQS9FeGFWa2dTV2Na?=
- =?utf-8?B?TDVjZWRRUThXSXpqMksvWnZvS0xwNlE4YWxTbERDUS9BUkMyUzlsMVlZSjBT?=
- =?utf-8?B?amE2ekg5VkZyWUpmb0grODh2azhWYnp2Ym1EeXk4N2VLVkNIOTdsc0tZcmFo?=
- =?utf-8?B?ZDFXOHhjbVZEV0lQb0o3Z3FxSU1VRHF1NDRSdm5FUG1TN2hCaENBdHQ5V3dj?=
- =?utf-8?B?bXgybzVzclMzUGNGZUJQYmgwbFlkVEZhclg3aUFKTkZVR0ZQZlRSb2VDekVB?=
- =?utf-8?B?SW85Z2VBNlVwSUl4ODJkeVpESmpiT2c2ZkNLb0xWbzF1emtjZ3Nhck1sVE5Z?=
- =?utf-8?B?NDhsbnlSZGZuaW1IQ3FYOHhiRXBXbDNUMHBzMmFNOGZEWFFmL082enFiYUlq?=
- =?utf-8?B?cWZ3V3lxRG5BeGMzOXJoU2pSSWZuUVFEZmdadHBkRlk5VEZmcmxPYmpvR25r?=
- =?utf-8?B?QXdKN0hsMmNETFJveUppQVJkeFBhbFdPWUI0MTYzTHRCazdTOFhTUHg5RUg1?=
- =?utf-8?B?VTFBcDRBSHFmcDFhWklUZGdOL1lNMXpsRlNyYlhrT0F4Y0xXdkNFdGg3aGsy?=
- =?utf-8?B?ZG9Hc2QwQUs4Q2Nmd0VDM1k3a3RsS0hrbzNEdi85ZWYwREo0R0E1YUVEQ0lK?=
- =?utf-8?B?TlZsWm83UGJPL2JZbnZBQ2hXVVpPNE5nbXVTNi9xQUJOVlM2SElkNFA2WDZT?=
- =?utf-8?B?RUVkVk5ScXRCNUtPbnUwazN4d3U4NC9xQkh2N1dSa3pRckIrYTN4TkZkb0ZN?=
- =?utf-8?B?TG9IYTJKVERqR21KM0FSZHBRZmlpM3ZXTGRydFZWaTYzOW9TQTZBcFlPVTdu?=
- =?utf-8?B?ejZBY1BhY0NkSXBmdCtHdGQ2UTdCVWt5NU93aHFqd3NybnNFQ0ZKRTdMWXZH?=
- =?utf-8?Q?s6YrUXyWeACM1rrBMBtFX2akE?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b5ff9cb-bb23-4702-0ae3-08dddafe7d32
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 06:47:51.5109
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 14UmC8777y27KOhNM3c9hm8T7b7/Tkth8LEqcfqUcVl+swpSonvg1FSdNdYzjDRK2YZrmd0Omqbkbkxccv2i+A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8116
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813214808.895654-1-robh@kernel.org>
+X-Proofpoint-GUID: ANMc3OxS9sQ_zLGESorF93XRfuIUbJej
+X-Proofpoint-ORIG-GUID: ANMc3OxS9sQ_zLGESorF93XRfuIUbJej
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODExMDA2OCBTYWx0ZWRfXwa51ncEj9b09
+ DzE4I5nxSf+LdeEZKG5A2vZrpILhydYVjOJP9OiZsBtv0FaW6GqrMKkgjMcMNZPWckCw/06H3Oi
+ kCIGXCdoyTWqksEOWAE7nYLBxhE7IxwdNoKWnz9wzbm+c5gdoasrXYRcDMDBAL6ZPGXsjPP0iCj
+ hG4OvLHhk6TC+rGuMV5BofCFKStIst2FnkT/iVw5s2txwdNzxLXU16ckoWY45kxBSXjCvwEjDBd
+ kHOMJqfSLRMzw1z1Ne42LJP22Aitj7BPJO6ST+4agAVv7IKsYNsR5Vi3b2Ey+6RV94trQACma/3
+ sfVb38gb5kTAvwSH8HiiXH7Q29aSABAgTjAjQJ3pKDRG1xizz5NuhljBJDfsJP7Z8wjTE12siea
+ eumeBQYC
+X-Authority-Analysis: v=2.4 cv=YMafyQGx c=1 sm=1 tr=0 ts=689d8799 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=8b9GpE9nAAAA:8 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8
+ a=3NaVR53663puj-g3OQgA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+ a=T3LWEMljR5ZiDmsYVIUa:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 clxscore=1015 priorityscore=1501 spamscore=0 suspectscore=0
+ adultscore=0 impostorscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508110068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_234759_165121_4F6D11A6 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250813_235212_011444_3F78FC8D 
+X-CRM114-Status: GOOD (  34.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,51 +143,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob:
-
-On 8/14/2025 2:32 PM, Chuan Liu via B4 Relay wrote:
-> [ EXTERNAL EMAIL ]
->
-> From: Chuan Liu <chuan.liu@amlogic.com>
->
-> Add indices for video encoder, demodulator and CVBS clocks.
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-
-
-Compared to the previous version, some clkids have been removed. Since I'm
-uncertain whether your Acked-by still applies, I've removed your tag in this
-revision. Apologies if this causes any inconvenience.
-
-
+On Wed, Aug 13, 2025 at 04:48:03PM -0500, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() and
+> of_reserved_mem_region_count() functions to handle "memory-region"
+> properties.
+> 
+> The error handling is a bit different in some cases. Often
+> "memory-region" is optional, so failed lookup is not an error. But then
+> an error in of_reserved_mem_lookup() is treated as an error. However,
+> that distinction is not really important. Either the region is available
+> and usable or it is not. So now, it is just
+> of_reserved_mem_region_to_resource() which is checked for an error.
+> 
+> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> Tested-by: Peng Fan <peng.fan@nxp.com> # i.MX93-11x11-EVK for imx_rproc.c
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->   include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h | 11 +++++++++++
->   1 file changed, 11 insertions(+)
->
-> diff --git a/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h b/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-> index 861a331963ac..b0fc549f53e3 100644
-> --- a/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-> +++ b/include/dt-bindings/clock/amlogic,s4-peripherals-clkc.h
-> @@ -232,5 +232,16 @@
->   #define CLKID_HDCP22_SKPCLK_SEL                222
->   #define CLKID_HDCP22_SKPCLK_DIV                223
->   #define CLKID_HDCP22_SKPCLK            224
-> +#define CLKID_CTS_ENCL_SEL             225
-> +#define CLKID_CTS_ENCL                 226
-> +#define CLKID_CDAC_SEL                 227
-> +#define CLKID_CDAC_DIV                 228
-> +#define CLKID_CDAC                     229
-> +#define CLKID_DEMOD_CORE_SEL           230
-> +#define CLKID_DEMOD_CORE_DIV           231
-> +#define CLKID_DEMOD_CORE               232
-> +#define CLKID_ADC_EXTCLK_IN_SEL                233
-> +#define CLKID_ADC_EXTCLK_IN_DIV                234
-> +#define CLKID_ADC_EXTCLK_IN            235
->
->   #endif /* _DT_BINDINGS_CLOCK_AMLOGIC_S4_PERIPHERALS_CLKC_H */
->
-> --
-> 2.42.0
->
->
+> v4:
+>  - Rebase on v6.17-rc1. qcom_q6v5_pas.c conflicted needing s/adsp/pas/
+> 
+> v3:
+>  - Rebase on v6.16-rc1. Move TI K3 changes to new common file.
+>  - Fix double increment of "i" in xlnx_r5
+> 
+> v2:
+>  - Use strstarts instead of strcmp for resource names as they include
+>    the unit-address.
+>  - Drop the unit-address from resource name for imx and st drivers
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c        | 45 ++++++--------
+>  drivers/remoteproc/imx_rproc.c            | 68 ++++++++------------
+>  drivers/remoteproc/qcom_q6v5_adsp.c       | 24 +++-----
+>  drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++------------
+>  drivers/remoteproc/qcom_q6v5_pas.c        | 75 +++++++++--------------
+>  drivers/remoteproc/qcom_q6v5_wcss.c       | 25 +++-----
+>  drivers/remoteproc/qcom_wcnss.c           | 23 +++----
+>  drivers/remoteproc/rcar_rproc.c           | 36 +++++------
+>  drivers/remoteproc/st_remoteproc.c        | 41 ++++++-------
+>  drivers/remoteproc/stm32_rproc.c          | 44 ++++++-------
+>  drivers/remoteproc/ti_k3_common.c         | 28 ++++-----
+>  drivers/remoteproc/ti_k3_dsp_remoteproc.c |  2 +-
+>  drivers/remoteproc/ti_k3_r5_remoteproc.c  |  2 +-
+>  drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++---------
+>  14 files changed, 204 insertions(+), 320 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/qcom_q6v5_adsp.c b/drivers/remoteproc/qcom_q6v5_adsp.c
+> index 94af77baa7a1..a5b7cbb8fe07 100644
+> --- a/drivers/remoteproc/qcom_q6v5_adsp.c
+> +++ b/drivers/remoteproc/qcom_q6v5_adsp.c
+> @@ -625,26 +625,20 @@ static int adsp_init_mmio(struct qcom_adsp *adsp,
+>  
+>  static int adsp_alloc_memory_region(struct qcom_adsp *adsp)
+>  {
+> -	struct reserved_mem *rmem = NULL;
+> -	struct device_node *node;
+> -
+> -	node = of_parse_phandle(adsp->dev->of_node, "memory-region", 0);
+> -	if (node)
+> -		rmem = of_reserved_mem_lookup(node);
+> -	of_node_put(node);
+> +	int ret;
+> +	struct resource res;
+>  
+> -	if (!rmem) {
+> +	ret = of_reserved_mem_region_to_resource(adsp->dev->of_node, 0, &res);
+> +	if (!ret) {
+>  		dev_err(adsp->dev, "unable to resolve memory-region\n");
+> -		return -EINVAL;
+> +		return ret;
+
+This looks strange. Shouldn't it be `if (ret) {` ?
+
+>  	}
+>  
+> -	adsp->mem_phys = adsp->mem_reloc = rmem->base;
+> -	adsp->mem_size = rmem->size;
+> -	adsp->mem_region = devm_ioremap_wc(adsp->dev,
+> -				adsp->mem_phys, adsp->mem_size);
+> +	adsp->mem_phys = adsp->mem_reloc = res.start;
+> +	adsp->mem_size = resource_size(&res);
+> +	adsp->mem_region = devm_ioremap_resource_wc(adsp->dev, &res);
+>  	if (!adsp->mem_region) {
+> -		dev_err(adsp->dev, "unable to map memory region: %pa+%zx\n",
+> -			&rmem->base, adsp->mem_size);
+> +		dev_err(adsp->dev, "unable to map memory region: %pR\n", &res);
+>  		return -EBUSY;
+>  	}
+>  
+> diff --git a/drivers/remoteproc/qcom_q6v5_mss.c b/drivers/remoteproc/qcom_q6v5_mss.c
+> index 0c0199fb0e68..0fea5f91dd1c 100644
+> --- a/drivers/remoteproc/qcom_q6v5_mss.c
+> +++ b/drivers/remoteproc/qcom_q6v5_mss.c
+> @@ -1961,8 +1961,8 @@ static int q6v5_init_reset(struct q6v5 *qproc)
+>  static int q6v5_alloc_memory_region(struct q6v5 *qproc)
+>  {
+>  	struct device_node *child;
+> -	struct reserved_mem *rmem;
+> -	struct device_node *node;
+> +	struct resource res;
+> +	int ret;
+>  
+>  	/*
+>  	 * In the absence of mba/mpss sub-child, extract the mba and mpss
+> @@ -1970,71 +1970,49 @@ static int q6v5_alloc_memory_region(struct q6v5 *qproc)
+>  	 */
+>  	child = of_get_child_by_name(qproc->dev->of_node, "mba");
+>  	if (!child) {
+> -		node = of_parse_phandle(qproc->dev->of_node,
+> -					"memory-region", 0);
+> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 0, &res);
+>  	} else {
+> -		node = of_parse_phandle(child, "memory-region", 0);
+> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
+>  		of_node_put(child);
+>  	}
+>  
+> -	if (!node) {
+> -		dev_err(qproc->dev, "no mba memory-region specified\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	rmem = of_reserved_mem_lookup(node);
+> -	of_node_put(node);
+> -	if (!rmem) {
+> +	if (ret) {
+>  		dev_err(qproc->dev, "unable to resolve mba region\n");
+> -		return -EINVAL;
+> +		return ret;
+>  	}
+>  
+> -	qproc->mba_phys = rmem->base;
+> -	qproc->mba_size = rmem->size;
+> +	qproc->mba_phys = res.start;
+> +	qproc->mba_size = resource_size(&res);
+>  
+>  	if (!child) {
+> -		node = of_parse_phandle(qproc->dev->of_node,
+> -					"memory-region", 1);
+> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 1, &res);
+>  	} else {
+>  		child = of_get_child_by_name(qproc->dev->of_node, "mpss");
+> -		node = of_parse_phandle(child, "memory-region", 0);
+> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
+>  		of_node_put(child);
+>  	}
+>  
+> -	if (!node) {
+> -		dev_err(qproc->dev, "no mpss memory-region specified\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	rmem = of_reserved_mem_lookup(node);
+> -	of_node_put(node);
+> -	if (!rmem) {
+> +	if (ret) {
+>  		dev_err(qproc->dev, "unable to resolve mpss region\n");
+> -		return -EINVAL;
+> +		return ret;
+>  	}
+>  
+> -	qproc->mpss_phys = qproc->mpss_reloc = rmem->base;
+> -	qproc->mpss_size = rmem->size;
+> +	qproc->mpss_phys = qproc->mpss_reloc = res.start;
+> +	qproc->mpss_size = resource_size(&res);
+>  
+>  	if (!child) {
+> -		node = of_parse_phandle(qproc->dev->of_node, "memory-region", 2);
+> +		ret = of_reserved_mem_region_to_resource(qproc->dev->of_node, 2, &res);
+>  	} else {
+>  		child = of_get_child_by_name(qproc->dev->of_node, "metadata");
+> -		node = of_parse_phandle(child, "memory-region", 0);
+> +		ret = of_reserved_mem_region_to_resource(child, 0, &res);
+>  		of_node_put(child);
+>  	}
+>  
+> -	if (!node)
+> +	if (ret)
+>  		return 0;
+
+Shouldn't we differentiate between an absent region (OK) and an error
+during parse.
+
+>  
+> -	rmem = of_reserved_mem_lookup(node);
+> -	if (!rmem) {
+> -		dev_err(qproc->dev, "unable to resolve metadata region\n");
+> -		return -EINVAL;
+> -	}
+> -
+> -	qproc->mdata_phys = rmem->base;
+> -	qproc->mdata_size = rmem->size;
+> +	qproc->mdata_phys = res.start;
+> +	qproc->mdata_size = resource_size(&res);
+>  
+>  	return 0;
+>  }
+> diff --git a/drivers/remoteproc/qcom_q6v5_pas.c b/drivers/remoteproc/qcom_q6v5_pas.c
+> index 02e29171cbbe..b3f7209289a6 100644
+> --- a/drivers/remoteproc/qcom_q6v5_pas.c
+> +++ b/drivers/remoteproc/qcom_q6v5_pas.c
+> @@ -121,7 +121,7 @@ struct qcom_pas {
+>  
+>  static void qcom_pas_segment_dump(struct rproc *rproc,
+>  				  struct rproc_dump_segment *segment,
+> -				  void *dest, size_t offset, size_t size)
+> +		       void *dest, size_t offset, size_t size)
+
+Irrelevant? (and two next chunks)
+
+>  {
+>  	struct qcom_pas *pas = rproc->priv;
+>  	int total_offset;
+> @@ -149,7 +149,7 @@ static void qcom_pas_minidump(struct rproc *rproc)
+>  }
+>  
+>  static int qcom_pas_pds_enable(struct qcom_pas *pas, struct device **pds,
+> -			       size_t pd_count)
+> +			   size_t pd_count)
+>  {
+>  	int ret;
+>  	int i;
+> @@ -176,7 +176,7 @@ static int qcom_pas_pds_enable(struct qcom_pas *pas, struct device **pds,
+>  };
+>  
+>  static void qcom_pas_pds_disable(struct qcom_pas *pas, struct device **pds,
+> -				 size_t pd_count)
+> +			     size_t pd_count)
+>  {
+>  	int i;
+>  
+
+-- 
+With best wishes
+Dmitry
 
