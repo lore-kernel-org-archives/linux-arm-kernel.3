@@ -4,66 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88780CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036D1CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCkNZjlpL9iQI0iTMwF0ACn6X86SzcrWkFRS8szsJ0c=; b=uWP+akYFC8KPZ0taI8VeZRf8Kw
-	rw5fz/u/pfQT6/TW6++vArdfm/hq5L9y1orozaonvrtRezNKAtgvfduXrD69HZl4HapTcyv/7I+Zq
-	kcvG4cISfkKI/0YXDXvaHoMClEUEB0bG+pV1SIlBwqDx+P75FsXf0bvgJjVH05PCtM7u91lWSI/yb
-	KSVi11SdWg82FnJj9hzNSowlFMhWknmZtLtom5icvzIU5y4bYpgjAj8rU60LTxEX/vgCcGhurweNV
-	YGFyCTUHJWqOGWh7DnUaQaVDxtQbmHxOD7RYAgMPtjQb+TEzAiLplBwETN9c2S1gz1XMHi4LE6ZcO
-	x4i1F4Hg==;
+	bh=rIUB7/26Aju9zakGQ2NgjLnDhWemAPhuZaJm/Bxwmh8=; b=TsDINdrTfng02/M1vXrr3QVugU
+	BPVlZATXiBqvOTAB4FHIsU+/luKqdf2eQmTzm8fA151dc3Glmbz853iN7j7a2Kue3YrW+SmI1Hiep
+	Rth3MwftgdOjdoAYfRPMJTNGbVlinMdbIo4DlwzgMi9cjPX8QrEEPcSBLzq6bMs068pi4ydhZBhqn
+	19wUlfmhtVqVwJz8TLCri8sYjmX4wg+vvINBexa6xoiZST/hC/G6AtC42zuAyZXnb+QSWoq/xkzz1
+	iVCIM/+PbrW2uUYI4gxCDPDUxL9LWGfjJHLfNhh6YS0/5mmMRaNjBYmMCTpW9Uj4Jj8JEzA+KorS3
+	CpPV/2PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umife-00000000xHf-0etC;
-	Fri, 15 Aug 2025 00:51:50 +0000
-Received: from mail.adomerle.pw ([185.125.100.172])
+	id 1umiiB-00000000xeJ-2zFk;
+	Fri, 15 Aug 2025 00:54:27 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umhiv-00000000oRB-31Jt;
-	Thu, 14 Aug 2025 23:51:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; s=202506r; d=adomerle.pw; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1755215449; bh=LCkNZjlpL9iQI0iTMwF0ACn
-	6X86SzcrWkFRS8szsJ0c=; b=nqH63Q/Su04hnBrnLTMiVzH8SVAUrvqLiZAsDhJx42AzcAOpHd
-	ibNmMkpmt6qSxw+8Wdwi+K4PM3hN2/0y/xve+n/d21XgDXUnJB500dDqOZEBVkWS39oubtr9gvS
-	ZsG3X7S2mrbLN9Ubi8THJE24eXIJgoy5+4TwM4ZWF7nFttlr+fal97X6ebne5f2dIvsGMaYE0Fc
-	tJO3sZfBdZ4gduRoqN0qN2hyE2O9WNQ7gv1EsrerlTPOhB1J64HQCJdlw/AkbTWlc65HM7TTxXv
-	Q9+Rj+gfCGVhNQk0a+hEXeFlSnh8xnPnE6M9lbnbE1CLrnKRucCT3CZrWdQZ+Lo2m9A==;
-DKIM-Signature: v=1; a=ed25519-sha256; s=202506e; d=adomerle.pw; c=relaxed/relaxed;
-	h=Message-ID:Date:Subject:To:From; t=1755215449; bh=LCkNZjlpL9iQI0iTMwF0ACn
-	6X86SzcrWkFRS8szsJ0c=; b=vnhsBWzeX8Y51MSoVXgusOp2e2+f4g7uTMiKazSjqIBjUGua3B
-	CRfuCfogbARyjOoCll0PDe97BhPYzXuFLxCQ==;
-From: Arseniy Velikanov <me@adomerle.pw>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	~postmarketos/upstreaming@lists.sr.ht,
-	Arseniy Velikanov <me@adomerle.pw>
-Subject: [PATCH v1 2/2] phy: mediatek: tphy: Add software role switching
-Date: Fri, 15 Aug 2025 03:48:25 +0400
-Message-ID: <20250814234825.810-2-me@adomerle.pw>
+	id 1umh7c-00000000lW8-49zk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 23:12:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t5ECp8o7rucZz6pLPFGv4+juRDTjbqPwhd9FUQ5RQJf8fPvm6XEzKNDI/AzFTdQVI0EUF4US3K5vqDvKPVe0Ab7Vb7Izkp+EZGQdLHrmDElfgS0W4NLk+fHk1IwvtgWoXQ2ykTnihUAuDuNxGZrLyViB/1A+RDfKcbyAgbOUbNUwhlLBHoroa6mrItWdooMRklv7uGhJkADk5F1bwvmIbzhxKcwDHNUvyfz0pYRGvBsroNVCrw/HQHhS3bzWLbQfyJqj+OE4y5tBohpMY2nslXvCCpDp7Mz8fKEYNSgVyTUxsnKNjONPoOL9fsT4XjRrCD8uYIGsxpSv0+WIBducNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rIUB7/26Aju9zakGQ2NgjLnDhWemAPhuZaJm/Bxwmh8=;
+ b=NR/j/nweM1B02we+0ToSbhFpDf7tCmVTB2a7kX1AQIs+ihZHyt8pHyqgT5N9wXHWnxyoiloJ2zs07m5/KGqF4mEOxDferxrbkVcuaXX8msJz6SGVZ+NmiNb5mRJvhz35RJ5/uL3GzJjNP2K9g2DLGO583bPYyXPiJCf8scTkmw4n7/LyE0ayRbOK+9ctENhVhk2xlVoLMsg1VACKvclzfgfn9Nlt9Ey9C5mXs47cBcrTVG2KMpzIYEXAtAha+v1vIW1cBmv8Y7yoBEhjC4oqz/UAcf8iHT8EcykNDzzrEGv+vfsn/VwO93L2EwFeeJ4oa4I9iMZ/1IN94fe5RI0Dwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rIUB7/26Aju9zakGQ2NgjLnDhWemAPhuZaJm/Bxwmh8=;
+ b=Y2+F9oHXnPy1ON+MseE2tplh1pyy169DKewZrmHmZhRm5TPuATUWOj5Y96sS25WcMKKRYtjlJ7uSWDFWDMEsP2SCPOp1Y+jBVaCYK+Zo8xKFEHZClvImCyQECWuk6ibyLqz1ph54CF85g2v1JONsqh1ZsUg/brdJBPZt8qKFQqmZs40rq9I8zSkbjyEJg/3zTxJtCqGS+tily4jo3pcVxrAoNrV9DVDfzIe9FWRHyYSDldapK98d31balUEU9RwQxL03NLIl1DBhx62Pa07HehlbLO7uxNLTb1bvc6I7zXbCOUxlGTNMBy1aU1st01s0/hplPJ20NZMf6eHw8WKpZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by PA4PR08MB6032.eurprd08.prod.outlook.com (2603:10a6:102:e4::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Thu, 14 Aug
+ 2025 23:12:29 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8989.018; Thu, 14 Aug 2025
+ 23:12:28 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Subject: [PATCH 13/13] spi: airoha: avoid reading flash page settings from SNFI registers during driver startup
+Date: Fri, 15 Aug 2025 02:12:10 +0300
+Message-ID: <20250814231210.4174427-14-mikhail.kshevetskiy@iopsys.eu>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250814234825.810-1-me@adomerle.pw>
-References: <20250814234825.810-1-me@adomerle.pw>
-MIME-Version: 1.0
+In-Reply-To: <20250814231210.4174427-1-mikhail.kshevetskiy@iopsys.eu>
+References: <20250814231210.4174427-1-mikhail.kshevetskiy@iopsys.eu>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0190.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ca::15) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PA4PR08MB6032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34bea57a-9a16-4b72-949b-08dddb880a18
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?38Qorezftb7AaVJr50pQyaOHpQwZN4hWJKIGja4K0TeiX0ZXhHlWqebTC6f/?=
+ =?us-ascii?Q?bfcn799xct4qn3Ht2m7ervzg08+ijRxB7Sn4g/cFrcqbOlkbEHlRMOUlQVon?=
+ =?us-ascii?Q?cz+s/7ur6QbkGarG1cwFE5taU1u3LjUKGpiE0vU6x0c276wcYAg5ErEpx1LC?=
+ =?us-ascii?Q?8R4+o8GKdCmUBSlz+A5Wh9OuM4myTsx/5UqaysrICOj0LSNuhlNUQlZS1b5O?=
+ =?us-ascii?Q?W5Vqi5D0QAJCqxoB44bi0RUSh2YRt3862DUoyyFohmrY8Opm/XvHgmD7savr?=
+ =?us-ascii?Q?HftGcwKhtLMIgkyyFrlVXkOYdHji47ozPdkfKNES3kDvq1//PxbXNx4VvIjy?=
+ =?us-ascii?Q?zS9oHe9soX2RaTla0Pafw7UNhwgRWenntbNli4/AAKQvCwuyMUxfD3bHKyKL?=
+ =?us-ascii?Q?zKnaBjhq0TV9HWqOY3v9SGwYE341P4JbPzPIU24ROzJaM4UdbNv2mCx59Dun?=
+ =?us-ascii?Q?kObmqlWKfclbW3Mov4YvwRfLG003w4yjkM9nKaHidc4cngfFJoG8r98L0UYW?=
+ =?us-ascii?Q?NpjHiBqrDEaVfGztAOo+oWlZZygIPECTVpGIkshztabyd45LTSALoCutRFIV?=
+ =?us-ascii?Q?yXZF0WKsoE8G8ng4TAF/Ac4CktNWN83PLfIXwIetq0HcE/aIhAoj0SnmcFtX?=
+ =?us-ascii?Q?JCJWU4foMnsyAwKHHPTi1PmXtl+t7UM9QCJIzqPzihuGmtYoyQRJhoP65qEG?=
+ =?us-ascii?Q?+NzyOVHO8JFov5zteoaGU/4CJwhJlmgnV1aTP64sAsU3Te8KR45s6RLNFp5O?=
+ =?us-ascii?Q?0VS0wXWS66TdwJ/n3JfcRSy9wCtyq0OBJdluEQkjfmTWe3ukUkalts7sJeim?=
+ =?us-ascii?Q?4xlYDzkuWhoPY1W3vTbZB2Nhj7UeGoXTviusxPAj5N1/qKvICca2V7FYV0cj?=
+ =?us-ascii?Q?kE/MuWEM8V9HzdgubXJ4UoOwNBEnez/SADgnHu6eqm5YKIIVC9//oKHZ0ePd?=
+ =?us-ascii?Q?Iv0FLg3C7a6/NrbUIKG0BGiUrRccbj1lLiVRaNVAbZ6yUEpszKMYCBlnnkgq?=
+ =?us-ascii?Q?dlBp6KianczO25K267lrjifEFa6MmPYSEy7iY6n3onPyglyNliS1KLKIA3sd?=
+ =?us-ascii?Q?m8clzcBjk1mi2rRmfa0YZ5DvY6X4y/cW6ekk8OJj/u4fzSMmENRYWNe7/ubp?=
+ =?us-ascii?Q?mR1aSlomOfodsUEQVZe8Btm8NfBz6nkeCUIvpVvO6JYDAlEdV04izD/KWf9U?=
+ =?us-ascii?Q?C5kNHWpTy7+TfXtCKiGLJBovat6pT2rcH8vMdubpWqTOPx+PInmPyTVpC66t?=
+ =?us-ascii?Q?ksjSZMEJCZDKvRRZQrAhSDh4HXHKEvq2XdV/hPjxIYhoEpcj6XzxEUDgVBod?=
+ =?us-ascii?Q?Wof32Jy4Cu4MRv3cDYv7Hv/SqtiaqiRKMgQjqLYFKeVKHrjSlMiPe2tGy665?=
+ =?us-ascii?Q?WnRRJzKhwXWja64SXV6uKkM/283YEGKl49eWVRm7HVFutM0Gxra+kTlOUcOi?=
+ =?us-ascii?Q?lmkB0P2JtxxbvMD9oBRCgBxNoPUJpFGorgkdge1XGdEVzU9TwnquKA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?b3WJQ0JF+dDmkutdwSjjhcpDLe+9wyFRNIjqL2YcdpY5BoccHIlli2xThJLA?=
+ =?us-ascii?Q?ox/tEjZr/BRYOE4/SvJ0KQwvPz0jI1t3ArHg7UVDzh+38+6m0rsNE3bGIVLQ?=
+ =?us-ascii?Q?ruIPooZCcpmBCQfCLeojb+cL/wuU+Z319BSsFmeaJlmzXUmKebfjjtCwBCD5?=
+ =?us-ascii?Q?rjE/YEVjQagN47avlQmrLrKR9qTcbpy6pBfWpKuprwDih7LzzJGErL+mOFKe?=
+ =?us-ascii?Q?dpkRcXsISK7m80Un/arviBsqoUDSjQ1ahz68YiqHsamdScOtsMMijYW6fTV/?=
+ =?us-ascii?Q?kfmpTcnMDHnU01pJ572EJVp1lDGCaZ+ulwsNhzyBzWeSTKrLgzVG7FoiLIdr?=
+ =?us-ascii?Q?bD0DT13+7w/3Gf2y6JK/IH/CN68TKl2VQt1nn4yu0UYHQbrgH4WcWQTWD+sw?=
+ =?us-ascii?Q?gvpYaQnq/R/lGMyoAk+nZ0U71N1NgHedHWuUZqMX0XYHjbnfpV1UeJCLDLpa?=
+ =?us-ascii?Q?r25iCDzudlmZhskWxURbFzc8iIfD2xdM1SfX6TBCRelJPHSWvAayOHImofxk?=
+ =?us-ascii?Q?8j1VRXXV1tzJSFeptKev+oSbkaIg1eG/5yplW32OMcJbBBKCAX3ZVlcoMaXK?=
+ =?us-ascii?Q?u/0b+R81vhTy8UdiTmEViZVDZVw+AEqf80+XnDdwEfCDD9y8JslXodwsu594?=
+ =?us-ascii?Q?NAjDzFkEbbUCDZ2ohCPs3hLlBN5t3F4LoX1s06bOQoPz7UQ8VAsriBg1acOd?=
+ =?us-ascii?Q?dRULsMxcTmry32AtuV8RdAQ4JNWe6Fqk85hTcDLy+xZIv4Xkp/qxs78RLBYq?=
+ =?us-ascii?Q?kCvnSvnL/RqkMNJEdH73uQp851Y7Zl9PGCwsJG42Y+pmTA0/pzyf9KyPZirf?=
+ =?us-ascii?Q?6Fk8dp2XQDQhbdinOmflNtZRKP+baSNkF9Z6mq6KLTy32hSyeYP+tMN27UK1?=
+ =?us-ascii?Q?/Y/abeQczTPTqhTzk414FpXW/8eoR+NKv6UQYEz6XiE5+WPUJ53TH2BAaRfL?=
+ =?us-ascii?Q?p4MwJFoFxbl1Zo1FIdNfoiX+cbkevcx/cTvI6rA2YeV/koEzSMdkO5KldA1c?=
+ =?us-ascii?Q?MmW1Vq3ZPewX8p5gEwZXhUJkGlmRQHJj4rh5j79q89PU5Fy8THa5Go9RySyZ?=
+ =?us-ascii?Q?xh91Ofajx4N8OOPBjs6Zr7iNUwsXxl1s+UjrIN6nAdkRVsuOCB6XLMlF+gZ8?=
+ =?us-ascii?Q?LuP5gl+LysUnGwvZxFeQQvI/T6qfedRkxmMksylrDolm0jR7djIgQq3v2EJx?=
+ =?us-ascii?Q?Qf3imHTUE47d1WjxWlS2gACnP/ITfMmWiBEl4vkg16uxE6OU3Jw3m2laOIQp?=
+ =?us-ascii?Q?YPAzJ3C0h8vS0Qim2hz6a3O/cT5RcJnak+mPrnwtO+YhvyykyMvejsF+dqx5?=
+ =?us-ascii?Q?ArAKqMQr0siIAecW6LaqNOb0uNDH1eoIKVx+lm/CkVlq2fHkh/Bd5YulZz62?=
+ =?us-ascii?Q?XCJOz3zu3EzKbe5Wq2y9Yvmh0Sx3aeD/M/Wq319t/pyJ8Mv0UXIihuILw8Uy?=
+ =?us-ascii?Q?e17mBDQEWl1KpaQ+BjLicaFa4Bw33Wlp+BSJR3Dlyy4wS7Is8C4XsuU1oqir?=
+ =?us-ascii?Q?l6I+k9BKCw4OczbuHywEBNGVr8e58VAJ4okoMi/OxEwkTHrNj9UpZFLpFF1w?=
+ =?us-ascii?Q?ljSCjQ1iZtNiSKTHXoZrZvn+etJQ8l9Yql1QsosoZ053//TOHL2dwW20oIK4?=
+ =?us-ascii?Q?dQ=3D=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34bea57a-9a16-4b72-949b-08dddb880a18
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 23:12:28.9143
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eFpt0WGgPc1PAWanl5T7i42AQ19l+m2fAc+LTXJ+jiOKb+/8FH4zUMr6GF2igtSJhf9nJSplhOTlUoz8MdgOASBa0WHrvb51Oc1Woxy9ixY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_165109_913449_1A1E2AD3 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250814_161237_036199_FA227E66 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,266 +162,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MediaTek USB T-PHY has broken role switching on (likely) all mobile SoCs.
-Known affected socs are: MT6735, MT6757, MT6761, MT6765, MT6768, MT6771,
-MT6785, MT6789.
+The spinand driver do 3 type of dirmap requests:
+ * read/write whole flash page without oob
+   (offs = 0, len = page_size)
+ * read/write whole flash page including oob
+   (offs = 0, len = page_size + oob_size)
+ * read/write oob area only
+   (offs = page_size, len = oob_size)
 
-The downstream kernel manually controls the PHY mode by writing
-"test mode" FORCE regs. Setting all these regs fixes device/host modes, but
-breaks dual-role functionality. As a workaround we use workqueue that
-periodically checks the USB role and changes the PHY mode accordingly.
+The trick is:
+ * read/write a single "sector"
+ * set a custom sector size equal to offs + len. It's a bit safer to
+   rounded up "sector size" value 64.
+ * set the transfer length equal to custom sector size
 
-To address this issue only on affected SoCs, we introduce a new
-device-tree property `mediatek,software-role-switch`. This ensures
-the workaround is applied only to broken hardware while leaving unaffected
-devices (like Chromebooks) untouched.
+And it works!
 
-Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
+Thus we can remove a dirty hack that reads flash page settings from
+SNFI registers during driver startup. Also airoha_snand_adjust_op_size()
+function becomes unnecessary.
+
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 ---
- drivers/phy/mediatek/phy-mtk-tphy.c | 148 ++++++++++++++++++++++++++++
- 1 file changed, 148 insertions(+)
+ drivers/spi/spi-airoha-snfi.c | 136 ++++++----------------------------
+ 1 file changed, 21 insertions(+), 115 deletions(-)
 
-diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
-index f6504e0ecd1a..472859ec929c 100644
---- a/drivers/phy/mediatek/phy-mtk-tphy.c
-+++ b/drivers/phy/mediatek/phy-mtk-tphy.c
-@@ -18,6 +18,9 @@
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-+#include <linux/usb/role.h>
-+#include <linux/usb/otg.h>
-+#include <linux/workqueue.h>
- 
- #include "phy-mtk-io.h"
- 
-@@ -111,11 +114,18 @@
- 
- #define U3P_U2PHYDTM1		0x06C
- #define P2C_RG_UART_EN			BIT(16)
-+#define P2C_FORCE_IDPULLUP	BIT(8)
- #define P2C_FORCE_IDDIG		BIT(9)
-+#define P2C_FORCE_AVALID	BIT(10)
-+#define P2C_FORCE_SESSEND	BIT(12)
-+#define P2C_FORCE_VBUSVALID	BIT(13)
-+
- #define P2C_RG_VBUSVALID		BIT(5)
- #define P2C_RG_SESSEND			BIT(4)
-+#define P2C_RG_BVALID			BIT(3)
- #define P2C_RG_AVALID			BIT(2)
- #define P2C_RG_IDDIG			BIT(1)
-+#define P2C_RG_IDPULLUP			BIT(0)
- 
- #define U3P_U2PHYBC12C		0x080
- #define P2C_RG_CHGDT_EN		BIT(0)
-@@ -317,6 +327,8 @@ struct mtk_phy_instance {
- 		struct u3phy_banks u3_banks;
- 	};
- 	struct clk_bulk_data clks[TPHY_CLKS_CNT];
-+	struct delayed_work dr_work;
-+	struct usb_role_switch *role_switch;
- 	u32 index;
- 	u32 type;
- 	struct regmap *type_sw;
-@@ -326,14 +338,17 @@ struct mtk_phy_instance {
- 	u32 efuse_intr;
- 	u32 efuse_tx_imp;
- 	u32 efuse_rx_imp;
-+	int current_role;
- 	int eye_src;
- 	int eye_vrt;
- 	int eye_term;
- 	int intr;
- 	int discth;
- 	int pre_emphasis;
-+	int sw_get_retries;
- 	bool bc12_en;
- 	bool type_force_mode;
-+	bool software_role_switch;
+diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+index a96c87f01f52..3bafceaf749c 100644
+--- a/drivers/spi/spi-airoha-snfi.c
++++ b/drivers/spi/spi-airoha-snfi.c
+@@ -223,13 +223,6 @@ struct airoha_snand_ctrl {
+ 	struct regmap *regmap_ctrl;
+ 	struct regmap *regmap_nfi;
+ 	struct clk *spi_clk;
+-
+-	struct {
+-		size_t page_size;
+-		size_t sec_size;
+-		u8 sec_num;
+-		u8 spare_size;
+-	} nfi_cfg;
  };
  
- struct mtk_tphy {
-@@ -818,12 +833,118 @@ static void u2_phy_pll_26m_set(struct mtk_tphy *tphy,
- 			 P2R_RG_U2PLL_FRA_EN | P2R_RG_U2PLL_REFCLK_SEL);
+ static int airoha_snand_set_fifo_op(struct airoha_snand_ctrl *as_ctrl,
+@@ -488,56 +481,6 @@ static int airoha_snand_nfi_init(struct airoha_snand_ctrl *as_ctrl)
+ 				  SPI_NFI_ALL_IRQ_EN, SPI_NFI_AHB_DONE_EN);
  }
  
-+static void u2_phy_instance_role_set(struct mtk_phy_instance *instance,
-+				     int role)
-+{
-+	struct u2phy_banks *u2_banks = &instance->u2_banks;
-+	void __iomem *com = u2_banks->com;
-+
-+	instance->current_role = role;
-+
-+	/* end session before role switch */
-+	mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
-+	mdelay(5);
-+	mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_SESSEND);
-+
-+	switch (role) {
-+	case USB_ROLE_DEVICE:
-+		dev_dbg(&instance->phy->dev, "set device role\n");
-+		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
-+		break;
-+	case USB_ROLE_HOST:
-+		dev_dbg(&instance->phy->dev, "set host role\n");
-+		mtk_phy_clear_bits(com + U3P_U2PHYDTM1, P2C_RG_IDDIG);
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
-+static void u2_phy_role_switch_work(struct work_struct *work)
-+{
-+	struct mtk_phy_instance *instance =
-+		container_of(work, struct mtk_phy_instance, dr_work.work);
-+	int role;
-+
-+	if (IS_ERR_OR_NULL(instance->role_switch))
-+		instance->role_switch = usb_role_switch_get(&instance->phy->dev);
-+
-+	if (IS_ERR_OR_NULL(instance->role_switch)) {
-+		if (instance->sw_get_retries >= 10) {
-+			dev_warn(&instance->phy->dev, "failed to get role switch\n");
-+			return;
-+		}
-+
-+		instance->sw_get_retries += 1;
-+		schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(500));
-+	}
-+
-+	role = usb_role_switch_get_role(instance->role_switch);
-+
-+	if (instance->current_role == role)
-+		goto reschedule_work;
-+
-+	u2_phy_instance_role_set(instance, role);
-+
-+reschedule_work:
-+	schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
-+}
-+
-+static int u2_phy_software_role_switch_init(struct mtk_phy_instance *instance)
-+{
-+	struct fwnode_handle *ep, *remote_ep, *usb_fwnode;
-+	struct device *usb_dev;
-+	int mode;
-+
-+	instance->sw_get_retries = 0;
-+
-+	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(&instance->phy->dev),
-+					     0,
-+					     0,
-+					     FWNODE_GRAPH_ENDPOINT_NEXT);
-+	if (!ep)
-+		return -ENODEV;
-+
-+	remote_ep = fwnode_graph_get_remote_endpoint(ep);
-+	fwnode_handle_put(ep);
-+	if (!remote_ep)
-+		return -ENODEV;
-+
-+	usb_fwnode = fwnode_graph_get_port_parent(remote_ep);
-+	fwnode_handle_put(remote_ep);
-+
-+	if (!usb_fwnode)
-+		return -ENODEV;
-+
-+	usb_dev = bus_find_device_by_fwnode(&platform_bus_type, usb_fwnode);
-+	fwnode_handle_put(usb_fwnode);
-+	if (!usb_dev)
-+		return -ENODEV;
-+
-+	mode = usb_get_role_switch_default_mode(usb_dev);
-+	if (mode == USB_DR_MODE_HOST)
-+		u2_phy_instance_role_set(instance, USB_ROLE_HOST);
-+	else
-+		u2_phy_instance_role_set(instance, USB_ROLE_DEVICE);
-+
-+	INIT_DELAYED_WORK(&instance->dr_work, u2_phy_role_switch_work);
-+
-+	return 0;
-+}
-+
- static void u2_phy_instance_init(struct mtk_tphy *tphy,
- 	struct mtk_phy_instance *instance)
+-static int airoha_snand_nfi_config(struct airoha_snand_ctrl *as_ctrl)
+-{
+-	int err;
+-	u32 val;
+-
+-	err = regmap_write(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
+-			   SPI_NFI_FIFO_FLUSH | SPI_NFI_RST);
+-	if (err)
+-		return err;
+-
+-	/* auto FDM */
+-	err = regmap_clear_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
+-				SPI_NFI_AUTO_FDM_EN);
+-	if (err)
+-		return err;
+-
+-	/* HW ECC */
+-	err = regmap_clear_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
+-				SPI_NFI_HW_ECC_EN);
+-	if (err)
+-		return err;
+-
+-	/* DMA Burst */
+-	err = regmap_set_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
+-			      SPI_NFI_DMA_BURST_EN);
+-	if (err)
+-		return err;
+-
+-	/* sec num */
+-	val = FIELD_PREP(SPI_NFI_SEC_NUM, as_ctrl->nfi_cfg.sec_num);
+-	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
+-				 SPI_NFI_SEC_NUM, val);
+-	if (err)
+-		return err;
+-
+-	/* enable cust sec size */
+-	err = regmap_set_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE,
+-			      SPI_NFI_CUS_SEC_SIZE_EN);
+-	if (err)
+-		return err;
+-
+-	/* set cust sec size */
+-	val = FIELD_PREP(SPI_NFI_CUS_SEC_SIZE,
+-			 as_ctrl->nfi_cfg.sec_size +
+-			 as_ctrl->nfi_cfg.spare_size);
+-	return regmap_update_bits(as_ctrl->regmap_nfi,
+-				  REG_SPI_NFI_SECCUS_SIZE,
+-				  SPI_NFI_CUS_SEC_SIZE, val);
+-}
+-
+ static bool airoha_snand_is_page_ops(const struct spi_mem_op *op)
  {
- 	struct u2phy_banks *u2_banks = &instance->u2_banks;
- 	void __iomem *com = u2_banks->com;
- 	u32 index = instance->index;
-+	int ret;
-+
-+	if (instance->software_role_switch) {
-+		ret = u2_phy_software_role_switch_init(instance);
-+		if (ret)
-+			dev_warn(&instance->phy->dev, "failed to initialize role switching\n");
-+	}
- 
- 	/* switch to USB function, and enable usb pll */
- 	mtk_phy_clear_bits(com + U3P_U2PHYDTM0, P2C_FORCE_UART_EN | P2C_FORCE_SUSPENDM);
-@@ -883,6 +1004,18 @@ static void u2_phy_instance_power_on(struct mtk_tphy *tphy,
- 
- 		mtk_phy_set_bits(com + U3P_U2PHYDTM0, P2C_RG_SUSPENDM | P2C_FORCE_SUSPENDM);
+ 	if (op->addr.nbytes != 2)
+@@ -570,26 +513,6 @@ static bool airoha_snand_is_page_ops(const struct spi_mem_op *op)
  	}
-+
-+	if (instance->software_role_switch) {
-+		/* Set FORCE modes for manual role switching */
-+		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_FORCE_IDPULLUP
-+			| P2C_FORCE_IDDIG | P2C_FORCE_AVALID | P2C_FORCE_VBUSVALID
-+			| P2C_FORCE_SESSEND);
-+		mtk_phy_set_bits(com + U3P_U2PHYDTM1, P2C_RG_IDPULLUP | P2C_RG_BVALID);
-+
-+		if (!instance->role_switch)
-+			schedule_delayed_work(&instance->dr_work, msecs_to_jiffies(100));
-+	}
-+
- 	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
  }
  
-@@ -906,6 +1039,9 @@ static void u2_phy_instance_power_off(struct mtk_tphy *tphy,
- 		mtk_phy_clear_bits(com + U3D_U2PHYDCR0, P2C_RG_SIF_U2PLL_FORCE_ON);
- 	}
+-static int airoha_snand_adjust_op_size(struct spi_mem *mem,
+-				       struct spi_mem_op *op)
+-{
+-	size_t max_len;
+-
+-	if (airoha_snand_is_page_ops(op)) {
+-		struct airoha_snand_ctrl *as_ctrl;
+-
+-		as_ctrl = spi_controller_get_devdata(mem->spi->controller);
+-		max_len = as_ctrl->nfi_cfg.sec_size;
+-		max_len += as_ctrl->nfi_cfg.spare_size;
+-		max_len *= as_ctrl->nfi_cfg.sec_num;
+-
+-		if (op->data.nbytes > max_len)
+-			op->data.nbytes = max_len;
+-	}
+-
+-	return 0;
+-}
+-
+ static bool airoha_snand_supports_op(struct spi_mem *mem,
+ 				     const struct spi_mem_op *op)
+ {
+@@ -634,8 +557,8 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
  
-+	if (instance->role_switch)
-+		cancel_delayed_work_sync(&instance->dr_work);
-+
- 	dev_dbg(tphy->dev, "%s(%d)\n", __func__, index);
+ 	as_ctrl = spi_controller_get_devdata(spi->controller);
+ 
+-	bytes = as_ctrl->nfi_cfg.sec_num *
+-		(as_ctrl->nfi_cfg.sec_size + as_ctrl->nfi_cfg.spare_size);
++	/* minimum oob size is 64 */
++	bytes = round_up(offs + len, 64);
+ 
+ 	/*
+ 	 * DUALIO and QUADIO opcodes are not supported by the spi controller,
+@@ -721,7 +644,14 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
+ 	if (err)
+ 		goto error_dma_unmap;
+ 
+-	/* number of bytes to read via dma (whole flash page + oob) */
++	/*
++	 * Setup transfer length
++	 * ---------------------
++	 * The following rule MUST be met:
++	 *     transfer_length =
++	 *        = NFI_SNF_MISC_CTL2.read_data_byte_number =
++	 *        = NFI_CON.sector_number * NFI_SECCUS.custom_sector_size
++	 */
+ 	err = regmap_update_bits(as_ctrl->regmap_nfi,
+ 				 REG_SPI_NFI_SNF_MISC_CTL2,
+ 				 SPI_NFI_READ_DATA_BYTE_NUM,
+@@ -819,8 +749,8 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
+ 
+ 	as_ctrl = spi_controller_get_devdata(spi->controller);
+ 
+-	bytes = as_ctrl->nfi_cfg.sec_num *
+-		(as_ctrl->nfi_cfg.sec_size + as_ctrl->nfi_cfg.spare_size);
++	/* minimum oob size is 64 */
++	bytes = round_up(offs + len, 64);
+ 
+ 	opcode = desc->info.op_tmpl.cmd.opcode;
+ 	switch (opcode) {
+@@ -899,7 +829,14 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
+ 	if (err)
+ 		goto error_dma_unmap;
+ 
+-	/* number of bytes to write via dma (whole flash page + oob) */
++	/*
++	 * Setup transfer length
++	 * ---------------------
++	 * The following rule MUST be met:
++	 *     transfer_length =
++	 *        = NFI_SNF_MISC_CTL2.write_data_byte_number =
++	 *        = NFI_CON.sector_number * NFI_SECCUS.custom_sector_size
++	 */
+ 	err = regmap_update_bits(as_ctrl->regmap_nfi,
+ 				 REG_SPI_NFI_SNF_MISC_CTL2,
+ 				 SPI_NFI_PROG_LOAD_BYTE_NUM,
+@@ -1052,7 +989,6 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
  }
  
-@@ -940,6 +1076,9 @@ static void u2_phy_instance_set_mode(struct mtk_tphy *tphy,
- 		tmp &= ~P2C_RG_IDDIG;
- 		break;
- 	case PHY_MODE_USB_OTG:
-+		/* We are managing role in workqueue */
-+		if (instance->software_role_switch)
-+			return;
- 		tmp &= ~(P2C_FORCE_IDDIG | P2C_RG_IDDIG);
- 		break;
- 	default:
-@@ -1129,6 +1268,11 @@ static void phy_parse_property(struct mtk_tphy *tphy,
- 	if (instance->type == PHY_TYPE_USB3)
- 		instance->type_force_mode = device_property_read_bool(dev, "mediatek,force-mode");
+ static const struct spi_controller_mem_ops airoha_snand_mem_ops = {
+-	.adjust_op_size = airoha_snand_adjust_op_size,
+ 	.supports_op = airoha_snand_supports_op,
+ 	.exec_op = airoha_snand_exec_op,
+ 	.dirmap_create = airoha_snand_dirmap_create,
+@@ -1077,36 +1013,6 @@ static int airoha_snand_setup(struct spi_device *spi)
+ 	return 0;
+ }
  
-+	instance->software_role_switch =
-+		device_property_read_bool(dev, "mediatek,software-role-switch");
-+	if (instance->software_role_switch)
-+		dev_info(dev, "software role switch enabled\n");
-+
- 	if (instance->type != PHY_TYPE_USB2)
- 		return;
+-static int airoha_snand_nfi_setup(struct airoha_snand_ctrl *as_ctrl)
+-{
+-	u32 val, sec_size, sec_num;
+-	int err;
+-
+-	err = regmap_read(as_ctrl->regmap_nfi, REG_SPI_NFI_CON, &val);
+-	if (err)
+-		return err;
+-
+-	sec_num = FIELD_GET(SPI_NFI_SEC_NUM, val);
+-
+-	err = regmap_read(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE, &val);
+-	if (err)
+-		return err;
+-
+-	sec_size = FIELD_GET(SPI_NFI_CUS_SEC_SIZE, val);
+-
+-	/* init default value */
+-	as_ctrl->nfi_cfg.sec_size = sec_size;
+-	as_ctrl->nfi_cfg.sec_num = sec_num;
+-	as_ctrl->nfi_cfg.page_size = round_down(sec_size * sec_num, 1024);
+-	as_ctrl->nfi_cfg.spare_size = 16;
+-
+-	err = airoha_snand_nfi_init(as_ctrl);
+-	if (err)
+-		return err;
+-
+-	return airoha_snand_nfi_config(as_ctrl);
+-}
+-
+ static const struct regmap_config spi_ctrl_regmap_config = {
+ 	.name		= "ctrl",
+ 	.reg_bits	= 32,
+@@ -1180,7 +1086,7 @@ static int airoha_snand_probe(struct platform_device *pdev)
+ 	ctrl->setup = airoha_snand_setup;
+ 	device_set_node(&ctrl->dev, dev_fwnode(dev));
  
-@@ -1618,6 +1762,10 @@ static int mtk_tphy_probe(struct platform_device *pdev)
- 		struct phy *phy;
- 		int retval;
+-	err = airoha_snand_nfi_setup(as_ctrl);
++	err = airoha_snand_nfi_init(as_ctrl);
+ 	if (err)
+ 		return err;
  
-+		/* filter non-phy nodes (e.g. graphs) */
-+		if (!of_find_property(child_np, "reg", NULL))
-+			continue;
-+
- 		instance = devm_kzalloc(dev, sizeof(*instance), GFP_KERNEL);
- 		if (!instance)
- 			return -ENOMEM;
 -- 
 2.50.1
+
 
