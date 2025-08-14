@@ -4,68 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF388CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9543CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l4pFVfRVNOwf2+FlMJlDWYO4U/oV/9E6WbnVyhCzLlg=; b=DSEIkoV9/FRJ1dNw8hR0/Uqf7i
-	/EXL05tv8Y9h90dbQg065+DHx2KIzWNPyY4BQ9Mxwhr+RXsNypyu1ciIuJjSe/54yFItEDYTjQxfG
-	VIo8j/e6OGJ8S5QNyym+esUAXqllmMAcwroymx4/4trvnrfmYiU69TzyUN2e+JofOMJ4h0JbcM48h
-	zSRaUHZSuqJcVxw8h9NYf7D/vhSrTCQTgCiCdpiX9Csp4HDYvqd1NaAB8Gwa1bSU6JErq6R62s6ym
-	Io4woPOGbK/P0VAOxTN8ecOxn/RpC9/daoE0Q7fAYPOhkuLJJnvwfiYN/HxbA72sNn+L0txrHIUAh
-	yxBG0pqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nfxV8KENwIydT5a0Vq1/8pyIQMv+yY2Yi6hKhT5+n3U=; b=qZF0BTkQgg1ixF5xAdmXs0WdqU
+	0rifjThNjqwB4SymF6ewBQ1anMOJTFwmeNgMJX6DXSRdSI8hYzJdtu8fqw0gDWaTZA5DRkLJRmETy
+	dIiBp2s8Wz7QYnBHQvYwi0g0kURh58TcMKvkML64U+kOevmiJUbtuGFZ5jSNH2E4B+rwm5jqZRtR4
+	b/h4P6m0CM7bc7RxQlH/aUgG4qLghLjjDEwFKtqSC8Bpzg9lCPigS2qXzjOsdWK112fUCRLBosfHu
+	37GZYkRL1vGGdkJbE2rfyKIIA7w1uWd4iFpL1RE3BlBKcqQVyC+o7xOWS8dD9XeYG4slUXbayDa5u
+	2rOWzhbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umi1z-00000000qoY-3ADB;
-	Fri, 15 Aug 2025 00:10:52 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	id 1umi4W-00000000r69-0tXg;
+	Fri, 15 Aug 2025 00:13:28 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umgo9-00000000j8t-1aZN
+	id 1umh7U-00000000lW6-3z9E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 22:52:30 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 72489C0429D7;
-	Thu, 14 Aug 2025 15:52:27 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 72489C0429D7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1755211947;
-	bh=v6sq3o9BJiULKoiDIE8D7omTK29z5q2no/7JhhhhtSE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iS3nV2Tor4uJI2rBygWdOBNAsFghb0Lba6BXBA0lzogf80dA/ffrGS0zbGPawRcZq
-	 H9hE9gqBeZaAEJSuEFa4195osXErq87OwVKOuFMSk+lIjVB0Sx3VtUo0sRuSaYGG+V
-	 D42r13zVm4TtFOSXsskbXpH6qS8io1SkLTf3TFGs=
-Received: from stbirv-lnx-1.igp.broadcom.net (stbirv-lnx-1.igp.broadcom.net [10.67.48.32])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 468901800051E;
-	Thu, 14 Aug 2025 15:52:27 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: james.quinlan@broadcom.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Mike Tipton <quic_mdtipton@quicinc.com>,
-	arm-scmi@vger.kernel.org,
+	Thu, 14 Aug 2025 23:12:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=thGXFXVTkQQ+Rp4mF9WIiw357k/Bh/MA/CZ4WYDa3ILVJV8lKLFoNs5kVvI2NLTaLXG8VRoWbSgdsShSWoUYyTzXc4YOsQP1svyPFD2ug92b7etvWA1mHvNXRznXWfJh0n/KFt9nnaggAqEgRrUGy6KbUzyY3Xzz1DjrXMct3iaG061k+7GIEP0bFTHiCz13IekKvFbDAMfWOJxo58wEHC/55rFxLiL5rLaXBCIUb+GKMd95y7fABI8zpUFdoh4IAPpOe4RIJpSbHzZbco1eWF/DogyG1n39NKNFj/msu2b005XdBS0rb6WCV+8yfBHMl1ggTdNxxRHJgNzMx023ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nfxV8KENwIydT5a0Vq1/8pyIQMv+yY2Yi6hKhT5+n3U=;
+ b=uVnHTnD3eVhnF6bZtELQqLNqozblGOQYuuAMMQYdBr1sx0t+yli945ivsGqoPY9HRapxgs9bUv69pLEU5C5resRvwKZnkY/QxpKyioi5viDdpoisICA6ulm6j7UDh2aDfvdTMXhG/G2Pw3HTFWnE5SuBxhUljy0nCFWP3BlXgs8cr8NTseS5SC16ejoliB+FHtMPNqxt88Y1G938+TlYRLNOmXfG7pJLfeV2H+cMUwTvPUntqNzcCxl8OT+CMwJp0T23rV/GfSTw7+30xc4Wk0j7y9mYDHb7QhQkngGJVHEFdr6gQpWjWFHxjUXEYnxLl/dAZAl5U3I8eLWxZgp8fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nfxV8KENwIydT5a0Vq1/8pyIQMv+yY2Yi6hKhT5+n3U=;
+ b=ioMyd0A4QrkkCv06wrap4xD4jnTZxGPjDj1qoFIFiNGKYbEtDNCNDmEdFUfocj+OyU2DhQVAgwfABXKU0RRh6raTAIGEH4PdliyMuHGHTeGc9R4Io9k8XL1yG3ZR29g+U3Qx1IP+3T9ZCbFDpIEJGrlA0t3UjF5zJwTJA7H63ZSuX1hTDbZ2FtHPcj6xoI+PRsFlPYjSELC6aKkajHcT3g5HN7soBr2FyRplxkSxHo1ozi08IUWTCMDvqoIJAxWwEycGlp2/jLZ5qMF1ApoHG3tMVl3BKIZrRWePADaNs2v4AiN2pi5O3ute2SHj2xvaCHQdvaQNuU6boFOsshVSJA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by PA4PR08MB6032.eurprd08.prod.outlook.com (2603:10a6:102:e4::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Thu, 14 Aug
+ 2025 23:12:20 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8989.018; Thu, 14 Aug 2025
+ 23:12:20 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH] cpufreq: scmi: Add quirk to disable checks in scmi_dev_used_by_cpus()
-Date: Thu, 14 Aug 2025 15:51:55 -0700
-Message-Id: <20250814225155.3519000-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Subject: [PATCH 01/13] spi: airoha: remove unnecessary restriction length
+Date: Fri, 15 Aug 2025 02:11:58 +0300
+Message-ID: <20250814231210.4174427-2-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250814231210.4174427-1-mikhail.kshevetskiy@iopsys.eu>
+References: <20250814231210.4174427-1-mikhail.kshevetskiy@iopsys.eu>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0190.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:ca::15) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PA4PR08MB6032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 06b35a57-fa85-43c3-9b8c-08dddb88048d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ar56LikOwGIyl0dM2nxzEs6yhTYukTStVJJZil6+ZQfVzw6zOR8nIM0F1IUH?=
+ =?us-ascii?Q?YS1PvWpGmgdKPq9ediSlJt9PBO/hp9MhwlrPLSrqVK7neUI0rNh7B9bCAFXp?=
+ =?us-ascii?Q?nNu3zgBvsMIG+nwITzqACzlyrhGVdlHBAaQJA0EBTbh7RYviRNkvklOqvXs/?=
+ =?us-ascii?Q?dS0cVwnEXW+sS/q6KpbtHHnroWfg0SvuYH7A6AMRo8cBD2V6zwHuGVucspKF?=
+ =?us-ascii?Q?RtVoyLzlO/8yVe5A+OUs4hpFbLY5g4FXV4oiCYEJik8RpeviZZRso1gRwtAg?=
+ =?us-ascii?Q?3EPuJS2nTlwSDPFO2dtSkoDCLE835o3J2kceCiQOyhvdMOK9o6QgujPOffWX?=
+ =?us-ascii?Q?jkkA1Gpbkg7gaCa9uMfQteMB1MPmcVyy4tRLKrhtf3xLSIhnerjpyMwDVzfo?=
+ =?us-ascii?Q?UQ0Z4hK/gs1DgGEWNHT2AVlorD/N7KbZsIdbiCDCc1HIGJss9Lt8d1yIQA8k?=
+ =?us-ascii?Q?kInthUI73+PmhM5U5JFJCv3Ft7Z2GBlGn20PQqmXEv7zlrE5EaenGI/pM4oB?=
+ =?us-ascii?Q?fxR2vyAebFH86H+XzWvyBalg2SmbaXZQ2qfp+p9Vi2JHDxP441slZq8hA/n6?=
+ =?us-ascii?Q?pkWVOoxHVzrLyKMAUwuzgiIcsIjCW9EPHgjFK9+eI1lH7HRfywwLbNw1wZCj?=
+ =?us-ascii?Q?erKevjloqrqy8EsvEXrb1YHC8HaTQNLiNRH4JcW6J07FVCBqEQhf7mTAUcEI?=
+ =?us-ascii?Q?3hYdhT+wEg7ybXkQ6r7XXjp5DgaMTwdsvNnWbBCCwfJQMoUhTViF5IMVc9aQ?=
+ =?us-ascii?Q?pzOiM3b34Url7hiXBCtW1JCgwXGE6up0wDGQTXSCCcJGvn+8pLJ/wyzeRNZj?=
+ =?us-ascii?Q?AxWgnE/4rx6NmFCDAmszE9ShVfSWMv81Ih9tsT6aJlvBUfU7HFydnkaZdp5o?=
+ =?us-ascii?Q?VwIs8XwjvCVFGpHrzAPDTGcs4dCvKwIxnn+n5T7bZKYwFzwy9aym2ct5bPir?=
+ =?us-ascii?Q?wWKXEVmIHrGTd78682htJfNhnqEfYCG6L9wAzGasQ6tEpY5yAVicJpra8fxt?=
+ =?us-ascii?Q?R+W7N1JgN5l0UdAW0U6ObbKvSWyUFTA8k8tKX8Slum7JqPkNUO4T3ji2ohZk?=
+ =?us-ascii?Q?qHSpctOfJnFS7YRuxvfWBOHS/S+4H2P4XOMhHJUILRLS347pTCL5Iizzm84b?=
+ =?us-ascii?Q?RaBC4emSWcFXE3lPw/bFmmN2NBDxmSn3KgkRkf0/wDZDQRZtXOXViCVYSXmh?=
+ =?us-ascii?Q?721d0LwxdOWhLCKyRn6B+ROJEpEnaWVSiAEfyCHVYT4UW2GX/K5hBXQVim+W?=
+ =?us-ascii?Q?MJ7WfYQGkwrlApwK28K4Txjj+z/Yx43kRiiN3PHKK6KojMxXY+mAXpTypqbX?=
+ =?us-ascii?Q?8NOSW/D21ZblUfFCDTdCVoyNzZOY7pnw9aETTuu0eWm76ZsxHLqM3H9aJHPG?=
+ =?us-ascii?Q?hmwgT8pjbabOGS4xj/l2TV//0s/2wjWOB/Q7t4um3VNgeAzdbuRpXage8GKD?=
+ =?us-ascii?Q?JuFQhb7mF+UOphYyT3nhkqbk/v+KaSC3P+ZK7A6L+l9aI37Y0uzItQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K+QXyGhcKLdPmhRsMwz0anPiOd9ZMzKTqjFjBWPGhFp3U9wK4Yko1LnXS2l9?=
+ =?us-ascii?Q?c4t5aK2srhnUS4yu0zSzv6m9C1Rp7djmMkVAdnoVcfjsfPjumT5mG41pFEmt?=
+ =?us-ascii?Q?IvDjXZ97HsDmsg5tYEYnBNEDENXwomu4Qkk9NmaNy6SHGmbBqrhetqhh7Msa?=
+ =?us-ascii?Q?Sa36IptaQ7dCm6a0V5dS5wc37VV0Hh7/TV3RK/cSpBpXG3WCnu7K/BRBcHu9?=
+ =?us-ascii?Q?8Dw3bBXnBex7kdz9I9VfRzYLaRKzjTsKu78o6Tz2jNTuV1wsAzvbF++W+xRe?=
+ =?us-ascii?Q?vkABantNP564JW/qZRVtXkbA2YLAlTAcm8cFptJ5CSnm38F7Q/as0Hkjdii+?=
+ =?us-ascii?Q?S7oEDJtetffHzWGo1955x2FW4a0LHwA3WIBISn4xvp1RWSI+6mKJQwar4L0N?=
+ =?us-ascii?Q?Q/zTMbDb5pBmdSI/2UWJi91k+mSDgz7UUUI9oRSO6vBpnpZfIfQOYqKa+ICe?=
+ =?us-ascii?Q?1VlELG82MmGHJ1IT15r8LsVmJAI6x5Y1JPrMyWuUzwqzSKlFrblS+dtC89KO?=
+ =?us-ascii?Q?7cXVjRPfWpC6x87WV6p7NYsvZM6DaarNQRUznJS4resuVvawJhZzaqUZWksm?=
+ =?us-ascii?Q?qOMuVC76C0sZTJJO3OwTjBpl9Ij1kU3xoTcGoYNQ0jrKT2rUzz34SJ++e5SC?=
+ =?us-ascii?Q?p5xxw8Id7QXKjgaAHYp+GB+jbusLGPx+JQYgg4rZpgXM98dcm4+tE6ODk1HM?=
+ =?us-ascii?Q?TeO86ptq7Yehdpldc/BagPypUADbD4vF7syIoJCwuWwhflpwdpe1nwQ73JVJ?=
+ =?us-ascii?Q?4NjNS2bWhOu6vthisUdj8SNk2cUTVOOV6jTShOr2QNlrU202CZqSzndl0Ss6?=
+ =?us-ascii?Q?H3jpM6N5bCtZhGcibPukIgzfNVxNxjxO89HePY0H1D9Zj/9rKzC8/cQeGiia?=
+ =?us-ascii?Q?XCjsIUD4aFmpUXuew3JcZaFKLF9iZ4FfFYh7borGn9F1iUYhAMJZ81eLVR4N?=
+ =?us-ascii?Q?Nh2BBlHgNMyB0f/UfFm+q3IpoCF+hjSNLvJB2dTJILYvae1iScZlOwpW6675?=
+ =?us-ascii?Q?IOY1bTr1mdLAbsn7jXyo2nRLSuhmu+O+MCH0tTv4VLOtgF7nr1b7x3osHikc?=
+ =?us-ascii?Q?MsKBGfYjWbRvifTJPuQEGpydtxeDA/AnUuxLWbGYpUbtL+K21kYGQCNA9i2n?=
+ =?us-ascii?Q?f8ajymWUq1aKidPYOibuYK+9blomFEYvQSnegrgSHxlA70p3jR46KVrmWRcv?=
+ =?us-ascii?Q?MfrdgEtOjeM2uHAWFVwmTNXgR3DDYB31R/54FCpA5hsKlWeo1N+5BUsVrFPZ?=
+ =?us-ascii?Q?VrFJi3NWd2atjIULxiRvns7kDINli+VnzwCjALawJVvIUo5XNLBgSqDuaXI0?=
+ =?us-ascii?Q?C9cjLSR7A+sQG53Hofy8x3EUfeYEh3pLb1R3WI5Cl22mYOQRXKKCDQnHlobO?=
+ =?us-ascii?Q?cICefT6Om7kBfh1gZQLGEk+mJGyMeYFOZsbjVdodBfnzNI/thz5AmuxtjtT3?=
+ =?us-ascii?Q?k1XQhFU+3p86w8Cbbzn02zCR3wptyzwY5dYugjGMsYJRRkpflDt1PaR60V4x?=
+ =?us-ascii?Q?OlAlfU0MGlfaq2laDxmaPJ3PN5sDLfreLTIKzNmPMEmd774BnYZyqwZ0U8di?=
+ =?us-ascii?Q?pTScVf9iiuFO6c3PfAOFmUT7S5rYd3yzTHtffbPWsLYWlnaDZ2fGEwc7AlrK?=
+ =?us-ascii?Q?Mw=3D=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 06b35a57-fa85-43c3-9b8c-08dddb88048d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 23:12:19.6588
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lIf5KhCrgEL9tpQNDiwtIDDcYBNK7vI7pVqIqZDOckQ+Yt73W1KAAdseN4kfuola1fTOe28uVRuKNzMkTOpSoJJmEoUZpgxrxFXyTcqsm+c=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_155229_489595_48E3D965 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250814_161229_496897_BD8680D0 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +163,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Broadcom STB platforms were early adopters of the SCMI framework and as
-a result, not all deployed systems have a Device Tree entry where SCMI
-protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
-CPU Device Tree node(s) referencing protocol 0x13 as their clock
-provider.
+The "length < 160" restriction is not needed because airoha_snand_write_data()
+and airoha_snand_read_data() will properly handle data transfers above
+SPI_MAX_TRANSFER_SIZE.
 
-Leverage the quirks framework recently introduce to match on the
-Broadcom SCMI vendor and in that case, disable the Device Tree
-properties checks being done by scmi_dev_used_by_cpus().
-
-Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
-Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
 ---
- drivers/cpufreq/scmi-cpufreq.c     | 13 +++++++++++++
- drivers/firmware/arm_scmi/quirks.c |  2 ++
- drivers/firmware/arm_scmi/quirks.h |  1 +
- 3 files changed, 16 insertions(+)
+ drivers/spi/spi-airoha-snfi.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index ef078426bfd5..80647511d3c3 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -22,6 +22,8 @@
- #include <linux/types.h>
- #include <linux/units.h>
+diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+index dbe640986825..09dbbca8bd2b 100644
+--- a/drivers/spi/spi-airoha-snfi.c
++++ b/drivers/spi/spi-airoha-snfi.c
+@@ -579,13 +579,6 @@ static int airoha_snand_adjust_op_size(struct spi_mem *mem,
  
-+#include "../drivers/firmware/arm_scmi/quirks.h"
-+
- struct scmi_data {
- 	int domain_id;
- 	int nr_opp;
-@@ -34,6 +36,7 @@ struct scmi_data {
- static struct scmi_protocol_handle *ph;
- static const struct scmi_perf_proto_ops *perf_ops;
- static struct cpufreq_driver scmi_cpufreq_driver;
-+static bool __maybe_unused scmi_cpufreq_dt_props_check_disable;
+ 		if (op->data.nbytes > max_len)
+ 			op->data.nbytes = max_len;
+-	} else {
+-		max_len = 1 + op->addr.nbytes + op->dummy.nbytes;
+-		if (max_len >= 160)
+-			return -EOPNOTSUPP;
+-
+-		if (op->data.nbytes > 160 - max_len)
+-			op->data.nbytes = 160 - max_len;
+ 	}
  
- static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
- {
-@@ -400,6 +403,9 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
- 	struct device *cpu_dev;
- 	int cpu, idx;
- 
-+	if (scmi_cpufreq_dt_props_check_disable)
-+		return true;
-+
- 	if (!scmi_np)
- 		return false;
- 
-@@ -427,12 +433,19 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
- 	return false;
- }
- 
-+#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
-+	({							\
-+		scmi_cpufreq_dt_props_check_disable = true;	\
-+	})
-+
- static int scmi_cpufreq_probe(struct scmi_device *sdev)
- {
- 	int ret;
- 	struct device *dev = &sdev->dev;
- 	const struct scmi_handle *handle;
- 
-+	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
-+
- 	handle = sdev->handle;
- 
- 	if (!handle || !scmi_dev_used_by_cpus(dev))
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index 03960aca3610..aafc7b4b3294 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -171,6 +171,7 @@ struct scmi_quirk {
- /* Global Quirks Definitions */
- DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
- DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
-+DEFINE_SCMI_QUIRK_EXPORTED(scmi_cpufreq_no_check_dt_props, "brcm-scmi", NULL, "0x2");
- 
- /*
-  * Quirks Pointers Array
-@@ -181,6 +182,7 @@ DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
- static struct scmi_quirk *scmi_quirks_table[] = {
- 	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
- 	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
-+	__DECLARE_SCMI_QUIRK_ENTRY(scmi_cpufreq_no_check_dt_props),
- 	NULL
- };
- 
-diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-index a71fde85a527..64ac1f05d0d3 100644
---- a/drivers/firmware/arm_scmi/quirks.h
-+++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -48,5 +48,6 @@ static inline void scmi_quirks_enable(struct device *dev, const char *vend,
- /* Quirk delarations */
- DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
- DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
-+DECLARE_SCMI_QUIRK(scmi_cpufreq_no_check_dt_props);
- 
- #endif /* _SCMI_QUIRKS_H */
+ 	return 0;
 -- 
-2.34.1
+2.50.1
 
 
