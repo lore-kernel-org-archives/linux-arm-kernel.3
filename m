@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F812CA0ED1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633F8CA0EDC
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOkUr/gDQdk50ByUmng27+uyHqsJTeLrhuWy7Mo/xxs=; b=xFhiOFEI6R7E0yG4ywEcgjLcV3
-	RjNKHiliDyV/dndjtSPWYn6ogKqSgiI3pmOit+TDCzIXHNBk/kU+u5dGdBWcS7KG1y6TogZBxN+dh
-	3HQS8VJtBpvRziLaaH6gjq0Q2TkvvMIB0d5xFh7Ri7hxwk+iS1sqzFaEts7NGHxuuGnVVyftza2Ys
-	P1+xB1RzTlzVIvX9itpn6XTNDeERIZo6rhyofz7hRqxQQ4ROCIyg7Em1xIit+OJC3V6PRNfm4kPro
-	u/6EpyAwqF2nMjIz34enWvrIAQOP0A6yLtc4YKS8ELMcm41764OrP4rDxfqPE6oUiN7ERGDYeVkJX
-	Fl1Ce1cg==;
+	bh=/GChTAo5rbB/wmEJGoWsmu+CPOZXtTCJra4+lLJEfN0=; b=Ps/ZVSqYi+5l3iVAqzIMJswWaz
+	y8B0l1D1AJ7Lmm33o/BmT2UuX8skSt5TcZgzVm25ADbvffiiaWmulh8C9cmW6M0kpcW8BI0yD/7Ou
+	ZqlaIlLpuiSTwkKq1KzyiYy8CyxGGXDM61ba9+grCnjfrVkRceqZtYcP5lkjkyo81LFwOcjFdYn8c
+	UzwHohioh2VfPdAQnXEjcc4ft4+2EXAvq14sUFIAMYJne5ctlrG67gz3QDWTV7GOIp7jqE5d/bCy4
+	hq9Ggdx75L1nnNhPzSHq+y8dogjaNYe7zXPu9yXqxYcX2EcudtMpCQ7/jUCdiGGmFC+33DldMiyQc
+	tKN1rOQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVTR-0000000GddI-1oif;
-	Thu, 14 Aug 2025 10:46:21 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1umVTZ-0000000GdhS-07fO;
+	Thu, 14 Aug 2025 10:46:29 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umU0O-0000000GMdW-0lrp;
-	Thu, 14 Aug 2025 09:12:17 +0000
-X-UUID: a167d51a78ec11f09eb0dd999d3936bf-20250814
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=gOkUr/gDQdk50ByUmng27+uyHqsJTeLrhuWy7Mo/xxs=;
-	b=epwX89QI5pR1C2LXkiNvItiHNQlb/7isdClSyOXRHxCIlq4TBfYSrPmrzT269qCVJ+aKecaaxKQP/6ZMMtVJu++mcvr+CT6Ik79w5UYO4T+GiBrWhHjQTDyASRrwp/MubVZGdvtTePd2SkjfXRet65dnBmjyq18xmsldDonyfRE=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:969a91ab-c301-4402-87eb-1f825b628cd8,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:f1326cf,CLOUDID:6d727944-18c5-4075-a135-4c0afe29f9d6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a167d51a78ec11f09eb0dd999d3936bf-20250814
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1943297755; Thu, 14 Aug 2025 01:56:56 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 14 Aug 2025 16:56:53 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 14 Aug 2025 16:56:52 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
-	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>
-Subject: [PATCH v3 4/6] media: mediatek: encoder: Add a new platform data member
-Date: Thu, 14 Aug 2025 16:56:40 +0800
-Message-ID: <20250814085642.17343-5-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250814085642.17343-1-kyrie.wu@mediatek.com>
-References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+	id 1umTxw-0000000GMFo-1D5F
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 09:09:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 78E72A5213D;
+	Thu, 14 Aug 2025 09:09:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 887F0C4CEEF;
+	Thu, 14 Aug 2025 09:09:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755162583;
+	bh=4haXZhUQhwWTQfAUzZvN0UDYTjKDPWIQ5LTd46KE9Xo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eLuUBGtdppkgsKgis3nVC/Avqik7RnCYzK9KO7reriPcUJPTO57YUPt85/HgWATYX
+	 v9Xpj+vF0aZsc18rDuptx7cW4VFNjpbBXuNKNF/BdANIEzLtY2wqZNZ7MAAWQMDBK/
+	 IWS+cH7eNxDp8JNHuyoSSiJQXAgvWF3CDzn0gZFUCptj/TB3sQ5f+WPhrzRnCOuIbk
+	 JwiFm7oLFMdZfFut8BL+1nbFQ3pzVMsXxnVW5fgtoDEPzWfSIFLmm187pl+w1OmZHW
+	 26Enk7S0sOkxJuXinXiwvqCjBvF6QqFEZ+mGMqIuZQ+iY/PBBNMU+lgeMhR2MoVCxl
+	 MQSCILYYJFxRQ==
+Date: Thu, 14 Aug 2025 11:09:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Cc: Yannick Fertre <yannick.fertre@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 03/13] dt-bindings: display: st: add new compatible to
+ LVDS device
+Message-ID: <20250814-dancing-nautilus-of-camouflage-ebb441@kuoka>
+References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
+ <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_021216_219053_AA995EC8 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20250814_020944_390161_485C7025 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,132 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Irui Wang <irui.wang@mediatek.com>
+On Tue, Aug 12, 2025 at 03:49:00PM +0200, Raphael Gallais-Pou wrote:
+> Update the compatible to accept both "st,stm32mp255-lvds" and
+> st,stm32mp25-lvds" respectively.  Default will fall back to
+> "st,stm32mp25-lvds".
+> 
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>  Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> index 6736f93256b5cebb558cda5250369ec4b1b3033c..b777c55626e4b322d77ef411ad9e4a3afb6c9131 100644
+> --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> @@ -31,7 +31,13 @@ description: |
+>  
+>  properties:
+>    compatible:
+> -    const: st,stm32mp25-lvds
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - st,stm32mp255-lvds
+> +          - const: st,stm32mp25-lvds
+> +      - items:
 
-Add a new platform data member to indicate each encoder IC, so that the
-get chip name function by 'of_device_is_compatible' can be removed.
+Drop. This should be just enum or const, no need for items.
 
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  | 23 ++-----------------
- .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  6 +++++
- .../vcodec/encoder/mtk_vcodec_enc_drv.h       |  2 ++
- 3 files changed, 10 insertions(+), 21 deletions(-)
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index 03512bf7a072..1a7be3e57eef 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -198,34 +198,15 @@ static int vidioc_enum_fmt_vid_out(struct file *file, void *priv,
- 			       pdata->num_output_formats);
- }
- 
--static int mtk_vcodec_enc_get_chip_name(void *priv)
--{
--	struct mtk_vcodec_enc_ctx *ctx = fh_to_enc_ctx(priv);
--	struct device *dev = &ctx->dev->plat_dev->dev;
--
--	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-enc"))
--		return 8173;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-enc"))
--		return 8183;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-enc"))
--		return 8192;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-enc"))
--		return 8195;
--	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-enc"))
--		return 8188;
--	else
--		return 8173;
--}
--
- static int vidioc_venc_querycap(struct file *file, void *priv,
- 				struct v4l2_capability *cap)
- {
- 	struct mtk_vcodec_enc_ctx *ctx = fh_to_enc_ctx(priv);
-+	const struct mtk_vcodec_enc_pdata *pdata = ctx->dev->venc_pdata;
- 	struct device *dev = &ctx->dev->plat_dev->dev;
--	int platform_name = mtk_vcodec_enc_get_chip_name(priv);
- 
- 	strscpy(cap->driver, dev->driver->name, sizeof(cap->driver));
--	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", platform_name);
-+	snprintf(cap->card, sizeof(cap->card), "MT%d video encoder", pdata->venc_model_num);
- 
- 	return 0;
- }
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index bb913dfe5f04..50936949d527 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -380,6 +380,7 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
- }
- 
- static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
- 	.output_formats = mtk_video_formats_output,
-@@ -390,6 +391,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_avc_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
-+	.venc_model_num = 8173,
- 	.capture_formats = mtk_video_formats_capture_vp8,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_vp8),
- 	.output_formats = mtk_video_formats_output,
-@@ -400,6 +402,7 @@ static const struct mtk_vcodec_enc_pdata mt8173_vp8_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
-+	.venc_model_num = 8183,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -411,6 +414,7 @@ static const struct mtk_vcodec_enc_pdata mt8183_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
-+	.venc_model_num = 8188,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -423,6 +427,7 @@ static const struct mtk_vcodec_enc_pdata mt8188_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
-+	.venc_model_num = 8192,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-@@ -434,6 +439,7 @@ static const struct mtk_vcodec_enc_pdata mt8192_pdata = {
- };
- 
- static const struct mtk_vcodec_enc_pdata mt8195_pdata = {
-+	.venc_model_num = 8195,
- 	.uses_ext = true,
- 	.capture_formats = mtk_video_formats_capture_h264,
- 	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-index 426b1398f815..b3206a7b592d 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-@@ -21,6 +21,7 @@
- /**
-  * struct mtk_vcodec_enc_pdata - compatible data for each IC
-  *
-+ * @venc_model_num: encoder model number
-  * @uses_ext: whether the encoder uses the extended firmware messaging format
-  * @min_bitrate: minimum supported encoding bitrate
-  * @max_bitrate: maximum supported encoding bitrate
-@@ -33,6 +34,7 @@
-  * @uses_common_fw_iface: whether the encoder uses common driver interface
-  */
- struct mtk_vcodec_enc_pdata {
-+	u16 venc_model_num;
- 	bool uses_ext;
- 	u64 min_bitrate;
- 	u64 max_bitrate;
--- 
-2.46.0
+Best regards,
+Krzysztof
 
 
