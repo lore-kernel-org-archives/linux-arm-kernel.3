@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53560CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0D0CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kcD25U2aC3p0wP+5f8KI7KX1hON58t0yb8dyeFLFTs4=; b=Ea0OMK5R4nokeUKSVeBX6aJtlo
-	omrjXxVO+VzcmiFP/OyUM2V1BTNTWFizryUtAah6ygTN27Du85dhbH224Q0cHH3TJ8uybdHYvKwGX
-	MiNiRtmMtevvXcZpJEZkwYMyU4mgHKY/lo3KfkDhFMD5adkIwz7/5vMujOvkimmJfUHO/oP4v79I7
-	G4yFnXe8xmHd7lxW4YdQrwPVqqk0jVny9Fh/jopsHMUeIx75sWUmru3uS/3BkM0Zg51LO3BX3PXr1
-	mMu5MW8zfWLrXY6t6hspotgIJorw6DJyGcpmYVtpPiYc1QnY3qeL/UaMrAsSUWAH+D9XVT90aXY3Y
-	+yrv1hPg==;
+	bh=3cLD3IUPX7ol+nZXoshBSutcRh8t7uW/aQZ6MpJNV/g=; b=QJtWO6gHCiY7t+Wo6YCqCT22v8
+	85lm4MQuCAYq83LP2RB6vCNERgRLEPE6C3q40JnuqsUi8bxC1Xq7hP9j/68kk7I6n5D+hapL93uXu
+	BtDjPmBlgICKEKUTr7vJgHOF+D9qVnB4k6CSbsDxlfn/Onm5sE3lBV9od2i51pfN+ESYLBkcy3Tw1
+	anXalq51eRrWLmrwla9TVoQdnRqu8NxEY1B5SfwguLrdX3l1PplxTCy+0cK3Tc0a+maqB732JL/4X
+	iG9POVVM49yfjcX5ZgQbUisqo2vazhQrn332Roiih4qn3iRfzp+x/XZ+dGG5VyBImHMz5gSZ7m7nA
+	hSaleyyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma1J-0000000HU8a-3qne;
-	Thu, 14 Aug 2025 15:37:38 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uma1P-0000000HUFa-4BQp;
+	Thu, 14 Aug 2025 15:37:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYIK-0000000H64X-3YOp
+	id 1umYQ2-0000000H7wp-0qi3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 Aug 2025 13:55:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=3cLD3IUPX7ol+nZXoshBSutcRh8t7uW/aQZ6MpJNV/g=; b=btHkB99ZlLIipnhjJgKQUkCub0
+	26a+sOwz5g8Nv8nIWXAOyKGXxzSukh64ofUEbEP6dDcxhbkWvchSXKcWO3fARZY7UQSpNtGR+MYgX
+	Wen2p6IRchwd28gTP2RFoaJfuObvVzpNP3SECYseIXpw2H+sEdj1rm/poUS9YHzIAX7AL6QC+Ae8J
+	jobmKK25gJK2YLdS6gWSeCa5SCgerAV+GZH0qTpOaRt2Sm/ZXjbao7MUo2louKbxm2wx2gDtIIE5Q
+	NP3Xs4YbBJM3vDQNmQhxIWG3LQA2bH32jg2ISDt54OI/LXIf8kDT+J6A+S9B/AuSoMoybn8FPFDKG
+	mLCOxk2g==;
+Received: from mgamail.intel.com ([192.198.163.7])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umYPx-0000000GQJj-0zR4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 13:47:06 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EDl1gg1890369;
-	Thu, 14 Aug 2025 08:47:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755179221;
-	bh=kcD25U2aC3p0wP+5f8KI7KX1hON58t0yb8dyeFLFTs4=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Z/GCGjvG8fdJClRGu3fqXfD0BwOFgJwal9+mjvc7Fz14/ZQiIbI/qGDiwxcNSEzqQ
-	 tpmAgyCnARdouzgF/vLKF+J9SGPUwH/Kdhfvgh/YAQ6ko5+HnSwwcfdtOuZp4LAJWJ
-	 h1tfvWQIz1ivBrVogZyWH8hLa07x3swN94iDEq1M=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EDl1xX1748940
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 14 Aug 2025 08:47:01 -0500
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
- Aug 2025 08:47:00 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 14 Aug 2025 08:47:00 -0500
-Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EDkxLr3688581;
-	Thu, 14 Aug 2025 08:47:00 -0500
-From: Anshul Dalal <anshuld@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: Anshul Dalal <anshuld@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 4/4] arm64: dts: ti: Add support for AM6254atl SiP SK
-Date: Thu, 14 Aug 2025 19:15:30 +0530
-Message-ID: <20250814134531.2743874-5-anshuld@ti.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250814134531.2743874-1-anshuld@ti.com>
-References: <20250814134531.2743874-1-anshuld@ti.com>
+	Thu, 14 Aug 2025 13:55:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755179697; x=1786715697;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=UBMDjSl7ummaNgM0HnILEzprysQwd6tD6QDipGAZJQI=;
+  b=VtFxuGCm1iOmCTIKt4fOBIAxIveU+/j4Hm12ut1m4G4zDGzVV21BqUPd
+   v5df0vdRyg0RyX3bNkulvokU1BL9OWpo0Mzs9OZWG+hhgfosY/4SYR0/H
+   hqSNnaOUXZ+5W1ZebgoSf89DZfEJizQbSs9GShfvoJA8x1JTrP2btAUQ5
+   KzDpAWcsi65bb9wQNivaihZMK6nQvfi2SBLNbWpzo0Zjh1v2YWj6bxb9j
+   uK5NJRFebQosVwUMB1qLenKE6T9d8IesoU6Fs6kBJZ2AOE8yZ8rOZRm99
+   yDZfBr46L0Wgg9A+RHLg3gM4uWhwVVUqY+bEBx1ozwZGCuCWPQTxtIaaG
+   Q==;
+X-CSE-ConnectionGUID: /6dbTQfmQoKvQ6F7KYdVFw==
+X-CSE-MsgGUID: +FMqr1mqSPyVq0Mni4dUdQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="82929216"
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="82929216"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 06:54:51 -0700
+X-CSE-ConnectionGUID: 9rdFQwKYT1Cgnxd6y+D2GA==
+X-CSE-MsgGUID: Aje6Omf5QDWGKVTR3HWdPg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
+   d="scan'208";a="203943615"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 14 Aug 2025 06:54:46 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1umYPW-000B0O-1H;
+	Thu, 14 Aug 2025 13:54:34 +0000
+Date: Thu, 14 Aug 2025 21:54:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH 4/8] firmware: arm_scmi: Add SCMIv4.0 Powercap basic
+ support
+Message-ID: <202508142109.z6QIwr0w-lkp@intel.com>
+References: <20250813114609.1305571-5-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813114609.1305571-5-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_064704_984319_E1E5C6DF 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250814_145457_848781_09B6D8A0 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,699 +109,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds the dt for SK-AM62-SIP, which uses the existing
-SK-AM62 board design with the new AM6254atl SiP. This changes the
-location of memory node from the board dts to SoC level dtsi
-(k3-am6254atl in our case).
+Hi Cristian,
 
-Therefore this patch introduces the new 'k3-am625-sk-common.dtsi'
-which represents the common hardware used for both 'am625-sk' and
-'am6254atl-sk' boards with the inheritance hierarchy modified to:
+kernel test robot noticed the following build warnings:
 
-k3-am625-sk.dts:
+[auto build test WARNING on rafael-pm/linux-next]
+[also build test WARNING on rafael-pm/bleeding-edge soc/for-next trace/for-next linus/master v6.17-rc1 next-20250814]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-     k3-am62    k3-am62x-sk-common
-        |            |
-    k3-am625    k3-am625-sk-common
-        |            |
-        +-----+------+
-              |
-         k3-am625-sk
+url:    https://github.com/intel-lab-lkp/linux/commits/Cristian-Marussi/firmware-arm_scmi-Add-an-optional-custom-parameter-to-fastchannel-helpers/20250813-195150
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+patch link:    https://lore.kernel.org/r/20250813114609.1305571-5-cristian.marussi%40arm.com
+patch subject: [PATCH 4/8] firmware: arm_scmi: Add SCMIv4.0 Powercap basic support
+config: arm64-randconfig-r111-20250814 (https://download.01.org/0day-ci/archive/20250814/202508142109.z6QIwr0w-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.3.0
+reproduce: (https://download.01.org/0day-ci/archive/20250814/202508142109.z6QIwr0w-lkp@intel.com/reproduce)
 
-k3-am6254atl-sk.dts:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508142109.z6QIwr0w-lkp@intel.com/
 
-     k3-am62
-        |
-     k3-am625       k3-am62x-sk-common
-        |                |
-    k3-am6254atl    k3-am625-sk-common
-        |                |
-        +-------+--------+
-                |
-         k3-am6254atl-sk
+sparse warnings: (new ones prefixed by >>)
+>> drivers/firmware/arm_scmi/powercap.c:302:48: sparse: sparse: restricted __le32 degrades to integer
+>> drivers/firmware/arm_scmi/powercap.c:353:25: sparse: sparse: incorrect type in initializer (different base types) @@     expected unsigned int [usertype] flags @@     got restricted __le32 [usertype] attributes @@
+   drivers/firmware/arm_scmi/powercap.c:353:25: sparse:     expected unsigned int [usertype] flags
+   drivers/firmware/arm_scmi/powercap.c:353:25: sparse:     got restricted __le32 [usertype] attributes
 
-Signed-off-by: Anshul Dalal <anshuld@ti.com>
----
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../arm64/boot/dts/ti/k3-am625-sk-common.dtsi | 296 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am625-sk.dts        | 296 +-----------------
- arch/arm64/boot/dts/ti/k3-am6254atl-sk.dts    |  15 +
- 4 files changed, 313 insertions(+), 295 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
- create mode 100644 arch/arm64/boot/dts/ti/k3-am6254atl-sk.dts
+vim +302 drivers/firmware/arm_scmi/powercap.c
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index aad9177930e6..72f8755a0f30 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -28,6 +28,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62x-phyboard-lyra-gpio-fan.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62-pocketbeagle2.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am6254atl-sk.dtb
- 
- # Boards with AM62Ax SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
-new file mode 100644
-index 000000000000..fe0b98e1d105
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi
-@@ -0,0 +1,296 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Common dtsi for AM625 SK and derivatives
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+#include "k3-am62x-sk-common.dtsi"
-+
-+/ {
-+	opp-table {
-+		/* Add 1.4GHz OPP for am625-sk board. Requires VDD_CORE to be at 0.85V */
-+		opp-1400000000 {
-+			opp-hz = /bits/ 64 <1400000000>;
-+			opp-supported-hw = <0x01 0x0004>;
-+			clock-latency-ns = <6000000>;
-+		};
-+	};
-+
-+	vmain_pd: regulator-0 {
-+		/* TPS65988 PD CONTROLLER OUTPUT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vmain_pd";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		bootph-all;
-+	};
-+
-+	vcc_5v0: regulator-1 {
-+		/* Output of LM34936 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_5v0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vmain_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		bootph-all;
-+	};
-+
-+	vcc_3v3_sys: regulator-2 {
-+		/* output of LM61460-Q1 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3_sys";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vmain_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		bootph-all;
-+	};
-+
-+	vdd_mmc1: regulator-3 {
-+		/* TPS22918DBVR */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_mmc1";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		vin-supply = <&vcc_3v3_sys>;
-+		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
-+		bootph-all;
-+	};
-+
-+	vdd_sd_dv: regulator-4 {
-+		/* Output of TLV71033 */
-+		compatible = "regulator-gpio";
-+		regulator-name = "tlv71033";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vdd_sd_dv_pins_default>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		vin-supply = <&vcc_5v0>;
-+		gpios = <&main_gpio0 31 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+		bootph-all;
-+	};
-+
-+	vcc_1v8: regulator-5 {
-+		/* output of TPS6282518DMQ */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+};
-+
-+&main_pmx0 {
-+	main_mmc0_pins_default: main-mmc0-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
-+			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
-+			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
-+			AM62X_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
-+			AM62X_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
-+			AM62X_IOPAD(0x208, PIN_INPUT_PULLUP, 0) /* (Y4) MMC0_DAT3 */
-+			AM62X_IOPAD(0x204, PIN_INPUT_PULLUP, 0) /* (AB2) MMC0_DAT4 */
-+			AM62X_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
-+			AM62X_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
-+			AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
-+		>;
-+	};
-+
-+	main_rgmii2_pins_default: main-rgmii2-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x184, PIN_INPUT, 0) /* (AE23) RGMII2_RD0 */
-+			AM62X_IOPAD(0x188, PIN_INPUT, 0) /* (AB20) RGMII2_RD1 */
-+			AM62X_IOPAD(0x18c, PIN_INPUT, 0) /* (AC21) RGMII2_RD2 */
-+			AM62X_IOPAD(0x190, PIN_INPUT, 0) /* (AE22) RGMII2_RD3 */
-+			AM62X_IOPAD(0x180, PIN_INPUT, 0) /* (AD23) RGMII2_RXC */
-+			AM62X_IOPAD(0x17c, PIN_INPUT, 0) /* (AD22) RGMII2_RX_CTL */
-+			AM62X_IOPAD(0x16c, PIN_OUTPUT, 0) /* (Y18) RGMII2_TD0 */
-+			AM62X_IOPAD(0x170, PIN_OUTPUT, 0) /* (AA18) RGMII2_TD1 */
-+			AM62X_IOPAD(0x174, PIN_OUTPUT, 0) /* (AD21) RGMII2_TD2 */
-+			AM62X_IOPAD(0x178, PIN_OUTPUT, 0) /* (AC20) RGMII2_TD3 */
-+			AM62X_IOPAD(0x168, PIN_OUTPUT, 0) /* (AE21) RGMII2_TXC */
-+			AM62X_IOPAD(0x164, PIN_OUTPUT, 0) /* (AA19) RGMII2_TX_CTL */
-+		>;
-+	};
-+
-+	ospi0_pins_default: ospi0-default-pins {
-+		bootph-all;
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x000, PIN_OUTPUT, 0) /* (H24) OSPI0_CLK */
-+			AM62X_IOPAD(0x02c, PIN_OUTPUT, 0) /* (F23) OSPI0_CSn0 */
-+			AM62X_IOPAD(0x00c, PIN_INPUT, 0) /* (E25) OSPI0_D0 */
-+			AM62X_IOPAD(0x010, PIN_INPUT, 0) /* (G24) OSPI0_D1 */
-+			AM62X_IOPAD(0x014, PIN_INPUT, 0) /* (F25) OSPI0_D2 */
-+			AM62X_IOPAD(0x018, PIN_INPUT, 0) /* (F24) OSPI0_D3 */
-+			AM62X_IOPAD(0x01c, PIN_INPUT, 0) /* (J23) OSPI0_D4 */
-+			AM62X_IOPAD(0x020, PIN_INPUT, 0) /* (J25) OSPI0_D5 */
-+			AM62X_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
-+			AM62X_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
-+			AM62X_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
-+		>;
-+	};
-+
-+	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x07c, PIN_OUTPUT, 7) /* (P25) GPMC0_CLK.GPIO0_31 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_gpio1_ioexp_intr_pins_default: main-gpio1-ioexp-intr-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_IOPAD(0x01d4, PIN_INPUT, 7) /* (B15) UART0_RTSn.GPIO1_23 */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&main_gpio0 {
-+	bootph-all;
-+};
-+
-+&main_gpio1 {
-+	bootph-all;
-+};
-+
-+&main_i2c1 {
-+	exp1: gpio@22 {
-+		compatible = "ti,tca6424";
-+		reg = <0x22>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <23 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names = "GPIO_CPSW2_RST", "GPIO_CPSW1_RST",
-+				   "PRU_DETECT", "MMC1_SD_EN",
-+				   "VPP_LDO_EN", "EXP_PS_3V3_En",
-+				   "EXP_PS_5V0_En", "EXP_HAT_DETECT",
-+				   "GPIO_AUD_RSTn", "GPIO_eMMC_RSTn",
-+				   "UART1_FET_BUF_EN", "WL_LT_EN",
-+				   "GPIO_HDMI_RSTn", "CSI_GPIO1",
-+				   "CSI_GPIO2", "PRU_3V3_EN",
-+				   "HDMI_INTn", "PD_I2C_IRQ",
-+				   "MCASP1_FET_EN", "MCASP1_BUF_BT_EN",
-+				   "MCASP1_FET_SEL", "UART1_FET_SEL",
-+				   "TSINT#", "IO_EXP_TEST_LED";
-+		bootph-all;
-+	};
-+};
-+
-+&sdhci0 {
-+	bootph-all;
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mmc0_pins_default>;
-+	disable-wp;
-+};
-+
-+&sdhci1 {
-+	vmmc-supply = <&vdd_mmc1>;
-+	vqmmc-supply = <&vdd_sd_dv>;
-+};
-+
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_rgmii1_pins_default>, <&main_rgmii2_pins_default>;
-+};
-+
-+&cpsw_port2 {
-+	/* PCB provides an internal delay of 2ns */
-+	phy-mode = "rgmii-rxid";
-+	phy-handle = <&cpsw3g_phy1>;
-+};
-+
-+&cpsw3g_mdio {
-+	cpsw3g_phy1: ethernet-phy@1 {
-+		reg = <1>;
-+		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+		ti,min-output-impedance;
-+	};
-+};
-+
-+&fss {
-+	bootph-all;
-+};
-+
-+&ospi0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ospi0_pins_default>;
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0x0>;
-+		spi-tx-bus-width = <8>;
-+		spi-rx-bus-width = <8>;
-+		spi-max-frequency = <25000000>;
-+		cdns,tshsl-ns = <60>;
-+		cdns,tsd2d-ns = <60>;
-+		cdns,tchsh-ns = <60>;
-+		cdns,tslch-ns = <60>;
-+		cdns,read-delay = <4>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			bootph-all;
-+
-+			partition@0 {
-+				label = "ospi.tiboot3";
-+				reg = <0x0 0x80000>;
-+			};
-+
-+			partition@80000 {
-+				label = "ospi.tispl";
-+				reg = <0x80000 0x200000>;
-+			};
-+
-+			partition@280000 {
-+				label = "ospi.u-boot";
-+				reg = <0x280000 0x400000>;
-+			};
-+
-+			partition@680000 {
-+				label = "ospi.env";
-+				reg = <0x680000 0x40000>;
-+			};
-+
-+			partition@6c0000 {
-+				label = "ospi.env.backup";
-+				reg = <0x6c0000 0x40000>;
-+			};
-+
-+			partition@800000 {
-+				label = "ospi.rootfs";
-+				reg = <0x800000 0x37c0000>;
-+			};
-+
-+			partition@3fc0000 {
-+				bootph-pre-ram;
-+				label = "ospi.phypattern";
-+				reg = <0x3fc0000 0x40000>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-sk.dts b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
-index 1c6812a8ae9b..52954c77df80 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am625-sk.dts
-@@ -8,310 +8,16 @@
- /dts-v1/;
- 
- #include "k3-am625.dtsi"
--#include "k3-am62x-sk-common.dtsi"
-+#include "k3-am625-sk-common.dtsi"
- 
- / {
- 	compatible = "ti,am625-sk", "ti,am625";
- 	model = "Texas Instruments AM625 SK";
- 
--	opp-table {
--		/* Add 1.4GHz OPP for am625-sk board. Requires VDD_CORE to be at 0.85V */
--		opp-1400000000 {
--			opp-hz = /bits/ 64 <1400000000>;
--			opp-supported-hw = <0x01 0x0004>;
--			clock-latency-ns = <6000000>;
--		};
--	};
--
- 	memory@80000000 {
- 		/* 2G RAM */
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
- 		device_type = "memory";
- 		bootph-pre-ram;
- 	};
--
--	vmain_pd: regulator-0 {
--		/* TPS65988 PD CONTROLLER OUTPUT */
--		bootph-all;
--		compatible = "regulator-fixed";
--		regulator-name = "vmain_pd";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		regulator-always-on;
--		regulator-boot-on;
--	};
--
--	vcc_5v0: regulator-1 {
--		/* Output of LM34936 */
--		bootph-all;
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_5v0";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		vin-supply = <&vmain_pd>;
--		regulator-always-on;
--		regulator-boot-on;
--	};
--
--	vcc_3v3_sys: regulator-2 {
--		/* output of LM61460-Q1 */
--		bootph-all;
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_3v3_sys";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		vin-supply = <&vmain_pd>;
--		regulator-always-on;
--		regulator-boot-on;
--	};
--
--	vdd_mmc1: regulator-3 {
--		/* TPS22918DBVR */
--		bootph-all;
--		compatible = "regulator-fixed";
--		regulator-name = "vdd_mmc1";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		regulator-boot-on;
--		enable-active-high;
--		vin-supply = <&vcc_3v3_sys>;
--		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
--	};
--
--	vdd_sd_dv: regulator-4 {
--		/* Output of TLV71033 */
--		bootph-all;
--		compatible = "regulator-gpio";
--		regulator-name = "tlv71033";
--		pinctrl-names = "default";
--		pinctrl-0 = <&vdd_sd_dv_pins_default>;
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <3300000>;
--		regulator-boot-on;
--		vin-supply = <&vcc_5v0>;
--		gpios = <&main_gpio0 31 GPIO_ACTIVE_HIGH>;
--		states = <1800000 0x0>,
--			 <3300000 0x1>;
--	};
--
--	vcc_1v8: regulator-5 {
--		/* output of TPS6282518DMQ */
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_1v8";
--		regulator-min-microvolt = <1800000>;
--		regulator-max-microvolt = <1800000>;
--		vin-supply = <&vcc_3v3_sys>;
--		regulator-always-on;
--		regulator-boot-on;
--	};
--};
--
--&main_pmx0 {
--	main_mmc0_pins_default: main-mmc0-default-pins {
--		bootph-all;
--		pinctrl-single,pins = <
--			AM62X_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
--			AM62X_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
--			AM62X_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
--			AM62X_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
--			AM62X_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
--			AM62X_IOPAD(0x208, PIN_INPUT_PULLUP, 0) /* (Y4) MMC0_DAT3 */
--			AM62X_IOPAD(0x204, PIN_INPUT_PULLUP, 0) /* (AB2) MMC0_DAT4 */
--			AM62X_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
--			AM62X_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
--			AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
--		>;
--	};
--
--	main_rgmii2_pins_default: main-rgmii2-default-pins {
--		bootph-all;
--		pinctrl-single,pins = <
--			AM62X_IOPAD(0x184, PIN_INPUT, 0) /* (AE23) RGMII2_RD0 */
--			AM62X_IOPAD(0x188, PIN_INPUT, 0) /* (AB20) RGMII2_RD1 */
--			AM62X_IOPAD(0x18c, PIN_INPUT, 0) /* (AC21) RGMII2_RD2 */
--			AM62X_IOPAD(0x190, PIN_INPUT, 0) /* (AE22) RGMII2_RD3 */
--			AM62X_IOPAD(0x180, PIN_INPUT, 0) /* (AD23) RGMII2_RXC */
--			AM62X_IOPAD(0x17c, PIN_INPUT, 0) /* (AD22) RGMII2_RX_CTL */
--			AM62X_IOPAD(0x16c, PIN_OUTPUT, 0) /* (Y18) RGMII2_TD0 */
--			AM62X_IOPAD(0x170, PIN_OUTPUT, 0) /* (AA18) RGMII2_TD1 */
--			AM62X_IOPAD(0x174, PIN_OUTPUT, 0) /* (AD21) RGMII2_TD2 */
--			AM62X_IOPAD(0x178, PIN_OUTPUT, 0) /* (AC20) RGMII2_TD3 */
--			AM62X_IOPAD(0x168, PIN_OUTPUT, 0) /* (AE21) RGMII2_TXC */
--			AM62X_IOPAD(0x164, PIN_OUTPUT, 0) /* (AA19) RGMII2_TX_CTL */
--		>;
--	};
--
--	ospi0_pins_default: ospi0-default-pins {
--		bootph-all;
--		pinctrl-single,pins = <
--			AM62X_IOPAD(0x000, PIN_OUTPUT, 0) /* (H24) OSPI0_CLK */
--			AM62X_IOPAD(0x02c, PIN_OUTPUT, 0) /* (F23) OSPI0_CSn0 */
--			AM62X_IOPAD(0x00c, PIN_INPUT, 0) /* (E25) OSPI0_D0 */
--			AM62X_IOPAD(0x010, PIN_INPUT, 0) /* (G24) OSPI0_D1 */
--			AM62X_IOPAD(0x014, PIN_INPUT, 0) /* (F25) OSPI0_D2 */
--			AM62X_IOPAD(0x018, PIN_INPUT, 0) /* (F24) OSPI0_D3 */
--			AM62X_IOPAD(0x01c, PIN_INPUT, 0) /* (J23) OSPI0_D4 */
--			AM62X_IOPAD(0x020, PIN_INPUT, 0) /* (J25) OSPI0_D5 */
--			AM62X_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
--			AM62X_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
--			AM62X_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
--		>;
--	};
--
--	vdd_sd_dv_pins_default: vdd-sd-dv-default-pins {
--		bootph-all;
--		pinctrl-single,pins = <
--			AM62X_IOPAD(0x07c, PIN_OUTPUT, 7) /* (P25) GPMC0_CLK.GPIO0_31 */
--		>;
--	};
--
--	main_gpio1_ioexp_intr_pins_default: main-gpio1-ioexp-intr-default-pins {
--		bootph-all;
--		pinctrl-single,pins = <
--			AM62X_IOPAD(0x01d4, PIN_INPUT, 7) /* (B15) UART0_RTSn.GPIO1_23 */
--		>;
--	};
--};
--
--&main_gpio0 {
--	bootph-all;
--};
--
--&main_gpio1 {
--	bootph-all;
--};
--
--&main_i2c1 {
--	bootph-all;
--	exp1: gpio@22 {
--		bootph-all;
--		compatible = "ti,tca6424";
--		reg = <0x22>;
--		gpio-controller;
--		#gpio-cells = <2>;
--		gpio-line-names = "GPIO_CPSW2_RST", "GPIO_CPSW1_RST",
--				   "PRU_DETECT", "MMC1_SD_EN",
--				   "VPP_LDO_EN", "EXP_PS_3V3_En",
--				   "EXP_PS_5V0_En", "EXP_HAT_DETECT",
--				   "GPIO_AUD_RSTn", "GPIO_eMMC_RSTn",
--				   "UART1_FET_BUF_EN", "WL_LT_EN",
--				   "GPIO_HDMI_RSTn", "CSI_GPIO1",
--				   "CSI_GPIO2", "PRU_3V3_EN",
--				   "HDMI_INTn", "PD_I2C_IRQ",
--				   "MCASP1_FET_EN", "MCASP1_BUF_BT_EN",
--				   "MCASP1_FET_SEL", "UART1_FET_SEL",
--				   "TSINT#", "IO_EXP_TEST_LED";
--
--		interrupt-parent = <&main_gpio1>;
--		interrupts = <23 IRQ_TYPE_EDGE_FALLING>;
--		interrupt-controller;
--		#interrupt-cells = <2>;
--
--		pinctrl-names = "default";
--		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
--	};
--};
--
--&sdhci0 {
--	bootph-all;
--	non-removable;
--	pinctrl-names = "default";
--	pinctrl-0 = <&main_mmc0_pins_default>;
--	status = "okay";
--};
--
--&sdhci1 {
--	vmmc-supply = <&vdd_mmc1>;
--	vqmmc-supply = <&vdd_sd_dv>;
--};
--
--&cpsw3g {
--	pinctrl-names = "default";
--	pinctrl-0 = <&main_rgmii1_pins_default>, <&main_rgmii2_pins_default>;
--};
--
--&cpsw_port2 {
--	phy-mode = "rgmii-rxid";
--	phy-handle = <&cpsw3g_phy1>;
--};
--
--&cpsw3g_mdio {
--	cpsw3g_phy1: ethernet-phy@1 {
--		reg = <1>;
--		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
--		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
--		ti,min-output-impedance;
--	};
--};
--
--&fss {
--	bootph-all;
--};
--
--&ospi0 {
--	bootph-all;
--	status = "okay";
--	pinctrl-names = "default";
--	pinctrl-0 = <&ospi0_pins_default>;
--
--	flash@0 {
--		bootph-all;
--		compatible = "jedec,spi-nor";
--		reg = <0x0>;
--		spi-tx-bus-width = <8>;
--		spi-rx-bus-width = <8>;
--		spi-max-frequency = <25000000>;
--		cdns,tshsl-ns = <60>;
--		cdns,tsd2d-ns = <60>;
--		cdns,tchsh-ns = <60>;
--		cdns,tslch-ns = <60>;
--		cdns,read-delay = <4>;
--
--		partitions {
--			bootph-all;
--			compatible = "fixed-partitions";
--			#address-cells = <1>;
--			#size-cells = <1>;
--
--			partition@0 {
--				label = "ospi.tiboot3";
--				reg = <0x0 0x80000>;
--			};
--
--			partition@80000 {
--				label = "ospi.tispl";
--				reg = <0x80000 0x200000>;
--			};
--
--			partition@280000 {
--				label = "ospi.u-boot";
--				reg = <0x280000 0x400000>;
--			};
--
--			partition@680000 {
--				label = "ospi.env";
--				reg = <0x680000 0x40000>;
--			};
--
--			partition@6c0000 {
--				label = "ospi.env.backup";
--				reg = <0x6c0000 0x40000>;
--			};
--
--			partition@800000 {
--				label = "ospi.rootfs";
--				reg = <0x800000 0x37c0000>;
--			};
--
--			partition@3fc0000 {
--				bootph-pre-ram;
--				label = "ospi.phypattern";
--				reg = <0x3fc0000 0x40000>;
--			};
--		};
--	};
--};
--
--&tlv320aic3106 {
--	DVDD-supply = <&vcc_1v8>;
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-am6254atl-sk.dts b/arch/arm64/boot/dts/ti/k3-am6254atl-sk.dts
-new file mode 100644
-index 000000000000..055e63a3fbb1
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am6254atl-sk.dts
-@@ -0,0 +1,15 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * AM6254atl SiP SK: https://www.ti.com/lit/df/sprr482b/sprr482b.zip
-+ * Webpage: https://www.ti.com/tool/SK-AM62-SIP
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+#include "k3-am6254atl.dtsi"
-+#include "k3-am625-sk-common.dtsi"
-+
-+/ {
-+	model = "Texas Instruments AM6254atl SK";
-+	compatible = "ti,am6254atl-sk", "ti,am6254atl", "ti,am625";
-+};
+   289	
+   290	static int
+   291	iter_powercap_cpls_process_response(const struct scmi_protocol_handle *ph,
+   292					    const void *response,
+   293					    struct scmi_iterator_state *st, void *priv)
+   294	{
+   295		const struct scmi_msg_resp_powercap_cpc *r = response;
+   296		struct scmi_cpls_priv *p = priv;
+   297		struct scmi_powercap_cpl_info *cpl;
+   298	
+   299		cpl = &p->cpli[st->desc_index + st->loop_idx];
+   300	
+   301		cpl->id = le32_to_cpu(r->desc[st->loop_idx].cpli);
+ > 302		cpl->cap_config = r->desc[st->loop_idx].flags & BIT(0);
+   303	
+   304		cpl->min_power_cap = le32_to_cpu(r->desc[st->loop_idx].min_power_cap);
+   305		cpl->max_power_cap = le32_to_cpu(r->desc[st->loop_idx].max_power_cap);
+   306		cpl->power_cap_step = le32_to_cpu(r->desc[st->loop_idx].power_cap_step);
+   307		if (!cpl->power_cap_step && cpl->min_power_cap != cpl->max_power_cap)
+   308			return -EINVAL;
+   309	
+   310		cpl->min_avg_ivl = le32_to_cpu(r->desc[st->loop_idx].min_cai);
+   311		cpl->max_avg_ivl = le32_to_cpu(r->desc[st->loop_idx].max_cai);
+   312		cpl->avg_ivl_step = le32_to_cpu(r->desc[st->loop_idx].cai_step);
+   313		if (!cpl->avg_ivl_step && cpl->min_avg_ivl != cpl->max_avg_ivl)
+   314			return -EINVAL;
+   315	
+   316		cpl->avg_ivl_config = cpl->min_avg_ivl != cpl->max_avg_ivl;
+   317	
+   318		strscpy(cpl->name, r->desc[st->loop_idx].name, SCMI_SHORT_NAME_MAX_SIZE);
+   319	
+   320		return 0;
+   321	}
+   322	
+   323	static int scmi_powercap_cpls_enumerate(const struct scmi_protocol_handle *ph,
+   324						struct scmi_powercap_info *dom_info)
+   325	{
+   326		void *iter;
+   327		struct scmi_iterator_ops ops = {
+   328			.prepare_message = iter_powercap_cpls_prepare_message,
+   329			.update_state = iter_powercap_cpls_update_state,
+   330			.process_response = iter_powercap_cpls_process_response,
+   331		};
+   332		struct scmi_cpls_priv cpriv = {
+   333			.domain_id = dom_info->id,
+   334			.cpli = dom_info->cpli,
+   335		};
+   336	
+   337		iter = ph->hops->iter_response_init(ph, &ops, dom_info->num_cpli,
+   338						    POWERCAP_CPC_ATTRIBUTES,
+   339						    sizeof(struct scmi_msg_powercap_cpc),
+   340						    &cpriv);
+   341		if (IS_ERR(iter))
+   342			return PTR_ERR(iter);
+   343	
+   344		return ph->hops->iter_response_run(iter);
+   345	}
+   346	
+   347	static int
+   348	scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
+   349					   struct powercap_info *pinfo,
+   350					   struct scmi_powercap_info *dom_info, void *r)
+   351	{
+   352		struct scmi_msg_resp_powercap_domain_attributes *resp = r;
+ > 353		u32 flags = resp->attributes;
+   354		bool cap_config;
+   355		int ret;
+   356	
+   357		cap_config = SUPPORTS_POWERCAP_CAP_CONFIGURATION(flags);
+   358		if (PROTOCOL_REV_MAJOR(pinfo->version) < 0x3) {
+   359			dom_info->num_cpli = 1;
+   360		} else {
+   361			dom_info->num_cpli = le32_get_bits(resp->attributes,
+   362							   GENMASK(18, 15));
+   363			if (cap_config && !dom_info->num_cpli)
+   364				return -EINVAL;
+   365		}
+   366	
+   367		dom_info->cpli = devm_kcalloc(ph->dev, dom_info->num_cpli,
+   368					      sizeof(*dom_info->cpli), GFP_KERNEL);
+   369		if (!dom_info->cpli)
+   370			return -ENOMEM;
+   371	
+   372		if (pinfo->notify_cap_cmd) {
+   373			if (PROTOCOL_REV_MAJOR(pinfo->version) < 0x3)
+   374				dom_info->notify_powercap_cap_change =
+   375					SUPPORTS_POWERCAP_CAP_CHANGE_NOTIFY(flags);
+   376			else
+   377				dom_info->notify_powercap_cap_change =
+   378					SUPPORTS_POWERCAP_CAP_CHANGE_NOTIFY_V3(flags);
+   379		}
+   380	
+   381		if (pinfo->notify_measurements_cmd)
+   382			dom_info->notify_powercap_measurement_change =
+   383				SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
+   384	
+   385	
+   386		dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
+   387	
+   388		dom_info->async_powercap_cap_set =
+   389			SUPPORTS_ASYNC_POWERCAP_CAP_SET(flags);
+   390	
+   391		dom_info->powercap_monitoring =
+   392			SUPPORTS_POWERCAP_MONITORING(flags);
+   393		dom_info->powercap_scale_mw =
+   394			SUPPORTS_POWER_UNITS_MW(flags);
+   395		dom_info->powercap_scale_uw =
+   396			SUPPORTS_POWER_UNITS_UW(flags);
+   397		dom_info->fastchannels =
+   398			SUPPORTS_POWERCAP_FASTCHANNELS(flags);
+   399	
+   400		strscpy(dom_info->name, resp->name, SCMI_SHORT_NAME_MAX_SIZE);
+   401	
+   402		dom_info->sustainable_power =
+   403			le32_to_cpu(resp->sustainable_power);
+   404		dom_info->accuracy = le32_to_cpu(resp->accuracy);
+   405	
+   406		dom_info->parent_id = le32_to_cpu(resp->parent_id);
+   407		if (dom_info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID &&
+   408		    (dom_info->parent_id >= pinfo->num_domains ||
+   409		     dom_info->parent_id == dom_info->id)) {
+   410			dev_err(ph->dev,
+   411				"Platform reported inconsistent parent ID for domain %d - %s\n",
+   412				dom_info->id, dom_info->name);
+   413			return -ENODEV;
+   414		}
+   415	
+   416		dom_info->cpli[0].id = CPL0;
+   417		if (PROTOCOL_REV_MAJOR(pinfo->version) < 0x3)
+   418			dom_info->cpli[0].avg_ivl_config =
+   419				SUPPORTS_POWERCAP_PAI_CONFIGURATION(flags);
+   420		else
+   421			dom_info->cpli[0].avg_ivl_config =
+   422				SUPPORTS_POWERCAP_CAI_CONFIGURATION(flags);
+   423	
+   424		if (PROTOCOL_REV_MAJOR(pinfo->version) < 0x3) {
+   425			dom_info->cpli[0].min_avg_ivl = le32_to_cpu(resp->min_pai);
+   426			dom_info->cpli[0].max_avg_ivl = le32_to_cpu(resp->max_pai);
+   427			dom_info->cpli[0].avg_ivl_step = le32_to_cpu(resp->pai_step);
+   428		} else {
+   429			struct scmi_msg_resp_powercap_domain_attributes_v3 *resp = r;
+   430	
+   431			dom_info->cpli[0].min_avg_ivl = le32_to_cpu(resp->min_cai);
+   432			dom_info->cpli[0].max_avg_ivl = le32_to_cpu(resp->max_cai);
+   433			dom_info->cpli[0].avg_ivl_step = le32_to_cpu(resp->cai_step);
+   434		}
+   435	
+   436		ret = scmi_powercap_validate(dom_info->cpli[0].min_avg_ivl,
+   437					     dom_info->cpli[0].max_avg_ivl,
+   438					     dom_info->cpli[0].avg_ivl_step,
+   439					     dom_info->cpli[0].avg_ivl_config);
+   440		if (ret) {
+   441			dev_err(ph->dev,
+   442				"Platform reported inconsistent PAI config for domain %d - %s\n",
+   443				dom_info->id, dom_info->name);
+   444			return ret;
+   445		}
+   446	
+   447		dom_info->cpli[0].cap_config = cap_config;
+   448		dom_info->cpli[0].min_power_cap = le32_to_cpu(resp->min_power_cap);
+   449		dom_info->cpli[0].max_power_cap = le32_to_cpu(resp->max_power_cap);
+   450		dom_info->cpli[0].power_cap_step = le32_to_cpu(resp->power_cap_step);
+   451		ret = scmi_powercap_validate(dom_info->cpli[0].min_power_cap,
+   452					     dom_info->cpli[0].max_power_cap,
+   453					     dom_info->cpli[0].power_cap_step,
+   454					     dom_info->cpli[0].cap_config);
+   455		if (ret) {
+   456			dev_err(ph->dev,
+   457				"Platform reported inconsistent CAP config for domain %d - %s\n",
+   458				dom_info->id, dom_info->name);
+   459			return ret;
+   460		}
+   461		/* Just using same short name */
+   462		strscpy(dom_info->cpli[0].name, dom_info->name, SCMI_SHORT_NAME_MAX_SIZE);
+   463	
+   464		return 0;
+   465	}
+   466	
+
 -- 
-2.50.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
