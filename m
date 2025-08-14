@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B35CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120C5CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1SG6EZwUeidKkcS9Cw+ueu25J90gmUPbo4DL8leCwY=; b=WOvXEZyuH/hp7N2WlbebJERzCO
-	17Q7Ya8Ck6EoGnj50NKVsH68tYlAP3qKJyBUo8e+FMioEFHHM4/H5YAQ/DPuF7BM9dajgAKQqN8ht
-	dqGm+eQzLUXcxjxwxug65pIHVT5U+tLBnDoXYK8P7jWovVj6bfr92EQihZYnuEd5mZpdPeISq5Pbf
-	zy0s+w24N3oASflqoZzlUtlImnQJRDyYwNMRRlUOLwFj/2z5L2ZPL/ufwpNn8TM0yhN80ne2Dg05A
-	7h5k27VMkoF7Fr4AxmvKDfD1Mcg8/AtZ1EhdWMr2LCGSRuDDkXNz/vjCoJalGN/nekjo/H7fzwjKw
-	nx90dlqw==;
+	bh=j7HALERGN5G1JxCktbFRVEITsXgQmzqpouuUe3GDuCw=; b=azL1bYsZVuvAbS+FIXsnuMRk25
+	5WWAVBKHZGPFKpnlqjG9UcSuPEiZXU7wINnOExs4Uhg/9YX6MUvClzcn4WISYAhRHxTls0RDu5pRz
+	F3XJNbwtKuec5mkDP/6qOWRF+JDcAALCoRvF6SBgPU9Dz52dt4N0DR6goXxpiRPTNRcqzfP2GIlGT
+	yRErvhRUhxL9CwESwJKB4FKTSgY6JgGs4AVutvuThJsIC3WlpZ4/bHcK/numyEF9l7Um2cqAwrTGg
+	6uRcVUNKuQvlAB65utIDH15Cc1bNTfbJNgVDJnzkX0hzhxUWF091w7TbgX8f+JmJCR2zrqdYUp2Xj
+	4EI0o7pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYya-0000000HGOO-2QsQ;
-	Thu, 14 Aug 2025 14:30:44 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1umYzQ-0000000HGac-2wU0;
+	Thu, 14 Aug 2025 14:31:36 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYTc-0000000H8VL-1xgL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 13:58:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 871164441B;
-	Thu, 14 Aug 2025 13:58:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1755179923;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=X1SG6EZwUeidKkcS9Cw+ueu25J90gmUPbo4DL8leCwY=;
-	b=OLf2130pQP1SY5zA1WAMH3htAjHK2qwhk1DZnnXn6GEY+4/nYrMkBUaBT7/En7/CQOhxGK
-	1IBNLpBmO/lyBxmpvm0F+WUP1GQJ0jdkh3tZKWvJ9e0z4Y8wo8w6YQzkGPpaHhBCqXZeWO
-	g2RgH59+EtAm3BBOf6B6l48WrrEt6pEAj1jEvmKn5puyayZQ9P6i2QcD4ksMzxUep9UbPf
-	lYdxIwOUmE/HZmgnJEdlXMIjQBu7UtbXEiSVQAdEKHYY2XLakbC+xr4XzyUVTmqAN+xtXF
-	d0kqH4ZWtpIPQT6I9k1ul8Cmf0al6BHRo/Xh3Pp+eYEP+2U812wm7wRz5rD9hQ==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v11 02/16] net: ethtool: common: Indicate that BaseT works on up to 4 lanes
-Date: Thu, 14 Aug 2025 15:58:17 +0200
-Message-ID: <20250814135832.174911-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
-References: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
+	id 1umWoA-0000000Goy4-46xo;
+	Thu, 14 Aug 2025 12:11:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E68F2059F;
+	Thu, 14 Aug 2025 12:11:45 +0000 (UTC)
+Message-ID: <5aa057d0-dc76-4723-80d1-82065320a428@ghiti.fr>
+Date: Thu, 14 Aug 2025 14:11:45 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 06/13] mm/page_table_check: Reinstate address
+ parameter in [__]page_table_check_pud_clear()
+To: Andrew Donnellan <ajd@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-mm@kvack.org
+Cc: akpm@linux-foundation.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, pasha.tatashin@soleen.com,
+ sweettea-kernel@dorminy.me, nicholas@linux.ibm.com,
+ christophe.leroy@csgroup.eu, Rohan McLure <rmclure@linux.ibm.com>,
+ Ingo Molnar <mingo@kernel.org>
+References: <20250813062614.51759-1-ajd@linux.ibm.com>
+ <20250813062614.51759-7-ajd@linux.ibm.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250813062614.51759-7-ajd@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeduvdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugedutdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddvrddutddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedugedprhgtphhtthhopegrjhgusehlihhnuhigrdhisghmrdgtohhmpdhrtghpthhtoheplhhinhhugihpphgtqdguvghvsehlihhsthhsrdhoiihlrggsshdrohhrghdprhgtphhtthhopehlihhnuhigqdhmmheskhhvrggtkhdrohhrghdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrt
+ ghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_065844_804971_8CC793C8 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250814_051151_169776_2E7A5298 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +71,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The way BaseT modes (Ethernet over twisted copper pairs) are represented
-in the kernel are through the following modes :
+On 8/13/25 08:26, Andrew Donnellan wrote:
+> From: Rohan McLure <rmclure@linux.ibm.com>
+>
+> This reverts commit 931c38e16499 ("mm/page_table_check: remove unused
+> parameter in [__]page_table_check_pud_clear").
+>
+> Reinstate previously unused parameters for the purpose of supporting
+> powerpc platforms, as many do not encode user/kernel ownership of the
+> page in the pte, but instead in the address of the access.
+>
+> [ajd@linux.ibm.com: rebase on arm64 changes]
+> Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+> Acked-by: Ingo Molnar <mingo@kernel.org>  # x86
+> Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+> ---
+> v15: rebase
+> ---
+>   arch/arm64/include/asm/pgtable.h |  2 +-
+>   arch/x86/include/asm/pgtable.h   |  2 +-
+>   include/linux/page_table_check.h | 11 +++++++----
+>   include/linux/pgtable.h          |  2 +-
+>   mm/page_table_check.c            |  5 +++--
+>   5 files changed, 13 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 06ea6a4f300b..81f06e5e32b2 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1374,7 +1374,7 @@ static inline pte_t __ptep_get_and_clear_anysz(struct mm_struct *mm,
+>   		break;
+>   #ifndef __PAGETABLE_PMD_FOLDED
+>   	case PUD_SIZE:
+> -		page_table_check_pud_clear(mm, pte_pud(pte));
+> +		page_table_check_pud_clear(mm, address, pte_pud(pte));
+>   		break;
+>   #endif
+>   	default:
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index 8ee301b16b50..8b45e0c41923 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -1329,7 +1329,7 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+>   {
+>   	pud_t pud = native_pudp_get_and_clear(pudp);
+>   
+> -	page_table_check_pud_clear(mm, pud);
+> +	page_table_check_pud_clear(mm, addr, pud);
+>   
+>   	return pud;
+>   }
+> diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
+> index 66e109238416..808cc3a48c28 100644
+> --- a/include/linux/page_table_check.h
+> +++ b/include/linux/page_table_check.h
+> @@ -16,7 +16,8 @@ extern struct page_ext_operations page_table_check_ops;
+>   void __page_table_check_zero(struct page *page, unsigned int order);
+>   void __page_table_check_pte_clear(struct mm_struct *mm, pte_t pte);
+>   void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
+> -void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
+> +void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+> +				  pud_t pud);
+>   void __page_table_check_ptes_set(struct mm_struct *mm, unsigned long addr,
+>   		pte_t *ptep, pte_t pte, unsigned int nr);
+>   void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
+> @@ -59,12 +60,13 @@ static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
+>   	__page_table_check_pmd_clear(mm, pmd);
+>   }
+>   
+> -static inline void page_table_check_pud_clear(struct mm_struct *mm, pud_t pud)
+> +static inline void page_table_check_pud_clear(struct mm_struct *mm,
+> +					      unsigned long addr, pud_t pud)
+>   {
+>   	if (static_branch_likely(&page_table_check_disabled))
+>   		return;
+>   
+> -	__page_table_check_pud_clear(mm, pud);
+> +	__page_table_check_pud_clear(mm, addr, pud);
+>   }
+>   
+>   static inline void page_table_check_ptes_set(struct mm_struct *mm,
+> @@ -123,7 +125,8 @@ static inline void page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
+>   {
+>   }
+>   
+> -static inline void page_table_check_pud_clear(struct mm_struct *mm, pud_t pud)
+> +static inline void page_table_check_pud_clear(struct mm_struct *mm,
+> +					      unsigned long addr, pud_t pud)
+>   {
+>   }
+>   
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 8aab3fa19c85..28fcff844b63 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -661,7 +661,7 @@ static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
+>   	pud_t pud = *pudp;
+>   
+>   	pud_clear(pudp);
+> -	page_table_check_pud_clear(mm, pud);
+> +	page_table_check_pud_clear(mm, address, pud);
+>   
+>   	return pud;
+>   }
+> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+> index 0957767a2940..bd1242087a35 100644
+> --- a/mm/page_table_check.c
+> +++ b/mm/page_table_check.c
+> @@ -167,7 +167,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd)
+>   }
+>   EXPORT_SYMBOL(__page_table_check_pmd_clear);
+>   
+> -void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud)
+> +void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+> +				  pud_t pud)
+>   {
+>   	if (&init_mm == mm)
+>   		return;
+> @@ -246,7 +247,7 @@ void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
+>   		return;
+>   
+>   	for (i = 0; i < nr; i++)
+> -		__page_table_check_pud_clear(mm, *(pudp + i));
+> +		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
+>   	if (pud_user_accessible_page(pud))
+>   		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
+>   }
 
-  ETHTOOL_LINK_MODE_10baseT_Half
-  ETHTOOL_LINK_MODE_10baseT_Full
-  ETHTOOL_LINK_MODE_100baseT_Half
-  ETHTOOL_LINK_MODE_100baseT_Full
-  ETHTOOL_LINK_MODE_1000baseT_Half
-  ETHTOOL_LINK_MODE_1000baseT_Full
-  ETHTOOL_LINK_MODE_2500baseT_Full
-  ETHTOOL_LINK_MODE_5000baseT_Full
-  ETHTOOL_LINK_MODE_10000baseT_Full
-  ETHTOOL_LINK_MODE_100baseT1_Full
-  ETHTOOL_LINK_MODE_1000baseT1_Full
-  ETHTOOL_LINK_MODE_10baseT1L_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Full
-  ETHTOOL_LINK_MODE_10baseT1S_Half
-  ETHTOOL_LINK_MODE_10baseT1S_P2MP_Half
-  ETHTOOL_LINK_MODE_10baseT1BRR_Full
 
-The baseT1* modes explicitly specify that they work on a single,
-unshielded twister copper pair.
+So this made me realize we (riscv) did not implement 
+pudp_huge_get_and_clear(), which was a mistake since we support THP PUD. 
+I have implemented this function in this patch 
+https://lore.kernel.org/all/20250814-dev-alex-thp_pud_xchg-v1-1-b4704dfae206@rivosinc.com/T/#u
 
-However, the other modes do not state the number of pairs that are used
-to carry the link. 10 and 100BaseT use 2 twisted copper pairs, while
-1GBaseT and higher use 4 pairs.
+That's a fix so I'll merge it in 6.17 (at least I'll try) so your 
+patchset will break the build on riscv, I'll keep you posted when it 
+gets merged!
 
-although 10 and 100BaseT use 2 pairs, they can work on a Cat3/4/5+
-cables that contain 4 pairs.
+Thanks,
 
-Change the number of pairs associated to BaseT modes to indicate the
-allowable number of pairs for BaseT. Further commits will then refine
-the minimum number of pairs required for the linkmode to work.
-
-BaseT1 modes aren't affected by this commit.
-
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- net/ethtool/common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-index 4f58648a27ad..57290fdb7193 100644
---- a/net/ethtool/common.c
-+++ b/net/ethtool/common.c
-@@ -267,7 +267,7 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
- #define __LINK_MODE_LANES_LR8_ER8_FR8	8
- #define __LINK_MODE_LANES_LRM		1
- #define __LINK_MODE_LANES_MLD2		2
--#define __LINK_MODE_LANES_T		1
-+#define __LINK_MODE_LANES_T		4
- #define __LINK_MODE_LANES_T1		1
- #define __LINK_MODE_LANES_X		1
- #define __LINK_MODE_LANES_FX		1
--- 
-2.49.0
+Alex
 
 
