@@ -4,87 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D8DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80671CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XFUrylcigol2hllrcza769/tLyOk1d4CmbqHA8zoLyw=; b=UtLkjYQ/PxUPOMQJyMt/Rji7lI
-	vBlMoXKNmfTyfqEWb0b8yJ8XJ/XRqOrUNJ8qaZQR71yyMzQaKExj8hq2KLQAtvYHf0lgamym4X/w7
-	HCl7Xs/lluA5HahtCoyFT8hbx3JKIi6UwlLvXnBXFX4S3ICEWxZAI39mhZc2kByUANYqvEIgW5JKe
-	BEeURZrqNk9iPd0mgmKmSYz5mJz/knTXQ3VLqT6ZOASe4wSwXkvuoTh7qyvu7ePNF6fRm93W8Kxlc
-	dDYMGEGcCprz9nWC3grYXidFSr+oL5Epe1lxvRbHwFHgm1s9c8VbXNx+5tfjyqzeP51PcjoYXd6DH
-	NT/RvdRQ==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vtNqM5cUWkHkJ7hl5Vy5tYw9YoAE/TzQUQgSXyn0i3U=; b=2GBqc4AHuUdccoPAJbqDmZJ8zx
+	P5IGa0byIpofbAMFAiAOkP5UbGmrR+7dAJt8xS+29TXhYxsrvmEyL4zLQmEzkQdHVVYKbsS3nQNDb
+	LeS+EwAvJhgjvu1MmrqFLCBShdkaFoIFiE67ZKQH5kZCOwzbXNSywEgTgtneKgrvErMOsGvwLy+Ju
+	R0Ipq/zFK0k1GGgV8RZ2maRa2n9sby2DsWzyQI4Jl63klx55Hym55QXgCsLuidlsDZ+yhbB6CpGaa
+	IAciKfFCrWkA8xVJBP44YRGK21vC5nAruEqSX/KpnFgXaJurUJbbJVpskwIC539cyT35YMhpkXvFR
+	GMTkWqfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYP4-0000000H7Xz-2KPm;
-	Thu, 14 Aug 2025 13:54:02 +0000
-Received: from mail-ed1-f54.google.com ([209.85.208.54])
+	id 1umYU8-0000000H8fd-1kbY;
+	Thu, 14 Aug 2025 13:59:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXfq-0000000GvUs-15uR
+	id 1umXpV-0000000H1M2-1bhP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 Aug 2025 13:17:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=vtNqM5cUWkHkJ7hl5Vy5tYw9YoAE/TzQUQgSXyn0i3U=; b=J9wWLbiq9fOInZLu4T3u9YY9h1
+	ILvGH9JCgiuM/KZpYe+lAv5GaFRwIx0c94HYnbx4LelpdGhKXq1GH0Owd6RUeoGruGX7Ee9KhWfL7
+	dvK7n5AU4J0S8WEXKgHiGMwxx8wyxU90eOxxiEBjGjvgpFngOxI7tXGZ9OAi2Nz7j9ORLCBjBk631
+	WRhmaqfMCm2kP8H9gYe5gNolqIbld3gjGtJqqu6FaKTlqUBZ1Jqz3TKn1Ntjr32NwEA9tbwVvuZ/H
+	5BKg6yLBUCQf8g6sHMFBZDatLSvjeA7HVrjAQH/49e+5wHUr1GnYXfVU8akkcNen79kN/qcEg3UmT
+	AqUCwPhw==;
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umXpR-0000000GOBs-3xEA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 13:07:19 +0000
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6188945f471so1994030a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 06:07:17 -0700 (PDT)
+	Thu, 14 Aug 2025 13:17:16 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b47174beccfso659365a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 06:17:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755177431; x=1755782231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vtNqM5cUWkHkJ7hl5Vy5tYw9YoAE/TzQUQgSXyn0i3U=;
+        b=HyZJSyRTU1lWq3su3NL9l/LB2/cQVmVMayKFW4KJfXK0O+rX98f9JpYPO6JbpZEOMJ
+         W9ksOkvDBFS/tNY7bZ7HrmUsPtT1WFVZnSaqWvw0juSr3Wz5t62AlsZga5DFNDoxE9eU
+         Ni5hjhnTEmsQOc84AsqWNy5jdMZv9uXX3Tvm1KI60dovTJpuI9fr6uCJH58TsQ65bcbf
+         1kNo4AElklr4TEpnlpVCGwG9g/VPXFE1SH44i/FLU3T/adljtaDFzCLMbITBdSwWtivv
+         m76fDTktx/yVe04BYf83atI+ByKGgRuR3FGgzKkiZYpcnsTdHWkXM2DRui1HDkXFwTL0
+         NMvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755176836; x=1755781636;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XFUrylcigol2hllrcza769/tLyOk1d4CmbqHA8zoLyw=;
-        b=C94A40OAyWcpnZ33S+8EOYgaDVwB0Jwjst3zlPkeJKDdWiAh5VYrE59ejBkx9O20vw
-         lfs3Jz1pSiz4uP6rRvZhmV8XhwWtrHYFdia/q++T2gJFGNqXkPPnXvgVkMNijQYmPiot
-         dYGgVMVQbx/oUFVAJUQyvzz+fjbvYSApslCqxWYfMSQrRNr5oIkHdmywEQ/vAXkKxaFg
-         U/NO0hdGAJIqlDX9p+AjmTZfbE/tVP1qrmGazwRCkX5IgmCAi1JmgEue2zYhDkMBc5rL
-         6dStX6ZaUdGAYcmYTrx9hsPzIKpTQASJ3S3rUTDpZWheTliI2bE3nvfTJRqE0CwmzJ9I
-         6aMw==
-X-Forwarded-Encrypted: i=1; AJvYcCVL/mS5j5JM05IqHk+Pac9KwqG5SNCJzrt0dSHqj5XBfU2gPI9/4kzerEMmX+MT3kddr3jr3XZDnD0oGq1NbJhO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzMoDq5316l35u7NAIae9E2uG2bLHnPgTOI0YAbK+qtV7iyZe/
-	zhRC+qcI9i9PW0047IG107oTNaGUWLFtRqrh85B0kNDMgSmHqqoXHpmQ2Hij1Zgs2SY=
-X-Gm-Gg: ASbGncsGqw/Uu6F18SRQksueDF68gO2RL6xdAi4JEDtmlYr8rUdvsxR+Q01oXnGIrbI
-	NjXiCEoON0+ruZLzT5hSBsiDnIlW8fyOTHIx61cwV+Ejj5bDqETSz7EccrCDCuVHpLMWcHK3FZc
-	s/xvIZj2FGCqi53GEH65pOM6f9NbO8pbbHIIBysF+MMPUDJuZJH+UXuJh1x1MVtJCIuoUOaTZgA
-	zeeD/hePiC51xl3E+pz9Yf+cTyZPPJCN8Sl+5o4RLGxjDyMyC4TJzXQAo+cCoZG2Dxs+I0ahDr9
-	OZ7jk6/JnW0oBfHTiZEZQ+TREOq2K4SGhmWEWkstwDkNxhZURD2gc0uqDMUeSaIguZHvxF9RTue
-	C02xNM6w2Bw0yE6Y+ZwTTownz/KxPwBIHNNwjK1o4U69/C7MqFpob
-X-Google-Smtp-Source: AGHT+IFs3CQbha/ynIvLrbzZs13bbiEaJkAMhXFw8GPdUc5eH67UmQsdTmwEsKRkBOzJpbV4WAmtnw==
-X-Received: by 2002:a50:d797:0:b0:617:e2f8:c44c with SMTP id 4fb4d7f45d1cf-6189116f05bmr1516912a12.0.1755176835643;
-        Thu, 14 Aug 2025 06:07:15 -0700 (PDT)
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com. [209.85.208.44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-618461ab3dcsm5664115a12.56.2025.08.14.06.07.14
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 06:07:14 -0700 (PDT)
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-618896b3ff9so1974941a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 06:07:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWQDViLfkYMS045K5GBXJfHdpkAtSCYfisCCXhmyYAC5FsvLxGE/BPcQ/xHsihtNzF0igAnpSViJBPjmQMd0Awk@lists.infradead.org
-X-Received: by 2002:a05:6402:5206:b0:618:3521:6842 with SMTP id
- 4fb4d7f45d1cf-618921e9bfcmr2202592a12.16.1755176833833; Thu, 14 Aug 2025
- 06:07:13 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755177431; x=1755782231;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vtNqM5cUWkHkJ7hl5Vy5tYw9YoAE/TzQUQgSXyn0i3U=;
+        b=SZ01ozNnHRb8DDVUb2XpvHEzd7kshQf7AzKn8zywDRCPq9ZdplevsrbUhdm/LoH/pH
+         i6MBeX20lJiMwZJfZjTZZQCtFsG4aAcCuvf4T5sneAe/aaKbOwnU9frQPQvnwwOEo0mD
+         +1OiJMWTZj9bl0NqKC2aJGzS7eR+eQreFpziCW+qlZd/5BN9DC7sudFQHI79YAFB0V3b
+         +1JTCmsuIcYkAMQ5La6B0CXWR5awLVLKMIZBxbye4JAowM7jJ2xZl897Yvbke4k+S+oQ
+         +IV5CERr6h2ut+HIIX14Vhg/1ayzvnFMlQLnn86CbK5mTUtHb+pnKMdKaOwYyR1wH/gP
+         Y0Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTxqRbStbgCtCpjfvbYXWdgIZ7cMF7BlTJawCsnSa36sMWzvTeU5d7+2nZbg3nHdAI9oFovKnLVRVdWnahMWKa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSa92tspZOZLptXh7fmqC9ZGigCI6Vmj/ioUDAjCKrgBW1vUde
+	itMcido9EWSp9ngly5XRCFuUsRBBNPPQzExWTtC9+qOuuPaTEPq7l2J5
+X-Gm-Gg: ASbGncvQqsDjR5hFpmcJ1vizwV3Lq5LJVFHH3q6uy/Qgdcq6GuVspDBQnjuWAUKN1Qy
+	VyK9b798jZFwZODUAZVwjiljosXLHdydIj0U1rjdsyJc+7b7wL/uv4Ouxm9q3Lovy/yoSwySFvM
+	I3XIUXhxz7QJBjYlwu4EMfJDfrirSkzsU5FNgWFk1ug54373tu5luav2iF3TrOHERv45Psz32A1
+	acYe0mJIEdWkjCCARKOOjP9IjU7/J39PbIPWgXoFiPxxfDDW4YOQIZebPFQwu3G92F4eQsBP32C
+	myUWzRQE8g6PgVtXvJtcTHjpw2Z+cWZbofi8h+fU/aBi2RcuJOjnZFVXviyMqueoYE2bOh0pAb8
+	UDCS3NV9dyceg7e9xaZhMYOCHPF4dHjL1CP+lvoVzUVVpFKlmy2QtqLCONX7sm0PuO5p4Hy7qNb
+	HKPUG0aoIPMU4qqdxL9WUIdw==
+X-Google-Smtp-Source: AGHT+IFa7QfMuw5Y7JIUV4eh1A1Uc0XGu+XJ+9r3P5sIVVSAVSVpPVZ+2s3TAqMI+/lS4qOg8heSQg==
+X-Received: by 2002:a17:903:1b03:b0:23f:e2e0:f89b with SMTP id d9443c01a7336-244584b4658mr43434605ad.3.1755177430731;
+        Thu, 14 Aug 2025 06:17:10 -0700 (PDT)
+Received: from fred-System-Product-Name.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24218d8413asm335652995ad.63.2025.08.14.06.17.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 06:17:10 -0700 (PDT)
+From: Fred Chen <fredchen.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] Revise Meta Santabarbara devicetree
+Date: Thu, 14 Aug 2025 21:16:56 +0800
+Message-ID: <20250814131706.1567067-1-fredchen.openbmc@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
-In-Reply-To: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
-From: Neal Gompa <neal@gompa.dev>
-Date: Thu, 14 Aug 2025 06:06:35 -0700
-X-Gmail-Original-Message-ID: <CAEg-Je84XxLWH7vznQmPRfjf6GxWOu75ZetwN7AdseAwfMLLrQ@mail.gmail.com>
-X-Gm-Features: Ac12FXzLclnfzNMdgfWr5WLv-lJF3C441CLYE6NCa_SPc5-EdJWTW2hkFqFeYNQ
-Message-ID: <CAEg-Je84XxLWH7vznQmPRfjf6GxWOu75ZetwN7AdseAwfMLLrQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] Apple Silicon SMC RTC driver
-To: Sven Peter <sven@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Lee Jones <lee@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	Hector Martin <marcan@marcan.st>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_060718_303569_596E3002 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250814_141714_120568_FF32D915 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +117,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 11:25=E2=80=AFAM Sven Peter <sven@kernel.org> wrote=
-:
->
-> Hi,
->
-> Now that the core mfd device has been upstream I've prepared one of the
-> child drivers that is still missing: RTC support.
-> This driver is required to read and set the hardware clock and requires
-> a reference to an additional NVMEM cell to store the offset and thus
-> requires a device tree node.
->
-> The series applies cleanly to 6.17-rc1 but is based on a tree with three
-> additional commits to add the SMC nodes to the DTS which didn't make it
-> into 6.17. You can just ignore that and pretend this is based on
-> 6.17-rc1 since I'll take the dts update through my tree anyway.
->
-> Next to this SMC child driver we're still working on an input/misc HID
-> driver for the powerbutton, a hwmon driver for the various sensors and a
-> power-supply driver to manage the batteries.
->
-> Best,
->
-> Sven
->
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
-> Hector Martin (1):
->       rtc: Add new rtc-macsmc driver for Apple Silicon Macs
->
-> Sven Peter (2):
->       dt-bindings: rtc: Add Apple SMC RTC
->       arm64: dts: apple: t8103,t600x,t8112: Add SMC RTC node
->
->  .../devicetree/bindings/mfd/apple,smc.yaml         |   9 ++
->  .../devicetree/bindings/rtc/apple,smc-rtc.yaml     |  35 +++++
->  MAINTAINERS                                        |   2 +
->  arch/arm64/boot/dts/apple/t600x-die0.dtsi          |   6 +
->  arch/arm64/boot/dts/apple/t8103.dtsi               |   6 +
->  arch/arm64/boot/dts/apple/t8112.dtsi               |   6 +
->  drivers/mfd/macsmc.c                               |   1 +
->  drivers/rtc/Kconfig                                |  11 ++
->  drivers/rtc/Makefile                               |   1 +
->  drivers/rtc/rtc-macsmc.c                           | 141 +++++++++++++++=
-++++++
->  10 files changed, 218 insertions(+)
-> ---
-> base-commit: 772c260c9c7f916c9a2508839df4f03fc19f3773
-> change-id: 20250812-wip-smc-rtc-e856b6f24603
->
+Summary:
+Revise linux device tree entry related to Meta (Facebook) Santabarbara.
 
-Series looks good to me, thanks for submitting them!
+Change log
+v1 -> v2:
+  - add 'bmc_ready_noled' LED and update commit message
+  - add sgpio line name for leak detection
+v1:
+  - add sensor nodes for extension board
+  - add mctp node for NIC
+  - adjust LED configuration
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
+Fred Chen (4):
+  ARM: dts: aspeed: santabarbara: add sensor support for extension
+    boards
+  ARM: dts: aspeed: santabarbara: Enable MCTP for frontend NIC
+  ARM: dts: aspeed: santabarbara: Adjust LED configuration
+  ARM: dts: aspeed: santabarbara: add sgpio line name for leak detection
 
+ .../aspeed-bmc-facebook-santabarbara.dts      | 857 +++++++++++++++++-
+ 1 file changed, 853 insertions(+), 4 deletions(-)
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+-- 
+2.49.0
+
 
