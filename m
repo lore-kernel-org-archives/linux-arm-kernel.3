@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA9DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A20BCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYQG3rMOARn6e8FXTNF061oPhhBOqd+NVL7TsVsGsic=; b=XhFUPuQQbOiXQPyGzG4XVTQT5v
-	ItDvbziA3kjaXO3CoQ9OaPu6ktZkv00vN592VdwBlWvE581EQaOwznnx8v/xHaK/DQqAB6PkrbTDv
-	3JDcnrhYiiKfnwF5cYuwzD2pqn/aKBqkMBbfHl/aJzYGybRJ3oMWkfPri/T7MMkg06oV3SMJwd99O
-	ZK3EEsaspqqAJZ02xf/Re2F5cctqzgcb7EGQZWRy/XhICt42cXi4AJgEcAyrPescBhNsy5TGYYSsu
-	vDsPAO7kSWbh0YOhl/P0NwRLtbzpljdzoVBqoHruZ0PZYxRTRxkGavxC+l3AoTYo66iYC5daVXDgG
-	/6evq7lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=; b=M5HFj8G2M21T+j
+	zgBve5fBjyc6OztfykuQ/vWrspquPnnmzI2YnlZEUEE6xBrMf9r9txMYhLbi2DT+WrW5ZZgswJOnf
+	pdHFVcq4SNz5ocaxz2eNO27bQlO+9wc1RUPZGpaMBDJJhLmiYKUOKWObVfTMB9PVIELGsNRGXsfBf
+	yyXZJwH0gqW99DNwTtbnKS0nbdSSPXIiTN+M36UFAd73LF1DkNLhXMY/gq//PgkZ5C7HfNhPaEyTT
+	/N7Rl1hTNROb4vxCim99ZK3eg+qgc02HdAZrf0d7u2de4r/s1uH6rK91P6tG9JNI9EbOLdwjlSc5i
+	dSMFeVUG/k4WRKd+KZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXo6-0000000GzUf-16iZ;
-	Thu, 14 Aug 2025 13:15:50 +0000
-Received: from mail-m49236.qiye.163.com ([45.254.49.236])
+	id 1umXoJ-0000000Gzul-2WLw;
+	Thu, 14 Aug 2025 13:16:03 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVVD-0000000GeL6-3q1v;
-	Thu, 14 Aug 2025 10:48:13 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63742a2;
-	Thu, 14 Aug 2025 18:48:07 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jingoohan1@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de,
-	dianders@chromium.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 05/13] drm/bridge: exynos_dp: Remove unused &exynos_dp_device.connector
-Date: Thu, 14 Aug 2025 18:47:45 +0800
-Message-Id: <20250814104753.195255-6-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
-References: <20250814104753.195255-1-damon.ding@rock-chips.com>
+	id 1umVYH-0000000Gf6x-43yC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 10:51:23 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b0cd668so3775255e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 03:51:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755168680; x=1755773480; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=;
+        b=Mh0/uEbsYt8xlck3FOM7UoVYIh1I9aYA7pDLy0730LYTNsNrKnvHLTvAXIgQSzxzbH
+         /EBOpUvlJ5yUlL49aG93WWl5KPdSaKhSZAMrdlnwvSPCkTvjIss3xHO4odBpQcPwOkuB
+         jOsCn8mg7qV1OvY6eAa6hGkCUJ5r7yQbgCGXEwV7dYOdtfc2CxgSqd7sdEUMLI+yV4cf
+         mnMSwcpkJh5Auy8wsOwkiyPGa0YOnij95zYxFwrtPS/pcsnf8jnnVyLb2QG2crwBlwd0
+         +0ZKTgfxsFdb4bGYzYBRPB6VednbnY1nGqfJt0BzAg/mOaoMcW/6qPXF5FX3H6uu2rT+
+         jcvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755168680; x=1755773480;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=;
+        b=KMxWESNXOva5mUxz9ejFqn6wsGEbULeJKFVOc5PxrezEYhg0MFc/GuWFSPbFPJR4as
+         dTgwmhHLg04Qsq4pzmeuScDREgCr3GTii1fTdsVMOmqsMP/sXl8SQz+eFh69YaigZuDy
+         fzxA4b/s+EVeIE2XR3yrKhAbJ0at7ptE1801a7O6+ePccA/2utT8Z09mYMU18h4nyQ2F
+         fGDDrQ3d5UO8zvgUu6EsnmrMqsC6A2FgiiQLTEadr9S45K5N7hKsIQKcjmlGZ546BnFX
+         Sxq85SoS7PriGJeVW/hW/QdDCdKbnsCPL+w7nO0FJv28Uc99Pf9wyMH1o5uLXe3zaOHJ
+         w0GQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCVLb84xOAO1y1JH4I9MHkI7Q4ZMaHxGqnj8s9BVig36zsdpWDZP2VH4s2unrCkrMCieOQ5vUbECySzOnm931b@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWOEOvkm2FQrv1/tUQvD8sKIfsqg0EIA5ykiUyD3ZAGG/AMIwB
+	EEgkFsBQPUxIt+6luANz6A7NiM2eFW/Htl4SJ0ODU9uV15aCfEqhIzR9rsPg8I/ZIRM=
+X-Gm-Gg: ASbGncv9bg2rowJ2R87mw/BWrjLV68Kb06zxlfhtb2/RZFRff9GHowOERKSFj4Xd3dS
+	EpmeU8lLit8Gz+/xAAhg3hYCcZzdGgFfPqIh5YHrgjhUOPl/+4tYCMufuHXq6br+SRo8AoIohyJ
+	FPYnhk9JpF88oQI/QA7mOqgbY31bPgDtDJZf0tYdO336FhYYT6FH14q4beSTQOgDg57hA3ToWi/
+	dHEdG8ePr6WDcW/60z++E5iwecWfCdcU5cMT+lLb1DQaFsn7UOZNi+G8c0hQgdYatQOG9TIHOUv
+	Vb6uEL8n05vWg/9qpQI2nvaWHNnulejwtNqmnkTKRtYLd+RNABE9kAmCXAJdtD/r+H61LWrCrNv
+	CSkZc1Bta2kPieXvIXHHnNuH/9eAOMu6EpuqwZHYR5Q==
+X-Google-Smtp-Source: AGHT+IGi1J840nNnMEHt0PQ+bJMM7STyMRvyW+nAoUIIj5zhCJZ53xyxLHO0So7XafSfOfSk3XvbbA==
+X-Received: by 2002:a05:600c:827:b0:459:e094:92cb with SMTP id 5b1f17b1804b1-45a1d7309camr9947535e9.12.1755168680077;
+        Thu, 14 Aug 2025 03:51:20 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1b226eecsm14228345e9.1.2025.08.14.03.51.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 03:51:19 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v2 0/6] coresight: Add format attribute for setting the
+ timestamp interval
+Date: Thu, 14 Aug 2025 11:49:51 +0100
+Message-Id: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98a831b8e303a3kunm254826283f2248
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh9CQlZMHU8eSR8dTUxOSR9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=UWzkhzG1A/77ILxmK++V+efNrrG97qGEpK9lgNueTtNeCbV85nkJC6k6kNSMPf8KSyCO7qOJngeQLhQtGhSUlKNrR74SQRAQeMJMbH4Im4WJD4iSI/GOsGe/P+Cx9yEZEm4+omcoPyQw54dR/i0Vtpauwdui7yu519sMONkwd4w=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=WYQG3rMOARn6e8FXTNF061oPhhBOqd+NVL7TsVsGsic=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAE+/nWgC/22Nyw6CMBBFf4XM2po+QIgr/8OwqGWAMdrqjCESw
+ r9bcevynOSeu4AgEwociwUYJxJKMYPdFRBGHwdU1GUGq22la1uqq7+jqCBK5hh6xqeqg7VV7V2
+ DnYO8ezD29N6a5zbzSPJKPG8Xk/naX60x5k9tMkqri9YmdAd0pS5PN4qe0z7xAO26rh/AyvQns
+ wAAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034812_114432_2424D54D 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_035122_024187_C5B37017 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +105,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The &exynos_dp_device.connector is assigned in exynos_dp_bridge_attach()
-but never used. It should make sense to remove it.
+Do some cleanups then add a new format attribute to set the timestamp
+interval for ETMv4 in Perf mode. The current interval is too high for
+most use cases, and particularly on the FVP the number of timestamps
+generated is excessive.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Although it would be good to make only SYNC timestamps the default and
+have counter timestamps opt-in, this would be a breaking change. We
+can always do that later, or disable counter timestamps from Perf.
+
+This is added as an event format attribute, rather than a Coresight
+config because it's something that the driver is already configuring
+automatically in Perf mode with any unused counter, so it's not possible
+to modify this with a config.
+
+Applies to coresight/next
+
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/gpu/drm/exynos/exynos_dp.c | 3 ---
- 1 file changed, 3 deletions(-)
+Changes in v2:
+- Only show the attribute for ETMv4 to improve usability and fix the
+  arm32 build error. Wrapping everything in
+  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) isn't ideal, but the -perf.c
+  file is shared between ETMv3 and ETMv4, and there is already precedent
+  for doing it this way.
+- Link to v1: https://lore.kernel.org/r/20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org
 
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index f469ac5b3c2a..e20513164032 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -35,7 +35,6 @@
- 
- struct exynos_dp_device {
- 	struct drm_encoder         encoder;
--	struct drm_connector       *connector;
- 	struct drm_device          *drm_dev;
- 	struct device              *dev;
- 
-@@ -102,8 +101,6 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
- 	struct exynos_dp_device *dp = to_dp(plat_data);
- 	int ret;
- 
--	dp->connector = connector;
--
- 	/* Pre-empt DP connector creation if there's a bridge */
- 	if (plat_data->next_bridge) {
- 		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
+---
+James Clark (6):
+      coresight: Change syncfreq to be a u8
+      coresight: Fix holes in struct etmv4_config
+      coresight: Repack struct etmv4_drvdata
+      coresight: Refactor etm4_config_timestamp_event()
+      coresight: Add format attribute for setting the timestamp interval
+      coresight: docs: Document etm4x ts_interval
+
+ Documentation/trace/coresight/coresight.rst        |  14 +++
+ drivers/hwtracing/coresight/coresight-etm-perf.c   |  13 ++-
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 110 +++++++++++++--------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  86 ++++++++++------
+ 4 files changed, 151 insertions(+), 72 deletions(-)
+---
+base-commit: a80198ba650f50d266d7fc4a6c5262df9970f9f2
+change-id: 20250724-james-cs-syncfreq-7c2257a38ed3
+
+Best regards,
 -- 
-2.34.1
+James Clark <james.clark@linaro.org>
 
 
