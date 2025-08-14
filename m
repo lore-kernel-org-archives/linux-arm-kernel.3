@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E61BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D19DCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Yzq4gKwNqMbNXOcYSA7ARRrQ67vchKMExUQoz8D07g=; b=hur0AwuLEiuXDYWynkafnSWZNK
-	6sbjwg1eyKqNrlsxhCz4TL1eXApPlAHsMeJcGY5t9+5rNLCFRV9I064Fe1CzcXfes6eHVplapPT8K
-	XQJDuJHQITg5mWo27kANiaInNYgTrgDoU3kihvKLH2fQVIDKnzlHmCIjg7XXP6Xbb6gFFDoEIpzHp
-	Xr7SDUt1V0huxf6irquJHDpza+rm0IGnqnhYSRSp9kx5mXFrKtELUe4ON476esuJi1cM4AAX/WtTY
-	N+HpA/S299m3GsiQFTDn6zqjwIYKxiWer5xDBKhQd0V+Q1ZZBny2Btvu8rc7Dq1UjaLhIB1Rkx9zH
-	K/4YQWLw==;
+	bh=uBkHosTnQtiv5CDSpey2IcR4GqdkCye7OwVNszsXXZk=; b=ksEUh93Lp0jQJGAm2jjLOotoZs
+	pLCkYn36kXr0Zkhq9AjC/LkBSlfoyV6wreEMlUScCYtd/dJE/S3K6xs19GQBqQoWe/CydbkxYyfYW
+	wcYnNRYhoiiry2dTCKgCEEvPC76lcT4XoCSetHfGvGzkQ0uZ04uHRRMJG2R8ax9UF8vRniw6pxFkm
+	LXYkJTfw9Nct1rZgbM4q6LAQvL+rRGx7B1hWbNHu+Ko4qMuqwlYmsOIXcuSnRnr5tfOezqm4fuPmV
+	IIaKYP4xy+8dXQktQpy3ZKDkWWGkxshUjAjY1v68rpkkejQPN7rzRUESwohA80m60QsTDhsDjris5
+	hwfMthqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZgx-0000000HOcf-1g8M;
-	Thu, 14 Aug 2025 15:16:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1umZgy-0000000HOdK-1ZFr;
+	Thu, 14 Aug 2025 15:16:36 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUvk-0000000GXFV-3azg
+	id 1umV1M-0000000GYi4-3B0O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:11:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F2672A56868;
-	Thu, 14 Aug 2025 10:11:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA4A9C4CEED;
-	Thu, 14 Aug 2025 10:11:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1755166291;
-	bh=kTd9OqRGMiVwknWlc2tHcIgi2pdtVtjjVY49UoxDJjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l0XR3v0HLfn2c6LbT2X3JEXKhTuY/BLOKRuCamKHn9jijqYxJRzM4BNWjaBSIlUj3
-	 67/oD3yyj9cqH0YaFho+6WR684v0PXMvo9YUbHEgh9oDW69KzSslMDZ00jDokTB2/r
-	 kdMsrrwdIu2Ea7GMVgXButDw4mzQrjWQ6fukGhHs=
-Date: Thu, 14 Aug 2025 12:11:28 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: linux@armlinux.org.uk, nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
-	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
-	herbert@gondor.apana.org.au, davem@davemloft.net,
-	andi.shyti@kernel.org, lee@kernel.org, broonie@kernel.org,
-	jirislaby@kernel.org, arnd@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
-	o.rempel@pengutronix.de, daniel.machon@microchip.com,
-	luka.perkov@sartura.hr
-Subject: Re: [PATCH v9 5/9] tty: serial: atmel: make it selectable for
- ARCH_MICROCHIP
-Message-ID: <2025081421-lapping-same-c2d5@gregkh>
-References: <20250813174720.540015-1-robert.marko@sartura.hr>
- <20250813174720.540015-6-robert.marko@sartura.hr>
+	Thu, 14 Aug 2025 10:17:22 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57E8n3o3012188;
+	Thu, 14 Aug 2025 10:17:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	uBkHosTnQtiv5CDSpey2IcR4GqdkCye7OwVNszsXXZk=; b=NwL1tl4plzNOjQFJ
+	QMua9gr0AtFFd+6OJ8PKwoQa686KPzxhFOSk+qL/6lT9VbcyAWjLps9bTmOGfd3F
+	G9/yyPye4z11EHVwpEilUHA5v/y9PLUsqxpJKSM5T1vckiME3WzvyJ5+S+zVV6AU
+	gn15ZjGl9WN5hyZt3F769EJguM92pI5jdWf8kcsRFclfWPNxy2GrPn2ZOUQXBDj+
+	2jd1MgX1LWxEuWteiBSahXTzfEcA1gJoKIcePQpwmpIpJ5E0cwJ8TgAY7Dz83WFO
+	5joY0SOg+Jv+Lxz2iAy1DS3SwMasnps788RbuJVhZ+yvur+bZZutK7VoZJfRlfdg
+	lW2iow==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48eqhxdewc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Aug 2025 10:17:13 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57EAHCvr017039
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Aug 2025 10:17:12 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 14 Aug 2025 03:17:07 -0700
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
+        <quic_vikramsa@quicinc.com>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 4/9] media: qcom: camss: Add qcom,sa8775p-camss compatible
+Date: Thu, 14 Aug 2025 15:46:10 +0530
+Message-ID: <20250814101615.1102795-5-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
+References: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250813174720.540015-6-robert.marko@sartura.hr>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEwMDA1NyBTYWx0ZWRfX25wmdOp774CP
+ h1ZuAVafEOBROz+HCzX2TnnjgD1G+qmUBoJjEubu4rdDx4fhGtvoT1JBjCN1HVcCnxA3/yuOSn9
+ Aog7gY588Nq/SzbaJO/dIb90N+eKiORrTklYA9//P6JWYg8xwOLxcrlANpeEjRCNLmrBeJaKRZE
+ I0M+1OWk28i/tBwLh1jp6faQb/v5FLDQxG2Rs2vW22gV5uiNy2yChAxo+qZE0ej4rVj5uqApxFA
+ VGfNd+/AxSZlq3NAKJfF8luqFMtcEgmaZQgubzhAxWmENkesaMzfIBtwpkgoQCP9SL+/vgJDkSO
+ Ue+NTO6X6+U4sXzAD45wKRj9V0P8TibKNc/Ec0qs8+3wgt8HlwycVxv6iBVdtn9+MNGj/BIgFR0
+ m9qp3iyp
+X-Proofpoint-GUID: 06JHIx5zBbOJcf4zACP_GvEOvElShO9A
+X-Authority-Analysis: v=2.4 cv=aYNhnQot c=1 sm=1 tr=0 ts=689db7a9 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8
+ a=gE60Ov1lhapgyOv8Ur0A:9 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: 06JHIx5zBbOJcf4zACP_GvEOvElShO9A
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ impostorscore=0 bulkscore=0 malwarescore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508100057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_031132_963490_B21ABB36 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250814_031720_912391_E56C53EF 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +115,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 07:44:41PM +0200, Robert Marko wrote:
-> LAN969x uses the Atmel USART serial, so make it selectable for
-> ARCH_MICROCHIP to avoid needing to update depends in future if other
-> Microchip SoC-s use it as well.
-> 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> ---
->  drivers/tty/serial/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-> index 44427415a80d..724ad4f3cbee 100644
-> --- a/drivers/tty/serial/Kconfig
-> +++ b/drivers/tty/serial/Kconfig
-> @@ -128,7 +128,7 @@ config SERIAL_SB1250_DUART_CONSOLE
->  config SERIAL_ATMEL
->  	bool "AT91 on-chip serial port support"
->  	depends on COMMON_CLK
-> -	depends on ARCH_AT91 || ARCH_LAN969X || COMPILE_TEST
-> +	depends on ARCH_MICROCHIP || COMPILE_TEST
->  	select SERIAL_CORE
->  	select SERIAL_MCTRL_GPIO if GPIOLIB
->  	select MFD_AT91_USART
-> -- 
-> 2.50.1
-> 
+Add CAMSS_8775P enum, compatible and lemans(sa8775p) camss driver
+private data, the private data just include some basic information
+now, later changes will enumerate with csiphy, tpg, csid and vfe
+resources.
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+---
+ drivers/media/platform/qcom/camss/camss.c | 23 +++++++++++++++++++++++
+ drivers/media/platform/qcom/camss/camss.h |  1 +
+ 2 files changed, 24 insertions(+)
+
+diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+index 346cfc4fb392..98efc373a694 100644
+--- a/drivers/media/platform/qcom/camss/camss.c
++++ b/drivers/media/platform/qcom/camss/camss.c
+@@ -2483,6 +2483,19 @@ static const struct resources_icc icc_res_sm8550[] = {
+ 	},
+ };
+ 
++static const struct resources_icc icc_res_sa8775p[] = {
++	{
++		.name = "ahb",
++		.icc_bw_tbl.avg = 38400,
++		.icc_bw_tbl.peak = 76800,
++	},
++	{
++		.name = "hf_0",
++		.icc_bw_tbl.avg = 2097152,
++		.icc_bw_tbl.peak = 2097152,
++	},
++};
++
+ static const struct camss_subdev_resources csiphy_res_x1e80100[] = {
+ 	/* CSIPHY0 */
+ 	{
+@@ -3752,6 +3765,15 @@ static const struct camss_resources msm8996_resources = {
+ 	.link_entities = camss_link_entities
+ };
+ 
++
++static const struct camss_resources sa8775p_resources = {
++	.version = CAMSS_8775P,
++	.pd_name = "top",
++	.icc_res = icc_res_sa8775p,
++	.icc_path_num = ARRAY_SIZE(icc_res_sa8775p),
++	.link_entities = camss_link_entities
++};
++
+ static const struct camss_resources sdm660_resources = {
+ 	.version = CAMSS_660,
+ 	.csiphy_res = csiphy_res_660,
+@@ -3864,6 +3886,7 @@ static const struct of_device_id camss_dt_match[] = {
+ 	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
+ 	{ .compatible = "qcom,msm8953-camss", .data = &msm8953_resources },
+ 	{ .compatible = "qcom,msm8996-camss", .data = &msm8996_resources },
++	{ .compatible = "qcom,sa8775p-camss", .data = &sa8775p_resources },
+ 	{ .compatible = "qcom,sc7280-camss", .data = &sc7280_resources },
+ 	{ .compatible = "qcom,sc8280xp-camss", .data = &sc8280xp_resources },
+ 	{ .compatible = "qcom,sdm660-camss", .data = &sdm660_resources },
+diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/platform/qcom/camss/camss.h
+index 63c0afee154a..345479f6feba 100644
+--- a/drivers/media/platform/qcom/camss/camss.h
++++ b/drivers/media/platform/qcom/camss/camss.h
+@@ -86,6 +86,7 @@ enum camss_version {
+ 	CAMSS_8280XP,
+ 	CAMSS_845,
+ 	CAMSS_8550,
++	CAMSS_8775P,
+ 	CAMSS_X1E80100,
+ };
+ 
+-- 
+2.25.1
+
 
