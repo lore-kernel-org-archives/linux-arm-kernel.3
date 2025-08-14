@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB54CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773F9CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H01zn369l1+d16Y17AfT9LhhX/ISoHIVQEH1hZMV2AU=; b=bHOdjhZt9aRvk6XxAgot1fIyoZ
-	6fA/tSBjIFhcHH+o7/M/JjWR8WrBKEivbUdo/OA6m/DJmlQNcSYJfPbJRGbsu4aDMybz4kwOO4X9Y
-	VJvfipKkdrQdtuW0ttjplurzNuNoVM9cVgaCAZaOUenE4yjXzA2OBA1DBK0LEAqOg2D01T4AQd0wT
-	PH7B+EUFjq4GVJLzpdLCFdNjZneHNR7UT7jtEoCOKqSbn+JX5ocXNmmt1dDbqNZ4h/dhUQWsb0VMp
-	2B142vHrSfWGdn+fwmrP1zcznFWuq4eVYuYx2okBq4yX1zirCUJfG5KZCPhStQy90k5vV7u8YPLlt
-	ZGPsJ7kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aiJlMQlkdu9+K71t3xKkVrAQdP628Zfak7FpwFmJ0rY=; b=b7KrDp7eK+IJmksDhA3+xkgNAc
+	IxGjol3ZTbrzYXcSqO1qBm4hlbGfXPQC0wE19DH97AJrpp/bLvSt0j4E1gm+U3LgoApgEMwzMDuHx
+	uL1iSuiYAFYJBCEbVoLvjPydfYJEPaujU2/YTfILqEHKj6PictRa5tu/j+kLdE1ZHs22KpRJI0fIC
+	+spsI19HW2ni2dZSNqMFEaCOzlgtqk3Ji9WGM9/eUQG2FxgudpNNbhFzQAyfldcCT2kJC6Bna3Pea
+	ii4c+ad3ka6A1QDulJ73XsCRMGwjofpIsw/11Hs5RnidAh8X1AT6W/+/SNb0aFa5abFM3aTsOU9xm
+	XsoZwJ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma0Z-0000000HT3K-1Djo;
-	Thu, 14 Aug 2025 15:36:51 +0000
-Received: from mail-m49241.qiye.163.com ([45.254.49.241])
+	id 1uma0a-0000000HT4s-1c9T;
+	Thu, 14 Aug 2025 15:36:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVVV-0000000GeX5-3z9F;
-	Thu, 14 Aug 2025 10:48:31 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63a9a45;
-	Thu, 14 Aug 2025 18:48:25 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jingoohan1@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de,
-	dianders@chromium.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
+	id 1umVXt-0000000Gf3R-3Mur
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 10:50:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2618443FA8;
+	Thu, 14 Aug 2025 10:50:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2CB8C4CEEF;
+	Thu, 14 Aug 2025 10:50:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755168657;
+	bh=5FZMVn/f9zmbDS+pM2DrCxTMUD+WFq5mD1JzKYBhC24=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZGQe08AHBlMcDNPQYWP71w7jEYy5jVpSuxqsiifbm9k7soSAyKAMCDd46MCc4tbUG
+	 F+u8HY4ZzP5oBVIUJFBRzGAusfchiFY6u8XEvJ2GiAOJtP4wjoooke02Rp64sbKNST
+	 1YsBknLvmkRf0S56M5NwL44ofUyvEC+Y0Z0NBkd/s4Wr3b2wua359374gpEZ6X4eAO
+	 9vny4f8rk8vN4pgxLNg6xeI22ccFnLCa7z1LUP1mndPd9Dvax88T0SIaBOaDBewNqd
+	 cThdnBpAboxxCKNjVNMOsRgQZHklhHgCVUlB1OAvKFWXTpnrCmnFs4JKKtwJttdU+a
+	 Vous6kyZFgO4A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1umVXq-007PWx-Gi;
+	Thu, 14 Aug 2025 11:50:54 +0100
+Date: Thu, 14 Aug 2025 11:49:26 +0100
+Message-ID: <86ldnmdvpl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, Steven Price <steven.price@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 13/13] drm/bridge: analogix_dp: Apply panel_bridge helper
-Date: Thu, 14 Aug 2025 18:47:53 +0800
-Message-Id: <20250814104753.195255-14-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
-References: <20250814104753.195255-1-damon.ding@rock-chips.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98a831ffba03a3kunm254826283f235e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk0eSFZOHU5PQ0IYSB8ZSElWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=bOuKMXQg8Rup1J2MedckZ+VVvhF64MypXOqwvZq3mdJxdovCpPjMuBEIoLIh/lX5uYxdzOrkdv6bQg0HBk7AEMMGHGlle06d2eTBpcX8bM9QQsBDu5/Ylo5qPtns4ddU8C8KDVkc6O5/P6FZcJfp5Qt1VGT6Y05WcylFm3n6hIU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=H01zn369l1+d16Y17AfT9LhhX/ISoHIVQEH1hZMV2AU=;
-	h=date:mime-version:subject:message-id:from;
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 2/4] clocksource/drivers/arm_arch_timer: Add standalone MMIO driver
+In-Reply-To: <8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com>
+References: <20250807160243.1970533-1-maz@kernel.org>
+	<20250807160243.1970533-3-maz@kernel.org>
+	<8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: daniel.lezcano@linaro.org, steven.price@arm.com, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@arm.com, rafael@kernel.org, tglx@linutronix.de, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034830_175993_0FC14425 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250814_035057_879585_CC806F5E 
+X-CRM114-Status: GOOD (  25.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,111 +92,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to unify the handling of the panel and bridge, apply
-panel_bridge helpers for Analogix DP driver. With this patch, the
-bridge support will also become available.
+On Thu, 14 Aug 2025 11:13:47 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> On 07/08/2025 17:02, Marc Zyngier wrote:
+> > Add a new driver for the MMIO side of the ARM architected timer.
+> > Most of it has been lifted from the existing arch timer code,
+> > massaged, and finally rewritten.
+> > 
+> > It supports both DT and ACPI as firmware descriptions.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  MAINTAINERS                               |   1 +
+> >  drivers/clocksource/arm_arch_timer_mmio.c | 420 ++++++++++++++++++++++
+> >  2 files changed, 421 insertions(+)
+> >  create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
+> > 
+> [...]
+> > +static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
+> > +{
+> > +	at->evt = (struct clock_event_device) {
+> > +		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
+> > +					      CLOCK_EVT_FEAT_DYNIRQ),
+> > +		.name			   = "arch_mem_timer",
+> > +		.rating			   = 400,
+> > +		.cpumask		   = cpu_possible_mask,
+> > +		.irq 			   = irq,
+> > +		.set_next_event		   = arch_timer_mmio_set_next_event,
+> > +		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
+> > +		.set_state_shutdown	   = arch_timer_mmio_shutdown,
+> > +	};
+> > +
+> > +	at->evt.set_state_shutdown(&at->evt);
+> > +
+> > +	clockevents_config_and_register(&at->evt, at->rate, 0xf, CLOCKSOURCE_MASK(56));
+> 
+> This doesn't work on 32 bit - clockevents_config_and_register()'s final
+> argument is an unsigned long, and a 56 bit mask doesn't fit. This
+> triggers a compiler warning:
 
-The following changes have ben made:
-- Apply plane_bridge helper to wrap the panel as the bridge.
-- Remove the explicit panel APIs calls, which can be replaced with
-  the automic bridge APIs calls wrapped by the panel.
-- Unify the API of getting modes to drm_bridge_get_modes().
+Already reported, see 20250814111657.7debc9f1@canb.auug.org.au.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Possible this should really be min(CLOCKSOURCE_MASK(56), ULONG_MAX)? But
+> I'm not familiar enough with this code. Most likely it's dead code on a
+> 32 bit platform.
 
----
+No, this definitely exists on 32bit crap, since it has been part of
+the architecture from the ARMv7+VE days.
 
-Changes in v4:
-- Rename the &analogix_dp_plat_data.bridge to
-  &analogix_dp_plat_data.next_bridge.
----
- .../drm/bridge/analogix/analogix_dp_core.c    | 31 +++++++++++--------
- 1 file changed, 18 insertions(+), 13 deletions(-)
+I think this is more of an impedance mismatch between the
+CLOCKSOURCE_MASK() helper and the clockevents_config_and_register(),
+and a (unsigned long) cast would do the trick.
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index a14c065254fa..0529bfb02884 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -948,11 +948,7 @@ static int analogix_dp_bridge_get_modes(struct drm_bridge *bridge, struct drm_co
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	int num_modes = 0;
- 
--	if (dp->plat_data->panel)
--		num_modes += drm_panel_get_modes(dp->plat_data->panel, connector);
--
--	if (dp->plat_data->next_bridge)
--		num_modes += drm_bridge_get_modes(dp->plat_data->next_bridge, connector);
-+	num_modes += drm_bridge_get_modes(dp->plat_data->next_bridge, connector);
- 
- 	if (dp->plat_data->get_modes)
- 		num_modes += dp->plat_data->get_modes(dp->plat_data, connector);
-@@ -995,7 +991,7 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
- 	struct analogix_dp_device *dp = to_dp(bridge);
- 	enum drm_connector_status status = connector_status_disconnected;
- 
--	if (dp->plat_data->panel)
-+	if (drm_bridge_is_panel(dp->plat_data->next_bridge))
- 		return connector_status_connected;
- 
- 	if (!analogix_dp_detect_hpd(dp))
-@@ -1080,8 +1076,6 @@ static void analogix_dp_bridge_atomic_pre_enable(struct drm_bridge *bridge,
- 	/* Don't touch the panel if we're coming back from PSR */
- 	if (old_crtc_state && old_crtc_state->self_refresh_active)
- 		return;
--
--	drm_panel_prepare(dp->plat_data->panel);
- }
- 
- static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
-@@ -1236,7 +1230,6 @@ static void analogix_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 	while (timeout_loop < MAX_PLL_LOCK_LOOP) {
- 		if (analogix_dp_set_bridge(dp) == 0) {
- 			dp->dpms_mode = DRM_MODE_DPMS_ON;
--			drm_panel_enable(dp->plat_data->panel);
- 			return;
- 		}
- 		dev_err(dp->dev, "failed to set bridge, retry: %d\n",
-@@ -1254,16 +1247,12 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
- 	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
- 		return;
- 
--	drm_panel_disable(dp->plat_data->panel);
--
- 	disable_irq(dp->irq);
- 
- 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
- 
- 	pm_runtime_put_sync(dp->dev);
- 
--	drm_panel_unprepare(dp->plat_data->panel);
--
- 	dp->fast_train_enable = false;
- 	dp->psr_supported = false;
- 	dp->dpms_mode = DRM_MODE_DPMS_OFF;
-@@ -1599,6 +1588,22 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 		goto err_unregister_aux;
- 	}
- 
-+	if (dp->plat_data->panel) {
-+		dp->plat_data->next_bridge = devm_drm_panel_bridge_add(dp->dev,
-+								       dp->plat_data->panel);
-+		if (IS_ERR(dp->plat_data->next_bridge)) {
-+			ret = PTR_ERR(bridge);
-+			goto err_unregister_aux;
-+		}
-+	}
-+
-+	ret = drm_bridge_attach(dp->encoder, dp->plat_data->next_bridge, bridge,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret) {
-+		dev_err(dp->dev, "failed to attach following panel or bridge (%d)\n", ret);
-+		goto err_unregister_aux;
-+	}
-+
- 	return 0;
- 
- err_unregister_aux:
+But it also means that the per-cpu timer also gets truncated the same
+way, and that has interesting impacts on how often the timer is
+reprogrammed.
+
+Daniel, do you want a patch on top or a new series?
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
