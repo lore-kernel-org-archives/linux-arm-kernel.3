@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEC5CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C33CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIIh+RNwzrD2SWtoiNYwjSlCZ+91/tIwejowRxgZB/0=; b=pU33y35n0xKSsTgX79h3HuhVQ1
-	oURFqiD06VcZX3CempiSlaKlyh/Ax7O+y4jvcZMsMH8Y0RcgSrGmjCVB5zzWOQDu+ofy2NWIE+6dL
-	BEP6njLIXXEwYUH2lizzKXMtWYZpwA41nA9mzAH/QcVrg97SVNupfYqFVaIhwSjHi8E5sIlWrSppe
-	FDsmnybYIOSeSmMcK+xSQuIt5R9mcO5r55xOwMPhgdsnVFa4Sb1mIDe0eOwQJk8AK0lEVcy1P8P/0
-	Crvjk8snhh/G+7VMWaEbGNNF4Obi1diMv+myr9ErHqALFPmItKUskTi57s3W/4N41wK1wwMxBDM49
-	8sQTgo/Q==;
+	bh=m9ZkW8lSJQacYy5k16zUHk1ns7J+VrJdAwnJg3DtuDQ=; b=4hjUes1UX8gQ+zQhFccLH/J80X
+	Hpi65mX0X/PTDg9YcxZWCUGyg+8+OecATMc3uQ4pl60Rf/fnt//rPJLaYgrBvAD3s++LpDH9k0E5e
+	Vq2skSpFiBNzuRDWPVcnsdUCZsxmce7sa0jxJ7SsZVG9PXOebNs3psL8AavVplYs5Rb53jG+duopC
+	bZyJHEeU07InxCUHWALte+F4GeS+1K+0+dUmCS2aAvlb+TmfP96kSGo9Qz3l2B3+UpUmy2D61rDJg
+	lASzT0l4Lor2q+p46fGDbzSXXZJl6BwXK4uhpgYecSGOnaXm7NG+xlGw48HVpnJBzpziqu6rN4m1w
+	as2Bd5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uns1y-00000006WFV-0NFy;
-	Mon, 18 Aug 2025 05:03:38 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1uns4V-00000006WT0-1FNS;
+	Mon, 18 Aug 2025 05:06:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrdX-00000006Ti3-0tEs
+	id 1unrdg-00000006Tjl-3dyC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 Aug 2025 04:38:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=m9ZkW8lSJQacYy5k16zUHk1ns7J+VrJdAwnJg3DtuDQ=; b=C/zL6DuS0sqfWG7uRfG1K2/AHm
+	bFl27KASWJKC+5iP2ZeLNw3xEc298tM3Qp6cS4xYOTKgI4C6haaYH7chGeIEcKuywOpyrArNe8GFb
+	pHcnMeF1bgdWzwsXEAiveL1V3JXsX6kD2B15m5T1J4d++xxo3PtgqIRLN5Oiyzrl82my0jai0inrx
+	WP+xzfaC16Y0FT+BzRlIZp9saFyCichC8AC80F/G8xcZp6IKxkN7YwqWLMKnrpfivqM7h4hm2udhn
+	xKTZaPRtgCJe1rPni1bGuJDQiKx3czZdNwSrCjWaUQNkGAr6OwmE+zySEQEj/9vm25IOQIUQZERS4
+	FYElYLmg==;
+Received: from mailout4.samsung.com ([203.254.224.34])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unrdS-0000000HF2V-2HoC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 04:38:24 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250818043821epoutp0359e5cf7439711f48259cf72ba64889ca~cwpVcy4Ka0975209752epoutp03B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:38:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250818043821epoutp0359e5cf7439711f48259cf72ba64889ca~cwpVcy4Ka0975209752epoutp03B
+	Mon, 18 Aug 2025 04:38:28 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250818043814epoutp04c48ed9a30f757a8ddb14a3fbb024f652~cwpPE8fno2680126801epoutp04_
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:38:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250818043814epoutp04c48ed9a30f757a8ddb14a3fbb024f652~cwpPE8fno2680126801epoutp04_
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755491901;
-	bh=pIIh+RNwzrD2SWtoiNYwjSlCZ+91/tIwejowRxgZB/0=;
+	s=mail20170921; t=1755491894;
+	bh=m9ZkW8lSJQacYy5k16zUHk1ns7J+VrJdAwnJg3DtuDQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cp2HdVw6FMh5MWfVuvUL1/lvwlfLFBpiAtH5gBgbnAodyIdlpOmoxkzMkFIbn8MYs
-	 XpzPxgHwABp88QJG/B1uoXkltKGRmUyZbOYWm7UT8z91zNuuOOgjdPd6cDE7LkJE71
-	 zbGvTAB5pX9oXczOpagLqStumF/ntjKf3rSUiUOk=
+	b=b5njzaBKo0f8gEaYBu5IeAVRAxixLvYwHxLOUDxoijH2cBXj/sDEhaCVCeDHZlSNz
+	 ZhI8aPTrkgYHb+N6YtBbj8WO6E3Oxfz7Ub6iqgUM4nHV2wZ16aSiS+0FQLX2RWNwS1
+	 U8prQ64lLCUlXggWZhtdzWRU5a9rvcrkj/tRXEGU=
 Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250818043820epcas5p485bd22b98432d4e3bab33109e3307f58~cwpUyFQIE3042630426epcas5p4u;
-	Mon, 18 Aug 2025 04:38:20 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4c50Mb5Lmhz6B9m9; Mon, 18 Aug
-	2025 04:38:19 +0000 (GMT)
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250818043812epcas5p2cedf1f13a8e2571ea1f055a287673855~cwpM3HAJ90138801388epcas5p29;
+	Mon, 18 Aug 2025 04:38:12 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c50MR2br0z6B9m8; Mon, 18 Aug
+	2025 04:38:11 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141057epcas5p21ca33641e42164886dc1bf404237876d~bp4Ihcefq0720407204epcas5p2a;
-	Thu, 14 Aug 2025 14:10:57 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250814141046epcas5p3fd09b7e4ab34f521cf5ab548c41fb1d2~bp3_jKkY32367423674epcas5p3o;
+	Thu, 14 Aug 2025 14:10:46 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141053epsmtip2b31baf764fde081c646d3e1c84b1b4d6~bp4EsmoYH1850318503epsmtip2S;
-	Thu, 14 Aug 2025 14:10:52 +0000 (GMT)
+	20250814141042epsmtip282557f34e7ca313b2fa072250b331b84~bp36tp36g1818718187epsmtip2Z;
+	Thu, 14 Aug 2025 14:10:42 +0000 (GMT)
 From: Inbaraj E <inbaraj.e@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -66,26 +81,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
 	festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, Inbaraj E <inbaraj.e@samsung.com>
-Subject: [PATCH v2 11/12] arm64: defconfig: Enable FSD CSIS DMA driver
-Date: Thu, 14 Aug 2025 19:39:42 +0530
-Message-ID: <20250814140943.22531-12-inbaraj.e@samsung.com>
+Subject: [PATCH v2 09/12] media: imx-mipi-csis: Add support for FSD CSI Rx
+Date: Thu, 14 Aug 2025 19:39:40 +0530
+Message-ID: <20250814140943.22531-10-inbaraj.e@samsung.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250814140943.22531-1-inbaraj.e@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250814141057epcas5p21ca33641e42164886dc1bf404237876d
+X-CMS-MailID: 20250814141046epcas5p3fd09b7e4ab34f521cf5ab548c41fb1d2
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250814141057epcas5p21ca33641e42164886dc1bf404237876d
+X-CMS-RootMailID: 20250814141046epcas5p3fd09b7e4ab34f521cf5ab548c41fb1d2
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
-	<CGME20250814141057epcas5p21ca33641e42164886dc1bf404237876d@epcas5p2.samsung.com>
+	<CGME20250814141046epcas5p3fd09b7e4ab34f521cf5ab548c41fb1d2@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_213823_407139_DEEAA24A 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250818_053823_226513_05E0D0F9 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +115,566 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CSIS DMA driver support for FSD based platforms.
+The FSD SoC features a newer version(v4.3) of the CSI-2 receiver IP,
+similar to the one found in the i.MX7 and i.MX8MM, with the following
+differences.
+
+- Ability to select any one VC for streaming from the four available
+VCs.
+- Built-in DMA support
 
 Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/media/platform/nxp/imx-mipi-csis.c | 304 +++++++++++++++++++--
+ 1 file changed, 276 insertions(+), 28 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 58f87d09366c..7f7e1fadb74f 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -878,6 +878,7 @@ CONFIG_VIDEO_RENESAS_VSP1=m
- CONFIG_VIDEO_RCAR_DRIF=m
- CONFIG_VIDEO_ROCKCHIP_RGA=m
- CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
-+CONFIG_VIDEO_FSD_CSIS=m
- CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
- CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
- CONFIG_VIDEO_SUN6I_CSI=m
+diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+index c1653a738854..2ff2693dacf7 100644
+--- a/drivers/media/platform/nxp/imx-mipi-csis.c
++++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+@@ -35,6 +35,8 @@
+ #include <media/v4l2-fwnode.h>
+ #include <media/v4l2-mc.h>
+ #include <media/v4l2-subdev.h>
++#include <linux/mfd/syscon.h>
++#include <linux/regmap.h>
+ 
+ #define CSIS_DRIVER_NAME			"imx-mipi-csis"
+ 
+@@ -45,6 +47,9 @@
+ #define MIPI_CSIS_DEF_PIX_WIDTH			640
+ #define MIPI_CSIS_DEF_PIX_HEIGHT		480
+ 
++/* CSIS V4_3 SYSREG macros */
++#define FSD_NO_CSI_PER_PHY_V4_3			4
++#define FSD_CSIS_RESETEN_DPHY_MASK_V4_3(phy)	BIT_MASK(phy)
+ /* Register map definition */
+ 
+ /* CSIS version */
+@@ -55,7 +60,11 @@
+ /* CSIS common control */
+ #define MIPI_CSIS_CMN_CTRL			0x04
+ #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(n)	BIT(((n) + 16))
+-#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
++#define MIPI_CSIS_CMN_CTRL_DESKEW_ENABLE	BIT(12)
++#define MIPI_CSIS_CMN_CTRL_INTER_MODE(n)	((n) << 10)
++#define MIPI_CSIS_CMN_CTRL_INTER_MODE_MASK	GENMASK(11, 10)
++#define MIPI_CSIS_CMN_CTRL_LANE_NUM(n)		((n) << 8)
++#define MIPI_CSIS_CMN_CTRL_LANE_NUM_MASK	GENMASK(9, 8)
+ #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
+ #define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
+ #define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
+@@ -64,13 +73,11 @@
+ #define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
+ 
+ /* CSIS clock control */
+-#define MIPI_CSIS_CLK_CTRL			0x08
+-#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH3(x)	((x) << 28)
+-#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH2(x)	((x) << 24)
+-#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH1(x)	((x) << 20)
+-#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(x)	((x) << 16)
+-#define MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK	(0xf << 4)
+-#define MIPI_CSIS_CLK_CTRL_WCLK_SRC		BIT(0)
++#define MIPI_CSIS_CLK_CTRL				0x08
++#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH(n, val)	((val) << (16 + ((n) * 4)))
++#define MIPI_CSIS_CLK_CTRL_CLKGATE_EN(n)		(1 << ((n) + 4))
++#define MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK		(0xf << 4)
++#define MIPI_CSIS_CLK_CTRL_WCLK_SRC			BIT(0)
+ 
+ /* CSIS Interrupt mask */
+ #define MIPI_CSIS_INT_MSK			0x10
+@@ -100,9 +107,9 @@
+ #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
+ #define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
+ #define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
+-#define MIPI_CSIS_INT_SRC_ERR_SOT_HS		BIT(16)
+-#define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
+-#define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
++#define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((16 + (n)))
++#define MIPI_CSIS_INT_SRC_ERR_LOST_FS(n)	BIT((12 + (n)))
++#define MIPI_CSIS_INT_SRC_ERR_LOST_FE(n)	BIT((8 + (n)))
+ #define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
+ #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
+ #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
+@@ -110,6 +117,12 @@
+ #define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
+ #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
+ 
++/* CSIS Interrupt mask1 */
++#define MIPI_CSIS_INT_MSK1			0x18
++
++/* CSIS Interrupt source1 */
++#define MIPI_CSIS_INT_SRC1			0x1C
++
+ /* D-PHY status control */
+ #define MIPI_CSIS_DPHY_STATUS			0x20
+ #define MIPI_CSIS_DPHY_STATUS_ULPS_DAT		BIT(8)
+@@ -123,6 +136,7 @@
+ #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
+ #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
+ #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
++#define MIPI_CSIS_DPHY_CMN_CTRL_S_BYTE_CLK_EN	BIT(21)
+ #define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
+ #define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
+ #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
+@@ -170,7 +184,10 @@
+ /* D-PHY Slave Control register Low */
+ #define MIPI_CSIS_DPHY_SCTRL_L			0x38
+ /* D-PHY Slave Control register High */
+-#define MIPI_CSIS_DPHY_SCTRL_H			0x3c
++#define MIPI_CSIS_DPHY_SCTRL_H					0x3c
++#define MIPI_CSIS_DPHY_SCTRL_H_SKEW_CAL_MAX_SKEW_CODE_CTRL	(0x24 << 2)
++#define MIPI_CSIS_DPHY_SCTRL_H_SKEW_CAL_MAX_SKEW_CODE_CTRL_MASK GENMASK(7, 2)
++#define MIPI_CSIS_DPHY_SCTRL_H_SKEW_CAL_EN			BIT(1)
+ 
+ /* ISP Configuration register */
+ #define MIPI_CSIS_ISP_CONFIG_CH(n)		(0x40 + (n) * 0x10)
+@@ -223,6 +240,12 @@
+ 
+ #define MIPI_CSIS_FRAME_COUNTER_CH(n)		(0x0100 + (n) * 4)
+ 
++/* VC Passing register */
++#define MIPI_CSIS_VC_PASSING_REG	0x120
++#define MIPI_CSIS_VC_PASSING(n)		((n) << 8)
++#define MIPI_CSIS_VC_PASSING_MASK	GENMASK(9, 8)
++#define MIPI_CSIS_VC_PASSING_EN		BIT(7)
++
+ /* Non-image packet data buffers */
+ #define MIPI_CSIS_PKTDATA_ODD			0x2000
+ #define MIPI_CSIS_PKTDATA_EVEN			0x3000
+@@ -239,9 +262,18 @@ struct mipi_csis_event {
+ 
+ static const struct mipi_csis_event mipi_csis_events[] = {
+ 	/* Errors */
+-	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS,		"SOT Error" },
+-	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error" },
+-	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),	"SOT Lane0 Error" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),       "SOT Lane1 Error" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),       "SOT Lane2 Error" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),       "SOT Lane3 Error" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS(0),	"Lost Frame Start Error vc0" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS(1),      "Lost Frame Start Error vc1" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS(2),      "Lost Frame Start Error vc2" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS(3),      "Lost Frame Start Error vc3" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE(0),	"Lost Frame End Error vc0" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE(1),      "Lost Frame End Error vc1" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE(2),      "Lost Frame End Error vc2" },
++	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE(3),      "Lost Frame End Error vc3" },
+ 	{ false, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error" },
+ 	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
+ 	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
+@@ -266,6 +298,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
+ };
+ 
+ #define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
++#define MIPI_CSIS_INT_SRC_NUM_EVENTS_V4_3	17
+ 
+ #define MIPI_CSIS_MAX_CLOCKS	4
+ 
+@@ -279,6 +312,7 @@ enum mipi_csis_clk {
+ enum mipi_csis_version {
+ 	MIPI_CSIS_V3_3,
+ 	MIPI_CSIS_V3_6_3,
++	MIPI_CSIS_V4_3,
+ };
+ 
+ struct mipi_csis_info {
+@@ -292,6 +326,8 @@ struct mipi_csis_info {
+ struct mipi_csis_device {
+ 	struct device *dev;
+ 	void __iomem *regs;
++	struct regmap *sysreg_map;
++	unsigned int phy_rst_off;
+ 	struct clk_bulk_data *clks;
+ 	struct reset_control *mrst;
+ 	struct regulator *mipi_phy_regulator;
+@@ -352,6 +388,11 @@ static const struct csis_pix_format mipi_csis_formats[] = {
+ 		.output = MEDIA_BUS_FMT_RGB888_1X24,
+ 		.data_type = MIPI_CSI2_DT_RGB888,
+ 		.width = 24,
++	}, {
++		.code = MEDIA_BUS_FMT_RGB888_1X24,
++		.output = MEDIA_BUS_FMT_RGB888_1X24,
++		.data_type = MIPI_CSI2_DT_RGB888,
++		.width = 24,
+ 	},
+ 	/* RAW (Bayer and greyscale) formats. */
+ 	{
+@@ -508,7 +549,11 @@ static inline void mipi_csis_write(struct mipi_csis_device *csis, u32 reg,
+ static void mipi_csis_enable_interrupts(struct mipi_csis_device *csis, bool on)
+ {
+ 	mipi_csis_write(csis, MIPI_CSIS_INT_MSK, on ? 0xffffffff : 0);
+-	mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_MSK, on ? 0xffffffff : 0);
++
++	if (csis->info->version == MIPI_CSIS_V4_3)
++		mipi_csis_write(csis, MIPI_CSIS_INT_MSK1, on ? 0xffffffff : 0);
++	else
++		mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_MSK, on ? 0xffffffff : 0);
+ }
+ 
+ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
+@@ -537,6 +582,8 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
+ 		mask = (1 << (csis->bus.num_data_lanes + 1)) - 1;
+ 		val |= (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
+ 	}
++	if (csis->info->version == MIPI_CSIS_V4_3)
++		val |= MIPI_CSIS_DPHY_CMN_CTRL_S_BYTE_CLK_EN;
+ 	mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
+ }
+ 
+@@ -549,7 +596,10 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+ 
+ 	/* Color format */
+ 	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(vc));
+-	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
++	if (csis->info->version == MIPI_CSIS_V4_3)
++		val &= ~(MIPI_CSIS_ISPCFG_FMT_MASK | MIPI_CSIS_ISPCFG_PIXEL_MASK);
++	else
++		val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
+ 		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
+ 
+ 	/*
+@@ -595,7 +645,7 @@ static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
+ 
+ 	lane_rate = link_freq * 2;
+ 
+-	if (lane_rate < 80000000 || lane_rate > 1500000000) {
++	if (lane_rate < 80000000 || lane_rate > 1600000000) {
+ 		dev_dbg(csis->dev, "Out-of-bound lane rate %u\n", lane_rate);
+ 		return -EINVAL;
+ 	}
+@@ -639,7 +689,11 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ 	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
+ 	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
+ 	if (csis->info->version == MIPI_CSIS_V3_3)
+-		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
++		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE(1);
++	else if (csis->info->version == MIPI_CSIS_V4_3) {
++		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE(3);
++		val |= MIPI_CSIS_CMN_CTRL_DESKEW_ENABLE;
++	}
+ 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
+ 
+ 	__mipi_csis_set_format(csis, format, csis_fmt);
+@@ -648,15 +702,23 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ 			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
+ 			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
+ 
+-	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
+-	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
+-	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
++	if (csis->info->version == MIPI_CSIS_V4_3)
++		val = 0x20 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET;
++	else
++		val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
++			| (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
++			| (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
+ 	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(vc), val);
+ 
+ 	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+-	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
+-	val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(15);
+-	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK;
++	if (csis->info->version == MIPI_CSIS_V4_3) {
++		val |= MIPI_CSIS_CLK_CTRL_CLKGATE_EN(vc);
++		val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH(vc, 0x07);
++	} else {
++		val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
++		val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH(vc, 15);
++		val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK;
++	}
+ 	mipi_csis_write(csis, MIPI_CSIS_CLK_CTRL, val);
+ 
+ 	mipi_csis_write(csis, MIPI_CSIS_DPHY_BCTRL_L,
+@@ -676,6 +738,24 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ 			MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL);
+ }
+ 
++static int mipi_csis_get_sysreg(struct mipi_csis_device *csis)
++{
++	unsigned int args;
++
++	if (csis->info->version != MIPI_CSIS_V4_3)
++		return 0;
++
++	csis->sysreg_map = syscon_regmap_lookup_by_phandle_args(
++			csis->dev->of_node, "samsung,syscon-csis", 1, &args);
++
++	if (IS_ERR(csis->sysreg_map))
++		return PTR_ERR(csis->sysreg_map);
++
++	csis->phy_rst_off = args;
++
++	return 0;
++}
++
+ static int mipi_csis_clk_enable(struct mipi_csis_device *csis)
+ {
+ 	return clk_bulk_prepare_enable(csis->info->num_clocks, csis->clks);
+@@ -715,11 +795,71 @@ static int mipi_csis_clk_get(struct mipi_csis_device *csis)
+ 	return ret;
+ }
+ 
++static void mipi_csis_dphy_reset_release_v4_3(struct mipi_csis_device *csis)
++{
++	unsigned int idx = 0, val = 0x0;
++
++	/* There are 4 CSIs per each D-PHY i/f */
++	idx = csis->vc;
++
++	regmap_read(csis->sysreg_map, csis->phy_rst_off, &val);
++
++	val &= ~FSD_CSIS_RESETEN_DPHY_MASK_V4_3(idx);
++	regmap_write(csis->sysreg_map, csis->phy_rst_off, val);
++
++	usleep_range(500, 1000);
++
++	val |= FSD_CSIS_RESETEN_DPHY_MASK_V4_3(idx);
++	regmap_write(csis->sysreg_map, csis->phy_rst_off, val);
++}
++
++static void mipi_csis_dphy_init_v4_3(struct mipi_csis_device *csis)
++{
++	u32 val = 0;
++
++	mipi_csis_dphy_reset_release_v4_3(csis);
++
++	val = readl(csis->regs + MIPI_CSIS_DPHY_SCTRL_H);
++
++	val |= MIPI_CSIS_DPHY_SCTRL_H_SKEW_CAL_EN;
++	val |= MIPI_CSIS_DPHY_SCTRL_H_SKEW_CAL_MAX_SKEW_CODE_CTRL;
++	writel(val, csis->regs + MIPI_CSIS_DPHY_SCTRL_H);
++}
++
++static void mipi_csis_set_vc_passing(struct mipi_csis_device *csis)
++{
++	u32 val;
++	unsigned int vc = csis->vc;
++
++	val = readl(csis->regs + MIPI_CSIS_VC_PASSING_REG);
++
++	val &= ~MIPI_CSIS_VC_PASSING_MASK;
++	val |= MIPI_CSIS_VC_PASSING(vc);
++	val |= MIPI_CSIS_VC_PASSING_EN;
++	writel(val, csis->regs + MIPI_CSIS_VC_PASSING_REG);
++}
++
++static void mipi_csis_get_irq_status(struct mipi_csis_device *csis,
++		unsigned int *sts)
++{
++	*sts = readl(csis->regs + MIPI_CSIS_INT_SRC1);
++}
++
++static void mipi_csis_clear_irq_status(struct mipi_csis_device *csis,
++		unsigned int *sts)
++{
++	writel(*sts, csis->regs + MIPI_CSIS_INT_SRC1);
++}
++
+ static void mipi_csis_start_stream(struct mipi_csis_device *csis,
+ 				   const struct v4l2_mbus_framefmt *format,
+ 				   const struct csis_pix_format *csis_fmt)
+ {
+ 	mipi_csis_sw_reset(csis);
++	if (csis->info->version == MIPI_CSIS_V4_3) {
++		mipi_csis_dphy_init_v4_3(csis);
++		mipi_csis_set_vc_passing(csis);
++	}
+ 	mipi_csis_set_params(csis, format, csis_fmt);
+ 	mipi_csis_system_enable(csis, true);
+ 	mipi_csis_enable_interrupts(csis, true);
+@@ -743,6 +883,31 @@ static void mipi_csis_queue_event_sof(struct mipi_csis_device *csis)
+ 	v4l2_event_queue(csis->sd.devnode, &event);
+ }
+ 
++static irqreturn_t mipi_csis_irq_handler_v4_3(int irq, void *dev_id)
++{
++	struct mipi_csis_device *csis = dev_id;
++	unsigned long flags;
++	u32 status;
++	unsigned int i;
++
++	status = mipi_csis_read(csis, MIPI_CSIS_INT_SRC);
++
++	spin_lock_irqsave(&csis->slock, flags);
++	if ((status & MIPI_CSIS_INT_SRC_ERRORS)) {
++		for (i = 0; i < MIPI_CSIS_INT_SRC_NUM_EVENTS_V4_3; i++) {
++			struct mipi_csis_event *event = &csis->events[i];
++
++			if (status & event->mask)
++				event->counter++;
++		}
++	}
++	spin_unlock_irqrestore(&csis->slock, flags);
++
++	mipi_csis_write(csis, MIPI_CSIS_INT_SRC, status);
++
++	return IRQ_NONE;
++}
++
+ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
+ {
+ 	struct mipi_csis_device *csis = dev_id;
+@@ -950,6 +1115,34 @@ static void mipi_csis_debugfs_exit(struct mipi_csis_device *csis)
+  * V4L2 subdev operations
+  */
+ 
++static int mipi_csis_get_vc(struct mipi_csis_device *csis)
++{
++	struct v4l2_mbus_frame_desc fd = { };
++	int ret;
++
++	ret = v4l2_subdev_call(csis->source.sd, pad, get_frame_desc, csis->source.pad->index, &fd);
++	if (ret < 0 && ret != -ENOIOCTLCMD) {
++		dev_err(csis->dev, "get_frame_desc failed on source subdev\n");
++		return ret;
++	}
++
++	/* If remote subdev does not implement ..get_frame_desc default to VC0 */
++	if (ret == -ENOIOCTLCMD)
++		return 0;
++
++	if (fd.type != V4L2_MBUS_FRAME_DESC_TYPE_CSI2) {
++		dev_err(csis->dev, "get_frame_desc returned invalid bus type %d\n", fd.type);
++		return -EINVAL;
++	}
++
++	if (!fd.num_entries) {
++		dev_err(csis->dev, "get_frame_desc returned zero enteries\n");
++		return -EINVAL;
++	}
++
++	return fd.entry[0].bus.csi2.vc;
++}
++
+ static struct mipi_csis_device *sd_to_mipi_csis_device(struct v4l2_subdev *sdev)
+ {
+ 	return container_of(sdev, struct mipi_csis_device, sd);
+@@ -963,8 +1156,6 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
+ 	struct v4l2_subdev_state *state;
+ 	int ret;
+ 
+-	csis->vc = 0;
+-
+ 	if (!enable) {
+ 		v4l2_subdev_disable_streams(csis->source.sd,
+ 					    csis->source.pad->index, BIT(0));
+@@ -1015,6 +1206,39 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
+ 	return ret;
+ }
+ 
++static void mipi_csis_read_vc_frame_counter(struct mipi_csis_device *csis,
++		u32 *current_frame_counter)
++{
++	unsigned int vc = csis->vc;
++	*current_frame_counter = readl(csis->regs + MIPI_CSIS_FRAME_COUNTER_CH(vc));
++}
++
++static long mipi_csis_command(struct v4l2_subdev *sd, unsigned int cmd, void *arg)
++{
++	struct mipi_csis_device *csis = sd_to_mipi_csis_device(sd);
++	long ret = 0;
++
++	switch (cmd) {
++	case 1:
++		mipi_csis_system_enable(csis, true);
++		break;
++	case 2:
++		mipi_csis_get_irq_status(csis, arg);
++		break;
++	case 3:
++		mipi_csis_clear_irq_status(csis, arg);
++		break;
++	case 5:
++		mipi_csis_read_vc_frame_counter(csis, arg);
++		break;
++	default:
++		dev_err(csis->dev, "Invalid command\n");
++		ret = -1;
++	}
++
++	return ret;
++}
++
+ static int mipi_csis_enum_mbus_code(struct v4l2_subdev *sd,
+ 				    struct v4l2_subdev_state *sd_state,
+ 				    struct v4l2_subdev_mbus_code_enum *code)
+@@ -1122,6 +1346,7 @@ static int mipi_csis_set_fmt(struct v4l2_subdev *sd,
+ static int mipi_csis_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+ 				    struct v4l2_mbus_frame_desc *fd)
+ {
++	struct mipi_csis_device *csis = sd_to_mipi_csis_device(sd);
+ 	struct v4l2_mbus_frame_desc_entry *entry = &fd->entry[0];
+ 	const struct csis_pix_format *csis_fmt;
+ 	const struct v4l2_mbus_framefmt *fmt;
+@@ -1143,7 +1368,7 @@ static int mipi_csis_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+ 
+ 	entry->flags = 0;
+ 	entry->pixelcode = csis_fmt->code;
+-	entry->bus.csi2.vc = 0;
++	entry->bus.csi2.vc = csis->vc;
+ 	entry->bus.csi2.dt = csis_fmt->data_type;
+ 
+ 	return 0;
+@@ -1198,6 +1423,7 @@ static const struct v4l2_subdev_core_ops mipi_csis_core_ops = {
+ 	.log_status	= mipi_csis_log_status,
+ 	.subscribe_event =  mipi_csis_subscribe_event,
+ 	.unsubscribe_event = v4l2_event_subdev_unsubscribe,
++	.command = mipi_csis_command,
+ };
+ 
+ static const struct v4l2_subdev_video_ops mipi_csis_video_ops = {
+@@ -1232,6 +1458,7 @@ static int mipi_csis_link_setup(struct media_entity *entity,
+ 	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
+ 	struct mipi_csis_device *csis = sd_to_mipi_csis_device(sd);
+ 	struct v4l2_subdev *remote_sd;
++	int ret;
+ 
+ 	dev_dbg(csis->dev, "link setup %s -> %s", remote_pad->entity->name,
+ 		local_pad->entity->name);
+@@ -1248,6 +1475,14 @@ static int mipi_csis_link_setup(struct media_entity *entity,
+ 
+ 		csis->source.sd = remote_sd;
+ 		csis->source.pad = remote_pad;
++
++		ret = mipi_csis_get_vc(csis);
++
++		if (ret < 0)
++			return -EBUSY;
++
++		csis->vc = ret;
++
+ 	} else {
+ 		csis->source.sd = NULL;
+ 		csis->source.pad = NULL;
+@@ -1472,6 +1707,10 @@ static int mipi_csis_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return irq;
+ 
++	ret = mipi_csis_get_sysreg(csis);
++	if (ret < 0)
++		return ret;
++
+ 	ret = mipi_csis_phy_init(csis);
+ 	if (ret < 0)
+ 		return ret;
+@@ -1570,6 +1809,15 @@ static const struct of_device_id mipi_csis_of_match[] = {
+ 			.irq_flag = 0,
+ 			.irq_handler = mipi_csis_irq_handler,
+ 		},
++	}, {
++		.compatible = "tesla,fsd-mipi-csi2",
++		.data = &(const struct mipi_csis_info){
++			.version = MIPI_CSIS_V4_3,
++			.num_clocks = 2,
++			.clk_names = { "aclk", "pclk"},
++			.irq_flag = IRQF_SHARED,
++			.irq_handler = mipi_csis_irq_handler_v4_3,
++		},
+ 	},
+ 	{ /* sentinel */ },
+ };
 -- 
 2.49.0
 
