@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199B3CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9E8CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s87vul4GTTme+0lGPMBdBtc6n1F5J2K8K2+8KOsQY00=; b=eiqiHBeCFIwdplBEnRP8fQAfMn
-	ZRygFclu/9Au1B2NfOj7CGT0eVpsZNszI+MSMPQqnp1KWuotX2AFPZhLO613S+0rykzuPSwZXy5dY
-	G1gNu/2fEM0txrFKv1sgVvb+o+RRXqExxmzcsygeHQ0zJXIVNOsLA8vkh3AXsSoEFZJ1rInJ0GNrw
-	fotgqpre9BZQJphht5+w1G9ElZDr5ttwcEjqP9lKryHgWSsqbXhaaDMM0z3hHggS0McG+JQD8D6xS
-	4uxz+yb+T57PMoXMtFHIA9DbMX8Kam9k8PEIfRpL0gTec8bpHeoElyb9DqboyG2YWhvC/T4hPZXG9
-	cq7WylsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l8NIrhvWA3XT+D6ry67eQSgPW4LGM+PP71oE6xphaZ8=; b=zWqsyU+h738trCe7SgxB6kF11W
+	+EJfjXyQmCzb+sSIC/d9UPJ5QJ9LqbR7uVTPXJMD8CflOOInP/e/Bs8R1AAAQQMbzRGx+rwDPUcp0
+	7PfCVxUshOXG8rKB7ToOb0yhlhXeiWq6T0Hb2iqdX9R93lTQTH9ggOSqRVM+Jsc7WfKYl8qii3vyN
+	QCqa8qqcLDSupBud6i519Xc8Kz+HZcATitT/WaOrH3dLrax+Tux/t8dbMOA1GRbY2tXOY+qIJ82uB
+	GefN5v8ZR5znbQ2w60QhK50QacR4cs8VPHyOiaqoKByg+yTl0Ke+MDqPnXNEp6sGXhHI+zJB2SvVZ
+	F3s6mQQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umY2J-0000000H3XB-17vq;
-	Thu, 14 Aug 2025 13:30:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umWzT-0000000GqIv-0pXp
+	id 1umY4p-0000000H443-2unm;
+	Thu, 14 Aug 2025 13:33:07 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umXD7-0000000GrZn-2P3F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 12:23:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8BD41688;
-	Thu, 14 Aug 2025 05:23:21 -0700 (PDT)
-Received: from [10.1.32.48] (e122027.cambridge.arm.com [10.1.32.48])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D65203F738;
-	Thu, 14 Aug 2025 05:23:27 -0700 (PDT)
-Message-ID: <d3bd4234-2053-45ce-aad4-6fc577665d72@arm.com>
-Date: Thu, 14 Aug 2025 13:23:26 +0100
+	Thu, 14 Aug 2025 12:37:38 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-323267bc2eeso704438a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 05:37:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755175056; x=1755779856; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=l8NIrhvWA3XT+D6ry67eQSgPW4LGM+PP71oE6xphaZ8=;
+        b=mTFoELsGuY22DWLvpxMdjTSJzLMk8P84JwgslZ014PqkqytqNyvkw2+9Ja4kzXGGA4
+         vv89OFZh+QT1NtQdX5aYZR52KxPNljcjfHCNetX6u5LI41IwhUiV131TeimaKQyREkUi
+         mVjcv0syW/FpuNOjQbdgeMeerErZ3Obad5TjMHSTwxJZaai5rtRk8kWjuMGl27m5CewD
+         9AOpYAmwxj8pdZ2xYkC80ScFsNQHBYy9cj65peFmRPT3hWeIblHF9XftR9byi+t5qhLX
+         pCXnXNCRMYrM45QHPDwyCVva7qtr6d9hFvmfpgpLOwZKmufgQiAirzGq9A+y2xEr0/bK
+         1GdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755175056; x=1755779856;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l8NIrhvWA3XT+D6ry67eQSgPW4LGM+PP71oE6xphaZ8=;
+        b=GzvuNvUp5IpAL6wVHAVzZvDonpMMkze54u0lMuhtUCPdp3ABjTr++NSed3s9qcza/u
+         cTpGHAzdaMOcY1vNSYTNueYDryZTJqPlloSSBzZYpI/qgrkpIBS39O+FqxntG407itnD
+         6nsGbydjVW7wzP3tX6zL0Il8LIfimPC0pfZVHL7lYNthhIo/gGdSv+v7sm928uV4oUbW
+         Lfd8Ek5uJB63mDiI5c+G1oPUjQUs72ZAeWvFbM7J5eVAdJkeX1ivo/YsM4/I1xN6qG4X
+         u1CEeZu/3DfmbJDBi7ogLQYv2jkldSBV+kDRPVCh6rQ+v+UeCeo+c/T6Q0NTZY17u7FB
+         Xu8g==
+X-Forwarded-Encrypted: i=1; AJvYcCXI4031D7idkic9edzhK9ZdZZQS9fq7HIQO/08ADNm8tFNyg0Y19uy22wAXY6L3+HoVg0Rws1WM2iMj6U+7YppE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2YqorwGmVQ21VuT9mKoMCPvqRBD0GVcR7X1S9utegTlmaiC48
+	bvoK5Mqwo7RzBeCHodgxpaYU/OzhyewA63e3Iqh+uPQW1GTHMjcA/ijtm4UeXSnULWUCQyxPQbJ
+	ExlDBCj4Be+w5prX11RWDfU7A/YD3pmEcnCCnZUmBBw==
+X-Gm-Gg: ASbGnctfI5z9O6U0geY859ATH3Zc2oCq/UUSHvqtcWc+B8UqN/wVhSoiN3aYAV50riW
+	GqSBOBNOE4otQvgW7FLFZAjBADQXUdkllKMX6VMw3E90mVop/+gxs6oxnDIksR8qAYTi0VOkuwD
+	FLohv/2FX3o5/0xGMV+9gxsosiH/KAbUgHFnpD0AUBWQx1VUVi0iMspTwzg4+cvG28FO/a+Si3O
+	f3n4KeG
+X-Google-Smtp-Source: AGHT+IFp5bAV3mlCwQE02uvVSf6ZahrQODia4B5N0jsqEGKT7zYD/rS2C/DAdPrSOa20N/yIekDRogPj27rDkMSmcHo=
+X-Received: by 2002:a17:90b:3d46:b0:321:265a:e0c2 with SMTP id
+ 98e67ed59e1d1-32327ad25femr3514452a91.32.1755175055180; Thu, 14 Aug 2025
+ 05:37:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] clocksource/drivers/arm_arch_timer: Add standalone
- MMIO driver
-To: Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
-References: <20250807160243.1970533-1-maz@kernel.org>
- <20250807160243.1970533-3-maz@kernel.org>
- <8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com> <86ldnmdvpl.wl-maz@kernel.org>
- <871ppetatg.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <871ppetatg.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org> <20250811-james-cs-syncfreq-v1-2-b001cd6e3404@linaro.org>
+In-Reply-To: <20250811-james-cs-syncfreq-v1-2-b001cd6e3404@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 14 Aug 2025 13:37:23 +0100
+X-Gm-Features: Ac12FXwNdxfp1DMoW8IPZs7kHmN3duHawTMxGkhLBFv3GFYUtE-A_kMdlr2VOJY
+Message-ID: <CAJ9a7Vh44rYWN3mjHPBq8pkBcPuhS2pTBZNaMpWgJECmPZtupg@mail.gmail.com>
+Subject: Re: [PATCH 2/6] coresight: Fix holes in struct etmv4_config
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_052331_327230_C59D66F0 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20250814_053737_625071_99411D4B 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,83 +96,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/08/2025 12:14, Marc Zyngier wrote:
-> On Thu, 14 Aug 2025 11:49:26 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
->>
->> On Thu, 14 Aug 2025 11:13:47 +0100,
->> Steven Price <steven.price@arm.com> wrote:
->>>
->>> On 07/08/2025 17:02, Marc Zyngier wrote:
->>>> Add a new driver for the MMIO side of the ARM architected timer.
->>>> Most of it has been lifted from the existing arch timer code,
->>>> massaged, and finally rewritten.
->>>>
->>>> It supports both DT and ACPI as firmware descriptions.
->>>>
->>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>>> ---
->>>>  MAINTAINERS                               |   1 +
->>>>  drivers/clocksource/arm_arch_timer_mmio.c | 420 ++++++++++++++++++++++
->>>>  2 files changed, 421 insertions(+)
->>>>  create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
->>>>
->>> [...]
->>>> +static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
->>>> +{
->>>> +	at->evt = (struct clock_event_device) {
->>>> +		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
->>>> +					      CLOCK_EVT_FEAT_DYNIRQ),
->>>> +		.name			   = "arch_mem_timer",
->>>> +		.rating			   = 400,
->>>> +		.cpumask		   = cpu_possible_mask,
->>>> +		.irq 			   = irq,
->>>> +		.set_next_event		   = arch_timer_mmio_set_next_event,
->>>> +		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
->>>> +		.set_state_shutdown	   = arch_timer_mmio_shutdown,
->>>> +	};
->>>> +
->>>> +	at->evt.set_state_shutdown(&at->evt);
->>>> +
->>>> +	clockevents_config_and_register(&at->evt, at->rate, 0xf, CLOCKSOURCE_MASK(56));
->>>
->>> This doesn't work on 32 bit - clockevents_config_and_register()'s final
->>> argument is an unsigned long, and a 56 bit mask doesn't fit. This
->>> triggers a compiler warning:
->>
->> Already reported, see 20250814111657.7debc9f1@canb.auug.org.au.
->>
->>> Possible this should really be min(CLOCKSOURCE_MASK(56), ULONG_MAX)? But
->>> I'm not familiar enough with this code. Most likely it's dead code on a
->>> 32 bit platform.
->>
->> No, this definitely exists on 32bit crap, since it has been part of
->> the architecture from the ARMv7+VE days.
->>
->> I think this is more of an impedance mismatch between the
->> CLOCKSOURCE_MASK() helper and the clockevents_config_and_register(),
->> and a (unsigned long) cast would do the trick.
-> 
-> Of course not. That would just result in a big fat zero.
+Hi James
 
-No - CLOCKSOURCE_MASK() turns into GENMASK_ULL so a simple truncation to
-unsigned long would be ULONG_MAX (all 1s). So an unsigned long cast
-should be fine. My suggestion of MIN(, ULONG_MAX) was just to make that
-more clear.
+On Mon, 11 Aug 2025 at 10:32, James Clark <james.clark@linaro.org> wrote:
+>
+> Lots of u8s are mixed with u64s and u32s so repack it to save a bit
+> of space because there's one of these for each ETM.
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x.h | 19 ++++++++++++-------
+>  1 file changed, 12 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 746627476bd3..a355a1e9606d 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -832,28 +832,33 @@ struct etmv4_config {
+>         u32                             vipcssctlr;
+>         u8                              seq_idx;
+>         u8                              syncfreq;
+> +       u8                              cntr_idx;
+> +       u8                              res_idx;
+> +       u8                              ss_idx;
+> +       u8                              addr_idx;
+> +       u8                              addr_type[ETM_MAX_SINGLE_ADDR_CMP];
+> +       u8                              ctxid_idx;
+> +       u8                              vmid_idx;
+>         u32                             seq_ctrl[ETM_MAX_SEQ_STATES];
+>         u32                             seq_rst;
+>         u32                             seq_state;
+> -       u8                              cntr_idx;
+> +
+>         u32                             cntrldvr[ETMv4_MAX_CNTR];
+>         u32                             cntr_ctrl[ETMv4_MAX_CNTR];
+>         u32                             cntr_val[ETMv4_MAX_CNTR];
+> -       u8                              res_idx;
+> +
+>         u32                             res_ctrl[ETM_MAX_RES_SEL];
+> -       u8                              ss_idx;
+> +
+>         u32                             ss_ctrl[ETM_MAX_SS_CMP];
+>         u32                             ss_status[ETM_MAX_SS_CMP];
+>         u32                             ss_pe_cmp[ETM_MAX_SS_CMP];
+> -       u8                              addr_idx;
+> +
+>         u64                             addr_val[ETM_MAX_SINGLE_ADDR_CMP];
+>         u64                             addr_acc[ETM_MAX_SINGLE_ADDR_CMP];
+> -       u8                              addr_type[ETM_MAX_SINGLE_ADDR_CMP];
 
->> But it also means that the per-cpu timer also gets truncated the same
->> way, and that has interesting impacts on how often the timer is
->> reprogrammed.
-> 
-> That question still stand, and I wonder whether we have ugly bugs
-> lurking on 32bit platforms because of that... I'll try and have a
-> look.
+this is 16 x u8 - could this not just stay here?
 
-I don't know whether there are other bugs due to the capping to
-ULONG_MAX, but I don't think there's an (additional) bug here, it's
-"just" a ugly warning.
+> -       u8                              ctxid_idx;
+> +
+>         u64                             ctxid_pid[ETMv4_MAX_CTXID_CMP];
+>         u32                             ctxid_mask0;
+>         u32                             ctxid_mask1;
+> -       u8                              vmid_idx;
+>         u64                             vmid_val[ETM_MAX_VMID_CMP];
+>         u32                             vmid_mask0;
+>         u32                             vmid_mask1;
+>
+> --
+> 2.34.1
+>
 
-Thanks,
-Steve
+These attributes have been functionally grouped for ease of
+understanding. If we move the _idx values away from what they are
+indexing, we probably need comments cross  referencing from where they
+where and where they have gone to.
 
+Mike
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
