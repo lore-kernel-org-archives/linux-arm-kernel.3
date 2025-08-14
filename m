@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8BECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D6FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bYZQGMIsBZJ6zesK/ZZPs9ypTUtEAFj7kefQq0k9z90=; b=b2RHyN915htpXACKBUg8xD+U1K
-	xau/p/yVse3BCVQegmKUmbtshHoS5j7lWi1kd4DdA+sluX6GS8X+iChB6JUAZLEDkj9PgMKUXdowI
-	/NzcmXgO+ievU0OgGYyv7oxr2LdbSRIeaetAtIFpNs9SFomcg8lbhG8HAcK5GDVgXWA39A4ysiat8
-	MjOD+7N3vJQc0LmRbgg+JepIB8RmZmyot7MfQ6wecgR0BwpFwvFFsRBg5emV/0iGJXWu6qTR7s3pK
-	ZzNgoKcHbkR5Gh8zRcQbRrSPFoLA6XQw9qibYf3ys9hZdxUd+SbNvd1sCX13ZrKvfB24VzoCd2byM
-	C+sZ4Uqg==;
+	bh=bzwhe6wx91tLEyKuA/daoDX+QZG0jTUxkCfGQJGuvzk=; b=iY8bPRanZT7cUQJn8tR6cOqiaA
+	+wJ7UHm0GNyXh2u1qTHEhkUmXXCn44TIok0p54ptK9FYu9qA464riDEwZVBk32xatvUyvPiX7Yn7w
+	xqEtD95VtZhXmck0BWraO2j9zVxGPWWF8YcEgE1ACOelywi4kb7VsA6rtLFQ77rIcqsmQaZXob4u3
+	gDJRi9kCEBB0gu2jBBnNZlayKKLcrk6kcYHJGv9paiTRuw9ljR4wAhDkuKRCsOwAi4X1s3UNoP+/T
+	jATxS78zcBFAJnAAogU2H0hy43aqeVm84y7N1zb+VI287mbvedKxSBpyHx66LkZeNaQDYEJmR+yt0
+	E1InUgCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umT0Y-0000000GCMX-0N1H;
-	Thu, 14 Aug 2025 08:08:22 +0000
+	id 1umT35-0000000GCkr-3dsk;
+	Thu, 14 Aug 2025 08:10:59 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSgq-0000000G8j8-2yIj
+	id 1umSgt-0000000G8mX-3mjq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 07:48:04 +0000
+	Thu, 14 Aug 2025 07:48:05 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id EFEACA0255;
-	Thu, 14 Aug 2025 09:47:49 +0200 (CEST)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 59DC2A05FE;
+	Thu, 14 Aug 2025 09:47:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=bYZQGMIsBZJ6zesK/ZZP
-	s9ypTUtEAFj7kefQq0k9z90=; b=rT2moRWiJtxd9erkYOaIuYXi9kY+9/GFH8MG
-	aIm8VrOfhQxfVKCkj6IjpNfZ/abglSiJ4h0MX7CTZcGJExz/nJiXg3rEiCiNxZh2
-	g0EoWOaQjKIwrKU/nKaSbJG2ZmVVyIHWnhkeYsFqQdD7zG0a8AFKFEMJzQxqC79N
-	LUfKTRvDi8veKf6jiNionLhuyRaYClRv13YgOqpUiPKh40gZmGhRWL/lSVw6xXs3
-	rfAKzaePCxKpQ5HY9qBp0sigePLtgwe0sBRW5gDJ9glHt3WTwNqWr+56NhyiVJn8
-	+y7ogRgd3ciVtJBj1fBcHjrXLFNr4ON9A3a2ACEWa6hTAGbk/yiLJgOXeZVlbc6v
-	8maZIB3/ZgmewWPMjM/SZmdl4uwHg0s4yHgPL0ThryHYoHJqVyPkG56RM+Xn8GWU
-	l5nm3qxW9begVmF02CNbPKzgRrNdoVcuI4iP2Fnecggyj4m1jUEb8WiZ9YpRdGym
-	sH+sj0Liv3iO//0KZcTtbLz86D+OtKUEkQpE6Cg6CeevZM72hTSM2Hweng63hxrw
-	tgUeV4BldKCRQ3TGzHbp7blMwuTp7mg9plETNPEzP4EcZ3Ofh2nDXYV9oqgztseY
-	TjwJ1Td3LSWclWh8EkgEaBiXXK/KPkaf2b0LiiBYQ2xN4OyK8XLFpRZJ4JrQy65u
-	Hd8G9lg=
+	:reply-to:subject:subject:to:to; s=mail; bh=bzwhe6wx91tLEyKuA/da
+	oDX+QZG0jTUxkCfGQJGuvzk=; b=QJ3pIdjSku+r0medOnyWGWX+Bxo16aWmhsXJ
+	lnB4jnXJSgu6HUA7HiC6kjJHgxEv950CVpAbeLRDw+B/E+gOMe5fbMFUmEWZBk//
+	L9ve0QSY8vXOfUkJpuewPXMkST6+lPCDZ0VYMcblByDFfEk+Q3O0ALIWysFnsZsD
+	7t1XAQ89vSiGXW9RMlTX+14LbqmVQGyuxvT8WSuiNieMwa/52kbLRSZafT0FisG7
+	ba09JC4U+2T7bICpQvQNuV3s2HXnGAFGa6jXfQb1vM2wcmXJ6mysTd8Q/kWZkWL7
+	Bg8NACqoxKFYHEnFYqcx5Jcl2L9pSuSwUhelUkQkvWeptDyLB9wkiyF/a2H/8ZmE
+	H3jRXsWoPZnyfCVrhP0mqAfsnrg88EXsBGyfmsGVDk7eJE8JsjPDjDjs03OqsGeX
+	IXHuX05e0EVaSy/k5Q4/+q0CMSo1Up1kShPysioFFtpvP1T9YEVrXHd0vkQ6u+y9
+	VWcGw97NBPhRB/EbZTP6uxvcztwg27eCsNgQyzjLeqIBwWxaKuJ3PRMD9Z/grxmG
+	n3zH0IxVIgHrBfJ4pclW3KMyY1iWxRbU2CkQ86KAReuWQoPB20PuNa5C1v8AVECg
+	Eo5gSX+DasCA4E3DYp+3ArF+GreTBQpylXfV/8HEtE62OTRN6gkRixsjGmyJDwPz
+	GX4tiAU=
 From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Thu, 14 Aug 2025 09:47:45 +0200
-Subject: [PATCH v2 3/8] ARM: dts: imx6-sabrelite: Replace license text
+Date: Thu, 14 Aug 2025 09:47:47 +0200
+Subject: [PATCH v2 5/8] ARM: dts: imx6-marsboard: Replace license text
  comment with SPDX identifier
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250814-imx-misc-dts-lic-v2-3-faff7db49a5f@prolan.hu>
+Message-ID: <20250814-imx-misc-dts-lic-v2-5-faff7db49a5f@prolan.hu>
 References: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
 In-Reply-To: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -62,16 +62,16 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
 CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Troy Kisky
-	<troykiskyboundary@gmail.com>, Gary Bisson <gary.bisson@ezurio.com>
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Sergio Prado
+	<sergio.prado@e-labworks.com>
 X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755157669;VERSION=7995;MC=1443896893;ID=1088343;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755157669;VERSION=7995;MC=851896819;ID=1088345;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A2998FD515E617667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_004801_204330_F28722BC 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20250814_004804_101981_EF17BA61 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,22 +96,20 @@ without prior written authorization from the X Consortium.". Therefore,
 this license is actually equivalent to the SPDX "MIT" license (confirmed
 by text diffing).
 
-Cc: Troy Kisky <troykiskyboundary@gmail.com>
-Cc: Gary Bisson <gary.bisson@ezurio.com>
+Cc: Sergio Prado <sergio.prado@e-labworks.com>
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
- arch/arm/boot/dts/nxp/imx/imx6dl-sabrelite.dts | 38 +-------------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-marsboard.dts | 38 +--------------------------
  1 file changed, 1 insertion(+), 37 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-sabrelite.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-sabrelite.dts
-index 33040761b253ae704c57797a1d04589094a7c7db..c0771645cad78f22e1bafff77fd29069d4db4c65 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-sabrelite.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-sabrelite.dts
-@@ -1,43 +1,7 @@
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-marsboard.dts b/arch/arm/boot/dts/nxp/imx/imx6q-marsboard.dts
+index 2c9961333b0a8656b648c7a848b6c20db61f790e..37de44d1b84be1c578fa7d51a7ff86071dcae13a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-marsboard.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-marsboard.dts
+@@ -1,42 +1,6 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
  /*
-  * Copyright 2011 Freescale Semiconductor, Inc.
-  * Copyright 2011 Linaro Ltd.
+  * Copyright (C) 2016 Sergio Prado (sergio.prado@e-labworks.com)
 - *
 - * This file is dual-licensed: you can use it either under the terms
 - * of the GPL or the X11 license, at your option. Note that this dual
