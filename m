@@ -4,73 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 679FFCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5694DCA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2S1B3uDCP0V6cOw8J5BBf2RKM299o8V1mNT79lVcT6E=; b=13G8Gmcko3WNnC9nr6W5tvuv10
-	9RIjp6Vq0kvFhTxFyxEw8R5rKdFhw1KNxoXRhJxyZyV2QLzBa3ROAuOrTnqLMp2HimXXWTml4qLOC
-	9LkHU2vwCcfnWv3lHauPnebsXEdBZCcAaWyNwX+IsvWvEhDZrA6AZaqvJ/COlArldI+FZ69yqRdFV
-	v/mVRZMbrb/2dlw1CFFeT7HvDGsolITwQkg3/vGVLSI9oXRhATQuoIb7gJxhkHdJdxRx3/x3cv9hj
-	oHaHng2M0TLJKG+QoBUkKx2w2gPHvLeX7w7UHbjbMt2Bk8JyutisHN6fk+9fl+IWRNe6W/neOVgj0
-	91RrpfnA==;
+	bh=l+SUkVruI2YCcUMa+FcC5+QPx3okcUg5cMFby/7ouv4=; b=mInlY/sI9raIThsj/bncZfFI1y
+	GPQzcaOQEX07Ziem/2E8WioxLiXK98SvncD35skTOkiBJque5BZAwzhaaCK2ug26NiDT+MwWzhbhU
+	iL45Ejgn1gu2Xl9MV1r/J8eSPlQHO9v5kfFaqUS/NVWVLvSBPXybfDWbp2DJbYIveYEm6MeWz2PZf
+	pesy6o8FTP29aliEsPjsxdVRQKH27ELQVv9JTsDie+gBa5rCuXzNfHmbTN8sDOfF7TXRsTKPZDdys
+	liFy4eStMqDpZDapSvFSp0NKyhWZHp4rDUbOtulnJFtZwF++nkXJsQVWtue8TcZ8NmXzp8BILkG7U
+	KUzBJYeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXn3-0000000Gxd6-3plU;
-	Thu, 14 Aug 2025 13:14:45 +0000
+	id 1umXn6-0000000Gxgq-0Lfu;
+	Thu, 14 Aug 2025 13:14:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUb5-0000000GUIO-3kiy;
-	Thu, 14 Aug 2025 09:50:12 +0000
+	id 1umUbc-0000000GUKq-100F
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 Aug 2025 09:50:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2S1B3uDCP0V6cOw8J5BBf2RKM299o8V1mNT79lVcT6E=; b=RhbkH+dBVmpeTsSL2VE5KbinKL
-	3HHJKNcYjF0piXDQYbrYleH43Kkj27EVtn0Brpbpxsdl3tvzmtZwXVWGz9AR0ur+/8B3G+3yry4ZA
-	8aKj0L9/wrrC0fbSEIL0oF2MJ5JuI6ohclM30L0bcqIwOGzm9c7Mr4onbzozB2i3CAePSw3cXau1/
-	iDBh5eDpJy1zJs+omLBmaETuWlc+0mxdpgZx9rEHZmcdNCvi8I4I1nh34yxNstKxkzFTduf7dDRVu
-	Ft62VxghzHoKL6oDVPjrbxFO7yBJndOHpVvxudK6ZlepWKNLmjsPkDoADgYx9Jfw2tajhDdCutr9C
-	J2cLF34w==;
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	bh=l+SUkVruI2YCcUMa+FcC5+QPx3okcUg5cMFby/7ouv4=; b=cH9seLJV8NGyW01o/kVl1BD0NK
+	FkAVuFK7GJNS16QS8neI6v2JJ0ilT9SDeAwumFc6E9kKOd8wNr8n2jx04u2bSA8VHAqs7AtWgQx3k
+	cw/7vo0SG8MRemTkulswTTjGwkK43HJaPpdc5+BPQoHCV1ts5mZ3IF21So0ZNXgClIvcalVjcDGS8
+	WldpKl8LTDbjiFqtMllpnVyicFgzTI5YDWR2mbKIP/7BulmPcfzlrZEPXDOw7EOuYmMbMzlxlltAI
+	YW6ozPE8AnUJHI8JPNTbDYDY9vjrLNn4ALndNkwggREEZ7LupBFTNLMoVDRaWULopa7nQiXe8gMA+
+	h03iIabg==;
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUb2-0000000GL5u-1s3Y;
-	Thu, 14 Aug 2025 09:50:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8022243214;
-	Thu, 14 Aug 2025 09:50:03 +0000 (UTC)
-Message-ID: <77670b86-1212-4547-a119-a876e4948b33@ghiti.fr>
-Date: Thu, 14 Aug 2025 11:50:03 +0200
+	id 1umUbY-0000000GLBX-2EtY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 09:50:42 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-53b1718837dso351331e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:50:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1755165037; x=1755769837; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l+SUkVruI2YCcUMa+FcC5+QPx3okcUg5cMFby/7ouv4=;
+        b=GhCSm2FAqzAJCmoCmBySwycl9eE1StABjyQnYK+kOxdql0+7QVUXULqkl8AMvvRxZn
+         wcLD0UJywsv0GWhYiRTMRgAsHnB18//ORcYw4fh3T+A41E7hgOABxQ0xpWorYPY3+Qw8
+         hjbRj2Ab5HYBCiaQqrpEDaUaWoA5LPrNKeHe8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755165037; x=1755769837;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l+SUkVruI2YCcUMa+FcC5+QPx3okcUg5cMFby/7ouv4=;
+        b=kPMyXNlplJE4lIX6G8p34Rozcha8HHaOUf+tH2rcifPBGz2Zp2McwU4yMmuArQqYpk
+         vudVE8NeCgdCdIeRHKEQHvyEwkEuT6Rn0sKzpV9NVOrgTRjVByZQZCeX+e9FZoCRz6PV
+         mFt7ViToJ/mMbZgG4XfjnFMHSyMV8upHyJlP44xmyOAEdYTbr58pyzjUKEFt0Y2CdDyZ
+         yFf+VKJ9E3OllMJIWikKY6KbeWmcM95UYxR/fb8vyxqTbS2mP7Ws4pFv4bnpm0eruPUl
+         2ERdCpL4S57Dtp3/Od4lshinP7MbLGzYZBCD1EEwR7WJnV9t55YfSRJf5rAZ+Z7yeOK5
+         3T+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXWaJDAYGj/qTrN44uPQwrTFHXAjp94fiMi4RQG9i84dOrlg0VfOmloBrRYPcVaiy+fNbRnlULKp21zsfhjBsWq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxh8obLJSPOHcxnPofhh6oicBf+mHfiFArh46whJCO6gZ23z9RU
+	YFOyfY4VUEW3AMe//LYNslmYrrnP1fhoPcV67ei2zxpFQLjxL3opoDImJnNg3S2Vbr8Tk9YtZaL
+	5//4=
+X-Gm-Gg: ASbGnctnfyOgbFaU2eXO0b+38eDa0iai0rlbXGudhkYP/Y93Zspqi+H/lAriuYvoR1D
+	R9YhKGqCcWXSYPo455RhlKZHIujjv6sVsRc1UkUxjq+Z3UQrM8XRS4gKZCqbLYaP/bahj4qeG8r
+	nvyRGVXjU7dBrfvu9aS6TFPj9NLchaF95VIxH+zevym7LEyuqoajKt7fMsvbuuufE8ZCw8yFpIK
+	Jr2Zs2boUk7fLtb6SQW4T7gEEodcXBN2GUdm34+06x/FLWOJs7T+DtNTftKM3G331hmzVVtcwfW
+	aNCfD6pI9kYQBW217QNfu8I6/gF71u9bmc2cKWgz+aKuM0kbZHhYicfCgSmEslFfF0wgaKwd0H5
+	NWcb6mTxshqCN1ocaLOKdLdfEMTN0lc2nn18u+mN6JSKUERU/AJHyc+NjuNIT+Cz2X0Ea
+X-Google-Smtp-Source: AGHT+IEcbtVNqbDETijEjdQ517W9/nQt/cmEioXjjUp4P78P7S4kCjZVI1uxaoBoSZmnQF0zpUhRwA==
+X-Received: by 2002:a05:6102:cc9:b0:4fc:f5a:490a with SMTP id ada2fe7eead31-50feb2ffba9mr821277137.20.1755165037356;
+        Thu, 14 Aug 2025 02:50:37 -0700 (PDT)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-88e029e751dsm3022813241.26.2025.08.14.02.50.36
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Aug 2025 02:50:37 -0700 (PDT)
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-89018fd51a0so174392241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:50:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV5oe5TbtJR/OC1sJ5UPqsaplvOpL3IBZfUgmeKAVIoIhFWZhyh6VBA0ePDqWZOr2mJpngAvQR0yvHzcDzbUKiB@lists.infradead.org
+X-Received: by 2002:a05:6102:3f9f:b0:4e2:ecd8:a27 with SMTP id
+ ada2fe7eead31-50fe030e2damr804847137.4.1755165036132; Thu, 14 Aug 2025
+ 02:50:36 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 04/13] mm/page_table_check: Reinstate address
- parameter in [__]page_table_check_pmd[s]_set()
-To: Andrew Donnellan <ajd@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org
-Cc: akpm@linux-foundation.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, pasha.tatashin@soleen.com,
- sweettea-kernel@dorminy.me, nicholas@linux.ibm.com,
- christophe.leroy@csgroup.eu, Rohan McLure <rmclure@linux.ibm.com>,
- Ingo Molnar <mingo@kernel.org>
-References: <20250813062614.51759-1-ajd@linux.ibm.com>
- <20250813062614.51759-5-ajd@linux.ibm.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250813062614.51759-5-ajd@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugedtjeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvvddruddtudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudegpdhrtghpthhtoheprghjugeslhhinhhugidrihgsmhdrtghomhdprhgtphhtthhopehlihhnuhigphhptgdquggvvheslhhishhtshdrohiilhgrsghsrdhorhhgpdhrtghpthhtoheplhhinhhugidqmhhmsehkvhgrtghkrdhorhhgpdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopeigkeeisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehli
- hhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: alex@ghiti.fr
+References: <20250814092510.211672-1-wenst@chromium.org>
+In-Reply-To: <20250814092510.211672-1-wenst@chromium.org>
+From: Fei Shao <fshao@chromium.org>
+Date: Thu, 14 Aug 2025 17:49:59 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nhw2R-2YVpgBnRDAn-6prJGm2a9oq9tCASkpXHDP_-BoA@mail.gmail.com>
+X-Gm-Features: Ac12FXwCy2I4l7L6eb4V9g1X9AwsA4Ouah27uikhuRM8HDiKM-hrJ7wZo6sGxh0
+Message-ID: <CAC=S1nhw2R-2YVpgBnRDAn-6prJGm2a9oq9tCASkpXHDP_-BoA@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: mediatek: mt8188-geralt: Enable first SCP core
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_105008_627188_E5B6FB33 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250814_105040_808504_57566977 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,174 +123,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 8/13/25 08:26, Andrew Donnellan wrote:
-> From: Rohan McLure <rmclure@linux.ibm.com>
+On Thu, Aug 14, 2025 at 5:25=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
 >
-> This reverts commit a3b837130b58 ("mm/page_table_check: remove unused
-> parameter in [__]page_table_check_pmd_set").
+> The first SCP core is used to drive the video decoder and encoders.
 >
-> Reinstate previously unused parameters for the purpose of supporting
-> powerpc platforms, as many do not encode user/kernel ownership of the
-> page in the pte, but instead in the address of the access.
->
-> Apply this to __page_table_check_pmds_set(), page_table_check_pmd_set(), and
-> the page_table_check_pmd_set() wrapper macro.
->
-> [ajd@linux.ibm.com: rebase on arm64 + riscv changes, update commit message]
-> Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> Acked-by: Ingo Molnar <mingo@kernel.org>  # x86
-> Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-> ---
-> v13: remove inaccurate comment on riscv in the commit message
-> v14: rebase
-> v15: rebase, amend commit message
-> ---
->   arch/arm64/include/asm/pgtable.h |  5 +++--
->   arch/riscv/include/asm/pgtable.h |  4 ++--
->   arch/x86/include/asm/pgtable.h   |  4 ++--
->   include/linux/page_table_check.h | 12 ++++++------
->   mm/page_table_check.c            |  4 ++--
->   5 files changed, 15 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 8070b653c409..9fe3af8b4cad 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -709,7 +709,8 @@ static inline void __set_ptes_anysz(struct mm_struct *mm, unsigned long addr,
->   		page_table_check_ptes_set(mm, ptep, pte, nr);
->   		break;
->   	case PMD_SIZE:
-> -		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
-> +		page_table_check_pmds_set(mm, addr, (pmd_t *)ptep,
-> +					  pte_pmd(pte), nr);
->   		break;
->   #ifndef __PAGETABLE_PMD_FOLDED
->   	case PUD_SIZE:
-> @@ -1514,7 +1515,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->   static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->   		unsigned long address, pmd_t *pmdp, pmd_t pmd)
->   {
-> -	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->   	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
->   }
->   #endif
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 3ed0f5e4879d..6e8c3d19f96a 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -805,7 +805,7 @@ static inline pud_t pud_mkspecial(pud_t pud)
->   static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
->   				pmd_t *pmdp, pmd_t pmd)
->   {
-> -	page_table_check_pmd_set(mm, pmdp, pmd);
-> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
->   	return __set_pte_at(mm, (pte_t *)pmdp, pmd_pte(pmd));
->   }
->   
-> @@ -876,7 +876,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->   static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->   				unsigned long address, pmd_t *pmdp, pmd_t pmd)
->   {
-> -	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->   	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
->   }
->   
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index 0603793acb3a..8ee301b16b50 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1213,7 +1213,7 @@ static inline pud_t native_local_pudp_get_and_clear(pud_t *pudp)
->   static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
->   			      pmd_t *pmdp, pmd_t pmd)
->   {
-> -	page_table_check_pmd_set(mm, pmdp, pmd);
-> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
->   	set_pmd(pmdp, pmd);
->   }
->   
-> @@ -1356,7 +1356,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
->   static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->   		unsigned long address, pmd_t *pmdp, pmd_t pmd)
->   {
-> -	page_table_check_pmd_set(vma->vm_mm, pmdp, pmd);
-> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
->   	if (IS_ENABLED(CONFIG_SMP)) {
->   		return xchg(pmdp, pmd);
->   	} else {
-> diff --git a/include/linux/page_table_check.h b/include/linux/page_table_check.h
-> index 0bf18b884a12..cf7c28d8d468 100644
-> --- a/include/linux/page_table_check.h
-> +++ b/include/linux/page_table_check.h
-> @@ -19,8 +19,8 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, pmd_t pmd);
->   void __page_table_check_pud_clear(struct mm_struct *mm, pud_t pud);
->   void __page_table_check_ptes_set(struct mm_struct *mm, pte_t *ptep, pte_t pte,
->   		unsigned int nr);
-> -void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
-> -		unsigned int nr);
-> +void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
-> +		pmd_t *pmdp, pmd_t pmd, unsigned int nr);
->   void __page_table_check_puds_set(struct mm_struct *mm, unsigned long addr,
->   		pud_t *pudp, pud_t pud, unsigned int nr);
->   void __page_table_check_pte_clear_range(struct mm_struct *mm,
-> @@ -77,12 +77,12 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
->   }
->   
->   static inline void page_table_check_pmds_set(struct mm_struct *mm,
-> -		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
-> +		unsigned long addr, pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->   {
->   	if (static_branch_likely(&page_table_check_disabled))
->   		return;
->   
-> -	__page_table_check_pmds_set(mm, pmdp, pmd, nr);
-> +	__page_table_check_pmds_set(mm, addr, pmdp, pmd, nr);
->   }
->   
->   static inline void page_table_check_puds_set(struct mm_struct *mm,
-> @@ -132,7 +132,7 @@ static inline void page_table_check_ptes_set(struct mm_struct *mm,
->   }
->   
->   static inline void page_table_check_pmds_set(struct mm_struct *mm,
-> -		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
-> +		unsigned long addr, pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->   {
->   }
->   
-> @@ -149,7 +149,7 @@ static inline void page_table_check_pte_clear_range(struct mm_struct *mm,
->   
->   #endif /* CONFIG_PAGE_TABLE_CHECK */
->   
-> -#define page_table_check_pmd_set(mm, pmdp, pmd)	page_table_check_pmds_set(mm, pmdp, pmd, 1)
-> +#define page_table_check_pmd_set(mm, addr, pmdp, pmd)	page_table_check_pmds_set(mm, addr, pmdp, pmd, 1)
->   #define page_table_check_pud_set(mm, addr, pudp, pud)	page_table_check_puds_set(mm, addr, pudp, pud, 1)
->   
->   #endif /* __LINUX_PAGE_TABLE_CHECK_H */
-> diff --git a/mm/page_table_check.c b/mm/page_table_check.c
-> index 3c39e4375886..09258f2ad93f 100644
-> --- a/mm/page_table_check.c
-> +++ b/mm/page_table_check.c
-> @@ -218,8 +218,8 @@ static inline void page_table_check_pmd_flags(pmd_t pmd)
->   		WARN_ON_ONCE(swap_cached_writable(pmd_to_swp_entry(pmd)));
->   }
->   
-> -void __page_table_check_pmds_set(struct mm_struct *mm, pmd_t *pmdp, pmd_t pmd,
-> -		unsigned int nr)
-> +void __page_table_check_pmds_set(struct mm_struct *mm, unsigned long addr,
-> +		pmd_t *pmdp, pmd_t pmd, unsigned int nr)
->   {
->   	unsigned long stride = PMD_SIZE >> PAGE_SHIFT;
->   	unsigned int i;
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-
-
-Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
-
-Thanks,
-
-Alex
-
+Reviewed-by: Fei Shao <fshao@chromium.org>
 
