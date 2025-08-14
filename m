@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BFCBCA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E37CA0EEA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,23 +12,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8Q9no+T4MDXxyIkiNkZJti3sEtvUKV9beBUeeO4aS0=; b=2G1qMX1IYg1xxina7lcQCKDUfL
-	J+beA3Z/FLU0M/9XOZeStJlQFDvNbsQpmo9ayTqPzzHPinGKJ/8chrNV1o8/ZIhhFPEX8u07rjTla
-	TRq9wgN4uQ1HU49rrtKYG5L77IZRHXKTlZnhTABI37QFqSY7xXAq6H6wc4cyHLtFpfz31fugT8YNj
-	P8ba7+CZn1WXLnEZ8tcMTlLmHUxD5DK7n5gTHJLb6tbMttGstzo+PdNIgPK2oFImyfGSYWBiBIJrr
-	74uD26x7xRj+1AAvpLoDxyrRtKKo/2L+7HqxzUTOL9hjGvLqm3z/kT/sygE05qlZ4pzMtxeLuPKcw
-	z0W5k/1Q==;
+	bh=JeEm8m69W13KznEoDs77RvcikH57SqygZ8T41UBHVqw=; b=3ndIfa+8GhcweuW/hORGIycudG
+	rcp6tUZcETIJqM41eMl4Ko+d7ZK42Ehpp4LVnCWtAVynWBbgG7KGNsNf+s0U3ucfluIMDK8k/GeDk
+	w4lLX+fORxJO0SuATM8A+GbcZUAV66+6xGJlI5BXJzp5AYfli8vU8l0JrMwJjdVWi/Xogljo+hNQu
+	t9Gy/1RSY/nhBFtUtqFnZOBTTrcgbXc97iud3DWFtNcg1Mui5lCc07xp4AXigdDyiV3TgmlnmzVII
+	9RAH2c9ITPhU6NfcjVIdx2Yf49K3o7BXMC37PL7/w2+tM+2akzY9+pEQewz8ConSoHSq/ju2Csxbs
+	dBf8TSYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma0P-0000000HSnw-3WnU;
-	Thu, 14 Aug 2025 15:36:42 +0000
-Received: from mail-m32115.qiye.163.com ([220.197.32.115])
+	id 1uma0R-0000000HSpo-1PPK;
+	Thu, 14 Aug 2025 15:36:43 +0000
+Received: from mail-m49210.qiye.163.com ([45.254.49.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVVA-0000000GeHj-0tY3;
-	Thu, 14 Aug 2025 10:48:10 +0000
+	id 1umVVB-0000000GeIy-2zKV;
+	Thu, 14 Aug 2025 10:48:11 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f6374289;
-	Thu, 14 Aug 2025 18:47:58 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1f637429d;
+	Thu, 14 Aug 2025 18:48:05 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -59,28 +59,27 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 01/13] drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
-Date: Thu, 14 Aug 2025 18:47:41 +0800
-Message-Id: <20250814104753.195255-2-damon.ding@rock-chips.com>
+Subject: [PATCH v4 04/13] drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+Date: Thu, 14 Aug 2025 18:47:44 +0800
+Message-Id: <20250814104753.195255-5-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
 References: <20250814104753.195255-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98a83195e303a3kunm254826283f21ce
+X-HM-Tid: 0a98a831b07103a3kunm254826283f222b
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05KSFZJQ0JPSR8ZGRhLTExWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhoaSlZJSkpPS0tIS0kaSxpWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=FSkrWzEs357Fg4P5weUhd8Wkv3VeNHSF6LgTb8pT2aJLiUrS+tfRmNLvB57QWCDeWpAC4XsZnguG3QFrdfIjsqGRSltnG4xWyx7AQWETbMhZL4hesugbj5RudgMsqCjyIhGMWzEYBwJVkrqm7KgbouHx1SMrlRgU6eewope86FQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=p8Q9no+T4MDXxyIkiNkZJti3sEtvUKV9beBUeeO4aS0=;
+	b=iQQ76WNA7+Tyqxdp7IG85iOpC+RdziYUHKbHlDw2vIRPevA4IJXuZZsJxAps4urtHTykGYKUjVBOx9CDd02UJgxwwElinCBX3YGAi6VIC7fRZXPVHj5elTg50APoN+Lauxmgc6L8XCmhttVTZIQ+xbzNrZhKiD0A0EC4QcM8XDY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=JeEm8m69W13KznEoDs77RvcikH57SqygZ8T41UBHVqw=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034808_411298_13B6B8A3 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_034809_912851_80981BE7 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +94,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the tap instead of the space for &analogix_dp_device.aux and
-&analogix_dp_device.force_hpd.
+Use &analogix_dp_plat_data.bridge instead of &exynos_dp_device.ptn_bridge
+directly.
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-index b86e93f30ed6..91b215c6a0cf 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-@@ -156,7 +156,7 @@ struct analogix_dp_device {
- 	struct drm_device	*drm_dev;
- 	struct drm_connector	connector;
- 	struct drm_bridge	bridge;
--	struct drm_dp_aux       aux;
-+	struct drm_dp_aux	aux;
- 	struct clk		*clock;
- 	unsigned int		irq;
- 	void __iomem		*reg_base;
-@@ -166,7 +166,7 @@ struct analogix_dp_device {
- 	struct phy		*phy;
- 	int			dpms_mode;
- 	struct gpio_desc	*hpd_gpiod;
--	bool                    force_hpd;
-+	bool			force_hpd;
- 	bool			fast_train_enable;
- 	bool			psr_supported;
+------
+
+Changes in v3:
+- Fix the typographical error for &dp->plat_data.bridge.
+
+Changes in v4:
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
+---
+ drivers/gpu/drm/exynos/exynos_dp.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
+index 5bcf41e0bd04..f469ac5b3c2a 100644
+--- a/drivers/gpu/drm/exynos/exynos_dp.c
++++ b/drivers/gpu/drm/exynos/exynos_dp.c
+@@ -36,7 +36,6 @@
+ struct exynos_dp_device {
+ 	struct drm_encoder         encoder;
+ 	struct drm_connector       *connector;
+-	struct drm_bridge          *ptn_bridge;
+ 	struct drm_device          *drm_dev;
+ 	struct device              *dev;
  
+@@ -106,8 +105,8 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
+ 	dp->connector = connector;
+ 
+ 	/* Pre-empt DP connector creation if there's a bridge */
+-	if (dp->ptn_bridge) {
+-		ret = drm_bridge_attach(&dp->encoder, dp->ptn_bridge, bridge,
++	if (plat_data->next_bridge) {
++		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
+ 					0);
+ 		if (ret)
+ 			return ret;
+@@ -155,7 +154,7 @@ static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	dp->drm_dev = drm_dev;
+ 
+-	if (!dp->plat_data.panel && !dp->ptn_bridge) {
++	if (!dp->plat_data.panel && !dp->plat_data.next_bridge) {
+ 		ret = exynos_dp_dt_parse_panel(dp);
+ 		if (ret)
+ 			return ret;
+@@ -232,6 +231,7 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 
+ 	/* The remote port can be either a panel or a bridge */
+ 	dp->plat_data.panel = panel;
++	dp->plat_data.next_bridge = bridge;
+ 	dp->plat_data.dev_type = EXYNOS_DP;
+ 	dp->plat_data.power_on = exynos_dp_poweron;
+ 	dp->plat_data.power_off = exynos_dp_poweroff;
+@@ -239,8 +239,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
+ 	dp->plat_data.get_modes = exynos_dp_get_modes;
+ 	dp->plat_data.skip_connector = !!bridge;
+ 
+-	dp->ptn_bridge = bridge;
+-
+ out:
+ 	dp->adp = analogix_dp_probe(dev, &dp->plat_data);
+ 	if (IS_ERR(dp->adp))
 -- 
 2.34.1
 
