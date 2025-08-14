@@ -4,99 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBCCCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D76CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aJMmlptoopG7uLnpNHx3BFeWdRFU3hEImM+p7yUrZvk=; b=0du/geY+QvG9Y1emmLNoAgLKbY
-	py9Xsp74Aivh2iLhQx6YHHfVxB/97yjreiRDql3g/9GoHtwUYKn6ciM+6In/noCPjaQDRo3rYtCVJ
-	pWhTVfSwtzqLLb8iwoWk2+Lr/iDJQ76t902yHFQjycOBukfPkG0bVdqYbu85LTy9S23w+F/n6qsqf
-	PuqGHDrm0gLwMtwqTiVSHboYBN8ikLJJxyLCxuiDxYHdt0QUezfZMQnkzgcc0NPW924T05ESOi817
-	uO/y3yc8vdVIJD2/5zuiD72nBUK8ZgQr/QMX/3zUNdNuH+QpYbYm4jlmpTnrAqdjhNqdU2kRhmRFR
-	n1N2ODBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hmKvD1NfFlItzRVod0eCXqc8ZsIbun402i31KH8WSpc=; b=CU1wlhfkjnwMpgRJezDF83XQ+R
+	1Ek4R4gFy6uGl6/hqVevr0vI9NkwmRuGqc5RCL+VqzkSvnndLRnv+ennb9OZwN6i4PUa222Edoe7K
+	kSJguApvqlvKSjhj23p5NCDxSCc/8w4QtJW14awlnNJnug9g6l5TfcJc5tVTDp7Q2gumYEXL0gwK8
+	hoWSs0J1ecpGB8OzgxkAFY+U34v2yQZyI9oi9BMtTbB5ms99m5fqOnwTi7jO2qWdMTU6yyJu1/EdS
+	bcwvhi7N3d2jjygttaHU+uwpLFCCwetBgw1ov2oqSAXS0WBrG+RZgy8QSOSSEONTG43jM5w7U4JaE
+	m47H4qyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVEG-0000000Gazt-23Ew;
-	Thu, 14 Aug 2025 10:30:40 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1umVGm-0000000GbTz-43Oi;
+	Thu, 14 Aug 2025 10:33:16 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUDv-0000000GOpy-0eKH
+	id 1umUHr-0000000GPUe-3tQF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:26:16 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1ac7c066so4656525e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:26:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755163574; x=1755768374; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aJMmlptoopG7uLnpNHx3BFeWdRFU3hEImM+p7yUrZvk=;
-        b=hsQtO2hjViFx7i0fCNc3U59cUVX+5eC+azn75M8pzK8CLyeX209K12MFYG50upMMPj
-         M3d9XsE0o/hWSOS4z9IkLiWrLWdCWxd8JA7++5i7+e4f0ymOApVUHRuFU8aXCeJ1SFHA
-         mMov094jsWWfmgZnpUCQeMJwY/dX9lQZfqrOkdDZ/1Ntk8KegRFo8iwZp/K3b6bZgCYn
-         eUR9Iq2ZuwOPD5iOFGrAwoSU8O/e2n5VGwpOAorWNVmvhG7GxgUf5t8uouhFZb7Zh/rw
-         C0tDEboEPDwbfem3zmkL/FIp/5N2RDa/UaxBizKMElx1i8Z+E0R4A+zgfI8ZByoKMMN+
-         A+2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755163574; x=1755768374;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aJMmlptoopG7uLnpNHx3BFeWdRFU3hEImM+p7yUrZvk=;
-        b=hQrCh7ESTiMurCBHJgK4ATFPzeQt4UevBNmox1OxcbPa6FWlduwbYPR5l4ltCh9WDN
-         roX4ZReYD6Lxjp2EYThrY8/NGH8f8XrMfWI+lRE2Mrz+Vc33myA3TTtxtYd1Kn9U2zhv
-         5a+CBVY3XBqDOYNLXNoUveQsZgmHSZS0rrzeGxUi/2kltkE25RvIORp+kVzKDcLRuP6q
-         LQLFWRN5jmtvBo70NQDhcGQk/LvZWFMh3mvCPM5TKQ0vLSlazzU1O7WWoP1O8JvrdOy2
-         anP2yaIyyEqtGs9E5PrOCr6L+h+cZDfMwkGjX3WbgFahpbc49ePim9OavNSqEMsMN5H6
-         gF3A==
-X-Gm-Message-State: AOJu0YxcbX5jHkDmPwJ2sQH8zv1GW1kqpQ6dJfKgAtUE1UX9XGgu3K8v
-	9wu7/sJ2/v0FERgZFcDe39pASc+qWOtJ/vFj2BillIluHEOKXB0pCBHaeq73ficATGY=
-X-Gm-Gg: ASbGncuBXrXiZuluGqZY1U1PPuG5pDA7px3frUGQX+zSrELVpT9FEPEp7tQ7UnUxTpC
-	KpVsZ5iGIjf0PogeXhF0CBsVaHHJ1lyeBHCdZqjsHd6bihXnvWMVyZIhBB8j+rlvFTt2pZaKqz4
-	QhRbF5x0aMxsDgbGnMjqGpEnYRLWbitqg+6cVuVX2XLqng3n6bsz8nGsxA8Gt9gqTrFNEjbKys4
-	w8kZWNWRTJJmfgeGFBRSMqkqnUb2exj75bUGigUbfnWZJVMzq1VuEm9NDrY0z210qNCpJA1xib5
-	WurmTNQGbMdzzDARH1PjvBKykuCNKnIz3iiCTN5vVCdxSiHEqU9QM1dqkHaBOaX0Jf3WlMmjbkk
-	5vK+f884pTC5bZx3EjbwyBwIZPvRIyhU=
-X-Google-Smtp-Source: AGHT+IGGwcoMzDXS1HdgNpJCFBXwesMKa6+WGWKlGGM+FBXwvfsNCs5rIY/Vzr6H0lhl8WHOxlwXhg==
-X-Received: by 2002:a05:600c:3006:b0:459:db88:c4ca with SMTP id 5b1f17b1804b1-45a1b65c7c9mr13077885e9.3.1755163573684;
-        Thu, 14 Aug 2025 02:26:13 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1c76e9basm14536775e9.21.2025.08.14.02.26.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 02:26:13 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 14 Aug 2025 10:25:34 +0100
-Subject: [PATCH v7 12/12] perf docs: arm-spe: Document new SPE filtering
- features
+	Thu, 14 Aug 2025 09:30:21 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4c2fx85YMwzdcFF;
+	Thu, 14 Aug 2025 17:25:48 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id 12ED1140136;
+	Thu, 14 Aug 2025 17:30:09 +0800 (CST)
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 14 Aug 2025 17:30:08 +0800
+From: Qinxin Xia <xiaqinxin@huawei.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <linux-kernel@vger.kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<xiaqinxin@huawei.com>, <yangyicong@huawei.com>, <wangzhou1@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+Subject: [PATCH 0/2] iommu: Add io_ptdump debug interface for iommu
+Date: Thu, 14 Aug 2025 17:30:03 +0800
+Message-ID: <20250814093005.2040511-1-xiaqinxin@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-james-perf-feat_spe_eft-v7-12-6a743f7fa259@linaro.org>
-References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
-In-Reply-To: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_022615_197521_AFDF4499 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20250814_023020_129334_0BB87D56 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,169 +70,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_SPE_EFT and FEAT_SPE_FDS etc have new user facing format attributes
-so document them. Also document existing 'event_filter' bits that were
-missing from the doc and the fact that latency values are stored in the
-weight field.
+This patch supports the iopgtable_dump function (similar to kernel_page_dump).
+The IOMMU page table dump debugging function is added to the framework layer.
+Different architectures only need to provide the implemented dump ops.
+It also provides the implementation of ARM SMMUv3 and io-pgtable-arm.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Ian Rogers <irogers@google.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++++++++++---
- 1 file changed, 95 insertions(+), 9 deletions(-)
+Qinxin Xia (2):
+  iommu/debug: Add IOMMU page table dump debug facility
+  iommu/io-pgtable: Add ARM SMMUv3 page table dump support
 
-diff --git a/tools/perf/Documentation/perf-arm-spe.txt b/tools/perf/Documentation/perf-arm-spe.txt
-index 37afade4f1b2..c7d1032ff219 100644
---- a/tools/perf/Documentation/perf-arm-spe.txt
-+++ b/tools/perf/Documentation/perf-arm-spe.txt
-@@ -141,27 +141,65 @@ Config parameters
- These are placed between the // in the event and comma separated. For example '-e
- arm_spe/load_filter=1,min_latency=10/'
- 
--  branch_filter=1     - collect branches only (PMSFCR.B)
--  event_filter=<mask> - filter on specific events (PMSEVFR) - see bitfield description below
-+  event_filter=<mask> - logical AND filter on specific events (PMSEVFR) - see bitfield description below
-+  inv_event_filter=<mask> - logical OR to filter out specific events (PMSNEVFR, FEAT_SPEv1p2) - see bitfield description below
-   jitter=1            - use jitter to avoid resonance when sampling (PMSIRR.RND)
--  load_filter=1       - collect loads only (PMSFCR.LD)
-   min_latency=<n>     - collect only samples with this latency or higher* (PMSLATFR)
-   pa_enable=1         - collect physical address (as well as VA) of loads/stores (PMSCR.PA) - requires privilege
-   pct_enable=1        - collect physical timestamp instead of virtual timestamp (PMSCR.PCT) - requires privilege
--  store_filter=1      - collect stores only (PMSFCR.ST)
-   ts_enable=1         - enable timestamping with value of generic timer (PMSCR.TS)
-   discard=1           - enable SPE PMU events but don't collect sample data - see 'Discard mode' (PMBLIMITR.FM = DISCARD)
-+  data_src_filter=<mask> - mask to filter from 0-63 possible data sources (PMSDSFR, FEAT_SPE_FDS) - See 'Data source filtering'
- 
- +++*+++ Latency is the total latency from the point at which sampling started on that instruction, rather
- than only the execution latency.
- 
--Only some events can be filtered on; these include:
--
--  bit 1     - instruction retired (i.e. omit speculative instructions)
-+Only some events can be filtered on using 'event_filter' bits. The overall
-+filter is the logical AND of these bits, for example if bits 3 and 5 are set
-+only samples that have both 'L1D cache refill' AND 'TLB walk' are recorded. When
-+FEAT_SPEv1p2 is implemented 'inv_event_filter' can also be used to exclude
-+events that have any (OR) of the filter's bits set. For example setting bits 3
-+and 5 in 'inv_event_filter' will exclude any events that are either L1D cache
-+refill OR TLB walk. If the same bit is set in both filters it's UNPREDICTABLE
-+whether the sample is included or excluded. Filter bits for both event_filter
-+and inv_event_filter are:
-+
-+  bit 1     - Instruction retired (i.e. omit speculative instructions)
-+  bit 2     - L1D access (FEAT_SPEv1p4)
-   bit 3     - L1D refill
-+  bit 4     - TLB access (FEAT_SPEv1p4)
-   bit 5     - TLB refill
--  bit 7     - mispredict
--  bit 11    - misaligned access
-+  bit 6     - Not taken event (FEAT_SPEv1p2)
-+  bit 7     - Mispredict
-+  bit 8     - Last level cache access (FEAT_SPEv1p4)
-+  bit 9     - Last level cache miss (FEAT_SPEv1p4)
-+  bit 10    - Remote access (FEAT_SPEv1p4)
-+  bit 11    - Misaligned access (FEAT_SPEv1p1)
-+  bit 12-15 - IMPLEMENTATION DEFINED events (when implemented)
-+  bit 16    - Transaction (FEAT_TME)
-+  bit 17    - Partial or empty SME or SVE predicate (FEAT_SPEv1p1)
-+  bit 18    - Empty SME or SVE predicate (FEAT_SPEv1p1)
-+  bit 19    - L2D access (FEAT_SPEv1p4)
-+  bit 20    - L2D miss (FEAT_SPEv1p4)
-+  bit 21    - Cache data modified (FEAT_SPEv1p4)
-+  bit 22    - Recently fetched (FEAT_SPEv1p4)
-+  bit 23    - Data snooped (FEAT_SPEv1p4)
-+  bit 24    - Streaming SVE mode event (when FEAT_SPE_SME is implemented), or
-+              IMPLEMENTATION DEFINED event 24 (when implemented, only versions
-+              less than FEAT_SPEv1p4)
-+  bit 25    - SMCU or external coprocessor operation event when FEAT_SPE_SME is
-+              implemented, or IMPLEMENTATION DEFINED event 25 (when implemented,
-+              only versions less than FEAT_SPEv1p4)
-+  bit 26-31 - IMPLEMENTATION DEFINED events (only versions less than FEAT_SPEv1p4)
-+  bit 48-63 - IMPLEMENTATION DEFINED events (when implemented)
-+
-+For IMPLEMENTATION DEFINED bits, refer to the CPU TRM if these bits are
-+implemented.
-+
-+The driver will reject events if requested filter bits require unimplemented SPE
-+versions, but will not reject filter bits for unimplemented IMPDEF bits or when
-+their related feature is not present (e.g. SME). For example, if FEAT_SPEv1p2 is
-+not implemented, filtering on "Not taken event" (bit 6) will be rejected.
- 
- So to sample just retired instructions:
- 
-@@ -171,6 +209,31 @@ or just mispredicted branches:
- 
-   perf record -e arm_spe/event_filter=0x80/ -- ./mybench
- 
-+When set, the following filters can be used to select samples that match any of
-+the operation types (OR filtering). If only one is set then only samples of that
-+type are collected:
-+
-+  branch_filter=1     - Collect branches (PMSFCR.B)
-+  load_filter=1       - Collect loads (PMSFCR.LD)
-+  store_filter=1      - Collect stores (PMSFCR.ST)
-+
-+When extended filtering is supported (FEAT_SPE_EFT), SIMD and float
-+pointer operations can also be selected:
-+
-+  simd_filter=1         - Collect SIMD loads, stores and operations (PMSFCR.SIMD)
-+  float_filter=1        - Collect floating point loads, stores and operations (PMSFCR.FP)
-+
-+When extended filtering is supported (FEAT_SPE_EFT), operation type filters can
-+be changed to AND using _mask fields. For example samples could be selected if
-+they are store AND SIMD by setting 'store_filter=1,simd_filter=1,
-+store_filter_mask=1,simd_filter_mask=1'. The new masks are as follows:
-+
-+  branch_filter_mask=1  - Change branch filter behavior from OR to AND (PMSFCR.Bm)
-+  load_filter_mask=1    - Change load filter behavior from OR to AND (PMSFCR.LDm)
-+  store_filter_mask=1   - Change store filter behavior from OR to AND (PMSFCR.STm)
-+  simd_filter_mask=1    - Change SIMD filter behavior from OR to AND (PMSFCR.SIMDm)
-+  float_filter_mask=1   - Change floating point filter behavior from OR to AND (PMSFCR.FPm)
-+
- Viewing the data
- ~~~~~~~~~~~~~~~~~
- 
-@@ -204,6 +267,10 @@ Memory access details are also stored on the samples and this can be viewed with
- 
-   perf report --mem-mode
- 
-+The latency value from the SPE sample is stored in the 'weight' field of the
-+Perf samples and can be displayed in Perf script and report outputs by enabling
-+its display from the command line.
-+
- Common errors
- ~~~~~~~~~~~~~
- 
-@@ -247,6 +314,25 @@ to minimize output. Then run perf stat:
-   perf record -e arm_spe/discard/ -a -N -B --no-bpf-event -o - > /dev/null &
-   perf stat -e SAMPLE_FEED_LD
- 
-+Data source filtering
-+~~~~~~~~~~~~~~~~~~~~~
-+
-+When FEAT_SPE_FDS is present, 'inv_data_src_filter' can be used as a mask to
-+filter on a subset (0 - 63) of possible data source IDs. The full range of data
-+sources is 0 - 65535 although these are unlikely to be used in practice. Data
-+sources are IMPDEF so refer to the TRM for the mappings. Each bit N of the
-+filter maps to data source N. The filter is an OR of all the bits, and the value
-+provided inv_data_src_filter is inverted before writing to PMSDSFR_EL1 so that
-+set bits exclude that data source and cleared bits include that data source.
-+Therefore the default value of 0 is equivalent to no filtering (all data sources
-+included).
-+
-+For example, to include only data sources 0 and 3, clear bits 0 and 3
-+(0xFFFFFFFFFFFFFFF6)
-+
-+When 'inv_data_src_filter' is set to 0xFFFFFFFFFFFFFFFF, any samples with any
-+data source set are excluded.
-+
- SEE ALSO
- --------
- 
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  13 ++
+ drivers/iommu/dma-iommu.c                   |  15 ++
+ drivers/iommu/dma-iommu.h                   |   4 +
+ drivers/iommu/io-pgtable-arm.c              | 169 +++++++++++++++++++
+ drivers/iommu/iommu.c                       | 175 ++++++++++++++++++++
+ include/linux/io-pgtable.h                  |   4 +
+ include/linux/io_ptdump.h                   |  16 ++
+ include/linux/iommu.h                       |  10 +-
+ mm/Kconfig.debug                            |  19 +++
+ mm/Makefile                                 |   2 +
+ mm/io_ptdump.c                              |  24 +++
+ mm/io_ptdump_debugfs.c                      |  17 ++
+ 12 files changed, 467 insertions(+), 1 deletion(-)
+ create mode 100644 include/linux/io_ptdump.h
+ create mode 100644 mm/io_ptdump.c
+ create mode 100644 mm/io_ptdump_debugfs.c
 
 -- 
-2.34.1
+2.33.0
 
 
