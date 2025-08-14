@@ -4,104 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792BBCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D46CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eb4Pwt+4DlcYTmjaI/seSD+b8VboyEm5UlMbHZ6SHow=; b=1L89xlMfYNPV9ZZDMJQXlEiEgV
-	yGanJGQ2G3O2JkACvOfAAjeLWdD5SwCufANpO1aNBL49MgdMxAv01Yx8Euqz8RpYVWEU4ec1SPtmX
-	PSdZwDyHk80nL3ceVQqoJ8KA0wXwqxh8WQq1f5qUpuFCuEfqS/i3OC4ORnL0MW0AoFie9n1KTGJhi
-	7NoiSO5AyhOvufK/6f4qZWpm5105Qvubr3bQOp8kBxcZDoTAzSCo4aZ40MQPa4KsG9qIECCjl615f
-	jSQag50fDsuhAWn1czilsN8VSSQhtbsWbidJkGRPwMlWIkmxP7dfYJqyA4zhLumEZNnyRzEQDToBF
-	reAapLvQ==;
+	bh=f5UMD/xY6n74rTwJzCF49EHwD8igFHe+owBVi4TP2j4=; b=lu5Z5kjI0+eHMQav2Olgdp3Pga
+	eyBD5CZUYgK0pjgFnQMc5l/Pl2YWIHVHo9t2kFejcom2yDOTIiH14h4z8pK3a7sY8Nhnztb9GH+1y
+	6nZo+DDXdNzsrmL1TasURMTmdI2j85goGxcVe1uo57+iBmyOHHIQtmueSNkM/RNd1mrAZySb/x6aW
+	5n30Rondhv+Wr5v2mO2HLfO793tAaBiwCuxR8m+mcgwbnufSq9XQ3x7Ac6j6BS+N7QCFXsyUGa95F
+	cE/WyhZeScSGLw17laT0noIEK/HpZnn0A4CyPBJyQvH2GcCwU8Uriq7XI9iqK9YJH3l+ZGoq2SHR2
+	1lzBRflQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma38-0000000HVIZ-28fv;
-	Thu, 14 Aug 2025 15:39:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uma5h-0000000HVwg-1QZx;
+	Thu, 14 Aug 2025 15:42:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZgp-0000000HObP-1byI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Aug 2025 15:16:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Eb4Pwt+4DlcYTmjaI/seSD+b8VboyEm5UlMbHZ6SHow=; b=FWEtkwe+suxrXUU4RUjFa5DJz0
-	p2SV435VDGWmvisYODcPwy68472WtJDCmc/97IvCHNqO94P9CUGif+yq0nSLUPDHCG8t/WsEAhMwS
-	iHArsfxFtBTnC3JP0NN8ZtOm0zSwAqkRMb1IumJWA7bWfE4Zr6+B8Ce4vwZcY2cOhA+g+qU4ZU9aJ
-	FwKNWt7dBvNjGZ8tb3jMY6TLWAqF9+E9D69dHGzvmr8G7Imw+QI9dn8TPPu4A7dveN19hrC3RDYCi
-	AF9ftAmrHHe5Z+uj96URO9JBtOHbR7TvjFqj1K6Mn5yWDZbaD3rmqyAr19IgkuUOkxkTg/Kn3SHWz
-	SQhqTnkw==;
-Received: from mail-pg1-f179.google.com ([209.85.215.179])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZgm-0000000GSsE-0tbN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 15:16:26 +0000
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-b47174b335bso148692a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 08:16:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755184582; x=1755789382;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Eb4Pwt+4DlcYTmjaI/seSD+b8VboyEm5UlMbHZ6SHow=;
-        b=aDIZCe4vb2c4QiE2eFJkH8p17cPmh2hOVK6GEGgK6iK3svcAlGotxm2XUoA2p4rojm
-         9KyDcgE32Z/3FjJwyOFNpG2hzj8VpVnakfs7DggRj34m//7BM6uVhGyz7AliGfC38nVe
-         cIHD3Wi49Br5yJ+JYnB5ehAl31iZ9JZOI1UDSaxhR6nN9h7Nae6KPWFnY6RR2j1Khwku
-         TqpYx40asZ72LCh4RBQuhvXlhgtHRx5sutNDiMHYUS/piZulxgx8E7KsXm9zG1+2snpu
-         4+smOT7YbZGWQhWrAJHtRG2Zr+clXBh3LHIOWESI7RzUFl+PkxNGpCE2VcqzTrSiUZgn
-         4pDA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcg7zjQ47fzAoJ0FWaST1RxNwOeLUEWmna8m/il97dgPKkrljgakuFE+q30TaZH1/7DOnejb+K1vZlm+8vFL2H@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWnT7SGlLPdiY+7X+ST07r2C5N2IvNg8Fm4FFQ19McFIy6obYu
-	uklkQ8lngFlQr67SICEl8otX2RkolZ1yyNxq0giF/ap3UArZkr4Q55/gL1oaSXWe
-X-Gm-Gg: ASbGncsLdvphyvrjQxUctByez6MMf1PjNvkpl1FljNE6E/zmvE3buLaJkp2kLWzwBn0
-	svOds7n3mv+zMWlJm3lK3EYMcXcIorGbaD8/Q3muha1yV6Zgd4hQAfOnlaZGbvMipio0Xx3F5CS
-	qDyF1v+4mkeDLIwbywC30720C04JWom0lKbTnTwCOapLITpjW+knyp+HXshqwOfqzhAmOk7Wmg8
-	pmtPMZUJwKtK/T8azDqD8n4J9AkD9baeTLqC4928CsShKDLQNNvcTRE/WUX6bnmSwzyifr3WtPj
-	ZLST/HOE93yA3VRoSg0njrEaOssMx/6zSStNfZb7xYzUptL34VhldLRp0mS1la2mBVukbMjJNwD
-	28XVxWacow1/5
-X-Google-Smtp-Source: AGHT+IFYf6c65S+ueeahtRG3nAVnc+xop3PDlfgKrPzWTagW5Fh/Eu2n1Xz11DqEF3h51G44eb5chg==
-X-Received: by 2002:a17:903:1c5:b0:240:8fd6:f798 with SMTP id d9443c01a7336-2445851909amr23360095ad.4.1755184581749;
-        Thu, 14 Aug 2025 08:16:21 -0700 (PDT)
-Received: from localhost ([218.152.98.97])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2430040122bsm72357495ad.59.2025.08.14.08.16.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 08:16:21 -0700 (PDT)
-From: Yunseong Kim <ysk@kzalloc.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	"Arnaldo Carvalho de Melo" <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
+	id 1umZm1-0000000HQ3F-2g65;
+	Thu, 14 Aug 2025 15:21:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E644601D8;
+	Thu, 14 Aug 2025 15:21:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7CBDC4CEED;
+	Thu, 14 Aug 2025 15:21:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755184908;
+	bh=BxH6frzEx2Nl3V2ClnA48ry3Dd7sJkgks2idYBbkBRI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iNWpmuQKfgFHOHkXVDC2foQTi3+J+peXo2P1+gHRDe4BfU1c99GqsNMzEY/U6LPvH
+	 50j+Wm0cqy3iul7p7cdbh9W/VRa220LYzlGK/JGMnJU2p65iwV+8Y2TJcocMZqYT/y
+	 CbuMvlQWDwQmzyQJvQm1uNz/fo9Sbz5j4/mPSIMjdrbHf4UnKCAbH1TF8yqAtB2Ckd
+	 1k16TQ4se2ILx02IeaOKovaGBCaWbFJ8/fGmCudak3Q6z1MpiZVgE8pIgCabCYJQbo
+	 0jG10pkamtAmu/qxmbaKY7kfqDCjaPS8Tgns41D5X1Yfljr2OMr/40zY/QZL2hijLS
+	 TyPbFNyxu1orw==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Srikanth Thokala <srikanth.thokala@intel.com>,
+	Marek Vasut <marek.vasut+renesas@gmail.com>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-omap@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yunseong Kim <ysk@kzalloc.com>
-Subject: [PATCH] perf: arm64: Sync ESR_ELx_EC_* macros in arm64_exception_types.h with esr.h
-Date: Thu, 14 Aug 2025 15:14:53 +0000
-Message-ID: <20250814151452.618765-2-ysk@kzalloc.com>
-X-Mailer: git-send-email 2.50.0
+	imx@lists.linux.dev,
+	linux-arm-kernel@axis.com,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH 00/13] PCI: Drop superfluous pci_epc_features initialization
+Date: Thu, 14 Aug 2025 17:21:19 +0200
+Message-ID: <20250814152119.1562063-15-cassel@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2026; i=cassel@kernel.org; h=from:subject; bh=BxH6frzEx2Nl3V2ClnA48ry3Dd7sJkgks2idYBbkBRI=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDLm/vvApNE/bZPy/8YKh26Pres/ct7tSfT5wTUv13x/f 99CNZ1vHaUsDGJcDLJiiiy+P1z2F3e7TzmueMcGZg4rE8gQBi5OAZiIJR8jw/ZnrL9lb2jOOcXT LTbpfry0xJMNyfXGl2/+3bF76tk7VtsZGZ4cq779xajRP4xPaPftGJbfzr+WH3wo5bTo2sEIvbs LfvIBAA==
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_161624_338630_02DE6DFE 
-X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,51 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update perf util arm64_exception_types.h to match the exception class
-macros defined in tools/arch/arm64/include/asm/esr.h. This ensures
-consistency between perf tooling and the kernel header definitions for
-ESR_ELx_EC_* values.
+Hello all,
 
-Signed-off-by: Yunseong Kim <ysk@kzalloc.com>
----
- tools/perf/arch/arm64/util/arm64_exception_types.h | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+struct pci_epc_features has static storage duration, so all struct members
+are zero initialized implicitly. Thus, remove explicit zero initialization
+of struct members.
 
-diff --git a/tools/perf/arch/arm64/util/arm64_exception_types.h b/tools/perf/arch/arm64/util/arm64_exception_types.h
-index 27c981ebe401..29931bf19062 100644
---- a/tools/perf/arch/arm64/util/arm64_exception_types.h
-+++ b/tools/perf/arch/arm64/util/arm64_exception_types.h
-@@ -33,7 +33,7 @@
- #define ESR_ELx_EC_PAC		(0x09)	/* EL2 and above */
- /* Unallocated EC: 0x0A - 0x0B */
- #define ESR_ELx_EC_CP14_64	(0x0C)
--/* Unallocated EC: 0x0d */
-+#define ESR_ELx_EC_BTI		(0x0D)
- #define ESR_ELx_EC_ILL		(0x0E)
- /* Unallocated EC: 0x0F - 0x10 */
- #define ESR_ELx_EC_SVC32	(0x11)
-@@ -46,7 +46,10 @@
- #define ESR_ELx_EC_SYS64	(0x18)
- #define ESR_ELx_EC_SVE		(0x19)
- #define ESR_ELx_EC_ERET		(0x1a)	/* EL2 only */
--/* Unallocated EC: 0x1b - 0x1E */
-+/* Unallocated EC: 0x1B */
-+#define ESR_ELx_EC_FPAC		(0x1C)	/* EL1 and above */
-+#define ESR_ELx_EC_SME		(0x1D)
-+/* Unallocated EC: 0x1E */
- #define ESR_ELx_EC_IMP_DEF	(0x1f)	/* EL3 only */
- #define ESR_ELx_EC_IABT_LOW	(0x20)
- #define ESR_ELx_EC_IABT_CUR	(0x21)
-@@ -55,7 +58,7 @@
- #define ESR_ELx_EC_DABT_LOW	(0x24)
- #define ESR_ELx_EC_DABT_CUR	(0x25)
- #define ESR_ELx_EC_SP_ALIGN	(0x26)
--/* Unallocated EC: 0x27 */
-+#define ESR_ELx_EC_MOPS		(0x27)
- #define ESR_ELx_EC_FP_EXC32	(0x28)
- /* Unallocated EC: 0x29 - 0x2B */
- #define ESR_ELx_EC_FP_EXC64	(0x2C)
+Series is based on pci/next.
+
+Feel free to squash to a single commit if that is preferable.
+
+Kind regards,
+Niklas
+
+
+Niklas Cassel (13):
+  PCI: cadence-ep: Drop superfluous pci_epc_features initialization
+  PCI: rcar-ep: Drop superfluous pci_epc_features initialization
+  PCI: rockchip-ep: Drop superfluous pci_epc_features initialization
+  PCI: dra7xx: Drop superfluous pci_epc_features initialization
+  PCI: imx6: Drop superfluous pci_epc_features initialization
+  PCI: keystone: Drop superfluous pci_epc_features initialization
+  PCI: artpec6: Drop superfluous pci_epc_features initialization
+  PCI: designware-plat: Drop superfluous pci_epc_features initialization
+  PCI: dw-rockchip: Drop superfluous pci_epc_features initialization
+  PCI: keembay: Drop superfluous pci_epc_features initialization
+  PCI: qcom-ep: Drop superfluous pci_epc_features initialization
+  PCI: rcar-gen4: Drop superfluous pci_epc_features initialization
+  PCI: tegra194: Drop superfluous pci_epc_features initialization
+
+ drivers/pci/controller/cadence/pcie-cadence-ep.c  | 2 --
+ drivers/pci/controller/dwc/pci-dra7xx.c           | 1 -
+ drivers/pci/controller/dwc/pci-imx6.c             | 4 ----
+ drivers/pci/controller/dwc/pci-keystone.c         | 1 -
+ drivers/pci/controller/dwc/pcie-artpec6.c         | 2 --
+ drivers/pci/controller/dwc/pcie-designware-plat.c | 1 -
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c     | 2 --
+ drivers/pci/controller/dwc/pcie-keembay.c         | 1 -
+ drivers/pci/controller/dwc/pcie-qcom-ep.c         | 1 -
+ drivers/pci/controller/dwc/pcie-rcar-gen4.c       | 2 --
+ drivers/pci/controller/dwc/pcie-tegra194.c        | 2 --
+ drivers/pci/controller/pcie-rcar-ep.c             | 2 --
+ drivers/pci/controller/pcie-rockchip-ep.c         | 1 -
+ 13 files changed, 22 deletions(-)
+
 -- 
-2.50.0
+2.50.1
 
 
