@@ -4,161 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A74CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0703FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=; b=FX6G3/k0+7ZkOEfIlz7lmLZpJ5
-	J2fH3+HMgezr8IKaga5UQf15HIsZbGN2+gq16sptn5HpCeoIVclFnQETTUNMDJBTFLyecpEujMNJb
-	Mp2tY9E4++4ht1K1jasQWXDKqq9EES0z9ePfi/jaSDnlyTiHJpp4JxDClaMaf/zqEwCohM0bOJ4HF
-	lNVec/yHMppBOTpYA/nCHtJZY83N0sQ3PG+qDxsbB0utU+6PAD2EFYzJ4EkX0+f6muEv00y9OkO8w
-	wj18OJMlzKW9onoO0T9eT9YWpCPZJflYRWUoMZwVtpELtMfWJxjIhxqvc0YyqMwQsP745UuG1eJFL
-	vhHhgXnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gZyA4IFfYMzM4T1onnKApZsysgOBjZcgXNP2qh0vmJ0=; b=yVOe8ddYxKghRl55dMXD2DbsQ2
+	p1brKiKUP89o4CCICG2qmcD0ytKKbaytxqvELmMa4KhltDxcXRJkSaXMUquqpQt5lZv0HLF6yUjxX
+	aY7dUGQ5EvmlRkE55VMlBRQVZNbPMvj4CyREAulSW9MXK5X/e79dG4LfKnwx4dzN3yoZA86Xz5M+4
+	tgRAw2Ck95ZYxT5sUGxxeIkobWsXZBrhz/pVA1AzHJg9ICPoqM1ZdERZ/JWt7FQWzl9hAo4DAeGNM
+	ktUVr88RzMzFEob6/pjFvEoVfP7tExB1qphHfMWYq2BatgUnEKcUi+Z81kQ/MvqS9l275JE1NgnES
+	8ZpJWK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUk-0000000GRwO-0eMy;
-	Thu, 14 Aug 2025 09:43:38 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1umUUq-0000000GS89-0611;
+	Thu, 14 Aug 2025 09:43:44 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umToi-0000000GKIP-3BwA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:00:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lJX8wnXrbccT+HX7/oc4kHZzwLZPXthgzgmo9ZywCUzSMSBG734MKNAn/s5Poo+EFuNCdhlh1t1FLlt/d9h6GpnZDFOriSovJ5QcrydaCrX3m12nvnlrSy8R2KXPk/JpfxbHx/2YlMG5et38W/Sq3kycOC3DztWpMqXrkHxoXuAeYo59O6gB8ZY2mIv5O+UhL1tcR7aceRaZ/4VocWoU0e5oojkeGuys0suBUr93cZ/6OXZSJc2qqXmx8EvwGEahXIV3iXWJFFcMSJ+hNUXxzxd7h27FHVd6c1oNggPZ32a84zDlKhZ5x+uIawazOwWWZF3IkCvHIKV/dfSD3t9q4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=;
- b=d287EECVArxxs3vxAOaS1CXHCibPxCYdRYS0T+aY3m8Y47Qtz25e8WTBZ8lLGLn1yb1kwJYClcY5Kv/diFn8vM1pPr6UA90XdUNw3XdlPcBisjxqImhCoXO1BQipFKlO1PtSrKIQ0Y7NOY9Q/BgeFwV9kJzSdVNKY+D3zX3vSeCaIMPVuDrHx097uotJYly1iM8ELk3Q/8EZKj1Y7pX45ChOBbrkBgZP6RwQs+sjV8sC+q+Aw0eIdhG/eCUj4jgT6IceglH13ojZ3skUSZdGKXiFYKzrk6vjJdQkscFYWBWaBOg4yU+vqwt+XFlyPA7HAHGl4sypC/GcAOXbz1I9RA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=;
- b=AS3fnhz9GftkOLuqcVcTcrghWx3k7ybI1UycIcJPlKrUX6eB6iZ10viXu64r700deT+N5ZVq3QsWwEJFAR9lwkXSRqkhnm77RhBq1rwephwWTY1/xDWJp1hSDqxn0tk/ixrPHhE75Ur90o7Yd1dOXgK3f/ujuJClvno3WfL7qxJDPD+ryuxa418VXIu35xyz28Z39olTkAugVwRmvu+VrApQkncubQsxMB/bHbnWZP7YVV+wXT1Lbzy2Cb+zMl/ZZ0Uu/yIJtBEN1ZIzewwJXT2jILKAx16WomQ4yDW7NgIReLP1jWX69k563FcBRThzApqLqns03wukLIHtv+GR3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PR3PR04MB7484.eurprd04.prod.outlook.com (2603:10a6:102:8d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Thu, 14 Aug
- 2025 09:00:10 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9031.014; Thu, 14 Aug 2025
- 09:00:10 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v3 2/2] PCI: imx6: Enable the vaux regulator when fetch it
-Date: Thu, 14 Aug 2025 16:59:20 +0800
-Message-Id: <20250814085920.590101-3-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250814085920.590101-1-hongxing.zhu@nxp.com>
-References: <20250814085920.590101-1-hongxing.zhu@nxp.com>
+	id 1umU0M-0000000GMdI-3X0Z;
+	Thu, 14 Aug 2025 09:12:15 +0000
+X-UUID: a097e25678ec11f09f706fa2197c6ceb-20250814
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=gZyA4IFfYMzM4T1onnKApZsysgOBjZcgXNP2qh0vmJ0=;
+	b=ih5W1sj23AoJooMgEXB7nNVoPz5VIW6/lTeaZc0LGoPXzGk+3sHtMe+bFEnYWfJEcFHSexYU4L3nFCVHgyqJGMCVudLIR7Ar9YrqZFi8pkY8kclXiIZ28OLrbpIKAmdRxzE/Q7jYPgdx4rcDStM6Nkxh1WttN9TtHMqgCYrcxQE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:38ef3325-a1ef-4822-83b6-00e69e4b0dc0,IP:0,UR
+	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:f1326cf,CLOUDID:e8da376d-c2f4-47a6-876f-59a53e9ecc6e,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: a097e25678ec11f09f706fa2197c6ceb-20250814
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1382213886; Thu, 14 Aug 2025 01:56:55 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 14 Aug 2025 16:56:51 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 14 Aug 2025 16:56:50 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, Christophe JAILLET
+	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
+	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
+ Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
+	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	<andrzejtp2010@gmail.com>
+Subject: [PATCH v3 3/6] media: mediatek: encoder: Add support for VCP encode process
+Date: Thu, 14 Aug 2025 16:56:39 +0800
+Message-ID: <20250814085642.17343-4-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0028.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::6) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PR3PR04MB7484:EE_
-X-MS-Office365-Filtering-Correlation-Id: d24144d4-b685-4dfa-1077-08dddb10f8f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wCqS6Ldt22ojzN+32f9T0bkAFXxt2pwYNhm7V6I0e1IMFsb/X+55J5dRKego?=
- =?us-ascii?Q?9ZB343uQgYXE379IyS/sXJvOkYppTVUXMgmxvmgd7NPUF59l7H/M/1dETBfV?=
- =?us-ascii?Q?RcUoLctoGZX/qDfesaIhMppeJGCq4a0MQ/nU6ngrGBziwwEMapdwB2U9h6Kh?=
- =?us-ascii?Q?LuIkWVfXY4W4e60gbgx2F0FiIKx2hyTRoGsnzWqozXvQCIsgnu1VTJFmeJWd?=
- =?us-ascii?Q?bnmNPOrwUmJ5dfgpdR0uVRgzsm3cCj88ImcA3LmeS/Xzin71jHxru3uesOHg?=
- =?us-ascii?Q?kaD3pVBGyivfPQFaEDQ/sMvI18y1DB4n0XfiMKWdec+6dbHxHp4Cgsy7ZLC1?=
- =?us-ascii?Q?wZGSsk6QBz4PHNO6E5SwWjFerkfDpaqT4BX4CHYxfpoQnwPCNA5nsNQ0gNLd?=
- =?us-ascii?Q?dUtG7V/4q2V3QoZUL5Bj9j+wqdp98aH3B/2szb7k6AZjnNR3EE8AzuOL0sWQ?=
- =?us-ascii?Q?xyMdZMEqVIe6AB9cu46GJb+loh/pbO70kjhy49mc+YH8f9PGwbtZONeyBhR3?=
- =?us-ascii?Q?kU4cy3MMLOn3UU9BTbovrWgkHpgjxmRtDRIL2oyLsUtlAg/vLMoej86Dzstu?=
- =?us-ascii?Q?LInbxtLq3n8BpXGhNLESoT9NeFI/c1sypCUIPO2BWBPI7NfZ+LFXFaAkEM+7?=
- =?us-ascii?Q?iY+dw50U2/us4CsXsGLKv+W9AskFVyMAcINuRzMxiK7jGB0Ou+NoeudlQY/z?=
- =?us-ascii?Q?vytV1irY6a8D0xcQaLydPTMfV20aQ7m5w2F4NWV0v7kBjLTsqMSjKGxDVtsT?=
- =?us-ascii?Q?nn2USLDUZFw8Rw0TyNS+5KZx1mzWFWMSMmzQIRfRgf53JpIjr8aEdebbDZuE?=
- =?us-ascii?Q?/moKtuIyiGMEeZEZjcFP7p5uazyh8bxTcIxHFDPOFg0MM19hnmfroel7aVD9?=
- =?us-ascii?Q?Hhj5DEyKPvcNUmPUrRIzlPrjQ0fmsTYIxWL8fpg5DvBBFYbENfQYf3VXlzDx?=
- =?us-ascii?Q?B2VWERuyaTsOHvlbH1VU8xxP7aLmhu9+g8mJFJIHXpAwvNuWUTDwHasbxgZw?=
- =?us-ascii?Q?Fhki5QQMnuOkcJnO95wCwLKZjHEoX8dM/Y7uD1hm+3uW0A2FTQqgtLCg5v9g?=
- =?us-ascii?Q?s12gKnvY/9S/7W98IF52NqUZPx40Nyz30B8xIT/Bsu7WhjG81iFWSwszeLoL?=
- =?us-ascii?Q?kqkbqdL4lAdFi3jqNgywniMzmDm4aq3nU3UFbkBRJ6zTLvR0DLt0TSMQv1uN?=
- =?us-ascii?Q?ny0jtT3JovVv2FEVDWibOyFW51MGdwqYD3sFkfF9xrA2ILtG48NWsRAkft4l?=
- =?us-ascii?Q?hZZpqmS05/pC62eS2P0Dc6vqEIfA15GkoadB9xtibJgRH7tlakiryOLbLoxY?=
- =?us-ascii?Q?hBoW3cnrWVXELvgKac6oU3YpK6gOmiN+rD6tG/44Oz3HRKI0fRYnhmaaeS18?=
- =?us-ascii?Q?0m9em391w62Q6zMnZ4cajWKxg5LyeNkiOmTAmQrdIdXzjl8+puxy8qgpOKQ3?=
- =?us-ascii?Q?DXclQtU/Fy/O7VK4mt/vxSw7vFYISf63/C7fYyJTedeLsuEVOWTAscC+Qz6G?=
- =?us-ascii?Q?EFMk0SPEQpjd3/k=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CIpuuOG0ls6ga5pWiKkDFMJkPSooe+P3GZoJ5knnjovBq+41rK8nbTKMKme5?=
- =?us-ascii?Q?/+m18/wgdSx8+JFXe0V/lDKjLdaxHwVGkXchZsa1JyuMtvgW09rKfrl5KkgI?=
- =?us-ascii?Q?FTJ2q9hNPCp5nl79VPOHH0Mw4r2sBNYJomHVmnih62iBtB2txrWudWk3TwwD?=
- =?us-ascii?Q?lQjUIBUxxuIcKbwbqpTtR0R265k+KfuhoBVnYGaTba9ofXUDL93SNElV26gl?=
- =?us-ascii?Q?nd126IiMa083HGAxYnzCmxR6pjRErvwWDJCJW1s9ecNSNE4BMPo38CS4WdRB?=
- =?us-ascii?Q?g8pe/hLgK1leQ1ZXuwPZbGm65Y/YiTHoR+C79SudBMLt8rM8sHJu+vJWmDbi?=
- =?us-ascii?Q?uh70NbyL7UJARxa5oAppMYh7X09+ev32bh+ggyhuYQ/TZrAlIVKQOUNNPbaD?=
- =?us-ascii?Q?Q5NXHvaiJ8/j0XXq6k9v1jbYTcwUojJZR8eC585S2aEkPmAd8sZy9oAa1UNe?=
- =?us-ascii?Q?L5a5tjvEtdkpJHTIBi1TPNiWKS/vruQT1VyEPDJ3VAE0IzoZUMBeM0AIcXML?=
- =?us-ascii?Q?gZ1CDt4PXoumaXIj2IIUeRay3KZoFGvWJviLghhvAG+xvTNJKCW5HHcjJR5/?=
- =?us-ascii?Q?ToSCdALw3lmrCTzeTNZgXYHzzz6z3M6HaeevUhOoSfJeN/6diEgYTwBq6Rob?=
- =?us-ascii?Q?HgoPyfY+ndV0prcvYZLZBy2/HVCnZAyI/OowwlNNX1ki1ZdI3ZBtdh15jvQe?=
- =?us-ascii?Q?yonDNup7S0YJ8/+n+p5uk4waXNtQrLnbZzaFqztF7V8mL9tz1OeLUwf+W2f/?=
- =?us-ascii?Q?ZEZ+8W5+x1oIGPZeE6WQG+gaMO/WiQfcZD/ZB6iKw+mAFLoXcBWlXZgPEMtD?=
- =?us-ascii?Q?oyliATRXUwkH3Wv+VP8HM1fgC11h2UOl71vqiLSi+gpoaxF1shXT/hYXTeyC?=
- =?us-ascii?Q?w3P9pHwPWCCmiItXnZP8T8rXJNkDTokFrx0xT+oQiBOcWkADPf1uQjm71OJf?=
- =?us-ascii?Q?aLCLQ3v/AKYkaINkFqzg3spQ8Jr6+n6PednB9hT9/iXxDIgi9SOYJK4ca8ZV?=
- =?us-ascii?Q?inArC4NWPmEoJ12DGshWvO0BuuNF0Z76+l7B6OpPRqueYYd15ktwMBYiF8k6?=
- =?us-ascii?Q?0DauSL+002KfHZr6UoiXyVYOqQ+58n4ssMVTRqoWjLvG0HbJB3y+nOLwzJSM?=
- =?us-ascii?Q?stUsTrqLSlqle/WD7rAVu7SUK0s4/RwjVokV435qc8C0Xh69XQRQWXwGlCNX?=
- =?us-ascii?Q?RhKC7xS0bfQ3u939CNg4A2QR6UNH9+CGZX8JNntDlk96CPAfrbQn2UR/9GCm?=
- =?us-ascii?Q?suTe6V+Dc1p+L9ngaCOmbwOVGj09RVipVjdrnDwetn9nGNUSjvVLCkXlEcJA?=
- =?us-ascii?Q?cHiF+yU92gzH2pgLqhTp8P0d8W0qyZV+ehD8lAysOfTkwHNVnGT29DTtyJyv?=
- =?us-ascii?Q?Ou/YurN3dC4qLDfDkOSw/lcywQ9U/CTfS6MVwYEfN+uqTzNpM0bmtjtAamjC?=
- =?us-ascii?Q?yTqBcnb/AA1RE+9BNFTkU4Hnuu49St/153MTAXChUQDJl4etnAzRy7l/LMAl?=
- =?us-ascii?Q?jvLPnarPfxlJTJ8firHHkGBTcNVh7Q3DWKYRFIm2JEKmzrky+kR5poaF6pE2?=
- =?us-ascii?Q?uSoIxbl9KMu+Cq+kEN38peggLICBn6ruzSJMqzAo?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d24144d4-b685-4dfa-1077-08dddb10f8f5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 09:00:10.1610
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: M8B+mCGHMd5QgoOJfAxzzAY1iRSgyoOIeXxxz7XMoSomS2fB1DXcX6Fl/DMHRAVxRbOrk6CPaca04Q9r7UqJEA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7484
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_020012_802902_353EEA4E 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250814_021214_886824_759CA6E8 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,49 +98,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the vaux regulator at probe time and keep it enabled for the
-entire PCIe controller lifecycle. This ensures support for outbound
-wake-up mechanism such as WAKE# signaling.
+From: Irui Wang <irui.wang@mediatek.com>
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+When encoding by VCP interface, encoder driver need change to VCP path:
+Firstly, set encoder driver fw type to 'VCP'. Then, allocate RC buffers
+by the VCP device. Finally, send the shared memory address into VCP and
+map the encoder vsi address by the VCP shared memory address.
+
+Signed-off-by: Irui Wang <irui.wang@mediatek.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ .../mediatek/vcodec/common/mtk_vcodec_fw.c    |  6 +++++
+ .../mediatek/vcodec/common/mtk_vcodec_fw.h    |  1 +
+ .../vcodec/common/mtk_vcodec_fw_priv.h        |  1 +
+ .../vcodec/common/mtk_vcodec_fw_vcp.c         |  6 +++++
+ .../vcodec/encoder/mtk_vcodec_enc_drv.c       |  3 +++
+ .../vcodec/encoder/venc/venc_common_if.c      | 23 ++++++++++++++-----
+ .../mediatek/vcodec/encoder/venc_vpu_if.c     | 14 ++++++++++-
+ 7 files changed, 47 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 5a38cfaf989b1..1c1dce2d87e44 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -159,6 +159,7 @@ struct imx_pcie {
- 	u32			tx_deemph_gen2_6db;
- 	u32			tx_swing_full;
- 	u32			tx_swing_low;
-+	struct regulator	*vaux;
- 	struct regulator	*vpcie;
- 	struct regulator	*vph;
- 	void __iomem		*phy_base;
-@@ -1739,6 +1740,20 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	pci->max_link_speed = 1;
- 	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
- 
-+	/*
-+	 * Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
-+	 * asserted by the Add-in Card when all its functions are in D3Cold
-+	 * state and at least one of its functions is enabled for wakeup
-+	 * generation. The 3.3V auxiliary power (+3.3Vaux) must be present and
-+	 * used for wakeup process. Since the main power supply would be gated
-+	 * off to let Add-in Card to be in D3Cold, get the vaux and keep it
-+	 * enabled to power up WAKE# circuit for the entire PCIe controller
-+	 * lifecycle when WAKE# is supported.
-+	 */
-+	ret = devm_regulator_get_enable_optional(&pdev->dev, "vaux");
-+	if (ret < 0 && ret != -ENODEV)
-+		return dev_err_probe(dev, ret, "failed to enable vaux");
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+index 0381acceda25..7a504f093bd8 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+@@ -105,3 +105,9 @@ int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw)
+ 	return fw->type;
+ }
+ EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_type);
 +
- 	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
- 	if (IS_ERR(imx_pcie->vpcie)) {
- 		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
++struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw)
++{
++	return fw->ops->get_fw_dev(fw);
++}
++EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_dev);
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
+index e7304a7dd3e0..56c26b91651e 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
+@@ -43,5 +43,6 @@ int mtk_vcodec_fw_ipi_send(struct mtk_vcodec_fw *fw, int id,
+ int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw);
+ int mtk_vcodec_fw_get_ipi(enum mtk_vcodec_fw_type type, int hw_id);
+ int mtk_vcodec_fw_get_venc_ipi(enum mtk_vcodec_fw_type type);
++struct device *mtk_vcodec_fw_get_dev(struct mtk_vcodec_fw *fw);
+ 
+ #endif /* _MTK_VCODEC_FW_H_ */
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+index 0a2a9b010244..710c83c871f4 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+@@ -29,6 +29,7 @@ struct mtk_vcodec_fw_ops {
+ 	int (*ipi_send)(struct mtk_vcodec_fw *fw, int id, void *buf,
+ 			unsigned int len, unsigned int wait);
+ 	void (*release)(struct mtk_vcodec_fw *fw);
++	struct device *(*get_fw_dev)(struct mtk_vcodec_fw *fw);
+ };
+ 
+ #if IS_ENABLED(CONFIG_VIDEO_MEDIATEK_VCODEC_VPU)
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+index f6b93e1bcbf3..646e3944dd4f 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+@@ -432,6 +432,11 @@ static void mtk_vcodec_vcp_release(struct mtk_vcodec_fw *fw)
+ {
+ }
+ 
++static struct device *mtk_vcodec_vcp_get_fw_dev(struct mtk_vcodec_fw *fw)
++{
++	return fw->vcp->vcp_device->dev;
++}
++
+ static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_msg = {
+ 	.load_firmware = mtk_vcodec_vcp_load_firmware,
+ 	.get_vdec_capa = mtk_vcodec_vcp_get_vdec_capa,
+@@ -440,6 +445,7 @@ static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_msg = {
+ 	.ipi_register = mtk_vcodec_vcp_set_ipi_register,
+ 	.ipi_send = mtk_vcodec_vcp_ipi_send,
+ 	.release = mtk_vcodec_vcp_release,
++	.get_fw_dev = mtk_vcodec_vcp_get_fw_dev,
+ };
+ 
+ struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_vcodec_fw_use fw_use)
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+index a1e4483abcdb..bb913dfe5f04 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+@@ -252,6 +252,9 @@ static int mtk_vcodec_probe(struct platform_device *pdev)
+ 	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,scp",
+ 					 &rproc_phandle)) {
+ 		fw_type = SCP;
++	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vcp",
++					 &rproc_phandle)) {
++		fw_type = VCP;
+ 	} else {
+ 		dev_err(&pdev->dev, "[MTK VCODEC] Could not get venc IPI device");
+ 		return -ENODEV;
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
+index da7cf90bd54b..b28d559285ea 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
+@@ -478,8 +478,13 @@ static void venc_free_rc_buf(struct venc_inst *inst,
+ {
+ 	int i;
+ 	struct device *dev;
++	struct mtk_vcodec_fw *fw = inst->ctx->dev->fw_handler;
++
++	if (mtk_vcodec_fw_get_type(fw) == VCP)
++		dev = mtk_vcodec_fw_get_dev(fw);
++	else
++		dev = &inst->ctx->dev->plat_dev->dev;
+ 
+-	dev = &inst->ctx->dev->plat_dev->dev;
+ 	mtk_venc_mem_free(inst, dev, &bufs->rc_code);
+ 
+ 	for (i = 0; i < core_num; i++)
+@@ -528,12 +533,18 @@ static int venc_alloc_rc_buf(struct venc_inst *inst,
+ 	struct device *dev;
+ 	void *tmp_va;
+ 
+-	dev = &inst->ctx->dev->plat_dev->dev;
+-	if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
+-		return -ENOMEM;
++	if (mtk_vcodec_fw_get_type(fw) == VCP) {
++		dev = mtk_vcodec_fw_get_dev(fw);
++		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
++			return -ENOMEM;
++	} else {
++		dev = &inst->ctx->dev->plat_dev->dev;
++		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
++			return -ENOMEM;
+ 
+-	tmp_va = mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
+-	memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
++		tmp_va = mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
++		memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
++	}
+ 
+ 	for (i = 0; i < core_num; i++) {
+ 		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_info[i]))
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+index 537b9955932e..9a90c2271297 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+@@ -8,13 +8,23 @@
+ #include "venc_ipi_msg.h"
+ #include "venc_vpu_if.h"
+ 
++#define VSI_OFFSET_MASK 0x0FFFFFFF
++
+ static void handle_enc_init_msg(struct venc_vpu_inst *vpu, const void *data)
+ {
+ 	const struct venc_vpu_ipi_msg_init_comm *msg = data;
+ 	struct mtk_vcodec_fw *fw = vpu->ctx->dev->fw_handler;
++	u64 pa_start, vsi_offset;
+ 
+ 	vpu->inst_addr = msg->init_ack.vpu_inst_addr;
+-	vpu->vsi = mtk_vcodec_fw_map_dm_addr(fw, vpu->inst_addr);
++
++	if (mtk_vcodec_fw_get_type(fw) == VCP) {
++		pa_start = (u64)fw->vcp->iova_addr;
++		vsi_offset = (msg->vpu_vsi_addr & VSI_OFFSET_MASK) - (pa_start & VSI_OFFSET_MASK);
++		vpu->vsi = mtk_vcodec_fw_map_dm_addr(fw, ENCODER_MEM) + vsi_offset;
++	} else {
++		vpu->vsi = mtk_vcodec_fw_map_dm_addr(fw, msg->vpu_vsi_addr);
++	}
+ 
+ 	/* Firmware version field value is unspecified on MT8173. */
+ 	if (mtk_vcodec_fw_get_type(fw) == VPU)
+@@ -155,6 +165,8 @@ int vpu_enc_init(struct venc_vpu_inst *vpu)
+ 	out.base.venc_inst = (unsigned long)vpu;
+ 	if (MTK_ENC_DRV_IS_COMM(vpu->ctx)) {
+ 		out.codec_type = vpu->ctx->q_data[MTK_Q_DATA_DST].fmt->fourcc;
++		if (mtk_vcodec_fw_get_type(vpu->ctx->dev->fw_handler) == VCP)
++			out.shared_iova = vpu->ctx->dev->fw_handler->vcp->iova_addr;
+ 		msg_size = sizeof(struct venc_ap_ipi_msg_init_comm);
+ 	} else {
+ 		msg_size = sizeof(struct venc_ap_ipi_msg_init);
 -- 
-2.37.1
+2.46.0
 
 
