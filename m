@@ -4,57 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A286CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FE0CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8lw86+YpmhQ/yYr2/JhdgNkgqjAlMh/4iG6N3ZqJRU=; b=V2ux01KWFEUBKEOTQHmq9buciy
-	z55RXIpO/iYOJ7msRyyDq25gt9XWjZ9DlATegHJcMRp5lhz94JVF1fUGNFDMuFg3KTWp7Fo+cw9ZB
-	gZYe+DH5/MZvgWp7wKK6fn8ZtcKjtICVPMuSDOA2Sz8jgDuZHllcA6oM6yGIjjRkuTokc5Mr0PiBb
-	jl+i8fDN2Rt8plMWWB8ABtnhbTxkIvvIlmYN6JhfKtbgfgsbCADZpvuHwoEPx3Paajp4iQ7HZeIa0
-	GnrxqG5c2tXw4q4uU3WOJnvd2P+rr8SwAuSZgf+LU06W/JGbQQiBXaw+dCXXYLm/R0vU4cYVmL7OP
-	Z3jRHolw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d0gb00LyZoAZOA75YtXXJqNnknW6FtN+rIWRKloEKwc=; b=05UAIHrOoeXjQJBqD1xR6oT6OF
+	tFPSdSGDHHR1eKxLAzOKEa2p1BcxfAnzqyB1vBWy5YvLvVpatz4cYRqp1vYP44/D6qVPelAHZKbDh
+	4gmYFH3w358kKZNx9//RAiIvBIjzIw3PrcZSvM3wjG+r5iIwevyCG3y2nIsiR1sZT+ty0xdKf2zOA
+	UKFiWyGstTOfX869N4ffzeqVM5r7j4VhHSV5eg2s5nQ+sS1baH21YGsV3zVncBuQE34AUYMEh393y
+	FgbnuIm03hvlCSBrTIkLu+vtLx59dBbWm1md6XEWMR6UuxlD926iu3Y+5rEK0lqs/IlJxfq0C3M1T
+	4VhZeQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUJ-0000000GRK7-1dk6;
-	Thu, 14 Aug 2025 09:43:11 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1umUUg-0000000GRqF-1iUr;
+	Thu, 14 Aug 2025 09:43:34 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTXE-0000000GHej-0ckq
+	id 1umTof-0000000GKHG-3DiP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 08:42:09 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 14 Aug
- 2025 16:41:56 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 14 Aug 2025 16:41:56 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: <ryan_chen@aspeedtech.com>, <benh@kernel.crashing.org>, <joel@jms.id.au>,
-	<andi.shyti@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <andrew@codeconstruct.com.au>,
-	<p.zabel@pengutronix.de>, <andriy.shevchenko@linux.intel.com>,
-	<naresh.solanki@9elements.com>, <linux-i2c@vger.kernel.org>,
-	<openbmc@lists.ozlabs.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add transfer-mode and global-regs properties and update example
-Date: Thu, 14 Aug 2025 16:41:54 +0800
-Message-ID: <20250814084156.1650432-2-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
-References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
+	Thu, 14 Aug 2025 09:00:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Dc+g6P1snm1BeVva8eOG6emScID4bamMcqaGuF/rwbU4nTtaOVUN3+nsB4mtAlgWTqS3MHyjx1DIrkGmOP2uA5RhLvuw9d5klp+XiQHqHtkJqZ9oQ0teLmxshM09XmZdVqMQiAKYSTrJGtCLRixgmNvSQlEcLiYME9OR13fjza2eErABrD4i87vNvD/rVkPa/LwQVV6ydjJy9cAVgbkL4Xp52Ac5wXJN0wSFxgr/jwZzVoCVLYSmSHEvLDvi2uGIOEQ+sryBL1NTeJQ1UHJd3gRdnOPdWZA7hUhNI+u66YZUfpW7188yarPB9g38zOmcsbQBvxgMZzOW/F5TMfyGpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d0gb00LyZoAZOA75YtXXJqNnknW6FtN+rIWRKloEKwc=;
+ b=fVNcNFWL6oE03JBctP+rUFU6WdpMl/jfVLHObBbPx1V/m81PJzLak59IkVUNyRMXFaecfDpSsR3k0ruBBWgXKrh3e1cF5y1KxWQ+05WM7PDoSSXbmRDzCkcmgnIQ6qrr3Rvd8JHdORfkXMtrgbjZR0AFzq8mm62cqO6xGi8eaz5t+nnUjgyiTNFHXuDo4Njv186A+VjEpswf3GLqEYBLSma5pxrgb2BINZLsPxB0xlgz5gG4gbiZEhW1bRvEJbUw5iShrVmE9Z52iHCcZE7NooQQemTwKS5LxtOMQ08O+cUFQ2Gxf7C7QafEqoNNJqNb+tPfOJsXLE+uwJA9FtXv1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d0gb00LyZoAZOA75YtXXJqNnknW6FtN+rIWRKloEKwc=;
+ b=m1nehHrCRRW5xKySFG6qTo+0wBJVJ9G2514XtAVMHQMnwQyml0nuhmPpbWGjPtk+fAgqCZ9U7rYDs0Hf2Z7tw6lV6UgquHJh2oldXw/C/OLH0dXVWUSZo3V8BWfPUoBolKiQk1BgbZeybtex0MVYMWeaJXxxWWbg7Fi6dSTxxxfV8y1C9Ehpf8EmIqt4hyMaM8mp7luXcVybzPxKlI2y3KKnSUPzu6MYRkQa22eTJn1TsnOjTVJ4i80pbTJ5x0MoI/ANIwUC+ccmEKhpylkN/vCmbfPzu2dMr/dftgNFSWzG6QN1ovDCqjm1qQhlNOP+4ix+qdQ+WKPGlPGASodnTg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by VI2PR04MB10905.eurprd04.prod.outlook.com (2603:10a6:800:272::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.15; Thu, 14 Aug
+ 2025 08:59:59 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9031.014; Thu, 14 Aug 2025
+ 08:59:59 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v0 0/2] PCI: imx6: Enable the vaux regulator when fetch it
+Date: Thu, 14 Aug 2025 16:59:18 +0800
+Message-Id: <20250814085920.590101-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0028.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::6) To AS8PR04MB8833.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|VI2PR04MB10905:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa02d05c-f506-4d67-8997-08dddb10f25c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|52116014|366016|376014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rRgnkO/54lx/gRMl3Odf35pA/UT3mc0CYOILSNnbkkDkm/9ONi55nVSHH5cc?=
+ =?us-ascii?Q?89bPc1bLv96PcPmOF9NaF8bGDX3pqs53QTZr+PfCSdp2VXDhb+DuIUcvDz3y?=
+ =?us-ascii?Q?fWSc10GARWg+iMMYfY+RfNG512SNUPb+XDHEfXdpDCGYAa+GOaNphuJnRD9X?=
+ =?us-ascii?Q?OH88ZG03EHCuNt/92zgFW0Vw5nfENEGn1iRXkindTMtPwjj0o8C0aqbIBqg+?=
+ =?us-ascii?Q?WxQMgU9LCwpj0wa17TB/De3JF9zCbegGGrpH0M7ijBYqVB5TkqYsaByp7Ncw?=
+ =?us-ascii?Q?XTxCpuf5H0MlFPcpFM14KGkqv/YQKayN8Fpg6oFpF7nTeVJuSXecFvOskk8E?=
+ =?us-ascii?Q?ZWNhIpRittItKVenASrszLoXAN6xtrqZ4PmasNffjnvzgryVY7wFiSdi3sFU?=
+ =?us-ascii?Q?LlIfNQalMoioEVpaJ8CJKFXj3rbzXBKRW98oeRzbSzgS9bnl/F3tp00ObnZc?=
+ =?us-ascii?Q?J/Y61yd/wnFJkLMYulX/5J5L7/8CHO47QkapAVSld8SWVMPBUPY6oKTO1gWY?=
+ =?us-ascii?Q?X/y0YpauQgmenUjkb8Y4n4IxqxVrDVuAjwrfW6hkPItqq+qRHw4y9h7UGSnn?=
+ =?us-ascii?Q?lRqG96ZcAB/dUqL480LI3hpNpuxxLD2TJVdyTh1ElgyAXqLn+BO4nfeZmT18?=
+ =?us-ascii?Q?2B78K2VMQ2cEIXkmkRqJQ3ydSyV9OB+dKUXlmp/q+byBhI7PATctV/sWWtZm?=
+ =?us-ascii?Q?ur/W8WSx53nHzq3+pH8SMcPrK33Izkx6YYlHH7ruf91lWnMioiM0XnL6/K+X?=
+ =?us-ascii?Q?3+bOJi/Fp0ckaRC5qf4iJVkZlU+EuCUf2MMZH2HRnLWS5DF6qbdpNHt/fY7v?=
+ =?us-ascii?Q?APHPgMh8PLi5PvyoJWOddlkksAGg1BxhV6kcbjjZH21sEh8rzx8ReCjTEnv9?=
+ =?us-ascii?Q?z2g6mbc4LUUFZN7r2+P/vkQrI5c/ZgCoyYrSj5+x5dB0ily7GELvVBIEmtrc?=
+ =?us-ascii?Q?avV5IAvowASTfNpu2PrEh3BAsGpmWcDSS+sHvxF2dDbIrTrGvx22gnNM2KJG?=
+ =?us-ascii?Q?Ew72XpyvB6RjJ2p9M2UEe3nEDT+8l/SlGSk5vntAoQazq30EZ7fBWABpTBR0?=
+ =?us-ascii?Q?TY/BsBhyE4as/QD9AxxRKBTtQZ6lsMyDODW/cKwKHEFbXyhymiqqphvBzElx?=
+ =?us-ascii?Q?Bi2RE483Jh3BYoP/aNZNJ6pOch9BvVr2IiXlZvRbqMHLBv2HwyU03FA0EM0A?=
+ =?us-ascii?Q?BxyuFjK8KqayZQzOYY+OFbOyI0s/OlEH5Lvqi/jSFJDh1ZNGit6VSZ0ZrhsV?=
+ =?us-ascii?Q?0NaXSScorGtBg/7vBtB5/roroIUNgg4NbRZI5908rW/ee0tWLo1iLIGGoDdZ?=
+ =?us-ascii?Q?5ZoSoWK3Z94bQAQ2xpU0ZUF5BnW6Tr7gXRpuYAPB6aF5nRI6FMg3yiDUYE/e?=
+ =?us-ascii?Q?0WZni7uvhFDU8D7YyygFUi3oZspU1ihGmXJ1NHzlLoZDW858OVEpiOpKch5N?=
+ =?us-ascii?Q?H447iI8AN8mzQ4UCiDturtiPNjM7VKb2rvGvKrVFqoFaeohVEVolG+1wpKdj?=
+ =?us-ascii?Q?tkuTMPO4IVE6VTQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(52116014)(366016)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ORBaMWG2gmcSGdcwB0uwCXTDArpcrwEycOsyh1HgLClQFSUh+m04VnKTxwpT?=
+ =?us-ascii?Q?f8upHbcreq/1idKD1txLCr9XsCewbl2rA/oJdqA44M2MGBFrB2WWh6Tea8xK?=
+ =?us-ascii?Q?13j4ASPWpbfPet6Y/lsh3ZQ9I3LNpFx8VyKqtORTx3gcR9C2xGp467/Zxrqg?=
+ =?us-ascii?Q?NXS4KGuv6hAjnziHykVJJLzSYPnGky1loHpf08KInQCYzV4fNa4Z84+S1XyM?=
+ =?us-ascii?Q?8ko/RVXhbCaSYiFETTDvpe4G1rfXvdVVra2w/YdFlMAJZbFHMBYozn77Ih/7?=
+ =?us-ascii?Q?NhTw2X4tRZ425ywkFH6R4Kq5wKQZPTB0PhHf712q29VNLjQHm1xv/4Iqqsy1?=
+ =?us-ascii?Q?rQmo22PYQj8/cDJFdp2coRnvM5hjQZxdfFYNPjplkyomCCXHe+y7ZrjEKZ/O?=
+ =?us-ascii?Q?uPVrtT6imeXVMIGxcAmRtj+1s4WoSgPVPkgp/NRkCO/8lJpT6Bqv6QlPu3rY?=
+ =?us-ascii?Q?UBQT8NphGW0i9f0mFBaElHbtw+0QZ84eokTFO6C8X1bJfjdQVSjSpMIXpjiE?=
+ =?us-ascii?Q?M3RHtRjD7IAd0w+5qgXgyaelfD6pvMrJJDVHmLn7I6VxLRmOkI+mMeUwiV0U?=
+ =?us-ascii?Q?QZV9KymLhhlbxmjaptcIkWfdcy4deG69egEauGlZyK3q6XVHv3HB7sFYnRw/?=
+ =?us-ascii?Q?simzi/EZmIjcT3ILTgUG4559+dPmZvPZXJna6voO3KSKNyL0ZCzzswrw7OZg?=
+ =?us-ascii?Q?D9TlK3jLkTuHOZ4LxqE9a+koob/QzQ2WUS3tMYriMtuGCwzXcQ50xgGT0LcY?=
+ =?us-ascii?Q?TlG58IS/og/iP+4cEOtXkItzPs30tZoFatjz8TdfimCypUM990KU2dJNK+U7?=
+ =?us-ascii?Q?5QMt2K7nIZu/9fDDhvLeV4ZWzHhV/Tx9pRjQRDpD6WeFA3rUIAQmuMkyTB19?=
+ =?us-ascii?Q?bcfB8tM5FjvWSMb7gSo+O3Q9um1wpZZLE5Tk0xGBR049dw3f4mIu3B3nc5nR?=
+ =?us-ascii?Q?BlyuQdQjK3LC8/07a1PqMzJdGPwQMwCLEbe7qNubPPP7ES6VePPbZVCOKwDc?=
+ =?us-ascii?Q?EtQZHOQfc4jgMIdGtWNQ6Pc81stkJHFrRo1NkrXiN/2gpvnpuH4FPBbbRq5x?=
+ =?us-ascii?Q?6ZkeEp/KgUEcoC8Ph7VQyZL/RPbtyI1uKjHexJ6kQeuNsYsdCD13B8XESXL8?=
+ =?us-ascii?Q?zi7oStREaoyOv9fhd+Y7GhPyczhEdflN3ZNlKdvE83jsdhElsDHABo99QHaq?=
+ =?us-ascii?Q?DJPRCKLQWpw+g8DbCjMIr5vYhtvxN7D7rBqeEWF+/eyh5XoCGtHjzHLg5ACM?=
+ =?us-ascii?Q?qC6k8Z6oVCpnR+NH83NxUZ9y19+GeUl3Nrl6p78M8VKi7jJPMg12EFDOJsp4?=
+ =?us-ascii?Q?zaIDSK+H69RvOAVHtzGFqb2FejkfGNQddOiT0gKT2y1r9Xux/Ake0CdmfaxA?=
+ =?us-ascii?Q?wcAHfcxKXQdakcEVeXxS0ooFKRPUoc2KL4HefzqRwsNQYGD23DMEVKUcWelm?=
+ =?us-ascii?Q?oTqMtUR+OqzYxugovlE3cYSwTX8c5MEKDF4FA5hYztXqhmeY028RfkTAr82E?=
+ =?us-ascii?Q?+3j/ImUkXnz9ckPa46HGaHvQdDkjBDRcalXBZjgTCg5MwEMDy3VMKEt7M4mF?=
+ =?us-ascii?Q?2/5iqta+rPIe0GKerSQytFMwva8PjM2vCcvsQXWc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa02d05c-f506-4d67-8997-08dddb10f25c
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 08:59:59.3185
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ShkMXGxFZgL0VxzDVyBaI0l+u0VlpuTHnFArMUJv29vPGqqeFaBffvkkvi8wgtFQ9D3RYsKWDKX/uFlstAumwQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10905
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_014208_187409_66ADC64C 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250814_020009_807747_D669F680 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,74 +171,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Add property "aspeed,global-regs" to get phandle set global
-register, for register mode selection and clock divider control.
-- Add an optional property "aspeed,transfer-mode" to
-allow device tree to specify the desired transfer method used
-by each I2C controller instance.
-- Update example to demonstrate usage of 'aspeed,global-regs' and
-'aspeed,transfer-mode' for AST2600 I2C controller.
+Refer to PCIe CEM r6.0, sec 2.3 WAKE# Singal, WAKE# signal is only
+asserted by the Add-in Card when all its functions are in D3Cold state
+and at least one of its functions is enabled for wakeup generation. The
+3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+process. Since the main power supply would be gated off to let Add-in
+Card to be in D3Cold, get the vaux and keep it enabled to power up WAKE#
+circuit for the entire PCIe controller lifecycle when it's present.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
+v3 changes:
+Add a new vaux power supply used to specify the regulator powered up the
+WAKE# circuit on the connector when WAKE# is supported.
 
-diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-index 5b9bd2feda3b..2a9f7d1d2ea1 100644
---- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-@@ -44,6 +44,34 @@ properties:
-     description: frequency of the bus clock in Hz defaults to 100 kHz when not
-       specified
- 
-+  aspeed,transfer-mode:
-+    description: |
-+      ASPEED ast2600 platform equipped with 16 I2C controllers each i2c controller
-+      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buffer mode), and
-+      share a DMA engine.
-+      Select I2C transfer mode for this controller. Supported values are:
-+        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
-+        - "buffer": Use buffer (32-byte buffer) for i2c transmit. (default)
-+                    Better performance then byte mode.
-+        - "dma": Each controller DMA mode is shared DMA engine. The AST2600 SoC
-+                 provides a single DMA engine shared for 16 I2C controllers,
-+                 so only a limited number of controllers can use DMA simultaneously.
-+                 Therefore, the DTS must explicitly assign which controllers are
-+                 configured to use DMA.
-+      Only one mode can be selected per controller.
-+      On AST2600, each controller supports all three modes.
-+      If not specified, buffer mode is used by default.
-+    enum:
-+      - byte
-+      - buffer
-+      - dma
-+
-+  aspeed,global-regs:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: |
-+      The phandle of i2c global register node, For control the i2c register
-+      define selection, clock divider mode selection and clock divider control.
-+
- required:
-   - reg
-   - compatible
-@@ -66,3 +94,14 @@ examples:
-       interrupts = <0>;
-       interrupt-parent = <&i2c_ic>;
-     };
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    i2c1: i2c@80 {
-+      compatible = "aspeed,ast2600-i2c-bus";
-+      reg = <0x80 0x80>, <0xc00 0x20>;
-+      aspeed,global-regs = <&i2c_global>;
-+      clocks = <&syscon ASPEED_CLK_APB>;
-+      resets = <&syscon ASPEED_RESET_I2C>;
-+      interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+      aspeed,transfer-mode = "buffer";
-+    };
--- 
-2.34.1
+v2 changes:
+Update the commit message, and add reviewed-by from Frank.
+https://patchwork.kernel.org/project/linux-pci/patch/20250619072438.125921-1-hongxing.zhu@nxp.com/
+
+[PATCH v3 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Add vaux for i.MX
+[PATCH v3 2/2] PCI: imx6: Enable the vaux regulator when fetch it
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml |  6 ++++++
+drivers/pci/controller/dwc/pci-imx6.c                            | 15 +++++++++++++++
+2 files changed, 21 insertions(+)
 
 
