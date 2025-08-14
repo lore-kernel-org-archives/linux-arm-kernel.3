@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE09DCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 07:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CC2CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 07:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Mv8o+CLdc0s+Yis2yYmhEh9yXB8UEN1ytQldmXuX9Q=; b=hzqfW9S9SyprnwB9lXVa/tZPIf
-	SURlCHscUCmJCYE4IqvnRqnFckb8TnfQm4qCyp9q/INKcbwO5aooM2EqhJfwiUNoXyrlRpv78l2g/
-	D9ZYL7cP3n0Rnt+bK3HUPAO/iJHq/NxjD+MGIr/CAakYM41vb2/y0glgwScz5qris4XkuBADbVhKk
-	TdcOaj1K5p72T0lHaqOugZtYL6+nPk6a72/yotafsrSp84s1QCql4LIF16+aTEH94prza1B+lSfh5
-	bR4UtN6CguQ3CG9Qn/BB4opmAFJmIq9AbBqbHsVwH2aY/e+yU7ugSdA63LZMTaEq8Kz4W5vWV36KH
-	vwCVEZPA==;
+	bh=6L7qbuBOkqI7XJs6oKZIZOx6ZHsvtxNaAeptmwBuf40=; b=tz8p/laUTFvwTPn/9ZPk73n0mK
+	tXFMZ3VLbBJx2ncxh9oaaousutC6YB7PyjJMKm9E49/4tgJ6n+/ox68o82+UvgvEmEyeAmx0lGgUG
+	xmWlZG7XdaLEjtB5G8q0YhMYDCDftaVlI3Nj2fgftYye7OqJ1iRSCwwhifmYM2NjdwXsCmLnm2XYw
+	GZCtTKJsBcNIYSLXr0fhGoYTAXqS3bDHduvrwXfDL/K0BFqu8tqX1S3fB7kxwn5bsGfg1xHrgQzOh
+	fnTIikSHDINanI6Vu2lRHNhO7XpkvjqpiaAeHgUerkb5SuqNpIy15XEiQwlF+caA1rFj8ywbS46rV
+	9qlLmeOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSEL-0000000G3uo-0ssI;
-	Thu, 14 Aug 2025 07:18:33 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1umSLu-0000000G4pl-2DnL;
+	Thu, 14 Aug 2025 07:26:22 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umS0Y-0000000G1YV-18is;
-	Thu, 14 Aug 2025 07:04:19 +0000
-X-UUID: e343cb7a78dc11f09eb0dd999d3936bf-20250814
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5Mv8o+CLdc0s+Yis2yYmhEh9yXB8UEN1ytQldmXuX9Q=;
-	b=Gmx9gsIr6s/K16cRT04K54MrEGwA43He2tzcll6vSyUdlHbyoDtxynLjf1thAt97/5TqADwsn4SK6/TjI9HmCgAXrFe1idZBBGNn/OlWAQuvuJu3aleiMIp8fr3a5HcQ3TNkUxZw1xAK9r8GYFtkOuuCGKa1CUxdWoV7JR2bRpY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:8d47eb86-68c1-460f-8ae1-5761f31aaccf,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:d372ecf3-66cd-4ff9-9728-6a6f64661009,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e343cb7a78dc11f09eb0dd999d3936bf-20250814
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <xiandong.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1426107134; Thu, 14 Aug 2025 00:04:14 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 14 Aug 2025 15:04:11 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 14 Aug 2025 15:04:11 +0800
-From: Xiandong Wang <xiandong.wang@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Houlong Wei
-	<houlong.wei@mediatek.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	Xiandong Wang <xiandong.wang@mediatek.com>
-Subject: [PATCH v1 4/4] [v1,04/04]mailbox: mtk-cmdq: modify clk api for suspend/resume
-Date: Thu, 14 Aug 2025 15:03:56 +0800
-Message-ID: <20250814070401.13432-4-xiandong.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250814070401.13432-1-xiandong.wang@mediatek.com>
-References: <20250814070401.13432-1-xiandong.wang@mediatek.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+	id 1umS9y-0000000G3L3-484B
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 07:14:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E3666A4B4A6;
+	Thu, 14 Aug 2025 07:14:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84E57C4CEEF;
+	Thu, 14 Aug 2025 07:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755155641;
+	bh=OWvsjc3EKVtUKbboA4LkDtJBrhoSQDAUQm9WjinbFOM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OGAeP24oJEPc4ZFfo6EHfPt3F9jskA926S5XBPy2E0YkucyJReJ9Szd8QKT4o8oss
+	 iRxpo/zc/dA2x/aPMua7KCQdAgRKd9V9IwMDbE3uBeoXFEKQDzIlSdvb8HuXLC1NaY
+	 0ae+zIuJaqS79dPU3ot2TlFpd32InWeWIutluUiYv987mb1d10Pi9XAh1QRu7R5s8e
+	 LAlCn/wXabNsoPXuHdQI1xyBhqMnDG91l9eS6icNMeaov3/e1B26Tz6YXHMdLEFkYS
+	 nZAF2n0Qr9wX8wQ2QBgEHhtodR0jaPvw+nue3R3Sr1gMCE4ZxzxUdn31ZxL0Hgt6S5
+	 U4USJfVRB8lEg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1umS9u-007KiS-RZ;
+	Thu, 14 Aug 2025 08:13:59 +0100
+Date: Thu, 14 Aug 2025 08:13:58 +0100
+Message-ID: <86frdu8jex.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	vdonnefort@google.com,
+	qperret@google.com,
+	sebastianene@google.com,
+	keirf@google.com,
+	smostafa@google.com
+Subject: Re: [PATCH v2 1/2] arm64: sysreg: Fix and tidyup sysreg field definitions
+In-Reply-To: <20250813164506.1203851-2-tabba@google.com>
+References: <20250813164506.1203851-1-tabba@google.com>
+	<20250813164506.1203851-2-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com, sebastianene@google.com, keirf@google.com, smostafa@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_000418_313473_F0E4C001 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250814_001403_088469_D8032665 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-modify the clk api for suspend and resume, modify the api for
-suspend and resume to disable/enable clk, so it can disable/enable
-module clk and parent clk successfully.
+On Wed, 13 Aug 2025 17:45:05 +0100,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Fix the value of ID_PFR1_EL1.Security NSACR_RFR to be 0b0010, as per
+> DDI0601/2025-06, which wasn't correctly set when introduced in commit
+> 1224308075f1 ("arm64/sysreg: Convert ID_PFR1_EL1 to automatic generation").
+> 
+> While at it, remove redundant definitions of CPACR_EL12 and
+> RCWSMASK_EL1, fix typos, and convert the only instance of spacing with
+> spaces to tabs (in SPMZR_EL0).
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+> Note that NSACR_RFR isn't used in the kernel as far as I could tell, so
+> I didn't add a 'Fixes' tag.
 
-Signed-off-by: Xiandong Wang <xiandong.wang@mediatek.com>
----
- drivers/mailbox/mtk-cmdq-mailbox.c | 14 ++++----------
- 1 file changed, 4 insertions(+), 10 deletions(-)
+Seems reasonable.
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index 92756f5793fa..aa004bcc2dea 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -142,14 +142,14 @@ static void cmdq_init(struct cmdq *cmdq)
- {
- 	int i;
- 
--	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
-+	WARN_ON(clk_bulk_prepare_enable(cmdq->pdata->gce_num, cmdq->clocks));
- 
- 	cmdq_gctl_value_toggle(cmdq, true);
- 
- 	writel(CMDQ_THR_ACTIVE_SLOT_CYCLES, cmdq->base + CMDQ_THR_SLOT_CYCLES);
- 	for (i = 0; i <= CMDQ_MAX_EVENT; i++)
- 		writel(i, cmdq->base + CMDQ_SYNC_TOKEN_UPDATE);
--	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
-+	clk_bulk_disable_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
- }
- 
- static int cmdq_thread_reset(struct cmdq *cmdq, struct cmdq_thread *thread)
-@@ -312,7 +312,7 @@ static int cmdq_runtime_resume(struct device *dev)
- 	struct cmdq *cmdq = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
-+	ret = clk_bulk_prepare_enable(cmdq->pdata->gce_num, cmdq->clocks);
- 	if (ret)
- 		return ret;
- 
-@@ -325,7 +325,7 @@ static int cmdq_runtime_suspend(struct device *dev)
- 	struct cmdq *cmdq = dev_get_drvdata(dev);
- 
- 	cmdq_gctl_value_toggle(cmdq, false);
--	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
-+	clk_bulk_disable_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
- 	return 0;
- }
- 
-@@ -364,12 +364,8 @@ static int cmdq_resume(struct device *dev)
- 
- static void cmdq_remove(struct platform_device *pdev)
- {
--	struct cmdq *cmdq = platform_get_drvdata(pdev);
--
- 	if (!IS_ENABLED(CONFIG_PM))
- 		cmdq_runtime_suspend(&pdev->dev);
--
--	clk_bulk_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
- }
- 
- static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
-@@ -684,8 +680,6 @@ static int cmdq_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, cmdq);
- 
--	WARN_ON(clk_bulk_prepare(cmdq->pdata->gce_num, cmdq->clocks));
--
- 	cmdq_init(cmdq);
- 
- 	err = devm_request_irq(dev, cmdq->irq, cmdq_irq_handler, IRQF_SHARED,
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
 -- 
-2.45.2
-
+Without deviation from the norm, progress is not possible.
 
