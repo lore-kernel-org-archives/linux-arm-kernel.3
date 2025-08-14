@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA3ACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 03:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DC8CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 03:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pl0UCqTEugdT0otZ1JL4PHmJhUzKYCzZ7agBq4X19mE=; b=pZ4i/UCr9v3wIdx1E3hmPx9GLL
-	t5jWt4Pg0TaNPHuWpNboYZ4pCSJV1NeW6AxCdf/t+sD5TD+zz2auUWrmenungycSTIZn5j9AzjUZb
-	6NHKrKvSgAaxiYnrbhIxALK69fsYbpCc5bYarxJJ0S7IIxHJ8s4BpVdnOPV5LbRWXjunz3nVb8giA
-	fkVu1wZn6INlarPs/zxYEoaPgeeIDcsjIT38j6XjEzHeuQaM67JP2OiLAz78kDTHoK0MQh3I8OpIZ
-	/k4JW1MTMUjVX1d2ORBi/2EKhHwXZL0zu+T4WHW037aOPwTEZ+pkFDcTymRWE/eNKZUl5yc2k+ot5
-	LqDXXgEA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MOFtgXblvXLvQMiqNX/nSaOt0iX24nILKNRle7lgCw0=; b=gEvp+RYL3QecACjr6+3OQ019u7
+	IsqRSWwlGEB0qqb2u5/MMpa7WZL35zIyebrVMM3XFsJ+AT5KCppMV6YuUpWz3p3du7Q9VexGRSHEs
+	2gn92yvliyKdaPA/aqYdgMGj/voqh6VkD8yOq7etJ0n25P1X6Ng1GuWoZcAJ1ErZICuLDHFzxI58Q
+	50Sj2IFGRV0hT8/yi45knOYzhLv9Qx+SbFMWk6vIFb7paaYtmlAEhG4vGxLglwc5qgI5ETGXJq/7Y
+	QvOx7v1Qr0X6yInwG2KYnp2ZWfeTbFANJMDIMKc/B8wustkwtYBViNGp9Qkp8qErt03r7CkQjd3Tz
+	+ANYw7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umP4S-0000000Fhfe-1GKJ;
-	Thu, 14 Aug 2025 03:56:08 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1umP75-0000000Fi0h-0Lyo;
+	Thu, 14 Aug 2025 03:58:51 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umP1m-0000000FhOx-3y9J
+	id 1umP1o-0000000FhPE-1CgS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 03:53:24 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b47173a7e52so279091a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 20:53:22 -0700 (PDT)
+	Thu, 14 Aug 2025 03:53:25 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-32326e67c95so872093a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 20:53:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755143602; x=1755748402; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pl0UCqTEugdT0otZ1JL4PHmJhUzKYCzZ7agBq4X19mE=;
-        b=g8d+JVtxIwyOWk+vMwasGLS4o20nzcO0wqCU84OnPw0yzxIT3V8UGq7W/aiD8y5o1Z
-         8RIKS7e7LFt/JHxKPpuJcnGsAuqYlbZoejApoW5xhel1HkI1SPWndISM7FY9eK6ybmru
-         G79iSFTEUD8lzRq1dQwqC2vNC3XazhHwlo9gg=
+        d=chromium.org; s=google; t=1755143603; x=1755748403; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MOFtgXblvXLvQMiqNX/nSaOt0iX24nILKNRle7lgCw0=;
+        b=Q/WKxzPoqVDcqblEC+YXdV/SGjACRLnN4LBTnIbv/OfRNFmAaWwuIzTH2oYRTfI1LD
+         9+5q8c3uLy8M0yjJZ13F7GguZShUhp2L35i2127KDGPxHjFjNdLeSvYV0S7ewSqyFinN
+         fIpmz2VeEHko78FzHF8bYx7GwgfAIrFaELNfc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755143602; x=1755748402;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pl0UCqTEugdT0otZ1JL4PHmJhUzKYCzZ7agBq4X19mE=;
-        b=WRS18/EMwAP0LAvzuePNsg1IM6HdUBihKsiHmVEapCDa9UNuD3E6ED4NQiZ605xKi9
-         adRBbzIyPl+GKkdZeJeHpDiXVtc5DzGI3x9vCy+bjSULhcmL91LApVXVDx07/UgSUXKq
-         7dEmcpDcq+WQ1B1l5RM4Yn1hz2/JerFj9Y+Vi7NeLaaMb3GA9fB4z02kFQ2Par/I90mI
-         g10Qlarfg1EZy2NZyrjfvkxKjdDnACkd+4eyEhUoJcI/BiXHEv8VthwZh1c6NhBxrEPn
-         zyRbui1B3/uLW6OgQQ7rLgBS/Ua1STncL0s2amINS0WRVnov+VAHWIiKecq8D+GTCQ7a
-         9rBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQtvQ6a7eFlXVFQFCgDA58fg9gmMEQ4BUTgqmh0oXVIctOQCnKOfTcynZdaH1BOiZm15UyNImXIVYruwWRosjf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRAv+wQdDp2mknZS4x6BZVM46VOrcFyBDVZCDhfg5Q/5yoeq0a
-	8hUkQNzJvBVEHVt/Jdk2a8w0kTczzCpS9Ydz+8wuT2kBP/D534eibVZDnE7Gj99K9w==
-X-Gm-Gg: ASbGncuUWXNPRYmCxZKBZZ+su4rTt7DhkvOVvhEGiHhI9RXOqkDgPG/5Sz3PWP9BYNr
-	ZiusmXvd+jLCVFlsu/NcpWQ7wXjwM3V9Jy0WfDCLPlRAtLsXrojMVjQ2Gqre/sMB6D+JBVWn/xK
-	vyEiwhJe8BrNUuJXvVJNVaTCdzLl6S8kl3cGPDQnR1MPjuZDuqXk8Td3ZlG2vh3SPgT+M9Yy2Yb
-	Sx9X5RN+lQqrBft11gICw+QS1FPmt+tA5NMffJAlDzWP+f2pp8c0jByA0qA6S6sh46+2ZgRMriN
-	4se68QbXeUKuWs1LZ5zvVgePM+7pzKRUA9vHCTDeWDFHbmGddCkoL1y9ZpV2/3QK0h5sIiY4xgL
-	crH9AZV+nfSUCLdN03RMGryAGmU7EUWNe7kg8ELLq
-X-Google-Smtp-Source: AGHT+IEewGnhW08uwz92qzGaMb1N+K9gny1YesoScUE9j7LXkcIxhYyAzeLPYF+E+O3U8ZcDGRXTxA==
-X-Received: by 2002:a17:903:985:b0:234:f580:a11 with SMTP id d9443c01a7336-244584e4479mr23394845ad.19.1755143601765;
-        Wed, 13 Aug 2025 20:53:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755143603; x=1755748403;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MOFtgXblvXLvQMiqNX/nSaOt0iX24nILKNRle7lgCw0=;
+        b=RnwfMSgPD0lWY8dZSRz4vOiPJtwPhR2HtJlxOcbgs3O1JKNGqecQdz3Ij7ix9D0oed
+         7GbKXkweMWbsPvg45MFXh8t4jiMdcYRDV3QD7C3wnLEz9siVm01VuuhB9tHHALFAqjz+
+         s+XM7Bhpe1qc10yB7XisJHLk36K/ZiUPMbAj/Eb7ORECcx6j78WvTs61XcSEgmZd54r6
+         Ulb+x2Pg4uZ9AeAXj15pMBapdFPt2TJteS7KxS+Q1LlZBBfEgYa8AKl2RhtMC1cXFz2+
+         DaBYzMFXy8QPvdZMtqhpAb465/zA0vHi1AJn5VpJ0wk74/lG1nll6pMmsHObOJT+THo+
+         Jgvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUN4zv8qIEgYL5oZDCN6CxO7agOOP6b4w9nxZZH8ykh9zagATbX+qfV8b8DOoX6Q1Xn9ABtn8Sv+7pkzGDtdLP4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2jzFeef6eeWeTdwGSLcVytLarCpzUEX7/XMNp1w5DjGp26+8G
+	4RymIBcgFL46seGUF06yxMoxddik0p+OLr920ZKDOUD+VIh6dxXlTB3DKVxygd1Olg==
+X-Gm-Gg: ASbGncs5gCYroGB5KgKjk+Y4vV2u8PhtDmCmgnjIEYIsDb+Srzz1sTwbGzedGhu67J7
+	dpELNL7ng826kbP5Livwjvm+mci0QZSNcq23De53MvEBd+5bcHS05MlfSqASaCDVSNezkWFeFjF
+	rbvsgfxlKN4k7IhkrugPn1heKzfAvf/QPDl9agNNY1p61KVOxOy5RHsDBw5JkyfddxOzsZ+xHh5
+	yLEg5PhNb2Hat+u+Ji60dfDhtIIhRVQU4g8ecV2hEXAneH3oWVo278LHRHqNguMBBin6XTlsWr7
+	KWiR6sHHUnPYaEFxTruelYDfDmPGp1B7bZsvis70+bTiy70xf0S9uotvhStMHGNPauZboIuQgsW
+	P1+2jlYtDSCF7MN4Crn+Pauj3cRj4lEyiirFiw+93X/j55ciYzKQ=
+X-Google-Smtp-Source: AGHT+IEHqqgL7gnJ9ZHmq6s9ZQxtBH50CdmeXYydDEbOFKWhOpTUig9K37M/wEt9/Gb9Pz9QeiLeew==
+X-Received: by 2002:a17:903:2acc:b0:240:52c8:2556 with SMTP id d9443c01a7336-244586da603mr22577075ad.39.1755143603414;
+        Wed, 13 Aug 2025 20:53:23 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:c44f:5805:6bc2:66d4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f21c65sm342150205ad.73.2025.08.13.20.53.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f21c65sm342150205ad.73.2025.08.13.20.53.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Aug 2025 20:53:21 -0700 (PDT)
+        Wed, 13 Aug 2025 20:53:23 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Stephen Boyd <sboyd@kernel.org>
 Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] clk: Sort include statements
-Date: Thu, 14 Aug 2025 11:53:15 +0800
-Message-ID: <20250814035317.4112336-1-wenst@chromium.org>
+Subject: [PATCH v2 2/2] clk: Use hashtable for global clk lookups
+Date: Thu, 14 Aug 2025 11:53:16 +0800
+Message-ID: <20250814035317.4112336-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.51.0.rc1.163.g2494970778-goog
+In-Reply-To: <20250814035317.4112336-1-wenst@chromium.org>
+References: <20250814035317.4112336-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_205323_108992_19A3ECD4 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250813_205324_326891_F283AD54 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +97,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clk core has its include statements in some random order.
+A clk lookup using clk_core_lookup() is currently somewhat expensive
+since it has to walk the whole clk tree to find a match. This is
+extremely bad in the clk_core_init() function where it is used to look
+for clk name conflicts, which is always the worst case of walking the
+whole tree. Moreover, the number of clks checked increases as more
+clks are registered, causing each subsequent clk registration becoming
+slower.
 
-Clean it up before we add more.
+Add a hashtable for doing clk lookups to replace the tree walk method.
+On arm64 this increases kernel memory usage by 4 KB for the hashtable,
+and 16 bytes (2 pointers) for |struct hlist_node| in each clk. On a
+platform with around 800 clks, this reduces the time spent in
+clk_core_lookup() significantly:
+
+          |      PID 0      |     kworker     |
+          | before |  after | before |  after |
+    -------------------------------------------
+    avg   | 203 us | 2.7 us | 123 us | 1.5 us |
+    -------------------------------------------
+    min   | 4.7 us | 2.3 us | 102 us | 0.9 us |
+    -------------------------------------------
+    max   | 867 us | 4.8 us | 237 us | 3.5 us |
+    -------------------------------------------
+    culm  | 109 ms | 1.5 ms |  21 ms | 0.3 ms |
+
+This in turn reduces the time spent in clk_hw_register(), and
+ultimately, boot time. On a different system with close to 700 clks,
+This reduces boot time by around 110 ms. While this doesn't seem like
+a lot, this helps in cases where minimizing boot time is important.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/clk/clk.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+Changes since v1:
+- marked hash table as static
+---
+ drivers/clk/clk.c | 50 +++++++++++++++++------------------------------
+ 1 file changed, 18 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index b821b2cdb155..2eb63d610cbb 100644
+index 2eb63d610cbb..85d2f2481acf 100644
 --- a/drivers/clk/clk.c
 +++ b/drivers/clk/clk.c
-@@ -6,21 +6,21 @@
-  * Standard functionality for the common clock API.  See Documentation/driver-api/clk.rst
-  */
- 
-+#include <linux/clk/clk-conf.h>
-+#include <linux/clkdev.h>
- #include <linux/clk.h>
+@@ -12,6 +12,7 @@
  #include <linux/clk-provider.h>
--#include <linux/clk/clk-conf.h>
--#include <linux/module.h>
--#include <linux/mutex.h>
--#include <linux/spinlock.h>
-+#include <linux/device.h>
+ #include <linux/device.h>
  #include <linux/err.h>
-+#include <linux/init.h>
++#include <linux/hashtable.h>
+ #include <linux/init.h>
  #include <linux/list.h>
--#include <linux/slab.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/of.h>
--#include <linux/device.h>
--#include <linux/init.h>
- #include <linux/pm_runtime.h>
+ #include <linux/module.h>
+@@ -21,6 +22,8 @@
  #include <linux/sched.h>
--#include <linux/clkdev.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
++#include <linux/string.h>
++#include <linux/stringhash.h>
  
  #include "clk.h"
  
+@@ -33,6 +36,9 @@ static struct task_struct *enable_owner;
+ static int prepare_refcnt;
+ static int enable_refcnt;
+ 
++#define CLK_HASH_BITS 9
++static DEFINE_HASHTABLE(clk_hashtable, CLK_HASH_BITS);
++
+ static HLIST_HEAD(clk_root_list);
+ static HLIST_HEAD(clk_orphan_list);
+ static LIST_HEAD(clk_notifier_list);
+@@ -87,6 +93,7 @@ struct clk_core {
+ 	struct clk_duty		duty;
+ 	struct hlist_head	children;
+ 	struct hlist_node	child_node;
++	struct hlist_node	hashtable_node;
+ 	struct hlist_head	clks;
+ 	unsigned int		notifier_count;
+ #ifdef CONFIG_DEBUG_FS
+@@ -395,45 +402,20 @@ struct clk_hw *clk_hw_get_parent(const struct clk_hw *hw)
+ }
+ EXPORT_SYMBOL_GPL(clk_hw_get_parent);
+ 
+-static struct clk_core *__clk_lookup_subtree(const char *name,
+-					     struct clk_core *core)
+-{
+-	struct clk_core *child;
+-	struct clk_core *ret;
+-
+-	if (!strcmp(core->name, name))
+-		return core;
+-
+-	hlist_for_each_entry(child, &core->children, child_node) {
+-		ret = __clk_lookup_subtree(name, child);
+-		if (ret)
+-			return ret;
+-	}
+-
+-	return NULL;
+-}
+-
+ static struct clk_core *clk_core_lookup(const char *name)
+ {
+-	struct clk_core *root_clk;
+-	struct clk_core *ret;
++	struct clk_core *core;
++	u32 hash;
+ 
+ 	if (!name)
+ 		return NULL;
+ 
+-	/* search the 'proper' clk tree first */
+-	hlist_for_each_entry(root_clk, &clk_root_list, child_node) {
+-		ret = __clk_lookup_subtree(name, root_clk);
+-		if (ret)
+-			return ret;
+-	}
++	hash = full_name_hash(NULL, name, strlen(name));
+ 
+-	/* if not found, then search the orphan tree */
+-	hlist_for_each_entry(root_clk, &clk_orphan_list, child_node) {
+-		ret = __clk_lookup_subtree(name, root_clk);
+-		if (ret)
+-			return ret;
+-	}
++	/* search the hashtable */
++	hash_for_each_possible(clk_hashtable, core, hashtable_node, hash)
++		if (!strcmp(core->name, name))
++			return core;
+ 
+ 	return NULL;
+ }
+@@ -4013,6 +3995,8 @@ static int __clk_core_init(struct clk_core *core)
+ 		hlist_add_head(&core->child_node, &clk_orphan_list);
+ 		core->orphan = true;
+ 	}
++	hash_add(clk_hashtable, &core->hashtable_node,
++		 full_name_hash(NULL, core->name, strlen(core->name)));
+ 
+ 	/*
+ 	 * Set clk's accuracy.  The preferred method is to use
+@@ -4089,6 +4073,7 @@ static int __clk_core_init(struct clk_core *core)
+ 	clk_pm_runtime_put(core);
+ unlock:
+ 	if (ret) {
++		hash_del(&core->hashtable_node);
+ 		hlist_del_init(&core->child_node);
+ 		core->hw->core = NULL;
+ 	}
+@@ -4610,6 +4595,7 @@ void clk_unregister(struct clk *clk)
+ 
+ 	clk_core_evict_parent_cache(clk->core);
+ 
++	hash_del(&clk->core->hashtable_node);
+ 	hlist_del_init(&clk->core->child_node);
+ 
+ 	if (clk->core->prepare_count)
 -- 
 2.51.0.rc1.163.g2494970778-goog
 
