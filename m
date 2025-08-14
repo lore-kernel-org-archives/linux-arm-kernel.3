@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDCACA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB05DCA0EEA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Huwtfl/4DY7+Ye0RBesZOhBs/hvliM0EJhdOv++XHys=; b=BaHzN1LwAdBAGheeMT9oS/D/27
-	EQwJNH50AFqOYGbwPV+ZJfUnpcEl2S8ncK3pLkM8iKSBTUVqHd6qaWPfi2CnD+s8foJs0UDHhgX1e
-	BlSCNdy7RJns7Szr1B6Lm/vUnKfevIjHSvn84DxCFRz/dp3Q7DK9bjK7ix8UbEVre7qKsh9fOj4J8
-	QR+2PIklFc26P/wnQJEm+fYBDzt6Y2zIFXw+Byve7tTJBcJ230HJ7foy3Ef2SqrZBK32HzKHeaD2G
-	P8fKQvKC/hwCX57GYBSERZnz7dv38RLbvSH7q2mWrciizPOKAv7TrZcBR92cocfwCUf01+e3f2zmo
-	2w4PBR3w==;
+	bh=4DRenYc0AAYCvTOS76tJD9ERcXu0dqj6HPIUmexbPHY=; b=DZ3T3VwOCVo1NWYz3gZAkdo3Fd
+	A2jCSQlhWMboKKlPJlK1ZLOuVi9QXoEDAiSBcFzNqCl/aEetfH4a7B19u9QIr4S180YU1omYcxFOf
+	cB0CJIktM7GUlUFdjG6uE0S8hbS32Xets7ulMAR8O+9lZQlqgCdoTdq0NKYKFkTkaQpX9PLqg96Gk
+	xTi8bnaeBpyLo34Q/yUnMsCzljx6JNIPmHaFnc9esrshQ8/j56wn4bdKVEK/XtaIg8kaax/VbD2A8
+	zVnYU5Z+6OgUDYHUN6Hos/frm+jvuA3qAXfcYuveHqP3zjHNCukEpJ4JSn2Zro6AhU8nkyhJEpg/I
+	/13yVR7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma0V-0000000HSwi-23SF;
-	Thu, 14 Aug 2025 15:36:47 +0000
-Received: from mail-m49194.qiye.163.com ([45.254.49.194])
+	id 1uma0X-0000000HT03-1WA7;
+	Thu, 14 Aug 2025 15:36:49 +0000
+Received: from mail-m49220.qiye.163.com ([45.254.49.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVVR-0000000GeTs-2Eb2;
-	Thu, 14 Aug 2025 10:48:27 +0000
+	id 1umVVT-0000000GeVu-36xL;
+	Thu, 14 Aug 2025 10:48:28 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63a9a3e;
-	Thu, 14 Aug 2025 18:48:21 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63a9a43;
+	Thu, 14 Aug 2025 18:48:23 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: andrzej.hajda@intel.com,
 	neil.armstrong@linaro.org,
@@ -59,27 +59,28 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-samsung-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 11/13] drm/bridge: analogix_dp: Remove panel disabling and enabling in analogix_dp_set_bridge()
-Date: Thu, 14 Aug 2025 18:47:51 +0800
-Message-Id: <20250814104753.195255-12-damon.ding@rock-chips.com>
+Subject: [PATCH v4 12/13] drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing in analogix_dp_unbind()
+Date: Thu, 14 Aug 2025 18:47:52 +0800
+Message-Id: <20250814104753.195255-13-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
 References: <20250814104753.195255-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98a831ee1603a3kunm254826283f231c
+X-HM-Tid: 0a98a831f6ce03a3kunm254826283f2339
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkhJTFZNGkkeTE4aQk5NHkNWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRoaQlZNT0tLS0pPQx8fS0hWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=A8PJRmizdGZSNeaM+eeA/IVHBRk6YpZ9DGXrJXfPDL8/2fKJxC+68H7df/id++2R/FI3d3RuPsd7UKlF3+dhNhEdK5scLUhltjMgXVnMHSuG492Ul+Cp5CwRIGFTB1PnbAvASh+kzGdMtA04pgQp3EYLXHUTPN+0eLCbvybKe2o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Huwtfl/4DY7+Ye0RBesZOhBs/hvliM0EJhdOv++XHys=;
+	b=Pnuo57qv2UkfEZwTafnF4Gq9XNXKA+EKQk1Xc/l2ZH0lJCAaB5Xz+yoB98UE/aYZmx7G8y+kx+qwr5I7gJTZ9BMZQnKCBcH42b61aBaueWqxaTeZLmLivAChidCnYD41s/lcL9jAkV6wLqsMteehCSUpi/zSWUjjzDl6iDiycgI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=4DRenYc0AAYCvTOS76tJD9ERcXu0dqj6HPIUmexbPHY=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034825_737730_3A4D92CA 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250814_034827_942117_E8F50783 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,52 +95,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The &drm_panel_funcs.enable() and &drm_panel_funcs.disable() mainly
-help turn on/off the backlight to make the image visible, and the
-backlight operations are even needless if drm_panel_of_backlight() or
-drm_panel_dp_aux_backlight() is applied, in which case the enabling
-and disabling process just add necessary delays.
-
-Therefore, it should make sense to remove panel disabling and move
-panel enabling after analogix_dp_set_bridge() finished.
+The analogix_dp_unbind() should be balanced with analogix_dp_bind().
+There are no bridge enabling and panel preparing in analogix_dp_bind(),
+so it should be reasonable to remove the bridge disabing and panel
+unpreparing in analogix_dp_unbind().
 
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 3e76a7b7d227..3c518106b896 100644
+index 3c518106b896..a14c065254fa 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -840,9 +840,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
+@@ -1610,10 +1610,6 @@ EXPORT_SYMBOL_GPL(analogix_dp_bind);
+ 
+ void analogix_dp_unbind(struct analogix_dp_device *dp)
  {
- 	int ret;
- 
--	/* Keep the panel disabled while we configure video */
--	drm_panel_disable(dp->plat_data->panel);
+-	analogix_dp_bridge_disable(&dp->bridge);
 -
- 	ret = analogix_dp_train_link(dp);
- 	if (ret) {
- 		dev_err(dp->dev, "unable to do link train, ret=%d\n", ret);
-@@ -862,9 +859,6 @@ static int analogix_dp_commit(struct analogix_dp_device *dp)
- 		return ret;
- 	}
- 
--	/* Safe to enable the panel now */
--	drm_panel_enable(dp->plat_data->panel);
+-	drm_panel_unprepare(dp->plat_data->panel);
 -
- 	/* Check whether panel supports fast training */
- 	ret = analogix_dp_fast_link_train_detection(dp);
- 	if (ret)
-@@ -1242,6 +1236,7 @@ static void analogix_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 	while (timeout_loop < MAX_PLL_LOCK_LOOP) {
- 		if (analogix_dp_set_bridge(dp) == 0) {
- 			dp->dpms_mode = DRM_MODE_DPMS_ON;
-+			drm_panel_enable(dp->plat_data->panel);
- 			return;
- 		}
- 		dev_err(dp->dev, "failed to set bridge, retry: %d\n",
+ 	drm_dp_aux_unregister(&dp->aux);
+ }
+ EXPORT_SYMBOL_GPL(analogix_dp_unbind);
 -- 
 2.34.1
 
