@@ -4,114 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11775CA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A286CA0EE8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLfHLlJrKDPCs/FZhmHqK0Zp1Gpj5ygoSbCyX153n2Y=; b=h97dsLh7FfUAR4fuBfSgNeInxQ
-	akbvwj9U4t2sBIwNWSk34w4nv/L7z8Zrw4SwFC+N5K/OkO21RqPwMQrsyCCK1nANx7AzvStMDthoP
-	7TXjpozTqhjhkzjKBtn6HpvGcAlE4Fuw8AQb8vO545OJtd7txIOoH++3klDbCssbGfma8Vy2+2QqY
-	I6VCWNc0Gqvuul+leXChdMZRNArtoypN4G6behQXylXg0zYmuUVB+lAfT0UmtJg4O3YfMI3Stwbrq
-	v+jY91y5JmIEpJ+TqIYd14bVypqgfrsRGUpVITIb10QNqoT0PhiJ45RAP11nv3lgCw0AvX/LscL4r
-	uvuVayNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8lw86+YpmhQ/yYr2/JhdgNkgqjAlMh/4iG6N3ZqJRU=; b=V2ux01KWFEUBKEOTQHmq9buciy
+	z55RXIpO/iYOJ7msRyyDq25gt9XWjZ9DlATegHJcMRp5lhz94JVF1fUGNFDMuFg3KTWp7Fo+cw9ZB
+	gZYe+DH5/MZvgWp7wKK6fn8ZtcKjtICVPMuSDOA2Sz8jgDuZHllcA6oM6yGIjjRkuTokc5Mr0PiBb
+	jl+i8fDN2Rt8plMWWB8ABtnhbTxkIvvIlmYN6JhfKtbgfgsbCADZpvuHwoEPx3Paajp4iQ7HZeIa0
+	GnrxqG5c2tXw4q4uU3WOJnvd2P+rr8SwAuSZgf+LU06W/JGbQQiBXaw+dCXXYLm/R0vU4cYVmL7OP
+	Z3jRHolw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUH-0000000GRJf-2N6I;
-	Thu, 14 Aug 2025 09:43:10 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1umUUJ-0000000GRK7-1dk6;
+	Thu, 14 Aug 2025 09:43:11 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTW5-0000000GHTJ-2TCP
+	id 1umTXE-0000000GHej-0ckq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 08:40:58 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 01A1614001A4;
-	Thu, 14 Aug 2025 04:40:57 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Thu, 14 Aug 2025 04:40:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1755160856;
-	 x=1755247256; bh=bLfHLlJrKDPCs/FZhmHqK0Zp1Gpj5ygoSbCyX153n2Y=; b=
-	QUwWwTlGGlUdh5D2EoYElGo4npNi9nDOcuOvtBZ9OWlu6yTnd1Z9NrQ1jBEabcZ3
-	6VbadAiTU/7b1it/1GM7XY292nR0UHUBWxstu4hL7C3kwukUdX80sKfmaVC6fubH
-	I/8bAxa/ZYF0ebrrZZ1pVORmqRP8B6ZFdpdgMJ8QTAXTFgRm1mJC5zaMm5/gMNu9
-	0l5J6nEhKkSca7oAXZA/lO5RuM4ZWNy/+7SMJsQQjbwrdE7LgZ7MK4Xr/c+lfx0m
-	Q9bKKw7OToFQwV+5E0QX4hRqT8VJiKbNe1LZS96XoyD8H1WYQL0u1mZIxqzsCc0U
-	ZFvyUSdhsGKpSDNwEW+2Bw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755160856; x=
-	1755247256; bh=bLfHLlJrKDPCs/FZhmHqK0Zp1Gpj5ygoSbCyX153n2Y=; b=Q
-	vZZkPt0+rLKd8n6m/AcekTro7Nl3Q76TNOYw8LTtjI2u1OmyjansK5LsPsD2ynRA
-	NxWBwalFpxD/ad0k4TIuo2K+p0hjPoo/jP7IBNq4VllVbOMJOBMFNWrtXTuwrdUB
-	KvHL4XTQAyFu0dl7mSZwu8+zElq0xj1InW7SiVtmzcDoQIBmzqoYMDyWTJp7dOYu
-	evrupFXmaJxwq+N57vQWcNn46Zp1/gOXKw1W4zlWxR5Sy8ScDJSClklA0yLdTRnT
-	CPy6dSAkhaMEO/AB61fvbWx97NhHVu99ZmYTHw3o5OYH4H8st7hMfAKbvtlOida9
-	4+4biEfWT9/MVPJ9bJDfQ==
-X-ME-Sender: <xms:GKGdaEdb759aERT8sHUfdtZPTmkkn79196azzGI9yzWEUwfYd01QNA>
-    <xme:GKGdaMLIT1n0gLWOjf_pGSQeq5QlTob8bF7GYPkQEMtZ4kwZEYsJBXzrz3JkjBZEB
-    ggRLx7Yx2pCNa9zvZc>
-X-ME-Received: <xmr:GKGdaCpmnGlbriZLp9b1Owv1f4fMF7KIn2nJGl2A3Tcv4MHocn7pQ6Rsz9oT4tPF4h2KDs5dCBaxA0iUKPDHXxuZ2ZIdte7_Dsng_g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugedtieefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
-    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
-    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
-    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
-    hurdhnvghtpdhnsggprhgtphhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghp
-    thhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehiohhmmhhusehlih
-    hsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdr
-    shhtpdhrtghpthhtoheprhhosghinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpth
-    htohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhs
-    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvg
-    hlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepnhgvrghlsehg
-    ohhmphgrrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkh
-    gvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:GKGdaKtGA6_VsDeKeXTG-RZNQD85D7J8CWfpzPLGPRczEuGjjnGgGA>
-    <xmx:GKGdaMIEMfMQRLOLLqt2vCnIHxW8_eZLwuxhGqi2YKuD47ek8_6wSg>
-    <xmx:GKGdaJo1667luzGsKaaj5pejBX40K6hDyFxaVH04VMNyfI6PmiQNIw>
-    <xmx:GKGdaPUhDGCiqg41hDosW1H0hT4cBm0WRh-rs8bPcxJakHhIl2Ly-Q>
-    <xmx:GKGdaDvVHbzv3dnu-eYgfHPrMcflksOVuTvfdbXDYuyWthNj0u1BJjQq>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 14 Aug 2025 04:40:56 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Thu, 14 Aug 2025 10:40:26 +0200
-Subject: [PATCH 3/3] iommu: apple-dart: Add 4-level page table support
+	Thu, 14 Aug 2025 08:42:09 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 14 Aug
+ 2025 16:41:56 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 14 Aug 2025 16:41:56 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: <ryan_chen@aspeedtech.com>, <benh@kernel.crashing.org>, <joel@jms.id.au>,
+	<andi.shyti@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <andrew@codeconstruct.com.au>,
+	<p.zabel@pengutronix.de>, <andriy.shevchenko@linux.intel.com>,
+	<naresh.solanki@9elements.com>, <linux-i2c@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add transfer-mode and global-regs properties and update example
+Date: Thu, 14 Aug 2025 16:41:54 +0800
+Message-ID: <20250814084156.1650432-2-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
+References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-apple-dart-4levels-v1-3-db2214a78c08@jannau.net>
-References: <20250814-apple-dart-4levels-v1-0-db2214a78c08@jannau.net>
-In-Reply-To: <20250814-apple-dart-4levels-v1-0-db2214a78c08@jannau.net>
-To: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Neal Gompa <neal@gompa.dev>, Joerg Roedel <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>, Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4726; i=j@jannau.net;
- s=yk2024; h=from:subject:message-id;
- bh=i3kAZWxlRfiQa+q5rET420js2FzDp/g4XWlOhDOKngU=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhoy5C/kmZwqe6Ti8S/vm27rkGRaaz7tWtj17l9L/41Hmw
- ss9p8rcO0pZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAExkiybDf9+Eb056a2zqmyuO
- GGTyHChsa5ZM/Fl4ofTofcFGCV57N0aGTRnv8pdf0L1aZH5lkf6hvORI3lsKMX+6VopcutnxcfZ
- afgA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_014057_707969_398FAE86 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250814_014208_187409_66ADC64C 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,129 +69,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+- Add property "aspeed,global-regs" to get phandle set global
+register, for register mode selection and clock divider control.
+- Add an optional property "aspeed,transfer-mode" to
+allow device tree to specify the desired transfer method used
+by each I2C controller instance.
+- Update example to demonstrate usage of 'aspeed,global-regs' and
+'aspeed,transfer-mode' for AST2600 I2C controller.
 
-The T8110 variant DART implementation on T602x SoCs indicates an IAS of
-42, which requires an extra page table level. The extra level is
-optional, but let's implement it.
-
-Since the driver failed at IO page table creation with 42-bit IAS add
-"apple,t6020-dart" as separate compatible using the T8110 HW data.
-
-Later it might be useful to restrict this based on the actual attached
-devices, since most won't need that much address space anyway.
-
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- drivers/iommu/apple-dart.c | 23 +++++++++++++++++------
- 1 file changed, 17 insertions(+), 6 deletions(-)
+ .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index e72a93e78e26ca61b233c83d439dbdfadf040fc6..bb48e8603d6c84bcf107294d851c2f2fc1273298 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -133,6 +133,7 @@
- #define DART_T8110_TCR                  0x1000
- #define DART_T8110_TCR_REMAP            GENMASK(11, 8)
- #define DART_T8110_TCR_REMAP_EN         BIT(7)
-+#define DART_T8110_TCR_FOUR_LEVEL       BIT(3)
- #define DART_T8110_TCR_BYPASS_DAPF      BIT(2)
- #define DART_T8110_TCR_BYPASS_DART      BIT(1)
- #define DART_T8110_TCR_TRANSLATE_ENABLE BIT(0)
-@@ -177,6 +178,7 @@ struct apple_dart_hw {
- 	u32 tcr_enabled;
- 	u32 tcr_disabled;
- 	u32 tcr_bypass;
-+	u32 tcr_4level;
+diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
+index 5b9bd2feda3b..2a9f7d1d2ea1 100644
+--- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
++++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
+@@ -44,6 +44,34 @@ properties:
+     description: frequency of the bus clock in Hz defaults to 100 kHz when not
+       specified
  
- 	u32 ttbr;
- 	u32 ttbr_valid;
-@@ -217,6 +219,7 @@ struct apple_dart {
- 	u32 pgsize;
- 	u32 num_streams;
- 	u32 supports_bypass : 1;
-+	u32 four_level : 1;
- 
- 	struct iommu_group *sid2group[DART_MAX_STREAMS];
- 	struct iommu_device iommu;
-@@ -305,13 +308,16 @@ static struct apple_dart_domain *to_dart_domain(struct iommu_domain *dom)
- }
- 
- static void
--apple_dart_hw_enable_translation(struct apple_dart_stream_map *stream_map)
-+apple_dart_hw_enable_translation(struct apple_dart_stream_map *stream_map, int levels)
- {
- 	struct apple_dart *dart = stream_map->dart;
- 	int sid;
- 
-+	WARN_ON(levels != 3 && levels != 4);
-+	WARN_ON(levels == 4 && !dart->four_level);
- 	for_each_set_bit(sid, stream_map->sidmap, dart->num_streams)
--		writel(dart->hw->tcr_enabled, dart->regs + DART_TCR(dart, sid));
-+		writel(dart->hw->tcr_enabled | (levels == 4 ? dart->hw->tcr_4level : 0),
-+		       dart->regs + DART_TCR(dart, sid));
- }
- 
- static void apple_dart_hw_disable_dma(struct apple_dart_stream_map *stream_map)
-@@ -569,7 +575,8 @@ apple_dart_setup_translation(struct apple_dart_domain *domain,
- 	for (; i < stream_map->dart->hw->ttbr_count; ++i)
- 		apple_dart_hw_clear_ttbr(stream_map, i);
- 
--	apple_dart_hw_enable_translation(stream_map);
-+	apple_dart_hw_enable_translation(stream_map,
-+					 pgtbl_cfg->apple_dart_cfg.n_levels);
- 	stream_map->dart->hw->invalidate_tlb(stream_map);
- }
- 
-@@ -614,7 +621,7 @@ static int apple_dart_finalize_domain(struct apple_dart_domain *dart_domain,
- 	dart_domain->domain.pgsize_bitmap = pgtbl_cfg.pgsize_bitmap;
- 	dart_domain->domain.geometry.aperture_start = 0;
- 	dart_domain->domain.geometry.aperture_end =
--		(dma_addr_t)DMA_BIT_MASK(dart->ias);
-+		(dma_addr_t)DMA_BIT_MASK(pgtbl_cfg.ias);
- 	dart_domain->domain.geometry.force_aperture = true;
- 
- 	dart_domain->finalized = true;
-@@ -807,6 +814,8 @@ static int apple_dart_of_xlate(struct device *dev,
- 	if (cfg_dart) {
- 		if (cfg_dart->pgsize != dart->pgsize)
- 			return -EINVAL;
-+		if (cfg_dart->ias != dart->ias)
-+			return -EINVAL;
- 	}
- 
- 	cfg->supports_bypass &= dart->supports_bypass;
-@@ -1137,6 +1146,7 @@ static int apple_dart_probe(struct platform_device *pdev)
- 		dart->ias = FIELD_GET(DART_T8110_PARAMS3_VA_WIDTH, dart_params[2]);
- 		dart->oas = FIELD_GET(DART_T8110_PARAMS3_PA_WIDTH, dart_params[2]);
- 		dart->num_streams = FIELD_GET(DART_T8110_PARAMS4_NUM_SIDS, dart_params[3]);
-+		dart->four_level = dart->ias > 36;
- 		break;
- 	}
- 
-@@ -1169,9 +1179,9 @@ static int apple_dart_probe(struct platform_device *pdev)
- 
- 	dev_info(
- 		&pdev->dev,
--		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d] initialized\n",
-+		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d, AS %d -> %d] initialized\n",
- 		dart->pgsize, dart->num_streams, dart->supports_bypass,
--		dart->pgsize > PAGE_SIZE);
-+		dart->pgsize > PAGE_SIZE, dart->ias, dart->oas);
- 	return 0;
- 
- err_sysfs_remove:
-@@ -1292,6 +1302,7 @@ static const struct apple_dart_hw apple_dart_hw_t8110 = {
- 	.tcr_enabled = DART_T8110_TCR_TRANSLATE_ENABLE,
- 	.tcr_disabled = 0,
- 	.tcr_bypass = DART_T8110_TCR_BYPASS_DAPF | DART_T8110_TCR_BYPASS_DART,
-+	.tcr_4level = DART_T8110_TCR_FOUR_LEVEL,
- 
- 	.ttbr = DART_T8110_TTBR,
- 	.ttbr_valid = DART_T8110_TTBR_VALID,
-
++  aspeed,transfer-mode:
++    description: |
++      ASPEED ast2600 platform equipped with 16 I2C controllers each i2c controller
++      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buffer mode), and
++      share a DMA engine.
++      Select I2C transfer mode for this controller. Supported values are:
++        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
++        - "buffer": Use buffer (32-byte buffer) for i2c transmit. (default)
++                    Better performance then byte mode.
++        - "dma": Each controller DMA mode is shared DMA engine. The AST2600 SoC
++                 provides a single DMA engine shared for 16 I2C controllers,
++                 so only a limited number of controllers can use DMA simultaneously.
++                 Therefore, the DTS must explicitly assign which controllers are
++                 configured to use DMA.
++      Only one mode can be selected per controller.
++      On AST2600, each controller supports all three modes.
++      If not specified, buffer mode is used by default.
++    enum:
++      - byte
++      - buffer
++      - dma
++
++  aspeed,global-regs:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      The phandle of i2c global register node, For control the i2c register
++      define selection, clock divider mode selection and clock divider control.
++
+ required:
+   - reg
+   - compatible
+@@ -66,3 +94,14 @@ examples:
+       interrupts = <0>;
+       interrupt-parent = <&i2c_ic>;
+     };
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    i2c1: i2c@80 {
++      compatible = "aspeed,ast2600-i2c-bus";
++      reg = <0x80 0x80>, <0xc00 0x20>;
++      aspeed,global-regs = <&i2c_global>;
++      clocks = <&syscon ASPEED_CLK_APB>;
++      resets = <&syscon ASPEED_RESET_I2C>;
++      interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
++      aspeed,transfer-mode = "buffer";
++    };
 -- 
-2.50.1
+2.34.1
 
 
