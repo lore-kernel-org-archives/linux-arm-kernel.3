@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B96CA0EEA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1531ECA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9E7QOfStBz0vXdG6NVQ0zsmIE9heN8GKfR205mEOHBQ=; b=dxE6TPtFbQdIe+/RCbj+6Vzq7J
-	RJooLxO6IHau5jAg2ZB9UIkpsPxvyNDlyTwE+QZYbg/WtIQMVquJmW1p0ozYY8axcpXtCSS6e7OhW
-	rby7tihE0yTzwIpL5J19DYsrBPxGlEhT6P1UbaRRECfAyDLHeeqor+DG+YuByxcO7nx2QKfpVVswm
-	UaYZIVtKjg9Jha1GopN7dXrM5YC6TVQNE5zRAscqCurZjIXGM3roZcdyqLXfsfT1n1ky5LhH5H8ak
-	4FkqZKOnA4nKfptMgnRWmhkHuyPZWbRSfnz2werXO5J5D7FpK1JBJATPaSUO+0wX4cMk0yWDnF2ku
-	HhPGZhkw==;
+	bh=h2K7kLOi1msFu8PrhhDfHKdkFOSC2kCXyrMtF2tQZYY=; b=XVJY0cMWPcIDH6meUPeLUpdX+j
+	0AtZq1+HQWn0rniVmtmIc1vxPg3PYVaod1ClwQLOIlDDozC51qPpjur4k57Tyy5WV7BP53mj8ATh5
+	kAMNG9MJNeLKGwUQpQNgIsva2EJaEA3WdcsEzBoUlYnRdREcHQqNlUL5NpPNu+LSU0IXxnVd0GKjP
+	ukM8FifeBjol7EHBewqEFZhMEwd9f/MxZH9urz1JwTC0zcGi9XwNRq5o7IpWB6wKq6sUnV9qhewjd
+	Kqm3c+POLKIyCS88TzWcND/K4G2e/L9iXvNI8HgPR8Ip07wnnmB/SuwcbD7/06jYfewtAzP1xriiw
+	j4OvYCDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umbHI-0000000085i-0bez;
-	Thu, 14 Aug 2025 16:58:12 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1umbHJ-0000000087M-3OBw;
+	Thu, 14 Aug 2025 16:58:13 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umajK-000000003eU-1vYr
+	id 1uman4-0000000047I-1PPA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 16:23:08 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4c2r7K1ch5z6L4wB;
-	Fri, 15 Aug 2025 00:20:13 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id AD6E714010C;
-	Fri, 15 Aug 2025 00:22:57 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 14 Aug
- 2025 18:22:57 +0200
-Date: Thu, 14 Aug 2025 17:22:55 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, "Yang
- Shi" <yang@os.amperecomputing.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kevin Brodsky
-	<kevin.brodsky@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>, Zhenhua Huang
-	<quic_zhenhuah@quicinc.com>, Joey Gouly <joey.gouly@arm.com>
-Subject: Re: [PATCH 1/2] arm64/mm: Allow __create_pgd_mapping() to propagate
- pgtable_alloc() errors
-Message-ID: <20250814172255.000039ca@huawei.com>
-In-Reply-To: <20250813145607.1612234-2-chaitanyas.prakash@arm.com>
-References: <20250813145607.1612234-1-chaitanyas.prakash@arm.com>
-	<20250813145607.1612234-2-chaitanyas.prakash@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 14 Aug 2025 16:26:59 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-242d3be5bdfso158915ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 09:26:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1755188817; x=1755793617; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=h2K7kLOi1msFu8PrhhDfHKdkFOSC2kCXyrMtF2tQZYY=;
+        b=orMoUvXiDoP2WJBDyunxaEymHC8HMJgns7oAjBPG8O8BmQYuwaCCoci9g8+Iyn2P8W
+         0KMaaxlMY62MZrMjVhkQumnEcS9DDifYD/YqasQbQc2amqUlDo06jF7vgcL9psMRN88j
+         4RSeEP56QEtRh36GG/XArcyOCqL+0GhGIkSCcbBqaf9J2PfpZu4YuqixxC294w4MEMdn
+         a/Lw0VNlkrfV79ACNcaEaL/PhQF6cEvWJ9maR3qYWwTZ47JhrTUsve5Ikv4j6jBYCP82
+         jXpkzWW1SJoRqaOBqLea1Z1YsJBtONPfXdzo06WesxMx2LnKXML/oQbq7CS8uu/jbeTX
+         4MbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755188817; x=1755793617;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=h2K7kLOi1msFu8PrhhDfHKdkFOSC2kCXyrMtF2tQZYY=;
+        b=bSlWuAnxol4ujrVGYAjMGjCyrH+g7woVk2IIfEmq8z6vmuO8YbAJ8uphABXeUePAVB
+         aVUyvgpk2h/L0w/gh71VdsSHSubgIngkC6fiGydvbbaODeEgHjusGbXDa/SP7iE5AxQ+
+         kZP+ECHGRbREjMqHmralULpmzw3iSksAi7tAPhFkZMw8wkjt5PwNT0V/iyGfboOOBeCR
+         IYUIXdyo+B9kZjuiQ3RFnIjYyt1utJcHKpZxW2yHnXdbqqPBO3erBMyV+7bENd6A53N5
+         WZ3D0wU6GHyhgWyyy5GqQe7S6T6K218bj1e/oteZ79BwvynPrGAKGwFW0ihbp0d462Jm
+         SrgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXaoB4ppjtJR5PHPvocjq468V+8W16y3imdpRLMgdWpVci+1hdwqsBGTvOzJlc3RUKUH4FDMw+EiEtgjfPBg9v7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHMwwd9eyVqrOpn7fIoPKTIQDcnyrN7OIIRwyq1CV5cECxDnBi
+	6fccvFcyRpefaUIoWkQaqx33mSRVE4jc2Ni/YRqcUGjZeeL3SYcPVk6VY25+iODK2jZb27O9gG+
+	ghEQL5hOA83/UjvHV9qveM9coVo8RFrsMDwC7UYuT
+X-Gm-Gg: ASbGncsXDUOYh5GNDpESrbusG8SYRFXV5YHZecteYuMhRuNcobuzqlUHhvOxutdWJHX
+	q3KV7Rh8vut6lvuNywZrEoahQTHJb+bcIw4u1Ge93oNl09A1Djr6arJDcXPq2tW+vkzMWl/hML2
+	CeIoNa0pmwjqlojYnd8NEfcgmGHJFLvoPRcVsX6w4zc3ARpxLgfK00iSLXxjXsotK+AHsXsKuua
+	TiKIERqosxF6tx2iyWcV+2BgE5PDR6h0/8x1Ev66KQF7uA=
+X-Google-Smtp-Source: AGHT+IE1Xi8qyYhndEVvODlo5R4bNQvMviK2kuxs/l6Wlpkk77oP0VdMn3+ugh6zOobZUqKHcqQ2GO1F6nzXrcqgJ8E=
+X-Received: by 2002:a17:902:f691:b0:234:b2bf:e67f with SMTP id
+ d9443c01a7336-2445a7927d9mr3506845ad.9.1755188816277; Thu, 14 Aug 2025
+ 09:26:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100004.china.huawei.com (7.191.162.219) To
- frapeml500008.china.huawei.com (7.182.85.71)
+References: <20250611104844.245235-1-steven.price@arm.com> <20250611104844.245235-20-steven.price@arm.com>
+ <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com> <80c46a5c-7559-4763-bbf2-6c755a4b067c@arm.com>
+In-Reply-To: <80c46a5c-7559-4763-bbf2-6c755a4b067c@arm.com>
+From: Vishal Annapurve <vannapurve@google.com>
+Date: Thu, 14 Aug 2025 09:26:43 -0700
+X-Gm-Features: Ac12FXwAKtZ6w1m0fqmJfRbeB6BA7Boirvfy5XvFb88cYjZ1Wb1fbiPX78gZerA
+Message-ID: <CAGtprH_6DYk8POPy+sLc3RL0-5gcrTdPNcDWFTssOK5_U4B3Nw@mail.gmail.com>
+Subject: Re: [PATCH v9 19/43] arm64: RME: Allow populating initial contents
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_092306_786271_0AD8B7FD 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20250814_092658_378265_C2A34538 
+X-CRM114-Status: GOOD (  55.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,233 +104,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025 20:26:06 +0530
-Chaitanya S Prakash <chaitanyas.prakash@arm.com> wrote:
+On Wed, Aug 13, 2025 at 2:30=E2=80=AFAM Steven Price <steven.price@arm.com>=
+ wrote:
+>
+> On 01/08/2025 02:56, Vishal Annapurve wrote:
+> > On Wed, Jun 11, 2025 at 3:59=E2=80=AFAM Steven Price <steven.price@arm.=
+com> wrote:
+> >>
+> >> +static int realm_create_protected_data_page(struct realm *realm,
+> >> +                                           unsigned long ipa,
+> >> +                                           kvm_pfn_t dst_pfn,
+> >> +                                           kvm_pfn_t src_pfn,
+> >> +                                           unsigned long flags)
+> >> +{
+> >> +       unsigned long rd =3D virt_to_phys(realm->rd);
+> >> +       phys_addr_t dst_phys, src_phys;
+> >> +       bool undelegate_failed =3D false;
+> >> +       int ret, offset;
+> >> +
+> >> +       dst_phys =3D __pfn_to_phys(dst_pfn);
+> >> +       src_phys =3D __pfn_to_phys(src_pfn);
+> >> +
+> >> +       for (offset =3D 0; offset < PAGE_SIZE; offset +=3D RMM_PAGE_SI=
+ZE) {
+> >> +               ret =3D realm_create_protected_data_granule(realm,
+> >> +                                                         ipa,
+> >> +                                                         dst_phys,
+> >> +                                                         src_phys,
+> >> +                                                         flags);
+> >> +               if (ret)
+> >> +                       goto err;
+> >> +
+> >> +               ipa +=3D RMM_PAGE_SIZE;
+> >> +               dst_phys +=3D RMM_PAGE_SIZE;
+> >> +               src_phys +=3D RMM_PAGE_SIZE;
+> >> +       }
+> >> +
+> >> +       return 0;
+> >> +
+> >> +err:
+> >> +       if (ret =3D=3D -EIO) {
+> >> +               /* current offset needs undelegating */
+> >> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> >> +                       undelegate_failed =3D true;
+> >> +       }
+> >> +       while (offset > 0) {
+> >> +               ipa -=3D RMM_PAGE_SIZE;
+> >> +               offset -=3D RMM_PAGE_SIZE;
+> >> +               dst_phys -=3D RMM_PAGE_SIZE;
+> >> +
+> >> +               rmi_data_destroy(rd, ipa, NULL, NULL);
+> >> +
+> >> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> >> +                       undelegate_failed =3D true;
+> >> +       }
+> >> +
+> >> +       if (undelegate_failed) {
+> >> +               /*
+> >> +                * A granule could not be undelegated,
+> >> +                * so the page has to be leaked
+> >> +                */
+> >> +               get_page(pfn_to_page(dst_pfn));
+> >
+> > I would like to point out that the support for in-place conversion
+> > with guest_memfd using hugetlb pages [1] is under discussion.
+> >
+> > As part of the in-place conversion, the policy we are routing for is
+> > to avoid any "refcounts" from KVM on folios supplied by guest_memfd as
+> > in-place conversion works by splitting and merging folios during
+> > memory conversion as per discussion at LPC [2].
+>
+> CCA doesn't really support "in-place" conversions (see more detail
+> below). But here the issue is that something has gone wrong and the RMM
+> is refusing to give us a page back.
 
-> arch_add_memory() is used to hotplug memory into a system but as a part
-> of its implementation it calls __create_pgd_mapping(), which uses
-> pgtable_alloc() in order to build intermediate page tables. As this path
-> was initally only used during early boot pgtable_alloc() is designed to
-> BUG_ON() on failure. However, in the event that memory hotplug is
-> attempted when the system's memory is extremely tight and the allocation
-> were to fail, it would lead to panicking the system, which is not
-> desirable. Hence update __create_pgd_mapping and all it's callers to be
-> non void and propagate -ENOMEM on allocation failure to allow system to
-> fail gracefully.
-> 
-> But during early boot if there is an allocation failure, we want the
-> system to panic, hence create a wrapper around __create_pgd_mapping()
-> called ___create_pgd_mapping() which is designed to BUG_ON(ret), if ret
-> is non zero value. All the init calls are updated to use the wrapper
-> rather than the modified __create_pgd_mapping() to restore
-> functionality.
-> 
-> Signed-off-by: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
+I think I overloaded the term "in-place" conversion in this context. I
+was talking about supporting "in-place" conversion without data
+preservation. i.e. Host will use the same GPA->HPA range mapping even
+after conversions, ensuring single backing for guest memory. This is
+achieved by guest_memfd keeping track of private/shared ranges based
+on userspace IOCTLs to change the tracking metadata.
 
-> ---
->  arch/arm64/mm/mmu.c | 156 +++++++++++++++++++++++++++++++++-----------
->  1 file changed, 117 insertions(+), 39 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 00ab1d648db62..db7f45ef16574 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -196,12 +196,13 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  	} while (ptep++, addr += PAGE_SIZE, addr != end);
->  }
->  
-> -static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
-> +static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  				unsigned long end, phys_addr_t phys,
->  				pgprot_t prot,
->  				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->  				int flags)
->  {
-> +	int ret = 0;
->  	unsigned long next;
->  	pmd_t pmd = READ_ONCE(*pmdp);
->  	pte_t *ptep;
-> @@ -215,6 +216,10 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  			pmdval |= PMD_TABLE_PXN;
->  		BUG_ON(!pgtable_alloc);
->  		pte_phys = pgtable_alloc(TABLE_PTE);
-> +		if (!pte_phys) {
-> +			ret = -ENOMEM;
+>
+> >
+> > The best way to avoid further use of this page with huge page support
+> > around would be either:
+> > 1) Explicitly Inform guest_memfd of a particular pfn being in use by
+> > KVM without relying on page refcounts or
+>
+> This might work, but note that the page is unavailable even after user
+> space has freed the guest_memfd. So at some point the page needs to be
+> marked so that it cannot be reallocated by the kernel. Holding a
+> refcount isn't ideal but I haven't come up with a better idea.
+>
+> Note that this is a "should never happen" situation - the code will have
+> WARN()ed already - so this is just a best effort to allow the system to
+> limp on.
+>
+> > 2) Set the page as hwpoisoned. (Needs further discussion)
+>
+> This certainly sounds like a closer fit - but I'm not very familiar with
+> hwpoison so I don't know how easy it would be to integrate with this.
+>
 
-return -ENOMEM;
+We had similar discussions with Intel specific SEPT management and the
+conclusion there was to just not hold refcounts and give a warning on
+such failures [1].
 
-When I saw this I wondered if local style was to always exit at the end of
-functions, but it isn't so early returns should be fine and simplify this
-a fair bit.
+[1] https://lore.kernel.org/kvm/20250807094241.4523-1-yan.y.zhao@intel.com/
 
-> +			goto out;
-> +		}
->  		ptep = pte_set_fixmap(pte_phys);
->  		init_clear_pgtable(ptep);
->  		ptep += pte_index(addr);
-> @@ -246,12 +251,16 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  	 * walker.
->  	 */
->  	pte_clear_fixmap();
-> +
-> +out:
-> +	return ret;
+> > This page refcounting strategy will have to be revisited depending on
+> > which series lands first. That being said, it would be great if ARM
+> > could review/verify if the series [1] works for backing CCA VMs with
+> > huge pages.
+> >
+> > [1] https://lore.kernel.org/kvm/cover.1747264138.git.ackerleytng@google=
+.com/
+> > [2] https://lpc.events/event/18/contributions/1764/
+> >
+> >> +       }
+> >> +
+> >> +       return -ENXIO;
+> >> +}
+> >> +
+> >> +static int populate_region(struct kvm *kvm,
+> >> +                          phys_addr_t ipa_base,
+> >> +                          phys_addr_t ipa_end,
+> >> +                          unsigned long data_flags)
+> >> +{
+> >> +       struct realm *realm =3D &kvm->arch.realm;
+> >> +       struct kvm_memory_slot *memslot;
+> >> +       gfn_t base_gfn, end_gfn;
+> >> +       int idx;
+> >> +       phys_addr_t ipa =3D ipa_base;
+> >> +       int ret =3D 0;
+> >> +
+> >> +       base_gfn =3D gpa_to_gfn(ipa_base);
+> >> +       end_gfn =3D gpa_to_gfn(ipa_end);
+> >> +
+> >> +       idx =3D srcu_read_lock(&kvm->srcu);
+> >> +       memslot =3D gfn_to_memslot(kvm, base_gfn);
+> >> +       if (!memslot) {
+> >> +               ret =3D -EFAULT;
+> >> +               goto out;
+> >> +       }
+> >> +
+> >> +       /* We require the region to be contained within a single memsl=
+ot */
+> >> +       if (memslot->base_gfn + memslot->npages < end_gfn) {
+> >> +               ret =3D -EINVAL;
+> >> +               goto out;
+> >> +       }
+> >> +
+> >> +       if (!kvm_slot_can_be_private(memslot)) {
+> >> +               ret =3D -EPERM;
+> >> +               goto out;
+> >> +       }
+> >> +
+> >> +       while (ipa < ipa_end) {
+> >> +               struct vm_area_struct *vma;
+> >> +               unsigned long hva;
+> >> +               struct page *page;
+> >> +               bool writeable;
+> >> +               kvm_pfn_t pfn;
+> >> +               kvm_pfn_t priv_pfn;
+> >> +               struct page *gmem_page;
+> >> +
+> >> +               hva =3D gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
+> >> +               vma =3D vma_lookup(current->mm, hva);
+> >> +               if (!vma) {
+> >> +                       ret =3D -EFAULT;
+> >> +                       break;
+> >> +               }
+> >> +
+> >> +               pfn =3D __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FO=
+LL_WRITE,
+> >> +                                       &writeable, &page);
+> >
+> > Is this assuming double backing of guest memory ranges? Is this logic
+> > trying to simulate a shared fault?
+>
+> Yes and yes...
+>
+> > Does memory population work with CCA if priv_pfn and pfn are the same?
+> > I am curious how the memory population will work with in-place
+> > conversion support available for guest_memfd files.
+>
+> The RMM interface doesn't support an in-place conversion. The
+> RMI_DATA_CREATE operation takes the PA of the already delegated
+> granule[1] along with the PA of a non-delegated granule with the data.
 
-	return 0;
+Ok, I think this will need a source buffer from userspace that is
+outside guest_memfd once guest_memfd will support a single backing for
+guest memory. You might want to simulate private access fault for
+destination GPAs backed by guest_memfd ranges for this initial data
+population -> similar to how memory population works today with TDX
+VMs.
 
->  }
->  
-> -static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
-> +static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->  		     phys_addr_t phys, pgprot_t prot,
->  		     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
->  {
-> +	int ret = 0;
->  	unsigned long next;
->  
->  	do {
-> @@ -271,22 +280,27 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
->  						      READ_ONCE(pmd_val(*pmdp))));
->  		} else {
-> -			alloc_init_cont_pte(pmdp, addr, next, phys, prot,
-> -					    pgtable_alloc, flags);
-> +			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
-> +						  pgtable_alloc, flags);
-> +			if (ret)
-> +				break;
+Note that with single backing around, at least for x86, KVM
+shared/private stage2 faults will always be served using guest_memfd
+as the source of truth (i.e. not via userspace pagetables for shared
+faults).
 
-	return ret;
-
->  
->  			BUG_ON(pmd_val(old_pmd) != 0 &&
->  			       pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
->  		}
->  		phys += next - addr;
->  	} while (pmdp++, addr = next, addr != end);
-> +
-> +	return ret;
-return 0;
-
-Same in the other cases where there is nothing else to do and they are simply
-early error returns.
-
-
->  }
-
->  
-> -static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
-> +static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
->  				 unsigned long virt, phys_addr_t size,
->  				 pgprot_t prot,
->  				 phys_addr_t (*pgtable_alloc)(enum pgtable_type),
->  				 int flags)
->  {
-> +	int ret = 0;
-> +
->  	mutex_lock(&fixmap_lock);
-> -	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
-> -				    pgtable_alloc, flags);
-> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
-> +					  pgtable_alloc, flags);
->  	mutex_unlock(&fixmap_lock);
-
-Could use guard(mutex)(&fixmap_lock);
-but maybe not worth introducing that stuff just to simplify this.
-
-> +
-> +	return ret;
-> +}
-> +
-> +static void ___create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
-> +				  unsigned long virt, phys_addr_t size,
-> +				  pgprot_t prot,
-> +				  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-> +				  int flags)
-> +{
-> +	int ret = 0;
-> +
-> +	ret = __create_pgd_mapping(pgdir, phys, virt, size, prot, pgtable_alloc,
-> +				   flags);
-> +	BUG_ON(ret);
->  }
->  
->  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> @@ -485,9 +553,11 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->  {
->  	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->  	struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
-> -	phys_addr_t pa;
-> +	phys_addr_t pa = 0;
-> +
-> +	if (!ptdesc)
-> +		goto out;
-
-I'd return 0 here.
->  
-> -	BUG_ON(!ptdesc);
->  	pa = page_to_phys(ptdesc_page(ptdesc));
->  
->  	switch (pgtable_type) {
-> @@ -505,6 +575,7 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->  		break;
->  	}
->  
-> +out:
->  	return pa;
->  }
->  
-> @@ -533,8 +604,8 @@ void __init create_mapping_noalloc(phys_addr_t phys, unsigned long virt,
->  			&phys, virt);
->  		return;
->  	}
-> -	__create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
-> -			     NO_CONT_MAPPINGS);
-> +	___create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
-> +			      NO_CONT_MAPPINGS);
->  }
->  
-> @@ -1369,23 +1440,30 @@ int arch_add_memory(int nid, u64 start, u64 size,
->  	if (can_set_direct_map())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
-> -	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
-> -			     size, params->pgprot, pgd_pgtable_alloc_init_mm,
-> -			     flags);
-> +	ret = __create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
-> +				   size, params->pgprot, pgd_pgtable_alloc_init_mm,
-> +				   flags);
-> +
-> +	if (ret)
-> +		goto out;
->  
->  	memblock_clear_nomap(start, size);
->  
->  	ret = __add_pages(nid, start >> PAGE_SHIFT, size >> PAGE_SHIFT,
->  			   params);
-> -	if (ret)
-> -		__remove_pgd_mapping(swapper_pg_dir,
-> -				     __phys_to_virt(start), size);
-> -	else {
-> +	if (ret) {
-> +		goto out;
-> +	} else {
->  		/* Address of hotplugged memory can be smaller */
->  		max_pfn = max(max_pfn, PFN_UP(start + size));
->  		max_low_pfn = max_pfn;
->  	}
->  
-> +	return 0;
-> +
-> +out:
-> +	__remove_pgd_mapping(swapper_pg_dir,
-> +			      __phys_to_virt(start), size);
-This one is fine as common cleanup to do.
-
-Jonathan
-
->  	return ret;
->  }
->  
-
+>
+> So to mimic an in-place conversion requires copying the data from the
+> page, delegating the (original) page and then using RMI_DATA_CREATE
+> which copies the data back. Fundamentally because there may be memory
+> encryption involved there is going to be a requirement for this double
+> memcpy() approach. Note that this is only relevant during the initial
+> setup phase - CCA doesn't (at least currently) permit populated pages to
+> be provided to the guest when it is running.
+>
+> The approach this series takes pre-dates the guest_memfd discussions and
+> so is assuming that the shared memory is not (directly) provided by the
+> guest_memfd but is using the user space pointer provided in the memslot.
+> It would be possible (with the patches proposed) for the VMM to mmap()
+> the guest_memfd when the memory is being shared so as to reuse the
+> physical pages.
+>
+> I do also plan to look at supporting the use of the guest_memfd for the
+> shared memory directly. But I've been waiting for the discussions to
+> conclude before attempting to implement that.
+>
+> [1] A 'granule' is the RMM's idea of a page size (RMM_PAGE_SIZE), which
+> is currently (RMM v1.0) always 4k. So may be different when Linux is
+> running with a larger page size.
+>
+> Thanks,
+> Steve
+>
 
