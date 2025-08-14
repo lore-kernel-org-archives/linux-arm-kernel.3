@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28750CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7A2CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zIzjjuHUCnphLFo0ttXGZI+g3r6b2spOBMRvkx9pSxA=; b=30sIk+iqbSfuib2RLVKrzqwQsE
-	/aZYM19q5hSQqPlbsbqK7jAL3Zg7TEYIoUQyTiyjcZjnC7jS29giQWVSxyHX86n1zrPJQ/JfUVy6n
-	7bu6nVilhjm7rrfPC0v41Z7exrLZ1HlUf/fNvI80IuVON58UBf2GFSRzhuU9N2/4hrPXB6VEkY5qn
-	9oIZ7+IxHWJGerIH1+vyXEE7ZZp/GMJTIdk0LEaJXae3oSIy4bE4YZG4imEP2in4XQMRNnjwCzyk8
-	e8pumwYqlm6VBoKaW0nufr2rSD5EHHkEnhbBK9NkBWpdw3mAbxvXkfpCs3K40J3lmWxN3MpKCe6yc
-	Q/WU1wog==;
+	bh=vn9h+uYyMtI8fMuF4gXBNvIMGUHt678xV80dOfCy1z8=; b=Y+xdJZy8G3/wEotimW6R4aXyFM
+	jM+TZ6ZLQPrCFqePfQl8mECiQlQ//6UG/a+LvqAkTUMB9HSYADewZTtVPhl8qpTdysTuSWaXIiH+P
+	d7Xv6nFzrrRkCtAOM3XSzxtPmKMXLt/NatvyJhvJU6VJ2tWpC9GI3yk7HKDZu3OPMCU3ULNT+Rt++
+	GziO1sYIafPopPhZ88Pd4v1G8+/OGzOZHUGNZ6O0ziwobtBZuyM8iDJIDM1q1x+Zy5HKAveO6jt8+
+	0eGoUGP6zv3UTzmhbvDeU3pUJG1cgQis+3BbgYp/MH/OscIUztvXBmK8yf9HoY8qqAdaf7Y+eh+SD
+	8YshTlOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXuj-0000000H2Dr-0WA4;
-	Thu, 14 Aug 2025 13:22:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1umXzm-0000000H35U-40Qs;
+	Thu, 14 Aug 2025 13:27:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umWIu-0000000GlNY-2Y05
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Aug 2025 11:39:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zIzjjuHUCnphLFo0ttXGZI+g3r6b2spOBMRvkx9pSxA=; b=E74EZCmyLm9aVhhA5Q0c4B5svA
-	FG98zTemryEP76MXLT7Jw9VCtSTtyfDZldweszBZ8wXRUN5FRE/QLoTd+bo8ib/u8NzBi9d53HB8G
-	7lO88jTVbF3O7iLj6qKycN19TaY806fkuYKvVBOzA2V+2gtGvwaaDu1zt5gLogq3M+0ayFT0Z7Yb1
-	PcbATjEKSi+Q01zhjGhvcaU1kl9KD647LIZ45lyGTL6O1/f2WFcLydIyCwxMCVrhN3vAgNdDeznpC
-	OsFSPxJAAz0t4dCgwbwkZwg5M8gstAIQIkA3FStEz8bd381uXpaogwFpUk4JZ7X+Cx4KCV3TNsv3M
-	4jqPL+WQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umWIq-0000000GNEz-0Yv5
+	id 1umWoO-0000000Gp31-1V2J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 11:39:31 +0000
+	Thu, 14 Aug 2025 12:12:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1D6FA5C70C3;
-	Thu, 14 Aug 2025 11:39:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A4A0C4CEED;
-	Thu, 14 Aug 2025 11:39:17 +0000 (UTC)
-Date: Thu, 14 Aug 2025 12:39:14 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	memxor@gmail.com, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com,
-	rafael@kernel.org, daniel.lezcano@linaro.org
-Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
- smp_cond_load_relaxed_timewait()
-Message-ID: <aJ3K4tQCztOXF6hO@arm.com>
-References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
- <20250627044805.945491-2-ankur.a.arora@oracle.com>
- <aJXWyxzkA3x61fKA@arm.com>
- <877bz98sqb.fsf@oracle.com>
- <aJy414YufthzC1nv@arm.com>
- <87bjoi2wdf.fsf@oracle.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id AADE5A56D0D;
+	Thu, 14 Aug 2025 12:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E177FC4CEED;
+	Thu, 14 Aug 2025 12:12:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755173523;
+	bh=oKG/z4imADYHqqynLKtUtN4Oij6zZpz6vZ6gDYrFCfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qRWP95gWPi8uGdMOal1tWKaqi6Fih6c4F2ouyp3iwFFTnq65bqB9nXZ80bQBqhVVL
+	 3sOuySCHWSFjSkzaWpMelGWspQGcAErxFbcDac9LoJoHq0Hj1Br3rW+qzz6rv1XJOL
+	 uu3nI3imdj/MZhWIU0n8vL/UmXveS7jTq07JAfVc+tEBq+oftsBIJE6yyaFanq3Iwp
+	 EmagD21d8bZYFrRgegdFvx3VBpzPT2K0Mi/ZT2cP4oU7/3mpf9Ndu+INHKInvSMgJP
+	 +gFmlHP1QAur5Wbl7fX5bCyHPt4J0Op/n50t5Z6xrP2AV1+TKvtrh0MkI98Max3l37
+	 sMQaowSLuBbCQ==
+Date: Thu, 14 Aug 2025 13:11:59 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Shimrra Shai <shimrrashai@gmail.com>
+Cc: lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+	perex@perex.cz, tiwai@suse.com
+Subject: Re: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer connection
+ on ES8323
+Message-ID: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
+References: <20250814012652.81424-1-shimrrashai@gmail.com>
+ <20250814014731.86651-1-shimrrashai@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PLXYa5/zsu/y4xid"
 Content-Disposition: inline
-In-Reply-To: <87bjoi2wdf.fsf@oracle.com>
+In-Reply-To: <20250814014731.86651-1-shimrrashai@gmail.com>
+X-Cookie: This sentence no verb.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_123929_174317_61E00DA9 
-X-CRM114-Status: GOOD (  52.26  )
+X-CRM114-CacheID: sfid-20250814_051204_458655_5C64DA98 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,132 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 12:30:36AM -0700, Ankur Arora wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > On Mon, Aug 11, 2025 at 02:15:56PM -0700, Ankur Arora wrote:
-> >> Catalin Marinas <catalin.marinas@arm.com> writes:
-> >> > Also I feel the spinning added to poll_idle() is more of an architecture
-> >> > choice as some CPUs could not cope with local_clock() being called too
-> >> > frequently.
-> >>
-> >> Just on the frequency point -- I think it might be a more general
-> >> problem that just on specific architectures.
-> >>
-> >> Architectures with GENERIC_SCHED_CLOCK could use a multitude of
-> >> clocksources and from a quick look some of them do iomem reads.
-> >> (AFAICT GENERIC_SCHED_CLOCK could also be selected by the clocksource
-> >> itself, so an architecture header might not need to be an arch choice
-> >> at  all.)
-> >>
-> >> Even for something like x86 which doesn't use GENERIC_SCHED_CLOCK,
-> >> we might be using tsc or jiffies or paravirt-clock all of which would
-> >> have very different performance characteristics. Or, just using a
-> >> clock more expensive than local_clock(); rqspinlock uses
-> >> ktime_get_mono_fast_ns().
-> >>
-> >> So, I feel we do need a generic rate limiter.
-> >
-> > That's a good point but the rate limiting is highly dependent on the
-> > architecture, what a CPU does in the loop, how fast a loop iteration is.
-> >
-> > That's why I'd keep it hidden in the arch code.
-> 
-> Yeah, this makes sense. However, I would like to keep as much of the
-> code that does this common.
 
-You can mimic what poll_idle() does for x86 in the generic
-implementation, maybe with some comment referring to the poll_idle() CPU
-usage of calling local_clock() in a loop. However, allow the arch code
-to override the whole implementation and get rid of the policy. If an
-arch wants to spin for some power reason, it can do it itself. The code
-duplication for a while loop is much more readable than a policy setting
-some spin/wait parameters just to have a single spin loop. If at some
-point we see some pattern, we could revisit the common code.
+--PLXYa5/zsu/y4xid
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-For arm64, I doubt the extra spinning makes any difference. Our
-cpu_relax() doesn't do anything (almost), it's probably about the same
-cost as reading the monotonic clock. I also see a single definition
-close enough to the logic in __delay() on arm64. It would be more
-readable than a policy callback setting wait/spin with a separate call
-for actually waiting. Well, gut feel, let's see how that would look
-like.
+On Wed, Aug 13, 2025 at 08:47:31PM -0500, Shimrra Shai wrote:
+> Enable the right-hand DAC mixer connection in the same manner as the
+> left-hand one.
 
-> Currently the spin rate limit is scaled up or down based on the current
-> spin (or SMP_TIMEWAIT_SPIN_BASE) in the common __smp_cond_spinwait()
-> which implements a default policy.
-> SMP_TIMEWAIT_SPIN_BASE can already be chosen by the architecture but
-> that doesn't allow it any runtime say in the spinning.
-> 
-> I think a good way to handle this might be the same way that the wait
-> policy is handled. When the architecture handler (__smp_cond_timewait()
-> on arm64) is used, it should be able to choose both spin and wait and
-> can feed those back into __smp_cond_spinwait() which can do the scaling
-> based on that.
+> @@ -633,6 +633,7 @@ static int es8323_probe(struct snd_soc_component *component)
+>  	snd_soc_component_write(component, ES8323_CONTROL2, 0x60);
+>  	snd_soc_component_write(component, ES8323_CHIPPOWER, 0x00);
+>  	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
+> +	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
 
-Exactly.
+Neither of these should be unconditional writes, these should be user
+visible controls.  We don't encode specific system's use cases into the
+driver.
 
-> > However, in the absence of some precision requirement for the potential
-> > two users of this interface, I think we complicate things unnecessarily.
-> > The only advantage is if you want to make it future proof, in case we
-> > ever need more precision.
-> 
-> There's the future proofing aspect but also having time-remaining
-> simplifies the rate limiting of the time-check because now it can
-> rate-limit depending on how often the policy handler is called and
-> the remaining time.
+--PLXYa5/zsu/y4xid
+Content-Type: application/pgp-signature; name="signature.asc"
 
-To keep things simple, I'd skip the automatic adjustment of the rate
-limiting in the generic code. Just go for a fixed one until someone
-complains about the slack.
+-----BEGIN PGP SIGNATURE-----
 
-> >> This also gives the WFET a clear end time (though it would still need
-> >> to be converted to timer cycles) but the WFE path could stay simple
-> >> by allowing an overshoot instead of falling back to polling.
-> >
-> > For arm64, both WFE and WFET would be woken up by the event stream
-> > (which is enabled on all production systems). The only reason to use
-> > WFET is if you need smaller granularity than the event stream period
-> > (100us). In this case, we should probably also add a fallback from WFE
-> > to a busy loop.
-> 
-> What do you think would be a good boundary for transitioning to a busy
-> loop?
-> 
-> Say, we have < 100us left and the event-stream is 100us. We could do
-> what __delay() does and spin for the remaining time. But given that we
-> dont' care about precision at least until there's need for it, it seems
-> to be better to err on the side of saving power.
-> 
-> So, how about switching to busy-looping when we get to event-stream-period/4?
-> (and note that in a comment block.)
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmid0o4ACgkQJNaLcl1U
+h9Cw0Qf/fVy2aA2vdtzxxkMt3NZISirhPQt7ljKImdZ23mMinHypli76WIRu4Vom
+EZ67Rf8PhDIh47o4kt1PXRoqs+RY0+kVMV/EXl62aRHEWzZA5Nnu9NAoeallApT9
+B/Zee+ERSeLSfiG5VnMgOXyIoxXj8ef3qjT+YnmosASsC8mO6KratoqMTJgv1vA0
+MYDl2eKwzYZc2E4ejPJOQj1LY+mWLaZVLAxzYL2SJYafv6IucpT40wuL7d+GfrDO
+oOnm2yFtY88AxYlocm4j1SOet5v6acFHJT+eZfSWDNBr2vRn96q/zqK58nIIkVMU
+LINhnJwnXBOQqaEvviOTsFg+cCG2DA==
+=Cp97
+-----END PGP SIGNATURE-----
 
-Let's do like __delay() (the principle, not necessarily copying the
-code) - start with WFET if available, WFE otherwise. For the latter,
-when the time left is <100us, fall back to spinning. We can later get
-someone to benchmark the power usage and we can revisit. Longer term,
-WFET would be sufficient without any spinning.
-
-That said, I thin our __delay() implementation doesn't need spinning if
-WFET is available:
-
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index cb2062e7e234..5d4c28db399a 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -43,10 +43,10 @@ void __delay(unsigned long cycles)
- 
- 		while ((get_cycles() - start + timer_evt_period) < cycles)
- 			wfe();
--	}
- 
--	while ((get_cycles() - start) < cycles)
--		cpu_relax();
-+		while ((get_cycles() - start) < cycles)
-+			cpu_relax();
-+	}
- }
- EXPORT_SYMBOL(__delay);
- 
--- 
-Catalin
+--PLXYa5/zsu/y4xid--
 
