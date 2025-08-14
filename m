@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB14ACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFCECA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9MXCLoO2a3lry+5txsjkP4aF08L9+Z8/5rMBGiEuFkU=; b=t8B+dvUMXwQGKB
-	lLDhOEcKo5gCXUNtpWqPEzwLyCjbcpadfdSYrI+wdLZ7q1zTKDD4AchcWN9onu+Sk0FZFW/E7KhaJ
-	FmA9r19cszmHo/H7J2N+cQfSingEydAgVQKdbnF4juByjL+RPzhKrKI/8egdtukuyyrb5Q5O2dxG1
-	f0KdozD6nbAM//fTrChNj3oAWY6uFEOvEzYoJigiAA4kcFhDTBpe1hFVEsmH3a0otmphObSeZI3J7
-	2/uCY5e7gjXJOeiL2V4G7+e1JLlQpeKfPS3GR9Ci/iQq2AylAfzfJL7v1GQOXYb7zD3n/i1q+DstJ
-	75TS9X5zx4lXCwc+hjEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qRNCjTDNOtlnPqxguTj1/k1LkcL0LOs+o9be9UtZmLs=; b=XKEjsT4f5oFVcgErUhFj8oHxqx
+	UO5Xkci8TmxR8V/awDYvbaOt5NyxStsq9ksWqyCxtx4Igt0ioFg21Nz7dF/mpQ1ck2ZKL89HC/3Me
+	WWiUwz5RGzR2it3XDzPNWCOcPV9E0bYeLLzRzN2ofyWs05JiJbrk/V7kMSqrKDcVcj8AC/lrG+i/A
+	wiZ2P4CBU/azam64HkhyHZHTbnGsqClcHlUAAAkSFBceVULZ2HrLej6E/VWGtA4xB3wYafNiTjTPl
+	d8+GSqkt8JMpJub5cweHEPc1y6U2DFmf4NNnIrF0hUHkSRymcoivIkVmXsJ62xj0ordE5fdZx9Yi+
+	GXsXQz1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVb5-0000000Gfmg-0orE;
-	Thu, 14 Aug 2025 10:54:15 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1umVdc-0000000GgHs-02SF;
+	Thu, 14 Aug 2025 10:56:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUQo-0000000GQqQ-1rIG
+	id 1umUSs-0000000GR67-1zTz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:39:35 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4c2gG93jG7z2dMHD;
-	Thu, 14 Aug 2025 17:40:33 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 460C11A016C;
-	Thu, 14 Aug 2025 17:39:29 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 14 Aug 2025 17:39:27 +0800
-Message-ID: <04df941a-f62d-e640-6619-e79dc88114b3@huawei.com>
-Date: Thu, 14 Aug 2025 17:39:27 +0800
+	Thu, 14 Aug 2025 09:41:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B4F44416B3;
+	Thu, 14 Aug 2025 09:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48831C4CEED;
+	Thu, 14 Aug 2025 09:41:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755164501;
+	bh=VAMwO3NcuTmsk/BxtnuIKVOvPEmhRux3rWhojqXD2c4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=u78ATZLq9SbXaYfX6zNgkrXe9P4pFSv+sxeyrfiwK/go0Jh4dPxi2LfElXXPQrMaE
+	 lxH6ov2PoHVpLptAHHjhwckBmBaNb263RJ2yYqy5pnb7TMNUUEjIpmihjZOxxQOw7+
+	 8HOorzX7lhDTwVtFcodI633ofu2tNU+DzjHhN2aNfEFTYSp6bXhsdyF9zpx4OApPMl
+	 OxEEhuvMqPlwbuiQMBm0qzj3dJl5SGhtaOpLNaFIZpQa5djNMzH1JnrJo5GgNYsZXY
+	 jsqtmLjdzEouQECYg66pNtA0TF4mbmYS4ktCIYLRv8DjSPqECF2ijzsykjNbkbRqis
+	 FVnUyZl76W/Lw==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH] irqchip/gic-v5: Remove undue WARN_ON()s in the IRS affinity parsing
+Date: Thu, 14 Aug 2025 11:41:38 +0200
+Message-ID: <20250814094138.1611017-1-lpieralisi@kernel.org>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH -next v7 0/7] arm64: entry: Convert to generic irq entry
-Content-Language: en-US
-To: Mark Rutland <mark.rutland@arm.com>
-References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
- <aJsjQsDZjhG8oiK-@J2N7QTR9R3>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <aJsjQsDZjhG8oiK-@J2N7QTR9R3>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_023934_799012_02A0B2B5 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20250814_024142_537058_3E698C2A 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,170 +67,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, liaochang1@huawei.com, oleg@redhat.com, kristina.martsenko@arm.com, linux-kernel@vger.kernel.org, broonie@kernel.org, chenl311@chinatelecom.cn, xen-devel@lists.xenproject.org, leitao@debian.org, ryan.roberts@arm.com, akpm@linux-foundation.org, mbenes@suse.cz, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In gicv5_irs_of_init_affinity() a WARN_ON() is triggered if:
 
+(1) a phandle in the "cpus" property does not correspond to a valid OF
+    node
+(2) a cpu logical id does not exist for a given OF cpu_node
 
-On 2025/8/12 19:19, Mark Rutland wrote:
-> Hi,
-> 
-> This is looking pretty good now, thanks for continuing to work on this!
-> 
-> I've left a couple of minor comments, and Ada has left a few more. If
-> you're able to address those and respin atop v6.17-rc1, I think we can
-> start figuring out how to queue this.
+(1) is a firmware bug and should be reported as such but does not grant
+a WARN_ON() backtrace.
 
-Sure，I will revise these review comments based on v6.17-rc1 and release
-a new version after local testing.
+(2) is not necessarily an error condition (eg a kernel can be booted
+with nr_cpus=X limiting the number of cores artificially) and therefore
+there is no reason to clutter the kernel log with WARN_ON() output when
+the condition is hit.
 
-> 
-> Mark.
-> 
-> On Tue, Jul 29, 2025 at 09:54:49AM +0800, Jinjie Ruan wrote:
->> Currently, x86, Riscv, Loongarch use the generic entry. Also convert
->> arm64 to use the generic entry infrastructure from kernel/entry/*.
->> The generic entry makes maintainers' work easier and codes more elegant,
->> which will make PREEMPT_DYNAMIC and PREEMPT_LAZY use the generic entry
->> common code and remove a lot of duplicate code.
->>
->> Since commit a70e9f647f50 ("entry: Split generic entry into generic
->> exception and syscall entry") split the generic entry into generic irq
->> entry and generic syscall entry, it is time to convert arm64 to use
->> the generic irq entry. And ARM64 will be completely converted to generic
->> entry in the upcoming patch series.
->>
->> The main convert steps are as follows:
->> - Split generic entry into generic irq entry and generic syscall to
->>   make the single patch more concentrated in switching to one thing.
->> - Make arm64 easier to use irqentry_enter/exit().
->> - Make arm64 closer to the PREEMPT_DYNAMIC code of generic entry.
->> - Switch to generic irq entry.
->>
->> It was tested ok with following test cases on QEMU virt platform:
->>  - Perf tests.
->>  - Different `dynamic preempt` mode switch.
->>  - Pseudo NMI tests.
->>  - Stress-ng CPU stress test.
->>  - MTE test case in Documentation/arch/arm64/memory-tagging-extension.rst
->>    and all test cases in tools/testing/selftests/arm64/mte/*.
->>
->> The test QEMU configuration is as follows:
->>
->> 	qemu-system-aarch64 \
->> 		-M virt,gic-version=3,virtualization=on,mte=on \
->> 		-cpu max,pauth-impdef=on \
->> 		-kernel Image \
->> 		-smp 8,sockets=1,cores=4,threads=2 \
->> 		-m 512m \
->> 		-nographic \
->> 		-no-reboot \
->> 		-device virtio-rng-pci \
->> 		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
->> 			earlycon preempt=voluntary irqchip.gicv3_pseudo_nmi=1" \
->> 		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
->> 		-device virtio-blk-device,drive=hd0 \
->>
->> Changes in v7:
->> - Rebased on v6.16-rc7 and remove the merged first patch.
->> - Update the commit message.
->>
->> Changes in v6:
->> - Rebased on 6.14 rc2 next.
->> - Put the syscall bits aside and split it out.
->> - Have the split patch before the arm64 changes.
->> - Merge some tightly coupled patches.
->> - Adjust the order of some patches to make them more reasonable.
->> - Define regs_irqs_disabled() by inline function.
->> - Define interrupts_enabled() in terms of regs_irqs_disabled().
->> - Delete the fast_interrupts_enabled() macro.
->> - irqentry_state_t -> arm64_irqentry_state_t.
->> - Remove arch_exit_to_user_mode_prepare() and pull local_daif_mask() later
->>   in the arm64 exit sequence
->> - Update the commit message.
->>
->> Changes in v5:
->> - Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
->> - Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
->> - Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
->> - Update "irqentry_state_t ret/irq_state" to "state"
->>   to keep it consistently.
->> - Use generic irq entry header for PREEMPT_DYNAMIC after split
->>   the generic entry.
->> - Also refactor the ARM64 syscall code.
->> - Introduce arch_ptrace_report_syscall_entry/exit(), instead of
->>   arch_pre/post_report_syscall_entry/exit() to simplify code.
->> - Make the syscall patches clear separation.
->> - Update the commit message.
->>
->> Changes in v4:
->> - Rework/cleanup split into a few patches as Mark suggested.
->> - Replace interrupts_enabled() macro with regs_irqs_disabled(), instead
->>   of left it here.
->> - Remove rcu and lockdep state in pt_regs by using temporary
->>   irqentry_state_t as Mark suggested.
->> - Remove some unnecessary intermediate functions to make it clear.
->> - Rework preempt irq and PREEMPT_DYNAMIC code
->>   to make the switch more clear.
->> - arch_prepare_*_entry/exit() -> arch_pre_*_entry/exit().
->> - Expand the arch functions comment.
->> - Make arch functions closer to its caller.
->> - Declare saved_reg in for block.
->> - Remove arch_exit_to_kernel_mode_prepare(), arch_enter_from_kernel_mode().
->> - Adjust "Add few arch functions to use generic entry" patch to be
->>   the penultimate.
->> - Update the commit message.
->> - Add suggested-by.
->>
->> Changes in v3:
->> - Test the MTE test cases.
->> - Handle forget_syscall() in arch_post_report_syscall_entry()
->> - Make the arch funcs not use __weak as Thomas suggested, so move
->>   the arch funcs to entry-common.h, and make arch_forget_syscall() folded
->>   in arch_post_report_syscall_entry() as suggested.
->> - Move report_single_step() to thread_info.h for arm64
->> - Change __always_inline() to inline, add inline for the other arch funcs.
->> - Remove unused signal.h for entry-common.h.
->> - Add Suggested-by.
->> - Update the commit message.
->>
->> Changes in v2:
->> - Add tested-by.
->> - Fix a bug that not call arch_post_report_syscall_entry() in
->>   syscall_trace_enter() if ptrace_report_syscall_entry() return not zero.
->> - Refactor report_syscall().
->> - Add comment for arch_prepare_report_syscall_exit().
->> - Adjust entry-common.h header file inclusion to alphabetical order.
->> - Update the commit message.
->>
->> Jinjie Ruan (7):
->>   arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
->>   arm64: entry: Refactor the entry and exit for exceptions from EL1
->>   arm64: entry: Rework arm64_preempt_schedule_irq()
->>   arm64: entry: Use preempt_count() and need_resched() helper
->>   arm64: entry: Refactor preempt_schedule_irq() check code
->>   arm64: entry: Move arm64_preempt_schedule_irq() into
->>     __exit_to_kernel_mode()
->>   arm64: entry: Switch to generic IRQ entry
->>
->>  arch/arm64/Kconfig                    |   1 +
->>  arch/arm64/include/asm/daifflags.h    |   2 +-
->>  arch/arm64/include/asm/entry-common.h |  56 ++++
->>  arch/arm64/include/asm/preempt.h      |   2 -
->>  arch/arm64/include/asm/ptrace.h       |  13 +-
->>  arch/arm64/include/asm/xen/events.h   |   2 +-
->>  arch/arm64/kernel/acpi.c              |   2 +-
->>  arch/arm64/kernel/debug-monitors.c    |   2 +-
->>  arch/arm64/kernel/entry-common.c      | 411 +++++++++-----------------
->>  arch/arm64/kernel/sdei.c              |   2 +-
->>  arch/arm64/kernel/signal.c            |   3 +-
->>  kernel/entry/common.c                 |  16 +-
->>  12 files changed, 217 insertions(+), 295 deletions(-)
->>  create mode 100644 arch/arm64/include/asm/entry-common.h
->>
->> -- 
->> 2.34.1
->>
-> 
+Rework the IRS affinity parsing code to remove undue WARN_ON()s thus
+making it less noisy.
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+ drivers/irqchip/irq-gic-v5-irs.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+index e8a576f66366..ce2732d649a3 100644
+--- a/drivers/irqchip/irq-gic-v5-irs.c
++++ b/drivers/irqchip/irq-gic-v5-irs.c
+@@ -626,12 +626,14 @@ static int __init gicv5_irs_of_init_affinity(struct device_node *node,
+ 		int cpu;
+ 
+ 		cpu_node = of_parse_phandle(node, "cpus", i);
+-		if (WARN_ON(!cpu_node))
++		if (!cpu_node) {
++			pr_warn(FW_BUG "Erroneous CPU node phandle\n");
+ 			continue;
++		}
+ 
+ 		cpu = of_cpu_node_to_id(cpu_node);
+ 		of_node_put(cpu_node);
+-		if (WARN_ON(cpu < 0))
++		if (cpu < 0)
+ 			continue;
+ 
+ 		if (iaffids[i] & ~iaffid_mask) {
+-- 
+2.48.0
+
 
