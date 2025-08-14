@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFB3CA0EE3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3043CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIjUVhy9eUeqqRarppCSvD9injMwkSZZ+6X+QpQb46o=; b=uvrcJV1E+tXx9jZJPaegxIrTTD
-	kzCb+OI2nlRiMWgtgZIRssSVsFu3j2O9eLaXiBJGz2CBlnIlBavyPLNHAPi9td0NuraY0vSMZFQnk
-	vn1lPLCxq8AkD7EUdie8zeSgADF0PoLJM+pdF/8eWKRBU9fwbtUTbpV1S3m9NMYYRbhXd0SJya5y2
-	+sKXMNZXphkoexJdskLm8TipNgO41f2f0PO+AaUuR7Nv2cej8APNFhkIIgCXuyit4sAy1Z+mg5qNx
-	S/xsJE9txkB6Ekx88p89xsKfBeY1LYPDcznFJTGkVG4USj1z8IalNydmFj2QQZVWKOaSVhEdOblE5
-	LtZ9KLjA==;
+	bh=UkEIOAJZy49RtSHVT4A6P2SXS+pyQeLLJ5XAcWpwXA4=; b=KaBe61KY9Ps7jiNhlFNmzY76UI
+	0Az6mECFtGlwdsuCSw+1wz+zSJagxacSLEnIT5V6UzpPXKrMhfOmeFgIl7wNSRpjVYekBSROxApcB
+	PWdYqSLmMX1Qg0wIfN37AvA8F32uyrk6AiD/qCv0d0yoVeNPoJLUSNDrLXLPvCVxrDbpqydy8drgp
+	PBiukrafF9XhPqMNb8OMaO0Jx+Ie9ojWdqJRs1VKBe2aoKL6gQhQHuQ14XeLY6g4R2UWlP9e/j+nh
+	iPpDFVPepYEl9TuIwHoCLXXOIJpn+EH8nGXWtW3pnKR6pCBpXibV5whvM0Qo4NM0BT6m6cUj/5wxX
+	tS1ej1sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTQz-0000000GGWF-1KX6;
-	Thu, 14 Aug 2025 08:35:41 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1umTTV-0000000GGxr-2L0R;
+	Thu, 14 Aug 2025 08:38:17 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umT7i-0000000GDMB-0kb6;
-	Thu, 14 Aug 2025 08:15:47 +0000
+	id 1umSxj-0000000GBzv-2bNU;
+	Thu, 14 Aug 2025 08:05:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755159346; x=1786695346;
+  t=1755158727; x=1786694727;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=6E0Tfz3mQAO8WgpBT7lxhRZaLaj11rwitgOe3a6lVFg=;
-  b=j+yXANln0CWk0kl8ONaMx2GWFWh5gk3yPRioWeWy54EdOGpG1FozaKCg
-   bqs2uR5/zH4zMvsuX1E3WRsV7hzkJJzjh8gT76vVsnwArCsENm+jRwzO8
-   y85a8xtose7s22mWG2Hr57eStOf+jWRdPQosOtV/WIw57iGqXppH7AV73
-   HXT+jAKh6UrYc/HwHFLtgBEzKtVewWK/gKDcbaPkR+Wf8R+43BtsalJdO
-   srLO2/WwmYTdi8OqhjowosQVxHzkLj4g6ndUCyZrwgHY7J+8DX3TXBKX8
-   9CmSmdi6gOfMFXhHEs7SQ3bZ8HdySiKK1n7Ny//ZvalFqzs5rOxKR33Sd
-   g==;
-X-CSE-ConnectionGUID: vvgVggaJQuio94UPj+OwGg==
-X-CSE-MsgGUID: 5EtHcmRbSbiCVU0ZiHyTmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="80045688"
+  bh=5cPIVXM0nkCET4mfTMJk5eQOYlHUtDVZOyK2tRL3s7U=;
+  b=e5qOrdUDMGWQjBVcJtO5/WJMlsR5hKTDEvmqF/KhovkZnQKO+loX5EUD
+   MINL4FMrXmLIMwj5xsFhLwS+B66oGs0kO3aga7gYHFN17yyCX82rEebr2
+   KGTabiyNmPvQ8sQy9pqM9FkEWx2DjLoBstTjQNINlG13PlASYdjFGHoeU
+   MaqfuZxGZu68kvfG9woiPK4gZI+TiZZfRH4bCPtfiWNEWF2Q64PynQ77N
+   DP6Igjmfsr/Goi/EcEBIhJEbGU5KNPY+zqidmLo8CiKcD6f8M+rbNDflG
+   k/bejF9GhcmDiWbf9xF7oqKOtOXkFLgXDfp7sHjW+Avpb5tze197I/Pbi
+   w==;
+X-CSE-ConnectionGUID: 0pQCe62qTXGhch2oHSQ5BA==
+X-CSE-MsgGUID: /2/IiIO/SSiCBc/229Ttyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11520"; a="57372652"
 X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
-   d="scan'208";a="80045688"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 01:15:43 -0700
-X-CSE-ConnectionGUID: 6QvLLeTHS52x5elOnY5SwA==
-X-CSE-MsgGUID: FPLkVErvS/+BynwVet6Qsg==
+   d="scan'208";a="57372652"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 01:05:26 -0700
+X-CSE-ConnectionGUID: DDCZwDm7QaSoaweUXg1M6A==
+X-CSE-MsgGUID: uMzmV2T2TFe/bu5sz1uy2A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.17,287,1747724400"; 
-   d="scan'208";a="166964216"
+   d="scan'208";a="190399976"
 Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa008.jf.intel.com with ESMTP; 14 Aug 2025 01:15:39 -0700
+  by fmviesa002.fm.intel.com with ESMTP; 14 Aug 2025 01:05:19 -0700
 Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1umT7P-000Ajw-2T;
-	Thu, 14 Aug 2025 08:15:30 +0000
-Date: Thu, 14 Aug 2025 16:15:16 +0800
+	id 1umSxZ-000Ajc-1M;
+	Thu, 14 Aug 2025 08:05:17 +0000
+Date: Thu, 14 Aug 2025 16:04:59 +0800
 From: kernel test robot <lkp@intel.com>
-To: Peter Griffin <peter.griffin@linaro.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>, mingo@redhat.com, will@kernel.org,
+	mark.rutland@arm.com, acme@kernel.org, namhyung@kernel.org,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com
 Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
-	William Mcvicker <willmcvicker@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org,
-	Peter Griffin <peter.griffin@linaro.org>
-Subject: Re: [PATCH v3 2/2] phy: samsung: gs101-ufs: Add .notify_phystate() &
- hibern8 enter/exit values
-Message-ID: <202508141555.NJvU2oYQ-lkp@intel.com>
-References: <20250813-phy-notify-pmstate-v3-2-3bda59055dd3@linaro.org>
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 19/19] perf: Garbage-collect event_init checks
+Message-ID: <202508141524.QVgoOKMD-lkp@intel.com>
+References: <ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250813-phy-notify-pmstate-v3-2-3bda59055dd3@linaro.org>
+In-Reply-To: <ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_011546_299124_09D9A9E3 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250814_010527_712132_5E2BCB17 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,83 +99,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+Hi Robin,
 
 kernel test robot noticed the following build warnings:
 
-[auto build test WARNING on 43c3c17f0c805882d1b48818b1085747a68c80ec]
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.17-rc1 next-20250814]
+[cannot apply to perf-tools-next/perf-tools-next tip/perf/core perf-tools/perf-tools acme/perf/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Peter-Griffin/phy-add-new-phy_notify_state-api/20250813-231312
-base:   43c3c17f0c805882d1b48818b1085747a68c80ec
-patch link:    https://lore.kernel.org/r/20250813-phy-notify-pmstate-v3-2-3bda59055dd3%40linaro.org
-patch subject: [PATCH v3 2/2] phy: samsung: gs101-ufs: Add .notify_phystate() & hibern8 enter/exit values
-config: arm-randconfig-001-20250814 (https://download.01.org/0day-ci/archive/20250814/202508141555.NJvU2oYQ-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 3769ce013be2879bf0b329c14a16f5cb766f26ce)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250814/202508141555.NJvU2oYQ-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/perf-arm-cmn-Fix-event-validation/20250814-010626
+base:   linus/master
+patch link:    https://lore.kernel.org/r/ace3532a8a438a96338bf349a27636d8294c7111.1755096883.git.robin.murphy%40arm.com
+patch subject: [PATCH 19/19] perf: Garbage-collect event_init checks
+config: i386-randconfig-003-20250814 (https://download.01.org/0day-ci/archive/20250814/202508141524.QVgoOKMD-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250814/202508141524.QVgoOKMD-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508141555.NJvU2oYQ-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508141524.QVgoOKMD-lkp@intel.com/
 
 All warnings (new ones prefixed by >>):
 
->> drivers/phy/samsung/phy-samsung-ufs.c:232:11: warning: variable 'cfg' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-     232 |         else if (state.ufs_state == PHY_UFS_HIBERN8_EXIT)
-         |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/phy/samsung/phy-samsung-ufs.c:235:19: note: uninitialized use occurs here
-     235 |         for_each_phy_cfg(cfg) {
-         |                          ^~~
-   drivers/phy/samsung/phy-samsung-ufs.c:232:7: note: remove the 'if' if its condition is always true
-     232 |         else if (state.ufs_state == PHY_UFS_HIBERN8_EXIT)
-         |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     233 |                 cfg = ufs_phy->cfgs_hibern8[CFG_PRE_HIBERN8_EXIT];
-   drivers/phy/samsung/phy-samsung-ufs.c:224:39: note: initialize the variable 'cfg' to silence this warning
-     224 |         const struct samsung_ufs_phy_cfg *cfg;
-         |                                              ^
-         |                                               = NULL
+>> arch/x86/events/intel/uncore_snb.c:905:24: warning: unused variable 'hwc' [-Wunused-variable]
+     905 |         struct hw_perf_event *hwc = &event->hw;
+         |                               ^~~
    1 warning generated.
 
 
-vim +232 drivers/phy/samsung/phy-samsung-ufs.c
+vim +/hwc +905 arch/x86/events/intel/uncore_snb.c
 
-   219	
-   220	static int samsung_ufs_phy_notify_state(struct phy *phy,
-   221						union phy_notify state)
-   222	{
-   223		struct samsung_ufs_phy *ufs_phy = get_samsung_ufs_phy(phy);
-   224		const struct samsung_ufs_phy_cfg *cfg;
-   225		int i, err;
-   226	
-   227		if (!ufs_phy->cfgs_hibern8)
-   228			return 0;
-   229	
-   230		if (state.ufs_state == PHY_UFS_HIBERN8_ENTER)
-   231			cfg = ufs_phy->cfgs_hibern8[CFG_POST_HIBERN8_ENTER];
- > 232		else if (state.ufs_state == PHY_UFS_HIBERN8_EXIT)
-   233			cfg = ufs_phy->cfgs_hibern8[CFG_PRE_HIBERN8_EXIT];
-   234	
-   235		for_each_phy_cfg(cfg) {
-   236			for_each_phy_lane(ufs_phy, i) {
-   237				samsung_ufs_phy_config(ufs_phy, cfg, i);
-   238			}
-   239		}
-   240	
-   241		if (state.ufs_state == PHY_UFS_HIBERN8_EXIT) {
-   242			for_each_phy_lane(ufs_phy, i) {
-   243				if (ufs_phy->drvdata->wait_for_cdr) {
-   244					err = ufs_phy->drvdata->wait_for_cdr(phy, i);
-   245					if (err)
-   246						goto err_out;
-   247				}
-   248			}
-   249		}
-   250	
-   251		return 0;
-   252	err_out:
-   253		return err;
-   254	}
-   255	
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  896  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  897  /*
+9aae1780e7e81e arch/x86/events/intel/uncore_snb.c                Kan Liang               2018-05-03  898   * Keep the custom event_init() function compatible with old event
+9aae1780e7e81e arch/x86/events/intel/uncore_snb.c                Kan Liang               2018-05-03  899   * encoding for free running counters.
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  900   */
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  901  static int snb_uncore_imc_event_init(struct perf_event *event)
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  902  {
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  903  	struct intel_uncore_pmu *pmu;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  904  	struct intel_uncore_box *box;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30 @905  	struct hw_perf_event *hwc = &event->hw;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  906  	u64 cfg = event->attr.config & SNB_UNCORE_PCI_IMC_EVENT_MASK;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  907  	int idx, base;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  908  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  909  	pmu = uncore_event_to_pmu(event);
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  910  	/* no device found for this pmu */
+3f710be02ea648 arch/x86/events/intel/uncore_snb.c                Kan Liang               2025-01-08  911  	if (!pmu->registered)
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  912  		return -ENOENT;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  913  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  914  	/* check only supported bits are set */
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  915  	if (event->attr.config & ~SNB_UNCORE_PCI_IMC_EVENT_MASK)
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  916  		return -EINVAL;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  917  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  918  	box = uncore_pmu_to_box(pmu, event->cpu);
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  919  	if (!box || box->cpu < 0)
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  920  		return -EINVAL;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  921  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  922  	event->cpu = box->cpu;
+1f2569fac6c6dd arch/x86/events/intel/uncore_snb.c                Thomas Gleixner         2016-02-22  923  	event->pmu_private = box;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  924  
+e64cd6f73ff5a7 arch/x86/events/intel/uncore_snb.c                David Carrillo-Cisneros 2016-08-17  925  	event->event_caps |= PERF_EV_CAP_READ_ACTIVE_PKG;
+e64cd6f73ff5a7 arch/x86/events/intel/uncore_snb.c                David Carrillo-Cisneros 2016-08-17  926  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  927  	event->hw.idx = -1;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  928  	event->hw.last_tag = ~0ULL;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  929  	event->hw.extra_reg.idx = EXTRA_REG_NONE;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  930  	event->hw.branch_reg.idx = EXTRA_REG_NONE;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  931  	/*
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  932  	 * check event is known (whitelist, determines counter)
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  933  	 */
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  934  	switch (cfg) {
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  935  	case SNB_UNCORE_PCI_IMC_DATA_READS:
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  936  		base = SNB_UNCORE_PCI_IMC_DATA_READS_BASE;
+9aae1780e7e81e arch/x86/events/intel/uncore_snb.c                Kan Liang               2018-05-03  937  		idx = UNCORE_PMC_IDX_FREERUNNING;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  938  		break;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  939  	case SNB_UNCORE_PCI_IMC_DATA_WRITES:
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  940  		base = SNB_UNCORE_PCI_IMC_DATA_WRITES_BASE;
+9aae1780e7e81e arch/x86/events/intel/uncore_snb.c                Kan Liang               2018-05-03  941  		idx = UNCORE_PMC_IDX_FREERUNNING;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  942  		break;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  943  	case SNB_UNCORE_PCI_IMC_GT_REQUESTS:
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  944  		base = SNB_UNCORE_PCI_IMC_GT_REQUESTS_BASE;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  945  		idx = UNCORE_PMC_IDX_FREERUNNING;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  946  		break;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  947  	case SNB_UNCORE_PCI_IMC_IA_REQUESTS:
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  948  		base = SNB_UNCORE_PCI_IMC_IA_REQUESTS_BASE;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  949  		idx = UNCORE_PMC_IDX_FREERUNNING;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  950  		break;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  951  	case SNB_UNCORE_PCI_IMC_IO_REQUESTS:
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  952  		base = SNB_UNCORE_PCI_IMC_IO_REQUESTS_BASE;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  953  		idx = UNCORE_PMC_IDX_FREERUNNING;
+24633d901ea44f arch/x86/events/intel/uncore_snb.c                Vaibhav Shankar         2020-08-13  954  		break;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  955  	default:
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  956  		return -EINVAL;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  957  	}
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  958  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  959  	/* must be done before validate_group */
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  960  	event->hw.event_base = base;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  961  	event->hw.idx = idx;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  962  
+8041ffd36f42d8 arch/x86/events/intel/uncore_snb.c                Kan Liang               2019-02-27  963  	/* Convert to standard encoding format for freerunning counters */
+8041ffd36f42d8 arch/x86/events/intel/uncore_snb.c                Kan Liang               2019-02-27  964  	event->hw.config = ((cfg - 1) << 8) | 0x10ff;
+8041ffd36f42d8 arch/x86/events/intel/uncore_snb.c                Kan Liang               2019-02-27  965  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  966  	/* no group validation needed, we have free running counters */
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  967  
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  968  	return 0;
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  969  }
+92807ffdf32c38 arch/x86/kernel/cpu/perf_event_intel_uncore_snb.c Yan, Zheng              2014-07-30  970  
 
 -- 
 0-DAY CI Kernel Test Service
