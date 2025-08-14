@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2EFCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF388CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLHxUFjfLmqm/i4YDPATjTVBn9dA+0sj+cclW38Fa4I=; b=Mx7qpGxNgEmh66hyLOgWw0RY2E
-	6Y07Cc3Z1ZM59MLXanJzgycFgnsLxa3Ezgp8GjZbfdH+DvFeeJWqVbW+yj0OaXqtVMxrnxY/gCrZX
-	MJVdXriomYPaPL2Iggsgo/oF16/tQ3pXgtabbztmoMdT07BEvZwbWgzOX2SjhdOxlMGMUEZBVqyx7
-	Hm8QFWbzQYh5lKbr3c2mnyuS4vDfqccgb2tj23P80wCxF3rwK/DFwpvJFM1GJxejTnzhB10FJkJ9P
-	d2uLyC8mNUs6SNp+v/nkmseAHQWoyc3Wloso9OS7Q0DVf8r72iU1c3SxTvMTt/Jd4WZwph2/SYuQJ
-	5spfs+UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l4pFVfRVNOwf2+FlMJlDWYO4U/oV/9E6WbnVyhCzLlg=; b=DSEIkoV9/FRJ1dNw8hR0/Uqf7i
+	/EXL05tv8Y9h90dbQg065+DHx2KIzWNPyY4BQ9Mxwhr+RXsNypyu1ciIuJjSe/54yFItEDYTjQxfG
+	VIo8j/e6OGJ8S5QNyym+esUAXqllmMAcwroymx4/4trvnrfmYiU69TzyUN2e+JofOMJ4h0JbcM48h
+	zSRaUHZSuqJcVxw8h9NYf7D/vhSrTCQTgCiCdpiX9Csp4HDYvqd1NaAB8Gwa1bSU6JErq6R62s6ym
+	Io4woPOGbK/P0VAOxTN8ecOxn/RpC9/daoE0Q7fAYPOhkuLJJnvwfiYN/HxbA72sNn+L0txrHIUAh
+	yxBG0pqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umhzR-00000000qYb-0DiU;
-	Fri, 15 Aug 2025 00:08:13 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1umi1z-00000000qoY-3ADB;
+	Fri, 15 Aug 2025 00:10:52 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umgdZ-00000000hH3-1Vmp
+	id 1umgo9-00000000j8t-1aZN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 22:41:34 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EMfVgn1973684;
-	Thu, 14 Aug 2025 17:41:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755211291;
-	bh=wLHxUFjfLmqm/i4YDPATjTVBn9dA+0sj+cclW38Fa4I=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=GDVKK2CRinJzwXhGWC6S+/FVen7oC3LTXhY7sJN3357b6G0vXvlASWUK4Ea4moUu/
-	 p37MMCmr9OJjlMh48cE2IPHV3QOL4iwlTKTqDzJqFprqKPjh0vPRXS7X7eD6Ft4KY3
-	 SgAgD3h6r2cOTFbH/+ErTfdIx7ssqxsYj31LejWs=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EMfVaN2150859
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 14 Aug 2025 17:41:31 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
- Aug 2025 17:41:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 14 Aug 2025 17:41:30 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EMcw58096792;
-	Thu, 14 Aug 2025 17:41:27 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 33/33] arm64: dts: ti: k3-j7*-ti-ipc-firmware: Switch MCU R5F cluster to Split-mode
-Date: Fri, 15 Aug 2025 04:08:39 +0530
-Message-ID: <20250814223839.3256046-34-b-padhi@ti.com>
+	Thu, 14 Aug 2025 22:52:30 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 72489C0429D7;
+	Thu, 14 Aug 2025 15:52:27 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 72489C0429D7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1755211947;
+	bh=v6sq3o9BJiULKoiDIE8D7omTK29z5q2no/7JhhhhtSE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=iS3nV2Tor4uJI2rBygWdOBNAsFghb0Lba6BXBA0lzogf80dA/ffrGS0zbGPawRcZq
+	 H9hE9gqBeZaAEJSuEFa4195osXErq87OwVKOuFMSk+lIjVB0Sx3VtUo0sRuSaYGG+V
+	 D42r13zVm4TtFOSXsskbXpH6qS8io1SkLTf3TFGs=
+Received: from stbirv-lnx-1.igp.broadcom.net (stbirv-lnx-1.igp.broadcom.net [10.67.48.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 468901800051E;
+	Thu, 14 Aug 2025 15:52:27 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: linux-kernel@vger.kernel.org
+Cc: james.quinlan@broadcom.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Mike Tipton <quic_mdtipton@quicinc.com>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH] cpufreq: scmi: Add quirk to disable checks in scmi_dev_used_by_cpus()
+Date: Thu, 14 Aug 2025 15:51:55 -0700
+Message-Id: <20250814225155.3519000-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250814223839.3256046-1-b-padhi@ti.com>
-References: <20250814223839.3256046-1-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_154133_485893_376A6567 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250814_155229_489595_48E3D965 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,78 +80,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
-R5F cluster in the MCU domain which is configured for LockStep mode at
-the moment. The necessary support to use MCU R5F cluster in split mode
-was added in the bootloader. And the TI IPC firmware for the split
-processors is already available public.
+Broadcom STB platforms were early adopters of the SCMI framework and as
+a result, not all deployed systems have a Device Tree entry where SCMI
+protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
+CPU Device Tree node(s) referencing protocol 0x13 as their clock
+provider.
 
-Therefore, Switch this R5F cluster to Split mode by default in all the
-boards using TI IPC Firmware config (k3-j7*-ti-ipc-firmware). This
-gives out an extra general purpose R5F core free to run any applications
-as required. Lockstep mode remains default in the SoC level dtsi, so
-downstream board dts which do not use TI IPC Firmware config should not
-be impacted by this switch.
+Leverage the quirks framework recently introduce to match on the
+Broadcom SCMI vendor and in that case, disable the Device Tree
+properties checks being done by scmi_dev_used_by_cpus().
 
-Users who prefer to use the fault-tolerant lockstep mode with TI IPC
-firmware config, can do that by setting `ti,cluster-mode` property to 1.
-
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
+Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi             | 1 +
- arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi             | 1 +
- arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi            | 1 +
- .../boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi     | 1 +
- 4 files changed, 4 insertions(+)
+ drivers/cpufreq/scmi-cpufreq.c     | 13 +++++++++++++
+ drivers/firmware/arm_scmi/quirks.c |  2 ++
+ drivers/firmware/arm_scmi/quirks.h |  1 +
+ 3 files changed, 16 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-index 8eff7bd2e771..ddf3cd899d0e 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-@@ -94,6 +94,7 @@ &main_timer2 {
+diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+index ef078426bfd5..80647511d3c3 100644
+--- a/drivers/cpufreq/scmi-cpufreq.c
++++ b/drivers/cpufreq/scmi-cpufreq.c
+@@ -22,6 +22,8 @@
+ #include <linux/types.h>
+ #include <linux/units.h>
  
- &mcu_r5fss0 {
- 	status = "okay";
-+	ti,cluster-mode = <0>;
++#include "../drivers/firmware/arm_scmi/quirks.h"
++
+ struct scmi_data {
+ 	int domain_id;
+ 	int nr_opp;
+@@ -34,6 +36,7 @@ struct scmi_data {
+ static struct scmi_protocol_handle *ph;
+ static const struct scmi_perf_proto_ops *perf_ops;
+ static struct cpufreq_driver scmi_cpufreq_driver;
++static bool __maybe_unused scmi_cpufreq_dt_props_check_disable;
+ 
+ static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
+ {
+@@ -400,6 +403,9 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
+ 	struct device *cpu_dev;
+ 	int cpu, idx;
+ 
++	if (scmi_cpufreq_dt_props_check_disable)
++		return true;
++
+ 	if (!scmi_np)
+ 		return false;
+ 
+@@ -427,12 +433,19 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
+ 	return false;
+ }
+ 
++#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
++	({							\
++		scmi_cpufreq_dt_props_check_disable = true;	\
++	})
++
+ static int scmi_cpufreq_probe(struct scmi_device *sdev)
+ {
+ 	int ret;
+ 	struct device *dev = &sdev->dev;
+ 	const struct scmi_handle *handle;
+ 
++	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
++
+ 	handle = sdev->handle;
+ 
+ 	if (!handle || !scmi_dev_used_by_cpus(dev))
+diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
+index 03960aca3610..aafc7b4b3294 100644
+--- a/drivers/firmware/arm_scmi/quirks.c
++++ b/drivers/firmware/arm_scmi/quirks.c
+@@ -171,6 +171,7 @@ struct scmi_quirk {
+ /* Global Quirks Definitions */
+ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
+ DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
++DEFINE_SCMI_QUIRK_EXPORTED(scmi_cpufreq_no_check_dt_props, "brcm-scmi", NULL, "0x2");
+ 
+ /*
+  * Quirks Pointers Array
+@@ -181,6 +182,7 @@ DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
+ static struct scmi_quirk *scmi_quirks_table[] = {
+ 	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
+ 	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
++	__DECLARE_SCMI_QUIRK_ENTRY(scmi_cpufreq_no_check_dt_props),
+ 	NULL
  };
  
- &mcu_r5fss0_core0 {
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-index 5b3fa95aed76..57890a3b38a2 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-@@ -211,6 +211,7 @@ &main_timer15 {
- };
+diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
+index a71fde85a527..64ac1f05d0d3 100644
+--- a/drivers/firmware/arm_scmi/quirks.h
++++ b/drivers/firmware/arm_scmi/quirks.h
+@@ -48,5 +48,6 @@ static inline void scmi_quirks_enable(struct device *dev, const char *vend,
+ /* Quirk delarations */
+ DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+ DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
++DECLARE_SCMI_QUIRK(scmi_cpufreq_no_check_dt_props);
  
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-index 40c9f2b64e7e..7ee8a8615246 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-@@ -179,6 +179,7 @@ &main_timer5 {
- };
- 
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-index b5a4496a05bf..e12fa55a4df0 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-@@ -254,6 +254,7 @@ &main_timer9 {
- };
- 
- &mcu_r5fss0 {
-+	ti,cluster-mode = <0>;
- 	status = "okay";
- };
- 
+ #endif /* _SCMI_QUIRKS_H */
 -- 
 2.34.1
 
