@@ -4,118 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EC6CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59A0CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F0qmEFzM6Mjd1Tn4KdOntF1EUo1kiqK63MpKnRUshuY=; b=YGW8knFVipBQxdrGlqVNxYvnoz
-	+xAKwkISsSTCbe39t31y4X95aDpgdlGNwo8FgVzVFlKbzmcg25pGLQUmXW3wQVEZ7xCkKafb3KypL
-	kgljPsGrWjN+NDkNvSwOONN9kEGZiErEAsGwWsjFIrbtZ97sg5MwMiL8xVJ5oPIdeX8G5ftmL9rrs
-	Jmk4KRogkQ78xXOeNCygK7Th3f5C/I9hOwvfxnjqDbYkNfoI3YMCU5HE6q/LSkN3bvmeIB6bQjLRM
-	DvoJ9JtewJZOqy0qw2Ym2bMLKBAx1PRnvFZK2XKMon3WRiliE/ZWKi++1fGXgLYI8U8LOz755hVXf
-	Gy52g/EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L3ufGPnyrW0N3UVpr3/riCJH1PQGRtTjLIlg9Lbrstg=; b=dzhIWlz9rlzlWdEf23DCLvTEdS
+	Zsf5ssIYFAKN8NCQ/5DQ/EYRJ1ujAc+EMhEaJ/AcJ6L8YK/JE+pmpoP55HHOeEpxnP0Yj9UWgmg78
+	pZM7IfDJ0TvLWfZMKbbViMsTcVAL2WpOed6Bs9fTl+H0SCpLVOorrPnoZ0aVaUXUwYFl0wRxt+XKU
+	WwVroQpY6CKVFwZ1qJgPVFSg7OghqokikUubaJJedaq5ee5AOXGhoOcyBvua4apHL9zBzL3I6iZqJ
+	tIBdDFRRYtFuWLQDC1gUZjSRA/bJjoKIZNPrKbHsRCrwRkjcga4M07SLbAmJa6wwjPl9hSlqIA7lG
+	7fKl4bdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZgz-0000000HOeP-2PeP;
-	Thu, 14 Aug 2025 15:16:37 +0000
+	id 1umZh2-0000000HOgK-2J2q;
+	Thu, 14 Aug 2025 15:16:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umV1f-0000000GYnl-3pNk
+	id 1umY0m-0000000H3KM-0aEO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Aug 2025 10:17:40 +0000
+	Thu, 14 Aug 2025 13:28:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=F0qmEFzM6Mjd1Tn4KdOntF1EUo1kiqK63MpKnRUshuY=; b=XvK4q6FVcB8M3wB1KgR/Hxnio3
-	Ib/B21bWb8EJsbufnQZtyy3pYzLiUFhX6j5vMFkA4okmHrFEyDQkv3MeOtapmKSKmKyNeeVdcdtK5
-	A/LJtMIuQ1SZfPyrHmfVOvOpn/G6+IAQ+nqBI+cEa1MNihGD/lAd6/E8tB5cCsTuSWRd1v68a78kw
-	hr+ah468vUXdNhi/HcZUu4uNDo7CIBUEbh6kZHE2Df2cjd9n1PW7j3hU5zu8Mn4JQ9CEE08yYciIP
-	bARhpivgA5NveAd+9LE3G83ImDKbPYYGk1ilEPfeADuFSSoMqZpq+qH0YfRl1h0Dc4lPLcPj8Luo4
-	MWKqZEgQ==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=L3ufGPnyrW0N3UVpr3/riCJH1PQGRtTjLIlg9Lbrstg=; b=ZDthPNcVcG7d8HgY/nOMJnnxeT
+	3krYcPelCSZgUO4GU3BembX+kGf6XPWkgEiggu5q1blJamC8FCTmmm9c4p62NosE29uCEmVnm1qBa
+	3urYtid1cl7QggdjWyFVzBYpwChXxXwpSmyKUlY42psyRo1GkCwGs5zQWbPYjOkry60vVRUzJuv4e
+	WjXgBuIL+KGZMQjlu0+knjvNB5cYzuMX2DHSb64/nSOpkOQsYRnhN0iFs7bllVlB8NQcAk0+n3+Mf
+	6Ym0bBcDggS5RTD1JS0FStP+0bgQx7InuVqnDJb1DudGQ9qzn3BgLVO4whQLoGBJwquTe916E+Ryo
+	HuMdI3lw==;
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umV1c-0000000GM1u-0vSH
+	id 1umY0f-0000000GP8u-2okM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:17:38 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57E9Gx7l030083;
-	Thu, 14 Aug 2025 10:17:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	F0qmEFzM6Mjd1Tn4KdOntF1EUo1kiqK63MpKnRUshuY=; b=Wldbv8rKAPCiSfaD
-	SL/suCzEXtzYcmDf2liPM8BLoKTIq5l490epWRyyJW7RUJbl1A0YKocd0FGOAPyG
-	ihCQPTqTPMit23BTZm9uZHTpau58oUMBmcWW7DMXkskW4gSEiIXTrwWSCorA35m4
-	zi+H5PuipZ4nf87bclmptbXWkmJ4hCZRsZk48tA/9Vgk/iw8mQKJvNK7kViQJDuw
-	LuDwYAWoCt0uCs7dPQ/nPjovVGGyNBCJia4KXVFZSeR2WYzwYK/bTiHTNyygGl65
-	gRDOyjW3TdszBm4n7Zk1oC1eJJASEBqAsVo2CB5kfO6BLm7z2EXA2xUn5mwm6isW
-	jpwycw==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48fm3vt6wy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Aug 2025 10:17:25 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57EAHOA5029676
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 14 Aug 2025 10:17:24 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Thu, 14 Aug 2025 03:17:18 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
-        <quic_vikramsa@quicinc.com>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 6/9] media: qcom: camss: Add support for CSID 690
-Date: Thu, 14 Aug 2025 15:46:12 +0530
-Message-ID: <20250814101615.1102795-7-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
-References: <20250814101615.1102795-1-quic_vikramsa@quicinc.com>
+	Thu, 14 Aug 2025 13:28:54 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250814132839epoutp03301243ad7234b6d5507837be63f01924~bpTM-1Zu70163201632epoutp03b
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 13:28:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250814132839epoutp03301243ad7234b6d5507837be63f01924~bpTM-1Zu70163201632epoutp03b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755178119;
+	bh=L3ufGPnyrW0N3UVpr3/riCJH1PQGRtTjLIlg9Lbrstg=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=ZzRxVVY5/wPdoVLxiMHEU5kpHumoK0S66oxLoNIMT+d4vhRsTLFh2Z+Ce+MWHDkOG
+	 LfhHE3VzzpQXqt+UWdVLNcSatvUVQVOcNZ4Qp7RPX1fWDait/49tMsZ/J7ivfIBZFf
+	 UNYY6UXvJ8rL0Fkt/Zonw5Ue59gdHqCKjTkPjq/I=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250814132838epcas5p3c3693b0f5672407d67efe160b31fcc0c~bpTMXiWWT1937819378epcas5p3c;
+	Thu, 14 Aug 2025 13:28:38 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c2mKK6nlKz6B9m7; Thu, 14 Aug
+	2025 13:28:37 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250814132606epcas5p1cdf8e1a97f5abe9d71dcd1b425a07648~bpQ_QWk6L2554225542epcas5p1n;
+	Thu, 14 Aug 2025 13:26:06 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250814132602epsmtip1c22abee846ffe43383ffacb28125aafe~bpQ7V3wRg3173831738epsmtip1Y;
+	Thu, 14 Aug 2025 13:26:02 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Vinod Koul'" <vkoul@kernel.org>
+Cc: <kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <aJtMdHcidETZyiIp@vaman>
+Subject: RE: [PATCH v5 2/6] phy: exynos5-usbdrd: support HS phy for
+ ExynosAutov920
+Date: Thu, 14 Aug 2025 18:56:01 +0530
+Message-ID: <02f101dc0d1e$fd018ef0$f704acd0$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODExMDEwNyBTYWx0ZWRfX4DzUUOsQmU61
- 999plasZ3E07czfqRGeZPcLp7yo/3XszqLbTXEjKv7LF+SHuW5FWNb5tGy+uo310XhUOOxKreo7
- yLehf7ERASAXNejPP/R2VVVx2WZ4t3SACu7S1nkaZ5lD8VdmFNb6HnUy5vFIiIh4meZnPMiVh9i
- ZyL1HTOILYCiQlnTHSb0r8oG2kTo0SQzf4AvZXJ1lPzi+KYsZbyr4n/l8XnMZMkKBdIHrqG+xDF
- WG8NrLvD5THXtuaOIOzNTEjJ8S6xS5g7QidfO0o/1jB4dFCxfz2W2wgENpc7R1V4JQ+Ul/91Hmy
- NjSXJUs+gyymr0gh0/fmUtfVm3ll7fGWUj4Xt3E/lMpoQGgfc67F7EKnuwRhrrHWP6INsYYafjY
- 1cf3FRWu
-X-Proofpoint-GUID: uPV-REawm1C7Tyvhrc5mO9gjA9yhBUv3
-X-Authority-Analysis: v=2.4 cv=A+1sP7WG c=1 sm=1 tr=0 ts=689db7b5 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8
- a=8yVpw4eTn7GS_Gpo2AoA:9 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: uPV-REawm1C7Tyvhrc5mO9gjA9yhBUv3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 spamscore=0
- phishscore=0 clxscore=1015 adultscore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508110107
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJ+ZgWj3OwstM5ZbwFL0KmcSzrOlQIGOcp3ARbD4UABdmTpTbL41iug
+Content-Language: en-in
+X-CMS-MailID: 20250814132606epcas5p1cdf8e1a97f5abe9d71dcd1b425a07648
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250805114310epcas5p459aa232884d22501f5fefe42f239fecc
+References: <20250805115216.3798121-1-pritam.sutar@samsung.com>
+	<CGME20250805114310epcas5p459aa232884d22501f5fefe42f239fecc@epcas5p4.samsung.com>
+	<20250805115216.3798121-3-pritam.sutar@samsung.com> <aJtMdHcidETZyiIp@vaman>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_111736_695620_C4A20D07 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250814_142851_658245_EC015F7F 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,232 +118,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for CSID 690 found on lemans(sa8775p) soc, This
-is different from csid 780 w.r.t few register offsets and
-bit-fields.
+Hi Vinod, 
 
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
- .../platform/qcom/camss/camss-csid-gen3.c     |  27 +++-
- drivers/media/platform/qcom/camss/camss.c     | 133 ++++++++++++++++++
- 2 files changed, 153 insertions(+), 7 deletions(-)
+> -----Original Message-----
+> From: Vinod Koul <vkoul@kernel.org>
+> Sent: 12 August 2025 07:45 PM
+> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> Cc: kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
+> peter.griffin@linaro.org; kauschluss@disroot.org;
+> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
+> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> samsung-soc@vger.kernel.org; rosa.pila@samsung.com;
+> dev.tailor@samsung.com; faraz.ata@samsung.com;
+> muhammed.ali@samsung.com; selvarasu.g@samsung.com
+> Subject: Re: [PATCH v5 2/6] phy: exynos5-usbdrd: support HS phy for
+> ExynosAutov920
+> 
+> On 05-08-25, 17:22, Pritam Manohar Sutar wrote:
+> > Enable UTMI+ phy support for this SoC which is very similar to what
+> > the existing Exynos850 supports.
+> >
+> > Add required change in phy driver to support HS phy for this SoC.
+> >
+> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> > ---
+> >  drivers/phy/samsung/phy-exynos5-usbdrd.c    | 123
+> ++++++++++++++++++++
+> >  include/linux/soc/samsung/exynos-regs-pmu.h |   2 +
+> >  2 files changed, 125 insertions(+)
+> >
+> > diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> > b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> > index dd660ebe8045..5400dd23e500 100644
+> > --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> > +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> > @@ -2054,6 +2054,126 @@ static const struct
+> exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
+> >  	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+> >  };
+> >
+> > +static int exynosautov920_usbdrd_phy_init(struct phy *phy) {
+> > +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+> > +	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
+> > +	int ret;
+> > +
+> > +	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks,
+> phy_drd->clks);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	/* Bypass PHY isol */
+> > +	inst->phy_cfg->phy_isol(inst, false);
+> > +
+> > +	/* UTMI or PIPE3 specific init */
+> > +	inst->phy_cfg->phy_init(phy_drd);
+> > +
+> > +	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks,
+> > +phy_drd->clks);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int exynosautov920_usbdrd_phy_exit(struct phy *phy) {
+> > +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+> > +	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
+> > +	int ret = 0;
+> 
+> Superfluous init..
+> 
+> > +
+> > +	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks,
+> phy_drd->clks);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	exynos850_usbdrd_phy_exit(phy);
+> > +
+> > +	/* enable PHY isol */
+> > +	inst->phy_cfg->phy_isol(inst, true);
+> > +
+> > +	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks,
+> > +phy_drd->clks);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int exynosautov920_usbdrd_phy_power_on(struct phy *phy) {
+> > +	int ret;
+> > +	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+> > +	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
+> 
+> Reverse chrsitmas tree pls
+> 
+> --
+> ~Vinod
 
-diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen3.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
-index 433908a54baa..fc6a9787febe 100644
---- a/drivers/media/platform/qcom/camss/camss-csid-gen3.c
-+++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
-@@ -45,8 +45,11 @@
- #define CSID_CSI2_RX_IRQ_CLEAR		0xA4
- #define CSID_CSI2_RX_IRQ_SET		0xA8
- 
-+#define IS_CSID_690(csid)	(csid->camss->res->version == CAMSS_8775P)
- #define CSID_BUF_DONE_IRQ_STATUS	0x8C
--#define		BUF_DONE_IRQ_STATUS_RDI_OFFSET	(csid_is_lite(csid) ? 1 : 14)
-+#define BUF_DONE_IRQ_STATUS_RDI_OFFSET  (csid_is_lite(csid) ?\
-+						1 : (IS_CSID_690(csid) ?\
-+						13 : 14))
- #define CSID_BUF_DONE_IRQ_MASK		0x90
- #define CSID_BUF_DONE_IRQ_CLEAR		0x94
- #define CSID_BUF_DONE_IRQ_SET		0x98
-@@ -59,6 +62,7 @@
- 
- #define CSID_CSI2_RX_CFG0		0x200
- #define		CSI2_RX_CFG0_NUM_ACTIVE_LANES	0
-+#define		CSI2_RX_CFG0_VC_MODE		3
- #define		CSI2_RX_CFG0_DL0_INPUT_SEL	4
- #define		CSI2_RX_CFG0_PHY_NUM_SEL	20
- 
-@@ -66,7 +70,9 @@
- #define		CSI2_RX_CFG1_ECC_CORRECTION_EN	BIT(0)
- #define		CSI2_RX_CFG1_VC_MODE		BIT(2)
- 
--#define CSID_RDI_CFG0(rdi)		(0x500 + 0x100 * (rdi))
-+#define CSID_RDI_CFG0(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
-+					(0x300 + 0x100 * (rdi)) :\
-+					(0x500 + 0x100 * (rdi)))
- #define		RDI_CFG0_TIMESTAMP_EN		BIT(6)
- #define		RDI_CFG0_TIMESTAMP_STB_SEL	BIT(8)
- #define		RDI_CFG0_DECODE_FORMAT		12
-@@ -75,10 +81,14 @@
- #define		RDI_CFG0_DT_ID			27
- #define		RDI_CFG0_EN			BIT(31)
- 
--#define CSID_RDI_CTRL(rdi)		(0x504 + 0x100 * (rdi))
-+#define CSID_RDI_CTRL(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
-+					(0x304 + 0x100 * (rdi)) :\
-+					(0x504 + 0x100 * (rdi)))
- #define		RDI_CTRL_START_CMD		BIT(0)
- 
--#define CSID_RDI_CFG1(rdi)		(0x510 + 0x100 * (rdi))
-+#define CSID_RDI_CFG1(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
-+					(0x310 + 0x100 * (rdi)) :\
-+					(0x510 + 0x100 * (rdi)))
- #define		RDI_CFG1_DROP_H_EN		BIT(5)
- #define		RDI_CFG1_DROP_V_EN		BIT(6)
- #define		RDI_CFG1_CROP_H_EN		BIT(7)
-@@ -86,9 +96,12 @@
- #define		RDI_CFG1_PIX_STORE		BIT(10)
- #define		RDI_CFG1_PACKING_FORMAT_MIPI	BIT(15)
- 
--#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(0x548 + 0x100 * (rdi))
--#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(0x54C + 0x100 * (rdi))
--
-+#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
-+							(0x348 + 0x100 * (rdi)) :\
-+							(0x548 + 0x100 * (rdi)))
-+#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
-+							(0x34C + 0x100 * (rdi)) :\
-+							(0x54C + 0x100 * (rdi)))
- #define CSI2_RX_CFG0_PHY_SEL_BASE_IDX	1
- 
- static void __csid_configure_rx(struct csid_device *csid,
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 4767d4e7c306..5f1e267045cb 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2554,6 +2554,139 @@ static const struct camss_subdev_resources csiphy_res_8775p[] = {
- 	},
- };
- 
-+static const struct camss_subdev_resources csid_res_8775p[] = {
-+	/* CSID0 */
-+	{
-+		.regulators = {},
-+		.clock = { "csid", "csiphy_rx"},
-+		.clock_rate = {
-+			{ 400000000, 400000000},
-+			{ 400000000, 400000000}
-+		},
-+		.reg = { "csid0" },
-+		.interrupt = { "csid0" },
-+		.csid = {
-+			.is_lite = false,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID1 */
-+	{
-+		.regulators = {},
-+		.clock = { "csid", "csiphy_rx"},
-+		.clock_rate = {
-+			{ 400000000, 400000000},
-+			{ 400000000, 400000000}
-+		},
-+		.reg = { "csid1" },
-+		.interrupt = { "csid1" },
-+		.csid = {
-+			.is_lite = false,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+
-+	/* CSID2 (lite) */
-+	{
-+		.regulators = {},
-+		.clock = { "cpas_vfe_lite", "vfe_lite_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx",
-+			   "vfe_lite"},
-+		.clock_rate = {
-+			{ 0, 0, 400000000, 400000000, 0},
-+			{ 0, 0, 400000000, 480000000, 0}
-+		},
-+		.reg = { "csid_lite0" },
-+		.interrupt = { "csid_lite0" },
-+		.csid = {
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID3 (lite) */
-+	{
-+		.regulators = {},
-+		.clock = { "cpas_vfe_lite", "vfe_lite_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx",
-+			   "vfe_lite"},
-+		.clock_rate = {
-+			{ 0, 0, 400000000, 400000000, 0},
-+			{ 0, 0, 400000000, 480000000, 0}
-+		},
-+		.reg = { "csid_lite1" },
-+		.interrupt = { "csid_lite1" },
-+		.csid = {
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID4 (lite) */
-+	{
-+		.regulators = {},
-+		.clock = { "cpas_vfe_lite", "vfe_lite_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx",
-+			   "vfe_lite"},
-+		.clock_rate = {
-+			{ 0, 0, 400000000, 400000000, 0},
-+			{ 0, 0, 400000000, 480000000, 0}
-+		},
-+		.reg = { "csid_lite2" },
-+		.interrupt = { "csid_lite2" },
-+		.csid = {
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID5 (lite) */
-+	{
-+		.regulators = {},
-+		.clock = { "cpas_vfe_lite", "vfe_lite_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx",
-+			   "vfe_lite"},
-+		.clock_rate = {
-+			{ 0, 0, 400000000, 400000000, 0},
-+			{ 0, 0, 400000000, 480000000, 0}
-+		},
-+		.reg = { "csid_lite3" },
-+		.interrupt = { "csid_lite3" },
-+		.csid = {
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+	/* CSID6 (lite) */
-+	{
-+		.regulators = {},
-+		.clock = { "cpas_vfe_lite", "vfe_lite_ahb",
-+			   "vfe_lite_csid", "vfe_lite_cphy_rx",
-+			   "vfe_lite"},
-+		.clock_rate = {
-+			{ 0, 0, 400000000, 400000000, 0},
-+			{ 0, 0, 400000000, 480000000, 0}
-+		},
-+		.reg = { "csid_lite4" },
-+		.interrupt = { "csid_lite4" },
-+		.csid = {
-+			.is_lite = true,
-+			.hw_ops = &csid_ops_gen3,
-+			.parent_dev_ops = &vfe_parent_dev_ops,
-+			.formats = &csid_formats_gen2
-+		}
-+	},
-+};
-+
- static const struct resources_icc icc_res_sa8775p[] = {
- 	{
- 		.name = "ahb",
--- 
-2.25.1
+Will address these comments in next version of the patch-set (v6).
+
+Thank you.
+
+Regards,
+Pritam
+
 
 
