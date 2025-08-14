@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C54CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39273CA0EE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 08:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QUe9rlUXRtSFBdvBHEKDFyeAsTRBjlooxhUZO8iF2Bs=; b=b8xwNJ6qkqVsLXIJD3d+tH0UUI
-	gcWFTb0MDMkaYNAIta8XeiBtewluQdcmZXw+YSTknQF/ul9PZymyBuoVIktIQrPOWjD/g+RbsXfaf
-	wVszf6QXl6eHkh+QOuxJYQR2Ye+2V9Diltwe/xdPoURzRDns9tRSR6X3zlpwXzme4+/kSdVs3JQns
-	vwDtuevv8QytV074p+waZNHHYyW09FoG1I4AUFdChYSRrZf1JVOOE+3V5NpOd+/Dntvt0qGUqHDHk
-	7AxqwioTQ5TO4Nsyy5rUJtTnVTDWyhIuTOpHi/9pLXrvnPrBX/hg5vNuXK7Vd+ZIKePMJFWtYJsdi
-	TVkaR6hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r1Ih+GxrJlx9WnOtqCehCJ3Lo5kUOBdBINzHA4pU3lA=; b=O55tjx5oAaUS2qN5A/c5LlWn0x
+	S1hpJEgJ06hAbYsdZgvBjrqd1RB1jX6jhr9t4TfmUDJhC1ROP29q2LVGr+nn0zaxgrn1WFsKDG80z
+	BzVGXcqWryfeujZyEoXfcwjMkWtmrHCNQxFgNZEuwcHhVJlDx7cyBHOilZRrU4uGaJny/GspPmho0
+	H5Jl4PzvafkvgqtdY1uWsxycgDhVXi6xOBAp9mmdhUmGIr+2qyNxgVKHZpFZ218ceeXDMCT9hAcOW
+	ljy6g4cI+4wyDXXl4OGFbRGcCLi0z5C5l8QpjOV11b6aQJe7JIes9SQncs9gXl+YeskwNkUBcgBpR
+	UTfxxAqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTDE-0000000GE5a-2vi6;
-	Thu, 14 Aug 2025 08:21:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1umTFk-0000000GENF-3XBs;
+	Thu, 14 Aug 2025 08:24:04 +0000
+Received: from mail-vs1-f50.google.com ([209.85.217.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSkV-0000000G9Xg-25RN;
-	Thu, 14 Aug 2025 07:51:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E67D9429C1;
-	Thu, 14 Aug 2025 07:51:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A8DC4CEF4;
-	Thu, 14 Aug 2025 07:51:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755157906;
-	bh=dmpTosncAaE7Nn1ATog0PXraXtGDs0p8ha4JWC1qTo4=;
-	h=From:Date:Subject:To:Cc:From;
-	b=nZzOPP56EsxqzgrTP30aj4u8udATEp39etY8efpK0WqF/olSle/O9PEoRhfnINou6
-	 XusIcCtzqkD1tseoGvfJlyU+7qzFhKdltSZ2ygHaPphVnXUya2X7JSzzmRLjJvo5G7
-	 D9u7qz+GZFCgB8w8kmjm2gok2N8prV268n8CwH11auKsdVoPx8fYDQvRJ6lFqHsstb
-	 6Lx9btVFw31Cm0WRHdbv+8JuCkMbNNeymbyodMLMazr0w6ij2fr7Iz/NyZPUTW1ft+
-	 tWNXnE3+UK3zbEx0YqahL51yMzC6G3WPxui837ktBsoDA6/IxwSDUP9OqwEG0/CX1t
-	 RBBJ00Pg+psVw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 14 Aug 2025 09:51:16 +0200
-Subject: [PATCH net-next] net: airoha: Add wlan flowtable TX offload
+	id 1umSlf-0000000G9jU-1UKM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 07:53:00 +0000
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-50f88cd722bso273040137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 00:52:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755157978; x=1755762778;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r1Ih+GxrJlx9WnOtqCehCJ3Lo5kUOBdBINzHA4pU3lA=;
+        b=cK9i//MaB4HBXATA1GAV/VdSd4L/9jyuDND2RHe8tRvzG+qboPI3zaoXX5EzXoyXFf
+         0Eg76J0R4ie0Sbo9c/aZiFQPvrg8i9FdlIuzYVF4sZ0Hf4eYfL4HoUjaWi52yYPaMfYU
+         aUjTGYsD3YeAH2o9NQO+cA0vX5qE9lQWqJV2QFPE8XKP7YSyPn818YaCFPeKLovv/Wtp
+         /M8xaDAsS6+P0hmAuIkVmaQafrQ1A0+Pju3o6DJQ2ye/mDXtNIx3L8CdzBNjZ4nAut1n
+         Q9xQfingH78QmOh1QPv/sjuOj71jFZuF6lbFgBBerDi+1Pb434aJWBxuaqKdjnK8j5Ox
+         I3NA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5tZADqeFJ9kTGHBq1rEVcdMqo4Chl6KsvWwI1up56VF1ULowWGdeIRLwvd+q9OFbq2oRG323hyqO+i3t9cQz/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyk2DZa2xG+2CJOMu313i0jewskKTWszUuOZ4j7FlvGxNr8wjhG
+	Rfiak+9AVgYyvqx/2PCgh56llBK7nOGrmUjGCM3GWbFvEB1h43fnehYm48tOI5GJ
+X-Gm-Gg: ASbGncvC3YKsNmCja4PGJgidmU2h4CmQjKj5YvCc6sYzyovIyWgXOCmHPgcYC59jZtR
+	+mAKH+y9yt4x16Ht6OJkiNcm+Gdw/yHPI874imVvfyP3u6q/I7KbjTKxYUM1o3eDRwziD/kDwFw
+	y2NWVjYZKLjy/kZU9hAqCBSS/hu3KaO7BLn3epq4iPjUBGxrvsgwEeh+Go1D5FBuUnnYd4wxPmq
+	zrUDLUEb1eHcrZ2g7+Dt5TVCrR/lwcNY1AYHkUkN+MxngNC60llN+rLq+BgHShxGBJLmK4xKeXX
+	gduoVOJ8JeAL4OkgGhZS2cT2YPApCr+gHudDK6eolN4UZvY8O5/X/7J+u6UQKJphIwn4m1+TIby
+	SRBc26iQXlHSMR+o2TjDdxhN71I85F5KDysu9dCY6zV7OQDciB7py9LCczEU8
+X-Google-Smtp-Source: AGHT+IFJ4lcea0lNkC1+ctG9SH3NQRC9A2NK9IrTeQO2uWKu43x+bN1xOTnTmevBmtrk5ymIkwObsQ==
+X-Received: by 2002:a05:6102:6a90:b0:4fd:35ca:6df5 with SMTP id ada2fe7eead31-50fdfaddb71mr692653137.7.1755157977497;
+        Thu, 14 Aug 2025 00:52:57 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-88e026e8c19sm3183975241.7.2025.08.14.00.52.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Aug 2025 00:52:57 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-50f88cd722bso273033137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 00:52:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUVLNj8iCcCsZjjWq+9RVZvp+gNNl2Y9ysVeXFgXo+MGPiyfv+g7SdrELMt9tNE4vXSxocU5TU7y2QY9mHEnnwF@lists.infradead.org
+X-Received: by 2002:a05:6102:8011:b0:4fb:def3:d27c with SMTP id
+ ada2fe7eead31-50fea4aa249mr676943137.22.1755157976795; Thu, 14 Aug 2025
+ 00:52:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-airoha-en7581-wlan-tx-offload-v1-1-72e0a312003e@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAHOVnWgC/x3MwQqEIBAA0F+JOTeQsa7Sr0SHKcdtIDQ0KpD+f
- aXju7wCmZNwhqEpkPiULDFUqLaBZaXwYxRXDX3X686qD5KkuBJyMNoqvDYKeNwYvd8iOZzN/NW
- GHFlPUI89sZf7/cfpef7z11YzbwAAAA==
-X-Change-ID: 20250814-airoha-en7581-wlan-tx-offload-b7b657ada8fa
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+References: <20250813214808.895654-1-robh@kernel.org>
+In-Reply-To: <20250813214808.895654-1-robh@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 14 Aug 2025 09:52:45 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXk4rsv5YEj5kJ4+tu-n_11rXOHe1zJiy7KYnvBwJZ=eQ@mail.gmail.com>
+X-Gm-Features: Ac12FXx9pwnYSd00OxlZFeC1ex7P8HZ3DAupd0C5lnYndVT3t4qqLZV8fVUeU-Q
+Message-ID: <CAMuHMdXk4rsv5YEj5kJ4+tu-n_11rXOHe1zJiy7KYnvBwJZ=eQ@mail.gmail.com>
+Subject: Re: [PATCH v4] remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Peng Fan <peng.fan@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_005147_579082_8B73BFAC 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20250814_005259_413388_C45A6181 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,210 +102,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support to offload the traffic received on the ethernet NIC
-and forwarded to the wireless one using HW Packet Processor Engine (PPE)
-capabilities.
+Hi Rob,
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.h |  11 ++++
- drivers/net/ethernet/airoha/airoha_ppe.c | 103 ++++++++++++++++++++++---------
- 2 files changed, 85 insertions(+), 29 deletions(-)
+On Wed, 13 Aug 2025 at 23:48, Rob Herring (Arm) <robh@kernel.org> wrote:
+> Use the newly added of_reserved_mem_region_to_resource() and
+> of_reserved_mem_region_count() functions to handle "memory-region"
+> properties.
+>
+> The error handling is a bit different in some cases. Often
+> "memory-region" is optional, so failed lookup is not an error. But then
+> an error in of_reserved_mem_lookup() is treated as an error. However,
+> that distinction is not really important. Either the region is available
+> and usable or it is not. So now, it is just
+> of_reserved_mem_region_to_resource() which is checked for an error.
+>
+> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> Tested-by: Peng Fan <peng.fan@nxp.com> # i.MX93-11x11-EVK for imx_rproc.c
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index a970b789cf232c316e5ea27b0146493bf91c3767..9f721e2b972f0e547978419701caf532df664910 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -252,6 +252,10 @@ enum {
- #define AIROHA_FOE_MAC_SMAC_ID		GENMASK(20, 16)
- #define AIROHA_FOE_MAC_PPPOE_ID		GENMASK(15, 0)
- 
-+#define AIROHA_FOE_MAC_WDMA_QOS		GENMASK(15, 12)
-+#define AIROHA_FOE_MAC_WDMA_BAND	BIT(11)
-+#define AIROHA_FOE_MAC_WDMA_WCID	GENMASK(10, 0)
-+
- struct airoha_foe_mac_info_common {
- 	u16 vlan1;
- 	u16 etype;
-@@ -481,6 +485,13 @@ struct airoha_flow_table_entry {
- 	unsigned long cookie;
- };
- 
-+struct airoha_wdma_info {
-+	u8 idx;
-+	u8 queue;
-+	u16 wcid;
-+	u8 bss;
-+};
-+
- /* RX queue to IRQ mapping: BIT(q) in IRQ(n) */
- #define RX_IRQ0_BANK_PIN_MASK			0x839f
- #define RX_IRQ1_BANK_PIN_MASK			0x7fe00000
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 82163392332c92d3bf50a976ffd473ae7a31a344..2bf1c584ba7b7217549ce79df86f7a123199b5e1 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -190,6 +190,31 @@ static int airoha_ppe_flow_mangle_ipv4(const struct flow_action_entry *act,
- 	return 0;
- }
- 
-+static int airoha_ppe_get_wdma_info(struct net_device *dev, const u8 *addr,
-+				    struct airoha_wdma_info *info)
-+{
-+	struct net_device_path_stack stack;
-+	struct net_device_path *path;
-+	int err;
-+
-+	if (!dev)
-+		return -ENODEV;
-+
-+	err = dev_fill_forward_path(dev, addr, &stack);
-+	if (err)
-+		return err;
-+
-+	path = &stack.path[stack.num_paths - 1];
-+	if (path->type != DEV_PATH_MTK_WDMA)
-+		return -1;
-+
-+	info->idx = path->mtk_wdma.wdma_idx;
-+	info->bss = path->mtk_wdma.bss;
-+	info->wcid = path->mtk_wdma.wcid;
-+
-+	return 0;
-+}
-+
- static int airoha_get_dsa_port(struct net_device **dev)
- {
- #if IS_ENABLED(CONFIG_NET_DSA)
-@@ -220,9 +245,9 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 					struct airoha_flow_data *data,
- 					int l4proto)
- {
--	int dsa_port = airoha_get_dsa_port(&dev);
-+	u32 qdata = FIELD_PREP(AIROHA_FOE_SHAPER_ID, 0x7f), ports_pad, val;
-+	int wlan_etype = -EINVAL, dsa_port = airoha_get_dsa_port(&dev);
- 	struct airoha_foe_mac_info_common *l2;
--	u32 qdata, ports_pad, val;
- 	u8 smac_id = 0xf;
- 
- 	memset(hwe, 0, sizeof(*hwe));
-@@ -236,31 +261,47 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 	      AIROHA_FOE_IB1_BIND_TTL;
- 	hwe->ib1 = val;
- 
--	val = FIELD_PREP(AIROHA_FOE_IB2_PORT_AG, 0x1f) |
--	      AIROHA_FOE_IB2_PSE_QOS;
--	if (dsa_port >= 0)
--		val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ, dsa_port);
--
-+	val = FIELD_PREP(AIROHA_FOE_IB2_PORT_AG, 0x1f);
- 	if (dev) {
--		struct airoha_gdm_port *port = netdev_priv(dev);
--		u8 pse_port;
--
--		if (!airoha_is_valid_gdm_port(eth, port))
--			return -EINVAL;
--
--		if (dsa_port >= 0)
--			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
--		else
--			pse_port = 2; /* uplink relies on GDM2 loopback */
--		val |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, pse_port);
--
--		/* For downlink traffic consume SRAM memory for hw forwarding
--		 * descriptors queue.
--		 */
--		if (airhoa_is_lan_gdm_port(port))
--			val |= AIROHA_FOE_IB2_FAST_PATH;
--
--		smac_id = port->id;
-+		struct airoha_wdma_info info = {};
-+
-+		if (!airoha_ppe_get_wdma_info(dev, data->eth.h_dest, &info)) {
-+			val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ, info.idx) |
-+			       FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT,
-+					  FE_PSE_PORT_CDM4);
-+			qdata |= FIELD_PREP(AIROHA_FOE_ACTDP, info.bss);
-+			wlan_etype = FIELD_PREP(AIROHA_FOE_MAC_WDMA_BAND,
-+						info.idx) |
-+				     FIELD_PREP(AIROHA_FOE_MAC_WDMA_WCID,
-+						info.wcid);
-+		} else {
-+			struct airoha_gdm_port *port = netdev_priv(dev);
-+			u8 pse_port;
-+
-+			if (!airoha_is_valid_gdm_port(eth, port))
-+				return -EINVAL;
-+
-+			if (dsa_port >= 0)
-+				pse_port = port->id == 4 ? FE_PSE_PORT_GDM4
-+							 : port->id;
-+			else
-+				pse_port = 2; /* uplink relies on GDM2
-+					       * loopback
-+					       */
-+
-+			val |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, pse_port) |
-+			       AIROHA_FOE_IB2_PSE_QOS;
-+			/* For downlink traffic consume SRAM memory for hw
-+			 * forwarding descriptors queue.
-+			 */
-+			if (airhoa_is_lan_gdm_port(port))
-+				val |= AIROHA_FOE_IB2_FAST_PATH;
-+			if (dsa_port >= 0)
-+				val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ,
-+						  dsa_port);
-+
-+			smac_id = port->id;
-+		}
- 	}
- 
- 	if (is_multicast_ether_addr(data->eth.h_dest))
-@@ -272,7 +313,6 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 	if (type == PPE_PKT_TYPE_IPV6_ROUTE_3T)
- 		hwe->ipv6.ports = ports_pad;
- 
--	qdata = FIELD_PREP(AIROHA_FOE_SHAPER_ID, 0x7f);
- 	if (type == PPE_PKT_TYPE_BRIDGE) {
- 		airoha_ppe_foe_set_bridge_addrs(&hwe->bridge, &data->eth);
- 		hwe->bridge.data = qdata;
-@@ -313,7 +353,9 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 			l2->vlan2 = data->vlan.hdr[1].id;
- 	}
- 
--	if (dsa_port >= 0) {
-+	if (wlan_etype >= 0) {
-+		l2->etype = wlan_etype;
-+	} else if (dsa_port >= 0) {
- 		l2->etype = BIT(dsa_port);
- 		l2->etype |= !data->vlan.num ? BIT(15) : 0;
- 	} else if (data->pppoe.num) {
-@@ -490,6 +532,10 @@ static void airoha_ppe_foe_flow_stats_update(struct airoha_ppe *ppe,
- 		meter = &hwe->ipv4.l2.meter;
- 	}
- 
-+	pse_port = FIELD_GET(AIROHA_FOE_IB2_PSE_PORT, *ib2);
-+	if (pse_port == FE_PSE_PORT_CDM4)
-+		return;
-+
- 	airoha_ppe_foe_flow_stat_entry_reset(ppe, npu, index);
- 
- 	val = FIELD_GET(AIROHA_FOE_CHANNEL | AIROHA_FOE_QID, *data);
-@@ -500,7 +546,6 @@ static void airoha_ppe_foe_flow_stats_update(struct airoha_ppe *ppe,
- 		      AIROHA_FOE_IB2_PSE_QOS | AIROHA_FOE_IB2_FAST_PATH);
- 	*meter |= FIELD_PREP(AIROHA_FOE_TUNNEL_MTU, val);
- 
--	pse_port = FIELD_GET(AIROHA_FOE_IB2_PSE_PORT, *ib2);
- 	nbq = pse_port == 1 ? 6 : 5;
- 	*ib2 &= ~(AIROHA_FOE_IB2_NBQ | AIROHA_FOE_IB2_PSE_PORT |
- 		  AIROHA_FOE_IB2_PSE_QOS);
+Thanks for your patch!
 
----
-base-commit: 3b5ca25ecfa85098c7015251a0e7c78a8ff392e5
-change-id: 20250814-airoha-en7581-wlan-tx-offload-b7b657ada8fa
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar
 
-Best regards,
+One nit below (which applies to most drivers).
+
+> --- a/drivers/remoteproc/rcar_rproc.c
+> +++ b/drivers/remoteproc/rcar_rproc.c
+> @@ -52,41 +52,33 @@ static int rcar_rproc_prepare(struct rproc *rproc)
+>  {
+>         struct device *dev = rproc->dev.parent;
+>         struct device_node *np = dev->of_node;
+> -       struct of_phandle_iterator it;
+>         struct rproc_mem_entry *mem;
+> -       struct reserved_mem *rmem;
+> +       int i = 0;
+>         u32 da;
+>
+>         /* Register associated reserved memory regions */
+> -       of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
+> -       while (of_phandle_iterator_next(&it) == 0) {
+> -
+> -               rmem = of_reserved_mem_lookup(it.node);
+> -               if (!rmem) {
+> -                       of_node_put(it.node);
+> -                       dev_err(&rproc->dev,
+> -                               "unable to acquire memory-region\n");
+> -                       return -EINVAL;
+> -               }
+> +       while (1) {
+> +               struct resource res;
+> +               int ret;
+> +
+> +               ret = of_reserved_mem_region_to_resource(np, i++, &res);
+> +               if (ret)
+> +                       return 0;
+>
+> -               if (rmem->base > U32_MAX) {
+> -                       of_node_put(it.node);
+> +               if (res.start > U32_MAX)
+>                         return -EINVAL;
+> -               }
+>
+>                 /* No need to translate pa to da, R-Car use same map */
+> -               da = rmem->base;
+> +               da = res.start;
+>                 mem = rproc_mem_entry_init(dev, NULL,
+> -                                          rmem->base,
+> -                                          rmem->size, da,
+> +                                          res.start,
+> +                                          resource_size(&res), da,
+>                                            rcar_rproc_mem_alloc,
+>                                            rcar_rproc_mem_release,
+> -                                          it.node->name);
+> +                                          res.name);
+>
+> -               if (!mem) {
+> -                       of_node_put(it.node);
+> +               if (!mem)
+>                         return -ENOMEM;
+> -               }
+>
+>                 rproc_add_carveout(rproc, mem);
+>         }
+
+The "return 0;" below (out of context) is now unreachable.
+It may be wise to remove it, so the compiler will complain when someone
+ever adds a break statement, and people are forced to consider what
+is the proper value to return.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
