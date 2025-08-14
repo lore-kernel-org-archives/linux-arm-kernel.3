@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F4B1CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CC0CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jaH5wVLQcCdHSa8C/Q8gM8ep2RHMYVswk335MNTKl4Q=; b=kGxD9gKGOIhCPN/NK8l0WAzFTU
-	tv71JLCw32qKMrP1o22VkHh2s7mIqo/cYaOO8m7Di4PXCbkrXEepmtxbYk+cO2/7vhFu+SbDkCWUe
-	lXYcsiBTGzDTckF80ZC55CeEQ9rnoOnMv1s/eEzXSbWBeg9WF6jhIS/uO7zqLu/hO98UCMpuXjaC+
-	lA+Qlt7SahO5CFtKxY3fGD0459xNuHzlOempLZNpdhZEtXUuIP7VOpICEaz/D/zFQEgMBcTyK4IUb
-	s3v+EqN/vViGwPOT4g+SYVq9VHd9r9iIlUe2pcTkmdjUPXXj2LNnuODHqFQPkCEbn/9NoB+SxF4dl
-	c3IOgqfQ==;
+	bh=si9CbDdbSkrtahoEM2agGz+twUDM2oOQDkB8gFVKoJ0=; b=i20WqwjqbQZYc5dNKFdLbQQ+ul
+	rjjT1zRyL6ZVuBDWjbqwSwxneqmNHt498mbze5qKt6M0IVZZ9HQPA31Fpa89xAyNLAppLr0lTDpik
+	tywiurvVsu0ehHQfpArpO2X4ah6TmNGQ2Dk0RxRO4ErOpo98hqh3Vn8sKxhdFdNSsYmCOrI3IaxpE
+	eZTyhNr/GRso81N5hNxXUg5FReBEuTQnx/6U0oZ+kQaZ/Gi1tQEJFdn9RvP3vxFh6DpElhDi6fKq4
+	vNqg/KeYQ4kNASmoZMjQ8cr8p8eq4p1AxNr4G1+4VTJYQt3+USJJlH1SlpU2Ujy7/QGWIlHSGxe7N
+	h3/H8Okg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZvH-0000000HRca-1BHC;
-	Thu, 14 Aug 2025 15:31:23 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1umZvV-0000000HRfv-1NWx;
+	Thu, 14 Aug 2025 15:31:37 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZ7l-0000000HIXD-0c9o
+	id 1umVQC-0000000Gd2j-35Ha
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 14:40:14 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-53b1737b9c8so364071e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 07:40:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755182411; x=1755787211;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jaH5wVLQcCdHSa8C/Q8gM8ep2RHMYVswk335MNTKl4Q=;
-        b=l1Ohjz+VdnhVg9z8NBXHpID0t/ynmeAxXJqLD3Q46T1I4CCIh60xkHN97ekSV/XtOb
-         +/jxHt5pTq/eC/bKnNpW2s8P3jyUawij5GdtyMpN2Jn7xXnkaC2hHvfzgABakLWJMNH6
-         +eHptWskRzhQ4zwhzKZI3cljwZ0GTr458kDMHOFd3m0ZNx0mPQcFnQSoJy8GI6WoDpV+
-         fk9Ot9e/IOcJbXLrQ1mNKrdui8aZe7ZFwvLQkF6meq/ZrTDGT5xV44XSa0rzRWCc8LTm
-         Iot0RpkjMEBPlMoHcOm3D4K5q5MU5SaxeAayjLPoLJvoki0VI2eU787yAbWWdSsRgEBg
-         a8fw==
-X-Forwarded-Encrypted: i=1; AJvYcCVP9o1K14UaxKgPK9BSCFNYjnHLZBxoOA5BpPS95kjiqzpb4AevGzLEDZrT3uXszocQXFB/KPgp9kP4L8sBtboH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNFPCM6fJ2H8S2gGv4xGqjSs6d8kMd6UmQvdyPakLfcz5uIV/v
-	cd28YvSfeiCFCKqwprNVZSEzMuVMfuWKegYzjRfSbQEPD+rKjP+bjMjKg9wM8jdU
-X-Gm-Gg: ASbGncuJ0tKwTjpJZylwCzcoOPryq2fRlONK/s9KJUYTy3YaqGLDgBM76l3BylXDSab
-	4BpmU8lhhoddU34mfNuMPrukTMmWNAifiRRHQ7PQyuTtJYxKKwrUbM15zjpd2YPg3kR0z8jZG+l
-	GdMIFqMPelWkk973rGVu8ehqGsjE8VATN+9aGGiZwCWdFGy97WXYOuw6w38J0P6R/GJkMG/wHFN
-	WjnHZWpVjsHFDzVdHlCazUjrxL/XnjlFDtLfN2sTxRCXDH+JLUUEaCKU3SP/WP6qH61csO0yQ8/
-	TsHQrXnLz4o9C/J3TtSeNw1+D7yd8QSi0UIkFSOihMC/0TZW6GvkjmPFuJmfg6bGpHzUeLL2liY
-	jvmrZmb2dwd7T0jtCwV4yBkW/KYl//zuBtquabimmMUkuFlse8Znu2uRmo0+9
-X-Google-Smtp-Source: AGHT+IGqIW56P04IfAY8XueBIBWyklURO41qy4nWLWPCh/Psm6TN0Ej35dXIzsUVdqJ0eXpLzJFM8g==
-X-Received: by 2002:a05:6122:3089:b0:534:7f57:8e30 with SMTP id 71dfb90a1353d-53b190d150emr962939e0c.10.1755182411087;
-        Thu, 14 Aug 2025 07:40:11 -0700 (PDT)
-Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com. [209.85.217.42])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-539b01ae378sm4606633e0c.9.2025.08.14.07.40.10
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 07:40:10 -0700 (PDT)
-Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-50f8af4a98bso151880137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 07:40:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXA1jyB3ijlnB3BUrt25P5fyLX43a1pK1GmWVGTPK6ezQMn1/ZuvUP/5G8ZbjTCuJMiNEiSaIFtnpnJbbGhAvXM@lists.infradead.org
-X-Received: by 2002:a67:e70a:0:b0:4fb:142:f4c0 with SMTP id
- ada2fe7eead31-50fec575832mr1384714137.0.1755182410088; Thu, 14 Aug 2025
- 07:40:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <280dd506-e1fc-4d2e-bdc4-98dd9dca6138@grenoble.cnrs.fr>
-In-Reply-To: <280dd506-e1fc-4d2e-bdc4-98dd9dca6138@grenoble.cnrs.fr>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 14 Aug 2025 16:39:58 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWJ3im+k9uQgRhUh52Z_tJ+KQjAGY_Y8FjbEu6gB=0UKw@mail.gmail.com>
-X-Gm-Features: Ac12FXxCewyX2KO-GwUn49WCWjFooiUGy2LjA7azqcnSwW3bRWhwL2RPKQ2cGqU
-Message-ID: <CAMuHMdWJ3im+k9uQgRhUh52Z_tJ+KQjAGY_Y8FjbEu6gB=0UKw@mail.gmail.com>
-Subject: Re: [ISSUE + PATCH] Interrupts were enabled early by spinlock guard
-To: Edgar Bonet <bonet@grenoble.cnrs.fr>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Huacai Chen <chenhuacai@kernel.org>, Jiaxun Yang <jiaxun.yang@flygoat.com>
+	Thu, 14 Aug 2025 10:43:01 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umVPp-0008Iy-NQ; Thu, 14 Aug 2025 12:42:37 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umVPl-000EwX-2f;
+	Thu, 14 Aug 2025 12:42:33 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umVPl-000GxG-2N;
+	Thu, 14 Aug 2025 12:42:33 +0200
+Message-ID: <bf5a4aa0fc1a324a17c25e8ed5acbfd94d240251.camel@pengutronix.de>
+Subject: Re: [PATCH v17 2/3] i2c: ast2600: Add controller driver for new
+ register layout
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, benh@kernel.crashing.org, 
+ joel@jms.id.au, andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+  conor+dt@kernel.org, andrew@codeconstruct.com.au, 
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com, 
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
+Date: Thu, 14 Aug 2025 12:42:33 +0200
+In-Reply-To: <20250814084156.1650432-3-ryan_chen@aspeedtech.com>
+References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
+	 <20250814084156.1650432-3-ryan_chen@aspeedtech.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_074013_183893_1F0842AE 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20250814_034300_773127_C15D59A0 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,67 +82,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Edgar,
+On Do, 2025-08-14 at 16:41 +0800, Ryan Chen wrote:
+> Add i2c-ast2600 new register mode driver to support AST2600
+> i2c new register mode. This i2c-ast2600 new driver and the
+> legacy i2c-aspeed driver both match the same compatible string
+> "aspeed,ast2600-i2c-bus" because they target the same I2C
+> controller IP on AST2600. However, AST2600 SoCs may configure
+> the controller instances to operate either in the legacy
+> register layout or the new layout (via global register).
+> The new register mode support following.
+>=20
+> - Add new clock divider option for more flexible and accurate
+>  clock rate generation
+> - Add tCKHighMin timing to guarantee SCL high pulse width.
+> - Add support dual pool buffer mode, split 32 bytes pool buffer
+>  of each device into 2 x 16 bytes for Tx and Rx individually.
+> - Increase DMA buffer size to 4096 bytes and support byte alignment.
+> - Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
+> - Re-define registers for separating controller and target
+>  mode control.
+> - Support 4 individual DMA buffers for controller Tx and Rx,
+>  target Tx and Rx.
+>=20
+> And following is new register set for package transfer sequence.
+> - New Master operation mode:
+>   S -> Aw -> P
+>   S -> Aw -> TxD -> P
+>   S -> Ar -> RxD -> P
+>   S -> Aw -> TxD -> Sr -> Ar -> RxD -> P
+> - Bus SDA lock auto-release capability for new controller DMA
+>  command mode.
+> - Bus auto timeout for new controller/target DMA mode.
+>=20
+> Since the register layout is selected via a global register at
+> runtime and both drivers bind to the same compatible string,
+> this patch defines the driver selection at build-time using
+> Kconfig, ensuring that only one driver is compiled into the
+> kernel. This approach avoids ambiguity and ensures consistent
+> behavior for each platform configuration.
+>=20
+> The following is two versus register layout.
+> Old register mode:
+> {I2CD00}: Function Control Register
+> {I2CD04}: Clock and AC Timing Control Register
+> {I2CD08}: Clock and AC Timing Control Register
+> {I2CD0C}: Interrupt Control Register
+> {I2CD10}: Interrupt Status Register
+> {I2CD14}: Command/Status Register
+> {I2CD18}: Slave Device Address Register
+> {I2CD1C}: Pool Buffer Control Register
+> {I2CD20}: Transmit/Receive Byte Buffer Register
+> {I2CD24}: DMA Mode Buffer Address Register
+> {I2CD28}: DMA Transfer Length Register
+> {I2CD2C}: Original DMA Mode Buffer Address Setting
+> {I2CD30}: Original DMA Transfer Length Setting and Final Status
+>=20
+> New Register mode
+> {I2CC00}: Master/Slave Function Control Register
+> {I2CC04}: Master/Slave Clock and AC Timing Control Register
+> {I2CC08}: Master/Slave Transmit/Receive Byte Buffer Register
+> {I2CC0C}: Master/Slave Pool Buffer Control Register
+> {I2CM10}: Master Interrupt Control Register
+> {I2CM14}: Master Interrupt Status Register
+> {I2CM18}: Master Command/Status Register
+> {I2CM1C}: Master DMA Buffer Length Register
+> {I2CS20}: Slave~ Interrupt Control Register
+> {I2CS24}: Slave~ Interrupt Status Register
+> {I2CS28}: Slave~ Command/Status Register
+> {I2CS2C}: Slave~ DMA Buffer Length Register
+> {I2CM30}: Master DMA Mode Tx Buffer Base Address
+> {I2CM34}: Master DMA Mode Rx Buffer Base Address
+> {I2CS38}: Slave~ DMA Mode Tx Buffer Base Address
+> {I2CS3C}: Slave~ DMA Mode Rx Buffer Base Address
+> {I2CS40}: Slave Device Address Register
+> {I2CM48}: Master DMA Length Status Register
+> {I2CS4C}: Slave  DMA Length Status Register
+> {I2CC50}: Current DMA Operating Address Status
+> {I2CC54}: Current DMA Operating Length  Status
+>=20
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+>  drivers/i2c/busses/Kconfig       |   23 +-
+>  drivers/i2c/busses/Makefile      |    1 +
+>  drivers/i2c/busses/i2c-ast2600.c | 1038 ++++++++++++++++++++++++++++++
+>  3 files changed, 1054 insertions(+), 8 deletions(-)
+>  create mode 100644 drivers/i2c/busses/i2c-ast2600.c
+>=20
+[...]
+> diff --git a/drivers/i2c/busses/i2c-ast2600.c b/drivers/i2c/busses/i2c-as=
+t2600.c
+> new file mode 100644
+> index 000000000000..15e600ff50ec
+> --- /dev/null
+> +++ b/drivers/i2c/busses/i2c-ast2600.c
+> @@ -0,0 +1,1038 @@
+[...]
+> +static int ast2600_i2c_probe(struct platform_device *pdev)
+> +{
+>=20
+[...]
+> +	i2c_bus->rst =3D devm_reset_control_get_shared(dev, NULL);
+> +	if (IS_ERR(i2c_bus->rst))
+> +		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n=
+");
 
-CC loongson
+What ...
 
-On Thu, 14 Aug 2025 at 15:00, Edgar Bonet <bonet@grenoble.cnrs.fr> wrote:
-> Subject: [PATCH] irqchip/atmel-aic5: Fix incorrect lock guard conversion
->
-> Commit b00bee8afaca ("irqchip: Convert generic irqchip locking to guards")
-> replaced calls to irq_gc_lock_irq{save,restore}() with
-> guard(raw_spinlock_irq). However, in irq-atmel-aic5.c, one such guard is
-> created early in the boot process, before interrupts are initially enabled.
-> As its destructor enables interrupts, this results in the following warning
-> on a SAMA5D31-based system:
->
->     ------------[ cut here ]------------
->     WARNING: CPU: 0 PID: 0 at init/main.c:1024 start_kernel+0x4d0/0x5dc
->     Interrupts were enabled early
->     CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.16.0 #1 NONE
->     Hardware name: Atmel SAMA5
->     Call trace:
->      unwind_backtrace from show_stack+0x10/0x14
->      show_stack from dump_stack_lvl+0x38/0x48
->      dump_stack_lvl from __warn+0x78/0xd4
->      __warn from warn_slowpath_fmt+0x98/0xc8
->      warn_slowpath_fmt from start_kernel+0x4d0/0x5dc
->      start_kernel from 0x0
->     ---[ end trace 0000000000000000 ]---
->
-> Fix this by using guard(raw_spinlock_irqsave) instead.
->
-> Fixes: b00bee8afaca ("irqchip: Convert generic irqchip locking to guards")
-> Signed-off-by: Edgar Bonet <bonet@grenoble.cnrs.fr>
+> +	i2c_bus->rst =3D devm_reset_control_get_shared_deasserted(dev, NULL);
+> +	if (IS_ERR(i2c_bus->rst))
+> +		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n=
+");
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+... is this?
 
-> --- a/drivers/irqchip/irq-atmel-aic5.c
-> +++ b/drivers/irqchip/irq-atmel-aic5.c
-> @@ -279,7 +279,7 @@ static int aic5_irq_domain_xlate(struct irq_domain *d,
->         if (ret)
->                 return ret;
->
-> -       guard(raw_spinlock_irq)(&bgc->lock);
-> +       guard(raw_spinlock_irqsave)(&bgc->lock);
->         irq_reg_writel(bgc, *out_hwirq, AT91_AIC5_SSR);
->         smr = irq_reg_readl(bgc, AT91_AIC5_SMR);
->         aic_common_set_priority(intspec[2], &smr);
+Choose one. If you use 1), call reset_control_deassert() somewhere. If
+you use 2), remove reset_control_assert() below.
 
-I think the conversions in
-drivers/irqchip/irq-atmel-aic.c:aic_irq_domain_xlate() and
-drivers/irqchip/irq-loongson-liointc.c:liointc_set_type()
-are also wrong, and need a similar change.
-Unfortunately I have no hardware to verify.
+[...]
+> +static void ast2600_i2c_remove(struct platform_device *pdev)
+> +{
+> +	struct ast2600_i2c_bus *i2c_bus =3D platform_get_drvdata(pdev);
+> +
+> +	/* Disable everything. */
+> +	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
+> +	writel(0, i2c_bus->reg_base + AST2600_I2CM_IER);
+> +	reset_control_assert(i2c_bus->rst);
 
-Gr{oetje,eeting}s,
+Drop if using devm_reset_control_get_shared_deasserted()
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+regards
+Philipp
 
