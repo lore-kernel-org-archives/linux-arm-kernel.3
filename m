@@ -4,87 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD7ECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD9CCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJLy+njtJg3zpJU0OkjP/MMxOF47ssgjSnpzzM71YWA=; b=lDq9TMG7gWYzfJHl5YRiKcaNGy
-	u1wCjcK4tICv9H5PrT79ZbB8nUL2ZbVlC2Kw96zwNd9rxHOsiE14cc0czSlqD/1ENnyTKVUf00Or0
-	U5fCXUPagqgtmvHSm5dTowr4j9v3LNzAOAK/8LCRty0a0seXP7aMEUmO6HByLxevnYgqtqqkVlhz7
-	sTlGSRCaFRcJ6KqTXWN7XGviiOdxCXZrwJv5vI7MKbdiFqPmy5Hj04GBj0WxB+G41jTNgnzsIMCKU
-	GEO3ITmZ63tZNVGgLOOGhtBRfPmDvAR2/nZrVE6jOEX0jHxaocRnF52kO+Bcp+eN3jZ/QW9nZ6xkm
-	EUwkZ6sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=; b=gT9bsMFzl7cg3lBzV+O0ERkkEz
+	ZB7KFNwr6HYNKjkoQ8eY2fcX+n1f//58UpOMUUzZxsPOkcavSziEbgWqNKUpsuzTfnxqQsFv9cIYZ
+	My8usHvz+Y5ONfYLezXYDuWWte7sJ6sYyh36N59AkNchaMw3oEKeHGHy12Z0BV8NWZqD8iOduymeg
+	0PSRUsZACxolybfijuD/GBhZN4W7Fobt57OHp13SGh+6IAi63gEjzPXA7Ia307lBLZDUFcaNC1CkE
+	VK5XxKWu/Lls885eyCI+14ENe6kqDn/Mw0Hb2WGGhRgMN9u5EcY+rICbMXmmwpDDyMUNwDtp2XNoV
+	xAsWUTVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdl7-00000000RIH-1QHQ;
-	Thu, 14 Aug 2025 19:37:09 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1umduJ-00000000Rik-3oej;
+	Thu, 14 Aug 2025 19:46:39 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdgY-00000000QuB-0qQX;
-	Thu, 14 Aug 2025 19:32:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755199946; x=1786735946;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sYNHy3au3eJJGLyMM/KY+GBcda4zdf0KZ+o9Rn0lDjo=;
-  b=A5gID3jvD8MXvmNP+J3EDFJAzd69QDR7it3LgfjiX79oQUv277Hz43aQ
-   jy6nCd0afy9ky7qJNiUnBHQZgq5RRbR7ZLfn8CqRE9uaWStvLqB/bHuKa
-   QnSsLOErBqKrVNluncERZVhJh2kc1aQxub54Ukaz4DSg4WmqfviqKeFP8
-   IBjB1G9Hbh2GbXEXwdYOATPpwVLpuFH0RLQqpaeynfIoOUjAL7UgeZryV
-   VxFaUaLTFY0nRfOuHKn7qe40BPda36GZPfdx50KH/0msWhFVXjP++VFPQ
-   3ac5XHjZ2ni7ZLLarkdGiyj0DktZl/t0NT6CNcePncJ6V+Ew0djOxU4ao
-   A==;
-X-CSE-ConnectionGUID: GTN68hugSdSAjTtANhtsjw==
-X-CSE-MsgGUID: Hybt3szMSF26aWusTI/MJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="68226982"
-X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
-   d="scan'208";a="68226982"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 12:32:24 -0700
-X-CSE-ConnectionGUID: Zw1G2UnqTsuBfPLENwqAVA==
-X-CSE-MsgGUID: EWHfKfNOQs+XEJGaMZISwQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
-   d="scan'208";a="166807007"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 14 Aug 2025 12:32:19 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1umdgP-000BGs-08;
-	Thu, 14 Aug 2025 19:32:17 +0000
-Date: Fri, 15 Aug 2025 03:31:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Xiandong Wang <xiandong.wang@mediatek.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Houlong Wei <houlong.wei@mediatek.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	id 1umctf-00000000LWf-0Je1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 18:41:56 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-323267bc0a8so2117592a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 11:41:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755196914; x=1755801714; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=;
+        b=Gsf0nDHLUWqnrTY15QHLqOymV1AG33VUu1S9tmIjgOQB9Phpv+mXn9TBptC/NBL7Aw
+         qBoWWLj+0MHMlVvQZrGkxicQaaH3DvRjon9v79oVvpVrEJH9kP8h388svWkmhtDqaN0X
+         ShIJOKUN8Ww5LovR4cZo10ber7NDZiMjqQJC7iYhpWGKrExkmiIBQuTKkUFFRDgtczpg
+         HWVvuVUGsjeu0D7VZk8lGv9D/N8quu/mVz/u/IpSwcJ7mdynYTc+SWsDKuOV90oPAyuB
+         OTPR6+ZBM9/cLyO7ZIfxuco7wGfrPBqbyrEoOrAvTBeoVy5UuBgPAEXXpUDB9FjFzos6
+         n/eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755196914; x=1755801714;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=;
+        b=kNx+QJoQWXiYKwqiOllJj3wIWdn6BsaRAiEPZJZhIB1BDP9HvHStK/J0Q4z9M2LSQP
+         BZmeRGaiCYuWSkpavDEcxmqPXhqDNWRRIY95RtQJWV6zPWTi6LM9sqLONxFI4x01PMer
+         DHoxgjm4/RKKKWU3wDti84FJsx7h132ZX2estXl3Mp7NtoVMB9HvSzlGzhsWhcvr5Lpo
+         vU0WmUcAuP+caK6AXc9wH7g6d/TNbV+lVrahgpcv67s0sa5VXbBBeegeTpez/6Ee8rm2
+         eJEc5BeChowt9bViBNx0j+8L8ozyn0wni7Al1+hnTC6t2ATy14wT37YMX5NsOk6MSfvw
+         iBfA==
+X-Forwarded-Encrypted: i=1; AJvYcCXdZmmYxEYk4xMXr++WPO8KG+CC/uJIPnuYehnIUKt3ReBGZmJgJyNmKadlRvGQ35kqHEGScyx1zwrSq37Tsnz4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLmZAkUA5z2f0tJbc2lIEin08JevJUSCxFqi0RuFpjPYkuL8gB
+	nIbvZ5/sfNSXzL4wGGJ2yUDIfvHOsmP6RU7V/Mv7o1AzGsfM3o6G0xId/9hcJE0M
+X-Gm-Gg: ASbGncv5b2Yp/6/4jxFW2nnicn+Xriq820GpgmDScV90E46Ckzqnx0LpOiTuwQfWLPS
+	gf1pePJR2Au8umhqQyoSGrltVkgOauchUY7fnawEEMe0Ve80aEc4rjKzWH6iUAJmcuLP1x1zByx
+	4XTHzZJnfPCHuruDO127Zrmepy8OneyNJuL9p3Qb/Ftchzrg7wHebzU1sl4G8dCAGJ2TisJo4PF
+	U48/LdV+nvWIlcl2c7eUV/DhFDCZWduvHkvTJG230izuVST82H6XlQx9GxR/AIJKsAcqk2egCw/
+	QB2vSzBNWg+/z6DDOKUbZHYRVpb2vVTNijXUomTkVmnwn7AW0VM84XW55iDa1HLv3K3IR8t49KG
+	xO2b5dLSdbp7ahYcBiieWI8+5s/qy1x/zPZJlK2zfo0TLDzWafGMHc0w0+jl8MFJr1UxPN3eurR
+	NkXQ==
+X-Google-Smtp-Source: AGHT+IHfccetpow7yjMs7GtNWYKROF86+lwcaLN319Y0r24RCbYznZE4qD/w6tAWLRU5bGeNyjBvTQ==
+X-Received: by 2002:a05:6602:14cc:b0:875:95b7:c0d6 with SMTP id ca18e2360f4ac-8843cc87b3amr23726439f.2.1755196461884;
+        Thu, 14 Aug 2025 11:34:21 -0700 (PDT)
+Received: from localhost.localdomain (65-128-248-47.mpls.qwest.net. [65.128.248.47])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-883f18d1cabsm562086039f.8.2025.08.14.11.34.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 11:34:20 -0700 (PDT)
+From: Shimrra Shai <shimrrashai@gmail.com>
+To: broonie@kernel.org
+Cc: lgirdwood@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, sirius.wang@mediatek.com,
-	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	Xiandong Wang <xiandong.wang@mediatek.com>
-Subject: Re: [PATCH v1 2/4] [v1,02/04]mailbox: mtk-cmdq: Add cmdq driver for
- mt8189
-Message-ID: <202508150338.bTVJvFtV-lkp@intel.com>
-References: <20250814070401.13432-2-xiandong.wang@mediatek.com>
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	perex@perex.cz,
+	shimrrashai@gmail.com,
+	tiwai@suse.com
+Subject: Re: Re: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer connection on ES8323
+Date: Thu, 14 Aug 2025 13:33:44 -0500
+Message-ID: <20250814183344.59453-1-shimrrashai@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
+References: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250814070401.13432-2-xiandong.wang@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_123226_254955_9885B603 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250814_114155_108048_C4B81C2F 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,63 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xiandong,
+On Thu, Aug 14, 2025 at 01:11:59 PM +0100, Mark Brown wrote:
+> On Wed, Aug 13, 2025 at 08:47:31PM -0500, Shimrra Shai wrote:
+> > Enable the right-hand DAC mixer connection in the same manner as the
+> > left-hand one.
+>
+> > @@ -633,6 +633,7 @@ static int es8323_probe(struct snd_soc_component *component)
+> >  	snd_soc_component_write(component, ES8323_CONTROL2, 0x60);
+> >  	snd_soc_component_write(component, ES8323_CHIPPOWER, 0x00);
+> >  	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
+> > +	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
+>
+> Neither of these should be unconditional writes, these should be user
+> visible controls.  We don't encode specific system's use cases into the
+> driver.
 
-kernel test robot noticed the following build errors:
+I was just following the precedent from the driver's prior
+author(s), in the manner of the line above it. Presumably, enabling
+the left-hand DAC-mixer connection only was a solution that worked
+for some devices, and theoretically (as in, I don't know of them
+personally), there could be devices where enabling the right-hand
+DAC-mixer connection only works for them (the Firefly may be just
+such a device; I have only tested it with both enabled at once,
+so I can't say for sure. I know it definitely does not work with
+the left-hand connection enabled alone, i.e. the line preceding
+my addition). And perhaps also devices where there is some kind
+of cross-inhibition effect, meaning setting both enabled would
+generate problems on those devices, thus justifying your concern
+instead of using a blanket for all devices as I thought. In that
+case, that means the original author was also wrong, and so I need
+to know exactly where it should be placed.
 
-[auto build test ERROR on jassibrar-mailbox/for-next]
-[also build test ERROR on linus/master v6.17-rc1 next-20250814]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+With regard of that though, I see these lines earlier in the driver:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Xiandong-Wang/mailbox-mtk-cmdq-Add-cmdq-driver-for-mt8189/20250814-152237
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git for-next
-patch link:    https://lore.kernel.org/r/20250814070401.13432-2-xiandong.wang%40mediatek.com
-patch subject: [PATCH v1 2/4] [v1,02/04]mailbox: mtk-cmdq: Add cmdq driver for mt8189
-config: x86_64-buildonly-randconfig-004-20250815 (https://download.01.org/0day-ci/archive/20250815/202508150338.bTVJvFtV-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250815/202508150338.bTVJvFtV-lkp@intel.com/reproduce)
+/* Left Mixer */
+static const struct snd_kcontrol_new es8323_left_mixer_controls[] = {
+	SOC_DAPM_SINGLE("Left Playback Switch", SND_SOC_NOPM, 7, 1, 1),
+	SOC_DAPM_SINGLE("Left Bypass Switch", ES8323_DACCONTROL17, 6, 1, 0),
+};
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508150338.bTVJvFtV-lkp@intel.com/
+/* Right Mixer */
+static const struct snd_kcontrol_new es8323_right_mixer_controls[] = {
+	SOC_DAPM_SINGLE("Right Playback Switch", SND_SOC_NOPM, 6, 1, 1),
+	SOC_DAPM_SINGLE("Right Bypass Switch", ES8323_DACCONTROL20, 6, 1, 0),
+};
 
-All errors (new ones prefixed by >>):
+which suggest it is in fact controllable already, but I wonder why it
+is in the "bypass" switch only and not the "playback" switch, which
+seems to do nothing (SND_SOC_NOPM). Would it perhaps be correct to
+move these to the "playback" switch, or to have both switches
+collapsed into a single switch?
 
->> drivers/mailbox/mtk-cmdq-mailbox.c:781:3: error: field designator 'mminfra_offset' does not refer to any field in type 'const struct gce_plat'
-     781 |         .mminfra_offset = 0x40000000, /* 1GB */
-         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/mailbox/mtk-cmdq-mailbox.c:784:3: error: field designator 'dma_mask_bit' does not refer to any field in type 'const struct gce_plat'
-     784 |         .dma_mask_bit = 35,
-         |         ~^~~~~~~~~~~~~~~~~
->> drivers/mailbox/mtk-cmdq-mailbox.c:785:3: error: field designator 'secure_thread_nr' does not refer to any field in type 'const struct gce_plat'
-     785 |         .secure_thread_nr = 2,
-         |         ~^~~~~~~~~~~~~~~~~~~~
->> drivers/mailbox/mtk-cmdq-mailbox.c:786:3: error: field designator 'secure_thread_min' does not refer to any field in type 'const struct gce_plat'
-     786 |         .secure_thread_min = 8,
-         |         ~^~~~~~~~~~~~~~~~~~~~~
-   4 errors generated.
+In any case, if these are the correct places to enable this control
+and it is already supported there, then it seems neither write command
+in the setup is needed, viz. we should _delete_
 
+snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
 
-vim +781 drivers/mailbox/mtk-cmdq-mailbox.c
+too. What do you say?
 
-   777	
-   778	static const struct gce_plat gce_plat_mt8189 = {
-   779		.thread_nr = 32,
-   780		.shift = 3,
- > 781		.mminfra_offset = 0x40000000, /* 1GB */
-   782		.control_by_sw = false,
-   783		.sw_ddr_en = true,
- > 784		.dma_mask_bit = 35,
- > 785		.secure_thread_nr = 2,
- > 786		.secure_thread_min = 8,
-   787		.gce_num = 2
-   788	};
-   789	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+  Thanks for any feedback,
+  Shimrra Shai.
 
