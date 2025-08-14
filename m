@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DC7CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 17:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798DFCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 18:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EpptyX2QNt06peu6Jt3xQpIXtQjhJVRiPhshxmwnriw=; b=ViiAvByKHx5gXk1ZsmvPcNX5Nc
-	TcG5qwIUuT3RSZmrHwWrDjsUw95HzfNYYGXVH0qoSC7UeUol5C+c9H4iJpbvZGT39pWF3okhvFQh6
-	L4n9tU3zcWmIchvmnvpu0wXEfEdhw76P0WXMTf0bdTIFjd6dZP/ms/fmdGdhrYtYxwOkG4UeK82u7
-	4qe3yBcHwDCLuPRjEvRc7cp3DOrjh7ZeiucYDcXuRuDwA7hBbOte0D1VJOtB26PKbRQv8OrXPOGVA
-	NceKjGFOZktEwSc2l6ycPUdCOPYnjIoH7WT2CNFglTgRylEeuFTbKXA7XnyMOcXi6VCM6lL2VyRCo
-	jK9l8OMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JF2zWpBtAnSAAfOhvKFct6wKQPCmRTPbqhmbOV+gZsM=; b=XgqwEuaRza4UHaKSllTUmCrLOe
+	0kb5H2Y47lv63zg1bQI6pbZNGyymx0p1V9D5KKe1fdTBaI37OqAEiHYIRPLGEKw+zpvJ/tEECzHYG
+	1XvNfElwaXgTVq5p4iGjqJboKBPuGdtKPvs0KpLZ32siwAVM1zIgJ5EVg+lOu7jBtU+BlmuYtyOIb
+	WxJIM8xx3AZRqGCrVwSqCqJ49j5FAkZXUw3VEHR8Hol4e3HeEEMgq/sC+PraaJyXawg+FQ5AspK0Z
+	5/hWB9B84jfjGnfCidxhLG24sEAdVBM1LlXQvWmJeWOikjXRVLqKV/9fwYCnXA1PR3vgf6Z13zSoA
+	D7Rv2g/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umbno-00000000DIb-1vz1;
-	Thu, 14 Aug 2025 17:31:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1umcGh-00000000HDI-16Co;
+	Thu, 14 Aug 2025 18:01:39 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma9t-0000000HWia-2qjp
+	id 1umb1t-000000005nT-2xFK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 15:46:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0AA9C5C65EB;
-	Thu, 14 Aug 2025 15:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85509C4CEF1;
-	Thu, 14 Aug 2025 15:46:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755186388;
-	bh=9Jmy1KsNsx9Doph/6jTgxXrZ/A8AtUlSsVBuMvi6qyc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nlvRCqtCJqfnH6yEpl7+eTlTRUd0YTcUhuo341mq/t43LQaHPqzFDH3/SAU7BxlNB
-	 ckkDRivLsomi6KHAfBGEYCxuOetf/BSpRomZKwVJPBFhYPsJ/FP9d6bJuZp/3aI5a0
-	 3bHVjc5dC+h47gQSWW6hILDUmgNByjE0ISVP8QM/IVhdeZnRCO4XPg4VpFqNy3U6pS
-	 cq9vP4rqzGgUfmo9fFs+GrJ24AAlNl/Tmrv3Fr5HPNzAoQXKutbTkJfX5EA/zw+O0H
-	 cKeQ6K+hF6txH7fmhZ/rYn3e50xnnDCPysNcBvdevMarNjWY5hwHPTCeSVmJRk0502
-	 YQ81KOdEIjOGw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uma9q-007VqB-3t;
-	Thu, 14 Aug 2025 16:46:26 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v2 2/4] clocksource/drivers/arm_arch_timer: Add standalone MMIO driver
-Date: Thu, 14 Aug 2025 16:46:20 +0100
-Message-Id: <20250814154622.10193-3-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250814154622.10193-1-maz@kernel.org>
-References: <20250814154622.10193-1-maz@kernel.org>
+	Thu, 14 Aug 2025 16:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1755189006;
+	bh=wYpyueQHKPzqCdCt0o/J3oLjQKH68YNCumbWnMGtByU=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=QsnYclyyeC99k5HVuVlCPOqjNJUNgn7uWTVqXp7p3NfgLjEy0uPg7TaGgYGyPD9tg
+	 U3qNruK9QOXLJO+kt3+kjV9QhlzJWdulKqASjIcFc2YqivNeIQ2SXLls5P4u3A9Bqk
+	 LGby9CulARglhzNyO7Ou5fbaJHcEBdO6GuBwxrGw=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 75B87401E7; Thu, 14 Aug 2025 09:30:06 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 736A1401E1;
+	Thu, 14 Aug 2025 09:30:06 -0700 (PDT)
+Date: Thu, 14 Aug 2025 09:30:06 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+cc: Jeremy Linton <jeremy.linton@arm.com>, 
+    Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com, 
+    will@kernel.org, patches@amperecomputing.com, 
+    Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org, 
+    bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be, arnd@arndb.de, 
+    nm@ti.com, ebiggers@kernel.org, nfraprado@collabora.com, 
+    prabhakar.mahadev-lad.rj@bp.renesas.com, 
+    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
+In-Reply-To: <aJ20imoeRL_tifky@bogus>
+Message-ID: <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
+References: <20250808025533.6422-1-shijie@os.amperecomputing.com> <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com> <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org> <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com> <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
+ <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org> <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org> <aJ20imoeRL_tifky@bogus>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@arm.com, rafael@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com, alexandru.elisei@arm.com, steven.price@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_084629_796648_234B9874 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20250814_094217_779053_080D3299 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,462 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new driver for the MMIO side of the ARM architected timer.
-Most of it has been lifted from the existing arch timer code,
-massaged, and finally rewritten.
+On Thu, 14 Aug 2025, Sudeep Holla wrote:
 
-It supports both DT and ACPI as firmware descriptions.
+>   |  Different architectures use different terminology to denominate logically
+>   |  associated processors, but terms such as package, cluster, module, and
+>   |  socket are typical examples.
+>
+> So how can one use these across architectures ? Package/Socket is quite
+> standard. Cluster can be group of processors or it can also be group of
+> processor clusters. One of the Arm vendors call it super cluster or something.
+> All these makes it super hard for a generic OS to interpret that information.
+> Just CONFIG_SCHED_CLUSTER was added with one notion of cluster which was soon
+> realised doesn't match with some other notion of it.
 
-Tested-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Link: https://lore.kernel.org/r/20250807160243.1970533-3-maz@kernel.org
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- MAINTAINERS                               |   1 +
- drivers/clocksource/arm_arch_timer_mmio.c | 421 ++++++++++++++++++++++
- 2 files changed, 422 insertions(+)
- create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
+What the cluster actually is used for is up to the hardware. The linux
+scheduler provides this functionality. How and when this feature is used
+by firmware is a vendor issue. There was never a clear definition.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fe168477caa45..2243b726edd7e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1990,6 +1990,7 @@ S:	Maintained
- F:	arch/arm/include/asm/arch_timer.h
- F:	arch/arm64/include/asm/arch_timer.h
- F:	drivers/clocksource/arm_arch_timer.c
-+F:	drivers/clocksource/arm_arch_timer_mmio.c
- 
- ARM GENERIC INTERRUPT CONTROLLER DRIVERS
- M:	Marc Zyngier <maz@kernel.org>
-diff --git a/drivers/clocksource/arm_arch_timer_mmio.c b/drivers/clocksource/arm_arch_timer_mmio.c
-new file mode 100644
-index 0000000000000..3522d1d8cb97b
---- /dev/null
-+++ b/drivers/clocksource/arm_arch_timer_mmio.c
-@@ -0,0 +1,421 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ *  ARM Generic Memory Mapped Timer support
-+ *
-+ *  Split from drivers/clocksource/arm_arch_timer.c
-+ *
-+ *  Copyright (C) 2011 ARM Ltd.
-+ *  All Rights Reserved
-+ */
-+
-+#define pr_fmt(fmt) 	"arch_timer_mmio: " fmt
-+
-+#include <linux/clockchips.h>
-+#include <linux/interrupt.h>
-+#include <linux/io-64-nonatomic-lo-hi.h>
-+#include <linux/of_irq.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+
-+#include <clocksource/arm_arch_timer.h>
-+
-+#define CNTTIDR		0x08
-+#define CNTTIDR_VIRT(n)	(BIT(1) << ((n) * 4))
-+
-+#define CNTACR(n)	(0x40 + ((n) * 4))
-+#define CNTACR_RPCT	BIT(0)
-+#define CNTACR_RVCT	BIT(1)
-+#define CNTACR_RFRQ	BIT(2)
-+#define CNTACR_RVOFF	BIT(3)
-+#define CNTACR_RWVT	BIT(4)
-+#define CNTACR_RWPT	BIT(5)
-+
-+#define CNTPCT_LO	0x00
-+#define CNTVCT_LO	0x08
-+#define CNTFRQ		0x10
-+#define CNTP_CVAL_LO	0x20
-+#define CNTP_CTL	0x2c
-+#define CNTV_CVAL_LO	0x30
-+#define CNTV_CTL	0x3c
-+
-+enum arch_timer_access {
-+	PHYS_ACCESS,
-+	VIRT_ACCESS,
-+};
-+
-+struct arch_timer {
-+	struct clock_event_device	evt;
-+	struct arch_timer_mem		*gt_block;
-+	void __iomem			*base;
-+	enum arch_timer_access		access;
-+	u32				rate;
-+};
-+
-+#define evt_to_arch_timer(e) container_of(e, struct arch_timer, evt)
-+
-+static void arch_timer_mmio_write(struct arch_timer *timer,
-+				  enum arch_timer_reg reg, u64 val)
-+{
-+	switch (timer->access) {
-+	case PHYS_ACCESS:
-+		switch (reg) {
-+		case ARCH_TIMER_REG_CTRL:
-+			writel_relaxed((u32)val, timer->base + CNTP_CTL);
-+			return;
-+		case ARCH_TIMER_REG_CVAL:
-+			/*
-+			 * Not guaranteed to be atomic, so the timer
-+			 * must be disabled at this point.
-+			 */
-+			writeq_relaxed(val, timer->base + CNTP_CVAL_LO);
-+			return;
-+		}
-+		break;
-+	case VIRT_ACCESS:
-+		switch (reg) {
-+		case ARCH_TIMER_REG_CTRL:
-+			writel_relaxed((u32)val, timer->base + CNTV_CTL);
-+			return;
-+		case ARCH_TIMER_REG_CVAL:
-+			/* Same restriction as above */
-+			writeq_relaxed(val, timer->base + CNTV_CVAL_LO);
-+			return;
-+		}
-+		break;
-+	}
-+
-+	/* Should never be here */
-+	WARN_ON_ONCE(1);
-+}
-+
-+static u32 arch_timer_mmio_read(struct arch_timer *timer, enum arch_timer_reg reg)
-+{
-+	switch (timer->access) {
-+	case PHYS_ACCESS:
-+		switch (reg) {
-+		case ARCH_TIMER_REG_CTRL:
-+			return readl_relaxed(timer->base + CNTP_CTL);
-+		default:
-+			break;
-+		}
-+		break;
-+	case VIRT_ACCESS:
-+		switch (reg) {
-+		case ARCH_TIMER_REG_CTRL:
-+			return readl_relaxed(timer->base + CNTV_CTL);
-+		default:
-+			break;
-+		}
-+		break;
-+	}
-+
-+	/* Should never be here */
-+	WARN_ON_ONCE(1);
-+	return 0;
-+}
-+
-+static noinstr u64 arch_counter_mmio_get_cnt(struct arch_timer *t)
-+{
-+	int offset_lo = t->access == VIRT_ACCESS ? CNTVCT_LO : CNTPCT_LO;
-+	u32 cnt_lo, cnt_hi, tmp_hi;
-+
-+	do {
-+		cnt_hi = __le32_to_cpu((__le32 __force)__raw_readl(t->base + offset_lo + 4));
-+		cnt_lo = __le32_to_cpu((__le32 __force)__raw_readl(t->base + offset_lo));
-+		tmp_hi = __le32_to_cpu((__le32 __force)__raw_readl(t->base + offset_lo + 4));
-+	} while (cnt_hi != tmp_hi);
-+
-+	return ((u64) cnt_hi << 32) | cnt_lo;
-+}
-+
-+static int arch_timer_mmio_shutdown(struct clock_event_device *clk)
-+{
-+	struct arch_timer *at = evt_to_arch_timer(clk);
-+	unsigned long ctrl;
-+
-+	ctrl = arch_timer_mmio_read(at, ARCH_TIMER_REG_CTRL);
-+	ctrl &= ~ARCH_TIMER_CTRL_ENABLE;
-+	arch_timer_mmio_write(at, ARCH_TIMER_REG_CTRL, ctrl);
-+
-+	return 0;
-+}
-+
-+static int arch_timer_mmio_set_next_event(unsigned long evt,
-+					  struct clock_event_device *clk)
-+{
-+	struct arch_timer *timer = evt_to_arch_timer(clk);
-+	unsigned long ctrl;
-+	u64 cnt;
-+
-+	ctrl = arch_timer_mmio_read(timer, ARCH_TIMER_REG_CTRL);
-+
-+	/* Timer must be disabled before programming CVAL */
-+	if (ctrl & ARCH_TIMER_CTRL_ENABLE) {
-+		ctrl &= ~ARCH_TIMER_CTRL_ENABLE;
-+		arch_timer_mmio_write(timer, ARCH_TIMER_REG_CTRL, ctrl);
-+	}
-+
-+	ctrl |= ARCH_TIMER_CTRL_ENABLE;
-+	ctrl &= ~ARCH_TIMER_CTRL_IT_MASK;
-+
-+	cnt = arch_counter_mmio_get_cnt(timer);
-+
-+	arch_timer_mmio_write(timer, ARCH_TIMER_REG_CVAL, evt + cnt);
-+	arch_timer_mmio_write(timer, ARCH_TIMER_REG_CTRL, ctrl);
-+	return 0;
-+}
-+
-+static irqreturn_t arch_timer_mmio_handler(int irq, void *dev_id)
-+{
-+	struct clock_event_device *evt = dev_id;
-+	struct arch_timer *at = evt_to_arch_timer(evt);
-+	unsigned long ctrl;
-+
-+	ctrl = arch_timer_mmio_read(at, ARCH_TIMER_REG_CTRL);
-+	if (ctrl & ARCH_TIMER_CTRL_IT_STAT) {
-+		ctrl |= ARCH_TIMER_CTRL_IT_MASK;
-+		arch_timer_mmio_write(at, ARCH_TIMER_REG_CTRL, ctrl);
-+		evt->event_handler(evt);
-+		return IRQ_HANDLED;
-+	}
-+
-+	return IRQ_NONE;
-+}
-+
-+static struct arch_timer_mem_frame *find_best_frame(struct platform_device *pdev)
-+{
-+	struct arch_timer_mem_frame *frame, *best_frame = NULL;
-+	struct arch_timer *at = platform_get_drvdata(pdev);
-+	void __iomem *cntctlbase;
-+	u32 cnttidr;
-+
-+	cntctlbase = ioremap(at->gt_block->cntctlbase, at->gt_block->size);
-+	if (!cntctlbase) {
-+		dev_err(&pdev->dev, "Can't map CNTCTLBase @ %pa\n",
-+			&at->gt_block->cntctlbase);
-+		return NULL;
-+	}
-+
-+	cnttidr = readl_relaxed(cntctlbase + CNTTIDR);
-+
-+	/*
-+	 * Try to find a virtual capable frame. Otherwise fall back to a
-+	 * physical capable frame.
-+	 */
-+	for (int i = 0; i < ARCH_TIMER_MEM_MAX_FRAMES; i++) {
-+		u32 cntacr = CNTACR_RFRQ | CNTACR_RWPT | CNTACR_RPCT |
-+			     CNTACR_RWVT | CNTACR_RVOFF | CNTACR_RVCT;
-+
-+		frame = &at->gt_block->frame[i];
-+		if (!frame->valid)
-+			continue;
-+
-+		/* Try enabling everything, and see what sticks */
-+		writel_relaxed(cntacr, cntctlbase + CNTACR(i));
-+		cntacr = readl_relaxed(cntctlbase + CNTACR(i));
-+
-+		/* Pick a suitable frame for which we have an IRQ */
-+		if ((cnttidr & CNTTIDR_VIRT(i)) &&
-+		    !(~cntacr & (CNTACR_RWVT | CNTACR_RVCT)) &&
-+		    frame->virt_irq) {
-+			best_frame = frame;
-+			at->access = VIRT_ACCESS;
-+			break;
-+		}
-+
-+		if ((~cntacr & (CNTACR_RWPT | CNTACR_RPCT)) ||
-+		     !frame->phys_irq)
-+			continue;
-+
-+		at->access = PHYS_ACCESS;
-+		best_frame = frame;
-+	}
-+
-+	iounmap(cntctlbase);
-+
-+	return best_frame;
-+}
-+
-+static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
-+{
-+	at->evt = (struct clock_event_device) {
-+		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
-+					      CLOCK_EVT_FEAT_DYNIRQ),
-+		.name			   = "arch_mem_timer",
-+		.rating			   = 400,
-+		.cpumask		   = cpu_possible_mask,
-+		.irq 			   = irq,
-+		.set_next_event		   = arch_timer_mmio_set_next_event,
-+		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
-+		.set_state_shutdown	   = arch_timer_mmio_shutdown,
-+	};
-+
-+	at->evt.set_state_shutdown(&at->evt);
-+
-+	clockevents_config_and_register(&at->evt, at->rate, 0xf,
-+					(unsigned long)CLOCKSOURCE_MASK(56));
-+
-+	enable_irq(at->evt.irq);
-+}
-+
-+static int arch_timer_mmio_frame_register(struct platform_device *pdev,
-+					  struct arch_timer_mem_frame *frame)
-+{
-+	struct arch_timer *at = platform_get_drvdata(pdev);
-+	struct device_node *np = pdev->dev.of_node;
-+	int ret, irq;
-+	u32 rate;
-+
-+	if (!devm_request_mem_region(&pdev->dev, frame->cntbase, frame->size,
-+				     "arch_mem_timer"))
-+		return -EBUSY;
-+
-+	at->base = devm_ioremap(&pdev->dev, frame->cntbase, frame->size);
-+	if (!at->base) {
-+		dev_err(&pdev->dev, "Can't map frame's registers\n");
-+		return -ENXIO;
-+	}
-+
-+	/*
-+	 * Allow "clock-frequency" to override the probed rate. If neither
-+	 * lead to something useful, use the CPU timer frequency as the
-+	 * fallback. The nice thing about that last point is that we woudn't
-+	 * made it here if we didn't have a valid frequency.
-+	 */
-+	rate = readl_relaxed(at->base + CNTFRQ);
-+
-+	if (!np || of_property_read_u32(np, "clock-frequency", &at->rate))
-+		at->rate = rate;
-+
-+	if (!at->rate)
-+		at->rate = arch_timer_get_rate();
-+
-+	irq = at->access == VIRT_ACCESS ? frame->virt_irq : frame->phys_irq;
-+	ret = devm_request_irq(&pdev->dev, irq, arch_timer_mmio_handler,
-+			       IRQF_TIMER | IRQF_NO_AUTOEN, "arch_mem_timer",
-+			       &at->evt);
-+	if (ret) {
-+		dev_err(&pdev->dev, "Failed to request mem timer irq\n");
-+		return ret;
-+	}
-+
-+	/* Afer this point, we're not allowed to fail anymore */
-+	arch_timer_mmio_setup(at, irq);
-+	return 0;
-+}
-+
-+static int of_populate_gt_block(struct platform_device *pdev,
-+				struct arch_timer *at)
-+{
-+	struct resource res;
-+
-+	if (of_address_to_resource(pdev->dev.of_node, 0, &res))
-+		return -EINVAL;
-+
-+	at->gt_block->cntctlbase = res.start;
-+	at->gt_block->size = resource_size(&res);
-+
-+	for_each_available_child_of_node_scoped(pdev->dev.of_node, frame_node) {
-+		struct arch_timer_mem_frame *frame;
-+		u32 n;
-+
-+		if (of_property_read_u32(frame_node, "frame-number", &n)) {
-+			dev_err(&pdev->dev, FW_BUG "Missing frame-number\n");
-+			return -EINVAL;
-+		}
-+		if (n >= ARCH_TIMER_MEM_MAX_FRAMES) {
-+			dev_err(&pdev->dev,
-+				FW_BUG "Wrong frame-number, only 0-%u are permitted\n",
-+			       ARCH_TIMER_MEM_MAX_FRAMES - 1);
-+			return -EINVAL;
-+		}
-+
-+		frame = &at->gt_block->frame[n];
-+
-+		if (frame->valid) {
-+			dev_err(&pdev->dev, FW_BUG "Duplicated frame-number\n");
-+			return -EINVAL;
-+		}
-+
-+		if (of_address_to_resource(frame_node, 0, &res))
-+			return -EINVAL;
-+
-+		frame->cntbase = res.start;
-+		frame->size = resource_size(&res);
-+
-+		frame->phys_irq = irq_of_parse_and_map(frame_node, 0);
-+		frame->virt_irq = irq_of_parse_and_map(frame_node, 1);
-+
-+		frame->valid = true;
-+	}
-+
-+	return 0;
-+}
-+
-+static int arch_timer_mmio_probe(struct platform_device *pdev)
-+{
-+	struct arch_timer_mem_frame *frame;
-+	struct arch_timer *at;
-+	struct device_node *np;
-+	int ret;
-+
-+	np = pdev->dev.of_node;
-+
-+	at = devm_kmalloc(&pdev->dev, sizeof(*at), GFP_KERNEL | __GFP_ZERO);
-+	if (!at)
-+		return -ENOMEM;
-+
-+	if (np) {
-+		at->gt_block = devm_kmalloc(&pdev->dev, sizeof(*at->gt_block),
-+					    GFP_KERNEL | __GFP_ZERO);
-+		if (!at->gt_block)
-+			return -ENOMEM;
-+		ret = of_populate_gt_block(pdev, at);
-+		if (ret)
-+			return ret;
-+	} else {
-+		at->gt_block = dev_get_platdata(&pdev->dev);
-+	}
-+
-+	platform_set_drvdata(pdev, at);
-+
-+	frame = find_best_frame(pdev);
-+	if (!frame) {
-+		dev_err(&pdev->dev,
-+			"Unable to find a suitable frame in timer @ %pa\n",
-+			&at->gt_block->cntctlbase);
-+		return -EINVAL;
-+	}
-+
-+	ret = arch_timer_mmio_frame_register(pdev, frame);
-+	if (!ret)
-+		dev_info(&pdev->dev,
-+			 "mmio timer running at %lu.%02luMHz (%s)\n",
-+			 (unsigned long)at->rate / 1000000,
-+			 (unsigned long)(at->rate / 10000) % 100,
-+			 at->access == VIRT_ACCESS ? "virt" : "phys");
-+
-+	return ret;
-+}
-+
-+static const struct of_device_id arch_timer_mmio_of_table[] = {
-+	{ .compatible = "arm,armv7-timer-mem", },
-+	{}
-+};
-+
-+static struct platform_driver arch_timer_mmio_drv = {
-+	.driver	= {
-+		.name = "arch-timer-mmio",
-+		.of_match_table	= arch_timer_mmio_of_table,
-+	},
-+	.probe	= arch_timer_mmio_probe,
-+};
-+builtin_platform_driver(arch_timer_mmio_drv);
-+
-+static struct platform_driver arch_timer_mmio_acpi_drv = {
-+	.driver	= {
-+		.name = "gtdt-arm-mmio-timer",
-+	},
-+	.probe	= arch_timer_mmio_probe,
-+};
-+builtin_platform_driver(arch_timer_mmio_acpi_drv);
--- 
-2.39.2
+> We can enable it and I am sure someone will report a regression on their
+> platform and we need to disable it again. The benchmark doesn't purely
+> depend on just the "notion" of cluster but it is often related to the
+> private resource and how they are shared in the system. So even if you
+> strictly follow the notion of cluster as supported by CONFIG_SCHED_CLUSTER
+> it will fail on systems where the private resources are shared across the
+> "cluster" boundaries or some variant configuration.
+
+That is not our problem. If the vendor provides clustering information and
+the scheduler uses that then the vendor can modify the firmware to not
+enable clustering.
+
+As mentioned before: We could create a blacklist to override the ACPI info
+from the vendor to ensure that clustering is off.
+
+What we should not do is disabling clustering for all.
+
+
+> > We could add a blacklist for those platforms to avoid regressions but we
+> > should not allow that to hinder us to enable full support for clustering
+> > on ARM64.
+> >
+>
+> Sure, but we need to improve the "cluster" definition in the ACPI and Arm
+> specification, get an agreement on what it means for other architecture
+> first IMO. We don't want to revisit the same topic again without these as
+> IIRC this is the second time we are discussion around this topic.
+
+The vendors need flexibility to use this feature when it makes sense.
+
+Having a clear definition would limit the use of clustering feature and
+limits innovation. Vendors can control the clustering via ACPI and the
+firmware they provide with their system.
+
+We could change definition but that but that would be a decadelong
+process which will encounter resistance from vendors that make uses of the
+clustering feature that does not fall into the stricter definition.
+
 
 
