@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B220ECA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 04:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CCECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 04:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8RAz1VxJoNOGjuBNlJXeuNS5QuaDyUEil3uYRNLyxQ=; b=47vSstuYcGyouFyaymakrBmpKV
-	dYiZQnM2o+N1BwU0ecKgQMFxYMV5Y18clQoLSDggv6hswzNb3XC7tuE6yiaP7WE3GONn5nqAlByaI
-	PE0QitP9TVc6bITF+bHaonSu9TPZMQ4RxuKZm/JmCrG7Oba6khC0mKbCwVvXFh6oHKIQ2iV3v1DFX
-	5pxXb9iKswgXnnN1flvdx7b7RdVDndpo8GgpXQ979icQHC+Df2HDMNR9xU+Qa5tqx/D3vQ/avZq58
-	7LqVL1EfP7Pp1ZqSvwdo8YAHjXUXxbj+80fZdpSHNB6217aqqBCGz9R5cspdTvnMAJnaSnsnlTUA+
-	ZwigEjfg==;
+	bh=43oXxFKfnsTWy5UmLZ+z7pzwjTP2nYXG45oAqT0iINc=; b=DJaiQi5raWYaCred8RaDr08k7Z
+	qixkTJW4EFwSTcuPHkydFId7GxxcozZ+wlZ0yZcWQ+7Mjll9TvkOUBBLcEsb7CAVysnHdkWjBKXC+
+	aknD+hcU/pCSplY4YMdAfexvp7LovuEsT471/WUE3D4LltsrQLQewLUtdjS8GHR/YngY/H/VUjAAo
+	/ZudrnGSR043FjEfaR31gx+5F6qDgVjnUniP43QF57XCsLnDd8pEt/78Fp9LmOewzFUN4JbHH2KdV
+	deWuoQ+MFboAdwcRz+JPpEwvJ75zjrc7DqCA2IsB+VgoZnmJfgj74fgLx/FKczYyLd8KFkl3jrP4F
+	2HWwcmQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unruN-00000006VTi-0k3a;
-	Mon, 18 Aug 2025 04:55:47 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1unrwt-00000006Vd9-0hhY;
+	Mon, 18 Aug 2025 04:58:23 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrdD-00000006Tdu-3V0x
+	id 1unrdF-00000006TeZ-2CPa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 04:38:05 +0000
+	Mon, 18 Aug 2025 04:38:06 +0000
 Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250818043758epoutp02d8ed8f8fe6fe03f946626ca614a9910c~cwpAGSUXn1528515285epoutp02J
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:37:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250818043758epoutp02d8ed8f8fe6fe03f946626ca614a9910c~cwpAGSUXn1528515285epoutp02J
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250818043803epoutp01df48b78d7cf287e46c64395cafe7165b~cwpE7-3kK0653606536epoutp01a
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:38:03 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250818043803epoutp01df48b78d7cf287e46c64395cafe7165b~cwpE7-3kK0653606536epoutp01a
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755491878;
-	bh=c8RAz1VxJoNOGjuBNlJXeuNS5QuaDyUEil3uYRNLyxQ=;
+	s=mail20170921; t=1755491883;
+	bh=43oXxFKfnsTWy5UmLZ+z7pzwjTP2nYXG45oAqT0iINc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LdBce9V2LVQPseLkN+Az4E0r7eFtanC38ht1GaLi+VBvkOPWLRedgx3wKMLRcSYMl
-	 N7mSK0R/YWzeoGG3Y/gAE0a7DI8hX1bVQ8RSzbDFZ4l4Ry5qSP749LvKKzhDtmCv5V
-	 POwiud+8wfneHGwuRuf/7bFtbPyuULa5cFrqhHX0=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250818043757epcas5p23c15cf258ef5fc3dbf98760cf273b689~cwo-h4yvB0138801388epcas5p2K;
-	Mon, 18 Aug 2025 04:37:57 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4c50M86WLRz6B9mD; Mon, 18 Aug
-	2025 04:37:56 +0000 (GMT)
+	b=HidAGXEb3n8+rtLRb67VjqbdwkW8ShU4IpRJmpCb8tE76nkKUA7L9sBDUF25GKCcA
+	 nLH5ASW+dUQKp9I8QJM9wZxt9/y/1FkOhpz6lQKTuod/4oZAH6IfB+kYL43esXXxkM
+	 40fKHZsY9MhlEqvrwzwXlCABbw3w2flssTs779So=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250818043802epcas5p3f4f768164a3d19f44e67d63533bea352~cwpEFn6bj2560625606epcas5p3x;
+	Mon, 18 Aug 2025 04:38:02 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c50MF6MqPz3hhTC; Mon, 18 Aug
+	2025 04:38:01 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141030epcas5p45a75274697463bbca9cab12f776a4e8c~bp3wECC8s1288712887epcas5p4Z;
-	Thu, 14 Aug 2025 14:10:30 +0000 (GMT)
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250814141036epcas5p1fc02cea3f97534303673eb8453b6a18f~bp305UicQ0355803558epcas5p1I;
+	Thu, 14 Aug 2025 14:10:36 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141026epsmtip2c41e27576eca50949b643b58df963c58~bp3sPL3m81817818178epsmtip2n;
-	Thu, 14 Aug 2025 14:10:26 +0000 (GMT)
+	20250814141031epsmtip26b88e96818e2b889c40dbd1ebeaccd62~bp3xEo9mG1850318503epsmtip2N;
+	Thu, 14 Aug 2025 14:10:31 +0000 (GMT)
 From: Inbaraj E <inbaraj.e@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -66,27 +66,27 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
 	festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, Inbaraj E <inbaraj.e@samsung.com>
-Subject: [PATCH v2 06/12] media: imx-mipi-csis: Move irq flag and handler to
- mipi_csis_info structure
-Date: Thu, 14 Aug 2025 19:39:37 +0530
-Message-ID: <20250814140943.22531-7-inbaraj.e@samsung.com>
+Subject: [PATCH v2 07/12] media: imx-mipi-csis: Add support to configure
+ specific vc
+Date: Thu, 14 Aug 2025 19:39:38 +0530
+Message-ID: <20250814140943.22531-8-inbaraj.e@samsung.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250814140943.22531-1-inbaraj.e@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250814141030epcas5p45a75274697463bbca9cab12f776a4e8c
+X-CMS-MailID: 20250814141036epcas5p1fc02cea3f97534303673eb8453b6a18f
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250814141030epcas5p45a75274697463bbca9cab12f776a4e8c
+X-CMS-RootMailID: 20250814141036epcas5p1fc02cea3f97534303673eb8453b6a18f
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
-	<CGME20250814141030epcas5p45a75274697463bbca9cab12f776a4e8c@epcas5p4.samsung.com>
+	<CGME20250814141036epcas5p1fc02cea3f97534303673eb8453b6a18f@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_213804_186092_F5E4B935 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250817_213805_875991_53EB7F15 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +101,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FSD CSI IP has only one IRQ line, shared between imx-mipi-csis and
-fsd-csi-media drivers. To extend this driver for FSD SoC support,
-move the IRQ flag and IRQ handler to the device data(structure
-mipi_csis_info).
+MIPI_CSIS_V3_3 and MIPI_CSIS_V3_6_3 support streaming only on VC0. The
+MIPI_CSIS_V4_3 present in the FSD SoC supports streaming on any one VC
+out of four VCs. To extend support for the FSD SoC, add the ability to
+configure a specific VC. The FSD CSI Rx can configure any one VC and
+start streaming.
 
 Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
 ---
- drivers/media/platform/nxp/imx-mipi-csis.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/media/platform/nxp/imx-mipi-csis.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 4afa75734f05..a3e2c8ae332f 100644
+index a3e2c8ae332f..4f6c417fdf58 100644
 --- a/drivers/media/platform/nxp/imx-mipi-csis.c
 +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -285,6 +285,8 @@ struct mipi_csis_info {
- 	enum mipi_csis_version version;
- 	unsigned int num_clocks;
- 	const char *clk_names[MIPI_CSIS_MAX_CLOCKS];
-+	unsigned int irq_flag;
-+	irq_handler_t irq_handler;
+@@ -54,7 +54,7 @@
+ 
+ /* CSIS common control */
+ #define MIPI_CSIS_CMN_CTRL			0x04
+-#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
++#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(n)	BIT(((n) + 16))
+ #define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
+ #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
+ #define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
+@@ -319,6 +319,7 @@ struct mipi_csis_device {
+ 		u32 hs_settle;
+ 		u32 clk_settle;
+ 	} debug;
++	unsigned int vc;
  };
  
- struct mipi_csis_device {
-@@ -1462,7 +1464,7 @@ static int mipi_csis_probe(struct platform_device *pdev)
- 	mipi_csis_phy_reset(csis);
+ /* -----------------------------------------------------------------------------
+@@ -544,9 +545,10 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+ 				   const struct csis_pix_format *csis_fmt)
+ {
+ 	u32 val;
++	unsigned int vc = csis->vc;
  
- 	/* Now that the hardware is initialized, request the interrupt. */
--	ret = devm_request_irq(dev, irq, mipi_csis_irq_handler, 0,
-+	ret = devm_request_irq(dev, irq, csis->info->irq_handler, csis->info->irq_flag,
- 			       dev_name(dev), csis);
- 	if (ret) {
- 		dev_err(dev, "Interrupt request failed\n");
-@@ -1536,6 +1538,8 @@ static const struct of_device_id mipi_csis_of_match[] = {
- 			.version = MIPI_CSIS_V3_3,
- 			.num_clocks = 3,
- 			.clk_names = {"pclk", "wrap", "phy"},
-+			.irq_flag = 0,
-+			.irq_handler = mipi_csis_irq_handler,
- 		},
- 	}, {
- 		.compatible = "fsl,imx8mm-mipi-csi2",
-@@ -1543,6 +1547,8 @@ static const struct of_device_id mipi_csis_of_match[] = {
- 			.version = MIPI_CSIS_V3_6_3,
- 			.num_clocks = 4,
- 			.clk_names = {"pclk", "wrap", "phy", "axi"},
-+			.irq_flag = 0,
-+			.irq_handler = mipi_csis_irq_handler,
- 		},
- 	},
- 	{ /* sentinel */ },
+ 	/* Color format */
+-	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
++	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(vc));
+ 	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
+ 		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
+ 
+@@ -567,11 +569,11 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+ 		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
+ 
+ 	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
+-	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
++	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(vc), val);
+ 
+ 	/* Pixel resolution */
+ 	val = format->width | (format->height << 16);
+-	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
++	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(vc), val);
+ }
+ 
+ static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
+@@ -631,6 +633,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ {
+ 	int lanes = csis->bus.num_data_lanes;
+ 	u32 val;
++	unsigned int vc = csis->vc;
+ 
+ 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+ 	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
+@@ -648,7 +651,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ 	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
+ 	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
+ 	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
+-	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
++	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(vc), val);
+ 
+ 	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+ 	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
+@@ -669,7 +672,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+ 	/* Update the shadow register. */
+ 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+ 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
+-			val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW |
++			val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(vc) |
+ 			MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL);
+ }
+ 
+@@ -945,6 +948,8 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
+ 	struct v4l2_subdev_state *state;
+ 	int ret;
+ 
++	csis->vc = 0;
++
+ 	if (!enable) {
+ 		v4l2_subdev_disable_streams(csis->source.sd,
+ 					    csis->source.pad->index, BIT(0));
 -- 
 2.49.0
 
