@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75423C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 01:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB397C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 02:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5359FG1iOw7mSUH2p84VO1nK6GI7PV2VMnCujqQ0lBk=; b=Ueww6jWOpzl57uxxGw4z4gjEIe
-	WzCWG6SdkvDa6Z0g7ZQyt5P6gAdIOmmGQKEodc2Bl2E5UtooTPuBKaZHtfnIhhanBo71ZiEHKykYJ
-	3s+7AsLVXKqneZQPo/Nn16v2Iynwd9G7MQWbaeqOoyyuhum5jDAxAC9YPmgFwJErZq/GetBOadebc
-	G4Ot3Bc5t86Qb2oyezsS84mNchggI41iiCuBMjDtQFhgCphtDX1L8fA+mX0HioWik1UHUK+bjWooi
-	KwaTg3SWBtepePEIzcXWVHpRUTLkLeFdvSNdtktPNfKpwmA5EiwIZxdfptJd/DgnAjj9i7e55fI/e
-	wDEawskg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GRHb99jNPH0UFBX2I07pqGevFpMjZ1DTdvtyfpI2li8=; b=oocdBZNGRh1EJDShBDIrOAV/E/
+	4vIgy/89BAbvnI4MZ+Rti16/aQMN8xh+dbO7kpsp+ZjROxiv35MN38EfYAXkcxEojfTxidPDTvsYN
+	Lg/mW11I3igL8R6PTfoc8GGZto9HT67lteFoHiGsEQS3C7Cs5NNgBzs+7dyeMH+DigeaE/CxPtiRm
+	hi9BMQsrjN3kMiCoxEDzlNSiFrOypWkbF9RI1ic6++HpsgdICl6MOByGv/pSWffPfwS6nXQ94/xJI
+	14lgKe73RE3uuL0WnGBJfpAKG0gkOYSlAYmT9/JTkiaXc9o09xv0NIQp12Ld5Pyj2jlAk3OEoqrNK
+	Xx2Z6yOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umNEI-0000000FXtW-1hOp;
-	Thu, 14 Aug 2025 01:58:10 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1umNGr-0000000FYES-2Ukq;
+	Thu, 14 Aug 2025 02:00:49 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umN1i-0000000FWq0-2nt1;
-	Thu, 14 Aug 2025 01:45:12 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowAAngIGhP51oZJGTCw--.10867S2;
-	Thu, 14 Aug 2025 09:45:05 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	heiko@sntech.de
-Cc: linux-phy@lists.infradead.org,
+	id 1umN4V-0000000FX7o-17vQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 01:48:04 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3e57376f655so1554695ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 Aug 2025 18:48:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755136082; x=1755740882; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GRHb99jNPH0UFBX2I07pqGevFpMjZ1DTdvtyfpI2li8=;
+        b=WqxUtaHOdlr0ZyE16sX8+02kE08M5zHBE7luduvazXKdB1m6ZiSZyMLvN4cHo7RHHU
+         NIXZnWLx/YZhnsmWTz/DSvIniA1Mssq1/W6QFRho/Rx/YCEldZon8m4pohnnpL7s/Gx2
+         sRTm5z8iFo5cFPImWUx5rL/VnaBgW9zhH1fEyLb4AeIuq8kPyVoYmDIp/FLBRr0RzTAe
+         WwqEc3heqib/ZfJhH6SulfM2nOvuzlzc79o2OcfuITyrdne5Ye3gOry++GhF3S+8QUsx
+         C95xFHjIn/wrMJ8oNvmjOkk1/YReHuej+P8kKOONQ2/jwdToWk7AlH13MWqmgAohjnp+
+         gRSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755136082; x=1755740882;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GRHb99jNPH0UFBX2I07pqGevFpMjZ1DTdvtyfpI2li8=;
+        b=UN9T68xYqE/R1X3ldBdH92G2oITF5s+ruDLFWJzC58QNLOl8v2lwF+xbhzDU7Tqosx
+         qqX3UMflqvrUGHE2zWJBCt+FdDMpfAmDFheOZLcf7038Bmg89ePPNd5l3fjUY+rtmBXB
+         J/WAI8jR4tb7KUHdCEbux2P3/hTv0g/UK7dJuVpTNlwOkWlK1zZKz1NHK6hnqzbdFvCX
+         GiyxidUsRNbsnYa1vVgFxHFiM7xxbl1CxZwHT4e0VJtkZlwSAzWMEEHiOochyrVFvE99
+         Q03PB8LL0qZzpt/q8T80nSrkDfr3BBj0xxJinFTQPnZJjkY7BcYn4ELluxvnoLeh8oTV
+         aK8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXzVPlX1ipvFp9U1JdqkBl0wOoYhkJOTDNcJ1R7QhnYmjd4E7cawsOZBWoEEkNS73hed9WfwahtrNNwJ9wXEb9r@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWZ8J+DZoxi+KUY6wCc6ziat6sa+ph9MBEV4cnwixOqZrOPE6R
+	WNjXoCKlxdApVcjybdK0oQTLKsJYLtu3DNaSDg0ZgVacgQ6cqDoMMoqD
+X-Gm-Gg: ASbGncu74znEaOFHwxB+FakbKVB2U5y/Zs708KGMPGTt6Ers9XMUZ7hw3UBAkUo48/U
+	AYVM5tF/tuMAxEoODI6HHQzQW7uDLuFvPOm6lyx73tuJaZXBVXwK9AozUNjDELmVvsfFA4i9hE5
+	ZqVC+kiIMMWOv0pksk+TfuwpyBYxi0LOntAnVu6XiVJYuG7IOWRxsCjnjXRdddjnU4f1kvIyXa6
+	JOzHjacgfyfRAYyEOeBGRuTTlVEydH5x2YRB1JU5Fy9B009bkrFwZdloJNKDzLNo49Aq74BAdXb
+	+HvcFDYdu56Dj9WuwzV7Iad2B9nQg/W5auy4aHGBRmQffJbhB1RtZbKHUze05/skUIyRCnQ3xXD
+	t/Tv3dzJBMYQT41qtcNKRukvVwN8O3X71HOob5rlgxx5avOqH6EaO9WO7dGpWPdhbE8TfzsL2TK
+	qwUA==
+X-Google-Smtp-Source: AGHT+IHtXsnK+kBLj28/be1/0hdQ5zE1GehEVJYoBHTHj3XvV+jA9oaNZskmJcAQPEyXFOU+Z2DGEA==
+X-Received: by 2002:a05:6e02:1fc9:b0:3e3:fd25:f6a with SMTP id e9e14a558f8ab-3e571e03f79mr17027195ab.11.1755136082395;
+        Wed, 13 Aug 2025 18:48:02 -0700 (PDT)
+Received: from localhost.localdomain (65-128-248-47.mpls.qwest.net. [65.128.248.47])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50ae9bd316bsm3938726173.46.2025.08.13.18.47.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Aug 2025 18:48:02 -0700 (PDT)
+From: Shimrra Shai <shimrrashai@gmail.com>
+To: shimrrashai@gmail.com
+Cc: broonie@kernel.org,
+	lgirdwood@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] phy: rockchip: naneng-combphy: Convert comma to semicolon
-Date: Thu, 14 Aug 2025 09:39:43 +0800
-Message-Id: <20250814013943.2905307-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	linux-sound@vger.kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com
+Subject: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer connection on ES8323
+Date: Wed, 13 Aug 2025 20:47:31 -0500
+Message-ID: <20250814014731.86651-1-shimrrashai@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250814012652.81424-1-shimrrashai@gmail.com>
+References: <20250814012652.81424-1-shimrrashai@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAngIGhP51oZJGTCw--.10867S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Gr4rCw4kuw4kuw1xGrW3ZFb_yoW8JrW7pw
-	s2yayqvr97G398uws3tFs8CF1Fkan8Kw47CFnrA343XasFvF1DG3s29FyDJr47Jr17Za15
-	Wa9xta43Gr43ZrJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvq14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	Jw0_GFylc2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0x
-	ZFpf9x0JUmNtsUUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250813_184511_073552_F8F3EB68 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250813_184803_312291_0009AAB9 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace comma between expressions with semicolons.
+Enable the right-hand DAC mixer connection in the same manner as the
+left-hand one.
 
-Using a ',' in place of a ';' can have unintended side effects.
-Although that is not the case here, it is seems best to use ';'
-unless ',' is intended.
-
-Found by inspection.
-No functional change intended.
-Compile tested only.
-
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+Signed-off-by: Shimrra Shai <shimrrashai@gmail.com>
 ---
- drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ sound/soc/codecs/es8323.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index 0d25872e6712..a3ef19807b9e 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -1252,7 +1252,7 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
- 		writel(val, priv->mmio + RK3568_PHYREG15);
+diff --git a/sound/soc/codecs/es8323.c b/sound/soc/codecs/es8323.c
+index a98229981..3a91713bd 100644
+--- a/sound/soc/codecs/es8323.c
++++ b/sound/soc/codecs/es8323.c
+@@ -633,6 +633,7 @@ static int es8323_probe(struct snd_soc_component *component)
+ 	snd_soc_component_write(component, ES8323_CONTROL2, 0x60);
+ 	snd_soc_component_write(component, ES8323_CHIPPOWER, 0x00);
+ 	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
++	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
  
- 		/* Set PLL KVCO fine tuning signals. */
--		val = RK3568_PHYREG33_PLL_KVCO_VALUE << RK3568_PHYREG33_PLL_KVCO_SHIFT,
-+		val = RK3568_PHYREG33_PLL_KVCO_VALUE << RK3568_PHYREG33_PLL_KVCO_SHIFT;
- 		rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK, val, RK3568_PHYREG33);
- 
- 		/* Enable controlling random jitter. */
+ 	return 0;
+ }
 -- 
-2.25.1
+2.48.1
 
 
