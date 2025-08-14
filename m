@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42185CA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B9ECA0EDC
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/p+Yc3grdnyzYnDTQLjDX5RLPPFCbXFwpNxCJbp/Io=; b=IJyoAQzBsIl48Q+455AHyluwzF
-	jn5Tx8Va/vU10ljNAdvr1gRbRe1lDneJYsuDpL4MPd7RqxfSXVYGsSJunLX1pTcaiRqweYXkWxqA8
-	84Uomd92hD0yozPeqaZBjAu9V9pl6AJU98piKEZ/6a7fYykwIQ/an3aiucIH5TjZP/ji/t3IFOfSj
-	BauOg9hmMOTRTt240qn56d/JudJKKApGegrihdhmck5um5RrlRrA9aiYVHzGCVvJ2Cy0xbSgDUKJC
-	BZXUjxAF0baI/E2sZwGE/axxeN4oOM62g8AQphg/xTTcLWJ8aUgEHfc/t4z1qFkyuA6i/KH5f3AhD
-	191zdfWg==;
+	bh=TEyjoSJPQLcjCfA4EUrQ7E5LqA3R9lmjkN8K/8PduP0=; b=BAIQs4O/79/Ec2vMHIaS2loY38
+	f2J7CnycsxjPvFT+bcMCgoDZKXxoh4sLhbrJxHaTDNdZzkaeewemLGKE+rlTblyNX9fRVK/Kno2DH
+	X4j7eHyRSheB9igZSF+9Qyb4LzlDciS8fEEi8b9ag9HGnTIi4U4TozrU7yXwE5FmdM8oN4q6WoYXl
+	YHhbcPzxyyebNz4qK89wzD/FjwtT2yMYfvok1uswewY3I7Qkxr8A5zM3Fjh8wfnQm4M1uRLm2NyFT
+	01ELzwSJUcdG0ZKPku61LExi+3cFsekmB4OICuk0P8hYsbryYncuJ3I0dSU/OkNxCA5DMP029PHk0
+	DHvbb2DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZSP-0000000HLzj-2PCd;
+	id 1umZSP-0000000HLzS-08zI;
 	Thu, 14 Aug 2025 15:01:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXZ3-0000000GubP-0jmX
+	id 1umVuJ-0000000Gibp-0eXi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 13:00:18 +0000
+	Thu, 14 Aug 2025 11:14:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C154450BD;
-	Thu, 14 Aug 2025 13:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0912CC4CEED;
-	Thu, 14 Aug 2025 13:00:12 +0000 (UTC)
-Date: Thu, 14 Aug 2025 14:00:10 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-	Linux-Arch <linux-arch@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mark Rutland <mark.rutland@arm.com>, harisokn@amazon.com,
-	cl@gentwo.org, Alexei Starovoitov <ast@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com,
-	Joao Martins <joao.m.martins@oracle.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
- smp_cond_load_relaxed_timewait()
-Message-ID: <aJ3d2uoKtDop_gQO@arm.com>
-References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
- <20250627044805.945491-2-ankur.a.arora@oracle.com>
- <aJXWyxzkA3x61fKA@arm.com>
- <877bz98sqb.fsf@oracle.com>
- <aJy414YufthzC1nv@arm.com>
- <67b6b738-0f1c-4dd4-817d-95f55ec9272b@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67b6b738-0f1c-4dd4-817d-95f55ec9272b@app.fastmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_060017_226392_CA1E4723 
-X-CRM114-Status: GOOD (  20.16  )
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AC026020A;
+	Thu, 14 Aug 2025 11:14:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39150C4CEEF;
+	Thu, 14 Aug 2025 11:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755170046;
+	bh=Zp1LwTzGyu5opfZZQrk1YaVyVYP61aThHFWSJdfT0J0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=t1NNCoDSYRuWtD7PfLDno+SNNPsMDobPhxKPDCWbIbMWnrFJQriYfQFKY6zOpEMoQ
+	 ///hIoz8SEul3HnFinP+t93BiMm63HUrtQuSNoU6KhDt+4FPQ6StaXyMlTfmSxDhNh
+	 QYLXFoCmo+/p1XFAIv9t+5dAmyZCHdkOqYS/BpAA4nJj2X4zXkEAyaErLVOqxPiiB5
+	 vSNrI489fs994s//ajfkcFCY9E9yXjp0yM6dKOCGtVnkoeF5tLHY1TyAefInQH4s1u
+	 4v/17xiX1gX+kNDiejPRYKXbvs8sG93PPdFhhHK6qYChnyZ5RD9ksy1ZskU6KLZyGp
+	 RlyZzHjJBxSLA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1umVuG-007Q0C-4x;
+	Thu, 14 Aug 2025 12:14:04 +0100
+Date: Thu, 14 Aug 2025 12:14:03 +0100
+Message-ID: <871ppetatg.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Steven Price <steven.price@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH 2/4] clocksource/drivers/arm_arch_timer: Add standalone MMIO driver
+In-Reply-To: <86ldnmdvpl.wl-maz@kernel.org>
+References: <20250807160243.1970533-1-maz@kernel.org>
+	<20250807160243.1970533-3-maz@kernel.org>
+	<8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com>
+	<86ldnmdvpl.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: daniel.lezcano@linaro.org, steven.price@arm.com, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@arm.com, rafael@kernel.org, tglx@linutronix.de, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 06:29:37PM +0200, Arnd Bergmann wrote:
-> On Wed, Aug 13, 2025, at 18:09, Catalin Marinas wrote:
-> > On Mon, Aug 11, 2025 at 02:15:56PM -0700, Ankur Arora wrote:
-> >> This also gives the WFET a clear end time (though it would still need
-> >> to be converted to timer cycles) but the WFE path could stay simple
-> >> by allowing an overshoot instead of falling back to polling.
-> >
-> > For arm64, both WFE and WFET would be woken up by the event stream
-> > (which is enabled on all production systems). The only reason to use
-> > WFET is if you need smaller granularity than the event stream period
-> > (100us). In this case, we should probably also add a fallback from WFE
-> > to a busy loop.
+On Thu, 14 Aug 2025 11:49:26 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> I think there is a reasonable chance that in the future we may want
-> to turn the event stream off on systems that support WFET, since that
-> is better for both low-power systems
+> On Thu, 14 Aug 2025 11:13:47 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+> > 
+> > On 07/08/2025 17:02, Marc Zyngier wrote:
+> > > Add a new driver for the MMIO side of the ARM architected timer.
+> > > Most of it has been lifted from the existing arch timer code,
+> > > massaged, and finally rewritten.
+> > > 
+> > > It supports both DT and ACPI as firmware descriptions.
+> > > 
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  MAINTAINERS                               |   1 +
+> > >  drivers/clocksource/arm_arch_timer_mmio.c | 420 ++++++++++++++++++++++
+> > >  2 files changed, 421 insertions(+)
+> > >  create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
+> > > 
+> > [...]
+> > > +static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
+> > > +{
+> > > +	at->evt = (struct clock_event_device) {
+> > > +		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
+> > > +					      CLOCK_EVT_FEAT_DYNIRQ),
+> > > +		.name			   = "arch_mem_timer",
+> > > +		.rating			   = 400,
+> > > +		.cpumask		   = cpu_possible_mask,
+> > > +		.irq 			   = irq,
+> > > +		.set_next_event		   = arch_timer_mmio_set_next_event,
+> > > +		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
+> > > +		.set_state_shutdown	   = arch_timer_mmio_shutdown,
+> > > +	};
+> > > +
+> > > +	at->evt.set_state_shutdown(&at->evt);
+> > > +
+> > > +	clockevents_config_and_register(&at->evt, at->rate, 0xf, CLOCKSOURCE_MASK(56));
+> > 
+> > This doesn't work on 32 bit - clockevents_config_and_register()'s final
+> > argument is an unsigned long, and a 56 bit mask doesn't fit. This
+> > triggers a compiler warning:
+> 
+> Already reported, see 20250814111657.7debc9f1@canb.auug.org.au.
+> 
+> > Possible this should really be min(CLOCKSOURCE_MASK(56), ULONG_MAX)? But
+> > I'm not familiar enough with this code. Most likely it's dead code on a
+> > 32 bit platform.
+> 
+> No, this definitely exists on 32bit crap, since it has been part of
+> the architecture from the ARMv7+VE days.
+> 
+> I think this is more of an impedance mismatch between the
+> CLOCKSOURCE_MASK() helper and the clockevents_config_and_register(),
+> and a (unsigned long) cast would do the trick.
 
-Definitely better for low power.
+Of course not. That would just result in a big fat zero.
 
-> and virtual machines with CPU overcommit.
+> But it also means that the per-cpu timer also gets truncated the same
+> way, and that has interesting impacts on how often the timer is
+> reprogrammed.
 
-Not sure it helps here. With vCPU overcommit, KVM enables WFE trapping
-and the event stream no longer has any effect (it's not like it
-interrupts the host).
+That question still stand, and I wonder whether we have ugly bugs
+lurking on 32bit platforms because of that... I'll try and have a
+look.
 
-That said, my worry is that either broken hardware or software rely on
-the event stream unknowingly, e.g. someone using WFE in a busy loop. And
-for hardware errata, we've had a few where the wakeup events don't
-propagate between clusters, though these we can toggle on a case by case
-basis.
+	M.
 
 -- 
-Catalin
+Jazz isn't dead. It just smells funny.
 
