@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9A8CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 21:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00CACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 21:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lyCLhoYy7jyy9fXZUW6l5VbrMofMsKhJtElwy0Ukqwk=; b=c6p6sTolQDYQyJEsRwEnKN3/ZE
-	nappU8vhENPhLcfL5TshRKu0UFyJXEV3QwzjYYASpQB9u4C1LoeeqA4YEdRXz341kHrSnqPc+CfD/
-	XpOcXAvRhc3tv1WQRnZJsSP5dd/jTzzBh37zGrGyuJX1hNN7qMHyhdgqJtBIJJJLtC0MtKpJXusSy
-	C4RDEeCINbBmvmbO1w3XNhfmdL2XaCSQsdjMjPfFpSdJVT2e5Vzf5yBE2mGi6vXqR2i/KQlZTV53T
-	RCgJWztIcBKSIQ03OLggoahmHjZCN1zBTARzMfbkcKbSytyhfLlhNq6kQocM9c6LtWEyKHAxLwGoM
-	siVgEVIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I7XkqfN+8GpCV5L4wKsX6gnozkYn7FaRolU1z5Ae4FQ=; b=tdW4tRXSgJBRnWzZOgrOO2drl/
+	MF8aDCSxzNWGhMC92szGqvzNdoUHVQ1oImb0XDvxpKBi7Pr9ptdB0gXO6box/2W2tJcDvkm2NaegM
+	IPj1e+xmxb0MMruwsZJWWCvZRyzphGEG2NYyYeq5bidyXeoi9lulCemTTyCptBEm4Dj0I0r9MWzpP
+	UmG3V+umplp1oEpZNQ43/IIAjlYYt5hzj1u2xzOH83fmdZQcavCkMmY+u58mDOx6K2YcwJdA5geMS
+	Fw0zW1HF26J+iec1UTPT05AE/a725SbR57ZNv1nKLCWu6Tg09PqAKwO3nhJXeDeu6UMVF5/5BgB1l
+	xkw5zyYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umfS0-00000000air-0Jmh;
-	Thu, 14 Aug 2025 21:25:32 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1umfUX-00000000ayA-3hfL;
+	Thu, 14 Aug 2025 21:28:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umfKV-00000000Zrv-49C9
+	id 1umfMA-00000000a3G-3DIs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 21:17:49 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-435de93740dso356082b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 14:17:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1755206267; x=1755811067; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lyCLhoYy7jyy9fXZUW6l5VbrMofMsKhJtElwy0Ukqwk=;
-        b=s53xZ6lDxxGgljfhkVBq+RzADI/tjFBlMIBmAsQrD3daisg1F/e4S4FHsWwKJqJn0a
-         nalscVuF+g/ePeQKwYnNTGk88bngLMlB5AGOApj8L4vVCJqkZxnMiTbWMqtc49poNLOL
-         LKebd70SkvFecFskP1dUsSF9eTl2asc37l9ML0P0s8TxRpeibgJ7OOolqhp+dhblJg9L
-         vjdUH8VKer5YxlGjLgioNukX5H2BirlCfxZEmAiFMlWy245JqyRBDhfC/37fnYHAt6P7
-         vRyq+LSQpZAPnzTT0U4zAvlFb3ipYSa7pdVRH+owsBcMoq+JO8bH/bFO9ZvKO+CfN94i
-         lLKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755206267; x=1755811067;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lyCLhoYy7jyy9fXZUW6l5VbrMofMsKhJtElwy0Ukqwk=;
-        b=S4yHUlNbWH5zxhnLu7pBuQQYb/Ql/tcgH+D/WgMNoghKmGHA7QwMQPSIzeJmUy6lQj
-         UkeUsikUzGf/Wblau3KCTMUAAyFb1ZxazOHfe/I0g890sveQ/UsqfsBoBvc+Cju9b11D
-         btDxSr6vFvsbTsgYD6ZXBusSpBTqGc7AIwdvnpyYjlE/dqBMKhG1vFHsDZZahYraLpwy
-         YvQvMmYlWi/zD5tuo+U83tVdblEMtaUwWa8JzJTZtdcFd0SbmnQX1BGuJRMAUAj3BReu
-         S5czwAtlC6dxdQY3IFEcplWhNvatxaRgyX/0CrWWvtOth2Slz8yVF67SroCvfprQAud9
-         YtNg==
-X-Forwarded-Encrypted: i=1; AJvYcCUuIgUyJ2hMrsov3Jd7i9sbf4+DbkhiBjRSTxFb+4ipTP6JfdQs9uXpnQFRUGPj1cSLLKb8GCWt4Lr/x4AOBXxa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyAzrhfiMNv0AHPxX/xcF4cHsc75RZfZRwsayYI3phTkEfT0/5
-	FS3lIHCcQQMys3RAPGi3gYZxty/7cWgS0JffyiDELN1BqrFVDP/ACPYKjEL13QP2kT0=
-X-Gm-Gg: ASbGncu+HRAuIdg92jRKGxRa40e1Kb7IUA4szBjpyVHD67n+QBhj+ksueVGnTzC8OT9
-	OEl0mr7XCHGVYzV+yo2QIDaO5SgF4mTBz1kTmri46tkgub4ydAznwoxolm5qn6fseqZEG3UixLz
-	irjGMKlG6i5kaOHRZiIF+8jxjuv0Q54HW9ItvtnY4NpL5tiRcscDCHD6QydTDzvqUgOxcWfIyt5
-	gZfzk+wTSV/aWe124MSZB+eF4uae8Mkw3CXSXf52Jc4qxmwGtOG8FPxWeHUErhDPDFOzePm7vkZ
-	Z6hcJcJKTRUZr5cEtPb2suvYzpF7/IMKLoG7mbDNeDH55Cox9eTLZ964zFJJnCD3dESome8ZB7B
-	EwA6BvEBd0xhNZKnxYmtSRcfNP59de8rslHtlAifp0rpc7xOov2lh6ibm6V5JFpCQ5Oj++GGKJq
-	I=
-X-Google-Smtp-Source: AGHT+IHLwc3eKl5bHyawwGLuUnTbJjGRZty13s2Nm04iMLIbVVsuSQ73l1ycimhqcR9RpsB41KxtMQ==
-X-Received: by 2002:a05:6808:4f24:b0:41c:95a3:8180 with SMTP id 5614622812f47-435df7caeabmr3019825b6e.20.1755206266927;
-        Thu, 14 Aug 2025 14:17:46 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:2d9b:959c:3c59:5831? ([2600:8803:e7e4:1d00:2d9b:959c:3c59:5831])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-435ce6fe528sm1217497b6e.7.2025.08.14.14.17.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 14:17:46 -0700 (PDT)
-Message-ID: <5bbdddaf-4ff1-4cff-a933-143160896717@baylibre.com>
-Date: Thu, 14 Aug 2025 16:17:45 -0500
+	Thu, 14 Aug 2025 21:19:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 139DB5C6813;
+	Thu, 14 Aug 2025 21:19:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 942BEC4CEED;
+	Thu, 14 Aug 2025 21:19:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755206369;
+	bh=Rp5HHClNCs4aOkUL7sssHUYQCKwZAsLIt4TkTxZMYCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V+rQbFKVXCy3Sn8DBpesxLjl6NFd1ScybynS/VPY7zsautaMPzoRADvFhi9FNFQJY
+	 TajrqgMT0GWizoOGGVulu1WBdho5MadPbUiaGFxUgn1A07BooZCYtZpoB6jo4IioYm
+	 zaPWxltuzg9r9dsujVY0P7Z3V5UQGO6h4PAd0drh9OGiZh+Zu9wxlcJQe/LhF0wBeG
+	 58pgSRfIKRs4U48cEwkfqqNLdVNz9oy2gTjrINuyiiluHIJiTjBcwIF0T3+LcF0pH+
+	 eEDx9sZg1+uchZpXOqP0yxPOWPmxdsLXx3X58wQq/V62JB4eAAhGgUA8tpsDe8lwif
+	 12xBuCBuPxd+Q==
+Date: Thu, 14 Aug 2025 16:19:28 -0500
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Apple SMC RTC
+Message-ID: <20250814211928.GA3922106-robh@kernel.org>
+References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
+ <20250812-wip-smc-rtc-v1-1-66a8e96dad60@kernel.org>
+ <074fcd4c-0da8-42c4-a567-64fa7e173894@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add spi-buses property
-To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-References: <20250616220054.3968946-1-sean.anderson@linux.dev>
- <20250616220054.3968946-2-sean.anderson@linux.dev>
- <1a87f436-317b-40e0-a655-cd82f969f22e@baylibre.com>
- <5b02293b-9c86-441b-9344-2d0263eb1659@linux.dev>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <5b02293b-9c86-441b-9344-2d0263eb1659@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <074fcd4c-0da8-42c4-a567-64fa7e173894@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_141748_035147_53A62513 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250814_141930_845697_907FA199 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/14/25 4:15 PM, Sean Anderson wrote:
-> On 8/14/25 16:55, David Lechner wrote:
->> On 6/16/25 5:00 PM, Sean Anderson wrote:
->>> From: David Lechner <dlechner@baylibre.com>
->>>
->>> Add a spi-buses property to the spi-peripheral-props binding to allow
->>> specifying the SPI bus or buses that a peripheral is connected to in
->>> cases where the SPI controller has more than one physical SPI bus.
->>>
->>> Signed-off-by: David Lechner <dlechner@baylibre.com>
->>> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
->>> ---
->>>
->> FYI, Mark's filters won't pick up `dt-bindings: spi:`, we need to change
->> the subject line to `spi: dt-bindings:` on the next revision.
->>
+On Wed, Aug 13, 2025 at 08:14:51AM +0200, Krzysztof Kozlowski wrote:
+> On 12/08/2025 20:25, Sven Peter wrote:
+> > +maintainers:
+> > +  - Sven Peter <sven@kernel.org>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: apple,smc-rtc
+> > +
 > 
-> Sounds like he should fix his filter then.
-> 
-> --Sean
+> No resources except nvmem? This should be folded into the parent. Don't
+> create device node to instantiate drivers.
 
-No, this is a documented expectation for contributors. [1] says that SPI and
-a few other subsystems want the subsystem first in the subject.
+Well, the reboot node has nvmem entries too, so probably better to keep 
+this as child node.
 
-[1]: https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html
+Is there more functionality planned/needed here (for the mfd)? If so, 
+please send it all at once. One child node at a time makes DT 
+maintainers grumpy.
 
-
+Rob
 
