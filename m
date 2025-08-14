@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA95CCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 23:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41898CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 23:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rXdQcy/27Jq7Jq/L5vAhv4CZm/ydLyaRg1/p0QGJJjk=; b=xpFtUBCsNLma4bc0VLS6yYUEmF
-	JMdkfLJMzM9CMYhsj503/R/hIj/xhpUVrqghvs2iR7iHW3XYzeLzjGYHtnROrcc22jLY6lDUnoBPP
-	9uUSAEjzFLe+WRfC4mmuWgzDPRXzNxNHAERQhE1/Sb/vJYOUpyqEx5doGDGRCVZaXxHzOTCu+Tj5/
-	RfufK8YzNnQ7uwz02d1XyzwY1TS550FC/0uXDRYYm7nM+geTt9YcUzbq1A37h0Opnc8nYeE+0WlpG
-	BDxTPNqjN0xN5WTPSqZNz+XfJmRQuDWFryPCTOnDw8u1YFG9y4KXzjLNam0X/BrjPLVpwsnv7TWFB
-	MLdE3EPg==;
+	bh=Ms85+wGKpfnZeMW/XLycT8EaKMToDC5/Qc7Sp9NDkmU=; b=xKeelcFET5lr301uJx+3EIvCkt
+	Z6JxvDYBj8da/CUv2KTfzFjUDmprfdLYH5fVTsjvrNTUBjwBR1wKZLEetMi5PvGJ08ZPmK8kAdUmt
+	+0fFQFUPG53aWEq17Z2edvNhyWTgR86+9AePw2tVjs1frG9P9ovLaqx6MTWhSehqtpKtX01DD58J/
+	3WifA6UBs/tH78mR6rC2Zv6/1sb602lkTsTQc404ySx+HGOl+C//ZPG39FVzhcgAofFdifvNS/ZGv
+	e6xeEkwQZuRzKoRHUbegQEYs2hIUVZrLZPeWqLU44HxrzCRjXEyCOQTBQh+zKTPMog3OXVM01qNWw
+	fUsJ967w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umh8N-00000000lgq-1hif;
-	Thu, 14 Aug 2025 23:13:23 +0000
+	id 1umhAv-00000000mDQ-0dwT;
+	Thu, 14 Aug 2025 23:16:01 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umgc4-00000000gxO-28M8
+	id 1umgc8-00000000gyJ-2Bap
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 22:40:01 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EMdwkv2027460;
-	Thu, 14 Aug 2025 17:39:58 -0500
+	Thu, 14 Aug 2025 22:40:06 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EMe2Qj2027482;
+	Thu, 14 Aug 2025 17:40:02 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755211198;
-	bh=rXdQcy/27Jq7Jq/L5vAhv4CZm/ydLyaRg1/p0QGJJjk=;
+	s=ti-com-17Q1; t=1755211202;
+	bh=Ms85+wGKpfnZeMW/XLycT8EaKMToDC5/Qc7Sp9NDkmU=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=p0nVTUp8O2hWlYj1e5OQ8Yy+faLK1lzeBSFQb9xgCD0HOXokPh5jLD3wO5la2o6h7
-	 /8lIw93bLaMxqpMYTo8baOsk8Nhc4ueS2C9JkwKKzQxhio8yZXKwfWVrypjF3UC2xn
-	 ApH95ARiN9CVPYS55gwy59PR5hTeIbMyMhJQXFeA=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EMdwnt1158805
+	b=YY5fKhyfHzgzCmIgswKK+dJHzysSEhATCRVWMCX+c6el6Z+KAXojIotaxuTal0OjN
+	 v6oMWmPTL1w3XMFGHa40WDO22QzKpVZ/earHhXNrMiH24noRoqyV6kPqS8QlMtrHNW
+	 oYTqOl99SAYz/nqt0aZJr/CInTPB+YYCM1I11Ua0=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EMe24b2150011
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 14 Aug 2025 17:39:58 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 14 Aug 2025 17:40:02 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
- Aug 2025 17:39:57 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 17:40:01 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 14 Aug 2025 17:39:57 -0500
+ Frontend Transport; Thu, 14 Aug 2025 17:40:01 -0500
 Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EMcw4l096792;
-	Thu, 14 Aug 2025 17:39:53 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EMcw4m096792;
+	Thu, 14 Aug 2025 17:39:58 -0500
 From: Beleswar Padhi <b-padhi@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
         <b-padhi@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 12/33] arm64: dts: ti: k3-j784s4-ti-ipc-firmware: Refactor IPC cfg into new dtsi
-Date: Fri, 15 Aug 2025 04:08:18 +0530
-Message-ID: <20250814223839.3256046-13-b-padhi@ti.com>
+Subject: [PATCH 13/33] arm64: dts: ti: k3-am62p-j722s: Enable remote processors at board level
+Date: Fri, 15 Aug 2025 04:08:19 +0530
+Message-ID: <20250814223839.3256046-14-b-padhi@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250814223839.3256046-1-b-padhi@ti.com>
 References: <20250814223839.3256046-1-b-padhi@ti.com>
@@ -69,8 +69,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_154000_648548_60AC91F8 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250814_154004_649339_30116B88 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,167 +85,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI K3 J784S4 SoCs have multiple programmable remote processors like
-R5F, C7x etc. The TI SDKs for J784S4 SoCs offer sample firmwares which
-could be run on these cores to demonstrate an "echo" IPC test. Those
-firmware require certain memory carveouts to be reserved from system
-memory, timers to be reserved, and certain mailbox configurations for
-interrupt based messaging. These configurations could be different for a
-different firmware.
+Remote Processors defined in top-level AM62P-J722S common SoC dtsi
+files are incomplete without the memory carveouts and mailbox
+assignments which are only known at board integration level.
 
-While DT is not meant for system configurations, at least refactor these
-configurations from board level DTS into a dtsi for now. This dtsi for
-TI IPC firmware is board-independent and can be applied to all boards
-from the same SoC Family. This gets rid of code duplication and allows
-more freedom for users developing custom firmware (or no firmware) to
-utilize system resources better; easily by swapping out this dtsi. To
-maintain backward compatibility, the dtsi is included in all boards.
-
-This patch only refactors the C71_3 remote processor related nodes into
-the new dtsi. All other nodes have been refactored in the previous
-commit as part of k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi.
+Therefore, disable the remote processors at SoC level and enable them at
+board level where above information is available.
 
 Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am69-sk.dts         | 27 +--------------
- arch/arm64/boot/dts/ti/k3-j784s4-evm.dts      | 26 +-------------
- .../dts/ti/k3-j784s4-ti-ipc-firmware.dtsi     | 34 +++++++++++++++++++
- 3 files changed, 36 insertions(+), 51 deletions(-)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi    | 1 +
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi | 1 +
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                  | 2 ++
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts           | 3 +++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                  | 3 +++
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi                | 1 +
+ 6 files changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-index 5e187e86a5d9..9a12b639209b 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-@@ -60,18 +60,6 @@ mcu_r5fss0_core0_memory_region: r5f-memory@a0100000 {
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+index bd6a00d13aea..5288c959f3c1 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
+@@ -205,6 +205,7 @@ mcu_r5fss0_core0: r5f@79000000 {
+ 			ti,atcm-enable = <0>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <0>;
++			status = "disabled";
  		};
--
--		c71_3_dma_memory_region: c71-dma-memory@ab000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xab000000 0x00 0x100000>;
--			no-map;
--		};
--
--		c71_3_memory_region: c71-memory@ab100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xab100000 0x00 0xf00000>;
--			no-map;
--		};
- 	};
- 
- 	vusb_main: regulator-vusb-main5v0 {
-@@ -520,13 +508,6 @@ &phy_gmii_sel {
- 	bootph-all;
- };
- 
--&mailbox0_cluster5 {
--	mbox_c71_3: mbox-c71-3 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
--	};
--};
--
- &wkup_uart0 {
- 	/* Firmware usage */
- 	status = "reserved";
-@@ -795,13 +776,6 @@ &mcu_cpsw_port1 {
- 	bootph-all;
- };
- 
--&c71_3 {
--	status = "okay";
--	mboxes = <&mailbox0_cluster5 &mbox_c71_3>;
--	memory-region = <&c71_3_dma_memory_region>,
--			<&c71_3_memory_region>;
--};
--
- &wkup_gpio_intr {
- 	status = "okay";
- };
-@@ -1078,3 +1052,4 @@ &usb0 {
- };
- 
- #include "k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi"
-+#include "k3-j784s4-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts b/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-index a84bde08f85e..6c7458c76f53 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-evm.dts
-@@ -27,31 +27,7 @@ memory@80000000 {
- 	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
--
--		c71_3_dma_memory_region: c71-dma-memory@ab000000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xab000000 0x00 0x100000>;
--			no-map;
--		};
--
--		c71_3_memory_region: c71-memory@ab100000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0xab100000 0x00 0xf00000>;
--			no-map;
--		};
--	};
--};
--
--&mailbox0_cluster5 {
--	mbox_c71_3: mbox-c71-3 {
--		ti,mbox-rx = <2 0 0>;
--		ti,mbox-tx = <3 0 0>;
  	};
  };
- 
--&c71_3 {
--	mboxes = <&mailbox0_cluster5 &mbox_c71_3>;
--	memory-region = <&c71_3_dma_memory_region>,
--			<&c71_3_memory_region>;
--	status = "okay";
--};
-+#include "k3-j784s4-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
-new file mode 100644
-index 000000000000..d19cb708379b
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-ti-ipc-firmware.dtsi
-@@ -0,0 +1,34 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/**
-+ * Device Tree Source for enabling IPC using TI SDK firmware on J784S4 SoCs
-+ *
-+ * Copyright (C) 2022-2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+&reserved_memory {
-+	c71_3_dma_memory_region: c71-dma-memory@ab000000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xab000000 0x00 0x100000>;
-+		no-map;
-+	};
-+
-+	c71_3_memory_region: c71-memory@ab100000 {
-+		compatible = "shared-dma-pool";
-+		reg = <0x00 0xab100000 0x00 0xf00000>;
-+		no-map;
-+	};
-+};
-+
-+&mailbox0_cluster5 {
-+	mbox_c71_3: mbox-c71-3 {
-+		ti,mbox-rx = <2 0 0>;
-+		ti,mbox-tx = <3 0 0>;
-+	};
-+};
-+
-+&c71_3 {
-+	mboxes = <&mailbox0_cluster5 &mbox_c71_3>;
-+	memory-region = <&c71_3_dma_memory_region>,
-+			<&c71_3_memory_region>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+index 6757b37a9de3..8612b45e665c 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+@@ -136,6 +136,7 @@ wkup_r5fss0_core0: r5f@78000000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index 899da7896563..2755598fd1f5 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -725,6 +725,7 @@ &wkup_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+ 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+ 			<&wkup_r5fss0_core0_memory_region>;
 +	status = "okay";
-+};
+ };
+ 
+ &mcu_r5fss0 {
+@@ -735,6 +736,7 @@ &mcu_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+ 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+ 			<&mcu_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_uart0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+index bf9b23df1da2..b329e4cb0c37 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+@@ -515,6 +515,7 @@ &wkup_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_wkup_r5_0>;
+ 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+ 			<&wkup_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &mcu_r5fss0 {
+@@ -525,6 +526,7 @@ &mcu_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+ 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+ 			<&mcu_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_r5fss0 {
+@@ -535,6 +537,7 @@ &main_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster3 &mbox_main_r5_0>;
+ 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+ 			<&main_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &c7x_0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 9d8abfa9afd2..2b9e007432a9 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -850,6 +850,7 @@ &wkup_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_wkup_r5_0>;
+ 	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+ 			<&wkup_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &mcu_r5fss0 {
+@@ -860,6 +861,7 @@ &mcu_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+ 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+ 			<&mcu_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &main_r5fss0 {
+@@ -870,6 +872,7 @@ &main_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster3 &mbox_main_r5_0>;
+ 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
+ 			<&main_r5fss0_core0_memory_region>;
++	status = "okay";
+ };
+ 
+ &c7x_0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 993828872dfb..d57fdd38bdce 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -368,6 +368,7 @@ main_r5fss0_core0: r5f@78400000 {
+ 			ti,atcm-enable = <1>;
+ 			ti,btcm-enable = <1>;
+ 			ti,loczrama = <1>;
++			status = "disabled";
+ 		};
+ 	};
+ 
 -- 
 2.34.1
 
