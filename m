@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32D0CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 22:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A798CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 22:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIFp7ebVwT9oleEhOGII0IqB6tGpNR9cpd6TYV5Jql0=; b=zeNuZnfbo7YHT7smS8Tpykc0AH
-	V2n8oFlCQpxsLhexGmmr4aEE3D+TqHNfPcPgqHXprdJXCgKmoCzlqmNHe5nD/PJA5UiT8/tfm4f01
-	VDSqSLONoR4TpY4BLbgkfY+5vu//tUkERavVgxXYLyAgh3HNovHm4+bB27zVLMDvNowmsLtwsvrKN
-	G2p4WfulM1QWRhiwLBxQkKW10fBnWvLRP1drdJg9cn9EZV2iSLr28YP/AA1JTUdSH0/NlB0ARiWrb
-	DjyShuoad+GOEsS/CnAGjYS6r9NCzj1RHDMQKA+nL+zqfCpECJrWukXfwUE4OlPVpGMa9CVQDv3bA
-	bv8Lt5bw==;
+	bh=6MwKb6nEz0xngMr6kLAn36qU8EjBx8G9juMYTuDROwc=; b=BAbvLKivCOeqZoXGRsTvQNPuyn
+	gUc91x6yE05ktaOXWYBc4p0kRqJaiPX6qNxLDInU+5de8L6Gz+k7JZncoUHhyRi7NVIB/KJ+wYuaB
+	pRleJrbPDN6k/843ITaFd6mvDsiALISymBMPxI8ahw+3JVSyjkrLpDGlXQBCiuigsrj1+9aoOjYd6
+	tBkcmBT570tjrdgvqMFwbn8gkvUMfQ8OVdSzMTZU98enWUBJWje/zohATAdLD1L7StIHDcCItUanV
+	IUoFmV9bpUaCYXmOtx0qMapoyG+ET5QvBOhv9efMB7+5KpE1tlGUYtPmjR4S1KYMV4RxDTg6DowHO
+	IXyHtR4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umgVo-00000000gNk-1zAC;
-	Thu, 14 Aug 2025 22:33:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1umgZH-00000000gdu-12gb;
+	Thu, 14 Aug 2025 22:37:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umgTF-00000000gFJ-3XST
+	id 1umgWi-00000000gUS-3bM4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 22:30:54 +0000
+	Thu, 14 Aug 2025 22:34:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D4D945C0A;
-	Thu, 14 Aug 2025 22:30:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC6FBC4CEED;
-	Thu, 14 Aug 2025 22:30:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 43A3C5C68D1;
+	Thu, 14 Aug 2025 22:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1E2BC4CEED;
+	Thu, 14 Aug 2025 22:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755210653;
-	bh=N5VWGitysz6JFmoe9n2FhghAKkO8HINQCHJY2U2kRIs=;
+	s=k20201202; t=1755210867;
+	bh=r5sVScVg8A+4RvvS2qufgrLSgNQ4hfZIM+ozBjWCA/Q=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c8NZu8Q23AcSpDXYfCjfS+nijpycYbRazO8ud7muK7v/NQSmnieFRpVKZ9HpE+Se3
-	 ihK/DheTyy0oiRrb1M1422BzweCx9GFLH23gWJEy8hhRFRngUNMiGhj74MtotNPhtF
-	 yqrUOurUhDDUC58YxblyH88j6+KNNTcK/igm+HoklMSc/qyxQ5KQz0I5OYmUnqEyQb
-	 hSHC3P59PHrQpHRwdNhYBEJf+FY2XgcEMPuuTzqg6Z4f866bnKk9VJKWj+onG9pmFj
-	 gWnmU3joyDUmkrHXStOUAiu75Y3Os4fO4BMRMQVIFbAidL1DN8rkqKZOMOECpHF6et
-	 Ltq0O6AyGRRpQ==
-Date: Thu, 14 Aug 2025 17:30:52 -0500
+	b=kPRDvgWKPpmzN7VJ2NuXCIhNUk20jsFdncWyMVJdPSCtDm2Mdpuqbyu2KbYY4Ctou
+	 kQffSmYPoX7edg9+ZK2Ls6HIS1AGhO6N+RJ0jew1OVOCBGbC+YDl1DahkKC9bZcfTJ
+	 jrCz2yko6n+qQfbrEhqNM+yUNY57d52ic1AIALYx3poUO30Dryfgw4kTknvlwQfTAN
+	 FHei49OlsWYktOT61tiSUY850UnjADhShH2EkJTh2vMB+ur0yieyhTd/HErDvRTNjv
+	 TSkq1CCv1Rbo8WmCfZBi0xkZ4hMdoBk3psBqOxtZ2yNb4n+w0fWTZCtCQIRfLkDpnX
+	 YF842IRv9Va1g==
+Date: Thu, 14 Aug 2025 17:34:26 -0500
 From: Rob Herring <robh@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
-	andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
-	linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Message-ID: <20250814223052.GA4004307-robh@kernel.org>
-References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
- <20250814084156.1650432-2-ryan_chen@aspeedtech.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v11 06/16] dt-bindings: net: dp83822: Deprecate
+ ti,fiber-mode
+Message-ID: <20250814223426.GA4036754-robh@kernel.org>
+References: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
+ <20250814135832.174911-7-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250814084156.1650432-2-ryan_chen@aspeedtech.com>
+In-Reply-To: <20250814135832.174911-7-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_153053_928044_6C49F012 
-X-CRM114-Status: GOOD (  27.89  )
+X-CRM114-CacheID: sfid-20250814_153428_973400_5D5AF7B9 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,103 +94,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 04:41:54PM +0800, Ryan Chen wrote:
-> - Add property "aspeed,global-regs" to get phandle set global
-> register, for register mode selection and clock divider control.
-> - Add an optional property "aspeed,transfer-mode" to
-> allow device tree to specify the desired transfer method used
-> by each I2C controller instance.
-> - Update example to demonstrate usage of 'aspeed,global-regs' and
-> 'aspeed,transfer-mode' for AST2600 I2C controller.
-
-All of this is evident reading the patch. Explain here why you need this 
-change.
-
+On Thu, Aug 14, 2025 at 03:58:21PM +0200, Maxime Chevallier wrote:
+> The newly added ethernet-connector binding allows describing an Ethernet
+> connector with greater precision, and in a more generic manner, than
+> ti,fiber-mode. Deprecate this property.
 > 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 > ---
->  .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 39 +++++++++++++++++++
->  1 file changed, 39 insertions(+)
+>  .../devicetree/bindings/net/ti,dp83822.yaml    | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> index 5b9bd2feda3b..2a9f7d1d2ea1 100644
-> --- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> @@ -44,6 +44,34 @@ properties:
->      description: frequency of the bus clock in Hz defaults to 100 kHz when not
->        specified
+> diff --git a/Documentation/devicetree/bindings/net/ti,dp83822.yaml b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
+> index 28a0bddb9af9..c1fd6f0a8ce5 100644
+> --- a/Documentation/devicetree/bindings/net/ti,dp83822.yaml
+> +++ b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
+> @@ -47,6 +47,9 @@ properties:
+>         is disabled.
+>         In fiber mode, auto-negotiation is disabled and the PHY can only work in
+>         100base-fx (full and half duplex) modes.
+> +       This property is deprecated, for details please refer to
+> +       Documentation/devicetree/bindings/net/ethernet-connector.yaml
+> +    deprecated: true
 >  
-> +  aspeed,transfer-mode:
-> +    description: |
-> +      ASPEED ast2600 platform equipped with 16 I2C controllers each i2c controller
-> +      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buffer mode), and
-> +      share a DMA engine.
-> +      Select I2C transfer mode for this controller. Supported values are:
-> +        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
-> +        - "buffer": Use buffer (32-byte buffer) for i2c transmit. (default)
-> +                    Better performance then byte mode.
-
-If no 'aspeed,transfer-mode' property defaults to buffer mode, you never 
-need 'aspeed,transfer-mode = "buffer"'.
-
-When would you ever use "byte" mode? Sometimes you want worse 
-performance? That makes no sense.
-
-I feel like we already discussed this, but I'm not going to dig thru 17 
-versions to see.
-
-> +        - "dma": Each controller DMA mode is shared DMA engine. The AST2600 SoC
-> +                 provides a single DMA engine shared for 16 I2C controllers,
-> +                 so only a limited number of controllers can use DMA simultaneously.
-> +                 Therefore, the DTS must explicitly assign which controllers are
-> +                 configured to use DMA.
-> +      Only one mode can be selected per controller.
-
-The only thing that really makes sense is dma, and you need 1 boolean 
-property for that. IOW, what you had on v10 which we gave reviewed-by 2+ 
-years ago.
-
-Do you have any actual test results or usecase that show DMA is useful 
-here? Typical I2C xfers are not streaming large amounts of data to 
-justify the setup costs of DMA. It wouldn't surprise me if DMA was 
-actually slower.
-
-> +      On AST2600, each controller supports all three modes.
-> +      If not specified, buffer mode is used by default.
-> +    enum:
-> +      - byte
-> +      - buffer
-> +      - dma
-> +
-> +  aspeed,global-regs:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-
-Don't need '|'. Read the documentation about when it is needed or not 
-needed.
-
-> +      The phandle of i2c global register node, For control the i2c register
-> +      define selection, clock divider mode selection and clock divider control.
-> +
->  required:
->    - reg
->    - compatible
-> @@ -66,3 +94,14 @@ examples:
->        interrupts = <0>;
->        interrupt-parent = <&i2c_ic>;
+>    rx-internal-delay-ps:
+>      description: |
+> @@ -143,5 +146,20 @@ examples:
+>          mac-termination-ohms = <43>;
+>        };
 >      };
 > +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    i2c1: i2c@80 {
-> +      compatible = "aspeed,ast2600-i2c-bus";
-> +      reg = <0x80 0x80>, <0xc00 0x20>;
-> +      aspeed,global-regs = <&i2c_global>;
-> +      clocks = <&syscon ASPEED_CLK_APB>;
-> +      resets = <&syscon ASPEED_RESET_I2C>;
-> +      interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-> +      aspeed,transfer-mode = "buffer";
-> +    };
-> -- 
-> 2.34.1
-> 
+> +    mdio1 {
+> +      #address-cells = <1>;
+> +      #size-cells = <0>;
+> +      fiberphy0: ethernet-phy@0 {
+> +        reg = <0>;
+> +        mdi {
+> +          connector-0 {
+> +            lanes = <1>;
+> +            media = "BaseF";
+> +          };
+
+If you respin, just add this to the existing example.
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
