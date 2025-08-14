@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A8DCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C200ACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=caKBHp5j7/gqOP8pJYBB+m+OwHzfEzblmPGpxjdh1VA=; b=MmHVfCap3RZAym
-	kFYOqISERH9Jb/Q9sc8x8FnlEXwOq9GStO5081ix6Djgr6NwC0jP5FPB0UoLQ62ea37hwRvD/+gpy
-	HQghTbM8NJKqPsWT6jFGBsfff0oQp49q5ywBu57drCvuS+pBynAkq/rRvQhXiziALsCRQBprncxzg
-	m5AB5rNGLDvIvTWQQthFqkUl2s1FgsNlbkAXibv/G9d4kTUr2G/VF93G7MU8eVo0xNC4fTc/sLGja
-	8GuZZihjqCmeH3w5QNbDTr6rdYJVgCDjxHVKw1o17Yq3mTwNYXexolmTUJf+MPGWee9mYEFGkW8TB
-	UdcRTGLMDbN5f7YtGd8Q==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBCwCeMPq8Yt3PwfMa3l8mtDD8QogBIfg4uFSkaUtvA=; b=CBEGqeLofMAZeDCvxt+ofZ8j9Q
+	hptLN5KaKAXQs5jMA9+RC9+Bb3WI0kfnPi7SQjVJl+bchbPNveMLxJB9b63rMIlGtqR9DQI1Eulw2
+	eD7zg/qFRsAuBRV4w/x6RfKrAGnDnYGWEZPOi9SFwuvx2uxaK1SeTL3KGX6nc9cAEogoZ5CKg7rDb
+	MPwKfRDVEagvNa7HG5lbEOM9XC6TewNBAIwFELRLneNHa1MhhXCga7HGXNpLaC7ntzdWf1JYdk+Pi
+	BzWsE80+yggh5jz9bmSDPZMn5wVAcXutnYj566UlbE12cSB7ap2+i2uC9Yc3pXTw8W2Q6yrmCrHf9
+	dTO0c0BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUjh-0000000GVau-07fw;
-	Thu, 14 Aug 2025 09:59:05 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1umUoj-0000000GW9m-0QGL;
+	Thu, 14 Aug 2025 10:04:17 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUDf-0000000GOfF-0HqJ
+	id 1umUDh-0000000GOgc-2fgg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:26:00 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b066b5eso3225115e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:25:58 -0700 (PDT)
+	Thu, 14 Aug 2025 09:26:02 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45a1b0bd237so5645435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:26:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755163557; x=1755768357; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=caKBHp5j7/gqOP8pJYBB+m+OwHzfEzblmPGpxjdh1VA=;
-        b=iZvSS4zaqxez8nGQ1h5TT1HqkFie7dW+pL0ETYtLTJ/6VFOmaQtpFhj+ZENHTJnKap
-         QqFKOPbgx2PaQLCA9RZTky71wz9HK9dkci2IeCH/Hc5g9cnIg2tkgesQLd+6lVeDfKaW
-         FqBVnHaH6/KIq6/u0mTa+vdAsoO48YmqyM64SjJz9ZoEt3Inu5/3HRnCtqUU12A03w7L
-         eLwmIrM5GQ1d7ptKv3QtV4MhsbBpJzowD6RULqSc0/sLO0LdSF5uekaxApJia8Q2clRx
-         MgJUlQ5AIjOiUz0OIpdIdWsPJZPtKHiO19Yk2ylFYg4cjqISqP7Fx8QXbxNLYG4Vomi8
-         tYyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755163557; x=1755768357;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1755163560; x=1755768360; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=caKBHp5j7/gqOP8pJYBB+m+OwHzfEzblmPGpxjdh1VA=;
-        b=uzZtn8oCZ/bmvP043IzEIqDK27BsVR48oahVpLs/yBSJQkQqJGLklwYvdSysOwXDoC
-         3Ft80N+Fm/zSoe55rig1/3iEPelpgeTgMiYplSvjVY81VdSmp7qBSGKa3XAHjeedhu2R
-         8o8hksmYh8yrsdi+omqsmcYdt7MRYbe8DNvRgRcufKzCJMDVxki8LRzVSO9v/Vv/v7h5
-         CeNKKFqR7y5lnbKEnJgOP2nqr7qUvhnyQZZ3pw9Q2blOr1YRnHVS0ID2RcjVgMmyULvj
-         LB2T1oD/7gsSpg59hQPRI0MaGxE5hZ/b28UYXwFz+vVSKZDQ8/a9nIXLmrxuKT93X9KB
-         qbLg==
-X-Gm-Message-State: AOJu0Yz9GayB1UHQv1VnqXtQLDx3bPG42Ls0yORdpNFvnTjnR/dBBllP
-	G+pF9YHdX1sgVWO7u73p9Soq3zrJ3gzHfQBHE9Xif3mNPg8MzlVP1doX22lFD1Udnvg=
-X-Gm-Gg: ASbGnctrFOJTAHHW5shx7GlTa0uz/emgPjElOHLszYkSSFfiPZjI4aRh3wdQ7vo1jAP
-	+2cOejrOQiOmE3Bu7HrbsIipEef7W3xC3IpDPiWwtFvKmyHTl+UZz8Nt/bxd7t2hUfy3/n4EGmj
-	DoIiWb8VKwsVsdEyPPC8KoPzhNoAJIP+4hTlse1hkjL0Km57NG4NDtYWhFa0qG7dn2MbZmoXSki
-	7RnfLUsGaWMX2mDo/L+CCZLK/snsvwWkGLGCq9YOD0EPH3ZojOx0AZPjDqdWdba1Jwh0/UpYmoP
-	1Tiw5wh+RbdtMZ7k5Ujdeg5uhm/h+0lmXXuWKFOaa7bmQywB7BWIG8fiALuxG5Mgj1WJOUa8RXr
-	ymVPgbLrKN+VFpGh8oyG0CQiM30B3xqg=
-X-Google-Smtp-Source: AGHT+IFFjX/pyxO97kvg4fUgCnvfBjzIV9RmUUCrFRLJzwl3KMUkNYunWOuq124cI/SZDDfNBj88iQ==
-X-Received: by 2002:a05:600c:450e:b0:456:496:2100 with SMTP id 5b1f17b1804b1-45a1b6753a2mr19665655e9.31.1755163557196;
-        Thu, 14 Aug 2025 02:25:57 -0700 (PDT)
+        bh=wBCwCeMPq8Yt3PwfMa3l8mtDD8QogBIfg4uFSkaUtvA=;
+        b=qwYSEHJ9DYb/xyHUrFVRPt80t5Z/k/uPJ+aqtx56Hmoy43bLAYEGqbU0gnplqsl78/
+         cJLh1ttg92sENP08vp4aJW9rZjCkT1VQyifpW0ANURxYHio78dn1joYZqle0mtNfcBWI
+         AzYbTazVqClQ0AJAYLnte/q59qHbPstUVw6hermw0SU7t8nQzvwL20kdX4zUa6gD/x2y
+         uTkFDi7JpX+eBfcDZXLU3SRDJ+ysLXYKQK4NC5iUxs5osa4y9Yo4mk0eOwc26/BdYJY7
+         rL6V3d+l3IM3ApXKACwyu2pguxGDtG046ZtEKKLX9zfeUuq97YsYgF8fPg2KWztnI6yW
+         rr9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755163560; x=1755768360;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wBCwCeMPq8Yt3PwfMa3l8mtDD8QogBIfg4uFSkaUtvA=;
+        b=LIY3qAkKWoDsnPPMPeX1IyW3hGEGkiDO2XjKXXb1tEvtD6JlVMUcVF5gHWnsngDAE+
+         TTyYrOWnoSk4c7BgJT4htHxW/4szEbRJYTJPYi6d6nPa1nrDJm6+l8/+g8x/3juxBHti
+         71UvteLcXb9NCYW+vecs6hsUGJI44Ymahu0CU0Uvjl0Sm+Cr9t5dp6+6/eXPtYwKX8fo
+         rz2i5mRLgXf8Om/udD+JeIEBgr8VO1Ejd/Z+EHXt1mDFnEtNKbtEvOtcfKAw1FOGTSQl
+         KuoPgdab3KOXJbanpwCCuKqrSdmV6MzuSCRqnlRVsJxLcv4sf7MUcMeae284JYr8N3fz
+         hxRg==
+X-Gm-Message-State: AOJu0YxFep9FMMNFpjfha0iZ0jeFtvXXQRr6mjs5uRlDnFrz+cb9/4ch
+	aYU30op+eW9t0Pv82IF6cAPlnNVup54CfCv/vok68SPBjPqYKRkl70Z5y6T04Mu6/MYSdxY7Xmq
+	4OWpz
+X-Gm-Gg: ASbGncuayimBrQolxFJJ9Y71vnXrnjuWxnI3hIIcHT2FktdksXER+faN84LP7FxrrnT
+	6A1xSsjWHZmxNotwd8IkHb2ad/8ygQR1K+UJMYaIELbFvfK9WHxyTM32mFw5E168INthRDE3kqp
+	OYPZReivRdA4g76xaKUD14wb4VMWI0zOnIUAfoDrKa6ZX6ah9liIm92pw+xAC3RqVBAr7aHX8bn
+	o+2O7s7IzhIVz4ShLfMnVwMUPAw9jZ8lwbn8xGE8a4pm8BCP1JRMHVAZ1fiyhPHwbCTq5QYdpRB
+	sWQneJ90u3LsruWTtC04OuV3S4XwtaOj/1jDeNlweZ49GCwgY+CaY+j/wHdIgpvcoFkGdaRGe2S
+	+KrBemYPoaN/ehH+uVMjjNn2WcXJCZDE=
+X-Google-Smtp-Source: AGHT+IEY/vBBsMat/zDRtGVwETN+EInUSQGpLUXfrAhbT2usXhxgsQh4b8EMvcN2GhmxPcLHpgwORw==
+X-Received: by 2002:a05:600c:3b8e:b0:43c:fc04:6d35 with SMTP id 5b1f17b1804b1-45a1b605866mr20364335e9.4.1755163560021;
+        Thu, 14 Aug 2025 02:26:00 -0700 (PDT)
 Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1c76e9basm14536775e9.21.2025.08.14.02.25.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1c76e9basm14536775e9.21.2025.08.14.02.25.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 02:25:56 -0700 (PDT)
+        Thu, 14 Aug 2025 02:25:59 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v7 00/12] perf: arm_spe: Armv8.8 SPE features
-Date: Thu, 14 Aug 2025 10:25:22 +0100
-Message-Id: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
+Date: Thu, 14 Aug 2025 10:25:24 +0100
+Subject: [PATCH v7 02/12] perf: arm_spe: Support FEAT_SPEv1p4 filters
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIKrnWgC/43R20oDMRAG4Fcpe21kck688j2klGkyaSO6uyRlU
- Urf3WxBVllWvPwD880h165SyVS7p921KzTlmoe+Bfuw68IZ+xOxHFvuBAgNkgv2iu9U2UglsUR
- 4OdSRDpQuzJgQk4oukfddqx4Lpfxxl1/2LZ9zvQzl895o4vPrtyk3zYkzYAKDgKjAhuCe33KPZ
- XgcymnucQc0mL+BGJUDcqSc5j+BeapJLJNo4bch0SAEjv6IGMHgCpILZEBvQ7JBlh8h+OQdeLm
- C1AJZwbch1SBALazikFyKK0j/E9LzavYYtJTtRLi+kVkgB24bMg0yEZPyTlv3+7f2t9vtCzTYw
- CptAgAA
+Message-Id: <20250814-james-perf-feat_spe_eft-v7-2-6a743f7fa259@linaro.org>
+References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
+In-Reply-To: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
@@ -97,8 +95,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_022559_128685_C020CB94 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20250814_022601_685867_0827F3C8 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,98 +111,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
-filtering, and SPE_FEAT_FDS data source filtering. The features are
-independent can be applied separately:
+FEAT_SPEv1p4 (optional from Armv8.8) adds some new filter bits and also
+makes some previously available bits unavailable again e.g:
 
-  * Prerequisite sysreg changes - patch 1
-  * FEAT_SPEv1p4 - patches 2 - 3
-  * FEAT_SPE_EFT - patch 4
-  * FEAT_SPE_FDS - patches 5 - 9
-  * FEAT_SPE_FDS Perf tool changes - patches 10 - 12
+  E[30], bit [30]
+  When FEAT_SPEv1p4 is _not_ implemented ...
 
-The first two features will work with old Perfs but a Perf change to
-parse the new config4 is required for the last feature.
+Continuing to hard code the valid filter bits for each version isn't
+scalable, and it also doesn't work for filter bits that aren't related
+to SPE version. For example most bits have a further condition:
 
+  E[15], bit [15]
+  When ... and filtering on event 15 is supported:
+
+Whether "filtering on event 15" is implemented or not is only
+discoverable from the TRM of that specific CPU or by probing
+PMSEVFR_EL1.
+
+Instead of hard coding them, write all 1s to the PMSEVFR_EL1 register
+and read it back to discover the RES0 bits. Unsupported bits are RAZ/WI
+so should read as 0s.
+
+For any hardware that doesn't strictly follow RAZ/WI for unsupported
+filters: Any bits that should have been supported in a specific SPE
+version but now incorrectly appear to be RES0 wouldn't have worked
+anyway, so it's better to fail to open events that request them rather
+than behaving unexpectedly. Bits that aren't implemented but also aren't
+RAZ/WI will be incorrectly reported as supported, but allowing them to
+be used is harmless.
+
+Testing on N1SDP shows the probed RES0 bits to be the same as the hard
+coded ones. The FVP with SPEv1p4 shows only additional new RES0 bits,
+i.e. no previously hard coded RES0 bits are missing.
+
+Tested-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-Changes in v7:
-- Fix typo in docs: s/data_src_filter/inv_data_src_filter
-- Pickup trailers
-- Link to v6: https://lore.kernel.org/r/20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org
+ arch/arm64/include/asm/sysreg.h |  9 ---------
+ drivers/perf/arm_spe_pmu.c      | 23 +++++++----------------
+ 2 files changed, 7 insertions(+), 25 deletions(-)
 
-Changes in v6:
-- Rebase to resolve conflict with BRBE changes in el2_setup.h
-- Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index d5b5f2ae1afa..20cbd9860c8f 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -344,15 +344,6 @@
+ #define SYS_PAR_EL1_ATTR		GENMASK_ULL(63, 56)
+ #define SYS_PAR_EL1_F0_RES0		(GENMASK_ULL(6, 1) | GENMASK_ULL(55, 52))
+ 
+-/*** Statistical Profiling Extension ***/
+-#define PMSEVFR_EL1_RES0_IMP	\
+-	(GENMASK_ULL(47, 32) | GENMASK_ULL(23, 16) | GENMASK_ULL(11, 8) |\
+-	 BIT_ULL(6) | BIT_ULL(4) | BIT_ULL(2) | BIT_ULL(0))
+-#define PMSEVFR_EL1_RES0_V1P1	\
+-	(PMSEVFR_EL1_RES0_IMP & ~(BIT_ULL(18) | BIT_ULL(17) | BIT_ULL(11)))
+-#define PMSEVFR_EL1_RES0_V1P2	\
+-	(PMSEVFR_EL1_RES0_V1P1 & ~BIT_ULL(6))
+-
+ /* Buffer error reporting */
+ #define PMBSR_EL1_FAULT_FSC_SHIFT	PMBSR_EL1_MSS_SHIFT
+ #define PMBSR_EL1_FAULT_FSC_MASK	PMBSR_EL1_MSS_MASK
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 369e77ad5f13..86c9948ab5a0 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -89,6 +89,7 @@ struct arm_spe_pmu {
+ #define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
+ 	u64					features;
+ 
++	u64					pmsevfr_res0;
+ 	u16					max_record_sz;
+ 	u16					align;
+ 	struct perf_output_handle __percpu	*handle;
+@@ -697,20 +698,6 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static u64 arm_spe_pmsevfr_res0(u16 pmsver)
+-{
+-	switch (pmsver) {
+-	case ID_AA64DFR0_EL1_PMSVer_IMP:
+-		return PMSEVFR_EL1_RES0_IMP;
+-	case ID_AA64DFR0_EL1_PMSVer_V1P1:
+-		return PMSEVFR_EL1_RES0_V1P1;
+-	case ID_AA64DFR0_EL1_PMSVer_V1P2:
+-	/* Return the highest version we support in default */
+-	default:
+-		return PMSEVFR_EL1_RES0_V1P2;
+-	}
+-}
+-
+ /* Perf callbacks */
+ static int arm_spe_pmu_event_init(struct perf_event *event)
+ {
+@@ -726,10 +713,10 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
+ 	    !cpumask_test_cpu(event->cpu, &spe_pmu->supported_cpus))
+ 		return -ENOENT;
+ 
+-	if (arm_spe_event_to_pmsevfr(event) & arm_spe_pmsevfr_res0(spe_pmu->pmsver))
++	if (arm_spe_event_to_pmsevfr(event) & spe_pmu->pmsevfr_res0)
+ 		return -EOPNOTSUPP;
+ 
+-	if (arm_spe_event_to_pmsnevfr(event) & arm_spe_pmsevfr_res0(spe_pmu->pmsver))
++	if (arm_spe_event_to_pmsnevfr(event) & spe_pmu->pmsevfr_res0)
+ 		return -EOPNOTSUPP;
+ 
+ 	if (attr->exclude_idle)
+@@ -1107,6 +1094,10 @@ static void __arm_spe_pmu_dev_probe(void *info)
+ 		spe_pmu->counter_sz = 16;
+ 	}
+ 
++	/* Write all 1s and then read back. Unsupported filter bits are RAZ/WI. */
++	write_sysreg_s(U64_MAX, SYS_PMSEVFR_EL1);
++	spe_pmu->pmsevfr_res0 = ~read_sysreg_s(SYS_PMSEVFR_EL1);
++
+ 	dev_info(dev,
+ 		 "probed SPEv1.%d for CPUs %*pbl [max_record_sz %u, align %u, features 0x%llx]\n",
+ 		 spe_pmu->pmsver - 1, cpumask_pr_args(&spe_pmu->supported_cpus),
 
-Changes in v5:
-- Forgot to pickup tags from v4
-- Forgot to drop test and review tags on v4 patches that were
-  significantly modified
-- Update commit message for data source filtering to mention inversion
-- Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
-
-Changes in v4:
-- Rewrite "const u64 feat_spe_eft_bits" inline
-- Invert data source filter so that it's possible to exclude all data
-  sources without adding an additional 'enable filter' flag
-- Add a macro in el2_setup.h to check for an SPE version
-- Probe valid filter bits instead of hardcoding them
-- Take in Leo's commit to expose the filter bits as it depends on the
-  new filter probing
-- Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
-
-Changes in v3:
-- Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
-- Add VNCR offsets
-- Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
-
-Changes in v2:
-- Fix detection of FEAT_SPE_FDS in el2_setup.h
-- Pickup Marc Z's sysreg change instead which matches the json
-- Restructure and expand docs changes
-- Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
-
----
-James Clark (11):
-      arm64: sysreg: Add new PMSFCR_EL1 fields and PMSDSFR_EL1 register
-      perf: arm_spe: Support FEAT_SPEv1p4 filters
-      perf: arm_spe: Add support for FEAT_SPE_EFT extended filtering
-      arm64/boot: Factor out a macro to check SPE version
-      arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
-      KVM: arm64: Add trap configs for PMSDSFR_EL1
-      perf: Add perf_event_attr::config4
-      perf: arm_spe: Add support for filtering on data source
-      tools headers UAPI: Sync linux/perf_event.h with the kernel sources
-      perf tools: Add support for perf_event_attr::config4
-      perf docs: arm-spe: Document new SPE filtering features
-
-Leo Yan (1):
-      perf: arm_spe: Expose event filter
-
- Documentation/arch/arm64/booting.rst      |  11 +++
- arch/arm64/include/asm/el2_setup.h        |  28 ++++--
- arch/arm64/include/asm/sysreg.h           |   9 --
- arch/arm64/include/asm/vncr_mapping.h     |   2 +
- arch/arm64/kvm/emulate-nested.c           |   1 +
- arch/arm64/kvm/sys_regs.c                 |   1 +
- arch/arm64/tools/sysreg                   |  13 ++-
- drivers/perf/arm_spe_pmu.c                | 148 ++++++++++++++++++++++++++----
- include/uapi/linux/perf_event.h           |   2 +
- tools/include/uapi/linux/perf_event.h     |   2 +
- tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++--
- tools/perf/tests/parse-events.c           |  14 ++-
- tools/perf/util/parse-events.c            |  11 +++
- tools/perf/util/parse-events.h            |   1 +
- tools/perf/util/parse-events.l            |   1 +
- tools/perf/util/pmu.c                     |   8 ++
- tools/perf/util/pmu.h                     |   1 +
- 17 files changed, 312 insertions(+), 45 deletions(-)
----
-base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
-change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
-
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
