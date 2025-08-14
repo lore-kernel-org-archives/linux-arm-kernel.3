@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAEB1CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DFECA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rccDGxo7Zi/+ePrAmZStYRWWCBeSec1uJGq7oyHErE=; b=fgrVOpj3OebdshibqmATZrSKvN
-	G9OOhi7vuzONItXK9RNkS5s0LVdSXVBFp9FluUCf8/saVElIbBhprITMgxho2G+ySVJs120eD6XbU
-	+Ozw11krzqAWPWXGoTDF9i0lI7BmSClELQSSTTwWga9NDa/fl/BM25n6UbPR+K4QzlWhb9owpmnTX
-	GPdGuM1kFHRhH0o0kzJXRuf2pAKLME+SlotBLdObCCZH6FoYFmCtzo8orlu/GB84hj9sBe0BqgqXT
-	eS+pCZwhxk6kWELf5/6RUUeYskrzHGWVC/TAD2bSh8MTxOsM6PHK0bHc65vEcH9zks/tiT/6e/vAc
-	a9+Knv3A==;
+	bh=05/vse8ASg1P0/ndE2WSZb4gOfA6W4MnqPW426TsnGA=; b=WVQNKjvSAkeU0sr+uyIGyfygOp
+	VYPY5cP0+wNxeRtoe/81TmHc+Er1TrNZTq46rLKz12ooVAALGQIF1BprEULxA0LLWEOApfe9vXFlt
+	4hKOeljqydOk6cZBTnrm5AED8iKNe2cnbtj+6ysQXQIcXFUKezKgYf/AUQryauCmta9rvrQFGQg3x
+	QLPDV7l/JfhbtNMFZi0hPd7eUPBeUNrxXEtWxC3Yl6PNBt3J0nNi185M0rFNCIHC80NgHww67u0kg
+	1YnWyHMQkdybdJ5QpEwSSEgjwf0MqCBzZRsdceuX0BjnrFyC6yqzb0fEuYgLd66GcF4RnZYgxfCQP
+	jVOoiRaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXmw-0000000GxTd-2MkT;
-	Thu, 14 Aug 2025 13:14:38 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1umXmy-0000000GxW3-3lam;
+	Thu, 14 Aug 2025 13:14:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUDi-0000000GOhY-3zJ6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:26:04 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45a1b0b2d21so3484595e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:26:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755163561; x=1755768361; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2rccDGxo7Zi/+ePrAmZStYRWWCBeSec1uJGq7oyHErE=;
-        b=kh1c480ZVmNt3FE/YS084KQmzTBcGthbEwiVNXiQGXtUtzrQx5QK0KtTCKUm/qp5ch
-         WoGGHDjnNDPzok7+GAEZDwcH9L/GKAzXuVT+qirnq9tOubp1HR7lyRNfzp5Qdfqihcm1
-         1HE7uuRt5m3y+h65YfyEebqkczOXvq6BpqmbNS78dcSy4q0DBuJl6YQPlDDm3ds9k+tp
-         wpPRdk2Z+tizoEvRtVsNhqTD6bUGHdZOXsPGZY9L7YtJ0jFwGtHH+oz++CkDrPYvc4E7
-         qzBp0OlJ8XYxbH/G5X8NA6BN90YA3JNiZIPZennIGdqjEpeap4QuqAXfr6WOcq/F3820
-         dGSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755163561; x=1755768361;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2rccDGxo7Zi/+ePrAmZStYRWWCBeSec1uJGq7oyHErE=;
-        b=VaGgkSYwG9QRJV/rZ+IMAiqXIFNquTM0FxbHgUKqv9XBSUTiWJsMct1XUm52VRKIm8
-         4fGxSNAVWhVrTzahebpVbOLXusxzcFayuTP/oYUy3W7hnmx09UC/98zBGcOdNlFzYx+Z
-         7TecyHF9LnmuV++0i7mr3reJVByL1VF0ROwWIBrNuycKrvpxTTh32Iid2NKZLMd0z2ms
-         YHU4OjT6fAFvxYL0lkDDEV7tB/+7XIGI+htoXJivh7J0eAX7UDQMG7MEEkdDIbTF4XSn
-         kV/Ttm8WuwxkGExT8Bd1M2XXrS3YLCLjt4UmvDg1+hQtfAWaNeuQOZKBTPsprxYim5f5
-         s8jA==
-X-Gm-Message-State: AOJu0YzwZes5L0sp11jCwXHSt0I/Gs0UHQhcjrHBAy4w2vl1SlToCYRc
-	Zw+aH6gHTaDlY7e5lIG+DF89oo3t8uE8U7FwxyWt3BixQ+gRBjX1CVAmlqoLJnE5kgs=
-X-Gm-Gg: ASbGncsf7CDSDlpYlbHNrsKrU6Ri7Rl+cVZAVJmQpx7PsDJAZsDlUQUgV6AcH4NsjBd
-	7qQLN9gqMIm5UpfKe9FSGnCZ09/r3cWLuKdACGJMxPkbTEm8z3ozDczxICF2CvbMOwVXAuP7fkE
-	+3Imbp4Akt5afRDrtLXK1NC3JL2DRlU+pmJrNYti0drCn/hcY6Wzs/mjy0ALedrkXKSBrPt3N2m
-	rKQwEF4YGZOcjQeW/4hPyZX5AH6kCfBBCZbS30xBhsfPi25r69GlRk+EBUuvscaZpwbn0J/tcSU
-	qeXettavdlzmfy23b1yy+P1ypXRqfQPB+cipDSTV6KLwaSEGx03GiblMOi923wqYFYFEdCi42ju
-	A+hJ1P+LqxmLTlMT59F+JO/0YlQ97wiQ=
-X-Google-Smtp-Source: AGHT+IF3mN9YM+z59LW2L2RCIJP1151F1ryrxu3DBo1bIpBosGzWHxhnT9S0+1q8xFvPjiRKK5C0xQ==
-X-Received: by 2002:a05:600c:4705:b0:458:bd31:2c27 with SMTP id 5b1f17b1804b1-45a1b6535bemr16452535e9.23.1755163561367;
-        Thu, 14 Aug 2025 02:26:01 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1c76e9basm14536775e9.21.2025.08.14.02.26.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 02:26:01 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Thu, 14 Aug 2025 10:25:25 +0100
-Subject: [PATCH v7 03/12] perf: arm_spe: Expose event filter
+	id 1umUXY-0000000GTYO-2LSt;
+	Thu, 14 Aug 2025 09:46:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=05/vse8ASg1P0/ndE2WSZb4gOfA6W4MnqPW426TsnGA=; b=qK8A472o2otBBti0xeI04GLtZl
+	kw9ejz/ghw2oo30k2Zsr+FPLcZ3fCi5eGjlg5PAieWgKKLQ2DOkwcSMXs9Cp+NJ6NrEL7KMck8xjO
+	SsYs1fWK9dqrJ9YQmMAHvMasWD4OSKqufhu/lXeukj8aF9Q6TicLdiCq57qzZEuJvHx0O6lh0QPJS
+	+FJX/W0RlGN9YWtrnKoG78xxrHZdylEsZTNtOmNVPysjP+wuocXGKUhHvbEKnUa1E23GU0ACx6YW/
+	xH+qrE1y+L4wuW7xzj383HRh8Qwnx8h3BHki8x3iv9P63LwW/2vGEDRo9BoGc29HYN9A8rhJD4iMa
+	YgsU6psg==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umUXV-0000000GKio-0MGJ;
+	Thu, 14 Aug 2025 09:46:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=05/vse8ASg1P0/ndE2WSZb4gOfA6W4MnqPW426TsnGA=; b=r2nCGCuyVC/DLCAypokD2yGjuf
+	uoMbh4ejTqfrC1NXM7+9nH4NcB6kP7qhVOza6dAii9HF3fygtAt3YYOwmbs7nXgvGsRK4AOoYXlle
+	SGxyG+07r6Uev6efb2C/vcujg22EIaaqDrhO7y44v8CSLwTNlr8SvcH9E9gWtJvWEAw+vp8kt6XDk
+	TpQX2Cuh8sac73oJJAliw2ls97feDEq+cEct2y4B36jHSgqOfkk8kpxcB26GAY7b38HgUwuqGH1ki
+	ilcjyr93XUHOYPJNdokZslNyLI/Hf8Rdua39dFoeoZg1T0zcCIIb48dHgLtZPeGo+erQ1RV1RBuxZ
+	CixnDSCA==;
+Received: from i53875b38.versanet.de ([83.135.91.56] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1umUXD-0002c8-8Z; Thu, 14 Aug 2025 11:46:11 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Rudi Heitbaum <rudi@heitbaum.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] drm/rockchip: cdn-dp: select bridge for cdp-dp
+Date: Thu, 14 Aug 2025 11:46:07 +0200
+Message-ID: <175516475519.1500001.13265929847217022418.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <aJrlUzV1u4i65NRe@8eba3d7b3083>
+References: <aJrlUzV1u4i65NRe@8eba3d7b3083>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-james-perf-feat_spe_eft-v7-3-6a743f7fa259@linaro.org>
-References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
-In-Reply-To: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
- Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_022602_987423_92AD520D 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20250814_104629_291208_2024A20D 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,90 +95,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leo Yan <leo.yan@arm.com>
 
-Expose an "event_filter" entry in the caps folder to inform user space
-about which events can be filtered.
+On Tue, 12 Aug 2025 06:55:15 +0000, Rudi Heitbaum wrote:
+> Select drm bridge connector when building cdp-dp.
+> This was missed in previous commit causing build failure.
+> 
+> 
 
-Change the return type of arm_spe_pmu_cap_get() from u32 to u64 to
-accommodate the added event filter entry.
+Applied, thanks!
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- drivers/perf/arm_spe_pmu.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+[1/1] drm/rockchip: cdn-dp: select bridge for cdp-dp
+      commit: ea177a1b1efc6e42e73ee4a17581842cd254e006
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 86c9948ab5a0..ba55bc3db708 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -116,6 +116,7 @@ enum arm_spe_pmu_capabilities {
- 	SPE_PMU_CAP_FEAT_MAX,
- 	SPE_PMU_CAP_CNT_SZ = SPE_PMU_CAP_FEAT_MAX,
- 	SPE_PMU_CAP_MIN_IVAL,
-+	SPE_PMU_CAP_EVENT_FILTER,
- };
- 
- static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
-@@ -123,7 +124,7 @@ static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
- 	[SPE_PMU_CAP_ERND]	= SPE_PMU_FEAT_ERND,
- };
- 
--static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
-+static u64 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
- {
- 	if (cap < SPE_PMU_CAP_FEAT_MAX)
- 		return !!(spe_pmu->features & arm_spe_pmu_feat_caps[cap]);
-@@ -133,6 +134,8 @@ static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
- 		return spe_pmu->counter_sz;
- 	case SPE_PMU_CAP_MIN_IVAL:
- 		return spe_pmu->min_period;
-+	case SPE_PMU_CAP_EVENT_FILTER:
-+		return ~spe_pmu->pmsevfr_res0;
- 	default:
- 		WARN(1, "unknown cap %d\n", cap);
- 	}
-@@ -149,7 +152,19 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
- 		container_of(attr, struct dev_ext_attribute, attr);
- 	int cap = (long)ea->var;
- 
--	return sysfs_emit(buf, "%u\n", arm_spe_pmu_cap_get(spe_pmu, cap));
-+	return sysfs_emit(buf, "%llu\n", arm_spe_pmu_cap_get(spe_pmu, cap));
-+}
-+
-+static ssize_t arm_spe_pmu_cap_show_hex(struct device *dev,
-+					struct device_attribute *attr,
-+					char *buf)
-+{
-+	struct arm_spe_pmu *spe_pmu = dev_get_drvdata(dev);
-+	struct dev_ext_attribute *ea =
-+		container_of(attr, struct dev_ext_attribute, attr);
-+	int cap = (long)ea->var;
-+
-+	return sysfs_emit(buf, "0x%llx\n", arm_spe_pmu_cap_get(spe_pmu, cap));
- }
- 
- #define SPE_EXT_ATTR_ENTRY(_name, _func, _var)				\
-@@ -159,12 +174,15 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
- 
- #define SPE_CAP_EXT_ATTR_ENTRY(_name, _var)				\
- 	SPE_EXT_ATTR_ENTRY(_name, arm_spe_pmu_cap_show, _var)
-+#define SPE_CAP_EXT_ATTR_ENTRY_HEX(_name, _var)				\
-+	SPE_EXT_ATTR_ENTRY(_name, arm_spe_pmu_cap_show_hex, _var)
- 
- static struct attribute *arm_spe_pmu_cap_attr[] = {
- 	SPE_CAP_EXT_ATTR_ENTRY(arch_inst, SPE_PMU_CAP_ARCH_INST),
- 	SPE_CAP_EXT_ATTR_ENTRY(ernd, SPE_PMU_CAP_ERND),
- 	SPE_CAP_EXT_ATTR_ENTRY(count_size, SPE_PMU_CAP_CNT_SZ),
- 	SPE_CAP_EXT_ATTR_ENTRY(min_interval, SPE_PMU_CAP_MIN_IVAL),
-+	SPE_CAP_EXT_ATTR_ENTRY_HEX(event_filter, SPE_PMU_CAP_EVENT_FILTER),
- 	NULL,
- };
- 
-
+Best regards,
 -- 
-2.34.1
-
+Heiko Stuebner <heiko@sntech.de>
 
