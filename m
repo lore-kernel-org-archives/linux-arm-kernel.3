@@ -4,138 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E85CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD7ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dS1EDzB/qdl06bmsBu28JgAdc8UmIIbsYx8cp32f5J0=; b=tZ0qo24UywQnAYQV80MY6Sn6Ix
-	88YHXOHnEuGUTMAfmPg9rpz+bYELtHjQlYwsSQ1T/Eczsa1EdPrNXEEjE1YdmFDeLkAlc33SyMpv6
-	lWKmTcjr7HEl6CIHQGmyhCIKZpytJRlW5iHhS3lVrKRJxA0L668JZscq4q5Hser1pQbyyywQAHa67
-	AJll3/+WvOCASElec3l2yVB/ek5GKU0Xh88/8ZlcbZ9IMP24qfguyMp1wc8XlVXPtIfg/4dUEai8R
-	OHhffDWBYzJJGBYit4cYIwGMYYlxHeJlgHyGmWPxXDJoF/MZNCUQjvyP3t209w+YMOjLsyEnNXCc8
-	laz4FayQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rJLy+njtJg3zpJU0OkjP/MMxOF47ssgjSnpzzM71YWA=; b=lDq9TMG7gWYzfJHl5YRiKcaNGy
+	u1wCjcK4tICv9H5PrT79ZbB8nUL2ZbVlC2Kw96zwNd9rxHOsiE14cc0czSlqD/1ENnyTKVUf00Or0
+	U5fCXUPagqgtmvHSm5dTowr4j9v3LNzAOAK/8LCRty0a0seXP7aMEUmO6HByLxevnYgqtqqkVlhz7
+	sTlGSRCaFRcJ6KqTXWN7XGviiOdxCXZrwJv5vI7MKbdiFqPmy5Hj04GBj0WxB+G41jTNgnzsIMCKU
+	GEO3ITmZ63tZNVGgLOOGhtBRfPmDvAR2/nZrVE6jOEX0jHxaocRnF52kO+Bcp+eN3jZ/QW9nZ6xkm
+	EUwkZ6sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdia-00000000R7A-2GJR;
-	Thu, 14 Aug 2025 19:34:32 +0000
-Received: from mail-mw2nam04on20627.outbound.protection.outlook.com ([2a01:111:f403:240a::627] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1umdl7-00000000RIH-1QHQ;
+	Thu, 14 Aug 2025 19:37:09 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umdg1-00000000Qs4-3upq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 19:31:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o0bcJukjMFUEOb8ft7zy40ydIN84vr/p3HHsdmWqz7uw2dNL7e5LS69oJucXlfPwm7valPKuuiDfAP5kCs5/rCoDaEJCo2MSelt+CPwjNDvHRUhruimDRM+tH7WZOoQZypABN5i07vGGnuJZzfV1ChqUQxR+7rAiBIVJRzz27XjGraqQkTEKZrbjDj1wDPRqHwGnYQJh/llTYGm5JOpgmu5TiJ5Bwzlk4I+dSGnUmO3fbbrZbM0byZZo4U3l5FPCsjLh48jzIBRy/YKHxLwJbJAXqBW6Yt5u/nvgYijLeDGoV2QwSQMk2lm+4xogTMw0NaEdOC8lV9eG2A1Bdsgo0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dS1EDzB/qdl06bmsBu28JgAdc8UmIIbsYx8cp32f5J0=;
- b=MqaYHfLkSipGBIeSpfSQS9eyFyPS6oV9fCgFraCHw8PC1mZCBe8qdBuZavV7ESlwBGn6LdoS7ZKLLc6klulyYyJajngIDtJM4BBY9Wos02t18cLf/aI1fhfJkuKoRBFf0o8nDg0GCLA2eSJ8WA67kGgJz602MZah7wjPlPmkley5kxxqglx6bkSFrH9/8wS/cESBYC9AXLljdLPlDGVRXsyZOY8Dbz3Uf3dCwKUgL4gKfD6rYHUg4vg5uqPaXThXjEx7DeKTxH92wAe0MNASRAbjX4GnvjZfk1SZgtm6Zy94aY9gkoZ7apW6hdnruq5O+fv8tuH8an+FUIrOqb7nRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dS1EDzB/qdl06bmsBu28JgAdc8UmIIbsYx8cp32f5J0=;
- b=hfmudPgzriA2yUgDI0b393S1UdUx55qjjD34nE3+/K0jdurHP+artPuEIhQfzJfZ5GEFWayvsjN09rZ1L7MV7SiWzg5brf7uaP+2rAwgxQxnaraJH/qi4ECMpHyLfAnWUSRCgmnyOck8/0VXqfwlEhdx0GETI7F/KppVVR9+94ZpqYIAz5gylzxf31z9YZOF9+smzJ9GGaNTqHdeVBwv0t6Ma//EAX6CWQGrBuEqw8a7jfOy/ngfRNot4LqlKwf7tAXymEQ5HGYzmJlEGNQi1zd2rTXiRkPhNv6lLr+fTnSXgRR/yrPi2FgGt+vm9LJ/cey4tG7p5yzUn91JA3Ty9w==
-Received: from BN9PR03CA0977.namprd03.prod.outlook.com (2603:10b6:408:109::22)
- by DS7PR12MB6190.namprd12.prod.outlook.com (2603:10b6:8:99::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.15; Thu, 14 Aug
- 2025 19:31:45 +0000
-Received: from BN2PEPF000044AA.namprd04.prod.outlook.com
- (2603:10b6:408:109:cafe::c) by BN9PR03CA0977.outlook.office365.com
- (2603:10b6:408:109::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.18 via Frontend Transport; Thu,
- 14 Aug 2025 19:31:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN2PEPF000044AA.mail.protection.outlook.com (10.167.243.105) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9031.11 via Frontend Transport; Thu, 14 Aug 2025 19:31:44 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 14 Aug
- 2025 12:31:27 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 14 Aug
- 2025 12:31:26 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Thu, 14 Aug 2025 12:31:26 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <jonathanh@nvidia.com>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jgg@nvidia.com>,
-	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <praan@google.com>
-Subject: [PATCH rc] iommu/tegra241-cmdqv: Fix missing cpu_to_le64 at lvcmdq_err_map
-Date: Thu, 14 Aug 2025 12:30:38 -0700
-Message-ID: <20250814193039.2265813-1-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	id 1umdgY-00000000QuB-0qQX;
+	Thu, 14 Aug 2025 19:32:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755199946; x=1786735946;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sYNHy3au3eJJGLyMM/KY+GBcda4zdf0KZ+o9Rn0lDjo=;
+  b=A5gID3jvD8MXvmNP+J3EDFJAzd69QDR7it3LgfjiX79oQUv277Hz43aQ
+   jy6nCd0afy9ky7qJNiUnBHQZgq5RRbR7ZLfn8CqRE9uaWStvLqB/bHuKa
+   QnSsLOErBqKrVNluncERZVhJh2kc1aQxub54Ukaz4DSg4WmqfviqKeFP8
+   IBjB1G9Hbh2GbXEXwdYOATPpwVLpuFH0RLQqpaeynfIoOUjAL7UgeZryV
+   VxFaUaLTFY0nRfOuHKn7qe40BPda36GZPfdx50KH/0msWhFVXjP++VFPQ
+   3ac5XHjZ2ni7ZLLarkdGiyj0DktZl/t0NT6CNcePncJ6V+Ew0djOxU4ao
+   A==;
+X-CSE-ConnectionGUID: GTN68hugSdSAjTtANhtsjw==
+X-CSE-MsgGUID: Hybt3szMSF26aWusTI/MJw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="68226982"
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="68226982"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 12:32:24 -0700
+X-CSE-ConnectionGUID: Zw1G2UnqTsuBfPLENwqAVA==
+X-CSE-MsgGUID: EWHfKfNOQs+XEJGaMZISwQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="166807007"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 14 Aug 2025 12:32:19 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1umdgP-000BGs-08;
+	Thu, 14 Aug 2025 19:32:17 +0000
+Date: Fri, 15 Aug 2025 03:31:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Xiandong Wang <xiandong.wang@mediatek.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Houlong Wei <houlong.wei@mediatek.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, sirius.wang@mediatek.com,
+	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	Xiandong Wang <xiandong.wang@mediatek.com>
+Subject: Re: [PATCH v1 2/4] [v1,02/04]mailbox: mtk-cmdq: Add cmdq driver for
+ mt8189
+Message-ID: <202508150338.bTVJvFtV-lkp@intel.com>
+References: <20250814070401.13432-2-xiandong.wang@mediatek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044AA:EE_|DS7PR12MB6190:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5120bba-43a6-497b-15d9-08dddb693412
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?za8gZN2TVlF4Amu6m7Lmw/4FXgBjsf8NwXjM1YNiPuAnKY5b071UDIwsYp9n?=
- =?us-ascii?Q?/LS11mtnn0y5/U05Kp0HuUTLKKoGmiE9wmqfpx+HYhKsIJmmSBFVQWPv0QOh?=
- =?us-ascii?Q?sJDH3zaqN3KBuBH3j4PPkcpWnbyi9QXea0yjzlsKSWNI3bWvjRL1sHSlfJMs?=
- =?us-ascii?Q?IXdXlqUzja2BEMVuKXdrdHs1BC9vGuJob780IHINpntoLuapEr4i8dzZTGTe?=
- =?us-ascii?Q?y+K4r0rLFkXpc4/tixu++M2VC8OayWdSiDavtSVNgKiteMxFCb0naPJPx6EX?=
- =?us-ascii?Q?G38LnO1pGdm/X32LH/lY1sY5cyaJSYxVju5YrqDg/76y/fGAzp1gHJecO9/2?=
- =?us-ascii?Q?PQS3C9nJ7g03VwIu7dQdczDlJDMBB1Hdq0fJu2IHFS7o3je0nqUTgJq5dhZD?=
- =?us-ascii?Q?PLFYBPG5dj6yDHOHsEhZHY7cdAD+BA2b4rhaTe4RPkh2FQmHxbcOTmi+pPf5?=
- =?us-ascii?Q?PwTBtI48iF/aT5fis9S1yfmXVqMrUywV+Zu+YDpCBY58OeMh88zGnk2yWg/P?=
- =?us-ascii?Q?3JGvI4jJpqWTQ2tDEV/efH1Tt1cMGx+DnpLsyjpG5Sg9aY0fGMF2ieZNf1Fi?=
- =?us-ascii?Q?oQMh7jXmAA38Hf67UTsXuozkRGKuvOEELV3rKbS+LTAQVOg4ePrSHe34OLCN?=
- =?us-ascii?Q?uM2+95YWkqERsOuoHlsnPm5gJMH6dSwoTQ/NBhvdjZQa+0E9tvjJjdmIcgjX?=
- =?us-ascii?Q?lYdYiF1t4ahbW13Nqr7nKo2WfIz9YERgmb8tYqdR5yTpIydHOB2wvSYTOwM8?=
- =?us-ascii?Q?+zdQ1P7AIrI96+mVxU2/qg/iDESR9fQWY9Rf5DEurSPRF6iRrXeOTS9oXaLP?=
- =?us-ascii?Q?tS2Q9mFYU7a51DqMUx19ajSlF8pwyDKNitMm/FVlS+UmWTxDyJAMoro46PW5?=
- =?us-ascii?Q?XqCSp3taRXSw8NxNXInhIAAZ3Xsxdxsr0L6RyIM5pCNTzaGXsrWFU/rEQHeP?=
- =?us-ascii?Q?kx35Zwsvg4c8EpdK7RAZc8UIv2MqeCrKyxIxzZtqUFi1jh1ElxaKkfiDXliZ?=
- =?us-ascii?Q?djnwbcUkmClmX8uV453IjzbxD+sgB4h7n6ojRuqCUyvwzvJ7a59MsFDhZFD4?=
- =?us-ascii?Q?zLXxILHO6BbprEop2Y4M8j7PHIlGvlVYYS6Elt9hzJtl+bxur4KZloPuCz3U?=
- =?us-ascii?Q?EL/4Y2h4zIS+9sm/o7n4T3C0Hyg4tTAnZUOy2MHIGYckZnHpJysm+kfg5n7f?=
- =?us-ascii?Q?S9M5nNcgyPMi9mWarc9rMZcwRCG0utZbf89cevrcpO4XimIb3s8kY1ZlTdvD?=
- =?us-ascii?Q?1KjKMe4XJarnxrzHe29F6JEes6Sr3HWwa+Q8mlyt935sIPNWUdutk/VOZDeB?=
- =?us-ascii?Q?at0de90bLb6lczTb4CezQ72t2g1x/TcpYy++7YjJoZSwBDOiV2IWCcTPH/SN?=
- =?us-ascii?Q?8kWk3Hr9oTeElIXYTleRclHhj3C9PbrMdEFZUKrHOL6bYsyUaypgtSpaNOXU?=
- =?us-ascii?Q?yUQJchPEsXb6laGaJbuYYS1LWkY/DuB69L7CkpLet8Ul/UHsaxgraB+YuSDy?=
- =?us-ascii?Q?a8M1i5BiU3LlVlHiXC00VhB38mrkA2LE8HgyQVPYjn9VWzsu3vyXyqOFMw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 19:31:44.6285
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5120bba-43a6-497b-15d9-08dddb693412
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AA.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6190
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814070401.13432-2-xiandong.wang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_123153_989352_72540F8A 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20250814_123226_254955_9885B603 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,41 +99,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sparse reported a warning:
-drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:305:47:
-	sparse:     expected restricted __le64
-	sparse:     got unsigned long long
+Hi Xiandong,
 
-Add cpu_to_le64() to fix that.
+kernel test robot noticed the following build errors:
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202508142105.Jb5Smjsg-lkp@intel.com/
-Suggested-by: Pranjal Shrivastava <praan@google.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+[auto build test ERROR on jassibrar-mailbox/for-next]
+[also build test ERROR on linus/master v6.17-rc1 next-20250814]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index be1aaaf8cd17c..378104cd395e5 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -301,9 +301,11 @@ static void tegra241_vintf_user_handle_error(struct tegra241_vintf *vintf)
- 	struct iommu_vevent_tegra241_cmdqv vevent_data;
- 	int i;
- 
--	for (i = 0; i < LVCMDQ_ERR_MAP_NUM_64; i++)
--		vevent_data.lvcmdq_err_map[i] =
--			readq_relaxed(REG_VINTF(vintf, LVCMDQ_ERR_MAP_64(i)));
-+	for (i = 0; i < LVCMDQ_ERR_MAP_NUM_64; i++) {
-+		u64 err = readq_relaxed(REG_VINTF(vintf, LVCMDQ_ERR_MAP_64(i)));
-+
-+		vevent_data.lvcmdq_err_map[i] = cpu_to_le64(err);
-+	}
- 
- 	iommufd_viommu_report_event(viommu, IOMMU_VEVENTQ_TYPE_TEGRA241_CMDQV,
- 				    &vevent_data, sizeof(vevent_data));
+url:    https://github.com/intel-lab-lkp/linux/commits/Xiandong-Wang/mailbox-mtk-cmdq-Add-cmdq-driver-for-mt8189/20250814-152237
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git for-next
+patch link:    https://lore.kernel.org/r/20250814070401.13432-2-xiandong.wang%40mediatek.com
+patch subject: [PATCH v1 2/4] [v1,02/04]mailbox: mtk-cmdq: Add cmdq driver for mt8189
+config: x86_64-buildonly-randconfig-004-20250815 (https://download.01.org/0day-ci/archive/20250815/202508150338.bTVJvFtV-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250815/202508150338.bTVJvFtV-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508150338.bTVJvFtV-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/mailbox/mtk-cmdq-mailbox.c:781:3: error: field designator 'mminfra_offset' does not refer to any field in type 'const struct gce_plat'
+     781 |         .mminfra_offset = 0x40000000, /* 1GB */
+         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/mailbox/mtk-cmdq-mailbox.c:784:3: error: field designator 'dma_mask_bit' does not refer to any field in type 'const struct gce_plat'
+     784 |         .dma_mask_bit = 35,
+         |         ~^~~~~~~~~~~~~~~~~
+>> drivers/mailbox/mtk-cmdq-mailbox.c:785:3: error: field designator 'secure_thread_nr' does not refer to any field in type 'const struct gce_plat'
+     785 |         .secure_thread_nr = 2,
+         |         ~^~~~~~~~~~~~~~~~~~~~
+>> drivers/mailbox/mtk-cmdq-mailbox.c:786:3: error: field designator 'secure_thread_min' does not refer to any field in type 'const struct gce_plat'
+     786 |         .secure_thread_min = 8,
+         |         ~^~~~~~~~~~~~~~~~~~~~~
+   4 errors generated.
+
+
+vim +781 drivers/mailbox/mtk-cmdq-mailbox.c
+
+   777	
+   778	static const struct gce_plat gce_plat_mt8189 = {
+   779		.thread_nr = 32,
+   780		.shift = 3,
+ > 781		.mminfra_offset = 0x40000000, /* 1GB */
+   782		.control_by_sw = false,
+   783		.sw_ddr_en = true,
+ > 784		.dma_mask_bit = 35,
+ > 785		.secure_thread_nr = 2,
+ > 786		.secure_thread_min = 8,
+   787		.gce_num = 2
+   788	};
+   789	
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
