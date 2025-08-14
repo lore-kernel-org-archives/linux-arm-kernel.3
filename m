@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E347BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF690CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 00:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=41vZQE4qVj2qb70cjSoEC4RwtvqSxYt+zihXufpvrB4=; b=0z0f3GvC6j29lPoL6ZH0OxZIiu
-	MMWr9B9dfTxp/LwBkqsLTvevuimL8pIUtVqdFxTkyM8nnqgTOxejMV13KVuFFEqJu+XIqlBbzmSOa
-	/xTdi0V3OMpJe22wZF56fpmUP/OYnfr3OXnnm9BSzdzdjx0vjuaB3alpHyBQqlSDimfDikjcUk88R
-	8RfFJ0WAHsSTK0P6zfrHC3xQ2z364Itebrjh17v8z0iM8L2ItzXcLIiqmUxRnHbAxyCNH2yH0rO2r
-	SdnnlLVYDdxT1s0wijFa0Y5ux9BP5KVTj9/nEDdcGOHgGy6zYLmEk9H/60rBS9tmLGnrBNGyUYv9Y
-	fAGT64Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJpg2pS7/i5/eJlR85F2V9d17QqSosoQgMmN8Oxuetc=; b=WTbq1z8TfjDxyL+zu/YJhe0eKL
+	oi5KfrHE+W0aElBUx0bbp7WyzqbNZI2mbF2NiYu5Xe7WqxZ1U3bJopWumNgFvkaoKBv9coHN/4aO4
+	LWC2t9PCaEqfgpGqF7eoGxC3azOse6q2DOCeSGCpaDM0mUVluyiGgzPRp04hGl+QgY12FPeRw+HPS
+	buSsJ+tD09GgyRZ4sx+Nr5oaJSopGYLATT+/3NvJYrlXrCVioNtzOlnpZtnXWPkGseFHLBViZ+7UL
+	KJVzZUt5EGT3XhtbS8SgKlGKA4vZuRnC1YVYHg723Pz60bha7DaX6+G860SbxicxMpvSrsxwTewxQ
+	LcioV6zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umiki-00000000xoy-1t1H;
-	Fri, 15 Aug 2025 00:57:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umhIk-00000000mkw-3xUn;
-	Thu, 14 Aug 2025 23:24:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1C8C60053;
-	Thu, 14 Aug 2025 23:24:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C1B7C4CEED;
-	Thu, 14 Aug 2025 23:24:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1755213845;
-	bh=Lt6jBIulxaTo9RIUgXftMb1SwjwcRMNvaTJxyrnlj78=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=0jiS0MN4/TWhe764dHWzjTgvAGMJecSSdfZWFOkJUS7BuIjhyZKOl+A5PrqjFOduD
-	 IsxvOxBO+k+v+PziyRQf+Q7TQM0DhZnFEQ2PaknBTmYhxEHSQRHua4azWjzIgmIkiW
-	 ecFxYV+H+SUkeqY9R/HRVhofTlwwyNEN4NBGc7RU=
-Date: Thu, 14 Aug 2025 16:24:04 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Andrew Donnellan <ajd@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, x86@kernel.org, linux-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
- nicholas@linux.ibm.com, christophe.leroy@csgroup.eu, Rohan McLure
- <rmclure@linux.ibm.com>, Ingo Molnar <mingo@kernel.org>
-Subject: Re: [PATCH v16 06/13] mm/page_table_check: Reinstate address
- parameter in [__]page_table_check_pud_clear()
-Message-Id: <20250814162404.e3a0f12e2aa1a87de51322e7@linux-foundation.org>
-In-Reply-To: <5aa057d0-dc76-4723-80d1-82065320a428@ghiti.fr>
-References: <20250813062614.51759-1-ajd@linux.ibm.com>
-	<20250813062614.51759-7-ajd@linux.ibm.com>
-	<5aa057d0-dc76-4723-80d1-82065320a428@ghiti.fr>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	id 1uminE-00000000yaK-1B4V;
+	Fri, 15 Aug 2025 00:59:40 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umhOl-00000000nC0-15hT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 23:30:21 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 18EBF2018F18; Thu, 14 Aug 2025 16:30:18 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 18EBF2018F18
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1755214218;
+	bh=HJpg2pS7/i5/eJlR85F2V9d17QqSosoQgMmN8Oxuetc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mFpxwWvYUtB7xtV+IEmQnssxxYT8+OJINsLzStaw5+XVPEGLowQhZZQd5A+IyC97p
+	 k/XxIeFcy/t6UkH30eLkDXWkafBTl+BQIoTt+YoyJ14kTP+LbLHcKKzrgdX9FPb4c1
+	 X+Knpbr9bVs6ctgbJeEGGOXFjs4PzWndk1zR58d0=
+Date: Thu, 14 Aug 2025 16:30:18 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	will@kernel.org, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+	bboscaccy@linux.microsoft.com, robh@kernel.org,
+	saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	lizhi.hou@amd.com, clement.leger@bootlin.com
+Subject: Re: [PATCH v3 2/3] iommu/of: fix device tree configuration for PCI
+ devices
+Message-ID: <20250814233018.GA31418@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
+ <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
+ <20250808121515.GE377696@ziepe.ca>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250808121515.GE377696@ziepe.ca>
+User-Agent: Mutt/1.5.21 (2010-09-15)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250814_163019_333888_3806FEC4 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,25 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 Aug 2025 14:11:45 +0200 Alexandre Ghiti <alex@ghiti.fr> wrote:
+Hi Jason,
 
-> >   	for (i = 0; i < nr; i++)
-> > -		__page_table_check_pud_clear(mm, *(pudp + i));
-> > +		__page_table_check_pud_clear(mm, addr + PUD_SIZE * i, *(pudp + i));
-> >   	if (pud_user_accessible_page(pud))
-> >   		page_table_check_set(pud_pfn(pud), stride * nr, pud_write(pud));
-> >   }
+On Fri, Aug 08, 2025 at 09:15:15AM -0300, Jason Gunthorpe wrote:
+> On Wed, Aug 06, 2025 at 02:55:38PM -0700, Shyam Saini wrote:
+> > Individual PCI devices lack dedicated device tree nodes, but
 > 
-> 
-> So this made me realize we (riscv) did not implement 
-> pudp_huge_get_and_clear(), which was a mistake since we support THP PUD. 
-> I have implemented this function in this patch 
-> https://lore.kernel.org/all/20250814-dev-alex-thp_pud_xchg-v1-1-b4704dfae206@rivosinc.com/T/#u
-> 
-> That's a fix so I'll merge it in 6.17 (at least I'll try) so your 
-> patchset will break the build on riscv, I'll keep you posted when it 
-> gets merged!
+> This is not the case, you can put PCI devices in the DT as well, there
+> is a syntax for it. Why not do that and have the FW populate it on the
+> device node itself?
 
-Thanks, I'll temporarily grab a copy of your "riscv: use an atomic xchg
-in pudp_huge_get_and_clear()" to keep mm.git compilable and testable.  
+sorry, I missed that, were you referring to [1] CONFIG_PCI_DYNAMIC_OF_NODES
+approach?
+
+I tried a PoC with that and got the expected results. However, it requires
+hardcoding PCI device IDs using DECLARE_PCI_FIXUP_FINAL?
+
+or were you referring to [2]?
+
+In that case, the PCI child node data needs to be parsed, which is
+currently handled individually by each host controller driver.
+
+This might not be a strong argument, but since firmware updates tend
+to happen less frequently than OS updates, any addition or modification
+to the FDT would require a firmware update. Wouldn't it be more
+maintainable to keep this logic in Linux, which is easier to update
+and typically updated more often?
+  
+> You should CC all the device tree maintainers on something like this
+> as well.
+> 
+
+sure, Cc'd some more folks
+
+[1] https://lwn.net/Articles/939317/
+[2] https://elixir.bootlin.com/linux/v6.16/source/arch/arm64/boot/dts/nvidia/tegra186.dtsi#L1340
+
+Thanks,
+Shyam
 
