@@ -4,79 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F92CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 18:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A328ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3o62n1jvBvaD2lGjnYCtfClf9GS2F9lsAhVKwWipI00=; b=y04v6DVxzkM1a69GxDE/kGT+ht
-	kH+/2M63slaDEKDhStroPL5lpxw0B6G1sDlA1h4+Lp1zlv7wbJfqk21Qxu4l6o+CToLAE6IEI57gI
-	+2ih8rAIYFshbQfofR2BwbKeUNQE/exJVpQjGNHGmgHcHI010Ikk18/Ow9DKxsDrI7Z/OBw5P/4B/
-	C8azggmbaFPJToaN8YMt5VPAfAuLCIjZBNoex8Gc2g0biQasi41vjoqqO4CQDe/EfyFPUa1K+s8co
-	0kSPclnoSTmqQGq27ymNNuZii89HnSRnzDEqt0Snbgx/Ai7lDBvrHEAiieYcSbqyX9oyYbGRCa2LL
-	QKn70HVw==;
+	bh=vw8K/kYp3skJqr334lGHwwn6jeB0ETsGdF7dqU2Bw3s=; b=aEWJuxi+U9yfMjr3Q9w/X2Nz7K
+	ol2nKMcN4Bw+2HE6YO8a4bJjHyuDen2R65z118VUZCmn01vlIIrxGkQzP6gBAxCz6+2ZRIWRECKGx
+	8UmT89/mr3+YrlCxqzssGCtIEqKVmfYhYsK90cOAAPTqAJUvguqNhTQNrr8U3hKC7K30W/kz+fR3U
+	geR5jIhCnNwTq2S5/GaN14W6MPmq9wAYmHJu4DwMS4P/npnavdUCQdmBpB+EWEk12jPHAdCY+iLx1
+	ei6GkI1I9UW+HMrV5a9I6g0E2GMYJoe+VGbDaR2hTa7+L8c2DDHVbR01hZjJUEDF6EO0A4ic3yi77
+	lD5NYIaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umcyj-00000000Lyw-468J;
-	Thu, 14 Aug 2025 18:47:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1umdGL-00000000ONO-2pg6;
+	Thu, 14 Aug 2025 19:05:21 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umcvJ-00000000Li0-18lp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 Aug 2025 18:43:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=3o62n1jvBvaD2lGjnYCtfClf9GS2F9lsAhVKwWipI00=; b=MeC4BhniXi/qyJsU/60Do4Zasj
-	U4pYm6op41pJ+Jxuh3huwKO9YwonFhCpSn0rtqlvqLqUUz2PZGid77gLu92Z3TWsbl+sp0zFEk5U5
-	ZNuciQacX8QxqmIFGVV0lA5Sk0KUCNRXTPkRizNiRp4IY4lIuAoF1/cdtl7NhERg0wW7zRrlgVTER
-	2Aveli+zPYslKFfpmSFemBCH3u3Qf5I7wCKY4NJUmhTXC471vQgOdt+MFyIEnVKIJkl+hVVOp5+dq
-	W0IK82xIgrg9mbv5zZiciJBoW4yNQV/mNlBGZMzry0x+0yYe0aj3ZGe7SnKeBfBr9yc2vABW69J+A
-	h1YTBIow==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umcvF-0000000GX1f-3ii6
+	id 1umdDm-00000000O2o-1yRo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 18:43:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2610AA57424;
-	Thu, 14 Aug 2025 18:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC47DC4CEED;
-	Thu, 14 Aug 2025 18:43:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755197011;
-	bh=+edEx8wP5sj6lIPPo4+9dTecgBzL9N0lb1TKODlviEg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X+OwVj2OLlRjK6XZS/8srDIRauWKxHcA5a0JJhaqDHoM751EWi35LMp2Qe71x0vJI
-	 F3EJ42mzPbM5HV+kbrIw+hh1YmI3ExfnBXTCfklBDrnUbATkYqavQRwnzlA8+5Es4P
-	 0+ej6Zk10WhURXK1AJDCbBBAXRx0GmNAAYusuOELHieRqq67QzKPoAdJiF1E9AAV82
-	 axYbo7gzJ/2k223McejgeoQ1CdcFwGND6LcXLewKrTSJqwkWLyxwizNuzO3cAJYp3l
-	 /DuPYD3q9QH5fFlOheUTni3cZbMk0KIUxvxBoLChPc+8KhPSF8Pv+R2INB3sXR0lN8
-	 RYjoZvJjyUDsA==
-Date: Thu, 14 Aug 2025 19:43:27 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Shimrra Shai <shimrrashai@gmail.com>
-Cc: lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
-	perex@perex.cz, tiwai@suse.com
-Subject: Re: Re: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer
- connection on ES8323
-Message-ID: <7d2529cb-7ecb-4616-af04-f65b1f309d89@sirena.org.uk>
-References: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
- <20250814183344.59453-1-shimrrashai@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="V6wTkxydwkAjWbTz"
+	Thu, 14 Aug 2025 19:02:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n79hs+fIjRDxsUZL/FLftVjp83b24ujLqiJo8Extf6dmbNgxb6K8uibP0Lvu54CnicyZ3hNZuafkq/YXISQlLGP+vxzj0TkBHJz6sPmpBuyMTZqMBIBqLjjot9p4SUq9MjItUjwkEzTDtCMo9sywXtma+2d8vRVIRbvrCx/LPK/+fNbcuL4iajc9+q8JE9oWPAd2xJ7AZncWVqS069CTvZGP6lTlp15Qpxp7HwPFyp/FQef79dnosgltGz3zGG9gMwI5RE1dbsJerT/4wKW2pPcIGFdXnYZ5ZaoI3KKRtRZQMStmYHodQxnD2kFZ5en31BBwngcI1aFt0/JZ5gHcVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vw8K/kYp3skJqr334lGHwwn6jeB0ETsGdF7dqU2Bw3s=;
+ b=perYwaedkTo+6BKF/PEcKcF9DPdk3Mz5d6hL87QnZKx+hssTTTFLOCpGNG16rk/8ip7iina+NChttp5f3Gfsd9AlYHTiD1lmoc3+jR6+Ivu/aWFyyxdhzBPcrvBsQbxm5FiBeyzkuMjIP+YiQUXMBMEwb/O0nOUW/sfEd4qUZN3X0uTq86itlimagfO2UkVIqH7FCUA6+9OVlBLvP5piWoGDBqD3+Aos3A7VcoULb7KO8E4TO2vHg5GRFboq5o1+5etOpvkaDOqqhOjjEmH8SqWGPlPK9MkZ1ds/+VEFoNzP3Jp/1dx2NW0J0/DRRxy4DzniKHTsMWd+ewHM1AlWFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vw8K/kYp3skJqr334lGHwwn6jeB0ETsGdF7dqU2Bw3s=;
+ b=cqffIUSbD6gzNsU+6dAEmYYeoM5HYgZK4I9a1GIaEanJvtIr4Tz79h5EpJol9m84+tmlwJOTFypNgByQl7RXjYPlwxj4YTVf9pfZ8VZjzzqAyCSMYwSiMrNtn3BikX/2T6nkH9DsV36AN63Yk1UnrIcHaGAjFTOBP256O1KaK6OBAEf6UE8xRhgPFzdvi621cml/B/Ad9GO0ZNrvHzI8UXSVVyYJ5Rx3jRlRO7vipYR6x9e7/bRA2oQmhmos0CJ7zI4dIkntjYsVK+pHRJhEnZMF/wmgYayyhaM83twqFqarbBrK0+dp6E4ZssXufitRJ6qfFIHNU3R9xVtyBgAZYg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8906.eurprd04.prod.outlook.com (2603:10a6:20b:409::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Thu, 14 Aug
+ 2025 19:02:27 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9031.014; Thu, 14 Aug 2025
+ 19:02:27 +0000
+Date: Thu, 14 Aug 2025 15:02:18 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: fsl,imx6q-pcie: Add vaux for
+ i.MX PCIe
+Message-ID: <aJ4yuo6bULFy7uAv@lizhi-Precision-Tower-5810>
+References: <20250814085920.590101-1-hongxing.zhu@nxp.com>
+ <20250814085920.590101-2-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250814183344.59453-1-shimrrashai@gmail.com>
-X-Cookie: This sentence no verb.
+In-Reply-To: <20250814085920.590101-2-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: SJ0PR13CA0190.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c3::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8906:EE_
+X-MS-Office365-Filtering-Correlation-Id: 153f8fcc-0663-470b-49a7-08dddb651c99
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R+pNdvlxSeLQ5ggPXvGnuAg7Af1dQz643Hv64p53C6uuLuQASyP1Bflcow/8?=
+ =?us-ascii?Q?xx7A8i9lDsscVCX0E+oqOuQJFhMhrU1kHoqlBMNiaJKZ79MDmkIP0bNqtVcP?=
+ =?us-ascii?Q?FRH6FoYNZs4ohNaaegCqcFyg0dXwOCkVsxl+sRGDdU5Pv1+4nnSEbHeWJmPn?=
+ =?us-ascii?Q?1JibqrN+btAVQYQxLYB9fNJlaeyLdITWI9nJJvobWxexYLiTCh9mtE40oDur?=
+ =?us-ascii?Q?DkM4r/5MaVwtFGZNrXqqGYs5I6sgUwj1r15lXYKsT3OO5eJhO4zsgXNm5uNY?=
+ =?us-ascii?Q?Aaz//ztComfFV4wX9bDJtMayowH2DR5xbRKHqtKe34+V+INyI4ozO9jebGq9?=
+ =?us-ascii?Q?AERPVo+Yih7+LFyPjrg0zNhE272LSqkbGoKW4YDWM2O+0VBVqYzkNvrAWpga?=
+ =?us-ascii?Q?IiSfoEcOXsU+JjJekVpbVmTTweJU1ZJYabmGZcvCBaq25k/aCRctpg6VmlBT?=
+ =?us-ascii?Q?fZj2qNY8dWNB/fEDNO8EMY+JhuyK+kGuI2HTDxO1sIscqPtZVn5m3rlWBBLU?=
+ =?us-ascii?Q?wDJm/+2AZ78HfXaOqwIWbVUDP39y5qO+nGS5bWczlHfEjliXH4EyPAGuGy/8?=
+ =?us-ascii?Q?ZknXFNqF6M3VvivJAbtubvWQwOsZhF3+T86+LrXQvcrkvcP/uIHS2Pu5ohEO?=
+ =?us-ascii?Q?cSXCHF+W2b+e6drid10QvCfiFEio2hpm7GIl2OSaRtCPtIOUCo0gawxW4Bae?=
+ =?us-ascii?Q?WMfpH6u1CjhX70bKSRoK77RKvS+vvAtPqR4JcZQ55dCMtQG0PuGLH1ZmVWPx?=
+ =?us-ascii?Q?pQA0KVESx3mhF7i3tSBDgLwNWavKBZYyAbzk0r+6ida282XesHzaxAJr5bka?=
+ =?us-ascii?Q?YMj4NEUslzk0mJ9AvgOOYxbibRereqCStgcBz+mcDIENppyaKirKQ+AbsUP2?=
+ =?us-ascii?Q?xx3+VJDJWzMsdLv2eKPcIIfYsFMZvf7xr8BktZDuD9ffgwrwGnIUk7g57TmX?=
+ =?us-ascii?Q?BAn4GxiTcpXGfWykCqjeTzoEIJ9CiuwtIRzUhOKUYsGitenvb4joJxyh0/Kv?=
+ =?us-ascii?Q?/KhuJnHZpx12Y+JhDUDgsl2cCWmidYU2IpGXw7j/x0InQsgWeP5zn3/I5dQ6?=
+ =?us-ascii?Q?P1GNPT9yRzgR32YoxPZ0b9hVd853I7s0ELRRJKjsaz6OB9KD8Q/72f5oF7AI?=
+ =?us-ascii?Q?o9fhmyW4ej31mVKtHtzZWa2grv1kFxrcYRO5iC+mIU+BUi+tdmJT5nkGO29A?=
+ =?us-ascii?Q?/KSwaakoD2/z6KTie6tUNLpEIRnZ7rdJUbLRshPHXIdbYySvofoDRRsRZgR4?=
+ =?us-ascii?Q?zpDBI2rBkBuNbrhD02qxc/zFfS0b37AYa05s/0WTucqKXNx+Q///eFQ2PfSa?=
+ =?us-ascii?Q?2PUET9Vg5hwXMkwO67SD50I4eR7dAnvEdcDykPd2N6XO5efUlNOIsPiX8XkB?=
+ =?us-ascii?Q?PMUhXmtmylpPIQi17CAqFEhD7ENGu3CxmwTAmyyRJrqvU6V444SUeQgaCQmd?=
+ =?us-ascii?Q?3syJQh7v1k3ORKAkJt8uy1GVsHRR+HxXrHBzSO7UiehoYq6qaBm1iQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SIDBPIJMYkFo8NBIjaatbUsBTfaogxdePO6LsHuB09146DgwzWPbqwu2Qk8t?=
+ =?us-ascii?Q?BRe+FqQM4GzZR+ouhGK71pcq1X5nyEK8FUMday9w6MJSkwWvalBbGfJKgKIe?=
+ =?us-ascii?Q?HWgM5MFNqfxnwiu4SaiURrSFKRCeH+uqWr3q9EkYHKYMbhXL/G5p7OIEyPmm?=
+ =?us-ascii?Q?Oqf0GVlusr6LU8PF9gtimXNXfQElBjPbiY7Vh4+KWarqsCe3ORzhZ5vHwVev?=
+ =?us-ascii?Q?eM037KcxCBn3yBjxvPg+fVROYjZlGlRaptUv46x2DSeYUQuRTQOiTyduybQv?=
+ =?us-ascii?Q?J1Vi0necCqPpw/vf8/YuqjDQ05a3boK5OVbfrOLB5Rluzwly708vZPc7u8XR?=
+ =?us-ascii?Q?iIatkXELdihdNPtBFtaNOtE9++wNwGKeZ+9kBJ4gczjPL0mMljHnZETF7FER?=
+ =?us-ascii?Q?W8nEZsx7cz32LtxLQLyj01YOnh191w+5p7IximVNfjmEp0m6loUzJytZWIfQ?=
+ =?us-ascii?Q?2YSA1eUu6Z5zNh54tutTcMhkcNuybsKWXUp65fBuPzii1JmPuNc3CczOe3qX?=
+ =?us-ascii?Q?pMd/9vxchkYhX9o4ppdoqhaeTX99JVHQxaGcTYUgxir+2q86nemaLhe09E7h?=
+ =?us-ascii?Q?hR5J7yHyA2/3wgPVx2dwQZSfmloaK36egdHUr0KG1fzxxhAzqJ4UmKB6jdFQ?=
+ =?us-ascii?Q?dY0LvFDNG17RbDBZP/CmrvFxgjgXaHnCfifxM9uSYYp3fABScyNRtGsnR7yK?=
+ =?us-ascii?Q?HOJVHw9OOoD0SUkxY0MFruzKzoM+ogQuk/oDb+sKlJGT1PBb48iAHiJkZALc?=
+ =?us-ascii?Q?SENDCjfHO1Bts75VQMkwhRFnwWrbyr7noWC8xMRdp0MCrPOV1Z1IvcCQ5hCm?=
+ =?us-ascii?Q?4U+8Pxcgt3EaBi/glzZ9nBE1Xm75+pIKpxRdxunjjGh8LveuXa35Hotu5z3U?=
+ =?us-ascii?Q?8PLAgoHvlP+vEqr/GOfT/lS+8ibgyiKST5bIEv6o0bmtm5/c1WONnxKKrKHS?=
+ =?us-ascii?Q?/Z5cpwevu+ER5lAjW0sHRecnRqMdLbr8zpsExlpaicPqODjcKJ7jZ0MEcbMq?=
+ =?us-ascii?Q?sJbalSBahXiHLLX1RArS8K93CZuwYQGBDtka/YUSwpAeymaQg1O4Agf8+uwH?=
+ =?us-ascii?Q?e7qWREtBpK5td8+9rLOvo8gnsd++RcZ1DfrFmClD/koGEuI2P7RjD+tlKH8P?=
+ =?us-ascii?Q?xQ9WgnjAGk4v+ZSDd/+yw/pjSfCI2lfcuSGBWYsiqBkDc4cZLUvJhj82Yzje?=
+ =?us-ascii?Q?Rv8R72x9ww+NLhk2ReT693cgq7U5J1vxh7+tO6qftgYBfNib0QOyXPrCgpfW?=
+ =?us-ascii?Q?ejt4AJwB8G95jCv//rEjK7AFK5rozwn7Ncsg+WgWuEHXOoPRC02yp1Tq6M8g?=
+ =?us-ascii?Q?SR0lEGVzCfn/f7jl5oR9Af1LidfVB/C8m1e8+INRBmsAqhMDSnsozkjvcJl3?=
+ =?us-ascii?Q?xIq1sTpB+4xkgqhIMhR7AwdmlYVsOm3v1j3E7GRo9Kj5dSu7SB3BUaqa0Wei?=
+ =?us-ascii?Q?b/od4oaFgsqMewDUgv9HLAtntUZCiWvcbU5EyJj49kF4rEW750VULI/h5NOs?=
+ =?us-ascii?Q?zMf2eu//Iau94wGOSnE7rRpyNEuAx74IZCUJMn5wyZ4frXogw4cU+C7MDYxm?=
+ =?us-ascii?Q?StQJTwYLPE4sO64rq+HtlMFfg9GxvUcVzXAGMHKu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 153f8fcc-0663-470b-49a7-08dddb651c99
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2025 19:02:27.6167
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /KLQ+qILbgouQAUrM9fVPimP2BjDSrzDg887m7Fel00CZD5AMa0tYJ+e5zPAX6EairOXxMJGn/3GOLDw/FGMrg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8906
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_194334_207456_FC1D60E7 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20250814_120242_539867_9D87F704 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,76 +162,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 14, 2025 at 04:59:19PM +0800, Richard Zhu wrote:
+> Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
+> asserted by the Add-in Card when all its functions are in D3Cold state
+> and at least one of its functions is enabled for wakeup generation.
+>
+> The 3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+> process. Since the main power supply would be gated off to let Add-in
+> Card to be in D3Cold, add the vaux and keep it enabled to power up WAKE#
+> circuit for the entire PCIe controller lifecycle when WAKE# is supported.
 
---V6wTkxydwkAjWbTz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+if it is standard, it should move to snps,dw-pcie-common.yaml.
 
-On Thu, Aug 14, 2025 at 01:33:44PM -0500, Shimrra Shai wrote:
-> On Thu, Aug 14, 2025 at 01:11:59 PM +0100, Mark Brown wrote:
-> > On Wed, Aug 13, 2025 at 08:47:31PM -0500, Shimrra Shai wrote:
-
-> > >  	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
-> > > +	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
-
-> > Neither of these should be unconditional writes, these should be user
-> > visible controls.  We don't encode specific system's use cases into the
-> > driver.
-
-> I was just following the precedent from the driver's prior
-> author(s), in the manner of the line above it. Presumably, enabling
-> the left-hand DAC-mixer connection only was a solution that worked
-
-Yes, as I say this is very bad practice on the part of the original
-authors which only escaped review due to the magic numbers.
-
-> instead of using a blanket for all devices as I thought. In that
-> case, that means the original author was also wrong, and so I need
-> to know exactly where it should be placed.
-
-Like I say these should be userspace controls, not just blind writes.
-Probably wired up in DAPM, SOC_DAPM_SINGLE().
-
-> which suggest it is in fact controllable already, but I wonder why it
-> is in the "bypass" switch only and not the "playback" switch, which
-> seems to do nothing (SND_SOC_NOPM). Would it perhaps be correct to
-> move these to the "playback" switch, or to have both switches
-> collapsed into a single switch?
-
-Those will be different audio paths, it's almost certainly a bug due to
-the hard coding of the enables.  Both DAC and bypass paths should be
-normal user controllable things, from the sound of it what's needed is
-to define the register for the DAC path.
-
-> In any case, if these are the correct places to enable this control
-> and it is already supported there, then it seems neither write command
-> in the setup is needed, viz. we should _delete_
-
-> snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
-
-> too. What do you say?
-
-Yes, ideally that shouldn't be there.  There's some risk that there
-might be some userspace relying on having the mono channel enabled by
-default though so perhaps it's safer to just leave that as is - the path
-can still be configured by userspace, even if we end up with a weird
-asymmetric default.  I guess there's also some other things in that
-register which most likely should also be controllable.
-
---V6wTkxydwkAjWbTz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmieLk4ACgkQJNaLcl1U
-h9Aujwf9H4/FrH0RsNY7gMqAmRWMuc3EYNLFbcnfpLD+rFs2X4sX3XiQCaPzY/S0
-XgDhpQP1+6+oLIJx8m9+mm5Tpcbr237cNLkYkktWT16vTC0Kb9mVmjMR5i1plscZ
-NbsFHXCZmmxYv6TFYYgjIq1vuYCssxzU7QBFJJSdXBzehOi4deYinNcN9lRti0jX
-TYcfWOxYT9xKhzaJuXWAoQLt1XFMNnzS1LBD5QfWUKgnmEV7RQ0o7io2flZVnqVA
-ZD4wQwRqGVlB7R9pQRuupNhoKJyruO5Cd7NmwmQFtuUSwXS8ca4UO9pU/52dJueh
-jrSJ+kSDmrF7fheV6q3yHrpBoYPuhQ==
-=x+Gy
------END PGP SIGNATURE-----
-
---V6wTkxydwkAjWbTz--
+Frank
+>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  .../devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml      | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
+> index cddbe21f99f2b..13fddf731ab8c 100644
+> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
+> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie-common.yaml
+> @@ -98,6 +98,12 @@ properties:
+>    phy-names:
+>      const: pcie-phy
+>
+> +  vaux-supply:
+> +    description: Should specify the regulator in charge of power source
+> +      of the WAKE# generation on the PCIe connector. When the WAKE# is
+> +      enabled, this regualor would be always on and used to power up
+> +      WAKE# circuit (optional required).
+> +
+>    vpcie-supply:
+>      description: Should specify the regulator in charge of PCIe port power.
+>        The regulator will be enabled when initializing the PCIe host and
+> --
+> 2.37.1
+>
 
