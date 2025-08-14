@@ -4,70 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CC0CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6888CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 15:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=si9CbDdbSkrtahoEM2agGz+twUDM2oOQDkB8gFVKoJ0=; b=i20WqwjqbQZYc5dNKFdLbQQ+ul
-	rjjT1zRyL6ZVuBDWjbqwSwxneqmNHt498mbze5qKt6M0IVZZ9HQPA31Fpa89xAyNLAppLr0lTDpik
-	tywiurvVsu0ehHQfpArpO2X4ah6TmNGQ2Dk0RxRO4ErOpo98hqh3Vn8sKxhdFdNSsYmCOrI3IaxpE
-	eZTyhNr/GRso81N5hNxXUg5FReBEuTQnx/6U0oZ+kQaZ/Gi1tQEJFdn9RvP3vxFh6DpElhDi6fKq4
-	vNqg/KeYQ4kNASmoZMjQ8cr8p8eq4p1AxNr4G1+4VTJYQt3+USJJlH1SlpU2Ujy7/QGWIlHSGxe7N
-	h3/H8Okg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qTLbTnDNEmbTRZziI/6+iPmXc7b+EVu1h0J5YrQ5Xh8=; b=fgWVKGQBf/l9udzT2gt+jdcUWF
+	MHZQli9ta5z1WUUat3qdxLKlFAQUaalzyGzjlB3bWaywbDbtV7n76J5HJGKoFLhKXKPxyxl8UMVlz
+	L/2RAbIUsKgIFZL6KXWCjFqJr4xcCk8yfkqrn5mF772s7x94yjUMfLIBaPgqkkj12tos4r2xw/9CF
+	qcL0SwdHkeHGrU5JHOC+ZDEAYGNMQVlxIPvesrKpIM4nU0uXTgRh7no09WnIrKCeZi9PB3g741DHB
+	R0lOe+gtX8l6tmJTQP1Lr/vKQypoqz8M/TRtJTK+eWZTKBO1837rmpQWw1GTQuzIgy2wiqT1EyVNx
+	NjubMaaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZvV-0000000HRfv-1NWx;
-	Thu, 14 Aug 2025 15:31:37 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uma0S-0000000HSrW-1UK1;
+	Thu, 14 Aug 2025 15:36:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVQC-0000000Gd2j-35Ha
+	id 1umVVF-0000000GeMy-3d2c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:43:01 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umVPp-0008Iy-NQ; Thu, 14 Aug 2025 12:42:37 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umVPl-000EwX-2f;
-	Thu, 14 Aug 2025 12:42:33 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1umVPl-000GxG-2N;
-	Thu, 14 Aug 2025 12:42:33 +0200
-Message-ID: <bf5a4aa0fc1a324a17c25e8ed5acbfd94d240251.camel@pengutronix.de>
-Subject: Re: [PATCH v17 2/3] i2c: ast2600: Add controller driver for new
- register layout
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, benh@kernel.crashing.org, 
- joel@jms.id.au, andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-  conor+dt@kernel.org, andrew@codeconstruct.com.au, 
- andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com, 
- linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
- devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org,  linux-kernel@vger.kernel.org
-Date: Thu, 14 Aug 2025 12:42:33 +0200
-In-Reply-To: <20250814084156.1650432-3-ryan_chen@aspeedtech.com>
-References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
-	 <20250814084156.1650432-3-ryan_chen@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 14 Aug 2025 10:48:15 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57E98poV013005;
+	Thu, 14 Aug 2025 10:48:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	qTLbTnDNEmbTRZziI/6+iPmXc7b+EVu1h0J5YrQ5Xh8=; b=hHOGvZNLJPov9+Mg
+	U6xg6hcIYK60zHYuW0kGJ753bwXcvhKfZhJOtDjllEdJsEFpewLzuuH7JyUj2Op7
+	nzY4DG9/5qQheq5E+kaIbK5bafYe2wUpxz/+yFrJ74lWU9SuCFbeeVtxGqty89is
+	MxAZzXnHcI83eTKzAHds9glr+ArqtU4FMbkWIOuUA95CwkKKZoWQwU5raxQu5JqN
+	8nBqle/SYQQcicgVR6UI0oKVQpPfFswA/OQC/MqoEHfMnxzDkIekwXhTe7w9cbdf
+	70ssvKth52GS+/qhWyUKaTbH3MmfuEli5E5wiwN6B4Z5C7gN50nv1VqLvDNY4ykv
+	GOEj8Q==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48ffq6u84f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Aug 2025 10:48:06 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57EAm5da011327
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Aug 2025 10:48:05 GMT
+Received: from [10.216.10.193] (10.80.80.8) by nasanex01c.na.qualcomm.com
+ (10.45.79.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 14 Aug
+ 2025 03:47:59 -0700
+Message-ID: <ce93ba16-e2a8-4015-bc01-139917d37782@quicinc.com>
+Date: Thu, 14 Aug 2025 16:17:55 +0530
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v19 2/6] remoteproc: Add TEE support
+To: Sumit Garg <sumit.garg@kernel.org>
+CC: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Jens
+ Wiklander <jens.wiklander@linaro.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+ <20250625094028.758016-3-arnaud.pouliquen@foss.st.com>
+ <d4694157-a757-41f5-8874-4b67b262bc83@quicinc.com>
+ <7c77dba4-27f9-4840-b9aa-253119308519@foss.st.com>
+ <e5a234c7-0f8d-4b52-95fb-82371c8e4460@quicinc.com>
+ <aJn6EPjXzq07aDTM@sumit-X1>
+Content-Language: en-US
+From: Harshal Dev <quic_hdev@quicinc.com>
+In-Reply-To: <aJn6EPjXzq07aDTM@sumit-X1>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODExMDA3NSBTYWx0ZWRfXwFPBb7p82dH/
+ ioDG4c0t1jKQHiZFB8+PMqMvuPdAnj4OcJlt/rZgXkJpqH8gdtG7EuczpsoAs5eq00FVMzBPvSE
+ /zkcOvKdTDm8fLs5mOWt8NLTIMxKdyl5HHjLkkGbAA2hOuSxqqq3hcWGtfCjXI6BMi0q3k8EQr/
+ EjL4M38jQUqmXuT4TIsCobQ9tQm5sp1S9khTvKt8MXQRMeUApqja5GRj5kyeG1XqidvQYI+CC87
+ +ZjxzVV0vb3xDPyjcFLDtt7iMPEEpsRllsvgLPisnjd5W9yeDeRNvIpjOXedzVbhl85HyGwvx4P
+ 7wlsDIkjE6wyBQr5WkHdpsfsrN2I3E+rNkM8RqaO2V4OCP5BjSLFpKh9k4KAGKZlGOgjoicn8VX
+ KH9LCm95
+X-Authority-Analysis: v=2.4 cv=TLZFS0la c=1 sm=1 tr=0 ts=689dbee6 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=8b9GpE9nAAAA:8
+ a=5_XiphlS_4mscnRY6EoA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: GH4F1Vrdu5n--L2J1taw7XXDGW_saQSm
+X-Proofpoint-ORIG-GUID: GH4F1Vrdu5n--L2J1taw7XXDGW_saQSm
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 malwarescore=0 spamscore=0 priorityscore=1501
+ bulkscore=0 adultscore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508110075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034300_773127_C15D59A0 
-X-CRM114-Status: GOOD (  26.43  )
+X-CRM114-CacheID: sfid-20250814_034813_919215_B5FB7357 
+X-CRM114-Status: GOOD (  38.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,134 +125,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2025-08-14 at 16:41 +0800, Ryan Chen wrote:
-> Add i2c-ast2600 new register mode driver to support AST2600
-> i2c new register mode. This i2c-ast2600 new driver and the
-> legacy i2c-aspeed driver both match the same compatible string
-> "aspeed,ast2600-i2c-bus" because they target the same I2C
-> controller IP on AST2600. However, AST2600 SoCs may configure
-> the controller instances to operate either in the legacy
-> register layout or the new layout (via global register).
-> The new register mode support following.
->=20
-> - Add new clock divider option for more flexible and accurate
->  clock rate generation
-> - Add tCKHighMin timing to guarantee SCL high pulse width.
-> - Add support dual pool buffer mode, split 32 bytes pool buffer
->  of each device into 2 x 16 bytes for Tx and Rx individually.
-> - Increase DMA buffer size to 4096 bytes and support byte alignment.
-> - Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
-> - Re-define registers for separating controller and target
->  mode control.
-> - Support 4 individual DMA buffers for controller Tx and Rx,
->  target Tx and Rx.
->=20
-> And following is new register set for package transfer sequence.
-> - New Master operation mode:
->   S -> Aw -> P
->   S -> Aw -> TxD -> P
->   S -> Ar -> RxD -> P
->   S -> Aw -> TxD -> Sr -> Ar -> RxD -> P
-> - Bus SDA lock auto-release capability for new controller DMA
->  command mode.
-> - Bus auto timeout for new controller/target DMA mode.
->=20
-> Since the register layout is selected via a global register at
-> runtime and both drivers bind to the same compatible string,
-> this patch defines the driver selection at build-time using
-> Kconfig, ensuring that only one driver is compiled into the
-> kernel. This approach avoids ambiguity and ensures consistent
-> behavior for each platform configuration.
->=20
-> The following is two versus register layout.
-> Old register mode:
-> {I2CD00}: Function Control Register
-> {I2CD04}: Clock and AC Timing Control Register
-> {I2CD08}: Clock and AC Timing Control Register
-> {I2CD0C}: Interrupt Control Register
-> {I2CD10}: Interrupt Status Register
-> {I2CD14}: Command/Status Register
-> {I2CD18}: Slave Device Address Register
-> {I2CD1C}: Pool Buffer Control Register
-> {I2CD20}: Transmit/Receive Byte Buffer Register
-> {I2CD24}: DMA Mode Buffer Address Register
-> {I2CD28}: DMA Transfer Length Register
-> {I2CD2C}: Original DMA Mode Buffer Address Setting
-> {I2CD30}: Original DMA Transfer Length Setting and Final Status
->=20
-> New Register mode
-> {I2CC00}: Master/Slave Function Control Register
-> {I2CC04}: Master/Slave Clock and AC Timing Control Register
-> {I2CC08}: Master/Slave Transmit/Receive Byte Buffer Register
-> {I2CC0C}: Master/Slave Pool Buffer Control Register
-> {I2CM10}: Master Interrupt Control Register
-> {I2CM14}: Master Interrupt Status Register
-> {I2CM18}: Master Command/Status Register
-> {I2CM1C}: Master DMA Buffer Length Register
-> {I2CS20}: Slave~ Interrupt Control Register
-> {I2CS24}: Slave~ Interrupt Status Register
-> {I2CS28}: Slave~ Command/Status Register
-> {I2CS2C}: Slave~ DMA Buffer Length Register
-> {I2CM30}: Master DMA Mode Tx Buffer Base Address
-> {I2CM34}: Master DMA Mode Rx Buffer Base Address
-> {I2CS38}: Slave~ DMA Mode Tx Buffer Base Address
-> {I2CS3C}: Slave~ DMA Mode Rx Buffer Base Address
-> {I2CS40}: Slave Device Address Register
-> {I2CM48}: Master DMA Length Status Register
-> {I2CS4C}: Slave  DMA Length Status Register
-> {I2CC50}: Current DMA Operating Address Status
-> {I2CC54}: Current DMA Operating Length  Status
->=20
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
->  drivers/i2c/busses/Kconfig       |   23 +-
->  drivers/i2c/busses/Makefile      |    1 +
->  drivers/i2c/busses/i2c-ast2600.c | 1038 ++++++++++++++++++++++++++++++
->  3 files changed, 1054 insertions(+), 8 deletions(-)
->  create mode 100644 drivers/i2c/busses/i2c-ast2600.c
->=20
-[...]
-> diff --git a/drivers/i2c/busses/i2c-ast2600.c b/drivers/i2c/busses/i2c-as=
-t2600.c
-> new file mode 100644
-> index 000000000000..15e600ff50ec
-> --- /dev/null
-> +++ b/drivers/i2c/busses/i2c-ast2600.c
-> @@ -0,0 +1,1038 @@
-[...]
-> +static int ast2600_i2c_probe(struct platform_device *pdev)
-> +{
->=20
-[...]
-> +	i2c_bus->rst =3D devm_reset_control_get_shared(dev, NULL);
-> +	if (IS_ERR(i2c_bus->rst))
-> +		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n=
-");
+Hi Sumit,
 
-What ...
+On 8/11/2025 7:41 PM, Sumit Garg wrote:
+> Hi Harshal,
+> 
+> On Mon, Aug 04, 2025 at 02:56:18PM +0530, Harshal Dev wrote:
+>> Hi Arnaud,
+>>
+>> On 8/1/2025 12:53 PM, Arnaud POULIQUEN wrote:
+>>> Hello Harshal,
+>>>
+>>>
+>>> On 7/31/25 12:25, Harshal Dev wrote:
+>>>> Hello Arnaud,
+>>>>
+>>>> On 6/25/2025 3:10 PM, Arnaud Pouliquen wrote:
+>>>>> Add a remoteproc TEE (Trusted Execution Environment) driver that will be
+>>>>> probed by the TEE bus. If the associated Trusted application is supported
+>>>>> on the secure part, this driver offers a client interface to load firmware
+>>>>> by the secure part.
+>>>>> This firmware could be authenticated by the secure trusted application.
+>>>>>
+>>>>> A specificity of the implementation is that the firmware has to be
+>>>>> authenticated and optionally decrypted to access the resource table.
+>>>>>
+>>>>> Consequently, the boot sequence is:
+>>>>>
+>>>>> 1) rproc_parse_fw --> rproc_tee_parse_fw
+>>>>>    remoteproc TEE:
+>>>>>    - Requests the TEE application to authenticate and load the firmware
+>>>>>      in the remote processor memories.
+>>>>>    - Requests the TEE application for the address of the resource table.
+>>>>>    - Creates a copy of the resource table stored in rproc->cached_table.
+>>>>>
+>>>>> 2) rproc_load_segments --> rproc_tee_load_fw
+>>>>>    remoteproc TEE:
+>>>>>    - Requests the TEE application to load the firmware. Nothing is done
+>>>>>      at the TEE application as the firmware is already loaded.
+>>>>>    - In case of recovery, the TEE application has to reload the firmware.
+>>>>>
+>>>>> 3) rproc_tee_get_loaded_rsc_table
+>>>>>    remoteproc TEE requests the TEE application for the address of the
+>>>>>    resource table.
+>>>>>
+>>>>> 4) rproc_start --> rproc_tee_start
+>>>>>    - Requests the TEE application to start the remote processor.
+>>>>>
+>>>>> The shutdown sequence is:
+>>>>>
+>>>>> 5) rproc_stop --> rproc_tee_stop
+>>>>>    - Requests the TEE application to stop the remote processor.
+>>>>>
+>>>>> 6) rproc_tee_release_fw
+>>>>>    This function is used to request the TEE application to perform actions
+>>>>>    to return to the initial state on stop or on error during the boot
+>>>>>    sequence.
+>>>>>
+>>>>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+>>>>> ---
+>>>>> Updates vs version [18]:
+>>>>> - rework/fix function headers
+>>>>> - use memremap instead of ioremap for the resource table.
+>>>>> - realign comments to 80 chars limit, with few exceptions for readability
+>>>>> - replace spinlock by mutex and and protect APIs from concurrent access
+>>>>> - add support of 64-bit address in rproc_tee_get_loaded_rsc_table()
+>>>>> - Generalize teston rproc_tee_ctx.dev to prevent an unbind
+>>>>> - update copyright year
+>>>>>
+>>>>> Updates vs version [17]:
+>>>>> Fix warning:
+>>>>> warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+>>>>> ---
+>>>>>  drivers/remoteproc/Kconfig          |  10 +
+>>>>>  drivers/remoteproc/Makefile         |   1 +
+>>>>>  drivers/remoteproc/remoteproc_tee.c | 708 ++++++++++++++++++++++++++++
+>>>>>  include/linux/remoteproc_tee.h      |  87 ++++
+>>>>>  4 files changed, 806 insertions(+)
+>>>>>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
+>>>>>  create mode 100644 include/linux/remoteproc_tee.h
+>>>>>
+> 
+> <snip>
+> 
+>>>>> +
+>>>>> +static int rproc_tee_ctx_match(struct tee_ioctl_version_data *ver, const void *data)
+>>>>> +{
+>>>>> +	/* Today we support only the OP-TEE, could be extend to other tees */
+>>>>> +	return (ver->impl_id == TEE_IMPL_ID_OPTEE);
+>>>>> +}
+>>>>> +
+>>>>> +static int rproc_tee_probe(struct device *dev)
+>>>>> +{
+>>>>> +	struct tee_context *tee_ctx;
+>>>>> +	int ret;
+>>>>> +
+>>>>> +	/* Open context with TEE driver */
+>>>>> +	tee_ctx = tee_client_open_context(NULL, rproc_tee_ctx_match, NULL, NULL);
+>>>>> +	if (IS_ERR(tee_ctx))
+>>>>> +		return PTR_ERR(tee_ctx);
+>>>>> +
+>>>>> +	ret = mutex_lock_interruptible(&ctx_lock);
+>>>>> +	if (ret)
+>>>>> +		return ret;
+>>>>> +
+>>>>> +	rproc_tee_ctx.dev = dev;
+>>>>> +	rproc_tee_ctx.tee_ctx = tee_ctx;
+>>>>> +	INIT_LIST_HEAD(&rproc_tee_ctx.sessions);
+>>>>> +	mutex_unlock(&ctx_lock);
+>>>>> +
+>>>>> +	return 0;
+>>>>> +}
+>>>>
+>>>> As you mentioned above, this could be extended to other TEEs. If so, is it possible for probe
+>>>> to be called multiple times if we we have other TEE devices exposing the firmware authentication
+>>>> service? In that case, I think rproc_tee_ctx should be dynamically initializated instead of being
+>>>> static. And since we are creating a link between the Rproc device and TEE device, a call to a
+>>>> function like rproc_tee_start() could retreive the associated TEE device, and then the associated
+>>>> rproc_tee? :)
+>>>
+>>> I have never seen a use case that requires multiple instances, but perhaps you
+>>> have some?
+>>>
+>>> We can expect only one TEE, which could be OP-TEE, Trusty, or another.
+>>> The device is associated with a unique UUID, so only one instance is expected.
+>>>
+>>> That said, making this driver support multiple instances seems like a valid
+>>> future enhancement. However, I would suggest implementing it as a second step
+>>> when there is a concrete need.
+>>>
+>>
+>> My thought process on this stems from 1) the recent ARM FF-A developments and 2) from the current
+>> implementation of the TEE subsystem which allows multiple back-end drivers to register themselves
+>> via the tee_device_register() API. This means, that it's possible to have a configuration
+>> where a platform supports multiple TEEs running as Secure Partitions via FF-A, and each of those
+>> TEEs register their services as PTA devices on the TEE bus.
+>>
+>> However, I do not really know if it's possible to have a UUID collision in such a case, which
+>> would lead to rproc_tee_probe() being called twice above, which is why I raised this question. :)
+>>
+>> All of this aside, I realize now that other TEE client drivers are also implemented with a static
+>> private data similar to how you are doing it. So perhaps we can think of this as a later
+>> enhancement if we believe that the scenario I am describing is not possible in the near future..
+>>
+> 
+> Theoretically it is possible for multiple TEE services to be there but
+> why should a platform/silicon vendor require 2 redundant remoteproc firmware
+> loading services to be supported? It should either be a service hosted
+> by the trusted OS or can rather be an independent platform service
+> running as a FF-A secure partition.
+> 
+I agree that it doesn't make sense for a system integrator to have two remoteproc firmware
+loading services supported from two different TEEs running as Secure Partitions.
+After all, one service exposed by one TEE is good enough for fulfilling any use-case.
 
-> +	i2c_bus->rst =3D devm_reset_control_get_shared_deasserted(dev, NULL);
-> +	if (IS_ERR(i2c_bus->rst))
-> +		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n=
-");
+My concern is that ARM FF-A makes its possible to have a platform running two TEEs, which
+each have their own remoteproc firmware authentication service implemented (as usually TEEs do).
+In such a scenario, when both TEEs enumerate their services on the TEE bus, and find a match
+because the rproc_tee_id_table has a UUID for say, both the TS-TEE remoteproc service and
+OP-TEE remoteproc service, rproc_tee_probe() will be called twice, and the current implementation
+will break because it uses a single static rproc_tee_ctx, whose contents would be overwritten
+leading to unexpected scenarios.
 
-... is this?
+And so, should TEE subsystem clients (like this one) be prepared to handle such as scenario?
 
-Choose one. If you use 1), call reset_control_deassert() somewhere. If
-you use 2), remove reset_control_assert() below.
-
-[...]
-> +static void ast2600_i2c_remove(struct platform_device *pdev)
-> +{
-> +	struct ast2600_i2c_bus *i2c_bus =3D platform_get_drvdata(pdev);
-> +
-> +	/* Disable everything. */
-> +	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-> +	writel(0, i2c_bus->reg_base + AST2600_I2CM_IER);
-> +	reset_control_assert(i2c_bus->rst);
-
-Drop if using devm_reset_control_get_shared_deasserted()
-
-regards
-Philipp
+Thanks,
+Harshal
+> -Sumit
 
