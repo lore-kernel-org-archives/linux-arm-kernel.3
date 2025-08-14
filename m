@@ -4,82 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D7FCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9618DCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 14:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Txc8tG9EPe2ZAsK/m3rqEXGv8/OEo3ZLoIRIp4apRlY=; b=0kPRyGJWm97+F70Fwr/nJ1iTrL
-	baJ2uN/uNn+jX838OwEYOrG/j3FIpkH+xxWmhMm2wQ3WEqeS+XGszjqGaiG9i8YhXPx+Ke2+p1s3O
-	srofb1v02Lq/hr8aUMeeVWAjltUTn3tUcXH++8edsdj4OlkOESvrPRvntOqAGsFRp8ytSu14AyEU9
-	cRTatsFnWjgnQuPfDeoE12SThGz8yza1Qmmi+Kbwqh3fc7Jig1od2d13gcklzpHQpFVko5ujB14gl
-	TEB6vq3Dkjk0g9elItVaMreE2eMjIIbZ6ltRv7tR4mpUGtZ9QdjtKVXDGepzaosodWhP4BOtvf2OV
-	ost9wduQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Buc6rlApwruj6W3+FP82DHK9JKaKV424nIqt395WFlg=; b=bip7BWkhPHRD/As30wwNZZn4CG
+	+oo3/GuLnCgiora+278j3v0izohNQGUTTA2g7+XBj7omrCs63NKaR/wiY5IyUW5nFH2c4mWLoWXc1
+	wXo3rbf347vBHz3insjgHmQqxX0pLXSs6q3+IXD7rFnx8xfn2iyP2tMe78OJidRaREhEZmxsY8gSC
+	be2Q5Fl8Xxfdfqiw8hmBI1uuIfWrYlVLzebjWxhav8RqIGx6n6z6sfOopkuv5VOMrcMUFZTRhNxkI
+	H8J6Ck8zrvlD+kGQtzSTcMUUKqARUZ9gGwrz1f7RGS/aM56brBo7pI77Uc73wptTTgB1NGhDuZ4p+
+	qjKCqLZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umYl3-0000000HD11-3bnK;
-	Thu, 14 Aug 2025 14:16:45 +0000
-Received: from mail-m32115.qiye.163.com ([220.197.32.115])
+	id 1umYoV-0000000HEhW-09c6;
+	Thu, 14 Aug 2025 14:20:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVVM-0000000GeQw-39yQ;
-	Thu, 14 Aug 2025 10:48:22 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f63742bd;
-	Thu, 14 Aug 2025 18:48:16 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jingoohan1@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de,
-	dianders@chromium.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 09/13] drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
-Date: Thu, 14 Aug 2025 18:47:49 +0800
-Message-Id: <20250814104753.195255-10-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
-References: <20250814104753.195255-1-damon.ding@rock-chips.com>
+	id 1umYIP-0000000H65T-1bWx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 Aug 2025 13:47:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Buc6rlApwruj6W3+FP82DHK9JKaKV424nIqt395WFlg=; b=ebXXq1UuCHswWasOIq9/5gAtsY
+	EjRVRipm5OV86ythmZgDKxKNGxTrIWiMYI2ngJk7Zi09BxSWTyFw3APQFLY+K2I0r3ZlEXVtGZAsJ
+	j/S8/J9GWpzRjf2r5U85d4aAsdJHfi2IkQrtUxGaL+5XijD6OFQKixl7bJOkVlVomcu931PBHK4jp
+	5X4Ce10oEuNeuQtdS10x50Q7HxEEQ0MD4DrVL3NVFIwBdB9G7SApsvncAE5J797zvlP3ZaHunJT1F
+	PodGGNrG6z2KsW35R4UppY6OsNXAlP7qUYPPwlh2OCOo4SHMFB3iMkOv+4QgcMBdqTkMqRBEo9xgM
+	00LLDTQA==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umYIL-0000000GPrF-1Dcr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 13:47:08 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EDkxNH1890365;
+	Thu, 14 Aug 2025 08:46:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755179219;
+	bh=Buc6rlApwruj6W3+FP82DHK9JKaKV424nIqt395WFlg=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=GRrSuZoyPxUHlArfe315Sv7y9Eiaxu6ls+ojy685CtQlto67aV3i305taeuHsrGyU
+	 g/9DGk8UglFAyPmIjWILTl4My4rd88zFJ9Cf9Axgq5OeQ6zKu2xT2vx357nGDTviDC
+	 MvKp+WlUEmvJ16HMtOYAqFUuKPRgfXFWG+xedzLk=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EDkxaU1872418
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 14 Aug 2025 08:46:59 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
+ Aug 2025 08:46:58 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 14 Aug 2025 08:46:58 -0500
+Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EDkvNN3995964;
+	Thu, 14 Aug 2025 08:46:58 -0500
+From: Anshul Dalal <anshuld@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: Anshul Dalal <anshuld@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v1 3/4] arm64: dts: ti: Introduce base support for AM6254atl SiP
+Date: Thu, 14 Aug 2025 19:15:29 +0530
+Message-ID: <20250814134531.2743874-4-anshuld@ti.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250814134531.2743874-1-anshuld@ti.com>
+References: <20250814134531.2743874-1-anshuld@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98a831dc7a03a3kunm254826283f22cc
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk5CQ1YdHkxKGBlOTk4YSxpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=TEnlViqP6hGef6TrJ3n0BPR9vZ3yZdMwRXld4lGNZT8p8a/QUz+tpDZV3sQfWhnA5a5APY0dsvQ7RBysLpaCJyaPIuRmI7qTmIPjLr/4Qbc3UujX6B0/HNRgt68rWSj99XCFuTs7f0tlB83bMlU2wrdNH2BPAERR7WSe/CNopq0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Txc8tG9EPe2ZAsK/m3rqEXGv8/OEo3ZLoIRIp4apRlY=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_034820_960428_DC28E900 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250814_144705_584720_0032ADD2 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,98 +99,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apply analogix_dp_finish_probe() in order to move the panel/bridge
-parsing from Rockchip side to the Analogix side.
+This patch adds the top level dtsi for AM6254atl SiP which integrates
+the existing AM625 SoC with 512MiB of DDR in a single package.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+More information about the package can be found here:
+https://www.ti.com/lit/ds/symlink/am625sip.pdf
 
+Signed-off-by: Anshul Dalal <anshuld@ti.com>
 ---
+ arch/arm64/boot/dts/ti/k3-am6254atl.dtsi | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am6254atl.dtsi
 
-Changes in v4:
-- Rename analogix_dp_find_panel_or_bridge() to
-  analogix_dp_finish_probe().
----
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 38 +------------------
- 1 file changed, 2 insertions(+), 36 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index 87dfb48206db..0862b09a8be2 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -21,14 +21,12 @@
- #include <video/of_videomode.h>
- #include <video/videomode.h>
- 
--#include <drm/display/drm_dp_aux_bus.h>
- #include <drm/display/drm_dp_helper.h>
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/bridge/analogix_dp.h>
- #include <drm/drm_of.h>
--#include <drm/drm_panel.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
- 
-@@ -442,24 +440,6 @@ static const struct component_ops rockchip_dp_component_ops = {
- 	.unbind = rockchip_dp_unbind,
- };
- 
--static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
--{
--	struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
--	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
--	int ret;
--
--	/*
--	 * If drm_of_find_panel_or_bridge() returns -ENODEV, there may be no valid panel
--	 * or bridge nodes. The driver should go on for the driver-free bridge or the DP
--	 * mode applications.
--	 */
--	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
--	if (ret && ret != -ENODEV)
--		return ret;
--
--	return component_add(dp->dev, &rockchip_dp_component_ops);
--}
--
- static int rockchip_dp_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -499,6 +479,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	dp->plat_data.power_on = rockchip_dp_poweron;
- 	dp->plat_data.power_off = rockchip_dp_powerdown;
- 	dp->plat_data.get_modes = rockchip_dp_get_modes;
-+	dp->plat_data.ops = &rockchip_dp_component_ops;
- 
- 	ret = rockchip_dp_of_probe(dp);
- 	if (ret < 0)
-@@ -510,22 +491,7 @@ static int rockchip_dp_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp->adp))
- 		return PTR_ERR(dp->adp);
- 
--	ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
--	if (ret) {
--		/*
--		 * If devm_of_dp_aux_populate_bus() returns -ENODEV, the done_probing() will not
--		 * be called because there are no EP devices. Then the rockchip_dp_link_panel()
--		 * will be called directly in order to support the other valid DT configurations.
--		 *
--		 * NOTE: The devm_of_dp_aux_populate_bus() is allowed to return -EPROBE_DEFER.
--		 */
--		if (ret != -ENODEV)
--			return dev_err_probe(dp->dev, ret, "failed to populate aux bus\n");
--
--		return rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
--	}
--
--	return 0;
-+	return analogix_dp_finish_probe(dp->adp);
- }
- 
- static void rockchip_dp_remove(struct platform_device *pdev)
+diff --git a/arch/arm64/boot/dts/ti/k3-am6254atl.dtsi b/arch/arm64/boot/dts/ti/k3-am6254atl.dtsi
+new file mode 100644
+index 000000000000..976ad7dc1e71
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am6254atl.dtsi
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * DTS for AM625 SiP SoC family in Quad core configuration and 512MiB RAM.
++ *
++ * Webpage: https://www.ti.com/product/AM625SIP
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++#include "k3-am625.dtsi"
++
++/ {
++	model = "Texas Instruments AM6254atl SiP";
++	compatible = "ti,am6254atl", "ti,am625";
++
++	memory@80000000 {
++		/* 512MiB of integrated RAM */
++		reg = <0x00000000 0x80000000 0x00000000 0x20000000>;
++		device_type = "memory";
++		bootph-all;
++	};
++
++};
 -- 
-2.34.1
+2.50.1
 
 
