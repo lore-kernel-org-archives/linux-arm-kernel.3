@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7A2CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199B3CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vn9h+uYyMtI8fMuF4gXBNvIMGUHt678xV80dOfCy1z8=; b=Y+xdJZy8G3/wEotimW6R4aXyFM
-	jM+TZ6ZLQPrCFqePfQl8mECiQlQ//6UG/a+LvqAkTUMB9HSYADewZTtVPhl8qpTdysTuSWaXIiH+P
-	d7Xv6nFzrrRkCtAOM3XSzxtPmKMXLt/NatvyJhvJU6VJ2tWpC9GI3yk7HKDZu3OPMCU3ULNT+Rt++
-	GziO1sYIafPopPhZ88Pd4v1G8+/OGzOZHUGNZ6O0ziwobtBZuyM8iDJIDM1q1x+Zy5HKAveO6jt8+
-	0eGoUGP6zv3UTzmhbvDeU3pUJG1cgQis+3BbgYp/MH/OscIUztvXBmK8yf9HoY8qqAdaf7Y+eh+SD
-	8YshTlOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s87vul4GTTme+0lGPMBdBtc6n1F5J2K8K2+8KOsQY00=; b=eiqiHBeCFIwdplBEnRP8fQAfMn
+	ZRygFclu/9Au1B2NfOj7CGT0eVpsZNszI+MSMPQqnp1KWuotX2AFPZhLO613S+0rykzuPSwZXy5dY
+	G1gNu/2fEM0txrFKv1sgVvb+o+RRXqExxmzcsygeHQ0zJXIVNOsLA8vkh3AXsSoEFZJ1rInJ0GNrw
+	fotgqpre9BZQJphht5+w1G9ElZDr5ttwcEjqP9lKryHgWSsqbXhaaDMM0z3hHggS0McG+JQD8D6xS
+	4uxz+yb+T57PMoXMtFHIA9DbMX8Kam9k8PEIfRpL0gTec8bpHeoElyb9DqboyG2YWhvC/T4hPZXG9
+	cq7WylsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXzm-0000000H35U-40Qs;
-	Thu, 14 Aug 2025 13:27:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umWoO-0000000Gp31-1V2J
+	id 1umY2J-0000000H3XB-17vq;
+	Thu, 14 Aug 2025 13:30:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umWzT-0000000GqIv-0pXp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 12:12:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AADE5A56D0D;
-	Thu, 14 Aug 2025 12:12:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E177FC4CEED;
-	Thu, 14 Aug 2025 12:12:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755173523;
-	bh=oKG/z4imADYHqqynLKtUtN4Oij6zZpz6vZ6gDYrFCfw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qRWP95gWPi8uGdMOal1tWKaqi6Fih6c4F2ouyp3iwFFTnq65bqB9nXZ80bQBqhVVL
-	 3sOuySCHWSFjSkzaWpMelGWspQGcAErxFbcDac9LoJoHq0Hj1Br3rW+qzz6rv1XJOL
-	 uu3nI3imdj/MZhWIU0n8vL/UmXveS7jTq07JAfVc+tEBq+oftsBIJE6yyaFanq3Iwp
-	 EmagD21d8bZYFrRgegdFvx3VBpzPT2K0Mi/ZT2cP4oU7/3mpf9Ndu+INHKInvSMgJP
-	 +gFmlHP1QAur5Wbl7fX5bCyHPt4J0Op/n50t5Z6xrP2AV1+TKvtrh0MkI98Max3l37
-	 sMQaowSLuBbCQ==
-Date: Thu, 14 Aug 2025 13:11:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Shimrra Shai <shimrrashai@gmail.com>
-Cc: lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
-	perex@perex.cz, tiwai@suse.com
-Subject: Re: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer connection
- on ES8323
-Message-ID: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
-References: <20250814012652.81424-1-shimrrashai@gmail.com>
- <20250814014731.86651-1-shimrrashai@gmail.com>
+	Thu, 14 Aug 2025 12:23:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E8BD41688;
+	Thu, 14 Aug 2025 05:23:21 -0700 (PDT)
+Received: from [10.1.32.48] (e122027.cambridge.arm.com [10.1.32.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D65203F738;
+	Thu, 14 Aug 2025 05:23:27 -0700 (PDT)
+Message-ID: <d3bd4234-2053-45ce-aad4-6fc577665d72@arm.com>
+Date: Thu, 14 Aug 2025 13:23:26 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PLXYa5/zsu/y4xid"
-Content-Disposition: inline
-In-Reply-To: <20250814014731.86651-1-shimrrashai@gmail.com>
-X-Cookie: This sentence no verb.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] clocksource/drivers/arm_arch_timer: Add standalone
+ MMIO driver
+To: Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Thomas Gleixner
+ <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
+References: <20250807160243.1970533-1-maz@kernel.org>
+ <20250807160243.1970533-3-maz@kernel.org>
+ <8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com> <86ldnmdvpl.wl-maz@kernel.org>
+ <871ppetatg.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <871ppetatg.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_051204_458655_5C64DA98 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250814_052331_327230_C59D66F0 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +72,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 14/08/2025 12:14, Marc Zyngier wrote:
+> On Thu, 14 Aug 2025 11:49:26 +0100,
+> Marc Zyngier <maz@kernel.org> wrote:
+>>
+>> On Thu, 14 Aug 2025 11:13:47 +0100,
+>> Steven Price <steven.price@arm.com> wrote:
+>>>
+>>> On 07/08/2025 17:02, Marc Zyngier wrote:
+>>>> Add a new driver for the MMIO side of the ARM architected timer.
+>>>> Most of it has been lifted from the existing arch timer code,
+>>>> massaged, and finally rewritten.
+>>>>
+>>>> It supports both DT and ACPI as firmware descriptions.
+>>>>
+>>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>>>> ---
+>>>>  MAINTAINERS                               |   1 +
+>>>>  drivers/clocksource/arm_arch_timer_mmio.c | 420 ++++++++++++++++++++++
+>>>>  2 files changed, 421 insertions(+)
+>>>>  create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
+>>>>
+>>> [...]
+>>>> +static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
+>>>> +{
+>>>> +	at->evt = (struct clock_event_device) {
+>>>> +		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
+>>>> +					      CLOCK_EVT_FEAT_DYNIRQ),
+>>>> +		.name			   = "arch_mem_timer",
+>>>> +		.rating			   = 400,
+>>>> +		.cpumask		   = cpu_possible_mask,
+>>>> +		.irq 			   = irq,
+>>>> +		.set_next_event		   = arch_timer_mmio_set_next_event,
+>>>> +		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
+>>>> +		.set_state_shutdown	   = arch_timer_mmio_shutdown,
+>>>> +	};
+>>>> +
+>>>> +	at->evt.set_state_shutdown(&at->evt);
+>>>> +
+>>>> +	clockevents_config_and_register(&at->evt, at->rate, 0xf, CLOCKSOURCE_MASK(56));
+>>>
+>>> This doesn't work on 32 bit - clockevents_config_and_register()'s final
+>>> argument is an unsigned long, and a 56 bit mask doesn't fit. This
+>>> triggers a compiler warning:
+>>
+>> Already reported, see 20250814111657.7debc9f1@canb.auug.org.au.
+>>
+>>> Possible this should really be min(CLOCKSOURCE_MASK(56), ULONG_MAX)? But
+>>> I'm not familiar enough with this code. Most likely it's dead code on a
+>>> 32 bit platform.
+>>
+>> No, this definitely exists on 32bit crap, since it has been part of
+>> the architecture from the ARMv7+VE days.
+>>
+>> I think this is more of an impedance mismatch between the
+>> CLOCKSOURCE_MASK() helper and the clockevents_config_and_register(),
+>> and a (unsigned long) cast would do the trick.
+> 
+> Of course not. That would just result in a big fat zero.
 
---PLXYa5/zsu/y4xid
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+No - CLOCKSOURCE_MASK() turns into GENMASK_ULL so a simple truncation to
+unsigned long would be ULONG_MAX (all 1s). So an unsigned long cast
+should be fine. My suggestion of MIN(, ULONG_MAX) was just to make that
+more clear.
 
-On Wed, Aug 13, 2025 at 08:47:31PM -0500, Shimrra Shai wrote:
-> Enable the right-hand DAC mixer connection in the same manner as the
-> left-hand one.
+>> But it also means that the per-cpu timer also gets truncated the same
+>> way, and that has interesting impacts on how often the timer is
+>> reprogrammed.
+> 
+> That question still stand, and I wonder whether we have ugly bugs
+> lurking on 32bit platforms because of that... I'll try and have a
+> look.
 
-> @@ -633,6 +633,7 @@ static int es8323_probe(struct snd_soc_component *component)
->  	snd_soc_component_write(component, ES8323_CONTROL2, 0x60);
->  	snd_soc_component_write(component, ES8323_CHIPPOWER, 0x00);
->  	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
-> +	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
+I don't know whether there are other bugs due to the capping to
+ULONG_MAX, but I don't think there's an (additional) bug here, it's
+"just" a ugly warning.
 
-Neither of these should be unconditional writes, these should be user
-visible controls.  We don't encode specific system's use cases into the
-driver.
+Thanks,
+Steve
 
---PLXYa5/zsu/y4xid
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmid0o4ACgkQJNaLcl1U
-h9Cw0Qf/fVy2aA2vdtzxxkMt3NZISirhPQt7ljKImdZ23mMinHypli76WIRu4Vom
-EZ67Rf8PhDIh47o4kt1PXRoqs+RY0+kVMV/EXl62aRHEWzZA5Nnu9NAoeallApT9
-B/Zee+ERSeLSfiG5VnMgOXyIoxXj8ef3qjT+YnmosASsC8mO6KratoqMTJgv1vA0
-MYDl2eKwzYZc2E4ejPJOQj1LY+mWLaZVLAxzYL2SJYafv6IucpT40wuL7d+GfrDO
-oOnm2yFtY88AxYlocm4j1SOet5v6acFHJT+eZfSWDNBr2vRn96q/zqK58nIIkVMU
-LINhnJwnXBOQqaEvviOTsFg+cCG2DA==
-=Cp97
------END PGP SIGNATURE-----
-
---PLXYa5/zsu/y4xid--
 
