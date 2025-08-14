@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A38CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D043CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s97MAlDwomWWXJkni9RvSqvFaqBepHk3zZBs+yEln9I=; b=gZdh+KTsnCB9fBtX6pxdqxTeaI
-	HPgLhpp/Xaq8pUkokfzSrKD3zHCpwxNcM65lFnPEvbzKvU722xb0eK4YHdGm8V5UM35ZpYw2syDcg
-	s/OrF1bqk/aJbYiN5EqzFkatpTUCgbhcwpXejZlGdq8xfXqN71N5QaG4vObBsPZnaL2rMAd7W8WP+
-	27FvVBSzWfCwZVGfb+fSMbr2UkImS0ffz7vBT37j6gtFgStsTxxoHRJKWO/JwZHfjihN9yStcUvIG
-	AircVOwArNRMw9stN5zxCtclHuz7cqDkcNicsxADWma1NHdQBRAxWM1RN8FRu9i6uh4U++SpFrDgQ
-	cxY48AVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HYTbEJeXrofpbs+IrmDrCBkyO0qBISpuRD07yukoC3M=; b=pi2nmQAlpjR5XIeTaHehWM9z46
+	xWD8h/sBawvofCt++OfiCpIsd8yPp6A1tI8HeONxv1KFnDg/VVJwGilx8q+U5nsSB4ZYLpGJ2xkl9
+	SeC2gehzezZVDZ/t+LZ+ivW/KegBZyeQjes0d5gPzY2UUJ8a/lWTB4g9E9cyKHsVcq9WM2nnoE29o
+	q+IUGuod6dujFhPtlT7Fk4FY1eFAOVDfa4RVXYGL56VYbQz07b7F5vA7VsRt3LxX5y84TnGOewD23
+	wWqxx4EbDlTner7cwwiUJGhuDMrzodQMneEL/deRZqkyXKI9JPPVGRceJ1ot4y0a88PLmp5BgbOmh
+	vwlkwaLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umad4-000000001Hd-3GlR;
-	Thu, 14 Aug 2025 16:16:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1umaez-0000000032a-0Jfx;
+	Thu, 14 Aug 2025 16:18:37 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZtj-0000000HRSN-31Eu;
-	Thu, 14 Aug 2025 15:29:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CEAB743AA8;
-	Thu, 14 Aug 2025 15:29:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B624C4CEED;
-	Thu, 14 Aug 2025 15:29:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755185386;
-	bh=s97MAlDwomWWXJkni9RvSqvFaqBepHk3zZBs+yEln9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t7TfFErGme/r9vbo9zUCCMpzYUBGPn/hn9Q7C7cL/QmPN6MFFbVQ1XuN/vcmE9Avg
-	 jSiL7QHHg63IFl3xwx3P8vCG8mPoUWY/qJkjspf4qlk/TnWa4Q4aYowvT51NqwUOn3
-	 i7xjJruMBACp62sDt6p2oyMPNAXbJZNE5NoFx3W7Dawqg573L123gU9ekta34kP2eM
-	 5lf3lE1M/7oD6p0d9aMO9Twcbb3fBHAQ6l4oTGpu5SNshJvNHIBtj0yejWucXTLh1b
-	 F1O2rbka5gXNq3pMoShT14fs1xeSG86fbqnchp9+kRmE3UPUc6gON9iZVuC2ZlIHku
-	 vyk5IDYR1OaLg==
-Date: Thu, 14 Aug 2025 16:29:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Martin Kurbanov <mmkurbanov@salutedevices.com>,
-	Takahiro Kuwano <Takahiro.Kuwano@infineon.com>,
-	Cheng Ming Lin <chengminglin@mxic.com.tw>,
-	linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Subject: Re: [PATCH RESEND v2 4/4] spi: spi-airoha-snfi: return an error for
- continuous mode dirmap creation cases
-Message-ID: <78542bbe-1def-4aca-8424-cc26542d9762@sirena.org.uk>
-References: <20250814065423.3980305-1-mikhail.kshevetskiy@iopsys.eu>
- <20250814065423.3980305-5-mikhail.kshevetskiy@iopsys.eu>
+	id 1umZ1V-0000000HHPa-2w7q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 14:33:48 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250814143341euoutp01db0b56fc7098efb62ed38f6c30b4f71f~bqL-IGxih1315613156euoutp01Z
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 14:33:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250814143341euoutp01db0b56fc7098efb62ed38f6c30b4f71f~bqL-IGxih1315613156euoutp01Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755182021;
+	bh=HYTbEJeXrofpbs+IrmDrCBkyO0qBISpuRD07yukoC3M=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=e7jfXMEtbajFgUjwRBhcTLRIVblrZOpnEbsCSf3WAKB1weUW7mUHDy9TxhLX2WjL+
+	 kHFZv4Xci0Ot/45YURj7O/2bNOx4+5EINW25i7mU557c2szi1xkvgufLUGo2E3ntEz
+	 34/Z2FghVovoMJr9w84HVH3KRqE89Cp0FhfBmgUc=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250814143340eucas1p24ef13c4a8a272a5830bc0adbbc8206a2~bqL_iNFfu0056100561eucas1p2Y;
+	Thu, 14 Aug 2025 14:33:40 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250814143338eusmtip29e7b2dc498b358fdadaba0c0c10331ce~bqL7__0l03070130701eusmtip20;
+	Thu, 14 Aug 2025 14:33:37 +0000 (GMT)
+Message-ID: <a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
+Date: Thu, 14 Aug 2025 16:33:36 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6fSP3sMls8KI1L99"
-Content-Disposition: inline
-In-Reply-To: <20250814065423.3980305-5-mikhail.kshevetskiy@iopsys.eu>
-X-Cookie: This sentence no verb.
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
+ helper for the Analogix DP driver
+To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+	hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+	dianders@chromium.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20250814104753.195255-1-damon.ding@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250814143340eucas1p24ef13c4a8a272a5830bc0adbbc8206a2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
+X-EPHeader: CA
+X-CMS-RootMailID: 20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264
+References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
+	<20250814104753.195255-1-damon.ding@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_082947_783013_93F655CC 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250814_073346_341644_279A9D9C 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +93,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 14.08.2025 12:47, Damon Ding wrote:
+> PATCH 1 is a small format optimization for struct analogid_dp_device.
+> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+> PATCH 3-6 are preparations for apply drm_bridge_connector helper.
+> PATCH 7 is to apply the drm_bridge_connector helper.
+> PATCH 8-10 are to move the panel/bridge parsing to the Analogix side.
+> PATCH 11-12 are preparations for apply panel_bridge helper.
+> PATCH 13 is to apply the panel_bridge helper.
 
---6fSP3sMls8KI1L99
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This series lacks 'select DRM_BRIDGE_CONNECTOR' in ExynosDP's Kconfig, 
+so it causes build break:
 
-On Thu, Aug 14, 2025 at 09:54:23AM +0300, Mikhail Kshevetskiy wrote:
-> This driver can accelerate single page operations only, thus
-> continuous reading mode should not be used.
->=20
-> Continuous reading will use sizes up to the size of one erase block.
-> This size is much larger than the size of single flash page. Use this
-> difference to identify continuous reading and return an error.
+drivers/gpu/drm/exynos/exynos_dp.c:177: undefined reference to 
+`drm_bridge_connector_init'
+make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
 
-This seems like it just applies anyway regardless of the rest of the
-series?
+After adding this dependency, the Exynos DP driver stops working. On 
+Samsung Snow Chromebook I observed following issue:
 
---6fSP3sMls8KI1L99
-Content-Type: application/pgp-signature; name="signature.asc"
+[    4.534220] exynos-dp 145b0000.dp-controller: failed to attach 
+following panel or bridge (-16)
+[    4.543428] exynos-drm exynos-drm: failed to bind 
+145b0000.dp-controller (ops exynos_dp_ops): -16
+[    4.551775] exynos-drm exynos-drm: adev bind failed: -16
+[    4.556559] exynos-dp 145b0000.dp-controller: probe with driver 
+exynos-dp failed with error -16
 
------BEGIN PGP SIGNATURE-----
+I will investigate details later in the evening.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmieAOMACgkQJNaLcl1U
-h9Ce/gf/fkA6B9sVlHP4Xe2KTll2KPZmoVSpZ2HLM1D8sX6gin8ZUikC/pLkIKRi
-jCC9jrFTlMqXJEU7JpRhDMb5DODMgrMYP4Af93m4rlcKCkujTovwz82LA6t7dILo
-3NiTCY/S3vSoRPiqgTEzRv9FYzjkA77WolhZKC5zfnIQvFbADU2l64j5eeK+Rnwn
-FoVXBhQxnu9B+KEXwMcxB3veP+vbqEexfWAV0jDd2N8pMx758UPoxsd9xHCYtIIC
-YvyKZvIrj4lCmunNAb+LjljJRO6PQk/XQrJBK/5/gZjO2BgamcibPk3CVhbmJGS0
-FOw/2eOsSFwG9ikfk+SEPWobdN1A8A==
-=9/QN
------END PGP SIGNATURE-----
+> Damon Ding (13):
+>    drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
+>    drm/bridge: analogix_dp: Move &drm_bridge_funcs.mode_set to
+>      &drm_bridge_funcs.atomic_enable
+>    drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
+>    drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+>    drm/bridge: exynos_dp: Remove unused &exynos_dp_device.connector
+>    drm/bridge: analogix_dp: Remove redundant
+>      &analogix_dp_plat_data.skip_connector
+>    drm/bridge: analogix_dp: Apply drm_bridge_connector helper
+>    drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
+>    drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
+>    drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+>    drm/bridge: analogix_dp: Remove panel disabling and enabling in
+>      analogix_dp_set_bridge()
+>    drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
+>      in analogix_dp_unbind()
+>    drm/bridge: analogix_dp: Apply panel_bridge helper
+>
+>   .../drm/bridge/analogix/analogix_dp_core.c    | 384 ++++++++++--------
+>   .../drm/bridge/analogix/analogix_dp_core.h    |   5 +-
+>   drivers/gpu/drm/exynos/exynos_dp.c            |  48 +--
+>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  49 +--
+>   include/drm/bridge/analogix_dp.h              |   7 +-
+>   5 files changed, 248 insertions(+), 245 deletions(-)
+>
+> ---
+>
+> Changes in v2:
+> - Update Exynos DP driver synchronously.
+> - Move the panel/bridge parsing to the Analogix side.
+>
+> Changes in v3:
+> - Rebase for the existing devm_drm_bridge_alloc() applying commit.
+> - Fix the typographical error of panel/bridge check in exynos_dp_bind().
+> - Squash all commits related to skip_connector deletion in both Exynos and
+>    Analogix code into one.
+> - Apply panel_bridge helper to make the codes more concise.
+> - Fix the handing of bridge in analogix_dp_bridge_get_modes().
+> - Remove unnecessary parameter struct drm_connector* for callback
+>    &analogix_dp_plat_data.attach().
+> - In order to decouple the connector driver and the bridge driver, move
+>    the bridge connector initilization to the Rockchip and Exynos sides.
+>
+> Changes in v4:
+> - Rebase for the applied &drm_bridge_funcs.detect() modification commit.
+> - Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
+> - Drop the drmm_encoder_init() modification commit.
+> - Rename the &analogix_dp_plat_data.bridge to
+>    &analogix_dp_plat_data.next_bridge.
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
---6fSP3sMls8KI1L99--
 
