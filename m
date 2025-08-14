@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39692CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C52CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDLGrc7XefUJ5ohNJj2haJRU4klp5/mn3avrwA7UD50=; b=uEDyojVvhMD1PqPDMZ6R4PMdNW
-	18afedac7g+Cdh3LavdBz2StJYCqvacmwjrbEMZp/vnl8qsQfIwyMqcf4S96TO9PYS7aVn7h+Ba/u
-	34YiwLn2iyhO7L3zQQ8GA30qrEFC1O5064XSmQMzZV8oNUrQ9tsble6mULKcBE7Zd2+2W7nY/cOyw
-	6A2yz6pbjQcVZbjNbOToW0C0tk8l7l4A/pDVGljloQq9Ujose61vCos5tg64UgGXqg6NXp2QYcSzD
-	5BVaSaiTcusVRAiPsQuvPgzUfNdQ+8IAPf66W4A4XbVs6E3tDdtdBBhr2eKej3ydGzvS1RQVwCeCY
-	bUVgiudg==;
+	bh=RyHafYAlFe8Le0o3fDE9FmrzSL4hh4ZLYXw9lExVbmM=; b=tjywQgrMgzh1ypTAFUiCTo6zHO
+	pGbP5nWjmvhOHKSA1LNw/rbC4L5ADjIXc4mTTB+jvWBTxuB3CbNE4V6fzFsnvDmc5TmU1ACJDU7CH
+	TIiyi7LP22m1wlsFyHva36c/c5MlN05cCmTgA+t8azUfSdyV/rx3h/uL/BMd6RnLnSCI2yFUVV/jN
+	hLU6fGvwZF9yzrFimgSsIfn+0078SIvEjZ69I1UiUo44zoe6iqqdUIY/dgBYYaZvZxM78uPoFZuGP
+	cR+LNV9bv1tpxd8LCBYSbQGfp9ZrHiqAZUTtA7w+Ntw52/6kJyk8+kVvF70HNXEcSw0v+0/XoYV0Y
+	Al6UB/tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umbHR-000000008LG-3jWT;
-	Thu, 14 Aug 2025 16:58:21 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1umbHT-000000008Oe-29RU;
+	Thu, 14 Aug 2025 16:58:23 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umazo-000000005bM-1k5Q
+	id 1umazp-000000005bq-2RoY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 16:40:09 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-333f8f0965dso9813001fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 09:40:08 -0700 (PDT)
+	Thu, 14 Aug 2025 16:40:10 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55ce52b01caso1199676e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 09:40:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755189607; x=1755794407; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755189608; x=1755794408; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NDLGrc7XefUJ5ohNJj2haJRU4klp5/mn3avrwA7UD50=;
-        b=qluBKyfQK/dkomgel5ffdD5YnoTNemvkbw7WiWGlgNQHOI2AIpql4tsQ8tM0DlyoAl
-         MYN21LaoOi58Q8EXQse9bVd2WJE9keiqiSJ4iiPCZZCT5Fdv5jWUVayAp334wkg0tDON
-         /EzysMRTpergroRiX/hUCYK4P836Wxkh5DddTwTtPgyW3KhB8fclFLZc9g45m2uE4+Zt
-         SbQZI+8KyZIXq7XooO/pdrXkOXUL55SmutPrjmMzU3Lsu/cZ3pmrawx4nVr2aoucuHHt
-         65AWS6/dlwH2+FwzRHxE7tINPqs/HJaasjcpBaIHWgRtnBrcJaKY2h7efTW50wC3vA+U
-         O9cw==
+        bh=RyHafYAlFe8Le0o3fDE9FmrzSL4hh4ZLYXw9lExVbmM=;
+        b=qSFhI8c3opSA8d2vMHf1uF+arz8zkP+1iXc2O6mqqF8z2hoKIJNwdmwCMdiJ7pWWCz
+         6a4MLqOFMm2/VLPPcsgR63h0FDCeYM1lcj7+1N+RAYpS/Zvmg6kUGgMt18FdvnS6dRn5
+         EzmlXXfvMBafnt4qHVX/gltvXKnNBrjs/fFSVChiG7oLD/hJ8bZCwb33Q6YwYfFKAhoU
+         uDlUYEiKubgFmWRHaTnv6iKCjFsS6H5UZVaxG0hEGUvU1ZZa5NF2iGRFn7i2aQxZ4Ipl
+         037Z1P2pNzyGcKKg1xjYDhhzc3R20QSZ+WScGV2Zx0hDUlTkagCt53o0aSfKHJE6VIg6
+         kRtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755189607; x=1755794407;
+        d=1e100.net; s=20230601; t=1755189608; x=1755794408;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NDLGrc7XefUJ5ohNJj2haJRU4klp5/mn3avrwA7UD50=;
-        b=CK0/d6Sbo5Sg7l1oxU7UKX7OMiMFzIwlo8du3B4eQwnSXA8WPfea3jbiqggqc++Q+u
-         xNX0NmOxS37SjM7/K0j+U9tcCn8p68nxj8FM2jL72cBmDy3qQ4CDkNzDhPY7jsLuCVp+
-         HasDc5/X5h9+/OYZfjosdrS+4woHxPMN3boqcXM4CeiaY/qvKLxwN52P4XF+W+Rr5A7y
-         frx2/0y0S+3UjYA1zms7ufjIobgazhx1wxAIa9MX0aXkO1wllsTjGOS+BM39XDZaimeu
-         QtjvcKKwDFjQYkBpPYrHN12Dyf5ya05CHmNu7PjicSB05ftc/hwXxA0e90UchyJI+aRX
-         wMKw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8jfTwY3J5kQ0C9IAHc+kYm03rz6wwffdZEuCGKS9FmuJ0PyZyDJ4REQKO/QwpeS74gIIvF7GK1Y0yyqJNRRJP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/Y+aprR22+aO9Sr+wrV0GIJ1K5jEvSbd/nwOuqdZhz7UT5aeS
-	fdmqx+0dbjuyloXlp5vYybfgw4tm0eDKxkyDqeOOSbopPNJiPxYO/SgJE58NHuGNP+c=
-X-Gm-Gg: ASbGncst2VCtTjJO42ypRH7SwFJw2iXNQv3QLJXJO3toKY/1RwtT0rxyI+/CdECm52j
-	LO0YQzndrj+W2K4alwZEd3J0pW92mUvRt21UQDYUmE7PMIL3fF8pOJA5bS7PHpiTNnJdLiQAXt9
-	ySa4/1Iou9qTGUGS6PmzCa/7/ezvCuDEUZB4CR2GwrBA+6DKy7EzVPIJD85UKKttG++gu4NxXj4
-	SBN4bMCjAHApFoF20gr+MlfHbs5PASYIKfH4cPVz/Wbut8REMtgVtamKbHf1Omqjl6vG5tA8keV
-	cv+psTr8pQcYiMGhICyU9wOkHdhuDYbcNCi0ZzVjwUAjqQZ7Xe449Ibs23aunqpS5YjFHvBRc3Q
-	3AIx4aQ+7B+6YTRZnJBiFl2R9iol9SkXgwtHgLQ==
-X-Google-Smtp-Source: AGHT+IEFL94JmGvZPp5eNi5FK7sGRKYEWI99/gbwaje85vEdJ5qlH9GjZqGIlwMIYqaQ4by2QSIJjA==
-X-Received: by 2002:a2e:a442:0:b0:332:1398:5737 with SMTP id 38308e7fff4ca-333fa84dd73mr6683541fa.24.1755189606596;
-        Thu, 14 Aug 2025 09:40:06 -0700 (PDT)
+        bh=RyHafYAlFe8Le0o3fDE9FmrzSL4hh4ZLYXw9lExVbmM=;
+        b=BqVXPxcdjM6VE6S32yxGkSA3YYly9OhTDik3akauyXeMfoSlWOesIEp3tp0pblmRnC
+         u685wK7x6KIeAiJxcP8Nwa4q2SsNMaVTGLKVX469kE6XiPH46KTA1BDPzBmXdQ37Jl3+
+         slwY5WIe+k0p9d5qvrPp/95fVrcAbnT0IIADb6XU+R5xRZSSXyn3Ql9aKgU6Gelnpau0
+         hcjJ/76NdfuT6lrD8jrOyMjQS+s5hywTX/FmNS8rQpNNjawEOMHsIy4P+uT/o7FqKn5A
+         fHW6IhnXFD+nb4fKphNsZEES8wiLIkcxCppga8I8NvuOqEhdP7z8HlpGcDTMKahigQ/U
+         o43Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX8aTmzkxmQtreUyhc5abSpXSB2GrzwvWPkn6G6ImB8RWFOnF7BS1+QVrmn9tz2Nv4SUZHXOWcWxqQrWo6YuTzD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl3088o8zMiWF4aLfD+nl6/jExhPGuTDTxFHbQLrOLR5Sk7WNQ
+	MHWD4dEyb7nZaZuM7ogmai6zbbkjh4ErA8aE7Krfw0S9LxR8xoSvpM+ioyCqFmhAWQg=
+X-Gm-Gg: ASbGnctQ24ZiwCFOcyZpJDIuZsZPmhSAVBBLxZHx1yq1Dr/WXrxGzqGeCbspHSqUDpY
+	PJERMvq0/Cvm63T8Xzc+vJnVeoKah4+l+7262w4XDrPGLiWBWB9SaOJFsbvr0/+WrWo3Ll1HJnT
+	5RjK5Hr01L6GURfMQub3SsWHfq1aS5NKLkigPlgOs3Y8o8/U4ipC+ZSmR4/BlWBxeVTcM1cqy3z
+	UCCRCLUz+p0NbP1mvYhKSg0s3Cn4Kx9gbzQLvEIzKsQtpHr/kGbDSe0JHXk3ZS/yarIJzEYu1uc
+	jB2j0yog+CAkTarNz9oa0obifT7Nvx0W3dW9xPDcZIYOQg23fuEM5V7bohR1rstmGfqESE/9l7w
+	AY1H3C4Z1TB5arRv2CbVEYbC5n9xycsSNO3OTUA==
+X-Google-Smtp-Source: AGHT+IHuvo2cFxfQt9Yr5c4e2bEJ05TD7Y5oQkOqxmiC3iQMuZqyaacO9ZgtPK5aBgqjbLoLZrtPMg==
+X-Received: by 2002:a05:6512:630c:b0:55b:5c62:c7d2 with SMTP id 2adb3069b0e04-55ce5024d87mr1025222e87.39.1755189607748;
+        Thu, 14 Aug 2025 09:40:07 -0700 (PDT)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-333f8e1c71fsm3296301fa.48.2025.08.14.09.40.05
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-333f8e1c71fsm3296301fa.48.2025.08.14.09.40.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 09:40:05 -0700 (PDT)
+        Thu, 14 Aug 2025 09:40:06 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 14 Aug 2025 18:40:04 +0200
-Subject: [PATCH 2/3] dt-bindings: arm: List actiontec devices
+Date: Thu, 14 Aug 2025 18:40:05 +0200
+Subject: [PATCH 3/3] ARM: dts: Add ixp4xx Actiontec MI424WR device trees
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250814-ixp4xx-mi424wr-dts-v1-2-b7c10f3c4193@linaro.org>
+Message-Id: <20250814-ixp4xx-mi424wr-dts-v1-3-b7c10f3c4193@linaro.org>
 References: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
 In-Reply-To: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -85,9 +85,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_094008_457867_319A50A9 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_094009_642944_A3BA533C 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,30 +101,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One two IXP4xx device families from OpenWrts backlog:
-Actiontec MI424WR revision A/C and revision D, both
-of these are IXP4xx devices.
+The Actiontex MI424WR is a pretty widespread home router, made
+in many different revisions.
 
-Revisions E and later use different chipsets.
+Revisions A, C and D are based on IXP42x. We add a device tree
+for the A/C variant and one for the D variant as these differ in
+the location of the WAN PHY on the MDIO bus, and the ethernet
+interfaces for the WAN PHY and the DSA switch are switched around.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- Documentation/devicetree/bindings/arm/intel-ixp4xx.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/intel/ixp/Makefile               |   2 +
+ .../ixp/intel-ixp42x-actiontec-mi424wr-ac.dts      |  37 +++
+ .../intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts |  38 +++
+ .../intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi  | 273 +++++++++++++++++++++
+ 4 files changed, 350 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/intel-ixp4xx.yaml b/Documentation/devicetree/bindings/arm/intel-ixp4xx.yaml
-index d60792b1d995f909f621b3326e62d19223f6683c..b7b430896596aacb792983d8538b84f389cc5bd1 100644
---- a/Documentation/devicetree/bindings/arm/intel-ixp4xx.yaml
-+++ b/Documentation/devicetree/bindings/arm/intel-ixp4xx.yaml
-@@ -16,6 +16,8 @@ properties:
-     oneOf:
-       - items:
-           - enum:
-+              - actiontec,mi424wr-ac
-+              - actiontec,mi424wr-d
-               - adieng,coyote
-               - arcom,vulcan
-               - dlink,dsm-g600-a
+diff --git a/arch/arm/boot/dts/intel/ixp/Makefile b/arch/arm/boot/dts/intel/ixp/Makefile
+index ab8525f1ea1d25abe72fca4dd323d97e2d3c5bb4..cb30d8d55016fbe00848242d9d1a017f7e48c6db 100644
+--- a/arch/arm/boot/dts/intel/ixp/Makefile
++++ b/arch/arm/boot/dts/intel/ixp/Makefile
+@@ -1,5 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ dtb-$(CONFIG_ARCH_IXP4XX) += \
++	intel-ixp42x-actiontec-mi424wr-ac.dtb \
++	intel-ixp42x-actiontec-mi424wr-d.dtb \
+ 	intel-ixp42x-linksys-nslu2.dtb \
+ 	intel-ixp42x-linksys-wrv54g.dtb \
+ 	intel-ixp42x-freecom-fsg-3.dtb \
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..413b9255f9e3cf24fd1dde6a300a8295e3fdee0f
+--- /dev/null
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts
+@@ -0,0 +1,37 @@
++// SPDX-License-Identifier: ISC
++/*
++ * Device Tree file for the IXP425-based Actiontec MI424WR revision A and C
++ * Based on a board file from OpenWrt by Jose Vasconcellos.
++ */
++
++/dts-v1/;
++
++#include "intel-ixp42x-actiontec-mi424wr.dtsi"
++
++/ {
++	model = "Actiontec MI424WR rev A/C";
++	compatible = "actiontec,mi424wr-ac", "intel,ixp42x";
++
++	soc {
++		/* EthB used for WAN */
++		ethernet@c8009000 {
++			phy-handle = <&phy17>; // 17 on revision A-C
++
++			mdio {
++				phy17: ethernet-phy@17 {
++					/* WAN */
++					reg = <17>;
++				};
++			};
++		};
++
++		/* EthC used for LAN */
++		ethernet@c800a000 {
++			/* Fixed link to the CPU MII port on the KS8995 */
++			fixed-link {
++				speed = <100>;
++				full-duplex;
++			};
++		};
++	};
++};
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..3619c6411a5c04b78d32aac5f2fc0c42a99e7acd
+--- /dev/null
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: ISC
++/*
++ * Device Tree file for the IXP425-based Actiontec MI424WR revision D
++ * Based on a board file from OpenWrt by Jose Vasconcellos.
++ */
++
++/dts-v1/;
++
++#include "intel-ixp42x-actiontec-mi424wr.dtsi"
++
++/ {
++	model = "Actiontec MI424WR rev D";
++	compatible = "actiontec,mi424wr-d", "intel,ixp42x";
++
++	soc {
++		/* EthB used for LAN */
++		ethernet@c8009000 {
++			/* Fixed link to the CPU MII port on the KS8995 */
++			fixed-link {
++				speed = <100>;
++				full-duplex;
++			};
++
++			mdio {
++				/* PHY ID 0x00221450 */
++				phy5: ethernet-phy@5 {
++					/* WAN */
++					reg = <5>;
++				};
++			};
++		};
++
++		/* EthC used for WAN */
++		ethernet@c800a000 {
++			phy-handle = <&phy5>; // 5 on revision D
++		};
++	};
++};
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..f3712848bb2410839162efd4e85e2c88208955b9
+--- /dev/null
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi
+@@ -0,0 +1,273 @@
++// SPDX-License-Identifier: ISC
++/*
++ * Device Tree file for the IXP425-based Actiontec MI424WR
++ * Based on a board file from OpenWrt by Jose Vasconcellos.
++ */
++
++#include "intel-ixp42x.dtsi"
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++
++/ {
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x00000000 0x02000000>;
++	};
++
++	chosen {
++		bootargs = "console=ttyS0,115200n8";
++		stdout-path = "uart1:115200n8";
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-wan-coax {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "wan-coax";
++			gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		led-power-alarm {
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_ALARM;
++			gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		led-power {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_POWER;
++			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++			linux,default-trigger = "heartbeat";
++		};
++		led-wireless {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_WLAN;
++			gpios = <&gpio1 2 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++		led-internet-down {
++			color = <LED_COLOR_ID_RED>;
++			function = "internet-down";
++			gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		led-internet-up {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "internet-up";
++			gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		led-lan-coax {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "lan-coax";
++			gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		led-wan-ethernet-alarm {
++			color = <LED_COLOR_ID_RED>;
++			function = "wan-ethernet-alarm";
++			gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
++			default-state = "off";
++		};
++		/* The last three LEDs are not mounted but traces exist on the PCB */
++		led-phone-1 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "phone-1";
++			gpios = <&gpio1 8 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++		led-phone-2 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "phone-2";
++			gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++		led-voip {
++			color = <LED_COLOR_ID_GREEN>;
++			function = "voip";
++			gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
++			default-state = "off";
++		};
++	};
++
++	gpio_keys {
++		compatible = "gpio-keys";
++
++		button-reset {
++			wakeup-source;
++			linux,code = <KEY_RESTART>;
++			label = "reset";
++			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
++		};
++	};
++
++	spi {
++		compatible = "spi-gpio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		sck-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
++		mosi-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
++		miso-gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
++		cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
++		num-chipselects = <1>;
++
++		ethernet-switch@0 {
++			compatible = "micrel,ks8995";
++			reg = <0>;
++			spi-max-frequency = <50000000>;
++
++			ethernet-ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				ethernet-port@0 {
++					reg = <0>;
++					label = "lan1";
++					phy-mode = "mii";
++					phy-handle = <&phy1>;
++				};
++				ethernet-port@1 {
++					reg = <1>;
++					label = "lan2";
++					phy-mode = "mii";
++					phy-handle = <&phy2>;
++				};
++				ethernet-port@2 {
++					reg = <2>;
++					label = "lan3";
++					phy-mode = "mii";
++					phy-handle = <&phy3>;
++				};
++				ethernet-port@3 {
++					reg = <3>;
++					label = "lan4";
++					phy-mode = "mii";
++					phy-handle = <&phy4>;
++				};
++				ethernet-port@4 {
++					reg = <4>;
++					ethernet = <&ethc>;
++					phy-mode = "mii";
++					fixed-link {
++						speed = <100>;
++						full-duplex;
++					};
++				};
++
++			};
++		};
++	};
++
++	soc {
++		bus@c4000000 {
++			flash@0,0 {
++				compatible = "intel,ixp4xx-flash", "cfi-flash";
++				bank-width = <2>;
++				/*
++				 * 8 MB of Flash in 64 0x20000 sized blocks
++				 * mapped in at CS0.
++				 */
++				reg = <0 0x00000000 0x0800000>;
++
++				/* Configure expansion bus to allow writes */
++				intel,ixp4xx-eb-write-enable = <1>;
++
++				partitions {
++					compatible = "redboot-fis";
++					fis-index-block = <0x3f>;
++				};
++			};
++			gpio1: gpio@1,0 {
++				/* MMIO GPIO at CS1 */
++				compatible = "brcm,bcm6345-gpio";
++				gpio-controller;
++				#gpio-cells = <2>;
++				bank-width = <2>;
++				big-endian;
++				reg = <1 0x00000000 0x2>;
++				reg-names = "dat";
++				/* Expansion bus settings */
++				intel,ixp4xx-eb-write-enable = <1>;
++
++				pci-reset-hog {
++					gpio-hog;
++					gpios = <7 GPIO_ACTIVE_HIGH>;
++					output-high;
++					line-name = "PCI reset";
++				};
++				pstn-relay-hog-1 {
++					gpio-hog;
++					gpios = <11 GPIO_ACTIVE_HIGH>;
++					output-low;
++					line-name = "PSTN relay control 1";
++				};
++				pstn-relay-hog-2 {
++					gpio-hog;
++					gpios = <12 GPIO_ACTIVE_HIGH>;
++					output-low;
++					line-name = "PSTN relay control 2";
++				};
++			};
++		};
++
++		pci@c0000000 {
++			status = "okay";
++
++			#interrupt-cells = <1>;
++			interrupt-map-mask = <0xf800 0 0 7>;
++			interrupt-map =
++			/* IDSEL 13 */
++			<0x6800 0 0 1 &gpio0 8 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 13 is irq 8 */
++			<0x6800 0 0 2 &gpio0 6 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 13 is irq 6 */
++			/* IDSEL 14 */
++			<0x7000 0 0 1 &gpio0 8 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 14 is irq 7 */
++			<0x7000 0 0 2 &gpio0 6 IRQ_TYPE_LEVEL_LOW>, /* INT B on slot 14 is irq 8 */
++			/* IDSEL 15 */
++			<0x7800 0 0 1 &gpio0 8 IRQ_TYPE_LEVEL_LOW>, /* INT A on slot 15 is irq 6 */
++			<0x7800 0 0 2 &gpio0 6 IRQ_TYPE_LEVEL_LOW>; /* INT B on slot 15 is irq 7 */
++		};
++
++		ethb: ethernet@c8009000 {
++			status = "okay";
++			queue-rx = <&qmgr 3>;
++			queue-txready = <&qmgr 20>;
++			phy-mode = "mii";
++
++			mdio {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				/* 1, 2, 3 and 4 are ports on the KS8995 switch */
++				phy1: ethernet-phy@1 {
++					/* LAN1 */
++					reg = <1>;
++				};
++				phy2: ethernet-phy@2 {
++					/* LAN2 */
++					reg = <2>;
++				};
++				phy3: ethernet-phy@3 {
++					/* LAN3 */
++					reg = <3>;
++				};
++				phy4: ethernet-phy@4 {
++					/* LAN4 */
++					reg = <4>;
++				};
++			};
++		};
++
++		ethc: ethernet@c800a000 {
++			status = "okay";
++			queue-rx = <&qmgr 4>;
++			queue-txready = <&qmgr 21>;
++			phy-mode = "mii";
++		};
++	};
++};
 
 -- 
 2.50.1
