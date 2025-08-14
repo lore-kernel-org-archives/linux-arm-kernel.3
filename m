@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38955CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA28CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uXHdl4/9tct9eY7ZOftLzSo9out84mFuSNG/g2S65/A=; b=GhP0zlnqYVxKWB+PZSIRyxRqPI
-	Y3S1Hak4cY3gLpPI8sNYtd4h9kviO7y0GpjQpPbqF5scuMUvWHqLS4e5/FZDYAIhh48gBieRX4Hdy
-	ZKy0A/dXaP9TSH6SIfrn0Ya+1cRibxamiBoPMkrkhZmBlOqkuWszT+zrczaZi4m/Fc7Kqt8Cv1Y79
-	sL6eYCxTEWiiMO4dfvIt9mMrpJI/95FOKnAyQ+xbxhHtqkdvR0onQVronOF/e+kH7hELeqvQxVEV6
-	AeGzmGBF8kCzlAtcPxDDNfvE6D3nI48g2ycb6LgLsesg4qAoGMeuL7SdKnGymk8Rp5RsaWoE2QcrR
-	7GZ82E6A==;
+	bh=B4zDIKxP6VwbvOBIuOy480Sk/sUtuyjPpXBR5gJVOlQ=; b=EUJ1EZewc3mkuS/WKl0CEDjqFS
+	BxNR1yNMUDS9FzrqvnowOnm5wUeb1yLdLU8c/5FbpnWm7agxp2X7Bt0K4Oq+LKnF5+H1TOFnhRtgN
+	g0HRqjFneOqBBJLm5RAuMPfAh2UaNWp5nY+DaQUnm/efoP1w6EuBs9paQNjb/nraTnHAmsmangVFb
+	Ft1ikl1ufPL0NZA5UciW7vGobEGH8h2G3a0J5AoPPkIUFNofdRFAhOVe2vWFZRAUWjrB3QeYpTmAL
+	c1Yixd2V6As5Q9NXiJptYh///i41VVfRdriX7SyKcn1/3vqGQa91pdtnVFBTKlHiCJg5zIJ+5o8eF
+	EQIDMABA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUUU-0000000GRUz-3jNr;
-	Thu, 14 Aug 2025 09:43:22 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1umUUK-0000000GRKJ-0UFY;
+	Thu, 14 Aug 2025 09:43:12 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTlb-0000000GJgn-0YYF;
-	Thu, 14 Aug 2025 08:57:00 +0000
-X-UUID: 9ed8aaea78ec11f09eb0dd999d3936bf-20250814
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uXHdl4/9tct9eY7ZOftLzSo9out84mFuSNG/g2S65/A=;
-	b=cG88OX+jw9au4UZHSoWW0YuPPHc3HO7THIhRESARQouQ0niCBDjGmMnWh7Y6L+8Afqkx0zPtLEjPvF+YoMRd9rCHsk3PL6hl0cBUUOuCuLBIx2Jnq/qnmUCMhpO6Rp97aRwxFi8B0nOWyoMtnO0FwfinvDEf03Sy+3FS5rW6G0M=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:bb7a1de5-310e-484d-9dc4-de618511c6e1,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:f1326cf,CLOUDID:19a3edf3-66cd-4ff9-9728-6a6f64661009,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 9ed8aaea78ec11f09eb0dd999d3936bf-20250814
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1989596438; Thu, 14 Aug 2025 01:56:52 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 14 Aug 2025 16:56:48 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 14 Aug 2025 16:56:47 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
- Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
-	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, Arnd
- Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>
-Subject: [PATCH v3 1/6] media: mediatek: encoder: Add a new encoder driver interface
-Date: Thu, 14 Aug 2025 16:56:37 +0800
-Message-ID: <20250814085642.17343-2-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250814085642.17343-1-kyrie.wu@mediatek.com>
-References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
+	id 1umTXF-0000000GHej-3C8j
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 Aug 2025 08:42:11 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 14 Aug
+ 2025 16:41:56 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 14 Aug 2025 16:41:56 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: <ryan_chen@aspeedtech.com>, <benh@kernel.crashing.org>, <joel@jms.id.au>,
+	<andi.shyti@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <andrew@codeconstruct.com.au>,
+	<p.zabel@pengutronix.de>, <andriy.shevchenko@linux.intel.com>,
+	<naresh.solanki@9elements.com>, <linux-i2c@vger.kernel.org>,
+	<openbmc@lists.ozlabs.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v17 2/3] i2c: ast2600: Add controller driver for new register layout
+Date: Thu, 14 Aug 2025 16:41:55 +0800
+Message-ID: <20250814084156.1650432-3-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
+References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_015659_189497_48094DCB 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20250814_014210_084586_26A5B085 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,901 +69,1182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Irui Wang <irui.wang@mediatek.com>
+Add i2c-ast2600 new register mode driver to support AST2600
+i2c new register mode. This i2c-ast2600 new driver and the
+legacy i2c-aspeed driver both match the same compatible string
+"aspeed,ast2600-i2c-bus" because they target the same I2C
+controller IP on AST2600. However, AST2600 SoCs may configure
+the controller instances to operate either in the legacy
+register layout or the new layout (via global register).
+The new register mode support following.
 
-Introduce a new encoder kernel driver interface to ensure compatibility
-with the updated encoder software driver running in firmware.
-The new driver interface is expected to support more encoder formats,
-share more encode parameters between kernel and firmware.
+- Add new clock divider option for more flexible and accurate
+ clock rate generation
+- Add tCKHighMin timing to guarantee SCL high pulse width.
+- Add support dual pool buffer mode, split 32 bytes pool buffer
+ of each device into 2 x 16 bytes for Tx and Rx individually.
+- Increase DMA buffer size to 4096 bytes and support byte alignment.
+- Re-define the base address of BUS1 ~ BUS16 and Pool buffer.
+- Re-define registers for separating controller and target
+ mode control.
+- Support 4 individual DMA buffers for controller Tx and Rx,
+ target Tx and Rx.
 
-Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+And following is new register set for package transfer sequence.
+- New Master operation mode:
+  S -> Aw -> P
+  S -> Aw -> TxD -> P
+  S -> Ar -> RxD -> P
+  S -> Aw -> TxD -> Sr -> Ar -> RxD -> P
+- Bus SDA lock auto-release capability for new controller DMA
+ command mode.
+- Bus auto timeout for new controller/target DMA mode.
+
+Since the register layout is selected via a global register at
+runtime and both drivers bind to the same compatible string,
+this patch defines the driver selection at build-time using
+Kconfig, ensuring that only one driver is compiled into the
+kernel. This approach avoids ambiguity and ensures consistent
+behavior for each platform configuration.
+
+The following is two versus register layout.
+Old register mode:
+{I2CD00}: Function Control Register
+{I2CD04}: Clock and AC Timing Control Register
+{I2CD08}: Clock and AC Timing Control Register
+{I2CD0C}: Interrupt Control Register
+{I2CD10}: Interrupt Status Register
+{I2CD14}: Command/Status Register
+{I2CD18}: Slave Device Address Register
+{I2CD1C}: Pool Buffer Control Register
+{I2CD20}: Transmit/Receive Byte Buffer Register
+{I2CD24}: DMA Mode Buffer Address Register
+{I2CD28}: DMA Transfer Length Register
+{I2CD2C}: Original DMA Mode Buffer Address Setting
+{I2CD30}: Original DMA Transfer Length Setting and Final Status
+
+New Register mode
+{I2CC00}: Master/Slave Function Control Register
+{I2CC04}: Master/Slave Clock and AC Timing Control Register
+{I2CC08}: Master/Slave Transmit/Receive Byte Buffer Register
+{I2CC0C}: Master/Slave Pool Buffer Control Register
+{I2CM10}: Master Interrupt Control Register
+{I2CM14}: Master Interrupt Status Register
+{I2CM18}: Master Command/Status Register
+{I2CM1C}: Master DMA Buffer Length Register
+{I2CS20}: Slave~ Interrupt Control Register
+{I2CS24}: Slave~ Interrupt Status Register
+{I2CS28}: Slave~ Command/Status Register
+{I2CS2C}: Slave~ DMA Buffer Length Register
+{I2CM30}: Master DMA Mode Tx Buffer Base Address
+{I2CM34}: Master DMA Mode Rx Buffer Base Address
+{I2CS38}: Slave~ DMA Mode Tx Buffer Base Address
+{I2CS3C}: Slave~ DMA Mode Rx Buffer Base Address
+{I2CS40}: Slave Device Address Register
+{I2CM48}: Master DMA Length Status Register
+{I2CS4C}: Slave  DMA Length Status Register
+{I2CC50}: Current DMA Operating Address Status
+{I2CC54}: Current DMA Operating Length  Status
+
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- .../mediatek/vcodec/common/mtk_vcodec_fw.c    |  13 +
- .../mediatek/vcodec/common/mtk_vcodec_fw.h    |   1 +
- .../platform/mediatek/vcodec/encoder/Makefile |   1 +
- .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  |  14 +-
- .../vcodec/encoder/mtk_vcodec_enc_drv.h       |   8 +-
- .../vcodec/encoder/venc/venc_common_if.c      | 672 ++++++++++++++++++
- .../vcodec/encoder/venc/venc_h264_if.c        |   8 +-
- .../mediatek/vcodec/encoder/venc_drv_if.h     |  11 +-
- 8 files changed, 710 insertions(+), 18 deletions(-)
- create mode 100644 drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
+ drivers/i2c/busses/Kconfig       |   23 +-
+ drivers/i2c/busses/Makefile      |    1 +
+ drivers/i2c/busses/i2c-ast2600.c | 1038 ++++++++++++++++++++++++++++++
+ 3 files changed, 1054 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/i2c/busses/i2c-ast2600.c
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-index 4ed7639dfa30..0381acceda25 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
-@@ -18,6 +18,19 @@ int mtk_vcodec_fw_get_ipi(enum mtk_vcodec_fw_type type, int hw_id)
- }
- EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_ipi);
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index c8d115b58e44..6dc6f8c18eea 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -403,14 +403,21 @@ config I2C_ALTERA
+ 	  will be called i2c-altera.
  
-+int mtk_vcodec_fw_get_venc_ipi(enum mtk_vcodec_fw_type type)
-+{
-+	switch (type) {
-+	case SCP:
-+		return SCP_IPI_VENC_H264;
-+	case VCP:
-+		return VCP_IPI_ENCODER;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(mtk_vcodec_fw_get_venc_ipi);
+ config I2C_ASPEED
+-	tristate "Aspeed I2C Controller"
+-	depends on ARCH_ASPEED || COMPILE_TEST
+-	help
+-	  If you say yes to this option, support will be included for the
+-	  Aspeed I2C controller.
+-
+-	  This driver can also be built as a module.  If so, the module
+-	  will be called i2c-aspeed.
++    tristate "ASPEED I2C controller (legacy register layout)"
++    depends on I2C
++    help
++      Select this to build the legacy Aspeed I2C driver (i2c-aspeed.c)
++      which uses the original mixed controller/target register layout.
 +
- struct mtk_vcodec_fw *mtk_vcodec_fw_select(void *priv, enum mtk_vcodec_fw_type type,
- 					   enum mtk_vcodec_fw_use fw_use)
- {
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-index 142e2e87905c..e7304a7dd3e0 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.h
-@@ -42,5 +42,6 @@ int mtk_vcodec_fw_ipi_send(struct mtk_vcodec_fw *fw, int id,
- 			   void *buf, unsigned int len, unsigned int wait);
- int mtk_vcodec_fw_get_type(struct mtk_vcodec_fw *fw);
- int mtk_vcodec_fw_get_ipi(enum mtk_vcodec_fw_type type, int hw_id);
-+int mtk_vcodec_fw_get_venc_ipi(enum mtk_vcodec_fw_type type);
++config I2C_AST2600
++    tristate "AST2600 I2C controller (new register layout)"
++    depends on I2C
++    depends on !I2C_ASPEED
++    help
++      Select this to build the new AST2600 I2C driver (i2c-ast2600.c)
++      supporting the separated controller/target registers and new
++      clock/divider/DMA features.  This is mutually exclusive with
++      CONFIG_I2C_ASPEED.
  
- #endif /* _MTK_VCODEC_FW_H_ */
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/Makefile b/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-index e621b5b7e5e6..9d3229d56e39 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/Makefile
-@@ -4,6 +4,7 @@ obj-$(CONFIG_VIDEO_MEDIATEK_VCODEC) += mtk-vcodec-enc.o
- 
- mtk-vcodec-enc-y := venc/venc_vp8_if.o \
- 		venc/venc_h264_if.o \
-+		venc/venc_common_if.o \
- 		mtk_vcodec_enc.o \
- 		mtk_vcodec_enc_drv.o \
- 		mtk_vcodec_enc_pm.o \
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-index dcafb1303c29..03512bf7a072 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
-@@ -81,11 +81,11 @@ static int vidioc_venc_s_ctrl(struct v4l2_ctrl *ctrl)
- 		break;
- 	case V4L2_CID_MPEG_VIDEO_H264_PROFILE:
- 		mtk_v4l2_venc_dbg(2, ctx, "V4L2_CID_MPEG_VIDEO_H264_PROFILE val = %d", ctrl->val);
--		p->h264_profile = ctrl->val;
-+		p->profile = ctrl->val;
- 		break;
- 	case V4L2_CID_MPEG_VIDEO_H264_LEVEL:
- 		mtk_v4l2_venc_dbg(2, ctx, "V4L2_CID_MPEG_VIDEO_H264_LEVEL val = %d", ctrl->val);
--		p->h264_level = ctrl->val;
-+		p->level = ctrl->val;
- 		break;
- 	case V4L2_CID_MPEG_VIDEO_H264_I_PERIOD:
- 		mtk_v4l2_venc_dbg(2, ctx, "V4L2_CID_MPEG_VIDEO_H264_I_PERIOD val = %d", ctrl->val);
-@@ -386,8 +386,8 @@ static void mtk_venc_set_param(struct mtk_vcodec_enc_ctx *ctx,
- 		mtk_v4l2_venc_err(ctx, "Unsupported fourcc =%d", q_data_src->fmt->fourcc);
- 		break;
- 	}
--	param->h264_profile = enc_params->h264_profile;
--	param->h264_level = enc_params->h264_level;
-+	param->profile = enc_params->profile;
-+	param->level = enc_params->level;
- 
- 	/* Config visible resolution */
- 	param->width = q_data_src->visible_width;
-@@ -403,8 +403,8 @@ static void mtk_venc_set_param(struct mtk_vcodec_enc_ctx *ctx,
- 
- 	mtk_v4l2_venc_dbg(0, ctx,
- 			  "fmt 0x%x, P/L %d/%d w/h %d/%d buf %d/%d fps/bps %d/%d gop %d i_per %d",
--			  param->input_yuv_fmt, param->h264_profile,
--			  param->h264_level, param->width, param->height,
-+			  param->input_yuv_fmt, param->profile,
-+			  param->level, param->width, param->height,
- 			  param->buf_width, param->buf_height,
- 			  param->frm_rate, param->bitrate,
- 			  param->gop_size, param->intra_period);
-@@ -1174,6 +1174,8 @@ static void mtk_venc_worker(struct work_struct *work)
- 		frm_buf.fb_addr[i].size =
- 				(size_t)src_buf->vb2_buf.planes[i].length;
- 	}
-+	frm_buf.num_planes = src_buf->vb2_buf.num_planes;
-+
- 	bs_buf.va = vb2_plane_vaddr(&dst_buf->vb2_buf, 0);
- 	bs_buf.dma_addr = vb2_dma_contig_plane_dma_addr(&dst_buf->vb2_buf, 0);
- 	bs_buf.size = (size_t)dst_buf->vb2_buf.planes[0].length;
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-index 0bd85d0fb379..b1277bcfcf53 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
-@@ -69,8 +69,8 @@ enum mtk_encode_param {
-  * @framerate_denom: frame rate denominator. ex: framerate_num=30 and
-  *		     framerate_denom=1 means FPS is 30
-  * @h264_max_qp: Max value for H.264 quantization parameter
-- * @h264_profile: V4L2 defined H.264 profile
-- * @h264_level: V4L2 defined H.264 level
-+ * @profile: V4L2 defined profile
-+ * @level: V4L2 defined level
-  * @force_intra: force/insert intra frame
-  */
- struct mtk_enc_params {
-@@ -84,8 +84,8 @@ struct mtk_enc_params {
- 	unsigned int	framerate_num;
- 	unsigned int	framerate_denom;
- 	unsigned int	h264_max_qp;
--	unsigned int	h264_profile;
--	unsigned int	h264_level;
-+	unsigned int	profile;
-+	unsigned int	level;
- 	unsigned int	force_intra;
- };
- 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
+ config I2C_AT91
+ 	tristate "Atmel AT91 I2C Two-Wire interface (TWI)"
+diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
+index 04db855fdfd6..eae2ffd8c62b 100644
+--- a/drivers/i2c/busses/Makefile
++++ b/drivers/i2c/busses/Makefile
+@@ -38,6 +38,7 @@ obj-$(CONFIG_I2C_ALTERA)	+= i2c-altera.o
+ obj-$(CONFIG_I2C_AMD_MP2)	+= i2c-amd-mp2-pci.o i2c-amd-mp2-plat.o
+ obj-$(CONFIG_I2C_AMD_ASF)	+= i2c-amd-asf-plat.o
+ obj-$(CONFIG_I2C_ASPEED)	+= i2c-aspeed.o
++obj-$(CONFIG_I2C_AST2600)	+= i2c-ast2600.o
+ obj-$(CONFIG_I2C_AT91)		+= i2c-at91.o
+ i2c-at91-y			:= i2c-at91-core.o i2c-at91-master.o
+ i2c-at91-$(CONFIG_I2C_AT91_SLAVE_EXPERIMENTAL)	+= i2c-at91-slave.o
+diff --git a/drivers/i2c/busses/i2c-ast2600.c b/drivers/i2c/busses/i2c-ast2600.c
 new file mode 100644
-index 000000000000..da7cf90bd54b
+index 000000000000..15e600ff50ec
 --- /dev/null
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
-@@ -0,0 +1,672 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/drivers/i2c/busses/i2c-ast2600.c
+@@ -0,0 +1,1038 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (c) 2025 MediaTek Inc.
++ * ASPEED AST2600 new register set I2C controller driver
++ *
++ * Copyright (C) ASPEED Technology Inc.
 + */
++#include <linux/array_size.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/completion.h>
++#include <linux/delay.h>
++#include <linux/dma-mapping.h>
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/i2c-smbus.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/minmax.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include <linux/slab.h>
++#include <linux/string_helpers.h>
++#include <linux/unaligned.h>
 +
-+#include "../mtk_vcodec_enc.h"
-+#include "../mtk_vcodec_enc_drv.h"
-+#include "../venc_drv_base.h"
-+#include "../venc_drv_if.h"
-+#include "../venc_vpu_if.h"
-+#include "../../common/mtk_vcodec_intr.h"
-+#include "../../common/mtk_vcodec_util.h"
++#define AST2600_I2CG_ISR			0x00
++#define AST2600_I2CG_SLAVE_ISR		0x04
++#define AST2600_I2CG_OWNER		0x08
++#define AST2600_I2CG_CTRL		0x0C
++#define AST2600_I2CG_CLK_DIV_CTRL	0x10
 +
-+#define SEQ_HEADER_SIZE 1024
-+#define PPS_SIZE 128
-+#define MAX_DPB_SIZE 16
-+#define MAX_VENC_CORE 3
-+#define VENC_CONFIG_LENGTH 115
-+#define VENC_CONFIG_DATA 128
-+#define VENC_PIC_BITSTREAM_BYTE_CNT 0x0098
-+
-+/**
-+ * enum venc_bs_mode - encode bitstream mode
-+ * @VENC_BS_MODE_SPS: encode sps
-+ * @VENC_BS_MODE_PPS: encode pps
-+ * @VENC_BS_MODE_VPS: encode vps
-+ * @VENC_BS_MODE_SEQ_HDR: encode sequence header
-+ * @VENC_BS_MODE_FRAME: encode frame
-+ * @VENC_BS_MODE_FRAME_FINAL: encode final frame
-+ * @VENC_BS_MODE_MAX: max value
++#define AST2600_I2CG_SLAVE_PKT_NAK	BIT(4)
++#define AST2600_I2CG_M_S_SEPARATE_INTR	BIT(3)
++#define AST2600_I2CG_CTRL_NEW_REG	BIT(2)
++#define AST2600_I2CG_CTRL_NEW_CLK_DIV	BIT(1)
++#define AST2600_GLOBAL_INIT	\
++	(AST2600_I2CG_CTRL_NEW_REG | AST2600_I2CG_CTRL_NEW_CLK_DIV)
++/*
++ * APB clk : 100Mhz
++ * div	: scl		: baseclk [APB/((div/2) + 1)] : tBuf [1/bclk * 16]
++ * I2CG10[31:24] base clk4 for i2c auto recovery timeout counter (0xC6)
++ * I2CG10[23:16] base clk3 for Standard-mode (100Khz) min tBuf 4.7us
++ * 0x3c : 100.8Khz	: 3.225Mhz					  : 4.96us
++ * 0x3d : 99.2Khz	: 3.174Mhz					  : 5.04us
++ * 0x3e : 97.65Khz	: 3.125Mhz					  : 5.12us
++ * 0x40 : 97.75Khz	: 3.03Mhz					  : 5.28us
++ * 0x41 : 99.5Khz	: 2.98Mhz					  : 5.36us (default)
++ * I2CG10[15:8] base clk2 for Fast-mode (400Khz) min tBuf 1.3us
++ * 0x12 : 400Khz	: 10Mhz						  : 1.6us
++ * I2CG10[7:0] base clk1 for Fast-mode Plus (1Mhz) min tBuf 0.5us
++ * 0x08 : 1Mhz		: 20Mhz						  : 0.8us
 + */
-+enum venc_bs_mode {
-+	VENC_BS_MODE_SPS = 0,
-+	VENC_BS_MODE_PPS,
-+	VENC_BS_MODE_VPS,
-+	VENC_BS_MODE_SEQ_HDR,
-+	VENC_BS_MODE_FRAME,
-+	VENC_BS_MODE_FRAME_FINAL,
-+	VENC_BS_MODE_MAX
++#define I2CCG_DIV_CTRL 0xC6411208
++
++/* 0x00 : I2CC Controller/Target Function Control Register  */
++#define AST2600_I2CC_FUN_CTRL		0x00
++#define AST2600_I2CC_SLAVE_ADDR_RX_EN		BIT(20)
++#define AST2600_I2CC_MASTER_RETRY_MASK		GENMASK(19, 18)
++#define AST2600_I2CC_MASTER_RETRY(x)		(((x) & GENMASK(1, 0)) << 18)
++#define AST2600_I2CC_BUS_AUTO_RELEASE		BIT(17)
++#define AST2600_I2CC_M_SDA_LOCK_EN			BIT(16)
++#define AST2600_I2CC_MULTI_MASTER_DIS		BIT(15)
++#define AST2600_I2CC_M_SCL_DRIVE_EN			BIT(14)
++#define AST2600_I2CC_MSB_STS				BIT(9)
++#define AST2600_I2CC_SDA_DRIVE_1T_EN		BIT(8)
++#define AST2600_I2CC_M_SDA_DRIVE_1T_EN		BIT(7)
++#define AST2600_I2CC_M_HIGH_SPEED_EN		BIT(6)
++/* reserver 5 : 2 */
++#define AST2600_I2CC_SLAVE_EN			BIT(1)
++#define AST2600_I2CC_MASTER_EN			BIT(0)
++
++/* 0x04 : I2CC Controller/Target Clock and AC Timing Control Register #1 */
++#define AST2600_I2CC_AC_TIMING		0x04
++#define AST2600_I2CC_TTIMEOUT(x)			(((x) & GENMASK(4, 0)) << 24)
++#define AST2600_I2CC_TCKHIGHMIN(x)			(((x) & GENMASK(3, 0)) << 20)
++#define AST2600_I2CC_TCKHIGH(x)			(((x) & GENMASK(3, 0)) << 16)
++#define AST2600_I2CC_TCKLOW(x)			(((x) & GENMASK(3, 0)) << 12)
++#define AST2600_I2CC_THDDAT(x)			(((x) & GENMASK(1, 0)) << 10)
++#define AST2600_I2CC_TOUTBASECLK(x)			(((x) & GENMASK(1, 0)) << 8)
++#define AST2600_I2CC_TBASECLK(x)			((x) & GENMASK(3, 0))
++
++/* 0x08 : I2CC Controller/Target Transmit/Receive Byte Buffer Register */
++#define AST2600_I2CC_STS_AND_BUFF		0x08
++#define AST2600_I2CC_TX_DIR_MASK			GENMASK(31, 29)
++#define AST2600_I2CC_SDA_OE				BIT(28)
++#define AST2600_I2CC_SDA_O				BIT(27)
++#define AST2600_I2CC_SCL_OE				BIT(26)
++#define AST2600_I2CC_SCL_O				BIT(25)
++
++#define AST2600_I2CC_SCL_LINE_STS			BIT(18)
++#define AST2600_I2CC_SDA_LINE_STS			BIT(17)
++#define AST2600_I2CC_BUS_BUSY_STS			BIT(16)
++
++#define AST2600_I2CC_GET_RX_BUFF(x)			(((x) >> 8) & GENMASK(7, 0))
++
++/* 0x0C : I2CC Controller/Target Pool Buffer Control Register  */
++#define AST2600_I2CC_BUFF_CTRL		0x0C
++#define AST2600_I2CC_GET_RX_BUF_LEN(x)      (((x) & GENMASK(29, 24)) >> 24)
++#define AST2600_I2CC_SET_RX_BUF_LEN(x)		(((((x) - 1) & GENMASK(4, 0)) << 16) | BIT(0))
++#define AST2600_I2CC_SET_TX_BUF_LEN(x)		(((((x) - 1) & GENMASK(4, 0)) << 8) | BIT(0))
++#define AST2600_I2CC_GET_TX_BUF_LEN(x)      ((((x) & GENMASK(12, 8)) >> 8) + 1)
++
++/* 0x10 : I2CM Controller Interrupt Control Register */
++#define AST2600_I2CM_IER			0x10
++/* 0x14 : I2CM Controller Interrupt Status Register   : WC */
++#define AST2600_I2CM_ISR			0x14
++
++#define AST2600_I2CM_PKT_TIMEOUT			BIT(18)
++#define AST2600_I2CM_PKT_ERROR			BIT(17)
++#define AST2600_I2CM_PKT_DONE			BIT(16)
++
++#define AST2600_I2CM_BUS_RECOVER_FAIL		BIT(15)
++#define AST2600_I2CM_SDA_DL_TO			BIT(14)
++#define AST2600_I2CM_BUS_RECOVER			BIT(13)
++#define AST2600_I2CM_SMBUS_ALT			BIT(12)
++
++#define AST2600_I2CM_SCL_LOW_TO			BIT(6)
++#define AST2600_I2CM_ABNORMAL			BIT(5)
++#define AST2600_I2CM_NORMAL_STOP			BIT(4)
++#define AST2600_I2CM_ARBIT_LOSS			BIT(3)
++#define AST2600_I2CM_RX_DONE			BIT(2)
++#define AST2600_I2CM_TX_NAK				BIT(1)
++#define AST2600_I2CM_TX_ACK				BIT(0)
++
++/* 0x18 : I2CM Controller Command/Status Register   */
++#define AST2600_I2CM_CMD_STS		0x18
++#define AST2600_I2CM_PKT_ADDR(x)			(((x) & GENMASK(6, 0)) << 24)
++#define AST2600_I2CM_PKT_EN				BIT(16)
++#define AST2600_I2CM_SDA_OE_OUT_DIR			BIT(15)
++#define AST2600_I2CM_SDA_O_OUT_DIR			BIT(14)
++#define AST2600_I2CM_SCL_OE_OUT_DIR			BIT(13)
++#define AST2600_I2CM_SCL_O_OUT_DIR			BIT(12)
++#define AST2600_I2CM_RECOVER_CMD_EN			BIT(11)
++
++#define AST2600_I2CM_RX_DMA_EN			BIT(9)
++#define AST2600_I2CM_TX_DMA_EN			BIT(8)
++/* Command Bit */
++#define AST2600_I2CM_RX_BUFF_EN			BIT(7)
++#define AST2600_I2CM_TX_BUFF_EN			BIT(6)
++#define AST2600_I2CM_STOP_CMD			BIT(5)
++#define AST2600_I2CM_RX_CMD_LAST			BIT(4)
++#define AST2600_I2CM_RX_CMD				BIT(3)
++
++#define AST2600_I2CM_TX_CMD				BIT(1)
++#define AST2600_I2CM_START_CMD			BIT(0)
++
++/* 0x1C : I2CM Controller DMA Transfer Length Register	 */
++#define AST2600_I2CM_DMA_LEN		0x1C
++/* Tx Rx support length 1 ~ 4096 */
++#define AST2600_I2CM_SET_RX_DMA_LEN(x)	((((x) & GENMASK(11, 0)) << 16) | BIT(31))
++#define AST2600_I2CM_SET_TX_DMA_LEN(x)	(((x) & GENMASK(11, 0)) | BIT(15))
++
++/* 0x20 : I2CS Target Interrupt Control Register   */
++#define AST2600_I2CS_IER			0x20
++/* 0x24 : I2CS Target Interrupt Status Register	 */
++#define AST2600_I2CS_ISR			0x24
++
++#define AST2600_I2CS_ADDR_INDICATE_MASK	GENMASK(31, 30)
++#define AST2600_I2CS_SLAVE_PENDING			BIT(29)
++
++#define AST2600_I2CS_WAIT_TX_DMA			BIT(25)
++#define AST2600_I2CS_WAIT_RX_DMA			BIT(24)
++
++#define AST2600_I2CS_ADDR3_NAK			BIT(22)
++#define AST2600_I2CS_ADDR2_NAK			BIT(21)
++#define AST2600_I2CS_ADDR1_NAK			BIT(20)
++
++#define AST2600_I2CS_ADDR_MASK			GENMASK(19, 18)
++#define AST2600_I2CS_PKT_ERROR			BIT(17)
++#define AST2600_I2CS_PKT_DONE			BIT(16)
++#define AST2600_I2CS_INACTIVE_TO			BIT(15)
++
++#define AST2600_I2CS_SLAVE_MATCH			BIT(7)
++#define AST2600_I2CS_ABNOR_STOP			BIT(5)
++#define AST2600_I2CS_STOP				BIT(4)
++#define AST2600_I2CS_RX_DONE_NAK			BIT(3)
++#define AST2600_I2CS_RX_DONE			BIT(2)
++#define AST2600_I2CS_TX_NAK				BIT(1)
++#define AST2600_I2CS_TX_ACK				BIT(0)
++
++/* 0x28 : I2CS Target CMD/Status Register   */
++#define AST2600_I2CS_CMD_STS		0x28
++#define AST2600_I2CS_ACTIVE_ALL			GENMASK(18, 17)
++#define AST2600_I2CS_PKT_MODE_EN			BIT(16)
++#define AST2600_I2CS_AUTO_NAK_NOADDR		BIT(15)
++#define AST2600_I2CS_AUTO_NAK_EN			BIT(14)
++
++#define AST2600_I2CS_ALT_EN				BIT(10)
++#define AST2600_I2CS_RX_DMA_EN			BIT(9)
++#define AST2600_I2CS_TX_DMA_EN			BIT(8)
++#define AST2600_I2CS_RX_BUFF_EN			BIT(7)
++#define AST2600_I2CS_TX_BUFF_EN			BIT(6)
++#define AST2600_I2CS_RX_CMD_LAST			BIT(4)
++
++#define AST2600_I2CS_TX_CMD				BIT(2)
++
++#define AST2600_I2CS_DMA_LEN		0x2C
++#define AST2600_I2CS_SET_RX_DMA_LEN(x)	(((((x) - 1) & GENMASK(11, 0)) << 16) | BIT(31))
++#define AST2600_I2CS_SET_TX_DMA_LEN(x)	((((x) - 1) & GENMASK(11, 0)) | BIT(15))
++
++/* I2CM Controller DMA Tx Buffer Register   */
++#define AST2600_I2CM_TX_DMA			0x30
++/* I2CM Controller DMA Rx Buffer Register	*/
++#define AST2600_I2CM_RX_DMA			0x34
++/* I2CS Target DMA Tx Buffer Register   */
++#define AST2600_I2CS_TX_DMA			0x38
++/* I2CS Target DMA Rx Buffer Register   */
++#define AST2600_I2CS_RX_DMA			0x3C
++
++#define AST2600_I2CS_ADDR_CTRL		0x40
++
++#define	AST2600_I2CS_ADDR3_MASK		GENMASK(22, 16)
++#define	AST2600_I2CS_ADDR2_MASK		GENMASK(14, 8)
++#define	AST2600_I2CS_ADDR1_MASK		GENMASK(6, 0)
++
++#define AST2600_I2CM_DMA_LEN_STS		0x48
++#define AST2600_I2CS_DMA_LEN_STS		0x4C
++
++#define AST2600_I2C_GET_TX_DMA_LEN(x)		((x) & GENMASK(12, 0))
++#define AST2600_I2C_GET_RX_DMA_LEN(x)        (((x) & GENMASK(28, 16)) >> 16)
++
++/* 0x40 : Target Device Address Register */
++#define AST2600_I2CS_ADDR3_ENABLE			BIT(23)
++#define AST2600_I2CS_ADDR3(x)			((x) << 16)
++#define AST2600_I2CS_ADDR2_ENABLE			BIT(15)
++#define AST2600_I2CS_ADDR2(x)			((x) << 8)
++#define AST2600_I2CS_ADDR1_ENABLE			BIT(7)
++#define AST2600_I2CS_ADDR1(x)			(x)
++
++#define I2C_TARGET_MSG_BUF_SIZE		256
++
++#define AST2600_I2C_DMA_SIZE		4096
++
++#define CONTROLLER_TRIGGER_LAST_STOP	(AST2600_I2CM_RX_CMD_LAST | AST2600_I2CM_STOP_CMD)
++#define TARGET_TRIGGER_CMD	(AST2600_I2CS_ACTIVE_ALL | AST2600_I2CS_PKT_MODE_EN)
++
++#define AST_I2C_TIMEOUT_CLK		0x1
++
++enum xfer_mode {
++	BYTE_MODE,
++	BUFF_MODE,
++	DMA_MODE,
 +};
 +
-+/**
-+ * struct venc_config - Structure for encoder configuration
-+ *                      AP-W/R : AP is writer/reader on this item
-+ *                      MCU-W/R: MCU is write/reader on this item
-+ * @input_fourcc: input format fourcc
-+ * @bitrate: target bitrate (in bps)
-+ * @pic_w: visible width of resolution
-+ * @pic_h: visible height of resolution
-+ * @buf_w: buffer alignment width of resolution
-+ * @buf_h: buffer alignment height of resolution
-+ * @gop_size: group of picture size (IDR frame period)
-+ * @intra_period: I frame period
-+ * @framerate: frame rate in fps
-+ * @profile: profile_idc in SPS
-+ * @level: level_idc in SPS
-+ * @core_num: encoder core num
-+ * @dpb_size: encode dpb size
-+ * @reserved: reserved fields config
-+ */
-+struct venc_config {
-+	__u32 input_fourcc;
-+	__u32 bitrate;
-+	__u32 pic_w;
-+	__u32 pic_h;
-+	__u32 buf_w;
-+	__u32 buf_h;
-+	__u32 gop_size;
-+	__u32 intra_period;
-+	__u32 framerate;
-+	__u32 profile;
-+	__u32 level;
-+	__u32 core_num;
-+	__u32 dpb_size;
-+	__u32 reserved[VENC_CONFIG_LENGTH];
++struct ast2600_i2c_bus {
++	struct i2c_adapter	adap;
++	struct device		*dev;
++	void __iomem		*reg_base;
++	struct regmap		*global_regs;
++	struct reset_control	*rst;
++	struct clk		*clk;
++	struct i2c_timings	timing_info;
++	struct completion	cmd_complete;
++	struct i2c_msg		*msgs;
++	u8			*controller_dma_safe_buf;
++	dma_addr_t		controller_dma_addr;
++	u32			apb_clk;
++	u32			timeout;
++	int			irq;
++	int			cmd_err;
++	int			msgs_index;
++	int			msgs_count;
++	int			controller_xfer_cnt;
++	size_t			buf_index;
++	size_t			buf_size;
++	enum xfer_mode		mode;
++	bool			multi_master;
++	/* Buffer mode */
++	void __iomem		*buf_base;
++	struct i2c_smbus_alert_setup	alert_data;
 +};
 +
-+/**
-+ * struct venc_config_data - Structure for configuration data
-+ * @config_data: extended configuration data besides the basic configuration
-+ */
-+struct venc_config_data {
-+	unsigned int config_data[VENC_CONFIG_DATA];
-+};
-+
-+/**
-+ * struct venc_work_buf - Structure for working buffer information
-+ *                               AP-W/R : AP is writer/reader on this item
-+ *                               MCU-W/R: MCU is write/reader on this item
-+ * @iova: IO virtual address
-+ * @pa: physical address
-+ * @pa_64: for 64bit pa padding
-+ * @va: virtual address
-+ * @va_padding: for 64bit va padding
-+ * @size: buffer size
-+ * @size_padding: for 64bit size padding
-+ */
-+struct venc_work_buf {
-+	unsigned long long iova;
-+	union {
-+		unsigned int pa;
-+		unsigned long long pa_64;
-+	};
-+	union {
-+		void *va;
-+		unsigned long long va_padding;
-+	};
-+	union {
-+		unsigned int size;
-+		unsigned long long size_padding;
-+	};
-+};
-+
-+/**
-+ * struct venc_work_buf_list - Structure for encode working buffer list
-+ * @rc_code: RC code buffer
-+ * @rc_info: RC info buffer
-+ * @luma: luma buffer
-+ * @chroma: chroma buffer
-+ * @sub_luma: sub luma buffer
-+ * @sub_write: sub write buffer
-+ * @col_mv: col_mv buffer
-+ * @wpp: wpp buffer
-+ * @wpp_nbm: wpp nbm buffer
-+ * @skip_frame: skip frame buffer
-+ */
-+struct venc_work_buf_list {
-+	struct venc_work_buf rc_code;
-+	struct venc_work_buf rc_info[MAX_VENC_CORE];
-+	struct venc_work_buf luma[MAX_DPB_SIZE];
-+	struct venc_work_buf chroma[MAX_DPB_SIZE];
-+	struct venc_work_buf sub_luma[MAX_DPB_SIZE];
-+	struct venc_work_buf sub_write[MAX_DPB_SIZE];
-+	struct venc_work_buf col_mv[MAX_DPB_SIZE];
-+	struct venc_work_buf wpp[MAX_VENC_CORE];
-+	struct venc_work_buf wpp_nbm[MAX_VENC_CORE];
-+	struct venc_work_buf skip_frame;
-+};
-+
-+/**
-+ * struct venc_info -  Structure for encode frame and bs information
-+ * @fb_addr: frame buffer address array
-+ * @fb_size: frame buffer size array
-+ * @bs_addr: bitstream buffer address
-+ * @bs_size: bitstream buffer size
-+ */
-+struct venc_info {
-+	unsigned long long fb_addr[VIDEO_MAX_PLANES];
-+	unsigned int fb_size[VIDEO_MAX_PLANES];
-+	unsigned long long bs_addr;
-+	unsigned long long bs_size;
-+};
-+
-+/**
-+ * struct venc_vsi - Structure for VCP driver control and info share
-+ *                   AP-W/R : AP is writer/reader on this item
-+ *                   VCP-W/R: VCP is write/reader on this item
-+ * @config: encoder configuration
-+ * @data: encoder configuration data
-+ * @bufs: encoder working buffers
-+ * @venc: encoder information
-+ */
-+struct venc_vsi {
-+	struct venc_config config;
-+	struct venc_config_data data;
-+	struct venc_work_buf_list bufs;
-+	struct venc_info venc;
-+};
-+
-+/**
-+ * struct venc_inst - Structure for encoder instance
-+ * @hw_base: hardware io address
-+ * @pps_buf: PPS buffer
-+ * @seq_buf: sequence header buffer
-+ * @work_buf_allocated: work buffer allocated or not
-+ * @frm_cnt: encoded frame count
-+ * @skip_frm_cnt: encoded skip frame count
-+ * @prepend_hdr: prepend header flag
-+ * @vpu_inst: vpu instance
-+ * @vsi: encode vsi
-+ * @ctx: encoder context
-+ */
-+struct venc_inst {
-+	void __iomem *hw_base;
-+	struct mtk_vcodec_mem pps_buf;
-+	struct mtk_vcodec_mem seq_buf;
-+	bool work_buf_allocated;
-+	unsigned int frm_cnt;
-+	unsigned int skip_frm_cnt;
-+	unsigned int prepend_hdr;
-+	struct venc_vpu_inst vpu_inst;
-+	struct venc_vsi *vsi;
-+	struct mtk_vcodec_enc_ctx *ctx;
-+};
-+
-+static int venc_init(struct mtk_vcodec_enc_ctx *ctx)
++static u32 ast2600_select_i2c_clock(struct ast2600_i2c_bus *i2c_bus)
 +{
-+	int ret = 0;
-+	struct venc_inst *inst;
++	unsigned long base_clk[16];
++	int baseclk_idx = 0;
++	int divisor = 0;
++	u32 clk_div_reg;
++	u32 scl_low;
++	u32 scl_high;
++	u32 data;
 +
-+	inst = kzalloc(sizeof(*inst), GFP_KERNEL);
-+	if (!inst)
-+		return -ENOMEM;
++	regmap_read(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, &clk_div_reg);
 +
-+	inst->ctx = ctx;
-+	inst->vpu_inst.ctx = ctx;
-+	inst->vpu_inst.id = mtk_vcodec_fw_get_venc_ipi(ctx->dev->fw_handler->type);
-+	inst->hw_base = mtk_vcodec_get_reg_addr(inst->ctx->dev->reg_base, VENC_SYS);
++	for (int i = 0; i < ARRAY_SIZE(base_clk); i++) {
++		if (i == 0)
++			base_clk[i] = i2c_bus->apb_clk;
++		else if (i < 5)
++			base_clk[i] = (i2c_bus->apb_clk * 2) /
++			   (((clk_div_reg >> ((i - 1) * 8)) & GENMASK(7, 0)) + 2);
++		else
++			base_clk[i] = base_clk[4] >> (i - 4);
 +
-+	ret = vpu_enc_init(&inst->vpu_inst);
-+	inst->vsi = (struct venc_vsi *)inst->vpu_inst.vsi;
-+
-+	if (ret)
-+		kfree(inst);
-+	else
-+		ctx->drv_handle = inst;
-+
-+	return ret;
-+}
-+
-+static inline u32 venc_read_reg(struct venc_inst *inst, u32 addr)
-+{
-+	return readl(inst->hw_base + addr);
-+}
-+
-+static unsigned int venc_wait_encode_done(struct venc_inst *inst)
-+{
-+	unsigned int irq_status = 0;
-+	struct mtk_vcodec_enc_ctx *ctx = (struct mtk_vcodec_enc_ctx *)inst->ctx;
-+
-+	if (!mtk_vcodec_wait_for_done_ctx(ctx, MTK_INST_IRQ_RECEIVED,
-+					  WAIT_INTR_TIMEOUT_MS, 0)) {
-+		irq_status = ctx->irq_status;
-+		mtk_venc_debug(ctx, "irq_status %x <-", irq_status);
-+	}
-+	return irq_status;
-+}
-+
-+static void venc_set_bufs(struct venc_inst *inst,
-+			  struct venc_frm_buf *frm_buf,
-+			  struct mtk_vcodec_mem *bs_buf)
-+{
-+	unsigned int i;
-+
-+	if (frm_buf) {
-+		for (i = 0; i < frm_buf->num_planes; i++) {
-+			inst->vsi->venc.fb_addr[i] = frm_buf->fb_addr[i].dma_addr;
-+			inst->vsi->venc.fb_size[i] = frm_buf->fb_addr[i].size;
-+			mtk_venc_debug(inst->ctx, "%s: fb_buf[%d]: %llx(%d)\n",
-+				       __func__, i,
-+				       inst->vsi->venc.fb_addr[i],
-+				       inst->vsi->venc.fb_size[i]);
-+		}
-+	}
-+
-+	if (bs_buf) {
-+		inst->vsi->venc.bs_addr = bs_buf->dma_addr;
-+		inst->vsi->venc.bs_size = bs_buf->size;
-+		mtk_venc_debug(inst->ctx, "%s: bs_buf: %llx(%d)\n",
-+			       __func__,
-+			       inst->vsi->venc.bs_addr,
-+			       (unsigned int)inst->vsi->venc.bs_size);
-+	}
-+}
-+
-+static int venc_encode_sps(struct venc_inst *inst,
-+			   struct mtk_vcodec_mem *bs_buf,
-+			   unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, NULL, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_SPS, NULL, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_SPS) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_SPS);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+	mtk_venc_debug(inst->ctx, "sps bs size %d <-", *bs_size);
-+
-+	return ret;
-+}
-+
-+static int venc_encode_pps(struct venc_inst *inst,
-+			   struct mtk_vcodec_mem *bs_buf,
-+			   unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, NULL, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_PPS, NULL, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_PPS) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_PPS);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+	mtk_venc_debug(inst->ctx, "pps bs size %d <-", *bs_size);
-+
-+	return ret;
-+}
-+
-+static int venc_encode_header(struct venc_inst *inst,
-+			      struct mtk_vcodec_mem *bs_buf,
-+			      unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int bs_size_sps;
-+	unsigned int bs_size_pps;
-+
-+	ret = venc_encode_sps(inst, bs_buf, &bs_size_sps);
-+	if (ret)
-+		return ret;
-+
-+	ret = venc_encode_pps(inst, &inst->pps_buf, &bs_size_pps);
-+	if (ret)
-+		return ret;
-+
-+	memcpy(bs_buf->va + bs_size_sps, inst->pps_buf.va, bs_size_pps);
-+	*bs_size = bs_size_sps + bs_size_pps;
-+
-+	return ret;
-+}
-+
-+static int venc_encode_frame(struct venc_inst *inst,
-+			     struct venc_frm_buf *frm_buf,
-+			     struct mtk_vcodec_mem *bs_buf,
-+			     unsigned int *bs_size)
-+{
-+	int ret = 0;
-+	unsigned int irq_status;
-+
-+	venc_set_bufs(inst, frm_buf, bs_buf);
-+	ret = vpu_enc_encode(&inst->vpu_inst, VENC_BS_MODE_FRAME, frm_buf, bs_buf, NULL);
-+	if (ret)
-+		return ret;
-+
-+	irq_status = venc_wait_encode_done(inst);
-+	if (irq_status != MTK_VENC_IRQ_STATUS_FRM) {
-+		mtk_venc_err(inst->ctx, "expect irq status %d", MTK_VENC_IRQ_STATUS_FRM);
-+		return -EINVAL;
-+	}
-+
-+	*bs_size = venc_read_reg(inst, VENC_PIC_BITSTREAM_BYTE_CNT);
-+
-+	++inst->frm_cnt;
-+
-+	return ret;
-+}
-+
-+static int venc_encode(void *handle,
-+		       enum venc_start_opt opt,
-+		       struct venc_frm_buf *frm_buf,
-+		       struct mtk_vcodec_mem *bs_buf,
-+		       struct venc_done_result *result)
-+{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
-+	struct mtk_vcodec_enc_ctx *ctx;
-+	unsigned int bs_size_hdr;
-+
-+	if (WARN_ON(!inst || !inst->vsi))
-+		return -EINVAL;
-+
-+	ctx = inst->ctx;
-+
-+	mtk_venc_debug(ctx, "%s: opt: %d\n", __func__, opt);
-+
-+	enable_irq(ctx->dev->enc_irq);
-+	switch (opt) {
-+	case VENC_START_OPT_ENCODE_SEQUENCE_HEADER: {
-+		ret = venc_encode_header(inst, bs_buf, &bs_size_hdr);
-+		if (ret)
-+			goto encode_err;
-+
-+		result->bs_size = bs_size_hdr;
-+		result->is_key_frm = false;
-+		break;
-+	}
-+
-+	case VENC_START_OPT_ENCODE_FRAME: {
-+		if (!inst->prepend_hdr) {
-+			ret = venc_encode_frame(inst, frm_buf, bs_buf, &result->bs_size);
-+			if (ret)
-+				goto encode_err;
-+
-+			result->is_key_frm = inst->vpu_inst.is_key_frm;
++		if ((base_clk[i] / i2c_bus->timing_info.bus_freq_hz) <= 32) {
++			baseclk_idx = i;
++			divisor = DIV_ROUND_UP(base_clk[i], i2c_bus->timing_info.bus_freq_hz);
 +			break;
 +		}
-+
-+		ret = venc_encode_header(inst, &inst->seq_buf, &bs_size_hdr);
-+		if (ret)
-+			goto encode_err;
-+
-+		ret = venc_encode_frame(inst, frm_buf, bs_buf, &result->bs_size);
-+		if (ret)
-+			goto encode_err;
-+
-+		memmove(bs_buf->va + bs_size_hdr, bs_buf->va, result->bs_size);
-+		memcpy(bs_buf->va, inst->seq_buf.va, bs_size_hdr);
-+		result->bs_size += bs_size_hdr;
-+
-+		inst->prepend_hdr = 0;
-+		result->is_key_frm = inst->vpu_inst.is_key_frm;
-+		break;
++	}
++	baseclk_idx = min(baseclk_idx, 15);
++	divisor = min(divisor, 32);
++	scl_low = min(divisor * 9 / 16 - 1, 15);
++	scl_high = (divisor - scl_low - 2) & GENMASK(3, 0);
++	data = (scl_high - 1) << 20 | scl_high << 16 | scl_low << 12 | baseclk_idx;
++	if (i2c_bus->timeout) {
++		data |= AST2600_I2CC_TOUTBASECLK(AST_I2C_TIMEOUT_CLK);
++		data |= AST2600_I2CC_TTIMEOUT(i2c_bus->timeout);
 +	}
 +
-+	default:
-+		mtk_venc_err(inst->ctx, "venc_opt %d not supported", opt);
-+		ret = -EINVAL;
-+		break;
++	return data;
++}
++
++static int ast2600_i2c_recover_bus(struct ast2600_i2c_bus *i2c_bus)
++{
++	u32 state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
++	int ret = 0;
++	u32 ctrl;
++	int r;
++
++	dev_dbg(i2c_bus->dev, "%d-bus recovery bus [%x]\n", i2c_bus->adap.nr, state);
++
++	ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++
++	/* Disable controller */
++	writel(ctrl & ~(AST2600_I2CC_MASTER_EN | AST2600_I2CC_SLAVE_EN),
++	       i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++
++	writel(readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL) | AST2600_I2CC_MASTER_EN,
++	       i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++
++	reinit_completion(&i2c_bus->cmd_complete);
++	i2c_bus->cmd_err = 0;
++
++	/* Check 0x14's SDA and SCL status */
++	state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
++	if (!(state & AST2600_I2CC_SDA_LINE_STS) && (state & AST2600_I2CC_SCL_LINE_STS)) {
++		writel(AST2600_I2CM_RECOVER_CMD_EN, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
++		r = wait_for_completion_timeout(&i2c_bus->cmd_complete, i2c_bus->adap.timeout);
++		if (r == 0) {
++			dev_dbg(i2c_bus->dev, "recovery timed out\n");
++			writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++			return -ETIMEDOUT;
++		} else if (i2c_bus->cmd_err) {
++			dev_dbg(i2c_bus->dev, "recovery error\n");
++			ret = -EPROTO;
++		}
 +	}
 +
-+encode_err:
-+	disable_irq(ctx->dev->enc_irq);
-+	mtk_venc_debug(ctx, "opt %d, return %d", opt, ret);
++	/* Recovery done */
++	state = readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
++	if (state & AST2600_I2CC_BUS_BUSY_STS) {
++		dev_dbg(i2c_bus->dev, "Can't recover bus [%x]\n", state);
++		ret = -EPROTO;
++	}
 +
++	/* restore original controller setting */
++	writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
 +	return ret;
 +}
 +
-+static int mtk_venc_mem_alloc(struct venc_inst *inst,
-+			      struct device *dev,
-+			      struct venc_work_buf *buf)
++static int ast2600_i2c_setup_dma_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
 +{
-+	dma_addr_t dma_addr;
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
++	int ret;
 +
-+	if (WARN_ON(!dev || !buf))
-+		return -EINVAL;
++	cmd |= AST2600_I2CM_PKT_EN;
 +
-+	if (buf->size == 0)
-+		return 0;
++	if (xfer_len > AST2600_I2C_DMA_SIZE)
++		xfer_len = AST2600_I2C_DMA_SIZE;
++	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
++		cmd |= AST2600_I2CM_STOP_CMD;
 +
-+	buf->va = dma_alloc_coherent(dev, buf->size, &dma_addr, GFP_KERNEL);
-+	if (!buf->va)
-+		return -ENOMEM;
++	if (cmd & AST2600_I2CM_START_CMD) {
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
++		if (xfer_len) {
++			i2c_bus->controller_dma_safe_buf = i2c_get_dma_safe_msg_buf(msg, 1);
++			if (!i2c_bus->controller_dma_safe_buf)
++				return -ENOMEM;
++			i2c_bus->controller_dma_addr =
++				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
++					       msg->len, DMA_TO_DEVICE);
++			ret = dma_mapping_error(i2c_bus->dev, i2c_bus->controller_dma_addr);
++			if (ret) {
++				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg,
++							 false);
++				i2c_bus->controller_dma_safe_buf = NULL;
++				return ret;
++			}
++		}
++	}
 +
-+	buf->iova = (unsigned long long)dma_addr;
++	if (xfer_len) {
++		cmd |= AST2600_I2CM_TX_DMA_EN | AST2600_I2CM_TX_CMD;
++		writel(AST2600_I2CM_SET_TX_DMA_LEN(xfer_len - 1),
++		       i2c_bus->reg_base + AST2600_I2CM_DMA_LEN);
++		writel(i2c_bus->controller_dma_addr + i2c_bus->controller_xfer_cnt,
++		       i2c_bus->reg_base + AST2600_I2CM_TX_DMA);
++	}
 +
-+	mtk_venc_debug(inst->ctx, "allocate buffer, size: %d, va: %p, iova: 0x%llx",
-+		       buf->size, buf->va, buf->iova);
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
 +
 +	return 0;
 +}
 +
-+static void mtk_venc_mem_free(struct venc_inst *inst,
-+			      struct device *dev,
-+			      struct venc_work_buf *buf)
++static int ast2600_i2c_setup_buff_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
 +{
-+	if (WARN_ON(!dev || !buf))
-+		return;
-+
-+	if (!buf->va)
-+		return;
-+
-+	mtk_venc_debug(inst->ctx, "free buffer, size: %d, va: %p, iova: 0x%llx",
-+		       buf->size, buf->va, buf->iova);
-+
-+	dma_free_coherent(dev, buf->size, buf->va, buf->iova);
-+	buf->va = NULL;
-+	buf->iova = 0;
-+	buf->size = 0;
-+}
-+
-+static void venc_free_rc_buf(struct venc_inst *inst,
-+			     struct venc_work_buf_list *bufs,
-+			     unsigned int core_num)
-+{
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
++	u32 wbuf_dword;
 +	int i;
-+	struct device *dev;
 +
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+	mtk_venc_mem_free(inst, dev, &bufs->rc_code);
++	cmd |= AST2600_I2CM_PKT_EN;
 +
-+	for (i = 0; i < core_num; i++)
-+		mtk_venc_mem_free(inst, dev, &bufs->rc_info[i]);
-+}
++	if (xfer_len > i2c_bus->buf_size)
++		xfer_len = i2c_bus->buf_size;
++	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
++		cmd |= AST2600_I2CM_STOP_CMD;
 +
-+static void venc_free_work_buf(struct venc_inst *inst)
-+{
-+	int i;
-+	struct venc_work_buf_list *bufs = &inst->vsi->bufs;
-+	unsigned int core_num = inst->vsi->config.core_num;
-+	unsigned int dpb_size = inst->vsi->config.dpb_size;
-+	struct device *dev;
++	if (cmd & AST2600_I2CM_START_CMD)
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
 +
-+	if (bufs->rc_code.va)
-+		venc_free_rc_buf(inst, bufs, core_num);
++	if (xfer_len) {
++		cmd |= AST2600_I2CM_TX_BUFF_EN | AST2600_I2CM_TX_CMD;
++		/*
++		 * The controller's buffer register supports dword writes only.
++		 * Therefore, write dwords to the buffer register in a 4-byte aligned,
++		 * and write the remaining unaligned data at the end.
++		 */
++		for (i = 0; i < xfer_len; i += 4) {
++			int xfer_cnt = i2c_bus->controller_xfer_cnt + i;
 +
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+
-+	for (i = 0; i < core_num; i++) {
-+		mtk_venc_mem_free(inst, dev, &bufs->wpp[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->wpp_nbm[i]);
++			switch (min(xfer_len - i, 4) % 4) {
++			case 1:
++				wbuf_dword = msg->buf[xfer_cnt];
++				break;
++			case 2:
++				wbuf_dword = get_unaligned_le16(&msg->buf[xfer_cnt]);
++				break;
++			case 3:
++				wbuf_dword = get_unaligned_le24(&msg->buf[xfer_cnt]);
++				break;
++			default:
++				wbuf_dword = get_unaligned_le32(&msg->buf[xfer_cnt]);
++				break;
++			}
++			writel(wbuf_dword, i2c_bus->buf_base + i);
++		}
++		writel(AST2600_I2CC_SET_TX_BUF_LEN(xfer_len),
++		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
 +	}
 +
-+	for (i = 0; i < dpb_size; i++) {
-+		mtk_venc_mem_free(inst, dev, &bufs->luma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->chroma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->sub_luma[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->sub_write[i]);
-+		mtk_venc_mem_free(inst, dev, &bufs->col_mv[i]);
-+	}
-+
-+	if (inst->pps_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->pps_buf);
-+
-+	if (inst->seq_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->seq_buf);
-+}
-+
-+static int venc_alloc_rc_buf(struct venc_inst *inst,
-+			     struct venc_work_buf_list *bufs,
-+			     unsigned int core_num)
-+{
-+	int i;
-+	struct mtk_vcodec_fw *fw = inst->ctx->dev->fw_handler;
-+	struct device *dev;
-+	void *tmp_va;
-+
-+	dev = &inst->ctx->dev->plat_dev->dev;
-+	if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_code))
-+		return -ENOMEM;
-+
-+	tmp_va = mtk_vcodec_fw_map_dm_addr(fw, bufs->rc_code.pa);
-+	memcpy(bufs->rc_code.va, tmp_va, bufs->rc_code.size);
-+
-+	for (i = 0; i < core_num; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->rc_info[i]))
-+			goto err_rc_buf;
-+	}
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
 +
 +	return 0;
-+
-+err_rc_buf:
-+	venc_free_rc_buf(inst, bufs, core_num);
-+
-+	return -ENOMEM;
 +}
 +
-+static int venc_alloc_work_buf(struct venc_inst *inst)
++static int ast2600_i2c_setup_byte_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
 +{
-+	int i, ret;
-+	struct venc_work_buf_list *bufs = &inst->vsi->bufs;
-+	unsigned int core_num = inst->vsi->config.core_num;
-+	unsigned int dpb_size = inst->vsi->config.dpb_size;
-+	struct device *dev;
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len;
 +
-+	if (bufs->rc_code.size != 0) {
-+		ret = venc_alloc_rc_buf(inst, bufs, core_num);
++	xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
++
++	cmd |= AST2600_I2CM_PKT_EN;
++
++	if (cmd & AST2600_I2CM_START_CMD)
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
++
++	if ((i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) &&
++	    ((i2c_bus->controller_xfer_cnt + 1) == msg->len))
++		cmd |= AST2600_I2CM_STOP_CMD;
++
++	if (xfer_len) {
++		cmd |= AST2600_I2CM_TX_CMD;
++		writel(msg->buf[i2c_bus->controller_xfer_cnt],
++		       i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF);
++	}
++
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
++
++	return 0;
++}
++
++static int ast2600_i2c_setup_dma_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
++{
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
++	int ret;
++
++	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_DMA_EN | AST2600_I2CM_RX_CMD;
++
++	if (msg->flags & I2C_M_RECV_LEN)
++		xfer_len = 1;
++	else if (xfer_len > AST2600_I2C_DMA_SIZE)
++		xfer_len = AST2600_I2C_DMA_SIZE;
++	else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count)
++		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
++
++	writel(AST2600_I2CM_SET_RX_DMA_LEN(xfer_len - 1), i2c_bus->reg_base + AST2600_I2CM_DMA_LEN);
++
++	if (cmd & AST2600_I2CM_START_CMD) {
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
++		i2c_bus->controller_dma_safe_buf = i2c_get_dma_safe_msg_buf(msg, 1);
++		if (!i2c_bus->controller_dma_safe_buf)
++			return -ENOMEM;
++		if (msg->flags & I2C_M_RECV_LEN)
++			i2c_bus->controller_dma_addr =
++				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
++					       I2C_SMBUS_BLOCK_MAX + 3, DMA_FROM_DEVICE);
++		else
++			i2c_bus->controller_dma_addr =
++				dma_map_single(i2c_bus->dev, i2c_bus->controller_dma_safe_buf,
++					       msg->len, DMA_FROM_DEVICE);
++		ret = dma_mapping_error(i2c_bus->dev, i2c_bus->controller_dma_addr);
 +		if (ret) {
-+			mtk_venc_err(inst->ctx, "cannot allocate rc buf");
++			i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg, false);
++			i2c_bus->controller_dma_safe_buf = NULL;
 +			return -ENOMEM;
 +		}
 +	}
++	writel(i2c_bus->controller_dma_addr, i2c_bus->reg_base + AST2600_I2CM_RX_DMA);
 +
-+	dev = &inst->ctx->dev->plat_dev->dev;
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
 +
-+	for (i = 0; i < core_num; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->wpp[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->wpp_nbm[i]))
-+			goto err_alloc;
-+	}
-+
-+	for (i = 0; i < dpb_size; i++) {
-+		if (mtk_venc_mem_alloc(inst, dev, &bufs->luma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->chroma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->sub_luma[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->sub_write[i]) ||
-+		    mtk_venc_mem_alloc(inst, dev, &bufs->col_mv[i]))
-+			goto err_alloc;
-+	}
-+
-+	/* the pps_buf and seq_buf are used by AP side only */
-+	inst->pps_buf.size = PPS_SIZE;
-+	ret = mtk_vcodec_mem_alloc(inst->ctx, &inst->pps_buf);
-+	if (ret) {
-+		mtk_venc_err(inst->ctx, "cannot allocate pps_buf");
-+		goto err_alloc;
-+	}
-+
-+	inst->seq_buf.size = SEQ_HEADER_SIZE;
-+	ret = mtk_vcodec_mem_alloc(inst->ctx, &inst->seq_buf);
-+	if (ret) {
-+		mtk_venc_err(inst->ctx, "cannot allocate seq_buf");
-+		goto err_alloc;
-+	}
 +	return 0;
-+
-+err_alloc:
-+	venc_free_work_buf(inst);
-+	return -ENOMEM;
 +}
 +
-+static int venc_set_param(void *handle,
-+			  enum venc_set_param_type type,
-+			  struct venc_enc_param *enc_prm)
++static int ast2600_i2c_setup_buff_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
 +{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len = msg->len - i2c_bus->controller_xfer_cnt;
 +
-+	switch (type) {
-+	case VENC_SET_PARAM_ENC:
-+		if (WARN_ON(!inst->vsi))
-+			return -EINVAL;
-+		inst->vsi->config.input_fourcc = enc_prm->input_yuv_fmt;
-+		inst->vsi->config.bitrate = enc_prm->bitrate;
-+		inst->vsi->config.pic_w = enc_prm->width;
-+		inst->vsi->config.pic_h = enc_prm->height;
-+		inst->vsi->config.buf_w = enc_prm->buf_width;
-+		inst->vsi->config.buf_h = enc_prm->buf_height;
-+		inst->vsi->config.gop_size = enc_prm->gop_size;
-+		inst->vsi->config.framerate = enc_prm->frm_rate;
-+		inst->vsi->config.intra_period = enc_prm->intra_period;
-+		inst->vsi->config.profile = enc_prm->profile;
-+		inst->vsi->config.level = enc_prm->level;
++	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_BUFF_EN | AST2600_I2CM_RX_CMD;
 +
-+		ret = vpu_enc_set_param(&inst->vpu_inst, type, enc_prm);
-+		if (ret)
-+			break;
++	if (cmd & AST2600_I2CM_START_CMD)
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
 +
-+		if (inst->work_buf_allocated) {
-+			venc_free_work_buf(inst);
-+			inst->work_buf_allocated = false;
-+		}
-+		ret = venc_alloc_work_buf(inst);
-+		if (ret)
-+			break;
-+		inst->work_buf_allocated = true;
++	if (msg->flags & I2C_M_RECV_LEN) {
++		dev_dbg(i2c_bus->dev, "smbus read\n");
++		xfer_len = 1;
++	} else if (xfer_len > i2c_bus->buf_size) {
++		xfer_len = i2c_bus->buf_size;
++	} else if (i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) {
++		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
++	}
++	writel(AST2600_I2CC_SET_RX_BUF_LEN(xfer_len), i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
++
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
++
++	return 0;
++}
++
++static int ast2600_i2c_setup_byte_rx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
++{
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++
++	cmd |= AST2600_I2CM_PKT_EN | AST2600_I2CM_RX_CMD;
++
++	if (cmd & AST2600_I2CM_START_CMD)
++		cmd |= AST2600_I2CM_PKT_ADDR(msg->addr);
++
++	if (msg->flags & I2C_M_RECV_LEN) {
++		dev_dbg(i2c_bus->dev, "smbus read\n");
++	} else if ((i2c_bus->msgs_index + 1 == i2c_bus->msgs_count) &&
++		   ((i2c_bus->controller_xfer_cnt + 1) == msg->len)) {
++		cmd |= CONTROLLER_TRIGGER_LAST_STOP;
++	}
++
++	writel(cmd, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
++
++	return 0;
++}
++
++static int ast2600_i2c_do_start(struct ast2600_i2c_bus *i2c_bus)
++{
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++
++	/* send start */
++	dev_dbg(i2c_bus->dev, "[%d] %s %d byte%s %s 0x%02x\n",
++		i2c_bus->msgs_index, str_read_write(msg->flags & I2C_M_RD),
++		msg->len, str_plural(msg->len),
++		msg->flags & I2C_M_RD ? "from" : "to", msg->addr);
++
++	i2c_bus->controller_xfer_cnt = 0;
++	i2c_bus->buf_index = 0;
++
++	if (msg->flags & I2C_M_RD) {
++		if (i2c_bus->mode == DMA_MODE)
++			return ast2600_i2c_setup_dma_rx(AST2600_I2CM_START_CMD, i2c_bus);
++		else if (i2c_bus->mode == BUFF_MODE)
++			return ast2600_i2c_setup_buff_rx(AST2600_I2CM_START_CMD, i2c_bus);
++		else
++			return ast2600_i2c_setup_byte_rx(AST2600_I2CM_START_CMD, i2c_bus);
++	} else {
++		if (i2c_bus->mode == DMA_MODE)
++			return ast2600_i2c_setup_dma_tx(AST2600_I2CM_START_CMD, i2c_bus);
++		else if (i2c_bus->mode == BUFF_MODE)
++			return ast2600_i2c_setup_buff_tx(AST2600_I2CM_START_CMD, i2c_bus);
++		else
++			return ast2600_i2c_setup_byte_tx(AST2600_I2CM_START_CMD, i2c_bus);
++	}
++}
++
++static int ast2600_i2c_irq_err_to_errno(u32 irq_status)
++{
++	if (irq_status & AST2600_I2CM_ARBIT_LOSS)
++		return -EAGAIN;
++	if (irq_status & (AST2600_I2CM_SDA_DL_TO | AST2600_I2CM_SCL_LOW_TO))
++		return -EBUSY;
++	if (irq_status & (AST2600_I2CM_ABNORMAL))
++		return -EPROTO;
++
++	return 0;
++}
++
++static void ast2600_i2c_controller_package_irq(struct ast2600_i2c_bus *i2c_bus, u32 sts)
++{
++	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++	int xfer_len;
++	int i;
++
++	sts &= ~AST2600_I2CM_PKT_DONE;
++	writel(AST2600_I2CM_PKT_DONE, i2c_bus->reg_base + AST2600_I2CM_ISR);
++	switch (sts) {
++	case AST2600_I2CM_PKT_ERROR:
++		i2c_bus->cmd_err = -EAGAIN;
++		complete(&i2c_bus->cmd_complete);
 +		break;
-+	case VENC_SET_PARAM_PREPEND_HEADER:
-+		inst->prepend_hdr = 1;
++	case AST2600_I2CM_PKT_ERROR | AST2600_I2CM_TX_NAK: /* a0 fix for issue */
++		fallthrough;
++	case AST2600_I2CM_PKT_ERROR | AST2600_I2CM_TX_NAK | AST2600_I2CM_NORMAL_STOP:
++		i2c_bus->cmd_err = -ENXIO;
++		complete(&i2c_bus->cmd_complete);
++		break;
++	case AST2600_I2CM_NORMAL_STOP:
++		/* write 0 byte only have stop isr */
++		i2c_bus->msgs_index++;
++		if (i2c_bus->msgs_index < i2c_bus->msgs_count) {
++			if (ast2600_i2c_do_start(i2c_bus)) {
++				i2c_bus->cmd_err = -ENOMEM;
++				complete(&i2c_bus->cmd_complete);
++			}
++		} else {
++			i2c_bus->cmd_err = i2c_bus->msgs_index;
++			complete(&i2c_bus->cmd_complete);
++		}
++		break;
++	case AST2600_I2CM_TX_ACK:
++	case AST2600_I2CM_TX_ACK | AST2600_I2CM_NORMAL_STOP:
++		if (i2c_bus->mode == DMA_MODE)
++			xfer_len = AST2600_I2C_GET_TX_DMA_LEN(readl(i2c_bus->reg_base +
++							  AST2600_I2CM_DMA_LEN_STS));
++		else if (i2c_bus->mode == BUFF_MODE)
++			xfer_len = AST2600_I2CC_GET_TX_BUF_LEN(readl(i2c_bus->reg_base +
++							   AST2600_I2CC_BUFF_CTRL));
++		else
++			xfer_len = 1;
++
++		i2c_bus->controller_xfer_cnt += xfer_len;
++
++		if (i2c_bus->controller_xfer_cnt == msg->len) {
++			if (i2c_bus->mode == DMA_MODE) {
++				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
++						 msg->len, DMA_TO_DEVICE);
++				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg,
++							 true);
++				i2c_bus->controller_dma_safe_buf = NULL;
++			}
++			i2c_bus->msgs_index++;
++			if (i2c_bus->msgs_index == i2c_bus->msgs_count) {
++				i2c_bus->cmd_err = i2c_bus->msgs_index;
++				complete(&i2c_bus->cmd_complete);
++			} else {
++				if (ast2600_i2c_do_start(i2c_bus)) {
++					i2c_bus->cmd_err = -ENOMEM;
++					complete(&i2c_bus->cmd_complete);
++				}
++			}
++		} else {
++			if (i2c_bus->mode == DMA_MODE)
++				ast2600_i2c_setup_dma_tx(0, i2c_bus);
++			else if (i2c_bus->mode == BUFF_MODE)
++				ast2600_i2c_setup_buff_tx(0, i2c_bus);
++			else
++				ast2600_i2c_setup_byte_tx(0, i2c_bus);
++		}
++		break;
++	case AST2600_I2CM_RX_DONE:
++	case AST2600_I2CM_RX_DONE | AST2600_I2CM_NORMAL_STOP:
++		/* do next rx */
++		if (i2c_bus->mode == DMA_MODE) {
++			xfer_len = AST2600_I2C_GET_RX_DMA_LEN(readl(i2c_bus->reg_base +
++								    AST2600_I2CM_DMA_LEN_STS));
++		} else if (i2c_bus->mode == BUFF_MODE) {
++			xfer_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
++								     AST2600_I2CC_BUFF_CTRL));
++			for (i = 0; i < xfer_len; i++)
++				msg->buf[i2c_bus->controller_xfer_cnt + i] =
++					readb(i2c_bus->buf_base + 0x10 + i);
++		} else {
++			xfer_len = 1;
++			msg->buf[i2c_bus->controller_xfer_cnt] =
++				AST2600_I2CC_GET_RX_BUFF(readl(i2c_bus->reg_base +
++						     AST2600_I2CC_STS_AND_BUFF));
++		}
++
++		if (msg->flags & I2C_M_RECV_LEN) {
++			u8 recv_len = AST2600_I2CC_GET_RX_BUFF(readl(i2c_bus->reg_base
++						       + AST2600_I2CC_STS_AND_BUFF));
++			msg->len = min_t(unsigned int, recv_len, I2C_SMBUS_BLOCK_MAX);
++			msg->len += ((msg->flags & I2C_CLIENT_PEC) ? 2 : 1);
++			msg->flags &= ~I2C_M_RECV_LEN;
++			if (!recv_len)
++				i2c_bus->controller_xfer_cnt = 0;
++			else
++				i2c_bus->controller_xfer_cnt = 1;
++		} else {
++			i2c_bus->controller_xfer_cnt += xfer_len;
++		}
++
++		if (i2c_bus->controller_xfer_cnt == msg->len) {
++			if (i2c_bus->mode == DMA_MODE) {
++				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
++						 msg->len, DMA_FROM_DEVICE);
++				i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf,
++							 msg, true);
++				i2c_bus->controller_dma_safe_buf = NULL;
++			}
++
++			i2c_bus->msgs_index++;
++			if (i2c_bus->msgs_index == i2c_bus->msgs_count) {
++				i2c_bus->cmd_err = i2c_bus->msgs_index;
++				complete(&i2c_bus->cmd_complete);
++			} else {
++				if (ast2600_i2c_do_start(i2c_bus)) {
++					i2c_bus->cmd_err = -ENOMEM;
++					complete(&i2c_bus->cmd_complete);
++				}
++			}
++		} else {
++			if (i2c_bus->mode == DMA_MODE)
++				ast2600_i2c_setup_dma_rx(0, i2c_bus);
++			else if (i2c_bus->mode == BUFF_MODE)
++				ast2600_i2c_setup_buff_rx(0, i2c_bus);
++			else
++				ast2600_i2c_setup_byte_rx(0, i2c_bus);
++		}
 +		break;
 +	default:
-+		ret = vpu_enc_set_param(&inst->vpu_inst, type, enc_prm);
++		dev_dbg(i2c_bus->dev, "unhandled sts %x\n", sts);
 +		break;
++	}
++}
++
++static int ast2600_i2c_controller_irq(struct ast2600_i2c_bus *i2c_bus)
++{
++	u32 sts = readl(i2c_bus->reg_base + AST2600_I2CM_ISR);
++	u32 ctrl;
++
++	sts &= ~AST2600_I2CM_SMBUS_ALT;
++
++	if (AST2600_I2CM_BUS_RECOVER_FAIL & sts) {
++		writel(AST2600_I2CM_BUS_RECOVER_FAIL, i2c_bus->reg_base + AST2600_I2CM_ISR);
++		ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++		writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++		writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++		i2c_bus->cmd_err = -EPROTO;
++		complete(&i2c_bus->cmd_complete);
++		return 1;
++	}
++
++	if (AST2600_I2CM_BUS_RECOVER & sts) {
++		writel(AST2600_I2CM_BUS_RECOVER, i2c_bus->reg_base + AST2600_I2CM_ISR);
++		i2c_bus->cmd_err = 0;
++		complete(&i2c_bus->cmd_complete);
++		return 1;
++	}
++
++	i2c_bus->cmd_err = ast2600_i2c_irq_err_to_errno(sts);
++	if (i2c_bus->cmd_err) {
++		writel(AST2600_I2CM_PKT_DONE, i2c_bus->reg_base + AST2600_I2CM_ISR);
++		complete(&i2c_bus->cmd_complete);
++		return 1;
++	}
++
++	if (AST2600_I2CM_PKT_DONE & sts) {
++		ast2600_i2c_controller_package_irq(i2c_bus, sts);
++		return 1;
++	}
++
++	return 0;
++}
++
++static irqreturn_t ast2600_i2c_bus_irq(int irq, void *dev_id)
++{
++	struct ast2600_i2c_bus *i2c_bus = dev_id;
++
++	return IRQ_RETVAL(ast2600_i2c_controller_irq(i2c_bus));
++}
++
++static int ast2600_i2c_controller_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
++{
++	struct ast2600_i2c_bus *i2c_bus = i2c_get_adapdata(adap);
++	unsigned long timeout;
++	int ret;
++
++	if (!i2c_bus->multi_master &&
++	    (readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF) & AST2600_I2CC_BUS_BUSY_STS)) {
++		ret = ast2600_i2c_recover_bus(i2c_bus);
++		if (ret)
++			return ret;
++	}
++
++	i2c_bus->cmd_err = 0;
++	i2c_bus->msgs = msgs;
++	i2c_bus->msgs_index = 0;
++	i2c_bus->msgs_count = num;
++	reinit_completion(&i2c_bus->cmd_complete);
++	ret = ast2600_i2c_do_start(i2c_bus);
++	if (ret)
++		goto controller_out;
++	timeout = wait_for_completion_timeout(&i2c_bus->cmd_complete, i2c_bus->adap.timeout);
++	if (timeout == 0) {
++		u32 ctrl = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++
++		dev_dbg(i2c_bus->dev, "timeout isr[%x], sts[%x]\n",
++			readl(i2c_bus->reg_base + AST2600_I2CM_ISR),
++			readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF));
++		writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++		writel(ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++
++		if (i2c_bus->multi_master &&
++		    (readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF) &
++		    AST2600_I2CC_BUS_BUSY_STS))
++			ast2600_i2c_recover_bus(i2c_bus);
++
++		ret = -ETIMEDOUT;
++	} else {
++		ret = i2c_bus->cmd_err;
++	}
++
++	dev_dbg(i2c_bus->dev, "bus%d-m: %d end\n", i2c_bus->adap.nr, i2c_bus->cmd_err);
++
++controller_out:
++	if (i2c_bus->mode == DMA_MODE) {
++		if (i2c_bus->controller_dma_safe_buf) {
++			struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
++
++			if (msg->flags & I2C_M_RD)
++				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
++						 msg->len, DMA_FROM_DEVICE);
++			else
++				dma_unmap_single(i2c_bus->dev, i2c_bus->controller_dma_addr,
++						 msg->len, DMA_TO_DEVICE);
++			i2c_put_dma_safe_msg_buf(i2c_bus->controller_dma_safe_buf, msg, true);
++			i2c_bus->controller_dma_safe_buf = NULL;
++		}
 +	}
 +
 +	return ret;
 +}
 +
-+static int venc_deinit(void *handle)
++static void ast2600_i2c_init(struct ast2600_i2c_bus *i2c_bus)
 +{
-+	int ret = 0;
-+	struct venc_inst *inst = (struct venc_inst *)handle;
++	struct platform_device *pdev = to_platform_device(i2c_bus->dev);
++	u32 fun_ctrl = AST2600_I2CC_BUS_AUTO_RELEASE | AST2600_I2CC_MASTER_EN;
 +
-+	ret = vpu_enc_deinit(&inst->vpu_inst);
++	/* I2C Reset */
++	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
 +
-+	if (inst->work_buf_allocated)
-+		venc_free_work_buf(inst);
++	i2c_bus->multi_master = device_property_read_bool(&pdev->dev, "multi-master");
++	if (!i2c_bus->multi_master)
++		fun_ctrl |= AST2600_I2CC_MULTI_MASTER_DIS;
 +
-+	kfree(inst);
++	/* Enable Controller Mode */
++	writel(fun_ctrl, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++	/* disable target address */
++	writel(0, i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
 +
-+	return ret;
++	/* Set AC Timing */
++	writel(ast2600_select_i2c_clock(i2c_bus), i2c_bus->reg_base + AST2600_I2CC_AC_TIMING);
++
++	/* Clear Interrupt */
++	writel(GENMASK(27, 0), i2c_bus->reg_base + AST2600_I2CM_ISR);
 +}
 +
-+const struct venc_common_if venc_if = {
-+	.init = venc_init,
-+	.encode = venc_encode,
-+	.set_param = venc_set_param,
-+	.deinit = venc_deinit,
++static u32 ast2600_i2c_functionality(struct i2c_adapter *adap)
++{
++	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL | I2C_FUNC_SMBUS_BLOCK_DATA;
++}
++
++static const struct i2c_algorithm i2c_ast2600_algorithm = {
++	.xfer = ast2600_i2c_controller_xfer,
++	.functionality = ast2600_i2c_functionality,
 +};
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-index 0f63657d8bad..4160dc995806 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/venc/venc_h264_if.c
-@@ -723,9 +723,9 @@ static void h264_enc_set_vsi_configs(struct venc_h264_inst *inst,
- 	inst->vsi->config.framerate = enc_prm->frm_rate;
- 	inst->vsi->config.intra_period = enc_prm->intra_period;
- 	inst->vsi->config.profile =
--		h264_get_profile(inst, enc_prm->h264_profile);
-+		h264_get_profile(inst, enc_prm->profile);
- 	inst->vsi->config.level =
--		h264_get_level(inst, enc_prm->h264_level);
-+		h264_get_level(inst, enc_prm->level);
- 	inst->vsi->config.wfd = 0;
- }
- 
-@@ -742,9 +742,9 @@ static void h264_enc_set_vsi_34_configs(struct venc_h264_inst *inst,
- 	inst->vsi_34->config.framerate = enc_prm->frm_rate;
- 	inst->vsi_34->config.intra_period = enc_prm->intra_period;
- 	inst->vsi_34->config.profile =
--		h264_get_profile(inst, enc_prm->h264_profile);
-+		h264_get_profile(inst, enc_prm->profile);
- 	inst->vsi_34->config.level =
--		h264_get_level(inst, enc_prm->h264_level);
-+		h264_get_level(inst, enc_prm->level);
- 	inst->vsi_34->config.wfd = 0;
- }
- 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h b/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-index 889440a436b6..3c2a1b5e9312 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_drv_if.h
-@@ -66,8 +66,8 @@ enum venc_set_param_type {
-  * struct venc_enc_prm - encoder settings for VENC_SET_PARAM_ENC used in
-  *					  venc_if_set_param()
-  * @input_fourcc: input yuv format
-- * @h264_profile: V4L2 defined H.264 profile
-- * @h264_level: V4L2 defined H.264 level
-+ * @profile: V4L2 defined profile
-+ * @level: V4L2 defined level
-  * @width: image width
-  * @height: image height
-  * @buf_width: buffer width
-@@ -79,8 +79,8 @@ enum venc_set_param_type {
-  */
- struct venc_enc_param {
- 	enum venc_yuv_fmt input_yuv_fmt;
--	unsigned int h264_profile;
--	unsigned int h264_level;
-+	unsigned int profile;
-+	unsigned int level;
- 	unsigned int width;
- 	unsigned int height;
- 	unsigned int buf_width;
-@@ -107,9 +107,11 @@ struct venc_frame_info {
- /*
-  * struct venc_frm_buf - frame buffer information used in venc_if_encode()
-  * @fb_addr: plane frame buffer addresses
-+ * @num_planes: number of planes
-  */
- struct venc_frm_buf {
- 	struct mtk_vcodec_fb fb_addr[MTK_VCODEC_MAX_PLANES];
-+	unsigned int num_planes;
- };
- 
- /*
-@@ -124,6 +126,7 @@ struct venc_done_result {
- 
- extern const struct venc_common_if venc_h264_if;
- extern const struct venc_common_if venc_vp8_if;
-+extern const struct venc_common_if venc_if;
- 
- /*
-  * venc_if_init - Create the driver handle
++
++static int ast2600_i2c_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct ast2600_i2c_bus *i2c_bus;
++	const char *xfer_mode;
++	struct resource *res;
++	u32 global_ctrl;
++	int ret;
++
++	i2c_bus = devm_kzalloc(dev, sizeof(*i2c_bus), GFP_KERNEL);
++	if (!i2c_bus)
++		return -ENOMEM;
++
++	i2c_bus->reg_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(i2c_bus->reg_base))
++		return PTR_ERR(i2c_bus->reg_base);
++
++	i2c_bus->rst = devm_reset_control_get_shared(dev, NULL);
++	if (IS_ERR(i2c_bus->rst))
++		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n");
++
++	i2c_bus->rst = devm_reset_control_get_shared_deasserted(dev, NULL);
++	if (IS_ERR(i2c_bus->rst))
++		return dev_err_probe(dev, PTR_ERR(i2c_bus->rst), "Missing reset ctrl\n");
++
++	i2c_bus->global_regs =
++		syscon_regmap_lookup_by_phandle(dev_of_node(dev), "aspeed,global-regs");
++	if (IS_ERR(i2c_bus->global_regs))
++		return PTR_ERR(i2c_bus->global_regs);
++
++	regmap_read(i2c_bus->global_regs, AST2600_I2CG_CTRL, &global_ctrl);
++	if ((global_ctrl & AST2600_GLOBAL_INIT) != AST2600_GLOBAL_INIT) {
++		regmap_write(i2c_bus->global_regs, AST2600_I2CG_CTRL, AST2600_GLOBAL_INIT);
++		regmap_write(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, I2CCG_DIV_CTRL);
++	}
++
++	i2c_bus->dev = dev;
++	i2c_bus->mode = BUFF_MODE;
++	if (!device_property_read_string(dev, "aspeed,transfer-mode", &xfer_mode)) {
++		if (!strcmp(xfer_mode, "dma"))
++			i2c_bus->mode = DMA_MODE;
++		else if (!strcmp(xfer_mode, "byte"))
++			i2c_bus->mode = BYTE_MODE;
++		else
++			i2c_bus->mode = BUFF_MODE;
++	}
++
++	if (i2c_bus->mode == BUFF_MODE) {
++		i2c_bus->buf_base = devm_platform_get_and_ioremap_resource(pdev, 1, &res);
++		if (IS_ERR(i2c_bus->buf_base))
++			i2c_bus->mode = BYTE_MODE;
++		else
++			i2c_bus->buf_size = resource_size(res) / 2;
++	}
++
++	/*
++	 * i2c timeout counter: use base clk4 1Mhz,
++	 * per unit: 1/(1000/1024) = 1024us
++	 */
++	ret = device_property_read_u32(dev, "i2c-scl-clk-low-timeout-us", &i2c_bus->timeout);
++	if (!ret)
++		i2c_bus->timeout /= 1024;
++
++	init_completion(&i2c_bus->cmd_complete);
++
++	i2c_bus->irq = platform_get_irq(pdev, 0);
++	if (i2c_bus->irq < 0)
++		return i2c_bus->irq;
++
++	platform_set_drvdata(pdev, i2c_bus);
++
++	i2c_bus->clk = devm_clk_get(i2c_bus->dev, NULL);
++	if (IS_ERR(i2c_bus->clk))
++		return dev_err_probe(i2c_bus->dev, PTR_ERR(i2c_bus->clk), "Can't get clock\n");
++
++	i2c_bus->apb_clk = clk_get_rate(i2c_bus->clk);
++
++	i2c_parse_fw_timings(i2c_bus->dev, &i2c_bus->timing_info, true);
++
++	/* Initialize the I2C adapter */
++	i2c_bus->adap.owner = THIS_MODULE;
++	i2c_bus->adap.algo = &i2c_ast2600_algorithm;
++	i2c_bus->adap.retries = 0;
++	i2c_bus->adap.dev.parent = i2c_bus->dev;
++	device_set_node(&i2c_bus->adap.dev, dev_fwnode(dev));
++	i2c_bus->adap.algo_data = i2c_bus;
++	strscpy(i2c_bus->adap.name, pdev->name);
++	i2c_set_adapdata(&i2c_bus->adap, i2c_bus);
++
++	ast2600_i2c_init(i2c_bus);
++
++	ret = devm_request_irq(dev, i2c_bus->irq, ast2600_i2c_bus_irq, 0,
++			       dev_name(dev), i2c_bus);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "Unable to request irq %d\n", i2c_bus->irq);
++
++	writel(AST2600_I2CM_PKT_DONE | AST2600_I2CM_BUS_RECOVER,
++	       i2c_bus->reg_base + AST2600_I2CM_IER);
++
++	ret = devm_i2c_add_adapter(dev, &i2c_bus->adap);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static void ast2600_i2c_remove(struct platform_device *pdev)
++{
++	struct ast2600_i2c_bus *i2c_bus = platform_get_drvdata(pdev);
++
++	/* Disable everything. */
++	writel(0, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
++	writel(0, i2c_bus->reg_base + AST2600_I2CM_IER);
++	reset_control_assert(i2c_bus->rst);
++}
++
++static const struct of_device_id ast2600_i2c_bus_of_table[] = {
++	{
++		.compatible = "aspeed,ast2600-i2c-bus",
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(of, ast2600_i2c_bus_of_table);
++
++static struct platform_driver ast2600_i2c_bus_driver = {
++	.probe = ast2600_i2c_probe,
++	.remove = ast2600_i2c_remove,
++	.driver = {
++		.name = KBUILD_MODNAME,
++		.of_match_table = ast2600_i2c_bus_of_table,
++	},
++};
++
++module_platform_driver(ast2600_i2c_bus_driver);
++
++MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
++MODULE_DESCRIPTION("ASPEED AST2600 I2C Controller Driver");
++MODULE_LICENSE("GPL");
 -- 
-2.46.0
+2.34.1
 
 
