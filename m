@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0D9CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC83CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 16:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yb3iMcqEfAjeD1qcIrxjbGmbzpQ4JVCq2AuCsZriloY=; b=3bzN4kdCKkWKwxq03WM98/2b5p
-	NQpA0flsP4Qkh3fCDGUUi4YSOCpNPVqOc0wBOK/p55c1KRHTg2NjBPidASnX9S7RqzlsJUGH/orQR
-	aXSzKY9P3bQ1DhjOOZJx5/K2oFc46NTYH17rbhIgsM1aHu5IbNH2hFCPxMLKqXgZ2G0kfTY9eKq/t
-	G/gMyOQXtID4VcjDJkyV59HZMmVZKKSQM/M3sMVd1Emh3Akqo3pI8Bkjsq8DNeU7e+O/+t36+igLh
-	A0tS7MQeUceUOiNE5TYe9dQC9tw1hByKNyzmwHNkWEI7POdZwW9iNGnnBC0zFsX1r2KHvAmDX/o/B
-	exrOPQiQ==;
+	bh=JFrQJzmg8Zgzx93on0sdS3XZl9D0t9ynDO/E9zD8E+0=; b=mQTN1MZQ2KE3HWbR3Y4x37+5PQ
+	bv/aiFOuXj5g2ZADz9f6M5y7Cue4JepkPkeThayfHQpmYXua0GDCTTSJmBvC59aCv640YbcuJooxi
+	uD5uuqPO8WKnY0k12F4pWkTStidQFf6vEkH1ovcTTds/bbLQjLVelYsUP4GhUGSV8DsORangBFQkU
+	o4a9Clg2W6aezfatQEamVpjF8pP0LiRaomaokJNJiyLEQmLAFylMVDWO5R4wTjPyxPKfTARakh4YT
+	4+ptt9i5ojZmjpyT/zDKsTw/StEY35La+px34eOBPW3MtF7CyZqiI1hjAYhM21UJaQgNYRGlsxcPy
+	52WrnGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umacW-000000000R4-1rwD;
-	Thu, 14 Aug 2025 16:16:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1umacT-000000000Lz-1ivE;
+	Thu, 14 Aug 2025 16:16:01 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umZmE-0000000HQ4Y-0vcg
+	id 1umYTo-0000000H8a1-2Zyn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 15:22:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E0193450A0;
-	Thu, 14 Aug 2025 15:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6983DC4CEEF;
-	Thu, 14 Aug 2025 15:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755184919;
-	bh=jnYozd3vWL8E5iUlI97XyQZtx57KDI/7g/iBSexDyDg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n5GBarMuVEM/72tqKNvIlO2TVy4/oRNZ/7VGEr3DNJemfXy6nbqtUVMLP1lg+t0Va
-	 Dt5eD2GG2iiFND/6gVywDZoLB+uJc1CDErkXS1CTygzVKujAk79PPwSvJXHeZBQsmm
-	 2Z2HvWFxqhj/reW0K3z5IDPJBMBod/GSVXoti8PpVgNkg1xy04FZFbNAcPPqIbz5JR
-	 SAFTgs48ksxtoY54hQMXlnVDSdMvtJp183aZhjnRrEBkgy0s2dPwIpHRLg4FHvEE8x
-	 G1VAJV40F5VGFGRQSAh0zhe0wKMWN62+pXLZ36UzAtlxH52lwZ1IVAyI6WrIyTa4f3
-	 1tEOkhhLDa4lQ==
-From: Niklas Cassel <cassel@kernel.org>
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
+	Thu, 14 Aug 2025 13:58:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DE16744438;
+	Thu, 14 Aug 2025 13:58:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1755179935;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JFrQJzmg8Zgzx93on0sdS3XZl9D0t9ynDO/E9zD8E+0=;
+	b=iFHHqaTLUCEU3x9bG4wp5UHOanYImnX4sSArM6/GCbVEiRLt1Mmh7hi8HP7/4lJ7WOmNSR
+	RV15QLnnhZcMyrCGsD2UU0D2OTmGslJ0eu5pEoh5JiZPmTcFw6vNxg/ZAB9ePXmEqENtfx
+	dl83e0r09sB93HAiCNg93t+IvTyRYolWGneoKrIqAoHO2k48bx5j1eOjIQmSNRzLK8Ib4Z
+	BOU0mJIftwVpkZdHpsO8wOBZstPE3zAgjnypmnqgzdgZ8SeD0FD9Qzhp/MIh5HQbLSsX7x
+	kZX28JoVpCJCwwUhF2ouYQu6uJuh9X7WOCT9Ym3lZoEs4h92fT5OXbimpeolmg==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Niklas Cassel <cassel@kernel.org>,
-	linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 04/13] PCI: dra7xx: Drop superfluous pci_epc_features initialization
-Date: Thu, 14 Aug 2025 17:21:23 +0200
-Message-ID: <20250814152119.1562063-19-cassel@kernel.org>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250814152119.1562063-15-cassel@kernel.org>
-References: <20250814152119.1562063-15-cassel@kernel.org>
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: [PATCH net-next v11 09/16] net: phy: marvell-88x2222: Support SFP through phy_port interface
+Date: Thu, 14 Aug 2025 15:58:24 +0200
+Message-ID: <20250814135832.174911-10-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
+References: <20250814135832.174911-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=838; i=cassel@kernel.org; h=from:subject; bh=jnYozd3vWL8E5iUlI97XyQZtx57KDI/7g/iBSexDyDg=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDLm/vtWeid1x/1Gtf831LP+pN/j2SV44ozdhlD9jtmL7 0tMF93M2lHKwiDGxSArpsji+8Nlf3G3+5TjindsYOawMoEMYeDiFICJaGUxMrxw7u6Z7pBm2/r8 +KdPK/uTtcWcllfc/9MsGnVc5bLTyg8Mv1mz0tTaKtrWK9vJ/Nilsab5rpPN1Znd3MWff1blJW9 7ywcA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeduvdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepjeenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_082202_279534_3ACF2FF8 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_065856_783103_C3A1AB61 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +103,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct pci_epc_features has static storage duration, so all struct members
-are zero initialized implicitly. Thus, remove explicit zero initialization
-of struct members.
+The 88x2222 PHY from Marvell only supports serialised modes as its
+line-facing interfaces. Convert that driver to the generic phylib SFP
+handling.
 
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/pci/controller/dwc/pci-dra7xx.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/net/phy/marvell-88x2222.c | 95 +++++++++++++------------------
+ 1 file changed, 38 insertions(+), 57 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index f97f5266d196..01cfd9aeb0b8 100644
---- a/drivers/pci/controller/dwc/pci-dra7xx.c
-+++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -426,7 +426,6 @@ static int dra7xx_pcie_raise_irq(struct dw_pcie_ep *ep, u8 func_no,
- static const struct pci_epc_features dra7xx_pcie_epc_features = {
- 	.linkup_notifier = true,
- 	.msi_capable = true,
--	.msix_capable = false,
+diff --git a/drivers/net/phy/marvell-88x2222.c b/drivers/net/phy/marvell-88x2222.c
+index fad2f54c1eac..ba1bbb6c63d6 100644
+--- a/drivers/net/phy/marvell-88x2222.c
++++ b/drivers/net/phy/marvell-88x2222.c
+@@ -13,7 +13,7 @@
+ #include <linux/mdio.h>
+ #include <linux/marvell_phy.h>
+ #include <linux/of.h>
+-#include <linux/sfp.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
+ 
+ /* Port PCS Configuration */
+@@ -473,90 +473,70 @@ static int mv2222_config_init(struct phy_device *phydev)
+ 	return 0;
+ }
+ 
+-static int mv2222_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int mv2222_configure_serdes(struct phy_port *port, bool enable,
++				   phy_interface_t interface)
+ {
+-	DECLARE_PHY_INTERFACE_MASK(interfaces);
+-	struct phy_device *phydev = upstream;
+-	phy_interface_t sfp_interface;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+-	struct device *dev;
+-	int ret;
+-
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_supported) = { 0, };
++	int ret = 0;
+ 
+ 	priv = phydev->priv;
+-	dev = &phydev->mdio.dev;
+-
+-	sfp_parse_support(phydev->sfp_bus, id, sfp_supported, interfaces);
+-	phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_supported);
+-	sfp_interface = sfp_select_interface(phydev->sfp_bus, sfp_supported);
+-
+-	dev_info(dev, "%s SFP module inserted\n", phy_modes(sfp_interface));
++	priv->line_interface = interface;
+ 
+-	if (sfp_interface != PHY_INTERFACE_MODE_10GBASER &&
+-	    sfp_interface != PHY_INTERFACE_MODE_1000BASEX &&
+-	    sfp_interface != PHY_INTERFACE_MODE_SGMII) {
+-		dev_err(dev, "Incompatible SFP module inserted\n");
++	if (enable) {
++		linkmode_and(priv->supported, phydev->supported, port->supported);
+ 
+-		return -EINVAL;
+-	}
+-
+-	priv->line_interface = sfp_interface;
+-	linkmode_and(priv->supported, phydev->supported, sfp_supported);
++		ret = mv2222_config_line(phydev);
++		if (ret < 0)
++			return ret;
+ 
+-	ret = mv2222_config_line(phydev);
+-	if (ret < 0)
+-		return ret;
++		if (mutex_trylock(&phydev->lock)) {
++			ret = mv2222_config_aneg(phydev);
++			mutex_unlock(&phydev->lock);
++		}
+ 
+-	if (mutex_trylock(&phydev->lock)) {
+-		ret = mv2222_config_aneg(phydev);
+-		mutex_unlock(&phydev->lock);
++	} else {
++		linkmode_zero(priv->supported);
+ 	}
+ 
+ 	return ret;
+ }
+ 
+-static void mv2222_sfp_remove(void *upstream)
++static void mv2222_port_link_up(struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
+-	struct mv2222_data *priv;
+-
+-	priv = phydev->priv;
+-
+-	priv->line_interface = PHY_INTERFACE_MODE_NA;
+-	linkmode_zero(priv->supported);
+-	phydev->port = PORT_NONE;
+-}
+-
+-static void mv2222_sfp_link_up(void *upstream)
+-{
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = true;
+ }
+ 
+-static void mv2222_sfp_link_down(void *upstream)
++static void mv2222_port_link_down(struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = false;
+ }
+ 
+-static const struct sfp_upstream_ops sfp_phy_ops = {
+-	.module_insert = mv2222_sfp_insert,
+-	.module_remove = mv2222_sfp_remove,
+-	.link_up = mv2222_sfp_link_up,
+-	.link_down = mv2222_sfp_link_down,
+-	.attach = phy_sfp_attach,
+-	.detach = phy_sfp_detach,
+-	.connect_phy = phy_sfp_connect_phy,
+-	.disconnect_phy = phy_sfp_disconnect_phy,
++static const struct phy_port_ops mv2222_port_ops = {
++	.link_up = mv2222_port_link_up,
++	.link_down = mv2222_port_link_down,
++	.configure_mii = mv2222_configure_serdes,
  };
  
- static const struct pci_epc_features*
++static int mv2222_attach_mii_port(struct phy_device *phydev, struct phy_port *port)
++{
++	port->ops = &mv2222_port_ops;
++
++	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
++
++	return 0;
++}
++
+ static int mv2222_probe(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+@@ -592,7 +572,7 @@ static int mv2222_probe(struct phy_device *phydev)
+ 	priv->line_interface = PHY_INTERFACE_MODE_NA;
+ 	phydev->priv = priv;
+ 
+-	return phy_sfp_probe(phydev, &sfp_phy_ops);
++	return 0;
+ }
+ 
+ static struct phy_driver mv2222_drivers[] = {
+@@ -609,6 +589,7 @@ static struct phy_driver mv2222_drivers[] = {
+ 		.suspend = mv2222_suspend,
+ 		.resume = mv2222_resume,
+ 		.read_status = mv2222_read_status,
++		.attach_mii_port = mv2222_attach_mii_port,
+ 	},
+ };
+ module_phy_driver(mv2222_drivers);
 -- 
-2.50.1
+2.49.0
 
 
