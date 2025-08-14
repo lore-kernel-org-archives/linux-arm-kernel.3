@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0039ACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9435CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 09:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jpEu3YjSYoh7r4VO0s5m1PdSv0aUP+n6hdz3pBdusjA=; b=aitwPKa88SSN6DfgIfg5fcI3o9
-	+UYxgzCa8Ww1DytkBWZBc1o7xuFz5COJlJECI4Vlw5zN3k3jEcmdC2fHt+/iJx1UxjKyNgqVgK838
-	Kv6nHiRP02YHwna6OegGI27LrXUH0OuszFwQIA0Tdj1Mqkf8oTUrDq6iBdelgWAkyE1P0YN56wKJR
-	MbHXh5wJ6PHQvMNgpXo6ev9AQVuXhOBNgCahdy4SG3pxPoS3flEBOj27ReFpTQnOxbpWOpIkvMHpe
-	1iGGiGY3S5vedY0fOtY233laKEVpMg+Ijh3KYUDTL1cfRx8p0GGK9Qxc4oci2NdQq7J+WYAORta8B
-	Lpw/62WQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=enM03Y+SofNC9f2L6BJ7C/DVoLrJlmtDheNAd8lIknI=; b=ALgkJQM5OhmJvC9+fY47n+qPpU
+	FtLGPR8aninf7WDkOabCp+6LEDPuLKVRb33DS5c00zvtDqLRCabsarIcnZXaqAPY/AKmR9qcXyzhM
+	uul77pTF+0ud9+yAS/gPQDK0W7mfukFMzY8hZ2KlQSl5YWEBiARXlWtJUVor4nsVErpXp6og3SQR5
+	Law0qPMD7NbpjHGxPZd75dqmzcbPpaS/Yh9VCZKegKtKj1bByr6wqPjhWdqhi3hZ8IfDEf3E1oIE7
+	ANLtlo/lLC3ziYuC1UjTATzg3XkZwiPpJSZQ451pKx5iPTzlj77LrZOxG976B4R9J2IWjNytGuwPK
+	7MykE/hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUed-0000000GUjR-0Wer;
-	Thu, 14 Aug 2025 09:53:51 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1umUh9-0000000GV5B-3km1;
+	Thu, 14 Aug 2025 09:56:27 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUBD-0000000GOOj-2PHx
+	id 1umUCy-0000000GOZ9-0YP9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:23:29 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55ce50946e2so750418e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:23:27 -0700 (PDT)
+	Thu, 14 Aug 2025 09:25:17 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b4716fb320cso538458a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:25:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755163406; x=1755768206; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jpEu3YjSYoh7r4VO0s5m1PdSv0aUP+n6hdz3pBdusjA=;
-        b=nsMHrCH4CfD3nRhMcyrCOa25GwGSPytUYjQahWNiDkWPNd3YsNs2WFbPObiAVYZdbY
-         uIFW1JN0ZzjKDuYG78A9Nw0zqIsdQx9skyIfx/92FXfHLxXZhqeREsuRvP7bEO3HeZtS
-         qPQtuQrsqcrv4cjoy2cr6DNxCtuEwBpO7Y7dY=
+        d=chromium.org; s=google; t=1755163515; x=1755768315; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=enM03Y+SofNC9f2L6BJ7C/DVoLrJlmtDheNAd8lIknI=;
+        b=NCRhMuSV1MhMkDHPRxLSHwn120ud1jkhL9H1bHAt6nUo7MwbScaBZXi+4oW5wjj8b7
+         IsY/y7h6plMyxe5Zpfd5EyVGae29K92e2xQvuKZN2OZigc9dK9AK0iZcyZFa8VXeiw+4
+         bzjN/blahJvJb9DFbHq40/AC15bHuyCVpkzZ4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755163406; x=1755768206;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jpEu3YjSYoh7r4VO0s5m1PdSv0aUP+n6hdz3pBdusjA=;
-        b=swic/YunPYm+roJCQ3eZ/X6TWMTW+feqqVWtrhS24hkqkaxtrm1gNHr+nhKT6x+DkB
-         WPDskaHwMKTgJmbXupHin1xBXv0yH1GoeZnrc+r/wJq9W0NuPeeb+T+GpI1JmGMd8zt3
-         tuwyVWYBklZEA4yOQPp3408H3Matso6IqBauTscdwLkn2MA8QXBy9FuBI0OhlG791h+H
-         C18F0p33Vf/VUZP8sdZBT3m8vJx3oEY7OV2oBIaPLgY+DOpZdCvpitvQ2ZB5byP/I54F
-         Fria4fB9V7tzQsoFlJZCnY98HZJmo+Xj6z9AlSjGQ0Ao3AEhitdpwlc8qL+4payLYlsN
-         FUVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUhgjCRwoCe0jCIH2/nqko40Ryc7kaVMp3+MPQLB0Iy349LhZtHk8JuY1n7am0LybbT5lPVygwyta4+I8Qb9igD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjXVwULc+bVowC3hD4E4CqeX5pKDor8hM6YqouCsImVf4uUweA
-	UQOMEI3HMJkiiwg3MFEtavRRgj1PVXaC+JRu/hm6UrE2jvMlUkDXdKi1voMbxtsY5Aj+q4KIaFh
-	lo53T4Bx6hVxWps524lKYr8Lh7zIxKexzcOlbr4mm
-X-Gm-Gg: ASbGncub0kuxv9i7YFRRMBpe+JcGSNW5sDx7HeTXyX/jM0RWBMZlBEY+/nVaq8K9Vw3
-	Al4KU0CBDlrOyl8Wyt6FOmrqiqzYxt609yJV+KeVVdaCaknv7pNNM96UJp8FxlAaePVChJPvKmI
-	Y5UOFZnLvVs41KYN+TEO+Zprc4YN3SulMJmLqcpSbkYJ8TZi837EBwWdLGNTWT01oE9chit1RBQ
-	cdzk1iakhCbmKRRZfftU49yHW36iqNm/go=
-X-Google-Smtp-Source: AGHT+IGpKciwODEZc1IhhzYqeOLMaszqjmQ++VhTEo22Iom9UGzpsRrcz90fbohkGI5byeGYbxmvyFlt9Y3WLL1B2b0=
-X-Received: by 2002:a05:6512:6d3:b0:55b:8f02:c9e1 with SMTP id
- 2adb3069b0e04-55ce50739efmr676632e87.27.1755163405566; Thu, 14 Aug 2025
- 02:23:25 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250812085902.3309160-1-wenst@chromium.org> <CAC=S1nhG_ExACJRpJoqmO7nn+P24uiaha21SFEyR3aoKL-Pjgw@mail.gmail.com>
-In-Reply-To: <CAC=S1nhG_ExACJRpJoqmO7nn+P24uiaha21SFEyR3aoKL-Pjgw@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1755163515; x=1755768315;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=enM03Y+SofNC9f2L6BJ7C/DVoLrJlmtDheNAd8lIknI=;
+        b=vypl6dwS07u7FHCDEfedye1AwU6E96eFVU6KYEotnIjaOjRDMickK1jGdDxWPjFQMm
+         v9y93WiwrURZBsk7bV39FekTZP7nXO4w3uET4Fv8BGQIl08sG/drznh+RSe9n8QfvrDs
+         HxR4JuuHDjWuwb4I+vu2qE0BTynzeQcouk9KW0zDFOAdbTwk555SFwIMZ+1wWwRTsHTA
+         AxRDvtYNydjXSrmkn16g3drln8trUCbP9xFstGU34nDNYGQARTnbis0l8jgIL13ekVBS
+         tFfSHaVLDKUn1KoVzAlM5HUOwspsHg7/Cfst2Tj2dtq9q3ZUm4p5ef+by5ye+k0qKr26
+         Kp0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWJE7cpiUzV7NN4Pc7CoyyZE3A1B2Y3ALZtNScBvWDYOqFZuJlmTzRz65nGvgu/i4MLUYeZJat5Vq3yasF1xCyf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeshHx2OMm+ObN3/FxSl5yTUTkDgsIu6tjlfMNHrD2mNOsg++U
+	26+R336ZAyurRdyCa1iQtaMjgFCC49JFxJu3iz/SrdsYNglDDc5WAQgTd3+sDh3E5g==
+X-Gm-Gg: ASbGncunF3kwR2mL/8ztBkcH1nnk/59Fm9K7EfL7d+1KQayrG+06mnBsOMJKRIrQ0jZ
+	e88RpLRwkqb7xJ13O1kRj1d2Z/Et9UbngSyOyKmQUP2WxvSAoxhhnBbmVWgyJVQYi1fn2+4pP4w
+	/vTHHHf+HGUApMe8vdWBhewqOPbIIhHLd36V1pXDVWySrvfM/9SxRURYpS6gvLUjx7KWxuT2kiX
+	emHow2H/MjpGC8/S4wlNBLKQBqixeg4YhLdBsutGR9nOMCfDOLA0B/jPcct4JVhrPr8wbHDRY1I
+	0OJn4UdIf80OKMBmgpOzGd0Sbi9dY6GS1gRastHor9hlOa26PDAmQY2fNQiN66QnQqbi28zLiNb
+	7t9I/iB9uihSiWU8IgN634rCe5Ks1re6GY/KQvsV9
+X-Google-Smtp-Source: AGHT+IEGaNwQwUsuoFyhAT0RG891ff1UB5Uya2JxWtJ1QeDXdtqAdYENXV7IRVwIlXojpGbzegP6Lg==
+X-Received: by 2002:a17:902:e84b:b0:240:3dbb:7603 with SMTP id d9443c01a7336-244584dc1d4mr36979635ad.19.1755163515364;
+        Thu, 14 Aug 2025 02:25:15 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:c44f:5805:6bc2:66d4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241e8976d13sm346186645ad.109.2025.08.14.02.25.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 02:25:14 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 14 Aug 2025 17:23:14 +0800
-X-Gm-Features: Ac12FXxQGyeanDOqLQ_pP2in2SjWgkqtc8UcLGeK7yro90D1xizR-yjtyHCuvWc
-Message-ID: <CAGXv+5FF5ZfOVP1qQh7s0sw9z4SXY6Rh8kS+8HcTxNY1gQ_kJg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Enable first SCP core
-To: Fei Shao <fshao@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Fei Shao <fshao@chromium.org>
+Subject: [PATCH v2] arm64: dts: mediatek: mt8188-geralt: Enable first SCP core
+Date: Thu, 14 Aug 2025 17:25:08 +0800
+Message-ID: <20250814092510.211672-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.51.0.rc1.163.g2494970778-goog
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_022327_646465_EF90BE86 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250814_022516_173187_0D09EC5A 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,66 +97,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 6:03=E2=80=AFPM Fei Shao <fshao@chromium.org> wrote=
-:
->
-> On Tue, Aug 12, 2025 at 8:39=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org>=
- wrote:
-> >
-> > The first SCP core is used to drive the video decoder and encoders.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > ---
-> >  arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 16 ++++++++++++++++
-> >  1 file changed, 16 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm=
-64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > index c5254ae0bb99..10764786bc21 100644
-> > --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > @@ -164,6 +164,12 @@ reserved_memory: reserved-memory {
-> >                 #size-cells =3D <2>;
-> >                 ranges;
-> >
-> > +               scp_mem_reserved: memory@50000000 {
-> > +                       compatible =3D "shared-dma-pool";
-> > +                       reg =3D <0 0x50000000 0 0x800000>;
-> > +                       no-map;
-> > +               };
-> > +
-> >                 apu_mem: memory@55000000 {
-> >                         compatible =3D "shared-dma-pool";
-> >                         reg =3D <0 0x55000000 0 0x1400000>;
-> > @@ -1146,6 +1152,16 @@ &postmask0_out {
-> >         remote-endpoint =3D <&dither0_in>;
-> >  };
-> >
-> > +&scp_cluster {
-> > +       status =3D "okay";
-> > +};
-> > +
-> > +&scp_c0 {
-> > +       firmware-name =3D "mediatek/mt8188/scp.img";
-> > +       memory-region =3D <&scp_mem_reserved>;
->
-> It looks like a pinctrl for SCP_VREQ_VAO (GPIO 98) is missing?
-> Datasheet says it's for "SCP to PMIC normal voltage request", and
-> MT8195 and MT8192 also have that configured.
+The first SCP core is used to drive the video decoder and encoders.
 
-You are right. Will send v2.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+Changes since v1:
+- Added SCP vreq pin
+---
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-> Regards,
-> Fei
->
-> > +       status =3D "okay";
-> > +};
-> > +
-> >  &sound {
-> >         pinctrl-names =3D "aud_etdm_hp_on", "aud_etdm_hp_off",
-> >                         "aud_etdm_spk_on", "aud_etdm_spk_off",
-> > --
-> > 2.51.0.rc0.215.g125493bb4a-goog
-> >
-> >
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+index c5254ae0bb99..7fedbacdac44 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+@@ -164,6 +164,12 @@ reserved_memory: reserved-memory {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		scp_mem_reserved: memory@50000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x50000000 0 0x800000>;
++			no-map;
++		};
++
+ 		apu_mem: memory@55000000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0 0x55000000 0 0x1400000>;
+@@ -1077,6 +1083,13 @@ pins-bus {
+ 		};
+ 	};
+ 
++	scp_pins: scp-pins {
++		pins-scp-vreq {
++			pinmux = <PINMUX_GPIO98__FUNC_O_SCP_VREQ_VAO>;
++			bias-disable;
++		};
++	};
++
+ 	spi0_pins: spi0-pins {
+ 		pins-bus {
+ 			pinmux = <PINMUX_GPIO69__FUNC_O_SPIM0_CSB>,
+@@ -1146,6 +1159,18 @@ &postmask0_out {
+ 	remote-endpoint = <&dither0_in>;
+ };
+ 
++&scp_cluster {
++	status = "okay";
++};
++
++&scp_c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&scp_pins>;
++	firmware-name = "mediatek/mt8188/scp.img";
++	memory-region = <&scp_mem_reserved>;
++	status = "okay";
++};
++
+ &sound {
+ 	pinctrl-names = "aud_etdm_hp_on", "aud_etdm_hp_off",
+ 			"aud_etdm_spk_on", "aud_etdm_spk_off",
+-- 
+2.51.0.rc1.163.g2494970778-goog
+
 
