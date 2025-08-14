@@ -4,61 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C8BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B3ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cx7O0ZvPT/2toVDKrn6Vdsg3VhrmCTdy1FHTHQxi4ao=; b=vCMHiHdE3V7Ny3
-	4jYQFa/e0ehawq8Y+s0dpJZVQPhuNZG4A2TZw0LDcucSyPRAHM3bUCjejtF09GeUb7FGP4XYVNV7s
-	Eo/gAsah6Ls2SvbN43UGGHcStQ/OtzxZ0lHSmdlnSKzkEJQ4AQDCrLulOXRuPMWAxy3HK2DBSvbRU
-	jLzV9Ax0wtaA4XSzcZNoOceU8eNdn1pbrsvWuGTwdk8jZbCyvD15zQQRFj7bNlzp02lmbDg5qAR4c
-	xlK7WZkLa6VhCKZVeV4KRmFT2Vf2cMnmlxEjVVUkRFPNu5N5UtfAckd4GmbhDYUtsQND/xLCuTKsX
-	aKz0g8SQHjxSOPSYSKWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7PQL+hQ5oTZXy55XFweJgoguGD9rwse5jt8tj2j0INs=; b=ZDlQQU0VqctxSYN4Er3CvuD/Kj
+	+Lok8NrSWPgHE7fqZToqDtqabLSbOI6sRuf0finkI2UqeDw429IjdqpFLNOxKfA+CmiHyRsgB9Pzm
+	VaiX5VIbK49p6CamxwFgPR0ALMyQcEZ7QIenopymjx4ZKQ49YzTomDTBreFJ1+VqY9niZCiiwejB+
+	SzX2bLvElDP4vKhYKe1UL+wYoeaHA81c0qfA1ANFyWOn6mOsXGIHGt11mILjp8vuygWV77v2Xo5/m
+	e2S9IpTrC9c0O93ZCoYx7G7zoPqiD+38loQZ/mfqm4lpjEsXEyQWVEbJW4NG88SuJWHi8Q15mtvxX
+	z2dlx70Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVQw-0000000GdEE-392x;
-	Thu, 14 Aug 2025 10:43:46 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1umVTV-0000000Gdeh-1o6C;
+	Thu, 14 Aug 2025 10:46:25 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUJQ-0000000GPm4-05XD
+	id 1umToz-0000000GKL4-0bhE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:31:57 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c2g313LRmztTJC;
-	Thu, 14 Aug 2025 17:30:53 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 796DD14027A;
-	Thu, 14 Aug 2025 17:31:53 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 14 Aug 2025 17:31:51 +0800
-Message-ID: <7c342b54-553c-013e-bed0-bc723c20464a@huawei.com>
-Date: Thu, 14 Aug 2025 17:31:30 +0800
+	Thu, 14 Aug 2025 09:00:30 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57DMjkfG012182
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 09:00:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=7PQL+hQ5oTZXy55XFweJgo
+	guGD9rwse5jt8tj2j0INs=; b=o/yBAERGwhFsxJ9QtVLNymAbOSWBbIeGxnOjXa
+	LjROrc3RJ6pU+4OzYRZZhhwgL5qrv3MqJirpAXWKJ9zlCEfHUGBxWOhQ6bsgkPEy
+	hxnMeUYNID3qRP7xiV6Sigt5eI5wBrIgWR9wee8XYrcc+nAULjEV5ZWsHSTFxdQ4
+	H8Pk8NUbEYClw/mcJfa1LQakGgreOXloDYwpZYW0EIhSi+Y5R+W1jJJPXfc+zp/W
+	lsZiKthAd0mJIbpWPoa9abtANjWFbRBrWdAy+kuH77zUprfYfDLNmACfmFF3L/3r
+	p7Bq6vB2yqLMmMq6ijJ5xkelQkis0aJjGsNA+naon3wmeotw==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48eqhxd71j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 09:00:26 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-244581ce388so14237015ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 02:00:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755162025; x=1755766825;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7PQL+hQ5oTZXy55XFweJgoguGD9rwse5jt8tj2j0INs=;
+        b=JeC6Q/E0fLlIJX5IE4oNgCJLb7s5ceeJtTLP0zPmYVr9aUSkVOsmth5c+S3CbdDnGC
+         BrYBMm51VpuK4Awaju2q7fVTlOc5xIyUOCoCxmaF+bRoz65bcjGktbOrluuCkmxqVajf
+         wDgdUcufe/JbBj3XiHlJ8zpMlk43KBl2uoIZU5GmU5r0zT66aW+EPkYEpqnnQWgvUGBh
+         yqPyYbTu+Ds+bO65MXDpuRoNio9zzu13GDL4QOcX5NCUdPsc7hKw+EaVjVeSJXZuW32v
+         o5k/4ovyHAvz5OmnFkJwDaLNVxNxx7BNxJY6MF6T6M9uqYcy53+IWCYi+k7+2fucJhHq
+         zH6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUBUkOSHbjX2k2/fyMeYlRrAwPzp0YOs9JH340aYKP+mN3i7Fgim3lku8mNQ9OkWFbEv9Yn0nJ9rJ6dcSPcI0S8@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt28Y1DTHW1DBmyjNSqUilYnskED5mXFSQuf54+zqf2tq0HzOp
+	UDrw5FqEETdWy/6p0I4e0t2AztiMb+guLFhtUaQpaG6H9Pzh3+xpC3YSuLPssWfhP3cvEm9tYA9
+	zl8q/9IpedK1ZWJD4UyjkhLUOJVqrnQl8bOdek4AJUbMkCAIsoHXWPdQ2LBReYPMsElDqlvYuLc
+	Hc6A==
+X-Gm-Gg: ASbGncvcK1J0Gf6hoy7ekrrE6WodHv4ZM9PrVd7zVk+EyO/UjHpRxjxv4oip+NyeA5k
+	+NLTzM9hD3D507meu9uoeAcQGquhVP0W3xrQibb6/YObcMn3/EYVwqx3PKyrJlAYXf1DIekKaMz
+	EO/7Uqfp07ODMqsKy8zNHlR9Q5xDGpLoeqRZuZeOh9UicjIs5rEL9PTuPqlAoEa3H3zYqe/9BJo
+	ekvvrGm8GsP8CG8VPxE2JHN9zKirLpMe4adbt2Du/JYipJp+hugHlCkhTA39TXDAGOVSZMVfUfm
+	5XiFjgGhdzwFoF7CaWIgNhxvt+91WT6VK258aOfnOTUyJb2tHawzeW0Vv6srr2SrmiOtQjPHPUB
+	uStH8nFzj28JXymXMNkyt7g==
+X-Received: by 2002:a17:903:984:b0:224:23be:c569 with SMTP id d9443c01a7336-2445853c0ecmr37034955ad.22.1755162025575;
+        Thu, 14 Aug 2025 02:00:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGCPIhhh+ffqme6GqAz5zor8kZgBnNJnCyuurrG1fH9jDZVLnI3y3Mm4ZKFoKE+VFW0fePhfw==
+X-Received: by 2002:a17:903:984:b0:224:23be:c569 with SMTP id d9443c01a7336-2445853c0ecmr37034385ad.22.1755162025119;
+        Thu, 14 Aug 2025 02:00:25 -0700 (PDT)
+Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24308b184d5sm54553785ad.51.2025.08.14.02.00.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 02:00:24 -0700 (PDT)
+From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Date: Thu, 14 Aug 2025 02:00:13 -0700
+Subject: [PATCH] coresight: tnoc: add new AMBA ID to support Trace Noc V2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH -next v7 5/7] arm64: entry: Refactor
- preempt_schedule_irq() check code
-Content-Language: en-US
-To: Mark Rutland <mark.rutland@arm.com>
-References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
- <20250729015456.3411143-6-ruanjinjie@huawei.com>
- <aJsh5oM3CoUELkvY@J2N7QTR9R3>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <aJsh5oM3CoUELkvY@J2N7QTR9R3>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Message-Id: <20250814-tnoc_v2-v1-1-3285e37280c9@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAJylnWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0MT3ZK8/OT4MiPd1GQLs9Sk1KQ0M6NUJaDqgqLUtMwKsEnRsbW1ACl
+ mJERZAAAA
+X-Change-ID: 20250814-tnoc_v2-ec86ebebf62e
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755162024; l=955;
+ i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
+ bh=cSYi3PG1kmS8EsKKSpfDh3ikLpsSAPIjPQtCcqeK2UQ=;
+ b=6VYz6XW4DASoJ2Bdk2MJld2ZcPHftrmeKhgON+JIS01U20il0rE/xsHRWDPiudmrxUOJACA1b
+ WH/KlBBO4waAAKxNSASQVdXVe+dG8WfNq2icjcUnf+4kDPbxny0ec3i
+X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
+ pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEwMDA1NyBTYWx0ZWRfX4NPqUOagTOvz
+ lpTpEIu4hTKPadWrXFmrk3aa/uk5huWEuK+CRa0hvLn697okvULp3jZm5zFAuznfA3bl8cfY5S4
+ nejrPuh+97uiU8PtNO2Tn9yvzuBdZ5LxDa30FF5JC/yk3GheKt9s7ZZuQjgGV3uZFw5sZdSpNgV
+ HRHO73ufcyimkhY8WOjB/9rsT/C6S3wl9mGlA4OxvSX6vDIC29O8kpgJgH5aFvVDicEDv12zDAv
+ pfsZI65sJusS6KWMqyRgRYpqzGdJemNaLEjJKLK4qJHBIPCFVZj6abWNkIlHoDCav9w4MBWnEXQ
+ gBpbEsabdXQzkJOEOFoj5RnkMJtmdiPL1gLrRbt6uMORUsu//lWWNDEnWT6zFJg4Q/Whv8GhSlp
+ 7+G9W8Ft
+X-Proofpoint-GUID: FqNILeAYOEzC2DzIy16GtoArfgfcB3z3
+X-Authority-Analysis: v=2.4 cv=aYNhnQot c=1 sm=1 tr=0 ts=689da5aa cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=w0NzrND8Ag9NSurxa6IA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-ORIG-GUID: FqNILeAYOEzC2DzIy16GtoArfgfcB3z3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_02,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ impostorscore=0 bulkscore=0 malwarescore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508100057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_023156_376717_08E4A475 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20250814_020029_302352_63099418 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,172 +138,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, liaochang1@huawei.com, oleg@redhat.com, kristina.martsenko@arm.com, linux-kernel@vger.kernel.org, broonie@kernel.org, chenl311@chinatelecom.cn, xen-devel@lists.xenproject.org, leitao@debian.org, ryan.roberts@arm.com, akpm@linux-foundation.org, mbenes@suse.cz, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the new AMBA ID 0x001f0c00 to support Trace Noc V2 instances.
 
+Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+---
+ drivers/hwtracing/coresight/coresight-tnoc.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-On 2025/8/12 19:13, Mark Rutland wrote:
-> On Tue, Jul 29, 2025 at 09:54:54AM +0800, Jinjie Ruan wrote:
->> ARM64 requires an additional check whether to reschedule on return
->> from interrupt. So add arch_irqentry_exit_need_resched() as the default
->> NOP implementation and hook it up into the need_resched() condition in
->> raw_irqentry_exit_cond_resched(). This allows ARM64 to implement
->> the architecture specific version for switching over to
->> the generic entry code.
->>
->> To align the structure of the code with irqentry_exit_cond_resched()
->> from the generic entry code, hoist the need_irq_preemption()
->> and IS_ENABLED() check earlier. And different preemption check functions
->> are defined based on whether dynamic preemption is enabled.
->>
->> Suggested-by: Mark Rutland <mark.rutland@arm.com>
->> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/include/asm/preempt.h |  4 ++++
->>  arch/arm64/kernel/entry-common.c | 35 ++++++++++++++++++--------------
->>  kernel/entry/common.c            | 16 ++++++++++++++-
->>  3 files changed, 39 insertions(+), 16 deletions(-)
-> 
-> Can you please split the change to kernel/entry/common.c into a separate
-> patch? That doesn't depend on the arm64-specific changes, and it'll make
-> it easier to handle any conflcits when merging this.
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+index d542df46ea39314605290311f683010337bfd4bd..ff9a0a9cfe96e5f5e3077c750ea2f890cdd50d94 100644
+--- a/drivers/hwtracing/coresight/coresight-tnoc.c
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -222,6 +222,10 @@ static struct amba_id trace_noc_ids[] = {
+ 		.id     = 0x000f0c00,
+ 		.mask   = 0x00ffff00,
+ 	},
++	{
++		.id     = 0x001f0c00,
++		.mask   = 0x00ffff00,
++	},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(amba, trace_noc_ids);
 
-Sure, I'll split the change into separate patch.
+---
+base-commit: a80198ba650f50d266d7fc4a6c5262df9970f9f2
+change-id: 20250814-tnoc_v2-ec86ebebf62e
 
-> 
-> Mark.
-> 
->>
->> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
->> index 0159b625cc7f..0f0ba250efe8 100644
->> --- a/arch/arm64/include/asm/preempt.h
->> +++ b/arch/arm64/include/asm/preempt.h
->> @@ -85,6 +85,7 @@ static inline bool should_resched(int preempt_offset)
->>  void preempt_schedule(void);
->>  void preempt_schedule_notrace(void);
->>  
->> +void raw_irqentry_exit_cond_resched(void);
->>  #ifdef CONFIG_PREEMPT_DYNAMIC
->>  
->>  DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->> @@ -92,11 +93,14 @@ void dynamic_preempt_schedule(void);
->>  #define __preempt_schedule()		dynamic_preempt_schedule()
->>  void dynamic_preempt_schedule_notrace(void);
->>  #define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
->> +void dynamic_irqentry_exit_cond_resched(void);
->> +#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
->>  
->>  #else /* CONFIG_PREEMPT_DYNAMIC */
->>  
->>  #define __preempt_schedule()		preempt_schedule()
->>  #define __preempt_schedule_notrace()	preempt_schedule_notrace()
->> +#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
->>  
->>  #endif /* CONFIG_PREEMPT_DYNAMIC */
->>  #endif /* CONFIG_PREEMPTION */
->> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->> index 7c2299c1ba79..4f92664fd46c 100644
->> --- a/arch/arm64/kernel/entry-common.c
->> +++ b/arch/arm64/kernel/entry-common.c
->> @@ -285,19 +285,8 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
->>  		lockdep_hardirqs_on(CALLER_ADDR0);
->>  }
->>  
->> -#ifdef CONFIG_PREEMPT_DYNAMIC
->> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->> -#define need_irq_preemption() \
->> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
->> -#else
->> -#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
->> -#endif
->> -
->>  static inline bool arm64_preempt_schedule_irq(void)
->>  {
->> -	if (!need_irq_preemption())
->> -		return false;
->> -
->>  	/*
->>  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
->>  	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
->> @@ -672,6 +661,24 @@ static __always_inline void __el1_pnmi(struct pt_regs *regs,
->>  	arm64_exit_nmi(regs, state);
->>  }
->>  
->> +void raw_irqentry_exit_cond_resched(void)
->> +{
->> +	if (!preempt_count()) {
->> +		if (need_resched() && arm64_preempt_schedule_irq())
->> +			preempt_schedule_irq();
->> +	}
->> +}
->> +
->> +#ifdef CONFIG_PREEMPT_DYNAMIC
->> +DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
->> +void dynamic_irqentry_exit_cond_resched(void)
->> +{
->> +	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
->> +		return;
->> +	raw_irqentry_exit_cond_resched();
->> +}
->> +#endif
->> +
->>  static __always_inline void __el1_irq(struct pt_regs *regs,
->>  				      void (*handler)(struct pt_regs *))
->>  {
->> @@ -681,10 +688,8 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->>  	do_interrupt_handler(regs, handler);
->>  	irq_exit_rcu();
->>  
->> -	if (!preempt_count() && need_resched()) {
->> -		if (arm64_preempt_schedule_irq())
->> -			preempt_schedule_irq();
->> -	}
->> +	if (IS_ENABLED(CONFIG_PREEMPTION))
->> +		irqentry_exit_cond_resched();
->>  
->>  	exit_to_kernel_mode(regs, state);
->>  }
->> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
->> index b82032777310..4aa9656fa1b4 100644
->> --- a/kernel/entry/common.c
->> +++ b/kernel/entry/common.c
->> @@ -142,6 +142,20 @@ noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
->>  	return ret;
->>  }
->>  
->> +/**
->> + * arch_irqentry_exit_need_resched - Architecture specific need resched function
->> + *
->> + * Invoked from raw_irqentry_exit_cond_resched() to check if need resched.
->> + * Defaults return true.
->> + *
->> + * The main purpose is to permit arch to skip preempt a task from an IRQ.
->> + */
->> +static inline bool arch_irqentry_exit_need_resched(void);
->> +
->> +#ifndef arch_irqentry_exit_need_resched
->> +static inline bool arch_irqentry_exit_need_resched(void) { return true; }
->> +#endif
->> +
->>  void raw_irqentry_exit_cond_resched(void)
->>  {
->>  	if (!preempt_count()) {
->> @@ -149,7 +163,7 @@ void raw_irqentry_exit_cond_resched(void)
->>  		rcu_irq_exit_check_preempt();
->>  		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
->>  			WARN_ON_ONCE(!on_thread_stack());
->> -		if (need_resched())
->> +		if (need_resched() && arch_irqentry_exit_need_resched())
->>  			preempt_schedule_irq();
->>  	}
->>  }
->> -- 
->> 2.34.1
->>
-> 
-> 
+Best regards,
+-- 
+Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+
 
