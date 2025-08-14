@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8362CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 07:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DC4CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 07:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGaeaOyu7sZr1t9Yhldyp6k6MutpBTd2kLlHKclXjtQ=; b=fde1CzaqisxyyCc5PEjtGUuvyn
-	d8Sh4AG1peCiWpdcqAQL9Abe4sP5CyD+7f0IdC2jmGbs7kxHYd0q2KbXbM6/wiItpWPjtLVJ3QBkJ
-	A23BPH1CVvuMRVhspV5IB1CHBf/6Q9I8uf7xHie0PdmGqjhhxS6FcGV29lMzbr5MdpqeBKDqfWI0s
-	uh7Gp/LE5pZhD9moIChKJSWpnxFymvvBWetiq8Hm9badx63g8SPVjemghCOj1RWDSYi9vlO2MVqB4
-	a2J2+6szWBFs+eEtI1s6gGJJiBi5qIUwZT+mI76dwRVul4Uk1m/dyx6QCOjWpXTqduFaVHW25ei2T
-	b42HxqgA==;
+	bh=U5KR1zgb+2iVheVTOl3SX/dmkA++aT5srmWbqsDAvzc=; b=Oslq28o+odxy9ptMcPFFkvwG98
+	JzwGfm3ydwxfc/1hBIeO8fYt6KpqXUAQdT6QyN8i57B1277UBnkXRFtJQGDKQRstBFJUkxIccQPBr
+	SgbmYS2Q9tUGMI98+galyEnvgONWvYiTDbaOAjcwoDoJUh6sFE9ZhmTCLOHJt2uPV+bSrusDQkVFT
+	cDJ3keGDNwbZZOzqtLGbarS+hCrENVqmTRr37NUD6UCgp4wJ0VzoI2Kz+vKy6F3X8cH28eAL8t+CK
+	W9A2/C354hAfNYaTQ5DIJzw3JRpkHZkngq4WdvJM4jwA3VrnnmALXLqoAiYRs6Ga1k+GK0xSUv+fI
+	2x1vnu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSns-0000000GADg-2R0u;
-	Thu, 14 Aug 2025 07:55:16 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1umSqP-0000000GAXQ-365z;
+	Thu, 14 Aug 2025 07:57:53 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umSe1-0000000G8Fo-0k37
+	id 1umSgq-0000000G8jN-2rPa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 07:45:06 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E4F8B444FC;
-	Thu, 14 Aug 2025 07:45:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1755157503;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oGaeaOyu7sZr1t9Yhldyp6k6MutpBTd2kLlHKclXjtQ=;
-	b=g3rWnz9M4v3IfdZKg8YsEppWQv3TXECF1TdJA3Q2JvW6gzqm6A6Gbk7Oy4QYK+SBuJ+4S4
-	tqjiE9YDPtgo2OzvXF5B0pTGPUmANjuiX6ouLiIQRrVmiNgCRfqX/ke4qDokQvxQEjiQT2
-	uu4PBmttQ6d7NWsnLt1W1jxdXXqE2j0bja30tG57RMpFw86BRGNdgBXSI9M4t0pS17eFeK
-	QQX0ZXFJ/Ni0E2m+f0QGq+SAqLBqm5NOuMYAOSz8fUf4WmppMkQF6TH2qCfJhAiuqLS3RF
-	TszOf8Z10x2fkH7IDWCMIb9ppwE4AybNJ/Y2JTfx4JNA82Tz5VUnQdIRCynzJg==
-Date: Thu, 14 Aug 2025 09:45:02 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, Shengjiu Wang
- <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, Fabio Estevam
- <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Jaroslav Kysela
- <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels
- are ordered in TDM bus
-Message-ID: <20250814094502.4b350b3e@bootlin.com>
-In-Reply-To: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
-References: <cover.1754993232.git.christophe.leroy@csgroup.eu>
-	<8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 14 Aug 2025 07:48:02 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 15D59A0F9B;
+	Thu, 14 Aug 2025 09:47:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=U5KR1zgb+2iVheVTOl3S
+	X/dmkA++aT5srmWbqsDAvzc=; b=moeDmzO9rmAP4cez4/AR8ncDqL5x/F9G7Wuh
+	BtKAZGeOCCS1dpIWqa3YwQK8jIbVmjyjRLNfahu7cqgWFilaeBITn7auGr+4hZET
+	NQtGwArkN5QSk5eT0YVEtYJcHBkQABU8YfhjvXkxsA7MZxT+dFGqU6BXH+N1bfG/
+	MIJqNKX1Gq1PEk4uKsH/RAiOWXh3hQZT/BRhHKe2cD2l9Q5z3QrP5+tqaABaieGu
+	bm0idR7OC5hbBbZhCj/WyqOFneUTTGQ5ykjalqXEpWjnogR70ZohyZkJaGz7RhwD
+	yOlntFjaYtAppG6YG/wpf73cEIP78sF1NWzgX7TS70DBClmHBMJE+66b8sLX54lC
+	uWPvo8//LI5AMDozCEq8/+uf+Uekw6UupA64muC7MVJJShxHDmboDco1xcbK4v5X
+	IL9dtCprXtqOISPFz9vq0tnHdG0AFF+RltnkRnGalDG0NlNMgsyuIqdOEABvAdDP
+	ajUnNa8CVGwhG1EPADzIrBxjgOlq2nLjbTp8wN77ma7+0sgmgQp4Ley8VXgUIHW6
+	kB3ETzNGDUqu4CB/Zek1/Nniu5qCHMJPRSC+yi6MYc3Bs7N3eEPrutqV/6/u+mUd
+	CerbdBrFuK5DdLGPQMmLG7DVMWlbicjgqFYJLHx2XDXFafpyMZ5Ip76C71a0xhp2
+	wgWFAG0=
+From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+Date: Thu, 14 Aug 2025 09:47:46 +0200
+Subject: [PATCH v2 4/8] ARM: dts: imx6-evi: Replace license text comment
+ with SPDX identifier
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugedtheduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtkeertdertdejnecuhfhrohhmpefjvghrvhgvucevohguihhnrgcuoehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeiffefgeeitdelleeigefhjeelueeuveekveetgeffheeltdekgeduiefggfdvnecukfhppedvrgdtudemtggstdekmeelkeeltgemkedttddtmehfugekudemleehgegvmedvudehrgemfeeluddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdtkeemleeklegtmeektddttdemfhgukedumeelheegvgemvdduhegrmeefledutddphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedugedprhgtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtohepqhhirghnghdriihhrghosehngihprdgtohhmpdhrtghpthhtohepshhhvghnghhjihhurdifrghnghesghhmrghilhdrtghomhdprhgtphhtthhop
- egiihhusghordfnvggvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhhitgholhgvohhtshhukhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhgihhrugifohhougesghhmrghilhdrtghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: herve.codina@bootlin.com
+Message-ID: <20250814-imx-misc-dts-lic-v2-4-faff7db49a5f@prolan.hu>
+References: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
+In-Reply-To: <20250814-imx-misc-dts-lic-v2-0-faff7db49a5f@prolan.hu>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Joshua Clayton
+	<stillcompiling@gmail.com>
+X-Mailer: b4 0.14.2
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755157669;VERSION=7995;MC=3336485094;ID=1088344;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2998FD515E617667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_004505_364778_8C9A6362 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250814_004801_176064_231F1DF3 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +86,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 12:50:56 +0200
-Christophe Leroy <christophe.leroy@csgroup.eu> wrote:
+Replace verbatim license text with a `SPDX-License-Identifier`.
 
-> To reduce complexity of interrupt handling in following patch, ensure
-> audio channels are configured in the same order as timeslots on the
-> TDM bus. If we need a given ordering of audio sources in the audio
-> frame, it is possible to re-order codecs on the TDM bus, no need to
-> mix up timeslots in channels.
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> ---
-> v2: New
-> ---
->  sound/soc/fsl/fsl_qmc_audio.c | 29 +++++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/sound/soc/fsl/fsl_qmc_audio.c b/sound/soc/fsl/fsl_qmc_audio.c
-> index 5614a8b909edf..0be29ccc1ff7b 100644
-> --- a/sound/soc/fsl/fsl_qmc_audio.c
-> +++ b/sound/soc/fsl/fsl_qmc_audio.c
-> @@ -791,12 +791,17 @@ static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *
->  			       struct qmc_dai *qmc_dai,
->  			       struct snd_soc_dai_driver *qmc_soc_dai_driver)
->  {
-> +	struct qmc_chan_ts_info ts_info;
->  	struct qmc_chan_info info;
->  	unsigned long rx_fs_rate;
->  	unsigned long tx_fs_rate;
-> +	int prev_last_rx_ts = 0;
-> +	int prev_last_tx_ts = 0;
->  	unsigned int nb_tx_ts;
->  	unsigned int nb_rx_ts;
->  	unsigned int i;
-> +	int last_rx_ts;
-> +	int last_tx_ts;
->  	int count;
->  	u32 val;
->  	int ret;
-> @@ -879,6 +884,30 @@ static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *
->  				return -EINVAL;
->  			}
->  		}
-> +
-> +		ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
+The comment header mis-attributes this license to be "X11", but the
+license text does not include the last line "Except as contained in this
+notice, the name of the X Consortium shall not be used in advertising or
+otherwise to promote the sale, use or other dealings in this Software
+without prior written authorization from the X Consortium.". Therefore,
+this license is actually equivalent to the SPDX "MIT" license (confirmed
+by text diffing).
 
-qmc_chan_get_ts_info() need a struct qmc_chan as first parameter
+Cc: Joshua Clayton <stillcompiling@gmail.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ arch/arm/boot/dts/nxp/imx/imx6q-evi.dts | 40 +--------------------------------
+ 1 file changed, 1 insertion(+), 39 deletions(-)
 
-qmc_dai->qmc_chans[i].qmc_chan instead of qmc_dai->qmc_chans[i].
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-evi.dts b/arch/arm/boot/dts/nxp/imx/imx6q-evi.dts
+index 78d941fef5dfb288c69d702ed190150caa92ba7a..0268b7f5a7d22c9abac848e71b4b05b76dccbfca 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-evi.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-evi.dts
+@@ -1,44 +1,6 @@
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright 2016 United Western Technologies.
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License as
+- *     published by the Free Software Foundation; either version 2 of the
+- *     License, or (at your option) any later version.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+- *
+  */
+ 
+ /dts-v1/;
 
-The use of qmc_dai->qmc_chans[i] without .qmc_chan have to be done on patch 4 (cleanup patch).
+-- 
+2.43.0
 
-Best regards,
-Hervé
+
 
