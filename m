@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE391CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 04:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BF7CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 04:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSkdw64CntSwfouYp0vv8j2CxJaW7ckqGcXdVod6U8A=; b=cuOk4P7fpZvj8rwkAav0vWVL7D
-	r/1+QucRT/FeufZekitwiYI51McKogDDr6/foqjmbTRQxM16+TA9vJh1kg8SKrhGoa6KBk8P2L3B5
-	Dtgw7rfiPWQ04dRsoOxBno/TasvrEswfvqkPdRgyHa4PeE+nlhkCuBqbRxfP3oin4KLw8POz5XBCc
-	enYMfyp+D7cTzsUQW7kdJ7acletMmjc9SKBLmq35YnTcAe+VV1pzafStygjtOhzNfvyEAku0I9ulE
-	NNNuLYU5Qz46UARcEayv1Q01Cy5dxcNccx1B8Nsml9i0Aw1EcGFaRYJoITzSE7tFmPOJ3AaxPMjOI
-	PPYmBn3A==;
+	bh=yMD85M6SrGm/2rhkRdAIrQRhH8rce/UofwihefSNyxk=; b=aRhCsVX2Vhs3HENVUQwAMzpbR2
+	bJFb/YIQ8nuneXhKtdaodeSi8GwmC83NsHxRV3gl91EhZgChCglJ010YYxkQrjPGB3oO8jy+iRnDM
+	R1Q9GZ56Fe7FbZoJtGN3yt+MooCAa75H0rvYYAoNNm2TpBX26ufXQNgONwDlUdVbHz90tO5xNWEY5
+	S27P6UoXvlUnabf4CqQX4rPVFrbppo1NZtssGaV+bgX1NgRUZYL4PxzXIHu7iqYg465EnNhUd3IlK
+	pWX/WaAFhzNF1IvdyNNZ2DRmhFt5m4WeGaiS5vXOYxvpl6nusKGH9FwnrE7j3voUP1f3RIx/atAVZ
+	N9OG62jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrpJ-00000006V7u-0Iyi;
-	Mon, 18 Aug 2025 04:50:33 +0000
+	id 1unrrq-00000006VIk-0IZr;
+	Mon, 18 Aug 2025 04:53:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrd7-00000006TdJ-1Eo0
+	id 1unrdD-00000006TeD-1Kff
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 Aug 2025 04:37:57 +0000
+	Mon, 18 Aug 2025 04:38:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GSkdw64CntSwfouYp0vv8j2CxJaW7ckqGcXdVod6U8A=; b=W/KcdM8VOTKBpVYdj69Q6IanPU
-	vJJdT3yFzU/g+DyLj3lO+sfzwXFj/NgY8CyHB3/Znv2Zjy4mlHAtfKyP+xODe+DOjciDEIDYSxhGS
-	xyRP2DhxaiqNSngGLUMROgyzgI96OFXzIkBaUbSZT4IgsV9QN2fC7Ra4gDyacee3+unNaE8j49Zbu
-	MmlLSO0qCenukjP+MMvlmlpbgK8bZ67kiWMlm7OBhE14yb0RUJOfv1VMSiHiHumNXJ1uge68N2LhP
-	3rs23Yf44VQAByrZ3E9/g7+CRUVaWDOXsUsNasu3Hqy1wnFcK8aPqn7HtB5Z5irXkIFId/VzQiZ7z
-	fYh6V5Uw==;
+	bh=yMD85M6SrGm/2rhkRdAIrQRhH8rce/UofwihefSNyxk=; b=q6Ls9O6HH7Unh5kP8NYk2Rm6Yy
+	F61J269pq4wJz3K0THBJWPkYuWx/tQfDq36LO5LYVLX8N4ukjTua++ajf4nW+PZuvA+Ob9s9jQO3H
+	34iaNN3WJKckk4Icmc7DhXlz2HAO1u7KlqCcs2zjvC28EjICXIDJ+iuw3muIBITzejc3WAzdu9Hic
+	bmSJjgMsLOG+tyZj2dbgOnxOzUot3njg7D2X+PMZ5dKUrmU3si5T0TTD0ERt4B+sxkyckSEML75DC
+	nscFdlY9oZ9QSbZCDyxk3OW/1CiRS4FEcwKuGFjK9vAFfHS3Pou7CYea5mGRteiY892Bm5g8Kb1rc
+	LRG57rNw==;
 Received: from mailout1.samsung.com ([203.254.224.24])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrd2-0000000HEzS-0auo
+	id 1unrd9-0000000HF1j-2Iaq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 04:37:55 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250818043746epoutp01dce96be3b8a66468513e22c15293a3f7~cwo1H42G_0653606536epoutp01V
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:37:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250818043746epoutp01dce96be3b8a66468513e22c15293a3f7~cwo1H42G_0653606536epoutp01V
+	Mon, 18 Aug 2025 04:38:02 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250818043756epoutp01c7dd7c9013d21520ad24f94785b87889~cwo_NTtXU0358403584epoutp01k
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 04:37:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250818043756epoutp01c7dd7c9013d21520ad24f94785b87889~cwo_NTtXU0358403584epoutp01k
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755491866;
-	bh=GSkdw64CntSwfouYp0vv8j2CxJaW7ckqGcXdVod6U8A=;
+	s=mail20170921; t=1755491876;
+	bh=yMD85M6SrGm/2rhkRdAIrQRhH8rce/UofwihefSNyxk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q0iR8iwYce8fBOG17084t9hJ58rI24N8XhqsovM5aeEhrKl48QvMmknz2bYsKyavE
-	 CXsRNQCzvpO9YqAcf+DTQ7MET8yAGrj4glX5i3C8V4jAUJbTcXyFSFyF7WR85PVAn1
-	 n79h0R2QmDXSOSIogM169FtTuTjZPxm7Ss1JfXxM=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250818043745epcas5p3ff89beef59ab75859d7e613b32ba3a25~cwozm5PwJ0972809728epcas5p38;
-	Mon, 18 Aug 2025 04:37:45 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4c50Lw1cvdz6B9m7; Mon, 18 Aug
-	2025 04:37:44 +0000 (GMT)
+	b=ssXxs/bPbVgfkD6gEWoluum7Wm125gYJKcqS9WSADn2UKMvPzXZxb7NivZClnNdaO
+	 jB5U7omdbCBbkXOn2/d0vOAlE4QmcRa7Ut/eY7DWdJbtODtcJdN2VqmJUSV6gua5pi
+	 2IdHEjbtb/0BWjhklN7SDfrmZdK6A28MwVDtzJ3U=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250818043752epcas5p10735c8345c19b690c1386b2c738b3d02~cwo6Z-A5X2576525765epcas5p1S;
+	Mon, 18 Aug 2025 04:37:52 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.95]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4c50M338Hgz2SSKZ; Mon, 18 Aug
+	2025 04:37:51 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
 	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5~bp3l3t3B70487304873epcas5p2e;
-	Thu, 14 Aug 2025 14:10:19 +0000 (GMT)
+	20250814141025epcas5p2b226c4eaab5d60d0e95f684e2ef930f2~bp3rTNoxZ0487304873epcas5p20;
+	Thu, 14 Aug 2025 14:10:25 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250814141015epsmtip213875c3a71a7740663108afc82388f23~bp3iBPqAy1817818178epsmtip2l;
-	Thu, 14 Aug 2025 14:10:15 +0000 (GMT)
+	20250814141021epsmtip2fc5a1f0b0511a018a32f4c76fb4e853e~bp3neAIzV1817818178epsmtip2m;
+	Thu, 14 Aug 2025 14:10:21 +0000 (GMT)
 From: Inbaraj E <inbaraj.e@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -81,26 +81,27 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
 	festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, Inbaraj E <inbaraj.e@samsung.com>
-Subject: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
-Date: Thu, 14 Aug 2025 19:39:35 +0530
-Message-ID: <20250814140943.22531-5-inbaraj.e@samsung.com>
+Subject: [PATCH v2 05/12] media: imx-mipi-csis: Move clk to mipi_csis_info
+ structure
+Date: Thu, 14 Aug 2025 19:39:36 +0530
+Message-ID: <20250814140943.22531-6-inbaraj.e@samsung.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250814140943.22531-1-inbaraj.e@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5
+X-CMS-MailID: 20250814141025epcas5p2b226c4eaab5d60d0e95f684e2ef930f2
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5
+X-CMS-RootMailID: 20250814141025epcas5p2b226c4eaab5d60d0e95f684e2ef930f2
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
-	<CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
+	<CGME20250814141025epcas5p2b226c4eaab5d60d0e95f684e2ef930f2@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_053754_260928_58A781FA 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250818_053800_482717_C80A0197 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,682 +116,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a csi dma and csis interface that bundles together to allow
-csi2 capture.
+clock names in NXP SoC's is different from the FSD SoC. Inorder to
+extend this driver to use for FSD SoC. Move the clock names to
+mipi_csis_info structure.
 
 Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
 ---
- arch/arm64/boot/dts/tesla/fsd-evb.dts |  96 +++++
- arch/arm64/boot/dts/tesla/fsd.dtsi    | 552 ++++++++++++++++++++++++++
- 2 files changed, 648 insertions(+)
+ drivers/media/platform/nxp/imx-mipi-csis.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-index 9ff22e1c8723..dcc9a138cdb9 100644
---- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-+++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-@@ -130,3 +130,99 @@ &serial_0 {
- &ufs {
- 	status = "okay";
- };
-+
-+&mipicsis0 {
-+	status = "okay";
-+};
-+
-+&mipicsis1 {
-+	status = "okay";
-+};
-+
-+&mipicsis2 {
-+	status = "okay";
-+};
-+
-+&mipicsis3 {
-+	status = "okay";
-+};
-+
-+&mipicsis4 {
-+	status = "okay";
-+};
-+
-+&mipicsis5 {
-+	status = "okay";
-+};
-+
-+&mipicsis6 {
-+	status = "okay";
-+};
-+
-+&mipicsis7 {
-+	status = "okay";
-+};
-+
-+&mipicsis8 {
-+	status = "okay";
-+};
-+
-+&mipicsis9 {
-+	status = "okay";
-+};
-+
-+&mipicsis10 {
-+	status = "okay";
-+};
-+
-+&mipicsis11 {
-+	status = "okay";
-+};
-+
-+&csis0 {
-+	status = "okay";
-+};
-+
-+&csis1 {
-+	status = "okay";
-+};
-+
-+&csis2 {
-+	status = "okay";
-+};
-+
-+&csis3 {
-+	status = "okay";
-+};
-+
-+&csis4 {
-+	status = "okay";
-+};
-+
-+&csis5 {
-+	status = "okay";
-+};
-+
-+&csis6 {
-+	status = "okay";
-+};
-+
-+&csis7 {
-+	status = "okay";
-+};
-+
-+&csis8 {
-+	status = "okay";
-+};
-+
-+&csis9 {
-+	status = "okay";
-+};
-+
-+&csis10 {
-+	status = "okay";
-+};
-+
-+&csis11 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-index a5ebb3f9b18f..a83503e9c502 100644
---- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-@@ -493,6 +493,558 @@ clock_mfc: clock-controller@12810000 {
- 			clock-names = "fin_pll";
- 		};
+diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+index 2beb5f43c2c0..4afa75734f05 100644
+--- a/drivers/media/platform/nxp/imx-mipi-csis.c
++++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+@@ -267,6 +267,8 @@ static const struct mipi_csis_event mipi_csis_events[] = {
  
-+		mipicsis0: mipi-csis@12640000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12640000 0x0 0x124>;
-+			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_0_out: endpoint {
-+						remote-endpoint = <&csis_in_0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis0: csis@12641000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12641000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_0: endpoint {
-+					remote-endpoint = <&mipi_csis_0_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis1: mipi-csis@12650000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12650000 0x0 0x124>;
-+			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_1_out: endpoint {
-+						remote-endpoint = <&csis_in_1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis1: csis@12651000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12651000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_1: endpoint {
-+					remote-endpoint = <&mipi_csis_1_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis2: mipi-csis@12660000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12660000 0x0 0x124>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_2_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_2_out: endpoint {
-+						remote-endpoint = <&csis_in_2>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis2: csis@12661000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12661000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_2_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_2: endpoint {
-+					remote-endpoint = <&mipi_csis_2_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis3: mipi-csis@12670000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12670000 0x0 0x124>;
-+			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_3_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_3_out: endpoint {
-+						remote-endpoint = <&csis_in_3>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis3: csis@12671000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12671000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI0_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI0_3_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_3: endpoint {
-+					remote-endpoint = <&mipi_csis_3_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis4: mipi-csis@12680000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12680000 0x0 0x124>;
-+			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_0_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_4_out: endpoint {
-+						remote-endpoint = <&csis_in_4>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis4: csis@12681000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12681000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_0_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_4: endpoint {
-+					remote-endpoint = <&mipi_csis_4_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis5: mipi-csis@12690000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x12690000 0x0 0x124>;
-+			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_1_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_5_out: endpoint {
-+						remote-endpoint = <&csis_in_5>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis5: csis@12691000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x12691000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_1_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_5: endpoint {
-+					remote-endpoint = <&mipi_csis_5_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis6: mipi-csis@126a0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126a0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_2_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_6_out: endpoint {
-+						remote-endpoint = <&csis_in_6>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis6: csis@126a1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126a1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_2_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_6: endpoint {
-+					remote-endpoint = <&mipi_csis_6_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis7: mipi-csis@126b0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126b0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_3_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_7_out: endpoint {
-+						remote-endpoint = <&csis_in_7>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis7: csis@126b1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126b1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI1_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI1_3_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_7: endpoint {
-+					remote-endpoint = <&mipi_csis_7_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis8: mipi-csis@126c0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126c0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_0_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_8_out: endpoint {
-+						remote-endpoint = <&csis_in_8>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis8: csis@126c1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126c1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_0_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_0_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_8: endpoint {
-+					remote-endpoint = <&mipi_csis_8_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis9: mipi-csis@126d0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126d0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_1_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_9_out: endpoint {
-+						remote-endpoint = <&csis_in_9>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis9: csis@126d1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126d1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_1_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_1_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_9: endpoint {
-+					remote-endpoint = <&mipi_csis_9_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis10: mipi-csis@126e0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126e0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_2_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_10_out: endpoint {
-+						remote-endpoint = <&csis_in_10>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis10: csis@126e1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126e1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_2_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_2_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_10: endpoint {
-+					remote-endpoint = <&mipi_csis_10_out>;
-+				};
-+			};
-+		};
-+
-+		mipicsis11: mipi-csis@126f0000 {
-+			compatible = "tesla,fsd-mipi-csi2";
-+			reg = <0x0 0x126f0000 0x0 0x124>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_3_IPCLKPORT_I_PCLK>;
-+			clock-names = "aclk", "pclk";
-+			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					mipi_csis_11_out: endpoint {
-+						remote-endpoint = <&csis_in_11>;
-+					};
-+				};
-+			};
-+		};
-+
-+		csis11: csis@126f1000 {
-+			compatible = "tesla,fsd-csis-media";
-+			reg = <0x0 0x126f1000 0x0 0x44c>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clock_csi CAM_CSI2_3_IPCLKPORT_I_ACLK>,
-+				<&clock_csi CAM_CSI2_3_IPCLKPORT_I_PCLK>,
-+				<&clock_csi CAM_CSI_PLL>;
-+			clock-names = "aclk", "pclk", "pll";
-+			iommus = <&smmu_isp 0x0 0x0>;
-+			status = "disabled";
-+
-+			port {
-+				csis_in_11: endpoint {
-+					remote-endpoint = <&mipi_csis_11_out>;
-+				};
-+			};
-+		};
-+
- 		clock_peric: clock-controller@14010000 {
- 			compatible = "tesla,fsd-clock-peric";
- 			reg = <0x0 0x14010000 0x0 0x3000>;
+ #define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
+ 
++#define MIPI_CSIS_MAX_CLOCKS	4
++
+ enum mipi_csis_clk {
+ 	MIPI_CSIS_CLK_PCLK,
+ 	MIPI_CSIS_CLK_WRAP,
+@@ -274,13 +276,6 @@ enum mipi_csis_clk {
+ 	MIPI_CSIS_CLK_AXI,
+ };
+ 
+-static const char * const mipi_csis_clk_id[] = {
+-	"pclk",
+-	"wrap",
+-	"phy",
+-	"axi",
+-};
+-
+ enum mipi_csis_version {
+ 	MIPI_CSIS_V3_3,
+ 	MIPI_CSIS_V3_6_3,
+@@ -289,6 +284,7 @@ enum mipi_csis_version {
+ struct mipi_csis_info {
+ 	enum mipi_csis_version version;
+ 	unsigned int num_clocks;
++	const char *clk_names[MIPI_CSIS_MAX_CLOCKS];
+ };
+ 
+ struct mipi_csis_device {
+@@ -697,7 +693,7 @@ static int mipi_csis_clk_get(struct mipi_csis_device *csis)
+ 		return -ENOMEM;
+ 
+ 	for (i = 0; i < csis->info->num_clocks; i++)
+-		csis->clks[i].id = mipi_csis_clk_id[i];
++		csis->clks[i].id = csis->info->clk_names[i];
+ 
+ 	ret = devm_clk_bulk_get(csis->dev, csis->info->num_clocks,
+ 				csis->clks);
+@@ -1539,12 +1535,14 @@ static const struct of_device_id mipi_csis_of_match[] = {
+ 		.data = &(const struct mipi_csis_info){
+ 			.version = MIPI_CSIS_V3_3,
+ 			.num_clocks = 3,
++			.clk_names = {"pclk", "wrap", "phy"},
+ 		},
+ 	}, {
+ 		.compatible = "fsl,imx8mm-mipi-csi2",
+ 		.data = &(const struct mipi_csis_info){
+ 			.version = MIPI_CSIS_V3_6_3,
+ 			.num_clocks = 4,
++			.clk_names = {"pclk", "wrap", "phy", "axi"},
+ 		},
+ 	},
+ 	{ /* sentinel */ },
 -- 
 2.49.0
 
