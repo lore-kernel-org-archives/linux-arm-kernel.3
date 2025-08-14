@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DA4CA0EE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FE9CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1p5sG6Up5RyX/VDuTRVHBTUjLDvCuikysszartwlsw=; b=CVGCigDjn0+UmL/JTNsP231KLo
-	7eR38eap7b3fomBvSc5xtor3ULKNrdH4/wzei7NiqkOguC5nrnSyxCkEYyuSXoKPJCAmIAD/S2SCJ
-	k5NMGZnJVWv7kelM7iuuoWS8cnARSnlvWQ1jxH4VmPS0RGV5JzzMszdnH3//fUDZPj0FfrJIWdSKq
-	ezGhs1FyZCv1PAaShZZjE6qKTtbBRrLnr30yoVPXVPFVGXcpHSP5izkYrIEqDyOlJ1lfK6ohvZu5q
-	p5LVwh0ScUBO1q7km4S+SZyMgCrG8iocjnl+A9lrrbgrHgfA9d0eA3XNcdP4jf6JjHbb1fh/S6BNE
-	cUbTI48A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cGx4VZ3979iJjEA8L0U/O9XSVgamKI66TMaZhZjDMVs=; b=P2P7aY8ik+lb8n/dtBEnDp0Er+
+	euVNoriVT0MhS55eYo3RPd5xyypHWE9i/OQODmqS6PuzoXEBgfJrgvqd+z2YdHODpjBECwzh/t8rr
+	j79VokES0jyer9t14lPkLsoCXZuXSwRQlPiGOOLcTox2T0+lxI3QcMIpQgbVsX3jVBjv+o8RETX5q
+	gYJ5j7WCfwM6CDS8S+XgRXHcN7l7Nj7h3hKxLUvZtAZxZDUQBb3oBsN77Ni939KkrkMtBmJQ/WzdC
+	ixytkk7q/e7BgP4oq9DLmJzjAjzu9AfhRJbZO/sdGZT5evx6Zr6yhiRAWRBXEcMHFfKUxQ3aDH9v6
+	+fxTsb5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXnT-0000000GyMC-3ITJ;
-	Thu, 14 Aug 2025 13:15:11 +0000
+	id 1umXnZ-0000000GyVG-3ICZ;
+	Thu, 14 Aug 2025 13:15:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umUsJ-0000000GWbc-2OJT
+	id 1umUy1-0000000GXbA-3A35
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:08:00 +0000
+	Thu, 14 Aug 2025 10:13:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BECDB1691;
-	Thu, 14 Aug 2025 03:07:50 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A0E53F738;
-	Thu, 14 Aug 2025 03:07:55 -0700 (PDT)
-Date: Thu, 14 Aug 2025 11:07:53 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Jeremy Linton <jeremy.linton@arm.com>,
-	Huang Shijie <shijie@os.amperecomputing.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, catalin.marinas@arm.com,
-	will@kernel.org, patches@amperecomputing.com,
-	Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org,
-	bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be,
-	arnd@arndb.de, nm@ti.com, ebiggers@kernel.org,
-	nfraprado@collabora.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-Message-ID: <aJ21eZPPmQVR3Nij@bogus>
-References: <20250808025533.6422-1-shijie@os.amperecomputing.com>
- <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
- <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
- <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
- <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
- <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43B7A1691;
+	Thu, 14 Aug 2025 03:13:43 -0700 (PDT)
+Received: from [10.1.32.48] (e122027.cambridge.arm.com [10.1.32.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A06E3F738;
+	Thu, 14 Aug 2025 03:13:49 -0700 (PDT)
+Message-ID: <8e58b01b-772d-4ca7-a681-34f10baa07e6@arm.com>
+Date: Thu, 14 Aug 2025 11:13:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] clocksource/drivers/arm_arch_timer: Add standalone
+ MMIO driver
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>
+References: <20250807160243.1970533-1-maz@kernel.org>
+ <20250807160243.1970533-3-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250807160243.1970533-3-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_030759_657931_FEE90C54 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20250814_031353_872421_2A3B70A0 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +70,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 08:55:36AM -0700, Christoph Lameter (Ampere) wrote:
-> On Wed, 13 Aug 2025, Sudeep Holla wrote:
+On 07/08/2025 17:02, Marc Zyngier wrote:
+> Add a new driver for the MMIO side of the ARM architected timer.
+> Most of it has been lifted from the existing arch timer code,
+> massaged, and finally rewritten.
 > 
-> > > The problem is that this information is being sourced from the ACPI PPTT.
-> > > The ACPI specification (AFAIK) doesn't define a cluster, so the linux
-> > > cluster information is being 'invented' based on however the firmware vendor
-> > > choose to group CPU nodes in the PPTT. Which means its possible for them to
-> > > unknowingly create clusters, or also fail to create them when they make
-> > > sense.
-> >
-> > +1, completely agree. As Jeremy mentioned, it is hit or miss and cluster
-> > is loosely defined and IIRC Huawei pushed this based on their platform at
-> > the time and it did break some benchmarks on few other platforms. So it
-> > is not a good idea to make it default config IMO.
+> It supports both DT and ACPI as firmware descriptions.
 > 
-> Can we figure out which platforms benchmarks were affected and why?
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  MAINTAINERS                               |   1 +
+>  drivers/clocksource/arm_arch_timer_mmio.c | 420 ++++++++++++++++++++++
+>  2 files changed, 421 insertions(+)
+>  create mode 100644 drivers/clocksource/arm_arch_timer_mmio.c
 > 
+[...]
+> +static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
+> +{
+> +	at->evt = (struct clock_event_device) {
+> +		.features		   = (CLOCK_EVT_FEAT_ONESHOT |
+> +					      CLOCK_EVT_FEAT_DYNIRQ),
+> +		.name			   = "arch_mem_timer",
+> +		.rating			   = 400,
+> +		.cpumask		   = cpu_possible_mask,
+> +		.irq 			   = irq,
+> +		.set_next_event		   = arch_timer_mmio_set_next_event,
+> +		.set_state_oneshot_stopped = arch_timer_mmio_shutdown,
+> +		.set_state_shutdown	   = arch_timer_mmio_shutdown,
+> +	};
+> +
+> +	at->evt.set_state_shutdown(&at->evt);
+> +
+> +	clockevents_config_and_register(&at->evt, at->rate, 0xf, CLOCKSOURCE_MASK(56));
 
-I am not sure on either. One way to figure out the affected platforms is
-to merge this change and expect the platform users/maintainers to report.
+This doesn't work on 32 bit - clockevents_config_and_register()'s final
+argument is an unsigned long, and a 56 bit mask doesn't fit. This
+triggers a compiler warning:
 
-> It seems the notion of a "cluster" on ARM64 is derived (I guess a better
-> word than "invented" hehe)  from sibling information instead of PPTT. But
-> using that information should work fine right?
-> 
+ drivers/clocksource/arm_arch_timer_mmio.c: In function
+'arch_timer_mmio_setup':
+ ./include/linux/bits.h:47:9: error: conversion from 'long long unsigned
+int' to 'long unsigned int' changes value from '72057594037927935' to
+'4294967295' [-Werror=overflow]
+    47 |         ((t)(GENMASK_INPUT_CHECK(h, l) +                        \
+       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    48 |              (type_max(t) << (l) &                              \
+       |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    49 |               type_max(t) >> (BITS_PER_TYPE(t) - 1 - (h)))))
+       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ./include/linux/bits.h:52:33: note: in expansion of macro 'GENMASK_TYPE'
+    52 | #define GENMASK_ULL(h, l)       GENMASK_TYPE(unsigned long
+long, h, l)
+       |                                 ^~~~~~~~~~~~
+ ./include/linux/clocksource.h:153:32: note: in expansion of macro
+'GENMASK_ULL'
+   153 | #define CLOCKSOURCE_MASK(bits) GENMASK_ULL((bits) - 1, 0)
+       |                                ^~~~~~~~~~~
+ drivers/clocksource/arm_arch_timer_mmio.c:255:66: note: in expansion of
+macro 'CLOCKSOURCE_MASK'
+   255 |         clockevents_config_and_register(&at->evt, at->rate,
+0xf, CLOCKSOURCE_MASK(56));
+       |
+ ^~~~~~~~~~~~~~~~
 
-I have my doubts but I may be wrong. As mentioned in the other email in this
-thread, "cluster" IMO is ill-defined both in ACPI and Arm architecture which
-is the root cause for all the issue around it.
+Possible this should really be min(CLOCKSOURCE_MASK(56), ULONG_MAX)? But
+I'm not familiar enough with this code. Most likely it's dead code on a
+32 bit platform.
 
--- 
-Regards,
-Sudeep
+Thanks,
+Steve
+
 
