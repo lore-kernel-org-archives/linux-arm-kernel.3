@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD9CCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 19:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF46CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 20:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=; b=gT9bsMFzl7cg3lBzV+O0ERkkEz
-	ZB7KFNwr6HYNKjkoQ8eY2fcX+n1f//58UpOMUUzZxsPOkcavSziEbgWqNKUpsuzTfnxqQsFv9cIYZ
-	My8usHvz+Y5ONfYLezXYDuWWte7sJ6sYyh36N59AkNchaMw3oEKeHGHy12Z0BV8NWZqD8iOduymeg
-	0PSRUsZACxolybfijuD/GBhZN4W7Fobt57OHp13SGh+6IAi63gEjzPXA7Ia307lBLZDUFcaNC1CkE
-	VK5XxKWu/Lls885eyCI+14ENe6kqDn/Mw0Hb2WGGhRgMN9u5EcY+rICbMXmmwpDDyMUNwDtp2XNoV
-	xAsWUTVw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7OonhXd2J8nBVykMZsnyPIpsB/2woXa2NsCt/BWEBOM=; b=uuZTT9vHEXf/lMtf7DkafkWYji
+	TF/CxD0s4Vr9l1EZoW4jCoJPc0KTq0VTmcLV8eF8nAfhVfCnWBp54Iu0jK28lFHbdNMjl4hndQZsV
+	qAb1CcBXD7ThcVJxTY0jxTaZtz8LaDIb2Aka3asiAVVDRvnVv6Kl6FSqy/sj9LS6bpN+eENMZ+0L+
+	zFqqCNjGhFZfpC25hLDy53EajWO23lWhEDaKwLUjZF3/eYn/TwtTFCSFspIIcn9JMwA9OODuYjIqI
+	TUb+kAL6rEkRFQyf/03JTW1ega9tN+fV19Dms43JVajVF6ulQRcTYDz56Lv7NRJre4Au69YI6pnlu
+	gvrDzq/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umduJ-00000000Rik-3oej;
-	Thu, 14 Aug 2025 19:46:39 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1umeJR-00000000UBv-3YC9;
+	Thu, 14 Aug 2025 20:12:37 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umctf-00000000LWf-0Je1
+	id 1umeGs-00000000TqI-0o1T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 18:41:56 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-323267bc0a8so2117592a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 11:41:54 -0700 (PDT)
+	Thu, 14 Aug 2025 20:09:59 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-70a928ffd37so15167716d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 13:09:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755196914; x=1755801714; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=;
-        b=Gsf0nDHLUWqnrTY15QHLqOymV1AG33VUu1S9tmIjgOQB9Phpv+mXn9TBptC/NBL7Aw
-         qBoWWLj+0MHMlVvQZrGkxicQaaH3DvRjon9v79oVvpVrEJH9kP8h388svWkmhtDqaN0X
-         ShIJOKUN8Ww5LovR4cZo10ber7NDZiMjqQJC7iYhpWGKrExkmiIBQuTKkUFFRDgtczpg
-         HWVvuVUGsjeu0D7VZk8lGv9D/N8quu/mVz/u/IpSwcJ7mdynYTc+SWsDKuOV90oPAyuB
-         OTPR6+ZBM9/cLyO7ZIfxuco7wGfrPBqbyrEoOrAvTBeoVy5UuBgPAEXXpUDB9FjFzos6
-         n/eA==
+        d=libre.computer; s=google; t=1755202197; x=1755806997; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7OonhXd2J8nBVykMZsnyPIpsB/2woXa2NsCt/BWEBOM=;
+        b=KD5Bm99mJz55bds7g8oldhS6Fy5oQF5E+KrnjbkPjNiJ4d5VOZiq4pdY/o4XCUXM6z
+         ZIwbYEpfUKXmI+3Q5LuuqGD5LgrC6Puyeu12tb0KtoDk4K0NwsqXbjB2Lg04W75qP21J
+         FWTdBSxJ2anzgKEncJJMrefUA7qHQkjG6fLKjGwJdCc8bvAbA/qGveUUwJXSrOdbJKdW
+         aJ11D1Oe4zFCHqayvAlaXDHntTzgqWdAatdWLE0s8+h16MmisaU0/qLLxgPsOQoe26P/
+         1D4kiz93hcfUUOrwpN1xvgEJCLYFcJeMBrneGHoTJBSbfP1TtMd1z6Y4k9QevkGBwWrC
+         rQ5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755196914; x=1755801714;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xDFSf6VtpPHSRKcxIyA+1BMA+HuzuiTfla7h2FaLgn0=;
-        b=kNx+QJoQWXiYKwqiOllJj3wIWdn6BsaRAiEPZJZhIB1BDP9HvHStK/J0Q4z9M2LSQP
-         BZmeRGaiCYuWSkpavDEcxmqPXhqDNWRRIY95RtQJWV6zPWTi6LM9sqLONxFI4x01PMer
-         DHoxgjm4/RKKKWU3wDti84FJsx7h132ZX2estXl3Mp7NtoVMB9HvSzlGzhsWhcvr5Lpo
-         vU0WmUcAuP+caK6AXc9wH7g6d/TNbV+lVrahgpcv67s0sa5VXbBBeegeTpez/6Ee8rm2
-         eJEc5BeChowt9bViBNx0j+8L8ozyn0wni7Al1+hnTC6t2ATy14wT37YMX5NsOk6MSfvw
-         iBfA==
-X-Forwarded-Encrypted: i=1; AJvYcCXdZmmYxEYk4xMXr++WPO8KG+CC/uJIPnuYehnIUKt3ReBGZmJgJyNmKadlRvGQ35kqHEGScyx1zwrSq37Tsnz4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLmZAkUA5z2f0tJbc2lIEin08JevJUSCxFqi0RuFpjPYkuL8gB
-	nIbvZ5/sfNSXzL4wGGJ2yUDIfvHOsmP6RU7V/Mv7o1AzGsfM3o6G0xId/9hcJE0M
-X-Gm-Gg: ASbGncv5b2Yp/6/4jxFW2nnicn+Xriq820GpgmDScV90E46Ckzqnx0LpOiTuwQfWLPS
-	gf1pePJR2Au8umhqQyoSGrltVkgOauchUY7fnawEEMe0Ve80aEc4rjKzWH6iUAJmcuLP1x1zByx
-	4XTHzZJnfPCHuruDO127Zrmepy8OneyNJuL9p3Qb/Ftchzrg7wHebzU1sl4G8dCAGJ2TisJo4PF
-	U48/LdV+nvWIlcl2c7eUV/DhFDCZWduvHkvTJG230izuVST82H6XlQx9GxR/AIJKsAcqk2egCw/
-	QB2vSzBNWg+/z6DDOKUbZHYRVpb2vVTNijXUomTkVmnwn7AW0VM84XW55iDa1HLv3K3IR8t49KG
-	xO2b5dLSdbp7ahYcBiieWI8+5s/qy1x/zPZJlK2zfo0TLDzWafGMHc0w0+jl8MFJr1UxPN3eurR
-	NkXQ==
-X-Google-Smtp-Source: AGHT+IHfccetpow7yjMs7GtNWYKROF86+lwcaLN319Y0r24RCbYznZE4qD/w6tAWLRU5bGeNyjBvTQ==
-X-Received: by 2002:a05:6602:14cc:b0:875:95b7:c0d6 with SMTP id ca18e2360f4ac-8843cc87b3amr23726439f.2.1755196461884;
-        Thu, 14 Aug 2025 11:34:21 -0700 (PDT)
-Received: from localhost.localdomain (65-128-248-47.mpls.qwest.net. [65.128.248.47])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-883f18d1cabsm562086039f.8.2025.08.14.11.34.17
+        d=1e100.net; s=20230601; t=1755202197; x=1755806997;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7OonhXd2J8nBVykMZsnyPIpsB/2woXa2NsCt/BWEBOM=;
+        b=ZKAYfTy7scDwQRsJBTD8Ie7cJ7d0UIHkakQ7Q8y5Ig8mYWO5S0pDSJ6qZa8Hrucsc6
+         H4TZQFjb+JlBI6SyglDT8FitkfrS60ZWrfziq5qBfjEFowjuKCowCA7eagytNx8rHP1j
+         qTGv3OQqZgvB23onozh9o3FD1NQIBibfmAgeoCLRnV00G6vwL+NYh6BZ50V9AJicOOYc
+         66SCM+Avc7WuEOydMU3GPOXx1iimerZFs/Rz0gBC4+mV7YaVDs7Vox0+HOtSKBqRo8dE
+         S/wS+KQPRW4DmwwjUgq0PvjWJRNBpbMmHb4YTkAtOQEvFItfpjVALND3dqxTPWYLjIVO
+         qh/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUtDMtp9LvSzVqi7zbIB7pwHkxF5Nsequu3h9WKZNaUFmGnP3Q0jjxDECDiqTNWKa181n9BTAz274F4x9ZX9LX4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwUGQNSrndPJYuekpFXB83+9UHrFbPnXtz45IEAHi4VWQdde2T
+	+2DkHPchGJVtUfOwyTwVl/0s9QGyU/MvlLXa5ejUN+4tBnMtiUB22XA9127sE9tR3Q==
+X-Gm-Gg: ASbGncso+UFQulvKUr5+oXaI7aUltMDiTn2NhhIvhD3r1swykMLCgfoz0VeHG0r7BZY
+	GG2TtrNzN1KTCyM+4Chmnp+M1BXunUTlQY4HOS92X+3jNmOODkFZ8a4g+vzhYKtXHksa1r8AVs7
+	/I0YubwnGmnrtL670lYxqr9btwonEH2/0AFJNYkTTXXytTvJpfU7u9Foo4C/29lKu41C5njIU3+
+	GD45xbSWxkqY6Om1gNecBLWAGoWzAFqThNKAzFHk2YkM411MsFBLyT/VZU4i18ALqVmhp0VTMRl
+	QVEFgxrw44yzQMwyG0va6/DaEyxpX4qTMrEQHIfOj+d6XW9P8k2yTQXfQAAv5FQAMdEi4Ibti/F
+	Z+YN5+ZaLLRdQDC2qURhCSaLGyfM=
+X-Google-Smtp-Source: AGHT+IF9yvU2GiDOI9/uRKPRYD6OuBCxZE7IqB303/rhDfSaT/Vz79QLGfLeMmb2anmChCdl3JacAQ==
+X-Received: by 2002:a05:6214:1c8d:b0:707:4daf:641 with SMTP id 6a1803df08f44-70af5b2d44fmr73346196d6.39.1755202196510;
+        Thu, 14 Aug 2025 13:09:56 -0700 (PDT)
+Received: from localhost ([172.56.29.94])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-70adc1cd94csm17651476d6.14.2025.08.14.13.09.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 11:34:20 -0700 (PDT)
-From: Shimrra Shai <shimrrashai@gmail.com>
-To: broonie@kernel.org
-Cc: lgirdwood@gmail.com,
+        Thu, 14 Aug 2025 13:09:56 -0700 (PDT)
+From: Da Xue <da@libre.computer>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Da Xue <da@libre.computer>,
+	linux-amlogic@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	perex@perex.cz,
-	shimrrashai@gmail.com,
-	tiwai@suse.com
-Subject: Re: Re: [PATCH 1/2] ASoC: es8323: enable right-hand DAC-mixer connection on ES8323
-Date: Thu, 14 Aug 2025 13:33:44 -0500
-Message-ID: <20250814183344.59453-1-shimrrashai@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
-References: <b5a64166-c55f-4ca4-af92-52c954847af6@sirena.org.uk>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: meson-g12a: fix bit range for fixed sys and hifi pll
+Date: Thu, 14 Aug 2025 16:09:53 -0400
+Message-ID: <20250814200953.1969944-1-da@libre.computer>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_114155_108048_C4B81C2F 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20250814_130958_513764_B29B6D45 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,65 +103,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 01:11:59 PM +0100, Mark Brown wrote:
-> On Wed, Aug 13, 2025 at 08:47:31PM -0500, Shimrra Shai wrote:
-> > Enable the right-hand DAC mixer connection in the same manner as the
-> > left-hand one.
->
-> > @@ -633,6 +633,7 @@ static int es8323_probe(struct snd_soc_component *component)
-> >  	snd_soc_component_write(component, ES8323_CONTROL2, 0x60);
-> >  	snd_soc_component_write(component, ES8323_CHIPPOWER, 0x00);
-> >  	snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
-> > +	snd_soc_component_write(component, ES8323_DACCONTROL20, 0xB8);
->
-> Neither of these should be unconditional writes, these should be user
-> visible controls.  We don't encode specific system's use cases into the
-> driver.
+The bit range 17:0 does not match the datasheet for A311D / S905D3.
+Change the bit range to 19:0 for FIX and HIFI PLLs to match datasheet.
 
-I was just following the precedent from the driver's prior
-author(s), in the manner of the line above it. Presumably, enabling
-the left-hand DAC-mixer connection only was a solution that worked
-for some devices, and theoretically (as in, I don't know of them
-personally), there could be devices where enabling the right-hand
-DAC-mixer connection only works for them (the Firefly may be just
-such a device; I have only tested it with both enabled at once,
-so I can't say for sure. I know it definitely does not work with
-the left-hand connection enabled alone, i.e. the line preceding
-my addition). And perhaps also devices where there is some kind
-of cross-inhibition effect, meaning setting both enabled would
-generate problems on those devices, thus justifying your concern
-instead of using a blanket for all devices as I thought. In that
-case, that means the original author was also wrong, and so I need
-to know exactly where it should be placed.
+There's no frac for sys pll so add that as well.
 
-With regard of that though, I see these lines earlier in the driver:
+Signed-off-by: Da Xue <da@libre.computer>
+---
+ drivers/clk/meson/g12a.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-/* Left Mixer */
-static const struct snd_kcontrol_new es8323_left_mixer_controls[] = {
-	SOC_DAPM_SINGLE("Left Playback Switch", SND_SOC_NOPM, 7, 1, 1),
-	SOC_DAPM_SINGLE("Left Bypass Switch", ES8323_DACCONTROL17, 6, 1, 0),
-};
+diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+index 66f0e817e416..f78cca619ca5 100644
+--- a/drivers/clk/meson/g12a.c
++++ b/drivers/clk/meson/g12a.c
+@@ -157,7 +157,7 @@ static struct clk_regmap g12a_fixed_pll_dco = {
+ 		.frac = {
+ 			.reg_off = HHI_FIX_PLL_CNTL1,
+ 			.shift   = 0,
+-			.width   = 17,
++			.width   = 19,
+ 		},
+ 		.l = {
+ 			.reg_off = HHI_FIX_PLL_CNTL0,
+@@ -223,6 +223,11 @@ static struct clk_regmap g12a_sys_pll_dco = {
+ 			.shift   = 10,
+ 			.width   = 5,
+ 		},
++		.frac = {
++			.reg_off = HHI_SYS_PLL_CNTL1,
++			.shift   = 0,
++			.width   = 19,
++		},
+ 		.l = {
+ 			.reg_off = HHI_SYS_PLL_CNTL0,
+ 			.shift   = 31,
+@@ -1901,7 +1906,7 @@ static struct clk_regmap g12a_hifi_pll_dco = {
+ 		.frac = {
+ 			.reg_off = HHI_HIFI_PLL_CNTL1,
+ 			.shift   = 0,
+-			.width   = 17,
++			.width   = 19,
+ 		},
+ 		.l = {
+ 			.reg_off = HHI_HIFI_PLL_CNTL0,
+-- 
+2.47.2
 
-/* Right Mixer */
-static const struct snd_kcontrol_new es8323_right_mixer_controls[] = {
-	SOC_DAPM_SINGLE("Right Playback Switch", SND_SOC_NOPM, 6, 1, 1),
-	SOC_DAPM_SINGLE("Right Bypass Switch", ES8323_DACCONTROL20, 6, 1, 0),
-};
-
-which suggest it is in fact controllable already, but I wonder why it
-is in the "bypass" switch only and not the "playback" switch, which
-seems to do nothing (SND_SOC_NOPM). Would it perhaps be correct to
-move these to the "playback" switch, or to have both switches
-collapsed into a single switch?
-
-In any case, if these are the correct places to enable this control
-and it is already supported there, then it seems neither write command
-in the setup is needed, viz. we should _delete_
-
-snd_soc_component_write(component, ES8323_DACCONTROL17, 0xB8);
-
-too. What do you say?
-
-  Thanks for any feedback,
-  Shimrra Shai.
 
