@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633F8CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BC5CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 10:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GChTAo5rbB/wmEJGoWsmu+CPOZXtTCJra4+lLJEfN0=; b=Ps/ZVSqYi+5l3iVAqzIMJswWaz
-	y8B0l1D1AJ7Lmm33o/BmT2UuX8skSt5TcZgzVm25ADbvffiiaWmulh8C9cmW6M0kpcW8BI0yD/7Ou
-	ZqlaIlLpuiSTwkKq1KzyiYy8CyxGGXDM61ba9+grCnjfrVkRceqZtYcP5lkjkyo81LFwOcjFdYn8c
-	UzwHohioh2VfPdAQnXEjcc4ft4+2EXAvq14sUFIAMYJne5ctlrG67gz3QDWTV7GOIp7jqE5d/bCy4
-	hq9Ggdx75L1nnNhPzSHq+y8dogjaNYe7zXPu9yXqxYcX2EcudtMpCQ7/jUCdiGGmFC+33DldMiyQc
-	tKN1rOQw==;
+	bh=rrV+7QCzZxU5WdpD1VvGW4S12MBiDSjiBfxWhMo3siM=; b=rUZXp3wMaK+YmFDiBARumMisIa
+	qAix2s7YSV0nbFooWIrhmAvvV+dILWvjI8E4LiS4VnWd0z4qXZZH6xOi2Uiocjec1UY8jNzT9FVU7
+	a2VvolUtH+b3kbbvkRqSaBNZtkMRe+S80n2vcjGltfL2AwezK5DAN9CfnawuNDUe9BBOKnvLLZJoi
+	OiZvFVNo0LOwhEovrn7RTOvbrqGs2IQ0lRqOxt4Htg49Bc3kmzAET7z8V68ZPS3t9chlZbOJL3MYJ
+	ZND/Sd8UlOHx/0LC1dSHeDm2Kne0aPigm3gdjisHvhyrmmkfCJpnHUHMR4qbmoyGymJbRcVv0u4T3
+	OrXC9cfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVTZ-0000000GdhS-07fO;
-	Thu, 14 Aug 2025 10:46:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1umVTY-0000000Gdgh-1ikE;
+	Thu, 14 Aug 2025 10:46:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umTxw-0000000GMFo-1D5F
+	id 1umTx5-0000000GM7r-0t8e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 09:09:45 +0000
+	Thu, 14 Aug 2025 09:08:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 78E72A5213D;
-	Thu, 14 Aug 2025 09:09:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 887F0C4CEEF;
-	Thu, 14 Aug 2025 09:09:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 265916020E;
+	Thu, 14 Aug 2025 09:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441AFC4CEED;
+	Thu, 14 Aug 2025 09:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755162583;
-	bh=4haXZhUQhwWTQfAUzZvN0UDYTjKDPWIQ5LTd46KE9Xo=;
+	s=k20201202; t=1755162529;
+	bh=SrgIKHyQzZsNRjZjaedpryVUikg6Qu1TuEDXZ4F66GY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eLuUBGtdppkgsKgis3nVC/Avqik7RnCYzK9KO7reriPcUJPTO57YUPt85/HgWATYX
-	 v9Xpj+vF0aZsc18rDuptx7cW4VFNjpbBXuNKNF/BdANIEzLtY2wqZNZ7MAAWQMDBK/
-	 IWS+cH7eNxDp8JNHuyoSSiJQXAgvWF3CDzn0gZFUCptj/TB3sQ5f+WPhrzRnCOuIbk
-	 JwiFm7oLFMdZfFut8BL+1nbFQ3pzVMsXxnVW5fgtoDEPzWfSIFLmm187pl+w1OmZHW
-	 26Enk7S0sOkxJuXinXiwvqCjBvF6QqFEZ+mGMqIuZQ+iY/PBBNMU+lgeMhR2MoVCxl
-	 MQSCILYYJFxRQ==
-Date: Thu, 14 Aug 2025 11:09:40 +0200
+	b=IEhar6bMklvfkyPidpHaCkPhVHC2IBI1dey6oRukc416ApLx9OQoXpnokam4Iu3IO
+	 3EhE8j6+HI4tbeLxI0Jo5xc4UpYECb8jj0Xa0GKvLoUxlR6d8ueXSFChmDOuF/7H/e
+	 iFVDPVV3Y53BKP6ribAcTfPkS/Lf/9N63cEIYz7ZaZQIYG6iXdk6SPhQI2OT8cjEDV
+	 Krs1Zlt5macbMAGdvULwB1vLxE3+8jZehLY42zDEHBoE1XxG4FVWmE/WWqdriKWj+6
+	 DSAmRogyfDzfzNltXHf4B5+cT89ZfHionEfAof148q7RynLlADN8wBpD/T8pLCZKwi
+	 0JqK1RQh7lJvw==
+Date: Thu, 14 Aug 2025 11:08:47 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 Cc: Yannick Fertre <yannick.fertre@foss.st.com>, 
@@ -55,18 +55,15 @@ Cc: Yannick Fertre <yannick.fertre@foss.st.com>,
 	Christophe Roullier <christophe.roullier@foss.st.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
 	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 03/13] dt-bindings: display: st: add new compatible to
- LVDS device
-Message-ID: <20250814-dancing-nautilus-of-camouflage-ebb441@kuoka>
+Subject: Re: [PATCH v2 01/13] dt-bindings: display: st: add new compatible to
+ LTDC device
+Message-ID: <20250814-resolute-lime-raven-de4fa5@kuoka>
 References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
- <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
+ <20250812-drm-misc-next-v2-1-132fd84463d7@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_020944_390161_485C7025 
-X-CRM114-Status: GOOD (  15.74  )
+In-Reply-To: <20250812-drm-misc-next-v2-1-132fd84463d7@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 03:49:00PM +0200, Raphael Gallais-Pou wrote:
-> Update the compatible to accept both "st,stm32mp255-lvds" and
-> st,stm32mp25-lvds" respectively.  Default will fall back to
-> "st,stm32mp25-lvds".
-> 
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> ---
->  Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-> index 6736f93256b5cebb558cda5250369ec4b1b3033c..b777c55626e4b322d77ef411ad9e4a3afb6c9131 100644
-> --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-> +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-> @@ -31,7 +31,13 @@ description: |
->  
->  properties:
->    compatible:
-> -    const: st,stm32mp25-lvds
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - st,stm32mp255-lvds
-> +          - const: st,stm32mp25-lvds
-> +      - items:
+On Tue, Aug 12, 2025 at 03:48:58PM +0200, Raphael Gallais-Pou wrote:
+> +else:
+> +  properties:
+> +    clocks:
+> +      maxItems: 4
 
-Drop. This should be just enum or const, no need for items.
+minItems instead
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> +    clock-names:
+> +      maxItems: 4
+
+minItems instead
+
+> +
+>  additionalProperties: false
 
 Best regards,
 Krzysztof
