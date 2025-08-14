@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A20BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EB7CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=; b=M5HFj8G2M21T+j
-	zgBve5fBjyc6OztfykuQ/vWrspquPnnmzI2YnlZEUEE6xBrMf9r9txMYhLbi2DT+WrW5ZZgswJOnf
-	pdHFVcq4SNz5ocaxz2eNO27bQlO+9wc1RUPZGpaMBDJJhLmiYKUOKWObVfTMB9PVIELGsNRGXsfBf
-	yyXZJwH0gqW99DNwTtbnKS0nbdSSPXIiTN+M36UFAd73LF1DkNLhXMY/gq//PgkZ5C7HfNhPaEyTT
-	/N7Rl1hTNROb4vxCim99ZK3eg+qgc02HdAZrf0d7u2de4r/s1uH6rK91P6tG9JNI9EbOLdwjlSc5i
-	dSMFeVUG/k4WRKd+KZiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Wf2DiOscjTwecEowFKMalhlENHRbNfB+Btro8SOfIE8=; b=wRtfL/XuMcJkJghfoxVKUmlHbO
+	9JoSdOpsmAohQRcwNrPDa1yrc7kHiSZJLdNFly/RgRI6by8TwD7S4T8DGnO2N9hA2IK1BVWN9tdz5
+	VJb7pYPyySZ+cM1WnnFyPKHx0hBjYMD/fCe+NPKwaasQ7x2+aLNsEM0lVGh1Zzm3Ba3W7JWTfFBdk
+	C9H8oAfJFsQWxnmfn7fypHQI8gqn/mrCkaezCNBCpMI6AFGI0o/TZpPAxHT0lOjmPn2REGn9eaLEr
+	R8s6ON6No43ONAtySNZlpnFgAWQbeFOY/BDCmdxhNvVp1snH1aIhi3xIgDOm0On06DzDPN9DCZS3r
+	Xol838Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXoJ-0000000Gzul-2WLw;
-	Thu, 14 Aug 2025 13:16:03 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1umXoM-0000000H01e-2aeh;
+	Thu, 14 Aug 2025 13:16:06 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umVYH-0000000Gf6x-43yC
+	id 1umVYI-0000000Gf6z-3kGb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 10:51:23 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b0cd668so3775255e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 03:51:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755168680; x=1755773480; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=;
-        b=Mh0/uEbsYt8xlck3FOM7UoVYIh1I9aYA7pDLy0730LYTNsNrKnvHLTvAXIgQSzxzbH
-         /EBOpUvlJ5yUlL49aG93WWl5KPdSaKhSZAMrdlnwvSPCkTvjIss3xHO4odBpQcPwOkuB
-         jOsCn8mg7qV1OvY6eAa6hGkCUJ5r7yQbgCGXEwV7dYOdtfc2CxgSqd7sdEUMLI+yV4cf
-         mnMSwcpkJh5Auy8wsOwkiyPGa0YOnij95zYxFwrtPS/pcsnf8jnnVyLb2QG2crwBlwd0
-         +0ZKTgfxsFdb4bGYzYBRPB6VednbnY1nGqfJt0BzAg/mOaoMcW/6qPXF5FX3H6uu2rT+
-         jcvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755168680; x=1755773480;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Usjf2Lwxzvbim7S5kgmgOqxfjpVorryscczoj/caPjU=;
-        b=KMxWESNXOva5mUxz9ejFqn6wsGEbULeJKFVOc5PxrezEYhg0MFc/GuWFSPbFPJR4as
-         dTgwmhHLg04Qsq4pzmeuScDREgCr3GTii1fTdsVMOmqsMP/sXl8SQz+eFh69YaigZuDy
-         fzxA4b/s+EVeIE2XR3yrKhAbJ0at7ptE1801a7O6+ePccA/2utT8Z09mYMU18h4nyQ2F
-         fGDDrQ3d5UO8zvgUu6EsnmrMqsC6A2FgiiQLTEadr9S45K5N7hKsIQKcjmlGZ546BnFX
-         Sxq85SoS7PriGJeVW/hW/QdDCdKbnsCPL+w7nO0FJv28Uc99Pf9wyMH1o5uLXe3zaOHJ
-         w0GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCVLb84xOAO1y1JH4I9MHkI7Q4ZMaHxGqnj8s9BVig36zsdpWDZP2VH4s2unrCkrMCieOQ5vUbECySzOnm931b@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWOEOvkm2FQrv1/tUQvD8sKIfsqg0EIA5ykiUyD3ZAGG/AMIwB
-	EEgkFsBQPUxIt+6luANz6A7NiM2eFW/Htl4SJ0ODU9uV15aCfEqhIzR9rsPg8I/ZIRM=
-X-Gm-Gg: ASbGncv9bg2rowJ2R87mw/BWrjLV68Kb06zxlfhtb2/RZFRff9GHowOERKSFj4Xd3dS
-	EpmeU8lLit8Gz+/xAAhg3hYCcZzdGgFfPqIh5YHrgjhUOPl/+4tYCMufuHXq6br+SRo8AoIohyJ
-	FPYnhk9JpF88oQI/QA7mOqgbY31bPgDtDJZf0tYdO336FhYYT6FH14q4beSTQOgDg57hA3ToWi/
-	dHEdG8ePr6WDcW/60z++E5iwecWfCdcU5cMT+lLb1DQaFsn7UOZNi+G8c0hQgdYatQOG9TIHOUv
-	Vb6uEL8n05vWg/9qpQI2nvaWHNnulejwtNqmnkTKRtYLd+RNABE9kAmCXAJdtD/r+H61LWrCrNv
-	CSkZc1Bta2kPieXvIXHHnNuH/9eAOMu6EpuqwZHYR5Q==
-X-Google-Smtp-Source: AGHT+IGi1J840nNnMEHt0PQ+bJMM7STyMRvyW+nAoUIIj5zhCJZ53xyxLHO0So7XafSfOfSk3XvbbA==
-X-Received: by 2002:a05:600c:827:b0:459:e094:92cb with SMTP id 5b1f17b1804b1-45a1d7309camr9947535e9.12.1755168680077;
-        Thu, 14 Aug 2025 03:51:20 -0700 (PDT)
-Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1b226eecsm14228345e9.1.2025.08.14.03.51.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Aug 2025 03:51:19 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v2 0/6] coresight: Add format attribute for setting the
- timestamp interval
-Date: Thu, 14 Aug 2025 11:49:51 +0100
-Message-Id: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+	Thu, 14 Aug 2025 10:51:24 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57EApAb91916358;
+	Thu, 14 Aug 2025 05:51:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755168670;
+	bh=Wf2DiOscjTwecEowFKMalhlENHRbNfB+Btro8SOfIE8=;
+	h=From:To:CC:Subject:Date;
+	b=aIJnRyv2TUEiX7xyia+B8qmT2awyAbCkiWOqB836m4S/XO5vuXZED7oSLe17EHcqz
+	 +BVVBP35bxSHob5vec6QRXpCoHmpstfwHNf5hWPCFrQQOJgrSxadJHyRzTer8HMkZV
+	 mzZYQN2OnAeq668E3ynk3/T2tpxMzYFXZPOpPnzs=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57EApArw1661623
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 14 Aug 2025 05:51:10 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
+ Aug 2025 05:51:10 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 14 Aug 2025 05:51:10 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57EApAl53495350;
+	Thu, 14 Aug 2025 05:51:10 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 57EAp9VZ026297;
+	Thu, 14 Aug 2025 05:51:09 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
+	<m-malladi@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net] net: ti: icssg-prueth: Fix HSR and switch offload Enablement during firwmare reload.
+Date: Thu, 14 Aug 2025 16:21:06 +0530
+Message-ID: <20250814105106.1491871-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAE+/nWgC/22Nyw6CMBBFf4XM2po+QIgr/8OwqGWAMdrqjCESw
- r9bcevynOSeu4AgEwociwUYJxJKMYPdFRBGHwdU1GUGq22la1uqq7+jqCBK5hh6xqeqg7VV7V2
- DnYO8ezD29N6a5zbzSPJKPG8Xk/naX60x5k9tMkqri9YmdAd0pS5PN4qe0z7xAO26rh/AyvQns
- wAAAA==
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_035122_024187_C5B37017 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250814_035123_064092_FAA26495 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,52 +92,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do some cleanups then add a new format attribute to set the timestamp
-interval for ETMv4 in Perf mode. The current interval is too high for
-most use cases, and particularly on the FVP the number of timestamps
-generated is excessive.
+To enable HSR / Switch offload, certain configurations are needed.
+Currently they are done inside icssg_change_mode(). This function only
+gets called if we move from one mode to another without bringing the
+links up / down.
 
-Although it would be good to make only SYNC timestamps the default and
-have counter timestamps opt-in, this would be a breaking change. We
-can always do that later, or disable counter timestamps from Perf.
+Once in HSR / Switch mode, if we bring the links down and bring it back
+up again. The callback sequence is,
 
-This is added as an event format attribute, rather than a Coresight
-config because it's something that the driver is already configuring
-automatically in Perf mode with any unused counter, so it's not possible
-to modify this with a config.
+- emac_ndo_stop()
+	Firmwares are stopped
+- emac_ndo_open()
+	Firmwares are loaded
 
-Applies to coresight/next
+In this path icssg_change_mode() doesn't get called and as a result the
+configurations needed for HSR / Switch is not done.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
+To fix this, put all these configurations in a separate function
+icssg_enable_fw_offload() and call this from both icssg_change_mode()
+and emac_ndo_open()
+
+Fixes: 56375086d093 ("net: ti: icssg-prueth: Enable HSR Tx duplication, Tx Tag and Rx Tag offload")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
-Changes in v2:
-- Only show the attribute for ETMv4 to improve usability and fix the
-  arm32 build error. Wrapping everything in
-  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) isn't ideal, but the -perf.c
-  file is shared between ETMv3 and ETMv4, and there is already precedent
-  for doing it this way.
-- Link to v1: https://lore.kernel.org/r/20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 72 +++++++++++---------
+ 1 file changed, 41 insertions(+), 31 deletions(-)
 
----
-James Clark (6):
-      coresight: Change syncfreq to be a u8
-      coresight: Fix holes in struct etmv4_config
-      coresight: Repack struct etmv4_drvdata
-      coresight: Refactor etm4_config_timestamp_event()
-      coresight: Add format attribute for setting the timestamp interval
-      coresight: docs: Document etm4x ts_interval
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 6c7d776ae4ee..dadce6009791 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -203,6 +203,44 @@ static void prueth_emac_stop(struct prueth *prueth)
+ 	}
+ }
+ 
++static void icssg_enable_fw_offload(struct prueth *prueth)
++{
++	struct prueth_emac *emac;
++	int mac;
++
++	for (mac = PRUETH_MAC0; mac < PRUETH_NUM_MACS; mac++) {
++		emac = prueth->emac[mac];
++		if (prueth->is_hsr_offload_mode) {
++			if (emac->ndev->features & NETIF_F_HW_HSR_TAG_RM)
++				icssg_set_port_state(emac, ICSSG_EMAC_HSR_RX_OFFLOAD_ENABLE);
++			else
++				icssg_set_port_state(emac, ICSSG_EMAC_HSR_RX_OFFLOAD_DISABLE);
++		}
++
++		if (prueth->is_switch_mode || prueth->is_hsr_offload_mode) {
++			if (netif_running(emac->ndev)) {
++				icssg_fdb_add_del(emac, eth_stp_addr, prueth->default_vlan,
++						  ICSSG_FDB_ENTRY_P0_MEMBERSHIP |
++						  ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
++						  ICSSG_FDB_ENTRY_P2_MEMBERSHIP |
++						  ICSSG_FDB_ENTRY_BLOCK,
++						  true);
++				icssg_vtbl_modify(emac, emac->port_vlan | DEFAULT_VID,
++						  BIT(emac->port_id) | DEFAULT_PORT_MASK,
++						  BIT(emac->port_id) | DEFAULT_UNTAG_MASK,
++						  true);
++				if (prueth->is_hsr_offload_mode)
++					icssg_vtbl_modify(emac, DEFAULT_VID,
++							  DEFAULT_PORT_MASK,
++							  DEFAULT_UNTAG_MASK, true);
++				icssg_set_pvid(prueth, emac->port_vlan, emac->port_id);
++				if (prueth->is_switch_mode)
++					icssg_set_port_state(emac, ICSSG_EMAC_PORT_VLAN_AWARE_ENABLE);
++			}
++		}
++	}
++}
++
+ static int prueth_emac_common_start(struct prueth *prueth)
+ {
+ 	struct prueth_emac *emac;
+@@ -753,6 +791,7 @@ static int emac_ndo_open(struct net_device *ndev)
+ 		ret = prueth_emac_common_start(prueth);
+ 		if (ret)
+ 			goto free_rx_irq;
++		icssg_enable_fw_offload(prueth);
+ 	}
+ 
+ 	flow_cfg = emac->dram.va + ICSSG_CONFIG_OFFSET + PSI_L_REGULAR_FLOW_ID_BASE_OFFSET;
+@@ -1360,8 +1399,7 @@ static int prueth_emac_restart(struct prueth *prueth)
+ 
+ static void icssg_change_mode(struct prueth *prueth)
+ {
+-	struct prueth_emac *emac;
+-	int mac, ret;
++	int ret;
+ 
+ 	ret = prueth_emac_restart(prueth);
+ 	if (ret) {
+@@ -1369,35 +1407,7 @@ static void icssg_change_mode(struct prueth *prueth)
+ 		return;
+ 	}
+ 
+-	for (mac = PRUETH_MAC0; mac < PRUETH_NUM_MACS; mac++) {
+-		emac = prueth->emac[mac];
+-		if (prueth->is_hsr_offload_mode) {
+-			if (emac->ndev->features & NETIF_F_HW_HSR_TAG_RM)
+-				icssg_set_port_state(emac, ICSSG_EMAC_HSR_RX_OFFLOAD_ENABLE);
+-			else
+-				icssg_set_port_state(emac, ICSSG_EMAC_HSR_RX_OFFLOAD_DISABLE);
+-		}
+-
+-		if (netif_running(emac->ndev)) {
+-			icssg_fdb_add_del(emac, eth_stp_addr, prueth->default_vlan,
+-					  ICSSG_FDB_ENTRY_P0_MEMBERSHIP |
+-					  ICSSG_FDB_ENTRY_P1_MEMBERSHIP |
+-					  ICSSG_FDB_ENTRY_P2_MEMBERSHIP |
+-					  ICSSG_FDB_ENTRY_BLOCK,
+-					  true);
+-			icssg_vtbl_modify(emac, emac->port_vlan | DEFAULT_VID,
+-					  BIT(emac->port_id) | DEFAULT_PORT_MASK,
+-					  BIT(emac->port_id) | DEFAULT_UNTAG_MASK,
+-					  true);
+-			if (prueth->is_hsr_offload_mode)
+-				icssg_vtbl_modify(emac, DEFAULT_VID,
+-						  DEFAULT_PORT_MASK,
+-						  DEFAULT_UNTAG_MASK, true);
+-			icssg_set_pvid(prueth, emac->port_vlan, emac->port_id);
+-			if (prueth->is_switch_mode)
+-				icssg_set_port_state(emac, ICSSG_EMAC_PORT_VLAN_AWARE_ENABLE);
+-		}
+-	}
++	icssg_enable_fw_offload(prueth);
+ }
+ 
+ static int prueth_netdevice_port_link(struct net_device *ndev,
 
- Documentation/trace/coresight/coresight.rst        |  14 +++
- drivers/hwtracing/coresight/coresight-etm-perf.c   |  13 ++-
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 110 +++++++++++++--------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  86 ++++++++++------
- 4 files changed, 151 insertions(+), 72 deletions(-)
----
-base-commit: a80198ba650f50d266d7fc4a6c5262df9970f9f2
-change-id: 20250724-james-cs-syncfreq-7c2257a38ed3
-
-Best regards,
+base-commit: 52565a935213cd6a8662ddb8efe5b4219343a25d
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
