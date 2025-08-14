@@ -4,83 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37293CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08057CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 13:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/SKouLfB4Dt96a+piQ7gJ9WekR4y2KBR6TTQHeQMIQ=; b=k/k5Tqabf6FHxg7DnNg7h70A59
-	6C35bDdHswrSEQ/vP4mK6UbHu1+OQeVRyumq4bgKoe8qYszhIwyY1ePnpocA4udtuKBIJkTp9EoLa
-	H2UbIjJfpm0F53sNARMKFwCIbjln3B1ThKJlwITE/iuaSSa0aX+8uisrD4RlFhSUl/k3R7vLyobqZ
-	ShykRMxBtuYdy0uJgjMfrdNmPJCGB4pYBte6sI0Sz3az9TpxENXEsLl5qXsxlBvGvOpfrGlMRyWGI
-	YMMEUQtZUkycSRrUP9EH5LLIG6Z/VrQFc8jAgBI66zX4esTCVSCb6wUNCftlKxOAcXpVLPi/5fjDm
-	lUr+NFEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzSNHix+jDzhryW7L6rWS044+qiGmGt0CFqW85ry1ZA=; b=pnQ8tTt5xO/JVhBfiwynFb6hK9
+	1ltoCjXV1Irgx+T5Pu1T/JGp2fGSKkAFcheZXJIiEM24sagG7oUuHXICUL1Ox+A+cCA+cTP79EKs9
+	f9NazX/PStsby1fNQSiMUOLIBOmkh2bjwsr16yLUheNiDk9UN27HT1wk4tWr6SauD4r6A6IbkWaI8
+	9m3VDEbTGvKVY5iZrLt0oESyueNTZNUEMQnkATRr2wlC8bKj0S4uPQGtvW80xVwLamdhdBAICGuYw
+	blPIuUMnNll7GYS6e8RLyobyUdGqZLML8sOUKCoijzG4V5lnacxcq4Iw/eRRAMQKsl6NLrMwsVJHl
+	I4FQcmYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umY7L-0000000H4K6-22lC;
-	Thu, 14 Aug 2025 13:35:43 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1umY9s-0000000H4g1-1OAB;
+	Thu, 14 Aug 2025 13:38:20 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umXDu-0000000Grf8-2fkM
+	id 1umXFV-0000000Grsc-0HNI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 12:38:27 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-32326de9cb4so796557a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 05:38:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755175106; x=1755779906; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y/SKouLfB4Dt96a+piQ7gJ9WekR4y2KBR6TTQHeQMIQ=;
-        b=VqpyLIMC7oQPeqOBdownRIIjkOqCgA2Lb4xx3Ddq7W2bZLR3VKLq6F1li8i0QLvByg
-         vUSRVOOm2MGS4ux11MSd3VDKjZ6V3zsnghxw5WX9DQVnaZpD5W0TWZbZjJFqj+2gGutB
-         YLqxBk0XOnkJekuGwOxJP+H6zjNod3f640Ai+bSVlvpmz/phSYI4C35t0dzzdsNeOaxr
-         1mfaTv/FbbVvep+G2VukEAV8HWUuE9ggR/D77uVKW+Vh11WgQeUCARMWVTjylIrTaObQ
-         XvT/Gc3bRj/gUFQj76ERkooYzJYaVha9ofWrpSaZ07uz/tmkyfK4+4EaEX0V6gN3eR0b
-         gWpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755175106; x=1755779906;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y/SKouLfB4Dt96a+piQ7gJ9WekR4y2KBR6TTQHeQMIQ=;
-        b=SAi0G/gOIzeP3SYyPg0RakA/dc7ZEloBXzHcJx195j/28Z/pn6ICKL9qnVjmOUS8yH
-         89i5Md6aficdWcNo5eX9TX1QIk2zxIy4hR3FVBd9+hIM/rVVvRyUm5eVtFxi0SPuPQbH
-         bL8rHAsj89sBrgYwHT9e5G0MXus/pBViGz4kD29doj/z1xfCBdKQlCUtvnwE92WSciWA
-         FWWYAg+iJ+JjHhgRt+xy2vgKkmmytPH6rWIEMfmfANuYWWYvqPyKyS1zPKnTqiGjb57U
-         IoeLhRXPvgNqjW+x3YVvglxzPmT1G+uJD332cAkGC0JOitN/9OlxydYYE7PjvFX5Kfvs
-         vn2g==
-X-Forwarded-Encrypted: i=1; AJvYcCXIhoqKVAH6ctaouRvTTnKvfh/IEXjRQe/QU3QHJ58mayPi2epKzp0sPrQh1HPAIessEu45q+jBUSAmGvL89AiF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8bViBW8PQwX28Fx2TflGFgFTt7vzUt3qNvh/D6Cg820P0HiCA
-	UvAPCPeA+wk8VI9UvTWfKCjhf8y3c8QKDBFLCi9FdhNhQi6r38B5t0H1p0cUNwK5hxsJnzVOPnn
-	Fyi3Dc6l3TKi4gjHIJ/j+x9Xqam8yeFE+pjdC0psu8w==
-X-Gm-Gg: ASbGncsaOttQOmOC4MNRbe4rQVKgFntpTrneuSO5IFQzxbp1rDJtJs+YXGibt1rsc32
-	+D/mHbuh3d5qrYZs7EObFM1uxTeaLho3PEk9eF/iaLB+Edcih93Gt4tuiRGI137lULrTYgvUm5i
-	zUUWnbe2GI8SJTXNiXRrqcOag9sBnAJOV5PcYmSNy/bvwr1M2DPxmYQ0FWdWVsqVvoZLtRjX0Pr
-	Selzht3
-X-Google-Smtp-Source: AGHT+IGSclopDnHf9B3zonnvXINSROJBoUEpQ4myknxB/jv0JOS4+2qsCtwFneFqnIPDyDUqajH3gvHZEPoUUbizmJs=
-X-Received: by 2002:a17:90b:3e8e:b0:31e:c95a:cef8 with SMTP id
- 98e67ed59e1d1-3232b7b7707mr2940353a91.32.1755175105752; Thu, 14 Aug 2025
- 05:38:25 -0700 (PDT)
+	Thu, 14 Aug 2025 12:40:06 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57EAioq1010546;
+	Thu, 14 Aug 2025 14:39:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	WzSNHix+jDzhryW7L6rWS044+qiGmGt0CFqW85ry1ZA=; b=MXCMvXlNHKbc+con
+	Gfz+5BevdW0tajuBGnIhEJT5lDj+ijrbmRk/6w1spiO43qCkWl3tZW7gwJ/x36SA
+	Qbi0deGn40RBnP5ubhNCLBvz0iAjYE6XmPBN3c60DRZLovhvuEE1GNx84ZR8Hbee
+	fFl9MEdnS0k5WqzrGo0JKjLlikmtpaFgtnWE6cic9Fy8xgIvDxVOmmg6t50qAFqJ
+	cXPLf9+oWcXdRmy/P11Hv6e9XESlfpbCUObOs00BlYX71IoHDRugn6zS/mG5K/SM
+	4cq8ZLBZGub26xJdIXbTKZaZqbHH2ltlsk2vPjFrP+DbHnXWA+i/8KiBMx/twoPk
+	66sqnw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48eh9nh6xa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 14 Aug 2025 14:39:41 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 38D9A4004D;
+	Thu, 14 Aug 2025 14:38:12 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5A1B671CEDD;
+	Thu, 14 Aug 2025 14:36:49 +0200 (CEST)
+Received: from [10.252.20.8] (10.252.20.8) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 14 Aug
+ 2025 14:36:48 +0200
+Message-ID: <2c13bf48-5453-4302-9cde-eac51e314af1@foss.st.com>
+Date: Thu, 14 Aug 2025 14:36:47 +0200
 MIME-Version: 1.0
-References: <20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org> <20250811-james-cs-syncfreq-v1-3-b001cd6e3404@linaro.org>
-In-Reply-To: <20250811-james-cs-syncfreq-v1-3-b001cd6e3404@linaro.org>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 14 Aug 2025 13:38:14 +0100
-X-Gm-Features: Ac12FXzyxxKA_BOyrBNq7M0owGv4_wTgorvEm4dWj6LYiHxzxFQ-EPbV7AZ31P0
-Message-ID: <CAJ9a7VhXAhDHkpyA6gHWPfr+HAEFLEPa01vx0n=b+82TrEMUTQ@mail.gmail.com>
-Subject: Re: [PATCH 3/6] coresight: Repack struct etmv4_drvdata
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/13] dt-bindings: display: st: add new compatible to
+ LVDS device
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
+ <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
+ <20250814-dancing-nautilus-of-camouflage-ebb441@kuoka>
+Content-Language: en-US
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+In-Reply-To: <20250814-dancing-nautilus-of-camouflage-ebb441@kuoka>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.252.20.8]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-13_02,2025-08-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_053826_675629_FA577E96 
+X-CRM114-CacheID: sfid-20250814_054005_361250_14582A74 
 X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,78 +115,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 at 10:32, James Clark <james.clark@linaro.org> wrote:
+
+
+On 8/14/25 11:09, Krzysztof Kozlowski wrote:
+> On Tue, Aug 12, 2025 at 03:49:00PM +0200, Raphael Gallais-Pou wrote:
+>> Update the compatible to accept both "st,stm32mp255-lvds" and
+>> st,stm32mp25-lvds" respectively.  Default will fall back to
+>> "st,stm32mp25-lvds".
+>>
+>> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+>> ---
+>>  Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 8 +++++++-
+>>  1 file changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+>> index 6736f93256b5cebb558cda5250369ec4b1b3033c..b777c55626e4b322d77ef411ad9e4a3afb6c9131 100644
+>> --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+>> +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+>> @@ -31,7 +31,13 @@ description: |
+>>  
+>>  properties:
+>>    compatible:
+>> -    const: st,stm32mp25-lvds
+>> +    oneOf:
+>> +      - items:
+>> +          - enum:
+>> +              - st,stm32mp255-lvds
+>> +          - const: st,stm32mp25-lvds
+>> +      - items:
+> Drop. This should be just enum or const, no need for items.
+
+Why would items not be applicable in this case ? I want the compatible field to
+be either:
+
+compatible = "st,stm32mp255-lvds", "st,stm32mp25-lvds";
+
+or
+
+compatible = "st,stm32mp25-lvds";
+
+example-schema.yaml states the same pattern.
+
+Best regards,
+Raphaël
 >
-> Fix holes and convert the long list of bools to single bits to save
-> some space because there's one of these for each ETM.
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 >
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x.h | 39 ++++++++++++++-------------
->  1 file changed, 20 insertions(+), 19 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index a355a1e9606d..1c67b263b01b 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -1020,29 +1020,30 @@ struct etmv4_drvdata {
->         u8                              ns_ex_level;
->         u8                              q_support;
->         u8                              os_lock_model;
-> -       bool                            sticky_enable;
-> -       bool                            boot_enable;
-> -       bool                            os_unlock;
-> -       bool                            instrp0;
-> -       bool                            q_filt;
-> -       bool                            trcbb;
-> -       bool                            trccond;
-> -       bool                            retstack;
-> -       bool                            trccci;
-> -       bool                            trc_error;
-> -       bool                            syncpr;
-> -       bool                            stallctl;
-> -       bool                            sysstall;
-> -       bool                            nooverflow;
-> -       bool                            atbtrig;
-> -       bool                            lpoverride;
-> +       bool                            sticky_enable : 1;
-> +       bool                            boot_enable : 1;
-> +       bool                            os_unlock : 1;
-> +       bool                            instrp0 : 1;
-> +       bool                            q_filt : 1;
-> +       bool                            trcbb : 1;
-> +       bool                            trccond : 1;
-> +       bool                            retstack : 1;
-> +       bool                            trccci : 1;
-> +       bool                            trc_error : 1;
-> +       bool                            syncpr : 1;
-> +       bool                            stallctl : 1;
-> +       bool                            sysstall : 1;
-> +       bool                            nooverflow : 1;
-> +       bool                            atbtrig : 1;
-> +       bool                            lpoverride : 1;
-> +       bool                            state_needs_restore : 1;
-> +       bool                            skip_power_up : 1;
-> +       bool                            paused : 1;
->         u64                             trfcr;
->         struct etmv4_config             config;
->         u64                             save_trfcr;
->         struct etmv4_save_state         *save_state;
-> -       bool                            state_needs_restore;
-> -       bool                            skip_power_up;
-> -       bool                            paused;
-> +
->         DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
->  };
->
->
-> --
-> 2.34.1
+> Best regards,
+> Krzysztof
 >
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
 
