@@ -4,104 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C483CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 17:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47063CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 Aug 2025 17:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yaSYWXyGxJ/9XhopS6Hw1gTGGNBA7I4gi0bSsDYE9rU=; b=ei9T/POkWvYcOXBbe1cygdfWC0
-	f7VBjsbEeETQlntsTWSSbJyD1AxPZv+6Zi3WHn6g4CSugiG2+BkcN7kF+9bs3Aq2F5Ev9WaopTrZJ
-	4k4nf+RztNHy/4NOkloZ1V96E+ZRnvD9ij569QTUoFIL+tBlKQ/v/H3LGCPCJ8LoRQ39J8JsE962c
-	HnacTrCBlEaxTo6xG1HVn8NgYH8yUqy2SSlCyMBWcD6CVOpLteFL+OBNTMgKwiLnFY7QTeJgS4bzf
-	MhJ+UEFstBhLwWXjmrwQ5sn5zx/qVuP5t6+LpPlAg/hKJOtzc00Zyt1hSnecW5TFFuyUJLk7wI65L
-	sOjGERCg==;
+	bh=TjLO44dhfAsonysE/RA7p9Yc1ofbKzZyoAUfve5uIp4=; b=TzqIN3NXGuyoPivUf7s8As8HQn
+	LN9+/pixRFtrMJ/ZxptZauzgFYDhhG5ygt+cNM56j6fa1tw5STSHMW0i8gQhZmfSJRtAPTdOLrnps
+	G00NNEcR4q3tDfB7S7nH9CBrtCZEtFrVoM5SsXCajb5OA786yvG3Adr0dUJ2QAMYcFP8nCnsaHFrh
+	SrcLgmbXcBXZfgM4Q3XaY5X79zA08VagWaINLGuKp2oBHyy6nrG7ClHOxyEx9C3f194TSy/esyZdf
+	7rqiAz3nIbecDWldPaKfA+PWXnDaNPtHv8QyaeJumyGOwoW8gcHlU+rpT4H1dVoeJzs8+6V4Cbq8r
+	fc928oeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umbnm-00000000DGs-1M4y;
-	Thu, 14 Aug 2025 17:31:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1umbnn-00000000DHk-1Q6u;
+	Thu, 14 Aug 2025 17:31:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uma4E-0000000HVdn-34LS
+	id 1uma9t-0000000HWiZ-1U6y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 Aug 2025 15:40:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755186037;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yaSYWXyGxJ/9XhopS6Hw1gTGGNBA7I4gi0bSsDYE9rU=;
-	b=ZIslLW6Z+li92ax9j5onLuvCWLQ9e6+FSQsM0wB/0CHFn2bQor7AUojMicpfbukAQAQWxu
-	lrX9s9uZxuIwPmEGS95h5J1ffTRMV0z7xAmi1voGpExbYLHbTRGBIAQBR+VeX2B7zFx5O3
-	B2EfJwJe3yoARj9RAfykTYD2hDbKMtM=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-594-bVsZNB8WOR-YIP5RkFlIow-1; Thu, 14 Aug 2025 11:40:31 -0400
-X-MC-Unique: bVsZNB8WOR-YIP5RkFlIow-1
-X-Mimecast-MFC-AGG-ID: bVsZNB8WOR-YIP5RkFlIow_1755186030
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0514a5so5224625e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 08:40:31 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755186030; x=1755790830;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yaSYWXyGxJ/9XhopS6Hw1gTGGNBA7I4gi0bSsDYE9rU=;
-        b=nYyV1oVt4/ZftmbCHQwYf8rsTOkO9Q0c9lAWiCducd0UK+dhGA3AZvmCbugGETwgE6
-         4Gy4EOSeuJ0Zx1uHQmtl7DmS5ESZ0X+kLg3qYoCBSnV8pr0X6SK1sd7Ek6dCkX6X8jYY
-         PlQGNCIwd7ML/+H1u5/rbuUW5KFJHutoYkVkbLZosvPHgk/6y12PVwCY0fpsYVLR2kK1
-         oIzrZWHvQSWPDhMKg3IudQk4KLfBDt3Gatppn1XQkbEvgmRXNHOS/K4i3/74UsidvCuy
-         I4e+geAbEvrymLgOnFoSy9V49gNCUshhRRf7hRJyMbEiTRuPgVj+j6/h+dcSdQk3MSn+
-         DUKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWPuanbX8Eilg5iizPkIIjDGnqNoCZSd1OcjbFdXaS2kCcKzaTeK/21frWS22tCV4WurkPW7PXnPCaFIej4g7ix@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAEIhlO4Tr/uyAMzmuT1WXd6tSYEt3UgGlE1sK21XeGSFAfa4y
-	bBf0fR2K4QUUs4UxB/Nvao9dtkWVXmLR3Pjbsjfwtnsx+JIOyF7MaNygDLkSp/CBCC3UI7DjrP1
-	Op0aopVYWa0rBZt+UU3bpTFwxoOr1w/q1XcX8fCuKw6HEv38ODsKEqz2c3kNOQSMa6haFv7Ue9C
-	xK
-X-Gm-Gg: ASbGncsqguR/x1hE5iofEIkcZmvdTsudmuxu6Ro7B4f2E/0WKMcL9UTdhaE+G1ZbGlQ
-	my583x/8mpCsnc+H9ITWcqbZXmRAoXQCSiKzDKNAS960afWG9NCM5iw7SP6nlgBLIK2Njwd7F7P
-	QUC9JBHRUJ2fGf7GIEYuZ25oeHpbXKkCoYeXzx0922U6TFh+cTVu/qNdtYBja3llGkxi4TsOjCt
-	X9qunphMEAn+tgc/No4Z1B/etSijY6wM1Z6pR3GAhwxNEl7tjHSUikOoIci6PNC3XLPrL1dmXLP
-	6f/IkYxTQGGnhdhnCBy5j2rH/8MhEZgsPt0Lx0voLUEjqNHB6tU8APrwo4C1+/jJo2VEOc3DBb2
-	g03XfKWRD+lg=
-X-Received: by 2002:a05:600c:1390:b0:459:dba8:bb7b with SMTP id 5b1f17b1804b1-45a1b60f926mr33912875e9.13.1755186030041;
-        Thu, 14 Aug 2025 08:40:30 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGO8j0bl06t8kLqVusdd2gtWRvt7hDatkEzclPmxcaIlT06nd+NntfwSiemJ8UjNqI6qlg2+Q==
-X-Received: by 2002:a05:600c:1390:b0:459:dba8:bb7b with SMTP id 5b1f17b1804b1-45a1b60f926mr33912485e9.13.1755186029551;
-        Thu, 14 Aug 2025 08:40:29 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2712:7e10:4d59:d956:544f:d65c? ([2a0d:3344:2712:7e10:4d59:d956:544f:d65c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45a1fe2c019sm5608825e9.17.2025.08.14.08.40.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Aug 2025 08:40:28 -0700 (PDT)
-Message-ID: <c25f924f-a66b-47cc-819d-5ed241a4bac6@redhat.com>
-Date: Thu, 14 Aug 2025 17:40:27 +0200
+	Thu, 14 Aug 2025 15:46:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 137FB45AA0;
+	Thu, 14 Aug 2025 15:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC754C4CEEF;
+	Thu, 14 Aug 2025 15:46:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755186388;
+	bh=iSjzjmWTu80cwcbL4cT/to0KlVsFsM7JJGnphItTq5s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fF7wYjhZFUqs3vr7YwAWauWU54banRqHRl2x4hrTX4DI+Lud6nrQu1ZY4dXh7sI8f
+	 b4VbGwLI/89AghcGVtl+bD53+vwY3/9SVfcBv0ghRl3/8+Lun/5RM2Wcv1NuBFfT82
+	 i/ePzioR8hvE+zj2bODZDNxeAu1vVs6NOj6k/xUsMubVquDHmQ819m+aZdzfHBOddB
+	 iOFDz/U2uNE56pnrAu8RkAaa1ixZbWrxK/LKgCHZIfPoIGsaAwIY6E0oWDbVYidsoo
+	 RdfRP2ENVzwWjO1jijYkXurAVX+7HnZg3XupfxyrAznJ761iLb8gN5PNQUoi3M4Qq6
+	 v7/tOpG3VQbNg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uma9q-007VqB-Qc;
+	Thu, 14 Aug 2025 16:46:26 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v2 4/4] clocksource/drivers/arm_arch_timer_mmio: Add MMIO clocksource
+Date: Thu, 14 Aug 2025 16:46:22 +0100
+Message-Id: <20250814154622.10193-5-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250814154622.10193-1-maz@kernel.org>
+References: <20250814154622.10193-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] Virtio networking issues on v6.17-rc1
-From: Paolo Abeni <pabeni@redhat.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Jason Wang <jasowang@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>
-References: <aJycJvs3xztfD5Rm@pluto> <aJzU1JsV5we-QqgQ@pluto>
- <aa46dd09-a450-4633-a647-b04781599c87@redhat.com> <aJz1_HzPsEyvY6HN@pluto>
- <146fd5f7-c694-4606-afa5-522c5c05d9ff@redhat.com>
-In-Reply-To: <146fd5f7-c694-4606-afa5-522c5c05d9ff@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: TbgNuzya_tGBxPo_tDdj6gjRg__iSqIAmAlNYriLVqs_1755186030
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@arm.com, rafael@kernel.org, daniel.lezcano@linaro.org, tglx@linutronix.de, mark.rutland@arm.com, alexandru.elisei@arm.com, steven.price@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_084038_843284_60449E9F 
-X-CRM114-Status: UNSURE (   6.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_084629_431211_38C39B06 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,20 +90,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/13/25 10:41 PM, Paolo Abeni wrote:
-> Thanks for the detailed reproduction steps.
+The MMIO driver can also double as a clocksource, something that was
+missing in its previous incarnation. Add it for completeness.
 
-They definitely helped to reproduce the issue here. It took a little
-time because I'm a complete noob WRT kvmtool.
+Tested-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Link: https://lore.kernel.org/r/20250807160243.1970533-5-maz@kernel.org
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/clocksource/arm_arch_timer_mmio.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-Apparently it was indeed a kvmtool issue.
-
-I just posted a patch that addresses the issue for me:
-
-https://lore.kernel.org/kvm/ed62443b8fd3fef87bd313a54f821cf363f647a5.1755185758.git.pabeni@redhat.com/T/#u
-
-Cheers,
-
-Paolo
+diff --git a/drivers/clocksource/arm_arch_timer_mmio.c b/drivers/clocksource/arm_arch_timer_mmio.c
+index 3522d1d8cb97b..ebe1987d651eb 100644
+--- a/drivers/clocksource/arm_arch_timer_mmio.c
++++ b/drivers/clocksource/arm_arch_timer_mmio.c
+@@ -45,6 +45,7 @@ enum arch_timer_access {
+ 
+ struct arch_timer {
+ 	struct clock_event_device	evt;
++	struct clocksource		cs;
+ 	struct arch_timer_mem		*gt_block;
+ 	void __iomem			*base;
+ 	enum arch_timer_access		access;
+@@ -52,6 +53,7 @@ struct arch_timer {
+ };
+ 
+ #define evt_to_arch_timer(e) container_of(e, struct arch_timer, evt)
++#define cs_to_arch_timer(c) container_of(c, struct arch_timer, cs)
+ 
+ static void arch_timer_mmio_write(struct arch_timer *timer,
+ 				  enum arch_timer_reg reg, u64 val)
+@@ -128,6 +130,13 @@ static noinstr u64 arch_counter_mmio_get_cnt(struct arch_timer *t)
+ 	return ((u64) cnt_hi << 32) | cnt_lo;
+ }
+ 
++static u64 arch_mmio_counter_read(struct clocksource *cs)
++{
++	struct arch_timer *at = cs_to_arch_timer(cs);
++
++	return arch_counter_mmio_get_cnt(at);
++}
++
+ static int arch_timer_mmio_shutdown(struct clock_event_device *clk)
+ {
+ 	struct arch_timer *at = evt_to_arch_timer(clk);
+@@ -256,6 +265,16 @@ static void arch_timer_mmio_setup(struct arch_timer *at, int irq)
+ 					(unsigned long)CLOCKSOURCE_MASK(56));
+ 
+ 	enable_irq(at->evt.irq);
++
++	at->cs = (struct clocksource) {
++		.name	= "arch_mmio_counter",
++		.rating	= 300,
++		.read	= arch_mmio_counter_read,
++		.mask	= CLOCKSOURCE_MASK(56),
++		.flags	= CLOCK_SOURCE_IS_CONTINUOUS,
++	};
++
++	clocksource_register_hz(&at->cs, at->rate);
+ }
+ 
+ static int arch_timer_mmio_frame_register(struct platform_device *pdev,
+-- 
+2.39.2
 
 
