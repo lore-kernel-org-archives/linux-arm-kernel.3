@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9F8CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 16:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2DECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 16:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJ48LZbwiuY23ckTuAV9qe+Kj3wR410D+cAQTnDSHI8=; b=DKcDcjXG3ItdcRqL0poYEz4nN+
-	1Ckv9zRIwLI+5bzhM9IvzxGVmkRDTANNVq+x5gIhGzCqrtbjlWi+AdaaB9GOGlv36qCNW9vSllanE
-	0VciuCvSWyghGUYwCqpgelqm1lX+NQ4n6L2++khh93z9JPPcwqLIosKlX+NNp6nwPAULSkoA6Gx6h
-	Mg4Nd7S/wQwCj/xIh8fwj3u4GQh1fQ7g/XW4rE/WYUnljHwE9wxIlL1gTJDtCdBM+aOGGiVzLS+QN
-	+LK5syGz5Jr2YoGuoNaxDKRN+keDMZz5GNf4YvVVUvsr/mzBYx4jIQ6/5kPbJwbYnpHMwkfy+BUno
-	CNr+xFTQ==;
+	bh=276Kl9tbUNLgoQ5ImmUZ2vKMQrjfHRBMdNHI4IWTyZ8=; b=lEJ2yeW7qWM0nhpHJ8aBIfOevs
+	h7onu2CEU5WnQtb/RavGWBgXgNbM9wok9plnG3lkt3Mi4vXXajv99gUkUg7UEVSI6+2npYcgFW0+l
+	uLKgh1a02LdVZgQVpYKqozZpciR6R736jntZoK29/Nz7lU0X4/d1/ny0BAtIk0uoxNq2Cz3K59DDJ
+	wfMMNI+1wHdfVNqoGMaypv2MIO6gmRtGbIZXFQH3vVm/ieVNkJ5g7AxxBtY2PQt+GIo7Wnd+3GWC1
+	j8dWirUZbeW2rCMtC4hSbJu30oKnVQl741yhrT3B6qAG5c3eFCQNtX8L0nmsfBw98Ufce6Q/ra1iL
+	2DXayjwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwwS-00000002vqc-2ewV;
-	Fri, 15 Aug 2025 16:06:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1umwyz-00000002w0G-1txP;
+	Fri, 15 Aug 2025 16:08:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umv47-00000002flb-2bcJ
+	id 1umv6t-00000002g4d-279j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 14:05:55 +0000
+	Fri, 15 Aug 2025 14:08:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08BFB6116F;
-	Fri, 15 Aug 2025 14:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 962B7C4CEEB;
-	Fri, 15 Aug 2025 14:05:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755266753;
-	bh=Qjn3miaSSWjGbZifrmCykBjvck0/NI6OeGEqHIax6Ok=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=XGCV6epN6MWVCGkmFkMsW+z0RzvdYZBqdSHq3bgXBR/fhWVmsWDMXJxGA9qKE8gVT
-	 rGKmP/gPYzt4Pjn1zukN09/LIDEYXwafhcE7EEPZoBsrQT9v4RwLa3MA5CdhidRcMX
-	 LnULsQXMjgsdNQZCjznAb5j8nQIRPAh1rSMRdWae0VYIzC/WvXFIk9Wah2lRb994Gd
-	 413alaTsJYvr/j/hnxiNEfMm2i2P6gF5adEmzKbRmo66C6b8VyJC+whwRNUGNS/67F
-	 jVN9f6KUbBhFMQVuL7WFbi9m2QFeDdtL/4bqrnTlMungTpAdfMd5B61Hov/Me4Z/WD
-	 vf8wTQiubB+bw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB40B39D0C3D;
-	Fri, 15 Aug 2025 14:06:05 +0000 (UTC)
-Subject: Re: [GIT PULL] pmdomain fixes for v6.17-rc2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20250815080816.282648-1-ulf.hansson@linaro.org>
-References: <20250815080816.282648-1-ulf.hansson@linaro.org>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <20250815080816.282648-1-ulf.hansson@linaro.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc1
-X-PR-Tracked-Commit-Id: b6bcbce3359619d05bf387d4f5cc3af63668dbaa
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 66ba63d4d87bb3b1c3b5f0f09610c4c16748bbf0
-Message-Id: <175526676447.1083334.1395206172249648683.pr-tracker-bot@kernel.org>
-Date: Fri, 15 Aug 2025 14:06:04 +0000
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
+	by sea.source.kernel.org (Postfix) with ESMTP id 90A2E45A3E;
+	Fri, 15 Aug 2025 14:08:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDEB6C4CEEB;
+	Fri, 15 Aug 2025 14:08:42 +0000 (UTC)
+Date: Fri, 15 Aug 2025 15:08:40 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
+	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
+	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
+	broonie@kernel.org, yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com, liaochang1@huawei.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/7] arm64: probes: Add GCS support to bl/blr/ret
+Message-ID: <aJ8_aH7ncFfznl8S@arm.com>
+References: <20250811141010.741989-1-jeremy.linton@arm.com>
+ <20250811141010.741989-5-jeremy.linton@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250811141010.741989-5-jeremy.linton@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250815_070847_561508_D53A7480 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +69,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 15 Aug 2025 10:08:16 +0200:
+On Mon, Aug 11, 2025 at 09:10:07AM -0500, Jeremy Linton wrote:
+> The arm64 probe simulation doesn't currently have logic in place
+> to deal with GCS and this results in core dumps if probes are inserted
+> at control flow locations. Fix-up bl, blr and ret to manipulate the
+> shadow stack as needed.
+> 
+> While we manipulate and validate the shadow stack correctly, the
+> hardware provides additional security by only allowing GCS operations
+> against pages which are marked to support GCS. For writing there is
+> gcssttr() which enforces this, but there isn't an equivalent for
+> reading. This means that uprobe users should be aware that probing on
+> control flow instructions which require reading the shadow stack (ex:
+> ret) offers lower security guarantees than what is achieved without
+> the uprobe active.
+> 
+> Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc1
-
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/66ba63d4d87bb3b1c3b5f0f09610c4c16748bbf0
-
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
