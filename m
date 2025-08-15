@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98EBCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00AFFCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6H8T8sq6q2uOPadasPsgDIQTeCBLg4ZNgmyV7gn1ou4=; b=krUDPlsaonNDcNJrrZN517/+ho
-	iBe6Bct3KhzSubZzqGw+X6LPgP3KPgmNwITzdZQBNgj1kfXa+AiIMBzC+bOGvG9QSj3MplcDgExGZ
-	Tgb/zxVRT7twawz3qYphhHFZP6wzSxVpkrsI4AYa5XUeVYIvEZ5kJ6e8piVxt44cisYKWDUA2Liql
-	gBpaQUDYJ7OEmiYpM79/OFyO7ROP0QkLXOsjnb8SiAxbJOZzePegzo+e24gJFthQmC9ZIQBKsKyYt
-	EWzFLYocqos/R1c8V3OZVODVu1Txy/hcjf8KhIgtTBAcFSCSmwx4ThBUW0Lw1BQF/p6HbNnaFlU6C
-	vV3aMFFg==;
+	bh=EKCIr7pv8D8TBh4vcelM4+FO8jIyRberIJ575gtH0Ys=; b=Uqrivw1wdKlqRtdW4A380Z+qs5
+	3/vNhhP7QQz+zeQAz5HTnle8iQOSBYqDtO/2WvN85cew+tBsite8gWyIYDiP9Db7Ee+e7tbYKoYIL
+	IvqUNGhbeTN7CkaRWa0YRji9MfANKp4RdTV2NLwWBIFXU2ON7nfm1ixr5z/zYtZ8WNkK3pRP3HHsf
+	GP7CaWReGUUe4XR+ZZZ3zWvhV4RsZNB6ZKHJEvA+ewRHgrN6gtgBSrMiiNWFdwAZIi5UZUlYgz3dh
+	KHm0Hc+bgHqRkWET98ACyW9H6aWD1aX4PvWhlgiouyYUv0QW5xrY1PzUQtHVkHOh3xmxQqocwkGJl
+	8tFJPS4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1xE-00000003Y1h-3swC;
-	Fri, 15 Aug 2025 21:27:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1un1zp-00000003YAz-3Dza;
+	Fri, 15 Aug 2025 21:29:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1pQ-00000003XEr-2bam
+	id 1un1pR-00000003XFc-3gJk
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 15 Aug 2025 21:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2AC7464C4;
-	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B913CC4CEF8;
-	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CAB361419;
+	Fri, 15 Aug 2025 21:19:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9CF7C4CEEB;
+	Fri, 15 Aug 2025 21:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755292751;
-	bh=cJhl0OslGGxuBTiQrTRj+9aBCfXCW2Jm4WVhzEwl87Y=;
+	s=k20201202; t=1755292752;
+	bh=SFuIvMcXySzIx6yuydmTiDrtSS+EI5n+sZ5HoAj+x0k=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=H86O9bnz9X1b8H1xu/xBQtEiPymWyHyurxwQ884fE4MynR5nygyGrARiRtqulgDrM
-	 4oz5B2gxZsExmYQYX/T4LcpD1h7Y8lFeTqLG9ofIcy8k6lmuuFpJc5tZfM60f3bxZ1
-	 RufZaGvs9OfPz4z8Dm6Zp/y7cTI+RpIe7lM1evnwvhMYSMh8MGNmVQTKUmeaBSE14m
-	 dlTfAtjLgbtH5S2pHCgKz7b5QhhtOHTPc5Gu7SPNocR8d+/LbREeeQP2jorVB1vu6G
-	 b34hE7GpoD7V/kIaRl8rgy6UAsEgy/++Yr96cyrWb4IRG1dd2R48GXWBsHYprCrvQ+
-	 vdLN2LNqTzoow==
-Date: Fri, 15 Aug 2025 16:19:11 -0500
+	b=phFJpywgeyQwzIyKIk+4Lh/bDlBiKZByUqRnjnYbPYVk3PX00e2+cGH6SyKH9x5Is
+	 L4ejGwt/Kgi9F/PAdXPi6kq39L+a6NmqapYkKNXC4lvrZgaRTlVVyXQ9Sn1lPDPxkc
+	 BuefW1nj6RUGcTz4yvJkk3VR/V5bv23/iEdTrs6uusRqFU9eyS+2ae5LZQ6dIV9RL5
+	 eaLFEQgwYKgNjFXCLNDGuFg/CFbvlwXQrrA7fFZZAlWnDMFxL8VF+M8I/i6xLPGXVQ
+	 jtkf6CPdG6AVQaJRZMT1yH6oRaxHi76MJbj5x4fwJOnBx0PnGpNiJApxyPTthU6zWX
+	 x4V/MBF2+d+gw==
+Date: Fri, 15 Aug 2025 16:19:12 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: imx@lists.linux.dev, Fabio Estevam <festevam@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Shawn Guo <shawnguo@kernel.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Csaba Buday <buday.csaba@prolan.hu>, linux-arm-kernel@lists.infradead.org
-To: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-In-Reply-To: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
-References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
-Message-Id: <175529260064.3212410.10009645356875369525.robh@kernel.org>
-Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_141912_708692_E60FF584 
-X-CRM114-Status: GOOD (  14.17  )
+Cc: Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Luke Wang <ziniu.wang_1@nxp.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Joy Zou <joy.zou@nxp.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Frank Li <Frank.Li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+In-Reply-To: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com>
+References: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com>
+Message-Id: <175529260128.3212429.5776706257290268748.robh@kernel.org>
+Subject: Re: [PATCH 00/13] arm64: dts: imx95: various updates
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +75,53 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 15 Aug 2025 17:17:37 +0200, Bence Csókás wrote:
-> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
-> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
-> i.MX-specific extension, incompatible with the new reset controller
-> subsystem.
+On Fri, 15 Aug 2025 17:03:46 +0800, Peng Fan wrote:
+> This patchset is to upstream various downstream changes.
+> - Correct edma channel for lpuart7/8
+> - Add System Counter, SCMI LMM/CPU, V2X MU, coresight nodes
+> - Update alias
+> - Add phy supply for netc, pca9632, pf09/pf53 thermal, spidev, cma nodes
+>   and etc.
 > 
-> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
-> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
-> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> dtbs_check will report a few failures, such as linux,code, db suffix.
+> The failures are not related to this patchset.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
+> Joy Zou (1):
+>       arm64: dts: imx95: Correct the lpuart7 and lpuart8 srcid
+> 
+> Luke Wang (1):
+>       arm64: dts: imx95-15x15-evk: Change pinctrl settings for usdhc2
+> 
+> Peng Fan (10):
+>       arm64: dts: imx95: Add System Counter node
+>       arm64: dts: imx95: Add LMM/CPU nodes
+>       arm64: dts: imx95: Add more V2X MUs
+>       arm64: dts: imx95: Add OCOTP node
+>       arm64: dts: imx95: Add coresight nodes
+>       arm64: dts: imx95-evk: Update alias
+>       arm64: dts: imx95-19x19-evk: Add phy supply for netc
+>       arm64: dts: imx95-19x19-evk: Add pca9632 node
+>       arm64: dts: imx95-19x19-evk: Add pf09 and pf53 thermal zones
+>       arm64: dts: imx95-19x19-evk: Add spidev0
+> 
+> Richard Zhu (1):
+>       arm64: dts: imx95-19x19-evk: Add Tsettle delay in m2 regulator
+> 
+>  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts |  29 +++-
+>  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 120 ++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx95.dtsi          | 165 +++++++++++++++++++++-
+>  3 files changed, 306 insertions(+), 8 deletions(-)
+> ---
+> base-commit: ff837884a4642382a24d10fd503acf2c3a472f10
+> change-id: 20250813-imx9-dts-664f7ba66ae7
+> 
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+> 
+> 
 > 
 
 
@@ -108,21 +140,21 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
+ Base: base-commit ff837884a4642382a24d10fd503acf2c3a472f10 not known, ignoring
+ Base: attempting to guess base-commit...
+ Base: tags/next-20250815 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com:
 
-arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0011.dtb: / (karo,imx6ul-tx6ul): i2c-gpio: {'compatible': ['i2c-gpio'], '#address-cells': 1, '#size-cells': 0, 'pinctrl-names': ['default'], 'pinctrl-0': [[69]], 'sda-gpios': [[48, 1, 0]], 'scl-gpios': [[48, 0, 0]], 'clock-frequency': 400000, 'status': ['okay'], 'rtc@68': {'compatible': ['dallas,ds1339'], 'reg': [[104]], 'status': ['disabled']}} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0010.dtb: / (karo,imx6ul-tx6ul): i2c-gpio: {'compatible': ['i2c-gpio'], '#address-cells': 1, '#size-cells': 0, 'pinctrl-names': ['default'], 'pinctrl-0': [[68]], 'sda-gpios': [[48, 1, 0]], 'scl-gpios': [[48, 0, 0]], 'clock-frequency': 400000, 'status': ['okay'], 'rtc@68': {'compatible': ['dallas,ds1339'], 'reg': [[104]], 'status': ['disabled']}} is not of type 'array'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
-arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0011.dtb: ethernet-phy@0 (ethernet-phy-ieee802.3-c22): 'resets' is a dependency of 'reset-names'
-	from schema $id: http://devicetree.org/schemas/reset/reset.yaml#
-arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0010.dtb: ethernet-phy@0 (ethernet-phy-ieee802.3-c22): 'resets' is a dependency of 'reset-names'
-	from schema $id: http://devicetree.org/schemas/reset/reset.yaml#
+arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dtb: scmi (arm,scmi): Unevaluated properties are not allowed ('protocol@80', 'protocol@81', 'protocol@82', 'protocol@84' were unexpected)
+	from schema $id: http://devicetree.org/schemas/firmware/arm,scmi.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: mdio@0,0 (pci1131,ee00): Unevaluated properties are not allowed ('phy-supply' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/fsl,enetc-mdio.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dtb: mdio@0,0 (pci1131,ee00): Unevaluated properties are not allowed ('phy-supply' was unexpected)
+	from schema $id: http://devicetree.org/schemas/net/fsl,enetc-mdio.yaml#
 
 
 
