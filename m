@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A5ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 02:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B97CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 02:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D85PRfMAhEWkK4I3NT1Wt26m3JxDAXB+XgzS4gRVg7c=; b=idR/L0mV+IO22MMrWUfEy+Pn72
-	qws6pnlt+rSYqx/GxhXsWYnedLXAmNRpvDjYyNyPSzKSjeHlE7ah0a/+6jRgW0n7BvxPbQFmWjL7P
-	PCTt1O84EGYeou6Qs9fv/D6YcVjOwC/OrH1eXUtTZdVZojkvVRH6AdIgTbYb1bCSRkn54OW30kZKe
-	xH8mYyolHmzj4KbrS7LXbpbFrD50XXQG5ytO0QwSZ+JldJfRlQDbUxiVzwfHmtwmh2viXxyjfR3gM
-	j7RyuLQ9sptHI7BNf6BAi3w2ahcnlApnziHWivGVSgBdq0LAYzH3CDF98/TBHlJ3/s4D2jyQJa8f+
-	A86GriFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=18Y2FqPHGv9yTsq2i+bvrkK1Nwx8p+K4AcbHDTl42W4=; b=0NWazFCtGCRrlgspzCkcvZ0zoT
+	dY4PFN1IlaxGSQ+vO0XVbENFA8cdLHGeP+ZkEXiuO6Tw2oANjobS7N4KXlvTunTw7W7wcmVrIVmug
+	gQz0+c7Swbb0LGWdmYv1NzmJvdYOyq+xSJB5/tgZ+lwBkQU7LnbU1Y7g+bkv+VFmAj9+GguFFDibW
+	w/azmHMHCm08aUlIGTpaxJas02H9+6KwwOkh93inPboEtNxFFq7UgD1h5QM8e/q0SfeHY/slmcjTt
+	HbeLLMfiQ1a1aejvDVYMfXHrasVPQD4lU6CDy5fATXDMClczEpuLXJBISdXEC3ALuJWjAGxMvMeGz
+	WjoDXKEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umkLy-00000001CHF-2dU7;
-	Fri, 15 Aug 2025 02:39:38 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1umkOX-00000001Crd-1gcy;
+	Fri, 15 Aug 2025 02:42:17 +0000
+Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umkHy-00000001BL6-1w2P
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 02:35:31 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57F2ZRHi2435437;
-	Thu, 14 Aug 2025 21:35:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755225327;
-	bh=D85PRfMAhEWkK4I3NT1Wt26m3JxDAXB+XgzS4gRVg7c=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=QxK7eNqyuItCpXM4sEB7Zec/282Gx+sxzSkYkCBZqr+2DfGO3t1JC3OrNsXdMZpGL
-	 KaceHsWRf8h+Fu0OjBY0S2fJPwG76zoiDsopNKmMpa903K5NhovCoq1OJ1NFz5ACjB
-	 6DfGyZNSGmanqIK5zjpUOPP/kAysrkf+Epvk7zeE=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57F2ZRu81288354
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 14 Aug 2025 21:35:27 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
- Aug 2025 21:35:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 14 Aug 2025 21:35:26 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57F2ZLDK659070;
-	Thu, 14 Aug 2025 21:35:22 -0500
-Message-ID: <92e57929-a978-4d5f-97d4-b7779736d0db@ti.com>
-Date: Fri, 15 Aug 2025 08:05:20 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/33] Revert "arm64: dts: ti: k3-j721e-sk: Fix reversed
- C6x carveout locations"
-To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <afd@ti.com>, <hnagalla@ti.com>, <jm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <u-kumar1@ti.com>
-References: <20250814223839.3256046-1-b-padhi@ti.com>
- <20250814223839.3256046-4-b-padhi@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250814223839.3256046-4-b-padhi@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	id 1umkJa-00000001BeL-0rFB;
+	Fri, 15 Aug 2025 02:37:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1755225324;
+	bh=18Y2FqPHGv9yTsq2i+bvrkK1Nwx8p+K4AcbHDTl42W4=;
+	h=From:To:Subject:Date:Message-Id;
+	b=PETpp5hCLUcbcER3obgNFK4HJ4dRfaiQY5neZxAyGWT9oHS6C7TNOk8NGLY3YwNm2
+	 WrgWK6Xu5ak/FzdeixmMXUoY9bgcZsjX+CvwnnWAaG3ycTlY77pHz0ofnlrdtFu+Zz
+	 vk6GXv5IWZPTCjMsLxl+xFTyEhsJkQt/Nv8kFHkI=
+X-QQ-mid: zesmtpgz1t1755225322taec13901
+X-QQ-Originating-IP: EIRDYySQ/vTVoXNlfnhjpk64A+oYYEctZ9g7jsLXhaQ=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 15 Aug 2025 10:35:19 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7637992239138858937
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	David Wu <david.wu@rock-chips.com>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH net-next v3] net: ethernet: stmmac: dwmac-rk: Make the clk_phy could be used for external phy
+Date: Fri, 15 Aug 2025 10:35:15 +0800
+Message-Id: <20250815023515.114-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: MACXe2l6e7j9tHvQXME93TKuhbr1DWEBKVr6kPuKBNVbXJSTkZ+/mvNz
+	FTuSXoReifaDWkVW/3Ceh7Zo7x1UgzyfwMB3F1sV6c1hFfa365Xz4qc9rKBNpnbWqmmy28x
+	InABhI8CvjAupL16kqYCtSW1DuQnbq/F7FXUieBfn3u8WvT4OGayKdxG4OBaZ/vZK2dc/cN
+	AB7Y2K2geRvldtryWJxvgXKyZ5dm4ndOgE/qx+pp1jgpDaFiy36aVnZS4JgMru1HjbG8X4j
+	TWnEJLxmRA7RiPWuxZAQKBYHCDlyr/XgqODOdy8DtPHYFcOFsWETgSTB8PbffbeGzMkr2Zn
+	HZoMnDZXQtU+GlWswzJe5JnIDzJ6eL+RVzK1zaHvzpUrkgR/jdSbtuEvNX2VC+JFbuUT29s
+	dU10zw11d8FIr7gcYkzyqc1UtlVAQHEfcKlcR8a2iN/MDKu5mpCqKyB9nwNkarrwjlKaU6b
+	gxtDEY6lSd4AdbZ4NcWkZG4cfCz7nTaafUAhtWBgCUlXL8dH23Z7iGnqpXKDo4YRJuifz1v
+	vB0gMoajL4nNwmPnG1NdzT8wAlXXY3fDGyVEAMNThTcssfx0RFJ5IaAhzPtVuYS5WjEB1iG
+	KDIZvYJWL9MFMqNlI/Jay6gyJngEtdGQsLzPISKVFx6cszM/7OiFx+brfX/n3jqIvoQUW9S
+	VdLjcYEbfe9/xhiJ/zrFbw1tzZCd0wbEmA8KrmANDFjk8aXRgz671qhW7KtBfIk4t4p4DOK
+	i/0UBuW7BOFOG13TG6n2RnB8m9tTxLSD5VeQR2MGM/gwFc9aL0pLnrNjThMsB9kYojfzY3t
+	zLoZkIbq+Bbeq5Ir3XYE5c5xfw20LHUqu3xCdtw7hVcABP3LX4fMCofh8ZqI1/FfGeGIU9+
+	qxOiu8TnWKqqb23iq6qW3vCvfLtNRnaFbBW4fPEAVGPfmSKCzcD7uxrcQ8uJBa92wLLPgsC
+	PHdnMiyg5xdjFmNDrXQ4WswPE0vf2/Kdh/GJvhHnRKQul1K4V2TlC0sgc
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_193530_609861_321FB95C 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250814_193710_913719_7F27B2B7 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +98,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-On 8/15/2025 4:08 AM, Beleswar Padhi wrote:
-> This reverts commit 9f3814a7c06b7c7296cf8c1622078ad71820454b.
->
-> The C6x carveouts are reversed intentionally. This is due to the
-> requirement to keep the DMA memory region as non-cached, however the
-> minimum granular cache region for C6x is 16MB. So, C66x_0 marks the
-> entire C66x_1 16MB memory carveouts as non-cached, and uses the DMA
-> memory region of C66x_1 as its own, and vice-versa.
+For external phy, clk_phy should be optional, and some external phy
+need the clock input from clk_phy. This patch adds support for setting
+clk_phy for external phy.
 
-Sorry , but i failed to understand how this swap helps in making region 
-non-cached.
+Signed-off-by: David Wu <david.wu@rock-chips.com>
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
 
-16MB logic is understood.
+Changes in v3:
+- Link to V2: https://lore.kernel.org/netdev/20250812012127.197-1-kernel@airkyi.com/
+- Rebase to net-next/main
 
->
-> This was also called out in the original commit which introduced these
-> reversed carveouts:
-> 	"The minimum granularity on the Cache settings on C66x DSP cores
-> 	is 16MB, so the DMA memory regions are chosen such that they are
-> 	in separate 16MB regions for each DSP, while reserving a total
-> 	of 16 MB for each DSP and not changing the overall DSP
-> 	remoteproc carveouts."
->
-> Fixes: 9f3814a7c06b ("arm64: dts: ti: k3-j721e-sk: Fix reversed C6x carveout locations")
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-j721e-sk.dts | 6 ++++--
->   1 file changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> index ffef3d1cfd55..9882bb1e8097 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-> @@ -120,7 +120,8 @@ main_r5fss1_core1_memory_region: r5f-memory@a5100000 {
->   			no-map;
->   		};
->   
-> -		c66_0_dma_memory_region: c66-dma-memory@a6000000 {
-> +		/* Carveout locations are flipped due to caching */
-> +		c66_1_dma_memory_region: c66-dma-memory@a6000000 {
->   			compatible = "shared-dma-pool";
->   			reg = <0x00 0xa6000000 0x00 0x100000>;
->   			no-map;
-> @@ -132,7 +133,8 @@ c66_0_memory_region: c66-memory@a6100000 {
->   			no-map;
->   		};
->   
-> -		c66_1_dma_memory_region: c66-dma-memory@a7000000 {
-> +		/* Carveout locations are flipped due to caching */
-> +		c66_0_dma_memory_region: c66-dma-memory@a7000000 {
->   			compatible = "shared-dma-pool";
->   			reg = <0x00 0xa7000000 0x00 0x100000>;
->   			no-map;
+Changes in v2:
+- Link to V1: https://lore.kernel.org/netdev/20250806011405.115-1-kernel@airkyi.com/
+- Remove get clock frequency from DT prop
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index ac8288301994..5d921e62c2f5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1412,12 +1412,15 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+ 		clk_set_rate(plat->stmmac_clk, 50000000);
+ 	}
+ 
+-	if (plat->phy_node && bsp_priv->integrated_phy) {
++	if (plat->phy_node) {
+ 		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+ 		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+-		if (ret)
+-			return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+-		clk_set_rate(bsp_priv->clk_phy, 50000000);
++		/* If it is not integrated_phy, clk_phy is optional */
++		if (bsp_priv->integrated_phy) {
++			if (ret)
++				return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
++			clk_set_rate(bsp_priv->clk_phy, 50000000);
++		}
+ 	}
+ 
+ 	return 0;
+-- 
+2.49.0
+
 
