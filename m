@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A037CCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B51DCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oE0Ngv5v73PruF5NZiPf5GQoobAQbNTYWmvt9cBM8fA=; b=LQ+SVnaKLSZh60ljJu//irek87
-	7SsYduQidUEcvwsT0YZQlWHi8qlZaXz81TpkgiH1GLiYAqjKNGcKnaDvA4ke59CSe9vARK2Sk2LFD
-	75lvmxAEwIg+VRr5PFESGAtXXc2QWOHeyxuRDUjivtI/xs0lSIYeagHLtdX7sVldPKu2xavYwTu5h
-	X4+hlaLFs1zuryu6aYAYYSXV51sGmKlN+hsKHlc7zLISN86cALJjRHHk9HP/DoYwwteMxoLcdRREZ
-	kncS7iHFi/aGFDbsGOmKbVeUwSmguIKWp2FBnhoMo/G977nHfBjly+xbPXiODTcwXDpwsqnw104Qi
-	52PgHccw==;
+	bh=rzcAAEnec6pli8mY6UuIN8aQxyav/6bs0pCR2PYEyho=; b=QjgQHsYG4Cwf/wIUyd0DhI3aLD
+	svRKt8adq3SXX8CdUe3doPXjR4ujbwj2DdLXC7LdaFQediSwKw2+DJ90cY6RV06Go1d1RZcEDhaKz
+	rHxEICZz1U49WDZZulYbdCvuuFrwGKLORFEZG9UPrqmrSI/lQZ4+rC2NhPxOn4ToQnghXOGKw7NIm
+	Z8XT0mO2CaPar71bMYYyUbJIOlNvdfgOd1eLlBNTWB8WWEWvPrtTwHxB74axm3gITJ+FRD7F6WdPL
+	+rM2mJkYFxLpgjN2fLxTShJ00ePaHTT76jNa/YPIdImRuvJoLUG5MXVrMh+Ff9IkKLqD1wRmlz5J4
+	sN2ZLd8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umy3H-000000036F3-3A0K;
-	Fri, 15 Aug 2025 17:17:15 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwZf-00000002rrz-24fo
+	id 1umy5o-000000036QJ-2Ysi;
+	Fri, 15 Aug 2025 17:19:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umwfR-00000002scN-0Qjg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 15:42:36 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57FFgVYR2129853;
-	Fri, 15 Aug 2025 10:42:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755272551;
-	bh=oE0Ngv5v73PruF5NZiPf5GQoobAQbNTYWmvt9cBM8fA=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=bvwo0tTOVEiPRGprBceXEZFts9AQTJ9eu96+4j6eKbWM1bsd0xEzM2R9/RV5OqRVt
-	 rRTd3f4bvS/KCAe8yR501/V/Pg6DHbXoJ0MJpG+b1dRGRI8rCy7HMO9lyiZBh9A1K9
-	 5ZJjAEd73vy0vUuxSyfN6xnYL2ObeqesC53HQzI4=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57FFgVlf2535646
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 15 Aug 2025 10:42:31 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 15
- Aug 2025 10:42:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 15 Aug 2025 10:42:30 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57FFgTDu1191765;
-	Fri, 15 Aug 2025 10:42:29 -0500
-Message-ID: <cb663648-768d-49ad-bd33-c7e58ff58213@ti.com>
-Date: Fri, 15 Aug 2025 10:42:29 -0500
+	Fri, 15 Aug 2025 15:48:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01F0B1691;
+	Fri, 15 Aug 2025 08:48:22 -0700 (PDT)
+Received: from [10.1.29.14] (e122027.cambridge.arm.com [10.1.29.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54F983F5A1;
+	Fri, 15 Aug 2025 08:48:25 -0700 (PDT)
+Message-ID: <23be7cdb-f094-4303-87ae-2fdfed80178b@arm.com>
+Date: Fri, 15 Aug 2025 16:48:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/33] arm64: dts: ti: k3-j721e-beagleboneai64: Add
- missing cfg for TI IPC FW
-To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Robert Nelson
-	<robertcnelson@gmail.com>
-References: <20250814223839.3256046-1-b-padhi@ti.com>
- <20250814223839.3256046-7-b-padhi@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250814223839.3256046-7-b-padhi@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Subject: Re: [PATCH v9 19/43] arm64: RME: Allow populating initial contents
+To: Vishal Annapurve <vannapurve@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-20-steven.price@arm.com>
+ <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com>
+ <80c46a5c-7559-4763-bbf2-6c755a4b067c@arm.com>
+ <CAGtprH_6DYk8POPy+sLc3RL0-5gcrTdPNcDWFTssOK5_U4B3Nw@mail.gmail.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAGtprH_6DYk8POPy+sLc3RL0-5gcrTdPNcDWFTssOK5_U4B3Nw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_084235_623438_9B2765A8 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250815_084833_238523_0BAA9BDB 
+X-CRM114-Status: GOOD (  56.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,88 +80,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/14/25 5:38 PM, Beleswar Padhi wrote:
-> The TI IPC Firmwares running on J721E SoCs use certain MAIN domain
-> timers as tick. Reserve those at board level DT to avoid remote
-> processor crashes.
+On 14/08/2025 17:26, Vishal Annapurve wrote:
+> On Wed, Aug 13, 2025 at 2:30 AM Steven Price <steven.price@arm.com> wrote:
+>>
+>> On 01/08/2025 02:56, Vishal Annapurve wrote:
+>>> On Wed, Jun 11, 2025 at 3:59 AM Steven Price <steven.price@arm.com> wrote:
+>>>>
+>>>> +static int realm_create_protected_data_page(struct realm *realm,
+>>>> +                                           unsigned long ipa,
+>>>> +                                           kvm_pfn_t dst_pfn,
+>>>> +                                           kvm_pfn_t src_pfn,
+>>>> +                                           unsigned long flags)
+>>>> +{
+>>>> +       unsigned long rd = virt_to_phys(realm->rd);
+>>>> +       phys_addr_t dst_phys, src_phys;
+>>>> +       bool undelegate_failed = false;
+>>>> +       int ret, offset;
+>>>> +
+>>>> +       dst_phys = __pfn_to_phys(dst_pfn);
+>>>> +       src_phys = __pfn_to_phys(src_pfn);
+>>>> +
+>>>> +       for (offset = 0; offset < PAGE_SIZE; offset += RMM_PAGE_SIZE) {
+>>>> +               ret = realm_create_protected_data_granule(realm,
+>>>> +                                                         ipa,
+>>>> +                                                         dst_phys,
+>>>> +                                                         src_phys,
+>>>> +                                                         flags);
+>>>> +               if (ret)
+>>>> +                       goto err;
+>>>> +
+>>>> +               ipa += RMM_PAGE_SIZE;
+>>>> +               dst_phys += RMM_PAGE_SIZE;
+>>>> +               src_phys += RMM_PAGE_SIZE;
+>>>> +       }
+>>>> +
+>>>> +       return 0;
+>>>> +
+>>>> +err:
+>>>> +       if (ret == -EIO) {
+>>>> +               /* current offset needs undelegating */
+>>>> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+>>>> +                       undelegate_failed = true;
+>>>> +       }
+>>>> +       while (offset > 0) {
+>>>> +               ipa -= RMM_PAGE_SIZE;
+>>>> +               offset -= RMM_PAGE_SIZE;
+>>>> +               dst_phys -= RMM_PAGE_SIZE;
+>>>> +
+>>>> +               rmi_data_destroy(rd, ipa, NULL, NULL);
+>>>> +
+>>>> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+>>>> +                       undelegate_failed = true;
+>>>> +       }
+>>>> +
+>>>> +       if (undelegate_failed) {
+>>>> +               /*
+>>>> +                * A granule could not be undelegated,
+>>>> +                * so the page has to be leaked
+>>>> +                */
+>>>> +               get_page(pfn_to_page(dst_pfn));
+>>>
+>>> I would like to point out that the support for in-place conversion
+>>> with guest_memfd using hugetlb pages [1] is under discussion.
+>>>
+>>> As part of the in-place conversion, the policy we are routing for is
+>>> to avoid any "refcounts" from KVM on folios supplied by guest_memfd as
+>>> in-place conversion works by splitting and merging folios during
+>>> memory conversion as per discussion at LPC [2].
+>>
+>> CCA doesn't really support "in-place" conversions (see more detail
+>> below). But here the issue is that something has gone wrong and the RMM
+>> is refusing to give us a page back.
 > 
+> I think I overloaded the term "in-place" conversion in this context. I
+> was talking about supporting "in-place" conversion without data
+> preservation. i.e. Host will use the same GPA->HPA range mapping even
+> after conversions, ensuring single backing for guest memory. This is
+> achieved by guest_memfd keeping track of private/shared ranges based
+> on userspace IOCTLs to change the tracking metadata.
 
-All these "missing cfg" patches should then go together next in this series.
+Yes, so for a destructive conversion this is fine. We can remove the
+page from the protected region and then place the same physical page in
+the shared region (or vice versa).
 
-> While at it, switch the MAIN domain R5F cluster into split mode to
-> maximize the number of R5F processors. The TI IPC firmware for the split
-> processors is already available public. This config aligns with other
-> J721E boards and can be refactored out later.
+Population is a special case because it's effectively non-destructive,
+and in that case we need both the reference data and the final
+(protected) physical page both available at same time.
+
+>>
+>>>
+>>> The best way to avoid further use of this page with huge page support
+>>> around would be either:
+>>> 1) Explicitly Inform guest_memfd of a particular pfn being in use by
+>>> KVM without relying on page refcounts or
+>>
+>> This might work, but note that the page is unavailable even after user
+>> space has freed the guest_memfd. So at some point the page needs to be
+>> marked so that it cannot be reallocated by the kernel. Holding a
+>> refcount isn't ideal but I haven't come up with a better idea.
+>>
+>> Note that this is a "should never happen" situation - the code will have
+>> WARN()ed already - so this is just a best effort to allow the system to
+>> limp on.
+>>
+>>> 2) Set the page as hwpoisoned. (Needs further discussion)
+>>
+>> This certainly sounds like a closer fit - but I'm not very familiar with
+>> hwpoison so I don't know how easy it would be to integrate with this.
+>>
 > 
-
-This is an unrelated change and not as trivial as it looks. Factor this part
-out and put it later in the series so we can discuss it separately.
-
-Andrew
-
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
-> ---
-> Cc: Robert Nelson <robertcnelson@gmail.com>
-> Requesting for review/test of this patch.
+> We had similar discussions with Intel specific SEPT management and the
+> conclusion there was to just not hold refcounts and give a warning on
+> such failures [1].
 > 
->   .../boot/dts/ti/k3-j721e-beagleboneai64.dts   | 31 +++++++++++++++++++
->   1 file changed, 31 insertions(+)
+> [1] https://lore.kernel.org/kvm/20250807094241.4523-1-yan.y.zhao@intel.com/
+
+So these paths (should) all warn already. I guess the question is
+whether we want the platform to limp on in these situations or not.
+Certainly converting the WARNs to BUG_ON would be very easy, but the
+intention here was to give the user some chance to save their work
+before killing the system.
+
+Just WARNing might be ok, but if the kernel allocates the page for one
+of it's data structures then it's effectively a BUG_ON - there's no
+reasonable recovery. Reallocation into user space we can sort of handle,
+but only by killing the process.
+
+>>> This page refcounting strategy will have to be revisited depending on
+>>> which series lands first. That being said, it would be great if ARM
+>>> could review/verify if the series [1] works for backing CCA VMs with
+>>> huge pages.
+>>>
+>>> [1] https://lore.kernel.org/kvm/cover.1747264138.git.ackerleytng@google.com/
+>>> [2] https://lpc.events/event/18/contributions/1764/
+>>>
+>>>> +       }
+>>>> +
+>>>> +       return -ENXIO;
+>>>> +}
+>>>> +
+>>>> +static int populate_region(struct kvm *kvm,
+>>>> +                          phys_addr_t ipa_base,
+>>>> +                          phys_addr_t ipa_end,
+>>>> +                          unsigned long data_flags)
+>>>> +{
+>>>> +       struct realm *realm = &kvm->arch.realm;
+>>>> +       struct kvm_memory_slot *memslot;
+>>>> +       gfn_t base_gfn, end_gfn;
+>>>> +       int idx;
+>>>> +       phys_addr_t ipa = ipa_base;
+>>>> +       int ret = 0;
+>>>> +
+>>>> +       base_gfn = gpa_to_gfn(ipa_base);
+>>>> +       end_gfn = gpa_to_gfn(ipa_end);
+>>>> +
+>>>> +       idx = srcu_read_lock(&kvm->srcu);
+>>>> +       memslot = gfn_to_memslot(kvm, base_gfn);
+>>>> +       if (!memslot) {
+>>>> +               ret = -EFAULT;
+>>>> +               goto out;
+>>>> +       }
+>>>> +
+>>>> +       /* We require the region to be contained within a single memslot */
+>>>> +       if (memslot->base_gfn + memslot->npages < end_gfn) {
+>>>> +               ret = -EINVAL;
+>>>> +               goto out;
+>>>> +       }
+>>>> +
+>>>> +       if (!kvm_slot_can_be_private(memslot)) {
+>>>> +               ret = -EPERM;
+>>>> +               goto out;
+>>>> +       }
+>>>> +
+>>>> +       while (ipa < ipa_end) {
+>>>> +               struct vm_area_struct *vma;
+>>>> +               unsigned long hva;
+>>>> +               struct page *page;
+>>>> +               bool writeable;
+>>>> +               kvm_pfn_t pfn;
+>>>> +               kvm_pfn_t priv_pfn;
+>>>> +               struct page *gmem_page;
+>>>> +
+>>>> +               hva = gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
+>>>> +               vma = vma_lookup(current->mm, hva);
+>>>> +               if (!vma) {
+>>>> +                       ret = -EFAULT;
+>>>> +                       break;
+>>>> +               }
+>>>> +
+>>>> +               pfn = __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FOLL_WRITE,
+>>>> +                                       &writeable, &page);
+>>>
+>>> Is this assuming double backing of guest memory ranges? Is this logic
+>>> trying to simulate a shared fault?
+>>
+>> Yes and yes...
+>>
+>>> Does memory population work with CCA if priv_pfn and pfn are the same?
+>>> I am curious how the memory population will work with in-place
+>>> conversion support available for guest_memfd files.
+>>
+>> The RMM interface doesn't support an in-place conversion. The
+>> RMI_DATA_CREATE operation takes the PA of the already delegated
+>> granule[1] along with the PA of a non-delegated granule with the data.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> index fdfd46b5b30a..c7ac2b66ee0d 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-> @@ -937,6 +937,35 @@ mbox_c71_0: mbox-c71-0 {
->   	};
->   };
->   
-> +/* Timers are used by Remoteproc firmware */
-> +&main_timer0 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer1 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer2 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer12 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer13 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer14 {
-> +	status = "reserved";
-> +};
-> +
-> +&main_timer15 {
-> +	status = "reserved";
-> +};
-> +
->   &mcu_r5fss0 {
->   	status = "okay";
->   };
-> @@ -956,6 +985,7 @@ &mcu_r5fss0_core1 {
->   };
->   
->   &main_r5fss0 {
-> +	ti,cluster-mode = <0>;
->   	status = "okay";
->   };
->   
-> @@ -974,6 +1004,7 @@ &main_r5fss0_core1 {
->   };
->   
->   &main_r5fss1 {
-> +	ti,cluster-mode = <0>;
->   	status = "okay";
->   };
->   
+> Ok, I think this will need a source buffer from userspace that is
+> outside guest_memfd once guest_memfd will support a single backing for
+> guest memory. You might want to simulate private access fault for
+> destination GPAs backed by guest_memfd ranges for this initial data
+> population -> similar to how memory population works today with TDX
+> VMs.
+
+Yes, that might well be the best option. At the moment I'm not sure what
+the best approach from the perspective of the VMM is. The current setup
+is nice because the VMM can populate the VM just like a normal non-coco
+setup, so we don't need to special-case anything. Requiring the VMM to
+load the initial contents into some other memory for the purpose of the
+populate call is a little ugly.
+
+The other option is to just return to the double-memcpy() approach of
+emulating an in-place content-preserving populate by the kernel copying
+the data out of guest_memfd into a temporary page before doing the
+conversion and the RMM copying back from the temporary page. I worry
+about the performance of this, although it doesn't prevent the first
+option being added in the future if necessary. The big benefit is that
+it goes back to looking like a non-coco VM (but using guest_memfd).
+
+> Note that with single backing around, at least for x86, KVM
+> shared/private stage2 faults will always be served using guest_memfd
+> as the source of truth (i.e. not via userspace pagetables for shared
+> faults).
+
+Indeed, it's not yet clear to me whether we can only support this
+"single backing" world for CCA, or if it's going to be an option
+alongside using guest_memfd only for protected memory. Obviously we need
+the guest_memfd changes to land first too...
+
+At the moment I'm planning to post a v10 of this series soon, keeping
+the same API. But we will definitely want to support the new guest_memfd
+approach when it's ready.
+
+Thanks,
+Steve
+
+>>
+>> So to mimic an in-place conversion requires copying the data from the
+>> page, delegating the (original) page and then using RMI_DATA_CREATE
+>> which copies the data back. Fundamentally because there may be memory
+>> encryption involved there is going to be a requirement for this double
+>> memcpy() approach. Note that this is only relevant during the initial
+>> setup phase - CCA doesn't (at least currently) permit populated pages to
+>> be provided to the guest when it is running.
+>>
+>> The approach this series takes pre-dates the guest_memfd discussions and
+>> so is assuming that the shared memory is not (directly) provided by the
+>> guest_memfd but is using the user space pointer provided in the memslot.
+>> It would be possible (with the patches proposed) for the VMM to mmap()
+>> the guest_memfd when the memory is being shared so as to reuse the
+>> physical pages.
+>>
+>> I do also plan to look at supporting the use of the guest_memfd for the
+>> shared memory directly. But I've been waiting for the discussions to
+>> conclude before attempting to implement that.
+>>
+>> [1] A 'granule' is the RMM's idea of a page size (RMM_PAGE_SIZE), which
+>> is currently (RMM v1.0) always 4k. So may be different when Linux is
+>> running with a larger page size.
+>>
+>> Thanks,
+>> Steve
+>>
 
 
