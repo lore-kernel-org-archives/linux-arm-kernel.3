@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD5B2CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7C4CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkOnmECKdIXpe7kvGy3HCvL3tY+gG4hSspl5RFat98s=; b=aTyzQmElzpka45ffGgA38pdz7r
-	WbLNjdNt7VWmY5Ghy5RgAcBu33fu4BD/cBjbgGw5va241Gf9jJAyDRg1Z7Y4lNhQQOZ9ikigj/GjO
-	oAP/TLKsabgocfPwYLh6/jZzwuY/oOzDQ61W6hWGy4U5oex5L2dSA/0z7taOMnCbls5Lrj310v7YR
-	34Xv/qZY1GJkoASqHJKKjrvD88c0b9rqR6ynTl7cEvjHBwx7TlTFjiwz/4TOX+NBqChQ6ZnZn8rqu
-	fFcjxGNs3s/PTHVtWJ7NDIlq1pvSwvH1+6aXoLSFedskvxeJvB8GVVkLm4RXdpFjc+3DV/4SOxP1a
-	D8//ACSQ==;
+	bh=gXv9G7c+svq4lqcz4OBGpCl+m14S/SAGU1DXHucm83E=; b=Ij4pJwoAG989XtA90rSnGBeefX
+	h1ubmicCKM9aYnE6vu464jIHjnQyYvDTpZ4TtCQrdQ1TGqSwiUXrI0DNXuGjex3LE29c9nYDVFEhE
+	dQOABryTbdGr1ZFe/3wbwC2uoSpRwuyiImtz6VNe7o+FrHakF2HbkCBBAUd+kq23JldIgONbb376Q
+	8S8PEa5l8NPp8AQBzhgDE+a+WnO1YWoLj+4P3CNkUtFUPbjn7ujJ7bT3z19vhIOfXQa6ouOyj4F5S
+	pts1zlSsrprvgzFu4ZzLD33E89F9kZrUHTXiMlwQ6E+qcydwQaT2b4acoZD9NWWTQ4MIWeFckz5we
+	3Ngl4iEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlOq-00000001KSY-3C0R;
-	Fri, 15 Aug 2025 03:46:40 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1umlRT-00000001Ksa-0Ynf;
+	Fri, 15 Aug 2025 03:49:23 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlAc-00000001IoS-2zDT
+	id 1umlFq-00000001JEN-3hKx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 03:32:00 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-55ce528a0f5so1632044e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:31:58 -0700 (PDT)
+	Fri, 15 Aug 2025 03:37:24 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-333e7517adcso23623001fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:37:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755228717; x=1755833517; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1755229041; x=1755833841; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tkOnmECKdIXpe7kvGy3HCvL3tY+gG4hSspl5RFat98s=;
-        b=e//3u5AHOsP8PqrAgMzAFqYBADMY0+YPxzsZj8m+ijbUo6ViL5SiAid0WpKo5cYgoI
-         z9kImlAxLdtYK02+cnGWBiCKhWFS95QU+EVO+qhBo+69ehRJxCZ4RGUCHs9sCCysLn86
-         2J290OI5CZFT7JE1B+vL9BoaT/qbWLEeSmxSQ=
+        bh=gXv9G7c+svq4lqcz4OBGpCl+m14S/SAGU1DXHucm83E=;
+        b=Ei3EfwaOWxW7NSlsW2xXnhgiD6NVZ0wK3MRwxurLAPuFbc9DGeXnR6ciTSFSnPnYv4
+         TwL56qaKMkjPtM2C1Hc2z08W61ermf2LFX25qPSMjIlETMJ0TNUj7K1wTmNni/kpjrLs
+         GUGYPbAIbanKmpBJMdrSztiFYPOU8ebNAXrvM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755228717; x=1755833517;
+        d=1e100.net; s=20230601; t=1755229041; x=1755833841;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tkOnmECKdIXpe7kvGy3HCvL3tY+gG4hSspl5RFat98s=;
-        b=QWeszkj6Gj6obD6Mp8RTsvS5MJOG0S2BMVpHvTaZWzdIaSrBlVoNgC4YWkmJJfKhj9
-         nKzflDa+JYy1hdz0leEqAGLV9QcHyTovFeBzQTZmm30pHaSPAq7lLHuZ7QQUy+vQ+GI8
-         EyNN58THqErgRXhqM/ugJqP/lPkgrV5taYk6vT0Z6/qn0D9yJexSAxTXuN9O2HltbWgR
-         3tsnI6Prb9mSYqHk+sG2sjXZug97lwFc08GALb4ZJKqEe4QZBZFiNMkghBueO88nGs8O
-         3p1GhDl1v53t6U7/8hBa3rTfaqpvyDUpkZu1DosJl5KCArOXHSEjDcsYy/FGl9/0do9x
-         1pJA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFGzwehAFdApnSAZUtcFevII702E1LfVsgyGbgeFJbpP7zC9sRRMm+rFmqSLyf2NIz1XhpwUzp1OnWckNZMHZY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3CLotQdAFzyQC3dw/AejdP/PsfGYyyPXIQ6YBS2LBaApzBRJo
-	OdE5AqHVfX+l6TOnYJa8ZDEsSENfBMcvJ9qJ9ynZKUpScXWnwJeyrORb2jTb7bG/Bk7HdXTmWQQ
-	mUzuqcssZ9n2tmhXkbbANqWu+e0HLPwLKtJTbmAMv
-X-Gm-Gg: ASbGncvPbv7nZtuO20vEDEv4gfx7PFmwyspViEl6gxD7QC0vbreMJKtWEYwWXvd2mMg
-	8TxhtltwH6rClgLCSuBdSqNfcRZd+iAI+BTnjetnZy6r0MJ8jM/ARrjItFrdKpztwStSt+ychis
-	ifX92RCHY71PLNtI4LTP2JppuGXyddS5U42n2nBIKOYjg1p0XBzq+FyIASHjhXwAabz0hx8tq9m
-	63kljSf8G20VZw7ub5tdSuXmxE4KrLLEV871g==
-X-Google-Smtp-Source: AGHT+IFEkG7F2FPmykcTuHH9WIPtHmDR2L1zneT15//w/ex0g7ZbcY2+Wlc/9dIFVrAYjTi990SfzORTybrEMHJhZPA=
-X-Received: by 2002:a05:6512:23a7:b0:55b:8328:d2b6 with SMTP id
- 2adb3069b0e04-55ceeb7ba6amr145952e87.37.1755228717004; Thu, 14 Aug 2025
- 20:31:57 -0700 (PDT)
+        bh=gXv9G7c+svq4lqcz4OBGpCl+m14S/SAGU1DXHucm83E=;
+        b=DlbJ3H5qxaHa+M7Zn01epAKHNmmKtxuuczIHj9zI6QzE0lWBj14RNfGvIJOEh6cQqs
+         8kAPQyUjlRvPZ/fE24yusetm3V/HdONFcNS2CyhswXq3+swLh1xFoBNGLny87udkt2TH
+         9l46dAuokqFU9Mf25nxNJEnrK/qN+BTXGcXrSnzEmx/eFh3XUq3jhHuhmm9H4bFf/DGn
+         AiXMYWJf2h0KrnMOHRUHF29EbGi1S/10TeUPQ0vG8DNzUST+8r1E9JN27wurG41qBEog
+         OsFCfy0xBSlFIkJ7yzxWTp06DRNN5bmCSeZKVWCOGXZPWDYZeCrYlPyoD864cVKZzUXv
+         W9JQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXryF0mOG3lEXIUK2mZrMq04A/iBnuuTnSBN7sAhIiyKQxJpBGVJVNaCHBXPRaxW5ngYS0vtuR4RBaHrQUPOREm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPMk1e+v8ApNEy32b2EkS7eFHXZlO3Ob4Eq05eFegIrHnwGF/S
+	ny9ubOtg6OcdSa9e7PT75tMqXyItUC9xk9eth/Zc3PK7/GKcQVrc2meW78+SdfGsK3a4N/lr2DP
+	Mggm0H37P1qeeDMhm5skG8PlqhtDCzaTd0DuzdMEE
+X-Gm-Gg: ASbGncsz4q27+Ebj7MZmMS2a7zMDLJp6wTTO4IdrrRLaGXXqKJeE3J7jvfFZbLwzJiN
+	wRUR/lJ0KjAZu4Qk9xxBN3+y+QCG0PVTBWb7EjsiT6j2kEPUVdkDtQ6F8AYw2mQsxcnWrczRynq
+	lBmPXimD678ErwMx5aWIZQ7YbMp16LCsGx5QvL9FWIUMNWzt/fD/kHBwTBZLzVFeYKKZa0HRZDu
+	MVqpjua6Ukyb6b0AuEp1GsBmA/rvtKOoYNOFCXOchsjcT9E
+X-Google-Smtp-Source: AGHT+IE49Nkw8AqkoPWjH8rrU5caEV+oXUcux5DcWnc9n4SFkD9kc07Lncn2SXp+60xyQBp5APfIrw8/0vNtRBrb6YM=
+X-Received: by 2002:a05:6512:2249:b0:55c:d730:c86f with SMTP id
+ 2adb3069b0e04-55cee824254mr223207e87.21.1755229041062; Thu, 14 Aug 2025
+ 20:37:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-6-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-6-laura.nao@collabora.com>
+References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-8-laura.nao@collabora.com>
+In-Reply-To: <20250805135447.149231-8-laura.nao@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 12:31:46 +0900
-X-Gm-Features: Ac12FXxT1q0ZEW1iDMIpjFwzWEmvHvJf-jGJRFBsvaXUJtX0wZXUQd-7lspgBCI
-Message-ID: <CAGXv+5GyKoTb3iQTuQPWEc5Ewa+kr4dJUET8sAFRZ7T5RyNzLQ@mail.gmail.com>
-Subject: Re: [PATCH v4 05/27] clk: mediatek: clk-mux: Add ops for mux gates
- with HW voter and FENC
+Date: Fri, 15 Aug 2025 12:37:10 +0900
+X-Gm-Features: Ac12FXy4p8YRr4aG5a7_JIWdQm-9n2bHamyXaYwe_ClxduFqvhUqhAoMHloBxT8
+Message-ID: <CAGXv+5HRKFrdjjXkwN6=OLtk=bK3C3mBnrDtmkEWeuxjz0pFKg@mail.gmail.com>
+Subject: Re: [PATCH v4 07/27] clk: mediatek: clk-gate: Add ops for gates with
+ HW voter
 To: Laura Nao <laura.nao@collabora.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
 	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
@@ -83,8 +83,8 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_203158_813851_BE785A14 
-X-CRM114-Status: GOOD (  26.84  )
+X-CRM114-CacheID: sfid-20250814_203722_949852_6FEBBD1C 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,167 +102,179 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
  wrote:
 >
-> MT8196 use a HW voter for mux gate enable/disable control, along with a
-> FENC status bit to check the status. Voting is performed using
-> set/clr/upd registers, with a status bit used to verify the vote state.
-> Add new set of mux gate clock operations with support for voting via
-> set/clr/upd regs and FENC status logic.
+> MT8196 use a HW voter for gate enable/disable control. Voting is
+> performed using set/clr regs, with a status bit used to verify the vote
+> state. Add new set of gate clock operations with support for voting via
+> set/clr regs.
 >
 > Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
 ora.com>
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
 > ---
->  drivers/clk/mediatek/clk-mtk.h |  1 +
->  drivers/clk/mediatek/clk-mux.c | 71 +++++++++++++++++++++++++++++++++-
->  drivers/clk/mediatek/clk-mux.h | 42 ++++++++++++++++++++
->  3 files changed, 113 insertions(+), 1 deletion(-)
+>  drivers/clk/mediatek/clk-gate.c | 77 +++++++++++++++++++++++++++++++--
+>  drivers/clk/mediatek/clk-gate.h |  3 ++
+>  2 files changed, 77 insertions(+), 3 deletions(-)
 >
-> diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mt=
-k.h
-> index 8ed2c9208b1f..e2cefd9bc5b8 100644
-> --- a/drivers/clk/mediatek/clk-mtk.h
-> +++ b/drivers/clk/mediatek/clk-mtk.h
-> @@ -20,6 +20,7 @@
+> diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/clk-g=
+ate.c
+> index 0375ccad4be3..426f3a25763d 100644
+> --- a/drivers/clk/mediatek/clk-gate.c
+> +++ b/drivers/clk/mediatek/clk-gate.c
+> @@ -5,6 +5,7 @@
+>   */
 >
->  #define MHZ (1000 * 1000)
->
-> +#define MTK_WAIT_HWV_DONE_US   30
->  #define MTK_WAIT_FENC_DONE_US  30
->
->  struct platform_device;
-> diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mu=
-x.c
-> index b1b8eeb0b501..65889fc6a3e5 100644
-> --- a/drivers/clk/mediatek/clk-mux.c
-> +++ b/drivers/clk/mediatek/clk-mux.c
-> @@ -8,6 +8,7 @@
 >  #include <linux/clk-provider.h>
->  #include <linux/compiler_types.h>
->  #include <linux/container_of.h>
 > +#include <linux/dev_printk.h>
->  #include <linux/err.h>
 >  #include <linux/mfd/syscon.h>
 >  #include <linux/module.h>
-> @@ -21,6 +22,7 @@
->  struct mtk_clk_mux {
->         struct clk_hw hw;
->         struct regmap *regmap;
-> +       struct regmap *regmap_hwv;
->         const struct mtk_mux *data;
->         spinlock_t *lock;
->         bool reparent;
-> @@ -118,6 +120,41 @@ static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
->         return (val & BIT(mux->data->gate_shift)) =3D=3D 0;
+>  #include <linux/printk.h>
+> @@ -12,14 +13,19 @@
+>  #include <linux/slab.h>
+>  #include <linux/types.h>
+>
+> +#include "clk-mtk.h"
+>  #include "clk-gate.h"
+>
+>  struct mtk_clk_gate {
+>         struct clk_hw   hw;
+>         struct regmap   *regmap;
+> +       struct regmap   *regmap_hwv;
+>         int             set_ofs;
+>         int             clr_ofs;
+>         int             sta_ofs;
+> +       unsigned int    hwv_set_ofs;
+> +       unsigned int    hwv_clr_ofs;
+> +       unsigned int    hwv_sta_ofs;
+>         u8              bit;
+>  };
+>
+> @@ -100,6 +106,28 @@ static void mtk_cg_disable_inv(struct clk_hw *hw)
+>         mtk_cg_clr_bit(hw);
 >  }
 >
-> +static int mtk_clk_mux_hwv_fenc_enable(struct clk_hw *hw)
+> +static int mtk_cg_hwv_set_en(struct clk_hw *hw, bool enable)
 > +{
-> +       struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
-> +       u32 val;
-> +       int ret;
-> +
-> +       regmap_write(mux->regmap_hwv, mux->data->hwv_set_ofs,
-> +                    BIT(mux->data->gate_shift));
-> +
-> +       ret =3D regmap_read_poll_timeout_atomic(mux->regmap_hwv, mux->dat=
-a->hwv_sta_ofs,
-> +                                             val, val & BIT(mux->data->g=
-ate_shift), 0,
-> +                                             MTK_WAIT_HWV_DONE_US);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret =3D regmap_read_poll_timeout_atomic(mux->regmap, mux->data->f=
-enc_sta_mon_ofs,
-> +                                             val, val & BIT(mux->data->f=
-enc_shift), 1,
-> +                                             MTK_WAIT_FENC_DONE_US);
-> +
-> +       return ret;
-> +}
-> +
-> +static void mtk_clk_mux_hwv_disable(struct clk_hw *hw)
-> +{
-> +       struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
+> +       struct mtk_clk_gate *cg =3D to_mtk_clk_gate(hw);
 > +       u32 val;
 > +
-> +       regmap_write(mux->regmap_hwv, mux->data->hwv_clr_ofs,
-> +                    BIT(mux->data->gate_shift));
+> +       regmap_write(cg->regmap_hwv, enable ? cg->hwv_set_ofs : cg->hwv_c=
+lr_ofs, BIT(cg->bit));
 > +
-> +       regmap_read_poll_timeout_atomic(mux->regmap_hwv, mux->data->hwv_s=
-ta_ofs,
-> +                                       val, (val & BIT(mux->data->gate_s=
-hift)),
-> +                                       0, MTK_WAIT_HWV_DONE_US);
+> +       return regmap_read_poll_timeout_atomic(cg->regmap_hwv, cg->hwv_st=
+a_ofs, val,
+> +                                              val & BIT(cg->bit),
+> +                                              0, MTK_WAIT_HWV_DONE_US);
 > +}
 > +
->  static u8 mtk_clk_mux_get_parent(struct clk_hw *hw)
+> +static int mtk_cg_hwv_enable(struct clk_hw *hw)
+> +{
+> +       return mtk_cg_hwv_set_en(hw, true);
+> +}
+> +
+> +static void mtk_cg_hwv_disable(struct clk_hw *hw)
+> +{
+> +       mtk_cg_hwv_set_en(hw, false);
+> +}
+> +
+>  static int mtk_cg_enable_no_setclr(struct clk_hw *hw)
 >  {
->         struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
-> @@ -189,6 +226,14 @@ static int mtk_clk_mux_determine_rate(struct clk_hw =
-*hw,
->         return clk_mux_determine_rate_flags(hw, req, mux->data->flags);
+>         mtk_cg_clr_bit_no_setclr(hw);
+> @@ -124,6 +152,15 @@ static void mtk_cg_disable_inv_no_setclr(struct clk_=
+hw *hw)
+>         mtk_cg_clr_bit_no_setclr(hw);
 >  }
 >
-> +static bool mtk_clk_mux_uses_hwv(const struct clk_ops *ops)
+> +static bool mtk_cg_uses_hwv(const struct clk_ops *ops)
 > +{
-> +       if (ops =3D=3D &mtk_mux_gate_hwv_fenc_clr_set_upd_ops)
+> +       if (ops =3D=3D &mtk_clk_gate_hwv_ops_setclr ||
+> +           ops =3D=3D &mtk_clk_gate_hwv_ops_setclr_inv)
 > +               return true;
 > +
 > +       return false;
 > +}
 > +
->  const struct clk_ops mtk_mux_clr_set_upd_ops =3D {
->         .get_parent =3D mtk_clk_mux_get_parent,
->         .set_parent =3D mtk_clk_mux_set_parent_setclr_lock,
-> @@ -216,9 +261,20 @@ const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_o=
-ps =3D {
+>  const struct clk_ops mtk_clk_gate_ops_setclr =3D {
+>         .is_enabled     =3D mtk_cg_bit_is_cleared,
+>         .enable         =3D mtk_cg_enable,
+> @@ -138,6 +175,20 @@ const struct clk_ops mtk_clk_gate_ops_setclr_inv =3D=
+ {
 >  };
->  EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
+>  EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_setclr_inv);
 >
-> +const struct clk_ops mtk_mux_gate_hwv_fenc_clr_set_upd_ops =3D {
-> +       .enable =3D mtk_clk_mux_hwv_fenc_enable,
-> +       .disable =3D mtk_clk_mux_hwv_disable,
-> +       .is_enabled =3D mtk_clk_mux_fenc_is_enabled,
-> +       .get_parent =3D mtk_clk_mux_get_parent,
-> +       .set_parent =3D mtk_clk_mux_set_parent_setclr_lock,
-> +       .determine_rate =3D mtk_clk_mux_determine_rate,
+> +const struct clk_ops mtk_clk_gate_hwv_ops_setclr =3D {
+> +       .is_enabled     =3D mtk_cg_bit_is_cleared,
+> +       .enable         =3D mtk_cg_hwv_enable,
+> +       .disable        =3D mtk_cg_hwv_disable,
 > +};
-> +EXPORT_SYMBOL_GPL(mtk_mux_gate_hwv_fenc_clr_set_upd_ops);
+> +EXPORT_SYMBOL_GPL(mtk_clk_gate_hwv_ops_setclr);
 > +
->  static struct clk_hw *mtk_clk_register_mux(struct device *dev,
->                                            const struct mtk_mux *mux,
->                                            struct regmap *regmap,
-> +                                          struct regmap *regmap_hwv,
->                                            spinlock_t *lock)
+> +const struct clk_ops mtk_clk_gate_hwv_ops_setclr_inv =3D {
+> +       .is_enabled     =3D mtk_cg_bit_is_set,
+> +       .enable         =3D mtk_cg_hwv_enable,
+> +       .disable        =3D mtk_cg_hwv_disable,
+> +};
+> +EXPORT_SYMBOL_GPL(mtk_clk_gate_hwv_ops_setclr_inv);
+> +
+>  const struct clk_ops mtk_clk_gate_ops_no_setclr =3D {
+>         .is_enabled     =3D mtk_cg_bit_is_cleared,
+>         .enable         =3D mtk_cg_enable_no_setclr,
+> @@ -153,8 +204,9 @@ const struct clk_ops mtk_clk_gate_ops_no_setclr_inv =
+=3D {
+>  EXPORT_SYMBOL_GPL(mtk_clk_gate_ops_no_setclr_inv);
+>
+>  static struct clk_hw *mtk_clk_register_gate(struct device *dev,
+> -                                               const struct mtk_gate *ga=
+te,
+> -                                               struct regmap *regmap)
+> +                                           const struct mtk_gate *gate,
+> +                                           struct regmap *regmap,
+> +                                           struct regmap *regmap_hwv)
 >  {
->         struct mtk_clk_mux *clk_mux;
-> @@ -234,8 +290,13 @@ static struct clk_hw *mtk_clk_register_mux(struct de=
-vice *dev,
->         init.parent_names =3D mux->parent_names;
->         init.num_parents =3D mux->num_parents;
->         init.ops =3D mux->ops;
-> +       if (mtk_clk_mux_uses_hwv(init.ops) && !regmap_hwv) {
+>         struct mtk_clk_gate *cg;
+>         int ret;
+> @@ -169,11 +221,22 @@ static struct clk_hw *mtk_clk_register_gate(struct =
+device *dev,
+>         init.parent_names =3D gate->parent_name ? &gate->parent_name : NU=
+LL;
+>         init.num_parents =3D gate->parent_name ? 1 : 0;
+>         init.ops =3D gate->ops;
+> +       if (mtk_cg_uses_hwv(init.ops) && !regmap_hwv) {
 > +               dev_err(dev, "regmap not found for hardware voter clocks\=
 n");
 > +               return ERR_PTR(-ENXIO);
+
+return dev_err_probe()?
+
+I believe the same applies to the previous patch.
+
 > +       }
 >
->         clk_mux->regmap =3D regmap;
-> +       clk_mux->regmap_hwv =3D regmap_hwv;
->         clk_mux->data =3D mux;
->         clk_mux->lock =3D lock;
->         clk_mux->hw.init =3D &init;
-> @@ -268,6 +329,7 @@ int mtk_clk_register_muxes(struct device *dev,
->                            struct clk_hw_onecell_data *clk_data)
->  {
+>         cg->regmap =3D regmap;
+> +       cg->regmap_hwv =3D regmap_hwv;
+>         cg->set_ofs =3D gate->regs->set_ofs;
+>         cg->clr_ofs =3D gate->regs->clr_ofs;
+>         cg->sta_ofs =3D gate->regs->sta_ofs;
+> +       if (gate->hwv_regs) {
+> +               cg->hwv_set_ofs =3D gate->hwv_regs->set_ofs;
+> +               cg->hwv_clr_ofs =3D gate->hwv_regs->clr_ofs;
+> +               cg->hwv_sta_ofs =3D gate->hwv_regs->sta_ofs;
+> +       }
+> +
+>         cg->bit =3D gate->shift;
+>
+>         cg->hw.init =3D &init;
+> @@ -206,6 +269,7 @@ int mtk_clk_register_gates(struct device *dev, struct=
+ device_node *node,
+>         int i;
+>         struct clk_hw *hw;
 >         struct regmap *regmap;
 > +       struct regmap *regmap_hwv;
->         struct clk_hw *hw;
->         int i;
 >
-> @@ -277,6 +339,13 @@ int mtk_clk_register_muxes(struct device *dev,
+>         if (!clk_data)
+>                 return -ENOMEM;
+> @@ -216,6 +280,13 @@ int mtk_clk_register_gates(struct device *dev, struc=
+t device_node *node,
 >                 return PTR_ERR(regmap);
 >         }
 >
@@ -273,134 +285,49 @@ n");
 > +                      node, regmap_hwv);
 > +               return PTR_ERR(regmap_hwv);
 
-Is there a reason why we aren't using dev_err() or even dev_err_probe()
-here?
-
-The rest looks OK.
+return dev_err_probe();
 
 ChenYu
 
 > +       }
 > +
 >         for (i =3D 0; i < num; i++) {
->                 const struct mtk_mux *mux =3D &muxes[i];
+>                 const struct mtk_gate *gate =3D &clks[i];
 >
-> @@ -286,7 +355,7 @@ int mtk_clk_register_muxes(struct device *dev,
+> @@ -225,7 +296,7 @@ int mtk_clk_register_gates(struct device *dev, struct=
+ device_node *node,
 >                         continue;
 >                 }
 >
-> -               hw =3D mtk_clk_register_mux(dev, mux, regmap, lock);
-> +               hw =3D mtk_clk_register_mux(dev, mux, regmap, regmap_hwv,=
- lock);
+> -               hw =3D mtk_clk_register_gate(dev, gate, regmap);
+> +               hw =3D mtk_clk_register_gate(dev, gate, regmap, regmap_hw=
+v);
 >
 >                 if (IS_ERR(hw)) {
->                         pr_err("Failed to register clk %s: %pe\n", mux->n=
-ame,
-> diff --git a/drivers/clk/mediatek/clk-mux.h b/drivers/clk/mediatek/clk-mu=
-x.h
-> index c65cfb7f8fc3..fb6f7951379c 100644
-> --- a/drivers/clk/mediatek/clk-mux.h
-> +++ b/drivers/clk/mediatek/clk-mux.h
-> @@ -28,6 +28,10 @@ struct mtk_mux {
->         u32 set_ofs;
->         u32 clr_ofs;
->         u32 upd_ofs;
-> +
-> +       u32 hwv_set_ofs;
-> +       u32 hwv_clr_ofs;
-> +       u32 hwv_sta_ofs;
->         u32 fenc_sta_mon_ofs;
+>                         pr_err("Failed to register clk %s: %pe\n", gate->=
+name,
+> diff --git a/drivers/clk/mediatek/clk-gate.h b/drivers/clk/mediatek/clk-g=
+ate.h
+> index 1a46b4c56fc5..4f05b9855dae 100644
+> --- a/drivers/clk/mediatek/clk-gate.h
+> +++ b/drivers/clk/mediatek/clk-gate.h
+> @@ -19,6 +19,8 @@ extern const struct clk_ops mtk_clk_gate_ops_setclr;
+>  extern const struct clk_ops mtk_clk_gate_ops_setclr_inv;
+>  extern const struct clk_ops mtk_clk_gate_ops_no_setclr;
+>  extern const struct clk_ops mtk_clk_gate_ops_no_setclr_inv;
+> +extern const struct clk_ops mtk_clk_gate_hwv_ops_setclr;
+> +extern const struct clk_ops mtk_clk_gate_hwv_ops_setclr_inv;
 >
->         u8 mux_shift;
-> @@ -80,6 +84,7 @@ struct mtk_mux {
->  extern const struct clk_ops mtk_mux_clr_set_upd_ops;
->  extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
->  extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
-> +extern const struct clk_ops mtk_mux_gate_hwv_fenc_clr_set_upd_ops;
->
->  #define MUX_GATE_CLR_SET_UPD_FLAGS(_id, _name, _parents, _mux_ofs,     \
->                         _mux_set_ofs, _mux_clr_ofs, _shift, _width,     \
-> @@ -121,6 +126,43 @@ extern const struct clk_ops mtk_mux_gate_fenc_clr_se=
-t_upd_ops;
->                         0, _upd_ofs, _upd, CLK_SET_RATE_PARENT,         \
->                         mtk_mux_clr_set_upd_ops)
->
-> +#define MUX_GATE_HWV_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,       =
-               \
-> +                               _mux_ofs, _mux_set_ofs, _mux_clr_ofs,    =
-               \
-> +                               _hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,=
-               \
-> +                               _shift, _width, _gate, _upd_ofs, _upd,   =
-               \
-> +                               _fenc_sta_mon_ofs, _fenc, _flags) {      =
-               \
-> +                       .id =3D _id,                                     =
-                 \
-> +                       .name =3D _name,                                 =
-                 \
-> +                       .mux_ofs =3D _mux_ofs,                           =
-                 \
-> +                       .set_ofs =3D _mux_set_ofs,                       =
-                 \
-> +                       .clr_ofs =3D _mux_clr_ofs,                       =
-                 \
-> +                       .hwv_sta_ofs =3D _hwv_sta_ofs,                   =
-                 \
-> +                       .hwv_set_ofs =3D _hwv_set_ofs,                   =
-                 \
-> +                       .hwv_clr_ofs =3D _hwv_clr_ofs,                   =
-                 \
-> +                       .upd_ofs =3D _upd_ofs,                           =
-                 \
-> +                       .fenc_sta_mon_ofs =3D _fenc_sta_mon_ofs,         =
-                 \
-> +                       .mux_shift =3D _shift,                           =
-                 \
-> +                       .mux_width =3D _width,                           =
-                 \
-> +                       .gate_shift =3D _gate,                           =
-                 \
-> +                       .upd_shift =3D _upd,                             =
-                 \
-> +                       .fenc_shift =3D _fenc,                           =
-                 \
-> +                       .parent_names =3D _parents,                      =
-                 \
-> +                       .num_parents =3D ARRAY_SIZE(_parents),           =
-                 \
-> +                       .flags =3D  _flags,                              =
-                 \
-> +                       .ops =3D &mtk_mux_gate_hwv_fenc_clr_set_upd_ops, =
-                 \
-> +               }
-> +
-> +#define MUX_GATE_HWV_FENC_CLR_SET_UPD(_id, _name, _parents,             =
-               \
-> +                               _mux_ofs, _mux_set_ofs, _mux_clr_ofs,    =
-               \
-> +                               _hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,=
-               \
-> +                               _shift, _width, _gate, _upd_ofs, _upd,   =
-               \
-> +                               _fenc_sta_mon_ofs, _fenc)                =
-               \
-> +                       MUX_GATE_HWV_FENC_CLR_SET_UPD_FLAGS(_id, _name, _=
-parents,       \
-> +                               _mux_ofs, _mux_set_ofs, _mux_clr_ofs,    =
-               \
-> +                               _hwv_sta_ofs, _hwv_set_ofs, _hwv_clr_ofs,=
-               \
-> +                               _shift, _width, _gate, _upd_ofs, _upd,   =
-               \
-> +                               _fenc_sta_mon_ofs, _fenc, 0)
-> +
->  #define MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents, _paridx,  =
-       \
->                         _num_parents, _mux_ofs, _mux_set_ofs, _mux_clr_of=
-s,     \
->                         _shift, _width, _gate, _upd_ofs, _upd,           =
-       \
+>  struct mtk_gate_regs {
+>         u32 sta_ofs;
+> @@ -31,6 +33,7 @@ struct mtk_gate {
+>         const char *name;
+>         const char *parent_name;
+>         const struct mtk_gate_regs *regs;
+> +       const struct mtk_gate_regs *hwv_regs;
+>         int shift;
+>         const struct clk_ops *ops;
+>         unsigned long flags;
 > --
 > 2.39.5
 >
