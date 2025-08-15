@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98A4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98EBCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvE7HcSrm1TIupvk7fabk+Gqg2aIlpj0qnYEvjTM0ns=; b=0/st6yH3qSaMDMUsUNSZQHqP77
-	Ge/lSJfLSldWyFOtccmhaM1EXTnuhbNnA2GMOo3i2Q5KVpejVh9Z5hN2nCmnnN0q2/KdcxlFolj0v
-	++qSNM3Vudq/QS9c/BSEXfiFZA/1D4gtjWXGk14iY2qom1Xn3OTFQTK03jah/c0wG82Po3rKKLwgh
-	mM8TJZnuO2+3PTPiAkuNs8a88fwKMWSFl5xqmkUe4iIUxwbOWa381c56QrshFwOvY8g114rUM/5xI
-	LS3x1qrkFQzaT9CGI0RjouXdPrVt7wpiu+RVt2crZeW/DUmiptuyu4lRz+yhIJ2QXApmXb8NO9AgL
-	ezVvNRMQ==;
+	bh=6H8T8sq6q2uOPadasPsgDIQTeCBLg4ZNgmyV7gn1ou4=; b=krUDPlsaonNDcNJrrZN517/+ho
+	iBe6Bct3KhzSubZzqGw+X6LPgP3KPgmNwITzdZQBNgj1kfXa+AiIMBzC+bOGvG9QSj3MplcDgExGZ
+	Tgb/zxVRT7twawz3qYphhHFZP6wzSxVpkrsI4AYa5XUeVYIvEZ5kJ6e8piVxt44cisYKWDUA2Liql
+	gBpaQUDYJ7OEmiYpM79/OFyO7ROP0QkLXOsjnb8SiAxbJOZzePegzo+e24gJFthQmC9ZIQBKsKyYt
+	EWzFLYocqos/R1c8V3OZVODVu1Txy/hcjf8KhIgtTBAcFSCSmwx4ThBUW0Lw1BQF/p6HbNnaFlU6C
+	vV3aMFFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1ud-00000003Xqf-0gAN;
-	Fri, 15 Aug 2025 21:24:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1un1xE-00000003Y1h-3swC;
+	Fri, 15 Aug 2025 21:27:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1pP-00000003XEO-12vi
+	id 1un1pQ-00000003XEr-2bam
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 21:19:12 +0000
+	Fri, 15 Aug 2025 21:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FB5544D79;
-	Fri, 15 Aug 2025 21:19:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8C7EC4CEF8;
-	Fri, 15 Aug 2025 21:19:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F2AC7464C4;
+	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B913CC4CEF8;
+	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755292750;
-	bh=K+r06jLu5/QfCZbN9piqdk/fiyOGa1TyF6QkY5xklXQ=;
+	s=k20201202; t=1755292751;
+	bh=cJhl0OslGGxuBTiQrTRj+9aBCfXCW2Jm4WVhzEwl87Y=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=IsEt8QSynFtXD1ppIMy6AyN46/r047g46cJcO6Fnm0A0yh+84FoNWyizkrNntmYrF
-	 ATInUU6ByuKliIMsIlocgSgfhe3f9NlYYwlHwfqu2l38TqT3oNT5wjjLvFz+ZXFzC2
-	 2fCGv0bWrWRoWzkMr4mrdHq2+Zt0OWylWuHhgrAgWXxSyQGGz1ijTdIV92JC3bm4oL
-	 GEokvA1QfeE6WIhntjac/k65bxdohAqh+eu6Dl1yGHAsfueEViFyG4JeH4OgelV5Pf
-	 A+rmN0XB4RvY314InNBPak8WyZCgfHH0D7XfYVfoT8jdVlGDAWvmrOXO4gEFKfMC0a
-	 yu7t2cPtj11Ew==
-Date: Fri, 15 Aug 2025 16:19:09 -0500
+	b=H86O9bnz9X1b8H1xu/xBQtEiPymWyHyurxwQ884fE4MynR5nygyGrARiRtqulgDrM
+	 4oz5B2gxZsExmYQYX/T4LcpD1h7Y8lFeTqLG9ofIcy8k6lmuuFpJc5tZfM60f3bxZ1
+	 RufZaGvs9OfPz4z8Dm6Zp/y7cTI+RpIe7lM1evnwvhMYSMh8MGNmVQTKUmeaBSE14m
+	 dlTfAtjLgbtH5S2pHCgKz7b5QhhtOHTPc5Gu7SPNocR8d+/LbREeeQP2jorVB1vu6G
+	 b34hE7GpoD7V/kIaRl8rgy6UAsEgy/++Yr96cyrWb4IRG1dd2R48GXWBsHYprCrvQ+
+	 vdLN2LNqTzoow==
+Date: Fri, 15 Aug 2025 16:19:11 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
+Cc: imx@lists.linux.dev, Fabio Estevam <festevam@gmail.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-aspeed@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, Joel Stanley <joel@jms.id.au>
-To: Fred Chen <fredchen.openbmc@gmail.com>
-In-Reply-To: <20250814131706.1567067-1-fredchen.openbmc@gmail.com>
-References: <20250814131706.1567067-1-fredchen.openbmc@gmail.com>
-Message-Id: <175529259974.3212367.16366822597087067588.robh@kernel.org>
-Subject: Re: [PATCH v2 0/4] Revise Meta Santabarbara devicetree
+ Csaba Buday <buday.csaba@prolan.hu>, linux-arm-kernel@lists.infradead.org
+To: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+In-Reply-To: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
+References: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
+Message-Id: <175529260064.3212410.10009645356875369525.robh@kernel.org>
+Subject: Re: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
+ `phy-reset-gpios`
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_141911_311991_5E6E0594 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250815_141912_708692_E60FF584 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,33 +78,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 14 Aug 2025 21:16:56 +0800, Fred Chen wrote:
-> Summary:
-> Revise linux device tree entry related to Meta (Facebook) Santabarbara.
+On Fri, 15 Aug 2025 17:17:37 +0200, Bence Csókás wrote:
+> The Ethernet PHY's reset GPIO should be specified in the node of the PHY
+> itself, instead of the MAC (`fec`). The latter is deprecated, and was an
+> i.MX-specific extension, incompatible with the new reset controller
+> subsystem.
 > 
-> Change log
-> v1 -> v2:
->   - add 'bmc_ready_noled' LED and update commit message
->   - add sgpio line name for leak detection
-> v1:
->   - add sensor nodes for extension board
->   - add mctp node for NIC
->   - adjust LED configuration
-> 
-> Fred Chen (4):
->   ARM: dts: aspeed: santabarbara: add sensor support for extension
->     boards
->   ARM: dts: aspeed: santabarbara: Enable MCTP for frontend NIC
->   ARM: dts: aspeed: santabarbara: Adjust LED configuration
->   ARM: dts: aspeed: santabarbara: add sgpio line name for leak detection
-> 
->  .../aspeed-bmc-facebook-santabarbara.dts      | 857 +++++++++++++++++-
->  1 file changed, 853 insertions(+), 4 deletions(-)
-> 
-> --
-> 2.49.0
-> 
-> 
+> Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
+> Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
+> Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
 
 
@@ -120,16 +108,21 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.17-rc1-9-g8e4021078863 (exact match)
+ Base: using specified base-commit 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250814131706.1567067-1-fredchen.openbmc@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu:
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dtb: mctp@10 (mctp-i2c-controller): 'label' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/net/mctp-i2c-controller.yaml#
+arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0011.dtb: / (karo,imx6ul-tx6ul): i2c-gpio: {'compatible': ['i2c-gpio'], '#address-cells': 1, '#size-cells': 0, 'pinctrl-names': ['default'], 'pinctrl-0': [[69]], 'sda-gpios': [[48, 1, 0]], 'scl-gpios': [[48, 0, 0]], 'clock-frequency': 400000, 'status': ['okay'], 'rtc@68': {'compatible': ['dallas,ds1339'], 'reg': [[104]], 'status': ['disabled']}} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0010.dtb: / (karo,imx6ul-tx6ul): i2c-gpio: {'compatible': ['i2c-gpio'], '#address-cells': 1, '#size-cells': 0, 'pinctrl-names': ['default'], 'pinctrl-0': [[68]], 'sda-gpios': [[48, 1, 0]], 'scl-gpios': [[48, 0, 0]], 'clock-frequency': 400000, 'status': ['okay'], 'rtc@68': {'compatible': ['dallas,ds1339'], 'reg': [[104]], 'status': ['disabled']}} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0011.dtb: ethernet-phy@0 (ethernet-phy-ieee802.3-c22): 'resets' is a dependency of 'reset-names'
+	from schema $id: http://devicetree.org/schemas/reset/reset.yaml#
+arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul-0010.dtb: ethernet-phy@0 (ethernet-phy-ieee802.3-c22): 'resets' is a dependency of 'reset-names'
+	from schema $id: http://devicetree.org/schemas/reset/reset.yaml#
 
 
 
