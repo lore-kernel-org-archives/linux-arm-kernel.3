@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAFACA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D4FCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N9lFH7UuH7iHQn6NU/GlGO/bgFV+O6Qr6ij9u5KRxs4=; b=k1/mDfuGO+8nXyOUS7kNHWQMH+
-	VDOJ3ZisNTTPLIfSTttlFItwNJMjSdxCTuGEWi1FESAh7RlOIY1P5aauaxjUmClHQ+AFfyMl250PH
-	apMNrrUePIOW4LdYDbL1PMS8hGZI73Ae4iI6kS415FAa/aAVVHvhQLWRg2EOxLxUjvXOP07AjnRmc
-	R3PBDfXPHHYg62XPwdmVmPKvd5Yxjb0XFNIBHWBkoC9O0huBhmOCWtF/8APGB/iMMS8zjyBDCLi26
-	U+7x9eT1CoNR2TTb9wodFII6IUR3s/IX8GbO3uS8emKBn0ln2/r1Od8JvFp//oXOVbfQOv1TXo0T8
-	sQSmAGpA==;
+	bh=mbU/vlU6aY0cGdLTRRUHYsDUxcT+l2OD8OI7ecHtXPg=; b=pMKyOJbb4B03WbE9hyKQPd1isN
+	ZwKDk/zxhi6lwmIfnInUrOONKsXh1+6tnqyq7r8R/604opNTHC7g3JD3/p1e/fJr/DV6fvN5YkgVz
+	evmlqI6GisZxLNElSEXn4F6wN9MNs0D+xWEcy2W3xnp6urs7ibP3xppzv7vAgmzN6eDFFEQytQgGc
+	3cf0NqPUHoT7GieC6G6sRjoP6GybSLFOpWO7Wp1dCZDtFA249aaRMrdXycEmrzGTcuK0FUr6CMF3X
+	AzF2v/6wkPd40o699CPXsXqPvytsMyOMfWsno0ZDzNYkbCRw1txRBhK/1Pez/Hyz8UcT+rjiYZK9v
+	ea2e7pTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzRW-00000003HB7-491V;
-	Fri, 15 Aug 2025 18:46:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxZf-000000030Vo-2aZa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 16:46:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1EEAFEC;
-	Fri, 15 Aug 2025 09:46:28 -0700 (PDT)
-Received: from [192.168.20.57] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 585FA3F738;
-	Fri, 15 Aug 2025 09:46:36 -0700 (PDT)
-Message-ID: <1097a1d1-483d-44b3-b473-4350b5a4b04d@arm.com>
-Date: Fri, 15 Aug 2025 11:46:35 -0500
+	id 1umzS3-00000003HJq-28tc;
+	Fri, 15 Aug 2025 18:46:55 +0000
+Received: from mail.grinn-global.com ([77.55.128.204])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umx0k-00000002wA4-2a31;
+	Fri, 15 Aug 2025 16:10:36 +0000
+X-Virus-Scanned: by amavisd-new using ClamAV (8)
+Received: from mateusz.grinndev.ovh (79.163.192.75.ipv4.supernova.orange.pl [79.163.192.75])
+	by server220076.nazwa.pl (Postfix) with ESMTP id E3A161BCF01;
+	Fri, 15 Aug 2025 18:10:28 +0200 (CEST)
+From: Mateusz Koza <mateusz.koza@grinn-global.com>
+To: angelogioacchino.delregno@collabora.com,
+	robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	marcin.czarnecki@grinn-global.com,
+	b.bilas@grinn-global.com,
+	Mateusz Koza <mateusz.koza@grinn-global.com>
+Subject: [PATCH 1/4] arch: dts: mediatek: mt8390: add Grinn GenioSBC-700
+Date: Fri, 15 Aug 2025 18:08:34 +0200
+Message-ID: <20250815160837.371592-2-mateusz.koza@grinn-global.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
+References: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-To: Sudeep Holla <sudeep.holla@arm.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org, patches@amperecomputing.com,
- Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org,
- bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be, arnd@arndb.de,
- nm@ti.com, ebiggers@kernel.org, nfraprado@collabora.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250808025533.6422-1-shijie@os.amperecomputing.com>
- <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
- <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
- <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
- <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
- <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
- <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org> <aJ20imoeRL_tifky@bogus>
- <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
- <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-NA-AI-Spam-Probability: 0.47
+X-NA-AI-Is-Spam: no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_094639_746963_8EC5BA8B 
-X-CRM114-Status: GOOD (  51.02  )
+X-CRM114-CacheID: sfid-20250815_091035_009760_0D92E991 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,132 +70,961 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add support for Grinn GenioSBC-700. The Grinn GenioSBC-700 is a
+single-board computer based on the MediaTek Genio 700 SoC. Its device
+tree is split into seperate SoM (.dtsi) and SBC (.dtsi) files, which are
+combined in the SoC-specific .dts file.
 
+This separation enables:
+- Reuse of the SoM-level .dtsi for future evaluation boards.
+- Easy creation of DTS files for pin-to-pin compatible SoCs (e.g., Genio 510)
 
-On 8/15/25 5:48 AM, Sudeep Holla wrote:
-> On Thu, Aug 14, 2025 at 09:30:06AM -0700, Christoph Lameter (Ampere) wrote:
->> On Thu, 14 Aug 2025, Sudeep Holla wrote:
->>
->>>    |  Different architectures use different terminology to denominate logically
->>>    |  associated processors, but terms such as package, cluster, module, and
->>>    |  socket are typical examples.
->>>
->>> So how can one use these across architectures ? Package/Socket is quite
->>> standard. Cluster can be group of processors or it can also be group of
->>> processor clusters. One of the Arm vendors call it super cluster or something.
->>> All these makes it super hard for a generic OS to interpret that information.
->>> Just CONFIG_SCHED_CLUSTER was added with one notion of cluster which was soon
->>> realised doesn't match with some other notion of it.
->>
->> What the cluster actually is used for is up to the hardware. The linux
->> scheduler provides this functionality. How and when this feature is used
->> by firmware is a vendor issue. There was never a clear definition.
->>
-> 
-> Sure, since it is left to architecture to define what it means, it could
-> work. But what happens if we have multiple chiplet inside a socket and
-> each chiplet has multiple cluster. Do you envision using this SCHED_CLUSTER
-> at chiplet level if that works best on the platform ?
-> 
-> That could work, but we need to document all these with the best of our
-> knowledge now so that it is easy to revisit in the future.
-> 
->>> We can enable it and I am sure someone will report a regression on their
->>> platform and we need to disable it again. The benchmark doesn't purely
->>> depend on just the "notion" of cluster but it is often related to the
->>> private resource and how they are shared in the system. So even if you
->>> strictly follow the notion of cluster as supported by CONFIG_SCHED_CLUSTER
->>> it will fail on systems where the private resources are shared across the
->>> "cluster" boundaries or some variant configuration.
->>
->> That is not our problem. If the vendor provides clustering information and
->> the scheduler uses that then the vendor can modify the firmware to not
->> enable clustering.
->>
-> 
-> That is pure wrong. ACPI is describing the hardware. Deciding to put
-> clustering information in these tables only if it provides performance or
-> not hinder performance seem complete non-sense to me. That covering policy
-> in ACPI hardware description. Does ACPI spec mention anything about it ?
-> I mean remove some hardware description even if it is 100% accurate if it
-> hinders performance on one of the OSPM ? Doesn't sound correct at all.
-> 
->> As mentioned before: We could create a blacklist to override the ACPI info
->> from the vendor to ensure that clustering is off.
->>
-> 
-> Not a bad idea. We can see if allow or blocklist works as we start with one.
+More details about the hardware:
+- https://grinn-global.com/products/grinn-geniosom-700
+- https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
 
- From a distro perspective it makes more sense to me to change it from a 
-compile time option to a runtime kernel command line option with the 
-default on/off set by this SCHED_CLUSTER flag rather than try to 
-maintain a blocklist.
+Signed-off-by: Mateusz Koza <mateusz.koza@grinn-global.com>
+---
+ arch/arm64/boot/dts/mediatek/Makefile         |   1 +
+ .../mediatek/mt8390-grinn-genio-700-sbc.dts   |  19 +
+ .../dts/mediatek/mt8390-grinn-genio-sbc.dtsi  | 673 ++++++++++++++++++
+ .../dts/mediatek/mt8390-grinn-genio-som.dtsi  | 208 ++++++
+ 4 files changed, 901 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi
 
-
-I agree the firmware needs a much clearer way to signal that these nodes 
-represent something other than just side effects of the way the table is 
-built. If the working group is hesitant to declare additional 
-topological flags, maybe this idea of deriving additional topological 
-information from nodes without caches is a reasonable spec 
-clarification. That way some future 
-NODE_IS_A_CLUSTER/DSU/CHIPLET/SUPERCLUSTER/RING/SLICE/WHATEVER doesn't 
-turn the existing code into technical debt.
-
-But returning to the original point, its not clear to me that the HW 
-'cluster' information is really causing the performance boost vs, just 
-having a medium size scheduling domain (aka just picking an arbitrary 
-size 4-16 cores) under MC, or simply 'slicing' a L3 in the PPTT such 
-that the MC domains are smaller, yields the same effect. I've seen a 
-number of cases where 'lying' about the topology yields a better result 
-in a benchmark. This is largely what is happening with these Firmware 
-toggles that move/remove the NUMA domains too. Being able to manually 
-reconfigure some of these scheduling levels at runtime might be useful...
-
-
-
-
-> 
->> What we should not do is disabling clustering for all.
->>
-> 
-> Not completely against it but I have concerns on how all these scale with
-> multiple chiplets within a socket or any such variants.
-> 
->>>> We could add a blacklist for those platforms to avoid regressions but we
->>>> should not allow that to hinder us to enable full support for clustering
->>>> on ARM64.
->>>>
->>>
->>> Sure, but we need to improve the "cluster" definition in the ACPI and Arm
->>> specification, get an agreement on what it means for other architecture
->>> first IMO. We don't want to revisit the same topic again without these as
->>> IIRC this is the second time we are discussion around this topic.
->>
->> The vendors need flexibility to use this feature when it makes sense.
->>
-> 
-> Sure, but too much flexibility might also hinder future changes when adding
-> some other feature(chiplet again is one thing I can think of now)
-> 
->> Having a clear definition would limit the use of clustering feature and
->> limits innovation. Vendors can control the clustering via ACPI and the
->> firmware they provide with their system.
->>
-> 
-> Not sure if that should be right direction TBH, but again not against the
-> idea of enabling the feature on some platforms if we are going to enable it
-> by default.
-> 
->> We could change definition but that but that would be a decadelong
->> process which will encounter resistance from vendors that make uses of the
->> clustering feature that does not fall into the stricter definition.
->>
-> 
-> I understand and get the point, but decadelong is bit of an exaggeration 😉.
-> Not discussing these in ACPI or similar forum is not a good idea as we know
-> there are new h/w features that are being added and current specification
-> may not provide ways to express all of those.
-> 
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index 1dcea8b9aed9..7383d75d8041 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk-hdmi.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+new file mode 100644
+index 000000000000..44bba1ff74ae
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+@@ -0,0 +1,19 @@
++/*
++ * Copyright (C) 2025 Grinn sp. z o.o.
++ * Author: Mateusz Koza <mateusz.koza@grinn-global.com>
++ */
++/dts-v1/;
++
++#include "mt8188.dtsi"
++#include "mt8390-grinn-genio-som.dtsi"
++#include "mt8390-grinn-genio-sbc.dtsi"
++
++/ {
++	model = "Grinn GenioSBC-700";
++	compatible = "grinn,genio-700-sbc", "mediatek,mt8390",
++		"mediatek,mt8188";
++	memory@40000000 {
++		device_type = "memory";
++		reg = <0 0x40000000 1 0x00000000>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+new file mode 100644
+index 000000000000..f6d19ee158d5
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+@@ -0,0 +1,673 @@
++/*
++ * Copyright (C) 2025 Grinn sp. z o.o.
++ * Author: Mateusz Koza <mateusz.koza@grinn-global.com>
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++
++/ {
++	chassis-type = "embedded";
++	aliases {
++		ethernet0 = &eth;
++		i2c0 = &i2c0;
++		i2c2 = &i2c2;
++		i2c3 = &i2c3;
++		i2c5 = &i2c5;
++		i2c6 = &i2c6;
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:921600n8";
++	};
++
++	firmware {
++		optee {
++			compatible = "linaro,optee-tz";
++			method = "smc";
++		};
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		/*
++		 * 12 MiB reserved for OP-TEE (BL32)
++		 * +-----------------------+ 0x43e0_0000
++		 * |      SHMEM 2MiB       |
++		 * +-----------------------+ 0x43c0_0000
++		 * |        | TA_RAM  8MiB |
++		 * + TZDRAM +--------------+ 0x4340_0000
++		 * |        | TEE_RAM 2MiB |
++		 * +-----------------------+ 0x4320_0000
++		 */
++		optee_reserved: optee@43200000 {
++			no-map;
++			reg = <0 0x43200000 0 0x00c00000>;
++		};
++
++		scp_mem: memory@50000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x50000000 0 0x2900000>;
++			no-map;
++		};
++
++		/* 2 MiB reserved for ARM Trusted Firmware (BL31) */
++		bl31_secmon_reserved: memory@54600000 {
++			no-map;
++			reg = <0 0x54600000 0x0 0x200000>;
++		};
++
++		apu_mem: memory@55000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x55000000 0 0x1400000>; /* 20 MB */
++		};
++
++		vpu_mem: memory@57000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x57000000 0 0x1400000>; /* 20 MB */
++		};
++
++		adsp_mem: memory@60000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x60000000 0 0xf00000>;
++			no-map;
++		};
++
++		afe_dma_mem: memory@60f00000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x60f00000 0 0x100000>;
++			no-map;
++		};
++
++		adsp_dma_mem: memory@61000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x61000000 0 0x100000>;
++			no-map;
++		};
++	};
++
++	connector {
++		compatible = "hdmi-connector";
++		label = "hdmi";
++		type = "a";
++		ddc-i2c-bus = <&hdmi_ddc>;
++		hdmi-pwr-supply = <&hdmi_phy>;
++
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&hdmi0_out>;
++			};
++		};
++	};
++
++	reg_sbc_vsys: regulator-vsys {
++		compatible = "regulator-fixed";
++		regulator-name = "vsys";
++		regulator-always-on;
++		regulator-boot-on;
++	};
++
++	reg_fixed_5v: regulator-0 {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		enable-active-high;
++		regulator-always-on;
++		vin-supply = <&reg_sbc_vsys>;
++	};
++
++	reg_fixed_4v2: regulator-1 {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed_4v2";
++		regulator-min-microvolt = <4200000>;
++		regulator-max-microvolt = <4200000>;
++		enable-active-high;
++		regulator-always-on;
++		vin-supply = <&reg_sbc_vsys>;
++	};
++
++	reg_fixed_3v3: regulator-2 {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		enable-active-high;
++		regulator-always-on;
++		vin-supply = <&reg_sbc_vsys>;
++	};
++};
++
++&pio {
++	gpio-line-names =
++	/*  0 -  4   */ "RPI_GPIO0", "RPI_GPIO1", "", "", "RPI_GPIO4",
++	/*  5 -  9   */ "", "RPI_GPIO6", "", "", "RPI_GPIO9",
++	/* 10 - 14   */ "RPI_GPIO10", "RPI_GPIO11", "", "", "",
++	/* 15 - 19   */ "", "", "", "", "",
++	/* 20 - 24   */ "", "RPI_GPIO21", "", "RPI_GPIO23", "",
++	/* 25 - 29   */ "", "", "", "", "",
++	/* 30 - 34   */ "RPI_GPIO30", "", "", "", "",
++	/* 35 - 39   */ "RPI_GPIO35", "RPI_GPIO36", "", "", "",
++	/* 40 - 44   */ "", "", "", "", "",
++	/* 45 - 49   */ "", "", "", "", "",
++	/* 50 - 54   */ "", "", "", "", "",
++	/* 55 - 59   */ "RPI_GPIO55", "RPI_GPIO56", "", "", "RPI_GPIO59",
++	/* 60 - 64   */ "RPI_GPIO60", "", "", "", "",
++	/* 65 - 69   */ "", "", "", "", "RPI_GPIO69",
++	/* 70 - 74   */ "", "", "RPI_GPIO72", "RPI_GPIO73", "RPI_GPIO74",
++	/* 75 - 79   */ "", "", "", "", "RPI_GPIO79",
++	/* 80 - 84   */ "RPI_GPIO80", "RPI_GPIO81", "RPI_GPIO82", "", "",
++	/* 85 - 89   */ "", "", "", "", "",
++	/* 90 - 94   */ "", "", "", "", "",
++	/* 95 - 99   */ "", "", "", "", "",
++	/*100 - 104  */ "", "", "", "", "",
++	/*105 - 109  */ "", "", "", "", "",
++	/*110 - 114  */ "", "", "", "", "",
++	/*115 - 119  */ "", "", "", "", "",
++	/*120 - 124  */ "", "RPI_GPIO121", "RPI_GPIO122", "RPI_GPIO123", "RPI_GPIO124";
++
++	i2c0_pins: i2c0-pins {
++		pins {
++			pinmux = <PINMUX_GPIO56__FUNC_B1_SDA0>,
++				 <PINMUX_GPIO55__FUNC_B1_SCL0>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c2_pins: i2c2-pins {
++		pins {
++			pinmux = <PINMUX_GPIO60__FUNC_B1_SDA2>,
++				 <PINMUX_GPIO59__FUNC_B1_SCL2>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c3_pins: i2c3-pins {
++		pins {
++			pinmux = <PINMUX_GPIO62__FUNC_B1_SDA3>,
++				 <PINMUX_GPIO61__FUNC_B1_SCL3>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c5_pins: i2c5-pins {
++		pins {
++			pinmux = <PINMUX_GPIO66__FUNC_B1_SDA5>,
++				 <PINMUX_GPIO65__FUNC_B1_SCL5>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c6_pins: i2c6-pins {
++		pins {
++			pinmux = <PINMUX_GPIO68__FUNC_B1_SDA6>,
++				 <PINMUX_GPIO67__FUNC_B1_SCL6>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	uart0_pins: uart0-pins {
++		pins {
++			pinmux = <PINMUX_GPIO31__FUNC_O_UTXD0>,
++				 <PINMUX_GPIO32__FUNC_I1_URXD0>;
++			bias-pull-up;
++		};
++	};
++
++	uart1_pins: uart1-pins {
++		pins {
++			pinmux = <PINMUX_GPIO86__FUNC_O_UTXD1>,
++				 <PINMUX_GPIO87__FUNC_I1_URXD1>;
++			bias-pull-up;
++		};
++	};
++
++	uart2_pins: uart2-pins {
++		pins {
++			pinmux = <PINMUX_GPIO35__FUNC_O_UTXD2>,
++				 <PINMUX_GPIO36__FUNC_I1_URXD2>;
++			bias-pull-up;
++		};
++	};
++
++	pcie_pins_default: pcie-default {
++		mux {
++			pinmux = <PINMUX_GPIO47__FUNC_I1_WAKEN>,
++				 <PINMUX_GPIO48__FUNC_O_PERSTN>,
++				 <PINMUX_GPIO49__FUNC_B1_CLKREQN>;
++			bias-pull-up;
++		};
++	};
++
++	eth_default_pins: eth-default-pins {
++		pins-cc {
++			pinmux = <PINMUX_GPIO139__FUNC_B0_GBE_TXC>,
++				 <PINMUX_GPIO140__FUNC_I0_GBE_RXC>,
++				 <PINMUX_GPIO141__FUNC_I0_GBE_RXDV>,
++				 <PINMUX_GPIO142__FUNC_O_GBE_TXEN>;
++			drive-strength = <8>;
++		};
++
++		pins-mdio {
++			pinmux = <PINMUX_GPIO143__FUNC_O_GBE_MDC>,
++				 <PINMUX_GPIO144__FUNC_B1_GBE_MDIO>;
++			drive-strength = <8>;
++			input-enable;
++		};
++
++		pins-power {
++			pinmux = <PINMUX_GPIO145__FUNC_B_GPIO145>,
++				 <PINMUX_GPIO146__FUNC_B_GPIO146>;
++			output-high;
++		};
++
++		pins-rxd {
++			pinmux = <PINMUX_GPIO135__FUNC_I0_GBE_RXD3>,
++				 <PINMUX_GPIO136__FUNC_I0_GBE_RXD2>,
++				 <PINMUX_GPIO137__FUNC_I0_GBE_RXD1>,
++				 <PINMUX_GPIO138__FUNC_I0_GBE_RXD0>;
++			drive-strength = <8>;
++		};
++
++		pins-txd {
++			pinmux = <PINMUX_GPIO131__FUNC_O_GBE_TXD3>,
++				 <PINMUX_GPIO132__FUNC_O_GBE_TXD2>,
++				 <PINMUX_GPIO133__FUNC_O_GBE_TXD1>,
++				 <PINMUX_GPIO134__FUNC_O_GBE_TXD0>;
++			drive-strength = <8>;
++		};
++	};
++
++	eth_sleep_pins: eth-sleep-pins {
++		pins-cc {
++			pinmux = <PINMUX_GPIO139__FUNC_B_GPIO139>,
++				 <PINMUX_GPIO140__FUNC_B_GPIO140>,
++				 <PINMUX_GPIO141__FUNC_B_GPIO141>,
++				 <PINMUX_GPIO142__FUNC_B_GPIO142>;
++		};
++
++		pins-mdio {
++			pinmux = <PINMUX_GPIO143__FUNC_B_GPIO143>,
++				 <PINMUX_GPIO144__FUNC_B_GPIO144>;
++			input-disable;
++			bias-disable;
++		};
++
++		pins-rxd {
++			pinmux = <PINMUX_GPIO135__FUNC_B_GPIO135>,
++				 <PINMUX_GPIO136__FUNC_B_GPIO136>,
++				 <PINMUX_GPIO137__FUNC_B_GPIO137>,
++				 <PINMUX_GPIO138__FUNC_B_GPIO138>;
++		};
++
++		pins-txd {
++			pinmux = <PINMUX_GPIO131__FUNC_B_GPIO131>,
++				 <PINMUX_GPIO132__FUNC_B_GPIO132>,
++				 <PINMUX_GPIO133__FUNC_B_GPIO133>,
++				 <PINMUX_GPIO134__FUNC_B_GPIO134>;
++		};
++	};
++
++	spi2_pins: spi2-pins {
++		pins-spi {
++			pinmux = <PINMUX_GPIO79__FUNC_O_SPIM2_CSB>,
++				<PINMUX_GPIO80__FUNC_O_SPIM2_CLK>,
++				<PINMUX_GPIO81__FUNC_B0_SPIM2_MOSI>,
++				<PINMUX_GPIO82__FUNC_B0_SPIM2_MISO>;
++			bias-disable;
++		};
++	};
++
++	hdmi_vreg_pins: hdmi-vreg-pins {
++		pins-pwr {
++			pinmux = <PINMUX_GPIO50__FUNC_O_HDMITX20_PWR5V>;
++			bias-disable;
++		};
++	};
++
++	hdmi_pins: hdmi-pins {
++		pins-hotplug {
++			pinmux = <PINMUX_GPIO51__FUNC_I0_HDMITX20_HTPLG>;
++			bias-pull-down;
++		};
++
++		pins-cec {
++			pinmux = <PINMUX_GPIO52__FUNC_B1_HDMITX20_CEC>;
++			bias-disable;
++		};
++
++		pins-ddc {
++			pinmux = <PINMUX_GPIO53__FUNC_B1_HDMITX20_SCL>,
++				 <PINMUX_GPIO54__FUNC_B1_HDMITX20_SDA>;
++			drive-strength = <10>;
++		};
++	};
++
++	audio_default_pins: audio-default-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO121__FUNC_B0_PCM_CLK>,
++				 <PINMUX_GPIO122__FUNC_B0_PCM_SYNC>,
++				 <PINMUX_GPIO123__FUNC_O_PCM_DO>,
++				 <PINMUX_GPIO124__FUNC_I0_PCM_DI>;
++		};
++	};
++};
++
++&eth {
++	phy-mode = "rgmii-rxid";
++	phy-handle = <&ethernet_phy0>;
++	snps,reset-active-low;
++	snps,reset-delays-us = <0 11000 200000>;
++	mediatek,tx-delay-ps = <2030>;
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&eth_default_pins>;
++	pinctrl-1 = <&eth_sleep_pins>;
++	mediatek,mac-wol;
++	snps,reset-gpio = <&pio 147 GPIO_ACTIVE_LOW>;
++	status = "okay";
++};
++
++&eth_mdio {
++	ethernet_phy0: ethernet-phy@3 {
++		reg = <3>;
++		compatible = "ethernet-phy-ieee802.3-c22";
++		eee-broken-1000t;
++		interrupts-extended = <&pio 148 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c5 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c5_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c6 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c6_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart1 {
++	pinctrl-0 = <&uart1_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart2 {
++	pinctrl-0 = <&uart2_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&pcie {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie_pins_default>;
++	status = "okay";
++};
++
++&pciephy {
++	status = "okay";
++};
++
++&spi2 {
++	pinctrl-0 = <&spi2_pins>;
++	pinctrl-names = "default";
++	mediatek,pad-select = <0>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++};
++
++&vdosys1 {
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		vdosys1_ep_ext: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&ethdr0_in>;
++		};
++	};
++};
++
++&ethdr0 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++
++			ethdr0_in: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&vdosys1_ep_ext>;
++			};
++		};
++
++		port@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++
++			ethdr0_out: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&merge5_in>;
++			};
++		};
++	};
++};
++
++&merge5 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++
++			merge5_in: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&ethdr0_out>;
++			};
++		};
++
++		port@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++
++			merge5_out: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&dpi1_in>;
++			};
++		};
++	};
++};
++
++&dpi1 {
++	status = "okay";
++};
++
++&dpi1_in {
++	remote-endpoint = <&merge5_out>;
++};
++
++&dpi1_out {
++	remote-endpoint = <&hdmi0_in>;
++};
++
++&hdmi {
++	pinctrl-names = "default";
++	pinctrl-0 = <&hdmi_pins>;
++	status = "okay";
++};
++
++&hdmi0_in {
++	remote-endpoint = <&dpi1_out>;
++};
++
++&hdmi0_out {
++	remote-endpoint = <&hdmi_connector_in>;
++};
++
++&hdmi_phy {
++	pinctrl-names = "default";
++	pinctrl-0 = <&hdmi_vreg_pins>;
++	status = "okay";
++};
++
++&u3phy0 {
++	status = "okay";
++};
++
++&u3phy1 {
++	status = "okay";
++};
++
++&u3phy2 {
++	status = "okay";
++};
++
++&xhci1 {
++	status = "okay";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hub_2_0: hub@1 {
++		compatible = "usb451,8027";
++		reg = <1>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
++		vdd-supply = <&reg_fixed_3v3>;
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb451,8025";
++		reg = <2>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
++		vdd-supply = <&reg_fixed_3v3>;
++	};
++};
++
++&xhci2 {
++	status = "okay";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hub@1 {
++		compatible = "microchip,usb2513bi";
++		reg = <1>;
++		vdd-supply = <&reg_fixed_3v3>;
++	};
++};
++
++&ssusb0 {
++	status = "okay";
++	dr_mode = "peripheral";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++};
++
++&ssusb1 {
++	status = "okay";
++	dr_mode = "host";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	maximum-speed = "super-speed";
++};
++
++&ssusb2 {
++	status = "okay";
++	dr_mode = "host";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	maximum-speed = "high-speed";
++};
++
++&scp_c0 {
++	firmware-name = "mediatek/mt8188/scp.img";
++	memory-region = <&scp_mem>;
++	status = "okay";
++};
++
++&gpu {
++	mali-supply = <&mt6359_vproc2_buck_reg>;
++	status = "okay";
++};
++
++&adsp {
++	memory-region = <&adsp_dma_mem>, <&adsp_mem>;
++	status = "okay";
++};
++
++&afe {
++	memory-region = <&afe_dma_mem>;
++	status = "okay";
++};
++
++&sound {
++	compatible = "mediatek,mt8390-mt6359-evk", "mediatek,mt8188-mt6359-evb";
++	model = "mt8390-evk";
++	pinctrl-names = "default";
++	pinctrl-0 = <&audio_default_pins>;
++	audio-routing =
++		"Headphone", "Headphone L",
++		"Headphone", "Headphone R",
++		"AP DMIC", "AUDGLB",
++		"AP DMIC", "MIC_BIAS_0",
++		"AP DMIC", "MIC_BIAS_2",
++		"DMIC_INPUT", "AP DMIC";
++
++	mediatek,adsp = <&adsp>;
++	status = "okay";
++
++	dai-link-0 {
++		link-name = "ETDM3_OUT_BE";
++
++		codec {
++			sound-dai = <&hdmi 0>;
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi
+new file mode 100644
+index 000000000000..2df1e419a555
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi
+@@ -0,0 +1,208 @@
++/*
++ * Copyright (C) 2025 Grinn sp. z o.o.
++ * Author: Mateusz Koza <mateusz.koza@grinn-global.com>
++ */
++
++#include "mt6359.dtsi"
++#include <dt-bindings/input/input.h>
++
++/ {
++	aliases {
++		i2c1 = &i2c1;
++		mmc0 = &mmc0;
++	};
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&mfg0 {
++	domain-supply = <&mt6359_vproc2_buck_reg>;
++};
++
++&mfg1 {
++	domain-supply = <&mt6359_vsram_others_ldo_reg>;
++};
++
++&mmc0 {
++	status = "okay";
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&mmc0_default_pins>;
++	pinctrl-1 = <&mmc0_uhs_pins>;
++	bus-width = <8>;
++	max-frequency = <200000000>;
++	cap-mmc-highspeed;
++	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++	supports-cqe;
++	cap-mmc-hw-reset;
++	no-sdio;
++	no-sd;
++	hs400-ds-delay = <0x1481b>;
++	vmmc-supply = <&mt6359_vemc_1_ldo_reg>;
++	vqmmc-supply = <&mt6359_vufs_ldo_reg>;
++	non-removable;
++};
++
++&mt6359_vbbck_ldo_reg {
++	regulator-always-on;
++};
++
++&mt6359_vcn18_ldo_reg {
++	regulator-name = "vcn18_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vcn33_2_bt_ldo_reg {
++	regulator-name = "vcn33_2_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vcore_buck_reg {
++	regulator-name = "dvdd_proc_l";
++	regulator-always-on;
++};
++
++&mt6359_vgpu11_buck_reg {
++	regulator-name = "dvdd_core";
++	regulator-always-on;
++};
++
++&mt6359_vpa_buck_reg {
++	regulator-name = "vpa_pmu";
++	regulator-max-microvolt = <3100000>;
++};
++
++&mt6359_vproc2_buck_reg {
++	/* The name "vgpu" is required by mtk-regulator-coupler */
++	regulator-name = "vgpu";
++	regulator-min-microvolt = <550000>;
++	regulator-max-microvolt = <800000>;
++	regulator-coupled-with = <&mt6359_vsram_others_ldo_reg>;
++	regulator-coupled-max-spread = <6250>;
++};
++
++&mt6359_vpu_buck_reg {
++	regulator-name = "dvdd_adsp";
++	regulator-always-on;
++};
++
++&mt6359_vrf12_ldo_reg {
++	regulator-name = "va12_abb2_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vsim1_ldo_reg {
++	regulator-name = "vsim1_pmu";
++	regulator-enable-ramp-delay = <480>;
++};
++
++&mt6359_vsram_others_ldo_reg {
++	/* The name "vsram_gpu" is required by mtk-regulator-coupler */
++	regulator-name = "vsram_gpu";
++	regulator-min-microvolt = <750000>;
++	regulator-max-microvolt = <800000>;
++	regulator-coupled-with = <&mt6359_vproc2_buck_reg>;
++	regulator-coupled-max-spread = <6250>;
++};
++
++&mt6359_vufs_ldo_reg {
++	regulator-name = "vufs18_pmu";
++	regulator-always-on;
++};
++
++&pio {
++
++	i2c1_pins: i2c1-pins {
++		pins {
++			pinmux = <PINMUX_GPIO58__FUNC_B1_SDA1>,
++				 <PINMUX_GPIO57__FUNC_B1_SCL1>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	mmc0_default_pins: mmc0-default-pins {
++		pins-clk {
++			pinmux = <PINMUX_GPIO157__FUNC_B1_MSDC0_CLK>;
++			drive-strength = <6>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO161__FUNC_B1_MSDC0_DAT0>,
++				 <PINMUX_GPIO160__FUNC_B1_MSDC0_DAT1>,
++				 <PINMUX_GPIO159__FUNC_B1_MSDC0_DAT2>,
++				 <PINMUX_GPIO158__FUNC_B1_MSDC0_DAT3>,
++				 <PINMUX_GPIO154__FUNC_B1_MSDC0_DAT4>,
++				 <PINMUX_GPIO153__FUNC_B1_MSDC0_DAT5>,
++				 <PINMUX_GPIO152__FUNC_B1_MSDC0_DAT6>,
++				 <PINMUX_GPIO151__FUNC_B1_MSDC0_DAT7>,
++				 <PINMUX_GPIO156__FUNC_B1_MSDC0_CMD>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-rst {
++			pinmux = <PINMUX_GPIO155__FUNC_O_MSDC0_RSTB>;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	mmc0_uhs_pins: mmc0-uhs-pins {
++		pins-clk {
++			pinmux = <PINMUX_GPIO157__FUNC_B1_MSDC0_CLK>;
++			drive-strength = <8>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO161__FUNC_B1_MSDC0_DAT0>,
++				 <PINMUX_GPIO160__FUNC_B1_MSDC0_DAT1>,
++				 <PINMUX_GPIO159__FUNC_B1_MSDC0_DAT2>,
++				 <PINMUX_GPIO158__FUNC_B1_MSDC0_DAT3>,
++				 <PINMUX_GPIO154__FUNC_B1_MSDC0_DAT4>,
++				 <PINMUX_GPIO153__FUNC_B1_MSDC0_DAT5>,
++				 <PINMUX_GPIO152__FUNC_B1_MSDC0_DAT6>,
++				 <PINMUX_GPIO151__FUNC_B1_MSDC0_DAT7>,
++				 <PINMUX_GPIO156__FUNC_B1_MSDC0_CMD>;
++			input-enable;
++			drive-strength = <8>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-ds {
++			pinmux = <PINMUX_GPIO162__FUNC_B0_MSDC0_DSL>;
++			drive-strength = <8>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-rst {
++			pinmux = <PINMUX_GPIO155__FUNC_O_MSDC0_RSTB>;
++			drive-strength = <8>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++};
++
++&pmic {
++	interrupt-parent = <&pio>;
++	interrupts = <222 IRQ_TYPE_LEVEL_HIGH>;
++
++	mt6359keys: keys {
++		compatible = "mediatek,mt6359-keys";
++		mediatek,long-press-mode = <1>;
++		power-off-time-sec = <0>;
++
++		power-key {
++			linux,keycodes = <KEY_POWER>;
++			wakeup-source;
++		};
++	};
++};
+-- 
+2.43.0
 
 
