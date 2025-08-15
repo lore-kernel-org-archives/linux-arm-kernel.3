@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92F3CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A74CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z39MTSWOXNQ5WXDBg0kG4gMl6/FB8k+aGTljZSntLDk=; b=aFklp8+6xVtPdUv5fvCv4Rzp6h
-	MAN8XNFWyD3TcPJ9NL4JI42ZI7RWa/bOgCdrFEDpvcPtq1oH5mVpBcR6B3LWIYPN6CICAFCzaNULU
-	8veMU/HIHxgeSwfgKc8ogzFnAzDK3y4aiMn+p69z83Oi+ZDiC8om2UKhuZIm8JHUBRLpB6n6GT2zY
-	MIs5WWz6bAVE0X/+SqisHBb2lzkThz9/NSIena2W6px0YvrdkYjx8kD2UlITJUWoQqYKu69jjJ0X9
-	eBkgKXvDVJaeKfbSFxXJW9b7PwA9z2Gwwrw7QOWYEJ+GDaRj8h2+Wx5jCsNWk1B7FTQ0WKMpdvqnx
-	lbcXP/Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxnI97Oar3eJxffsPtaRWw14y+f8eKTN8g29/St3/s4=; b=QpdsrbtQxab5qQgINJkRTTMetq
+	GGM3m8NQaoqvUQ6aqa6HLZETynhkP1BCgU+g7TGkM3X8azWb3CR6gD/yfMR4vWLlJLZxohZ/6BfeP
+	ZFCGOSSV/PsfmJdeNDABpisMmeUdf/0v0ohOV87p6MrPDMNp4TkbPOUfTuimzj8OH4kb3JJCjjZWH
+	AWMjfr7xx/Kxos/1ZXsziBt2X4QyBnipKfOlqasOiTlyL2JMGCb8sPmWB2LyXTrSX3jNZYdj1T7OW
+	OQRJc4DvgtJZIW2LPRZ1Wu2klvatkVKGjk4Jta9FP1M6X89zUf+zPACyEcC7lVR2SDXIkD1FllG+v
+	S0lRmPog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1Wu-00000003V7q-2pjx;
-	Fri, 15 Aug 2025 21:00:04 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1un1s2-00000003XZe-1IbG;
+	Fri, 15 Aug 2025 21:21:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1UH-00000003Uwa-1MXk
+	id 1un1pP-00000003XEU-2f5v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 20:57:22 +0000
-Received: from mail-acc-it-01.broadcom.com (mail-acc-it-01.acc.broadcom.net [10.35.36.83])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id CC3FDC0081B4;
-	Fri, 15 Aug 2025 13:57:19 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com CC3FDC0081B4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1755291439;
-	bh=+YZ5RFTx1lTqWs6GzWQCeXFfnC94z2xcTi6xc13mGAY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Hbt694ZWJuSS3wkNH5tQSogOI918YB4buaDoRAko5bOwWHJR630m/W+Uflynq2n6P
-	 aUvAHSj9/11LKbvqAYh/CMXP+PAb4g+iqM7aW4n5eJg1/DglvGUvxiegj52WeOCq7s
-	 kqAVRDJ6yOoUCuUg62tRpS5eb8wn02dhAHLUjsso=
-Received: from stbirv-lnx-1.igp.broadcom.net (stbirv-lnx-1.igp.broadcom.net [10.67.48.32])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-acc-it-01.broadcom.com (Postfix) with ESMTPSA id C46EA4002F44;
-	Fri, 15 Aug 2025 16:57:18 -0400 (EDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: james.quinlan@broadcom.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Mike Tipton <quic_mdtipton@quicinc.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v2] cpufreq: scmi: Account for malformed DT in scmi_dev_used_by_cpus()
-Date: Fri, 15 Aug 2025 13:57:14 -0700
-Message-Id: <20250815205714.1545571-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	Fri, 15 Aug 2025 21:19:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1708D6141C;
+	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C685EC4CEEB;
+	Fri, 15 Aug 2025 21:19:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755292750;
+	bh=AWF7ROMiI+AFCkdDNOd6X3SLMWbwQ51ClYm8LtWloJQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Z3e5v6U9jNUaD41ytw6FxJKG/p6EF4RS26+LYK6VtArQ4DSVyNj2/faRMNOQPxeSS
+	 iCpnbvjGMFjPRKbNtHNj7a8TuWitLBPIimAcqcIfEffZGKcl7Wc17tLXMLzT51AXW8
+	 ucVQQzzOYfdhEJNWcSie+kE7SoJC2lumk4R9fHqWxJ5npWdaNK2o+jltI9/73Q9ssF
+	 Hm2FSzfpcOpClw4L6zjDSChVbzyjakQTfg3frK3ab/lwjz7SbGM4T2UjE+Ssc5YumZ
+	 ps7FnmyBDfEULcwsWr0xLzxQfOAgVH4oyvoX3bidX62RBbOjWxN/oBu8dKLggfJYBB
+	 JXA2CFaarqhuQ==
+Date: Fri, 15 Aug 2025 16:19:10 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_135721_470715_92DCB56C 
-X-CRM114-Status: GOOD (  14.28  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
+ devicetree@vger.kernel.org
+To: Linus Walleij <linus.walleij@linaro.org>
+In-Reply-To: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
+References: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
+Message-Id: <175529260025.3212383.1843651240268969923.robh@kernel.org>
+Subject: Re: [PATCH 0/3] ARM: dts: ixp4xx: Add device trees for MI424WR
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +70,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Broadcom STB platforms were early adopters of the SCMI framework and as
-a result, not all deployed systems have a Device Tree entry where SCMI
-protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
-CPU Device Tree node(s) referencing protocol 0x13 as their clock
-provider.
 
-For those platforms, we allow the checks done by scmi_dev_used_by_cpus()
-to continue, and in the event of not having done an early return, we key
-off the documented compatible string and give them a pass to continue to
-use scmi-cpufreq.
+On Thu, 14 Aug 2025 18:40:02 +0200, Linus Walleij wrote:
+> This patch series adds device trees for Actiontec MI424WR
+> versions A, C and D.
+> 
+> These routers are quite common in the Americas and uses
+> the IXP4xx SoC.
+> 
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+> ---
+> Linus Walleij (3):
+>       dt-bindings: Add Actiontec vendor prefix
+>       dt-bindings: arm: List actiontec devices
+>       ARM: dts: Add ixp4xx Actiontec MI424WR device trees
+> 
+>  .../devicetree/bindings/arm/intel-ixp4xx.yaml      |   2 +
+>  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+>  arch/arm/boot/dts/intel/ixp/Makefile               |   2 +
+>  .../ixp/intel-ixp42x-actiontec-mi424wr-ac.dts      |  37 +++
+>  .../intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts |  38 +++
+>  .../intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi  | 273 +++++++++++++++++++++
+>  6 files changed, 354 insertions(+)
+> ---
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> change-id: 20250814-ixp4xx-mi424wr-dts-afef5c00d68d
+> 
+> Best regards,
+> --
+> Linus Walleij <linus.walleij@linaro.org>
+> 
+> 
+> 
 
-Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
-Changes in v2:
 
-- do not leverage the SCMI quirks framework which in spirit is for
-  dealing with SCMI firmware implementations, this right here,
-  specifically pertains to an older Device Tree. This also makes it
-  easier to backport that change into stable trees where the commit in
-  the Fixes tag is already present. There is no dependency upon the
-  presence of the SCMI quirks framework
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
- drivers/cpufreq/scmi-cpufreq.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index ef078426bfd5..9df4d968fdac 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -15,6 +15,7 @@
- #include <linux/energy_model.h>
- #include <linux/export.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/pm_opp.h>
- #include <linux/pm_qos.h>
- #include <linux/slab.h>
-@@ -424,6 +425,14 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
- 			return true;
- 	}
- 
-+	/* Older Broadcom STB chips had a "clocks" property for CPU node(s)
-+	 * that did not match the SCMI performance protocol node, if we got
-+	 * there, it means we had such an older Device Tree, therefore return
-+	 * true to preserve backwards compatibility.
-+	 */
-+	if (of_machine_is_compatible("brcm,brcmstb"))
-+		return true;
-+
- 	return false;
- }
- 
--- 
-2.34.1
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/intel/' for 20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org:
+
+arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: gpio@1,0 (brcm,bcm6345-gpio): 'bank-width', 'intel,ixp4xx-eb-write-enable', 'pci-reset-hog', 'pstn-relay-hog-1', 'pstn-relay-hog-2' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-mmio.yaml#
+arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: /soc/usb@c800b000: failed to match any schema with compatible: ['intel,ixp4xx-udc']
+arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dtb: gpio@1,0 (brcm,bcm6345-gpio): 'bank-width', 'intel,ixp4xx-eb-write-enable', 'pci-reset-hog', 'pstn-relay-hog-1', 'pstn-relay-hog-2' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-mmio.yaml#
+arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dtb: /soc/usb@c800b000: failed to match any schema with compatible: ['intel,ixp4xx-udc']
+
+
+
+
 
 
