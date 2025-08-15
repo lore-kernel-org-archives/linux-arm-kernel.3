@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1900DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 14:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B784BCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 14:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqyNw+Jm7HoH5Z0KlAgJAQwfjE1pdVnkoWxhIxI0/t0=; b=IJ/I6iaWJxCEoscuc+9xSfFXSI
-	//2wLc4VOSzCB0smCCYxqhBBSFGiDgUHJBYYkt9DunwIK7gtMfbd7T4BAGDlWkEw4ALPXPo9FX1OJ
-	ztktl+cOcPBvLK0qvBofWZzuWg6sLrPzYrbTtZZUjBtiImm9mNxRggqxrmyawc53uEXaqdkjBzsSe
-	a2jgntblEMy4W5lptEPgIeAZ+brMHWXlk1A9VxFuHYc+PGOFkqQyxVgzy9iXl9d3rRUEnxkgYEMTp
-	8JGhNjbN6aKOC9AiibF1pcpAlBsnjxE48jx9QfVdV7pnzYrUjnBuGv7NMj2CJBPHNDIOmTnHpIPyv
-	+yN2Fw/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HQFhDMG6wtC0xbgPYPLGvT/+vu5ckjHmrmodQJCw2rk=; b=u2lxMcWG+55nFKXEpj5l2VQFKJ
+	ry8rZMMJT4ZzFzKZVsxStZuDfJz4o/F0lWYDqoh2umKVeyDrPpLoVPTETOUF+vMlUXg4X2j9nDKv3
+	NdeXLnCetyrLXBWIk/PaBQfTTdTbeROFG3tfTEjRmtf1V1PUvFQRtPNdJWSU3O2OkFxkRGEkVAdOj
+	PsW8mB0p8+MBP9PDLWzlsj3xV+Rvp/1RICTm2BXlhEphXNizOeuRPPdQjyASPg0yNjykLacKWQ1so
+	PZWT9UdWDHWpMJkRykMVnJw05ztWy+qoy7VWJLuLw6t+cyFr8KI/r7XbgU9Vs0sX7/mAOqAhR76GB
+	KrRVsOBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umv9k-00000002gS6-2zka;
-	Fri, 15 Aug 2025 14:11:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsTE-00000002Jxi-2Tfc
+	id 1umvCI-00000002gpc-1xht;
+	Fri, 15 Aug 2025 14:14:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umsZ0-00000002KXS-43jy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 11:19:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C5FB6116F;
-	Fri, 15 Aug 2025 11:19:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5CE9C4CEF0;
-	Fri, 15 Aug 2025 11:19:34 +0000 (UTC)
-Date: Fri, 15 Aug 2025 12:19:32 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, glider@google.com,
-	Marco Elver <elver@google.com>, ryabinin.a.a@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com, corbet@lwn.net,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v2 1/2] kasan/hw-tags: introduce kasan.store_only option
-Message-ID: <aJ8XxLGiaVmWUCk6@arm.com>
-References: <20250813175335.3980268-1-yeoreum.yun@arm.com>
- <20250813175335.3980268-2-yeoreum.yun@arm.com>
- <CA+fCnZd=EQ+5b=rBQ66LkJ3Bz2GrKHvnYk0DQLbs=o9=k0C69g@mail.gmail.com>
+	Fri, 15 Aug 2025 11:25:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D2B71691;
+	Fri, 15 Aug 2025 04:25:30 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB5673F63F;
+	Fri, 15 Aug 2025 04:25:36 -0700 (PDT)
+Message-ID: <9338d248-1392-414f-8bbe-dedce8cb048c@arm.com>
+Date: Fri, 15 Aug 2025 12:25:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+fCnZd=EQ+5b=rBQ66LkJ3Bz2GrKHvnYk0DQLbs=o9=k0C69g@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Correctly populate FAR_EL2 on nested SEA
+ injection
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>
+References: <20250813163747.2591317-1-maz@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250813163747.2591317-1-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250815_042539_054372_DFE04EBC 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +67,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 07:03:35AM +0200, Andrey Konovalov wrote:
-> On Wed, Aug 13, 2025 at 7:53 PM Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
-> > raise of tag check fault on store operation only.
-> > Introcude KASAN store only mode based on this feature.
-> >
-> > KASAN store only mode restricts KASAN checks operation for store only and
-> > omits the checks for fetch/read operation when accessing memory.
-> > So it might be used not only debugging enviroment but also normal
-> > enviroment to check memory safty.
-> >
-> > This features can be controlled with "kasan.store_only" arguments.
-> > When "kasan.store_only=on", KASAN checks store only mode otherwise
-> > KASAN checks all operations.
+Hi Marc,
+
+This patch looks good to me. Just a typo in the commit message.
+
+On 8/13/25 17:37, Marc Zyngier wrote:
+> vcoy_write_sys_reg()'s signature is not totally obvious, and it
+typo: s/vcoy/vcpu/
+> is rather easy to write something that looks correct, except that...
+> Oh wait...
 > 
-> I'm thinking if we should name this "kasan.write_only" instead of
-> "kasan.store_only". This would align the terms with the
-> "kasan.fault=panic_on_write" parameter we already have. But then it
-> would be different from "FEATURE_MTE_STORE_ONLY", which is what Arm
-> documentation uses (right?).
+> Swap addr and FAR_EL2 to restore some sanity in the nested SEA
+> department.
+> 
+> Fixes: 9aba641b9ec2a ("KVM: arm64: nv: Respect exception routing rules for SEAs")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>   arch/arm64/kvm/emulate-nested.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index 90cb4b7ae0ff7..af69c897c2c3a 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2833,7 +2833,7 @@ int kvm_inject_nested_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
+>   			     iabt ? ESR_ELx_EC_IABT_LOW : ESR_ELx_EC_DABT_LOW);
+>   	esr |= ESR_ELx_FSC_EXTABT | ESR_ELx_IL;
+>   
+> -	vcpu_write_sys_reg(vcpu, FAR_EL2, addr);
+> +	vcpu_write_sys_reg(vcpu, addr, FAR_EL2);
+>   
+>   	if (__vcpu_sys_reg(vcpu, SCTLR2_EL2) & SCTLR2_EL1_EASE)
+>   		return kvm_inject_nested(vcpu, esr, except_type_serror);
 
-"write_only" works for me, kasan is meant to be generic even though it
-currently closely follows the arm nomenclature.
+Thanks,
 
--- 
-Catalin
+Ben
+
 
