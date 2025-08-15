@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B1CCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0A5CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g3R0ShOKrYC/TrDizkBvGx4oi8w9wLjh05UMIqlG41U=; b=H8nCTndR090Xj5ndC+sTEIJpAe
-	TTFQjT4wLZe6oAW/kg5hYr+bmLoa0pICalR/ji4fX42AFh3D8NdEK5/LHdRpA+x9gY+3qxNZw5cle
-	v1COjPyBuQobN0so0Xo6vzpvQmzRd/W5l4d1e9aNhWqCNkxsK54W9/k1pCY1bK7hcOmaP5wfHbgZv
-	/pKb+B2mAyAf+E4O4cagCQxH7IIucLOrWqbcDqjxRlGFEJ7c2UANzX4x/VJcHarauMpt8rcQB4ckI
-	LwVLhWqEZClFAYSNUvbUGxHmr+BFo+0DFXIJVqc7qFVgJM0oGG3n3bqbsX9J3RzYIj28Xhc05OMfs
-	lw34g22g==;
+	bh=oYeMUsITLzLzX8aJHEpZBjK6mYQbUKQb8W2QJwQZHWg=; b=fajtueXKx41XeGILzOCCdnwNRx
+	DcpDD+0uNM7OZOZ+ypj/lAxkNGYNI8FX0yYTWl5X6BXl7l7YXjG/3+WsbqMDGYx+3YCUUlQ+8Drko
+	TRGkznQCPfWymtcQxP7C6vdkXKatmkuLgss7e9mZRoSqMgFRTveU1B0LeK+bJ4JGyRCri/clM6iTB
+	qh1dDqvkCos9S7tdnr9xbi9DebWJfR/efqlGys3K/LKnzufg6qvAGAp+XlsTGBZahO9LGy6l9zETT
+	x5LTWKzLIwJsPpmy4m+w9uGxSnTUSRWlLQu7mGtE4UZVQu9GPAyt85bmGiQ63EcpOg9ABzIFCf4wA
+	2F20fLTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umy8M-000000036hR-1mok;
-	Fri, 15 Aug 2025 17:22:30 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1umyAt-000000036uW-148O;
+	Fri, 15 Aug 2025 17:25:07 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwfY-00000002sdW-2nmf
+	id 1umwgY-00000002srY-3c1o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 15:48:41 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57FFmaN02635242;
-	Fri, 15 Aug 2025 10:48:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755272916;
-	bh=g3R0ShOKrYC/TrDizkBvGx4oi8w9wLjh05UMIqlG41U=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=gpfYK/3tjHiVHDN+66MlpfI4wqkkq64ZmhqiYZHgk0E63n2OQFPM63xDEPgIAcZ/x
-	 ElEFBrA9zQcsjJOTPTZPzRZ52Tg8v6vApFm0i3uQ9OHDzhh2HMHejwDV/rpsPa8N29
-	 OaKWIkbKRyz2mZ0UGO8UrEpj8FiQ7xQpj0vymN0o=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57FFmaNM1999922
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 15 Aug 2025 10:48:36 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 15
- Aug 2025 10:48:36 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 15 Aug 2025 10:48:36 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57FFmZpr1197117;
-	Fri, 15 Aug 2025 10:48:35 -0500
-Message-ID: <9a3f4271-ada2-48aa-b99d-023619ec5e12@ti.com>
-Date: Fri, 15 Aug 2025 10:48:35 -0500
+	Fri, 15 Aug 2025 15:49:45 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-74381fc8abaso563472a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 08:49:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1755272982; x=1755877782; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oYeMUsITLzLzX8aJHEpZBjK6mYQbUKQb8W2QJwQZHWg=;
+        b=zuZzjG/iZPmYRcM7J39SoY6DfalFn7QqgbjwXONdiKLoTT62+KlJqpxjv/AT9qtdGZ
+         LipDYE8zZcgXF63lgLMQAGuVOKO4X2bg/jKp82GD6aNoVN8GyTtz1G3XhlEEY2SeTEgM
+         l9eAHW8Id3iIsoz4Mggejk73iT/cP3QLdrbRnUVynBCl4nH0+oaHVmH9z+Ywce84heAY
+         6bK0ZlEiYx7CFHla9aGAjMX8NfkrPAzqU/X9GK93H0Bwv3AFdFjNh6KehG32v1HU5/lb
+         A193yIARCwEY2Mi99QQMDHcIHo9oE1pz3z0BqeZjZN6zhm0aQIovn5m+oNTxvp5ytkE1
+         /pdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755272982; x=1755877782;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oYeMUsITLzLzX8aJHEpZBjK6mYQbUKQb8W2QJwQZHWg=;
+        b=Pm1TqGTzIR89g9z23jbeGzj7tyBPaY63UaCedu1DMVx+zRLqZzczOHzZhDK2fcOwvt
+         obQj4+ldLdE5+L6qtoXzzety9fFA1mmHF2wwiZVWEWLe0ZsohQRvLO5xMxXoC7PtABYz
+         MwEbAyJF6jxFvkNG2Ur/cCgQSHHhPCNueAvTywvVfm6uKQDNYk8a7WC6PoRvxVtYOA3W
+         tueBObH2Z9Tq1u5r4FL6KJmqVsMBbvcm/WT2Z3kJP3MoovVFbVts/kKz813kMuW98Xq1
+         Ks6rz7pMjQ3hHdbnEXouN/9jtZnI94V9XRasdD3UkIEx5LfwU8lS+KuyRWXzG9jHuR4+
+         qV1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXkjK8xN0PJLiMO2riSDc7r9jBT9H5w2DbIpidTi4hnTsJC05pvv+LhGymCnY2xA+5aSxq0oULoHxf/JluSkQ1w@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5rEe+6halBvJCXSuxB4sdt3nUBjMh1lWKVqJ/Y0xzQUCT0FZ3
+	THXOHf9xaLKTKnBJfMdJgojJ/6qjcdN/50DWmPOBGz5uQc/k6loconWs0iH9K6cG+s8=
+X-Gm-Gg: ASbGncstCZBz1WJXwuKAFZ5cErCeVwpgTJAFLc7WjMNNPy9XWGbrpqrzxFhEmFi69I6
+	6V3o3+5utZHMxla7eKI/0oxFACKnN6SN927KeLrbyTsRkTIRyqmpzobZJdMpWoBgOnCFkts+Ma0
+	62LDJWMXJtwHpRMi0YU8DYs+MiFCVjnxcaF/mO7ntQAqVpxvzVjXuWuUQxOHpDFLhbH6SFsacfs
+	1xxNu2/TNUCd1sUvEPUVJ2nuIInk6AusQvApQyx/PY2O2nPvYIx4Ye1jLkeEKHiwvumSLUoNb2e
+	fP1kylKOjYayKTTVoQ3on+sOFOx5bzI9sLPbZ9FKLRapqh6lRE7bxMLsDQwFOFxguD2+mJ5Fc6G
+	6IuZSrhcSskTID+5z5uzo34mWWBpIj0O3hgMb4mRE9OrSVU1BGNBmVIDg6Z68wae7XIVkpHI7mK
+	aRfiNVnJ0=
+X-Google-Smtp-Source: AGHT+IEoVnaL83a5r2gLAMPUw8k6gnxh57UaRSMs78wsysGd8hJtR5B/O1txsAfKqL986GFe82rtXQ==
+X-Received: by 2002:a05:6830:4108:b0:742:f996:ef34 with SMTP id 46e09a7af769-743924f533bmr1526978a34.27.1755272981907;
+        Fri, 15 Aug 2025 08:49:41 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:677:c1a1:65b9:2b0c? ([2600:8803:e7e4:1d00:677:c1a1:65b9:2b0c])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7439203b5ffsm348082a34.25.2025.08.15.08.49.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Aug 2025 08:49:41 -0700 (PDT)
+Message-ID: <ded7ba99-089b-47a7-95b9-ca6666dc3e29@baylibre.com>
+Date: Fri, 15 Aug 2025 10:49:40 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 33/33] arm64: dts: ti: k3-j7*-ti-ipc-firmware: Switch MCU
- R5F cluster to Split-mode
-To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <u-kumar1@ti.com>, <hnagalla@ti.com>, <jm@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250814223839.3256046-1-b-padhi@ti.com>
- <20250814223839.3256046-34-b-padhi@ti.com>
+Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add spi-buses property
+To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+References: <20250616220054.3968946-1-sean.anderson@linux.dev>
+ <20250616220054.3968946-2-sean.anderson@linux.dev>
 Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250814223839.3256046-34-b-padhi@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20250616220054.3968946-2-sean.anderson@linux.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_084840_795927_328CCD9A 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20250815_084943_139524_DD49B517 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,88 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/14/25 5:38 PM, Beleswar Padhi wrote:
-> Several TI K3 SoCs like J7200, J721E, J721S2, J784S4 and J742S2 have a
-> R5F cluster in the MCU domain which is configured for LockStep mode at
-> the moment. The necessary support to use MCU R5F cluster in split mode
-> was added in the bootloader. And the TI IPC firmware for the split
-> processors is already available public.
+On 6/16/25 5:00 PM, Sean Anderson wrote:
+> From: David Lechner <dlechner@baylibre.com>
 > 
-> Therefore, Switch this R5F cluster to Split mode by default in all the
-> boards using TI IPC Firmware config (k3-j7*-ti-ipc-firmware). This
-> gives out an extra general purpose R5F core free to run any applications
-> as required. Lockstep mode remains default in the SoC level dtsi, so
-> downstream board dts which do not use TI IPC Firmware config should not
-> be impacted by this switch.
+> Add a spi-buses property to the spi-peripheral-props binding to allow
+> specifying the SPI bus or buses that a peripheral is connected to in
+> cases where the SPI controller has more than one physical SPI bus.
 > 
-> Users who prefer to use the fault-tolerant lockstep mode with TI IPC
-> firmware config, can do that by setting `ti,cluster-mode` property to 1.
-
-What a user prefers and other configuration like that does not belong
-in devicetree, which should only describe the hardware.
-
-Configuration should be done using the normal methods, like kernel
-cmdline, module params, ioctls, etc.. Maybe we can even set the mode
-based on some signal in the firmware itself, like in the resource table.
-
-Andrew
-
-> 
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 > ---
->   arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi             | 1 +
->   arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi             | 1 +
->   arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi            | 1 +
->   .../boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi     | 1 +
->   4 files changed, 4 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-> index 8eff7bd2e771..ddf3cd899d0e 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
-> @@ -94,6 +94,7 @@ &main_timer2 {
->   
->   &mcu_r5fss0 {
->   	status = "okay";
-> +	ti,cluster-mode = <0>;
->   };
->   
->   &mcu_r5fss0_core0 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-> index 5b3fa95aed76..57890a3b38a2 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-ti-ipc-firmware.dtsi
-> @@ -211,6 +211,7 @@ &main_timer15 {
->   };
->   
->   &mcu_r5fss0 {
-> +	ti,cluster-mode = <0>;
->   	status = "okay";
->   };
->   
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-> index 40c9f2b64e7e..7ee8a8615246 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-> @@ -179,6 +179,7 @@ &main_timer5 {
->   };
->   
->   &mcu_r5fss0 {
-> +	ti,cluster-mode = <0>;
->   	status = "okay";
->   };
->   
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-> index b5a4496a05bf..e12fa55a4df0 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-ti-ipc-firmware-common.dtsi
-> @@ -254,6 +254,7 @@ &main_timer9 {
->   };
->   
->   &mcu_r5fss0 {
-> +	ti,cluster-mode = <0>;
->   	status = "okay";
->   };
->   
+> Changes in v2:
+> - New
+> 
+>  .../devicetree/bindings/spi/spi-peripheral-props.yaml  | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
+> index 8fc17e16efb2..cfdb55071a08 100644
+> --- a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
+> +++ b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
+> @@ -89,6 +89,16 @@ properties:
+>      description:
+>        Delay, in microseconds, after a write transfer.
+>  
+> +  spi-buses:
+> +    description:
+> +      Array of bus numbers that describes which SPI buses of the controller are
+> +      connected to the peripheral. This only applies to peripherals connected
+> +      to specialized SPI controllers that have multiple SPI buses on a single
+> +      controller.
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+
+Finally have some hardware to test this series with using 2 or 4 buses.
+I found that we also need an absolute max here to make the bindings checker
+happy. 8 seems sensible since I haven't seen more than that on a peripheral.
+We can always increase it if we find hardware that requires more buses.
+
+	maxItems: 8
+
+
+
+> +    default: [0]
+> +
+>    stacked-memories:
+>      description: Several SPI memories can be wired in stacked mode.
+>        This basically means that either a device features several chip
 
 
