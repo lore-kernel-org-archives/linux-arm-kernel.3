@@ -4,124 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACB0CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2CECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=; b=wj1fR6/jhcLiS8yNQZtZrl7l4U
-	8kHXrS8zzszctjlLPJWa6VmcyRdzH9cO2sNI3j7bV9irTsKalQL1LFY+tU6hBWPjtvSJWZZY//T4X
-	n6PMrLF+ZFNH1QuQPlaGYhlG8UtuRBG71EPpzp2vFQ78cvvTP6fGeCXICPPcLjzevjQp0hUf4b0Jy
-	QVmO4/YLTjF+L8nous6h9ypyRN8HjL3BHbxvZ/L+9hhEW22tw2Hfug1ljo5mormuDMoOeKcOHaklf
-	lgWe/SYryUPuhmGIk0BUPC96E2jQjLndPjwJ+xjtp8kbP3yUqhaDuj+Cj4alBmt4VuOyTS+da8KFW
-	sYUH3tJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=; b=I5uJAbtLDL392AVwXbUmAWvCjY
+	DDXZqw+WnHH0F5e/SbnU6JNFnO+ZO0pb0ws7YxfUhU0T0KMgPHAjxEErsROLictYK+mOxo0mbVLnW
+	tWHvRyIOOBS6Upvvn62L2nePyr7to5lpOAMBf2laLFN4Ns1n/NvxQyrX0GyyML/LRdzQsPGxDPe93
+	K/fS3ywV1HYUvt72RqkVvihKnoZt46IQa4KtpqtKromafjN7M4qQlndKztQS/2Q5GtWbG1QgOVIXB
+	xFHMN9XEwDpIvEvma8VNyHngFaGl6SQcWsC/VDJoorSb5OkjZCg4/x5+ZLv/WncxalS3X9Nt9fn7O
+	gUhAvM8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzMV-00000003GhB-1C2r;
-	Fri, 15 Aug 2025 18:41:11 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1umzP1-00000003GuZ-0hbO;
+	Fri, 15 Aug 2025 18:43:47 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxZR-000000030Ui-1ZGw
+	id 1umxZV-000000030VN-3GvO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 16:46:26 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2445811e19dso18029675ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 09:46:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1755276384; x=1755881184; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=;
-        b=dgmKVkt7aU5mdmkjFVFyFpEC76VZ+kj1FG401ba+KB7J71ZGUHqEx45QeFTFCQWXGa
-         qlenYHmKJ808YuzSYHXc2N1aslbk/7BDQzs9/uIy1N3p5qQ/4yk1Iaz1bCSCHAjD+ECE
-         FWQTzYzgBB0cp+VZpwdMPtcuIA5a8zd/5sgrs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755276384; x=1755881184;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=;
-        b=dOetWqtzzxriOMGFMJA3HIWa0I4bFH/MqIHhzzNPlIT/A97OROYdcIfVEr6+oG5BbB
-         HQQlLq38Qb+mjPdbC6Dieswb+pAf/Rn5A1E7YlGgPMLqMGwaK8wUUO9HKi0z/+k4b1aB
-         4gR8jy2yqSd3c4CdJJar/fZauYelXN7peC9Ej3iv/q+sC1s0VadSxakm2gQVjE7BT0G+
-         0NzV8NqSKOMwO3teO/ut1xsMca+sHnNZ1TYYLe4FjNQo+Efmx+u15h7zcrj5RzP4lq48
-         VwGD6CryMwgBKIPi1M/Gpv8WxsOVt7f/psrrcZSuCgynf0/jcJu4LSHIfYNODS1wmZ1a
-         aHxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUQ3Q2tG6PoOiFqkU4/U7lNc4A56uCIJEyCfW1rmrsTJf2Xbwvm84P0h0wiQzQXrgfa4RSuvwb1TTgu9M2vEL25@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEVtvBKK2EE8xmI9IfXDYDdvFsOVSgN0v1eSs3oCOycqSORMr7
-	NG5+NGpuZSCQiirGZCQCVKPamQb3B8tlDEvVlzcboe3JXATbjPY3UzQ0ycTbwMnvDw==
-X-Gm-Gg: ASbGncvAJ5X9WlP62ZlCAYW/qpAgGUMc8ySQj5q0pMZV4sV3szi5+9R58Dp8yLVcUXW
-	6ICVqZbsfUvec1HafGHthDXAGHQkSsIcWgcRySkUwBCdD5a8DlXohfOT4u/UVqKipralFSmFxIR
-	jt0QZ4D/SnFrf6JLW5nmCFwIf9+BDc5LeALhgGlgvgLkyETIRezmdsZpJ1zijP2UxXQmsQJWIXj
-	O0ncUWQKPVcIrkUT0FCDP0cOAhWUuurJDB9P+EuqkKI0mTCk2qNGRw/TRaf2LUGpZ0l9hQsaar+
-	b+Drh5ZUg3R91+BxaMcuGtbu2/9/Wo+j15/FUx5YGCs9u5zzvc61BH5/OW7GsAE6TOiQyKu3H1P
-	6CJD1AlM0IiVkyl1pnyK/Vq8twg9+B+xqs5n/CGD0Ff5IpztLzWUAzdnVWIi0zr8JxQ==
-X-Google-Smtp-Source: AGHT+IGaD7NipiYs8pCnXLAQK1a0gZQDqVBrHWQuhpKPItWLuIo1KSHzmEWzXChNb0FI2lLCfCq27w==
-X-Received: by 2002:a17:902:cece:b0:234:f4da:7eeb with SMTP id d9443c01a7336-2446d5af738mr48517595ad.7.1755276384349;
-        Fri, 15 Aug 2025 09:46:24 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d56d5bbsm17558665ad.147.2025.08.15.09.46.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Aug 2025 09:46:23 -0700 (PDT)
-Message-ID: <79711a6c-8b59-43c9-bbbc-369be1608a49@broadcom.com>
-Date: Fri, 15 Aug 2025 09:46:22 -0700
+	Fri, 15 Aug 2025 16:46:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iDNccHJ9KzKpiihXLDKhaHNM+PN34M2EFgL/BFUFzAXRwCeL8Zv5tDmucLJa/VndvNNPel7ZaMeqAv5g69yeW59LI4ZfUXp2ZnczPgt+2JiOZJfYnclCINw4lF1YJoyI7YWF7vj6vSgLl3p+UYdD4L4dAk+kFX1oH0AydLInrT3iO/gxJgqdrSyKjj6drwBJ+UBr38/jOD8mO0/S1TgmNtgIMMZxwvhPqCVRoLBD+OtIEelcVbIpmBWUvAez+c6EBmerayzhkx63sBag6UNod7BX5EbjgBZcAOitPCMUbwpkVspjp3zO0p9M+VA3UrrZWyVYkLwcWk+ZUwx3VEG9tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=;
+ b=tPs9VgQQfbNdD1hj1X8x69+RVdjCJFJNRB7ETn5aFNWgPN59heVj/W6A7ZAQTL7R4ri/awlbWe338EyO3y5bQEyO6d/qn4wYLLbaTAPDJjrpTk4bSMivUofL6LFvDIcc5lj0KKq0MC8Sev/3cLgM2aUG8vzd/y5t05no3tLKxmzIvPe77rkuMhR4cp7YnCFru1+k6r7EfjnDbelcVekWeSwBY9tKz00Fcvr0HdpNr7RJeem5ETaZVN64zBSije+R+8GB2noiRRf8kZ35h+8UNyeF/OeknW7PiqTtSlgswdznIded2iOayjbZYcMCLQvb/btplBfnyCqk0IVaAKRKcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=;
+ b=TEcNqJgXdRh+iLWK/8XPOdhGmk8YRbDM7/43TxsetIw6l6l8d/HJXVMICWuDIJ18BtI7gpEzZDMt9WYHHaStK+xIz3NWe8rZa2Q5ImZBoSrPDpGAXRxeoRNWOlR5OuIbWvxifhm2sIGmL5BSxSQjcSsC6592JGK/qvFsQi1kN0Y1DTGbV4h8LJKxKF6wR98qWxDP+gOSpSy3HFYMFThg5JC0laytX/0vxjGePmZoZYJxigaenUSuHNHGNXNMi9uHQlWIXcP/cMKi/pJn4IVrMHJ+HriL9ioebqZsQ3UXYuKRBmQFvx6M5n8IrsdbyqdwRDdVwvTRqjbMsXLM0wE4Lw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.17; Fri, 15 Aug
+ 2025 16:46:27 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.006; Fri, 15 Aug 2025
+ 16:46:27 +0000
+Date: Fri, 15 Aug 2025 12:46:19 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 12/13] arm64: dts: imx95-19x19-evk: Add spidev0
+Message-ID: <aJ9kW6SePooeCLIz@lizhi-Precision-Tower-5810>
+References: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com>
+ <20250815-imx9-dts-v1-12-e609eb4e3105@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250815-imx9-dts-v1-12-e609eb4e3105@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0340.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] cpufreq: scmi: Add quirk to disable checks in
- scmi_dev_used_by_cpus()
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, james.quinlan@broadcom.com,
- Sudeep Holla <sudeep.holla@arm.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Peng Fan <peng.fan@nxp.com>, Mike Tipton <quic_mdtipton@quicinc.com>,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org
-References: <20250814225155.3519000-1-florian.fainelli@broadcom.com>
- <aJ7rBgce5eWSkkk3@pluto>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <aJ7rBgce5eWSkkk3@pluto>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB7051:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4e6fd8cb-00e9-4b78-0351-08dddc1b46d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3P1ZeLJ+fW0Jx4Hmpl+iTF2VuMglULmyHZ4FrOi+JKEDACkTerFKL3bj8eIO?=
+ =?us-ascii?Q?rsSD0gLJ7YRMCzXffkbunUjzW9B8+fR9ymBtizM6Y3u1wacjKESlXD8WGJwR?=
+ =?us-ascii?Q?wpn/HpTU/lIu5qhBqz6XZUIIfOUYPSW2IWRtRGog/2qH/Sd+ebMd16nTInxI?=
+ =?us-ascii?Q?7J73ZVQBZ0gd+wZpDWapfWTnLm5YWNmX7rVc9RFMHSQPhwfZo7gjMcGWEtXG?=
+ =?us-ascii?Q?ZpVSuhguZ+Mq+ruTIpaB1gSjYgLxastkt37IngDFTJ8RGJdVtbS8hC6dATee?=
+ =?us-ascii?Q?zB43I44kujgkIH4RFH4yzdCV/p6Gn47wdhUv3wYfealrs2o4o3KejLzx3NdW?=
+ =?us-ascii?Q?ns3Mikrt6ukQTD7xQySq+Lpqj7ucMykS+/2XWGoo5DrEhIQ+so5gAi4yRCQU?=
+ =?us-ascii?Q?9fvJk757YM+oFft95wXvXT7PPJOStSxEBbgRPxOmtoIdrZbaoi/M7Upg6Fpm?=
+ =?us-ascii?Q?0JUF0urZ5alaDbKk0j5mGuLex5CrUEG579Uu1OwlnbFRKuhYop/60E6bK1/4?=
+ =?us-ascii?Q?bhTrup9lj70OzJz/8I78PkzPJ1AJOrUaemrJOrhn75Z3lhZPbSo1iIOtT6th?=
+ =?us-ascii?Q?wG58yJm5RKUHz9w25URGPwU3Ig6Gyr5khp2UlmIssMSrDQ/laNp7JkqxtU0p?=
+ =?us-ascii?Q?g9SDBl4bN1tVixKPhGhIQunCia1/r1lRZTXStD6OwkU7Xd1QStyIPt5LGRuz?=
+ =?us-ascii?Q?NnHXNVhWkes629MvE5+dD+DmUBcRUVSmxABwrfP1JSLQ/I+olX+vOnGwl1Tg?=
+ =?us-ascii?Q?cq+jLV/8KD26BSka/tEotKC1yX1TWI5ldiQeczJMx04efAxDKX7MRUqFJwIC?=
+ =?us-ascii?Q?WM4wEY5V8R2XkPjMBYamzZD+L/myeMxRLzC1MUcacpa+gxwx3spLWBdzOvtV?=
+ =?us-ascii?Q?kXlKAvzskLALBvA5Dk/HM+hBhb+kYC+EVLl4+xRCO17Rqw7s6fV6o0RchUZ+?=
+ =?us-ascii?Q?7BerRG5N5waZLQyvMY+KwmLsGn0uISVWMT0no7njV46PR3NK0cqpQoQqvtK/?=
+ =?us-ascii?Q?FGy2MNFn3dpL4SugjQQnV0giTIsl/u/02eJIlM/s87GytLsqUkYnHvvVT6pu?=
+ =?us-ascii?Q?uFInkfjnkTDCqzYBfYIfzI8I5q+ZT/WHWnCIHIlz7+VexIgWVZNMnxohi9HP?=
+ =?us-ascii?Q?E00vlXrjl9LlU8dTgj4nvvrrlOFAajAqBvQwvOmbh+ieGmw7inBx8MekVbLD?=
+ =?us-ascii?Q?FnNOAfinQm1jY2gwFdPetiI29fRppQeInMAPrdj5xxVE/yJrM76RTEVMsOpK?=
+ =?us-ascii?Q?iGvyuCL3qhM58o2HcgZzCnyXz8Zzs5m8WXNpDE6tgFgjRik5c+c885vrHpGT?=
+ =?us-ascii?Q?tGZFJcze8Oi4dmIJWiBbueE2/ZjgoypR5rHMsGpDQEFhVzR2Szg1s0iILXcu?=
+ =?us-ascii?Q?pPlkwsXY+qPGkNQuYMRi7lKGq03a2je6HO+xT266qurnDKG0FZfFJQMM8xGv?=
+ =?us-ascii?Q?AGJLXipEiD7c/TYJSqUREcpX5dkBYdiocbR65l35ZUX4/T5edDDWy1iC0yxV?=
+ =?us-ascii?Q?vbPaynf00KQqJpI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vgyDL6jOB++9qIO5LrKXgsgfKccG547yvB+UjP9eBUr5nkmX9DM1vXfwAqUm?=
+ =?us-ascii?Q?iqkvqVURGfvWRSWsBbmIBqLDI8B8eroTlYTKsYbDtPtkDOqmXsjvXKxe/G9O?=
+ =?us-ascii?Q?WkyjvsUa8/ZfhgZiFvLtny5d3BRDoO/jRaWZJM340BduyHGl14biOFdC5hwL?=
+ =?us-ascii?Q?CYBh9Hax7rTbGenN3ZfTdilasF50UuGofVwWzMlGPcjk2jdaT5zHeAogMdz9?=
+ =?us-ascii?Q?hGijLVG5/f2ZRoiQsrniZDh3KeNmdtFi0D42bnEGCjVPAdghKtdj33sKl9RA?=
+ =?us-ascii?Q?g/M807usce281SYXxpihC9RPAtuZTYp28RQZr+SL4Teo6MTxNDhYUJVA/hZh?=
+ =?us-ascii?Q?mQgRpbpd1ODWrBau5JagM3Yx5CldmVupLldIv/CtN1KGQRj6TJi03gN1uUIc?=
+ =?us-ascii?Q?K3WSe+as7t7i7B1H5GHf/Mpx5UPQMlD5jGz/tthaN7l9jYO60+665/j03hBx?=
+ =?us-ascii?Q?w+ByTzLM7xPb7P6vCB5XFXjtpxqIyY3n0xyVNA5aofvckYMtZOnu+qKp5ITh?=
+ =?us-ascii?Q?BWpCZ3eWUWXntXcaQ7AcDfgyVm+IloZrD/TAtutnW2sulLyoclL4CIJWxbwF?=
+ =?us-ascii?Q?MqRglkF5h7CtL42VORJ/ikJFV8lWrn1uZoELiifF11ZcwG2N34EeXFeMwaLf?=
+ =?us-ascii?Q?q9NPj85923+9tf8Hy504sFkV8hEdN5IH5Tr+rWBl93jZRjXr4ET2zFalolD+?=
+ =?us-ascii?Q?jxtRDdLcoTf4YxfdduwSVR/4c+hDELYag1SJZDSBwfIs8q/FnmmKjDWSS4Li?=
+ =?us-ascii?Q?5QuPmvDPbhv9n02bX6wwGbhuRfrpMxHg9lV4j31AhUqKUYkdttqVM5ItNDr8?=
+ =?us-ascii?Q?j/2AAuMnxoVJNo/EF0pTDq39JxM0cY8RXNSREz1zge8LlRme/czLI5k6K9Vp?=
+ =?us-ascii?Q?X6tjrqV+emMB+/UCvKQ+l9XjaCeDqOQxPlwt3SGAWR81sfFLVYPO4aWHrCc4?=
+ =?us-ascii?Q?2bG6xcAghMgBm3D8Xb1MSJwWvH6w1z/F7s0PHKePkPGLl9TiENuGItgqvT0H?=
+ =?us-ascii?Q?FQhuOfbNS4+WdbjzNkpPb1vsT9Od9/yR06tR1YXdpVb6T+/8Ds5aVdXA2U3X?=
+ =?us-ascii?Q?TyfVHIskS76TOzoWUCFvFplC0DG1GQ1xtCDne12EKK1mhgUbmvOcbQYaJheg?=
+ =?us-ascii?Q?VP0KgBMhwQ4xuXrymp1EBA0kfBhMKorkIuyXH20GiY9npM2YuGX0Vj775n6E?=
+ =?us-ascii?Q?Cp5+Ft0vwJQe9PtaxV+la31nCI4pRojMl48NOq2hpuM+fucYdzp+v0XWR8kY?=
+ =?us-ascii?Q?TIVbroaSumuqxJsuCh9xkqzNKq0MDW8649qyEtd/DAbXsWvUyg3HdeUK1+It?=
+ =?us-ascii?Q?KenCp1wwFFacZ0oOkmtmz6nKanmYcD1eBBYnLPurn/GSm3OEyyAKUy+brEZF?=
+ =?us-ascii?Q?OruqaUCb1KGrF4kRA6epurOFmiIrVxSLT3AheVRbypJ6kRYXz0KGLcHB4C/H?=
+ =?us-ascii?Q?6uhBmAVTksayiZ8REAYF9fRRDMYg7VWof2o4E+AxCYIjwEls+oo7fiyODqvY?=
+ =?us-ascii?Q?mSPvlxRrH7jGNWH9f9t2B0C6gaHGdDLDH+3cHhWdsbyEMMCnthA/rMhGSRhS?=
+ =?us-ascii?Q?a4p/tFa9Ba1ShGX2qlgldkeaklTy0BrCoNFMY7aL?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4e6fd8cb-00e9-4b78-0351-08dddc1b46d8
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Aug 2025 16:46:26.9103
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6UC5iNgEomv5P6mssCGHWSQAlM9tgqT6QOhWOIcnQ59S4/RhXDLYf7KooZQHGr2j96ob2kyLDufU+WWaobIBKw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_094625_578915_7C3FD353 
-X-CRM114-Status: GOOD (  39.35  )
+X-CRM114-CacheID: sfid-20250815_094629_821532_380C385B 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,180 +162,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/15/25 01:08, Cristian Marussi wrote:
-> On Thu, Aug 14, 2025 at 03:51:55PM -0700, Florian Fainelli wrote:
->> Broadcom STB platforms were early adopters of the SCMI framework and as
->> a result, not all deployed systems have a Device Tree entry where SCMI
->> protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
->> CPU Device Tree node(s) referencing protocol 0x13 as their clock
->> provider.
->>
->> Leverage the quirks framework recently introduce to match on the
->> Broadcom SCMI vendor and in that case, disable the Device Tree
->> properties checks being done by scmi_dev_used_by_cpus().
->>
-> 
-> Hi,
-> 
->> Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
->> Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
->> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->> ---
->>   drivers/cpufreq/scmi-cpufreq.c     | 13 +++++++++++++
->>   drivers/firmware/arm_scmi/quirks.c |  2 ++
->>   drivers/firmware/arm_scmi/quirks.h |  1 +
->>   3 files changed, 16 insertions(+)
->>
->> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
->> index ef078426bfd5..80647511d3c3 100644
->> --- a/drivers/cpufreq/scmi-cpufreq.c
->> +++ b/drivers/cpufreq/scmi-cpufreq.c
->> @@ -22,6 +22,8 @@
->>   #include <linux/types.h>
->>   #include <linux/units.h>
->>   
->> +#include "../drivers/firmware/arm_scmi/quirks.h"
->> +
-> 
-> I will post a patch to move this header up to avoid the uglyness of this
-> include....
+On Fri, Aug 15, 2025 at 05:03:58PM +0800, Peng Fan wrote:
+> Add "lwn,bk4-spi" compatible spidev node under lpspi7.
 
-Sounds good, thanks!
+Previous NAK by Krzysztof Kozlowski
 
-> 
->>   struct scmi_data {
->>   	int domain_id;
->>   	int nr_opp;
->> @@ -34,6 +36,7 @@ struct scmi_data {
->>   static struct scmi_protocol_handle *ph;
->>   static const struct scmi_perf_proto_ops *perf_ops;
->>   static struct cpufreq_driver scmi_cpufreq_driver;
->> +static bool __maybe_unused scmi_cpufreq_dt_props_check_disable;
->>   
-> 
-> Not sure why you introduce an intermediate global bool to check...this
-> defeats a bit the whole idea of the quirks framework which is based on
-> static_keys and is supposed to be mostly transarent when quirks are not
-> enabled....
-> 
-> Couldn't you just move the quirk inside the get_rate ?
+https://lore.kernel.org/imx/7d4ec7c9-c95a-4e7e-9750-f6310ecb59fc@kernel.org/
 
-Yes, I just had not realized that the execution of the quirk was already 
-conditional, so it makes sense not to need any intermediate boolean.
+our board have not SPI which attached to big lwn,bk4-spi boards.
 
-> (maybe I am missing something around compiler behaviours..)
->   
-> #define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS		\
-> ({							\
-> 	if (true)					\
-> 		return true;				\
-> })
-> 
->>   static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
->>   {
->> @@ -400,6 +403,9 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
->>   	struct device *cpu_dev;
->>   	int cpu, idx;
->>   
-> 
-> +	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
-> 
->>   	if (!scmi_np)
->>   		return false;
->>   
->> @@ -427,12 +433,19 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
->>   	return false;
->>   }
->>   
->> +#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
->> +	({							\
->> +		scmi_cpufreq_dt_props_check_disable = true;	\
->> +	})
->> +
->>   static int scmi_cpufreq_probe(struct scmi_device *sdev)
->>   {
->>   	int ret;
->>   	struct device *dev = &sdev->dev;
->>   	const struct scmi_handle *handle;
->>   
-> 
->> +	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
->> +
-> 
-> ...removing this of course
-> 
->>   	handle = sdev->handle;
->>   
->>   	if (!handle || !scmi_dev_used_by_cpus(dev))
->> diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
->> index 03960aca3610..aafc7b4b3294 100644
->> --- a/drivers/firmware/arm_scmi/quirks.c
->> +++ b/drivers/firmware/arm_scmi/quirks.c
->> @@ -171,6 +171,7 @@ struct scmi_quirk {
->>   /* Global Quirks Definitions */
->>   DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
->>   DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
->> +DEFINE_SCMI_QUIRK_EXPORTED(scmi_cpufreq_no_check_dt_props, "brcm-scmi", NULL, "0x2");
-> 
-> Also, are you sure about using version as "0x2" ? That is supposed to
-> indicate the (optional) SCMI FW Version to which this quirk will
-> apply...and with that it means whatever FW versioning you use in
-> Broadcom to identify build versions....it is NOT the SCMI Protocol
-> Version, so that also means that if/when you will change the advertised
-> version, this quirk wont apply anymore...or equally if there are older
-> version than 0x2 that are buggy they wont be quirked...
+Frank
 
-It's a good point, we should actually be matching on <= 0x2
-
-> 
-> One more doubt I have (despite me having suggested this solution) is
-> that here you are quirking against a malformed deployed DT really,
-> not against some SCMI FW anomaly in the Broadcom FW, but using the
-> SCMI Quirks framework you are tying the quirk to the SCMI FW Vendor
-> and maybe some specific SCMI FW Version....
-
-Yes that is a very good point, maybe that's abusing the quirks framework 
-so to speak.
-
-> 
-> ...so what will happen when you will update/fix your DT in the future ?
-> Will you also take care to bump the BRCM SCMI FW version to disable the
-> quirk in the DT deployed by your FW binary ?
-
-Yes we would bump the version number to indicate that the Device Tree 
-has always been fixed, both go hand in hand on our platforms. Or, as I 
-suggested privately to address the stable back ports, maybe it would be 
-better to do something like this:
-
-@@ -430,6 +428,14 @@ static bool scmi_dev_used_by_cpus(struct device 
-*scmi_dev)
-                         return true;
-         }
-
-+       /* Older Broadcom STB chips had a "clocks" property that did not 
-match
-+        * the SCMI performance protocol Device Tree node, if we got 
-there, it
-+        * means we had such an older Device Tree, therefore return true in
-+        * the interest of preserving backwards compatibility.
-+        */
-+       if (of_machine_is_compatible("brcm,brcmstb"))
-+               return true;
-+
-         return false;
-  }
-
-
-which would be more in line with checking the Device Tree only, and it 
-would also allow for unmodified backports to reach the stable trees. 
-Contrary to what I suggested privately however, this check is done 
-later, so we leave a chance for properly formed DT to return "true" 
-earlier on.
-
-What do you think? I am now leaning more towards that solution that 
-leveraging the quirks as I agree it is somewhat unrelated.
-
-Thanks!
--- 
-Florian
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> index 0ad5707314fb225b74d8940908b53dc2a444ed5d..193fc2cc9ac92bc3f0ff0e14ce0b1f84e91516c5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
+> @@ -507,6 +507,12 @@ &lpspi7 {
+>  	pinctrl-0 = <&pinctrl_lpspi7>;
+>  	cs-gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+> +
+> +	spidev0: spi@0 {
+> +		compatible = "lwn,bk4-spi";
+> +		reg = <0>;
+> +		spi-max-frequency = <1000000>;
+> +	};
+>  };
+>
+>  &micfil {
+>
+> --
+> 2.37.1
+>
 
