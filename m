@@ -4,150 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77151CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACB0CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mC3aWiovDT+zoX+tA5ktgXu3+M1PE87z3BCnEU+BrZM=; b=2ROvzQp0YDp+lsYjOGGsuy4bUc
-	nHKm+dWMLbQcCemC+0EZHUSBEXoW8u6KsnljmgH1LRIrPNU9GLn7DbaDpXCWVY26bB6vJZOZbFLvF
-	CeGJ9FnrN9cOmdZ4dxtM1Rhl3hyb3DqasydTH7EKktlZtXxBVcPXbWgiGKaijsmeR4bzx10rFBsTf
-	9WvZp3gm6xQiWXHXEPDjCewZz9s+vFXStjWATP0Z5gLnZQVs1vbrMS8dgHdhaYqgfyU08tCCRLcAV
-	Yuo7xtlo5H9e4oHMkzkOQrTN+mMdhsLz96Gi5gifm3B5ETgMHBQuwoEEMKuiR5F4b6SYThHbOe2CZ
-	OH0ikwig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=; b=wj1fR6/jhcLiS8yNQZtZrl7l4U
+	8kHXrS8zzszctjlLPJWa6VmcyRdzH9cO2sNI3j7bV9irTsKalQL1LFY+tU6hBWPjtvSJWZZY//T4X
+	n6PMrLF+ZFNH1QuQPlaGYhlG8UtuRBG71EPpzp2vFQ78cvvTP6fGeCXICPPcLjzevjQp0hUf4b0Jy
+	QVmO4/YLTjF+L8nous6h9ypyRN8HjL3BHbxvZ/L+9hhEW22tw2Hfug1ljo5mormuDMoOeKcOHaklf
+	lgWe/SYryUPuhmGIk0BUPC96E2jQjLndPjwJ+xjtp8kbP3yUqhaDuj+Cj4alBmt4VuOyTS+da8KFW
+	sYUH3tJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzJy-00000003GSi-2GZg;
-	Fri, 15 Aug 2025 18:38:34 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1umzMV-00000003GhB-1C2r;
+	Fri, 15 Aug 2025 18:41:11 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxXZ-000000030Fd-12AW
+	id 1umxZR-000000030Ui-1ZGw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 16:44:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k+eoVE5NlFUEDa75Mk6jiffNHGb7o1O0WVZhF0nc3EuK2Lnwxu8+T3TmIvV+5W8ynEVHxUAp4xNHzzqKRWiUO33UN0EvtCcTq6rjZuBg6pbP1VDQAeV0X2fGsDS9dgmFUWC8TZNSy4oSRBvmNcFG45O6pBUCzgIGa/zXG59EAR7CvntXZ2YK4TyMoikW6N/HSjyOlgQpAQ3O3kPLRcNbuj8IA2wfwpVy3EPzcGTEauuJufrwbgC6Hc/HP8QDklxORkeUY/RIWj62RejvpCTFNg+zwpCisfvHNKofPWl/znl6qZIc4rXI/wa9YaogwzpX+K0tSfBrMA6vy3aBq8Q3lQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mC3aWiovDT+zoX+tA5ktgXu3+M1PE87z3BCnEU+BrZM=;
- b=Af8dvpKpJvqOtkg0MxK1Xeuh+TWBdsuIIogJ/XhFrjpPdmug7x1348FIxskTVvWquYIhfeViW2aLfavQfUw07ZlT1vftdrWHcOOniqvjdCkA4/ZeI49lhJrBpx0bRzCgZJB/fAVQ3e9CfW0iaDG8wn1eizDde18i57BE5M1UCop2NGRZxaY6oK0nzynIxEPpejeIcsHobdnUS4RhYcIbiQ7N+hDFj9kFMhW3+bza/ai7lqJkwLD/PGgsL7H+VHb+8frjEfT4/FGnnqITtkd5DHNPOnX3ESCY2Zq8XziV6a4MWDxO/yC6tcZixP+xdm1RBhVlvbincmoO3qNalkZ2FQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mC3aWiovDT+zoX+tA5ktgXu3+M1PE87z3BCnEU+BrZM=;
- b=Pr6xGcpIxi9f8rLLqJLRdKr8il//j89A2JI9z0vUZXaa1wUlMOvJfD2nzF4HDaeuFuRH9a46frpXbelj1B1oTbLhphOein3OnEgA8gejJb+qMQ6qkHXAgOra9yWgUaQP4GZwMk++rZgLv6cLgLsn7IBacghnUFODUV5NzwGh/0i6IwHk76/RrP8ogqNBaluH0Gs0P4b46GqqBb6UQTasEu1T+YObogyU4D8dyXfpTvwUOr0xxj8ZT4ICETw6G3znLIUZTaG+y7og/DHhScMidFYf6WEJesW4Di9eU7wKzqfLoVf55Fkeyt8aQPGACqyqAODeOvBqvUIXlohf1ToZVw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.17; Fri, 15 Aug
- 2025 16:44:25 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.006; Fri, 15 Aug 2025
- 16:44:25 +0000
-Date: Fri, 15 Aug 2025 12:44:17 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 11/13] arm64: dts: imx95-19x19-evk: Add pf09 and pf53
- thermal zones
-Message-ID: <aJ9j4WxfYIbkcX14@lizhi-Precision-Tower-5810>
-References: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com>
- <20250815-imx9-dts-v1-11-e609eb4e3105@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250815-imx9-dts-v1-11-e609eb4e3105@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0037.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 15 Aug 2025 16:46:26 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2445811e19dso18029675ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 09:46:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1755276384; x=1755881184; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=;
+        b=dgmKVkt7aU5mdmkjFVFyFpEC76VZ+kj1FG401ba+KB7J71ZGUHqEx45QeFTFCQWXGa
+         qlenYHmKJ808YuzSYHXc2N1aslbk/7BDQzs9/uIy1N3p5qQ/4yk1Iaz1bCSCHAjD+ECE
+         FWQTzYzgBB0cp+VZpwdMPtcuIA5a8zd/5sgrs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755276384; x=1755881184;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G+ZroGpNdJmwln/9q6Kw/hEokSx6KAAuSZ3AUY/4HU0=;
+        b=dOetWqtzzxriOMGFMJA3HIWa0I4bFH/MqIHhzzNPlIT/A97OROYdcIfVEr6+oG5BbB
+         HQQlLq38Qb+mjPdbC6Dieswb+pAf/Rn5A1E7YlGgPMLqMGwaK8wUUO9HKi0z/+k4b1aB
+         4gR8jy2yqSd3c4CdJJar/fZauYelXN7peC9Ej3iv/q+sC1s0VadSxakm2gQVjE7BT0G+
+         0NzV8NqSKOMwO3teO/ut1xsMca+sHnNZ1TYYLe4FjNQo+Efmx+u15h7zcrj5RzP4lq48
+         VwGD6CryMwgBKIPi1M/Gpv8WxsOVt7f/psrrcZSuCgynf0/jcJu4LSHIfYNODS1wmZ1a
+         aHxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ3Q2tG6PoOiFqkU4/U7lNc4A56uCIJEyCfW1rmrsTJf2Xbwvm84P0h0wiQzQXrgfa4RSuvwb1TTgu9M2vEL25@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEVtvBKK2EE8xmI9IfXDYDdvFsOVSgN0v1eSs3oCOycqSORMr7
+	NG5+NGpuZSCQiirGZCQCVKPamQb3B8tlDEvVlzcboe3JXATbjPY3UzQ0ycTbwMnvDw==
+X-Gm-Gg: ASbGncvAJ5X9WlP62ZlCAYW/qpAgGUMc8ySQj5q0pMZV4sV3szi5+9R58Dp8yLVcUXW
+	6ICVqZbsfUvec1HafGHthDXAGHQkSsIcWgcRySkUwBCdD5a8DlXohfOT4u/UVqKipralFSmFxIR
+	jt0QZ4D/SnFrf6JLW5nmCFwIf9+BDc5LeALhgGlgvgLkyETIRezmdsZpJ1zijP2UxXQmsQJWIXj
+	O0ncUWQKPVcIrkUT0FCDP0cOAhWUuurJDB9P+EuqkKI0mTCk2qNGRw/TRaf2LUGpZ0l9hQsaar+
+	b+Drh5ZUg3R91+BxaMcuGtbu2/9/Wo+j15/FUx5YGCs9u5zzvc61BH5/OW7GsAE6TOiQyKu3H1P
+	6CJD1AlM0IiVkyl1pnyK/Vq8twg9+B+xqs5n/CGD0Ff5IpztLzWUAzdnVWIi0zr8JxQ==
+X-Google-Smtp-Source: AGHT+IGaD7NipiYs8pCnXLAQK1a0gZQDqVBrHWQuhpKPItWLuIo1KSHzmEWzXChNb0FI2lLCfCq27w==
+X-Received: by 2002:a17:902:cece:b0:234:f4da:7eeb with SMTP id d9443c01a7336-2446d5af738mr48517595ad.7.1755276384349;
+        Fri, 15 Aug 2025 09:46:24 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d56d5bbsm17558665ad.147.2025.08.15.09.46.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Aug 2025 09:46:23 -0700 (PDT)
+Message-ID: <79711a6c-8b59-43c9-bbbc-369be1608a49@broadcom.com>
+Date: Fri, 15 Aug 2025 09:46:22 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB7051:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c468749-b542-4cdd-c85d-08dddc1afe3f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Gtijeum2E7JEhz3XlL7vSlfT+j9aD/3IX5ElSSHw8kR0279J7nJHjPb2mGEy?=
- =?us-ascii?Q?gfiUOjkEzj8M6n38KCU+RjDWukqPnpVFxJmwzVJPvCdq+ayL1oW13ves5q4f?=
- =?us-ascii?Q?iWxwKr9BmrKsp41PFwpJEOr+t4VpozHbUGLVafG4ygwTjOB5xZ8sFai7k1rS?=
- =?us-ascii?Q?IimZLsON7xW/Vy8yPZ/i8o8GDk7RLQl7VS+rJzGmuDmfG0bCg6SH0DIfYNsq?=
- =?us-ascii?Q?OlU5Q088nWQQ+ddoUn8z5xCjn2PhXO6A2fzx/tGzHRgCuLD93Jsm3fDhFBIV?=
- =?us-ascii?Q?2aYmqrHCMU8d5nmFfNzs96AMxOGXJjd3Bbq4ikhoRMK/+c4HRA3mELHat0pZ?=
- =?us-ascii?Q?BzZQN2YWTIrCp1MRfhYhY7S9N8TH9L+fr1oNBg+E0UHvIDuCTGazMgwE9YWm?=
- =?us-ascii?Q?MW0uLtatBQbsXjCpG0kb6MpTaPBVcElCppqGL+FfsZi+G9LtlBdWBTSnqDdN?=
- =?us-ascii?Q?82hW1w2nC1wXkC4bFE/wSiiuzULx6iexMozpkS8KBRNSpUtdCGoMenCCqgzm?=
- =?us-ascii?Q?OV65r/B1NgMaG0eV1GMdmcaEOsbOoU7g/+DnFnZ47wOjpgmNoIhcWJPCtI56?=
- =?us-ascii?Q?ELdMKKS/wJC9gB7yVGtuNKH8sx0X9M4B18sS0zkBvJFRSJgNHD1i9gldldnW?=
- =?us-ascii?Q?BIK9QVBRGxcOhK0LZZgUMdn4GOus9AJaKPm+1WG0S6K+LLx8IYbN/QP7i7H7?=
- =?us-ascii?Q?aB3Dm7biF6rT8uyzQ9emN92vwkSqHBN+XnW2nRDb1nRoME92GeI0yzo/3sLh?=
- =?us-ascii?Q?+H5ecBAfkXri1Oi5DZFPoSvMWswO3unzHy13JqSo6zSEmfbV68pExxzivFzB?=
- =?us-ascii?Q?ZgmEQLoUcHe0qGjh/w3QqjJQGWeTdF9xmHNlHlQrcdssFZ6zuwkbMiY6m7cI?=
- =?us-ascii?Q?NRDiISaMgH0MAxE++rEsBNwGDIpl1CLUBeWvFBoZAoX8XLx8itgF8EgCyYJP?=
- =?us-ascii?Q?x+55q5mKtJInSErb8lfRewCg3svB/9oQXUAksoAD4hmBUhfAdURdB5TuCY1n?=
- =?us-ascii?Q?xSz/xpXoPyjkNf0l0sfWp1cx0o55fQCECqGbKaBg54foNEQr/xDq06NgZxcY?=
- =?us-ascii?Q?HgThhB+0dQL/vJxQMgfiZv4UMVtcgsw9G3UC+zLPd9vuZ5reNZi0HCkfNwv2?=
- =?us-ascii?Q?Zv6rpiA/sIiLrSWNM/upmHAsWqaVPMLtZ3Wr7zmTmqfG3YbMECWv8a61MNdP?=
- =?us-ascii?Q?jS58oW7RuSzU7qbRP5RW7qu92DLLeYc4uI8ZCOZNCPsgrMHmNbbAtWhuL7b2?=
- =?us-ascii?Q?B/a+M4VkF/jcKc5x0y/8/rXwLScf/mb8HmKtqRy95YLdFTSoZLhZZ38R3299?=
- =?us-ascii?Q?Syhjevsv9tGyj4IzoK6EZ9vd8bGjcaIymzxNbDwrjaCXs7bOMZhGpcV1Jn3g?=
- =?us-ascii?Q?8Tgw/tykbmTAaNJiEC0aIdlbDu3BbnYWK/HNQg3I+/Uuj1NiUVqWU0SEHCs9?=
- =?us-ascii?Q?hCNvS82Byv7XZeE6Qf3BVwIzSwDRBwauQ/M2fO1QT/GxVxWjZuR67A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c7YOnKUOpYSVZpGQ9exW0qJqU7HXcD4f8iGfEHZQM8zSJDvvlgwvhNKCcfQY?=
- =?us-ascii?Q?Oflxj5JN4Iml8VD4rv6qdP7GnP5O8uOFM36yaeJYzh2Rvw0H/NiGTr0nRd74?=
- =?us-ascii?Q?UZNkFzqsZULLuzlBCY9H7NRjoMXcvFPyclFBOVez/G7hArgIZRcCsxscHh3x?=
- =?us-ascii?Q?u+aCiiZVzxwdS1SQzuBEBLYEDuapd1Q5aKcHcukxOpwB1a6gh4p88BXmL6jK?=
- =?us-ascii?Q?koymf6eiuFL8pHGmEM6gmAU5krbOXgy6WleoFubvwNcOtULAEeoHthN9Y92A?=
- =?us-ascii?Q?Ptj7r5lXvkaWy0vyrMIjxn++Xq6k7j7SFGga/UKYUFsq2TMe459GhpuY9zPB?=
- =?us-ascii?Q?KkwyPcTGqfU9/3ndnDG7WxwhNRSlN5mmttlxSpv1LTtEgVXTY11out/8z8DX?=
- =?us-ascii?Q?vBDyWYcIp79wdqOE2ZpfDzIC9ElzAh8l1aoDBbHF+IALjqF5kyg2TpKv0WlS?=
- =?us-ascii?Q?VblYte0z/+EET9j1F1+UHtyNIDporBlRUDE3N3pTtkowkcPzJAY/YtecnImF?=
- =?us-ascii?Q?DUHBwkf9uh9SPiLdishikZh+leeDNnAiRtOjswu3uEb6G1j7W4aCE1X4xncj?=
- =?us-ascii?Q?ZDZ1qEflSGRl9Gxj18qnqkNV+PI9IGyUamPDKp40EowUDVLPtayDtGCuqPPS?=
- =?us-ascii?Q?ouLJxVmXboku1Id4A8FQ+xYdn3wVTwQH0vairfz12lKvKJxqXtsJgZOIWcNd?=
- =?us-ascii?Q?AMFnt4u2Q8Xw0bT3EKRC7FX5dG6hpuuim+H8XJBOhTBHRTORdG9XnUrjf7Dd?=
- =?us-ascii?Q?v0XeL9D50AsGeI1AQ8YMblc7VP6c3PrpATRpCgPR+lCkthVw2IQhOMZARc5s?=
- =?us-ascii?Q?gQECAn846fmfuiba4Lfm09b7Ch0q4A8aE/xJzMzJgFUU+AHrUSVYwleL5K1s?=
- =?us-ascii?Q?XS2NcUASnzFRqiGiIO+a5bTtCY0j6i0KvwZ2O8yjL+FEdpWAkQU5PH7sroKU?=
- =?us-ascii?Q?oyk8HRSGBCdMb9XN5hsV2Pz4P935iahF0H0VoN+dH5JPafaP77oD/qhSZulF?=
- =?us-ascii?Q?KHUA5NlRC6NBe5U5KVoiWBLupEkoXkdI4WYzKJyqs5JxG8wTWLvkM11G3IRo?=
- =?us-ascii?Q?VeZIZE857YZHc+AwGkhgT0zaavjPw336f10rWSAuV4J4TImRv2iCm16ZYQsD?=
- =?us-ascii?Q?6b3hTYEf4yIHKdYxPaggFyhGkWM8Hfdkxmtwo+rx1g2MZj3DJcjGUhitM/QH?=
- =?us-ascii?Q?z3wF3VhvmWAHLhTvPACbc3Q3P5jwLuXNm5cb9LmDRCyWUoW+M5FHHhitcg2O?=
- =?us-ascii?Q?21tU/tgP8+/FrnVKDAtvNp25BJQAJTfdwallelb/ZrjYTk1cJLngr8goHeXe?=
- =?us-ascii?Q?gSxnGMTlHidPNouEn/7pTZhEtbStLNJNprdCo115loE0erWhxXUu/m48+01b?=
- =?us-ascii?Q?z2uIZfDjTl1UeCxHdj9zIpaU50D+jptu6WoDRGzwjvTlWI3YGbcNcIZCOfEJ?=
- =?us-ascii?Q?Lc+m1YC4igm8fjXkKLNMVzx3oZBWwt8FAGhmPa1XE+vaUQxN0RD3DN6Kogwt?=
- =?us-ascii?Q?j5DwuKkfAONYVoSG5wUi9+QIHu0GpOq8RmAmkPqilTqzeligw0AHJKuZRYcU?=
- =?us-ascii?Q?6IapYCDb+LKeF64IOkg=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c468749-b542-4cdd-c85d-08dddc1afe3f
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Aug 2025 16:44:25.2548
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZZNn43Fwsw1prC9hsHrJAZGCADjKUUocUsHuv6Ctzvpy2YI+OzM/jLc1vLTvWngXeooNW70nUoVqYXdc9I57fA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7051
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] cpufreq: scmi: Add quirk to disable checks in
+ scmi_dev_used_by_cpus()
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, james.quinlan@broadcom.com,
+ Sudeep Holla <sudeep.holla@arm.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Peng Fan <peng.fan@nxp.com>, Mike Tipton <quic_mdtipton@quicinc.com>,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20250814225155.3519000-1-florian.fainelli@broadcom.com>
+ <aJ7rBgce5eWSkkk3@pluto>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <aJ7rBgce5eWSkkk3@pluto>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_094429_285985_CA8F5E57 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250815_094625_578915_7C3FD353 
+X-CRM114-Status: GOOD (  39.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,105 +136,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 05:03:57PM +0800, Peng Fan wrote:
-> System Manager supports reading out pf09 and pf53 temperature and
-> SCMI Agent could get the values through SCMI sensor protocol. So add
-> the nodes to allow Linux to get the temperature.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+On 8/15/25 01:08, Cristian Marussi wrote:
+> On Thu, Aug 14, 2025 at 03:51:55PM -0700, Florian Fainelli wrote:
+>> Broadcom STB platforms were early adopters of the SCMI framework and as
+>> a result, not all deployed systems have a Device Tree entry where SCMI
+>> protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
+>> CPU Device Tree node(s) referencing protocol 0x13 as their clock
+>> provider.
+>>
+>> Leverage the quirks framework recently introduce to match on the
+>> Broadcom SCMI vendor and in that case, disable the Device Tree
+>> properties checks being done by scmi_dev_used_by_cpus().
+>>
+> 
+> Hi,
+> 
+>> Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
+>> Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
+>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>> ---
+>>   drivers/cpufreq/scmi-cpufreq.c     | 13 +++++++++++++
+>>   drivers/firmware/arm_scmi/quirks.c |  2 ++
+>>   drivers/firmware/arm_scmi/quirks.h |  1 +
+>>   3 files changed, 16 insertions(+)
+>>
+>> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+>> index ef078426bfd5..80647511d3c3 100644
+>> --- a/drivers/cpufreq/scmi-cpufreq.c
+>> +++ b/drivers/cpufreq/scmi-cpufreq.c
+>> @@ -22,6 +22,8 @@
+>>   #include <linux/types.h>
+>>   #include <linux/units.h>
+>>   
+>> +#include "../drivers/firmware/arm_scmi/quirks.h"
+>> +
+> 
+> I will post a patch to move this header up to avoid the uglyness of this
+> include....
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Sounds good, thanks!
 
->  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 73 +++++++++++++++++++++++
->  1 file changed, 73 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> index c35a5083c837379804e07f98163c0a5d4301abd7..0ad5707314fb225b74d8940908b53dc2a444ed5d 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> @@ -1078,6 +1078,79 @@ map3 {
->  			};
->  		};
->  	};
-> +
-> +	pf09-thermal {
-> +		polling-delay = <2000>;
-> +		polling-delay-passive = <250>;
-> +		thermal-sensors = <&scmi_sensor 2>;
-> +
-> +		trips {
-> +			pf09_alert: trip0 {
-> +				hysteresis = <2000>;
-> +				temperature = <140000>;
-> +				type = "passive";
-> +			};
-> +
-> +			pf09_crit: trip1 {
-> +				hysteresis = <2000>;
-> +				temperature = <155000>;
-> +				type = "critical";
-> +			};
-> +		};
-> +	};
-> +
-> +	pf53arm-thermal {
-> +		polling-delay = <2000>;
-> +		polling-delay-passive = <250>;
-> +		thermal-sensors = <&scmi_sensor 4>;
-> +
-> +		cooling-maps {
-> +			map0 {
-> +				trip = <&pf5301_alert>;
-> +				cooling-device =
-> +					<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +					<&A55_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +					<&A55_2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +					<&A55_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +					<&A55_4 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-> +					<&A55_5 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> +			};
-> +		};
-> +
-> +		trips {
-> +			pf5301_alert: trip0 {
-> +				hysteresis = <2000>;
-> +				temperature = <140000>;
-> +				type = "passive";
-> +			};
-> +
-> +			pf5301_crit: trip1 {
-> +				hysteresis = <2000>;
-> +				temperature = <155000>;
-> +				type = "critical";
-> +			};
-> +		};
-> +	};
-> +
-> +	pf53soc-thermal {
-> +		polling-delay = <2000>;
-> +		polling-delay-passive = <250>;
-> +		thermal-sensors = <&scmi_sensor 3>;
-> +
-> +		trips {
-> +			pf5302_alert: trip0 {
-> +				hysteresis = <2000>;
-> +				temperature = <140000>;
-> +				type = "passive";
-> +			};
-> +
-> +			pf5302_crit: trip1 {
-> +				hysteresis = <2000>;
-> +				temperature = <155000>;
-> +				type = "critical";
-> +			};
-> +		};
-> +	};
->  };
->
->  &tpm6 {
->
-> --
-> 2.37.1
->
+> 
+>>   struct scmi_data {
+>>   	int domain_id;
+>>   	int nr_opp;
+>> @@ -34,6 +36,7 @@ struct scmi_data {
+>>   static struct scmi_protocol_handle *ph;
+>>   static const struct scmi_perf_proto_ops *perf_ops;
+>>   static struct cpufreq_driver scmi_cpufreq_driver;
+>> +static bool __maybe_unused scmi_cpufreq_dt_props_check_disable;
+>>   
+> 
+> Not sure why you introduce an intermediate global bool to check...this
+> defeats a bit the whole idea of the quirks framework which is based on
+> static_keys and is supposed to be mostly transarent when quirks are not
+> enabled....
+> 
+> Couldn't you just move the quirk inside the get_rate ?
+
+Yes, I just had not realized that the execution of the quirk was already 
+conditional, so it makes sense not to need any intermediate boolean.
+
+> (maybe I am missing something around compiler behaviours..)
+>   
+> #define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS		\
+> ({							\
+> 	if (true)					\
+> 		return true;				\
+> })
+> 
+>>   static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
+>>   {
+>> @@ -400,6 +403,9 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
+>>   	struct device *cpu_dev;
+>>   	int cpu, idx;
+>>   
+> 
+> +	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
+> 
+>>   	if (!scmi_np)
+>>   		return false;
+>>   
+>> @@ -427,12 +433,19 @@ static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
+>>   	return false;
+>>   }
+>>   
+>> +#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
+>> +	({							\
+>> +		scmi_cpufreq_dt_props_check_disable = true;	\
+>> +	})
+>> +
+>>   static int scmi_cpufreq_probe(struct scmi_device *sdev)
+>>   {
+>>   	int ret;
+>>   	struct device *dev = &sdev->dev;
+>>   	const struct scmi_handle *handle;
+>>   
+> 
+>> +	SCMI_QUIRK(scmi_cpufreq_no_check_dt_props, QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS);
+>> +
+> 
+> ...removing this of course
+> 
+>>   	handle = sdev->handle;
+>>   
+>>   	if (!handle || !scmi_dev_used_by_cpus(dev))
+>> diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
+>> index 03960aca3610..aafc7b4b3294 100644
+>> --- a/drivers/firmware/arm_scmi/quirks.c
+>> +++ b/drivers/firmware/arm_scmi/quirks.c
+>> @@ -171,6 +171,7 @@ struct scmi_quirk {
+>>   /* Global Quirks Definitions */
+>>   DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
+>>   DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
+>> +DEFINE_SCMI_QUIRK_EXPORTED(scmi_cpufreq_no_check_dt_props, "brcm-scmi", NULL, "0x2");
+> 
+> Also, are you sure about using version as "0x2" ? That is supposed to
+> indicate the (optional) SCMI FW Version to which this quirk will
+> apply...and with that it means whatever FW versioning you use in
+> Broadcom to identify build versions....it is NOT the SCMI Protocol
+> Version, so that also means that if/when you will change the advertised
+> version, this quirk wont apply anymore...or equally if there are older
+> version than 0x2 that are buggy they wont be quirked...
+
+It's a good point, we should actually be matching on <= 0x2
+
+> 
+> One more doubt I have (despite me having suggested this solution) is
+> that here you are quirking against a malformed deployed DT really,
+> not against some SCMI FW anomaly in the Broadcom FW, but using the
+> SCMI Quirks framework you are tying the quirk to the SCMI FW Vendor
+> and maybe some specific SCMI FW Version....
+
+Yes that is a very good point, maybe that's abusing the quirks framework 
+so to speak.
+
+> 
+> ...so what will happen when you will update/fix your DT in the future ?
+> Will you also take care to bump the BRCM SCMI FW version to disable the
+> quirk in the DT deployed by your FW binary ?
+
+Yes we would bump the version number to indicate that the Device Tree 
+has always been fixed, both go hand in hand on our platforms. Or, as I 
+suggested privately to address the stable back ports, maybe it would be 
+better to do something like this:
+
+@@ -430,6 +428,14 @@ static bool scmi_dev_used_by_cpus(struct device 
+*scmi_dev)
+                         return true;
+         }
+
++       /* Older Broadcom STB chips had a "clocks" property that did not 
+match
++        * the SCMI performance protocol Device Tree node, if we got 
+there, it
++        * means we had such an older Device Tree, therefore return true in
++        * the interest of preserving backwards compatibility.
++        */
++       if (of_machine_is_compatible("brcm,brcmstb"))
++               return true;
++
+         return false;
+  }
+
+
+which would be more in line with checking the Device Tree only, and it 
+would also allow for unmodified backports to reach the stable trees. 
+Contrary to what I suggested privately however, this check is done 
+later, so we leave a chance for properly formed DT to return "true" 
+earlier on.
+
+What do you think? I am now leaning more towards that solution that 
+leveraging the quirks as I agree it is somewhat unrelated.
+
+Thanks!
+-- 
+Florian
 
