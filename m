@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76A3CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42351CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EE+i1kQVFTRPh8ZX2+zLB6KfxNCAy0eLJzE6/OqBYBA=; b=2KLulvmpy8W5MCekKVk346GgYj
-	pz65TGCkTawp/8remmHdvkSmLfP4zK1j9m5Y6RrH7tXb/4ZPIzxKPRXJwwN6OtYjvbRG1HLU/9GAQ
-	7N7GSBxuHTWWkeoBx5NK95elw1lYratGE/LZ/L2mGRdpn4tllYpsn14djlanujObGhvORD591IHuU
-	907JSgDLFS6ve1nOI0vH34gQbhfUMhPSVRyL2TYR6RGnSFbhyBEry4qA+e2az7HlzYqbDt7wDZRT3
-	WU2cOCnPB74L6tUGY5qqgjKKFNoTM6xgMWGf114aYs70ow6jBTLiTsTi7OktSds3uoaiXXrStk0pY
-	eebwfzwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UQnrvh8fmmyw5mye4l3ThIw5bAHTdjRGTFjcTvSf2X4=; b=aYWSeAHRlt8z5ZHmZ7qtzUSBGi
+	F0j+Jsh1IuSQ8d0q5q8uTBF+l1pdzBCiUwe2OpkRQ9W7Y9aiN7OXfxPzZ6zrfURizgp/wkN0KnZ1b
+	sKCFUm/BsMYq0qKbHTZam+eqK9dzG+qVHkChjA3C+DrTBOygxKmsj8W+hl6upapvXByipX6b14TJ7
+	Wltb5yZRmHXvGMdS7qYGOgqSMsKuZ0LTgDaUGEldSrpP8OCTW3iljGel0CPAdE+qEDjDHGmcUU0Ma
+	QxvmAFZv88dwY1cnKj0UuFBKuNHG9gyu7EFEHxAkr+lCKC88KnSgUGmB3qoVrqm/r84HC+gTarLoz
+	4fQQUuHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un0uH-00000003QuD-2AH5;
-	Fri, 15 Aug 2025 20:20:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1un0uJ-00000003Qxk-193X;
+	Fri, 15 Aug 2025 20:20:11 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzWj-00000003HqW-1Gr8;
-	Fri, 15 Aug 2025 18:51:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EE+i1kQVFTRPh8ZX2+zLB6KfxNCAy0eLJzE6/OqBYBA=; b=TXBMeQsTXMh3Xy0uL/bFBEJrU2
-	8lX/lkbU2CCOyS8umztNUSTXTCbALLCnbAfNHxAspUcOdXOvx3WQDF451KS/HsximX809nHDpQUUl
-	o1WMRvi0WT532vusRozr68q94td5KeMoq0ueXoIuvzLhzr48WgC2hOBLhYtkz0HtOsD0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1umzWh-004r1v-85; Fri, 15 Aug 2025 20:51:43 +0200
-Date: Fri, 15 Aug 2025 20:51:43 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 4/5] arm64: dts: rp1: Add ethernet DT node
-Message-ID: <550d9ba6-6a4e-42dc-be7d-c9e6493d42a3@lunn.ch>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
- <20250815135911.1383385-5-svarbanov@suse.de>
+	id 1umzXm-00000003Hy3-2DD4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Aug 2025 18:52:51 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1755283967;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UQnrvh8fmmyw5mye4l3ThIw5bAHTdjRGTFjcTvSf2X4=;
+	b=baJlH9tOVl/5B3c1jvUHXPDwLuEj7u1V4YReehcCH9W7Lyv4ukNVCxHgPfx5lLC5AgfOqo
+	vLCSPJK8wMju85aVdnjOnsvbRw/kDnCh2Q7yLkE5fyaGS4Kn7QTtha5jeJE/OHjBgvknA4
+	w5B58ztz22/Qg9zSajyFJl/yekRpOGc=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Correctly populate FAR_EL2 on nested SEA injection
+Date: Fri, 15 Aug 2025 11:52:33 -0700
+Message-Id: <175528391095.1010493.11054501106078213907.b4-ty@linux.dev>
+In-Reply-To: <20250813163747.2591317-1-maz@kernel.org>
+References: <20250813163747.2591317-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250815135911.1383385-5-svarbanov@suse.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_115145_342513_2004F75F 
-X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-CacheID: sfid-20250815_115250_714638_4C768F2A 
+X-CRM114-Status: UNSURE (   6.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,12 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 04:59:10PM +0300, Stanimir Varbanov wrote:
-> Add macb GEM ethernet DT node.
+On Wed, 13 Aug 2025 17:37:47 +0100, Marc Zyngier wrote:
+> vcoy_write_sys_reg()'s signature is not totally obvious, and it
+> is rather easy to write something that looks correct, except that...
+> Oh wait...
 > 
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Swap addr and FAR_EL2 to restore some sanity in the nested SEA
+> department.
+> 
+> [...]
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Sorry I didn't pick this up immediately, had to find my brown bag...
 
-    Andrew
+With the typo addressed: applied to fixes, thanks!
+
+[1/1] KVM: arm64: Correctly populate FAR_EL2 on nested SEA injection
+      https://git.kernel.org/kvmarm/kvmarm/c/d19c541d269e
+
+--
+Best,
+Oliver
 
