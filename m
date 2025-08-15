@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788F5CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 06:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E52CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 06:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXrqAOGSKlkHkTRQ7lUZKBYVIpeSl7z2gePyrfHvoQU=; b=ihOeRWOvEHcBUX7wQokpMnTwTy
-	x3JIYBqk/I0+nHY3O3GcSpbv1dItTd9gQ+oC/fAByLax9Oy552GnWRaU1aXhKJyv6VmCz96hutPn/
-	r01jKDZ5GzU+H7CV3RKCPGG3awghxCOaC0BZ7vBMwnYawwE5/GVf7dJSs+hEcTgycG1NZblwr/g6d
-	Whny7xkiZft7w3aeLWd1txegekiLPXDIVcIw6o0EJeu+cpimF9ykj/IsCbnCXiI8vX13hkD+Qei7O
-	BHEBygZYae3xwst68Ebg2Kx/8PBvL+eR96GlY0f11hbbFA2dkRpmsAigWEubiH1/DlDznNDlczQQu
-	IOxWLvSQ==;
+	bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=; b=vGfVLqc1yQnLaokxNNjHzfa6h6
+	UwX2iNwlJdYPq9bpmv9ftArYodYy3geHJCltD+Rm7E8XQnBB4l639nNhP6MwtKSpBbN4tBGhveWqf
+	EZ56CJqk/1eMvTk0Aq2mxN4mnmXhc1mO7aR1gOnBe7GaY17dICcWIhrajf/KOu0BJS8VCaDYXRNGF
+	J6SW3C1OWI6oY/v7jdLeY8CMB+EqJcKE5P/2uSZg6ibN0f+aMlxkLqM5V/HWxNPOhXoT3nbVhvDWQ
+	aKTNs91axILSjd7a1i4n4r6WT712XJRnu1tOodJ6asmSv52yOyK6WK6f82mNTRO2lYd7LAZZifsE3
+	AeAwSe9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umnjJ-00000001aw2-490l;
-	Fri, 15 Aug 2025 06:15:57 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1umnlr-00000001b8g-3PzL;
+	Fri, 15 Aug 2025 06:18:35 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umngl-00000001acj-2DxV
+	id 1umnhv-00000001akS-0nCJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 06:13:20 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-55ce50946e2so1774887e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 23:13:19 -0700 (PDT)
+	Fri, 15 Aug 2025 06:14:32 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b9e415a68fso1480015f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 23:14:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755238398; x=1755843198; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755238469; x=1755843269; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TXrqAOGSKlkHkTRQ7lUZKBYVIpeSl7z2gePyrfHvoQU=;
-        b=SZ5xldG8vJUfVjmC9+hpPUq7sVMpbgAcN5bW+q3Qkk20yVi72RpIdBJLL4sPhhj2bU
-         /ilkbh39Ld2Ru1+WPHcLexo9ru+WeTmzn5y3bRknIfEAHtx9onyguho8JQl6VMMRXM9d
-         yNh9nPfjlTHSw6iYWlsGrbsvja2lPqjJ5hMGk=
+        bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=;
+        b=Peau/tVMbcwC0AJt1fnbVlcPpQPmf0gfavd+nc9Dv7NN16tP29dWXEScpOzAFs3SDC
+         jxWdGjio0M30NwCvexiEHE+NYdxMSL6MpzuYBNLw+OBiERuRYp763DZ4aTsH31TUuFVk
+         ykLr7RHrvXs/CCh9prna/Ah00tabMyT3JMhLEwQCku7ZJbKRrIEAuzxBV2eyrwVbFYFw
+         5hQFsUhSMiAvB4M9CCHAQ/NAbbT/zLBH6DBBno4wxgnSYMGfbbDklZaatf6V6hNRo/aX
+         1VfuuzZlYEZ/NprXVjIE3u4RarQuJGPC/19PVCFb+M5mLGGW2J3d0xiGIrit6SZXlJAT
+         k+xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755238398; x=1755843198;
+        d=1e100.net; s=20230601; t=1755238469; x=1755843269;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TXrqAOGSKlkHkTRQ7lUZKBYVIpeSl7z2gePyrfHvoQU=;
-        b=eQqm6ZU4GiRTaRL7ZBkDLFnxSdgrg76HXvvnW3kj/SZSlm03JqjnV2VnbP+uwrx7MZ
-         hHONDwwQn+Q+KPfaiQ/5Elh+5ytmbKy6QrlNcJsW825KSaGftxDedof/afXKjhyp0jEw
-         L4ZRysSpNEIVR5++BsOVgwQKHggzd/GH5UPtMQzg3lD9ahYMVJi9y8Wi4f+FLqXY9loY
-         uOU5nfxcapqhk3MeBXJvJibLtbYoahoaqkmSPWW6HoQY/0uW+Nkv13Nj54PBgFSsHbuu
-         101SPaEuOWBi4lk3mvOnYniF1+PZdkTfpshulI7oA5MJffAVYMVXlquqk6qOxYM8iHj9
-         Ci4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWxTgyNeQ6CysXVrCA88xo9rmTmt4u+5HUlK1hinNk7QP8U3RjJNXg+rFbjUzk58Seulc5gFVmKXlJTWZoMietM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL/siu/WyjNHMXwal02/NFLPDW13XPgRU3BSu7M4pZWt5hw7CC
-	GMD+lzqYEHtTTGfJhJownFViZt0VXknQgwiUxsxKAbEHHC0GGPdXkEBkarCwM72rngr0bLv3Bbb
-	LrUh21dTgf0KFfvFZlhwdiKkhnAR3OBklGPyfCKL+
-X-Gm-Gg: ASbGncsMm61kvAtcjjS4gbd47yZQ7fM/rC6t9jIac7l8LU64UMt7Jujwdfu/OO8y2pr
-	EFyRz3nfhi0NR9pcp6tAE04n+qtUTycb2q7xpJtshJikjugCQL406KGSlVfvA0Y6WSPnoKkbJwZ
-	TR6kRtC8St+WSo66jvimoxTXgpHiiSPgXf/V3JCh/FI7ARgvGoA9Dqw+PcghSdP/OAl+OAILXEF
-	KZmk42HQ7lDwJcQoLI6Hu2kJYVUdjEj9IiG1w==
-X-Google-Smtp-Source: AGHT+IHgien6Ta30w9thH606OXZ37uev4E3SyZFiYtbUjF+ewjbtl9wYml18XdGcJArNMrSrqAKCEoyzfxTTcxLF8kw=
-X-Received: by 2002:a05:6512:401a:b0:55c:e61c:6969 with SMTP id
- 2adb3069b0e04-55ceeb8e474mr204360e87.45.1755238397730; Thu, 14 Aug 2025
- 23:13:17 -0700 (PDT)
+        bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=;
+        b=P03kfdBQznlhPsw4bm0iBj9v6bA7hgkkP0QCILTVKlsFVM/vePjsX4SvVmEtpTqPB0
+         ot9/4661nUVCHha6ErcmxuqX6AoU5Ed6fakbyfhWGPjNxjBxtH1NJYZ/lvGKNaVKOHHQ
+         z91xsrt1v/3nNk8fDVkHQZEC89/AljvtVltp/Ck84OxvL6SpTGn5uhL2IUwOk7VYSrcc
+         HM5oiBJP73iWiKjb0mdcKWFoSKbJcum1lmos8cir+ku+G6au7sM2B/mnIBowmLo3kL04
+         xOIE87rjIWmwYP8OEDVE65e6Y12aje26TT/qVdPDYPb/qVvR2L9H3YIdDdWcAlhx7hV0
+         VDFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/dM1sRB+2SciPW1/eRCTVqHdN5jy6dp7DGgus/Z+NqHXlgUwQGOQ7GNFnSKbkaDsdlqyZCtCwVAbFXoimGTy7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpFU8cCaqWP4IIC3MW4PBt6QwEE81fDHfvxhoh5isVELhY55hD
+	829kQ1Tpldn2WWpLMnONWGdKeNvlifpplTmZVek4+hVVEJWHwRxSLJv7qnzs/i/kSHK+nxHCv86
+	J0F0iV0SOPqKJDe/YJR+/NPFUC1skPEc=
+X-Gm-Gg: ASbGncuKCWusxNALqZpO7aU9Ii0i6ucbzztqwg0nngeSulkiYzSi+pJ8trVa23es0i0
+	NkfGE99Cwjr+Xw0V6Jtx61g36mEkO7jdTaNfTad4ebomHi2PoNTFnQqrr/b68idkMetrZguHj2O
+	ZZWC5xP16ioTMnt9o3fUzwMd9VG8rCnj1U25gZjdg/KIPYQ6CFNZE9aW864Ux+s8NgekgF/vOfN
+	gsqpD4l
+X-Google-Smtp-Source: AGHT+IGcfJRbvVjPwlmwrtipABpPT2k1A2y354zwiag+PFS0u1nqei6MBVPlvAO14bH2h8cPLQmeAXffrbKgUI/mnik=
+X-Received: by 2002:a05:6000:2584:b0:3b7:8a49:eed0 with SMTP id
+ ffacd0b85a97d-3bb671f56demr475473f8f.22.1755238468843; Thu, 14 Aug 2025
+ 23:14:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-18-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-18-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 15:13:06 +0900
-X-Gm-Features: Ac12FXzr5keexSM3h938Aqs72YKWpIyCvPBM6Nr2RSvEz3GKsQxqYO4KthSuqtA
-Message-ID: <CAGXv+5EDxVe6k7FQM2HenDaHM1Rz7eEcQhVL1q1AqUFfr9apnA@mail.gmail.com>
-Subject: Re: [PATCH v4 17/27] clk: mediatek: Add MT8196 I2C clock support
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+References: <20250813175335.3980268-1-yeoreum.yun@arm.com> <20250813175335.3980268-3-yeoreum.yun@arm.com>
+ <CA+fCnZeT2J7W62Ydv0AuDLC13wO-VrH1Q_uqhkZbGLqc4Ktf5g@mail.gmail.com> <aJ3E7u5ENWTjC4ZM@e129823.arm.com>
+In-Reply-To: <aJ3E7u5ENWTjC4ZM@e129823.arm.com>
+From: Andrey Konovalov <andreyknvl@gmail.com>
+Date: Fri, 15 Aug 2025 08:14:18 +0200
+X-Gm-Features: Ac12FXzA1cRDanNY9nNRCdMRqZ-71xbNZTcaUrUR9hUEP-TJh9C4NEiHu1Mi5Xw
+Message-ID: <CA+fCnZdFVxmSBO9WnhwcuwggqxAL-Z2JB4BONWNd0rkfUem1pQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] kasan: apply store-only mode in kasan kunit testcases
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
+	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
+	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
+	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
+	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
+	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
+	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
+	linux-mm@kvack.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_231319_586313_9B22BA49 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20250814_231431_223902_D48FBBB2 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,102 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
+On Thu, Aug 14, 2025 at 1:14=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> w=
+rote:
 >
-> Add support for the MT8196 I2C clock controller, which provides clock
-> gate control for I2C.
+> > > +/*
+> > > + * KUNIT_EXPECT_KASAN_SUCCESS - check that the executed expression d=
+oesn't
+> > > + * produces a KASAN report; causes a KUnit test failure otherwise.
+> >
+> > Should be no need for this, the existing functionality already checks
+> > that there are no reports outside of KUNIT_EXPECT_KASAN_FAIL().
 >
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->  drivers/clk/mediatek/Kconfig                  |   7 ++
->  drivers/clk/mediatek/Makefile                 |   1 +
->  .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    | 117 ++++++++++++++++++
->  3 files changed, 125 insertions(+)
->  create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
+> This is function's purpose is to print failure situtations:
+>   - KASAN should reports but no report is found.
+>   - KASAN shouldn't report but there report is found.
 >
-> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-> index c977719046a4..fe2697b64ef0 100644
-> --- a/drivers/clk/mediatek/Kconfig
-> +++ b/drivers/clk/mediatek/Kconfig
-> @@ -1010,6 +1010,13 @@ config COMMON_CLK_MT8196
->         help
->           This driver supports MediaTek MT8196 basic clocks.
->
-> +config COMMON_CLK_MT8196_IMP_IIC_WRAP
-> +       tristate "Clock driver for MediaTek MT8196 imp_iic_wrap"
-> +       depends on COMMON_CLK_MT8196
-> +       default COMMON_CLK_MT8196
-> +       help
-> +         This driver supports MediaTek MT8196 i2c clocks.
-> +
->  config COMMON_CLK_MT8196_PEXTPSYS
->         tristate "Clock driver for MediaTek MT8196 pextpsys"
->         depends on COMMON_CLK_MT8196
-> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefil=
-e
-> index 88f7d8a229c2..241e7f5e7316 100644
-> --- a/drivers/clk/mediatek/Makefile
-> +++ b/drivers/clk/mediatek/Makefile
-> @@ -153,6 +153,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) +=3D clk-mt819=
-5-wpe.o
->  obj-$(CONFIG_COMMON_CLK_MT8196) +=3D clk-mt8196-apmixedsys.o clk-mt8196-=
-topckgen.o \
->                                    clk-mt8196-topckgen2.o clk-mt8196-vlpc=
-kgen.o \
->                                    clk-mt8196-peri_ao.o
-> +obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) +=3D clk-mt8196-imp_iic_wra=
-p.o
->  obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) +=3D clk-mt8196-pextp.o
->  obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) +=3D clk-mt8196-ufs_ao.o
->  obj-$(CONFIG_COMMON_CLK_MT8365) +=3D clk-mt8365-apmixedsys.o clk-mt8365.=
-o
-> diff --git a/drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c b/drivers/clk=
-/mediatek/clk-mt8196-imp_iic_wrap.c
-> new file mode 100644
-> index 000000000000..98db1476e72c
-> --- /dev/null
-> +++ b/drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
-> @@ -0,0 +1,117 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + *                    Guangjie Song <guangjie.song@mediatek.com>
-> + * Copyright (c) 2025 Collabora Ltd.
-> + *                    Laura Nao <laura.nao@collabora.com>
-> + */
-> +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
+> To print the second error, the "TEMPLATE" macro is added.
+> not just checking the no report but to check whether report was
+> generated as expected.
 
-Nit: add line for separation.
-
-> +#include <linux/clk-provider.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include "clk-gate.h"
-> +#include "clk-mtk.h"
-> +
-> +static const struct mtk_gate_regs imp_cg_regs =3D {
-> +       .set_ofs =3D 0xe08,
-> +       .clr_ofs =3D 0xe04,
-> +       .sta_ofs =3D 0xe00,
-> +};
-> +
-> +#define GATE_IMP(_id, _name, _parent, _shift) {        \
-> +               .id =3D _id,                              \
-> +               .name =3D _name,                          \
-> +               .parent_name =3D _parent,                 \
-> +               .regs =3D &imp_cg_regs,                   \
-> +               .shift =3D _shift,                        \
-> +               .flags =3D CLK_OPS_PARENT_ENABLE,         \
-
-So here it likely works because the parent for all the gates are the same,
-which is the clock feeding this block.
-
-
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+There's no need to an explicit wrapper for detecting the second case.
+If there's a KASAN report printed outside of
+KUNIT_EXPECT_KASAN_FAIL(), either the next KUNIT_EXPECT_KASAN_FAIL()
+or kasan_test_exit() will detect this.
 
