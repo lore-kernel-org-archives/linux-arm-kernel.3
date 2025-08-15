@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B1BCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 04:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A3DCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 04:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NS1sCk2jaj6fQ+JKQ824bLbj5DJYUpkN66EHpy4E2b4=; b=Y1MEyikdMhZ8tYZjM2/0e55S30
-	K+d+JjOwa8WWHtpsoa5Ly+A4oICbImvHRJkaFyhccjHmqgVZeSmMWSaxFRgcYX5AVsgN63tZnN/aK
-	dBm7V0TkAe5znAvdQMz8mJlbrsE0XzQxtG7mGmqe8o3d+ywmEmjLwSy15y/surDdtKTptpGwuimcI
-	J78hbsRCeAWis4VwPGqvlZPyw7I9ApaE0sZYcbzm5gqEv4OfnPDzGrTmhaCM1j7nfbXhXHPn1MjeG
-	HD5N5SrI+eYLvwnrGHipTCIsNxl6jIjKKU3aVOJruIx9zXwH3bsnX9a69u39tVRb1BMeYWeJU0RNT
-	EpC9vGdA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mH9Z2Inhe6F3feuLMWx4CuDByALoPXZot7i6CuHr5Ig=; b=3d/ZTFonVQBHaaSdEJQBJtS31J
+	ymhJKTdXagxUzc0iIxAPl256/LdRwqw/li0peDbJf2atawCZVuNV5i2A2KQx/f7DULFOrQnsVaOHs
+	j7vVRUwBDx1Y0nMyBkasxJvWVDsapcS2bbrWelVK4PhrR1bCccDKDsnoQhtWR4RH/TDMo8b6aki6A
+	28ZFwwSqpsKWaGJF9SDwbHTg9taC114u/UejJEQ/PRxoY7hoh4aeXYv7qy+i6dj+ah4uYq2Rha8hI
+	7nnSSNEqS+FhWshwmVWeS7zcAYWSFrstr/dEj3/g8kLX8OiY3wu30flTEwhWVbg7/6RwpX/ZwdWRM
+	d0lsnAXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlpB-00000001Oat-3q09;
-	Fri, 15 Aug 2025 04:13:53 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1umlzI-00000001PYL-1o9w;
+	Fri, 15 Aug 2025 04:24:20 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlW7-00000001LYz-2Uka
+	id 1umlwd-00000001PJB-36WS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 03:54:13 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55ce5243f6dso1659762e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:54:11 -0700 (PDT)
+	Fri, 15 Aug 2025 04:21:36 +0000
+Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3e56ff1c11eso7800975ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 21:21:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755230050; x=1755834850; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NS1sCk2jaj6fQ+JKQ824bLbj5DJYUpkN66EHpy4E2b4=;
-        b=K+xSoEWQmDs5olwAjMXyir/edSrBRobav+l2xseYB+3Y/5WHCfazfYpuZwNqbKBTsm
-         UzmxEU47J8yzKYCvuZXnNCoegbljDYBR/UVRQAVIcWDDCBwTT2Y7ZIKzvbwwLj1qT2vc
-         QRpHiOz/X98nW3uRjwX11CndgIdq6/ONsdLm8=
+        d=gmail.com; s=20230601; t=1755231694; x=1755836494; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mH9Z2Inhe6F3feuLMWx4CuDByALoPXZot7i6CuHr5Ig=;
+        b=nSRXsVtWUFdQ6SqKSGkLFZ0mzxzOsDYzwmlh/dreTxfYHIZs2bT4OMvu4NqLhnj2Tw
+         VhrMSCDb6WFvmUHnJDH1QNq1gp4JVxcnVStIbmcOJU98ryp1sAtGCO5cWBCnntGHIEzj
+         Cy6RDeDE3olpa0HBOJE/hjEFk7bSFd3V6vRyyRRAs+YfGIs8Vk7hJAp1CvIz5jb97EdO
+         KvrTEN6WwvqaEqfuueI6ROC8as0hEZyWDGAYf8s+VYSKZSRfqUr/jUbOjcb8Z8rC0yYU
+         qbMFXmCvaIf4iIZIHoBOiRJfIcPiBn0ht+IAw/ZEbwXfkzDdpchzEf/YqmVbuL9rXVf9
+         z/rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755230050; x=1755834850;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NS1sCk2jaj6fQ+JKQ824bLbj5DJYUpkN66EHpy4E2b4=;
-        b=POFtLqzgiSMEuyhzbI9yvayygwnGxVvn1B61mqRWYgjy0XJZXNrIekE5KQQ6v6GAFw
-         dQxCeTluMHofbHQmg/nP0Msr3mBU/1SEnHW6an9bwHBukSqL1Pc5FBaAF3j4I/YydnC9
-         qPnbYrYyQ6/PW4De7q81D6LOQHZGUuaxskRxnbmor5TJEtpgSmsowRNlZDyR7ALMz5DI
-         ENbbdrzU1/bWx27aOLX8qwap0gtDVbobliLJTZyRUMwNqwDx2lYZYvShSEDq+1FWjabP
-         DqXaT9p8GvRpA5b/n7gtrjsZWTKOqkqYlPKzCRfSdxHks+MaZbkB4X/4ouaGaxLJ1oQv
-         qecQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMLQJ3pDCHkSiM07IzqkaCyQHVpqmE0EB4mRyOQaYnAorCBPXShAAjzmb6Sv6lZKCkfq0VO7FJdSscMCudNArf@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhn/wPgKxQQW/ZHakTFNNDsoF5nynIIzrGgxkrZNCGq5Sc6GI3
-	E6CwP0jQp7rIZUXgs0uD8Wnz3uJjQSF6DZjksHX4KfXC8BTD61mrTCp5QDr8LRfFwwK9JFz88oV
-	WMbVY545l051igl3yc4WGv1OneoJCcbPt1MrsUbgm
-X-Gm-Gg: ASbGncv7UqE0YabmJYxmGgZZ/ebjfT/WRGNoL19AmgpPnhe8jqP614avrvUVL+sVO23
-	ZRKsCa0Vvfa7YYfi0ioPeE+WvkezX1os5sEuqFhFLk5Qi3Om/UmdVPl/PYjdikxJlP95DqGYP4c
-	9swPSjSSIN9005TSDNZMFlq2Cx0SEAVp0mL9uRwEmNtkQbE2usj0Ir//1E5hwQfyEJXEtxfVorc
-	K78jcPPWkapv3ZsVCyRWmfdgK0DEQi1nACTAQ==
-X-Google-Smtp-Source: AGHT+IGIV7mvkFPQZuFUz43yWCcXkxtysXLVWZnhXnNTP1ZgJAEPVlAYJWIr84Go4WLQoos1hIvAKUr4yPJ/fc7kwL0=
-X-Received: by 2002:a05:6512:2256:b0:55a:2f6e:99bf with SMTP id
- 2adb3069b0e04-55ceeb0da8amr172578e87.37.1755230049594; Thu, 14 Aug 2025
- 20:54:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755231694; x=1755836494;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mH9Z2Inhe6F3feuLMWx4CuDByALoPXZot7i6CuHr5Ig=;
+        b=gl4h953pedvbqVD7z5rJUbmmCpG/ABN1jCGnHz6I1kOz7JXMk5qWpR8dJtF0CWvZUo
+         qiCd8rMesO1r0aTKNuYTwI7eAMiTJLh9wgf/f8H6S+BQpCih+QyAEiRS3NuuVt7bJQbS
+         GIAq/3KPPRHnTP2Mvt3l+MoZhdb6EO1vb5JnNpQVK+h7xlNrv3cHgz0ubi52KEybW4cA
+         LGx0UO2XnuUazNu+qyUilZYVY9KWMJxMVLsZg/uRIsTfruQLGz6k7hcJzeezwZxN95Ck
+         9Y67B+xafbzVt7nFw8xEOiZa2I4BtYstWlE2+NU5eFOP87EzbyODsBFvWd7Nj6qS3tDn
+         iQBw==
+X-Forwarded-Encrypted: i=1; AJvYcCUV2u/GCa9z12wLL+f+KEUkrlwm0aStDqc5WM69lq5FTK+6GtQ4KkVVfy+0loEE2ort3RmMvqqFnu45tF+sW+61@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf5zCpa1ATIUKgbH4toU1ttgGlkXz9twOnThdfbUCeCRVNnN/1
+	Z163Zk30yI5CFlqJ62c1kxRCatoxfwKkpNurErl9s2pAqgOTYVbLGrnD
+X-Gm-Gg: ASbGnctHUmXW3oIR6DMr7c5e8mtDZN3OnrK4anFlcYblbMhNU238zSVGN4kw014UP9H
+	nMHgQGiLhdIYsuj7anTfSP6ZyBjKjKVkwkH13dzOt+Rm/qL76jdm0a2UaSo/SQpUWEJHoB5OurP
+	BadH2FQ1MYpKq/Ymfvlvk0O2jfN2FLYxFSebevdiWGi8qR0LG3/xr0GF5Ov0FKbjpAyjFKLiUEj
+	6VdMeP+fBUzB6HDoMiFKxFW/c/Q2ZJK4lR4sRhcK0h3owkclrVo7fJOnuWRjdxlDB1RoQ37mOXp
+	gtJRDzWYJKzQ4PyXgqvzhtojXJ342+uLxV0jzWGWWhDW6ohcvoRNSETpp3pwZFOtQa8M8DtQ/YM
+	mEYNH7kcD9Pg40qW4DYnY84A2+XNFNU5eln2g1FAoapVq7L+oIGGJzfGr+6bpq1d5uUc=
+X-Google-Smtp-Source: AGHT+IGUnuQr4kTd8Pwi79vrAZvrte0ZA2n9301dvRr3oMR1sAmt1Ja6G7GSU6Ymha8EALPUtkN7mg==
+X-Received: by 2002:a05:6e02:1a85:b0:3e5:2646:df03 with SMTP id e9e14a558f8ab-3e57e8a63c7mr12535545ab.12.1755231694279;
+        Thu, 14 Aug 2025 21:21:34 -0700 (PDT)
+Received: from localhost.localdomain (65-128-248-47.mpls.qwest.net. [65.128.248.47])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3e57e5a585esm1689365ab.16.2025.08.14.21.21.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Aug 2025 21:21:33 -0700 (PDT)
+From: Shimrra Shai <shimrrashai@gmail.com>
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com
+Cc: linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	shimrrashai@gmail.com
+Subject: [PATCH 0/3] ASoC: es8323: power and mixer controls cleanup and revision
+Date: Thu, 14 Aug 2025 23:20:20 -0500
+Message-ID: <20250815042023.115485-1-shimrrashai@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-17-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-17-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 12:53:58 +0900
-X-Gm-Features: Ac12FXzPhchsvkR2KgC75ucJdBbVv2BRvVoAd0vv5jb3C5Va-SRZ59TCxVHQ5SA
-Message-ID: <CAGXv+5Gs+1deOMpVrqVmeiPywyAkUM_TD-6Q8sT7Oc014vBE1Q@mail.gmail.com>
-Subject: Re: [PATCH v4 16/27] clk: mediatek: Add MT8196 pextpsys clock support
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_205411_636611_84297843 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250814_212135_782382_BC3C2D33 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,228 +101,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> Add support for the MT8196 pextpsys clock controller, which provides
-> clock gate control for PCIe.
->
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
-llabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->  drivers/clk/mediatek/Kconfig            |   7 ++
->  drivers/clk/mediatek/Makefile           |   1 +
->  drivers/clk/mediatek/clk-mt8196-pextp.c | 131 ++++++++++++++++++++++++
->  3 files changed, 139 insertions(+)
->  create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
->
-> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-> index d99c39a7f10e..c977719046a4 100644
-> --- a/drivers/clk/mediatek/Kconfig
-> +++ b/drivers/clk/mediatek/Kconfig
-> @@ -1010,6 +1010,13 @@ config COMMON_CLK_MT8196
->         help
->           This driver supports MediaTek MT8196 basic clocks.
->
-> +config COMMON_CLK_MT8196_PEXTPSYS
-> +       tristate "Clock driver for MediaTek MT8196 pextpsys"
-> +       depends on COMMON_CLK_MT8196
-> +       default COMMON_CLK_MT8196
-> +       help
-> +         This driver supports MediaTek MT8196 pextpsys clocks.
-> +
->  config COMMON_CLK_MT8196_UFSSYS
->         tristate "Clock driver for MediaTek MT8196 ufssys"
->         depends on COMMON_CLK_MT8196
-> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefil=
-e
-> index 1a497de00846..88f7d8a229c2 100644
-> --- a/drivers/clk/mediatek/Makefile
-> +++ b/drivers/clk/mediatek/Makefile
-> @@ -153,6 +153,7 @@ obj-$(CONFIG_COMMON_CLK_MT8195_WPESYS) +=3D clk-mt819=
-5-wpe.o
->  obj-$(CONFIG_COMMON_CLK_MT8196) +=3D clk-mt8196-apmixedsys.o clk-mt8196-=
-topckgen.o \
->                                    clk-mt8196-topckgen2.o clk-mt8196-vlpc=
-kgen.o \
->                                    clk-mt8196-peri_ao.o
-> +obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) +=3D clk-mt8196-pextp.o
->  obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) +=3D clk-mt8196-ufs_ao.o
->  obj-$(CONFIG_COMMON_CLK_MT8365) +=3D clk-mt8365-apmixedsys.o clk-mt8365.=
-o
->  obj-$(CONFIG_COMMON_CLK_MT8365_APU) +=3D clk-mt8365-apu.o
-> diff --git a/drivers/clk/mediatek/clk-mt8196-pextp.c b/drivers/clk/mediat=
-ek/clk-mt8196-pextp.c
-> new file mode 100644
-> index 000000000000..9a7623bf2b1c
-> --- /dev/null
-> +++ b/drivers/clk/mediatek/clk-mt8196-pextp.c
-> @@ -0,0 +1,131 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + *                    Guangjie Song <guangjie.song@mediatek.com>
-> + * Copyright (c) 2025 Collabora Ltd.
-> + *                    Laura Nao <laura.nao@collabora.com>
-> + */
-> +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-> +#include <dt-bindings/reset/mediatek,mt8196-resets.h>
+This is a revision of a previous patch submission of mine wherein one
+part was accepted and one part was not. It was originally phrased for
+a particular device using the ES8323 CODEC, and I was advised to make
+the mixer controls user-selectable so it was not tied to the needs of
+any specific device. This submission brings the DAC and mixer controls
+for basic audio playback on this CODEC into line with the DAPM
+infrastructure and enables their operation through the standard mixer
+interface.
 
-Nit: empty line here for separation.
+Shimrra Shai (3):
+  ASoC: es8323: remove DAC enablement write from es8323_probe
+  ASoC: es8323: add proper left/right mixer controls via DAPM
+  ASoC: es8323: enable DAPM power widgets for playback DAC
 
-> +#include <linux/clk-provider.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include "clk-gate.h"
-> +#include "clk-mtk.h"
-> +#include "reset.h"
-> +
-> +#define MT8196_PEXTP_RST0_SET_OFFSET   0x8
-> +
-> +static const struct mtk_gate_regs pext_cg_regs =3D {
-> +       .set_ofs =3D 0x18,
-> +       .clr_ofs =3D 0x1c,
-> +       .sta_ofs =3D 0x14,
-> +};
-> +
-> +#define GATE_PEXT(_id, _name, _parent, _shift) {\
-> +               .id =3D _id,                      \
-> +               .name =3D _name,                  \
-> +               .parent_name =3D _parent,         \
-> +               .regs =3D &pext_cg_regs,          \
-> +               .shift =3D _shift,                \
-> +               .flags =3D CLK_OPS_PARENT_ENABLE, \
+ sound/soc/codecs/es8323.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
-Same issue as the previous patch. If one of the parents shown below
-needs to be enabled for register access, this is going to fail badly.
-If it's not needed, then this flag makes no sense here.
+-- 
+2.48.1
 
-ChenYu
-
-> +               .ops =3D &mtk_clk_gate_ops_setclr,\
-> +       }
-> +
-> +static const struct mtk_gate pext_clks[] =3D {
-> +       GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_TL, "pext_pm0_tl", "tl", 0),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_REF, "pext_pm0_ref", "clk26m", 1)=
-,
-> +       GATE_PEXT(CLK_PEXT_PEXTP_PHY_P0_MCU_BUS, "pext_pp0_mcu_bus", "clk=
-26m", 6),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_PHY_P0_PEXTP_REF, "pext_pp0_pextp_ref", =
-"clk26m", 7),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_AXI_250, "pext_pm0_axi_250", "ufs=
-_pexpt0_mem_sub", 12),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_AHB_APB, "pext_pm0_ahb_apb", "ufs=
-_pextp0_axi", 13),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_MAC_P0_PL_P, "pext_pm0_pl_p", "clk26m", =
-14),
-> +       GATE_PEXT(CLK_PEXT_PEXTP_VLP_AO_P0_LP, "pext_pextp_vlp_ao_p0_lp",=
- "clk26m", 19),
-> +};
-> +
-> +static u16 pext_rst_ofs[] =3D { MT8196_PEXTP_RST0_SET_OFFSET };
-> +
-> +static u16 pext_rst_idx_map[] =3D {
-> +       [MT8196_PEXTP0_RST0_PCIE0_MAC] =3D 0,
-> +       [MT8196_PEXTP0_RST0_PCIE0_PHY] =3D 1,
-> +};
-> +
-> +static const struct mtk_clk_rst_desc pext_rst_desc =3D {
-> +       .version =3D MTK_RST_SET_CLR,
-> +       .rst_bank_ofs =3D pext_rst_ofs,
-> +       .rst_bank_nr =3D ARRAY_SIZE(pext_rst_ofs),
-> +       .rst_idx_map =3D pext_rst_idx_map,
-> +       .rst_idx_map_nr =3D ARRAY_SIZE(pext_rst_idx_map),
-> +};
-> +
-> +static const struct mtk_clk_desc pext_mcd =3D {
-> +       .clks =3D pext_clks,
-> +       .num_clks =3D ARRAY_SIZE(pext_clks),
-> +       .rst_desc =3D &pext_rst_desc,
-> +};
-> +
-> +static const struct mtk_gate pext1_clks[] =3D {
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_TL, "pext1_pm1_tl", "tl_p1", 0),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_REF, "pext1_pm1_ref", "clk26m", =
-1),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_TL, "pext1_pm2_tl", "tl_p2", 2),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_REF, "pext1_pm2_ref", "clk26m", =
-3),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P1_MCU_BUS, "pext1_pp1_mcu_bus", "c=
-lk26m", 8),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P1_PEXTP_REF, "pext1_pp1_pextp_ref"=
-, "clk26m", 9),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P2_MCU_BUS, "pext1_pp2_mcu_bus", "c=
-lk26m", 10),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_PHY_P2_PEXTP_REF, "pext1_pp2_pextp_ref"=
-, "clk26m", 11),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_AXI_250, "pext1_pm1_axi_250",
-> +                  "pextp1_usb_axi", 16),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_AHB_APB, "pext1_pm1_ahb_apb",
-> +                  "pextp1_usb_mem_sub", 17),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P1_PL_P, "pext1_pm1_pl_p", "clk26m"=
-, 18),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_AXI_250, "pext1_pm2_axi_250",
-> +                  "pextp1_usb_axi", 19),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_AHB_APB, "pext1_pm2_ahb_apb",
-> +                  "pextp1_usb_mem_sub", 20),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_MAC_P2_PL_P, "pext1_pm2_pl_p", "clk26m"=
-, 21),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_VLP_AO_P1_LP, "pext1_pextp_vlp_ao_p1_lp=
-", "clk26m", 26),
-> +       GATE_PEXT(CLK_PEXT1_PEXTP_VLP_AO_P2_LP, "pext1_pextp_vlp_ao_p2_lp=
-", "clk26m", 27),
-> +};
-> +
-> +static u16 pext1_rst_idx_map[] =3D {
-> +       [MT8196_PEXTP1_RST0_PCIE1_MAC] =3D 0,
-> +       [MT8196_PEXTP1_RST0_PCIE1_PHY] =3D 1,
-> +       [MT8196_PEXTP1_RST0_PCIE2_MAC] =3D 8,
-> +       [MT8196_PEXTP1_RST0_PCIE2_PHY] =3D 9,
-> +};
-> +
-> +static const struct mtk_clk_rst_desc pext1_rst_desc =3D {
-> +       .version =3D MTK_RST_SET_CLR,
-> +       .rst_bank_ofs =3D pext_rst_ofs,
-> +       .rst_bank_nr =3D ARRAY_SIZE(pext_rst_ofs),
-> +       .rst_idx_map =3D pext1_rst_idx_map,
-> +       .rst_idx_map_nr =3D ARRAY_SIZE(pext1_rst_idx_map),
-> +};
-> +
-> +static const struct mtk_clk_desc pext1_mcd =3D {
-> +       .clks =3D pext1_clks,
-> +       .num_clks =3D ARRAY_SIZE(pext1_clks),
-> +       .rst_desc =3D &pext1_rst_desc,
-> +};
-> +
-> +static const struct of_device_id of_match_clk_mt8196_pextp[] =3D {
-> +       { .compatible =3D "mediatek,mt8196-pextp0cfg-ao", .data =3D &pext=
-_mcd },
-> +       { .compatible =3D "mediatek,mt8196-pextp1cfg-ao", .data =3D &pext=
-1_mcd },
-> +       { /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_pextp);
-> +
-> +static struct platform_driver clk_mt8196_pextp_drv =3D {
-> +       .probe =3D mtk_clk_simple_probe,
-> +       .remove =3D mtk_clk_simple_remove,
-> +       .driver =3D {
-> +               .name =3D "clk-mt8196-pextp",
-> +               .of_match_table =3D of_match_clk_mt8196_pextp,
-> +       },
-> +};
-> +
-> +module_platform_driver(clk_mt8196_pextp_drv);
-> +MODULE_DESCRIPTION("MediaTek MT8196 PCIe transmit phy clocks driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.39.5
->
 
