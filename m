@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42351CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDBACA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UQnrvh8fmmyw5mye4l3ThIw5bAHTdjRGTFjcTvSf2X4=; b=aYWSeAHRlt8z5ZHmZ7qtzUSBGi
-	F0j+Jsh1IuSQ8d0q5q8uTBF+l1pdzBCiUwe2OpkRQ9W7Y9aiN7OXfxPzZ6zrfURizgp/wkN0KnZ1b
-	sKCFUm/BsMYq0qKbHTZam+eqK9dzG+qVHkChjA3C+DrTBOygxKmsj8W+hl6upapvXByipX6b14TJ7
-	Wltb5yZRmHXvGMdS7qYGOgqSMsKuZ0LTgDaUGEldSrpP8OCTW3iljGel0CPAdE+qEDjDHGmcUU0Ma
-	QxvmAFZv88dwY1cnKj0UuFBKuNHG9gyu7EFEHxAkr+lCKC88KnSgUGmB3qoVrqm/r84HC+gTarLoz
-	4fQQUuHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YFuXvB2UWggNbkHb7hidNwtHtVJzQl7qtjml68HfNqA=; b=For4eHRkmHsoXP
+	ebV5/JPQ0c6IgzkTYYM01GGDcbdMllYRxMh8KCVbbaQPwbt9iuv3DPDfVEoyf6RaWUCrNRCn9qABN
+	W4gzBEQoUvz2tMsKKQUzclQRc3zBXUP97cIkEw0RjWXZqBEowPr9XGNArvjw8/5JFNxC41kY6nSjc
+	21T1f9fc77pT9phR+DPnB4m620q8gi7EX9cGlsR+RpkdPkBADxqUGc5qyOfcAQIp7TWhz2N3PjWAX
+	uiqkOoVwAJ0J7G/ZIE+71K+l26pNgZ29/S/e/jZKD8TBmarXIV+I4KSyFXcQ3kL8lZ5bkeP4PZ72q
+	52bm6jkzw9ustHfbKvCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un0uJ-00000003Qxk-193X;
-	Fri, 15 Aug 2025 20:20:11 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1un0uM-00000003R2t-1PSv;
+	Fri, 15 Aug 2025 20:20:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzXm-00000003Hy3-2DD4
+	id 1umzeh-00000003JCb-1kXl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 18:52:51 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755283967;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UQnrvh8fmmyw5mye4l3ThIw5bAHTdjRGTFjcTvSf2X4=;
-	b=baJlH9tOVl/5B3c1jvUHXPDwLuEj7u1V4YReehcCH9W7Lyv4ukNVCxHgPfx5lLC5AgfOqo
-	vLCSPJK8wMju85aVdnjOnsvbRw/kDnCh2Q7yLkE5fyaGS4Kn7QTtha5jeJE/OHjBgvknA4
-	w5B58ztz22/Qg9zSajyFJl/yekRpOGc=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH] KVM: arm64: Correctly populate FAR_EL2 on nested SEA injection
-Date: Fri, 15 Aug 2025 11:52:33 -0700
-Message-Id: <175528391095.1010493.11054501106078213907.b4-ty@linux.dev>
-In-Reply-To: <20250813163747.2591317-1-maz@kernel.org>
-References: <20250813163747.2591317-1-maz@kernel.org>
+	Fri, 15 Aug 2025 19:00:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B1B2D5C66D4;
+	Fri, 15 Aug 2025 18:59:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16FB7C4CEEB;
+	Fri, 15 Aug 2025 18:59:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755284398;
+	bh=XFgdqlcF4w6JcQknFkuyLVCuivnPG7StN6tF26sMAY4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JKA1Htk0Vn8klSgNQ5+BvVD/T9TcDb70snLPG4jCD/orLjAXrzx0xUz7AxM9Wp46j
+	 h7/iUiJQ9WdT2tnY4EPirct5e+PErV6hq4WNoRgMDWjOjsLIRtZdPY6phvXs2d/jpG
+	 MkEKJrZm+wfMMQoTPF5oxotCJ9Cxfr4W1nvAgL+BJa16bav51S2wHCErtdCje+JBFG
+	 Zh3spCW8Dj9s0UnrtBtMABB2VXWbcfIkprqMAaJfjlDD6jzKHz8gJGi02fbq3I2XOB
+	 Ljr90FRYb/7kW0lJv0FPYx371wa2uy/UqVMPWroDyhS9u+SO81Gsykz6kGp2Nmief6
+	 WXvgJLcvfPI1A==
+Date: Fri, 15 Aug 2025 11:59:56 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Parvathi Pudi <parvathi@couthit.com>
+Subject: Re: [PATCH net-next v13 4/5] net: ti: prueth: Adds link detection,
+ RX and TX support.
+Message-ID: <20250815115956.0f36ae06@kernel.org>
+In-Reply-To: <20250812133534.4119053-5-parvathi@couthit.com>
+References: <20250812110723.4116929-1-parvathi@couthit.com>
+	<20250812133534.4119053-5-parvathi@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_115250_714638_4C768F2A 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250815_115959_501107_4739B17F 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,27 +68,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: pratheesh@ti.com, vigneshr@ti.com, praneeth@ti.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, saikrishnag@marvell.com, m-karicheri2@ti.com, bastien.curutchet@bootlin.com, mohan@couthit.com, jacob.e.keller@intel.com, pabeni@redhat.com, s.hauer@pengutronix.de, devicetree@vger.kernel.org, conor+dt@kernel.org, alok.a.tiwari@oracle.com, richardcochran@gmail.com, johan@kernel.org, prajith@ti.com, rogerq@kernel.org, basharath@couthit.com, ssantosh@kernel.org, vadim.fedorenko@linux.dev, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, kory.maincent@bootlin.com, m-malladi@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025 17:37:47 +0100, Marc Zyngier wrote:
-> vcoy_write_sys_reg()'s signature is not totally obvious, and it
-> is rather easy to write something that looks correct, except that...
-> Oh wait...
-> 
-> Swap addr and FAR_EL2 to restore some sanity in the nested SEA
-> department.
-> 
-> [...]
+On Tue, 12 Aug 2025 19:04:19 +0530 Parvathi Pudi wrote:
+> +static irqreturn_t icssm_emac_rx_packets(struct prueth_emac *emac, int quota)
 
-Sorry I didn't pick this up immediately, had to find my brown bag...
+Please stick to calling the budget budget rather than synonym terms
+like "quota". Makes it harder to review the code.
 
-With the typo addressed: applied to fixes, thanks!
+> +	/* search host queues for packets */
+> +	for (i = start_queue; i <= end_queue; i++) {
+> +		queue_desc = emac->rx_queue_descs + i;
+> +		rxqueue = &queue_infos[PRUETH_PORT_HOST][i];
 
-[1/1] KVM: arm64: Correctly populate FAR_EL2 on nested SEA injection
-      https://git.kernel.org/kvmarm/kvmarm/c/d19c541d269e
+budget can be 0, in which case the driver is not supposed to process
+Rx, just Tx (if the NAPI instance is used to serve completions).
 
---
-Best,
-Oliver
+> +	num_rx_packets = icssm_emac_rx_packets(emac, budget);
+> +	if (num_rx_packets < budget) {
+> +		napi_complete_done(napi, num_rx_packets);
+
+don't ignore the return value of napi_complete_done()
+-- 
+pw-bot: cr
 
