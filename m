@@ -4,83 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F891CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 05:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FDBCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 06:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcpbxuwfjsk8ja+dfts2UkmPV4eGfiEsAzYzWBYW6k4=; b=3Y1wrow+e2A5QeNDyqZgSTZeNG
-	qecPJ0ltiZ4xkZ4GUtYrYm6nHxlOLljSnz+gHf/NqZROIHSv+1huhxNLYlJTZadA4se2qXoUF1Ata
-	c6aGtCjrzWcF+OZYqg+Zrjl1utQg2MVdUDAtTjFwUi6pP/kk5RwQgri84q+1GK5MDaiC4VDVwNV4c
-	GsDEKORxYLRimP17hIz3/zb7wXP3CNYpxQGIn67LNqso3MP/SONoCrzxdST/OXVmOIB0dVZiNPRDl
-	CVSfGvvdW3lZQPCVXLN529F8dBtSpLSGgWTHF+W3Ls0aEMSZhinnPslWt8hQvMRC+yyLobW3uo/tv
-	YvbA42GA==;
+	bh=OxSvkYDRQmsJvIZCTZqZgTkhtEr7ylaf1BqwgCg+36U=; b=r1m0szHadONX3bab1XIW6CykEF
+	wmgGXmZn/VeuxYerc3PqZNxrhzleY1tHqW2L7mE/du/e3yURR2qH0nSOVqGwB/9vMwS3N3wjyvijs
+	KyFIqszCMLxry7ncAPVbOZEYB/I71fK0vMvepWQEIFdvzXEfsC80nIOzuHPTBA9E5SR70g+ZzkVaz
+	3AFBF/eb6fX6MblNFkwfPSIc6VVTodn1nvWFFVZQkqk7TjpBnEclUy26pERt+/Bl1P0SdpYuBooJx
+	sDfUGD/i9HSbBlNEtSw53jlo+gJE2La3IDVlwtRAzQj5SXfeMdQj7H9Z7iXDd2zZ3V2Bz6ZXNf6St
+	aNXTzpIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umnOw-00000001YXK-1jmY;
-	Fri, 15 Aug 2025 05:54:54 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1umnef-00000001aUV-3KgZ;
+	Fri, 15 Aug 2025 06:11:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umnMJ-00000001YKb-3Syk;
-	Fri, 15 Aug 2025 05:52:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755237131; x=1786773131;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=0vH1jDcgJGA2Wn7lpJdojReOpMDMj8xScxd5knXRY9g=;
-  b=CnWy8sB/ggZP4crbNsWAd2LM45vyVDYJcpP/gZhG5xyMZ2MI/imI8Mkd
-   BSYXeCuoNtMIPwIuz6U3AR+PKElEYSqgtieRzougFFInF6+AaKA47lCKo
-   1uPIqU8JuVwu7i1A85zloS2UGZohkYZ0KeWZR18phcMjVWz6AHaRIR7ex
-   W9ufy1IlACDR7u94On9BhQQe8WL7z2K93RiL7mn1RpIje40botowIsw04
-   EbgmlkwpD9YXsXBIR6+GehkSFN4AmWa/UsbXcvI07A7TtYqga6tsk/4SA
-   o0EwCrdL53Eb2nTh6H/6YX4qL9JWoJuF5Kk4Wp+S18pGTlhcRqQgh5Z1I
-   Q==;
-X-CSE-ConnectionGUID: QcBA1QOTTP612gDS4WkNdA==
-X-CSE-MsgGUID: d9OAebbaTWej1uMwqKw1kg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="57488206"
-X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
-   d="scan'208";a="57488206"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:52:08 -0700
-X-CSE-ConnectionGUID: QsCBNTNzS2uKIJOGMmnTTA==
-X-CSE-MsgGUID: wssFlJjGSga9ENc1rcVaxg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
-   d="scan'208";a="197937723"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:52:02 -0700
-Message-ID: <7b8d8bfa-ca6b-4a07-8a4d-a30d8993c7c7@linux.intel.com>
-Date: Fri, 15 Aug 2025 13:49:55 +0800
+	id 1umnc7-00000001aHD-0Bl8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Aug 2025 06:08:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 737AA5C4CCC;
+	Fri, 15 Aug 2025 06:08:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BAE2C4CEEB;
+	Fri, 15 Aug 2025 06:08:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755238110;
+	bh=bG2c4T+pSmpVev0zsHpv/hBpG9AoZxYK5gAarWih2dI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l5fZdyXJhS8IEJAfL3VjqchEOe+rhQv0EZoG6QCbD7+kZvA41gkQV4W4aQxpWjJRc
+	 S/eoPz/XhvMT1lMHnj4SEflOXoqKOwSSvDSdKWeXiFiem7OJ45DdP3yr/a+zu22QOw
+	 zr505omg93vnFg5bYhmuC7fDOVS1D3+aQwD+LPMLWGkB+bob1OyXcbQ/7wLlI6CRFI
+	 dit5sIFz5D38vqthkxy0dJAkiJkoS7DnDffI+e0xDhHaoZtAsmB9mr8G6DGVBW1Gao
+	 h6ocfLUxsxfd2VzbTcVkGNFART4sR3800DCOeifAG0y2cRtCHxo480tUhHcFoFeZLp
+	 fJXwuhShJspUw==
+Message-ID: <5e79b123-b29a-4edb-8e70-3b7fa6cd3674@kernel.org>
+Date: Fri, 15 Aug 2025 08:08:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] iommu: Introduce iommu_dev_reset_prepare() and
- iommu_dev_reset_done()
-To: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
- joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
-Cc: will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
- rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
- yi.l.liu@intel.com, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-pci@vger.kernel.org, patches@lists.linux.dev, pjaroszynski@nvidia.com,
- vsethi@nvidia.com, helgaas@kernel.org, etzhao1900@gmail.com
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <5ba556fc54777853c499186f494f3411d7a4a5a9.1754952762.git.nicolinc@nvidia.com>
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <2017616.PYKUYFuaPT@radijator>
+ <dfaa36d6-41b2-46c1-ba14-e2fb5c9815e6@kernel.org>
+ <1950265.tdWV9SEqCh@radijator>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <5ba556fc54777853c499186f494f3411d7a4a5a9.1754952762.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1950265.tdWV9SEqCh@radijator>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_225211_907851_40FAE48D 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20250814_230831_162361_3D591B3F 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +126,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/12/25 06:59, Nicolin Chen wrote:
-> PCIe permits a device to ignore ATS invalidation TLPs, while processing a
-> reset. This creates a problem visible to the OS where an ATS invalidation
-> command will time out: e.g. an SVA domain will have no coordination with a
-> reset event and can racily issue ATS invalidations to a resetting device.
+On 15/08/2025 00:08, Duje Mihanović wrote:
+> On Monday, 11 August 2025 08:38:15 Central European Summer Time 
+> Krzysztof Kozlowski wrote:
+>> On 08/08/2025 21:46, Duje Mihanović wrote:
+>>> On Friday, 8 August 2025 09:34:54 Central European Summer Time Krzysztof 
+>>> Kozlowski wrote:
+>>>> On Wed, Aug 06, 2025 at 07:33:21PM +0200, Duje Mihanović wrote:
+>>>>> +          A number of phandles to clocks that need to be enabled during
+>>>>> domain +          power up.
+>>>>
+>>>> This does not exist in your example, so it is just confusing.
+>>>
+>>> This is because I have not implemented any of the clocks used by the
+>>> domains at this moment.
+>>>
+>>> Actually, I am not sure anymore whether it is necessary to assign
+>>> clocks to the domains as I have just yesterday successfully brought up
+>>> the GPU with some out-of-tree code and that did not require giving the
+>>> domains any clocks even though the vendor kernel does this. Should I
+>>> just go with that and drop all clock handling from the power domain
+>>> driver, at which point there would be no need for the individual domain
+>>> nodes? If not, how should I in the future assign clocks to the domains?
+>>
+>> I am asking to see complete binding with complete DTS in example and
+>> submitted to SoC maintainer.
 > 
-> The OS should do something to mitigate this as we do not want production
-> systems to be reporting critical ATS failures, especially in a hypervisor
-> environment. Broadly, OS could arrange to ignore the timeouts, block page
-> table mutations to prevent invalidations, or disable and block ATS.
-> 
-> The PCIe spec in sec 10.3.1 IMPLEMENTATION NOTE recommends to disable and
-> block ATS before initiating a Function Level Reset. It also mentions that
-> other reset methods could have the same vulnerability as well.
-> 
-> Provide a callback from the PCI subsystem that will enclose the reset and
-> have the iommu core temporarily change all the attached domain to BLOCKED.
-> After attaching a BLOCKED domain, IOMMU drivers should fence any incoming
+> Hm, so if in the example (and the actual DTS) each domain is assigned a clock, 
+> can I then keep the domain and domain controller nodes like Mediatek and 
+> Rockchip have?
 
-Nit, my understanding is that it's not the "IOMMU drivers" but the
-"IOMMU hardware" that fences any further incoming translation requests,
-right?
+You would need to point me to specific files or show some code.
 
-> ATS queries, synchronously stop issuing new ATS invalidations, and wait
-> for all ATS invalidations to complete. This can avoid any ATS invaliation
-> timeouts.
 > 
-> However, if there is a domain attachment/replacement happening during an
-> ongoing reset, ATS routines may be re-activated between the two function
-> calls. So, introduce a new pending_reset flag in group_device to defer an
-> attachment during a reset, allowing iommu core to cache target domains in
-> the SW level while bypassing the driver. The iommu_dev_reset_done() will
-> re-attach these soft-attached domains, once the device reset is finished.
-> 
-> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+> Does SoC maintainer here mean the SoC mailing list or the maintainer of the 
+> particular SoC family in question?
 
-The code looks good to me:
+I meant rather post complete DTS to mailing lists (so maintainer of
+given SoC family can see it as well), does not have to be the same patchset.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+
+
+Best regards,
+Krzysztof
 
