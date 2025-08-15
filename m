@@ -4,139 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA59CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 16:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8926BCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mp0rsAEG/viIu9de1t5ct36ltQ2/DpagkNBEWfTIO5I=; b=VjyuAStr+jNJn4U48cmlysrxAn
-	S6cU/+R+sUnEKDNSJzuBGc22C7e41c5IaKPCW9hlMUuchzDwEGekFHTAwkXeUeJVIj/DRKcQzDEVF
-	z6GXBL0uc2yrZoJmwSJgEIsrFcr2/J5WYDgGtPA5n4UHEgDc0kwX0aCdvClYdwKS3f1tS0/2Eunu1
-	yztaaKzP2jcRPIN0Tc/mMdnTzCAvZQSnUxc0era4cfPaBZjnvxMHUL6TrVzC7aqPdWe6KN+f9KoHj
-	jh5+AozMAFPf3h8aG5qYpatGsXmwZ9XyD6aXy7UG63aSRxXwCeX1suC3KP29kSg1fJtMoXH/Jhz3g
-	3A9AP9pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oVlZFD+RMAkp2R6SE31Yfc1DyLlxMDTLdf2KncYFxXg=; b=sRnAVyH4RZ9sPCMEjVrryweI3e
+	4hUj+n8akEFUj2s96DZsVtWhuIzS1JlVhC9wm5sF1xGuVFM19RqG86jh+RftFEwwrk4PG13el+gs2
+	dHqi+wUoA+r5JXsyhk+ZbaDTl6UaRnVhSpjBJQQCSw9sJuicajIgg0O1PUlZZ4t669Vb2AFusjhpI
+	m4Ab/ef4g0dsK0bAkP4pc9gb7x03UOi0GzPBvcN3aa0iXb4U+K8AEhAk/8JlZZlaNfEqD37/WUPWZ
+	J+tAiNXwXJG0W/ytHV1b+I+iX6AFNd/aXhL//DNh7diHkkX7mNqhQf+YO6YE0VqthOUxPDcXvLaJZ
+	qxUT9Apw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxlX-000000032Ea-0VeW;
-	Fri, 15 Aug 2025 16:58:55 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1umxo7-0000000346u-0RwY;
+	Fri, 15 Aug 2025 17:01:35 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umuxs-00000002eCZ-0hvh
+	id 1umw1g-00000002o3g-25cj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 13:59:29 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 5E08D1F84E;
-	Fri, 15 Aug 2025 13:59:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755266361; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mp0rsAEG/viIu9de1t5ct36ltQ2/DpagkNBEWfTIO5I=;
-	b=mfj+H+zEtY/ToWnCNQszeCWajsAQwv547OFK4b6ZP3CdrOQxT0xTVjuCTLON0VcmG2lolo
-	mgUJrG+QJP32ux9epaila6zTb6i7cEagX8oCWtJg8sycNZHK8adeIWyh9lBomc0/5/fgex
-	vzJfX2lxtI0F/t8AkMvvTyDN8bRCD7E=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755266361;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mp0rsAEG/viIu9de1t5ct36ltQ2/DpagkNBEWfTIO5I=;
-	b=CJeyjDpgnfZBEPHd1bwBP1y1CUD56wATnQkd+UfqtGiV3lEqgMgDAT6GeX0kGKwExj++M/
-	d5HizWJ7ReKnwKBg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755266361; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mp0rsAEG/viIu9de1t5ct36ltQ2/DpagkNBEWfTIO5I=;
-	b=mfj+H+zEtY/ToWnCNQszeCWajsAQwv547OFK4b6ZP3CdrOQxT0xTVjuCTLON0VcmG2lolo
-	mgUJrG+QJP32ux9epaila6zTb6i7cEagX8oCWtJg8sycNZHK8adeIWyh9lBomc0/5/fgex
-	vzJfX2lxtI0F/t8AkMvvTyDN8bRCD7E=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755266361;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mp0rsAEG/viIu9de1t5ct36ltQ2/DpagkNBEWfTIO5I=;
-	b=CJeyjDpgnfZBEPHd1bwBP1y1CUD56wATnQkd+UfqtGiV3lEqgMgDAT6GeX0kGKwExj++M/
-	d5HizWJ7ReKnwKBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4AC7E13A8B;
-	Fri, 15 Aug 2025 13:59:20 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id mNYDEDg9n2jMfAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 15 Aug 2025 13:59:20 +0000
-From: Stanimir Varbanov <svarbanov@suse.de>
-To: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>
-Subject: [PATCH 1/5] net: cadence: macb: Set upper 32bits of DMA ring buffer
-Date: Fri, 15 Aug 2025 16:59:07 +0300
-Message-ID: <20250815135911.1383385-2-svarbanov@suse.de>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250815135911.1383385-1-svarbanov@suse.de>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
+	Fri, 15 Aug 2025 15:07:30 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umw10-0004t6-6g; Fri, 15 Aug 2025 17:06:46 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umw0x-000R8g-1i;
+	Fri, 15 Aug 2025 17:06:43 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1umw0x-000PY3-1L;
+	Fri, 15 Aug 2025 17:06:43 +0200
+Message-ID: <93025d4cb696f06228e1c84a7c22dbcede6e77a3.camel@pengutronix.de>
+Subject: Re: [PATCH 04/21] drm: remove unneeded 'fast_io' parameter in
+ regmap_config
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	linux-kernel@vger.kernel.org
+Cc: Mark Brown <broonie@kernel.org>, Andrzej Hajda
+ <andrzej.hajda@intel.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Liu Ying <victor.liu@nxp.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>,  Fabio Estevam <festevam@gmail.com>,
+ Sandy Huang <hjc@rock-chips.com>, Heiko =?ISO-8859-1?Q?St=FCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Date: Fri, 15 Aug 2025 17:06:43 +0200
+In-Reply-To: <20250813161517.4746-5-wsa+renesas@sang-engineering.com>
+References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
+	 <20250813161517.4746-5-wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	TAGGED_RCPT(0.00)[dt,netdev];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_DN_SOME(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_TLS_ALL(0.00)[]
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_065928_354603_5BD7191E 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250815_080728_535339_8A1E1550 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,31 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case of rx queue reset and 64bit capable hardware, set the upper
-32bits of DMA ring buffer address.
+On Mi, 2025-08-13 at 18:14 +0200, Wolfram Sang wrote:
+> When using MMIO with regmap, fast_io is implied. No need to set it
+> again.
+>=20
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> ---
+> No dependencies, can be applied directly to the subsystem tree. Buildbot =
+is
+> happy, too.
+>=20
+>  drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-cf.c                   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-de.c                   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-ed.c                   | 2 --
+>  drivers/gpu/drm/imx/dc/dc-fg.c                   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-fl.c                   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-fw.c                   | 2 --
+>  drivers/gpu/drm/imx/dc/dc-ic.c                   | 1 -
+>  drivers/gpu/drm/imx/dc/dc-lb.c                   | 2 --
+>  drivers/gpu/drm/imx/dc/dc-tc.c                   | 1 -
+>  drivers/gpu/drm/imx/ipuv3/imx-tve.c              | 2 --
+>  drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c | 1 -
+>  12 files changed, 16 deletions(-)
+>=20
+[...]
+> diff --git a/drivers/gpu/drm/imx/ipuv3/imx-tve.c b/drivers/gpu/drm/imx/ip=
+uv3/imx-tve.c
+> index c5629e155d25..b34037d0d7a8 100644
+> --- a/drivers/gpu/drm/imx/ipuv3/imx-tve.c
+> +++ b/drivers/gpu/drm/imx/ipuv3/imx-tve.c
+> @@ -457,8 +457,6 @@ static struct regmap_config tve_regmap_config =3D {
+> =20
+>  	.readable_reg =3D imx_tve_readable_reg,
+> =20
+> -	.fast_io =3D true,
+> -
+>  	.max_register =3D 0xdc,
+>  };
+> =20
 
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
----
- drivers/net/ethernet/cadence/macb_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index ce95fad8cedd..41c0cbb5262e 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -1635,6 +1635,11 @@ static int macb_rx(struct macb_queue *queue, struct napi_struct *napi,
- 
- 		macb_init_rx_ring(queue);
- 		queue_writel(queue, RBQP, queue->rx_ring_dma);
-+#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
-+		if (bp->hw_dma_cap & HW_DMA_CAP_64B)
-+			macb_writel(bp, RBQPH,
-+				    upper_32_bits(queue->rx_ring_dma));
-+#endif
- 
- 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
- 
--- 
-2.47.0
-
+regards
+Philipp
 
