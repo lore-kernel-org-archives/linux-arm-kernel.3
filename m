@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E31ACA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3145DCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJdg2qnj0enHiTuyutu3+3woV8+hTcgzDCVgV816pbw=; b=lLoF8nx5LmZ/JwsgwbMVV7sStK
-	Xsv2bQU/rTdTyxKl/fhd18rbOIEpQ8K7aFD7PDjII4rx0QLgD6pH6qROO5h9ElaNEBvxuC+wlHq7T
-	jVpF52ogkErQeB9gRSl/IL/5yVoZfl7kphviFA2AvUjJ24r688zyp6nf7aSe2LwUMNxBr2NntoRSd
-	iTkkFDFV62fc1IjvI1oDzj5WtVhYcujS3zSpWRClF+eYbPa3HujNY4NvMbPm5mVjxi+Qe8emWw6ce
-	r3Yqpz+9jaL4CJ37qj7M8U+rFp+043pxi4ZkaxR4+XnKWwGsYCxFKh9CiZ0BJfKn4Ro5lFZMtt6ei
-	NXAK3RsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qW6GGEoW3JbHQ+0b94eNnAs601mOZeKLmjo5b3ELz+w=; b=0mSwDo4MO2EbpnwF9Wo0RdT9Nk
+	N/93SnIxJ11Neu5X97NHGYWA4mHEdAWfJ6ErEoFVZDQSZN8asaN+zCTE25gBbiN+xLx1cqlS9bqSW
+	TiIcvb21ogyk2pIeGu3kkafKtzWZdMokTGM4VY3ftoGANqYZkFGH7R4wdoqf+zzL/3WS7X1HNpIjk
+	gWwkefuH1yHIGk9UjZbxsDfP/dxaxjAuJ5xgKS1jvI3reNZP6r9NjPOaMaAVu0EVETOstxNEZrSIl
+	N4we06Krxe+0tP1/qggP8FexCFx32KMY7Petr+e2OvkyeeA9vGtAIsQ+U0UKAENkFa0oNLf6DPbnO
+	iMOc5+Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlJc-00000001Jbx-3ee8;
-	Fri, 15 Aug 2025 03:41:16 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1umlME-00000001K6p-30RC;
+	Fri, 15 Aug 2025 03:43:58 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uml4h-00000001I5t-0jAD
+	id 1uml5N-00000001IDv-1GhF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 03:25:52 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-55ce508d4d6so1246206e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:25:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755228349; x=1755833149; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PJdg2qnj0enHiTuyutu3+3woV8+hTcgzDCVgV816pbw=;
-        b=Yfqhm7/NTQ8f74RK/2/cmbalMPyPFKlag65hYBLIXLVHt3opj2I9ss3wTgJkf1GIc6
-         s3i43uhhV6JJtjalLlWkn699zHNCLn/dnq8CaFDhz6PB6Pvui5xFCPiGo37q0avSMUTe
-         3GOD/PNQRVVtG6XkJ7uuetsjg7JVvXbIOgY38=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755228349; x=1755833149;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PJdg2qnj0enHiTuyutu3+3woV8+hTcgzDCVgV816pbw=;
-        b=J/BWv7VSMY2A9ri13+zIFtiAO0YWTtPiywfxlXvGFz+4pZvcBTjbZH/i1ziWjGFhqN
-         NRks2q1AD1SMy4NJ0Ijf0Yuuj/Tor1F0Ta16tjDbqOxEl7Z04jv9Gpk+sxpsVQE5Ngob
-         77BeP6pVoIrZ/D44/5IR6bsvnHlXY8cRKaGCgGJjZ2yIJkR+5Cf5oIZlj3N4reoIZwy0
-         pQYH6xUqpcrFgG5ct7X7O9JvomUeSqAyzkH0LFVsBaKJo+23VVKMmBPB030fdAD+lxpq
-         082xFRvhDBP6JT9XQGzu6bSmf5wF5OEoC/hEnwWOnO5RpIZgNE7nAqxvefRYRSyUK5ti
-         8iXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxp/laFxbfo5xn865rFte6eLhWPej3w14ftAH1nPKumfvlYOPXfJzRHm2AAbVgebe77EHBvxxCo915lHPQW6fg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOB9p3/HT0fspjuLKxXFA8S1ls7RX9aMoK6CN/ITVddlqFxU9n
-	4Xx3d+hPwnotlpd8J/bFokqJeppdyl/iKYZQQmJHeX1W8WASS/l7zdiKcRp+vX3DCuH5TL5/4I5
-	k9IERfIDU4o9eyWB+bei0egxxf+HPk50W/oBLfr7w
-X-Gm-Gg: ASbGncunhYfyYEP0Bq8fLP8B9wEZWf/eqz2pvuWEUxqzvY5t8Bkfpq5wtgQY0DWjpfU
-	3+Zu9+KFTIcjhxRjWl1iaYODUknqXNHVdRyzqUsF2OifvJAQHrzGkZqAalmwMs2Bz9XL9wt+rE7
-	tL55FoAzUBxBFcwmsdcF35mOvLVKMb20AJeMguWnqF62X/iVynOK3IdUzZhMoXLvNdcTndryhwj
-	DAl6AVzsfr0vi/oAqaNyOm7ChzzO5MqpA3f30XZ3+LiLdDH
-X-Google-Smtp-Source: AGHT+IHML+FnX/LTF4Glnv3hTMjadeJlzca/Pry92PrR9MSNtfqTK7+3shW4DsnQEIw8uD+VwPOVAyVIaNye6SvIV90=
-X-Received: by 2002:a05:6512:250d:b0:553:3a0a:1892 with SMTP id
- 2adb3069b0e04-55ceea26136mr167317e87.15.1755228349428; Thu, 14 Aug 2025
- 20:25:49 -0700 (PDT)
+	Fri, 15 Aug 2025 03:26:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755228393; x=1786764393;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5CtCyWuTgP/8clYLR9mQb2RLKdITFXhoF9CEAmqsi5s=;
+  b=AZfO4dCA23WYOTJcty5uUo6Kmy/8L7x9JpPpXo2YDieuWtCBYXif9QJW
+   S8IxHKAL74Qt0HxUS0e76N7tj8PlNL4NZ01Dfhp5rC5Q96RYnOqiJSZR4
+   fLzaPcQqDCHCtdUnOMrwl28Cho1pvNcfPmYmH05Y6l9u+fqRCaqmZMZcm
+   ST5hYqueo5QQowgRM0CuFUmmB0BRgHHHrWjg9CBlAChXRR+8uFAdyv1ks
+   WIGaW7DLLrsgMc4j40/qMdnSJplpTxypfkAvQemh220oNdAiLTTUYT3WE
+   iBi14wxTPZNIOzJuEETxwyHQM5rZgs9nVLwSZk+h28Kx5/cVgn8jKnW+L
+   w==;
+X-CSE-ConnectionGUID: fWCZm/yMS0S0+ywgHADK7A==
+X-CSE-MsgGUID: 7m0aQG2fTAmry80B7IBmhg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="57465788"
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="57465788"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 20:26:31 -0700
+X-CSE-ConnectionGUID: NPGfBA5+Th+3cPDrRLUODQ==
+X-CSE-MsgGUID: oGTsP8FHQlCdwpSczOAxDA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="197916558"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 14 Aug 2025 20:26:25 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uml4v-000BVU-2v;
+	Fri, 15 Aug 2025 03:26:10 +0000
+Date: Fri, 15 Aug 2025 11:25:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>
+Subject: Re: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <202508151058.jqJsn9VB-lkp@intel.com>
+References: <20250814135832.174911-9-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-5-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-5-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 12:25:38 +0900
-X-Gm-Features: Ac12FXyNFrgNnv9v_gZ4B-DIdoLeQQJfDCsM2y3l0UccKVx-_zcaQDAz8pYASzA
-Message-ID: <CAGXv+5F4r+tN4vFVFcL5U=o2WrNZHUQN_VNTy=qLo4MKTrjmcQ@mail.gmail.com>
-Subject: Re: [PATCH v4 04/27] clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814135832.174911-9-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_202551_216588_5A3E5783 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_202633_391223_E205C93B 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,19 +110,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> On MT8196, some clock controllers use a separate regmap for hardware
-> voting via set/clear/status registers. Add=E2=80=AFmtk_clk_get_hwv_regmap=
-() to
-> retrieve this optional regmap, avoiding duplicated lookup code in
-> mtk_clk_register_muxes() and=E2=80=AFmtk_clk_register_gate().
->
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Hi Maxime,
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20250814-221559
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20250814135832.174911-9-maxime.chevallier%40bootlin.com
+patch subject: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP handling for PHY drivers
+config: i386-randconfig-013-20250815 (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508151058.jqJsn9VB-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/net/phy/phy_device.c:1625:47: warning: variable 'iface' is uninitialized when used here [-Wuninitialized]
+    1625 |                 return port->ops->configure_mii(port, true, iface);
+         |                                                             ^~~~~
+   drivers/net/phy/phy_device.c:1597:2: note: variable 'iface' is declared here
+    1597 |         phy_interface_t iface;
+         |         ^
+   1 warning generated.
+
+
+vim +/iface +1625 drivers/net/phy/phy_device.c
+
+  1589	
+  1590	static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
+  1591	{
+  1592		struct phy_device *phydev = upstream;
+  1593		struct phy_port *port;
+  1594	
+  1595		__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+  1596		DECLARE_PHY_INTERFACE_MASK(interfaces);
+  1597		phy_interface_t iface;
+  1598	
+  1599		linkmode_zero(sfp_support);
+  1600	
+  1601		port = phy_get_sfp_port(phydev);
+  1602		if (!port)
+  1603			return -EINVAL;
+  1604	
+  1605		sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
+  1606	
+  1607		if (phydev->n_ports == 1)
+  1608			phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_support);
+  1609	
+  1610		linkmode_and(sfp_support, port->supported, sfp_support);
+  1611		linkmode_and(interfaces, interfaces, port->interfaces);
+  1612	
+  1613		if (linkmode_empty(sfp_support)) {
+  1614			dev_err(&phydev->mdio.dev, "incompatible SFP module inserted, no common linkmode\n");
+  1615			return -EINVAL;
+  1616		}
+  1617	
+  1618		/* Check that this interface is supported */
+  1619		if (!test_bit(iface, port->interfaces)) {
+  1620			dev_err(&phydev->mdio.dev, "PHY %s does not support the SFP module's requested MII interfaces\n", phydev_name(phydev));
+  1621			return -EINVAL;
+  1622		}
+  1623	
+  1624		if (port->ops && port->ops->configure_mii)
+> 1625			return port->ops->configure_mii(port, true, iface);
+  1626	
+  1627		return 0;
+  1628	}
+  1629	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
