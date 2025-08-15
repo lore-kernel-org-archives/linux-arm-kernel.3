@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC99CCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 10:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C27CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 10:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAvN/ymhOC9RH1764Pqdo1P8xtkdW4aJF6g43VRuQIg=; b=4bVWmAqDESSIVs5c14On8nwtDO
-	DCS5dW9VlZmxUBI9cdcHIKEG2qA1DurPQABP/sIln+1QPxuNmZ1E4XlxUejjgAL/MWwykXAqSpSZi
-	p6Kpu/Od1AT+bk6Lngw9iNsPTvv3h9ol+hri8miuDydXlT24b3xNwGtz4HN0/5xYuFBYzNcczdbDe
-	EMywr71ov95hrczDOl4f+dMIpzSJLIf1SCN2DUOBTX4Rz/gvxOz+ceb7xSGWL4ydQxgppzo83Jh14
-	2il1e8X9tnll4xXdMhj4Wuy0Jmn10TXy9xqw78goocrd+BniMfzJnQ9lu69M/fovhIwzRM5AbEF93
-	hPWu6L4A==;
+	bh=40L0rT1TMmMu3khvygOHsnP91kI7tFfWaXjrpg8NnXY=; b=oOIc/IfczxzsWagA6E061UDg2H
+	J2WQcR2XdW5VfWroqSNDTgbFAuVzWk01giACaq/e0U90g+IGTcW2inWUOmPX6fHQGfSiPmRG80v+T
+	Bc591D7kw24hXOVd4e4pGKHSdO9/oiRxVtoLK2Bm2DMiebP1p+dCeNEuXY+IyW5I/RkFTgB45BwDR
+	SQ5T+iNzm8wf+6vqVUt4GTjIwn69to/Z5pxPFk87rAg/E1EaO3WDnkcmcDgNTAgOt1baMDNlt1VKZ
+	4Je+lAJVXqK7O9rQZZmDkTNUsO1Gvkw1DX7ebm4eBOikOGy1mbAd6xtZA0pMcWeswD8t1sxasSM1F
+	j+HgVloA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umrUa-00000002Bf6-35GD;
-	Fri, 15 Aug 2025 10:17:00 +0000
+	id 1umrXA-00000002Bwe-1yoX;
+	Fri, 15 Aug 2025 10:19:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqDo-00000001ve5-2lMo
+	id 1umqDt-00000001vfS-2jUh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 08:55:38 +0000
+	Fri, 15 Aug 2025 08:55:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00C5E1688;
-	Fri, 15 Aug 2025 01:55:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C86171E5E;
+	Fri, 15 Aug 2025 01:55:32 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9326C3F63F;
-	Fri, 15 Aug 2025 01:55:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 703713F63F;
+	Fri, 15 Aug 2025 01:55:36 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH v5 02/18] set_memory: Introduce set_memory_pkey() stub
-Date: Fri, 15 Aug 2025 09:54:56 +0100
-Message-ID: <20250815085512.2182322-3-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v5 03/18] arm64: mm: Enable overlays for all EL1 indirect permissions
+Date: Fri, 15 Aug 2025 09:54:57 +0100
+Message-ID: <20250815085512.2182322-4-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_015536_731666_3710CC49 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250815_015541_811612_1B073508 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new function, set_memory_pkey(), which sets the
-protection key (pkey) of pages in the specified linear mapping
-range. Architectures implementing kernel pkeys (kpkeys) must
-provide a suitable implementation; an empty stub is added as
-fallback.
+In preparation of using POE inside the kernel, enable "Overlay
+applied" for all stage 1 base permissions in PIR_EL1. This ensures
+that the permissions set in POR_EL1 affect all kernel mappings.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- include/linux/set_memory.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/include/asm/pgtable-prot.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 3030d9245f5a..7b3a8bfde3c6 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -84,4 +84,11 @@ static inline int set_memory_decrypted(unsigned long addr, int numpages)
- }
- #endif /* CONFIG_ARCH_HAS_MEM_ENCRYPT */
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 85dceb1c66f4..0ab4ac214b06 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -180,13 +180,13 @@ static inline bool __pure lpa2_is_enabled(void)
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
+ 	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX)     | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX)    | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R)      | \
+-	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW))
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX_O)     | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX_O)    | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R_O)      | \
++	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW_O))
  
-+#ifndef CONFIG_ARCH_HAS_KPKEYS
-+static inline int set_memory_pkey(unsigned long addr, int numpages, int pkey)
-+{
-+	return 0;
-+}
-+#endif
-+
- #endif /* _LINUX_SET_MEMORY_H_ */
+ #endif /* __ASM_PGTABLE_PROT_H */
 -- 
 2.47.0
 
