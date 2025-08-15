@@ -4,150 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2CECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAFACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 18:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=; b=I5uJAbtLDL392AVwXbUmAWvCjY
-	DDXZqw+WnHH0F5e/SbnU6JNFnO+ZO0pb0ws7YxfUhU0T0KMgPHAjxEErsROLictYK+mOxo0mbVLnW
-	tWHvRyIOOBS6Upvvn62L2nePyr7to5lpOAMBf2laLFN4Ns1n/NvxQyrX0GyyML/LRdzQsPGxDPe93
-	K/fS3ywV1HYUvt72RqkVvihKnoZt46IQa4KtpqtKromafjN7M4qQlndKztQS/2Q5GtWbG1QgOVIXB
-	xFHMN9XEwDpIvEvma8VNyHngFaGl6SQcWsC/VDJoorSb5OkjZCg4/x5+ZLv/WncxalS3X9Nt9fn7O
-	gUhAvM8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N9lFH7UuH7iHQn6NU/GlGO/bgFV+O6Qr6ij9u5KRxs4=; b=k1/mDfuGO+8nXyOUS7kNHWQMH+
+	VDOJ3ZisNTTPLIfSTttlFItwNJMjSdxCTuGEWi1FESAh7RlOIY1P5aauaxjUmClHQ+AFfyMl250PH
+	apMNrrUePIOW4LdYDbL1PMS8hGZI73Ae4iI6kS415FAa/aAVVHvhQLWRg2EOxLxUjvXOP07AjnRmc
+	R3PBDfXPHHYg62XPwdmVmPKvd5Yxjb0XFNIBHWBkoC9O0huBhmOCWtF/8APGB/iMMS8zjyBDCLi26
+	U+7x9eT1CoNR2TTb9wodFII6IUR3s/IX8GbO3uS8emKBn0ln2/r1Od8JvFp//oXOVbfQOv1TXo0T8
+	sQSmAGpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umzP1-00000003GuZ-0hbO;
-	Fri, 15 Aug 2025 18:43:47 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxZV-000000030VN-3GvO
+	id 1umzRW-00000003HB7-491V;
+	Fri, 15 Aug 2025 18:46:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umxZf-000000030Vo-2aZa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 16:46:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iDNccHJ9KzKpiihXLDKhaHNM+PN34M2EFgL/BFUFzAXRwCeL8Zv5tDmucLJa/VndvNNPel7ZaMeqAv5g69yeW59LI4ZfUXp2ZnczPgt+2JiOZJfYnclCINw4lF1YJoyI7YWF7vj6vSgLl3p+UYdD4L4dAk+kFX1oH0AydLInrT3iO/gxJgqdrSyKjj6drwBJ+UBr38/jOD8mO0/S1TgmNtgIMMZxwvhPqCVRoLBD+OtIEelcVbIpmBWUvAez+c6EBmerayzhkx63sBag6UNod7BX5EbjgBZcAOitPCMUbwpkVspjp3zO0p9M+VA3UrrZWyVYkLwcWk+ZUwx3VEG9tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=;
- b=tPs9VgQQfbNdD1hj1X8x69+RVdjCJFJNRB7ETn5aFNWgPN59heVj/W6A7ZAQTL7R4ri/awlbWe338EyO3y5bQEyO6d/qn4wYLLbaTAPDJjrpTk4bSMivUofL6LFvDIcc5lj0KKq0MC8Sev/3cLgM2aUG8vzd/y5t05no3tLKxmzIvPe77rkuMhR4cp7YnCFru1+k6r7EfjnDbelcVekWeSwBY9tKz00Fcvr0HdpNr7RJeem5ETaZVN64zBSije+R+8GB2noiRRf8kZ35h+8UNyeF/OeknW7PiqTtSlgswdznIded2iOayjbZYcMCLQvb/btplBfnyCqk0IVaAKRKcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J8WZMWdfjlB2A2BPGoQn01Pgg5POSyW/k9VHOloxn5I=;
- b=TEcNqJgXdRh+iLWK/8XPOdhGmk8YRbDM7/43TxsetIw6l6l8d/HJXVMICWuDIJ18BtI7gpEzZDMt9WYHHaStK+xIz3NWe8rZa2Q5ImZBoSrPDpGAXRxeoRNWOlR5OuIbWvxifhm2sIGmL5BSxSQjcSsC6592JGK/qvFsQi1kN0Y1DTGbV4h8LJKxKF6wR98qWxDP+gOSpSy3HFYMFThg5JC0laytX/0vxjGePmZoZYJxigaenUSuHNHGNXNMi9uHQlWIXcP/cMKi/pJn4IVrMHJ+HriL9ioebqZsQ3UXYuKRBmQFvx6M5n8IrsdbyqdwRDdVwvTRqjbMsXLM0wE4Lw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.17; Fri, 15 Aug
- 2025 16:46:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.006; Fri, 15 Aug 2025
- 16:46:27 +0000
-Date: Fri, 15 Aug 2025 12:46:19 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 12/13] arm64: dts: imx95-19x19-evk: Add spidev0
-Message-ID: <aJ9kW6SePooeCLIz@lizhi-Precision-Tower-5810>
-References: <20250815-imx9-dts-v1-0-e609eb4e3105@nxp.com>
- <20250815-imx9-dts-v1-12-e609eb4e3105@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250815-imx9-dts-v1-12-e609eb4e3105@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0340.namprd03.prod.outlook.com
- (2603:10b6:a03:39c::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 15 Aug 2025 16:46:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1EEAFEC;
+	Fri, 15 Aug 2025 09:46:28 -0700 (PDT)
+Received: from [192.168.20.57] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 585FA3F738;
+	Fri, 15 Aug 2025 09:46:36 -0700 (PDT)
+Message-ID: <1097a1d1-483d-44b3-b473-4350b5a4b04d@arm.com>
+Date: Fri, 15 Aug 2025 11:46:35 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB7051:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e6fd8cb-00e9-4b78-0351-08dddc1b46d8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3P1ZeLJ+fW0Jx4Hmpl+iTF2VuMglULmyHZ4FrOi+JKEDACkTerFKL3bj8eIO?=
- =?us-ascii?Q?rsSD0gLJ7YRMCzXffkbunUjzW9B8+fR9ymBtizM6Y3u1wacjKESlXD8WGJwR?=
- =?us-ascii?Q?wpn/HpTU/lIu5qhBqz6XZUIIfOUYPSW2IWRtRGog/2qH/Sd+ebMd16nTInxI?=
- =?us-ascii?Q?7J73ZVQBZ0gd+wZpDWapfWTnLm5YWNmX7rVc9RFMHSQPhwfZo7gjMcGWEtXG?=
- =?us-ascii?Q?ZpVSuhguZ+Mq+ruTIpaB1gSjYgLxastkt37IngDFTJ8RGJdVtbS8hC6dATee?=
- =?us-ascii?Q?zB43I44kujgkIH4RFH4yzdCV/p6Gn47wdhUv3wYfealrs2o4o3KejLzx3NdW?=
- =?us-ascii?Q?ns3Mikrt6ukQTD7xQySq+Lpqj7ucMykS+/2XWGoo5DrEhIQ+so5gAi4yRCQU?=
- =?us-ascii?Q?9fvJk757YM+oFft95wXvXT7PPJOStSxEBbgRPxOmtoIdrZbaoi/M7Upg6Fpm?=
- =?us-ascii?Q?0JUF0urZ5alaDbKk0j5mGuLex5CrUEG579Uu1OwlnbFRKuhYop/60E6bK1/4?=
- =?us-ascii?Q?bhTrup9lj70OzJz/8I78PkzPJ1AJOrUaemrJOrhn75Z3lhZPbSo1iIOtT6th?=
- =?us-ascii?Q?wG58yJm5RKUHz9w25URGPwU3Ig6Gyr5khp2UlmIssMSrDQ/laNp7JkqxtU0p?=
- =?us-ascii?Q?g9SDBl4bN1tVixKPhGhIQunCia1/r1lRZTXStD6OwkU7Xd1QStyIPt5LGRuz?=
- =?us-ascii?Q?NnHXNVhWkes629MvE5+dD+DmUBcRUVSmxABwrfP1JSLQ/I+olX+vOnGwl1Tg?=
- =?us-ascii?Q?cq+jLV/8KD26BSka/tEotKC1yX1TWI5ldiQeczJMx04efAxDKX7MRUqFJwIC?=
- =?us-ascii?Q?WM4wEY5V8R2XkPjMBYamzZD+L/myeMxRLzC1MUcacpa+gxwx3spLWBdzOvtV?=
- =?us-ascii?Q?kXlKAvzskLALBvA5Dk/HM+hBhb+kYC+EVLl4+xRCO17Rqw7s6fV6o0RchUZ+?=
- =?us-ascii?Q?7BerRG5N5waZLQyvMY+KwmLsGn0uISVWMT0no7njV46PR3NK0cqpQoQqvtK/?=
- =?us-ascii?Q?FGy2MNFn3dpL4SugjQQnV0giTIsl/u/02eJIlM/s87GytLsqUkYnHvvVT6pu?=
- =?us-ascii?Q?uFInkfjnkTDCqzYBfYIfzI8I5q+ZT/WHWnCIHIlz7+VexIgWVZNMnxohi9HP?=
- =?us-ascii?Q?E00vlXrjl9LlU8dTgj4nvvrrlOFAajAqBvQwvOmbh+ieGmw7inBx8MekVbLD?=
- =?us-ascii?Q?FnNOAfinQm1jY2gwFdPetiI29fRppQeInMAPrdj5xxVE/yJrM76RTEVMsOpK?=
- =?us-ascii?Q?iGvyuCL3qhM58o2HcgZzCnyXz8Zzs5m8WXNpDE6tgFgjRik5c+c885vrHpGT?=
- =?us-ascii?Q?tGZFJcze8Oi4dmIJWiBbueE2/ZjgoypR5rHMsGpDQEFhVzR2Szg1s0iILXcu?=
- =?us-ascii?Q?pPlkwsXY+qPGkNQuYMRi7lKGq03a2je6HO+xT266qurnDKG0FZfFJQMM8xGv?=
- =?us-ascii?Q?AGJLXipEiD7c/TYJSqUREcpX5dkBYdiocbR65l35ZUX4/T5edDDWy1iC0yxV?=
- =?us-ascii?Q?vbPaynf00KQqJpI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vgyDL6jOB++9qIO5LrKXgsgfKccG547yvB+UjP9eBUr5nkmX9DM1vXfwAqUm?=
- =?us-ascii?Q?iqkvqVURGfvWRSWsBbmIBqLDI8B8eroTlYTKsYbDtPtkDOqmXsjvXKxe/G9O?=
- =?us-ascii?Q?WkyjvsUa8/ZfhgZiFvLtny5d3BRDoO/jRaWZJM340BduyHGl14biOFdC5hwL?=
- =?us-ascii?Q?CYBh9Hax7rTbGenN3ZfTdilasF50UuGofVwWzMlGPcjk2jdaT5zHeAogMdz9?=
- =?us-ascii?Q?hGijLVG5/f2ZRoiQsrniZDh3KeNmdtFi0D42bnEGCjVPAdghKtdj33sKl9RA?=
- =?us-ascii?Q?g/M807usce281SYXxpihC9RPAtuZTYp28RQZr+SL4Teo6MTxNDhYUJVA/hZh?=
- =?us-ascii?Q?mQgRpbpd1ODWrBau5JagM3Yx5CldmVupLldIv/CtN1KGQRj6TJi03gN1uUIc?=
- =?us-ascii?Q?K3WSe+as7t7i7B1H5GHf/Mpx5UPQMlD5jGz/tthaN7l9jYO60+665/j03hBx?=
- =?us-ascii?Q?w+ByTzLM7xPb7P6vCB5XFXjtpxqIyY3n0xyVNA5aofvckYMtZOnu+qKp5ITh?=
- =?us-ascii?Q?BWpCZ3eWUWXntXcaQ7AcDfgyVm+IloZrD/TAtutnW2sulLyoclL4CIJWxbwF?=
- =?us-ascii?Q?MqRglkF5h7CtL42VORJ/ikJFV8lWrn1uZoELiifF11ZcwG2N34EeXFeMwaLf?=
- =?us-ascii?Q?q9NPj85923+9tf8Hy504sFkV8hEdN5IH5Tr+rWBl93jZRjXr4ET2zFalolD+?=
- =?us-ascii?Q?jxtRDdLcoTf4YxfdduwSVR/4c+hDELYag1SJZDSBwfIs8q/FnmmKjDWSS4Li?=
- =?us-ascii?Q?5QuPmvDPbhv9n02bX6wwGbhuRfrpMxHg9lV4j31AhUqKUYkdttqVM5ItNDr8?=
- =?us-ascii?Q?j/2AAuMnxoVJNo/EF0pTDq39JxM0cY8RXNSREz1zge8LlRme/czLI5k6K9Vp?=
- =?us-ascii?Q?X6tjrqV+emMB+/UCvKQ+l9XjaCeDqOQxPlwt3SGAWR81sfFLVYPO4aWHrCc4?=
- =?us-ascii?Q?2bG6xcAghMgBm3D8Xb1MSJwWvH6w1z/F7s0PHKePkPGLl9TiENuGItgqvT0H?=
- =?us-ascii?Q?FQhuOfbNS4+WdbjzNkpPb1vsT9Od9/yR06tR1YXdpVb6T+/8Ds5aVdXA2U3X?=
- =?us-ascii?Q?TyfVHIskS76TOzoWUCFvFplC0DG1GQ1xtCDne12EKK1mhgUbmvOcbQYaJheg?=
- =?us-ascii?Q?VP0KgBMhwQ4xuXrymp1EBA0kfBhMKorkIuyXH20GiY9npM2YuGX0Vj775n6E?=
- =?us-ascii?Q?Cp5+Ft0vwJQe9PtaxV+la31nCI4pRojMl48NOq2hpuM+fucYdzp+v0XWR8kY?=
- =?us-ascii?Q?TIVbroaSumuqxJsuCh9xkqzNKq0MDW8649qyEtd/DAbXsWvUyg3HdeUK1+It?=
- =?us-ascii?Q?KenCp1wwFFacZ0oOkmtmz6nKanmYcD1eBBYnLPurn/GSm3OEyyAKUy+brEZF?=
- =?us-ascii?Q?OruqaUCb1KGrF4kRA6epurOFmiIrVxSLT3AheVRbypJ6kRYXz0KGLcHB4C/H?=
- =?us-ascii?Q?6uhBmAVTksayiZ8REAYF9fRRDMYg7VWof2o4E+AxCYIjwEls+oo7fiyODqvY?=
- =?us-ascii?Q?mSPvlxRrH7jGNWH9f9t2B0C6gaHGdDLDH+3cHhWdsbyEMMCnthA/rMhGSRhS?=
- =?us-ascii?Q?a4p/tFa9Ba1ShGX2qlgldkeaklTy0BrCoNFMY7aL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e6fd8cb-00e9-4b78-0351-08dddc1b46d8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Aug 2025 16:46:26.9103
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6UC5iNgEomv5P6mssCGHWSQAlM9tgqT6QOhWOIcnQ59S4/RhXDLYf7KooZQHGr2j96ob2kyLDufU+WWaobIBKw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7051
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>
+Cc: Huang Shijie <shijie@os.amperecomputing.com>, catalin.marinas@arm.com,
+ will@kernel.org, patches@amperecomputing.com,
+ Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org,
+ bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be, arnd@arndb.de,
+ nm@ti.com, ebiggers@kernel.org, nfraprado@collabora.com,
+ prabhakar.mahadev-lad.rj@bp.renesas.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250808025533.6422-1-shijie@os.amperecomputing.com>
+ <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
+ <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
+ <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
+ <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
+ <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+ <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org> <aJ20imoeRL_tifky@bogus>
+ <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
+ <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
+Content-Language: en-US
+From: Jeremy Linton <jeremy.linton@arm.com>
+In-Reply-To: <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_094629_821532_380C385B 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250815_094639_746963_8EC5BA8B 
+X-CRM114-Status: GOOD (  51.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,42 +78,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 05:03:58PM +0800, Peng Fan wrote:
-> Add "lwn,bk4-spi" compatible spidev node under lpspi7.
+Hi,
 
-Previous NAK by Krzysztof Kozlowski
 
-https://lore.kernel.org/imx/7d4ec7c9-c95a-4e7e-9750-f6310ecb59fc@kernel.org/
+On 8/15/25 5:48 AM, Sudeep Holla wrote:
+> On Thu, Aug 14, 2025 at 09:30:06AM -0700, Christoph Lameter (Ampere) wrote:
+>> On Thu, 14 Aug 2025, Sudeep Holla wrote:
+>>
+>>>    |  Different architectures use different terminology to denominate logically
+>>>    |  associated processors, but terms such as package, cluster, module, and
+>>>    |  socket are typical examples.
+>>>
+>>> So how can one use these across architectures ? Package/Socket is quite
+>>> standard. Cluster can be group of processors or it can also be group of
+>>> processor clusters. One of the Arm vendors call it super cluster or something.
+>>> All these makes it super hard for a generic OS to interpret that information.
+>>> Just CONFIG_SCHED_CLUSTER was added with one notion of cluster which was soon
+>>> realised doesn't match with some other notion of it.
+>>
+>> What the cluster actually is used for is up to the hardware. The linux
+>> scheduler provides this functionality. How and when this feature is used
+>> by firmware is a vendor issue. There was never a clear definition.
+>>
+> 
+> Sure, since it is left to architecture to define what it means, it could
+> work. But what happens if we have multiple chiplet inside a socket and
+> each chiplet has multiple cluster. Do you envision using this SCHED_CLUSTER
+> at chiplet level if that works best on the platform ?
+> 
+> That could work, but we need to document all these with the best of our
+> knowledge now so that it is easy to revisit in the future.
+> 
+>>> We can enable it and I am sure someone will report a regression on their
+>>> platform and we need to disable it again. The benchmark doesn't purely
+>>> depend on just the "notion" of cluster but it is often related to the
+>>> private resource and how they are shared in the system. So even if you
+>>> strictly follow the notion of cluster as supported by CONFIG_SCHED_CLUSTER
+>>> it will fail on systems where the private resources are shared across the
+>>> "cluster" boundaries or some variant configuration.
+>>
+>> That is not our problem. If the vendor provides clustering information and
+>> the scheduler uses that then the vendor can modify the firmware to not
+>> enable clustering.
+>>
+> 
+> That is pure wrong. ACPI is describing the hardware. Deciding to put
+> clustering information in these tables only if it provides performance or
+> not hinder performance seem complete non-sense to me. That covering policy
+> in ACPI hardware description. Does ACPI spec mention anything about it ?
+> I mean remove some hardware description even if it is 100% accurate if it
+> hinders performance on one of the OSPM ? Doesn't sound correct at all.
+> 
+>> As mentioned before: We could create a blacklist to override the ACPI info
+>> from the vendor to ensure that clustering is off.
+>>
+> 
+> Not a bad idea. We can see if allow or blocklist works as we start with one.
 
-our board have not SPI which attached to big lwn,bk4-spi boards.
+ From a distro perspective it makes more sense to me to change it from a 
+compile time option to a runtime kernel command line option with the 
+default on/off set by this SCHED_CLUSTER flag rather than try to 
+maintain a blocklist.
 
-Frank
 
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> index 0ad5707314fb225b74d8940908b53dc2a444ed5d..193fc2cc9ac92bc3f0ff0e14ce0b1f84e91516c5 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> @@ -507,6 +507,12 @@ &lpspi7 {
->  	pinctrl-0 = <&pinctrl_lpspi7>;
->  	cs-gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
->  	status = "okay";
-> +
-> +	spidev0: spi@0 {
-> +		compatible = "lwn,bk4-spi";
-> +		reg = <0>;
-> +		spi-max-frequency = <1000000>;
-> +	};
->  };
->
->  &micfil {
->
-> --
-> 2.37.1
->
+I agree the firmware needs a much clearer way to signal that these nodes 
+represent something other than just side effects of the way the table is 
+built. If the working group is hesitant to declare additional 
+topological flags, maybe this idea of deriving additional topological 
+information from nodes without caches is a reasonable spec 
+clarification. That way some future 
+NODE_IS_A_CLUSTER/DSU/CHIPLET/SUPERCLUSTER/RING/SLICE/WHATEVER doesn't 
+turn the existing code into technical debt.
+
+But returning to the original point, its not clear to me that the HW 
+'cluster' information is really causing the performance boost vs, just 
+having a medium size scheduling domain (aka just picking an arbitrary 
+size 4-16 cores) under MC, or simply 'slicing' a L3 in the PPTT such 
+that the MC domains are smaller, yields the same effect. I've seen a 
+number of cases where 'lying' about the topology yields a better result 
+in a benchmark. This is largely what is happening with these Firmware 
+toggles that move/remove the NUMA domains too. Being able to manually 
+reconfigure some of these scheduling levels at runtime might be useful...
+
+
+
+
+> 
+>> What we should not do is disabling clustering for all.
+>>
+> 
+> Not completely against it but I have concerns on how all these scale with
+> multiple chiplets within a socket or any such variants.
+> 
+>>>> We could add a blacklist for those platforms to avoid regressions but we
+>>>> should not allow that to hinder us to enable full support for clustering
+>>>> on ARM64.
+>>>>
+>>>
+>>> Sure, but we need to improve the "cluster" definition in the ACPI and Arm
+>>> specification, get an agreement on what it means for other architecture
+>>> first IMO. We don't want to revisit the same topic again without these as
+>>> IIRC this is the second time we are discussion around this topic.
+>>
+>> The vendors need flexibility to use this feature when it makes sense.
+>>
+> 
+> Sure, but too much flexibility might also hinder future changes when adding
+> some other feature(chiplet again is one thing I can think of now)
+> 
+>> Having a clear definition would limit the use of clustering feature and
+>> limits innovation. Vendors can control the clustering via ACPI and the
+>> firmware they provide with their system.
+>>
+> 
+> Not sure if that should be right direction TBH, but again not against the
+> idea of enabling the feature on some platforms if we are going to enable it
+> by default.
+> 
+>> We could change definition but that but that would be a decadelong
+>> process which will encounter resistance from vendors that make uses of the
+>> clustering feature that does not fall into the stricter definition.
+>>
+> 
+> I understand and get the point, but decadelong is bit of an exaggeration 😉.
+> Not discussing these in ACPI or similar forum is not a good idea as we know
+> there are new h/w features that are being added and current specification
+> may not provide ways to express all of those.
+> 
+
 
