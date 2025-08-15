@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E5DCA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC54CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wyQuAg7wHg8xPlkwj5ueliqGmECn9lBdw6/y92GmRzc=; b=gsG/leWt0xh/HYiPZozxbM5Su+
-	uihFVClRYDqwke8Ljmgy/jNX/bkTjdb9ceE1oZC49uuboy7TrNn+jZVSPqbquL88IRqe27DCx3pbK
-	Kwky9x9B1tHqWsdJI930YMCa/NOgSDCjeb3trPRWYdBqaCTDp1YEqm+RRoO3ReRURyRLCYxY/LIqs
-	bWmNklA9ASS+fPVVS/ss61pSaPfJogGO0Z3D1sHw7wUlgvN24h/l+hOr1S9g6MGLlJvICB8yag+OP
-	rGd30Zg9mwV6AsCmu0KXjNiUREZ9p3dFVDl9z+xPxt/u+2PzOTVwZS8wd3KCxUg+e46loaHk2d0bw
-	JQfLDHvw==;
+	bh=x991MXHST0EKiSJEKhetd564OkHnAL8jVf76/MDrS0c=; b=KHcaB0gWifPr95kzTm333Vfsf1
+	LSq+rBIb0CdQi1EJT2BTOi9hivpSJ1J4E3hotaOCwNN+TZldTUXAugquOd/SpkUPIMktll8cy9z5n
+	EYM0aDHBLS//aYHAjAAqs0L4h/b7/meAIdWXWTjKvbP4N4/Ltm9+jVTpBujFqklz1qETkPra7/4jB
+	+RVifERRPl3vju2mUthF8IaSc3697ijjgBxi5MdZSyCc8FBqrg+OD7LG2qYGCAoPUmt6zctLQSiie
+	d/KXCtsLyx07VKl2Qh6aCf3rm+O03NleUd746E/npTfwSewmwOSlfvBUAkX/oxHv7PQMkCtPvRCqB
+	a5ZZtE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un0u7-00000003Qe2-2QdW;
-	Fri, 15 Aug 2025 20:19:59 +0000
+	id 1un0u6-00000003QcV-1NLv;
+	Fri, 15 Aug 2025 20:19:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umz5P-00000003F3T-1etG
+	id 1umz06-00000003EZX-1kDB
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 Aug 2025 18:23:31 +0000
+	Fri, 15 Aug 2025 18:18:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wyQuAg7wHg8xPlkwj5ueliqGmECn9lBdw6/y92GmRzc=; b=BPxgbVcQjxdfH9qtnU5aaN9Shm
-	JXIamtRhWOnjJQPh7xDyRXc6NstcGHk7f2sVihb5oGEM1uHpkD1P2nR7QHDuAs12FzwIaEEsBkbnu
-	sBjATX3rnRVt6nmddGQ+4wxGrypRsqiIuCwW0EhaEwBru1z7DaofY7I2lRzh0h8jY4eAQ5DcVuhG5
-	pwR9h+0UQwwOlQedP0r3yuA3xE8/wgCHeFTzXX/MNwoLHpo2BWj+lSPBeVNAfiUdaQMjClbI55k5O
-	5oEDijjXCimS0VkcB3zyOQcm2/BXj1bfgWvaRD2jgheVWNYhfkHr2XfrL2NbJ7xF9zQSWT0LJ0I7l
-	33IGeEfA==;
+	bh=x991MXHST0EKiSJEKhetd564OkHnAL8jVf76/MDrS0c=; b=D+x1WVLcZ53KTWMcrdI9EpHE02
+	8yC/gviSJuG+wT0FAIwdGtx7Hf91sReRU9wzkbY4NR3pjNjtDNmP9vMxhMo/l+8MZg2yWVYK76lbO
+	wi3IiJOXMaoVg9Hh6SGKlOUaRg8hQeMHqwBkf/wzWwJd/djaMoJHqc/2nMfXfCz21w+vy5/U5bwYw
+	4J4EwUhJGOS8vNnS+LfEbStl0PEJjv/PDWiyoPj7QrXeo0MSsrixOW50WpA/1PPyaNj1JXc9ZjGJe
+	K+upEvI9o4KYZ2TXOJ5SYgdbiIVNbI1yJHK+mGofoW+ZJAcleHbNAtUm+yqQFE7Yfy3sZ8ZOB09sL
+	6qFjkI2Q==;
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umz5M-0000000GnVn-1uZT
+	id 1umz03-0000000GnRK-18Uk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 18:23:30 +0000
+	Fri, 15 Aug 2025 18:18:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wyQuAg7wHg8xPlkwj5ueliqGmECn9lBdw6/y92GmRzc=; b=n/45N6OGRV3bCfvLHGn3LmHV8A
-	re3KLppUfb3uwkIiPx0oJBx9dNZAOBkoKFNLc7hUyVoOnpnuZ2/CtqrsdMTaCaGSAyhGbfcoo0sY9
-	p+7kT80BQe2dJCO3YnGoF66HMv1zgjCS4AlJE5FB/++t900OV+YgnCMRga4AkXxCkxbM=;
+	bh=x991MXHST0EKiSJEKhetd564OkHnAL8jVf76/MDrS0c=; b=XeDhmJ4y9KKDkVdDuflrq5rn09
+	L5mL6HhGn0XktAYU7n3gE40QDLQ2HzzS51Uyk61sD2QFliAjVGRBjC2aHH5+x+mbqWGvu9fWqUilP
+	PFN6P/BWLU60i0PyUv3v+2ex0B4ftLx92Ab83vIpqI3OPteQ4f3sG9XgovWaSO/8S3G4=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1umz54-004qod-Ok; Fri, 15 Aug 2025 20:23:10 +0200
-Date: Fri, 15 Aug 2025 20:23:10 +0200
+	id 1umyzl-004qln-V5; Fri, 15 Aug 2025 20:17:41 +0200
+Date: Fri, 15 Aug 2025 20:17:41 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Jacky Chou <jacky_chou@aspeedtech.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -71,18 +71,19 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
 	taoren@meta.com, bmc-sw2@aspeedtech.com
-Subject: Re: [net-next v2 4/4] net: ftgmac100: Add RGMII delay configuration
- for AST2600
-Message-ID: <d0948803-b1cb-4a8b-8c4d-55785d5ba39b@lunn.ch>
+Subject: Re: [net-next v2 3/4] ARM: dts: aspeed: ast2600evb: Add delay
+ setting for MAC
+Message-ID: <0f0383dd-a55b-48e6-824c-798c2a9e173e@lunn.ch>
 References: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
- <20250813063301.338851-5-jacky_chou@aspeedtech.com>
+ <20250813063301.338851-4-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250813063301.338851-5-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250813063301.338851-4-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_192328_658932_5CE45957 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250815_191759_590924_7DC880C5 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 02:33:01PM +0800, Jacky Chou wrote:
-> In AST2600, the RGMII delay is configured in SCU register.
-> The MAC0/1 and the MAC2/3 on AST2600 have different delay unit with
-> their delay chain.
-> These MACs all have the 32 stage to configure delay chain.
->       |Delay Unit|Delay Stage|TX Edge Stage|RX Edge Stage|
-> ------+----------+-----------+-------------+-------------+
-> MAC0/1|     45 ps|        32 |           0 |           0 |
-> ------+----------+-----------+-------------+-------------+
-> MAC2/3|    250 ps|        32 |           0 |          26 |
-> ------+----------+-----------+-------------+-------------+
-> The RX edge stage of MAC2 and MAC3 are strating from 26.
-
-strating? 
-
-> +static void ftgmac100_set_internal_delay(struct platform_device *pdev)
-> +{
-> +	struct device_node *np = pdev->dev.of_node;
-> +	struct regmap *scu;
-> +	u32 rgmii_tx_delay;
-> +	u32 rgmii_rx_delay;
-> +	int dly_mask;
-> +	int dly_reg;
-> +	int id;
+> @@ -149,6 +155,9 @@ &mac2 {
+>  
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_rgmii3_default>;
 > +
-> +	if (!(of_device_is_compatible(np, "aspeed,ast2600-mac01") ||
-> +	      of_device_is_compatible(np, "aspeed,ast2600-mac23")))
-> +		return;
+> +	rx-internal-delay-ps = <2000>;
+> +	tx-internal-delay-ps = <2000>;
+>  };
+>  
+>  &mac3 {
+> @@ -159,6 +168,9 @@ &mac3 {
+>  
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_rgmii4_default>;
 > +
-> +	/* If lack one of them, do not configure anything */
-> +	if (of_property_read_u32(np, "tx-internal-delay-ps", &rgmii_tx_delay)) {
-> +		dev_warn(&pdev->dev, "failed to get tx-internal-delay-ps\n");
-> +		return;
-> +	}
-> +	if (of_property_read_u32(np, "rx-internal-delay-ps", &rgmii_rx_delay)) {
-> +		dev_warn(&pdev->dev, "failed to get tx-internal-delay-ps\n");
-> +		return;
-> +	}
+> +	rx-internal-delay-ps = <2000>;
+> +	tx-internal-delay-ps = <2000>;
+>  };
 
-If these properties are required, but are missing, the DT blob is
-broken. Please return -EINVAL, and fail the probe.
+Documentation/devicetree/bindings/net/ethernet-controller.yaml
 
-Please make all errors in this function due to a bad DT blob fatal.
+# Sometimes there is a need to fine tune the delays. Often the MAC or
+# PHY can perform this fine tuning. In the MAC node, the Device Tree
+# properties 'rx-internal-delay-ps' and 'tx-internal-delay-ps' should
+# be used to indicate fine tuning performed by the MAC. The values
+# expected here are small. A value of 2000ps, i.e 2ns, and a phy-mode
+# of 'rgmii' will not be accepted by Reviewers.
 
-	Andrew
+    Andrew
+
+---
+pw-bot: cr
 
