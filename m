@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF9ACA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 04:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0775ACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 05:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYSg6B/4O8fVOkazjiOm3D1xVvur6BiDKKhHZHeEdVs=; b=yQ98Id7HOtFfDnGXk5gmOam0ga
-	RGbWfwVnA3euuJICKPWM9VDhmmrgs0BugVEF4z9AJxIShJAme2dVXZOCS41w8WSRd3K5rIK+CbDGA
-	+85MP1TfF7NFxfJN7QJzaVtI5/tI1Nzi3Dqq55tgDaScBfrk5Wxyk6eDt5unN9e3wlEu5m5mj3ZpW
-	C5L9CjmTvlNOuUncThsL39qffVH+ouXfaa3mVjv7zqYq7D3xjoUugtig9+x/dbK6SYpsCNP7W4WSl
-	dT0IRCSa3q7ZgQc8+24HJBzlY/q6aqUeu3fMiL8gKnFjVEByUkGWKHw6bYoXtvVmz3xPempmv6Hmc
-	/Cgsqcdg==;
+	bh=FcL7hPbmGDM4HASvdhu3BAiCTa7aoi6Rpo2JWPsFZp8=; b=gL9X9rNQjo0FiLdFNQp4yOcERc
+	GoiPS/py1izjAvL6K+53iZhjUbBdGo4t46HC7llGSHX97DcQGiZ9cfKdHw21LCkOlTdGYQ3nsnKKu
+	kEpcamPQV1275Al4EIQ56UsE5PxVpCiZe1oMQrtzHFxu59VOFu6HwVmF+3OndNz4xpbN7ziht+fid
+	cJubKgj/TLyqWW56bizdVkXYnKB9PN+pJ/tE8mvlmD3/2gT5qhJZR+5XWNHB4VDe9dI651ni/UCgB
+	czEFs2DRDu0HnrACVE0op3/bZE2uNmSByTdd5Vi8T7yDg66sK5IAHHZQmTAlvynXCgRahae6x5AT8
+	/e9yINEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ummOo-00000001RPl-1B2X;
-	Fri, 15 Aug 2025 04:50:42 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1ummm7-00000001Uy7-2dEY;
+	Fri, 15 Aug 2025 05:14:47 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ummMA-00000001RFl-3hRl;
-	Fri, 15 Aug 2025 04:48:00 +0000
-X-QQ-mid: zesmtpip2t1755233221t2e0b32c0
-X-QQ-Originating-IP: 6TC+4b5E0Lxiic6TIb7TxO8916XUnNew5Zsms2h75R8=
-Received: from [IPV6:240f:10b:7440:1:6d2d:e482 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 15 Aug 2025 12:46:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11444169768326151993
-Message-ID: <058E04574291144B+66620590-b680-44b9-92c5-7dc4c43080e7@radxa.com>
-Date: Fri, 15 Aug 2025 13:46:58 +0900
+	id 1ummjU-00000001Uez-1mHU;
+	Fri, 15 Aug 2025 05:12:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755234725; x=1786770725;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=piFJDMoWgMoAcz5ZrOxOxHNp2cNxC29xMo9DwzCJmRM=;
+  b=DJbzy0qxP8x6PiAC5TuolIEGqMs2nGcaFOMJoNXE8BHmPrlLdXCsvP7i
+   hEkRpMalLMUsr53MlS7lXrQH116+1N4FM+Geb62k6hBCU0Hk1RKs2XX5g
+   JbPetjNyrxSi5uE923IXVbFvuCKpvwa/mmOZl4V85WBFMXTs7SItK1+wJ
+   +ZjeH9uTkj3fZOlS0kqWNRrlizif7/a1kAgfsQJaHodleuSIj9eLJIzfX
+   3E9O+ZGCu6esrCMVjzHhU5aUKOk3QnXUK6Wybe09VqzXu6EOHVsFF8xuz
+   el8NdSO7ukckFv2TQH5HbSepAQAuAL7gMK7a9MH1lm++XOg3U+H+gP6BC
+   g==;
+X-CSE-ConnectionGUID: U42NNKyZTWuCV8CsLkdIOQ==
+X-CSE-MsgGUID: YsWACPAwQTSXlUjGy6KdlQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="68646435"
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="68646435"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:12:03 -0700
+X-CSE-ConnectionGUID: z3XLWN8JSkSewaRE53xizA==
+X-CSE-MsgGUID: k+jCi0MrTzK5WA2i0FqSdQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="197786291"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:11:57 -0700
+Message-ID: <eb248b73-7fb6-47cd-9e10-5c54ca2391b2@linux.intel.com>
+Date: Fri, 15 Aug 2025 13:09:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E24C
-To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250727144409.327740-1-jonas@kwiboo.se>
- <20250727144409.327740-4-jonas@kwiboo.se>
+Subject: Re: [PATCH v3 1/5] iommu: Lock group->mutex in iommu_deferred_attach
+To: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
+ joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
+Cc: will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+ yi.l.liu@intel.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-pci@vger.kernel.org, patches@lists.linux.dev, pjaroszynski@nvidia.com,
+ vsethi@nvidia.com, helgaas@kernel.org, etzhao1900@gmail.com
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
 Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20250727144409.327740-4-jonas@kwiboo.se>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NMGzQWUSIfvTF6kabW8VppYGb62HavVU0fv9DLatrt6eH4VH9GS2uBYk
-	grKtCBy8DAeRXPgNjy6sn04zHWQGXA32riJ50KMLPqnlTeQGg3jRrc31QPy9cX4dYlfKyh/
-	YrdaADvmEEpoTyO/qbsyMElOy0ME9V68lT63bmoZPKBultH4kePVzcBy4Ki+4xIglgzgBD4
-	YaOdx+T0Ey2GcDX0eTLuLO31WY03PMddA9Hnt9WRZe6pcd6xQ5qlVlof3i21Mbh5WQ5slWq
-	l+CkYabcA14/zJIDA77M1BkKNwtqm+8MibhFbbUjV6Sc24tExQNluget5ArOOMzx+kzeO2o
-	lRRZI8adUNj4p6vA++5CdTixMQVjDml5Ewm7/R/0AUAyqG9fVy8HBQXJKdT5PkvJNjaMRjR
-	7D9iuLE9EW5nZQu631fV8ffkiGM3EdPq4h9tQVQbEwBaNicU5ALd6CfvNd2+y8EsuoXyZLp
-	Hps3cuAeXIUCR8zwaz7d8H8axd/l+qjROFTKBpWnIaQ4vjs0FyB5gTjsmL4sKzdY4GKDa9a
-	RDx9Ex28PUESz8T3EjlVcN1cBg6udChJLUHvnfqH9ax+cTSTTi/hr6fPbzPDiThCnrYfJ8t
-	wkp7jgr5Z08NkWPej2sv2aexB/qSn6EZw5q/zjEoau05aH1bEFP59xAFVphzOjB3HipzCKm
-	0XIcZ2jippT/fy2KgpbBV+jF+2JlsZgHh5KfAOU6pcRRDyNuz1o/ZuG1qwO3HS5irQ0usmb
-	7H1YL645Lu/lOxnd3NDB2/d1fYXgQehA+ZAm+dZT1AFuWpeBnd169s9kHQ3t9gX4/n+yhZT
-	pEvYBP3o4w7tvzEEWjYqjR2dqZ4JIe5PZeyOXnXVDDi8wAE+/etIEfHEI78jdTn04fSHiZa
-	ubTDAD5fWONSqUdTQAmstGpqWfYLh6my8cwnwl9lMpVqWN+gk+mz5POgGCuBIYpE6VR9qaC
-	1pHX+23IlL9d8HTLcST2lSD8uUF3uGab1gvBGatvyeAoh8LSpec7FHNReGZu1b47oRli1+z
-	UnA+gpwUMw4jXKLDKn
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_214759_311508_C5576D6A 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250814_221204_509239_1BFD9D4F 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,587 +94,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
-
-On 7/27/25 23:44, Jonas Karlman wrote:
-> The Radxa E24C is a compact, high-performance network computer
-> developed by Radxa, based on the Rockchip RK3528A SoC.
+On 8/12/25 06:59, Nicolin Chen wrote:
+> The iommu_deferred_attach() is a runtime asynchronous function called by
+> iommu-dma function, which could race against other attach functions if it
+> accesses something in the dev->iommu_group.
 > 
-> Add initial device tree for the Radxa E24C.
+> So, grab the mutex to guard __iommu_attach_device() like other callers.
 > 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
-> Schematics: https://dl.radxa.com/e/e24c/docs/radxa_e24c_v1200_schematic.pdf
-> ---
->   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->   .../boot/dts/rockchip/rk3528-radxa-e24c.dts   | 519 ++++++++++++++++++
->   2 files changed, 520 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
+>   drivers/iommu/iommu.c | 13 ++++++++++---
+>   1 file changed, 10 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 0662fcf00628..dc62fd5305be 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -92,6 +92,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e24c.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2f.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3562-evb2-v10.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
-> new file mode 100644
-> index 000000000000..225f2b0c5339
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
-> @@ -0,0 +1,519 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include "rk3528.dtsi"
-> +
-> +/ {
-> +	model = "Radxa E24C";
-> +	compatible = "radxa,e24c", "rockchip,rk3528";
-> +
-> +	aliases {
-> +		ethernet0 = &gmac1;
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		i2c5 = &i2c5;
-> +		mmc0 = &sdhci;
-> +		mmc1 = &sdmmc;
-> +		rtc0 = &hym8563;
-> +		rtc1 = &rk805;
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:1500000n8";
-> +	};
-> +
-> +	adc-keys {
-> +		compatible = "adc-keys";
-> +		io-channels = <&saradc 0>;
-> +		io-channel-names = "buttons";
-> +		keyup-threshold-microvolt = <1800000>;
-> +		poll-interval = <100>;
-> +
-> +		button-maskrom {
-> +			label = "MASKROM";
-> +			linux,code = <KEY_SETUP>;
-> +			press-threshold-microvolt = <0>;
-> +		};
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio0_a0_user>;
-> +
-> +		button-user {
-> +			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
-> +			label = "USER";
-> +			linux,code = <BTN_1>;
-> +			wakeup-source;
-> +		};
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +
-> +		led-0 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			default-state = "on";
-> +			function = LED_FUNCTION_HEARTBEAT;
-> +			gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-> +			label = "SYS";
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 060ebe330ee16..1e0116bce0762 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -2144,10 +2144,17 @@ EXPORT_SYMBOL_GPL(iommu_attach_device);
+>   
+>   int iommu_deferred_attach(struct device *dev, struct iommu_domain *domain)
+>   {
+> -	if (dev->iommu && dev->iommu->attach_deferred)
+> -		return __iommu_attach_device(domain, dev);
+> +	/*
+> +	 * This is called on the dma mapping fast path so avoid locking. This is
+> +	 * racy, but we have an expectation that the driver will setup its DMAs
 
-"label" is deprecated. "color" and "function" should be enough to 
-explain what they are.
+Why not making it like this,
 
-(Personally, I prefer LED_FUNCTION_STATUS to LED_FUNCTION_HEARTBEAT)
+int iommu_deferred_attach(struct device *dev, struct iommu_domain *domain)
+{
+         /* Caller must be a probed driver on dev */
+         if (!dev->iommu_group)
+                 return 0;
 
-> +			linux,default-trigger = "heartbeat";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&sys_led_g>;
-> +		};
-> +
-> +		led-1 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			default-state = "off";
-> +			function = LED_FUNCTION_WAN;
-> +			gpios = <&gpio4 RK_PA0 GPIO_ACTIVE_HIGH>;
-> +			label = "WAN";
+         guard(mutex)(&dev->iommu_group->mutex);
+         if (!dev->iommu->attach_deferred)
+                 return 0;
 
-Ditto.
+         return __iommu_attach_device(domain, dev);
+}
 
-> +			linux,default-trigger = "netdev";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&wan_led_g>;
-> +		};
-> +
-> +		led-2 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			default-state = "off";
-> +			function = LED_FUNCTION_LAN;
-> +			gpios = <&gpio1 RK_PB0 GPIO_ACTIVE_HIGH>;
-> +			label = "LAN1";
+?
 
-Ditto.
+> +	 * inside probe while being single threaded to avoid racing.
+> +	 */
+> +	if (!dev->iommu || !dev->iommu->attach_deferred)
+> +		return 0;
+>   
+> -	return 0;
+> +	guard(mutex)(&dev->iommu_group->mutex);
+> +
+> +	return __iommu_attach_device(domain, dev);
+>   }
+>   
+>   void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
 
-You can use the following instead:
-  function-enumerator = <1>;
-
-> +			linux,default-trigger = "netdev";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&lan1_led_g>;
-> +		};
-> +
-> +		led-3 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			default-state = "off";
-> +			function = LED_FUNCTION_LAN;
-> +			gpios = <&gpio1 RK_PB1 GPIO_ACTIVE_HIGH>;
-> +			label = "LAN2";
-
-  function-enumerator = <2>;
-
-> +			linux,default-trigger = "netdev";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&lan2_led_g>;
-> +		};
-> +
-> +		led-4 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			default-state = "off";
-> +			function = LED_FUNCTION_LAN;
-> +			gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
-> +			label = "LAN3";
-
-  function-enumerator = <3>;
-
-Best regards,
-
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
-
-> +			linux,default-trigger = "netdev";
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&lan3_led_g>;
-> +		};
-> +	};
-> +
-> +	vcc3v3_mkey: regulator-3v3-vcc-mkey {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&mkey_pwr_en>;
-> +		regulator-name = "vcc3v3_mkey";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc5v0_sys: regulator-5v0-vcc-sys {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc5v0_sys";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc_12v>;
-> +	};
-> +
-> +	vcc5v0_usb20: regulator-5v0-vcc-usb20 {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpios = <&gpio1 RK_PA3 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&usb_host_en>;
-> +		regulator-name = "vcc5v0_usb20";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc_12v: regulator-12v0-vcc {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_12v";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-max-microvolt = <12000000>;
-> +	};
-> +
-> +	avddl_1v1: avddh_3v3: avdd_rtl8367rb: regulator-avdd-rtl8367rb {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpios = <&gpio1 RK_PC3 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio_8367_en>;
-> +		regulator-name = "avdd_rtl8367rb";
-> +		startup-delay-us = <10000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
-> +	vccio_sd: regulator-vccio-sd {
-> +		compatible = "regulator-gpio";
-> +		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-> +		regulator-name = "vccio_sd";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		states = <1800000 0x0>, <3300000 0x1>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu1 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu2 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu3 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&gmac1 {
-> +	clock_in_out = "output";
-> +	phy-mode = "rgmii-id";
-> +	phy-supply = <&avdd_rtl8367rb>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&rgmii_miim>, <&rgmii_tx_bus2>, <&rgmii_rx_bus2>,
-> +		    <&rgmii_rgmii_clk>, <&rgmii_rgmii_bus>, <&gmac1_rstn_l>;
-> +	status = "okay";
-> +
-> +	fixed-link {
-> +		speed = <1000>;
-> +		full-duplex;
-> +	};
-> +};
-> +
-> +&gpu {
-> +	mali-supply = <&vdd_logic>;
-> +	status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c0m0_xfer>;
-> +	status = "okay";
-> +
-> +	rk805: pmic@18 {
-> +		compatible = "rockchip,rk805";
-> +		reg = <0x18>;
-> +		interrupt-parent = <&gpio4>;
-> +		interrupts = <RK_PB2 IRQ_TYPE_LEVEL_LOW>;
-> +		#clock-cells = <1>;
-> +		clock-output-names = "rk805-clkout1", "rk805-clkout2";
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pmic_int>;
-> +		system-power-controller;
-> +		wakeup-source;
-> +
-> +		vcc1-supply = <&vcc5v0_sys>;
-> +		vcc2-supply = <&vcc5v0_sys>;
-> +		vcc3-supply = <&vcc5v0_sys>;
-> +		vcc4-supply = <&vcc5v0_sys>;
-> +		vcc5-supply = <&vcc5v0_sys>;
-> +		vcc6-supply = <&vcc5v0_sys>;
-> +
-> +		regulators {
-> +			vdd_arm: DCDC_REG1 {
-> +				regulator-name = "vdd_arm";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <712500>;
-> +				regulator-max-microvolt = <1450000>;
-> +				regulator-ramp-delay = <12500>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +				};
-> +			};
-> +
-> +			vdd_logic: DCDC_REG2 {
-> +				regulator-name = "vdd_logic";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <712500>;
-> +				regulator-max-microvolt = <1450000>;
-> +				regulator-ramp-delay = <12500>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_ddr: DCDC_REG3 {
-> +				regulator-name = "vcc_ddr";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_3v3: DCDC_REG4 {
-> +				regulator-name = "vcc_3v3";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-max-microvolt = <3300000>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <3300000>;
-> +				};
-> +			};
-> +
-> +			vcc_1v8: LDO_REG1 {
-> +				regulator-name = "vcc_1v8";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1800000>;
-> +				};
-> +			};
-> +
-> +			vcc1v8_emmc: LDO_REG2 {
-> +				regulator-name = "vcc1v8_emmc";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1800000>;
-> +				};
-> +			};
-> +
-> +			vdd_0v9_p: LDO_REG3 {
-> +				regulator-name = "vdd_0v9_p";
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-min-microvolt = <900000>;
-> +				regulator-max-microvolt = <900000>;
-> +
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <900000>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&i2c1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c1m0_xfer>;
-> +	status = "okay";
-> +
-> +	eeprom@50 {
-> +		compatible = "belling,bl24c16a", "atmel,24c16";
-> +		reg = <0x50>;
-> +		pagesize = <16>;
-> +		read-only;
-> +		vcc-supply = <&vcc_3v3>;
-> +	};
-> +};
-> +
-> +&i2c5 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&i2c5m0_xfer>;
-> +	status = "okay";
-> +
-> +	hym8563: rtc@51 {
-> +		compatible = "haoyu,hym8563";
-> +		reg = <0x51>;
-> +		#clock-cells = <0>;
-> +		interrupt-parent = <&gpio4>;
-> +		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&rtc_int_l>;
-> +		wakeup-source;
-> +	};
-> +};
-> +
-> +&mdio1 {
-> +	reset-delay-us = <25000>;
-> +	reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	reset-post-delay-us = <100000>;
-> +};
-> +
-> +&pinctrl {
-> +	ethernet {
-> +		gmac1_rstn_l: gmac1-rstn-l {
-> +			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		gpio_8367_en: gpio-8367-en {
-> +			rockchip,pins = <1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		rtl8367rb_eint: rtl8367rb-eint {
-> +			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
-> +
-> +	gpio-keys {
-> +		gpio0_a0_user: gpio0-a0-user {
-> +			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
-> +
-> +	leds {
-> +		lan1_led_g: lan1-led-g {
-> +			rockchip,pins = <1 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		lan2_led_g: lan2-led-g {
-> +			rockchip,pins = <1 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		lan3_led_g: lan3-led-g {
-> +			rockchip,pins = <1 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		sys_led_g: sys-led-g {
-> +			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +
-> +		wan_led_g: wan-led-g {
-> +			rockchip,pins = <4 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
-> +	pcie {
-> +		mkey_pwr_en: mkey-pwr-en {
-> +			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
-> +	pmic {
-> +		pmic_int: pmic-int {
-> +			rockchip,pins = <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
-> +
-> +	rtc {
-> +		rtc_int_l: rtc-int-l {
-> +			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
-> +
-> +	sdmmc {
-> +		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-> +			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +
-> +	usb {
-> +		usb_host_en: usb-host-en {
-> +			rockchip,pins = <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-> +};
-> +
-> +&saradc {
-> +	vref-supply = <&vcc_1v8>;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci {
-> +	bus-width = <8>;
-> +	cap-mmc-highspeed;
-> +	mmc-hs200-1_8v;
-> +	no-sd;
-> +	no-sdio;
-> +	non-removable;
-> +	vmmc-supply = <&vcc_3v3>;
-> +	vqmmc-supply = <&vcc1v8_emmc>;
-> +	status = "fail";
-> +};
-> +
-> +&sdmmc {
-> +	bus-width = <4>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	disable-wp;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_3v3>;
-> +	vqmmc-supply = <&vccio_sd>;
-> +	status = "okay";
-> +};
-> +
-> +&sfc {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&fspi_csn0>, <&fspi_pins>;
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-> +		spi-max-frequency = <50000000>;
-> +		spi-rx-bus-width = <4>;
-> +		spi-tx-bus-width = <1>;
-> +		vcc-supply = <&vcc1v8_emmc>;
-> +	};
-> +};
-> +
-> +&u2phy {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy_host {
-> +	phy-supply = <&vcc5v0_usb20>;
-> +	status = "okay";
-> +};
-> +
-> +&u2phy_otg {
-> +	status = "okay";
-> +};
-> +
-> +&uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&uart0m0_xfer>;
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_ehci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_xhci {
-> +	extcon = <&u2phy>;
-> +	maximum-speed = "high-speed";
-> +	phys = <&u2phy_otg>;
-> +	phy-names = "usb2-phy";
-> +	status = "okay";
-> +};
-
+Thanks,
+baolu
 
