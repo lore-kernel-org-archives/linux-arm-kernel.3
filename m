@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34047CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 10:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6690CA0EE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 10:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aJoDwb/u3Nzlv4jn8+XZaODNbWbOa/Nrb+B9eqkeeBc=; b=ndOxNP3pAd039VzMYyMgxb9JJD
-	wdI9yV2yUUaCNrrjUnWAtjSBA3psVN65M0t3SuBZ7QcimllqUa9gcolJ/0NWHuiPHO3hX7SOaXYMq
-	Tc5O8niTtLzLH8wHkeCDvugud+t4JIsx5rV5SAv1l66G/+7kGKfKr6NBRJiyyLA23z6zqy7oePMa9
-	xto3nDAVbH8Rny3sFQktyI0M67zhbybPC/L61168wZOUinH8mdVDPvN4RyyF0tNfVtKxxvbo6EklB
-	QqzVE+8fLgzK84VrYLPU+63bN82E4WtzoMhX4tA/jScb3ZJV+bFBex1HLcSWJ9IkFpUyjnVxbp0CL
-	l5ztzbvA==;
+	bh=xScE1ZeqkqR6cVLz8VDAxvPBqz1u2D3A/BF5V85Xz48=; b=FwG9r5+hW//QTeSaj3oCzZqPX8
+	HnLBLIDVxIXFqDYmiWFTs8UFlZaaJnf0LYFL2bklsOnBBbODLaIv0QNHbU5VukPw4tdK0YgI1ZtDd
+	zOCYN1oyAkiCGNYmSO9WkJRukmdjbt1v/EOmOW2keUVfm22HVF6kranwOcRKrknjA+P0fDAcIU871
+	X+QMp6Yg7ol2nSH9r+97kpKztZrU/onFT97nbuwFOFPm8unOhKuvBtvYL++NCuMJGSYiLxTvHVC4R
+	xcNTXpm5yd2o1FLGJGkmeJHbmnbPKY3z83Ut1CvEwQeOapzEroV4R4ytxqJpdmFzTv37f+++NsOzn
+	xDi/Ezlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umrcN-00000002Cbx-2k8s;
-	Fri, 15 Aug 2025 10:25:03 +0000
+	id 1umrf0-00000002CtP-3UsM;
+	Fri, 15 Aug 2025 10:27:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqE3-00000001vkh-0BFJ
+	id 1umqE7-00000001vne-3t51
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 08:55:53 +0000
+	Fri, 15 Aug 2025 08:55:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8534D1E32;
-	Fri, 15 Aug 2025 01:55:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 619F51E32;
+	Fri, 15 Aug 2025 01:55:47 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A4FC3F63F;
-	Fri, 15 Aug 2025 01:55:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 076A53F63F;
+	Fri, 15 Aug 2025 01:55:50 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH v5 05/18] arm64: Implement asm/kpkeys.h using POE
-Date: Fri, 15 Aug 2025 09:54:59 +0100
-Message-ID: <20250815085512.2182322-6-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v5 06/18] arm64: set_memory: Implement set_memory_pkey()
+Date: Fri, 15 Aug 2025 09:55:00 +0100
+Message-ID: <20250815085512.2182322-7-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_015551_117034_68053971 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250815_015556_012063_17E1139D 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,71 +90,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the kpkeys interface if CONFIG_ARM64_POE is enabled.
-The permissions for KPKEYS_PKEY_DEFAULT (pkey 0) are set to RWX as
-this pkey is also used for code mappings.
+Implement set_memory_pkey() using POE if supported.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/kpkeys.h | 49 +++++++++++++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
- create mode 100644 arch/arm64/include/asm/kpkeys.h
+ arch/arm64/include/asm/set_memory.h |  4 ++++
+ arch/arm64/mm/pageattr.c            | 25 +++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
-new file mode 100644
-index 000000000000..3b0ab5e7dd22
---- /dev/null
-+++ b/arch/arm64/include/asm/kpkeys.h
-@@ -0,0 +1,49 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ASM_KPKEYS_H
-+#define __ASM_KPKEYS_H
+diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
+index 90f61b17275e..b6cd6de34abf 100644
+--- a/arch/arm64/include/asm/set_memory.h
++++ b/arch/arm64/include/asm/set_memory.h
+@@ -19,4 +19,8 @@ bool kernel_page_present(struct page *page);
+ int set_memory_encrypted(unsigned long addr, int numpages);
+ int set_memory_decrypted(unsigned long addr, int numpages);
+ 
++#ifdef CONFIG_ARCH_HAS_KPKEYS
++int set_memory_pkey(unsigned long addr, int numpages, int pkey);
++#endif
 +
-+#include <asm/barrier.h>
-+#include <asm/cpufeature.h>
-+#include <asm/por.h>
-+
-+#include <asm-generic/kpkeys.h>
-+
-+static inline bool arch_kpkeys_enabled(void)
+ #endif /* _ASM_ARM64_SET_MEMORY_H */
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 04d4a8f676db..41d87c2880fe 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -8,6 +8,7 @@
+ #include <linux/mem_encrypt.h>
+ #include <linux/sched.h>
+ #include <linux/vmalloc.h>
++#include <linux/pkeys.h>
+ 
+ #include <asm/cacheflush.h>
+ #include <asm/pgtable-prot.h>
+@@ -292,6 +293,30 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+ 	return set_memory_valid(addr, nr, valid);
+ }
+ 
++#ifdef CONFIG_ARCH_HAS_KPKEYS
++int set_memory_pkey(unsigned long addr, int numpages, int pkey)
 +{
-+	return system_supports_poe();
++	unsigned long set_prot = 0;
++
++	if (!system_supports_poe())
++		return 0;
++
++	if (!__is_lm_address(addr))
++		return -EINVAL;
++
++	if (pkey >= arch_max_pkey())
++		return -EINVAL;
++
++	set_prot |= pkey & BIT(0) ? PTE_PO_IDX_0 : 0;
++	set_prot |= pkey & BIT(1) ? PTE_PO_IDX_1 : 0;
++	set_prot |= pkey & BIT(2) ? PTE_PO_IDX_2 : 0;
++
++	return __change_memory_common(addr, PAGE_SIZE * numpages,
++				      __pgprot(set_prot),
++				      __pgprot(PTE_PO_IDX_MASK));
 +}
++#endif
 +
-+#ifdef CONFIG_ARM64_POE
-+
-+static inline u64 por_set_kpkeys_level(u64 por, int level)
-+{
-+	por = por_elx_set_pkey_perms(por, KPKEYS_PKEY_DEFAULT, POE_RWX);
-+
-+	return por;
-+}
-+
-+static __always_inline void __kpkeys_set_pkey_reg_nosync(u64 pkey_reg)
-+{
-+	write_sysreg_s(pkey_reg, SYS_POR_EL1);
-+}
-+
-+static __always_inline int arch_kpkeys_set_level(int level)
-+{
-+	u64 prev_por = read_sysreg_s(SYS_POR_EL1);
-+	u64 new_por = por_set_kpkeys_level(prev_por, level);
-+
-+	__kpkeys_set_pkey_reg_nosync(new_por);
-+	isb();
-+
-+	return prev_por;
-+}
-+
-+static __always_inline void arch_kpkeys_restore_pkey_reg(u64 pkey_reg)
-+{
-+	__kpkeys_set_pkey_reg_nosync(pkey_reg);
-+	isb();
-+}
-+
-+#endif /* CONFIG_ARM64_POE */
-+
-+#endif	/* __ASM_KPKEYS_H */
+ #ifdef CONFIG_DEBUG_PAGEALLOC
+ /*
+  * This is - apart from the return value - doing the same
 -- 
 2.47.0
 
