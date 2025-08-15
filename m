@@ -4,88 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB040CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9476CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HinHQKZUtxe4t41iR9D9bn+PEZ105vFBbOQmMnTwk9Y=; b=lXQOkGDSknsQiSr+UdRp6x+UAM
-	ptfy72rzgbaqg2kCp6ZDW9Ay4d9AhV/0KdW3q0+9KsM5hk5s/531pzycIS6x2Dz2TyGdD20spFHM0
-	6jInM0PAPh6Vt3nz1KBm1+zOrcmJPSBzc3KWAA6N9yTeCKlnY2gx0E5MFBJfaWlY8jSwBuFgtm17h
-	cQpAioYi+N7gOVjmsWYchLboQUfWLLB6oN/iLaHhdHvxY4uk5JJUFDHIbhspbEekIIa0iO6XtGZUG
-	NojR7IyVGv+YaI1eyF6d9VaipICWnkGGuR0QmQ4OAHhSibS1jwn2en3Uy5qkyDQUewa/Mx7dR0Pve
-	JMxqT0qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TcRPxgqLk3x6fif4N20T3X//Jq4ipROE7TP3Nf0t15s=; b=W78pYlmFaMk8FNWRu5QYco07d0
+	W5hztVc/WkC4wsAkgx+ubul9HeT2TPtpF+fJR0/LydppNCUO1rT81KDjjwPwbYkRuSeV64SNHn6JF
+	m1IfOy6mME5DC2T3X1dgQmdP2Bur/n7be1A5x0YgyASiDosMOChYae/liiFqUjGChrIjHkyzuvILh
+	jCXzGN8faaTrpUuPi0dWQg/P4ymub8rcTbWAjjlIjjgdyEkbwbt4Kw7InORHGZ+vYyTRjCCfihQxY
+	c8rY05lRaYq6DIzAP6p9dx6hNGs6y0AikRUMTq7sU9LbJD2Ez5WzwsDl1m+8SDlm7vLmEkkRFxiYv
+	k17BJaiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umkm0-00000001FaB-1UdE;
-	Fri, 15 Aug 2025 03:06:32 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1umkov-00000001G70-0UcW;
+	Fri, 15 Aug 2025 03:09:33 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umkjR-00000001FKU-02Dg
+	id 1umkmK-00000001Fdm-2qPL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 03:03:54 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55ce5097493so1625387e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:03:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755227031; x=1755831831; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HinHQKZUtxe4t41iR9D9bn+PEZ105vFBbOQmMnTwk9Y=;
-        b=esfbJXg62k9CrF2RJZCIsRu2Xm/TA4n/EzPo0PuB9mG3Q0KnM+nN1bvONoMnAda9Mb
-         ilM5pxPFXS/yVyeipE2IPNAt/+JH1fUQrHHk707yyvg/dQgFiYyJR3GTLnwtNfoarv4X
-         NO45xKNPwRBgbDHyDaqRSdaQAT0id4IKNftz4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755227031; x=1755831831;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HinHQKZUtxe4t41iR9D9bn+PEZ105vFBbOQmMnTwk9Y=;
-        b=VdKBuWHC9m8GbDU+pTdFqHYAE2LZEHodYWP2H4nuedwQ+ekWenWJr3qKpvZD0g1NOT
-         quPhEf+LiDsObLn4CuxofyAFOYqzLkiJWVbm78y/FK/2ldR7EYvUbRdVD8khNqhPRXmH
-         xVBVDV4waA0OQGdjGWyidntGkNuFTBu5lT/Fyl79hSWqkUK6YGcWzZmfO5ZIOnuksLgp
-         S5WF34dtRA6FzBJR5AEe0VTVzdfY/+npa28MZemqkrBkgxIu6+t4fkQZ/MDBcczzrfwW
-         abPvd3EgeDi6XGg/lknygsCJJXpo1M2fAf1wopS5vXFL2nWT9h00x4dMCcHmvXzZ4uyc
-         Zllw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkMn5y26HhPv8nfHiTcVTw08/1JMpfvCaPenY9P2SVT7rTGOnnALV+JzXAupwvNF2jFM9JLfutTHZ2nKOnhdg7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbpUlJiEfADHKMVXPMsKP/odTCaAYRRtbO2cxX2++OGwIOk7yW
-	aFRy71gDuvPo7KDEtyU71MnEhSI4ySxnXTLC+U7Uoep7jrh6Ey4IvNvxKbGDJw0xwPDqOV7waBm
-	DtVOQVEz+rJI2tXBe4FY24Gi5+FZl313gk8j13spg
-X-Gm-Gg: ASbGnctcl4DqTrEjFNPn19AZJbZ6WQjb5I2Lq/aukAkgM6xgEFOaE2Luz1sGLn0KAdm
-	EwA7SYyw+rOs9gF3O7MIQg9btIsL+kO+SVTOqDhKaP+uzbi1eiSunXFk+8w4Qao+qWoyloXjaGR
-	2Av2sJqC/SuQV4z5wNkszKGfwnObPZTmXYljeuNfyTL8OPVhIL8NNNEElQK918foy7j7Y2Ch74k
-	PzPZ+1ECcgr1lBUZ3jR+hIiDKE1TGB+cQpPLA==
-X-Google-Smtp-Source: AGHT+IE5oudoWOuExXFcWc613ObdeU+xcba/kkjYM4lQww+ElYzSmi2/gSXFiaP7UzcFCgh/kx+W9zwxu3OJ8SIUDuU=
-X-Received: by 2002:a05:6512:1104:b0:553:a9af:9e43 with SMTP id
- 2adb3069b0e04-55ceeb906demr143594e87.53.1755227031067; Thu, 14 Aug 2025
- 20:03:51 -0700 (PDT)
+	Fri, 15 Aug 2025 03:06:54 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4c36NP1Z3Kz2CgB4;
+	Fri, 15 Aug 2025 11:02:29 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9B54814011F;
+	Fri, 15 Aug 2025 11:06:49 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 15 Aug
+ 2025 11:06:48 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<sstabellini@kernel.org>, <mark.rutland@arm.com>, <ada.coupriediaz@arm.com>,
+	<mbenes@suse.cz>, <broonie@kernel.org>, <anshuman.khandual@arm.com>,
+	<ryan.roberts@arm.com>, <chenl311@chinatelecom.cn>, <liaochang1@huawei.com>,
+	<kristina.martsenko@arm.com>, <leitao@debian.org>, <ardb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<xen-devel@lists.xenproject.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v8 5/8] entry: Add arch_irqentry_exit_need_resched() for arm64
+Date: Fri, 15 Aug 2025 11:06:30 +0800
+Message-ID: <20250815030633.448613-6-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250815030633.448613-1-ruanjinjie@huawei.com>
+References: <20250815030633.448613-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-2-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-2-laura.nao@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 12:03:40 +0900
-X-Gm-Features: Ac12FXzlE2kni0q5NyqXgX7d170kjvAVh0V3KwwS63urIxRRXRRBW2zdHpmR4vA
-Message-ID: <CAGXv+5GDU45O46A+mpdu1HQ_sfT2Su4fgFCtr4xPjoRPzwOWmg@mail.gmail.com>
-Subject: Re: [PATCH v4 01/27] clk: mediatek: clk-pll: Add set/clr regs for
- shared PLL enable control
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
-	richardcochran@gmail.com, guangjie.song@mediatek.com, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_200353_063515_4B23D32A 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250814_200652_861866_95DA27B0 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,18 +75,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
- wrote:
->
-> On MT8196, there are set/clr registers to control a shared PLL enable
-> register. These are intended to prevent different masters from
-> manipulating the PLLs independently. Add the corresponding en_set_reg
-> and en_clr_reg fields to the mtk_pll_data structure.
->
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+Compared to the generic entry code, ARM64 does additional checks
+when deciding to reschedule on return from interrupt. So introduce
+arch_irqentry_exit_need_resched() in the need_resched()
+condition of the generic raw_irqentry_exit_cond_resched(), with
+a NOP default. This will allow ARM64 to implement the architecture
+specific version for switching over to the generic entry code.
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Suggested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Suggested-by: Mark Rutland <mark.rutland@arm.com>
+Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ kernel/entry/common.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+index 408d28b5179d..f62e1d1b2063 100644
+--- a/kernel/entry/common.c
++++ b/kernel/entry/common.c
+@@ -143,6 +143,20 @@ noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
+ 	return ret;
+ }
+ 
++/**
++ * arch_irqentry_exit_need_resched - Architecture specific need resched function
++ *
++ * Invoked from raw_irqentry_exit_cond_resched() to check if resched is needed.
++ * Defaults return true.
++ *
++ * The main purpose is to permit arch to avoid preemption of a task from an IRQ.
++ */
++static inline bool arch_irqentry_exit_need_resched(void);
++
++#ifndef arch_irqentry_exit_need_resched
++static inline bool arch_irqentry_exit_need_resched(void) { return true; }
++#endif
++
+ void raw_irqentry_exit_cond_resched(void)
+ {
+ 	if (!preempt_count()) {
+@@ -150,7 +164,7 @@ void raw_irqentry_exit_cond_resched(void)
+ 		rcu_irq_exit_check_preempt();
+ 		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
+ 			WARN_ON_ONCE(!on_thread_stack());
+-		if (need_resched())
++		if (need_resched() && arch_irqentry_exit_need_resched())
+ 			preempt_schedule_irq();
+ 	}
+ }
+-- 
+2.34.1
+
 
