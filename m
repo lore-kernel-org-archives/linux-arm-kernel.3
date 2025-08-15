@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A74CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98A4CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 21:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uxnI97Oar3eJxffsPtaRWw14y+f8eKTN8g29/St3/s4=; b=QpdsrbtQxab5qQgINJkRTTMetq
-	GGM3m8NQaoqvUQ6aqa6HLZETynhkP1BCgU+g7TGkM3X8azWb3CR6gD/yfMR4vWLlJLZxohZ/6BfeP
-	ZFCGOSSV/PsfmJdeNDABpisMmeUdf/0v0ohOV87p6MrPDMNp4TkbPOUfTuimzj8OH4kb3JJCjjZWH
-	AWMjfr7xx/Kxos/1ZXsziBt2X4QyBnipKfOlqasOiTlyL2JMGCb8sPmWB2LyXTrSX3jNZYdj1T7OW
-	OQRJc4DvgtJZIW2LPRZ1Wu2klvatkVKGjk4Jta9FP1M6X89zUf+zPACyEcC7lVR2SDXIkD1FllG+v
-	S0lRmPog==;
+	bh=ZvE7HcSrm1TIupvk7fabk+Gqg2aIlpj0qnYEvjTM0ns=; b=0/st6yH3qSaMDMUsUNSZQHqP77
+	Ge/lSJfLSldWyFOtccmhaM1EXTnuhbNnA2GMOo3i2Q5KVpejVh9Z5hN2nCmnnN0q2/KdcxlFolj0v
+	++qSNM3Vudq/QS9c/BSEXfiFZA/1D4gtjWXGk14iY2qom1Xn3OTFQTK03jah/c0wG82Po3rKKLwgh
+	mM8TJZnuO2+3PTPiAkuNs8a88fwKMWSFl5xqmkUe4iIUxwbOWa381c56QrshFwOvY8g114rUM/5xI
+	LS3x1qrkFQzaT9CGI0RjouXdPrVt7wpiu+RVt2crZeW/DUmiptuyu4lRz+yhIJ2QXApmXb8NO9AgL
+	ezVvNRMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1s2-00000003XZe-1IbG;
-	Fri, 15 Aug 2025 21:21:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1un1ud-00000003Xqf-0gAN;
+	Fri, 15 Aug 2025 21:24:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un1pP-00000003XEU-2f5v
+	id 1un1pP-00000003XEO-12vi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 21:19:11 +0000
+	Fri, 15 Aug 2025 21:19:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1708D6141C;
-	Fri, 15 Aug 2025 21:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C685EC4CEEB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FB5544D79;
 	Fri, 15 Aug 2025 21:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8C7EC4CEF8;
+	Fri, 15 Aug 2025 21:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755292750;
-	bh=AWF7ROMiI+AFCkdDNOd6X3SLMWbwQ51ClYm8LtWloJQ=;
+	bh=K+r06jLu5/QfCZbN9piqdk/fiyOGa1TyF6QkY5xklXQ=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Z3e5v6U9jNUaD41ytw6FxJKG/p6EF4RS26+LYK6VtArQ4DSVyNj2/faRMNOQPxeSS
-	 iCpnbvjGMFjPRKbNtHNj7a8TuWitLBPIimAcqcIfEffZGKcl7Wc17tLXMLzT51AXW8
-	 ucVQQzzOYfdhEJNWcSie+kE7SoJC2lumk4R9fHqWxJ5npWdaNK2o+jltI9/73Q9ssF
-	 Hm2FSzfpcOpClw4L6zjDSChVbzyjakQTfg3frK3ab/lwjz7SbGM4T2UjE+Ssc5YumZ
-	 ps7FnmyBDfEULcwsWr0xLzxQfOAgVH4oyvoX3bidX62RBbOjWxN/oBu8dKLggfJYBB
-	 JXA2CFaarqhuQ==
-Date: Fri, 15 Aug 2025 16:19:10 -0500
+	b=IsEt8QSynFtXD1ppIMy6AyN46/r047g46cJcO6Fnm0A0yh+84FoNWyizkrNntmYrF
+	 ATInUU6ByuKliIMsIlocgSgfhe3f9NlYYwlHwfqu2l38TqT3oNT5wjjLvFz+ZXFzC2
+	 2fCGv0bWrWRoWzkMr4mrdHq2+Zt0OWylWuHhgrAgWXxSyQGGz1ijTdIV92JC3bm4oL
+	 GEokvA1QfeE6WIhntjac/k65bxdohAqh+eu6Dl1yGHAsfueEViFyG4JeH4OgelV5Pf
+	 A+rmN0XB4RvY314InNBPak8WyZCgfHH0D7XfYVfoT8jdVlGDAWvmrOXO4gEFKfMC0a
+	 yu7t2cPtj11Ew==
+Date: Fri, 15 Aug 2025 16:19:09 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, 
- devicetree@vger.kernel.org
-To: Linus Walleij <linus.walleij@linaro.org>
-In-Reply-To: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
-References: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org>
-Message-Id: <175529260025.3212383.1843651240268969923.robh@kernel.org>
-Subject: Re: [PATCH 0/3] ARM: dts: ixp4xx: Add device trees for MI424WR
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-aspeed@lists.ozlabs.org, 
+ linux-arm-kernel@lists.infradead.org, Joel Stanley <joel@jms.id.au>
+To: Fred Chen <fredchen.openbmc@gmail.com>
+In-Reply-To: <20250814131706.1567067-1-fredchen.openbmc@gmail.com>
+References: <20250814131706.1567067-1-fredchen.openbmc@gmail.com>
+Message-Id: <175529259974.3212367.16366822597087067588.robh@kernel.org>
+Subject: Re: [PATCH v2 0/4] Revise Meta Santabarbara devicetree
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250815_141911_311991_5E6E0594 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,34 +75,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 14 Aug 2025 18:40:02 +0200, Linus Walleij wrote:
-> This patch series adds device trees for Actiontec MI424WR
-> versions A, C and D.
+On Thu, 14 Aug 2025 21:16:56 +0800, Fred Chen wrote:
+> Summary:
+> Revise linux device tree entry related to Meta (Facebook) Santabarbara.
 > 
-> These routers are quite common in the Americas and uses
-> the IXP4xx SoC.
+> Change log
+> v1 -> v2:
+>   - add 'bmc_ready_noled' LED and update commit message
+>   - add sgpio line name for leak detection
+> v1:
+>   - add sensor nodes for extension board
+>   - add mctp node for NIC
+>   - adjust LED configuration
 > 
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
-> Linus Walleij (3):
->       dt-bindings: Add Actiontec vendor prefix
->       dt-bindings: arm: List actiontec devices
->       ARM: dts: Add ixp4xx Actiontec MI424WR device trees
+> Fred Chen (4):
+>   ARM: dts: aspeed: santabarbara: add sensor support for extension
+>     boards
+>   ARM: dts: aspeed: santabarbara: Enable MCTP for frontend NIC
+>   ARM: dts: aspeed: santabarbara: Adjust LED configuration
+>   ARM: dts: aspeed: santabarbara: add sgpio line name for leak detection
 > 
->  .../devicetree/bindings/arm/intel-ixp4xx.yaml      |   2 +
->  .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
->  arch/arm/boot/dts/intel/ixp/Makefile               |   2 +
->  .../ixp/intel-ixp42x-actiontec-mi424wr-ac.dts      |  37 +++
->  .../intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts |  38 +++
->  .../intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi  | 273 +++++++++++++++++++++
->  6 files changed, 354 insertions(+)
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250814-ixp4xx-mi424wr-dts-afef5c00d68d
+>  .../aspeed-bmc-facebook-santabarbara.dts      | 857 +++++++++++++++++-
+>  1 file changed, 853 insertions(+), 4 deletions(-)
 > 
-> Best regards,
 > --
-> Linus Walleij <linus.walleij@linaro.org>
+> 2.49.0
 > 
 > 
 > 
@@ -119,19 +120,16 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: using specified base-commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+ Base: attempting to guess base-commit...
+ Base: tags/v6.17-rc1-9-g8e4021078863 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/intel/' for 20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250814131706.1567067-1-fredchen.openbmc@gmail.com:
 
-arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: gpio@1,0 (brcm,bcm6345-gpio): 'bank-width', 'intel,ixp4xx-eb-write-enable', 'pci-reset-hog', 'pstn-relay-hog-1', 'pstn-relay-hog-2' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mmio.yaml#
-arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: /soc/usb@c800b000: failed to match any schema with compatible: ['intel,ixp4xx-udc']
-arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dtb: gpio@1,0 (brcm,bcm6345-gpio): 'bank-width', 'intel,ixp4xx-eb-write-enable', 'pci-reset-hog', 'pstn-relay-hog-1', 'pstn-relay-hog-2' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mmio.yaml#
-arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dtb: /soc/usb@c800b000: failed to match any schema with compatible: ['intel,ixp4xx-udc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dtb: mctp@10 (mctp-i2c-controller): 'label' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/net/mctp-i2c-controller.yaml#
 
 
 
