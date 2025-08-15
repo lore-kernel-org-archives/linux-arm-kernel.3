@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1853CCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 13:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC0BCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 13:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L8RI7+CzZq7oBkkmWiZNZd7neIbmqqpHjES9z5TgL0=; b=i1N95hmoXQJjskg82b3sO2+Vmw
-	EtPSd4a5+joejQOorW6rMlVDhB7YALi9wOHsD6J41KEJRCyuDS7eVttUDRWUuCrPtA17enEZlpPkU
-	wx6rIe3NDuYiQFJ1ycC8QZynmV9yCSD41rJxWzF/d7gvAhqXPFUORGfJ+OoucOysHdzYEEmeA1nZa
-	N4Bq6D9SQL2+C8/AXPFtLCqyE5T6xlaASXnbtsiPxsuajRiaA1j9+HDbsi+C+d2luN723u7Zz445x
-	Scp1JnD0gWQUdmd00h2WhEo4lrJexdIeg3/OKd48K01C1X9W48bHn1FiKFq71K/TewELJWMDsmfwd
-	k1uNuuFA==;
+	bh=TJze5C9lDTBIwC49h9q7OfVUXEhPFkEHTan94Jr4v1c=; b=u92ymboIAhR/wAF4Bn2h1VBboq
+	ClMx6A6FfaXnFxo7DU+N/9N55OSMC0INsOsWgj22FgwjQWDhfLHzayKs/KMJ0iwj9gGJp5fMmjDNZ
+	c12IlRuc+v7EEAp/8xe1RhqegvQ+zGyA/nhxvScmJFpaCzXncz2uz/uJ1hYyKSWG8piQ5tRz37HY4
+	NFyrvLfUPw8EGi8qoeiMAlzUu7cjFtrAfbN0OSTzTDYQDqQ+v/DycJ4Lo0yy7z1uO3mXikVOMsjlp
+	Vd4i4XPE8nNR9GT1SxXfN7g9GQ1NsqGZfCkhxmFOF4WLV08kYPsazz3LmWdEzU/1Q0G7FmMHyGnVL
+	Fz0gC6/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umuS0-00000002aFJ-3w6Z;
-	Fri, 15 Aug 2025 13:26:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umrz6-00000002Fdp-0hVF
+	id 1umuUa-00000002aX4-0JiV;
+	Fri, 15 Aug 2025 13:29:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umsA1-00000002HGf-3ma5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 10:48:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A65411691;
-	Fri, 15 Aug 2025 03:48:22 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9F0693F738;
-	Fri, 15 Aug 2025 03:48:27 -0700 (PDT)
-Date: Fri, 15 Aug 2025 11:48:24 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Jeremy Linton <jeremy.linton@arm.com>,
-	Huang Shijie <shijie@os.amperecomputing.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, catalin.marinas@arm.com,
-	will@kernel.org, patches@amperecomputing.com,
-	Shubhang@os.amperecomputing.com, krzysztof.kozlowski@linaro.org,
-	bjorn.andersson@oss.qualcomm.com, geert+renesas@glider.be,
-	arnd@arndb.de, nm@ti.com, ebiggers@kernel.org,
-	nfraprado@collabora.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	Fri, 15 Aug 2025 10:59:51 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 88BF556D;
+	Fri, 15 Aug 2025 12:58:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755255533;
+	bh=NzWbvAg9ULrtbOcYxkB5gPQ39IzaRkhd+Wm2Y2RmPCM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gp3CfCSAa6INwM6KYAHJw54juTrynWOk78+YmthMNvgNydks071tCmBydEvA1qgjc
+	 BH6HfjIFpFZMUu1kcR3o04XgXzAqnzKAFmQbFkV3cqe/npe9SFMylPkBtdMQkcyTUS
+	 D3SWFQqAbJPhz9C1Z7csqDDBjfIgIHwSwwKXvI+E=
+Date: Fri, 15 Aug 2025 13:59:28 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
-Message-ID: <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
-References: <20250808025533.6422-1-shijie@os.amperecomputing.com>
- <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
- <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
- <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
- <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
- <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
- <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org>
- <aJ20imoeRL_tifky@bogus>
- <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
+Subject: Re: [PATCH v2] media: nxp: imx8-isi: Add suspend/resume support for
+ ISI mem2mem
+Message-ID: <20250815105928.GL6201@pendragon.ideasonboard.com>
+References: <20250815-isi_m2m-v2-1-32e3720880cc@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
+In-Reply-To: <20250815-isi_m2m-v2-1-32e3720880cc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_034832_300922_475753FC 
-X-CRM114-Status: GOOD (  48.41  )
+X-CRM114-CacheID: sfid-20250815_035950_084242_873DCED5 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,101 +72,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 09:30:06AM -0700, Christoph Lameter (Ampere) wrote:
-> On Thu, 14 Aug 2025, Sudeep Holla wrote:
+On Fri, Aug 15, 2025 at 05:28:51PM +0800, Guoniu Zhou wrote:
+> Add suspend/resume support for ISI when work at memory to memory mode.
 > 
-> >   |  Different architectures use different terminology to denominate logically
-> >   |  associated processors, but terms such as package, cluster, module, and
-> >   |  socket are typical examples.
-> >
-> > So how can one use these across architectures ? Package/Socket is quite
-> > standard. Cluster can be group of processors or it can also be group of
-> > processor clusters. One of the Arm vendors call it super cluster or something.
-> > All these makes it super hard for a generic OS to interpret that information.
-> > Just CONFIG_SCHED_CLUSTER was added with one notion of cluster which was soon
-> > realised doesn't match with some other notion of it.
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Changes in v2:
+>   - Move mxc_isi_m2m_suspend()/resume() out of loop.
+>   - Replace ctx->chained with m2m->chained_count.
+>   - Link to v1: https://lore.kernel.org/all/20250717024353.1811576-1-guoniu.zhou@oss.nxp.com/
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  9 ++++++
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    | 11 +++++++
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 34 ++++++++++++++++++++++
+>  3 files changed, 54 insertions(+)
 > 
-> What the cluster actually is used for is up to the hardware. The linux
-> scheduler provides this functionality. How and when this feature is used
-> by firmware is a vendor issue. There was never a clear definition.
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 981648a0311374597a033a7ecbf39f7b0b252cb0..408e9cb61554d05ac92562c322d6a728080bb9e5 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -374,6 +374,8 @@ static int mxc_isi_pm_suspend(struct device *dev)
+>  		mxc_isi_video_suspend(pipe);
+>  	}
+>  
+> +	mxc_isi_m2m_suspend(&isi->m2m);
+> +
+>  	return pm_runtime_force_suspend(dev);
+>  }
+>  
+> @@ -403,6 +405,13 @@ static int mxc_isi_pm_resume(struct device *dev)
+>  		}
+>  	}
+>  
+> +	ret = mxc_isi_m2m_resume(&isi->m2m);
+> +	if (ret) {
+> +		dev_err(dev, "Failed to resume ISI%u (%d) for m2m\n", i,
+
+Drop %u and i.
+
+No need to resubmit, I'll make the change locally.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+> +			ret);
+> +		err = ret;
+> +	}
+> +
+>  	return err;
+>  }
+>  
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 206995bedca4a4c5d7873f3bc872fbae18b3cb75..6493eef907010934217d9f14a0d6d56acdc59ee0 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -343,6 +343,8 @@ int mxc_isi_video_buffer_prepare(struct mxc_isi_dev *isi, struct vb2_buffer *vb2
+>  #ifdef CONFIG_VIDEO_IMX8_ISI_M2M
+>  int mxc_isi_m2m_register(struct mxc_isi_dev *isi, struct v4l2_device *v4l2_dev);
+>  int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi);
+> +void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m);
+> +int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m);
+>  #else
+>  static inline int mxc_isi_m2m_register(struct mxc_isi_dev *isi,
+>  				       struct v4l2_device *v4l2_dev)
+> @@ -353,6 +355,15 @@ static inline int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi)
+>  {
+>  	return 0;
+>  }
+> +
+> +static inline void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m)
+> +{
+> +}
+> +
+> +static inline int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  int mxc_isi_channel_acquire(struct mxc_isi_pipe *pipe,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 22e49d3a128732c077beb7ac2e2f688e0899f8e2..26361fe2ca858098d907d4a0719b0fdacc6becd2 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -732,6 +732,40 @@ static const struct v4l2_file_operations mxc_isi_m2m_fops = {
+>  	.mmap		= v4l2_m2m_fop_mmap,
+>  };
+>  
+> +/* -----------------------------------------------------------------------------
+> + * Suspend & resume
+> + */
+> +
+> +void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m)
+> +{
+> +	if (m2m->usage_count == 0)
+> +		return;
+> +
+> +	v4l2_m2m_suspend(m2m->m2m_dev);
+> +
+> +	if (m2m->chained_count > 0)
+> +		mxc_isi_channel_unchain(m2m->pipe);
+> +
+> +	mxc_isi_channel_disable(m2m->pipe);
+> +	mxc_isi_channel_put(m2m->pipe);
+> +}
+> +
+> +int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m)
+> +{
+> +	if (m2m->usage_count == 0)
+> +		return 0;
+> +
+> +	mxc_isi_channel_get(m2m->pipe);
+> +
+> +	if (m2m->chained_count > 0)
+> +		mxc_isi_channel_chain(m2m->pipe, false);
+> +
+> +	m2m->last_ctx = NULL;
+> +	v4l2_m2m_resume(m2m->m2m_dev);
+> +
+> +	return 0;
+> +}
+> +
+>  /* -----------------------------------------------------------------------------
+>   * Registration
+>   */
 > 
-
-Sure, since it is left to architecture to define what it means, it could
-work. But what happens if we have multiple chiplet inside a socket and
-each chiplet has multiple cluster. Do you envision using this SCHED_CLUSTER
-at chiplet level if that works best on the platform ?
-
-That could work, but we need to document all these with the best of our
-knowledge now so that it is easy to revisit in the future.
-
-> > We can enable it and I am sure someone will report a regression on their
-> > platform and we need to disable it again. The benchmark doesn't purely
-> > depend on just the "notion" of cluster but it is often related to the
-> > private resource and how they are shared in the system. So even if you
-> > strictly follow the notion of cluster as supported by CONFIG_SCHED_CLUSTER
-> > it will fail on systems where the private resources are shared across the
-> > "cluster" boundaries or some variant configuration.
-> 
-> That is not our problem. If the vendor provides clustering information and
-> the scheduler uses that then the vendor can modify the firmware to not
-> enable clustering.
-> 
-
-That is pure wrong. ACPI is describing the hardware. Deciding to put
-clustering information in these tables only if it provides performance or
-not hinder performance seem complete non-sense to me. That covering policy
-in ACPI hardware description. Does ACPI spec mention anything about it ?
-I mean remove some hardware description even if it is 100% accurate if it
-hinders performance on one of the OSPM ? Doesn't sound correct at all.
-
-> As mentioned before: We could create a blacklist to override the ACPI info
-> from the vendor to ensure that clustering is off.
-> 
-
-Not a bad idea. We can see if allow or blocklist works as we start with one.
-
-> What we should not do is disabling clustering for all.
-> 
-
-Not completely against it but I have concerns on how all these scale with
-multiple chiplets within a socket or any such variants.
-
-> > > We could add a blacklist for those platforms to avoid regressions but we
-> > > should not allow that to hinder us to enable full support for clustering
-> > > on ARM64.
-> > >
-> >
-> > Sure, but we need to improve the "cluster" definition in the ACPI and Arm
-> > specification, get an agreement on what it means for other architecture
-> > first IMO. We don't want to revisit the same topic again without these as
-> > IIRC this is the second time we are discussion around this topic.
-> 
-> The vendors need flexibility to use this feature when it makes sense.
-> 
-
-Sure, but too much flexibility might also hinder future changes when adding
-some other feature(chiplet again is one thing I can think of now)
-
-> Having a clear definition would limit the use of clustering feature and
-> limits innovation. Vendors can control the clustering via ACPI and the
-> firmware they provide with their system.
-> 
-
-Not sure if that should be right direction TBH, but again not against the
-idea of enabling the feature on some platforms if we are going to enable it
-by default.
-
-> We could change definition but that but that would be a decadelong
-> process which will encounter resistance from vendors that make uses of the
-> clustering feature that does not fall into the stricter definition.
-> 
-
-I understand and get the point, but decadelong is bit of an exaggeration 😉.
-Not discussing these in ACPI or similar forum is not a good idea as we know
-there are new h/w features that are being added and current specification
-may not provide ways to express all of those.
+> ---
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> change-id: 20250815-isi_m2m-3db166a97969
 
 -- 
 Regards,
-Sudeep
+
+Laurent Pinchart
 
