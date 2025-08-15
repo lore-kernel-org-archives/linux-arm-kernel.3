@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52862CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 11:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FDACA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 11:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfXlUFoJqgmHvB4kfrxDSe7CpMtX9KOJu7aPoYueG0I=; b=XUW3n8m9FxrwWLsh0Jt3yJhptD
-	GWUf22RnkWHeYqE6Pzfr4OaH9aMOnvvyq+Q39ZCxUzkVwZI7Id0a14OhKX5JCiTAOh4zIKZdDwHZI
-	eP+azX/ksQRx6MdH7MXhBWKZyia/09Rzxz28+x5GgBFed/znce03oTNYC3NYO/91mLNd+qlwif9Pz
-	xIuSmqpzMhsIah4tLZYDqrQAY6LmetRvNHribMIDokb0/mktbK6YK+kTWyNmlIHm5YdoV6nwoZArV
-	FubKQzhqPbYPxHH1frjAMMl4NzJyKg9xC2Oat6eACToSPD0JMKft/E2HGpXTfyg6ePvh9MaaBqD/I
-	1l08+lWw==;
+	bh=6dr8q0/1hMR1pb3wh+uXWlet+zkGdwpA6OKpP0yl/7E=; b=YFnzk6wQETNffD9W2SJ/KD1VP+
+	BUbPhQIWmznI75CzRDen4OCLJ/k/9xlRqmuWQ1Hmi/WN0MsrkpAJQHwRzqEZM9TUm4x07dLuob+HL
+	R6hmk1wX5Z4IpYIDOQWfh1d+M7VSiZ/DXNeJXxrLITOJeQihPh21+dWPy6uOfwOWu8wTCMXLmwPPk
+	PW0NdJ0+bi9YLlAtp3HykrscpeniT/g2WSqPNaeepaZnoq1EOqmhCsHipmTQGCPqUysiSi40dl82k
+	5gYXeg0sqocEOBl5p5X/Q7ZMj5i3L9uKRVjNm5TJxePLsMi8tsAXCnfUJwzZXwDb+6vd/Pe3JYRP8
+	iOI0j2SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsPb-00000002JBR-3iCQ;
-	Fri, 15 Aug 2025 11:15:55 +0000
+	id 1umsSC-00000002JiZ-2pvq;
+	Fri, 15 Aug 2025 11:18:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqIU-00000001xqU-3ml0
+	id 1umqIZ-00000001xsH-2P5N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 09:00:28 +0000
+	Fri, 15 Aug 2025 09:00:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 614402C41;
-	Fri, 15 Aug 2025 02:00:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A53D2C42;
+	Fri, 15 Aug 2025 02:00:23 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 283233F63F;
-	Fri, 15 Aug 2025 02:00:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D78FF3F63F;
+	Fri, 15 Aug 2025 02:00:26 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -64,17 +64,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH v2 4/8] rcu: Allow processing kpkeys-protected data
-Date: Fri, 15 Aug 2025 09:59:56 +0100
-Message-ID: <20250815090000.2182450-5-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v2 5/8] mm: kpkeys: Introduce cred pkey/level
+Date: Fri, 15 Aug 2025 09:59:57 +0100
+Message-ID: <20250815090000.2182450-6-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250815090000.2182450-1-kevin.brodsky@arm.com>
 References: <20250815090000.2182450-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_020027_031382_89024BB3 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250815_020031_728558_D059900B 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,131 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Data assigned a non-default pkey is not writable at the default
-kpkeys level. If such data is managed via RCU, some mechanism is
-required to temporarily grant write access to the data's struct
-rcu_head, for instance when zeroing the callback pointer.
-
-There is unfortunately no straightforward way for RCU to know
-whether the managed data is mapped with a non-default pkey. This
-patch takes the easy route and switches to the unrestricted kpkeys
-level whenever struct rcu_head is written; this should work reliably
-but it is clearly suboptimal. That behaviour is enabled by
-selecting CONFIG_KPKEYS_UNRESTRICTED_RCU.
-
-This patch isn't comprehensive, in particular it does not take care
-of Tiny RCU.
+We will need a separate pkey to protect struct cred. Allocate one as
+well as a new kpkeys level that grants write access to that pkey.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- kernel/rcu/rcu.h           |  7 +++++++
- kernel/rcu/rcu_segcblist.c | 13 +++++++++----
- kernel/rcu/tree.c          |  3 ++-
- mm/Kconfig                 |  2 ++
- 4 files changed, 20 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kpkeys.h | 7 ++++++-
+ include/asm-generic/kpkeys.h    | 4 ++++
+ include/linux/kpkeys.h          | 3 ++-
+ 3 files changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/rcu/rcu.h b/kernel/rcu/rcu.h
-index 9cf01832a6c3..71e9a695f4eb 100644
---- a/kernel/rcu/rcu.h
-+++ b/kernel/rcu/rcu.h
-@@ -10,6 +10,7 @@
- #ifndef __LINUX_RCU_H
- #define __LINUX_RCU_H
+diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
+index ded5d6e988dc..ffb7622391c3 100644
+--- a/arch/arm64/include/asm/kpkeys.h
++++ b/arch/arm64/include/asm/kpkeys.h
+@@ -13,7 +13,8 @@
+  * used in assembly.
+  */
+ #define POR_EL1_INIT	(POR_ELx_PERM_PREP(KPKEYS_PKEY_DEFAULT, POE_RWX) | \
+-			 POR_ELx_PERM_PREP(KPKEYS_PKEY_PGTABLES, POE_R))
++			 POR_ELx_PERM_PREP(KPKEYS_PKEY_PGTABLES, POE_R) | \
++			 POR_ELx_PERM_PREP(KPKEYS_PKEY_CRED, POE_R))
  
-+#include <linux/kpkeys.h>
- #include <linux/slab.h>
- #include <trace/events/rcu.h>
+ #ifndef __ASSEMBLY__
  
-@@ -691,4 +692,10 @@ int rcu_stall_notifier_call_chain(unsigned long val, void *v);
- static inline int rcu_stall_notifier_call_chain(unsigned long val, void *v) { return NOTIFY_DONE; }
- #endif // #else // #if defined(CONFIG_RCU_STALL_COMMON) && defined(CONFIG_RCU_CPU_STALL_NOTIFIER)
+@@ -31,6 +32,10 @@ static inline u64 por_set_kpkeys_level(u64 por, int level)
+ 				     level == KPKEYS_LVL_PGTABLES ||
+ 				     level == KPKEYS_LVL_UNRESTRICTED
+ 				     ? POE_RW : POE_R);
++	por = por_elx_set_pkey_perms(por, KPKEYS_PKEY_CRED,
++				     level == KPKEYS_LVL_CRED ||
++				     level == KPKEYS_LVL_UNRESTRICTED
++				     ? POE_RW : POE_R);
  
-+#ifdef CONFIG_KPKEYS_UNRESTRICTED_RCU
-+KPKEYS_GUARD(kpkeys_rcu, KPKEYS_LVL_UNRESTRICTED)
-+#else
-+KPKEYS_GUARD_NOOP(kpkeys_rcu)
+ 	return por;
+ }
+diff --git a/include/asm-generic/kpkeys.h b/include/asm-generic/kpkeys.h
+index cec92334a9f3..56a2fc9fe4a6 100644
+--- a/include/asm-generic/kpkeys.h
++++ b/include/asm-generic/kpkeys.h
+@@ -2,6 +2,10 @@
+ #ifndef __ASM_GENERIC_KPKEYS_H
+ #define __ASM_GENERIC_KPKEYS_H
+ 
++#ifndef KPKEYS_PKEY_CRED
++#define KPKEYS_PKEY_CRED	2
 +#endif
 +
- #endif /* __LINUX_RCU_H */
-diff --git a/kernel/rcu/rcu_segcblist.c b/kernel/rcu/rcu_segcblist.c
-index 298a2c573f02..e7d6c8370b70 100644
---- a/kernel/rcu/rcu_segcblist.c
-+++ b/kernel/rcu/rcu_segcblist.c
-@@ -12,6 +12,7 @@
- #include <linux/kernel.h>
- #include <linux/types.h>
+ #ifndef KPKEYS_PKEY_PGTABLES
+ #define KPKEYS_PKEY_PGTABLES	1
+ #endif
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+index 48f240bea8e1..0e555b505b33 100644
+--- a/include/linux/kpkeys.h
++++ b/include/linux/kpkeys.h
+@@ -10,7 +10,8 @@ struct folio;
  
-+#include "rcu.h"
- #include "rcu_segcblist.h"
+ #define KPKEYS_LVL_DEFAULT	0
+ #define KPKEYS_LVL_PGTABLES	1
+-#define KPKEYS_LVL_UNRESTRICTED	2
++#define KPKEYS_LVL_CRED		2
++#define KPKEYS_LVL_UNRESTRICTED	3
  
- /* Initialize simple callback list. */
-@@ -332,7 +333,8 @@ void rcu_segcblist_enqueue(struct rcu_segcblist *rsclp,
- 	rcu_segcblist_inc_len(rsclp);
- 	rcu_segcblist_inc_seglen(rsclp, RCU_NEXT_TAIL);
- 	rhp->next = NULL;
--	WRITE_ONCE(*rsclp->tails[RCU_NEXT_TAIL], rhp);
-+	scoped_guard(kpkeys_rcu)
-+		WRITE_ONCE(*rsclp->tails[RCU_NEXT_TAIL], rhp);
- 	WRITE_ONCE(rsclp->tails[RCU_NEXT_TAIL], &rhp->next);
- }
- 
-@@ -360,7 +362,8 @@ bool rcu_segcblist_entrain(struct rcu_segcblist *rsclp,
- 		if (!rcu_segcblist_segempty(rsclp, i))
- 			break;
- 	rcu_segcblist_inc_seglen(rsclp, i);
--	WRITE_ONCE(*rsclp->tails[i], rhp);
-+	scoped_guard(kpkeys_rcu)
-+		WRITE_ONCE(*rsclp->tails[i], rhp);
- 	for (; i <= RCU_NEXT_TAIL; i++)
- 		WRITE_ONCE(rsclp->tails[i], &rhp->next);
- 	return true;
-@@ -381,7 +384,8 @@ void rcu_segcblist_extract_done_cbs(struct rcu_segcblist *rsclp,
- 	rclp->len = rcu_segcblist_get_seglen(rsclp, RCU_DONE_TAIL);
- 	*rclp->tail = rsclp->head;
- 	WRITE_ONCE(rsclp->head, *rsclp->tails[RCU_DONE_TAIL]);
--	WRITE_ONCE(*rsclp->tails[RCU_DONE_TAIL], NULL);
-+	scoped_guard(kpkeys_rcu)
-+		WRITE_ONCE(*rsclp->tails[RCU_DONE_TAIL], NULL);
- 	rclp->tail = rsclp->tails[RCU_DONE_TAIL];
- 	for (i = RCU_CBLIST_NSEGS - 1; i >= RCU_DONE_TAIL; i--)
- 		if (rsclp->tails[i] == rsclp->tails[RCU_DONE_TAIL])
-@@ -436,7 +440,8 @@ void rcu_segcblist_insert_done_cbs(struct rcu_segcblist *rsclp,
- 	if (!rclp->head)
- 		return; /* No callbacks to move. */
- 	rcu_segcblist_add_seglen(rsclp, RCU_DONE_TAIL, rclp->len);
--	*rclp->tail = rsclp->head;
-+	scoped_guard(kpkeys_rcu)
-+		*rclp->tail = rsclp->head;
- 	WRITE_ONCE(rsclp->head, rclp->head);
- 	for (i = RCU_DONE_TAIL; i < RCU_CBLIST_NSEGS; i++)
- 		if (&rsclp->head == rsclp->tails[i])
-diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index 174ee243b349..2eada18c04d5 100644
---- a/kernel/rcu/tree.c
-+++ b/kernel/rcu/tree.c
-@@ -2601,7 +2601,8 @@ static void rcu_do_batch(struct rcu_data *rdp)
- 
- 		f = rhp->func;
- 		debug_rcu_head_callback(rhp);
--		WRITE_ONCE(rhp->func, (rcu_callback_t)0L);
-+		scoped_guard(kpkeys_rcu)
-+			WRITE_ONCE(rhp->func, (rcu_callback_t)0L);
- 		f(rhp);
- 
- 		rcu_lock_release(&rcu_callback_map);
-diff --git a/mm/Kconfig b/mm/Kconfig
-index e34edf5c41e7..c023f74a2201 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1178,6 +1178,8 @@ config ARCH_HAS_KPKEYS
- # ARCH_HAS_KPKEYS must be selected when selecting this option
- config ARCH_HAS_KPKEYS_HARDENED_PGTABLES
- 	bool
-+config KPKEYS_UNRESTRICTED_RCU
-+	bool
- 
- config ARCH_USES_PG_ARCH_2
- 	bool
+ #define KPKEYS_LVL_MIN		KPKEYS_LVL_DEFAULT
+ #define KPKEYS_LVL_MAX		KPKEYS_LVL_UNRESTRICTED
 -- 
 2.47.0
 
