@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358B7CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4DECA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faS9aKsYo+kMSuRXBtsCQxNAk1nb/xXS1Q3KueB93ek=; b=oIrs11H8tvfSroBdzZ3Xp3wduJ
-	Lx95ADZtaudzgbiVQyCfOh2rCmGvXqtgGTgOudtaPrto+No54KYtwHB0zfaSyRv/uV/qW+dR4drm1
-	2DPtpDBJ3mRddMCw4MPm6/ibwc1dtaD5dgpByahEkussz0nyaTxyLc90TdeVE1fWB0MVxN32pK/Tm
-	YYluzstfIqUkRUvpvkpdbcPZEGYfvd0uRlu9+qhhXe0YkxORGLBe40dWvFAQ751weeGVSx5SlKV24
-	j+11hWpEZlQ30xSlfxq/MOuxeUS9ULhySlDgwB/EdySEewuLj9pglSEwnEN5rWc1U18R+was3SeX+
-	wn+/kGMg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O75TYoFU3l7SB9+dU+2ksxp5t72icv8nAZmtyfMyoio=; b=YYU5J0y7d6Rs9B6Yp9dbLStsdU
+	b8nAqFPfXxGeVpijTO/QeskdPcrqb7R3G/LJ+rYqzMrfrejol8qb/SETUnaiULv9qOSLsLXY9R+xN
+	7jxkmpPisat0up1b1bfgnqN+pMw2o7+FJAAiBxeVEfDQ4tmVtfCx6DIwVSjrcXR6DNqglb7qkG6iV
+	/nzcMp9UVN+tAUpv+5q4FJHLoCQt38C0FyovdbGHxdggTH5wVMBVTzQ84xpxxU9jcVzoa2sOmQiE4
+	Ea6c82YQKYdo0EJiMpj2G81Ave6MwydYTKMrhMbzbkuG2sRFE3B00ZX+XrxGPHvyy+DvyH8iBnudl
+	KKjcoWiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwRB-00000002qlO-0S48;
-	Fri, 15 Aug 2025 15:33:49 +0000
+	id 1umwTh-00000002r0q-3jQo;
+	Fri, 15 Aug 2025 15:36:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umu4T-00000002Wcj-1Hdm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 Aug 2025 13:02:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=O75TYoFU3l7SB9+dU+2ksxp5t72icv8nAZmtyfMyoio=; b=W5WtC6vrem4RBB2l3JA56SZGTZ
+	qtl0pyCzIqX3+bjjANRrEu+UVHs4ZYt4ed9eb0qClhJddZYbAL17aFAcwYW3VTAjWXNuq0VYNrwzC
+	Wp7X25pVy42beWXS19hX8AkXEGZpqcuvZwQcP85unS+FY2ZB037ZfWrbUFkEjPck/IJCN+DBJiwRk
+	seggBGnvYmr1BuUMyWDe+Iup397qAoge5tBmFG4RZcQ4w1Zqz/Tl/lvkb7+/i0Zjb87XicdDEwykZ
+	ElGTXfU0oxaihU4Nt+w9or6iSlW9+IFiVQtlcigaUfYqfwq8rsmlxHJ87Xt4ie7DzIbWdwcJHQ1Q2
+	ffxJv0fA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umt6U-00000002Oz1-2uhf
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umu4P-0000000GiFB-09Pb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 12:00:16 +0000
+	Fri, 15 Aug 2025 13:02:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B3531691;
-	Fri, 15 Aug 2025 05:00:05 -0700 (PDT)
-Received: from [10.57.56.228] (unknown [10.57.56.228])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4A373F738;
-	Fri, 15 Aug 2025 05:00:09 -0700 (PDT)
-Message-ID: <34ce1000-8d15-4d7e-bf67-11e2bcd135a5@arm.com>
-Date: Fri, 15 Aug 2025 14:00:06 +0200
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 853EE1691;
+	Fri, 15 Aug 2025 06:01:58 -0700 (PDT)
+Received: from [10.57.1.201] (unknown [10.57.1.201])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E7183F5A1;
+	Fri, 15 Aug 2025 06:00:11 -0700 (PDT)
+Message-ID: <995e093f-7b6c-4701-87af-2f4d21b08ada@arm.com>
+Date: Fri, 15 Aug 2025 13:59:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/mm: Update create_kpti_ng_temp_pgd() to handle
- pgtable_alloc failure
-To: Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+Subject: Re: [PATCH v7 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+To: Koichi Okuno <fj2767dz@fujitsu.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Gowthami Thiagarajan <gthiagarajan@marvell.com>,
+ Linu Cherian <lcherian@marvell.com>, linux-arm-kernel@lists.infradead.org,
+ Bjorn Andersson <quic_bjorande@quicinc.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Peter Zijlstra <peterz@infradead.org>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>, Joey Gouly <joey.gouly@arm.com>
-References: <20250813145607.1612234-1-chaitanyas.prakash@arm.com>
- <20250813145607.1612234-3-chaitanyas.prakash@arm.com>
+References: <20250815034751.3726963-1-fj2767dz@fujitsu.com>
+ <20250815034751.3726963-3-fj2767dz@fujitsu.com>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20250813145607.1612234-3-chaitanyas.prakash@arm.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250815034751.3726963-3-fj2767dz@fujitsu.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_050014_778586_86CBA07A 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250815_140209_439191_EC258EEC 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,65 +91,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 16:56, Chaitanya S Prakash wrote:
-> create_kpti_ng_temp_pgd() was created as an alias for void returning
-> __create_pgd_mapping_locked() and relied on pgtable_alloc() to BUG_ON()
-> if an allocation failure occurred. But as __create_pgd_mapping_locked()
-> has been updated as a part of the error propagation patch to return a
-> non-void value, update create_kpti_ng_temp_pgd() to act as a wrapper
-> around __create_pgd_mapping_locked() and BUG_ON() on ret being a non
-> zero value.
->
-> Signed-off-by: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
+On 2025-08-15 4:47 am, Koichi Okuno wrote:
+> This adds a new dynamic PMU to the Perf Events framework to program and
+> control the Uncore PCI PMUs in Fujitsu chips.
+> 
+> This driver was created with reference to drivers/perf/qcom_l3_pmu.c.
+> 
+> This driver exports formatting and event information to sysfs so it can
+> be used by the perf user space tools with the syntaxes:
+> 
+> perf stat -e pci_iod0_pci0/ea-pci/ ls
+> perf stat -e pci_iod0_pci0/event=0x80/ ls
+> 
+> FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+> https://github.com/fujitsu/FUJITSU-MONAKA
+> 
+> Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
 > ---
->  arch/arm64/mm/mmu.c | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index db7f45ef16574..19cbabceb38bd 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -76,6 +76,14 @@ EXPORT_SYMBOL(empty_zero_page);
->  static DEFINE_SPINLOCK(swapper_pgdir_lock);
->  static DEFINE_MUTEX(fixmap_lock);
->  
-> +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> +void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
-> +			     unsigned long virt, phys_addr_t size,
-> +			     pgprot_t prot,
-> +			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-> +			     int flags);
+>   .../admin-guide/perf/fujitsu_pci_pmu.rst      |  50 ++
+>   Documentation/admin-guide/perf/index.rst      |   1 +
+>   drivers/perf/Kconfig                          |   9 +
+>   drivers/perf/Makefile                         |   1 +
+>   drivers/perf/fujitsu_pci_pmu.c                | 536 ++++++++++++++++++
 
-I'm not sure I understand why we'd now need this declaration?
+ From a quick side-by-side skim, this is a copy-paste of the exact same 
+driver from patch #1 with s/mac/pci/g applied. Please don't do that. If 
+the hardware is functionally the same, then it should just be a single 
+driver that can then pick which PMU name and set of event alias 
+attributes to use for a given instance based on the ACPI HID match 
+(and/or any other ID register info you may have.)
 
-That function should really be declared in some header instead of the
-strange declaration in cpufeature.c, but that's unrelated to this patch.
-
-- Kevin
-
-> +#endif
-> +
->  void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
->  {
->  	pgd_t *fixmap_pgdp;
-> @@ -541,11 +549,17 @@ static void ___create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
->  }
->  
->  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> -extern __alias(__create_pgd_mapping_locked)
->  void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
->  			     phys_addr_t size, pgprot_t prot,
->  			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-> -			     int flags);
-> +			     int flags)
-> +{
-> +	int ret = 0;
-> +
-> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
-> +					  pgtable_alloc, flags);
-> +	BUG_ON(ret);
-> +}
->  #endif
->  
->  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+Thanks,
+Robin.
 
