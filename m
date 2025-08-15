@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B74CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32BCCA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 03:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L/gqheUAiJBZVnBDKCO9AHvkTlNKIjI8xnUPe2UrTYE=; b=xQMxrnQelY1Vci3vaJJCSi6nKH
-	NYf39OHNUJwDz6d7zjh1v+95RioBjN1FiywjEOUH/MJ67kUBvYqRIj0r5PIDcxBRDFEIOmhNg02tw
-	qdf8P1q+yJ4Iu0Q0Y7BB6YOlXG+dwEnHMNgDdDd9ofcFBAyDricx08oYtOgfUGdQx1gI5WFOL5dN2
-	2B4hNA78Jx8g02//qvUUUbYmnaLMD8O1ELrdmDcIgVsOIAsuQQHh4NW+dbIqeEo3e7m4vWsz2Tp4F
-	k0Dl4EuPVa5xTatY8oXs85bLFHmWZ6y9zREupkHYnL4q/BEp90ayOc2nLELC6NsbGU/r71OAw14Us
-	EctkjcsA==;
+	bh=loZthR9RzPQDn5YAIwnBCElKX3TDSMbtkyZ9fbUSqGg=; b=HqnFZBTm6GuC0M1t4wNWuebRq7
+	eh1JUQjq7g4hngccphDzphyFht7AAKeX77LZTpksUfIhVOUPxGsItL3ZC+/OwkRejaGx0Dar9u7aA
+	B9XaGr1I+oWbpgU30H1xnm60HjOp1Aw+h5d5fT7/UaQoDPieZVXcaNvt/9rRSeeYTEGF496p0wb6a
+	xId05lk8zFc0Se3VTS157UpKKayTACDkZJjRiMxSNfLbB9AzI96lnmrlHW/DVk4ifzs0uQEVK/Dws
+	DmMvH+0KDwhv8v992Wdx2dpNtChMYNWnWB/uv3VlIEpr9ZWk1q497o+B1sCPnueQKmb22QbKvyIID
+	mEKD828w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umlEO-00000001J6h-49vL;
-	Fri, 15 Aug 2025 03:35:52 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1umlH0-00000001JLc-1tPl;
+	Fri, 15 Aug 2025 03:38:34 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umkxX-00000001HRz-0m3F
+	id 1uml2S-00000001Hpw-47Ub
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 03:18:29 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-333f8f02afaso13697481fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:18:26 -0700 (PDT)
+	Fri, 15 Aug 2025 03:23:34 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55ce5253adcso1610525e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 20:23:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1755227905; x=1755832705; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1755228211; x=1755833011; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=L/gqheUAiJBZVnBDKCO9AHvkTlNKIjI8xnUPe2UrTYE=;
-        b=B1sqJqHKtulF1ax54lJkb44VblCuEfWfhCA5QZky7JJsSqePSabQ5Ov7eVsbp2xC1/
-         h1foCedbZp0JO05GWrbfPwwYMiQAIdVKKzrK398PpK0eguZyx7oH9d0O32SEYejoCDz7
-         9aex6dgxV7GwjuQDy6LL95P2FB2RYfgOO3UUM=
+        bh=loZthR9RzPQDn5YAIwnBCElKX3TDSMbtkyZ9fbUSqGg=;
+        b=Eed2+cH/6pZlFtrSkwBa1m1XVRjAvikQjP/HSrtMt3Pto0Zzhc4QAVPGWSCIyt1KXr
+         qy/NDYSN0xtkLtlqmxOcw9vfw3DgSQgBNNopHIvqGWbzK79bdLSZ8JjxlNfzl0q6IuAY
+         P7JeeR20Sy94JsGrke0R08n50qCILDBbR7m1c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755227905; x=1755832705;
+        d=1e100.net; s=20230601; t=1755228211; x=1755833011;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=L/gqheUAiJBZVnBDKCO9AHvkTlNKIjI8xnUPe2UrTYE=;
-        b=tE1rpKbObSvLTw7d4+v3nCWKkezOmzxmFQfisDjOu7qpGW3cfOW1eqYoFyPyZw6PpG
-         giuyjdArQmj1w64Y2eanaqisvJOlGPhe4v73YjJdlllgYHkjPugnUkvGX1odcBi8lcZO
-         rOH57pvlHDdQeTtgPLXil/VdFWbtN07Jo16hjcvucznY2xouGJfsnMF6QreQcVm3bikF
-         T75GQQPqquM68aNDOOvox9Oe/S/VSxVPHVRoqFymVtxYV9lJPz3c7XJ8dOrJmV8KLHhF
-         B/Bki++moEOs4/oGiSvSaovnp53D8JM5qMnHeKWY2jYJRGBauCR8ihLa8ylyOgxnxqGP
-         FexQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVvL2sRD7Gpur5HmFLiM5bje/WDDtmMA4jZoVYanodLL4/m2wvur3ZijwrG8ilx4g1vAe/S3hVfKaIO4zVbwbG6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqAFaIYxHikHbPFHYqKaN/HbLCo2MYRuIPFXNQsk3ydLlMEjHI
-	3I/JHdIqPD7TndFmkrI+JrFHHi3vzDwuJv9zi0690G9LJwWnXYjc/VsizpdHzcit/NbDxoIVCKB
-	WY8C+wOV9EFQzk7v96ZZaFXSC+HSJ5g4bnqOXtjfa
-X-Gm-Gg: ASbGncuPR+hIuYHBd3ywjPSCb6Mp8X6l+rnQ98sAyYEBN3p72nnyfdumpIjypaDf9Yn
-	TAkLuohF4Mx+t/pJUMFlz3acymkpfdr6OeaUDSx17rIkYbrfEa82ecEduE2KgL16V07MTPyTkaa
-	n5LcU1ExzYVdy/T8VpwA3JjhxQ5hO+1lFBLFVur7G2i9WeG7k+4pq7HGZClXbINtwBK5v17JGUK
-	11y1rzteKko4zEdRbc1eORW5n4ROHnFptVhcQ==
-X-Google-Smtp-Source: AGHT+IH45CMxbyHBWhXJ/RabdXbIvSLoKeM5EMqrf7xlLady27fRhPu6U8KzyNXc6RGLGWgakK4Y6MekAcD2c3hLvVo=
-X-Received: by 2002:a2e:b8c5:0:b0:332:6304:3076 with SMTP id
- 38308e7fff4ca-33409809835mr1950611fa.1.1755227905389; Thu, 14 Aug 2025
- 20:18:25 -0700 (PDT)
+        bh=loZthR9RzPQDn5YAIwnBCElKX3TDSMbtkyZ9fbUSqGg=;
+        b=Ok6VgW2bsUo5zwZDfHTVOlD5Onxe8hcS5Xljj8EaZUDKa+z6gybQUouT6tekxd929i
+         5P4GEkF9pFpM3b7sfSv4VengvJfI9cMbFHi+E65wvyHV0T9b7pltM5L+sY7utQOIoZWt
+         kV5Q55R1KRpRlENkjFxl2cGbzvaq2NLLShBnISR9mU/WowX6f32Hwxe5fnl53VZZKCa3
+         0dn91ZnftBYnyyYYZ5jdAl1Kl5Xawuu5xKUG9n9ug8pKwCQ9Bro5Q3DlERjs5ifQE8fR
+         qmAqlrtUH/+9FVr3GixkjzIEM33qh0Q0Mxe9OIQUTSk5LcVB5wZ95fIwA5BZwn/zCkBN
+         xCag==
+X-Forwarded-Encrypted: i=1; AJvYcCVEtnaatBb9KQinfjYOywTZzQCVdPqz9wh/Y0/iLeygdQUA5ReAhLkddipUMABoyoqiFYwtxDVHCjKgZUV+QjCJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YytlBR6d/4lOanJIcUjk4tDOoXTO/Q2EVpD64wF/5vxQo/iUGRa
+	mpNpBaDdQqIX1sX4P3dxe8Eqiw9Re5ScWTktr7+J09xKvNwjeEAfdFXjOaB3SNj3nxVuLIpEFme
+	QsMp55+yh7uQgQy9Rbl+qYpO2enCzIAz7abOjQRDF
+X-Gm-Gg: ASbGncu3WO1s14TZ/tqbM4OpYEC8htlUBfI7l+cgXmKxtumPBVM2d18cRwEq5uDvqmI
+	WkEyu2W/mYadMvJRy+d/sd9BoLa5SmKk7GEh/J7A4cTxK/BTJpxitYMf6MN560lDKsqYe3BQMNN
+	/2IT4a2NIztOglATu5up4SQrvZh2AzR5z404EYRvX4t1DiuHSKwjv2t5LdP/BknLssvCUMYCscV
+	pnJyw2OL/5X8Ifi08Wz5p6QgKNhm2n6i2QYGg==
+X-Google-Smtp-Source: AGHT+IHVtC4Alxt8AWwZST4v89xIyMs9zLoVRtml2n78wl63Mvb3mMjCwjWs3lTr5lXzzhW6dAAnYS4ErrmaVz2N51k=
+X-Received: by 2002:a05:6512:39d6:b0:553:a740:18aa with SMTP id
+ 2adb3069b0e04-55ceeb2d2b6mr153164e87.22.1755228211106; Thu, 14 Aug 2025
+ 20:23:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-3-laura.nao@collabora.com>
-In-Reply-To: <20250805135447.149231-3-laura.nao@collabora.com>
+References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-4-laura.nao@collabora.com>
+In-Reply-To: <20250805135447.149231-4-laura.nao@collabora.com>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 15 Aug 2025 12:18:14 +0900
-X-Gm-Features: Ac12FXwqbJqR6dXDCHoREy9cuJVuDHi_sxjr2uRku7Hw7ujClZ2WhTJ_l5duokI
-Message-ID: <CAGXv+5Fnaict=9Agixn1vCrP3GkugaR3qEKmEYyYiXCGx8ZZ6w@mail.gmail.com>
-Subject: Re: [PATCH v4 02/27] clk: mediatek: clk-pll: Add ops for PLLs using
- set/clr regs and FENC
+Date: Fri, 15 Aug 2025 12:23:20 +0900
+X-Gm-Features: Ac12FXz6uzhVa5mzNMAxjzWWhn_Ab-739zVQPdyqAO9BXTYqTIf4635L7GMmTws
+Message-ID: <CAGXv+5Fhsm=JrBP9y-kScw-zK_XFc4Dqfd3VUXx+rA6oBxptJg@mail.gmail.com>
+Subject: Re: [PATCH v4 03/27] clk: mediatek: clk-mux: Add ops for mux gates
+ with set/clr/upd and FENC
 To: Laura Nao <laura.nao@collabora.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
 	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
@@ -83,8 +83,8 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_201827_432162_8E1C6FC1 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20250814_202333_045578_CA624F1D 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,166 +102,239 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Aug 5, 2025 at 10:55=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
  wrote:
 >
-> MT8196 uses a combination of set/clr registers to control the PLL
-> enable state, along with a FENC bit to check the preparation status.
-> Add new set of PLL clock operations with support for set/clr enable and
-> FENC status logic.
+> MT8196 uses set/clr/upd registers for mux gate enable/disable control,
+> along with a FENC bit to check the status. Add new set of mux gate
+> clock operations with support for set/clr/upd and FENC status logic.
 >
 > Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
 ora.com>
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
 > ---
->  drivers/clk/mediatek/clk-pll.c | 42 +++++++++++++++++++++++++++++++++-
->  drivers/clk/mediatek/clk-pll.h |  5 ++++
->  2 files changed, 46 insertions(+), 1 deletion(-)
+>  drivers/clk/mediatek/clk-mtk.h |  2 ++
+>  drivers/clk/mediatek/clk-mux.c | 48 ++++++++++++++++++++++++++++++++++
+>  drivers/clk/mediatek/clk-mux.h | 45 +++++++++++++++++++++++++++++++
+>  3 files changed, 95 insertions(+)
 >
-> diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pl=
-l.c
-> index 49ca25dd5418..8f46de77f42d 100644
-> --- a/drivers/clk/mediatek/clk-pll.c
-> +++ b/drivers/clk/mediatek/clk-pll.c
-> @@ -37,6 +37,13 @@ int mtk_pll_is_prepared(struct clk_hw *hw)
->         return (readl(pll->en_addr) & BIT(pll->data->pll_en_bit)) !=3D 0;
->  }
+> diff --git a/drivers/clk/mediatek/clk-mtk.h b/drivers/clk/mediatek/clk-mt=
+k.h
+> index c17fe1c2d732..136a4bc6dbe6 100644
+> --- a/drivers/clk/mediatek/clk-mtk.h
+> +++ b/drivers/clk/mediatek/clk-mtk.h
+> @@ -20,6 +20,8 @@
 >
-> +static int mtk_pll_fenc_is_prepared(struct clk_hw *hw)
-> +{
-> +       struct mtk_clk_pll *pll =3D to_mtk_clk_pll(hw);
+>  #define MHZ (1000 * 1000)
+>
+> +#define MTK_WAIT_FENC_DONE_US  30
 > +
-> +       return readl(pll->fenc_addr) & pll->fenc_mask;
 
-Nits:
+Nit: I think it would be nicer if you define this locally in the mux type
+clk code, just to keep the two completely separate.
 
-I'd do a double-negate (!!) just to indicate that we only care about
-true or false.
-
-Also, why do we need to store fenc_mask instead of just shifting the bit
-here? Same goes for the register address. |pll| has the base address.
-Why do we need to pre-calculate it?
-
-The code is OK; it just seems a bit wasteful on memory.
-
-Either way, this is
-
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
-> +}
-> +
->  static unsigned long __mtk_pll_recalc_rate(struct mtk_clk_pll *pll, u32 =
-fin,
->                 u32 pcw, int postdiv)
->  {
-> @@ -274,6 +281,25 @@ void mtk_pll_unprepare(struct clk_hw *hw)
->         writel(r, pll->pwr_addr);
->  }
->
-> +static int mtk_pll_prepare_setclr(struct clk_hw *hw)
-> +{
-> +       struct mtk_clk_pll *pll =3D to_mtk_clk_pll(hw);
-> +
-> +       writel(BIT(pll->data->pll_en_bit), pll->en_set_addr);
-> +
-> +       /* Wait 20us after enable for the PLL to stabilize */
-> +       udelay(20);
-> +
-> +       return 0;
-> +}
-> +
-> +static void mtk_pll_unprepare_setclr(struct clk_hw *hw)
-> +{
-> +       struct mtk_clk_pll *pll =3D to_mtk_clk_pll(hw);
-> +
-> +       writel(BIT(pll->data->pll_en_bit), pll->en_clr_addr);
-> +}
-> +
->  const struct clk_ops mtk_pll_ops =3D {
->         .is_prepared    =3D mtk_pll_is_prepared,
->         .prepare        =3D mtk_pll_prepare,
-> @@ -283,6 +309,16 @@ const struct clk_ops mtk_pll_ops =3D {
->         .set_rate       =3D mtk_pll_set_rate,
->  };
->
-> +const struct clk_ops mtk_pll_fenc_clr_set_ops =3D {
-> +       .is_prepared    =3D mtk_pll_fenc_is_prepared,
-> +       .prepare        =3D mtk_pll_prepare_setclr,
-> +       .unprepare      =3D mtk_pll_unprepare_setclr,
-> +       .recalc_rate    =3D mtk_pll_recalc_rate,
-> +       .round_rate     =3D mtk_pll_round_rate,
-> +       .set_rate       =3D mtk_pll_set_rate,
-> +};
-> +EXPORT_SYMBOL_GPL(mtk_pll_fenc_clr_set_ops);
-> +
->  struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
->                                         const struct mtk_pll_data *data,
->                                         void __iomem *base,
-> @@ -315,6 +351,9 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_cl=
-k_pll *pll,
->         pll->hw.init =3D &init;
->         pll->data =3D data;
->
-> +       pll->fenc_addr =3D base + data->fenc_sta_ofs;
-> +       pll->fenc_mask =3D BIT(data->fenc_sta_bit);
-> +
->         init.name =3D data->name;
->         init.flags =3D (data->flags & PLL_AO) ? CLK_IS_CRITICAL : 0;
->         init.ops =3D pll_ops;
-> @@ -337,12 +376,13 @@ struct clk_hw *mtk_clk_register_pll(const struct mt=
-k_pll_data *data,
->  {
->         struct mtk_clk_pll *pll;
->         struct clk_hw *hw;
-> +       const struct clk_ops *pll_ops =3D data->ops ? data->ops : &mtk_pl=
-l_ops;
->
->         pll =3D kzalloc(sizeof(*pll), GFP_KERNEL);
->         if (!pll)
->                 return ERR_PTR(-ENOMEM);
->
-> -       hw =3D mtk_clk_register_pll_ops(pll, data, base, &mtk_pll_ops);
-> +       hw =3D mtk_clk_register_pll_ops(pll, data, base, pll_ops);
->         if (IS_ERR(hw))
->                 kfree(pll);
->
-> diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pl=
-l.h
-> index c4d06bb11516..7fdc5267a2b5 100644
-> --- a/drivers/clk/mediatek/clk-pll.h
-> +++ b/drivers/clk/mediatek/clk-pll.h
-> @@ -29,6 +29,7 @@ struct mtk_pll_data {
->         u32 reg;
->         u32 pwr_reg;
->         u32 en_mask;
-> +       u32 fenc_sta_ofs;
->         u32 pd_reg;
->         u32 tuner_reg;
->         u32 tuner_en_reg;
-> @@ -51,6 +52,7 @@ struct mtk_pll_data {
->         u32 en_clr_reg;
->         u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
->         u8 pcw_chg_bit;
-> +       u8 fenc_sta_bit;
->  };
+>  struct platform_device;
 >
 >  /*
-> @@ -72,6 +74,8 @@ struct mtk_clk_pll {
->         void __iomem    *en_addr;
->         void __iomem    *en_set_addr;
->         void __iomem    *en_clr_addr;
-> +       void __iomem    *fenc_addr;
-> +       u32             fenc_mask;
->         const struct mtk_pll_data *data;
->  };
+> diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mu=
+x.c
+> index 60990296450b..b1b8eeb0b501 100644
+> --- a/drivers/clk/mediatek/clk-mux.c
+> +++ b/drivers/clk/mediatek/clk-mux.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/spinlock.h>
+>  #include <linux/slab.h>
 >
-> @@ -82,6 +86,7 @@ void mtk_clk_unregister_plls(const struct mtk_pll_data =
-*plls, int num_plls,
->                              struct clk_hw_onecell_data *clk_data);
+> +#include "clk-mtk.h"
+>  #include "clk-mux.h"
 >
->  extern const struct clk_ops mtk_pll_ops;
-> +extern const struct clk_ops mtk_pll_fenc_clr_set_ops;
+>  struct mtk_clk_mux {
+> @@ -30,6 +31,33 @@ static inline struct mtk_clk_mux *to_mtk_clk_mux(struc=
+t clk_hw *hw)
+>         return container_of(hw, struct mtk_clk_mux, hw);
+>  }
 >
->  static inline struct mtk_clk_pll *to_mtk_clk_pll(struct clk_hw *hw)
+> +static int mtk_clk_mux_fenc_enable_setclr(struct clk_hw *hw)
+> +{
+> +       struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
+> +       unsigned long flags;
+> +       u32 val;
+> +       int ret;
+> +
+> +       if (mux->lock)
+> +               spin_lock_irqsave(mux->lock, flags);
+> +       else
+> +               __acquire(mux->lock);
+> +
+> +       regmap_write(mux->regmap, mux->data->clr_ofs,
+> +                    BIT(mux->data->gate_shift));
+> +
+> +       ret =3D regmap_read_poll_timeout_atomic(mux->regmap, mux->data->f=
+enc_sta_mon_ofs,
+> +                                             val, val & BIT(mux->data->f=
+enc_shift), 1,
+> +                                             MTK_WAIT_FENC_DONE_US);
+> +
+> +       if (mux->lock)
+> +               spin_unlock_irqrestore(mux->lock, flags);
+> +       else
+> +               __release(mux->lock);
+> +
+> +       return ret;
+> +}
+> +
+>  static int mtk_clk_mux_enable_setclr(struct clk_hw *hw)
 >  {
+>         struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
+> @@ -70,6 +98,16 @@ static void mtk_clk_mux_disable_setclr(struct clk_hw *=
+hw)
+>                         BIT(mux->data->gate_shift));
+>  }
+>
+> +static int mtk_clk_mux_fenc_is_enabled(struct clk_hw *hw)
+> +{
+> +       struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
+> +       u32 val;
+> +
+> +       regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val);
+> +
+> +       return val & BIT(mux->data->fenc_shift);
+
+Nit: Do a double negate.
+
+> +}
+> +
+>  static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
+>  {
+>         struct mtk_clk_mux *mux =3D to_mtk_clk_mux(hw);
+> @@ -168,6 +206,16 @@ const struct clk_ops mtk_mux_gate_clr_set_upd_ops  =
+=3D {
+>  };
+>  EXPORT_SYMBOL_GPL(mtk_mux_gate_clr_set_upd_ops);
+>
+> +const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops =3D {
+> +       .enable =3D mtk_clk_mux_fenc_enable_setclr,
+> +       .disable =3D mtk_clk_mux_disable_setclr,
+> +       .is_enabled =3D mtk_clk_mux_fenc_is_enabled,
+> +       .get_parent =3D mtk_clk_mux_get_parent,
+> +       .set_parent =3D mtk_clk_mux_set_parent_setclr_lock,
+> +       .determine_rate =3D mtk_clk_mux_determine_rate,
+> +};
+> +EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
+> +
+>  static struct clk_hw *mtk_clk_register_mux(struct device *dev,
+>                                            const struct mtk_mux *mux,
+>                                            struct regmap *regmap,
+> diff --git a/drivers/clk/mediatek/clk-mux.h b/drivers/clk/mediatek/clk-mu=
+x.h
+> index 943ad1d7ce4b..c65cfb7f8fc3 100644
+> --- a/drivers/clk/mediatek/clk-mux.h
+> +++ b/drivers/clk/mediatek/clk-mux.h
+> @@ -28,11 +28,13 @@ struct mtk_mux {
+>         u32 set_ofs;
+>         u32 clr_ofs;
+>         u32 upd_ofs;
+> +       u32 fenc_sta_mon_ofs;
+>
+>         u8 mux_shift;
+>         u8 mux_width;
+>         u8 gate_shift;
+>         s8 upd_shift;
+> +       u8 fenc_shift;
+>
+>         const struct clk_ops *ops;
+>         signed char num_parents;
+> @@ -77,6 +79,7 @@ struct mtk_mux {
+>
+>  extern const struct clk_ops mtk_mux_clr_set_upd_ops;
+>  extern const struct clk_ops mtk_mux_gate_clr_set_upd_ops;
+> +extern const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops;
+>
+>  #define MUX_GATE_CLR_SET_UPD_FLAGS(_id, _name, _parents, _mux_ofs,     \
+>                         _mux_set_ofs, _mux_clr_ofs, _shift, _width,     \
+> @@ -118,6 +121,48 @@ extern const struct clk_ops mtk_mux_gate_clr_set_upd=
+_ops;
+>                         0, _upd_ofs, _upd, CLK_SET_RATE_PARENT,         \
+>                         mtk_mux_clr_set_upd_ops)
+>
+> +#define MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents, _paridx,  =
+       \
+> +                       _num_parents, _mux_ofs, _mux_set_ofs, _mux_clr_of=
+s,     \
+> +                       _shift, _width, _gate, _upd_ofs, _upd,           =
+       \
+> +                       _fenc_sta_mon_ofs, _fenc, _flags) {              =
+       \
+> +               .id =3D _id,                                             =
+         \
+> +               .name =3D _name,                                         =
+         \
+> +               .mux_ofs =3D _mux_ofs,                                   =
+         \
+> +               .set_ofs =3D _mux_set_ofs,                               =
+         \
+> +               .clr_ofs =3D _mux_clr_ofs,                               =
+         \
+> +               .upd_ofs =3D _upd_ofs,                                   =
+         \
+> +               .fenc_sta_mon_ofs =3D _fenc_sta_mon_ofs,                 =
+         \
+> +               .mux_shift =3D _shift,                                   =
+         \
+> +               .mux_width =3D _width,                                   =
+         \
+> +               .gate_shift =3D _gate,                                   =
+         \
+> +               .upd_shift =3D _upd,                                     =
+         \
+> +               .fenc_shift =3D _fenc,                                   =
+         \
+> +               .parent_names =3D _parents,                              =
+         \
+> +               .parent_index =3D _paridx,                               =
+         \
+> +               .num_parents =3D _num_parents,                           =
+         \
+> +               .flags =3D _flags,                                       =
+         \
+> +               .ops =3D &mtk_mux_gate_fenc_clr_set_upd_ops,             =
+         \
+> +       }
+> +
+> +#define MUX_GATE_FENC_CLR_SET_UPD(_id, _name, _parents,                 =
+       \
+> +                       _mux_ofs, _mux_set_ofs, _mux_clr_ofs,           \
+> +                       _shift, _width, _gate, _upd_ofs, _upd,          \
+> +                       _fenc_sta_mon_ofs, _fenc)                       \
+> +               MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents,   \
+> +                       NULL, ARRAY_SIZE(_parents), _mux_ofs,           \
+> +                       _mux_set_ofs, _mux_clr_ofs, _shift,             \
+> +                       _width, _gate, _upd_ofs, _upd,                  \
+> +                       _fenc_sta_mon_ofs, _fenc, 0)
+> +
+> +#define MUX_GATE_FENC_CLR_SET_UPD_INDEXED(_id, _name, _parents,        _=
+paridx,        \
+
+                                                                   ^^^^^^
+This looks like a tab when it should have been a space?
+
+ChenYu
+
+> +                       _mux_ofs, _mux_set_ofs, _mux_clr_ofs,            =
+       \
+> +                       _shift, _width, _gate, _upd_ofs, _upd,           =
+       \
+> +                       _fenc_sta_mon_ofs, _fenc)                        =
+       \
+> +               MUX_GATE_FENC_CLR_SET_UPD_FLAGS(_id, _name, _parents, _pa=
+ridx,  \
+> +                       ARRAY_SIZE(_paridx), _mux_ofs, _mux_set_ofs,     =
+       \
+> +                       _mux_clr_ofs, _shift, _width, _gate, _upd_ofs, _u=
+pd,    \
+> +                       _fenc_sta_mon_ofs, _fenc, 0)
+> +
+>  int mtk_clk_register_muxes(struct device *dev,
+>                            const struct mtk_mux *muxes,
+>                            int num, struct device_node *node,
 > --
 > 2.39.5
 >
