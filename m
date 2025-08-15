@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5AECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C0CCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scEyZMTlLH6mwjsA5sCn5nSp3p4jb0a5uSDw6vi/Yac=; b=AclZ3gFBrNEs6Se8x3wxT6MdQw
-	G+Hk/gjadEWYRAeu2M2gYs9S76u0bqA4XC4BVBM8y8V6vnZH1MeCIo4dT9wmNMMHFPBgt70MOMr9U
-	iMCR2skxMdkFVeAlfU1hC4vtlhkPcwldGAHE0YFPocDhAuVYVvOIZtPwrx/bAvddb/8k+IGGRz7xj
-	AAqJKY48dFkxpr9JROd+he81GDHlBVB/kFUsMgdFB66DcFm1g4Pl6hOJ+exrLo8uW6EIEuCqC0GCG
-	6jCv7akNjNa20Ab2i4l1GQneuM6Bk5j1olJbNfpYexUwrDUXqC698ZtqyR+Q0wcurpgRc3A0YLqgv
-	3VqnKRsQ==;
+	bh=aWVd3a6QjlDIBu/GZcAsaGjfMi/nlIyITb4lz5jcIMk=; b=FHqETiKKwy+TLqgPCuAR1icJHW
+	dfT1eod2QOFLlPvrB2fgmSmDhN4QlQjJ66FROO7+K1rIxkhCWz7pmnA8x0mMj6G+ReQgUqkwIyVlB
+	6tS9AhU6Av2/kD9peKewhUNewIALlvv6pOXJGJpImeecV07cmO9EKtW69aiVOZ7kJ5U+MVr8Pp6pr
+	n9E0zbc8/jtY9DJUAMadKeXWjVJDwWZAKYJvOw+51Jzs94QtETKW8O76cEWA/SRCcSuk3A64o1O2H
+	DIHigV1wDrNsoib0ZkPBzDY/euYjZcD3Yp9qKsM4fVAdlTIcxKy8C75nb4vj1L8KITEb3g0yl4Ydb
+	vh8mHGYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwYk-00000002rkF-1OuY;
-	Fri, 15 Aug 2025 15:41:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1umwbH-00000002s6M-0CMy;
+	Fri, 15 Aug 2025 15:44:15 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umuAg-00000002XYS-0fuM
+	id 1umuFu-00000002Xym-3bGr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 13:08:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8773A5C67F2;
-	Fri, 15 Aug 2025 13:08:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EFA0C4CEEB;
-	Fri, 15 Aug 2025 13:08:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755263317;
-	bh=yEAbtItrMUSwsbmLsQ1h3fvOKuTppfxoHtOpTlKH+bI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=e72r1ZkayaRwLfQ+nLTuFAxrdiNLa1aZYngD9qJdth7uJwXI2YL3T0HQHERtnjNwf
-	 DkibBkwfKU3X64RWniNTd3NOLSRuJW62YxTC9WMTBvXyAi60wj+Htnca+SoZoVTNLX
-	 o8HtH+IhGZ+BzXRX4g2FSTwpZ/5QNV/Wfb6QDr6DRuW1//Wr9VLWbS3PsOh7s8N4Rb
-	 +znL6gijlnoUW95qJyYHmmW+37WBUjC4oaAUZU/v1pV+TGzzral8EUK9ZauTtaV/ZA
-	 xzoxYPjJh9iPbRrciypX3GYWERE9FJbwZxLAzwZ9jPXTw5JZAYAh4BUNk+/0t+i4Pw
-	 ChyYHH4H0+kKQ==
-Date: Fri, 15 Aug 2025 08:08:36 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 15 Aug 2025 13:14:04 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-45a15fd04d9so19396375e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 06:14:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755263641; x=1755868441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aWVd3a6QjlDIBu/GZcAsaGjfMi/nlIyITb4lz5jcIMk=;
+        b=iFQ7pBKx5EcqNOiJlLhmOrxjXN4JowquUm3gPZl9/RvEHD8q46JytaAhPxv00XupJZ
+         nvTvl7HwQt/sp6TnJ6m9oOQ6nrUw9SFF1m3jeeatnd0fi04LGVxqY3N0MxbXvRVFJfWE
+         QwoEnKaz9OMJUh6/bsTSX4z3dxVr2rsqdwZfNH26uTemrvNfz2Z8SzTHQvxMkOKRGpS9
+         DyET4/yjssLwEnVVGzobgKCTnxkNgmI1lMqxNGYDnSMT0Dvy/Zbm1l4YEz9us1kVP9wy
+         w0tvPmixbVCXj5sc31osLoTd8byqk7YWNIt2M8vvqmHcJtYHcyjwgKhgEGuZRJItryUa
+         S1RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755263641; x=1755868441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aWVd3a6QjlDIBu/GZcAsaGjfMi/nlIyITb4lz5jcIMk=;
+        b=AWbXyKqyRELIWC5oxpCcwFMnw06i5xw+4a7Avd8RLzCTsPTkcLQelJwbu72zcOSjDG
+         WrdFwLr8svN6T6+W3vxFbYP9f/tiFrRLmEodSf2DZ4/9srFeQEsstA+LVEmIFiXTnXlx
+         FWdvqEbSes31uzOJKsfXtOggRFDk/hupvej2MgVXdMYOX/A/Vsz/Qz2DUmYrWo7i+ALF
+         /WXyZcqNdlNjaQAol92hYK3x2chnhLI2m1Ihvzth20kGnVyCMCpLauuC4Nj8d9PVKsAT
+         DH/h5n7Au4zoWwgGxd4zTPOQyAobxSYGlq8HGieMlFm5qgIVvHAFyP22k8oqm8DJXEpv
+         gJKw==
+X-Forwarded-Encrypted: i=1; AJvYcCV3MKtY9hSey69ZmSnwPs/xK06YZaIXmzRZAcUarNbzIxnWi8NnqOT4Ki036+PstUpp6a38UostvwMePRCSNZ4i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfGMUjpg/wRd5OjZu8Zer8TjR/RniauguTC8947Nol77DEaiXN
+	gqtavAU6tDxG88cFzvlo5ifp8E9iy/kGH3E63MuVwM5mZnZUXvUsw1NnVHx8A0vPXHw=
+X-Gm-Gg: ASbGnctagRkq/wJV3L1KKS768bpPML/bdxpkZ690rrwr1poi38+MdwfO30WB+OY/g45
+	dvrchTp42oBZbw0anjO2HWJpwCt2etmeQ1BaKXb6D69ESoY5XqJHKinBQt+BC5jF5hKtmJmpDfP
+	hhhcySM73W13kaY5NFhgCkz3Lh2xamNG3UkWksr0xR1oxlw4ESnrGSQQooU5XQZxcnHkPGx9Bei
+	Sus5Nax3SiBb9m16syzeTHU0BOxGGFOFIRuG+i+y+fHkZguqRK4VK9fSDSqV4OROUOyU/mFGsS5
+	43skmkKpbAaNwvWiKvhAxEz8yoXsj30PwxoSKN8DRG9UQQl62ZhtNIKU77bSYFsc+lYb8aWE/Dm
+	dcvpnz0CH5J0eFMSSr8FLhw3yNbM=
+X-Google-Smtp-Source: AGHT+IEGkzA5H/8XCgBmKZzZLui8cTS/0lu1L381PDJX0bf2RM2IKP9iCXo6EURHpv4ew13E3k7NJA==
+X-Received: by 2002:a05:600c:3502:b0:459:443e:b18a with SMTP id 5b1f17b1804b1-45a21859687mr19402065e9.14.1755263641313;
+        Fri, 15 Aug 2025 06:14:01 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45a1b1d4212sm37507125e9.0.2025.08.15.06.14.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Aug 2025 06:14:00 -0700 (PDT)
+Date: Fri, 15 Aug 2025 16:13:57 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, d-gole@ti.com, souvik.chakravarty@arm.com
+Subject: Re: [PATCH 3/8] firmware: arm_scmi: Refactor powercap domain layout
+Message-ID: <aJ8ylY6jjS70z8lL@stanley.mountain>
+References: <20250813114609.1305571-1-cristian.marussi@arm.com>
+ <20250813114609.1305571-4-cristian.marussi@arm.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
- Alex Elder <elder@riscstar.com>, Stephen Boyd <sboyd@kernel.org>, 
- Stanislav Jakubek <stano.jakubek@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Alex Elder <elder@kernel.org>, ~postmarketos/upstreaming@lists.sr.ht, 
- Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Ray Jui <rjui@broadcom.com>, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org
-To: Artur Weber <aweber.kernel@gmail.com>
-In-Reply-To: <20250813-kona-bus-clock-v6-0-f5a63d4920a4@gmail.com>
-References: <20250813-kona-bus-clock-v6-0-f5a63d4920a4@gmail.com>
-Message-Id: <175526317070.1748815.1341247491221597696.robh@kernel.org>
-Subject: Re: [PATCH v6 0/9] clk: bcm: kona: Add bus clock support, bus
- clocks for BCM21664/BCM281xx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813114609.1305571-4-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_060838_285172_484EA9D3 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250815_061402_898493_4AF365D2 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,108 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 13, 2025 at 12:46:04PM +0100, Cristian Marussi wrote:
+> @@ -486,7 +514,7 @@ static int scmi_powercap_xfer_pai_get(const struct scmi_protocol_handle *ph,
+>  }
+>  
+>  static int scmi_powercap_pai_get(const struct scmi_protocol_handle *ph,
+> -				 u32 domain_id, u32 *pai)
+> +				 u32 domain_id, u32 cpl_id, u32 *pai)
+>  {
+>  	struct scmi_powercap_info *dom;
+>  	struct powercap_info *pi = ph->get_priv(ph);
+> @@ -495,8 +523,11 @@ static int scmi_powercap_pai_get(const struct scmi_protocol_handle *ph,
+>  		return -EINVAL;
+>  
+>  	dom = pi->powercaps + domain_id;
+> -	if (dom->fc_info && dom->fc_info[POWERCAP_FC_PAI].get_addr) {
+> -		*pai = ioread32(dom->fc_info[POWERCAP_FC_PAI].get_addr);
+> +	if (cpl_id > dom->num_cpli)
 
-On Wed, 13 Aug 2025 13:00:06 +0200, Artur Weber wrote:
-> This patchset does the following:
-> 
-> - Introduce support for bus clocks. These are fairly similar to
->   peripheral clocks, but only implement policy, gate and hyst.
-> 
-> - Add matching bus clocks for BCM21664 and BCM281xx peripheral clocks
->   and update device tree bindings to match.
-> 
-> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
-> ---
-> Changes in v6:
-> - Rebase on v6.16
-> - Make kona_bus_clk_ops const, add a new commit to make kona_peri_clk_ops const as well
-> - Link to v5: https://lore.kernel.org/r/20250430-kona-bus-clock-v5-0-46766b28b93a@gmail.com/
-> 
-> Changes in v5:
-> - Pick up Reviewed-by trailer from Krzysztof on patch 3
-> - Rebase on v6.14
-> - No code changes since v4
-> - Link to v4: https://lore.kernel.org/r/20250318-kona-bus-clock-v4-0-f54416e8328f@gmail.com
-> 
-> Changes in v4:
-> - Rename moved CLOCK_COUNT defines to CLK_COUNT to avoid redefinition
-> - Squash BCM21664/BCM281xx bus clock DT bindings commits together
-> - Link to v3: https://lore.kernel.org/r/20250308-kona-bus-clock-v3-0-d6fb5bfc3b67@gmail.com
-> 
-> Changes in v3:
-> - Fix DT schema example in BCM281xx bus clock bindings
-> - Move CLOCK_COUNT defines from dt-bindings header to the driver
-> - Fix BCM21664 UARTBx_APB IDs being out of order compared to clock
->   driver
-> - Link to v2: https://lore.kernel.org/r/20250303-kona-bus-clock-v2-0-a363c6a6b798@gmail.com
-> 
-> Changes in v2:
-> - Drop prerequisite clock patch
-> - Move clock/bcm21664.h dt-bindings header change to dt-bindings patch
-> - Add BCM281xx bus clocks
-> - Link to v1: https://lore.kernel.org/r/20250216-kona-bus-clock-v1-0-e8779d77a6f2@gmail.com
-> 
-> ---
-> Artur Weber (9):
->       clk: bcm: kona: Move CLOCK_COUNT defines into the driver
->       dt-bindings: clock: brcm,kona-ccu: Drop CLOCK_COUNT defines from DT headers
->       dt-bindings: clock: brcm,kona-ccu: Add BCM21664 and BCM281xx bus clocks
->       clk: bcm: kona: Make kona_peri_clk_ops const
->       clk: bcm: kona: Add support for bus clocks
->       clk: bcm21664: Add corresponding bus clocks for peripheral clocks
->       clk: bcm281xx: Add corresponding bus clocks for peripheral clocks
->       ARM: dts: bcm2166x-common: Add matching bus clocks for peripheral clocks
->       ARM: dts: bcm11351: Add corresponding bus clocks for peripheral clocks
-> 
->  .../devicetree/bindings/clock/brcm,kona-ccu.yaml   |  49 ++++++-
->  arch/arm/boot/dts/broadcom/bcm11351.dtsi           |  33 +++--
->  arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi    |  28 ++--
->  drivers/clk/bcm/clk-bcm21664.c                     |  99 ++++++++++++++-
->  drivers/clk/bcm/clk-bcm281xx.c                     | 141 ++++++++++++++++++++-
->  drivers/clk/bcm/clk-kona-setup.c                   | 116 +++++++++++++++++
->  drivers/clk/bcm/clk-kona.c                         |  64 +++++++++-
->  drivers/clk/bcm/clk-kona.h                         |  14 +-
->  include/dt-bindings/clock/bcm21664.h               |  17 ++-
->  include/dt-bindings/clock/bcm281xx.h               |  24 +++-
->  10 files changed, 540 insertions(+), 45 deletions(-)
-> ---
-> base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
-> change-id: 20250212-kona-bus-clock-4297eefae940
-> 
-> Best regards,
-> --
-> Artur Weber <aweber.kernel@gmail.com>
-> 
-> 
-> 
+This gets fixed later in the series but it should be >=.
 
+regards,
+dan carpenter
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 038d61fd642278bab63ee8ef722c50d10ab01e8f
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/broadcom/' for 20250813-kona-bus-clock-v6-0-f5a63d4920a4@gmail.com:
-
-arch/arm/boot/dts/broadcom/bcm94709.dtb: /axi@18000000: failed to match any schema with compatible: ['brcm,bus-axi']
-
-
-
-
+> +		return -EINVAL;
+> +
+> +	if (dom->cpli[cpl_id].fc_info && dom->cpli[cpl_id].fc_info[POWERCAP_FC_PAI].get_addr) {
+> +		*pai = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_PAI].get_addr);
+>  		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_PAI_GET,
+>  				   domain_id, *pai, 0);
+>  		return 0;
 
 
