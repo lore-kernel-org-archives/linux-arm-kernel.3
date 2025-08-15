@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5AECA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C585CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 17:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jrCNPXnnoQqaDELgsJKRlngS3CXoF51zhyKLy22jlso=; b=iuDSY7CiB3Oo6cLlx0gqCsailU
-	CK6uEjZtRxHJmIHHQ7Lalv8K13Qi4xKzLgX1sWOKl9yyDiob2LaUuW1pOeIH6251hDskVJgUvQiKF
-	08PN/r8riPS/rHAyyIjCZyhHLMS+t/FM0RH8EmzFN7K9GRHFGkJFm0UgBvrb1eUsAoU5XHmYs532b
-	QfbAMObKnR+b4zb/3Fry33wxnwCl+1TDqLl+QM0lIDHEuR5vTSFJsNVK2upkG5i8/AL6ivKdIJOeK
-	vdDprogx/HGmgpKszBkzatN8TuXpB807XKzGIZ8OkJmI9pJiQCUBG00UDLmDFl+dxOSG5iUBNSDad
-	NJFHtxNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mjnOtSoAKluHBUYkKgFPRZc3qkvy8iRwCj2TNbf/AVo=; b=rmVKpjJbD55nFwp+fJErQfqzld
+	Ujy9uAjU9NVqrHjZ2+ytrlEadtOfKilXZel8CLG3pRDDu1e6vrDzoLIOolOmkBeBo1WI/RdKclFEf
+	Ah0SCXSSjuYYJZgNrueu3MYDKy17AfkFu2hXe9dCYWgtQh+neMquJ5pA41TXGnT2h9E1JhxWlcraN
+	TYhW9jB6Gq56xO8a9U/timcwhQedb+bFScSqO8p+fXTYxTWtRVYWTZKkdXBmpjqhB+kFd7rZC4esO
+	Hwvq4R2QZxc2OUxMRx0MvwLXL+GvkdA1FqlzKsnzAITUB5ApJCmoPXZ1mgKYzfOb8cvto37ddyQ05
+	Wfhl7/mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umxtB-000000034ur-3sU2;
-	Fri, 15 Aug 2025 17:06:50 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1umxvj-000000035FF-1zZI;
+	Fri, 15 Aug 2025 17:09:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwC9-00000002pCy-23Rv
+	id 1umwVV-00000002rCR-34FG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 15:18:18 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DD709A1132;
-	Fri, 15 Aug 2025 17:18:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=jrCNPXnnoQqaDELgsJKRlngS3CXoF51zhyKLy22jlso=; b=
-	OezYG2/sIP7w9L+In2xEeaa2K6AJTOxkn4yPlvp24uvV9zxi7MtMTK2cCXvFdB9k
-	1h55oG4p3YusmV56LzmctAMoUJQrDP9/aPABMm3f/yiPfYau2AN50/JLlf0RmN93
-	wpTdwU5dOXm6HjKh9m5PH+PuyhWHVl/7LUq3fNge4g56Ifgv6ABa3u4yjQEjs5q1
-	5qTH3Naf6IxkyeROi0FETPGam41LR9pTVJdWZc+rZEuujVUuX23E/AJpzw7BD/LS
-	3SETKquD2JBFq5ABIlIWhQUlauy03skoxSrzMy5ejEZICsoYy1xqxh3O1kvfT7ci
-	/KPc8CvgKRpT9sNJOjmTo2HIeU/X8HDAPwaAIEKePsISzks0fc9uGi9Eh+Fo/FeZ
-	+RiR16v14zkAw1IMj/0kJ/LpT/Ao8N3VaqEKNRjDAAwJhBxN42uTM5/UydQ/vqpa
-	mlcFs6380dGr4ycgJ1GgygPr4Gos0UVazCM96l/n8auUdXF0oxz+qjEM2F5K8oWz
-	RT4tVYz6HJtchEErTdcyE1NORYiycnHfHRoU8GzBUPl5gWvNxoJkSPdjGK/t6cUV
-	0DGOEGEYetpDEcuOlgi6F9KgF134OhlV/K6DTobyc5pUql12GVh7nVh9opDH3WVB
-	OPb8Vw8L+iBjTZRyInPTsR+o2iB6xyj8pBvnGgdHGHw=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Fri, 15 Aug 2025 17:17:37 +0200
-Subject: [PATCH] ARM: dts: imx6ul-tx6ul: Switch away from deprecated
- `phy-reset-gpios`
+	Fri, 15 Aug 2025 15:38:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F3D114324A;
+	Fri, 15 Aug 2025 15:38:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41C8CC4CEEB;
+	Fri, 15 Aug 2025 15:38:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755272296;
+	bh=ynfE8kuAaAEGGLj8ZZSR4SpHdIFRt2PRvN/8CmoDgW4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b2srh0kKEmG0TLMCVwfNkB4zdNI46zW3ogTio1l643B48daYwxA3kYJG97V7RN9sh
+	 RzUG399113TOBnA8YGFcqaXLRVFLJ0Ipas+AbG7UFmV1HqXwzTMUkBvorrIMlAfgzy
+	 ctTGiwkiyrYoZaK9a98d9nZvPRFuNbcby4Z15sBbQfKkiIL11iI8l5lUri2UnE9bQZ
+	 y/cEKqjUDX7wQXLoxAHaW7ikX4i63M2WeHGG7gatNwhPql5jAuhbd+0nqEZFc8Q5kx
+	 wu0hl9nB7lCr78wQrumtfnwIe6hznlkFqEUd7t8FNfJlZ1QowQ/wr3Z4j6dFJ7xV+l
+	 l+iDdCyG3Rblw==
+Date: Fri, 15 Aug 2025 16:38:11 +0100
+From: Mark Brown <broonie@kernel.org>
+To: 15074444048@163.com
+Cc: catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev,
+	maz@kernel.org, joey.gouly@arm.com, james.morse@arm.com,
+	miko.lenczewski@arm.com, yangyicong@hisilicon.com,
+	robin.murphy@arm.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	lihaojie <lihaojie@kylinos.cn>
+Subject: Re: [PATCH] arm64: cpufeature: Replace inline with __always_inline
+ for GCS checks
+Message-ID: <4ac4f0d0-fa5e-4c47-bcdb-fc2a65450848@sirena.org.uk>
+References: <20250815011905.1368058-1-15074444048@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250815-b4-tx6ul-dt-phy-rst-v1-1-9b65e315d9d3@prolan.hu>
-X-B4-Tracking: v=1; b=H4sIAJBPn2gC/x3MQQ6CMBBA0auQWTuxJQLiVYiLtgx0Ei1kphoM4
- e5Wl2/x/w5KwqRwq3YQerPykgrsqYIQXZoJeSyG2tSNudoG/QXz1r4eOGZc4wdFM3ZuCrY3ru1
- NB6VchSbe/tfhXuydEnpxKcTfaxGeOZ2fTjMJHMcXVJ/IwYUAAAA=
-X-Change-ID: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Csaba Buday" <buday.csaba@prolan.hu>, =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?=
-	<csokas.bence@prolan.hu>
-X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755271085;VERSION=7996;MC=709096725;ID=1149888;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2998FD515E617063
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="caUVqYPC02RodTZa"
+Content-Disposition: inline
+In-Reply-To: <20250815011905.1368058-1-15074444048@163.com>
+X-Cookie: Tell me what to think!!!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_081817_689018_995031DE 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250815_083817_786525_9E66C921 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Ethernet PHY's reset GPIO should be specified in the node of the PHY
-itself, instead of the MAC (`fec`). The latter is deprecated, and was an
-i.MX-specific extension, incompatible with the new reset controller
-subsystem.
 
-Co-developed-by: Csaba Buday <buday.csaba@prolan.hu>
-Signed-off-by: Csaba Buday <buday.csaba@prolan.hu>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
- arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+--caUVqYPC02RodTZa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-index f053358bc9317f8447d65013a18670cb470106b2..0a5e90704ea481b0716d6ff6bc6d2110914d4f31 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
-@@ -246,7 +246,6 @@ &fec1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_enet1 &pinctrl_enet1_mdio &pinctrl_etnphy0_rst>;
- 	phy-mode = "rmii";
--	phy-reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
- 	phy-supply = <&reg_3v3_etn>;
- 	phy-handle = <&etnphy0>;
- 	status = "okay";
-@@ -262,6 +261,13 @@ etnphy0: ethernet-phy@0 {
- 			pinctrl-0 = <&pinctrl_etnphy0_int>;
- 			interrupt-parent = <&gpio5>;
- 			interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
-+			/* Reset SHOULD be a PHY property */
-+			reset-names = "phy";
-+			reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <100>;
-+			reset-deassert-us = <25000>;
-+			/* Energy detect sometimes causes link failures */
-+			smsc,disable-energy-detect;
- 			status = "okay";
- 		};
- 
+On Fri, Aug 15, 2025 at 09:19:05AM +0800, 15074444048@163.com wrote:
 
----
-base-commit: 0cc53520e68bea7fb80fdc6bdf8d226d1b6a98d9
-change-id: 20250815-b4-tx6ul-dt-phy-rst-7afc190a6907
+> When use __always_inline The compiler will almost certainly inline
+> system_supports_gcs, which allows the compiler to optimize and check
+> earlier during the compilation phase. If system_supports_gcs() returns
+> false, then the line of code restore_gcs_context (&user) will not
+> actually be generated, so the compiler will not report an error.
 
-Best regards,
--- 
-Bence Csókás <csokas.bence@prolan.hu>
+> -static inline bool system_supports_gcs(void)
+> +static __always_inline bool system_supports_gcs(void)
+>  {
+>  	return alternative_has_cap_unlikely(ARM64_HAS_GCS);
+>  }
 
+If we're doing this for one of the system_supports_foo() functions we
+should do it for all of them consistently, not just for one random one.
 
+--caUVqYPC02RodTZa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmifVGIACgkQJNaLcl1U
+h9Bzlwf9HozQmAyb+RkhSQzwYx5HY1E4TULvMLAY3bE0I7jieEIJDouBY6HmeJpz
+mNXjH+hVpx2fQtPbiO9Aum9WPW6Je+/XQJXInf4ct5v9lQOeYUNSAsGXvK2LCSNw
+48UB+t/XvJHti3XJ52avROTpauD3+VDuGRwRkXBs6FvcxstasyhvhvXmnbgfxqJP
+4lllWILmdxnCpmkseAquih/U5Uo2V39L/C7STJuidnrljqtSISzE8LD3CvtnO47W
+00Hsvf+lPDKVfOKHZZBHIuXQZVFIdG2JyfLkCIeZeX/zJjLMtvpC6Q/rHRhZuCYq
+NPag4h7iOpndV6uPMczgHrOG5XedwQ==
+=TaSe
+-----END PGP SIGNATURE-----
+
+--caUVqYPC02RodTZa--
 
