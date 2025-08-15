@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E52CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 06:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01ADCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 06:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=; b=vGfVLqc1yQnLaokxNNjHzfa6h6
-	UwX2iNwlJdYPq9bpmv9ftArYodYy3geHJCltD+Rm7E8XQnBB4l639nNhP6MwtKSpBbN4tBGhveWqf
-	EZ56CJqk/1eMvTk0Aq2mxN4mnmXhc1mO7aR1gOnBe7GaY17dICcWIhrajf/KOu0BJS8VCaDYXRNGF
-	J6SW3C1OWI6oY/v7jdLeY8CMB+EqJcKE5P/2uSZg6ibN0f+aMlxkLqM5V/HWxNPOhXoT3nbVhvDWQ
-	aKTNs91axILSjd7a1i4n4r6WT712XJRnu1tOodJ6asmSv52yOyK6WK6f82mNTRO2lYd7LAZZifsE3
-	AeAwSe9Q==;
+	bh=hf+KlM64LNNVE7O9+mvl/RJLu1Tb3EG6siALgLBwUCE=; b=cmkzWF7GrBdQCXqpY6l+n20wmF
+	XC6hsMuDBX4rfkAO8/tRa/b/K0tJtw57fdDUTtlGZugYi5tSLtxmLzvvlZzHHhod4wGmn68WpkQoR
+	l1dQDBJtlNViRlzHZ1sKkofXxxUxyRr1mGCWlrc+CjFfwMymLPMgnCbNrWzr6nyvxhWo8jmG0HIBx
+	KDrRHv3dkWtR10N4PaOKIQs3kinErN56A9X7wkafJzUPzynv4Ey2gaRwMeYa1eSTGzSL5rJHsHiUH
+	Bz+mRry9T1MyznO3HsI5+3PZpk80/Zk7X7fJj1HTVB1oWxhEWxYWj9AGJBfHqVA/aYddem/6+Uzrm
+	eNORnmzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umnlr-00000001b8g-3PzL;
-	Fri, 15 Aug 2025 06:18:35 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1umoD5-00000001dva-3hAz;
+	Fri, 15 Aug 2025 06:46:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umnhv-00000001akS-0nCJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 06:14:32 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b9e415a68fso1480015f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 Aug 2025 23:14:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755238469; x=1755843269; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=;
-        b=Peau/tVMbcwC0AJt1fnbVlcPpQPmf0gfavd+nc9Dv7NN16tP29dWXEScpOzAFs3SDC
-         jxWdGjio0M30NwCvexiEHE+NYdxMSL6MpzuYBNLw+OBiERuRYp763DZ4aTsH31TUuFVk
-         ykLr7RHrvXs/CCh9prna/Ah00tabMyT3JMhLEwQCku7ZJbKRrIEAuzxBV2eyrwVbFYFw
-         5hQFsUhSMiAvB4M9CCHAQ/NAbbT/zLBH6DBBno4wxgnSYMGfbbDklZaatf6V6hNRo/aX
-         1VfuuzZlYEZ/NprXVjIE3u4RarQuJGPC/19PVCFb+M5mLGGW2J3d0xiGIrit6SZXlJAT
-         k+xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755238469; x=1755843269;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RC3G8Ydq/hH7/R8jIdeAziyUg1MV8Z+nvGhUkoaFFOw=;
-        b=P03kfdBQznlhPsw4bm0iBj9v6bA7hgkkP0QCILTVKlsFVM/vePjsX4SvVmEtpTqPB0
-         ot9/4661nUVCHha6ErcmxuqX6AoU5Ed6fakbyfhWGPjNxjBxtH1NJYZ/lvGKNaVKOHHQ
-         z91xsrt1v/3nNk8fDVkHQZEC89/AljvtVltp/Ck84OxvL6SpTGn5uhL2IUwOk7VYSrcc
-         HM5oiBJP73iWiKjb0mdcKWFoSKbJcum1lmos8cir+ku+G6au7sM2B/mnIBowmLo3kL04
-         xOIE87rjIWmwYP8OEDVE65e6Y12aje26TT/qVdPDYPb/qVvR2L9H3YIdDdWcAlhx7hV0
-         VDFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/dM1sRB+2SciPW1/eRCTVqHdN5jy6dp7DGgus/Z+NqHXlgUwQGOQ7GNFnSKbkaDsdlqyZCtCwVAbFXoimGTy7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpFU8cCaqWP4IIC3MW4PBt6QwEE81fDHfvxhoh5isVELhY55hD
-	829kQ1Tpldn2WWpLMnONWGdKeNvlifpplTmZVek4+hVVEJWHwRxSLJv7qnzs/i/kSHK+nxHCv86
-	J0F0iV0SOPqKJDe/YJR+/NPFUC1skPEc=
-X-Gm-Gg: ASbGncuKCWusxNALqZpO7aU9Ii0i6ucbzztqwg0nngeSulkiYzSi+pJ8trVa23es0i0
-	NkfGE99Cwjr+Xw0V6Jtx61g36mEkO7jdTaNfTad4ebomHi2PoNTFnQqrr/b68idkMetrZguHj2O
-	ZZWC5xP16ioTMnt9o3fUzwMd9VG8rCnj1U25gZjdg/KIPYQ6CFNZE9aW864Ux+s8NgekgF/vOfN
-	gsqpD4l
-X-Google-Smtp-Source: AGHT+IGcfJRbvVjPwlmwrtipABpPT2k1A2y354zwiag+PFS0u1nqei6MBVPlvAO14bH2h8cPLQmeAXffrbKgUI/mnik=
-X-Received: by 2002:a05:6000:2584:b0:3b7:8a49:eed0 with SMTP id
- ffacd0b85a97d-3bb671f56demr475473f8f.22.1755238468843; Thu, 14 Aug 2025
- 23:14:28 -0700 (PDT)
+	id 1umn1E-00000001WuJ-1IRd;
+	Fri, 15 Aug 2025 05:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=hf+KlM64LNNVE7O9+mvl/RJLu1Tb3EG6siALgLBwUCE=; b=oLDz4NKueCvfqY99y4v5xmf1uy
+	JgqIycDhStY1rGhnoCP1AxLD8PhlH4N3yE/WpoJXQY0XfKDioXP+X1gOziJLHUFUvSo5JA+dYYBRx
+	73J7XRaz306cwV3YcG5R3ZNAWTAYbPPAhC57IHpKAishDhm+Kf2ATVKVerlqxxLZwj8qIlPRQPrBn
+	UEX44iQhY6L3F40XRKzttjXWQ7Z4Kt8WIZ6Bw0Oj95QABj4SzKvui1kb2RLGJu7tv+Ee6ehvnS/J/
+	iSvXD6733nV/HSFbf9WCv6wj12TyCYf4AkMH19L7GrKrEVksPXWiaiqyh5Zd4rpEARawNZnTm6zn0
+	Q2smjjAA==;
+Received: from mgamail.intel.com ([192.198.163.7])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umn1A-0000000GcgO-2tMi;
+	Fri, 15 Aug 2025 05:30:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755235821; x=1786771821;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=y0xyaJyPtcDPNLHhbPevkPLJ5VRQZj0+f0qVNL2ihWc=;
+  b=lCQcLeG1dS5V6/H3Nn0ZABizJ7oYTaZh2waLl2Q36mHsOfyiqRrJ4HkG
+   RvjCoVaLZgKd2tGggE2M8VSfWF+FJds63BxmrmKQ3UCklSAaeJgtBlg+9
+   UZwENbJPTsVT7/3NRvaJRuAvjBvmbMsRiLujWFbq9vFkDLQBico8J2K3k
+   fx3aiQsliRHr4Ta/htAbgIDAl2348/caYWNj24uYahL+AOm95ARCcalOz
+   cK3FFOUFQc3yqFNsjUwAlAXAKv4CaMC9eV94CUlufkTiA1UBKU0yl5yLi
+   ZgeE5mz3YgLiXNtjGA3r6w5XmXRWFX+zpf2lm4WpkNaQ8c3npexjAAH1L
+   Q==;
+X-CSE-ConnectionGUID: b+EJo9d3RgC4H1QLFaMPfg==
+X-CSE-MsgGUID: U3KTQhoxSV+OnsDRMSRN/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11522"; a="82994977"
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="82994977"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:30:15 -0700
+X-CSE-ConnectionGUID: RseyzJmKT36kWr3vroMtQg==
+X-CSE-MsgGUID: a9/KIfTrTBati7fQxiXAIQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,290,1747724400"; 
+   d="scan'208";a="166914870"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2025 22:30:08 -0700
+Message-ID: <aeb04f91-ffce-4092-8dbc-17d116cd7c7e@linux.intel.com>
+Date: Fri, 15 Aug 2025 13:28:02 +0800
 MIME-Version: 1.0
-References: <20250813175335.3980268-1-yeoreum.yun@arm.com> <20250813175335.3980268-3-yeoreum.yun@arm.com>
- <CA+fCnZeT2J7W62Ydv0AuDLC13wO-VrH1Q_uqhkZbGLqc4Ktf5g@mail.gmail.com> <aJ3E7u5ENWTjC4ZM@e129823.arm.com>
-In-Reply-To: <aJ3E7u5ENWTjC4ZM@e129823.arm.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Fri, 15 Aug 2025 08:14:18 +0200
-X-Gm-Features: Ac12FXzA1cRDanNY9nNRCdMRqZ-71xbNZTcaUrUR9hUEP-TJh9C4NEiHu1Mi5Xw
-Message-ID: <CA+fCnZdFVxmSBO9WnhwcuwggqxAL-Z2JB4BONWNd0rkfUem1pQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] kasan: apply store-only mode in kasan kunit testcases
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
-	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
-	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
-	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
-	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
+ helper
+To: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
+ joro@8bytes.org, bhelgaas@google.com, jgg@nvidia.com
+Cc: will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+ yi.l.liu@intel.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-pci@vger.kernel.org, patches@lists.linux.dev, pjaroszynski@nvidia.com,
+ vsethi@nvidia.com, helgaas@kernel.org, etzhao1900@gmail.com
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_231431_223902_D48FBBB2 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250815_063021_273342_4691607E 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +109,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 1:14=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> w=
-rote:
->
-> > > +/*
-> > > + * KUNIT_EXPECT_KASAN_SUCCESS - check that the executed expression d=
-oesn't
-> > > + * produces a KASAN report; causes a KUnit test failure otherwise.
-> >
-> > Should be no need for this, the existing functionality already checks
-> > that there are no reports outside of KUNIT_EXPECT_KASAN_FAIL().
->
-> This is function's purpose is to print failure situtations:
->   - KASAN should reports but no report is found.
->   - KASAN shouldn't report but there report is found.
->
-> To print the second error, the "TEMPLATE" macro is added.
-> not just checking the no report but to check whether report was
-> generated as expected.
+On 8/12/25 06:59, Nicolin Chen wrote:
+> There is a need to attach a PCI device that's under a reset to temporally
+> the blocked domain (i.e. detach it from its previously attached domain),
+> and then to reattach it back to its previous domain (i.e. detach it from
+> the blocked domain) after reset.
+> 
+> During the reset stage, there can be races from other attach/detachment.
+> To solve this, a per-gdev reset flag will be introduced so that all the
+> attach functions will bypass the driver-level attach_dev callbacks, but
+> only update the group->domain pointer. The reset recovery procedure will
+> attach directly to the cached pointer so things will be back to normal.
+> 
+> On the other hand, the iommu_get_domain_for_dev() API always returns the
+> group->domain pointer, and several IOMMMU drivers call this API in their
+> attach_dev callback functions to get the currently attached domain for a
+> device, which will be broken for the recovery case mentioned above:
+>   1. core asks the driver to attach dev from blocked to group->domain
+>   2. driver attaches dev from group->domain to group->domain
+> 
+> So, iommu_get_domain_for_dev() should check the gdev flag and return the
+> blocked domain if the flag is set. But the caller of this API could hold
+> the group->mutex already or not, making it difficult to add the lock.
+> 
+> Introduce a new iommu_get_domain_for_dev_locked() helper to be used by
+> those drivers in a context that is already under the protection of the
+> group->mutex, e.g. those attach_dev callback functions. And roll out the
+> new helper to all the existing IOMMU drivers.
 
-There's no need to an explicit wrapper for detecting the second case.
-If there's a KASAN report printed outside of
-KUNIT_EXPECT_KASAN_FAIL(), either the next KUNIT_EXPECT_KASAN_FAIL()
-or kasan_test_exit() will detect this.
+Given that iommu_group->mutex is transparent to the iommu driver, how
+about
+
+/*
+  * Called only by iommu drivers in the callback context where
+  * group->mutex has already been held by the core.
+  */
+struct iommu_domain *iommu_get_domain_for_dev_internal(struct device *dev)
+{
+	...
+	lockdep_assert_held(&group->mutex);
+	...
+}
+
+?
+
+> 
+> Add a lockdep_assert_not_held to the existing iommu_get_domain_for_dev()
+> to note that it would be only used outside the group->mutex.
+> 
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+
+Thanks,
+baolu
 
