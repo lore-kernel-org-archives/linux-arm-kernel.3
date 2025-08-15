@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E50CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 14:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995A9CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 14:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r57K7fI/6hd/8/DWGPUEw3UErVzL98S6GiksmsGJenw=; b=f6AYadOqy4IbT2ai7nsdNPUSpl
-	T2rQZs//gLkKMFz6MIjhjoIiy0jvLakVCRMNbdiEfl2ABeV9jDCEalnNZq9yAUZvjkMg+ejuLbnl+
-	9Ft1R9lwkrnj1GqA8iYpz2ypPVw8fGVZpuxlFJ5RJ1lvmznb8pcWvclexcqszADJPeTjOUX6bkrNe
-	CoUP+G0zq2WGoBaKNcjGYkfBoUZr5nYZARUP1REcBgIgQMOFwv/ic5QjkPj4/LrYiE+rVAYIHluPg
-	b7Caci5veQ1rxhbwFYDR1i5x0ErmARaAIm7XiAz+/9kAAEGxTCVebgrqtSigX1mOL7lo8su0WU5mF
-	SxAwZGHw==;
+	bh=cXoWeulVtu9+9ZJ32DPWh9WHScUWqcYcF/W16KdxM94=; b=yM9AOPoDybdL807b5yW8i6ZgWu
+	WSl7ToimRQW695CUAGgp8+moUU16SHYGFpWQF4WbwY0UpIwChiCPTHlfllA9RtTfC2w0pCRnYLAhw
+	aocLg9uCK7EjSyTRLgBI0gkbvTSaSoMILs4owH2p6ltlxCDCTEmVcePAsoObWNQKxucjZYSEFRTNA
+	V1Chjmg7WDSlPRuMKaANILnnPqfyOQN83eNy/CZ8S6aiP4WZxgWVtvl66/hgkKfQCXoP/uWDHelFJ
+	bmp0Va4hDGCpTz/6I+ee7c4DI0guVB2BdH+T9HyeYk8TQZsgqRiNSNJPI0vh4vjw5OLeyhXS4kvya
+	1NX004vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umvWX-00000002jXY-1HjB;
-	Fri, 15 Aug 2025 14:35:17 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1umvZ5-00000002jqd-0guh;
+	Fri, 15 Aug 2025 14:37:55 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsgJ-00000002LIW-3sJy
+	id 1umsgP-00000002LJv-10se
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 11:33:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=r57K7fI/6hd/8/DWGPUEw3UErVzL98S6GiksmsGJenw=; b=wNe4uxYMTL9+wEnSz8LQJNZqR4
-	n7uVBy4Wr8EQKQ/r3yyUu49dKLtuR5jqED3sfrSzQ65T+G/X3fSxICgWeOaTyNSVaMWZOnTY+afT0
-	9atmWCgTBCUvn6tWbn7Zt2E9SavecBrEsxoQChPNoKXd46YIVO8bmGz70J7wNjDGbbgNvOf3BWDFJ
-	nBkwxsQrdLze9NbnpMLMm9cdfi3nM21ihlp4HZNldPSBO9J9HeFNunK5kk7I+MROOk4067rugcmNa
-	1DLiSYUrIQIYXALATUL/X+sEa1njlIShghs3KevBYwF1Ui6WLFfYz5I2x0nLQUWi77ZJ48EuSanvT
-	EO5zVKGQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34540 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1umsgD-00012n-31;
-	Fri, 15 Aug 2025 12:33:05 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1umsfV-008vKv-1O; Fri, 15 Aug 2025 12:32:21 +0100
-In-Reply-To: <aJ8avIp8DBAckgMc@shell.armlinux.org.uk>
-References: <aJ8avIp8DBAckgMc@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 7/7] net: stmmac: explain the phylink_speed_down()
- call in stmmac_release()
+	Fri, 15 Aug 2025 11:33:19 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4c3KfQ60rmz6H7hy;
+	Fri, 15 Aug 2025 19:30:22 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id BF57F1402E9;
+	Fri, 15 Aug 2025 19:33:09 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 15 Aug
+ 2025 13:33:08 +0200
+Date: Fri, 15 Aug 2025 12:33:07 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Koichi Okuno <fj2767dz@fujitsu.com>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Catalin Marinas <catalin.marinas@arm.com>,
+	Gowthami Thiagarajan <gthiagarajan@marvell.com>, Linu Cherian
+	<lcherian@marvell.com>, Robin Murphy <robin.murphy@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, Bjorn Andersson
+	<quic_bjorande@quicinc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Konrad Dybcio
+	<konradybcio@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, "Arnd
+ Bergmann" <arnd@arndb.de>, "=?ISO-8859-1?Q?N=EDcolas?= \"F. R. A. Prado\""
+	<nfraprado@collabora.com>, Thomas Gleixner <tglx@linutronix.de>, "Peter
+ Zijlstra" <peterz@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v7 1/2] perf: Fujitsu: Add the Uncore MAC PMU driver
+Message-ID: <20250815123307.000032db@huawei.com>
+In-Reply-To: <20250815034751.3726963-2-fj2767dz@fujitsu.com>
+References: <20250815034751.3726963-1-fj2767dz@fujitsu.com>
+	<20250815034751.3726963-2-fj2767dz@fujitsu.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1umsfV-008vKv-1O@rmk-PC.armlinux.org.uk>
-Date: Fri, 15 Aug 2025 12:32:21 +0100
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_043311_964820_5872F204 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250815_043317_626084_15F2D46C 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +81,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The call to phylink_speed_down() looks odd on the face of it. Add a
-comment to explain why this call is there. phylink_speed_up() is
-always called in __stmmac_open(), and already has a comment.
+On Fri, 15 Aug 2025 12:47:28 +0900
+Koichi Okuno <fj2767dz@fujitsu.com> wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
+> This adds a new dynamic PMU to the Perf Events framework to program and
+> control the Uncore MAC PMUs in Fujitsu chips.
+> 
+> This driver was created with reference to drivers/perf/qcom_l3_pmu.c.
+> 
+> This driver exports formatting and event information to sysfs so it can
+> be used by the perf user space tools with the syntaxes:
+> 
+> perf stat -e mac_iod0_mac0_ch0/ea-mac/ ls
+> perf stat -e mac_iod0_mac0_ch0/event=0x80/ ls
+> 
+> FUJITSU-MONAKA PMU Events Specification v1.1 URL:
+> https://github.com/fujitsu/FUJITSU-MONAKA
+> 
+> Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 78113e2602ee..b5f1fb8b2b30 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4138,8 +4138,13 @@ static int stmmac_release(struct net_device *dev)
- 	struct stmmac_priv *priv = netdev_priv(dev);
- 	u32 chan;
- 
-+	/* If the PHY or MAC has WoL enabled, then the PHY will not be
-+	 * suspended when phylink_stop() is called below. Set the PHY
-+	 * to its slowest speed to save power.
-+	 */
- 	if (device_may_wakeup(priv->device))
- 		phylink_speed_down(priv->phylink, false);
-+
- 	/* Stop and disconnect the PHY */
- 	phylink_stop(priv->phylink);
- 	phylink_disconnect_phy(priv->phylink);
--- 
-2.30.2
+Hi, just one slight doubt inline around interrupt affinities.
+I can't quite remember what breaks when those don't move with the
+perf state and so can't immediately see if relevant here.
+
+Anyhow, if that is resolved (either by you saying it's definitely
+not an issue) or adding the irq_set_affinity() calls, then
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+Jonathan
+
+> diff --git a/drivers/perf/fujitsu_mac_pmu.c b/drivers/perf/fujitsu_mac_pmu.c
+> new file mode 100644
+> index 000000000000..1031e0221bb2
+> --- /dev/null
+> +++ b/drivers/perf/fujitsu_mac_pmu.c
+> @@ -0,0 +1,552 @@
+
+> +#define MAC_EVENT_CYCLES                        0x000
+Maybe drop the lading 0 on all these values? 0x00
+etc as we don't go beyond 0xa0
+
+> +#define MAC_EVENT_READ_COUNT                    0x010
+> +#define MAC_EVENT_READ_COUNT_REQUEST            0x011
+> +#define MAC_EVENT_READ_COUNT_RETURN             0x012
+> +#define MAC_EVENT_READ_COUNT_REQUEST_PFTGT      0x013
+> +#define MAC_EVENT_READ_COUNT_REQUEST_NORMAL     0x014
+> +#define MAC_EVENT_READ_COUNT_RETURN_PFTGT_HIT   0x015
+> +#define MAC_EVENT_READ_COUNT_RETURN_PFTGT_MISS  0x016
+> +#define MAC_EVENT_READ_WAIT                     0x017
+> +#define MAC_EVENT_WRITE_COUNT                   0x020
+> +#define MAC_EVENT_WRITE_COUNT_WRITE             0x021
+> +#define MAC_EVENT_WRITE_COUNT_PWRITE            0x022
+> +#define MAC_EVENT_MEMORY_READ_COUNT             0x040
+> +#define MAC_EVENT_MEMORY_WRITE_COUNT            0x050
+> +#define MAC_EVENT_MEMORY_PWRITE_COUNT           0x060
+> +#define MAC_EVENT_EA_MAC                        0x080
+> +#define MAC_EVENT_EA_MEMORY                     0x090
+> +#define MAC_EVENT_EA_MEMORY_MAC_WRITE           0x092
+> +#define MAC_EVENT_EA_HA                         0x0a0
+> +
+> +struct mac_pmu {
+> +	struct pmu		pmu;
+> +	struct hlist_node	node;
+> +	void __iomem		*regs;
+> +	struct perf_event	*events[MAC_NUM_COUNTERS];
+> +	unsigned long		used_mask[BITS_TO_LONGS(MAC_NUM_COUNTERS)];
+> +	cpumask_t		cpumask;
+> +};
+
+> +static void fujitsu_mac_counter_update(struct perf_event *event)
+> +{
+> +	struct mac_pmu *macpmu = to_mac_pmu(event->pmu);
+> +	int idx = event->hw.idx;
+> +	u64 prev, new;
+> +
+> +	do {
+> +		prev = local64_read(&event->hw.prev_count);
+> +		new = readq_relaxed(macpmu->regs + MAC_PM_EVCNTR(idx));
+> +	} while (local64_cmpxchg(&event->hw.prev_count, prev, new) != prev);
+> +
+> +	local64_add(new - prev, &event->count);
+> +}
+
+
+
+> +static int fujitsu_mac_pmu_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct acpi_device *acpi_dev;
+> +	struct mac_pmu *macpmu;
+> +	struct resource *memrc;
+> +	char *name;
+> +	int ret;
+> +	u64 uid;
+> +
+> +	acpi_dev = ACPI_COMPANION(dev);
+> +	if (!acpi_dev)
+> +		return -ENODEV;
+> +
+> +	ret = acpi_dev_uid_to_integer(acpi_dev, &uid);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
+> +
+> +	macpmu = devm_kzalloc(dev, sizeof(*macpmu), GFP_KERNEL);
+> +	if (!macpmu)
+> +		return -ENOMEM;
+> +
+> +	name = devm_kasprintf(dev, GFP_KERNEL, "mac_iod%llu_mac%llu_ch%llu",
+> +			      (uid >> 8) & 0xF, (uid >> 4) & 0xF, uid & 0xF);
+> +	if (!name)
+> +		return -ENOMEM;
+> +
+> +	macpmu->pmu = (struct pmu) {
+> +		.parent		= dev,
+> +		.task_ctx_nr	= perf_invalid_context,
+> +
+> +		.pmu_enable	= fujitsu_mac__pmu_enable,
+> +		.pmu_disable	= fujitsu_mac__pmu_disable,
+> +		.event_init	= fujitsu_mac__event_init,
+> +		.add		= fujitsu_mac__event_add,
+> +		.del		= fujitsu_mac__event_del,
+> +		.start		= fujitsu_mac__event_start,
+> +		.stop		= fujitsu_mac__event_stop,
+> +		.read		= fujitsu_mac__event_read,
+> +
+> +		.attr_groups	= fujitsu_mac_pmu_attr_grps,
+> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE | PERF_PMU_CAP_NO_INTERRUPT,
+> +	};
+> +
+> +	macpmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
+> +	if (IS_ERR(macpmu->regs))
+> +		return PTR_ERR(macpmu->regs);
+> +
+> +	fujitsu_mac__init(macpmu);
+> +
+> +	ret = platform_get_irq(pdev, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	ret = devm_request_irq(dev, ret, fujitsu_mac__handle_irq, 0,
+> +			       name, macpmu);
+
+It's been a while since I wrote a perf driver, but I'm a bit surprised to not
+see irq affinity management in here.  I remember running into issues with
+per cpu variables deep in perf when we didn't ensure the perf state and
+the irq remain on the same cpu core.  
+
+There might be something different here though.
+
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Request for IRQ failed for slice @%pa\n",
+> +				     &memrc->start);
+> +
+> +	/* Add this instance to the list used by the offline callback */
+> +	ret = cpuhp_state_add_instance(mac_pmu_cpuhp_state, &macpmu->node);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Error registering hotplug");
+> +
+> +	ret = perf_pmu_register(&macpmu->pmu, name, -1);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to register MAC PMU\n");
+> +
+> +	dev_dbg(dev, "Registered %s, type: %d\n", name, macpmu->pmu.type);
+> +
+> +	return 0;
+> +}
 
 
