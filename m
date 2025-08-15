@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F385FCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358B7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 15:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjeTweJ3rpt6YpKV/vEnlA7rHRaCcvmve7oDl2/k04A=; b=MyA3gxY1R5ntdhKl8RMdyTBTnr
-	78TJbGqg1IsRaL6aNSYMPHyHtQIHKVUAcvciL02zyTQrZfTzzzVFE1yd+E/+0KI/ttymHTEVWTs5/
-	2YHq1+6C+Gx6Z9Oc0nSXjbHX6WptbL3kaZRKlmZdDOEhrqOBCpdtHD0ZMzbTAvtUeGxty9+fFnEqI
-	VklLOk8vJ1BXgzK15aEvjsU0d750lmmnok7ddxfbRkF/ex8Xe0tBJe4Fcux9PfUqgcZFLw113GtXo
-	hkJ4L0xRHfNKLpr4kxVJY4/jrXoYoDTvieQaQqt76DK8sYa2SccgxdCouMQOCPHJSLH9u6h+0u8BP
-	vnxTNLkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=faS9aKsYo+kMSuRXBtsCQxNAk1nb/xXS1Q3KueB93ek=; b=oIrs11H8tvfSroBdzZ3Xp3wduJ
+	Lx95ADZtaudzgbiVQyCfOh2rCmGvXqtgGTgOudtaPrto+No54KYtwHB0zfaSyRv/uV/qW+dR4drm1
+	2DPtpDBJ3mRddMCw4MPm6/ibwc1dtaD5dgpByahEkussz0nyaTxyLc90TdeVE1fWB0MVxN32pK/Tm
+	YYluzstfIqUkRUvpvkpdbcPZEGYfvd0uRlu9+qhhXe0YkxORGLBe40dWvFAQ751weeGVSx5SlKV24
+	j+11hWpEZlQ30xSlfxq/MOuxeUS9ULhySlDgwB/EdySEewuLj9pglSEwnEN5rWc1U18R+was3SeX+
+	wn+/kGMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umwOe-00000002qVG-1Yvo;
-	Fri, 15 Aug 2025 15:31:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsms-00000002MSk-1beN;
-	Fri, 15 Aug 2025 11:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=xjeTweJ3rpt6YpKV/vEnlA7rHRaCcvmve7oDl2/k04A=; b=d3ilS2jyupRTcEOmUlOqZKAjGM
-	0Qpsy+V+NIZ7r6wlbtVd3Bs2iHwdCFkGwOzPWg/E2TAHZ67IJq2YhPzRZLCrutdbF3TTo6Ag01Y2W
-	1nm6Ojyl7/9b6VntcO58DVhpiGFVPl2ElJHVYxgEeTGc8hwoxm/DVbquUrLBrlRCd8IxRmRpiSCGk
-	BCnawrZK+2z68e1v28tE9DnwMzqA2hI+I/uT3IoQAQMiZw9XSrIWuzhqt23Vw4AXDCCgR5yHUbRaG
-	NjrBmHQQaGA99TukqezyXSwAkPtTSWNAPQvvxlXehSLtU2ZtPtGN1X2zSR6LZZPcTEdzcBYYoOc+w
-	rt1YgSRw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsmm-0000000GhAl-3JcF;
-	Fri, 15 Aug 2025 11:39:53 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id C287B3002ED; Fri, 15 Aug 2025 13:39:51 +0200 (CEST)
-Date: Fri, 15 Aug 2025 13:39:51 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Yongwei Ma <yongwei.ma@intel.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-Message-ID: <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-10-seanjc@google.com>
+	id 1umwRB-00000002qlO-0S48;
+	Fri, 15 Aug 2025 15:33:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umt6U-00000002Oz1-2uhf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Aug 2025 12:00:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B3531691;
+	Fri, 15 Aug 2025 05:00:05 -0700 (PDT)
+Received: from [10.57.56.228] (unknown [10.57.56.228])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4A373F738;
+	Fri, 15 Aug 2025 05:00:09 -0700 (PDT)
+Message-ID: <34ce1000-8d15-4d7e-bf67-11e2bcd135a5@arm.com>
+Date: Fri, 15 Aug 2025 14:00:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250806195706.1650976-10-seanjc@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64/mm: Update create_kpti_ng_temp_pgd() to handle
+ pgtable_alloc failure
+To: Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Zhenhua Huang <quic_zhenhuah@quicinc.com>, Joey Gouly <joey.gouly@arm.com>
+References: <20250813145607.1612234-1-chaitanyas.prakash@arm.com>
+ <20250813145607.1612234-3-chaitanyas.prakash@arm.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <20250813145607.1612234-3-chaitanyas.prakash@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250815_050014_778586_86CBA07A 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,106 +72,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 12:56:31PM -0700, Sean Christopherson wrote:
-> Add arch hooks to the mediated vPMU load/put APIs, and use the hooks to
-> switch PMIs to the dedicated mediated PMU IRQ vector on load, and back to
-> perf's standard NMI when the guest context is put.  I.e. route PMIs to
-> PERF_GUEST_MEDIATED_PMI_VECTOR when the guest context is active, and to
-> NMIs while the host context is active.
-> 
-> While running with guest context loaded, ignore all NMIs (in perf).  Any
-> NMI that arrives while the LVTPC points at the mediated PMU IRQ vector
-> can't possibly be due to a host perf event.
-> 
-> Signed-off-by: Xiong Zhang <xiong.y.zhang@linux.intel.com>
-> Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
-> Signed-off-by: Mingwei Zhang <mizhang@google.com>
-> [sean: use arch hook instead of per-PMU callback]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On 13/08/2025 16:56, Chaitanya S Prakash wrote:
+> create_kpti_ng_temp_pgd() was created as an alias for void returning
+> __create_pgd_mapping_locked() and relied on pgtable_alloc() to BUG_ON()
+> if an allocation failure occurred. But as __create_pgd_mapping_locked()
+> has been updated as a part of the error propagation patch to return a
+> non-void value, update create_kpti_ng_temp_pgd() to act as a wrapper
+> around __create_pgd_mapping_locked() and BUG_ON() on ret being a non
+> zero value.
+>
+> Signed-off-by: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
 > ---
->  arch/x86/events/core.c     | 27 +++++++++++++++++++++++++++
->  include/linux/perf_event.h |  3 +++
->  kernel/events/core.c       |  4 ++++
->  3 files changed, 34 insertions(+)
-> 
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index 7610f26dfbd9..9b0525b252f1 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -55,6 +55,8 @@ DEFINE_PER_CPU(struct cpu_hw_events, cpu_hw_events) = {
->  	.pmu = &pmu,
->  };
+>  arch/arm64/mm/mmu.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index db7f45ef16574..19cbabceb38bd 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -76,6 +76,14 @@ EXPORT_SYMBOL(empty_zero_page);
+>  static DEFINE_SPINLOCK(swapper_pgdir_lock);
+>  static DEFINE_MUTEX(fixmap_lock);
 >  
-> +static DEFINE_PER_CPU(bool, x86_guest_ctx_loaded);
+> +#ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> +void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys,
+> +			     unsigned long virt, phys_addr_t size,
+> +			     pgprot_t prot,
+> +			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +			     int flags);
+
+I'm not sure I understand why we'd now need this declaration?
+
+That function should really be declared in some header instead of the
+strange declaration in cpufeature.c, but that's unrelated to this patch.
+
+- Kevin
+
+> +#endif
 > +
->  DEFINE_STATIC_KEY_FALSE(rdpmc_never_available_key);
->  DEFINE_STATIC_KEY_FALSE(rdpmc_always_available_key);
->  DEFINE_STATIC_KEY_FALSE(perf_is_hybrid);
-> @@ -1756,6 +1758,16 @@ perf_event_nmi_handler(unsigned int cmd, struct pt_regs *regs)
->  	u64 finish_clock;
->  	int ret;
->  
-> +	/*
-> +	 * Ignore all NMIs when a guest's mediated PMU context is loaded.  Any
-> +	 * such NMI can't be due to a PMI as the CPU's LVTPC is switched to/from
-> +	 * the dedicated mediated PMI IRQ vector while host events are quiesced.
-> +	 * Attempting to handle a PMI while the guest's context is loaded will
-> +	 * generate false positives and clobber guest state.
-> +	 */
-> +	if (this_cpu_read(x86_guest_ctx_loaded))
-> +		return NMI_DONE;
-> +
->  	/*
->  	 * All PMUs/events that share this PMI handler should make sure to
->  	 * increment active_events for their events.
-> @@ -2727,6 +2739,21 @@ static struct pmu pmu = {
->  	.filter			= x86_pmu_filter,
->  };
->  
-> +void arch_perf_load_guest_context(unsigned long data)
-> +{
-> +	u32 masked = data & APIC_LVT_MASKED;
-> +
-> +	apic_write(APIC_LVTPC,
-> +		   APIC_DM_FIXED | PERF_GUEST_MEDIATED_PMI_VECTOR | masked);
-> +	this_cpu_write(x86_guest_ctx_loaded, true);
-> +}
-> +
-> +void arch_perf_put_guest_context(void)
-> +{
-> +	this_cpu_write(x86_guest_ctx_loaded, false);
-> +	apic_write(APIC_LVTPC, APIC_DM_NMI);
-> +}
-> +
->  void arch_perf_update_userpage(struct perf_event *event,
->  			       struct perf_event_mmap_page *userpg, u64 now)
+>  void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
 >  {
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 0c529fbd97e6..3a9bd9c4c90e 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -1846,6 +1846,9 @@ static inline unsigned long perf_arch_guest_misc_flags(struct pt_regs *regs)
->  # define perf_arch_guest_misc_flags(regs)	perf_arch_guest_misc_flags(regs)
+>  	pgd_t *fixmap_pgdp;
+> @@ -541,11 +549,17 @@ static void ___create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+>  }
+>  
+>  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> -extern __alias(__create_pgd_mapping_locked)
+>  void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+>  			     phys_addr_t size, pgprot_t prot,
+>  			     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -			     int flags);
+> +			     int flags)
+> +{
+> +	int ret = 0;
+> +
+> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> +					  pgtable_alloc, flags);
+> +	BUG_ON(ret);
+> +}
 >  #endif
 >  
-> +extern void arch_perf_load_guest_context(unsigned long data);
-> +extern void arch_perf_put_guest_context(void);
-> +
->  static inline bool needs_branch_stack(struct perf_event *event)
->  {
->  	return event->attr.branch_sample_type != 0;
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index e1df3c3bfc0d..ad22b182762e 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -6408,6 +6408,8 @@ void perf_load_guest_context(unsigned long data)
->  		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
->  	}
->  
-> +	arch_perf_load_guest_context(data);
-
-So I still don't understand why this ever needs to reach the generic
-code. x86 pmu driver and x86 kvm can surely sort this out inside of x86,
-no?
-
+>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
 
