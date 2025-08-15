@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E97CA0EEC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D81CA0EEE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jY3sNtwdFAAn0D3rH2WM6exJASiMf81df/QjJ9/2MSs=; b=izfVkuyBh3YVeVd+KBFJ3CNXKE
-	SF4aWC+KB3vnYqY2PcpMCSu560IFE6chxcahgTkL7QyKLNlhlRdnlxCWWckdYBoWWt5XBYS/Kx1J2
-	Suw+EVSrQ676UaDwCqN/jPGcJMVDbVrRMFxByZZ/KmdtVHjp4YjKict4NHmC9uKeF24H5b+JtUvP8
-	pZexkYyp7RYZPXzfIsRYUQn5oCFb3BeZ36O4OFLLNbc+hlFtynDgZLv124Ok5H64RXWIjcFyI06mw
-	GszWtkwx490IVar9cqMFltuAnomFBVuAGA3lLRxdf6bdhKdKVhiCqN+eGGo13bBHyESgKY+m3odVj
-	SAPNycZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFEat3zirg8C2/2oLxu6X/ZdyOC05vJhFKTQnZhl0cg=; b=FRGdVLyqFgJ9qEm6ycWrC8Q7wh
+	e1n7X3pAcu7Idu4/qpXAyBWWliTIrH3rR2Gw3ECY3ir/2Gf5FwR1KixL6tzQbopV5QEIdTVIRnuKt
+	tZ1ndcbGcfqjfsT5qYV4a2G+JrAoysBcsFLLDxX0L4VYNC2bCgO47D5WTUuc6bK6ux6fn2j1FJZy5
+	dOk+ffYqIfDQV0wP16xoRT0tOD2py0maA4fqHnIU/w3o8y4b+XunhDl3pNftREbIt615nRmdCrhgh
+	lUAuz7W0/qtdiDO2JR7m3hB/ZrYqqg4Amo/vJrdr5vwF7BAPlCL4ns2d3p146ToYSfilMIWMIJ3ZW
+	lgTTf2Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un0u6-00000003Qd4-3qxv;
-	Fri, 15 Aug 2025 20:19:58 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1un0u9-00000003Qgt-2gyE;
+	Fri, 15 Aug 2025 20:20:01 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umz0W-00000003Edj-3GZF
+	id 1umzO7-00000003Gni-1lbJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 18:18:30 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-242d3be5bdfso13585ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 11:18:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755281907; x=1755886707; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jY3sNtwdFAAn0D3rH2WM6exJASiMf81df/QjJ9/2MSs=;
-        b=WlYUK/hzHGz9k+RWbT8FDrhoUn/8c9r7/Dgj53CM6XZ1+yaCYvnJjAGpl3IGpLQzCN
-         lKktzF+YMMabfLyZxm4pK2zQldz3FgBHnP9UwbAzG56i0042xiyW5uhLGIb+R3va6XBi
-         DMUYwVV/+vVWlyjX4I/B+yBId3NkkY6fR72VemewZFeAJKeOs6/D04hncp0PtWuU4Q/Z
-         d5tOVB/GXikpeU4JGPdyGmql3u/qXg/reRAS3sqUlUi50C5JF11eQOV4H757s97w7eEk
-         Ano10kLppdcrt+l1cuEOy3SHgazL4AFhaHz0O1BPgGa0GiTzS7soJACy2ejXVR/L0SkV
-         lXPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755281907; x=1755886707;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jY3sNtwdFAAn0D3rH2WM6exJASiMf81df/QjJ9/2MSs=;
-        b=aVJC7i6SvhJK1avseTVusDKgPBz0JTnB/SWuIL3w2vqcmVEsBVV7S1AQv4Gi+A54m0
-         Jm2GyaH1Wsx42unbi5uNJOirvza6XIGCXpmNIrLYuoyErqJDBmikCTd+qU8hN8ZmSuKK
-         Gq4aaw6WVqO5tSCJelcIDc8iBgo3bGJPceRuGua5dNoiVLuhGi5Qp8jtrsJD7Gi17+nv
-         F6+iArD9nbgGksoFrqM+C6HxxnVjWiJf5/LOBi2wrxVKgPmbQc8WcvHclAW8swWcnqyA
-         eDu7j1ATb3KgzJdI2psL6mRIirv7BUS1wg9LzGX/pGVPpGu9RylPx10i6gh0mosJ9HBH
-         QelA==
-X-Forwarded-Encrypted: i=1; AJvYcCV3xmbG3KnS+vbToQX7byqPUlS0Psf35D43H7QxXBhS0JD+xWYDbOtxHYg+G1PVMxxarpSIXkZdX2IsXX+GZON+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+Gh+DU1zV9Ydchs/rwfJxih/oz/z4LWOqqBxsgi5JCBlSeNyr
-	OSs1YlBFig/4dFLWQY21+Tvn07/fLNR5/CCS+Iw6hUyqZGSzw1uSrCV5k90Ybmk12nR+kosUFjL
-	hITaa9F0qcx9zz1jK/kFWKF78hv+jWAxGOqTOkKV5
-X-Gm-Gg: ASbGncvngAfMirtyOcwOVftujToPWpor9vvocxrW1NE9BF8SEpPxboqagqUmFf8O1Qc
-	fJBM8Oh21f9S45FGSLQDuW+F9EQhJvl+z6p4FK/96qjA52R2SluLgoCM8mpshvk6Ll2UL0ScmcD
-	grLTDjyDgj20llkleqMp3oizCQiftnBHRcUlIJnFe1SVvNj0ycezHWlEjrk2rzfykaA6g/NyD4v
-	55BchbH6lxwBspqscUR4L25c6K32ega9NOi/FBt+LaC6FbjItlyPw==
-X-Google-Smtp-Source: AGHT+IG/MLfEHn+NUjk3JeTkvygoGYy2JeIHzIrZZHZgIjMPHcITqpps3JgVEHZ+BBPTyF9DrPEKdybZgIAFZ8JuvHo=
-X-Received: by 2002:a17:902:f709:b0:242:abac:2aae with SMTP id
- d9443c01a7336-24478e4ac08mr177905ad.12.1755281907107; Fri, 15 Aug 2025
- 11:18:27 -0700 (PDT)
+	Fri, 15 Aug 2025 18:42:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=NFEat3zirg8C2/2oLxu6X/ZdyOC05vJhFKTQnZhl0cg=; b=GTeAPr8gn7YNZKVQbSxG+bF1QA
+	CtBH83Hd9XObTUvCNk45wDj5dQNcibQ7ra2s4ipaVsEQqMj7iguXuby5CTgruIH7T60llxk4xKsQ5
+	+Nh+55C3QG53q0Kaj2eiMYJmqtcEyE5S+tvSg6m7oWR4pTBfDE7tNVHxQKRDffL+EBxI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1umzNj-004qvW-Bo; Fri, 15 Aug 2025 20:42:27 +0200
+Date: Fri, 15 Aug 2025 20:42:27 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Simon Horman <horms@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	taoren@meta.com, bmc-sw2@aspeedtech.com
+Subject: Re: [net-next v2 0/4] Add AST2600 RGMII delay into ftgmac100
+Message-ID: <a9ef3c51-fe35-4949-a041-81af59314522@lunn.ch>
+References: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
-References: <20250611104844.245235-1-steven.price@arm.com> <20250611104844.245235-20-steven.price@arm.com>
- <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com>
- <80c46a5c-7559-4763-bbf2-6c755a4b067c@arm.com> <CAGtprH_6DYk8POPy+sLc3RL0-5gcrTdPNcDWFTssOK5_U4B3Nw@mail.gmail.com>
- <23be7cdb-f094-4303-87ae-2fdfed80178b@arm.com>
-In-Reply-To: <23be7cdb-f094-4303-87ae-2fdfed80178b@arm.com>
-From: Vishal Annapurve <vannapurve@google.com>
-Date: Fri, 15 Aug 2025 11:18:15 -0700
-X-Gm-Features: Ac12FXxRfPJJ5CiXj1SEYOdMuRetA156ExPvVO3KltOm1QNQAryxM5r582UfZ7g
-Message-ID: <CAGtprH9rbW173qZyC5_cHkKT5J4YDSg8itFcR2VZvSY88fsGrQ@mail.gmail.com>
-Subject: Re: [PATCH v9 19/43] arm64: RME: Allow populating initial contents
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_111828_818784_25D89CEA 
-X-CRM114-Status: GOOD (  39.48  )
+X-CRM114-CacheID: sfid-20250815_114251_457999_C7BB359A 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,141 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 8:48=E2=80=AFAM Steven Price <steven.price@arm.com>=
- wrote:
->
-> >>>> +static int populate_region(struct kvm *kvm,
-> >>>> +                          phys_addr_t ipa_base,
-> >>>> +                          phys_addr_t ipa_end,
-> >>>> +                          unsigned long data_flags)
-> >>>> +{
-> >>>> +       struct realm *realm =3D &kvm->arch.realm;
-> >>>> +       struct kvm_memory_slot *memslot;
-> >>>> +       gfn_t base_gfn, end_gfn;
-> >>>> +       int idx;
-> >>>> +       phys_addr_t ipa =3D ipa_base;
-> >>>> +       int ret =3D 0;
-> >>>> +
-> >>>> +       base_gfn =3D gpa_to_gfn(ipa_base);
-> >>>> +       end_gfn =3D gpa_to_gfn(ipa_end);
-> >>>> +
-> >>>> +       idx =3D srcu_read_lock(&kvm->srcu);
-> >>>> +       memslot =3D gfn_to_memslot(kvm, base_gfn);
-> >>>> +       if (!memslot) {
-> >>>> +               ret =3D -EFAULT;
-> >>>> +               goto out;
-> >>>> +       }
-> >>>> +
-> >>>> +       /* We require the region to be contained within a single mem=
-slot */
-> >>>> +       if (memslot->base_gfn + memslot->npages < end_gfn) {
-> >>>> +               ret =3D -EINVAL;
-> >>>> +               goto out;
-> >>>> +       }
-> >>>> +
-> >>>> +       if (!kvm_slot_can_be_private(memslot)) {
-> >>>> +               ret =3D -EPERM;
-> >>>> +               goto out;
-> >>>> +       }
-> >>>> +
-> >>>> +       while (ipa < ipa_end) {
-> >>>> +               struct vm_area_struct *vma;
-> >>>> +               unsigned long hva;
-> >>>> +               struct page *page;
-> >>>> +               bool writeable;
-> >>>> +               kvm_pfn_t pfn;
-> >>>> +               kvm_pfn_t priv_pfn;
-> >>>> +               struct page *gmem_page;
-> >>>> +
-> >>>> +               hva =3D gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa))=
-;
-> >>>> +               vma =3D vma_lookup(current->mm, hva);
-> >>>> +               if (!vma) {
-> >>>> +                       ret =3D -EFAULT;
-> >>>> +                       break;
-> >>>> +               }
-> >>>> +
-> >>>> +               pfn =3D __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), =
-FOLL_WRITE,
-> >>>> +                                       &writeable, &page);
-> >>>
-> >>> Is this assuming double backing of guest memory ranges? Is this logic
-> >>> trying to simulate a shared fault?
-> >>
-> >> Yes and yes...
-> >>
-> >>> Does memory population work with CCA if priv_pfn and pfn are the same=
-?
-> >>> I am curious how the memory population will work with in-place
-> >>> conversion support available for guest_memfd files.
-> >>
-> >> The RMM interface doesn't support an in-place conversion. The
-> >> RMI_DATA_CREATE operation takes the PA of the already delegated
-> >> granule[1] along with the PA of a non-delegated granule with the data.
-> >
-> > Ok, I think this will need a source buffer from userspace that is
-> > outside guest_memfd once guest_memfd will support a single backing for
-> > guest memory. You might want to simulate private access fault for
-> > destination GPAs backed by guest_memfd ranges for this initial data
-> > population -> similar to how memory population works today with TDX
-> > VMs.
->
-> Yes, that might well be the best option. At the moment I'm not sure what
-> the best approach from the perspective of the VMM is. The current setup
-> is nice because the VMM can populate the VM just like a normal non-coco
-> setup, so we don't need to special-case anything. Requiring the VMM to
-> load the initial contents into some other memory for the purpose of the
-> populate call is a little ugly.
+On Wed, Aug 13, 2025 at 02:32:57PM +0800, Jacky Chou wrote:
+> This patch series adds support for configuring RGMII internal delays for the 
+> Aspeed AST2600 FTGMAC100 Ethernet MACs.
 
-IIUC ARM CCA architecture requires two buffers for initial memory
-population irrespective of whether we do it within kernel or in
-userspace.
+So i think you are doing things in the wrong order. You first need to
+sort out the mess of most, if not all, AST2600 have the wrong
+phy-mode, because the RGMII delay configuration is hidden, and set
+wrongly.
 
-IMO, doing it in the kernel is uglier than doing it in userspace.
-Baking the requirement of passing two buffers into userspace ABI for
-populate seems cleaner to me.
+Please fix that first.
 
->
-> The other option is to just return to the double-memcpy() approach of
-> emulating an in-place content-preserving populate by the kernel copying
-> the data out of guest_memfd into a temporary page before doing the
-> conversion and the RMM copying back from the temporary page. I worry
-> about the performance of this, although it doesn't prevent the first
-> option being added in the future if necessary. The big benefit is that
-> it goes back to looking like a non-coco VM (but using guest_memfd).
+Then consider how you can add fine tuning of the delays. Maybe that
+needs to wait for AST2700.
 
-Populate path is CoCo specific, I don't see the benefit of trying to
-match the behavior with non-coco VMs in userspace.
-
->
-> > Note that with single backing around, at least for x86, KVM
-> > shared/private stage2 faults will always be served using guest_memfd
-> > as the source of truth (i.e. not via userspace pagetables for shared
-> > faults).
->
-> Indeed, it's not yet clear to me whether we can only support this
-> "single backing" world for CCA, or if it's going to be an option
-> alongside using guest_memfd only for protected memory. Obviously we need
-> the guest_memfd changes to land first too...
-
-Having a dual backing support just for supporting the initial populate
-seems overkill to me. How much payload in general are we talking about
-in terms of percentage of total memory size?
-
-IMO, dual backing for guest_memfd was a stopgap solution and should be
-deprecated once we have single memory backing support.
-CoCo VMs should default to using single backing going forward. Mmap
-support [1] for guest_memfd is close to getting merged. In-place
-conversion support is likely to follow soon.
-
-[1] https://lore.kernel.org/all/20250729225455.670324-1-seanjc@google.com/
-
->
-> At the moment I'm planning to post a v10 of this series soon, keeping
-> the same API. But we will definitely want to support the new guest_memfd
-> approach when it's ready.
->
-> Thanks,
-> Steve
->
+	Andrew
 
