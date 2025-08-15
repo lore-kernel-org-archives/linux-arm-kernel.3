@@ -4,163 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B038CA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 07:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C836CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 07:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wcl4eNAVzJbZ77QXzSSRRpiJ+TTy/LeaGuNR2vnkSZ4=; b=rpdnwXvQbM6h+Jl2z+4pePs4K4
-	BZ/Zj7tTm9g+EOm/yMuTbm6liCqAfgU1Rf8JKI/8CFkJOXJieqoNPGtDVSrt5/IeTna25dsDokGFv
-	FDd8cX8UrOpKQscqrDT31za5gDw0hc0Vfyphj8GVn7FEmOdcAQPloncGmZeoJFWwd70rVyb0gIcpr
-	YGLTCsQRvrPhI2pqk/CgPb8Him1sJaBzijK8554AhXLKFyJhpcrIvI2aM4nD77Cy2l3HUm+IRyf4d
-	5GGPXkMSQ/FYIZeZYlVkMD/5lRnnJaUah788xVDRaFWQt/dHBcr0PYa/SBTKLhkDbKat6ZMz1Bccu
-	kcv/Z+dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3K1kJm5inMNkv14D9ydpjinJSulNs5zENgGzWevk8EE=; b=vPKbN4QDA9zNiXJs2hAQwnUg0Z
+	z06bbe/++yeh4rtyDvYC5fGSpBzqluV6+mkEi4FXfeYgwrdxNQZrPVOh3Y7l5UH5X1SohH+KQh5Uo
+	+sPGLkuVVnTX7hhPlPBv1QKLSqtBBgSnB/RqQVr3E9cfhqSr/hQYtVuPjQlzfkUAReLf7g6pPfBGg
+	YRYDajq8kgEXInWx4YSX2XSp84f3ReWHuImXdujF3RKAyB+4ER6kaQ/MA1nM9Aomtf9PNcavkbTTg
+	5hbObI8EogFL0vA68QGYBzSC6CApxLJwmmviCKDWYJsXa2ljlCesx/VaJkc0nnAJeBBrVBZCruewR
+	07jpcA9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umokL-00000001j5J-09qV;
-	Fri, 15 Aug 2025 07:21:05 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1umoms-00000001jT0-00z7;
+	Fri, 15 Aug 2025 07:23:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umoWB-00000001gZi-35Bb
+	id 1umogL-00000001iT0-1lh6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 Aug 2025 07:16:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3K1kJm5inMNkv14D9ydpjinJSulNs5zENgGzWevk8EE=; b=HPAvLCsXcrJHLRZsHEsnLI7tyc
+	Ww/PmCsjFx6EcW0cP/PnW6kSZ4NcF1TDoyDphyuSdaltl0PM7XRC2qz40gW/PKOmvE6bbLy4zQq9K
+	qtOHRhDbEsfB9NCM+KVnOfJMym8XqrVL+TuTHABBkSMW7vyrI40e85+bEHq6ytbecCSFgFb3BE4y5
+	rUAJKjefg4lUOsGqi7GLCqNsdCojW9bIPRK0iLz6Q3SdvfZukW3iHK92p1/Nd3DfPCjHR40GE4Uwh
+	2x4DKa41l1OMGcjneHMH7ngwBHEfg+JAk3+HlIDuw9K15C75ZyoQe6f4WLn+l/ORVswkgVQvrVWnN
+	Jkv9nGJQ==;
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umogI-0000000Ge9c-0kc5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 07:06:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uvlCC/uMDtSNP27Bc2zAoLguc/tTv5HzwRmCcJC2KT1SjqLuWd46wmhdCotJ2Yo6jdWQuQ2da3j/6qGPTqJK13Gbtnpo4S0ZH3eK6Q9ejvzOteVErz05hRsfrkP5JJweZnsK2GVkcN0fcM/meaXbUV9VGoWV7wNlkqgVbe5Sdm3wePJdvyqRt9oc+aeEzQO2Q1MJl8PuMSvGvM7KsDbKkSZHMKFIDkJ3s2ZQUx+5MC0HbA+IRtUiPvaGUxQJTItbSgNMF4f5BV4pEcHPh21MENgwdISWxgDZIcMrxvWsmm2xI2zk7N6Xu249f87hj9utMYw/GX2LhkTYQetQczv6pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wcl4eNAVzJbZ77QXzSSRRpiJ+TTy/LeaGuNR2vnkSZ4=;
- b=ecK0VTNB6QtH1IBgDEyD+NqZw/NWFK1m5F5lF0PN7kDQUCsxaidxQi8rJjbBsj6MUN2ikSlCh+fVfB5/h9NGDvgxbcnZHgRVTwMexwYIrWqqdkcY/GicM3lirRsD8hjH5ZTtmKtdSRMI2yQ/mqVqoMPWrIKml4+4qcrDGIg8Cznsp349JxOWTeauj04rkpcpV6OjfucagyqrH1WPao540Ub8sZ4Za5lesYbiDfkocyCaoB7XDu0KYcSx9Fm9z1EhxCbekLsjoiI0EopnBbwsG169SnAronbxRmqv7sn2q7+DusxbvgO6lkgRqfVnlb25dRpHhru1uHOF0cTQhSTxQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wcl4eNAVzJbZ77QXzSSRRpiJ+TTy/LeaGuNR2vnkSZ4=;
- b=G7AOIC6Vpt+svdQNxclE0jxT990U62n1EE8uRLaBYCkUQF5AiwHMMGPVMqG0qrjJqi1OEQuScZN14CVQeDpneXerLHJUpixbG9xIsiYC4TyJAzt5URp5Hqvoda+k/CsueQRWz5k4DzpAbcIPU5ISVtkVhvsJuPrHz67LRNEGvcjHqdYzCpG1hbokhDWg8X34/adr6QFRqXqrPUVA5A5xP1sE/0Hfs2rD4afAYdj7R98cjojSdFoJ5hv/hbZvtWQvlUuu7756B9R41P/iqN3I3QMOIw8NjqfraTKw1C72lHcWngg2YBqUBlSgy6O9DWQExzR7M0kf8b8TLdea7Si+kQ==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by SEYPR06MB5467.apcprd06.prod.outlook.com (2603:1096:101:b6::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Fri, 15 Aug
- 2025 07:06:11 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%5]) with mapi id 15.20.9031.014; Fri, 15 Aug 2025
- 07:06:11 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Rob Herring <robh@kernel.org>
-CC: "benh@kernel.crashing.org" <benh@kernel.crashing.org>, "joel@jms.id.au"
-	<joel@jms.id.au>, "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "naresh.solanki@9elements.com"
-	<naresh.solanki@9elements.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Topic: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
- transfer-mode and global-regs properties and update example
-Thread-Index: AQHcDPdPoOp1+xBxEkuXgv6kGrdxSLRivEAAgACDtCA=
-Date: Fri, 15 Aug 2025 07:06:11 +0000
-Message-ID: <OS8PR06MB75410910BC7AD0BAF9866E3FF234A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250814084156.1650432-1-ryan_chen@aspeedtech.com>
- <20250814084156.1650432-2-ryan_chen@aspeedtech.com>
- <20250814223052.GA4004307-robh@kernel.org>
-In-Reply-To: <20250814223052.GA4004307-robh@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|SEYPR06MB5467:EE_
-x-ms-office365-filtering-correlation-id: d143ba72-fb84-4a32-2b76-08dddbca3762
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?drLciwgpiIdtxlm60gGVRPuAzX+VvvlyueaJRNaEjGBV/K1et0qNgXs/nx6W?=
- =?us-ascii?Q?QescwsV6kmYiFG1Uz17tKQU5rjr2MvjzqAi3hvpUV1NR9nRFEw9oJtA1jeRB?=
- =?us-ascii?Q?D0FUVWBK7ORCvfQL4nGr0aNhAhz5CRktOfuaod50LwmI2qgyMxyDGCfsYCup?=
- =?us-ascii?Q?Xu/K9+ZqJ7xmJ3ZTbV/xyHW/a3ehZPil6oh3gYtVQrUBLB93zxTldO/tid2L?=
- =?us-ascii?Q?1pi+3MIbsU8iDJq3e8BBfD5h7wlqRqafQR5u+mGs5rjpHmewVoIigRDeVrMe?=
- =?us-ascii?Q?DIPpjACbGGv3AJaCzIPmBjGSv4t+KWgLvf4Ca+wCL3Xxab9tX5zo0MVDCyNT?=
- =?us-ascii?Q?/e2mD4fbbAO8GafPuImbOi3L9YsQq+f6/luq9P/ByM+TGu+VYG3YR0npX53R?=
- =?us-ascii?Q?Ax4cEzNMW+z9BUt4QciSDeOJG4YpCzyc7dPV/s8KPgtATe1DskSbC3j6mbEa?=
- =?us-ascii?Q?VDLnu0Brdi80GkXCy17MToTIQnBAGeP4bqKpBZI0CQXGoqKcXkIr9OBBuEqE?=
- =?us-ascii?Q?GPbcKM8Z2EvEXXGSzQBl4aqXNiL0JO6gMXDNlRpMvtmX61pp/X2uvQKfNJ7g?=
- =?us-ascii?Q?K2ctiZ0ChHSS0esv9X3fhIpRl/5JkHacsQLVT3w4PBbBqvbk0RVDWn66rqzH?=
- =?us-ascii?Q?y8dEoGKaAoBstuMVrNbrRhwo0IjfD5Gjn1i2xAem1EQMXqeJzPPu4gzaa0dC?=
- =?us-ascii?Q?pWe9Am3VfFrRxpVLEcOn1FGWzQQWrpbAUqOBYxpgnE5tQwVuXA8E0QM2dlqF?=
- =?us-ascii?Q?ga63h4AXm2wACI+PsDrw8XKwNnjjURiA7ZrjizwRPybc1cFnqpDexBuerqhs?=
- =?us-ascii?Q?gjSvovYmr8MDGFS/3q77tEV56sp/223vZ2GKznDwB9egNpZMgnUDB5ybsVh2?=
- =?us-ascii?Q?qrO5wTfuEJ2POdTmIKvzcXm4KPbYgxa9486j4NVoIJw5oU7Z0eRWHE2+jMBz?=
- =?us-ascii?Q?AnErZdKbyPy/SVgspssTFmxnFjlurz/9PtuOBgmntMzFl001vX3uskTzpOSD?=
- =?us-ascii?Q?srJxx0vu5BGLQmArRaVUP5qkqvrDmt5+D7BpwJZJYl9S6DtdhL2/bWKobuQt?=
- =?us-ascii?Q?Yoafr2xWk6IHpY47JB+0QlhNW8eD1TR3eCY0bYIVCULWVhGdppxv1jlmeC0Q?=
- =?us-ascii?Q?i2j/exODcPlHwisSC2CQuSPPePwBu2YGmSoOHD4/O6RzMPB7q6GGZQa6446E?=
- =?us-ascii?Q?sMFxT4JY28dGGN0M7imBIEEPQ2WWa1L11NKvM8R6zAj2rYKZ0x7Oqb2zJBsi?=
- =?us-ascii?Q?rrqlevNxvvqGit6IlYu9R+bKXRBsoFh3RRxGbJDhwgeWiAInsXi3/YaVehMX?=
- =?us-ascii?Q?0Zy3sUCerbF3kBarnt3w2CCjJRT10gK9nrhsHR7BfG2IYO374AlPy48Jxnde?=
- =?us-ascii?Q?2K5Wf3PFJ3indlAs3GxPEzqlPFT+ah1iFR6HrRHPlVUTJuHOJujcPIEwP+5G?=
- =?us-ascii?Q?qDT7PXKn3PE=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4nZfSq3GjcDk8SGRqjYDl3ZTUjjc1IBYA380LddpGjUsT5ee5ZbLitFiTLGa?=
- =?us-ascii?Q?m6m53oS2Il68327CLsuolLvVCprr1/g/THOxh+OsTrab6QQsa2VX8i+LpHlQ?=
- =?us-ascii?Q?xgWY+zijmyOpP2bKrIFLvd/xiS8U0vDooHsYlhquMA2S+1uGfSBmbDfGVeFu?=
- =?us-ascii?Q?AWtuCwp2oMUBcvjqYGI4E/iJMsA0yHUc8oHigv94mXy1/xZG/6iR2mWaCEyr?=
- =?us-ascii?Q?iLidrw5rP+lj0jQszwXHqQC8oK0w7ZC3AGu2vCP6d1JoJS7Y4ACctEqiBO1p?=
- =?us-ascii?Q?6hhiBbh16J2Ybq7pD73qCNE6tI5PfSlAE0YfXmTWpBKuO/j4us9s8WqsVpdw?=
- =?us-ascii?Q?p4S4fMYBupUGMZHaLATwh1Ql7ca9h4NDajRzo1jyhPyN2NKeO2EjFMwZGPOT?=
- =?us-ascii?Q?I78PA1dbLT2uT4ot2DOyVZdU3Ca8f0e+pNrhYH4V+w2Sdk0zFe/JEyqv/rHf?=
- =?us-ascii?Q?kclW1BxXUdPW7bXjHjYy5iC3pe8nfy3ou8U2rUeal6nwE1aICEC8g+01PG/w?=
- =?us-ascii?Q?tmlB80ZejF6m1TAEUQetuzRth+cpoFqcdSHFVhfG6SpRg3/kecF5cwSLuYXL?=
- =?us-ascii?Q?ZB6VJkhWQRKZsLVojExvCTuTREWaOmFqd04TI/GWv0R415LERf1uXHSSqpjH?=
- =?us-ascii?Q?kMDPebbXl+3GEtmW9zu+jkJbhlC1uvLYHzUaAjvwOjRX9i5pKfT+BqENiH3V?=
- =?us-ascii?Q?qqqZ6b+ESYVYdfH3HBuEAOfSvK4GSRBARabwtb5MrCeWxQ2a9lxbLZG3UDJ0?=
- =?us-ascii?Q?4EawshI690yYDgCLefS5QnUG4mt5QQJZdZXWO6WoVeX+zVH8Qho6isd+8Rmx?=
- =?us-ascii?Q?5IpowT970BP7oNTAIeAjhxPINDPCsmquYKjnR/L9XPlRheZFv0WKHm9PQnye?=
- =?us-ascii?Q?3BmdilO+Q1zExwcKcHooS0ox60g8C3v7bWCip5p4nI6CQJaE7kP1JdblpBKx?=
- =?us-ascii?Q?4XEEXS7Mg8OydNDCsLIuzIKD8U6SX6GHDxDhbwhNqBLAHRwvVOoPzNZQBarQ?=
- =?us-ascii?Q?AKbd0u/dXSNTFmCXImP2V2wJ9YLdAmJK2oUPID5tgmB7Mut4WFjV6odnZnCr?=
- =?us-ascii?Q?h1Uf30DHYYk5WQ56f/hXI5gWKcjYY2/JBxmiUaSzhoUQbNb5VjMAapb+ElRn?=
- =?us-ascii?Q?Zhia55IZHqDLs9Sk6eYPgSu4ysaUBlTwcViKr1xRu5aIwhYTJkeqaTSvZt8S?=
- =?us-ascii?Q?weAJgYpCmsKRTXez1/i5SFpBTlIe+9Mucx37zgAvJYTaPmyNOzFzAe3oMGEb?=
- =?us-ascii?Q?9D1eEo2Wgr38OGaP8VK4gfBsIQRw0UIjIOJKUwOvCloaCxexHEExuOsC0JNW?=
- =?us-ascii?Q?KzCCKyb111nZsZjgQAIs1EJGJrNnZMPlHH7Q+8jB2AP5WTj/cKHnEaXfLS/9?=
- =?us-ascii?Q?BfHkkyHtTjGA/t2DovzVxIOJfuRD6B7y4nbZHXrJRCwYgbsjZ1eqh/7sdlB/?=
- =?us-ascii?Q?HkcIYJuXmE7503unl+RosJgToQ/cYr45+9trLvU6ZaMPtaKkavh9xddORyNE?=
- =?us-ascii?Q?7Bvp6gIQKGyO2ZZclLKO1aPtviM9D3zKvK/WO3/9FRDvympbBafOeBxt8Rr8?=
- =?us-ascii?Q?JhNFgNJ4q2RWhGJmc4zIEWNM6dk4Rk5JMprcfBrn?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 15 Aug 2025 07:16:56 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-333f8f5ca72so12150831fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 00:16:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1755242212; x=1755847012; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3K1kJm5inMNkv14D9ydpjinJSulNs5zENgGzWevk8EE=;
+        b=VTnWY/LZJtdxFsv9QhlnkkvrfB6/2Hvf7BUf6gN4MGI0Yq7CdQxPIy/rSuQQ94OvwZ
+         OqslV0D3a3FJFoL33xvKvihNxpLOrjSvcZYKzdzM99G6qT9deWkAb0p2AM7ZIUedZvDV
+         eWr9oVfDBL1rn6Zthmcr6DHehY/v/MA8S6vi8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755242212; x=1755847012;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3K1kJm5inMNkv14D9ydpjinJSulNs5zENgGzWevk8EE=;
+        b=Yd5xy34dQAcUO3RqcK22LYyON3UN9xrOjb70rUhwpedJM7zimKySQNcppvu/xhayEK
+         00f+cjFZrcS/yvn4aixjILFbbsAwEYCUJ3qmzUzbL6g8RrHSmkjQJIMKv26NFDAqRuGs
+         ToO0ScmsRZwXt1Z+o7bXO8J7kWX2P0KK9G7iukgSN/lo0NMD2016SuJXSlVubyIK3Dt0
+         Ji6bW1rwaCG0fB8pIFqhOIrVwG8Wu9TjZx4uGlGllQbrHZVPf0F7kbZLPyKWeaR4zRbM
+         3NWCW5D065EOinY4dhBHpm7/i2rMS6tkd04h8V6Hz/cKdkrBhnQQTFK8qlgD4/pxNdSa
+         X4MQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXX8Sm9ZXpWQ+ZHUgKMcKrIgg3fDu57ykMUkKC7kZNKodCSwBmQOh3XsbHTcV3OdC+VM2WuRfzc0Y/FDW1ZYsSs@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkiLYXqAdmGe0u+BKP3k/eqIf/4tKneS1i+zT4IYZ19pvp/FlU
+	s+Ve68+t3jtuYRApbFIyhen7B2kkO7Hv7+JOjMXhM6miiL/vqjCXqnXZhZjnUjI2jQgPhDaaZJu
+	f7h4Hmv3khvJvdqxZIddhGfYgci/mqgGn230paAIh
+X-Gm-Gg: ASbGncuV6YeGrpd+y5FErSFi8Ic16CpJee2Xi3X0Rk+w0qw1GUU/QNW+HoJ0EimISIz
+	1HTMHue0w0UZdnk5smcYyly6S5kfLri/taozhc/FKRUTg5Hkh8JgdYheCG5FOjlt6/TRHcSxBgu
+	ORs/d8fLDxXOWIwDde72jMpTBF4rsKUtnbHyXLP3IbyeK3aMcb4L6dld21nQeX0XoK2bbb/jH2l
+	UfSdEBw0HMbr3RTC2J+gsQj7qCZPp+Uusfxpw==
+X-Google-Smtp-Source: AGHT+IF53/A6ashxxLkiCCwGt0538IVz8i1pzg2+4/NBPJGi3Nkq4VQOaxq8OGtmtqORzmg2+6YsEKNq1xAp37Z68HI=
+X-Received: by 2002:a05:651c:548:b0:332:4238:4f46 with SMTP id
+ 38308e7fff4ca-334097dc344mr3187951fa.3.1755242211580; Fri, 15 Aug 2025
+ 00:16:51 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d143ba72-fb84-4a32-2b76-08dddbca3762
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Aug 2025 07:06:11.4758
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: t649ffaGn/FPPk0ao66IyBJHXX7MhkynKc7Q4m7NScUMhxMys2xZoILRtRcsBMsFFySQHun1T9f1azqcdP9M3P27dsryWHsV3OZBK46QWk0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5467
+References: <20250805135447.149231-1-laura.nao@collabora.com> <20250805135447.149231-20-laura.nao@collabora.com>
+In-Reply-To: <20250805135447.149231-20-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 15 Aug 2025 16:16:39 +0900
+X-Gm-Features: Ac12FXyZceMhsyBRYri8Vjpxp2RX9iE3-1LDqI4GAcFP9a1wCKbnWeSWQ_6z6o8
+Message-ID: <CAGXv+5FzZuas0n_qL1AzGYXyFxOwCsoH=SOzU7r4miDszh-uVw@mail.gmail.com>
+Subject: Re: [PATCH v4 19/27] clk: mediatek: Add MT8196 mdpsys clock support
+To: Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de, 
+	richardcochran@gmail.com, guangjie.song@mediatek.com, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	kernel@collabora.com, =?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_000627_889792_3A93F3A3 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20250815_081654_402764_99FBD74A 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,160 +113,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v17 1/3] dt-bindings: i2c: aspeed,i2c.yaml: add
-> transfer-mode and global-regs properties and update example
->=20
-> On Thu, Aug 14, 2025 at 04:41:54PM +0800, Ryan Chen wrote:
-> > - Add property "aspeed,global-regs" to get phandle set global
-> > register, for register mode selection and clock divider control.
-> > - Add an optional property "aspeed,transfer-mode" to allow device tree
-> > to specify the desired transfer method used by each I2C controller
-> > instance.
-> > - Update example to demonstrate usage of 'aspeed,global-regs' and
-> > 'aspeed,transfer-mode' for AST2600 I2C controller.
->=20
-> All of this is evident reading the patch. Explain here why you need this =
-change.
+On Tue, Aug 5, 2025 at 10:56=E2=80=AFPM Laura Nao <laura.nao@collabora.com>=
+ wrote:
+>
+> Add support for the MT8196 mdpsys clock controller, which provides clock
+> gate control for MDP.
+>
+> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>  drivers/clk/mediatek/Kconfig             |   7 +
+>  drivers/clk/mediatek/Makefile            |   1 +
+>  drivers/clk/mediatek/clk-mt8196-mdpsys.c | 187 +++++++++++++++++++++++
+>  3 files changed, 195 insertions(+)
+>  create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
+>
+> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+> index 8e5cdae80748..08fa18be525e 100644
+> --- a/drivers/clk/mediatek/Kconfig
+> +++ b/drivers/clk/mediatek/Kconfig
+> @@ -1024,6 +1024,13 @@ config COMMON_CLK_MT8196_MCUSYS
+>         help
+>           This driver supports MediaTek MT8196 mcusys clocks.
+>
+> +config COMMON_CLK_MT8196_MDPSYS
+> +       tristate "Clock driver for MediaTek MT8196 mdpsys"
+> +       depends on COMMON_CLK_MT8196
+> +       default m
 
-The AST2600 I2C controller supports three transfer modes: byte, buffer, and=
- DMA.
-To allow board designers and firmware to explicitly select the preferred tr=
-ansfer mode
-for each controller instance, this patch introduces the aspeed,transfer-mod=
-e property
-in the device tree binding.
-On AST2600, each I2C controller can operate in either the legacy or the new
-register mode and clock divider control, selectable by a global register se=
-tting.=20
+Please use "default COMMON_CLK_MT8196" for consistency with other
+patches and other platforms.
 
->=20
-> >
-> > Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> > ---
-> >  .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 39 +++++++++++++++++++
-> >  1 file changed, 39 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> > b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> > index 5b9bd2feda3b..2a9f7d1d2ea1 100644
-> > --- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> > +++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> > @@ -44,6 +44,34 @@ properties:
-> >      description: frequency of the bus clock in Hz defaults to 100 kHz =
-when
-> not
-> >        specified
-> >
-> > +  aspeed,transfer-mode:
-> > +    description: |
-> > +      ASPEED ast2600 platform equipped with 16 I2C controllers each i2=
-c
-> controller
-> > +      have 1 byte transfer buffer(byte mode), 32 bytes buffer(buffer m=
-ode),
-> and
-> > +      share a DMA engine.
-> > +      Select I2C transfer mode for this controller. Supported values a=
-re:
-> > +        - "byte": Use 1 byte for i2c transmit (1-byte buffer).
-> > +        - "buffer": Use buffer (32-byte buffer) for i2c transmit. (def=
-ault)
-> > +                    Better performance then byte mode.
->=20
-> If no 'aspeed,transfer-mode' property defaults to buffer mode, you never =
-need
-> 'aspeed,transfer-mode =3D "buffer"'.
->=20
-> When would you ever use "byte" mode? Sometimes you want worse
-> performance? That makes no sense.
->=20
-> I feel like we already discussed this, but I'm not going to dig thru 17 v=
-ersions to
-> see.
+> +       help
+> +         This driver supports MediaTek MT8196 mdpsys clocks.
+> +
+>  config COMMON_CLK_MT8196_PEXTPSYS
+>         tristate "Clock driver for MediaTek MT8196 pextpsys"
+>         depends on COMMON_CLK_MT8196
+> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefil=
+e
+> index 46358623c3e5..d2d8bc43e45b 100644
+> --- a/drivers/clk/mediatek/Makefile
+> +++ b/drivers/clk/mediatek/Makefile
+> @@ -155,6 +155,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196) +=3D clk-mt8196-apmix=
+edsys.o clk-mt8196-topckgen.o
+>                                    clk-mt8196-peri_ao.o
+>  obj-$(CONFIG_COMMON_CLK_MT8196_IMP_IIC_WRAP) +=3D clk-mt8196-imp_iic_wra=
+p.o
+>  obj-$(CONFIG_COMMON_CLK_MT8196_MCUSYS) +=3D clk-mt8196-mcu.o
+> +obj-$(CONFIG_COMMON_CLK_MT8196_MDPSYS) +=3D clk-mt8196-mdpsys.o
+>  obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) +=3D clk-mt8196-pextp.o
+>  obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) +=3D clk-mt8196-ufs_ao.o
+>  obj-$(CONFIG_COMMON_CLK_MT8365) +=3D clk-mt8365-apmixedsys.o clk-mt8365.=
+o
+> diff --git a/drivers/clk/mediatek/clk-mt8196-mdpsys.c b/drivers/clk/media=
+tek/clk-mt8196-mdpsys.c
+> new file mode 100644
+> index 000000000000..87ac3b52fcbc
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt8196-mdpsys.c
+> @@ -0,0 +1,187 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + *                    Guangjie Song <guangjie.song@mediatek.com>
+> + * Copyright (c) 2025 Collabora Ltd.
+> + *                    Laura Nao <laura.nao@collabora.com>
+> + */
+> +
+> +#include "clk-gate.h"
+> +#include "clk-mtk.h"
+> +
+> +#include <dt-bindings/clock/mediatek,mt8196-clock.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/module.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +
+> +static const struct mtk_gate_regs mdp0_cg_regs =3D {
+> +       .set_ofs =3D 0x104,
+> +       .clr_ofs =3D 0x108,
+> +       .sta_ofs =3D 0x100,
+> +};
+> +
+> +static const struct mtk_gate_regs mdp1_cg_regs =3D {
+> +       .set_ofs =3D 0x114,
+> +       .clr_ofs =3D 0x118,
+> +       .sta_ofs =3D 0x110,
+> +};
+> +
+> +static const struct mtk_gate_regs mdp2_cg_regs =3D {
+> +       .set_ofs =3D 0x124,
+> +       .clr_ofs =3D 0x128,
+> +       .sta_ofs =3D 0x120,
+> +};
+> +
+> +#define GATE_MDP0(_id, _name, _parent, _shift) {       \
+> +               .id =3D _id,                              \
+> +               .name =3D _name,                          \
+> +               .parent_name =3D _parent,                 \
+> +               .regs =3D &mdp0_cg_regs,                  \
+> +               .shift =3D _shift,                        \
+> +               .flags =3D CLK_OPS_PARENT_ENABLE,         \
+> +               .ops =3D &mtk_clk_gate_ops_setclr,        \
+> +       }
+> +
+> +#define GATE_MDP1(_id, _name, _parent, _shift) {       \
+> +               .id =3D _id,                              \
+> +               .name =3D _name,                          \
+> +               .parent_name =3D _parent,                 \
+> +               .regs =3D &mdp1_cg_regs,                  \
+> +               .shift =3D _shift,                        \
+> +               .flags =3D CLK_OPS_PARENT_ENABLE,         \
+> +               .ops =3D &mtk_clk_gate_ops_setclr,        \
+> +       }
+> +
+> +#define GATE_MDP2(_id, _name, _parent, _shift) {       \
+> +               .id =3D _id,                              \
+> +               .name =3D _name,                          \
+> +               .parent_name =3D _parent,                 \
+> +               .regs =3D &mdp2_cg_regs,                  \
+> +               .shift =3D _shift,                        \
+> +               .flags =3D CLK_OPS_PARENT_ENABLE,         \
+> +               .ops =3D &mtk_clk_gate_ops_setclr,        \
+> +       }
+> +
+> +static const struct mtk_gate mdp1_clks[] =3D {
+> +       /* MDP1-0 */
+> +       GATE_MDP0(CLK_MDP1_MDP_MUTEX0, "mdp1_mdp_mutex0", "mdp", 0),
+> +       GATE_MDP0(CLK_MDP1_SMI0, "mdp1_smi0", "mdp", 1),
+> +       GATE_MDP0(CLK_MDP1_APB_BUS, "mdp1_apb_bus", "mdp", 2),
+> +       GATE_MDP0(CLK_MDP1_MDP_RDMA0, "mdp1_mdp_rdma0", "mdp", 3),
+> +       GATE_MDP0(CLK_MDP1_MDP_RDMA1, "mdp1_mdp_rdma1", "mdp", 4),
+> +       GATE_MDP0(CLK_MDP1_MDP_RDMA2, "mdp1_mdp_rdma2", "mdp", 5),
+> +       GATE_MDP0(CLK_MDP1_MDP_BIRSZ0, "mdp1_mdp_birsz0", "mdp", 6),
+> +       GATE_MDP0(CLK_MDP1_MDP_HDR0, "mdp1_mdp_hdr0", "mdp", 7),
+> +       GATE_MDP0(CLK_MDP1_MDP_AAL0, "mdp1_mdp_aal0", "mdp", 8),
+> +       GATE_MDP0(CLK_MDP1_MDP_RSZ0, "mdp1_mdp_rsz0", "mdp", 9),
+> +       GATE_MDP0(CLK_MDP1_MDP_RSZ2, "mdp1_mdp_rsz2", "mdp", 10),
+> +       GATE_MDP0(CLK_MDP1_MDP_TDSHP0, "mdp1_mdp_tdshp0", "mdp", 11),
+> +       GATE_MDP0(CLK_MDP1_MDP_COLOR0, "mdp1_mdp_color0", "mdp", 12),
+> +       GATE_MDP0(CLK_MDP1_MDP_WROT0, "mdp1_mdp_wrot0", "mdp", 13),
+> +       GATE_MDP0(CLK_MDP1_MDP_WROT1, "mdp1_mdp_wrot1", "mdp", 14),
+> +       GATE_MDP0(CLK_MDP1_MDP_WROT2, "mdp1_mdp_wrot2", "mdp", 15),
+> +       GATE_MDP0(CLK_MDP1_MDP_FAKE_ENG0, "mdp1_mdp_fake_eng0", "mdp", 16=
+),
+> +       GATE_MDP0(CLK_MDP1_APB_DB, "mdp1_apb_db", "mdp", 17),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC0, "mdp1_mdp_dli_async0", "mdp", =
+18),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC1, "mdp1_mdp_dli_async1", "mdp", =
+19),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC0, "mdp1_mdp_dlo_async0", "mdp", =
+20),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC1, "mdp1_mdp_dlo_async1", "mdp", =
+21),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLI_ASYNC2, "mdp1_mdp_dli_async2", "mdp", =
+22),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC2, "mdp1_mdp_dlo_async2", "mdp", =
+23),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC3, "mdp1_mdp_dlo_async3", "mdp", =
+24),
+> +       GATE_MDP0(CLK_MDP1_IMG_DL_ASYNC0, "mdp1_img_dl_async0", "mdp", 25=
+),
+> +       GATE_MDP0(CLK_MDP1_MDP_RROT0, "mdp1_mdp_rrot0", "mdp", 26),
+> +       GATE_MDP0(CLK_MDP1_MDP_MERGE0, "mdp1_mdp_merge0", "mdp", 27),
+> +       GATE_MDP0(CLK_MDP1_MDP_C3D0, "mdp1_mdp_c3d0", "mdp", 28),
+> +       GATE_MDP0(CLK_MDP1_MDP_FG0, "mdp1_mdp_fg0", "mdp", 29),
+> +       GATE_MDP0(CLK_MDP1_MDP_CLA2, "mdp1_mdp_cla2", "mdp", 30),
+> +       GATE_MDP0(CLK_MDP1_MDP_DLO_ASYNC4, "mdp1_mdp_dlo_async4", "mdp", =
+31),
+> +       /* MDP1-1 */
+> +       GATE_MDP1(CLK_MDP1_VPP_RSZ0, "mdp1_vpp_rsz0", "mdp", 0),
+> +       GATE_MDP1(CLK_MDP1_VPP_RSZ1, "mdp1_vpp_rsz1", "mdp", 1),
+> +       GATE_MDP1(CLK_MDP1_MDP_DLO_ASYNC5, "mdp1_mdp_dlo_async5", "mdp", =
+2),
+> +       GATE_MDP1(CLK_MDP1_IMG0, "mdp1_img0", "mdp", 3),
+> +       GATE_MDP1(CLK_MDP1_F26M, "mdp1_f26m", "clk26m", 27),
 
-Yes, my original through is dma and buffer property selection at v15, v16.
-The reason for keeping "byte" mode is to support use cases reported by=20
-other users (for example, as raised by Yikai in the above thread),
-where certain I2C devices or board configurations only function
-correctly in byte mode. This is not a common case, but providing
-this flexibility avoids the need for downstream patches or hacks.
+Assuming CLK_OPS_PARENT_ENABLE is intended, this gate will fail to be
+toggled if the "mdp" clock is not already enabled.
 
-https://patchwork.ozlabs.org/project/linux-aspeed/patch/20241007035235.2254=
-138-3-ryan_chen@aspeedtech.com/#3412650
-Yikai yikai.tsai.wiwynn@gmail.com
+> +       /* MDP1-2 */
+> +       GATE_MDP2(CLK_MDP1_IMG_DL_RELAY0, "mdp1_img_dl_relay0", "mdp", 0)=
+,
+> +       GATE_MDP2(CLK_MDP1_IMG_DL_RELAY1, "mdp1_img_dl_relay1", "mdp", 8)=
+,
+> +};
+> +
+> +static const struct mtk_clk_desc mdp1_mcd =3D {
+> +       .clks =3D mdp1_clks,
+> +       .num_clks =3D ARRAY_SIZE(mdp1_clks),
+> +       .need_runtime_pm =3D true,
+> +};
+> +
+> +
+> +static const struct mtk_gate mdp_clks[] =3D {
+> +       /* MDP0 */
+> +       GATE_MDP0(CLK_MDP_MDP_MUTEX0, "mdp_mdp_mutex0", "mdp", 0),
+> +       GATE_MDP0(CLK_MDP_SMI0, "mdp_smi0", "mdp", 1),
+> +       GATE_MDP0(CLK_MDP_APB_BUS, "mdp_apb_bus", "mdp", 2),
+> +       GATE_MDP0(CLK_MDP_MDP_RDMA0, "mdp_mdp_rdma0", "mdp", 3),
+> +       GATE_MDP0(CLK_MDP_MDP_RDMA1, "mdp_mdp_rdma1", "mdp", 4),
+> +       GATE_MDP0(CLK_MDP_MDP_RDMA2, "mdp_mdp_rdma2", "mdp", 5),
+> +       GATE_MDP0(CLK_MDP_MDP_BIRSZ0, "mdp_mdp_birsz0", "mdp", 6),
+> +       GATE_MDP0(CLK_MDP_MDP_HDR0, "mdp_mdp_hdr0", "mdp", 7),
+> +       GATE_MDP0(CLK_MDP_MDP_AAL0, "mdp_mdp_aal0", "mdp", 8),
+> +       GATE_MDP0(CLK_MDP_MDP_RSZ0, "mdp_mdp_rsz0", "mdp", 9),
+> +       GATE_MDP0(CLK_MDP_MDP_RSZ2, "mdp_mdp_rsz2", "mdp", 10),
+> +       GATE_MDP0(CLK_MDP_MDP_TDSHP0, "mdp_mdp_tdshp0", "mdp", 11),
+> +       GATE_MDP0(CLK_MDP_MDP_COLOR0, "mdp_mdp_color0", "mdp", 12),
+> +       GATE_MDP0(CLK_MDP_MDP_WROT0, "mdp_mdp_wrot0", "mdp", 13),
+> +       GATE_MDP0(CLK_MDP_MDP_WROT1, "mdp_mdp_wrot1", "mdp", 14),
+> +       GATE_MDP0(CLK_MDP_MDP_WROT2, "mdp_mdp_wrot2", "mdp", 15),
+> +       GATE_MDP0(CLK_MDP_MDP_FAKE_ENG0, "mdp_mdp_fake_eng0", "mdp", 16),
+> +       GATE_MDP0(CLK_MDP_APB_DB, "mdp_apb_db", "mdp", 17),
+> +       GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC0, "mdp_mdp_dli_async0", "mdp", 18=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC1, "mdp_mdp_dli_async1", "mdp", 19=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC0, "mdp_mdp_dlo_async0", "mdp", 20=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC1, "mdp_mdp_dlo_async1", "mdp", 21=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLI_ASYNC2, "mdp_mdp_dli_async2", "mdp", 22=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC2, "mdp_mdp_dlo_async2", "mdp", 23=
+),
+> +       GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC3, "mdp_mdp_dlo_async3", "mdp", 24=
+),
+> +       GATE_MDP0(CLK_MDP_IMG_DL_ASYNC0, "mdp_img_dl_async0", "mdp", 25),
+> +       GATE_MDP0(CLK_MDP_MDP_RROT0, "mdp_mdp_rrot0", "mdp", 26),
+> +       GATE_MDP0(CLK_MDP_MDP_MERGE0, "mdp_mdp_merge0", "mdp", 27),
+> +       GATE_MDP0(CLK_MDP_MDP_C3D0, "mdp_mdp_c3d0", "mdp", 28),
+> +       GATE_MDP0(CLK_MDP_MDP_FG0, "mdp_mdp_fg0", "mdp", 29),
+> +       GATE_MDP0(CLK_MDP_MDP_CLA2, "mdp_mdp_cla2", "mdp", 30),
+> +       GATE_MDP0(CLK_MDP_MDP_DLO_ASYNC4, "mdp_mdp_dlo_async4", "mdp", 31=
+),
+> +       /* MDP1 */
+> +       GATE_MDP1(CLK_MDP_VPP_RSZ0, "mdp_vpp_rsz0", "mdp", 0),
+> +       GATE_MDP1(CLK_MDP_VPP_RSZ1, "mdp_vpp_rsz1", "mdp", 1),
+> +       GATE_MDP1(CLK_MDP_MDP_DLO_ASYNC5, "mdp_mdp_dlo_async5", "mdp", 2)=
+,
+> +       GATE_MDP1(CLK_MDP_IMG0, "mdp_img0", "mdp", 3),
+> +       GATE_MDP1(CLK_MDP_F26M, "mdp_f26m", "clk26m", 27),
 
->=20
-> > +        - "dma": Each controller DMA mode is shared DMA engine. The
-> AST2600 SoC
-> > +                 provides a single DMA engine shared for 16 I2C
-> controllers,
-> > +                 so only a limited number of controllers can use DMA
-> simultaneously.
-> > +                 Therefore, the DTS must explicitly assign which
-> controllers are
-> > +                 configured to use DMA.
-> > +      Only one mode can be selected per controller.
->=20
-> The only thing that really makes sense is dma, and you need 1 boolean
-> property for that. IOW, what you had on v10 which we gave reviewed-by 2+
-> years ago.
->=20
-> Do you have any actual test results or usecase that show DMA is useful he=
-re?
-> Typical I2C xfers are not streaming large amounts of data to justify the =
-setup
-> costs of DMA. It wouldn't surprise me if DMA was actually slower.
->=20
-For AST2600 used in server platforms, MCTP over I2C often requires transfer=
-ring large
-data blocks (e.g., 512 bytes per message). In buffer mode, this results in =
-32 interrupts
-per transaction, while DMA mode reduces this to a single interrupt, signifi=
-cantly
-lowering CPU load. We have observed measurable CPU utilization improvements
-when using DMA mode for such use cases.
+Same for this one.
 
-> > +      On AST2600, each controller supports all three modes.
-> > +      If not specified, buffer mode is used by default.
-> > +    enum:
-> > +      - byte
-> > +      - buffer
-> > +      - dma
-> > +
-> > +  aspeed,global-regs:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle
-> > +    description: |
->=20
-> Don't need '|'. Read the documentation about when it is needed or not
-> needed.
+ChenYu
 
-Thanks, will remove it.
-
->=20
-> > +      The phandle of i2c global register node, For control the i2c reg=
-ister
-> > +      define selection, clock divider mode selection and clock divider
-> control.
-> > +
-> >  required:
-> >    - reg
-> >    - compatible
-> > @@ -66,3 +94,14 @@ examples:
-> >        interrupts =3D <0>;
-> >        interrupt-parent =3D <&i2c_ic>;
-> >      };
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    i2c1: i2c@80 {
-> > +      compatible =3D "aspeed,ast2600-i2c-bus";
-> > +      reg =3D <0x80 0x80>, <0xc00 0x20>;
-> > +      aspeed,global-regs =3D <&i2c_global>;
-> > +      clocks =3D <&syscon ASPEED_CLK_APB>;
-> > +      resets =3D <&syscon ASPEED_RESET_I2C>;
-> > +      interrupts =3D <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-> > +      aspeed,transfer-mode =3D "buffer";
-> > +    };
-> > --
-> > 2.34.1
-> >
+> +       /* MDP2 */
+> +       GATE_MDP2(CLK_MDP_IMG_DL_RELAY0, "mdp_img_dl_relay0", "mdp", 0),
+> +       GATE_MDP2(CLK_MDP_IMG_DL_RELAY1, "mdp_img_dl_relay1", "mdp", 8),
+> +};
+> +
+> +static const struct mtk_clk_desc mdp_mcd =3D {
+> +       .clks =3D mdp_clks,
+> +       .num_clks =3D ARRAY_SIZE(mdp_clks),
+> +       .need_runtime_pm =3D true,
+> +};
+> +
+> +static const struct of_device_id of_match_clk_mt8196_mdpsys[] =3D {
+> +       { .compatible =3D "mediatek,mt8196-mdpsys1", .data =3D &mdp1_mcd =
+},
+> +       { .compatible =3D "mediatek,mt8196-mdpsys0", .data =3D &mdp_mcd }=
+,
+> +       { /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mdpsys);
+> +
+> +static struct platform_driver clk_mt8196_mdpsys_drv =3D {
+> +       .probe =3D mtk_clk_simple_probe,
+> +       .remove =3D mtk_clk_simple_remove,
+> +       .driver =3D {
+> +               .name =3D "clk-mt8196-mdpsys",
+> +               .of_match_table =3D of_match_clk_mt8196_mdpsys,
+> +       },
+> +};
+> +module_platform_driver(clk_mt8196_mdpsys_drv);
+> +
+> +MODULE_DESCRIPTION("MediaTek MT8196 Multimedia Data Path clocks driver")=
+;
+> +MODULE_LICENSE("GPL");
+> --
+> 2.39.5
+>
 
