@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C454FCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 23:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE91CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 23:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9LqQdg9cwv1Tg513oOuRFKMGs0wqbpyblutdYH31Dco=; b=e7wIs1txKYaoE4jglUGfMQxxbc
-	Q+3tdp9WvGSvxx69mN86THkpFsZyXiIFrxKYwxe3J0BfGPbBBOSa5QJc1d+sH/dyX+YbgRHeftiFa
-	ysHVl5yQYRnW1iwZdSUlu6xg2HYrU7j986GPbd/AW5H/2inqyrfWMmnyX402WBbMxWlnzkmeOtYD9
-	u4/6G/QkuXAT7RtnsFyVzO/E1XG66npt5HOjm7ETk70uTQKHcIeMUkkK5MBb3/U3OrR1wUzMdUzHy
-	io80NdQxcpOUI4KNWzjb38y4kSrYCKxhupAQK4lsm0Hd3NuFXPiea1LnJsA84RUZcSOsrF5En6vx9
-	MUz6HG8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sUObT2MtRUdeCzFIsyGIpQowt/Rz746ae833Ij+XOq0=; b=Jj8mCIXNR+GSYT2atCcjVUm5ab
+	UCsviaEaYXksNfcz7HXDB5tqfsiatiF3DTg0/CHHQibJklCn6iTTCeDyh6qxlLNq03Qp2wJWGXUIT
+	qDyjvghV+CM7CxETQHkwSF/XfSjvLsNNdpUol/5yeAhebqrx4f1Ht1Z+BC1pDPSFobvMN3KATCMRb
+	Mj3+1g4OAhj0Oa0Ej+B/CGXiolRrfM50TCMwR7Uj0Y7Sw+x3WrQL2InMVMPJmp4YQ3KqB7fUHNvfh
+	LmWea2cZzYwFvcYNYjAQv7RWvA54iVOWQLq3SNGistoo9AvSZ7vK4Ho/sTvV1/Dz5wIVQtVyi4sxX
+	XiwetHGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un3aI-00000003gnI-3rRP;
-	Fri, 15 Aug 2025 23:11:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1un43I-00000003ikX-0Zd7;
+	Fri, 15 Aug 2025 23:41:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un3Xf-00000003gbq-3RVu
+	id 1un40e-00000003iPM-3nDI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 23:09:01 +0000
+	Fri, 15 Aug 2025 23:38:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F1D6B5C59C3;
-	Fri, 15 Aug 2025 23:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E631C4CEEB;
-	Fri, 15 Aug 2025 23:08:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBA1245EB2;
+	Fri, 15 Aug 2025 23:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E596C4AF0B;
+	Fri, 15 Aug 2025 23:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755299338;
-	bh=2GRJzTk+BtY2YrnH++wopzOmkdTjrCsNi98W9z6N620=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Mc8zaiJdlfbcfAlsWKhmAZAKFanuVxseD1OxvsAfJtKF7081GIZmX+rbRA7HOZ0at
-	 4aBO7StfsaIXLTw7l7sFhi3gdMg8qqrZ3Rn3h+Xm0crT/GalDBjITPv5knK18QSHEs
-	 NL4wqvH7d3FEhs6o/cXm+QqjY4eV1N6DASn8B6aJSoi9xOrX3xX0DNt/C9nZPeWF9X
-	 ihvvW/H7NFXJWPaVyKXqjDysZhkgQy1q1Q87/ahn/0QOmZG8m+hKS10HibR0+Kn2aI
-	 9SV6KOU1i44Od3IXVIwHVMHVU4sjzSBQlFKAHiA5IDE1wJIPTZdBtctncTx93eJiTR
-	 /g3fu1jJJP71A==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] ARM: dts: aspeed: Fix/add I2C device vendor prefixes
-Date: Fri, 15 Aug 2025 18:08:39 -0500
-Message-ID: <20250815230841.3487764-1-robh@kernel.org>
-X-Mailer: git-send-email 2.50.1
-MIME-Version: 1.0
+	s=k20201202; t=1755301135;
+	bh=x3QDZ47I/8OT9hBSL+4EmYWUfQlFHbDh875sGMUYuQc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=teuQ+iJs6TC5M7TxEj8YRoNklDeYEImgUx5QraCvkXMQBNQeFc2A2P/DJNUxXp6Wq
+	 CshfdPFxt3JZ+XxEiEN4rjuLcsXtRognT8VspIwVULcZDWk9Df17Bt55CSUlXhUc/r
+	 FM9Y6x6ajBXlWfxPystbS+FfwcSZ00acog7gS5gwuALAD/SghpWoXIsZ8WzqKnWlqv
+	 3KgjV1hkP7kXr4VXubMEQdFAdRWJjbqAimLxQEIkkCE7rQyi3b7JMm1Hn7OGDCVutQ
+	 zDiKagsLthTNSng8v1tG1GGZ0Ch4Ue6ZuiTwlimen30blPEdEG5QfUS3EcToWDr0sM
+	 59c2XA+hCGIIA==
+Date: Fri, 15 Aug 2025 18:38:54 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Marc Olberding <molberding@nvidia.com>
+In-Reply-To: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
+References: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
+Message-Id: <175530106151.3523036.5305359646677111575.robh@kernel.org>
+Subject: Re: [PATCH 0/3] Adding device tree and binding for Nvidia mgx cx8
+ switchboard
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_160859_944239_7593C13E 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250815_163856_989048_EB002042 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,205 +75,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASpeed DTS files have various I2C devices with missing or incorrect
-vendor prefixes in their compatible strings. This hasn't really mattered
-and doesn't impact ABI compatibility as I2C devices get matched with their
-vendor prefix stripped.
 
-With this, the "maxim,max31790" nodes now validate and have some
-warnings. Remove the spurious "#address-cells" and "#size-cells"
-properties to fix the warnings.
+On Fri, 15 Aug 2025 12:45:54 -0700, Marc Olberding wrote:
+> Patch 1 Adds the binding for the Nvidia mgx cx8 switchboard
+> Patch 2 Adds dtsi's for the mgx cx8 switchboard itself
+> Patch 3 Adds the dts for the mgx cx8 switchboard motherboard reference implementation.
+> 
+> This is an Aspeed AST2600 based reference implementation for a BMC
+> managing an Nvidia mgx cx8 switchboard. Dtsi files are broken out for
+> managing the mgx cx8 switchboard over i2c, so that others may reuse these
+> if they choose to implement their own board. There are two dtsi files
+> since the i2c topology is not symmetric between busses going to the mgx cx8
+> switchboard.
+> 
+> Reference to Ast2600 SoC [1].
+> 
+> Link: https://www.aspeedtech.com/server_ast2600/ [1]
+> 
+> 
+> Signed-off-by: Marc Olberding <molberding@nvidia.com>
+> ---
+> Marc Olberding (3):
+>       dt-bindings: arm: aspeed: Add Nvidia's mgx4u BMC
+>       ARM: dts: aspeed: Add device tree includes for the cx8 switchboard
+>       ARM: dts: aspeed: Add device tree for mgx4u BMC
+> 
+>  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+>  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+>  .../boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dts    | 1078 ++++++++++++++++++++
+>  .../dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi    |   80 ++
+>  .../dts/aspeed/nvidia-mgx-cx8-switch-south.dtsi    |   80 ++
+>  5 files changed, 1240 insertions(+)
+> ---
+> base-commit: 7bac2c97af4078d7a627500c9bcdd5b033f97718
+> change-id: 20250813-mgx4u_devicetree-c2e130607089
+> 
+> Best regards,
+> --
+> Marc Olberding <molberding@nvidia.com>
+> 
+> 
+> 
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../aspeed-bmc-arm-stardragon4800-rep2.dts    |  2 +-
- .../dts/aspeed/aspeed-bmc-facebook-harma.dts  |  8 ++-----
- .../aspeed/aspeed-bmc-facebook-minerva.dts    | 24 +++++--------------
- .../aspeed/aspeed-bmc-facebook-tiogapass.dts  |  2 +-
- .../dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts |  2 +-
- .../dts/aspeed/aspeed-bmc-opp-palmetto.dts    |  2 +-
- .../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |  4 ++--
- 7 files changed, 14 insertions(+), 30 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
-index 9605ccade155..b550a48f48f0 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-arm-stardragon4800-rep2.dts
-@@ -171,7 +171,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 			dps650ab@58 {
--				compatible = "dps650ab";
-+				compatible = "delta,dps650ab";
- 				reg = <0x58>;
- 			};
- 		};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index b9a93f23bd0a..1aae3645cc8c 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -184,10 +184,8 @@ &i2c0 {
- 	status = "okay";
- 
- 	pwm@5e{
--		compatible = "max31790";
-+		compatible = "maxim,max31790";
- 		reg = <0x5e>;
--		#address-cells = <1>;
--		#size-cells = <0>;
- 	};
- 
- 	power-sensor@40 {
-@@ -258,10 +256,8 @@ &i2c2 {
- 	status = "okay";
- 
- 	pwm@5e{
--		compatible = "max31790";
-+		compatible = "maxim,max31790";
- 		reg = <0x5e>;
--		#address-cells = <1>;
--		#size-cells = <0>;
- 	};
- 
- 	power-sensor@40 {
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-index ef96b17becb2..4584d3b536b4 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-@@ -313,10 +313,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-@@ -436,10 +434,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-@@ -559,10 +555,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-@@ -682,10 +676,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-@@ -805,10 +797,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-@@ -927,10 +917,8 @@ eeprom@50 {
- 			};
- 
- 			pwm@5e{
--				compatible = "max31790";
-+				compatible = "maxim,max31790";
- 				reg = <0x5e>;
--				#address-cells = <1>;
--				#size-cells = <0>;
- 			};
- 
- 			power-sensor@40 {
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-tiogapass.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-tiogapass.dts
-index 704ee684e0fb..5d4c7d979f1e 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-tiogapass.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-tiogapass.dts
-@@ -508,7 +508,7 @@ &i2c7 {
- 	status = "okay";
- 	//HSC, AirMax Conn A
- 	adm1278@45 {
--		compatible = "adm1275";
-+		compatible = "adi,adm1275";
- 		reg = <0x45>;
- 		shunt-resistor-micro-ohms = <250>;
- 	};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-index de61eac54585..adc598cca50c 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-@@ -211,7 +211,7 @@ &i2c1 {
- 	status = "okay";
- 	bus-frequency = <90000>;
- 	HotSwap@10 {
--		compatible = "adm1272";
-+		compatible = "adi,adm1272";
- 		reg = <0x10>;
- 	};
- 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
-index 123da82c04d5..e6f33d7cfc45 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts
-@@ -151,7 +151,7 @@ eeprom@50 {
- 	};
- 
- 	rtc@68 {
--		compatible = "dallas,ds3231";
-+		compatible = "maxim,ds3231";
- 		reg = <0x68>;
- 	};
- };
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts
-index fd361cf073c2..86451227847b 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts
-@@ -509,7 +509,7 @@ U197_PCA9546_CH1: i2c@1 {
- 			reg = <1>;
- 
- 			cpu0_pvccin@60 {
--				compatible = "isil,raa229004";
-+				compatible = "renesas,raa229004";
- 				reg = <0x60>;
- 			};
- 
-@@ -530,7 +530,7 @@ U197_PCA9546_CH2: i2c@2 {
- 			reg = <2>;
- 
- 			cpu1_pvccin@72 {
--				compatible = "isil,raa229004";
-+				compatible = "renesas,raa229004";
- 				reg = <0x72>;
- 			};
- 
--- 
-2.50.1
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 7bac2c97af4078d7a627500c9bcdd5b033f97718
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: spi@1e630000 (aspeed,ast2600-spi): Unevaluated properties are not allowed ('fmc-spi-user-mode' was unexpected)
+	from schema $id: http://devicetree.org/schemas/spi/aspeed,ast2600-fmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
 
 
