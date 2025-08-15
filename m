@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA4DCA0EE0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 07:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D43CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 07:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3/iag55hYlHoA9rnpCQNvkxDZTtNeIJre3YWIpDvUXg=; b=pwMC7uCo5o8/+z7HNWolVi1gkt
-	vxCTprvSnVBGSxzG7a3XViOl4JciEdZKkrdg+KdkDoRhIxSPVUNtL/PY0SGh0nSMCcghIUhgYAo5D
-	fDiCSODqnO2KveJc9Y2cAQ4p4Ai1ZiZ7ZZnxtJ+mLApVyZgn8bnFWKI8jNHaoM+r9nxKk2Y7ox+DX
-	OXvyUw/hbXbieTGO9+46HxMLpFNLp+l+/gDM52Oa1aQ8QkQ1rNTVgUm/QSl59gG+Lc23nM21wW+g2
-	wh0dIBk7Xvs2y01DCow5l9Ef9AHQGnunVRtyMxBcawW0VLyetKtAO9BJjrD6sInIeJRed63nQGnWg
-	vbEF1UtQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jGNseYWJek5Azr5uNJhZwVkFVh/FoAy6ND+2oSz2dvs=; b=vcELAbMWrZqwgHDafw4bDVCN/d
+	XCIaNDEtmb7TWT7hf48FrOGfIaXhypEOq6pyxZKKcK3j103PWASMxoJX7DEGkMzN2rH545w2y2PpS
+	InxpYfP+/4tE3KksUpgXzcSxBHsvr6H2DS8Xq9q+/DJiOmLddPpUGc2mwm0ia8/HHOG086lT2CZMR
+	Qf7Xh8Cnm/JCtvYzd81bpBZn/qOkB4JuOrmyEnuRwECqgbi/w7ghype3IlfMooWAuw8fz6K7SyTdx
+	7XbULFYw6BByeCojxaZGgHt2zxN9/yLDM2txMcEBvEEomu0ydZJhQpfjzxmjMwrrBBaSMCyjmOTsS
+	73KuNaCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umoXc-00000001gr4-1ykO;
-	Fri, 15 Aug 2025 07:07:56 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1umoaA-00000001hJm-0qoE;
+	Fri, 15 Aug 2025 07:10:34 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umoV2-00000001gA3-1O92
+	id 1umoV3-00000001gAg-1D6n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 07:05:17 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afca41c7d7fso443833266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 00:05:15 -0700 (PDT)
+	Fri, 15 Aug 2025 07:05:18 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-afcb731caaaso231711866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 Aug 2025 00:05:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755241514; x=1755846314; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3/iag55hYlHoA9rnpCQNvkxDZTtNeIJre3YWIpDvUXg=;
-        b=lq2SZzJXC/fxvkOPr4gBiyxHulIBsAlMrFEzhok9TTpbG37VXkw8EQ7VwlgYkDKuMQ
-         vsd5GjHitceAU/495G+T8fxzvPAmm2qW9zJkDb9yYURgL4i8kB6HkULmnEfSGDA3kmzh
-         N/E1CtieoAzcfSo9nptCIA0rB6DBCvKkd6hJOPVadRNtaYy511WYOG/UfL3+VdUnWWUn
-         Uj/50b46lCuuHgCi5g36C/GPOJ2F578fmdwjULkeUE0jL8NVh6lUmqCRkAIpVaT9nefS
-         23dqPXz1XSMT9DJj1GjZzvbKZgZw3msI8UX7dqR2hnCI/DlCg0q0pe86uffolLjqz0U5
-         +ZYA==
+        d=gmail.com; s=20230601; t=1755241516; x=1755846316; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jGNseYWJek5Azr5uNJhZwVkFVh/FoAy6ND+2oSz2dvs=;
+        b=g35kUpigCw2aE+5R/3vYKQuDZPcspRQmlEU+Qubwep0F8q0GKOGNZ8RPrJ1koHubrt
+         XQSVu5sIrv8LLFjzM5wn7C4d6rpCfhTr+5PBinu3WL55iAskHQScA3DSvh80Dr8RIgiY
+         /wNuq2XnG7fzWuDtgKkO4ei5tvkYa8p6B59cF6MR61BbX4vOL+6IxcduSvyszSMiw+T3
+         CGHW4gJX4NynF4XdSxImWsTE7PPvHcVNH2LCSmVqyiuEqk6rcF/YJDHsTkCgSnL+xUtb
+         WqDuKZE984rI/nilGWLFEaZwPN6xQzoEZvt/OTsqoDaW4Uz1hRdh5gSPrJvNqnLE1a7T
+         qeGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755241514; x=1755846314;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3/iag55hYlHoA9rnpCQNvkxDZTtNeIJre3YWIpDvUXg=;
-        b=UZJrXpO7QVgk6HWOjXCLRHRa4OSZDITGrpPTSc8KN601K5kEClRSBGESt08QLusmW4
-         IDF0WFw4E89aa6wqiwFl7qj6YH2IgqlDBU5AhmGsxSlgU2wL7FLunf/Piett48VnhxIG
-         /80qzHt14NU/PH2fof//jsGOBCdQrUBMgoNhql8TMRjE43plJEGmgdxJLbh8xrAYBZHh
-         21vy18wYjlqYXrN82FEVcZDp0y9NdcweeBjSCg3ihmqEs+L3zwPziPnjW9CM6JM+S5lw
-         vMC2kWNCLKE2RDrSmRpH/sMQY5UkzUcDfmnuPTF6YB3FSPuye/XWAD/RUGKF2R7dPoxE
-         AZlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXEB5hpHMX4q2EArU8dBmNAHeRGDtht+M+AnPxBsUQMamcL54v0M4rtt7bJZRSfF+HD8qO8653Z5cMn4Ku4sfHs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvcBnoF6XMkh1qtbHw8eGaETKhWTFCzXTvw1+20yn7uRDX2BiG
-	8IlWMIwO3xmtKz3eJgcHquA/bwrZfk7cTfHWV+lqv28luZXO8QywvM5U
-X-Gm-Gg: ASbGncvoTG+4PKrJvwdd0nNQYPI6k9dkOkZZExcwzXEts9wX34bS7jeK1wAAZqG26Y5
-	Pf2UYFKa+wcKO4HjT+u4VoIhIt/mau4t8xxZwUs9hQdd2FiEUbpep+gzAacvt2+3YEP2F/Zj1x2
-	VMWPVCur25kqq9nxu3BRqukpbpAmpM+pYVeiZl7TDpsnAoh/iarqG1/sXpAJsicBF6IUsMJnUt/
-	WEyNUJKVu0qse1Ud5xPzfpB7TZUv7bxRjH/SxMaG7V0Ht+sLtP5M+BRy42dBjxvgvZAZuMHcobC
-	W7fFf97zvaR1Dy7WXX4aBjdwBZHstMSHwH34hqOL9Zz4fYepfCC+PB5bn2Ex9kMpjEwHbyN1Vk6
-	cAlipFacjrrDhc+m5i9EGdz7F9nDrbSYUk/ZuV8l4sERxcnFGuKhEoeUU5FgPlCgwOvxZB+wseA
-	==
-X-Google-Smtp-Source: AGHT+IHr6wQG0PswCNw4vR3Wy1Wht3/V4Pr6akT/HuqhweLdwtaQD1imuiELwGEOJjYU60NXC5rzJQ==
-X-Received: by 2002:a17:906:794d:b0:af9:3344:56d3 with SMTP id a640c23a62f3a-afcdb29cc4cmr102205366b.22.1755241514144;
-        Fri, 15 Aug 2025 00:05:14 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755241516; x=1755846316;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jGNseYWJek5Azr5uNJhZwVkFVh/FoAy6ND+2oSz2dvs=;
+        b=IlqwJhcoQPQiaLU/IONu59aWnKzj9tr5vMpdn2IGm9KwWWKDKeHAQhE0iaxxVWIPhT
+         6kL2gjhm2ahfuvd02xeIe5QaswIvmo3TNkoYZjM6VTp8mrTvJFzvAJ0fxOluMf2pwZBL
+         4cPhAX5QsobIeF+7+iGOz5cd+BIMRFWOWYxvnSHksp4cF1iPFBpxGKM1YVi/y4aQV1rz
+         GapWzLicIkBeXo2d2eeViQpXNWxm83OAGcTuNZUnuLH6xhfeufRNOsbyhJRaeLpnXrei
+         LAmfBx5mrcDmVZSfpMIG90+2SYmO+fmkdHmvoYXISk0QUoP/Tez85MCOhzZV8YMgzJZn
+         8kaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUr2i+aV5Y2zoPfDPbjYi6rKksL/hBozgMwRqb85TcnV6kUh+YXXbLd5PVIDmfyGeumA/lLfSevT0Kvtvzpl/sa@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDXox2xwpTKJIs9ihsiRrruw2dZQC1XRAC3YJIOgW4nl3Kiqp7
+	QKrRQBksNZ+cN/KKILz5bPRTFP16R5Lco5f5idUDyfgX8xSyzH+a9+5ukyYuWg==
+X-Gm-Gg: ASbGncu1elEBRmZnPbZJvNF31/xNMrdJH2+TysSqEPHoCkxb2TGOQbCCjppZWo92MjZ
+	rLfhxIfRJTvO/zdPRIrZOFToPl2grL70MIW0xuml/rTXuCEx1Y945HeZOVspuq0McGTu23v1REv
+	az6wlVT4cuYyyK0fHZX9RHt/PPalHyjOIStlNpDOF0NySB1YFb99gq+mwbq30Q2pbe3wgFXIWMr
+	u2I/iqjUuhdQ2vrsxACyLrbqGgO51Iv47cWGY6Z3b7zYDhojXfQeRJPwR+kNWf98xahbAq68MAR
+	MbpsH3UkFo80+8C9Hq+ropA2KhgEVeHvuaQRgZRnXUrn6dwDPtOgHclZmFczhxdHzEbaJSxQl4A
+	FXViREQ13k3HLtsovsYYitiZ5t5plrHqIQ/lI/U9sZAN3GIfFRnJzDIaUx2kxJpFeeI8VLMdOMr
+	cxIGfa5dO4
+X-Google-Smtp-Source: AGHT+IGj7vBYUE1quBMaFjbNLwReG7Th8g72pDzSLCH8avdjLFGI6YWDdzOBtuyrxZNJ6yrn4QIfCw==
+X-Received: by 2002:a17:907:7ea8:b0:af9:38ed:5b49 with SMTP id a640c23a62f3a-afcdc2062c1mr90228266b.5.1755241515430;
+        Fri, 15 Aug 2025 00:05:15 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdcfcb2ddsm74269266b.74.2025.08.15.00.05.12
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdcfcb2ddsm74269266b.74.2025.08.15.00.05.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Aug 2025 00:05:13 -0700 (PDT)
+        Fri, 15 Aug 2025 00:05:14 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -78,15 +79,17 @@ Cc: linux-samsung-soc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/4] arm64: dts: exynos2200: introduce serial busses, except spi
-Date: Fri, 15 Aug 2025 10:04:56 +0300
-Message-ID: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v3 1/4] arm64: dts: exynos2200: fix typo in hsi2c23 bus pins label
+Date: Fri, 15 Aug 2025 10:04:57 +0300
+Message-ID: <20250815070500.3275491-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250815070500.3275491-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_000516_366886_C5C84F08 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250815_000517_339573_AD751884 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey, folks!
+The '2' in 'hsi2c23' was missed while making the device tree. Fix that so
+we can properly reference the node.
 
-This patchset adds serial busses, implemented in usi, for exynos2200.
-It's missing spi, due to me having troubles with reads when testing.
-Serial_0/1 have not been included in the patchset, as it seems like
-they're encapsulated in usi blocks, but are the only implemented
-protocol and/or do not have a dedicated register for setting other
-protocols in a sysreg. That'd at least require patches in the usi
-driver and bindings to add support for.
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+---
+ arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-About the naming convention for usi nodes, I've chosen to keep the
-downstream one instead of relabelling all to avoid confusion when
-cross-referencing the vendor DT and to keep consistency with clock
-names. They're labelled the same in the bootloader too.
-
-Best regards,
-Ivaylo
-
-Changes in v3:
-- drop the serial_0/1 patch
-- add r-b tags from Sam
-- increase the size of all syscon to 0x10000 and not 0x3000
-- change description of last patch to be more meaningful regarding the
-usiN and usiN_i2c mess
-- s/usi6_i2c_cmgp/usi_i2c_cmgp6, following the TRM naming convention
-
-Changes in v2:
-- add a patch that switches address and size cells to 1 in /soc
-- adjust all new nodes to define reg props with 2 cells in total instead of 4
-
-Ivaylo Ivanov (4):
-  arm64: dts: exynos2200: fix typo in hsi2c23 bus pins label
-  arm64: dts: exynos2200: use 32-bit address space for /soc
-  arm64: dts: exynos2200: increase the size of all syscons
-  arm64: dts: exynos2200: define all usi nodes
-
- .../boot/dts/exynos/exynos2200-pinctrl.dtsi   |    2 +-
- arch/arm64/boot/dts/exynos/exynos2200.dtsi    | 1433 ++++++++++++++++-
- 2 files changed, 1398 insertions(+), 37 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+index f618ff290..5877da7ba 100644
+--- a/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+@@ -1438,7 +1438,7 @@ i3c11_bus: i3c11-bus-pins {
+ 		samsung,pin-drv = <EXYNOS7_PIN_DRV_LV1>;
+ 	};
+ 
+-	hsi223_bus: hsi2c23-bus-pins {
++	hsi2c23_bus: hsi2c23-bus-pins {
+ 		samsung,pins = "gpp11-2", "gpp11-3";
+ 		samsung,pin-function = <EXYNOS_PIN_FUNC_3>;
+ 		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
 -- 
 2.43.0
 
