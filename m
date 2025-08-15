@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 550BCCA0EEC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2069CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 20:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2aFcE/n+jYq3wIvYWDgDgimCNZtY5B4eYaY7TUpTtR0=; b=0PyDy2INsmw1KFR2JE+Lj7yWSL
-	Kci/iwDJ71zdAi9w8RgCicPROcYux7wtFzuVflBndDGqtayqKB1929i6trN0AsAiiQgRzLnSlotqI
-	XpmZ+tXuVVIEtIjohUt+tpAbJN5AzHbaPnw+b5Q78jmMPxQVkolrdsPbJzHeVk0YoxFa71bNmDATK
-	yzv5vAve1N29nToTy7+lDi0lQ7uUiTgH2deXgSTQFG+xUZT8YVp0gn2gqRZmjSjA9y4VCuwXBQBKH
-	/Ef3wsQ6NaHQWyauVl6RaGW0cymQ9b0QFufZAxEEWWTklqYE+F1R4T4vFv/hQAtrtBksvj2BHlC9w
-	n3lPnUbQ==;
+	bh=h6WWDsR1xkHievKSbr8PoalxXKVtmn2ufWXDQEvTs+o=; b=PtEJV7Q7FulFkCYRbSkB/SJ8yA
+	YZQ5TcVGnbbhqnazHQNYnzFzIFk1MsFAAIq97uJlXkNKWK2z8E6zpRaoIRXfWNdyhLR+c7rfti0tS
+	g4RZ1i8IoaQqtj1oaEB2TxjISgGVdlajreuC0s8eoamxUGZipqTnopyKFePKFGpgKTXmGHIqqIAEH
+	vtCEpglx/MJiIG3Oylr5bj52pY25tpzGFaRBqzedxdzz9agsOTsl5I5sAQjNeLVRon8mL6b8lHnkZ
+	DNO8R47U8sNnKdprJCLLoYw/nxlOr4+EJmlmn8vh27yjcHTCqmKz7Q7Lo5gycJSAjIFcvFkTbbEP1
+	bV6hs4zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un0t6-00000003Q3F-20gl;
-	Fri, 15 Aug 2025 20:18:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1un0t8-00000003Q5M-2z2N;
+	Fri, 15 Aug 2025 20:18:58 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umyU8-00000003A2D-2BYo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 17:45:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A08143EDA;
-	Fri, 15 Aug 2025 17:45:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A235BC4CEF1;
-	Fri, 15 Aug 2025 17:44:55 +0000 (UTC)
-Date: Fri, 15 Aug 2025 18:44:53 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com, corbet@lwn.net,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v2 1/2] kasan/hw-tags: introduce kasan.store_only option
-Message-ID: <aJ9yFZ0aobVUPDip@arm.com>
-References: <20250813175335.3980268-1-yeoreum.yun@arm.com>
- <20250813175335.3980268-2-yeoreum.yun@arm.com>
- <aJ8WTyRJVznC9v4K@arm.com>
- <aJ87cZC3Cy3JJplT@e129823.arm.com>
- <aJ9OA/cHk1iFUPyH@e129823.arm.com>
+	id 1umyjZ-00000003C3C-2dUs;
+	Fri, 15 Aug 2025 18:00:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755280843; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NlbByFuhXezVODUStqQ84WvMGy+5YsDPBL0TKQQe4bOJ44hdUPmGFkqP/C5av+VhyVcYF/2FfVMm1YwAXWs2qVD/Q/0JxkJkxYdPWJWPuem3Q2O5LwvkKSVyjHQlrzcGu5h8gDJU57UdrriPjViyqdKb5fHJYB7xx8B1PmCYav0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755280843; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=h6WWDsR1xkHievKSbr8PoalxXKVtmn2ufWXDQEvTs+o=; 
+	b=Suh3tTS5T5LP6oKAr347zBroRiVDrqH0kptirEwqvIl+XoJMnVcBSR5HC4eMGw86h8yjbz3ZLvfc/L9ahvb4YNSsjaHbeWRk3j/uxet+9R2kMdhdbt43IziKti4tPU5J+d9RfGdQKsB6F2Dj+dHwyqfbkpiqERYGles2H0y9NBk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755280843;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=h6WWDsR1xkHievKSbr8PoalxXKVtmn2ufWXDQEvTs+o=;
+	b=BdYhSOg6YW1MJKsvAoDqN9fVKJXyPo9eERlXwyI/MrIxnKWLdh25YWMnZUTzviPt
+	kN5sqMK+2cvjeL+Hc8AtkwhRaNJFLMgMiZWxAFZeAUByqrZUgkpdcuXVe56cCHJPsDx
+	9E7ioB1GPTNUnVpj14wulRpNUylptS11YXjvrZ0Y=
+Received: by mx.zohomail.com with SMTPS id 1755280840867964.6365292186097;
+	Fri, 15 Aug 2025 11:00:40 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id B581A180FE9; Fri, 15 Aug 2025 20:00:35 +0200 (CEST)
+Date: Fri, 15 Aug 2025 20:00:35 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: dmitry.baryshkov@oss.qualcomm.com, neil.armstrong@linaro.org, 
+	heiko@sntech.de, stephen@radxa.com, dri-devel@lists.freedesktop.org, 
+	hjc@rock-chips.com, mripard@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, yubing.zhang@rock-chips.com, 
+	naoki@radxa.com, Laurent.pinchart@ideasonboard.com, 
+	Andy Yan <andy.yan@rock-chips.com>, krzk+dt@kernel.org, robh@kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
+ rk3588s Cool Pi 4B
+Message-ID: <xhoi2lqzef5qeissr6oboxp6bqgxrk5hzkrgs5wrv3kjuiausm@3ypollf6gdme>
+References: <20250728082846.3811429-1-andyshrk@163.com>
+ <20250728082846.3811429-10-andyshrk@163.com>
+ <hbvwlucm5mnjpve6hb6h7dusgrokvdxzbpq5zrwib4yesrdakp@v77ofq7u2vv2>
+ <5deac95c.8ec2.1985b428b0b.Coremail.andyshrk@163.com>
+ <6c84556c.29cb.1985e658afb.Coremail.andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="woxxqm7gbt6grmgk"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aJ9OA/cHk1iFUPyH@e129823.arm.com>
+In-Reply-To: <6c84556c.29cb.1985e658afb.Coremail.andyshrk@163.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/255.239.27
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_104500_582858_34B0240E 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20250815_110057_716685_23C03847 
+X-CRM114-Status: GOOD (  34.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,49 +92,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 04:10:59PM +0100, Yeoreum Yun wrote:
-> > > Like we do in mte_enable_kernel_asymm(), if the feature is not available
-> > > just fall back to checking both reads and writes in the chosen
-> > > async/sync/asymm way. You can add some pr_info() to inform the user of
-> > > the chosen kasan mode. It's really mostly an performance choice.
-> >
-> > But MTE_STORE_ONLY is defined as a SYSTEM_FEATURE.
-> > This means that when it is called from kasan_init_hw_tags_cpu(),
-> > the store_only mode is never set in system_capability,
-> > so it cannot be checked using cpus_have_cap().
-> >
-> > Although the MTE_STORE_ONLY capability is verified by
-> > directly reading the ID register (seems ugly),
-> > my concern is the potential for an inconsistent state across CPUs.
-> >
-> > For example, in the case of ASYMM, which is a BOOT_CPU_FEATURE,
-> > all CPUs operate in the same mode —
-> > if ASYMM is not supported, either
-> > all CPUs run in synchronous mode, or all run in asymmetric mode.
-> >
-> > However, for MTE_STORE_ONLY, CPUs that support the feature will run in store-only mode,
-> > while those that do not will run with full checking for all operations.
-> >
-> > If we want to enable MTE_STORE_ONLY in kasan_init_hw_tags_cpu(),
-> > I believe it should be reclassified as a BOOT_CPU_FEATURE.x
-> > Otherwise, the cpu_enable_mte_store_only() function should still be called
-> > as the enable callback for the MTE_STORE_ONLY feature.
-> > In that case, kasan_enable_store_only() should be invoked (remove late init),
-> > and if it returns an error, stop_machine() should be called to disable
-> > the STORE_ONLY feature on all other CPUs
-> > if any CPU is found to lack support for MTE_STORE_ONLY.
-> >
-> > Am I missing something?
 
-Good point.
+--woxxqm7gbt6grmgk
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
+ rk3588s Cool Pi 4B
+MIME-Version: 1.0
 
-> So, IMHO like the ASYMM feature, it would be good to change
-> MTE_STORE_ONLY as BOOT_CPU_FEATURE.
-> That would makes everything as easiler and clear.
+Hi,
 
-Yeah, let's do this. If people mix different features, we'll revisit at
-that time. The asymmetric tag checking is also a boot CPU feature.
+On Thu, Jul 31, 2025 at 10:52:49AM +0800, Andy Yan wrote:
+>=20
+> Hello Sebastian=EF=BC=8C
+>=20
+> =E5=9C=A8 2025-07-30 20:15:44=EF=BC=8C"Andy Yan" <andyshrk@163.com> =E5=
+=86=99=E9=81=93=EF=BC=9A
+> >
+> >
+> >Hello Sebastian=EF=BC=8C
+> >
+> >At 2025-07-30 01:09:41, "Sebastian Reichel" <sebastian.reichel@collabora=
+=2Ecom> wrote:
+> >>Hi,
+> >>
+> >>On Mon, Jul 28, 2025 at 04:28:34PM +0800, Andy Yan wrote:
+> >>> From: Andy Yan <andy.yan@rock-chips.com>
+> >>>=20
+> >>> Enable the Mini DisplayPort on this board.
+> >>> Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
+> >>> but it will trigger a dtc warning like "graph node unit address error,
+> >>> expected "a"" if we use it directly after endpoint, so we use "a"
+> >>> instead here.
+> >>>=20
+> >>> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> >>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> >>> ---
+> >>
+> >>The graph currently looks like this:
+> >>
+> >>VOP <-> DP controller <-> DP Connector
+> >>
+> >>IIUIC this does not work for USB-C and needs to look like this,
+> >>because the USBDP PHY handles the lane muxing and thus must be
+> >>the thing connected to the USB-C controller/connector:
+> >
+> >I previously tests USB-C Altmode on Linux 5.15 using Rock 5b,  this func=
+tion works well.=20
+> >However, when the same dts configuration is used on Linux 6.16 and teste=
+d with Rock 5b in USB-C Altmode,=20
+> >the HPD interrupt of DP cannot be triggered. I'm not sure yet what chang=
+es have occurred between them.
+> >Moreover, I noticed that on your test branch[1], the DTS configuration h=
+as also changed compared to before.
+> >I would greatly appreciate it if you could share some details.
+>=20
+> Some updates:
+>       After comment out pd-version(Your previous DTS didn't include this =
+property.) on linux 6.16[2]
+>      //pd-revision =3D /bits/ 8 <0x2 0x0 0x1 0x2>;
+>     The USB-C Alt Mode output can work as before=E3=80=82
+>     I still have relatively limited knowledge about USB-C, so I hope to h=
+ear more of your opinions.
 
--- 
-Catalin
+I got a bit distracted by some regressions introduced during the
+merge window. It does not really make sense, that limiting the
+pd-revision breaks DP AltMode. I did get it working once, but I
+think there is some race condition involved in the USB-PD area.
+
+I'm pretty sure this is in the USB-C PD/AltMode handling and thus
+more or less independent of this series. Also my question regarding
+the proper DT binding effectively affects the USBDP PHY binding, so
+I'm fine to see this series merged (It looks like all necessary
+Reviewed-by have been collected) and having a closer look at the
+USBDP PHY binding separately in the next step.
+
+Greetings,
+
+-- Sebastian
+
+>=20
+>=20
+> >
+> >
+> >
+> >[0]https://github.com/andyshrk/linux/commit/b9f87a562d431fb59b664b7aed41=
+869a8f184de3
+> >[1]https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/=
+-/commit/0e7e90494482cf77d5bb058a47583b6747b140f4
+>   [2]https://github.com/andyshrk/linux/tree/rk3588-dp-upstream-v6
+>=20
+> >>
+> >>VOP <-> DP controller <-> USBDP PHY <-> USB-C Connector
+> >>
+> >>I wonder if the simple case not involving USB-C should also have
+> >>the USBDP PHY described in the graph as a transparent bridge?
+> >>Note, that the USBDP PHY DT binding is currently not ready for
+> >>this (this also affects the next patch, but should be enough to
+> >>discuss this once :)).
+> >>
+> >>Greetings,
+> >>
+> >>-- Sebastian
+> >>
+> >>>=20
+> >>> (no changes since v2)
+> >>>=20
+> >>> Changes in v2:
+> >>> - Sort in alphabetical order
+> >>>=20
+> >>>  .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++=
+++
+> >>>  1 file changed, 37 insertions(+)
+> >>>=20
+> >>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> >>> index 8b717c4017a46..5393c6cc493c3 100644
+> >>> --- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> >>> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> >>> @@ -39,6 +39,18 @@ chosen {
+> >>>  		stdout-path =3D "serial2:1500000n8";
+> >>>  	};
+> >>> =20
+> >>> +	dp-con {
+> >>> +		compatible =3D "dp-connector";
+> >>> +		label =3D "DP OUT";
+> >>> +		type =3D "mini";
+> >>> +
+> >>> +		port {
+> >>> +			dp_con_in: endpoint {
+> >>> +				remote-endpoint =3D <&dp0_out_con>;
+> >>> +			};
+> >>> +		};
+> >>> +	};
+> >>> +
+> >>>  	hdmi-con {
+> >>>  		compatible =3D "hdmi-connector";
+> >>>  		type =3D "d";
+> >>> @@ -215,6 +227,24 @@ &cpu_b2 {
+> >>>  	cpu-supply =3D <&vdd_cpu_big1_s0>;
+> >>>  };
+> >>> =20
+> >>> +&dp0 {
+> >>> +	status =3D "okay";
+> >>> +	pinctrl-0 =3D <&dp0m0_pins>;
+> >>> +	pinctrl-names =3D "default";
+> >>> +};
+> >>> +
+> >>> +&dp0_in {
+> >>> +	dp0_in_vp2: endpoint {
+> >>> +		remote-endpoint =3D <&vp2_out_dp0>;
+> >>> +	};
+> >>> +};
+> >>> +
+> >>> +&dp0_out {
+> >>> +	dp0_out_con: endpoint {
+> >>> +		remote-endpoint =3D <&dp_con_in>;
+> >>> +	};
+> >>> +};
+> >>> +
+> >>>  &gpu {
+> >>>  	mali-supply =3D <&vdd_gpu_s0>;
+> >>>  	status =3D "okay";
+> >>> @@ -889,3 +919,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+> >>>  		remote-endpoint =3D <&hdmi0_in_vp0>;
+> >>>  	};
+> >>>  };
+> >>> +
+> >>> +&vp2 {
+> >>> +	vp2_out_dp0: endpoint@a {
+> >>> +		reg =3D <ROCKCHIP_VOP2_EP_DP0>;
+> >>> +		remote-endpoint =3D <&dp0_in_vp2>;
+> >>> +	};
+> >>> +};
+> >>> --=20
+> >>> 2.43.0
+> >>>=20
+> >_______________________________________________
+> >Linux-rockchip mailing list
+> >Linux-rockchip@lists.infradead.org
+> >http://lists.infradead.org/mailman/listinfo/linux-rockchip
+
+--woxxqm7gbt6grmgk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmifdb8ACgkQ2O7X88g7
++ppMng/7BSgjHXMbR9F6+FVwbXlrvZPBmAugkwFvgOVM1xA2L7WMzhAH4zSKHrCp
+FUaVyLUsmwwmhl4oFFUxiC5iqM3t5DVt8bYFX/vaRVdWzqss+Eo3/wG2Bye4EBF4
+TQhtAxaLSZbUR+Trk1WMJoSAQi0Wi/KeuBe52nIoW+TTLrr/REJCwDCEeKhxJk+w
+Vnhv2wHGC1lkSxbDv0ejHuUulZaeUpBeq9fqDkNgfo/pTOWWnqGESuaUCEJp5SxL
+JtLd9vvMG7jj051QZjp4WIgy4DhFOCzXDIqMrCesWXo/z/MbP+9QLEBPE9JbtfoL
+6+mTn6gGOrsqxt9PHecW9s73urPiNpGMkHC1xQPU9Y57XE/UY9UMJqbj4Snuee2A
+O6u+FMq4xFLOvAIFwfiqyNDA4XQ7jFPvwDKmlPHWrCcScNtkbXE+xUkXiXx1jlz2
+W5icc7ybnf//1ULy2NqGz2Xe9cXPPZPkCisVHymM/Lv/gHV0IitBehFz7kaLY25T
+Spj4ROPpXVl35pj8REYCulS5yF83JV0hiCztVKhcZNFjE5CLgUm0B0GIMiLfTurc
+/9vKllwnUmZ8XgYSsdRXh1z8y72ia68yoibVFOyPNTiqe2PHj7iC4HYx0LAWVmhb
+rjklRqwtwofHHMJquecoSDUXBrxC/ngidR8Y78c1jQMjU9oQjDw=
+=pYFV
+-----END PGP SIGNATURE-----
+
+--woxxqm7gbt6grmgk--
 
