@@ -4,68 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4728BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 12:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE194CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 13:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWGL4u/kcTveHuURjeDACjEqFr+2GJVpCI+77YRy1YQ=; b=fZtkUypRB5GsJrjbn8+8RQRY9D
-	oH2XK5eosOYQxXiCWUY3khKWDw+OiV4c/YzbExGtuNaCrMch5Z2cvPifjqyNXgJwHKBBBDsG4AEue
-	K76HM/bK9dqeHjr2PWJaXZGLM6HK7eRI4FSmk7laDgiBtjG7c3g7UNItDJ2WIsshmk2MLzGwQCjLz
-	8gcARM88sFhGdpLMsLCsBP6L/JFki0qg3I83ID+Z9CPfjuqazuFkLAWc9aSSILFajgmBLZv1h8Emd
-	j0b+xtBWVi/lobrcIJdcjjI3+Y8fgBgeah+dxuGAfydSLQB1OQlKTF8nwE1IiVaN8/c9SwfdCRJea
-	68tWoUEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PLG9633GVDENQ62GEIUE6J/kOTn3FCekwkZWobXvvdE=; b=oQrBPvD3kZmFo8zEHAGGljAx6T
+	3BXZUBNadm6bzFuF2KBg0NcaifnZ0s9ekVvkUy8acbMtyCnghqot8QBqEbeA8Oyd+QAoZxW9IRytH
+	wGdjjnoct545aBIddazQN+eZgF+CVyIFxzBVOFfj/228nMUCh9Dl0QbATvyrYZORDolJPTJLJUJe6
+	HqHUAXvFOLeAzfjZIg69nUPxNPVzbbahfGli1ll+lEXEz33Yf833l+BZCrgy7fDCReFC06RNfC93n
+	MYCHpj3RQJYPJx6xZ86dKJ2BBwxXd2/oI2b+MQEJ7c9tqTF0LxjJDxaNuGsY2O4o3KwqPYN2l9t1t
+	7tLyo5pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umu0i-00000002VT3-0ETM;
-	Fri, 15 Aug 2025 12:58:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqp4-000000024f6-1bJ0
+	id 1umu3H-00000002WGI-0Yev;
+	Fri, 15 Aug 2025 13:00:59 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1umqs6-0000000251J-2L4V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 09:34:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E49631655;
-	Fri, 15 Aug 2025 02:33:54 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C071A3F63F;
-	Fri, 15 Aug 2025 02:33:58 -0700 (PDT)
-Message-ID: <cf186a17-fea3-48bb-92ee-7187d910d5ac@arm.com>
-Date: Fri, 15 Aug 2025 10:33:57 +0100
+	Fri, 15 Aug 2025 09:37:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tUqmxgZRTljple5OzostTaIX83eAGzVKP1v+9uPz8tKbPYbLGDuRAMxd7HAONANXCQeNx4iCH1pL2U7w3GKHk2FdVHn28B+STYXHFwMujD58nPUN53V4w/DYsOJVkK9b6ns50sQ1hBM8HVkuuTD4Zdhs8c/on/AZXCYGY0ZwhXL+9s7ry8KNnbLpATenw0vsVjuqR8IsVQNkgKKfV6ueis+kjxggorc/uN5FqHRewv/0VxTkErQ4yKzxpkAmQO2NHzlrqOUrcNJJOAQiS13c5uQ6P+WK3FZruPYV6o7uRHa7UKvqxmqHHFFmcdW4GLCh2gDcSVqiGVKsHDfQrXzswQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PLG9633GVDENQ62GEIUE6J/kOTn3FCekwkZWobXvvdE=;
+ b=HFzK+QD8DqdanDUr7wy6tmXyzW8pR0ZloWNOBLf2t1ymag0ESh9w1CFLCZzE/yoluayT3dsLknFOmRmYpJeaW8uy3q7wr1dc49E3/xT9gC8DLilzjKjnWiCrn/ahskzKOYgJfxC7+/z+0OZEig8B+3zCeVEUnSbiADpgIbLWqrVD2R1GziHqlPzeWc/Maeh4kAuj2Ol3rDQT7DtnGJB9WqGI4q1IaVPuraMG46BEb6a2EN1XX8+63w+BmbywgE6CSZykvhaypjV0ZehuBDa40rs6IURoF27EtlBPddPFKUolwd3fYstFHv9ASScJDGx/zgfkqs7BxxUzN4Is1y/Hgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PLG9633GVDENQ62GEIUE6J/kOTn3FCekwkZWobXvvdE=;
+ b=G53R3HLfk7vhBVhnUMJITKI+OPbBH9VlVQZU9HDd1D4zbONbUssOW6sSTo1Y0DzUEhYKlbjdlCWLehtsjLDI1/e3DRCdqVjsmqLxSRsOV6yrwdfWd0sS4lP4wcBLm0xlkRbAXLcl9Ha4YAuZ9pLkuBBtnp1CwaEvd3PWa4RSJ+L9jwa6OAkoeJNHvsIlTndRu2q9hDt0Y/v7Q5gOtIZG0x0RYEONF82EOW1H2/xKN5X9E/9yN6aSOnewd+GyYwDruX0KnEE6Y9rrAMdkxVyEvs3VoMIFCmoF75e0MDI3HHIlny0PWdAmac3X+bBVgUNT7g9/FXORF7SQGCATn+MjzQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AS8PR04MB7991.eurprd04.prod.outlook.com (2603:10a6:20b:289::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Fri, 15 Aug
+ 2025 09:37:06 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%4]) with mapi id 15.20.9031.014; Fri, 15 Aug 2025
+ 09:37:05 +0000
+From: Xu Yang <xu.yang_2@nxp.com>
+Subject: [PATCH 0/5] add imx94 DDR Performance Monitor support
+Date: Fri, 15 Aug 2025 17:36:26 +0800
+Message-Id: <20250815-imx94-ddr-pmu-v1-0-edb22be0b997@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJr/nmgC/x3MQQqAIBBA0avErBtQUbGuEi0ip5qFJkohRHdPW
+ r7F/w8UykwFxu6BTDcXPmOD7DtYjyXuhOybQQllhJMGOdRBo/cZU7hQar9ZpR1ZQ9CalGnj+v+
+ m+X0/jZXFyl8AAAA=
+X-Change-ID: 20250815-imx94-ddr-pmu-14df6248e65e
+To: Frank Li <Frank.li@nxp.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, John Garry <john.g.garry@oracle.com>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+ Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>, Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755250614; l=1014;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=tiyhuFAH2MjXlKoEJpX5OI8uSZGy3uvNKPx24ffuVMY=;
+ b=ndhnr3jld4SmxNlIUTQkkNf5r2/yW167tZ+L4EcoFHfHs9sJahPPgTSZEuRU0ky1LCGCPP+0E
+ O4hP1rrmxu1D2mOiP4s1yMkDzCQ1sEGT80JhmfYMNltzx18k3cmowF0
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: SGBP274CA0016.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::28)
+ To DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] ACPI / MPAM: Parse the MPAM table
-To: James Morse <james.morse@arm.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-11-james.morse@arm.com>
- <20250716180725.0000452d@huawei.com>
- <84e52287-e46a-40c3-90b7-ab7e9f2c7431@arm.com>
- <cd5c9b88-2864-4253-8a32-b7f3ac85e9d4@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <cd5c9b88-2864-4253-8a32-b7f3ac85e9d4@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS8PR04MB7991:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2758090d-23e9-444b-3440-08dddbdf4bf9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|52116014|7416014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?K0RWZHo2QlBTNU05Uy9xZXpnMDE1Q0tSbHhxVEdYdVBqaWllbjZmbkdySzRm?=
+ =?utf-8?B?eHZ1VHBCRTV0c3l1cU12S3Rqakx3bVhEVnN0Z0p3a09QRGNjVUd1UEt1S00v?=
+ =?utf-8?B?YzN2TlRRWEQ5RWs0aXc1NlJodVhwMHVnYmhpNE1tb3o2dzdrbGxmVmo3cWNo?=
+ =?utf-8?B?V2VYV3ZDcmx1NEdTMk1ZOXNVb1VaZmVlQkllTnladTBldTAyWHBoMlRwTkIy?=
+ =?utf-8?B?RFNXRXdWVEhwdlU5TkdhV2VUNWJIczdDTEVKaUVSb0xGMFdIS1g5czVRUEVm?=
+ =?utf-8?B?ZUlvVFlqcGV5OWFjRm9lREIyck9VeFdCMVhGaEtlRUVJUXRMNGp3RVQxSXpZ?=
+ =?utf-8?B?Y0xqcUxwa2RsRXQwM2FyLy8xNWs3bVhDanBSVGwyemM0d3Q2ZXJhMmI2emJR?=
+ =?utf-8?B?K3V2SlJSQ3BCSjltNWt4S1B4SWJxcXVoY1BrbTVwS3hYblVuZklqT0xBVHdl?=
+ =?utf-8?B?elZncnJGR3BsOFVKM2FIME1oZ0tzUVVtZGhxZzdhempkTmJ3b2NHOEpvNlJB?=
+ =?utf-8?B?NmlVSUVTNkFIYVJaWEI0RFhXU21VRmlhdy9OcXRQSW5mUkU2OFhFZjFvRkJr?=
+ =?utf-8?B?UHljOXVkK0REUi9KdTVTblJIaXhRQXNlUzFNRnZucGFOVWd4OHYwYWtrYWFC?=
+ =?utf-8?B?UzdJRGRrVHpESlNqOHF5TVIyamJPUUk3MkdBU3B5YkVOTDYvWnhtR1U0THFF?=
+ =?utf-8?B?Rmp4VzBLNy84YUlzL09weWw0eVMrNWs3SEU4SVFkbFU4SHhQSzZ2eCtDSmwr?=
+ =?utf-8?B?R25FMWZIT0cxRit3R0RuWXNoTk02bjBnQ3JMbDR3Q2ovcXAweVVQRVVGVGF1?=
+ =?utf-8?B?cVl1TkcvUGVLR2dJTGJiRzBwbzRVbXVTaFJNRUZ6OGttUTE1akNTYUwycll0?=
+ =?utf-8?B?NjBwM212c0FTSE1TczgxUHltTjVTTkJWNnJnTGJkRURKc25CTEFhWWZpUGU0?=
+ =?utf-8?B?cCtsdzFEZzVOREl3ZXhvNmxQdXhVcDNTS1RjdU82Z3dMWGhlbDJJdDFMYUsw?=
+ =?utf-8?B?aFF5amY1WFVCdUZydTlMYy9ob1BmMmN5QU1SQk9Id1FTWnkvZkt6NHFQUjd0?=
+ =?utf-8?B?N3pmRDY3TXhxeG5zTEFyUlBWbVdTbmdjUTNDaTdwWldpZkVKRTQydGY2SmN4?=
+ =?utf-8?B?bkpCbUd2S3p5MDkyYlBsMFNGMDN2dDdoRWVIeDFzQTJjZnJHOFRGUGNpemE1?=
+ =?utf-8?B?azRzVnBBNXpUK2ppK09WUlJvZG1oWDNIM1dZMkovRWJsRlJybGxPdGgwSk8r?=
+ =?utf-8?B?RU1qWjFLM2x5UlhQNWRUcW5pMXc0V0ZjMHBaM3R3dURFUUN1Ni96M3Fma2JO?=
+ =?utf-8?B?b1hpbEpaVUs1VXd6ak5GS1JmYks3VjY2Wmt0SFEzZlZ5TitYVVVIbzMvVm9U?=
+ =?utf-8?B?WVo2YTNaM3p0YUZlUlRUT3lnNVRjM1FIalFDNHllSjkrallIcFdrZUFNbDB5?=
+ =?utf-8?B?ZjVoU0tOcC9GUGpvTko5a3R1QnpGRmtqWWFwdzUrejdBazAwb3czZlJiNkpS?=
+ =?utf-8?B?WVFIbmJsZXIvWStVS3F6Uzh1UXZBaUQzUEh3OHZta2NvdG5IamJGd3JLRGd2?=
+ =?utf-8?B?cWZrb0RNOUNQSUFHSkE1SmNRbmdTWXhadEFFZ1lWeGVVT3RjTm1RUVA0bWwy?=
+ =?utf-8?B?SUZKUUN1KzhEWUY4Yy9PcEhVaFN2Qm5Jekdrajh0WTdjWThFSERKUFVYdSt4?=
+ =?utf-8?B?QStoRm1yUWVIQXFtQ1pCemJxQk9aQkV0ZnQzOTFHcVdqWHFRNm9hbmRFSXlD?=
+ =?utf-8?B?Q2RUbmFBRm9TN2hFUGJUaVVXY2FsOFhCYWdBWldqTDN1ZVhLZlRwaElSb0ZI?=
+ =?utf-8?B?dEVDY1lyVmRIOGdRVlcxRUtlTTdhQTBZU0FSdDJFaE9UUXRLc0t6dStCN1Vs?=
+ =?utf-8?B?MHZvK0VQSGNhOWJmaWoydFc1N0d6SVVoWi9ORy9rcUVtNFlaS3ppRG81dmNm?=
+ =?utf-8?B?a2xRdGtVaStzdlhsU2hyNUZqbStxZFZrMnUzdmg1akJhazRNVWJldzVZaGNQ?=
+ =?utf-8?Q?Rlc2R4m9l2HMJQD5STTMZqbXwJ1Cr4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(52116014)(7416014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZmZ5a2JQVk9aSWFNeFIvQlhmQnhSeGgwVE45d0daSGh5Zm9ITWs5YU1ORDhI?=
+ =?utf-8?B?Q2crdHpVS3hNa0hDSHBBcTFTRytqc1JlN0JtZ2ZNY0R6aVg4UEdDeHhZMkJh?=
+ =?utf-8?B?L1BmS0x3eWpJZ2xqaDRtb3VmWnFXREZqd2I4TFNoWkR0YUt6ZkJsdlJ4L3A4?=
+ =?utf-8?B?U3NoOHNVTTVWNmw5Tkk3eHZWY2ViR0tUR01zZFI5bC9LUmN4T3E3OVNCMFJl?=
+ =?utf-8?B?di96ZUJXUk1wNitKa3hWc0xuamE4WU9zcDduVHdVKyt3SUU0bEtzd0lORDJh?=
+ =?utf-8?B?WEJQekEzNCtUVkJxNTBDMTIwSFppaWV2ZWZqdno5MzdPQlY5a1pxLzdGTlpx?=
+ =?utf-8?B?UFR2YitDNk1SSGdyTGl2bjdrbU5tdmJ0VmJ5aE5WMUwwbGhoT3NSME1wOEQ2?=
+ =?utf-8?B?TDdzOXF4TUVmTTQ0S3MzYzNmU0ZmVFRSYXIvZlJuYUpFV1pjZGRLREVOVnVX?=
+ =?utf-8?B?N21qUXg3cG00R3hWcUdNSmFmOVZaelNiczlyYmZyenhxa01IN3VveEpmY1hx?=
+ =?utf-8?B?YlgwQktwRDV5VEdkR3RJV2VpU01IVHF5WXlkZ2VBZ0d2blNqSlJTUlRtRHhY?=
+ =?utf-8?B?RTRMcW5uQmhLU0NqOGRVNHFhYzZQKzBaUzFjMWZSdkZYdnVTU25zS1FkeGtN?=
+ =?utf-8?B?Z2c5bytRNUpQUnFZMG5CSmliaUpQakd6S3V4STg5SEFKdm0rbHFQQnV1aUt5?=
+ =?utf-8?B?dCtvbHRJckhJNEw2K2NBb2J3SnNWVUxMMmJWSTZFcEo3Wi9JZ0pzN21LQXRM?=
+ =?utf-8?B?eTVQS3VNbjdDb1ZyZWc3R29mU1JYR00xUnV1WDVETGJkeTdrMXNQUFA4clpB?=
+ =?utf-8?B?bVNYdXdhcTRxOGh0aGlTMnpwNXM0REF6MWViUE9MUEQvODMrbjM4ZmI2eE9h?=
+ =?utf-8?B?bE9ic0ZWSndqNkwvb2p6dEVYOXExMHppeDRxOEl4cjJYYzk0V0FIVWp5b1dV?=
+ =?utf-8?B?V1VqNTJpbC9NQnF1NE9OVjMvNlVVTE9UZGNnWldTSWNXM0ZYU09LSndUbHMr?=
+ =?utf-8?B?UTZqSW9lQXprQjMwOE5GTjMzOVp3VE0wenNMRkdtQmtFZy96RlpIdThpN1hR?=
+ =?utf-8?B?WnJIOUkyV0pFRW5RWmdlN1kxTmJrRHArd0ZNUXI0T0d4eWwwaGdlK0V2T2Ux?=
+ =?utf-8?B?d0w3T2h0NHBaUTlCV2svcXBDVk5LY2xGdEJQdXFmZEJ1U0czTWRHc3hvODBr?=
+ =?utf-8?B?TU4vaDJzWSt3eGVIUy9nN3Y4TEVjVzV2dTNobHNDcG83WVRVSzVjRmVCYllG?=
+ =?utf-8?B?MDhzbXhEbkM0VVBMUWd5d0pFVDN6WWtSSUtZRmQvSGY5WFlvcjU1Zm92MzdB?=
+ =?utf-8?B?bFd5b2Mwa3dhdzZSWUd4VThHZUt2UlZ5SUlDRlVRRGNLcDhMcGt3eTdsdnNo?=
+ =?utf-8?B?cTd3WGlmcXVyWE9EeDhXcUlBeElPNElNSHhsZGNLWFlpS3RiQUxoNG1VTEls?=
+ =?utf-8?B?SzhtYXlocjNKeEJYSUVjZ0M5MEdmL2RLcmJHdklCMmJMR3hWeVRhL2gzckV5?=
+ =?utf-8?B?VGluR0hjdnJBdEdSNXVVZGxiQUhjMnBlZll1eVo5WTcrMXB1ZC9jc2duN3Uw?=
+ =?utf-8?B?bTFjR09sQkwyRmxvMC81L2c5NmdZRTZ3QVVvVEpWc0k2SEsvN1Yxa0hOUnQr?=
+ =?utf-8?B?VTdCUnF6bGJZWndQK05BNHZ5SzZzSmtEUm1QK1krYjQ5QjhXRytZdis0Z3Z6?=
+ =?utf-8?B?aFRYWGxIY0lIVnFpa3YxSmkyYkIyaTZzRjA0Tno1OCt1eUY5RDVvNkhNcXVm?=
+ =?utf-8?B?d0l1VHRNb0ZrZjNjNnpraUlneGtBMFBBWkpha1Vxd0ZBMW9BeW5kTG5XR1RM?=
+ =?utf-8?B?dGxPbjhNSGdpaS9JbWVubmRzdHBPNWluV2dSZ2Uza1hLY0pWWUNjbC93TWlH?=
+ =?utf-8?B?SjZEYnp4aVlIVmZHRnNybUtCT2V0dlNjYjFXN0FCWTVqaEdkVStKTnljNWth?=
+ =?utf-8?B?bWhvbTI4UWR1ekd5eWlYSG12UGNrejRFUjFaYmdqWlM5TjU4M2xWaHlya2hk?=
+ =?utf-8?B?ZjZ5WldvQjRLUXdhWUxpVFk4djRIeTNIMTArZUtteURobFk0S0NiT25jQzIw?=
+ =?utf-8?B?eFdlK2JtMmw3QWtqSEN3UUFqM0xTYmFqTWdwK2t5ek9FcitjSkpaYVBHSEJL?=
+ =?utf-8?Q?pSLUhxTnsfD863UfyvaFFce+6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2758090d-23e9-444b-3440-08dddbdf4bf9
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Aug 2025 09:37:05.8801
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VVYTMvvpqYpOSYs2yKop5UX4ZHb3ZYMinIQ0dNKzS1ogUOPb9H3Jxi+QzYvmRAremA3251veDGOWwP/wYmj4cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_023406_506030_22A662E0 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20250815_023714_605606_6A315A76 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +197,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+The i.MX94 Soc has a DDR Performance Monitor Unit (PMU), this will
+add support for it.
 
-On 8/5/25 18:07, James Morse wrote:
-> Hi Ben,
-> 
-> On 23/07/2025 17:39, Ben Horgan wrote:
->> On 7/16/25 18:07, Jonathan Cameron wrote:
->>> On Fri, 11 Jul 2025 18:36:22 +0000
->>> James Morse <james.morse@arm.com> wrote:
->>>
->>>> Add code to parse the arm64 specific MPAM table, looking up the cache
->>>> level from the PPTT and feeding the end result into the MPAM driver.
->>>
->>> Throw in a link to the spec perhaps?  Particularly useful to know which
->>> version this was written against when reviewing it.
-> 
->> As I comment below this code checks the table revision is 1 and so we can assume it was
->> written against version 2 of the spec. As of Monday, there is a new version hot off the
->> press,
->> https://developer.arm.com/documentation/den0065/3-0bet/?lang=en which introduces an "MMIO
->> size" field to allow for disabled nodes. This should be considered here to avoid
->> advertising msc that aren't present.
-> 
-> Sure. Bit of an unfortunate race with the spec people there!
-> 
-> Added as:
-> --------------------%<--------------------
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> index 9ff5a6df9f1b..d8c6224a76f8 100644
-> --- a/drivers/acpi/arm64/mpam.c
-> +++ b/drivers/acpi/arm64/mpam.c
-> @@ -202,6 +202,9 @@ static int __init _parse_table(struct acpi_table_header *table)
->                  if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2)
->                          continue;
-> 
-> +               if (!tbl_msc->mmio_size)
-> +                       continue;
-> +
->                  if (decode_interface_type(tbl_msc, &iface))
->                          continue;
-> 
-> @@ -290,7 +293,7 @@ static struct acpi_table_header *get_table(void)
->          if (ACPI_FAILURE(status))
->                  return NULL;
-> 
-> -       if (table->revision != 1)
-> +       if (table->revision < 1)
->                  return NULL;
-> 
->          return table;
-> @@ -321,6 +324,9 @@ static int _count_msc(struct acpi_table_header *table)
->          table_end = (char *)table + table->length;
-> 
->          while (table_offset < table_end) {
-> +               if (!tbl_msc->mmio_size)
-> +                       continue;
-> +
->                  if (tbl_msc->length < sizeof(*tbl_msc))
->                          return -EINVAL;
-> --------------------%<--------------------
-This seems fine as long as any later table revisions are guaranteed to 
-be  backwards compatible.
+---
+Xu Yang (5):
+      dt-bindings: perf: fsl-imx-ddr: Add i.MX94 compatible
+      perf: imx_perf: add support for i.MX94 platform
+      perf vendor events arm64:: Add i.MX94 DDR Performance Monitor metrics
+      MAINTAINERS: include fsl_imx9_ddr_perf.c and some perf metric files
+      arm64: dts: imx94: add DDR Perf Monitor node
 
-> 
-> Amusingly, PCC also defines mmio_size==0 as disabled, so _count_msc() doesn't need to know
-> what kind of thing this is. In principle they could change this as its beta, but a zero
-> sized MSC should probably be treated as an error anyway.
-> 
-> 
-> Thanks,
-> 
-> James
+ .../devicetree/bindings/perf/fsl-imx-ddr.yaml      |   1 +
+ MAINTAINERS                                        |   3 +
+ arch/arm64/boot/dts/freescale/imx94.dtsi           |   6 +
+ drivers/perf/fsl_imx9_ddr_perf.c                   |   6 +
+ .../arch/arm64/freescale/imx94/sys/ddrc.json       |   9 +
+ .../arch/arm64/freescale/imx94/sys/metrics.json    | 450 +++++++++++++++++++++
+ 6 files changed, 475 insertions(+)
+---
+base-commit: 2a2b302fb15ebea4da71e3fe2943e61a1c83cde9
+change-id: 20250815-imx94-ddr-pmu-14df6248e65e
 
-Thanks,
-
-Ben
+Best regards,
+-- 
+Xu Yang <xu.yang_2@nxp.com>
 
 
