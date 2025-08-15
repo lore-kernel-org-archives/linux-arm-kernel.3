@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273B8CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 01:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287DFCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 01:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSAGEycEpcf5H7+zsKm3/4zBAwQ5+Zk/RKqQOluMe7c=; b=yska5yB7r8OiBChXhUuIyc7fgh
-	1iy4lIWbsuyUJoweGrVOE5kP6he5r49iWwffarOqWjScGh9Wy2FflMW26RtX0fSZWlsB9Pg1bsJFu
-	+2jgu0ogwxFLGkkw+hR2ure2J5pAcGUx+7zwzW6pfy0TGfpKGkytq9rafl0to7JmFNmxB4N+3TWx/
-	rAS8zU6KAazxmXamTPb+fcSjiogR1DEemsEyWmQVzQ+2ZUpO2S4iBss7cSFrD7+luQTS2CJROe/zF
-	jEr2/HZuITHI2yt6jilivpDc7aauMee+5MVomLEJED1mBC0a9Erm7styKOKP/cqo4ZdblLRNtlpft
-	zkU8/Q+A==;
+	bh=AZZYVdmG1wgRg2kMjwjTShW0GgJR6NYKRTUj1rdKukE=; b=d/RxfYJdhFqLHu62rSPdMyT0lD
+	mtqndE1E4/AleGqk25zh0MiqAi5gtqlSVImDuz8bZcOHCaBhe/LPxYQwZnp8Ps8Whyb3bvREg+0uU
+	pJ68KCeJloqFcuFIXTfHiBbPkTFAwUDL88gqA7WL8zJHCBG4xJQ/F0TjeDLP8RDbTRSNlbeWlUH0H
+	yIQ213oWuVzC4QXRbNHIJxX1n00dMZwapSBwxfqi4Cn/X3obX21DnN0e5HovzrOmYjGbJe6TJoHND
+	fDsu+gt3QcOi3mkGLM39No1MshLKhjkZdawA6el3IOljXMuSklFFN8A1n3ZWyv3vqVeQ6EAHConrb
+	udnxisdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umizs-000000011Jh-42xZ;
-	Fri, 15 Aug 2025 01:12:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1umj2R-000000011Sw-00B4;
+	Fri, 15 Aug 2025 01:15:23 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umiYT-00000000wT0-2z58
+	id 1umidq-00000000x3F-1LZM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 00:44:26 +0000
+	Fri, 15 Aug 2025 00:49:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BBCFC5C585C;
-	Fri, 15 Aug 2025 00:44:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E822C4CEED;
-	Fri, 15 Aug 2025 00:44:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7F6F1A579D0;
+	Fri, 15 Aug 2025 00:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1F1C4CEED;
+	Fri, 15 Aug 2025 00:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755218664;
-	bh=tCgQh7vbWR7GLS7Dvxp6J8vUAFhtzPpoYfT8KURAxSI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ql1GX3OSEWLcHuef9Y/XLmAFF8GNU+IRpSHY6fPST9UZ2gaW5ApaCUmrNuHofKuB3
-	 BHILxtW7lF1O8KHMxdED1TAS+rBqswRL80IgOb+dm4vAGzHVBRx/df6Ir03mHIj0tV
-	 ktDXMAoQf7sxieDkiYn72DxwZnfo8RPb9JDV8KkH22j3Ewkzv6LGA4O1VUHa/ctnzj
-	 AdGzYXdM+hqWUNuklri7btaTItUT76daFmXaaQ56FkwWOUEl9AUOpKaAqlq1lWLFNx
-	 gjBuU0cEcjbcwISsa2ohBLm3FUQJQH7OIq7eYQZKpzFOHmd1fwTZu/ExmdF4A6khJg
-	 8X8av7VnZDnwg==
-Date: Thu, 14 Aug 2025 17:44:22 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
- <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Simon
- Horman <horms@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Po-Yu
- Chuang <ratbert@faraday-tech.com>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
- <taoren@meta.com>, <bmc-sw2@aspeedtech.com>
-Subject: Re: [net-next v2 0/4] Add AST2600 RGMII delay into ftgmac100
-Message-ID: <20250814174422.17ed3e32@kernel.org>
-In-Reply-To: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
-References: <20250813063301.338851-1-jacky_chou@aspeedtech.com>
+	s=k20201202; t=1755218997;
+	bh=eBjfGJFAIB9PNSuG226jlmZoI98zEZdasUPmN3XCETk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ttth/RDTtdSmxz2nATU/O9UwTv9OrskOMAnAvixmPgts/tgloNF0ZJjkPfwX+9M/6
+	 DcopTv5J4Pn9CnOWr1qKO6YMgbDoBK20V4A+C5mcTJYfrKn+3IrPBfHyRG0ClnHA+t
+	 WbcHNpjlFJZmC9eviHGZmW/G7N20ZSI/2p4xMwnLmkmQi0GRyuOHvVe/ixoQhpXXii
+	 gMbz7/Qh++9s1kTHTNt2HnPD7gBo90HJb4m6VqVciJcoG8MvHXLYiCYRojQGpafzWI
+	 G6UUS0va9Tct7vP7srXgW2iyQ9xrjAROa+WZE3VwdgXfvaZchXUtPGMMrKg07BfOER
+	 Ur6/Ww7CIaQtQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id A518E39D0C3E;
+	Fri, 15 Aug 2025 00:50:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net V2] net: xilinx: axienet: Fix RX skb ring management
+ in
+ DMAengine mode
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175521900824.500228.10283078380078516780.git-patchwork-notify@kernel.org>
+Date: Fri, 15 Aug 2025 00:50:08 +0000
+References: <20250813135559.1555652-1-suraj.gupta2@amd.com>
+In-Reply-To: <20250813135559.1555652-1-suraj.gupta2@amd.com>
+To: Suraj Gupta <suraj.gupta2@amd.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ sean.anderson@linux.dev, radhey.shyam.pandey@amd.com, horms@kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, harini.katakam@amd.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_174425_791592_93CCB645 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250814_174958_424767_7D23A5BC 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 Aug 2025 14:32:57 +0800 Jacky Chou wrote:
-> This patch series adds support for configuring RGMII internal delays for the 
-> Aspeed AST2600 FTGMAC100 Ethernet MACs. It introduces new compatible strings to 
-> distinguish between MAC0/1 and MAC2/3, as their delay chains and configuration 
-> units differ.
-> The device tree bindings are updated to restrict the allowed phy-mode and delay 
-> properties for each MAC type. Corresponding changes are made to the device tree 
-> source files and the FTGMAC100 driver to support the new delay configuration.
+Hello:
 
-First patch doesn't apply cleanly, please respin.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 13 Aug 2025 19:25:59 +0530 you wrote:
+> Submit multiple descriptors in axienet_rx_cb() to fill Rx skb ring. This
+> ensures the ring "catches up" on previously missed allocations.
+> 
+> Increment Rx skb ring head pointer after BD is successfully allocated.
+> Previously, head pointer was incremented before verifying if descriptor is
+> successfully allocated and has valid entries, which could lead to ring
+> state inconsistency if descriptor setup failed.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,V2] net: xilinx: axienet: Fix RX skb ring management in DMAengine mode
+    https://git.kernel.org/netdev/net/c/fd980bf6e9cd
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
