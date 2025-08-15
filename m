@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203F4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 11:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A30ECA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 11:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNna1LnRkBzQnBscTbrqJVsFmbrmgvQ+2jGuzxBureI=; b=qYzVmjxIMgBCAhBPm0ho6xV/yJ
-	pHY1RCwTCstT8zyXtypaUZro+/Dk3ypG2iwdnpunneqRTzKfEoZDvVs93XTS2pNaCq8SuSHiHe2mt
-	79P4hk9FJqvur/4FknKu9huKK7T9Qx/VnEoXqQD9wKETRjIabH/ClJih1QCMWQqwG33umdc6ebJat
-	7bXr+JHeVADxwJuFRx+PeK3x3wS+xG7DSjB5thDxWZDWJOpJX2WO8JvxZ8rA5tqkohgVL3AiounrZ
-	+hrXLq6HjeEDSRnv0wwB4zw/RCZc8wj8sS0XUV/dPP5hNDiYMQh6GTyF8QLYJOCwL4r4icnuk1+mS
-	I61Dinvw==;
+	bh=tVo+LMeXy5hXM+ZwYD+5aH17rWprZXkR1ZR00HmTfjo=; b=s2Vo+jTcXS+Fh8Aj/IjkkZn9Yd
+	lZ7Mx3kUrW+ShcgEKH104tCuUywp4cTL/Hx9MvQCG0tmCUqtbn8eVkuGatOTckCSl5uQrQdC8e6Ol
+	d8+ZJenRGfIfMn63lhbVb7dOE7jf9UVsdcjtU2ra7VfmnwYWwG+9ye9ScSjYZjh2JSPAzchOx7M3i
+	dm3+1VFqEYWqOSCof9eljnNeR35NYUqMP1OS71oS87L3KFBTAoQCi9BnfmMldf8raVlFRdaAMtxHw
+	MzZq8qDBhCTVNXFV8138tbhezMdC5G2vtSpaV7E+of4Y+5tZjCucuhmz/IVeaecz5TkCI/OAxhq4E
+	9FQo5vnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsA8-00000002HKy-0YJB;
-	Fri, 15 Aug 2025 10:59:56 +0000
+	id 1umsCi-00000002HfC-3fko;
+	Fri, 15 Aug 2025 11:02:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umqEz-00000001wGn-2otF
+	id 1umqF4-00000001wIV-2ksZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 08:56:50 +0000
+	Fri, 15 Aug 2025 08:56:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2900D497;
-	Fri, 15 Aug 2025 01:56:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0891F497;
+	Fri, 15 Aug 2025 01:56:46 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C52313F63F;
-	Fri, 15 Aug 2025 01:56:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A20AA3F63F;
+	Fri, 15 Aug 2025 01:56:49 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [RFC PATCH v5 17/18] mm: Add basic tests for kpkeys_hardened_pgtables
-Date: Fri, 15 Aug 2025 09:55:11 +0100
-Message-ID: <20250815085512.2182322-18-kevin.brodsky@arm.com>
+Subject: [RFC PATCH v5 18/18] arm64: mm: Batch kpkeys level switches
+Date: Fri, 15 Aug 2025 09:55:12 +0100
+Message-ID: <20250815085512.2182322-19-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_015649_788206_1253EB5C 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20250815_015654_784410_AFDC9DE5 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,162 +90,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic tests for the kpkeys_hardened_pgtables feature: try to
-perform a direct write to kernel and user page table entries and
-ensure it fails.
+The kpkeys_hardened_pgtables feature currently switches kpkeys level
+in every helper that writes to page tables, such as set_pte(). With
+kpkeys implemented using POE, this entails a pair of ISBs whenever
+such helper is called.
+
+A simple way to reduce this overhead is to make use of the lazy_mmu
+mode, which has recently been adopted on arm64 to batch barriers
+(DSB/ISB) when updating kernel pgtables [1]. Reusing the
+TIF_LAZY_MMU flag introduced by this series, we amend the
+kpkeys_hardened_pgtables guard so that no level switch (i.e. POR_EL1
+update) is issued while that flag is set. Instead, we switch to
+KPKEYS_LVL_PGTABLES when entering lazy_mmu mode, and restore the
+previous level when exiting it. The optimisation is disabled while
+in interrupt as POR_EL1 is reset on exception entry, i.e. switching
+is not batched in that case.
+
+Restoring the previous kpkeys level requires storing the original
+value of POR_EL1 somewhere. This is a full 64-bit value so we cannot
+simply use a TIF flag, but since lazy_mmu sections cannot nest, some
+sort of thread-local variable would do the trick. There is no
+straightforward way to reuse current->thread.por_el1 for that
+purpose - this is where the current value of POR_EL1 is stored on a
+context switch, i.e. the value corresponding to KPKEYS_LVL_PGTABLES
+inside a lazy_mmu section. Instead, we add a new member to
+thread_struct to hold that value temporarily. This isn't optimal as
+that member is unused outside of lazy_mmu sections, but it is the
+simplest option.
+
+A further optimisation this patch makes is to merge the ISBs when
+exiting lazy_mmu mode. That is, if an ISB is going to be issued by
+emit_pte_barriers() because kernel pgtables were modified in the
+lazy_mmu section, we skip the ISB after restoring POR_EL1. This is
+done by checking TIF_LAZY_MMU_PENDING and ensuring that POR_EL1 is
+restored before emit_pte_barriers() is called.
+
+[1] https://lore.kernel.org/all/20250422081822.1836315-12-ryan.roberts@arm.com/
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- mm/Makefile                               |   1 +
- mm/tests/kpkeys_hardened_pgtables_kunit.c | 106 ++++++++++++++++++++++
- security/Kconfig.hardening                |  12 +++
- 3 files changed, 119 insertions(+)
- create mode 100644 mm/tests/kpkeys_hardened_pgtables_kunit.c
 
-diff --git a/mm/Makefile b/mm/Makefile
-index 10848df0ca85..b1e6cf7f753c 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -148,3 +148,4 @@ obj-$(CONFIG_EXECMEM) += execmem.o
- obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
- obj-$(CONFIG_PT_RECLAIM) += pt_reclaim.o
- obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
-+obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES_KUNIT_TEST) += tests/kpkeys_hardened_pgtables_kunit.o
-diff --git a/mm/tests/kpkeys_hardened_pgtables_kunit.c b/mm/tests/kpkeys_hardened_pgtables_kunit.c
-new file mode 100644
-index 000000000000..3d916f0719d0
---- /dev/null
-+++ b/mm/tests/kpkeys_hardened_pgtables_kunit.c
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <kunit/test.h>
-+#include <linux/mman.h>
-+#include <linux/pgtable.h>
-+#include <linux/vmalloc.h>
-+
-+KUNIT_DEFINE_ACTION_WRAPPER(vfree_wrapper, vfree, const void *);
-+
-+static inline pte_t *get_kernel_pte(unsigned long addr)
+Unfortunately lazy_mmu sections can in fact nest under certain
+circumstances [2], which means that storing the original value of
+POR_EL1 in thread_struct is not always safe.
+
+I am working on modifying the lazy_mmu API to handle nesting gracefully,
+which should also help with restoring POR_EL1 without using
+thread_struct. See also the discussion in [3].
+
+[2] https://lore.kernel.org/all/20250512150333.5589-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/all/20250606135654.178300-1-ryan.roberts@arm.com/t/#u
+
+ arch/arm64/include/asm/pgtable.h   | 37 +++++++++++++++++++++++++++++-
+ arch/arm64/include/asm/processor.h |  1 +
+ 2 files changed, 37 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 1694fb839854..35d15b9722e4 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -43,11 +43,40 @@
+ 
+ #ifdef CONFIG_KPKEYS_HARDENED_PGTABLES
+ KPKEYS_GUARD_COND(kpkeys_hardened_pgtables, KPKEYS_LVL_PGTABLES,
+-		  kpkeys_hardened_pgtables_enabled())
++		  kpkeys_hardened_pgtables_enabled() &&
++		  (in_interrupt() || !test_thread_flag(TIF_LAZY_MMU)))
+ #else
+ KPKEYS_GUARD_NOOP(kpkeys_hardened_pgtables)
+ #endif
+ 
++static void kpkeys_lazy_mmu_enter(void)
 +{
-+	pmd_t *pmdp = pmd_off_k(addr);
++	if (!kpkeys_hardened_pgtables_enabled())
++		return;
 +
-+	if (!pmdp || pmd_leaf(*pmdp))
-+		return NULL;
-+
-+	return pte_offset_kernel(pmdp, addr);
++	current->thread.por_el1_lazy_mmu = kpkeys_set_level(KPKEYS_LVL_PGTABLES);
 +}
 +
-+static void write_linear_map_pte(struct kunit *test)
++static void kpkeys_lazy_mmu_exit(void)
 +{
-+	pte_t *ptep;
-+	pte_t pte;
-+	int ret;
++	u64 saved_por_el1;
 +
-+	if (!arch_kpkeys_enabled())
-+		kunit_skip(test, "kpkeys are not supported");
++	if (!kpkeys_hardened_pgtables_enabled())
++		return;
++
++	saved_por_el1 = current->thread.por_el1_lazy_mmu;
 +
 +	/*
-+	 * The choice of address is mostly arbitrary - we just need something
-+	 * that is PTE-mapped, such as a global variable.
++	 * We skip any barrier if TIF_LAZY_MMU_PENDING is set:
++	 * emit_pte_barriers() will issue an ISB just after this function
++	 * returns.
 +	 */
-+	ptep = get_kernel_pte((unsigned long)&init_mm);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, ptep, "Failed to get PTE");
-+
-+	pte = ptep_get(ptep);
-+	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
-+	ret = copy_to_kernel_nofault(ptep, &pte, sizeof(pte));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Direct PTE write wasn't prevented");
++	if (test_thread_flag(TIF_LAZY_MMU_PENDING))
++		__kpkeys_set_pkey_reg_nosync(saved_por_el1);
++	else
++		arch_kpkeys_restore_pkey_reg(saved_por_el1);
 +}
 +
-+static void write_kernel_vmalloc_pte(struct kunit *test)
-+{
-+	void *mem;
-+	pte_t *ptep;
-+	pte_t pte;
-+	int ret;
-+
-+	if (!arch_kpkeys_enabled())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	mem = vmalloc(PAGE_SIZE);
-+	KUNIT_ASSERT_NOT_NULL(test, mem);
-+	ret = kunit_add_action_or_reset(test, vfree_wrapper, mem);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ptep = get_kernel_pte((unsigned long)mem);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, ptep, "Failed to get PTE");
-+
-+	pte = ptep_get(ptep);
-+	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
-+	ret = copy_to_kernel_nofault(ptep, &pte, sizeof(pte));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Direct PTE write wasn't prevented");
-+}
-+
-+static void write_user_pmd(struct kunit *test)
-+{
-+	pmd_t *pmdp;
-+	pmd_t pmd;
-+	unsigned long uaddr;
-+	int ret;
-+
-+	if (!arch_kpkeys_enabled())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	uaddr = kunit_vm_mmap(test, NULL, 0, PAGE_SIZE, PROT_READ,
-+			      MAP_ANONYMOUS | MAP_PRIVATE | MAP_POPULATE, 0);
-+	KUNIT_ASSERT_NE_MSG(test, uaddr, 0, "Could not create userspace mm");
-+
-+	/* We passed MAP_POPULATE so a PMD should already be allocated */
-+	pmdp = pmd_off(current->mm, uaddr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pmdp, "Failed to get PMD");
-+
-+	pmd = pmdp_get(pmdp);
-+	pmd = set_pmd_bit(pmd, __pgprot(PROT_SECT_NORMAL));
-+	ret = copy_to_kernel_nofault(pmdp, &pmd, sizeof(pmd));
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,
-+			    "Direct PMD write wasn't prevented");
-+}
-+
-+static struct kunit_case kpkeys_hardened_pgtables_test_cases[] = {
-+	KUNIT_CASE(write_linear_map_pte),
-+	KUNIT_CASE(write_kernel_vmalloc_pte),
-+	KUNIT_CASE(write_user_pmd),
-+	{}
-+};
-+
-+static struct kunit_suite kpkeys_hardened_pgtables_test_suite = {
-+	.name = "Hardened pgtables using kpkeys",
-+	.test_cases = kpkeys_hardened_pgtables_test_cases,
-+};
-+kunit_test_suite(kpkeys_hardened_pgtables_test_suite);
-+
-+MODULE_DESCRIPTION("Tests for the kpkeys_hardened_pgtables feature");
-+MODULE_LICENSE("GPL");
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 41b7530530b7..653663008096 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -277,6 +277,18 @@ config KPKEYS_HARDENED_PGTABLES
- 	  This option has no effect if the system does not support
- 	  kernel pkeys.
+ static inline void emit_pte_barriers(void)
+ {
+ 	/*
+@@ -107,6 +136,7 @@ static inline void arch_enter_lazy_mmu_mode(void)
+ 		return;
  
-+config KPKEYS_HARDENED_PGTABLES_KUNIT_TEST
-+	tristate "KUnit tests for kpkeys_hardened_pgtables" if !KUNIT_ALL_TESTS
-+	depends on KPKEYS_HARDENED_PGTABLES
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable this option to check that the kpkeys_hardened_pgtables feature
-+	  functions as intended, i.e. prevents arbitrary writes to user and
-+	  kernel page tables.
-+
-+	  If unsure, say N.
-+
- endmenu
+ 	set_thread_flag(TIF_LAZY_MMU);
++	kpkeys_lazy_mmu_enter();
+ }
  
- config CC_HAS_RANDSTRUCT
+ static inline void arch_flush_lazy_mmu_mode(void)
+@@ -123,6 +153,11 @@ static inline void arch_leave_lazy_mmu_mode(void)
+ 	if (in_interrupt())
+ 		return;
+ 
++	/*
++	 * The ordering should be preserved to allow kpkeys_lazy_mmu_exit()
++	 * to skip any barrier when TIF_LAZY_MMU_PENDING is set.
++	 */
++	kpkeys_lazy_mmu_exit();
+ 	arch_flush_lazy_mmu_mode();
+ 	clear_thread_flag(TIF_LAZY_MMU);
+ }
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index 9340e94a27f6..7b20eedfe2fe 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -188,6 +188,7 @@ struct thread_struct {
+ 	u64			tpidr2_el0;
+ 	u64			por_el0;
+ 	u64			por_el1;
++	u64			por_el1_lazy_mmu;
+ #ifdef CONFIG_ARM64_GCS
+ 	unsigned int		gcs_el0_mode;
+ 	unsigned int		gcs_el0_locked;
 -- 
 2.47.0
 
