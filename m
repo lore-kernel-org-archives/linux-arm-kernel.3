@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE91CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 23:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F04CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 23:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sUObT2MtRUdeCzFIsyGIpQowt/Rz746ae833Ij+XOq0=; b=Jj8mCIXNR+GSYT2atCcjVUm5ab
-	UCsviaEaYXksNfcz7HXDB5tqfsiatiF3DTg0/CHHQibJklCn6iTTCeDyh6qxlLNq03Qp2wJWGXUIT
-	qDyjvghV+CM7CxETQHkwSF/XfSjvLsNNdpUol/5yeAhebqrx4f1Ht1Z+BC1pDPSFobvMN3KATCMRb
-	Mj3+1g4OAhj0Oa0Ej+B/CGXiolRrfM50TCMwR7Uj0Y7Sw+x3WrQL2InMVMPJmp4YQ3KqB7fUHNvfh
-	LmWea2cZzYwFvcYNYjAQv7RWvA54iVOWQLq3SNGistoo9AvSZ7vK4Ho/sTvV1/Dz5wIVQtVyi4sxX
-	XiwetHGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=syRoK2LSa4q4HkYqz7cZTfQqr9eMv3CfkuHnLwIdEBw=; b=T7lr+lzuctYd1O/SoaSruJB5IQ
+	4DZFFeVVCA3bCGKky2a+OZSzTpV0qr3Y4wP8cypYMY0G05JZtBadtckLe44sMCYqPdxO6xs1AXuMg
+	RX/bWwtlsr4717jLKeGhgSio8JIe8igVk2momgRtA0Rnhjh18oUmntJYMWs2VZCn4mmbkFuPVvMrG
+	VBKBxfr2RMe2Sbxc1tUIpoFm3YdrY4tMBL9B01+Ly1/8IgeMDeFrsUTL4IzT/YHZPc0HRaoEujzFy
+	LC+grhlB14qAy9Qv5GOSACiWk7vqbRnL7FKN5577na1RNvtY4gU0q+hu9qvQ/BM4NYdDoWsC0bawR
+	w2HQ1Ptg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un43I-00000003ikX-0Zd7;
-	Fri, 15 Aug 2025 23:41:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1un45s-00000003ixs-3zbF;
+	Fri, 15 Aug 2025 23:44:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1un40e-00000003iPM-3nDI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 23:38:58 +0000
+	id 1un41I-00000003iU2-0qZP;
+	Fri, 15 Aug 2025 23:39:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBA1245EB2;
-	Fri, 15 Aug 2025 23:38:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E596C4AF0B;
-	Fri, 15 Aug 2025 23:38:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3FB295C6EB0;
+	Fri, 15 Aug 2025 23:39:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB2EC4CEF7;
+	Fri, 15 Aug 2025 23:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755301135;
-	bh=x3QDZ47I/8OT9hBSL+4EmYWUfQlFHbDh875sGMUYuQc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=teuQ+iJs6TC5M7TxEj8YRoNklDeYEImgUx5QraCvkXMQBNQeFc2A2P/DJNUxXp6Wq
-	 CshfdPFxt3JZ+XxEiEN4rjuLcsXtRognT8VspIwVULcZDWk9Df17Bt55CSUlXhUc/r
-	 FM9Y6x6ajBXlWfxPystbS+FfwcSZ00acog7gS5gwuALAD/SghpWoXIsZ8WzqKnWlqv
-	 3KgjV1hkP7kXr4VXubMEQdFAdRWJjbqAimLxQEIkkCE7rQyi3b7JMm1Hn7OGDCVutQ
-	 zDiKagsLthTNSng8v1tG1GGZ0Ch4Ue6ZuiTwlimen30blPEdEG5QfUS3EcToWDr0sM
-	 59c2XA+hCGIIA==
-Date: Fri, 15 Aug 2025 18:38:54 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1755301174;
+	bh=wwsSHz9qW4HM4CvVm/6W9nFKkjnMGwSQT3gsML0+kno=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Dy5EWzxg3q5jZyEc5bv6P/Z/DH5Vm/gvVQ0KzBdqG+h1UraLcJ8bGvDiOcUn4VHMJ
+	 OBiOzwv6iYzGc+ff50s+zlr/kuPqVtu+58RJEjX0iZBMAHUdf+3HM7zt2TNN2Xt+DH
+	 fX9YhxVams39HItzisR90HZNfVerp3x6a08dcDaYc+ycuNvuU8k08VlxKF5vfX38dM
+	 mkeL5gKMG7U4YJ2CIRHw81q63OW3ZOJv0CioArMqRGdDMAJ93JjaVnO7xaSlzP0y0u
+	 ghEBAvASk9dewqo1XESgz6X/oFzMR/A4Tucw9C2mDpGeP6WdQ/OmMfLvpWhRnrxuRa
+	 PiAxzLrryxguQ==
+Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-b4717563599so2121808a12.3;
+        Fri, 15 Aug 2025 16:39:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUTe1+ijHSfY2VgbGTQWKZyKxAVkCRnOL5U99d+W2lLDqJqLX25/yoyBSiQ1eUF/7N8NpZcM1s2Nwmu3QLk3ao=@lists.infradead.org, AJvYcCUtpoKRvD+T/qjApOYz54/cUePfdZhWpSLyTqgkEh0im1isgQgUJFtmy63rNj0b2/fLD5Sr2+TEkosFmGv7EPCh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3fNeHNK8x56cenJCgmHcf1f4xM9HzfOvix4IYDMHskgx/xVXy
+	K1mpbFGAGWh5d8QHSbBwSlmMRAlpM8uJ7Fm21uu+JINR/kSKNCIDAFtggUs3SHpl8lMzqW0paar
+	zxDyVxlcImUCcNl6pyWYOCoEpBnnI3A==
+X-Google-Smtp-Source: AGHT+IF3UhjPzI/NY7tWC6HSMCDlAaXInyJ/IGmu2yTEf5VazKwog6umahYLBkhkXktfxZh67B39CKu2Ii3gsJIura0=
+X-Received: by 2002:a17:903:b87:b0:240:80f:228e with SMTP id
+ d9443c01a7336-2446d93d8dbmr54840315ad.52.1755301174432; Fri, 15 Aug 2025
+ 16:39:34 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Marc Olberding <molberding@nvidia.com>
-In-Reply-To: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
-References: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
-Message-Id: <175530106151.3523036.5305359646677111575.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Adding device tree and binding for Nvidia mgx cx8
- switchboard
+References: <20250812071932.471730-1-make24@iscas.ac.cn>
+In-Reply-To: <20250812071932.471730-1-make24@iscas.ac.cn>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Sat, 16 Aug 2025 07:40:42 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_91C=5YDk1qcU3Dir6TqtN17kgjzTzr=XYRNPHGvQwSgA@mail.gmail.com>
+X-Gm-Features: Ac12FXzKVkel4FRxgngT7H7BLJAi1wo2-ssfsabNu9COZ3np_6DfRlSEuXQhYKk
+Message-ID: <CAAOTY_91C=5YDk1qcU3Dir6TqtN17kgjzTzr=XYRNPHGvQwSgA@mail.gmail.com>
+Subject: Re: [PATCH v2] drm/mediatek: Fix device/node reference count leaks in mtk_drm_get_all_drm_priv
+To: Ma Ke <make24@iscas.ac.cn>
+Cc: ck.hu@mediatek.com, chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
+	airlied@gmail.com, simona@ffwll.ch, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, nancy.lin@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	akpm@linux-foundation.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_163856_989048_EB002042 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20250815_163936_325752_3470F263 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,119 +86,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Ma Ke <make24@iscas.ac.cn> =E6=96=BC 2025=E5=B9=B48=E6=9C=8812=E6=97=A5 =E9=
+=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=883:19=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Using device_find_child() and of_find_device_by_node() to locate
+> devices could cause an imbalance in the device's reference count.
+> device_find_child() and of_find_device_by_node() both call
+> get_device() to increment the reference count of the found device
+> before returning the pointer. In mtk_drm_get_all_drm_priv(), these
+> references are never released through put_device(), resulting in
+> permanent reference count increments. Additionally, the
+> for_each_child_of_node() iterator fails to release node references in
+> all code paths. This leaks device node references when loop
+> termination occurs before reaching MAX_CRTC. These reference count
+> leaks may prevent device/node resources from being properly released
+> during driver unbind operations.
+>
+> As comment of device_find_child() says, 'NOTE: you will need to drop
+> the reference with put_device() after use'.
+>
+> Found by code review.
 
-On Fri, 15 Aug 2025 12:45:54 -0700, Marc Olberding wrote:
-> Patch 1 Adds the binding for the Nvidia mgx cx8 switchboard
-> Patch 2 Adds dtsi's for the mgx cx8 switchboard itself
-> Patch 3 Adds the dts for the mgx cx8 switchboard motherboard reference implementation.
-> 
-> This is an Aspeed AST2600 based reference implementation for a BMC
-> managing an Nvidia mgx cx8 switchboard. Dtsi files are broken out for
-> managing the mgx cx8 switchboard over i2c, so that others may reuse these
-> if they choose to implement their own board. There are two dtsi files
-> since the i2c topology is not symmetric between busses going to the mgx cx8
-> switchboard.
-> 
-> Reference to Ast2600 SoC [1].
-> 
-> Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> 
-> 
-> Signed-off-by: Marc Olberding <molberding@nvidia.com>
+Applied to mediatek-drm-fixes [1], thanks.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
+
+Regards,
+Chun-Kuang.
+
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi =
+mmsys support")
+> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
 > ---
-> Marc Olberding (3):
->       dt-bindings: arm: aspeed: Add Nvidia's mgx4u BMC
->       ARM: dts: aspeed: Add device tree includes for the cx8 switchboard
->       ARM: dts: aspeed: Add device tree for mgx4u BMC
-> 
->  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
->  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
->  .../boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dts    | 1078 ++++++++++++++++++++
->  .../dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi    |   80 ++
->  .../dts/aspeed/nvidia-mgx-cx8-switch-south.dtsi    |   80 ++
->  5 files changed, 1240 insertions(+)
+> Changes in v2:
+> - added goto labels as suggestions.
 > ---
-> base-commit: 7bac2c97af4078d7a627500c9bcdd5b033f97718
-> change-id: 20250813-mgx4u_devicetree-c2e130607089
-> 
-> Best regards,
+>  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 21 ++++++++++++++-------
+>  1 file changed, 14 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
+iatek/mtk_drm_drv.c
+> index d5e6bab36414..f8a817689e16 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> @@ -387,19 +387,19 @@ static bool mtk_drm_get_all_drm_priv(struct device =
+*dev)
+>
+>                 of_id =3D of_match_node(mtk_drm_of_ids, node);
+>                 if (!of_id)
+> -                       continue;
+> +                       goto next_put_node;
+>
+>                 pdev =3D of_find_device_by_node(node);
+>                 if (!pdev)
+> -                       continue;
+> +                       goto next_put_node;
+>
+>                 drm_dev =3D device_find_child(&pdev->dev, NULL, mtk_drm_m=
+atch);
+>                 if (!drm_dev)
+> -                       continue;
+> +                       goto next_put_device_pdev_dev;
+>
+>                 temp_drm_priv =3D dev_get_drvdata(drm_dev);
+>                 if (!temp_drm_priv)
+> -                       continue;
+> +                       goto next_put_device_drm_dev;
+>
+>                 if (temp_drm_priv->data->main_len)
+>                         all_drm_priv[CRTC_MAIN] =3D temp_drm_priv;
+> @@ -411,10 +411,17 @@ static bool mtk_drm_get_all_drm_priv(struct device =
+*dev)
+>                 if (temp_drm_priv->mtk_drm_bound)
+>                         cnt++;
+>
+> -               if (cnt =3D=3D MAX_CRTC) {
+> -                       of_node_put(node);
+> +next_put_device_drm_dev:
+> +               put_device(drm_dev);
+> +
+> +next_put_device_pdev_dev:
+> +               put_device(&pdev->dev);
+> +
+> +next_put_node:
+> +               of_node_put(node);
+> +
+> +               if (cnt =3D=3D MAX_CRTC)
+>                         break;
+> -               }
+>         }
+>
+>         if (drm_priv->data->mmsys_dev_num =3D=3D cnt) {
 > --
-> Marc Olberding <molberding@nvidia.com>
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 7bac2c97af4078d7a627500c9bcdd5b033f97718
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: spi@1e630000 (aspeed,ast2600-spi): Unevaluated properties are not allowed ('fmc-spi-user-mode' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spi/aspeed,ast2600-fmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-
-
-
-
-
+> 2.25.1
+>
 
