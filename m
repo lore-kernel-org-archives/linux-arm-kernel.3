@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC0BCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 13:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA318CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 13:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJze5C9lDTBIwC49h9q7OfVUXEhPFkEHTan94Jr4v1c=; b=u92ymboIAhR/wAF4Bn2h1VBboq
-	ClMx6A6FfaXnFxo7DU+N/9N55OSMC0INsOsWgj22FgwjQWDhfLHzayKs/KMJ0iwj9gGJp5fMmjDNZ
-	c12IlRuc+v7EEAp/8xe1RhqegvQ+zGyA/nhxvScmJFpaCzXncz2uz/uJ1hYyKSWG8piQ5tRz37HY4
-	NFyrvLfUPw8EGi8qoeiMAlzUu7cjFtrAfbN0OSTzTDYQDqQ+v/DycJ4Lo0yy7z1uO3mXikVOMsjlp
-	Vd4i4XPE8nNR9GT1SxXfN7g9GQ1NsqGZfCkhxmFOF4WLV08kYPsazz3LmWdEzU/1Q0G7FmMHyGnVL
-	Fz0gC6/g==;
+	bh=gbUJHuak2u5MhS/qm2dIicmSf5kMrLrrJoF5h7UvVAU=; b=jLDjyjmUKB1wAQ66ZQQLzQN2Rh
+	Cwb07JR46AY+9svrqdnCUhCtecS8AblNUyo6+VE1iav/+APNJdxsfTc5TNomKuInSj8zuP+l5ZcH7
+	svqtjuTghVLvd80PFMk9jIMOBWNkeGiVADEUTyjXtMQklpYmXLYqRVNhd+y1yrL8GlQwuX85A8AcU
+	cU0LG7j/qtLALFB6iVALhPKfsN7Dqzjv5clv5IoLFzskVCxS47wy8B9OW0I6n5PS8PAh8fuEsU9/W
+	mytp5NVIzv4hBRsL7vv4wNrUXmq37HwbLN5rE2oMLfk08vkflIOskPbteo0uHA6KX6S5qV8gT5Uwh
+	U2iYg43w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umuUa-00000002aX4-0JiV;
-	Fri, 15 Aug 2025 13:29:12 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1umuXA-00000002ak6-1j9x;
+	Fri, 15 Aug 2025 13:31:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umsA1-00000002HGf-3ma5
+	id 1umsND-00000002Ivs-1EkR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 Aug 2025 10:59:51 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 88BF556D;
-	Fri, 15 Aug 2025 12:58:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755255533;
-	bh=NzWbvAg9ULrtbOcYxkB5gPQ39IzaRkhd+Wm2Y2RmPCM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gp3CfCSAa6INwM6KYAHJw54juTrynWOk78+YmthMNvgNydks071tCmBydEvA1qgjc
-	 BH6HfjIFpFZMUu1kcR3o04XgXzAqnzKAFmQbFkV3cqe/npe9SFMylPkBtdMQkcyTUS
-	 D3SWFQqAbJPhz9C1Z7csqDDBjfIgIHwSwwKXvI+E=
-Date: Fri, 15 Aug 2025 13:59:28 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] media: nxp: imx8-isi: Add suspend/resume support for
- ISI mem2mem
-Message-ID: <20250815105928.GL6201@pendragon.ideasonboard.com>
-References: <20250815-isi_m2m-v2-1-32e3720880cc@nxp.com>
+	Fri, 15 Aug 2025 11:13:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2547F43A44;
+	Fri, 15 Aug 2025 11:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85B8BC4CEEB;
+	Fri, 15 Aug 2025 11:13:21 +0000 (UTC)
+Date: Fri, 15 Aug 2025 12:13:19 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com, corbet@lwn.net,
+	will@kernel.org, akpm@linux-foundation.org,
+	scott@os.amperecomputing.com, jhubbard@nvidia.com,
+	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
+	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
+	james.morse@arm.com, ardb@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
+	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH v2 1/2] kasan/hw-tags: introduce kasan.store_only option
+Message-ID: <aJ8WTyRJVznC9v4K@arm.com>
+References: <20250813175335.3980268-1-yeoreum.yun@arm.com>
+ <20250813175335.3980268-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250815-isi_m2m-v2-1-32e3720880cc@nxp.com>
+In-Reply-To: <20250813175335.3980268-2-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_035950_084242_873DCED5 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20250815_041327_381171_F77461F0 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,137 +72,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 05:28:51PM +0800, Guoniu Zhou wrote:
-> Add suspend/resume support for ISI when work at memory to memory mode.
-> 
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v2:
->   - Move mxc_isi_m2m_suspend()/resume() out of loop.
->   - Replace ctx->chained with m2m->chained_count.
->   - Link to v1: https://lore.kernel.org/all/20250717024353.1811576-1-guoniu.zhou@oss.nxp.com/
-> ---
->  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  9 ++++++
->  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    | 11 +++++++
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 34 ++++++++++++++++++++++
->  3 files changed, 54 insertions(+)
-> 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 981648a0311374597a033a7ecbf39f7b0b252cb0..408e9cb61554d05ac92562c322d6a728080bb9e5 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -374,6 +374,8 @@ static int mxc_isi_pm_suspend(struct device *dev)
->  		mxc_isi_video_suspend(pipe);
->  	}
+On Wed, Aug 13, 2025 at 06:53:34PM +0100, Yeoreum Yun wrote:
+> diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/mte-kasan.h
+> index 2e98028c1965..3e1cc341d47a 100644
+> --- a/arch/arm64/include/asm/mte-kasan.h
+> +++ b/arch/arm64/include/asm/mte-kasan.h
+> @@ -200,6 +200,7 @@ static inline void mte_set_mem_tag_range(void *addr, size_t size, u8 tag,
+>  void mte_enable_kernel_sync(void);
+>  void mte_enable_kernel_async(void);
+>  void mte_enable_kernel_asymm(void);
+> +int mte_enable_kernel_store_only(void);
 >  
-> +	mxc_isi_m2m_suspend(&isi->m2m);
-> +
->  	return pm_runtime_force_suspend(dev);
->  }
+>  #else /* CONFIG_ARM64_MTE */
 >  
-> @@ -403,6 +405,13 @@ static int mxc_isi_pm_resume(struct device *dev)
->  		}
->  	}
->  
-> +	ret = mxc_isi_m2m_resume(&isi->m2m);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to resume ISI%u (%d) for m2m\n", i,
-
-Drop %u and i.
-
-No need to resubmit, I'll make the change locally.
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> +			ret);
-> +		err = ret;
-> +	}
-> +
->  	return err;
->  }
->  
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> index 206995bedca4a4c5d7873f3bc872fbae18b3cb75..6493eef907010934217d9f14a0d6d56acdc59ee0 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> @@ -343,6 +343,8 @@ int mxc_isi_video_buffer_prepare(struct mxc_isi_dev *isi, struct vb2_buffer *vb2
->  #ifdef CONFIG_VIDEO_IMX8_ISI_M2M
->  int mxc_isi_m2m_register(struct mxc_isi_dev *isi, struct v4l2_device *v4l2_dev);
->  int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi);
-> +void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m);
-> +int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m);
->  #else
->  static inline int mxc_isi_m2m_register(struct mxc_isi_dev *isi,
->  				       struct v4l2_device *v4l2_dev)
-> @@ -353,6 +355,15 @@ static inline int mxc_isi_m2m_unregister(struct mxc_isi_dev *isi)
+> @@ -251,6 +252,11 @@ static inline void mte_enable_kernel_asymm(void)
 >  {
->  	return 0;
 >  }
-> +
-> +static inline void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m)
+>  
+> +static inline int mte_enable_kenrel_store_only(void)
+				^^^^^^
+This won't build with MTE disabled (check spelling).
+
 > +{
+> +	return -EINVAL;
 > +}
 > +
-> +static inline int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m)
+>  #endif /* CONFIG_ARM64_MTE */
+>  
+>  #endif /* __ASSEMBLY__ */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9ad065f15f1d..7b724fcf20a7 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2404,6 +2404,11 @@ static void cpu_enable_mte(struct arm64_cpu_capabilities const *cap)
+>  
+>  	kasan_init_hw_tags_cpu();
+>  }
+> +
+> +static void cpu_enable_mte_store_only(struct arm64_cpu_capabilities const *cap)
 > +{
+> +	kasan_late_init_hw_tags_cpu();
+> +}
+>  #endif /* CONFIG_ARM64_MTE */
+>  
+>  static void user_feature_fixup(void)
+> @@ -2922,6 +2927,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>  		.capability = ARM64_MTE_STORE_ONLY,
+>  		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>  		.matches = has_cpuid_feature,
+> +		.cpu_enable = cpu_enable_mte_store_only,
+
+I don't think we should add this, see below.
+
+>  		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
+>  	},
+>  #endif /* CONFIG_ARM64_MTE */
+> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> index e5e773844889..8eb1f66f2ccd 100644
+> --- a/arch/arm64/kernel/mte.c
+> +++ b/arch/arm64/kernel/mte.c
+> @@ -157,6 +157,20 @@ void mte_enable_kernel_asymm(void)
+>  		mte_enable_kernel_sync();
+>  	}
+>  }
+> +
+> +int mte_enable_kernel_store_only(void)
+> +{
+> +	if (!cpus_have_cap(ARM64_MTE_STORE_ONLY))
+> +		return -EINVAL;
+> +
+> +	sysreg_clear_set(sctlr_el1, SCTLR_EL1_TCSO_MASK,
+> +			 SYS_FIELD_PREP(SCTLR_EL1, TCSO, 1));
+> +	isb();
+> +
+> +	pr_info_once("MTE: enabled stonly mode at EL1\n");
+> +
 > +	return 0;
 > +}
 >  #endif
+
+If we do something like mte_enable_kernel_asymm(), that one doesn't
+return any error, just fall back to the default mode.
+
+> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
+> index 9a6927394b54..c2f90c06076e 100644
+> --- a/mm/kasan/hw_tags.c
+> +++ b/mm/kasan/hw_tags.c
+> @@ -219,6 +246,20 @@ void kasan_init_hw_tags_cpu(void)
+>  	kasan_enable_hw_tags();
+>  }
 >  
->  int mxc_isi_channel_acquire(struct mxc_isi_pipe *pipe,
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> index 22e49d3a128732c077beb7ac2e2f688e0899f8e2..26361fe2ca858098d907d4a0719b0fdacc6becd2 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> @@ -732,6 +732,40 @@ static const struct v4l2_file_operations mxc_isi_m2m_fops = {
->  	.mmap		= v4l2_m2m_fop_mmap,
->  };
->  
-> +/* -----------------------------------------------------------------------------
-> + * Suspend & resume
+> +/*
+> + * kasan_late_init_hw_tags_cpu_post() is called for each CPU after
+> + * all cpus are bring-up at boot.
+
+Nit: s/bring-up/brought up/
+
+> + * Not marked as __init as a CPU can be hot-plugged after boot.
 > + */
-> +
-> +void mxc_isi_m2m_suspend(struct mxc_isi_m2m *m2m)
+> +void kasan_late_init_hw_tags_cpu(void)
 > +{
-> +	if (m2m->usage_count == 0)
-> +		return;
-> +
-> +	v4l2_m2m_suspend(m2m->m2m_dev);
-> +
-> +	if (m2m->chained_count > 0)
-> +		mxc_isi_channel_unchain(m2m->pipe);
-> +
-> +	mxc_isi_channel_disable(m2m->pipe);
-> +	mxc_isi_channel_put(m2m->pipe);
+> +	/*
+> +	 * Enable stonly mode only when explicitly requested through the command line.
+> +	 * If system doesn't support, kasan checks all operation.
+> +	 */
+> +	kasan_enable_store_only();
 > +}
-> +
-> +int mxc_isi_m2m_resume(struct mxc_isi_m2m *m2m)
-> +{
-> +	if (m2m->usage_count == 0)
-> +		return 0;
-> +
-> +	mxc_isi_channel_get(m2m->pipe);
-> +
-> +	if (m2m->chained_count > 0)
-> +		mxc_isi_channel_chain(m2m->pipe, false);
-> +
-> +	m2m->last_ctx = NULL;
-> +	v4l2_m2m_resume(m2m->m2m_dev);
-> +
-> +	return 0;
-> +}
-> +
->  /* -----------------------------------------------------------------------------
->   * Registration
->   */
-> 
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250815-isi_m2m-3db166a97969
+
+There's nothing late about this. We have kasan_init_hw_tags_cpu()
+already and I'd rather have it all handled via this function. It's not
+that different from how we added asymmetric support, though store-only
+is complementary to the sync vs async checking.
+
+Like we do in mte_enable_kernel_asymm(), if the feature is not available
+just fall back to checking both reads and writes in the chosen
+async/sync/asymm way. You can add some pr_info() to inform the user of
+the chosen kasan mode. It's really mostly an performance choice.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Catalin
 
