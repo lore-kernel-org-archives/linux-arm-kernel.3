@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD25CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 02:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB75CCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 Aug 2025 02:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFpzt96SH7zrjIwGrhgfwPhUMLgjWOGWlrIeC6OmdkA=; b=Ak7YWzCCO36nmFEt5R1TGJGQCK
-	rCKxIW8OBVhIzZVD4KvoDKSRvI16sEZIfnlV7TOFFSXlszWSXj1eUqpDswD54d53d1FspC5znfUrl
-	qa6HFnz+R/iYG0LpRyXU5JaelKBSf7bffILA87P0iniXs8HI9hr5G8FJ8vOY5xrs5zxG5hUiLUQIE
-	EJLuOc/B7OXXiWIpdOzcjUr+1CS/ieP4CVdPRH+93Tgex8wfaV7pwYkjlNoS365pRpDREwxZ8UjMq
-	+KbPqk8sv+VR7cKz8UsiVcA1dLj1mDyhKHKFNIT1eaKc/pagNThnovAc6xbhzmvXFA9vaPYNXyx1Z
-	A2olQtUw==;
+	bh=nhX7uXaxU+2Gglt/gH8ZNapg5luz/gjuSFA1JXtTgps=; b=q/H59LsngO2A9DAtH6uWnsSvl/
+	fD7KrZFJ50qka1H+kUgR796iGC7DjE7nTGMExBdUPtxqQMgU1M1j0AejxcJjDDMHsyEH9Bp1K4qMx
+	1rtxwfGWteLZse3kh1plsroNS7DKlZGWUUOaGvMBGQWavzDkrSgXPNaUSZU/jBi+tgwWF/RIAbgFZ
+	Dh/acta2neMoIJghFWg65zhJd/CV8+KBRvY/EuRF7/B/1pd8gG6P3d+s+NzyMvCqAcbOz4YQr9pBQ
+	L+nnwiK2KzxCD/TEvh0eXeM0jakSN/mKnzpF2r5woX0D2NTufCuZ7UCwRJ7mcETM8qbTKTS8OAdgq
+	mfT4yWkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umjqJ-000000017Of-2IBz;
-	Fri, 15 Aug 2025 02:06:55 +0000
-Received: from mail-m1973197.qiye.163.com ([220.197.31.97])
+	id 1umkGs-00000001B42-0ASB;
+	Fri, 15 Aug 2025 02:34:22 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1umjnj-000000016wk-1acx;
-	Fri, 15 Aug 2025 02:04:16 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f727517b;
-	Fri, 15 Aug 2025 10:04:05 +0800 (GMT+08:00)
-Message-ID: <6ec86839-2d81-491b-a9fa-b44bb6db8fbf@rock-chips.com>
-Date: Fri, 15 Aug 2025 10:04:05 +0800
+	id 1umkDG-00000001AKN-3qqm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 Aug 2025 02:30:40 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57F2UX4w2063384;
+	Thu, 14 Aug 2025 21:30:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755225033;
+	bh=nhX7uXaxU+2Gglt/gH8ZNapg5luz/gjuSFA1JXtTgps=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=YbkiXE4xIQaGr2nwUV9gmOBmbvOu5Jk/yHJ/yhd2p2s1X7W1uaX9ey/kmzL0SVU3X
+	 W+Db6tFTNhwjtZe7XpalDtE4/FG2eQb+M+KfXmdVtIrWmtgBV1XSWPgzIvLdWb9dME
+	 Ge+O3TmrGxjTCQnST6Qa5HU01avr6h9WsO6rYkYk=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57F2UXhG1585090
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 14 Aug 2025 21:30:33 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 14
+ Aug 2025 21:30:33 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 14 Aug 2025 21:30:33 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57F2US52344700;
+	Thu, 14 Aug 2025 21:30:29 -0500
+Message-ID: <b257999d-df16-405c-830b-5397da37c6ed@ti.com>
+Date: Fri, 15 Aug 2025 08:00:28 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/13] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: Marek Szyprowski <m.szyprowski@samsung.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <CGME20250814104818eucas1p2c5029f6d5997f4fafd6370f9e7fb2264@eucas1p2.samsung.com>
- <20250814104753.195255-1-damon.ding@rock-chips.com>
- <a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
+Subject: Re: [PATCH 01/33] arm64: dts: ti: k3-j7200: Enable remote processors
+ at board level
+To: Beleswar Padhi <b-padhi@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <afd@ti.com>, <hnagalla@ti.com>, <jm@ti.com>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <u-kumar1@ti.com>
+References: <20250814223839.3256046-1-b-padhi@ti.com>
+ <20250814223839.3256046-2-b-padhi@ti.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <a3a2f8be-2c3c-49e7-b27a-72364ea48b06@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250814223839.3256046-2-b-padhi@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98ab784e4f03a3kunm0571d7eb485c79
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0sfSFZDTU1KSh1OTBpMQxlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=hfZpv8zW2uys6mdORyNcGO+jdR1oTSbgWly42v2Rwxejwtr8GjoEWt+bKnpVT5e1nF9OU25agMwG6zgxwEy5aXBeJJbfAWzI1hPnuAIXyKEeGphMhrobsGe4y0AoA1OiKSEHNipCW+hLlPA5j66L+lShxrMP06AecHT8i7KL0uc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=DFpzt96SH7zrjIwGrhgfwPhUMLgjWOGWlrIeC6OmdkA=;
-	h=date:mime-version:subject:message-id:from;
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250814_190415_564984_BFE56461 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250814_193039_111980_8636947D 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,100 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Hello Beleswar,
 
-On 2025/8/14 22:33, Marek Szyprowski wrote:
-> On 14.08.2025 12:47, Damon Ding wrote:
->> PATCH 1 is a small format optimization for struct analogid_dp_device.
->> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
->> PATCH 3-6 are preparations for apply drm_bridge_connector helper.
->> PATCH 7 is to apply the drm_bridge_connector helper.
->> PATCH 8-10 are to move the panel/bridge parsing to the Analogix side.
->> PATCH 11-12 are preparations for apply panel_bridge helper.
->> PATCH 13 is to apply the panel_bridge helper.
-> 
-> This series lacks 'select DRM_BRIDGE_CONNECTOR' in ExynosDP's Kconfig,
-> so it causes build break:
-> 
+On 8/15/2025 4:08 AM, Beleswar Padhi wrote:
+> Remote Processors defined in top-level J7200 SoC dtsi files are
+> incomplete without the memory carveouts and mailbox assignments which
+> are only known at board integration level.
+>
+> Therefore, disable the remote processors at SoC level and enable them at
+> board level where above information is available.
+>
+> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j7200-main.dtsi       | 3 +++
+>   arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi | 3 +++
+>   arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi     | 9 +++++++++
+>   3 files changed, 15 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+> index 5ce5f0a3d6f5..628ff89dd72f 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+> @@ -1516,6 +1516,7 @@ main_r5fss0: r5fss@5c00000 {
+>   		ranges = <0x5c00000 0x00 0x5c00000 0x20000>,
+>   			 <0x5d00000 0x00 0x5d00000 0x20000>;
+>   		power-domains = <&k3_pds 243 TI_SCI_PD_EXCLUSIVE>;
+> +		status = "disabled";
+>   
+>   		main_r5fss0_core0: r5f@5c00000 {
+>   			compatible = "ti,j7200-r5f";
+> @@ -1530,6 +1531,7 @@ main_r5fss0_core0: r5f@5c00000 {
+>   			ti,atcm-enable = <1>;
+>   			ti,btcm-enable = <1>;
+>   			ti,loczrama = <1>;
+> +			status = "disabled";
+>   		};
+>   
+>   		main_r5fss0_core1: r5f@5d00000 {
+> @@ -1545,6 +1547,7 @@ main_r5fss0_core1: r5f@5d00000 {
+>   			ti,atcm-enable = <1>;
+>   			ti,btcm-enable = <1>;
+>   			ti,loczrama = <1>;
+> +			status = "disabled";
+>   		};
+>   	};
+>   
+> diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+> index 56ab144fea07..692c4745040e 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
+> @@ -612,6 +612,7 @@ mcu_r5fss0: r5fss@41000000 {
+>   		ranges = <0x41000000 0x00 0x41000000 0x20000>,
+>   			 <0x41400000 0x00 0x41400000 0x20000>;
+>   		power-domains = <&k3_pds 249 TI_SCI_PD_EXCLUSIVE>;
+> +		status = "disabled";
+>   
 
-> drivers/gpu/drm/exynos/exynos_dp.c:177: undefined reference to
-> `drm_bridge_connector_init'
-> make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
-> 
-> After adding this dependency, the Exynos DP driver stops working. On
-> Samsung Snow Chromebook I observed following issue:
-> 
-> [    4.534220] exynos-dp 145b0000.dp-controller: failed to attach
-> following panel or bridge (-16)
-> [    4.543428] exynos-drm exynos-drm: failed to bind
-> 145b0000.dp-controller (ops exynos_dp_ops): -16
-> [    4.551775] exynos-drm exynos-drm: adev bind failed: -16
-> [    4.556559] exynos-dp 145b0000.dp-controller: probe with driver
-> exynos-dp failed with error -16
-> 
-> I will investigate details later in the evening.
-> 
+Please leave boot critical fw as is.
 
-Thanks for your review and test. :-)
+Here are my suggestions
 
-I found the Rockchip side also lacks 'select DRM_BRIDGE_CONNECTOR' in 
-ROCKCHIP_ANALOGIX_DP's Kconfig. I will add the DRM_BRIDGE_CONNECTOR 
-selection for both of them in the next version.
+  create one boot-critical-fw-dtsi for mcu_r5fss0 , include this fw 
+files in all boards.
 
->> Damon Ding (13):
->>     drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
->>     drm/bridge: analogix_dp: Move &drm_bridge_funcs.mode_set to
->>       &drm_bridge_funcs.atomic_enable
->>     drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
->>     drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
->>     drm/bridge: exynos_dp: Remove unused &exynos_dp_device.connector
->>     drm/bridge: analogix_dp: Remove redundant
->>       &analogix_dp_plat_data.skip_connector
->>     drm/bridge: analogix_dp: Apply drm_bridge_connector helper
->>     drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
->>     drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
->>     drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
->>     drm/bridge: analogix_dp: Remove panel disabling and enabling in
->>       analogix_dp_set_bridge()
->>     drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
->>       in analogix_dp_unbind()
->>     drm/bridge: analogix_dp: Apply panel_bridge helper
->>
->>    .../drm/bridge/analogix/analogix_dp_core.c    | 384 ++++++++++--------
->>    .../drm/bridge/analogix/analogix_dp_core.h    |   5 +-
->>    drivers/gpu/drm/exynos/exynos_dp.c            |  48 +--
->>    .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  49 +--
->>    include/drm/bridge/analogix_dp.h              |   7 +-
->>    5 files changed, 248 insertions(+), 245 deletions(-)
->>
->> ---
->>
->> Changes in v2:
->> - Update Exynos DP driver synchronously.
->> - Move the panel/bridge parsing to the Analogix side.
->>
->> Changes in v3:
->> - Rebase for the existing devm_drm_bridge_alloc() applying commit.
->> - Fix the typographical error of panel/bridge check in exynos_dp_bind().
->> - Squash all commits related to skip_connector deletion in both Exynos and
->>     Analogix code into one.
->> - Apply panel_bridge helper to make the codes more concise.
->> - Fix the handing of bridge in analogix_dp_bridge_get_modes().
->> - Remove unnecessary parameter struct drm_connector* for callback
->>     &analogix_dp_plat_data.attach().
->> - In order to decouple the connector driver and the bridge driver, move
->>     the bridge connector initilization to the Rockchip and Exynos sides.
->>
->> Changes in v4:
->> - Rebase for the applied &drm_bridge_funcs.detect() modification commit.
->> - Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
->> - Drop the drmm_encoder_init() modification commit.
->> - Rename the &analogix_dp_plat_data.bridge to
->>     &analogix_dp_plat_data.next_bridge.
->>
-> Best regards
+other IPC optional firmware can reside in one dtsi or dtso,
 
-Best regards,
-Damon
 
+> [..]
 
