@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5F3CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386E6CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tJVtEAuk3/CNwNFQ4HMHaFZFkvXI0+CNhZAJobLEJus=; b=UHxGA4uOx3qcYbyP4kjkZqMs/I
-	igkXO0s6uES4GzeMB0nJ+q6CM7Qe2DC2QhAfaF/SqB15phkamw2cTLIWTd+oeNgrfYJM5zhB3tP/a
-	w5eRC2LaZV/XixiaO2dcJYK9635er72Cs6avM+HAKeVBdVGgiyTOded3/SDyEnwDUKlpneBVc7UkX
-	McwL4kq2ZIwZu3m1FoVPPKfeIK7eJTEZdfZxqXhAniLzgAdpaF/t5l2572DWp65fghErkhNzoOqv3
-	N+YJg9BP4p5r6/cC72x8tQFU+g/FTnUm3q1M5VxPkZJ2EpGIahpMgUMnmcUsVwaJZx8ddD5fH8Dxl
-	uJsgWW3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3vjGVqZ801u6hxGqkfTA8jJyWHpR5ckb7YSt41rFQIw=; b=Tj8iikNh/TFbEItk0PL4W0RS75
+	8sXMIir4UyiCW8J1GCA4YHUB598oEuP/F5+3tf3em0ufoADkbA8oVys2QXtHZsurq5jc4TT4jO1gr
+	5eH1Zismpy6V34S3zrXH41DDqmLgGuy+fQ5QnADuDuAL2RzFpUXxUOF9D3i95QhVwxA/b6Cxas5T7
+	cir8XeeA+2YFtIrIovNNprRsHbk6mvR2gbHRh/d5ocpEeqMzdmN2Yu6xZT3+lUivaBHwQK5taEDEW
+	G4q/GWtKD6JfLFOfJmrxylFGVaPSv7hthYCgWz8grB2d2o8g5XeE06AkTI3xfGn7XyvZEhfltzj4c
+	nBRFPnEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unHCH-00000004hc3-1IIt;
-	Sat, 16 Aug 2025 13:43:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unH9g-00000004hOV-3gXr;
-	Sat, 16 Aug 2025 13:41:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF0CC1691;
-	Sat, 16 Aug 2025 06:40:59 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 31C473F5A1;
-	Sat, 16 Aug 2025 06:41:05 -0700 (PDT)
-Date: Sat, 16 Aug 2025 14:38:13 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: iuncuim <iuncuim@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon
- Vijay Abraham I <kishon@kernel.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-phy@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 2/7] arm64: dts: allwinner: a523: add third usb2 phy
-Message-ID: <20250816143813.77551ff2@minigeek.lan>
-In-Reply-To: <c7468189-deee-449f-b7d0-fa1830ca88fc@kernel.org>
-References: <20250816084700.569524-1-iuncuim@gmail.com>
-	<20250816084700.569524-3-iuncuim@gmail.com>
-	<c7468189-deee-449f-b7d0-fa1830ca88fc@kernel.org>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1unHHK-00000004hs2-2EKd;
+	Sat, 16 Aug 2025 13:49:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unHEk-00000004hfH-0TyY
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 16 Aug 2025 13:46:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3vjGVqZ801u6hxGqkfTA8jJyWHpR5ckb7YSt41rFQIw=; b=VKRS6dKACAPPqDh+fZxsnlW9j5
+	Gzc0ykwuORiofHpTjaOR+cvAHIamo3N6/KepBDvOYVYQKgmSxgxtpqYNe6PIWIJIjlJmdja8E/cCO
+	YgoXL4pKNCJ7S7EncWoBc3OzZkImlmk+pLQr1VGpNsWBpw2Z0NNABivkc6MjLKrYlS7WTmFccPAt3
+	kYGgp+vCWU6+eBg81d3SfAp0MebvxcWBPDYPSkBug0ny1kXJPu0bPZUEuptIxYybHZFwpxz4dk+bR
+	AnCEPs/ORNR/OYkPGmNlatlHWg45izoipH/INp8sPLGr29ZLS6ufDPBWogGm+zGZwnO2w9m76SyGB
+	1gl/uCUw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42708)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1unHCQ-0002D7-1b;
+	Sat, 16 Aug 2025 14:43:58 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1unHCM-0000RZ-2K;
+	Sat, 16 Aug 2025 14:43:54 +0100
+Date: Sat, 16 Aug 2025 14:43:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Richard Weinberger <richard.weinberger@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Nam Cao <namcao@linutronix.de>, John Kacur <jkacur@redhat.com>,
+	Tomas Glozar <tglozar@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] runtime verification: Updates for 6.17
+Message-ID: <aKCLGvmPLPwjyw13@shell.armlinux.org.uk>
+References: <20250729174332.3acd1a86@gandalf.local.home>
+ <CAFLxGvxZJv_A+YKCxVcd4yxPXLhHD5L9VzkvbFKPytxXc5vWaw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAFLxGvxZJv_A+YKCxVcd4yxPXLhHD5L9VzkvbFKPytxXc5vWaw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_064108_963009_9A7881E3 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20250816_064622_157887_1A95D2D5 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,54 +85,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 Aug 2025 11:31:12 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
-
-> On 16/08/2025 10:46, iuncuim wrote:
-> > From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> > 
-> > It seems that there are actually three usb2 phys in the processor, which
-> > makes it incompatible with D1.
-> > The third phy is used together with USB3/PCIe combophy with DWC3
-> > controller. In the BSP code, the third PHY requires a separate glue
-> > driver, but it seems that it is not needed.
-> > According to the BSP code, the third phy does not have a reset line; the
-> > only reset is declared in the DWC3 node, but none of this is documented.
-> > Since sun4i-usb-phy driver requires a reset, I added RST_BUS_3 here.
-> > 
-> > Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> > ---
-> >  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 21 ++++++++++++-------
-> >  1 file changed, 13 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> > index 6b6f2296b..e4ed4fa82 100644
-> > --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> > @@ -503,22 +503,27 @@ usb_otg: usb@4100000 {
-> >  		};
-> >  
-> >  		usbphy: phy@4100400 {
-> > -			compatible = "allwinner,sun55i-a523-usb-phy",
-> > -				     "allwinner,sun20i-d1-usb-phy";
-> > +			compatible = "allwinner,sun55i-a523-usb-phy";  
+On Sat, Aug 16, 2025 at 02:04:34PM +0200, Richard Weinberger wrote:
+> [Adding ARM folks]
 > 
+> On Tue, Jul 29, 2025 at 11:43 PM Steven Rostedt <rostedt@goodmis.org> wrote:
+> > Linus,
+> >
+> > Runtime verification changes for 6.17
 > 
-> That's potential break of all users. Also, having third phy (so
-> additional piece) is not making things incompatible.
+> [...]
+> 
+> > - Add a vpanic() to allow for va_list to be passed to panic.
+> 
+> This change is causing a regression on ARM32.
+> panic() no longer shows a proper stack trace.
+> 
+> With this change:
+> [    2.943690] Kernel panic - not syncing: VFS: Unable to mount root
+> fs on unknown-block(0,0)
+> [    2.950101] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+> 6.17.0-rc1 #176 NONE
+> [    2.950509] Hardware name: Generic DT based system
+> [    2.950865] Call trace:
+> [    2.951722]  unwind_backtrace from show_stack+0x18/0x1c
+> [    2.953111]  show_stack from dump_stack_lvl+0x54/0x68
+> [    2.953312]  dump_stack_lvl from vpanic+0xf8/0x388
+> [    2.953526]  vpanic from __do_trace_suspend_resume+0x0/0x50
 
-Yes, we would want to keep the fallback, to allow newer DTs working on
-older kernel. As the Linux driver is implemented right now, it's not
-fully compatible, since it ties the number of PHYs to the compatible
-string - but that's a Linux implementation choice, not something really
-related to the binding. And as I replied on the driver patch, that
-breaks anyway, and I think we can change it there to preserve
-compatibility, and make everyone happy: newer DTs on older kernels,
-older DTs on newer kernels, and all working within the kernel's
-capability.
+Please lookup the value of __do_trace_suspend_resume in System.map.
 
-Oh, and it looks like there are whitespace issues in the patch ...
+> 
+> With commit  3f045de7f5 "panic: Add vpanic()" reverted:
+> [    2.680077] Kernel panic - not syncing: VFS: Unable to mount root
+> fs on unknown-block(0,0)
+> [    2.690241] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+> 6.17.0-rc1-dirty #177 NONE
+> [    2.690832] Hardware name: Generic DT based system
+> [    2.691339] Call trace:
+> [    2.692530]  unwind_backtrace from show_stack+0x18/0x1c
+> [    2.694283]  show_stack from dump_stack_lvl+0x54/0x68
+> [    2.694536]  dump_stack_lvl from panic+0x110/0x31c
+> [    2.694944]  panic from mount_root_generic+0x1fc/0x2ac
 
-Cheers,
-Andre
+Also please lookup mount_root_generic.
+
+> Maybe it changes the stack layout enough such that dump_stack() on
+> ARM32 is no longer
+> able to walk it? I'm using gcc 15.1.1, if this matters.
+
+Also please check whether you're using frame pointers or the unwinder
+(CONFIG_UNWINDER_FRAME_POINTER or CONFIG_ARM_UNWIND).
+
+Thanks.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
