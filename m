@@ -4,107 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843CACA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 14:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABADCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 15:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=VQ3r1l0bmGTcyWFf2HhTZNJ0t3
-	lPwYSyIADRl+eQY9mAquIz7/xmXNqgNw/ZE+5yp+hpTfLPjXaDVDDRjiKVpoC88Hh2JJzIMvDSWLV
-	PhTom5wlWyUqVvp/2mxcdhInKCw0Fnr0MalfOTLRBZ7sV7+hVOgZE799lyPhJru+0wno4p7HXEDq6
-	5EcyvHG5IZqbZRWMwtwh1UXgqS4Rb1vftW4VW8dXzYrdXt/k9itbAX8yngQ6J6OqUG2jL/0iKhlYj
-	erGTQBYP7XFu3UnaRowjc97qLj0P4ks9RYJ1QKlw6zhoBSwsbPrU+UUoOoltacFDvzkXCDuRuU7Cq
-	E+WBSpMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Gbp56H+4A0o7KVUcnEd8u3FWbzq/W0ao2bzCL43cyc=; b=Jd56oVEIRCL6wcGnHPswRkmmmw
+	B2y3464Y/HP7MUKnw8mXTLKut7q65QN+29KowjtZs6qwkno9eTSNaAjJPZAw/ZDqCPHGG/6vzxJgY
+	RjsMLREiq2AYNmuRpOoU1mpu3wODIvsOgam4TDgf7T7K/YJwZnnUDPvzFiTEGVh9wfbJkTNTtfOPA
+	C2irPMdabXNiEdd/ecIc6SeeTA0YzPZ2tYQt9Iyz5Qdb9PQvDBXMPdz2eJAtarbnWqx/2rpclGLnj
+	81TyiepWsO9W/uyrNOYfj/+yhrcYvQcdcti3KKLhyfyWB1V6HMxTVG1dQWulABOKv5Nb3hx/eYglY
+	afgYGhvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unHns-00000004kxG-0SqP;
-	Sat, 16 Aug 2025 14:22:40 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1unIPK-00000004nrP-3Qpq;
+	Sat, 16 Aug 2025 15:01:22 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unHlG-00000004kpm-2Xoc
+	id 1unIMi-00000004ml8-0yRH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 14:20:00 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4103E7A02B7;
-	Sat, 16 Aug 2025 10:19:55 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-01.internal (MEProxy); Sat, 16 Aug 2025 10:19:55 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1755353995;
-	 x=1755440395; bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=
-	IfD1KkmCs/+imALzV5qqefaa/LNt/OmMOuRPl1WinpFwBNtFotmVLroGZipUlzvQ
-	tzUn4cKb3LIKHq25IW0i3MBde+TymZ7qpb6kYF9l0AnCif3IhWNPRK3RHpxI/srF
-	UE3E7B70z0XLx3MruxK5PVm9aDNbzx27lIjFiOfsFwnULoA/wFD5nsea65FCgKwe
-	K7CkEtr4Zv783Lwj/e/xaFWKa/NLpfBvqXA9JwLj+ciZTKFBi9Q3wNNrOxynxG1L
-	XYOiVOcSzn2nx/jYmcP0BSF1wfg5eUsy70gOxB0cJUe9sDDTACxslwHjbP00zKbq
-	JqO/73mmFgtVog1bbUFaIQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755353995; x=
-	1755440395; bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=c
-	yIG6nbzLkluoUtXyWgJceAgWgySU2RgvaBbKf/ynuH+g6E3dW/1EGyQb0jS/ayGS
-	hxRE+Teq6Kjpn4WeiPbh7qywsX1BcaTkuVl5evnAXoVOEU/nzRxRQ8XuLXghGG6w
-	qO7/9yMLGs2EdpmgM7otV47Irngkkwcwg9nt3t3RYQQKl60TTsObMIrAA8+FbwIU
-	Md4uZ/CDqZCYZXUEpCTkEEyzXsUvWjdep8nyJmtcxOXn0ItUHAr0uZ+Rq43ZT5qZ
-	P+PWLa3SXkFPgtRlLeG2mk1ClKj+VaO+ydNeiB/qAiQ9ejzxtWypRZCk4rl2TD57
-	05ywDSuOMKKrjfPCCMSZA==
-X-ME-Sender: <xms:iZOgaCQ8F1HAx8M4hTKowVC0mkjRJdagCQjS5OzjBc4nE99ujgwFFg>
-    <xme:iZOgaHwPE1hSBAx3rN0MD734upqIEjIJpaEfSJ57oUm2PU1QIY_-bpsSE1_Y9kZkO
-    y9qx7x9TEySD8nEHE8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeejtdekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedflfgrnhhn
-    vgcuifhruhhnrghufdcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnh
-    epheejtdeffeethfetgefhffejudegheefueejtedvhfeuheevfeekheetfeduffevnecu
-    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnh
-    hnrghurdhnvghtpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphhouhhtpdhr
-    tghpthhtohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopehrohgsihhnrd
-    hmuhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopehnvggrlhesghhomhhprgdruggv
-    vhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilh
-    hlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgv
-    lheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshgrhhhise
-    hlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepihhomhhmuheslhhishhtshdr
-    lhhinhhugidruggvvhdprhgtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrdhsth
-X-ME-Proxy: <xmx:iZOgaDUeUO03LyxCXHYfmw9LCDo12_91ql4W0jPaJAPyQt7aChoHwQ>
-    <xmx:iZOgaBERpxt-lW-vHqQPifnCjBi0NhCOW2T1JfMINoHysM1DszeGaw>
-    <xmx:iZOgaOdbIoTiQTP0SBZz1ioFrYy8IFvNZEGSn3Xk61O1Q3gbTiz5TA>
-    <xmx:iZOgaCq5v_XtB0WlQ4GVnjvqiUgDglCFDFYqAVIKeGW1qx9yTJIO5g>
-    <xmx:i5OgaHyLWNa1HTaJfEPCJZwiD1JlKOuGsMhoQA33o11jEiOdur44mLq3>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9F059700065; Sat, 16 Aug 2025 10:19:53 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sat, 16 Aug 2025 14:58:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=PL337IyZ4Er3QVmKWG7M8hl8dGUjXIuoETJgsC+xubG9RA9k7EVwBYn2yp7JoQOTuu9wjyoNjBrxpW/OnN/4ICj98WstAio5hebSMKOws+UcLWwuBtesvzsRjvaozBICrNg1kFqpAzvZn3q1poua7hDrM9JFDzudZmit+5H/0PhHR1iOhFYRq9pfJ8/uTOndPsr3V6sYgJwAqi/5eKKjAu5hk1kT795Zr3StAnjFKODVh/iALgizKc78T71qzHkvk88c+TF0xgbBlrvh7nYTxhH4R1dShpJaJW3EITqhJLBpFPgmF6rzfX1U4JNh+uCkxfoATPgnJim31H0HgfhYGg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Gbp56H+4A0o7KVUcnEd8u3FWbzq/W0ao2bzCL43cyc=;
+ b=Rh/n25e91oLVnZ1ZVtdYjiSOcbDA3J4f/fbCrWCTk8QOLxbZGputwsc/WDiomA1f3qMKAmQI3RSvOKUdIYlyjv8XhVLEQlpzOBOL73XqgLGadqK3ufVYOAUGMnf/q5dkLzo2ibXitEEix8N02tGvb9MULjgufvWHAL7fp20JpAAebOtyBid6pQGXkEjh6EQ2BPj5inD9hijcZJI1SozydETg8n2EtOwWe9LFg//NVem0NQCKEPYdPtGZm352Xx1JfcMRuoodkTahkViESqc5k5YNkbdGqjT8Hzy4cNkh6bSYY/JAq+cgx+ydZlvS8xmc4HfMUn5zniakGtv+q+7sxA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/Gbp56H+4A0o7KVUcnEd8u3FWbzq/W0ao2bzCL43cyc=;
+ b=hVrlFLVSzg56BQU4UPHPf4a/p7c6PwcHYAwREFy81GMjKc7R90IejcV9RCQSRvQGmyEhxSk47AjL4MAuVubpDsl0hzfVVrzUDxCqZEsfE57xpLsUbPnNRU5pXAQyaKQTqxrTQGqviMFDlFOJDiGkdhZk5PbD8LFR5fEMY1xB2a0=
+Received: from DUZPR01CA0269.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::18) by DB9PR08MB6713.eurprd08.prod.outlook.com
+ (2603:10a6:10:2aa::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.21; Sat, 16 Aug
+ 2025 14:58:27 +0000
+Received: from DB1PEPF000509F0.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::87) by DUZPR01CA0269.outlook.office365.com
+ (2603:10a6:10:4b9::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.20 via Frontend Transport; Sat,
+ 16 Aug 2025 14:58:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB1PEPF000509F0.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.8
+ via Frontend Transport; Sat, 16 Aug 2025 14:58:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JqukrIiehhSFb+0HhPQVbcdItbgWxTFWBqTLz5aO4E1yed4HBzarFxPTsw8gHhgd4wL5gOHLUSzQiAa5ChSghOCKUQrsnA+uqsWwG7OupQZPk6WT+y5x7n7L/HoWDUhtDlgogtZIpcVL9Q+Y3IClyFBx+OHlbePxNpJGk0H+dA9HntwmHdyvHnA5s9cVX8xlxdaQVyGdBsNezY8XntygeKXxD22qf/d49xB4w9meCJuINMYJq+AFpFpShgekZoU7lkl9U/CPoUyZU/LVoTpE70hXuYHh0HT095NDh1Bt03fBQb0dpIWPwcqRJTJD8vz0Pp08ot6Q6AMLnz+Qkxp1EQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/Gbp56H+4A0o7KVUcnEd8u3FWbzq/W0ao2bzCL43cyc=;
+ b=mKmhWvhV/4TA01LGVd57jWG8OJnVaXXmFAg2wQN8Yt1fmskiD0hp/ZZENfl4JJimkRp0TzsN9hnqSQ/Cj/E1A1YOQknbgqBbRvY9R0DXHGby4tQyFAZP2CQBXLQZvMxBupnTjlR5q0HqcU9wdeM24A7eDCDM6vB+FJRgzpApFDWADm6KI65xF9LPXiGks0V0AJ0tGFIlmg/5Eb93k2E8p8N1aK0RSFVTz71yr+sbSDD4MYBe43omHO9nF+hI3iSbnAj7KbJYzeiUQ4dWJeA73bM+idaYNMJqM+BmcOjn56I5gkjxipyHbu2CvzsC+JooFJ0JlHVNr8WjqcaHyb5s9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/Gbp56H+4A0o7KVUcnEd8u3FWbzq/W0ao2bzCL43cyc=;
+ b=hVrlFLVSzg56BQU4UPHPf4a/p7c6PwcHYAwREFy81GMjKc7R90IejcV9RCQSRvQGmyEhxSk47AjL4MAuVubpDsl0hzfVVrzUDxCqZEsfE57xpLsUbPnNRU5pXAQyaKQTqxrTQGqviMFDlFOJDiGkdhZk5PbD8LFR5fEMY1xB2a0=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by DB3PR08MB9085.eurprd08.prod.outlook.com
+ (2603:10a6:10:43b::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Sat, 16 Aug
+ 2025 14:57:52 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9031.019; Sat, 16 Aug 2025
+ 14:57:52 +0000
+Date: Sat, 16 Aug 2025 15:57:49 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, shameerali.kolothum.thodi@huawei.com,
+	joey.gouly@arm.com, james.morse@arm.com, ardb@kernel.org,
+	scott@os.amperecomputing.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 5/5] arm64: futex: support futex with FEAT_LSUI
+Message-ID: <aKCcbQWioNfG1MMQ@e129823.arm.com>
+References: <20250811163635.1562145-1-yeoreum.yun@arm.com>
+ <20250811163635.1562145-6-yeoreum.yun@arm.com>
+ <aJ9oIes7LLF3Nsp1@arm.com>
+ <aKB55rPj1Qe8G+zF@e129823.arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKB55rPj1Qe8G+zF@e129823.arm.com>
+X-ClientProxiedBy: LO0P123CA0012.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:354::20) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-X-ThreadId: AIqzQMgvnQL3
-Date: Sat, 16 Aug 2025 16:19:33 +0200
-From: "Janne Grunau" <j@jannau.net>
-To: "Sven Peter" <sven@kernel.org>,
- "Alyssa Rosenzweig" <alyssa@rosenzweig.io>, "Neal Gompa" <neal@gompa.dev>,
- "Joerg Roedel" <joro@8bytes.org>, "Will Deacon" <will@kernel.org>,
- "Robin Murphy" <robin.murphy@arm.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>,
- "Hector Martin" <marcan@marcan.st>
-Message-Id: <2d3e818d-5bc3-4156-a0c6-6d756f814c86@app.fastmail.com>
-In-Reply-To: <c9440d31-add4-4c0f-ac2a-184e771ab455@kernel.org>
-References: <20250814-apple-dart-4levels-v1-0-db2214a78c08@jannau.net>
- <20250814-apple-dart-4levels-v1-3-db2214a78c08@jannau.net>
- <c9440d31-add4-4c0f-ac2a-184e771ab455@kernel.org>
-Subject: Re: [PATCH 3/3] iommu: apple-dart: Add 4-level page table support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB3PR08MB9085:EE_|DB1PEPF000509F0:EE_|DB9PR08MB6713:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab33c64d-e86d-496e-e7ce-08dddcd55ade
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?l6q/mbdo7wTU+KEc6aDNZLhbzl7iQA470PNE3QIjQviU6/61CZX8tZsTkhsP?=
+ =?us-ascii?Q?Ype5fvn9zoBD7NmeTLLFHTgv2+A1myPRbuZyJBmfyVgENI89EKh3KMXCMqYE?=
+ =?us-ascii?Q?W6P7FOX4lCWxG+iUJlc5+hjk+z37ia5IZTVYqyPWfMUWv5VB9peYW0CHNOVw?=
+ =?us-ascii?Q?Y2l4wySuSX8itwRwUfHbEnI4RKVHwMmBa6HXTKf6Ns5nHt87KhARlBnYT3kJ?=
+ =?us-ascii?Q?FvPdMjhMejMQ1h5wzEGdS1vUidRsAsSn67Ktt3dUg2y8hL2uzp1Dpy58Ql5z?=
+ =?us-ascii?Q?WSkoQnpDTFuG/ICWjY4EigAI8zRMUZx4ZUih3V27xB57KZpuHIlFKgGS9rKa?=
+ =?us-ascii?Q?DkjyPSD1gbzhiS9Kv//+gpgbIOxjQEcts5eVSz5hsfw7LaRTNOKmGDjk1fh2?=
+ =?us-ascii?Q?tURcjeQo05nkUZuHEIVuZYfVLtX7e2B+ph2XzX9Q8G9dK/+BaVcah9CQdyfy?=
+ =?us-ascii?Q?FazvtL0e9Gkkimhzm5QmtdKT/wNFhMkxAgVeIz/UXF2iorwWkOmGIj+8loKT?=
+ =?us-ascii?Q?Bm3TYQTjpdjiSaE0wjswgP1SLzjSU4BC7C8t640x3Hk9ky1pEF8l7ZEslfLn?=
+ =?us-ascii?Q?bByUwmPX8zrCwg0Sy+S1meACEvlgmng//Lzr08Da0hM8JlXyovTy+pCjCRSb?=
+ =?us-ascii?Q?YzEs/PYhpTWJpDGZ2H6vHI8/G2PbSDN9vg/kfQcM2LoPlSGrX5o1Ox7ODXiC?=
+ =?us-ascii?Q?skTV728bBGl2SUhfBVThbEslKJbf3dnR+gVG7+O0/hLbLSbDNHWFDDhifVEO?=
+ =?us-ascii?Q?BEkpVvFnne2/xvhckdQpc6bY9b5tRfoMLla3NliAaAPxgJM+NoXkfssep7JU?=
+ =?us-ascii?Q?k8zJZXd/RexXD2e5x5DP72lpbdaUqJHENn24Nq7jR5PsPeTSO61FwTpacBiI?=
+ =?us-ascii?Q?TeYn3BqymJcIu21smnoHXglvbTwLZwcioBzGm+PAoxyVs0hqD9njv5JyO/Qe?=
+ =?us-ascii?Q?PFtwxmflvnwdd/kKLEzzEZRVQJnIOYFctUPC78ZDJPiYovRSw2SZXgtUSj1a?=
+ =?us-ascii?Q?mwHLhLmEgPH1oTTjPQei9XGZhHSHie5XVeY+RXEkD0Rb8B+Yuy2ZrXGcrdiD?=
+ =?us-ascii?Q?musK8JTqtDnmo1Lo4DwOWVR18+sSIW8270PQThTrkRtyy6AnKdRJ/7bqj7B/?=
+ =?us-ascii?Q?42gmQ65JUGCRTUzKojA76ZBKAFa5OUGduZvfGnzrCPw4cO3oM6U5QZFZVqd3?=
+ =?us-ascii?Q?SkpkcouRej8q81RXBk4piTnhOFGiUTaVwd3jomEh+Lf1oKXeGoOQMlQC1Bsx?=
+ =?us-ascii?Q?lzAZyHizgn8oHv13hiPSs55qvPHUmT0lM/l7+EbayP4lE8zxqHd9Zv1W30TH?=
+ =?us-ascii?Q?ZTcjed2kSwldD/kb2aMOGHfHCNPVjRr8GwP/LHHVoLi5Ej1hpzqk2vaIuNeE?=
+ =?us-ascii?Q?0Phcz+onk5JOUgxZi9uvo9NSxVuJhieIIz9t0UWtuVuUCjSjEB5SF1Uw40V9?=
+ =?us-ascii?Q?41GuMSx7Suw=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB9085
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F0.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b96cc220-3548-4f8f-f2bc-08dddcd54638
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014|35042699022|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TaHUDqFtSA29VmEkf65t046p8uuSLizSx96+v04zwml9e3Bd2OsfPbEY5Qnx?=
+ =?us-ascii?Q?JZMMXuPllu91jH2Gr8Lf75HowI2f7f548yK8APBoeaTm9CJT2tzAQOo7TRzB?=
+ =?us-ascii?Q?IB2mua6VqMAfZZWXhnqpU+Dc9IP9O3KCVwyE8Txe/yKCvXiPq6zNlQMR4nJN?=
+ =?us-ascii?Q?+LGpOCskYuuD69qCzH/xYCo9L5D91d6f2GzKPfL/te7t9tL531Dbl+yyDTWt?=
+ =?us-ascii?Q?Mp/+KxIsIrQqzffgpwj4VH8Vj4pmbWPgq8vX6x6xGd5rkM5dhS/dbPLVhHnf?=
+ =?us-ascii?Q?ncUw48O7Lh6m/ILVzyBR64EnbX9wYcAhaBCdcVdwDt/nN4qiDr0NhGbvCUIr?=
+ =?us-ascii?Q?aGEAQ110RcVgyJezWiX8zcSxcQnIPXTFypw2Kh7YCkGU2kbWwukC88ob8R4T?=
+ =?us-ascii?Q?uCAodNnzYIZ3wXBtY+eJs3AMV0mbpjD27EtUAthQcjoKrf8ePp214+TDyC/u?=
+ =?us-ascii?Q?8vctw9WHsfwKQuGmMC9kIyX3itgWVpetBiKKmgGO8/QpZzVp2vzLHLxEznwC?=
+ =?us-ascii?Q?Z/NR1ei1l8Y+Txj7kx9KajUoQh1qpGi183LIC01aHUQ37F9UzAv0JOBbex5U?=
+ =?us-ascii?Q?3k2wcJy7WJrhpovrVsUi43pO4iBCLaN2RW0PUrn3gxj/K0cE4IX9JxS4o85Y?=
+ =?us-ascii?Q?iyWOtw08B4ZgqV1Tm5W1ydNkHgssmSUEJn6Pw+02qc2qAk8Uw+A6hL4SwMUr?=
+ =?us-ascii?Q?f67srIqo1esBPn+DuWhgo6sn8IWuX3Yh7yF1mPc07MdIpXIXaHixei3ag1+T?=
+ =?us-ascii?Q?FP0+xeICO77t6LdhvW7VkwPtFwM5dmjVsxtksR/JFbw5HsxJYFBIeAVqYLXk?=
+ =?us-ascii?Q?LhzA07B2LQBqaQk0m1pdFdYISLcKDGasR++U/9UYGRQ0ie8YjV2wQSP8pED/?=
+ =?us-ascii?Q?J+5hs2pApp9CqSgOSgN/ZrWFjLELyjB09S2AyL2e0+ge+TWOEzflRUtWTZat?=
+ =?us-ascii?Q?lWaulu0Cn/Vm+pNvU5rA3Ueb95qczU/ylrb+bp6SuU1qbLjbKMH+o3Z2v7Ws?=
+ =?us-ascii?Q?RsQjnKnNO4HWJr5lWGq0RyiueK+u7Aq9Deq1GirxVj/BaQUIL6KSv9nGbNh7?=
+ =?us-ascii?Q?69mUeRRc1Ww813c+JsvaMug5Bqd273V1VcJWUU6Zpzjivtw2Paiq8DFkZV2D?=
+ =?us-ascii?Q?YP3PLnb4lU4GQ+OSEcNqD26upqieYSHZG1wGe/X7xK3PueMGE8MzN+tHz4gD?=
+ =?us-ascii?Q?fR2+8YOQPvkMlBpVszE04MSeIj0hptYMeET6vU8+yWL2oSGqIuSAEP6vTiBq?=
+ =?us-ascii?Q?1rQcGC0VgbBZxANM9btuKi+69MesI+EUfxG+U4BmVyMQ25LwkAQaEI+Dnkcd?=
+ =?us-ascii?Q?KsBmkSxo85ZN3GfeDEU5cVwwFVPZKIRKaJP+Rt8rT2/A+eF5eYP/a0rcuk4o?=
+ =?us-ascii?Q?mJimJlnXbtmS3arV0ouuox97I6tN8miSogKZdg8Fxz0BWT8z5C6T8z9OKhxt?=
+ =?us-ascii?Q?2VbU6pdDOZ0vIoWbyMT92Z7pchkIDDW7pX4TkvqbS82UNA9/p0J3ea5untKE?=
+ =?us-ascii?Q?eIdf3X6F4EQtBJCKHnCw/J+LuPZko8P2sHAf?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014)(35042699022)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Aug 2025 14:58:26.6202
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab33c64d-e86d-496e-e7ce-08dddcd55ade
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F0.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_071959_142609_7AAEBB7C 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250816_075840_369292_C525C73B 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,88 +205,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hej,
+Hi Catalin,
 
-On Sat, Aug 16, 2025, at 15:50, Sven Peter wrote:
-> On 14.08.25 10:40, Janne Grunau wrote:
->> From: Hector Martin <marcan@marcan.st>
->>
->> The T8110 variant DART implementation on T602x SoCs indicates an IAS
->> of 42, which requires an extra page table level. The extra level is
->> optional, but let's implement it.
->>
->> Since the driver failed at IO page table creation with 42-bit IAS add
->> "apple,t6020-dart" as separate compatible using the T8110 HW data.
+[...]
+> > > +#ifdef CONFIG_AS_HAS_LSUI
+> > > +
+> > > +#define __LSUI_PREAMBLE	".arch_extension lsui\n"
+> > > +
+> > > +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
+> > > +static __always_inline int						\
+> > > +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> > > +{									\
+> > > +	int ret = 0;							\
+> > > +	int val;							\
+> > > +									\
+> > > +	mte_enable_tco();						\
+> >
 >
-> Is the commit description outdated? I don't see this change anywhere.
-
-yes, I decided to handle this as missing feature / bug. Both end up with
-the same result and as far as we can tell it is fully compatible.
-Removed locally.
-
->> Later it might be useful to restrict this based on the actual
->> attached devices, since most won't need that much address space
->> anyway.
->>
->> Signed-off-by: Hector Martin <marcan@marcan.st> Signed-off-by: Janne
->> Grunau <j@jannau.net>
->> ---
->>   drivers/iommu/apple-dart.c | 23 +++++++++++++++++------ 1 file
->>   changed, 17 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
->> index e72a93e78e26ca61b233c83d439dbdfadf040fc6..bb48e8603d6c84bcf107-
->> 294d851c2f2fc1273298 100644 --- a/drivers/iommu/apple-dart.c +++ b/drivers/iommu/apple-
->> dart.c @@ -133,6 +133,7 @@  #define DART_T8110_TCR
->> 0x1000  #define DART_T8110_TCR_REMAP            GENMASK(11, 8)
->> #define DART_T8110_TCR_REMAP_EN         BIT(7) +#define
->> DART_T8110_TCR_FOUR_LEVEL       BIT(3)  #define
->> DART_T8110_TCR_BYPASS_DAPF      BIT(2)  #define
->> DART_T8110_TCR_BYPASS_DART      BIT(1)  #define
->> DART_T8110_TCR_TRANSLATE_ENABLE BIT(0) @@ -177,6 +178,7 @@ struct
->> apple_dart_hw {     u32 tcr_enabled;     u32 tcr_disabled;     u32
->> tcr_bypass;
->> +    u32 tcr_4level;
->>
->>      u32 ttbr; u32 ttbr_valid; @@ -217,6 +219,7 @@ struct apple_dart
->>      { u32 pgsize; u32 num_streams; u32 supports_bypass : 1;
->> +    u32 four_level : 1;
->>
->>      struct iommu_group *sid2group[DART_MAX_STREAMS]; struct
->>      iommu_device iommu; @@ -305,13 +308,16 @@ static struct
->>      apple_dart_domain *to_dart_domain(struct iommu_domain *dom) }
->>
->>   static void -apple_dart_hw_enable_translation(struct
->>   apple_dart_stream_map *stream_map)
->>   +apple_dart_hw_enable_translation(struct apple_dart_stream_map
->>   *stream_map, int levels) {   struct apple_dart *dart = stream_map-
->>   >dart;   int sid;
->>
->> +    WARN_ON(levels != 3 && levels != 4);
->> +    WARN_ON(levels == 4 && !dart->four_level); for_each_set_bit(sid,
->>      stream_map->sidmap, dart->num_streams)
->> -            writel(dart->hw->tcr_enabled, dart->regs +
->>              DART_TCR(dart, sid));
->> +            writel(dart->hw->tcr_enabled | (levels == 4 ? dart->hw-
->>              >tcr_4level : 0),
->> +                   dart->regs + DART_TCR(dart, sid));
+> > The reason uaccess_disable_privileged() sets the MTE TCO (tag check
+> > override) is because the user and the kernel may have different settings
+> > for tag checking. If we use the user instructions provided by FEAT_LSUI,
+> > we leave the MTE checking as is.
+> >
+> > The same comment for all the other functions here.
 >
-> This is a bit hard to read, I'd prefer an explicit if (dart->hw-
-> >tcr_4level) here.
+> You're right. Thanks for catching this :)
 
-you mean `if (levels == 4)`? `dart->hw->tcr_4level` will be `BIT(3)` for
-t8110 darts even when they use just 3 page table levels.
+But one bikeshedding question.
+why we need to care about the different settings for tag checking when
+we use uaccess_disable_privileged()?
 
-Changed locally to
+IIUC, the reason we uses to uaccess_disaable_privileged() to access
+user memory with copy_from/to_user() and etc.
+But, although tag check fault happens in kernel side,
+It seems to be handled by fixup code if user address is wrong.
 
-u32 tcr = dart->hw->tcr_enabled; if (levels == 4)        tcr |= dart->hw-
->tcr_4level;
+Am I missing something?
 
-and then writel(tcr, ...) in the loop.
+> --
+> Sincerely,
+> Yeoreum Yun
+>
 
-I've change prefix of all commits in this series to "iommu/apple-dart"
-and "iommu/io-pgtable-dart".
-
-thanks,
-Janne
+--
+Sincerely,
+Yeoreum Yun
 
