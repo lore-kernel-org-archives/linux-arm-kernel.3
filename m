@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2472CA0EEC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAB7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsG18bRLbzBDlWWJBWH8shg+HfW363Y8h4z4QtNnMgU=; b=fhBARMoGRNlrulvNb8Uo5msJog
-	VXrppqKMBZBOd9Lwp2vIqi9vus+f5Ps1y4QUHR4FqAmsMsR3Z9RntkRfRz/MvcaaMs68P+XQ9Trgd
-	ItmdnxFJi0UI2CyaB0q2HIqZezL5FtgLraYMrDRd/SYuKlSfCYd/tDNvamqZ0BZOiP0FhJwiK53gw
-	rUC4fIEZ2XzDQ+8r0WXzPxqzSLbGtlIQ1tzB3Yf+AzdmsfIgoxiBaP+sKXndYB+/O8CWDj3BnRlmF
-	8/WiOoDlRkDy5n0ctBaIPCIcnDXt5hT9969mdGpS8Ga4BPNfdIuvH9l7vLIS6jSNsQik2KO00H5KK
-	dIas+tQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4H1Ki966VatMIAVfYX/2puLS/r7QjLiypvzo/vpSQF8=; b=FaSlbwxYLKe2sfAh/sCxA67xP0
+	Y5MmEZeoD4YGigSV65u2hP/asm0q9oO+V7FDLzws0H3GA1vhpFGf0byb9DDmA6L9h75AUPcTM6mL8
+	kUTmxREowxjyCEI8J4lOGCtxUe0sSmKsgiLsE1iOlsuVOmUSd1PDR1K7ZpxnhOBVSBLdyRQob5d0s
+	PnYShk+llRdTY8jSEJsg56rioy/Pnln/OSeJyJtT/XKR+E+Jz10yClc3Rsed/dnqqdTB+pfsCulHX
+	evHteT1bFmdn58nUJyvjx0qR9xtf938UxGmVeDAfwyvlpSwp7CTYUWs22glO25WWn5k35Tw9AePZ8
+	6E/Tic/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCxN-00000004N16-1A6j;
-	Sat, 16 Aug 2025 09:12:09 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1unD1y-00000004NjI-0gfj;
+	Sat, 16 Aug 2025 09:16:54 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCuo-00000004MsI-0COi
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 09:09:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=PsG18bRLbzBDlWWJBWH8shg+HfW363Y8h4z4QtNnMgU=; b=ZiQi59f9VWa4kBg1fzLxkP2ppo
-	jrHvLfuXVbTM9njC9u0q55rZzV9M6hIzYUZZt3Hnf4BLqMnUeLURy/BDr07PtNgiXKwt9f8wdp4iB
-	D7dpftrau1AEU0atNdINFlPZIaH8Zl3r5U7cBQ8oPFOtDZ0sKLu6fBdlznmQg9hZtbNpY1PZrikZs
-	BZ5e0SIba6tYlAyjrhmI2eF9og6XMoaepr6sQ5+q6FgaL3FovP58B0TIMGvtwLdM7gu6ksZXg1WIX
-	x29TXp40jIb0D//FJauHhJ+VwUkXVfp6sLaoTtzytc2ZacKiIKS/QTGpqt3QSQI5o/BC7+vKlJOYm
-	sqyHPrRg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1unCf7-00Em8c-2p;
-	Sat, 16 Aug 2025 17:09:15 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 16 Aug 2025 17:09:14 +0800
-Date: Sat, 16 Aug 2025 17:09:14 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: clabbe.montjoie@gmail.com, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 8/9] crypto: sun8i-ce - save hash buffers and dma info to
- request context
-Message-ID: <aKBKul0unf06oBiV@gondor.apana.org.au>
-References: <20250728060701.1787607-1-ovidiu.panait.oss@gmail.com>
- <20250728060701.1787607-9-ovidiu.panait.oss@gmail.com>
+	id 1unBqG-00000004Geq-2WSs;
+	Sat, 16 Aug 2025 08:00:46 +0000
+Received: from localhost.localdomain (unknown [119.122.212.9])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1f93a30c9;
+	Sat, 16 Aug 2025 16:00:40 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Chukun Pan <amadeus@jmu.edu.cn>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v2 1/3] arm64: dts: rockchip: disable display subsystem for Radxa E52C
+Date: Sat, 16 Aug 2025 16:00:28 +0800
+Message-Id: <20250816080030.183931-2-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250816080030.183931-1-amadeus@jmu.edu.cn>
+References: <20250816080030.183931-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250728060701.1787607-9-ovidiu.panait.oss@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98b1e522ea03a2kunm56d2169525b712
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQh8ZVkhPGh8aQkpOS0JPQ1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSVVCWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
+	tLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_020930_085737_7FE88640 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20250816_010044_851417_C71A0592 
+X-CRM114-Status: UNSURE (   8.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,24 +72,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 09:07:00AM +0300, Ovidiu Panait wrote:
->
-> +	u8 result[CE_MAX_HASH_DIGEST_SIZE] ____cacheline_aligned;
+The Radxa E52C SBC do not have HDMI output, so disable
+the display subsystem to avoid the following error log:
 
-To get proper alignment for the reqctx, the driver should use
-the ahash_request_ctx_dma helper.  Of course, the reqsize should
-also be increased by CRYPTO_DMA_PADDING.
+*ERROR* No available vop found for display-subsystem.
 
-For the struct member, instead of __cacheline_aligned use
-__aligned(CRYPTO_DMA_ALIGN).
+Fixes: 9be4171219b6 ("arm64: dts: rockchip: Add Radxa E52C")
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> +	u8 pad[2 * CE_MAX_HASH_BLOCK_SIZE] ____cacheline_aligned;
-
-This is to-devce only, right? If so it doesn't need to be aligned.
-
-Cheers,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+index 48ddc43e2ab5..1883bd183396 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+@@ -207,6 +207,10 @@ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
+ };
+ 
++&display_subsystem {
++	status = "disabled";
++};
++
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.25.1
+
 
