@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D137BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8378CCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPyhB+H37GCJFLmsDEF8NeELi5nFnFIEuEaO7GJtO+g=; b=WbOF7MNlU8MrM5DO56beHIkwvu
-	QA85m4V8mrRgNbqFWwjH304nmEP1g6+esQD9Agi3jyzWs9Mnmfy8rVStcjoq1BRwR6jzOxE1PWI+j
-	0H1fMKxDioWWY0osTxTRHOyQ6GBmUBLa0mGnzuCNmthgV4rf7IibzpLB01U1wtd9b+rscNVzm1z2/
-	5geWXobmvSb8/wbcIZWltMyBbfBE96ihu3eJqqoLc/80woYpgof11pQX7dC9cxE2L1E+2Y3UJZRLn
-	wlcrlZHFERL6+5nji82ww0lWKepW6Xs/bt0brBQmdUhIOYd3kMf5ver2drtMvkTQCtUADQOw1tMnH
-	ecC9ke+w==;
+	bh=J14h36s1IFH9p1SV0hLYYv79Hf8e1aYiuqy/5ouMzJw=; b=U0+Wog7SFCPva4IGfroZOThQgF
+	bXN/jIFjU99yPAT3OTcZVy34rgoNaBEuUzl83UgRFPR5BFJOaSdPLMzoWjByQ2/rrTrhLW8+hFeDx
+	BMADXuEmA2VjuhernUBix+PZSCHoddv0S/O/VNelmamv+W721GV68Pu7up2cX21Qr9ZtakZRG6Dme
+	tp2msQNVHE0PupzlQprM6hTaE4YthZw07aOkcwlZ7qoJ5AfGxP1+3v1uraGt2VkDVGfVnZk6RDB5N
+	/zohwabIYVe+DnMk3A6REE7TIGg66WfYUncR9uFyW/iBFrznFyCegZ1b3dqz1eeOtX04xxiZq9lu1
+	eWuIHGBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unH0b-00000004gzU-3FuS;
-	Sat, 16 Aug 2025 13:31:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unGxw-00000004guE-16Xy
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 13:29:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AB6285C2570;
-	Sat, 16 Aug 2025 13:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32215C4CEEF;
-	Sat, 16 Aug 2025 13:28:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755350939;
-	bh=LhpgfZIG1p+iKd5jf1S6zPl8oL3nAGFq/mjJ8z+fS60=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=u0uNW2H97GYGYKNmLh/zJe+wyCd8Qrvbu7q+ZLdC1iXQjBQZqiKPV/tkWq/6RbjDb
-	 Pqy6XZv6fJxR/GC/h+z9GR4T6baTpI6vjqpqB04V5aE2RxqSxrlct/K2YoD13QTc9+
-	 irQ/tVt2BiUNHXNQAziQQeuELeNsySHyQlFM71t/B3dTEQidVgqjZICkvyQBX3aQr1
-	 3RGedHXiWiwfSxBzqPrBSdOTMyRMTY6FZn+eBTjNmYyUxEihEn9N8r7jOtrqlpLlZd
-	 kcjnsOcKHwNWGoYOcF/rjWXwlqfQp7UAu8CRMLZbFRl2wlvW8VrltyWzrOGHE8h7La
-	 04GlgZBjALwwg==
-Date: Sat, 16 Aug 2025 14:28:50 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- primoz.fiser@norik.com, linux-iio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] Keep imx93 ADC works even calibration failed.
-Message-ID: <20250816142850.53948a13@jic23-huawei>
-In-Reply-To: <20250812-adc-v2-0-0260833f13b8@nxp.com>
-References: <20250812-adc-v2-0-0260833f13b8@nxp.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
+	id 1unH5Z-00000004hFJ-36ps;
+	Sat, 16 Aug 2025 13:36:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unH2w-00000004h7Z-2dra;
+	Sat, 16 Aug 2025 13:34:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 940551691;
+	Sat, 16 Aug 2025 06:33:59 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 874CD3F5A1;
+	Sat, 16 Aug 2025 06:34:05 -0700 (PDT)
+Date: Sat, 16 Aug 2025 14:31:17 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: iuncuim <iuncuim@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 3/7] phy: sun4i-usb: a523: add support for the USB2 PHY
+Message-ID: <20250816143117.4b86ecc6@minigeek.lan>
+In-Reply-To: <20250816084700.569524-4-iuncuim@gmail.com>
+References: <20250816084700.569524-1-iuncuim@gmail.com>
+	<20250816084700.569524-4-iuncuim@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_062900_350902_5781362B 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250816_063410_754967_2C667B66 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +71,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 16:04:21 +0800
-Haibo Chen <haibo.chen@nxp.com> wrote:
+On Sat, 16 Aug 2025 16:46:56 +0800
+iuncuim <iuncuim@gmail.com> wrote:
 
-> imx93 ADC calibration has requirement for reference voltage:
->   ADC reference voltage Noise < 1.8V * 1/2^ENOB
-> 
-> Some boards can't meet such requirement, ADC calibration failed on these
-> boards, and adc can't be used. This is not appropriate, board can't meet
-> this requirement do not means ADC can't work, just means ADC can't work
-> that accurate. Here add an optimization, keep adc works even calibration
-> failed.
-> 
-> Changes in V2:
-> - add patch 1 to keep one style of the hex values according to
->   Andy Shevchenko's suggestion.
-> - keep {} when give the calibration failed warning log.
-> 
-> For the register 0x3A0, it is a new added register in latest imx93 RM,
-> please refer to this link:
-> https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-9-processors/i-mx-93-applications-processor-family-arm-cortex-a55-ml-acceleration-power-efficient-mpu:i.MX93
-> 
-> Patch v1 also pass test on one customer board, refer to this topic:
-> https://patchwork.kernel.org/project/linux-iio/patch/20250710073905.1105417-2-primoz.fiser@norik.com/
-> 
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-Series applied to the togreg branch of iio.git.
+Hi Mikhail,
 
-I'll push that out as testing to get a bit of build coverage before
-risking letting next see it.
+many thanks for posting these patches, that's a nice surprise to see
+this moving forward!
 
-Thanks,
+I think there are some issues with this series, but we can surely iron
+those out.
 
-Jonathan
+> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+> 
+> Previously, USB PHY was compatible with D1 and did not require
+> separatedata options. But now we need to add a third PHY, which makes it
+> incompatible. The third PHY is used together with USB3/PCIe combophy with
+> DWC3 controller.
 
+It is really used together? I think on IRC we lately established that
+the USB2.0 and USB3.0 parts are somewhat independent, and I think the
+Radxa board wires PHY1 to the D-/D+ pins of the USB3.0 socket, instead
+of PHY2.
+
+Regardless: this change would be a compatibility break: When a new
+kernel with this change sees an old DT, it would bail out, because it
+doesn't find the resources for the third PHY in the DT.
+
+What I'd suggest instead is to drop the hardcoded assumption about the
+number of PHYs, and instead just enumerate all "pmu<x>" cells in
+reg-names. That would work with both old and new DTs, and then we can
+also keep the fallback compatible name in the DT, to allow new DTs on
+older kernels (for instance a U-Boot provided DT on a stable kernel).
+
+As an added benefit, it would make future enablement easier, as we are
+more likely to find a matching compatible string, even when the number
+of PHYs differ.
+
+Cheers,
+Andre
+
+> In the BSP code, the third PHY requires a separate glue
+> driver, but it seems that it is not needed.
+
+
+
+
+
+> 
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 > ---
-> Haibo Chen (2):
->       iio: adc: imx93_adc: keep one style of the hex values
->       iio: adc: imx93_adc: load calibrated values even calibration failed
+>  drivers/phy/allwinner/phy-sun4i-usb.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
->  drivers/iio/adc/imx93_adc.c | 22 +++++++++++++++++-----
->  1 file changed, 17 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 2674d1eadaa2fd3a918dfcdb6d0bb49efe8a8bb9
-> change-id: 20250812-adc-839e49d55da9
-> 
-> Best regards,
+> diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+> index 8873aed3a..bb79339f2 100644
+> --- a/drivers/phy/allwinner/phy-sun4i-usb.c
+> +++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+> @@ -1025,6 +1025,15 @@ static const struct sun4i_usb_phy_cfg sun50i_h616_cfg = {
+>  	.siddq_in_base = true,
+>  };
+>  
+> +static const struct sun4i_usb_phy_cfg sun55i_a523_cfg = {
+> +	.num_phys = 3,
+> +	.phyctl_offset = REG_PHYCTL_A33,
+> +	.dedicated_clocks = true,
+> +	.hci_phy_ctl_clear = PHY_CTL_SIDDQ,
+> +	.phy0_dual_route = true,
+> +	.siddq_in_base = true,
+> +};
+> +
+>  static const struct of_device_id sun4i_usb_phy_of_match[] = {
+>  	{ .compatible = "allwinner,sun4i-a10-usb-phy", .data = &sun4i_a10_cfg },
+>  	{ .compatible = "allwinner,sun5i-a13-usb-phy", .data = &sun5i_a13_cfg },
+> @@ -1041,6 +1050,7 @@ static const struct of_device_id sun4i_usb_phy_of_match[] = {
+>  	  .data = &sun50i_a64_cfg},
+>  	{ .compatible = "allwinner,sun50i-h6-usb-phy", .data = &sun50i_h6_cfg },
+>  	{ .compatible = "allwinner,sun50i-h616-usb-phy", .data = &sun50i_h616_cfg },
+> +	{ .compatible = "allwinner,sun55i-a523-usb-phy", .data = &sun55i_a523_cfg },
+>  	{ .compatible = "allwinner,suniv-f1c100s-usb-phy",
+>  	  .data = &suniv_f1c100s_cfg },
+>  	{ },
 
 
