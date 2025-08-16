@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5550CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 15:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB14CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 15:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xk+h+RwVXZCR6g5RfX9/tt/aMgJTcpN4wwuPjOaLp8w=; b=TThbJDRD0f+KPTWnAR2iB7Hb3e
-	l0A3Ide1J4CMwkWcN/eWA4fbOBNVCJt1sQhOOOYOs29K/5mymq8/lSsksw9rBGVhptvkgyKZVRTYK
-	Wdhyv1mIEfwxYA7622vvqDX0IzRGYFqK/0U738YgNQ7LiEM53+qUUpmgfiUXhgiugZKgVOSi8Mp/k
-	0Tw31VU3oJf05jqMA1Z/Sv9uPZ+FIxDAPudbbAqfpo47mJAysfo6lyT05CkEvu4YvTrL5LaBjvsIC
-	xSXnDnAFeYEXiKH3mZJw8TsFpF8AZ6cVbECH3y/gaqda6wLOEa3uEdUHIgHKg398P5fe+MIOeGlDj
-	bWR1lFXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OSQDEVYojpqUsVcDydeFyzVEZCVIa8DW4oEeyDGqo8E=; b=TlsqX7bTRLuzJYfOBtCSm0wi1I
+	5iThkuSsBY7Lyqr2DqsWV0k7uw/C+awaeluOXi4VKS1zgsd+mZh+HFgLrMtV7yKF3bi0yh4MBxMOc
+	1ROx1q46/w+OuR3xVf9c0tHeaYhr34rQdupoHTJ5IgSrk5dPmDhgJXmFvQyZe/bbWJo7yWQrg0BNw
+	JNwns/3YGItr5nKeXtCqj8cl9HkJvSK/Btfs/MUaYZVFLbSj10PdlEniUkWSpYspbKpJ62vDkdajD
+	eQZmouQ/KrfkpLYOv8NLEZjE+Yw1IwATBh1kYWNEfrRXebvYlUQNlvS/MtGQl8ErWLON8ImYZ3cl6
+	oK47W7qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unIt4-00000004qdw-0YBt;
-	Sat, 16 Aug 2025 15:32:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unIbL-00000004ojw-02qB
+	id 1unIvc-00000004qnn-3hUB;
+	Sat, 16 Aug 2025 15:34:44 +0000
+Received: from mx.olsak.net ([37.205.8.231])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unIcH-00000004oh3-1T23
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 15:13:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82ADC1D13;
-	Sat, 16 Aug 2025 08:13:38 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 780143F5A1;
-	Sat, 16 Aug 2025 08:13:44 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	ardb@kernel.org,
-	scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v7 6/6] arm64: futex: support futex with FEAT_LSUI
-Date: Sat, 16 Aug 2025 16:13:26 +0100
-Message-Id: <20250816151326.195587-7-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250816151326.195587-6-yeoreum.yun@arm.com>
-References: <20250816151326.195587-1-yeoreum.yun@arm.com>
- <20250816151326.195587-2-yeoreum.yun@arm.com>
- <20250816151326.195587-3-yeoreum.yun@arm.com>
- <20250816151326.195587-4-yeoreum.yun@arm.com>
- <20250816151326.195587-5-yeoreum.yun@arm.com>
- <20250816151326.195587-6-yeoreum.yun@arm.com>
+	Sat, 16 Aug 2025 15:14:49 +0000
+DKIM-Signature: a=rsa-sha256; bh=OSQDEVYojpqUsVcDydeFyzVEZCVIa8DW4oEeyDGqo8E=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1755357181; v=1; x=1755789181;
+ b=TXqIFPiu6ruM8+TZCP7ahhsw6qYop9K/l1fCNrrqliT1uZk7vu1AzGR1/A19LlPkTANLZoEu
+ aOhte95klePHknLPz9jeiQ1J8m8KWcUc1qD3YANM04M4R+5VWBwv408nNHpSfhvZqD3o1IudYE/
+ 5oy/nQtqAeBqojkzXAH6V2Uzy5kvJVOMRVPBenkGd6eL1JY6MgHZftTadmQ3EnqrCFIgt44XpiP
+ WI2rJgMDlEz3yd8Nyje075Ns+6LtDmlpKQeXihPAM2dZ/vuzDXp5BH70FaW+orF8e0etwUYrkk4
+ Zk4pf5s0w+ttb0XY7QjBJfHZK+MBrwqHddhw9+/QhPdvg==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id 12f6888e; Sat, 16 Aug 2025 17:13:01 +0200
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>,
+ Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org,
+ ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+Date: Sat, 16 Aug 2025 17:13:00 +0200
+Message-ID: <6196438.lOV4Wx5bFT@radijator>
+In-Reply-To: <5e79b123-b29a-4edb-8e70-3b7fa6cd3674@kernel.org>
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <1950265.tdWV9SEqCh@radijator>
+ <5e79b123-b29a-4edb-8e70-3b7fa6cd3674@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_081347_124077_7185D6A2 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250816_081447_441797_58B02BFA 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,182 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current futex atomic operations are implemented with ll/sc instructions
-and clearing PSTATE.PAN.
+On Friday, 15 August 2025 08:08:24 Central European Summer Time Krzysztof K=
+ozlowski wrote:
+> On 15/08/2025 00:08, Duje Mihanovi=C4=87 wrote:
+> > > I am asking to see complete binding with complete DTS in example and
+> > > submitted to SoC maintainer.
+> >=20
+> > Hm, so if in the example (and the actual DTS) each domain is assigned a
+> > clock, can I then keep the domain and domain controller nodes like Medi=
+atek
+> > and Rockchip have?
+>=20
+> You would need to point me to specific files or show some code.
 
-Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
-also atomic operation for user memory access in kernel it doesn't need
-to clear PSTATE.PAN bit anymore.
+Sure, mediatek,power-controller.yaml and rockchip,power-controller.yaml
+in Documentation/devicetree/bindings/power.
 
-With theses instructions some of futex atomic operations don't need to
-be implmented with ldxr/stlxr pair instead can be implmented with
-one atomic operation supplied by FEAT_LSUI.
+Regards,
+=2D-
+Duje
 
-However, some of futex atomic operations still need to use ll/sc way
-via ldtxr/stltxr supplied by FEAT_LSUI since there is no correspondant
-atomic instruction or doesn't support word size operation.
-(i.e) eor, cas{mb}t
 
-But It's good to work without clearing PSTATE.PAN bit.
-
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/futex.h | 130 ++++++++++++++++++++++++++++++++-
- 1 file changed, 129 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index 22a6301a9f3d..ece35ca9b5d9 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,6 +9,8 @@
- #include <linux/uaccess.h>
- #include <linux/stringify.h>
- 
-+#include <asm/alternative.h>
-+#include <asm/alternative-macros.h>
- #include <asm/errno.h>
- 
- #define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
-@@ -115,11 +117,137 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- 	return ret;
- }
- 
-+#ifdef CONFIG_AS_HAS_LSUI
-+
-+#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-+
-+#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
-+static __always_inline int						\
-+__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	int ret = 0;							\
-+	int oldval;							\
-+									\
-+	uaccess_ttbr0_enable();						\
-+	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-+	__LSUI_PREAMBLE							\
-+"1:	" #asm_op #mb "	%w3, %w2, %1\n"					\
-+"2:\n"									\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-+	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
-+	: "r" (oparg)							\
-+	: "memory");							\
-+	uaccess_ttbr0_disable();					\
-+									\
-+	if (!ret)							\
-+		*oval = oldval;						\
-+									\
-+	return ret;							\
-+}
-+
-+LSUI_FUTEX_ATOMIC_OP(add, ldtadd, al)
-+LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-+LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-+LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-+
-+static __always_inline int
-+__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-+}
-+
-+static __always_inline int
-+__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	int ret, oldval, tmp;
-+
-+	uaccess_ttbr0_enable();
-+	/*
-+	 * there are no ldteor/stteor instructions...
-+	 */
-+	asm volatile("// __lsui_futex_atomic_eor\n"
-+	__LSUI_PREAMBLE
-+"	prfm	pstl1strm, %2\n"
-+"1:	ldtxr	%w1, %2\n"
-+"	eor	%w3, %w1, %w5\n"
-+"2:	stltxr	%w0, %w3, %2\n"
-+"	cbz	%w0, 3f\n"
-+"	sub	%w4, %w4, %w0\n"
-+"	cbnz	%w4, 1b\n"
-+"	mov	%w0, %w6\n"
-+"3:\n"
-+"	dmb	ish\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
-+	: "=&r" (ret), "=&r" (oldval), "+Q" (*uaddr), "=&r" (tmp),
-+	  "+r" (loops)
-+	: "r" (oparg), "Ir" (-EAGAIN)
-+	: "memory");
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+static __always_inline int
-+__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	int ret = 0;
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	u32 val, tmp;
-+
-+	uaccess_ttbr0_enable();
-+	/*
-+	 * cas{al}t doesn't support word size...
-+	 */
-+	asm volatile("//__lsui_futex_cmpxchg\n"
-+	__LSUI_PREAMBLE
-+"	prfm	pstl1strm, %2\n"
-+"1:	ldtxr	%w1, %2\n"
-+"	eor	%w3, %w1, %w5\n"
-+"	cbnz	%w3, 4f\n"
-+"2:	stltxr	%w3, %w6, %2\n"
-+"	cbz	%w3, 3f\n"
-+"	sub	%w4, %w4, %w3\n"
-+"	cbnz	%w4, 1b\n"
-+"	mov	%w0, %w7\n"
-+"3:\n"
-+"	dmb	ish\n"
-+"4:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
-+	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
-+	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
-+	: "memory");
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+#define __lsui_llsc_body(op, ...)					\
-+({									\
-+	alternative_has_cap_likely(ARM64_HAS_LSUI) ?			\
-+		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-+})
-+
-+#else	/* CONFIG_AS_HAS_LSUI */
-+
-+#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-+
-+#endif	/* CONFIG_AS_HAS_LSUI */
-+
-+
- #define FUTEX_ATOMIC_OP(op)						\
- static __always_inline int						\
- __futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
- {									\
--	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-+	return __lsui_llsc_body(futex_atomic_##op, oparg, uaddr, oval);	\
- }
- 
- FUTEX_ATOMIC_OP(add)
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
