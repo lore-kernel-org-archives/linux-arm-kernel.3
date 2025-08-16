@@ -4,109 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04083CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 07:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40B8CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 07:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doaOteMO/lr9Se7XdfMbkxcyKTgYhUmvXzINgj8HvcE=; b=qHEY8Ll2d/SoQ9pH+rVLlJxUIj
-	44pf1fm4paL3VThROGC0tTIO86LJ5rkrCamAWDpPRYek8BcmfqwcLSAPint20VmJo5RW5KWAXeht/
-	MRmi7qAQg0/WrE0Ru11hct1c5g5hUQ+qNbr6PlzCsrMAq/c6kbfK/+zWmtkSLu8ORqTIRSU1pb3HK
-	BOzWiSHwn/5lJEqC2XZ8ROD4+P6O+h3DrY5cyw/qBV89NgQQyCqVaKHxniLbpkG0UfKaDLyFZV2dR
-	2fTsemXCd1NAbT01bvTp41CVcZ1HbwBEF3JUiThhrd36JJtVFEswR55nO2JObo6e8LN6hwVsZq9oa
-	5x1FiMuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fnw6L/2KwNT+tgpsNYiO/B84S45uSAGUvD6nwPyE38I=; b=2/CM+WUEA0hYd4w6maSLjIPHWn
+	KO3ABdJnG0lOkrxnaWqUexyuJ5q4vaO2krNfRxh+o8ozo/UOgdbSzceP/6FvLyfg53ylDM8Dx/pnq
+	si3ikFd92jVRZqOkKaWxGYURkeGgW/6m8UILQOVw0JHYHmv2S5lF5+2Aj7P5+My9jtfnxnAPgyywo
+	FON+VKj4eg0IIBUgBLlZOiTqtz54/Dz6ln7C/fiBXLzD+snHbJ5TyXt3GDHjFEoCWSOt+tm5gz+TF
+	6IHc+HxFGMyu85lriOkdlgt/t/+sz4LyG/HwCGeU3h/Yk/I1CRX6N7veAT2kbdduzZFWZD8bhVY0v
+	E1kRyujw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBQL-00000004DmB-2oy9;
-	Sat, 16 Aug 2025 07:33:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1unBnH-00000004FcV-2XJl;
+	Sat, 16 Aug 2025 07:57:39 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unBIi-00000004Ct9-3gyV
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 07:26:10 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57G4BqvA019831;
-	Sat, 16 Aug 2025 07:25:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	doaOteMO/lr9Se7XdfMbkxcyKTgYhUmvXzINgj8HvcE=; b=QTGWSKBpQmIeR4Wl
-	9JzqaMnO3ZBDrfBaI08/f3FFhJxtcXz10jDlB/1q2s1YX64JT0fh/kgDifpySUwy
-	fSIor+z3aM+YqxTJOEFp0hlRmnQ0IUXhBKfQe9r1ZlrPcuviEg0sjnGmDj2qE2g3
-	S4x+kVdQheysHfaXqdomIDNtIyrMvAA3GCm42aLzuaBLlyv7vkXexQP5wgqz65xK
-	c0SJn1JfQLXL+sj0lAOHtDmkSGplGeX6Ge4rDy6uAih2qn9kNL7OF367CgM3Q/9p
-	W1TT3NlXc2sEM3293WCXKxugIF4vw/7F9H/VzVGTRx24i/LfkiYS5TnZY8X2LHx3
-	h+t90Q==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jjrfr778-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 16 Aug 2025 07:25:50 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57G7PnWn016195
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 16 Aug 2025 07:25:49 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+	id 1unBkj-00000004FWe-1nqB;
+	Sat, 16 Aug 2025 07:55:02 +0000
+X-UUID: 4b8fa6f07a7611f09f706fa2197c6ceb-20250816
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=fnw6L/2KwNT+tgpsNYiO/B84S45uSAGUvD6nwPyE38I=;
+	b=mqo1r5jszh+4Hf5VKTpsE/MowD0eF0vXlI1HJUGI40AYjoSOcsg/9AWcVHFI7m+8+PatYqofmCfj7PUFrYAsO0iymu6n87lJxnx75WarW33ZV893xy8U4vw4MHTmYrfECEKUuD9nZQramx0dUGGjdE1oiz5GVuP8dEWz93NsUr4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:a932ae5a-4770-4dc6-bc65-ac479db35df8,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:d5338944-18c5-4075-a135-4c0afe29f9d6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4b8fa6f07a7611f09f706fa2197c6ceb-20250816
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <leilk.liu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 201738723; Sat, 16 Aug 2025 00:54:54 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Sat, 16 Aug 2025 00:25:49 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
-Subject: [PATCH v11 2/2] coresight: Add label sysfs node support
-Date: Sat, 16 Aug 2025 00:25:29 -0700
-Message-ID: <20250816072529.3716968-3-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250816072529.3716968-1-quic_jinlmao@quicinc.com>
-References: <20250816072529.3716968-1-quic_jinlmao@quicinc.com>
+ 15.2.1258.39; Sat, 16 Aug 2025 15:54:50 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Sat, 16 Aug 2025 15:54:49 +0800
+From: Leilk Liu <leilk.liu@mediatek.com>
+To: Andi Shyti <andi.shyti@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: Qii Wang <qii.wang@mediatek.com>, Wolfram Sang <wsa@kernel.org>, Liguo
+ Zhang <liguo.zhang@mediatek.com>, <linux-i2c@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Leilk.Liu
+	<leilk.liu@mediatek.com>
+Subject: [PATCH] i2c: mediatek: fix potential incorrect use of I2C_MASTER_WRRD
+Date: Sat, 16 Aug 2025 15:53:54 +0800
+Message-ID: <20250816075434.31780-1-leilk.liu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: qMOnckYR_ViGhk0mMnJWakkUWzgK2saQ
-X-Authority-Analysis: v=2.4 cv=YrsPR5YX c=1 sm=1 tr=0 ts=68a0327e cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=3H110R4YSZwA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8
- a=7CQSdrXTAAAA:8 a=TYLdrY_46NNtcs5PGGUA:9 a=TjNXssC_j7lpFel5tvFf:22
- a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDAzOSBTYWx0ZWRfX7NbrzlcDf/W9
- PfYbN023o0GzahZQW+m8CjGF4aL6F6cI6PYQFQuDLoESuLnZl10d5NCE5T5VxtGoN+23r8RayG2
- Z0Z9PDvKuy3tSyhywj2E89ZQ3QZnXWQ0LZiYzSZwnJZG8x7WBZnWc5QAf5f7LPQ/08wHzRRXerM
- RkvGiweMtzMqAo9+q2oS0Gf6MNyI3+OlT95KLe5wJ2UVXHL2TtJhiT/PR9N0pNyzY4PcLdWRewM
- N35Mi9oiZSfQJcW8/AiRBQTB2NCwGAL5MCG7MK/vqmac9KVMTHKQphxgnD1hz3VBP2clqVynNHO
- YeDbSB32DGp8gKa1Ra5/knTYATODb62ELTv/zuo4QE5UdYB2fCUHhRG8sofO7psRlqDJrPUOn8A
- MbrmiShO
-X-Proofpoint-ORIG-GUID: qMOnckYR_ViGhk0mMnJWakkUWzgK2saQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-16_03,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 priorityscore=1501 phishscore=0
- adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508160039
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_002604_933798_382D7453 
-X-CRM114-Status: GOOD (  21.06  )
+X-CRM114-CacheID: sfid-20250816_005501_483222_55D4911E 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,290 +89,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For some coresight components like CTI and TPDM, there could be
-numerous of them. From the node name, we can only get the type and
-register address of the component. We can't identify the HW or the
-system the component belongs to. Add label sysfs node support for
-showing the intuitive name of the device.
+From: "Leilk.Liu" <leilk.liu@mediatek.com>
 
-Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+The old IC does not support the I2C_MASTER_WRRD (write-then-read)
+function, but the current code’s handling of i2c->auto_restart may
+potentially lead to entering the I2C_MASTER_WRRD software flow,
+resulting in unexpected bugs.
+
+Instead of repurposing the auto_restart flag, add a separate flag
+to signal I2C_MASTER_WRRD operations.
+
+Also fix handling of msgs. If the operation (i2c->op) is
+I2C_MASTER_WRRD, then the msgs pointer is incremented by 2.
+For all other operations, msgs is simply incremented by 1.
+
+Fixes: 173b77e8d8fe ("i2c: mediatek: add i2c first write then read optimization")
+
+Signed-off-by: Leilk.Liu <leilk.liu@mediatek.com>
 ---
- .../testing/sysfs-bus-coresight-devices-cti   |  6 ++
- .../sysfs-bus-coresight-devices-dummy-source  |  6 ++
- .../testing/sysfs-bus-coresight-devices-etb10 |  6 ++
- .../testing/sysfs-bus-coresight-devices-etm3x |  6 ++
- .../testing/sysfs-bus-coresight-devices-etm4x |  6 ++
- .../sysfs-bus-coresight-devices-funnel        |  6 ++
- .../testing/sysfs-bus-coresight-devices-stm   |  6 ++
- .../testing/sysfs-bus-coresight-devices-tmc   |  6 ++
- .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++
- .../testing/sysfs-bus-coresight-devices-trbe  |  6 ++
- drivers/hwtracing/coresight/coresight-sysfs.c | 71 ++++++++++++++++++-
- 11 files changed, 129 insertions(+), 2 deletions(-)
+ drivers/i2c/busses/i2c-mt65xx.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-index a97b70f588da..a2aef7f5a6d7 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
-@@ -239,3 +239,9 @@ Date:		March 2020
- KernelVersion:	5.7
- Contact:	Mike Leach or Mathieu Poirier
- Description:	(Write) Clear all channel / trigger programming.
-+
-+What:           /sys/bus/coresight/devices/<cti-name>/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-index 0830661ef656..321e3ee1fc9d 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
-@@ -13,3 +13,9 @@ KernelVersion:	6.14
- Contact:	Mao Jinlong <quic_jinlmao@quicinc.com>
- Description:	(R) Show the trace ID that will appear in the trace stream
- 		coming from this trace entity.
-+
-+What:           /sys/bus/coresight/devices/dummy_source<N>/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10 b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-index 9a383f6a74eb..f30526949687 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
-@@ -19,6 +19,12 @@ Description:	(RW) Disables write access to the Trace RAM by stopping the
- 		into the Trace RAM following the trigger event is equal to the
- 		value stored in this register+1 (from ARM ETB-TRM).
+diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
+index ab456c3717db..dee40704825c 100644
+--- a/drivers/i2c/busses/i2c-mt65xx.c
++++ b/drivers/i2c/busses/i2c-mt65xx.c
+@@ -1243,6 +1243,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+ {
+ 	int ret;
+ 	int left_num = num;
++	bool write_then_read_en = false;
+ 	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
  
-+What:           /sys/bus/coresight/devices/<memory_map>.etb/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/<memory_map>.etb/mgmt/rdp
- Date:		March 2016
- KernelVersion:	4.7
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-index 271b57c571aa..245c322c91f1 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
-@@ -251,6 +251,12 @@ KernelVersion:	4.4
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RO) Holds the cpu number this tracer is affined to.
- 
-+What:           /sys/bus/coresight/devices/<memory_map>.[etm|ptm]/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/mgmt/etmccr
- Date:		September 2015
- KernelVersion:	4.4
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-index a0425d70d009..6f19a6a5f2e1 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
-@@ -329,6 +329,12 @@ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Access the selected single show PE comparator control
- 		register.
- 
-+What:           /sys/bus/coresight/devices/etm<N>/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-+
- What:		/sys/bus/coresight/devices/etm<N>/mgmt/trcoslsr
- Date:		April 2015
- KernelVersion:	4.01
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-index d75acda5e1b3..86938e9bbcde 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
-@@ -10,3 +10,9 @@ Date:		November 2014
- KernelVersion:	3.19
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Defines input port priority order.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-index 53e1f4815d64..848e2ffc1480 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
-@@ -51,3 +51,9 @@ KernelVersion:	4.7
- Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
- Description:	(RW) Holds the trace ID that will appear in the trace stream
- 		coming from this trace entity.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.stm/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-index 339cec3b2f1a..55e298b9c4a4 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
-@@ -107,3 +107,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
- Description:	(RW) Current Coresight TMC-ETR buffer mode selected. But user could
- 		only provide a mode which is supported for a given ETR device. This
- 		file is available only for TMC ETR devices.
-+
-+What:           /sys/bus/coresight/devices/<memory_map>.tmc/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-index a341b08ae70b..98f1c6545027 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
-@@ -272,3 +272,9 @@ KernelVersion	6.15
- Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
- Description:
- 		(RW) Set/Get the enablement of the individual lane.
-+
-+What:           /sys/bus/coresight/devices/<tpdm-name>/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-index ad3bbc6fa751..8a4b749ed26e 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
-@@ -12,3 +12,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
- Description:	(Read) Shows if TRBE updates in the memory are with access
- 		and dirty flag updates as well. This value is fetched from
- 		the TRBIDR register.
-+
-+What:           /sys/bus/coresight/devices/trbe<cpu>/label
-+Date:           Aug 2025
-+KernelVersion   6.18
-+Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
-+Description:    (Read) Show hardware context information of device.
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index feadaf065b53..5e52324aa9ac 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -7,6 +7,7 @@
- #include <linux/device.h>
- #include <linux/idr.h>
- #include <linux/kernel.h>
-+#include <linux/property.h>
- 
- #include "coresight-priv.h"
- #include "coresight-trace-id.h"
-@@ -371,17 +372,81 @@ static ssize_t enable_source_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(enable_source);
- 
-+static ssize_t label_show(struct device *dev,
-+		struct device_attribute *attr, char *buf)
-+{
-+
-+	const char *str;
-+	int ret;
-+
-+	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
-+	if (ret == 0)
-+		return sysfs_emit(buf, "%s\n", str);
-+	else
-+		return ret;
-+}
-+static DEVICE_ATTR_RO(label);
-+
-+static umode_t label_is_visible(struct kobject *kobj,
-+				   struct attribute *attr, int n)
-+{
-+	struct device *dev = kobj_to_dev(kobj);
-+
-+	if (attr == &dev_attr_label.attr) {
-+		if (fwnode_property_present(dev_fwnode(dev), "label"))
-+			return attr->mode;
-+		else
-+			return 0;
-+	}
-+
-+	return attr->mode;
-+}
-+
- static struct attribute *coresight_sink_attrs[] = {
- 	&dev_attr_enable_sink.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
--ATTRIBUTE_GROUPS(coresight_sink);
-+
-+static struct attribute_group coresight_sink_group = {
-+	.attrs = coresight_sink_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_sink);
- 
- static struct attribute *coresight_source_attrs[] = {
- 	&dev_attr_enable_source.attr,
-+	&dev_attr_label.attr,
- 	NULL,
- };
--ATTRIBUTE_GROUPS(coresight_source);
-+
-+static struct attribute_group coresight_source_group = {
-+	.attrs = coresight_source_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_source);
-+
-+static struct attribute *coresight_link_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group coresight_link_group = {
-+	.attrs = coresight_link_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_link);
-+
-+static struct attribute *coresight_helper_attrs[] = {
-+	&dev_attr_label.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group coresight_helper_group = {
-+	.attrs = coresight_helper_attrs,
-+	.is_visible = label_is_visible,
-+};
-+__ATTRIBUTE_GROUPS(coresight_helper);
- 
- const struct device_type coresight_dev_type[] = {
- 	[CORESIGHT_DEV_TYPE_SINK] = {
-@@ -390,6 +455,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_LINK] = {
- 		.name = "link",
-+		.groups = coresight_link_groups,
- 	},
- 	[CORESIGHT_DEV_TYPE_LINKSINK] = {
- 		.name = "linksink",
-@@ -401,6 +467,7 @@ const struct device_type coresight_dev_type[] = {
- 	},
- 	[CORESIGHT_DEV_TYPE_HELPER] = {
- 		.name = "helper",
-+		.groups = coresight_helper_groups,
+ 	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+@@ -1256,6 +1257,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+ 		if (!(msgs[0].flags & I2C_M_RD) && (msgs[1].flags & I2C_M_RD) &&
+ 		    msgs[0].addr == msgs[1].addr) {
+ 			i2c->auto_restart = 0;
++			write_then_read_en = true;
+ 		}
  	}
- };
- /* Ensure the enum matches the names and groups */
+ 
+@@ -1280,12 +1282,10 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+ 		else
+ 			i2c->op = I2C_MASTER_WR;
+ 
+-		if (!i2c->auto_restart) {
+-			if (num > 1) {
+-				/* combined two messages into one transaction */
+-				i2c->op = I2C_MASTER_WRRD;
+-				left_num--;
+-			}
++		if (write_then_read_en) {
++			/* combined two messages into one transaction */
++			i2c->op = I2C_MASTER_WRRD;
++			left_num--;
+ 		}
+ 
+ 		/* always use DMA mode. */
+@@ -1293,7 +1293,10 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+ 		if (ret < 0)
+ 			goto err_exit;
+ 
+-		msgs++;
++		if (i2c->op == I2C_MASTER_WRRD)
++			msgs += 2;
++		else
++			msgs++;
+ 	}
+ 	/* the return value is number of executed messages */
+ 	ret = num;
 -- 
-2.34.1
+2.46.0
 
 
