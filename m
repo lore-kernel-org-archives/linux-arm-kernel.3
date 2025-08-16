@@ -4,154 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF225CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCEECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 13:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+KCHHTqRR+QvQr7TO6S5/RPZnrNqLEy6fhDbfe+NhQ=; b=d3TdWpeUti06jaFbW73/ZehAot
-	ZweFbyFZB5AGCBsiN4iGm7G7I5xTaW3xOL/58aZiUPZxL44IhZRFxyS0LQVuqDo5mCfJ0O3k2LPd0
-	2STepPm/Z7otptPxcYK8jziL2JA8Qmkpe70BqnsuvwKJG4USLhAp1arscR3cehrd7HI20OVXyOmDQ
-	K0Uk1LwELVFmgmeV+IjQzTB71OdBGGwFFF6sG7kapubhrfjGeWyJcv9R4Vn6GSjbrH8n8i1YhM9ew
-	Eq4GTVmcyTTzqJBCGOFVRVSTWCsvrfsUqQcDu8Axvmsrp+zWkGQ/BpsY3nv+mUFYzt1LDOLSdoHBp
-	DDLrGLZQ==;
+	bh=0uDgRhEd1cMoQ+4VuHNdQNIeoyBkNyx/KnK2q2EZqck=; b=Ztw2V1MPP/gAduCxaZ4nYgAwsS
+	5DZa7HHyh3358loZilIK3OlvJ+iaSwE8yUoIeBcfr2TiXzkrtv3DcJjDxfka5Exp0Xv0AK+V60+Oo
+	/ChG6wKbRA1E3FEIr5V3NWxeLOJHbXpqmFVIcDw0UNo4yoTbRf3pOViSkcPIdJsvqTqHJQ/4FfF+f
+	bdAgo7/TJCDbkrtbMASAJdE/xNZjddGdJFNm8gTGWAN/j91CqqQeF7B15RBITk8pb6ynvmiA0exwK
+	HD3ewKfe59/Pht9B38hAE/CPwe+ZvzP4R4Jgg5vfqqnv17IdEzDwI80zNsX8RM6AKKlwOv5Ew3dyz
+	kbny/pIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unGZf-00000004fQ4-2jOP;
-	Sat, 16 Aug 2025 13:03:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1unGcJ-00000004fdN-3fHU;
+	Sat, 16 Aug 2025 13:06:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unGDo-00000004cnG-40aQ
+	id 1unGIg-00000004dRF-10bU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 12:41:22 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57G4etD9031132
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 12:41:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	g+KCHHTqRR+QvQr7TO6S5/RPZnrNqLEy6fhDbfe+NhQ=; b=pgn1liOc6Kjt3D+7
-	tK3LPtR0cFhpN/7UXzrPO256Xo+Iq6k0LLE03rje0GKKYeZBZKTxh2VG8xNXmaTy
-	Sn6XScwZs6acyk1pWW/4zVXFg7zdAtJ5dEU37hrpZzIafYiunQNvSjgXkrkVR0JO
-	eZwv7UYpWnkTTjrduGBf/1Ojg88LzHiOMisKsjjgNZDDoFulaDUm7BdzaQYF+EU5
-	CT5DOv56rPRULdo8RuNx4I+p7pXc3RGffS8h0vgC+Hzh0JrcStyjuaY6kR7JubDY
-	ExBTRhgfDiseTsXlx8X8n11pc5+A8GTh0u01mvJr9/k6xSwdd4jjxruWWUk4gGWX
-	2tbqeA==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jk5m8hwx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 12:41:20 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-70a9f5b3601so66855176d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 05:41:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755348079; x=1755952879;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=g+KCHHTqRR+QvQr7TO6S5/RPZnrNqLEy6fhDbfe+NhQ=;
-        b=BAt/DbUVkTsTeZ1ZG3Kpt8Cyvho9s4gq7aR5lQWW6E8K+P+btzcaIa1eDHE2QbYfZ2
-         ZY6ZrWP/U4Dw73n4bwzkVZsFBXh51XZ7tgFlPfBfcMbI2F+QSL+891eMYFbNpmDh/RSB
-         wqaKtHDhOvUXBGOqkUdC3Zc10WShlQruyAJwvBRG6ncWBPGOERi0nKZyMEdyh+K3VR+4
-         cn/RlWsrZZVo7SD6ET33VNt9DZqJue0hDEb+Y0uVwR5ZQeNGMtG4oU7UwOixthuek6+p
-         6xInb0ahwJkMNK/Y+63Kg5UD1DyD9H37XsJKy5vKTI/S+ePt4EAwn2YZtF/0Pn1cVS6R
-         n08g==
-X-Forwarded-Encrypted: i=1; AJvYcCUqXQP5QsIemQj3Xy5ezxbzzBXZtJetbbJHxwMEKYVF9KYfZCOIueg+W/TTMVzRopUaaAeEhW74OoowKzgEI5Qv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPkptiZNo2QHm7Kf+BbWhTqzOnm79rqBUnB/KNqPDLBoJhIVGh
-	Lb4IQJ/tPUbUUsMBc7aSC6qX4jMM5olbVNzdVjRgUdEkNzs8JVaVH/7W1UBsIZHcJsrfP5RMgnX
-	gF3Yi1r5iG6xCAfJmrYLxTKN23A+lSk3DkUbtBwop7vM//d1HOBrNYOqyH7SMBv9RJWhQG5nwi6
-	dLcw==
-X-Gm-Gg: ASbGncsUVS14qHVuLXn3zEmb8VXzSshitkPTVFQlz8FRb/4FeLmsxCewgVh5yQ5BzF9
-	JiqqrN+Slr6s6ZE6CLmw7PMgFVaqhjMg1yhq/iBJaPd7mtGoqw2WUqw/qy0O08fbiw4WTXnHGqk
-	+UXZBYKPDPldBqBMa13lzBSc8Fpl0jfa3fcS3ginsm4a929CwVuaxrK3AaYNu9X192c6AXODzgE
-	+JSnPF0W+xoFR0ka+6iSWa99s9W82netLR/1SgLXU2neNPITRZf/fQVHHw1PsysVwkoZTzp8d7G
-	WB8eUBb6DSmpJxxV8KxWPyOw1RX7aRsqZfSh7GOY82gjn5A2o7hcZ2ilUq2cIH1YVANwukHK+vK
-	1RV6yAKh3uUWyydIapv0USM+3+I/dSXixuvgJVeS73+ICUcvalYPT
-X-Received: by 2002:a05:6214:1d22:b0:709:3d8d:5c2c with SMTP id 6a1803df08f44-70bb0618468mr24914836d6.32.1755348079193;
-        Sat, 16 Aug 2025 05:41:19 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEOQL6onlKjHcTQTSZYwcPj2qboHayn8rKRBdtJHr/kNyKMVVa+u6QH81eKHnsSjAYM+ZfZeA==
-X-Received: by 2002:a05:6214:1d22:b0:709:3d8d:5c2c with SMTP id 6a1803df08f44-70bb0618468mr24914666d6.32.1755348078746;
-        Sat, 16 Aug 2025 05:41:18 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef3cca21sm856554e87.104.2025.08.16.05.41.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 Aug 2025 05:41:17 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sat, 16 Aug 2025 15:41:07 +0300
-Subject: [PATCH 7/7] drm/rockchip: rk3066: declare supported infoframes
+	Sat, 16 Aug 2025 12:46:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBA1F4425A;
+	Sat, 16 Aug 2025 12:46:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEE38C4CEEF;
+	Sat, 16 Aug 2025 12:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755348380;
+	bh=YIGRcpBKVSSbM4vhzjYUZ4rzj2zEpXTZdKsxWCTrydc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QxnvmtVaUoGix95WDvdsuYeNUJl3WU2vXIC4UUkmEeSa39NseZlB70eHFx9XjhDcl
+	 8wQdHjS5JGap/bWMaBu/Fe4ANhKQ0F71KMHia/5ROCjFbS2XOT95s+QSIJVMh1R1H5
+	 0j6mgAmQ/giXKY2jSaOyaWMgEHdgfVIeG3jwKM7qOCOTLxWp6Dqq0LB2wUyvI+OzFp
+	 KZgEEVBSLnETkxjQB229uVD7NAcLxMV8hFNlQdx1Tn3+qLZqLSEYtklDlqRvBlhtgS
+	 LKVBYAonxROCiEP2CaQ2RymY4XUZHz27rcFS64n7v9rhYeKqKc5DnKdxOSGftlts1I
+	 5Wttb4V69sZhQ==
+Message-ID: <620292ee-46c7-4b9c-9047-86f8c771384a@kernel.org>
+Date: Sat, 16 Aug 2025 14:46:15 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Apple SMC RTC
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rtc@vger.kernel.org
+References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
+ <20250812-wip-smc-rtc-v1-1-66a8e96dad60@kernel.org>
+ <074fcd4c-0da8-42c4-a567-64fa7e173894@kernel.org>
+ <20250814211928.GA3922106-robh@kernel.org>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250814211928.GA3922106-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250816-drm-limit-infoframes-v1-7-6dc17d5f07e9@oss.qualcomm.com>
-References: <20250816-drm-limit-infoframes-v1-0-6dc17d5f07e9@oss.qualcomm.com>
-In-Reply-To: <20250816-drm-limit-infoframes-v1-0-6dc17d5f07e9@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-        Samuel Holland <samuel@sholland.org>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Liu Ying <victor.liu@nxp.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=916;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=7eaknZdIIVgkzyGpeqyWY92kXnNZwGkNmo13tFbwgVk=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBooHxgMHi4qTkGU45yB+UntdRBVmKZr+x/UsM25
- LEGEgGfYbmJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaKB8YAAKCRCLPIo+Aiko
- 1djgB/4wOmA1OtnxVdCPZ8Z4di39PIjrPkMG0uQmJI/t0Zc1l8LN6lav06X+zI2KDVDqJtxF2NO
- g8QqOU8UNZeo/kURELWxqyJZzOrWgG4qXXEA/4nBe57GtgK/uBOASm5cvxECJmXXrAsl4xFlcdr
- 84IRMNS5lpy+y6HeswpNMDsppcEqals/0nvB0xhbIFKM0VHF2eqBD3sWZiaR0h84BPiU6vcvvbD
- lBsE0lzCSfEp0EC2XQvwDi2OJBLUdr6oBSvcad90o7e6CMWks5r49JFQ3pSoeHlLXx9875g9neu
- Me/+6Idd77ROmdlT+vKnBkOG3AAYvWoynfGMjwl6WnS6TzXc
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Authority-Analysis: v=2.4 cv=Sdn3duRu c=1 sm=1 tr=0 ts=68a07c70 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=iNCKscWTIkh_2y45CzQA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-ORIG-GUID: PrzBZdXZ284n8iVnZnh0qLV1ttkSkAZU
-X-Proofpoint-GUID: PrzBZdXZ284n8iVnZnh0qLV1ttkSkAZU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDA0MiBTYWx0ZWRfX2VrmA8QIT7Zh
- ZVrS46pheLWEn4WOBzwV3G8Mj17OgNTP/U4wOpwaa/TvRTpMtiiGVADdezE29j4iOS1ttvNkn3C
- T0hxHyB4A5VEb1V626LLk+gT6doMub9zovejnU9bHE3tYW9UWD6FoviwKoRkYYdqmRjcnOobOux
- e0XHUuD4zSKWIYnaOZ2iGH7TYw6GMkP+4psGL6t9+yOxIpz8kuuO0bq/vITUi564d08DZOt00BV
- AixfoaN4/J9o1obeFM9fmxK0A+4aXnXY2korpXt/VPKLWd4ApcuiJwJb6uUUTxH1/Us4da3sWS2
- bspJ0LcOsO98gd21QGUu5sYy7z11UiQZlQ7Ao8NbMQZbwO5/dSsyE666PrXyzqLttxdX2CVG6CZ
- /dz//xsT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-16_04,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 spamscore=0
- adultscore=0 malwarescore=0 bulkscore=0 phishscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508160042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_054121_056183_438CE704 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250816_054622_305926_ABF6F6A6 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,28 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Declare which infoframes are supported via the .hdmi_write_infoframe()
-interface.
+On 14.08.25 23:19, Rob Herring wrote:
+> On Wed, Aug 13, 2025 at 08:14:51AM +0200, Krzysztof Kozlowski wrote:
+>> On 12/08/2025 20:25, Sven Peter wrote:
+>>> +maintainers:
+>>> +  - Sven Peter <sven@kernel.org>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: apple,smc-rtc
+>>> +
+>>
+>> No resources except nvmem? This should be folded into the parent. Don't
+>> create device node to instantiate drivers.
+> 
+> Well, the reboot node has nvmem entries too, so probably better to keep
+> this as child node.
+> 
+> Is there more functionality planned/needed here (for the mfd)? If so,
+> please send it all at once. One child node at a time makes DT
+> maintainers grumpy.
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/rockchip/rk3066_hdmi.c | 1 +
- 1 file changed, 1 insertion(+)
+I'd very much like to avoid that!
 
-diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-index ae4a5ac2299a93a49f87df7604752f6b651c839c..75bf9a13d8cde1471e8b7e8a8f5f4c0457dd0a14 100644
---- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-+++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-@@ -696,6 +696,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Rockchip";
- 	hdmi->bridge.product = "RK3066 HDMI";
-+	hdmi->bridge.supported_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
- 
- 	hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
+There's one more driver (hwmon) that needs another child node and two 
+more sub-devices that don't need any or expose any resources (hid for 
+the power button and power/supply for batteries). I've talked to James
+(who wrote hwmon) and he's going to submit the hwmon series together 
+with at least rtc (and hid) so that you can see all additional bindings 
+at once.
 
--- 
-2.47.2
+
+Thanks,
+
+
+Sven
 
 
