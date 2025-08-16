@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51AA1CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C050BCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zCmauNf7s5FntNtudgCLlOZcs3Emgfa8V1BlciZ5v+A=; b=t5c6LgDFLXO2VazwB+ibvqzkcc
-	/+ko8ElJOF/ucU169ZyAQp3Csyn19EgBaPRMzO4gGDIH0FBf42+6ct1JihYZMN0KMDBJDqChzy6pP
-	hskRy92BZ2VY7u124X3pUf22J0fw5O+l6cJo4SoDxqzCsJgpoGXSbodxqC3o8CQHc0laib3kfRAh4
-	d68gLYGfmOU9QCAsyKq8BB79tNlZanG+USJkkR8t8arEJllFMaCqG8Qtnu3aNahIYdWtgqHcOIsxZ
-	xZTr38SoAd5ziMzFFyl1+oz5JO/C1ajriQBnWbiFZZWNsaFyDeZeyfvoWYeR+FC65xEfKUCz1jQ08
-	+TiHMDjw==;
+	bh=EDWOGAR/V8qhS+DEW6fYz84GWwsYflwCKKabdx3FCTA=; b=z4AquzbNha4f5UUt1JeSlXTgef
+	vkMX4+1rto4Ffd5hyOKs0iVpseqoyJDqOILAxjNnCyxayvo/mZ8q+tcnIrtJRwPztXWLyZDJVLVn8
+	PtrD+EhCHwuVBoSuTGFC1+K1p6GVsuw/FCYliIZlqD0K6JPlbJdo1vBJh7/WUAtdMURWV/J6Z06Nu
+	Nrdc69KfcZJVaubYbaagsmD1rg2MRomTNgRIS8mXE94CUCjl8zF9D6yhSWbwuVT0EZ0NO/KJxG2ZA
+	X5s+GKgBn/nTlZrtzh7GWdmD4yXQohtKCDdGwRWeWB7yGuZx2okJKBmhmXv6PBm4n4UgPkiFtK4z2
+	f3W/jsaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCr9-00000004MSk-0acK;
-	Sat, 16 Aug 2025 09:05:43 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1unCtf-00000004Mhy-0dpF;
+	Sat, 16 Aug 2025 09:08:19 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCaL-00000004KFk-31OB;
-	Sat, 16 Aug 2025 08:48:22 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-244581d9866so22312685ad.2;
-        Sat, 16 Aug 2025 01:48:21 -0700 (PDT)
+	id 1unCaV-00000004KHx-1AFv;
+	Sat, 16 Aug 2025 08:48:32 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-76e1ff326bbso2859595b3a.1;
+        Sat, 16 Aug 2025 01:48:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755334101; x=1755938901; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755334110; x=1755938910; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zCmauNf7s5FntNtudgCLlOZcs3Emgfa8V1BlciZ5v+A=;
-        b=kVAjQMCCx0MYuBa3Qh4LSrgc+CBo5Fk4xV7Ggm/P4RhVAhTVUz2ubNnWuoy9vkBpX3
-         FFVkMwXjvEAnSwCi/aGDB14l1xl7wCe+N1zsOHJfvSCMxr14OhXNmxAYaQ1FvE24/uPZ
-         benDGbP/BGzgWVZ2DohM2+m4wgG89Z9SkYsOo8Ok+v6n1Q0LMcmlWB2uZ90vE5IisFnH
-         vCD/vQsxl51v8Nfremm2ZVc2oamejYo+isdwLKk/AlEGaZiiz0xl83Jh6a0HT9VCpWmV
-         sq/AzpGhmjJCvIz87DOy6Myhgncq3qPLDLSZEtx4DWmoYosg+9jiiO1oC02Lc70IfQ20
-         /baQ==
+        bh=EDWOGAR/V8qhS+DEW6fYz84GWwsYflwCKKabdx3FCTA=;
+        b=kc9JqcYlYSWttZRxAgHjNzNZsqIKBqjxaUZOxWWmZW0CvnvGOsb1b6DHdEb91nupxe
+         6S4uviahfOnfwKfpnjCezhbH1LbBfeyMMA9W4q2ryDzVzthTm/I4qiPbmzHZwFwDIs0D
+         bSHRbqlPJ03yY8hpv1hwPZKpW/uyb6bLZdrgho4fAVovOTAH5v9zh4XwzzgDyVr6ehHU
+         Lhm+hSWcJ13IfBnYrBfbUP3r8CACgujAC2/aHyGJ3KcOnDGEYwQnqFehbmMO+FQDWg7w
+         rbvXvpJvzwvON4nL4Q6CePTeQIYk9nZlSHqrX9Fso82IfwZKt0ON9rWCvZ5hbu8nmEAt
+         etEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755334101; x=1755938901;
+        d=1e100.net; s=20230601; t=1755334110; x=1755938910;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zCmauNf7s5FntNtudgCLlOZcs3Emgfa8V1BlciZ5v+A=;
-        b=RkHlSVpX/02ee1/b0NDDsVbpk1caygqRM732Vhej0N+VfOBxdAHOWvjcDneXifxfni
-         3A31T9ktf1cTtv7ZLWVI/OpCrapHnJgv031RWJFQZEry/bdwqsCKZveCaOjsXPbm6WvW
-         8gsFvPzd2jT1GFKF/dzUxwV/GmnN+NsEBc9UZbxo1aMFmwTVbUrkLnAyAv5THHo+D6yL
-         ym9BqMT5f7cbeICdMChBCx5w82qK7dLwQeBrpXsBcfTuI4Kc9Zgoy9wqUoc7MxAmnJmy
-         1n6vBZ3+PgMKGMQip+GTPy28WqlurJiLTHoEtwYiMQtr0sQa0Sfol0eEYb6rFr0NSjJh
-         sm9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVUejqNcggmVWhR7NryJ4kGrVxaq42oAJ/b0ku2+GwIneuLn93vT2UeXBKGTzkaYvYV7Fss+L9ato+LGtxIFIpg@lists.infradead.org, AJvYcCXInXVMxOAPrYg1TxI3zhGPr4j3/1ipILEKXI9kFuyla2wRsQXk14HaGMVCuGTmn0/dhjnA6Hb5kqXN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSucgBXYA/PQtA+Qz1OOANvhgC1U0bLKCHDHE7LDXttsQKyKVt
-	TWZ5GqQslC0wf+AxYLCqzfV1hKgtvnWn9iy7+VcvhU+xYyk74nV06D1D
-X-Gm-Gg: ASbGncsQjqP3e4oYlHW0Zmo2fD4tyauVtC3COS0rluUMKhmQPQkfzL2P8q5TSAEdx3d
-	n8wRqy6uSTfRoZG/ZL+bvUNzos4zXUTvIOaAp8VY0hAej4LVVDq7rt9+Nu7rIH+waZig5Sw6s5U
-	lkJuhEroO+kW8KqElrgoI0hMwQ5M3d8n5+mo7a7PX7ND76rsMcyZ+FraPhXchbM86/TsLD3bvsE
-	udmcVVprlOuQfJosgOWFIiwa5JavAbuKxEmcK0/LU7WpxZJuXVIb7csml4NN+bRB+r+wvTusVlR
-	GtpZq4ZhvZkDwimefxNrUGGQlCgI2R859rqEDwikoUZFqNO64m5URayulQ0g0cbKC13+DeLdlCo
-	z4nbnkmZOZyM=
-X-Google-Smtp-Source: AGHT+IGpbFzYzzfHGbiZJhEqwpiiL3XiXv/bsEZ7XwHQ7nIZIbLySNrguZk+IP+kgbrq8QPu+xMORg==
-X-Received: by 2002:a17:902:dac1:b0:234:d778:13fa with SMTP id d9443c01a7336-2446d866269mr71913515ad.26.1755334100952;
-        Sat, 16 Aug 2025 01:48:20 -0700 (PDT)
+        bh=EDWOGAR/V8qhS+DEW6fYz84GWwsYflwCKKabdx3FCTA=;
+        b=KUWw75CfxNsNHgIgH0N+q4Ppr9Tlo/euWojqMaJcsWkspmGbdI7qlB1zzW5j/DsjcV
+         Ji9sfZePBSRJLH+45Y7aeUF8nam+v2VjsJA5AsgD4YFoQAZ6FOdPWlw8M/FxLJYPH5VN
+         j6/cV8iGTpdltu8AYmkc6mYNp3DntFJEK6EE/3xA2czLOuuIg3rkbx/GJjIY8V8mNVh9
+         z1OLzbWAa2Z09KvI3Vdc86K4RN+V/homC8umi5HP4xoBnC3Q7UmFeqdndzG4ShgeqdMH
+         xmtgYu5L5CCkpbXWz5q/HbXvHn65jjWBhplvbqbm3YoAdgQVjRDGGRvy/zS2nNah90v0
+         BDag==
+X-Forwarded-Encrypted: i=1; AJvYcCUQB+LC82VMeyz9dTf4NmmmXrpiZJUEJ/BdTISwxpuLFqx0je9yTETejo7vvxE7/JAjekZfpjEFx7Bs4YQ7G5qd@lists.infradead.org, AJvYcCVLMqwpAZDF5Y0Z3QqRYeSpyQfNnjX7RDp4u9yf9TkIm7yqkTAJI8MdCa+uLNbFqrvgqZfDtSO8nxdU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxmh97ju/zCjC0OHyv2ibOVaRPE7PWD1Tib37/Q0qEvAxl249yk
+	YvDp75T+CIkVxnN2dJ5gZ4z8a7Jl99ffCqSzBGn8HmcbnyaGgwDWjq8bg40q2ncfQ8g=
+X-Gm-Gg: ASbGnctYf8ZRFKB0Y+yCPGqNlHGcDVsCLIX3VKBTI7PMA5q423+L2MQVnA0muqb68Eb
+	Jpw5J0hwCg1xMsUE0QfSCtuy8kTjBM5wxYhS/tQN7VqQO7QiFnc0rnZukJCTSKU5ErOXkkIWmuE
+	j9Y4plAZ1exbnt9Zit0WFCK7jd/0XWN69AjmNT8xYMbhjhbMrDJyzh4YyZFbzFkWn1hD7PtlNvG
+	A8ZqyXIqfh6Kj9Ru5qJv8184+ZKjCwCq81YxYK5EEbasjzhdhp9ANMcx4A7p5HLW4pe00KT4akm
+	VE5hiHXmafzfOJ2G92t/+iyyeMFg9fpwkNSk57iGTOTDsc1z/ufPSdbEpgxh8h8RyXKPxridpgl
+	QiPpiIMA/Kig=
+X-Google-Smtp-Source: AGHT+IGsQHajlRxkkJKhsBN5q8Xue9SzeHzYvWpvVEasktK/+7UqcjxhnXytQgxkbXL5divXvBb2fw==
+X-Received: by 2002:a17:902:d50b:b0:242:b138:8110 with SMTP id d9443c01a7336-244598679d7mr146468085ad.24.1755334110487;
+        Sat, 16 Aug 2025 01:48:30 -0700 (PDT)
 Received: from junAIR ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d57f12esm31048215ad.157.2025.08.16.01.48.13
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d57f12esm31048215ad.157.2025.08.16.01.48.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 Aug 2025 01:48:20 -0700 (PDT)
+        Sat, 16 Aug 2025 01:48:30 -0700 (PDT)
 From: iuncuim <iuncuim@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,17 +87,18 @@ Cc: devicetree@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH 6/7] arm64: dts: allwinner: a523: add DWC3 USB3.0 node
-Date: Sat, 16 Aug 2025 16:46:59 +0800
-Message-ID: <20250816084700.569524-7-iuncuim@gmail.com>
+Subject: [PATCH 7/7] arm64: dts: allwinner: a523: activate USB3 for all boards
+Date: Sat, 16 Aug 2025 16:47:00 +0800
+Message-ID: <20250816084700.569524-8-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250816084700.569524-1-iuncuim@gmail.com>
 References: <20250816084700.569524-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_014821_758151_2871134F 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250816_014831_315403_76F65A10 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,49 +115,73 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-After adding the phy bindings, we can also add dwc3 node, which uses the
-previously added usbphy2 and part of usb3 from combophy.
-All settings declared in dwc3 node are obtained from the x96qproplus' dtb.
-BSP contains an additional glue driver for dwc3, but it seems that it is
-not needed.
+Currently, these devices have a USB 3.0 port. Therefore, we can activate
+it.
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts | 8 ++++++++
+ arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts  | 8 ++++++++
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 8 ++++++++
+ 3 files changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 233365496..ec170888a 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -606,6 +606,27 @@ mdio0: mdio {
- 			};
- 		};
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+index 553ad774e..6842f8e8d 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+@@ -47,6 +47,14 @@ reg_usb_vbus: vbus {
+ 	};
+ };
  
-+		dwc3: usb@4d00000 {
-+			compatible = "snps,dwc3";
-+			reg = <0x04d00000 0x100000>;
-+			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-+			dr_mode = "host";
-+			clocks = <&ccu CLK_MBUS_USB3>, <&ccu CLK_USB3>,
-+				 <&ccu CLK_USB2>, <&ccu CLK_USB3_SUSPEND>;
-+			clock-names = "bus_clk", "ref_clk3", "ref_clk2", "suspend";
-+			maximum-speed = "super-speed";
-+			phy_type = "utmi";
-+			snps,dis_enblslpm_quirk;
-+			snps,dis-u1-entry-quirk;
-+			snps,dis-u2-entry-quirk;
-+			snps,dis_u3_susphy_quirk;
-+			snps,dis_u2_susphy_quirk;
-+			snps,dis_rxdet_inp3_quirk;
-+			phys = <&usbphy 2>, <&combophy>;
-+			phy-names = "usb2-phy", "usb3-phy";
-+			status = "disabled";
-+		};
++&combophy {
++	status = "okay";
++};
 +
- 		combophy: phy@4f00000 {
- 			compatible = "allwinner,sun55i-a523-usb3-pcie-phy";
- 			reg = <0x04f00000 0x100000>;
++&dwc3 {
++	status = "okay";
++};
++
+ &ehci0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+index a96927fbd..19388bc11 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+@@ -46,6 +46,14 @@ reg_vcc3v3: vcc3v3 {
+ 	};
+ };
+ 
++&combophy {
++	status = "okay";
++};
++
++&dwc3 {
++	status = "okay";
++};
++
+ &ehci0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index b9eeb6753..6f05cd297 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -57,6 +57,14 @@ reg_usb_vbus: vbus {
+ 	};
+ };
+ 
++&combophy {
++	status = "okay";
++};
++
++&dwc3 {
++	status = "okay";
++};
++
+ &ehci0 {
+ 	status = "okay";
+ };
 -- 
 2.50.1
 
