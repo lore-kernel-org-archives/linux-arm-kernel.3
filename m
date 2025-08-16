@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A20CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C1ECA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qqaerb/uqSvSJv9vkRa9Ne2QOjl2Fkg0qv5vHMVLMx8=; b=UKjQPhlO6I2qeJOa0BZSXHms5o
-	Pn6IAP2329565EpBysZg5PKcZbIS/8YvPQnO5wmdoy9+bcTMP6TeN4HdMtCt7MRUzt/8RB35ORrMg
-	IQjVRgRZX8OZLUzBHrc0dvDOuXgANfnP47zEnNCwZPkrvlfBMUImhygca7owqG/RuYJEOptIKdcEf
-	jABQOHImYduKE8G+AkRusbr0sj7mL/rrMs9dBor6288op2OmjudHtDDuv4p3gjc2IkvYlI6APl2Nv
-	XevgzidBoLmTQpW8482tcFIAz6i7XZ6Y2iSvL5uYosjnoGa3XV3CeIK/TxUv+Mq2p19C0t03UvMKu
-	1FcpkUaA==;
+	bh=tFZQBxetfvJhwM5fv38wi4EIqcIkI3460uoa3T3gQ9Y=; b=H0VryAyYZWfYWfpXZ9NplS9URt
+	TUc9qcm8EaGhFUGBwXZIYC0fKlDJlLJ38dOlofamrvnz+vYNvSh4sbTdWLbaULe0L8xakRzpcSZ8N
+	osZ/dMrKhsebROeedQGpQOls65oAA76NCuxTYpOZbCXNRTspaA6tmjNxinacPICGJFRHKiMmr/c2l
+	snV6yuJt1HTkt0+58AjtKcaecXmkNXtZoF8FXpdaDum9Y9ASQAbKk2ZjY3Nt5914p51rPpYSwoPxr
+	y+YjOHvloD4BWq1xRQl9IOPHSIkpnDG3dmM1NeINKxUv4aE4kwIMkck3eolNB4JK3dlP5gpS4WCK+
+	GGkGRLXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDOt-00000004PY9-24Zl;
-	Sat, 16 Aug 2025 09:40:35 +0000
+	id 1unDRQ-00000004Q1T-07YL;
+	Sat, 16 Aug 2025 09:43:12 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDGi-00000004OXK-2FI2;
-	Sat, 16 Aug 2025 09:32:09 +0000
+	id 1unDHl-00000004Oj3-46FC;
+	Sat, 16 Aug 2025 09:33:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EDA7144F1D;
-	Sat, 16 Aug 2025 09:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD12C4CEEF;
-	Sat, 16 Aug 2025 09:32:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AB59845C4B;
+	Sat, 16 Aug 2025 09:33:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AFAC4CEEF;
+	Sat, 16 Aug 2025 09:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755336726;
-	bh=oEyF2eJ6WhDQJU764/6uBj7AJ/pKHLod7UwFKVQuEmI=;
+	s=k20201202; t=1755336793;
+	bh=CGm9yLJptkx/owDsJQBhgom8+2ST8ifFCJpbZhGlWus=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qeiDbmo8SFZVpreHbV3TyxkEafKo6aIVu8hKK+LyPE/V9/Ml8s+IuYUOYHN1/wt2R
-	 zlUpiX8S66IOKUYiRkkEwUzry4zqQ7he5t+c2FeIHW0wwpUTm3Ofzc4LDMWraEtxEQ
-	 cGnyyTPXKHQOgL9WHex/YXEtfQr9phCkyBU2lBSLuHU9RYHJeOkXFDIOkzQM34xlX1
-	 hQSyrZIGBi+9Qjm+DDMeXFezd6oCUWcQ6qKIx4m3dck7eBVBXCQ5u2eR5TFv/GPydy
-	 LRnZ1Ql07ABzPJCh5U4lvLdiUSKzTOIgxRgDp64ipA8qsxdWi6dp/W6n9zDmGjRDDO
-	 BS05vfLm/V1rA==
-Message-ID: <5e89d0c7-5ac5-4376-bc6e-c7ff8ee05024@kernel.org>
-Date: Sat, 16 Aug 2025 11:32:00 +0200
+	b=LWylBKzmboh6g8QmqLgQs7AM6K5L8Ww3TEfU0JKccbD8j58oEDnl4gEKayAhdfpZX
+	 r6zVnfVUCKMPN8BuOTY8mnF4r5G2Tzu21HFIQeU0kJ+0QX+v4PH/7CuRpUAPNWskel
+	 fb1pLoAWdJAqchrxf38Z6rnzaWcq99jMrqZiXG+Nrcm38nek4IZ9+3o1x4aBT5e9pK
+	 i4wA4r1F+z6jvEASMqrWEv0IjaHPQtYDi9tHRRnYQcF8enh9sqptmILGMUg9rP7pbH
+	 iHMKhNcmlNzE9cJFcB8cWSA42xM8L8p0G+DwEwYFDaSC+wD2aD05H/GdbYcKeKa78g
+	 ofyMhmRA4sUNg==
+Message-ID: <484e4ff2-c7b2-4087-8850-5a972e7c82b4@kernel.org>
+Date: Sat, 16 Aug 2025 11:33:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] arm64: dts: allwinner: a523: add USB3.0 phy node
+Subject: Re: [PATCH 4/7] phy: allwinner: a523: add USB3/PCIe PHY driver
 To: iuncuim <iuncuim@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
@@ -59,7 +59,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
  linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev
 References: <20250816084700.569524-1-iuncuim@gmail.com>
- <20250816084700.569524-6-iuncuim@gmail.com>
+ <20250816084700.569524-5-iuncuim@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250816084700.569524-6-iuncuim@gmail.com>
+In-Reply-To: <20250816084700.569524-5-iuncuim@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_023208_616337_24EAF681 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250816_023314_063730_240CFCA3 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +126,71 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/08/2025 10:46, iuncuim wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> 
-> After adding the phy driver, we can also add phy node. In addition to the
-> clk and reset lines, the power domain PD_PCIE is declared in this node
-> according to the bsp dtb. So let's mention it. 
-> Currently, phy driver does not support role selection and only works in
-> USB3.0 mode.
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+> +
+> +	phy->reset = devm_reset_control_get(dev, NULL);
+> +	if (IS_ERR(phy->reset)) {
+> +		dev_err(dev, "failed to get reset control\n");
+> +		return PTR_ERR(phy->reset);
 
-Please organize your patches correctly. One DTS was in the middle of
-patchset, other is at the end. They all must be at the end, because you
-cannot have dependency of driver on DTS.
+Syntax is return dev_err_probe.
+
+> +	}
+> +
+> +	phy->regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(phy->regs))
+> +		return PTR_ERR(phy->regs);
+> +
+> +	phy->regs_clk = phy->regs + PHY_CLK_OFFSET;
+> +	if (IS_ERR(phy->regs_clk))
+> +		return PTR_ERR(phy->regs_clk);
+> +
+> +	phy->phy = devm_phy_create(dev, NULL, &sun55i_usb3_pcie_phy_ops);
+> +	if (IS_ERR(phy->phy)) {
+> +		dev_err(dev, "failed to create PHY\n");
+> +		return PTR_ERR(phy->phy);
+> +	}
+> +
+> +	phy_set_drvdata(phy->phy, phy);
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +
+> +	ret = sun55i_usb3_pcie_clk_init(phy);
+> +	if (ret)
+> +		return ret;
+> +	dev_info(phy->dev, "phy version is: 0x%x\n", readl(phy->regs));
+
+
+This should be rather dev_dbg. See coding style.
+
+> +
+> +	return PTR_ERR_OR_ZERO(phy_provider);
+> +}
+> +
+> +static const struct of_device_id sun55i_usb3_pcie_phy_of_match[] = {
+> +	{ .compatible = "allwinner,sun55i-a523-usb3-pcie-phy" },
+
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
+
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, sun55i_usb3_pcie_phy_of_match);
+> +
+> +static struct platform_driver sun55i_usb3_pcie_phy_driver = {
+> +	.probe	= sun55i_usb3_pcie_phy_probe,
+> +	.driver = {
+> +		.of_match_table	= sun55i_usb3_pcie_phy_of_match,
+> +		.name  = "sun55i-usb3-pcie-phy",
+> +	}
+> +};
+> +module_platform_driver(sun55i_usb3_pcie_phy_driver);
+> +
+> +MODULE_DESCRIPTION("Allwinner A523 USB3/PCIe phy driver");
+> +MODULE_AUTHOR("Mikhail Kalashnikov <iuncuim@gmail.com>");
+> +MODULE_LICENSE("GPL");
+
 
 Best regards,
 Krzysztof
