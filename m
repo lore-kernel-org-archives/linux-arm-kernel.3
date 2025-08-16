@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CC5CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D95CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCLW+N0+WhmOZ8Vs8rffq/hY58zFhL1RWdKRsiIoYJI=; b=aBdLs4tpU7B2qqGInGB7HnFDBY
-	vU+NK3d1IAeoq1LRN61XT9qnoPAFRP8AjRqVkYuwPYR6bR2bubBnJozl1farxbv7dXlDVpHuHrhG7
-	MNqZbrTWGuwoUsI1rMkSGQV812iePYpIQuhROmmm/KLDnY0QudDBm70tAEfpq2oOBhhVAY+DjRvFH
-	tqBB0L8RFDwgc4K5BFcp4GHInaGgXt49MA0s44lIg6To9CEdLyGoGb4LA6Qd3st3n7Cwenwxylmy0
-	Mua276MMW8/1nHjI5vBhHwyWhj+9DaxhEk46IQ2KjN8Hp7xdb70Xc7bkZoQDyjRSchgF6y3dinv+O
-	rqOJbpUQ==;
+	bh=1xmxvbzu+dsWSk8521p6N/PnsMinT0NC6FKih1neHAk=; b=qr4YbudwyAIi250vxjAW5tf2PB
+	UzTBDu9KZdXrt9lqcJjQfjDkvyTQXEVLpdCjjHLqYhr0rUydpH+Vu4i/zR+0iG6aPE8aFqRY4lip2
+	u/oaVpkHIIcUxtI0FEXgMVeFViQCaJsJKpD0AkJs1YKb4KIeZoBYtDOKQy6Ce2ZHabUhG1MMzO1MG
+	dvBvvVJ1bSdA42SByyhX4rE4LeE9Kv5RQ0FNc9aVAWATJ1lLb+XCJht7GUE/NdD+X+QXPVa85V/b/
+	WEYswexZaoyr0ct8x86ztVocPm7WBV2mMbsT4dc1fyunncNBfgimVBGUy9f33wIuAQCG5qHZSLqn/
+	4ppbXORw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCBs-00000004INH-2IeG;
-	Sat, 16 Aug 2025 08:23:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1unCOg-00000004J14-3Iiw;
+	Sat, 16 Aug 2025 08:36:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unC6q-00000004Hvv-2iuW
+	id 1unCM8-00000004ItC-37ok
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 08:17:54 +0000
+	Sat, 16 Aug 2025 08:33:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0DCC15C3E76;
-	Sat, 16 Aug 2025 08:17:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DD4C4CEEF;
-	Sat, 16 Aug 2025 08:17:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C62FA5C4A36;
+	Sat, 16 Aug 2025 08:33:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 102EFC4CEEF;
+	Sat, 16 Aug 2025 08:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755332270;
-	bh=dkxFSzv5jF+G3mSFmT1qV2yVSNHcZO+E82VDG6eatdA=;
+	s=k20201202; t=1755333219;
+	bh=NoF/gia3BzIk7K9+zQybrkg4qnMCSC4IHUB+TORz8TQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RQ+K5Dz8TMWd64i5J2al719z7VrWVfpV5Cy5JUC+hIjbSSXpxYjr6JBYPhuJROyau
-	 IbZF/9nEP1oXDfoBJe6Qizm6jzpaxLMib5jya7SRY7pG7hi/I0/CS4ltlpebnZCsvZ
-	 A37BAbfGPSOufeIea59aTNWqXBWSC7O0wP9btDxRMXI5qqVrgWZZWCJCRJm2i1j+4q
-	 6paWGXciBx92QvEiJFvK/SFHaVkbWEwmQq0SmglXvJcexNeGuoqPBNMO+fR+OMUfGS
-	 f0+yFqKfdLZq3OOOOEWM9kJY5Gz/rzlFBwWSzRS91CwpOWNUCwN+sw+oatSlVEdns1
-	 2Uq7boKEKG7jw==
-Message-ID: <533e305d-7659-4343-b2e8-ee40391bfa84@kernel.org>
-Date: Sat, 16 Aug 2025 10:17:46 +0200
+	b=EduzWTlTyrKzPY6aHEtGQISHbS/b+1yjJdU3OsXnjqnYQXCm599FXAPNI9VYyEz0z
+	 FYgc6ov3Uegdq9x5dWmsRlKoCdk8eX39OuLVM0sNTvt6pAG+V4FW1zGfYEafLfeagY
+	 wIbG9pXc7p1auGgoSq2dzEAK3E5W+PLQerPqOZxVcoP77qGLLWp524Y+X0ea9xF7rg
+	 wB4slB8i3HnVHhRuRr6tQc1KcyLU0Eg1hIoybRAM7HaMEgZB/ZL559hYMwMa0KSpas
+	 Tk2MT0rTZgnzifvtnGbkQW80gVL/rMARzv5sOzLQkloWUjzA7TPEPcG3U7XTl1/MLh
+	 wxEqOOh8GRd2Q==
+Message-ID: <e82ca132-f312-45b5-bec0-9d83cd3771d4@kernel.org>
+Date: Sat, 16 Aug 2025 10:33:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ARM: dts: aspeed: Add device tree for mgx4u BMC
-To: Marc Olberding <molberding@nvidia.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
- <20250815-mgx4u_devicetree-v1-3-66db6fa5a7e4@nvidia.com>
+Subject: Re: [PATCH 1/3] dt-bindings: arm: qcom: Add Coresight Interconnect
+ TNOC
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com>
+ <20250815-itnoc-v1-1-62c8e4f7ad32@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250815-mgx4u_devicetree-v1-3-66db6fa5a7e4@nvidia.com>
+In-Reply-To: <20250815-itnoc-v1-1-62c8e4f7ad32@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_011752_783276_EF61A66E 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250816_013340_876951_66801B2A 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,614 +124,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/08/2025 21:45, Marc Olberding wrote:
-> +		i2c69 = &i2c9_mux_6;
-> +		i2c70 = &i2c9_mux_7;
-> +	};
+On 15/08/2025 15:18, Yuanfang Zhang wrote:
+> Add device tree binding for Qualcomm Coresight Interconnect Trace
+> Netwrok On Chip (ITNOC). This TNOC acts as a CoreSight
+> graph link that forwards trace data from a subsystem to the
+> Aggregator TNOC, without aggregation or ATID functionality.
+> 
+> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> ---
+>  .../bindings/arm/qcom,coresight-itnoc.yaml         | 108 +++++++++++++++++++++
+>  1 file changed, 108 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fd224e07ce68918b453210763aacda585d5a5ca2
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
+> @@ -0,0 +1,108 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/qcom,coresight-itnoc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	chosen {
-> +		bootargs = "console=ttyS4,115200n8";
+> +title: Qualcomm Interconnect Trace Network On Chip - ITNOC
+> +
+> +maintainers:
+> +  - Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> +
+> +description: |
 
-No, use stdout.
+Do not need '|' unless you need to preserve formatting.
 
-> +	};
+> +  The Interconnect TNOC is a CoreSight graph link that forwards trace data
+> +  from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC, it
+> +  does not have aggregation and ATID functionality.
 > +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x80000000 0x80000000>;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges;
-> +
-> +		gfx_memory: framebuffer {
-> +			size = <0x01000000>;
-> +			alignment = <0x01000000>;
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +		};
-> +
-> +		video_engine_memory: jpegbuffer {
-> +			size = <0x02000000>;	/* 32M */
-> +			alignment = <0x01000000>;
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +		};
-> +	};
-> +};
-> +
-> +&ehci1 {
-> +	status = "okay";
-> +};
-> +
-> +&emmc_controller {
-> +	status = "okay";
-> +};
-> +
-> +&emmc {
-> +	non-removable;
-> +	bus-width = <4>;
-> +	max-frequency = <100000000>;
-> +	clk-phase-mmc-hs200 = <9>, <225>;
-> +};
-> +
-> +&fmc {
-> +	status = "okay";
-> +
-> +	flash@0 {
-> +		status = "okay";
-> +		m25p,fast-read;
-> +		label = "bmc";
-> +		spi-rx-bus-width = <4>;
-> +		spi-tx-bus-width = <4>;
-> +		spi-max-frequency = <50000000>;
-> +#include "openbmc-flash-layout-128.dtsi"
-> +	};
-> +};
-> +
-> +&gfx {
-> +	memory-region = <&gfx_memory>;
-> +	status = "okay";
-> +};
-> +
-> +&gpio0 {
-> +	gpio-line-names =
-> +	/*A0-A7*/ "","","","","","","","",
-> +	/*B0-B7*/ "","","","","","","","RST_BMC_8211F_N",
-> +	/*C0-C7*/ "","","","","","","","",
-> +	/*D0-D7*/ "","","","","","","","",
-> +	/*E0-E7*/ "","","","","","","","",
-> +	/*F0-F7*/ "","RST_BIOSROM_1_BMC_N","","RST_SPI_PFRM1_R_N","","","SPI_BIOS_MUX_SEL","",
-> +	/*G0-G7*/ "","","","","","","","",
-> +	/*H0-H7*/ "","","","","","","","",
-> +	/*I0-I7*/ "","","","","","","","",
-> +	/*J0-J7*/ "","","","","","","","",
-> +	/*K0-K7*/ "","","","","","","","",
-> +	/*L0-L7*/ "","","","","","","","",
-> +	/*M0-M7*/ "","","","","","","","",
-> +	/*N0-N7*/ "","","","","","","","",
-> +	/*O0-O7*/ "","","","","","","","",
-> +	/*P0-P7*/ "","","","","","","","",
-> +	/*Q0-Q7*/ "","","","","","","","",
-> +	/*R0-R7*/ "","","","","","","","",
-> +	/*S0-S7*/ "","","","","","","","",
-> +	/*T0-T7*/ "","","","","","","","",
-> +	/*U0-U7*/ "","","","","","","","",
-> +	/*V0-V7*/ "","","SCM_HPM_STBY_RST_N","","SCM_HPM_STBY_EN","","","",
-> +	/*W0-W7*/ "","","","","","","","",
-> +	/*X0-X7*/ "","","","","","","","",
-> +	/*Y0-Y7*/ "","","","","","","","",
-> +	/*Z0-Z7*/ "","","","","","","","";
-> +	status = "okay";
-> +};
-> +
-> +&gpio1 {
-> +	gpio-line-names =
-> +	/*18A0-18A7*/ "","","","","","","","",
-> +	/*18B0-18B7*/ "","","","","SW_MAIN_EN","HOST_GLOBAL_WP_N","","",
-> +	/*18C0-18C7*/ "","","","","","","","",
-> +	/*18D0-18D7*/ "","","","","","","","",
-> +	/*18E0-18E3*/ "","","","";
-> +	status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +
-> +	i2c-mux@73 {
-> +		compatible = "nxp,pca9548";
-> +		reg = <0x73>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c0_mux_0: i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_mux_1: i2c@1 {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +			reg = <1>;
-> +		};
-> +
-> +		i2c0_mux_2: i2c@2 {
-> +			reg = <2>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_mux_3: i2c@3 {
-> +			reg = <3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			eeprom@51 {
-> +				compatible = "atmel,24c02";
-> +				reg = <0x51>;
-> +			};
-> +		};
-> +
-> +		i2c0_mux_4: i2c@4 {
-> +			reg = <4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_mux_5: i2c@5 {
-> +			reg = <5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_mux_6: i2c@6 {
-> +			reg = <6>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			tmp75@4c {
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - qcom,coresight-itnoc
+> +  required:
+> +    - compatible
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Why all this? Drop
 
-> +				compatible = "ti,tmp75";
-> +				reg = <0x4c>;
-> +			};
-> +		};
 > +
-> +		i2c0_mux_7: i2c@7 {
-> +			reg = <7>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +
-> +	i2c-mux@77 {
-> +		compatible = "nxp,pca9548";
-> +		reg = <0x77>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c0_1_mux_0: i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_1: i2c@1 {
-> +			reg = <1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_2: i2c@2 {
-> +			reg = <2>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_3: i2c@3 {
-> +			reg = <3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_4: i2c@4 {
-> +			reg = <4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_5: i2c@5 {
-> +			reg = <5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_6: i2c@6 {
-> +			reg = <6>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c0_1_mux_7: i2c@7 {
-> +			reg = <7>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c3 {
-> +	status = "okay";
-> +
-> +	i2c-mux@72 {
-> +		compatible = "nxp,pca9548";
-> +		reg = <0x72>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c3_mux_6: i2c@6 {
-> +			reg = <6>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c3_mux_7: i2c@7 {
-> +			reg = <7>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c4 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c5 {
-> +	status = "okay";
-> +
-> +	i2c-mux@77 {
-> +		compatible = "nxp,pca9548";
-> +		reg = <0x77>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c5_mux_0: i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_1: i2c@1 {
-> +			reg = <1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_2: i2c@2 {
-> +			reg = <2>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_3: i2c@3 {
-> +			reg = <3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_4: i2c@4 {
-> +			reg = <4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_5: i2c@5 {
-> +			reg = <5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_6: i2c@6 {
-> +			reg = <6>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c5_mux_7: i2c@7 {
-> +			reg = <7>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c6 {
-> +	status = "okay";
-> +
-> +	i2c-mux@70 {
-> +		reg = <0x70>;
-> +		compatible = "nxp,pca9548";
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		i2c-mux-idle-disconnect;
-> +
-> +		i2c6_mux_0: i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			tmp75@4a {
-> +				compatible = "ti,tmp75";
-> +				reg = <0x4a>;
-> +			};
-> +
-> +			tmp75@4b {
-> +				compatible = "ti,tmp75";
-> +				reg = <0x4b>;
-> +			};
-> +
-> +			eeprom@51 {
-> +				compatible = "atmel,24c64";
-> +				reg = <0x51>;
-> +				pagesize = <32>;
-> +			};
-> +		};
-> +
-> +		i2c6_mux_1: i2c@1 {
-> +			reg = <1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			/*fan controller 0*/
-> +			max31790@20 {
-> +				compatible = "maxim,max31790";
-> +				reg = <0x20>;
-> +			};
-> +
-> +			/*fan controller 1*/
-> +			max31790@21 {
-> +				compatible = "maxim,max31790";
-> +				reg = <0x21>;
-> +			};
-> +
-> +			eeprom@57 {
-> +				compatible = "atmel,24c64";
-> +				reg = <0x57>;
-> +				pagesize = <32>;
-> +			};
-> +
-> +			hpmfanio: pca9555@27 {
+> +properties:
+> +  $nodename:
+> +    pattern: "^tnoc(@[0-9a-f]+)?$"
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Why are you requiring a non-generic name?
 
+> +
+> +  compatible:
+> +    items:
 
-> +				compatible = "nxp,pca9555";
-> +				reg = <0x27>;
-> +				gpio-controller;
-> +				#gpio-cells = <2>;
-> +				interrupt-controller;
-> +				#interrupt-cells = <2>;
-> +				interrupt-parent = <&gpio0>;
-> +				interrupts = <11 0>;
-> +				gpio-line-names =
-> +						"HPM_FAN1_INSTALL", "HPM_FAN2_INSTALL",
-> +						"HPM_FAN3_INSTALL", "HPM_FAN4_INSTALL",
-> +						"HPM_FAN5_INSTALL", "",
-> +						"","";
-> +			};
-> +		 };
-> +
-> +		 i2c6_mux_2: i2c@2 {
-> +			reg = <2>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		 };
-> +
-> +		 i2c6_mux_3: i2c@3 {
-> +			reg = <3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			/* 4056 fan board_EEPROM*/
-> +			eeprom@57 {
-> +				compatible = "atmel,24c64";
-> +				reg = <0x57>;
-> +				pagesize = <32>;
-> +			};
-> +
-> +			/*fan controller 0*/
-> +			max31790@20 {
-> +				compatible = "maxim,max31790";
-> +				reg = <0x20>;
-> +			};
-> +			/*fan controller 1*/
-> +			max31790@21 {
-> +				compatible = "maxim,max31790";
-> +				reg = <0x21>;
-> +			};
-> +
-> +			gpufanio: pca9555@27 {
-> +				compatible = "nxp,pca9555";
-> +				reg = <0x27>;
-> +				gpio-controller;
-> +				#gpio-cells = <2>;
-> +				interrupt-controller;
-> +				#interrupt-cells = <2>;
-> +				interrupt-parent = <&gpio0>;
-> +				interrupts = <11 0>;
-> +				gpio-line-names =
-> +						"GPU_FAN1_INSTALL", "GPU_FAN2_INSTALL",
-> +						"GPU_FAN3_INSTALL", "GPU_FAN4_INSTALL",
-> +						"GPU_FAN5_INSTALL", "",
-> +						"","";
-> +			};
-> +		 };
-> +
-> +		i2c6_mux_4: i2c@4 {
-> +			reg = <4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			/* IO board EEPROM*/
-> +			eeprom@57 {
-> +				compatible = "atmel,24c64";
-> +				reg = <0x57>;
-> +				pagesize = <32>;
-> +			};
-> +		};
-> +
-> +		i2c6_mux_5: i2c@5 {
-> +			reg = <5>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c6_mux_6: i2c@6 {
-> +			reg = <6>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c6_mux_7: i2c@7 {
-> +			reg = <7>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +};
-> +
-> +&i2c7 {
-> +	multi-master;
-> +	status = "okay";
-> +
-> +	i2c-mux@70 {
-> +		compatible = "nxp,pca9548";
-> +		reg = <0x70>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		i2c7_mux_0: i2c@0 {
-> +			reg = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c7_mux_1: i2c@1 {
-> +			reg = <1>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			i2c-mux@71 {
-> +				compatible = "nxp,pca9545";
-> +				reg = <0x71>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				i2c7_1_mux_0: i2c@0 {
-> +					reg = <0>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +
-> +				i2c7_1_mux_1: i2c@1 {
-> +					reg = <1>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					eeprom@55 {
-> +						compatible = "atmel,24c64";
-> +						reg = <0x55>;
-> +						pagesize = <32>;
-> +					};
-> +
-> +					eeprom@50 {
-> +						compatible = "atmel,24c02";
-> +						reg = <0x50>;
-> +						pagesize = <32>;
-> +					};
-> +
-> +					eeprom@53 {
-> +						compatible = "atmel,24c02";
-> +						reg = <0x53>;
-> +						pagesize = <32>;
-> +					};
-> +				};
-> +
-> +				i2c7_1_mux_2: i2c@2 {
-> +					reg = <2>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +
-> +				i2c7_1_mux_3: i2c@3 {
-> +					reg = <3>;
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +				};
-> +			};
-> +		};
-> +
-> +		i2c7_mux_2: i2c@2 {
-> +			reg = <2>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +
-> +		i2c7_mux_3: i2c@3 {
-> +			reg = <3>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			/* XDPE19284B - CPU0 PVCCIN VR */
-> +			xdpe152c4@60 {
-> +				compatible = "infineon,xdpe152c4";
-> +				reg = <0x60>;
-> +			};
-> +
-> +			/* XDPE19284B - CPU0 PVCCFA EHV FIVRA / PVCCINF_VR*/
-> +			xdpe152c4@62 {
-> +				compatible = "infineon,xdpe152c4";
-> +				reg = <0x62>;
-> +			};
-> +
-> +			/* XDPE19284B - CPU0 PVCCA EHV PVCCIN VR */
-> +			xdpe152c4@74 {
-> +				compatible = "infineon,xdpe152c4";
-> +				reg = <0x74>;
-> +			};
-> +
-> +			/* XDPE19284B - CPU0 PVVCCD0 & D1 VR */
-> +			xdpe152c4@76 {
-> +				compatible = "infineon,xdpe152c4";
-> +				reg = <0x76>;
-> +			};
-> +		};
-> +
-> +		i2c7_mux_4: i2c@4 {
-> +			reg = <4>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			/* XDPE19284B - CPU1 PVCCIN VR */
-> +			xdpe152c4@60 {
+No need for items
 
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> +      - const: qcom,coresight-itnoc
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description: Base address and size of the ITNOC registers.
 
+Drop, redundant
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: apb
+
+Drop clock-names, obvious. Also, odd order - names are never before
+actual property.
+
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  in-ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      '#address-cells':
+> +        const: 1
+> +      '#size-cells':
+> +        const: 0
+> +
+> +    patternProperties:
+> +      '^port(@[0-9a-f]{1,2})?$':
+
+Why do you have here 255 ports?
+
+> +        description: Input connections from CoreSight Trace Bus
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +    additionalProperties: false
+
+This goes after $ref
+
+> +
+> +  out-ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port:
+> +        description: out connections to aggregator TNOC
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +    additionalProperties: false
+
+This goes after ref
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+
+And here different order... Be consistent. See also DTS coding style.
+
+> +  - in-ports
+> +  - out-ports
+> +
+> +additionalProperties: false
+> +
 
 
 
