@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AECDCCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 06:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB8B6CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 06:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+P9dxchY5SJkktkl8TcKYhsAOXSaRJWlUgjAz3ODR0=; b=E1zKX2XpwVR7OBEaZo5CHHiGgm
-	B1Qm1mHQaK2bNMPdhmMayaX+oKuYvZ2HoxrvO6bHejqymdNZjMzbaomcCVsMBLpdqaWIxn+qZ11iM
-	sLcnkiYMn5lm7CY8JIDBYjw7F8dXbTgk9rJjSph6mCl+r+hX5J6j5luP3h2EL92IxPHHnOoQjONYY
-	F7PxPhGspY+qMWR1Qmr0HyXxk+hTCAWra+d0CCU0ITRDYkCbkfxPbC4+Zw+YKlqMDWpGJ3wb7/eR1
-	q571UBdkQrOgFQ1rtZomRY2R04iBnFKFozu1WfDvmf4hCnGQ/eSwidmPMTplgNLifaewVHcYU/xyY
-	QikPQhUA==;
+	bh=cOdNjKyebw/s0rYRUwH2anrLdBAU4WTiR9sWOyp0RzU=; b=aVl7Uk4c+ebHQnUlTN3I6qP8A2
+	pqcXXtnzyTAI+tZIslIB+ZK/NIJ8UOpfbAJzeNzkvaL/xBmDzFueoR3u+S5GAOEAP+x5Hm72C2HI2
+	stnpt4kXLUMI5IGSupuokfSUE/mPnkxxeU+o6TiKL5+fj78ttK14sV6c6SC6ZknHMRt6wX7JeZG4d
+	KPDJw7IU/4S3G13+It/MHFs8ye2uSY72/nttiw6mOyrAlvzmOZPOzokFX83hON5pGgPlcW703VyaX
+	wIXouP+A5u+nJU3lhOhkEy6PD7JVL3xtn3E79AhPt+tC5+FTZRG7rF7gGucERFwup/HH7S2j5FjYE
+	RE4dtAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unAmB-00000004AR7-47Zq;
-	Sat, 16 Aug 2025 06:52:27 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unAjd-00000004AJg-1my6
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 06:49:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=t2FIL0R2g0j7CPoPJZf3RTeZF3I0HPipz6v385+gi4A=; b=Y
-	FtkgtcP2U8ZDKFYRT3cEP5UXb6dddKNlD7TqxuRwIg9Xl5yx4SdSbJW20xdNbtwk
-	cp9zNKGctmYKLMMPcOGaHg2dCcHKkW1u88Lf7mH3lRwkytqtdd+B7jaYqK5BVax5
-	0Sr2b/1MJ8taAa3x0nHpxPA87JE0SXigzN2nN8N3U0=
-Received: from 15074444048$163.com ( [116.128.244.169] ) by
- ajax-webmail-wmsvr-40-149 (Coremail) ; Sat, 16 Aug 2025 14:49:21 +0800
- (CST)
-X-Originating-IP: [116.128.244.169]
-Date: Sat, 16 Aug 2025 14:49:21 +0800 (CST)
-From: =?GBK?B?wO66wL3c?= <15074444048@163.com>
-To: "Mark Brown" <broonie@kernel.org>
-Cc: catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev,
-	maz@kernel.org, joey.gouly@arm.com, james.morse@arm.com,
-	miko.lenczewski@arm.com, yangyicong@hisilicon.com,
-	robin.murphy@arm.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org, lihaojie <lihaojie@kylinos.cn>
-Subject: Re: [PATCH] arm64: cpufeature: Replace inline with __always_inline
- for GCS checks
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <4ac4f0d0-fa5e-4c47-bcdb-fc2a65450848@sirena.org.uk>
-References: <20250815011905.1368058-1-15074444048@163.com>
- <4ac4f0d0-fa5e-4c47-bcdb-fc2a65450848@sirena.org.uk>
-X-NTES-SC: AL_Qu2eB/+ZuUEt5yibYukfmkgajuw7XcK5v/Un3IBXOZFwjCLr1BgxR3xEJUTE89qCCB2trR+QYDxHzcJGRpFEX58oepg+dUNSY44EssKFraRpPA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	id 1unAs8-00000004B8y-04Ob;
+	Sat, 16 Aug 2025 06:58:36 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unApZ-00000004AiE-0O5P;
+	Sat, 16 Aug 2025 06:55:58 +0000
+Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
+	by mxout4.routing.net (Postfix) with ESMTP id 87FCD10078F;
+	Sat, 16 Aug 2025 06:55:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1755327352;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cOdNjKyebw/s0rYRUwH2anrLdBAU4WTiR9sWOyp0RzU=;
+	b=B90Bbbv3kORkuslteF8M9lfemmr/Ar1i0t3y1qMPZ3aNWD5GMw4AF99Zmf/twP1Z2Xvzxh
+	VHoMItSyNhLXYNk6eJP2k+iwn8QLsnvEmMzpau4i7qAkKW02XnkQBDIX7WsMeXFCbyVHbA
+	JGT7zABH+1AdtypI/z6yjto4yaFzkLc=
+Received: from [IPv6:::1] (unknown [IPv6:2a01:599:a34:a3b8:9076:e76e:6930:1412])
+	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 156781002C7;
+	Sat, 16 Aug 2025 06:55:51 +0000 (UTC)
+Date: Sat, 16 Aug 2025 08:55:51 +0200
+From: Frank Wunderlich <linux@fw-web.de>
+To: patchwork-bot+netdevbpf@kernel.org
+CC: myungjoo.ham@samsung.com, kyungmin.park@samsung.com, cw00.choi@samsung.com,
+ djakov@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, johnson.wang@mediatek.com,
+ arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
+ sean.wang@mediatek.com, daniel@makrotopia.org, lorenzo@kernel.org,
+ nbd@nbd.name, frank-w@public-files.de, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v9 00/13] further mt7988 devicetree work
+User-Agent: K-9 Mail for Android
+In-Reply-To: <175218542224.1682269.17523198222056896163.git-patchwork-notify@kernel.org>
+References: <20250709111147.11843-1-linux@fw-web.de> <175218542224.1682269.17523198222056896163.git-patchwork-notify@kernel.org>
+Message-ID: <8A21C091-0C26-4E9F-9B9E-E28A01F71369@fw-web.de>
 MIME-Version: 1.0
-Message-ID: <5bc224c7.18fa.198b1a3d8b4.Coremail.15074444048@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: lSgvCgD3n5PyKaBomDQbAA--.392W
-X-CM-SenderInfo: rprvilauuukiiuy6il2tof0z/1tbiMQurUGif4h9jhgAEsq
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mail-ID: d7d08745-eee0-42d0-ad9e-cba520e4f9d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250815_234949_775620_506BC39E 
-X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-CacheID: sfid-20250815_235557_301078_2D725B11 
+X-CRM114-Status: UNSURE (   8.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,33 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgoKCgoKCgoKCgoKCkF0IDIwMjUtMDgtMTUgMjM6Mzg6MTEsICJNYXJrIEJyb3duIiA8YnJvb25p
-ZUBrZXJuZWwub3JnPiB3cm90ZToKPk9uIEZyaSwgQXVnIDE1LCAyMDI1IGF0IDA5OjE5OjA1QU0g
-KzA4MDAsIDE1MDc0NDQ0MDQ4QDE2My5jb20gd3JvdGU6Cj4KPj4gV2hlbiB1c2UgX19hbHdheXNf
-aW5saW5lIFRoZSBjb21waWxlciB3aWxsIGFsbW9zdCBjZXJ0YWlubHkgaW5saW5lCj4+IHN5c3Rl
-bV9zdXBwb3J0c19nY3MsIHdoaWNoIGFsbG93cyB0aGUgY29tcGlsZXIgdG8gb3B0aW1pemUgYW5k
-IGNoZWNrCj4+IGVhcmxpZXIgZHVyaW5nIHRoZSBjb21waWxhdGlvbiBwaGFzZS4gSWYgc3lzdGVt
-X3N1cHBvcnRzX2djcygpIHJldHVybnMKPj4gZmFsc2UsIHRoZW4gdGhlIGxpbmUgb2YgY29kZSBy
-ZXN0b3JlX2djc19jb250ZXh0ICgmdXNlcikgd2lsbCBub3QKPj4gYWN0dWFsbHkgYmUgZ2VuZXJh
-dGVkLCBzbyB0aGUgY29tcGlsZXIgd2lsbCBub3QgcmVwb3J0IGFuIGVycm9yLgo+Cj4+IC1zdGF0
-aWMgaW5saW5lIGJvb2wgc3lzdGVtX3N1cHBvcnRzX2djcyh2b2lkKQo+PiArc3RhdGljIF9fYWx3
-YXlzX2lubGluZSBib29sIHN5c3RlbV9zdXBwb3J0c19nY3Modm9pZCkKPj4gIHsKPj4gIAlyZXR1
-cm4gYWx0ZXJuYXRpdmVfaGFzX2NhcF91bmxpa2VseShBUk02NF9IQVNfR0NTKTsKPj4gIH0KPgo+
-SWYgd2UncmUgZG9pbmcgdGhpcyBmb3Igb25lIG9mIHRoZSBzeXN0ZW1fc3VwcG9ydHNfZm9vKCkg
-ZnVuY3Rpb25zIHdlCj5zaG91bGQgZG8gaXQgZm9yIGFsbCBvZiB0aGVtIGNvbnNpc3RlbnRseSwg
-bm90IGp1c3QgZm9yIG9uZSByYW5kb20gb25lLgoKVGhhbmtzIGZvciB5b3VyIGFkdnMhCgpUaGUg
-a2V5IHBvaW50IG9mIHRoaXMgaXNzdWUgaXMgdGhhdCBjYWxsaW5nIHByZXNlcnZlX2djc19jb250
-ZXh0IGFuZCByZXN0b3JlX2djc19jb250ZXh0IGlsbGVnYWwsCj4+PgpAQCAtMTEzNiw2ICsxMjM5
-LDEyIEBAIHN0YXRpYyBpbnQgc2V0dXBfc2lnZnJhbWUoc3RydWN0IHJ0X3NpZ2ZyYW1lX3VzZXJf
-bGF5b3V0ICp1c2VyLAogICAgICAgICAgICAgICAgX19wdXRfdXNlcl9lcnJvcihjdXJyZW50LT50
-aHJlYWQuZmF1bHRfY29kZSwgJmVzcl9jdHgtPmVzciwgZXJyKTsKICAgICAgICB9CiAKKyAgICAg
-ICBpZiAoc3lzdGVtX3N1cHBvcnRzX2djcygpICYmIGVyciA9PSAwICYmIHVzZXItPmdjc19vZmZz
-ZXQpIHsKKyAgICAgICAgICAgICAgIHN0cnVjdCBnY3NfY29udGV4dCBfX3VzZXIgKmdjc19jdHgg
-PQorICAgICAgICAgICAgICAgICAgICAgICBhcHBseV91c2VyX29mZnNldCh1c2VyLCB1c2VyLT5n
-Y3Nfb2Zmc2V0KTsKKyAgICAgICAgICAgICAgIGVyciB8PSBwcmVzZXJ2ZV9nY3NfY29udGV4dChn
-Y3NfY3R4KTsKKyAgICAgICB9Cjw8PApfX2Fsd2F5c19pbmxpbmUganVzdCBoZWxwIG9wdGltaXpl
-IHVuZGVmaW5lZCBmdW5jo6xPZiBjb3Vyc2UsIHRoaXMgY291bGQgYWxzbyBiZSBjaXJjdW12ZW50
-ZWQgCmJ5IGFkZGluZyBDT05GSUdfQVJNNjRfR0NTIGNoZWNrcy4gSSdkb24ndCB0aGluayBvdGhl
-ciBzeXN0ZW1fc3VwcG9ydF9mb28oKSBmdW5jdGlvbnMKIHNob3VsZCBtb2RpZnksIHRoZXkgZG9u
-J3QgZXhoaWJpdCBzaW1pbGFyIHByb2JsZW1zLgo=
+Am 11=2E Juli 2025 00:10:22 MESZ schrieb patchwork-bot+netdevbpf@kernel=2Eo=
+rg:
+>Hello:
+>
+>This series was applied to netdev/net-next=2Egit (main)
+>by Jakub Kicinski <kuba@kernel=2Eorg>:
+>
+>On Wed,  9 Jul 2025 13:09:36 +0200 you wrote:
+>> From: Frank Wunderlich <frank-w@public-files=2Ede>
+>>=20
+>> This series continues mt7988 devicetree work
+>>=20
+>> - Extend cpu frequency scaling with CCI
+>> - GPIO leds
+>> - Basic network-support (ethernet controller + builtin switch + SFP Cag=
+es)
+>>=20
+>> [=2E=2E=2E]
+>
+>Here is the summary with links:
+>  - [v9,01/13] dt-bindings: net: mediatek,net: update mac subnode pattern=
+ for mt7988
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/29712b437339
+>  - [v9,02/13] dt-bindings: net: mediatek,net: allow up to 8 IRQs
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/356dea0baf4c
+>  - [v9,03/13] dt-bindings: net: mediatek,net: allow irq names
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/23ac2a71bdbd
+>  - [v9,04/13] dt-bindings: net: mediatek,net: add sram property
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/c4582a31efd9
+>  - [v9,05/13] dt-bindings: net: dsa: mediatek,mt7530: add dsa-port defin=
+ition for mt7988
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/588cb646ce70
+>  - [v9,06/13] dt-bindings: net: dsa: mediatek,mt7530: add internal mdio =
+bus
+>    https://git=2Ekernel=2Eorg/netdev/net-next/c/66a44adf4c3d
+>  - [v9,07/13] arm64: dts: mediatek: mt7986: add sram node
+>    (no matching commit)
+>  - [v9,08/13] arm64: dts: mediatek: mt7986: add interrupts for RSS and i=
+nterrupt names
+>    (no matching commit)
+>  - [v9,09/13] arm64: dts: mediatek: mt7988: add basic ethernet-nodes
+>    (no matching commit)
+>  - [v9,10/13] arm64: dts: mediatek: mt7988: add switch node
+>    (no matching commit)
+>  - [v9,11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliases for ethe=
+rnet
+>    (no matching commit)
+>  - [v9,12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp cages and li=
+nk to gmac
+>    (no matching commit)
+>  - [v9,13/13] arm64: dts: mediatek: mt7988a-bpi-r4: configure switch phy=
+s and leds
+>    (no matching commit)
+>
+>You are awesome, thank you!
+
+Hi
+
+Any comments on the missing DTS parts or can they applied too?
+regards Frank
 
