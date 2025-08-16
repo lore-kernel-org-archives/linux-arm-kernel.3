@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F475CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D76CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oEZRhNobuQwT1clzqpxUc/7xS3MNE9Yta/+P3o9/YN0=; b=YZZeGoncoAT7pqDAgMO1C1+fzl
-	Fo5vvNEdJhvuTE5De4GJmtxWpS/4CiU5H2Oxqh5L+DcV3EA7OhBBfE2HubbjNsn+6Ht5ay+jYYsP6
-	jfWFm4/2t1s9qZdogvHvfsO2XgGkLhw5Ids83/kSaAMniDjTBJGvdWjs/qcCR6JreyGgRqC0I1kHV
-	C0h3qNVxiBDrC5Fh5+pVaHzJj1lE8GnQx64mbt5+deflNNS3+4tfoUSCCZSizOuSiEiz2+/QLvYCb
-	9FQoONvb4zeGDqgsjssxVwoE2eJ1ndhBPze0VIXOvCuyvD3JmsUJ+xV3sDL/AP8Te7g6SPZcQF1I8
-	3iAb1pJg==;
+	bh=Noz5zABULx+A8HX0fjNJbVtGpLCVMZc/29ZzRsW84O0=; b=RBHJVxvnnO79yuLd6Z5k7vonKG
+	ahaU8Va9Ym07h2FwhYwpuNIqGUWKAiMkU2IF1EeFZq0A3X85tvl8kVvPJfxTpdivfhuU1rY2KliOY
+	3WkQ5dyHYrJ8DjnSC3J048DO2oQLciT8WcRZ3+tbID/MIRHuRFdZumzHZCpV+ocJkJZVGZg6Yf3zf
+	Gye/c1sswgZkrTjGFSIrql7FE3DLv6w+UagHzU5wfWap1VXDMo85O+Pe3mnW9HAaE/PAKKVtqiu7G
+	EENFW8W8Ma3w4Lo2WW8OPDDeh5IACFQaLk2yphT0Lb3cANBkMDqgpyL3sSU2X1itZwoGeUl3oKaDz
+	+NayRsGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unC6p-00000004Hvu-46F7;
-	Sat, 16 Aug 2025 08:17:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1unC9L-00000004IAi-30ku;
+	Sat, 16 Aug 2025 08:20:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unC4I-00000004Hmr-0hTv
+	id 1unC5D-00000004HqF-0wAT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 08:15:14 +0000
+	Sat, 16 Aug 2025 08:16:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00EA9601D7;
-	Sat, 16 Aug 2025 08:15:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD583C4CEEF;
-	Sat, 16 Aug 2025 08:15:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A386B4369F;
+	Sat, 16 Aug 2025 08:16:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C980C4CEEF;
+	Sat, 16 Aug 2025 08:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755332111;
-	bh=ZFhBY7xvjThXbN1xgDjZz544ykM0RfOlwLp1iy2FJOQ=;
+	s=k20201202; t=1755332170;
+	bh=utJlwuqc/A1sNC8kFSIRdaj1awrZfqBCEB+Y5jGV79k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HtgHZh5Scobix5jmRtucG3zsTvKYG8Irs0fiN0Dr1meO1Y5qqctzV8Fb7Ec21eQMf
-	 HsBr5ua0IvHq03x9BA+yAmHqz8dgd7JWu+EaKFYMkXdUWmCwXnUB+ynaK2wZCnukUt
-	 T+gNOTpBFeAy5if95dtQxR6kqeCVqd4kESEjghDLwBp7tNSlXzgBIsemy6WnRr2pMh
-	 ZZubk3Gnl3ixFr8w382R6yxGM2KDTyFG9qKtFoUsXdEgLFhf0ZjRjjE2MrefwwpGyw
-	 lriT1rr3MlZOMAfgyGs0t0/jDToo9My30s/ddR26etZRlCpweurcSK1Q5CSEKL0uQN
-	 508h5ZDumR+EQ==
-Message-ID: <271d4a9e-5ccd-42dd-9828-5d34fb2c0a11@kernel.org>
-Date: Sat, 16 Aug 2025 10:15:06 +0200
+	b=hj9zd/JuitkgVdg6a2/HFHrBXHr7kb/Jfa9USxSjQDIbRjFYBcq9dJ8XYAWN4Gx4E
+	 iTathIsnvoUZywZuap4M9SushC43AAg4TD2quq5LgC3V6qoODnHFljThboJPtPj4Ns
+	 /Jce15G0w4ApC9fjSiJ6gLvmqaxzvJZGRyv4yR6n6EtoVUo4GScMFcDee9r+YYD50J
+	 u1XxfshIrNjF/olp47XbJmP/hGStNpwgeaQh0YGC9YWW5LjFdZTpcMmcPcaN1Lg7eA
+	 klWtBL6PtIxK/DNLe6KXiNoZHhzX0i9iUYxVjG7rT3rpbKPP7TS5vHaFePp9zr5SAH
+	 MgGCsZ2VjHCUQ==
+Message-ID: <f1f7d028-0c8c-44b3-9f3b-0830e5571890@kernel.org>
+Date: Sat, 16 Aug 2025 10:16:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: arm: aspeed: Add Nvidia's mgx4u BMC
+Subject: Re: [PATCH 2/3] ARM: dts: aspeed: Add device tree includes for the
+ cx8 switchboard
 To: Marc Olberding <molberding@nvidia.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -54,7 +55,7 @@ To: Marc Olberding <molberding@nvidia.com>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
 References: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
- <20250815-mgx4u_devicetree-v1-1-66db6fa5a7e4@nvidia.com>
+ <20250815-mgx4u_devicetree-v1-2-66db6fa5a7e4@nvidia.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250815-mgx4u_devicetree-v1-1-66db6fa5a7e4@nvidia.com>
+In-Reply-To: <20250815-mgx4u_devicetree-v1-2-66db6fa5a7e4@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250816_011611_306063_6119CBE3 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,14 +122,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/08/2025 21:45, Marc Olberding wrote:
-> Adds a compatible string for Nvidia's mgx4u BMC board.
+> The mgx cx8 switchboard is used to network mgx GPUs
 > 
 > Signed-off-by: Marc Olberding <molberding@nvidia.com>
 > ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi    | 80 ++++++++++++++++++++++
+>  .../dts/aspeed/nvidia-mgx-cx8-switch-south.dtsi    | 80 ++++++++++++++++++++++
+>  2 files changed, 160 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi b/arch/arm/boot/dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..051c8cf0b7d12b1fa4c84db896ca480b21627e23
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi
+> @@ -0,0 +1,80 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Odd license. Since when GPL-3.0 is okay?
+
+> +
+> +eeprom@56 {
+> +	compatible = "atmel,24c128";
+> +	reg = <0x56>;
+> +};
+> +
+
+This is some completely misplaced DTSI style. Don't do this...
 
 Best regards,
 Krzysztof
