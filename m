@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63404CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 19:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A044CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 19:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98v+GQR37jUZrrhIVoXs1bpSTPReJ+eLN39iwkIPiQ0=; b=IWnKrt7ve0uLgM7flgK3lJFAKO
-	2nUNuy6/YUzT9roo6aOaYo3z78C6/L2ixPDTjLv0NZl9zeGeo7oecE4bDkKrVgCXe1A+gMF4m0Tyd
-	NuFrKJSbxRp/hOG8bzcqiJFCSj4RbNHBjsPX1QaD+XsuFEZ+hKNG00gQuSuwfm7wx6AuvAdoiEF+f
-	rggw4EevnlS46YwiRfiW8iPgSUAeS8gmgFOJeV/+5Gyv6F7SUq+9i0s9+LblPUXJPANI1q2esQVac
-	oN9bmzwQ5NxlpNFgAAPGBkhQawMCfxrDemesMdHWnwfs/SXspR6Fs299ppNxadiW+4Rcp97cjup4G
-	ZOhAgqpA==;
+	bh=xhNfRQTJCTHs8wZzyX52sBmas0EwpebMHyW2WLiU29g=; b=gmfU8RxGnmDj7n9UTjyp24sOPj
+	3K/gbn6/BtKxu+am15WIc8ekEMQsV9dFGqPDBDHALfHPdl2QfNlTFpUhhk65lrWBUVKl5nINMzd2N
+	Cy60TCRKhTXeVmbU7RzOm/KnrcXWAFz3RbiiT5Yu7qxZDPraO9Pmlx8bN6jcScoW7340onoSwx8rx
+	0mO2nLbAnBRBOXUs7HESnqrhlKvP9s4r97oY5IpYZTk0LWLdAliMjyIp96JB7We02Gbp1NizhAzD6
+	kbsqTRre+A/aBX5RL3TTO04MB6vmtxH9xj5kGAtpQFsrvAFGaaD5oHUbKvln4uLht61MhhEcNt+QS
+	tqmIQquQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unMaz-000000056RX-0TMn;
-	Sat, 16 Aug 2025 19:29:41 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1unMrn-0000000570P-3hRX;
+	Sat, 16 Aug 2025 19:47:03 +0000
+Received: from mail-ej1-f44.google.com ([209.85.218.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unMYO-000000056Mr-24zR
+	id 1unMpC-000000056uS-2SrZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 19:27:01 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-32326e69f1dso3094329a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 12:27:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755372419; x=1755977219; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=98v+GQR37jUZrrhIVoXs1bpSTPReJ+eLN39iwkIPiQ0=;
-        b=WoCDUmoQADMRIorozluc0w/TWJ8DSDtcfyO2npkV6gfhLH6ddCEWV00ZnV2cm1xAXE
-         y7KjkUoKniCpi2ZMyipPYhDFgmDbXqWQTQpBrK20/J2ZblgPnhMeQM2SZhOYfmhawEZb
-         pKnA/ZQ77/gZ39sSl8Vi/qu99tWYGBSyZ+9K16pdpZ2sDwlRh0XzPFJ3i1dWYsNjcqHO
-         Xm0Eoxt9E+ErDHIg1s1HWw5unWLcNWZaJlb10nCydw3r9RIecp2pzNjjRTVt/KDpm/fQ
-         T7hOmLm73OSv6eERIECOIryISO00Uy9wz595YEk2IdjOoIzLw1+zi0Z+S1YxZ01kqCiD
-         021g==
+	Sat, 16 Aug 2025 19:44:23 +0000
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-afcb7ae31caso520642666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 12:44:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755372419; x=1755977219;
+        d=1e100.net; s=20230601; t=1755373459; x=1755978259;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=98v+GQR37jUZrrhIVoXs1bpSTPReJ+eLN39iwkIPiQ0=;
-        b=jWwNohWVXAYT0WFm3gqoRNkUU6W6Fq3kDsnb3gnYbMsxK5NU6HP1CTtvuQZB0M+pke
-         ZRpcYRBA48hQnYnwI/WHnuJHQthkEO58s2sUdkeJa2FZHouu034W1HkE+/j1rdAoI5E0
-         NQ2YtfuObuWoojT9vwr8Bc3puPBE/P0DldgM6FyeW2JVjFMr5TN/w7tBl4D4dWdfkAoV
-         nPt58ypP9QFe2oH59jo8Y9Dwm3Xa2OLGhEB76bZ/oHwprAcXzHG5d9M6lxIuITByUTtz
-         XFYmoGLNuu0zv3hOGHYiGgH8dF+CgsW11/BDO1XoS203QS86mLVUH/2SAN8KUaXOsi8P
-         i2tw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIpE+nKXj8twiTcAq3/Dsz+fPW+2Ze8GxEhFWiv1XJHgqwTKOv4jesp89tiwLr+t35CLZJYgUeLifeFPoTcnop@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZTc7QF02P6WmiNpp+yAxot+skvcKdJqszG+bxIgeLr678hkM+
-	SV3v42UiiAyJVVZiYvmOc1FWyS727hOd5ntQ/U1iZeDH24p0aCZBhtVSY+ncCn5WiPri82bKCZ5
-	t1lAPUp5+Bv9Z2cum3k64gvDDo9kgT5gQV6Sv2Qo=
-X-Gm-Gg: ASbGncvl6bkzTFgEIPJTLBorQSQalHZXWNvvpH3QvLtEyutBMPli4d/gxZT4uF9Tak6
-	TCASspthZtpZZbeQEcjX0UYNYWMBVq0OPlnRmuZTIn29Jk/e45QD0uIjBcAxM5HyhQMl26TmPeR
-	ZI7KRq3vyYrm7u+KOKIx/OgCob/BZUc35zLlZtfBpCo9LFrBkKAvMRvlLrC7Ff7pPvnccakBshj
-	DgV1DQ=
-X-Google-Smtp-Source: AGHT+IEE9w0eDr0giKjZk20A1Pk3m05SaMmyflvdhQBUu+6YJyhI0rlrRT7NjlqjdN10aXpuWTwvHAh+BYrz/XNiSAo=
-X-Received: by 2002:a17:90b:4b0d:b0:31f:11d6:cea0 with SMTP id
- 98e67ed59e1d1-323421589e3mr9199868a91.27.1755372419504; Sat, 16 Aug 2025
- 12:26:59 -0700 (PDT)
+        bh=xhNfRQTJCTHs8wZzyX52sBmas0EwpebMHyW2WLiU29g=;
+        b=gJbC1Xd4vu/XOTMUcxEfjRNCNk/DepX21tQPWfsVGyq24JPF226aaQ/m4ZBs3r/PKQ
+         JlWZ8bIXIkUzPdJIRaA5oNvG3Xjjg8a3BwgeduOsqedN4r3kSJRQl0XUHnhqdUdqnD3q
+         dfHPXk3npt3UEWrVS5kHiwF5k9FAcz9nL+xfI7JyGUsDR5xOaRItddrRX06ophb3aFi6
+         JRBtU5cEvYtqrZ8/LDC/oSECB4rIQUUPwWIGzQotsL+S4Ba4/bxxL+sowknpKwqvmbD7
+         Otrwz0j3Q8XIAOw0/FI9il4RmTZYt/dTMokRqIK0qXUU9dLuMYC2gs9Ssq6ykVdFnewr
+         0q7A==
+X-Forwarded-Encrypted: i=1; AJvYcCW8U8y2uEpZknGG9WeV/I9H+UK3OtzvTwZ/7RK49nvX8tRs60TaOw2ZSHOsiNecYb+b7R5+Xzytt+TtlCAW68u6@lists.infradead.org
+X-Gm-Message-State: AOJu0YymvHJU562N76ZLSwiiqFT3ZzqdHp/IYpYzAL8AwX5rj+OoZqFh
+	NxQ7/eii+lLwvlAE8SBlRg+cyWqCpfwDSclcIXQk9JRxYyVxjJFI3e9X29ysfq752/g=
+X-Gm-Gg: ASbGncsxjiYpG74eWxULphJh3knUPOdNoqDA8AQPa3oTUJzO2bjuGUdc+ybjO31O47G
+	ThXipFT9X0a9EimCh8tv5o7QqyY0x/ERMa0+mQ+azTVwqgRghAgt8qp1fG8QUMD2Xh8ErvB/ogL
+	b40zKwzKcAqEP/lligOFP3iIeWo+tK4+Azj+zRI/xntdnQa7slOeK9rxHS/MBxSUe3tt0kljGYP
+	JLlZrXYbEuSLSau0dQqETEKncUEvCPsRIBs70DnuCcXOL3qemJS+urUpvIUkKPEN2Nc05WTCUkN
+	B9F5o+C3pSJa+Z+xbqv3E2uTAXwraSeImnXqEH3jd7Mj/Bz3sFKq+MZR92gHxObbrDj4R74GQAZ
+	XAEfm1q73GpXnaqGRqfOHo7Fxcqyb3g2J5WnaRGEfont20LSq5i6r3ckwoCLplcROKkpj
+X-Google-Smtp-Source: AGHT+IGU6I/0pMOvLH3GSLLnrGg5yGvcXo8gqWfexydB3JsR7uYoJ0PU+MmBvCFz7yKllnuVieAuIw==
+X-Received: by 2002:a17:907:7f8d:b0:ae0:68a8:bd6a with SMTP id a640c23a62f3a-afceacd0863mr323322166b.15.1755373458739;
+        Sat, 16 Aug 2025 12:44:18 -0700 (PDT)
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce73e2esm457292966b.39.2025.08.16.12.44.18
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 16 Aug 2025 12:44:18 -0700 (PDT)
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6188b5ad681so4108526a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 Aug 2025 12:44:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUZ1OKpDGwMoYMqO5PRHo9WcIBJ0c97J88aeVUS+AbqW7CuAjQnOiiDv2LZvW9LV6o2t9HYMrjes53LBDG7k2B4@lists.infradead.org
+X-Received: by 2002:a05:6402:3495:b0:615:5bec:1df with SMTP id
+ 4fb4d7f45d1cf-619bf1f7206mr3258270a12.25.1755373458280; Sat, 16 Aug 2025
+ 12:44:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250729174332.3acd1a86@gandalf.local.home> <CAFLxGvxZJv_A+YKCxVcd4yxPXLhHD5L9VzkvbFKPytxXc5vWaw@mail.gmail.com>
- <aKCLGvmPLPwjyw13@shell.armlinux.org.uk>
-In-Reply-To: <aKCLGvmPLPwjyw13@shell.armlinux.org.uk>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Sat, 16 Aug 2025 21:26:47 +0200
-X-Gm-Features: Ac12FXzdBhCoG8V0CvvyVhmTbw1btQP3UQhsuJyyoAGbjZ60mJ7mUJQTmo-IeOg
-Message-ID: <CAFLxGvwPwrG6KVsF=hKn1SmbC0yjLVjm6h8t1+qFE0GkO7rUbQ@mail.gmail.com>
-Subject: Re: [GIT PULL] runtime verification: Updates for 6.17
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Steven Rostedt <rostedt@goodmis.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Gabriele Monaco <gmonaco@redhat.com>, 
-	Nam Cao <namcao@linutronix.de>, John Kacur <jkacur@redhat.com>, 
-	Tomas Glozar <tglozar@redhat.com>, linux-arm-kernel@lists.infradead.org
+References: <20250810220921.14307-1-will@willwhang.com> <20250810220921.14307-4-will@willwhang.com>
+ <20250811-cinnamon-tapir-of-music-0bda96@kuoka>
+In-Reply-To: <20250811-cinnamon-tapir-of-music-0bda96@kuoka>
+From: Will Whang <will@willwhang.com>
+Date: Sat, 16 Aug 2025 12:44:05 -0700
+X-Gmail-Original-Message-ID: <CAFoNnryfrJvoEHNgQDpSZBbGiGjPr-bwnhhg4cgpNK_hW=0EbQ@mail.gmail.com>
+X-Gm-Features: Ac12FXy-vY_C5easw1Tym_fd5E3dOtxKIqhJ9wZAZ5bar5LAous57hWKnWEIrdU
+Message-ID: <CAFoNnryfrJvoEHNgQDpSZBbGiGjPr-bwnhhg4cgpNK_hW=0EbQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] media: i2c: imx585: Add Sony IMX585 image-sensor driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_122700_557536_80B4A15F 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250816_124422_629668_0D90761A 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +101,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 16, 2025 at 3:44=E2=80=AFPM Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
-> > With this change:
-> > [    2.943690] Kernel panic - not syncing: VFS: Unable to mount root
-> > fs on unknown-block(0,0)
-> > [    2.950101] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> > 6.17.0-rc1 #176 NONE
-> > [    2.950509] Hardware name: Generic DT based system
-> > [    2.950865] Call trace:
-> > [    2.951722]  unwind_backtrace from show_stack+0x18/0x1c
-> > [    2.953111]  show_stack from dump_stack_lvl+0x54/0x68
-> > [    2.953312]  dump_stack_lvl from vpanic+0xf8/0x388
-> > [    2.953526]  vpanic from __do_trace_suspend_resume+0x0/0x50
+On Mon, Aug 11, 2025 at 1:06=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-> Please lookup the value of __do_trace_suspend_resume in System.map.
-
-Hm, I see it twice in System.map, both times non-global.
-$  grep __do_trace_suspend_resume System.map
-c0303098 t __do_trace_suspend_resume
-c03c5758 t __do_trace_suspend_resume
-
+> On Sun, Aug 10, 2025 at 11:09:20PM +0100, Will Whang wrote:
+> > +
+> > +/* -------------------------------------------------------------------=
+-------
+> > + * Power / runtime PM
+> > + * -------------------------------------------------------------------=
+-------
+> > + */
+> > +
+> > +static int imx585_power_on(struct device *dev)
+> > +{
+> > +     struct v4l2_subdev *sd =3D dev_get_drvdata(dev);
+> > +     struct imx585 *imx585 =3D to_imx585(sd);
+> > +     int ret;
+> > +
+> > +     dev_dbg(imx585->clientdev, "power_on\n");
+> > +
+> > +     ret =3D regulator_bulk_enable(IMX585_NUM_SUPPLIES, imx585->suppli=
+es);
+> > +     if (ret) {
+> > +             dev_err(imx585->clientdev, "Failed to enable regulators\n=
+");
+> > +             return ret;
+> > +     }
+> > +
+> > +     ret =3D clk_prepare_enable(imx585->xclk);
+> > +     if (ret) {
+> > +             dev_err(imx585->clientdev, "Failed to enable clock\n");
+> > +             goto reg_off;
+> > +     }
+> > +
+> > +     gpiod_set_value_cansleep(imx585->reset_gpio, 1);
 >
-> >
-> > With commit  3f045de7f5 "panic: Add vpanic()" reverted:
-> > [    2.680077] Kernel panic - not syncing: VFS: Unable to mount root
-> > fs on unknown-block(0,0)
-> > [    2.690241] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> > 6.17.0-rc1-dirty #177 NONE
-> > [    2.690832] Hardware name: Generic DT based system
-> > [    2.691339] Call trace:
-> > [    2.692530]  unwind_backtrace from show_stack+0x18/0x1c
-> > [    2.694283]  show_stack from dump_stack_lvl+0x54/0x68
-> > [    2.694536]  dump_stack_lvl from panic+0x110/0x31c
-> > [    2.694944]  panic from mount_root_generic+0x1fc/0x2ac
+> You asserted reset gpio causing it to enter reset and you call this
+> "power on"?
 >
-> Also please lookup mount_root_generic.
-
-$ grep mount_root_generic System.map
-c1c01814 T mount_root_generic
-
+> > +     usleep_range(IMX585_XCLR_MIN_DELAY_US,
+> > +                  IMX585_XCLR_MIN_DELAY_US + IMX585_XCLR_DELAY_RANGE_U=
+S);
+> > +     return 0;
+> > +
+> > +reg_off:
+> > +     regulator_bulk_disable(IMX585_NUM_SUPPLIES, imx585->supplies);
+> > +     return ret;
+> > +}
+> > +
+> > +static int imx585_power_off(struct device *dev)
+> > +{
+> > +     struct v4l2_subdev *sd =3D dev_get_drvdata(dev);
+> > +     struct imx585 *imx585 =3D to_imx585(sd);
+> > +
+> > +     dev_dbg(imx585->clientdev, "power_off\n");
+> > +
+> > +     gpiod_set_value_cansleep(imx585->reset_gpio, 0);
 >
-> > Maybe it changes the stack layout enough such that dump_stack() on
-> > ARM32 is no longer
-> > able to walk it? I'm using gcc 15.1.1, if this matters.
+> And here device comes up, but you call it power off? Your functions or
+> reset gpio code are completely reversed/wrong.
 
-In the meanwhile I tried also with gcc 8.5, same problem.
+Reset pin High -> Run normally
+Reset pin Low -> Reset state
 
-> Also please check whether you're using frame pointers or the unwinder
-> (CONFIG_UNWINDER_FRAME_POINTER or CONFIG_ARM_UNWIND).
+See drivers/media/i2c/imx219.c with the same logic:
 
-With CONFIG_UNWINDER_FRAME_POINTER the stack trace is sane,
-so only CONFIG_ARM_UNWIND is broken.
-I kind of expected it the other way around...
+static int imx219_power_on(struct device *dev)
+{
+struct v4l2_subdev *sd =3D dev_get_drvdata(dev);
+struct imx219 *imx219 =3D to_imx219(sd);
+int ret;
 
---=20
-Thanks,
-//richard
+ret =3D regulator_bulk_enable(IMX219_NUM_SUPPLIES,
+   imx219->supplies);
+if (ret) {
+dev_err(dev, "%s: failed to enable regulators\n",
+__func__);
+return ret;
+}
+
+ret =3D clk_prepare_enable(imx219->xclk);
+if (ret) {
+dev_err(dev, "%s: failed to enable clock\n",
+__func__);
+goto reg_off;
+}
+
+gpiod_set_value_cansleep(imx219->reset_gpio, 1);
+usleep_range(IMX219_XCLR_MIN_DELAY_US,
+    IMX219_XCLR_MIN_DELAY_US + IMX219_XCLR_DELAY_RANGE_US);
+
+return 0;
+
+reg_off:
+regulator_bulk_disable(IMX219_NUM_SUPPLIES, imx219->supplies);
+
+return ret;
+}
+
+static int imx219_power_off(struct device *dev)
+{
+struct v4l2_subdev *sd =3D dev_get_drvdata(dev);
+struct imx219 *imx219 =3D to_imx219(sd);
+
+gpiod_set_value_cansleep(imx219->reset_gpio, 0);
+regulator_bulk_disable(IMX219_NUM_SUPPLIES, imx219->supplies);
+clk_disable_unprepare(imx219->xclk);
+
+return 0;
+}
+
+I really don't understand why this is a problem, it is up to the chip
+designer to decide
+what to do with reset behavior and not the reviewers.
+
+I'm simply writing the code following the datasheets here.
+
+
+> Best regards,
+> Krzysztof
+>
 
