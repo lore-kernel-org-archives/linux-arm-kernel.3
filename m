@@ -4,112 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D95CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C0CBCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xmxvbzu+dsWSk8521p6N/PnsMinT0NC6FKih1neHAk=; b=qr4YbudwyAIi250vxjAW5tf2PB
-	UzTBDu9KZdXrt9lqcJjQfjDkvyTQXEVLpdCjjHLqYhr0rUydpH+Vu4i/zR+0iG6aPE8aFqRY4lip2
-	u/oaVpkHIIcUxtI0FEXgMVeFViQCaJsJKpD0AkJs1YKb4KIeZoBYtDOKQy6Ce2ZHabUhG1MMzO1MG
-	dvBvvVJ1bSdA42SByyhX4rE4LeE9Kv5RQ0FNc9aVAWATJ1lLb+XCJht7GUE/NdD+X+QXPVa85V/b/
-	WEYswexZaoyr0ct8x86ztVocPm7WBV2mMbsT4dc1fyunncNBfgimVBGUy9f33wIuAQCG5qHZSLqn/
-	4ppbXORw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n00OWL+w8sWdTdOAmEeus4NBoquiXkV9tCtbNCC3Db4=; b=PQ21wv34PzxKndNJD25szvcgc8
+	CmfERkswiGONiVabWj72VUSbqNw0TlH7ItNd6cKat1QswrQ41Q+jPu4EBLGLaGUK6ZExjMqQMv+8y
+	SNtFHssMx33HGzkoh7AR8eY6k71pz9ULaHZO/XN47qUxSYYCKxkA4RS9vzv1uKD6XGeg2JwnhUPrm
+	KM/t/l06UCATNP7NZbPzodY52O/z9JJPexzdsoeTbdPV1KKT15gc+kI/LMDeHVBAc6durNNsSzjW8
+	iumpFfqDtsjRvJYV/JajlUqk1DFDk1wKYyMi6eppbDgXjCkrV/CPT2/M/J3/hRhDxMDqDA9KORSrb
+	v9CwAXbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCOg-00000004J14-3Iiw;
-	Sat, 16 Aug 2025 08:36:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1unCc5-00000004KSr-1efj;
+	Sat, 16 Aug 2025 08:50:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCM8-00000004ItC-37ok
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 Aug 2025 08:33:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C62FA5C4A36;
-	Sat, 16 Aug 2025 08:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 102EFC4CEEF;
-	Sat, 16 Aug 2025 08:33:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755333219;
-	bh=NoF/gia3BzIk7K9+zQybrkg4qnMCSC4IHUB+TORz8TQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EduzWTlTyrKzPY6aHEtGQISHbS/b+1yjJdU3OsXnjqnYQXCm599FXAPNI9VYyEz0z
-	 FYgc6ov3Uegdq9x5dWmsRlKoCdk8eX39OuLVM0sNTvt6pAG+V4FW1zGfYEafLfeagY
-	 wIbG9pXc7p1auGgoSq2dzEAK3E5W+PLQerPqOZxVcoP77qGLLWp524Y+X0ea9xF7rg
-	 wB4slB8i3HnVHhRuRr6tQc1KcyLU0Eg1hIoybRAM7HaMEgZB/ZL559hYMwMa0KSpas
-	 Tk2MT0rTZgnzifvtnGbkQW80gVL/rMARzv5sOzLQkloWUjzA7TPEPcG3U7XTl1/MLh
-	 wxEqOOh8GRd2Q==
-Message-ID: <e82ca132-f312-45b5-bec0-9d83cd3771d4@kernel.org>
-Date: Sat, 16 Aug 2025 10:33:34 +0200
+	id 1unCZX-00000004K6I-3mhi;
+	Sat, 16 Aug 2025 08:47:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=n00OWL+w8sWdTdOAmEeus4NBoquiXkV9tCtbNCC3Db4=; b=MXjJxGM5xYpSSqW1RYza4ZFkrp
+	Op5KG6bNF6vfIf8l2DkAghEw+3XJqTowzhHfDcbgMYTd2oeqMRx54nKlPS0MXKVEB4XuUn1FbxMFZ
+	rvQg4BxYFsXiGh5KFuGv0JGvCtevlBAWTO8lkmISz7qOid1rFyfuHZUAPIlo+xMpkn/oPc3Z23SGi
+	8yidrn4n4t4dQdG0oMJA5mBweg5wy03AgLueprnmSwl7x6t1xFMcnfGO0sC+XMfcegKc85Pc72zaQ
+	ZPBvsLPgFw9oyv2Ug5qXkoMgirRmRBEeJZDL3PUApRQG1KdXjnx/p+wR6zPKt3Ap5BudmbLXrxtmB
+	LnBoz+cw==;
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unCZS-0000000GwKV-2e6i;
+	Sat, 16 Aug 2025 08:47:30 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-76e2e8e2d2dso1625356b3a.1;
+        Sat, 16 Aug 2025 01:47:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755334044; x=1755938844; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=n00OWL+w8sWdTdOAmEeus4NBoquiXkV9tCtbNCC3Db4=;
+        b=B0RXVbN/w+1B4CNvmdCd9lwGV5ggiZPirHjmfVzl7lwQ5Fa1qrNI+4Klo/5VXvr8Gk
+         f5aGSyzGB3ep3NAGEywc9AEsrVBd07xvO3SS3ABuZ2siU7E4pR4h+Z6Ne0ZjdeJea+Ht
+         KIuvHRJ02ziTyDxKHg/b6+HTo96wOmjA3NqJ5fzjGdGn4ZEBU95UjW1KGgDRHf7Ias2H
+         jT788mhgzHBMYDntOOxLYp/NJQe7CF8kFtcVl1Td5tzWHyA/OrdO7wwj/D8dE8miQ8/l
+         k+GR0cm4fytL3um5MXCZi82zRRmy9UEDrMPskMJZ+9U+8RNzMgA8edKf6dQggAyewYUT
+         qR5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755334044; x=1755938844;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n00OWL+w8sWdTdOAmEeus4NBoquiXkV9tCtbNCC3Db4=;
+        b=iIZL5Jfu8oltzx9WKfuvNZLqtCtu76sd32ETiFMvWbVARnvuG4x7Dn2NklleyUwnC6
+         tr3KT6pdvt3PgxeTHvN/JsNtvpusRRGdkyLrph7lztf5KGCr2Th/AH6UdTE/tobcDbMX
+         2/aMVkV7X7yfa7yN5xfpkOcrSb/HCEM5HON9E0Qp+iqQ1MNG+PgLaiWvRuU4SQc3KYLu
+         /xD1Jr4+UPn6rUmQd51irKA+f6GNKUIw7pJaw/gtkgajdB2px3arXZyOE+Sv4DQzsq4i
+         uTg8Ndii/Ou7IalEgmmkWGy2Qv/nor+ZuSnclB1aQhwONGfzRym8ANczLt9sut26zI/C
+         oB9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVZD8SjDqYqak9x89IJwKZFC2Z0N15PLEKfK9MKpuNvB5SDtSvTC4+Q+9nqnBM48QKJLwwJpl1QdPMM@lists.infradead.org, AJvYcCWYhdhorR8zXmg17g8m/dsR7OR21LLCzky4TwsqLGFPKev7UGeLO0ag57QmVPsPublq8VVL55RDLhNliYtuAx0t@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKHfqRnI+s/6bB7UemgKIKPNRPGlr570EJycwcAJScAU8rKcXw
+	zRsnhrbqRnZTBkuWupbzgqEnv/DSGyQxhSozmCDadKxnELFliA+YteeS
+X-Gm-Gg: ASbGncu/LOqY/Ig7B/9HYm5sNMLAQUKaCcmrTkDul9tdCQ9G6JaYGJgaWXuaJk1ZdhW
+	OXtanOEMj9ARKGNXOFzXCPk0QiKE1pjmjNtvbbpzIoSGGTTCc50U87cOZyh7iWy4Mqhpux3qlzK
+	b/EWwKohlOnkQZ/ooEPhPbWSAgCCEJt7gi/+T5NVwVucswBMmRGGG4+CT4AXNuBxGSqkjn3bkHy
+	r+X0VTyoL/Tbs/FHwXrOBfJ+zf89kwrlzjbitEBvo/cvp+3HufslJxiUYOQEvtZ/uQyrkjUwdoV
+	qCrgG1BOqtG6z2WqZRnDhZQVBvZKVUCBW7ikijaRpIecAecWeVebcr+K8bTLVG2arCj79sd6i1c
+	Bd5WV4Yf7Q78=
+X-Google-Smtp-Source: AGHT+IHRLGNB8SYXmPKw81D1VOKbz4q3gvNOhwVUuxSt8mOuivVjupipoQ1fbt8d5uqOtt3TGwriuA==
+X-Received: by 2002:a17:903:22c6:b0:242:9bc4:f1c7 with SMTP id d9443c01a7336-2447909bfd5mr31610805ad.54.1755334044121;
+        Sat, 16 Aug 2025 01:47:24 -0700 (PDT)
+Received: from junAIR ([212.192.12.80])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d57f12esm31048215ad.157.2025.08.16.01.47.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 16 Aug 2025 01:47:23 -0700 (PDT)
+From: iuncuim <iuncuim@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 0/7] arm64: allwinner: a523: add USB3.0 support
+Date: Sat, 16 Aug 2025 16:46:53 +0800
+Message-ID: <20250816084700.569524-1-iuncuim@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: arm: qcom: Add Coresight Interconnect
- TNOC
-To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com>
- <20250815-itnoc-v1-1-62c8e4f7ad32@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250815-itnoc-v1-1-62c8e4f7ad32@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_013340_876951_66801B2A 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250816_094727_046357_CE102256 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,135 +123,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/08/2025 15:18, Yuanfang Zhang wrote:
-> Add device tree binding for Qualcomm Coresight Interconnect Trace
-> Netwrok On Chip (ITNOC). This TNOC acts as a CoreSight
-> graph link that forwards trace data from a subsystem to the
-> Aggregator TNOC, without aggregation or ATID functionality.
-> 
-> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> ---
->  .../bindings/arm/qcom,coresight-itnoc.yaml         | 108 +++++++++++++++++++++
->  1 file changed, 108 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..fd224e07ce68918b453210763aacda585d5a5ca2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
-> @@ -0,0 +1,108 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/qcom,coresight-itnoc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Qualcomm Interconnect Trace Network On Chip - ITNOC
-> +
-> +maintainers:
-> +  - Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> +
-> +description: |
+From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-Do not need '|' unless you need to preserve formatting.
+This series is a draft and does not include patches for dt-bindings.
+The first series is necessary for testing on other devices and
+initiating discussion.
 
-> +  The Interconnect TNOC is a CoreSight graph link that forwards trace data
-> +  from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC, it
-> +  does not have aggregation and ATID functionality.
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - qcom,coresight-itnoc
-> +  required:
-> +    - compatible
+This series of patches adds USB 3.0 functionality for the
+A523/A527/H728/T527 processor.Most of the code is derived from the BSP,
+ as the datasheet does not fully describe this feature.
 
-Why all this? Drop
+I have verified functionality on two of my boards, walnutpi 2b (t527)
+and x96qproplus (h728). When testing usb3.0 on x96qproplus, I get
+reconnections of my nvme, it looks like the port does not provide enough
+ current to work. I have encountered similar complaints from users of the
+  device on Android. In the case of walnutpi, there is no such problem.
 
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: "^tnoc(@[0-9a-f]+)?$"
+Based on 6.17-rc1
 
-Why are you requiring a non-generic name?
+Mikhail Kalashnikov (7):
+  clk: sunxi-ng: a523: add missing usb related clocks
+  arm64: dts: allwinner: a523: add third usb2 phy
+  phy: sun4i-usb: a523: add support for the USB2 PHY
+  phy: allwinner: a523: add USB3/PCIe PHY driver
+  arm64: dts: allwinner: a523: add USB3.0 phy node
+  arm64: dts: allwinner: a523: add DWC3 USB3.0 node
+  arm64: dts: allwinner: a523: activate USB3 for all boards
 
-> +
-> +  compatible:
-> +    items:
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  52 +++-
+ .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |   8 +
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    |   8 +
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   |   8 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  32 +++
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.h        |   2 +-
+ drivers/phy/allwinner/Kconfig                 |   9 +
+ drivers/phy/allwinner/Makefile                |   1 +
+ drivers/phy/allwinner/phy-sun4i-usb.c         |  10 +
+ drivers/phy/allwinner/phy-sun55i-usb3-pcie.c  | 267 ++++++++++++++++++
+ include/dt-bindings/clock/sun55i-a523-ccu.h   |   4 +
+ 11 files changed, 392 insertions(+), 9 deletions(-)
+ create mode 100644 drivers/phy/allwinner/phy-sun55i-usb3-pcie.c
 
-No need for items
+-- 
+2.50.1
 
-> +      - const: qcom,coresight-itnoc
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description: Base address and size of the ITNOC registers.
-
-Drop, redundant
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-
-Drop clock-names, obvious. Also, odd order - names are never before
-actual property.
-
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  in-ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +      '#size-cells':
-> +        const: 0
-> +
-> +    patternProperties:
-> +      '^port(@[0-9a-f]{1,2})?$':
-
-Why do you have here 255 ports?
-
-> +        description: Input connections from CoreSight Trace Bus
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +    additionalProperties: false
-
-This goes after $ref
-
-> +
-> +  out-ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port:
-> +        description: out connections to aggregator TNOC
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +    additionalProperties: false
-
-This goes after ref
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-
-And here different order... Be consistent. See also DTS coding style.
-
-> +  - in-ports
-> +  - out-ports
-> +
-> +additionalProperties: false
-> +
-
-
-
-Best regards,
-Krzysztof
 
