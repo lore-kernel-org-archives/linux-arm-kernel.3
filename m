@@ -4,110 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF451CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81BE8CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 09:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XHVjlxUyT8LhM+8wZCnyXfz36vzJWeM0+KaCf+eKbw=; b=KbV8OE0TWz7wBulnb90A8Qkfmf
-	Gv6cvkJgawIERs9S01UiDmuOwh29SUWHA1WmA1M/LfYSJVdll7SBa7znGkXNXhGQUbcIM5E1gkytS
-	rnu1W8/L968G7JYmrOfUm2VUCgn1lXuJbbvidGQBGh/9bwtd/0GLilWJIC1ZNNSU5zdYLSWWiIzkw
-	sX168Wd6qNA/UugnEx4Cas25oGdkULS3UfqSBPHbkTUy8W5HsbIC6Pes2P6oTH6rZw3cQD9AXCdot
-	ntDmtKr+kd+Ue8nVXzjbFNg2lUzDyqUP+TNTuaQU9aZf7oCaojaUuK0idOBpQlSPrxUFgZPwOolfp
-	O3X2P4mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4WiZ9ddpNrGSgA17pjQ7Do4+YzZaiUY0Hg+kDmv11gc=; b=0YkrFScPq+Su4MTWAwsc86Vrhy
+	LA9WmJkvMteUfteas84xoUOLuJ78xoqBnf3ApqUENRepa51G7j1DrzihTEUXKT/kfjYgBQS5wkmNs
+	JZHA1P/tm2N4wlpqHwEtAelrDg8LBvXG+ScEQlGLKpaeEVVi8XEnQyQ5AAyAx+R2o7WwyekwNEnyd
+	qoiDF4bYtbIgVknAI7kfuKae0g4hKWXWRje+5J1q7xc+cowiAMn4zOCMRKyuwap1b1LYXC3wk9yDs
+	1aZUYDZ/htEXfV/KU0JenZN7+elEOEohXPYcV4CMRxxAGztK/dOtN6diw7VKYSjnqldgSK5dePOhW
+	vqKkAWxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDHK-00000004Ocj-1dKR;
-	Sat, 16 Aug 2025 09:32:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1unDJq-00000004P4b-2gSt;
+	Sat, 16 Aug 2025 09:35:22 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unDEn-00000004ON4-2kxR;
-	Sat, 16 Aug 2025 09:30:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E55261431;
-	Sat, 16 Aug 2025 09:30:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91131C4CEEF;
-	Sat, 16 Aug 2025 09:30:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755336607;
-	bh=L2pDXt7Di7jsWWHk1cqmaqgT51d11o638zJ41+YNieA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dxn2Ubou6yl9kFWMgk/D7RxcLoM2tDpKhszvc4dgSOULYOESiXAGX0J6gYgEa2anA
-	 bSyFjMdc/kk5DAIuSMix4zeJtOITqNGpIFUbSJYZqlSWlD+yrNwoNz+1fgbRBomRfr
-	 zNn4CvsRYzpm4PgZpQP2cXDTx53/Lkzrno+9UMT24isuxs7NaoqX97rtVI7LTxRyxI
-	 cLI1CGXEUeLE0VS2kUSVcj38Jli0NZNNSLsvG/2+cdWDMccLxF4HBRbqEohMLUO9xz
-	 8pbhAVLVVUtd/BoYUqvHtgrBhFGwo4S0er/oFx2XxMzOKdXG50ykdBqX5WVi2n2HNY
-	 WEi8RSTQnoRWg==
-Message-ID: <0e149bdb-8830-42a2-927b-a489b4195015@kernel.org>
-Date: Sat, 16 Aug 2025 11:30:01 +0200
+	id 1unDFN-00000004OQ6-3dVO
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 16 Aug 2025 09:30:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=4WiZ9ddpNrGSgA17pjQ7Do4+YzZaiUY0Hg+kDmv11gc=; b=Yvy91sGjFKWDa4QDCuhWNnVenx
+	rtefdrPoiAQWGr9MeAIc7RK82rncwbCMaZ9LzIPmlJbq0H0Jv6sGSoa2PCNlAYwvUMQX3Mrxj50Of
+	PSrKQn8GzeSayzurAzGZDOCITckNcrDPTkyAK2q3E81XLOs1G3Oq0O+Zh9AoSE1Nf27060FF1Yt0u
+	pzAGcFMJv7aS+01yltWJrJa08mkLyTKdUw6JZdeZSu5i4X8s+qAeD3SEVQe3EpBuLGHCowc1AoBvq
+	QgGn0AKP5mnr+zP08R+EtL8ctwoOiaEMaaheo2xpLeNv1mY/J7ux6RIEtVXq65vVTRnH72REkGMJy
+	0avR0ryQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1unCzl-00EmJl-2C;
+	Sat, 16 Aug 2025 17:30:35 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sat, 16 Aug 2025 17:30:34 +0800
+Date: Sat, 16 Aug 2025 17:30:34 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] crypto: stm32: Fix spelling mistake
+ "STMicrolectronics" -> "STMicroelectronics"
+Message-ID: <aKBPutUbmQCp28YX@gondor.apana.org.au>
+References: <20250724105754.140400-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] clk: sunxi-ng: a523: add missing usb related clocks
-To: iuncuim <iuncuim@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Andre Przywara
- <andre.przywara@arm.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev
-References: <20250816084700.569524-1-iuncuim@gmail.com>
- <20250816084700.569524-2-iuncuim@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250816084700.569524-2-iuncuim@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250724105754.140400-1-colin.i.king@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250816_023045_902485_A3AA6422 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,22 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/08/2025 10:46, iuncuim wrote:
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+On Thu, Jul 24, 2025 at 11:57:54AM +0100, Colin Ian King wrote:
+> There is a spelling mistake in the module description text. Fix it.
 > 
-> Several clocks were omitted when adding the original driver. These clocks
-> are necessary for USB 3.0 to work correctly. I added these declarations
-> according to the driver's BSP code.
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
 > ---
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c      | 32 +++++++++++++++++++++
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.h      |  2 +-
->  include/dt-bindings/clock/sun55i-a523-ccu.h |  4 +++
+>  drivers/crypto/stm32/stm32-cryp.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-
-Bindings should be a separate patch. Checkpatch should also suggest that.
-
-Best regards,
-Krzysztof
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
