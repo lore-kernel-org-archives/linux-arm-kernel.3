@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A16CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65725CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 08:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzugRTjSEEA3vhHWZEvncDTD2t0Cnyv/9flgnww7Mso=; b=zsOE0JCo36IW5Z8KVJjiLUJ0Wr
-	LaTOBc5LxSbA0DsrPrhQ+Zg/iRv+fTZgvcSB043WxOtuvYUEGLMtq3A5m2PXujB5wRmF1O9KPGlhX
-	7fXEOsMBeu5LJikHMBj353kXsDd4kWDed5SJ23cc4BoaJN67WC4EVaCwKCA4o/5GOcw6SRYESptJj
-	eMtnq0Z66FHma9MXMM3WI6hh0/91Ktk/ck+sNTg32L9tekttnI4/9byLTiF3XBLUgHc4oyV3yqtv7
-	70qxWzYIOf+TjTNOasxkVwSgT66YZjmiT08neqGhN7x7JjIKTrD5UaBcGxpf3RuxrxtKJuBBcljl9
-	rnHnPurQ==;
+	bh=50Ntk2ae5CUZ3DU9PEgu24q2kwxt9HUqPcFOtly0Sk4=; b=IiJFtDZW38AyoOuLcgx0UuDb8L
+	cVfEwhfobhHdLfDXxEGx+T/fdPhofFZKrO51euw80BLfPRV4tS/MmhzovJmIOtXb3cs2aVjri9Jee
+	89gYSWnVTzYazb262BH+yW5P0YI5uo/0/9JHlSq0VE6VacsWhK4Wqyf4/bk6ydfqxZNBqcUiZQg+Z
+	JEOQVavbSn+H0eTEZfZlrJMSZdH9+0JcoTSfa3SNADiIWPScsuQkcKsUPW0XFdy4LCtXqU5wVBwEu
+	YIR+P1VVFcMjp0e+AlO3poTppYOb8yH87u+Dmh73Tt4c84Fg2as0wbVvvC40egBs6TA1favnfnCIa
+	y9b1yU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCh6-00000004KiF-2mmJ;
-	Sat, 16 Aug 2025 08:55:20 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1unCjb-00000004Ku6-2mVI;
+	Sat, 16 Aug 2025 08:57:55 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unCZl-00000004K7r-1s0W;
-	Sat, 16 Aug 2025 08:47:46 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2430c3684d1so28513015ad.0;
-        Sat, 16 Aug 2025 01:47:44 -0700 (PDT)
+	id 1unCZv-00000004K9V-0aiK;
+	Sat, 16 Aug 2025 08:47:56 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b472fd93ad1so779298a12.0;
+        Sat, 16 Aug 2025 01:47:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755334064; x=1755938864; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755334074; x=1755938874; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VzugRTjSEEA3vhHWZEvncDTD2t0Cnyv/9flgnww7Mso=;
-        b=P3nxGP4fBDBsmpxJzP1TF5HQZZBYuGTUTfJHHHL5nvGrGEcUTrhqnRV6KzA8I7wmgK
-         89DEc/b5oau8e6EI0n7CVq52/M7AcS5RzXa/0GYr0BVUEqQjbCL+nUUuDMCi2fagZ9NZ
-         46Frr8rZB0OcdT4SG05eJCzUvZQ6TcXKD+AK2aGO3FGxPHghHOYRkqBdmwU4IqrWWoKy
-         88QopnUuGdDGnVEsO+CRc0KdTnGACO3c0u3kGH/00jYqR67+GKtQ9WgicpPY/y7wgjnn
-         rY1UsncH9Dj5Gw2AjZGFEc7ynvbDIJI1eHEtnF2gXoARaMvZIUm79UsKyPRSWuquwUAT
-         hxoQ==
+        bh=50Ntk2ae5CUZ3DU9PEgu24q2kwxt9HUqPcFOtly0Sk4=;
+        b=lEDo2UV5Rkhp8xPIAmcGzQfUZPARps8RQVV4VLe+gIl05VwGrRxIQdUT8zgU3866XM
+         E3yNPG/mcFDFIS8KNgswU/xnIZ0NJ0SylLcMoHEHX9e1YfdRAjXQjkvZwDEcOEU+PNnQ
+         M9fuyhH0q6HafSNLOEvuXmfqqIcSgQHqXnIEgHk9Lr55K/UDqQo9PXel//0x/xyKo6pz
+         a1S1V+8T9zaJAr5Wlo1suyImK8TX4Juf9JR9N5igjkSYfoGUqCTx+RLTfSzRib8RGAPt
+         HmhGf4Gn4Nx3THiis3b+BgduUqrYXFCt0s/cYhfcO/+cKdoDfRtkZib9wY1h/4y0cbAY
+         /F2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755334064; x=1755938864;
+        d=1e100.net; s=20230601; t=1755334074; x=1755938874;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VzugRTjSEEA3vhHWZEvncDTD2t0Cnyv/9flgnww7Mso=;
-        b=T9xjfDCwSnyrxk+6C9QB7wlScl60MuUcXV80nnyP8t7YIT82zn58T5Eqbw0jmYpkiX
-         SSqtKrFw/bk2QQFqT9fRDSs/XsmlCLIeHi2q0NezBCfNqNKJT7tRNuMhp1XxFLhDXevs
-         At6aym5rwl5KcyxyAvyhfdLCzAJN4nszFmVim5WRThyT6IwPJlo/XX1lQfRv0GLwcFmf
-         Mtxyg572rwn72yc8+5kj5rOCWPGf9q0X2cgAvh08qOEmoXOHS7Wh00a+lL6ghb+0Mf/p
-         05Ysg93/Pe9RvEuNZ2DqLabB6QmJmPnrfm112MpemTpu6pDXxkbzbG6XitiJ6f4ocR2V
-         9Wuw==
-X-Forwarded-Encrypted: i=1; AJvYcCVNvX9F8mNCmEA7MxnwJEX5r+rXp9ryClk62Jl8/gLcD7V7dvOJM2F30cJv2R34kRp6g19gPrN+NAuz@lists.infradead.org, AJvYcCWeazBinHH7ZLkf0hCkMSJSJHJhmmFbg0wLMnNcUHcZ38HGvkdUcUEEgDxW5RnIQITNfaCyVctyBCXxkpdxzRE0@lists.infradead.org
-X-Gm-Message-State: AOJu0YypTXsl8a1/1ymg25IO+vhiKIrFBTfquQOPiAz+PdGd7kDssQo0
-	Gkq+ZufgvPz4wbw163frDnPwzJTk4FtTecZNNqLwFf6YmtJhUiZaoAy+
-X-Gm-Gg: ASbGncsedrLMQAEr3BWxm8J2p8pHWgWEYNBXUCWZFEeIkUyOWRleM8CwF8Ykuw3HAYB
-	dKA3NoN9yw9lOujQo+l27Lp73Wp+fo5tl45voi+82ep+STjMeNTKgNlhKENSlGJWIHZfuMZLxSv
-	hbiD4p9K44qFuEGnXFtQ7UP1eoVTzBaFbJOAfRgZGjn7E0J1piWrg2J1p3hY8xuL4uE7N/1H3g/
-	hk1XiRYTnMNZfYR42TCZQgnT4u8r+v0ELn6xghTFwlAcs8Pha/dGoROCIMPWn5VGsWqCul9a2ue
-	PvAE/g/jW5Fu878Bo4JMWfWISFSauPVbEV63zpkljdi5uADTm8BYGxd7wd3n27b5nEMItZKM6Wi
-	XvoKFNfaIFz8=
-X-Google-Smtp-Source: AGHT+IGC/f9ctRQyGd8OhPgk/EDa/XtCGcODk7HhjJFFgAw+CxRy4DpFueYRqcfy/Uow1U/CzbWKQQ==
-X-Received: by 2002:a17:902:d4d0:b0:240:6fc0:3421 with SMTP id d9443c01a7336-2446bce444fmr73487325ad.3.1755334064339;
-        Sat, 16 Aug 2025 01:47:44 -0700 (PDT)
+        bh=50Ntk2ae5CUZ3DU9PEgu24q2kwxt9HUqPcFOtly0Sk4=;
+        b=Nur5Aa4u0nxYf5rinIPhZAhV/Kl8FifirBmlKlCeBTbFbmZapRdg4CtPXZANvGvD7g
+         88YPudGDA/Dg5UywZimgYFWVzkD40YpT91hGaLORjgtOFntPcY0z0kT37EJeVVQlMDPG
+         6KIdcov8DFgpu3HKEbtjPQPtpZBsmPXkLxxctHn31/DOA8YY1B2fZbtXPhaQw5HKowdK
+         qV9+6g7xAi6r+zeWz0uDfvuYxM+8b+jPjJGrn3jYJS0wXM3SIIgjykF3Uksvu+Dlj7Ln
+         lT52mqN+7f9iJOvITFK5UZmwgTsoxUkV83+rWAeECT/unKtf5H7o75N8YW54kfXu9E8u
+         x/2A==
+X-Forwarded-Encrypted: i=1; AJvYcCU3gLV/kvq3urWwpuxLbwDRcyiwxVrn/7EGJiSeF9ACtksg0AjUnbaHzz6LgFm46qDM0CHsCOXxbsIphnd0RVA4@lists.infradead.org, AJvYcCWo8gMqJk2WLY7FdVz0V75HwBuWJeosIFa7uW5r+beXYDREQDHICox+XebkoEI8cK0IG2guoWgTQLSC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXC/gGvlMHeoB7wtPOc3fPN7QdiUAl/abU6Ef9TJvKmKjGg28G
+	wIpkN2VrBccUQWLhwGCK1zM5fWySXCHjLAgcMTHDEx6TuE+WeU/szPU7
+X-Gm-Gg: ASbGncssqqX86IxPAeh5p+Y7tKoxz470pdXbct1U7UXsjh7mXeC6+BIvDziky1a/hbC
+	IDA7j4LRMEudkXNJ85kjJb7xvi1yKqbxAYtbm6DquRX3T9k5vSazubNLKaNj/20dqq85Le2jX8r
+	wzBPyrTCBzMOHFtl4TSgq1+9QRWPFYdIWuGWO+MCa/JexsdKFG8Sr4xd3sJbcYarYqXndemmBD6
+	2551VOHK7JBiW8lSNKQXpkPNXQhlx6EVJI/eUeBw07ItitzGE52f5lM+dtnbEotkPYRsyxWUEUt
+	w28ousyt4mVLLLyH8CvkPLwoeo+nynKLvLXjdARjMHuggikjAaZ9P0Ei/ceaoI6PCtVEqWIw94N
+	ZxTXL3metCAQ=
+X-Google-Smtp-Source: AGHT+IHH2hwegF/f0OgFPR9gVfjZpUsDlbhxI4wzUfEICoM2jQpliSfPj1xZkFqOfFWIa8JxKO9MuQ==
+X-Received: by 2002:a17:902:c98b:b0:23f:f96d:7579 with SMTP id d9443c01a7336-2447900cf44mr20352345ad.37.1755334074401;
+        Sat, 16 Aug 2025 01:47:54 -0700 (PDT)
 Received: from junAIR ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d57f12esm31048215ad.157.2025.08.16.01.47.34
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d57f12esm31048215ad.157.2025.08.16.01.47.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 Aug 2025 01:47:43 -0700 (PDT)
+        Sat, 16 Aug 2025 01:47:54 -0700 (PDT)
 From: iuncuim <iuncuim@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,17 +87,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH 2/7] arm64: dts: allwinner: a523: add third usb2 phy
-Date: Sat, 16 Aug 2025 16:46:55 +0800
-Message-ID: <20250816084700.569524-3-iuncuim@gmail.com>
+Subject: [PATCH 3/7] phy: sun4i-usb: a523: add support for the USB2 PHY
+Date: Sat, 16 Aug 2025 16:46:56 +0800
+Message-ID: <20250816084700.569524-4-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250816084700.569524-1-iuncuim@gmail.com>
 References: <20250816084700.569524-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_014745_482973_2C8CE926 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250816_014755_178657_2F33ACDD 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,60 +114,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 
-It seems that there are actually three usb2 phys in the processor, which
-makes it incompatible with D1.
-The third phy is used together with USB3/PCIe combophy with DWC3
-controller. In the BSP code, the third PHY requires a separate glue
+Previously, USB PHY was compatible with D1 and did not require
+separatedata options. But now we need to add a third PHY, which makes it
+incompatible. The third PHY is used together with USB3/PCIe combophy with
+DWC3 controller. In the BSP code, the third PHY requires a separate glue
 driver, but it seems that it is not needed.
-According to the BSP code, the third phy does not have a reset line; the
-only reset is declared in the DWC3 node, but none of this is documented.
-Since sun4i-usb-phy driver requires a reset, I added RST_BUS_3 here.
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 21 ++++++++++++-------
- 1 file changed, 13 insertions(+), 8 deletions(-)
+ drivers/phy/allwinner/phy-sun4i-usb.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 6b6f2296b..e4ed4fa82 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -503,22 +503,27 @@ usb_otg: usb@4100000 {
- 		};
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index 8873aed3a..bb79339f2 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -1025,6 +1025,15 @@ static const struct sun4i_usb_phy_cfg sun50i_h616_cfg = {
+ 	.siddq_in_base = true,
+ };
  
- 		usbphy: phy@4100400 {
--			compatible = "allwinner,sun55i-a523-usb-phy",
--				     "allwinner,sun20i-d1-usb-phy";
-+			compatible = "allwinner,sun55i-a523-usb-phy";
- 			reg = <0x4100400 0x100>,
- 			      <0x4101800 0x100>,
--			      <0x4200800 0x100>;
-+			      <0x4200800 0x100>,
-+				  <0x4e00000 0x100>;
- 			reg-names = "phy_ctrl",
- 				    "pmu0",
--				    "pmu1";
-+				    "pmu1",
-+					"pmu2";
- 			clocks = <&osc24M>,
--				 <&osc24M>;
-+				 <&osc24M>,
-+				 <&ccu CLK_USB2>;
- 			clock-names = "usb0_phy",
--				      "usb1_phy";
-+				      "usb1_phy",
-+					  "usb2_phy";
- 			resets = <&ccu RST_USB_PHY0>,
--				 <&ccu RST_USB_PHY1>;
-+				 <&ccu RST_USB_PHY1>,
-+				 <&ccu RST_BUS_3>;
- 			reset-names = "usb0_reset",
--				      "usb1_reset";
-+				      "usb1_reset",
-+					  "usb2_reset";
- 			status = "disabled";
- 			#phy-cells = <1>;
- 		};
++static const struct sun4i_usb_phy_cfg sun55i_a523_cfg = {
++	.num_phys = 3,
++	.phyctl_offset = REG_PHYCTL_A33,
++	.dedicated_clocks = true,
++	.hci_phy_ctl_clear = PHY_CTL_SIDDQ,
++	.phy0_dual_route = true,
++	.siddq_in_base = true,
++};
++
+ static const struct of_device_id sun4i_usb_phy_of_match[] = {
+ 	{ .compatible = "allwinner,sun4i-a10-usb-phy", .data = &sun4i_a10_cfg },
+ 	{ .compatible = "allwinner,sun5i-a13-usb-phy", .data = &sun5i_a13_cfg },
+@@ -1041,6 +1050,7 @@ static const struct of_device_id sun4i_usb_phy_of_match[] = {
+ 	  .data = &sun50i_a64_cfg},
+ 	{ .compatible = "allwinner,sun50i-h6-usb-phy", .data = &sun50i_h6_cfg },
+ 	{ .compatible = "allwinner,sun50i-h616-usb-phy", .data = &sun50i_h616_cfg },
++	{ .compatible = "allwinner,sun55i-a523-usb-phy", .data = &sun55i_a523_cfg },
+ 	{ .compatible = "allwinner,suniv-f1c100s-usb-phy",
+ 	  .data = &suniv_f1c100s_cfg },
+ 	{ },
 -- 
 2.50.1
 
