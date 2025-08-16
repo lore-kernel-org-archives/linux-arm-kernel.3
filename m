@@ -4,59 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F90CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 14:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 843CACA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 Aug 2025 14:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzNmfuQNX2vwIbkT336I5AirVgYQtiQkwzqwzSRo9UE=; b=B3CYrkWrbQIk33n+eAanXq989/
-	ekW3BBp3rkBzZA8ANOCQ1slEP5BofnIjUsDdl30B6Czs0rcjtx9A9/HZ0cwLxJzNzbHipM5HiQBkq
-	Df5uv5SlLMhu/3pa/sV1OAwh4YAvuUhxYb67AgOXKVYo4a/hHpeXF2Bzc860fpR4vu/W56MwNG7UE
-	7YA0TrXEj4xY30FFyvLw4evWNIrh/fX9GZan8WpWv/mzoYIu15K4aD2rFrPV2jHcz+LxAIBq6yUUT
-	n71jusZ91wSFvwtaP/AKC19tMrsJ6ARdo/QwnVt5BtRioiFz48M/r+3jJNibWD831qO4Lpx930cuy
-	eZjruEPA==;
+	bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=VQ3r1l0bmGTcyWFf2HhTZNJ0t3
+	lPwYSyIADRl+eQY9mAquIz7/xmXNqgNw/ZE+5yp+hpTfLPjXaDVDDRjiKVpoC88Hh2JJzIMvDSWLV
+	PhTom5wlWyUqVvp/2mxcdhInKCw0Fnr0MalfOTLRBZ7sV7+hVOgZE799lyPhJru+0wno4p7HXEDq6
+	5EcyvHG5IZqbZRWMwtwh1UXgqS4Rb1vftW4VW8dXzYrdXt/k9itbAX8yngQ6J6OqUG2jL/0iKhlYj
+	erGTQBYP7XFu3UnaRowjc97qLj0P4ks9RYJ1QKlw6zhoBSwsbPrU+UUoOoltacFDvzkXCDuRuU7Cq
+	E+WBSpMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unHhG-00000004kd7-37ZC;
-	Sat, 16 Aug 2025 14:15:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unHeg-00000004kTE-496o;
-	Sat, 16 Aug 2025 14:13:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C1AA1595;
-	Sat, 16 Aug 2025 07:13:02 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA4543F738;
-	Sat, 16 Aug 2025 07:13:07 -0700 (PDT)
-Date: Sat, 16 Aug 2025 15:10:15 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: iuncuim <iuncuim@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 6/7] arm64: dts: allwinner: a523: add DWC3 USB3.0 node
-Message-ID: <20250816151015.621f8da4@minigeek.lan>
-In-Reply-To: <20250816084700.569524-7-iuncuim@gmail.com>
-References: <20250816084700.569524-1-iuncuim@gmail.com>
-	<20250816084700.569524-7-iuncuim@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1unHns-00000004kxG-0SqP;
+	Sat, 16 Aug 2025 14:22:40 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unHlG-00000004kpm-2Xoc
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 16 Aug 2025 14:20:00 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 4103E7A02B7;
+	Sat, 16 Aug 2025 10:19:55 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Sat, 16 Aug 2025 10:19:55 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1755353995;
+	 x=1755440395; bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=
+	IfD1KkmCs/+imALzV5qqefaa/LNt/OmMOuRPl1WinpFwBNtFotmVLroGZipUlzvQ
+	tzUn4cKb3LIKHq25IW0i3MBde+TymZ7qpb6kYF9l0AnCif3IhWNPRK3RHpxI/srF
+	UE3E7B70z0XLx3MruxK5PVm9aDNbzx27lIjFiOfsFwnULoA/wFD5nsea65FCgKwe
+	K7CkEtr4Zv783Lwj/e/xaFWKa/NLpfBvqXA9JwLj+ciZTKFBi9Q3wNNrOxynxG1L
+	XYOiVOcSzn2nx/jYmcP0BSF1wfg5eUsy70gOxB0cJUe9sDDTACxslwHjbP00zKbq
+	JqO/73mmFgtVog1bbUFaIQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755353995; x=
+	1755440395; bh=uUlh/L5iBn2cZluTjtVOTeuqRXG5pOVjQE6WfHmHMeQ=; b=c
+	yIG6nbzLkluoUtXyWgJceAgWgySU2RgvaBbKf/ynuH+g6E3dW/1EGyQb0jS/ayGS
+	hxRE+Teq6Kjpn4WeiPbh7qywsX1BcaTkuVl5evnAXoVOEU/nzRxRQ8XuLXghGG6w
+	qO7/9yMLGs2EdpmgM7otV47Irngkkwcwg9nt3t3RYQQKl60TTsObMIrAA8+FbwIU
+	Md4uZ/CDqZCYZXUEpCTkEEyzXsUvWjdep8nyJmtcxOXn0ItUHAr0uZ+Rq43ZT5qZ
+	P+PWLa3SXkFPgtRlLeG2mk1ClKj+VaO+ydNeiB/qAiQ9ejzxtWypRZCk4rl2TD57
+	05ywDSuOMKKrjfPCCMSZA==
+X-ME-Sender: <xms:iZOgaCQ8F1HAx8M4hTKowVC0mkjRJdagCQjS5OzjBc4nE99ujgwFFg>
+    <xme:iZOgaHwPE1hSBAx3rN0MD734upqIEjIJpaEfSJ57oUm2PU1QIY_-bpsSE1_Y9kZkO
+    y9qx7x9TEySD8nEHE8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddugeejtdekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedflfgrnhhn
+    vgcuifhruhhnrghufdcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnh
+    epheejtdeffeethfetgefhffejudegheefueejtedvhfeuheevfeekheetfeduffevnecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnh
+    hnrghurdhnvghtpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphhouhhtpdhr
+    tghpthhtohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopehrohgsihhnrd
+    hmuhhrphhhhiesrghrmhdrtghomhdprhgtphhtthhopehnvggrlhesghhomhhprgdruggv
+    vhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilh
+    hlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgv
+    lheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshgrhhhise
+    hlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepihhomhhmuheslhhishhtshdr
+    lhhinhhugidruggvvhdprhgtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrdhsth
+X-ME-Proxy: <xmx:iZOgaDUeUO03LyxCXHYfmw9LCDo12_91ql4W0jPaJAPyQt7aChoHwQ>
+    <xmx:iZOgaBERpxt-lW-vHqQPifnCjBi0NhCOW2T1JfMINoHysM1DszeGaw>
+    <xmx:iZOgaOdbIoTiQTP0SBZz1ioFrYy8IFvNZEGSn3Xk61O1Q3gbTiz5TA>
+    <xmx:iZOgaCq5v_XtB0WlQ4GVnjvqiUgDglCFDFYqAVIKeGW1qx9yTJIO5g>
+    <xmx:i5OgaHyLWNa1HTaJfEPCJZwiD1JlKOuGsMhoQA33o11jEiOdur44mLq3>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9F059700065; Sat, 16 Aug 2025 10:19:53 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-ThreadId: AIqzQMgvnQL3
+Date: Sat, 16 Aug 2025 16:19:33 +0200
+From: "Janne Grunau" <j@jannau.net>
+To: "Sven Peter" <sven@kernel.org>,
+ "Alyssa Rosenzweig" <alyssa@rosenzweig.io>, "Neal Gompa" <neal@gompa.dev>,
+ "Joerg Roedel" <joro@8bytes.org>, "Will Deacon" <will@kernel.org>,
+ "Robin Murphy" <robin.murphy@arm.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, LKML <linux-kernel@vger.kernel.org>,
+ "Hector Martin" <marcan@marcan.st>
+Message-Id: <2d3e818d-5bc3-4156-a0c6-6d756f814c86@app.fastmail.com>
+In-Reply-To: <c9440d31-add4-4c0f-ac2a-184e771ab455@kernel.org>
+References: <20250814-apple-dart-4levels-v1-0-db2214a78c08@jannau.net>
+ <20250814-apple-dart-4levels-v1-3-db2214a78c08@jannau.net>
+ <c9440d31-add4-4c0f-ac2a-184e771ab455@kernel.org>
+Subject: Re: [PATCH 3/3] iommu: apple-dart: Add 4-level page table support
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_071311_067905_C932A693 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20250816_071959_142609_7AAEBB7C 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +119,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 Aug 2025 16:46:59 +0800
-iuncuim <iuncuim@gmail.com> wrote:
+Hej,
 
-Hi,
+On Sat, Aug 16, 2025, at 15:50, Sven Peter wrote:
+> On 14.08.25 10:40, Janne Grunau wrote:
+>> From: Hector Martin <marcan@marcan.st>
+>>
+>> The T8110 variant DART implementation on T602x SoCs indicates an IAS
+>> of 42, which requires an extra page table level. The extra level is
+>> optional, but let's implement it.
+>>
+>> Since the driver failed at IO page table creation with 42-bit IAS add
+>> "apple,t6020-dart" as separate compatible using the T8110 HW data.
+>
+> Is the commit description outdated? I don't see this change anywhere.
 
-> From: Mikhail Kalashnikov <iuncuim@gmail.com>
-> 
-> After adding the phy bindings, we can also add dwc3 node, which uses the
-> previously added usbphy2 and part of usb3 from combophy.
-> All settings declared in dwc3 node are obtained from the x96qproplus' dtb.
-> BSP contains an additional glue driver for dwc3, but it seems that it is
-> not needed.
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> ---
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 21 +++++++++++++++++++
->  1 file changed, 21 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index 233365496..ec170888a 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -606,6 +606,27 @@ mdio0: mdio {
->  			};
->  		};
->  
-> +		dwc3: usb@4d00000 {
-> +			compatible = "snps,dwc3";
+yes, I decided to handle this as missing feature / bug. Both end up with
+the same result and as far as we can tell it is fully compatible.
+Removed locally.
 
-Wouldn't we need an A523 specific compatible string first?
+>> Later it might be useful to restrict this based on the actual
+>> attached devices, since most won't need that much address space
+>> anyway.
+>>
+>> Signed-off-by: Hector Martin <marcan@marcan.st> Signed-off-by: Janne
+>> Grunau <j@jannau.net>
+>> ---
+>>   drivers/iommu/apple-dart.c | 23 +++++++++++++++++------ 1 file
+>>   changed, 17 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+>> index e72a93e78e26ca61b233c83d439dbdfadf040fc6..bb48e8603d6c84bcf107-
+>> 294d851c2f2fc1273298 100644 --- a/drivers/iommu/apple-dart.c +++ b/drivers/iommu/apple-
+>> dart.c @@ -133,6 +133,7 @@  #define DART_T8110_TCR
+>> 0x1000  #define DART_T8110_TCR_REMAP            GENMASK(11, 8)
+>> #define DART_T8110_TCR_REMAP_EN         BIT(7) +#define
+>> DART_T8110_TCR_FOUR_LEVEL       BIT(3)  #define
+>> DART_T8110_TCR_BYPASS_DAPF      BIT(2)  #define
+>> DART_T8110_TCR_BYPASS_DART      BIT(1)  #define
+>> DART_T8110_TCR_TRANSLATE_ENABLE BIT(0) @@ -177,6 +178,7 @@ struct
+>> apple_dart_hw {     u32 tcr_enabled;     u32 tcr_disabled;     u32
+>> tcr_bypass;
+>> +    u32 tcr_4level;
+>>
+>>      u32 ttbr; u32 ttbr_valid; @@ -217,6 +219,7 @@ struct apple_dart
+>>      { u32 pgsize; u32 num_streams; u32 supports_bypass : 1;
+>> +    u32 four_level : 1;
+>>
+>>      struct iommu_group *sid2group[DART_MAX_STREAMS]; struct
+>>      iommu_device iommu; @@ -305,13 +308,16 @@ static struct
+>>      apple_dart_domain *to_dart_domain(struct iommu_domain *dom) }
+>>
+>>   static void -apple_dart_hw_enable_translation(struct
+>>   apple_dart_stream_map *stream_map)
+>>   +apple_dart_hw_enable_translation(struct apple_dart_stream_map
+>>   *stream_map, int levels) {   struct apple_dart *dart = stream_map-
+>>   >dart;   int sid;
+>>
+>> +    WARN_ON(levels != 3 && levels != 4);
+>> +    WARN_ON(levels == 4 && !dart->four_level); for_each_set_bit(sid,
+>>      stream_map->sidmap, dart->num_streams)
+>> -            writel(dart->hw->tcr_enabled, dart->regs +
+>>              DART_TCR(dart, sid));
+>> +            writel(dart->hw->tcr_enabled | (levels == 4 ? dart->hw-
+>>              >tcr_4level : 0),
+>> +                   dart->regs + DART_TCR(dart, sid));
+>
+> This is a bit hard to read, I'd prefer an explicit if (dart->hw-
+> >tcr_4level) here.
 
-> +			reg = <0x04d00000 0x100000>;
-> +			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-> +			dr_mode = "host";
-> +			clocks = <&ccu CLK_MBUS_USB3>, <&ccu CLK_USB3>,
-> +				 <&ccu CLK_USB2>, <&ccu CLK_USB3_SUSPEND>;
-> +			clock-names = "bus_clk", "ref_clk3", "ref_clk2", "suspend";
+you mean `if (levels == 4)`? `dart->hw->tcr_4level` will be `BIT(3)` for
+t8110 darts even when they use just 3 page table levels.
 
-How does this work, exactly? I see "bus_clk" (deprecated, should be
-"bus_early") and "suspend" in the bindings and the Linux driver, but
-where do ref_clk3 and ref_clk2 come from, and more importantly who is
-going to use them? IIUC, the binding hints that certain implementations
-could need more clocks, but then it's their responsibility to parse and
-enable them, in platform specific glue code, I think.
+Changed locally to
 
+u32 tcr = dart->hw->tcr_enabled; if (levels == 4)        tcr |= dart->hw-
+>tcr_4level;
 
+and then writel(tcr, ...) in the loop.
 
-> +			maximum-speed = "super-speed";
-> +			phy_type = "utmi";
-> +			snps,dis_enblslpm_quirk;
-> +			snps,dis-u1-entry-quirk;
-> +			snps,dis-u2-entry-quirk;
-> +			snps,dis_u3_susphy_quirk;
-> +			snps,dis_u2_susphy_quirk;
-> +			snps,dis_rxdet_inp3_quirk;
-> +			phys = <&usbphy 2>, <&combophy>;
+I've change prefix of all commits in this series to "iommu/apple-dart"
+and "iommu/io-pgtable-dart".
 
-Related to my comment on the other DT patch, this should be
-"<&combophy 0>" (with "#phy-cells = <1>;" in the PHY node, to be forward
-compatible.
-
-Cheers,
-Andre
-
-
-> +			phy-names = "usb2-phy", "usb3-phy";
-> +			status = "disabled";
-> +		};
-> +
->  		combophy: phy@4f00000 {
->  			compatible = "allwinner,sun55i-a523-usb3-pcie-phy";
->  			reg = <0x04f00000 0x100000>;
-
+thanks,
+Janne
 
