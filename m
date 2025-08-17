@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A44CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 06:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249E2CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 06:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/14w+SFVSyk9RAwqRL6XbZhqj4wg32XI+iWWuscLQww=; b=SQiISSCn5w8SCFnbGzmPh6RZo4
-	3iJB8qUj1AGoqw/5kAz4dUt8KEHB4h9sZr8w/ycMnOkr+znrM/37n3t4SmWPVbjYHs2GFLSf7WV5g
-	BXemt2oLl1Jc4I37x+2tIVfeaarv+cuXsu6awZzDmSHbt77M/ijKRvm8SUMqYv7vDZxMs0uXQdhns
-	XKYW3kaTlxtr3WX4LbCNvgTctMhH/tR0D1g+bhjHnD195GDu7gWuWTCW4inI0UnhM0R29QZIxOz0E
-	c23bZDW+KxvKgQIIY6p8HrGRtsi5sFRHaNEZIzCG5n4IQJYQbnNhYfT2c/ePT3inrsEIKryFw9KXE
-	KilZlEpQ==;
+	bh=jz5R6UD4W7V712r+R9LpFhw1CrUwBqoquiJBC0pjJLk=; b=t8GsdA4keZyYro+5LyuoRGrMV6
+	Y21q/WhJ8Dn4EOOQb8l/hM5bxR49HrNmFQq9t4TO1IKLsP363djgni0XCMqirxzdJbMiI+epqfR9H
+	R1zr8f9tzQx25PLzbsrsINzP9EuK/6yU8GRL0dANWYwvG1jIDsA8aYr4mdbdiPO/CiJy2ixqvurrc
+	VMID+tGvu/nRvvAw3Y+k0F2M74S1BCPSpY9laLhAT7ykC5KUxleL2owsGktOYsQvt85Ss6mw1W7uB
+	QjdvS+iTOT7IF3rWzLTf0tBm9EssUlpi3+r/Jp0L4Hu13ekHmdUqLfVIA0YP15l1yeWekoV6YAemv
+	vdJTNruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWgH-00000005PBb-1ssG;
-	Sun, 17 Aug 2025 06:15:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1unWir-00000005PN9-3UHo;
+	Sun, 17 Aug 2025 06:18:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWdg-00000005Oyo-152J
+	id 1unWfL-00000005P6p-0rNU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 06:13:09 +0000
+	Sun, 17 Aug 2025 06:14:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BCBD43C35;
-	Sun, 17 Aug 2025 06:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB13C4CEEB;
-	Sun, 17 Aug 2025 06:13:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0EE165C4370;
+	Sun, 17 Aug 2025 06:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E41C4CEEB;
+	Sun, 17 Aug 2025 06:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755411187;
-	bh=lid+S2UZG+OF8iqGwXoZfpqZqgui8N3K+4MjmmWh4kY=;
+	s=k20201202; t=1755411289;
+	bh=FjnyjISls+IwhhvqV3CdP32QGr0K26AOzU5vLlgcAsE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sDpNyKzEK9ha0jQPpNT72h11TCoWyZIgCoPuQauMS8Y4J7khtPMTBmBwqhdmyWGeO
-	 DMuKBrro75dmZAlZTMOzJXvzsxDpHBZCv4sg8jSqho9EKsiyTvAYy5p3beW33u72Zd
-	 E9MLBSQ2uH3UAtKhrrxmbyuxC+xi/Mq2UOPCwTTLXRDcOTlYkE4EVeCrZrsSC73tcA
-	 9eEtVDnNdQZYAo8A4l0tawmVx0JDTwU7a4dgHTylH8ufxfIZEttsVoU929G35D/rD1
-	 CnVz2f5S5ABGRmFWIwgpacXcUn/Vk4FCtN/ZZKSF2o5/tXzSeq44Y7sWnqtzH4v8wJ
-	 dI2Fs1qMUkPDg==
-Message-ID: <adfb8732-3ac7-4496-9671-1fa2aa71139c@kernel.org>
-Date: Sun, 17 Aug 2025 08:13:01 +0200
+	b=dqjcg51bwM8xslcGuw5W8w163m6q+bpK9eHvBLTK/sBTx5s5j/E0UcRGz2j6uRh15
+	 B09ChBfZE4kB6QnA9NmnU+4jA0CXefpx1bOQ2HMSlU5oP8gFjclxljQuV2GcLskZ1p
+	 AqvMSLeyyfxb+hgc4O60d/2HE3bCwQFOay4qmlqXzTOdvSNkEaKF0U1U9IwUoNfZQ3
+	 M1FFk+V47LYnAIrqBKjeQF+YwrhqOMYAG9jwwWs8NLqKTCbEg79TxAEUcNUa4JVLYC
+	 UKegg4k7CCSfRPNsopgrKFi64rgL6jkLfKtxa/Xr8DbUYd52fCSwkK0lCka84rSDVM
+	 Z8dgxsP9kUO1A==
+Message-ID: <49858742-8850-44bf-a844-9e26210515c5@kernel.org>
+Date: Sun, 17 Aug 2025 08:14:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] media: i2c: imx585: Add Sony IMX585 image-sensor
- driver
-To: Will Whang <will@willwhang.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-4-will@willwhang.com>
- <20250811-cinnamon-tapir-of-music-0bda96@kuoka>
- <CAFoNnryfrJvoEHNgQDpSZBbGiGjPr-bwnhhg4cgpNK_hW=0EbQ@mail.gmail.com>
+ linux-pm@vger.kernel.org
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <1950265.tdWV9SEqCh@radijator>
+ <5e79b123-b29a-4edb-8e70-3b7fa6cd3674@kernel.org>
+ <6196438.lOV4Wx5bFT@radijator>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAFoNnryfrJvoEHNgQDpSZBbGiGjPr-bwnhhg4cgpNK_hW=0EbQ@mail.gmail.com>
+In-Reply-To: <6196438.lOV4Wx5bFT@radijator>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_231308_343237_9ABAA53A 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250816_231451_323051_88D85670 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,135 +127,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/08/2025 21:44, Will Whang wrote:
-> On Mon, Aug 11, 2025 at 1:06 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 16/08/2025 17:13, Duje Mihanović wrote:
+> On Friday, 15 August 2025 08:08:24 Central European Summer Time Krzysztof Kozlowski wrote:
+>> On 15/08/2025 00:08, Duje Mihanović wrote:
+>>>> I am asking to see complete binding with complete DTS in example and
+>>>> submitted to SoC maintainer.
+>>>
+>>> Hm, so if in the example (and the actual DTS) each domain is assigned a
+>>> clock, can I then keep the domain and domain controller nodes like Mediatek
+>>> and Rockchip have?
 >>
->> On Sun, Aug 10, 2025 at 11:09:20PM +0100, Will Whang wrote:
->>> +
->>> +/* --------------------------------------------------------------------------
->>> + * Power / runtime PM
->>> + * --------------------------------------------------------------------------
->>> + */
->>> +
->>> +static int imx585_power_on(struct device *dev)
->>> +{
->>> +     struct v4l2_subdev *sd = dev_get_drvdata(dev);
->>> +     struct imx585 *imx585 = to_imx585(sd);
->>> +     int ret;
->>> +
->>> +     dev_dbg(imx585->clientdev, "power_on\n");
->>> +
->>> +     ret = regulator_bulk_enable(IMX585_NUM_SUPPLIES, imx585->supplies);
->>> +     if (ret) {
->>> +             dev_err(imx585->clientdev, "Failed to enable regulators\n");
->>> +             return ret;
->>> +     }
->>> +
->>> +     ret = clk_prepare_enable(imx585->xclk);
->>> +     if (ret) {
->>> +             dev_err(imx585->clientdev, "Failed to enable clock\n");
->>> +             goto reg_off;
->>> +     }
->>> +
->>> +     gpiod_set_value_cansleep(imx585->reset_gpio, 1);
->>
->> You asserted reset gpio causing it to enter reset and you call this
->> "power on"?
->>
->>> +     usleep_range(IMX585_XCLR_MIN_DELAY_US,
->>> +                  IMX585_XCLR_MIN_DELAY_US + IMX585_XCLR_DELAY_RANGE_US);
->>> +     return 0;
->>> +
->>> +reg_off:
->>> +     regulator_bulk_disable(IMX585_NUM_SUPPLIES, imx585->supplies);
->>> +     return ret;
->>> +}
->>> +
->>> +static int imx585_power_off(struct device *dev)
->>> +{
->>> +     struct v4l2_subdev *sd = dev_get_drvdata(dev);
->>> +     struct imx585 *imx585 = to_imx585(sd);
->>> +
->>> +     dev_dbg(imx585->clientdev, "power_off\n");
->>> +
->>> +     gpiod_set_value_cansleep(imx585->reset_gpio, 0);
->>
->> And here device comes up, but you call it power off? Your functions or
->> reset gpio code are completely reversed/wrong.
+>> You would need to point me to specific files or show some code.
 > 
-> Reset pin High -> Run normally
-> Reset pin Low -> Reset state
+> Sure, mediatek,power-controller.yaml and rockchip,power-controller.yaml
+> in Documentation/devicetree/bindings/power.
 
-This is not how resets work. Logical reset value high means it is
-asserted and device does not work.
-
-Read carefully your datasheet. Because if you claim above this is not a
-reset line, but some other.
-
-> 
-> See drivers/media/i2c/imx219.c with the same logic:
-
-Great, so 10 year old buggy code is the example, but all other - 90% of
-correct drivers - are not?
-
-> 
-> static int imx219_power_on(struct device *dev)
-> {
-> struct v4l2_subdev *sd = dev_get_drvdata(dev);
-> struct imx219 *imx219 = to_imx219(sd);
-> int ret;
-> 
-> ret = regulator_bulk_enable(IMX219_NUM_SUPPLIES,
->    imx219->supplies);
-> if (ret) {
-> dev_err(dev, "%s: failed to enable regulators\n",
-> __func__);
-> return ret;
-> }
-> 
-> ret = clk_prepare_enable(imx219->xclk);
-> if (ret) {
-> dev_err(dev, "%s: failed to enable clock\n",
-> __func__);
-> goto reg_off;
-> }
-> 
-> gpiod_set_value_cansleep(imx219->reset_gpio, 1);
-> usleep_range(IMX219_XCLR_MIN_DELAY_US,
->     IMX219_XCLR_MIN_DELAY_US + IMX219_XCLR_DELAY_RANGE_US);
-> 
-> return 0;
-> 
-> reg_off:
-> regulator_bulk_disable(IMX219_NUM_SUPPLIES, imx219->supplies);
-> 
-> return ret;
-> }
-> 
-> static int imx219_power_off(struct device *dev)
-> {
-> struct v4l2_subdev *sd = dev_get_drvdata(dev);
-> struct imx219 *imx219 = to_imx219(sd);
-> 
-> gpiod_set_value_cansleep(imx219->reset_gpio, 0);
-> regulator_bulk_disable(IMX219_NUM_SUPPLIES, imx219->supplies);
-> clk_disable_unprepare(imx219->xclk);
-> 
-> return 0;
-> }
-> 
-> I really don't understand why this is a problem, it is up to the chip
-> designer to decide
-> what to do with reset behavior and not the reviewers.
-
-I explained to you. You are mixing logical level with line level. This
-is the problem, because (again I said it):
-
-It does not work.
-
-Your code or your DTS is incorrect.
-
-
+I see, but your DTS is nothing like that.
 
 Best regards,
 Krzysztof
