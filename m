@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D52CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 12:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B576CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 12:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWA2Fs6IkN8QYF6WUbzuWUjUs8h5hPJv0CvZ+fikkRQ=; b=buSxJgVk4GVc8rwRGP0mot4KlU
-	Ktw3Slnke0h1GdLdYN/M1hc5bg2F76Y9gtkj3VRZBQJNTAU7OrBa2CTPnY8ng6aZhOkVpbOVDesdK
-	/nzq8QYGn7js3II9Vl3sgw3O64kQAK6VjqKxJPiyEsfSNe2XTalAz1NvuQNILAlgOcsO+epTFOMDp
-	WL6zON+dbu+O/X++a0isjIjCque2SsMcczNsBc0OgsbQUDxXJqlVLUoPui4JcMkh3n3cFFTtNH5wy
-	1M7tgce4olvpNu8l6Yk6g+w5mxffKki6pmhoAGPeEKK3dQkgqNaSmSGg0Jz8DQeBTASX2VzX0Cg9X
-	LHBtIRqQ==;
+	bh=OioKBUpD6X/quUk4PIM05Y9scmRG5GocN6tb/r+uPyc=; b=E2eHW9xlSwOxzgR1cogn6E5mxA
+	3kK1avTel166APalHcLq32QmRXe5pQ+ptFzYPrKhG7oC7vKsDY8H6O03i/aFBMV3HgWRIG6eui+fc
+	c+W71DtIeIig9YLnyKRWtj+UfRbFYeOP8O4HrUzCDfUKH23TJ4LUWYazSjEIXZbHI3kMXAUuSArhp
+	/LT4iz45OhoFrnIaVgssFoVL5R1FD1wwdwVUpdNtLAG50C1GZGu3yPZ3EJqvdHt8glgjP0yhrACwE
+	3AAcYe1NCwM9whncAGX/rq/Jg0oZWJ0KZ74F3zjV5yUmg2JIe756/ugpR6rNoMYVSmnRkvmzklql/
+	o0De0npg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uncU1-00000005eYF-0boj;
-	Sun, 17 Aug 2025 12:27:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uncWZ-00000005efi-3lkV;
+	Sun, 17 Aug 2025 12:30:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uncMK-00000005e3Z-3tyi
+	id 1uncML-00000005e3N-3X3V
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 12:19:36 +0000
+	Sun, 17 Aug 2025 12:19:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5F389601FD;
-	Sun, 17 Aug 2025 12:19:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11866C4CEED;
-	Sun, 17 Aug 2025 12:19:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 111AA5C49B8;
+	Sun, 17 Aug 2025 12:19:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506B4C4CEED;
+	Sun, 17 Aug 2025 12:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755433176;
-	bh=RBob3+AvRkvfEfvFXTw/GdVJZ/1+9Wc1qjUp0oWbL8s=;
+	s=k20201202; t=1755433173;
+	bh=Guo97h2eoxZMYb2+Nxi9WRmIP/XlgwvHHwcXipcf8z8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MicD08+XXo1pVla9xI65WfAi2HmvTpxnN1p3V1haJEKgtZ3Bu/8EECll9IreGSaQA
-	 pJxYyA38557tr15fwtpmoLqVHp0rfPH1VCrv0bchLP/4FRKTb+3mhk4+jc+7HnnbGI
-	 6aojR+VBxTyYGYYu7lwgi19wX3AyMC5AJ8yy515EFPLq4NPg0QBegCccDTB8EH1sAN
-	 gBocqRuiHfmMkNK5f1Yqxj6NpuwzHWRyrpqAq2lrle5R7Ez6Ee4PTuQnt3vdtkCxmD
-	 urcKFAgNqPajJMlSgn8RZWeOi/yIcA6eXr5vOYEuouWc69Mgz2475ZdlY9kVgzdkbG
-	 IrP8XorUnEK7g==
+	b=an4/VlmTRgclhs8z7ggOTKCObOo8TlcN4AiGAKsozXqR7bQ50HeSrV+IPUEod3H/l
+	 WQqR/2aF3JOBdID2wzQypjcZowlccK5O451DNY34sGGaH+0Nb0hxCJmPvUXIZIbzUM
+	 JEAshusTRhIbA62z55JkACzTw0j+nTePvS3ilWoyn1rr/DX++3kUTkwlQd2lRrPt9+
+	 5RVRh1etm4ULhJ7qcoaSFe291JI7L7SBc0d9ItAoODwDPOdH8UDcvd4sqIuCxebGkV
+	 AOth1WhzNR24e2wEjrNf6fRZ4NZzAM1LSwOJrXKmvosmD3pDnOsQhOUNWSsUd0YsrD
+	 L9ftc74wcKdeA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uncME-008L0z-RG;
-	Sun, 17 Aug 2025 13:19:30 +0100
+	id 1uncMF-008L0z-7g;
+	Sun, 17 Aug 2025 13:19:31 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -57,9 +57,9 @@ Cc: Volodymyr Babchuk <volodymyr_babchuk@epam.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 2/4] KVM: arm64: Simplify sysreg access on exception delivery
-Date: Sun, 17 Aug 2025 13:19:24 +0100
-Message-Id: <20250817121926.217900-3-maz@kernel.org>
+Subject: [PATCH v2 4/4] KVM: arm64: Remove __vcpu_{read,write}_sys_reg_{from,to}_cpu()
+Date: Sun, 17 Aug 2025 13:19:26 +0100
+Message-Id: <20250817121926.217900-5-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250817121926.217900-1-maz@kernel.org>
 References: <20250817121926.217900-1-maz@kernel.org>
@@ -69,6 +69,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, volodymyr_babchuk@epam.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250817_051937_974877_02AADB39 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,63 +86,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Distinguishing between NV and VHE is slightly pointless, and only
-serves as an extra complication, or a way to introduce bugs, such
-as the way SPSR_EL1 gets written without checking for the state
-being resident.
+There is no point having __vcpu_{read,write}_sys_reg_{from,to}_cpu()
+exposed to the rest of the kernel, as the only callers are in
+sys_regs.c.
 
-Get rid if this silly distinction, and fix the bug in one go.
+Move them where they below, which is another opportunity to
+simplify things a bit.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/exception.c | 16 ++++------------
- 1 file changed, 4 insertions(+), 12 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 107 ------------------------------
+ arch/arm64/kvm/sys_regs.c         |  84 +++++++++++++++++++++--
+ 2 files changed, 80 insertions(+), 111 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index 3e67333197ab2..bef40ddb16dbc 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -22,36 +22,28 @@
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index a9661d35bfd02..2b07f0a27a7d8 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1163,113 +1163,6 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+ u64 vcpu_read_sys_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
+ void vcpu_write_sys_reg(struct kvm_vcpu *, u64, enum vcpu_sysreg);
  
- static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
- {
--	u64 val;
+-static inline bool __vcpu_read_sys_reg_from_cpu(int reg, u64 *val)
+-{
+-	/*
+-	 * *** VHE ONLY ***
+-	 *
+-	 * System registers listed in the switch are not saved on every
+-	 * exit from the guest but are only saved on vcpu_put.
+-	 *
+-	 * SYSREGS_ON_CPU *MUST* be checked before using this helper.
+-	 *
+-	 * Note that MPIDR_EL1 for the guest is set by KVM via VMPIDR_EL2 but
+-	 * should never be listed below, because the guest cannot modify its
+-	 * own MPIDR_EL1 and MPIDR_EL1 is accessed for VCPU A from VCPU B's
+-	 * thread when emulating cross-VCPU communication.
+-	 */
+-	if (!has_vhe())
+-		return false;
 -
--	if (unlikely(vcpu_has_nv(vcpu)))
-+	if (has_vhe())
- 		return vcpu_read_sys_reg(vcpu, reg);
--	else if (vcpu_get_flag(vcpu, SYSREGS_ON_CPU) &&
--		 __vcpu_read_sys_reg_from_cpu(reg, &val))
--		return val;
- 
- 	return __vcpu_sys_reg(vcpu, reg);
- }
- 
- static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
- {
--	if (unlikely(vcpu_has_nv(vcpu)))
-+	if (has_vhe())
- 		vcpu_write_sys_reg(vcpu, val, reg);
--	else if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU) ||
--		 !__vcpu_write_sys_reg_to_cpu(val, reg))
-+	else
- 		__vcpu_assign_sys_reg(vcpu, reg, val);
- }
- 
- static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 			      u64 val)
- {
--	if (unlikely(vcpu_has_nv(vcpu))) {
-+	if (has_vhe()) {
- 		if (target_mode == PSR_MODE_EL1h)
- 			vcpu_write_sys_reg(vcpu, val, SPSR_EL1);
- 		else
- 			vcpu_write_sys_reg(vcpu, val, SPSR_EL2);
--	} else if (has_vhe()) {
--		write_sysreg_el1(val, SYS_SPSR);
- 	} else {
- 		__vcpu_assign_sys_reg(vcpu, SPSR_EL1, val);
+-	switch (reg) {
+-	case SCTLR_EL1:		*val = read_sysreg_s(SYS_SCTLR_EL12);	break;
+-	case CPACR_EL1:		*val = read_sysreg_s(SYS_CPACR_EL12);	break;
+-	case TTBR0_EL1:		*val = read_sysreg_s(SYS_TTBR0_EL12);	break;
+-	case TTBR1_EL1:		*val = read_sysreg_s(SYS_TTBR1_EL12);	break;
+-	case TCR_EL1:		*val = read_sysreg_s(SYS_TCR_EL12);	break;
+-	case TCR2_EL1:		*val = read_sysreg_s(SYS_TCR2_EL12);	break;
+-	case PIR_EL1:		*val = read_sysreg_s(SYS_PIR_EL12);	break;
+-	case PIRE0_EL1:		*val = read_sysreg_s(SYS_PIRE0_EL12);	break;
+-	case POR_EL1:		*val = read_sysreg_s(SYS_POR_EL12);	break;
+-	case ESR_EL1:		*val = read_sysreg_s(SYS_ESR_EL12);	break;
+-	case AFSR0_EL1:		*val = read_sysreg_s(SYS_AFSR0_EL12);	break;
+-	case AFSR1_EL1:		*val = read_sysreg_s(SYS_AFSR1_EL12);	break;
+-	case FAR_EL1:		*val = read_sysreg_s(SYS_FAR_EL12);	break;
+-	case MAIR_EL1:		*val = read_sysreg_s(SYS_MAIR_EL12);	break;
+-	case VBAR_EL1:		*val = read_sysreg_s(SYS_VBAR_EL12);	break;
+-	case CONTEXTIDR_EL1:	*val = read_sysreg_s(SYS_CONTEXTIDR_EL12);break;
+-	case TPIDR_EL0:		*val = read_sysreg_s(SYS_TPIDR_EL0);	break;
+-	case TPIDRRO_EL0:	*val = read_sysreg_s(SYS_TPIDRRO_EL0);	break;
+-	case TPIDR_EL1:		*val = read_sysreg_s(SYS_TPIDR_EL1);	break;
+-	case AMAIR_EL1:		*val = read_sysreg_s(SYS_AMAIR_EL12);	break;
+-	case CNTKCTL_EL1:	*val = read_sysreg_s(SYS_CNTKCTL_EL12);	break;
+-	case ELR_EL1:		*val = read_sysreg_s(SYS_ELR_EL12);	break;
+-	case SPSR_EL1:		*val = read_sysreg_s(SYS_SPSR_EL12);	break;
+-	case PAR_EL1:		*val = read_sysreg_par();		break;
+-	case DACR32_EL2:	*val = read_sysreg_s(SYS_DACR32_EL2);	break;
+-	case IFSR32_EL2:	*val = read_sysreg_s(SYS_IFSR32_EL2);	break;
+-	case DBGVCR32_EL2:	*val = read_sysreg_s(SYS_DBGVCR32_EL2);	break;
+-	case ZCR_EL1:		*val = read_sysreg_s(SYS_ZCR_EL12);	break;
+-	case SCTLR2_EL1:	*val = read_sysreg_s(SYS_SCTLR2_EL12);	break;
+-	default:		return false;
+-	}
+-
+-	return true;
+-}
+-
+-static inline bool __vcpu_write_sys_reg_to_cpu(u64 val, int reg)
+-{
+-	/*
+-	 * *** VHE ONLY ***
+-	 *
+-	 * System registers listed in the switch are not restored on every
+-	 * entry to the guest but are only restored on vcpu_load.
+-	 *
+-	 * SYSREGS_ON_CPU *MUST* be checked before using this helper.
+-	 *
+-	 * Note that MPIDR_EL1 for the guest is set by KVM via VMPIDR_EL2 but
+-	 * should never be listed below, because the MPIDR should only be set
+-	 * once, before running the VCPU, and never changed later.
+-	 */
+-	if (!has_vhe())
+-		return false;
+-
+-	switch (reg) {
+-	case SCTLR_EL1:		write_sysreg_s(val, SYS_SCTLR_EL12);	break;
+-	case CPACR_EL1:		write_sysreg_s(val, SYS_CPACR_EL12);	break;
+-	case TTBR0_EL1:		write_sysreg_s(val, SYS_TTBR0_EL12);	break;
+-	case TTBR1_EL1:		write_sysreg_s(val, SYS_TTBR1_EL12);	break;
+-	case TCR_EL1:		write_sysreg_s(val, SYS_TCR_EL12);	break;
+-	case TCR2_EL1:		write_sysreg_s(val, SYS_TCR2_EL12);	break;
+-	case PIR_EL1:		write_sysreg_s(val, SYS_PIR_EL12);	break;
+-	case PIRE0_EL1:		write_sysreg_s(val, SYS_PIRE0_EL12);	break;
+-	case POR_EL1:		write_sysreg_s(val, SYS_POR_EL12);	break;
+-	case ESR_EL1:		write_sysreg_s(val, SYS_ESR_EL12);	break;
+-	case AFSR0_EL1:		write_sysreg_s(val, SYS_AFSR0_EL12);	break;
+-	case AFSR1_EL1:		write_sysreg_s(val, SYS_AFSR1_EL12);	break;
+-	case FAR_EL1:		write_sysreg_s(val, SYS_FAR_EL12);	break;
+-	case MAIR_EL1:		write_sysreg_s(val, SYS_MAIR_EL12);	break;
+-	case VBAR_EL1:		write_sysreg_s(val, SYS_VBAR_EL12);	break;
+-	case CONTEXTIDR_EL1:	write_sysreg_s(val, SYS_CONTEXTIDR_EL12);break;
+-	case TPIDR_EL0:		write_sysreg_s(val, SYS_TPIDR_EL0);	break;
+-	case TPIDRRO_EL0:	write_sysreg_s(val, SYS_TPIDRRO_EL0);	break;
+-	case TPIDR_EL1:		write_sysreg_s(val, SYS_TPIDR_EL1);	break;
+-	case AMAIR_EL1:		write_sysreg_s(val, SYS_AMAIR_EL12);	break;
+-	case CNTKCTL_EL1:	write_sysreg_s(val, SYS_CNTKCTL_EL12);	break;
+-	case ELR_EL1:		write_sysreg_s(val, SYS_ELR_EL12);	break;
+-	case SPSR_EL1:		write_sysreg_s(val, SYS_SPSR_EL12);	break;
+-	case PAR_EL1:		write_sysreg_s(val, SYS_PAR_EL1);	break;
+-	case DACR32_EL2:	write_sysreg_s(val, SYS_DACR32_EL2);	break;
+-	case IFSR32_EL2:	write_sysreg_s(val, SYS_IFSR32_EL2);	break;
+-	case DBGVCR32_EL2:	write_sysreg_s(val, SYS_DBGVCR32_EL2);	break;
+-	case ZCR_EL1:		write_sysreg_s(val, SYS_ZCR_EL12);	break;
+-	case SCTLR2_EL1:	write_sysreg_s(val, SYS_SCTLR2_EL12);	break;
+-	default:		return false;
+-	}
+-
+-	return true;
+-}
+-
+ struct kvm_vm_stat {
+ 	struct kvm_vm_stat_generic generic;
+ };
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index b27ddb15d9909..bb61819db7548 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -216,6 +216,82 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
  	}
+ }
+ 
++static u64 read_sr_from_cpu(enum vcpu_sysreg reg)
++{
++	u64 val = 0x8badf00d8badf00d;
++
++	switch (reg) {
++	case SCTLR_EL1:		val = read_sysreg_s(SYS_SCTLR_EL12);	break;
++	case CPACR_EL1:		val = read_sysreg_s(SYS_CPACR_EL12);	break;
++	case TTBR0_EL1:		val = read_sysreg_s(SYS_TTBR0_EL12);	break;
++	case TTBR1_EL1:		val = read_sysreg_s(SYS_TTBR1_EL12);	break;
++	case TCR_EL1:		val = read_sysreg_s(SYS_TCR_EL12);	break;
++	case TCR2_EL1:		val = read_sysreg_s(SYS_TCR2_EL12);	break;
++	case PIR_EL1:		val = read_sysreg_s(SYS_PIR_EL12);	break;
++	case PIRE0_EL1:		val = read_sysreg_s(SYS_PIRE0_EL12);	break;
++	case POR_EL1:		val = read_sysreg_s(SYS_POR_EL12);	break;
++	case ESR_EL1:		val = read_sysreg_s(SYS_ESR_EL12);	break;
++	case AFSR0_EL1:		val = read_sysreg_s(SYS_AFSR0_EL12);	break;
++	case AFSR1_EL1:		val = read_sysreg_s(SYS_AFSR1_EL12);	break;
++	case FAR_EL1:		val = read_sysreg_s(SYS_FAR_EL12);	break;
++	case MAIR_EL1:		val = read_sysreg_s(SYS_MAIR_EL12);	break;
++	case VBAR_EL1:		val = read_sysreg_s(SYS_VBAR_EL12);	break;
++	case CONTEXTIDR_EL1:	val = read_sysreg_s(SYS_CONTEXTIDR_EL12);break;
++	case AMAIR_EL1:		val = read_sysreg_s(SYS_AMAIR_EL12);	break;
++	case CNTKCTL_EL1:	val = read_sysreg_s(SYS_CNTKCTL_EL12);	break;
++	case ELR_EL1:		val = read_sysreg_s(SYS_ELR_EL12);	break;
++	case SPSR_EL1:		val = read_sysreg_s(SYS_SPSR_EL12);	break;
++	case ZCR_EL1:		val = read_sysreg_s(SYS_ZCR_EL12);	break;
++	case SCTLR2_EL1:	val = read_sysreg_s(SYS_SCTLR2_EL12);	break;
++	case TPIDR_EL0:		val = read_sysreg_s(SYS_TPIDR_EL0);	break;
++	case TPIDRRO_EL0:	val = read_sysreg_s(SYS_TPIDRRO_EL0);	break;
++	case TPIDR_EL1:		val = read_sysreg_s(SYS_TPIDR_EL1);	break;
++	case PAR_EL1:		val = read_sysreg_par();		break;
++	case DACR32_EL2:	val = read_sysreg_s(SYS_DACR32_EL2);	break;
++	case IFSR32_EL2:	val = read_sysreg_s(SYS_IFSR32_EL2);	break;
++	case DBGVCR32_EL2:	val = read_sysreg_s(SYS_DBGVCR32_EL2);	break;
++	default:		WARN_ON_ONCE(1);
++	}
++
++	return val;
++}
++
++static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
++{
++	switch (reg) {
++	case SCTLR_EL1:		write_sysreg_s(val, SYS_SCTLR_EL12);	break;
++	case CPACR_EL1:		write_sysreg_s(val, SYS_CPACR_EL12);	break;
++	case TTBR0_EL1:		write_sysreg_s(val, SYS_TTBR0_EL12);	break;
++	case TTBR1_EL1:		write_sysreg_s(val, SYS_TTBR1_EL12);	break;
++	case TCR_EL1:		write_sysreg_s(val, SYS_TCR_EL12);	break;
++	case TCR2_EL1:		write_sysreg_s(val, SYS_TCR2_EL12);	break;
++	case PIR_EL1:		write_sysreg_s(val, SYS_PIR_EL12);	break;
++	case PIRE0_EL1:		write_sysreg_s(val, SYS_PIRE0_EL12);	break;
++	case POR_EL1:		write_sysreg_s(val, SYS_POR_EL12);	break;
++	case ESR_EL1:		write_sysreg_s(val, SYS_ESR_EL12);	break;
++	case AFSR0_EL1:		write_sysreg_s(val, SYS_AFSR0_EL12);	break;
++	case AFSR1_EL1:		write_sysreg_s(val, SYS_AFSR1_EL12);	break;
++	case FAR_EL1:		write_sysreg_s(val, SYS_FAR_EL12);	break;
++	case MAIR_EL1:		write_sysreg_s(val, SYS_MAIR_EL12);	break;
++	case VBAR_EL1:		write_sysreg_s(val, SYS_VBAR_EL12);	break;
++	case CONTEXTIDR_EL1:	write_sysreg_s(val, SYS_CONTEXTIDR_EL12);break;
++	case AMAIR_EL1:		write_sysreg_s(val, SYS_AMAIR_EL12);	break;
++	case CNTKCTL_EL1:	write_sysreg_s(val, SYS_CNTKCTL_EL12);	break;
++	case ELR_EL1:		write_sysreg_s(val, SYS_ELR_EL12);	break;
++	case SPSR_EL1:		write_sysreg_s(val, SYS_SPSR_EL12);	break;
++	case ZCR_EL1:		write_sysreg_s(val, SYS_ZCR_EL12);	break;
++	case SCTLR2_EL1:	write_sysreg_s(val, SYS_SCTLR2_EL12);	break;
++	case TPIDR_EL0:		write_sysreg_s(val, SYS_TPIDR_EL0);	break;
++	case TPIDRRO_EL0:	write_sysreg_s(val, SYS_TPIDRRO_EL0);	break;
++	case TPIDR_EL1:		write_sysreg_s(val, SYS_TPIDR_EL1);	break;
++	case PAR_EL1:		write_sysreg_s(val, SYS_PAR_EL1);	break;
++	case DACR32_EL2:	write_sysreg_s(val, SYS_DACR32_EL2);	break;
++	case IFSR32_EL2:	write_sysreg_s(val, SYS_IFSR32_EL2);	break;
++	case DBGVCR32_EL2:	write_sysreg_s(val, SYS_DBGVCR32_EL2);	break;
++	default:		WARN_ON_ONCE(1);
++	}
++}
++
+ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ {
+ 	struct sr_loc loc = {};
+@@ -246,13 +322,13 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 
+ 	if (loc.loc & SR_LOC_LOADED) {
+ 		enum vcpu_sysreg map_reg = reg;
+-		u64 val = 0x8badf00d8badf00d;
+ 
+ 		if (loc.loc & SR_LOC_MAPPED)
+ 			map_reg = loc.map_reg;
+ 
+-		if (!(loc.loc & SR_LOC_XLATED) &&
+-		    __vcpu_read_sys_reg_from_cpu(map_reg, &val)) {
++		if (!(loc.loc & SR_LOC_XLATED)) {
++			u64 val = read_sr_from_cpu(map_reg);
++
+ 			if (reg >= __SANITISED_REG_START__)
+ 				val = kvm_vcpu_apply_reg_masks(vcpu, reg, val);
+ 
+@@ -304,7 +380,7 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+ 		else
+ 			xlated_val = val;
+ 
+-		__vcpu_write_sys_reg_to_cpu(xlated_val, map_reg);
++		write_sr_to_cpu(map_reg, xlated_val);
+ 
+ 		/*
+ 		 * Fall through to write the backing store anyway, which
 -- 
 2.39.2
 
