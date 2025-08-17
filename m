@@ -4,116 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC4FCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 07:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9A8CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 08:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yn2XJ8iwGeNebXVdCG+njPsMFqG7JsERkRQot0WLCTE=; b=IiCxKa83yPrV5xUGJrUkrVzDJg
-	uooY5yQeIfoIsty5DsVjkq++trO4BWTT9wECnHBdmQ5Eco6KP2tlP3K8E7peWxgcKFY7QZiD0mWIU
-	m8KEtQ2jUwOj7YrgJT95+F+KxAZy6XelPA/woZQI1jhAswc9ZKkbF+w1B8tSQEA7zGaxABFD+ixfL
-	YC9NYmic5XhHCRX1/YA7ujjb2cDDfJkjXqbedneRQ4WhlgRX1ycXiEP5O5rbPJa44TDRGTGPZyxbQ
-	GpHZspnFUn2p/CvefAkKm7T85WD/9Kg1/mVzvO+NPnbk+LhIRP6wzArW7vyt9RxR0ZeprLy29PXb6
-	qERdqsUQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mLY8zivKv4V7ZPqASwM9sGRdSMQXYChLQdHmi9I6EJE=; b=L3s2Y38GAxWxiTtUGDHl9xJAEY
+	HM2zyDU4q1EWsqebEw+mcf+iitG5mVTaW3Y8+ROXW6+oSIt6lEUzWGQT0CLG+Q2EyLWpOebe9/IOw
+	rSmp4Jj8HTLkUE4I6ZanMzf2ZmGrGGtPMQvaq3J8dABr6sYRHm1yjiub8vKDkpdDt3m5UGh4K/U3F
+	0/dE6buHdCFi9BwnpDZZbV8c17upc4EUGtpUDY+QVtpMI9KbW/qVowfPycEBy/xHP05VnAFgCU4+S
+	Eh4VKIFp2pah8wvMmmWvMiwRcVbRl2cAXcFxwIx5tzoXEVfAZFvOgDiDQyTfkndi7iDwDGONaM+RW
+	nOYJz1Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unXoV-00000005Rkj-2vfR;
-	Sun, 17 Aug 2025 07:28:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unXlt-00000005ReH-0luO
+	id 1unYts-00000005Ube-2Iyu;
+	Sun, 17 Aug 2025 08:38:00 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unYrG-00000005USM-2XmE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 07:25:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9C8CC5C043C;
-	Sun, 17 Aug 2025 07:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFD4C4CEEB;
-	Sun, 17 Aug 2025 07:25:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755415539;
-	bh=9aRcWoV+UMk5idXKgIczOYrwUIZEkMx9vArmENQ/UXg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p9fCi6MBJ2J4z015V22qjt3ST8AlYwCfk8BRYkjWTGHFp0PwNZc7xgWqXcGXJA4PG
-	 OuzIkU/gxx8tOKQGl+YWbmffEuli7MWWG64c3FUInRH0/NmszwBBEwavGvTsN4VRaM
-	 +DaMij7N7SzboR6vW265LNyOnEf0K1z1ybk2CkwWqJzsbqxcpb0CBqJXUFkqWjWsC2
-	 bzTkZ38qiwnxuzUJh/uP4dAJyrk2odf7kzvto5f4SvbG74usOMyJiruPyweWrBVDvK
-	 SB4gfluyzGm679eZlRx+o3VlAOKWZHfs5w5k61wa8opWT4wVw1vnwjYOW7dggL7eCU
-	 DFWjXdXn3iXOQ==
-Message-ID: <67accd3e-8804-4f38-af6f-3c351ca7807d@kernel.org>
-Date: Sun, 17 Aug 2025 09:25:32 +0200
+	Sun, 17 Aug 2025 08:35:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=mL
+	Y8zivKv4V7ZPqASwM9sGRdSMQXYChLQdHmi9I6EJE=; b=cIyiwxb3EIhFeCpqJg
+	0x9Mt29Uz+rCc31W+FAINyJuFpXzkM17eHmAY24J3/1sX06PUJ+Av9zBX693CwF7
+	gYej8Dcx85g3+1deNWN8UesI12uGLjOC9SdEfG0/08yrik68JTDyBuWXj/ZDAwIa
+	jjK04ycTh91fJI5YBfLbs5a4w=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDHZ8UrlKFoCU5FCg--.59942S2;
+	Sun, 17 Aug 2025 16:34:53 +0800 (CST)
+From: Yang Xiuwei <yangxiuwei2025@163.com>
+To: tony@atomide.com,
+	khilman@baylibre.com
+Cc: linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Yang Xiuwei <yangxiuwei@kylinos.cn>
+Subject: [PATCH] ARM: OMAP2+: use IS_ERR_OR_NULL() helper
+Date: Sun, 17 Aug 2025 16:34:49 +0800
+Message-Id: <20250817083449.2249268-1-yangxiuwei2025@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] dt-bindings: clock: nxp,imx95-blk-ctl: Add
- optional ldb property
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: imx@lists.linux.dev, Abel Vesa <abelvesa@kernel.org>,
- Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com>
- <20250806150521.2174797-7-laurentiu.palcu@oss.nxp.com>
- <20250807-airborne-rich-lobster-6f8e2e@kuoka>
- <3ckcsadhab3wx54g37qhqtckr6r5j7g4mffmcksbxlxuavar7a@hokyb2k6lk3p>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <3ckcsadhab3wx54g37qhqtckr6r5j7g4mffmcksbxlxuavar7a@hokyb2k6lk3p>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDHZ8UrlKFoCU5FCg--.59942S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZr18AFWUKw4kAF4rurW8tFb_yoW5KFW5pF
+	yqkw12gr40gw17J34DtF40vF1jy392qF40yrZY9w1Yqw4a9rnrG3W29Fyjk34Ykas7Ga1r
+	AF43Aay8Zr45JFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jJfHbUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: p1dqw55lxzvxisqskqqrwthudrp/1tbiMQ+skGihi-yrTQAAsa
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_002541_316472_01B257BD 
-X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-CacheID: sfid-20250817_013519_022264_EA02861E 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,28 +73,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2025 14:35, Laurentiu Palcu wrote:
->>
->> Why every device here has ldb child? Why camera has ldb?
-> I guess I see what you mean... Would something like the following change
-> be acceptable?
-> 
-> ---
-> if:
->   properties:
->     compatible:
->       contains:
->         const: nxp,imx94-lvds-csr
-> then:
->   patternProperties:
->     "^ldb@[0-9a-f]+$":
->       type: object
->       $ref: /schemas/display/bridge/fsl,ldb.yaml#
+From: Yang Xiuwei <yangxiuwei@kylinos.cn>
 
-In if:then: you only narrow the existence or constraints, so "if:not:
-.... then: patternProperties:.... ^ldb@[0-9a-f]+$:false". The node
-should still be defined in top level.
+Simplify error handling in OMAP powerdomain, voltage, and VP code by
+replacing open-coded '!ptr || IS_ERR(ptr)' checks with the combined
+IS_ERR_OR_NULL() helper.
 
-Best regards,
-Krzysztof
+This improves readability and consistency across
+omap_set_pwrdm_state(), voltdm_get_voltage(), voltdm_scale(),
+voltdm_reset(), and related functions.
+
+No functional change intended.
+
+Signed-off-by: Yang Xiuwei <yangxiuwei@kylinos.cn>
+
+diff --git a/arch/arm/mach-omap2/powerdomain.c b/arch/arm/mach-omap2/powerdomain.c
+index a4785302b7ae..0225b9889404 100644
+--- a/arch/arm/mach-omap2/powerdomain.c
++++ b/arch/arm/mach-omap2/powerdomain.c
+@@ -1111,7 +1111,7 @@ int omap_set_pwrdm_state(struct powerdomain *pwrdm, u8 pwrst)
+ 	int curr_pwrst;
+ 	int ret = 0;
+ 
+-	if (!pwrdm || IS_ERR(pwrdm))
++	if (IS_ERR_OR_NULL(pwrdm))
+ 		return -EINVAL;
+ 
+ 	while (!(pwrdm->pwrsts & (1 << pwrst))) {
+diff --git a/arch/arm/mach-omap2/voltage.c b/arch/arm/mach-omap2/voltage.c
+index 49e8bc69abdd..000c2bca5ef0 100644
+--- a/arch/arm/mach-omap2/voltage.c
++++ b/arch/arm/mach-omap2/voltage.c
+@@ -51,7 +51,7 @@ static LIST_HEAD(voltdm_list);
+  */
+ unsigned long voltdm_get_voltage(struct voltagedomain *voltdm)
+ {
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return 0;
+ 	}
+@@ -73,7 +73,7 @@ static int voltdm_scale(struct voltagedomain *voltdm,
+ 	int ret, i;
+ 	unsigned long volt = 0;
+ 
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return -EINVAL;
+ 	}
+@@ -124,7 +124,7 @@ void voltdm_reset(struct voltagedomain *voltdm)
+ {
+ 	unsigned long target_volt;
+ 
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return;
+ 	}
+@@ -154,7 +154,7 @@ void voltdm_reset(struct voltagedomain *voltdm)
+ void omap_voltage_get_volttable(struct voltagedomain *voltdm,
+ 				struct omap_volt_data **volt_data)
+ {
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return;
+ 	}
+@@ -182,7 +182,7 @@ struct omap_volt_data *omap_voltage_get_voltdata(struct voltagedomain *voltdm,
+ {
+ 	int i;
+ 
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return ERR_PTR(-EINVAL);
+ 	}
+@@ -216,7 +216,7 @@ struct omap_volt_data *omap_voltage_get_voltdata(struct voltagedomain *voltdm,
+ int omap_voltage_register_pmic(struct voltagedomain *voltdm,
+ 			       struct omap_voltdm_pmic *pmic)
+ {
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return -EINVAL;
+ 	}
+diff --git a/arch/arm/mach-omap2/vp.c b/arch/arm/mach-omap2/vp.c
+index a709655b978c..03c481c4742c 100644
+--- a/arch/arm/mach-omap2/vp.c
++++ b/arch/arm/mach-omap2/vp.c
+@@ -199,7 +199,7 @@ void omap_vp_enable(struct voltagedomain *voltdm)
+ 	struct omap_vp_instance *vp;
+ 	u32 vpconfig, volt;
+ 
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return;
+ 	}
+@@ -244,7 +244,7 @@ void omap_vp_disable(struct voltagedomain *voltdm)
+ 	u32 vpconfig;
+ 	int timeout;
+ 
+-	if (!voltdm || IS_ERR(voltdm)) {
++	if (IS_ERR_OR_NULL(voltdm)) {
+ 		pr_warn("%s: VDD specified does not exist!\n", __func__);
+ 		return;
+ 	}
+-- 
+2.25.1
+
 
