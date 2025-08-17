@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42EFCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 07:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC4FCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 07:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3b2YYO5JcqnFqWLf8WbkywM6l0wlU+uE9DENcIkOMC4=; b=xm9KvxxBKZ3gskeZBLhLMzGJae
-	uiokdMfz5OBiMWZ0i29XXkbn8z++gwC6EUfqt8FyImz6BGV29pfrkAER34Yfm/DGXoHLnwCnEbwvd
-	dAU+wGMIhTl1UsR3Rc76m5t5SE6LQYTk7TtNy4/qw1J2CPqG++sa0RekWLHwB78o9pxcuklvYXIPL
-	5gVl+LogHXdrbJKDuAB6oyoXqYbwSygAFRt60ep01sw5wwlSkORei1bVyNKxhlaH1HhdUkvoasyxs
-	Gv/MsmYhVCjSY1KEmZH0TF+WaCxl3SDHMX9GpFTCPq54HMloSTJHrfyc6/EuA58PmIxjKoJnJSPr1
-	6sgK8k1w==;
+	bh=Yn2XJ8iwGeNebXVdCG+njPsMFqG7JsERkRQot0WLCTE=; b=IiCxKa83yPrV5xUGJrUkrVzDJg
+	uooY5yQeIfoIsty5DsVjkq++trO4BWTT9wECnHBdmQ5Eco6KP2tlP3K8E7peWxgcKFY7QZiD0mWIU
+	m8KEtQ2jUwOj7YrgJT95+F+KxAZy6XelPA/woZQI1jhAswc9ZKkbF+w1B8tSQEA7zGaxABFD+ixfL
+	YC9NYmic5XhHCRX1/YA7ujjb2cDDfJkjXqbedneRQ4WhlgRX1ycXiEP5O5rbPJa44TDRGTGPZyxbQ
+	GpHZspnFUn2p/CvefAkKm7T85WD/9Kg1/mVzvO+NPnbk+LhIRP6wzArW7vyt9RxR0ZeprLy29PXb6
+	qERdqsUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unXiE-00000005RQw-2LDC;
-	Sun, 17 Aug 2025 07:21:54 +0000
+	id 1unXoV-00000005Rkj-2vfR;
+	Sun, 17 Aug 2025 07:28:23 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unXfc-00000005RIH-2vUk
+	id 1unXlt-00000005ReH-0luO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 07:19:13 +0000
+	Sun, 17 Aug 2025 07:25:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 609795C05E4;
-	Sun, 17 Aug 2025 07:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08CD7C4CEEB;
-	Sun, 17 Aug 2025 07:19:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C8CC5C043C;
+	Sun, 17 Aug 2025 07:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFD4C4CEEB;
+	Sun, 17 Aug 2025 07:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755415151;
-	bh=JFDiGM0BVBryvFA/mMw/si31ekZeLVsvinEiadWqIdM=;
+	s=k20201202; t=1755415539;
+	bh=9aRcWoV+UMk5idXKgIczOYrwUIZEkMx9vArmENQ/UXg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WIzZcZhrGmrVNBZxq2Gcv1VEeQrnro/YDTiryCPMd6mt1e64BabAxeKsbS0uHeo22
-	 Ny5/52BqNnV3tDlTDzpYQfOfc6YSXBJ2m4dxny6LtkDM4BgUo7zFPkSjAQM2ncRVQO
-	 W/p6VvaqCd+euTgxH7EQHRrvbST1sIfzqGfigtVABMstAI/Xok1w6kzPkQep4yWvPx
-	 mqpK7uToLeuiWm+OmFl8f7rR1rDUukrOlxFp/kUL+lvqCHmCcwl/2aHxBzkWDVDUx+
-	 Mq6IIMJFyRL6YM606LS+MtHiYWjlEarzzfrm4Mu3xBE5o206ysYn3ZpmmqO30aCh65
-	 gXqlZzu27L3Fg==
-Message-ID: <fb5083ff-4bee-4a0f-8774-54b492cd9a6d@kernel.org>
-Date: Sun, 17 Aug 2025 09:19:04 +0200
+	b=p9fCi6MBJ2J4z015V22qjt3ST8AlYwCfk8BRYkjWTGHFp0PwNZc7xgWqXcGXJA4PG
+	 OuzIkU/gxx8tOKQGl+YWbmffEuli7MWWG64c3FUInRH0/NmszwBBEwavGvTsN4VRaM
+	 +DaMij7N7SzboR6vW265LNyOnEf0K1z1ybk2CkwWqJzsbqxcpb0CBqJXUFkqWjWsC2
+	 bzTkZ38qiwnxuzUJh/uP4dAJyrk2odf7kzvto5f4SvbG74usOMyJiruPyweWrBVDvK
+	 SB4gfluyzGm679eZlRx+o3VlAOKWZHfs5w5k61wa8opWT4wVw1vnwjYOW7dggL7eCU
+	 DFWjXdXn3iXOQ==
+Message-ID: <67accd3e-8804-4f38-af6f-3c351ca7807d@kernel.org>
+Date: Sun, 17 Aug 2025 09:25:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/20] dt-bindings: memory: introduce DDR4
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
- Rob Herring <robh@kernel.org>,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+Subject: Re: [PATCH v3 6/9] dt-bindings: clock: nxp,imx95-blk-ctl: Add
+ optional ldb property
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: imx@lists.linux.dev, Abel Vesa <abelvesa@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
- Gatien Chevallier <gatien.chevallier@foss.st.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
- Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-clk@vger.kernel.org
-References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
- <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
- <20250730211151.GA1749004-robh@kernel.org>
- <da8578ae-3f79-4082-b0fb-760553004c93@gmail.com>
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com>
+ <20250806150521.2174797-7-laurentiu.palcu@oss.nxp.com>
+ <20250807-airborne-rich-lobster-6f8e2e@kuoka>
+ <3ckcsadhab3wx54g37qhqtckr6r5j7g4mffmcksbxlxuavar7a@hokyb2k6lk3p>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,12 +108,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <da8578ae-3f79-4082-b0fb-760553004c93@gmail.com>
+In-Reply-To: <3ckcsadhab3wx54g37qhqtckr6r5j7g4mffmcksbxlxuavar7a@hokyb2k6lk3p>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_001912_813704_2B391C6E 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250817_002541_316472_01B257BD 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,61 +129,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/08/2025 16:42, Clément Le Goffic wrote:
-> Hi Rob,
-> 
-> On 30/07/2025 23:11, Rob Herring wrote:
->> On Mon, Jul 28, 2025 at 05:29:37PM +0200, Clément Le Goffic wrote:
->>> Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
->>>
->>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>> ---
->>>   .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
->>>   1 file changed, 34 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
->>> new file mode 100644
->>> index 000000000000..f457066a2f8b
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
->>> @@ -0,0 +1,34 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: DDR3 SDRAM compliant to JEDEC JESD79-4D
->>> +
->>> +maintainers:
->>> +  - Krzysztof Kozlowski <krzk@kernel.org>
->>> +
->>> +allOf:
->>> +  - $ref: jedec,sdram-props.yaml#
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - pattern: "^ddr4-[0-9a-f]{2},[0-9a-f]{1}$"
+On 07/08/2025 14:35, Laurentiu Palcu wrote:
 >>
->> Shouldn't this be 'jedec,ddr4-...'
+>> Why every device here has ldb child? Why camera has ldb?
+> I guess I see what you mean... Would something like the following change
+> be acceptable?
 > 
-> That's not the case for lpddr bindings, I wanted both lpddr and ddr 
-> bindings to be similar but this can change.
+> ---
+> if:
+>   properties:
+>     compatible:
+>       contains:
+>         const: nxp,imx94-lvds-csr
+> then:
+>   patternProperties:
+>     "^ldb@[0-9a-f]+$":
+>       type: object
+>       $ref: /schemas/display/bridge/fsl,ldb.yaml#
 
-For LPDDR Julius introduced in commit 686fe63b2280 ("dt-bindings:
-memory: Add numeric LPDDR compatible string variant") ddr4-VENDORID
-pattern to distinguish individual manufacturers.
-
-Jedec is not really the vendor here.
-
-Is it the same case in DDR? You have a defined list of vendor IDs (also
-1 byte)?
-
-> 
->>
->>> +      - const: jedec,ddr4
-
+In if:then: you only narrow the existence or constraints, so "if:not:
+.... then: patternProperties:.... ^ldb@[0-9a-f]+$:false". The node
+should still be defined in top level.
 
 Best regards,
 Krzysztof
