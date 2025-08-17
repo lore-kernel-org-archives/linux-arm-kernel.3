@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E61CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 20:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF9DCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 20:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XtMCqwtvst6jDxbdscWkXjDGCoH4jBDpKoKKMgZvWM=; b=FkWTrqO3O06seG8dzLuEpzsr+J
-	F8nwbLTLBB9DJ7lVfehol613+M+SjHYvoIHXy3g8mJQd5AOUBdeUnILhceEJPtsrvH3OLfUvh+ab7
-	cKfnHCNigeJwUxBgF9cxTh+165fursuTgIA//3j6hrOKTlAjvaW2gLwERsXPCoLymWTgqxJ8kWcRv
-	wcJQf42hrSYGx+x9EDTsi2LHljYZ7jcEC7XKKdT6F0KATG32t7JfjdMMZ2ju+hvrqKHspmvCn8cyW
-	Cec1BOi9vj5fVcZw6V6n349QWyP5OdMK9OBfg3QV1eiKfQpeK1yPMor9Trje2WeG8f/p+C7HMWSKj
-	iu8rI/Yg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eIjcgKfTyVyT7gWAGou2n/GfhW/eH94L9YlyOiTdrqk=; b=qaKB6JC37asSMJH2/cJUUksaJQ
+	kOS4Qke7HjHZVFbTOxjOd6fYMNlKsz65oeHufiJEopSbQUkI/YPFMnr0jYH2uE2F0RF5qjWy3eZB5
+	+CwGofdmrL9KgDn2uAgXUdtyjGTZqze+97PVyXBCVekB464cEwxLQPKparxI4T2zz0FSxS1qKmJzX
+	rC62ldo17sAIpclaQ22W9sam/5n44vc2cjP5esvJNil7QO2EY9ELMb57WHQkjBeNW7mRq55hCqVIf
+	u0T9u9ES7m3knCF8VqMXaGSiSw9vHc2eW8G0tvh0xlOu6O3i2MmlOR0nv3Q0iynmgmY8SImEmEaFc
+	ZOcE9zuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unk0v-000000061SL-28xd;
-	Sun, 17 Aug 2025 20:30:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1unk3S-000000061e0-198b;
+	Sun, 17 Aug 2025 20:32:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unjtH-000000060QX-1yea
+	id 1unjtH-000000060QU-3Crw
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 17 Aug 2025 20:22:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66D2243E72;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8AB745C12EF;
 	Sun, 17 Aug 2025 20:22:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39544C4CEED;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33B61C4CEEB;
 	Sun, 17 Aug 2025 20:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755462125;
-	bh=RXgWRSGH4nGx0A8lxjTwK5dMqds4qncvFuceBa86+kY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qsj6nrTUnvYJ7KlkpI4Viy+RR1VJWN0kRVZ8DarcSE/KiLsCBVU7tG7V9Uo2vflx4
-	 FYLyQ/vTqqsCZ+1K89hATqkTPCyHRWOGSzYKpnBNL7YJy2YYrTlWyhd+lbgZnPvB2o
-	 H8aQVQFSvvpY+B9nM9lbYttLMGFLLge0m1r8kYQLvYOPVXBmiytsURANAHQ8ohwoMd
-	 296rQqmV5O9vU2q5LN3rKrWt/eN8mGYNVtIqv8CBF2DRyJh9CpAu5OTFhVZbcI/sfM
-	 QbQ2qptiGxtwCuM2ONUWbC1k4VddZhrZG/mgVjXygHCj5jm2baziP9Nljz2Owb4FYO
-	 Be3fLpOusr/Ww==
+	bh=6IKXewD5unUmBax2L4vHEKjl6ny3rrpHG4F8C3MhAI4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JQ/fuZORsW19lxI3yCEgGoKsk/eCkdixoVAwGBsuTCHwVrwe125DUvz/ImYQN0m9e
+	 SVzyFTelspj4+e3kqbco62jwL8K+Z3KN7wMLOd2C+qGY5vGgcVqZqRCKjX1gjUCO2p
+	 i+X64uCFoJGt4yLdEcT5oBHpK9euSaEREzSk2u5ciSUl+K+9WH9mlRH63r2S0t5q+9
+	 N7R5fKKqGSAhuqiRGtBJb+yf/LgppqM13bc7GnBfKDYrzv+0+ndzQVV1SzxQlrp38e
+	 JlO6O0IbUkM2kC0obukFDaJ5B/iQD+PZRBheP8fNE977hoxWarTEq5polxRzwnPuv1
+	 48mhCcwGn+dOA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1unjtD-008PX0-1U;
-	Sun, 17 Aug 2025 21:22:03 +0100
+	id 1unjtC-008PX0-PO;
+	Sun, 17 Aug 2025 21:22:02 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,12 +59,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Cornelia Huck <cohuck@redhat.com>
-Subject: [PATCH v3 1/6] arm64: Add capability denoting FEAT_RASv1p1
-Date: Sun, 17 Aug 2025 21:21:53 +0100
-Message-Id: <20250817202158.395078-2-maz@kernel.org>
+Subject: [PATCH v3 0/6] KVM: arm64: FEAT_RASv1p1 support and RAS selection
+Date: Sun, 17 Aug 2025 21:21:52 +0100
+Message-Id: <20250817202158.395078-1-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250817202158.395078-1-maz@kernel.org>
-References: <20250817202158.395078-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -72,8 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_132207_562075_B1D0506B 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250817_132207_881001_6A555CE9 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,74 +86,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Detecting FEAT_RASv1p1 is rather complicated, as there are two
-ways for the architecture to advertise the same thing (always a
-delight...).
+This is the next iteration of this series trying to plug some of our
+RAS holes (no pun intended...). See [1] for the original series.
 
-Add a capability that will advertise this in a synthetic way to
-the rest of the kernel.
+The difference with the previous drop is that we don't try to expose a
+canonical encoding RASv1p1. Which means you must migrate between
+similar implementations for now.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kernel/cpufeature.c | 24 ++++++++++++++++++++++++
- arch/arm64/tools/cpucaps       |  1 +
- 2 files changed, 25 insertions(+)
+I've also added a cleanup patch at the end, which can be dropped.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9ad065f15f1d6..0d45c5e9b4da5 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2269,6 +2269,24 @@ static void cpu_clear_disr(const struct arm64_cpu_capabilities *__unused)
- 	/* Firmware may have left a deferred SError in this register. */
- 	write_sysreg_s(0, SYS_DISR_EL1);
- }
-+static bool has_rasv1p1(const struct arm64_cpu_capabilities *__unused, int scope)
-+{
-+	const struct arm64_cpu_capabilities rasv1p1_caps[] = {
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, V1P1)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, RAS_frac, RASv1p1)
-+		},
-+	};
-+
-+	return (has_cpuid_feature(&rasv1p1_caps[0], scope) ||
-+		(has_cpuid_feature(&rasv1p1_caps[1], scope) &&
-+		 has_cpuid_feature(&rasv1p1_caps[2], scope)));
-+}
- #endif /* CONFIG_ARM64_RAS_EXTN */
- 
- #ifdef CONFIG_ARM64_PTR_AUTH
-@@ -2687,6 +2705,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.cpu_enable = cpu_clear_disr,
- 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
- 	},
-+	{
-+		.desc = "RASv1p1 Extension Support",
-+		.capability = ARM64_HAS_RASV1P1_EXTN,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_rasv1p1,
-+	},
- #endif /* CONFIG_ARM64_RAS_EXTN */
- #ifdef CONFIG_ARM64_AMU_EXTN
- 	{
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index ef0b7946f5a48..9ff5cdbd27597 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -53,6 +53,7 @@ HAS_S1PIE
- HAS_S1POE
- HAS_SCTLR2
- HAS_RAS_EXTN
-+HAS_RASV1P1_EXTN
- HAS_RNG
- HAS_SB
- HAS_STAGE2_FWB
+Patches on top of v6.17-rc1.
+
+* From v2 [2]:
+
+  - Drop the canonical RASv1p1 advertisement
+
+  - Expose ID_AA64PFR1_EL1.RAS_frac as a writable field
+
+  - Added an extra patch dropping ARM64_FEATURE_MASK(), as it is both
+    useless and annoying
+
+  - Pick RB from Joey (thanks!)
+
+* From v1 [1]:
+
+  - Bunch of patches picked by Oliver (thanks!)
+
+  - Added missing SYS_ERXMISC{2,3}_EL1 from the list of handled RAS
+    registers
+
+  - Added some rationale about the advertising of RASv1p1 (Cornelia)
+
+  - Picked AB from Catalin (thanks!)
+
+[1] https://lore.kernel.org/kvmarm/20250721101955.535159-1-maz@kernel.org
+[2] https://lore.kernel.org/kvmarm/20250806165615.1513164-1-maz@kernel.org
+
+Marc Zyngier (6):
+  arm64: Add capability denoting FEAT_RASv1p1
+  KVM: arm64: Handle RASv1p1 registers
+  KVM: arm64: Ignore HCR_EL2.FIEN set by L1 guest's EL2
+  KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
+  KVM: arm64: Make ID_AA64PFR1_EL1.RAS_frac writable
+  KVM: arm64: Get rid of ARM64_FEATURE_MASK()
+
+ arch/arm64/include/asm/sysreg.h               |  3 -
+ arch/arm64/kernel/cpufeature.c                | 24 ++++++
+ arch/arm64/kvm/arm.c                          |  8 +-
+ arch/arm64/kvm/hyp/vhe/switch.c               |  5 +-
+ arch/arm64/kvm/nested.c                       |  3 +-
+ arch/arm64/kvm/sys_regs.c                     | 75 +++++++++++++------
+ arch/arm64/tools/cpucaps                      |  1 +
+ tools/arch/arm64/include/asm/sysreg.h         |  3 -
+ .../selftests/kvm/arm64/aarch32_id_regs.c     |  2 +-
+ .../selftests/kvm/arm64/debug-exceptions.c    | 12 +--
+ .../testing/selftests/kvm/arm64/no-vgic-v3.c  |  4 +-
+ .../selftests/kvm/arm64/page_fault_test.c     |  6 +-
+ .../testing/selftests/kvm/arm64/set_id_regs.c |  8 +-
+ .../selftests/kvm/arm64/vpmu_counter_access.c |  2 +-
+ .../selftests/kvm/lib/arm64/processor.c       |  6 +-
+ 15 files changed, 107 insertions(+), 55 deletions(-)
+
 -- 
 2.39.2
 
