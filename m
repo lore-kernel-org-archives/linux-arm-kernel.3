@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98BD0CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 10:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F390CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 10:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HO3+/JfcyrHYkC5TMald0e33SxZCLsVF/iroNMXpPMA=; b=O4B2ztwLLAnqIYcXYW9g7d1B9G
-	/zFjszCg7bHou1orCVKBkSMJgFKkk1CHBp31+duSdDgQc2Z/gby21Kl49zOMnPYK1myBs9FcXoj+0
-	Fw/V9dLr5GrvCGNd3L9YNQnE45KFtbvGFWOupddH+CPqG7E79JSXQZgRgve0XRDcvVBJ8KuY66g5x
-	FS6ua2OsDA9rmf5uXDOL41C9Cw/kU8J8NdfNsuqLPfUuciyn9NyBYhhSrY/VIjuPodlSSILSazXni
-	5zqONgMzfbC5eiuhID6MsefigElbt16/JMRlSTrtS5srMAJ98Htp02ZqPdpTw20CcRCF4Iss3UNRU
-	o/w9bPUQ==;
+	bh=SJ4XJmPsFhDWRFqXmSHTCNYpT8Iam/wpys8PsCFzydQ=; b=LL74UJOxz7LV9RpxYiD2vJOnjN
+	0e95qIximoMFKE9bV0ntIDB0CC/Qnd3IIvJ3H4IkYPtQLe+ihrMEUF7UN8Nytkwa8Aybxfkc9r56Y
+	J74BC0LcBZHMviw5tU5Q5gbvhmMUbIHsfVwBCHYPNfyPMeu8k/VimIzvs8GpcbjgeGFWv/1tx2X/r
+	8WazO/4akmMkZ3Q6uLCYX7+9MlVYAUPdWL7op1rgZByGILaxu7ySl2Po+J73QkMtB/MnWWB2yVbSI
+	eguzIjhSZUZiY48jl8Be5C9xQ22Hkyd/3wORqXUC2FomC8HAzFtsepnAizrhhnZU6+WHu+boOPXMY
+	9maw7zhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unahj-00000005YGB-1cn9;
-	Sun, 17 Aug 2025 10:33:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1unakL-00000005YVH-47qN;
+	Sun, 17 Aug 2025 10:36:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unaf9-00000005Y5W-0mRd;
-	Sun, 17 Aug 2025 10:30:55 +0000
+	id 1unafl-00000005Y7i-3b4W;
+	Sun, 17 Aug 2025 10:31:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 364C7601DA;
-	Sun, 17 Aug 2025 10:30:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3EF2C4CEF1;
-	Sun, 17 Aug 2025 10:30:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C9E895C4A29;
+	Sun, 17 Aug 2025 10:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A03C4CEEB;
+	Sun, 17 Aug 2025 10:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755426647;
-	bh=ZpdIfkm7dfyECGIXzoxLPteZqCTh3B/QC/zL/1RBl48=;
+	s=k20201202; t=1755426691;
+	bh=xBBiE5WdAUPpvLQbRAatiXL9xSljMYM/qDXrY7Yqptg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bLvlo2oGKvEOSOUm3rp7JoYFpmM0dsAfHAmxHFhv+Mor6QbLMtWl1ftRlbNlALbfh
-	 gKtw2BATylljYZMjvGuKWxLP7xHQCJsOwQ50F7SgED8rZ8U9Ozajgo3j5szFA8s/BQ
-	 HLQDn9Z6HMvVHB2jFTaqVxOSmE1NyHAiqJf+Y4FGhdtGZ5RQcou2k5L6hhaK+mjhGp
-	 kPVXZcl6ZmioZ4rN2GEh+e+gHdzaBv/BWFlvOb3/J8W4COQB4RvFFQiA1slCKzfXMl
-	 kCMLMfOw2uqFag7+piqh8iBbmAAhG+DMmh+leF6Ogmt+iAsYsCk9ecQW0uwe4XhZwQ
-	 MaSAa/XPbSecg==
-Message-ID: <3287eb4b-24fd-499f-b5f0-4af2b509a29c@kernel.org>
-Date: Sun, 17 Aug 2025 12:30:39 +0200
+	b=B0XMiPl6hsygWKcyNYXgNpr+hcuMosl2YoYW9o2Y1YUzbLZTabKWsKTR79aRncyU0
+	 eQ3utSKm2JbvBVcC3/dSwH5RBb2xEk0mc8Ml2iKv+IdEKIcx9fqzCjgGdcfJN5hNxw
+	 3xi0lauQV0sa2paZ5tUUEk/ZCeqSifwvIryqFTt9EzX1xTrT/G+YiCBS35X3bpiXrM
+	 rk4CXXbXYcizCvUu0xIbddNgGPPNVVvvze6qUvzqs84bk2SAS4lGqgF8SxyVKjE/nO
+	 xKWZV99ypLiIEUKrACtEsocwQX1Y6/mO2PUgNXZmxibHIs8adKSoxt5GiAEJzWiUfv
+	 QGrgaoKkIXTAQ==
+Message-ID: <1b7adb41-5002-41b4-9108-eeb6001424a7@kernel.org>
+Date: Sun, 17 Aug 2025 12:31:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/9] soc: apple: mailbox: Add Apple A11 and T2 mailbox
- support
+Subject: Re: [PATCH 4/9] soc: apple: sart: Make allow flags SART version
+ dependent
 To: Nick Chan <towinchenmi@gmail.com>
-Cc: asahi@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Neal Gompa <neal@gompa.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Janne Grunau <j@jannau.net>, linux-arm-kernel@lists.infradead.org,
- Keith Busch <kbusch@kernel.org>, Will Deacon <will@kernel.org>,
+Cc: asahi@lists.linux.dev, Janne Grunau <j@jannau.net>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
  Joerg Roedel <joro@8bytes.org>, Hector Martin <marcan@marcan.st>,
  Conor Dooley <conor+dt@kernel.org>, Sagi Grimberg <sagi@grimberg.me>,
- Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>,
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Jassi Brar <jassisinghbrar@gmail.com>, devicetree@vger.kernel.org,
- iommu@lists.linux.dev, linux-nvme@lists.infradead.org,
- Robin Murphy <robin.murphy@arm.com>
+ Christoph Hellwig <hch@lst.de>, Keith Busch <kbusch@kernel.org>,
+ devicetree@vger.kernel.org, iommu@lists.linux.dev,
+ linux-nvme@lists.infradead.org, Jassi Brar <jassisinghbrar@gmail.com>,
+ Neal Gompa <neal@gompa.dev>, Jens Axboe <axboe@kernel.dk>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>
 References: <20250811-t8015-nvme-v1-0-ef9c200e74a7@gmail.com>
- <20250811-t8015-nvme-v1-2-ef9c200e74a7@gmail.com>
+ <20250811-t8015-nvme-v1-4-ef9c200e74a7@gmail.com>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250811-t8015-nvme-v1-2-ef9c200e74a7@gmail.com>
+In-Reply-To: <20250811-t8015-nvme-v1-4-ef9c200e74a7@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250817_033133_941912_18AEE460 
+X-CRM114-Status: UNSURE (   5.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,13 +85,10 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11.08.25 15:50, Nick Chan wrote:
-> Add ASC mailbox support for Apple A11 and T2 SoCs, which is used for
-> coprocessors in the system.
+> SART versions that uses different allow flags will be added.
 > 
 > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 > ---
-
 Reviewed-by: Sven Peter <sven@kernel.org>
-
 
 
