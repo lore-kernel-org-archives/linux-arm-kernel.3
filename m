@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249E2CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 06:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42EFCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 07:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jz5R6UD4W7V712r+R9LpFhw1CrUwBqoquiJBC0pjJLk=; b=t8GsdA4keZyYro+5LyuoRGrMV6
-	Y21q/WhJ8Dn4EOOQb8l/hM5bxR49HrNmFQq9t4TO1IKLsP363djgni0XCMqirxzdJbMiI+epqfR9H
-	R1zr8f9tzQx25PLzbsrsINzP9EuK/6yU8GRL0dANWYwvG1jIDsA8aYr4mdbdiPO/CiJy2ixqvurrc
-	VMID+tGvu/nRvvAw3Y+k0F2M74S1BCPSpY9laLhAT7ykC5KUxleL2owsGktOYsQvt85Ss6mw1W7uB
-	QjdvS+iTOT7IF3rWzLTf0tBm9EssUlpi3+r/Jp0L4Hu13ekHmdUqLfVIA0YP15l1yeWekoV6YAemv
-	vdJTNruQ==;
+	bh=3b2YYO5JcqnFqWLf8WbkywM6l0wlU+uE9DENcIkOMC4=; b=xm9KvxxBKZ3gskeZBLhLMzGJae
+	uiokdMfz5OBiMWZ0i29XXkbn8z++gwC6EUfqt8FyImz6BGV29pfrkAER34Yfm/DGXoHLnwCnEbwvd
+	dAU+wGMIhTl1UsR3Rc76m5t5SE6LQYTk7TtNy4/qw1J2CPqG++sa0RekWLHwB78o9pxcuklvYXIPL
+	5gVl+LogHXdrbJKDuAB6oyoXqYbwSygAFRt60ep01sw5wwlSkORei1bVyNKxhlaH1HhdUkvoasyxs
+	Gv/MsmYhVCjSY1KEmZH0TF+WaCxl3SDHMX9GpFTCPq54HMloSTJHrfyc6/EuA58PmIxjKoJnJSPr1
+	6sgK8k1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWir-00000005PN9-3UHo;
-	Sun, 17 Aug 2025 06:18:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1unXiE-00000005RQw-2LDC;
+	Sun, 17 Aug 2025 07:21:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unWfL-00000005P6p-0rNU
+	id 1unXfc-00000005RIH-2vUk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 06:14:52 +0000
+	Sun, 17 Aug 2025 07:19:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0EE165C4370;
-	Sun, 17 Aug 2025 06:14:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E41C4CEEB;
-	Sun, 17 Aug 2025 06:14:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 609795C05E4;
+	Sun, 17 Aug 2025 07:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08CD7C4CEEB;
+	Sun, 17 Aug 2025 07:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755411289;
-	bh=FjnyjISls+IwhhvqV3CdP32QGr0K26AOzU5vLlgcAsE=;
+	s=k20201202; t=1755415151;
+	bh=JFDiGM0BVBryvFA/mMw/si31ekZeLVsvinEiadWqIdM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dqjcg51bwM8xslcGuw5W8w163m6q+bpK9eHvBLTK/sBTx5s5j/E0UcRGz2j6uRh15
-	 B09ChBfZE4kB6QnA9NmnU+4jA0CXefpx1bOQ2HMSlU5oP8gFjclxljQuV2GcLskZ1p
-	 AqvMSLeyyfxb+hgc4O60d/2HE3bCwQFOay4qmlqXzTOdvSNkEaKF0U1U9IwUoNfZQ3
-	 M1FFk+V47LYnAIrqBKjeQF+YwrhqOMYAG9jwwWs8NLqKTCbEg79TxAEUcNUa4JVLYC
-	 UKegg4k7CCSfRPNsopgrKFi64rgL6jkLfKtxa/Xr8DbUYd52fCSwkK0lCka84rSDVM
-	 Z8dgxsP9kUO1A==
-Message-ID: <49858742-8850-44bf-a844-9e26210515c5@kernel.org>
-Date: Sun, 17 Aug 2025 08:14:44 +0200
+	b=WIzZcZhrGmrVNBZxq2Gcv1VEeQrnro/YDTiryCPMd6mt1e64BabAxeKsbS0uHeo22
+	 Ny5/52BqNnV3tDlTDzpYQfOfc6YSXBJ2m4dxny6LtkDM4BgUo7zFPkSjAQM2ncRVQO
+	 W/p6VvaqCd+euTgxH7EQHRrvbST1sIfzqGfigtVABMstAI/Xok1w6kzPkQep4yWvPx
+	 mqpK7uToLeuiWm+OmFl8f7rR1rDUukrOlxFp/kUL+lvqCHmCcwl/2aHxBzkWDVDUx+
+	 Mq6IIMJFyRL6YM606LS+MtHiYWjlEarzzfrm4Mu3xBE5o206ysYn3ZpmmqO30aCh65
+	 gXqlZzu27L3Fg==
+Message-ID: <fb5083ff-4bee-4a0f-8774-54b492cd9a6d@kernel.org>
+Date: Sun, 17 Aug 2025 09:19:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
-To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v5 06/20] dt-bindings: memory: introduce DDR4
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>,
+ Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
- phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
- <1950265.tdWV9SEqCh@radijator>
- <5e79b123-b29a-4edb-8e70-3b7fa6cd3674@kernel.org>
- <6196438.lOV4Wx5bFT@radijator>
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>,
+ Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+ Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-clk@vger.kernel.org
+References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
+ <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
+ <20250730211151.GA1749004-robh@kernel.org>
+ <da8578ae-3f79-4082-b0fb-760553004c93@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <6196438.lOV4Wx5bFT@radijator>
+In-Reply-To: <da8578ae-3f79-4082-b0fb-760553004c93@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250816_231451_323051_88D85670 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250817_001912_813704_2B391C6E 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,22 +131,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/08/2025 17:13, Duje Mihanović wrote:
-> On Friday, 15 August 2025 08:08:24 Central European Summer Time Krzysztof Kozlowski wrote:
->> On 15/08/2025 00:08, Duje Mihanović wrote:
->>>> I am asking to see complete binding with complete DTS in example and
->>>> submitted to SoC maintainer.
->>>
->>> Hm, so if in the example (and the actual DTS) each domain is assigned a
->>> clock, can I then keep the domain and domain controller nodes like Mediatek
->>> and Rockchip have?
->>
->> You would need to point me to specific files or show some code.
+On 14/08/2025 16:42, Clément Le Goffic wrote:
+> Hi Rob,
 > 
-> Sure, mediatek,power-controller.yaml and rockchip,power-controller.yaml
-> in Documentation/devicetree/bindings/power.
+> On 30/07/2025 23:11, Rob Herring wrote:
+>> On Mon, Jul 28, 2025 at 05:29:37PM +0200, Clément Le Goffic wrote:
+>>> Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
+>>>
+>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>> ---
+>>>   .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+>>>   1 file changed, 34 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>>> new file mode 100644
+>>> index 000000000000..f457066a2f8b
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>>> @@ -0,0 +1,34 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: DDR3 SDRAM compliant to JEDEC JESD79-4D
+>>> +
+>>> +maintainers:
+>>> +  - Krzysztof Kozlowski <krzk@kernel.org>
+>>> +
+>>> +allOf:
+>>> +  - $ref: jedec,sdram-props.yaml#
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - pattern: "^ddr4-[0-9a-f]{2},[0-9a-f]{1}$"
+>>
+>> Shouldn't this be 'jedec,ddr4-...'
+> 
+> That's not the case for lpddr bindings, I wanted both lpddr and ddr 
+> bindings to be similar but this can change.
 
-I see, but your DTS is nothing like that.
+For LPDDR Julius introduced in commit 686fe63b2280 ("dt-bindings:
+memory: Add numeric LPDDR compatible string variant") ddr4-VENDORID
+pattern to distinguish individual manufacturers.
+
+Jedec is not really the vendor here.
+
+Is it the same case in DDR? You have a defined list of vendor IDs (also
+1 byte)?
+
+> 
+>>
+>>> +      - const: jedec,ddr4
+
 
 Best regards,
 Krzysztof
