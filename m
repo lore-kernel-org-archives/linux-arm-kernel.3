@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B9ECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 16:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94DFCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 20:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0JgX9niK/jrh4YSavrLzHuTfEZE1FFWTu/eobrzLTk=; b=JbR49ci3b9wkvMirVyw5wNvxGQ
-	C0bs2JZDNtjywnCy9x9Yw/D7sT2HcWTBQGhWvF0ltQXgYrWN7WqlwUSukH1Jzaa0WvVBogBzU8Mvi
-	vnwS1hbZ7wTU5q0FiwCQutnvnPeuYfbQ1ySMLBcTdTOVIX3zxgiOJno6Y6cTIDINyNulYAFoG+a0l
-	2UsFppcpmHjJnpPDlcuRuuGEz9eu1VINripNwEewqyNq5R9S9IDNOSBx5v/EineDg1pcUHHBUqbES
-	oDw7MR4AyZjZbMcxOBpMu4eVSN8TciK33F0H8yM0nxX4rQiD63dA6a8VK3m/wSO19EhpC4FHTwODm
-	dHEmSzvQ==;
+	bh=4zmFf0WYHHsEOGMgwgWp/O6pTDhIcPpSKxlCDMxFxKg=; b=ilGyEjb1JNLFRZcVN3cAuHVVO6
+	ETiMtKBP+gKb0LEfRdrSVWA+MWIfas2UpbrUZixe5JeBPcX4V/0fV8rvetUzWANJUAuE3fla17kbY
+	XzxF0S+JBkzRjl6fzxrl/ZEQeFuDD6P4vehPz5FB5HgVRnTpKaiTVynpIZ/F/VQWPOsbLbzzcR6TP
+	QlneYnngttKbm9Qrufollv09hZRZF3Ef/4OyH0XAKw6VPENlRsMYkwFaVAW3geraoiiiak+6rMbUV
+	4mgWDGFmLXq6sihqNlBcAzW77ZIA0IUzVsLsFsPQUPG56k13fvKwhbGXzsilkoZs+QM6tKj1Tngaz
+	3wRLZSbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ungZZ-00000005rtb-038F;
-	Sun, 17 Aug 2025 16:49:33 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1unjvq-000000060oD-1jJg;
+	Sun, 17 Aug 2025 20:24:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ungWv-00000005rem-1RuU
+	id 1unjtH-000000060QV-1yis
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 16:46:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1755449208;
- bh=V0JgX9niK/jrh4YSavrLzHuTfEZE1FFWTu/eobrzLTk=;
- b=Sayp2sr7ACsvw8CnhuK71MfnNoHK2w+HgeroUX5Ju0r3GJOeJuvTaMXKKwlmAVn8KpZGj7UW3
- 16Z5OlXdI8IwdGtKIAGa55m5KdzT5e0rQ7oZa4FXOHzHG2/6NE5poOKka7cI7QBoneXwgwp2pZs
- 9JENLeiqsYBJMGw9DLrUT7dnEwlBvk8sl4MfhwwDiz6tb1bOsUQAxW0whXjHidN2PikmTtD4IY/
- sMSmZLKaWmtYBSWOizv7RGyiioHfqeb8C0qG+A6mEgOi1c4ROslVwzaJXRbcU70fO0Qko8ocyde
- HP0LvHPth28vIbZdCOk6FnWD2bBytuRM39Aqvenf+LaQ==
-X-Forward-Email-ID: 68a207649a82a81f459cfa06
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.2.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <c0573db5-17df-4c8a-abfb-af7163f6b1b3@kwiboo.se>
-Date: Sun, 17 Aug 2025 18:46:24 +0200
+	Sun, 17 Aug 2025 20:22:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DCD4145BBE;
+	Sun, 17 Aug 2025 20:22:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4A7BC116D0;
+	Sun, 17 Aug 2025 20:22:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755462125;
+	bh=/kr1h3ivDaybILMj58T9joQcQNXYw3TXcpEPHXi8CWI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=M/p1LFvyG1jWQGFGy5M3aZHnSBRa/vq1bKsLxZDZItAsACkJ+cWaK066JObotivc7
+	 so7haCYLxbnPyuFWhZ8IA3DhNbcXFXxkorzj62eXIF0G9F4Bo5FZUJPYpSSWTGTe0l
+	 DA1qm5DCUkm2F89pDehuWKtv/Sstnq2vGNYEDqX+hSSVnL1mRs48Zt3SiopSlTvJb/
+	 ifmaQ6zdh1E8Ml3ddO5aZjoLX4HaOAostCLm2ORaA/qJ5gEzMnmi2bliQoFvsKSsSn
+	 VsevUxHY/t8UYuS9x3AK3B7ZNzIElwPCJZjWKXKWJGvAJ7216DVLOHE9ybem/Ve433
+	 EngDuW9UR1o2Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1unjtD-008PX0-OS;
+	Sun, 17 Aug 2025 21:22:03 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: [PATCH v3 4/6] KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
+Date: Sun, 17 Aug 2025 21:21:56 +0100
+Message-Id: <20250817202158.395078-5-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250817202158.395078-1-maz@kernel.org>
+References: <20250817202158.395078-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] media: rkvdec: Add HEVC backend
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
- <20250810212454.3237486-2-jonas@kwiboo.se> <22971824.EfDdHjke4D@earth>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <22971824.EfDdHjke4D@earth>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_094649_447946_C2331A50 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250817_132207_538828_3A1C4B1F 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+Make ID_AA64PFR0_EL1.RAS writable so that we can restore a VM from
+a system without RAS to a RAS-equipped machine (or disable RAS
+in the guest).
 
-On 8/12/2025 10:10 PM, Detlev Casanova wrote:
-> Hi Jonas,
-> 
-> On Sunday, 10 August 2025 17:24:31 EDT Jonas Karlman wrote:
->> The Rockchip VDEC supports the HEVC codec with the Main and Main10
->> Profile up to Level 5.1 High tier: 4096x2304@60 fps.
->>
->> Add the backend for HEVC format to the decoder.
->>
->> Signed-off-by: Alex Bee <knaerzche@gmail.com>
->> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->> Changes in v2:
->> - Use new_value in transpose_and_flatten_matrices()
->> - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
->> - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
->> ---
->>  .../media/platform/rockchip/rkvdec/Makefile   |    2 +-
->>  .../rockchip/rkvdec/rkvdec-hevc-data.c        | 1848 +++++++++++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  817 ++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-regs.h    |    2 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.c   |   76 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.h   |    1 +
->>  6 files changed, 2745 insertions(+), 1 deletion(-)
->>  create mode 100644
->> drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c create mode
->> 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
->>
-> 
-> [snip]
-> 
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
->> b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c new file mode 100644
->> index 000000000000..1994ea24f0be
->> --- /dev/null
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-> 
-> [snip]
-> 
->> +
->> +static enum rkvdec_image_fmt rkvdec_hevc_get_image_fmt(struct rkvdec_ctx
->> *ctx, +						       struct 
-> v4l2_ctrl *ctrl)
->> +{
->> +	const struct v4l2_ctrl_hevc_sps *sps = ctrl->p_new.p_hevc_sps;
->> +
->> +	if (ctrl->id != V4L2_CID_STATELESS_HEVC_SPS)
->> +		return RKVDEC_IMG_FMT_ANY;
->> +
->> +	if (sps->bit_depth_luma_minus8 == 0) {
->> +		if (sps->chroma_format_idc == 2)
->> +			return RKVDEC_IMG_FMT_422_8BIT;
-> 
-> Is 4:2:2 really supported ? It is not on rk3588 and likely neither on rk3576.
-> You also mention later that Only 4:0:0 and 4:2:0 are supported.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-On the older rkvdec it is not, and I was unsure about the newer SoCs at
-the time of initial re-work of this. Regardless this is more correct
-when only looking at this function, it does not include 4:4:4 but is
-correct for all currently known RKVDEC_IMG_FMT. Also to keep this
-function in sync with the h264 variant for more easy compare and less
-confusion about the two down the line.
-
-Regards,
-Jonas
-
-> 
->> +		else
->> +			return RKVDEC_IMG_FMT_420_8BIT;
->> +	} else if (sps->bit_depth_luma_minus8 == 2) {
->> +		if (sps->chroma_format_idc == 2)
->> +			return RKVDEC_IMG_FMT_422_10BIT;
-> 
-> Same here.
-> 
-> --
-> Detlev.
-> 
-> 
-> 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index feb1a7a708e25..3306fef432cbb 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2941,7 +2941,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 		    ~(ID_AA64PFR0_EL1_AMU |
+ 		      ID_AA64PFR0_EL1_MPAM |
+ 		      ID_AA64PFR0_EL1_SVE |
+-		      ID_AA64PFR0_EL1_RAS |
+ 		      ID_AA64PFR0_EL1_AdvSIMD |
+ 		      ID_AA64PFR0_EL1_FP)),
+ 	ID_FILTERED(ID_AA64PFR1_EL1, id_aa64pfr1_el1,
+-- 
+2.39.2
 
 
