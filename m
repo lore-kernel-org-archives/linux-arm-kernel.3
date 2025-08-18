@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE89CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABA1CA0EF2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Gnl+t8xqA3VBiXnOVNnAPd8aYqELmiP16+xtu6161I=; b=A1vYS5ZfQ55WkbdwXe8KD5oAfS
-	q4VcEtz4W+puMr5dKcXVwnYYRkxpBeRzO7VD6rOeDt+/19pywz35Vg+zCF+22tH5S7TEJjl8WUXBO
-	yVZCBbXih+PismvrztIovRZ2bM2vBA7F1FTiVB7PpY08VWRV/VrN+BNTzXl2753eMmrbF9vCAWi1q
-	sI67+Xd+n7P2mTtKSqPsRIxXLTGqEg2cYIf6VFZp+6evaYmQPjeoVL0WyfFG+jZrB1KjptwdshEiZ
-	dDVqj6E4gsLqg9EY7Mlj5G/UNpeP2jRzlgMFi0iz2ifZehZnriV7iAgmVec2Kms5IwX65o0XOIW6w
-	LiwfifNw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lyPRgtJIrl+DCxGXCftDbyg/RUx12+pyN49Ht/Rz3Ao=; b=i3i7wQnQSLVeEJnrNa2LxHpLUd
+	XxC5FAVzBH06oU9yqMRzGqqKjGdNcXuDbJWbMyKwXOIe2XAGPu5T/54uA/A11BmR6BpiE5AkubqQ2
+	yP3xcUCwqf4dJR1GBKxFKsUB4KQp+P1vtV/fvjoYggyf+rZz3U1CuhhLBPY8II3ylEVsEzNfNzrtb
+	FrkPSj53j3Z8DI0Vx6KIkoyM5OOKxvatxG3Kpmo7xhIObTzXYWlRAZSfJOYbDsGKfFgx9xogeuRNj
+	GuCQjt7Ab4V5LpFVCpZO1puYxPt0AcA94OdZbSqPU26OQ/oyhsIOllcpYiMv8neb9OR/7SIoqpVK0
+	bV5H6w2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo07f-00000007bOJ-1g63;
-	Mon, 18 Aug 2025 13:42:03 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uo07g-00000007bRZ-2pZb;
+	Mon, 18 Aug 2025 13:42:04 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unxzV-00000007EEc-44l1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 11:25:32 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IBOkPX3068951;
-	Mon, 18 Aug 2025 06:24:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755516286;
-	bh=2Gnl+t8xqA3VBiXnOVNnAPd8aYqELmiP16+xtu6161I=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=rumCJeblKnjHBsmNtkm5cskPXw+8BAnUhDXkUIxsEkll7dpBwqcW4yY0G0K1GghKU
-	 YHfskl5qFYs+4YOrtmmPi3+jMKUf97CICzzlKRLxfmhqyHvm8fJG/J9qFqbmAak7mn
-	 CzvGpmd00/qNkmB6XmftFErZd1y/neWPU1sVjfyE=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IBOkxF3978048
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 18 Aug 2025 06:24:46 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
- Aug 2025 06:24:45 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 18 Aug 2025 06:24:45 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IBOjIt3651384;
-	Mon, 18 Aug 2025 06:24:45 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 57IBOi0W028770;
-	Mon, 18 Aug 2025 06:24:44 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <namcao@linutronix.de>, <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
-        <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
-        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next 6/6] net: ti: icssg-prueth: Enable zero copy in XDP features
-Date: Mon, 18 Aug 2025 16:54:24 +0530
-Message-ID: <20250818112424.3068643-7-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250818112424.3068643-1-m-malladi@ti.com>
-References: <20250818112424.3068643-1-m-malladi@ti.com>
+	id 1unyMO-00000007GVh-04Rg;
+	Mon, 18 Aug 2025 11:49:09 +0000
+X-UUID: 552d5b6c7c2911f09f706fa2197c6ceb-20250818
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=lyPRgtJIrl+DCxGXCftDbyg/RUx12+pyN49Ht/Rz3Ao=;
+	b=Ts5uEDShSHdxHPRZ2FhRS2c1TFPtaL1BpYBKo8Wrn4bpNQ+ZhzSC+t+sApbc+VkFz2j6co1AHYNqgHhx6Eziz6KSrfGC5YZ+0gpL6mAs/9jpDACIzXhqBSorRLQelj0j3sKB+bPshGr+Zqnkhf5SORTqJA0kwtobjubl24JOy3Y=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:5c957ed9-5b4e-471f-83d8-2e068aa5832a,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:f1326cf,CLOUDID:a400417a-966c-41bd-96b5-7d0b3c22e782,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 552d5b6c7c2911f09f706fa2197c6ceb-20250818
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <mengqi.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 9539747; Mon, 18 Aug 2025 04:49:01 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 18 Aug 2025 19:48:58 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 18 Aug 2025 19:48:57 +0800
+From: Mengqi Zhang <mengqi.zhang@mediatek.com>
+To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Wenbin Mei
+	<wenbin.mei@mediatek.com>
+CC: <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Mengqi Zhang
+	<mengqi.zhang@mediatek.com>
+Subject: [PATCH] dt-bindings: mmc: Add compatible for MT8189 SoC
+Date: Mon, 18 Aug 2025 19:47:27 +0800
+Message-ID: <20250818114855.8637-1-mengqi.zhang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_042530_123762_AAE685B4 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250818_044908_059456_063211DA 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the zero copy feature flag in xdp_set_features_flag()
-for a given ndev to get the AF-XDP zero copy support running
-for both Tx and Rx.
+Add a compatible string for the MT8189 SoC's mtk-sd mmc controllers.
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Signed-off-by: Mengqi Zhang <mengqi.zhang@mediatek.com>
 ---
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/mmc/mtk-sd.yaml       | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 7b5de71056ee..64cb21bb9291 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -1511,7 +1511,8 @@ static int prueth_netdev_init(struct prueth *prueth,
- 	xdp_set_features_flag(ndev,
- 			      NETDEV_XDP_ACT_BASIC |
- 			      NETDEV_XDP_ACT_REDIRECT |
--			      NETDEV_XDP_ACT_NDO_XMIT);
-+			      NETDEV_XDP_ACT_NDO_XMIT |
-+			      NETDEV_XDP_ACT_XSK_ZEROCOPY);
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index 6dd26ad31491..1285dddeaec9 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -25,6 +25,7 @@ properties:
+           - mediatek,mt8135-mmc
+           - mediatek,mt8173-mmc
+           - mediatek,mt8183-mmc
++          - mediatek,mt8189-mmc
+           - mediatek,mt8196-mmc
+           - mediatek,mt8516-mmc
+       - items:
+@@ -192,6 +193,7 @@ allOf:
+             - mediatek,mt8183-mmc
+             - mediatek,mt8186-mmc
+             - mediatek,mt8188-mmc
++            - mediatek,mt8189-mmc
+             - mediatek,mt8195-mmc
+             - mediatek,mt8196-mmc
+             - mediatek,mt8516-mmc
+@@ -240,6 +242,7 @@ allOf:
+               - mediatek,mt7986-mmc
+               - mediatek,mt7988-mmc
+               - mediatek,mt8183-mmc
++              - mediatek,mt8189-mmc
+               - mediatek,mt8196-mmc
+     then:
+       properties:
+@@ -319,6 +322,32 @@ allOf:
+             - const: source_cg
+             - const: crypto
  
- 	netif_napi_add(ndev, &emac->napi_rx, icssg_napi_rx_poll);
- 	hrtimer_setup(&emac->rx_hrtimer, &emac_rx_timer_callback, CLOCK_MONOTONIC,
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8189-mmc
++    then:
++      properties:
++        clocks:
++         items:
++            - description: source clock
++            - description: HCLK which used for host
++            - description: independent source clock gate
++            - description: bus clock used for internal register access
++            - description: peripheral bus clock gate
++            - description: AXI bus clock gate
++            - description: crypto clock used for data encrypt/decrypt (optional)
++        clock-names:
++          items:
++            - const: source
++            - const: hclk
++            - const: source_cg
++            - const: bus_clk
++            - const: pclk_cg
++            - const: axi_cg
++            - const: crypto
++
+   - if:
+       properties:
+         compatible:
 -- 
-2.43.0
+2.46.0
 
 
