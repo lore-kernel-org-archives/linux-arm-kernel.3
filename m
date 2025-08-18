@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06940CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D0CCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzdd4SLhQib1CMR4k8GVT39i/BMslHfy5aMxcOtcMw4=; b=i0E4jmiieDRnEMyYRACsC48eDv
-	di+2xIGkgMqnEOErp5MYQvsAQ01wcjsNWze4sOnEpHOcSKDQkXEeUcof9ZIM1ybejchS7ZpRzacxJ
-	g61elydpzdZbH12MnHpO2adw4k9f4ehDcExNe5IjynvKfjx2rh1rb51zJWvwJfJP2OVWqdUAk1ajK
-	JwZdVyGkRIkcBtUhj+ysJVYAjjp0tvTiheECavL4H3I2JLFgd6E/SUXqdBBiYaJRVG1G5YsbapJac
-	ju8Cy7U6zDqSurw9T7NAZyuxZvE0hXxdcoH12lYi4zQ6oe19DEGelSfidvuLT0yPtvVHAGQouWvQ8
-	qckQYYew==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y+eO37rJYOqvD3NP8qj7Bk3tH5watj3fz1cI8xxX48w=; b=TMJAkw9fTAyrAJJq6TQMGifbdC
+	uHoYqvepIpcrsd/vNyNsqmgBUzz78BT+2aOt1RhxSI8dihd8sxKXBZU57bk5IrTxOkza+WTFg57kR
+	YkcVEte0ZCLk/laCBwePWLDTNTSo0OD45iAzQ0PUv+G9dYlF06kqPv002opUrZVFV8FsnRIDLZeAP
+	vMldHXHgecr5Jj0chwABIaboszcMvzz1+UEjo4EZYkRJuQHTbclITUZuoyswTQTiyvmgXj8cJYkea
+	IUV/c+xdO9qr6nFvE2rPqDrFkQnJPlIq3ol9fPYeVCfdUCy2epWbI5u0puqv3V1pHEX9Hg7Tkmj1V
+	k6PfQ7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo8Q3-00000008qO0-2md7;
-	Mon, 18 Aug 2025 22:33:35 +0000
+	id 1uo8Sb-00000008qdP-25Sw;
+	Mon, 18 Aug 2025 22:36:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo7Vc-00000008l2z-49pZ
+	id 1uo7Vc-00000008l2x-48tG
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 18 Aug 2025 21:35:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DF9B19F0;
-	Mon, 18 Aug 2025 14:35:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD3361596;
+	Mon, 18 Aug 2025 14:35:05 -0700 (PDT)
 Received: from u200865.usa.arm.com (U203867.austin.arm.com [10.118.30.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDE083F738;
-	Mon, 18 Aug 2025 14:35:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38EBB3F738;
+	Mon, 18 Aug 2025 14:35:13 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -58,17 +58,15 @@ Cc: linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH v6 1/7] arm64: probes: Break ret out from bl/blr
-Date: Mon, 18 Aug 2025 16:34:46 -0500
-Message-ID: <20250818213452.50439-2-jeremy.linton@arm.com>
+Subject: [PATCH v6 0/7] arm64: Enable UPROBES with GCS
+Date: Mon, 18 Aug 2025 16:34:45 -0500
+Message-ID: <20250818213452.50439-1-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250818213452.50439-1-jeremy.linton@arm.com>
-References: <20250818213452.50439-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_143517_160166_8AAA266C 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250818_143517_069276_4D38BE41 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +81,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare for GCS by breaking RET out into its own function, where
-it makes more sense to encapsulate the new behavior independent
-from the branch instructions.
+Currently uprobes and the Arm Guarded Control Stack (GCS) feature are
+exclusive of each other. This restriction needs to be lifted in order
+to utilize GCS for generic Linux distro images where the expectation
+is that core debugging features like uprobes work.
 
-Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
----
- arch/arm64/kernel/probes/decode-insn.c   |  7 ++++---
- arch/arm64/kernel/probes/simulate-insn.c | 10 +++++++++-
- arch/arm64/kernel/probes/simulate-insn.h |  3 ++-
- 3 files changed, 15 insertions(+), 5 deletions(-)
+This series adds some user accessors to read/push/pop the userspace
+shadow stack. It then utilizes those functions in the uprobe paths as
+needed to synchronize GCS with the changes in control flow at probe
+locations.
 
-diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
-index 6438bf62e753..4137cc5ef031 100644
---- a/arch/arm64/kernel/probes/decode-insn.c
-+++ b/arch/arm64/kernel/probes/decode-insn.c
-@@ -108,9 +108,10 @@ arm_probe_decode_insn(u32 insn, struct arch_probe_insn *api)
- 	    aarch64_insn_is_bl(insn)) {
- 		api->handler = simulate_b_bl;
- 	} else if (aarch64_insn_is_br(insn) ||
--	    aarch64_insn_is_blr(insn) ||
--	    aarch64_insn_is_ret(insn)) {
--		api->handler = simulate_br_blr_ret;
-+		aarch64_insn_is_blr(insn)) {
-+		api->handler = simulate_br_blr;
-+	} else if (aarch64_insn_is_ret(insn)) {
-+		api->handler = simulate_ret;
- 	} else {
- 		/*
- 		 * Instruction cannot be stepped out-of-line and we don't
-diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
-index 4c6d2d712fbd..09a0b36122d0 100644
---- a/arch/arm64/kernel/probes/simulate-insn.c
-+++ b/arch/arm64/kernel/probes/simulate-insn.c
-@@ -126,7 +126,7 @@ simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs)
- }
- 
- void __kprobes
--simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
-+simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
- {
- 	int xn = (opcode >> 5) & 0x1f;
- 
-@@ -138,6 +138,14 @@ simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
- 		set_x_reg(regs, 30, addr + 4);
- }
- 
-+void __kprobes
-+simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
-+{
-+	int xn = (opcode >> 5) & 0x1f;
-+
-+	instruction_pointer_set(regs, get_x_reg(regs, xn));
-+}
-+
- void __kprobes
- simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs)
- {
-diff --git a/arch/arm64/kernel/probes/simulate-insn.h b/arch/arm64/kernel/probes/simulate-insn.h
-index efb2803ec943..9e772a292d56 100644
---- a/arch/arm64/kernel/probes/simulate-insn.h
-+++ b/arch/arm64/kernel/probes/simulate-insn.h
-@@ -11,7 +11,8 @@
- void simulate_adr_adrp(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs);
--void simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs);
-+void simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs);
-+void simulate_ret(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_tbz_tbnz(u32 opcode, long addr, struct pt_regs *regs);
- void simulate_ldr_literal(u32 opcode, long addr, struct pt_regs *regs);
+The KCONFIG restriction is then dropped.
+
+v5->v6: Add additional review-by's
+	Post the version with the complete function rename that
+	     builds with/without GCS (patch 3)
+	Drank my coffee before posting this time.
+
+v4->v5: Fix ret xn handing
+	Renames, comment tweaks, formatting, per review comments
+	rebase 6.17, drop first patch
+	Add reviewed-by's
+
+v3->v4: Much delayed v4 rebased to 6.16
+	Move existing gcs accessors to gcs.h and then add the new
+	     ones. This fixes some of the forward reference issues,
+	     the build break and keeps them all together.
+
+v2->v3: Cleanup RET logic to alwaays use LR, and not update IP on aborts
+	Correct generic uprobe_warn bug even though we aren't using it
+
+v1->v2:
+	Drop uprobe_warn() patch
+	Fix copy_thread_gcs() bug created by fixing task_gcs_el0_enabled()
+	Comments, now describe issues with reading userspace GCS pages
+	Rebased to 6.15
+
+Jeremy Linton (7):
+  arm64: probes: Break ret out from bl/blr
+  arm64: uaccess: Move existing GCS accessors definitions to gcs.h
+  arm64: uaccess: Add additional userspace GCS accessors
+  arm64: probes: Add GCS support to bl/blr/ret
+  arm64: uprobes: Add GCS support to uretprobes
+  arm64: Kconfig: Remove GCS restrictions on UPROBES
+  uprobes: uprobe_warn should use passed task
+
+ arch/arm64/Kconfig                       |  1 -
+ arch/arm64/include/asm/gcs.h             | 89 ++++++++++++++++++++++++
+ arch/arm64/include/asm/uaccess.h         | 40 -----------
+ arch/arm64/kernel/probes/decode-insn.c   |  7 +-
+ arch/arm64/kernel/probes/simulate-insn.c | 50 ++++++++++---
+ arch/arm64/kernel/probes/simulate-insn.h |  3 +-
+ arch/arm64/kernel/probes/uprobes.c       | 33 +++++++++
+ kernel/events/uprobes.c                  |  2 +-
+ 8 files changed, 171 insertions(+), 54 deletions(-)
+
 -- 
 2.50.1
 
