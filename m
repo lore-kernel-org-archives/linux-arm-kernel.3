@@ -4,115 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40117CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2ABCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJIiqcpJNW1SN0UI1h0IOuqoeYNESghY4fi98Tifdx8=; b=QUxEiEt7tFVMSVkDAYlVZv+WjI
-	ZUShISijPJNNXCzZ1pRD87XT8wgT842mDCicNCGNX+CB8/jDTJMmBTJ2w9dZ42cRtZ/Rp7vElMh11
-	pTG0RW0qJqxCXFD+2JvuHB4UbMdCKTwrsSnl/VBiBnd+ScSUGfAKExMo8Sqqq0EH2aKSvIXM+KTYA
-	s1IRi36u5mKKRbn9/Br1ur8hmA+/8Tn9mDWg+h1lAFbZI1BkoFMInVByGgYEm4m9umDL5zykRM7z4
-	JxZWSsYJXuMkdx90hB43F/JFVRRnS0PW2riILh/efRzy/pE+oS07FzGZJKHrpOf5M7vGuuk0z0w6C
-	1dLhXVkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zTc9ILZszspIergQBlX6+NhSE6Fs5a72JurzfDZwPEA=; b=QtDDS7ErRH+Q1unCLhypJIOwHZ
+	cD0LU2RGPweE+xoAkdK3esanczfh9iyJH0M+djVqQzI+JVuWatyg8+Ib5wGrNikLoNQfA13Dg3Wau
+	CYdGgoyUIffUCR3KPL0eRWPTnoiRDqGC6fg+xk7CYdCYb5H1OkqKvdJvrinz7TUMDrnZAG0w77VQ1
+	OhUn1KB8o1DedHBSv9rN0jdm5mMpNQuWbZo96104+lZCconbUrnXyECyYStSw+Vy9YckETAbSqz4F
+	JwEVl+SKnHcdNNlM6w7ghbgKajXHnBXpiDjMw3L52LAhxH2AIRTMXptSakAog7UEn6E5uQIRHBVSg
+	QCg7ktGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03O-00000007UE7-2y6M;
-	Mon, 18 Aug 2025 13:37:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uo03T-00000007UOA-0hJx;
+	Mon, 18 Aug 2025 13:37:43 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvCh-00000006wJU-1FYA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:26:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7FB905C5B2B;
-	Mon, 18 Aug 2025 08:26:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A772C4CEED;
-	Mon, 18 Aug 2025 08:26:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755505602;
-	bh=Vm8cWvKgpjFAKW99yrjp0C+LOL3fJWGgMbbY76Ih1RY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FFsv9ZC6MF/RWiBx47eLyFD9CBfESKS/m7zZ90r6SnLHCScdp3+iudxbEnezGPWBd
-	 AsXQVeOqpXCQ61elmgUi8/QCp8aRkXglnamVhsmqxty9ZFtWIZFlWckKle8rgMXcKL
-	 xc77cPQ6M5AwyqFnc+tjARmMhuMpVFHH7eRSBa16aE9IOI3lJWilOdksaoTCGMaQEk
-	 nFsiU0jWFZkgY0/MY73Gp0cplRLHmTl3FaCpBvKRaT9Ubjm2pZgY7MYBXSS/oe4JTa
-	 WdIMwgcflSTu1e+cMbze+VRaUA12e3AGoVmNothVIG6NUHfAwdZruIB39D4aCoLFwJ
-	 xr5R9VC6Y5i9A==
-Message-ID: <1919de68-99ea-47f7-b3d2-cae4611f9c52@kernel.org>
-Date: Mon, 18 Aug 2025 10:26:34 +0200
+	id 1unvK4-00000006wu1-3TTe;
+	Mon, 18 Aug 2025 08:34:33 +0000
+X-UUID: 26fdb07c7c0e11f09eb0dd999d3936bf-20250818
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zTc9ILZszspIergQBlX6+NhSE6Fs5a72JurzfDZwPEA=;
+	b=pNWqbi9hwE3wtSc3SdRJp8XlkOHa7gQwFsUKMaMK24pq+FeFGh/MNc8MWkGa0P5Hl3/wo5gGEagm+T+9yqe6t/OIeU2xw6nv5Xs4uIlvY7Qy4STv+09/QchmSLMzFctvMr7w0opM2qAxkBn9+608aKe0aa+gxLYdz6ghiHvL7o8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:77453fd5-9c70-49ab-a39e-039d4e121ba9,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:0c48556d-c2f4-47a6-876f-59a53e9ecc6e,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 26fdb07c7c0e11f09eb0dd999d3936bf-20250818
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <payne.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 314933806; Mon, 18 Aug 2025 01:34:27 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 18 Aug 2025 16:34:24 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 18 Aug 2025 16:34:24 +0800
+From: payne.lin <payne.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+	"AngeloGioacchino Del Regno --cc=dri-devel @ lists . freedesktop . org"
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Bincai Liu <bincai.liu@mediatek.com>,
+	Payne Lin <payne.lin@mediatek.com>
+Subject: [PATCH] gpu: drm: mediatek: correct clk setting AUX_RX_UI_CNT_THR_AUX_FOR_26M
+Date: Mon, 18 Aug 2025 16:34:03 +0800
+Message-ID: <20250818083415.1041187-1-payne.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
-To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
- cw00.choi@samsung.com, rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com,
- martink@posteo.de, mchehab@kernel.org, linux-fsd@tesla.com, will@kernel.org,
- catalin.marinas@arm.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
- ravi.patel@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
- linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
- festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
- <20250814140943.22531-5-inbaraj.e@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250814140943.22531-5-inbaraj.e@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_012655_423207_75906CB0 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250818_013432_876244_4E19D57F 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,273 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/08/2025 16:09, Inbaraj E wrote:
-> There is a csi dma and csis interface that bundles together to allow
+From: Bincai Liu <bincai.liu@mediatek.com>
 
-CSI DMA?
-What is CSIS?
+Updated the definition of AUX_RX_UI_CNT_THR_AUX_FOR_26M from 13 to 14.
+No other code or logic changes were made; only the macro value was modified.
+This change affects the timing configuration for AUX RX at 26MHz.
+The formula is xtal_clk / 2 + 1.
 
-> csi2 capture.
+Signed-off-by: Bincai Liu <bincai.liu@mediatek.com>
+Signed-off-by: Payne Lin <payne.lin@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_dp_reg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-CSI2?
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+index 8ad7a9cc259e..f8c7b3c0935f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
++++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+@@ -301,7 +301,7 @@
+ #define AUX_TIMEOUT_THR_AUX_TX_P0_VAL			0x1595
+ #define MTK_DP_AUX_P0_3614			0x3614
+ #define AUX_RX_UI_CNT_THR_AUX_TX_P0_MASK		GENMASK(6, 0)
+-#define AUX_RX_UI_CNT_THR_AUX_FOR_26M			13
++#define AUX_RX_UI_CNT_THR_AUX_FOR_26M			14
+ #define MTK_DP_AUX_P0_3618			0x3618
+ #define AUX_RX_FIFO_FULL_AUX_TX_P0_MASK			BIT(9)
+ #define AUX_RX_FIFO_WRITE_POINTER_AUX_TX_P0_MASK	GENMASK(3, 0)
+-- 
+2.45.2
 
-> 
-> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
-> ---
->  arch/arm64/boot/dts/tesla/fsd-evb.dts |  96 +++++
->  arch/arm64/boot/dts/tesla/fsd.dtsi    | 552 ++++++++++++++++++++++++++
->  2 files changed, 648 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> index 9ff22e1c8723..dcc9a138cdb9 100644
-> --- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> +++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> @@ -130,3 +130,99 @@ &serial_0 {
->  &ufs {
->  	status = "okay";
->  };
-> +
-> +&mipicsis0 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis1 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis2 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis3 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis4 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis5 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis6 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis7 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis8 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis9 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis10 {
-> +	status = "okay";
-> +};
-> +
-> +&mipicsis11 {
-> +	status = "okay";
-> +};
-> +
-> +&csis0 {
-> +	status = "okay";
-> +};
-> +
-> +&csis1 {
-> +	status = "okay";
-> +};
-> +
-> +&csis2 {
-> +	status = "okay";
-> +};
-> +
-> +&csis3 {
-> +	status = "okay";
-> +};
-> +
-> +&csis4 {
-> +	status = "okay";
-> +};
-> +
-> +&csis5 {
-> +	status = "okay";
-> +};
-> +
-> +&csis6 {
-> +	status = "okay";
-> +};
-> +
-> +&csis7 {
-> +	status = "okay";
-> +};
-> +
-> +&csis8 {
-> +	status = "okay";
-> +};
-> +
-> +&csis9 {
-> +	status = "okay";
-> +};
-> +
-> +&csis10 {
-> +	status = "okay";
-> +};
-> +
-> +&csis11 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> index a5ebb3f9b18f..a83503e9c502 100644
-> --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> @@ -493,6 +493,558 @@ clock_mfc: clock-controller@12810000 {
->  			clock-names = "fin_pll";
->  		};
->  
-> +		mipicsis0: mipi-csis@12640000 {
-
-Messed ordering. See DTS coding style.
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-What is csis?
-
-> +			compatible = "tesla,fsd-mipi-csi2";
-> +			reg = <0x0 0x12640000 0x0 0x124>;
-> +			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
-> +				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>;
-> +			clock-names = "aclk", "pclk";
-> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-> +			status = "disabled";
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					mipi_csis_0_out: endpoint {
-> +						remote-endpoint = <&csis_in_0>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		csis0: csis@12641000 {
-> +			compatible = "tesla,fsd-csis-media";
-> +			reg = <0x0 0x12641000 0x0 0x44c>;
-> +			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
-> +				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>,
-> +				<&clock_csi CAM_CSI_PLL>;
-> +			clock-names = "aclk", "pclk", "pll";
-> +			iommus = <&smmu_isp 0x0 0x0>;
-> +			status = "disabled";
-> +
-> +			port {
-> +				csis_in_0: endpoint {
-> +					remote-endpoint = <&mipi_csis_0_out>;
-> +				};
-> +			};
-> +		};
-> +
-> +		mipicsis1: mipi-csis@12650000 {
-> +			compatible = "tesla,fsd-mipi-csi2";
-> +			reg = <0x0 0x12650000 0x0 0x124>;
-> +			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
-> +				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>;
-> +			clock-names = "aclk", "pclk";
-> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-> +			status = "disabled";
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					mipi_csis_1_out: endpoint {
-> +						remote-endpoint = <&csis_in_1>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		csis1: csis@12651000 {
-> +			compatible = "tesla,fsd-csis-media";
-> +			reg = <0x0 0x12651000 0x0 0x44c>;
-> +			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
-> +				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>,
-> +				<&clock_csi CAM_CSI_PLL>;
-> +			clock-names = "aclk", "pclk", "pll";
-> +			iommus = <&smmu_isp 0x0 0x0>;
-> +			status = "disabled";
-> +
-> +			port {
-> +				csis_in_1: endpoint {
-> +					remote-endpoint = <&mipi_csis_1_out>;
-> +				};
-> +			};
-> +		};
-> +
-> +		mipicsis2: mipi-csis@12660000 {
-> +			compatible = "tesla,fsd-mipi-csi2";
-> +			reg = <0x0 0x12660000 0x0 0x124>;
-> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clock_csi CAM_CSI0_2_IPCLKPORT_I_ACLK>,
-> +				<&clock_csi CAM_CSI0_2_IPCLKPORT_I_PCLK>;
-> +			clock-names = "aclk", "pclk";
-> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
-> +			status = "disabled";
-> +
-> +			ports {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +
-> +				port@0 {
-> +					reg = <0>;
-> +				};
-> +
-> +				port@1 {
-> +					reg = <1>;
-> +
-> +					mipi_csis_2_out: endpoint {
-> +						remote-endpoint = <&csis_in_2>;
-> +					};
-> +				};
-> +			};
-> +		};
-> +
-> +		csis2: csis@12661000 {
-
-
-What is CSIS? Seems like copy paste from other Samsung code, but isn't
-this just CSI?
-
-What is the meaning of this CSIS acronym?
-
-
-Best regards,
-Krzysztof
 
