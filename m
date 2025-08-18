@@ -4,70 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D009ECA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF5ACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sqSlpzzBjh5abP5Ep10OGKmrH1NoW6pA+tFSYa8a7oU=; b=Ql4qRa49tjJO2T+BXasB1PUqF0
-	V93n+8SPaNBSzHMWZE5cF0oy+ODaNbd7SYQHZSJDhj0BZfLMRhbPE7AyyZ1Cui2uDGVk2etlPBKC7
-	2wglNvJdLtv+gdTAwpDCU5ScBSDZOVszDyO7beK43LhpHulYUdgjb4WtzurISbKPPn1oB4mLduWAj
-	xxHM8dbEIbFl5y8OqC+xpiSOe1igqv8tjvg+bepYNfARQn3h70jl8QHbMTWyXwZQLXeVl5TSpXMU3
-	qtr20nGi8ciGp7L/mqKB+sdFKuGhoX+6hlNM23DlXIxddlR7/ZTzfE13dHbdZdZhIQNydfJQ30vgZ
-	NikwcRFQ==;
+	bh=nNOBI0F8EkG+NeIt2D1S0Fuj4+shs+JG9u5tILSOhyU=; b=gmHnqZHGCu42s/UipW5LuTFrTg
+	kmgwQZHokvx6nZYuTjkyXLyL7PzctMqZqv+SMJoP2wjc4Z3AHa7WQq81nK9ccpPevOBz7P/+mE1sr
+	MDmm3ScYq1g2fMwEjEy6nVvI2ovdF3FDI1ivpt2sra9sZ5++qV/YWTIh3TZQkrEXuhhldOf3caop7
+	GJVev0POPB/QRque2mjSd7caVWAq8TCEKrB5R7OhwUalQlI19y8YRgHER4CiOts0OYmECMEdGCfJt
+	sDBi6v6oMvQBEClGpmGCqcdYnpQ4Iwxm23kNUR6eQt0mjpWIwnpu7rLp4CNyasE0XQ1vWVNXJEYg5
+	l2RqWUig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03P-00000007UGe-3pPm;
-	Mon, 18 Aug 2025 13:37:39 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1uo03S-00000007ULv-109e;
+	Mon, 18 Aug 2025 13:37:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvEk-00000006wZp-3oEr
+	id 1unvHt-00000006wlj-3CuD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:29:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 737AF4317D;
-	Mon, 18 Aug 2025 08:28:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1755505739;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sqSlpzzBjh5abP5Ep10OGKmrH1NoW6pA+tFSYa8a7oU=;
-	b=Rv0VYgRDLz+wpcDNTv/5vHuI3YEpR0ijBjEG2iXuknPIRNS9iN/wnY/AHHIdfssdu22ZpQ
-	F3GRdf0YrrFHP7SL6azasxNjKl+/zt9FRxxbeWJ884EhY0+pXsbtcYXg4z1eVMjae1qTa4
-	A3RE21DnrdFcuw2jun2fqbr8xo8sS3JdrrF8fHRRqOGwaPV0iEQa+4ddYSxXiSmy21PKzq
-	ljhf1okCHY97hEpf/JSrf4/k+0aZ6J6zzD8O97E1KMfGoeeh9O2zgAOAAaZnzKVsXcr732
-	uSP7+u2ueFbKs3SEZ9eoMUhcGH8fptMlHuvWjq4aSiI/xeXuuy5cNJLGfSAlPg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Sean Anderson <sean.anderson@linux.dev>,  Mark Brown
- <broonie@kernel.org>,  Michal Simek <michal.simek@amd.com>,
-  linux-spi@vger.kernel.org,  Jinjie Ruan <ruanjinjie@huawei.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add spi-buses property
-In-Reply-To: <ded7ba99-089b-47a7-95b9-ca6666dc3e29@baylibre.com> (David
-	Lechner's message of "Fri, 15 Aug 2025 10:49:40 -0500")
-References: <20250616220054.3968946-1-sean.anderson@linux.dev>
-	<20250616220054.3968946-2-sean.anderson@linux.dev>
-	<ded7ba99-089b-47a7-95b9-ca6666dc3e29@baylibre.com>
-User-Agent: mu4e 1.12.7; emacs 30.1
-Date: Mon, 18 Aug 2025 10:28:58 +0200
-Message-ID: <87frdp119x.fsf@bootlin.com>
+	Mon, 18 Aug 2025 08:32:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1CA3F5C5B43;
+	Mon, 18 Aug 2025 08:32:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42BADC4CEEB;
+	Mon, 18 Aug 2025 08:32:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755505936;
+	bh=nNOBI0F8EkG+NeIt2D1S0Fuj4+shs+JG9u5tILSOhyU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CFe21OFb+bEd+KZWrl1NSWnS6cBxbGJTHGeVk3t2pdcmgvkOK3Q7t71xKg41sFi97
+	 zAprJLG9Tw61IZDsSQYRSqPiEoegSTaFEREUt1/+EHJ+35WWpa5duIpNPUlpv6BcQ/
+	 inarCAhBDRTuWLL37wDbCJ6g85hFXO3mLbhJ0YUW4qY/icFdD+20sJxJQWubkyYWUI
+	 KhAtSR5L8Ls5mfbt66mDU8Yv2Cd466iMN8613YGj8tqJ9+xgF4KM4iyoXnvs9yPRmF
+	 M/3QMyn5BijD5GYnwMToSzLj3LBDbtybU8WinY56+m6jjiSoLtklVcLD7fcs9GN/57
+	 r9RG8sF92Jx6A==
+Message-ID: <1b37bc94-8f2b-4da3-be2e-4d0076672169@kernel.org>
+Date: Mon, 18 Aug 2025 10:32:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduhedvudefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeelpdhrtghpthhtohepughlvggthhhnvghrsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehsvggrnhdrrghnuggvrhhsohhnsehlihhnuhigrdguvghvpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhitghhrghlrdhsihhmvghksegrmhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqshhpihesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
- hhtthhopehruhgrnhhjihhnjhhivgeshhhurgifvghirdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: miquel.raynal@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/12] arm64: defconfig: Enable FSD CSIS DMA driver
+To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
+ cw00.choi@samsung.com, rmfrfs@gmail.com, laurent.pinchart@ideasonboard.com,
+ martink@posteo.de, mchehab@kernel.org, linux-fsd@tesla.com, will@kernel.org,
+ catalin.marinas@arm.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
+ ravi.patel@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
+ linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de,
+ festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+ <CGME20250814141057epcas5p21ca33641e42164886dc1bf404237876d@epcas5p2.samsung.com>
+ <20250814140943.22531-12-inbaraj.e@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250814140943.22531-12-inbaraj.e@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_012903_279636_BB6BA66A 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20250818_013217_888488_D19C2F34 
+X-CRM114-Status: UNSURE (   5.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,28 +128,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On 14/08/2025 16:09, Inbaraj E wrote:
+> Enable CSIS DMA driver support for FSD based platforms.
 
->> +  spi-buses:
->> +    description:
->> +      Array of bus numbers that describes which SPI buses of the contro=
-ller are
->> +      connected to the peripheral. This only applies to peripherals con=
-nected
->> +      to specialized SPI controllers that have multiple SPI buses on a =
-single
->> +      controller.
->> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->> +    minItems: 1
+Tesla FSD
 
->
-> Finally have some hardware to test this series with using 2 or 4 buses.
+You are changing defconfig for all platforms, it's not your personal or
+company defconfig.
 
-Out of curiosity, what is the practical use case and intended benefit?
-Maybe an example of such device and an explanation of how useful this is
-would be welcome, as it does not seem to fit the initial spi idea
-(which has been greatly "improved", not saying it is bad, just unusual).
 
-Thanks,
-Miqu=C3=A8l
+Best regards,
+Krzysztof
 
