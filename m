@@ -4,157 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6EECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D8DCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5je7JVJvPAueLhLaeeTVFXe1YUqzaamlGOAHEFv38Nw=; b=QwvdvyxWUY8BV+h/DO1hBufzDo
-	HJePnyDHS1ol+tWVrX8AQyBjyLadAhUr7VO8Cibir0CoPX3J3qpYp9IauzIMgBGcqhOAWHInhyTU8
-	evbgigjhTMbhg9NPP44CaYGsaX3UbpXvz1S4nXQTXCRBHPwD54WIvEO4mgGR2Afk0Yb4ODcIzFbHt
-	5FG3BfR7YvCZUkNJsYKbAwhcdPi1820QakO8tfK093oMS/rZAtqWzH3upz3XRnksx0VEhqNN2bzFv
-	knjiG+QsZ4qi2G1aYInBLiEHGBxGd61KFFSPQVyHcxffWdVxvCgo/OMYQWYsZYMMU9NGl//MZR+DX
-	HbuZAo9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qsmAtVj+0Hxd/Du5+9XhiQhnELOko91bXauTOoh/xvA=; b=yIHTAKZXoou8rbGlT80XQ+FxmR
+	7WahT1TBDrKsjFLLZdEg40bN5JXHrjNMwwDJQAMOJmEGysAXQC8spJYRTx24CPt2a+iHPJUVVWm0b
+	3wjBQ2CHs/JM3F1KmzQkUbf0mAjY1FtYGuMUeMGMOJTgHnmxjliEC8eJE30Y2DRJt54jqd9r0ZTwW
+	CuWnnLOjTpcdgSghTQqO5FudVfW0npbibJvjRrBrGDmnTX9sUrDurJrJOQaEQQqARoi1gA3EAY08b
+	qXtgqnKbWEu796hIjR4oa4skfCTB6jvA/i3i6ZP+/ToeHUgDJwJYTSJzkeT3MdE0zgYXDfDMl0zRK
+	MmUmA09Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo9ze-00000008z3z-3Dxj;
-	Tue, 19 Aug 2025 00:14:26 +0000
-Received: from mail-dm6nam12on20603.outbound.protection.outlook.com ([2a01:111:f403:2417::603] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uoA2C-00000008zD7-2446;
+	Tue, 19 Aug 2025 00:17:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo9V5-00000008w8G-3NvD;
-	Mon, 18 Aug 2025 23:42:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mVvdfSRqFMVOMosKPIDBHUBK8AZw1ovCP1ke23E6qLqniYXYjEpB8UMu6l81qXHW+L+qRM6TBeO4l9vbfxtuu4MTv3dsrkeqSK61fQOGJs8ifSL+9YMvjB8olfAszDsJaLL2m0sCUrnp1bQyiojvni96GPXg5M+Uuehv4W8kq7rBPyICyW0yQ0H4MgJtv8PHRoFejJhOKEJPqwOTYp82+keXKrCYRapiVVQJ/zceqfAge5Oo0kBgn0hb+f8lMFZyjNyPfDWjZAf3ZaSEkegjvlSO4Xrn8yZZ7GYknpKx4KreIuvolO3RJZIYy+TASVuAxmh4ensY1Lg07sEhcqd2Bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5je7JVJvPAueLhLaeeTVFXe1YUqzaamlGOAHEFv38Nw=;
- b=lIurzqqKUyk4pnhoziJumdb7NPMXqVQyO6BUuIdgJFYPOgSQ+KxtxXSuAzeGmjYUeRB777ZKonbeI4uq4Sxx/VL61qDImLbgS58pgKP0p4bLI6HUuJ0dsZQ5MMfvDY2xtvsqY/W6p75ckvu+K13dV9nBM3X9LUttJRKuM+DPJz7C4tJFfHLXbznPz2vEsZF3XoSOk9SUNXuPMvheJcvm4s8Qw/6gukXwAnHqhDmt/Fm8uBfvnM1jUNVUp4YH5LB0vcu9jqz+VhIQbtcNwFwutDCrkrL8mCUyvFHUXMxxYzhJNhv2LGjNHO6fkOfBtKiBaonqqi+5kFrK6v2cjfmodg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5je7JVJvPAueLhLaeeTVFXe1YUqzaamlGOAHEFv38Nw=;
- b=F8P+w2gUF68hU0B6RVPwLqsFQLYpQ8SQUyCORzdZ9fWhi1SxFohM1n2AY1feD6q121aXZl7R/K8UAhmwnKfcBs3sXAQ6fcmehD0VEnUksTXJuR10s1UGx0Gwb/5zi/hs7rzGWqiCbLGrd9QG/qAGX8rjS8IHrbETBmH9SwOT+QUtCA4czoa7NWSlbS1D5cm9o8wpyrgzDH2/ja6aMX8g891aiCOg3G0T6XFfSeSojgvKRcu2rer+PAzLtAHqyRopS4CL2Dm7/v1DSk4BV2xO04ZB0rlaz/Mz2vOFPIiRWGLGnGjcGbxc88UhjgGG8kMi7XuD86LyAfgiH4abKYx4kA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM4PR12MB6085.namprd12.prod.outlook.com (2603:10b6:8:b3::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Mon, 18 Aug
- 2025 23:42:43 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
- 23:42:43 +0000
-Date: Mon, 18 Aug 2025 20:42:41 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
-	will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
-	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
-	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
-	helgaas@kernel.org, etzhao1900@gmail.com
-Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
- helper
-Message-ID: <20250818234241.GF802098@nvidia.com>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
- <20250818143949.GO802098@nvidia.com>
- <aKNhIr08fK+xIYcg@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKNhIr08fK+xIYcg@Asurada-Nvidia>
-X-ClientProxiedBy: SA0PR11CA0170.namprd11.prod.outlook.com
- (2603:10b6:806:1bb::25) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uo9SI-00000008vgA-3FcT;
+	Mon, 18 Aug 2025 23:40:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CDB545ECE;
+	Mon, 18 Aug 2025 23:39:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0A968C4CEEB;
+	Mon, 18 Aug 2025 23:39:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755560387;
+	bh=Po1Yhu52yR31ZqUXQ70Ab0JWVV9vtPfcBxzndIg8cfQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=OKgXO+kyC/95f6cSczLRCuw+gKs24abKYuDMMLnn4cew+HnLnoPc+ssvQvJ/TJlTj
+	 9MZVJBai4IeUhRbYZl+sAwQNnoPI4FvhVAhj2NFp391diPZSrz1aYuzjZQkAF0bon1
+	 0SlaCnzQT1g/0AXezI7aWvaqTgMpGeZK6ljE16rmiV92jf7bWKseCrrp1CCJd1u1FM
+	 UoGSqAIuWVd9GlUs4lDKNTgd8XM2Wq3RqxkbnBr76RESDtmKAsDTXbkJ1+kE5ycre2
+	 J1IDtGcQZBLkDwLAcXxVKczvHH3tE0zYWOch76fqwulryqdtEH/3NFfLmVXKLiZ1VG
+	 lQnrVA/6ZVU+g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E77E5CA0EEB;
+	Mon, 18 Aug 2025 23:39:46 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Subject: [PATCH v10 00/13] media: rockchip: add a driver for the rockchip
+ camera interface
+Date: Tue, 19 Aug 2025 01:25:52 +0200
+Message-Id: <20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB6085:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7423265a-7a59-4c6f-a6ad-08dddeb0ed71
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WBF6ZWstJIcwMt4kZ0k11PVnDHXilKye5y3igKggikGxuIASqHvhwA6nbnWv?=
- =?us-ascii?Q?v0BpW/V+JdqoTWR2wQSUh6VkRVtWTGD/mh6A4ucmk2QclG05L0+trsykciEy?=
- =?us-ascii?Q?rNMAH39VJ8+kHnJ6ac4iwx0765gi221B3BCeZQroWx5Jc8mmjXOQjKT9TvTw?=
- =?us-ascii?Q?+jXdWz4elztwBzFAjSFY2hCbB8PHQoHk/Uz+7i2ws95XUlpjUslqkf6KzZvN?=
- =?us-ascii?Q?L5X3s9vuSPNlrxv5fpiBBbi5+BfAfeZ2v/EvSmBW3B9nyv3CBHaB+7qqiWgY?=
- =?us-ascii?Q?9s8DFEWkFooECXpL5MvEiaWGg20+R2FSQ1eidEO+zTBjov7p3W9sn1JDh1lg?=
- =?us-ascii?Q?Rbd+ER0sm+oeXCv/6E4dsslQUzZVmuNUpcYOi7uXf0DP4U19l/qAJlWPw2XV?=
- =?us-ascii?Q?N8SUuSqQzUdGZxjwkwhB/OiJq8C/7uWYgog5j0SjMJT91jwyWRzMYJf7y2CD?=
- =?us-ascii?Q?U92mXE5nQIzSP5uZkMtYuu5vxr540phoWEdQWRuIYQKZPTFXcCYOEJkIVllc?=
- =?us-ascii?Q?91Q093KkwdExcGvdPgqques7KPbOXrdZaM1H2hHkN/N8CahQ6nzKCdSl1Sx9?=
- =?us-ascii?Q?Hlwo7qzu/dfK27efB+5oJEs6VBX+XoG6LqKkucZ3T4CMwIzJmLgFrcslDZBt?=
- =?us-ascii?Q?BddIXHa5ZNh2e5TqVQO0tlsTNptw83/oSPwS/7kxNJuNHEOZO47goZd4Guy3?=
- =?us-ascii?Q?N7BXYMV4aPgGCc/3h6MB+nqzvkJAsYn7vpUNLuae3ca43LdJlGHfO1kRN+yd?=
- =?us-ascii?Q?fv42H3dtVI97zKXSUyxJ8gc2MtWztM0aT8GE0IbOeAQB1YuGQdb4Tv03FXrc?=
- =?us-ascii?Q?BuwzsAdJGJ14udcdvoN9wWDFDYWYtdymqAZTr0u05oZq4e05rwJ1RcMz1zn1?=
- =?us-ascii?Q?i3lDK/hNO+dCYFsdxqcVd2thMJABmY2amwyy8jxMWRaQ2g9XHpatVMzf6Wnp?=
- =?us-ascii?Q?D0Nyy3or15Tp1nkGmTu6zq9WPBGSufpUKfjc7+6yiefW3RLW4IvuxtpBoFBr?=
- =?us-ascii?Q?e6CiwQ9bjHl4plJHbbQglwKusgzqhTi+ts1sREHr2NfS16qkrLnqxmU7p2Yi?=
- =?us-ascii?Q?lplmaHYTQ7z2zH4e3U+/aOHwkoNXhYgpbU86xpPNXwMHtmPn7uL1ubnrQ18k?=
- =?us-ascii?Q?b5SSWe+m/UdjVDwUG/BDMqINZ76nIpL7MTiuOgP101e1cp+ir951iiLdJ2Uk?=
- =?us-ascii?Q?bFLMekqY6bAhQj6VnYShIz89bHopv5kfxi7Y9rYwL/i8HOWAjGk+Eob4g1/c?=
- =?us-ascii?Q?mOAzny/UmfOIA1tmYZfno6bafZldECgIvcX2h2G65aVELt7UNZpm635bHkx2?=
- =?us-ascii?Q?sfqIlcuu1j7T5yJqSagiRG09j5xZ3UnIDKORm+z9HRyns/wKrPvY0JbICbNx?=
- =?us-ascii?Q?+36/ughmj4Jr0f7JOD6LfF8AupYnS+fPVtCbroNhg1ahswdriTzrWhk917gI?=
- =?us-ascii?Q?8vrPFFpGZTY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AezlHu2bkpQnm3PkFYUwCt4EtuzMFL9vd6epv7asPoo9ZnEay1PdnZnR6j1W?=
- =?us-ascii?Q?ii9Md4fSq9W3UC2cUarivZb1xp1rUsADO/rw0i6EGmO8HB+FAeWKyuX7XZQV?=
- =?us-ascii?Q?tVVzkHemqXvYTuZJmCIkN11uVod5/8U6bgPT+rbBAXKYetIsciDbsRFyCCW8?=
- =?us-ascii?Q?amRpdzFqN8Alp6UT1C1xgCrpYYeAp+UaunB2HLGKXgFrVb5qzTJttBHYTUqm?=
- =?us-ascii?Q?EGd5ECBwZeRTFIhItsrRhIHUMs72XBF6FdPlztE9HxSMVEuB500nIE/IE0it?=
- =?us-ascii?Q?iDsccMwKwNebQHi+PaEVAX27gm9zR2Asd1ZoXm40hTRh0kf8Bgf9IogtQz5n?=
- =?us-ascii?Q?bCSiScR6Zg4KyHjYEJXrdOrH/0SpPW+59KS/9y4JN/OK79qdmnyfNtViZYZj?=
- =?us-ascii?Q?TJgBQZk3AXA+HIVAKu+NAjkTDA5CkR3bkgSQb5YMFb8u2ukytcyTLwQdocGy?=
- =?us-ascii?Q?b7UpxySjKjw5JXasymiL/RWTR/+/aEMvDE6tHjB4DzFsV/6RVvgEOGIwsPT7?=
- =?us-ascii?Q?IwH5xEF5aLzl6jOn7PviE2GbUo3Z3CsEpP/XnGHrXzRkGe2jXuBXnI0WkfTb?=
- =?us-ascii?Q?3VdSOyBseAKqL2LdpiaGScHJGoP5CnVudvRqr95DOcLAECdTKZ4zhfDbpDW5?=
- =?us-ascii?Q?/BLHZ6v1TFgSI2j5FKrZA6y4HO8YRDCevdo09149pTXNpdpzfli/ulCQaQbq?=
- =?us-ascii?Q?hLz5K9dUcrWJKmpEGi2vbh7vIj8b3Rd+Wz4RLR2x7lr3sSwsFN4DpyzWUDpt?=
- =?us-ascii?Q?Ys8zsq7YnY0NlUSAqJRfeZvvH9EqLog0tvBahWYhEGzc6ZqLphaH1EAKa4Dx?=
- =?us-ascii?Q?L6fvuK6RWUplaq7X8EvFBHZ4z8apZNQ2YwlVzVskwua4ulF3X5sZ7cs3Fs7i?=
- =?us-ascii?Q?kmYKXqm+p63OAT61m9032b+g4ryEz6Y72erc3Q8rR/0MoxV9AFY0TkW3uCtg?=
- =?us-ascii?Q?9knEoTTNlCIVzaueMgIKCzeOcN6b+xcc52umtGSzpaeUp6UkZ+RtlUF55gyo?=
- =?us-ascii?Q?pPPXdVo0cPietFE1KiNAlYsRgwl+ieVXV6F5bEgZF67wlTSrqLlM/hWu3lRK?=
- =?us-ascii?Q?12+y34TId7sDBzb8zMheqdwpisi0YakpeyxCwgkYqBQRpSrznIRxH8kV/0DW?=
- =?us-ascii?Q?4aO0F4EQ0Vc5kEnmcp4dAN1HMZCGUO4/thsTjvzW0bIzR+jp+RpQ6qwTfkd1?=
- =?us-ascii?Q?a6+6VcXIA48zj/w0KldaarYPrgPzYUUMwAAzTex2JVkRV31uvbK0ML0fwYGq?=
- =?us-ascii?Q?b+bdPV9wCIZV8Nvkb97uh/c5O/AHGfNhPAWRCLc55xKmlZIAeibDiH0w2ZqH?=
- =?us-ascii?Q?6zZmOcq7gn2D6SHZ8spfGw5wKhsrGGyWVlQDblYfrs1/FhoYAZOB9dKKj0HL?=
- =?us-ascii?Q?Ou+0vP2uQNEDC1b/AOpedR8gi/6KHXvM2QnjtqqMju+sYB2hG2ikJttUP5N0?=
- =?us-ascii?Q?rDudXklf7QXcynbQtskuU6u00RP7rqwnqKXgfhfpfbRKICFpKASRknDuM2Vr?=
- =?us-ascii?Q?s+tp590FA7bYI42gdf/HaJwFkKkD4o78mTSlhQcNvVOIi5BskK3txD0/Swia?=
- =?us-ascii?Q?QgyjS+EyNBUNXXKs5bOw7imUCrxfR/RhYAf/gdIB?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7423265a-7a59-4c6f-a6ad-08dddeb0ed71
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 23:42:43.7291
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Z33DAptqq0QHaCYNyOt+tgd2RqOYXNcprSdmI/hNIGUKuIRNteQtz0pvPiKCun/m
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6085
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAIC2o2gC/33RS07DMBAG4KtUXuPK41dsVr0HYuEnsWjjyKkMq
+ OrdcVpBKUqznBnN9480JzSFksKEnjcnVEJNU8pDK4A8bZDrzfAWcPKtgSihnFBKcHlnQipckzM
+ jttqyqDUVkXPUVqyZArbFDK6flw6h9wlXYPNsLCGmz0vWy2ur+zQdc/m6RFeYu7eQKrHCxzwmd
+ 59XARNMpSIGopGc2N1H3sfr2dshHNEMV/qLAYXuMUYbZsFzpaJzxLNFjP1gglAiH2OsYVJ7iKC
+ DcJwsYvwPBvoxxhsWNJGSEBOYXcbEDWNrl4mGxZYnqGA8MreIyfsH3AuyCZ5GEW0IIATsXN7vj
+ c3FbF0+XIFuDega0AkF0WtpGDNLgFoDVAO01846bgXlfgnQa4BugHEB2m8cN4r+B87n8zefXdR
+ mDQMAAA==
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Markus Elfring <Markus.Elfring@web.de>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Mehdi Djait <mehdi.djait@bootlin.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755559554; l=10893;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=Po1Yhu52yR31ZqUXQ70Ab0JWVV9vtPfcBxzndIg8cfQ=;
+ b=ZBiZAMoya15HUHwvP0l2Eoz5AnBC32p7xAGT+on+pWtw79p5wfIKmgapbAM+xsSpiHeIW0QCJ
+ lgWHR6/FmsGDQ+Pjx3GPQZaOijg9+/FuFlRJPX20FDbiGv8YmS7kBvv
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_164251_847272_137639FC 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250818_163958_856420_161B0A35 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,54 +111,234 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 10:22:52AM -0700, Nicolin Chen wrote:
-> > Because this is a very common pattern in drivers.
-> > 
-> > Once that is done we can see what calls to iommu_get_domain_for_dev()
-> > are even left,
-> 
-> ... I found that in SMMUv3 driver, iommu_get_domain_for_dev() is
-> used to get the RID domain for an SVA domain:
->     arm_smmu_set_pasid()
->     arm_smmu_blocking_set_dev_pasid()
-> 
-> These two are already given an "old" (SVA) domain pointer, FWIW.
-> 
-> So, we may change to passing in the old domain as you suggested,
-> yet we still have to fix the iommu_get_domain_for_dev() in order
-> to reflect the RID domain correctly for the driver that calls it
-> (or even potentially) in some group->mutex locked context where
-> the RID domain might not be naturally passed in.
+Habidere,
 
-It could probably be avoided by keeping track of more information in
-the master, but also it is not so bad to use a _locked version here.
+This series introduces support for the Rockchip Camera Interface (CIF),
+which is featured in many Rockchip SoCs in different variations.
+For example, the PX30 Video Input Processor (VIP) is able to receive
+video data via the Digital Video Port (DVP, a parallel data interface)
+and transfer it into system memory using a double-buffering mechanism
+called ping-pong mode.
+The RK3568 Video Capture (VICAP) unit, on the other hand, features a
+DVP and a MIPI CSI-2 receiver that can receive video data independently
+(both using the ping-pong scheme).
+The different variants may have additional features, such as scaling
+and/or cropping.
+Finally, the RK3588 VICAP unit constitutes an essential piece of the
+camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
+units, and a data path multiplexer (to scaler units, to ISP, ...).
 
-> > arguably we should be trying to eliminate this badly
-> > locked thing...
-> 
-> Any suggestion?
+The v10 of the series adds a media controller centric V4L2 device driver
+for the Rockchip CIF with
+ - support for the PX30 VIP (not tested, though, due to the lack of HW)
+ - support for the RK3568 VICAP, including
+    - capturing frames from the DVP
+    - capturing frames from the MIPI CSI-2 receiver
+ - abstraction for the ping-pong scheme to allow for future extensions
+ - abstraction for the INTERFACE and CROP parts to allow for future
+   extensions
+ - initial support for different virtual channels (not tested, though,
+   due to the lack of HW)
+and a V4L2 subdevice driver for the Rockchip MIPI CSI-2 Receiver.
 
-Bit by bit.. I counted 58 by grep
+However, several features are not yet addressed, such as
+ - support for the RK3588 variant (-> first success achieved, patches
+   need some cleanup and shall be submitted separately)
+ - support for the MUX/SCALE/TOISP block in the RK3588 VICAP (which
+   provides the base for image processing on the RK3588)
+ - support for the scaling unit in the PX30 (-> cannot do due to the
+   lack of HW)
+ - support for the interface to the Rockchip ISP in the RK3568
+   (-> cannot do, latest information from Rockchip points out there
+   IS NO HW CONNECTION BETWEEN VICAP AND ISP ON RK3568)
 
-Changing attach will get rid of alot of them
+Looking forward to your comments!
 
-Then there is stuff like this:
+To: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Théo Lebrun <theo.lebrun@bootlin.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+To: Gerald Loacker <gerald.loacker@wolfvision.net>
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+To: Sakari Ailus <sakari.ailus@iki.fi>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh+dt@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Kever Yang <kever.yang@rock-chips.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Collabora Kernel Team <kernel@collabora.com>
+To: Paul Kocialkowski <paulk@sys-base.io>
+To: Alexander Shiyan <eagle.alexander923@gmail.com>
+To: Val Packett <val@packett.cool>
+To: Rob Herring <robh@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
-        domain = iommu_get_domain_for_dev(emu->card->dev);
-        if (!domain || domain->type == IOMMU_DOMAIN_IDENTITY)
-                return;
+Changes in v10:
+- rkcsi: fixed error handling in rkcsi_start (Bryan)
+- rkcsi: fixed interrupt references in device tree and bindings
+  (Rob's bot)
+- added missing call to rkcif_mipi_stop_streaming from rkcif_mipi_isr
+  (Mehdi)
+- renamed remaining instances "cif_" -> "rkcif_" in functions
+- Link to v9: https://lore.kernel.org/r/20240220-rk3568-vicap-v9-0-ace1e5cc4a82@collabora.com
 
-Which should be more like 
-   if (iommu_get_translation_mode(dev) == IDENTITY)
+Changes in v9:
+- added compatible for RK3588 MIPI CSI-2 receiver, thus dropped
+  Krzysztof's R-b
+- added interrupts to rkcsi DT binding and RK356x DT
+- added variant specific callback to rkcif-capture-mipi that puts
+  together the CTRL0 register content (which varies between RK3568
+  and RK3588)
+- fixed v4l2_fill_pixfmt_mp() return value handling (Mehdi)
+- Link to v8: https://lore.kernel.org/r/20240220-rk3568-vicap-v8-0-9d9cbc4b524d@collabora.com
 
-With sensible internal locking
+Changes in v8:
+- rebased onto v6.16-rc1
+- fixed RKCIF_MIPI_MAX value in rkcif-common.h
+- fixed rkcsi Kconfig (kernel test robot)
+- sorted rkcsi DT bindings document properly, completed example
+  (Krzysztof)
+- squashed the defconfig patches (Krzysztof), dropped Bryan's R-b
+- Link to v7: https://lore.kernel.org/r/20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com
 
-So that is another bunch. Not sure what will be left after.
+Changes in v7:
+- moved MIPI CSI-2 receiver driver into separate directory (Laurent)
+- rkcsi: fixed return values (Bryan)
+- rkcsi: fixed v4l2_get_link_freq to use pad instead of control
+  handler (Sakari)
+- rkcsi: added data-lanes property (Mehdi)
+- rkcif: fixed formatting (Bryan)
+- fixed "int" -> "unsigned int" in all for loops (Sakari)
+- rkcif-stream: fixed minimum number of required buffers (Mehdi)
+- rkcif-stream: used guards for the spinlock (Markus and Mehdi)
+- rkcif-stream: made driver less noisy with dev_dbg (Mehdi)
+- rkcif-stream: fixed issues detected by v4l2-compliance (Mehdi)
+- rkcif-dvp-capture: fixed return value propagation in _register()
+  (Mehdi)
+- removed stray "phy-names" from required properties (Rob's bot)
+- Link to v6: https://lore.kernel.org/r/20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com
 
-Not saying to do all that here, just prefer we move toward that direction.
+Changes in v6:
+- rebased onto v6.15-rc1
+- renamed "MIPI CSI HOST" -> "MIPI CSI RECEIVER" (Laurent)
+- s/@wolfvision.net/@collabora.com where appropriate
+- renamed DVP delay property and moved it to the endpoint (Sakari)
+- implemented DT review comments (Krzysztof and Sakari)
+- implemented driver review comments (Sakari)
+- fixed issues raised by media-ci (yet again)
+- added documentation including a RK3568 topology (new patch 1)
+  (Sakari)
+- added patch that enables rkcif in the defconfig (new patch 9)
+- Link to v5: https://lore.kernel.org/r/20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net
 
-Jason
+Changes in v5:
+- fixed issues raised by media-ci
+- fixed dt bindings (comments by Rob and Sakari)
+- fixed probe on systems with no DVP in DT (comment by Alexander)
+- fixed error path in register offset calculation
+- split off MIPI CSI host driver into separate module (comment
+  by Mehdi)
+- added MODULE_DEVICE_TABLE() for both drivers (comment by Mehdi)
+- Link to v4: https://lore.kernel.org/r/20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net
+
+Changes in v4:
+- added support for the MIPI CSI-2 receiver (new patches 4, 6, 7, 10)
+- fixed asserts on stream stop
+- fixed register address lookup
+- fixed link validiation callback
+- fixed issues raised by Rob's bot, kernel test robot, and media-ci
+- Link to v3: https://lore.kernel.org/r/20250206-v6-8-topic-rk3568-vicap-v3-0-69d1f19e5c40@wolfvision.net
+
+Changes in v3:
+- renamed the driver "cif" -> "rkcif"
+- rebased onto v6.14-rc1
+- abstracted the generic INTERFACE+CROP part
+- addressed comments by Rob and Sakari
+- added V4L2 MPLANE formats to DVP
+- added patch that enables the RK3568 VICAP DVP on PF5 IO Expander
+- fixed formatting issues raised by media-ci bot
+- Link to v2: https://lore.kernel.org/r/20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net
+
+Changes in v2:
+- merged with Mehdi's v13
+- refactored the complete driver towards a media controller centric driver
+- abstracted the generic ping-pong stream (can be used for DVP as well as for CSI-2)
+- switched to MPLANE API
+- added support for notifications
+- Link to v1: https://lore.kernel.org/r/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net
+
+---
+Mehdi Djait (2):
+      media: dt-bindings: add rockchip px30 vip
+      arm64: dts: rockchip: add the vip node to px30
+
+Michael Riesch (11):
+      Documentation: admin-guide: media: add rockchip camera interface
+      media: dt-bindings: video-interfaces: add defines for sampling modes
+      media: dt-bindings: add rockchip rk3568 vicap
+      media: dt-bindings: add rockchip rk3568 mipi csi-2 receiver
+      media: rockchip: add a driver for the rockchip camera interface
+      media: rockchip: add driver for mipi csi-2 receiver
+      media: rockchip: rkcif: add support for mipi csi-2 capture
+      arm64: defconfig: enable rockchip camera interface and mipi csi-2 receiver
+      arm64: dts: rockchip: add vicap node to rk356x
+      arm64: dts: rockchip: add mipi csi-2 receiver node to rk356x
+      arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander
+
+ .../admin-guide/media/rkcif-rk3568-vicap.dot       |  21 +
+ Documentation/admin-guide/media/rkcif.rst          |  83 ++
+ Documentation/admin-guide/media/v4l-drivers.rst    |   1 +
+ .../bindings/media/rockchip,px30-vip.yaml          | 122 +++
+ .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 144 ++++
+ .../bindings/media/rockchip,rk3568-vicap.yaml      | 170 ++++
+ MAINTAINERS                                        |  17 +
+ arch/arm64/boot/dts/rockchip/px30.dtsi             |  12 +
+ .../rk3568-wolfvision-pf5-io-expander.dtso         |  20 +
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  78 ++
+ arch/arm64/configs/defconfig                       |   2 +
+ drivers/media/platform/rockchip/Kconfig            |   2 +
+ drivers/media/platform/rockchip/Makefile           |   2 +
+ drivers/media/platform/rockchip/rkcif/Kconfig      |  18 +
+ drivers/media/platform/rockchip/rkcif/Makefile     |   7 +
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.c    | 864 +++++++++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.h    |  24 +
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 777 ++++++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |  22 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   | 249 ++++++
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  | 302 +++++++
+ .../platform/rockchip/rkcif/rkcif-interface.c      | 425 ++++++++++
+ .../platform/rockchip/rkcif/rkcif-interface.h      |  30 +
+ drivers/media/platform/rockchip/rkcif/rkcif-regs.h | 154 ++++
+ .../media/platform/rockchip/rkcif/rkcif-stream.c   | 637 +++++++++++++++
+ .../media/platform/rockchip/rkcif/rkcif-stream.h   |  31 +
+ drivers/media/platform/rockchip/rkcsi/Kconfig      |  16 +
+ drivers/media/platform/rockchip/rkcsi/Makefile     |   3 +
+ drivers/media/platform/rockchip/rkcsi/rkcsi.c      | 741 ++++++++++++++++++
+ include/dt-bindings/media/video-interfaces.h       |   4 +
+ 30 files changed, 4978 insertions(+)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20240220-rk3568-vicap-b9b3f9925f44
+
+Best regards,
+-- 
+Michael Riesch <michael.riesch@collabora.com>
+
+
 
