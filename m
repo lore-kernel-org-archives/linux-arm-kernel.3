@@ -4,86 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BD8CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 00:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430E7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 01:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJghPZDANcUiW5wXtsrqlleYuYJUnUmNG7Z7BobLTXA=; b=xhd83Tcxhhr4x2BZbQe8P5bH+T
-	VlrTVVP7xU/QmYCaSlgoYeNlGvJCBB5w/Os1nc+r2Mn4F/KCeE0+w6hLs+gfS81AlR0/+LblMn3UT
-	m2QtV4M+TN5EXuKjHVwwhw8todgRR9cy4T6+V+02lGxooYWGK5n06qQhkcLa4MggEqAq3QZ0fvqNi
-	Vz9het/XTXbU0/GCP03quE0cSUtZEIueJYzX8iHk4kQhETtDJdkyicEwlPaoCCL2bBaWqeY21llKI
-	pckjA4ASoKI0shmUn8iS8Z5a2OaGURyPuk/vh8p1U55GSUBu6gYtkLQOUQ2JZP2lauoxAnWOV7w2o
-	9yKqo0LQ==;
+	bh=zNAjdt+tAKV8prZadxFSEbhS1EHBUUEXfheSOQ2bhUw=; b=LQfWnA7+/2RS89/X2JLFsz9504
+	v5LZF74tavtyZBX9qlSSOyl7ovPl6CHZUbhtdLy8q2j/TILGwVfC2aH66O3ryGePZlvzyJ+KeVbC/
+	Kefx4Huq38u0SB0429+S3YDnfFz61XI5XgWJw+Dv6RzZaBWuQYyBO1YIQ5JYG1Lzdxc8wYpA7vDpn
+	/X1eFJoAbbMp8/A7NzZsn/QJiEoy/PpdTyYOuB9ZDSFqRYPMXf2FhjHZX1Ru9N9lidGcKDcTD3QnI
+	eLIZI2Se3eo5x1z7uVeSuY63hhthJn2wTkL1uDy4r8/DCG7W9hwM01apd0o3hXvR2ITT2bDKO1WdV
+	sbVU1FDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unnYs-00000006Bfk-0RtY;
-	Mon, 18 Aug 2025 00:17:18 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1unoV5-00000006EDF-3xeB;
+	Mon, 18 Aug 2025 01:17:27 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unnWI-00000006BWs-27HJ
+	id 1unoSV-00000006DxJ-3ykL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 00:14:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755476078; x=1787012078;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cXw8V/2WdskHtmRrZ40s0eLq9HPcJIsdXKFvs+zG3Fs=;
-  b=Bu2oZkq8Y3i9bPiQ6Vm1l+T0E7HYqdWp7qML5U7X3QxABREvoH5uswPO
-   mCJMU+lJgXcylk1s9lY3vJM5x7m2TYQFOANt7J70lt5Hx2pxiYJCeSZLD
-   kV2pmxquDv9boNpc6xH2GyW3oUDsd0MXUFdKoMSngY50ojZrGEx+mqWvF
-   EL9Vd+8LwzxEmL6xjlq1t1rZye4BhkWun00IAsWBRzAjY/1Guj0VS9ivJ
-   NMvu1F7L8Ae2xlxwTjX4wWGPgBkiAuJsWzU6HOVFw1YOg0qT8vNAhlPNX
-   DkNppZFYYaKghbWOnXLco8pOhVbsXwAHuem6cYNu3sJvJbFoPUz48yZqb
-   w==;
-X-CSE-ConnectionGUID: O7VQ4xW4SyybUW6oveqqRA==
-X-CSE-MsgGUID: TsHoR/UpSJaBBrBBLE4Kew==
-X-IronPort-AV: E=McAfee;i="6800,10657,11524"; a="68409220"
-X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
-   d="scan'208";a="68409220"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2025 17:14:34 -0700
-X-CSE-ConnectionGUID: rPkKLnjSQ5CNumytd/zTcA==
-X-CSE-MsgGUID: Yli3IW/hTpGQPtHWPRWhLA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
-   d="scan'208";a="168250450"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa010.fm.intel.com with ESMTP; 17 Aug 2025 17:14:28 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1unnW6-000DnH-1M;
-	Mon, 18 Aug 2025 00:14:26 +0000
-Date: Mon, 18 Aug 2025 08:13:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>, ryabinin.a.a@gmail.com,
-	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com
-Cc: oe-kbuild-all@lists.linux.dev, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH v3 1/2] kasan/hw-tags: introduce kasan.write_only option
-Message-ID: <202508180747.PxkbPnyA-lkp@intel.com>
-References: <20250816110018.4055617-2-yeoreum.yun@arm.com>
-MIME-Version: 1.0
+	Mon, 18 Aug 2025 01:14:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CqdQeWJTJq2zeMHJj5K16ZElWJ26rffa60yb7bVMfACszTqIxTQ3Aittqvxk6Qa9dOZPoF8MIdBtAGUY+st+IuruESkcZh3tTpLBF0JVS9R4n82f/ZpYCS5F5ekBw65iRWnqrwmnc0t3w1RK9P+sJe6GhKIm7CB3P6Rb5luY1ykf52W2mvIMx5jO3w/tL1m080rTBD2yziGQSlOc5ZAXyQHY6NOaf9LZlz+wSLhg2XJUskuXI+Var5E1okigTxd3PPNLZtwIfJvm6qjMUlHNGTxONs/MQ4WQkUdgrdCkNhWLK4b0CFDvsXmv8Pqc76SWjkWoeZM/urMZMXD3sRWATg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zNAjdt+tAKV8prZadxFSEbhS1EHBUUEXfheSOQ2bhUw=;
+ b=Ism9QOsLjkk7+H11atE5Bkp0uUSW6u6r3BKlv+NnDzoIvQPe6fH1Y+utwSBmDsQ+v5iXyX62GWb/hlb/smwJiDwewvaq8QvOf2XT/wRLbK7/Dd7fMP9V3RgZNHyGichgPF1TKxvC55WtoGyWQ5KcgIDp4PZdoAMqFseXd0HzZXdyLBwWFNgAQGBla6DCYcoG2ATUCMASITRjClr+yGLZ050yf/s04Dwl1IShpp1HFXD6KD0RkXNz3Ofjcey51GN9phhI9/eMxscgNVJrE/F9U0LHlfBLMSicq7ndZd3PrBfO+Qw0U8Lk3q4jTh2HXXNg6dsEFN8NP3VtZSWSpnIrpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zNAjdt+tAKV8prZadxFSEbhS1EHBUUEXfheSOQ2bhUw=;
+ b=BKn8GvktgGMxNTbcnr2G41mYUa4SRDufLsPZT45p+6rpOk0+CmiG1YiXHPR6o36H8R/U3YBJWIg4iIdMpvqQ2j05OIE3SVlps/BmRDirXf2q3JMrtTY7YTgSI+OytJL1f5xXNblqHcGEmhIum418mAVb/oqFyyRRme3Q6gGOm+mrzvNTbgqnyBC6uq6LFF5FkLPjP37nwCDkdJRRqaXUZoVMR9cVrSgQjuzboIx5nD2lObgY2ioDnPPNtJ1SSTuS6cdQIfqIeL1PenIjoF22Wvp45AVA24O4ttgipUOoD4qkW/9b8Y2+6L3zwwcm/dHyYtLejv7PG4/Na1ed1JvMZA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM7PR04MB7189.eurprd04.prod.outlook.com (2603:10a6:20b:116::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Mon, 18 Aug
+ 2025 01:14:37 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
+ 01:14:37 +0000
+Date: Mon, 18 Aug 2025 10:25:35 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] firmware: arm_scmi: imx: Dump syslog and
+ system_info
+Message-ID: <20250818022445.GA13772@nxa18884-linux.ap.freescale.net>
+References: <20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250816110018.4055617-2-yeoreum.yun@arm.com>
+In-Reply-To: <20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
+ (2603:1096:4:188::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM7PR04MB7189:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f650329-fae1-4782-40e0-08ddddf498a5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iYq9otqWjsAe68JHIqMV3JBnHDevq6t73PMufAPYb2VpiVrLsyCuhGM+J7Ba?=
+ =?us-ascii?Q?7YnAmXHFXbAT230LubqaoEA+MRcMiSbY4tsZPMlkhUXF0wrtld4MYpnuudfE?=
+ =?us-ascii?Q?UP+55oBBYBGXyH01bff40A5I/mps5aFZDmMjA19SeLYgBes0g9gN3neNQ8aj?=
+ =?us-ascii?Q?4MynpkGn1WfxuxntrP+eiGIR5hYamndoP1LaL5mEs75V1nPDRIL/DxKhP6V5?=
+ =?us-ascii?Q?iCLmcByQOIoUbwb3lQszOIBtXDBMfOoeXJ3wrzIxqsEtbN2kQI2D53tcgu+8?=
+ =?us-ascii?Q?+dfnrJi//VIqpfIuWXrbSg+pDvg0IrnXdK7UPaYL82iRZQy/f+gYZdjy4kRW?=
+ =?us-ascii?Q?1F2rpDw/USIyHk82a3QnRlGquAFUezpEWsQk/e5OdEpeXbTO6V6K2j5mFvxx?=
+ =?us-ascii?Q?JQwUw3ps0zCoXGigeK5tc4SvxG/cZL46jW4iPEC+w4fbjz4hi/a+EQJQP1CK?=
+ =?us-ascii?Q?cD2UZe7vaHqhko0FJ6ksP8sGLk6fiyt/ptvxMXNubzZqTaQCAztFakyrEW/z?=
+ =?us-ascii?Q?vFhMPSNd6nYrMp9wJim8dCK1+da/62Z4a/HXiOLPZ/vhyzl5SdWOO/bPCM84?=
+ =?us-ascii?Q?zXygJQPRsr/5zh7UxXgfgvL7r6YKupneJx+KbwNxrYccIkfMmkearloUdWzl?=
+ =?us-ascii?Q?x9YTNEe9KsQt8sarelYCVxeApqqnQAgIPQgQq87TKubiuqYHT4fBdgJ/jc5i?=
+ =?us-ascii?Q?VM6RE5pkqY5itH5RTi5XhDuZhIddvuMubK4ajguIEdN6lIy/IOUY/KX52ZZu?=
+ =?us-ascii?Q?wFtwfoEf8PKEhTIAqPJaG5GdKHrvtqngZJr0Z1CWF8uW/EDXCUrzooFNSV8h?=
+ =?us-ascii?Q?mkX6CMxrTPV8Bm0HUOlByvUTOPagfxOfmsrcJr6rqGus5wTJuiAp2P3F6X3j?=
+ =?us-ascii?Q?a1euKDgSHgnZ4TcBfkRKZdfceIkVUKIk4zE28kBC7rD2zyV2nlgBQpP07RGE?=
+ =?us-ascii?Q?c3SWQvqn0YQ9sT6m2xUC5WAvZzQIyaad8bbz4bLnrZg5UOEGqhjg1OLR4OEU?=
+ =?us-ascii?Q?Hq5R25btpwDO5vFXrtOrXA5xYXQiSm2IOolwMb5PTNauIP9kU+Cpw0PrpNwB?=
+ =?us-ascii?Q?4HmvErRSXqsa/DDQ8IdPWigGR0WGmvenrVgH202Oo4SnaUm8JeBv7xGdgRPG?=
+ =?us-ascii?Q?QPzxF+L91DUAQNePLeealp/bs8Aq77fC4zEnR1tB10Hi3whygXyc/+TB0YHg?=
+ =?us-ascii?Q?E2cNQ7YUcsN1WIhNsRkQXV2ZC6Cm3WRDJ4BhZ8Mbc+kRrnt7uFsgv97I3JPd?=
+ =?us-ascii?Q?cQYfdXTCesUl1txQco/kqS/iLLLp32evdc27JgTVOJt0e/BOeJXmlUwhJhkl?=
+ =?us-ascii?Q?dsIyHWfSmelEHbGZPoBm0o2Sf9QZmtbHb8NG2Iig4WAnOU1wrg6ZjQu72Fb+?=
+ =?us-ascii?Q?Mjop+/KwYYt7oGKPdMtpvhKlMXhAWV6mKYfMSN/umiTkOrwdn3GOu1g21sld?=
+ =?us-ascii?Q?XYn0c7T3ElY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8VwPROu18IB4gYAUptkguPPu5LQ8vefQKCkWCDW5cE3XmnpkppN4ntBVZy7b?=
+ =?us-ascii?Q?LdEi/PcECbQzTjBExZYJVhhsWsx3wP0YhAYgaDSpvIrI4DdXOr2tS8/GYxYz?=
+ =?us-ascii?Q?mQqco5SDlWssl86ltbxgoE8lX//7zZpw7GotQv8v1EibOPXev6jsxH8sXYkD?=
+ =?us-ascii?Q?a6wlaOGPeQ0uF7CipSORuK96NoETUc0EdHd5Qvqw4DHdK9hrZ99pHApMMBC7?=
+ =?us-ascii?Q?ipf8gV/dgIXW6UyIlhe4Xr1kLl6ExozsKkhPGk5sd3qiD9Ph7x8xHw2XkRtE?=
+ =?us-ascii?Q?tLN9ekvSDxPHhc/xMqs1CBqbU9NeWrhYRtPdnj104D1BSHAGVZvKZK4Qky2l?=
+ =?us-ascii?Q?jCRFc7/VVeVNdGRi/Z2JjmvhFieK09IWzcNG661uX9XZYEZZIU7yNjiofhfF?=
+ =?us-ascii?Q?AZ9yvMreO2S4+NbVcyIQZZQ/4b/Rv/+eJj1hNycoYjWBd2yw1PCXQHzXXHfB?=
+ =?us-ascii?Q?4L6ui1TuWPjz23UNJxR4SMVojDRXp8QmTfCOIoN80nA2JuqhXjZxv2OvCQKL?=
+ =?us-ascii?Q?6flIGE7eWmS4xiIJhtcBG05Ks1gPlYK4Z0suKk2jx6UlF0+YH/gK7f7ql8gR?=
+ =?us-ascii?Q?jZXXMOW2uhdBrloubQaLaZr+HZnzkTpThaYBJUBQkd3YS5s1H7StAjN8bKot?=
+ =?us-ascii?Q?AgAU/Gfes6f7iuCnSt+1HHIdS/tJ8K/vsZ4EoTMduVGakCOOU23OQJouZPax?=
+ =?us-ascii?Q?G/aJ0ZKixubuJiUcFyKVTXkdQVAjEPsGlsJaEfvmeZTfwSKkdqjScNnGVgNG?=
+ =?us-ascii?Q?vJlNVPpBrJYZucchlJvoYk5P8UNgt3Wl94bRHuLQAg5V8b3T5SLr3F/nCcLJ?=
+ =?us-ascii?Q?JV65mZ6Wzah4TFEAUCPaVqscS2JJOfahicYjA8dt55UzpEvBDY09hpuTbhYP?=
+ =?us-ascii?Q?B4MtgOxuwqV5KU9TQ/u78J0jcPGf7cP5srl6aUv0CpPsDuvyiP0uK+dMG/Bl?=
+ =?us-ascii?Q?TfCL/f5ocR3LPeaJdvVcEOd71C08iMQ4+z6Jh6+jiL32wZGysJ7w07hSfkpS?=
+ =?us-ascii?Q?THa6PXbLDKJEegKw6bv4IH65lWbAFsTskl7RoA2oidEacBXIi7NSpG1V3966?=
+ =?us-ascii?Q?j+XZXmgwQu+SiSPYzgJVCLmb/FXgGl/+PANor3AN7RsCp2hh5yVStvWllZar?=
+ =?us-ascii?Q?ifUQL4Py1sxmHugQzrhw94yXbZf4nyKJHwlbE5zMobjyy35SzYS+4UKROlay?=
+ =?us-ascii?Q?ggrjdZq9cbZf4amQXSw5FgwtorUqK0sdHNI03zSB5g8bFuMF++gMs0lRl6+f?=
+ =?us-ascii?Q?lmiVTVk2OjQwhTx2i9Ps0Qop/hz53yqH04tdxUqioq0JG04ve8YfCgi+SW/h?=
+ =?us-ascii?Q?gMykG5XPO0XaAWTxH7ufluB1akaWK5DrdnZuQ7IhTaOjT2JQOJye/pmG/yj5?=
+ =?us-ascii?Q?RZ09JLZSGeiQk10c0RdUfWrIiQIqx+gjY0T6Lfb2sP4gJ755bCqCt4fNBbM2?=
+ =?us-ascii?Q?/6nMGuLDgUkv3boVZtBSNsffZubytcXBMAw3t054/MHyouDKdj6f5e6HH0df?=
+ =?us-ascii?Q?Xj2g5v3kyM0WHSdSsq4+H8xq7iowjGJRc0+yKoKPw/YXRLQeAC3zHPsZ5O3v?=
+ =?us-ascii?Q?1AeH6ViU/JKebCOOyYSM0YtNitw+nyzmeXo0qY4z?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f650329-fae1-4782-40e0-08ddddf498a5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 01:14:37.0038
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Kjlmy4sevDf3e4ZwHNwQ7VlNSrDsr2Yba70TWQJ4T95r6owPS3ydlChnbyU70giuk0Uwt0dhewVXGkSPkR8f+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7189
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_171438_587090_6D72CD62 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250817_181448_001282_A8F82613 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +167,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yeoreum,
+Hi Sudeep, Cristian
 
-kernel test robot noticed the following build warnings:
+On Thu, Jul 10, 2025 at 04:33:25PM +0800, Peng Fan wrote:
+>Cristian,
+>  I only kept your R-b for patch 1, dropped your other R-b tags, because
+>  there are some changes to address the comments from Sudeep. Most changes
+>  are only to dump the information in probe phase, update to single sysfs
+>  single value for syslog.
+>
+>Sudeep,
+>  I saw you sent out PR to Arnd for 6.17, so no rush now for this patchset.
+>  Take your time.
 
-[auto build test WARNING on 8f5ae30d69d7543eee0d70083daf4de8fe15d585]
+This patchset was originally submitted before v6.16-rc6. As the kernel has
+now reached v6.17-rc2, I would greatly appreciate it if you could take some
+time to review it when convenient. Thank you in advance!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yeoreum-Yun/kasan-hw-tags-introduce-kasan-write_only-option/20250816-190300
-base:   8f5ae30d69d7543eee0d70083daf4de8fe15d585
-patch link:    https://lore.kernel.org/r/20250816110018.4055617-2-yeoreum.yun%40arm.com
-patch subject: [PATCH v3 1/2] kasan/hw-tags: introduce kasan.write_only option
-config: arm64-randconfig-r053-20250818 (https://download.01.org/0day-ci/archive/20250818/202508180747.PxkbPnyA-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250818/202508180747.PxkbPnyA-lkp@intel.com/reproduce)
+Thanks,
+Peng
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508180747.PxkbPnyA-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   mm/kasan/hw_tags.c: In function 'kasan_enable_hw_tags':
->> mm/kasan/hw_tags.c:433:21: warning: comparison between 'enum kasan_arg_mode' and 'enum kasan_arg_write_only' [-Wenum-compare]
-     433 |  if (kasan_arg_mode == KASAN_ARG_WRITE_ONLY_ON &&
-         |                     ^~
-   mm/kasan/hw_tags.c:435:18: warning: comparison between 'enum kasan_arg_mode' and 'enum kasan_arg_write_only' [-Wenum-compare]
-     435 |   kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
-         |                  ^~
->> mm/kasan/hw_tags.c:435:18: warning: statement with no effect [-Wunused-value]
-     435 |   kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
-         |   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +433 mm/kasan/hw_tags.c
-
-   423	
-   424	void kasan_enable_hw_tags(void)
-   425	{
-   426		if (kasan_arg_mode == KASAN_ARG_MODE_ASYNC)
-   427			hw_enable_tag_checks_async();
-   428		else if (kasan_arg_mode == KASAN_ARG_MODE_ASYMM)
-   429			hw_enable_tag_checks_asymm();
-   430		else
-   431			hw_enable_tag_checks_sync();
-   432	
- > 433		if (kasan_arg_mode == KASAN_ARG_WRITE_ONLY_ON &&
-   434		    hw_enable_tag_checks_write_only()) {
- > 435			kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
-   436			kasan_flag_write_only = false;
-   437			pr_warn_once("System doesn't support write-only option. Disable it\n");
-   438		}
-   439	}
-   440	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>
+>Hope I not miss any comments from V1.
+>
+>Thanks,
+>Peng
+>
+>System Manager firmware provides API to dump board, silicon, firmware
+>information. It also provides API to dump system sleep, wakeup
+>information. So add the interface for Linux to retrieve the information:
+>
+>patch 1 is to add doc for board information which was missed before.
+>
+>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>---
+>Changes in v2:
+>- Add more info in patch 1 for documentation(attribute is reserved for
+>  future use, boardname may not align with the board name in device tree)
+>- Drop dump silicon revision API
+>- Update discover build info, cfg info, board info API to be only used in probe phase
+>- Update to use single sysfs single value for syslog.
+>- Link to v1: https://lore.kernel.org/r/20250627-sm-misc-api-v1-v1-0-2b99481fe825@nxp.com
+>
+>---
+>Peng Fan (6):
+>      firmware: arm_scmi: imx: Add documentation for MISC_BOARD_INFO
+>      firmware: arm_scmi: imx: Support discovering buildinfo of MISC protocol
+>      firmware: arm_scmi: imx: Support getting cfg info of MISC protocol
+>      firmware: arm_scmi: imx: Support getting board info of MISC protocol
+>      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
+>      firmware: imx: sm-misc: Dump syslog info
+>
+> .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 190 +++++++++++++++++++++
+> drivers/firmware/arm_scmi/vendors/imx/imx95.rst    |  22 +++
+> drivers/firmware/imx/sm-misc.c                     | 178 +++++++++++++++++++
+> include/linux/scmi_imx_protocol.h                  |  19 +++
+> 4 files changed, 409 insertions(+)
+>---
+>base-commit: e88d17c7335a917e98b7c65776cbe3358210e8ab
+>change-id: 20250627-sm-misc-api-v1-85c030c670c6
+>
+>Best regards,
+>-- 
+>Peng Fan <peng.fan@nxp.com>
+>
 
