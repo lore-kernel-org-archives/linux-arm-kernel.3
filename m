@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF23ACA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F53CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MaWChzm75NlxUDXwoRa3Ny5ymA7uyfLqxhMSPQgO+EI=; b=4urV+u2FKfJ8l36OBFge8JyA8T
-	A2agPMhWwM+RzOMGjL/U373PyhuJOC+NZsQxibQW4KT/TAKgYdYEH6y9NccJm1+6NjEwdl3vskUB+
-	tgbkes4DYrjnQh00PoUs8elLRMj5OCTDNfxMADeW4Et68R2lduQqqPzcy3mO9fttobhu73mY8wfEV
-	jAYlScSDu95YnbASQHU8mwEzqwKgu/sAmxr6+m7MZbjmJV9hBin2dekmTX1x9YMZLyiDnyhY6xpSR
-	+S4xMS5tRaXmTN6c1V1RAv5cM3wfI+3PBnHsNhhalbP0b/TQQDskUUhSTKgVXoXCmEeRCkhrplyzQ
-	KUcFDhgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hD+KQRUNngtOlO0EAKv15sh+WI1GoXqQW1qIAJ+H4E0=; b=SGruFmkTjUCQyCW9T4gEbGit87
+	6HzDDIIhjK/tMUJ7UdIRhNp5JL9RV44kks+mdk3zCO4cAcgOtbC4rakHxUf5KMG6SPkUFWkAnq3Rm
+	J/6aJJhaDcGSz+0UqrQyDj4fNIVSg5lwzkY2pp7t6MvoPMPmc6h0HC4Y7zGv0DvNTMInKRAGwzFya
+	RtQ4PkdpBe/aaQ5XkRCPe77OmeNTfHG3JiYcF00RmGqi9DYXoGZwy68E4uE/ttANLLqUFxsNm+I+i
+	s3FbCeujjdfbiDC7g9B5QrO3m7VAvSPRSvJ6+CQX+ojq2Lk12+Um2a0RHJLBU0oAGb++LubpQLuLX
+	aKKIdx4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo09E-00000007e57-2EeB;
-	Mon, 18 Aug 2025 13:43:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uo0YL-00000007hQJ-2DQ7;
+	Mon, 18 Aug 2025 14:09:37 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unzuw-00000007RzA-2xfc
+	id 1uo0TC-00000007giH-3c7r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 13:28:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEA525C4BEF;
-	Mon, 18 Aug 2025 13:28:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83F16C4CEEB;
-	Mon, 18 Aug 2025 13:28:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755523733;
-	bh=RBe2h9lREBKMOmk9gFLPEM/Gqn8YS4oH4RhZ7ngYXOQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UzKL51+l7SeFj7U7Tu6qmnCM0DnKHgZbXB2R5bG+feymwxfsZPoEhbY3NNAOrd+j5
-	 rYTnggDp0uvf+rEIvs5bDyBqFi5zSlBUX6Ul41V6VH5v3anL8D29xazLs7nnVS7yWx
-	 XnuU3+glg5x90JJsU3smQvLEmWLhfGj/RFpcZ+HaDw0zf58CjP/aey0OETt4jPGXpD
-	 GIuxyxGJeWcbnjFzi4N5NmjKzUaDG6Vud2R6Kbiwqd9CWHMUmymLc0B6pevLjVLc1v
-	 fPqGLWBLn6NkdHFX1/GM7PL+Rkd75t+AT9GqYGqjHABQYavWpIIlvgPlcgCTior7FU
-	 M+i6djJxKbmgA==
-Date: Mon, 18 Aug 2025 08:28:52 -0500
-From: Rob Herring <robh@kernel.org>
-To: Marc Olberding <molberding@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 0/3] Adding device tree and binding for Nvidia mgx cx8
- switchboard
-Message-ID: <20250818132852.GA882651-robh@kernel.org>
-References: <20250815-mgx4u_devicetree-v1-0-66db6fa5a7e4@nvidia.com>
- <175530106151.3523036.5305359646677111575.robh@kernel.org>
+	Mon, 18 Aug 2025 14:04:20 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57ICAUVO012468;
+	Mon, 18 Aug 2025 16:03:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	hD+KQRUNngtOlO0EAKv15sh+WI1GoXqQW1qIAJ+H4E0=; b=tRGlnWb44N5bWYot
+	fZKsUgZhTmCiPz5qT0s68MWVuityr5yu61eE/3xPJNA02Rs91/IvofHxIuUtpPNs
+	mUfNOpjnXc4C1Uxtya9oDZrywQoi6rZRCEU5mghFXUxooE4Xa4oit6/9MMFcbKXd
+	eILWCn45fIdF5lkJeQYQGQ3u4g5Y2Jhr2gI/M7399YrYL9BCe1RnW9PRIaouypUs
+	3BvQyLD4rZkfyaNwz5XqDcu6X/CHNJu8M+wG+SaufTZhr+vbu0aKIP5Arcz6jHLs
+	ICOIMTq3Jvdk2c3pNtBwQ4F1sxneIlc2ooFuEack7O3c+WLPJlakbMEQIR+wMf1C
+	iqYFfw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48k4xmmeed-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Aug 2025 16:03:58 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2436440045;
+	Mon, 18 Aug 2025 16:03:09 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C913672AE6C;
+	Mon, 18 Aug 2025 16:02:37 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Aug
+ 2025 16:02:36 +0200
+Message-ID: <512c4b4c-8db6-45e5-ad11-82f341d40962@foss.st.com>
+Date: Mon, 18 Aug 2025 16:02:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <175530106151.3523036.5305359646677111575.robh@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] ARM: sti: drop B2120 board support
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Russell King <linux@armlinux.org.uk>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250714-sti-rework-v2-0-f4274920858b@gmail.com>
+ <20250714-sti-rework-v2-1-f4274920858b@gmail.com>
+ <78a827ae-0b1b-4b41-94f6-e9e4418d1fe1@foss.st.com>
+Content-Language: en-US
+In-Reply-To: <78a827ae-0b1b-4b41-94f6-e9e4418d1fe1@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-18_05,2025-08-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_062854_785225_A5C9AFDF 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20250818_070419_176983_5E5A2C56 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +99,518 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 06:38:54PM -0500, Rob Herring (Arm) wrote:
+
+
+On 7/28/25 11:25, Patrice CHOTARD wrote:
 > 
-> On Fri, 15 Aug 2025 12:45:54 -0700, Marc Olberding wrote:
-> > Patch 1 Adds the binding for the Nvidia mgx cx8 switchboard
-> > Patch 2 Adds dtsi's for the mgx cx8 switchboard itself
-> > Patch 3 Adds the dts for the mgx cx8 switchboard motherboard reference implementation.
-> > 
-> > This is an Aspeed AST2600 based reference implementation for a BMC
-> > managing an Nvidia mgx cx8 switchboard. Dtsi files are broken out for
-> > managing the mgx cx8 switchboard over i2c, so that others may reuse these
-> > if they choose to implement their own board. There are two dtsi files
-> > since the i2c topology is not symmetric between busses going to the mgx cx8
-> > switchboard.
-> > 
-> > Reference to Ast2600 SoC [1].
-> > 
-> > Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> > 
-> > 
-> > Signed-off-by: Marc Olberding <molberding@nvidia.com>
-> > ---
-> > Marc Olberding (3):
-> >       dt-bindings: arm: aspeed: Add Nvidia's mgx4u BMC
-> >       ARM: dts: aspeed: Add device tree includes for the cx8 switchboard
-> >       ARM: dts: aspeed: Add device tree for mgx4u BMC
-> > 
-> >  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
-> >  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
-> >  .../boot/dts/aspeed/aspeed-bmc-nvidia-mgx4u.dts    | 1078 ++++++++++++++++++++
-> >  .../dts/aspeed/nvidia-mgx-cx8-switch-north.dtsi    |   80 ++
-> >  .../dts/aspeed/nvidia-mgx-cx8-switch-south.dtsi    |   80 ++
-> >  5 files changed, 1240 insertions(+)
-> > ---
-> > base-commit: 7bac2c97af4078d7a627500c9bcdd5b033f97718
+> 
+> On 7/14/25 15:49, Raphael Gallais-Pou wrote:
+>> B2120 boards are internal boards which never were commercialised.
+>>
+>> Drop them.
+>>
+>> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
+>> ---
+>>  arch/arm/boot/dts/st/Makefile           |   2 -
+>>  arch/arm/boot/dts/st/stih407-b2120.dts  |  27 -----
+>>  arch/arm/boot/dts/st/stih407.dtsi       | 145 ----------------------
+>>  arch/arm/boot/dts/st/stih410-b2120.dts  |  66 ----------
+>>  arch/arm/boot/dts/st/stihxxx-b2120.dtsi | 206 --------------------------------
+>>  5 files changed, 446 deletions(-)
+>>
+>> diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
+>> index cc9948b9870f7f73629573149bfd342af75b07da..f57fc6dc48a00c9a9323b4508e5e4e161b197c47 100644
+>> --- a/arch/arm/boot/dts/st/Makefile
+>> +++ b/arch/arm/boot/dts/st/Makefile
+>> @@ -13,8 +13,6 @@ dtb-$(CONFIG_ARCH_SPEAR3XX) += \
+>>  dtb-$(CONFIG_ARCH_SPEAR6XX) += \
+>>  	spear600-evb.dtb
+>>  dtb-$(CONFIG_ARCH_STI) += \
+>> -	stih407-b2120.dtb \
+>> -	stih410-b2120.dtb \
+>>  	stih410-b2260.dtb \
+>>  	stih418-b2199.dtb \
+>>  	stih418-b2264.dtb
+>> diff --git a/arch/arm/boot/dts/st/stih407-b2120.dts b/arch/arm/boot/dts/st/stih407-b2120.dts
+>> deleted file mode 100644
+>> index 9c79982ee7ba8fadb1a2a92e732bf7f652b74c38..0000000000000000000000000000000000000000
+>> --- a/arch/arm/boot/dts/st/stih407-b2120.dts
+>> +++ /dev/null
+>> @@ -1,27 +0,0 @@
+>> -// SPDX-License-Identifier: GPL-2.0-only
+>> -/*
+>> - * Copyright (C) 2014 STMicroelectronics (R&D) Limited.
+>> - * Author: Giuseppe Cavallaro <peppe.cavallaro@st.com>
+>> - */
+>> -/dts-v1/;
+>> -#include "stih407.dtsi"
+>> -#include "stihxxx-b2120.dtsi"
+>> -/ {
+>> -	model = "STiH407 B2120";
+>> -	compatible = "st,stih407-b2120", "st,stih407";
+>> -
+>> -	chosen {
+>> -		stdout-path = &sbc_serial0;
+>> -	};
+>> -
+>> -	memory@40000000 {
+>> -		device_type = "memory";
+>> -		reg = <0x40000000 0x80000000>;
+>> -	};
+>> -
+>> -	aliases {
+>> -		serial0 = &sbc_serial0;
+>> -		ethernet0 = &ethernet0;
+>> -	};
+>> -
+>> -};
+>> diff --git a/arch/arm/boot/dts/st/stih407.dtsi b/arch/arm/boot/dts/st/stih407.dtsi
+>> deleted file mode 100644
+>> index aca43d2bdaad44ef2a0e8a120c679c217709af44..0000000000000000000000000000000000000000
+>> --- a/arch/arm/boot/dts/st/stih407.dtsi
+>> +++ /dev/null
+>> @@ -1,145 +0,0 @@
+>> -// SPDX-License-Identifier: GPL-2.0-only
+>> -/*
+>> - * Copyright (C) 2015 STMicroelectronics Limited.
+>> - * Author: Gabriel Fernandez <gabriel.fernandez@linaro.org>
+>> - */
+>> -#include "stih407-clock.dtsi"
+>> -#include "stih407-family.dtsi"
+>> -#include <dt-bindings/gpio/gpio.h>
+>> -/ {
+>> -	soc {
+>> -		sti-display-subsystem@0 {
+>> -			compatible = "st,sti-display-subsystem";
+>> -			#address-cells = <1>;
+>> -			#size-cells = <1>;
+>> -			reg = <0 0>;
+>> -			assigned-clocks = <&clk_s_d2_quadfs 0>,
+>> -					  <&clk_s_d2_quadfs 1>,
+>> -					  <&clk_s_c0_pll1 0>,
+>> -					  <&clk_s_c0_flexgen CLK_COMPO_DVP>,
+>> -					  <&clk_s_c0_flexgen CLK_MAIN_DISP>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_MAIN_DISP>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_AUX_DISP>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_GDP1>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_GDP2>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_GDP3>,
+>> -					  <&clk_s_d2_flexgen CLK_PIX_GDP4>;
+>> -
+>> -			assigned-clock-parents = <0>,
+>> -						 <0>,
+>> -						 <0>,
+>> -						 <&clk_s_c0_pll1 0>,
+>> -						 <&clk_s_c0_pll1 0>,
+>> -						 <&clk_s_d2_quadfs 0>,
+>> -						 <&clk_s_d2_quadfs 1>,
+>> -						 <&clk_s_d2_quadfs 0>,
+>> -						 <&clk_s_d2_quadfs 0>,
+>> -						 <&clk_s_d2_quadfs 0>,
+>> -						 <&clk_s_d2_quadfs 0>;
+>> -
+>> -			assigned-clock-rates = <297000000>,
+>> -					       <108000000>,
+>> -					       <0>,
+>> -					       <400000000>,
+>> -					       <400000000>;
+>> -
+>> -			ranges;
+>> -
+>> -			sti-compositor@9d11000 {
+>> -				compatible = "st,stih407-compositor";
+>> -				reg = <0x9d11000 0x1000>;
+>> -
+>> -				clock-names = "compo_main",
+>> -					      "compo_aux",
+>> -					      "pix_main",
+>> -					      "pix_aux",
+>> -					      "pix_gdp1",
+>> -					      "pix_gdp2",
+>> -					      "pix_gdp3",
+>> -					      "pix_gdp4",
+>> -					      "main_parent",
+>> -					      "aux_parent";
+>> -
+>> -				clocks = <&clk_s_c0_flexgen CLK_COMPO_DVP>,
+>> -					 <&clk_s_c0_flexgen CLK_COMPO_DVP>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_MAIN_DISP>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_AUX_DISP>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_GDP1>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_GDP2>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_GDP3>,
+>> -					 <&clk_s_d2_flexgen CLK_PIX_GDP4>,
+>> -					 <&clk_s_d2_quadfs 0>,
+>> -					 <&clk_s_d2_quadfs 1>;
+>> -
+>> -				reset-names = "compo-main", "compo-aux";
+>> -				resets = <&softreset STIH407_COMPO_SOFTRESET>,
+>> -					 <&softreset STIH407_COMPO_SOFTRESET>;
+>> -				st,vtg = <&vtg_main>, <&vtg_aux>;
+>> -			};
+>> -
+>> -			sti-tvout@8d08000 {
+>> -				compatible = "st,stih407-tvout";
+>> -				reg = <0x8d08000 0x1000>;
+>> -				reg-names = "tvout-reg";
+>> -				reset-names = "tvout";
+>> -				resets = <&softreset STIH407_HDTVOUT_SOFTRESET>;
+>> -				#address-cells = <1>;
+>> -				#size-cells = <1>;
+>> -				assigned-clocks = <&clk_s_d2_flexgen CLK_PIX_HDMI>,
+>> -						  <&clk_s_d2_flexgen CLK_TMDS_HDMI>,
+>> -						  <&clk_s_d2_flexgen CLK_REF_HDMIPHY>,
+>> -						  <&clk_s_d0_flexgen CLK_PCM_0>,
+>> -						  <&clk_s_d2_flexgen CLK_PIX_HDDAC>,
+>> -						  <&clk_s_d2_flexgen CLK_HDDAC>;
+>> -
+>> -				assigned-clock-parents = <&clk_s_d2_quadfs 0>,
+>> -							 <&clk_tmdsout_hdmi>,
+>> -							 <&clk_s_d2_quadfs 0>,
+>> -							 <&clk_s_d0_quadfs 0>,
+>> -							 <&clk_s_d2_quadfs 0>,
+>> -							 <&clk_s_d2_quadfs 0>;
+>> -			};
+>> -
+>> -			sti_hdmi: sti-hdmi@8d04000 {
+>> -				compatible = "st,stih407-hdmi";
+>> -				reg = <0x8d04000 0x1000>;
+>> -				reg-names = "hdmi-reg";
+>> -				#sound-dai-cells = <0>;
+>> -				interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>;
+>> -				interrupt-names = "irq";
+>> -				clock-names = "pix",
+>> -					      "tmds",
+>> -					      "phy",
+>> -					      "audio",
+>> -					      "main_parent",
+>> -					      "aux_parent";
+>> -
+>> -				clocks = <&clk_s_d2_flexgen CLK_PIX_HDMI>,
+>> -					 <&clk_s_d2_flexgen CLK_TMDS_HDMI>,
+>> -					 <&clk_s_d2_flexgen CLK_REF_HDMIPHY>,
+>> -					 <&clk_s_d0_flexgen CLK_PCM_0>,
+>> -					 <&clk_s_d2_quadfs 0>,
+>> -					 <&clk_s_d2_quadfs 1>;
+>> -
+>> -				hdmi,hpd-gpio = <&pio5 3 GPIO_ACTIVE_LOW>;
+>> -				reset-names = "hdmi";
+>> -				resets = <&softreset STIH407_HDMI_TX_PHY_SOFTRESET>;
+>> -				ddc = <&hdmiddc>;
+>> -			};
+>> -
+>> -			sti-hda@8d02000 {
+>> -				compatible = "st,stih407-hda";
+>> -				reg = <0x8d02000 0x400>, <0x92b0120 0x4>;
+>> -				reg-names = "hda-reg", "video-dacs-ctrl";
+>> -				clock-names = "pix",
+>> -					      "hddac",
+>> -					      "main_parent",
+>> -					      "aux_parent";
+>> -				clocks = <&clk_s_d2_flexgen CLK_PIX_HDDAC>,
+>> -					 <&clk_s_d2_flexgen CLK_HDDAC>,
+>> -					 <&clk_s_d2_quadfs 0>,
+>> -					 <&clk_s_d2_quadfs 1>;
+>> -			};
+>> -		};
+>> -	};
+>> -};
+>> diff --git a/arch/arm/boot/dts/st/stih410-b2120.dts b/arch/arm/boot/dts/st/stih410-b2120.dts
+>> deleted file mode 100644
+>> index 538ff98ca1b1b6542f98a18f68968f030b8c55c0..0000000000000000000000000000000000000000
+>> --- a/arch/arm/boot/dts/st/stih410-b2120.dts
+>> +++ /dev/null
+>> @@ -1,66 +0,0 @@
+>> -// SPDX-License-Identifier: GPL-2.0-only
+>> -/*
+>> - * Copyright (C) 2014 STMicroelectronics (R&D) Limited.
+>> - * Author: Peter Griffin <peter.griffin@linaro.org>
+>> - */
+>> -/dts-v1/;
+>> -#include "stih410.dtsi"
+>> -#include "stihxxx-b2120.dtsi"
+>> -/ {
+>> -	model = "STiH410 B2120";
+>> -	compatible = "st,stih410-b2120", "st,stih410";
+>> -
+>> -	chosen {
+>> -		stdout-path = &sbc_serial0;
+>> -	};
+>> -
+>> -	memory@40000000 {
+>> -		device_type = "memory";
+>> -		reg = <0x40000000 0x80000000>;
+>> -	};
+>> -
+>> -	aliases {
+>> -		serial0 = &sbc_serial0;
+>> -		ethernet0 = &ethernet0;
+>> -	};
+>> -
+>> -	usb2_picophy1: phy2 {
+>> -		status = "okay";
+>> -	};
+>> -
+>> -	usb2_picophy2: phy3 {
+>> -		status = "okay";
+>> -	};
+>> -
+>> -	soc {
+>> -
+>> -		mmc0: sdhci@9060000 {
+>> -			max-frequency = <200000000>;
+>> -			sd-uhs-sdr50;
+>> -			sd-uhs-sdr104;
+>> -			sd-uhs-ddr50;
+>> -		};
+>> -
+>> -		ohci0: usb@9a03c00 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		ehci0: usb@9a03e00 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		ohci1: usb@9a83c00 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		ehci1: usb@9a83e00 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		sti-display-subsystem@0 {
+>> -			sti-hda@8d02000 {
+>> -				status = "okay";
+>> -			};
+>> -		};
+>> -	};
+>> -};
+>> diff --git a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi b/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
+>> deleted file mode 100644
+>> index 8d9a2dfa76f1fe55b954803cab8d00003a8ebec0..0000000000000000000000000000000000000000
+>> --- a/arch/arm/boot/dts/st/stihxxx-b2120.dtsi
+>> +++ /dev/null
+>> @@ -1,206 +0,0 @@
+>> -// SPDX-License-Identifier: GPL-2.0-only
+>> -/*
+>> - * Copyright (C) 2014 STMicroelectronics (R&D) Limited.
+>> - * Author: Giuseppe Cavallaro <peppe.cavallaro@st.com>
+>> - */
+>> -#include <dt-bindings/clock/stih407-clks.h>
+>> -#include <dt-bindings/gpio/gpio.h>
+>> -#include <dt-bindings/media/c8sectpfe.h>
+>> -/ {
+>> -	leds {
+>> -		compatible = "gpio-leds";
+>> -		led-red {
+>> -			label = "Front Panel LED";
+>> -			gpios = <&pio4 1 GPIO_ACTIVE_HIGH>;
+>> -			linux,default-trigger = "heartbeat";
+>> -		};
+>> -		led-green {
+>> -			gpios = <&pio1 3 GPIO_ACTIVE_HIGH>;
+>> -			default-state = "off";
+>> -		};
+>> -	};
+>> -
+>> -	sound: sound {
+>> -		compatible = "simple-audio-card";
+>> -		simple-audio-card,name = "STI-B2120";
+>> -		status = "okay";
+>> -		#address-cells = <1>;
+>> -		#size-cells = <0>;
+>> -
+>> -		simple-audio-card,dai-link@0 {
+>> -			reg = <0>;
+>> -			/* HDMI */
+>> -			format = "i2s";
+>> -			mclk-fs = <128>;
+>> -			cpu {
+>> -				sound-dai = <&sti_uni_player0>;
+>> -			};
+>> -
+>> -			codec {
+>> -				sound-dai = <&sti_hdmi>;
+>> -			};
+>> -		};
+>> -
+>> -		simple-audio-card,dai-link@1 {
+>> -			reg = <1>;
+>> -			/* DAC */
+>> -			format = "i2s";
+>> -			mclk-fs = <256>;
+>> -			frame-inversion;
+>> -			cpu {
+>> -				sound-dai = <&sti_uni_player2>;
+>> -			};
+>> -
+>> -			codec {
+>> -				sound-dai = <&sti_sasg_codec 1>;
+>> -			};
+>> -		};
+>> -
+>> -		simple-audio-card,dai-link@2 {
+>> -			reg = <2>;
+>> -			/* SPDIF */
+>> -			format = "left_j";
+>> -			mclk-fs = <128>;
+>> -			cpu {
+>> -				sound-dai = <&sti_uni_player3>;
+>> -			};
+>> -
+>> -			codec {
+>> -				sound-dai = <&sti_sasg_codec 0>;
+>> -			};
+>> -		};
+>> -	};
+>> -
+>> -	miphy28lp_phy: miphy28lp {
+>> -
+>> -		phy_port0: port@9b22000 {
+>> -			st,osc-rdy;
+>> -		};
+>> -
+>> -		phy_port1: port@9b2a000 {
+>> -			st,osc-force-ext;
+>> -		};
+>> -	};
+>> -
+>> -	soc {
+>> -		sbc_serial0: serial@9530000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		pwm0: pwm@9810000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		pwm1: pwm@9510000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		ssc2: i2c@9842000 {
+>> -			status = "okay";
+>> -			clock-frequency = <100000>;
+>> -			st,i2c-min-scl-pulse-width-us = <0>;
+>> -			st,i2c-min-sda-pulse-width-us = <5>;
+>> -		};
+>> -
+>> -		ssc3: i2c@9843000 {
+>> -			status = "okay";
+>> -			clock-frequency = <100000>;
+>> -			st,i2c-min-scl-pulse-width-us = <0>;
+>> -			st,i2c-min-sda-pulse-width-us = <5>;
+>> -		};
+>> -
+>> -		i2c@9844000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		i2c@9845000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		i2c@9540000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		mmc0: sdhci@9060000 {
+>> -			non-removable;
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		mmc1: sdhci@9080000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		/* SSC11 to HDMI */
+>> -		hdmiddc: i2c@9541000 {
+>> -			status = "okay";
+>> -			/* HDMI V1.3a supports Standard mode only */
+>> -			clock-frequency = <100000>;
+>> -			st,i2c-min-scl-pulse-width-us = <0>;
+>> -			st,i2c-min-sda-pulse-width-us = <5>;
+>> -		};
+>> -
+>> -		st_dwc3: dwc3@8f94000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		ethernet0: dwmac@9630000 {
+>> -			st,tx-retime-src = "clkgen";
+>> -			status = "okay";
+>> -			phy-mode = "rgmii";
+>> -			fixed-link = <0 1 1000 0 0>;
+>> -		};
+>> -
+>> -		demux@8a20000 {
+>> -			compatible	= "st,stih407-c8sectpfe";
+>> -			status		= "okay";
+>> -			reg		= <0x08a20000 0x10000>,
+>> -					  <0x08a00000 0x4000>;
+>> -			reg-names	= "c8sectpfe", "c8sectpfe-ram";
+>> -			interrupts	= <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>,
+>> -					  <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+>> -			interrupt-names	= "c8sectpfe-error-irq",
+>> -					  "c8sectpfe-idle-irq";
+>> -			pinctrl-0	= <&pinctrl_tsin0_serial>;
+>> -			pinctrl-1	= <&pinctrl_tsin0_parallel>;
+>> -			pinctrl-2	= <&pinctrl_tsin3_serial>;
+>> -			pinctrl-3	= <&pinctrl_tsin4_serial_alt3>;
+>> -			pinctrl-4	= <&pinctrl_tsin5_serial_alt1>;
+>> -			pinctrl-names	= "tsin0-serial",
+>> -					  "tsin0-parallel",
+>> -					  "tsin3-serial",
+>> -					  "tsin4-serial",
+>> -					  "tsin5-serial";
+>> -			clocks		= <&clk_s_c0_flexgen CLK_PROC_STFE>;
+>> -			clock-names	= "c8sectpfe";
+>> -
+>> -			/* tsin0 is TSA on NIMA */
+>> -			tsin0: port {
+>> -				tsin-num = <0>;
+>> -				serial-not-parallel;
+>> -				i2c-bus = <&ssc2>;
+>> -				reset-gpios = <&pio15 4 GPIO_ACTIVE_LOW>;
+>> -				dvb-card = <STV0367_TDA18212_NIMA_1>;
+>> -			};
+>> -		};
+>> -
+>> -		sti_uni_player0: sti-uni-player@8d80000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		sti_uni_player2: sti-uni-player@8d82000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		sti_uni_player3: sti-uni-player@8d85000 {
+>> -			status = "okay";
+>> -		};
+>> -
+>> -		syscfg_core: core-syscfg@92b0000 {
+>> -			sti_sasg_codec: sti-sasg-codec {
+>> -				status = "okay";
+>> -				pinctrl-names = "default";
+>> -				pinctrl-0 = <&pinctrl_spdif_out>;
+>> -			};
+>> -		};
+>> -	};
+>> -};
+>>
+> 
+> 
+> Hi Rahael
+> 
+> Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> 
+> Thanks
 
-next-20250521!? Why are you using linux-next from 3 months ago?
 
-Base your patches on the latest rc1 unless you have some dependency on 
-post rc1 changes. Usually that means you need to base your tree on the 
-maintainer's tree the series applies to (ASpeed in this case). 
-The *current* linux-next is a shortcut for that.
+Applied to sti-next
 
-Rob
+Thanks
+Patrice
 
