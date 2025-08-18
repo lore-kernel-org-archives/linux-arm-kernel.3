@@ -4,60 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4B1CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D123CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgKB2qnc/bRPAL5RwjdygVePDYnntw4ZWdIavREWLBQ=; b=KeVpWT6Ri77YWpOcBwUe7t0WHS
-	JMabBrc8HKBpM9viQp/mpmks/M5WiWlUN6Y1B82sL+MC0WaY+TqwHLA7XBRB1LyJIXlaDwt7D6lgn
-	VxuxadNHf0Cd7Qloe7LCM8vBGI8U1dBvH92VNKicb9KL+HHgTP0iHTnHxSduIewEl5iqzw086urAu
-	xU0sU3sQ4UWnE7pa4diHI0s+2ajS7cn9NsXRPqBeFcvGVKRkie3XK1jP+oY3L7CPjkSC+ptEMKAvJ
-	hk9/TlJSKLnDfsN1DWdN0tkVjKM9y7YUHEphBtNm5zFD5BhKq7dqS9j0OcIuJdfJxGFByOG4nIwDF
-	ySIL8Hig==;
+	bh=KmfCSi8O/XddsGKdRcKOqeDj7Pe6vE7Gax1joOuFhh4=; b=BJm1ZDpKcqWfwbcJJ/llLoI0h1
+	3X8DRJWLiPHDPheLkaqUj9m24TmET79D3lAOhcxUEfCB1j1/+py25HGdCdzBo84N73j38ua1tpjFa
+	84trXASbervDGE0kGzmVrE7f0gHNqcdfbMLdtD1tjvfsnDY/oc1kPIoFOLJU+oEmisozNnbxuIcLM
+	F3joyNGDzJegPrFRAx5FZjgapbo09qoiKg1MrVqZxDQAomMsCC62MqwPO2rGAQZeZDTs0LU1Gw8dM
+	aof7deOKIfhI0t9Ta8fXcP1RYfw/2m19ia73bIEpkvdqw4GxOArO+BciLoVELNEEWw9OfhwwuL7d+
+	nB0PZVXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3jR-00000008C3t-2SWj;
-	Mon, 18 Aug 2025 17:33:17 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1uo3ja-00000008CIW-1feN;
+	Mon, 18 Aug 2025 17:33:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo2PJ-00000007zlq-44z9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 16:08:27 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 5CE0F40AB4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1755533302; bh=PgKB2qnc/bRPAL5RwjdygVePDYnntw4ZWdIavREWLBQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=FS1soXLa521ujJUbl/402whSSESTHg9tMk1J4yJXD61Dfi279n3ZYdXUxCAqBrXbP
-	 7uzuyvggLkYoXlerUj63roxK9vLzAUnVybiJ8ADgblvGi5LkC02Rne6uNwELG05I+6
-	 k7OuwJQBxt+73WjptP+fON5qK+HI/wyJ2vePn9MgKDmwsi+JYLLCa/Ou+Yk0IU287M
-	 3Bs39RXJcFhH8aA2anPFcTcN3lReE6Ci8Tc22FjnWBpnYKR6l1Y7r40THAF4d2OISs
-	 tpNV3csYjY/jWhXXQNvQZbmv84TtmdKAC3lrG0p2OxW0RInDuM1q8EFkKH6kheFgli
-	 bhQXe4L9M8KpA==
-Received: from localhost (unknown [IPv6:2601:280:4600:2da9::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 5CE0F40AB4;
-	Mon, 18 Aug 2025 16:08:22 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: hariconscious@gmail.com, shuah@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: HariKrishna <hariconscious@gmail.com>
-Subject: Re: [PATCH] documentation/arm64 : kdump fixed typo errors
-In-Reply-To: <20250816120731.24508-1-hariconscious@gmail.com>
-References: <20250816120731.24508-1-hariconscious@gmail.com>
-Date: Mon, 18 Aug 2025 10:08:21 -0600
-Message-ID: <871pp8a9ze.fsf@trenco.lwn.net>
+	id 1uo2T1-000000080EB-3Mlb;
+	Mon, 18 Aug 2025 16:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KmfCSi8O/XddsGKdRcKOqeDj7Pe6vE7Gax1joOuFhh4=; b=bwEc88kumrWiUkBPFis3R2xC8x
+	1VSU964ojxy4pizILXyaiupvjmCF+9S/j3hMn/7+0O6Nq5XCPfRh9SWhm98h0t2UFUjmA1dzWRZgt
+	tbkFmQuB/mZqY6ky3oZFaXzKbsxU61JtKuUNYn7rd7psdx+2eesyLw8rFRzpJQ1Win9JV+gpfxIJX
+	B0ERXsVVo7c2wl1HSeiIdqRZ4++3ImaZyhHbocKrxLR1Y5j1GlmqWCDYwxZ0RlMOOcuzzqa8ePrTH
+	qkSXaxaLa6fA1jK8eqoW/9WZ9mA8to8qlNfcQ4735MGvUb9ThF8/IOfNGNvoRXzwQSiekxnBpg4fR
+	SmVuRZ6Q==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo2Sx-0000000HRhy-0oaa;
+	Mon, 18 Aug 2025 16:12:11 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 7731030029B; Mon, 18 Aug 2025 18:12:10 +0200 (CEST)
+Date: Mon, 18 Aug 2025 18:12:10 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Yongwei Ma <yongwei.ma@intel.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Dapeng Mi <dapeng1.mi@linux.intel.com>
+Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
+ vector on guest load/put context
+Message-ID: <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-10-seanjc@google.com>
+ <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
+ <aJ9VQH87ytkWf1dH@google.com>
+ <aJ9YbZTJAg66IiVh@google.com>
+ <20250818143204.GH3289052@noisy.programming.kicks-ass.net>
+ <aKNF7jc4qr9ab-Es@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_090826_010516_5083D2DC 
-X-CRM114-Status: GOOD (  15.54  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKNF7jc4qr9ab-Es@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hariconscious@gmail.com writes:
+On Mon, Aug 18, 2025 at 08:25:34AM -0700, Sean Christopherson wrote:
 
-> From: HariKrishna <hariconscious@gmail.com>
->
-> kdump.rst documentation typos corrected
->
-> Signed-off-by: HariKrishna <hariconscious@gmail.com>
-> ---
->  Documentation/arch/arm64/kdump.rst | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/arch/arm64/kdump.rst b/Documentation/arch/arm64/kdump.rst
-> index 56a89f45df28..d3195a93a066 100644
-> --- a/Documentation/arch/arm64/kdump.rst
-> +++ b/Documentation/arch/arm64/kdump.rst
-> @@ -5,7 +5,7 @@ crashkernel memory reservation on arm64
->  Author: Baoquan He <bhe@redhat.com>
->  
->  Kdump mechanism is used to capture a corrupted kernel vmcore so that
-> -it can be subsequently analyzed. In order to do this, a preliminarily
-> +it can be subsequently analyzed. In order to do this, a preliminary
->  reserved memory is needed to pre-load the kdump kernel and boot such
->  kernel if corruption happens.
+> > OK, so *IF* doing the VM-exit during PMI is sound, this is something
+> > that needs a comment somewhere. 
+> 
+> I'm a bit lost here.  Are you essentially asking if it's ok to take a VM-Exit
+> while the guest is handling a PMI?  If so, that _has_ to work, because there are
+> myriad things that can/will trigger a VM-Exit at any point while the guest is
+> active.
 
-I don't think this is right.  While reserving judgment on
-"preliminarily" as a word, the intended use is adverbial, so this change
-does not make things better.  The better fix, perhaps, is to say
-"previously" instead.
+Yes, that's what I'm asking. Why is this VM-exit during PMI nonsense not
+subject to the same failures that mandates the mid/late PMI ACK.
 
-Should you choose to resubmit this, we'll need your real name in the
-Signed-off-by tag, please.
+And yes, I realize this needs to work. But so far I'm not sure I
+understand why that is a safe thing to do.
 
-Thanks,
+Like I wrote, I suspect writing all the PMU MSRs serializes things
+sufficiently, but if that is the case, that needs to be explicitly
+mentioned. Because that also doesn't explain why we needs mid-ack
+instead of late-ack on ADL e-cores for instance.
 
-jon
+Could it perhaps be that we don't let the guests do PEBS because DS
+doesn't virtualize? And thus we don't have the malformed PEBS record?
 
