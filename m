@@ -4,154 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0567CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9B9CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAseJOcRF+eDsniCuRc3nCkudaIkoO426rKDQFiQQZE=; b=4Q8i7HVP+ridbVnqGq/gmnatrJ
-	YD45+QlSBhUseQsAYCcyxPB+sPFVlwxUcY5Irqkms0eaeDFyZZn2ZdmHdie/4VJWviKSEmDSxyzRR
-	yUvrGaJJUqLF4V1OaMdiz4joPiyP3u23eatA+2/S9zKbNIqHuFFjRSpV/1h3Ptmf6Fu7hXfAdqoSJ
-	Va/+jsoEUtSoKkMQXxnT1wydecxg1buQtKpFUbhysrIcsQyEdCsKArZoU7Zvrx4OEGEUUsMiOQNBE
-	8QHZjK6gdiak+trw42KbJjtKGGMudZjXFVqq/i2Wgg4NBDKhyc+vHYOY9LSsuqw/Vskx7vQ0ZvVNd
-	67IG4gdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4QNxJ3AwcrmxWJXei7lx3D+jrxggbeNTcJnx6MBtMsk=; b=knqMpsiG0XjCHNBuPYvp3/o/og
+	0cEqLz0QzCvK2UegI5BzshRMq63oTMG8LOJJiUPxNRmF3SK0tN7L/IiE88/Q0/s2HcAwQyW7DxUnZ
+	dCYXnZiPu29YshsA4DiViJGeVnAHN85jE0gOx/NYUtxvs0V/atB10LPtaA++qSE8DTAE7VNSyXe3a
+	QSXiIeX0xVWdR2NJUeAbFdlkxIAox27X/eJxtK652s3T8rdg/2ATSH6X5KAUd1q/pu/vHBDTx/kpD
+	1zAq0uWkDWsfSLDGcd38+pVeRios0RSYsrItrFbZaDB0ctiYwgZC9NBQpnn/XjtCKE6JvtmTI3oUa
+	PVsFzbDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3jK-00000008BqX-1YWp;
-	Mon, 18 Aug 2025 17:33:10 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo2IC-00000007yvf-26p9
+	id 1uo3jN-00000008BwO-2UYZ;
+	Mon, 18 Aug 2025 17:33:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo2Jy-00000007z5E-0236
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 16:01:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=otSVWqRqlrat4qNsE11o8Au0EPkNxbMETK1SwD2s6x657+KB8gBjO+nKm8cihOSo+girevtP3orBx5etJatXT3tcy4IJWnMSfEAoh4Lvfh0ZkqS4iZg33nTYbV7bvVKxH8lx5ggWa2FNgps7Nyuhkpb1Broj5V1NgvN0ItRm2Rn8YdovzXPXRzpEABs0gs6Eu7KRm1ADmLdQZ2JiUP1UBv+CoQEgWH9QwKckkBbhvP+fYCUbJ6IokFHnpHq7c/H7PhVG2vjEDSDu2YSGJthGBHWcJsoI+wayB94XNtlv97OKRsO3uk6SPfDUd9ord1Pd18U8gntGJ0GFraIVL7jyIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tAseJOcRF+eDsniCuRc3nCkudaIkoO426rKDQFiQQZE=;
- b=b737aHPhAoiFV5sthQRVGpwv9cLkOXzkuz3pOw1L2tHLooAMJb4AItpieJWTZlP14+WK9yNQ3MSXgwLfkr0GG9Idi43hsg6+93v1WnrVFiKTVPUplt7K+yWYJezGoRxybrFNWejGbQJfQsj2d1Ucai/NlC7bLRcEjd44O/RZpurU91cFaeKWvGWHaGXTx3KIx+dZls6t2R0Nmsa3mFY2DMnRC91NL4dLcwOJQqEc3DKpIYL/XiwrDrliRZAy5CsjXZQcqBhjxdC0pTKY0FOeTC6aKxsmNDUrLHgJV3FBngSnRD0lLSzpSGtQKKu9RpDkIqatJXiCEnbhuMTQTSrpAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tAseJOcRF+eDsniCuRc3nCkudaIkoO426rKDQFiQQZE=;
- b=AAq7NvICTEbkaFb9EomF//vuKPaB3NGEYqVy522FNcBROAv7ASj3/ILOY4YAsf3zkqhb+5eX4ENTsovKRKPHkeYUlv9QoM+hITQiC0KCHH/nlWsyfrYVUm1VHU34EM1AL1/9fheRb1Is8eO/4q9B8JSUreba8TA7ABoQkcd+wYtiS+t16Mpq9n208oYwHaVwwdnnxyol1eCbWRCwKyYs8VWml4MrkWNdfiCAgMktSKmoR19XW7m4Xr639kHi+TdybPaObDEWimbNB+4AcyvOe2ktkiJFbEDAKeVWQJmHfmBzZaqDt6RnUaIfI8zTZg3aQEhKCIgTBe0eaphLkb6Ydw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB9205.eurprd04.prod.outlook.com (2603:10a6:20b:44c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Mon, 18 Aug
- 2025 15:46:01 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
- 15:46:00 +0000
-Date: Mon, 18 Aug 2025 11:45:51 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: thermal: qoriq: Add compatible
- string for imx93
-Message-ID: <aKNKrxX1FaNI/pQ3@lizhi-Precision-Tower-5810>
-References: <20250818-imx93_tmu-v3-0-35f79a86c072@nxp.com>
- <20250818-imx93_tmu-v3-1-35f79a86c072@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818-imx93_tmu-v3-1-35f79a86c072@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0078.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 18 Aug 2025 16:02:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5ECF31596;
+	Mon, 18 Aug 2025 09:02:44 -0700 (PDT)
+Received: from [10.57.58.12] (unknown [10.57.58.12])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB0343F63F;
+	Mon, 18 Aug 2025 09:02:46 -0700 (PDT)
+Message-ID: <b6579c2a-2262-4279-81a5-8235092bea13@arm.com>
+Date: Mon, 18 Aug 2025 18:02:44 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB9205:EE_
-X-MS-Office365-Filtering-Correlation-Id: c08aae5a-af9c-4163-a9ff-08ddde6e54a7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4fJkaXQOMBvnMQ65htJH8qywkm2dZ7haJg06C3XCPDkFvs0+av77PHfEeYgM?=
- =?us-ascii?Q?sCIowlMDQov8dHsXePjcEMBI03KinAgEgF+3K2I78rb+iL1Jt2uI5tQpaKYg?=
- =?us-ascii?Q?Xo5bU0yRUBo+e/SjhwBnDAORi63tmDhcvDWIKWfdsvvcukGMEcIaIQajQ/ek?=
- =?us-ascii?Q?Gnch8NfhFnr9sanjoBTPpVW7CH8SFeOpi5YQxIJ903pAW5cKL9zZwc6MRZqe?=
- =?us-ascii?Q?9JDkyeEYbmAaN17KiU+0rsWZzdtaKCnqBGbOCd7bI11pLrgiaU9tyCJXPxlA?=
- =?us-ascii?Q?MuRPx9jhkTDmLTjNrBRFj91MhjD4U4UDglMKv9dNAGgOYZeBWEB9fdE3Zahw?=
- =?us-ascii?Q?kKybdgNgSYYjwNnyFSEJ+06s/WYPweQTkEYpjrAUWsTAKOgsnhTeCyT8FXUM?=
- =?us-ascii?Q?pw032/NffDXb8wlq3qwhxUTVowi2i36+SeDBHeYcBf9Bllkdh0+Dsaye2Y1N?=
- =?us-ascii?Q?mfnpWDxWXc+GJryUG4xvUt2T5j/EeeC/NfVTewp78r6iCH/h6hOXaKCxQTBY?=
- =?us-ascii?Q?aD03kDH/sZ0gCWbyPbxLiFyqa4oac1sCEFI5PGB971JKltkznjfBrBsMgLr7?=
- =?us-ascii?Q?0xTVYwJhCvY3wmAm2ITp45SjnoicCC2Qdkhds8nfALO+XrTWheg2Cu9DEYh3?=
- =?us-ascii?Q?O487vUu6rz6x7xS1WBq34Hs078Q6KzKD1TsBy3aZDLSMP7gZrtmUYHRAzAev?=
- =?us-ascii?Q?i18586FCLNaO692ho8JZru4rynpZxn51UCrwlocYsHsBg01YY4MXDCP/8zTD?=
- =?us-ascii?Q?al8izcby3R6yoeIeSdFippmkl2pJoL6h6MdMoVOHg2t5npqaS1sqQsLAzdip?=
- =?us-ascii?Q?Xkbbtmva4Hpd/13EnUyi1G4RTjiy2pRMRQzaRzvytVH91w8eSvnDCd5cFFId?=
- =?us-ascii?Q?lmEjvi17GO6uxjdIh9imqer1Mk4EXvKAW3F/QJofEDFNvGNtk8Ixp4RoUKpb?=
- =?us-ascii?Q?gdv/r7Jf6AE2QtyhRgCabMMjUjFX2ti+O4IXeavYT9NcF2bTj+kcFeCR1frD?=
- =?us-ascii?Q?/TyZPv2DvsOKtOdJEa9JZ/FUZsGyJ2OPdV/pcMXj4LmLC5pysorKhpUVtExl?=
- =?us-ascii?Q?HY0XJPXhydsKXdSpUHbG1ekPO6WBe8odgz6SrhfQJCW9sWroJDTaqECoHq6K?=
- =?us-ascii?Q?TGzvMf1EJpVrStHnRbcBb+fUZgeCaJJ95IXxCITStvqLdL+SZKeNThHZb/bV?=
- =?us-ascii?Q?VNWbslLkgRSc16kaqytAfnCGIHef+dxcB+2G9hHWPsARiD+NEWXJrYlr105n?=
- =?us-ascii?Q?dljQml6YDgSMEc+o20G3HGYte4fVCjN5h88VdoenRG8/WQQv2UlaKvN91Sau?=
- =?us-ascii?Q?rpnnl1RCFIaZnXuJIfKm8Dow2qBM7FWniKCN+qE93qAGmHNPTkzA3KnRTpbd?=
- =?us-ascii?Q?44IKvtobul86v4JZfoPWU/fin+L2MZZaztpLBf+4LM89KgY+7PeGo9yv7La8?=
- =?us-ascii?Q?Oexvk9WCBhDA8s+I4Kafsqx1AKlkf42RTnvQVWB9dIcRBA8uQjBz4w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DvlKfSiu/okmTxMqq5ybV8IDF52d58naGMZlicWrgnjrj988Vk77reIhuvI2?=
- =?us-ascii?Q?qwnCUCvTKIKT6yNAJNM61Vm3eKYHQSR1fd+vY/vd5JiVC15MlLEv5o3vKwku?=
- =?us-ascii?Q?CxJ6IEMZG9UwkrZ8JeWnY7wvaj2gn11dX5rxwU4NK26cNGSI+dvVZtELwtkd?=
- =?us-ascii?Q?5B5ySjKrGchh1WOOmdbr+HvYAimcW+FMVD1jYO25w6Qt4cglsi84fUAiRWpR?=
- =?us-ascii?Q?pOEoVTMw+FFoGImgVWPsmDl4fLYBvf0hr/nx+TFCuFo/CSKo/xoMVnjYtQzq?=
- =?us-ascii?Q?w5jR49jIHg4vgcN0Snsfbpa71TC0l/bYF71KIwSlYPJBZyXVt3iZZq1yHbFT?=
- =?us-ascii?Q?dTE9X4UqSOHwC5gEdvbAqmgCPjXJYu6N3ysbvk5Hqu5KoyJfsKCqo6yi66qk?=
- =?us-ascii?Q?m7PKhZuUDFWw74DDeocfGf9SWLKiuQAx7eIfr4ABbQiGW7wW9ZY5Qwv8DsC5?=
- =?us-ascii?Q?PKC+VixoclkcFHlf0J+4825VPQKT6stqJjToInHqVTUzQWr/ozgxIFnpww+H?=
- =?us-ascii?Q?gBK1RPWv81w38abZq0QqIo2+c92IH4ERkaRPhPKfk+3J/5qN3VbyBE6xaefR?=
- =?us-ascii?Q?tTo234vjDx7OKYa5g0GeSGZJovFLjK6kDhYU3WWTlCDjtKntVLT+kRhahv6r?=
- =?us-ascii?Q?eMOqPmhLG+GZIv9O/oX0xso1YVs7NpJ5PXDmZ3Zf0F7lFeMbBmctpvv7MVr2?=
- =?us-ascii?Q?lhyJjwzPqvd/YYiPV/v0n36JcuS2t+pK7FdgnOX7yNzNmJAQNbId+GWKjD14?=
- =?us-ascii?Q?5kZVR4FiEMGC4Y0z5/VnSKDrq2faL3GNot3iMg0+HpKQhxObLRDHjF5vMdYh?=
- =?us-ascii?Q?Qd1iRFnWn/wAMqEblbaMlYHamei+D9GWD+bcCFqXF+nnuijMpO9y8KWjrtjm?=
- =?us-ascii?Q?Yw2+6H7RWf+pGLpnmWUVq6d+rbYClvWlHmJ6Grkcu0mReelnqMPq3T++DEFA?=
- =?us-ascii?Q?IDM8K0D1GnTlRN/XlTbM4TmuxAtvGNePvKhTgS4Gi6osqjbnmgy+TstX3nzG?=
- =?us-ascii?Q?9CaUtOj4Tg7EMN6bSlztiXHMRhzBmtxQVNuGfrcWsp3Bn48fpZw6hvAQfBvH?=
- =?us-ascii?Q?XN1OZ7AfXaxD9ovArb/zDMHzFjLil+2GEaRLmM5i8zmlHABHcCcug2iNCCEW?=
- =?us-ascii?Q?/cyXE32BhAS5hWCxgHtyj9Mf6OvnCD04NU5MEE5t+vXuIVjlokSC2bpdVZse?=
- =?us-ascii?Q?/kf6eJ/wsmGF+KCXFJYdGG7+PD16doVzrcxm1oWqSsAg4RnuFvpsRxl+COrg?=
- =?us-ascii?Q?gCeVNnIKuIFxsyng/jfrmS4z7q84eOB/Pmh+enUr9q3w5IB7OiEC+iK2G2ed?=
- =?us-ascii?Q?o8Y4o/ihIjb2vukTsRqmT7gq9VhFfmBDhi6EvzwkO/UgIm/4WJ+Wqw7szZmK?=
- =?us-ascii?Q?iWkBDYX+6z5e9GDvztzygJpRHfdEExaEfiblu4q2HIdtf3yh1CBmJvO57xxx?=
- =?us-ascii?Q?38JM+ZOMgKph4gyp7d9eEiT4k1UQ+Jcjs068BddJQwtiiZCbM6lw3OuIzgJ2?=
- =?us-ascii?Q?DZ58Zswae9+hHQzNVlG/4F3OrR0Oo1wzIxh06FUmtnMaZvp7hA4MipIIy6XO?=
- =?us-ascii?Q?U3wkddFRhdOcQ7qlSrfI2TbnaepGuLNNNtyial2R?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c08aae5a-af9c-4163-a9ff-08ddde6e54a7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 15:46:00.7803
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7FYhHDQ2HOk6jNWMnpfjQ+xC371DBDhCcEzgcrF73Rl8QIJpu34K2vBsor7uNRzCm7V4A9KkFDteonFj41c8SQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9205
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v5 13/18] mm: Map page tables with privileged pkey
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>
+Cc: "maz@kernel.org" <maz@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+ "willy@infradead.org" <willy@infradead.org>,
+ "mbland@motorola.com" <mbland@motorola.com>,
+ "david@redhat.com" <david@redhat.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "rppt@kernel.org" <rppt@kernel.org>, "joey.gouly@arm.com"
+ <joey.gouly@arm.com>, "akpm@linux-foundation.org"
+ <akpm@linux-foundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "Weiny, Ira" <ira.weiny@intel.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
+ "pierre.langlois@arm.com" <pierre.langlois@arm.com>,
+ "jeffxu@chromium.org" <jeffxu@chromium.org>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
+ "kees@kernel.org" <kees@kernel.org>,
+ "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "jannh@google.com" <jannh@google.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "will@kernel.org" <will@kernel.org>,
+ "qperret@google.com" <qperret@google.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "broonie@kernel.org" <broonie@kernel.org>, "x86@kernel.org" <x86@kernel.org>
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <20250815085512.2182322-14-kevin.brodsky@arm.com>
+ <616011cf17f1654ac3ad8757f0f33425b3af1ddd.camel@intel.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <616011cf17f1654ac3ad8757f0f33425b3af1ddd.camel@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_090104_541828_3DD91E54 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250818_090254_122053_D458FEEE 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,41 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 05:33:11PM +0800, Jacky Bai wrote:
-> Add i.MX93 compatible string 'fsl,imx93-tmu' because Thermal monitor
-> unit(TMU) on i.MX93 has differences with QorIQ platform and not fully
-> compatible with existing Platform, such as fsl,qoriq-tmu.
+On 15/08/2025 18:37, Edgecombe, Rick P wrote:
+> On Fri, 2025-08-15 at 09:55 +0100, Kevin Brodsky wrote:
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index d9371d992033..4880cb7a4cb9 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -34,6 +34,7 @@
+>>  #include <linux/slab.h>
+>>  #include <linux/cacheinfo.h>
+>>  #include <linux/rcuwait.h>
+>> +#include <linux/kpkeys.h>
+>>  
+>>  struct mempolicy;
+>>  struct anon_vma;
+>> @@ -2979,6 +2980,8 @@ static inline bool __pagetable_ctor(struct ptdesc *ptdesc)
+>>  
+>>  	__folio_set_pgtable(folio);
+>>  	lruvec_stat_add_folio(folio, NR_PAGETABLE);
+>> +	if (kpkeys_protect_pgtable_memory(folio))
+>> +		return false;
+>>  	return true;
+>>  }
+> It seems like this does a kernel range shootdown for every page table that gets
+> allocated? If so it throws a pretty big wrench into the carefully managed TLB
+> flush minimization logic in the kernel.
 >
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> Obviously this is much more straightforward then the x86 series' page table
+> conversion batching stuff, but TBH I was worried that even that was going to
+> have a performance hit. I think how to efficiently do direct map permissions is
+> the key technical problem to solve for pkeys security usages. They can switch on
+> and off fast, but applying the key is just as much of a hit as any other kernel
+> memory permission. (I assume this works the similarly to x86's?)
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The benchmarking results (see cover letter) don't seem to point to a
+major performance hit from setting the pkey on arm64 (worth noting that
+the linear mapping is PTE-mapped on arm64 today so no splitting should
+occur when setting the pkey). The overhead may well be substantially
+higher on x86.
 
-> ---
->  - v3 changes:
->   - refine the commit log
->   - drop the compatible fallback support
->
->  - v2 changes:
->   - keep the enum
->   - refine the commit log to use i.MX93 and QorIQ name
-> ---
->  Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml b/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> index aa756dae512a2c6e3f0b6bb1ab4a65c01e373ea7..f3b136f5e1cba1fff7e90678d7e3d7ec3ddd25c1 100644
-> --- a/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> @@ -25,6 +25,7 @@ properties:
->      enum:
->        - fsl,qoriq-tmu
->        - fsl,imx8mq-tmu
-> +      - fsl,imx93-tmu
->
->    reg:
->      maxItems: 1
->
-> --
-> 2.34.1
->
+I agree this is worth looking into, though. I will check the overhead
+added by set_memory_pkey() specifically (ignoring pkey register
+switches), and maybe try to allocate page tables with a dedicated
+kmem_cache instead, reusing this patch [1] from my other kpkeys series.
+A kmem_cache won't be as optimal as a dedicated allocator, but batching
+the page freeing may already improve things substantially.
+
+- Kevin
+
+[1]
+https://lore.kernel.org/linux-hardening/20250815090000.2182450-4-kevin.brodsky@arm.com/
+
 
