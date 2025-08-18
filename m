@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05888CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A86CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:CC:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbqjR77flrEojaMmvXfL0GY1fNUeEb1Qsxjgnrp8ask=; b=V8bU42Bf27zOpeT520xCjlu0IU
-	K+VC8rB7hyKrDRkwtO+83Vcbw9WbiVvtZfG86/YGYWt8WBKMm+A/ZQ32VeMGy+7JipVisXGuoaEnK
-	mDHl54JpB0xjoDnqMHYLe6NxXyDa/lGN0uL2w1gAVu649nA8auf4vt6LJEjEvRUu9XuqnW9fPAGOp
-	IJIB2+8Fh4hbQkDN5zSMvWdm17niwVrlRKEfpBpbraAsKmzgPCxbYHVwaVdlGC0g1wGf3v+SpEjuD
-	weA5UeISoUSF4F6zdC2SsA8ch87otikOrwJ0e45BqMe8Gnvh/bjqcL5O0niCHAMODkG7cTF/vmB4i
-	9y5KAe3Q==;
+	bh=Tc6P835DxKr69oSCM6M41RgZOB2wSNxZZcT4gcuaAas=; b=VkmhUCz7OKnDeUg3/Mw/tjaEkU
+	oqMyCwAnMexAq9kQY/NnYdmrHmV7/BgEnJxmYceLuN8kLOMbDP7n8+LVYC5VO6NAdeR25TYotP/Lf
+	oy/vOyAHP46M1131zUt88861q7GUudVl6IAKbiZla4l66Kyi670cVWCCr0ec5SJMy1azCDR83/Qs+
+	dt/Ap2kyNEOB6imXqi3W0tz+b0CuGLaLuwrTfiBhIQAV4B4eXmYaToU+D5EJ9MmWcS6nNMpNb2+ql
+	9Z+dRExH83BRg+DMzRL+90PLHLHiuWfvLjVAqrGipFgNqro99Ham7C/p/mlX3jZp2GwTV0EDkkPIw
+	XN98sBXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo7O2-00000008iAI-4BRz;
-	Mon, 18 Aug 2025 21:27:27 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uo7OC-00000008iS9-3nIN;
+	Mon, 18 Aug 2025 21:27:36 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5ll-00000008YII-44tz
+	id 1uo69M-00000008aZJ-3SX1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 19:43:51 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IJhhNE2728942;
-	Mon, 18 Aug 2025 14:43:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755546223;
-	bh=hbqjR77flrEojaMmvXfL0GY1fNUeEb1Qsxjgnrp8ask=;
-	h=Date:CC:Subject:From:To:References:In-Reply-To;
-	b=Jw77B70ciHlBfvOueY2p0pueCXi8VH5bRDrpHynFr5WH4FN0I6fdE/Lqen5rkZg+q
-	 mtDvWjWje+lLMMgM50BIw2TX4jn7cAFep+BoOMy6vUioZzjU6tmwAvyXGFq/PWAUxb
-	 bX+18JRiHEAcJwvPBkfur+0WN9Rc4LpZJWLr3ck4=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IJhhcg515659
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 18 Aug 2025 14:43:43 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
- Aug 2025 14:43:42 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 18 Aug 2025 14:43:42 -0500
-Received: from localhost (rs-desk.dhcp.ti.com [128.247.81.144])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IJhgLn1830747;
-	Mon, 18 Aug 2025 14:43:42 -0500
+	Mon, 18 Aug 2025 20:08:14 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4c5P0K5XHfz9spd;
+	Mon, 18 Aug 2025 22:08:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1755547681;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Tc6P835DxKr69oSCM6M41RgZOB2wSNxZZcT4gcuaAas=;
+	b=x+S4B8p0LG32NBGQ+FGXtCHXcljeFFH6tgPOXMCvIkcdvR0aBjE8TAm3UAsZ6kcMyNECCz
+	9p2oaimFPxc+agYEVznV7t+x3HhcSf8Bne6KAud8aRiZLrBGqInZHHXXM/+L4wixkwHaAS
+	8LTecY1terpjtmdF9De250uV3rC445Dw4PT8Fnpkk3+Xg094X4JIMU5g6ptTvF3UXL3QJ+
+	USuiM6vFGp/1txMxwz4G8s3aExhRJA/OGskeSbzvVR8Pnj6iJ2qXtzSS2IV3CXZrhZ9JNP
+	DINS76kq5B6cPgpefpY/iMwSyX1kS2TUaEbXKvtkyKKPdmHspj8de9yU31o9hQ==
+Date: Mon, 18 Aug 2025 22:07:54 +0200
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v18 2/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250818220754.585dac78@wsk>
+In-Reply-To: <20250815182930.196973bb@kernel.org>
+References: <20250813070755.1523898-1-lukasz.majewski@mailbox.org>
+	<20250813070755.1523898-3-lukasz.majewski@mailbox.org>
+	<20250815182930.196973bb@kernel.org>
+Organization: mailbox.org
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-Date: Mon, 18 Aug 2025 14:43:42 -0500
-Message-ID: <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <d-gole@ti.com>,
-        <afd@ti.com>, <bb@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <detheridge@ti.com>, <matt.coster@imgtec.com>
-Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-j784s4-j742s2: enable the
- bxs-4-64
-From: Randolph Sapp <rs@ti.com>
-To: Michael Walle <michael@walle.cc>, Nishanth Menon <nm@ti.com>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250808232522.1296240-1-rs@ti.com>
- <20250808232522.1296240-3-rs@ti.com>
- <20250813151819.5rthljjrpryfwezz@skinning>
- <DC1HU458W3QA.YLONSMYKK0C4@ti.com>
- <20250813181300.xfpsu23arx7xy4fy@anointer>
- <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc>
-In-Reply-To: <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MBO-RS-META: 35qi5izozcp45u58cd3qppdasc3mhqxe
+X-MBO-RS-ID: d00d9afc35992f2ef92
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_124350_100467_73D2BE91 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20250818_130813_004086_D69836D4 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Aug 18, 2025 at 1:22 AM CDT, Michael Walle wrote:
-> Hi,
->
-> On Wed Aug 13, 2025 at 8:13 PM CEST, Nishanth Menon wrote:
->> On 12:58-20250813, Randolph Sapp wrote:
->> > On Wed Aug 13, 2025 at 10:18 AM CDT, Nishanth Menon wrote:
->> > > On 18:25-20250808, rs@ti.com wrote:
->> > >> From: Randolph Sapp <rs@ti.com>
->> > >>=20
->> > >> Add the relevant device tree node for Imagination's BXS-4-64 GPU.
->> > >>=20
->> > >> These devices uses a similar MSMC configuration to the J721S2. As s=
-uch,
->> > >> they also require the use of the dma-coherent attribute.
->> > >>=20
->> > >> Signed-off-by: Randolph Sapp <rs@ti.com>
->> > >> ---
->> > >>  .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 14 ++++++++++=
-++++
->> > >>  1 file changed, 14 insertions(+)
->> > >>=20
->> > >> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dt=
-si b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> > >> index 7c5b0c69897d..a44ca34dda62 100644
->> > >> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> > >> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
->> > >> @@ -2691,4 +2691,18 @@ bist_main14: bist@33c0000 {
->> > >>  		bootph-pre-ram;
->> > >>  		ti,sci-dev-id =3D <234>;
->> > >>  	};
->> > >> +
->> > >> +	gpu: gpu@4e20000000 {
->> > >> +		compatible =3D "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rog=
-ue";
->> > >
->> > > Following  https://lore.kernel.org/linux-arm-kernel/DBE4UO2RGAYX.17V=
-1DAF8MQYJM@kernel.org/
->> > > Is it worth having ti,j784s4-gpu here? Are there any SoC specific qu=
-irks
->> > > that driver will need to handle?
->> >=20
->> > No SoC specific quirks, aside from those already being tracked through=
- the
->> > dma-coherent attribute. If we actually want to register SoC specific
->> > compatibility entries as advised by the kernel docs, just let me know.=
- I've seen
->> > this opinion toggle a few times.
->> >=20
->>
->> Please provide bootlogs on linux-next with just this series applied.
->> IMHO, based on what I see at the moment on GPU, it might be a good idea
->> to have SoC specific compatibility entries.
->
-> IMHO, that's *always* a good idea, even if the IP is the very same
-> as the integration might be different.
->
-> Apart from that, we now have two series which partly overlap.
-> Should I repost mine, as that's more than just the DT entry? (Which
-> doesn't work as is, I'd guess.)
->
-> -michael
+Hi Jakub,
 
-Ah, I don't see that series on the linux-arm-kernel list. If you can forwar=
-d me
-that I can work around whatever you've got.
+> On Wed, 13 Aug 2025 09:07:50 +0200 Lukasz Majewski wrote:
+> > +	pkts =3D mtip_switch_rx(napi->dev, budget, &port);
+> > +	if (pkts =3D=3D -ENOMEM) {
+> > +		napi_complete(napi);
+> > +		return 0; =20
+>=20
+> And what happens next? looks like you're not unmasking the interrupt
+> in this case so we'll never get an IRQ until timeout kicks in?
+
+Good point - I shall set the "default" set of interrupts before return
+0;
+
+>=20
+> > +	}
+> > +
+> > +	if ((port =3D=3D 1 || port =3D=3D 2) && fep->ndev[port - 1])
+> > +		mtip_switch_tx(fep->ndev[port - 1]);
+> > +	else
+> > +		mtip_switch_tx(napi->dev);
+> > +
+> > +	if (pkts < budget) {
+> > +		napi_complete_done(napi, pkts); =20
+>=20
+> Please take napi_complete_done()'s return value into account
+
+Ok.
+
+>=20
+> > +		/* Set default interrupt mask for L2 switch */
+> > +		writel(MCF_ESW_IMR_RXF | MCF_ESW_IMR_TXF,
+> > +		       fep->hwp + ESW_IMR);
+> > +	} =20
+
+
+
+--=20
+Best regards,
+
+=C5=81ukasz Majewski
 
