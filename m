@@ -4,149 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1F3CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B32CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Igvk6AvqPGpyFLK199vT9ThDTTRRAoLheaWbPVeRxBM=; b=Z7ZBKg1s1gwTs2UGT8wa0/sFf1
-	4OQR5vCivhaCktqOmz4u7Xh3NFcA6ndc0RGGxclEhQ72s1uxvsv+1nFPuBWGu12ycQv9hg/EAOVMh
-	fjUNjD661a3cQg2cz8RY3n3OMF3BNyjaQeiR5WmNOLr4EBOaTzHaJ4LS8hsXIBmukbx4o+vsd3Mui
-	9mXciGSy33wvfdTMy+mhCwVCxZpswmyHNfPr8FjV3XX42gQ/SeH5xn/bKQwbkJu/iRE8+PQGiGsva
-	TH72csQPYqIJm62bHzz9KZLFleFa7ly5NLaP7z6/JtXF9lddCsBbtSAsEiCe4iqBgMmYqw3jAnajC
-	K+R5jffg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=; b=1ht0uugwVp+E1ngcSWWzOfmbej
+	MFGP97my3PDEp9wJ8IUdjdy43O5spLQ8+pN83dTYDimZcX76dRvGh8+tp7EcQBWq24/FTmRxndR2+
+	ErWn9zsjaJ1Zz+Y9fBNcbwd/c8Gvrj4mfs5bOpCLN0Xh/2Mnjwrn/KEpI14XIhO1W4Tya9VdLl3E+
+	hLbKv3OzGT1VRigONssBC3Le5RNFkk8NvCBYPvaP/ZhxzIrz6+1IySGVyavMyUjz8zRDO7LeDulfh
+	EZsvCoY1b1R00H4N8O3v9HZmLR1tVFh1tl3ZV7PraPPiL9MRebSzGvoV7ITvC48QVFSWqmLX/xok4
+	yWF5ntSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4ht-00000008NIi-2jJU;
-	Mon, 18 Aug 2025 18:35:45 +0000
-Received: from mail-oo1-xc63.google.com ([2607:f8b0:4864:20::c63])
+	id 1uo4kR-00000008NaW-3BJs;
+	Mon, 18 Aug 2025 18:38:23 +0000
+Received: from mail-dm6nam12on2060e.outbound.protection.outlook.com ([2a01:111:f403:2417::60e] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4Ba-00000008H2R-38xl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 18:02:24 +0000
-Received: by mail-oo1-xc63.google.com with SMTP id 006d021491bc7-61c0b19b14bso357126eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 11:02:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755540142; x=1756144942;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Igvk6AvqPGpyFLK199vT9ThDTTRRAoLheaWbPVeRxBM=;
-        b=w5iGHfIe/yyaPp04hfpbZNa3uxxrkSXs0kbuMvyQOzvjwkJd77hggeMpLPKPsN6R/F
-         pyr121WzY6nWNTGP/5qB/6WEFw85EpffDdEA42aw4SH1zhW6pFKpbvrF1A81bfzgloNM
-         pqRsa0+0Zwy7eEDrWEDo8sdaemspLDOHeiHXNvsaDMuNfMyUfungzin84Po3g4wdcEOf
-         6yb4d352xNpAxidKThV6ssMpW2CPmjsYr87MaY9czvhL+0rpHoTYAEYCwVOYrT66m407
-         TIlgYM6RYH+CtmHmPW3SH6v4fVjIGX4A4hIICrFiQyoJF1RyIq4wyg00CJrbX9twUE7O
-         elrg==
-X-Forwarded-Encrypted: i=1; AJvYcCUBG+asGL2VyQ2E0SUKfE3bLih4QTu+csWY6Y3jgCB3dXOswHdyx1Op83ou3AodA/vr/VDJoy5GmgZ5Od8wiR+O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx14HOKEWCOmFfS8XgDK6e+2QQsnkD1oLjavNDpoRAiD3xwE+mH
-	H3lSFBC+Ag0JaPn0O0NnEl79rVB+E7C0w+irNRBGKurjcT8z05PBFSdT6ekcQ1E1SEvbrechwIW
-	oAHAojNhEZflnaV8KmSSKE7xTsFX7IiKqtDfeGeq1njBWCqnSk8tVcTSgHFz/TXpxO2/wSliPCQ
-	AjRXKElG1Y28eYNB0p2nU//LmIuTo9tCpda2PDo8HTMmvARGh+E3CM4yjs+uwFfSOOGDmxbm4yM
-	rn1RokBJV2BWL4wZhj3r18kFA6RkRkGCEg=
-X-Gm-Gg: ASbGnctID5GZB9KnNao8oTF0s7wbuigsgDfXrJOBe6O7pC9U+zQfBTK8jjs1MRy4qly
-	6d1jyS9ALnBNWVmlUTBxASigtb5+jXhWOy5zhudgL2uliMci1iDlOsqKRYk5DIoE/lM2/j3vbuY
-	qDqC5FU76sgmi5EErdIj8Th22kldEW8SqaHPiRfIB1ByK18ZqL+24KUsoNY1UG2VPsURhPxXglr
-	zxv+KoWjlXwp0oPwjZ7kW3akpOBCtjZtIimbveqy6Blu6nuzM6PvXeuifQDoU1h+A7ZpRqotO1+
-	So3ZKkPxclQocvVUfBR4fC6XNzQTqbZSD/ygTBspsrBkNELNnYRVQhz9huVaN++1daAd5WO0JI/
-	MLyp33D/i9sLYxi6O+KnyHEkQ6Jmwoos9ooobex88fkrPKBqbMf9CIQeUl/dPNDec9W1GfkqJU+
-	EhDw0f5kg=
-X-Google-Smtp-Source: AGHT+IHbeJLir0g3OWqdC59SxXhWXnOP9owUP9IIL2OOBWtkhmRMENEzbAdfTIpJjXLw3Kq68cBEi+pcvCe8
-X-Received: by 2002:a05:6870:ce82:b0:2ff:a996:3b50 with SMTP id 586e51a60fabf-310be64624amr5833241fac.22.1755540141525;
-        Mon, 18 Aug 2025 11:02:21 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 8926c6da1cb9f-50c948ce13dsm518579173.5.2025.08.18.11.02.21
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 18 Aug 2025 11:02:21 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4b109c7e901so131599391cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 11:02:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1755540140; x=1756144940; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Igvk6AvqPGpyFLK199vT9ThDTTRRAoLheaWbPVeRxBM=;
-        b=Rl04K0RGsbgTPdZ09zE00CaBageKVsI7GZQeNlOlXB5b/y+z622Ji4EIcFIfWvRk7l
-         mlIQUF7PSAjJyjtVx55vJb3GAQtAcH5bXU3fFBoe1cj0Rl8wtAdw24+1ovGcyu2eh6DO
-         wzbNR4jp/im4NI1cG2ExMV3KaVSidnTpS5ZFA=
-X-Forwarded-Encrypted: i=1; AJvYcCX5PGGFhazUKmjqNJoZyNGLgATwfeQ0/BGf6d2eEAMNE8p2hFBboUyLYvgZ2gxwDg2B+VCuHkyxb2R7Bfbvh56o@lists.infradead.org
-X-Received: by 2002:a05:622a:d0:b0:4b0:6965:dd97 with SMTP id d75a77b69052e-4b12a75d90bmr125817691cf.44.1755540140289;
-        Mon, 18 Aug 2025 11:02:20 -0700 (PDT)
-X-Received: by 2002:a05:622a:d0:b0:4b0:6965:dd97 with SMTP id d75a77b69052e-4b12a75d90bmr125816951cf.44.1755540139671;
-        Mon, 18 Aug 2025 11:02:19 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b120b96b1asm52522561cf.26.2025.08.18.11.02.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Aug 2025 11:02:18 -0700 (PDT)
-Message-ID: <4c454b3c-f62c-4086-a665-282aa2f4a0e1@broadcom.com>
-Date: Mon, 18 Aug 2025 11:02:15 -0700
+	id 1uo4IW-00000008Hrf-3fY2;
+	Mon, 18 Aug 2025 18:09:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b+9eGUCrXocarSB+jhEvZUv4w+CgNfuqH+vJ5Wxxr9gOwsuOi4ynHfJ9BTnYlEFUQkUC1AW8/YArUBx8g+hyjfcwPYDegyjp2spkUYJTQrbonhHlJ8e/mboYz3DYyq5HZufWvFXrd4hEHu3Tb+xoPYGA/nxffDa6LHn0PaszdZTcPBhoKQA2o0Fx/73bBe2iQuWZGmlrpaJvQLtUNrH7dpuCr59/pkbgNOkk9HxmX/VdKIda0HdBbClNberYnTevM2ICEpD1heVfHyNToJlexXHwENt+2pMnCh5oZpZXt92STUJNGWrzu317ZwoVX6oIYCBZIsb7CJ+Iiycn3T6W2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=;
+ b=duuA+yjbk/ZTiin1GSL+ez9AsmD0Eh4y2a/fjfnn4M/R72M3vMfk7B6aqt5dHKA2hPpl3wChHLYaNGPEcyRp+FNVLtBRP9aIzk7V2PjbTz+8/3jETS+Iv8FAjT7O7h4c0DFflTEF8N7SqBi5WRohD0P5YMl0H3JGnUDdooh2taeYMmqoQ/BZfQLlGMSrR+mHR3P4Ty7NmPNtOszRxNRjDHsnEEyAct9JCv+ZjJmENeiRv5JBI+d0jisIhERAGEl69Pa5XvokMtlHG94T0IJdoeUp7ykD+dVCYNkCmctw351jM/7o+E1j2IZoZk6D5/lmWcYbB8ugkcaJ7w+s2qV8/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=;
+ b=h677yzkeJ9ruNLVjnoaCuPqZvkFcVaPSwv/jBxEJ/oZ4D08p7R5WH51NSewfG1DzaO7gpvxpZlsAfJapT7R7jh1ku9sFOfaN5TlivcSFWjjVoMsrr8P97wxi+jjuIShv2aoHt1FPKenCUEHjWvsU0pLJdkHQb1XKX9MuuVBxS7D/31NQ5u++K1CU3AyV8f0N0JG7k+BQiA1QgBdl7yyZCzRJfZ4zNgsPC65r7Z4L9/DJ9sh7ntrhc2jRv/w6ckrWcfbrVSyuRWwYY18Fu6pa/q+rMxAB94Nuqcdm3tRwl4wdOmtNfuS98XlwT/tDgieC6zxcbYoiLvjhu6BtwJTFOA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB7572.namprd12.prod.outlook.com (2603:10b6:610:144::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Mon, 18 Aug
+ 2025 18:09:22 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
+ 18:09:22 +0000
+Date: Mon, 18 Aug 2025 15:09:20 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
+	"yong.wu@mediatek.com" <yong.wu@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+	"vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"rafael@kernel.org" <rafael@kernel.org>,
+	"lenb@kernel.org" <lenb@kernel.org>,
+	"Liu, Yi L" <yi.l.liu@intel.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>,
+	"Jaroszynski, Piotr" <pjaroszynski@nvidia.com>,
+	"Sethi, Vikram" <vsethi@nvidia.com>,
+	"helgaas@kernel.org" <helgaas@kernel.org>,
+	"etzhao1900@gmail.com" <etzhao1900@gmail.com>
+Subject: Re: [PATCH v3 1/5] iommu: Lock group->mutex in iommu_deferred_attach
+Message-ID: <20250818180920.GC802098@nvidia.com>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276F543286807E05FB465F58C34A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250818141751.GN802098@nvidia.com>
+ <aKNmo/O5aXb88GKK@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKNmo/O5aXb88GKK@Asurada-Nvidia>
+X-ClientProxiedBy: MN0P220CA0003.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:52e::32) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] Add ethernet support for RPi5
-To: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Andrea della Porta <andrea.porta@suse.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
- <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250815135911.1383385-1-svarbanov@suse.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB7572:EE_
+X-MS-Office365-Filtering-Correlation-Id: 161edef5-ba19-43b0-bf6d-08ddde825b80
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YJj1WPhY2g+3UObwR5ewVx/DLEibRMRcuxVEnqlFTExjMOQ7fSTz0Z07FQia?=
+ =?us-ascii?Q?0HsgoDrWrv86YI1C0MF/q0Ayi7mTHvyUZtxrh1NEd/xbBxjSEaK0wv3mChVb?=
+ =?us-ascii?Q?JbXH2bYvgs2gJVPAr841Wv2fenMvty8ZyQriWrBjAmJho+dxmYYPKy6Iii2P?=
+ =?us-ascii?Q?J5UJ34sL12chUPM6KtvhvCSqJSa3Dc3zeX+1u3qB38KzH8WElb7ixg99qpol?=
+ =?us-ascii?Q?wo3NApVElKuLPd0nmnjA0gyDwb0Y1BxlpgMjcI7KeoGjUE0Fl6gMXM1HLkqG?=
+ =?us-ascii?Q?G1jfviz02dQiRic6KggKWmAjZC19c8scKVnaTql5J90JCQHP0oWPXwOobt0r?=
+ =?us-ascii?Q?RK3fDKa1eCWw/Dv4gDxv9zmGua9b+IytbAbbvG08efaFgdoGIphahEQsDWW9?=
+ =?us-ascii?Q?X/DjEDkSSLesgAINtj6k1CuuFXJlJM7BMauVUjuMKWCB0UTiDerbbiCkX20V?=
+ =?us-ascii?Q?LkmCAVELztFp420VqRzHDZ3DF2iTtQ0LxCAVeVvxQcNTQvT6u88u5OFj4M/A?=
+ =?us-ascii?Q?IfTtS9pajwFDUO5v1PhBdNWo0zs3zWRbTCxoUhskjsPFLI5U73qJOEUZrcCg?=
+ =?us-ascii?Q?OweMG0BHbrPoRrdvDiV5SgLN0BzvYAVAdUhtjIMy+KPAs2x9LpV7QeXGThPO?=
+ =?us-ascii?Q?lAaJAcHt791khoskLE3R+GBXN+R0Jl+pRuMPPQvUSEE7R3ZW2lgNGSTnE5pY?=
+ =?us-ascii?Q?m5BQ0PrHtR3PV0kPkrd9Ib9HyxhgI0s4xA4kP3c61UFJKCO6FUhNVd9EzZ++?=
+ =?us-ascii?Q?NCk51UmEqwwUjzV6vlfUy+GfkQj4hscD+VkXbUhMbkrAtOarqDijpJA25VGs?=
+ =?us-ascii?Q?sdXcskkKyhB8Je2kyBK49061SThW32GOQJVAT/eNsFRdhXz51PvyiVWHvw9U?=
+ =?us-ascii?Q?JcR5ESv+G7JLaro+bMlxLCID8crIBtRTynFZxynqKkY2ojOyt343Y7Wts7ad?=
+ =?us-ascii?Q?yJvYM3yTHXffV2BlPhluwijViTGyTx7M+3shiK0A6kW3Fs7lzVGw3sdOaGby?=
+ =?us-ascii?Q?Aq4g11wJge7mZbIqdVLrchVFeH9mBzfL5LWryuPqE7IT8AZ8ONL4ZjH+62ai?=
+ =?us-ascii?Q?or7XU96mYM9fGTd/pKOafXeEBCagXjvAtjXM5ultmE4goXE0lxp1P9owrTNW?=
+ =?us-ascii?Q?Iqo2jvCzN8fKWMgtzFgApRP8Tr96rDrXtrUNU5+1yAQjneBRvf2dwbtkyRcy?=
+ =?us-ascii?Q?gOvN87r8IBEZkJXCUT0gLe+uQjzkbbTy2sHr3zm21AHjWsCLeFv46WxJUefH?=
+ =?us-ascii?Q?f6d7ECP01OE7wbARZQHDzmc9Ot6ChIkkavrW19uFnLOoEkvN3edsZCSkZqnV?=
+ =?us-ascii?Q?bl1KrTv4WlzcANi51ZpWsEI0y4i4o53zNzOQO8zYSTMeeq8BwGvRPjmCKawr?=
+ =?us-ascii?Q?g7uL6MoO4ngm7XWwOWUpqS6HMYl8GHYAeQcGNUS9Iy8Ncaq/dUJtfGPfSOgF?=
+ =?us-ascii?Q?V3sHe6CF7YE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wq3VtZii0rFLj6l03Cm38hOF9iWM6XO4u4Hh39QWaRQ88YP/x8sma3/mEueu?=
+ =?us-ascii?Q?k2iveSOJSbOIX4LW6+1Iz9YVL/7Vu1rXvkOnC5XeQ4JG28np4v3nABlHhY0C?=
+ =?us-ascii?Q?wkwybTD4TmHbFkguexfVOzwkeWw46S34x3s7BoVOrwqsLKM8BYls5uZmmpMS?=
+ =?us-ascii?Q?4dJKxkizFAsn0W26jOZHgt2RHWHUj8LD0Iv8gwHmG7MJD9HKenF3gj5iHzJQ?=
+ =?us-ascii?Q?LCb7na25bKx9ltOC9YUreyCBTyKi2Xok0ym2KVJKt9IrB/ATVpkKj1Uvps0f?=
+ =?us-ascii?Q?9WzBypCAsGDJAiTAcla42V++rAmIQvyie60DLIUTNglmFvdtYTKqYbwCmQIs?=
+ =?us-ascii?Q?0iA1AAxx3cWSVIR1LZAkrTPs6incOIa8Jf9tor09uW+kzIMc0cSqvfc9F8Rn?=
+ =?us-ascii?Q?Ur9FCAPdMv5aHpjqcJrWJmKaXAeTZvgpVXRyXxWkbBHMfNxbH8NN9Yhap8UJ?=
+ =?us-ascii?Q?vvVRB9TsVDdsDL6L07n2IKhYaIgvafeHcwR776B5pFsH1C7q76YcfYtz+e/X?=
+ =?us-ascii?Q?c0AEyblDmFIGTyInmTdQNZauEl16W7FzY9AhzxmodhdEGklK511cI4ETV0SH?=
+ =?us-ascii?Q?4vbKJ7yF0po0zqn+1cwoKZa/f3oQ2hMMR3gVhCaxKrQDG5X0zLSnSLIB6PT6?=
+ =?us-ascii?Q?hX4JAZUICycLBqgJUDbtA9XxbCuNm47nKaIPLCECXtbE2k04LMpijzW3oOIi?=
+ =?us-ascii?Q?i6RbLOrJqXD+IFQWsqHqM5ifLk7Tn35X1f6YbAA3FB2hL5PqMkSFJ+rqK23e?=
+ =?us-ascii?Q?kVUBFD+Xu0XXNuxLEQ+DYhCQHeWTcPdmVfC9XMsmgLgIfrxevWgx4uFuBOKv?=
+ =?us-ascii?Q?JGcrXcti1E8WdT3SO+0VBbWA5CJzY2ehyFuTZfb1UOz2m4kitOVnyBjb3L4P?=
+ =?us-ascii?Q?pg7YKkmW728DTQG/NeuNReTLXa2+3H1gLONq7V3oZAuHJmN8cASBXzusSeeL?=
+ =?us-ascii?Q?gx8p8P+CMdC5kani6tKpUzrn4U5A12Z5ylSQbLFPaPqf4a6AL7oMCDHmGejL?=
+ =?us-ascii?Q?wB7WFwdixANRSmfRZzGMoyN0cC9N49/XrKeIWSvVzlVTTA6DQ/TRpEaG4RUS?=
+ =?us-ascii?Q?/+SzBPf++DOezEyoypNrMrMMqdsxJaHIpySTdWwX3eKqulRxpX67Wl6B1N+J?=
+ =?us-ascii?Q?OKGCd+fJ3MoHVepabPCs74t5oEpz7mcMs8XbY0IiKH4/qKlC6LDJ7AnPWkEt?=
+ =?us-ascii?Q?zemdKVCXvQV9bXBKFtuKkmh2K2qCkV8KbZEoWSnS88E1n9U7w6i/8VRYPx3Q?=
+ =?us-ascii?Q?NLkBllIWjGYCrem5nSMx8G/M3X7Yrn3+uBVcwA12JQcVfXoMHnTqBjH5eTXl?=
+ =?us-ascii?Q?8vFH2RL6YNqr0Ma9fTt5oK85A1iAs/PXgIRbuHy7ruZG3vkH1ycB2/SkQOAJ?=
+ =?us-ascii?Q?vnya/OgMpqEiOrmhk0WYXLgwv+L9mE7LhgFewmVdUHrRfc1/Gk5D1mv3dIKn?=
+ =?us-ascii?Q?WJgso/rcu0SjaJ+HC9ySJrwp0SK3V2jDpZbqKP9FhlsHDTwVqIjinMJs72R8?=
+ =?us-ascii?Q?WPNmW3pN/333WN2A6fk5a3bVgrqM4eSPiviCvUUFvBWiEGojiEMqAaT+vamV?=
+ =?us-ascii?Q?9HxgA9HQHQzuVvDPEZg4Tysqrd16qoOUIIBEaHwe?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 161edef5-ba19-43b0-bf6d-08ddde825b80
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 18:09:22.0598
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3pwIWh/MpjTjezoeIzb+egeFnV1fvj8+IWBkvERpMifma2GyClnObENYDgxs2hRw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7572
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_110222_933176_109AFB60 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250818_110933_075943_28264B8B 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,24 +186,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/15/25 06:59, Stanimir Varbanov wrote:
-> Hello,
+On Mon, Aug 18, 2025 at 10:45:07AM -0700, Nicolin Chen wrote:
+> On Mon, Aug 18, 2025 at 11:17:51AM -0300, Jason Gunthorpe wrote:
+> > On Fri, Aug 15, 2025 at 08:24:57AM +0000, Tian, Kevin wrote:
+> > > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > > Sent: Tuesday, August 12, 2025 6:59 AM
+> > > > 
+> > > > The iommu_deferred_attach() is a runtime asynchronous function called by
+> > > > iommu-dma function, which could race against other attach functions if it
+> > > > accesses something in the dev->iommu_group.
+> > > 
+> > > Is there a real racing scenario being observed or more theoretical?
+> > 
+> > I think the commit message should explain the actual reason this is
+> > being done, which AFAICT because the new lockdeps added in following
+> > patches will fail on this path otherwise.
 > 
-> Few patches to enable support of ethernet on RPi5.
-> 
->   - first patch is setting upper 32bits of DMA RX ring buffer in case of
->     RX queue corruption.
->   - second patch is adding a new compatible in cdns,macb yaml document
->   - third patch adds compatible and configuration for raspberrypi,rp1-gem
->   - forth and fifth patches are adding and enabling ethernet DT node on
->     RPi5.
-> 
-> Comments are welcome!
+> Hmm, I can mention that. But I think that's just a part of the
+> reason. It still doesn't seem correct to invoke an attach_dev
+> function without the lock since iommu_group_mutex_assert() may
+> be used in the path?
 
-netdev maintainers, do you mind if I take patches 2, 4 and 5 via the 
-Broadcom ARM SoC tree to avoid generating conflicts down the road? You 
-can take patches 1 and 3. Thanks
--- 
-Florian
+Last time this was brought up there was a bit of an argument that it
+couldn't happen in parallel with anything anyhow so it doesn't
+technically need locking. But I think we should not make such
+arguments and be strict about our locking. It is too hard to
+understand the system correctness otherwise.
 
+Jason
 
