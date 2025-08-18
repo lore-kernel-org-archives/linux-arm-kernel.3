@@ -4,63 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507B5CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9C9CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9v146V+CMDfR4H9bDDpfH4hxL2fknmgBAsXNipVc58=; b=n8lLJRovYDGCUx0SPCZrGw1P9l
-	NVWdkgFlo5yJZiGp/jj4Htiho468ZuiCEEs28AEaW41ZGn/9YZtK6mJE0AwtWYQ9qpGQcEoJwGl+t
-	eieD0E77h1dtpNIE+3POw2mejygfy3kCeb+DAIYHMwm/jZqi0E634gK/MmIkP0ax3agwWAoP9KMuF
-	OKCFfh1ZEa+ppeksgsuI6LCQ8ut/zDqHty73dh/TS7JUVvvgX/7hr21NtJuBip51bYdDrKb8vzwKS
-	uvmwvXKdeMn8ZlBeKTcX/1O4VByONFY7RUO3WMobQmbRhLBkhC1VqGuIRWMocDIVpXeB0b+fkzpoY
-	b2oBndWw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D2k2TIvoxEN/lb4jxurAmxcKFxKUEHyXqVz6zwH5l0M=; b=ZrYfZD5b/fTZ3U4XLJK05O1H/A
+	eGeF6PoLZcd+/zsB0vqhOz7gIU5ZLKSu2qeXu8Q0slVBUMtF1Txzm8UXOu6rBDaybYm2o1ocfeQFi
+	4i5r0CCI280zPRaEbU6lPfwN03nlMluJj7V6vIj6QSKPt4f59QCdKaGwnxmvnlG1U/4Tlv19lr3rC
+	NkTy2oin4mA/Pgzssn9meKyyluNNrvg0630sH2VW/IEgvyw0i3wGM3iM9uLCOUvnIKuBPL+AqafhK
+	M8S54LbtdMQVllxib0YUgPSKa9/m9eW6Py85qpJHrh0rIGKgZ9iZ3unkanJYDFpXgXM4h2yAememn
+	ZIw7xR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hm-000000089RU-2J0B;
-	Mon, 18 Aug 2025 17:31:34 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1uo3hq-000000089XX-26lX;
+	Mon, 18 Aug 2025 17:31:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1H1-00000007rQA-1DIC
+	id 1uo1HY-00000007rXh-193z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 Aug 2025 14:56:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=D2k2TIvoxEN/lb4jxurAmxcKFxKUEHyXqVz6zwH5l0M=; b=jm409FIcCOxpn+C8I78BuKMwYe
+	27Zu3rYDWgQbZ3tv+5mR0zApNEVuYvnROWMsDmklipcCnY78bhOekqouxk0ef4wCjtVnEVKCJ3f2b
+	iNjKd772O3d/Kfq7AXFgejQC6WeXu21d8vc+8yqvHBqtMt/TDZhMXr4S7KkQBvf2o27YAps0wPyHk
+	9MJXeHuJ1W2N4QrKtT54tMoV32zM52VxDkKrgNcL1PkKqJ9WVFLo/f+UZfs2XNRIvA176k3BRBWuj
+	bqz2q9H4FdtyDL9hvG/CGr4Ojgf0erkEGQR5bqGJwR6LMCpe4KpY2IGHbcjRO04di+pu23/D+oB4Z
+	NrtuDA3A==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo1HV-0000000HQi9-17aw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 14:55:48 +0000
-Message-ID: <b3b15c31-2e54-409e-86f3-3102c6ab95ba@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755528942;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z9v146V+CMDfR4H9bDDpfH4hxL2fknmgBAsXNipVc58=;
-	b=Sp1xRRHpO2uHHYpxy7a2QHA4CWQyU4JH0x9iTAYVJo7c4t6B3ruN2a0SjuceXAE/NolL+U
-	eAtREJZcTLT0bJTYgax9eVnAGVw3FlskO+Q/ZjZ9V6DZ3NnmAwtMRdbwIuj0KXG5nwLy0O
-	vzrCGTEvbvF7jxl4CWxjJyOs/dt+usQ=
-Date: Mon, 18 Aug 2025 10:55:38 -0400
+	Mon, 18 Aug 2025 14:56:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CBE15C5D6D;
+	Mon, 18 Aug 2025 14:56:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05313C4CEEB;
+	Mon, 18 Aug 2025 14:56:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755528975;
+	bh=j79Kr2vIgsfUz//Ws0Wkm4E2WFNQVHp73NmbHApah+I=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=jGs8i5MQKoGkpsQWYGbDwSysvs8MdXQKkMylj+u+bNGtCLE6Se+fDOVma99zDVhav
+	 JAMtuBWLaMsZ8OESF4zaD9f/ZB3LBSDOFPhzWKQ0FHoDfQ4wS9N1+akhXWLAgoUAEh
+	 t/AmkDmxYE0SAz1K/PyZyKS130wA3HD1DpqvJ1JmZMgtNqn1Ar+ZzLVLy0lfCKrdCr
+	 YMPDb0SWJteThcsoFdGG6SrIEKBJwqAGCBOjLc2PevaqC7bKhSdM5HZI8sD9rDhVwI
+	 ou3xG9sBROxT/u5taSr390zi5qplu1TbTnglF5+dSsutwDtzu2w2y6ymE6bzbzWjV6
+	 mSHnRCVmTmlew==
+Message-ID: <651df530-797a-45e1-b199-917deda33222@kernel.org>
+Date: Mon, 18 Aug 2025 16:56:10 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add spi-buses property
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- David Lechner <dlechner@baylibre.com>
-Cc: Mark Brown <broonie@kernel.org>, Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm: dts: stm32: Drop redundant status=okay
+To: Marek Vasut <marek.vasut@mailbox.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+ Marek Vasut <marex@denx.de>, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
-References: <20250616220054.3968946-1-sean.anderson@linux.dev>
- <20250616220054.3968946-2-sean.anderson@linux.dev>
- <ded7ba99-089b-47a7-95b9-ca6666dc3e29@baylibre.com>
- <87frdp119x.fsf@bootlin.com>
+ kernel@dh-electronics.com
+References: <20250818143730.244379-2-krzysztof.kozlowski@linaro.org>
+ <388e6f81-383b-4b39-9b75-8d2cdbf95d37@mailbox.org>
+ <259e72c0-b69a-42d4-aec5-ad8a6e03d416@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <87frdp119x.fsf@bootlin.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <259e72c0-b69a-42d4-aec5-ad8a6e03d416@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_075547_544997_5D548081 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250818_155617_676161_0F16886C 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +142,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/18/25 04:28, Miquel Raynal wrote:
-> Hello,
+On 18/08/2025 16:51, Krzysztof Kozlowski wrote:
+> On 18/08/2025 16:45, Marek Vasut wrote:
+>> On 8/18/25 4:37 PM, Krzysztof Kozlowski wrote:
+>>> Device nodes are enabled by default, so remove confusing or duplicated
+>>> enabling of few nodes.  No practical impact, verified with dtx_diff.
+>> I assume the "no practical impact" means DTs are identical before/after 
+>> this patch ? If yes,
 > 
->>> +  spi-buses:
->>> +    description:
->>> +      Array of bus numbers that describes which SPI buses of the controller are
->>> +      connected to the peripheral. This only applies to peripherals connected
->>> +      to specialized SPI controllers that have multiple SPI buses on a single
->>> +      controller.
->>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->>> +    minItems: 1
 > 
->>
->> Finally have some hardware to test this series with using 2 or 4 buses.
-> 
-> Out of curiosity, what is the practical use case and intended benefit?
-> Maybe an example of such device and an explanation of how useful this is
-> would be welcome, as it does not seem to fit the initial spi idea
-> (which has been greatly "improved", not saying it is bad, just unusual).
+> No, DTS cannot be identical in this case because one had status, new one
+> does not have. Practical impact means... visible impact in practice. How
+> to say it more clearly?
+To illustrate: this is "no practical impact":
 
-The idea is to model the case where there are several tightly-integrated
-busses on a single controller. e.g. sharing registers and maybe even
-clocks. Some of these allow you to drive both busses at once, reading
-e.g. the high nibble from one bus and the low nibble from the other.
-These sorts of things require coordination from the controller, hence a
-spi-buses property instead of two separate buses. This also makes
-compatibility easier, since new devicetrees remain more-or-less
-compatible with old kernels.
 
---Sean
+--- dts-old/st/stm32mp157c-dhcom-picoitx.dtb
++++ dts-new/st/stm32mp157c-dhcom-picoitx.dtb
+@@ -691,14 +691,12 @@
+ 					interrupt-controller;
+ 					interrupts-extended = <0x49 0x00
+ 					reg = <0x33>;
+-					status = "okay";
+
+
+But this would be a practical impact:
+
+
+@@ -1124,7 +1121,7 @@
+ 					dmas = <0x26 0x59 0x400 0x01>;
+ 					phandle = <0x39>;
+ 					reg = <0x04 0x20>;
+-					status = "okay";
++					status = "disabled";
+
+
+Best regards,
+Krzysztof
 
