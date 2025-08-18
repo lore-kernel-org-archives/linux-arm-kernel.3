@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8758CA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6EFCA0ED1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGvdfcSqol4uqC5hrNdAipjgClOPmg1Z1nCGTM/7W5Q=; b=xPtxq3qI0nt0Cna8y1r0S/V/y8
-	l75cG1az3enBjACnQ6CeDz8w2mlB55dvvSaTWrSO5XwVFL6bn3MbkLg1zANKCMPvVx5mjE/u4Uuwb
-	iOnlIgP56q/Dau7F8r8CDVnKAk4p+kCSGb7XfpJ7CIdqk/vcBXR+DU7usSrtDnfAEIQXvcgkONauJ
-	v6TiS7vk/DYaLl2AEtppZ4Au6J7WU98VuAlwtSKAWR30xpTlO8XdYORZYIqCYy9wWpaR3Ic/AOUgP
-	nPEpi7sfczzRlHnfHCnznaOlHLM4ccfLPTr7VmJGICyv966z+vmut7yAMSyEElFWPZ+keuKdDiijt
-	l/b/868g==;
+	bh=NdOWc+fAMi7P9ZHtkHgv9+XzfjijgfcMfpIb/LFmvKA=; b=b3/xc0ZWnVXnOGjBpC7VUgGDfL
+	COgkGXxDsWqGCpP7D9C2SFzt9V9xp3lD7g23fPVKLvpqTBAB6KKzdRtAKxS1eAG4lDeUh4AwElDDI
+	dCHbNX4avsU1NlR+LMCsvvicfHpH1IT+9b3m+mymMe2/jWhf1SZBQXZ/A8VRWZtNyGJQCK4MfLlwb
+	8zxZYX6ydk2sKRJvE9HHU1839g9U+dYYmOsem/lmVnefhXRoiR+A4OBJCHHLUY2nYEegE9bysBm1h
+	OsinyAb0aDX+cabpHUT/1u5YK6WkYu+HH1DqqdWYQGB46h69qUD6QbNfN52Cw0RKvdy51bB35pO2C
+	uVX6ez7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1BD-00000007pzM-1BOw;
-	Mon, 18 Aug 2025 14:49:47 +0000
+	id 1uo1BC-00000007pxU-0yfv;
+	Mon, 18 Aug 2025 14:49:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unzne-00000007Qno-1Hm8
+	id 1unzmJ-00000007Qau-2YVU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 13:21:23 +0000
+	Mon, 18 Aug 2025 13:20:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 803B41596;
-	Mon, 18 Aug 2025 06:21:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A393A1596;
+	Mon, 18 Aug 2025 06:19:47 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC6493F738;
-	Mon, 18 Aug 2025 06:21:17 -0700 (PDT)
-Date: Mon, 18 Aug 2025 14:21:14 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D98FA3F738;
+	Mon, 18 Aug 2025 06:19:51 -0700 (PDT)
+Date: Mon, 18 Aug 2025 14:19:43 +0100
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: Dhruva Gole <d-gole@ti.com>
 Cc: Cristian Marussi <cristian.marussi@arm.com>,
@@ -43,21 +43,18 @@ Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	f.fainelli@gmail.com, vincent.guittot@linaro.org,
 	quic_sibis@quicinc.com, dan.carpenter@linaro.org,
 	johan+linaro@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
-	quic_mdtipton@quicinc.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Subject: Re: [PATCH 2/2] [NOT_FOR_UPSTREAM] cpufreq: scmi: Add quirk to
- disable checks in scmi_dev_used_by_cpus()
-Message-ID: <aKMoyp5xw9xSj2v1@pluto>
+	quic_mdtipton@quicinc.com
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: Rework quirks framework header
+Message-ID: <aKMob3SLE8AofNHw@pluto>
 References: <20250815102736.81450-1-cristian.marussi@arm.com>
- <20250815102736.81450-2-cristian.marussi@arm.com>
- <20250818062044.zawqkalphvxjwt2w@lcpd911>
+ <20250818053535.owst4ilq2oxfgqnq@lcpd911>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818062044.zawqkalphvxjwt2w@lcpd911>
+In-Reply-To: <20250818053535.owst4ilq2oxfgqnq@lcpd911>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_062122_431289_083C7BCD 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20250818_061959_735446_2EC8C8E3 
+X-CRM114-Status: GOOD (  36.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,68 +69,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 11:50:44AM +0530, Dhruva Gole wrote:
-> On Aug 15, 2025 at 11:27:36 +0100, Cristian Marussi wrote:
-> > From: Florian Fainelli <florian.fainelli@broadcom.com>
-> > 
-> > Broadcom STB platforms were early adopters of the SCMI framework and as
-> > a result, not all deployed systems have a Device Tree entry where SCMI
-> > protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
-> > CPU Device Tree node(s) referencing protocol 0x13 as their clock
-> > provider.
-> > 
-> > Leverage the quirks framework recently introduce to match on the
-> > Broadcom SCMI vendor and in that case, disable the Device Tree
-> > properties checks being done by scmi_dev_used_by_cpus().
-> > 
-> > Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
-> > Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
-> > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> > [Cristian: Moved quirk directly into scmi_dev_used_by_cpus]
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> > 
-> > ----
-> > @Florian: I reworked this minimally to avoid the global as I was mentioning.
-> > No change around the version match either...so the NOT_FOR_UPSTREAM tag.
-> > (also the if (true) i smaybe a bit idiotic...)
-> > Please check if it is fine and modify as you see fit.
-> > ---
-> >  drivers/cpufreq/scmi-cpufreq.c     | 9 +++++++++
-> >  drivers/firmware/arm_scmi/quirks.c | 2 ++
-> >  include/linux/scmi_quirks.h        | 1 +
-> >  3 files changed, 12 insertions(+)
-> > 
-> > diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> > index ef078426bfd5..9b7cbc4e87d9 100644
-> > --- a/drivers/cpufreq/scmi-cpufreq.c
-> > +++ b/drivers/cpufreq/scmi-cpufreq.c
-> > @@ -19,6 +19,7 @@
-> >  #include <linux/pm_qos.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/scmi_protocol.h>
-> > +#include <linux/scmi_quirks.h>
-> >  #include <linux/types.h>
-> >  #include <linux/units.h>
-> >  
-> > @@ -393,6 +394,12 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
-> >  	.set_boost	= cpufreq_boost_set_sw,
-> >  };
-> >  
-> > +#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
-> > +	({							\
-> > +		if (true)					\
-> > +			return true;				\
-> > +	})
-> > +
+On Mon, Aug 18, 2025 at 11:05:35AM +0530, Dhruva Gole wrote:
+> Hi,
 > 
-> Probably another checkpatch warning to fix:
-> 8<--------------------------------------------------------------------
-> WARNING: Macros with flow control statements should be avoided                                                                                                                                                     
-> #50: FILE: drivers/cpufreq/scmi-cpufreq.c:397:                                                                                                                                                                     
+> On Aug 15, 2025 at 11:27:35 +0100, Cristian Marussi wrote:
 
-Yes I saw this too....but seemed harmless and anyway Quirks are really
-very peculiar piece of code...
+Ho Dhruva,
 
-Thanks
+> > Split and relocate the quirks framework header so as to be usable also by
+> > SCMI Drivers and not only by the core.
+> 
+> Could you elaborate a bit more on this reasoning? I am not fully
+> convinced as to why I shouldn't just include quirks.h in the other scmi
+> drivers as well?
+> 
+
+You can include quirks.h directly BUT you will have to use an ugly
+
+	#include ../drivers/firmware/arm_scmi/quirks.h
+
+...AND also you will endup exposing a couple of internal functions used
+by the quirk framework like:
+
+void scmi_quirks_initialize(void);                                               
+void scmi_quirks_enable(struct device *dev, const char *vend,                    
+                        const char *subv, const u32 impl);  
+
+..so I split out the interface needed for quirking and relocated the
+file to include/quirks
+	
+> Oh or perhaps you mean to say scmi driver like scmi cpufreq / clk-scmi
+> etc.. which lie outside the firmware/arm_scmi folder? If so then that's
+> not coming out clearly in this patch commit message.
+
+Yes when I say SCMI drivers I mean general drivers that use the SCMI
+stack BUT that are not part of the SCMI core....basically those drivers
+that use the API in include/linux/scmi_protocol.h
+
+Anyway...it seems like the only user of quirks in the SCMI drivers has
+just disappeared...so maybe this small patch can just wait...
+
+> 
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> >  drivers/firmware/arm_scmi/clock.c  |  2 +-
+> >  drivers/firmware/arm_scmi/driver.c |  1 +
+> >  drivers/firmware/arm_scmi/quirks.h | 33 +++-------------------
+> >  include/linux/scmi_quirks.h        | 44 ++++++++++++++++++++++++++++++
+> >  4 files changed, 50 insertions(+), 30 deletions(-)
+> >  create mode 100644 include/linux/scmi_quirks.h
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> > index afa7981efe82..5599697de37a 100644
+> > --- a/drivers/firmware/arm_scmi/clock.c
+> > +++ b/drivers/firmware/arm_scmi/clock.c
+> > @@ -7,11 +7,11 @@
+> >  
+> >  #include <linux/module.h>
+> >  #include <linux/limits.h>
+> > +#include <linux/scmi_quirks.h>
+> >  #include <linux/sort.h>
+> >  
+> >  #include "protocols.h"
+> >  #include "notify.h"
+> > -#include "quirks.h"
+> >  
+> >  /* Updated only after ALL the mandatory features for that version are merged */
+> >  #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x30000
+> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > index bd56a877fdfc..6f5934cd3a65 100644
+> > --- a/drivers/firmware/arm_scmi/driver.c
+> > +++ b/drivers/firmware/arm_scmi/driver.c
+> > @@ -34,6 +34,7 @@
+> >  #include <linux/processor.h>
+> >  #include <linux/refcount.h>
+> >  #include <linux/slab.h>
+> > +#include <linux/scmi_quirks.h>
+> >  #include <linux/xarray.h>
+> >  
+> >  #include "common.h"
+> > diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
+> > index a71fde85a527..260ae38d617b 100644
+> > --- a/drivers/firmware/arm_scmi/quirks.h
+> > +++ b/drivers/firmware/arm_scmi/quirks.h
+> > @@ -4,49 +4,24 @@
+> >   *
+> >   * Copyright (C) 2025 ARM Ltd.
+> >   */
+> > -#ifndef _SCMI_QUIRKS_H
+> > -#define _SCMI_QUIRKS_H
+> > +#ifndef _SCMI_QUIRKS_INTERNAL_H
+> > +#define _SCMI_QUIRKS_INTERNAL_H
+> 
+> Or as per your commit message wording, better to call it
+> _SCMI_QUIRKS_CORE_H ?
+> 
+
+...well mayeb yes....I have not bother to change the filename
+anyway ....
+
+> >  
+> > -#include <linux/static_key.h>
+> > +#include <linux/device.h>
+> >  #include <linux/types.h>
+> >  
+> >  #ifdef CONFIG_ARM_SCMI_QUIRKS
+> >  
+> > -#define DECLARE_SCMI_QUIRK(_qn)						\
+> > -	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
+> > -
+> > -/*
+> > - * A helper to associate the actual code snippet to use as a quirk
+> > - * named as _qn.
+> > - */
+> > -#define SCMI_QUIRK(_qn, _blk)						\
+> > -	do {								\
+> > -		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
+> > -			(_blk);						\
+> > -	} while (0)
+> > -
+> >  void scmi_quirks_initialize(void);
+> >  void scmi_quirks_enable(struct device *dev, const char *vend,
+> >  			const char *subv, const u32 impl);
+> >  
+> >  #else
+> >  
+> > -#define DECLARE_SCMI_QUIRK(_qn)
+> > -/* Force quirks compilation even when SCMI Quirks are disabled */
+> > -#define SCMI_QUIRK(_qn, _blk)						\
+> > -	do {								\
+> > -		if (0)							\
+> > -			(_blk);						\
+> > -	} while (0)
+> > -
+> >  static inline void scmi_quirks_initialize(void) { }
+> >  static inline void scmi_quirks_enable(struct device *dev, const char *vend,
+> >  				      const char *sub_vend, const u32 impl) { }
+> >  
+> >  #endif /* CONFIG_ARM_SCMI_QUIRKS */
+> >  
+> > -/* Quirk delarations */
+> > -DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+> > -DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
+> > -
+> > -#endif /* _SCMI_QUIRKS_H */
+> > +#endif /* _SCMI_QUIRKS_INTERNAL_H */
+> > diff --git a/include/linux/scmi_quirks.h b/include/linux/scmi_quirks.h
+> > new file mode 100644
+> > index 000000000000..11657bd91ffc
+> > --- /dev/null
+> > +++ b/include/linux/scmi_quirks.h
+> > @@ -0,0 +1,44 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * System Control and Management Interface (SCMI) Message Protocol Quirks
+> > + *
+> > + * Copyright (C) 2025 ARM Ltd.
+> > + */
+> > +#ifndef _SCMI_QUIRKS_H
+> > +#define _SCMI_QUIRKS_H
+> > +
+> > +#include <linux/static_key.h>
+> > +#include <linux/types.h>
+> > +
+> > +#ifdef CONFIG_ARM_SCMI_QUIRKS
+> > +
+> > +#define DECLARE_SCMI_QUIRK(_qn)						\
+> > +	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
+> > +
+> > +/*
+> > + * A helper to associate the actual code snippet to use as a quirk
+> > + * named as _qn.
+> > + */
+> > +#define SCMI_QUIRK(_qn, _blk)						\
+> > +	do {								\
+> > +		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
+> > +			(_blk);						\
+> > +	} while (0)
+> > +
+> > +#else
+> > +
+> > +#define DECLARE_SCMI_QUIRK(_qn)
+> > +/* Force quirks compilation even when SCMI Quirks are disabled */
+> > +#define SCMI_QUIRK(_qn, _blk)						\
+> > +	do {								\
+> > +		if (0)							\
+> > +			(_blk);						\
+> > +	} while (0)
+> 
+> Did you happen to run checkpatch on this?
+> 8<---------------------------------------------------------------------------
+> WARNING: Argument '_qn' is not used in function-like macro
+> #142: FILE: include/linux/scmi_quirks.h:32:
+> +#define SCMI_QUIRK(_qn, _blk)                                          \
+> +       do {                                                            \
+> +               if (0)                                                  \
+> +                       (_blk);                                         \
+> +       } while (0)
+> 
+> total: 0 errors, 2 warnings, 0 checks, 116 lines checked
+> --------------------------------------------------------------------------->8
+>
+
+Oh yes I did on all the series...BUT this specific error on this branch
+of the #if was already present in the original patch that added the
+Quirk framework...I did not know how to avoid this warning and given it
+is pretty much harmless I just ignored it...
+
+> 
+> > +
+> > +#endif /* CONFIG_ARM_SCMI_QUIRKS */
+> > +
+> > +/* Quirk delarations */
+> > +DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+> > +DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
+> > +
+> > +#endif /* _SCMI_QUIRKS_H */
+> > -- 
+> > 2.50.1
+> > 
+> 
+
+Thanks for the review.
 Cristian
 
