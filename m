@@ -4,103 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0651ACA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5691CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QamokhfM1GcyheOMdy3Zz4jkOrdWtl4wsYSaEK3Ivkw=; b=WFc508hmezGuhb4U7KRMUGWiwE
-	IfA8HbmdcQ0Qy2JtPdnCp+s2+G2NlZZn4lynGhkQ4YTbtiovp3LXmCfZpT9z5Xjt88uUy5VlGLmJJ
-	bdllz4BmSd+2FbZ2qBJa/0Ln2T1QAnKLQZ1e/KK9X1BBbH/UMPIS8v3m7bGQyNFF8S5wmEHlGlvea
-	yhdBGib7llRMhu6qqxnJUR4dh51657Lmd3Gi5vdycm6IjqfEHLBJvPyTLCdnXwHfbK37XNmekb2Hk
-	wJTmD9SgeiaVZiXfjijRh6zxTe5oOAFyCmwwFHVFoKSocylj7QWT6Prl1Jhk3LPAPlUKg46tDbD2y
-	m1MCMI5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7DvN1bh+U+V1dyDczTAfJEsQaOAsBMUQCFYgz+7OHOU=; b=YDMZiHh7klebSRCxKa/kwyWGjB
+	/G9Pof9xX8sKGjMO6EtRUaVZNcrTrW29xApJ/8eQSmtgq+/ocdfqwqPv5JbV2O+bnRp6KJb/bYePJ
+	3/32cbqemeUMr7rIg/YvQkDMmsC7yx8BaNiin8PUUDDoVbeoXCyjyK/Ujq2ags/VB+h4Ni0XgQpSq
+	ESA9f9TK5dW9Q/5VlANxq7Vom7DNywUc5pl2311bgfZvZS28RI7kcNcUKOD9Pse1oYdQ4efdO072J
+	9n2auHhP5HTvn+eZj7rjcPV+MpK3qCBGG3CO2uoiW0jmp3w/wC1oK8IIrk+KUUtOi7jhpYuMV5PY1
+	eXJ6NFAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0sp-00000007kxN-0v1n;
-	Mon, 18 Aug 2025 14:30:47 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0mU-00000007jq7-1l7U
+	id 1uo0vN-00000007lNW-0wG7;
+	Mon, 18 Aug 2025 14:33:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo0qC-00000007kT4-3aCy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 14:24:15 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-afcc96bb64eso74034866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 07:24:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755527053; x=1756131853; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QamokhfM1GcyheOMdy3Zz4jkOrdWtl4wsYSaEK3Ivkw=;
-        b=MQFt+ALEtLXG9+ucL5K1b/LU5MPLG5SlvfSWc8PZt1UGls7RvaAwjnZZoCvg/Gafpp
-         8mKDhkBn88eo49xpeYyJ+QoWxwOh+tWaKnulRmZkq9ymaYZJbpTR2PpEMnJZrFfKSGnV
-         aM/B0NptgDFDyByJEXmP4XYnlnAYZAJh9NaGrlfPGEgORkhEVN7dAQQ79YeWdeCZqH8T
-         inRiKdKgRi+HN30ZZDwwNX3dFhVVk+wYdonuAxLamAkdMLM6u/mggU+cnzEh/M8qeWwJ
-         m7ofZFQv6GT5nmwIxCdGseLYXzmvMEWKPGHOJKSQnovwXcJmo3rLh/bDtnZkNstv/je5
-         GWCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755527053; x=1756131853;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QamokhfM1GcyheOMdy3Zz4jkOrdWtl4wsYSaEK3Ivkw=;
-        b=O2L6lDVg62MEOat7OliJGDPVqqPX8nHt1oRzyD7B/ToJiWboZdIa07Su27nEJJcUi4
-         UsSe+Nv5R2kcXAmQ0JLskJ3bzpOJfKgufDw28CIzyT4WOe4cPs5LRiv89M4gt0FlCWJh
-         hrtgehqcxI211nfKJVq2mzkVU5MqGc58dYT9bA1EoqTZFvcYDDc7kdZVN1SoB18ZwK1A
-         kQIOXrPykot1DQ9CEwnuqSgtGqHTE3+ZgR/Ts3pmJVCLKvCP0gIlgFjCcwHLxmm/UPT8
-         Mnx+aprf/3X/4fKnjGppSA6m0iBU7qYQ+pBaKCR74Xcp+B5/Ho8X0lFo96aKXqiKppaq
-         D4MA==
-X-Forwarded-Encrypted: i=1; AJvYcCXGknKHw90FywqOxE3ReY1jy7hAHC/fz2jQpYDwhOBjR6SgvwH4eTnW5siZdeiUXhnpcavHCiIT35/4Z8XJaOpy@lists.infradead.org
-X-Gm-Message-State: AOJu0YwarMGiHdT21yPPwbfzce2MeMQeIVy37zySmoo8hg2Hoe9aKrMs
-	Qa/NjAnrt9yZIywe1KqJUbdobyTwER4mf5yLZ8HEJPnY9sqp1Is3kGnsMdSW+e0ZZf0=
-X-Gm-Gg: ASbGncsASuEGo0V1wQbwbEZYznzldksZ3URCvxt09+m4WcY4DFM+7cWe00IeQnz6v74
-	Vt5YC2ubNrDQ7BlqebX6+bLGN4x1VaQSezJM++sXAalN3RB1u/jTksOEzPNiTT+P8p/kJeMeRfk
-	fqXWPHd49QLwr65C68DJksdUaHEo7sIiYWED7yzsCtF9VGHi0E6X+q3dMe+1n98Ftf3+FVOBp1V
-	C8VeROyksk6AqqhqVki6IpKC/y8Z+lluW+DP3K8eyEn/vdjTF5PJtsq2QjB/ObR6FIBiSFuoLAt
-	hISbRAdOq7AV7ipTZwCg4EyPDMRf8v2d3/GWsYMilK3TfVt9v9KKlNeGjbFObeSE9q9aVLiDwV8
-	xXwfS4TUGr9RzJ5dIUoja690OAmBpwucu7g==
-X-Google-Smtp-Source: AGHT+IF0eQL4ER7n043LGZ/uWkPZXG/pygEg35URndrpoalaoUz4uPyviRVbuOk3OWfAjWq8XjlDiA==
-X-Received: by 2002:a17:907:7fa7:b0:af9:566c:4cd2 with SMTP id a640c23a62f3a-afcdc2367a4mr462998666b.10.1755527049798;
-        Mon, 18 Aug 2025 07:24:09 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce53dd5sm803192366b.5.2025.08.18.07.24.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 07:24:09 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: =?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <legoffic.clement@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] pinctrl: stm32: Constify static 'pinctrl_desc'
-Date: Mon, 18 Aug 2025 16:24:03 +0200
-Message-ID: <20250818142402.132008-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Mon, 18 Aug 2025 14:28:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E940A1596;
+	Mon, 18 Aug 2025 07:27:53 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B499A3F63F;
+	Mon, 18 Aug 2025 07:28:01 -0700 (PDT)
+Date: Mon, 18 Aug 2025 15:27:59 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] coresight-tnoc: add platform driver to support
+ Interconnect TNOC
+Message-ID: <20250818142759.GA8071@e132581.arm.com>
+References: <20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com>
+ <20250815-itnoc-v1-2-62c8e4f7ad32@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=840; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=GQ5ftdYWjc1ggmTXk0Nbj6QK5jviPLomx0fpZtjccPw=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoozeCHbXUKSjJp2DSxgX9G/1zAJfSI1ztiFFmO
- GadvdBbwOOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKM3ggAKCRDBN2bmhouD
- 1yoED/4kiZrB9q1OBGXP/IDolXlLyozFqO4AV9Emhx7w6pECE6srTXNW0Io7CnrMi0NzZMG58Ok
- fm+15O1C8b/juIQEqd21izzXzrGo27C3MZyD0BRrXqiwig7D2md0Om36cPq5qhacQ/zDmTpqwre
- RB3kZssnYEetCx0yNNlo+4FilIdI73HUOLBe7NjhjdgYyinQ1CUFjyQBrIkfunSZqcBZezmsQ++
- D0K40lIyY0h5nBjRIKpz+x6o7wDitTdHR41tBju6dC/iGlvLJy+EEOpTTi8OuybUdMZTjyXH+AW
- v3l7+uSupThYNKmIPHmI+dgJTg6wYmF+RRwgTwlKOIVSkrjSK0qlmYJxDubNzMVhPGQtLju+zZf
- yrapLhuKFH6b2QE3QQigfWAWcilF9rdt7gD/mr8FljvXYBKtQVazVxlky4pZWXtJnk0acqX4+bu
- JRmGZ08gufYi08WEAQ4Fbq4ef0x1HR4/6epHh6Kyf033ep138BhgWHGz5jinmmwQmCTJPowT+Iu
- ZRAS5U1JPvwEAQHEQsFTMttnyATQyBPYpJ7NZiTc+QJMTnYhxHhQBnpIrcUZuQ8gjf9Aw+NoO5s
- cCDK8474FZvZaoSSTtwZPWx9SuZLQQmpjUT5Yjad3ZHNO4LYiv5uT/wfKA8WZczUAJ1ziod5OIU fbYKk48w9jEUxLw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250815-itnoc-v1-2-62c8e4f7ad32@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_072414_459935_69581084 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250818_072804_982324_8C9B7C2C 
+X-CRM114-Status: GOOD (  45.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,28 +71,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The local static 'struct pinctrl_desc' is not modified, so can be made
-const for code safety.
+On Fri, Aug 15, 2025 at 06:18:13AM -0700, Yuanfang Zhang wrote:
+> This patch adds platform driver support for the CoreSight Interconnect
+> TNOC, Interconnect TNOC is a CoreSight link that forwards trace data
+> from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC,
+> it does not have aggregation and ATID functionality.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/pinctrl/stm32/pinctrl-stm32-hdp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Such kind of driver is not complex, it would be fine to had sent driver
+in one go for support both AMBA and platform devices.
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-index e91442eb566b..0cd41f3f7a52 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-@@ -575,7 +575,7 @@ static const struct pinmux_ops stm32_hdp_pinmux_ops = {
- 	.gpio_set_direction  = NULL,
- };
- 
--static struct pinctrl_desc stm32_hdp_pdesc = {
-+static const struct pinctrl_desc stm32_hdp_pdesc = {
- 	.name	 = DRIVER_NAME,
- 	.pins	 = stm32_hdp_pins,
- 	.npins	 = ARRAY_SIZE(stm32_hdp_pins),
--- 
-2.48.1
+> Key changes:
+> - Add platform driver `coresight-itnoc` with device tree match support.
+> - Refactor probe logic into a common `_tnoc_probe()` function.
+> - Conditionally initialize ATID only for AMBA-based TNOC blocks.
 
+An AMBA or platform device is only about device probing; it is not
+necessarily bound to a device feature.
+
+So I am suspicious of the conclusion that an AMBA-based TNOC always
+supports ATID, while a platform device never supports it.
+
+Otherwise, you might need to consider using a DT property to indicate
+whether ATID is present or not.
+
+> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-tnoc.c | 153 +++++++++++++++++++--------
+>  1 file changed, 106 insertions(+), 47 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> index d542df46ea39314605290311f683010337bfd4bd..aa6f48d838c00d71eff22c18e34e00b93755fd82 100644
+> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -34,6 +34,7 @@
+>   * @base:      memory mapped base address for this component.
+>   * @dev:       device node for trace_noc_drvdata.
+>   * @csdev:     component vitals needed by the framework.
+> + * @pclk:	APB clock if present, otherwise NULL
+>   * @spinlock:  serialize enable/disable operation.
+>   * @atid:      id for the trace packet.
+>   */
+> @@ -41,6 +42,7 @@ struct trace_noc_drvdata {
+>  	void __iomem		*base;
+>  	struct device		*dev;
+>  	struct coresight_device	*csdev;
+> +	struct clk		*pclk;
+>  	spinlock_t		spinlock;
+>  	u32			atid;
+>  };
+> @@ -51,25 +53,27 @@ static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+>  {
+>  	u32 val;
+>  
+> -	/* Set ATID */
+> -	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> -
+> -	/* Set the data word count between 'SYNC' packets */
+> -	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+> -
+> -	/* Set the Control register:
+> -	 * - Set the FLAG packets to 'FLAG' packets
+> -	 * - Set the FREQ packets to 'FREQ_TS' packets
+> -	 * - Enable generation of output ATB traffic
+> -	 */
+> -
+> -	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> -
+> -	val &= ~TRACE_NOC_CTRL_FLAGTYPE;
+> -	val |= TRACE_NOC_CTRL_FREQTYPE;
+> -	val |= TRACE_NOC_CTRL_PORTEN;
+> -
+> -	writel(val, drvdata->base + TRACE_NOC_CTRL);
+> +	if (drvdata->atid) {
+> +		/* Set ATID */
+> +		writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +		/* Set the data word count between 'SYNC' packets */
+> +		writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
+> +		/* Set the Control register:
+> +		 * - Set the FLAG packets to 'FLAG' packets
+> +		 * - Set the FREQ packets to 'FREQ_TS' packets
+> +		 * - Enable generation of output ATB traffic
+> +		 */
+> +
+> +		val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +		val &= ~TRACE_NOC_CTRL_FLAGTYPE;
+> +		val |= TRACE_NOC_CTRL_FREQTYPE;
+> +		val |= TRACE_NOC_CTRL_PORTEN;
+> +		writel(val, drvdata->base + TRACE_NOC_CTRL);
+> +	} else {
+> +		writel(0x1, drvdata->base + TRACE_NOC_CTRL);
+> +	}
+
+Change "atid" type from u32 to int, then you could set it as
+"-EOPNOTSUPP" for non-AMBA device. Here:
+
+    /* No valid ATID, simply enable the unit */
+    if (drvdata->atid == -EOPNOTSUPP) {
+        writel(TRACE_NOC_CTRL_PORTEN, drvdata->base + TRACE_NOC_CTRL);
+        return;
+    }
+
+>  }
+>  
+>  static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+> @@ -120,19 +124,6 @@ static const struct coresight_ops trace_noc_cs_ops = {
+>  	.link_ops	= &trace_noc_link_ops,
+>  };
+>  
+> -static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+> -{
+> -	int atid;
+> -
+
+Don't need to remove this function. Just check AMBA device case:
+
+    /* ATID is not supported for interconnect TNOC */
+    if (!dev_is_amba(drvdata->dev)) {
+        drvdata->atid = -EOPNOTSUPP;
+        return 0;
+    }
+
+> -	atid = coresight_trace_id_get_system_id();
+> -	if (atid < 0)
+> -		return atid;
+> -
+> -	drvdata->atid = atid;
+> -
+> -	return 0;
+> -}
+> -
+>  static ssize_t traceid_show(struct device *dev,
+>  			    struct device_attribute *attr, char *buf)
+>  {
+> @@ -158,13 +149,12 @@ static const struct attribute_group *coresight_tnoc_groups[] = {
+>  	NULL,
+>  };
+>  
+> -static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +static int _tnoc_probe(struct device *dev, struct resource *res, bool has_id)
+
+As a result, no need the parameter "has_id".
+
+>  {
+> -	struct device *dev = &adev->dev;
+>  	struct coresight_platform_data *pdata;
+>  	struct trace_noc_drvdata *drvdata;
+>  	struct coresight_desc desc = { 0 };
+> -	int ret;
+> +	int ret, atid = 0;
+>  
+>  	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+>  	if (!desc.name)
+> @@ -173,42 +163,61 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+>  	pdata = coresight_get_platform_data(dev);
+>  	if (IS_ERR(pdata))
+>  		return PTR_ERR(pdata);
+> -	adev->dev.platform_data = pdata;
+> +	dev->platform_data = pdata;
+>  
+>  	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+>  	if (!drvdata)
+>  		return -ENOMEM;
+>  
+> -	drvdata->dev = &adev->dev;
+> +	drvdata->dev = dev;
+>  	dev_set_drvdata(dev, drvdata);
+>  
+> -	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	ret = coresight_get_enable_clocks(dev, &drvdata->pclk, NULL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, res);
+>  	if (IS_ERR(drvdata->base))
+>  		return PTR_ERR(drvdata->base);
+>  
+>  	spin_lock_init(&drvdata->spinlock);
+>  
+> -	ret = trace_noc_init_default_data(drvdata);
+> -	if (ret)
+> -		return ret;
+> +	if (has_id) {
+> +		atid = coresight_trace_id_get_system_id();
+> +		if (atid < 0)
+> +			return atid;
+> +	}
+> +
+> +	drvdata->atid = atid;
+
+Drop this change and simply keep the code for invoking
+trace_noc_init_default_data().
+
+>  	desc.ops = &trace_noc_cs_ops;
+>  	desc.type = CORESIGHT_DEV_TYPE_LINK;
+>  	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+> -	desc.pdata = adev->dev.platform_data;
+> -	desc.dev = &adev->dev;
+> +	desc.pdata = pdata;
+> +	desc.dev = dev;
+>  	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+> -	desc.groups = coresight_tnoc_groups;
+> +	if (has_id)
+> +		desc.groups = coresight_tnoc_groups;
+
+No need to change for groups.
+
+Just return "-EOPNOTSUPP" in traceid_show() if drvdata->atid is negative.
+Or, you could use the .is_visible() callback to decide if the "trace_id"
+node appears or not.
+
+>  	drvdata->csdev = coresight_register(&desc);
+> -	if (IS_ERR(drvdata->csdev)) {
+> +	if (IS_ERR(drvdata->csdev) && has_id) {
+>  		coresight_trace_id_put_system_id(drvdata->atid);
+>  		return PTR_ERR(drvdata->csdev);
+>  	}
+> -	pm_runtime_put(&adev->dev);
+>  
+>  	return 0;
+>  }
+>  
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	int ret;
+> +
+> +	ret = _tnoc_probe(&adev->dev, &adev->res, true);
+> +	if (!ret)
+> +		pm_runtime_put(&adev->dev);
+> +
+> +	return ret;
+> +}
+> +
+>  static void trace_noc_remove(struct amba_device *adev)
+>  {
+>  	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> @@ -236,7 +245,57 @@ static struct amba_driver trace_noc_driver = {
+>  	.id_table	= trace_noc_ids,
+>  };
+>  
+> -module_amba_driver(trace_noc_driver);
+> +static int itnoc_probe(struct platform_device *pdev)
+> +{
+> +	struct resource *res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +	int ret;
+> +
+> +	pm_runtime_get_noresume(&pdev->dev);
+> +	pm_runtime_set_active(&pdev->dev);
+> +	pm_runtime_enable(&pdev->dev);
+> +
+> +	ret = _tnoc_probe(&pdev->dev, res, false);
+> +	pm_runtime_put(&pdev->dev);
+> +	if (ret)
+> +		pm_runtime_disable(&pdev->dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static void itnoc_remove(struct platform_device *pdev)
+> +{
+> +	struct trace_noc_drvdata *drvdata = platform_get_drvdata(pdev);
+> +
+> +	coresight_unregister(drvdata->csdev);
+> +	pm_runtime_disable(&pdev->dev);
+> +}
+> +
+> +static const struct of_device_id itnoc_of_match[] = {
+> +	{ .compatible = "qcom,coresight-itnoc" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, itnoc_of_match);
+> +
+> +static struct platform_driver itnoc_driver = {
+> +	.probe = itnoc_probe,
+> +	.remove = itnoc_remove,
+> +	.driver = {
+> +		.name = "coresight-itnoc",
+> +		.of_match_table = itnoc_of_match,
+
+You might need to set:
+
+    .suppress_bind_attrs = true,
+
+Thanks,
+Leo
+
+> +	},
+> +};
+> +
+> +static int __init tnoc_init(void)
+> +{
+> +	return coresight_init_driver("tnoc", &trace_noc_driver, &itnoc_driver, THIS_MODULE);
+> +}
+> +
+> +static void __exit tnoc_exit(void)
+> +{
+> +	coresight_remove_driver(&trace_noc_driver, &itnoc_driver);
+> +}
+> +module_init(tnoc_init);
+> +module_exit(tnoc_exit);
+>  
+>  MODULE_LICENSE("GPL");
+>  MODULE_DESCRIPTION("Trace NOC driver");
+> 
+> -- 
+> 2.34.1
+> 
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
