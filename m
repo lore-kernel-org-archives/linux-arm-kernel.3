@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3031CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F241CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oHV6eDv/jSipaBzI1+qlMqK2ITIVXOlUp3nua4gFpk=; b=MAh5SLD/iOkjZlJPVI7rijgvDz
-	7IO3/bA2fkaixkAcuwHDrHc+I3zJCPlP+JxdNPENMzX7zYuFNCvI+BOMMaZnt4EFtEWh3dAmQxtCo
-	NJjwvAWOTlRh/KY7pX5QOIYhT+aO3BURXxZFwwlnnzQ4vc4xHwit1pmYyrtoT+yGqwNCJFKWx+Jx4
-	wU2BAoCfqI8libp7NU3qlvvPYYk8YzMN5wNkhLISo5obfmD9fRUbCjWbnVJK9XqMw7FxLK1RjH3qA
-	k09lHJC5FvWnxE38jZTxdhM1aYGV+QJQZtUHaGnE4M+gaUnFyGc93gLuL7lrd/wbniwnEAzFCVHMD
-	N3epq7Jw==;
+	bh=Th+BIyNoLUE5I/7/S7xGZfCtQHvNeIUfM0nEcxIY1Wc=; b=MU02KhdS2hjqYVxne3QcntpUMJ
+	Dws4ysfwyVabFYNAwWnlsQca/LNtgLZzgU0jprqA1C5k8LYaJ+HrbMxcAPHSM41v+e7fqvzhobYbj
+	zkpDnqqLng0fIWUHcG4sGVKIa1PcItszb70q1ar12I9CeqkI6Xnj5YlOs1FDhWbjgJaFilIbHSiNK
+	Wt1O4R9zUK+yi3ZCSn/5+aDGt6zYMv378kVbuREF3kN6cfc0iYZGSPfFC8WpQgTdcP+tJvTXPzcUw
+	SzV6dmwOa0UY+rsjhEfGFQHd9GRV6sxVyAVg6DckcVWmOlYiv+APkjtZaPR3Fpe4FSJw0IdHF7Muu
+	8Cg6tjMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unue9-00000006pA8-3guU;
-	Mon, 18 Aug 2025 07:51:13 +0000
+	id 1unueC-00000006pCX-04H1;
+	Mon, 18 Aug 2025 07:51:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untF3-00000006coy-16Ob
+	id 1untfR-00000006hvs-2pkM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 Aug 2025 06:21:13 +0000
+	Mon, 18 Aug 2025 06:48:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4oHV6eDv/jSipaBzI1+qlMqK2ITIVXOlUp3nua4gFpk=; b=ByfnIDCKvdI3fS2wb3YObnhkoy
-	yljhkf8Tg/TA8qYUD2+qNJxBgzI6tg5YWEExftZodiN1DreWRMHvhDd9BOBwtCwC9gPfrJHrzucQ/
-	ERDfwXKy2+n8vtQi3QSfS4CMVzTkn7x93cN73dyOpvQKjALYHq/DVF/xRQ5yT5rTtOtAjXTwb4wnM
-	MKbiHUGI3BlPWDpAYhK0c8NIcOqibYvlsG/uv6HC8JByIcGOC3I+cIiTpVbR2fpyXumF4sZ9CkoPQ
-	JBtt+La9KArYWaiBi0T0j/2l2cp6BvrD5A5Z+tDLUNYyWRqrIpc7jDJVFTodmStaBL6ObtfhWPrb4
-	VBGYz4zQ==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Th+BIyNoLUE5I/7/S7xGZfCtQHvNeIUfM0nEcxIY1Wc=; b=qJuIYA9lowftqtpnH8OhVipR+4
+	o+aQChz8GvfKPgva4bnvqUWVXF+kD/vPWDLqWvAni96TWMwT28rRy3krkfqhqfrd1MOwV/0N9WRI/
+	ePa4hx4fc30fnH96XIIYw2UoMsbiREetIS3AJpSz+McqAdozmqEg5pVgZlc+PvXn1orENgFxWnRlv
+	u2sHrP8xWoLrKSLtMk8b3UymmNwDPfWqgEWcI2Z67AvisvMp/7QxAg4Faa3caLpesEOwdVfLxz1M3
+	R8R2lJyuwEsE/8801BNa7pHiGM/rDLSi2anF/tPfsL4AHVAAHdVM6CU8ijzKd9ZXO3fKouo8dB1K9
+	mh0w5gZA==;
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untEy-0000000HHDL-1i6D
+	id 1untfN-0000000HI23-0oDX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:21:12 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57I6KkKV2653885;
-	Mon, 18 Aug 2025 01:20:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755498046;
-	bh=4oHV6eDv/jSipaBzI1+qlMqK2ITIVXOlUp3nua4gFpk=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=DzPRt50w+q2spgh7NxBisUjPt9yBaIOK1KzpkfMH7nGX2ebDA3XFXELuFwIfGBwEN
-	 dguytTXvWx6sW4cZfckp/JVJmpwyvV945/yyVayTjzUxbQdOQBjAi0+QGn3YMU9PHB
-	 83AlAMkY6fE96+U7n7LE1FKVTXTwKsGCtu2Vr1J8=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57I6KkMj3594812
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 18 Aug 2025 01:20:46 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
- Aug 2025 01:20:46 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.1748.24; Mon, 18 Aug
- 2025 01:20:45 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 18 Aug 2025 01:20:45 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57I6Ki38544316;
-	Mon, 18 Aug 2025 01:20:45 -0500
-Date: Mon, 18 Aug 2025 11:50:44 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <arm-scmi@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <sudeep.holla@arm.com>, <james.quinlan@broadcom.com>,
-        <f.fainelli@gmail.com>, <vincent.guittot@linaro.org>,
-        <quic_sibis@quicinc.com>, <dan.carpenter@linaro.org>,
-        <johan+linaro@kernel.org>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <quic_mdtipton@quicinc.com>,
-        Florian Fainelli
-	<florian.fainelli@broadcom.com>
-Subject: Re: [PATCH 2/2] [NOT_FOR_UPSTREAM] cpufreq: scmi: Add quirk to
- disable checks in scmi_dev_used_by_cpus()
-Message-ID: <20250818062044.zawqkalphvxjwt2w@lcpd911>
-References: <20250815102736.81450-1-cristian.marussi@arm.com>
- <20250815102736.81450-2-cristian.marussi@arm.com>
+	Mon, 18 Aug 2025 06:48:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c53881y65zFrlS;
+	Mon, 18 Aug 2025 14:43:36 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0E5AA18048D;
+	Mon, 18 Aug 2025 14:48:12 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 18 Aug 2025 14:48:11 +0800
+Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 18 Aug 2025 14:48:10 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerkolothum@gmail.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
+	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
+Subject: [PATCH v5 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Date: Mon, 18 Aug 2025 14:48:04 +0800
+Message-ID: <20250818064806.25417-6-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250818064806.25417-1-yangyicong@huawei.com>
+References: <20250818064806.25417-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250815102736.81450-2-cristian.marussi@arm.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_072109_822290_ACF37BCC 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250818_074826_207664_E682666B 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,75 +95,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Aug 15, 2025 at 11:27:36 +0100, Cristian Marussi wrote:
-> From: Florian Fainelli <florian.fainelli@broadcom.com>
-> 
-> Broadcom STB platforms were early adopters of the SCMI framework and as
-> a result, not all deployed systems have a Device Tree entry where SCMI
-> protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
-> CPU Device Tree node(s) referencing protocol 0x13 as their clock
-> provider.
-> 
-> Leverage the quirks framework recently introduce to match on the
-> Broadcom SCMI vendor and in that case, disable the Device Tree
-> properties checks being done by scmi_dev_used_by_cpus().
-> 
-> Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
-> Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> [Cristian: Moved quirk directly into scmi_dev_used_by_cpus]
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> ----
-> @Florian: I reworked this minimally to avoid the global as I was mentioning.
-> No change around the version match either...so the NOT_FOR_UPSTREAM tag.
-> (also the if (true) i smaybe a bit idiotic...)
-> Please check if it is fine and modify as you see fit.
-> ---
->  drivers/cpufreq/scmi-cpufreq.c     | 9 +++++++++
->  drivers/firmware/arm_scmi/quirks.c | 2 ++
->  include/linux/scmi_quirks.h        | 1 +
->  3 files changed, 12 insertions(+)
-> 
-> diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-> index ef078426bfd5..9b7cbc4e87d9 100644
-> --- a/drivers/cpufreq/scmi-cpufreq.c
-> +++ b/drivers/cpufreq/scmi-cpufreq.c
-> @@ -19,6 +19,7 @@
->  #include <linux/pm_qos.h>
->  #include <linux/slab.h>
->  #include <linux/scmi_protocol.h>
-> +#include <linux/scmi_quirks.h>
->  #include <linux/types.h>
->  #include <linux/units.h>
->  
-> @@ -393,6 +394,12 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
->  	.set_boost	= cpufreq_boost_set_sw,
->  };
->  
-> +#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS			\
-> +	({							\
-> +		if (true)					\
-> +			return true;				\
-> +	})
-> +
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Probably another checkpatch warning to fix:
-8<--------------------------------------------------------------------
-WARNING: Macros with flow control statements should be avoided                                                                                                                                                     
-#50: FILE: drivers/cpufreq/scmi-cpufreq.c:397:                                                                                                                                                                     
-+#define QUIRK_SCMI_CPUFREQ_CHECK_DT_PROPS                      \                                        
-+       ({                                                      \                                                                                                                                                  
-+               if (true)                                       \                                        
-+                       return true;                            \        
-+       })                                                                                               
-                                                                                                         
-total: 0 errors, 1 warnings, 0 checks, 47 lines checked                                                  
--------------------------------------------------------------------->8
+Armv8.7 introduces single-copy atomic 64-byte loads and stores
+instructions and its variants named under FEAT_{LS64, LS64_V}.
+These features are identified by ID_AA64ISAR1_EL1.LS64 and the
+use of such instructions in userspace (EL0) can be trapped. In
+order to support the use of corresponding instructions in userspace:
+- Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
+- Add identifying and enabling in the cpufeature list
+- Expose these support of these features to userspace through HWCAP3
+  and cpuinfo
 
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ Documentation/arch/arm64/booting.rst    | 12 ++++++
+ Documentation/arch/arm64/elf_hwcaps.rst |  6 +++
+ arch/arm64/include/asm/hwcap.h          |  2 +
+ arch/arm64/include/uapi/asm/hwcap.h     |  2 +
+ arch/arm64/kernel/cpufeature.c          | 51 +++++++++++++++++++++++++
+ arch/arm64/kernel/cpuinfo.c             |  2 +
+ arch/arm64/tools/cpucaps                |  2 +
+ 7 files changed, 77 insertions(+)
 
+diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+index 2f666a7c303c..471cb6633a7e 100644
+--- a/Documentation/arch/arm64/booting.rst
++++ b/Documentation/arch/arm64/booting.rst
+@@ -545,6 +545,18 @@ Before jumping into the kernel, the following conditions must be met:
+ 
+    - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
+ 
++  For CPUs support for 64-byte loads and stores without status (FEAT_LS64):
++
++  - If the kernel is entered at EL1 and EL2 is present:
++
++    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
++
++  For CPUs support for 64-byte loads and stores with status (FEAT_LS64_V):
++
++  - If the kernel is entered at EL1 and EL2 is present:
++
++    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
++
+ The requirements described above for CPU mode, caches, MMUs, architected
+ timers, coherency and system registers apply to all CPUs.  All CPUs must
+ enter the kernel in the same exception level.  Where the values documented
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index f58ada4d6cb2..bbb257a5a0b0 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -441,6 +441,12 @@ HWCAP3_MTE_FAR
+ HWCAP3_MTE_STORE_ONLY
+     Functionality implied by ID_AA64PFR2_EL1.MTESTOREONLY == 0b0001.
+ 
++HWCAP3_LS64
++    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
++
++HWCAP3_LS64_V
++    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.
++
+ 4. Unused AT_HWCAP bits
+ -----------------------
+ 
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 13f94c8ddfc0..61c841c31e97 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -178,6 +178,8 @@
+ #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
+ #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
+ #define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
++#define KERNEL_HWCAP_LS64		__khwcap3_feature(LS64)
++#define KERNEL_HWCAP_LS64_V		__khwcap3_feature(LS64_V)
+ 
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 72c78468b806..86f37b680023 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -145,5 +145,7 @@
+  */
+ #define HWCAP3_MTE_FAR		(1UL << 0)
+ #define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
++#define HWCAP3_LS64		(1UL << 2)
++#define HWCAP3_LS64_V		(1UL << 3)
+ 
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9ad065f15f1d..6f60685fd78a 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -238,6 +238,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar0[] = {
+ };
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64isar1[] = {
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_LS64_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_XS_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_I8MM_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_DGH_SHIFT, 4, 0),
+@@ -2327,6 +2328,38 @@ static void cpu_enable_e0pd(struct arm64_cpu_capabilities const *cap)
+ }
+ #endif /* CONFIG_ARM64_E0PD */
+ 
++static bool has_ls64(const struct arm64_cpu_capabilities *entry, int __unused)
++{
++	u64 ls64;
++
++	ls64 = cpuid_feature_extract_field(__read_sysreg_by_encoding(entry->sys_reg),
++					   entry->field_pos, entry->sign);
++
++	if (ls64 == ID_AA64ISAR1_EL1_LS64_NI ||
++	    ls64 > ID_AA64ISAR1_EL1_LS64_LS64_ACCDATA)
++		return false;
++
++	if (entry->capability == ARM64_HAS_LS64 &&
++	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64)
++		return true;
++
++	if (entry->capability == ARM64_HAS_LS64_V &&
++	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64_V)
++		return true;
++
++	return false;
++}
++
++static void cpu_enable_ls64(struct arm64_cpu_capabilities const *cap)
++{
++	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnALS, SCTLR_EL1_EnALS);
++}
++
++static void cpu_enable_ls64_v(struct arm64_cpu_capabilities const *cap)
++{
++	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnASR, SCTLR_EL1_EnASR);
++}
++
+ #ifdef CONFIG_ARM64_PSEUDO_NMI
+ static bool can_use_gic_priorities(const struct arm64_cpu_capabilities *entry,
+ 				   int scope)
+@@ -3131,6 +3164,22 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
+ 	},
++	{
++		.desc = "LS64",
++		.capability = ARM64_HAS_LS64,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_ls64,
++		.cpu_enable = cpu_enable_ls64,
++		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64)
++	},
++	{
++		.desc = "LS64_V",
++		.capability = ARM64_HAS_LS64_V,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_ls64,
++		.cpu_enable = cpu_enable_ls64_v,
++		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64_V)
++	},
+ 	{},
+ };
+ 
+@@ -3250,6 +3299,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ISAR1_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_EBF16),
+ 	HWCAP_CAP(ID_AA64ISAR1_EL1, DGH, IMP, CAP_HWCAP, KERNEL_HWCAP_DGH),
+ 	HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
++	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64, CAP_HWCAP, KERNEL_HWCAP_LS64),
++	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64_V, CAP_HWCAP, KERNEL_HWCAP_LS64_V),
+ 	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
+ 	HWCAP_CAP(ID_AA64ISAR3_EL1, FAMINMAX, IMP, CAP_HWCAP, KERNEL_HWCAP_FAMINMAX),
+ 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index ba834909a28b..e1ccec7a509f 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -81,6 +81,8 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_PACA]		= "paca",
+ 	[KERNEL_HWCAP_PACG]		= "pacg",
+ 	[KERNEL_HWCAP_GCS]		= "gcs",
++	[KERNEL_HWCAP_LS64]		= "ls64",
++	[KERNEL_HWCAP_LS64_V]		= "ls64_v",
+ 	[KERNEL_HWCAP_DCPODP]		= "dcpodp",
+ 	[KERNEL_HWCAP_SVE2]		= "sve2",
+ 	[KERNEL_HWCAP_SVEAES]		= "sveaes",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index ef0b7946f5a4..c4b38311e8b1 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -44,6 +44,8 @@ HAS_HCX
+ HAS_LDAPR
+ HAS_LPA2
+ HAS_LSE_ATOMICS
++HAS_LS64
++HAS_LS64_V
+ HAS_MOPS
+ HAS_NESTED_VIRT
+ HAS_BBML2_NOABORT
 -- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+2.24.0
+
 
