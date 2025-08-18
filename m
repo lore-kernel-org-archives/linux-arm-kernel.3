@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D0DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6F2CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sX1oBWhQYj9bxa1O4MkbKyeiDwQaF+Lccrzrfxq3YzE=; b=PNrmygqH5vz9LBN1yPsGcdj8da
-	idK5jTceGhh9da7JfK6mSHe01wNfiqCyz8rmhlX03lNkvCaZT6dsoJB8icC050kPLMGoI9V3H/8ig
-	9mzGtwLoCoFpKVUD3vKXnRbGQn61hLHr+WkDmqEzroVDMxjMWxM1GWzle9ArOsPNb19gBicPnogM8
-	ZencCUz0Pe8U/Gay85AExBTRjbRAsEhGCxjCoiydySIUXCRLo+THv77tDVRNg4Tz9kCKMVNBHqq7/
-	UqC1VG8/gcO0YmwTf5cj6gegEaQw9erVxIrinJ7NIUlFE9u14Zh8EHDT3DfZyr227N1HG91Nrf6d6
-	f0aXQsmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zU3ISZ1GCAxiGQdPBreA60O1Z8SwQyp6OHIIueKbwt4=; b=HNTM4T+uhTGWB3mQ2VDxm+f7hs
+	+mmi1Hedw7hWY6DzwD/dERdQjioPdH9vGPRYKfmTjO8i1z55P+ugQHHOjJdLtzx9VOPiwQ7L77LyO
+	jjoHVsVtZdXDt+tSYQaZCgna5yjcbir7hiE/oFk88ZYMmbreDKP5Dx4G8A+1jWQH0h28+tJOLT67Y
+	MNcUH8IO22sDofznAz1M5b/CMeV7EUTtowXq1kONQlUaTSRItJb9vw1HLOTjHPVTN2AinsnBNQADb
+	JQrsusZoVD1TG9e5mUI7AcChn41zR1HKPyAGuR/uR7DSc6WJYLO7jfNeaqJ4/rGZ9uh7fauBRJocB
+	1Ob/Jyow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo07V-00000007b3g-27tO;
-	Mon, 18 Aug 2025 13:41:53 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uo07a-00000007bF7-45Xd;
+	Mon, 18 Aug 2025 13:41:58 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unxUK-00000007BnT-3tA4
+	id 1unxzG-00000007EBs-2PZi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 10:53:18 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57I9Z0je028985;
-	Mon, 18 Aug 2025 12:53:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	sX1oBWhQYj9bxa1O4MkbKyeiDwQaF+Lccrzrfxq3YzE=; b=Ns5OP/VnvRmLnLgD
-	9RA7z5rw5ag2xsjnGb3k1KdgsZch33rgXeoxnkh1IqNN0vq/u1d1grsiwnxEflvQ
-	5MUxN+aEKGwXH9XHDVzXA1SzGoiHClTs0QbFbxXXzBeLDqU5ZzccSAZRQaRrNRtq
-	YFhivY3eoVm7RjDHXDyFMDJTS+NCHEYW/3c8jUG0LhrWjLghZJAq7LV0cINe/Myy
-	ALf4IoFuRUlgKWMmahZlfYYPh5ILdmgrdjF5WE0e/HXQXQ/wIUIOEOqwt8JmHo1C
-	Z8nf0xhPTRWRdqb6LmfcQu6Yy2zn7+6GpWyrru8Ui0fBhI7TFgQ+0KHa66eoPnQr
-	VNZylg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jfdk6ds4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Aug 2025 12:53:02 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8530040045;
-	Mon, 18 Aug 2025 12:51:40 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7A72D723BAA;
-	Mon, 18 Aug 2025 12:50:22 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Aug
- 2025 12:50:21 +0200
-Message-ID: <917c9323-9c0c-406f-a314-a6e4a5511b45@foss.st.com>
-Date: Mon, 18 Aug 2025 12:50:19 +0200
+	Mon, 18 Aug 2025 11:25:15 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IBOct92705429;
+	Mon, 18 Aug 2025 06:24:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755516279;
+	bh=zU3ISZ1GCAxiGQdPBreA60O1Z8SwQyp6OHIIueKbwt4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=ky+O+gM7eN2rNKfBYUTh5zC89DmGNRXLWbv6zuLf5DVS4Zh7Lgow1vsemfKh+uWbz
+	 hle2lfPeSZtP39hT9sOEMd/lv4M6qWBUgmso6uWzel+mmMb/By1GbmMYaLY3+2Sdy9
+	 g8ommNjsNGN4Y5fes+OV77VQXnVZxgvhWYx7bx4c=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IBOccD478369
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 18 Aug 2025 06:24:38 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
+ Aug 2025 06:24:38 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 18 Aug 2025 06:24:38 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IBOc8X1215078;
+	Mon, 18 Aug 2025 06:24:38 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 57IBObj6011703;
+	Mon, 18 Aug 2025 06:24:37 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <namcao@linutronix.de>, <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
+        <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
+        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
+        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next 3/6] net: ti: icssg-prueth: Add AF_XDP zero copy for TX
+Date: Mon, 18 Aug 2025 16:54:21 +0530
+Message-ID: <20250818112424.3068643-4-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250818112424.3068643-1-m-malladi@ti.com>
+References: <20250818112424.3068643-1-m-malladi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH v12 2/9] PCI: stm32: Add PCIe host support for STM32MP25
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <p.zabel@pengutronix.de>,
-        <johan+linaro@kernel.org>, <cassel@kernel.org>,
-        <shradha.t@samsung.com>, <thippeswamy.havalige@amd.com>,
-        <quic_schintav@quicinc.com>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250813192957.GA286749@bhelgaas>
-Content-Language: en-US
-In-Reply-To: <20250813192957.GA286749@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-18_04,2025-08-14_01,2025-03-28_01
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_035317_635783_4C1998C9 
-X-CRM114-Status: GOOD (  36.59  )
+X-CRM114-CacheID: sfid-20250818_042514_746393_66717B3C 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,448 +96,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/13/25 21:29, Bjorn Helgaas wrote:
-> On Tue, Jun 10, 2025 at 11:07:07AM +0200, Christian Bruel wrote:
->> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
->> controller based on the DesignWare PCIe core.
->> ...
-> 
->> +struct stm32_pcie {
->> +	struct dw_pcie pci;
->> +	struct regmap *regmap;
->> +	struct reset_control *rst;
->> +	struct phy *phy;
->> +	struct clk *clk;
->> +	struct gpio_desc *perst_gpio;
->> +	struct gpio_desc *wake_gpio;
->> +};
->> +
->> +static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
->> +{
->> +	/* Delay PERST# de-assertion until the power stabilizes */
->> +	msleep(PCIE_T_PVPERL_MS);
->> +
->> +	gpiod_set_value(stm32_pcie->perst_gpio, 0);
->> +
->> +	/* Wait for the REFCLK to stabilize */
->> +	if (stm32_pcie->perst_gpio)
->> +		msleep(PCIE_T_RRS_READY_MS);
-> 
-> This obviously relies on gpiod_set_value(stm32_pcie->perst_gpio, 0)
-> being a no-op when perst_gpio == NULL.  Since we're testing perst_gpio
-> anyway, I think it might be more readable to avoid relying on
-> gpiod_set_value() being a no-op:
-> 
->    msleep(PCIE_T_PVPERL_MS);
-> 
->    if (stm32_pcie->perst_gpio) {
->      gpiod_set_value(stm32_pcie->perst_gpio, 0);
->      msleep(PCIE_T_RRS_READY_MS);
->    }
-> 
-> (And a similar change in stm32_pcie_assert_perst())
-> 
-> But this seems wrong because PCIE_T_PVPERL_MS is a delay before PERST#
-> is deasserted, but when perst_gpio == NULL, PERST# has already *been*
-> deasserted.
-> 
-> So it seems like it would make more sense as:
-> 
->    if (stm32_pcie->perst_gpio) {
->      msleep(PCIE_T_PVPERL_MS);
->      gpiod_set_value(stm32_pcie->perst_gpio, 0);
->    }
-> 
->    msleep(PCIE_T_RRS_READY_MS);
+Use xsk_qid to check if a given port+qid has been registered
+for xsk zero copy and populate it inside tx channel xsk_pool.
 
-I agree, grouping pvperl_ms and the PERST# deassertion together makes 
-sense. thank you.
+If xsk_pool is set, get frames from the pool in NAPI
+context and submit them to the Tx channel. Tx completion
+is also handled in the NAPI context.
 
-> 
->> +}
->> +
->> +static void stm32_pcie_assert_perst(struct stm32_pcie *stm32_pcie)
->> +{
->> +	gpiod_set_value(stm32_pcie->perst_gpio, 1);
->> +}
->> +
->> +static int stm32_pcie_start_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +
->> +	return regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +				  STM32MP25_PCIECR_LTSSM_EN,
->> +				  STM32MP25_PCIECR_LTSSM_EN);
->> +}
->> +
->> +static void stm32_pcie_stop_link(struct dw_pcie *pci)
->> +{
->> +	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
->> +
->> +	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +			   STM32MP25_PCIECR_LTSSM_EN, 0);
->> +}
->> +
->> +static int stm32_pcie_suspend_noirq(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +	int ret;
->> +
->> +	ret = dw_pcie_suspend_noirq(&stm32_pcie->pci);
->> +	if (ret)
->> +		return ret;
->> +
->> +	stm32_pcie_assert_perst(stm32_pcie);
->> +
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +	if (!device_wakeup_path(dev))
->> +		phy_exit(stm32_pcie->phy);
->> +
->> +	return pinctrl_pm_select_sleep_state(dev);
->> +}
->> +
->> +static int stm32_pcie_resume_noirq(struct device *dev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
->> +	int ret;
->> +
->> +	/*
->> +	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
->> +	 * thus if no device is present, must force it low with an init pinmux
->> +	 * to be able to access the DBI registers.
-> 
-> What happens on initial probe if no device is present?  I assume we
-> access DBI registers in the dw_pcie_host_init() path, and it seems
-> like we'd have the same issue with DBI not being accessible when no
-> device is present.
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_common.c | 122 ++++++++++++++++++-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c |  16 +++
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |   5 +
+ 3 files changed, 141 insertions(+), 2 deletions(-)
 
-Correct, same issue. The magic happens with the PINCTRL init state that 
-is automatically called before probe. As I tried to explain in the 
-Documentation in the pinctrl patch:
-
-- if ``init`` and ``default`` are defined in the device tree, the "init"
-   state is selected before the driver probe and the "default" state is
-   selected after the driver probe.
-
-> 
->> +	if (!IS_ERR(dev->pins->init_state))
->> +		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
->> +	else
->> +		ret = pinctrl_pm_select_default_state(dev);
->> +
->> +	if (ret) {
->> +		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	if (!device_wakeup_path(dev)) {
->> +		ret = phy_init(stm32_pcie->phy);
->> +		if (ret) {
->> +			pinctrl_pm_select_default_state(dev);
->> +			return ret;
->> +		}
->> +	}
->> +
->> +	ret = clk_prepare_enable(stm32_pcie->clk);
->> +	if (ret)
->> +		goto err_phy_exit;
->> +
->> +	stm32_pcie_deassert_perst(stm32_pcie);
->> +
->> +	ret = dw_pcie_resume_noirq(&stm32_pcie->pci);
->> +	if (ret)
->> +		goto err_disable_clk;
->> +
->> +	pinctrl_pm_select_default_state(dev);
->> +
->> +	return 0;
->> +
->> +err_disable_clk:
->> +	stm32_pcie_assert_perst(stm32_pcie);
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +err_phy_exit:
->> +	phy_exit(stm32_pcie->phy);
->> +	pinctrl_pm_select_default_state(dev);
->> +
->> +	return ret;
->> +}
->> +
->> +static const struct dev_pm_ops stm32_pcie_pm_ops = {
->> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
->> +				  stm32_pcie_resume_noirq)
->> +};
->> +
->> +static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
->> +};
->> +
->> +static const struct dw_pcie_ops dw_pcie_ops = {
->> +	.start_link = stm32_pcie_start_link,
->> +	.stop_link = stm32_pcie_stop_link
->> +};
->> +
->> +static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie)
->> +{
->> +	struct device *dev = stm32_pcie->pci.dev;
->> +	unsigned int wake_irq;
->> +	int ret;
->> +
->> +	/* Start to enable resources with PERST# asserted */
-> 
-> I guess if device tree doesn't describe PERST#, we assume PERST# is
-> actually *deasserted* already at this point (because
-> stm32_pcie_deassert_perst() does nothing other than the delay)?
-
-yes, this also implies that PV is stable
-
-> 
->> +	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = phy_init(stm32_pcie->phy);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
->> +				 STM32MP25_PCIECR_TYPE_MASK,
->> +				 STM32MP25_PCIECR_RC);
->> +	if (ret)
->> +		goto err_phy_exit;
->> +
->> +	stm32_pcie_deassert_perst(stm32_pcie);
->> +
->> +	if (stm32_pcie->wake_gpio) {
->> +		wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
->> +		ret = dev_pm_set_dedicated_wake_irq(dev, wake_irq);
->> +		if (ret) {
->> +			dev_err(dev, "Failed to enable wakeup irq %d\n", ret);
->> +			goto err_assert_perst;
->> +		}
->> +		irq_set_irq_type(wake_irq, IRQ_TYPE_EDGE_FALLING);
->> +	}
->> +
->> +	return 0;
->> +
->> +err_assert_perst:
->> +	stm32_pcie_assert_perst(stm32_pcie);
->> +
->> +err_phy_exit:
->> +	phy_exit(stm32_pcie->phy);
->> +
->> +	return ret;
->> +}
->> +
->> +static void stm32_remove_pcie_port(struct stm32_pcie *stm32_pcie)
->> +{
->> +	dev_pm_clear_wake_irq(stm32_pcie->pci.dev);
->> +
->> +	stm32_pcie_assert_perst(stm32_pcie);
->> +
->> +	phy_exit(stm32_pcie->phy);
->> +}
->> +
->> +static int stm32_pcie_parse_port(struct stm32_pcie *stm32_pcie)
->> +{
->> +	struct device *dev = stm32_pcie->pci.dev;
->> +	struct device_node *root_port;
->> +
->> +	root_port = of_get_next_available_child(dev->of_node, NULL);
->> +
->> +	stm32_pcie->phy = devm_of_phy_get(dev, root_port, NULL);
->> +	if (IS_ERR(stm32_pcie->phy)) {
->> +		of_node_put(root_port);
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
->> +				     "Failed to get pcie-phy\n");
->> +	}
->> +
->> +	stm32_pcie->perst_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
->> +						       "reset", GPIOD_OUT_HIGH, NULL);
->> +	if (IS_ERR(stm32_pcie->perst_gpio)) {
->> +		if (PTR_ERR(stm32_pcie->perst_gpio) != -ENOENT) {
->> +			of_node_put(root_port);
->> +			return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
->> +					     "Failed to get reset GPIO\n");
->> +		}
->> +		stm32_pcie->perst_gpio = NULL;
-> 
-> This looks like perst_gpio is optional in device tree?  Is that really
-> the case?  It seems hard to ensure we have the PCIE_T_PVPERL_MS and
-> PCIE_T_RRS_READY_MS delays in the right place if we don't have
-> perst_gpio.
-
-perst_gpio was initially made optional for pre-silicon platforms with 
-hooked PHY functions (or no PHY).
-It is assumed that the PV and REFCLK signals are already stable, I 
-suppose that without perst_gpio, the system must rely on these 
-assumptions. But my experience with other models without perst as gpio 
-is limited to this.
-
-> 
->> +	}
->> +
->> +	stm32_pcie->wake_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
->> +						      "wake", GPIOD_IN, NULL);
->> +
->> +	if (IS_ERR(stm32_pcie->wake_gpio)) {
->> +		if (PTR_ERR(stm32_pcie->wake_gpio) != -ENOENT) {
->> +			of_node_put(root_port);
->> +			return dev_err_probe(dev, PTR_ERR(stm32_pcie->wake_gpio),
->> +					     "Failed to get wake GPIO\n");
->> +		}
->> +		stm32_pcie->wake_gpio = NULL;
->> +	}
->> +
->> +	of_node_put(root_port);
->> +
->> +	return 0;
->> +}
->> +
->> +static int stm32_pcie_probe(struct platform_device *pdev)
->> +{
->> +	struct stm32_pcie *stm32_pcie;
->> +	struct device *dev = &pdev->dev;
->> +	int ret;
->> +
->> +	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
->> +	if (!stm32_pcie)
->> +		return -ENOMEM;
->> +
->> +	stm32_pcie->pci.dev = dev;
->> +	stm32_pcie->pci.ops = &dw_pcie_ops;
->> +	stm32_pcie->pci.pp.ops = &stm32_pcie_host_ops;
->> +
->> +	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
->> +	if (IS_ERR(stm32_pcie->regmap))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
->> +				     "No syscfg specified\n");
->> +
->> +	stm32_pcie->clk = devm_clk_get(dev, NULL);
->> +	if (IS_ERR(stm32_pcie->clk))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
->> +				     "Failed to get PCIe clock source\n");
->> +
->> +	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
->> +	if (IS_ERR(stm32_pcie->rst))
->> +		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
->> +				     "Failed to get PCIe reset\n");
->> +
->> +	ret = stm32_pcie_parse_port(stm32_pcie);
->> +	if (ret)
->> +		return ret;
->> +
->> +	platform_set_drvdata(pdev, stm32_pcie);
->> +
->> +	ret = stm32_add_pcie_port(stm32_pcie);
->> +	if (ret)
->> +		return ret;
->> +
->> +	reset_control_assert(stm32_pcie->rst);
->> +	reset_control_deassert(stm32_pcie->rst);
->> +
->> +	ret = clk_prepare_enable(stm32_pcie->clk);
->> +	if (ret) {
->> +		dev_err(dev, "Core clock enable failed %d\n", ret);
->> +		goto err_remove_port;
->> +	}
->> +
->> +	ret = pm_runtime_set_active(dev);
->> +	if (ret < 0) {
->> +		clk_disable_unprepare(stm32_pcie->clk);
->> +		stm32_remove_pcie_port(stm32_pcie);
->> +		return dev_err_probe(dev, ret, "Failed to activate runtime PM\n");
->> +	}
->> +
->> +	pm_runtime_no_callbacks(dev);
->> +
->> +	ret = devm_pm_runtime_enable(dev);
->> +	if (ret < 0) {
->> +		clk_disable_unprepare(stm32_pcie->clk);
->> +		stm32_remove_pcie_port(stm32_pcie);
->> +		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
->> +	}
->> +
->> +	ret = dw_pcie_host_init(&stm32_pcie->pci.pp);
->> +	if (ret)
->> +		goto err_disable_clk;
->> +
->> +	if (stm32_pcie->wake_gpio)
->> +		device_init_wakeup(dev, true);
->> +
->> +	return 0;
->> +
->> +err_disable_clk:
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +err_remove_port:
->> +	stm32_remove_pcie_port(stm32_pcie);
->> +
->> +	return ret;
->> +}
->> +
->> +static void stm32_pcie_remove(struct platform_device *pdev)
->> +{
->> +	struct stm32_pcie *stm32_pcie = platform_get_drvdata(pdev);
->> +	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
->> +
->> +	if (stm32_pcie->wake_gpio)
->> +		device_init_wakeup(&pdev->dev, false);
->> +
->> +	dw_pcie_host_deinit(pp);
->> +
->> +	clk_disable_unprepare(stm32_pcie->clk);
->> +
->> +	stm32_remove_pcie_port(stm32_pcie);
->> +
->> +	pm_runtime_put_noidle(&pdev->dev);
->> +}
->> +
->> +static const struct of_device_id stm32_pcie_of_match[] = {
->> +	{ .compatible = "st,stm32mp25-pcie-rc" },
->> +	{},
->> +};
->> +
->> +static struct platform_driver stm32_pcie_driver = {
->> +	.probe = stm32_pcie_probe,
->> +	.remove = stm32_pcie_remove,
->> +	.driver = {
->> +		.name = "stm32-pcie",
->> +		.of_match_table = stm32_pcie_of_match,
->> +		.pm = &stm32_pcie_pm_ops,
->> +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
->> +	},
->> +};
->> +
->> +module_platform_driver(stm32_pcie_driver);
->> +
->> +MODULE_AUTHOR("Christian Bruel <christian.bruel@foss.st.com>");
->> +MODULE_DESCRIPTION("STM32MP25 PCIe Controller driver");
->> +MODULE_LICENSE("GPL");
->> +MODULE_DEVICE_TABLE(of, stm32_pcie_of_match);
->> diff --git a/drivers/pci/controller/dwc/pcie-stm32.h b/drivers/pci/controller/dwc/pcie-stm32.h
->> new file mode 100644
->> index 000000000000..387112c4e42c
->> --- /dev/null
->> +++ b/drivers/pci/controller/dwc/pcie-stm32.h
->> @@ -0,0 +1,15 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * ST PCIe driver definitions for STM32-MP25 SoC
->> + *
->> + * Copyright (C) 2025 STMicroelectronics - All Rights Reserved
->> + * Author: Christian Bruel <christian.bruel@foss.st.com>
->> + */
->> +
->> +#define to_stm32_pcie(x)	dev_get_drvdata((x)->dev)
->> +
->> +#define STM32MP25_PCIECR_TYPE_MASK	GENMASK(11, 8)
->> +#define STM32MP25_PCIECR_LTSSM_EN	BIT(2)
->> +#define STM32MP25_PCIECR_RC		BIT(10)
->> +
->> +#define SYSCFG_PCIECR			0x6000
->> -- 
->> 2.34.1
->>
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 8a0ebe011960..8ff1707a2328 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -93,15 +93,91 @@ void prueth_ndev_del_tx_napi(struct prueth_emac *emac, int num)
+ }
+ EXPORT_SYMBOL_GPL(prueth_ndev_del_tx_napi);
+ 
++static int emac_xsk_xmit_zc(struct prueth_emac *emac,
++			    unsigned int q_idx)
++{
++	struct prueth_tx_chn *tx_chn = &emac->tx_chns[q_idx];
++	struct xsk_buff_pool *pool = tx_chn->xsk_pool;
++	struct net_device *ndev = emac->ndev;
++	struct cppi5_host_desc_t *host_desc;
++	dma_addr_t dma_desc, dma_buf;
++	struct prueth_swdata *swdata;
++	struct xdp_desc xdp_desc;
++	int num_tx = 0, pkt_len;
++	int descs_avail, ret;
++	u32 *epib;
++	int i;
++
++	descs_avail = k3_cppi_desc_pool_avail(tx_chn->desc_pool);
++	/* ensure that TX ring is not filled up by XDP, always MAX_SKB_FRAGS
++	 * will be available for normal TX path and queue is stopped there if
++	 * necessary
++	 */
++	if (descs_avail <= MAX_SKB_FRAGS)
++		return 0;
++
++	descs_avail -= MAX_SKB_FRAGS;
++
++	for (i = 0; i < descs_avail; i++) {
++		if (!xsk_tx_peek_desc(pool, &xdp_desc))
++			break;
++
++		dma_buf = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
++		pkt_len = xdp_desc.len;
++		xsk_buff_raw_dma_sync_for_device(pool, dma_buf, pkt_len);
++
++		host_desc = k3_cppi_desc_pool_alloc(tx_chn->desc_pool);
++		if (unlikely(!host_desc))
++			break;
++
++		cppi5_hdesc_init(host_desc, CPPI5_INFO0_HDESC_EPIB_PRESENT,
++				 PRUETH_NAV_PS_DATA_SIZE);
++		cppi5_hdesc_set_pkttype(host_desc, 0);
++		epib = host_desc->epib;
++		epib[0] = 0;
++		epib[1] = 0;
++		cppi5_hdesc_set_pktlen(host_desc, pkt_len);
++		cppi5_desc_set_tags_ids(&host_desc->hdr, 0,
++					(emac->port_id | (q_idx << 8)));
++
++		k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &dma_buf);
++		cppi5_hdesc_attach_buf(host_desc, dma_buf, pkt_len, dma_buf,
++				       pkt_len);
++
++		swdata = cppi5_hdesc_get_swdata(host_desc);
++		swdata->type = PRUETH_SWDATA_XSK;
++
++		dma_desc = k3_cppi_desc_pool_virt2dma(tx_chn->desc_pool,
++						      host_desc);
++		ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn,
++					       host_desc, dma_desc);
++
++		if (ret) {
++			ndev->stats.tx_errors++;
++			k3_cppi_desc_pool_free(tx_chn->desc_pool, host_desc);
++			break;
++		}
++
++		num_tx++;
++	}
++
++	xsk_tx_release(tx_chn->xsk_pool);
++	return num_tx;
++}
++
+ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
+ 		      struct cppi5_host_desc_t *desc)
+ {
+ 	struct cppi5_host_desc_t *first_desc, *next_desc;
+ 	dma_addr_t buf_dma, next_desc_dma;
+ 	u32 buf_dma_len;
++	struct prueth_swdata *swdata;
+ 
+ 	first_desc = desc;
+ 	next_desc = first_desc;
++	swdata = cppi5_hdesc_get_swdata(first_desc);
++	if (swdata->type == PRUETH_SWDATA_XSK)
++		goto free_pool;
+ 
+ 	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
+ 	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
+@@ -126,6 +202,7 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
+ 		k3_cppi_desc_pool_free(tx_chn->desc_pool, next_desc);
+ 	}
+ 
++free_pool:
+ 	k3_cppi_desc_pool_free(tx_chn->desc_pool, first_desc);
+ }
+ EXPORT_SYMBOL_GPL(prueth_xmit_free);
+@@ -139,7 +216,9 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+ 	struct prueth_swdata *swdata;
+ 	struct prueth_tx_chn *tx_chn;
+ 	unsigned int total_bytes = 0;
++	int xsk_frames_done = 0;
+ 	struct xdp_frame *xdpf;
++	unsigned int pkt_len;
+ 	struct sk_buff *skb;
+ 	dma_addr_t desc_dma;
+ 	int res, num_tx = 0;
+@@ -176,6 +255,11 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+ 			total_bytes += xdpf->len;
+ 			xdp_return_frame(xdpf);
+ 			break;
++		case PRUETH_SWDATA_XSK:
++			pkt_len = cppi5_hdesc_get_pktlen(desc_tx);
++			dev_sw_netstats_tx_add(ndev, 1, pkt_len);
++			xsk_frames_done++;
++			break;
+ 		default:
+ 			prueth_xmit_free(tx_chn, desc_tx);
+ 			ndev->stats.tx_dropped++;
+@@ -204,6 +288,18 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+ 		__netif_tx_unlock(netif_txq);
+ 	}
+ 
++	if (tx_chn->xsk_pool) {
++		if (xsk_frames_done)
++			xsk_tx_completed(tx_chn->xsk_pool, xsk_frames_done);
++
++		if (xsk_uses_need_wakeup(tx_chn->xsk_pool))
++			xsk_set_tx_need_wakeup(tx_chn->xsk_pool);
++
++		netif_txq = netdev_get_tx_queue(ndev, chn);
++		txq_trans_cond_update(netif_txq);
++		emac_xsk_xmit_zc(emac, chn);
++	}
++
+ 	return num_tx;
+ }
+ 
+@@ -212,7 +308,10 @@ static enum hrtimer_restart emac_tx_timer_callback(struct hrtimer *timer)
+ 	struct prueth_tx_chn *tx_chns =
+ 			container_of(timer, struct prueth_tx_chn, tx_hrtimer);
+ 
+-	enable_irq(tx_chns->irq);
++	if (tx_chns->irq_disabled) {
++		tx_chns->irq_disabled = false;
++		enable_irq(tx_chns->irq);
++	}
+ 	return HRTIMER_NORESTART;
+ }
+ 
+@@ -235,7 +334,10 @@ static int emac_napi_tx_poll(struct napi_struct *napi_tx, int budget)
+ 				      ns_to_ktime(tx_chn->tx_pace_timeout_ns),
+ 				      HRTIMER_MODE_REL_PINNED);
+ 		} else {
+-			enable_irq(tx_chn->irq);
++			if (tx_chn->irq_disabled) {
++				tx_chn->irq_disabled = false;
++				enable_irq(tx_chn->irq);
++			}
+ 		}
+ 	}
+ 
+@@ -246,6 +348,7 @@ static irqreturn_t prueth_tx_irq(int irq, void *dev_id)
+ {
+ 	struct prueth_tx_chn *tx_chn = dev_id;
+ 
++	tx_chn->irq_disabled = true;
+ 	disable_irq_nosync(irq);
+ 	napi_schedule(&tx_chn->napi_tx);
+ 
+@@ -1030,6 +1133,7 @@ void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_tx_chn *tx_chn = data;
+ 	struct cppi5_host_desc_t *desc_tx;
++	struct xsk_buff_pool *xsk_pool;
+ 	struct prueth_swdata *swdata;
+ 	struct xdp_frame *xdpf;
+ 	struct sk_buff *skb;
+@@ -1046,6 +1150,10 @@ void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ 		xdpf = swdata->data.xdpf;
+ 		xdp_return_frame(xdpf);
+ 		break;
++	case PRUETH_SWDATA_XSK:
++		xsk_pool = tx_chn->xsk_pool;
++		xsk_tx_completed(xsk_pool, 1);
++		break;
+ 	default:
+ 		break;
+ 	}
+@@ -1123,6 +1231,16 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
+ }
+ EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
+ 
++struct xsk_buff_pool *prueth_get_xsk_pool(struct prueth_emac *emac, u32 qid)
++{
++	if (!prueth_xdp_is_enabled(emac) ||
++	    emac->xsk_qid != qid)
++		return NULL;
++
++	return xsk_get_pool_from_qid(emac->ndev, qid);
++}
++EXPORT_SYMBOL_GPL(prueth_get_xsk_pool);
++
+ static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
+ 						 struct device *dma_dev,
+ 						 int size)
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index d70f0400cfd4..aae87b8ff19e 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -716,6 +716,7 @@ static void prueth_destroy_txq(struct prueth_emac *emac)
+ 		k3_udma_glue_disable_tx_chn(emac->tx_chns[i].tx_chn);
+ 		napi_disable(&emac->tx_chns[i].napi_tx);
+ 		hrtimer_cancel(&emac->tx_chns[i].tx_hrtimer);
++		emac->tx_chns[i].xsk_pool = NULL;
+ 	}
+ }
+ 
+@@ -752,6 +753,7 @@ static int prueth_create_txq(struct prueth_emac *emac)
+ 		if (ret)
+ 			goto reset_tx_chan;
+ 		napi_enable(&emac->tx_chns[i].napi_tx);
++		emac->tx_chns[i].xsk_pool = prueth_get_xsk_pool(emac, i);
+ 	}
+ 	return 0;
+ 
+@@ -821,6 +823,7 @@ static int emac_ndo_open(struct net_device *ndev)
+ 		return ret;
+ 	}
+ 
++	emac->xsk_qid = -EINVAL;
+ 	init_completion(&emac->cmd_complete);
+ 	ret = prueth_init_tx_chns(emac);
+ 	if (ret) {
+@@ -1301,6 +1304,7 @@ static int emac_ndo_bpf(struct net_device *ndev, struct netdev_bpf *bpf)
+ static int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
++	struct prueth_tx_chn *tx_chn = &emac->tx_chns[qid];
+ 
+ 	if (!netif_running(ndev) || !netif_carrier_ok(ndev))
+ 		return -ENETDOWN;
+@@ -1315,6 +1319,18 @@ static int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
+ 		return -EINVAL;
+ 	}
+ 
++	if (!tx_chn->xsk_pool) {
++		netdev_err(ndev, "XSK pool not registered for queue %d\n", qid);
++		return -EINVAL;
++	}
++
++	if (flags & XDP_WAKEUP_TX) {
++		if (!napi_if_scheduled_mark_missed(&tx_chn->napi_tx)) {
++			if (likely(napi_schedule_prep(&tx_chn->napi_tx)))
++				__napi_schedule(&tx_chn->napi_tx);
++		}
++	}
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 2f64ec97b454..d8b068194fb6 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -128,6 +128,8 @@ struct prueth_tx_chn {
+ 	char name[32];
+ 	struct hrtimer tx_hrtimer;
+ 	unsigned long tx_pace_timeout_ns;
++	struct xsk_buff_pool *xsk_pool;
++	bool irq_disabled;
+ };
+ 
+ struct prueth_rx_chn {
+@@ -148,6 +150,7 @@ enum prueth_swdata_type {
+ 	PRUETH_SWDATA_PAGE,
+ 	PRUETH_SWDATA_CMD,
+ 	PRUETH_SWDATA_XDPF,
++	PRUETH_SWDATA_XSK,
+ };
+ 
+ struct prueth_swdata {
+@@ -507,4 +510,6 @@ static inline bool prueth_xdp_is_enabled(struct prueth_emac *emac)
+ 	return !!READ_ONCE(emac->xdp_prog);
+ }
+ 
++struct xsk_buff_pool *prueth_get_xsk_pool(struct prueth_emac *emac, u32 qid);
++
+ #endif /* __NET_TI_ICSSG_PRUETH_H */
+-- 
+2.43.0
 
 
