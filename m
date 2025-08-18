@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D123CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80CCCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KmfCSi8O/XddsGKdRcKOqeDj7Pe6vE7Gax1joOuFhh4=; b=BJm1ZDpKcqWfwbcJJ/llLoI0h1
-	3X8DRJWLiPHDPheLkaqUj9m24TmET79D3lAOhcxUEfCB1j1/+py25HGdCdzBo84N73j38ua1tpjFa
-	84trXASbervDGE0kGzmVrE7f0gHNqcdfbMLdtD1tjvfsnDY/oc1kPIoFOLJU+oEmisozNnbxuIcLM
-	F3joyNGDzJegPrFRAx5FZjgapbo09qoiKg1MrVqZxDQAomMsCC62MqwPO2rGAQZeZDTs0LU1Gw8dM
-	aof7deOKIfhI0t9Ta8fXcP1RYfw/2m19ia73bIEpkvdqw4GxOArO+BciLoVELNEEWw9OfhwwuL7d+
-	nB0PZVXg==;
+	bh=c6EFgYyMmzEUMFY9bcdyW9gZ6rZRR0FSbpZ1rV42Ezo=; b=OHbmIFCBYxVO/UU50L4SmCO7bb
+	bogMq17X6zEZOwuuzm1kWpGh+jOM04P4zjJVBIG1Wd8Rr1dpGpKmNgmi9ubN+nGVglUT9JMfl6Z4c
+	3d4KTdUnzDSkXkgAByt8bRMcVa3Mqt3GmMtBuST6jTUKSx65rL3C8z9pJzjL/AaB9uiQB6ntdHRJ6
+	r73E/Y84Y5XxtXrUXB/eXPxhhtUscPFQOnzWrbrkgYTyi8zq8XRtZZNXwga3bkl+Q/uXsYrks1F4r
+	h4ZiHaXWjk0qsO/xP66bI7uIwoUhT0444KughLFUHr8KeSp+QO6K/dBKfAggwT5BOJRXDHXW6N1dV
+	rtRR202A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3ja-00000008CIW-1feN;
-	Mon, 18 Aug 2025 17:33:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uo3jg-00000008CQx-0uKa;
+	Mon, 18 Aug 2025 17:33:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo2T1-000000080EB-3Mlb;
-	Mon, 18 Aug 2025 16:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KmfCSi8O/XddsGKdRcKOqeDj7Pe6vE7Gax1joOuFhh4=; b=bwEc88kumrWiUkBPFis3R2xC8x
-	1VSU964ojxy4pizILXyaiupvjmCF+9S/j3hMn/7+0O6Nq5XCPfRh9SWhm98h0t2UFUjmA1dzWRZgt
-	tbkFmQuB/mZqY6ky3oZFaXzKbsxU61JtKuUNYn7rd7psdx+2eesyLw8rFRzpJQ1Win9JV+gpfxIJX
-	B0ERXsVVo7c2wl1HSeiIdqRZ4++3ImaZyhHbocKrxLR1Y5j1GlmqWCDYwxZ0RlMOOcuzzqa8ePrTH
-	qkSXaxaLa6fA1jK8eqoW/9WZ9mA8to8qlNfcQ4735MGvUb9ThF8/IOfNGNvoRXzwQSiekxnBpg4fR
-	SmVuRZ6Q==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo2Sx-0000000HRhy-0oaa;
-	Mon, 18 Aug 2025 16:12:11 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 7731030029B; Mon, 18 Aug 2025 18:12:10 +0200 (CEST)
-Date: Mon, 18 Aug 2025 18:12:10 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Yongwei Ma <yongwei.ma@intel.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-Message-ID: <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-10-seanjc@google.com>
- <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
- <aJ9VQH87ytkWf1dH@google.com>
- <aJ9YbZTJAg66IiVh@google.com>
- <20250818143204.GH3289052@noisy.programming.kicks-ass.net>
- <aKNF7jc4qr9ab-Es@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKNF7jc4qr9ab-Es@google.com>
+	id 1uo2eB-0000000817Q-10I8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 16:23:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9075344C02;
+	Mon, 18 Aug 2025 16:23:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68635C4CEEB;
+	Mon, 18 Aug 2025 16:23:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755534226;
+	bh=bavou1z2bEx1QMmOkYWVYFeIDWBWoCDHUEhUP8khiAg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cQxzTJfmFQMmtGX1g+/qHHGZ+tzYFA0fn5/QVe/lf80Lf6NxhKOfswUmusWfmrcur
+	 5UGsuLabAQtEdxdxObJ8RsBiWvpUOuowgdKAo3ajUMclAGk+GnVa3N1Eit42G9Gpxn
+	 4jOR4p/quZZ8aknJgwVfsrdWUmqxHLeWbMP1cFdfwpDrf3OMApn+wC+2seX0E78Ils
+	 rRz1ooCoTPEkzUBrdlKgkQXgDOhX+uISyO6zC7m5dUSAqc9U435FEftS/54tf3Aayh
+	 +qnUITBsqDJZ2DARXR+hqLITYkMyEMVRQf/q7AhvhyErPOZg34G0FC9bquHoX/NM5z
+	 8zC25mwfgo4Gw==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uo2e8-008gFV-Bc;
+	Mon, 18 Aug 2025 17:23:44 +0100
+Date: Mon, 18 Aug 2025 17:23:43 +0100
+Message-ID: <87ikikmwds.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Christian Bruel <christian.bruel@foss.st.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<fabrice.gasnier@foss.st.com>,
+	<mani@kernel.org>
+Subject: Re: [PATCH v1] irqchip: gic-v2m: Handle Multiple MSI base IRQ Alignment
+In-Reply-To: <20250811103942.4144-1-christian.bruel@foss.st.com>
+References: <20250811103942.4144-1-christian.bruel@foss.st.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: christian.bruel@foss.st.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, fabrice.gasnier@foss.st.com, mani@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_092347_316488_3706E931 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +86,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 08:25:34AM -0700, Sean Christopherson wrote:
-
-> > OK, so *IF* doing the VM-exit during PMI is sound, this is something
-> > that needs a comment somewhere. 
+On Mon, 11 Aug 2025 11:39:42 +0100,
+Christian Bruel <christian.bruel@foss.st.com> wrote:
 > 
-> I'm a bit lost here.  Are you essentially asking if it's ok to take a VM-Exit
-> while the guest is handling a PMI?  If so, that _has_ to work, because there are
-> myriad things that can/will trigger a VM-Exit at any point while the guest is
-> active.
+> The PCI Local Bus Specification (section 6.8.3.4 in Rev 3) permits
+> modifying the low-order bits of the DATA register to encode the interrupt
+> number. These bits must be reserved, but the base SPI may not be aligned to
+> the requested number of SPIs.
 
-Yes, that's what I'm asking. Why is this VM-exit during PMI nonsense not
-subject to the same failures that mandates the mid/late PMI ACK.
+The PCI spec knows nothing of SPIs.
 
-And yes, I realize this needs to work. But so far I'm not sure I
-understand why that is a safe thing to do.
+> For example, with an initial MSI_TYPER base SPI of 0x16A and allocating a
+> multiple MSI of size 8, the offset returned is 8, resulting in an MSI DATA
+> base of 0x172.
+> This causes the endpoint device to send interrupt 3 wrong interrupt number:
+>
 
-Like I wrote, I suspect writing all the PMU MSRs serializes things
-sufficiently, but if that is the case, that needs to be explicitly
-mentioned. Because that also doesn't explain why we needs mid-ack
-instead of late-ack on ADL e-cores for instance.
+Please use the correct terminology: an interrupt is a signal delivered
+to the CPU. A *message* is what the device sends, which the GIC turns
+into an interrupt. Here, you are using the same word for two different
+things.
 
-Could it perhaps be that we don't let the guests do PEBS because DS
-doesn't virtualize? And thus we don't have the malformed PEBS record?
+The problem is that the device encodes a delta from a base message,
+that the delta is encoded with log2(nr_vectors) bits, OR'ing the
+vector number with the base message. If the base message is not
+correctly aligned, shit happens.
+
+> 1st MSI = 0x172 | 0x0 = 0x172
+> 2nd MSI = 0x172 | 0x1 = 0x173
+> 3rd MSI = 0x172 | 0x2 = 0x172 wrongly triggers the 1st MSI
+> ...
+> 
+> To fix this, use bitmap_find_next_zero_area_off() instead of
+> bitmap_find_free_region() applying an initial offset of
+> base_spi - rounded(base_spi, nr_irqs) to accommodate the required alignment
+> for the first MSI.
+> 
+> With the above case, the returned bitmap offset is 6 which results in the
+> correct interrupts number encoding:
+> 
+> 1st MSI = 0x170 | 0x0 = 0x170
+> 2nd MSI = 0x170 | 0x1 = 0x171
+> 3rd MSI = 0x170 | 0x2 = 0x172
+> ...
+
+Please rephrase this commit message so that it actually makes sense.
+We shouldn't need examples if the commit message was correctly
+written.
+
+> 
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> ---
+> Changes in v1:
+>    (Marc Zyngier)
+>  - Replace the incorrect usage of msi_attrib.multiple with nr_irqs
+>  - Reworked changelog
+> ---
+>  drivers/irqchip/irq-gic-v2m.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+> index 24ef5af569fe..2d5cf36340b1 100644
+> --- a/drivers/irqchip/irq-gic-v2m.c
+> +++ b/drivers/irqchip/irq-gic-v2m.c
+> @@ -153,14 +153,18 @@ static int gicv2m_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  {
+>  	msi_alloc_info_t *info = args;
+>  	struct v2m_data *v2m = NULL, *tmp;
+> -	int hwirq, offset, i, err = 0;
+> +	int hwirq, i, err = 0;
+> +	unsigned long align_off, offset;
+
+Move the definition of align_off inside the loop.
+
+> +	unsigned long align_mask = nr_irqs - 1;
+>  
+>  	spin_lock(&v2m_lock);
+>  	list_for_each_entry(tmp, &v2m_nodes, entry) {
+> -		offset = bitmap_find_free_region(tmp->bm, tmp->nr_spis,
+> -						 get_count_order(nr_irqs));
+> -		if (offset >= 0) {
+> +		align_off = tmp->spi_start - (tmp->spi_start & ~align_mask);
+> +		offset = bitmap_find_next_zero_area_off(tmp->bm, tmp->nr_spis, 0,
+> +							nr_irqs, align_mask, align_off);
+> +		if (offset < tmp->nr_spis) {
+>  			v2m = tmp;
+> +			bitmap_set(v2m->bm, offset, nr_irqs);
+>  			break;
+>  		}
+>  	}
+
+Isn't the GICv3 MBI driver affected by the same issue?
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
