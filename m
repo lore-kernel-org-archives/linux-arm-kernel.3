@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F233CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F06CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0dpJixL1oHRcv/3jNzfC2XXZ+aqq6CYkmZdArMOuDoY=; b=rjvxtKaA3i3GIAVaFfqEPCY2eX
-	4Ef/sIZxCcoiO0Xru5/4+0ONFFI1qbakSEgcVWzcjgfCKvaXek7tcIsjjJBj2ofXt8qzltEDquIAq
-	Km7k4MztTPto5P7h2ecalqf7Vh3BHUbYKWbBZJKfsuXv7kC5WBeGydtpmRm9EOLdNI9an5T8oNfp+
-	0PirUDU82voeP4r8wcQ5yYI+tObqG0++tuueII8Hg90zaTzby9Y/Z3r/ewQDD8UBRcAoEvmr8IXqO
-	EdJy3/IFQf86bEJ2Vm8AYtO07wI7BETfQeZHqErwbid6eypZdeipg4lrayAhfBscVyFaJWyrLOZXP
-	40BwHc1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=kuvfK/YCPQfw4+3RRMu5L6n+t6jezOLSK+LXGO8R10Y=; b=LURm1Fdhcd22M4
+	71qRAuGJet3332QY6lHOYMeZzoaX9JzHS2lKDk3Fm0QBE2TIdo9Wk5HFgDDNoIMBgHAgT5Obg29EC
+	Eu+s2R3G3E+j3WW8fcwfSqK/VESuf2Ajg9yPkYnFZ0egcMTRDPFRIXLkmU7s4bVd+cJX6vSE3Ot0S
+	6FjO7Dd/PHxLo9oOyAx9zNR30zDmwu4Kl2i0bygzaIDows+OfpwsfdJMceVGBPPqyySOsBJ8EdsXa
+	ILtjQMlVpxmSYTgrlcg+PK9I/bQo0u7HvjqCQjuYACvwO3ApuXOohHqSbRdtNWNGGP2JxgXSlQ/e+
+	TTZC6A4qgioCXXxMf3hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3iQ-00000008AOt-11CL;
-	Mon, 18 Aug 2025 17:32:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uo3iS-00000008ATk-36p1;
+	Mon, 18 Aug 2025 17:32:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1oR-00000007vJ4-418N;
-	Mon, 18 Aug 2025 15:30:21 +0000
+	id 1uo1qU-00000007vSz-3vDR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 15:32:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B027440CF;
-	Mon, 18 Aug 2025 15:30:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5706C113D0;
-	Mon, 18 Aug 2025 15:30:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 505C460054;
+	Mon, 18 Aug 2025 15:32:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3DF8C4CEEB;
+	Mon, 18 Aug 2025 15:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755531007;
-	bh=0dpJixL1oHRcv/3jNzfC2XXZ+aqq6CYkmZdArMOuDoY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TUiYRhv3OxN9v2yoois/MTIq1RAg66QbGVeqXLXRna6GBPLoitAfU5+gXIHywbugf
-	 X00aRZagGj9JZAY1UHWYYLwyOEvGPaEDCXSjxOUFCZGppHCl7aMFZJAad4zXTPM60L
-	 xbWShtgAz0mK/6jJ3KdipPypAdeKan6efrcwQQmg4X3T3kv6Gt3/SvT8MuB4eQxdo8
-	 QDfRYPP2/DNbE2/jpeCouKXiUG2VlioTTVLH2uiay+gJXqJd4ket+v10VHMyy+J8wv
-	 wZkV/l6S+UjE0cCmmxpqSVeeggjFJpsG041Sc40Piu+wxpBaoLWkX54tO2/f/Tmwqt
-	 ONoyPbr4UUJXg==
-Date: Mon, 18 Aug 2025 08:30:06 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: patchwork-bot+netdevbpf@kernel.org, myungjoo.ham@samsung.com,
- kyungmin.park@samsung.com, cw00.choi@samsung.com, djakov@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, johnson.wang@mediatek.com,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, daniel@makrotopia.org, lorenzo@kernel.org,
- nbd@nbd.name, frank-w@public-files.de, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v9 00/13] further mt7988 devicetree work
-Message-ID: <20250818083006.0f277b5b@kernel.org>
-In-Reply-To: <8A21C091-0C26-4E9F-9B9E-E28A01F71369@fw-web.de>
-References: <20250709111147.11843-1-linux@fw-web.de>
-	<175218542224.1682269.17523198222056896163.git-patchwork-notify@kernel.org>
-	<8A21C091-0C26-4E9F-9B9E-E28A01F71369@fw-web.de>
+	s=k20201202; t=1755531146;
+	bh=dKQCX01Dgpw9dc/KO/HCmSw5Ji9XL1b1m8P0ZMz1jPQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=i4GwIKRvXxjZa4rtVFv3GPe+eKTHZRFSrtqyusSq+MuQuHgUtaQV4CG8/ZLcGjfqe
+	 mbVBgHbeekUgLdChCoG7oxukfrmg/Qrpw+xXjBVXs2AkgoK9TShnzv35dbsP+DtOOz
+	 g1/wDkxxdtijZLbTyqZKZkpfth4XrAuP5v1sGPQwgNVm/dmQkJ0yLAjOXZLAjlCLmy
+	 J6o+FsD8UWqSTSRv3+4tZhDeDG80Vcmegt+cyDCx/w+q45AQxQdmUgZ1GLeFse1mwP
+	 WKaWpyqCTQNh5ukob9V5r0XJrPzz8lAe7bNQFb7o+odmrt7qYLqqMI55cifKWuG1Zu
+	 WfTl821z0bJiQ==
+Date: Mon, 18 Aug 2025 10:32:24 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [RESEND v3 5/5] PCI: dwc: Don't return error when wait for link
+ up
+Message-ID: <20250818153224.GA527775@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_083020_020898_777D6CC1 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250818073205.1412507-6-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,9 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 Aug 2025 08:55:51 +0200 Frank Wunderlich wrote:
-> Any comments on the missing DTS parts or can they applied too?
+On Mon, Aug 18, 2025 at 03:32:05PM +0800, Richard Zhu wrote:
+> When waiting for the PCIe link to come up, both link up and link down
+> are valid results depending on the device state. Do not return an error,
+> as the outcome has already been reported in dw_pcie_wait_for_link().
 
-You should probably put the maintainers you're addressing this question
-to in the To: header of the email.
+The reporting in dw_pcie_wait_for_link() is only a note in dmesg (and
+the -EDTIMEDOUT return, which we're throwing away here).
+
+We need an explanation here about why the caller of
+dw_pcie_resume_noirq() doesn't need to know whether the link came up.
+A short comment in the code would be useful as well.
+
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 868e7db4e3381..e90fd34925702 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1089,9 +1089,7 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (ret)
+>  		return ret;
+>  
+> -	ret = dw_pcie_wait_for_link(pci);
+> -	if (ret)
+> -		return ret;
+> +	dw_pcie_wait_for_link(pci);
+>  
+>  	return ret;
+
+This should be "return 0" because if "ret" was non-zero, we returned
+that earlier.
+
+>  }
+> -- 
+> 2.37.1
+> 
 
