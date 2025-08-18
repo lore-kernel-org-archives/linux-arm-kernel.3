@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D3ACA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BFACA0EF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeuayamteocopIdawkFz8GBgWsuO6jcTjJdO7tqQ9I0=; b=h6F+EtV2eAlPJLUWhc3Xfl8E1A
-	sj4N6aifNWrFlvmpfisc+Ik37eLrIWEXzUo769qJ2hlSpP5sTudtDLR6BdbuhCC5GkOee1z4MsoVL
-	NC1gB6nOIeLd99FRGVSHEGHKWGjtXLOq1sloLvJf90v0puxtI4VK9Oc5a7aD2QGrtPZj0Eg/SRR/l
-	vVHXePpP8SPub7Bexz/ozQWpL78tAAS43WEN+YNFieeKyeo0LKNWJPGJK0FS+eJSRxjvkzqGh3okL
-	iaj7hC8wci91rfrM3tgH0JiV//eX23LkCcD526yYdXtWrlqUpiBHS85iv1PcOJ0oJAiwzP/v3+BUh
-	o7DCTIxA==;
+	bh=p0L7vCqnemiga4MJSGEdKnywkyS4sL50zcZbVWgOu40=; b=Wx5nv7pChcNCFSURikONaTbixt
+	BLDlI9skEJrDR6YTFrW3LkSkQDbESvHmmtokht4rOX2piFNKhJ+7L41NLD8MN+5NNxOhfJLY6/nva
+	GRUDvQmy9y/OwLZ6eYwTORmXMzRanJRCgOG92qXLkODMtbY2oFxKcfU6Yf7A9Smf712Z/dVkNGbcO
+	AkkhnSZOlcAVD5iEmjfw0bRWDliHjnsVpzyS1c4teUrt0N5tvzowSp28R0V5co02f5QkaLolZeBoL
+	XGfRXzVNsg6t/VEo/lXfJDHpO82yhew6V8NwW9YbJDpUTAnLuvp+gW4RtBwGy5GKDbfce5OOIEgFk
+	sQgJ5sAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo04e-00000007WUs-0nGI;
-	Mon, 18 Aug 2025 13:38:56 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uo04h-00000007WbX-3q8c;
+	Mon, 18 Aug 2025 13:38:59 +0000
+Received: from mail-ed1-f48.google.com ([209.85.208.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvWf-00000006yNx-267J
+	id 1unvWh-00000006yOM-3s0M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:47:34 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6188b761d74so687832a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 01:47:32 -0700 (PDT)
+	Mon, 18 Aug 2025 08:47:37 +0000
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-61a54560c1fso47292a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 01:47:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755506851; x=1756111651; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755506854; x=1756111654; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BeuayamteocopIdawkFz8GBgWsuO6jcTjJdO7tqQ9I0=;
-        b=CNTKIKtlU5oLlT06u/D2xLxuXUruzAhfACOwKTtQPAGUOXFvj/IRdV91WAYMIZF4rN
-         Nk33sxHiUrk3fA6JjRRo0xLVVRlSsg9fStDWUFEhfczRm4LnFdGgMpiGbzHI61Qztgc/
-         dE5EZcO8BoP+6waL+K6LirlThwhBthAQ/HfJp5yvMEfM9o2AIz773RmrLd2Kpq8spf0i
-         9zxpxlbJxsYsGwYJgAyEcTUmyrdtPAWjRbFKTyU7F+Xqhxwnex+gdvSlMOJi56PA4OMl
-         F31TP4+jrAdky//kG8VosBwRPk9WmHMfG/IqanJ+Q8UlTbVjzseXY+2P1CNSArXYAh6V
-         NU2A==
+        bh=p0L7vCqnemiga4MJSGEdKnywkyS4sL50zcZbVWgOu40=;
+        b=eiTox3AMjgOEd679lkalvqTuhlOvS3FANj07zY9pD9hP9QTQ3DPEnA6TKsAQfDgqJu
+         GD1JIg+nig9Zd/Z5mEfOC9RorhHrjy85kq4mL/F8/X9q8nTfH53TsmFgmN3nIab4VMDe
+         4ke7wV7oean0xs82oPeG2LGDrQl+r86/EH1A5w9wnMpsoNq9nJL/vHODDxe3HRSurt7h
+         zZdqLl6ZH/P/LsdjrZL7XnhKL2YuneJOBbjrsD634hZyo1wzXUygKw8wZDH6cgKCP3oU
+         Z/qFayu6TqUlcqFuLmJVpLpSMLiTW2kCMUVJKF3cMa/BaBNx/U0cdoSG6ESF7ByON5XA
+         0zBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755506851; x=1756111651;
+        d=1e100.net; s=20230601; t=1755506854; x=1756111654;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BeuayamteocopIdawkFz8GBgWsuO6jcTjJdO7tqQ9I0=;
-        b=ERNoUok4vGM3ggAsQe6a0HGQ4r6G+Knb5jQJd7zZaAx1AvOI1nC2KpixPuxwPDfqFC
-         IqaZT7kqtu9/N6CGEZgLLM89i45/XGkLKelUmbRzl8+5ZyQWGsv5aRfYdnPwW5TefsMd
-         4W4/x2L00VlNuzodvC6OFo6PtdIlJo2WgHsubbiJwxmSVcCaiSmap3IMKK9hcbrcXRcw
-         3VSMhNbht3GFOXc+P/t+XFM2cn7sAU13TzFGcxauAWnk6xq7Q+BPlSyPD3bHuIjutOH/
-         ZSA+nGHXHp1tCfOWFailRhpdI6Owe6piXVAmeWgTV2W82mQ+VQfDPsYuWOUTDnR6NCKu
-         4/ow==
-X-Forwarded-Encrypted: i=1; AJvYcCWUsV0wnuH2cvEGML+JoOBlX4lxTmg/PZCyJOcHkpSTsB1l9AdN7fpj5hRWqZMyAS2r6mGVLN9vDF/6FJJ3hrWF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7hLBPcGS1lcMb4Nk++9RG8Qa5R4tPBFzQFmOnEldBaDWm9WvG
-	fXSknYlVU2W4zrQwTi9IzCViNCHriz4kT6VjAFlLTj0cKFm7sMFosInu8NaS3jd7a0g=
-X-Gm-Gg: ASbGnctUaJSBsltHsvbkB0K6NqDsaQxBwNQ4MZjMuqlUBAA4E4rwIYlD/2pjbjmAUMz
-	GfgTovt8WuSQmzFlzZgg/ZC/8NWlJ0cdjXp52y9FxN1HTwufb0YFn4FwmOF+BP8RVgJiVNZdLTq
-	EPCf2HD5FjpyMnD8hPv43wC/Ib797mtowATrXEI+FSkdxW5zDkmI46ggBXHlUO8dqqXWBZrduLv
-	J2/1ODt0Juu/o0UqOCvt4wQCeIwodfFqDgBERoct8E26Hic3tAPxFBrBRbHPqh8eqH+kRyKkWUK
-	sgOdOSpJAbEq5WSJZhP/3xZX8CR5FLjvwruGhsywOzGcJT36euu09CjTegeBqCuQq4Zr/9GoOGx
-	oj+GeJi7CpBeZqpUVBV+486cuEpNmZD0Sb4GXuIzNFlZTS+77Tg==
-X-Google-Smtp-Source: AGHT+IHnFT/QiiX+/jyxr6JrjJHBnX2ZgiTGkz6V56Qs5+zyrhsCVsoAqUSeVCMOf8wng75ASWqViQ==
-X-Received: by 2002:a05:6402:440a:b0:617:be23:1111 with SMTP id 4fb4d7f45d1cf-618b0865203mr4787283a12.7.1755506851453;
-        Mon, 18 Aug 2025 01:47:31 -0700 (PDT)
+        bh=p0L7vCqnemiga4MJSGEdKnywkyS4sL50zcZbVWgOu40=;
+        b=uk19SUXbH8o9x4k9dlboLuoGORtNSwGK/CXme0zrPIxgrb2jkMwVXzYwoqvvbd8E8F
+         HYVU7o05MoOvBK0NSP2rMb6TRdCMBP5XaVq6D3U3EfViCg7czYoWhevXGOd3P+hHPneM
+         KmjbHKcGd4xkorYO/JejbzNwReSxg6sMo4y2zhzVpwUw/hv7Qn3UojEVGjxd6qGB2Zar
+         BNKkeWLfUMo8AfcWdGySM+X6Wg3sym9DBQ5E/yloQfQIbhUxZVAf2wMHpYdcEgLdt73E
+         kvGfX2GjLVlUmUoyJQZB0NA2ylHVB6VE/G0OchDLaG3Zji+jBUanZ54iViACYzKd5zW/
+         YLcA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2ygGgI49gz+4t+3M7O6x/oPPVGt6Wj1qCV5NGzdSsHEabJU+bTyAOGrGxPgCI90cQGbRiCFYuq9p7w+HkJP79@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeCU+NZ5AgO02GFwdbpicE1I+4+TdzEVOObcVD0T+xI/vBbith
+	8EStg+FgCAtXpqwodjTLcDmOjbbKWHURREORGBlCrptbX1qbCztwUm1dcFdTwTdY/I4=
+X-Gm-Gg: ASbGncvoppFTmSfKKDXRYHzLWfLrJvY5djzkGQzOghNgUGk9o1okGg8OdMGMcj31Ijy
+	QX1/KKSA2Eq19qAwbcttivGJFKMu2AcIXKLXoxLxpPEKiXkfHcIdmdc9YNgDFFO6RMrX6bsakf9
+	qY2vD3e4MlmXoeQfPuzxD50i3dq6l9O0HRXMIw99rO6FCPaDmohcHbU4wzK0XNpT9iK6XQnQ8Dg
+	GWHqcinpTNX6pisLuSJ+d/xKzH4k6RUEXdbHjw4m9XLRq0PkawVyZaoQWoJgDbBcuAw6KLMdYzW
+	vUFiTNlu5pAHNfXP7D8uns7hLc+okaiWVsX+RNgfxYvoWCaHKJYVbCUQdoxcsw5V9cy5eP2QrHj
+	+cdxbSqBzEsFSCvJ4QkP1UbZWX9bfD5FGPf4Jh/8=
+X-Google-Smtp-Source: AGHT+IHknpi+jVcAiHPe7qLq8tMu11yKP03M4lXkXrorN3kjMjAvXVfdd/sJwjbdKxYg4VZrpI7G9w==
+X-Received: by 2002:a05:6402:1d54:b0:615:5cc1:3446 with SMTP id 4fb4d7f45d1cf-618b0f1c504mr4641443a12.5.1755506853905;
+        Mon, 18 Aug 2025 01:47:33 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-618af9da68fsm6627647a12.22.2025.08.18.01.47.28
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-618af9da68fsm6627647a12.22.2025.08.18.01.47.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 01:47:30 -0700 (PDT)
+        Mon, 18 Aug 2025 01:47:33 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
  krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org, 
@@ -82,21 +82,21 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, kernel@puri.sm, kernel@pengutronix.de, 
  festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250814140943.22531-2-inbaraj.e@samsung.com>
+In-Reply-To: <20250814140943.22531-3-inbaraj.e@samsung.com>
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141003epcas5p167e0a3d0ecc52fd8af17151cdddd031a@epcas5p1.samsung.com>
- <20250814140943.22531-2-inbaraj.e@samsung.com>
-Subject: Re: (subset) [PATCH v2 01/12] dt-bindings: clock: Add CAM_CSI
- clock macro for FSD
-Message-Id: <175550684881.11777.14718777449068060989.b4-ty@linaro.org>
-Date: Mon, 18 Aug 2025 10:47:28 +0200
+ <CGME20250814141009epcas5p153e4aacfc1ead3db8c9bb647c6e5c7c4@epcas5p1.samsung.com>
+ <20250814140943.22531-3-inbaraj.e@samsung.com>
+Subject: Re: (subset) [PATCH v2 02/12] clk: samsung: fsd: Add clk id for
+ PCLK and PLL in CAM_CSI block
+Message-Id: <175550685171.11777.14695565851704310683.b4-ty@linaro.org>
+Date: Mon, 18 Aug 2025 10:47:31 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_014733_558648_94ED3435 
-X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-CacheID: sfid-20250818_014735_974523_AE5A3B54 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,17 +113,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 14 Aug 2025 19:39:32 +0530, Inbaraj E wrote:
-> CAM_CSI block has ACLK, PCLK and PLL clocks. PCLK id is already
-> assigned. To use PCLK and PLL clock in driver add id macro for CAM_CSI_PLL
-> and CAM_CSI_PCLK.
+On Thu, 14 Aug 2025 19:39:33 +0530, Inbaraj E wrote:
+> Add clock id for PCLK and PLL. These clock id will be used for
+> operation of CSI driver. PCLK is AXI2APB clock used for register
+> access. PLL clock is main clock source for CAM_CSI block.
 > 
 > 
 
 Applied, thanks!
 
-[01/12] dt-bindings: clock: Add CAM_CSI clock macro for FSD
-        https://git.kernel.org/krzk/linux/c/5576d8098052952a6c95af86ad3dcb341554ac75
+[02/12] clk: samsung: fsd: Add clk id for PCLK and PLL in CAM_CSI block
+        https://git.kernel.org/krzk/linux/c/1a713bd3b0c60d826bdde633919bedc1fd38df4d
 
 Best regards,
 -- 
