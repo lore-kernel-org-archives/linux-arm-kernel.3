@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43D7CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E17CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JsNJNYwSRERp/zfvYhN+k0xbmJcEwBRFSdertRgYGjA=; b=lWMK3m8+6tn+8N0kawVPssDo1r
-	syykVWSTejQf31D06nqJ9irJBPwPM1X2rfpL/QRBBelzureeaBf/Wl6kpK6DU0NpzvKhXH5VMx/Gg
-	S+xi9vcsciiMOHdQe+lk6qOLwLnm+PHUCeutQ6B+fSnNGe0MH/Up4spJTfbhzoIp0CgoJAtBcupR6
-	H2n+94hifldcI9u98ueaT95IWnIrWCe87ucme25Nnoky1YKLdA13ra05aANoaI0DfBfMDeW535i/Z
-	VdOTBj5sz0kikp34D/BED1Jwe4WPzAojhKLc/Aqo6Uta6zqTdbZhscaFQiLfm5e+bRv1vIyWR3Aa9
-	TXqTchEw==;
+	bh=snt0ZpGOimE9rrHUHPsKGVDPEQfD/KtCqryaGRumJ70=; b=znk3SmABy7UeiqkZLQoQs6Wa/G
+	SQAjSkJ+V5ECFQ93ZdnnLO7gEbLxE+mr+U2omsV9ZSN66mDA9+oMDsSg9E5cO9Fa4XPFiGrK00zkH
+	I5UDEhGK897kzcI1DjoyLxFuh8joQWXumhJ+tf1Za3yAXb5w6XwSg/y5/rirDgBaxS6rQ11eZRk5M
+	rSOitWaE+A0lOUdiZfYkBxdgQnSSMfWvN4zj33B00vosQCzmclX3Kot92W0Xpzjy/BtsUxPYtzD8S
+	X/fFjkVXFgHnadA323AFkwOA71GPg4rd3QU6bZBE5ZHmLJm0zEA65xgf+oP7Be3LcY6Jmqofq5YFz
+	TNa942hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unueG-00000006pHi-3PWq;
-	Mon, 18 Aug 2025 07:51:20 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1unueI-00000006pJU-0rJk;
+	Mon, 18 Aug 2025 07:51:22 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untjB-00000006ind-2CMI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:52:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4c53Gv1BhBz2Dc38;
-	Mon, 18 Aug 2025 14:49:27 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 205661400CB;
-	Mon, 18 Aug 2025 14:52:13 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 18 Aug 2025 14:52:12 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 18 Aug 2025 14:52:12 +0800
-CC: <yangyicong@hisilicon.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>, <wangyushan12@huawei.com>,
-	<hejunhao3@h-partners.com>
-Subject: Re: [PATCH v6 3/3] MAINTAINERS: Remove myself from HiSilicon PMU
- maintainers
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-References: <20250814091622.23269-1-yangyicong@huawei.com>
- <20250814091622.23269-4-yangyicong@huawei.com>
- <20250815095606.0000606e@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <b51c2ce9-d93c-29a2-65d4-915226af8c16@huawei.com>
-Date: Mon, 18 Aug 2025 14:52:11 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1untoj-00000006jxa-0rEL;
+	Mon, 18 Aug 2025 06:58:06 +0000
+X-QQ-mid: zesmtpip4t1755500244t6fc68c41
+X-QQ-Originating-IP: sLmbQl3vBpNZ30bWX5N0sBTYr4LYaC7/m/aS7e2wyqY=
+Received: from [IPV6:240f:10b:7440:1:e696:3c18 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 18 Aug 2025 14:57:21 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1927108559509469176
+Message-ID: <BCD8E43E564BC334+1e45d36f-edc7-4c3c-90c9-7b0f2a52360f@radxa.com>
+Date: Mon, 18 Aug 2025 15:57:21 +0900
 MIME-Version: 1.0
-In-Reply-To: <20250815095606.0000606e@huawei.com>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: remove vcc_3v3_pmu regulator
+ for Radxa E52C
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250816080030.183931-1-amadeus@jmu.edu.cn>
+ <20250816080030.183931-3-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250816080030.183931-3-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: OBUGnm9pFasAcNPGHYEMAopgoh5OwK6sDVK9bpqjd4LE8UhdUNPQ9bKd
+	Eft9UalMA+yEWVadv5T6zu8vxV885J/dFccTojhVAHOFPp4bMUXBCPSVwxd/LFYHuOK47Dk
+	4Pf3qcgL8BXEGSElSYv/4M8iBjpN221bvXwzxf8nlQimUGPyLQFOc72o8jk3WWvQhwvyVJk
+	N++pAcPjMhGi6EZwh8mYFVZg8yybg6OL6jAIN7DcfscMlSpCA8Qm9BAnPvA/XkZcLkrF01P
+	cU83tt+n0jxG39QLqnam+jEniLdShLddKJpN7FbQ2IQRhhuJ2Ae7yC3JcwKiCT1KRbm4L1o
+	55uisvFusSs0snQ/pBidg1zdinBWowBbUbTp7c8FAiQ3SQBuQYY+nIhOCmHoVoOoDd/6qgj
+	UodG2CUSlHj/UxAcVPHDdRkZdBlyz6sAK4fqG9pvdQyfmyqzrqx3oUcWNhkOMSa17XUl/Hl
+	tw5v+HFbDJHUDLX7y4vkfJ8KD7h3qGV82mlWgSmYDhnD+Bx433C4H/vuMDSSlCygbJcAXYS
+	GnUuBjWqcKWV3RO4rzkM7+PZ/y31YoyU4/OE+PQjp36PmdLMnnYOx7ej8A6Rqy4uVBjZVju
+	mm1vqI8w1mdjpQ0tpi4GE+V7+7eotK1libg4gEWWS6MPlRetQn+mA3zAeuvXFrUy+u86pYG
+	g1Z8L0iK+doHUhhyvrAAPkOpsbObkDjS39ZocN/zY5mCTx9X/ryvHW6198iVAC+/Up8vsy9
+	+fVElV2mut9qi7JF001tr4iGW13YAvuTWAYMrXmCX24wgwq7UfcPTNaLwbjtdyveMt+4m1X
+	+TNSjx6dHnY53Sl57Uexu6tfzD9aYWezAGfdJukbeaqFefyzxG0b0yJvDyuT6aBdqJ7tFYx
+	dA8bU2U7pDMLx3DkNj7CWf2L6B0DHJ3aqhVAhfZeiGRmuJPZ8iLjsey9UFpnQUc42aadKSJ
+	H6FS267F7p60Ccr3jSDqVod3S4fvQq+gpNU3Ro0JRGPZmOyoQ/dCAxDiNy1xoW7jBvN4=
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_235221_752359_23FF2F18 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250817_235805_600053_071DA77F 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +88,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/15 16:56, Jonathan Cameron wrote:
-> On Thu, 14 Aug 2025 17:16:22 +0800
-> Yicong Yang <yangyicong@huawei.com> wrote:
-> 
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> Remove myself as I'm leaving HiSilicon and not suitable for maintaining
->> this. Thanks for the journey.
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Thanks Yicong, it's been a pleasure working with you.
-> Best wishes for whatever you do next.
+Hi Chukun,
 
-my pleasure too. thanks a lot for the generous help provided along the way.
+On 8/16/25 17:00, Chukun Pan wrote:
+> According to Radxa E52C Schematic V1.2 [1] page 5, vcc_3v3_pmu
+> is directly connected to vcc_3v3_s3 via a 0 ohm resistor.
+> The vcc_3v3_pmu is not a new regulator, so remove it.
+> 
+> [1] https://dl.radxa.com/e/e52c/hw/radxa_e52c_v1.2_schematic.pdf
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>   arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts | 12 +-----------
+>   1 file changed, 1 insertion(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+> index 1883bd183396..4a3ae95f122f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
+> @@ -98,16 +98,6 @@ vcc_1v1_nldo_s3: regulator-1v1 {
+>   		vin-supply = <&vcc_sysin>;
+>   	};
+>   
+> -	vcc_3v3_pmu: regulator-3v3-0 {
+> -		compatible = "regulator-fixed";
+> -		regulator-name = "vcc_3v3_pmu";
+> -		regulator-always-on;
+> -		regulator-boot-on;
+> -		regulator-min-microvolt = <3300000>;
+> -		regulator-max-microvolt = <3300000>;
+> -		vin-supply = <&vcc_3v3_s3>;
+> -	};
+> -
+>   	vcc_3v3_s0: regulator-3v3-1 {
+>   		compatible = "regulator-fixed";
+>   		regulator-name = "vcc_3v3_s0";
+> @@ -255,7 +245,7 @@ eeprom@50 {
+>   		reg = <0x50>;
+>   		pagesize = <16>;
+>   		read-only;
+> -		vcc-supply = <&vcc_3v3_pmu>;
+> +		vcc-supply = <&vcc_3v3_s3>;
 
-> 
-> Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> 
->> ---
->>  MAINTAINERS | 1 -
->>  1 file changed, 1 deletion(-)
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index fe168477caa4..22999fccfbd7 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -11059,7 +11059,6 @@ F:	Documentation/devicetree/bindings/net/hisilicon*.txt
->>  F:	drivers/net/ethernet/hisilicon/
->>  
->>  HISILICON PMU DRIVER
->> -M:	Yicong Yang <yangyicong@hisilicon.com>
->>  M:	Jonathan Cameron <jonathan.cameron@huawei.com>
->>  S:	Supported
->>  W:	http://www.hisilicon.com
-> 
-> .
-> 
+How about the following instead?
+
+@@ -538,7 +538,7 @@ regulator-state-mem {
+  				};
+  			};
+
+-			vcc_3v3_s3: dcdc-reg8 {
++			vcc_3v3_pmu: vcc_3v3_s3: dcdc-reg8 {
+  				regulator-name = "vcc_3v3_s3";
+  				regulator-always-on;
+  				regulator-boot-on;
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+>   	};
+>   };
+>   
+
 
