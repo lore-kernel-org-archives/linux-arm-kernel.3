@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A444CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75549CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpNFY2zr1VsygjGbzhz+uBinN58GcwWHwnpY7MGqkVs=; b=Hr+e0ivBjT3BXEzU9Z6t4kBuS1
-	9LbOIOkiVvC8Td4Fnb9HaywzD5310tL7KPnZmV5iZS7OsAyqkubUEhUVhOm6OaS7i9k6sF15JyP+E
-	EulcMJIEQGhX1L7q+VJNrKSciza/s0XWBbcbkx5864tilcgFE8YIvQBLLMDu4O8FyVbrrPZYneP1c
-	1HEHPHATvfIQyCUlXvOhQYk8+htoZIjQ40AMtEVqUPGORl/Yn0iiBUXddNS1kyOE3KiuPl3XjE5b1
-	WCguVrfkVKUd1cTcoibushptJlVDQaGKychj3ETNtPb4Zu62S3vJgODy0CV+le9kxEOlc2HOFRlpB
-	FJFfGl4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Sm6rcZ1Tg7xHOZ+VqXutG9SOEvoL57FBIDaQVoFNrU=; b=TEzPX2uojc/4l/BOU7EvCFR0Vh
+	ENgkxShhrrm5u104TfE41nxFQou4Ut9M6rPO6COyBdlpeflnfZ6LRVcTP/q6yxaLoM4/HYj310E/P
+	hYzGBx0vlvdQ3JL/M8q60+vorzkiqdoSfpavCIXWgDtWHMR+5lftH2YAYoLSgYpgWUB/npmdSrclT
+	hGzXs2uNYfj3w9R5lBUoid3vtPqriHqpu1SPfs5/0zgITH4ptyzcHrIW5QjnD/joZsxOi6s10+4QN
+	8e2bztsMUmUN+J2TRj7uXE6w+XlcpWB0M2QdYQZvA+Bht+VztpIL/N7aTncYqMW+OsPzLOfrSQWz9
+	JEtfZaYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4s6-00000008ONQ-171N;
-	Mon, 18 Aug 2025 18:46:18 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1uo4uI-00000008Oo6-1GRj;
+	Mon, 18 Aug 2025 18:48:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4Wq-00000008KBi-21jQ;
-	Mon, 18 Aug 2025 18:24:21 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb7af30a5so733945066b.3;
-        Mon, 18 Aug 2025 11:24:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755541459; x=1756146259; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mpNFY2zr1VsygjGbzhz+uBinN58GcwWHwnpY7MGqkVs=;
-        b=mqQMZHk3/UVxsQfa+dO4+WNf/efYPzm2GKXSEfZHpUvsjYo0gZzK31T3RhgaE685t5
-         PHhTgenfUitxKigPx9iZWoBwfpfFMqKuARAZ29prCbGC34BppVj8iS045em5KB/3vd+k
-         KL5lYn7HAvNQ2e+EAcXMMB8MgXZb44moGeEsdwG6MHv+aH/dI54ZGMvZCtAYBlkJMCWH
-         ICT5TKxSSkrwgP7L6zfpbODh/H4vhzmmjGIVRtaQbGNzWyqulfzExxQX+ONnjILacgZf
-         Pb+FlDQ0PJNKw/W91Z56nxZ8/gX9qhiVRhx0RQYjeIkkh29zI/VuJMcLTtD5vIF4dnet
-         DDbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755541459; x=1756146259;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mpNFY2zr1VsygjGbzhz+uBinN58GcwWHwnpY7MGqkVs=;
-        b=hPfgkSnO9r8T5bu4MQBuQzb9KSOQ+CgD98xEwIRfvXYkVk/X7FQgathlI0kW6lrW3r
-         z3EW0bKLrUivDk4N4mhoRocvP5OUwGhQqJiNCTbhdGE2ZaMru5CSh7tDJH+xTaBT57xb
-         hKsRbMvfOdtc5+g0JofReu0FXEz+n+sGkRhPZ1ffyBc9AvEDpyJxkBKUNqO2ZUDwATVK
-         y2e0Iv9oo7106Wjs3OanIynIGbDlZ+Rx5Y2EP6bqtMpicXRgEpPlKAH3vrQLjJyZF+Uz
-         SjU17T2NP6go/ffXPDTwrLBc8d+O5dHUXyIwso5WcKKE3LDXS5dNjaKIM18vT9x6Rs6x
-         0bow==
-X-Forwarded-Encrypted: i=1; AJvYcCVy/U/T6zM4drcLtpWyvyzYSJcU44FW9+dh6Em0K9Yt/oUbdqQt7oB1eWaPdAs4hzlM0rH3HHlQB0eoaU90y2m2@lists.infradead.org, AJvYcCXcXbOZpbOgwJyxb0bG4npbMwi6Vy11bavcKskVeFMh6T3pmO3x0hKP/VmVAN0Zfqn9YJXQM27EhEMdi0kjCvQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxASmAjOsmHp9N3klZSwBnc9xc6W1y+dqruV/tpzW9lZS/TV4FT
-	Z6Nzm22/ePuIjYKEuEgaeC0U4Qh7A5njpOFNIVV8IgDgJkysibB4GtQ=
-X-Gm-Gg: ASbGncsLjosBWkbdOWIOdHFTUA5+pxMWMHXA7+Y6J4NAZZTipb2YeJxObugqcItddPP
-	vQLRi7veTC5/4Bj2UC8iAOTzSzfdxW6kTkQixK0m6hgBqEgTxR0iPdGV8CPJvPpXu0FZXVAb+Py
-	X2xWF2OAN+k7d5RrgUAXK6L/VGtYlnyvC0yY5OIdf1ANkjA93UvPrlK6xTfx+vq2JMTBAaX1JuM
-	h/a1EAXfcCqRBOd04infEVtME51MiAxthPThyaasr33ufIstn5HY28bCQS2m2bwTo+uC3dMlFHD
-	JYo9i6N2irQRg7RECnue5O101s7Fj+oqsb/bIthkLMLeWt4D92A4BcNsxgO2sJ/FRDlWC5ETrOj
-	Fo5amPaZuVri4/Dmf2gvRRIq0duTFLzR/aRvhYuvmMB3VtYMzS7UZLrxrMHNYxC6KQe0W
-X-Google-Smtp-Source: AGHT+IEP3Kjp2u2J+yPrgUCMTkqSRo7LZ5tDQMH0zZ3JdCM3es1AYojWLj3afepK7WSFanZwbTQU7g==
-X-Received: by 2002:a17:906:f5aa:b0:af9:71fc:726 with SMTP id a640c23a62f3a-afdd98e33c4mr44524866b.17.1755541458156;
-        Mon, 18 Aug 2025 11:24:18 -0700 (PDT)
-Received: from ?IPV6:2a02:810b:f13:8500:beb0:cc44:a532:3452? ([2a02:810b:f13:8500:beb0:cc44:a532:3452])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdcea0ebdsm851063466b.56.2025.08.18.11.24.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Aug 2025 11:24:17 -0700 (PDT)
-Message-ID: <5593866a-29b2-431b-891b-c15cb2da8361@gmail.com>
-Date: Mon, 18 Aug 2025 20:24:16 +0200
+	id 1uo2iW-000000081aJ-2kQE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 16:28:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7861A5C6085;
+	Mon, 18 Aug 2025 16:28:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A15DEC4CEEB;
+	Mon, 18 Aug 2025 16:28:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755534495;
+	bh=jdVxZ6TrLpy072pF5Ft+Cc7fctme9nFpaI9IZhzRCzw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UYLiD+pPbxx1XKjzo5yT7qw13xobP3vvtIqo4IvyXUzuEc5DyqE6UGub6sdQS2vY5
+	 HnFUaZV3SLmjn8JFSnjHPtBDgZuVVxplP0J13egeJcRappgU0YBI5w1bCtUcmqWJ9g
+	 KOvZT7AgSOfZurHjWOn96Z5f726IUGjHykzBLTX5Lt9nE5BjSpNiqrXcqIT9qlQx0g
+	 9/5/T0jB2VBdPKv+5uJn5R/yBx0eHGpDhix0rHBPKntXQkQdc1k12tSqoksWJM0zsw
+	 49Elj3ohe8ySbJu8Yv1fnFhrJjVUDQcIPFP/Asl8UJ3zvq1KcCJ9UW4KPsElKfK7w/
+	 ly3VPcF0FnfAQ==
+Date: Mon, 18 Aug 2025 17:28:09 +0100
+From: Mark Brown <broonie@kernel.org>
+To: =?utf-8?B?5p2O6LGq5p2w?= <15074444048@163.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev,
+	maz@kernel.org, joey.gouly@arm.com, james.morse@arm.com,
+	miko.lenczewski@arm.com, yangyicong@hisilicon.com,
+	robin.murphy@arm.com, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	lihaojie <lihaojie@kylinos.cn>
+Subject: Re: [PATCH] arm64: cpufeature: Replace inline with __always_inline
+ for GCS checks
+Message-ID: <dd75b37b-1abb-4188-a26a-ca060add4c65@sirena.org.uk>
+References: <20250815011905.1368058-1-15074444048@163.com>
+ <4ac4f0d0-fa5e-4c47-bcdb-fc2a65450848@sirena.org.uk>
+ <5bc224c7.18fa.198b1a3d8b4.Coremail.15074444048@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Fix Bluetooth interrupts flag
- on Neardi LBA3368
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Hsun Lai <i@chainsx.cn>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: stable+noautosel@kernel.org
-References: <20250818090445.28112-3-krzysztof.kozlowski@linaro.org>
- <20250818090445.28112-4-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Alex Bee <knaerzche@gmail.com>
-In-Reply-To: <20250818090445.28112-4-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RWOunc09b4l0MTdG"
+Content-Disposition: inline
+In-Reply-To: <5bc224c7.18fa.198b1a3d8b4.Coremail.15074444048@163.com>
+X-Cookie: No guts, no glory.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_112420_544317_280F8772 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20250818_092816_775117_0FD06029 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,45 +81,71 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Am 18.08.25 um 11:04 schrieb Krzysztof Kozlowski:
-> GPIO_ACTIVE_x flags are not correct in the context of interrupt flags.
-> These are simple defines so they could be used in DTS but they will not
-> have the same meaning: GPIO_ACTIVE_HIGH = 0 = IRQ_TYPE_NONE.
->
-> Correct the interrupt flags, assuming the author of the code wanted same
-> logical behavior behind the name "ACTIVE_xxx", this is:
->    ACTIVE_HIGH  => IRQ_TYPE_LEVEL_HIGH
->
-> Fixes: 7b4a8097e58b ("arm64: dts: rockchip: Add Neardi LBA3368 board")
-> Cc: <stable+noautosel@kernel.org> # Needs testing, because actual level is just a guess
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->
-> ---
->
-> Please kindly test... Not cc-ing stable on purpose, because this might
-> have impact, so needs actual testing.
+--RWOunc09b4l0MTdG
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Tested-By: Alex Bee <knaerzche@gmail.com>
+On Sat, Aug 16, 2025 at 02:49:21PM +0800, =E6=9D=8E=E8=B1=AA=E6=9D=B0 wrote:
+> At 2025-08-15 23:38:11, "Mark Brown" <broonie@kernel.org> wrote:
+> >On Fri, Aug 15, 2025 at 09:19:05AM +0800, 15074444048@163.com wrote:
 
-Thanks,
+> >> earlier during the compilation phase. If system_supports_gcs() returns
+> >> false, then the line of code restore_gcs_context (&user) will not
+> >> actually be generated, so the compiler will not report an error.
 
-Alex
+> >> -static inline bool system_supports_gcs(void)
+> >> +static __always_inline bool system_supports_gcs(void)
 
-> ---
->   arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts b/arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts
-> index b99bb0a5f900..b9801a691b48 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3368-lba3368.dts
-> @@ -609,7 +609,7 @@ &uart0 {
->   
->   	bluetooth {
->   		compatible = "brcm,bcm4345c5";
-> -		interrupts-extended = <&gpio3 RK_PA7 GPIO_ACTIVE_HIGH>;
-> +		interrupts-extended = <&gpio3 RK_PA7 IRQ_TYPE_LEVEL_HIGH>;
->   		interrupt-names = "host-wakeup";
->   		clocks = <&rk808 RK808_CLKOUT1>;
->   		clock-names = "lpo";
+> >If we're doing this for one of the system_supports_foo() functions we
+> >should do it for all of them consistently, not just for one random one.
+
+> The key point of this issue is that calling preserve_gcs_context and rest=
+ore_gcs_context illegal,
+
+It is, but it's also a deliberate choice we're making for this and all
+the other feature specific context save/restore functions based on the
+belief that the optimiser will do the right thing for us (see the
+comments next to the stubs).
+
+> +       if (system_supports_gcs() && err =3D=3D 0 && user->gcs_offset) {
+> +               struct gcs_context __user *gcs_ctx =3D
+> +                       apply_user_offset(user, user->gcs_offset);
+> +               err |=3D preserve_gcs_context(gcs_ctx);
+> +       }
+
+> __always_inline just help optimize undefined func=EF=BC=8COf course, this=
+ could also be circumvented=20
+> by adding CONFIG_ARM64_GCS checks. I'don't think other system_support_foo=
+() functions
+>  should modify, they don't exhibit similar problems.
+
+Two things here.  One is that this is pure good fortune, we're using
+exactly the same pattern with other configurable features like SVE and
+SME so there's no reason a compiler can't decide to make the same
+unfortunate decision there.  The other is that this is that adding an
+__always_inline to just one of the system_supports_() functions without
+explanation makes that part of the code confusing, it's not obvious to
+someone reading the code what the difference is.  Having a consistent
+style for those functions is a lot clearer.
+
+Perhaps we just shouldn't be trying to be clever like this in the signal
+code...
+
+--RWOunc09b4l0MTdG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmijVJkACgkQJNaLcl1U
+h9BGnwf9F0wK/p2+MntvhEVlmz0Lk+LZNzg3Vkzdz4v5I3aQlvtGRwV7fwKkr6EE
+/COTbQK+S6v82a6C4BDM0dhCcVoRDpKqtephqtQ5zvOiYvueBO4HLfoZg87wnsQZ
+EBDywir1om3DWz2iKYmpSpEylB7vKM69/8vHR3YhoW61A8aGVSHuElkngDoBWElL
+JDZjfEx2bm1L8GEr9Iwxifxi4hStIWOCLRKZL+lM92Kx2Wg8DAuewDTLMHuIxw1j
+m4GFTmJ++7BeeQ13xi/Y03//mqUkXt+pIaTxpGxp3YkVDMb9i73GlDJI7dWT+yc9
+TV970fDh4AoAkzolswA+kJLXRnSQRA==
+=v9sq
+-----END PGP SIGNATURE-----
+
+--RWOunc09b4l0MTdG--
 
