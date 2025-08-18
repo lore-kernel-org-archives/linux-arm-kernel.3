@@ -4,77 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B69CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6B3CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c8Omu33Kehv6UO5QnpWFWfqxuWjvz4FW2cUq9TsWXWQ=; b=Cf99sybTtTFyoHlURGjfYlQbbC
-	YmD2IoDg2tNhTNKJPH9SSagoY5rji/lhB3wqHUKzRjT8Ao6CGzQkDX/CcHV2zbuRy9GlLWGI3imKl
-	T85AozvsH+cnd7o6L7cBR0ga148dNHikB7mpeIaTnX97ePv0VnVdCtj+2WoZaFUSs+Oe4eCnjeFab
-	Q8VJPHE1IKzWdNZ+7W1HpaBOd4v+YD6tkEhkHmRy5yiQx8CsPbknPwLg7gG6jSmC5ByRQ/gXwMNi0
-	eXtOc/WuSsT+DcFdNG1xrQ8nUMzBDx/OGO4vLSBX3IQQqOQuBzFvybeK3ytUvfLh2GjcVXAs5XQAC
-	1rkkNIXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/N3ypx/D0WwwuWvtUW+aECaom/IY2VlYrUqNHoAirU=; b=w5/U75fT/4f+ND9cnSNMHKhcKp
+	fcDihwWcKJX9mKqg7qUbOjexQSa1SclOJSya8OJTvsspVdBZ14DkFUzGsnGyONE0I6Q6+B6Cp/qZI
+	4PTSp/MF3qToCkv3Q8qTAikyerId3ZNRxGVUEoX8uEoD4HT7nu/VM+yTuJqu3G78IKVwLN1kkxAmr
+	vXIr/ukN0dUhif7abByo1l8p9aiwg/1Dy0TtqhBIFLQrp4CwpdBG52h0/c7syOFvNSPhBD5PW8ZxZ
+	ytV/Lm0jmI8sYF9nX82aeqVjGNbZi8nqEnnzBQ5kmESmZE/VgbCmJCaF/vLvLApA5bTpzyDsi5s5u
+	MF0eeYyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1AD-00000007oUb-1ndE;
-	Mon, 18 Aug 2025 14:48:45 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unwVf-000000075sf-41Rs;
-	Mon, 18 Aug 2025 09:50:37 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c56yW6MFjz9sRs;
-	Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id S4lQMV8lRn9d; Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c56yW5CjDz9sRk;
-	Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 9EFE08B764;
-	Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id A_F0l_xYSBua; Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6855F8B763;
-	Mon, 18 Aug 2025 11:35:31 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-mm@kvack.org
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Peter Xu <peterx@redhat.com>,
-	Oscar Salvador <osalvador@suse.de>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2] asm-generic: Remove pud_user() from pgtable-nopmd.h
-Date: Mon, 18 Aug 2025 11:35:29 +0200
-Message-ID: <c2c9fc69871a7caaa205e237ff73557f19f5e176.1755509286.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
+	id 1uo1A8-00000007oNA-2ZiR;
+	Mon, 18 Aug 2025 14:48:40 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unwFT-000000074IN-3QAi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 09:33:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EcSrIHSLReVje83uJkg2zvs+JCQMpF31qh8N4WfpG6OUAw/WvYjHFtaY8XEIb3rzYgJCSSGlpevPzgZIhWSgZrXSPRaJZLGDxAczKZTwqgAgyiYuNMSQlQ2Rx8DI+hocZQOoud+XPaAj9z+yuhjtWG6voKKOKQuEkdvEG9nIp9aHl9EKiioC8aKbtZ/o1+PSZ4PV6x87xXXdXKz4CO9itUIMOnvmk7etxn2xcxyDeylUtfG8ESRKaT0jWJd8QTBqpcio5Zh+wyOlJC5UXoJ6jK25uvBHfoKPSNRm/zXq9Vfveqn2GbIOFAI57ZgRhIGoJ8DEqk/ubnZ8TxKLW79KoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V/N3ypx/D0WwwuWvtUW+aECaom/IY2VlYrUqNHoAirU=;
+ b=mxd5PqX84VqtEPjpR3poiVMSPc1kpY19dJyQRjUEAG9wig14PRrl25V9uCgbs0EeP07KD+c/Ph7zTQ3BHQhXmbFz7r8DcDsut8ecAQHOHRR2lMZ1CdxVFZqGk7qOwgNcy2crHGiU6y1HqtfFSZzgYSqe1CscoUM/devWgy28BovgaBmwCT4bmkx0720Em5Gd5+7+a35YAGYPnYgBedcl/+0CXM3ZcTehs1Gp5WxykJcWmfTDhpokyJewEME8sYVL8ATOphOawpnkokgPydL9rM78aMnaYoZFIb8/J8NOwgUFU4Am5uctyQBrvrOOv9COAt+xuORhVMsj7T2PwjW6jA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V/N3ypx/D0WwwuWvtUW+aECaom/IY2VlYrUqNHoAirU=;
+ b=itRUtELzm/lrtd5pj9lbPqD4pwonaIumZRlYaIE/pRyrkKKNxkyQoYbMAGd/szPl/5EaRFmx+Py7iPsFrScj0hN/61wBsUKmmD60+krUy8tJd5JIH/kfBYPwNsUbp2z1z1SYyBIYsr9gdAICrcnBLmKw1dCHxyKtc2p6U7pYm+TQJ+0qZ/y7c9+39/h2PXuwQQvUAFVG7ekYNQbVFLZ9XX8uNMNJJANrz6vO9pbXt1rIdxPEvcLFq6Y9QDm70UIBiuwvKmgsJi81oLKfVHqUpmcc52HA7FTImjRVuM19nHoWxgo9vysx6OhvvKHgjRRH3Hg3kgy8NqBThmp3wzdnag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by GVXPR04MB9976.eurprd04.prod.outlook.com (2603:10a6:150:117::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.9; Mon, 18 Aug
+ 2025 09:33:42 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
+ 09:33:42 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+Date: Mon, 18 Aug 2025 17:33:13 +0800
+Subject: [PATCH v3 3/4] thermal: qoriq: workaround unexpected temperature
+ readings from tmu
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250818-imx93_tmu-v3-3-35f79a86c072@nxp.com>
+References: <20250818-imx93_tmu-v3-0-35f79a86c072@nxp.com>
+In-Reply-To: <20250818-imx93_tmu-v3-0-35f79a86c072@nxp.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Jacky Bai <ping.bai@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509601; l=4895;
+ i=ping.bai@nxp.com; s=20250804; h=from:subject:message-id;
+ bh=TFYK/I1X+MjaKMu8FsEFbVrIdVXKiQQWSTHi2fz03aw=;
+ b=BhojgpbwrlSizgbnjjXYPUei7w+FIN2sf3pVznj77HO1H3FxarsWUjww7tfhNPo+XfrKKGvAF
+ mozP+WJm4LGDrnzy5UZ3SI15cRvALCNujYlDNG5hhGQK9wxwn6RfUtv
+X-Developer-Key: i=ping.bai@nxp.com; a=ed25519;
+ pk=ckFjCfRynXBjQGmSmzOVI5hggMD9XnnNlwj/jcO/j1U=
+X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
+ (2603:1096:4:194::18) To AS8PR04MB8642.eurprd04.prod.outlook.com
+ (2603:10a6:20b:429::24)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509730; l=2790; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=LTBJbGAaZnZ9xdSyMCrWcKItZ2m45x3r8zAe1HyRjkA=; b=8qUOHdMYJYyqO833zMLZ/GYzKalR9OMtGfcspZDpf14JjHMbxR02lStqhYZM25fsAVWilTr0q wzzsorRSqjLBdi9uE2wvgfjKDvqiPoLqP1ZmxaRS+NLBOlTSuLY3Wry
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|GVXPR04MB9976:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7c499b5-fb23-427e-c70e-08ddde3a520c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RURNOWVVaVZDUUhYeWlOZ1ZXNmRyYXhoOTl4bFNSRUtKZm1YZTZPd1liUXpi?=
+ =?utf-8?B?OWYwbUtNOE5SbTVQOFIwWGptR3RuOWxwWEhLOGRFR3JLc0RBb0tmWFB1czJt?=
+ =?utf-8?B?Sy9VOWk4UzNiMUc0ZGY3QWdQemFxajR2WXhldlJwSXZyS1VrSFlMYmtyRnMy?=
+ =?utf-8?B?a2lqSjdoQnpiVVYzT2oyTkIwandwY3VnZXpuUjVHazBwM3dkN2dOZ1lZbU8y?=
+ =?utf-8?B?Umw2bzEvSGlsdTBGV05KdkVSdlBxWFlhQWZoQ1dEZHJ6RS9Xc3Jidlg5QStS?=
+ =?utf-8?B?Q0RsaWw2QzdESHV5TjV6SzU5c1Q4ZThjMDJCRnppSWMySHlxTFNJQWgwcVFz?=
+ =?utf-8?B?cFdsNkJubm1Dcmw2WmJTTnREQk1SNVRrQ0FBRng4Z29qbTJ3cDJnQnpxdG1k?=
+ =?utf-8?B?eEE1OUFzZkpGekNKbU1RbVNBQjRlVHpTeStra3RCWmxXWTlobkFWVVdyakc4?=
+ =?utf-8?B?QVJFZHpxeEJIUURTZVd3ZDFSQ2JXazY5YTB1d0JCdUhIVHJ2bmNwZytZUGMv?=
+ =?utf-8?B?WUFFSkYyd3g1eUJ0dTRTbVE5YWpLOFJxVExScHlENXNmVlV3RWh1NVlic1dk?=
+ =?utf-8?B?WE5PYnBsSmhNb29UdmFTbzI5WnNqdHJ1dU5tVWhZVlZhRDR0Z1RNSk9VU1lL?=
+ =?utf-8?B?ZGRQZGYrR0JBRUdIdE8rMW52VEVzRTNKblgwT285U2k2YWpFRm16bThWSklX?=
+ =?utf-8?B?c05QRjBHWUJNK3BQTDZSaTVLVnA4dnJZakhab2FuL09FRkNXWFNDTXBuVmJM?=
+ =?utf-8?B?Rjh3TjQ0ZzhOdndMazNDTkVLQ0dydXN5VkIwNUUzU1BSMEJFS1NQOFFhckk0?=
+ =?utf-8?B?WklhOXR2akFDWXlxQi9wSTZFUzhLRVZpZnVmWE9ITloxL2xYVGk3YWN4ZWND?=
+ =?utf-8?B?N0I5eEdNN01MRWtQeDJ6M08yQkJuai91Z1cwNjV4Y0ozUGQydVRTNjdhODlB?=
+ =?utf-8?B?RWFXb1R3aDU3YjJQN1I3bURrZVJyT1VtYkdGY2JIV00wczVzNlhKOWhLRS9n?=
+ =?utf-8?B?VDk5c2ZzY3NjTnI2V3plYUREV0pCOXJ0eDBvRnVweEpyY0tXRzIzZTRTVXFP?=
+ =?utf-8?B?U251eGwwZzkwQXFNd0lSM0E4Rm5GdURzeDdaUWVSY1lacGZPZmR2MncvQ2hl?=
+ =?utf-8?B?T1Q0MU5TOHFNNUxwUzJFMDRrdGR5aDdDWGY3NjdKWGY4dUpUK21iYnJrd2Vx?=
+ =?utf-8?B?Mk9OYzdBM29uRUV0ajNGM3FJU0lDMWdkSjJyWENydi9pVnZNNmovbjRYTkd5?=
+ =?utf-8?B?a2VpYW5KTlpWU1hYaW9TK29UbGRsZXNIUFB2RS9VODl0SFFPcGpPQ0NVQ0J6?=
+ =?utf-8?B?R1JNN1N6alBzSUFPWGpTOHBxbFJvZTBCRjY5czg4NjRPVTN0SmNId0thU09s?=
+ =?utf-8?B?L1VpeWVGeUNabkZwbWttQlJ4QWNzTDZ2dVNBcXpoZlVoTEQ0MTVZcEtPNjg5?=
+ =?utf-8?B?enRySEdMb1dNUGFHY1NHYmJ6OEpMZDJpNnN1NWdqZ3ZTSUpjZVpRNldNcGFm?=
+ =?utf-8?B?dzhsNGVEVWpkU2FVZnoraFZWcXJ3WExUUjZVRGYvQWdJSFRBYlBOTEcrNFB6?=
+ =?utf-8?B?eEFidDlYbzBxNEFLU0ZZVy9heW5zREtmbnhiS3NjZFR4MkJUSHIxQ3pQQzZh?=
+ =?utf-8?B?cVhwcTg4cWd0ckRFMVMvRjdnR2tBOW1zMjdlM1paQ2VOOExFVnJSTDdNY3hH?=
+ =?utf-8?B?cU1SQnJIWXU4YnVrNFZKLzBUK2V2U0UxSDVTUFhObEUxR1M1b3JNdkhWMVFV?=
+ =?utf-8?B?a0h3dXBvZVg1YnNQUlpFckxqck9HSGlEZlVmajlsa0lyWC9EUUFJUkhCdE1W?=
+ =?utf-8?B?aDlVUlRnVVJLYkhLcWxBdEN1ajlWYlJmTUZNUHFHSDlFRm92dUlwbmRrUzFv?=
+ =?utf-8?B?Q0htcHpGZmlmTVZuRzNNV0pReDBReVo2b3JiRGpHQXpTbENkcnZta3E1b2I5?=
+ =?utf-8?B?citBekdicUlpWS9JWFJnWnZuUDlXZ21uQmlkMHVsRzQ3NmZOWmtMVUt4OVc0?=
+ =?utf-8?B?NVFYUjBHOFFGbnNiSkdzTFRBVHZUVTQ5Q2dFMzdVNm5JQ1NNL2xFWEt0QlZ6?=
+ =?utf-8?Q?lztE26?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RlpQYWs3MzdtcVJpTnpJSjMwamdOWWNQU2JYR0RTYjNVbE5lSUg2bnFzblNV?=
+ =?utf-8?B?ODBTVXNKb1BOd0xBckp6U0NmR0Q0cDBLS0dTTkNXYXBEclY3eHlla0ZKcXF1?=
+ =?utf-8?B?ODJreXd3RWhVdVJkSTJvdkdReVNySnZNbm1ucTZ3bDh5TGpQc1I5VUFyaW93?=
+ =?utf-8?B?OXpsQzJrK1g3Q2N0ci9nR0JmU3JQSWxkaWxaWVBVdFlzZllYckR3WlFQWnM2?=
+ =?utf-8?B?c2RObmFiWVFFZDhrYkpkcFFQY0dzZG5rS3lRdDRRZGRRMlFyRVVzVUJaWEtw?=
+ =?utf-8?B?SUZTb3BHYlFHY2J2Nk4zOXBHNVlTSWtxc2w2R0JqSkl4UkJZZlFXczlCc0Nu?=
+ =?utf-8?B?TExXaUl6NThNR3FFT3BXZkVlUUozU2NKUzR5VDVXekcvR2RzZVBHd2ZPZnNm?=
+ =?utf-8?B?VmZ2cDJxNnkyTTZLdlpxdmFMWjlLaVNYdXVWYit6ZWlrWm5vd2cvV0NhYk1w?=
+ =?utf-8?B?dUhZRWp2Tko2VG42MnVDUENzZjRUTlZrbGlYc2h3RXk3OUI4MllHRTVMaHJp?=
+ =?utf-8?B?c1A1NWZSVXRXZDFRTzFXVHlmcGZMRzErVDBoU0FobUV3S3RjQXdENlVvQU1U?=
+ =?utf-8?B?Qk9xUkFXWmhtR1MzNnc4MHI2OXlpZXlCNmEyNVZvVG42QXRwUVBVSUtBOTJv?=
+ =?utf-8?B?ZU51S3VEd0JWdk8xRmRkbndaNDROcCtTQU1Dc3p5T1hSS1c3NXpudHB3b0VM?=
+ =?utf-8?B?YmlFazdobkVhcUw0K3ZBaVZvSll6QXdSNWM5d2orcVkxUUhIaHFRK21XL1BQ?=
+ =?utf-8?B?YjkxNDNUMzFBdVpQaS9KUXJXdVlUL0RwV0FwV0xiU2RoT21TbzJxK3dpcXlH?=
+ =?utf-8?B?dmdSVWx1dkFiTVZ3RXJ0cjBZME5MWVQ0elZHdU5vZFRJUmNUT0pCVEhDdVp6?=
+ =?utf-8?B?VnhaV1N6dHpIdXZHN0N6Rjd6OHpjQ2lIL0Y4NmtIcDhJckh0V0srL2dSWmJO?=
+ =?utf-8?B?UmxoN3RBbU5IUXFIWEd4bkpGczV0VkhYMWNZQWdJeUVHVW5BTkM0VmJIenZ6?=
+ =?utf-8?B?eGdDZ2wydUZtWjVzTStBNWF5K1VMeHJYTmZKQWJDNldIQWFVR0VjUWpvei9v?=
+ =?utf-8?B?V0dEMUNsR0p1clpRcERiNDh2S2czNXpQS0R5cVR4Yko1RVVtUDAvUlZDWXZZ?=
+ =?utf-8?B?RWxJWWJQNldTL2lJNUIzczNoWDA5U1JVa2lJZkxhVXNIdEZ2c3hNR2NLemVW?=
+ =?utf-8?B?Q0dpdjkzU1RTNElQb0d1VlRDKzkrNmd0RWVkK0t2aCtVZnRMUVY0UnNiWjNm?=
+ =?utf-8?B?MW5rcDVkaG9SNjU3Z3RDZjB4RXhabHloZnlmcWhyQjFCUXh3WmdUNFp1S3F5?=
+ =?utf-8?B?Y1loSkFiRkVRV2JzeSswa09vK05md0dhWUV4bUNQak9sVzFyemF3RitOd0V1?=
+ =?utf-8?B?SVIzallYWDRVTTY0L05wQU9hNHE2U25SNjNRemxzcnpJWnBXSGxzR2RKcjBP?=
+ =?utf-8?B?SGl4dW9zekdneVhZWlNCMkJhaElPN1V2RDZpN1NBTnpmb2RpeHB0TlhzN0hx?=
+ =?utf-8?B?b25KQm9rSnpia0gwd3RYeXNYeDd1Nm9kdkpwWjBDb3NIM0hkRGJsS0l2TXRU?=
+ =?utf-8?B?elZYMVNQcHlyZ294Q2tySHgxSEVsS3Ira0ZUcHh0RUgxYXowSm9nWEdBZVpK?=
+ =?utf-8?B?TUpBbUxQVFoybURNYytJUis2djFtRXhQR3UwTGs0U1g0OFFtRnBEbmJkajlH?=
+ =?utf-8?B?YmFXWGJ1cnJlclIzclZsZHV4MHVmdFRJRHlSSThadWdxc2wxc1JRT1QrZTUv?=
+ =?utf-8?B?VmRCWGJNeGlLZ0ozMkp4a0dPMkd2dU84RTBWeEZkT0xsK0FvaWdISzhoWWVa?=
+ =?utf-8?B?TXNMQlNtNGRmUGwvTldJUnZWU1FkQXZzcTVxRDJtYk54c2Z1ay9aUmYwRVRG?=
+ =?utf-8?B?K0JwLzExSkY4MDNtUS9sZTJHSTlEME42c0haNWNPNUNJZWRJb0x1U0lrM1Rk?=
+ =?utf-8?B?dWM4N3BxVE1HaWR0bk1rN2JwSU1XZ1ZKWUhPNmE2c2JDMVk2VTJuWmg3ZXRY?=
+ =?utf-8?B?MTBrL3psUGc2K0xyUW1ZTGZLSXhBSTkrdS9XRktZZ2kxN3o3aytrUjZPMThp?=
+ =?utf-8?B?WHBHcmlVbnRNMm92V0ROYmQwYmtReUQ2RXZWRmlFdG96ZVpsUHdXQk9rZUdk?=
+ =?utf-8?Q?AjXVuJVksjzCFXr2rSKH6DjBf?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7c499b5-fb23-427e-c70e-08ddde3a520c
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 09:33:42.3545
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2qa5dx4RgaGOFJxxawGiIgSXBuGW7n4gyI7eCGB3xmuq32wxbMj0HXMpWXHBfTsvfoqNRtzdbvK8BnGqCAkR+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9976
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_025036_152399_6A1D7B0B 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250818_023352_006985_08F75A76 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +190,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
+Invalid temperature measurements may be observed across the temperature
+range specified in the device data sheet. The invalid temperature can be
+read from any remote site and from any capture or report registers. The
+invalid change in temperature can be positive or negative and the resulting
+temperature can be outside the calibrated range, in which case the TSR[ORL]
+or TSR[ORH] bit will be set.
 
-But pud_user() only exists on ARM64 and RISCV and is not expected
-by any part of MM.
+Workaround:
+Use the raising/falling edge threshold to filter out the invalid temp.
+Check the TIDR register to make sure no jump happens When reading the temp.
 
-Add the missing definition in arch/riscv/include/asm/pgtable-32.h
-and remove it from asm-generic/pgtable-nopmd.h
+i.MX93 ERR052243:
+(https://www.nxp.com/webapp/Download?colCode=IMX93_2P87F&appType=license)
 
-A stub pud_user() is also required for ARM64 after
-commit ed928a3402d8 ("arm64/mm: fix page table check compile
-error for CONFIG_PGTABLE_LEVELS=2")
-
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Reviewed-by: Peter Xu <peterx@redhat.com>
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
-Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 ---
-Not sure whether this goes via asm-generic or mm as it touches the earth of mm allthough the files are in asm-generic
+ - v3 changes:
+  - refine the code with FIELD_PREP macro
+  - add errata doc url link and refine the commit log
 
-v2: Change ARM64 pud_user macro to pud_user(pud)
+ - v2 changes:
+  - no
 ---
- arch/arm64/include/asm/pgtable.h    | 1 +
- arch/riscv/include/asm/pgtable-32.h | 5 +++++
- include/asm-generic/pgtable-nopmd.h | 1 -
- 3 files changed, 6 insertions(+), 1 deletion(-)
+ drivers/thermal/qoriq_thermal.c | 42 +++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 40 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index abd2dee416b3..d812ed1c96b4 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -955,6 +955,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
+diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
+index b2e634547271dcf512c714907baa162921d2d527..134a63abb482d44b5cc78e672e6312fbdce5ba31 100644
+--- a/drivers/thermal/qoriq_thermal.c
++++ b/drivers/thermal/qoriq_thermal.c
+@@ -30,6 +30,9 @@
+ #define TMU_VER1		0x1
+ #define TMU_VER2		0x2
  
- #define pud_valid(pud)		false
- #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
-+#define pud_user(pud)		false /* Always 0 with folding */
- #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
- 
- /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 00f3369570a8..37878ef37466 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -36,4 +36,9 @@
- static const __maybe_unused int pgtable_l4_enabled;
- static const __maybe_unused int pgtable_l5_enabled;
- 
-+static inline int pud_user(pud_t pud)
-+{
-+	return 0;
-+}
++/* errata ID info define */
++#define TMU_ERR052243	BIT(0)
 +
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
-index 8ffd64e7a24c..b01349a312fa 100644
---- a/include/asm-generic/pgtable-nopmd.h
-+++ b/include/asm-generic/pgtable-nopmd.h
-@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
- static inline int pud_none(pud_t pud)		{ return 0; }
- static inline int pud_bad(pud_t pud)		{ return 0; }
- static inline int pud_present(pud_t pud)	{ return 1; }
--static inline int pud_user(pud_t pud)		{ return 0; }
- static inline int pud_leaf(pud_t pud)		{ return 0; }
- static inline void pud_clear(pud_t *pud)	{ }
- #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
+ #define REGS_TMR	0x000	/* Mode Register */
+ #define TMR_DISABLE	0x0
+ #define TMR_ME		0x80000000
+@@ -45,6 +48,13 @@
+ #define REGS_TIER	0x020	/* Interrupt Enable Register */
+ #define TIER_DISABLE	0x0
+ 
++#define REGS_TIDR	0x24
++#define TMRTRCTR	0x70
++#define TMRTRCTR_EN	BIT(31)
++#define TMRTRCTR_TEMP_MASK	GENMASK(7, 0)
++#define TMFTRCTR	0x74
++#define TMFTRCTR_EN	BIT(31)
++#define TMFTRCTR_TEMP_MASK	GENMASK(7, 0)
+ 
+ #define REGS_TTCFGR	0x080	/* Temperature Configuration Register */
+ #define REGS_TSCFGR	0x084	/* Sensor Configuration Register */
+@@ -69,6 +79,7 @@
+ #define REGS_V2_TEUMR(n)	(0xf00 + 4 * (n))
+ 
+ #define GET_TEUMR0(drvdata)	(drvdata && drvdata->teumr0 ? drvdata->teumr0 : TEUMR0_V2)
++#define CHECK_ERRATA_FLAG(drvdata, flag) (drvdata ? drvdata->tmu_errata & (flag) : 0)
+ 
+ /*
+  * Thermal zone data
+@@ -79,6 +90,7 @@ struct qoriq_sensor {
+ 
+ struct tmu_drvdata {
+ 	u32 teumr0;
++	u32 tmu_errata;
+ };
+ 
+ struct qoriq_tmu_data {
+@@ -99,7 +111,7 @@ static int tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+ {
+ 	struct qoriq_sensor *qsensor = thermal_zone_device_priv(tz);
+ 	struct qoriq_tmu_data *qdata = qoriq_sensor_to_data(qsensor);
+-	u32 val;
++	u32 val, tidr;
+ 	/*
+ 	 * REGS_TRITSR(id) has the following layout:
+ 	 *
+@@ -124,6 +136,15 @@ static int tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+ 	if (!(val & TMR_ME))
+ 		return -EAGAIN;
+ 
++	/* ERR052243: If a raising or falling edge happens, try later */
++	if (CHECK_ERRATA_FLAG(qdata->drvdata, TMU_ERR052243)) {
++		regmap_read(qdata->regmap, REGS_TIDR, &tidr);
++		if (tidr & GENMASK(25, 24)) {
++			regmap_write(qdata->regmap, REGS_TIDR, GENMASK(25, 24));
++			return -EAGAIN;
++		}
++	}
++
+ 	if (regmap_read_poll_timeout(qdata->regmap,
+ 				     REGS_TRITSR(qsensor->id),
+ 				     val,
+@@ -132,6 +153,15 @@ static int tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+ 				     10 * USEC_PER_MSEC))
+ 		return -ENODATA;
+ 
++	/*ERR052243: If a raising or falling edge happens, try later */
++	if (CHECK_ERRATA_FLAG(qdata->drvdata, TMU_ERR052243)) {
++		regmap_read(qdata->regmap, REGS_TIDR, &tidr);
++		if (tidr & GENMASK(25, 24)) {
++			regmap_write(qdata->regmap, REGS_TIDR, GENMASK(25, 24));
++			return -EAGAIN;
++		}
++	}
++
+ 	if (qdata->ver == TMU_VER1) {
+ 		*temp = (val & GENMASK(7, 0)) * MILLIDEGREE_PER_DEGREE;
+ 	} else {
+@@ -238,7 +268,6 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
+ 	regmap_write(data->regmap, REGS_TIER, TIER_DISABLE);
+ 
+ 	/* Set update_interval */
+-
+ 	if (data->ver == TMU_VER1) {
+ 		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
+ 	} else {
+@@ -246,6 +275,14 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
+ 		regmap_write(data->regmap, REGS_V2_TEUMR(0), GET_TEUMR0(data->drvdata));
+ 	}
+ 
++	/* ERR052243: Set the raising & falling edge monitor */
++	if (CHECK_ERRATA_FLAG(data->drvdata, TMU_ERR052243)) {
++		regmap_write(data->regmap, TMRTRCTR, TMRTRCTR_EN |
++			     FIELD_PREP(TMRTRCTR_TEMP_MASK, 0x7));
++		regmap_write(data->regmap, TMFTRCTR, TMFTRCTR_EN |
++			     FIELD_PREP(TMFTRCTR_TEMP_MASK, 0x7));
++
++	}
+ 	/* Disable monitoring */
+ 	regmap_write(data->regmap, REGS_TMR, TMR_DISABLE);
+ }
+@@ -389,6 +426,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
+ 
+ static const struct tmu_drvdata imx93_data = {
+ 	.teumr0 = TEUMR0_V21,
++	.tmu_errata = TMU_ERR052243,
+ };
+ 
+ static const struct of_device_id qoriq_tmu_match[] = {
+
 -- 
-2.49.0
+2.34.1
 
 
