@@ -4,92 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F125CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B814DCA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jhFVRc1NfpOXTxJauWn9T+QK0y3Sx+B3L8yuuFsdMS8=; b=KhN/uomkzEKOjDew/h3gmXX6sP
-	4Z3tHteFdUBTqpypwfIjh8yml7jXgRZTROJNao+ExqkdxNXMzbwgQlMrtErnZ0fgg8TeMMN6mbEgE
-	oE0TxUAvqc6I59kALBsmbA4nk2Q4YmxKAGiJyW3pfOZ+MWSQmhlDVn0dRL+755iDcen8jSdSkbiFt
-	dlABBI5l/U966Gfy+Yt8m1PtkxvGQzcgn3F8i0orEoMbtNLoWCjRTdW/WNqvC0OZBsZuUYGxtBaJg
-	IM27GeXGPTb4JPFLFycDCeMOMiih+FyyLSu71ZjWfoY0QJ+fTIPNBbHAY3eJcP8UYQUVARhCRhnJ9
-	HDmAjtMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vj+qz5uWtdxe1t/4yn/fG3Kx2sOHLsT2H8fxH0m0kcM=; b=MN9ARKsu9Vy4gYluyrpds+cwzA
+	ohbuz/kWaMN43T975qG0qsBZS85GDWMK1Ig4d1sVd56HfgYag4Dp/jq+0+a0pR5Maf1sqj+1vqMRb
+	GU+SY+woznJFfOjCuTMtvPUDyHJHxZvx412hvN1krEZ/986TGLitJWj4zlqXZGU8iafY1PMyDAsop
+	WH0M0mBkOFXsaCR4QQkW0UztSOwjhvVmjCYCzQoOLN47nF/bRZq7AgLTSeAfFN00RmeK3FTNGJXNO
+	BxXuSvQ1vAxZcIm6zC4vHBaaD8IrWd0KC3SfWh8PIhyuFSu7skp1C5d1gkxMk2Jbxw+yKjE6uHwvU
+	kOsSYwiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3j8-00000008BWD-1nwj;
-	Mon, 18 Aug 2025 17:32:58 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uo3jA-00000008BZk-40Rr;
+	Mon, 18 Aug 2025 17:33:00 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo29S-00000007xbw-3Kx2
+	id 1uo2Ab-00000007xmr-49ZE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 15:52:04 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-242d1e947feso383655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 08:52:01 -0700 (PDT)
+	Mon, 18 Aug 2025 15:53:15 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-70a9f56b1f2so26119886d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 08:53:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755532321; x=1756137121; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jhFVRc1NfpOXTxJauWn9T+QK0y3Sx+B3L8yuuFsdMS8=;
-        b=YZ7E1j6Z1kTE7piZIhKADtGzu06UTQR7N/IZUyTdBDsGw73YVXrIswtEW7chA6SzZy
-         WvGkX3arPJ/ffSza2k+KDC3RULObUEnW6uxzScNKHyzIOlg2k5JQiLLBAL1mEjyTAbn8
-         GQaEUPKvpVSh3AmSalmdkigZkBGk+sZMtSyLzP8hXM2pFmjOU/UrCR905pnKbyTjKFD8
-         bOYX4Jup80UZ1b6iX5XfebUG7UmzX8kilUXzyZYriZcW53LQSwhfVFOujaPaMFYx2ngM
-         IhDxTW0tI8EUexbKyFhUoh2/HByjwk7FhN3l/5q+TcKZq9LXZzP9cQ+lxwX0hAfTbDIf
-         6CdQ==
+        d=ziepe.ca; s=google; t=1755532392; x=1756137192; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vj+qz5uWtdxe1t/4yn/fG3Kx2sOHLsT2H8fxH0m0kcM=;
+        b=Nnk+oac/fRjNuigierfv2urBcIA3h2RFLFja+8Wn4v+7GeSBO4mzzdudwnNicaMMVu
+         /Rm8qpl2zOVEqrspPl2eJHCVz3MMI/TBYRmz3CxfbUCoKW8po2tYleq/XL1jWEwkpd2/
+         tXRx70pv4x2VOFalfK9JbI53RO2W9EpdjSE8T52DWzBjcfOYBGOR/l7POmIm5lK9WhF1
+         qVdepA9HCcx+V/GZtq1fF52IApjZVK7K5ViWptcQ7+E3jo8Ffxq//md63IAAfr+TB0hq
+         KIsCeeC45IuKIXo+Iul262V9fyVvXkejsTHPB0WZJuzPE+9Q/MNAgNdN080mhf0FCMcO
+         uGfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755532321; x=1756137121;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jhFVRc1NfpOXTxJauWn9T+QK0y3Sx+B3L8yuuFsdMS8=;
-        b=ILYROUmyoexXFgQFd0whuy/QLxJ7pP35Qwtvkj2OYNOHZXJBJ3dqotbJ4/L4U2wdJa
-         j8DNlY/zn09nkx93BTwptTceFSctDud+bKs7YhlRA4zOtnhQVjPCh3iZfwK1knwnkmty
-         o5y3/Vcd3VpwPQCxXVlYimQrv3rHVSfHA49rgOz5OtzUe7lA/JX7SJBgEK2ZywvZUCn7
-         yUsSyZmmchYMgO5jMH3l1hzUxBP22RkvMmJscFWm25zJhN7IYrDlwAjFLrkuT/oSsR2Y
-         BpMvAvoL0A7VQ/DML9sBZm1XXS7sRhggcPsnrcsecm1o014ix6Wuis/hzar2t31GdRbG
-         rR5A==
-X-Forwarded-Encrypted: i=1; AJvYcCXWKhpkgl1TJbAomzX8aJvbVU5zdg1Seeg1nyChHBimnDIvBD1uIa3oZhfPHrIAtg5E360a8NQyIOkKdTGyd4s3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6OZ++MJF+s2cHGvRYK5moUeUH4grbDEWHsxQ6uRwZUGvzv18W
-	rjNXB6xH41TaUoUWFz2xcH9yjr/UQduBxqHUgrCwKBiE0/puAWrxqtyQMzIfx+IYFHpBJhbyCKP
-	Dilc2hU8LH4SmS6uHJdYscSQuQjQXM5JokAmvrvHq
-X-Gm-Gg: ASbGncuiNjQUgQvDkTrDkp1rKldaxaCelYVhLynm1Hd2OOU42G/7jDYT3MAHCyGTcgV
-	Ehabf0644wG2Yegl2H1KiTnf4hHVOwu9A3SklVfl049YAQWlmhyW2Hcww3TPdWBu7h7wsONPvU0
-	rqSTkR7+lfkc46jS7HMkGyFKvbGDVDl0omuGNiY9+f5FB+MQaORVEm3IQP+f4IVHtqA7hMLikk7
-	uWdgdv7F38FzWbtPSevZaRZvxs3QEe6M25CMkYup7PPbYg=
-X-Google-Smtp-Source: AGHT+IFBH6QXJvRW18+gfLm+VEHNtKAKh4EWppvXhfmrKKXkPioVQ+b0Kd0ODwqL4Zd3to4i9UzRN7iKxM94h8uE8ug=
-X-Received: by 2002:a17:902:e54e:b0:231:ddc9:7b82 with SMTP id
- d9443c01a7336-2447a77afebmr6549035ad.13.1755532321031; Mon, 18 Aug 2025
- 08:52:01 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755532392; x=1756137192;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Vj+qz5uWtdxe1t/4yn/fG3Kx2sOHLsT2H8fxH0m0kcM=;
+        b=S5tsNGgYhUkPGrUdGC2LM6hc+afSMk73D089owC4xHN+iuvY6b/IVjF6qUU1MNGhxG
+         XEth89OfENuHOrC/BGLU098CCFuASBht5VwggJ/B4Lg5/L4yHUzousXAwmodMz1M9l4i
+         KD2AgxZjV+HYD2U+fWEMUad5TfqOF5ScmhrV3DbbjRownerrglQwMP5Vn9d9065BZ6Oy
+         t5MtiGTQ1+yhdzprT6XZqdwe97F6fA969JzcxzPgm607rhQ7HMMJYgg60ugC7EOJHHP1
+         Xni2s9hGSfktf8jcj8vayQIEF+fPCTK03O23jgTSMdXOYsR0Qo4cdO4t+fCzstW9gJjY
+         HKDA==
+X-Forwarded-Encrypted: i=1; AJvYcCXzQP6ZCkVL5gBMqmBTEMN/ZZZUNvZxX/eN7D4jK/c0wnMIVAtnOu3GdvEqzzuDpVkUAcVe/2u63sd5HKfx4icR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeFW546LN4gnpxzo447CakP1v5HbLunSWKAthafn8Yi2gu2b4q
+	5vFVxc+4J4/0Es+ODWFQNn5EBS7NjDlDu/gDBT6dDD9dEeIqml5W7yTtWWCeRCtmkiM=
+X-Gm-Gg: ASbGncu8Gqyxpbcs4dDie9nk06od6rMRH5loj/A/lBw3mUak317G84kKNcvL5ToSHsL
+	P6MfK+4ZYQ2R0BEox0vwakpomWKLwGbm+1QDMEO9RPvSTWhXEymZgeUh/VVvwmFRZ2+gsNbtCY0
+	qamsKONiQKbQduh8PPI3csvgd8RVRM8AwamSs7ngKKu/8un41PPMEqCsa/H9ZPqxO0QNp8c3Dii
+	IAM7QXfQY+XKhMu6H2Ggw/nc+PoZPW56iSUL8/dHMdXa65jSw+QgJgGZzLAZeiqdWauMYmXOwAW
+	gUlqLm7/4VgLd0DxdpdSl3Pdd75/16dFhYbA3CVB8eT+E/2KRb+n9IFEr92VEb5P5VTaH0Xv
+X-Google-Smtp-Source: AGHT+IHy5xjjBQNaLhq2Kl2pjcBSM8TtgEpdzaR3B4TcAc3XiKHcP9uaHgX//cMvSIYk535Uc7uNQQ==
+X-Received: by 2002:a05:6214:20ad:b0:709:e519:fbfb with SMTP id 6a1803df08f44-70ba7b5df3cmr141480306d6.22.1755532392375;
+        Mon, 18 Aug 2025 08:53:12 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70ba90bcf7esm54232646d6.31.2025.08.18.08.53.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Aug 2025 08:53:11 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uo2AY-00000004OfV-46ks;
+	Mon, 18 Aug 2025 12:53:10 -0300
+Date: Mon, 18 Aug 2025 12:53:10 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	will@kernel.org, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+	bboscaccy@linux.microsoft.com, robh@kernel.org,
+	saravanak@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+	lizhi.hou@amd.com, clement.leger@bootlin.com
+Subject: Re: [PATCH v3 2/3] iommu/of: fix device tree configuration for PCI
+ devices
+Message-ID: <20250818155310.GG599331@ziepe.ca>
+References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
+ <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
+ <20250808121515.GE377696@ziepe.ca>
+ <20250814233018.GA31418@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <20250815003958.GE599331@ziepe.ca>
+ <20250815023236.GA30997@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 MIME-Version: 1.0
-References: <20250814-james-perf-feat_spe_eft-v7-0-6a743f7fa259@linaro.org> <20250814-james-perf-feat_spe_eft-v7-8-6a743f7fa259@linaro.org>
-In-Reply-To: <20250814-james-perf-feat_spe_eft-v7-8-6a743f7fa259@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 18 Aug 2025 08:51:50 -0700
-X-Gm-Features: Ac12FXyV1x2afpy-E2EhDR_cSfBMqeVdgvNI2wMfxjm0rwNa4JtVzwidrn9_Mpg
-Message-ID: <CAP-5=fXBot2K0MR9t7o6J7-FihNXzKcotdF6p3bfL7DwqR9jfg@mail.gmail.com>
-Subject: Re: [PATCH v7 08/12] perf: Add perf_event_attr::config4
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250815023236.GA30997@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_085202_833438_01E255E1 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20250818_085314_030512_EC414B4E 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 2:26=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
-> Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
-> packet using another 64-bits of event filtering control. As the existing
-> perf_event_attr::configN fields are all used up for SPE PMU, an
-> additional field is needed. Add a new 'config4' field.
+On Thu, Aug 14, 2025 at 07:32:36PM -0700, Shyam Saini wrote:
+> On Thu, Aug 14, 2025 at 09:39:58PM -0300, Jason Gunthorpe wrote:
+> > On Thu, Aug 14, 2025 at 04:30:18PM -0700, Shyam Saini wrote:
+> > > or were you referring to [2]?
+> > > 
+> > > In that case, the PCI child node data needs to be parsed, which is
+> > > currently handled individually by each host controller driver.
+> > 
+> > Yes, this looks like it may be what I was thinking of, the pci@1,0
+> > specifes the BDF effectively
+> 
+> In that case, we'll need to parse the child DTS nodes properly
+> within of_iommu_get_resv_regions(). I'll include this in v4.
 
-Somewhat off-topic, imo it would be nice if we could land:
-https://lore.kernel.org/lkml/20250603181634.1362626-1-ctshao@google.com/
-and show all the config values via fdinfo to better allow tools to
-diagnose when PMUs are busy, etc. The patch there tries to be minimal
-and just reveal config (even with being minimal the patch is stalled).
+Kinda surprised this isn't happening already? It would be good to
+refer to the original specs and describe how whatetever you propose is
+aligned there.
 
-Thanks,
-Ian
+> > Presumably this is a fixed issue of the platform. You never did
+> > explain how your system has such werdio behavior, or how something
+> > like iommu=pt can function on it...
+> Yes, this issue is platform-specific. On this platform, the default MSI IOVA
+> range overlaps with an address region that is reserved for another purpose,
+> Other than that we haven't observed any obvious issues for DMA operations
 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Reviewed-by: Ian Rogers <irogers@google.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  include/uapi/linux/perf_event.h | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_ev=
-ent.h
-> index 78a362b80027..0d0ed85ad8cb 100644
-> --- a/include/uapi/linux/perf_event.h
-> +++ b/include/uapi/linux/perf_event.h
-> @@ -382,6 +382,7 @@ enum perf_event_read_format {
->  #define PERF_ATTR_SIZE_VER6                    120     /* Add: aux_sampl=
-e_size */
->  #define PERF_ATTR_SIZE_VER7                    128     /* Add: sig_data =
-*/
->  #define PERF_ATTR_SIZE_VER8                    136     /* Add: config3 *=
-/
-> +#define PERF_ATTR_SIZE_VER9                    144     /* add: config4 *=
-/
->
->  /*
->   * 'struct perf_event_attr' contains various attributes that define
-> @@ -543,6 +544,7 @@ struct perf_event_attr {
->         __u64   sig_data;
->
->         __u64   config3; /* extension of config2 */
-> +       __u64   config4; /* extension of config3 */
->  };
->
->  /*
->
-> --
-> 2.34.1
->
+Usually DRAM is at the default MSI IOVA address, so if you run
+iommu=pt then presumably your DRAM map has a nice hole in it.. But
+maybe the memory map told the OS about that.
+
+Jason
 
