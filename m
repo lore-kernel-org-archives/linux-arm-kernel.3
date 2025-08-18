@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F65FCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A51CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+Eig7+s4wxy6K1zZko29utmP3JAwA+vR9Jyfi2tqEQ=; b=vNdIwk+3/umuRDyX5TSxYhl7Rn
-	X6FRvw0xzMWnt6vlGYM7+jVDcbaIuG+F3W7LC+cvxF2QHiCLKSzETZciD8h0EK4KA1zPtRTAw/dBI
-	q71q/3KzvgX8LUyFjY1CwSzRPdqswI15qk+V0Rd21CYolbwCjLJzAM7Hi585XpfxL0YNLTEHpS/zJ
-	SPDouXT+KrxAL2mbV/vg7klVmSSGy6CLl/s9wYFTfFcN9/xxXVv9d2J/4ydUlZS+owv2+T2l7jxn2
-	SQsWjDWtibwyO2VIuej9h0R//pD++RtFG8FHOjxaTjldr9M0UsyIi7Y/sgosLHsYVLLwUbmie0yz8
-	5SB+mZ6Q==;
+	bh=UQp955JMszthj8OVeBSH2Z2ig4NSGU43OyFWT/e5zmA=; b=GWrglGa6E0q5FFEaA3P2d/3HHR
+	aYzoLg5tEpdSwmrP3h5+dX0vn5n4xTjKYnpFo0egUQj2cHWyk5uEdqNlTcWfNeDkxvjkbbBa9RrYh
+	w31Eulvj8IKlNdB1Haj68edjolk1Le25doLLz9X7al474J62qRoEM6psZEhgAlHWzI0SD/hiGT1Jh
+	6nzbpktZLtM/+tXy0DlV+9v2pCwEvqsywH1AqGAaNwCs7okjWT2X6JSyWFqwONKzEBI+/rX44D3MC
+	cjuQ3k/P7cQ4R9aW8feyTtZbCA591QN9ugdHBg67cfvunMCbO7K/Guhn03YBF4Qmk6t+xr1XytXsl
+	9SDNf7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5ej-00000008XBc-0L50;
-	Mon, 18 Aug 2025 19:36:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uo5iR-00000008Xyw-49WH;
+	Mon, 18 Aug 2025 19:40:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo52k-00000008Qbp-0uV0;
-	Mon, 18 Aug 2025 18:57:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE95B600AE;
-	Mon, 18 Aug 2025 18:57:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CB86C4CEEB;
-	Mon, 18 Aug 2025 18:57:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755543427;
-	bh=LLrbrlWI1+1Wrpjrc3PeIRE7Z93HYyEAJTPMZ/3akPw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ayVDIn+8U8Wx4EDu34txQp0k4cUvEI7PP0j0IId9lGTOOiHRy6gfy0+DzeATALLY8
-	 jTSbQbPNF2xefOSoqneA1b0kFBHRCVNapPVfsbVQEzdlrvh7zVFlMA3GvX4CyPwANC
-	 klwjkKeEzA+boXeqgbEyzx2Tt3TM3uOUX/DPs5/P0XDlvo4pUMPgdghgDSofFnAKgz
-	 UUdxX76YVQgDB2rGVCLIUQFQ4TJ0SUyq+3wiAg1Osm7lcoByulhsoNb7ZnbbwDUfPT
-	 BJZ1ueDbYSGUwQZ3nK6YFm3QY/yE9B/0Ir3H7Q2ZmRc16A5/XDoUGAvBWLcVK/S+eO
-	 ozRWNrUGUdxEQ==
-Date: Mon, 18 Aug 2025 11:57:05 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrea della Porta <andrea.porta@suse.com>, Nicolas
- Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan
- Bell <jonathan@raspberrypi.com>, Dave Stevenson
- <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 0/5] Add ethernet support for RPi5
-Message-ID: <20250818115705.72533d08@kernel.org>
-In-Reply-To: <68c3db9d-daf5-40ed-91a7-1d08b9c8cb52@broadcom.com>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
-	<4c454b3c-f62c-4086-a665-282aa2f4a0e1@broadcom.com>
-	<20250818115041.71041ad6@kernel.org>
-	<68c3db9d-daf5-40ed-91a7-1d08b9c8cb52@broadcom.com>
+	id 1uo54m-00000008Qzj-0ADT;
+	Mon, 18 Aug 2025 18:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755543562;
+	bh=CZzIqLl7txM9v2LMT0cPyUUYe+agcYOKK/tHV7hSgl0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=A+2qamSlFvOOkTXKsmlDcOoY9MndK8kRVJlezQlz82QSjs1nMGEh8dch2/0Vv3wRz
+	 Od5T2+NyapQKKgUTbDW2oALczAM6n9In4CxitKuVMZy1ZlOaUy94SDDqPRIND7itJW
+	 N1i9Nd8Pe166TFaRvodYrhMn0I/CoSg58i61ZFMuQ8G2oi31raqw1HPusv3sSvDaIq
+	 BuwTz1pY32DeSQ/yi9tm/a/WhpRQPUThRNHhVMF4nE6o9zIIlW6zJd1dJz2v4T8SGf
+	 nkQTG3qkJBmQM0CUf4DMavNuPHgDY74GiW2sTozyfxADl6HYoaL6GbwN5TznclfDFz
+	 lHmw5b9K+F10Q==
+Received: from localhost (unknown [82.79.138.60])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 413C717E1319;
+	Mon, 18 Aug 2025 20:59:22 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 18 Aug 2025 21:59:03 +0300
+Subject: [PATCH v3 03/14] phy: rockchip: samsung-hdptx: Reduce ROPLL loop
+ bandwidth
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250818-phy-hdptx-frl-v3-3-c79997d8bb2b@collabora.com>
+References: <20250818-phy-hdptx-frl-v3-0-c79997d8bb2b@collabora.com>
+In-Reply-To: <20250818-phy-hdptx-frl-v3-0-c79997d8bb2b@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_115924_228227_D89FAC2E 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Aug 2025 11:52:28 -0700 Florian Fainelli wrote:
-> On 8/18/25 11:50, Jakub Kicinski wrote:
-> > On Mon, 18 Aug 2025 11:02:15 -0700 Florian Fainelli wrote:  
-> >> netdev maintainers, do you mind if I take patches 2, 4 and 5 via the
-> >> Broadcom ARM SoC tree to avoid generating conflicts down the road? You
-> >> can take patches 1 and 3. Thanks  
-> > 
-> > 4, 5 make perfect sense, why patch 2? We usually take bindings.  
-> 
-> Because that way when CI runs against the ARM SoC tree, we don't get 
-> errors that the bindings are undocumented.
+Due to its relatively low frequency, a noise stemming from the 24MHz PLL
+reference clock may traverse the low-pass loop filter of ROPLL, which
+could potentially generate some HDMI flash artifacts.
 
-Hm, my understanding is that validation should use bindings from
-linux-next.. tho I'm not 100% sure. Perhaps DT maintainers can
-clarify. This problem exists for all DT changes, unless there's
-something exceptional about the patches I'd rather follow the default
-process.
+Reduce ROPLL loop bandwidth in an attempt to mitigate the problem.
+
+Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY driver")
+Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
+Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 8adf6e84fc0b762a7a6042459601c3271572de8e..9751f7ad00f4faf7041dbf4339f633e09f97b107 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -500,9 +500,7 @@ static const struct reg_sequence rk_hdtpx_common_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(0043), 0x00),
+ 	REG_SEQ0(CMN_REG(0044), 0x46),
+ 	REG_SEQ0(CMN_REG(0045), 0x24),
+-	REG_SEQ0(CMN_REG(0046), 0xff),
+ 	REG_SEQ0(CMN_REG(0047), 0x00),
+-	REG_SEQ0(CMN_REG(0048), 0x44),
+ 	REG_SEQ0(CMN_REG(0049), 0xfa),
+ 	REG_SEQ0(CMN_REG(004a), 0x08),
+ 	REG_SEQ0(CMN_REG(004b), 0x00),
+@@ -575,6 +573,8 @@ static const struct reg_sequence rk_hdtpx_tmds_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(0034), 0x00),
+ 	REG_SEQ0(CMN_REG(003d), 0x40),
+ 	REG_SEQ0(CMN_REG(0042), 0x78),
++	REG_SEQ0(CMN_REG(0046), 0xdd),
++	REG_SEQ0(CMN_REG(0048), 0x11),
+ 	REG_SEQ0(CMN_REG(004e), 0x34),
+ 	REG_SEQ0(CMN_REG(005c), 0x25),
+ 	REG_SEQ0(CMN_REG(005e), 0x4f),
+
+-- 
+2.50.1
+
 
