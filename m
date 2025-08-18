@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF5ACA0ED1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD261CA0EE4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNOBI0F8EkG+NeIt2D1S0Fuj4+shs+JG9u5tILSOhyU=; b=gmHnqZHGCu42s/UipW5LuTFrTg
-	kmgwQZHokvx6nZYuTjkyXLyL7PzctMqZqv+SMJoP2wjc4Z3AHa7WQq81nK9ccpPevOBz7P/+mE1sr
-	MDmm3ScYq1g2fMwEjEy6nVvI2ovdF3FDI1ivpt2sra9sZ5++qV/YWTIh3TZQkrEXuhhldOf3caop7
-	GJVev0POPB/QRque2mjSd7caVWAq8TCEKrB5R7OhwUalQlI19y8YRgHER4CiOts0OYmECMEdGCfJt
-	sDBi6v6oMvQBEClGpmGCqcdYnpQ4Iwxm23kNUR6eQt0mjpWIwnpu7rLp4CNyasE0XQ1vWVNXJEYg5
-	l2RqWUig==;
+	bh=rx2bqDXRZ0uVgL7TVzOzDHtbzb82waVzfRr+j4z3OPY=; b=SvkUyt0T9Y5LLp/kC1pDGdipPG
+	xCSavU9czAlEYx/DW7VwkAuHR0uY7QF2PdAhq1lc08X2ToDj8vouBhvDovq4L9tiGCa7+r1zzAa3S
+	7CYKjm4rapVdeYOh4x0/TW6DOYCZ8BXaUcoP2585kwWCGtFY1bTa99bevd05VVNA63HHGemWykYRY
+	knC8FrQITRAw8lKV3FXqmk+nNb9Yx0D2jTHHlCQXon3hjpHYZjCYKxch2HA24SC96OhQLtTAs8xPj
+	kGK5r6ISLNAfCuWIy1nzI0wkIGEM4gMfRSYxKio6YHp+a+Pxuku9lfICJ0gl6zWzBmb5RBeS9IpAA
+	bugkrYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03S-00000007ULv-109e;
-	Mon, 18 Aug 2025 13:37:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uo03Q-00000007UJE-4B0t;
+	Mon, 18 Aug 2025 13:37:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvHt-00000006wlj-3CuD
+	id 1unvFg-00000006we8-0BaL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:32:18 +0000
+	Mon, 18 Aug 2025 08:30:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1CA3F5C5B43;
-	Mon, 18 Aug 2025 08:32:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42BADC4CEEB;
-	Mon, 18 Aug 2025 08:32:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D54C41B1E;
+	Mon, 18 Aug 2025 08:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B71C4CEED;
+	Mon, 18 Aug 2025 08:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755505936;
-	bh=nNOBI0F8EkG+NeIt2D1S0Fuj4+shs+JG9u5tILSOhyU=;
+	s=k20201202; t=1755505799;
+	bh=exYibdCxTidtmiMn53gTLXZ7IWFOL/uqk+UPXBrBBwk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CFe21OFb+bEd+KZWrl1NSWnS6cBxbGJTHGeVk3t2pdcmgvkOK3Q7t71xKg41sFi97
-	 zAprJLG9Tw61IZDsSQYRSqPiEoegSTaFEREUt1/+EHJ+35WWpa5duIpNPUlpv6BcQ/
-	 inarCAhBDRTuWLL37wDbCJ6g85hFXO3mLbhJ0YUW4qY/icFdD+20sJxJQWubkyYWUI
-	 KhAtSR5L8Ls5mfbt66mDU8Yv2Cd466iMN8613YGj8tqJ9+xgF4KM4iyoXnvs9yPRmF
-	 M/3QMyn5BijD5GYnwMToSzLj3LBDbtybU8WinY56+m6jjiSoLtklVcLD7fcs9GN/57
-	 r9RG8sF92Jx6A==
-Message-ID: <1b37bc94-8f2b-4da3-be2e-4d0076672169@kernel.org>
-Date: Mon, 18 Aug 2025 10:32:07 +0200
+	b=cnGjhLjH5rRWZspYAD7FNglSmP/ZVMNIeQlf//xe39ldZUTuqTszI4xH/4sgmcrAQ
+	 Q6o85sEdCvArYxNdDEX7Ao/bo7Wds20DvGTTbulNGNN1/kRQfElyU+kn84HS6guvkp
+	 aiz/GKT5TBW31gdoZQ53ciLgsgmBjDk9M5heNSgOznXt7/KRmfLE6A6/X1/IVREVIa
+	 l+xSQxbH11gDVu+OKVxOlkCuacCR0dC3+E205ZX1SWRQrla7z3lflByf2eelGqoZ+6
+	 bCpw0of/mnHjWE7tgsvkYWDuZOgCSDggQHWvjmhg5lcjmGt2LNVRg/5QdnfBjlRFeG
+	 x2Xpi/Lze7bew==
+Message-ID: <67199625-13d2-4510-bbbd-3dd2f61c62fd@kernel.org>
+Date: Mon, 18 Aug 2025 10:29:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/12] arm64: defconfig: Enable FSD CSIS DMA driver
+Subject: Re: [PATCH v2 10/12] dt-bindings: media: fsd: Document CSIS DMA
+ controller
 To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
@@ -60,8 +61,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141057epcas5p21ca33641e42164886dc1bf404237876d@epcas5p2.samsung.com>
- <20250814140943.22531-12-inbaraj.e@samsung.com>
+ <CGME20250814141051epcas5p14dccee388087372973988aeebcb872cf@epcas5p1.samsung.com>
+ <20250814140943.22531-11-inbaraj.e@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250814140943.22531-12-inbaraj.e@samsung.com>
+In-Reply-To: <20250814140943.22531-11-inbaraj.e@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_013217_888488_D19C2F34 
-X-CRM114-Status: UNSURE (   5.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_013000_128708_9FD9AF1E 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,12 +129,85 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/08/2025 16:09, Inbaraj E wrote:
-> Enable CSIS DMA driver support for FSD based platforms.
+> Document bindings for the FSD CSIS DMA controller.
+> 
+> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
+> ---
+>  .../bindings/media/tesla,fsd-csis-media.yaml  | 74 +++++++++++++++++++
 
-Tesla FSD
+Your patchset is organized in total mess. First clock, then media
+bindings, then arm64,  then media drivers, then media bindings, then
+arm64... Please organize it in standard way - about independent
+subsystems I mentioned, so within media first bindings, then driver. Not
+intermixed.
 
-You are changing defconfig for all platforms, it's not your personal or
-company defconfig.
+
+
+>  1 file changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+> new file mode 100644
+> index 000000000000..ce6c2e58ed4e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+> @@ -0,0 +1,74 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/tesla,fsd-csis-media.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Tesla FSD SoC MIPI CSI-2 DMA (Bridge device) receiver
+> +
+> +maintainers:
+> +  - Inbaraj E <inbaraj.e@samsung.com>
+> +
+> +description: |-
+
+Drop |-
+
+> +  The FSD MIPI CSI-2 (Camera Serial Interface 2) have internal DMA engine to
+> +  capture frames originating from the sensor.
+> +
+> +properties:
+> +  compatible:
+> +    const: tesla,fsd-csis-media
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aclk
+> +      - const: pclk
+> +      - const: pll
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  port:
+> +    $ref: /schemas/graph.yaml#/properties/port
+
+Don't you need second port to CSIS block? I guess this one is input from
+the sensor?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - iommus
+> +  - port
+
 
 
 Best regards,
