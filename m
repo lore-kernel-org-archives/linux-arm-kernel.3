@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD67CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F868CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JmSGRyHuxg4sFJyN1+ZDBr/4xtXj34dMzItnfLdMcyY=; b=TvrcAinW3qO0O75BCD5WtpCz1k
-	uuy4bCd968x8iZkN4nSKtlRf6GWrXP40o9An/A5hagctTQpNBJqE/+3wfojWC0o/RANlcPORJBPLR
-	B8+uNhU4iFq5MPugD37yXQvLMumsTg2WIjQmYvYB4VAHO6EbM/oWsBQzCMLzbpGSXd4w4gncMcSib
-	DfBrUje8oNEwpxFbAjllQyVZf/OhL/U6mO18yhl4nMmYXGamVip+5hbszlFeVBdS+7c07mApxTvge
-	z4WRFXFmekVkRkpK1XJjzSJhEQQcqSk2C32MzbQDeA52ZQ8AgR2dQM67DqaLlk/+KfebwmIX02qAl
-	483X+viQ==;
+	bh=DXam3b+H7XikahUHcOfNq3UHS4W6/E59lS1R/vF9/E8=; b=aeI9NS+wxZSSwv4wUvWQMItIMe
+	HrkTd9qZFZFWzXnCDsr6KXhmA8Xqn834zgdy4H2/OXebI4KBcBmLEO7wvjIhvsVuOepjJB1oasaeL
+	wO5dBZtc0dFpb/dqSdumTlZBrQ9tUq5gcsFTGRdroMcCQr7KnwC2YArQqkU+k34BWOoRl7cD1z/53
+	nrjxOUBHkLTSNgQrYpnzC1l5L22c+5LFsvvlNbKTLdrx4KHVO8MRf6N6ejTtnXtfPe1KLwtlFj8Xh
+	lmxIbsCp84Xp7yg6wXW51FS7YA2ABUu1Yw4AaoWY0/I1U3UIa8E7k0FiHdVwYT2dl2MYpQftIfm3S
+	HJBSlu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo47c-00000008GWq-3r31;
-	Mon, 18 Aug 2025 17:58:16 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uo4AA-00000008Gtf-3qPN;
+	Mon, 18 Aug 2025 18:00:56 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3VG-0000000874n-2zJR
+	id 1uo3VP-0000000876s-2HuN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 17:18:41 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250818171833epoutp0499533a63f171d1402e9d5ca38429c9a3~c7BEzhCIe0905109051epoutp044
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 17:18:33 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250818171833epoutp0499533a63f171d1402e9d5ca38429c9a3~c7BEzhCIe0905109051epoutp044
+	Mon, 18 Aug 2025 17:18:49 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250818171843epoutp0216a2de4ecb84c39fdf89ead2b5b9c4e2~c7BOpbaOX3205532055epoutp02f
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 17:18:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250818171843epoutp0216a2de4ecb84c39fdf89ead2b5b9c4e2~c7BOpbaOX3205532055epoutp02f
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755537513;
-	bh=JmSGRyHuxg4sFJyN1+ZDBr/4xtXj34dMzItnfLdMcyY=;
+	s=mail20170921; t=1755537523;
+	bh=DXam3b+H7XikahUHcOfNq3UHS4W6/E59lS1R/vF9/E8=;
 	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=ZO+tUVGW9j76Gf6QNoG7EvuYBG0IN+U8H9BPj0zJnedSfLSj3GdVWqiZvli1wXQLw
-	 ZtQrILgZa8nIdVn5n70Qo/fmF6dRM/1FHqtrtz8e7N0GGRNkciMmIdRwJW5C7M5OdE
-	 axSFLqrFF8eZN9gdkQRDQel8pmBiLh/xdcjjWOf4=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250818171832epcas5p1538558efb743b5c6f4ca5021cfafef2c~c7BDlpN2R1081410814epcas5p1g;
-	Mon, 18 Aug 2025 17:18:32 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4c5KDl11mXz3hhT3; Mon, 18 Aug
-	2025 17:18:31 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250818084620epcas5p3ddf1f9039fde76922af543c84d2a37c8~c0B2MjXJr3103431034epcas5p3u;
-	Mon, 18 Aug 2025 08:46:20 +0000 (GMT)
-Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
+	b=rG85scs/c0zeFc4WXF+++MTw7Jfxe2Xt8C+L7JQYTAYdJhjA4NQD3HaBCpS7AVHpD
+	 kdNLyDMfS/Trvi2n+UkkTKZJI6PvpIZCz0HIa4J4YxyJuwIQaDFOmx2RUtw1Th8ZTy
+	 420nxNjZ3tpIRAbz0h7hVPB4j9es6rEFzD9VQx24=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250818171842epcas5p4009ecff833c293e3066ff39d03bc290a~c7BNgSI6N0869708697epcas5p4R;
+	Mon, 18 Aug 2025 17:18:42 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c5KDx5WGSz6B9m5; Mon, 18 Aug
+	2025 17:18:41 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250818085434epcas5p23546464f6d2642c74d42db7b134d8aec~c0JCsYmhE2142121421epcas5p2S;
+	Mon, 18 Aug 2025 08:54:34 +0000 (GMT)
+Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip2.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250818084617epsmtip1877f5f85d903a96326fc66b5943907e0~c0BzfnJte3004130041epsmtip1g;
-	Mon, 18 Aug 2025 08:46:17 +0000 (GMT)
+	20250818085431epsmtip2b7a1352fc6b7055557af8d1d093782bf~c0I--9NYD2484224842epsmtip2X;
+	Mon, 18 Aug 2025 08:54:31 +0000 (GMT)
 From: "Shradha Todi" <shradha.t@samsung.com>
 To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <linux-pci@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -64,31 +64,31 @@ Cc: <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
 	<vkoul@kernel.org>, <kishon@kernel.org>, <arnd@arndb.de>,
 	<m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
 	<pankaj.dubey@samsung.com>
-In-Reply-To: <9e065582-9349-4f39-88b5-048d333ab8d7@kernel.org>
-Subject: RE: [PATCH v3 07/12] dt-bindings: PCI: Add support for Tesla FSD
- SoC
-Date: Mon, 18 Aug 2025 14:16:16 +0530
-Message-ID: <000901dc101c$917bf160$b473d420$@samsung.com>
+In-Reply-To: <b22f9381-1835-463a-8daa-97835b159f78@kernel.org>
+Subject: RE: [PATCH v3 12/12] arm64: dts: fsd: Add PCIe support for Tesla
+ FSD SoC
+Date: Mon, 18 Aug 2025 14:24:30 +0530
+Message-ID: <000b01dc101d$b834db40$289e91c0$@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHWPHKmIG2WTsjb/5pkHKJ2GfeRPwFcVLShAs+fyqkBgLjEDbRGWWvg
+Thread-Index: AQHWPHKmIG2WTsjb/5pkHKJ2GfeRPwIotln8AZEe0jECYiuDgLRC4i+g
 Content-Language: en-in
-X-CMS-MailID: 20250818084620epcas5p3ddf1f9039fde76922af543c84d2a37c8
+X-CMS-MailID: 20250818085434epcas5p23546464f6d2642c74d42db7b134d8aec
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250811154725epcas5p428fa3370a32bc2b664a4fd8260078097
+X-CMS-RootMailID: 20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525
 References: <20250811154638.95732-1-shradha.t@samsung.com>
-	<CGME20250811154725epcas5p428fa3370a32bc2b664a4fd8260078097@epcas5p4.samsung.com>
-	<20250811154638.95732-8-shradha.t@samsung.com>
-	<9e065582-9349-4f39-88b5-048d333ab8d7@kernel.org>
+	<CGME20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525@epcas5p2.samsung.com>
+	<20250811154638.95732-13-shradha.t@samsung.com>
+	<b22f9381-1835-463a-8daa-97835b159f78@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_101839_063185_8CCD401D 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250818_101847_904879_7CCA276A 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +103,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > +&pcieep2 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
+> > +			<&pcie0_slot1>;
+> > +};
 > > +
-> > +  phys:
-> > +    maxItems: 1
+> > +&pcierc0 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
+> > +			 <&pcie0_slot0>;
+> > +};
 > > +
-> > +  samsung,syscon-pcie:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> > +    description: phandle for system control registers, used to
-> > +                 control signals at system level
+> > +&pcieep0 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
+> > +			 <&pcie0_slot0>;
+> > +};
+> > +
+> > +&pcierc1 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
+> > +};
+> > +
+> > +&pcieep1 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
 > 
-> What is "system level"? and what are these "signals" being controlled?
 > 
-
-I will add a more detailed description for why the syscon is being used
-
-> 
-> > +title: Tesla FSD SoC series PCIe Host Controller
-> > +
-> > +maintainers:
-> > +  - Shradha Todi <shradha.t@samsung.com>
-> > +
-> > +description:
-> > +  Tesla FSD SoCs PCIe host controller inherits all the common
-> > +  properties defined in samsung,exynos-pcie.yaml
-> > +
-> > +allOf:
-> > +  - $ref: /schemas/pci/samsung,exynos-pcie.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: tesla,fsd-pcie
-> > +
-> > +  clocks:
-> > +    maxItems: 4
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: aux
-> > +      - const: dbi
-> > +      - const: mstr
-> > +      - const: slv
-> > +
-> > +  num-lanes:
-> > +    maximum: 4
-> > +
-> > +  samsung,syscon-pcie:
-> > +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> > +    description: phandle for system control registers, used to
-> > +                 control signals at system level
-> > +
-> > +required:
-> > +  - samsung,syscon-pcie
-> 
-> clocks are required, compatible as well.
+> All these are pointless, because the node is disabled. The board level
+> should be complete, so also supplies and enabling the device.
 > 
 
-Since this was inheriting the common exynos yaml file and that had these properties
-under required, I did not mention again. Will take care in next version.
+I will enable required nodes. Had enabled while testing but missed to
+add in patch. Though all nodes will not be enabled as it is a dual-mode
+controller and cannot run as both RC and EP at the same time.
 
-> Missing supplies, both as properties and required. PCI devices do not
-> work without power.
-> 
-
-According to the HW design of FSD SoC, the control to manage PCIe power is given to
-a separate CPU where custom firmware runs. Therefore, the Linux side does not control
-the PCIe power supplies directly and are hence not included in the device tree.
-
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/fsd-clk.h>
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +
-> > +    soc {
-> > +        #address-cells = <2>;
-> > +        #size-cells = <2>;
-> > +
-> > +        pcierc1: pcie@16b00000 {
-> > +            compatible = "tesla,fsd-pcie";
-> > +            reg = <0x0 0x16b00000 0x0 0x2000>,
-> > +                  <0x0 0x168c0000 0x0 0x1000>,
-> > +                  <0x0 0x18000000 0x0 0x1000>;
-> > +            reg-names = "dbi", "elbi", "config";
-> > +            ranges =  <0x82000000 0x0 0x18001000 0x0 0x18001000 0x0 0xffefff>;
-> 
-> Misaligned. Follow closely DTS coding style.
-> 
-
-Will take care.
-
+> Best regards,
+> Krzysztof
 
 
