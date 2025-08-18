@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCC2CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0C5CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yzg89wI4WRGyBpC4fKo2pvNxEu1GN0EWvVjsQRCbtcs=; b=A2cf38VOeXDLj84umJFGjSrDJB
-	MICvtJfTtNIP/Ivctf8v7hFetprywWGVsbWYhHm+PL9OLyBX8UIdfu91Als5Sq5sUmjczDRnjp5NN
-	Xcoe9nmVoIGJzYdIBfbnIhTjFwPaTEOxAKZIGt0kUiSEhn6bQn7izEL6F9xstvje8/Q6YBNXPAZcl
-	aa9cTGlihv4xZwgVdvjwZOqAQx3zd99JqhWf5sqIr/m6SLw1ukoD5tGPqNFI6It8iWyvLYH416FLQ
-	UvMsvpIKeAXSw2MWj8QHloeZc8uEmbsPnhAAE8zhsKwvmvoZsvWVgOUTY19y6aRIAbxX9cFxH5I5Q
-	OO/rALAA==;
+	bh=wbrNH7TIUxdhw455CFBoFPt1I7SPMGi4pZXVg39xlto=; b=d60wV5j479JIdECWpBacBncteq
+	6/yZ/BUi+0myaipJhKW8BFKe3afJvBQSP8/B97lnBRx7ZJ6AYdwfOI79fpB7UXEkUOyY7bVcE2FiF
+	9PNlpnr5UcAk/d/wiLAjOxVB1ACysiQkHjJ7d5GGtQrk8J/ZBOU3KWzSfUGd1+UnVN+C+ef7SjGBz
+	EPnSigb0Y7ZB9yWKAPauPd5kz9BW6MY//BiWwuPY9jXsmHYhLAupTYZ8FrPqhMizMtw418ZaPlOr9
+	BM073HfZqj2Q6qZ+zYyORz94EAtbupGQof+stJrxVG05xWqHcFi+uCTrKE14n+xYTeRggDny6xDFS
+	+K9aRU1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4cv-00000008Lc2-01Fh;
-	Mon, 18 Aug 2025 18:30:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uo4fJ-00000008Mi3-2Yy7;
+	Mon, 18 Aug 2025 18:33:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3yf-00000008Fb9-3ZnR;
-	Mon, 18 Aug 2025 17:49:01 +0000
+	id 1uo44b-00000008GEk-1NaU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 17:55:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C28C6111C;
-	Mon, 18 Aug 2025 17:49:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF82CC4CEEB;
-	Mon, 18 Aug 2025 17:48:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755539340;
-	bh=yzg89wI4WRGyBpC4fKo2pvNxEu1GN0EWvVjsQRCbtcs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j0/PUpVIsr0FxfF03cj7AiRvp2SZa1QBYuWG6Vd6oxCrqWOMGAutg91pLETYR3zzO
-	 HRoKTY3lkhWGy9O/m9h1LvohwkN216kD9hhXdZWGdDi+ayC7thnLVWt+1bqH5S4s4D
-	 Qf5LVxIb4FLTmE3OfSBp+QfEM9BbjwaICINlttAVBBYBYOtvjchqhe8HX+ctp04O5n
-	 dHjVpw2vHUt4KFgNUkqTGbJTE0ucmPhFj30GcX6h8FjssBaMBcQD7gM94mq+J3bi4n
-	 bzi9l5ehsUCItwSw4584+vtAvInOZubUl9ktrOqXYqnnKRp9bwZ46LjWxB+0JQOQWd
-	 qhdD/RcR5gaJg==
-Date: Mon, 18 Aug 2025 18:48:54 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH 2/5] dt-bindings: net: cdns,macb: Add compatible for
- Raspberry Pi RP1
-Message-ID: <20250818-quack-lid-59e71737f242@spud>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
- <20250815135911.1383385-3-svarbanov@suse.de>
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E6D5601E0;
+	Mon, 18 Aug 2025 17:55:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47FDC4CEEB;
+	Mon, 18 Aug 2025 17:55:04 +0000 (UTC)
+Date: Mon, 18 Aug 2025 18:55:02 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com,
+	rafael@kernel.org, daniel.lezcano@linaro.org
+Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timewait()
+Message-ID: <aKNo9pxx2w9sjJjc@arm.com>
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-2-ankur.a.arora@oracle.com>
+ <aJXWyxzkA3x61fKA@arm.com>
+ <877bz98sqb.fsf@oracle.com>
+ <aJy414YufthzC1nv@arm.com>
+ <87bjoi2wdf.fsf@oracle.com>
+ <aJ3K4tQCztOXF6hO@arm.com>
+ <87plctwq7x.fsf@oracle.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wajkoaFh9Mksd++G"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250815135911.1383385-3-svarbanov@suse.de>
+In-Reply-To: <87plctwq7x.fsf@oracle.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +73,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Aug 17, 2025 at 03:14:26PM -0700, Ankur Arora wrote:
+> So, I tried to pare back the code and the following (untested) is
+> what I came up with. Given the straight-forward rate-limiting, and the
+> current users not needing accurate timekeeping, this uses a
+> bool time_check_expr. Figured I'd keep it simple until someone actually
+> needs greater complexity as you suggested.
+> 
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..e8793347a395 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -273,6 +273,34 @@ do {                                                                       \
+>  })
+>  #endif
+> 
+> +
+> +#ifndef SMP_TIMEWAIT_SPIN_COUNT
+> +#define SMP_TIMEWAIT_SPIN_COUNT                200
+> +#endif
+> +
+> +#ifndef smp_cond_load_relaxed_timewait
+> +#define smp_cond_load_relaxed_timewait(ptr, cond_expr,                 \
+> +                                       time_check_expr)                \
+> +({                                                                     \
+> +       typeof(ptr) __PTR = (ptr);                                      \
+> +       __unqual_scalar_typeof(*ptr) VAL;                               \
+> +       u32 __n = 0, __spin = SMP_TIMEWAIT_SPIN_COUNT;                  \
+> +                                                                       \
+> +       for (;;) {                                                      \
+> +               VAL = READ_ONCE(*__PTR);                                \
+> +               if (cond_expr)                                          \
+> +                       break;                                          \
+> +               cpu_relax();                                            \
+> +               if (++__n < __spin)                                     \
+> +                       continue;                                       \
+> +               if ((time_check_expr))                                  \
+> +                       break;                                          \
+> +               __n = 0;                                                \
+> +       }                                                               \
+> +       (typeof(*ptr))VAL;                                              \
+> +})
+> +#endif
 
---wajkoaFh9Mksd++G
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This looks fine, at least as it would be used by poll_idle(). The only
+reason for not folding time_check_expr into cond_expr is the poll_idle()
+requirement to avoid calling time_check_expr too often.
 
-On Fri, Aug 15, 2025 at 04:59:08PM +0300, Stanimir Varbanov wrote:
-> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
->=20
-> The Raspberry Pi RP1 chip has the Cadence GEM ethernet
-> controller, so add a compatible string for it.
->=20
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
+> index f5801b0ba9e9..c9934ab68da2 100644
+> --- a/arch/arm64/include/asm/barrier.h
+> +++ b/arch/arm64/include/asm/barrier.h
+> @@ -219,6 +219,43 @@ do {                                                                       \
+>         (typeof(*ptr))VAL;                                              \
+>  })
+> 
+> +extern bool arch_timer_evtstrm_available(void);
+> +
+> +#ifndef SMP_TIMEWAIT_SPIN_COUNT
+> +#define SMP_TIMEWAIT_SPIN_COUNT                200
+> +#endif
+> +
+> +#define smp_cond_load_relaxed_timewait(ptr, cond_expr,                 \
+> +                                         time_check_expr)              \
+> +({                                                                     \
+> +       typeof(ptr) __PTR = (ptr);                                      \
+> +       __unqual_scalar_typeof(*ptr) VAL;                               \
+> +       u32 __n = 0, __spin = 0;                                        \
+> +       bool __wfet = alternative_has_cap_unlikely(ARM64_HAS_WFXT);     \
+> +       bool __wfe = arch_timer_evtstrm_available();                    \
+> +       bool __wait = false;                                            \
+> +                                                                       \
+> +       if (__wfet || __wfe)                                            \
+> +               __wait = true;                                          \
+> +       else                                                            \
+> +               __spin = SMP_TIMEWAIT_SPIN_COUNT;                       \
+> +                                                                       \
+> +       for (;;) {                                                      \
+> +               VAL = READ_ONCE(*__PTR);                                \
+> +               if (cond_expr)                                          \
+> +                       break;                                          \
+> +               cpu_relax();                                            \
+> +               if (++__n < __spin)                                     \
+> +                       continue;                                       \
+> +               if ((time_check_expr))                                  \
+> +                       break;                                          \
+> +               if (__wait)                                             \
+> +                       __cmpwait_relaxed(__PTR, VAL);                  \
+> +               __n = 0;                                                \
+> +       }                                                               \
+> +       (typeof(*ptr))VAL;                                              \
+> +})
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+For arm64, I wouldn't bother with the spin count. Since cpu_relax()
+doesn't do anything, I doubt it makes any difference, especially as we
+are likely to use WFE anyway. If we do add one, I'd like it backed by
+some numbers to show it makes a difference in practice.
 
---wajkoaFh9Mksd++G
-Content-Type: application/pgp-signature; name="signature.asc"
+The question is whether 100us granularity is good enough for poll_idle()
+(I came to the conclusion it's fine for rqspinlock, given their 1ms
+deadlock check).
 
------BEGIN PGP SIGNATURE-----
+>  #include <asm-generic/barrier.h>
+> 
+> __cmpwait_relaxed() will need adjustment to set a deadline for WFET.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKNnhgAKCRB4tDGHoIJi
-0mjsAP97kK0IfQ7Ov50V5elnbXgZcegx4hBcq+cQedRkxNgC6AEAth4I1+sps9OD
-bT0La5XO5WyCakSYJpYh7050t8S+0gY=
-=9lyu
------END PGP SIGNATURE-----
+Yeah, __cmpwait_relaxed() doesn't use WFET as it doesn't need a timeout
+(it just happens to have one with the event stream).
 
---wajkoaFh9Mksd++G--
+We could extend this or create a new one that uses WFET and takes an
+argument. If extending this one, for example a timeout argument of 0
+means WFE, non-zero means WFET cycles. This adds a couple of more
+instructions.
+
+What I had in mind of time_expr was a ktime_t would be something like:
+
+	for (;;) {
+		VAL = READ_ONCE(*__PTR);
+		if (cond_expr)
+			break;
+
+		cycles = some_func_of(time_expr);	// see __udelay()
+		if (cycles <= 0)
+			break;
+
+		if (__wfet) {
+			__cmpwait_relaxed(__PTR, VAL, get_cycles() + cycles);
+		} else if (__wfe && cycles >= timer_evt_period) {
+			__cmpwait_relaxed(__PTR, VAL, 0);
+		} else {
+			cpu_relax();
+		}
+	}
+
+Now, if we don't care about the time check granularity (for now) and
+time_check_expr is a bool (this seems to work better for rqspinlock), I
+think we could do something like:
+
+	for (;;) {
+		VAL = READ_ONCE(*__PTR);
+		if (cond_expr)
+			break;
+		if (time_check_expr)
+			break;
+
+		if (__wfe) {
+			__cmpwait_relaxed(__PTR, VAL, 0);
+		} else if (__wfet) {
+			__cmpwait_relaxed(__PTR, VAL, get_cycles() + timer_evt_period);
+		} else {
+			cpu_relax();
+		}
+	}
+
+We go with WFE first in this case to avoid get_cycles() unnecessarily.
+
+I'd suggest we add the WFET support in __cmpwait_relaxed() (or a
+different function) as a separate patch, doesn't even need to be part of
+this series. WFE is good enough to get things moving. WFET will only
+make a difference if (1) we disable the event stream or (2) we need
+better accuracy of the timeout.
+
+> AFAICT the rqspinlock code should be able to work by specifying something
+> like:
+>   ((ktime_get_mono_fast_ns() > tval)) || (deadlock_check(&lock_context)))
+> as the time_check_expr.
+
+Why not the whole RES_CHECK_TIMEOUT(...) as in rqspinlock.c? It does the
+deadlock check only after a timeout over a millisecond. Just follow the
+res_atomic_cond_read_acquire() calls but replace '||' with a comma.
+
+> I think they also want to rate limit how often deadlock_check() is
+> called, so they can redefine SMP_TIMEWAIT_SPIN_COUNT to some large
+> value for arm64.
+
+Everyone would want a different rate of checking other stuff, so I think
+this needs to go in their time_check_expr.
+
+-- 
+Catalin
 
