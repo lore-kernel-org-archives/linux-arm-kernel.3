@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D200CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C48CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p0L0PUdKrw8pe4MSbmrbkZZGt9wQl65fILz3E6twKNM=; b=j3MNH4WZUzKW8SFrWnEOVXaFT/
-	UxWORVxc3gEfGNo1N3fr/1GdiT6o+bfNYjea71/FtnUslVZt+C8nBJHW1h3iKmr2qh5JG1/ZuFbJc
-	aY+rskNPS8d7eMHlzVW2axDj6SQuQfHqaZ5aV6axKetCm/0Z2Z7Ds1zltf/wHjGHW6PCSE2YBCwNl
-	lmH1AEE+dzpMfDXZOB3BUHtlokGzhvgbC6KWRmp1bqX8I3zyqvmwvDlCxvcZPhSJcZlWwSBDJjH8q
-	VYrwdfkt2yxMH3uQcmzkvaFRQqX6qbKHMT9UTismT+ZHp/tZSo6F/vG+k1xJutbUdcCAtr2ohmGBl
-	fBu/Op9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zPUrzVX19GqRWO8uuoQNdQgJkUoqWb0AZHWYn8BOOuo=; b=CSHnXl679fRg8Oe9Pmy5H3LIfx
+	CyY9EwZKb4/OqKsqs2YCjmVP0UnPMsOx2jZPDbRas+IvdVREQMPk7CXbAgluafk50O1WihdjVAae2
+	zCKLI/BpmbA9B02pEnJYaRKrAP8iQM24afTEgElDzyawGkuqVTWhbMNXWa95KPMoLmpxxgHKeMEbJ
+	rBpF50QS+pgVuFFB/TFzHz0E5MfUfkVIAaYQT32eQGQ25TuBr0xj2UVC4a3iiAyj+K4950ehVvV8y
+	gBl5OPBaRUW45iyYUahL6XC45vdSOu6umYagktPlPcMzC7TClqaJK1ksCpTjshbtkIM2qV23jtQz0
+	ohdwWs4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo8IQ-00000008pgU-0gaO;
-	Mon, 18 Aug 2025 22:25:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uo8Ky-00000008q0g-3sYP;
+	Mon, 18 Aug 2025 22:28:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo764-00000008h9P-3b7K
+	id 1uo6a7-00000008diX-0yB0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 21:08:52 +0000
+	Mon, 18 Aug 2025 20:35:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD1FD601FF;
-	Mon, 18 Aug 2025 21:08:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D761C4CEEB;
-	Mon, 18 Aug 2025 21:08:51 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 3B3DB1807BB; Mon, 18 Aug 2025 23:08:49 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 18 Aug 2025 23:08:04 +0200
-Subject: [PATCH] MAINTAINERS: exclude defconfig from ARM64 PORT
+	by dfw.source.kernel.org (Postfix) with ESMTP id C5EBC5C62C8;
+	Mon, 18 Aug 2025 20:35:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1177C4CEEB;
+	Mon, 18 Aug 2025 20:35:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755549349;
+	bh=om2cfshnlMUz7DuvRjvZA14In9sewmxBtmoNs13zHqw=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=uQEVHSl+duq+dWLUD9eW7eVtnhv2PmtTTxGShiVKLaoXm1AZwNzmFVVwBWbNLfnKg
+	 94Rptxkq/91UxwElGtWNKiw3S7i/v4rMR6FWZ1ZU6f3UTJDV4YDtGBJ0ulG1WCgOz1
+	 DSfa1jXtrrqlrbJE3cTEvmqjW4E2SWvBobJJfxl9qWfPRA16kgHJSoJ3jTGBtyUbUZ
+	 0LNddIr0zP9JhbNdc9h62WWL6M/vUZYDls/huH7FMIPUj5utoSBbq8q1m+fUwsl8aF
+	 N8Sv1p/4cz8QAo5VRqq6szY9e76eJ2vUc4mEZbqVB2J7MYIXScGH1mPu08d67/1H49
+	 XmSHZe5KSNIgw==
+From: Mark Brown <broonie@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>, Avi Fishman <avifishman70@gmail.com>, 
+ Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+ Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+ Benjamin Fair <benjaminfair@google.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, linux-spi@vger.kernel.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
+ linux-arm-kernel@lists.infradead.org, Qianfeng Rong <rongqianfeng@vivo.com>
+In-Reply-To: <20250815082118.586422-1-rongqianfeng@vivo.com>
+References: <20250815082118.586422-1-rongqianfeng@vivo.com>
+Subject: Re: [PATCH 0/3] spi: use min_t() to improve code
+Message-Id: <175554934664.130972.8355246635589446804.b4-ty@kernel.org>
+Date: Mon, 18 Aug 2025 21:35:46 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250818-arm64-defconfig-v1-1-f589553c3d72@collabora.com>
-X-B4-Tracking: v=1; b=H4sIADOWo2gC/x3MQQqAIBBA0avErBNUaoquEi0sR5tFFiNEIN09a
- fkW/xfIJEwZpqaA0M2Zz1Rh2ga23aVIin01WG17PZpROTmwU57CdqbAURm7rhaxIzQD1OoSCvz
- 8x3l53w+8fOGiYQAAAA==
-X-Change-ID: 20250818-arm64-defconfig-12bb2664e617
-To: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1365;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=aJz7l7FHXHkaF0nDNQxwlSMNFWvwBnerb1KuVZ1xiOQ=;
- b=owEBbQKS/ZANAwAKAdju1/PIO/qaAcsmYgBoo5ZgAmVP37Tnju4oHv4sKrhNnHv75HvFUxH8W
- V346ULgreeJAjMEAAEKAB0WIQTvZg0HRj+Lcmp5VBPY7tfzyDv6mgUCaKOWYAAKCRDY7tfzyDv6
- mi18D/9Kw+cUmAxrjOeI48QHiUv4RBU8c0W/8RRLD8HvO4RKreMZSai0VxTenHCYN6SqeKtW/Xe
- 1g2JA8rezdb6ZaDYO/SrOFaACoQjAEzJXO8FyrU18g1hopF4/ZBzJ9bXx9sP5BOqYaEfJOt0lp+
- ++FT1TvDE8CftnGRerSR4RbjKeZqTrlG+sRWGRdzedT0OTg1FAHfYNGULwoMZfLtBA9SvyjBcB8
- UVPRkjdwG9MRMXA5FQN1hVsSfAcSPV6W79iDvIpQNgre+Ht7wMVggfsdbG+XVr6it5lBibCYCBo
- i78g1JwH3wYE01KmhSvHdA8XScpxxdmTvgdjsmZgUykE9feJ7tTliINyc+vutLn2WhdjEtXWm4q
- K+iIbpYZlUcw/1M69Y+SECHB3qLdrI7g2yUlVFP7TPLfyJ7pU7Sl4W2mVUvxceQkChEHVNqbb++
- uFlx6HUGN3MqpBSMPc1Ud3P98kTtTFPv9v7SseGFIDKA5q4BgVyflmAXEZAsn3Qpdczf3qWr/WM
- s2fTsUejLh4oU4v1HfGf2J6QqXsAyMGtG8L26o7jd/8EH9lY/Z5QDv6vAy4d5YlYULhnK0ViBlS
- enLu/Ln7WyL+J5FMpWnJgJrvHpY4jtf6FDQ0W/RTWfwQZse6oQULxGhu7L5/r5vA2p8XZACEqBt
- FMcYx+gZR0toDGw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-cff91
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_133551_315239_8A192224 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +76,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Patches for the arm64 defconfig are supposed to be sent to the
-SoC maintainers (e.g. a change in the generic arm64 defconfig
-required for Rockchip devices should be send to Heiko Stübner
-as he is listed as maintainer for "ARM/Rockchip SoC support")
-and not the ARM64 PORT maintainers.
+On Fri, 15 Aug 2025 16:21:14 +0800, Qianfeng Rong wrote:
+> Use min_t() to reduce the code and improve readability.
+> 
+> No functional changes.
+> 
+> Qianfeng Rong (3):
+>   spi: spi-fsl-lpspi: use min_t() to improve code
+>   spi: npcm-fiu: use min_t() to improve code
+>   spi: spl022: use min_t() to improve code
+> 
+> [...]
 
-While we cannot easily describe this in MAINTAINERS, we can at
-least stop it from giving false information and make it behave
-the same way as for the MAINTAINERS file itself (which basically
-has the same rules), so that it just outputs the LKML for the
-ARM64 defconfig.
+Applied to
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index daf520a13bdf6a991c0160a96620f40308c29ee0..b6466a628381bf40ebcf7e3638ec65fabf6ad357 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3667,6 +3667,7 @@ F:	drivers/virt/coco/arm-cca-guest/
- F:	drivers/virt/coco/pkvm-guest/
- F:	tools/testing/selftests/arm64/
- X:	arch/arm64/boot/dts/
-+X:	arch/arm64/configs/defconfig
- 
- ARROW SPEEDCHIPS XRS7000 SERIES ETHERNET SWITCH DRIVER
- M:	George McCollister <george.mccollister@gmail.com>
+Thanks!
 
----
-base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
-change-id: 20250818-arm64-defconfig-12bb2664e617
+[1/3] spi: spi-fsl-lpspi: use min_t() to improve code
+      commit: a750050349ea138e3e86c66a8a41de736619b9de
+[2/3] spi: npcm-fiu: use min_t() to improve code
+      commit: 1bdc716023a78c2c41fdcb3fc37f09da1be4b7df
+[3/3] spi: spl022: use min_t() to improve code
+      commit: 90179609efa421b1ccc7d8eafbc078bafb25777c
 
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
