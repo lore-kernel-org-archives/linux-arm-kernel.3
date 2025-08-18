@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC6CCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18A4CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pT+FesBFtq2q0zpSE/VooRgFKvV6p27aGiOwtFg7aSQ=; b=Wd3w1fKk0ZgL3GjNzVBH9aybGT
-	6YaNLeM4MlAJReti4xkyNyijklYBigJgN5eF1MOSiSipbuS2b+vrW6ftJ2vWYPErZyCeDdDL5xaAA
-	/R8Q1Jw6PiHnHGSdgHPdD4APxXmdileQlJ10S0YlJb2A8jKDIftFFjnFWA9kbNlylYeFaykWA+1wm
-	Oxz5c7AdKYjWsdEPYERCBZpMDUOMBPudS16jJ7bfoiG48i7lyWK7QrDyAzDd0x5Kj0oevE7kZvqJC
-	N8LP5kWXzaIWXL8e6fYeWjt1ZfolSt8TJ4BKnn3eUtvLuVZmhP27AJm3WG4223IsVW/9UZSNAv/6S
-	g1q0DG0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rVwWy8hBYpr8k9SaYLVc8ac400cEh85pTezpi9vBXoI=; b=rsLgOV7GkLCztWt3HMYErNHSNP
+	6MxDBRj9P+GeQ4zTee92UzieJUZI8Li1phMQhiWUWa6fpiUxbapf8Pf4ME4Djm3BH446c8nh7vQeR
+	3//f9l8vtgA1hZMFZKJt1hN4EMf0lA/x4Uu4h2zr2v6V3BkirVYqCDEiTCNUKd2X3gFjFaU5EF16T
+	AuPUxlfscxTJveX5PA2t883LMqcpmWupQx8sWbqmK7+e21s393qaI1gNwsxi5whnrlyFME/OT4yFG
+	hKYBf4zRknvJAlg9eZCH5q6gagdtK+ktxgxyIdIBysYXXHxdN3wkRjXgjwmgg8U9NaynF7KXMD81b
+	2FHjrGoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3nD-00000008E2k-1Cuw;
-	Mon, 18 Aug 2025 17:37:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uo3pm-00000008EMr-0Uqm;
+	Mon, 18 Aug 2025 17:39:50 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3KX-000000085uj-1Qsj
+	id 1uo3LP-0000000864F-0Jbd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 17:07:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BD0C35C6267;
-	Mon, 18 Aug 2025 17:07:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB006C4CEEB;
-	Mon, 18 Aug 2025 17:07:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755536852;
-	bh=KhHns3MO0aHvf+3Asuji1SH4gKY6cGswxL3bjgtAUSI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=J4Zht8J9cq28qvrFdNfKEhj6+9ZF3/cDfE7ThTl02xFlct9SSpXoQdeE+ZpCY+KM0
-	 EYTnSOOkZ/JwKjy5XlRnbhw+Y/6XpZcrlzAm1+IIOp1fzbb1LAdT7qBr1h+ViURf1d
-	 KdZgz3aD2/S5BBlkUT//+2y307Hk5JjZFIJbzRaxWAV4eBFHuZsllpGzIzuQLXZQRT
-	 FAYbTz6kW81T5dWMQZyfCYCVrS10hZDko46lU1fHnWNouAKx4Im9wJNTtRxbfGeJmZ
-	 lJJlSM8Sa30BxbDZuKP+A7L7D6AaGCqCyiIs9lPGIAoed8mGkZhY0mmF3J+p+A4uc0
-	 q0vt3kfqcYVBg==
-From: Mark Brown <broonie@kernel.org>
-Date: Mon, 18 Aug 2025 17:41:00 +0100
-Subject: [PATCH] KVM: arm64: selftests: Sync ID_AA64MMFR3_EL1 in
- set_id_regs
+	Mon, 18 Aug 2025 17:08:28 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 8080C22F8E;
+	Mon, 18 Aug 2025 19:08:22 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id pMVZN71AsQAe; Mon, 18 Aug 2025 19:08:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1755536900; bh=rPMW5veYC6Pqzzt/IvNOl92DEwVRpPy8WEfW0ZS5F5I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Hi2iBBvuuvtwAY05hT4157aaA2jyJ96dwAODLyT5zFIyFINe4HwlkjPicA27h7aLr
+	 b/xBfuwcShAv0mY46xn9qj46G1rQVVU5cIXJFiwcbGRInMrNAj0+t1UHSTLYPNcTDo
+	 o3VqZFGrdiUQClNIVMgxYzBYGv1FVJeRdl0PKItGIL73lnFYSr97RXquqQ8u1HdMVh
+	 RFIWDcMrX0mPWr7AX9XvP8xcytDOjs1OCSot0047gjM4/hm4Gv/8dxM0NCoM8CO8RX
+	 ++TSWDpuoJ0ciwrtxmSag0OkUDlfbiMODVDxob+QHzlh2mvoLb/zEQJYZA7cji8MWK
+	 UHs1kllj/r0CA==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Mon, 18 Aug 2025 17:08:20 +0000
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
+In-Reply-To: <2bfa6c0b-1f23-4d57-b618-688ed8dc7fae@kernel.org>
+References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
+ <3f4f28cf-417b-4f12-8a3d-c1f70f6871c4@kernel.org>
+ <45fc52d9988d1bf17eca392364c63193@disroot.org>
+ <2bfa6c0b-1f23-4d57-b618-688ed8dc7fae@kernel.org>
+Message-ID: <afd9e6c8095df785fa7f39265111e357@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250818-kvm-arm64-selftests-mmfr3-idreg-v1-1-2f85114d0163@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAJtXo2gC/x2NywqDMBAAf0X27IKJ8UF/RTykZmOXNrbsihQk/
- 27wODDMnKAkTAqP6gShg5W/WwFTV7C8/LYScigMtrFdM5oO30dCL6l3qPSJO+mumFKUtohCKw5
- PH8cwWOdaA6XyE4r8vw/TnPMFI+NEvXEAAAA=
-X-Change-ID: 20250815-kvm-arm64-selftests-mmfr3-idreg-7baf8d724431
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1114; i=broonie@kernel.org;
- h=from:subject:message-id; bh=KhHns3MO0aHvf+3Asuji1SH4gKY6cGswxL3bjgtAUSI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoo13QE86Q+y16bpfWE+6x/9uKmyweiprMs5xFd
- i2iompCKpmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKNd0AAKCRAk1otyXVSH
- 0BLnB/47gyQvwyahO0s7MsRSP2NgxKt/teBkTEhY6fNSSnTUGClsLhO1v7AwheWNVNuF7pMb9N3
- sSFAFAcJwQaJmtRlJQca/uTn5FLMGV5Fp3EznJ1nOatvjL17YpmJixZyGZOppo5cNL6+TBLCiUp
- CTVDIgAWbUAkzhA8NVdmyRQgcoQA/cW7vq2y5/2tLPCkcr9vZqkjeiDA45szgLRWm0KtfEXRcRe
- FU63m2c+k07H7iPqyDtf0m9qDWgrgvNHD1yaqpyze2ryyrVywr7tMsxSJSryueQ3TMxHXU0ymMk
- MVb302LVklf1wglLZJWS4Q8yT52k9g+yv/ZiLqqVnk2lf6+H
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_100733_428397_7C66C3BB 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_100827_526527_9210EEDB 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +80,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we added coverage for ID_AA64MMFR3_EL1 we didn't add it to the list
-of registers we read in the guest, do so.
+On 2025-08-18 06:32, Krzysztof Kozlowski wrote:
+> On 17/08/2025 16:49, Kaustabh Chakraborty wrote:
+>> On 2025-08-13 07:58, Krzysztof Kozlowski wrote:
+>>> On 26/06/2025 22:13, Kaustabh Chakraborty wrote:
+>>>> This series implements changes in the SoC subsystem, which includes
+>>>> devicetree additions. It depends on all sub-series listed below:
+>>>> (Legend: [R]eviewed, [A]ccepted)
+>>>> 
+>>>> exynosdrm-decon            -
+>>>> https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
+>>>> exynos7870-mipi-phy        A
+>>>> https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+>>>> exynos7870-mipi-phy-fix    -
+>>>> https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
+>>>> exynos7870-dsim            -
+>>>> https://lore.kernel.org/r/20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org
+>>>> panel-samsung-s6e8aa5x01   -
+>>>> https://lore.kernel.org/r/20250625-panel-samsung-s6e8aa5x01-v3-0-9a1494fe6c50@disroot.org
+>>>> panel-synaptics-tddi       -
+>>>> https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
+>>>> 
+>>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> 
+>>> What is the status of the bindings from dependencies? I think they 
+>>> were
+>>> not accepted.
+>> 
+>> Except panel-synaptics-tddi, all have been accepted. A lot of them
+>> haven't hit next though. I'm waiting for that to send the next 
+>> revision.
+> 
+> What does it mean - accepted but not hit next? If it is accepted, it
+> must be visible in next. Which maintainer's tree are not in the next?
 
-Fixes: 0b593ef12afc ("KVM: arm64: selftests: Catch up set_id_regs with the kernel")
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
- 1 file changed, 1 insertion(+)
+drm-exynos [1] branches haven't been rebased to v6.17-rc1. This should
+include all some DECON and all DSIM patches.
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index d3bf9204409c..97d5ab9ef0fe 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -243,6 +243,7 @@ static void guest_code(void)
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
-+	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
- 	GUEST_REG_SYNC(SYS_CTR_EL0);
- 	GUEST_REG_SYNC(SYS_MIDR_EL1);
+Although [2] has been accepted, I don't see the commit in [3] anymore.
+But, there's [4] which mentions my panel patches, but then I don't see
+them in next (there should be a panel-samsung-s6e8aa5x01-ams561ra01.c
+in [5]).
 
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250815-kvm-arm64-selftests-mmfr3-idreg-7baf8d724431
+[1] 
+https://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git/
+[2] 
+https://lore.kernel.org/all/175432157792.3671011.1104200917154441096.b4-ty@linaro.org
+[3] 
+https://gitlab.freedesktop.org/drm/misc/kernel/-/commits/drm-misc-next?ref_type=heads
+[4] https://lore.kernel.org/all/20250814072454.GA18104@linux.fritz.box
+[5] 
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/drivers/gpu/drm/panel?h=next-20250818
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
-
+> 
+> 
+> Best regards,
+> Krzysztof
 
