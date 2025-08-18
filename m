@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2171ACA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 20:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A55ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 20:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQ71g1vwloP0PYNAuZxpibyBfjpqEtWPRsvbgenPQmI=; b=jfGN+Sraq/swDEk0PlSnN4a740
-	39eIwrKU91YwJcBsSvacLxAl4sevTeE3pB8kniEh5J0+UoMmGZnMPaAv6CdnrIzjNuXiE6vsji5MZ
-	ST8PWuofJMCAsKHup/ndrmQpjCw436sKK5vx1AJxCF8gk7seWWJ7vrsQkifFFxwHZGMIZmJ5KILI9
-	xcjdo+4w/zq4qf0aYZ8Op33CHdaBX5ydDv8VP/E2SgXZAHtDXd24U0SGmYfKuM/kBaZlizbjweC9g
-	U52/2IqwqAFyfsTenOrr2V605ZRWcSKttjr4SwmBm+LdcLNha5nG6/NFs0gqeO+ZuP7uEsCAVB3bs
-	GCuEgvWQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TBN15g8rAP23J96r4n28IjSBg+WDu3nayiyCti2V2i8=; b=cDXrvIfF+adGYf
+	+VUSv82zUf/9Bz0+8s0Zr/TIM2eUr80waDszBs7MaehUKaau7SdHCpGoeeltFjtvVzI+RhuRnmVzt
+	PBN5sR/uWK+j9wpf4GyowdTvgeYUYfeoOp0SC1JStkdYv+IFMCR0tSGZ5TudmlfGuds2V4hCUYhlJ
+	lg2tclP5Jg66D8knON33J5T+cNGWbXnOzT52TESQvq+t+rMko4MWW98dR0igbcJYXPYtx8VrtheaS
+	pt6ED0D+XwP9khOMhf+xLaFahbhmYkjv/EI13e5RatUT/UGqCCr4jQgB3r7IzzjBYBymGm+kgJQXy
+	oeFMlf1eJ60C1AjPuSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo62o-00000008a7A-0NAU;
-	Mon, 18 Aug 2025 20:01:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uo65L-00000008aIc-3S82;
+	Mon, 18 Aug 2025 20:04:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo53O-00000008QhT-11JV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 18:57:59 +0000
+	id 1uo53O-00000008QhU-2YCr;
+	Mon, 18 Aug 2025 18:58:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 023A544498;
-	Mon, 18 Aug 2025 18:57:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F04EC116C6;
-	Mon, 18 Aug 2025 18:57:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A05445C62C9;
+	Mon, 18 Aug 2025 18:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7007FC4CEEB;
+	Mon, 18 Aug 2025 18:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755543477;
-	bh=nJ35DlX2T53iUJ+subiqQJTdhVfvpvfP4TLzJ6JO4ao=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ASunkgBL6b+ELW9k7q04RxRGKg3pAgxjh912ojXZgFYBNGtzTThQfljhg3ygVZv/K
-	 wrha6otvNER9Oa01RTLYsynZDErbD7Dc7iGo+RlfzDnAXHwXBdts+UlB9rMwCTZoxd
-	 HGyV+9BKt6plZWvO4V/YUBsDKgRp/W04hb+5i15ucE/Sdy/5QeeL2KgCnjHFDSAX9V
-	 AAnsU9U3akAsIj/0kR90XEiToANu9Anzd+SvyTE7x14YJIPkwJeBbpEisfcWZMfvD/
-	 eIA6MTrA1up6eD3LEM/3a6aXTqiiIVscuZZwozmiyNyBq8iuL0i8k4y7QvWSP5ija2
-	 GfQhvKjzk28tg==
+	s=k20201202; t=1755543466;
+	bh=qBGPy4AI12NWfHAvs72tXhhLkggZ76cCh4aJ0zfhg4o=;
+	h=From:Subject:Date:To:Cc:From;
+	b=TO8hGFu9iuv4h970cI0P8DaQE+EJjCFUuIpmSaDSZc3jEdTo9PJkV2ZjkGkU8yAyz
+	 hA6uFbfmOGnWNaUYGLBL+njTod03yGzU0n3WtfoyFctsEwXUmB+b+ektMo1uhkUEt0
+	 x+B2tuvrWWSXUizIVwqIgYX1trm2mhHkeSrWJzCgOaoVdF3TOEIEatnQLchQ6bouVN
+	 bqR50c9Og2MFxhXY+8T0CJouc/vuM+CLdC6liY23Lilx/TBdkUhSccNoOPjp8E2qEG
+	 KDRyquCnMeMv42skmZrHiH02/P7YKlkxqYQSYkfrbDYOmhiwgZm559AXS4YzQzJBoT
+	 JHTROUXnhA26w==
 From: Nathan Chancellor <nathan@kernel.org>
-Date: Mon, 18 Aug 2025 11:57:20 -0700
-Subject: [PATCH 04/10] arm64: Remove tautological LLVM Kconfig conditions
+Subject: [PATCH 00/10] Bump minimum supported version of LLVM for building
+ the kernel to 15.0.0
+Date: Mon, 18 Aug 2025 11:57:16 -0700
+Message-Id: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250818-bump-min-llvm-ver-15-v1-4-c8b1d0f955e0@kernel.org>
-References: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
-In-Reply-To: <20250818-bump-min-llvm-ver-15-v1-0-c8b1d0f955e0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAIx3o2gC/x3MwQoCIRCA4VeROe+AY0zRvkrsoa2xBtRESQLx3
+ Vc6fof/71ClqFRYTYciTat+0gQtBh7ve3oJ6nManHVsL2Rx/8aMUROG0CI2KUiMV3Yn8iT7mRl
+ mmot4/f23t22MA23HpyFmAAAA
+X-Change-ID: 20250710-bump-min-llvm-ver-15-95231f1eb655
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
  Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
  Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
  linux-kernel@vger.kernel.org, llvm@lists.linux.dev, patches@lists.linux.dev, 
- Nathan Chancellor <nathan@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, linux-kbuild@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+ Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, 
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- linux-arm-kernel@lists.infradead.org
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ linuxppc-dev@lists.ozlabs.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+ Josh Poimboeuf <jpoimboe@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+ kasan-dev@googlegroups.com, Alexander Potapenko <glider@google.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1445; i=nathan@kernel.org;
- h=from:subject:message-id; bh=nJ35DlX2T53iUJ+subiqQJTdhVfvpvfP4TLzJ6JO4ao=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDBmLyxe6ysnU1s56xM/RNinw2qwitQrbe8YqwdL8pakrV
- oa4vc/sKGVhEONikBVTZKl+rHrc0HDOWcYbpybBzGFlAhnCwMUpABN5EM3I0KAn5qeuXRWgzLLz
- t/7azPMMvOtl9j2ICfgbfMBHmyv6KSPDz1RFu4rli7qyL5z8U+417cq8n4VteZeLBI4t80x+25/
- NBAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3422; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=qBGPy4AI12NWfHAvs72tXhhLkggZ76cCh4aJ0zfhg4o=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDBmLyxfkKs9J3XvmTW/HPLXzb2LV/ble9105em3NlZSrK
+ rcn6luu7yhlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQAT2WLNyLDcY1peR8tewSkT
+ F3NPCHvlGPr7vt3zpq/7/opaMwrfUPdmZDjG+/9Q5BeZLcKLVm0XPXCDawGDjEHkhrzAGu39rXt
+ Z47gA
 X-Developer-Key: i=nathan@kernel.org; a=openpgp;
  fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_115758_308534_9028DAF7 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20250818_115758_732850_6678C449 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,45 +97,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the minimum supported version of LLVM for building the kernel
-has been bumped to 15.0.0, two sets of always true conditions can be
-safely removed in the arm64 Kconfig file.
+s390 and x86 have required LLVM 15 since
 
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+  30d17fac6aae ("scripts/min-tool-version.sh: raise minimum clang version to 15.0.0 for s390")
+  7861640aac52 ("x86/build: Raise the minimum LLVM version to 15.0.0")
+
+respectively. This series bumps the rest of the kernel to 15.0.0 to
+match, which allows for a decent number of clean ups.
+
+On the distros front, we will only leave behind Debian Bookworm and
+Ubuntu Jammy. In both of those cases, builders / developers can either
+use the kernel.org toolchains or https://apt.llvm.org to get newer
+versions that will run on those distributions, if they cannot upgrade.
+
+  archlinux:latest              clang version 20.1.8
+  debian:oldoldstable-slim      Debian clang version 11.0.1-2
+  debian:oldstable-slim         Debian clang version 14.0.6
+  debian:stable-slim            Debian clang version 19.1.7 (3+b1)
+  debian:testing-slim           Debian clang version 19.1.7 (3+b1)
+  debian:unstable-slim          Debian clang version 19.1.7 (3+b2)
+  fedora:41                     clang version 19.1.7 (Fedora 19.1.7-4.fc41)
+  fedora:latest                 clang version 20.1.8 (Fedora 20.1.8-3.fc42)
+  fedora:rawhide                clang version 20.1.8 (Fedora 20.1.8-3.fc43)
+  opensuse/leap:latest          clang version 17.0.6
+  opensuse/tumbleweed:latest    clang version 20.1.8
+  ubuntu:focal                  clang version 10.0.0-4ubuntu1
+  ubuntu:jammy                  Ubuntu clang version 14.0.0-1ubuntu1.1
+  ubuntu:noble                  Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:latest                 Ubuntu clang version 18.1.3 (1ubuntu1)
+  ubuntu:rolling                Ubuntu clang version 20.1.2 (0ubuntu1)
+  ubuntu:devel                  Ubuntu clang version 20.1.8 (0ubuntu1)
+
+I think it makes sense for either Andrew to carry this via -mm on a
+nonmm branch or me to carry this via the Kbuild tree, with the
+appropriate acks.
+
 ---
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
+Nathan Chancellor (10):
+      kbuild: Bump minimum version of LLVM for building the kernel to 15.0.0
+      arch/Kconfig: Drop always true condition from RANDOMIZE_KSTACK_OFFSET
+      ARM: Clean up definition of ARM_HAS_GROUP_RELOCS
+      arm64: Remove tautological LLVM Kconfig conditions
+      mips: Unconditionally select ARCH_HAS_CURRENT_STACK_POINTER
+      powerpc: Drop unnecessary initializations in __copy_inst_from_kernel_nofault()
+      riscv: Remove version check for LTO_CLANG selects
+      lib/Kconfig.debug: Drop CLANG_VERSION check from DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT
+      objtool: Drop noinstr hack for KCSAN_WEAK_MEMORY
+      KMSAN: Remove tautological checks
+
+ Documentation/process/changes.rst |  2 +-
+ arch/Kconfig                      |  1 -
+ arch/arm/Kconfig                  | 11 ++++-------
+ arch/arm64/Kconfig                |  5 +----
+ arch/mips/Kconfig                 |  2 +-
+ arch/powerpc/include/asm/inst.h   |  4 ----
+ arch/riscv/Kconfig                |  5 ++---
+ lib/Kconfig.debug                 |  2 +-
+ lib/Kconfig.kcsan                 |  6 ------
+ lib/Kconfig.kmsan                 | 11 +----------
+ scripts/min-tool-version.sh       |  6 ++----
+ tools/objtool/check.c             | 10 ----------
+ 12 files changed, 13 insertions(+), 52 deletions(-)
 ---
- arch/arm64/Kconfig | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250710-bump-min-llvm-ver-15-95231f1eb655
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..41c05562e9af 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1492,8 +1492,6 @@ choice
- 
- config CPU_BIG_ENDIAN
- 	bool "Build big-endian kernel"
--	# https://github.com/llvm/llvm-project/commit/1379b150991f70a5782e9a143c2ba5308da1161c
--	depends on AS_IS_GNU || AS_VERSION >= 150000
- 	help
- 	  Say Y if you plan on running a kernel with a big-endian userspace.
- 
-@@ -2363,8 +2361,7 @@ config STACKPROTECTOR_PER_TASK
- 
- config UNWIND_PATCH_PAC_INTO_SCS
- 	bool "Enable shadow call stack dynamically using code patching"
--	# needs Clang with https://github.com/llvm/llvm-project/commit/de07cde67b5d205d58690be012106022aea6d2b3 incorporated
--	depends on CC_IS_CLANG && CLANG_VERSION >= 150000
-+	depends on CC_IS_CLANG
- 	depends on ARM64_PTR_AUTH_KERNEL && CC_HAS_BRANCH_PROT_PAC_RET
- 	depends on SHADOW_CALL_STACK
- 	select UNWIND_TABLES
-
--- 
-2.50.1
+Best regards,
+--  
+Nathan Chancellor <nathan@kernel.org>
 
 
