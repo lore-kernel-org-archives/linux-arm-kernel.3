@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBD4CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1686DCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 06:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQqJLxn/uck2ZUWoChhjcCs9bxIpI9w0PlNK/2siEoQ=; b=rcEEpzKKSTc3lq6GcpBQZjNwnV
-	pYR1wdK3nwwmUCa5qO1Tz/DbCLQQn6Elq9T2OMeNbkhT7HeiyRvDsNYCW8PqGcxJnbZAKL8UrJ2cA
-	Vp7Oi1cO/AcukWmY6bE+ZHpFOb4czustfFkW6VXuNiOvJWJdnf8kKZe1qcVsK4UxOW//yQwHHnyU8
-	yKeMLqgzKxpmhfQ5jnrqYY2JPB9DUJP2IMDCfOiodVqZJu6GWEYUgRZyaqUoEoUX/AbbPP0AX4Mz7
-	SZaZJrpK0RNG3BsUQAPTSZKlTtp2heiB5IziUoarfGrqwTIOaqo9ZZe8YQRmfd9MYcKjdUtfiVsYL
-	4VHIY3eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FC77WlJiY7xDNwuW+a/NNVnjeTtDmbfZWKvyKnOLc0A=; b=Ua9HjFNgZhQdBmIy1dz8XiHluX
+	PC22Bk7uys4oSYN+uhw+xkEBpcfwKFtVkYgSPYywew3slYfifi6c2U9HtPvd+zhAyiH8O71ls90+3
+	emq9xJUDz4eaWoQMldE6T8lmO5izATINRnPbS65rWoa++7YBpE4Hp0f67lrX+OtIaXy2rUvfYUWyg
+	sHuzWeVFnIuD9prEc/lfiJ2kctyEn5LVEgMPfyEMundtDzIT7lCSKEyeEeuAW55Muff5N/RhuPYHA
+	t1IP2Cypc0QYHxrOM3eoGJpkXslwQPLmsHJjFilO5jlonAThQttPCmpEEPqRUcmq2SDfxqqR3/16c
+	KGp57+zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsag-00000006ZFG-1TXq;
-	Mon, 18 Aug 2025 05:39:30 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1untEe-00000006ciU-4C04;
+	Mon, 18 Aug 2025 06:20:49 +0000
+Received: from bg1.exmail.qq.com ([114.132.79.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsXE-00000006Z3m-0FgG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 05:35:57 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57I5ZbsT2585902;
-	Mon, 18 Aug 2025 00:35:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755495337;
-	bh=ZQqJLxn/uck2ZUWoChhjcCs9bxIpI9w0PlNK/2siEoQ=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=IJ39ERdw/bmMCyb6LoyfEhp83XHLt5GQ1RmUr4GyGOYmkf4+NvTL8FMpFMAb0oqEd
-	 Tdu51zKveZLvXWZB2EMLqBlnXPUy6TNTzdlPxkIG1SAZqNMrBz7WkmqdhHxTgtK0s5
-	 7+Sww05vkrrhX6fmV170nVv2rsJRx5Foh+Go9KfM=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57I5ZbUW069851
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 18 Aug 2025 00:35:37 -0500
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
- Aug 2025 00:35:37 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.1748.24; Mon, 18 Aug
- 2025 00:35:36 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 18 Aug 2025 00:35:36 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57I5ZZQc478080;
-	Mon, 18 Aug 2025 00:35:36 -0500
-Date: Mon, 18 Aug 2025 11:05:35 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <arm-scmi@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <sudeep.holla@arm.com>, <james.quinlan@broadcom.com>,
-        <f.fainelli@gmail.com>, <vincent.guittot@linaro.org>,
-        <quic_sibis@quicinc.com>, <dan.carpenter@linaro.org>,
-        <johan+linaro@kernel.org>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <quic_mdtipton@quicinc.com>
-Subject: Re: [PATCH 1/2] firmware: arm_scmi: Rework quirks framework header
-Message-ID: <20250818053535.owst4ilq2oxfgqnq@lcpd911>
-References: <20250815102736.81450-1-cristian.marussi@arm.com>
+	id 1untC5-00000006cXE-0F22;
+	Mon, 18 Aug 2025 06:18:10 +0000
+X-QQ-mid: zesmtpip2t1755497838t1fd5a6b6
+X-QQ-Originating-IP: K5v4RAVWugn23UNjkoicspSCFboAu0bRGFTZhubq0CM=
+Received: from [IPV6:240f:10b:7440:1:e696:3c18 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 18 Aug 2025 14:17:08 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 3725019992298414931
+Message-ID: <F46196958466A8A7+60461f17-bd3a-4e17-be6e-b4f22dddcde5@radxa.com>
+Date: Mon, 18 Aug 2025 15:17:07 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250815102736.81450-1-cristian.marussi@arm.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add Radxa E24C
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ jonas@kwiboo.se, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ robh@kernel.org, ziyao@disroot.org
+References: <058E04574291144B+66620590-b680-44b9-92c5-7dc4c43080e7@radxa.com>
+ <20250815100110.1302357-1-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250815100110.1302357-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MhFAoh6gmjppIABUC5Nr7UHdRf/PRmw0CsLmh7kyn1LFXlDeJUL+F7tx
+	zcvPEfG3jVlTRSFOYE9ETlGYW41Ak57STppNhCURMf4ZvYd3uzOGCNPEb535vSJ985qlQW7
+	E6TQqdNMlgQ6C7lWWqXq5+Hs0YgOz3OTrj6jxQyVD805kJhZSdOOJRZFSoqBQHYWQsv6BAU
+	HkGP2/dp7yzi9Yyg7eLZcC3kB4idAgxuZN+/pEv965vSgejW+6/ecdgoxdAgC1LAhsN5qoj
+	0ctBbn8zm7LkEauVLVRPnRrCspdMP2iuIC/M+Xz0ue1Ow3GzITVy1n9TXL3Wa6Vr36xn0ws
+	6CPeHR6Ma+Rx2ukHvxjh1Zu/hKMUeed2iJGKUzi+ZFibA3aYbTmSEEQdKNQlnDq01blJjf4
+	RkRxdjrFoa9rWNo0FfT45yB5zShYUF/OpOq34ZaPoKyLMkjPCZrw59V46ddS1VtF9YC4Ecq
+	khoIlMnfLNP8eXy8pAT1vYSA6vfjYMHZxNQkAtztXGAKr5GrbXCeX+/fUd7yzbubcbp14X0
+	nvJTuEkFSTPMq5ltKmLMTtoA+JPdh3EDKOvP/LDBgkv6vlDgBRCb1GF9wZLr3oZdRCrnXdp
+	5KwTXyLz0rtSA7bgb+81xOqJCutXJGsH136p90NZJEhxIBE3bWpndnE4yg8lWSiXoaw/BkV
+	bys+Su5ou3bfRCirxmwfG2VFRecRhf/YaVh6mAtVViAOuVUom5He7zsiRnqoZrVcZCklvfs
+	OTNF3xjw+2OBT7WXnrFiZ/Dr0EcWk/u8ur1zyy1RL5j3Sgel3A4EjOXTwW1hasavhoHR5XZ
+	m/O6cVo3cg4cGeL+0SHTJyAG71dmCh3RhGC6No7vXGkXaN4zQNm3lGsDLKu97RzmwAp/YIM
+	BHLu5vXDMJ8ZKay4HtD9mO6IGZ47/ftWE0GfdB0e4i/NfW58tXsThUDYONoMGIJtz+02TPV
+	wFg128RFydSKMTd9gzAaSrFU4
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_223556_264362_7E5DDCBE 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20250817_231809_455793_A334E5EC 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,192 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Chukun,
 
-On Aug 15, 2025 at 11:27:35 +0100, Cristian Marussi wrote:
-> Split and relocate the quirks framework header so as to be usable also by
-> SCMI Drivers and not only by the core.
-
-Could you elaborate a bit more on this reasoning? I am not fully
-convinced as to why I shouldn't just include quirks.h in the other scmi
-drivers as well?
-
-Oh or perhaps you mean to say scmi driver like scmi cpufreq / clk-scmi
-etc.. which lie outside the firmware/arm_scmi folder? If so then that's
-not coming out clearly in this patch commit message.
-
+On 8/15/25 19:01, Chukun Pan wrote:
+> Hi,
 > 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
->  drivers/firmware/arm_scmi/clock.c  |  2 +-
->  drivers/firmware/arm_scmi/driver.c |  1 +
->  drivers/firmware/arm_scmi/quirks.h | 33 +++-------------------
->  include/linux/scmi_quirks.h        | 44 ++++++++++++++++++++++++++++++
->  4 files changed, 50 insertions(+), 30 deletions(-)
->  create mode 100644 include/linux/scmi_quirks.h
+>> "label" is deprecated. "color" and "function" should be enough to
+>> explain what they are.
+>>
+>> (Personally, I prefer LED_FUNCTION_STATUS to LED_FUNCTION_HEARTBEAT)
 > 
-> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-> index afa7981efe82..5599697de37a 100644
-> --- a/drivers/firmware/arm_scmi/clock.c
-> +++ b/drivers/firmware/arm_scmi/clock.c
-> @@ -7,11 +7,11 @@
->  
->  #include <linux/module.h>
->  #include <linux/limits.h>
-> +#include <linux/scmi_quirks.h>
->  #include <linux/sort.h>
->  
->  #include "protocols.h"
->  #include "notify.h"
-> -#include "quirks.h"
->  
->  /* Updated only after ALL the mandatory features for that version are merged */
->  #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x30000
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index bd56a877fdfc..6f5934cd3a65 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -34,6 +34,7 @@
->  #include <linux/processor.h>
->  #include <linux/refcount.h>
->  #include <linux/slab.h>
-> +#include <linux/scmi_quirks.h>
->  #include <linux/xarray.h>
->  
->  #include "common.h"
-> diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-> index a71fde85a527..260ae38d617b 100644
-> --- a/drivers/firmware/arm_scmi/quirks.h
-> +++ b/drivers/firmware/arm_scmi/quirks.h
-> @@ -4,49 +4,24 @@
->   *
->   * Copyright (C) 2025 ARM Ltd.
->   */
-> -#ifndef _SCMI_QUIRKS_H
-> -#define _SCMI_QUIRKS_H
-> +#ifndef _SCMI_QUIRKS_INTERNAL_H
-> +#define _SCMI_QUIRKS_INTERNAL_H
+> BTW, will there be versions of Radxa E24C and Radxa E54C with
+> onboard eMMC? It seems that they are all onboard SPI instead
+> of eMMC. If there is no onboard eMMC version, we can remove
+> the sdhci node in dts.
 
-Or as per your commit message wording, better to call it
-_SCMI_QUIRKS_CORE_H ?
+Although optional, there are also E24C/E54C versions with eMMC.
 
->  
-> -#include <linux/static_key.h>
-> +#include <linux/device.h>
->  #include <linux/types.h>
->  
->  #ifdef CONFIG_ARM_SCMI_QUIRKS
->  
-> -#define DECLARE_SCMI_QUIRK(_qn)						\
-> -	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
-> -
-> -/*
-> - * A helper to associate the actual code snippet to use as a quirk
-> - * named as _qn.
-> - */
-> -#define SCMI_QUIRK(_qn, _blk)						\
-> -	do {								\
-> -		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
-> -			(_blk);						\
-> -	} while (0)
-> -
->  void scmi_quirks_initialize(void);
->  void scmi_quirks_enable(struct device *dev, const char *vend,
->  			const char *subv, const u32 impl);
->  
->  #else
->  
-> -#define DECLARE_SCMI_QUIRK(_qn)
-> -/* Force quirks compilation even when SCMI Quirks are disabled */
-> -#define SCMI_QUIRK(_qn, _blk)						\
-> -	do {								\
-> -		if (0)							\
-> -			(_blk);						\
-> -	} while (0)
-> -
->  static inline void scmi_quirks_initialize(void) { }
->  static inline void scmi_quirks_enable(struct device *dev, const char *vend,
->  				      const char *sub_vend, const u32 impl) { }
->  
->  #endif /* CONFIG_ARM_SCMI_QUIRKS */
->  
-> -/* Quirk delarations */
-> -DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-> -DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
-> -
-> -#endif /* _SCMI_QUIRKS_H */
-> +#endif /* _SCMI_QUIRKS_INTERNAL_H */
-> diff --git a/include/linux/scmi_quirks.h b/include/linux/scmi_quirks.h
-> new file mode 100644
-> index 000000000000..11657bd91ffc
-> --- /dev/null
-> +++ b/include/linux/scmi_quirks.h
-> @@ -0,0 +1,44 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * System Control and Management Interface (SCMI) Message Protocol Quirks
-> + *
-> + * Copyright (C) 2025 ARM Ltd.
-> + */
-> +#ifndef _SCMI_QUIRKS_H
-> +#define _SCMI_QUIRKS_H
-> +
-> +#include <linux/static_key.h>
-> +#include <linux/types.h>
-> +
-> +#ifdef CONFIG_ARM_SCMI_QUIRKS
-> +
-> +#define DECLARE_SCMI_QUIRK(_qn)						\
-> +	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
-> +
-> +/*
-> + * A helper to associate the actual code snippet to use as a quirk
-> + * named as _qn.
-> + */
-> +#define SCMI_QUIRK(_qn, _blk)						\
-> +	do {								\
-> +		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
-> +			(_blk);						\
-> +	} while (0)
-> +
-> +#else
-> +
-> +#define DECLARE_SCMI_QUIRK(_qn)
-> +/* Force quirks compilation even when SCMI Quirks are disabled */
-> +#define SCMI_QUIRK(_qn, _blk)						\
-> +	do {								\
-> +		if (0)							\
-> +			(_blk);						\
-> +	} while (0)
-
-Did you happen to run checkpatch on this?
-8<---------------------------------------------------------------------------
-WARNING: Argument '_qn' is not used in function-like macro
-#142: FILE: include/linux/scmi_quirks.h:32:
-+#define SCMI_QUIRK(_qn, _blk)                                          \
-+       do {                                                            \
-+               if (0)                                                  \
-+                       (_blk);                                         \
-+       } while (0)
-
-total: 0 errors, 2 warnings, 0 checks, 116 lines checked
---------------------------------------------------------------------------->8
-
-
-> +
-> +#endif /* CONFIG_ARM_SCMI_QUIRKS */
-> +
-> +/* Quirk delarations */
-> +DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-> +DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
-> +
-> +#endif /* _SCMI_QUIRKS_H */
-> -- 
-> 2.50.1
-> 
-
--- 
 Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> Thanks,
+> Chukun
+> 
+> --
+> 2.25.1
+> 
+> 
+> 
+
 
