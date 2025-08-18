@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF571CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05888CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 21:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:CC:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzdwaB4QA4Hn4GefqjRmqWyT59NZrNcm1OsPkQKffxQ=; b=Oo9YZAAkupXJgToU+7AE0uNkYL
-	fBaGj+B/ipHafrZ0qREJfVGCLeSkItG4EwwMKMIJ5A17nvwLskjL4cYPBr7ikVIuKoFIVgGLK8Whx
-	Pr+Aip8OQDGJYs//7PP27NuzdGLITRasz2QYOiq/uVS4rutW+BuabzVUfVIB8WDCEYnZdVJ5e2C36
-	VnP8E0nMw09IRsUcyy1QBTheePDPtBIffdAUXz/+63JkX1hVsAchB7Ns8hC9RNgIQTi/TfqLLduZJ
-	PfcHq2LwXdmY5ksLW2QScNZvoQV+eyS2GWW01wHtY0qn2uPfXFIdyps/folDpZMgP/f9p/poQBk2Q
-	bn5mkXwg==;
+	bh=hbqjR77flrEojaMmvXfL0GY1fNUeEb1Qsxjgnrp8ask=; b=V8bU42Bf27zOpeT520xCjlu0IU
+	K+VC8rB7hyKrDRkwtO+83Vcbw9WbiVvtZfG86/YGYWt8WBKMm+A/ZQ32VeMGy+7JipVisXGuoaEnK
+	mDHl54JpB0xjoDnqMHYLe6NxXyDa/lGN0uL2w1gAVu649nA8auf4vt6LJEjEvRUu9XuqnW9fPAGOp
+	IJIB2+8Fh4hbQkDN5zSMvWdm17niwVrlRKEfpBpbraAsKmzgPCxbYHVwaVdlGC0g1wGf3v+SpEjuD
+	weA5UeISoUSF4F6zdC2SsA8ch87otikOrwJ0e45BqMe8Gnvh/bjqcL5O0niCHAMODkG7cTF/vmB4i
+	9y5KAe3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo7O9-00000008iLW-0pog;
-	Mon, 18 Aug 2025 21:27:33 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1uo7O2-00000008iAI-4BRz;
+	Mon, 18 Aug 2025 21:27:27 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo68x-00000008aWt-0HOk;
-	Mon, 18 Aug 2025 20:07:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755547667; x=1787083667;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=HUP2AEiZfFgmlejZ9gs27ibEAHSKm6RtjRLDUuqDXBM=;
-  b=M8ixLp5/m7XiMl3k9ifYx3QLHZKHAGfoKkyWDomrgVUSgnHoVnxhKCy1
-   ThsFNhE4rdFF+i7WXk6I8HOmteCp+DqmjDOyA8ppopVRZNJLbcXPn2PvA
-   ALBmzW80pmUReY1UsFNkOLx5DSNqqi4wzHK9/ilPaodp99Si4emSl3feE
-   ZLOLv+H0JrxnmfZHo3x9N5KQRJsm9WYrDQ6Ij2ne3As6u1NsTqBmglFrR
-   ZgWIGmWR9TaTFqdVGIR4FIW4S/F8CZuIK5nDRF6QbBec/1B6MwAW72OxA
-   FZxCsJ/PVapgRqxbxfjAwblH4MSN3s2qRgq2b8DG1yxJk5VaNmX0OnKGc
-   Q==;
-X-CSE-ConnectionGUID: 95cFrr3CSkmcOeYKUE2U5A==
-X-CSE-MsgGUID: ER6hlTXNQX26E0ti0xYMCg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11526"; a="69233310"
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="69233310"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 13:07:43 -0700
-X-CSE-ConnectionGUID: VPdWLgrPQ4q9Io7sk+4Srw==
-X-CSE-MsgGUID: IPqmhJ93SHqaacsNGeVfjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="168055360"
-Received: from linux.intel.com ([10.54.29.200])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 13:07:41 -0700
-Received: from [10.124.163.195] (kliang2-mobl1.ccr.corp.intel.com [10.124.163.195])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by linux.intel.com (Postfix) with ESMTPS id D183720B571C;
-	Mon, 18 Aug 2025 13:07:39 -0700 (PDT)
-Message-ID: <4e58688f-22e0-4e20-9043-dee76d01d24f@linux.intel.com>
-Date: Mon, 18 Aug 2025 13:07:39 -0700
+	id 1uo5ll-00000008YII-44tz
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 19:43:51 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IJhhNE2728942;
+	Mon, 18 Aug 2025 14:43:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755546223;
+	bh=hbqjR77flrEojaMmvXfL0GY1fNUeEb1Qsxjgnrp8ask=;
+	h=Date:CC:Subject:From:To:References:In-Reply-To;
+	b=Jw77B70ciHlBfvOueY2p0pueCXi8VH5bRDrpHynFr5WH4FN0I6fdE/Lqen5rkZg+q
+	 mtDvWjWje+lLMMgM50BIw2TX4jn7cAFep+BoOMy6vUioZzjU6tmwAvyXGFq/PWAUxb
+	 bX+18JRiHEAcJwvPBkfur+0WN9Rc4LpZJWLr3ck4=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IJhhcg515659
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 18 Aug 2025 14:43:43 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
+ Aug 2025 14:43:42 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 18 Aug 2025 14:43:42 -0500
+Received: from localhost (rs-desk.dhcp.ti.com [128.247.81.144])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IJhgLn1830747;
+	Mon, 18 Aug 2025 14:43:42 -0500
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-To: Peter Zijlstra <peterz@infradead.org>,
- Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-10-seanjc@google.com>
- <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
- <aJ9VQH87ytkWf1dH@google.com> <aJ9YbZTJAg66IiVh@google.com>
- <20250818143204.GH3289052@noisy.programming.kicks-ass.net>
- <aKNF7jc4qr9ab-Es@google.com>
- <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: "Liang, Kan" <kan.liang@linux.intel.com>
-In-Reply-To: <20250818161210.GJ3289052@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Date: Mon, 18 Aug 2025 14:43:42 -0500
+Message-ID: <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
+CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <d-gole@ti.com>,
+        <afd@ti.com>, <bb@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <detheridge@ti.com>, <matt.coster@imgtec.com>
+Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-j784s4-j742s2: enable the
+ bxs-4-64
+From: Randolph Sapp <rs@ti.com>
+To: Michael Walle <michael@walle.cc>, Nishanth Menon <nm@ti.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
+References: <20250808232522.1296240-1-rs@ti.com>
+ <20250808232522.1296240-3-rs@ti.com>
+ <20250813151819.5rthljjrpryfwezz@skinning>
+ <DC1HU458W3QA.YLONSMYKK0C4@ti.com>
+ <20250813181300.xfpsu23arx7xy4fy@anointer>
+ <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc>
+In-Reply-To: <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_130747_175855_3016CBD4 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20250818_124350_100467_73D2BE91 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,55 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025-08-18 9:12 a.m., Peter Zijlstra wrote:
-> On Mon, Aug 18, 2025 at 08:25:34AM -0700, Sean Christopherson wrote:
-> 
->>> OK, so *IF* doing the VM-exit during PMI is sound, this is something
->>> that needs a comment somewhere. 
->>
->> I'm a bit lost here.  Are you essentially asking if it's ok to take a VM-Exit
->> while the guest is handling a PMI?  If so, that _has_ to work, because there are
->> myriad things that can/will trigger a VM-Exit at any point while the guest is
->> active.
-> 
-> Yes, that's what I'm asking. Why is this VM-exit during PMI nonsense not
-> subject to the same failures that mandates the mid/late PMI ACK.
-> 
-> And yes, I realize this needs to work. But so far I'm not sure I
-> understand why that is a safe thing to do.
-> 
-> Like I wrote, I suspect writing all the PMU MSRs serializes things
-> sufficiently, but if that is the case, that needs to be explicitly
-> mentioned. Because that also doesn't explain why we needs mid-ack
-> instead of late-ack on ADL e-cores for instance.
-
-The mid-ack and late-ack only require under some corner cases, e.g., two
-PMIs are triggered simultaneously with PEBS.
-Because the ucode of p-core and e-core handle the pending PEBS records
-and PMIs differently.
-For p-core, the ACK should be as close to EOM. Otherwise, the pending
-PMI will trigger a spurious PMI warning.
-For e-core, the uncode handles the pending PMI well. There is no
-spurious PMI. However, it impacts the update of the PEBS_DATA_CFG. The
-PEBS_DATA_CFG is global. If the ACK cannot be done before re-enabling
-counters, the stale PEBS_DATA_CFG will somehow be written into the next
-PEBS record of the pending PMI. It triggers the malformed PEBS record.
-
-For the upcoming arch PEBS, the data cfg is per-counter.
-The mid-ack workaround should not be required.
-> 
-> Could it perhaps be that we don't let the guests do PEBS because DS
-> doesn't virtualize? And thus we don't have the malformed PEBS record?
+On Mon Aug 18, 2025 at 1:22 AM CDT, Michael Walle wrote:
+> Hi,
 >
+> On Wed Aug 13, 2025 at 8:13 PM CEST, Nishanth Menon wrote:
+>> On 12:58-20250813, Randolph Sapp wrote:
+>> > On Wed Aug 13, 2025 at 10:18 AM CDT, Nishanth Menon wrote:
+>> > > On 18:25-20250808, rs@ti.com wrote:
+>> > >> From: Randolph Sapp <rs@ti.com>
+>> > >>=20
+>> > >> Add the relevant device tree node for Imagination's BXS-4-64 GPU.
+>> > >>=20
+>> > >> These devices uses a similar MSMC configuration to the J721S2. As s=
+uch,
+>> > >> they also require the use of the dma-coherent attribute.
+>> > >>=20
+>> > >> Signed-off-by: Randolph Sapp <rs@ti.com>
+>> > >> ---
+>> > >>  .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 14 ++++++++++=
+++++
+>> > >>  1 file changed, 14 insertions(+)
+>> > >>=20
+>> > >> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dt=
+si b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> > >> index 7c5b0c69897d..a44ca34dda62 100644
+>> > >> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> > >> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+>> > >> @@ -2691,4 +2691,18 @@ bist_main14: bist@33c0000 {
+>> > >>  		bootph-pre-ram;
+>> > >>  		ti,sci-dev-id =3D <234>;
+>> > >>  	};
+>> > >> +
+>> > >> +	gpu: gpu@4e20000000 {
+>> > >> +		compatible =3D "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rog=
+ue";
+>> > >
+>> > > Following  https://lore.kernel.org/linux-arm-kernel/DBE4UO2RGAYX.17V=
+1DAF8MQYJM@kernel.org/
+>> > > Is it worth having ti,j784s4-gpu here? Are there any SoC specific qu=
+irks
+>> > > that driver will need to handle?
+>> >=20
+>> > No SoC specific quirks, aside from those already being tracked through=
+ the
+>> > dma-coherent attribute. If we actually want to register SoC specific
+>> > compatibility entries as advised by the kernel docs, just let me know.=
+ I've seen
+>> > this opinion toggle a few times.
+>> >=20
+>>
+>> Please provide bootlogs on linux-next with just this series applied.
+>> IMHO, based on what I see at the moment on GPU, it might be a good idea
+>> to have SoC specific compatibility entries.
+>
+> IMHO, that's *always* a good idea, even if the IP is the very same
+> as the integration might be different.
+>
+> Apart from that, we now have two series which partly overlap.
+> Should I repost mine, as that's more than just the DT entry? (Which
+> doesn't work as is, I'd guess.)
+>
+> -michael
 
-Yes, I don't think it can impact the mediated PMU. The legacy PEBS for
-vPMU is not supported.
-Since the configuration is per-counter with the arch PEBS, the malformed
-PEBS record should not be triggered either.
-
-
-Thanks,
-Kan
+Ah, I don't see that series on the linux-arm-kernel list. If you can forwar=
+d me
+that I can work around whatever you've got.
 
