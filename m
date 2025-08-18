@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4A4CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C1BCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAMmpDtYCfkoYrqxpq6XktgA+w7f+7+MRuTH/F71Yto=; b=YskEw4dyLBMhqcJwsi0CkgBmv0
-	yl5lR7TQi2quF9lXk1UG6lQOFUaXyHQOw0Gj5KytcOxzUXqJ7/4LxhFTbpp07IZSwC6y1wbLevk/B
-	RiGTtf+pF2TefnyFoBEbUPfxvUz+R68Z/oI20ki5khyrH1xOCD24LC3yOxpwBVurh/umYcEE0pdRK
-	aBrXkup7n40FhFDmI5qHWE2Vwy2VCOsacmnX1dt0JoyslAawrcfcvpMxn85Iy2GtIV3/cno688YQx
-	AgTMR/R0z2ixsS6vvlhmJ235btdePcJ+z0+QzYTQTbANnzDYW8HrUHhXgELSr8x+Mg5G8JXqTpvQu
-	sxKBN1FQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KEHtQnTwcqBwAA81cL/SHk38+vQn3+hQZ8tB0SijH6o=; b=mGTe+ePHEQdbsmzhkXiSZ4CuoA
+	YRDVOyq42GENUJOMIfLSCNimF5ZSitqsAXCKux6NAJywqw9HWOIiNWEF2QAVcp+LCwKb5kNNYiAt7
+	CtMCEUeAj9pu7+j3rkoTD4JHk1qRsK4gN6nCVa2l6AUtTL+/9qwnAJpN/5N6khMHAMrS3gUflUQN9
+	9yBAvLA3US2s0+FA4s1bpj6E4/R07BTnhK0OVG77CcytwD9QPrac7hLsDP06xBG4T5AFFW3bbrQ5t
+	Au2ze/wGDdJpS3xxNLI1vMPFObEnVr7lA8UzidvB+wYRO64+TZUwfG2FLRuRqdFNu3Vg9bQG2TQ0I
+	uTXuEHBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo08b-00000007d0n-0rE8;
-	Mon, 18 Aug 2025 13:43:01 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uo08k-00000007dGL-2u5p;
+	Mon, 18 Aug 2025 13:43:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unyrC-00000007Jrc-0OfN
+	id 1unz1d-00000007L1P-2iuc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 12:20:59 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57IBGdPu032348;
-	Mon, 18 Aug 2025 14:20:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	lAMmpDtYCfkoYrqxpq6XktgA+w7f+7+MRuTH/F71Yto=; b=imPR8A/OMbS0hMQf
-	3WwZBJsZBgZ7gHblZoXzYvnYc7X/T6iczc5d+LtY0DqtQ6GASKg7Ycm0Ci6buwad
-	2BAf1kBb8ziVigu8YOjExHerj0oUQht0bmp7q+OkDCZ+z3UtTBKkhv5Ap8wOZPTp
-	p+5XhS3AHJB76arlVmnvKb6TYg0K2zoAfD/YGbEjK9dRDBInLD4zUP9aBrgFlJtu
-	82kMLF/enXswDX7n+i2gDcCNQbhorwNagtOn84ECes7jx1pkHDUxYBhcDpR9bDYL
-	FywPUFxngMRZGH2ih+3tLC+oIa46mYjzSqqdELl/4Etu40VrjIpSIGThaujVu2+6
-	iM2/8w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jfdk6pkq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 Aug 2025 14:20:45 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BA1D54004A;
-	Mon, 18 Aug 2025 14:19:39 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EE2BE723768;
-	Mon, 18 Aug 2025 14:18:47 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Aug
- 2025 14:18:47 +0200
-Message-ID: <c8076e56-4b5a-466c-8702-0a7a596f987e@foss.st.com>
-Date: Mon, 18 Aug 2025 14:18:44 +0200
+	Mon, 18 Aug 2025 12:31:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AEC0145A18;
+	Mon, 18 Aug 2025 12:31:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 83DB5C4CEEB;
+	Mon, 18 Aug 2025 12:31:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755520304;
+	bh=9xto1WGjpE7C25ii2gC6fdKuCEsKYv14TdNP1gsfLeA=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=sic9ij+ChZgwPgrM4kF7yOqIFX1ILzVm8emfabxekhi61BRonHlxhP7bVRju6if/C
+	 mOxFmD+Et6kUwCxDaU2M4odiXi59m6NPTtwo0oIWEqPsm+DSp8ZCot2GlqKhiGG4/Y
+	 rHJSOCidV9FoHsBlZ1E5Ehilw0dYPg+mWf2n0I7rt6eXSWpw5+D2hTfVcxM+JUq536
+	 9/O5MHtE9IJBhQ7MT5e8onMR0MH5++RJty+ZqXYi4Nwh8rvTLJN0os57RwbK070Cge
+	 4L4BjP+cg12SjPIypzqrEdOCkSMf1mVUqcYDBcDUtCmIo1jzjtrRK8j7Y+qxovhWD3
+	 Oj1tk0YQe0zQA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A2FFCA0EE4;
+	Mon, 18 Aug 2025 12:31:44 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Date: Mon, 18 Aug 2025 14:31:43 +0200
+Subject: [PATCH] media: nxp: imx8-isi: Check whether pad is non-NULL before
+ access
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] PCI: stm32: use pinctrl_pm_select_init_state() in
- stm32_pcie_resume_noirq()
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>,
-        <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, kernel test robot <lkp@intel.com>
-References: <20250813190633.GA284987@bhelgaas>
-From: Christian Bruel <christian.bruel@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <20250813190633.GA284987@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-18_05,2025-08-14_01,2025-03-28_01
+Message-Id: <20250818-imx8_isi-v1-1-e9cfe994c435@gocontroll.com>
+X-B4-Tracking: v=1; b=H4sIAC4do2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0ML3czcCot4oDJdS1MTC0sLMyOLpCQzJaDygqLUtMwKsFHRsbW1ADT
+ i1PdaAAAA
+X-Change-ID: 20250818-imx8_isi-954898628bb6
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Stefan Riedmueller <s.riedmueller@phytec.de>, 
+ Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>, 
+ Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Maud Spierings <maudspierings@gocontroll.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755520303; l=1552;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=AcOnQUcEtLtKRIGyS551I2XQVk8kQXwsf7E/+Yff8TA=;
+ b=LxPyeY5OtSuWC0dqmLOomQR+CNhDogbAv7Ktm7eAvNyw3RLKGvRZnoWkjAVyF9zkpodT26fDt
+ BSNSf84OWnoCe6aD49C3B4Ijd31VQ5j0Tg6aujoKeWnTgkb3HIY05zI
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_052058_430996_2C577A63 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250818_053145_730292_0E88B054 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,92 +93,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Maud Spierings <maudspierings@gocontroll.com>
 
+media_pad_remote_pad_first() can return NULL if no valid link is found.
+Check for this possibility before dereferencing it in the next line.
 
-On 8/13/25 21:06, Bjorn Helgaas wrote:
-> On Wed, Aug 13, 2025 at 01:53:19PM +0200, Christian Bruel wrote:
->> Replace direct access to dev->pins->init_state with the new helper
->> pinctrl_pm_select_init_state() to select the init pinctrl state.
->> This fixes build issues when CONFIG_PINCTRL is not defined.
->>
->> Depends-on: <20250813081139.93201-3-christian.bruel@foss.st.com>
->> Reported-by: Bjorn Helgaas <bhelgaas@google.com>
->> Reported-by: kernel test robot <lkp@intel.com>
->> Closes: https://lore.kernel.org/oe-kbuild-all/202506260920.bmQ9hQ9s-lkp@intel.com/
->> Fixes: 633f42f48af5 ("PCI: stm32: Add PCIe host support for STM32MP25")
->> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> 
-> I can't merge 633f42f48af5 as-is because of the build issue.
-> 
-> Pinctrl provides stubs for the non-CONFIG_PINCTRL case; the issue is
-> that 633f42f48af5 uses dev->pins, which only exists when
-> CONFIG_PINCTRL is enabled.
-> 
-> The possibilities I see are:
-> 
->    1) Merge initial stm32 without suspend/resume support via PCI, merge
->       pinctrl_pm_select_init_state() via pinctrl, then add stm32
->       suspend/resume support.  pinctrl_pm_select_init_state() and stm32
->       (without suspend/resume) would appear in v6.18, and stm32
->       suspend/resume would be added in v6.19.
-> 
->    2) Temporarily #ifdef the dev->pins use.  pinctrl_pm_select_init_state()
->       and stm32 (with #ifdef) would appear in v6.18, follow-on patch to
->       replace #ifdef with pinctrl_pm_select_init_state() would appear
->       in v6.19.
->    3) Merge your [1] to add pinctrl_pm_select_init_state() via PCI with
->       Linus's ack, followed by the stm32 series with the change below
->       squashed in.  Everything would appear in v6.18.
+Reported/investigated in [1]:
 
-or 4) Linus applies it in his PINCTRL branch and Mani cherry-pick it in 
-PCI. But that will be a conflict to solve when both comes to mainline.
+Link: https://lore.kernel.org/all/1536a61b-b405-4762-9fb4-7e257f95e49e@gocontroll.com/ [1]
+Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+I'm not sure if this should be a dev_dbg(), just following the pattern
+around it for now, also not sure if EPIPE is the correct error.
+---
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Personally I prefer 3) if Linus Acks, to break the dependency
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+index ede6cc74c0234049fa225ad82aaddaad64aa53d7..1ed8b031178b7d934b04a8752747f556bd1fc5a9 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+@@ -160,6 +160,13 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
+ 	}
+ 
+ 	pad = media_pad_remote_pad_first(&xbar->pads[sink_pad]);
++
++	if (pad == NULL) {
++		dev_dbg(xbar->isi->dev, "no valid link found to pad %u\n",
++			sink_pad);
++		return ERR_PTR(-EPIPE);
++	}
++
+ 	sd = media_entity_to_v4l2_subdev(pad->entity);
+ 	if (!sd) {
+ 		dev_dbg(xbar->isi->dev,
 
-Thank you
+---
+base-commit: 3ac864c2d9bb8608ee236e89bf561811613abfce
+change-id: 20250818-imx8_isi-954898628bb6
 
-Christian
+Best regards,
+-- 
+Maud Spierings <maudspierings@gocontroll.com>
 
-> 
-> I'm OK with any of these.
-> 
-> [1] https://lore.kernel.org/r/20250813081139.93201-1-christian.bruel@foss.st.com
-> 
->> ---
->> Changes in v1:
->>   - pinctrl_pm_select_init_state() return 0 if the state is not defined.
->>     No need to test as pinctrl_pm_select_default_state() is called.
->> ---
->>   drivers/pci/controller/dwc/pcie-stm32.c | 10 +++-------
->>   1 file changed, 3 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
->> index 50fae5f5ced2..8501b9ed0633 100644
->> --- a/drivers/pci/controller/dwc/pcie-stm32.c
->> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
->> @@ -90,14 +90,10 @@ static int stm32_pcie_resume_noirq(struct device *dev)
->>   
->>   	/*
->>   	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
->> -	 * thus if no device is present, must force it low with an init pinmux
->> -	 * to be able to access the DBI registers.
->> +	 * thus if no device is present, must deassert it with a GPIO from
->> +	 * pinctrl pinmux before accessing the DBI registers.
->>   	 */
->> -	if (!IS_ERR(dev->pins->init_state))
->> -		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
->> -	else
->> -		ret = pinctrl_pm_select_default_state(dev);
->> -
->> +	ret = pinctrl_pm_select_init_state(dev);
->>   	if (ret) {
->>   		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
->>   		return ret;
->> -- 
->> 2.34.1
->>
 
 
