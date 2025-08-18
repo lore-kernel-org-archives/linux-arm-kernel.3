@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53D9CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 06:43:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333ADCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 06:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IPn1FN8sp4GGoUD3tpDW+Holf9bFEHra2JNM2nDhbAg=; b=WEsThma7HG+6W5OIzyjt4l5LIv
-	OJZ6rK47cU8dEnGf98+w33HrL5G5dWgmt6wciNxmNqB4PtAKnJEfWFIS54JAlO/T51Ujm0s3NsW3Z
-	FziwEKwSgYz8yATUx9982EYnDPR5EeTl55hy8N276yTUdYNWNsj4GUcaWvS0T4PPWOkYqOoy32V6m
-	aQbriTVuapHZFLr/GRH4WM1FVYaUcQ0h0RkRh68LnW7/AZQ7y0iL9pSsClw2TG0uE6tH6qMZcuuHH
-	W/bUF3J6zOjVMobHSLG/51K3JK8p50UTTdITHYPW6TyZin3rPOl7xVhtHVl62i276PYXR8JvGNFlG
-	SVoGwO+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MXZ1YXTEajAOzFyVHfHh7E+7g3rbdquQ0XXVI9aNuvw=; b=iLHuXl5yocaRiLemtDtC53tSzB
+	vklB2Mhw9RJpE1TKsQ8IiEToOjJ4GVh3zObPeO5V2jW5vnULfsUNgCVbUaVY7RQrcZLM54Q33foYz
+	XoZj44+sTh/qINXJFHpAdGlAxDQx0DMrLlhuZO6e+IYaf4N3BsFD0V5Q2bjascQ/zbr774KwNezHi
+	E2zKd9dxo5TesOsXXyt1Qowg3xpmIXSleF+OKPbVAeSp7gwIDfKjLFEwjUtfgL2FkOE/QIxw24sSo
+	XBmg8dMwHsF4lYML64R6bas1W/+44JtEpla3JBDn1GEPYaUqcenstu6huPosKvbnFwKzRJydSE3c/
+	mcktaJBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untaN-00000006gW9-3hMr;
-	Mon, 18 Aug 2025 06:43:15 +0000
-Received: from m16.mail.126.com ([220.197.31.8])
+	id 1unthq-00000006iZp-04Fe;
+	Mon, 18 Aug 2025 06:50:58 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untXh-00000006fjz-1jpe
+	id 1untfE-00000006hnq-1RPW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:40:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=IP
-	n1FN8sp4GGoUD3tpDW+Holf9bFEHra2JNM2nDhbAg=; b=etvIdd9hPkOSpqQObc
-	R+rOFpoKSwuSj4KoCtweaiA89dHvrr89OvXFoXy/4cmqK2S4mlxIffSmwB/Vr9zN
-	oUJkSPgIwdV28qzpQD8OGjPUZCqZWFk0xn/ttKhXJj9sqgeOS37E/J578YwH8d26
-	R/uCzRdlrmVfuttG9l3X1tM/0=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCkvCgD3v_qxyqJoi5PoBg--.55496S2;
-	Mon, 18 Aug 2025 14:39:46 +0800 (CST)
-From: lingfuyi@126.com
-To: maz@kernel.org,
-	oliver.upton@linux.dev
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	lingfuyi <lingfuyi@kylinos.cn>
-Subject: [PATCH] KVM: arm64: Fix whitespace inconsistency in cpu_reg assignments
-Date: Mon, 18 Aug 2025 06:39:42 +0000
-Message-Id: <20250818063942.1900014-1-lingfuyi@126.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 18 Aug 2025 06:48:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4c538Q4cRhzdc7H;
+	Mon, 18 Aug 2025 14:43:50 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id AF935180064;
+	Mon, 18 Aug 2025 14:48:12 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 18 Aug 2025 14:48:12 +0800
+Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 18 Aug 2025 14:48:11 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <corbet@lwn.net>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
+CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
+	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
+	<shameerkolothum@gmail.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
+	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
+Subject: [PATCH v5 6/7] KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
+Date: Mon, 18 Aug 2025 14:48:05 +0800
+Message-ID: <20250818064806.25417-7-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250818064806.25417-1-yangyicong@huawei.com>
+References: <20250818064806.25417-1-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: QCkvCgD3v_qxyqJoi5PoBg--.55496S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KF4UGrWUWry7uFW3ur48Zwb_yoW8ZF4fp3
-	y7tr1jyw48GF1DuayI9a1DX3y8GrZ5tr95Aa98AwnYyryYqwn5Gw4kGayY9rW3AFWxZa4S
-	vF1UtF13WayUAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uc18QUUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: polqwwxx1lqiyswou0bp/1tbiYBytR2iivT-o3AAAsq
+Content-Type: text/plain
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_234029_844302_EF8898A9 
-X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-CacheID: sfid-20250817_234816_548414_559292EE 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,60 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: lingfuyi <lingfuyi@kylinos.cn>
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Several cpu_reg() assignments had inconsistent spacing around the '='
-operator. Some lines had double spaces while others used single space.
-Standardize to single space for better code consistency.
+Using FEAT_{LS64, LS64_V} instructions in a guest is also controlled
+by HCRX_EL2.{EnALS, EnASR}. Enable it if guest has related feature.
 
-This is a pure formatting fix with no functional changes.
-
-Signed-off-by: lingfuyi <lingfuyi@kylinos.cn>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 3206b2c07f82..cfe7a82730a7 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -232,7 +232,7 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
- 		fpsimd_lazy_switch_to_host(vcpu);
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 075ddde6c626..4c7e7aa37f3e 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -673,6 +673,12 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+ 
+ 		if (kvm_has_sctlr2(kvm))
+ 			vcpu->arch.hcrx_el2 |= HCRX_EL2_SCTLR2En;
++
++		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnALS;
++
++		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
  	}
- out:
--	cpu_reg(host_ctxt, 1) =  ret;
-+	cpu_reg(host_ctxt, 1) = ret;
  }
- 
- static int pkvm_refill_memcache(struct pkvm_hyp_vcpu *hyp_vcpu)
-@@ -266,7 +266,7 @@ static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
- 
- 	ret = __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
- out:
--	cpu_reg(host_ctxt, 1) =  ret;
-+	cpu_reg(host_ctxt, 1) = ret;
- }
- 
- static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
-@@ -287,7 +287,7 @@ static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
- 	ret = __pkvm_host_unshare_guest(gfn, nr_pages, hyp_vm);
- 	put_pkvm_hyp_vm(hyp_vm);
- out:
--	cpu_reg(host_ctxt, 1) =  ret;
-+	cpu_reg(host_ctxt, 1) = ret;
- }
- 
- static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ctxt)
-@@ -367,7 +367,7 @@ static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
- 
- 	ret = __pkvm_host_mkyoung_guest(gfn, hyp_vcpu);
- out:
--	cpu_reg(host_ctxt, 1) =  ret;
-+	cpu_reg(host_ctxt, 1) = ret;
- }
- 
- static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
+ #endif /* __ARM64_KVM_EMULATE_H__ */
 -- 
-2.34.1
+2.24.0
 
 
