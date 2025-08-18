@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF395CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE0ACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mhwtW8pIgb4JEmUiXOidb7C3oNrJiOE0aYqYpbsCY94=; b=cbtoEZR4rmElLUyAXp/5yEGpw6
-	Q97ogAp280aHQXUcb6INfzxvfJV+Mg9e8s4ktUg9x52vp0is5WfmYvpzXePyen2VAj4De4DtoChV9
-	LmMqEWmBJyDU3CQUrDpiZyX1X/C69lbmuh+GmrY0pdrO8fc5lkSypTMyn0xpA07jCBBaXUINX/wfN
-	24VFffrS6SUDbQ94mYAYJpeGn4RdTNhNNvfMQ04zX6P8M+aa70N9DyuguMzXW27nFCT/x5p/VpRDx
-	TLwibPEb3hTKXhf8KLq2HgCV3HLKFiZqt60H3tEd+s/agnW9Xmq4m4fBT7j8L0zBDwLg5BPydlt9l
-	qmcGHEFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TeC/SjnV5E8U6DEQ7fRIj/43+1PoRaWq7BzbIm5+HOI=; b=gm10E/RplCMeqt
+	BkJVs0t6CzdCF/3Fpmy54r9ww3sQBX/WUjOm+P68u5ynvr5sW+TbtwuI6PPXprgT3uG/ghOkqkAfH
+	YTZPBnaeDkFoSFDMbMsiX05ocja3XXECW0Ua6RdwnyNti7n9g5/53zGzjua6S/khUmGGZLyg9uLGx
+	4C4ABJ/LSRR/G6jHAOYAzf4ujb9bQSIrPTE0B2M259sb7KMyBL0kNALNqmjwIDNvYWS6S/yZQwEUf
+	zwajbp/NBiWKU/3Cm36KK5+VzmQU01K/wlG570Y//q8SeFRZ5ypfVqA8btPuXodlWYQQLwggvBB+G
+	lDJ6dZbYG35ucwrzS4MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo52L-00000008QWS-1GE5;
-	Mon, 18 Aug 2025 18:56:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uo54u-00000008R6w-0CLq;
+	Mon, 18 Aug 2025 18:59:32 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4XG-00000008KL4-1q7x
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 18:24:47 +0000
+	id 1uo4YF-00000008Kdu-3yT9;
+	Mon, 18 Aug 2025 18:25:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA49045FA6;
-	Mon, 18 Aug 2025 18:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99635C116C6;
-	Mon, 18 Aug 2025 18:24:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 23F565C62A4;
+	Mon, 18 Aug 2025 18:25:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50078C4CEEB;
+	Mon, 18 Aug 2025 18:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755541485;
-	bh=IMZlLcdTbTR3iktUWRNqGf1wOuBejkJQOJ/LsettyZs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=SUc8mv/lVOno1PAGFKwZuLSOoEzM3IW4grm4trlaunS9XR8J3BBX9MX20k9wvAWgn
-	 sO4mwpW8v4tDrxWn0AMEKRMrKQMAY4d2DlRuxfEahCiWsrPZ/D8s01NIm77MIzOgH/
-	 KXQFZLpxYpYgToyb8bPLcBRoVctG/RgRaLyzoz1OXucOa2HCHctO2Rn+NUSDGu8NL4
-	 EgGAzLvu9WbkCuQZWYLEH/qjFuZd62k7UOglARMdB7jDVMYU+oB0wLYZ09mVN9dql0
-	 Uaad7Pxu4liSsyvpPHmUS3X+mRl63TRBp35EyOTTPwLRdHsOlMjbjCQYq1F4eFOyLC
-	 vXA0TwFsEDgYg==
-Date: Mon, 18 Aug 2025 13:24:44 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1755541546;
+	bh=P5OJ4RHbL7bfCZueIbVBkF40afwl0Pm482XBXI7/HfQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=IDIrUk6equNseS0ZrN+tjnJzBgBbvhGFPTLcNrmqpDYFo8ThI70gRQ1UQo83gHjLN
+	 y6axwix4PwvKDr3Qxm4V+5NyFfjqgcbavchlT1oHZgZygTQm9lVuS1d70g6BqQBdya
+	 50XI46xc97f1NcbV9SKLIwwXvcY/QHJfm5PPEZ4BRJ7f61zRejSLUpXnWGVDzcerDF
+	 fzJ9IGTpdNW9EmIJ52biPC64T7A73pMNSc5BRcd6QmhoC2Y9A4KEwaVUs17c44r9Zj
+	 4Ba762DlDExTmr4RoFgVk3fpKr7j0VmeHipw0KWx8OadDdKkSeegTBvmRmNl//M3xp
+	 UHGRuax/NOnLA==
+Date: Mon, 18 Aug 2025 13:25:44 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, mani@kernel.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
+	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
+	jh80.chung@samsung.com, pankaj.dubey@samsung.com
+Subject: Re: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
+Message-ID: <20250818182544.GA534647@bhelgaas>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>, 
- Ciprian Costea <ciprianmarian.costea@nxp.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, devicetree@vger.kernel.org, 
- Fabio Estevam <festevam@gmail.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linaro-s32@linaro.org, 
- Matthias Brugger <mbrugger@suse.com>, Chester Lin <chester62515@gmail.com>, 
- Srinivas Kandagatla <srini@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-In-Reply-To: <cover.1755341000.git.dan.carpenter@linaro.org>
-References: <cover.1755341000.git.dan.carpenter@linaro.org>
-Message-Id: <175554055804.1719797.15716687112044430823.robh@kernel.org>
-Subject: Re: [PATCH 0/3] nvmem: s32g-ocotp: Add driver for S32G OCOTP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <000d01dc1022$ad8c0740$08a415c0$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_112446_527068_D630644B 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250818_112548_068591_3F272F4F 
+X-CRM114-Status: GOOD (  33.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,74 +77,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[+to Krzysztof]
 
-On Sat, 16 Aug 2025 13:46:57 +0300, Dan Carpenter wrote:
-> This driver provides a way to access the On Chip One-Time Programmable
-> Controller (OCOTP) on the s32g chipset.  There are three versions of this
-> chip but they're compatible.
+On Mon, Aug 18, 2025 at 03:00:00PM +0530, Shradha Todi wrote:
+> > On Mon, Aug 11, 2025 at 09:16:37PM +0530, Shradha Todi wrote:
+> > > Add host and endpoint controller driver support for FSD SoC.
+
+> > It's kind of unfortunate that the driver uses "ep" everywhere for
+> > struct exynos_pcie pointers.  It's going to be confusing because "ep"
+> > is also commonly used for endpoint-related things, e.g., struct
+> > dw_pcie_ep pointers.  Maybe it's not worth changing; I dunno.
 > 
-> Ciprian Costea (2):
->   dt-bindings: nvmem: Add the nxp,s32g-ocotp yaml file
->   nvmem: s32g-ocotp: Add driver for S32G OCOTP
+> I did try to rename the structure and the pointers 
+> (https://lore.kernel.org/all/20230214121333.1837-9-shradha.t@samsung.com/)
+> But the intention was different back then and so the idea was rejected.
+> I could add a patch to only rename the pointers to something less
+> confusing like "exy_pci"
+
+The patch you mention did several renames:
+
+  s/to_exynos_pcie/to_samsung_pcie/
+  s/struct exynos_pcie/struct samsung_pcie/
+  s/struct exynos_pcie *ep/struct samsung_pcie *sp/
+
+I'm only concerned about the confusion of "ep" being used both for
+"struct exynos_pcie *" and for "struct dw_pcie_ep *".
+
+It would still be sort of an annoying patch to do something like this:
+
+  s/struct exynos_pcie *ep/struct exynos_pcie *pcie/
+
+But 'git grep "struct .*_pcie \*.*=" drivers/pci/controller/' says
+using "pcie" in this way is quite common, so maybe it would be worth
+doing.
+
+What do you think, Krzysztof?
+
+> > > +static irqreturn_t fsd_pcie_irq_handler(int irq, void *arg)
+> > > +{
+> > > +	u32 val;
+> > > +	struct exynos_pcie *ep = arg;
+> > > +	struct dw_pcie *pci = &ep->pci;
+> > > +	struct dw_pcie_rp *pp = &pci->pp;
+> > > +
+> > > +	val = readl(ep->elbi_base + FSD_IRQ2_STS);
+> > > +	if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
+> > > +		val &= FSD_IRQ_MSI_ENABLE;
+> > > +		writel(val, ep->elbi_base + FSD_IRQ2_STS);
+> > 
+> > This looks weird because FSD_IRQ_MSI_ENABLE sounds like an *enable*
+> > bit, but here you're treating it as a *status* bit.
+> > 
+> > As far as I can tell, you set FSD_IRQ_MSI_ENABLE once at probe-time in
+> > fsd_pcie_msi_init(), then you clear it here in an IRQ handler, and it
+> > will never be set again.  That seems wrong; am I missing something?
 > 
-> Dan Carpenter (1):
->   arm64: dts: s32g: Add device tree information for the OCOTP driver
-> 
->  .../bindings/nvmem/nxp,s32g-ocotp-nvmem.yaml  |  57 ++++++
->  arch/arm64/boot/dts/freescale/s32g2.dtsi      |   7 +
->  arch/arm64/boot/dts/freescale/s32g3.dtsi      |   7 +
->  drivers/nvmem/Kconfig                         |  10 +
->  drivers/nvmem/Makefile                        |   2 +
->  drivers/nvmem/s32g-ocotp-nvmem.c              | 171 ++++++++++++++++++
->  6 files changed, 254 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/nvmem/nxp,s32g-ocotp-nvmem.yaml
->  create mode 100644 drivers/nvmem/s32g-ocotp-nvmem.c
-> 
-> --
-> 2.47.2
-> 
-> 
-> 
+> Actually the status IRQ and enable IRQ registers are different offsets
+> but the bit position for MSI remains same in both cases so I just reused
+> the macro.
 
+Ah, that's what I missed, thanks!  At probe-time, fsd_pcie_msi_init()
+enables it in FSD_IRQ2_EN.  Here you clear it in FSD_IRQ2_STS.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> But I understand that it's confusing so I will add another
+> macro for FSD_IRQ_MSI_STATUS or just rename the macro to
+> FSD_IRQ_MSI to re-use.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Using the same name just because a similar bit happens to be at the
+same position in two different registers is definitely confusing.  I
+think it will be better to have two macros, one for FSD_IRQ2_STS and
+another for FSD_IRQ2_EN, e.g.,
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+  #define FSD_IRQ2_STS                         0x008
+  #define   FSD_IRQ2_STS_MSI                   BIT(17)
+  #define FSD_IRQ2_EN                          0x018
+  #define   FSD_IRQ2_EN_MSI                    BIT(17)
 
-  pip3 install dtschema --upgrade
+Another question about the test:
 
+  if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: remotes/korg/master-95-g90d970cade8e (exact match)
+This assumes there are no other bits in FSD_IRQ2_STS that could be
+set.  I would have expected a test like this:
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+  if (val & FSD_IRQ_MSI_ENABLE) {
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for cover.1755341000.git.dan.carpenter@linaro.org:
+Is there a reason to restrict it to the case when *only*
+FSD_IRQ_MSI_ENABLE is set?
 
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: ocotp@400a4000 (nxp,s32g2-ocotp): compatible: 'oneOf' conditional failed, one must be fixed:
-	['nxp,s32g2-ocotp'] is too short
-	'nxp,s32g2-ocotp' is not one of ['nxp,s32g3-ocotp', 'nxp,s32r45-ocotp']
-	from schema $id: http://devicetree.org/schemas/nvmem/nxp,s32g-ocotp-nvmem.yaml#
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: ocotp@400a4000 (nxp,s32g2-ocotp): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/nxp,s32g-ocotp-nvmem.yaml#
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: ocotp@400a4000 (nxp,s32g2-ocotp): compatible: 'oneOf' conditional failed, one must be fixed:
-	['nxp,s32g2-ocotp'] is too short
-	'nxp,s32g2-ocotp' is not one of ['nxp,s32g3-ocotp', 'nxp,s32r45-ocotp']
-	from schema $id: http://devicetree.org/schemas/nvmem/nxp,s32g-ocotp-nvmem.yaml#
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: ocotp@400a4000 (nxp,s32g2-ocotp): Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/nvmem/nxp,s32g-ocotp-nvmem.yaml#
-
-
-
-
-
+Bjorn
 
