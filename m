@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F497CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCC2CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BN6viO9AroiZhanXax87FmrnbfeDUQFyRKlFlPLrw0g=; b=h4joXlpXdq2bETH33bxIal9sSI
-	edtthLEYTF2rDQ5ndCT9LE0ah/7lsKE9bFx69kXOtM+vgDK/H2oZe345jE6BQpTGu3uM4eODhJ1HC
-	je1DicNbezfqeKxqldMqPpdm3DuYZUjcrpy15ZO5p6AImuF/wtFZj9WLhexGSdYuDhMMrHnWxunLS
-	crREvHoLOriISaEX21OBnjCZUG+DmvsaQ0sZAQsITNvYz0ivsjd1kc+yh61HoDk9mYgs6xw782IwZ
-	B8q6Yb9bY+anLj8p2KrI1TuKnbm52B6MWebJ8X+O/TsE6kaEGjWmSgGk8Mo2n//GLWwjrePdTlvkm
-	IBGpFurQ==;
+	bh=yzg89wI4WRGyBpC4fKo2pvNxEu1GN0EWvVjsQRCbtcs=; b=A2cf38VOeXDLj84umJFGjSrDJB
+	MICvtJfTtNIP/Ivctf8v7hFetprywWGVsbWYhHm+PL9OLyBX8UIdfu91Als5Sq5sUmjczDRnjp5NN
+	Xcoe9nmVoIGJzYdIBfbnIhTjFwPaTEOxAKZIGt0kUiSEhn6bQn7izEL6F9xstvje8/Q6YBNXPAZcl
+	aa9cTGlihv4xZwgVdvjwZOqAQx3zd99JqhWf5sqIr/m6SLw1ukoD5tGPqNFI6It8iWyvLYH416FLQ
+	UvMsvpIKeAXSw2MWj8QHloeZc8uEmbsPnhAAE8zhsKwvmvoZsvWVgOUTY19y6aRIAbxX9cFxH5I5Q
+	OO/rALAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4ch-00000008LJV-2yl3;
-	Mon, 18 Aug 2025 18:30:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uo4cv-00000008Lc2-01Fh;
+	Mon, 18 Aug 2025 18:30:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3pq-00000008EPE-0rrs;
-	Mon, 18 Aug 2025 17:39:55 +0000
+	id 1uo3yf-00000008Fb9-3ZnR;
+	Mon, 18 Aug 2025 17:49:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CDD1944DCA;
-	Mon, 18 Aug 2025 17:39:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D9F8C4CEEB;
-	Mon, 18 Aug 2025 17:39:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C28C6111C;
+	Mon, 18 Aug 2025 17:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF82CC4CEEB;
+	Mon, 18 Aug 2025 17:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755538793;
-	bh=8QD47a7++31VLJAfDRpwGB9If1CqGaTD17f/6FYz41Q=;
+	s=k20201202; t=1755539340;
+	bh=yzg89wI4WRGyBpC4fKo2pvNxEu1GN0EWvVjsQRCbtcs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W6yxmlbdC2RlSs2jljtekiKsQM5jIWqZJ+Ku7aZvynEbE/xmQPM6pzL4AHVbkmtX6
-	 WpuaP5/BWQ5lVKSNyon1Z6LudDlLO2Pt4aaFeE95plzAB3vR1jQH8uEVMpmcKC3Y0n
-	 UP4W3DM14xC0UUFmMefhjWckaXTyiIw5jGReRuuzTEvvyaqFt7ZeW/KZ/HKfd5QtRD
-	 wb92NzcXPg4NtebYqv4MAwso+RaPedkvBm6TMWw9vkF/87c8uGK8KdBjfKS833je9o
-	 OwiN1xQ+OkS1huVmYCYis4+uS/t8am83zztULl5bJr3hrn6mKmWIDZPPMGBIxd0Nv2
-	 y45pD4a22zJhQ==
-Date: Mon, 18 Aug 2025 18:39:48 +0100
+	b=j0/PUpVIsr0FxfF03cj7AiRvp2SZa1QBYuWG6Vd6oxCrqWOMGAutg91pLETYR3zzO
+	 HRoKTY3lkhWGy9O/m9h1LvohwkN216kD9hhXdZWGdDi+ayC7thnLVWt+1bqH5S4s4D
+	 Qf5LVxIb4FLTmE3OfSBp+QfEM9BbjwaICINlttAVBBYBYOtvjchqhe8HX+ctp04O5n
+	 dHjVpw2vHUt4KFgNUkqTGbJTE0ucmPhFj30GcX6h8FjssBaMBcQD7gM94mq+J3bi4n
+	 bzi9l5ehsUCItwSw4584+vtAvInOZubUl9ktrOqXYqnnKRp9bwZ46LjWxB+0JQOQWd
+	 qhdD/RcR5gaJg==
+Date: Mon, 18 Aug 2025 18:48:54 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Mateusz Koza <mateusz.koza@grinn-global.com>
-Cc: angelogioacchino.delregno@collabora.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	marcin.czarnecki@grinn-global.com, b.bilas@grinn-global.com
-Subject: Re: [PATCH 0/4] Add support for Grinn GenioSBC-510/700 boards
-Message-ID: <20250818-paddle-grief-9f74d59d1b89@spud>
-References: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH 2/5] dt-bindings: net: cdns,macb: Add compatible for
+ Raspberry Pi RP1
+Message-ID: <20250818-quack-lid-59e71737f242@spud>
+References: <20250815135911.1383385-1-svarbanov@suse.de>
+ <20250815135911.1383385-3-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QNL9t9AvLv0U/IlF"
+	protocol="application/pgp-signature"; boundary="wajkoaFh9Mksd++G"
 Content-Disposition: inline
-In-Reply-To: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_103954_269362_3B1EEB9F 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250815135911.1383385-3-svarbanov@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +87,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---QNL9t9AvLv0U/IlF
+--wajkoaFh9Mksd++G
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Aug 15, 2025 at 06:08:33PM +0200, Mateusz Koza wrote:
->   arch: dts: mediatek: mt8390: add Grinn GenioSBC-700
+On Fri, Aug 15, 2025 at 04:59:08PM +0300, Stanimir Varbanov wrote:
+> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+>=20
+> The Raspberry Pi RP1 chip has the Cadence GEM ethernet
+> controller, so add a compatible string for it.
+>=20
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 
-s/arch/arm64/ in this patch.
-
->   dt-bindings: arm: mediatek: Add grinn,genio-700-sbc as a valid
->     platform
->   dt-bindings: arm: mediatek: Add grinn,genio-510-sbc as a valid
->     platform
-
-These two are
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---QNL9t9AvLv0U/IlF
+--wajkoaFh9Mksd++G
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKNlZAAKCRB4tDGHoIJi
-0rFUAQCieJA2LUW0GoG6nElADTuacveifnWDgRu5M1KHYSHLzAEA13WqioahHbk6
-zMMp9bCk4IrCTNMBEKF69re78v7WsAM=
-=UkIe
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKNnhgAKCRB4tDGHoIJi
+0mjsAP97kK0IfQ7Ov50V5elnbXgZcegx4hBcq+cQedRkxNgC6AEAth4I1+sps9OD
+bT0La5XO5WyCakSYJpYh7050t8S+0gY=
+=9lyu
 -----END PGP SIGNATURE-----
 
---QNL9t9AvLv0U/IlF--
+--wajkoaFh9Mksd++G--
 
