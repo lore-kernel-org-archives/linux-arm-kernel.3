@@ -4,161 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FE9CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5071CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=; b=YxgA9QKg7IHlZsdD7P9DLpa0Yk
-	N1dw33AF1C2iOZXHlqDEiXE3NmnNoHNKCBrMuCetTntjJyPo/FNzgBB269MfyNyg9npeLuR6BqQGt
-	HPIFLSdnpzeQNus4ngoggYo11NzKKVN6S+2Q65xBot3Wu+yzi6g43KpZTt3wdOs3vX8ZEoheJHZrf
-	09KCvgSBjQaeiSOypcgmLyKMvx82Uo6jfEOsEeh4m/f04nCFOcqmNTsqWxmyiM2kqGkHmoz/BcOoW
-	yCXF4o3K3mXnGDOt+HJtlEC9eLzgZ9DbxpJV2J27WpvBNQpJira4tvLayujtY4UsgEm6M4OYuwLnx
-	h5pEUFww==;
+	bh=nqenN9shMYdzOKywPnjFE4//o+lrw5xNvct/8DapoGQ=; b=OorTqo+heTvuxmR9IXnI/s/Uo3
+	IDxFeY58wmPibm2gAYBNUE5q/oSXxentcMuFlTErv+gw+nRqjfmIWkowtzddabpk6CVfgoto9DAPm
+	jXUlcOFK47fUisVfu/CQGh0hTdt91pHL+o6s/qJn/lPI8Thhiflz6FA776pe2K42JLHAW1wY0nNUe
+	ziv8fA98/LnKZS2x5gaDVNa0+GTmKRpfSz4OKjYdDZy2qI1XRqxa6ejAmYbs5wwu7y/dT/vi+WfXp
+	blpvyaURMzPrbQrB5SLzXTQ2BXEfVk35JxVC7x0bM3VST2GVhE+zq57Eg3nIE84spkKInW4GOyoXl
+	xH88dzqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo57T-00000008RpN-1rb0;
-	Mon, 18 Aug 2025 19:02:11 +0000
-Received: from mail-sn1nam02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2406::62f] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1uo5A1-00000008SR5-0vYa;
+	Mon, 18 Aug 2025 19:04:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3vR-00000008FDQ-0R1s;
-	Mon, 18 Aug 2025 17:45:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ncbgU2vL+h/+/rjM6WQM/DgsT8wTGN4NGvIc7JvoMoqSAdwjCOcLfMT5KHWgVVR+2vc/TIUnp5BH4gbem5M7yI+lbq8K7lXfKY1Wn+Tud4nFexeCRW/74U/tHq6leeYsr6tTbfiRUUzg5Plfqb4TkFcAVoiMnmk/L60j+r6ANW8Rk71pdyoIZa8sLaW2Ie5gCpB1Zm0+N++lihhvi7UfbACIA0qvO77pQaU7Oszpnb8+V3HDRMCHgWL/QZxztGeLDdzGeCeDu8hT66d7zPW8CMB2z8/yZcM/3COPI8b2MydPCZChtMziV4OVoLOYYGn9qD1deZ/y6IaXmax41lkuWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=;
- b=KcvAoFziBowhbLvfnmT5a0GeroWfrJkrH3Y6awCUDovFIJF+F5QVORXsR9yPfo9ExX39PQqyHr/oKvUmb1RCdan9XUvUvKK7TxDkNhhZfO5QQXkM3ERri13h2u1uqXCpjqDUXC6/fWh7Xi9g6Os0150lPhwKZSczunU/M96LsvjmKissRpmjh06/UBYnGR1RyUszdPRNWptZSzQckXq8B7qM22v3nQogt2tI3/cFMOZ1VR3tbP96142+bELTUFR4bSaUJjzU3ZZ1UEYKbcHydo4CxM6E5iTujXoxBsxcBYBOle9LlnLiQ1K0/k+NLGPwjqQYAqi2nj2VymRmKI6WCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=;
- b=SZmATUorSJYXmShmM8JQpiHMbjv5c9PAzUqoAMTLIvVupJI4IV+Jept9rUVYvXjWJKTeDu8JuzOb+LYehvuDOaISCCZ3vgI/s/5DxgBicqC3+Cm05ZOhkMqAElv1sLNhNJxh7UmEFCQM15ERknt0cw3fbyyl6y3GspivcwUlkB4lgPI6e2E1XM9F+eVWYfMuPiPPLchPlb6k2Wo7GJFwmk/AREwsLd0kkmEk7hIMC0Q3oXG2wSrRMYbHC89Lnj/q18jPw7nLWaka1b1i6AocwP51aUvbBbkWWinCj/i1md2USHZORiegb3pAo1qnje5WTlIVV5obh4SX/VMMC2fKZA==
-Received: from CH0PR04CA0033.namprd04.prod.outlook.com (2603:10b6:610:77::8)
- by CH2PR12MB9457.namprd12.prod.outlook.com (2603:10b6:610:27c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.15; Mon, 18 Aug
- 2025 17:45:29 +0000
-Received: from DS2PEPF0000343F.namprd02.prod.outlook.com
- (2603:10b6:610:77:cafe::99) by CH0PR04CA0033.outlook.office365.com
- (2603:10b6:610:77::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.19 via Frontend Transport; Mon,
- 18 Aug 2025 17:45:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DS2PEPF0000343F.mail.protection.outlook.com (10.167.18.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.8 via Frontend Transport; Mon, 18 Aug 2025 17:45:29 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 18 Aug
- 2025 10:45:10 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 18 Aug 2025 10:45:09 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 18 Aug 2025 10:45:08 -0700
-Date: Mon, 18 Aug 2025 10:45:07 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: "Tian, Kevin" <kevin.tian@intel.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "will@kernel.org"
-	<will@kernel.org>, "robin.clark@oss.qualcomm.com"
-	<robin.clark@oss.qualcomm.com>, "yong.wu@mediatek.com"
-	<yong.wu@mediatek.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "thierry.reding@gmail.com"
-	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "rafael@kernel.org"
-	<rafael@kernel.org>, "lenb@kernel.org" <lenb@kernel.org>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
-	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "Jaroszynski, Piotr" <pjaroszynski@nvidia.com>,
-	"Sethi, Vikram" <vsethi@nvidia.com>, "helgaas@kernel.org"
-	<helgaas@kernel.org>, "etzhao1900@gmail.com" <etzhao1900@gmail.com>
-Subject: Re: [PATCH v3 1/5] iommu: Lock group->mutex in iommu_deferred_attach
-Message-ID: <aKNmo/O5aXb88GKK@Asurada-Nvidia>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
- <BN9PR11MB5276F543286807E05FB465F58C34A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250818141751.GN802098@nvidia.com>
+	id 1uo4bQ-00000008L82-0bkZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 18:29:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4921144E79;
+	Mon, 18 Aug 2025 18:29:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5AF9C4CEEB;
+	Mon, 18 Aug 2025 18:28:58 +0000 (UTC)
+Date: Mon, 18 Aug 2025 19:28:56 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+	Linux-Arch <linux-arch@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Rutland <mark.rutland@arm.com>, harisokn@amazon.com,
+	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com,
+	Joao Martins <joao.m.martins@oracle.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timewait()
+Message-ID: <aKNw6JMUIFg4gL5Q@arm.com>
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-2-ankur.a.arora@oracle.com>
+ <aJXWyxzkA3x61fKA@arm.com>
+ <877bz98sqb.fsf@oracle.com>
+ <aJy414YufthzC1nv@arm.com>
+ <67b6b738-0f1c-4dd4-817d-95f55ec9272b@app.fastmail.com>
+ <aJ3d2uoKtDop_gQO@arm.com>
+ <1ccb0011-d2d2-453f-afcd-dd2967bf572a@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818141751.GN802098@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF0000343F:EE_|CH2PR12MB9457:EE_
-X-MS-Office365-Filtering-Correlation-Id: f448f1af-1d98-4d98-3032-08ddde7f05a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i0T58YcpWRzYo/1yRG1+keCM9QSVCHa57+69a/IQS4ZkrfX59sxxuFU/6coK?=
- =?us-ascii?Q?D4YqgtLU74MUpftpTwUrsPpay9yXs24YxSGXMYwXb/tcAhlRmBR9KbI5Me7T?=
- =?us-ascii?Q?EXt7RslZEC5CifbZ2fHbKIbNeWIH49k1d/2n47oYuB+RMXP7ekvsd1h5FIOF?=
- =?us-ascii?Q?H4A58WSc0lEqJfhf/DuA9yMxmgrKhF28GoCYkLLc6n6/SBQxQvF8qw0NBlAH?=
- =?us-ascii?Q?0TEaMACEHAjipizLu0b/CRn2txwd9NtdUu5L6rWNLDmlBuXMpI2R1837herT?=
- =?us-ascii?Q?GDjHXV1eAdi3go8h7iScRE+v3HASCRcprT4HTgqikFwOn+QAYohM8JB56Lie?=
- =?us-ascii?Q?k6OK6Gtqzf+lm5PmSEr02JacGYWgqauwtrUV4wvMeH0IEg5h3nlAEXfyAJeu?=
- =?us-ascii?Q?8DeWHowVwjAGy+S+GsEV023x6WsZjAnnCTLAk+YUAES35HgWdXwrGH89V6r+?=
- =?us-ascii?Q?61Iwn9emnHcmNSJSVff/NW1+aIUCgVaIca2S2mC7Pjssnw0EArB7tgQoUIO/?=
- =?us-ascii?Q?/4HeGYu/a+/3wzJyrLK/tEpgxCR9Silq61Mxbv95v3Vdr35x2k29lREggYCr?=
- =?us-ascii?Q?P2XTh67Y5YllGwe6db+QtnadIckcIQBsVeN8BLfFwaSDIdD8JNK5qg9eAWZ5?=
- =?us-ascii?Q?2R4cCwgFutPpX225fFK9hVRNohIHPjoSHGaREdgFZG9Nc72EIGmvCE52j0mQ?=
- =?us-ascii?Q?ZGcvM+JldPLhYy8Oyb79AG2eVbjTIkUofJsSkRFTd0M/bwMci/MWhhtEMP/5?=
- =?us-ascii?Q?dNUe2ncjtohZkuGSCXQnrfeqJvqIa6Sh/0dU8HF89Ne15y80LsZwuHlEsvke?=
- =?us-ascii?Q?l5/3SQ/aDNQJ5O5Po0ejYzDySABqEs+m4mengvzUmj5Euh0AMEz4nYQ6KTNA?=
- =?us-ascii?Q?Cobw/HiE33JY0K570E9wYMkYvYEVw916Oz9Jna5r5bTAuwpfm/Pa/Lt4Zc6E?=
- =?us-ascii?Q?s35RZIohR1L+vKMeX29Fg+ER9lXPQ7ekFSyb3WB0FR/t4SBTilu/9NnbQwtq?=
- =?us-ascii?Q?MfOkJlZtCSmuVC53y8LIlEo/3GqLP5MFmCrsi1moHnZZmzRn7X77CMT9JORY?=
- =?us-ascii?Q?Bv5Ne0QmjiglPuYc/QRxHPSlHDuwxBK39NQ1mo5pueCOmN0CvxLFatniZZ3/?=
- =?us-ascii?Q?boFkxky5Z8AAgRZZ4grDkeaiREge5EUI0/1Hpqfiodmo4iLW/zf1++qwVDoL?=
- =?us-ascii?Q?0Y8TFsB19R4mAc6+JGbVu01KgaY+quukOq1U5b6Hro3bZlO8sSwuluBD5X6h?=
- =?us-ascii?Q?8Nx6cUDdOBDmqlAjiptis5aq8iZkcM9NHbDJDiU+XXeH2hqdskT5Tulvz6eS?=
- =?us-ascii?Q?iyPyO7/0hKt8dc+UqPxDg+5gqUaR3Ga4vZqIHEiAwW1JDuodIDAerkNuWxiO?=
- =?us-ascii?Q?yMNXO54Dvj1h+8/aiUYiA2Qvp+u+t4JCZ0jE59UVOSN3ZuNcqY8Z+xaKpZNg?=
- =?us-ascii?Q?HJPN51qYv+ffsqFPvZsyVn2WN5TVylpFRg19ufMf5iVxezbUkgxKN3yRgnWN?=
- =?us-ascii?Q?MIHtH8ZG5LztDJbHjqaE35HDZCfy7Mlkstsu?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 17:45:29.1703
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f448f1af-1d98-4d98-3032-08ddde7f05a1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9457
+In-Reply-To: <1ccb0011-d2d2-453f-afcd-dd2967bf572a@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_104541_147365_788D9FEB 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20250818_112904_194814_87C6D460 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,26 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 11:17:51AM -0300, Jason Gunthorpe wrote:
-> On Fri, Aug 15, 2025 at 08:24:57AM +0000, Tian, Kevin wrote:
-> > > From: Nicolin Chen <nicolinc@nvidia.com>
-> > > Sent: Tuesday, August 12, 2025 6:59 AM
-> > > 
-> > > The iommu_deferred_attach() is a runtime asynchronous function called by
-> > > iommu-dma function, which could race against other attach functions if it
-> > > accesses something in the dev->iommu_group.
-> > 
-> > Is there a real racing scenario being observed or more theoretical?
+On Mon, Aug 18, 2025 at 01:51:28PM +0200, Arnd Bergmann wrote:
+> On Thu, Aug 14, 2025, at 15:00, Catalin Marinas wrote:
+> > On Wed, Aug 13, 2025 at 06:29:37PM +0200, Arnd Bergmann wrote:
+> >> On Wed, Aug 13, 2025, at 18:09, Catalin Marinas wrote:
+> >> and virtual machines with CPU overcommit.
+> >
+> > Not sure it helps here. With vCPU overcommit, KVM enables WFE trapping
+> > and the event stream no longer has any effect (it's not like it
+> > interrupts the host).
 > 
-> I think the commit message should explain the actual reason this is
-> being done, which AFAICT because the new lockdeps added in following
-> patches will fail on this path otherwise.
+> I would expect a similar overhead for the WFE trapping as for the
+> bare-metal hardware case: When the WFE traps, the host has to
+> reschedule all guests that are in WFE periodically, while WFET
+> with event stream disabled means this can be driven by an accurate
+> host timer.
 
-Hmm, I can mention that. But I think that's just a part of the
-reason. It still doesn't seem correct to invoke an attach_dev
-function without the lock since iommu_group_mutex_assert() may
-be used in the path?
+For WFIT, yes, this works as the hypervisor either gets an interrupt or
+schedules a timer. It can tell what WFI* is going to be woken by.
 
-Thanks
-Nicolin
+With WFET, the hypervisor cannot tell if an event was generated by
+another vCPU (e.g. clearing of the exclusive monitor) unless it does a
+WFE itself. So it can't put the vCPU to sleep based on the WFET timeout.
+IIUC, from kvm_handle_wfx(), the only difference is whether it returns
+immediately to the vCPU if it timed out or tells the core KVM to
+reschedule other vCPUs.
+
+> > That said, my worry is that either broken hardware or software rely on
+> > the event stream unknowingly, e.g. someone using WFE in a busy loop. And
+> > for hardware errata, we've had a few where the wakeup events don't
+> > propagate between clusters, though these we can toggle on a case by case
+> > basis.
+> 
+> Don't we already support hardware without a functional architected
+> timer even with? Those don't use the event stream today even when
+> CONFIG_ARM_ARCH_TIMER_EVTSTREAM is enabled.
+
+Maybe we still have such hardware around (e.g. errata) but it shouldn't
+be the norm, especially if vendors try to follow the *BSA specs.
+
+-- 
+Catalin
 
