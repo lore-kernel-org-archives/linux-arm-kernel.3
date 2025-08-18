@@ -4,57 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288F9CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26E6CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeRhJHJLLuJ8usxHZgJVqu4tfpvf6xpkSZgqoru1rDc=; b=NKvQLX8P7ZMs24dZZva+ktsxE8
-	RD/4F+JuihilVwAjxlVKvvhy4HMIT/DxeweRSgcm02TE0UEUpseGw1kS93EYR6RE6FFf4MwQtjaRE
-	OfjAsM0QUu5t/D1n/EVAa61EIgGBxv5eIgRbplCfzgboG3IZC5/OIeu2bgtEcm6WIahET5PqEaGCz
-	t7o4omfLqx+ctz/R4eFAI6Cz9noQnzp+9p62yuvsS4wv0PWxARvDFmj/rpDi5p7OpxyXlOoTC8Luv
-	6TKpWDih75M6GfC8Yj5E5mClHnIXTxniqAhYwzx8Wqm+GeCRRaoYHa75oxb7twlWrV7Nw3Z4gm5iy
-	Bhk7d/bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+AtwY3qdZ7e4equS8Ii1Dcv/vp5mQ+qzRGKtE0rfQGA=; b=NjPZWbCHhu5MtwBXAB/CXK6LsJ
+	kXa6NxzPZSlg6yWsfFHNrbrY+GTbJY/n+5FoEpVeNERWXom6lJf1ICECddXTuKffJkpRcBo3FgQ8i
+	TQsBxk8eyOvLH2+MwX6ojurolAaEAjSBlsgP4yWJvbEcnhLSWVnLoBq8EFvuFFYh00rO9nJYViBaA
+	0wXFNtfz885GIFK/PDYljmCfZvGDYeFbHKFSOR1XYkHdaMkFHgFSfowxbHxoel3RPyRsDNK5L+/5H
+	xUWHnzQ3Zy9Lc3GNeyx9gQ/U4pGFXZyEtKjeVFY6rRbQIq/qnai8ddldLjwmcymJZdNrrFEXhilz6
+	WbZN3jWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsTn-00000006YhO-0o5l;
-	Mon, 18 Aug 2025 05:32:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unrwu-00000006VdY-31fU
+	id 1unsWK-00000006Yyp-1izN;
+	Mon, 18 Aug 2025 05:35:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uns5T-00000006WXc-04Wr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 04:58:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48DBB2A2A;
-	Sun, 17 Aug 2025 21:58:15 -0700 (PDT)
-Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F4E53F58B;
-	Sun, 17 Aug 2025 21:58:20 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] arm64/sysreg: Add VTCR_EL2 register
-Date: Mon, 18 Aug 2025 10:27:59 +0530
-Message-Id: <20250818045759.672408-5-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250818045759.672408-1-anshuman.khandual@arm.com>
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
+	Mon, 18 Aug 2025 05:07:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B884601CF;
+	Mon, 18 Aug 2025 05:07:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3C4C4CEEB;
+	Mon, 18 Aug 2025 05:07:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755493631;
+	bh=PMb9hEPvgfqCV/wvcDI5+h4Vzsv62b1nbH5Y9e5qhRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SSUVhDwIi5ZESs7a8zoWzUL1og03BBiSNaKuxw+h2lVUvXVi0uykQqs0t6vAeYtRn
+	 NBJRucDUTmeh5WiAzaPLii59xY+lnrSUOLAY4an4nR6d6Bgt1Cbzm4a5j7Sxrglsec
+	 oYfHAojfUC7IDlBblKAbZTL8PCQNxQg9YIbccpZ7icYjqAN7N19xdDhw2czqsoCpz6
+	 H3p2bRoqn5pO4U+dUiHzj1TOA80JlI96190DPdajTp36lmCn9GLAfAullMokXM7q+D
+	 8KY8jId9MHpIV87yOT8OpsD+wNnfsRpOZWl9BIysxfkjodEj8mCX+ABEBS8cpU0gXW
+	 7pwqyAsTuGM8g==
+Date: Mon, 18 Aug 2025 10:37:02 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Harshal Dev <quic_hdev@quicinc.com>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>,
+	Srinivas Kalaga <Srinivas.Kalaga2@arm.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v19 2/6] remoteproc: Add TEE support
+Message-ID: <aKK09ptq07jDQ6bV@sumit-X1>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+ <20250625094028.758016-3-arnaud.pouliquen@foss.st.com>
+ <d4694157-a757-41f5-8874-4b67b262bc83@quicinc.com>
+ <7c77dba4-27f9-4840-b9aa-253119308519@foss.st.com>
+ <e5a234c7-0f8d-4b52-95fb-82371c8e4460@quicinc.com>
+ <aJn6EPjXzq07aDTM@sumit-X1>
+ <ce93ba16-e2a8-4015-bc01-139917d37782@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_215824_833970_22099044 
-X-CRM114-Status: GOOD (  11.84  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ce93ba16-e2a8-4015-bc01-139917d37782@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,196 +85,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add VTCR_EL2 register fields as per the latest ARM ARM DDI 0487 7.B in
-tools sysreg format and drop the existing macros from the header
-(arch/arm64/include/asm/kvm_arm.h). While here also drop an explicit
-sysreg definction SYS_VTCR_EL2 from sysreg.h header.
+On Thu, Aug 14, 2025 at 04:17:55PM +0530, Harshal Dev wrote:
+> Hi Sumit,
+> 
+> On 8/11/2025 7:41 PM, Sumit Garg wrote:
+> > Hi Harshal,
+> > 
+> > On Mon, Aug 04, 2025 at 02:56:18PM +0530, Harshal Dev wrote:
+> >> Hi Arnaud,
+> >>
+> >> On 8/1/2025 12:53 PM, Arnaud POULIQUEN wrote:
+> >>> Hello Harshal,
+> >>>
+> >>>
+> >>> On 7/31/25 12:25, Harshal Dev wrote:
+> >>>> Hello Arnaud,
+> >>>>
+> >>>> On 6/25/2025 3:10 PM, Arnaud Pouliquen wrote:
+> >>>>> Add a remoteproc TEE (Trusted Execution Environment) driver that will be
+> >>>>> probed by the TEE bus. If the associated Trusted application is supported
+> >>>>> on the secure part, this driver offers a client interface to load firmware
+> >>>>> by the secure part.
+> >>>>> This firmware could be authenticated by the secure trusted application.
+> >>>>>
+> >>>>> A specificity of the implementation is that the firmware has to be
+> >>>>> authenticated and optionally decrypted to access the resource table.
+> >>>>>
+> >>>>> Consequently, the boot sequence is:
+> >>>>>
+> >>>>> 1) rproc_parse_fw --> rproc_tee_parse_fw
+> >>>>>    remoteproc TEE:
+> >>>>>    - Requests the TEE application to authenticate and load the firmware
+> >>>>>      in the remote processor memories.
+> >>>>>    - Requests the TEE application for the address of the resource table.
+> >>>>>    - Creates a copy of the resource table stored in rproc->cached_table.
+> >>>>>
+> >>>>> 2) rproc_load_segments --> rproc_tee_load_fw
+> >>>>>    remoteproc TEE:
+> >>>>>    - Requests the TEE application to load the firmware. Nothing is done
+> >>>>>      at the TEE application as the firmware is already loaded.
+> >>>>>    - In case of recovery, the TEE application has to reload the firmware.
+> >>>>>
+> >>>>> 3) rproc_tee_get_loaded_rsc_table
+> >>>>>    remoteproc TEE requests the TEE application for the address of the
+> >>>>>    resource table.
+> >>>>>
+> >>>>> 4) rproc_start --> rproc_tee_start
+> >>>>>    - Requests the TEE application to start the remote processor.
+> >>>>>
+> >>>>> The shutdown sequence is:
+> >>>>>
+> >>>>> 5) rproc_stop --> rproc_tee_stop
+> >>>>>    - Requests the TEE application to stop the remote processor.
+> >>>>>
+> >>>>> 6) rproc_tee_release_fw
+> >>>>>    This function is used to request the TEE application to perform actions
+> >>>>>    to return to the initial state on stop or on error during the boot
+> >>>>>    sequence.
+> >>>>>
+> >>>>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> >>>>> ---
+> >>>>> Updates vs version [18]:
+> >>>>> - rework/fix function headers
+> >>>>> - use memremap instead of ioremap for the resource table.
+> >>>>> - realign comments to 80 chars limit, with few exceptions for readability
+> >>>>> - replace spinlock by mutex and and protect APIs from concurrent access
+> >>>>> - add support of 64-bit address in rproc_tee_get_loaded_rsc_table()
+> >>>>> - Generalize teston rproc_tee_ctx.dev to prevent an unbind
+> >>>>> - update copyright year
+> >>>>>
+> >>>>> Updates vs version [17]:
+> >>>>> Fix warning:
+> >>>>> warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+> >>>>> ---
+> >>>>>  drivers/remoteproc/Kconfig          |  10 +
+> >>>>>  drivers/remoteproc/Makefile         |   1 +
+> >>>>>  drivers/remoteproc/remoteproc_tee.c | 708 ++++++++++++++++++++++++++++
+> >>>>>  include/linux/remoteproc_tee.h      |  87 ++++
+> >>>>>  4 files changed, 806 insertions(+)
+> >>>>>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
+> >>>>>  create mode 100644 include/linux/remoteproc_tee.h
+> >>>>>
+> > 
+> > <snip>
+> > 
+> >>>>> +
+> >>>>> +static int rproc_tee_ctx_match(struct tee_ioctl_version_data *ver, const void *data)
+> >>>>> +{
+> >>>>> +	/* Today we support only the OP-TEE, could be extend to other tees */
+> >>>>> +	return (ver->impl_id == TEE_IMPL_ID_OPTEE);
+> >>>>> +}
+> >>>>> +
+> >>>>> +static int rproc_tee_probe(struct device *dev)
+> >>>>> +{
+> >>>>> +	struct tee_context *tee_ctx;
+> >>>>> +	int ret;
+> >>>>> +
+> >>>>> +	/* Open context with TEE driver */
+> >>>>> +	tee_ctx = tee_client_open_context(NULL, rproc_tee_ctx_match, NULL, NULL);
+> >>>>> +	if (IS_ERR(tee_ctx))
+> >>>>> +		return PTR_ERR(tee_ctx);
+> >>>>> +
+> >>>>> +	ret = mutex_lock_interruptible(&ctx_lock);
+> >>>>> +	if (ret)
+> >>>>> +		return ret;
+> >>>>> +
+> >>>>> +	rproc_tee_ctx.dev = dev;
+> >>>>> +	rproc_tee_ctx.tee_ctx = tee_ctx;
+> >>>>> +	INIT_LIST_HEAD(&rproc_tee_ctx.sessions);
+> >>>>> +	mutex_unlock(&ctx_lock);
+> >>>>> +
+> >>>>> +	return 0;
+> >>>>> +}
+> >>>>
+> >>>> As you mentioned above, this could be extended to other TEEs. If so, is it possible for probe
+> >>>> to be called multiple times if we we have other TEE devices exposing the firmware authentication
+> >>>> service? In that case, I think rproc_tee_ctx should be dynamically initializated instead of being
+> >>>> static. And since we are creating a link between the Rproc device and TEE device, a call to a
+> >>>> function like rproc_tee_start() could retreive the associated TEE device, and then the associated
+> >>>> rproc_tee? :)
+> >>>
+> >>> I have never seen a use case that requires multiple instances, but perhaps you
+> >>> have some?
+> >>>
+> >>> We can expect only one TEE, which could be OP-TEE, Trusty, or another.
+> >>> The device is associated with a unique UUID, so only one instance is expected.
+> >>>
+> >>> That said, making this driver support multiple instances seems like a valid
+> >>> future enhancement. However, I would suggest implementing it as a second step
+> >>> when there is a concrete need.
+> >>>
+> >>
+> >> My thought process on this stems from 1) the recent ARM FF-A developments and 2) from the current
+> >> implementation of the TEE subsystem which allows multiple back-end drivers to register themselves
+> >> via the tee_device_register() API. This means, that it's possible to have a configuration
+> >> where a platform supports multiple TEEs running as Secure Partitions via FF-A, and each of those
+> >> TEEs register their services as PTA devices on the TEE bus.
+> >>
+> >> However, I do not really know if it's possible to have a UUID collision in such a case, which
+> >> would lead to rproc_tee_probe() being called twice above, which is why I raised this question. :)
+> >>
+> >> All of this aside, I realize now that other TEE client drivers are also implemented with a static
+> >> private data similar to how you are doing it. So perhaps we can think of this as a later
+> >> enhancement if we believe that the scenario I am describing is not possible in the near future..
+> >>
+> > 
+> > Theoretically it is possible for multiple TEE services to be there but
+> > why should a platform/silicon vendor require 2 redundant remoteproc firmware
+> > loading services to be supported? It should either be a service hosted
+> > by the trusted OS or can rather be an independent platform service
+> > running as a FF-A secure partition.
+> > 
+> I agree that it doesn't make sense for a system integrator to have two remoteproc firmware
+> loading services supported from two different TEEs running as Secure Partitions.
+> After all, one service exposed by one TEE is good enough for fulfilling any use-case.
+> 
+> My concern is that ARM FF-A makes its possible to have a platform running two TEEs, which
+> each have their own remoteproc firmware authentication service implemented (as usually TEEs do).
+> In such a scenario, when both TEEs enumerate their services on the TEE bus, and find a match
+> because the rproc_tee_id_table has a UUID for say, both the TS-TEE remoteproc service and
+> OP-TEE remoteproc service, rproc_tee_probe() will be called twice, and the current implementation
+> will break because it uses a single static rproc_tee_ctx, whose contents would be overwritten
+> leading to unexpected scenarios.
+> 
+> And so, should TEE subsystem clients (like this one) be prepared to handle such as scenario?
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm64/include/asm/kvm_arm.h | 32 +++---------------
- arch/arm64/include/asm/sysreg.h  |  1 -
- arch/arm64/kvm/hyp/pgtable.c     |  6 ++--
- arch/arm64/kvm/nested.c          |  2 +-
- arch/arm64/tools/sysreg          | 57 ++++++++++++++++++++++++++++++++
- 5 files changed, 66 insertions(+), 32 deletions(-)
+With Arm FF-A and platforms supporting S-EL2, yes it is possible to run
+multiple trusted OS in parallel. However, the recommendation is to then
+host the platform specific services as independent FF-A based Secure
+Partitions (SPs) which aren't tied to any particular trusted OS. I have
+CCed some Arm folks who on the other thread were interested to extend
+this driver to support remoteproc service hosted as a FF-A based secure
+partition.
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 8994cddef182..5abe3536f1d2 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -110,31 +110,7 @@
- #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
- 			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
- 
--/* VTCR_EL2 Registers bits */
--#define VTCR_EL2_DS		TCR_EL2_DS
--#define VTCR_EL2_RES1		(1U << 31)
--#define VTCR_EL2_HD		(1 << 22)
--#define VTCR_EL2_HA		(1 << 21)
--#define VTCR_EL2_PS_SHIFT	TCR_EL2_PS_SHIFT
--#define VTCR_EL2_PS_MASK	TCR_EL2_PS_MASK
--#define VTCR_EL2_TG0_MASK	TCR_EL1_TG0_MASK
--#define VTCR_EL2_TG0_4K		(TCR_EL1_TG0_4K << TCR_EL1_TG0_SHIFT)
--#define VTCR_EL2_TG0_16K	(TCR_EL1_TG0_16K << TCR_EL1_TG0_SHIFT)
--#define VTCR_EL2_TG0_64K	(TCR_EL1_TG0_64K << TCR_EL1_TG0_SHIFT)
--#define VTCR_EL2_SH0_MASK	TCR_EL1_SH0_MASK
--#define VTCR_EL2_SH0_INNER	(TCR_EL1_SH0_INNER << TCR_EL1_SH0_SHIFT)
--#define VTCR_EL2_ORGN0_MASK	TCR_EL1_ORGN0_MASK
--#define VTCR_EL2_ORGN0_WBWA	(TCR_EL1_ORGN0_WBWA << TCR_EL1_ORGN0_SHIFT)
--#define VTCR_EL2_IRGN0_MASK	TCR_EL1_IRGN0_MASK
--#define VTCR_EL2_IRGN0_WBWA	(TCR_EL1_IRGN0_WBWA << TCR_EL1_IRGN0_SHIFT)
--#define VTCR_EL2_SL0_SHIFT	6
--#define VTCR_EL2_SL0_MASK	(3 << VTCR_EL2_SL0_SHIFT)
--#define VTCR_EL2_T0SZ_MASK	0x3f
--#define VTCR_EL2_VS_SHIFT	19
--#define VTCR_EL2_VS_8BIT	(0 << VTCR_EL2_VS_SHIFT)
--#define VTCR_EL2_VS_16BIT	(1 << VTCR_EL2_VS_SHIFT)
--
--#define VTCR_EL2_T0SZ(x)	TCR_T0SZ(x)
-+#define VTCR_T0SZ(x) ((UL(64) - (x)) << VTCR_EL2_T0SZ_SHIFT)
- 
- /*
-  * We configure the Stage-2 page tables to always restrict the IPA space to be
-@@ -148,8 +124,10 @@
-  *
-  */
- 
--#define VTCR_EL2_COMMON_BITS	(VTCR_EL2_SH0_INNER | VTCR_EL2_ORGN0_WBWA | \
--				 VTCR_EL2_IRGN0_WBWA | VTCR_EL2_RES1)
-+#define VTCR_EL2_COMMON_BITS	((VTCR_EL2_SH0_INNER << VTCR_EL2_SH0_SHIFT) | \
-+				 (VTCR_EL2_ORGN0_WBWA << VTCR_EL2_ORGN0_SHIFT) | \
-+				 (VTCR_EL2_IRGN0_WBWA << VTCR_EL2_IRGN0_SHIFT) | \
-+				 (VTCR_EL2_RES1))
- 
- /*
-  * VTCR_EL2:SL0 indicates the entry level for Stage2 translation.
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 112d5d0acb50..ea0a7e5a8628 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -524,7 +524,6 @@
- #define SYS_TTBR0_EL2			sys_reg(3, 4, 2, 0, 0)
- #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
- #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
--#define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
- 
- #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
- #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index c351b4abd5db..c1607b5b7cbf 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -584,7 +584,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
- 	s8 lvls;
- 
- 	vtcr |= kvm_get_parange(mmfr0) << VTCR_EL2_PS_SHIFT;
--	vtcr |= VTCR_EL2_T0SZ(phys_shift);
-+	vtcr |= VTCR_T0SZ(phys_shift);
- 	/*
- 	 * Use a minimum 2 level page table to prevent splitting
- 	 * host PMD huge pages at stage2.
-@@ -625,8 +625,8 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
- 
- 	/* Set the vmid bits */
- 	vtcr |= (get_vmid_bits(mmfr1) == 16) ?
--		VTCR_EL2_VS_16BIT :
--		VTCR_EL2_VS_8BIT;
-+		SYS_FIELD_PREP_ENUM(VTCR_EL2, VS, 16BIT) :
-+		SYS_FIELD_PREP_ENUM(VTCR_EL2, VS, 8BIT);
- 
- 	return vtcr;
- }
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 7b1802a4072e..34d8d192d5c2 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -336,7 +336,7 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
- {
- 	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
- 
--	switch (vtcr & VTCR_EL2_TG0_MASK) {
-+	switch (SYS_FIELD_GET(VTCR_EL2, TG0, vtcr)) {
- 	case VTCR_EL2_TG0_4K:
- 		wi->pgshift = 12;	 break;
- 	case VTCR_EL2_TG0_16K:
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index d2b40105eb41..f5a0a304f844 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4910,6 +4910,63 @@ Field	1	PIE
- Field	0	PnCH
- EndSysreg
- 
-+Sysreg	VTCR_EL2	3	4	2	1	2
-+Res0	63:46
-+Field	45	HDBSS
-+Field	44	HAFT
-+Res0	43:42
-+Field	41	TL0
-+Field	40	GCSH
-+Res0	39
-+Field	38	D128
-+Field	37	S2POE
-+Field	36	S2PIE
-+Field	35	TL1
-+Field	34	AssuredOnly
-+Field	33	SL2
-+Field	32	DS
-+Res1	31
-+Field	30	NSA
-+Field	29	NSW
-+Field	28	HWU62
-+Field	27	HWU61
-+Field	26	HWU60
-+Field	25	HWU59
-+Res0	24:23
-+Field	22	HD
-+Field	21	HA
-+Res0	20
-+UnsignedEnum	19	VS
-+	0b0	8BIT
-+	0b1	16BIT
-+EndEnum
-+Field	18:16	PS
-+UnsignedEnum	15:14	TG0
-+		0b00	4K
-+		0b01	64K
-+		0b10	16K
-+EndEnum
-+UnsignedEnum	13:12	SH0
-+		0b00	NONE
-+		0b10	OUTER
-+		0b11	INNER
-+EndEnum
-+UnsignedEnum	11:10	ORGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+UnsignedEnum	9:8	IRGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+Field	7:6	SL0
-+Field	5:0	T0SZ
-+EndSysreg
-+
- SysregFields MAIR2_ELx
- Field	63:56	Attr7
- Field	55:48	Attr6
--- 
-2.25.1
-
+-Sumit
 
