@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2ABCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFBDCA0EF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zTc9ILZszspIergQBlX6+NhSE6Fs5a72JurzfDZwPEA=; b=QtDDS7ErRH+Q1unCLhypJIOwHZ
-	cD0LU2RGPweE+xoAkdK3esanczfh9iyJH0M+djVqQzI+JVuWatyg8+Ib5wGrNikLoNQfA13Dg3Wau
-	CYdGgoyUIffUCR3KPL0eRWPTnoiRDqGC6fg+xk7CYdCYb5H1OkqKvdJvrinz7TUMDrnZAG0w77VQ1
-	OhUn1KB8o1DedHBSv9rN0jdm5mMpNQuWbZo96104+lZCconbUrnXyECyYStSw+Vy9YckETAbSqz4F
-	JwEVl+SKnHcdNNlM6w7ghbgKajXHnBXpiDjMw3L52LAhxH2AIRTMXptSakAog7UEn6E5uQIRHBVSg
-	QCg7ktGA==;
+	bh=zTc9ILZszspIergQBlX6+NhSE6Fs5a72JurzfDZwPEA=; b=oTEmBzgZ/4bSwlx+28UxqujLYq
+	SxTbNvyMeLRVM8uR6Rjbeafv7CXzpsMBJ5iXXYCYkbLmYevZ8ZLaHQ1pM11GnNCdROO91iiAX6SW/
+	xpQFk/TiMhbgBcY10WgjoUbNSA+ibrC5Ks8UJnaUOMf0os9abcpolggsI2uEYTh7q4a/2+TWymhCv
+	8DsOMorybaSZWe/cPUzH4W8+kfAjegeKtYhaMgMC0h4s2a1dILnbc1D0s1cLekTIniV9VUm4hNhLY
+	yE+ibZWXb8d2jG59O0lUD4x6v0yK0oUejLlpL/dK1bw5hYpr5Ma6VYuqYWU3dbJ3WxC0tvxGYpxEf
+	3x55A3Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03T-00000007UOA-0hJx;
-	Mon, 18 Aug 2025 13:37:43 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uo03V-00000007URq-0N7v;
+	Mon, 18 Aug 2025 13:37:45 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvK4-00000006wu1-3TTe;
-	Mon, 18 Aug 2025 08:34:33 +0000
-X-UUID: 26fdb07c7c0e11f09eb0dd999d3936bf-20250818
+	id 1unvN1-00000006xIi-0Nne;
+	Mon, 18 Aug 2025 08:37:36 +0000
+X-UUID: 93baa0e47c0e11f09f706fa2197c6ceb-20250818
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
 	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zTc9ILZszspIergQBlX6+NhSE6Fs5a72JurzfDZwPEA=;
-	b=pNWqbi9hwE3wtSc3SdRJp8XlkOHa7gQwFsUKMaMK24pq+FeFGh/MNc8MWkGa0P5Hl3/wo5gGEagm+T+9yqe6t/OIeU2xw6nv5Xs4uIlvY7Qy4STv+09/QchmSLMzFctvMr7w0opM2qAxkBn9+608aKe0aa+gxLYdz6ghiHvL7o8=;
+	b=XZo2WC5mlmdelNNlwtnQqEbUkkcQaHFkWyxMJO6NppHvfc47wJZw+69Mdie4ADsMqU5T9Y34Mpc2rdSqEv3CMTchvlrSCQYRovzkfmZdWSAa4C7STMoa6hfbesifcZMt2oMaIdDWVteYdPF/EglY2iMYiHChNeAAWEjbsYI2q5E=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:77453fd5-9c70-49ab-a39e-039d4e121ba9,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.3,REQID:64135f7a-06fb-45ac-aaf3-a486d12808b9,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:0c48556d-c2f4-47a6-876f-59a53e9ecc6e,B
+X-CID-META: VersionHash:f1326cf,CLOUDID:22140bf4-66cd-4ff9-9728-6a6f64661009,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
 	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
 	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 26fdb07c7c0e11f09eb0dd999d3936bf-20250818
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+X-UUID: 93baa0e47c0e11f09f706fa2197c6ceb-20250818
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
 	(envelope-from <payne.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 314933806; Mon, 18 Aug 2025 01:34:27 -0700
+	with ESMTP id 1572609948; Mon, 18 Aug 2025 01:37:29 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 18 Aug 2025 16:34:24 +0800
+ 15.2.1258.39; Mon, 18 Aug 2025 16:37:26 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 18 Aug 2025 16:34:24 +0800
+ 15.2.1258.39 via Frontend Transport; Mon, 18 Aug 2025 16:37:26 +0800
 From: payne.lin <payne.lin@mediatek.com>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
 	<p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, Simona Vetter
@@ -64,16 +64,16 @@ CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, Bincai Liu <bincai.liu@mediatek.com>,
 	Payne Lin <payne.lin@mediatek.com>
 Subject: [PATCH] gpu: drm: mediatek: correct clk setting AUX_RX_UI_CNT_THR_AUX_FOR_26M
-Date: Mon, 18 Aug 2025 16:34:03 +0800
-Message-ID: <20250818083415.1041187-1-payne.lin@mediatek.com>
+Date: Mon, 18 Aug 2025 16:37:11 +0800
+Message-ID: <20250818083718.1042356-1-payne.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_013432_876244_4E19D57F 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250818_013735_125195_E300C25A 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
