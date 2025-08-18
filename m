@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F241CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D22CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Th+BIyNoLUE5I/7/S7xGZfCtQHvNeIUfM0nEcxIY1Wc=; b=MU02KhdS2hjqYVxne3QcntpUMJ
-	Dws4ysfwyVabFYNAwWnlsQca/LNtgLZzgU0jprqA1C5k8LYaJ+HrbMxcAPHSM41v+e7fqvzhobYbj
-	zkpDnqqLng0fIWUHcG4sGVKIa1PcItszb70q1ar12I9CeqkI6Xnj5YlOs1FDhWbjgJaFilIbHSiNK
-	Wt1O4R9zUK+yi3ZCSn/5+aDGt6zYMv378kVbuREF3kN6cfc0iYZGSPfFC8WpQgTdcP+tJvTXPzcUw
-	SzV6dmwOa0UY+rsjhEfGFQHd9GRV6sxVyAVg6DckcVWmOlYiv+APkjtZaPR3Fpe4FSJw0IdHF7Muu
-	8Cg6tjMg==;
+	bh=iCw2DCxw7VUMNeDpXVyedCQSwbLk1u31mhAx4aA3DsM=; b=s+lkEUftppZtsMddKwnA61XEdu
+	oiMe3/uPuBMSAZekZanuCYUbMlCz32BVTAiV6y+xiWZEOegy2HGgoGf94a/yYBCF6OT0hX3Jm8p+K
+	ZtalmB8ovNayCU+6tXN/m7TQeIhRR0ZpTYlB9t+/Q/GwrlylM1acXp+4OJOtd7nxfLzwNdoiPMitQ
+	McHfPYJ4NgUKEwXvCVjL4gfmhluIcW15/uDmpQOWWXEIu+mR3HqABzaQcL7DlbEx9N1MNHUIpwsse
+	ZoP2stXDA/ZhuX7WQSxg9tNQnDMoXhC6UH/4hCfT7iLxceh4tsmMkdLRSzP7Lpsd7H15UTgfCG08f
+	ed+ETEpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unueC-00000006pCX-04H1;
-	Mon, 18 Aug 2025 07:51:16 +0000
+	id 1unueD-00000006pDT-16Zu;
+	Mon, 18 Aug 2025 07:51:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untfR-00000006hvs-2pkM
+	id 1untfU-00000006hy3-0SQz
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 Aug 2025 06:48:29 +0000
+	Mon, 18 Aug 2025 06:48:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Th+BIyNoLUE5I/7/S7xGZfCtQHvNeIUfM0nEcxIY1Wc=; b=qJuIYA9lowftqtpnH8OhVipR+4
-	o+aQChz8GvfKPgva4bnvqUWVXF+kD/vPWDLqWvAni96TWMwT28rRy3krkfqhqfrd1MOwV/0N9WRI/
-	ePa4hx4fc30fnH96XIIYw2UoMsbiREetIS3AJpSz+McqAdozmqEg5pVgZlc+PvXn1orENgFxWnRlv
-	u2sHrP8xWoLrKSLtMk8b3UymmNwDPfWqgEWcI2Z67AvisvMp/7QxAg4Faa3caLpesEOwdVfLxz1M3
-	R8R2lJyuwEsE/8801BNa7pHiGM/rDLSi2anF/tPfsL4AHVAAHdVM6CU8ijzKd9ZXO3fKouo8dB1K9
-	mh0w5gZA==;
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	bh=iCw2DCxw7VUMNeDpXVyedCQSwbLk1u31mhAx4aA3DsM=; b=TMAcBojGdfpAxSSfqu93NUWRr9
+	nBThKoljjIVIjhL+5pkCLngcQrIni0/sk+sPcW12MtmYPdMcv/o6iTdJL3KZWuo5HFtM125mtKvDn
+	hSqHqGIrgtGjsmWFt2wL3wExayhIpYCcrLiMHi/qLoIWNcLChx1ZHtPKOdluv7FE+vAYWPVa8HJlO
+	N1SfZx3ojjsC0y9xjnBPZvfB5NMm0yp/4jp2mSjY+Wf1kRIaDX0N77qo3Mxfjbyq+4Y5E87ElgOGZ
+	oQqTtH0NolTF2HOMPfa31tKH+mFx31WqxOl74ey04C99fpVSMR0eE4S6eoXefhApHFOLyEiImA2FH
+	jORGcysA==;
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untfN-0000000HI23-0oDX
+	id 1untfQ-0000000HI24-3j6r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:48:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c53881y65zFrlS;
-	Mon, 18 Aug 2025 14:43:36 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0E5AA18048D;
-	Mon, 18 Aug 2025 14:48:12 +0800 (CST)
+	Mon, 18 Aug 2025 06:48:31 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4c53BF2Zbpz2Dc6y;
+	Mon, 18 Aug 2025 14:45:25 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4E3C41400CB;
+	Mon, 18 Aug 2025 14:48:11 +0800 (CST)
 Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1544.11; Mon, 18 Aug 2025 14:48:11 +0800
 Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
@@ -66,9 +66,9 @@ CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
 	<shameerkolothum@gmail.com>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
 	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: [PATCH v5 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
-Date: Mon, 18 Aug 2025 14:48:04 +0800
-Message-ID: <20250818064806.25417-6-yangyicong@huawei.com>
+Subject: [PATCH v5 4/7] arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
+Date: Mon, 18 Aug 2025 14:48:03 +0800
+Message-ID: <20250818064806.25417-5-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20250818064806.25417-1-yangyicong@huawei.com>
 References: <20250818064806.25417-1-yangyicong@huawei.com>
@@ -79,8 +79,9 @@ X-Originating-IP: [10.67.121.177]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_074826_207664_E682666B 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250818_074829_489747_19AC4882 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,201 +98,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Armv8.7 introduces single-copy atomic 64-byte loads and stores
-instructions and its variants named under FEAT_{LS64, LS64_V}.
-These features are identified by ID_AA64ISAR1_EL1.LS64 and the
-use of such instructions in userspace (EL0) can be trapped. In
-order to support the use of corresponding instructions in userspace:
-- Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
-- Add identifying and enabling in the cpufeature list
-- Expose these support of these features to userspace through HWCAP3
-  and cpuinfo
+Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
+HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
+at EL0/1.
+
+This doesn't mean these instructions are always available in
+EL0/1 if provided. The hypervisor still have the control at
+runtime.
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- Documentation/arch/arm64/booting.rst    | 12 ++++++
- Documentation/arch/arm64/elf_hwcaps.rst |  6 +++
- arch/arm64/include/asm/hwcap.h          |  2 +
- arch/arm64/include/uapi/asm/hwcap.h     |  2 +
- arch/arm64/kernel/cpufeature.c          | 51 +++++++++++++++++++++++++
- arch/arm64/kernel/cpuinfo.c             |  2 +
- arch/arm64/tools/cpucaps                |  2 +
- 7 files changed, 77 insertions(+)
+ arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index 2f666a7c303c..471cb6633a7e 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -545,6 +545,18 @@ Before jumping into the kernel, the following conditions must be met:
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 46033027510c..e48be0afe536 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -57,9 +57,19 @@
+         /* Enable GCS if supported */
+ 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+ 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+-	cbz	x1, .Lset_hcrx_\@
++	cbz	x1, .Lskip_gcs_hcrx_\@
+ 	orr	x0, x0, #HCRX_EL2_GCSEn
  
-    - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
- 
-+  For CPUs support for 64-byte loads and stores without status (FEAT_LS64):
++.Lskip_gcs_hcrx_\@:
++	/* Enable LS64, LS64_V if supported */
++	mrs_s	x1, SYS_ID_AA64ISAR1_EL1
++	ubfx	x1, x1, #ID_AA64ISAR1_EL1_LS64_SHIFT, #4
++	cbz	x1, .Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_EnALS
++	cmp	x1, #ID_AA64ISAR1_EL1_LS64_LS64_V
++	b.lt	.Lset_hcrx_\@
++	orr	x0, x0, #HCRX_EL2_EnASR
 +
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
-+
-+  For CPUs support for 64-byte loads and stores with status (FEAT_LS64_V):
-+
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
-+
- The requirements described above for CPU mode, caches, MMUs, architected
- timers, coherency and system registers apply to all CPUs.  All CPUs must
- enter the kernel in the same exception level.  Where the values documented
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index f58ada4d6cb2..bbb257a5a0b0 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -441,6 +441,12 @@ HWCAP3_MTE_FAR
- HWCAP3_MTE_STORE_ONLY
-     Functionality implied by ID_AA64PFR2_EL1.MTESTOREONLY == 0b0001.
- 
-+HWCAP3_LS64
-+    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001.
-+
-+HWCAP3_LS64_V
-+    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0010.
-+
- 4. Unused AT_HWCAP bits
- -----------------------
- 
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index 13f94c8ddfc0..61c841c31e97 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -178,6 +178,8 @@
- #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
- #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
- #define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
-+#define KERNEL_HWCAP_LS64		__khwcap3_feature(LS64)
-+#define KERNEL_HWCAP_LS64_V		__khwcap3_feature(LS64_V)
- 
- /*
-  * This yields a mask that user programs can use to figure out what
-diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-index 72c78468b806..86f37b680023 100644
---- a/arch/arm64/include/uapi/asm/hwcap.h
-+++ b/arch/arm64/include/uapi/asm/hwcap.h
-@@ -145,5 +145,7 @@
-  */
- #define HWCAP3_MTE_FAR		(1UL << 0)
- #define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
-+#define HWCAP3_LS64		(1UL << 2)
-+#define HWCAP3_LS64_V		(1UL << 3)
- 
- #endif /* _UAPI__ASM_HWCAP_H */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9ad065f15f1d..6f60685fd78a 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -238,6 +238,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar0[] = {
- };
- 
- static const struct arm64_ftr_bits ftr_id_aa64isar1[] = {
-+	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_LS64_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_XS_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_I8MM_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_DGH_SHIFT, 4, 0),
-@@ -2327,6 +2328,38 @@ static void cpu_enable_e0pd(struct arm64_cpu_capabilities const *cap)
- }
- #endif /* CONFIG_ARM64_E0PD */
- 
-+static bool has_ls64(const struct arm64_cpu_capabilities *entry, int __unused)
-+{
-+	u64 ls64;
-+
-+	ls64 = cpuid_feature_extract_field(__read_sysreg_by_encoding(entry->sys_reg),
-+					   entry->field_pos, entry->sign);
-+
-+	if (ls64 == ID_AA64ISAR1_EL1_LS64_NI ||
-+	    ls64 > ID_AA64ISAR1_EL1_LS64_LS64_ACCDATA)
-+		return false;
-+
-+	if (entry->capability == ARM64_HAS_LS64 &&
-+	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64)
-+		return true;
-+
-+	if (entry->capability == ARM64_HAS_LS64_V &&
-+	    ls64 >= ID_AA64ISAR1_EL1_LS64_LS64_V)
-+		return true;
-+
-+	return false;
-+}
-+
-+static void cpu_enable_ls64(struct arm64_cpu_capabilities const *cap)
-+{
-+	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnALS, SCTLR_EL1_EnALS);
-+}
-+
-+static void cpu_enable_ls64_v(struct arm64_cpu_capabilities const *cap)
-+{
-+	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnASR, SCTLR_EL1_EnASR);
-+}
-+
- #ifdef CONFIG_ARM64_PSEUDO_NMI
- static bool can_use_gic_priorities(const struct arm64_cpu_capabilities *entry,
- 				   int scope)
-@@ -3131,6 +3164,22 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, GCIE, IMP)
- 	},
-+	{
-+		.desc = "LS64",
-+		.capability = ARM64_HAS_LS64,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_ls64,
-+		.cpu_enable = cpu_enable_ls64,
-+		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64)
-+	},
-+	{
-+		.desc = "LS64_V",
-+		.capability = ARM64_HAS_LS64_V,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_ls64,
-+		.cpu_enable = cpu_enable_ls64_v,
-+		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64_V)
-+	},
- 	{},
- };
- 
-@@ -3250,6 +3299,8 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_EBF16),
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, DGH, IMP, CAP_HWCAP, KERNEL_HWCAP_DGH),
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
-+	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64, CAP_HWCAP, KERNEL_HWCAP_LS64),
-+	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64_V, CAP_HWCAP, KERNEL_HWCAP_LS64_V),
- 	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
- 	HWCAP_CAP(ID_AA64ISAR3_EL1, FAMINMAX, IMP, CAP_HWCAP, KERNEL_HWCAP_FAMINMAX),
- 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index ba834909a28b..e1ccec7a509f 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -81,6 +81,8 @@ static const char *const hwcap_str[] = {
- 	[KERNEL_HWCAP_PACA]		= "paca",
- 	[KERNEL_HWCAP_PACG]		= "pacg",
- 	[KERNEL_HWCAP_GCS]		= "gcs",
-+	[KERNEL_HWCAP_LS64]		= "ls64",
-+	[KERNEL_HWCAP_LS64_V]		= "ls64_v",
- 	[KERNEL_HWCAP_DCPODP]		= "dcpodp",
- 	[KERNEL_HWCAP_SVE2]		= "sve2",
- 	[KERNEL_HWCAP_SVEAES]		= "sveaes",
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index ef0b7946f5a4..c4b38311e8b1 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -44,6 +44,8 @@ HAS_HCX
- HAS_LDAPR
- HAS_LPA2
- HAS_LSE_ATOMICS
-+HAS_LS64
-+HAS_LS64_V
- HAS_MOPS
- HAS_NESTED_VIRT
- HAS_BBML2_NOABORT
+ .Lset_hcrx_\@:
+ 	msr_s	SYS_HCRX_EL2, x0
+ .Lskip_hcrx_\@:
 -- 
 2.24.0
 
