@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD261CA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40117CA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rx2bqDXRZ0uVgL7TVzOzDHtbzb82waVzfRr+j4z3OPY=; b=SvkUyt0T9Y5LLp/kC1pDGdipPG
-	xCSavU9czAlEYx/DW7VwkAuHR0uY7QF2PdAhq1lc08X2ToDj8vouBhvDovq4L9tiGCa7+r1zzAa3S
-	7CYKjm4rapVdeYOh4x0/TW6DOYCZ8BXaUcoP2585kwWCGtFY1bTa99bevd05VVNA63HHGemWykYRY
-	knC8FrQITRAw8lKV3FXqmk+nNb9Yx0D2jTHHlCQXon3hjpHYZjCYKxch2HA24SC96OhQLtTAs8xPj
-	kGK5r6ISLNAfCuWIy1nzI0wkIGEM4gMfRSYxKio6YHp+a+Pxuku9lfICJ0gl6zWzBmb5RBeS9IpAA
-	bugkrYhg==;
+	bh=yJIiqcpJNW1SN0UI1h0IOuqoeYNESghY4fi98Tifdx8=; b=QUxEiEt7tFVMSVkDAYlVZv+WjI
+	ZUShISijPJNNXCzZ1pRD87XT8wgT842mDCicNCGNX+CB8/jDTJMmBTJ2w9dZ42cRtZ/Rp7vElMh11
+	pTG0RW0qJqxCXFD+2JvuHB4UbMdCKTwrsSnl/VBiBnd+ScSUGfAKExMo8Sqqq0EH2aKSvIXM+KTYA
+	s1IRi36u5mKKRbn9/Br1ur8hmA+/8Tn9mDWg+h1lAFbZI1BkoFMInVByGgYEm4m9umDL5zykRM7z4
+	JxZWSsYJXuMkdx90hB43F/JFVRRnS0PW2riILh/efRzy/pE+oS07FzGZJKHrpOf5M7vGuuk0z0w6C
+	1dLhXVkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo03Q-00000007UJE-4B0t;
-	Mon, 18 Aug 2025 13:37:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uo03O-00000007UE7-2y6M;
+	Mon, 18 Aug 2025 13:37:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvFg-00000006we8-0BaL
+	id 1unvCh-00000006wJU-1FYA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:30:01 +0000
+	Mon, 18 Aug 2025 08:26:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D54C41B1E;
-	Mon, 18 Aug 2025 08:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9B71C4CEED;
-	Mon, 18 Aug 2025 08:29:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7FB905C5B2B;
+	Mon, 18 Aug 2025 08:26:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A772C4CEED;
+	Mon, 18 Aug 2025 08:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755505799;
-	bh=exYibdCxTidtmiMn53gTLXZ7IWFOL/uqk+UPXBrBBwk=;
+	s=k20201202; t=1755505602;
+	bh=Vm8cWvKgpjFAKW99yrjp0C+LOL3fJWGgMbbY76Ih1RY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cnGjhLjH5rRWZspYAD7FNglSmP/ZVMNIeQlf//xe39ldZUTuqTszI4xH/4sgmcrAQ
-	 Q6o85sEdCvArYxNdDEX7Ao/bo7Wds20DvGTTbulNGNN1/kRQfElyU+kn84HS6guvkp
-	 aiz/GKT5TBW31gdoZQ53ciLgsgmBjDk9M5heNSgOznXt7/KRmfLE6A6/X1/IVREVIa
-	 l+xSQxbH11gDVu+OKVxOlkCuacCR0dC3+E205ZX1SWRQrla7z3lflByf2eelGqoZ+6
-	 bCpw0of/mnHjWE7tgsvkYWDuZOgCSDggQHWvjmhg5lcjmGt2LNVRg/5QdnfBjlRFeG
-	 x2Xpi/Lze7bew==
-Message-ID: <67199625-13d2-4510-bbbd-3dd2f61c62fd@kernel.org>
-Date: Mon, 18 Aug 2025 10:29:51 +0200
+	b=FFsv9ZC6MF/RWiBx47eLyFD9CBfESKS/m7zZ90r6SnLHCScdp3+iudxbEnezGPWBd
+	 AsXQVeOqpXCQ61elmgUi8/QCp8aRkXglnamVhsmqxty9ZFtWIZFlWckKle8rgMXcKL
+	 xc77cPQ6M5AwyqFnc+tjARmMhuMpVFHH7eRSBa16aE9IOI3lJWilOdksaoTCGMaQEk
+	 nFsiU0jWFZkgY0/MY73Gp0cplRLHmTl3FaCpBvKRaT9Ubjm2pZgY7MYBXSS/oe4JTa
+	 WdIMwgcflSTu1e+cMbze+VRaUA12e3AGoVmNothVIG6NUHfAwdZruIB39D4aCoLFwJ
+	 xr5R9VC6Y5i9A==
+Message-ID: <1919de68-99ea-47f7-b3d2-cae4611f9c52@kernel.org>
+Date: Mon, 18 Aug 2025 10:26:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/12] dt-bindings: media: fsd: Document CSIS DMA
- controller
+Subject: Re: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
 To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
@@ -61,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141051epcas5p14dccee388087372973988aeebcb872cf@epcas5p1.samsung.com>
- <20250814140943.22531-11-inbaraj.e@samsung.com>
+ <CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
+ <20250814140943.22531-5-inbaraj.e@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250814140943.22531-11-inbaraj.e@samsung.com>
+In-Reply-To: <20250814140943.22531-5-inbaraj.e@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_013000_128708_9FD9AF1E 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250818_012655_423207_75906CB0 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,85 +128,270 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/08/2025 16:09, Inbaraj E wrote:
-> Document bindings for the FSD CSIS DMA controller.
+> There is a csi dma and csis interface that bundles together to allow
+
+CSI DMA?
+What is CSIS?
+
+> csi2 capture.
+
+CSI2?
+
 > 
 > Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
 > ---
->  .../bindings/media/tesla,fsd-csis-media.yaml  | 74 +++++++++++++++++++
-
-Your patchset is organized in total mess. First clock, then media
-bindings, then arm64,  then media drivers, then media bindings, then
-arm64... Please organize it in standard way - about independent
-subsystems I mentioned, so within media first bindings, then driver. Not
-intermixed.
-
-
-
->  1 file changed, 74 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
+>  arch/arm64/boot/dts/tesla/fsd-evb.dts |  96 +++++
+>  arch/arm64/boot/dts/tesla/fsd.dtsi    | 552 ++++++++++++++++++++++++++
+>  2 files changed, 648 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
-> new file mode 100644
-> index 000000000000..ce6c2e58ed4e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/tesla,fsd-csis-media.yaml
-> @@ -0,0 +1,74 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/tesla,fsd-csis-media.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> index 9ff22e1c8723..dcc9a138cdb9 100644
+> --- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> +++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+> @@ -130,3 +130,99 @@ &serial_0 {
+>  &ufs {
+>  	status = "okay";
+>  };
 > +
-> +title: Tesla FSD SoC MIPI CSI-2 DMA (Bridge device) receiver
+> +&mipicsis0 {
+> +	status = "okay";
+> +};
 > +
-> +maintainers:
-> +  - Inbaraj E <inbaraj.e@samsung.com>
+> +&mipicsis1 {
+> +	status = "okay";
+> +};
 > +
-> +description: |-
+> +&mipicsis2 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis3 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis4 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis5 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis6 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis7 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis8 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis9 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis10 {
+> +	status = "okay";
+> +};
+> +
+> +&mipicsis11 {
+> +	status = "okay";
+> +};
+> +
+> +&csis0 {
+> +	status = "okay";
+> +};
+> +
+> +&csis1 {
+> +	status = "okay";
+> +};
+> +
+> +&csis2 {
+> +	status = "okay";
+> +};
+> +
+> +&csis3 {
+> +	status = "okay";
+> +};
+> +
+> +&csis4 {
+> +	status = "okay";
+> +};
+> +
+> +&csis5 {
+> +	status = "okay";
+> +};
+> +
+> +&csis6 {
+> +	status = "okay";
+> +};
+> +
+> +&csis7 {
+> +	status = "okay";
+> +};
+> +
+> +&csis8 {
+> +	status = "okay";
+> +};
+> +
+> +&csis9 {
+> +	status = "okay";
+> +};
+> +
+> +&csis10 {
+> +	status = "okay";
+> +};
+> +
+> +&csis11 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> index a5ebb3f9b18f..a83503e9c502 100644
+> --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
+> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+> @@ -493,6 +493,558 @@ clock_mfc: clock-controller@12810000 {
+>  			clock-names = "fin_pll";
+>  		};
+>  
+> +		mipicsis0: mipi-csis@12640000 {
 
-Drop |-
+Messed ordering. See DTS coding style.
 
-> +  The FSD MIPI CSI-2 (Camera Serial Interface 2) have internal DMA engine to
-> +  capture frames originating from the sensor.
-> +
-> +properties:
-> +  compatible:
-> +    const: tesla,fsd-csis-media
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    items:
-> +      - const: aclk
-> +      - const: pclk
-> +      - const: pll
-> +
-> +  iommus:
-> +    maxItems: 1
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/properties/port
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-Don't you need second port to CSIS block? I guess this one is input from
-the sensor?
+What is csis?
 
+> +			compatible = "tesla,fsd-mipi-csi2";
+> +			reg = <0x0 0x12640000 0x0 0x124>;
+> +			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
+> +				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>;
+> +			clock-names = "aclk", "pclk";
+> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
+> +			status = "disabled";
 > +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - iommus
-> +  - port
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					mipi_csis_0_out: endpoint {
+> +						remote-endpoint = <&csis_in_0>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		csis0: csis@12641000 {
+> +			compatible = "tesla,fsd-csis-media";
+> +			reg = <0x0 0x12641000 0x0 0x44c>;
+> +			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clock_csi CAM_CSI0_0_IPCLKPORT_I_ACLK>,
+> +				<&clock_csi CAM_CSI0_0_IPCLKPORT_I_PCLK>,
+> +				<&clock_csi CAM_CSI_PLL>;
+> +			clock-names = "aclk", "pclk", "pll";
+> +			iommus = <&smmu_isp 0x0 0x0>;
+> +			status = "disabled";
+> +
+> +			port {
+> +				csis_in_0: endpoint {
+> +					remote-endpoint = <&mipi_csis_0_out>;
+> +				};
+> +			};
+> +		};
+> +
+> +		mipicsis1: mipi-csis@12650000 {
+> +			compatible = "tesla,fsd-mipi-csi2";
+> +			reg = <0x0 0x12650000 0x0 0x124>;
+> +			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
+> +				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>;
+> +			clock-names = "aclk", "pclk";
+> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
+> +			status = "disabled";
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					mipi_csis_1_out: endpoint {
+> +						remote-endpoint = <&csis_in_1>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		csis1: csis@12651000 {
+> +			compatible = "tesla,fsd-csis-media";
+> +			reg = <0x0 0x12651000 0x0 0x44c>;
+> +			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clock_csi CAM_CSI0_1_IPCLKPORT_I_ACLK>,
+> +				<&clock_csi CAM_CSI0_1_IPCLKPORT_I_PCLK>,
+> +				<&clock_csi CAM_CSI_PLL>;
+> +			clock-names = "aclk", "pclk", "pll";
+> +			iommus = <&smmu_isp 0x0 0x0>;
+> +			status = "disabled";
+> +
+> +			port {
+> +				csis_in_1: endpoint {
+> +					remote-endpoint = <&mipi_csis_1_out>;
+> +				};
+> +			};
+> +		};
+> +
+> +		mipicsis2: mipi-csis@12660000 {
+> +			compatible = "tesla,fsd-mipi-csi2";
+> +			reg = <0x0 0x12660000 0x0 0x124>;
+> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clock_csi CAM_CSI0_2_IPCLKPORT_I_ACLK>,
+> +				<&clock_csi CAM_CSI0_2_IPCLKPORT_I_PCLK>;
+> +			clock-names = "aclk", "pclk";
+> +			samsung,syscon-csis = <&sysreg_cam 0x40c>;
+> +			status = "disabled";
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					mipi_csis_2_out: endpoint {
+> +						remote-endpoint = <&csis_in_2>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		csis2: csis@12661000 {
 
+
+What is CSIS? Seems like copy paste from other Samsung code, but isn't
+this just CSI?
+
+What is the meaning of this CSIS acronym?
 
 
 Best regards,
