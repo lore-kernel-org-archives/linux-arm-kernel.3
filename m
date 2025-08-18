@@ -4,107 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72265CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4A4CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtOEOIx+5rw6ruoieqKatcY07A3do2Iag5u4w1kVSH8=; b=dpZlbqQG0gATMnSWU6FvBysRy8
-	hmwERAxz5k4L6NKzBV1+x4kmB2ib/oIvw70UQFx6Rwz51fWTD+vU7c9tvXwaUxcMNbE0fFDNfxd7A
-	S21GP0uHEJLKnQvkQaGZC3Nj7OSkLsK36ufml9sf8YlXiRak2PSCVl0DnS/F2RAgrFrwCrbAEC8h4
-	VGYM6AJSZfqbXoZs9SLz3gmKUNFn5gsIXMXOLxRvN5kR0VWmAIIQgG+XR69arua2iGSXRkPM7Byyq
-	Bf1O9E0SSq2hYByNVyOyfEuzp3rHAln7MXGx7E8EN0J1HT/yx1rqSqWJ0nuYwLQvujXV0oFEVjrSc
-	gUc1Cj2Q==;
+	bh=lAMmpDtYCfkoYrqxpq6XktgA+w7f+7+MRuTH/F71Yto=; b=YskEw4dyLBMhqcJwsi0CkgBmv0
+	yl5lR7TQi2quF9lXk1UG6lQOFUaXyHQOw0Gj5KytcOxzUXqJ7/4LxhFTbpp07IZSwC6y1wbLevk/B
+	RiGTtf+pF2TefnyFoBEbUPfxvUz+R68Z/oI20ki5khyrH1xOCD24LC3yOxpwBVurh/umYcEE0pdRK
+	aBrXkup7n40FhFDmI5qHWE2Vwy2VCOsacmnX1dt0JoyslAawrcfcvpMxn85Iy2GtIV3/cno688YQx
+	AgTMR/R0z2ixsS6vvlhmJ235btdePcJ+z0+QzYTQTbANnzDYW8HrUHhXgELSr8x+Mg5G8JXqTpvQu
+	sxKBN1FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo08X-00000007cug-3QeX;
-	Mon, 18 Aug 2025 13:42:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uo08b-00000007d0n-0rE8;
+	Mon, 18 Aug 2025 13:43:01 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unynt-00000007JY3-3iqc;
-	Mon, 18 Aug 2025 12:17:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52929601EC;
-	Mon, 18 Aug 2025 12:17:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD5FBC113D0;
-	Mon, 18 Aug 2025 12:17:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755519453;
-	bh=pN2ktZgnpU5sK96YS6Tu1DHHMe1tgA4d0/aTsg8hRIQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UY9MJR43L0uR+Ikd9ylXHu1aOmrBA/7g3/+yN2tAuxDOj3YyjJx0UZKXzFmsx3ke1
-	 UDQe2i9fdHOCDsbeGjoNKn2sG071EmlrEC6xIX32MB/iQZI6amgVRHR3NuSbI6EjwV
-	 VRm9qdF7us/uUn+esSPNRA8ubckZ8gd7fuOh7dAVmSB7gYg+jBlXwSrUo2bgXxuyaB
-	 R0OCt5oEXS8VMDsKFUn3mQhFdf0ANPxX6saS0vAU4Gb7MqtS4cC7+R5GaIlCvnZJYm
-	 3lxoWXkBBwTTFKSh+FK9Drb/T6bxGdaGnXyyusPD/qPGIuvUAh/VLqvzJWUVrdTHn0
-	 jbBrDJEUMw+gw==
-Message-ID: <401876fa-0786-44b4-aadc-da85ee829880@kernel.org>
-Date: Mon, 18 Aug 2025 14:17:27 +0200
+	id 1unyrC-00000007Jrc-0OfN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 12:20:59 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57IBGdPu032348;
+	Mon, 18 Aug 2025 14:20:45 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	lAMmpDtYCfkoYrqxpq6XktgA+w7f+7+MRuTH/F71Yto=; b=imPR8A/OMbS0hMQf
+	3WwZBJsZBgZ7gHblZoXzYvnYc7X/T6iczc5d+LtY0DqtQ6GASKg7Ycm0Ci6buwad
+	2BAf1kBb8ziVigu8YOjExHerj0oUQht0bmp7q+OkDCZ+z3UtTBKkhv5Ap8wOZPTp
+	p+5XhS3AHJB76arlVmnvKb6TYg0K2zoAfD/YGbEjK9dRDBInLD4zUP9aBrgFlJtu
+	82kMLF/enXswDX7n+i2gDcCNQbhorwNagtOn84ECes7jx1pkHDUxYBhcDpR9bDYL
+	FywPUFxngMRZGH2ih+3tLC+oIa46mYjzSqqdELl/4Etu40VrjIpSIGThaujVu2+6
+	iM2/8w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jfdk6pkq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 Aug 2025 14:20:45 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BA1D54004A;
+	Mon, 18 Aug 2025 14:19:39 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EE2BE723768;
+	Mon, 18 Aug 2025 14:18:47 +0200 (CEST)
+Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 Aug
+ 2025 14:18:47 +0200
+Message-ID: <c8076e56-4b5a-466c-8702-0a7a596f987e@foss.st.com>
+Date: Mon, 18 Aug 2025 14:18:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mmc: Add compatible for MT8189 SoC
-To: Mengqi Zhang <mengqi.zhang@mediatek.com>,
- Chaotian Jing <chaotian.jing@mediatek.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Wenbin Mei <wenbin.mei@mediatek.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250818114855.8637-1-mengqi.zhang@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1] PCI: stm32: use pinctrl_pm_select_init_state() in
+ stm32_pcie_resume_noirq()
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
+        <alexandre.torgue@foss.st.com>, <linus.walleij@linaro.org>,
+        <linux-pci@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, kernel test robot <lkp@intel.com>
+References: <20250813190633.GA284987@bhelgaas>
+From: Christian Bruel <christian.bruel@foss.st.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250818114855.8637-1-mengqi.zhang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250813190633.GA284987@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-18_05,2025-08-14_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_052058_430996_2C577A63 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,69 +97,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2025 13:47, Mengqi Zhang wrote:
-> Add a compatible string for the MT8189 SoC's mtk-sd mmc controllers.
 
-Where is any user of that?
+
+On 8/13/25 21:06, Bjorn Helgaas wrote:
+> On Wed, Aug 13, 2025 at 01:53:19PM +0200, Christian Bruel wrote:
+>> Replace direct access to dev->pins->init_state with the new helper
+>> pinctrl_pm_select_init_state() to select the init pinctrl state.
+>> This fixes build issues when CONFIG_PINCTRL is not defined.
+>>
+>> Depends-on: <20250813081139.93201-3-christian.bruel@foss.st.com>
+>> Reported-by: Bjorn Helgaas <bhelgaas@google.com>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Closes: https://lore.kernel.org/oe-kbuild-all/202506260920.bmQ9hQ9s-lkp@intel.com/
+>> Fixes: 633f42f48af5 ("PCI: stm32: Add PCIe host support for STM32MP25")
+>> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+> 
+> I can't merge 633f42f48af5 as-is because of the build issue.
+> 
+> Pinctrl provides stubs for the non-CONFIG_PINCTRL case; the issue is
+> that 633f42f48af5 uses dev->pins, which only exists when
+> CONFIG_PINCTRL is enabled.
+> 
+> The possibilities I see are:
+> 
+>    1) Merge initial stm32 without suspend/resume support via PCI, merge
+>       pinctrl_pm_select_init_state() via pinctrl, then add stm32
+>       suspend/resume support.  pinctrl_pm_select_init_state() and stm32
+>       (without suspend/resume) would appear in v6.18, and stm32
+>       suspend/resume would be added in v6.19.
+> 
+>    2) Temporarily #ifdef the dev->pins use.  pinctrl_pm_select_init_state()
+>       and stm32 (with #ifdef) would appear in v6.18, follow-on patch to
+>       replace #ifdef with pinctrl_pm_select_init_state() would appear
+>       in v6.19.
+>    3) Merge your [1] to add pinctrl_pm_select_init_state() via PCI with
+>       Linus's ack, followed by the stm32 series with the change below
+>       squashed in.  Everything would appear in v6.18.
+
+or 4) Linus applies it in his PINCTRL branch and Mani cherry-pick it in 
+PCI. But that will be a conflict to solve when both comes to mainline.
+
+Personally I prefer 3) if Linus Acks, to break the dependency
+
+Thank you
+
+Christian
 
 > 
-> Signed-off-by: Mengqi Zhang <mengqi.zhang@mediatek.com>
-> ---
->  .../devicetree/bindings/mmc/mtk-sd.yaml       | 29 +++++++++++++++++++
->  1 file changed, 29 insertions(+)
+> I'm OK with any of these.
 > 
-> diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> index 6dd26ad31491..1285dddeaec9 100644
-> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
-> @@ -25,6 +25,7 @@ properties:
->            - mediatek,mt8135-mmc
->            - mediatek,mt8173-mmc
->            - mediatek,mt8183-mmc
-> +          - mediatek,mt8189-mmc
->            - mediatek,mt8196-mmc
->            - mediatek,mt8516-mmc
->        - items:
-> @@ -192,6 +193,7 @@ allOf:
->              - mediatek,mt8183-mmc
->              - mediatek,mt8186-mmc
->              - mediatek,mt8188-mmc
-> +            - mediatek,mt8189-mmc
+> [1] https://lore.kernel.org/r/20250813081139.93201-1-christian.bruel@foss.st.com
+> 
+>> ---
+>> Changes in v1:
+>>   - pinctrl_pm_select_init_state() return 0 if the state is not defined.
+>>     No need to test as pinctrl_pm_select_default_state() is called.
+>> ---
+>>   drivers/pci/controller/dwc/pcie-stm32.c | 10 +++-------
+>>   1 file changed, 3 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+>> index 50fae5f5ced2..8501b9ed0633 100644
+>> --- a/drivers/pci/controller/dwc/pcie-stm32.c
+>> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
+>> @@ -90,14 +90,10 @@ static int stm32_pcie_resume_noirq(struct device *dev)
+>>   
+>>   	/*
+>>   	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
+>> -	 * thus if no device is present, must force it low with an init pinmux
+>> -	 * to be able to access the DBI registers.
+>> +	 * thus if no device is present, must deassert it with a GPIO from
+>> +	 * pinctrl pinmux before accessing the DBI registers.
+>>   	 */
+>> -	if (!IS_ERR(dev->pins->init_state))
+>> -		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
+>> -	else
+>> -		ret = pinctrl_pm_select_default_state(dev);
+>> -
+>> +	ret = pinctrl_pm_select_init_state(dev);
+>>   	if (ret) {
+>>   		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
+>>   		return ret;
+>> -- 
+>> 2.34.1
+>>
 
-huh? This sets the clocks
-
->              - mediatek,mt8195-mmc
->              - mediatek,mt8196-mmc
->              - mediatek,mt8516-mmc
-> @@ -240,6 +242,7 @@ allOf:
->                - mediatek,mt7986-mmc
->                - mediatek,mt7988-mmc
->                - mediatek,mt8183-mmc
-> +              - mediatek,mt8189-mmc
->                - mediatek,mt8196-mmc
->      then:
->        properties:
-> @@ -319,6 +322,32 @@ allOf:
->              - const: source_cg
->              - const: crypto
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: mediatek,mt8189-mmc
-> +    then:
-> +      properties:
-> +        clocks:
-> +         items:
-
-As this as well..
-
-And obviously never tested.
-
-Please don't send untested (and buggy) code :(. Why do you think
-reviewers should spend time on it instead of tools?
-
-Best regards,
-Krzysztof
 
