@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B152BCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E5ECA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=90mC3YfXWKN74giepEOw1+2cwm+ae/kwLy7HbQ/iXSY=; b=L3xXqrcu3mAhUuKS9RC1r7XVkq
-	9T4U7Bl3ZdIfzOUEnkEUMYHsKGRFtTipHzKVfPj6Kzroetvoo7oxz2O7WzR3JwXdmvXub3hZ7zNEE
-	12Xjcn2hz0oVRv7+FROIBbqEErAtT5PDQUM1kNYBEQfYTVGIrKYgorOp5sJBXXsCCN5MCq1qeP4Oo
-	+i6cVdiIv+N6e7p6+TjQLPlyr3Zx6SCCx40kPmlsiqxv4uHCvX7FYv3bCzEanYEu/yubblRTTCaXb
-	hL8RB4rFzWhnhX8S+BtA8kkLM69qpEJauBUeNEgaZteWYJiXJ9kD1oxfIEqwocjchiSSezPe4GhYk
-	GjCRXlSA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IrXOA5qBp7UmuxAwCeAwzpJRjrgLmrT0KHpQlRdl3E=; b=aOd6wEo5SHx1y7O2PzLmMpIKGT
+	N5zTMMS+zbTMSc69JggDWLhsrnhArAzV+YmonzKlTCJi6R2TY2PYuWnDuxa7f0zekW5mFxoW56ZKo
+	TrkjtgRUvenCiNs+/HteApa2a6Ci2LJpbeBiacycfmyxmKmeOBUouOgDA0dDgSgKgHSrZ2XLCcOqd
+	eLw9KkEdusVrsM9ivZ0ro0Udle/9CwizZiUWzoE982AMnc0FqVEg0faiQ/kWsXrJKaE5UpHJXYEe+
+	0ff1hmXI+h8mxZa3QAdDBjW8xnzipXLk0vkc6HqGqy5S0fbGvwut9AjlDPa7JKCK1v2Fd2G/3d897
+	jILK9GWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1AV-00000007p0t-0bvR;
+	id 1uo1AV-00000007p1x-2hqz;
 	Mon, 18 Aug 2025 14:49:03 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unxzG-00000007EBr-2P2a
+	id 1unxzH-00000007EBq-0zal
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 11:25:16 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IBOWiF2705411;
-	Mon, 18 Aug 2025 06:24:32 -0500
+	Mon, 18 Aug 2025 11:25:17 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57IBOYnP2705423;
+	Mon, 18 Aug 2025 06:24:34 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755516272;
-	bh=90mC3YfXWKN74giepEOw1+2cwm+ae/kwLy7HbQ/iXSY=;
-	h=From:To:CC:Subject:Date;
-	b=eoyyS6nM4eDavWN/fCQubJRccfaSXee/fITxqMMEenm6T96qKTAwwee8QH/GkBhTw
-	 6BdKVe1Ahm4aVJdx6vH6AHsB0dkK3EqIG7ZN9qMVkoYov+UNvJZoAjtzRXFbe47qVI
-	 PCPaqOrAmBrNJnplh6gg/SKBRmaAku86+KgjUgRo=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IBOWw7258313
+	s=ti-com-17Q1; t=1755516274;
+	bh=8IrXOA5qBp7UmuxAwCeAwzpJRjrgLmrT0KHpQlRdl3E=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=KGVYeQI0pauz4cP5DV1dk60G7VjgnRgJLvscvE+oL+B+rvPURcElXnhKcaPl8zdwY
+	 DD5W5ET9TTa3+xrh++w/zxTqAbdhTOpKqLjCrx7/royP0ODrfDDM38mOLPRlykNFVA
+	 9wu2YrXGs65roKzWUHwKrhdo9Sjr7hxLHvDUfNQc=
+Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57IBOYfS478350
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 18 Aug 2025 06:24:32 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 18 Aug 2025 06:24:34 -0500
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
- Aug 2025 06:24:31 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 06:24:33 -0500
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 18 Aug 2025 06:24:31 -0500
+ Frontend Transport; Mon, 18 Aug 2025 06:24:33 -0500
 Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IBOVj93651277;
-	Mon, 18 Aug 2025 06:24:31 -0500
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57IBOXuT3720917;
+	Mon, 18 Aug 2025 06:24:33 -0500
 Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 57IBOT19011654;
-	Mon, 18 Aug 2025 06:24:30 -0500
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 57IBOW3D011686;
+	Mon, 18 Aug 2025 06:24:33 -0500
 From: Meghana Malladi <m-malladi@ti.com>
 To: <namcao@linutronix.de>, <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
         <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
@@ -69,18 +69,19 @@ CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
         Vignesh Raghavendra
 	<vigneshr@ti.com>,
         Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next 0/6] net: ti: icssg-prueth: Add AF_XDP zero copy support
-Date: Mon, 18 Aug 2025 16:54:18 +0530
-Message-ID: <20250818112424.3068643-1-m-malladi@ti.com>
+Subject: [PATCH net-next 1/6] net: ti: icssg-prueth: Add functions to create and destroy Rx/Tx queues
+Date: Mon, 18 Aug 2025 16:54:19 +0530
+Message-ID: <20250818112424.3068643-2-m-malladi@ti.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250818112424.3068643-1-m-malladi@ti.com>
+References: <20250818112424.3068643-1-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_042514_743169_EB69A2DF 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_042515_367300_B40658FA 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +96,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds AF_XDP zero coppy support to icssg driver.
+Each port for a given ICSSG instance has their own set of
+Tx and Rx queues. These functions will be further used while
+performing ndo_bpf operations to set up the Tx/Rx queues for
+a given port.
 
-Tests were performed on AM64x-EVM with xdpsock application [1].
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_common.c |   6 +-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 193 +++++++++++++------
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |   2 +
+ 3 files changed, 139 insertions(+), 62 deletions(-)
 
-A clear improvement is seen Transmit (txonly) and receive (rxdrop)
-for 64 byte packets. 1500 byte test seems to be limited by line
-rate (1G link) so no improvement seen there in packet rate
-
-Having some issue with l2fwd as the benchmarking numbers show 0
-for 64 byte packets after forwading first batch packets and I am
-currently looking into it.
-
-AF_XDP performance using 64 byte packets in Kpps.
-Benchmark:	XDP-SKB		XDP-Native	XDP-Native(ZeroCopy)
-rxdrop		259		462		645
-txonly		350		354		760
-l2fwd 		178		240		0
-
-AF_XDP performance using 1500 byte packets in Kpps.
-Benchmark:	XDP-SKB		XDP-Native	XDP-Native(ZeroCopy)
-rxdrop		82		82		82
-txonly		81		82		82
-l2fwd 		81		82		82
-
-[1]: https://github.com/xdp-project/bpf-examples/tree/master/AF_XDP-example
-
-Meghana Malladi (6):
-  net: ti: icssg-prueth: Add functions to create and destroy Rx/Tx
-    queues
-  net: ti: icssg-prueth: Add XSK pool helpers
-  net: ti: icssg-prueth: Add AF_XDP zero copy for TX
-  net: ti: icssg-prueth: Make emac_run_xdp function independent of page
-  net: ti: icssg-prueth: Add AF_XDP zero copy for RX
-  net: ti: icssg-prueth: Enable zero copy in XDP features
-
- drivers/net/ethernet/ti/icssg/icssg_common.c | 399 +++++++++++++++++--
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 379 +++++++++++++++---
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  26 +-
- 3 files changed, 696 insertions(+), 108 deletions(-)
-
-
-base-commit: 715c7a36d59f54162a26fac1d1ed8dc087a24cf1
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 57e5f1c88f50..5d31873492b6 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -804,7 +804,7 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 	return ret;
+ }
+ 
+-static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
++void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_rx_chn *rx_chn = data;
+ 	struct cppi5_host_desc_t *desc_rx;
+@@ -822,6 +822,7 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+ 
+ 	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+ }
++EXPORT_SYMBOL_GPL(prueth_rx_cleanup);
+ 
+ static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
+ {
+@@ -1025,7 +1026,7 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+ }
+ EXPORT_SYMBOL_GPL(icssg_ndo_start_xmit);
+ 
+-static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
++void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_tx_chn *tx_chn = data;
+ 	struct cppi5_host_desc_t *desc_tx;
+@@ -1051,6 +1052,7 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ 
+ 	prueth_xmit_free(tx_chn, desc_tx);
+ }
++EXPORT_SYMBOL_GPL(prueth_tx_cleanup);
+ 
+ irqreturn_t prueth_rx_irq(int irq, void *dev_id)
+ {
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 6c7d776ae4ee..687249402c38 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -689,6 +689,103 @@ static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+ 	return 0;
+ }
+ 
++static void prueth_destroy_txq(struct prueth_emac *emac)
++{
++	int ret, i;
++
++	atomic_set(&emac->tdown_cnt, emac->tx_ch_num);
++	/* ensure new tdown_cnt value is visible */
++	smp_mb__after_atomic();
++	/* tear down and disable UDMA channels */
++	reinit_completion(&emac->tdown_complete);
++	for (i = 0; i < emac->tx_ch_num; i++)
++		k3_udma_glue_tdown_tx_chn(emac->tx_chns[i].tx_chn, false);
++
++	ret = wait_for_completion_timeout(&emac->tdown_complete,
++					  msecs_to_jiffies(1000));
++	if (!ret)
++		netdev_err(emac->ndev, "tx teardown timeout\n");
++
++	for (i = 0; i < emac->tx_ch_num; i++) {
++		k3_udma_glue_reset_tx_chn(emac->tx_chns[i].tx_chn,
++					  &emac->tx_chns[i],
++					  prueth_tx_cleanup);
++		k3_udma_glue_disable_tx_chn(emac->tx_chns[i].tx_chn);
++		napi_disable(&emac->tx_chns[i].napi_tx);
++		hrtimer_cancel(&emac->tx_chns[i].tx_hrtimer);
++	}
++}
++
++static void prueth_destroy_rxq(struct prueth_emac *emac)
++{
++	int i;
++
++	/* tear down and disable UDMA channels */
++	reinit_completion(&emac->tdown_complete);
++	k3_udma_glue_tdown_rx_chn(emac->rx_chns.rx_chn, true);
++
++	wait_for_completion_timeout(&emac->tdown_complete,
++				    msecs_to_jiffies(1000));
++
++	for (i = 0; i < PRUETH_MAX_RX_FLOWS; i++) {
++		k3_udma_glue_reset_rx_chn(emac->rx_chns.rx_chn, i,
++					  &emac->rx_chns,
++					  prueth_rx_cleanup);
++	}
++	napi_disable(&emac->napi_rx);
++	hrtimer_cancel(&emac->rx_hrtimer);
++	prueth_destroy_xdp_rxqs(emac);
++	k3_udma_glue_disable_rx_chn(emac->rx_chns.rx_chn);
++
++	emac->rx_chns.pg_pool = NULL;
++}
++
++static int prueth_create_txq(struct prueth_emac *emac)
++{
++	int ret, i;
++
++	for (i = 0; i < emac->tx_ch_num; i++) {
++		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
++		if (ret)
++			goto reset_tx_chan;
++		napi_enable(&emac->tx_chns[i].napi_tx);
++	}
++	return 0;
++
++reset_tx_chan:
++	/* Since interface is not yet up, there is wouldn't be
++	 * any SKB for completion. So set false to free_skb
++	 */
++	prueth_reset_tx_chan(emac, i, false);
++	return ret;
++}
++
++static int prueth_create_rxq(struct prueth_emac *emac)
++{
++	int ret;
++
++	ret = prueth_prepare_rx_chan(emac, &emac->rx_chns, PRUETH_MAX_PKT_SIZE);
++	if (ret)
++		return ret;
++
++	ret = prueth_create_xdp_rxqs(emac);
++	if (ret)
++		goto reset_rx_chn;
++
++	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
++	if (ret)
++		goto destroy_xdp_rxqs;
++
++	napi_enable(&emac->napi_rx);
++	return 0;
++
++destroy_xdp_rxqs:
++	prueth_destroy_xdp_rxqs(emac);
++reset_rx_chn:
++	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
++	return ret;
++}
++
+ /**
+  * emac_ndo_open - EMAC device open
+  * @ndev: network adapter device
+@@ -700,7 +797,7 @@ static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+ static int emac_ndo_open(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+-	int ret, i, num_data_chn = emac->tx_ch_num;
++	int ret, num_data_chn = emac->tx_ch_num;
+ 	struct icssg_flow_cfg __iomem *flow_cfg;
+ 	struct prueth *prueth = emac->prueth;
+ 	int slice = prueth_emac_slice(emac);
+@@ -772,28 +869,13 @@ static int emac_ndo_open(struct net_device *ndev)
+ 		goto stop;
+ 
+ 	/* Prepare RX */
+-	ret = prueth_prepare_rx_chan(emac, &emac->rx_chns, PRUETH_MAX_PKT_SIZE);
++	ret = prueth_create_rxq(emac);
+ 	if (ret)
+ 		goto free_tx_ts_irq;
+ 
+-	ret = prueth_create_xdp_rxqs(emac);
+-	if (ret)
+-		goto reset_rx_chn;
+-
+-	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
++	ret = prueth_create_txq(emac);
+ 	if (ret)
+-		goto destroy_xdp_rxqs;
+-
+-	for (i = 0; i < emac->tx_ch_num; i++) {
+-		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
+-		if (ret)
+-			goto reset_tx_chan;
+-	}
+-
+-	/* Enable NAPI in Tx and Rx direction */
+-	for (i = 0; i < emac->tx_ch_num; i++)
+-		napi_enable(&emac->tx_chns[i].napi_tx);
+-	napi_enable(&emac->napi_rx);
++		goto destroy_rxq;
+ 
+ 	/* start PHY */
+ 	phy_start(ndev->phydev);
+@@ -804,15 +886,8 @@ static int emac_ndo_open(struct net_device *ndev)
+ 
+ 	return 0;
+ 
+-reset_tx_chan:
+-	/* Since interface is not yet up, there is wouldn't be
+-	 * any SKB for completion. So set false to free_skb
+-	 */
+-	prueth_reset_tx_chan(emac, i, false);
+-destroy_xdp_rxqs:
+-	prueth_destroy_xdp_rxqs(emac);
+-reset_rx_chn:
+-	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, false);
++destroy_rxq:
++	prueth_destroy_rxq(emac);
+ free_tx_ts_irq:
+ 	free_irq(emac->tx_ts_irq, emac);
+ stop:
+@@ -842,9 +917,6 @@ static int emac_ndo_stop(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
+-	int rx_flow = PRUETH_RX_FLOW_DATA;
+-	int max_rx_flows;
+-	int ret, i;
+ 
+ 	/* inform the upper layers. */
+ 	netif_tx_stop_all_queues(ndev);
+@@ -858,32 +930,8 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 	else
+ 		__dev_mc_unsync(ndev, icssg_prueth_del_mcast);
+ 
+-	atomic_set(&emac->tdown_cnt, emac->tx_ch_num);
+-	/* ensure new tdown_cnt value is visible */
+-	smp_mb__after_atomic();
+-	/* tear down and disable UDMA channels */
+-	reinit_completion(&emac->tdown_complete);
+-	for (i = 0; i < emac->tx_ch_num; i++)
+-		k3_udma_glue_tdown_tx_chn(emac->tx_chns[i].tx_chn, false);
+-
+-	ret = wait_for_completion_timeout(&emac->tdown_complete,
+-					  msecs_to_jiffies(1000));
+-	if (!ret)
+-		netdev_err(ndev, "tx teardown timeout\n");
+-
+-	prueth_reset_tx_chan(emac, emac->tx_ch_num, true);
+-	for (i = 0; i < emac->tx_ch_num; i++) {
+-		napi_disable(&emac->tx_chns[i].napi_tx);
+-		hrtimer_cancel(&emac->tx_chns[i].tx_hrtimer);
+-	}
+-
+-	max_rx_flows = PRUETH_MAX_RX_FLOWS;
+-	k3_udma_glue_tdown_rx_chn(emac->rx_chns.rx_chn, true);
+-
+-	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, true);
+-	prueth_destroy_xdp_rxqs(emac);
+-	napi_disable(&emac->napi_rx);
+-	hrtimer_cancel(&emac->rx_hrtimer);
++	prueth_destroy_txq(emac);
++	prueth_destroy_rxq(emac);
+ 
+ 	cancel_work_sync(&emac->rx_mode_work);
+ 
+@@ -896,10 +944,10 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 
+ 	free_irq(emac->tx_ts_irq, emac);
+ 
+-	free_irq(emac->rx_chns.irq[rx_flow], emac);
++	free_irq(emac->rx_chns.irq[PRUETH_RX_FLOW_DATA], emac);
+ 	prueth_ndev_del_tx_napi(emac, emac->tx_ch_num);
+ 
+-	prueth_cleanup_rx_chns(emac, &emac->rx_chns, max_rx_flows);
++	prueth_cleanup_rx_chns(emac, &emac->rx_chns, PRUETH_MAX_RX_FLOWS);
+ 	prueth_cleanup_tx_chns(emac);
+ 
+ 	prueth->emacs_initialized--;
+@@ -1083,11 +1131,36 @@ static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frame
+ static int emac_xdp_setup(struct prueth_emac *emac, struct netdev_bpf *bpf)
+ {
+ 	struct bpf_prog *prog = bpf->prog;
++	struct bpf_prog *old_prog;
++	int ret;
+ 
+ 	if (!emac->xdpi.prog && !prog)
+ 		return 0;
+ 
+-	WRITE_ONCE(emac->xdp_prog, prog);
++	if (netif_running(emac->ndev)) {
++		prueth_destroy_txq(emac);
++		prueth_destroy_rxq(emac);
++	}
++
++	old_prog = xchg(&emac->xdp_prog, prog);
++	if (old_prog)
++		bpf_prog_put(old_prog);
++
++	if (netif_running(emac->ndev)) {
++		ret = prueth_create_rxq(emac);
++		if (ret) {
++			netdev_err(emac->ndev, "Failed to create RX queue: %d\n", ret);
++			return ret;
++		}
++
++		ret = prueth_create_txq(emac);
++		if (ret) {
++			netdev_err(emac->ndev, "Failed to create TX queue: %d\n", ret);
++			prueth_destroy_rxq(emac);
++			emac->xdp_prog = NULL;
++			return ret;
++		}
++	}
+ 
+ 	xdp_attachment_setup(&emac->xdpi, bpf);
+ 
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index ca8a22a4a5da..e0dadbfca45a 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -497,5 +497,7 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
+ 			struct xdp_frame *xdpf,
+ 			struct page *page,
+ 			unsigned int q_idx);
++void prueth_rx_cleanup(void *data, dma_addr_t desc_dma);
++void prueth_tx_cleanup(void *data, dma_addr_t desc_dma);
+ 
+ #endif /* __NET_TI_ICSSG_PRUETH_H */
 -- 
 2.43.0
 
