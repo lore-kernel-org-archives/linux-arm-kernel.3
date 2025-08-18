@@ -4,158 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15CDCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49CFCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zk4kHkD4qc56SNF8M0SYlq6+9z2CO+E7k8Kg3ZRPmp8=; b=QyrsYV1F60fh5NYKgSJarGaP6i
-	WPGWUVWNgeOfi5HnRHLOcO5MGz0QPC/bXLnCJ+H/NPJN6gl8MrUst/LtLABXN4auoJqo+e+mwCYcJ
-	jsR1CBVtOuCKQpY0rs2HQLqE2S8SNYfg4EYkKxJNsWOT+G14MZMFvGuJm6Qgu95yMe1yOpsF2lxK1
-	Fvqg5Gp64JyqYYaDQ6g07ouBEVRIW/DGsIDqmCofW3Z6rh73bw4X/RY/T131egFwhmkvQTUoIFrRE
-	6paQJepWEUhQoPNct5LNUmmqsBRLne+UuXiOlQUbvgeBsLUw0OkmiYy11sqnRcbOSNRtsqGC+WYGz
-	Tn1QGQWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2VylDR1oWkJ0EiX1c8eLC+dJ8zDkBar7+OrlY7elEsc=; b=ejg68GM1Enkh7koK+U1HWtuns6
+	HnKfXmxGZWpXzvnJOettf2C0mafYr8cmILAAuZPWTH769ZlxpcxnX6st26nEIOUMA3+IADgDROdlo
+	JhfpBiCcgs5u7VEMBgxiQ19B7ZHf4fywcVDxae4i/rttSnBtVZIWDuPNkh4t7KBGkb665UunX4ydc
+	lKrmTczEZIXLzPOr5Vxad8WQOVwVKQGUNphL7iwepMLgUqtvekXDCRC/AoUNgLXLJ0jYQlgzxsVVB
+	+mbtMYdRrS8U76cLyMVY04gm3sv+IRhENDdsxiZ90ME3Eh05ZEqfQOAqS5yPShk0AvpcCkrPQPeyO
+	TAxz1yhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hL-000000088gf-1NC1;
-	Mon, 18 Aug 2025 17:31:07 +0000
-Received: from mail-bn8nam11on2061.outbound.protection.outlook.com ([40.107.236.61] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uo3hN-000000088lc-1yUJ;
+	Mon, 18 Aug 2025 17:31:09 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo12g-00000007mdF-2CLK;
-	Mon, 18 Aug 2025 14:40:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wf+QnQlg1AfV6RPIYbIxHzLZvX3RfMSS6jxslBSKLabSEBVcTtFNjZKXvl/EShnruDKUqvq9jIWDhZwbsnsouOaW3biDmUX+AVrLHYRABgWabD7DkTWO8a0+kmJbKJnGBSIDzBC/XuClcIflWxfv+SsPgWQ1SLNXkPHk1IssEKbpGxrNonjL3xbhrDperFKJdq7u+j6DMOoA6qfnitgHXotqyaoHLHUWjiKsECV5yWhQDjcSgo8O+5kmwPhL0t4zvk6VokVNkT+LIMQnNbjZ2PiYzXf/EDPpzgZIOWfgMQ8xTJm49VdVKb3hasbyMWRP+VC8h1ulKkNR0miAG36iHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zk4kHkD4qc56SNF8M0SYlq6+9z2CO+E7k8Kg3ZRPmp8=;
- b=nB5AbpTnSmhJbOItJuegiW9eMMZ2us/DuTmHS+JfG7/2Q5VGhEPE5lK1OuXVwfxaF7SfgA7keShy2yzIYOonP+9DajhyFBxUDkJcKZgNPZ8TJeW1stSQ2Um36vbWBw3g4K8q5X+1/sv6BZmx/HVuJcvHXs6HGU9e9Mn0q7e3vJwl2loU+9FEIUnnaGXc61T2BulEG9K5dLCR++VOY54/TB480Q1AaBDkW+dyiwhvDw9W68AfY8oz1IoL9WGmR0HWFAxDZBhrUL44ZBAuuqQxlvJYvEn3K9W5doddLdJtdFD+Mp1SGB0nRjfHrUhi0lTu3he7c4FvrqmyDAzVRxtUNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zk4kHkD4qc56SNF8M0SYlq6+9z2CO+E7k8Kg3ZRPmp8=;
- b=T4hWLo324bQTlso0vC0K7nu0JvTdA4xi0QN2F0ZWCH0vzzNlYG+l+prmaCfBq1uRCtqtPEhNhghYFA/z+jeM6dW4m6Ja2d+ZMnCptLY/xViX7ckEJUlZJSDHgAmUMwU8Zo32Z4+p6L+C4TgX91wrf1XxHXI2vQ4V9wXqJIGCkj7DyMO/P3cuB5xq8md0bq80lj4kM9xZehaU5vy9kkcB1ukdVxrOYoUBUoYh4Bn+ozLw9M/o5Ft8gjyIZ69avCOUXI3q+rS5roS9PZf5cE2WTjuFgsR0Mbp2GI8apq9TwNfDT6YIBVqy1XeIovJPKggBVa4v/Cb6dfx6VXXP6LVXtQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SA1PR12MB9490.namprd12.prod.outlook.com (2603:10b6:806:45b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.16; Mon, 18 Aug
- 2025 14:40:54 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
- 14:40:54 +0000
-Date: Mon, 18 Aug 2025 11:40:51 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, robin.murphy@arm.com,
-	joro@8bytes.org, bhelgaas@google.com, will@kernel.org,
-	robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
-	yi.l.liu@intel.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, patches@lists.linux.dev,
-	pjaroszynski@nvidia.com, vsethi@nvidia.com, helgaas@kernel.org,
-	etzhao1900@gmail.com
-Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
- helper
-Message-ID: <20250818144051.GP802098@nvidia.com>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
- <aeb04f91-ffce-4092-8dbc-17d116cd7c7e@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aeb04f91-ffce-4092-8dbc-17d116cd7c7e@linux.intel.com>
-X-ClientProxiedBy: BYAPR04CA0013.namprd04.prod.outlook.com
- (2603:10b6:a03:40::26) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uo13u-00000007moe-2xIV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 14:42:15 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3b9d41baedeso2231462f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 07:42:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755528133; x=1756132933; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2VylDR1oWkJ0EiX1c8eLC+dJ8zDkBar7+OrlY7elEsc=;
+        b=NTYUswumgqVmfr0ECFVizOkBs1wvrHEyvG5rKcQ9jWIM1T2k7s/2wRrmh+1f2Vua9w
+         0IP8yB7s3fsU0dV+XREjGmJ2ES00LuP4tbn7kPyksdpKeZyzMVU79jTcQqdx8bStXxHe
+         5z6ZXYPoPepJIiyxKCvznLGf9FRAsrXtxnOtoiSeW8mrkVGfIi5oujvJisJWaLgwUKam
+         C+S05hmjVyUDwVy2OPkCTvi6EGeADCJrGLPCzZ4mWuZt1bchOWM7+SuK+GmJ/xmgtOPi
+         o5/wkY4yFh/wnbtwFzisuOip9GXwJmfJdq0zYBnvoHdLa+Pvbqaj4coDnGi8BRWJO5Pt
+         ss1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755528133; x=1756132933;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2VylDR1oWkJ0EiX1c8eLC+dJ8zDkBar7+OrlY7elEsc=;
+        b=v2BydnstlHJ4nvLRTmCdiRnA/p/Hys08NPKUYakMfSVJCSHSGmOtr9TZb8wr0d7ed2
+         7nIut4g827/ks1Co8SnFotPHk13CNeeRP8cKlwuds+cyanEQeTLyf/hmzs37XFI5dTS+
+         KsUfIgncKrac07zjsL7VPsKZBjszfmAw7Ma/+A8G9HGWpo18h6/XAkiTr1hiq4cRa3DC
+         XbrTRqkENUxRLaL1ZNdNyG86QEhaE4wTEmzFDiABW1R1soJgASgFQTXO43zGBumkBmX/
+         pZmM9jIPmfbvoclvMTbZKT8uz7jIH265CHBdqoWzt33ecGnWQ06bDgo3ne4hYNo7H5B4
+         i7CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVOhoi+YjxjBeK7nbkNaguisUcfk03sVneg8jSK3n4bj7c0PCHk1YbGEVvYbE/BitBmyf1NQyJvN8sbwCFOnVGw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbJ6edPXNx8b5N3ZvJT8i6eOmx13dkIBOjBnWcfXpL85M+O0fr
+	sPh3zOOaJXomXlEanzwI+Kpy0gP9AjfOKyCbfQVAM3KPj1F+QG7eBWXKzcz7Vf6Po95Zm3UEbRc
+	2EvTXVh8xxygdzTVw+VNBGkXdRMzYOWM=
+X-Gm-Gg: ASbGncsQvI/G4f3JFuo4mYsOrXIDi5CSUE+AwTsZIvDt+SutV/87ZjnGSzB9RrxNfRO
+	pWe1ugRxKA47sihNRjYydRbbMAQVVxOEBad7+o3K0vbGBgKJySnx0pedUoWJO6d10FO6hIrtF+H
+	XYDLgw4/SxuvKsXKXW3jN6c5Qa1MNkU4Z88SS2pO6R3Yz5VVOHKPXhJf+rDUbQeWlXA7grBqcA7
+	SLOO2Yz9g==
+X-Google-Smtp-Source: AGHT+IF6uyFUGlyDCHbyGxLbiebW15nl1dAN+7KqllTQkgQUSLDjBnckdQ4PrtuCjAiIJxTGaqJ/sn4x3b+8l/vlLUI=
+X-Received: by 2002:a05:6000:24c5:b0:3a4:f50b:ca2 with SMTP id
+ ffacd0b85a97d-3bb6636cb19mr9221513f8f.8.1755528132931; Mon, 18 Aug 2025
+ 07:42:12 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB9490:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd4a396e-c398-4a45-a8b5-08ddde653c0d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IQckryFAjENWddx5TCU7fyBd8PLDncG/8POZInB6i1rJlV5Bs05x5hiYgVHf?=
- =?us-ascii?Q?/o1fXEzP3ovPIqBfDHRrLfg4H7QLfNTBeCZhFgb3zkWg2sz5lVCYa4tcXbCo?=
- =?us-ascii?Q?pDioJHjaE9WwIO5oOCGcDZGfEnZMX3m0EXPUJF//s1BFWjqnnLIMJI13Z+22?=
- =?us-ascii?Q?5YpLCu8nK2sy+a0z4mf9FtiUFk4PsOtf2oxlusqbADvgYQofQK1uuVBg86kq?=
- =?us-ascii?Q?vYJKQdOo28Y3N7tJ3jxsn8LHIpyGTmG/QWHTxiYkMSP4OIsKL10QzE5mmg52?=
- =?us-ascii?Q?VHC2Qn/pzaETupKdvE9dV7e4JQFJT9LyaKUeCg7wjGuJjaogmkg8WBRWU1tZ?=
- =?us-ascii?Q?LOfrdNlPIGta2nzF2c3jE1RUjvlbazYw7XbMEq189Q3GxeQzkFVEzs4rxcL6?=
- =?us-ascii?Q?r94U9u293CkXIqf1RIkkJ8Za58rWxuL2ZNHI9722rKRB2hF1ego8fI6+uVdf?=
- =?us-ascii?Q?tcWF3r0sOd7OLIlqK6y7rgxOOH1AvteUQnho7ICBs1zbUccUBu+PIgnysCEO?=
- =?us-ascii?Q?u+X2p5KdvJYrd5hWFXmsjannhgeHo51c/jV3ASly6ftn8oPk2m1/EXvbCfnE?=
- =?us-ascii?Q?NkqU0O1B6+raG8duOzsFJ01BQONsij9uDwTS/MiSpCdgsC2mYi+a+jsny5qt?=
- =?us-ascii?Q?rCI1WjhFDv9yXyiXcDOMboYiRneNod5dVL/48lCNe+enML3YnhC0M+utJTwY?=
- =?us-ascii?Q?KK8GLC41i62/w6uq3x9HoWqfzVdTy2CZnJZYpzb1KmC2U4iXX5m7JzQe5SWn?=
- =?us-ascii?Q?EZaqQYd5eUbg0/+LCMiwKAs32Jurdvcjix5Pg1Ow49onZg56wnvXAfPl26vw?=
- =?us-ascii?Q?ULiXQKkqiU602iwiWj1SK/k4hylynT4JLAnCoy5PchO1qReL2n/eTUvFC7bU?=
- =?us-ascii?Q?1lVN+KMjgabxzfYJCiI8AYMR0HT2XIcHmw3wgfi0jZAahMKtBI+H7MfmRBS8?=
- =?us-ascii?Q?oY78wD0fiIZCgk6v6DCZG8/5C/FPSPcN92Iicb52lEkW6LiXckLRnWl/uNcj?=
- =?us-ascii?Q?XBsPkizHuUp0ioQ5ZiWN4ThXfQVL4nbD0N9nyyZN//fSNSurTYItx7MhrhMb?=
- =?us-ascii?Q?9+IYZzeWMKmqvYzuPAQiCoY675jKJQQvxuZMF7UENGpnxK2n+QKyUWU6W6rX?=
- =?us-ascii?Q?HLJ/Qr0E3MupPLUx2BSMi/+8OioSKedBfnWZE9pJzX346a9QDNbK3fsYT/hy?=
- =?us-ascii?Q?BNrHSZOcYGVAAsVARiScNQPeIvFSld6OJqZkCkSKiwuGeo8Vp2HD9efF8gaz?=
- =?us-ascii?Q?Q1mWxm/mDOd0kOMHdBFfJKVHr/kLcDyi//Atw4eQL9ogOPVa/tpgtaVFQCwM?=
- =?us-ascii?Q?JVdApX6/3xlYJQX3Pp2oa14cRHzQIrrEQAXMiu1SE5rdlamJb3AVz7h2C0TG?=
- =?us-ascii?Q?Px8vmoAoJFbu82EzWRPKxF9LKg08FGf5s8J1zGv1q+kpK/EAEK4a1LPthouR?=
- =?us-ascii?Q?ChySmyxgu0g=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FOFWn7Gmb6gK32/tX1nbeqMQJ79Ixof+yIjj3SlRgUXA+3cvojM3NmEa8ZCm?=
- =?us-ascii?Q?CVcjY/wrG+ssu6MhgutROjmngCpNwBFtKHi9RhcmzxmKz6nHx1Y6b53kJeEl?=
- =?us-ascii?Q?EsgWRlKKsojWPcy60LdjOKWnhudedmX6UZwlKCj9UZAEQCUIJ5ugQxSZVsEO?=
- =?us-ascii?Q?6R/xsLvCm/JKmGT/Zj+y4WMtssft3N9nrkdvVmpnHBp8lF7o0ngtEVSkXWeD?=
- =?us-ascii?Q?uS+v1qqHITGaUmqj+7IqtWVDdzVkubYhoqDymqJ+mYsqxXYWzySg+DY2CXsL?=
- =?us-ascii?Q?mRG9+mi8tUP6ljfxtEFW9h2TRTju4BK5YwdBpx5U2GAUxW/hEvuElEGGk4N/?=
- =?us-ascii?Q?ZuwZeo6/COyUWto7dCoS1NzQkWZlcwW/XphlhdKgHilsNXQmc8O0QMsht61f?=
- =?us-ascii?Q?u0/5jp4kpq7r+YmGSGLDzibWM58XIdnlIomefAgfRJYBCcbdOIRokcKqgUfS?=
- =?us-ascii?Q?3VD5N+BclNuOCiBT20Gj4EzYnzy1BSzRJS+xa/zvg7dS8Yg+8ndmTbdXNqix?=
- =?us-ascii?Q?L/49ItPeKr6zYSBXMmlIniGFnVPiEIKRCRXKlgrpryeQjduOT4A/QRlmH8RZ?=
- =?us-ascii?Q?8fy2s5+mcarSF86ZN5BFgRXV6phNBbWmdwpVL3bnwsLOTb7xTtfsd8GXyj7X?=
- =?us-ascii?Q?vub5jLmfFvlHd7ZVduPQtPPjLevoe7FRIWubkNMJUVzMVVufDAwmuxL2GM5X?=
- =?us-ascii?Q?kz+LVTd7rwLMIKM0tyxRPKlnz0rJbQkSEibePb29Q6Yzm5m9nzvzdUkxWuU9?=
- =?us-ascii?Q?r0WeYeYj7Sj+OZoRCsw1k0dADf1a6pj5N0ZnKyXZ7B98oX7/rR9pO3vLbU/Q?=
- =?us-ascii?Q?5xq7yjdTSu/5DjA7vMJxvWnNRu+o+xoYPrXNOkQ3rppoIQ731KH4EepQBEOh?=
- =?us-ascii?Q?e2Mv8SvCwagQbgb/4+UVNU3w7kJZzJQ3F27UKf5OBuWrE9hcOprYVKJryV81?=
- =?us-ascii?Q?F4IuYN15ki0X74GSaaSRq/7vXas/3QU/VjQmDExvrcqDVFB4REGXjY9vkImx?=
- =?us-ascii?Q?gMD28VW/mMS8IdI4pHjbRgg6J0yQDb/74u+AC/ZpmYi7iT2+2GARO5nZ6g/Z?=
- =?us-ascii?Q?6/OkrZ3SM9IWkYiPSexm5SFtlPHmcKC4AZXmbLzSNPUjl26PseoUmWRSEpDb?=
- =?us-ascii?Q?0Iw3yro4gBywQs1nwAxjZhEo2C/KU3mdrh9TMcFYl834jT7AAyf9iPdyumZx?=
- =?us-ascii?Q?mdO5Rg2swJuAj+YznUlQPWV1TlqAVCXIla+SyPoIr89OIETUT1wKPJwDF0mz?=
- =?us-ascii?Q?B/qikp9hbMkDxnIG+BzgWQNFSk5cr+mSr9UDALbTpKfKISU7/Rcj7dPHVWcA?=
- =?us-ascii?Q?S5s7OT2Gz5PiwtwIguXzi0DWCVHjRIAXXmJTQmsmdUxWGQ7ubw1jMu2ocQe6?=
- =?us-ascii?Q?gflH/pEsKa9E8iCBSKPlcCna0AcBHDXTlwukNayzSpvQYqvnbSpM0ZCq0WBO?=
- =?us-ascii?Q?p+fQE00V7SBmQyxuFIxliTRxDukkNCOxfhxFtjc9bw6iVb6O91unYQ9Nzfyc?=
- =?us-ascii?Q?c/kVj/k8djSzYqMs/Gsl1BlHRoRV6FvrUCiInwjRycNdzUW6l/d/IfIn8u5G?=
- =?us-ascii?Q?FqO97N+Dq5kh1NFFcAkgW5p9q0Klo0/O84TpIRJX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd4a396e-c398-4a45-a8b5-08ddde653c0d
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 14:40:53.8977
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D67O7VRQBVvD3tcKIPn4bqOk4Gynq/D5yG5ZReREUJmbzFoWROKr9lH8ckOlefjm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9490
+References: <20250818075051.996764-1-yeoreum.yun@arm.com> <20250818075051.996764-2-yeoreum.yun@arm.com>
+ <CA+fCnZcce88Sj=oAe-cwydu7Ums=wk2Ps=JZkz0RwO-M_DjfVQ@mail.gmail.com> <aKMmcPR8ordnn1AG@e129823.arm.com>
+In-Reply-To: <aKMmcPR8ordnn1AG@e129823.arm.com>
+From: Andrey Konovalov <andreyknvl@gmail.com>
+Date: Mon, 18 Aug 2025 16:42:02 +0200
+X-Gm-Features: Ac12FXwekbsyapeljRABB8AE1hyjZDIfFB0HZbnsKW56XSmgXNqVbJdHAoiUZKU
+Message-ID: <CA+fCnZd9m3WBPimikuxSMNar-xbDaNFNQEJ9Bn=8uCMe-uYHeQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] kasan/hw-tags: introduce kasan.write_only option
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
+	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
+	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
+	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
+	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
+	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
+	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_074058_563654_29133484 
-X-CRM114-Status: UNSURE (   6.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250818_074214_743377_AA537FC3 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,15 +105,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 01:28:02PM +0800, Baolu Lu wrote:
+On Mon, Aug 18, 2025 at 3:11=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> w=
+rote:
+>
+> > > +           hw_enable_tag_checks_write_only()) {
+> > > +               kasan_arg_write_only =3D=3D KASAN_ARG_WRITE_ONLY_OFF;
+> >
+> > Typo in =3D=3D in the line above. But also I think we can just drop the
+> > line: kasan_arg_write_only is KASAN_ARG_WRITE_ONLY_ON after all, it's
+> > just not supported and thus kasan_flag_write_only is set to false to
+> > reflect that.
+>
+> Sorry :\ I've missed this fix from patch 3... this should be =3D=3D to =
+=3D.
+>
+> However, we couldn't remove kasan_arg_write_only check in condition.
+> If one of cpu get failed to hw_enable_tag_checks_write_only() then
+> By changing this with KASAN_ARG_WRITE_ONLY_OFF, It prevent to call
+> hw_eanble_tag_checks_write_only() in other cpu.
 
-> Given that iommu_group->mutex is transparent to the iommu driver, how
-> about
+Is it possible that the write-only mode will fail to be enabled on one
+CPU but then get enabled successfully for another?
 
-It is not actually transparent, alot of drivers are implicitly
-assuming that the core single threads their struct device for alot of
-the ops callbacks and we exposed the lockdep test to the drivers to
-help the document this.
+What would happen with the current code if the first CPU succeeds in
+enabling the write-only mode, and the second one fails?
 
-Jason
+> As you said, kasan_flag_write_only reflects the state.
+> But like other option, I keep the condition to call the hw_enable_xxx()
+> by checking the "argments" and keep the "hw enable state" with
+> kasan_flag_write_only.
+
+Assuming we keep this behavior, please add a comment explaining all this.
 
