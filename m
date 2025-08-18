@@ -4,56 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82969CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEC8CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOEfFPITo4fAFtVzaerZsFgMN9QeCzQUrj0jDvlbyhU=; b=rGh8qZQQf0WulKLSBwqA66OfZj
-	IBpdRZUBiig2kWYlurR782QzSYaAwe/JDDcEHTDXe3qKCPIIg/NsTuZ14CONZzNUWbvscMgKG+NFL
-	xC7hhpAgpXgfJt0/c8OPYBNi0RfuoxMRyP3D8qfqUHATkyAdCTsy1MpigsAHzcovTFYcD+Sbwa/mQ
-	qNysCZekyG8DUABHESbtRKaT/3d5jeKPPVBcluWzeBE+YPfCPSDqlCbyUHrxBpfW1Qc/wHySq7rEM
-	71ThSpKf24tCs9v/KLzVEF3wR4vunEBbM3ilKbwRQwftHJluxFBZHJ/PEDoByd0dukphy94Bg02zu
-	F+q1xklg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xHfYVwbmP+gPFXz8CWcley05MtbRCnNcrivNbsDjwVo=; b=oUfc5fzZs+lo3oJTqCP2rQHXiS
+	U7fG9GjD8cdtizPiDbDbp6v2DmvCaUW1Xl5pu/pdCgkmhpll1GYfk9mz+9sb58xO7L9pDORjWOuIZ
+	Cmf+g4BhImZBFTU0phvoZ795iXTA4rG4gO5FnBDWdjdfhzZbQ2X8M40NNb/8HmnyKZluIfJxStt99
+	YAldESQOh2u7pbL7DZVTApI0mUu363WebsDgatW3dvsYpckhQLSdoWBUVdAlvwC8DHLlF7YDYpqFP
+	ef5j3euan1gr/nbGOoN5REP6l5dxE30XGRtPnmuElt/+k+PH1TQQFL2MF2+KQwZqNjIGb3KpBdfCe
+	mMtjUFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo06G-00000007YyO-1WYX;
-	Mon, 18 Aug 2025 13:40:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unw4f-000000072jT-0gpe
+	id 1uo06d-00000007ZVV-133N;
+	Mon, 18 Aug 2025 13:40:59 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unwDp-0000000749M-1BJf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 09:22:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6829150C;
-	Mon, 18 Aug 2025 02:22:31 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 438963F58B;
-	Mon, 18 Aug 2025 02:22:35 -0700 (PDT)
-Date: Mon, 18 Aug 2025 10:22:30 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] arm64/sysreg: Add VTCR_EL2 register
-Message-ID: <aKLw1jvwOo4wG64n@J2N7QTR9R3>
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
- <20250818045759.672408-5-anshuman.khandual@arm.com>
+	Mon, 18 Aug 2025 09:32:10 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b47174beccfso3342110a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 02:32:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755509528; x=1756114328; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xHfYVwbmP+gPFXz8CWcley05MtbRCnNcrivNbsDjwVo=;
+        b=ctAghk/mzg+RKqasJYNy7RhDbHJRU88upFqVqox0sFZpS/onn8JbuMAkRgbV9u/Q4/
+         ZZ3HcFchaF/HvA1wotJTT2iO/wZgxyX1il0MpUhbSwcbKYXTyhBOmRWTaOdMANG8bfPc
+         CxNA9bxEwHm9EYeSHzMZqfpUecA2/+EwIYKZbmXS4Co+MZRpL9m4awPY+cObu77nRUGX
+         h5dE3bsLfx/MHrO0mt0QzkOk1wboKK/txKouJQNtI6Xk5fTeB4VNlbuLZ37qaYte2djb
+         wv1B7e+TA6qMRIj+XjL48x0ik6lQtJ6lZpzdW5osi1oYC52hnMTU1b/ZGNfAqOwqKO/3
+         EgtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755509528; x=1756114328;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xHfYVwbmP+gPFXz8CWcley05MtbRCnNcrivNbsDjwVo=;
+        b=WmdoAOtdeuyHygpvhbEjTIQM02eT6OJde/5nWQ/FZlubBR03LthW+ukV81Ql9oZibd
+         r8CMOJGcNVo/B13EgLdF2bGE5UZNq4U+p/GV5AGaGMOm/QVyVOIRhXvrh7F49q8guQam
+         OBk/vsyjvRAQpGD+Sd6cVGXhEPPxMMEpB5haOahmlaGYojPC9GE/bw5ndn3mka4zc0Nk
+         u3v7Y53BnIbogW8St7EQYIAvfv927kHfFBg+gx1QuI1gbtw+QPH1S5abO+Nl3wzoBW4M
+         UscxWJtoR83TVe/xVJyMwePPF8E41yfoh8mf/8kaB8nV15BsLtd1UsrQPzYd9Fv8x8iJ
+         LVbg==
+X-Forwarded-Encrypted: i=1; AJvYcCVAlXQ2YRHj2YsuKZtbdRhrkTbWrdJ+KDvYqIrVu5wGS6Pt1Pk6CLSZlC5+/Iq9a0PIiDOPE4Y3d7NHczp/kIkj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQWr3FC5YR/8wKnwi21P6JSjd6uY66Kh6jeK/xVjbx+rCrhPao
+	EiyXBaOrnuYQg/OUVvkN8z3xyuJf7K2iJg2zTRwLGBlNRTEIaSk7PIgx
+X-Gm-Gg: ASbGnctAyXuS/me9y742VdFfHbFvI72TJ+3DtYfTEJ2SQHNKHSECDOqqBMgGeqSIilX
+	ZT4+xELyvjQC6SxkViEKKm0AhYQsu97Ej/GvSyLfOkk/u4EIgZ4k7RxCtILdZD9lIkqWeFiG7mN
+	kzuccsd4+GsdEK1RQb/GCCXy1WCRjmLebAw+FeO5nj23UdnR6OgWHIwLy9Mq9BivpsT9OgC24XH
+	dkMw+1FvsRNNuG5PMI7c9Cs8YCdpyPburm1rjPoFoUwLSopsinL4C//8tweYz77MPkVOnchUSxA
+	8Z3oWe0i+TTqt2inRM9/qfytuZHX0Tm273RHiTU6kUJtubqnmH+ezaX174PK6X2YDBhzOUxc0Rt
+	aqoFkBMlW96tcO5SdBuhnWzTQsejG0YdzrIObwUVzPMMIpVpLEy9T
+X-Google-Smtp-Source: AGHT+IFCRtT2UOKN4GdguapaDt33D0B736i93LRmByQ1B2I3PXdFqVr/n+fJRYAuoJpHAa/pY3mMdw==
+X-Received: by 2002:a17:902:e88c:b0:234:b743:c7a4 with SMTP id d9443c01a7336-2446d8b67f5mr216185465ad.38.1755509528108;
+        Mon, 18 Aug 2025 02:32:08 -0700 (PDT)
+Received: from localhost.localdomain ([2401:4900:1cb8:46d9:adba:d08d:ac6:8cbb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446cb0f007sm75092045ad.69.2025.08.18.02.32.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Aug 2025 02:32:07 -0700 (PDT)
+From: Chandra Mohan Sundar <chandramohan.explore@gmail.com>
+To: alain.volmat@foss.st.com,
+	mchehab@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	shuah@kernel.org
+Cc: Chandra Mohan Sundar <chandramohan.explore@gmail.com>,
+	linux-kernel-mentees@lists.linux.dev
+Subject: [PATCH] media: v4l: Fix dereference before NULL check
+Date: Mon, 18 Aug 2025 15:01:57 +0530
+Message-ID: <20250818093159.612208-1-chandramohan.explore@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818045759.672408-5-anshuman.khandual@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_022241_242433_AB0FC465 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250818_023209_322141_C85A3679 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,89 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 10:27:59AM +0530, Anshuman Khandual wrote:
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index d2b40105eb41..f5a0a304f844 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -4910,6 +4910,63 @@ Field	1	PIE
->  Field	0	PnCH
->  EndSysreg
->  
-> +Sysreg	VTCR_EL2	3	4	2	1	2
-> +Res0	63:46
-> +Field	45	HDBSS
-> +Field	44	HAFT
-> +Res0	43:42
-> +Field	41	TL0
-> +Field	40	GCSH
-> +Res0	39
-> +Field	38	D128
-> +Field	37	S2POE
-> +Field	36	S2PIE
-> +Field	35	TL1
-> +Field	34	AssuredOnly
-> +Field	33	SL2
-> +Field	32	DS
-> +Res1	31
-> +Field	30	NSA
-> +Field	29	NSW
-> +Field	28	HWU62
-> +Field	27	HWU61
-> +Field	26	HWU60
-> +Field	25	HWU59
-> +Res0	24:23
-> +Field	22	HD
-> +Field	21	HA
-> +Res0	20
-> +UnsignedEnum	19	VS
-> +	0b0	8BIT
-> +	0b1	16BIT
-> +EndEnum
+In 'stm32_csi_start', 'csidev->s_subdev' is dereferenced directly while
+assigning a value to the 'src_pad'. However the same value is being
+checked against NULL at a later point of time indicating that there
+are chances that the value can be NULL.
 
-You left TCR_EL1.AS as a single-bit 'Field', so please do the same here
-for consistency. I don't think there's much gained by making this any
-sort of enum.
+Move the dereference after the NULL check.
 
-> +Field	18:16	PS
-> +UnsignedEnum	15:14	TG0
-> +		0b00	4K
-> +		0b01	64K
-> +		0b10	16K
-> +EndEnum
+Fixes: e7bad98c205d1 ("media: v4l: Convert the users of v4l2_get_link_freq to call it on a pad")
+Signed-off-by: Chandra Mohan Sundar <chandramohan.explore@gmail.com>
+---
+ drivers/media/platform/st/stm32/stm32-csi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-As with other patches, this is not ordered. Please use Enum.
+diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+index b69048144cc1..fd2b6dfbd44c 100644
+--- a/drivers/media/platform/st/stm32/stm32-csi.c
++++ b/drivers/media/platform/st/stm32/stm32-csi.c
+@@ -443,8 +443,7 @@ static void stm32_csi_phy_reg_write(struct stm32_csi_dev *csidev,
+ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 			   struct v4l2_subdev_state *state)
+ {
+-	struct media_pad *src_pad =
+-		&csidev->s_subdev->entity.pads[csidev->s_subdev_pad_nb];
++	struct media_pad *src_pad;
+ 	const struct stm32_csi_mbps_phy_reg *phy_regs = NULL;
+ 	struct v4l2_mbus_framefmt *sink_fmt;
+ 	const struct stm32_csi_fmts *fmt;
+@@ -466,6 +465,7 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+ 	if (!csidev->s_subdev)
+ 		return -EIO;
+ 
++	src_pad = &csidev->s_subdev->entity.pads[csidev->s_subdev_pad_nb];
+ 	link_freq = v4l2_get_link_freq(src_pad,
+ 				       fmt->bpp, 2 * csidev->num_lanes);
+ 	if (link_freq < 0)
+-- 
+2.43.0
 
-Likewise for the other cases below.
-
-Mark.
-
-> +UnsignedEnum	13:12	SH0
-> +		0b00	NONE
-> +		0b10	OUTER
-> +		0b11	INNER
-> +EndEnum
-> +UnsignedEnum	11:10	ORGN0
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
-> +UnsignedEnum	9:8	IRGN0
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
-> +Field	7:6	SL0
-> +Field	5:0	T0SZ
-> +EndSysreg
-> +
->  SysregFields MAIR2_ELx
->  Field	63:56	Attr7
->  Field	55:48	Attr6
-> -- 
-> 2.25.1
-> 
-> 
 
