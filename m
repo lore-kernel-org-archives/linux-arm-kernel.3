@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83851CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51239CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wkyvTEnjsG/NRyPsiIz5XqN8gm5f+l5Gksm/lmDex2g=; b=CkYrF6O768ezFO28BpuH8rwhfk
-	7iHs6VUoOYAmE9IWe2Uu11BIQHgdkpcNz7I5PTPku1D6+WrA+2rREzim0WonLV22WGuBZ0ZyBc8z3
-	/4ddNsyMJBr2TSZGa7dY54HuHBY6UwRMIs311d8NCZGSA91okmhbqh6q4+mYPmZ5dLt3uU3F8xzZ3
-	Sfzo/RCUBePPKb6ZKuFB3wEzUwwZL5rXbCgoleoLQRoSX2ei0u1hTRCRcKAfkj8ahu28pEMQSiIYR
-	2dPS7NzYvxt7QI7OkD+QuPKKpWw54xDFXPa7WVQPCzW1hZfClG8V2B66tD8Q4orEjc8cWlgMOI7ic
-	3tbd2YCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1D2pPktYclCaFYfOKQ4MpcC2JtpL4dHZyI+ftGoVk7I=; b=0CX0u0L+/INUrmlZ2w/pbOsPNx
+	YDzA4VFJXwUmgW31p21vUIINTanb0u1rInylFSjJT8xq85tlV683i8sBuZDV8qzVs5VJffL38qbn9
+	E+I7pGMXJyl5C5JijcZ0S3//Zcsv3f0szRkmmHFm3hIpOyyssL0HXU7KrHjbAcKF4yrD5wSYc1c9b
+	OYI/u3yDw4Cuan8/pAePNL+3ziiWIFIQ7hRQu2iwJ+m1Z7JL9r4rs3yrOoJK3dizjjKiQ+qa9/8i5
+	K1OS08n2oU68o2/ldcNlq8J4e+SuNL1B9CX7g2TLXCl1gefb0S0n4me+QY03X7s+L4bCWDXHqIB3Y
+	PZz1ZRsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4uM-00000008Ori-16f7;
-	Mon, 18 Aug 2025 18:48:38 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo2kF-000000081rM-2MmK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 16:30:04 +0000
-X-CSE-ConnectionGUID: Xi0YlYudR0CbxdKRNP4EHw==
-X-CSE-MsgGUID: i26SI3hAQFyQzkrsU4OcXQ==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie6.idc.renesas.com with ESMTP; 19 Aug 2025 01:30:02 +0900
-Received: from ubuntu.adwin.renesas.com (unknown [10.24.0.173])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 2F1174016EE7;
-	Tue, 19 Aug 2025 01:29:54 +0900 (JST)
-From: John Madieu <john.madieu.xa@bp.renesas.com>
-To: geert+renesas@glider.be,
-	magnus.damm@gmail.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: john.madieu@gmail.com,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	biju.das.jz@bp.renesas.com,
-	linux-arm-kernel@lists.infradead.org,
-	John Madieu <john.madieu.xa@bp.renesas.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 6/6] arm64: defconfig: Enable the Renesas RZ/G3E thermal driver
-Date: Mon, 18 Aug 2025 18:28:52 +0200
-Message-ID: <20250818162859.9661-7-john.madieu.xa@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250818162859.9661-1-john.madieu.xa@bp.renesas.com>
-References: <20250818162859.9661-1-john.madieu.xa@bp.renesas.com>
-MIME-Version: 1.0
+	id 1uo4uf-00000008P7i-1BYd;
+	Mon, 18 Aug 2025 18:48:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo4XD-00000008KIC-3f7Z;
+	Mon, 18 Aug 2025 18:24:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE980600AE;
+	Mon, 18 Aug 2025 18:24:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E943C4CEEB;
+	Mon, 18 Aug 2025 18:24:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755541482;
+	bh=EtzxoV3mnhEERBKMayyfjmOhWE0QWt9AxeuBtdSTkTU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JiSsISxCoILf8P8IAu4QEDM5/orNPxkhDcIKyvwzOprKYDkmqysLOl7K4C8nyeHb1
+	 RF/MWQToWMreGNTumjzPAthTKMKdvP7v7J9iBb/Wh7tZk7atUDLXE0BhPOi6126AlY
+	 fqsZrzEtbDprU/xUsWhDQUdKzGpipIBzeTJzfvHeTmHddD9A/JIOEUmcmz7OFJtKXZ
+	 56Kw7YtqIQGmBTZdhO3H2KR/3Rc3Rq+XmHbe3YO/w3Ov+L2yBfVbCHXcU2z/oKgK3/
+	 x/HkEztPyRgma5dqHg47MD0Ul2BiLQjfZwbqObKTvowX500w8SSOaZGgob2/hJhhSJ
+	 nyCEzGZ0B50tQ==
+Date: Mon, 18 Aug 2025 13:24:41 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_093003_725475_A7EF266E 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Samuel Holland <samuel@sholland.org>, 
+ linux-arm-kernel@lists.infradead.org, Vinod Koul <vkoul@kernel.org>, 
+ linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>, 
+ linux-clk@vger.kernel.org, linux-phy@lists.infradead.org, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
+ linux-kernel@vger.kernel.org, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: iuncuim <iuncuim@gmail.com>
+In-Reply-To: <20250816084700.569524-1-iuncuim@gmail.com>
+References: <20250816084700.569524-1-iuncuim@gmail.com>
+Message-Id: <175554055617.1719671.12698982859500685788.robh@kernel.org>
+Subject: Re: [PATCH 0/7] arm64: allwinner: a523: add USB3.0 support
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +75,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Renesas RZ/G3E thermal driver, as used on the Renesas
-RZ/G3E SMARC EVK board.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+On Sat, 16 Aug 2025 16:46:53 +0800, iuncuim wrote:
+> From: Mikhail Kalashnikov <iuncuim@gmail.com>
+> 
+> This series is a draft and does not include patches for dt-bindings.
+> The first series is necessary for testing on other devices and
+> initiating discussion.
+> 
+> This series of patches adds USB 3.0 functionality for the
+> A523/A527/H728/T527 processor.Most of the code is derived from the BSP,
+>  as the datasheet does not fully describe this feature.
+> 
+> I have verified functionality on two of my boards, walnutpi 2b (t527)
+> and x96qproplus (h728). When testing usb3.0 on x96qproplus, I get
+> reconnections of my nvme, it looks like the port does not provide enough
+>  current to work. I have encountered similar complaints from users of the
+>   device on Android. In the case of walnutpi, there is no such problem.
+> 
+> Based on 6.17-rc1
+> 
+> Mikhail Kalashnikov (7):
+>   clk: sunxi-ng: a523: add missing usb related clocks
+>   arm64: dts: allwinner: a523: add third usb2 phy
+>   phy: sun4i-usb: a523: add support for the USB2 PHY
+>   phy: allwinner: a523: add USB3/PCIe PHY driver
+>   arm64: dts: allwinner: a523: add USB3.0 phy node
+>   arm64: dts: allwinner: a523: add DWC3 USB3.0 node
+>   arm64: dts: allwinner: a523: activate USB3 for all boards
+> 
+>  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  52 +++-
+>  .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |   8 +
+>  .../dts/allwinner/sun55i-h728-x96qpro+.dts    |   8 +
+>  .../dts/allwinner/sun55i-t527-avaota-a1.dts   |   8 +
+>  drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  32 +++
+>  drivers/clk/sunxi-ng/ccu-sun55i-a523.h        |   2 +-
+>  drivers/phy/allwinner/Kconfig                 |   9 +
+>  drivers/phy/allwinner/Makefile                |   1 +
+>  drivers/phy/allwinner/phy-sun4i-usb.c         |  10 +
+>  drivers/phy/allwinner/phy-sun55i-usb3-pcie.c  | 267 ++++++++++++++++++
+>  include/dt-bindings/clock/sun55i-a523-ccu.h   |   4 +
+>  11 files changed, 392 insertions(+), 9 deletions(-)
+>  create mode 100644 drivers/phy/allwinner/phy-sun55i-usb3-pcie.c
+> 
+> --
+> 2.50.1
+> 
+> 
+> 
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 58f87d09366c..8def47e094d0 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -728,6 +728,7 @@ CONFIG_ROCKCHIP_THERMAL=m
- CONFIG_RCAR_THERMAL=y
- CONFIG_RCAR_GEN3_THERMAL=y
- CONFIG_RZG2L_THERMAL=y
-+CONFIG_RZG3E_THERMAL=y
- CONFIG_ARMADA_THERMAL=y
- CONFIG_MTK_THERMAL=m
- CONFIG_MTK_LVTS_THERMAL=m
--- 
-2.25.1
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: remotes/korg/master-95-g90d970cade8e (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/allwinner/' for 20250816084700.569524-1-iuncuim@gmail.com:
+
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clock-names: ['usb0_phy', 'usb1_phy', 'usb2_phy'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clocks: [[5], [5], [2, 179]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): compatible: 'oneOf' conditional failed, one must be fixed:
+	['allwinner,sun55i-a523-usb-phy'] is too short
+	'allwinner,sun55i-a523-usb-phy' is not one of ['allwinner,sun20i-d1-usb-phy', 'allwinner,sun50i-a64-usb-phy']
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg: [[68158464, 256], [68163584, 256], [69208064, 256], [81788928, 256]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg-names: ['phy_ctrl', 'pmu0', 'pmu1', 'pmu2'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reset-names: ['usb0_reset', 'usb1_reset', 'usb2_reset'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clock-names: ['usb0_phy', 'usb1_phy', 'usb2_phy'] is too long
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): resets: [[2, 49], [2, 50], [2, 56]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clocks: [[5], [5], [2, 179]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): compatible: 'oneOf' conditional failed, one must be fixed:
+	['allwinner,sun55i-a523-usb-phy'] is too short
+	'allwinner,sun55i-a523-usb-phy' is not one of ['allwinner,sun20i-d1-usb-phy', 'allwinner,sun50i-a64-usb-phy']
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg: [[68158464, 256], [68163584, 256], [69208064, 256], [81788928, 256]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg-names: ['phy_ctrl', 'pmu0', 'pmu1', 'pmu2'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reset-names: ['usb0_reset', 'usb1_reset', 'usb2_reset'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): resets: [[2, 49], [2, 50], [2, 56]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clock-names: ['usb0_phy', 'usb1_phy', 'usb2_phy'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clocks: [[5], [5], [2, 179]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): compatible: 'oneOf' conditional failed, one must be fixed:
+	['allwinner,sun55i-a523-usb-phy'] is too short
+	'allwinner,sun55i-a523-usb-phy' is not one of ['allwinner,sun20i-d1-usb-phy', 'allwinner,sun50i-a64-usb-phy']
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg: [[68158464, 256], [68163584, 256], [69208064, 256], [81788928, 256]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg-names: ['phy_ctrl', 'pmu0', 'pmu1', 'pmu2'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reset-names: ['usb0_reset', 'usb1_reset', 'usb2_reset'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): resets: [[2, 49], [2, 50], [2, 56]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clock-names: ['usb0_phy', 'usb1_phy', 'usb2_phy'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): clocks: [[5], [5], [2, 179]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): compatible: 'oneOf' conditional failed, one must be fixed:
+	['allwinner,sun55i-a523-usb-phy'] is too short
+	'allwinner,sun55i-a523-usb-phy' is not one of ['allwinner,sun20i-d1-usb-phy', 'allwinner,sun50i-a64-usb-phy']
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg: [[68158464, 256], [68163584, 256], [69208064, 256], [81788928, 256]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reg-names: ['phy_ctrl', 'pmu0', 'pmu1', 'pmu2'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): reset-names: ['usb0_reset', 'usb1_reset', 'usb2_reset'] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: phy@4100400 (allwinner,sun55i-a523-usb-phy): resets: [[2, 49], [2, 50], [2, 56]] is too long
+	from schema $id: http://devicetree.org/schemas/phy/allwinner,sun50i-a64-usb-phy.yaml#
+arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dtb: /soc/phy@4f00000: failed to match any schema with compatible: ['allwinner,sun55i-a523-usb3-pcie-phy']
+arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dtb: /soc/phy@4f00000: failed to match any schema with compatible: ['allwinner,sun55i-a523-usb3-pcie-phy']
+arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dtb: /soc/phy@4f00000: failed to match any schema with compatible: ['allwinner,sun55i-a523-usb3-pcie-phy']
+arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dtb: /soc/phy@4f00000: failed to match any schema with compatible: ['allwinner,sun55i-a523-usb3-pcie-phy']
+
+
+
+
 
 
