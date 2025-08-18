@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECE9CA0EF7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89846CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpb5Jf1l8YxGb+df6fsbNBUPkCmlxNTJSLMMDt3Kt7Y=; b=noMrDjYLCzgYnWGn/mftbNTt1j
-	48o5DYmYvfjL05dTnDt5PNnP+f7/7SO/3eQjZEyBWHi4+wzrkBJye0dcs25OVu6esOdEeox6J8OJP
-	MPp208kZMlyb0Al1GD5QnvzWj7vyqlGkv07aG2q1z23BWuJWwXEbypiVg3Zf0PFimXzZbukP7UQm6
-	U7nEoEanxk2B9eagbOHjiTjV7zSS4ftmAZNTXpist1Eb4sc/VatW1XAnne5sToP1P6mhiKMyjyMxU
-	faWQK7SbuwRzhHQJ4Qkea3yM3K9ETSKwdiyKCL/MlchWNUhXP4RajRrYPBMgCV11QBZXTC4EU5xvo
-	PL7ONwyQ==;
+	bh=bWKpLzf0T2pAqFaIQr+r+khtIvps/B7xQ5sOSuQY1ng=; b=rOGPxMgfAPAdvA/sLMl79y/qHv
+	Bocz+AcFT1Bi1MubukNYJtmzs9SLRVf1WxRFbOIcwGwkeqVHBGQfROaIMVegQ5vdATQPe+yxEAQbT
+	jFa64YBQutvi/GNku3Em3BLirYM/enjmNwtl14GEUheq4lVP7rCXEevJHeBbMBC5nZXVNdZTV6VzR
+	ST7CNZXeQXm+OwIaPlvfViGUVKIszixgWSI0D5RTQ/o9BYIGBbmota2DF+t+Oo6hPaD3kTswQPAYS
+	DOFVGaG6wtVvolIkwXe321zQDZzNwEjQTcLuRPgRXKiNh0BSre8G+1WgNRysTkxK427HhN6M2Crag
+	XXaJ2mzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hF-000000088Ys-1KsZ;
-	Mon, 18 Aug 2025 17:31:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uo3hH-000000088bG-0fMV;
+	Mon, 18 Aug 2025 17:31:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0yr-00000007m1g-0rTa;
-	Mon, 18 Aug 2025 14:37:02 +0000
+	id 1uo11E-00000007mPB-06Fd;
+	Mon, 18 Aug 2025 14:39:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BC0B25C5E8E;
-	Mon, 18 Aug 2025 14:37:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675E4C4CEEB;
-	Mon, 18 Aug 2025 14:37:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 69CB15C560C;
+	Mon, 18 Aug 2025 14:39:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8C3CC4CEEB;
+	Mon, 18 Aug 2025 14:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755527820;
-	bh=jyvUe/Uvlpxb8/WNMi/NIGIZMsdMiJ0vXIXKRErcUzo=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=StG9+XEFrgzNq+p79mD4ztZh0jbQ1vCwRuSeLqB1qS7Iu+Hc6Dfv4L7qwJOeHaktO
-	 6/fmIiqF9ac1+tO36JaKI+zl2+ZEUliWcQ/ODtzUbqjqvvPWAOS8pVpeE2sT9l+VDb
-	 ex4s6gE53WqcTeibIamkuc8N8Fmzt0nb9ZZSEvOc1Css7SabPCqh0xuj9EdtZ8moG/
-	 YrZeo0YIhIRUo2D93AMpTEG2YgyqV+LLy8LrVPUq2c0+Qd2vJfBy8z5WNJFjtC6gPk
-	 PJ5N2LmpwpflXWqZUf0Ptng9v1BBoqlb2a7+s1LwEWOB+mf4iV1W7XrW2WCtUDy2Dj
-	 0p5yTt0prT/7g==
-Date: Mon, 18 Aug 2025 09:36:59 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1755527967;
+	bh=NNGx1BhKiXpo8fP1NrAIVQqjVfRV0yTMXi9fh1F4zrg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IohbkpI8Oqjzlt/YDjYYRVYKn0OTs7UpZ3CYOJTtRM0KKfLEG1mXf7DnloIT8p/of
+	 9U1LnNJ7jRGeYBndKXNgPCjeF69GvqZgWjAqN+9NvvpuGcKr8WaXJqW4aqKRulGOzW
+	 sevKtR2n4c8VtLo/4jDooMKRi9n8SJtSduy/gbGw5ewRPEgrNX3zWsKXcYQkAca5LO
+	 8BuUy5rdvuU99dw3mwlKHIP7zlWPI2eQP/QHENnpk+mkF247WOX6v32+l0Om8XZFmU
+	 G33Nre2FH6SHIJw0k6l8TehFUFvf4uaz0WnBw4OZm26HEvRbw+F7V/CUyVUDwjRth3
+	 n5Il0Pkuozg5Q==
+Date: Mon, 18 Aug 2025 09:39:26 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Eugen Hristev <eugen.hristev@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
+Subject: Re: [PATCH v2 01/32] dt-bindings: media: add DW MIPI CSI-2 Host
+ support
+Message-ID: <20250818143926.GA1025181-robh@kernel.org>
+References: <20250808-95_cam-v2-0-4b29fa6919a7@nxp.com>
+ <20250808-95_cam-v2-1-4b29fa6919a7@nxp.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- linux-clk@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>, 
- netdev@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
- linux-pm@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, jh.hsu@mediatek.com, 
- Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- linux-mediatek@lists.infradead.org, vince-wl.liu@mediatek.com, 
- Ulf Hansson <ulf.hansson@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
-In-Reply-To: <20250818115754.1067154-2-irving-ch.lin@mediatek.com>
-References: <20250818115754.1067154-1-irving-ch.lin@mediatek.com>
- <20250818115754.1067154-2-irving-ch.lin@mediatek.com>
-Message-Id: <175552781756.1170283.17952756043799676005.robh@kernel.org>
-Subject: Re: [PATCH 1/6] dt-bindings: clock: mediatek: Add new MT8189 clock
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250808-95_cam-v2-1-4b29fa6919a7@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_073701_319648_93FDE034 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250818_073928_140052_F15634C4 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +91,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 18 Aug 2025 19:57:29 +0800, irving.ch.lin wrote:
-> From: Irving-ch Lin <irving-ch.lin@mediatek.com>
+On Fri, Aug 08, 2025 at 06:39:04PM -0400, Frank Li wrote:
+> From: Eugen Hristev <eugen.hristev@linaro.org>
 > 
-> Add the new binding documentation for system clock
-> and functional clock on MediaTek MT8189.
+> Add bindings for Synopsys DesignWare MIPI CSI-2 host, which used at i.MX93
+> and i.MX95 platform.
 > 
-> Signed-off-by: Irving-ch Lin <irving-ch.lin@mediatek.com>
+> Signed-off-by: Luis Oliveira <lolivei@synopsys.com>
+> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/clock/mediatek,mt8189-clock.yaml | 89 +++++++++++++++++++
->  .../clock/mediatek,mt8189-sys-clock.yaml      | 58 ++++++++++++
->  2 files changed, 147 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+> Change in v2
+> - remove Eugen Hristev <eugen.hristev@microchip.com> from mantainer.
+> - update ugen Hristev's s-o-b tag to align original author's email address
+> - remove single snps,dw-mipi-csi2-v150 compatible string
+> - move additionalProperties after required
+> ---
+>  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     | 158 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 159 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fc1b167d6d3b142a01e2ea7f04230934260a05e6
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/snps,dw-mipi-csi2-v150.yaml
+> @@ -0,0 +1,158 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/snps,dw-mipi-csi2-v150.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Synopsys DesignWare CSI-2 Host controller (csi2host)
+> +
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +
+> +description:
+> +  CSI2HOST is used to receive image coming from an MIPI CSI-2 compatible
+> +  camera. It will convert the incoming CSI-2 stream into a dedicated
+> +  interface called the Synopsys IDI (Image Data Interface).
+> +  This interface is a 32-bit SoC internal only, and can be assimilated
+> +  with a CSI-2 interface.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,imx93-mipi-csi2
+> +      - const: snps,dw-mipi-csi2-v150
+> +
+> +  reg:
+> +    items:
+> +      - description: MIPI CSI-2 core register
+> +
+> +  reg-names:
+> +    items:
+> +      - const: core
+> +
+> +  clocks:
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    items:
+> +      - const: per
+> +      - const: pixel
+> +
+> +  phys:
+> +    maxItems: 1
+> +    description: MIPI D-PHY
+> +
+> +  phy-names:
+> +    items:
+> +      - const: rx
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Input port node, single endpoint describing the input port.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +            description: Endpoint connected to input device
+> +
+> +            properties:
+> +              bus-type:
+> +                const: 4
+> +
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +                items:
+> +                  maximum: 4
+> +
+> +              clock-lanes:
+> +                maxItems: 1
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Drop. clock-lanes is always 1 entry.
 
-yamllint warnings/errors:
+> +
+> +              remote-endpoint: true
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.example.dtb: imp_iic_wrap_ws_clk@11b21000 (mediatek,mt8189-iic-wrap-ws): reg: [[0, 296882176], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8189-clock.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.example.dtb: topckgen_clk@10000000 (mediatek,mt8189-topckgen): reg: [[0, 268435456], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8189-sys-clock.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.example.dtb: topckgen_clk@10000000 (mediatek,mt8189-topckgen): reg: [[0, 268435456], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+Drop.
 
-doc reference errors (make refcheckdocs):
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Output port node, single endpoint describing the output port.
+> +
+> +        properties:
+> +          endpoint:
+> +            unevaluatedProperties: false
+> +            $ref: video-interfaces.yaml#
+> +            description: Endpoint connected to output device
+> +
+> +            properties:
+> +              bus-type:
+> +                const: 4
+> +
+> +              remote-endpoint: true
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250818115754.1067154-2-irving-ch.lin@mediatek.com
+Drop.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Rob
 
