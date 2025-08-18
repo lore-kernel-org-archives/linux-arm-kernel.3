@@ -4,150 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8460CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915B1CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=; b=EfED3WyLvEpHtcu06rf3F1qee5
-	cU0zkVUraZw7w8vfElwhHTYn51bfP1KUMqMFpw+sqdc3MqM5JApr15Vu2xGBKyiGSA9q5qfHpOoTT
-	FnQ4z8ggtd4fxenKwsMz1iTojYeMclJvQjXCtnH/T3L8xeP/Wrt2arHadA8rSH5YcRYUtUppxFM1B
-	ji4lrg2tP1WTb7XEV0vhUDiPgoFm9SCf9sLNty+JWwoFErCx9jVzGUvxIiBlFFOd6BZ2AlggiwSBV
-	fq8prk1EmDhuXGaIhpOSxORgEir3qmNfLQfY/nVqh9p6X1BCoG8ChTq++7HRAj7DnVelccwNzFVXN
-	s3VEUZJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ubTyn2ugoz2/Rq288NzNSXVDl2tAW+oxgRy2HaQbf9M=; b=ZzqpoonoDarWiUWP+GhSBH+19E
+	D/+AOknsjl9Y/nOqKIROU9mh/NV+wPs0uqXyU+fox/6Ubjf1NFNpEPQD9KwLO8JFRgy8O9U8xfolN
+	imtcZGWlSWD0O6ayQU60rfHHXP5mCBd65bqO+dbw16cqm6UAvrEvV0YoCVahDBlGpp2nBT1dJbLaE
+	xTrxUe4a0uw1EaytiN1771dm6cLsoBvyfah6GXCOqMuiPKozW5DQfKfJYPyVYjpEWc6ADVvmanxTO
+	eZz8ybubkT/Oa2VYYJlG60BjfzLnwXsr1u29HM8c/z3U8+Q89Hf03ChCYHnrv/tdIqATQ27msuky9
+	sYDBiUkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5KE-00000008U9D-2617;
-	Mon, 18 Aug 2025 19:15:22 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uo5Mm-00000008UX0-2Z15;
+	Mon, 18 Aug 2025 19:18:00 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4kc-00000008Nc6-31M6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 18:38:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LVSkoD1zOVYmuZmZ2HAp9AZ56Db6guOu1MLulBKK2psxSveILv0NQGqNk8KnhT2gNzLanTFZcMqVkaP3TPKzE1Uk/ZOtD6NuttAydRaL+fD488esfaNQOwyDXbMkdfu7U0ntvErF/8srz2fXuUcMCEh21xCndJiIbaBijVEmlprcRCkboO09fhGNjxAN/hrQbDLfOYL1267hpMGkUSGwk/5xIJVsDACpsCfGKH5eJbBamufMTL3Z2ZK8CYv2czVD6j5Bq02b0LKud1FqrR9vUs6oLyc+1bobSMqiy2mJlQXQ+AxrmUcmTadpdOrUNEvpjQE3sMVUSvh8Z6UvpGhmZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=;
- b=I92yHg7fmorVDWUS9I+IApR+e4cDo+ig7+DjbnJwEIiOueY9glXu7HIlkaNi7XTCHpqAK6FdJG9htmRTEUnAPzwCeUA+rX1FQCEPprlBf7TdGi6oILF6ImSwn3fnqfiTrAcC7vnv68kG10RSikyMIRz2/Kw3hs/arl++cElx4OTzng8pCsGwOMaRy6vWoPLx8L0qlSQjbfhreTFQB49OnMZ+/jx2GRODNBPOdwUNWHRCInANuna8UUSgEyzDug9NT741PJVh+cTZdx170LA6VLACAGnFHEG+Aqluwpm3ezSjXiddKMpxjyTdgr1sW8RMg3cspCMOkY5lfk0eHkx6gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gCmZbYCJfOr6WH0O5tAMZaWPDcWJgjhkvWzPM07viQs=;
- b=mkCnJLv/UvKhsUQH5wUgF/Xz24ucXK7juP6fWhagsLgFzUx9PDYJJdJsZivvfr+3F+Zn2ZdmcoWAVzGYPICVsK/Ke1Rozc0IiqjByAM0mVsKsT6xHakCyEuCETH++tCoSxrkoDObYHHnHxPJwR4mDXkw8o+JwRTH1PMY3tnuss9Rn0Fqu+sf+RDx2SzCXv4KS39gEVJa4gOaBm4b3v2qU/0tkA6Eq5LYCkXHoMxV/dNLXNWUGqaZN7YtYiOKdifwd2nigrvdpNwtISNzwYc9RyOnuvWunwULla2pIdcnlOCnjb0dBpesiVhi+SdiixbncvkHNC/sY0F6MLgR6dYHcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by OSKPR04MB11317.eurprd04.prod.outlook.com (2603:10a6:e10:99::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Mon, 18 Aug
- 2025 18:38:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
- 18:38:27 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	linux-input@vger.kernel.org (open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)...),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [RESEND v2 1/1] dt-bindings: input: convert lpc32xx-key.txt to yaml format
-Date: Mon, 18 Aug 2025 14:38:13 -0400
-Message-Id: <20250818183814.3603308-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR03CA0007.namprd03.prod.outlook.com
- (2603:10b6:a02:a8::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1uo4qO-00000008OIE-1gZm;
+	Mon, 18 Aug 2025 18:44:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=ubTyn2ugoz2/Rq288NzNSXVDl2tAW+oxgRy2HaQbf9M=; b=Kuhfz07MorWp4PpYWOL7VftqW3
+	kPWgyELtaB1PJADPBexGvgKpFWJAjB9NSqmoY9lEjr/ulldNLSkZMDWbwN/ys/NhkWXtzctQYkM5d
+	qi9dmeWfUm9UUfL8ZPKEWlrMl2MSIDqynWNMwVGU1ulHL+9zK4rP5/W2uGSEYipRh45UxzfSC2M3W
+	P1WC6KTQln6tu8kKt9crOLps0HY4zkfBf53iO0c+RG12QWMwJo0JqIJHu62AQ5IGghbLxc3ZyjipZ
+	E5SNbYPtwLeFrA73I+1N+f4+yBLvsafZaZidS1gPqyqJXSGblIgnQ0h5GeiQ/9zfq24JwH3xNtF+W
+	5qymsxLQ==;
+Received: from i53875ad4.versanet.de ([83.135.90.212] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uo4q8-0000eZ-KQ; Mon, 18 Aug 2025 20:44:16 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH] thermal: rockchip: shut up GRF warning
+Date: Mon, 18 Aug 2025 20:44:15 +0200
+Message-ID: <8402789.eFmWaWnqpD@diego>
+In-Reply-To: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
+References: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|OSKPR04MB11317:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4bf745a-0a49-492e-2adf-08ddde866bad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|7416014|52116014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PKiHu9/IQ1C3/Pul300YhFKo06CsN3ntgllD2m/BPwfossQgkQAVaEPgh3Dq?=
- =?us-ascii?Q?1d+FE0dPnf+XYJYPqHIcrngyUI+p/7HczzvlvHWNka78zx4xZCeUAoHoFTnA?=
- =?us-ascii?Q?cBJB84OwgcJwmOLaFUGDi/5FSThZCU/sS4PeyIAU4xqCYNDamikCdCmJWz5o?=
- =?us-ascii?Q?0UtNoOdlOriV2pC7lcrp8DL3Qux5VI/XVouYejADV8jvK0YdYWZJ/mNIGULj?=
- =?us-ascii?Q?Ah1HghPh5M5J9i2c2bbnJu7KCD73fhmsj2OVbXPWOrVXiGa+QCf4uzfpJSnt?=
- =?us-ascii?Q?4YDokocrMrXXW0UOqi0T9Hewxvm9CzSDk605o5Mqj1zn3kK8v1J1/29ntPGf?=
- =?us-ascii?Q?xAKSh9s6YdVwuQdWmst1/rdJ9zCuoC6zjdcuX8gR1lOLqV2C+YitWzgG0+Wr?=
- =?us-ascii?Q?GIKY4GzYUmbdpz1ZIC93qrzZEBNHrem2agJxNPBb1qEbRt1ggukz9Qz7qCTK?=
- =?us-ascii?Q?iTm2l4W8ddHTXvoScjX9kBPv3HIzWwylaUfuI2qViSk/1akCLMy83anCqROt?=
- =?us-ascii?Q?fAnmW+PsY6rz1tYNocV5zqPgt0kw4CJ6jcCKNnhzEIqHafmIEGhqOsbbW18O?=
- =?us-ascii?Q?MArr3PW3wWJBzVBjuWUpUDgtuCug4PFqMFSTJl/3IvoRvNQG4hvo0BxYCSkS?=
- =?us-ascii?Q?N23v3vcXnlZtMnIY6pF0VMtgIyYkzMh27yTy59MNoAKnJvyhVq8h5/d13IWi?=
- =?us-ascii?Q?Q+AhECilQYD1y475m3mbutPZqFn70OUiK+7mTgsS3ymSdiyqSMucapNICcPw?=
- =?us-ascii?Q?Z4LDJkjrWn2QczZFtaMGae2PD/SaoAW9bBLNvUk92WeFvaqRaLWWF3jLdcuw?=
- =?us-ascii?Q?/qWvxe+VDVzbFcw0njc/tbWKYyJjpRke7oOHmGS39Nh+XTswkMZ+ur2fjU8C?=
- =?us-ascii?Q?bLptLxUsHFI8iwRWveK9EO/aRixUprPsURNSyYexPeTMxLUOVi4m2MEqlxh4?=
- =?us-ascii?Q?/49U7MtHAUMYAOAWLrTNXZ5oEgHQ4ZQe0Hdr/UZUzWPyHMEG3Ptitd0gZrxt?=
- =?us-ascii?Q?6Np7/s6BuzCr1Bcv/juniCZHVMEavdtj4tctRGS4Sr+M1H1x9xovIJpnBMvS?=
- =?us-ascii?Q?dZJeiUy0NceMf95L14izn1HjpxM848v+IPKqpYSyVT/7SF+VYjy40g1Z6AVr?=
- =?us-ascii?Q?Aj7NQfPDluNcFQu4oTK6dTGRbeDeQsy0AReByQwODydibYLVkYQRLTyLaDFE?=
- =?us-ascii?Q?AsZL+a5pkAose42F3Qr/a0ai98S8lfb1r3bFcqoqoxDCR3SzfPdleHyLvcfU?=
- =?us-ascii?Q?/fLzZ7avcSSKNNelBq1v4J+8s9avjK0l8UmGJYzjm4SIkXKvHY4G+1yKS9IB?=
- =?us-ascii?Q?zerteYjutqbIjafWyy2n2/ckcK7y8KSqZJ/preo9aclsgfX5X3yK5ZOIbpt7?=
- =?us-ascii?Q?RMgCXa6NJZSSO8r7TzFgPtDkRBf+imcdbcWCdDIYG3oEoac3JeQvU4bInYDe?=
- =?us-ascii?Q?dfpNT+jEEPgjjTl4+321ZyzTnTRAxh36?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(7416014)(52116014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?//iw6WhLPN+uc3TT7lOl6ANhpT+ne/E48khgNKSMl+wPr0xq314oRDDhNceX?=
- =?us-ascii?Q?cDHeBmY8wKzji7V1gL53qjyXbl/MuZdzH0YS7M+SFSxb4ydpbh3ShOJRPdmf?=
- =?us-ascii?Q?PE3ES3/uG15T50qGXJYpZ1EnqPmvD1lLklQrPqPcV/GtS/C5xPi6TBOXc9vr?=
- =?us-ascii?Q?1DNjj2gy5887hCUvHghtwAAFsiBDzyZeXhFtpLvdO9JtYIGk/NKQRfUJK9Uv?=
- =?us-ascii?Q?ETnV0DDBOFOcBJYqz1klR5q5lNHRCHhJIKM++tN8zXTS9LpjXgpGBaBfzBXf?=
- =?us-ascii?Q?i4oeQwI2AV9Jjtqm5+H6GqSu8ueRyzoYq2ueXiB8pHSWNpnMl7h9Ej/0HmQO?=
- =?us-ascii?Q?9AKCfTi71ml5MBDD0wt1vWPLkKtJOPo+QMhmev5TcMCDyZlmD49SoZyjk2zR?=
- =?us-ascii?Q?C32swMekqyfNvDneuxc+vuOJ46QxavG365MGYmLP/qr7DfkaguJ+ata2D2go?=
- =?us-ascii?Q?toDTe/q5gbDjgxiT6TjvjRc8vIPMZyfZJKmv0E1K+TFT/I+cvInsnqTxSpkL?=
- =?us-ascii?Q?dn+yrnnaRY5INLVZGcntO6l4LUB57HDo+m5CxrG4dA/H6Eg1W3lisuPr3Vh2?=
- =?us-ascii?Q?k3mvR7x7YQDsm3mGA6BGIaqpFZl3uHfXFxBsOue53KZvmb9btrejRP29R+X8?=
- =?us-ascii?Q?v9VRdwaPaGobeVieFqkFOCX/V5nUnBuR9WR5yFMdEbAZx5cOB0xM0CdXGNWe?=
- =?us-ascii?Q?3OGYfoQiTbpqNI311hPf3HLGpcFnf9GQnW0F6gXkPUnkLacr8JY4scvr0llr?=
- =?us-ascii?Q?qmz1Qg2vWlYIOiCrCJY1yuFSUNooiG1bygARHMbcE+owgoccKySlItVVbY0b?=
- =?us-ascii?Q?kRyHGcPwDHnFXlfRRNar5f0jQg4Perv6pvSZlXxAQ+Dld7wWDdvOUf9IVs/R?=
- =?us-ascii?Q?PlDW6Hvve+KixYK6PAnn3njhbbZLgU4KtWJE5yyHHcs7mOZg7idnOi1vUoRu?=
- =?us-ascii?Q?tBmqDOm8f4rz9EQrqQadbKMGEOPv5Wa3EZX8Lnbbq+3yb2AJC23dOn1Vv0fx?=
- =?us-ascii?Q?DpHwLi1qy0NHt1kb3HIhJg2r9Wkccr2TPr4P0kGnf3IhTK0XNPACgW+BJLB5?=
- =?us-ascii?Q?rYcap1KvpqurGJ42P6TP6CertSFeW6WUHQCWyLkCXhfI9sgx7TygTmQ3rP9U?=
- =?us-ascii?Q?7CXPT6Ep6kIjX6Xpe5y3wHN/gWiRzxY6tGzh2Fbmubh5lm3ANr2EKV9koAG4?=
- =?us-ascii?Q?CbSSKBAll1DkGuojrQgF8gZH3+t72TYE6dYqr2DxBWFpVR8DrL0ut528Qpfh?=
- =?us-ascii?Q?FRR2jvTk/AxrqUMXGLbWTIN4EY+sOY3faWRt52nAtbWOgyjhe+5U4XFoFo2F?=
- =?us-ascii?Q?c79G/Y7tdxsIzHg9eVGxueNagKb+zB6ipWdqAzTB9ru6gcJsbzn4N9DMO0br?=
- =?us-ascii?Q?fFhlsvRKxfbfKSxfPRAxtDRYT6Mlrlj8Ng2K/pmExQ9mXXr7kSwhG8WmskXr?=
- =?us-ascii?Q?W8+9kuTUxSl9CXNk9U3bg4vpHkZ0uJjh4Wkpi3skeFwwe8bD3eipdvFUKiYx?=
- =?us-ascii?Q?prtprLamWiTzN/6aqAC911m0GothH82td54HQh6WqBb271/UI39SpXZmE2Oq?=
- =?us-ascii?Q?5nQ/v9aHX8ZQ+FHQGT1PFr3adKmJeKEAZgWC66NW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4bf745a-0a49-492e-2adf-08ddde866bad
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 18:38:27.2142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MMucbnL+WZz/O8pBZLQRxKCOJlYvFZgeMwt9pUC4N93g57dJkdieIFECNJ5jffZRATVl2anAdQ092fU80lQr4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSKPR04MB11317
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_113834_770246_DFA07F27 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250818_114432_461443_6725C284 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,134 +73,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert lpc32xx-key.txt to yaml format.
+Hi Sebastian,
 
-Additional changes:
-- set maximum of key-row(column) to 4.
-- add ref to matrix-keymap.yaml.
+Am Montag, 18. August 2025, 19:26:15 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Sebastian Reichel:
+> Most of the recent Rockchip devices do not have a GRF associated
+> with the tsadc IP. Let's avoid printing a warning on those devices.
+>=20
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v2
-- add ref to matrix-keymap.yaml.
-- remove properties, which already defined in matrix-keymap.yaml.
-- Add Vladimir Zapolskiy review tag
----
- .../devicetree/bindings/input/lpc32xx-key.txt | 34 -----------
- .../bindings/input/nxp,lpc3220-key.yaml       | 61 +++++++++++++++++++
- 2 files changed, 61 insertions(+), 34 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/input/lpc32xx-key.txt
- create mode 100644 Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
+thanks a lot for tracking down the GRF usage for all the soc variants :-)
 
-diff --git a/Documentation/devicetree/bindings/input/lpc32xx-key.txt b/Documentation/devicetree/bindings/input/lpc32xx-key.txt
-deleted file mode 100644
-index 2b075a080d303..0000000000000
---- a/Documentation/devicetree/bindings/input/lpc32xx-key.txt
-+++ /dev/null
-@@ -1,34 +0,0 @@
--NXP LPC32xx Key Scan Interface
--
--This binding is based on the matrix-keymap binding with the following
--changes:
--
--Required Properties:
--- compatible: Should be "nxp,lpc3220-key"
--- reg: Physical base address of the controller and length of memory mapped
--  region.
--- interrupts: The interrupt number to the cpu.
--- clocks: phandle to clock controller plus clock-specifier pair
--- nxp,debounce-delay-ms: Debounce delay in ms
--- nxp,scan-delay-ms: Repeated scan period in ms
--- linux,keymap: the key-code to be reported when the key is pressed
--  and released, see also
--  Documentation/devicetree/bindings/input/matrix-keymap.txt
--
--Note: keypad,num-rows and keypad,num-columns are required, and must be equal
--since LPC32xx only supports square matrices
--
--Example:
--
--	key@40050000 {
--		compatible = "nxp,lpc3220-key";
--		reg = <0x40050000 0x1000>;
--		clocks = <&clk LPC32XX_CLK_KEY>;
--		interrupt-parent = <&sic1>;
--		interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
--		keypad,num-rows = <1>;
--		keypad,num-columns = <1>;
--		nxp,debounce-delay-ms = <3>;
--		nxp,scan-delay-ms = <34>;
--		linux,keymap = <0x00000002>;
--	};
-diff --git a/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml b/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
-new file mode 100644
-index 0000000000000..9e0d977bdf5cd
---- /dev/null
-+++ b/Documentation/devicetree/bindings/input/nxp,lpc3220-key.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/input/nxp,lpc3220-key.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: NXP LPC32xx Key Scan Interface
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    const: nxp,lpc3220-key
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  nxp,debounce-delay-ms:
-+    description: Debounce delay in ms
-+
-+  nxp,scan-delay-ms:
-+    description: Repeated scan period in ms
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - nxp,debounce-delay-ms
-+  - nxp,scan-delay-ms
-+  - linux,keymap
-+
-+allOf:
-+  - $ref: matrix-keymap.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/clock/lpc32xx-clock.h>
-+
-+    key@40050000 {
-+        compatible = "nxp,lpc3220-key";
-+        reg = <0x40050000 0x1000>;
-+        clocks = <&clk LPC32XX_CLK_KEY>;
-+        interrupt-parent = <&sic1>;
-+        interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
-+        keypad,num-rows = <1>;
-+        keypad,num-columns = <1>;
-+        nxp,debounce-delay-ms = <3>;
-+        nxp,scan-delay-ms = <34>;
-+        linux,keymap = <0x00000002>;
-+    };
--- 
-2.34.1
+> ---
+>  drivers/thermal/rockchip_thermal.c | 53 ++++++++++++++++++++++++++++++++=
++-----
+>  1 file changed, 46 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchi=
+p_thermal.c
+> index 3beff9b6fac3abe8948b56132b618ff1bed57217..1e8091cebd6673ab39fa0c4de=
+e835c68aeb7e8b5 100644
+> --- a/drivers/thermal/rockchip_thermal.c
+> +++ b/drivers/thermal/rockchip_thermal.c
+> @@ -1099,6 +1114,8 @@ static const struct rockchip_tsadc_chip px30_tsadc_=
+data =3D {
+>  	.chn_offset =3D 0,
+>  	.chn_num =3D 2, /* 2 channels for tsadc */
+> =20
+> +	.grf_mode =3D GRF_MANDATORY,
+> +
+>  	.tshut_mode =3D TSHUT_MODE_CRU, /* default TSHUT via CRU */
+>  	.tshut_temp =3D 95000,
+> =20
+> @@ -1123,6 +1140,8 @@ static const struct rockchip_tsadc_chip rv1108_tsad=
+c_data =3D {
+>  	.chn_offset =3D 0,
+>  	.chn_num =3D 1, /* one channel for tsadc */
+> =20
+> +	.grf_mode =3D GRF_NONE,
+> +
+
+nit: I guess instead of adding an empty line, you could also just drop
+the empty line above, to bring the "older" variants into the form
+rk3576 and rk3588 use.
+
+
+>  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
+>  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+>  	.tshut_temp =3D 95000,
+
+[...]
+
+> @@ -1321,6 +1354,7 @@ static const struct rockchip_tsadc_chip rk3576_tsad=
+c_data =3D {
+>  	/* top, big_core, little_core, ddr, npu, gpu */
+>  	.chn_offset =3D 0,
+>  	.chn_num =3D 6, /* six channels for tsadc */
+> +	.grf_mode =3D GRF_NONE,
+>  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
+>  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+>  	.tshut_temp =3D 95000,
+> @@ -1345,6 +1379,7 @@ static const struct rockchip_tsadc_chip rk3588_tsad=
+c_data =3D {
+>  	/* top, big_core0, big_core1, little_core, center, gpu, npu */
+>  	.chn_offset =3D 0,
+>  	.chn_num =3D 7, /* seven channels for tsadc */
+> +	.grf_mode =3D GRF_NONE,
+>  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
+>  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
+>  	.tshut_temp =3D 95000,
+
+[...]
+
+> @@ -1621,12 +1656,16 @@ static int rockchip_configure_from_dt(struct devi=
+ce *dev,
+>  		return -EINVAL;
+>  	}
+> =20
+> -	/* The tsadc wont to handle the error in here since some SoCs didn't
+> -	 * need this property.
+> -	 */
+> -	thermal->grf =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+> -	if (IS_ERR(thermal->grf))
+> -		dev_warn(dev, "Missing rockchip,grf property\n");
+> +	if (thermal->chip->grf_mode !=3D GRF_NONE) {
+> +		thermal->grf =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+> +		if (IS_ERR(thermal->grf)) {
+> +			ret =3D PTR_ERR(thermal->grf);
+> +			if (thermal->chip->grf_mode =3D=3D GRF_OPTIONAL)
+> +				dev_warn(dev, "Missing rockchip,grf property\n");
+
+I guess it might make it easier for people seeing the log, if we could
+insert an "optional" into that message for the optional tier.
+
+> +			else
+> +				return dev_err_probe(dev, ret, "Missing rockchip,grf property\n");
+> +		}
+> +	}
+> =20
+>  	rockchip_get_trim_configuration(dev, np, thermal);
+
+Overall, though
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+Thanks
+Heiko
+
 
 
