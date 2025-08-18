@@ -4,81 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178A1CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46410CA0EF4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/EIRFg9PLgH5wwlMqWFKmPwTY6Y/F+Dlmaynssm+2Y=; b=Y56BsVHiJMfm16XtpAca+2lN/R
-	NMEmzispEkp9UX3OmWyO2+K7uXsoespnXM3s/YO6eyHNkvbgqu+72lPbonMiWoyftfnLJlWQNG9K/
-	x/ivO6CxFxHwSEq4ucuEH+mo5qtMEYJQPbMayap57kySRTk2EIpe7Ow56bnvq4QpRMnOXOrRTiKAo
-	XPIdi+LH0L1wir6tmICztNn3cHvYorEQHUf+G4cS70CqHmkzBCE6rV1uYRAAmFJe/3DZYTEa3f2nD
-	IUA9CJ5c6HjxnajTNBa4tTZl2QjnAkw0HOfVPdBJsHIkzq5B+mXTbdaDoE1faKSuZgW8TbffBObB+
-	h9CqdoUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xdAWM4VoEFpKIci+YeNFUKl++/E12AuQc7lCaC4JGcM=; b=xXqgyMn7xCHbl3SrLCI0htnfrt
+	HCp+YofIT1z6TtlylMuE4At7aYuWZY5fh0p7AG17UFAgDwUTjC1tL61t81wl/K0c31b2/PtCKqxqK
+	Bj2RWnnn4vvXtGaBYO89qjcg4sIRJwFTJ8I5b4VgzG1brWkvIx7YJ4W3ATjVx+UA136DXMhd/MxMA
+	txClK5BV5UiQZUyAz3nhTWKsIQxWYTXGZnR1QWokhWWh2EcrHt+Kghv6Af+wseIYkgU6L+tVs/N6P
+	TDXiTrFOZZD0PKvjOSpqItnTJBG0f6sayyKtTM2N/378Fex5lrvlc5tl9SbFHUjr2qh7GXLo4PNmx
+	Hy9EUfuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hA-000000088VE-3nwS;
-	Mon, 18 Aug 2025 17:30:56 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uo3h5-000000088St-1YY6;
+	Mon, 18 Aug 2025 17:30:51 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0uA-00000007lGR-3mQH;
-	Mon, 18 Aug 2025 14:32:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6/EIRFg9PLgH5wwlMqWFKmPwTY6Y/F+Dlmaynssm+2Y=; b=nTwJBQDMyEiWOl9UKDS8McJeti
-	nj2X7/q6CCyGsURq8PcmJKXeUUPIGn1OIHoJm93+vT3hwGJB/j6uSWZyqTNkmObWD5hUoZFcLuuqv
-	FDy6H/gOMAsxcb0nNNyzDeOEjs3qBBIvRCTnxZNQG4RgiZgY4h3Tl+whMPf7vRLFHfsGBo0dtF63J
-	b9a4itPxIPqRAa3/rFEEiJCCB1HWg+ppbiRYrSeF6BxqBVPvItmbtmMAUuckFZZXb1iaPxtZV3irs
-	UTjM7zKpuSyaFmkEsXTgejffm/Nqdx4etJkPDN0uMWcooNWwfQqSfINnPGbas/DAJX/d6G8BuDVHY
-	Gbz6qISA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0u5-00000007DeO-2MJS;
-	Mon, 18 Aug 2025 14:32:06 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id EC54630029B; Mon, 18 Aug 2025 16:32:04 +0200 (CEST)
-Date: Mon, 18 Aug 2025 16:32:04 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Yongwei Ma <yongwei.ma@intel.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>
-Subject: Re: [PATCH v5 09/44] perf/x86: Switch LVTPC to/from mediated PMI
- vector on guest load/put context
-Message-ID: <20250818143204.GH3289052@noisy.programming.kicks-ass.net>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-10-seanjc@google.com>
- <20250815113951.GC4067720@noisy.programming.kicks-ass.net>
- <aJ9VQH87ytkWf1dH@google.com>
- <aJ9YbZTJAg66IiVh@google.com>
+	id 1unyPO-00000007Gle-2gL6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 11:52:16 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D1493140019F;
+	Mon, 18 Aug 2025 07:52:10 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Mon, 18 Aug 2025 07:52:10 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1755517930;
+	 x=1755604330; bh=xdAWM4VoEFpKIci+YeNFUKl++/E12AuQc7lCaC4JGcM=; b=
+	h2oUcSs131J819wJvJTUef53dLSfrK3pHFPlRRldLsqNj9I/hXPeoGtIHI0iT3/y
+	cDYnQVVpuW99OmB7K+lPEFvYdVlGGBNmmq5brTZ1CAlRoGmeryryE1GgmNfXg9uh
+	TgBMuyniCnAQzZ49puTDzar5NmC2cyIQM67Krx8syaWCMDckSSPKeP8gtu49mR+G
+	CScPZBKcukCsHxfgw5eePK/lgh0k5Afs7gCHTtSlDE6Igs8y0RlJdZCC0DWaBMRg
+	3jpdEJ3JKLLqkOvj0mbZeYhRRnHHa/10vtfCvAe6EL/zUe+Hg6IYuunKbU10dpID
+	qk1wvIO+zggkXBgzJra/9g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755517930; x=
+	1755604330; bh=xdAWM4VoEFpKIci+YeNFUKl++/E12AuQc7lCaC4JGcM=; b=X
+	n1NVHAlgbfDXUlT2I+6XovZZtytwOYYHPOHqmZcI+YdW7j58ItLIEfUJAZ3lVOV6
+	BwkxX93JgbcU+Z1tJZjR7UFzFxrmFtg+ZzAc6fYXpjM3ZltckyQADhlFNe2qJG2J
+	kX+4e0UCLeJGHkp5gxeCB0L+CmHqcEeSK0mK5gspf3CL3JOjNvb3TWJI6GyHs22l
+	s9ycEf9qKB17CHI5RpN3wR1Q4JrHBLbL3zWKAhYwwj+h2Igl2dMGUvwkzO3Nrtiv
+	7V2g2jQ2PzcYqqKPaFq0h+ePlEDqvP1G3YJwsXG2AvIs0h47UXsRBrjfjM14Pef5
+	w0oj60Po2VNhCShuZi7dA==
+X-ME-Sender: <xms:6ROjaOuitNLKajWCXYgTbY8qebcCFPEWU-gG3euwtsq2g5EHyoqrFw>
+    <xme:6ROjaDec4kPycLiFwmKAMf_8STikAe2q1_5SGAwDjQYAQ32OeQyoIArLarw0HxrwE
+    PczG7UIPN7LJrDzVBw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduhedvheegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvddupdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopehhrghrihhsohhknhesrghmrgiiohhnrdgtohhmpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
+    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegtlhesghgvnhhtfihord
+    horhhgpdhrtghpthhtohepmhgvmhigohhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
+    iihhvghnghhlihhfvghnghdusehhuhgrfigvihdrtghomhdprhgtphhtthhopehpvghtvg
+    hriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshhtsehkvghrnhgvlhdr
+    ohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:6ROjaFqAG9vVd4hWbW6eNyE7SESzQeaM9w92hMsr4lLEwp7yjsDzFg>
+    <xmx:6ROjaMofJKUARlp42HjoQme1HABCrz4GM1iJYrMnUidh95kfG7D9xA>
+    <xmx:6ROjaDHMlVoyoJbcVzEHbynZIsAzzrbI8zRo0UwXjZ1TdWUZpXVJqQ>
+    <xmx:6ROjaGo6Jrd7CjQbAz9kCTkTcJLtjqJ2mGKByJ8Caslhk4ctJ8mcmA>
+    <xmx:6hOjaDx8XTH3TIRclWvE8wp-hX4Cj7u2C4YXrjNi-XuGmN1mVBnwmWxF>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id EF07E700065; Mon, 18 Aug 2025 07:52:08 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aJ9YbZTJAg66IiVh@google.com>
+X-ThreadId: Awa8eXB9XRs-
+Date: Mon, 18 Aug 2025 13:51:28 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Catalin Marinas" <catalin.marinas@arm.com>
+Cc: "Ankur Arora" <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+ Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+ "Will Deacon" <will@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, harisokn@amazon.com,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ "Alexei Starovoitov" <ast@kernel.org>,
+ "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, zhenglifeng1@huawei.com,
+ xueshuai@linux.alibaba.com, "Joao Martins" <joao.m.martins@oracle.com>,
+ "Boris Ostrovsky" <boris.ostrovsky@oracle.com>,
+ "Konrad Rzeszutek Wilk" <konrad.wilk@oracle.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Daniel Lezcano" <daniel.lezcano@linaro.org>
+Message-Id: <1ccb0011-d2d2-453f-afcd-dd2967bf572a@app.fastmail.com>
+In-Reply-To: <aJ3d2uoKtDop_gQO@arm.com>
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-2-ankur.a.arora@oracle.com> <aJXWyxzkA3x61fKA@arm.com>
+ <877bz98sqb.fsf@oracle.com> <aJy414YufthzC1nv@arm.com>
+ <67b6b738-0f1c-4dd4-817d-95f55ec9272b@app.fastmail.com>
+ <aJ3d2uoKtDop_gQO@arm.com>
+Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add smp_cond_load_relaxed_timewait()
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_045215_107342_9B7A8CD9 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +129,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 08:55:25AM -0700, Sean Christopherson wrote:
-> On Fri, Aug 15, 2025, Sean Christopherson wrote:
-> > On Fri, Aug 15, 2025, Peter Zijlstra wrote:
-> > > > diff --git a/kernel/events/core.c b/kernel/events/core.c
-> > > > index e1df3c3bfc0d..ad22b182762e 100644
-> > > > --- a/kernel/events/core.c
-> > > > +++ b/kernel/events/core.c
-> > > > @@ -6408,6 +6408,8 @@ void perf_load_guest_context(unsigned long data)
-> > > >  		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
-> > > >  	}
-> > > >  
-> > > > +	arch_perf_load_guest_context(data);
-> > > 
-> > > So I still don't understand why this ever needs to reach the generic
-> > > code. x86 pmu driver and x86 kvm can surely sort this out inside of x86,
-> > > no?
-> > 
-> > It's definitely possible to handle this entirely within x86, I just don't love
-> > switching the LVTPC without the protection of perf_ctx_lock and perf_ctx_disable().
-> > It's not a sticking point for me if you strongly prefer something like this: 
-> > 
-> > diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-> > index 0e5048ae86fa..86b81c217b97 100644
-> > --- a/arch/x86/kvm/pmu.c
-> > +++ b/arch/x86/kvm/pmu.c
-> > @@ -1319,7 +1319,9 @@ void kvm_mediated_pmu_load(struct kvm_vcpu *vcpu)
-> >  
-> >         lockdep_assert_irqs_disabled();
-> >  
-> > -       perf_load_guest_context(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
-> > +       perf_load_guest_context();
-> > +
-> > +       perf_load_guest_lvtpc(kvm_lapic_get_reg(vcpu->arch.apic, APIC_LVTPC));
-> 
-> Hmm, an argument for providing a dedicated perf_load_guest_lvtpc() APIs is that
-> it would allow KVM to handle LVTPC writes in KVM's VM-Exit fastpath, i.e. without
-> having to do a full put+reload of the guest context.
-> 
-> So if we're confident that switching the host LVTPC outside of
-> perf_{load,put}_guest_context() is functionally safe, I'm a-ok with it.
+On Thu, Aug 14, 2025, at 15:00, Catalin Marinas wrote:
+> On Wed, Aug 13, 2025 at 06:29:37PM +0200, Arnd Bergmann wrote:
+>> On Wed, Aug 13, 2025, at 18:09, Catalin Marinas wrote:
+>> and virtual machines with CPU overcommit.
+>
+> Not sure it helps here. With vCPU overcommit, KVM enables WFE trapping
+> and the event stream no longer has any effect (it's not like it
+> interrupts the host).
 
-Let me see. So the hardware sets Masked when it raises the interrupt.
+I would expect a similar overhead for the WFE trapping as for the
+bare-metal hardware case: When the WFE traps, the host has to
+reschedule all guests that are in WFE periodically, while WFET
+with event stream disabled means this can be driven by an accurate
+host timer.
 
-The interrupt handler clears it from software -- depending on uarch in 3
-different places:
- 1) right at the start of the PMI
- 2) in the middle, right before enabling the PMU (writing global control)
- 3) at the end of the PMI
+> That said, my worry is that either broken hardware or software rely on
+> the event stream unknowingly, e.g. someone using WFE in a busy loop. And
+> for hardware errata, we've had a few where the wakeup events don't
+> propagate between clusters, though these we can toggle on a case by case
+> basis.
 
-the various changelogs adding that code mention spurious PMIs and
-malformed PEBS records.
+Don't we already support hardware without a functional architected
+timer even with? Those don't use the event stream today even when
+CONFIG_ARM_ARCH_TIMER_EVTSTREAM is enabled.
 
-So the fun all happens when the guest is doing PMI and gets a VM-exit
-while still Masked.
-
-At that point, we can come in and completely rewrite the PMU state,
-reroute the PMI and enable things again. Then later, we 'restore' the
-PMU state, re-set LVTPC masked to the guest interrupt and 'resume'.
-
-What could possibly go wrong :/ Kan, I'm assuming, but not knowing, that
-writing all the PMU MSRs is somehow serializing state sufficient to not
-cause the above mentioned fails? Specifically, clearing PEBS_ENABLE
-should inhibit those malformed PEBS records or something? What if the
-host also has PEBS and we don't actually clear the bit?
-
-The current order ensures we rewrite LVTPC when global control is unset;
-I think we want to keep that.
-
-While staring at this, I note that perf_load_guest_context() will clear
-global ctrl, clear all the counter programming, and re-enable an empty
-pmu. Now, an empty PMU should result in global control being zero --
-there is nothing run after all.
-
-But then kvm_mediated_pmu_load() writes an explicit 0 again. Perhaps
-replace this with asserting it is 0 instead?
-
-Anyway, this means that moving the LVTPC writing into
-kvm_mediated_pmu_load() as you suggest is identical.
-perf_load_guest_context() results in global control being 0, we then
-assert it is 0, and write LVTPC while it is still 0.
-kvm_pmu_load_guest_pmcs() will then frob the MSRs.
-
-OK, so *IF* doing the VM-exit during PMI is sound, this is something
-that needs a comment somewhere. Then going back again, is the easy part,
-since on the host side, we can never transition into KVM during a PMI.
+     Arnd
 
