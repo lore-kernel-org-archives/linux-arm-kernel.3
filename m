@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF91CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82969CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BiaTVxCVbCETxM2X9njtKCefT47H6gSC2OI3+kcXKs=; b=Ry04dSqx5kyS98zCcIW+BHnRqa
-	DRoghIRieIFG3ENVR+nCxRr2CPkhDUtvCrEW937lH9+jBO/mUZDCTVPNAbwi0UZivSRv0VWdKEgr4
-	AazCkjpeVa8jo2Q9pC1b2IIKzjvWM5ouY4impjw9Hu1V++uWCIxW2dk4x2Mv+NvAVdPioROa10qZJ
-	iab3HoWd8nKbcMARFwE3u67ISxWa1oJGB+l6PKr7hm41CjPx1U336LnWJXo+Kk3sT3T9MkLfryf98
-	ZFXo9Zx3kDR9mp7odqU0let0BcWC5/JIO09r5b6DUbh+/0X//7aFtgcEI4S5vohkaWaBKAgXtvVvl
-	Eb5n5E2A==;
+	bh=xOEfFPITo4fAFtVzaerZsFgMN9QeCzQUrj0jDvlbyhU=; b=rGh8qZQQf0WulKLSBwqA66OfZj
+	IBpdRZUBiig2kWYlurR782QzSYaAwe/JDDcEHTDXe3qKCPIIg/NsTuZ14CONZzNUWbvscMgKG+NFL
+	xC7hhpAgpXgfJt0/c8OPYBNi0RfuoxMRyP3D8qfqUHATkyAdCTsy1MpigsAHzcovTFYcD+Sbwa/mQ
+	qNysCZekyG8DUABHESbtRKaT/3d5jeKPPVBcluWzeBE+YPfCPSDqlCbyUHrxBpfW1Qc/wHySq7rEM
+	71ThSpKf24tCs9v/KLzVEF3wR4vunEBbM3ilKbwRQwftHJluxFBZHJ/PEDoByd0dukphy94Bg02zu
+	F+q1xklg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo06E-00000007Yv8-0PZc;
-	Mon, 18 Aug 2025 13:40:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unw40-000000072dJ-2Ndu
+	id 1uo06G-00000007YyO-1WYX;
+	Mon, 18 Aug 2025 13:40:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unw4f-000000072jT-0gpe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 09:22:02 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 9B7B417D1;
-	Mon, 18 Aug 2025 11:20:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755508858;
-	bh=kqWkwpZeDd3/I+FFiy2R27j1WrvPesd6DRcrbiWwlas=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MiNljGcwNxjzMcy1MqNDcTJD1GeWwOnpxjDNCVBmYPbX8wToXu5Dbi+7oatKDBds1
-	 pJOX746hIzx1pUtfClWxjOehH97MfSZLhhOpJRpwsem6DIamO9EzhWWPeyaRvEMAOv
-	 FMnsDM4Km1i9WLuos2TwoKQxhtibpk3R77xvujxo=
-Date: Mon, 18 Aug 2025 12:21:33 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Inbaraj E <inbaraj.e@samsung.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
-	s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
-	cw00.choi@samsung.com, rmfrfs@gmail.com, martink@posteo.de,
-	mchehab@kernel.org, linux-fsd@tesla.com, will@kernel.org,
-	catalin.marinas@arm.com, pankaj.dubey@samsung.com,
-	shradha.t@samsung.com, ravi.patel@samsung.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, alim.akhtar@samsung.com,
-	linux-samsung-soc@vger.kernel.org, kernel@puri.sm,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 05/12] media: imx-mipi-csis: Move clk to
- mipi_csis_info structure
-Message-ID: <20250818092133.GA5862@pendragon.ideasonboard.com>
-References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141025epcas5p2b226c4eaab5d60d0e95f684e2ef930f2@epcas5p2.samsung.com>
- <20250814140943.22531-6-inbaraj.e@samsung.com>
+	Mon, 18 Aug 2025 09:22:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6829150C;
+	Mon, 18 Aug 2025 02:22:31 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 438963F58B;
+	Mon, 18 Aug 2025 02:22:35 -0700 (PDT)
+Date: Mon, 18 Aug 2025 10:22:30 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] arm64/sysreg: Add VTCR_EL2 register
+Message-ID: <aKLw1jvwOo4wG64n@J2N7QTR9R3>
+References: <20250818045759.672408-1-anshuman.khandual@arm.com>
+ <20250818045759.672408-5-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250814140943.22531-6-inbaraj.e@samsung.com>
+In-Reply-To: <20250818045759.672408-5-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_022200_745671_F86A7BF4 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250818_022241_242433_AB0FC465 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,91 +68,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Inbaraj,
-
-On Thu, Aug 14, 2025 at 07:39:36PM +0530, Inbaraj E wrote:
-> clock names in NXP SoC's is different from the FSD SoC. Inorder to
-
-s/clock/Clock/
-s/Inorder/In order/
-
-Is the difference really a matter of SoCs, or is it because the FSD SoC
-uses a different version of the IP ?
-
-I also suspect that the "phy" clock was added by mistake, and isn't
-needed in NXP SoCs. Could you please check and confirm if the v3.3 and
-v3.6.3 versions of the IP have an input PHY clock ?
-
-> extend this driver to use for FSD SoC. Move the clock names to
-> mipi_csis_info structure.
-> 
-> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 14 ++++++--------
->  1 file changed, 6 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 2beb5f43c2c0..4afa75734f05 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -267,6 +267,8 @@ static const struct mipi_csis_event mipi_csis_events[] = {
+On Mon, Aug 18, 2025 at 10:27:59AM +0530, Anshuman Khandual wrote:
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index d2b40105eb41..f5a0a304f844 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -4910,6 +4910,63 @@ Field	1	PIE
+>  Field	0	PnCH
+>  EndSysreg
 >  
->  #define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
->  
-> +#define MIPI_CSIS_MAX_CLOCKS	4
+> +Sysreg	VTCR_EL2	3	4	2	1	2
+> +Res0	63:46
+> +Field	45	HDBSS
+> +Field	44	HAFT
+> +Res0	43:42
+> +Field	41	TL0
+> +Field	40	GCSH
+> +Res0	39
+> +Field	38	D128
+> +Field	37	S2POE
+> +Field	36	S2PIE
+> +Field	35	TL1
+> +Field	34	AssuredOnly
+> +Field	33	SL2
+> +Field	32	DS
+> +Res1	31
+> +Field	30	NSA
+> +Field	29	NSW
+> +Field	28	HWU62
+> +Field	27	HWU61
+> +Field	26	HWU60
+> +Field	25	HWU59
+> +Res0	24:23
+> +Field	22	HD
+> +Field	21	HA
+> +Res0	20
+> +UnsignedEnum	19	VS
+> +	0b0	8BIT
+> +	0b1	16BIT
+> +EndEnum
+
+You left TCR_EL1.AS as a single-bit 'Field', so please do the same here
+for consistency. I don't think there's much gained by making this any
+sort of enum.
+
+> +Field	18:16	PS
+> +UnsignedEnum	15:14	TG0
+> +		0b00	4K
+> +		0b01	64K
+> +		0b10	16K
+> +EndEnum
+
+As with other patches, this is not ordered. Please use Enum.
+
+Likewise for the other cases below.
+
+Mark.
+
+> +UnsignedEnum	13:12	SH0
+> +		0b00	NONE
+> +		0b10	OUTER
+> +		0b11	INNER
+> +EndEnum
+> +UnsignedEnum	11:10	ORGN0
+> +	0b00	NC
+> +	0b01	WBWA
+> +	0b10	WT
+> +	0b11	WBnWA
+> +EndEnum
+> +UnsignedEnum	9:8	IRGN0
+> +	0b00	NC
+> +	0b01	WBWA
+> +	0b10	WT
+> +	0b11	WBnWA
+> +EndEnum
+> +Field	7:6	SL0
+> +Field	5:0	T0SZ
+> +EndSysreg
 > +
->  enum mipi_csis_clk {
->  	MIPI_CSIS_CLK_PCLK,
->  	MIPI_CSIS_CLK_WRAP,
-> @@ -274,13 +276,6 @@ enum mipi_csis_clk {
->  	MIPI_CSIS_CLK_AXI,
->  };
->  
-> -static const char * const mipi_csis_clk_id[] = {
-> -	"pclk",
-> -	"wrap",
-> -	"phy",
-> -	"axi",
-> -};
-> -
->  enum mipi_csis_version {
->  	MIPI_CSIS_V3_3,
->  	MIPI_CSIS_V3_6_3,
-> @@ -289,6 +284,7 @@ enum mipi_csis_version {
->  struct mipi_csis_info {
->  	enum mipi_csis_version version;
->  	unsigned int num_clocks;
-> +	const char *clk_names[MIPI_CSIS_MAX_CLOCKS];
->  };
->  
->  struct mipi_csis_device {
-> @@ -697,7 +693,7 @@ static int mipi_csis_clk_get(struct mipi_csis_device *csis)
->  		return -ENOMEM;
->  
->  	for (i = 0; i < csis->info->num_clocks; i++)
-> -		csis->clks[i].id = mipi_csis_clk_id[i];
-> +		csis->clks[i].id = csis->info->clk_names[i];
->  
->  	ret = devm_clk_bulk_get(csis->dev, csis->info->num_clocks,
->  				csis->clks);
-> @@ -1539,12 +1535,14 @@ static const struct of_device_id mipi_csis_of_match[] = {
->  		.data = &(const struct mipi_csis_info){
->  			.version = MIPI_CSIS_V3_3,
->  			.num_clocks = 3,
-> +			.clk_names = {"pclk", "wrap", "phy"},
->  		},
->  	}, {
->  		.compatible = "fsl,imx8mm-mipi-csi2",
->  		.data = &(const struct mipi_csis_info){
->  			.version = MIPI_CSIS_V3_6_3,
->  			.num_clocks = 4,
-> +			.clk_names = {"pclk", "wrap", "phy", "axi"},
->  		},
->  	},
->  	{ /* sentinel */ },
-
--- 
-Regards,
-
-Laurent Pinchart
+>  SysregFields MAIR2_ELx
+>  Field	63:56	Attr7
+>  Field	55:48	Attr6
+> -- 
+> 2.25.1
+> 
+> 
 
