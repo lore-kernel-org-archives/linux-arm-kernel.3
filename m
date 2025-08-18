@@ -4,174 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B32CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4729CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=; b=1ht0uugwVp+E1ngcSWWzOfmbej
-	MFGP97my3PDEp9wJ8IUdjdy43O5spLQ8+pN83dTYDimZcX76dRvGh8+tp7EcQBWq24/FTmRxndR2+
-	ErWn9zsjaJ1Zz+Y9fBNcbwd/c8Gvrj4mfs5bOpCLN0Xh/2Mnjwrn/KEpI14XIhO1W4Tya9VdLl3E+
-	hLbKv3OzGT1VRigONssBC3Le5RNFkk8NvCBYPvaP/ZhxzIrz6+1IySGVyavMyUjz8zRDO7LeDulfh
-	EZsvCoY1b1R00H4N8O3v9HZmLR1tVFh1tl3ZV7PraPPiL9MRebSzGvoV7ITvC48QVFSWqmLX/xok4
-	yWF5ntSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C0OgPu7gFi8Fcpf75oT588Ky89rCydLh4nB1TMIks6g=; b=xhbq3DwJi7LGfnfLIm4X4OunCe
+	7X/ZWne0ykS3Y2P1+hCan16oA2JNJSXTTHlYZm13rL/iL0urcFdVPD451yDghHBmoCx+PJ2bWGmb1
+	qzET14gKB2vmgLPwmwm8ZW7PhbMCgBPciQMX/0gx6xWdqP5L8G/HT0KKbKoNcp72F6UqlmPTb1htY
+	vTSd2YsvZZ1cRUbZ5+/vEzFt9MhhG5MX9NM06xKgNEJdNmH11Q+nqD7JI/xdLR9x8N7i+iDOBdyVn
+	K55nP6oSxum7ECEjE4SnE9rM5KRpmt9ucyBKNZqP6hsBdABbf2QTdoJeX0WJpbXuZSGJTmPpwP79v
+	Fnh/uwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4kR-00000008NaW-3BJs;
-	Mon, 18 Aug 2025 18:38:23 +0000
-Received: from mail-dm6nam12on2060e.outbound.protection.outlook.com ([2a01:111:f403:2417::60e] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uo4n0-00000008Npf-0L05;
+	Mon, 18 Aug 2025 18:41:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4IW-00000008Hrf-3fY2;
-	Mon, 18 Aug 2025 18:09:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b+9eGUCrXocarSB+jhEvZUv4w+CgNfuqH+vJ5Wxxr9gOwsuOi4ynHfJ9BTnYlEFUQkUC1AW8/YArUBx8g+hyjfcwPYDegyjp2spkUYJTQrbonhHlJ8e/mboYz3DYyq5HZufWvFXrd4hEHu3Tb+xoPYGA/nxffDa6LHn0PaszdZTcPBhoKQA2o0Fx/73bBe2iQuWZGmlrpaJvQLtUNrH7dpuCr59/pkbgNOkk9HxmX/VdKIda0HdBbClNberYnTevM2ICEpD1heVfHyNToJlexXHwENt+2pMnCh5oZpZXt92STUJNGWrzu317ZwoVX6oIYCBZIsb7CJ+Iiycn3T6W2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=;
- b=duuA+yjbk/ZTiin1GSL+ez9AsmD0Eh4y2a/fjfnn4M/R72M3vMfk7B6aqt5dHKA2hPpl3wChHLYaNGPEcyRp+FNVLtBRP9aIzk7V2PjbTz+8/3jETS+Iv8FAjT7O7h4c0DFflTEF8N7SqBi5WRohD0P5YMl0H3JGnUDdooh2taeYMmqoQ/BZfQLlGMSrR+mHR3P4Ty7NmPNtOszRxNRjDHsnEEyAct9JCv+ZjJmENeiRv5JBI+d0jisIhERAGEl69Pa5XvokMtlHG94T0IJdoeUp7ykD+dVCYNkCmctw351jM/7o+E1j2IZoZk6D5/lmWcYbB8ugkcaJ7w+s2qV8/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d1UnFGEBDcWBBOIouy7wxm9/WUEyyx6tNv81SW9AMvc=;
- b=h677yzkeJ9ruNLVjnoaCuPqZvkFcVaPSwv/jBxEJ/oZ4D08p7R5WH51NSewfG1DzaO7gpvxpZlsAfJapT7R7jh1ku9sFOfaN5TlivcSFWjjVoMsrr8P97wxi+jjuIShv2aoHt1FPKenCUEHjWvsU0pLJdkHQb1XKX9MuuVBxS7D/31NQ5u++K1CU3AyV8f0N0JG7k+BQiA1QgBdl7yyZCzRJfZ4zNgsPC65r7Z4L9/DJ9sh7ntrhc2jRv/w6ckrWcfbrVSyuRWwYY18Fu6pa/q+rMxAB94Nuqcdm3tRwl4wdOmtNfuS98XlwT/tDgieC6zxcbYoiLvjhu6BtwJTFOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB7572.namprd12.prod.outlook.com (2603:10b6:610:144::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Mon, 18 Aug
- 2025 18:09:22 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
- 18:09:22 +0000
-Date: Mon, 18 Aug 2025 15:09:20 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: "Tian, Kevin" <kevin.tian@intel.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"robin.clark@oss.qualcomm.com" <robin.clark@oss.qualcomm.com>,
-	"yong.wu@mediatek.com" <yong.wu@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>,
-	"vdumpa@nvidia.com" <vdumpa@nvidia.com>,
-	"jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>,
-	"Liu, Yi L" <yi.l.liu@intel.com>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
-	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>,
-	"Jaroszynski, Piotr" <pjaroszynski@nvidia.com>,
-	"Sethi, Vikram" <vsethi@nvidia.com>,
-	"helgaas@kernel.org" <helgaas@kernel.org>,
-	"etzhao1900@gmail.com" <etzhao1900@gmail.com>
-Subject: Re: [PATCH v3 1/5] iommu: Lock group->mutex in iommu_deferred_attach
-Message-ID: <20250818180920.GC802098@nvidia.com>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
- <BN9PR11MB5276F543286807E05FB465F58C34A@BN9PR11MB5276.namprd11.prod.outlook.com>
- <20250818141751.GN802098@nvidia.com>
- <aKNmo/O5aXb88GKK@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKNmo/O5aXb88GKK@Asurada-Nvidia>
-X-ClientProxiedBy: MN0P220CA0003.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:52e::32) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uo4Mj-00000008IFo-0QJ2;
+	Mon, 18 Aug 2025 18:13:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755540830;
+	bh=vNPbjyOpkG8XcByKMjTJekP9BZmb7pofH0G0rNFewM4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=QfMhOErSf6V6FAROpst6qSfWmMfdEU2swDhhQpVeNZiJUCOG/0dLZd02RGwAcmT0I
+	 2Ik0VrA67saMdINlkItZAK5pq1bLbMoiEI+fkAnBSFSmTB4vMRjMb5zh/vOPao9KLa
+	 S0PfVOD/ecrFmZb7U/MbB3xcA3byycSJJNVVAhjC0kjUNJqKZCIf/VdyI8/lRMIEJK
+	 HHNpWZ/EDsrPl3qJap007HC2BE1CReq82Ps2OIU2OKDf1IYiPNgCxRDEjzRyfSz491
+	 iIjY+1ysVKYHZ1v+deKgZvldDtwVxTsRXRlMB4YSuidANMpX40bmO0XdK+195b1367
+	 mLN+6nmlTvzDg==
+Received: from jupiter.universe (dyndsl-091-248-210-167.ewe-ip-backbone.de [91.248.210.167])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C6BAC17E04C0;
+	Mon, 18 Aug 2025 20:13:50 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 8B3F4480044; Mon, 18 Aug 2025 20:13:50 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 18 Aug 2025 20:13:44 +0200
+Subject: [PATCH v3] arm64: dts: rockchip: add USB-C support for ROCK
+ 5B/5B+/5T
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB7572:EE_
-X-MS-Office365-Filtering-Correlation-Id: 161edef5-ba19-43b0-bf6d-08ddde825b80
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YJj1WPhY2g+3UObwR5ewVx/DLEibRMRcuxVEnqlFTExjMOQ7fSTz0Z07FQia?=
- =?us-ascii?Q?0HsgoDrWrv86YI1C0MF/q0Ayi7mTHvyUZtxrh1NEd/xbBxjSEaK0wv3mChVb?=
- =?us-ascii?Q?JbXH2bYvgs2gJVPAr841Wv2fenMvty8ZyQriWrBjAmJho+dxmYYPKy6Iii2P?=
- =?us-ascii?Q?J5UJ34sL12chUPM6KtvhvCSqJSa3Dc3zeX+1u3qB38KzH8WElb7ixg99qpol?=
- =?us-ascii?Q?wo3NApVElKuLPd0nmnjA0gyDwb0Y1BxlpgMjcI7KeoGjUE0Fl6gMXM1HLkqG?=
- =?us-ascii?Q?G1jfviz02dQiRic6KggKWmAjZC19c8scKVnaTql5J90JCQHP0oWPXwOobt0r?=
- =?us-ascii?Q?RK3fDKa1eCWw/Dv4gDxv9zmGua9b+IytbAbbvG08efaFgdoGIphahEQsDWW9?=
- =?us-ascii?Q?X/DjEDkSSLesgAINtj6k1CuuFXJlJM7BMauVUjuMKWCB0UTiDerbbiCkX20V?=
- =?us-ascii?Q?LkmCAVELztFp420VqRzHDZ3DF2iTtQ0LxCAVeVvxQcNTQvT6u88u5OFj4M/A?=
- =?us-ascii?Q?IfTtS9pajwFDUO5v1PhBdNWo0zs3zWRbTCxoUhskjsPFLI5U73qJOEUZrcCg?=
- =?us-ascii?Q?OweMG0BHbrPoRrdvDiV5SgLN0BzvYAVAdUhtjIMy+KPAs2x9LpV7QeXGThPO?=
- =?us-ascii?Q?lAaJAcHt791khoskLE3R+GBXN+R0Jl+pRuMPPQvUSEE7R3ZW2lgNGSTnE5pY?=
- =?us-ascii?Q?m5BQ0PrHtR3PV0kPkrd9Ib9HyxhgI0s4xA4kP3c61UFJKCO6FUhNVd9EzZ++?=
- =?us-ascii?Q?NCk51UmEqwwUjzV6vlfUy+GfkQj4hscD+VkXbUhMbkrAtOarqDijpJA25VGs?=
- =?us-ascii?Q?sdXcskkKyhB8Je2kyBK49061SThW32GOQJVAT/eNsFRdhXz51PvyiVWHvw9U?=
- =?us-ascii?Q?JcR5ESv+G7JLaro+bMlxLCID8crIBtRTynFZxynqKkY2ojOyt343Y7Wts7ad?=
- =?us-ascii?Q?yJvYM3yTHXffV2BlPhluwijViTGyTx7M+3shiK0A6kW3Fs7lzVGw3sdOaGby?=
- =?us-ascii?Q?Aq4g11wJge7mZbIqdVLrchVFeH9mBzfL5LWryuPqE7IT8AZ8ONL4ZjH+62ai?=
- =?us-ascii?Q?or7XU96mYM9fGTd/pKOafXeEBCagXjvAtjXM5ultmE4goXE0lxp1P9owrTNW?=
- =?us-ascii?Q?Iqo2jvCzN8fKWMgtzFgApRP8Tr96rDrXtrUNU5+1yAQjneBRvf2dwbtkyRcy?=
- =?us-ascii?Q?gOvN87r8IBEZkJXCUT0gLe+uQjzkbbTy2sHr3zm21AHjWsCLeFv46WxJUefH?=
- =?us-ascii?Q?f6d7ECP01OE7wbARZQHDzmc9Ot6ChIkkavrW19uFnLOoEkvN3edsZCSkZqnV?=
- =?us-ascii?Q?bl1KrTv4WlzcANi51ZpWsEI0y4i4o53zNzOQO8zYSTMeeq8BwGvRPjmCKawr?=
- =?us-ascii?Q?g7uL6MoO4ngm7XWwOWUpqS6HMYl8GHYAeQcGNUS9Iy8Ncaq/dUJtfGPfSOgF?=
- =?us-ascii?Q?V3sHe6CF7YE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wq3VtZii0rFLj6l03Cm38hOF9iWM6XO4u4Hh39QWaRQ88YP/x8sma3/mEueu?=
- =?us-ascii?Q?k2iveSOJSbOIX4LW6+1Iz9YVL/7Vu1rXvkOnC5XeQ4JG28np4v3nABlHhY0C?=
- =?us-ascii?Q?wkwybTD4TmHbFkguexfVOzwkeWw46S34x3s7BoVOrwqsLKM8BYls5uZmmpMS?=
- =?us-ascii?Q?4dJKxkizFAsn0W26jOZHgt2RHWHUj8LD0Iv8gwHmG7MJD9HKenF3gj5iHzJQ?=
- =?us-ascii?Q?LCb7na25bKx9ltOC9YUreyCBTyKi2Xok0ym2KVJKt9IrB/ATVpkKj1Uvps0f?=
- =?us-ascii?Q?9WzBypCAsGDJAiTAcla42V++rAmIQvyie60DLIUTNglmFvdtYTKqYbwCmQIs?=
- =?us-ascii?Q?0iA1AAxx3cWSVIR1LZAkrTPs6incOIa8Jf9tor09uW+kzIMc0cSqvfc9F8Rn?=
- =?us-ascii?Q?Ur9FCAPdMv5aHpjqcJrWJmKaXAeTZvgpVXRyXxWkbBHMfNxbH8NN9Yhap8UJ?=
- =?us-ascii?Q?vvVRB9TsVDdsDL6L07n2IKhYaIgvafeHcwR776B5pFsH1C7q76YcfYtz+e/X?=
- =?us-ascii?Q?c0AEyblDmFIGTyInmTdQNZauEl16W7FzY9AhzxmodhdEGklK511cI4ETV0SH?=
- =?us-ascii?Q?4vbKJ7yF0po0zqn+1cwoKZa/f3oQ2hMMR3gVhCaxKrQDG5X0zLSnSLIB6PT6?=
- =?us-ascii?Q?hX4JAZUICycLBqgJUDbtA9XxbCuNm47nKaIPLCECXtbE2k04LMpijzW3oOIi?=
- =?us-ascii?Q?i6RbLOrJqXD+IFQWsqHqM5ifLk7Tn35X1f6YbAA3FB2hL5PqMkSFJ+rqK23e?=
- =?us-ascii?Q?kVUBFD+Xu0XXNuxLEQ+DYhCQHeWTcPdmVfC9XMsmgLgIfrxevWgx4uFuBOKv?=
- =?us-ascii?Q?JGcrXcti1E8WdT3SO+0VBbWA5CJzY2ehyFuTZfb1UOz2m4kitOVnyBjb3L4P?=
- =?us-ascii?Q?pg7YKkmW728DTQG/NeuNReTLXa2+3H1gLONq7V3oZAuHJmN8cASBXzusSeeL?=
- =?us-ascii?Q?gx8p8P+CMdC5kani6tKpUzrn4U5A12Z5ylSQbLFPaPqf4a6AL7oMCDHmGejL?=
- =?us-ascii?Q?wB7WFwdixANRSmfRZzGMoyN0cC9N49/XrKeIWSvVzlVTTA6DQ/TRpEaG4RUS?=
- =?us-ascii?Q?/+SzBPf++DOezEyoypNrMrMMqdsxJaHIpySTdWwX3eKqulRxpX67Wl6B1N+J?=
- =?us-ascii?Q?OKGCd+fJ3MoHVepabPCs74t5oEpz7mcMs8XbY0IiKH4/qKlC6LDJ7AnPWkEt?=
- =?us-ascii?Q?zemdKVCXvQV9bXBKFtuKkmh2K2qCkV8KbZEoWSnS88E1n9U7w6i/8VRYPx3Q?=
- =?us-ascii?Q?NLkBllIWjGYCrem5nSMx8G/M3X7Yrn3+uBVcwA12JQcVfXoMHnTqBjH5eTXl?=
- =?us-ascii?Q?8vFH2RL6YNqr0Ma9fTt5oK85A1iAs/PXgIRbuHy7ruZG3vkH1ycB2/SkQOAJ?=
- =?us-ascii?Q?vnya/OgMpqEiOrmhk0WYXLgwv+L9mE7LhgFewmVdUHrRfc1/Gk5D1mv3dIKn?=
- =?us-ascii?Q?WJgso/rcu0SjaJ+HC9ySJrwp0SK3V2jDpZbqKP9FhlsHDTwVqIjinMJs72R8?=
- =?us-ascii?Q?WPNmW3pN/333WN2A6fk5a3bVgrqM4eSPiviCvUUFvBWiEGojiEMqAaT+vamV?=
- =?us-ascii?Q?9HxgA9HQHQzuVvDPEZg4Tysqrd16qoOUIIBEaHwe?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 161edef5-ba19-43b0-bf6d-08ddde825b80
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 18:09:22.0598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3pwIWh/MpjTjezoeIzb+egeFnV1fvj8+IWBkvERpMifma2GyClnObENYDgxs2hRw
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7572
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250818-rock5bp-for-upstream-v3-1-d13f3cdec86c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAFdto2gC/4XNTQ6CMBCG4auQrq3pjxVw5T2MC1qm0KAtmWKjI
+ dzdwsa4MC7fL5lnZhIBHURyKmaCkFx0weeQu4KYvvEdUNfmJoIJxaQ4UAxmUHqkNiB9jHFCaO7
+ UtpXSjGlVS03y6Yhg3XNjL9fcvYtTwNf2JfF1/QMmThk9Cl5Ca7nSvD4PgB5u+4AdWcUkPopi1
+ Q9FrEpZMimN4Y0RX8qyLG8fFqTz/wAAAA==
+X-Change-ID: 20250324-rock5bp-for-upstream-fd85b00b593b
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9128; i=sre@kernel.org;
+ h=from:subject:message-id; bh=vNPbjyOpkG8XcByKMjTJekP9BZmb7pofH0G0rNFewM4=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGijbV4+WI1l+7bVC6KJ4HiKS6TevtgAJywd+
+ npkPm/xL6PMZYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJoo21eAAoJENju1/PI
+ O/qa9q4QAJGTsa96GuiyzMyN31E/2sQDP1x+bwYt+E9lsFLANjPUptk3tNZI822UPoL6aacWZ4f
+ eFOnmryrKoBhz4JiwSqPQoW7yTwOJSJHsHKL9dsIDrmO0FXJx4eFifZxoCQIGif/IeBWBEieMlG
+ 7Vcur65mypXHoNtNqTUfXnmUZ6WgWoKDn+KK2zG0moHzWUXaDcFBpZpfZpbXeLWpTJ+Z7Oi3ola
+ Yg58sSCv69UwdVJ9w9pZt50iDlq8As3i/vXqBsBewotPGCLHvqanKB9P4s6zijOK72GR1wd/F0D
+ vqfptGnIHG9Qh9c0RLbGDL0OMagVIc3DI/r6SyULcC0/CWZmEk+OtbMQnnfuM9fEWVetSoOYZ2L
+ BiJZ2IJ/L3WLVRbXA7wUaXrzcU0FLEcAqF4BU1jVO9Fl+hkzukf7KoEi7cQEdNWGqeK4Ynajw9x
+ VdO6jwSTAAdgtP5NikpwDJ6T6DWWwU+zMTq3p1eZgLiU6ah12SfBE6EAN8RS46CEUIhMaMrjlzZ
+ 2F/g1QA7aAtnbWuy7segbZZtAxnv6qGuMCa+DrHGxRBs3ysQqv5z2D1hAIzzoBf4HaOCqcyStnP
+ EBAIG/itWjjVCjoaFlwL8RwRu2wZo67xjPDmZ8SLONduovtQsnT+kxNu46lVRiKEnTWg4ek9Fo3
+ EIcjjiMDiL1rXNYsDSYkpmg==
+X-Developer-Key: i=sre@kernel.org; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_110933_075943_28264B8B 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20250818_111353_301544_336FDD99 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,32 +98,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 10:45:07AM -0700, Nicolin Chen wrote:
-> On Mon, Aug 18, 2025 at 11:17:51AM -0300, Jason Gunthorpe wrote:
-> > On Fri, Aug 15, 2025 at 08:24:57AM +0000, Tian, Kevin wrote:
-> > > > From: Nicolin Chen <nicolinc@nvidia.com>
-> > > > Sent: Tuesday, August 12, 2025 6:59 AM
-> > > > 
-> > > > The iommu_deferred_attach() is a runtime asynchronous function called by
-> > > > iommu-dma function, which could race against other attach functions if it
-> > > > accesses something in the dev->iommu_group.
-> > > 
-> > > Is there a real racing scenario being observed or more theoretical?
-> > 
-> > I think the commit message should explain the actual reason this is
-> > being done, which AFAICT because the new lockdeps added in following
-> > patches will fail on this path otherwise.
-> 
-> Hmm, I can mention that. But I think that's just a part of the
-> reason. It still doesn't seem correct to invoke an attach_dev
-> function without the lock since iommu_group_mutex_assert() may
-> be used in the path?
+Add hardware description for the USB-C port in the Radxa ROCK 5 Model B
+family. This describes the OHCI, EHCI and XHCI USB parts. The DisplayPort
+AltMode is only partially described, as bindings for the necessary
+DisplayPort controller are still being reviewed.
 
-Last time this was brought up there was a bit of an argument that it
-couldn't happen in parallel with anything anyhow so it doesn't
-technically need locking. But I think we should not make such
-arguments and be strict about our locking. It is too hard to
-understand the system correctness otherwise.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+This series adds USB-C support for the ROCK 5B, ROCK 5B+ and ROCK 5T.
 
-Jason
+Now that [0] has been merged, this should finally work reasonably
+stable. Note, that there is a regression in 6.17-rc1, which breaks
+stable operation again. I've send a revert of that in [1]. I think
+it's time to enable the USB-C interface, so that we can claim further
+breaks as proper regressions :)
+
+[0] https://lore.kernel.org/all/20250704-fusb302-race-condition-fix-v1-1-239012c0e27a@kernel.org/
+[1] https://lore.kernel.org/linux-usb/20250818-fusb302-unthreaded-irq-v1-1-3a9a11a9f56f@kernel.org/
+
+Changes in PATCHv3:
+ - Link to v2: https://lore.kernel.org/r/20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org
+ - Rebased to latest for-next branch from Heiko
+   - Dropped merged patches for initial ROCK 5B+ support
+ - Renamed series, since it just adds USB-C support now
+ - Fix pinctrl for Rock 5B SBU DC pins
+ - Also handle ROCK 5T
+
+Changes in PATCHv2:
+ - Link to v1: https://lore.kernel.org/r/20250324-rock5bp-for-upstream-v1-0-6217edf15b19@kernel.org
+ - Replaced DT binding patch with the version from NAOKI
+ - Dropped unused pinctrl for vcc5v0_host_en from the shared DT
+ - Moved USB-C SBU DC pins to board specific files, since they differ
+   between Rock 5B and Rock 5B+
+ - Added pinmux for SBU DC pins
+ - Rebased to latest version of Heiko's for-next branch
+ - Disable USB-C on Rock 5B for now
+---
+ .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 136 +++++++++++++++++++++
+ .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  12 ++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  12 ++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    |  12 ++
+ 4 files changed, 172 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+index 612808d2b4c5d4c0de998798a0ce3002f64b32e0..f138e8df511a45a3f3de83024f5ed0fb58f38be2 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+@@ -5,6 +5,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
++#include <dt-bindings/usb/pd.h>
+ #include "rk3588.dtsi"
+ 
+ / {
+@@ -55,6 +56,18 @@ rfkill-bt {
+ 		shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
++	vbus5v0_typec: vbus5v0-typec {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&vbus5v0_typec_en>;
++		regulator-name = "vbus5v0_typec";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
+ 	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -291,6 +304,76 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&i2c4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c4m1_xfer>;
++	status = "okay";
++
++	usbc0: usb-typec@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usbc0_int>;
++		vbus-supply = <&vbus5v0_typec>;
++		/*
++		 * When the board is starting to send power-delivery messages
++		 * too late (5 seconds according to the specification), the
++		 * power-supply reacts with a hard-reset. That removes the
++		 * power from VBUS for some time, which resets te whole board.
++		 */
++		status = "fail";
++
++		usb_con: connector {
++			compatible = "usb-c-connector";
++			label = "USB-C";
++			data-role = "dual";
++			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
++			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
++			power-role = "sink";
++			try-power-role = "sink";
++			op-sink-microwatt = <1000000>;
++			sink-pdos =
++				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
++				<PDO_VAR(5000, 20000, 5000)>;
++
++			altmodes {
++				displayport {
++					svid = /bits/ 16 <0xff01>;
++					vdo = <0xffffffff>;
++				};
++			};
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++					usbc0_hs: endpoint {
++						remote-endpoint = <&usb_host0_xhci_to_usbc0>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++					usbc0_ss: endpoint {
++						remote-endpoint = <&usbdp_phy0_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++					usbc0_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy0_sbu>;
++					};
++				};
++			};
++		};
++	};
++};
++
+ &i2c6 {
+ 	status = "okay";
+ 
+@@ -445,6 +528,16 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
+ 			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	usb {
++		usbc0_int: usbc0-int {
++			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		vbus5v0_typec_en: vbus5v0-typec-en {
++			rockchip,pins = <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &pwm1 {
+@@ -860,6 +953,14 @@ &uart2 {
+ 	status = "okay";
+ };
+ 
++&u2phy0 {
++	status = "okay";
++};
++
++&u2phy0_otg {
++	status = "okay";
++};
++
+ &u2phy1 {
+ 	status = "okay";
+ };
+@@ -887,6 +988,27 @@ &u2phy3_host {
+ 	status = "okay";
+ };
+ 
++&usbdp_phy0 {
++	mode-switch;
++	orientation-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy0_ss: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc0_ss>;
++		};
++
++		usbdp_phy0_sbu: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&usbc0_sbu>;
++		};
++	};
++};
++
+ &usbdp_phy1 {
+ 	status = "okay";
+ };
+@@ -899,6 +1021,20 @@ &usb_host0_ohci {
+ 	status = "okay";
+ };
+ 
++&usb_host0_xhci {
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usb_host0_xhci_to_usbc0: endpoint {
++			remote-endpoint = <&usbc0_hs>;
++		};
++	};
++};
++
+ &usb_host1_ehci {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+index 74c7b6502e4dda4b774f43c704ebaee350703c0d..5e984a44120e4086fce9e7b72b3db1feaa820275 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
+@@ -99,12 +99,24 @@ pcie3x2_rst: pcie3x2-rst {
+ 	};
+ 
+ 	usb {
++		usbc_sbu_dc: usbc-sbu-dc {
++			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
++					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
+ 		vcc5v0_host_en: vcc5v0-host-en {
+ 			rockchip,pins = <1 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+ };
+ 
++&usbdp_phy0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&usbc_sbu_dc>;
++	sbu1-dc-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
++	sbu2-dc-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
++};
++
+ &vcc5v0_host {
+ 	enable-active-high;
+ 	gpio = <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index 9407a7c9910ada1f6c803d2e15785a9cbd9bd655..8ef01010d985bab42db33f88e5e50a3e96053288 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -38,12 +38,24 @@ &uart6 {
+ 
+ &pinctrl {
+ 	usb {
++		usbc_sbu_dc: usbc-sbu-dc {
++			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>,
++					<4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
+ 		vcc5v0_host_en: vcc5v0-host-en {
+ 			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+ };
+ 
++&usbdp_phy0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&usbc_sbu_dc>;
++	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
++	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
++};
++
+ &vcc5v0_host {
+ 	enable-active-high;
+ 	gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
+index 258c7400301d7f77517197ab433946bbfa39cf63..b91ef6389bb0e413b56b9618e8707957410d1285 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
+@@ -95,6 +95,18 @@ hp_detect: hp-detect {
+ 			rockchip,pins = <4 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	usbc_sbu_dc: usbc-sbu-dc {
++		rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
++				<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
++	};
++};
++
++&usbdp_phy0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&usbc_sbu_dc>;
++	sbu1-dc-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
++	sbu2-dc-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
+ };
+ 
+ &vcc3v3_pcie2x1l0 {
+
+---
+base-commit: 7f0817eee7ba40b48e956955d6fd8ba14750168c
+change-id: 20250324-rock5bp-for-upstream-fd85b00b593b
+
+Best regards,
+-- 
+Sebastian Reichel <sre@kernel.org>
+
 
