@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019ECCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 Aug 2025 22:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BD8CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 00:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AR9IMnY93Ea9hjevD2RhY6NAfKavG0y3XJMprGSi8GY=; b=ZksNTFMP3fpMTijI9IZKzY6z+S
-	W9HLBa177w0CpyhQLlmTfN08yr172Sm58eaZqVDePF65f+WmnOKlewQLK7V6vtow1IdbA7AU0q0BZ
-	NBsVuoz4PBFBSXrR3HQIZV98WtB3uWhFUpl1+LBxIsAUYHP7e6T2P51XQgv2xJLkHUL97ZVmIq4bd
-	Q7EZoep8KZhl0KvGE4OtXDeAEGDckw4ebf3cuvvInFeOtJawOMdJudE0URGhS6Lx1rIXb0cOIGAkI
-	DgJfCm4RhZbBca+BhefodnK5vKaS9emIi+mcw44QZjY/sjUyyNTpktC66XJm8fhGV1kG+xXATci3c
-	QOCjhGPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJghPZDANcUiW5wXtsrqlleYuYJUnUmNG7Z7BobLTXA=; b=xhd83Tcxhhr4x2BZbQe8P5bH+T
+	VlrTVVP7xU/QmYCaSlgoYeNlGvJCBB5w/Os1nc+r2Mn4F/KCeE0+w6hLs+gfS81AlR0/+LblMn3UT
+	m2QtV4M+TN5EXuKjHVwwhw8todgRR9cy4T6+V+02lGxooYWGK5n06qQhkcLa4MggEqAq3QZ0fvqNi
+	Vz9het/XTXbU0/GCP03quE0cSUtZEIueJYzX8iHk4kQhETtDJdkyicEwlPaoCCL2bBaWqeY21llKI
+	pckjA4ASoKI0shmUn8iS8Z5a2OaGURyPuk/vh8p1U55GSUBu6gYtkLQOUQ2JZP2lauoxAnWOV7w2o
+	9yKqo0LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unlkq-0000000672p-0vYz;
-	Sun, 17 Aug 2025 22:21:32 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1unnYs-00000006Bfk-0RtY;
+	Mon, 18 Aug 2025 00:17:18 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unliH-000000066st-3dQj
+	id 1unnWI-00000006BWs-27HJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 Aug 2025 22:18:54 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32326789e06so2768790a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 Aug 2025 15:18:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755469133; x=1756073933; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AR9IMnY93Ea9hjevD2RhY6NAfKavG0y3XJMprGSi8GY=;
-        b=SlAAD42pxVTQjp7PkPeFL+Or1foGAsF9os1nuJpvcWmtq/iUoavDX+F0gwqjhube3I
-         W+I8o+zOSpfs4avzu31hIcMxSfpTOogXulAa6mo9xvIq4l4uXHfdIe4TF64eMxGGMMxu
-         vuOWzjm6+N81BrJUJNaxU5HiZv0PWIC3dlV2X2UBCGBjS8TkzXdIQjQFJZKc78HnZkuM
-         mjDC76IOm1qnNyfaMwgVuOjnCsRTmx1v0YrOgsXaHE8pIHES84akfqJZ6jymWLQ3rFec
-         gU9+Ae7TK4XB/6Ah7H7s6hYZ6F3BkFjRfdagDsJZOtinfgSzV59dTyFR1D/s2D54IuW/
-         ct8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755469133; x=1756073933;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AR9IMnY93Ea9hjevD2RhY6NAfKavG0y3XJMprGSi8GY=;
-        b=fSKWOh+bgD4vzUlQq0NkZV3Jf53gDJZJBV1ETAWpKvZ94zAjY6daBrEhJp4thohYtD
-         vY6LIODE/PP3x+UbSVMNTob3++fcvvVbEcNO0ydmNe0fojpEqdL6Ji/y8eSP+/v+3mGd
-         70RwuWXytjl564Jv3EuKdFzCR7C/GAwVBE0WYqTXuHrojuWuLRhmPzOElwYMq3GqEktM
-         kV5RZ41uFn71RrwWg84AfIpm/5rZUml6B1sr6KhQmriOP3TCn4YxOTlhaTywRVi2mhdz
-         Fdrk+30UkE1c8bKWHS5kYFJS/bgPJCEyCpYFkuRMUpmxiTN4WcnRPHEFN6KFg30eQ4QD
-         Hfmg==
-X-Gm-Message-State: AOJu0Yys91Ad0BFRKae9EyXiNCqitPSiZd+hp55byQ9evWYO31qDPAq/
-	qQKqggc09GyMvtEBjtDg2Nt0p+hOZJglZBh8s9v5g8odIVcGTnyWmkfnz59EIMOQAO/z2Sb5S2Z
-	acEK0dAV91ffQu/eWMcqnydKFIUkHZQ==
-X-Gm-Gg: ASbGncsMJv2DxPn6QM4iKIVb0BnCE9K/egN4Tb5esIEJ1n1MlAAUfXgTZiAYqspltUB
-	2H3fDja1MqygVuwKsk/DO99UC8WIKB8asisCHg24e/gFmLxDCtjRshxpIBpGRjYJEGzP0+zmcb1
-	pYY53AMN+NuiC2GcabPwywWhR/vKjhim//fqk23gWmubYD3qkNt2K9+4PUsmqxCCn+AWu2tWqoN
-	06rz8B/VU0bHo+cZm+OtZzEbNtUnuGR+5jHgQ==
-X-Google-Smtp-Source: AGHT+IGaLw27Ljz9znErL/wXlKrmw2vVvXcybmvvEgz/5LXcZQr8XHkjzeg+8GuJGUPK4l3BPO48YVyBvFg6Txiap80=
-X-Received: by 2002:a17:90b:2d4e:b0:31e:d9f0:9b92 with SMTP id
- 98e67ed59e1d1-32341ec09f9mr14945541a91.14.1755469132784; Sun, 17 Aug 2025
- 15:18:52 -0700 (PDT)
+	Mon, 18 Aug 2025 00:14:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755476078; x=1787012078;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cXw8V/2WdskHtmRrZ40s0eLq9HPcJIsdXKFvs+zG3Fs=;
+  b=Bu2oZkq8Y3i9bPiQ6Vm1l+T0E7HYqdWp7qML5U7X3QxABREvoH5uswPO
+   mCJMU+lJgXcylk1s9lY3vJM5x7m2TYQFOANt7J70lt5Hx2pxiYJCeSZLD
+   kV2pmxquDv9boNpc6xH2GyW3oUDsd0MXUFdKoMSngY50ojZrGEx+mqWvF
+   EL9Vd+8LwzxEmL6xjlq1t1rZye4BhkWun00IAsWBRzAjY/1Guj0VS9ivJ
+   NMvu1F7L8Ae2xlxwTjX4wWGPgBkiAuJsWzU6HOVFw1YOg0qT8vNAhlPNX
+   DkNppZFYYaKghbWOnXLco8pOhVbsXwAHuem6cYNu3sJvJbFoPUz48yZqb
+   w==;
+X-CSE-ConnectionGUID: O7VQ4xW4SyybUW6oveqqRA==
+X-CSE-MsgGUID: TsHoR/UpSJaBBrBBLE4Kew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11524"; a="68409220"
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="68409220"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2025 17:14:34 -0700
+X-CSE-ConnectionGUID: rPkKLnjSQ5CNumytd/zTcA==
+X-CSE-MsgGUID: Yli3IW/hTpGQPtHWPRWhLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,293,1747724400"; 
+   d="scan'208";a="168250450"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 17 Aug 2025 17:14:28 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1unnW6-000DnH-1M;
+	Mon, 18 Aug 2025 00:14:26 +0000
+Date: Mon, 18 Aug 2025 08:13:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, ryabinin.a.a@gmail.com,
+	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
+	will@kernel.org, akpm@linux-foundation.org,
+	scott@os.amperecomputing.com, jhubbard@nvidia.com,
+	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
+	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
+	james.morse@arm.com, ardb@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
+	yang@os.amperecomputing.com
+Cc: oe-kbuild-all@lists.linux.dev, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH v3 1/2] kasan/hw-tags: introduce kasan.write_only option
+Message-ID: <202508180747.PxkbPnyA-lkp@intel.com>
+References: <20250816110018.4055617-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-References: <20250723224504.70862-1-jihed.chaibi.dev@gmail.com>
-In-Reply-To: <20250723224504.70862-1-jihed.chaibi.dev@gmail.com>
-From: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
-Date: Mon, 18 Aug 2025 00:18:41 +0200
-X-Gm-Features: Ac12FXxNZsd_NKVMb232yi7NEU5fcTyLEUXrOV2bg_aHCMaU0qA9kYq92dWFaRg
-Message-ID: <CANBuOYoDXtH+9svKX6WzF4GOhEF8dgxLiFE0wwo5SWfqggUPXA@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: armada-370-db: Fix stereo audio input routing
- on Armada 370
-To: andrew@lunn.ch, gregory.clement@bootlin.com, 
-	sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250816110018.4055617-2-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_151853_909662_508E737C 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250817_171438_587090_6D72CD62 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +98,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 12:45=E2=80=AFAM Jihed Chaibi
-<jihed.chaibi.dev@gmail.com> wrote:
->
-> The simple-audio-card configuration for the Armada 370 development
-> board incorrectly routed the left channel signal ("AIN1L") to both
-> sides of the stereo "In Jack".
->
-> This commit corrects the typo for the right channel, changing the
-> second "AIN1L" entry to "AIN1R" to enable proper stereo input
-> recording.
->
-> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
-> ---
->  arch/arm/boot/dts/marvell/armada-370-db.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm/boot/dts/marvell/armada-370-db.dts b/arch/arm/boot/=
-dts/marvell/armada-370-db.dts
-> index a7dc4c04d..a9a05d826 100644
-> --- a/arch/arm/boot/dts/marvell/armada-370-db.dts
-> +++ b/arch/arm/boot/dts/marvell/armada-370-db.dts
-> @@ -119,7 +119,7 @@ sound {
->                         "Out Jack", "HPL",
->                         "Out Jack", "HPR",
->                         "AIN1L", "In Jack",
-> -                       "AIN1L", "In Jack";
-> +                       "AIN1R", "In Jack";
->                 status =3D "okay";
->
->                 simple-audio-card,dai-link@0 {
-> --
-> 2.39.5
->
+Hi Yeoreum,
 
-Hi there,
+kernel test robot noticed the following build warnings:
 
-Gentle ping for review on this small patch,
+[auto build test WARNING on 8f5ae30d69d7543eee0d70083daf4de8fe15d585]
 
-cheers
+url:    https://github.com/intel-lab-lkp/linux/commits/Yeoreum-Yun/kasan-hw-tags-introduce-kasan-write_only-option/20250816-190300
+base:   8f5ae30d69d7543eee0d70083daf4de8fe15d585
+patch link:    https://lore.kernel.org/r/20250816110018.4055617-2-yeoreum.yun%40arm.com
+patch subject: [PATCH v3 1/2] kasan/hw-tags: introduce kasan.write_only option
+config: arm64-randconfig-r053-20250818 (https://download.01.org/0day-ci/archive/20250818/202508180747.PxkbPnyA-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 10.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250818/202508180747.PxkbPnyA-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508180747.PxkbPnyA-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   mm/kasan/hw_tags.c: In function 'kasan_enable_hw_tags':
+>> mm/kasan/hw_tags.c:433:21: warning: comparison between 'enum kasan_arg_mode' and 'enum kasan_arg_write_only' [-Wenum-compare]
+     433 |  if (kasan_arg_mode == KASAN_ARG_WRITE_ONLY_ON &&
+         |                     ^~
+   mm/kasan/hw_tags.c:435:18: warning: comparison between 'enum kasan_arg_mode' and 'enum kasan_arg_write_only' [-Wenum-compare]
+     435 |   kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
+         |                  ^~
+>> mm/kasan/hw_tags.c:435:18: warning: statement with no effect [-Wunused-value]
+     435 |   kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
+         |   ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +433 mm/kasan/hw_tags.c
+
+   423	
+   424	void kasan_enable_hw_tags(void)
+   425	{
+   426		if (kasan_arg_mode == KASAN_ARG_MODE_ASYNC)
+   427			hw_enable_tag_checks_async();
+   428		else if (kasan_arg_mode == KASAN_ARG_MODE_ASYMM)
+   429			hw_enable_tag_checks_asymm();
+   430		else
+   431			hw_enable_tag_checks_sync();
+   432	
+ > 433		if (kasan_arg_mode == KASAN_ARG_WRITE_ONLY_ON &&
+   434		    hw_enable_tag_checks_write_only()) {
+ > 435			kasan_arg_mode == KASAN_ARG_WRITE_ONLY_OFF;
+   436			kasan_flag_write_only = false;
+   437			pr_warn_once("System doesn't support write-only option. Disable it\n");
+   438		}
+   439	}
+   440	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
