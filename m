@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21191CA0EF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECE9CA0EF7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1mlrjl72T8bZ/P+S5PF8eSASA9CtqmZPcZGhbebNpM=; b=I0SWcDxeFcDltFAlZz3o3dzNqA
-	cZ05z86xNq8yPtYVlibwsUnHMi7lKN0MbywA1GY/6Lg0PM0/0XtN9EUzVJd2/AbgDe/FQ+rdRAnMx
-	NlAKHnjkf0cviFfaocaGm8yu/HZLJddq/soxeVy3UoH8hi/DNxbsFH43lg4mY8WAwyhgXiSzZux6g
-	23KQAYtTeJvRcBCrnonloBDLaDnCXl+o16LK5vTXbfIkD3ZE1GBq8Jo9Kjr5gL4qKmV9R3k+Ednws
-	o+aJaGv9aTvYzlE4uan8lCR23YGBEKEwgoTw+eaiWzWYNRRGnWd2xTcHX7iZj3WHmCfFijQd3WzGj
-	CQsHoEVA==;
+	bh=gpb5Jf1l8YxGb+df6fsbNBUPkCmlxNTJSLMMDt3Kt7Y=; b=noMrDjYLCzgYnWGn/mftbNTt1j
+	48o5DYmYvfjL05dTnDt5PNnP+f7/7SO/3eQjZEyBWHi4+wzrkBJye0dcs25OVu6esOdEeox6J8OJP
+	MPp208kZMlyb0Al1GD5QnvzWj7vyqlGkv07aG2q1z23BWuJWwXEbypiVg3Zf0PFimXzZbukP7UQm6
+	U7nEoEanxk2B9eagbOHjiTjV7zSS4ftmAZNTXpist1Eb4sc/VatW1XAnne5sToP1P6mhiKMyjyMxU
+	faWQK7SbuwRzhHQJ4Qkea3yM3K9ETSKwdiyKCL/MlchWNUhXP4RajRrYPBMgCV11QBZXTC4EU5xvo
+	PL7ONwyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hE-000000088XJ-19sB;
-	Mon, 18 Aug 2025 17:31:00 +0000
+	id 1uo3hF-000000088Ys-1KsZ;
+	Mon, 18 Aug 2025 17:31:01 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0yq-00000007m1B-0z3g;
-	Mon, 18 Aug 2025 14:37:01 +0000
+	id 1uo0yr-00000007m1g-0rTa;
+	Mon, 18 Aug 2025 14:37:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 88E485C5E3C;
-	Mon, 18 Aug 2025 14:36:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2B9C4CEEB;
-	Mon, 18 Aug 2025 14:36:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC0B25C5E8E;
+	Mon, 18 Aug 2025 14:37:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675E4C4CEEB;
+	Mon, 18 Aug 2025 14:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755527819;
-	bh=MEuQmN6dB4qhRlM2ZjIWDLLN/sxc9sQMj976sd99t70=;
+	s=k20201202; t=1755527820;
+	bh=jyvUe/Uvlpxb8/WNMi/NIGIZMsdMiJ0vXIXKRErcUzo=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=EZP1vKGnknr3Yr+gDnMlWUcDB3NILxB6yvh1iwapY4aQr6ySF0XyxO848RHHUMLZA
-	 2zMA9sxRNwoFLFKNeav019tKJoKIt0tgP/68X5U2xz6G0s902fHaA6fhyU4WNEOb9D
-	 uqudknUe86CdcMrlsp//Weao0bCfWr/r1TyThmjTBsP5VSFzyozlXTjRo7l54DeyOm
-	 fsaJiJ20kh+Jt7B8F8SeKR1wtkSYF1siRVVxjVYhpziqxJtm+68jnlo2par0SLsX66
-	 ncOgxmVGG2b59e0fqNTX1scyJK647YEm16Z8CiUkfPpDlyt1+JzF+OaXOtPVCpGL+i
-	 O8t74L5VuoxyA==
-Date: Mon, 18 Aug 2025 09:36:58 -0500
+	b=StG9+XEFrgzNq+p79mD4ztZh0jbQ1vCwRuSeLqB1qS7Iu+Hc6Dfv4L7qwJOeHaktO
+	 6/fmIiqF9ac1+tO36JaKI+zl2+ZEUliWcQ/ODtzUbqjqvvPWAOS8pVpeE2sT9l+VDb
+	 ex4s6gE53WqcTeibIamkuc8N8Fmzt0nb9ZZSEvOc1Css7SabPCqh0xuj9EdtZ8moG/
+	 YrZeo0YIhIRUo2D93AMpTEG2YgyqV+LLy8LrVPUq2c0+Qd2vJfBy8z5WNJFjtC6gPk
+	 PJ5N2LmpwpflXWqZUf0Ptng9v1BBoqlb2a7+s1LwEWOB+mf4iV1W7XrW2WCtUDy2Dj
+	 0p5yTt0prT/7g==
+Date: Mon, 18 Aug 2025 09:36:59 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- Chaotian Jing <chaotian.jing@mediatek.com>, 
+Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ linux-clk@vger.kernel.org, Richard Cochran <richardcochran@gmail.com>, 
+ netdev@vger.kernel.org, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- linux-mmc@vger.kernel.org, Wenbin Mei <wenbin.mei@mediatek.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, 
+ linux-pm@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, jh.hsu@mediatek.com, 
+ Qiqi Wang <qiqi.wang@mediatek.com>, sirius.wang@mediatek.com, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ linux-mediatek@lists.infradead.org, vince-wl.liu@mediatek.com, 
  Ulf Hansson <ulf.hansson@linaro.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Mengqi Zhang <mengqi.zhang@mediatek.com>
-In-Reply-To: <20250818114855.8637-1-mengqi.zhang@mediatek.com>
-References: <20250818114855.8637-1-mengqi.zhang@mediatek.com>
-Message-Id: <175552781678.1170160.15905675256206563540.robh@kernel.org>
-Subject: Re: [PATCH] dt-bindings: mmc: Add compatible for MT8189 SoC
+ Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+In-Reply-To: <20250818115754.1067154-2-irving-ch.lin@mediatek.com>
+References: <20250818115754.1067154-1-irving-ch.lin@mediatek.com>
+ <20250818115754.1067154-2-irving-ch.lin@mediatek.com>
+Message-Id: <175552781756.1170283.17952756043799676005.robh@kernel.org>
+Subject: Re: [PATCH 1/6] dt-bindings: clock: mediatek: Add new MT8189 clock
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_073700_309637_8ADB9055 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250818_073701_319648_93FDE034 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +82,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 18 Aug 2025 19:47:27 +0800, Mengqi Zhang wrote:
-> Add a compatible string for the MT8189 SoC's mtk-sd mmc controllers.
+On Mon, 18 Aug 2025 19:57:29 +0800, irving.ch.lin wrote:
+> From: Irving-ch Lin <irving-ch.lin@mediatek.com>
 > 
-> Signed-off-by: Mengqi Zhang <mengqi.zhang@mediatek.com>
+> Add the new binding documentation for system clock
+> and functional clock on MediaTek MT8189.
+> 
+> Signed-off-by: Irving-ch Lin <irving-ch.lin@mediatek.com>
 > ---
->  .../devicetree/bindings/mmc/mtk-sd.yaml       | 29 +++++++++++++++++++
->  1 file changed, 29 insertions(+)
+>  .../bindings/clock/mediatek,mt8189-clock.yaml | 89 +++++++++++++++++++
+>  .../clock/mediatek,mt8189-sys-clock.yaml      | 58 ++++++++++++
+>  2 files changed, 147 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
 
 yamllint warnings/errors:
-./Documentation/devicetree/bindings/mmc/mtk-sd.yaml:333:10: [warning] wrong indentation: expected 10 but found 9 (indentation)
-./Documentation/devicetree/bindings/mmc/mtk-sd.yaml:334:13: [warning] wrong indentation: expected 11 but found 12 (indentation)
 
 dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.example.dtb: imp_iic_wrap_ws_clk@11b21000 (mediatek,mt8189-iic-wrap-ws): reg: [[0, 296882176], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8189-clock.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.example.dtb: topckgen_clk@10000000 (mediatek,mt8189-topckgen): reg: [[0, 268435456], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/mediatek,mt8189-sys-clock.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.example.dtb: topckgen_clk@10000000 (mediatek,mt8189-topckgen): reg: [[0, 268435456], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250818114855.8637-1-mengqi.zhang@mediatek.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250818115754.1067154-2-irving-ch.lin@mediatek.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
