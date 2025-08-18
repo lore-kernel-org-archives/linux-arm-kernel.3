@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3958ACA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E79CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AwYuYWkD6HG/WmASteon2R3SgEbV3PMKCgt21o3VGAc=; b=B4YM/rUHJ047UbsXFhwjK9Jrp6
-	WsF2y/FhEVoLs2Dtfhcs9Oa3MB5p/6YbRSzxaTE4631Lutwct9BGONmyACaiH5fZxsNmj103WOhCa
-	Ioop8PqBUzXut69vlPO5s4QLzxLFseXwAwHWdOhYXtyVsP3YHcocR6VY3RrJjTZqWS/FjL6tCnCgJ
-	CRN3sxwyyO6XCbhhIzDhppjGP//84r3e03JwLgDW8q2jJYYJqVlpMSncW/KRf6jfnMD/hIqqNNIZ4
-	sR1rUPmoDEYbufEGRiHzVjW/sbayNeKbFVu+mAzUGp8xPBQwjPNlaRT45BW7cPyo7KkZ6L7km7S5a
-	MXCuFTgA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7VbbVIH8UFd/ZXRt8tTqoE2DEAgRPhZQ9cL0+DlJjmY=; b=i0h3JEDmgVZoJZmxRk+7GlxCgf
+	frJprG3JcZBHTIKmILNsjui2iC5bC8WdEDnlSLQvAmFath49ONhZSY4PBdj2cIkL9pKrsh1Adv5Ps
+	OsYptyByhkV41d63rfLBsL+Z9SC/Tf2r9mgc6/ufpQaKKnniyzNZkl2/sHa+7llcRhSbDZhR0Nh6N
+	uI06/BWaLsg/4UMqmFnKzHB41oGYpWuo6iCGN1smBuWqZj70+bpDf0p7FtG8L84MF7vwGyDuz9cwE
+	Ya8RWyYEIziWICA81mxH396lwTaGFwBNLStA2RNsqw3N6hKDIlFvr+AhwE3B3dQTyoOXacEmfZff+
+	UGzOjTBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo19z-00000007oCG-3C6k;
-	Mon, 18 Aug 2025 14:48:31 +0000
+	id 1uo1A0-00000007oCl-1Ua5;
+	Mon, 18 Aug 2025 14:48:32 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvZu-00000006yr6-3VnV
+	id 1unvZy-00000006yrw-2QDu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 08:50:56 +0000
+	Mon, 18 Aug 2025 08:50:59 +0000
 Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c55g45CxBz9sWv;
-	Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4c55HS397Bz9sW6;
+	Mon, 18 Aug 2025 10:20:04 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id ZkJOApxeOfnh; Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
+	with ESMTP id FMMyCDZPktia; Mon, 18 Aug 2025 10:20:04 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c55g43xC4z9sWt;
-	Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4c55HS1ztdz9sW4;
+	Mon, 18 Aug 2025 10:20:04 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6ECF68B764;
-	Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 2F1EB8B765;
+	Mon, 18 Aug 2025 10:20:04 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id U_Z-I48WiQ0s; Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
-Received: from [10.25.207.160] (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3D1758B763;
-	Mon, 18 Aug 2025 10:37:04 +0200 (CEST)
-Message-ID: <a14e4ec5-74ff-4f0b-bc26-76c59ecb2357@csgroup.eu>
-Date: Mon, 18 Aug 2025 10:37:04 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] dt-bindings: soc: fsl: qe: Add an interrupt
- controller for QUICC Engine Ports
-To: Krzysztof Kozlowski <krzk@kernel.org>, Qiang Zhao <qiang.zhao@nxp.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <cover.1754996033.git.christophe.leroy@csgroup.eu>
- <0b56ef403a7c8d0f8305e847d68959a1037d365e.1754996033.git.christophe.leroy@csgroup.eu>
- <0fd6fefc-9fad-4ea6-a619-e9f480747ac0@kernel.org>
+	with ESMTP id ymC4Y2tOtNpK; Mon, 18 Aug 2025 10:20:04 +0200 (CEST)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id F2BA48B763;
+	Mon, 18 Aug 2025 10:20:03 +0200 (CEST)
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <0fd6fefc-9fad-4ea6-a619-e9f480747ac0@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Herve Codina <herve.codina@bootlin.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v3 0/4] ASoC: fsl: fsl_qmc_audio: Reduce amount of interrupts
+Date: Mon, 18 Aug 2025 10:19:59 +0200
+Message-ID: <cover.1755504428.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755505199; l=2329; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=pbAuN88+fAvtq6e9c1Cuomlr5CexTJYFwYsjbKKxSv0=; b=kYoKb+1G4M+oBNjPSIblYLyr02FxdpGXktGAtambWltq8gWdILmpYrw9TuWcteLPOJ82HWcGW zHtiikDuJHPBlwm+8sNkaJ/GwOEiXWLXie2LYf+BV8zuMn5tZMMOKBw
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_015055_056658_44B00C4A 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250818_015058_789863_A4EFC1BD 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +88,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series reduces significantly the amount of interrupts on
+fsl_qmc_audio device.
 
+Patches 1 and 2 are preparatory patches.
+Patch 3 is the main change
+Patch 4 is a cleanup which is enabled by previous patch
 
-Le 12/08/2025 à 17:23, Krzysztof Kozlowski a écrit :
-> On 12/08/2025 13:02, Christophe Leroy wrote:
->> The QUICC Engine provides interrupts for a few I/O ports. This is
->> handled via a separate interrupt ID and managed via a triplet of
->> dedicated registers hosted by the SoC.
->>
->> Implement an interrupt driver for it for that those IRQs can then
->> be linked to the related GPIOs.
->>
->> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
->> ---
->>   .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       | 63 +++++++++++++++++++
->>   1 file changed, 63 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
->> new file mode 100644
->> index 0000000000000..7c98706d03dd1
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
->> @@ -0,0 +1,63 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +
->> +title: Freescale QUICC Engine I/O Ports Interrupt Controller
->> +
->> +maintainers:
->> +  - name: Christophe Leroy
->> +    email: christophe.leroy@csgroup.eu
-> 
-> Oh no...
-> 
->> +
->> +description: |
->> +  Interrupt controller for the QUICC Engine I/O ports found on some
->> +  Freescale/NXP PowerQUICC and QorIQ SoCs.
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - fsl,mpc8323-qe-ports-ic
->> +      - fsl,mpc8360-qe-ports-ic
->> +      - fsl,mpc8568-qe-ports-ic
->> +
->> +  reg:
->> +    description: Base address and size of the QE I/O Ports Interrupt Controller registers.
->> +    minItems: 1
->> +    maxItems: 1
-> 
-> This was never tested but more important this and everything further
-> looks like generated by AI. Please don't do that or at least mark it
-> clearly, so I will prioritize accordingly (hint: AI generates poor code
-> and burden to decipher AI slop should not be on open source reviewers
-> but on users of AI, but as one of maintainers probably you already know
-> that, so sorry for lecturing).
+Changes in v3:
+- Properly check the buffer descriptor is unused (Patch 1, comment from Herve Codina)
+- Fixed copy/paste error (patch 2, comment from Herve Codina)
+- Fixed build failure (patch 2, comment from Herve Codina and Test robot)
 
-Yes sorry, overconfidence into AI. Until now I knew almost nothing about 
-YAML and the generated file had a good look. I didn't know there was a 
-special procedure to test bindings, I thought checkpatch was doing all 
-necessary checks.
+Changes in v2:
+- Don't remove UB bit (Patch 1, comment from Herve Codina)
+- Make sure audio channels are ordered on TDM bus (Patch 2, new patch, comment from Herve Codina)
+- Drop struct qmc_dai_chan  (patch 4, new patch)
 
-Fixed in v2.
+Backgroup (copied from patch 3):
+
+In non-interleaved mode, several QMC channels are used in sync.
+More details can be found in commit 188d9cae5438 ("ASoC: fsl:
+fsl_qmc_audio: Add support for non-interleaved mode.")
+At the time being, an interrupt is requested on each channel to
+perform capture/playback completion, allthough the completion is
+really performed only once all channels have completed their work.
+
+This leads to a lot more interrupts than really needed. Looking at
+/proc/interrupts shows ~3800 interrupts per second when using
+4 capture and 4 playback devices with 5ms periods while
+only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
+
+The QMC channels work in sync, the one started first is the one
+finishing first and the one started last is the one finishing last,
+so when the last one finishes it is guaranteed that the other ones are
+finished as well. Therefore only request completion processing on the
+last QMC channel.
+
+On my board with the above exemple, on a kernel started with
+'threadirqs' option, the QMC irq thread uses 16% CPU time with this
+patch while it uses 26% CPU time without this patch.
+
+Christophe Leroy (4):
+  soc: fsl: qmc: Only set completion interrupt when needed
+  ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
+  ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
+  ASoc: fsl: fsl_qmc_audio: Drop struct qmc_dai_chan
+
+ drivers/soc/fsl/qe/qmc.c      |  44 +++++++++---
+ sound/soc/fsl/fsl_qmc_audio.c | 125 +++++++++++++++-------------------
+ 2 files changed, 87 insertions(+), 82 deletions(-)
+
+-- 
+2.49.0
+
 
