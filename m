@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8D4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 06:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD4ACA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 06:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XoGbJR3FtUpqu+q0wkc+OETG+DPzVigOMLhBS5/+y44=; b=v6N4JcyU63xBQDG3EriKmiV2Hi
-	Ob0CgBCcf03KiQTGGY7yqOJhpug3pKJLDYSqQMq/VV4vKXKtCzxH08QLd7avsdH93+Y6eQ27FWd7c
-	mnW9ZPvI5ybc4fHoh+pIakCJhWin7n65KakoW8KdwMVIG/uJ/v26+s71932lI7m3hWztHgwBEhwZT
-	xO/pwpIocW8Xn2oeFhXVmKDth//WIsHixZLCZ+tFI9FD5TbgU5sqjPf6qhB8tlRXcvJ6Zsrc6onX6
-	LmUW0zW6ATl9tGWpAys+vD4tW/fhIXuSVI5W7GTqbyChgjJ/0DjQgGazlXxIH1BkP9FjS17bioNZL
-	FpBtfZAQ==;
+	bh=Fz4Kkp7gV/N05sEPOF08lIJ6GNyxQlT0kaGlaFcTYiw=; b=PSCGd/Khr5+PEQMBKOr2JDgyxX
+	v+O0ejt7eCZVk2ZBILIm8EXAi0aozc6Y7vFtjFjSjDbkoG8cL1nOuGf1HQ4tGAX9aTBI8mRscPMRg
+	ZPoFKZNETgbZI2Q/NOn+kIUxGWbt1TzEW8LXSLE0ttinaBq2rkM7PmO+/BJm/xP8druLoCQi0fU+p
+	RpxBH1WjyZCJWl9pOXRMdcp05kTRXAitGcRDfOSh8QohWZFtWZ5uG615ZN/5NY97r3IHYJE+X9fsL
+	ZKlDO49vu8iF7ntbxFA8C35Cd05ZGdIa4vc0xKbscBQpnoArM2sY7wn6sc/sUnDddUxczFc8TeQ0b
+	ZT9SMTSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untSc-00000006eBh-25GG;
-	Mon, 18 Aug 2025 06:35:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1untVA-00000006et9-17G1;
+	Mon, 18 Aug 2025 06:37:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untQ3-00000006doF-0y50
+	id 1untQy-00000006duF-0Y3Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:32:36 +0000
+	Mon, 18 Aug 2025 06:33:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 748B65C5974;
-	Mon, 18 Aug 2025 06:32:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D2D5C4CEEB;
-	Mon, 18 Aug 2025 06:32:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 35302601D4;
+	Mon, 18 Aug 2025 06:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AEBEC4CEEB;
+	Mon, 18 Aug 2025 06:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755498753;
-	bh=IqeYeauks1YJwsXt8Zs3h943HI/7m7G8G1Ab7AZ2Vp8=;
+	s=k20201202; t=1755498810;
+	bh=UlU+tCiXJqSSS6S6OLU60E3k6F19iRov5LDDbwRGAXM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g9tQjYkxKSJYXuflHqpOhLHcjHwrYSD+4pdI8GtEUOYZ+y2T66B3B0D0j5+u0F9FZ
-	 4w9XRCzBpgdr2pSi4ZXIYNNPYKjYGkqKdHskDzneDAG4jCQJU28/JgHo9yEGUppoWo
-	 KzkyiPl0xD8HatrkvOGt3fIHUXIsrFnx/Fm8zdq21eUI7Lm4FmqlrjVq8Txo1y0Znc
-	 YLyUUn8TinGeoudyWOAFrjFHuzdIAFPdGF7mSzm6O0aY7z0ad2X+QGOI67oogQ0/24
-	 kQMsAr7KL+tp2Wro27lhBntIgSqEOnqdgYnEKG5bc/+SkNMSbOpWWYd66AwXSA9YLd
-	 HkTCGcI2Us86w==
-Message-ID: <2bfa6c0b-1f23-4d57-b618-688ed8dc7fae@kernel.org>
-Date: Mon, 18 Aug 2025 08:32:29 +0200
+	b=pgwtpKLXSrfVGXWtKThPtUSWEJ0hnMoowa1OOyVAy1zF/Hbqe0L7Fc7l9CkJaiNEs
+	 vE7NUexDTY6lH9HzLkrecn+GM5N/GWVMB4tbTOeErKtN2U8cUK4zOz3srHJb2W8Lin
+	 tsHdgh/qNCgOvYWHJ8nSSewj9Ls8fgvPcOT2ryn2aNEUybcyGPG0F+/kWm2NslFOBq
+	 ML5ZLWLrx/+qA+Ox+d4gZwHGsfj4gfvMMW4F/xafMsCJjOruLGD6JMjTLepC4UkwKF
+	 Cnl6r6xrr525lmfmElIcCd4Cn/zYx6MfEQ6Jr1mCcd10FW7Mtgf3IJOX2BZ3dvgt2X
+	 3DsqwGcmhA2pQ==
+Message-ID: <43e2a824-d7a3-4142-9b59-416df0c0c2c9@kernel.org>
+Date: Mon, 18 Aug 2025 08:33:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/6] Support for Exynos7870's display stack (DECON,
- MIPIPHY, DSIM, etc.)
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org>
- <3f4f28cf-417b-4f12-8a3d-c1f70f6871c4@kernel.org>
- <45fc52d9988d1bf17eca392364c63193@disroot.org>
+Subject: Re: [PATCH 2/2] arm64: defconfig: Modularize SX150X GPIO expander
+To: Fange Zhang <fange.zhang@oss.qualcomm.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, dmitry.baryshkov@oss.qualcomm.com,
+ tingwei.zhang@oss.qualcomm.com, xiangxu.yin@oss.qualcomm.com
+References: <20250818-modularize-sx150x-gpio-expander-v1-0-c2a027200fed@oss.qualcomm.com>
+ <20250818-modularize-sx150x-gpio-expander-v1-2-c2a027200fed@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <45fc52d9988d1bf17eca392364c63193@disroot.org>
+In-Reply-To: <20250818-modularize-sx150x-gpio-expander-v1-2-c2a027200fed@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250817_233235_350328_E3E41AA4 
-X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,36 +117,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2025 16:49, Kaustabh Chakraborty wrote:
-> On 2025-08-13 07:58, Krzysztof Kozlowski wrote:
->> On 26/06/2025 22:13, Kaustabh Chakraborty wrote:
->>> This series implements changes in the SoC subsystem, which includes
->>> devicetree additions. It depends on all sub-series listed below:
->>> (Legend: [R]eviewed, [A]ccepted)
->>>
->>> exynosdrm-decon            - 
->>> https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b456f88cfea@disroot.org
->>> exynos7870-mipi-phy        A 
->>> https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
->>> exynos7870-mipi-phy-fix    - 
->>> https://lore.kernel.org/r/20250627-exynos7870-mipi-phy-fix-v1-0-2eefab8b50df@disroot.org
->>> exynos7870-dsim            - 
->>> https://lore.kernel.org/r/20250627-exynos7870-dsim-v2-0-1433b67378d3@disroot.org
->>> panel-samsung-s6e8aa5x01   - 
->>> https://lore.kernel.org/r/20250625-panel-samsung-s6e8aa5x01-v3-0-9a1494fe6c50@disroot.org
->>> panel-synaptics-tddi       - 
->>> https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
->>>
->>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>
->> What is the status of the bindings from dependencies? I think they were
->> not accepted.
-> 
-> Except panel-synaptics-tddi, all have been accepted. A lot of them
-> haven't hit next though. I'm waiting for that to send the next revision.
+On 18/08/2025 06:41, Fange Zhang wrote:
+> Modularize the SX150X GPIO expander which is equipped on the QCS615 Ride
 
-What does it mean - accepted but not hit next? If it is accepted, it
-must be visible in next. Which maintainer's tree are not in the next?
+Qualcomm QCS615 Ride
+
+You are changing defconfig for all platforms, it's not your personal or
+company defconfig.
+
+> 
 
 
 Best regards,
