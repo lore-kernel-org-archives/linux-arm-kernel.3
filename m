@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26E6CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CBD4CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 05:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AtwY3qdZ7e4equS8Ii1Dcv/vp5mQ+qzRGKtE0rfQGA=; b=NjPZWbCHhu5MtwBXAB/CXK6LsJ
-	kXa6NxzPZSlg6yWsfFHNrbrY+GTbJY/n+5FoEpVeNERWXom6lJf1ICECddXTuKffJkpRcBo3FgQ8i
-	TQsBxk8eyOvLH2+MwX6ojurolAaEAjSBlsgP4yWJvbEcnhLSWVnLoBq8EFvuFFYh00rO9nJYViBaA
-	0wXFNtfz885GIFK/PDYljmCfZvGDYeFbHKFSOR1XYkHdaMkFHgFSfowxbHxoel3RPyRsDNK5L+/5H
-	xUWHnzQ3Zy9Lc3GNeyx9gQ/U4pGFXZyEtKjeVFY6rRbQIq/qnai8ddldLjwmcymJZdNrrFEXhilz6
-	WbZN3jWw==;
+	bh=ZQqJLxn/uck2ZUWoChhjcCs9bxIpI9w0PlNK/2siEoQ=; b=rcEEpzKKSTc3lq6GcpBQZjNwnV
+	pYR1wdK3nwwmUCa5qO1Tz/DbCLQQn6Elq9T2OMeNbkhT7HeiyRvDsNYCW8PqGcxJnbZAKL8UrJ2cA
+	Vp7Oi1cO/AcukWmY6bE+ZHpFOb4czustfFkW6VXuNiOvJWJdnf8kKZe1qcVsK4UxOW//yQwHHnyU8
+	yKeMLqgzKxpmhfQ5jnrqYY2JPB9DUJP2IMDCfOiodVqZJu6GWEYUgRZyaqUoEoUX/AbbPP0AX4Mz7
+	SZaZJrpK0RNG3BsUQAPTSZKlTtp2heiB5IziUoarfGrqwTIOaqo9ZZe8YQRmfd9MYcKjdUtfiVsYL
+	4VHIY3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unsWK-00000006Yyp-1izN;
-	Mon, 18 Aug 2025 05:35:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1unsag-00000006ZFG-1TXq;
+	Mon, 18 Aug 2025 05:39:30 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uns5T-00000006WXc-04Wr
+	id 1unsXE-00000006Z3m-0FgG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 05:07:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B884601CF;
-	Mon, 18 Aug 2025 05:07:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3C4C4CEEB;
-	Mon, 18 Aug 2025 05:07:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755493631;
-	bh=PMb9hEPvgfqCV/wvcDI5+h4Vzsv62b1nbH5Y9e5qhRM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SSUVhDwIi5ZESs7a8zoWzUL1og03BBiSNaKuxw+h2lVUvXVi0uykQqs0t6vAeYtRn
-	 NBJRucDUTmeh5WiAzaPLii59xY+lnrSUOLAY4an4nR6d6Bgt1Cbzm4a5j7Sxrglsec
-	 oYfHAojfUC7IDlBblKAbZTL8PCQNxQg9YIbccpZ7icYjqAN7N19xdDhw2czqsoCpz6
-	 H3p2bRoqn5pO4U+dUiHzj1TOA80JlI96190DPdajTp36lmCn9GLAfAullMokXM7q+D
-	 8KY8jId9MHpIV87yOT8OpsD+wNnfsRpOZWl9BIysxfkjodEj8mCX+ABEBS8cpU0gXW
-	 7pwqyAsTuGM8g==
-Date: Mon, 18 Aug 2025 10:37:02 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Harshal Dev <quic_hdev@quicinc.com>
-Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>,
-	Srinivas Kalaga <Srinivas.Kalaga2@arm.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v19 2/6] remoteproc: Add TEE support
-Message-ID: <aKK09ptq07jDQ6bV@sumit-X1>
-References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
- <20250625094028.758016-3-arnaud.pouliquen@foss.st.com>
- <d4694157-a757-41f5-8874-4b67b262bc83@quicinc.com>
- <7c77dba4-27f9-4840-b9aa-253119308519@foss.st.com>
- <e5a234c7-0f8d-4b52-95fb-82371c8e4460@quicinc.com>
- <aJn6EPjXzq07aDTM@sumit-X1>
- <ce93ba16-e2a8-4015-bc01-139917d37782@quicinc.com>
+	Mon, 18 Aug 2025 05:35:57 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57I5ZbsT2585902;
+	Mon, 18 Aug 2025 00:35:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755495337;
+	bh=ZQqJLxn/uck2ZUWoChhjcCs9bxIpI9w0PlNK/2siEoQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=IJ39ERdw/bmMCyb6LoyfEhp83XHLt5GQ1RmUr4GyGOYmkf4+NvTL8FMpFMAb0oqEd
+	 Tdu51zKveZLvXWZB2EMLqBlnXPUy6TNTzdlPxkIG1SAZqNMrBz7WkmqdhHxTgtK0s5
+	 7+Sww05vkrrhX6fmV170nVv2rsJRx5Foh+Go9KfM=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57I5ZbUW069851
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 18 Aug 2025 00:35:37 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 18
+ Aug 2025 00:35:37 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.2.1748.24; Mon, 18 Aug
+ 2025 00:35:36 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 18 Aug 2025 00:35:36 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57I5ZZQc478080;
+	Mon, 18 Aug 2025 00:35:36 -0500
+Date: Mon, 18 Aug 2025 11:05:35 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <arm-scmi@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <sudeep.holla@arm.com>, <james.quinlan@broadcom.com>,
+        <f.fainelli@gmail.com>, <vincent.guittot@linaro.org>,
+        <quic_sibis@quicinc.com>, <dan.carpenter@linaro.org>,
+        <johan+linaro@kernel.org>, <rafael@kernel.org>,
+        <viresh.kumar@linaro.org>, <quic_mdtipton@quicinc.com>
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: Rework quirks framework header
+Message-ID: <20250818053535.owst4ilq2oxfgqnq@lcpd911>
+References: <20250815102736.81450-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <ce93ba16-e2a8-4015-bc01-139917d37782@quicinc.com>
+In-Reply-To: <20250815102736.81450-1-cristian.marussi@arm.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250817_223556_264362_7E5DDCBE 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,178 +91,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 04:17:55PM +0530, Harshal Dev wrote:
-> Hi Sumit,
-> 
-> On 8/11/2025 7:41 PM, Sumit Garg wrote:
-> > Hi Harshal,
-> > 
-> > On Mon, Aug 04, 2025 at 02:56:18PM +0530, Harshal Dev wrote:
-> >> Hi Arnaud,
-> >>
-> >> On 8/1/2025 12:53 PM, Arnaud POULIQUEN wrote:
-> >>> Hello Harshal,
-> >>>
-> >>>
-> >>> On 7/31/25 12:25, Harshal Dev wrote:
-> >>>> Hello Arnaud,
-> >>>>
-> >>>> On 6/25/2025 3:10 PM, Arnaud Pouliquen wrote:
-> >>>>> Add a remoteproc TEE (Trusted Execution Environment) driver that will be
-> >>>>> probed by the TEE bus. If the associated Trusted application is supported
-> >>>>> on the secure part, this driver offers a client interface to load firmware
-> >>>>> by the secure part.
-> >>>>> This firmware could be authenticated by the secure trusted application.
-> >>>>>
-> >>>>> A specificity of the implementation is that the firmware has to be
-> >>>>> authenticated and optionally decrypted to access the resource table.
-> >>>>>
-> >>>>> Consequently, the boot sequence is:
-> >>>>>
-> >>>>> 1) rproc_parse_fw --> rproc_tee_parse_fw
-> >>>>>    remoteproc TEE:
-> >>>>>    - Requests the TEE application to authenticate and load the firmware
-> >>>>>      in the remote processor memories.
-> >>>>>    - Requests the TEE application for the address of the resource table.
-> >>>>>    - Creates a copy of the resource table stored in rproc->cached_table.
-> >>>>>
-> >>>>> 2) rproc_load_segments --> rproc_tee_load_fw
-> >>>>>    remoteproc TEE:
-> >>>>>    - Requests the TEE application to load the firmware. Nothing is done
-> >>>>>      at the TEE application as the firmware is already loaded.
-> >>>>>    - In case of recovery, the TEE application has to reload the firmware.
-> >>>>>
-> >>>>> 3) rproc_tee_get_loaded_rsc_table
-> >>>>>    remoteproc TEE requests the TEE application for the address of the
-> >>>>>    resource table.
-> >>>>>
-> >>>>> 4) rproc_start --> rproc_tee_start
-> >>>>>    - Requests the TEE application to start the remote processor.
-> >>>>>
-> >>>>> The shutdown sequence is:
-> >>>>>
-> >>>>> 5) rproc_stop --> rproc_tee_stop
-> >>>>>    - Requests the TEE application to stop the remote processor.
-> >>>>>
-> >>>>> 6) rproc_tee_release_fw
-> >>>>>    This function is used to request the TEE application to perform actions
-> >>>>>    to return to the initial state on stop or on error during the boot
-> >>>>>    sequence.
-> >>>>>
-> >>>>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-> >>>>> ---
-> >>>>> Updates vs version [18]:
-> >>>>> - rework/fix function headers
-> >>>>> - use memremap instead of ioremap for the resource table.
-> >>>>> - realign comments to 80 chars limit, with few exceptions for readability
-> >>>>> - replace spinlock by mutex and and protect APIs from concurrent access
-> >>>>> - add support of 64-bit address in rproc_tee_get_loaded_rsc_table()
-> >>>>> - Generalize teston rproc_tee_ctx.dev to prevent an unbind
-> >>>>> - update copyright year
-> >>>>>
-> >>>>> Updates vs version [17]:
-> >>>>> Fix warning:
-> >>>>> warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-> >>>>> ---
-> >>>>>  drivers/remoteproc/Kconfig          |  10 +
-> >>>>>  drivers/remoteproc/Makefile         |   1 +
-> >>>>>  drivers/remoteproc/remoteproc_tee.c | 708 ++++++++++++++++++++++++++++
-> >>>>>  include/linux/remoteproc_tee.h      |  87 ++++
-> >>>>>  4 files changed, 806 insertions(+)
-> >>>>>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
-> >>>>>  create mode 100644 include/linux/remoteproc_tee.h
-> >>>>>
-> > 
-> > <snip>
-> > 
-> >>>>> +
-> >>>>> +static int rproc_tee_ctx_match(struct tee_ioctl_version_data *ver, const void *data)
-> >>>>> +{
-> >>>>> +	/* Today we support only the OP-TEE, could be extend to other tees */
-> >>>>> +	return (ver->impl_id == TEE_IMPL_ID_OPTEE);
-> >>>>> +}
-> >>>>> +
-> >>>>> +static int rproc_tee_probe(struct device *dev)
-> >>>>> +{
-> >>>>> +	struct tee_context *tee_ctx;
-> >>>>> +	int ret;
-> >>>>> +
-> >>>>> +	/* Open context with TEE driver */
-> >>>>> +	tee_ctx = tee_client_open_context(NULL, rproc_tee_ctx_match, NULL, NULL);
-> >>>>> +	if (IS_ERR(tee_ctx))
-> >>>>> +		return PTR_ERR(tee_ctx);
-> >>>>> +
-> >>>>> +	ret = mutex_lock_interruptible(&ctx_lock);
-> >>>>> +	if (ret)
-> >>>>> +		return ret;
-> >>>>> +
-> >>>>> +	rproc_tee_ctx.dev = dev;
-> >>>>> +	rproc_tee_ctx.tee_ctx = tee_ctx;
-> >>>>> +	INIT_LIST_HEAD(&rproc_tee_ctx.sessions);
-> >>>>> +	mutex_unlock(&ctx_lock);
-> >>>>> +
-> >>>>> +	return 0;
-> >>>>> +}
-> >>>>
-> >>>> As you mentioned above, this could be extended to other TEEs. If so, is it possible for probe
-> >>>> to be called multiple times if we we have other TEE devices exposing the firmware authentication
-> >>>> service? In that case, I think rproc_tee_ctx should be dynamically initializated instead of being
-> >>>> static. And since we are creating a link between the Rproc device and TEE device, a call to a
-> >>>> function like rproc_tee_start() could retreive the associated TEE device, and then the associated
-> >>>> rproc_tee? :)
-> >>>
-> >>> I have never seen a use case that requires multiple instances, but perhaps you
-> >>> have some?
-> >>>
-> >>> We can expect only one TEE, which could be OP-TEE, Trusty, or another.
-> >>> The device is associated with a unique UUID, so only one instance is expected.
-> >>>
-> >>> That said, making this driver support multiple instances seems like a valid
-> >>> future enhancement. However, I would suggest implementing it as a second step
-> >>> when there is a concrete need.
-> >>>
-> >>
-> >> My thought process on this stems from 1) the recent ARM FF-A developments and 2) from the current
-> >> implementation of the TEE subsystem which allows multiple back-end drivers to register themselves
-> >> via the tee_device_register() API. This means, that it's possible to have a configuration
-> >> where a platform supports multiple TEEs running as Secure Partitions via FF-A, and each of those
-> >> TEEs register their services as PTA devices on the TEE bus.
-> >>
-> >> However, I do not really know if it's possible to have a UUID collision in such a case, which
-> >> would lead to rproc_tee_probe() being called twice above, which is why I raised this question. :)
-> >>
-> >> All of this aside, I realize now that other TEE client drivers are also implemented with a static
-> >> private data similar to how you are doing it. So perhaps we can think of this as a later
-> >> enhancement if we believe that the scenario I am describing is not possible in the near future..
-> >>
-> > 
-> > Theoretically it is possible for multiple TEE services to be there but
-> > why should a platform/silicon vendor require 2 redundant remoteproc firmware
-> > loading services to be supported? It should either be a service hosted
-> > by the trusted OS or can rather be an independent platform service
-> > running as a FF-A secure partition.
-> > 
-> I agree that it doesn't make sense for a system integrator to have two remoteproc firmware
-> loading services supported from two different TEEs running as Secure Partitions.
-> After all, one service exposed by one TEE is good enough for fulfilling any use-case.
-> 
-> My concern is that ARM FF-A makes its possible to have a platform running two TEEs, which
-> each have their own remoteproc firmware authentication service implemented (as usually TEEs do).
-> In such a scenario, when both TEEs enumerate their services on the TEE bus, and find a match
-> because the rproc_tee_id_table has a UUID for say, both the TS-TEE remoteproc service and
-> OP-TEE remoteproc service, rproc_tee_probe() will be called twice, and the current implementation
-> will break because it uses a single static rproc_tee_ctx, whose contents would be overwritten
-> leading to unexpected scenarios.
-> 
-> And so, should TEE subsystem clients (like this one) be prepared to handle such as scenario?
+Hi,
 
-With Arm FF-A and platforms supporting S-EL2, yes it is possible to run
-multiple trusted OS in parallel. However, the recommendation is to then
-host the platform specific services as independent FF-A based Secure
-Partitions (SPs) which aren't tied to any particular trusted OS. I have
-CCed some Arm folks who on the other thread were interested to extend
-this driver to support remoteproc service hosted as a FF-A based secure
-partition.
+On Aug 15, 2025 at 11:27:35 +0100, Cristian Marussi wrote:
+> Split and relocate the quirks framework header so as to be usable also by
+> SCMI Drivers and not only by the core.
 
--Sumit
+Could you elaborate a bit more on this reasoning? I am not fully
+convinced as to why I shouldn't just include quirks.h in the other scmi
+drivers as well?
+
+Oh or perhaps you mean to say scmi driver like scmi cpufreq / clk-scmi
+etc.. which lie outside the firmware/arm_scmi folder? If so then that's
+not coming out clearly in this patch commit message.
+
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+>  drivers/firmware/arm_scmi/clock.c  |  2 +-
+>  drivers/firmware/arm_scmi/driver.c |  1 +
+>  drivers/firmware/arm_scmi/quirks.h | 33 +++-------------------
+>  include/linux/scmi_quirks.h        | 44 ++++++++++++++++++++++++++++++
+>  4 files changed, 50 insertions(+), 30 deletions(-)
+>  create mode 100644 include/linux/scmi_quirks.h
+> 
+> diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+> index afa7981efe82..5599697de37a 100644
+> --- a/drivers/firmware/arm_scmi/clock.c
+> +++ b/drivers/firmware/arm_scmi/clock.c
+> @@ -7,11 +7,11 @@
+>  
+>  #include <linux/module.h>
+>  #include <linux/limits.h>
+> +#include <linux/scmi_quirks.h>
+>  #include <linux/sort.h>
+>  
+>  #include "protocols.h"
+>  #include "notify.h"
+> -#include "quirks.h"
+>  
+>  /* Updated only after ALL the mandatory features for that version are merged */
+>  #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x30000
+> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> index bd56a877fdfc..6f5934cd3a65 100644
+> --- a/drivers/firmware/arm_scmi/driver.c
+> +++ b/drivers/firmware/arm_scmi/driver.c
+> @@ -34,6 +34,7 @@
+>  #include <linux/processor.h>
+>  #include <linux/refcount.h>
+>  #include <linux/slab.h>
+> +#include <linux/scmi_quirks.h>
+>  #include <linux/xarray.h>
+>  
+>  #include "common.h"
+> diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
+> index a71fde85a527..260ae38d617b 100644
+> --- a/drivers/firmware/arm_scmi/quirks.h
+> +++ b/drivers/firmware/arm_scmi/quirks.h
+> @@ -4,49 +4,24 @@
+>   *
+>   * Copyright (C) 2025 ARM Ltd.
+>   */
+> -#ifndef _SCMI_QUIRKS_H
+> -#define _SCMI_QUIRKS_H
+> +#ifndef _SCMI_QUIRKS_INTERNAL_H
+> +#define _SCMI_QUIRKS_INTERNAL_H
+
+Or as per your commit message wording, better to call it
+_SCMI_QUIRKS_CORE_H ?
+
+>  
+> -#include <linux/static_key.h>
+> +#include <linux/device.h>
+>  #include <linux/types.h>
+>  
+>  #ifdef CONFIG_ARM_SCMI_QUIRKS
+>  
+> -#define DECLARE_SCMI_QUIRK(_qn)						\
+> -	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
+> -
+> -/*
+> - * A helper to associate the actual code snippet to use as a quirk
+> - * named as _qn.
+> - */
+> -#define SCMI_QUIRK(_qn, _blk)						\
+> -	do {								\
+> -		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
+> -			(_blk);						\
+> -	} while (0)
+> -
+>  void scmi_quirks_initialize(void);
+>  void scmi_quirks_enable(struct device *dev, const char *vend,
+>  			const char *subv, const u32 impl);
+>  
+>  #else
+>  
+> -#define DECLARE_SCMI_QUIRK(_qn)
+> -/* Force quirks compilation even when SCMI Quirks are disabled */
+> -#define SCMI_QUIRK(_qn, _blk)						\
+> -	do {								\
+> -		if (0)							\
+> -			(_blk);						\
+> -	} while (0)
+> -
+>  static inline void scmi_quirks_initialize(void) { }
+>  static inline void scmi_quirks_enable(struct device *dev, const char *vend,
+>  				      const char *sub_vend, const u32 impl) { }
+>  
+>  #endif /* CONFIG_ARM_SCMI_QUIRKS */
+>  
+> -/* Quirk delarations */
+> -DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+> -DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
+> -
+> -#endif /* _SCMI_QUIRKS_H */
+> +#endif /* _SCMI_QUIRKS_INTERNAL_H */
+> diff --git a/include/linux/scmi_quirks.h b/include/linux/scmi_quirks.h
+> new file mode 100644
+> index 000000000000..11657bd91ffc
+> --- /dev/null
+> +++ b/include/linux/scmi_quirks.h
+> @@ -0,0 +1,44 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * System Control and Management Interface (SCMI) Message Protocol Quirks
+> + *
+> + * Copyright (C) 2025 ARM Ltd.
+> + */
+> +#ifndef _SCMI_QUIRKS_H
+> +#define _SCMI_QUIRKS_H
+> +
+> +#include <linux/static_key.h>
+> +#include <linux/types.h>
+> +
+> +#ifdef CONFIG_ARM_SCMI_QUIRKS
+> +
+> +#define DECLARE_SCMI_QUIRK(_qn)						\
+> +	DECLARE_STATIC_KEY_FALSE(scmi_quirk_ ## _qn)
+> +
+> +/*
+> + * A helper to associate the actual code snippet to use as a quirk
+> + * named as _qn.
+> + */
+> +#define SCMI_QUIRK(_qn, _blk)						\
+> +	do {								\
+> +		if (static_branch_unlikely(&(scmi_quirk_ ## _qn)))	\
+> +			(_blk);						\
+> +	} while (0)
+> +
+> +#else
+> +
+> +#define DECLARE_SCMI_QUIRK(_qn)
+> +/* Force quirks compilation even when SCMI Quirks are disabled */
+> +#define SCMI_QUIRK(_qn, _blk)						\
+> +	do {								\
+> +		if (0)							\
+> +			(_blk);						\
+> +	} while (0)
+
+Did you happen to run checkpatch on this?
+8<---------------------------------------------------------------------------
+WARNING: Argument '_qn' is not used in function-like macro
+#142: FILE: include/linux/scmi_quirks.h:32:
++#define SCMI_QUIRK(_qn, _blk)                                          \
++       do {                                                            \
++               if (0)                                                  \
++                       (_blk);                                         \
++       } while (0)
+
+total: 0 errors, 2 warnings, 0 checks, 116 lines checked
+--------------------------------------------------------------------------->8
+
+
+> +
+> +#endif /* CONFIG_ARM_SCMI_QUIRKS */
+> +
+> +/* Quirk delarations */
+> +DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
+> +DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
+> +
+> +#endif /* _SCMI_QUIRKS_H */
+> -- 
+> 2.50.1
+> 
+
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
