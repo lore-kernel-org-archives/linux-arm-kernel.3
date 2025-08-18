@@ -4,158 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59487CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06940CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LKsgPePhAUYu2E7HIONeHzUi4Re8KncIP0xPJaPKuNA=; b=0mqM/H10/I+NJtMpRqCEvI3r59
-	Gio0ZIyHCiMSGc8a2dRW1A4MAPAtLgO3pm/+iqGHno31duBdEC/X+uy/4TsRYBoMSu52+lAvPYxNt
-	lMnGtT+dBiSunDAuRquJCFywMe44yscLvO06XKaV8VdijbDZunq01gcnBWxRimPOWN4e1hj4DvXgn
-	T92hL+GKcTHkxbe8BvyAd+r55LO5HtYGS8TIy8odqqa4AnhmWG+Mo0+HLQVKcS6HoFXeIsq2VtvR7
-	DXObDjwDFQBNhQ0kT9y0gvp3hrCjpQ1FMcAJSAmkOYYBurRKq6Vr7/98Oamco+WoDVbcbBB9kcRXo
-	F+/gkXWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rzdd4SLhQib1CMR4k8GVT39i/BMslHfy5aMxcOtcMw4=; b=i0E4jmiieDRnEMyYRACsC48eDv
+	di+2xIGkgMqnEOErp5MYQvsAQ01wcjsNWze4sOnEpHOcSKDQkXEeUcof9ZIM1ybejchS7ZpRzacxJ
+	g61elydpzdZbH12MnHpO2adw4k9f4ehDcExNe5IjynvKfjx2rh1rb51zJWvwJfJP2OVWqdUAk1ajK
+	JwZdVyGkRIkcBtUhj+ysJVYAjjp0tvTiheECavL4H3I2JLFgd6E/SUXqdBBiYaJRVG1G5YsbapJac
+	ju8Cy7U6zDqSurw9T7NAZyuxZvE0hXxdcoH12lYi4zQ6oe19DEGelSfidvuLT0yPtvVHAGQouWvQ8
+	qckQYYew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo8NW-00000008qEM-3ik7;
-	Mon, 18 Aug 2025 22:30:58 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo6jN-00000008ejG-3Vsl
+	id 1uo8Q3-00000008qO0-2md7;
+	Mon, 18 Aug 2025 22:33:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uo7Vc-00000008l2z-49pZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 20:45:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PBt1vrO2tlaT3uuKL3w0kU1PzI5qvY3x2awB53T02nOj7l04qKZGBPLUYS94iemptlr95I3uQ4++UFeQnaE9At6IJEXACgSVOG0qm4OpBA9Jva3kya6SR2Bu8jkbIBGEwdft4YRfd1LM165+vFFEQj+7xRbU+Tqf8yxh7+CvQRFJ1dibMn8RYKyI1gH6tLiF7fFj5njTAVh6u7ff4WegeiH/0w/9KuBVd2B8yvHgIUOhFvvTT4qbcOy5WXFvkSAODm/IYx1o2aqCml0Se7R7wzSVMbSYbKKjugYcQLsX/kfLb8n+ZrTsL4i18ZaGgO/RGeywQ2x2Ecg3r/O7gcVjfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LKsgPePhAUYu2E7HIONeHzUi4Re8KncIP0xPJaPKuNA=;
- b=hIK4lPFH5SINfd5g5Hfo3Yblgstq6pAtC9KX9tlzbAOqbia0BN+yb3CLKru2u0XdvNVDqfkhXX6rnXpsZY41/1khSju98mMLj5zc7P2zkQ7lLh3kW+ollUA+zTselE7mu8D/0uuNJu2guU8BmEpnXE69NPrwPjgwFUn0nqLSlWxqjrBQs3Kod9asvYQpBZ34blTKkaw7oCSCj4isrU+NTQdIFP3hzt1r+/rT+2JMBlF6tvDwAapbB9zwgvAPnXe/HagN7UorrGSTPSHlT7hhkJE8YiPnTINePvJCAZDVGakilsXi508KBe7Pt5HtwI4prCux9MWdsZ8KpBr+IeRNgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LKsgPePhAUYu2E7HIONeHzUi4Re8KncIP0xPJaPKuNA=;
- b=ATiECrNVZ2SHzk/GK2UFwn1EMUSJQExt7ghmlqTswua1DhRYQyh/b0Ixh13h0HwSjDcUqdhidEwdZV1V94zs4Ru5apmsa2Uqa2U0k3jzRT+bdt1kdgWNFWDBsWgsomkuaMGqsxkG2Yi7nJ/+fAyS1LalatgAlUPMIvzq5R4K60QfV12DSTI9Qu0zGI6dIJKp2vGcV13nIzwtmBTgSDJ238TURtJcXUn0TNyII8Ygmmgx4adg5Q+Gwb2lIKApT/rmp/Ls2cqDu92pBT+MdlJs/Anqxc/Wmi35O7DG25kOEWZ1+bFbAF6xN718w/7CAi7+3IbF9PUCKzgnGU5UKr10nQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by VI1PR04MB7040.eurprd04.prod.outlook.com (2603:10a6:800:121::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.8; Mon, 18 Aug
- 2025 20:45:17 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612%7]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
- 20:45:17 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 18 Aug 2025 21:35:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DF9B19F0;
+	Mon, 18 Aug 2025 14:35:08 -0700 (PDT)
+Received: from u200865.usa.arm.com (U203867.austin.arm.com [10.118.30.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDE083F738;
+	Mon, 18 Aug 2025 14:35:15 -0700 (PDT)
+From: Jeremy Linton <jeremy.linton@arm.com>
+To: linux-trace-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
+	thiago.bauermann@linaro.org,
+	broonie@kernel.org,
+	yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com,
+	liaochang1@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-imx@nxp.com
-Subject: [PATCH 0/4] Enable Remote GPIO over RPMSG on i.MX Platform
-Date: Mon, 18 Aug 2025 15:44:16 -0500
-Message-ID: <20250818204420.794554-1-shenwei.wang@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH7P221CA0021.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::27) To PAXPR04MB9185.eurprd04.prod.outlook.com
- (2603:10a6:102:231::11)
+	Jeremy Linton <jeremy.linton@arm.com>
+Subject: [PATCH v6 1/7] arm64: probes: Break ret out from bl/blr
+Date: Mon, 18 Aug 2025 16:34:46 -0500
+Message-ID: <20250818213452.50439-2-jeremy.linton@arm.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250818213452.50439-1-jeremy.linton@arm.com>
+References: <20250818213452.50439-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|VI1PR04MB7040:EE_
-X-MS-Office365-Filtering-Correlation-Id: a54397af-80ca-4933-d268-08ddde98237d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|19092799006|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bwAtgC2WAwvPtLrvvl6nxLM+wRJqwJUCK0pGfzEVRvmIDgw3JWZGwUblDmxQ?=
- =?us-ascii?Q?XXxta7zC0FE1x88LXR41m8Ix3KneFtT0X2gw39F7rwbdkJgsKAvcw0Y7encT?=
- =?us-ascii?Q?ApicLuq65eqRar9tLpOFAzG3+bG6i7o1kei1PW4Is0b+3ppWnUZg8vriWKEW?=
- =?us-ascii?Q?Oi1TiTrHc3euA4Ig5vd+3PBlITrp7IUSCJVKhIgWqHSXqBjJfidnaFGuYFDE?=
- =?us-ascii?Q?Bjk5XUfQnucn99JyAuP9CuPiaB2yM/E5225kZecjHyjAp96eSbKYtuhT0Axx?=
- =?us-ascii?Q?jQ1gJzOlX5V3wmReit26eaixeQaHFUpj8rZy0pWDfzB1KVqrMIsk+lxM8tUK?=
- =?us-ascii?Q?4tZy+0iSIoC1TfBftxjJBriGZ1SqJRrjT7IpCIl0y/nW8Se/C9bUy+NTl5Fh?=
- =?us-ascii?Q?JvXYL5zpEj5l87rK71oU8Yl/LRpNFQRU8CAAi77bToSTLUpYj627vfGaBW/N?=
- =?us-ascii?Q?k8dnu/01X+e4TkGCTFUvh0sz91/ueLyPA+VXvak5EqvekFyJ1drQ9imR4Irg?=
- =?us-ascii?Q?olpu4eafHHQ/wXMMPUvce5ZLHGGC6NBTCkH2PH2NmPuR0Z4jM2uQxIukyvjn?=
- =?us-ascii?Q?NEGgWiuZnkqj0iPS5Vc1mwPm7Id2/V2pfkx60+Mv6V96rFWfdVHPVwm02nNR?=
- =?us-ascii?Q?920Gev9yXq9Nn/gS4LSwKZBcTnrbaLY4ilCTAsawuE8tTCJ14gG9n+8yvtpS?=
- =?us-ascii?Q?s774/MapvZzuMtKl5meZf6hTG/Vxv7WezgZChYkCACujJQUrH5HhGh+LyR53?=
- =?us-ascii?Q?spZGyPL5YqaRsCnxWDoAUYOWXqfGALYquUIfcVDhyjopMYnbZQE+ESAd6v0m?=
- =?us-ascii?Q?AUiYI7BA9ZgHeoga5YpSujYsz7MgJsKjxR5oYaS/5hncrOXWIFN2+bQkzMQ9?=
- =?us-ascii?Q?FXyOmDTeNDoXIpyRoELloBoa7H1q+skVAWjRRqxlYMCOraWowDWsADx0GDiO?=
- =?us-ascii?Q?BwAtVsp68TmEVDnZGD7jYC4tzbsa+i132FAH+X53wGkjqvUey4MI7Rm3+HVw?=
- =?us-ascii?Q?IY9l+LM+Tvj5IRMgojL3THWDkoavosiTyU4HG4SJ7FsJVx/cnJGc6LXoAX9y?=
- =?us-ascii?Q?/sx9XUZhD5ZhZA5dJ5k00xnVvO7s1Pmht5Mjg+K4kGZizWyOXEGraq7L5ed2?=
- =?us-ascii?Q?a4/SpYx7/XRu67+xr8ippYzfMKa7zxbIWDNZibrQsEmcQ136w6FMenFVBYFj?=
- =?us-ascii?Q?FmdV5LX16o4PTLyS/39GEmkDjnY/z/G6x9eQ0VGpLnC6XMOSYvtJGOHDEsfz?=
- =?us-ascii?Q?fYxwbRHI+w3/zvFvtU6aBwd4mu2dd08G2dEqZWCLgQt8vvGg9p9p2xxMWR89?=
- =?us-ascii?Q?X+N/4L2OUxlj9+LhEa3LTbG/j9b0oBxlDLFQOlNkKkrCjjBduh9LQHOZa3L9?=
- =?us-ascii?Q?0JLxVHOo3e33jjBocfITvz7Gibcf/bIa/Cgx0q31nb33a3EZUnD5hIl9l+rP?=
- =?us-ascii?Q?4CNf0d7WIekTGMY3fSZ++QO3VMtYucSNp2xMmTL/0zg3zndrt2Sj1A=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(19092799006)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/scmr7qtJ0hEIzpayoK9X4orQ76z2ruL5sqUgN/SrxAgUzJeWF/2ovBOiods?=
- =?us-ascii?Q?XkKmhvPY5TwDl+XbAS3j1LS0Juv7sy7vRVzymm5AtGf8+wulj/9eml5c3Zm9?=
- =?us-ascii?Q?2Igrid0ivH4tqcYFTzpN57usbg6LXeLSyvtpn6JwrfogHzbW40ZHeeXcPjFy?=
- =?us-ascii?Q?JtEJINHD9nYysBkPkRoBV4z4tWnQQvVM0gaEFU8OkCl3FPoSbsvsrzXGRo9z?=
- =?us-ascii?Q?RRuxXW8q+sSxnyogu80jJdAFKp+lgi+lEC5M3pZ9qTQKZNBNtP9soUIQ/BHp?=
- =?us-ascii?Q?uqAZc+iNXeYpnc6NxVBHBROc6rHiAH/8FENltRsFyIoXMY1S+yOLJM2dkhOO?=
- =?us-ascii?Q?sDb5Ktg2G3K/3wdeBPwhLAN6lnLpD9OmLLrriEhSyyMhCFrxy9Hu2jWnnyfo?=
- =?us-ascii?Q?03fCSjNRgURDUFllMtkd8iYcsi8Xjqo6C9dkkO4skt+9lW014CcZrTy4wMHV?=
- =?us-ascii?Q?UihgBxvEFFqCCSE9wk+RKz4gEVwzgAtcay9QgDINHr8+bTB9WZmRx7V6RNRf?=
- =?us-ascii?Q?vUsPeBpmVQhj9YWBWrG6HaoGpdizU2AuWjZrU4xQelyRk0VnEr/x4MQ9OKK3?=
- =?us-ascii?Q?97oPal45N2ZwF7PuuuUzTxtoHdBMCP904frbL7Mmi3eji8h3O4+ZeZsMfnku?=
- =?us-ascii?Q?7TnwOV99vCQBbnbH5slASbE2dOcDZwFzMtyAjNzncBYRcXDour6zAAYSiPhv?=
- =?us-ascii?Q?aP3JBd24iPudle6S4Y+6C0Gf2hWQKevoFXHLwICZ2DeXj5cfGBKp/xcgHdTq?=
- =?us-ascii?Q?SqSBvkAVVdMGlWiZry9kW3Hp0a/YodLQCFHYBMVbdqzpgWWhP0HYCoXF4ocb?=
- =?us-ascii?Q?0wh3HffC1EC8ESQThwwz6IKdh41lZdauJYvwjTC1qTxl79iUGMGpmgjJ67ZK?=
- =?us-ascii?Q?SzRI74iKM1/fbqy82N8oBJiYiuKtDXDywtelFz59kpmLzAYuN1ijWUSp8HlK?=
- =?us-ascii?Q?iJr/yKZPBYz6pvgvdvOvLB1GYqEViTgiWNvG1YH3A6ZZ5KLHa3xHvhtGzxug?=
- =?us-ascii?Q?jHkqaun63DflDEoxhaqKf6RJ7UKz3wlv6NMdRVheGegdiuhMXR8HaAK8DoTH?=
- =?us-ascii?Q?CaueyRwjnTxEz9/sal/1yyQaZqSCD3nnNKovhNI8jbkW5aIto17NtpKl4jMd?=
- =?us-ascii?Q?i491ReGFGz2P32WQdLNIpO2i97OQv4O/lbYoaqjtOkOdMreaS5HvT7qchxdI?=
- =?us-ascii?Q?sZQr2JJRf+U2aKWvK/zANaxArsDpxXq+WDb8GlsaNHpOHJToQLUfkY+QzLXY?=
- =?us-ascii?Q?JqkW1DD+eor7rJOMRqULbbLMgrplH0uKSZ9fSOROFRA8Y2l/phimaB6NgmFI?=
- =?us-ascii?Q?v/jghoGvyIUMKZLPzEkK+APRpy1pNZx5YvNn9T5akI3TaAId8o2zoVUusxpB?=
- =?us-ascii?Q?+oXXGZiW7PNY72nEm7jFNh45YM89fdDkk6zfZxKdfnQIvpdzm9BlldVcBW2p?=
- =?us-ascii?Q?hULCO74+7/R+NBKFQc5mwC13wAUw1yqw3EcTrya1ijkbi/qIWteN+MIOdzJY?=
- =?us-ascii?Q?CN/pHi0zLFzHHUAhtGs/kA3Fpbl8NolLYkABuXDAlFRUUJeV9PyNHnpe2ENB?=
- =?us-ascii?Q?S/5RxtZDdofyulB+1LTNTGmpHGl8TssU4dduzrKn?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a54397af-80ca-4933-d268-08ddde98237d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 20:45:17.4151
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QtSdRyeXfESRA4ySAuYfEdFO6/YGllmWUBLhvHQKXHFB8wOeYld9cW0UzgT189HfZySXtSp+JFoHk1RwXN9j1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7040
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_134525_880151_60F9FA31 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250818_143517_160166_8AAA266C 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,59 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the remote devices on the remote processor via the RPMSG bus on
-i.MX platform.
+Prepare for GCS by breaking RET out into its own function, where
+it makes more sense to encapsulate the new behavior independent
+from the branch instructions.
 
-The expected DTS layout structure is following:
+Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+ arch/arm64/kernel/probes/decode-insn.c   |  7 ++++---
+ arch/arm64/kernel/probes/simulate-insn.c | 10 +++++++++-
+ arch/arm64/kernel/probes/simulate-insn.h |  3 ++-
+ 3 files changed, 15 insertions(+), 5 deletions(-)
 
-    cm33: remoteproc-cm33 {
-             compatible = "fsl,imx8ulp-cm33";
-
-             rpmsg {
-                     rpmsg-io-channel {
-                             gpio@0 {
-                                     compatible = "fsl,imx-rpmsg-gpio";
-                                     reg = <0>;
-                             };
-
-                             gpio@1 {
-                                     compatible = "fsl,imx-rpmsg-gpio";
-                                     reg = <1>;
-                             };
-
-                             ...
-                     };
-
-                     rpmsg-i2c-channel {
-                             i2c@0 {
-                                     compatible = "fsl,imx-rpmsg-i2c";
-                                     reg = <0>;
-                             };
-                     };
-
-                     ...
-             };
-     };
-
-
-Shenwei Wang (4):
-  dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
-  remoteproc: imx_rproc: Populate devices under "rpmsg" subnode
-  gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-  arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
-
- .../bindings/remoteproc/fsl,imx-rproc.yaml    | 117 ++++
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
- drivers/gpio/Kconfig                          |  11 +
- drivers/gpio/Makefile                         |   1 +
- drivers/gpio/gpio-imx-rpmsg.c                 | 559 ++++++++++++++++++
- drivers/remoteproc/imx_rproc.c                | 125 ++++
- include/linux/imx_rpmsg.h                     |  55 ++
- 7 files changed, 895 insertions(+)
- create mode 100644 drivers/gpio/gpio-imx-rpmsg.c
- create mode 100644 include/linux/imx_rpmsg.h
-
---
-2.43.0
+diff --git a/arch/arm64/kernel/probes/decode-insn.c b/arch/arm64/kernel/probes/decode-insn.c
+index 6438bf62e753..4137cc5ef031 100644
+--- a/arch/arm64/kernel/probes/decode-insn.c
++++ b/arch/arm64/kernel/probes/decode-insn.c
+@@ -108,9 +108,10 @@ arm_probe_decode_insn(u32 insn, struct arch_probe_insn *api)
+ 	    aarch64_insn_is_bl(insn)) {
+ 		api->handler = simulate_b_bl;
+ 	} else if (aarch64_insn_is_br(insn) ||
+-	    aarch64_insn_is_blr(insn) ||
+-	    aarch64_insn_is_ret(insn)) {
+-		api->handler = simulate_br_blr_ret;
++		aarch64_insn_is_blr(insn)) {
++		api->handler = simulate_br_blr;
++	} else if (aarch64_insn_is_ret(insn)) {
++		api->handler = simulate_ret;
+ 	} else {
+ 		/*
+ 		 * Instruction cannot be stepped out-of-line and we don't
+diff --git a/arch/arm64/kernel/probes/simulate-insn.c b/arch/arm64/kernel/probes/simulate-insn.c
+index 4c6d2d712fbd..09a0b36122d0 100644
+--- a/arch/arm64/kernel/probes/simulate-insn.c
++++ b/arch/arm64/kernel/probes/simulate-insn.c
+@@ -126,7 +126,7 @@ simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs)
+ }
+ 
+ void __kprobes
+-simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
++simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs)
+ {
+ 	int xn = (opcode >> 5) & 0x1f;
+ 
+@@ -138,6 +138,14 @@ simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs)
+ 		set_x_reg(regs, 30, addr + 4);
+ }
+ 
++void __kprobes
++simulate_ret(u32 opcode, long addr, struct pt_regs *regs)
++{
++	int xn = (opcode >> 5) & 0x1f;
++
++	instruction_pointer_set(regs, get_x_reg(regs, xn));
++}
++
+ void __kprobes
+ simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs)
+ {
+diff --git a/arch/arm64/kernel/probes/simulate-insn.h b/arch/arm64/kernel/probes/simulate-insn.h
+index efb2803ec943..9e772a292d56 100644
+--- a/arch/arm64/kernel/probes/simulate-insn.h
++++ b/arch/arm64/kernel/probes/simulate-insn.h
+@@ -11,7 +11,8 @@
+ void simulate_adr_adrp(u32 opcode, long addr, struct pt_regs *regs);
+ void simulate_b_bl(u32 opcode, long addr, struct pt_regs *regs);
+ void simulate_b_cond(u32 opcode, long addr, struct pt_regs *regs);
+-void simulate_br_blr_ret(u32 opcode, long addr, struct pt_regs *regs);
++void simulate_br_blr(u32 opcode, long addr, struct pt_regs *regs);
++void simulate_ret(u32 opcode, long addr, struct pt_regs *regs);
+ void simulate_cbz_cbnz(u32 opcode, long addr, struct pt_regs *regs);
+ void simulate_tbz_tbnz(u32 opcode, long addr, struct pt_regs *regs);
+ void simulate_ldr_literal(u32 opcode, long addr, struct pt_regs *regs);
+-- 
+2.50.1
 
 
