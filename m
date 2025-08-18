@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915B1CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:18:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C39CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ubTyn2ugoz2/Rq288NzNSXVDl2tAW+oxgRy2HaQbf9M=; b=ZzqpoonoDarWiUWP+GhSBH+19E
-	D/+AOknsjl9Y/nOqKIROU9mh/NV+wPs0uqXyU+fox/6Ubjf1NFNpEPQD9KwLO8JFRgy8O9U8xfolN
-	imtcZGWlSWD0O6ayQU60rfHHXP5mCBd65bqO+dbw16cqm6UAvrEvV0YoCVahDBlGpp2nBT1dJbLaE
-	xTrxUe4a0uw1EaytiN1771dm6cLsoBvyfah6GXCOqMuiPKozW5DQfKfJYPyVYjpEWc6ADVvmanxTO
-	eZz8ybubkT/Oa2VYYJlG60BjfzLnwXsr1u29HM8c/z3U8+Q89Hf03ChCYHnrv/tdIqATQ27msuky9
-	sYDBiUkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RP2yA5MEhaqxhoH+gVDmsv00FKB2mOwlfQHcTXbYEOE=; b=E/xPONiABS3taJXRWnXEDo83CU
+	58ouszlAmfYWBGqNOt9m0E2QZzbI/s2iR9uzru+d9Aei3sFcmk2/+ecX/2xeC4CjbnSjTFc0r64Fv
+	bsXivAFnN3P/oGH88NL4Z8gZwrSIsYDNxXWrATQtg2HHk/2VTVEVHCta23hkMV40po9Fx77Y6BY+5
+	FF/E5BJSf/7Aee8Qr0GwZJEwwr1Ojda0ZrpfUpTOxgjy1UQtPlzrdR96PVD+ofJ+hZhQ+nV85WO0D
+	wgYS9Tc9H6U8GAbNvDgDc9s98+n+9xu57xieUkj3NC1UOSuKRUYeyz0wxKGB2Miton29U14VbakSB
+	2HyeYxeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo5Mm-00000008UX0-2Z15;
-	Mon, 18 Aug 2025 19:18:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uo5NK-00000008UiP-3y98;
+	Mon, 18 Aug 2025 19:18:36 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4qO-00000008OIE-1gZm;
-	Mon, 18 Aug 2025 18:44:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ubTyn2ugoz2/Rq288NzNSXVDl2tAW+oxgRy2HaQbf9M=; b=Kuhfz07MorWp4PpYWOL7VftqW3
-	kPWgyELtaB1PJADPBexGvgKpFWJAjB9NSqmoY9lEjr/ulldNLSkZMDWbwN/ys/NhkWXtzctQYkM5d
-	qi9dmeWfUm9UUfL8ZPKEWlrMl2MSIDqynWNMwVGU1ulHL+9zK4rP5/W2uGSEYipRh45UxzfSC2M3W
-	P1WC6KTQln6tu8kKt9crOLps0HY4zkfBf53iO0c+RG12QWMwJo0JqIJHu62AQ5IGghbLxc3ZyjipZ
-	E5SNbYPtwLeFrA73I+1N+f4+yBLvsafZaZidS1gPqyqJXSGblIgnQ0h5GeiQ/9zfq24JwH3xNtF+W
-	5qymsxLQ==;
-Received: from i53875ad4.versanet.de ([83.135.90.212] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uo4q8-0000eZ-KQ; Mon, 18 Aug 2025 20:44:16 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH] thermal: rockchip: shut up GRF warning
-Date: Mon, 18 Aug 2025 20:44:15 +0200
-Message-ID: <8402789.eFmWaWnqpD@diego>
-In-Reply-To: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
-References: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
+	id 1uo3Vv-000000087GM-0IuC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 Aug 2025 17:19:20 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250818171916epoutp04838acbea87cab4645e4eaa33902fae5b~c7BtDz-Vh0905109051epoutp04F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 17:19:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250818171916epoutp04838acbea87cab4645e4eaa33902fae5b~c7BtDz-Vh0905109051epoutp04F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755537556;
+	bh=RP2yA5MEhaqxhoH+gVDmsv00FKB2mOwlfQHcTXbYEOE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=TGnmXPWwB5xXV9w1wRLWryg35S4Xw2TeqlANsWJUrT6M/NLqnOEFlb2BCMSPIKQSs
+	 gWUHGswOGwzpX81YAyrEcQXOtfd4zr+asG7jDVuIhR2qdajhH2EtW4cW31D5oP0IXt
+	 KaKuOYCtEoS1sOhVKN4ihMhNAeiJks79pdclQrrg=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250818171915epcas5p3fda06f50b251c0e3ea18d58c37f0d1af~c7BsVktPW0774307743epcas5p3t;
+	Mon, 18 Aug 2025 17:19:15 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c5KFZ6Nmgz3hhT3; Mon, 18 Aug
+	2025 17:19:14 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250818093004epcas5p4c46fe2d6fc7c91374cf77db02bf234cb~c0oCDGq7H2540125401epcas5p49;
+	Mon, 18 Aug 2025 09:30:04 +0000 (GMT)
+Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250818093001epsmtip194aa4c1a2b5b3c72a857795443a3da04~c0n-VJYuJ2375823758epsmtip1C;
+	Mon, 18 Aug 2025 09:30:01 +0000 (GMT)
+From: "Shradha Todi" <shradha.t@samsung.com>
+To: "'Bjorn Helgaas'" <helgaas@kernel.org>
+Cc: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+	<mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<vkoul@kernel.org>, <kishon@kernel.org>, <arnd@arndb.de>,
+	<m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
+	<pankaj.dubey@samsung.com>
+In-Reply-To: <20250813230744.GA299971@bhelgaas>
+Subject: RE: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
+Date: Mon, 18 Aug 2025 15:00:00 +0530
+Message-ID: <000d01dc1022$ad8c0740$08a415c0$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQHOko1UmKBgSR8l8U+0sy0UMlp1MAHKE5YvtHTNStA=
+Content-Language: en-in
+X-CMS-MailID: 20250818093004epcas5p4c46fe2d6fc7c91374cf77db02bf234cb
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250813230750epcas5p2101d8bb07332cde1beabe70ca6227aca
+References: <CGME20250813230750epcas5p2101d8bb07332cde1beabe70ca6227aca@epcas5p2.samsung.com>
+	<20250813230744.GA299971@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_114432_461443_6725C284 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20250818_101919_420884_3501A4C1 
+X-CRM114-Status: GOOD (  39.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,113 +100,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+> On Mon, Aug 11, 2025 at 09:16:37PM +0530, Shradha Todi wrote:
+> > Add host and endpoint controller driver support for FSD SoC.
+> 
+> I think this might be easier if you added host mode first, then added
+> endpoint mode with a separate patch.
+> 
 
-Am Montag, 18. August 2025, 19:26:15 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Sebastian Reichel:
-> Most of the recent Rockchip devices do not have a GRF associated
-> with the tsadc IP. Let's avoid printing a warning on those devices.
->=20
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Will do.
 
-thanks a lot for tracking down the GRF usage for all the soc variants :-)
+> It's kind of unfortunate that the driver uses "ep" everywhere for
+> struct exynos_pcie pointers.  It's going to be confusing because "ep"
+> is also commonly used for endpoint-related things, e.g., struct
+> dw_pcie_ep pointers.  Maybe it's not worth changing; I dunno.
+> 
 
-> ---
->  drivers/thermal/rockchip_thermal.c | 53 ++++++++++++++++++++++++++++++++=
-+-----
->  1 file changed, 46 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchi=
-p_thermal.c
-> index 3beff9b6fac3abe8948b56132b618ff1bed57217..1e8091cebd6673ab39fa0c4de=
-e835c68aeb7e8b5 100644
-> --- a/drivers/thermal/rockchip_thermal.c
-> +++ b/drivers/thermal/rockchip_thermal.c
-> @@ -1099,6 +1114,8 @@ static const struct rockchip_tsadc_chip px30_tsadc_=
-data =3D {
->  	.chn_offset =3D 0,
->  	.chn_num =3D 2, /* 2 channels for tsadc */
-> =20
-> +	.grf_mode =3D GRF_MANDATORY,
-> +
->  	.tshut_mode =3D TSHUT_MODE_CRU, /* default TSHUT via CRU */
->  	.tshut_temp =3D 95000,
-> =20
-> @@ -1123,6 +1140,8 @@ static const struct rockchip_tsadc_chip rv1108_tsad=
-c_data =3D {
->  	.chn_offset =3D 0,
->  	.chn_num =3D 1, /* one channel for tsadc */
-> =20
-> +	.grf_mode =3D GRF_NONE,
-> +
+I did try to rename the structure and the pointers 
+(https://lore.kernel.org/all/20230214121333.1837-9-shradha.t@samsung.com/)
+But the intention was different back then and so the idea was rejected.
+I could add a patch to only rename the pointers to something less
+confusing like "exy_pci"
 
-nit: I guess instead of adding an empty line, you could also just drop
-the empty line above, to bring the "older" variants into the form
-rk3576 and rk3588 use.
+> > +static irqreturn_t fsd_pcie_irq_handler(int irq, void *arg)
+> > +{
+> > +	u32 val;
+> > +	struct exynos_pcie *ep = arg;
+> > +	struct dw_pcie *pci = &ep->pci;
+> > +	struct dw_pcie_rp *pp = &pci->pp;
+> > +
+> > +	val = readl(ep->elbi_base + FSD_IRQ2_STS);
+> > +	if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
+> > +		val &= FSD_IRQ_MSI_ENABLE;
+> > +		writel(val, ep->elbi_base + FSD_IRQ2_STS);
+> 
+> This looks weird because FSD_IRQ_MSI_ENABLE sounds like an *enable*
+> bit, but here you're treating it as a *status* bit.
+> 
+> As far as I can tell, you set FSD_IRQ_MSI_ENABLE once at probe-time in
+> fsd_pcie_msi_init(), then you clear it here in an IRQ handler, and it
+> will never be set again.  That seems wrong; am I missing something?
+> 
 
+Actually the status IRQ and enable IRQ registers are different offsets
+but the bit position for MSI remains same in both cases so I just reused
+the macro. But I understand that it's confusing so I will add another
+macro for FSD_IRQ_MSI_STATUS or just rename the macro to
+FSD_IRQ_MSI to re-use.
 
->  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
->  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
->  	.tshut_temp =3D 95000,
+> > +		dw_handle_msi_irq(pp);
+> > +	}
+> > +
+> > +	return IRQ_HANDLED;
+> > +}
+> > +
+> > +static void fsd_pcie_msi_init(struct exynos_pcie *ep)
+> > +{
+> > +	int val;
+> > +
+> > +	val = readl(ep->elbi_base + FSD_IRQ2_EN);
+> > +	val |= FSD_IRQ_MSI_ENABLE;
+> > +	writel(val, ep->elbi_base + FSD_IRQ2_EN);
+> > +}
+> > +
+> > +static void __iomem *fsd_atu_setting(struct dw_pcie *pci, void __iomem *base)
+> 
+> The "setting" name suggests that this merely returns an address
+> without side effects, but in fact it actively *sets* the view.
+> 
+> In this case there's no locking around:
+> 
+>   addr = fsd_atu_setting(pci, base);
+>   dw_pcie_read(addr + reg, size, &val);
+> 
+> even though concurrent calls would cause issues, but I think that's OK
+> because we only get there via the driver, and I assume multiple DBI or
+> DBI2 accesses never happen because they're not used in asynchronous
+> paths like interrupt handlers.
+> 
 
-[...]
+Yes, there is no concurrent access to this function and hence I have
+not added locking mechanism.
 
-> @@ -1321,6 +1354,7 @@ static const struct rockchip_tsadc_chip rk3576_tsad=
-c_data =3D {
->  	/* top, big_core, little_core, ddr, npu, gpu */
->  	.chn_offset =3D 0,
->  	.chn_num =3D 6, /* six channels for tsadc */
-> +	.grf_mode =3D GRF_NONE,
->  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
->  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
->  	.tshut_temp =3D 95000,
-> @@ -1345,6 +1379,7 @@ static const struct rockchip_tsadc_chip rk3588_tsad=
-c_data =3D {
->  	/* top, big_core0, big_core1, little_core, center, gpu, npu */
->  	.chn_offset =3D 0,
->  	.chn_num =3D 7, /* seven channels for tsadc */
-> +	.grf_mode =3D GRF_NONE,
->  	.tshut_mode =3D TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
->  	.tshut_polarity =3D TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
->  	.tshut_temp =3D 95000,
+> But I think a name that hints at the fact that this does have side
+> effects would be helpful as a reminder in the callers that they must
+> not be used concurrently.
+> 
 
-[...]
+Sure, I will change the name and also add comment as a reminder.
 
-> @@ -1621,12 +1656,16 @@ static int rockchip_configure_from_dt(struct devi=
-ce *dev,
->  		return -EINVAL;
->  	}
-> =20
-> -	/* The tsadc wont to handle the error in here since some SoCs didn't
-> -	 * need this property.
-> -	 */
-> -	thermal->grf =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
-> -	if (IS_ERR(thermal->grf))
-> -		dev_warn(dev, "Missing rockchip,grf property\n");
-> +	if (thermal->chip->grf_mode !=3D GRF_NONE) {
-> +		thermal->grf =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
-> +		if (IS_ERR(thermal->grf)) {
-> +			ret =3D PTR_ERR(thermal->grf);
-> +			if (thermal->chip->grf_mode =3D=3D GRF_OPTIONAL)
-> +				dev_warn(dev, "Missing rockchip,grf property\n");
+> > +static const struct pci_epc_features fsd_pcie_epc_features = {
+> > +	.linkup_notifier = false,
+> > +	.msi_capable = true,
+> > +	.msix_capable = false,
+> 
+> I think we should omit features we do *not* support instead of calling
+> them out explicitly, e.g., we don't need .linkup_notifier or
+> .msix_capable.
+> 
+> We've added them in the past, but they're unnecessary and they lead to
+> either pervasive changes (adding ".new_feature = false" to all
+> existing drivers when adding the feature) or inconsistency (new
+> drivers include ".new_feature = false" but existing drivers do not).
+> 
 
-I guess it might make it easier for people seeing the log, if we could
-insert an "optional" into that message for the optional tier.
+Will remove
 
-> +			else
-> +				return dev_err_probe(dev, ret, "Missing rockchip,grf property\n");
-> +		}
-> +	}
-> =20
->  	rockchip_get_trim_configuration(dev, np, thermal);
+> > +	if (ep->pdata->soc_variant == FSD) {
+> > +		ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(36));
+> > +		if (ret)
+> > +			return ret;
+> > +
+> > +		ep->sysreg = syscon_regmap_lookup_by_phandle(dev->of_node,
+> > +				"samsung,syscon-pcie");
+> > +		if (IS_ERR(ep->sysreg)) {
+> > +			dev_err(dev, "sysreg regmap lookup failed.\n");
+> > +			return PTR_ERR(ep->sysreg);
+> > +		}
+> > +
+> > +		ret = of_property_read_u32_index(dev->of_node, "samsung,syscon-pcie", 1,
+> > +						 &ep->sysreg_offset);
+> > +		if (ret) {
+> > +			dev_err(dev, "couldn't get the register offset for syscon!\n");
+> > +			return ret;
+> > +		}
+> > +	}
+> 
+> This is a good example of a complicated set of things where I think
+> you should either add a SoC-specific function pointer to do this or
+> test a property, e.g., "DMA width", instead of testing for a specific
+> SoC.
+> 
 
-Overall, though
+Got your point and it makes sense. In future, other drivers could also
+want to set DMA width, etc. Will make properties to replace soc_variant:
+ - DMA_width
+ - has_syscon
+ - function pointer to assert_core_reset and deassert_core_reset
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Any suggestions or is this approach okay?
 
-
-Thanks
-Heiko
-
+-Shradha
 
 
