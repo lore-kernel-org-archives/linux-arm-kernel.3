@@ -4,107 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF8DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40597CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 17:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YMsmT8h0+DT9fjYWadJv14KoJwGukly6TmVYhBOPfZo=; b=BofMvFLtY8TwWoIFXLfYZSyPO7
-	MoXTfTA2c+u2OJ7ic+dnCacvVvUg0/XaueLKwVz69siX94gcO1CZ76J+OhIQJKGN26u/ixtrAW4rv
-	oQNwVHZMXjUOmasiXxlditBrFNbGGlJjuSDopK34dV+RYja90LY/f+SNdlNr368PvU+PprxLCtSKo
-	AtSIt0L/LaCOHLG6hxAEpggnz7kEORz39wlXvOhg6fJympso8tWh9QwIA3NeEyzJsYpI390UY9dP7
-	QmQIWECbtVoE9+RvEfJSbJEAw4VFIxIh1pafEYMsRKWtgFv0eIt7m45irqavGq+77xWx7ec91lygw
-	VElqH+VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AweLgKazAhLALAGyH9QZrKcgleQGcoxbR+3GhZmsf6A=; b=jnDU9dtYDg7Vfw+LIQYhaDpsEO
+	eV4spQELYZVW8M3ptPKceNFtE4SQ7+Lpl6tVeWMM4buf6nsESAirRinueQfYS0Nktedd3KDNgTwa6
+	7ut0hmUogMAEy/ElxDQkmpLlj0wv3iSXhS2fRxh0aw49/0uRW5Y44n0gXzpVy/Ro8dycvpeHMmAac
+	PngOauoKst04C24aa1NhKikmnbYYGupPwkIWNY66c19pM2tTNaJs6XLJbbmvlBD3nBSt8Osw9Q5VI
+	ErRYkNmp5ay6pMRf+MHKqsKSPJ1YY3vqTqVlLH/HSQv5tj7sLRSG6OxSY+3emsIqtoDCRfH7ad+bt
+	vsBlwWtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3hG-000000088a1-1Nhu;
-	Mon, 18 Aug 2025 17:31:02 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uo3hJ-000000088eh-0GAk;
+	Mon, 18 Aug 2025 17:31:05 +0000
+Received: from mail-bn8nam04on20627.outbound.protection.outlook.com ([2a01:111:f403:2408::627] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo0zP-00000007m9g-2iFb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 14:37:36 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb7a41b78so55507566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 07:37:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755527854; x=1756132654; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YMsmT8h0+DT9fjYWadJv14KoJwGukly6TmVYhBOPfZo=;
-        b=lpvDo3oVxuIjqA93uvXISrf10QqOVFMluuMKYEwG9OuD+xfry1wPXaNw96SLk7xrGf
-         EXQHGop7lgSQxbReshbxqXo13qSIaVckdlrU9Ka2XDP01pfn9g1N0V00XzgXfHhBFgnu
-         a+WMjjnAD9BXFuE+nZIHet52wnkJCKEtB/LzHDMeksiBcPu/H48UNISbbuzt4Aex/8tb
-         nUUwh4PqT5vbxGmkA1Pd9TpA2AijvXZEPT7odovZNSp+woYNfjHJ5pTzV8Fnfrrb60+C
-         BJnAotibVKnRDizlVJl9cSWBPqhHdaE/5Tdg/PRUl40EIcod9S10KOiUTLttmzXFnVc0
-         +Exw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755527854; x=1756132654;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YMsmT8h0+DT9fjYWadJv14KoJwGukly6TmVYhBOPfZo=;
-        b=Jj53SnjcDoJFQdQBN38XadI13LNPwBsHhNkOQRCqefEBWmNmCwfT25rvpNGm461Q1Y
-         +77kL+IFfDGh8pPFaIFbBodWcYtcNZTDAmJ7CYUhwWlNdE87UyltgNbob6rGUtQlQsg5
-         nt/rdurqdqj9viauWQKXM6Ze9lodD0yApJnflc+XLMbMZWTfFtf27FtzGlm6+bycfwhN
-         dLDE+ur9+eru4cIRfF/bBxaIO14Gri6vayh6wk/Gs/SGcQc84IsuLxMDHAGsRAVNkwDS
-         MwUkarlBEOcVbYDWzxb1R9ihCKBWS6d+PLPYfY4myR9tE+AoH2fVayN0PPKGTYrSVZ10
-         eXWg==
-X-Forwarded-Encrypted: i=1; AJvYcCWmRlkG/DOVw/X9zp/UL2H5bYFyNCox1v1HTbPCm74Hk0Gl1WT4T8f5swre0lwJ2UjvGESGA+9EYaJ+N8Tj8tzj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8WCtzZjwhY/GCw9xqSGlIzyVijjuIfBkY8GQXT4C+rl5LkJ1l
-	M3vJaOIo/AALHASP9TRVPXPdSVJHf1qzkxMeidyO+I4KsPmfWT1IvdaM3LtAYQN/whI=
-X-Gm-Gg: ASbGnctmBpywC3TAvb6DAnZuPw+mpNJ9IhqQcKXZ0swFxsfnq3BHVlZddfvQlzSfJx/
-	yQ0tIMrR5O22KMpA8P+9+zeM+FhRqhdy8e08fkuA5UrL4v3grAxihPfD+iCyASmF9FTQ53Xw+NW
-	NDLRK1tuGVZIFY3GG4tn8dSjTt6/Bdhxg0dDn2nsdVKedMjTLt4DMimiFg8HMfz7somh83WRZZb
-	Yi6Af+uz1xLlFz3vsU4sCC2rbXlV5J2GGe0ZLKEPtLdqn4Znr8NFeeBmEhBM2ctiUfupH9OTOrm
-	Nbl0GMYzmoAGwPvnI5kkQfc1JqJuO9Ggg3vqS79IavTZqOYg6T/ncVfptfxpfV2jeFiV1HEQioQ
-	Si+erJ+T6Qle4c+Qa3MGfYJMJvwD23wLtKA==
-X-Google-Smtp-Source: AGHT+IGEt3nsu4aHRovyycnvzxGKQTMOhKdYlCUCXv7/JvtZLGn3dwu1jc2cK5FnprCTehHbYLnZyQ==
-X-Received: by 2002:a17:906:40cc:b0:afc:ebfd:c285 with SMTP id a640c23a62f3a-afcebfdc45cmr327163366b.1.1755527853856;
-        Mon, 18 Aug 2025 07:37:33 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce53f37sm816752166b.21.2025.08.18.07.37.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 07:37:33 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Marek Vasut <marex@denx.de>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@dh-electronics.com
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] arm: dts: stm32: Drop redundant status=okay
-Date: Mon, 18 Aug 2025 16:37:31 +0200
-Message-ID: <20250818143730.244379-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	id 1uo11i-00000007mTt-3txl;
+	Mon, 18 Aug 2025 14:40:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeAO0yy/P7vyFvPapS62Mdixo0MEuQNIQcJymTBp9XgE3DBmMVm8IHteTHyLLJLogMnZk288gKlzx5q9xky+uxeJXkGkXy8AnWtBRjR4Mt+8LbeSYHEuT1/vHG1qg6WSWNeXm+RInfnZ9Pvy8wP9WOQhlR8R5pskuk7xSfMDroCkR2+ZRurJo/DlUV6LgbzMniBfD1ZGb7x2kEG1zSZrXoCaO5iiR8l8f0uWEkahD4PUDCArh9xo8OmzFLrKRlMYPWw59FAbpe4WIQ3YFZqc+PUQbOJTQ7KcNQA4ozbQY90zQ3g0sOx/n8CJQQFZslitSbZwifN3Jdm3KXJ3LNiHqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AweLgKazAhLALAGyH9QZrKcgleQGcoxbR+3GhZmsf6A=;
+ b=lZFM8z/x/5KbYx7+F+MdTlKg/tYOQzwhEFLqQy3fnTtz1rdaGCjlzfEIzR7Qx6GBUF6C9L5xG2Ua/xmTJTUwcx+ctDQBHnVf1VOiENOHYSZmO6Ry1Vkwrbc3A+kA3ZdkX0AYh0/4EddmAS6shzsuMwPVPPGNzqRIL0KQRamGKc7A24cWXvE3A4ZKNZPN3SSBRzHAzKSFsX/E8UCdQXR9NN+tujJtdCmVYIvhA05MGjeC9/A2pVu+jRR98G+a5ccpa2HRLUOpVXuDxWn6sMkA+Yjll8JTuySr75K5k81uKPJMU4NqjVNOYSy3+wEWO4UBEnbrkbndlyb/OnOkrM34tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AweLgKazAhLALAGyH9QZrKcgleQGcoxbR+3GhZmsf6A=;
+ b=GxjOKLG+0L//xoZLSLbZctUg9nbJIprig4yFF2VZbJHOBuG5wH4GvmrsMOcb6/rHI9eUDBwhkmEad9eIKxcJOnQpbPr26lYqjnnV7RdX/vZLiYiVwi/Pa2Ln89DLGcLhiXz3Z5hEy634FRmS43mssPRCzzONKibFO0PoRbr/IlOu9xaSVehDJCTlHA6IMtCig38Us1FaZIUYfCp20hiLbfh6xVzBGxfqCCNZA9+WsbwfM659JStSIkrxWKt2N2uSoTq8uV7i8m8vZt2kLq241OEp0osHLnGFag742b3IxnEzBJ+pyjVh7/8aF46afghAx20phW4dD2hjm9LUhX07Ag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SJ2PR12MB8160.namprd12.prod.outlook.com (2603:10b6:a03:4af::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Mon, 18 Aug
+ 2025 14:39:52 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.023; Mon, 18 Aug 2025
+ 14:39:52 +0000
+Date: Mon, 18 Aug 2025 11:39:49 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+	will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
+	helgaas@kernel.org, etzhao1900@gmail.com
+Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
+ helper
+Message-ID: <20250818143949.GO802098@nvidia.com>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BYAPR06CA0027.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::40) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3879; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=yyS1Kqa6YjNQyzYaGdt68e52WccpJuLwtYCRzw/J6gI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoozqqlSZHPCX1JVOLnWGeDyGAz2oBjWeBgmsSm
- mPxRUw6D7+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKM6qgAKCRDBN2bmhouD
- 15tTD/4mYTyNavHV0cMsp4HUZQUgzwJDBkUxjibEQCPqdYAlZ3NfPN78IOtHpB+1ICSA7AiHwEH
- XvD146rmBVwaVVI5I6RXrgFaAkImu6dSgjJJWxV/BZThEmkTRymxGhKHyIV2HFnfIV41pFnoh+s
- PA8Upx+IRiWcVcu+qS+sM8S7wrIUCsqNUCvPkkeDottSR2MHnF+ZbvjVFJ3H2NJ0MbDPrHtyZph
- Xc3+G3uZ/SZy5jAcHnsv4K7yenlUZdmNZbgFoyMcMttEnl9X743L7lgSNRe0x2Pj1KhzAaL/0vG
- iLLK2TjN7HUP6sw5ZmGkaM+05WXJuIGilYbNgt893aVnr1/4He9FZbch1b4IRFdeUI9ypSKMl+V
- zfDNDUXI+0OQ5CPRVxTP0g8Ny7YGIWPd3nNN9Ocu8Gr/dprYPv8xUj4kDTb4JZcttvFq/O41ZB7
- ffc/qQ33grySJOHKqJ+nez6upL5iPbi6VnELUc3Std1p/a2IkiEyDQpd4MQ+VNnY9Hz4kHyTz8V
- obVltkt0ZtSDFhwfL+/DIIcF5fJVptbNeOrNqFneWzSXSAlHw00SHLa8mKwXTcvNzHU7Ml18qEb
- +/U7ijgJ90xxbKJD+UJnnXqqr284UWIaqf5j3gBpqLXLyqcEUqrMkh1D7E0nAaoIrFxZ9VSKCPv zKQDgBrudjsJvCw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ2PR12MB8160:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b9c7a53-20a3-4ecf-c8f2-08ddde651775
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iWr+V0pK4Aqfa4wy7yyxnNk1teYaLXGtP1/PuNJbrWIlldI0mWzRNYqzRixK?=
+ =?us-ascii?Q?PpKGXBPklwDXTak+UDTRBuKxPl6YSyMzA1rc8+fGTdTptWNdMfTSea4NDdgs?=
+ =?us-ascii?Q?gmdWDluDHHmLqaAxaTZPlUG2JeHpJHm/fF9G0Ypp8pSUvadBpJtWiwRxTe7I?=
+ =?us-ascii?Q?L26AIY7KLCnatiaJkFWrF3w+eoO2vmNaRKqOjP69wt/BVRIHM3klkwUz2Dr4?=
+ =?us-ascii?Q?odn4hBeCvMK62xYPOjEdjMIdBl2JM7uceNN9PMbS4NHEfI60Cfv7AE4pX3Bk?=
+ =?us-ascii?Q?6uCQMBUKmhAwslxsSQ6QkYDoB2tmK5Bw4T8kvcMvW0WoGEYrEiiUWDRQZf2f?=
+ =?us-ascii?Q?+z+Ynulai8/wriq6zz5Bs0Ok/HfbB8T/4iSNSz8JcG2aNIR60cKcRs6GovqD?=
+ =?us-ascii?Q?EF9v/TnDGu2ay1nFNM8qEPplyIEdughex23S9lYp/ArlqzGIODlgoPW5MRJA?=
+ =?us-ascii?Q?eCQmho8HtiUGfW1R7Xwq2RRlyfoek1anxlaHrg2y63ZQebizCVyeugw/2iKq?=
+ =?us-ascii?Q?AGiBAunjB+6Kbr6Ik9rnIrIYMgCXrkx11tVU5vIz8Pkqna9jju2+0h01jQcg?=
+ =?us-ascii?Q?8Hvd5H5Z4gs7qJXXRNEhVGUaC10ZnArH8b/iu7sL5fdUobaW5eEwuh/8IHTQ?=
+ =?us-ascii?Q?L96SAr9XfXKQTsH4YifR7Cimw5Kqna73DxWzb68F4Ndgj7EctvueE2CB/jQ0?=
+ =?us-ascii?Q?SEmEBEd9uUI+lP/uLKJXTOYE+dSbwbCzh2+YDh3EAbQtyW4IuRe7STpXfiA7?=
+ =?us-ascii?Q?3cmSMmW1eIimU/eBHYZCYmn8AnaupsT/h2sEecUInsF9xARtN6U6rTK9rcBR?=
+ =?us-ascii?Q?23pyH8hghtk1eEojopV9DXmOFtwU2tlJOYfsoalHtqcw5W0H6B5g4ay8QQ6p?=
+ =?us-ascii?Q?knfYCARfMb3dNows/DydkAKGVu738kW32QeG69n6zTbnklb+s0wDCe3LjgqJ?=
+ =?us-ascii?Q?EkED2lG1Yu1qth0VRR33blQ27qQcnBbq4PWIhdCgLI+omSPP3QIdBuJN08zJ?=
+ =?us-ascii?Q?H8UTLeQNK66ssXLMSTFEWnddww5tVF76YhlOOqsueWhCUYbtjuPji9gVN20t?=
+ =?us-ascii?Q?CBmCOQsMLKtrDfKnW41FJo8B8NmW6cHZS0qOtuizL6jWUBsdtY0iAdPkWftU?=
+ =?us-ascii?Q?8jp3CJZv5twcj3sUP6swwbX4bq2bNWO6vueWZLLXVKTV/hgG+/+eQP1h56Kq?=
+ =?us-ascii?Q?Z0jjlkrm6HehQlU08ibGMJx1aII+pk8w16tkiruTYQzntKMkya18qXGUey00?=
+ =?us-ascii?Q?KoH3Xp6BAZda72lgTe/PXOHT60GJktQmAxO1pg3atJdO6lfVZwn8qcfV63Kv?=
+ =?us-ascii?Q?mwBwfYTEhpH62FvUNm24gnZh1tEeq7+J4VuM5NEQeNBWOu3a+EFfpOU5sDgF?=
+ =?us-ascii?Q?AHVYdcYvRpp2PhmJNsNO0R7eBMTBvbDeS7yOCafJSJ0P8h895g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CD+evpHNlP42f6qShI+djiPoRvRnRMRlNN0Sj6ewq8zB/p6qeh9pRKlLHya+?=
+ =?us-ascii?Q?rlcPHm3aS/3AniR2eSCoFh2uR5XFJ3XZuDTx43TGHsiUy7qIhwQqjQTCHcdz?=
+ =?us-ascii?Q?cHbvlXjjj2pXwJEfvJTLhyOzg/rEfGuqJbD+TIZfkoAR+sw0iatEWXWnHvy1?=
+ =?us-ascii?Q?vbYAdMkUAyXH3heqBEWR//pAOtBGqg6qb0FFRujqvpEsE5oOSYGo0UsDlZPK?=
+ =?us-ascii?Q?V+6mcAPsdZrnipbXA/ZyrforrK3l2Vp3dxBlRqMBPrdFt+Kdi6ybvnyXtFJJ?=
+ =?us-ascii?Q?+a6UgV9TPV8C79org5FY2W9D4qAyo02PEy4JHVunY8xgoG+JhQN92zTc+G6f?=
+ =?us-ascii?Q?YopOTZbDrvGYjKfxVKlSI2Drru3Tt24oVxwuCYQecqmwio7f+4yvpICMkcaC?=
+ =?us-ascii?Q?2+s9xbKL7eSkhG9HeSKcrL9VFLnl3coxW4ic92GpYCYtUYCSqKjgI4HYtf4R?=
+ =?us-ascii?Q?yqcZmhkH9nu4wdqFxjQA07QquEgbxtPRddYip4s3C7i1kIboJagUfD9rf0Ei?=
+ =?us-ascii?Q?kw4/SbUbLFuehtBu19QbV8fGm53w+LEeVx9s6XxYwJmfBvnfclY7oHz6Dryw?=
+ =?us-ascii?Q?GI6bd9lG9GyxuOtjKoHSdog0HrifxZe4PErr0HvV17pNFNTNNNFYImvo7iOy?=
+ =?us-ascii?Q?AlX4/zSJkUZlXPkp645t77SAWeIpHkuzKoVU/y1uuk3VuCjMpYu75hH5wWV4?=
+ =?us-ascii?Q?Gn8wH0ulpiYd9bLeHt88Q82VexV7rmEk5iZ+pqLQyZzTPbYa4pmKrjx9B9da?=
+ =?us-ascii?Q?oVULW/L1xP61pg7qV/qvK9UqV1rq5BM2GCTrx51OmjoeK/LR2CysfKf5xFTy?=
+ =?us-ascii?Q?f60ApcS0z6r2qaAyIFjZa4r1T+nvZU3VP5g9u8KW/C1BQErMPOwFqOQDKxUC?=
+ =?us-ascii?Q?W+4DuQT7Bme7puoC9yu+EO/qdLq3fOiwe+HhQPk0IOYnSMHCUSTXhlsV7g3w?=
+ =?us-ascii?Q?lnyGVFAhVlOKtIjnXD7Ioufu+7Ypp/JovCsaiNx5CJIgX3JJXHsTY6MlsBFf?=
+ =?us-ascii?Q?QvLnkJyTbIBUjXb6g484aTYdL7qxTtpcbu5KstihVV7K2Pk55XUePmZQgxkw?=
+ =?us-ascii?Q?DDt+BgqIjSMYuOm73k9pH/xITMcrocv0NxOsWXk+DY1J3gKdwsNj7z9x536K?=
+ =?us-ascii?Q?qjW9JMFB14IGzRvmdeNXkRuPPKUc5+hYwYXz1ZctnwBjUndGPvtSOWY1yhkg?=
+ =?us-ascii?Q?XVnxggSWl4iLiNVvVmJe3wqo2SAZeR5Xih8u5l+eyKNa86Em2C8S5FV6c67N?=
+ =?us-ascii?Q?Vf4nU9piN0veKWoSiErRN/ZZo3BO80ulNcIpdDgckPg7z89ljfDz+Q0aNIWu?=
+ =?us-ascii?Q?YYB25tkZyaBvPoXYPxxOqMAHvBcZNSdZ1xBj1uqC3DBCYf/lmW7cz+SYRYv5?=
+ =?us-ascii?Q?HiIdx8y5FLc/sDDt37uQ4i3397h/34EHmyB2RnYQYfh7X1pI8DimBDY5z3wN?=
+ =?us-ascii?Q?y3XO+bU1PIMKPWww6ECfFCTj4Hh7mMvwBBwxwu5SaSj8xSlSplhQwqaxk9nz?=
+ =?us-ascii?Q?R/mopgdkRNEmydZKaLPYqZ2p4mt2tvnc9l21dj9+DIolq3EIP458njMh0fyr?=
+ =?us-ascii?Q?pJquWh4nn+CsUyeyj6qc9ne2xg40z8qvNtRRaa/c?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b9c7a53-20a3-4ecf-c8f2-08ddde651775
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 14:39:52.5706
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ljPGnCGyIA/hgLUj9EVSgCmg8EqeEnRh/b+y/OHem4th+CBx6BPbWZ5NuSbzp/sq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_073735_693841_0AEB6997 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250818_073958_976312_176826B0 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,119 +166,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device nodes are enabled by default, so remove confusing or duplicated
-enabling of few nodes.  No practical impact, verified with dtx_diff.
+On Mon, Aug 11, 2025 at 03:59:10PM -0700, Nicolin Chen wrote:
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm/boot/dts/st/stm32mp157c-dk2.dts          | 2 --
- arch/arm/boot/dts/st/stm32mp157f-dk2.dts          | 2 --
- arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi | 1 -
- arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi  | 3 ---
- arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi   | 2 --
- 5 files changed, 10 deletions(-)
+> Introduce a new iommu_get_domain_for_dev_locked() helper to be used by
+> those drivers in a context that is already under the protection of the
+> group->mutex, e.g. those attach_dev callback functions. And roll out the
+> new helper to all the existing IOMMU drivers.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-index 1b34fbe10b4f..78165c7865e1 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-@@ -45,7 +45,6 @@ panel@0 {
- 		reg = <0>;
- 		reset-gpios = <&gpioe 4 GPIO_ACTIVE_LOW>;
- 		power-supply = <&v3v3>;
--		status = "okay";
- 
- 		port {
- 			panel_in: endpoint {
-@@ -71,7 +70,6 @@ touchscreen@38 {
- 		interrupt-parent = <&gpiof>;
- 		touchscreen-size-x = <480>;
- 		touchscreen-size-y = <800>;
--		status = "okay";
- 	};
- };
- 
-diff --git a/arch/arm/boot/dts/st/stm32mp157f-dk2.dts b/arch/arm/boot/dts/st/stm32mp157f-dk2.dts
-index 43375c4d62a3..8fa61e54d026 100644
---- a/arch/arm/boot/dts/st/stm32mp157f-dk2.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157f-dk2.dts
-@@ -51,7 +51,6 @@ panel@0 {
- 		reg = <0>;
- 		reset-gpios = <&gpioe 4 GPIO_ACTIVE_LOW>;
- 		power-supply = <&scmi_v3v3>;
--		status = "okay";
- 
- 		port {
- 			panel_in: endpoint {
-@@ -77,7 +76,6 @@ touchscreen@38 {
- 		interrupt-parent = <&gpiof>;
- 		touchscreen-size-x = <480>;
- 		touchscreen-size-y = <800>;
--		status = "okay";
- 	};
- };
- 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
-index abe2dfe70636..52c4e69597a4 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-drc02.dtsi
-@@ -62,7 +62,6 @@ &i2c2 {
- 	pinctrl-0 = <&i2c2_pins_a>;
- 	i2c-scl-rising-time-ns = <185>;
- 	i2c-scl-falling-time-ns = <20>;
--	status = "okay";
- 	/* spare dmas for other usage */
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-index 0fb4e55843b9..5c77202ee196 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi
-@@ -20,7 +20,6 @@ display_bl: display-bl {
- 		default-brightness-level = <8>;
- 		enable-gpios = <&gpioi 0 GPIO_ACTIVE_HIGH>;
- 		power-supply = <&reg_panel_bl>;
--		status = "okay";
- 	};
- 
- 	gpio-keys-polled {
-@@ -135,7 +134,6 @@ sound {
- 			  "MIC_IN", "Microphone Jack",
- 			  "Microphone Jack", "Mic Bias";
- 		dais = <&sai2a_port &sai2b_port>;
--		status = "okay";
- 	};
- };
- 
-@@ -150,7 +148,6 @@ &i2c2 {	/* Header X22 */
- 	pinctrl-0 = <&i2c2_pins_a>;
- 	i2c-scl-rising-time-ns = <185>;
- 	i2c-scl-falling-time-ns = <20>;
--	status = "okay";
- 	/* spare dmas for other usage */
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
-index 142d4a8731f8..4cc633683c6b 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi
-@@ -269,7 +269,6 @@ pmic: stpmic@33 {
- 		interrupts-extended = <&gpioa 0 IRQ_TYPE_EDGE_FALLING>;
- 		interrupt-controller;
- 		#interrupt-cells = <2>;
--		status = "okay";
- 
- 		regulators {
- 			compatible = "st,stpmic1-regulators";
-@@ -388,7 +387,6 @@ onkey {
- 			interrupts = <IT_PONKEY_F 0>, <IT_PONKEY_R 0>;
- 			interrupt-names = "onkey-falling", "onkey-rising";
- 			power-off-time-sec = <10>;
--			status = "okay";
- 		};
- 
- 		watchdog {
--- 
-2.48.1
+I still don't much care for this, I think it would be better to
+approach this problem by passing the old domain to the driver callback:
 
+> @@ -390,7 +390,7 @@ static int qcom_iommu_attach_dev(struct iommu_domain *domain, struct device *dev
+>  static int qcom_iommu_identity_attach(struct iommu_domain *identity_domain,
+>  				      struct device *dev)
+>  {
+> -	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
+> +	struct iommu_domain *domain = iommu_get_domain_for_dev_locked(dev);
+
+Because this is a very common pattern in drivers.
+
+Once that is done we can see what calls to iommu_get_domain_for_dev()
+are even left, arguably we should be trying to eliminate this badly
+locked thing...
+
+Jason
 
