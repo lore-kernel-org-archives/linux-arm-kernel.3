@@ -4,176 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC6BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78477CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mHxUPyEvPiMCYnQCkCjxJA3TOrx6AJmpookKgFzIUI=; b=To6U0jYjOxQbZ/ZHFnlCs5bdCI
-	mfGUVtevInY8qeRVxjXlmiabCv6Udc2yJf9Dhi1MVXdMwhv4i445UX3/PkSlf4d5xRvUfB8D9ld9m
-	zRDortPx7IPoVpizL0WM+EyigxP84z8jzzJbY/u40/qKe2e8TBXg4jp6iPA/1szSF2uvDuzGe1S9a
-	VqRfa2P5OoLUl6VPcI4p48ZhNhUCpJGE4mOI6A6WKD+kC2/MVVF1zlnrcjYKyMg3iuGGdW57O6vN4
-	B1/RoZaIeKbLe0it8k6h11W6ffkk3h0moBAoXwMun3BERx0ITxfQF812vZoWyJsoKTZSmsTA4ZSZj
-	l8BurXFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAyGMsNO5MqtCEuECkJvS2htOljGLG6x5/G5la1l6Vs=; b=jM2OujiSYt/UNQukAHBv+76N8N
+	tKoV7fHvWv7HoJOssoXUY9rygY7xg7WQDso+IiGFfkG8PnTprvB7qpyK31hCjvC3/i5Msml9Xu9VB
+	kImdUNhPEqMy4h5t7Qy3KHChqrEQPzlWtbTk0kkX2weVBOSUEqT2dp9C770YW8W0s0PYJquyBXLqU
+	Po7VTqS+7hj8/5g4l9cW8QPZWZOA5OxViNasrgfLteXwCiaLPKb17JF+A8Jzjdvsu0oGqSK/QMapd
+	7WC4Qs1NBw5FZPWt3mxbeXmircPe2MsJlTjDViPQbDsqCPK9kfbCLWJaqhbCENYSPWQU5CmpdzBxH
+	MxkBrD9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo06n-00000007ZkG-289Z;
-	Mon, 18 Aug 2025 13:41:09 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uo078-00000007aJL-1SEA;
+	Mon, 18 Aug 2025 13:41:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unwFI-000000074H0-3XxA
+	id 1unwXw-0000000769R-0Fs0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 Aug 2025 09:52:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=vAyGMsNO5MqtCEuECkJvS2htOljGLG6x5/G5la1l6Vs=; b=ZCx5EkFTngjO+xTnxooWQz3mFA
+	ryNP96mhqdtksA5pKKbrQIVfYOmeSpToetmIk1Kgcfmzbns1Ljt9OnuFc9X1K8sWVEsktrj7uwP+A
+	ozqxYnkgehOL3gfE0qAafzbmYLcor5NqwHJfekamTu7LjyeT7lnXZ0Nyc6DLb8Dwe7s1vvap9V4ua
+	H/zPIOCYLGOGp5e8o8OhsQHgWeRN4IPCti+iUfKblMdJhVMa6iaiMh49V9Twmg0lnYJ4ThY6xwbiC
+	OsjywoTIHrrTud3z+aeyZLWC+ES+m9jRe/dgLZMdd5keCM9vagEtrhnswJ+ocgaEZiICWBLLcR1nV
+	PlCnIjrA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unwXs-0000000HLg5-1hsZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 09:33:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lDf7U7jhYKPwISoaaXEgAyiZ4vgva+HUnPEwtl1zxLo5Fpm6IBZHlOy2wvJrpfD4x8j8oxCjzuwbO3QpnzvEoeDieHGpy23xhWodrxnG7Q6oehe/D419d3ea4awSN68APIvFoa1rFzR37L3hUfIkJclD8EKRNIujHCuJeXOx40eoElWLTx+afQXeO1VmttGZIauqbHCzik7ArIH45U8oNlai3USCvmFm3py6wGDcvfJUmVg36ksq3zCa0JJnWGr2a1R7ZZMKYDjVWBiUbYhSGPCn6xyqByFYAc2nwvq2QgKxrMbaL5pgAccT9qjp74joZkit7ESj4LZsZBXyUR7jeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0mHxUPyEvPiMCYnQCkCjxJA3TOrx6AJmpookKgFzIUI=;
- b=kYkAkPt1lDOkKbW6a/TPnd718hRz/K4SCUOjPwbt/Vkmx6IPb717nbUsTiJRPu3pZ/odaMbr32ADNCm8mIh70Ew8O9KS2POEG69bLqykc5F3ADQSw/fNkzVAOgCUKDsPLZH+8wmjB/zYYxOAfrCQ1nKCFaAzhqrcL5V9vsh9/o6DLDXhESty3JD2zg9hGoFD7KkZDafAs4eBK6PpdVQ/cYANd1uWHkEY5tLduTU5/9ibL6fp0qDWJetlSZZcWMYWkXgkofR/5vVrRV9YIEYbZBE+w5wWXLXsc7R2eHKgWpMcMrnuvP1K7KPzvGsP9TqEzIfyH8tCV/kyngpOmdzszw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0mHxUPyEvPiMCYnQCkCjxJA3TOrx6AJmpookKgFzIUI=;
- b=hUp0Cpk0lnNzGT8pw3pL4pKf/bcWSvtFnkN8ZXBe9fmUKrUFGJKGP7Qvs5Ek2qegmEi4hJS/c4tJPO6/GcWZdZw9VKsrncj3v0UHlNQ1lQxE/rKUOUqhXlpfYuD516rLwPl/xp1eCWji6luzf5tV5VVVeDKAxQBY59q6vJYTc4VluOTdDH43vTPpCnV9g3JJrwfXNs5fTqDv1aRmLmquChyjXKYMPOcSqW3ko/ulBln3xbXCdL40sk4zAoBofjBXFKgeckPMF1h4mWuI5dRmC3VJKMLJUa5Lukj2scFV3EO5/nKMgKKeHbXQz9DBv98HlMCFIqT75dPrNjGsl7Nrig==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by GVXPR04MB9976.eurprd04.prod.outlook.com (2603:10a6:150:117::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.9; Mon, 18 Aug
- 2025 09:33:37 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.9052.011; Mon, 18 Aug 2025
- 09:33:37 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-Date: Mon, 18 Aug 2025 17:33:12 +0800
-Subject: [PATCH v3 2/4] thermal: qoriq: add i.MX93 tmu support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250818-imx93_tmu-v3-2-35f79a86c072@nxp.com>
-References: <20250818-imx93_tmu-v3-0-35f79a86c072@nxp.com>
-In-Reply-To: <20250818-imx93_tmu-v3-0-35f79a86c072@nxp.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Jacky Bai <ping.bai@nxp.com>, Alice Guo <alice.guo@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755509601; l=3136;
- i=ping.bai@nxp.com; s=20250804; h=from:subject:message-id;
- bh=kZ8TG+wjdpP1zOI2nGGmMYZGt0b+cKZtxO5mjPFG85I=;
- b=Edpo9pbQa2eoplrgn9Xx39S9Dn0oWBUeZIFZRjMjltS2EGNx3wQgy+D6iMcdAk9/FUFVoCjtq
- //LLJqsoDriDC3NHDOmqPnTtJMn1VnaoD1Ph5eEkZH9HjU8r7xxs9ok
-X-Developer-Key: i=ping.bai@nxp.com; a=ed25519;
- pk=ckFjCfRynXBjQGmSmzOVI5hggMD9XnnNlwj/jcO/j1U=
-X-ClientProxiedBy: SI2PR02CA0018.apcprd02.prod.outlook.com
- (2603:1096:4:194::18) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	Mon, 18 Aug 2025 09:52:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8C0A1596;
+	Mon, 18 Aug 2025 02:52:41 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09BE63F63F;
+	Mon, 18 Aug 2025 02:52:45 -0700 (PDT)
+Message-ID: <2736fe09-ef37-408c-ba53-a8e492dcc3e8@arm.com>
+Date: Mon, 18 Aug 2025 10:52:44 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|GVXPR04MB9976:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd7a6149-1172-4c06-95f3-08ddde3a4f53
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UzVwbzk3aUlsQUxYRnFibmpLUHlhL1Y1NklvbWptallTSWs5R0tCKzBSd2ww?=
- =?utf-8?B?bHVmeU5KbkV2WU05VGxoZ2lIUnMxNHZKdHhNQngvcThsbWVFNmg0YjVPSFNR?=
- =?utf-8?B?QnRYeGx2bVRtSndJbUVyUnlkZGt2Rm45Vks2Ukc5czRZeEFpUWZ3Qy8yQ0dq?=
- =?utf-8?B?M2J1Z1dvV1Mydkh4ZWpWM2t5ajFiSGorR0I4Qmw1V1g1SFcxU012WGVqN2VZ?=
- =?utf-8?B?MXVFL1duWHJzYzRWLzhnUWZmbUg5NGZRTjZGWWxEMC8xb1BILy9wMURKUUJr?=
- =?utf-8?B?dnlBQ01lMGNLWEtmMlhCTkJNVklEYWcwUkV1UjJWbW1HMEVkNU0rUVpsVmhB?=
- =?utf-8?B?cXRFV3NvN2k1eGk3dUtSdEZuZHRFcFdhZmF4N1psVngzOEI4L0dzbHlUblV5?=
- =?utf-8?B?RzdvSFEvWDdPdGlwYXN2SnlxQ3ZwbFlQWG5LK011TzhkU2xqZ09TYVdCbGVn?=
- =?utf-8?B?cmQ1a21RRjBPMmFlbzZUOVYxWjZ6NUlBRGhxM3dzUHdwaVg2Rlg5L2dPanhZ?=
- =?utf-8?B?QUhjR0ZBWFM4UzJ5QTZrSWVPUm04WnRZSWluMXhUZjNzaVlnVGRnMlRobzVG?=
- =?utf-8?B?STV6em9MOEpzYlVwM21ibWNUVXVGZzVqOTdjMnlsai9VWjEyNGtTK2g4MzVZ?=
- =?utf-8?B?aWRHdTQxaUFMUCtIMzdpeTgrL3VPa2RscGR5K1JKM3ZjMTRwTmFGaHFta2hv?=
- =?utf-8?B?V2NBbEphdzZkUnA5b21IalNSMXErOWJ3ZTFLcGEzSmRLZmtZUDJFVnVzUVJX?=
- =?utf-8?B?TWpXQnFRRnlwVCsxOVQzeGFqeHR1cGhSVnh6aElaN2RWVkxQWXI4clZYOWVB?=
- =?utf-8?B?a1NKZFpOT1VVQ1psM3lTR2tCOWVpR2pEOHhhM2pGOXFheFdwTlpSTW1XQTdI?=
- =?utf-8?B?ZjNhbFNUSm1OeDFYVUdFMENNRVZmV0w3blNJdTVSZnRLcU1RTCtSaUR5WHFx?=
- =?utf-8?B?NEZhSGYxdGlJanM2TkJXT2R3eHAxRXA3UnpZUHY3bUZsVktmckwvazVFcnZG?=
- =?utf-8?B?U2ZSWVlzYUVtZ2t6QmpJMWZQditvYlNuQ20wRlB1THdnS2w5UFRaTytzZDI0?=
- =?utf-8?B?Yjh4MFBUNkNLbCtWTmVmSXp4aGtKcDB6ZmVLcWRWUzUyaEZLaTYwSGFwWXRH?=
- =?utf-8?B?TXNtbzMwb2lPbk1VcGVhaGpRMXpqeENUQzRPWUtteXZ3SXlWdTdVaGZycVF0?=
- =?utf-8?B?SzJ5YnpjcndWVGpBOFFVMkVYVEJYTlhBVHlUZUhscWJpbnRWWlg3eGlCYW1B?=
- =?utf-8?B?akVYQkk3UVhTaERVTE9ZYnNpOVNSVzJOejdUY2JuSkJib2h0M2JCQVdVekRq?=
- =?utf-8?B?MUlVeEFHQ2dCV2Mrbjl2WFNxdU5tY1ZwQU1QSTJuVmdDZFgrM0RySzBIcEhX?=
- =?utf-8?B?eFlXZ2V0aFErWTBBS1NKeFB6OFA2RWNSczZHZzFyTHFEMlBmQzBNeU9Vbitq?=
- =?utf-8?B?UHg2ZnFtazdneWEyTE1CZk4wa004Y3hTNEl3QjY4OHI3Njhqc1BGMGZqY2pY?=
- =?utf-8?B?ZjNROGV4YUN0ZWxQSzFZSllzczQ4L2p0QmswVDVBandGZ2ZoTnVvdDNLT045?=
- =?utf-8?B?cWhaNUFHak9kUlA5UFR1a1ZGenJmblFtVndRT21jOHdDU0RqY0RkV21KUkJa?=
- =?utf-8?B?YVJoMmRyL0NTRE5BUDBFZEVwQ3FHanJyTlhLQmFNTXg5eFh4bjc1Mk1MU1VJ?=
- =?utf-8?B?TlQ1K21NT1pvcjJCdSs1akpmSjl6akI5dWZnNzJMM1BKblA0ZnhnNFVXcHJx?=
- =?utf-8?B?elI3b1Z0aVRSdlVSU1g3NE85TnhEZ1RyQjBIMHd1Nzd0VEdHL1huWit6NzZo?=
- =?utf-8?B?SzhGbUlOMG93TjY2MFYvNG95cTFzUzEzdFpFb2IwbEl3ekx1OW5hejZKS09p?=
- =?utf-8?B?amxVVFNsOHJXd29LSCt4K0VrOFh3MTRiSTRaMnRidTQvaUlmQzZyMnFDYit5?=
- =?utf-8?B?N0l0bXlrNHN2V1h0Q1BWRnN0REdrUEtHZU83MFhYa2RLZWM3cWVKR2d1WFlT?=
- =?utf-8?Q?dKrIQKzbar7XbWE3obEX8FjjBNzfls=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlRUNHowTTFWTEV6S1VENGVUakVDd01BaDE4RDh4UUtCOHdrNFhOQ1FqVlIy?=
- =?utf-8?B?M2VuVGV3LzAvb3R0UEk0azlqQ0U4cGFTVjJtQVRYM0hPUVFlRitkVjVhbmgr?=
- =?utf-8?B?dzVXYW1jZTJQN3FEajZ6TzhMZ3JvZ1U0S0dLUmYwTkxNSmFHdXp3cVhjWGI2?=
- =?utf-8?B?aVBZMGEwaFhlS21Ya1Z4SW96aWRuQ2xFNE1XS0xDdDQwNmpzMG9Fc2N0TjZM?=
- =?utf-8?B?QnVYSmpLQ1lMbi94aFc4N0hNSzJJdHFuRngwK05Qdng0TCtIaGwyUTU3VDMv?=
- =?utf-8?B?Q2NGVVBTTGhUMG84MU9rOTVaN2piSjF1eFV0T1ZMMmFPajVaU2I1eEs1aktO?=
- =?utf-8?B?L0NKeWdiK1pxY3RLaHNnWDl5Vi9kOTVYNkx3OVF3U0dWVzNCbGwvQlBJcnRv?=
- =?utf-8?B?L0thd1pwZCtjenc5a1FyTWF1Vk1tRUxxUDc5NTgzYm4rUjd6c2gzOTd3d0Z0?=
- =?utf-8?B?RDJFQzYvZXpXYU1zTnNxb0ZpVjRVWi9TRzU3b3N1anhQQ2RyYzhwRmdRbjR3?=
- =?utf-8?B?NjJvZktMSGpTdmRiYVptQjFveldPWkFtZmptOTdvV0xEZGpldzNQSnVHZnlk?=
- =?utf-8?B?dW11N01GUzhoVW9GR1hkQUVjeHNqZWVSOHp3UE43NjhFY1RGNEFYL0tZUzJE?=
- =?utf-8?B?Q3Q4L1NIYjBzU01YbzBBNjFFNFl3WE5IcGhwcnlCZ3J0Yk5oMEpGU1R0dW91?=
- =?utf-8?B?UjZzb3RiSTExR0lsOWxUd2pGcno5WmkwVWc3WC9zVnlHb01CZjJqMUgxWFdQ?=
- =?utf-8?B?KzJUd05vUFZVbTB5UGJjWUZmK3MrR285ZU1VSkFEektRVnQxcGFKRHlLa2V5?=
- =?utf-8?B?VTFaaEdwdSs2RXFjNjhKUXA0eDVsTDNGRjN2NjFPVUVKM0R6WUNQVVRWMmJV?=
- =?utf-8?B?dXlYL01HMzE3NjFSVy8rNzRuNXk3UG8vemNLRXE2cGxtMUxyQ1BSVkhUUWtL?=
- =?utf-8?B?L0V4VFo3ekZ4WTVmMWJFMEVuMGp2ODQ2bkNsZUhPaXk4VE8rWEt6eWdyOW1G?=
- =?utf-8?B?cS9obUpoSmRJaXBJbXBKd3J0cmViUVBldzZ0Sy95NEVaYlNzYytWZ2NMUDZL?=
- =?utf-8?B?bFBCYWVSSHNoZE1xNWhhRENXL2NBNWhtSHRwektyTFR5Y2tJc0U2ZUtGK2xt?=
- =?utf-8?B?TVZGYzN1UW13V3oxMlp1UW5wSHpHYlV4YzlvNXpUeWUwbVZmYkQycGhURDlQ?=
- =?utf-8?B?V0l6UldVcDdCOEpSeTloQWxTSkF3b1RTeFE3RzFWejdmSVFQQUs1c01maTEw?=
- =?utf-8?B?T3VGZnhSSDBTU0JPS2ZmRlc5bkU3ci9CK1ZSeWt6aVg5TFVhcU5oOVBFRFQw?=
- =?utf-8?B?aDc3dzIrSTN4NFdXYThLUko0U0tzakNLZXZTMEk4ZTFiNEdWUUJVT0xLLzdJ?=
- =?utf-8?B?cXVzc0V0cG9HRXQwNktJTW12bTgrK3BmSEF3S0thTWVlNUd6dU42WXR4TzVo?=
- =?utf-8?B?ZUNIbG5tYVkvL2YwbkVNRlQ4bTk2U3J4c3pZQXlTVTNTaHIvbEZIRVlMMzc0?=
- =?utf-8?B?WFZGWFMrZzBaSkdaVFd6alJ6MEtIbE92T3NPTkRHb1F2dkR3a0czbEkvdm9D?=
- =?utf-8?B?eTdhRllFVm1ZZXBKMjZZOGkyd2FlT29qc1lqalBPNGs5bmVwZkcwYmNyR0Zm?=
- =?utf-8?B?SmJCRGg5bWVIS0svUFZQNW5vVFZqeUtlUXBhakhoTlZTYzAvQjVkcGxFMEZP?=
- =?utf-8?B?bjBVZTdISnh4bmNjL1JnVmNzS1N0Tm5vcGRhcGpXYnR0ZDRrNHZ6REY1bTZw?=
- =?utf-8?B?eWFpV3VSZHB1M3NXUkV6NUNabTVtVlAwUkpLeXNmYmNBKzZtcldXZ1hTWmsx?=
- =?utf-8?B?eFhySDduTHVqTVJTc21qTkhSdkVWMzFYWUtrb3NMNzY1RmE2S3ozMFM5elhr?=
- =?utf-8?B?OHNEZ2NLWXBxU3VwSk5YV2pud0JlbW9hbGRPN0t0bUJON3Zqd3c0MnYrMWZH?=
- =?utf-8?B?QXBjMFZjbzV0SzZndzhZWkM3eVorTHdCM0pWclV6MmxuNnFDNFhMNTg1M0xp?=
- =?utf-8?B?bWVxNkdiVFVVLzRrVmMzOGtySC9qZVJCNWJYTitzdTdtNVc1VWpMbG82ajdT?=
- =?utf-8?B?RFE4Mmd3WXM3ZUw3bXJtRk1Sa0lZSFRHMjJGVGNSRlY1dVQweFE3OFlxMWdi?=
- =?utf-8?Q?pyrUN3uC1Kw0DGR5dugn5eicl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd7a6149-1172-4c06-95f3-08ddde3a4f53
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 09:33:37.8062
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jQAMgxullDAjrvisa60cEt9SIWdgvQvOVSSPl5G2fnvdGG2zvZz/njLtvL2+xjmGytp6p6wmjWd2FpCorIDGUA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9976
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] kasan/hw-tags: introduce kasan.write_only option
+To: Yeoreum Yun <yeoreum.yun@arm.com>, ryabinin.a.a@gmail.com,
+ glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+ vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com,
+ jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org,
+ kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org,
+ oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org,
+ hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
+ yang@os.amperecomputing.com
+Cc: kasan-dev@googlegroups.com, workflows@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+References: <20250818075051.996764-1-yeoreum.yun@arm.com>
+ <20250818075051.996764-2-yeoreum.yun@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250818075051.996764-2-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_023340_894356_633A3524 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250818_105252_871259_5E80C81A 
+X-CRM114-Status: GOOD (  35.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,106 +89,278 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For Thermal monitor unit(TMU) used on i.MX93, the HW revision info read
-from the ID register is the same the one used on some of the QorIQ
-platform, but the config has some slight differance. Add i.MX93 compatible
-string and corresponding code for it.
+Hi Yeoreum,
 
-Signed-off-by: Alice Guo <alice.guo@nxp.com>
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
----
- - v3 changes:
-  - use the drv data struct for match data and refine the code
-  - update the copyright
+On 8/18/25 08:50, Yeoreum Yun wrote:
+> Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
+> raise of tag check fault on store operation only.
+> Introcude KASAN write only mode based on this feature.
+> 
+> KASAN write only mode restricts KASAN checks operation for write only and
+> omits the checks for fetch/read operations when accessing memory.
+> So it might be used not only debugging enviroment but also normal
+> enviroment to check memory safty.
+> 
+> This features can be controlled with "kasan.write_only" arguments.
+> When "kasan.write_only=on", KASAN checks write operation only otherwise
+> KASAN checks all operations.
+> 
+> This changes the MTE_STORE_ONLY feature as BOOT_CPU_FEATURE like
+> ARM64_MTE_ASYMM so that makes it initialise in kasan_init_hw_tags()
+> with other function together.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   Documentation/dev-tools/kasan.rst  |  3 ++
+>   arch/arm64/include/asm/memory.h    |  1 +
+>   arch/arm64/include/asm/mte-kasan.h |  6 ++++
+>   arch/arm64/kernel/cpufeature.c     |  2 +-
+>   arch/arm64/kernel/mte.c            | 18 ++++++++++
+>   mm/kasan/hw_tags.c                 | 54 ++++++++++++++++++++++++++++--
+>   mm/kasan/kasan.h                   |  7 ++++
+>   7 files changed, 88 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/kasan.rst
+> index 0a1418ab72fd..fe1a1e152275 100644
+> --- a/Documentation/dev-tools/kasan.rst
+> +++ b/Documentation/dev-tools/kasan.rst
+> @@ -143,6 +143,9 @@ disabling KASAN altogether or controlling its features:
+>     Asymmetric mode: a bad access is detected synchronously on reads and
+>     asynchronously on writes.
+>   
+> +- ``kasan.write_only=off`` or ``kasan.write_only=on`` controls whether KASAN
+> +  checks the write (store) accesses only or all accesses (default: ``off``)
+> +
+>   - ``kasan.vmalloc=off`` or ``=on`` disables or enables tagging of vmalloc
+>     allocations (default: ``on``).
+>   
+> diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
+> index 5213248e081b..f1505c4acb38 100644
+> --- a/arch/arm64/include/asm/memory.h
+> +++ b/arch/arm64/include/asm/memory.h
+> @@ -308,6 +308,7 @@ static inline const void *__tag_set(const void *addr, u8 tag)
+>   #define arch_enable_tag_checks_sync()		mte_enable_kernel_sync()
+>   #define arch_enable_tag_checks_async()		mte_enable_kernel_async()
+>   #define arch_enable_tag_checks_asymm()		mte_enable_kernel_asymm()
+> +#define arch_enable_tag_checks_write_only()	mte_enable_kernel_store_only()
+>   #define arch_suppress_tag_checks_start()	mte_enable_tco()
+>   #define arch_suppress_tag_checks_stop()		mte_disable_tco()
+>   #define arch_force_async_tag_fault()		mte_check_tfsr_exit()
+> diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/mte-kasan.h
+> index 2e98028c1965..0f9b08e8fb8d 100644
+> --- a/arch/arm64/include/asm/mte-kasan.h
+> +++ b/arch/arm64/include/asm/mte-kasan.h
+> @@ -200,6 +200,7 @@ static inline void mte_set_mem_tag_range(void *addr, size_t size, u8 tag,
+>   void mte_enable_kernel_sync(void);
+>   void mte_enable_kernel_async(void);
+>   void mte_enable_kernel_asymm(void);
+> +int mte_enable_kernel_store_only(void);
+>   
+>   #else /* CONFIG_ARM64_MTE */
+>   
+> @@ -251,6 +252,11 @@ static inline void mte_enable_kernel_asymm(void)
+>   {
+>   }
+>   
+> +static inline int mte_enable_kernel_store_only(void)
+> +{
+> +	return -EINVAL;
+> +}
+> +
+>   #endif /* CONFIG_ARM64_MTE */
+>   
+>   #endif /* __ASSEMBLY__ */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9ad065f15f1d..505bd56e21a2 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2920,7 +2920,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>   	{
+>   		.desc = "Store Only MTE Tag Check",
+>   		.capability = ARM64_MTE_STORE_ONLY,
+> -		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
+>   		.matches = has_cpuid_feature,
+>   		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
+>   	},
+> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> index e5e773844889..cd5452eb7486 100644
+> --- a/arch/arm64/kernel/mte.c
+> +++ b/arch/arm64/kernel/mte.c
+> @@ -157,6 +157,24 @@ void mte_enable_kernel_asymm(void)
+>   		mte_enable_kernel_sync();
+>   	}
+>   }
+> +
+> +int mte_enable_kernel_store_only(void)
+> +{
+> +	/*
+> +	 * If the CPU does not support MTE store only,
+> +	 * the kernel checks all operations.
+> +	 */
+> +	if (!cpus_have_cap(ARM64_MTE_STORE_ONLY))
+> +		return -EINVAL;
+Would it be better to make this function return void and add a static 
+key in the manner of mte_async_or_asymm_mode, perhaps 
+mte_store_only_mode? This information could then be used to help 
+determine whether it is required to enable and disable tco in 
+__get_kernel_nofault() and load_unaligned_zeropad(). The function 
+signature would also match that of the other hw_enable_tag_...().
 
- - v2 changes:
-  - use the compatible match data to identify the i.MX93 TMU variant
----
- drivers/thermal/qoriq_thermal.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+> +
+> +	sysreg_clear_set(sctlr_el1, SCTLR_EL1_TCSO_MASK,
+> +			 SYS_FIELD_PREP(SCTLR_EL1, TCSO, 1));
+> +	isb();
+> +
+> +	pr_info_once("MTE: enabled stonly mode at EL1\n");
+nit: stonly can be expanded to store only
+> +
+> +	return 0;
+> +}
+>   #endif
+>   
+>   #ifdef CONFIG_KASAN_HW_TAGS
+> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
+> index 9a6927394b54..df67b48739b4 100644
+> --- a/mm/kasan/hw_tags.c
+> +++ b/mm/kasan/hw_tags.c
+> @@ -41,9 +41,16 @@ enum kasan_arg_vmalloc {
+>   	KASAN_ARG_VMALLOC_ON,
+>   };
+>   
+> +enum kasan_arg_write_only {
+> +	KASAN_ARG_WRITE_ONLY_DEFAULT,
+> +	KASAN_ARG_WRITE_ONLY_OFF,
+> +	KASAN_ARG_WRITE_ONLY_ON,
+> +};
+> +
+>   static enum kasan_arg kasan_arg __ro_after_init;
+>   static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
+>   static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
+> +static enum kasan_arg_write_only kasan_arg_write_only __ro_after_init;
+>   
+>   /*
+>    * Whether KASAN is enabled at all.
+> @@ -67,6 +74,8 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_vmalloc);
+>   #endif
+>   EXPORT_SYMBOL_GPL(kasan_flag_vmalloc);
+>   
+> +static bool kasan_flag_write_only;
+> +
+>   #define PAGE_ALLOC_SAMPLE_DEFAULT	1
+>   #define PAGE_ALLOC_SAMPLE_ORDER_DEFAULT	3
+>   
+> @@ -141,6 +150,23 @@ static int __init early_kasan_flag_vmalloc(char *arg)
+>   }
+>   early_param("kasan.vmalloc", early_kasan_flag_vmalloc);
+>   
+> +/* kasan.write_only=off/on */
+> +static int __init early_kasan_flag_write_only(char *arg)
+> +{
+> +	if (!arg)
+> +		return -EINVAL;
+> +
+> +	if (!strcmp(arg, "off"))
+> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_OFF;
+> +	else if (!strcmp(arg, "on"))
+> +		kasan_arg_write_only = KASAN_ARG_WRITE_ONLY_ON;
+> +	else
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +early_param("kasan.write_only", early_kasan_flag_write_only);
+> +
+>   static inline const char *kasan_mode_info(void)
+>   {
+>   	if (kasan_mode == KASAN_MODE_ASYNC)
+> @@ -257,15 +283,26 @@ void __init kasan_init_hw_tags(void)
+>   		break;
+>   	}
+>   
+> +	switch (kasan_arg_write_only) {
+> +	case KASAN_ARG_WRITE_ONLY_DEFAULT:
+> +	case KASAN_ARG_WRITE_ONLY_OFF:
+> +		kasan_flag_write_only = false;
+> +		break;
+> +	case KASAN_ARG_WRITE_ONLY_ON:
+> +		kasan_flag_write_only = true;
+> +		break;
+> +	}
+> +
+>   	kasan_init_tags();
+>   
+>   	/* KASAN is now initialized, enable it. */
+>   	static_branch_enable(&kasan_flag_enabled);
+>   
+> -	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s)\n",
+> +	pr_info("KernelAddressSanitizer initialized (hw-tags, mode=%s, vmalloc=%s, stacktrace=%s, write_only=%s\n",
+>   		kasan_mode_info(),
+>   		str_on_off(kasan_vmalloc_enabled()),
+> -		str_on_off(kasan_stack_collection_enabled()));
+> +		str_on_off(kasan_stack_collection_enabled()),
+> +		str_on_off(kasan_arg_write_only));
+>   }
+>   
+>   #ifdef CONFIG_KASAN_VMALLOC
+> @@ -392,6 +429,13 @@ void kasan_enable_hw_tags(void)
+>   		hw_enable_tag_checks_asymm();
+>   	else
+>   		hw_enable_tag_checks_sync();
+> +
+> +	if (kasan_arg_write_only == KASAN_ARG_WRITE_ONLY_ON &&
+> +	    hw_enable_tag_checks_write_only()) {
+> +		kasan_arg_write_only == KASAN_ARG_WRITE_ONLY_OFF;
+> +		kasan_flag_write_only = false;
+> +		pr_warn_once("System doesn't support write-only option. Disable it\n");
+> +	}
+>   }
+>   
+>   #if IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
+> @@ -404,4 +448,10 @@ VISIBLE_IF_KUNIT void kasan_force_async_fault(void)
+>   }
+>   EXPORT_SYMBOL_IF_KUNIT(kasan_force_async_fault);
+>   
+> +VISIBLE_IF_KUNIT bool kasan_write_only_enabled(void)
+> +{
+> +	return kasan_flag_write_only;
+> +}
+> +EXPORT_SYMBOL_IF_KUNIT(kasan_write_only_enabled);
+> +
+>   #endif
+> diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
+> index 129178be5e64..c1490136c96b 100644
+> --- a/mm/kasan/kasan.h
+> +++ b/mm/kasan/kasan.h
+> @@ -428,6 +428,7 @@ static inline const void *arch_kasan_set_tag(const void *addr, u8 tag)
+>   #define hw_enable_tag_checks_sync()		arch_enable_tag_checks_sync()
+>   #define hw_enable_tag_checks_async()		arch_enable_tag_checks_async()
+>   #define hw_enable_tag_checks_asymm()		arch_enable_tag_checks_asymm()
+> +#define hw_enable_tag_checks_write_only()	arch_enable_tag_checks_write_only()
+>   #define hw_suppress_tag_checks_start()		arch_suppress_tag_checks_start()
+>   #define hw_suppress_tag_checks_stop()		arch_suppress_tag_checks_stop()
+>   #define hw_force_async_tag_fault()		arch_force_async_tag_fault()
+> @@ -437,11 +438,17 @@ static inline const void *arch_kasan_set_tag(const void *addr, u8 tag)
+>   			arch_set_mem_tag_range((addr), (size), (tag), (init))
+>   
+>   void kasan_enable_hw_tags(void);
+> +bool kasan_write_only_enabled(void);
+>   
+>   #else /* CONFIG_KASAN_HW_TAGS */
+>   
+>   static inline void kasan_enable_hw_tags(void) { }
+>   
+> +static inline bool kasan_write_only_enabled(void)
+> +{
+> +	return false;
+> +}
+> +
+>   #endif /* CONFIG_KASAN_HW_TAGS */
+>   
+>   #if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
 
-diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
-index 01b58be0dcc64d14ca5e4bba654eed8f15e827fc..b2e634547271dcf512c714907baa162921d2d527 100644
---- a/drivers/thermal/qoriq_thermal.c
-+++ b/drivers/thermal/qoriq_thermal.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- //
- // Copyright 2016 Freescale Semiconductor, Inc.
-+// Copyright 2025 NXP
- 
- #include <linux/clk.h>
- #include <linux/err.h>
-@@ -24,6 +25,7 @@
- #define TMTMIR_DEFAULT	0x0000000f
- #define TIER_DISABLE	0x0
- #define TEUMR0_V2		0x51009c00
-+#define TEUMR0_V21		0x55000c00
- #define TMSARA_V2		0xe
- #define TMU_VER1		0x1
- #define TMU_VER2		0x2
-@@ -66,6 +68,8 @@
- 						   */
- #define REGS_V2_TEUMR(n)	(0xf00 + 4 * (n))
- 
-+#define GET_TEUMR0(drvdata)	(drvdata && drvdata->teumr0 ? drvdata->teumr0 : TEUMR0_V2)
-+
- /*
-  * Thermal zone data
-  */
-@@ -73,12 +77,17 @@ struct qoriq_sensor {
- 	int				id;
- };
- 
-+struct tmu_drvdata {
-+	u32 teumr0;
-+};
-+
- struct qoriq_tmu_data {
- 	int ver;
- 	u32 ttrcr[NUM_TTRCR_MAX];
- 	struct regmap *regmap;
- 	struct clk *clk;
- 	struct qoriq_sensor	sensor[SITES_MAX];
-+	const struct tmu_drvdata *drvdata;
- };
- 
- static struct qoriq_tmu_data *qoriq_sensor_to_data(struct qoriq_sensor *s)
-@@ -234,7 +243,7 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
- 		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
- 	} else {
- 		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
--		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
-+		regmap_write(data->regmap, REGS_V2_TEUMR(0), GET_TEUMR0(data->drvdata));
- 	}
- 
- 	/* Disable monitoring */
-@@ -319,6 +328,8 @@ static int qoriq_tmu_probe(struct platform_device *pdev)
- 
- 	data->ver = (ver >> 8) & 0xff;
- 
-+	data->drvdata = of_device_get_match_data(&pdev->dev);
-+
- 	qoriq_tmu_init_device(data);	/* TMU initialization */
- 
- 	ret = qoriq_tmu_calibration(dev, data);	/* TMU calibration */
-@@ -376,9 +387,14 @@ static int qoriq_tmu_resume(struct device *dev)
- static DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
- 				qoriq_tmu_suspend, qoriq_tmu_resume);
- 
-+static const struct tmu_drvdata imx93_data = {
-+	.teumr0 = TEUMR0_V21,
-+};
-+
- static const struct of_device_id qoriq_tmu_match[] = {
- 	{ .compatible = "fsl,qoriq-tmu", },
- 	{ .compatible = "fsl,imx8mq-tmu", },
-+	{ .compatible = "fsl,imx93-tmu", .data = &imx93_data },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, qoriq_tmu_match);
+Thanks,
 
--- 
-2.34.1
+Ben
 
 
