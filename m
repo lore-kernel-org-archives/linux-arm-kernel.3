@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEA6CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382E7CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 22:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twqsjW79HaaLaQiEECY0jo43HAiweMg7c6U5pfG36Y4=; b=s1BJ2aofLy56G9o3DtJvXWzmlJ
-	K3LsUKNaKUyhIDc66NE+cFZbNH/8/bBvCeiWlei8dD3kp7HRks7uIj44EELRIWbo6FS3ir/tuGfsT
-	U1e1FxEzN8CoLnGcZ7BKxyeTdtPvuSSH3uAygSiN2ewKsnMCRYdVgp03Zz62IzomfwqUNyrMU3+oK
-	GOlo+cZfITuJffBt/Kn1rkOS9QFhHuja/h4jwwdmqF+SWahyqV9plkEyeZzAwI3gTeB3/c/QdCq25
-	K9LME5jtxVVI//b8Z15uWHY/Jdt1D0YEMittgCfaD6fo+FwA8oA9F0UI7qLuOakXg+qqWLNia411Q
-	JX3LJmRA==;
+	bh=CJ1IhpjVXdktHJnr+Tk7tE9vUwx0Y10aAV273hiy/tI=; b=UmtBnTpuPorXDuBiOqTgypWpiu
+	Zg5p0aCkD9Db5BswzKb55XPAIugp6T4lnDu0kPHDVjMo8Sd9xCYSBcI9aFPoRKnRWJ7UTekfVDsWu
+	4JIKz2cQvISpukiFWnu5pBPXrT3Py9YTeQ4iTMJ+Twpcefsfa4bwlsk56bZa+OrjbKq1y/fZ+orWH
+	PNL/A/RNoYBu04u6bmvXU71qFtwX4PYYu8idRbZ2XqAzI9Xa8rZzynpYrWOkPuMKB9YUPUpM69r5f
+	MFAYWn6FjyGLM1aP+96f3A+ud3LvTCEwUehvJy6rw0N3u2lCy5i4YQXbOT9rXs54JL959j7fKfoe4
+	lewnD5gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo8Xg-00000008qvb-15P9;
-	Mon, 18 Aug 2025 22:41:28 +0000
+	id 1uo8aD-00000008r4x-06YX;
+	Mon, 18 Aug 2025 22:44:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo7Vo-00000008l5p-3JyQ
+	id 1uo7Vr-00000008l7Z-3Ey3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 21:35:30 +0000
+	Mon, 18 Aug 2025 21:35:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A6381A9A;
-	Mon, 18 Aug 2025 14:35:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 03AB619F0;
+	Mon, 18 Aug 2025 14:35:23 -0700 (PDT)
 Received: from u200865.usa.arm.com (U203867.austin.arm.com [10.118.30.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B1003F738;
-	Mon, 18 Aug 2025 14:35:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D1903F738;
+	Mon, 18 Aug 2025 14:35:30 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -57,18 +57,19 @@ Cc: linux-perf-users@vger.kernel.org,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>
-Subject: [PATCH v6 3/7] arm64: uaccess: Add additional userspace GCS accessors
-Date: Mon, 18 Aug 2025 16:34:48 -0500
-Message-ID: <20250818213452.50439-4-jeremy.linton@arm.com>
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Steve Capper <steve.capper@arm.com>
+Subject: [PATCH v6 5/7] arm64: uprobes: Add GCS support to uretprobes
+Date: Mon, 18 Aug 2025 16:34:50 -0500
+Message-ID: <20250818213452.50439-6-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250818213452.50439-1-jeremy.linton@arm.com>
 References: <20250818213452.50439-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_143528_919261_2D4B9E6F 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250818_143531_842725_6A17733E 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +84,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Uprobes need more advanced read, push, and pop userspace GCS
-functionality. Implement those features using the existing gcsstr()
-and copy_from_user().
+Ret probes work by changing the value in the link register at
+the probe location to return to the probe rather than the calling
+routine. Thus the GCS needs to be updated with this address as well.
 
-Its important to note that GCS pages can be read by normal
-instructions, but the hardware validates that pages used by GCS
-specific operations, have a GCS privilege set. We aren't validating this
-in load_user_gcs because it requires stabilizing the VMA over the read
-which may fault.
+Since its possible to insert probes at locations where the
+current value of the LR doesn't match the GCS state this needs
+to be detected and handled in order to maintain the existing
+no-fault behavior.
 
+Co-developed-by: Steve Capper <steve.capper@arm.com>
+Signed-off-by: Steve Capper <steve.capper@arm.com>
+(updated to use new gcs accessors, and handle LR/GCS mismatches)
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- arch/arm64/include/asm/gcs.h | 54 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ arch/arm64/kernel/probes/uprobes.c | 33 ++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/arch/arm64/include/asm/gcs.h b/arch/arm64/include/asm/gcs.h
-index e3b360c9dba4..7c621197169e 100644
---- a/arch/arm64/include/asm/gcs.h
-+++ b/arch/arm64/include/asm/gcs.h
-@@ -116,6 +116,47 @@ static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
- 	uaccess_ttbr0_disable();
- }
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index 1f91fd2a8187..6b98503a0198 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -6,6 +6,7 @@
+ #include <linux/ptrace.h>
+ #include <linux/uprobes.h>
+ #include <asm/cacheflush.h>
++#include <asm/gcs.h>
  
-+static inline void push_user_gcs(unsigned long val, int *err)
-+{
-+	u64 gcspr = read_sysreg_s(SYS_GCSPR_EL0);
-+
-+	gcspr -= sizeof(u64);
-+	put_user_gcs(val, (unsigned long __user *)gcspr, err);
-+	if (!*err)
-+		write_sysreg_s(gcspr, SYS_GCSPR_EL0);
-+}
-+
-+/*
-+ * Unlike put/push_user_gcs() above, get/pop_user_gsc() doesn't
-+ * validate the GCS permission is set on the page being read.  This
-+ * differs from how the hardware works when it consumes data stored at
-+ * GCSPR. Callers should assure this is acceptable.
-+ */
-+static inline u64 get_user_gcs(unsigned long __user *addr, int *err)
-+{
-+	unsigned long ret;
-+	u64 load = 0;
-+
-+	/* Ensure previous GCS operation are visible before we read the page */
-+	gcsb_dsync();
-+	ret = copy_from_user(&load, addr, sizeof(load));
-+	if (ret != 0)
-+		*err = ret;
-+	return load;
-+}
-+
-+static inline u64 pop_user_gcs(int *err)
-+{
-+	u64 gcspr = read_sysreg_s(SYS_GCSPR_EL0);
-+	u64 read_val;
-+
-+	read_val = get_user_gcs((unsigned long __user *)gcspr, err);
-+	if (!*err)
-+		write_sysreg_s(gcspr + sizeof(u64), SYS_GCSPR_EL0);
-+
-+	return read_val;
-+}
-+
- #else
+ #include "decode-insn.h"
  
- static inline bool task_gcs_el0_enabled(struct task_struct *task)
-@@ -126,6 +167,10 @@ static inline bool task_gcs_el0_enabled(struct task_struct *task)
- static inline void gcs_set_el0_mode(struct task_struct *task) { }
- static inline void gcs_free(struct task_struct *task) { }
- static inline void gcs_preserve_current_state(void) { }
-+static inline void put_user_gcs(unsigned long val, unsigned long __user *addr,
-+				int *err) { }
-+static inline void push_user_gcs(unsigned long val, int *err) { }
-+
- static inline unsigned long gcs_alloc_thread_stack(struct task_struct *tsk,
- 						   const struct kernel_clone_args *args)
+@@ -159,11 +160,43 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
+ 				  struct pt_regs *regs)
  {
-@@ -136,6 +181,15 @@ static inline int gcs_check_locked(struct task_struct *task,
- {
- 	return 0;
- }
-+static inline u64 get_user_gcs(unsigned long __user *addr, int *err)
-+{
-+	*err = -EFAULT;
-+	return 0;
-+}
-+static inline u64 pop_user_gcs(int *err)
-+{
-+	return 0;
-+}
+ 	unsigned long orig_ret_vaddr;
++	unsigned long gcs_ret_vaddr;
++	int err = 0;
++	u64 gcspr;
  
- #endif
+ 	orig_ret_vaddr = procedure_link_pointer(regs);
++
++	if (task_gcs_el0_enabled(current)) {
++		gcspr = read_sysreg_s(SYS_GCSPR_EL0);
++		gcs_ret_vaddr = get_user_gcs((unsigned long __user *)gcspr, &err);
++		if (err) {
++			force_sig(SIGSEGV);
++			goto out;
++		}
++
++		/*
++		 * If the LR and GCS return addr don't match, then some kind of PAC
++		 * signing or control flow occurred since entering the probed function.
++		 * Likely because the user is attempting to retprobe on an instruction
++		 * that isn't a function boundary or inside a leaf function. Explicitly
++		 * abort this retprobe because it will generate a GCS exception.
++		 */
++		if (gcs_ret_vaddr != orig_ret_vaddr) {
++			orig_ret_vaddr = -1;
++			goto out;
++		}
++
++		put_user_gcs(trampoline_vaddr, (unsigned long __user *)gcspr, &err);
++		if (err) {
++			force_sig(SIGSEGV);
++			goto out;
++		}
++	}
++
+ 	/* Replace the return addr with trampoline addr */
+ 	procedure_link_pointer_set(regs, trampoline_vaddr);
+ 
++out:
+ 	return orig_ret_vaddr;
+ }
  
 -- 
 2.50.1
