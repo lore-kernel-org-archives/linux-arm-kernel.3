@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FC9CA0ED1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402D0CA0EF1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 14:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nGAq5y1YthkCCojB7chAyhWy9Ut5m2mSfzzsnreDc/0=; b=xBiNBKuQbk4Sl3rigCbzAD6ys2
-	QHrzTkhsOc3OLGaCs30BfM1sIj4uJjZ16vTjaIlVdrkDBgo05ggdObP79a23vcKXqXNnznzYdq7Ek
-	LUUpZl0hBeNnNf3eD50Cm6yIvdipvfVGmpDh6I8Pl42F6sT8E9bdtl8fvOoyeyjH4RPAXXIA8du8u
-	BfoJFPLI5x3Vn5B7lRHaCFcSGmtipDIdyFQvAY344ZlVzmFkLqxBu/+d+blIjnUFuoHPTE+14hfaV
-	DR9mWbUIy75UoMvfdF1AzK78QNG75YitrLLPltnZ8VmQK+XuGMu8mVkJT9S/uZ/PUelRFvlQHE0hJ
-	8PqWW3Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7UsecXMCJq5MpW5Qu2CCJpMmHFdxnV6whzIrqzE0KhY=; b=unClUiiJqUvO72usr9MZlw2Rnb
+	BLgjpIuG6fSJLaoNxw9YZMBQvTvG3KPVYWN4FB05xGGjD3SQpBS6e4vz1i2bnBbMF3pUFEbRmi7gU
+	XOla6WgIFS6RJUsSdxlOhN3HZF7utB7uEDKVD1QkDgV3hm3W0uUMKpC9KYBbvb28dmOBCKvSIwGs7
+	BF68BXH4y9oME/TTNlz7CXf7we1UK4pilgPUvfA6oAKhHTwzkcju44kJl1MSxolvol94lFnW+2nWw
+	VVYgHuGL7U3YQnBp09HMFrs3Q/fTMynJm8NEQaBxKPOr9bnoKsC0BGXH6umX4GKmuO2NEIaPaqyWt
+	CrsudsvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo1A5-00000007oIV-1bOa;
-	Mon, 18 Aug 2025 14:48:37 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
+	id 1uo1A9-00000007oOs-3CeC;
+	Mon, 18 Aug 2025 14:48:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unw2n-000000072QQ-2c4r
+	id 1unwFU-000000074Ih-3LJS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 09:20:47 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c55sY4xgJz9sWj;
-	Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id TKGrlbOf_Qrh; Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c55sY45ysz9sWh;
-	Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 767258B765;
-	Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id MrqQklRryYxw; Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [10.25.207.160])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4E0F48B763;
-	Mon, 18 Aug 2025 10:46:09 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 0/5] Add support of IRQs to QUICC ENGINE GPIOs
-Date: Mon, 18 Aug 2025 10:45:53 +0200
-Message-ID: <cover.1755506608.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
+	Mon, 18 Aug 2025 09:33:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 868F01595;
+	Mon, 18 Aug 2025 02:33:43 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC6923F58B;
+	Mon, 18 Aug 2025 02:33:48 -0700 (PDT)
+Date: Mon, 18 Aug 2025 10:33:45 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Jeremy Linton <jeremy.linton@arm.com>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Huang Shijie <shijie@os.amperecomputing.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <patches@amperecomputing.com>,
+	<Shubhang@os.amperecomputing.com>, <krzysztof.kozlowski@linaro.org>,
+	<bjorn.andersson@oss.qualcomm.com>, <geert+renesas@glider.be>,
+	<arnd@arndb.de>, <nm@ti.com>, <ebiggers@kernel.org>,
+	<nfraprado@collabora.com>,
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: defconfig: enable CONFIG_SCHED_CLUSTER
+Message-ID: <20250818-mysterious-aromatic-wasp-cdbaae@sudeepholla>
+References: <e47757c3-6091-43b5-ba28-52e11de7d86a@arm.com>
+ <cb383a76-8848-44cd-6f32-fd30478d9ebd@gentwo.org>
+ <2d9259e4-1b58-435d-bf02-9c4badd52fd9@arm.com>
+ <20250813-gifted-nimble-wildcat-6cdf65@sudeepholla>
+ <d172f30d-28ad-dd46-1385-f010107bc789@gentwo.org>
+ <c45b13b9-52ae-a52b-ce39-77f7ebe09507@gentwo.org>
+ <aJ20imoeRL_tifky@bogus>
+ <97278200-b877-47a6-84d4-34ea9dda4e6b@gentwo.org>
+ <20250815-pheasant-of-eternal-tact-6f9bbc@sudeepholla>
+ <1097a1d1-483d-44b3-b473-4350b5a4b04d@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755506759; l=1744; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=0zMxvMtVDYI3C0qUdfZ4EOBxyOcB0ghTKA2N/7FYUng=; b=tL7X0n2yGtytrRK48Qz0+3gJn380KbagfKlBBXXWBcvgq0NLI5zZcEzp21zG1+Ed5JQcE+B8J 79JqZWIKUf0B1fKRLDVzvS9O6zqRvtkttEaDYwlmtNYrscdF30FdLSz
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1097a1d1-483d-44b3-b473-4350b5a4b04d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_022045_839838_FC783C64 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250818_023352_911289_9F9E0432 
+X-CRM114-Status: GOOD (  52.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,45 +80,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QUICC Engine provides interrupts for a few I/O ports. This is
-handled via a separate interrupt ID and managed via a triplet of
-dedicated registers hosted by the SoC.
+On Fri, Aug 15, 2025 at 11:46:35AM -0500, Jeremy Linton wrote:
+> Hi,
+> 
+> 
+> On 8/15/25 5:48 AM, Sudeep Holla wrote:
+> > On Thu, Aug 14, 2025 at 09:30:06AM -0700, Christoph Lameter (Ampere) wrote:
+> > > On Thu, 14 Aug 2025, Sudeep Holla wrote:
+> > > 
+> > > >    |  Different architectures use different terminology to denominate logically
+> > > >    |  associated processors, but terms such as package, cluster, module, and
+> > > >    |  socket are typical examples.
+> > > > 
+> > > > So how can one use these across architectures ? Package/Socket is quite
+> > > > standard. Cluster can be group of processors or it can also be group of
+> > > > processor clusters. One of the Arm vendors call it super cluster or something.
+> > > > All these makes it super hard for a generic OS to interpret that information.
+> > > > Just CONFIG_SCHED_CLUSTER was added with one notion of cluster which was soon
+> > > > realised doesn't match with some other notion of it.
+> > > 
+> > > What the cluster actually is used for is up to the hardware. The linux
+> > > scheduler provides this functionality. How and when this feature is used
+> > > by firmware is a vendor issue. There was never a clear definition.
+> > > 
+> > 
+> > Sure, since it is left to architecture to define what it means, it could
+> > work. But what happens if we have multiple chiplet inside a socket and
+> > each chiplet has multiple cluster. Do you envision using this SCHED_CLUSTER
+> > at chiplet level if that works best on the platform ?
+> > 
+> > That could work, but we need to document all these with the best of our
+> > knowledge now so that it is easy to revisit in the future.
+> > 
+> > > > We can enable it and I am sure someone will report a regression on their
+> > > > platform and we need to disable it again. The benchmark doesn't purely
+> > > > depend on just the "notion" of cluster but it is often related to the
+> > > > private resource and how they are shared in the system. So even if you
+> > > > strictly follow the notion of cluster as supported by CONFIG_SCHED_CLUSTER
+> > > > it will fail on systems where the private resources are shared across the
+> > > > "cluster" boundaries or some variant configuration.
+> > > 
+> > > That is not our problem. If the vendor provides clustering information and
+> > > the scheduler uses that then the vendor can modify the firmware to not
+> > > enable clustering.
+> > > 
+> > 
+> > That is pure wrong. ACPI is describing the hardware. Deciding to put
+> > clustering information in these tables only if it provides performance or
+> > not hinder performance seem complete non-sense to me. That covering policy
+> > in ACPI hardware description. Does ACPI spec mention anything about it ?
+> > I mean remove some hardware description even if it is 100% accurate if it
+> > hinders performance on one of the OSPM ? Doesn't sound correct at all.
+> > 
+> > > As mentioned before: We could create a blacklist to override the ACPI info
+> > > from the vendor to ensure that clustering is off.
+> > > 
+> > 
+> > Not a bad idea. We can see if allow or blocklist works as we start with one.
+> 
+> From a distro perspective it makes more sense to me to change it from a
+> compile time option to a runtime kernel command line option with the default
+> on/off set by this SCHED_CLUSTER flag rather than try to maintain a
+> blocklist.
+>
 
-Implement an interrupt driver for those IRQs then add IRQs capability to
-the QUICC ENGINE GPIOs.
+Right, that makes complete sense to me.
 
-The number of GPIOs for which interrupts are supported depends on
-the microcontroller:
-- mpc8323 has 10 GPIOS supporting interrupts
-- mpc8360 has 28 GPIOS supporting interrupts
-- mpc8568 has 18 GPIOS supporting interrupts
+> 
+> I agree the firmware needs a much clearer way to signal that these nodes
+> represent something other than just side effects of the way the table is
+> built. If the working group is hesitant to declare additional topological
+> flags, maybe this idea of deriving additional topological information from
+> nodes without caches is a reasonable spec clarification. That way some
+> future NODE_IS_A_CLUSTER/DSU/CHIPLET/SUPERCLUSTER/RING/SLICE/WHATEVER
+> doesn't turn the existing code into technical debt.
+> 
 
-Changes in v2:
-- Fixed warning on PPC64 build (Patch 1)
-- Using devm_kzalloc() instead of kzalloc (Patch 2)
-- Stop using of-mm-gpiochip (New patch 3)
-- Added fsl,qe-gpio-irq-mask propertie in DT binding doc (Patch 4)
-- Fixed problems reported by 'make dt_binding_check' (Patch 5)
+100% agreed.
 
-Christophe Leroy (5):
-  soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
-  soc: fsl: qe: Change GPIO driver to a proper platform driver
-  soc: fsl: qe: Drop legacy-of-mm-gpiochip.h header from GPIO driver
-  soc: fsl: qe: Add support of IRQ in QE GPIO
-  dt-bindings: soc: fsl: qe: Add an interrupt controller for QUICC
-    Engine Ports
+> But returning to the original point, its not clear to me that the HW
+> 'cluster' information is really causing the performance boost vs, just
+> having a medium size scheduling domain (aka just picking an arbitrary size
+> 4-16 cores) under MC, or simply 'slicing' a L3 in the PPTT such that the MC
+> domains are smaller, yields the same effect. I've seen a number of cases
+> where 'lying' about the topology yields a better result in a benchmark. This
+> is largely what is happening with these Firmware toggles that move/remove
+> the NUMA domains too. Being able to manually reconfigure some of these
+> scheduling levels at runtime might be useful...
+> 
 
- .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       |  58 +++++++
- .../bindings/soc/fsl/cpm_qe/qe/par_io.txt     |  19 +++
- arch/powerpc/platforms/Kconfig                |   1 -
- drivers/soc/fsl/qe/Makefile                   |   2 +-
- drivers/soc/fsl/qe/gpio.c                     | 145 +++++++++-------
- drivers/soc/fsl/qe/qe_ports_ic.c              | 156 ++++++++++++++++++
- 6 files changed, 322 insertions(+), 59 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml
- create mode 100644 drivers/soc/fsl/qe/qe_ports_ic.c
+I share your concern and hence completely again representation of any fake
+data in the ACPI topology just to get improved performance. Yes we have seen
+that in the past.
 
 -- 
-2.49.0
-
+Regards,
+Sudeep
 
