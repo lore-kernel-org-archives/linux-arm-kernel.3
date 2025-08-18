@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F868CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6239CCA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXam3b+H7XikahUHcOfNq3UHS4W6/E59lS1R/vF9/E8=; b=aeI9NS+wxZSSwv4wUvWQMItIMe
-	HrkTd9qZFZFWzXnCDsr6KXhmA8Xqn834zgdy4H2/OXebI4KBcBmLEO7wvjIhvsVuOepjJB1oasaeL
-	wO5dBZtc0dFpb/dqSdumTlZBrQ9tUq5gcsFTGRdroMcCQr7KnwC2YArQqkU+k34BWOoRl7cD1z/53
-	nrjxOUBHkLTSNgQrYpnzC1l5L22c+5LFsvvlNbKTLdrx4KHVO8MRf6N6ejTtnXtfPe1KLwtlFj8Xh
-	lmxIbsCp84Xp7yg6wXW51FS7YA2ABUu1Yw4AaoWY0/I1U3UIa8E7k0FiHdVwYT2dl2MYpQftIfm3S
-	HJBSlu1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jj1Unxa4GjFf+agCHEEH87Fl+a2vGrW6RlHdXp1wINk=; b=ZqaczkLz7b3ovCGMaH/ovx6jU9
+	XuktiwFw5VegmFhbFbB5fevSFO7fr95JthRUNbHfiyY5l+olqUIWpn/DcFt9T1wrUciy3+gL5PmAi
+	T29soxvo+KhzmQYvy0T8t1dTpYhFreKogkKuBfSmZuypiJkPPS7CvuN4zrwnFyjz4NFzeqp6GFI6W
+	PKByG7ps0G5fPtaw2NsCJdXGjMNsZKiTE5MnhnRgICh75jPfJbQDH1N6FDzqoYkQBva3dWONjoKKq
+	RaXQM3iiBwiiSB3s4jbqG9I6vW4IKJG4aY7HT3D6Z1N59vFot2Q8wtF9Kyj5545p86vrilwMgLFNx
+	u14eZeTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4AA-00000008Gtf-3qPN;
-	Mon, 18 Aug 2025 18:00:56 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1uo4Ci-00000008HBZ-3vzr;
+	Mon, 18 Aug 2025 18:03:32 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo3VP-0000000876s-2HuN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 17:18:49 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250818171843epoutp0216a2de4ecb84c39fdf89ead2b5b9c4e2~c7BOpbaOX3205532055epoutp02f
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 17:18:43 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250818171843epoutp0216a2de4ecb84c39fdf89ead2b5b9c4e2~c7BOpbaOX3205532055epoutp02f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755537523;
-	bh=DXam3b+H7XikahUHcOfNq3UHS4W6/E59lS1R/vF9/E8=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=rG85scs/c0zeFc4WXF+++MTw7Jfxe2Xt8C+L7JQYTAYdJhjA4NQD3HaBCpS7AVHpD
-	 kdNLyDMfS/Trvi2n+UkkTKZJI6PvpIZCz0HIa4J4YxyJuwIQaDFOmx2RUtw1Th8ZTy
-	 420nxNjZ3tpIRAbz0h7hVPB4j9es6rEFzD9VQx24=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250818171842epcas5p4009ecff833c293e3066ff39d03bc290a~c7BNgSI6N0869708697epcas5p4R;
-	Mon, 18 Aug 2025 17:18:42 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4c5KDx5WGSz6B9m5; Mon, 18 Aug
-	2025 17:18:41 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250818085434epcas5p23546464f6d2642c74d42db7b134d8aec~c0JCsYmhE2142121421epcas5p2S;
-	Mon, 18 Aug 2025 08:54:34 +0000 (GMT)
-Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250818085431epsmtip2b7a1352fc6b7055557af8d1d093782bf~c0I--9NYD2484224842epsmtip2X;
-	Mon, 18 Aug 2025 08:54:31 +0000 (GMT)
-From: "Shradha Todi" <shradha.t@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <linux-pci@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>
-Cc: <mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<vkoul@kernel.org>, <kishon@kernel.org>, <arnd@arndb.de>,
-	<m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
-	<pankaj.dubey@samsung.com>
-In-Reply-To: <b22f9381-1835-463a-8daa-97835b159f78@kernel.org>
-Subject: RE: [PATCH v3 12/12] arm64: dts: fsd: Add PCIe support for Tesla
- FSD SoC
-Date: Mon, 18 Aug 2025 14:24:30 +0530
-Message-ID: <000b01dc101d$b834db40$289e91c0$@samsung.com>
+	id 1uo3VR-0000000878I-2sgk;
+	Mon, 18 Aug 2025 17:18:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755537527;
+	bh=tG75RaA58L/LbFXL/IjWTkyLvWG0PIm7lTQ07gOgyks=;
+	h=From:Date:Subject:To:Cc:From;
+	b=lGTMioqsaBVhRC4NA/nukTupkmMEdAZeL0x9eWRd+v0qKfz29PDNWEmu+xO+Ss5rC
+	 xvgg/ImvpXzSI2xf6Lge6DXD/li0DH0VG51txmUpNLFYCY4SKQyNCXQYY2Ov+UzfS6
+	 SlPV3CTYVHZGWDuJrQKuHBT2bAS1rMi6mPIIj0UiaX8B7PZx6TjHDbWAY1j6efNQuJ
+	 uGZC+b95LyRdIwhFsRzkZFOcz0mrJPous9NdSLVWDCHDI0VVY4YfPRKlGfALqGMcLJ
+	 0uSf6SLrYt8vp6aeXB32Yw7FbujPdVZlwzZAaCpGeFQky8nuRsuktH8UVkIQx981PL
+	 DGuH4SCqnek8g==
+Received: from jupiter.universe (dyndsl-091-248-210-167.ewe-ip-backbone.de [91.248.210.167])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CE23A17E0237;
+	Mon, 18 Aug 2025 19:18:47 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 89697480044; Mon, 18 Aug 2025 19:18:47 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 18 Aug 2025 19:18:40 +0200
+Subject: [PATCH] arm64: dts: rockchip: Enable RK3576 watchdog
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHWPHKmIG2WTsjb/5pkHKJ2GfeRPwIotln8AZEe0jECYiuDgLRC4i+g
-Content-Language: en-in
-X-CMS-MailID: 20250818085434epcas5p23546464f6d2642c74d42db7b134d8aec
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525
-References: <20250811154638.95732-1-shradha.t@samsung.com>
-	<CGME20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525@epcas5p2.samsung.com>
-	<20250811154638.95732-13-shradha.t@samsung.com>
-	<b22f9381-1835-463a-8daa-97835b159f78@kernel.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250818-rk3576-watchdog-v1-1-28f82e01029c@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAG9go2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0ML3aJsY1NzM93yxJLkjJT8dF0zSxPjNEtDI9NUEyMloK6CotS0zAq
+ widGxtbUA9CCZE2EAAAA=
+X-Change-ID: 20250818-rk3576-watchdog-6943f9125e42
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=989; i=sre@kernel.org;
+ h=from:subject:message-id; bh=tG75RaA58L/LbFXL/IjWTkyLvWG0PIm7lTQ07gOgyks=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGijYHceec+cj0s2bKOj3NvdMhql0msA/UW6T
+ iYDN9l6MKIk0IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJoo2B3AAoJENju1/PI
+ O/qaDvUP/3x2qieJs/eT58aqP4wqmebgzmOIfe4kGht0vvoveETDxQrQOtnXnZVbyE1HmpLq9Ix
+ LXrzmOgFPl6hFjunDUVBi0iDvtjx6V/3K4M+B56p2iCIp1Y1RCu3zbbK25zAifSNc9oKkZdXHnK
+ 3LWQoZpaNcVB/pTOjwj/9VTz1dUAwq7LReBdWDc8r2U7T7AN2JtrEe1ZtirR5dFzOfuyZ67WESF
+ X9wTYBRrtSojoI8mVv0AHJSIbvwUGPD1vfcq5qK9hZyzdG51DMYXrXKEHnTVW92NlDlxtraiLb5
+ 8rVwFn+icLVS6jllwXFyagfeh+dvJ63IlKUBDuqlF7gWkIIHOCe+u7xljTbXpyrbCgI4wlVbqc8
+ 5jUqbTsozyjdlArhBRFeu2GkI7eUIKHSWboxeUynANkDcGuseB8AZzPz55QoWzF3/YPphjIJIud
+ TbdH41GbgN6sz6tLN/3Miv3hcFzzpZS1AYRfpJrgcEaGpesO8yBk5dFqScvkdIPD3jvVw9CahKc
+ r20sOEdgzGQdR0Nn1zO0mWIvpVSx7De9GSgAlsKBuThKD/xU8KUGIaukxRJlNfzAoQOiSC/iKNk
+ Ej0uH/DfSlLWXb6soXhtZ/L5LjCDH89acZsAh/BU34gVss55EqLKoIYhl3+CkAYerE2rhFafVpJ
+ BGb8zxN0nvcc/hWup+aAxZQ==
+X-Developer-Key: i=sre@kernel.org; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_101847_904879_7CCA276A 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250818_101849_876862_B372B0A8 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +&pcieep2 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
-> > +			<&pcie0_slot1>;
-> > +};
-> > +
-> > +&pcierc0 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> > +			 <&pcie0_slot0>;
-> > +};
-> > +
-> > +&pcieep0 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> > +			 <&pcie0_slot0>;
-> > +};
-> > +
-> > +&pcierc1 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-> > +};
-> > +
-> > +&pcieep1 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-> 
-> 
-> All these are pointless, because the node is disabled. The board level
-> should be complete, so also supplies and enabling the device.
-> 
+The RK3576 watchdog does not need any board specific resources, so
+let's enable it by default just like we do for RK3588.
 
-I will enable required nodes. Had enabled while testing but missed to
-add in patch. Though all nodes will not be enabled as it is a dual-mode
-controller and cannot run as both RC and EP at the same time.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-> Best regards,
-> Krzysztof
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index c3cdae8a54941a75821aa6a642c535ced66a116a..1bffed162c307d3981a540d5727d477f0e6f47aa 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -2073,7 +2073,6 @@ wdt: watchdog@2ace0000 {
+ 			clocks = <&cru TCLK_WDT0>, <&cru PCLK_WDT0>;
+ 			clock-names = "tclk", "pclk";
+ 			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+-			status = "disabled";
+ 		};
+ 
+ 		spi0: spi@2acf0000 {
+
+---
+base-commit: e05818ef75bee755fc56811cb54febf4174d7cf2
+change-id: 20250818-rk3576-watchdog-6943f9125e42
+
+Best regards,
+-- 
+Sebastian Reichel <sre@kernel.org>
 
 
