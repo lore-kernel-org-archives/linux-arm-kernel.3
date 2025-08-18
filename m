@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5F2CA0EF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792F0CA0EF1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 07:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v/HYaH4z+aOjGeoKKbXXZqo8AVc4ypz/id1awsENfio=; b=tFa8j2tMsej+pIerk0cpjNqaFN
-	RNY31k6cUN7yBnqQ6t5T4RzFfEt8HplacTZltUE/2G3kTuMb6fQUioj5rYH7o5XHIxPkfRGnZ04Bw
-	2tt7XxFVFoSaths+uCY9F8YSYrwV75h+9EBwDORs0nTI9vIVb0wOhW+zGC9wDPI6Os02jfteXMGVa
-	KzuiGXwUycuxLIZoDWJDjYOo44S+Jqyyg5rffg1VhSO1mRyugydcmSq0wE9i7Sn5FGLaSf95FM99j
-	DOqag/kidXCa0N9PEwHxXy/jlHCPwB0cMRdWCJuFL40R/zb026ScmV9Ik3znOXfxI1OkvnXanjcKD
-	ulcZFSiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wipLXnyhz15IMrwDc2CTgHma7vRVsMc0Bp6a0MGhUF4=; b=W9yBKNOWoRu/8s56EZjpIDC/E1
+	d4l4JEAAAKxzKmlMOXmjZN/Vl60gRTpXPVBsGu1ovIR6ilpLe8ICFO8/p46ihC6ioy4H9ZS7iH+SK
+	XZheYrjqA4xnI0FYqSLx2N5q8kaAlChR4ZgcxZXy3/jqDr7fzb2QfaOxTCpXXhRwG33F1vHV4mb28
+	Te070LRrSq8hpEKQ4bFSfXJKApyo/Qz+9aZc6tOJPbijQ9Bps/f51+Tz+BmM0U37gqYdJQTqo68XL
+	FRnbVESlLNgQdkBSV229WHra1Rc2D/eYF9N2SdWdmUDTTudjeLPsGr5x8DNxtdsFCC1QoCvc/MC9I
+	y2Ndd2gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unueC-00000006pCx-2aq1;
-	Mon, 18 Aug 2025 07:51:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untfT-00000006hxN-0fmm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 Aug 2025 06:48:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=v/HYaH4z+aOjGeoKKbXXZqo8AVc4ypz/id1awsENfio=; b=M0j8Fn3VpdY62Pr27qGqApI7GN
-	S/sxe2F6FvMyqt7oElUHXTknbvCPQNFjKvtrxBFVTFSdQPhpHNc/2dBmQeZvnJmnF0UUCwBSKlFyX
-	NXw1RvE8XppM86+DVxBNp4+h9d9H7+EVrYQdhUFytVbgsXYgVm+gY0yn5plj30haifMNXQ7FOzSHC
-	GAIHCsYxUOyYdBmelSFPz7gbHjm9toF4dpOhzJ87w7/NbRktC9jE/ERT8XTaMsR+PnPvm0aPUTppZ
-	brbPCBGu3Ypzh8DJwDeFwB9CIQPABLDVLnxoM4Vd+Mq/oClGDdYoKQTXwZR9x0yFWBSKFWciBbgXq
-	r6x2deNA==;
-Received: from szxga02-in.huawei.com ([45.249.212.188])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1untfP-0000000HI25-0oas
+	id 1unue6-00000006p7h-0GgF;
+	Mon, 18 Aug 2025 07:51:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1unrwj-00000006VbC-3lTq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 06:48:30 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c53DG73cvzpbgs;
-	Mon, 18 Aug 2025 14:47:10 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4E1E01401F0;
-	Mon, 18 Aug 2025 14:48:10 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 18 Aug 2025 14:48:08 +0800
-Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 18 Aug 2025 14:48:07 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <corbet@lwn.net>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kselftest@vger.kernel.org>, <linux-doc@vger.kernel.org>
-CC: <joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<shuah@kernel.org>, <jonathan.cameron@huawei.com>,
-	<shameerkolothum@gmail.com>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <yangyicong@hisilicon.com>,
-	<tangchengchang@huawei.com>, <wangzhou1@hisilicon.com>
-Subject: [PATCH v5 0/7] Add support for FEAT_{LS64, LS64_V} and related tests
-Date: Mon, 18 Aug 2025 14:47:59 +0800
-Message-ID: <20250818064806.25417-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	Mon, 18 Aug 2025 04:58:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECA812A2A;
+	Sun, 17 Aug 2025 21:58:04 -0700 (PDT)
+Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4BBC73F58B;
+	Sun, 17 Aug 2025 21:58:10 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/4] arm64/sysreg: Update TCR_EL1 register
+Date: Mon, 18 Aug 2025 10:27:56 +0530
+Message-Id: <20250818045759.672408-2-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250818045759.672408-1-anshuman.khandual@arm.com>
+References: <20250818045759.672408-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_074828_211919_82A51B04 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250817_215813_974032_6456091D 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,104 +70,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+Update TCR_EL1 register fields as per latest ARM ARM DDI 0487 7.B and while
+here drop an explicit sysreg definition SYS_TCR_EL1 from sysreg.h, which is
+now redundant.
 
-Armv8.7 introduces single-copy atomic 64-byte loads and stores
-instructions and its variants named under FEAT_{LS64, LS64_V}.
-Add support for Armv8.7 FEAT_{LS64, LS64_V}:
-- Add identifying and enabling in the cpufeature list
-- Expose the support of these features to userspace through HWCAP3
-  and cpuinfo
-- Add related hwcap test
-- Handle the trap of unsupported memory (normal/uncacheable) access in a VM
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/include/asm/sysreg.h |  2 --
+ arch/arm64/tools/sysreg         | 52 ++++++++++++++++++++++++++++-----
+ 2 files changed, 44 insertions(+), 10 deletions(-)
 
-A real scenario for this feature is that the userspace driver can make use of
-this to implement direct WQE (workqueue entry) - a mechanism to fill WQE
-directly into the hardware.
-
-Picked Marc's 2 patches form [1] for handling the LS64 trap in a VM on emulated
-MMIO and the introduce of KVM_EXIT_ARM_LDST64B.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240815125959.2097734-1-maz@kernel.org/
-
-Tested with updated hwcap test:
-[root@localhost tmp]# dmesg | grep "All CPU(s) started"
-[   14.789859] CPU: All CPU(s) started at EL2
-[root@localhost tmp]# ./hwcap
-# LS64 present
-ok 217 cpuinfo_match_LS64
-ok 218 sigill_LS64
-ok 219 # SKIP sigbus_LS64_V
-# LS64_V present
-ok 220 cpuinfo_match_LS64_V
-ok 221 sigill_LS64_V
-ok 222 # SKIP sigbus_LS64_V
-# 115 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
-# Totals: pass:107 fail:0 xfail:0 xpass:0 skip:115 error:0
-
-root@localhost:/mnt# dmesg | grep "All CPU(s) started"
-[    0.281152] CPU: All CPU(s) started at EL1
-root@localhost:/mnt# ./hwcap
-# LS64 present
-ok 217 cpuinfo_match_LS64
-ok 218 sigill_LS64
-ok 219 # SKIP sigbus_LS64
-# LS64_V present
-ok 220 cpuinfo_match_LS64_V
-ok 221 sigill_LS64_V
-ok 222 # SKIP sigbus_LS64_V
-# 115 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
-# Totals: pass:107 fail:0 xfail:0 xpass:0 skip:115 error:0
-
-Change since v4:
-- Rebase on v6.17-rc2 and fix the conflicts
-Link: https://lore.kernel.org/linux-arm-kernel/20250715081356.12442-1-yangyicong@huawei.com/
-
-Change since v3:
-- Inject DABT fault for LS64 fault on unsupported memory but with valid memslot
-Link: https://lore.kernel.org/linux-arm-kernel/20250626080906.64230-1-yangyicong@huawei.com/
-
-Change since v2:
-- Handle the LS64 fault to userspace and allow userspace to inject LS64 fault
-- Reorder the patches to make KVM handling prior to feature support
-Link: https://lore.kernel.org/linux-arm-kernel/20250331094320.35226-1-yangyicong@huawei.com/
-
-Change since v1:
-- Drop the support for LS64_ACCDATA
-- handle the DABT of unsupported memory type after checking the memory attributes
-Link: https://lore.kernel.org/linux-arm-kernel/20241202135504.14252-1-yangyicong@huawei.com/
-
-Marc Zyngier (2):
-  KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
-  KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
-
-Yicong Yang (5):
-  KVM: arm64: Handle DABT caused by LS64* instructions on unsupported
-    memory
-  arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
-  arm64: Add support for FEAT_{LS64, LS64_V}
-  KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
-  kselftest/arm64: Add HWCAP test for FEAT_{LS64, LS64_V}
-
- Documentation/arch/arm64/booting.rst      | 12 +++
- Documentation/arch/arm64/elf_hwcaps.rst   |  6 ++
- Documentation/virt/kvm/api.rst            | 43 +++++++++--
- arch/arm64/include/asm/el2_setup.h        | 12 ++-
- arch/arm64/include/asm/esr.h              |  8 ++
- arch/arm64/include/asm/hwcap.h            |  2 +
- arch/arm64/include/asm/kvm_emulate.h      |  7 ++
- arch/arm64/include/uapi/asm/hwcap.h       |  2 +
- arch/arm64/kernel/cpufeature.c            | 51 +++++++++++++
- arch/arm64/kernel/cpuinfo.c               |  2 +
- arch/arm64/kvm/inject_fault.c             | 22 ++++++
- arch/arm64/kvm/mmio.c                     | 27 ++++++-
- arch/arm64/kvm/mmu.c                      | 14 +++-
- arch/arm64/tools/cpucaps                  |  2 +
- include/uapi/linux/kvm.h                  |  3 +-
- tools/testing/selftests/arm64/abi/hwcap.c | 90 +++++++++++++++++++++++
- 16 files changed, 292 insertions(+), 11 deletions(-)
-
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index d5b5f2ae1afa..ad5c901af229 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -281,8 +281,6 @@
+ #define SYS_RGSR_EL1			sys_reg(3, 0, 1, 0, 5)
+ #define SYS_GCR_EL1			sys_reg(3, 0, 1, 0, 6)
+ 
+-#define SYS_TCR_EL1			sys_reg(3, 0, 2, 0, 2)
+-
+ #define SYS_APIAKEYLO_EL1		sys_reg(3, 0, 2, 1, 0)
+ #define SYS_APIAKEYHI_EL1		sys_reg(3, 0, 2, 1, 1)
+ #define SYS_APIBKEYLO_EL1		sys_reg(3, 0, 2, 1, 2)
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 696ab1f32a67..4bdae8bb11dc 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4756,17 +4756,53 @@ Field   37      TBI0
+ Field   36      AS
+ Res0    35
+ Field   34:32   IPS
+-Field   31:30   TG1
+-Field   29:28   SH1
+-Field   27:26   ORGN1
+-Field   25:24   IRGN1
++UnsignedEnum   31:30   TG1
++	0b01	16K
++	0b10	4K
++	0b11	64K
++EndEnum
++UnsignedEnum   29:28   SH1
++	0b00	NONE
++	0b10	OUTER
++	0b11	INNER
++EndEnum
++UnsignedEnum   27:26  ORGN1
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++UnsignedEnum   25:24   IRGN1
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
+ Field   23      EPD1
+ Field   22      A1
+ Field   21:16   T1SZ
+-Field   15:14   TG0
+-Field   13:12   SH0
+-Field   11:10   ORGN0
+-Field   9:8     IRGN0
++UnsignedEnum   15:14   TG0
++	0b00	4K
++	0b01	64K
++	0b10	16K
++EndEnum
++UnsignedEnum   13:12   SH0
++	0b00	NONE
++	0b10	OUTER
++	0b11	INNER
++EndEnum
++UnsignedEnum   11:10  ORGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++UnsignedEnum   9:8   IRGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
+ Field   7       EPD0
+ Res0    6
+ Field   5:0     T0SZ
 -- 
-2.24.0
+2.25.1
 
 
