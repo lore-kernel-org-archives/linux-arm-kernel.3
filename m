@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90879CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64EACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 13:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICmPS97hbsRSk2h20NdPd9HR7vrrUY1gI8ot1bFxVrE=; b=dGR8XEZrLbyDv/H+f51BZAAecm
-	DJLl8G6JutF9rrn7/LhOKncNKPBLQbXR/QIv5OpgqSpmtsk6cPYwW100GDOrmXTURuQMYZkW7ho7w
-	3/gRqeDiEMlGIzn5en7l0+GqwEVa9mqJGjaWt6U4hHCSFiOsnJ4RCxQTTk/4ORw0dkZyEGT4WeoxD
-	+rEle5wP+fcB96v5K8EDlrQSeEb4rDvGk2jLWD1RorgHN/hiv6/MjIa5/8ec8q8jgIRj9sfecQ1Kl
-	PAlU/KStFTtvLTiKqWLJuD8Nptr3V/HeUrZ0wiiY6jpVy3riIxVhS91pybZBubEIzFd4sm1VczOoO
-	OJ5+BpKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0jrew9vlE7D4OWdvpB34tH6C2TyWPGjMSum67Fi/zJw=; b=fYWqgDpOvS8S6d/B0QDx75sgub
+	YLMitJ+BpXIn8tV8DbdbUme4eSfCZORvp3OcyyYDBmGCgaCdkxKQn5KnbZ/nmJfFYO+F7f5hqKThd
+	y0Dw/+DhruiHMW1yqLCuiaugskxltyJYU69EYGQ7klC90tuREsbKVyURJLtVM7VMMjDmP7Dk16ipo
+	fcS9e7XXX/dErkeifU13O3h9Y/MOtUF6A5fYiQq1yiWMeGwHneE+aXUwy63PLVvk9ouWUYxoG24zt
+	g3SxGooXDLQvNsGgizZJDpw0iPG8BJiAfK/er06zJ+jNl/4NbqbxShVGVqvLPq4o54vP2SPz92dva
+	9DagfB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo05d-00000007Y1d-0trH;
-	Mon, 18 Aug 2025 13:39:57 +0000
+	id 1uo05m-00000007YFu-3K1U;
+	Mon, 18 Aug 2025 13:40:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1unvu6-000000071Vn-3eAr
+	id 1unvwy-000000071t9-36eU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 Aug 2025 09:11:48 +0000
+	Mon, 18 Aug 2025 09:14:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86D291424;
-	Mon, 18 Aug 2025 02:11:35 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19F0A3F58B;
-	Mon, 18 Aug 2025 02:11:39 -0700 (PDT)
-Date: Mon, 18 Aug 2025 10:11:30 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E45C21424;
+	Mon, 18 Aug 2025 02:14:35 -0700 (PDT)
+Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AD7203F58B;
+	Mon, 18 Aug 2025 02:14:41 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
+	Will Deacon <will@kernel.org>,
 	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] arm64/sysreg: Update TCR_EL1 register
-Message-ID: <aKLuQmfSi1Qg2och@J2N7QTR9R3>
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
- <20250818045759.672408-2-anshuman.khandual@arm.com>
+Subject: [RFC 0/3] arm64/ptdump: Add ARM64_PTDUMP_CONSOLE
+Date: Mon, 18 Aug 2025 14:44:33 +0530
+Message-Id: <20250818091436.938517-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818045759.672408-2-anshuman.khandual@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_021146_945589_07F583AC 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250818_021444_818739_5B5719BC 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,113 +66,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 10:27:56AM +0530, Anshuman Khandual wrote:
-> Update TCR_EL1 register fields as per latest ARM ARM DDI 0487 7.B and while
-> here drop an explicit sysreg definition SYS_TCR_EL1 from sysreg.h, which is
-> now redundant.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/include/asm/sysreg.h |  2 --
->  arch/arm64/tools/sysreg         | 52 ++++++++++++++++++++++++++++-----
->  2 files changed, 44 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index d5b5f2ae1afa..ad5c901af229 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -281,8 +281,6 @@
->  #define SYS_RGSR_EL1			sys_reg(3, 0, 1, 0, 5)
->  #define SYS_GCR_EL1			sys_reg(3, 0, 1, 0, 6)
->  
-> -#define SYS_TCR_EL1			sys_reg(3, 0, 2, 0, 2)
-> -
->  #define SYS_APIAKEYLO_EL1		sys_reg(3, 0, 2, 1, 0)
->  #define SYS_APIAKEYHI_EL1		sys_reg(3, 0, 2, 1, 1)
->  #define SYS_APIBKEYLO_EL1		sys_reg(3, 0, 2, 1, 2)
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 696ab1f32a67..4bdae8bb11dc 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -4756,17 +4756,53 @@ Field   37      TBI0
->  Field   36      AS
->  Res0    35
->  Field   34:32   IPS
-> -Field   31:30   TG1
-> -Field   29:28   SH1
-> -Field   27:26   ORGN1
-> -Field   25:24   IRGN1
-> +UnsignedEnum   31:30   TG1
-> +	0b01	16K
-> +	0b10	4K
-> +	0b11	64K
-> +EndEnum
+Enable early kernel page table dump for debug purpose when required through
+a new config ARM64_PTDUMP_CONSOLE. But first this reorganizes ptdump_init()
+separating out the debugfs creation so that it can be called early on. Then
+adds kernel console print support for existing pt_dump_seq_[printf|puts]()
+helpers.
 
-This is clearly not an ordered set.
+This series applies on v6.17-rc2
 
-This should just use Enum, not UnsignedEnum.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
 
-Likewise for all the other cases below.
+Anshuman Khandual (3):
+  arm64/ptdump: Re-organize ptdump_init()
+  arm64/ptdump: Enable console output in pt_dump_seq_[printf|puts]()
+  arm64/ptdump: Add ARM64_PTDUMP_CONSOLE
 
-Mark.
+ arch/arm64/Kconfig.debug           | 12 +++++++++
+ arch/arm64/include/asm/ptdump.h    |  9 +++++++
+ arch/arm64/kernel/setup.c          |  3 +++
+ arch/arm64/mm/ptdump.c             | 42 ++++++++++++++++++++++--------
+ drivers/firmware/efi/arm-runtime.c |  4 +--
+ 5 files changed, 57 insertions(+), 13 deletions(-)
 
-> +UnsignedEnum   29:28   SH1
-> +	0b00	NONE
-> +	0b10	OUTER
-> +	0b11	INNER
-> +EndEnum
-> +UnsignedEnum   27:26  ORGN1
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
-> +UnsignedEnum   25:24   IRGN1
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
->  Field   23      EPD1
->  Field   22      A1
->  Field   21:16   T1SZ
-> -Field   15:14   TG0
-> -Field   13:12   SH0
-> -Field   11:10   ORGN0
-> -Field   9:8     IRGN0
-> +UnsignedEnum   15:14   TG0
-> +	0b00	4K
-> +	0b01	64K
-> +	0b10	16K
-> +EndEnum
-> +UnsignedEnum   13:12   SH0
-> +	0b00	NONE
-> +	0b10	OUTER
-> +	0b11	INNER
-> +EndEnum
-> +UnsignedEnum   11:10  ORGN0
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
-> +UnsignedEnum   9:8   IRGN0
-> +	0b00	NC
-> +	0b01	WBWA
-> +	0b10	WT
-> +	0b11	WBnWA
-> +EndEnum
->  Field   7       EPD0
->  Res0    6
->  Field   5:0     T0SZ
-> -- 
-> 2.25.1
-> 
-> 
+-- 
+2.25.1
+
 
