@@ -4,65 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE0ACA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 18:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FE9CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 Aug 2025 19:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TeC/SjnV5E8U6DEQ7fRIj/43+1PoRaWq7BzbIm5+HOI=; b=gm10E/RplCMeqt
-	BkJVs0t6CzdCF/3Fpmy54r9ww3sQBX/WUjOm+P68u5ynvr5sW+TbtwuI6PPXprgT3uG/ghOkqkAfH
-	YTZPBnaeDkFoSFDMbMsiX05ocja3XXECW0Ua6RdwnyNti7n9g5/53zGzjua6S/khUmGGZLyg9uLGx
-	4C4ABJ/LSRR/G6jHAOYAzf4ujb9bQSIrPTE0B2M259sb7KMyBL0kNALNqmjwIDNvYWS6S/yZQwEUf
-	zwajbp/NBiWKU/3Cm36KK5+VzmQU01K/wlG570Y//q8SeFRZ5ypfVqA8btPuXodlWYQQLwggvBB+G
-	lDJ6dZbYG35ucwrzS4MA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=; b=YxgA9QKg7IHlZsdD7P9DLpa0Yk
+	N1dw33AF1C2iOZXHlqDEiXE3NmnNoHNKCBrMuCetTntjJyPo/FNzgBB269MfyNyg9npeLuR6BqQGt
+	HPIFLSdnpzeQNus4ngoggYo11NzKKVN6S+2Q65xBot3Wu+yzi6g43KpZTt3wdOs3vX8ZEoheJHZrf
+	09KCvgSBjQaeiSOypcgmLyKMvx82Uo6jfEOsEeh4m/f04nCFOcqmNTsqWxmyiM2kqGkHmoz/BcOoW
+	yCXF4o3K3mXnGDOt+HJtlEC9eLzgZ9DbxpJV2J27WpvBNQpJira4tvLayujtY4UsgEm6M4OYuwLnx
+	h5pEUFww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo54u-00000008R6w-0CLq;
-	Mon, 18 Aug 2025 18:59:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uo57T-00000008RpN-1rb0;
+	Mon, 18 Aug 2025 19:02:11 +0000
+Received: from mail-sn1nam02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2406::62f] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo4YF-00000008Kdu-3yT9;
-	Mon, 18 Aug 2025 18:25:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 23F565C62A4;
-	Mon, 18 Aug 2025 18:25:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50078C4CEEB;
-	Mon, 18 Aug 2025 18:25:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755541546;
-	bh=P5OJ4RHbL7bfCZueIbVBkF40afwl0Pm482XBXI7/HfQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=IDIrUk6equNseS0ZrN+tjnJzBgBbvhGFPTLcNrmqpDYFo8ThI70gRQ1UQo83gHjLN
-	 y6axwix4PwvKDr3Qxm4V+5NyFfjqgcbavchlT1oHZgZygTQm9lVuS1d70g6BqQBdya
-	 50XI46xc97f1NcbV9SKLIwwXvcY/QHJfm5PPEZ4BRJ7f61zRejSLUpXnWGVDzcerDF
-	 fzJ9IGTpdNW9EmIJ52biPC64T7A73pMNSc5BRcd6QmhoC2Y9A4KEwaVUs17c44r9Zj
-	 4Ba762DlDExTmr4RoFgVk3fpKr7j0VmeHipw0KWx8OadDdKkSeegTBvmRmNl//M3xp
-	 UHGRuax/NOnLA==
-Date: Mon, 18 Aug 2025 13:25:44 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, mani@kernel.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
-	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
-	jh80.chung@samsung.com, pankaj.dubey@samsung.com
-Subject: Re: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
-Message-ID: <20250818182544.GA534647@bhelgaas>
+	id 1uo3vR-00000008FDQ-0R1s;
+	Mon, 18 Aug 2025 17:45:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ncbgU2vL+h/+/rjM6WQM/DgsT8wTGN4NGvIc7JvoMoqSAdwjCOcLfMT5KHWgVVR+2vc/TIUnp5BH4gbem5M7yI+lbq8K7lXfKY1Wn+Tud4nFexeCRW/74U/tHq6leeYsr6tTbfiRUUzg5Plfqb4TkFcAVoiMnmk/L60j+r6ANW8Rk71pdyoIZa8sLaW2Ie5gCpB1Zm0+N++lihhvi7UfbACIA0qvO77pQaU7Oszpnb8+V3HDRMCHgWL/QZxztGeLDdzGeCeDu8hT66d7zPW8CMB2z8/yZcM/3COPI8b2MydPCZChtMziV4OVoLOYYGn9qD1deZ/y6IaXmax41lkuWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=;
+ b=KcvAoFziBowhbLvfnmT5a0GeroWfrJkrH3Y6awCUDovFIJF+F5QVORXsR9yPfo9ExX39PQqyHr/oKvUmb1RCdan9XUvUvKK7TxDkNhhZfO5QQXkM3ERri13h2u1uqXCpjqDUXC6/fWh7Xi9g6Os0150lPhwKZSczunU/M96LsvjmKissRpmjh06/UBYnGR1RyUszdPRNWptZSzQckXq8B7qM22v3nQogt2tI3/cFMOZ1VR3tbP96142+bELTUFR4bSaUJjzU3ZZ1UEYKbcHydo4CxM6E5iTujXoxBsxcBYBOle9LlnLiQ1K0/k+NLGPwjqQYAqi2nj2VymRmKI6WCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KkndZUYW+8KEPTr+EqB4P1ChdAe2DTUcaIc1k1IW1I8=;
+ b=SZmATUorSJYXmShmM8JQpiHMbjv5c9PAzUqoAMTLIvVupJI4IV+Jept9rUVYvXjWJKTeDu8JuzOb+LYehvuDOaISCCZ3vgI/s/5DxgBicqC3+Cm05ZOhkMqAElv1sLNhNJxh7UmEFCQM15ERknt0cw3fbyyl6y3GspivcwUlkB4lgPI6e2E1XM9F+eVWYfMuPiPPLchPlb6k2Wo7GJFwmk/AREwsLd0kkmEk7hIMC0Q3oXG2wSrRMYbHC89Lnj/q18jPw7nLWaka1b1i6AocwP51aUvbBbkWWinCj/i1md2USHZORiegb3pAo1qnje5WTlIVV5obh4SX/VMMC2fKZA==
+Received: from CH0PR04CA0033.namprd04.prod.outlook.com (2603:10b6:610:77::8)
+ by CH2PR12MB9457.namprd12.prod.outlook.com (2603:10b6:610:27c::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.15; Mon, 18 Aug
+ 2025 17:45:29 +0000
+Received: from DS2PEPF0000343F.namprd02.prod.outlook.com
+ (2603:10b6:610:77:cafe::99) by CH0PR04CA0033.outlook.office365.com
+ (2603:10b6:610:77::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.19 via Frontend Transport; Mon,
+ 18 Aug 2025 17:45:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ DS2PEPF0000343F.mail.protection.outlook.com (10.167.18.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.8 via Frontend Transport; Mon, 18 Aug 2025 17:45:29 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 18 Aug
+ 2025 10:45:10 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Mon, 18 Aug 2025 10:45:09 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 18 Aug 2025 10:45:08 -0700
+Date: Mon, 18 Aug 2025 10:45:07 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: "Tian, Kevin" <kevin.tian@intel.com>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "will@kernel.org"
+	<will@kernel.org>, "robin.clark@oss.qualcomm.com"
+	<robin.clark@oss.qualcomm.com>, "yong.wu@mediatek.com"
+	<yong.wu@mediatek.com>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "thierry.reding@gmail.com"
+	<thierry.reding@gmail.com>, "vdumpa@nvidia.com" <vdumpa@nvidia.com>,
+	"jonathanh@nvidia.com" <jonathanh@nvidia.com>, "rafael@kernel.org"
+	<rafael@kernel.org>, "lenb@kernel.org" <lenb@kernel.org>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "Jaroszynski, Piotr" <pjaroszynski@nvidia.com>,
+	"Sethi, Vikram" <vsethi@nvidia.com>, "helgaas@kernel.org"
+	<helgaas@kernel.org>, "etzhao1900@gmail.com" <etzhao1900@gmail.com>
+Subject: Re: [PATCH v3 1/5] iommu: Lock group->mutex in iommu_deferred_attach
+Message-ID: <aKNmo/O5aXb88GKK@Asurada-Nvidia>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <44783ca52e17a9ca0ce7acfe8daae3edc3d7b45b.1754952762.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276F543286807E05FB465F58C34A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250818141751.GN802098@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <000d01dc1022$ad8c0740$08a415c0$@samsung.com>
+In-Reply-To: <20250818141751.GN802098@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF0000343F:EE_|CH2PR12MB9457:EE_
+X-MS-Office365-Filtering-Correlation-Id: f448f1af-1d98-4d98-3032-08ddde7f05a1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i0T58YcpWRzYo/1yRG1+keCM9QSVCHa57+69a/IQS4ZkrfX59sxxuFU/6coK?=
+ =?us-ascii?Q?D4YqgtLU74MUpftpTwUrsPpay9yXs24YxSGXMYwXb/tcAhlRmBR9KbI5Me7T?=
+ =?us-ascii?Q?EXt7RslZEC5CifbZ2fHbKIbNeWIH49k1d/2n47oYuB+RMXP7ekvsd1h5FIOF?=
+ =?us-ascii?Q?H4A58WSc0lEqJfhf/DuA9yMxmgrKhF28GoCYkLLc6n6/SBQxQvF8qw0NBlAH?=
+ =?us-ascii?Q?0TEaMACEHAjipizLu0b/CRn2txwd9NtdUu5L6rWNLDmlBuXMpI2R1837herT?=
+ =?us-ascii?Q?GDjHXV1eAdi3go8h7iScRE+v3HASCRcprT4HTgqikFwOn+QAYohM8JB56Lie?=
+ =?us-ascii?Q?k6OK6Gtqzf+lm5PmSEr02JacGYWgqauwtrUV4wvMeH0IEg5h3nlAEXfyAJeu?=
+ =?us-ascii?Q?8DeWHowVwjAGy+S+GsEV023x6WsZjAnnCTLAk+YUAES35HgWdXwrGH89V6r+?=
+ =?us-ascii?Q?61Iwn9emnHcmNSJSVff/NW1+aIUCgVaIca2S2mC7Pjssnw0EArB7tgQoUIO/?=
+ =?us-ascii?Q?/4HeGYu/a+/3wzJyrLK/tEpgxCR9Silq61Mxbv95v3Vdr35x2k29lREggYCr?=
+ =?us-ascii?Q?P2XTh67Y5YllGwe6db+QtnadIckcIQBsVeN8BLfFwaSDIdD8JNK5qg9eAWZ5?=
+ =?us-ascii?Q?2R4cCwgFutPpX225fFK9hVRNohIHPjoSHGaREdgFZG9Nc72EIGmvCE52j0mQ?=
+ =?us-ascii?Q?ZGcvM+JldPLhYy8Oyb79AG2eVbjTIkUofJsSkRFTd0M/bwMci/MWhhtEMP/5?=
+ =?us-ascii?Q?dNUe2ncjtohZkuGSCXQnrfeqJvqIa6Sh/0dU8HF89Ne15y80LsZwuHlEsvke?=
+ =?us-ascii?Q?l5/3SQ/aDNQJ5O5Po0ejYzDySABqEs+m4mengvzUmj5Euh0AMEz4nYQ6KTNA?=
+ =?us-ascii?Q?Cobw/HiE33JY0K570E9wYMkYvYEVw916Oz9Jna5r5bTAuwpfm/Pa/Lt4Zc6E?=
+ =?us-ascii?Q?s35RZIohR1L+vKMeX29Fg+ER9lXPQ7ekFSyb3WB0FR/t4SBTilu/9NnbQwtq?=
+ =?us-ascii?Q?MfOkJlZtCSmuVC53y8LIlEo/3GqLP5MFmCrsi1moHnZZmzRn7X77CMT9JORY?=
+ =?us-ascii?Q?Bv5Ne0QmjiglPuYc/QRxHPSlHDuwxBK39NQ1mo5pueCOmN0CvxLFatniZZ3/?=
+ =?us-ascii?Q?boFkxky5Z8AAgRZZ4grDkeaiREge5EUI0/1Hpqfiodmo4iLW/zf1++qwVDoL?=
+ =?us-ascii?Q?0Y8TFsB19R4mAc6+JGbVu01KgaY+quukOq1U5b6Hro3bZlO8sSwuluBD5X6h?=
+ =?us-ascii?Q?8Nx6cUDdOBDmqlAjiptis5aq8iZkcM9NHbDJDiU+XXeH2hqdskT5Tulvz6eS?=
+ =?us-ascii?Q?iyPyO7/0hKt8dc+UqPxDg+5gqUaR3Ga4vZqIHEiAwW1JDuodIDAerkNuWxiO?=
+ =?us-ascii?Q?yMNXO54Dvj1h+8/aiUYiA2Qvp+u+t4JCZ0jE59UVOSN3ZuNcqY8Z+xaKpZNg?=
+ =?us-ascii?Q?HJPN51qYv+ffsqFPvZsyVn2WN5TVylpFRg19ufMf5iVxezbUkgxKN3yRgnWN?=
+ =?us-ascii?Q?MIHtH8ZG5LztDJbHjqaE35HDZCfy7Mlkstsu?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2025 17:45:29.1703
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f448f1af-1d98-4d98-3032-08ddde7f05a1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9457
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_112548_068591_3F272F4F 
-X-CRM114-Status: GOOD (  33.01  )
+X-CRM114-CacheID: sfid-20250818_104541_147365_788D9FEB 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +173,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+to Krzysztof]
-
-On Mon, Aug 18, 2025 at 03:00:00PM +0530, Shradha Todi wrote:
-> > On Mon, Aug 11, 2025 at 09:16:37PM +0530, Shradha Todi wrote:
-> > > Add host and endpoint controller driver support for FSD SoC.
-
-> > It's kind of unfortunate that the driver uses "ep" everywhere for
-> > struct exynos_pcie pointers.  It's going to be confusing because "ep"
-> > is also commonly used for endpoint-related things, e.g., struct
-> > dw_pcie_ep pointers.  Maybe it's not worth changing; I dunno.
-> 
-> I did try to rename the structure and the pointers 
-> (https://lore.kernel.org/all/20230214121333.1837-9-shradha.t@samsung.com/)
-> But the intention was different back then and so the idea was rejected.
-> I could add a patch to only rename the pointers to something less
-> confusing like "exy_pci"
-
-The patch you mention did several renames:
-
-  s/to_exynos_pcie/to_samsung_pcie/
-  s/struct exynos_pcie/struct samsung_pcie/
-  s/struct exynos_pcie *ep/struct samsung_pcie *sp/
-
-I'm only concerned about the confusion of "ep" being used both for
-"struct exynos_pcie *" and for "struct dw_pcie_ep *".
-
-It would still be sort of an annoying patch to do something like this:
-
-  s/struct exynos_pcie *ep/struct exynos_pcie *pcie/
-
-But 'git grep "struct .*_pcie \*.*=" drivers/pci/controller/' says
-using "pcie" in this way is quite common, so maybe it would be worth
-doing.
-
-What do you think, Krzysztof?
-
-> > > +static irqreturn_t fsd_pcie_irq_handler(int irq, void *arg)
-> > > +{
-> > > +	u32 val;
-> > > +	struct exynos_pcie *ep = arg;
-> > > +	struct dw_pcie *pci = &ep->pci;
-> > > +	struct dw_pcie_rp *pp = &pci->pp;
-> > > +
-> > > +	val = readl(ep->elbi_base + FSD_IRQ2_STS);
-> > > +	if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
-> > > +		val &= FSD_IRQ_MSI_ENABLE;
-> > > +		writel(val, ep->elbi_base + FSD_IRQ2_STS);
+On Mon, Aug 18, 2025 at 11:17:51AM -0300, Jason Gunthorpe wrote:
+> On Fri, Aug 15, 2025 at 08:24:57AM +0000, Tian, Kevin wrote:
+> > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > Sent: Tuesday, August 12, 2025 6:59 AM
+> > > 
+> > > The iommu_deferred_attach() is a runtime asynchronous function called by
+> > > iommu-dma function, which could race against other attach functions if it
+> > > accesses something in the dev->iommu_group.
 > > 
-> > This looks weird because FSD_IRQ_MSI_ENABLE sounds like an *enable*
-> > bit, but here you're treating it as a *status* bit.
-> > 
-> > As far as I can tell, you set FSD_IRQ_MSI_ENABLE once at probe-time in
-> > fsd_pcie_msi_init(), then you clear it here in an IRQ handler, and it
-> > will never be set again.  That seems wrong; am I missing something?
+> > Is there a real racing scenario being observed or more theoretical?
 > 
-> Actually the status IRQ and enable IRQ registers are different offsets
-> but the bit position for MSI remains same in both cases so I just reused
-> the macro.
+> I think the commit message should explain the actual reason this is
+> being done, which AFAICT because the new lockdeps added in following
+> patches will fail on this path otherwise.
 
-Ah, that's what I missed, thanks!  At probe-time, fsd_pcie_msi_init()
-enables it in FSD_IRQ2_EN.  Here you clear it in FSD_IRQ2_STS.
+Hmm, I can mention that. But I think that's just a part of the
+reason. It still doesn't seem correct to invoke an attach_dev
+function without the lock since iommu_group_mutex_assert() may
+be used in the path?
 
-> But I understand that it's confusing so I will add another
-> macro for FSD_IRQ_MSI_STATUS or just rename the macro to
-> FSD_IRQ_MSI to re-use.
-
-Using the same name just because a similar bit happens to be at the
-same position in two different registers is definitely confusing.  I
-think it will be better to have two macros, one for FSD_IRQ2_STS and
-another for FSD_IRQ2_EN, e.g.,
-
-  #define FSD_IRQ2_STS                         0x008
-  #define   FSD_IRQ2_STS_MSI                   BIT(17)
-  #define FSD_IRQ2_EN                          0x018
-  #define   FSD_IRQ2_EN_MSI                    BIT(17)
-
-Another question about the test:
-
-  if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
-
-This assumes there are no other bits in FSD_IRQ2_STS that could be
-set.  I would have expected a test like this:
-
-  if (val & FSD_IRQ_MSI_ENABLE) {
-
-Is there a reason to restrict it to the case when *only*
-FSD_IRQ_MSI_ENABLE is set?
-
-Bjorn
+Thanks
+Nicolin
 
