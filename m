@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F74ECA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DA7CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=nxOh5XxKUnu8jGcd1ACzcR/mEwet5btd4yImPg4prHs=; b=eMtauxSnj26TzT
-	HANKOr5SZ4whT4ZOWb7RDW/H00xyb9bs/AMdRevVhoYB1kZ/TaeFu0grQp1nwKOH3LL+bDMD2Thn+
-	5MG1tXBo2hKCkXuJFompra4T/UW0MqXOWCc5zA3pmiqfFxPB3yXwICSDHIgEvB0bSLp77PiScxSGI
-	YTmW8hexVfFKIJGRsc+8boOA8HOENeNnZfftEGrryvk2o5GfnzRgCnouVTQMlIE8YCdPPMAGE/UPy
-	33YbbNfrAqCkavJMb88Fr5TSR0xHFotC6TTGrzjX8M4G/TcSthYSLo+NUVqw5rD8+o7tN6jMjh1Cz
-	3vCtZEI0KRn9FMRGgXTg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VhrGsI8Q4owrYCVA3v8GdIGj89rVr4bO8emUkVmZBcM=; b=dHJmyDac0d4e0BD3h5+2yffUlW
+	icGKhIB0lDUiAL6cG6ao6kwb8jVWz55UCfZQdHoqQ6HPdnab4hpMHBJuiCvtuSf2DIBWIiB9muoCH
+	GxPyughAINbrVxdksYzGdQrTgQe78lgpPQGG9mKVmzHSHcYdiDhNK7RSCHwC/xl3NWOrxwvQ3mw30
+	g7P3XxfL+2zKVMNtak9WXROVEu07YDUgLH1C/PjB2OoBkD6oBNz/lRYJlGfRuXa6xIEtDifr7nPVh
+	URFoaDZc+JjHXi5GPQFZnlX75wMtG70zTqxtPBylTD0ZvHq0vHoOBch37vQQdziWSgbncfESqMqLY
+	ANV0TiNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoV1j-0000000BkZ4-310d;
-	Tue, 19 Aug 2025 22:41:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoS0m-0000000BQk2-0X3n
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 19 Aug 2025 19:28:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:References;
-	bh=nxOh5XxKUnu8jGcd1ACzcR/mEwet5btd4yImPg4prHs=; b=i0Gy1PJtLOCjAYFPxHx78s6Z3z
-	Tf+Uh/Fu+VSEfthaf0SeJ8VFy0ocVIFYtYDqDBJLxnEM3b4VNNly5h9O9w2tAtXXCK3YTf0+mWiTr
-	qAAxzAOyaRxIzGWyzi5i9UnFlyh/CLINrgmJMtbC+Sm1xCS+TYcAdHi2PcTnFdR/a4uA1xOqZqiLn
-	Wa0ljyo8GmfgdEHajL+81fFN52fWj8Pm9eB2eL33fLKrEjLbhcqX5hqTaO5xUl0cOcPzHg9u5RhW+
-	qqaLnd7a0DM+U3FresrvkDbJr4myF+rP+U17YX3KeZYFG412zpJ9464+chZqXKTZFClYSroySHeIx
-	0Cu0PFOg==;
+	id 1uoV1z-0000000BksG-0cwx;
+	Tue, 19 Aug 2025 22:42:15 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoS0i-000000005gV-2QEL
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoSk6-0000000BWD9-3U3p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 19:28:46 +0000
+	Tue, 19 Aug 2025 20:15:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 767B95C65E8;
-	Tue, 19 Aug 2025 19:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E99BAC113D0;
-	Tue, 19 Aug 2025 19:28:39 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 494DC5C5490;
+	Tue, 19 Aug 2025 20:15:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C672DC4CEF1;
+	Tue, 19 Aug 2025 20:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755631720;
-	bh=qIY9X5+FcNSBcRXsswBUCWwRon9tdY925kQ+7aOF53E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=d09VmNxnHQsrp01pzJ2k0NQXUM52ufcrA/bx2D1gwV3NlFYWtTmOpBnbdUAnzYgBV
-	 uGreB32dj6zGdGdlm8cfZ95goFqQsSPsfRqdcEVFCS3oGFlNX4yZFNPgW55pDwVkz9
-	 x8wBl2sKFXPIbZBcgczoY+tlH+V5UP10pw03Qb/l/jk6QZzU5tpkkVr1VLhD58s+Xg
-	 /1mji4MytITb/G54D7eladJ3VaBQJYxpjqlfhRqsdEgaqUUbsyeyUC0rhWQDpzXZqK
-	 5CAcY5Tq0G1uSpAcmiwoToBpde3z6A6fGyjqqMWdhKL+hixW+/TQtuMJqq+KBDr0hy
-	 INwIYTu8XkN0g==
-Date: Tue, 19 Aug 2025 14:28:38 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [RESEND v3 1/5] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM
- is existing in suspend
-Message-ID: <20250819192838.GA526045@bhelgaas>
+	s=k20201202; t=1755634537;
+	bh=nna83j1mZxwOy8dBPS8X0Nj5HOE+xKBlJdVfF3sqAq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pwZFus6KTJbRfXuqSsC1c30b1t7uyfSYH6BAuk/1p2gIUKnpJkbBEljlZjFVOz7x9
+	 HKiT6+Ii/b98fBlAZblp/aZXI+ha8XicMKdAPlqmoYZWcGjYE9qawxbdil4aCtlYuF
+	 /Gd1/9Tlec8kQ9/GfOs+uSAvp5ECxeEoSyri4EMV3SkDsRo+PKEfpS50T243t0FCwu
+	 tOk3+jx9XLZoENG0srqXT35rMgeCmRF0U7cBMnaSoeChBF7ygnKU7aQHlIFWKXPv/R
+	 yHC6OgPBCrKQGc5kpwD4+pohBhLZlZHLz5/ucjSmeGTjEDMeQDHjZsb51McrNMr9XS
+	 VufWGvxv5yWhw==
+Date: Tue, 19 Aug 2025 15:15:37 -0500
+From: Rob Herring <robh@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org
+Subject: Re: [PATCH 2/8] dt-bindings: hwmon: add Apple System Management
+ Controller hwmon schema
+Message-ID: <20250819201537.GA1223169-robh@kernel.org>
+References: <20250819-macsmc-subdevs-v1-0-57df6c3e5f19@gmail.com>
+ <20250819-macsmc-subdevs-v1-2-57df6c3e5f19@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818073205.1412507-2-hongxing.zhu@nxp.com>
+In-Reply-To: <20250819-macsmc-subdevs-v1-2-57df6c3e5f19@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_202845_163950_0B754978 
-X-CRM114-Status: GOOD (  32.51  )
+X-CRM114-CacheID: sfid-20250819_131538_951816_5A18C42B 
+X-CRM114-Status: GOOD (  36.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,133 +83,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 03:32:01PM +0800, Richard Zhu wrote:
-> Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
-> Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+On Tue, Aug 19, 2025 at 09:47:54PM +1000, James Calligeros wrote:
+> Apple Silicon devices integrate a vast array of sensors, monitoring
+> current, power, temperature, and voltage across almost every part of
+> the system. The sensors themselves are all connected to the System
+> Management Controller (SMC). The SMC firmware exposes the data
+> reported by these sensors via its standard FourCC-based key-value
+> API. The SMC is also responsible for monitoring and controlling any
+> fans connected to the system, exposing them in the same way.
 > 
-> It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-> PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
-> a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
-> Synchronization.
+> For reasons known only to Apple, each device exposes its sensors with
+> an almost totally unique set of keys. This is true even for devices
+> which share an SoC. An M1 Mac mini, for example, will report its core
+> temperatures on different keys to an M1 MacBook Pro. Worse still, the
+> SMC does not provide a way to enumerate the available keys at runtime,
+> nor do the keys follow any sort of reasonable or consistent naming
+> rules that could be used to deduce their purpose. We must therefore
+> know which keys are present on any given device, and which function
+> they serve, ahead of time.
+
+I'm confused because you say this, but then the .dtsi files are common.
+
 > 
-> The LTSSM states are inaccessible on i.MX6QP and i.MX7D after the
-> PME_Turn_Off is sent out.
+> Add a schema so that we can describe the available sensors for a given
+> Apple Silicon device in the Devicetree.
 > 
-> To support this case, don't poll L2 state and apply a simple delay of
-> PCIE_PME_TO_L2_TIMEOUT_US(10ms) if the QUIRK_NOL2POLL_IN_PM flag is set
-> in suspend.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 > ---
->  .../pci/controller/dwc/pcie-designware-host.c | 31 +++++++++++++------
->  drivers/pci/controller/dwc/pcie-designware.h  |  4 +++
->  2 files changed, 25 insertions(+), 10 deletions(-)
+>  .../bindings/hwmon/apple,smc-hwmon.yaml  | 148 +++++++++++++++++++++++++
+>  .../bindings/mfd/apple,smc.yaml          |  45 ++++++++
+>  2 files changed, 193 insertions(+)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 952f8594b5012..20a7f827babbf 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -1007,7 +1007,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  {
->  	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
->  	u32 val;
-> -	int ret;
-> +	int ret = 0;
-
-I think it's pointless to initialize "ret" because in every case where
-ret is set, we return it immediately if it is non-zero.  We should
-just return 0 explicitly at the end of the function and skip this
-initialization.
-
->       /*
->        * If L1SS is supported, then do not put the link into L2 as some
-> @@ -1024,15 +1024,26 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  			return ret;
->  	}
->  
-> -	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> -				val == DW_PCIE_LTSSM_L2_IDLE ||
-> -				val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> -				PCIE_PME_TO_L2_TIMEOUT_US/10,
-> -				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> -	if (ret) {
-> -		/* Only log message when LTSSM isn't in DETECT or POLL */
-> -		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> -		return ret;
-> +	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
-> +		/*
-> +		 * Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management
-> +		 * State Flow Diagram. Both L0 and L2/L3 Ready can be
-> +		 * transferred to LDn directly. On the LTSSM states poll broken
-> +		 * platforms, add a max 10ms delay refer to PCIe r6.0,
-> +		 * sec 5.3.3.2.1 PME Synchronization.
-
-IIUC, the read_poll_timeout() below is waiting for the PME_TO_Ack
-responses to the PME_Turn_Off message.
-
-The Link state transition to L2/L3 Ready (or the subsequent L2, L3, or
-LDn states) is the indication that the downstream components have
-"performed any necessary local conditioning in preparation for power
-removal" and then responded with PME_TO_Ack.
-
-And the PCIE_PME_TO_L2_TIMEOUT_US timeout is the deadlock avoidance
-delay for cases where "one or more devices do not respond with a
-PME_TO_Ack".
-
-In the QUIRK_NOL2POLL_IN_PM case, I think the problem is that we can't
-*read* the LTSSM state to learn whether the Link transitioned to L2/L3
-Ready, L2, L3, or LDn.  That wouldn't be surprising because per sec
-5.2, "the LTSSM is typically powered by main power (not Vaux), so
-LTSSM will not be powered in either the L2 or the L3 state."
-
-I don't know what's different about i.MX6QP and i.MX7D.  Maybe on most
-DWC platforms the LTSSM *is* powered in L2/L3/LDn, but on i.MX6QP and
-i.MX7D, it *isn't* powered in those states?
-
-If that's the case, we should say that somewhere here.  And we should
-say what happens when we try to read the LTSSM when it's not powered.
-Does the read hang or cause some kind of error?
-
-> +		 */
-> +		mdelay(PCIE_PME_TO_L2_TIMEOUT_US/1000);
-> +	} else {
-> +		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-> +					val == DW_PCIE_LTSSM_L2_IDLE ||
-> +					val <= DW_PCIE_LTSSM_DETECT_WAIT,
-> +					PCIE_PME_TO_L2_TIMEOUT_US/10,
-> +					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-> +		if (ret) {
-> +			/* Only log message when LTSSM isn't in DETECT or POLL */
-> +			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-> +			return ret;
-> +		}
->  	}
->  
->  	/*
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index 00f52d472dcdd..4e5bf6cb6ce80 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -295,6 +295,9 @@
->  /* Default eDMA LLP memory size */
->  #define DMA_LLP_MEM_SIZE		PAGE_SIZE
->  
-> +#define QUIRK_NOL2POLL_IN_PM		BIT(0)
-> +#define dwc_quirk(pci, val)		(pci->quirk_flag & val)
+> diff --git a/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..3ebc0463be4e1ce54005418feaa87ec7254dab6e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+> @@ -0,0 +1,148 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/hwmon/apple,smc-hwmon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  struct dw_pcie;
->  struct dw_pcie_rp;
->  struct dw_pcie_ep;
-> @@ -504,6 +507,7 @@ struct dw_pcie {
->  	const struct dw_pcie_ops *ops;
->  	u32			version;
->  	u32			type;
-> +	u32			quirk_flag;
->  	unsigned long		caps;
->  	int			num_lanes;
->  	int			max_link_speed;
-> -- 
-> 2.37.1
-> 
+> +title: Apple SMC Hardware Monitoring
+> +
+> +description:
+> +  Apple's System Management Controller (SMC) exposes a vast array of
+> +  hardware monitoring sensors, including temperature probes, current and
+> +  voltage sense, power meters, and fan speeds. It also provides endpoints
+> +  to manually control the speed of each fan individually. Each Apple
+> +  Silicon device exposes a different set of endpoints via SMC keys. This
+> +  is true even when two machines share an SoC. The CPU core temperature
+> +  sensor keys on an M1 Mac mini are different to those on an M1 MacBook
+> +  Pro, for example.
+> +
+> +maintainers:
+> +  - James Calligeros <jcalligeros99@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: apple,smc-hwmon
+> +
+> +  current:
+
+I don't see any need to group these and I would remove the intermediate 
+node. We have an iterator to iterate over a matching node name prefix if 
+that was the reasoning.
+
+> +    description: SMC current sense endpoints
+> +    type: object
+> +    additionalProperties: false
+
+blank line
+
+> +    patternProperties:
+> +      "^current-[A-Za-z0-9]{4}":
+
+Missing a '$' anchor on the end.
+
+> +        type: object
+> +        additionalProperties: false
+
+blank line.
+
+> +        required:
+> +          - apple,key-id
+
+'required' goes after 'properties'. blank lines in between.
+
+> +        properties:
+> +          apple,key-id:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: The SMC FourCC key of the desired current sensor.
+> +              Should match the node's suffix, but doesn't have to.
+
+blank line
+
+> +          label:
+> +            $ref: /schemas/types.yaml#/definitions/string
+
+Already has a type, don't need to re-define it.
+
+> +            description: Human-readable name for the sensor
+
+Instead of duplicating these properties, You can do it once under a 
+'$defs' key and then reference it here.
+
+> +
+> +  fan:
+> +    description: SMC fan control endpoints. A fan is made up of five
+> +      SMC keys - the fan's current speed, its minimum speed, its maximum
+> +      speed, a writeable target speed, and a writeable mode. The SMC will
+> +      automatically manage system fans unless a 1 is written to the fan's
+> +      mode key.
+> +    type: object
+> +    additionalProperties: false
+
+blank line. And so on...
+
+> +    patternProperties:
+> +      "^fan-[A-Za-z0-9]{4}":
+> +        type: object
+> +        additionalProperties: false
+> +        required:
+> +          - apple,key-id
+> +        properties:
+> +          apple,key-id:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: The SMC FourCC key of the desired fan. This is the
+> +              main key, which reports the fan's current speed. Sould match
+
+typo
+
+> +              the node's suffix, but doesn't have to.
+
+Why can't we require that they match? (Other than we can't express that 
+in schema?)
+
+> +          apple,fan-minimum:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: The minimum speed the current fan can run at
+
+This is not the speed, but the identifier key to retrieve the min speed, 
+right? That's not clear. It's a bit odd that everything is a key id, but 
+one property has that in the name and the others don't. I don't have any 
+better suggestion though...
+
+> +          apple,fan-maximum:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: The maximum speed the current fan can run at
+> +          apple,fan-target:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: Writeable endpoint for setting desired fan speed
+> +          apple,fan-mode:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            pattern: "^[A-Za-z0-9]{4}"
+> +            description: Writeable endpoint to enable/disable manual fan
+> +              control
+> +          label:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            description: Human-readable name for the sensor
+
+Surely more than apple,key-id is required? How would it be useful with 
+only that? You can know how many fans you have, but have no info or 
+control over them?
+
+Rob
 
