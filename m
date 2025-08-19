@@ -4,137 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF15CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 06:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284C0CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPgiFAJ7QYLG2oWj/sNVs7ofikmUpmx59tiZmMh5Oas=; b=mtfiX1yI06oRG99/tq9gnKxI9X
-	RTON+iGiknBVBV+RxnLMYVw3Gs2wLmgTtiK/TSL5slCI6A03eB2OYYsITINGsyAa7onc8+ta4Z5Cx
-	GcTKCOOkOfAsKXZfVq/5BWNxAvtnGtQiYd8CwTuTcdCv+SHbIcqzIkXRvP6CI0uE12rYFs8e8/c+I
-	fapibR0vE5vGu6rMnttpNsakzIMwnxS6iY0qR1Bc2CPmg9nn4MZfxkGSknt7H/XGa3kN86EbCwbXS
-	Ftzw3uLZ34h+QWn+SwkDHGI4W+nn5pMvsg4YKbZ6em+kfe3LF2aS5Bpe1V7lSxz9vuqjjiWuJOWmi
-	RQeJgsDQ==;
+	bh=ObL26OE97gG5flRbHvdO93Fpd5gaO/HRUMy/l+G5JRk=; b=Vl2uG4vG4Y+18uZ7lCtCgAag1D
+	ADiOPXgK2tCz3IaqOyYz9K66W6Bw5cxji9gUQCs5YJlJvoffu7YeRUNhKf7sBVC1gYGUMapqwXCTo
+	Kk6FzGDeNUe6ca0pl2m7ER0xad1ABXI3vJN6w16SrQcF4ULfG0Ugreb98AdfJM0o47PQSGnl3Rtji
+	Z24STadLpMe0y4y73FnzEHpzIw0ezlwELxHwP/GTnykoQ+9MBlmSxrumykLqUUE95M0rsA1ZoDkuv
+	fpb/0HQcO11Ug0FYro+wVVIlVG1H0lgX2P5hG7XVLU5nU6Y1u0/1k2Vn2WtAJpE+NGYQR/QrWNvRd
+	0gCIC4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGIg-00000009bDd-0LFZ;
-	Tue, 19 Aug 2025 06:58:30 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uoGLF-00000009bd9-48RY;
+	Tue, 19 Aug 2025 07:01:10 +0000
+Received: from 0001.3ffe.de ([159.69.201.130] helo=mail.3ffe.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoFy6-00000009YR2-1Acz
+	id 1uoFzi-00000009YdA-3gRJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 06:37:17 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J2SorG020696
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:37:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NPgiFAJ7QYLG2oWj/sNVs7ofikmUpmx59tiZmMh5Oas=; b=FEEiPTOsUZeFu/qe
-	+jNrfAA1WrSJLADQFgBeTqO8iKt92jHLHJ/BiGhzjA0ceEjv4YwOgLKuL807UJLo
-	uGIbkBatZVjtcAkZZiGW1cDnpaCVD7jeVGHZF6/P8u/aoj8R9dKd/LitOHQvGx7V
-	BsldcVCDya8C+8C9UcDpM2OWD4vUQtXPEeLdSGtNoWOTUhbiFtQ6mKEBuSlus6at
-	cDN3wFXdNyWSSZ5EUqqsinu3JeNjHw8tsbXbI7HQc67vKtwu4A5CLFdnN2Dfb2wp
-	JVcOIF4Q8SFRbmNiQL2ZMWCbNipI+VTBWdnPVvmd+DFM4BHSM0i+dh7gyPojtET8
-	cuxzbA==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jhagydyr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:37:13 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2430c5d4d73so67752595ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 23:37:13 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755585432; x=1756190232;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NPgiFAJ7QYLG2oWj/sNVs7ofikmUpmx59tiZmMh5Oas=;
-        b=nKWj+RLlbGQ+ji1ieUWGVvkftMgWnelJjnZa/S+NjDTLRayIwl07hAa+43SUaJbnRd
-         fyayUyInNgRb6I8MHg3kNk8jqj7kNwCZYVEU+Z2eS39I9U8bqtclji2VvRKxmbey6EIT
-         e7IaqUBhiKapJTmuiYh+VnWbB7/SttVRPvL8puMlsimo4dWZmM13UBoJi0mnxEOVUAC6
-         oZycSfVUCPhlXww7HUH2ZfoirmUpM7+Qq7EU9Zs60OFFd+iMlKsrUQFi24G/ZNZBMCQe
-         9Jqw6Jbwv//0EiHm+3gRyB+wRpMRFTU04fcEk0SChvfMibcHdoEdJ5BfQUW1C28Dnd63
-         CdNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUoVp+k/WestvH/ia3HTCxqdEkyJsiQWOBZPP0uGuvqbMp74snpcK8ZsEsftI7nJrTGipgIngVQ9/DzP1CD2lgo@lists.infradead.org
-X-Gm-Message-State: AOJu0YySSCbvHRy2PZuebu6xYxQ2b2VX1F3n0fe+DYETIkfBk39VM63r
-	NQhHS/oJngcvBFE7STjcRsZ6MekW4BNmqFe+ypqrWlLBVfROYDJ2JID7e1YATUEVJKxSFPVT7MQ
-	Cghq3mTUdd34YX3gfJloVmYf46WSIH8ihfMriXe8QBAVNZH3YrQrZLqeGRnJXn3MwJtuS/r39AI
-	kD3Q==
-X-Gm-Gg: ASbGnct2OThYF3UfMn/J2mSiaoqsxODj7XAo5URvVlBuX3zgf42y5NhYV/6LT2+TwWq
-	zZ77vm3T/WOKaXrFKd7faNg2tMZ+fkxQY4meXR2wt61Antly1fi9KcfHenAy1eunfex0NcbOqyz
-	RumYPYCeru7stJMbi3Snr1yOw38f/bajs6xAlpv2b6pgwn60yqNDhhLY9eMCrNIws5bIKLzsDzU
-	AzG9pZk01fFoz1B1nQ5a4Oo27zgkdciRnWJsgzGT9go8A6KKBQqengRTznPCsbsn96AulxJEjXK
-	1W88K26JmSXn6la6IZvdN7WuSExtWQZc35j5OM8/dxbgQOch2hOWv4q5S6QDcruW0H5amPQrfN6
-	rmEbzjkqh156TWTJ25JDCt2fFgTL7U/SvoA==
-X-Received: by 2002:a17:902:dacf:b0:23f:75d1:3691 with SMTP id d9443c01a7336-245e0ebd338mr17897255ad.15.1755585432121;
-        Mon, 18 Aug 2025 23:37:12 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGs5sSOdxz4RmFjmlJHx9g8dTbVBE1WGeTusAu1XpGUGqae1RKUVGWzRGqVqz2wkAnydBOXQw==
-X-Received: by 2002:a17:902:dacf:b0:23f:75d1:3691 with SMTP id d9443c01a7336-245e0ebd338mr17896935ad.15.1755585431668;
-        Mon, 18 Aug 2025 23:37:11 -0700 (PDT)
-Received: from yijiyang-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d54fe38sm98120455ad.135.2025.08.18.23.37.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 23:37:11 -0700 (PDT)
-From: Yijie Yang <yijie.yang@oss.qualcomm.com>
-Date: Tue, 19 Aug 2025 14:36:01 +0800
-Subject: [PATCH v4 6/6] arm64: dts: qcom: sa8155p-adp: Inverse phy-mode
+	Tue, 19 Aug 2025 06:38:59 +0000
+Received: from 3ffe.de (0001.3ffe.de [IPv6:2a01:4f8:c0c:9d57::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 35F6D34A;
+	Tue, 19 Aug 2025 08:38:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
+	t=1755585524;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ObL26OE97gG5flRbHvdO93Fpd5gaO/HRUMy/l+G5JRk=;
+	b=GLOmXOs4SK0S5ZeBtoSbCC4KJ8ATerfn7naXeU3hX+r/7f/HSj8lG6iznyNL1/cjpjKCkg
+	BpG/G21iDSsy9UrSCCr5SEVGyCMLvl/l5insHYezX+qyvrOxSoyz3C2PqKyxXOiKgqYNQF
+	Nb2kEBD0rLzRfcNvKHBEH8t6cQW07c96ywANk6DgRAW0xDHcTIZGTJkZmsevN4IxCRayVx
+	Wh14y6dPXOEbHU/pSeLHWVjPUhBpv+OXnPoQg+pdE9R8yIVCZGkJVgFU/s/3Z8+6GJoQYR
+	yhUwnHXSGfyu5QtMg+noXOTHVM6XGRuDTG6KKpbpeeYaEEY7U4QKpNKRuKQRCw==
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 19 Aug 2025 08:38:43 +0200
+From: Michael Walle <michael@walle.cc>
+To: Randolph Sapp <rs@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, vigneshr@ti.com, kristo@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, d-gole@ti.com,
+ afd@ti.com, bb@ti.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, detheridge@ti.com,
+ matt.coster@imgtec.com
+Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-j784s4-j742s2: enable the bxs-4-64
+In-Reply-To: <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
+References: <20250808232522.1296240-1-rs@ti.com>
+ <20250808232522.1296240-3-rs@ti.com>
+ <20250813151819.5rthljjrpryfwezz@skinning>
+ <DC1HU458W3QA.YLONSMYKK0C4@ti.com>
+ <20250813181300.xfpsu23arx7xy4fy@anointer>
+ <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc> <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
+Message-ID: <f0353dea24751f2f2ad6e7735232b933@walle.cc>
+X-Sender: michael@walle.cc
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250819-qcs615_eth-v4-6-5050ed3402cb@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
-In-Reply-To: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
-To: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, stable+noautosel@kernel.org,
-        Yijie Yang <yijie.yang@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-5bbf5
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755585389; l=949;
- i=yijie.yang@oss.qualcomm.com; s=20240408; h=from:subject:message-id;
- bh=UVRoIFA7YXNnu/vJQ5olTkDt4U/pPMeeSryOJu9KTBM=;
- b=tsf+6WvUJKGOAH+FBQ4hmhftcJq+MxJgP5hpWHWfw7nVpRZpaoDF3ljPE8azKnO8ViTgXsSGS
- YPtA30xLy2ODO3YSOHN1nrjjEXlEbtXd3G+JBkkD4/mZWXfZrbYVwV0
-X-Developer-Key: i=yijie.yang@oss.qualcomm.com; a=ed25519;
- pk=XvMv0rxjrXLYFdBXoFjTdOdAwDT5SPbQ5uAKGESDihk=
-X-Authority-Analysis: v=2.4 cv=D9xHKuRj c=1 sm=1 tr=0 ts=68a41b99 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=78Yoz-F5aJHhz6vTWxYA:9
- a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: Fn8knJQu2T9u2y4-A6aAHEQcpKjXWAxu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDAyNCBTYWx0ZWRfX8apwFJkiqAsx
- Odwoc8j1u9LKamrGfbDYi5LZy9X2SKxe2ZRAKMY+TAaHpyk2e0UX3Qwurmd+NeRPh1JYKdZVnu7
- Ssi3Dojdm3JX9i6+3xgedcWsSUiTl7ZUgrrHi4NTO4Ht+guIyirKzkEJBYAGqbYof/u7228Fs8Q
- qQ44JTvZYmVsDciA2LHFChXQfJtds1/kn6q0tf8jaz92hSaLtKzRvYenT80qSkN6/ev5ohN9nqE
- s+YRWdUaiY/+Kub2WpwXNMN7zt+bL3/0u6AFYen+q5mNVbH0/YAgj+C77Nnxrqua9U0hGSpdzXc
- p1Er/JOTFALsQyUrJOjOxuqDvSlIWkMBiLJnd59dl7UITrPUlra9MsNPRVqM5apmLe1VO+sf6KY
- hSXaw7qb
-X-Proofpoint-GUID: Fn8knJQu2T9u2y4-A6aAHEQcpKjXWAxu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 phishscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508160024
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_233715_960973_34B66529 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250818_233857_792451_32FD7652 
+X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,33 +85,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board expects the MAC to add the delay. Set `phy-mode = "rgmii-id"`
-in DTS to match upstream definition and work correctly with the updated
-driver, which switches the semantic handling of 'rgmii' and 'rgmii-id'.
+Hi,
 
-Breaking ABI compatibility is acceptable for this board, as it has no
-known users or interest from any users.
+>> Apart from that, we now have two series which partly overlap.
+>> Should I repost mine, as that's more than just the DT entry? (Which
+>> doesn't work as is, I'd guess.)
+> 
+> Ah, I don't see that series on the linux-arm-kernel list. If you can 
+> forward me
+> that I can work around whatever you've got.
 
-Signed-off-by: Yijie Yang <yijie.yang@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/sa8155p-adp.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+That was the one Nishanth mentioned earlier:
+https://lore.kernel.org/linux-arm-kernel/20250716134717.4085567-1-mwalle@kernel.org/
 
-diff --git a/arch/arm64/boot/dts/qcom/sa8155p-adp.dts b/arch/arm64/boot/dts/qcom/sa8155p-adp.dts
-index 388d5ecee949..4ac1a5b09e30 100644
---- a/arch/arm64/boot/dts/qcom/sa8155p-adp.dts
-+++ b/arch/arm64/boot/dts/qcom/sa8155p-adp.dts
-@@ -325,7 +325,7 @@ &ethernet {
- 	pinctrl-0 = <&ethernet_defaults>;
- 
- 	phy-handle = <&rgmii_phy>;
--	phy-mode = "rgmii";
-+	phy-mode = "rgmii-id";
- 
- 	mdio {
- 		compatible = "snps,dwmac-mdio";
+Also this:
+https://lore.kernel.org/all/DC5KCSEUZQUJ.3KPENNUQBUFM8@kernel.org/
 
--- 
-2.34.1
-
+-michael
 
