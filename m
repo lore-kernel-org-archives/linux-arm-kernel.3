@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C594ACA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E5CCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vd1fVjfecrNzv67FjQmaF3qTs66SkKr00KIyJJ5OAnY=; b=Qzqcdy5OnVh8fOf+kvhAlnghfe
-	Q4TMOjR5ZtbGi6ZnXA8F9gtEgxsocTdvMSov+9gzqrl21LzSQWLk5VtlkCso3Vug+CqGaOWOUk1ck
-	2hEwyHldx8WdAzH1M+tWK+pvBi/8suTf8ZN3p+jFdd8jUguMxjsE0ii2iGgZjdqXJA82HzK0iE71S
-	wiqDeR4tuFv3xdHBmAxw0z5I/puvG3tIt7yJI4aCr1/mPUPcq7jboJelsdNz9DLfEX5cAOxg9GHxD
-	D5vKf48CCndJWTo1HEor6Xh3a3mVywTIl+y2POEiFu542EV6f3026LsOVRpMrVJTiEkI/9VzojbnU
-	ComY72oA==;
+	bh=3MkUJdUk4asI6zkOFWuw++bVgsWKyqPzXK5oraHvqJs=; b=QFSc9ystrsR1aLg+MHFwdemp+h
+	RdZijJQhlPSGG3OtOczre9N2HLAuTkTNJKWDykeLAYfGW/gM2i1f9iWVyB/kv7gZoF1v5tSKHvGd+
+	NZ/Ood+o37XuGn/zYygiWcm3kIJZKpax9PqYHrZ43LXa90ZznUgePnj1dA95gf1L7pv9Po3ABF0eb
+	02X4SISM0E6PDhpzNKvothKqqlWYPK06+VF4LwNvJQE1kTM/WjPr5yEdhM+IRsv9GggIo0eqLctBK
+	Dg721oxxGjlP3v3E+z82ivZiLcVHDZRYbcdyWmFrI70GIStL6NDjNuBi6EquJCcreI7WsZQ+5atSg
+	4p3qNVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoRvC-0000000BOtT-2Z7K;
-	Tue, 19 Aug 2025 19:23:02 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uoRvB-0000000BOsN-3EF2;
+	Tue, 19 Aug 2025 19:23:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoP83-0000000B0R5-2FYf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 16:24:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Vd1fVjfecrNzv67FjQmaF3qTs66SkKr00KIyJJ5OAnY=; b=dX2G6QfFWoyouzS9hpaNTYhXe7
-	fMvuvgVpl32Z6z2GGcajeKuyu2uwqMX8YFi3nXNAtIF/APmT/AuOTeC1SiolObvTzZdNNom2HaQZC
-	qs2Can+jaTis9L6ghjqDlg8GQgXX7CCgXaEHKoEb30L/4lwy96kOspwgVa6Y7ZH+FVzU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uoP7w-005DFz-Gs; Tue, 19 Aug 2025 18:24:00 +0200
-Date: Tue, 19 Aug 2025 18:24:00 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: YijieYang <yijie.yang@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, stable+noautosel@kernel.org,
-	Yijie Yang <quic_yijiyang@quicinc.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v4 4/6] arm64: dts: qcom: qcs615-ride: Enable ethernet
- node
-Message-ID: <813548c2-02be-40fa-bb6b-00c4e713d17c@lunn.ch>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-4-5050ed3402cb@oss.qualcomm.com>
+	id 1uoP7J-0000000B0Kh-0d9e;
+	Tue, 19 Aug 2025 16:23:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 93371613EF;
+	Tue, 19 Aug 2025 16:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8B6DC4CEF1;
+	Tue, 19 Aug 2025 16:23:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755620600;
+	bh=TG5mF2gjBHDGc+RyikyQdTbwl4JX+eFWd/654sv2CnA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z49I23YBEcE6OODH3koS1wODoZghGgpRhOfO6tYy5rGLdr/3RC82LDPQVokBwBnWp
+	 ggAntLrGmehOlk7JiHw7h6X8HN0ecTeXZoWVdBgzLHgLP94n6w7QgAyXemsS9LTbWk
+	 lJ1q+3qNOFtmpN8HegpxeG7oX6SC9k3wAPllJqoj1CxtsD4C810YWlfKXEHJnS2pY8
+	 UtBaXvUfQ4j4I2KSYXF/mkXl7vYXpXkeN/Qzw5Hkvp7S1eMzp4/DOWZ1BeJFaD7mxG
+	 Lc5Nvw5qtNM1+HgGhDsTBnoAayiZu6RyksBiSwm7d+tT1zoymTfZA6bQD/syxPJK6/
+	 DuPSl0cyo7Chg==
+Date: Tue, 19 Aug 2025 21:53:11 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	Cyril Brulebois <kibi@debian.org>, bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] PCI: brcmstb: Add panic/die handler to driver
+Message-ID: <on7eajzjb7bb5ut4jiwxgi4gckhspar4eztmvzfslemoohr6kr@ccffktlzlpcn>
+References: <20250807221513.1439407-1-james.quinlan@broadcom.com>
+ <20250807221513.1439407-3-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250819-qcs615_eth-v4-4-5050ed3402cb@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_092407_572456_EF894A66 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250807221513.1439407-3-james.quinlan@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +74,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	mdio: mdio {
-> +		compatible = "snps,dwmac-mdio";
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
+On Thu, Aug 07, 2025 at 06:15:13PM GMT, Jim Quinlan wrote:
+> Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
+> by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
+> 7216 and its descendants -- have new HW that identifies error details.
+> 
+> This simple handler determines if the PCIe controller was the cause of the
+> abort and if so, prints out diagnostic info.  Unfortunately, an abort still
+> occurs.
+> 
+> Care is taken to read the error registers only when the PCIe bridge is
+> active and the PCIe registers are acceptable.  Otherwise, a "die" event
+> caused by something other than the PCIe could cause an abort if the PCIe
+> "die" handler tried to access registers when the bridge is off.
+> 
+> Example error output:
+>   brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, Read, @0x38000000
+>   brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
+> 
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> ---
+>  drivers/pci/controller/pcie-brcmstb.c | 155 +++++++++++++++++++++++++-
+>  1 file changed, 154 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index ceb431a252b7..43c4ada3de07 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -14,15 +14,18 @@
+>  #include <linux/irqchip/chained_irq.h>
+>  #include <linux/irqchip/irq-msi-lib.h>
+>  #include <linux/irqdomain.h>
+> +#include <linux/kdebug.h>
+>  #include <linux/kernel.h>
+>  #include <linux/list.h>
+>  #include <linux/log2.h>
+>  #include <linux/module.h>
+>  #include <linux/msi.h>
+> +#include <linux/notifier.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/of_pci.h>
+>  #include <linux/of_platform.h>
+> +#include <linux/panic_notifier.h>
+>  #include <linux/pci.h>
+>  #include <linux/pci-ecam.h>
+>  #include <linux/printk.h>
+> @@ -156,6 +159,39 @@
+>  #define  MSI_INT_MASK_SET		0x10
+>  #define  MSI_INT_MASK_CLR		0x14
+>  
+> +/* Error report registers */
+> +#define PCIE_OUTB_ERR_TREAT				0x6000
+> +#define  PCIE_OUTB_ERR_TREAT_CONFIG_MASK		0x1
+> +#define  PCIE_OUTB_ERR_TREAT_MEM_MASK			0x2
+> +#define PCIE_OUTB_ERR_VALID				0x6004
+> +#define PCIE_OUTB_ERR_CLEAR				0x6008
+> +#define PCIE_OUTB_ERR_ACC_INFO				0x600c
+> +#define  PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK		0x01
+> +#define  PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK		0x02
+> +#define  PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK		0x04
+> +#define  PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK		0x10
+> +#define  PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK		0xff00
+> +#define PCIE_OUTB_ERR_ACC_ADDR				0x6010
+> +#define PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK			0xff00000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK			0xf8000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK		0x7000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_REG_MASK			0xfff
+> +#define PCIE_OUTB_ERR_CFG_CAUSE				0x6014
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK	0x4
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK	0x1
+> +#define PCIE_OUTB_ERR_MEM_ADDR_LO			0x6018
+> +#define PCIE_OUTB_ERR_MEM_ADDR_HI			0x601c
+> +#define PCIE_OUTB_ERR_MEM_CAUSE				0x6020
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK		0x1
 > +
-> +		rgmii_phy: phy@7 {
-> +			compatible = "ethernet-phy-ieee802.3-c22";
-> +			reg = <0x7>;
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
+>  
+> @@ -305,6 +341,8 @@ struct brcm_pcie {
+>  	struct subdev_regulators *sr;
+>  	bool			ep_wakeup_capable;
+>  	const struct pcie_cfg_data	*cfg;
+> +	struct notifier_block	die_notifier;
+> +	struct notifier_block	panic_notifier;
+>  	bool			bridge_on;
+>  	spinlock_t		bridge_lock;
+>  };
+> @@ -1730,6 +1768,115 @@ static int brcm_pcie_resume_noirq(struct device *dev)
+>  	return ret;
+>  }
+>  
+> +/* Dump out PCIe errors on die or panic */
+> +static int _brcm_pcie_dump_err(struct brcm_pcie *pcie,
+> +			       const char *type)
+> +{
+> +	void __iomem *base = pcie->base;
+> +	int i, is_cfg_err, is_mem_err, lanes;
+> +	char *width_str, *direction_str, lanes_str[9];
+> +	u32 info, cfg_addr, cfg_cause, mem_cause, lo, hi;
+> +	unsigned long flags;
 > +
-> +			interrupts-extended = <&tlmm 121 IRQ_TYPE_EDGE_FALLING>;
+> +	spin_lock_irqsave(&pcie->bridge_lock, flags);
+> +	/* Don't access registers when the bridge is off */
+> +	if (!pcie->bridge_on || readl(base + PCIE_OUTB_ERR_VALID) == 0) {
+> +		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +		return NOTIFY_DONE;
+> +	}
+> +
+> +	/* Read all necessary registers so we can release the spinlock ASAP */
+> +	info = readl(base + PCIE_OUTB_ERR_ACC_INFO);
+> +	is_cfg_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK);
+> +	is_mem_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK);
+> +	if (is_cfg_err) {
+> +		cfg_addr = readl(base + PCIE_OUTB_ERR_ACC_ADDR);
+> +		cfg_cause = readl(base + PCIE_OUTB_ERR_CFG_CAUSE);
+> +	}
+> +	if (is_mem_err) {
+> +		mem_cause = readl(base + PCIE_OUTB_ERR_MEM_CAUSE);
+> +		lo = readl(base + PCIE_OUTB_ERR_MEM_ADDR_LO);
+> +		hi = readl(base + PCIE_OUTB_ERR_MEM_ADDR_HI);
+> +	}
+> +	/* We've got all of the info, clear the error */
+> +	writel(1, base + PCIE_OUTB_ERR_CLEAR);
+> +	spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +
+> +	dev_err(pcie->dev, "handling %s error notification\n", type);
 
-PHY interrupt are always level, never edge.
+You are not *handling* the error, but just dumping the registers due to the
+error. So this error message is misleading.
 
-    Andrew
+- Mani
 
----
-pw-bot: cr
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
