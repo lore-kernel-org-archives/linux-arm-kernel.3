@@ -4,155 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515F2CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:46:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D14ECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEF+g0aZanXd+5JWocivgSV6a1ddK/P1ujAPnnOWTDQ=; b=rIESRAWia45e6Sn0RjBepW+QIf
-	VDLyPvWc1mSV7nM7TfR4yITIeQDL25WCv4mLWQsrufH3d2V6H6/EA/cWGPJwl7/MY3zStGnIf3We3
-	vZxdjMtArhAbLqE79AemCVwvWWiGp3B1mXVHvs9W3yK9K3iF+zuytYN/zdCXcqnPN9aohdFoh98wo
-	OVS71IgEFBLvLoddrSQNzZBCPdwEhZP/GTufZD26ZoCN7px6MRuJseb28L7puGCRq9APdpF4mFSel
-	vvq8VO3mzVwLESPQzbUwzmY75N12YLpmJ6KWVoh/Nz6PAeVd89JEHGaZ/Utc3H6spg7oLXvY571ek
-	WshZAgJw==;
+	bh=TV2GNsQObfs0vMx88qViAlIkAmtpbvg27Zv5rOZIbbM=; b=j5qO23D4wTJ6kmF2so1Vlbv2qw
+	rLe3RnraNuVEfUIq5xtsKXz7p/mk1x6Oynkds4+g+QsnH315nfhi6y21n28JO/Dgijiwp/Vb9roHl
+	qpJpcqymhR3pPiDy34VawjHlyl6eNfoLUQvSxCB0t+JwKSIRGDooz287O3SSv4jWsW+Mgpak3MIsW
+	afVdlRkgTrZB6tenz8OfrrKGuRlP0ah0wt5jlKM+BxeLxqEw68aoW/AasNlwBZ35NSCHJT64+Rfi2
+	eTJc7ZO2v2XsKw0h4lef76uxpsj9lEyJ/xZkkXuKz1iWCEy48VVISAb6JSKJmptSlZ+UEB9eqS5C1
+	WrWT5xaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoSHo-0000000BSaq-04CP;
-	Tue, 19 Aug 2025 19:46:24 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoOT9-0000000AuzH-2oAR
+	id 1uoSKM-0000000BSyW-3NV0;
+	Tue, 19 Aug 2025 19:49:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoPqR-0000000B4g9-0X4K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 15:41:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jHF9PsDi+QPKj5ITQpCj9xLCwg1fg7ttnhRmAjeO+arAfgDacKKGG1DfvbWpqY30SLnfvgiiNCSNrDhEWU6am6e8yNB2pRCpEGDjvII5/VsAfHsDXEmAy+/eswSYbwN+H4uGtXRS5yVtWUXU2WjHZht6TypeiDdYlsFkRCk+GPmD/UCE+hCvZAfNJlR2oKAJKwPHFMOxAQB+W2emXS05BmWTxTGvJz+gdqSmkpIVze4stf/ONRONwWq9fX+dkBywnhecVDUsRWTsYp3mL1AHUP60ZV1N/2esKiI/T5zps9iKM2zGMdwwjNSF18uzKcMV30BFbkuLJ1BRbKFSAALakw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OEF+g0aZanXd+5JWocivgSV6a1ddK/P1ujAPnnOWTDQ=;
- b=uwg6P4ME0zhSGMTEIXreJaVRQdEXNSaLz2XtVhtoizh+aUYV9VdMmUlpBjA9W377ziKlF9reQrIhvdajgUdh6oGT3EPm5jUctZ7PqbzOmfP4jd+iZj6SEJHCuGcMjCQOqxuCMjWbToqotG7bdsP0BVbjAPW7WB2psz7DtsCrXx8q6rVH33YL++JizatVfahoNLo50/S2Pn8y4mptHHzbkwaxGpHufpusm4aMPkFXKAysxBBJi8nTYVgtM54I7EcVWHed1Y8O5y0rLLNdJ4GJUtJdzFP0BiqB0m2A7N9SNxD5N0qnu5HIGRYK7hDCL3tD1WVrI2GgFhqC7QT0nVSP9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OEF+g0aZanXd+5JWocivgSV6a1ddK/P1ujAPnnOWTDQ=;
- b=il3bnfCvBwT7LlsaJ+n8sPe8Nx4vXmsLiPXwH7Ab47Bfw+uQ6qt3mXb/3oruUs9/DUfKFVUnzXPm+d4tzeMbc16kFnFWcE6N95309ZZx8kmAKUYspTOePKckHgOGY80dV/lNFNSc6RCnbtOeysvggFBKfN/ydrVrJ+lugy2YAujUA7S6kkHlUgRVEYwcG94kw7cwxBaqV5j99SK5ouy0M0xqgK24y8dnU6xEZsdQDLWQtHFVwjWIj4xoU2mGKcuNUvvF+V+O58Kcw6KeEcrY56XXB7d8KKb6pWbVuB27B9Q0Nb9mhwi074Zm65FCQ6wYfXkMIR54AGrK3vfyTVVyIA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV1PR04MB11040.eurprd04.prod.outlook.com (2603:10a6:150:206::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Tue, 19 Aug
- 2025 15:41:44 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9052.011; Tue, 19 Aug 2025
- 15:41:42 +0000
-Date: Tue, 19 Aug 2025 11:41:32 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Tue, 19 Aug 2025 17:10:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52824152B;
+	Tue, 19 Aug 2025 10:09:49 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A26B3F738;
+	Tue, 19 Aug 2025 10:09:55 -0700 (PDT)
+Date: Tue, 19 Aug 2025 18:09:52 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/4] media: imx8mq-mipi-csi2: Add output filed in
- csi2_pix_format
-Message-ID: <aKSbLOdACTwuPZb4@lizhi-Precision-Tower-5810>
-References: <20250819-csi2_imx8mq-v4-0-c16b1d8f88a9@nxp.com>
- <20250819-csi2_imx8mq-v4-2-c16b1d8f88a9@nxp.com>
+Subject: Re: [PATCH v2 5/6] firmware: arm_scmi: imx: Support getting syslog
+ of MISC protocol
+Message-ID: <aKSv4NrDfC33Niqs@pluto>
+References: <20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com>
+ <20250710-sm-misc-api-v1-v2-5-c3e953e34be6@nxp.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819-csi2_imx8mq-v4-2-c16b1d8f88a9@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0075.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB11040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 614fc1bb-505e-40df-b4b6-08dddf36e521
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MTgdyb308aDq0sB3URzpoCFfr7lQjXCM/ZgssqVxgJ6ak0myO0mhvpdPVRpK?=
- =?us-ascii?Q?5UjwzZO2y7q7e3dT793lNYRHilQreqHQNIJnpPIGQu517GP9juGmfVPQ9OTG?=
- =?us-ascii?Q?abEHl1isUSzsYCKdQa+HQ13Do/5ueA9qUtjbsl5TKDdqpVL+bPr1sHnn8hRY?=
- =?us-ascii?Q?AaAaFpkCuGrHD/77guJ36Yl+e9wZBG8GwYu9CyEK3lEiFI9W+7kpnxWb11gC?=
- =?us-ascii?Q?+oJrJn0jvLM//glD1FW+aI+DqisRA97juuJKR4B+2k+Czw5kUf/gF6hf78FI?=
- =?us-ascii?Q?CBeLXa0wUlndqrXZ5LHAOIpHKUXncTgjYXu4ZZYG5FwvKKsJGNzBQoXaYzIl?=
- =?us-ascii?Q?amJ2UJcjemvFztwO8MhohoYV2f029/DOaE/O8HxpnIibK9vy/83lZbZz11lY?=
- =?us-ascii?Q?dWHL3vcDbgEAzFY1Hgsx5X1rhJ30mgYWwmvmd0ZcPfgQfaxt2xK/dMz/Kx0p?=
- =?us-ascii?Q?toWHemhhjt5jACDDWL2omE1jBeGxnNhTX0fDXOBUF+vytB8UTh8wN/8R5f62?=
- =?us-ascii?Q?SuE6ZJCsm+ICk4aTrHNuP73QrKZIgY1aNZGNqfQZVkVM5gi2CW83f8U1K/WW?=
- =?us-ascii?Q?vd6mnmJDCq8Fo6Vk5HKV+l6XYdg3m7/4j+c3Xuv64aQs1/e8mg0s712rFXWj?=
- =?us-ascii?Q?1JYrWTxNr0ZnbsDscoyQQJ/3dBjmAH+K4lGDMR3KWktMT2FyWqvIE6MzfpR0?=
- =?us-ascii?Q?Vx7iPkBomVkhit2DMqgRCoptgJQF5J48/U7jxt2e86DiJ//V9ulPkKR6S1UN?=
- =?us-ascii?Q?fyzZtvgXOUQEgnHRUKHH2VwGkfPnMfjHvDI38aJjH6rHpa5l6WK1G2AEVOLT?=
- =?us-ascii?Q?EgjsGJoH3CsjuaOIop8W2c4PjFMH7nc95AKiag5ExzBn+2/klBqJnTtc01Dy?=
- =?us-ascii?Q?5UGc9ook9ysUeZEDCNlA5RQN0+pYwpjliTov1vdoaFNZ+yl3+mwBly4HUBdH?=
- =?us-ascii?Q?EeEXXK5VtU1W5E/kMZ6eEWyD9SD6uZP/Vw/p6FZfDpEybDl6BDOCPmcHa+ye?=
- =?us-ascii?Q?+GjPzBKKIGGT7bbvmUKtBPWBA1ALM98nK3TCik1hhBVSItWenR218+3PlEVT?=
- =?us-ascii?Q?HYkCj/DIC2a4FC5hTNhZHf23GNIZyap+LFQrBMpegb/KHfdYLRBdXrG7yyOJ?=
- =?us-ascii?Q?GAxPKU0ZpVFcGA7j0QopWd2y/5dGEr1bUQWFLrWehpYw9eJ/n1xWyqhv65WL?=
- =?us-ascii?Q?79uS/3Mnjzf7Zf/6rGZg6R3Mf5kqatvNvIA2L1l5TqPqBG/yECEyzk84jq1Q?=
- =?us-ascii?Q?YpWHA2Jn+NcUnzCkuI65tu89rvq+TiIcCPYeuWaa1gly48WGC5g3YeQKML9e?=
- =?us-ascii?Q?yLlSn5IrMp3Fk1ILLm2LQAVwPnCFG3axjZ7sdzsoz1F9Xeu/IMb1GViSLJaZ?=
- =?us-ascii?Q?sAaTditMUmKGx7FtIn4xYRGJG6X3a4eFQ5QW1itdu59NsKk7SPSjuswP2LZe?=
- =?us-ascii?Q?CzO3+RKQLJ1nr3wKLBnCeS5PCKzms5kx5ydRW+D6nECvqt2/ZOoYTw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3OaDq+qcUldzl2iCD0UupEHOu7G6EF8+JPsicc9CaMKLG7+oELXOGhXjCHAP?=
- =?us-ascii?Q?mZ6ShzVOLYEKL4b3P9sTfTZR1Dlt8P5UapdX4hK4gjICdPMmPFr3AidtGyO0?=
- =?us-ascii?Q?+1umKsW73PNCHQYa6zUWld4tWnvNvp8SOY42IPWbfP1K8uFWFjj98S3Gp1/1?=
- =?us-ascii?Q?UHEbMI10/etw4+uipTsWG7yJUIYkJyEzNsA+a4V9xPuK0ZxiNEQX4X94OSDm?=
- =?us-ascii?Q?qrAT+MWbZD05Mg4qsIX3+m8d7L3C70uvmGt+MpcsTC6h3YHJDPhep/M8tinS?=
- =?us-ascii?Q?YrPI1LP5ls2BjQx8xPjCFenNNnr6cqgnJxEbq/qfm4Npw6I5FDQLByQpUj6m?=
- =?us-ascii?Q?nRq4beHJg0Roml/xuvNMl9oCskBmNuXKnbYyAau93IL/HNlfyZEoMiWqsvBq?=
- =?us-ascii?Q?tRC9B77AZlWGdzMqHdkdmZjvWz8qKFxfh4dwP1wdFzCQEO6JgpzCV6VrIhT4?=
- =?us-ascii?Q?SZWpTSvaXjmEdxHOUcawQMpiZcwWH7kcWZuNSf4OMEQX5rvEazRUl+TyBdxH?=
- =?us-ascii?Q?2vGnVSVkJ/ySAHme45wvuW364VEgvsqxKuuhdjW5QAL02gyLrfIeTIz7WSom?=
- =?us-ascii?Q?ofUBVnNhJ+ZczhnOeocHF7kKWlDpx27cZXQg/AahvATGQjDqY//hjAYtoHXO?=
- =?us-ascii?Q?gP887tvPsdUo4eRr/aDr4OMmMWzGprCJLuuDORkhGZettnDyiDgu4K/hCkSe?=
- =?us-ascii?Q?LU9Wd9z68o+LZTAP8Ry+CZhecHbjaCnR9iPPVPqUOCpmChrZXgXVogQSayNl?=
- =?us-ascii?Q?bgQ+fQ4pFyh1lUzJfijyRD7lHjrPaC1Ilf5Ou1nGsRi/MJX29uPMvGOwqi5K?=
- =?us-ascii?Q?rHFUGI/zYZA5PRJaij1l+0pvZ+qIn5rj2NVM1JH8UGNNRk26pJFgpO2c7jKr?=
- =?us-ascii?Q?7KxjaobBP/RsPHjjXlEB967R7N5ogEpsrQlv/t4106GhGsLaRt/EfUn30i4/?=
- =?us-ascii?Q?zTiRE+2WDdI6w6peLQYH9GqPt/aQcOFARz/C8mIs1CMbqZ+VM0l8ueRqYAWw?=
- =?us-ascii?Q?wNd+MkQpZ9z2KE5R1eCmcQSFR7ulbXcftmw0uox2DsExCSByNP6H8uNLfKT9?=
- =?us-ascii?Q?vLtzKTyhNrqxtVCR8Hy6Lvbm7NdM23dHdjefwm0fJqGtAOt92p6p8jb1lwL/?=
- =?us-ascii?Q?YNDzkvVPkDMXbCHqDmNdngGLYd61xY76JDT6f8ma8Zc1dL5qi7HNIf9P1nJf?=
- =?us-ascii?Q?+fVabRQ8iD1NpDPi0sNvwo50MOar50ca2fYphm7Gm5qrjD1esQZ5jr9RRjFD?=
- =?us-ascii?Q?cnPNJcmD/SHigJ1vEF/t3dZSb6W9iqemds7k05XLK7xPp5Q4LTOSrK+xr4xt?=
- =?us-ascii?Q?5eTp4uYayhheg6iIW96doRiaxG0/bHxFOYRVdLEugWkEv/SuFfH45tdzo1gC?=
- =?us-ascii?Q?Zy8avwfLn1uM1VD1pNlkf2vCjOJb02MFQgiAeSOHmbz62CTpXaYc7pPOaFl5?=
- =?us-ascii?Q?Gh/GJPRSJKEBy+DjTHP6mpVEEBEnguoiP7e36TqVNzj2DoOm1XX8gK9E9z85?=
- =?us-ascii?Q?wmBMpZp+qoHxdKRgK7Sa1B1ioF3eL4Mcwj8PxsHyI3i97XvuKFmfXkdIlOgT?=
- =?us-ascii?Q?kgybOlU+wiTW04P1XcdtFWGQbEvfnDs77bv8389e?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 614fc1bb-505e-40df-b4b6-08dddf36e521
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2025 15:41:42.3858
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: soxQcV+rZy6ijL1PzNimI31Rq+DU5KYzqG/0WVOEukDyn2VSon7+N/M/0ifLExNhlDQANllTecEx4zAm2P2+sQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11040
+In-Reply-To: <20250710-sm-misc-api-v1-v2-5-c3e953e34be6@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_084151_712586_D2EED8AD 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20250819_100959_284880_32FA0EA8 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,116 +70,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 11:58:01AM +0800, Guoniu Zhou wrote:
-> Add output filed in csi2_pix_format since the format on the
-> source pad might change due to unpacking.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Thu, Jul 10, 2025 at 04:33:30PM +0800, Peng Fan wrote:
+> MISC protocol supports getting system log regarding system sleep latency
+> ,wakeup interrupt and etc. Add the API for user to retrieve the
+> information from SM.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 25 +++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
->
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 85700655ecad334c61e9b5f9f073e10b6db2618f..43d766b95eb42b21be893ddfda44119101c9afe3 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -139,6 +139,7 @@ struct csi_state {
->
->  struct csi2_pix_format {
->  	u32 code;
-> +	u32 output;
+>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 78 ++++++++++++++++++++++
+>  include/linux/scmi_imx_protocol.h                  | 19 ++++++
+>  2 files changed, 97 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> index 6b86c35c192d02e13f0d2a7d713bc447886b84bf..193a862cf9b807232f04a6dbbd6a8efd1b40ff73 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+> @@ -27,6 +27,7 @@ enum scmi_imx_misc_protocol_cmd {
+>  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
+>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
+>  	SCMI_IMX_MISC_CFG_INFO = 0xC,
+> +	SCMI_IMX_MISC_SYSLOG = 0xD,
+>  	SCMI_IMX_MISC_BOARD_INFO = 0xE,
+>  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
 >  };
->
->  /* -----------------------------------------------------------------------------
-> @@ -262,48 +263,69 @@ static const struct csi2_pix_format imx8mq_mipi_csi_formats[] = {
->  	/* RAW (Bayer and greyscale) formats. */
->  	{
->  		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> +		.output = MEDIA_BUS_FMT_SBGGR8_1X8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> +		.output = MEDIA_BUS_FMT_SGBRG8_1X8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> +		.output = MEDIA_BUS_FMT_SGRBG8_1X8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> +		.output = MEDIA_BUS_FMT_SRGGB8_1X8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y8_1X8,
-> +		.output = MEDIA_BUS_FMT_Y8_1X8,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +		.output = MEDIA_BUS_FMT_SBGGR10_1X10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +		.output = MEDIA_BUS_FMT_SGBRG10_1X10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +		.output = MEDIA_BUS_FMT_SGRBG10_1X10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +		.output = MEDIA_BUS_FMT_SRGGB10_1X10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y10_1X10,
-> +		.output = MEDIA_BUS_FMT_Y10_1X10,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +		.output = MEDIA_BUS_FMT_SBGGR12_1X12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +		.output = MEDIA_BUS_FMT_SGBRG12_1X12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +		.output = MEDIA_BUS_FMT_SGRBG12_1X12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +		.output = MEDIA_BUS_FMT_SRGGB12_1X12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_Y12_1X12,
-> +		.output = MEDIA_BUS_FMT_Y12_1X12,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SBGGR14_1X14,
-> +		.output = MEDIA_BUS_FMT_SBGGR14_1X14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGBRG14_1X14,
-> +		.output = MEDIA_BUS_FMT_SGBRG14_1X14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SGRBG14_1X14,
-> +		.output = MEDIA_BUS_FMT_SGRBG14_1X14,
->  	}, {
->  		.code = MEDIA_BUS_FMT_SRGGB14_1X14,
-> +		.output = MEDIA_BUS_FMT_SRGGB14_1X14,
->  	},
->  	/* YUV formats */
->  	{
->  		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.output = MEDIA_BUS_FMT_YUYV8_1X16,
->  	}, {
->  		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-> +		.output = MEDIA_BUS_FMT_UYVY8_1X16,
-
-
-All is the same, Can treat 0 as the same as .code to avoid dupicate these
-data.
-
-Frank
-
->  	},
+> @@ -89,6 +90,19 @@ struct scmi_imx_misc_cfg_info_out {
+>  	u8 cfgname[MISC_MAX_CFGNAME];
 >  };
->
-> @@ -634,6 +656,9 @@ static int imx8mq_mipi_csi_set_fmt(struct v4l2_subdev *sd,
->  	fmt = v4l2_subdev_state_get_format(sd_state, MIPI_CSI2_PAD_SOURCE);
->  	*fmt = sdformat->format;
->
-> +	/* The format on the source pad might change due to unpacking. */
-> +	fmt->code = csi2_fmt->output;
+
+Hi,
+
+one consideration down below...
+
+>  
+> +struct scmi_imx_misc_syslog_in {
+> +	__le32 flags;
+> +	__le32 index;
+> +};
 > +
->  	return 0;
+> +#define REMAINING(x)	le32_get_bits((x), GENMASK(31, 20))
+> +#define RETURNED(x)	le32_get_bits((x), GENMASK(11, 0))
+> +
+> +struct scmi_imx_misc_syslog_out {
+> +	__le32 numlogflags;
+> +	__le32 syslog[];
+> +};
+> +
+>  static int scmi_imx_misc_attributes_get(const struct scmi_protocol_handle *ph,
+>  					struct scmi_imx_misc_info *mi)
+>  {
+> @@ -372,10 +386,74 @@ static int scmi_imx_misc_cfg_info(const struct scmi_protocol_handle *ph)
+>  	return ret;
 >  }
->
->
-> --
-> 2.34.1
->
+>  
+> +struct scmi_imx_misc_syslog_ipriv {
+> +	u32 *array;
+> +};
+> +
+
+So, AFAIU, you basically use this generic u32 array to retrieve data words from
+your FW in a generic way....
+
+> +static void iter_misc_syslog_prepare_message(void *message, u32 desc_index,
+> +					     const void *priv)
+> +{
+> +	struct scmi_imx_misc_syslog_in *msg = message;
+> +
+> +	msg->flags = cpu_to_le32(0);
+> +	msg->index = cpu_to_le32(desc_index);
+> +}
+> +
+> +static int iter_misc_syslog_update_state(struct scmi_iterator_state *st,
+> +					 const void *response, void *priv)
+> +{
+> +	const struct scmi_imx_misc_syslog_out *r = response;
+> +
+> +	st->num_returned = RETURNED(r->numlogflags);
+> +	st->num_remaining = REMAINING(r->numlogflags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int
+> +iter_misc_syslog_process_response(const struct scmi_protocol_handle *ph,
+> +				  const void *response,
+> +				  struct scmi_iterator_state *st, void *priv)
+> +{
+> +	const struct scmi_imx_misc_syslog_out *r = response;
+> +	struct scmi_imx_misc_syslog_ipriv *p = priv;
+> +
+> +	p->array[st->desc_index + st->loop_idx] =
+> +		le32_to_cpu(r->syslog[st->loop_idx]);
+> +
+> +	return 0;
+> +}
+> +
+> +static int scmi_imx_misc_syslog(const struct scmi_protocol_handle *ph, u16 size,
+> +				void *array)
+
+...and you provide a output array param and its size to use in the
+iterators to retrieve your data...
+
+...so you can use size to properly let iterators check bounds...
+
+...so far so good BUT...
+
+...is it not a possibility, especially with different FW versions in the
+future, that the platform will return LESS than size data, because maybe
+different platform can return different log data...I deduce this from
+the fact that you are using a generic u32 array...
+
+...so in this scenario wouldn't be useful to have the above size param as
+being both an input and an output parameter using a pointer ? 
+
+So that you can...
+
+	static int scmi_imx_misc_syslog(const struct scmi_protocol_handle *ph,
+					u16 *size, void *array)
+
+...use *size as the max_resources for iterators as of now BUT also pass
+it down to the iterators in ipriv->size so that you can easily once for
+all in prepare_message
+
+	*(ipriv->size) = st->num_returned + st->num_remaining;
+
+...so that you can KNOW if the specific FW has returned less items than
+the maximum *size slots provided in *array ?
+
+I maybe overthinking...and also this scenario will assume that the FW
+can return less items, BUT still contiguos items...i.e. no holes in the
+array....
+
+...thoughts ?
+
+Thanks,
+Cristian
 
