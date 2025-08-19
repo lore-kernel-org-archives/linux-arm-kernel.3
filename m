@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E04CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 11:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485EACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 11:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VhjqU2JrRoeB3BGs8yjc/GGox5X/UrAVevlMVjHB3jw=; b=NmN3DeEaDPJPbjG/TWPEWG1v3s
-	PImI8lMTCNerEDKrkel2RmhiJiGq8SE8/XFDRnyAyN7rS5mxxI7LxHssnA658UpxOMlyNIT8IH7v5
-	43y3wqH/bRy8gj+PnpiZs/kU+Ax5KEEj/60ZmRo8ngQ3ZS/7naplR766kYD5nBLulhErSMkOsFU4C
-	W6Id+dwMGWVhYbsLXjeGJufbxLz1uEW0EJDmr0obuDVCvWrYdIZ87cS8UfJXOqa7qBnfY4Dq4w9WZ
-	2jEc4hER+ImrAsEB+2DvnyBZH4FCInIRNpYZZVvK1ztPedeDqa/LxLThZaFAIAskkqi4m/0+XVIHD
-	J4Gq8D/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SiTftMOuutV4vYFy4eckN5Ll0Y2Ut9a5Qvq41E2l5PQ=; b=abj2B7Yqs/RDn68HPYgw07Q42N
+	IjHtl0UDb8HAjiMLyL9AKTyAKN8eN69ZHlbQjtxqoJS56HJ5O/tbqZtQpagrV/e4U+q4fh3XD9B7i
+	wHa1wVsHYF1qz3DDPPZVKxr2EyF5B65SQCnYjpKa/MB9OvwPOHW8/o3SuldLXT8k6RAvUrT1UMV1W
+	PeBSvC/UpTR4ldnxDR3sUw6SxxgDIJGBZeZ/2XRyHL81mm2TwmyRh0+Um3ilVczh8sxqHcHG1cckx
+	ce8N8iw84EXqwCZcpTpGYBucYvLqLzrM8Wi07M/o38oSR9Gi0PJS8VIzIDHHeI0ccloOsut8PFiqh
+	MUZHUjyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKSa-0000000AGSx-0j2Q;
-	Tue, 19 Aug 2025 11:25:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoKV8-0000000AH1z-0vFf;
+	Tue, 19 Aug 2025 11:27:38 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIow-00000009zox-32en;
-	Tue, 19 Aug 2025 09:39:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58B8A601F9;
-	Tue, 19 Aug 2025 09:39:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0950DC4CEF1;
-	Tue, 19 Aug 2025 09:39:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755596397;
-	bh=FEhAvhKTnQv5y2x3NKpeGdvP2hJtDaCHfPqTZIZ6rvQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RdmPfdaGFo3120XMVXRqL52U4kuz0dp7frs5+C8PZWnDwffgZgBflKn+XIAG/+wi8
-	 4sebaePZve5Ro63A95ayj0R9tTNBoDfpvexahTi64qUkP8V5VGl1jYW3We58y7IJxe
-	 dbP2JN/7ZAFosq6J1eIyBeF9ysSh1vhvITuPoJxuFtFCyUlhlVUTmv93OwY1CXbV06
-	 pnjYX4QVYBUy11txgeuMeyFdjQjdYolcJrdsXxKVWbdPeUb4PzvMFby6R5TEsmvN/L
-	 6FDEULBjHGdHLTwGHPR34J52xFGvAnVXRkapDysNrx5WYdvQAzlZyO/ziPnVomg7xc
-	 rl/tXJD5Eb5UA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D6A383BF58;
-	Tue, 19 Aug 2025 09:40:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1uoIp5-00000009zr7-2WZg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 09:40:08 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3b9a342e8ffso3556323f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 02:40:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755596405; x=1756201205; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SiTftMOuutV4vYFy4eckN5Ll0Y2Ut9a5Qvq41E2l5PQ=;
+        b=QregAEZYR+KhLOKckORWWA1ciNCwFRe5ROIhBOjauaYEhz0h4kA0DMXAAbeo6ll9/6
+         dTDsLwjqTwRd/4+X4boPX51/SVYYm2ynKQgGnB4h8LSFv4P5H1et97bLzwbmX9BmuI6l
+         Pr5zc349yK4bMXmJBw+8bkUsdHlLcyuav3mFru5+wl/rZta7ghxGsibHNsRWRB/Muzrk
+         WrLtzoHIRGDJgL44kIdcPbiJChtUxeO9Y/u3Jh8HeeujadOQJ2NcRpqFp2UQ97s9seST
+         /0YfWuOu9pJ2BIfDMsLx8h5qWCPDktCVa1oW3jEykY/h7TaXirX6d8zvmSm5CHe2ucZZ
+         DZXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755596405; x=1756201205;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SiTftMOuutV4vYFy4eckN5Ll0Y2Ut9a5Qvq41E2l5PQ=;
+        b=dylL0yhAdwxczTJUn47An8nJb2Hb2wvOZesFKcSe0tFkskS8E+tWbHL6zDps5o2jHX
+         chTo7hKKs+fS3Nhn8ixx5L9G3ARPOd3zhJtqMEYe1u9MbVmueaQsEGujs7oJLq6uD+v8
+         fHpDEmbpkHeGcMiSQxmBfm6MnKs/IuwrkPSrpB3q+/5z2haAmXM1LkoLEPJwo0ECgcQd
+         Sy43H+gkuNZ8EqnjFnIh+DpUp5zRwTLNxF3jTaszfATzz6qgS0vhc+01DSpfX5wci9GF
+         TezFdt0HIsg0CH71OnXWq0qYhN3bFPLZIAeCX2F8YK8quno8OQIf3J/EIu9P3Ge/LP9w
+         fw7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXTV8i2ppRlL6QQy6VWRBHjptmnKNhQjpZu70JbbBFeDbc2KgalfitpNtKVfX2LrDC+VOy82s6ll07gj17mRRfC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8NMYT27MgU4aSU7pVgAcAIpjnBUq8dEgNTG5LO0XlRQ/kDzYh
+	K0AExHkEMphv5Q+7UCLZspKp9kpAsGzPb1XJeE6zpKCAGSWZ8yeuonzGYksjlRI0ACgJQf9DnS/
+	zp1WG
+X-Gm-Gg: ASbGncssEYPMNEDRCTdzHZ2srmBwLZBaAH+ybE4ODBIwZriP6D9mVS2ESWsw52r1A/e
+	FDgLFNJrUGN6B+Z40D+XJGwTQjLJr6mnA93fge6OhFa4wKKf9L5VINMEHf4HV9BCu7SJL/Vww5l
+	3asc8JuFYtjcVAbjE0XHU0vHUhB+K4A27swFzKdyC3cC/1wNPLFVD87+JN9h83crBwclfsgEJ9o
+	8mhrf+6deEBTOiX3Vi6CtddoRkR0FwbZ2Rb+5awpHnZKs7wd0jW8+NIH0AUcBYmI267gZZcheoc
+	bUleQQVrO4ioB0fTuAFLI50sgOZFrz3Bi3F8fS6AQXNveketAEH6hVmeBAF4paHJCRBNAzUHeTh
+	PCHtFwtvhLNAqDZHJgma7vQMLEFA=
+X-Google-Smtp-Source: AGHT+IEmA2rIqWh10N25HpFTkyRTLf33hBwL7CA8l3kzmU1d9YQ8FcSm/BSFS4F04By6ZWvUc9Balg==
+X-Received: by 2002:a05:6000:2310:b0:3b7:6e64:bed8 with SMTP id ffacd0b85a97d-3c133d63836mr1403055f8f.28.1755596405461;
+        Tue, 19 Aug 2025 02:40:05 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45a1c6c324fsm201628175e9.1.2025.08.19.02.40.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 02:40:05 -0700 (PDT)
+Date: Tue, 19 Aug 2025 12:40:02 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Elad Nachman <enachman@marvell.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH] irqchip/mvebu-gicp: Fix an IS_ERR() vs NULL check in probe()
+Message-ID: <aKRGcgMeaXm2TMIC@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3 1/2] net: ethernet: mtk_ppe: add RCU lock around
- dev_fill_forward_path
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175559640702.3468407.17117186051389632839.git-patchwork-notify@kernel.org>
-Date: Tue, 19 Aug 2025 09:40:07 +0000
-References: <20250814012559.3705-1-dqfext@gmail.com>
-In-Reply-To: <20250814012559.3705-1-dqfext@gmail.com>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kuniyu@google.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_024007_638017_9B01445D 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +100,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The ioremap() function never returns error pointers, it returns NULL
+on error.  Fix the checking to match.
 
-This series was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Fixes: 3c3d7dbab2c7 ("irqchip/mvebu-gicp: Clear pending interrupts on init")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/irqchip/irq-mvebu-gicp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Thu, 14 Aug 2025 09:25:57 +0800 you wrote:
-> Ensure ndo_fill_forward_path() is called with RCU lock held.
-> 
-> Fixes: 2830e314778d ("net: ethernet: mtk-ppe: fix traffic offload with bridged wlan")
-> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
-> ---
-> v3:
->  Reorder the patch to be first.
-> v2:
->  New patch
->  drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 2 ++
->  1 file changed, 2 insertions(+)
-
-Here is the summary with links:
-  - [net,v3,1/2] net: ethernet: mtk_ppe: add RCU lock around dev_fill_forward_path
-    https://git.kernel.org/netdev/net/c/62c30c544359
-  - [net,v3,2/2] ppp: fix race conditions in ppp_fill_forward_path
-    https://git.kernel.org/netdev/net/c/0417adf367a0
-
-You are awesome, thank you!
+diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
+index 54833717f8a7..667bde3c651f 100644
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -238,7 +238,7 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	base = ioremap(gicp->res->start, resource_size(gicp->res));
+-	if (IS_ERR(base)) {
++	if (!base) {
+ 		dev_err(&pdev->dev, "ioremap() failed. Unable to clear pending interrupts.\n");
+ 	} else {
+ 		for (i = 0; i < 64; i++)
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.47.2
 
 
