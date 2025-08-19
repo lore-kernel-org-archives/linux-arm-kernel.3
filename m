@@ -4,83 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525AFCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D17CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:CC:To:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZKXiseSnpS0hEdhK0+cUyUK3qXOByXmJNN2AiTy/3Q=; b=qJuBj7W2rtrRUBLpbvdgc3b87H
-	leuoUzl3/EliuNUJyhL7uvmeTLrV0yY0EFsLjM8eLXDKgwymD3ITg2JP1JOgViHOC0wTbGSWjTLkH
-	pMeZ2uvbIHOERGyd5mIIH3PN+zFwVzGpX0WLXIZJzqjtVwJWGeGSue+neN2c/SQIYlZ7S81xLvYt0
-	foR3POsxmWoiQZzs+jA0A078ShxotISvvpeDI7TvcWum/KFfu9TspQkY4CsoJvvrMdcT0FVCyTlcB
-	Gg07zMueKjzhl0x5v5cT4UgYCc7Jp1vYwqg263SRqEWBmULpHYneXxc9fZlFyJinDYlV4s6eSrely
-	A7ZIcQpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H0pz+Qxmrh+KZUwbo80WPQnJB8bCO58WrlryhMEXzFs=; b=nwYHCvCUuyB+ZMClu03y9q4h6q
+	fi4/X3fBfM/nHFWzUL9f6JU4H1ynNZPJb6ulY1yWXEj3NSIOas5t0tX4DtV4ksQ1TZ3eSVQp51rG+
+	dJ1Yd5m/Ov8RMPUCxeLS2nOh0HmWfHi/2f1Gz7dX9PPO504a66JzpxNmXGG3XLS7q1pI/kXNtUFEs
+	Tw6XuoYeCowyT6XtPTdAcC0tRZNhAjifnd9a9/03LZyzYSwUyKwxHfuvPdhrdCgOg9kCHKmrEjmEx
+	PXAgOI07y68YheV72ft//OiOyS8WrXBlbd8U8LUwFIhSwIj9wqhv6qWpk1zX358E6XEQTV5R3V4Pt
+	AEXkIFbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoV4Q-0000000Bm88-31Rh;
-	Tue, 19 Aug 2025 22:44:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uoV75-0000000BmPH-1knS;
+	Tue, 19 Aug 2025 22:47:31 +0000
+Received: from mail-co1nam11on20715.outbound.protection.outlook.com ([2a01:111:f403:2416::715] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTFL-0000000BabI-42Qc
+	id 1uoTLP-0000000BbHp-3nLr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 20:47:57 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57JKlmZW3036127;
-	Tue, 19 Aug 2025 15:47:48 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755636468;
-	bh=rZKXiseSnpS0hEdhK0+cUyUK3qXOByXmJNN2AiTy/3Q=;
-	h=Date:To:CC:Subject:From:References:In-Reply-To;
-	b=w8juffTo+pGNMf1xoRk/8cjRqfejZO8YpqMmfdSWRByw9zHQBKqaxJlkKYwM+yocC
-	 p4BMKQzR+mpEILNmIvX3xnDrAa6ePA7ckitdHJEnYgQHEeUOFK/q+l+8cqZemx3BRT
-	 JW0KVvcgHqZ/ZSUmVxwDiKzokslMcRaUQgrcNX5Q=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57JKlmnk1534906
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 19 Aug 2025 15:47:48 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 19
- Aug 2025 15:47:47 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 19 Aug 2025 15:47:47 -0500
-Received: from localhost (rs-desk.dhcp.ti.com [128.247.81.144])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57JKllt63304944;
-	Tue, 19 Aug 2025 15:47:47 -0500
+	Tue, 19 Aug 2025 20:54:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wsXzhcsNvX2x6j0/h6lZwkmc9cN2szVGHRGyAIgFBGUO2Schci5Ii6ZB6BWRkGPmLp2iAp2alx/4wWwzC3AmrDH+c9uawoH4rcm2UaGvpv87GGlwVuXp1d1EWaE6q3doigT3hYKWf3S+ZqRac0RgiOh548vBjR+cmu57s5vxo2QcDqFUoQEtsFzpI1qWUIjys30NuYy0YJoYi0GhQfY6T6OJrPTi5cx8e2bWARGC0V3sp4YGUaMBwcA3csV3So8QopY3dkYFTP3+3G+A74IDhQR64pDW1zN7A4qt4cT3fVhBrAK9wqpMe3WqYSlWj/Ds3WkjdEi0lKNWjL97Kggd+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H0pz+Qxmrh+KZUwbo80WPQnJB8bCO58WrlryhMEXzFs=;
+ b=s/PJ7TLNYlz5w58e6nNFXpIAOUec167wr9rFSt+FZfT726GTedwMguC6r9KYDsVfZez4z8HZdLy7B9EjobFRbdyoIrz62bhu5A70jD3rR9AeSGhmcYOICVDKaJShjD+oEPdZqZa5MJ22HgFwG4t3mDSmVdBglQnsrMh8xL5ilvzLlBBmROhqTJamIliYzwgJoOa0W7cZRG6MYkG9na02XGgOUym8HeumWAdImmxqpjV1U361XWCcnntD3gQH4/pFC6FKW5rSp6ykxHQh0IlO+XSy5Rw1wOVfC3ikoYp6FGK+RdVs2EqxJGFepBvxxh9O2c4MTZVNBOSmKyxNVL2gtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 50.233.182.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H0pz+Qxmrh+KZUwbo80WPQnJB8bCO58WrlryhMEXzFs=;
+ b=QJJ3e0soNVlb+WxDMfW6h1cZIBgnsJj4oe9eTXFQNfYD7arvD/twSDchXL3glKKtPjrQ9nMBKIPUQcji/OSHmqrJzLYGF55K/yyVyLHeryKQcjatjYO1ng5T2grz934AP/CKB59zjZw2YUmiYm9RxOAlofh/lo3k/q/R3nxFtJyj6K7UoG0tdPKdzYHB9GF6WQlVGfcsFWL75aGrtfDTTHkfJn5wB4UUHuewQFu378UP2rI+3Ow9wT1CCgRaneC9Pgla/6n8+fiNGNTQKjXUNZBRwhRDjaWyR3F6TQ6gmD/46ukZppgEBbBZsX9cmoiMQPDfvT3v1RHWDK2jbyffXw==
+Received: from SJ0PR05CA0020.namprd05.prod.outlook.com (2603:10b6:a03:33b::25)
+ by MW3PR18MB3499.namprd18.prod.outlook.com (2603:10b6:303:5c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Tue, 19 Aug
+ 2025 20:54:06 +0000
+Received: from SJ1PEPF00002315.namprd03.prod.outlook.com
+ (2603:10b6:a03:33b:cafe::35) by SJ0PR05CA0020.outlook.office365.com
+ (2603:10b6:a03:33b::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.13 via Frontend Transport; Tue,
+ 19 Aug 2025 20:54:06 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 50.233.182.194 as permitted sender)
+ receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.1.1];
+Received: from [127.0.1.1] (50.233.182.194) by
+ SJ1PEPF00002315.mail.protection.outlook.com (10.167.242.169) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.8
+ via Frontend Transport; Tue, 19 Aug 2025 20:54:05 +0000
+From: Harshit Shah <hshah@axiado.com>
+Date: Tue, 19 Aug 2025 13:53:58 -0700
+Subject: [PATCH] serial: xilinx_uartps: read reg size from DTS
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-Date: Tue, 19 Aug 2025 15:47:47 -0500
-Message-ID: <DC6P6R1L2ZED.2UR8XRHH5RPJ0@ti.com>
-To: Michael Walle <michael@walle.cc>
-CC: Nishanth Menon <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <d-gole@ti.com>, <afd@ti.com>, <bb@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <detheridge@ti.com>,
-        <matt.coster@imgtec.com>
-Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-j784s4-j742s2: enable the
- bxs-4-64
-From: Randolph Sapp <rs@ti.com>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a-dirty
-References: <20250808232522.1296240-1-rs@ti.com>
- <20250808232522.1296240-3-rs@ti.com>
- <20250813151819.5rthljjrpryfwezz@skinning>
- <DC1HU458W3QA.YLONSMYKK0C4@ti.com>
- <20250813181300.xfpsu23arx7xy4fy@anointer>
- <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc> <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
- <f0353dea24751f2f2ad6e7735232b933@walle.cc>
-In-Reply-To: <f0353dea24751f2f2ad6e7735232b933@walle.cc>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250819-xilinx-uartps-reg-size-v1-1-0fb7341023fb@axiado.com>
+X-B4-Tracking: v=1; b=H4sIAGXkpGgC/x3M3QpAQBBA4VfRXJvyEzavIhdrDaa0NIM28u42l
+ 9/FOQ8oCZNCmzwgdLHy5iPyNAG3WD8T8hgNRVZUmclLDLyyD3haOXZFoRmVb0JXDlQ3ozFD4yD
+ Gu9DE4R93/ft+S8RcC2gAAAA=
+X-Change-ID: 20250813-xilinx-uartps-reg-size-c3be67d88b7c
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Harshit Shah <hshah@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2820; i=hshah@axiado.com;
+ h=from:subject:message-id; bh=Y2Opdp1o6OoPoJL5li05oXNCXNvTPCW2uCfS3Sn7Ky0=;
+ b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBopORtzaHqLCe5A9T8k0Lo3ytnkIMD8LRp0iQ+n
+ xpe/9PxeY6JAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaKTkbQAKCRDxWHMRoTLV
+ +x8RDACZYFbn1m89GT57KjPuyE15Kgu0i3QkTMSPHqHdZ7lE8Ypf9Ok1UAIvj/1kP7rlUFzSL7f
+ xU9C0mADa6sNI7fAp1QBuUe+itCHXjRzPjvVUkm7UAt4t7/I6ArR4a4oT0XTCazIkaZ/PqU9nhI
+ bWQLUq2dExVcbapB3Gv4YquMUphQuQWVMGbN4akdeazsbpeKqRA8bIcxM300AijFCqlP9o2FhG9
+ fxYQD0oYPsacOKY+YEoR+ePJjdaqB1y0S6fVVHvecobG5j3sNDT/Ha+qjiKqdDg+2qS+/384HHA
+ 7r35fkF2f34iBKqBd1CGU/2cgs2kKtMVex+NPLPafY0EXdjX9F6HvBGixS04ILMutVbxC7IEo4P
+ QzxBernWZNAdprTovl4NF95GLDZro4ufPvWcWO2F7bUU+42LRgHUbu5K9KDdzEAvgCqEOc44DH8
+ XIsne1VWq5gCV/gvj5LC9Sv8g6emIk7FJn2iPNgnw2CLIueKJuf4uKvnEfzj4Vc69QoH0=
+X-Developer-Key: i=hshah@axiado.com; a=openpgp;
+ fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002315:EE_|MW3PR18MB3499:EE_
+X-MS-Office365-Filtering-Correlation-Id: 819dc8da-9995-44c5-2a1a-08dddf62890c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cHE1cWlBcmg0aUdpTFZ5K0dEUW10dWI1MjRJODNXd3IwVHAvdE5sMnJJa2s0?=
+ =?utf-8?B?OHJHUHNhdU1Od1hwaDZSakx1eXN2bnFqYjd4Z2tjYlBFajRGODZmOTJzSHZW?=
+ =?utf-8?B?SFU4THhSK1luUUxId3hndWRDb1E0d29pRmFWeGoyaThYTVdtak1wM2NCRDNm?=
+ =?utf-8?B?TUJFcVM2NTQ1UFkyNXRrM24zdG1ZWm94VkVwZmtRc2pMMDNkR0ZRWHVIL0lq?=
+ =?utf-8?B?a1E4ZUdRTVZLOFQ4SzhlU0J2T01sd3pIUnRaSmhETUhmamQ1LzZFNk1ZeFQx?=
+ =?utf-8?B?Rlh0V3VDSk94YktDaEFqSy9PTHFpb1Q1dXZsSmhMQzliSy9wZDBMalFDNjll?=
+ =?utf-8?B?S2lJSGp2U04zRkw5T1hrVFEzRXlqcnB4ZllpeDRLVEUwbFlzalZIZW4zTVNE?=
+ =?utf-8?B?WG5lU3h2M2Y2dWxCQU1CMTQyNmpQSHp4TmdDOU5SQnB1VzlDYVZEZkE0S0NP?=
+ =?utf-8?B?YVRHVHJqVk1UMzlOMktaK0piNmhDSjVabzZOM1J5V1IxUklQVGJXUkM2cWJG?=
+ =?utf-8?B?VkVRdk9hL0ltRVJNT2p6UE1QTkVWYmpqbjJXY2hHK1JqVFpEQldFc0h2ZFV3?=
+ =?utf-8?B?UHhPSVBFSDJXMExOZW9BbGM5R0NYaFBCVk1sbmFUc2pveHVQZHl6bUtBQldN?=
+ =?utf-8?B?NjcrWDVvajlZSk1Vd3lYWVlwK2xXc3Fma3R2bHdua2M4NzRTK0t1d09Vb3U5?=
+ =?utf-8?B?YXA4RHM5WnhhZlFLZDNuL2psTnNhOTh1MnF6TUplZkQwQkNIQU5vUG5XdXF0?=
+ =?utf-8?B?a3M5ci8yb3ZPVEFFeXVxWm1hOEcxMTI4V1BkTFpkQzZIWC9WakZOOFBiRWhw?=
+ =?utf-8?B?VzVVQ05NTkh5N28rcDZUcGRqZCtGR0xYTjgxSmhVRkc0VEtFSHB1a2VlZHVM?=
+ =?utf-8?B?UXVyVHMzRUJLRWlvYVN1M29oSWNIV1htdmFWblZrT3RYenFxeGtlZzFJVzRG?=
+ =?utf-8?B?bXdGYXlKVmFzOHErbDBQc1NEeTNoeXBjYVBpaFBlVVNoaExBZUNvQkg5L0hY?=
+ =?utf-8?B?TmRXczk1UjJWdDM1bG5Qa3dTdnVMaFBKUGdLQytlUlNzOXI0ZjducmpOaHlp?=
+ =?utf-8?B?UHJMd0Q3TE9rNW9UNk1kdXVrY3E4cTlFNTNuckhGcXphMHpIOXZPYXkyVE5y?=
+ =?utf-8?B?VitZR2hKM08wbmgyQy9hQkovQ1NQUEF2TDZRa0NSZTlQSXd6VzRPajA4WXl6?=
+ =?utf-8?B?bTdvdi84bU9VN2liUDRBTTlZUndlOFNqR1Nidm5laklhUlR1dEpQdytzVGo4?=
+ =?utf-8?B?SHlZejZvK2ZXeU4xLy9qT1JMdW8vZWFoSkdDNjRXYzRNME8rL0ptWDk5ZVZw?=
+ =?utf-8?B?N1VidERML21NYzhSck9vNlBvYitYcXNPVVVsYWc3SjEvdG52ZzBRYXVLYnYx?=
+ =?utf-8?B?ZnRUbUV5VXlVaVJ3Yk5Xa3NLcXh0MW5HbGdmUWFwYlhMTXh6bFNyUFBoUEl5?=
+ =?utf-8?B?SnZOS0lMakJOc1YrWmp4ZTdTRGVrWUlsQUhaeDM2YW8wd245M3JXcXp6eVFi?=
+ =?utf-8?B?QXpoRUFvRkkwRVcyUHExQm9YOXZUeWd6TXRuS0hlZERzZDVEenVCQmlFdXUr?=
+ =?utf-8?B?QngwRUhDQ3VOSG5GSGpvL2M4cWdlMzZKejFiaHlqd1hNT3ZKOTVvWnBaZzJr?=
+ =?utf-8?B?aEFPdkJoY0F2RE5zVWd0Ri9JK1Bja3hjYm9NcG1mdm9GZXhkNTYzdFFPenNl?=
+ =?utf-8?B?N2l4NHI4bWt5eTFCTkJNeFlCbjRwMitRRmhMYlc1K0FIeXRSclFXbjl5YkxH?=
+ =?utf-8?B?c1VNZWlaU2lVd0M1RWMxQi8vbzZ5ckQ0aUpkdEN4R3ZENHZ5VFA3ZWJwaVp5?=
+ =?utf-8?B?aFp0d1Fxd2UzK25YTHVUcktWRkUzUFkvSm1ZQ0Y0dzIzM1l2NlpLWVZBUFFX?=
+ =?utf-8?B?MTJaRzZGUmtYN0ltdUo3VE14MDg4cDhIbzFMdWl1VHhZd0gwK3M3L0p5NDN0?=
+ =?utf-8?B?aXNrdk9aWnM2YjFleDBmdkhIVkViZDE5V0wvdkZOcHR1bnhpVnhjUDZ3UGMx?=
+ =?utf-8?B?NnJiY1JVaGNJTjVOaHd3OHFHOGdJMWlNVmcvOWFrOXp5ay9iV09KTFJxTTVQ?=
+ =?utf-8?Q?dpLaHi?=
+X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.1.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2025 20:54:05.5108
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 819dc8da-9995-44c5-2a1a-08dddf62890c
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.1.1]]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002315.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR18MB3499
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_134756_143121_344A4C15 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_135411_973333_E7017DBD 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +162,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Aug 19, 2025 at 1:38 AM CDT, Michael Walle wrote:
-> Hi,
->
->>> Apart from that, we now have two series which partly overlap.
->>> Should I repost mine, as that's more than just the DT entry? (Which
->>> doesn't work as is, I'd guess.)
->>=20
->> Ah, I don't see that series on the linux-arm-kernel list. If you can=20
->> forward me
->> that I can work around whatever you've got.
->
-> That was the one Nishanth mentioned earlier:
-> https://lore.kernel.org/linux-arm-kernel/20250716134717.4085567-1-mwalle@=
-kernel.org/
->
-> Also this:
-> https://lore.kernel.org/all/DC5KCSEUZQUJ.3KPENNUQBUFM8@kernel.org/
->
-> -michael
+Current implementation uses `CDNS_UART_REGISTER_SPACE(0x1000)`
+for request_mem_region() and ioremap() in cdns_uart_request_port() API.
 
-Ah, alright. I'll hold off on this series until the AM62P related sections =
-you
-were proposing are picked up.
+The cadence/xilinx IP has register space defined from offset 0x0 to 0x48.
+It also mentions that the register map is defined as [6:0]. So, the upper
+region may/maynot be used based on the IP integration.
+
+In Axiado AX3000 SoC two UART instances are defined
+0x100 apart. That is creating issue in some other instance due to overlap
+with addresses.
+
+Since, this address space is already being defined in the
+devicetree, use the same when requesting the register space.
+
+Signed-off-by: Harshit Shah <hshah@axiado.com>
+---
+ drivers/tty/serial/xilinx_uartps.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
+index fe457bf1e15bb4fc77a5c7de2aea8bfbdbaa643a..a66b44d21fba2558d0b2a62864d86d3b73152e26 100644
+--- a/drivers/tty/serial/xilinx_uartps.c
++++ b/drivers/tty/serial/xilinx_uartps.c
+@@ -33,7 +33,6 @@
+ #define CDNS_UART_MINOR		0	/* works best with devtmpfs */
+ #define CDNS_UART_NR_PORTS	16
+ #define CDNS_UART_FIFO_SIZE	64	/* FIFO size */
+-#define CDNS_UART_REGISTER_SPACE	0x1000
+ #define TX_TIMEOUT		500000
+ 
+ /* Rx Trigger level */
+@@ -1098,15 +1097,15 @@ static int cdns_uart_verify_port(struct uart_port *port,
+  */
+ static int cdns_uart_request_port(struct uart_port *port)
+ {
+-	if (!request_mem_region(port->mapbase, CDNS_UART_REGISTER_SPACE,
++	if (!request_mem_region(port->mapbase, port->mapsize,
+ 					 CDNS_UART_NAME)) {
+ 		return -ENOMEM;
+ 	}
+ 
+-	port->membase = ioremap(port->mapbase, CDNS_UART_REGISTER_SPACE);
++	port->membase = ioremap(port->mapbase, port->mapsize);
+ 	if (!port->membase) {
+ 		dev_err(port->dev, "Unable to map registers\n");
+-		release_mem_region(port->mapbase, CDNS_UART_REGISTER_SPACE);
++		release_mem_region(port->mapbase, port->mapsize);
+ 		return -ENOMEM;
+ 	}
+ 	return 0;
+@@ -1121,7 +1120,7 @@ static int cdns_uart_request_port(struct uart_port *port)
+  */
+ static void cdns_uart_release_port(struct uart_port *port)
+ {
+-	release_mem_region(port->mapbase, CDNS_UART_REGISTER_SPACE);
++	release_mem_region(port->mapbase, port->mapsize);
+ 	iounmap(port->membase);
+ 	port->membase = NULL;
+ }
+@@ -1780,6 +1779,7 @@ static int cdns_uart_probe(struct platform_device *pdev)
+ 	 * and triggers invocation of the config_port() entry point.
+ 	 */
+ 	port->mapbase = res->start;
++	port->mapsize = resource_size(res);
+ 	port->irq = irq;
+ 	port->dev = &pdev->dev;
+ 	port->uartclk = clk_get_rate(cdns_uart_data->uartclk);
+
+---
+base-commit: 8742b2d8935f476449ef37e263bc4da3295c7b58
+change-id: 20250813-xilinx-uartps-reg-size-c3be67d88b7c
+
+Best regards,
+-- 
+Harshit Shah <hshah@axiado.com>
+
 
