@@ -4,85 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C22CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B13CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1Tg3csBW9cQH+zLeCwL9eBjnzF/5yA0NVOKjcXCN0U=; b=ENXX1K4Fi+UJcKeClSWU0qOwwd
-	wVOHgp6lVXCRZJX8jJoGoNq4JAUI2i4AShR74LKPY7nz6Ab7bCo8Ht6JjXfIK2F0wnCm+ZbNlCiyH
-	dYMVJbyclzvooN4ASUCrYRlh5YTWdXgnOi/oK5NDwTdDHaoZvVW1yucLrTB6Fe2hpio/YIMv5KPSz
-	o4W8W0/afl1ojz7UA/7O75AZFJCrXgEaOtd+UbPp+CCW0RIVKaNWhjpRuMO/OyFzgf0xcxujkqeqR
-	PLDJjkRf4r00qH/0tHKztbZtirtw1lJodEZFjohUY0MWHfPW2oJyNAhKPgg7vJDc3LS5od/Z29PUq
-	BxGDsp+g==;
+	bh=OBbn273P8/f9yxcLk4nZc3A83z2zO0Iuz9NA/0alo3o=; b=QvoUEArISuo6u4hZJ/LEpjZnMx
+	3NM07mqGZKJ33vJeMIqthTb0ph20TxerIeijf8FMYfvvJ2Ba7CYsK9UsqfpU9drhHP9EOxRxDtqeD
+	BtnqeYS8CuPrJjpDskTIwW4i8LY9r/4EJS8+9/1qhXzGL8vEw2IEZaeniwmq6IZCwXYOqp2GQaVJq
+	278Ufyg1c7FjLF8FYj/i7pGw290Pm+F271b4wnEXbM1diykFtIaea4IjsrUSuLIBHp209HX8HIAcL
+	0UT3nauA+cyLVJ2uJgDh36ZVXYwD3VT6oLDJlPn1nciA6t548IFuKCysA/M22AtyOxfKZgc9V5yi6
+	du+sgS+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoAIC-000000090W4-2R6E;
-	Tue, 19 Aug 2025 00:33:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uoAT5-000000091fU-0x9L;
+	Tue, 19 Aug 2025 00:44:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo93k-00000008tSM-3aMW;
-	Mon, 18 Aug 2025 23:14:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFD8046081;
-	Mon, 18 Aug 2025 23:14:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A3C1AC2BCB3;
-	Mon, 18 Aug 2025 23:14:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755558873;
-	bh=Gc8hKhZmvez+1R7qBtxkfGOQDqE59bJ02H/Yc1b0Phs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=uyNq0AkmfCPFMBDrCdDSyr3Dp6Pb2um+Swqwk+UV1CFrDr4CkRmQDQFYacF/GX+LV
-	 k4NcNfxY43PZNwFYI6b1rXQF/VDANj8aPAWadQTd3xbxpmj2j6aiX0+XCL90mC0y+V
-	 z9DxGaK1LXQhvgJLeXYxoRvd2URc2jIlYrRqQ9Mw1XYSiNyyJKmIOaI43sb931nM50
-	 d8R3rcI0FVDGv+KyM+4KLgG2ttPTg7h+cNh/8FMa9Bp3UnwaBkneD9Lqh+8NEOru8q
-	 IhfdJeZYe2Mhfy6cQfx0YSBD1zzxAcxAQg/Sdv1JTqHgwdKWX9W3p8UGwrRr8UIcAT
-	 sMdukROBS3OmA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 992A9CA0EF1;
-	Mon, 18 Aug 2025 23:14:33 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Tue, 19 Aug 2025 01:00:40 +0200
-Subject: [PATCH v2 6/7] phy: rockchip: phy-rockchip-inno-csidphy: add
- support for rk3588 variant
+	id 1uoAQU-000000091PW-3aFQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 00:42:12 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57IFEFnr014629
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 00:42:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OBbn273P8/f9yxcLk4nZc3A83z2zO0Iuz9NA/0alo3o=; b=CVSLpQFIqL2ri/kW
+	j3XH9eOVJXfBRJyXZv5o3bkzw/gumYdiq6/AyhS37XxIdOPTUWYjlfjVV7Cb8Rhe
+	xQbrHHpqWGwzowE6684jOZ1WAwq26Prr/ojNpbaOMYIE9/Z9DlKBL94w7zBboOmY
+	qG85j3YubU5x9rZOzd7z9MSo+yBwYEwOLqa8CwsxmNBbXKfhDLASmNbtE53jTnJX
+	DEY8AAOXfEuLGvk5+Uz9NHkMogsDaohynyfcuBNGf15hnC7Rmemke+AxPfSlVXPA
+	DfYhMyVkYrquUw2nhEE75BbwVF3T1Akgb5wK1UxUYCX4If+csARnnNJmcfkOqkKZ
+	FV00Cw==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jh076n0p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 00:42:09 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-70a94f3bbdbso100250836d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 17:42:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755564128; x=1756168928;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OBbn273P8/f9yxcLk4nZc3A83z2zO0Iuz9NA/0alo3o=;
+        b=vjvZ03B5poCptzNiTbxc57Fa8j9IjhH0YH348j8hH1PbojXfjm0fmeMu5TfJ7gE0L2
+         kXizBHWbfQ1riG7rffmOTcfreWYJWL/tuoqtTN5wzu14d8f0sbpDRMFi2ka2NwBt28bv
+         lXcShmcdOLOsapx5FQQKJhQdPH7ru55cfkS7hoc8T2/y8pJP5ondM7gXkqn0mkhuSdRz
+         FIodPzLmApsHuqFtrF6XIrgDm0/g6CGvRutPS3dzMhdOq3eAJgQ2793jQKy2/iMghI7k
+         HHJvQkST4uuVc2OHOdiiKPoAlpL6GzTekrJmOMTmYLPtLc+JFy+HkDEGvkPhxlI9r0DG
+         M8RA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTvcchXiWGr3bE2QPJ53zf6lGopzpptQN0cuS+ADCcei5pZKOYO5+gQWXXnorrZx3WhDURDPptCrSg6XHEUqMu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbHlIv0TuvDZgQ1fNaJXby18U8wsmU/EhD2TCdmLoACooABs35
+	5v3a+22/8xlfIoK8beUKXBQU6CXnb7QsH7YEzBXsbQvW90fBhqk+9XWdp8X/e7K063+gXCP/bU6
+	eTuX0sRAX5yla2PtgvOj/PrfVE8elMX3Kq7u1ZacIsXkUJi2nuXAR8Y5QLnr4CCvc6xjE6HLX7d
+	+vAA==
+X-Gm-Gg: ASbGnct4IhmkG+Pw4kd1iH5RPNg1EShdmg54q3GSrfTkkRZ8vpGrP/MrVY+TqrMG6Hr
+	5ZGg4ML0Q16pEml5tnIdSSIIP55PmLuM9uvnvzd8cnq5GTW2qQD1h8v93mY7XgwwnzWJMaByOZ8
+	mLEz30+V81hTuzNxd2NCMy3iCRYtQRpBNDIyvXC4I/8gqsK3wQMKyGU2py0EAYwORkfAvhbMZoC
+	3EPzS4XhYrvRpBzTyDamZRc8OJa8zc7kGKgN7elQEiWGPQa9KcU1t09zgdEEGydM+nZMrIsDBDP
+	wKnT1+9aofZ2j+0X0xX9EW6+gzgFafE2OkeLathFJnkaAReijKCvGZ3a2My2s7wJKNagsq/8GJP
+	E/4nmHFL497VY8CFBGhCcKohet9VN3K/eh2p8r4eX
+X-Received: by 2002:a05:6214:e8b:b0:704:a0cd:f597 with SMTP id 6a1803df08f44-70c35b8b5a0mr9282126d6.21.1755564128313;
+        Mon, 18 Aug 2025 17:42:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEYUQOO9C5theUsgHuQ7WuHIc+c5d31s4BRQUPisTdCBR05/M1rf3y3WoAQasBUktoz06m8MA==
+X-Received: by 2002:a05:6214:e8b:b0:704:a0cd:f597 with SMTP id 6a1803df08f44-70c35b8b5a0mr9281776d6.21.1755564127778;
+        Mon, 18 Aug 2025 17:42:07 -0700 (PDT)
+Received: from [192.168.10.39] (91-154-146-251.elisa-laajakaista.fi. [91.154.146.251])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef351545sm1861560e87.21.2025.08.18.17.42.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Aug 2025 17:42:05 -0700 (PDT)
+Message-ID: <3f857197-1cd1-4c18-88e9-e8c00d95af82@oss.qualcomm.com>
+Date: Tue, 19 Aug 2025 03:42:04 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/14] phy: hdmi: Add HDMI 2.1 FRL configuration
+ options
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+        Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
+        Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org
+References: <20250818-phy-hdptx-frl-v3-0-c79997d8bb2b@collabora.com>
+ <20250818-phy-hdptx-frl-v3-1-c79997d8bb2b@collabora.com>
+Content-Language: en-US
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+In-Reply-To: <20250818-phy-hdptx-frl-v3-1-c79997d8bb2b@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250616-rk3588-csi-dphy-v2-6-7a94f079b712@collabora.com>
-References: <20250616-rk3588-csi-dphy-v2-0-7a94f079b712@collabora.com>
-In-Reply-To: <20250616-rk3588-csi-dphy-v2-0-7a94f079b712@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Diederik de Haas <didi.debian@cknow.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Collabora Kernel Team <kernel@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, 
- Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755558041; l=2783;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=yeQXRqZNa57y0uWiIJSkXVpQ6zTLhd7z989yNwE9ju8=;
- b=RAqZc+sTzvtEYxcjM95kNf/fWfwbUtNUOI2A4eF7RkP6L/dHfgQkU1m4ecM9kE8gKbmcJbXvI
- 9+mrsrc9e/gCdjvGNQCt0+H+Hn6AeQ0LJUSBfgPoaPPGupnSKwk+tab
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-Proofpoint-ORIG-GUID: AJLY8VSYfyb9z_IaQl3CTkM7XtsDtPVe
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDAyMCBTYWx0ZWRfX3hajwGhR21vj
+ MnhovyiO81OzCZtdyIELhRVct4Y4S0/1wYyb1UVcSIrGaaiwoPgKflHMwbTLcVrHpX+b7c0tvPx
+ cAswnqyLb4eccBFBwVRFDV1EhbezgrVYbCpUl88jBZoDL0P43Xa9Xq8WXTde/3OIoD6feTNPjXe
+ 0wvg+M8E9K1yFX1AOCNrKmc762CFhiNawGTIJ3vW8PKXBLNTUF/Bp7NfuAg8KcpuTjaezPBp2vG
+ +NjQ9MjWG2UyNhBf3T32KMrWLCP5LJJ2hycLDjWwzn8olhXL6ig7HkMhx7f7sAWCsZvfvZD7LQk
+ tZ7eTlxyb9P7N6ySUsTTg1gY1l4BvlU51hBjH2Psg5IFnpu24UB87NGTLEV1M/R4NDqKWK4eUBa
+ yQ4OkrH1
+X-Authority-Analysis: v=2.4 cv=a+Mw9VSF c=1 sm=1 tr=0 ts=68a3c861 cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=CKk/IlMN6Gw3Dq31eR3Dfg==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=QX4gbG5DAAAA:8 a=bbK825GtWpsu-Oi3XvwA:9
+ a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22 a=AbAUZ8qAyYyZVLSsDulk:22
+X-Proofpoint-GUID: AJLY8VSYfyb9z_IaQl3CTkM7XtsDtPVe
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-18_06,2025-08-14_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 suspectscore=0 impostorscore=0 phishscore=0
+ adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508160020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_161436_980021_32B2160A 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250818_174211_018201_BA90F5A4 
+X-CRM114-Status: GOOD (  28.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +134,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
 
-The Rockchip RK3588 MIPI CSI-2 DPHY can be supported using the existing
-phy-rockchip-inno-csidphy driver, the notable differences being
- - the control bits in the GRF
- - the additional reset line
-Add support for this variant.
 
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-inno-csidphy.c | 28 ++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+On 18/08/2025 21:59, Cristian Ciocaltea wrote:
+> The HDMI 2.1 specification introduced the Fixed Rate Link (FRL) mode,
+> aiming to replace the older Transition-Minimized Differential Signaling
+> (TMDS) mode used in previous HDMI versions to support much higher
+> bandwidths (up to 48 Gbps) for modern video and audio formats.
+> 
+> FRL has been designed to support ultra high resolution formats at high
+> refresh rates like 8K@60Hz or 4K@120Hz, and eliminates the need for
+> dynamic bandwidth adjustments, which reduces latency.  It operates with
+> 3 or 4 lanes at different link rates: 3Gbps, 6Gbps, 8Gbps, 10Gbps or
+> 12Gbps.
+> 
+> Add support for configuring the FRL mode for HDMI PHYs.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-index 6c4ddcd7e5de..c79fb53d8ee5 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-csidphy.c
-@@ -30,6 +30,8 @@
- #define RK3568_GRF_VI_CON0		0x0340
- #define RK3568_GRF_VI_CON1		0x0344
- 
-+#define RK3588_CSIDPHY_GRF_CON0		0x0000
-+
- /* PHY */
- #define CSIDPHY_CTRL_LANE_ENABLE		0x00
- #define CSIDPHY_CTRL_LANE_ENABLE_CK		BIT(6)
-@@ -117,6 +119,12 @@ static const struct dphy_reg rk3568_grf_dphy_regs[] = {
- 	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3568_GRF_VI_CON0, 1, 8),
- };
- 
-+static const struct dphy_reg rk3588_grf_dphy_regs[] = {
-+	[GRF_DPHY_CSIPHY_FORCERXMODE] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 0),
-+	[GRF_DPHY_CSIPHY_DATALANE_EN] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 4, 4),
-+	[GRF_DPHY_CSIPHY_CLKLANE_EN] = PHY_REG(RK3588_CSIDPHY_GRF_CON0, 1, 8),
-+};
-+
- struct hsfreq_range {
- 	u32 range_h;
- 	u8 cfg_bit;
-@@ -183,6 +191,11 @@ static const char *const rk3368_reset_names[] = {
- 	"apb"
- };
- 
-+static const char *const rk3588_reset_names[] = {
-+	"apb",
-+	"phy"
-+};
-+
- static void rockchip_inno_csidphy_ths_settle(struct rockchip_inno_csidphy *priv,
- 					     int hsfreq, int offset)
- {
-@@ -390,6 +403,17 @@ static const struct dphy_drv_data rk3568_mipidphy_drv_data = {
- 	.resets_num = ARRAY_SIZE(rk3368_reset_names),
- };
- 
-+static const struct dphy_drv_data rk3588_mipidphy_drv_data = {
-+	.pwrctl_offset = -1,
-+	.ths_settle_offset = RK3568_CSIDPHY_CLK_WR_THS_SETTLE,
-+	.calib_offset = RK3568_CSIDPHY_CLK_CALIB_EN,
-+	.hsfreq_ranges = rk1808_mipidphy_hsfreq_ranges,
-+	.num_hsfreq_ranges = ARRAY_SIZE(rk1808_mipidphy_hsfreq_ranges),
-+	.grf_regs = rk3588_grf_dphy_regs,
-+	.resets = rk3588_reset_names,
-+	.resets_num = ARRAY_SIZE(rk3588_reset_names),
-+};
-+
- static const struct of_device_id rockchip_inno_csidphy_match_id[] = {
- 	{
- 		.compatible = "rockchip,px30-csi-dphy",
-@@ -411,6 +435,10 @@ static const struct of_device_id rockchip_inno_csidphy_match_id[] = {
- 		.compatible = "rockchip,rk3568-csi-dphy",
- 		.data = &rk3568_mipidphy_drv_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3588-csi-dphy",
-+		.data = &rk3588_mipidphy_drv_data,
-+	},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, rockchip_inno_csidphy_match_id);
+Could you please point out corresponding DRM patches? They might be WIP 
+or incomplete. I'd like to see how this works on the consumer side.
+
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>   include/linux/phy/phy-hdmi.h | 19 +++++++++++++++++--
+>   1 file changed, 17 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+> index f0ec963c6e84f1b7728acafc824dff191c6b873d..83330d359e3ae345554f20429519da14506b8ab5 100644
+> --- a/include/linux/phy/phy-hdmi.h
+> +++ b/include/linux/phy/phy-hdmi.h
+> @@ -6,16 +6,31 @@
+>   #ifndef __PHY_HDMI_H_
+>   #define __PHY_HDMI_H_
+>   
+> +#include <linux/types.h>
+> +
+> +enum phy_mode_hdmi {
+> +	PHY_MODE_HDMI_TMDS,
+> +	PHY_MODE_HDMI_FRL,
+
+There is no unified approach for PHY submode names. Nevertheless I'd 
+suggest something like PHY_HDMI_MODE_TMDS / _FRL. It follows more 
+closely the networking / USB submodes. An alternative might be to use 
+PHY_SUBMODE_HDMI_TMDS / _FRL.
+
+But it's really a nit and/or bikeschedding.
+
+> +};
+> +
+>   /**
+>    * struct phy_configure_opts_hdmi - HDMI configuration set
+> - * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
+>    * @bpc: Bits per color channel.
+> + * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
+> + * @frl.rate_per_lane: HDMI FRL Rate per Lane in Gbps.
+
+This works nicely until HDMI Forum adds an rate not being even Gbps. Is 
+there a reason for not using ULL and bps following the tmds_char_rate 
+design?
+
+> + * @frl.lanes: HDMI FRL lanes count.
+>    *
+>    * This structure is used to represent the configuration state of a HDMI phy.
+>    */
+>   struct phy_configure_opts_hdmi {
+> -	unsigned long long tmds_char_rate;
+>   	unsigned int bpc;
+> +	union {
+> +		unsigned long long tmds_char_rate;
+> +		struct {
+> +			u8 rate_per_lane;
+> +			u8 lanes;
+> +		} frl;
+> +	};
+>   };
+>   
+>   #endif /* __PHY_HDMI_H_ */
+> 
 
 -- 
-2.39.5
-
+With best wishes
+Dmitry
 
 
