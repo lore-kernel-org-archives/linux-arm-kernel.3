@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07431CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 23:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDFDCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 23:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKODV7CpAUp95lkkEPnnCdnNsoREymj9Ln9wwVN1t9E=; b=11RlBtcWkwibcBZs0LUwJJ2Drn
-	dGoJ+CniY2FwnObTTzbGNACcl9tpJYgVS0norSxz8IvMPEtMlNQY4nnbS9n15TV72b26wBYbZJeo3
-	Qs3/D42ut83A1r2No258TnlZOiH/iX7Mr8Yd6ZY2z9MENI1G5T4s8K4Oixyd0Zx+TR7ywvopUXfaf
-	38ImmA5nzz1GinO8UcMy5Ynr7yBaAmdtp7YT+HlHlPwfPc1LsXLjql9qXDELSAiyJbnLsZ38Lfac6
-	wtIXLN1VMDYyyeMe+ILBYPUAjpNTgMRqlNePPNpouCAAXWJ1saLwre1FY2uHJeURK9oxAiIlVpLVq
-	fZvriK0A==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=zabuGGFnPR7i6HAOLFWWNj9D/2HCuqMQUiTbWQge6js=; b=IHQWuTKzKcC++b
+	ob6gBkOmXLfMUZOfEv1kfafirOYUrd5VjD2MmW5YveRLJzNeAs7PaaLCtTugpslEu5IRlr18NZZF6
+	gz2SB6PB6/vujzKRulMSi/tPvaN2BaA4cXq4OJIQKOeizWowMPZLIsBN3cTA8EATL0UUbbdzdmGpY
+	eiPKcQ01+n+WqVePiC8gRSNeQYsMr2Seu31RFkc7gasfdJ34I33zMuL+SrGHJzeAqs9HgbdUjXCoc
+	QDuHmE5doAWzcQRzqzaXSH5RVb2dPuh5T/Kz6HkGQAcIWlWkl0TV8efy4eJsZT0BxySeAdJVopXXH
+	vScEP+dPz9TPOHhX2BJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoVj4-0000000Bqn0-0xyM;
-	Tue, 19 Aug 2025 23:26:46 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uoVlf-0000000Br6Y-2gqh;
+	Tue, 19 Aug 2025 23:29:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoUUw-0000000Bi2N-3VkY;
-	Tue, 19 Aug 2025 22:08:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755641286; x=1787177286;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IER2tH70jw4bUvxU7SJwvA7uocCmfea8E42TaoI/+JE=;
-  b=JmDUdDDOozwNs16Tljz0o8FBrcqObscN5mHgUfKLNFbGIH8MsiCaVpYu
-   WDCbaiFMusmpjNobl8035tzdW3LIxZDrYcm6BJMMlLzv4OcwAGinKy2Cx
-   u6RDY0QAyzqOWG2SuijJoQURSJOgM+FH/niVIWTCdBeOn4kCJvJEh5vK7
-   MoKY0HGWoEo7JkIkQOkLgH9jaadmLjQzYUopzI/KdLud73E1h/mK+/MQt
-   aSH3mWjM6WozmsaJDQ3Qf/C0xVgJCvINcX/WhXJynH6HMz3FqmHKtFGgz
-   C7LSXsh/pS6SA/Ha0cLihcQo4N41GWBEq6ZhRaOW+feExnCLmW1KGZJ6X
-   w==;
-X-CSE-ConnectionGUID: 1VVHyt97Qz+4hEcedgbHqA==
-X-CSE-MsgGUID: jNb6PeaoTHW2psZsiCEpIw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="80491874"
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="80491874"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 15:08:04 -0700
-X-CSE-ConnectionGUID: FnrUrLyiReypiU0rUAmo7A==
-X-CSE-MsgGUID: u5PAcqNEQROpMrxv+0NYTg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="173324580"
-Received: from sschumil-mobl2.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.235])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 15:08:02 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 4123511F8D4;
-	Wed, 20 Aug 2025 01:07:58 +0300 (EEST)
-Date: Wed, 20 Aug 2025 01:07:58 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/8] media: uapi: Introduce V4L2 extensible params
-Message-ID: <aKT1vgHkdc98zOyC@kekkonen.localdomain>
-References: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
- <20250819-extensible-parameters-validation-v3-1-9dc008348b30@ideasonboard.com>
+	id 1uoUeM-0000000Bigd-3iTj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 22:17:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C686B5C5415;
+	Tue, 19 Aug 2025 22:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51C2AC4CEF1;
+	Tue, 19 Aug 2025 22:17:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755641869;
+	bh=1JrAVDh/u7Or7cM+GzW7ht59rngYQArrkAFlU9OUDFk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=myRKS3Epcwhnu+JKihvMQhxUoukI8QoCauZA2CJRC1IrWULufH6OFgIC5bkObqvkF
+	 ACPMVqwcAjtPj+XR3bBu5IuI78nbe/L5U5Y7QarEZtlb7om7EvGRZ7pG5ur04h2Fh9
+	 qu+qIegnjT1hsqDxFO4552ooARGutvY/QYqr7L/prFP0svAMpHBSebFmqdV3uOXjCJ
+	 rOw/ca+QTHpaZdAmSwIPdXvt1DWyMrcgq40rWSQ4FFxuSMU5UnanJWdNeXrN1x9Cnp
+	 JVGOucm+WjK4QzXnyYVCRmmC2GhbZEKu6Lu6J7PgrdHJGDxmQ63FZgR8dHHKdKY0ua
+	 DrzhLDyZLaZWw==
+Date: Tue, 19 Aug 2025 17:17:48 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, kishon@kernel.org,
+	vigneshr@ti.com, stable@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2] PCI: j721e: Fix programming sequence of "strap"
+ settings
+Message-ID: <20250819221748.GA598958@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819-extensible-parameters-validation-v3-1-9dc008348b30@ideasonboard.com>
+In-Reply-To: <20250819101336.292013-1-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_150806_917528_DAF64213 
-X-CRM114-Status: GOOD (  48.77  )
+X-CRM114-CacheID: sfid-20250819_151751_019065_A53EA43B 
+X-CRM114-Status: GOOD (  47.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,219 +74,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+On Tue, Aug 19, 2025 at 03:43:35PM +0530, Siddharth Vadapalli wrote:
+> The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
+> Root-Complex and Endpoint modes of operation. The Glue Layer allows
+> "strapping" the mode of operation of the Controller, the Link Speed
+> and the Link Width. This is enabled by programming the "PCIEn_CTRL"
+> register (n corresponds to the PCIe instance) within the CTRL_MMR
+> memory-mapped register space.
+> 
+> In the PCIe Controller's register space, the same set of registers
+> that correspond to the Root-Port configuration space when the
+> Controller is configured for Root-Complex mode of operation, also
+> correspond to the Physical Function configuration space when the
+> Controller is configured for Endpoint mode of operation. As a result,
+> the "reset-value" of these set of registers _should_ vary depending
+> on the selected mode of operation. This is the expected behavior
+> according to the description of the registers and their reset values
+> in the Technical Reference Manual for the SoCs.
+> 
+> However, it is observed that the "reset-value" seen in practice
+> do not match the description. To be precise, when the Controller
+> is configured for Root-Complex mode of operation, the "reset-value"
+> of the Root-Port configuration space reflect the "reset-value"
+> corresponding to the Physical Function configuration space.
+> This can be attributed to the fact that the "strap" settings play
+> a role in "switching" the "reset-value" of the registers to match
+> the expected values as determined by the selected mode of operation.
+> Since the "strap" settings are sampled the moment the PCIe Controller
+> is powered ON, the "reset-value" of the registers are setup at that
+> point in time. As a result, if the "strap" settings are programmed
+> at a later point in time, it _will not_ update the "reset-value" of
+> the registers. This will cause the Physical Function configuration
+> space to be seen when the Root-Port configuration space is accessed
+> after programming the PCIe Controller for Root-Complex mode of
+> operation.
+> 
+> Fix this by powering off the PCIe Controller before programming the
+> "strap" settings and powering it on after that. This will ensure
+> that the "strap" settings that have been sampled convey the intended
+> mode of operation, thereby resulting in the "reset-value" of the
+> registers being accurate.
 
-Thank you for working on this.
+This is a lot of text to convey the idea that:
 
-On Tue, Aug 19, 2025 at 04:54:42PM +0200, Jacopo Mondi wrote:
-> Introduce v4l2-extensible-params.h in the Linux kernel uAPI.
-> 
-> The header defines two types that all drivers that use the extensible
-> parameters format for ISP configuration shall use to build their own
-> format versions.
-> 
-> The newly introduce type v4l2_params_block represent the
-> header to be prepend to each ISP configuration block and the
-> v4l2_params_buffer type represent the base type for the configuration
-> parameters buffer.
-> 
-> The v4l2_params_buffer represents the container for the ISP
-> configuration data block. The generic type is defined with a 0-sized
-> data block that specific ISP implementation shall properly size
-> according to their capabilities.
-> 
-> [Add v4l2_params_buffer_size()]
-> 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+  - The PCIe controller powers on and latches reset values of several
+    registers
+
+  - Later, the driver programs Glue Layer "mode", which determines
+    those reset values
+
+  - Therefore, controller has latched the wrong values
+
+What does this problem look like to a user? 
+
+> Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 > ---
->  MAINTAINERS                                       |   6 +
->  include/uapi/linux/media/v4l2-extensible-params.h | 144 ++++++++++++++++++++++
->  2 files changed, 150 insertions(+)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index fe168477caa45799dfe07de2f54de6d6a1ce0615..67216d1e92d7ac81617bb3c4329e4096aa205706 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26380,6 +26380,12 @@ F:	drivers/media/i2c/vd55g1.c
->  F:	drivers/media/i2c/vd56g3.c
->  F:	drivers/media/i2c/vgxy61.c
+> Hello,
+> 
+> This patch is based on commit
+> be48bcf004f9 Merge tag 'for-6.17-rc2-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux
+> of Mainline Linux.
+> 
+> v1 of this patch is at:
+> https://lore.kernel.org/r/20250716102851.121742-1-s-vadapalli@ti.com/
+> Changes since v1:
+> - Rebased patch on latest Mainline Linux.
+> 
+> Regards,
+> Siddharth.
+> 
+>  drivers/pci/controller/cadence/pci-j721e.c | 82 ++++++++++++++--------
+>  1 file changed, 53 insertions(+), 29 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index 6c93f39d0288..d5e7cb7277dc 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/of.h>
+>  #include <linux/pci.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/regmap.h>
 >  
-> +V4L2 EXTENSIBLE PARAMETERS FORMAT
-> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	include/uapi/linux/media/v4l2-extensible-params.h
+> @@ -173,10 +174,9 @@ static const struct cdns_pcie_ops j721e_pcie_ops = {
+>  	.link_up = j721e_pcie_link_up,
+>  };
+>  
+> -static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
+> -			       unsigned int offset)
+> +static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct device *dev,
+> +			       struct regmap *syscon, unsigned int offset)
+>  {
+> -	struct device *dev = pcie->cdns_pcie->dev;
+>  	u32 mask = J721E_MODE_RC;
+>  	u32 mode = pcie->mode;
+>  	u32 val = 0;
+> @@ -193,9 +193,9 @@ static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
+>  }
+>  
+>  static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
+> +				     struct device *dev,
+>  				     struct regmap *syscon, unsigned int offset)
+>  {
+> -	struct device *dev = pcie->cdns_pcie->dev;
+>  	struct device_node *np = dev->of_node;
+>  	int link_speed;
+>  	u32 val = 0;
+> @@ -214,9 +214,9 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
+>  }
+>  
+>  static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
+> +				     struct device *dev,
+>  				     struct regmap *syscon, unsigned int offset)
+>  {
+> -	struct device *dev = pcie->cdns_pcie->dev;
+>  	u32 lanes = pcie->num_lanes;
+>  	u32 mask = BIT(8);
+>  	u32 val = 0;
+> @@ -234,9 +234,9 @@ static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
+>  }
+>  
+>  static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
+> +				       struct device *dev,
+>  				       struct regmap *syscon)
+>  {
+> -	struct device *dev = pcie->cdns_pcie->dev;
+>  	struct device_node *node = dev->of_node;
+>  	u32 mask = ACSPCIE_PAD_DISABLE_MASK;
+>  	struct of_phandle_args args;
+> @@ -263,9 +263,8 @@ static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
+>  	return 0;
+>  }
+>  
+> -static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+> +static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie, struct device *dev)
+>  {
+> -	struct device *dev = pcie->cdns_pcie->dev;
+>  	struct device_node *node = dev->of_node;
+>  	struct of_phandle_args args;
+>  	unsigned int offset = 0;
+> @@ -284,19 +283,19 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+>  	if (!ret)
+>  		offset = args.args[0];
+>  
+> -	ret = j721e_pcie_set_mode(pcie, syscon, offset);
+> +	ret = j721e_pcie_set_mode(pcie, dev, syscon, offset);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to set pci mode\n");
+>  		return ret;
+>  	}
+>  
+> -	ret = j721e_pcie_set_link_speed(pcie, syscon, offset);
+> +	ret = j721e_pcie_set_link_speed(pcie, dev, syscon, offset);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to set link speed\n");
+>  		return ret;
+>  	}
+>  
+> -	ret = j721e_pcie_set_lane_count(pcie, syscon, offset);
+> +	ret = j721e_pcie_set_lane_count(pcie, dev, syscon, offset);
+>  	if (ret < 0) {
+>  		dev_err(dev, "Failed to set num-lanes\n");
+>  		return ret;
+> @@ -308,7 +307,7 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
+>  	if (!syscon)
+>  		return 0;
+>  
+> -	return j721e_enable_acspcie_refclk(pcie, syscon);
+> +	return j721e_enable_acspcie_refclk(pcie, dev, syscon);
+>  }
+>  
+>  static int cdns_ti_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
+> @@ -469,6 +468,47 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  	if (!pcie)
+>  		return -ENOMEM;
+>  
+> +	pcie->mode = mode;
 > +
->  VF610 NAND DRIVER
->  M:	Stefan Agner <stefan@agner.ch>
->  L:	linux-mtd@lists.infradead.org
-> diff --git a/include/uapi/linux/media/v4l2-extensible-params.h b/include/uapi/linux/media/v4l2-extensible-params.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ace89299a4b37e428c0bc9a72fbc079b1dcda91a
-> --- /dev/null
-> +++ b/include/uapi/linux/media/v4l2-extensible-params.h
-> @@ -0,0 +1,144 @@
-> +/* SPDX-License-Identifier: ((GPL-2.0+ WITH Linux-syscall-note) OR MIT) */
-> +/*
-> + * Video4Linux2 extensible configuration parameters base types
-> + *
-> + * Copyright (C) 2025 Ideas On Board Oy
-> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> + */
+> +	ret = of_property_read_u32(node, "num-lanes", &num_lanes);
+> +	if (ret || num_lanes > data->max_lanes) {
+> +		dev_warn(dev, "num-lanes property not provided or invalid, setting num-lanes to 1\n");
+> +		num_lanes = 1;
+> +	}
 > +
-> +#ifndef _UAPI_V4L2_PARAMS_H_
-> +#define _UAPI_V4L2_PARAMS_H_
+> +	pcie->num_lanes = num_lanes;
+> +	pcie->max_lanes = data->max_lanes;
 > +
-> +#include <linux/types.h>
-> +
-> +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
-> +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
-> +
-> +/*
-> + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag. Platform-specific flags
-> + * should be defined as:
-> + * #define PLATFORM_SPECIFIC_FLAG0	((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(0))
-> + * #define PLATFORM_SPECIFIC_FLAG1	((1U << V4L2_PARAMS_FL_PLATFORM_FLAGS(1))
+> +	/*
+> +	 * The PCIe Controller's registers have different "reset-values" depending
+> +	 * on the "strap" settings programmed into the Controller's Glue Layer.
+> +	 * This is because the same set of registers are used for representing the
+> +	 * Physical Function configuration space in Endpoint mode and for
+> +	 * representing the Root-Port configuration space in Root-Complex mode.
+> +	 *
+> +	 * The registers latch onto a "reset-value" based on the "strap" settings
+> +	 * sampled after the Controller is powered on. Therefore, for the
+> +	 * "reset-value" to be accurate, it is necessary to program the "strap"
+> +	 * settings when the Controller is powered off, and power on the Controller
+> +	 * after the "strap" settings have been programmed.
+> +	 *
+> +	 * The "strap" settings are programmed by "j721e_pcie_ctrl_init()".
+> +	 * Therefore, power off the Controller before invoking "j721e_pcie_ctrl_init()",
+> +	 * program the "strap" settings, and then power on the Controller. This ensures
+> +	 * that the reset values are accurate and reflect the "strap" settings.
 
-How many bits are you shifting left here again?
+Wrap to fit in 80 columns like the rest of the file.  And maybe
+shorten.
 
-> + */
-> +#define V4L2_PARAMS_FL_PLATFORM_FLAGS(n)	((n) << 8)
-
-n really needs to be unsigned.
-
+> +	dev_pm_domain_detach(dev, true);
 > +
-> +/**
-> + * struct v4l2_params_block_header - V4L2 extensible parameters block header
-> + *
-> + * This structure represents the common part of all the ISP configuration
-> + * blocks. Each parameters block shall embed an instance of this structure type
-> + * as its first member, followed by the block-specific configuration data. The
-> + * driver inspects this common header to discern the block type and its size and
-> + * properly handle the block content by casting it to the correct block-specific
-> + * type.
-> + *
-> + * The @type field is one of the values enumerated by each platform-specific ISP
-> + * block types which specifies how the data should be interpreted by the driver.
-> + * The @size field specifies the size of the parameters block and is used by the
-> + * driver for validation purposes.
-> + *
-> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
-> + * platform-specific flags specified by the platform-specific header.
-> + *
-> + * Documentation of the platform-specific flags handling is specified by the
-> + * platform-specific block header type:
-> + *
-> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_block_type`
-> + * - Amlogic C3: :c:type:`c3_isp_params_block_type`
-> + *
-> + * Userspace is responsible for correctly populating the parameters block header
-> + * fields (@type, @flags and @size) and the block-specific parameters.
-> + *
-> + * @type: The parameters block type (platform-specific)
-> + * @flags: A bitmask of block flags (platform-specific)
-> + * @size: Size (in bytes) of the parameters block, including this header
-> + */
-> +struct v4l2_params_block_header {
-> +	__u16 type;
-> +	__u16 flags;
-> +	__u32 size;
-> +} __attribute__((aligned(8)));
-> +
-> +/**
-> + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
-> + *
-> + * Users of the v4l2 extensible parameters will have differing sized data arrays
-> + * depending on their specific parameter buffers. Drivers and userspace will
-> + * need to be able to calculate the appropriate size of the struct to
-> + * accommodate all ISP configuration blocks provided by the platform.
-> + * This macro provides a convenient tool for the calculation.
-> + *
-> + * Each driver shall provide a definition of their extensible parameters
-> + * implementation data buffer size. As an example:
-> + *
-> + * #define PLATFORM_BLOCKS_MAX_SIZE		\
-> + *	sizeof(platform_block_0)	+	\
-> + *	sizeof(platform_block_1)
-> + *
-> + * #define PLATFORM_BUFFER_SIZE			\
-> + *	v4l2_params_buffer_size(PLATFORM_BLOCKS_MAX_SIZE)
-> + *
-> + * Drivers are then responsible for allocating buffers of the proper size
-> + * by assigning PLATFORM_BUFFER_SIZE to the per-plane size of the videobuf2
-> + * .queue_setup() operation and userspace shall use PLATFORM_BUFFER_SIZE
-> + * when populating the ISP configuration data buffer.
-> + *
-> + * @max_params_size: The total size of the ISP configuration blocks
-> + */
-> +#define v4l2_params_buffer_size(max_params_size) \
-> +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
-> +
-> +/**
-> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
-> + *
-> + * This struct contains the configuration parameters of the ISP algorithms,
-> + * serialized by userspace into a data buffer. Each configuration parameter
-> + * block is represented by a block-specific structure which contains a
-> + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
-> + * the @data buffer with configuration parameters for the blocks that it intends
-> + * to configure. As a consequence, the data buffer effective size changes
-> + * according to the number of ISP blocks that userspace intends to configure and
-> + * is set by userspace in the @data_size field.
-> + *
-> + * The parameters buffer is versioned by the @version field to allow modifying
-> + * and extending its definition. Userspace shall populate the @version field to
-> + * inform the driver about the version it intends to use. The driver will parse
-> + * and handle the @data buffer according to the data layout specific to the
-> + * indicated version and return an error if the desired version is not
-> + * supported.
-> + *
-> + * For each ISP block that userspace wants to configure, a block-specific
-> + * structure is appended to the @data buffer, one after the other without gaps
-> + * in between nor overlaps. Userspace shall populate the @data_size field with
-> + * the effective size, in bytes, of the @data buffer.
-> + *
-> + * Drivers shall take care of properly sizing of the extensible parameters
-> + * buffer @data array. The v4l2_params_buffer type is defined with a
-> + * flexible-array-member at the end, which resolves to a size of 0 bytes when
-> + * inspected with sizeof(struct v4l2_params_buffer). This of course is not
-> + * suitable for neither buffer allocation in the kernel driver nor for proper
-> + * handling in userspace of the @data buffer it has to populate.
-> + *
-> + * Drivers using this type in their userspace API definition are responsible
-> + * for providing the exact definition of the @data buffer size using the
-> + * v4l2_params_buffer_size() macro. The size shall be used
-> + * by the driver for buffers allocation and by userspace for populating the
-> + * @data buffer before queueing it to the driver
-> + *
-> + * Drivers that were already using extensible-parameters before the introduction
-> + * of this file define their own type-convertible implementation of this
-> + * type, see:
-> + * - Rockchip RkISP1: :c:type:`rkisp1_ext_params_cfg`
-> + * - Amlogic C3: :c:type:`c3_isp_params_cfg`
-> + *
-> + * @version: The parameters buffer version (platform-specific)
-> + * @data_size: The configuration data effective size, excluding this header
-> + * @data: The configuration data
-> + */
-> +struct v4l2_params_buffer {
-> +	__u32 version;
-> +	__u32 data_size;
-> +	__u8 data[];
+> +	ret = j721e_pcie_ctrl_init(pcie, dev);
 
-Would __attribute__((__counted_by__(data_size))) be problematic here?
+This moves the "num-lanes" lookup and the call of
+j721e_pcie_ctrl_init() earlier, but I don't think that move is
+necessary.  Even before this patch, we don't actually touch anything
+in the hardware before j721e_pcie_ctrl_init().  The code between the
+new call location and the old call location is just memory allocation,
+data structure initialization, ioremap, DMA mask setting, etc.
 
-Perhaps not now but it could be added later on?
+AFAICT, the important thing is to power off the PCIe controller before
+j721e_pcie_ctrl_init() programs the mode in the glue layer, and you
+should be able to do that without moving the call location.
 
-> +};
+And that means you probably don't have to add the "struct device *dev"
+parameter to all those interfaces.
+
+> +	if (ret < 0)
+> +		return ret;
 > +
-> +#endif /* _UAPI_V4L2_PARAMS_H_ */
+> +	ret = dev_pm_domain_attach(dev, true);
+
+dev_pm_domain_detach() takes a bool, but dev_pm_domain_attach() does
+not, so this doesn't look right.
+
+> +	if (ret < 0) {
+> +		dev_err(dev, "failed to power on device\n");
+> +		return ret;
+> +	}
+> +
+>  	switch (mode) {
+>  	case PCI_MODE_RC:
+>  		if (!IS_ENABLED(CONFIG_PCI_J721E_HOST))
+> @@ -510,7 +550,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  		return 0;
+>  	}
+>  
+> -	pcie->mode = mode;
+>  	pcie->linkdown_irq_regfield = data->linkdown_irq_regfield;
+>  
+>  	base = devm_platform_ioremap_resource_byname(pdev, "intd_cfg");
+> @@ -523,15 +562,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  		return PTR_ERR(base);
+>  	pcie->user_cfg_base = base;
+>  
+> -	ret = of_property_read_u32(node, "num-lanes", &num_lanes);
+> -	if (ret || num_lanes > data->max_lanes) {
+> -		dev_warn(dev, "num-lanes property not provided or invalid, setting num-lanes to 1\n");
+> -		num_lanes = 1;
+> -	}
+> -
+> -	pcie->num_lanes = num_lanes;
+> -	pcie->max_lanes = data->max_lanes;
+> -
+>  	if (dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48)))
+>  		return -EINVAL;
+>  
+> @@ -547,12 +577,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  		goto err_get_sync;
+>  	}
+>  
+> -	ret = j721e_pcie_ctrl_init(pcie);
+> -	if (ret < 0) {
+> -		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+> -		goto err_get_sync;
+> -	}
+> -
+>  	ret = devm_request_irq(dev, irq, j721e_pcie_link_irq_handler, 0,
+>  			       "j721e-pcie-link-down-irq", pcie);
+>  	if (ret < 0) {
+> @@ -680,7 +704,7 @@ static int j721e_pcie_resume_noirq(struct device *dev)
+>  	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
+>  	int ret;
+>  
+> -	ret = j721e_pcie_ctrl_init(pcie);
+> +	ret = j721e_pcie_ctrl_init(pcie, dev);
+>  	if (ret < 0)
+>  		return ret;
+>  
+> -- 
+> 2.43.0
 > 
-
--- 
-Kind regards,
-
-Sakari Ailus
 
