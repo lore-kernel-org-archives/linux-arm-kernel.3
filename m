@@ -4,150 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C48CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7B1CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BvlvEbvTJ5P5m7Y8ZVsEm09crm+IPMCjXXedbs+6FKo=; b=pKk6ieWu0G9EcvFUnGSQS4cyTY
-	GlFSCx9YJwxKDGWlOLNZgg8R+etVmVofuK59ex/2qJxGe1huGv1ct+32xlWgf9s/WFhqHOU9bnpoI
-	2QV5rTNbPmHhMFnSlkat5adFCRP3YgETME9UFZovKmm7dtM3tYvoXU/7Ad9dDQhM/sYf74No9O8zg
-	I39HXZJqLhfQXboaeWOFUo25vkEQGgpY1FM76yfqbjUlQpPGMSoW3VqCUDaLcatMdMNRI2k1E1nY2
-	K5yIQ8suhgx2lWux5mqIm3cC2BblHGaL6IcaK/Ip7GN5hfMxGDbZeioLm+EBiXRoQnEqri0miprNJ
-	634kW60Q==;
+	bh=W20PrwyIbAYQgwrvBzTFnlxpxnGMU7JnTyqkCQGTx3c=; b=oK9oP411kwntxdM/Nnv630uje1
+	vvhfWhMuRN9K3DC8dFxL7vM+doUbpka6n3U6b6DI4kksWIrYVZsZ4VahMLJv2jJ+SCwf6KhJAwNLY
+	Nw1plbO6KNKGXKZrem2DgfJAkOqJXt4Sl40S8xbfMA96S8ZI6EReqmt3hJHokqAUhZrGSREY5TSMp
+	xdK7FkcYE2mpW6IByx4bQr9esXM3akREzrb3NvJpupRPiP/3YMEc+Yidg3Cy/Rfwebr3GYXRGp85X
+	zsmrUfPYue8ZrR7AFFM5VOt8EJhPeYFXfkr48QkhbOaui+/b+19Vw4Bydq/78OOq8/EV9FCAMWDsa
+	h/BS7M0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTY5-0000000Bc5G-1UJJ;
-	Tue, 19 Aug 2025 21:07:17 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uoTai-0000000BcHp-1GaV;
+	Tue, 19 Aug 2025 21:10:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNVQ-0000000AmKa-2wES
+	id 1uoNXZ-0000000Aml9-1pQk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 14:40:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CVU/q7wtLK+yr8Jk8O65ybQoezqDuvq1AArrzG58/pPyCYpy+vGdn3eHIhl7Sr/b1faa5dO4hpKvtu9qfqfxDBTj3kOmrgpMy05sBKjdt2NWDA1qO48jEpUN1Ag96RH4kcM1/Y49y2JroWSOWMOIbaT5OnXcAbYFpy5jfM86wzXvRjUETmprxJSczaDSwz3RxuwAr3zd+Dyu6s6sEXPpnfJmB5CxTCv2QqEEHD+081o6AiOoFEbDqvxbwn3ZHPZrL4msIosG1in/lx1DNcK/H69HndrWzycip++GsqCO4QDQXOB0f5jrnWSngi98Wb9jlY+B6GjEJfIxDa45PZa0ZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BvlvEbvTJ5P5m7Y8ZVsEm09crm+IPMCjXXedbs+6FKo=;
- b=rEjUDPRabkXTpwYQzKaYiljXYGVdRXIkaPm2jMGdj6hkMbENrzmwnjpqT/V9iQzSxgeIQqIoPAPbaKnV5WRPi6eteqbt/LgaG2n8CYJu0LVBaOgjJ6uRNRQbgO/dVRDVBGHAV5njgKLWJ/G905n76YvZLC07nIYrIhVOfYP1xyhQ3yjW+ZBoS4Mp+JTkwDjh1snHeflufGLYwxdw22McCFi+VRrJ4O/8uzCMBlK42f8iHzhXB77Db+/OyNsZeEfXrDIWkh0OCKCQfXegSmMX2cdvOgaiBcyFcbD+ofNOglmBUjSmfLVEkj17kg1t30LuMes/RaKexONCcZ+BmMvwkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BvlvEbvTJ5P5m7Y8ZVsEm09crm+IPMCjXXedbs+6FKo=;
- b=UGvRp8Hqixge0B+n3MvJ6XMuf1XDGi2LBMMRi4bSDc7U+kJq6IbQx7JOV+jk3hFk4wlne1qc2wY1iA4h02ZJZXHSlqCSCE+1hN5LlOY04W+aM8OL4gdvP15JEA4zsoyc/R0pzGUO7i2UNMfcwMpy9QpWq1TezGnFJqPzyxlNEx8GevfJ8mqIwlhH4xAyaJQbpPhLyDjZ2l/fC0qKapmYXY468SnskRpQ3J04NpYxuc2Hgn9v0JWewRgXjne3H+BHiamVfdBe3o42FudWC6MboIHOQJncOFZ9Xg3OIGFJfcrne26wi7wZtT2DG9Fd8DhGcJdkG2bAxHSfZ9SSQr/DHQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
- JH0PR06MB6679.apcprd06.prod.outlook.com (2603:1096:990:3d::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.13; Tue, 19 Aug 2025 14:39:56 +0000
-Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
- ([fe80::468a:88be:bec:666%5]) with mapi id 15.20.9031.023; Tue, 19 Aug 2025
- 14:39:56 +0000
-From: Qianfeng Rong <rongqianfeng@vivo.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-gpio@vger.kernel.org (open list:PIN CONTROL SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Qianfeng Rong <rongqianfeng@vivo.com>
-Subject: [PATCH 4/4] pinctrl: sunxi: use kcalloc() instead of kzalloc()
-Date: Tue, 19 Aug 2025 22:39:35 +0800
-Message-Id: <20250819143935.372084-5-rongqianfeng@vivo.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250819143935.372084-1-rongqianfeng@vivo.com>
-References: <20250819143935.372084-1-rongqianfeng@vivo.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0020.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::6) To SI2PR06MB5140.apcprd06.prod.outlook.com
- (2603:1096:4:1af::9)
+	Tue, 19 Aug 2025 14:42:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9761E60209;
+	Tue, 19 Aug 2025 14:42:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC71C4CEF1;
+	Tue, 19 Aug 2025 14:42:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755614536;
+	bh=cqwQADpES4py+UAccBwue5Qou0LgZbNLPNo27fvu4p0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kicv+klc2cIfiXFaq2sWfwYPPMXQsWzdHFOAlFRIs5e3dbX95dkJ7kDUog6a62sOh
+	 jPJwjboA5nDUPvI4at1SAw8OWQ+a9SvASNHzu5wg+9sBB56p/iyIhXs0rX87l+cozs
+	 UmkXEwwGbg3p8q+o2yCwCztEeZolwoCccDFGHK4Sxzbd2q3Ng1BsOCTND2d9zqP/kc
+	 cP7JvWhhOKDowMXIP0YJfXGW1kMYsFtJlFvulYGeabY4C7cMwViRgbzh1wTezFEd5g
+	 2Z41X0WxNsA7oiNTqBtCB/gmEqWfbjW3evPvSoEFgj8Mzlx/YWCcYHGm2N5lfEY403
+	 tGxAqddpzvM9A==
+Date: Tue, 19 Aug 2025 07:42:14 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v18 5/7] net: mtip: Add mtip_switch_{rx|tx} functions
+ to the L2 switch driver
+Message-ID: <20250819074214.23d4332a@kernel.org>
+In-Reply-To: <20250819103119.42a64541@wsk>
+References: <20250813070755.1523898-1-lukasz.majewski@mailbox.org>
+	<20250813070755.1523898-6-lukasz.majewski@mailbox.org>
+	<20250815183359.352a0ecb@kernel.org>
+	<20250819103119.42a64541@wsk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|JH0PR06MB6679:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a813cdd-e88b-4c26-ed70-08dddf2e4426
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KJk9kkX78fH7cP1bGta8ZyghiS/CLPCzTtNZybezNZO3nEpyZIMrXeSgT1tX?=
- =?us-ascii?Q?SPRSJ55JxGBjOuHPio3WEHsKt/IYhoMCN4QLeLLzNNODVuGJ2JE0rk8M5zOb?=
- =?us-ascii?Q?7NFyN+tXB7li7v7LMc8wlaOySps6A/qxMrDRSNrTQ3bEbIpWA4V3AOMxDkdy?=
- =?us-ascii?Q?JL/ZoNlHxZBvzh5NhXOEwLX4jRmpmK8U5gC1b7Q1ywcE6t0NiLOdCQRNb+Ps?=
- =?us-ascii?Q?RgJ80kQWaRex/gv9opWabg5NtDFuZ02KbYps88He7mcWYTsOZWn0+ZDgpTJC?=
- =?us-ascii?Q?E7Lz4vR9BI+jXory+u6iLQuorMGjGRk4vY6bFdQ/TxCnryDVh6WqACVPORlp?=
- =?us-ascii?Q?i9lBerKwq0MQ+af1QuNpqnW8uSuL+AvdSwsxEeWUzHguxAIW+2XMiOI7T+db?=
- =?us-ascii?Q?FJEe0SQc3T4t6JW72RApxdj0nAizmlBiJpRz8E8XWKbzAYJ5s5grLNO6lw84?=
- =?us-ascii?Q?phZtFYEHRWtdLaej04LviARwsYtbzMExqHuzlR4Jqt+quOfGNOY3NAefBoTn?=
- =?us-ascii?Q?zHf7aGykzN6DoV/EPnTqid5dgJCPeaymIqFAc7vMSnYH6DYLJ5LE8j+vg9Fi?=
- =?us-ascii?Q?IYCxrWl5Klsk/FbEj0lnX51ZSMtS/+99KzC8ZDGP+E/13GrFzKcAONYdYS1X?=
- =?us-ascii?Q?mzhlWmEh2+d8hcO/BSv7HO03zcNOM04KEW3Q11OJjGLjw7rc7jPGBUJSZHZr?=
- =?us-ascii?Q?eSIqDYFuLgY5VxCNqhkG8rSgVD5rIHKjTXqHYlB9DaVfCo9QYAW7kCua7wvz?=
- =?us-ascii?Q?o7rNweOmNIbZ/UNkY5N3ttBjjN4T6oe41H/7niGr0EAh+afBv9hfnx/YhKHW?=
- =?us-ascii?Q?6M4SL+C9bBKWw0Xju9vtSAxggR5GwiBPPxyUf4XT2EVET2OlAmsaMSoR7y89?=
- =?us-ascii?Q?ZcWGoMD1knPPLAQ/PGyAxdSMslRDGgPJPYQzGEssLwbjBtAyHYTZJoRhKujg?=
- =?us-ascii?Q?HuHtTjUQr9N4vyq1rPDKTydbJoSJ1ZsadKvbwpmz+wqS1AXU1GkWVA5q45tV?=
- =?us-ascii?Q?eAsD52RQeClf4HMuUn9jvBq6Q6qLqVo5VfdpgXa4wkmkm2pQfySVpf9sbEkl?=
- =?us-ascii?Q?kJCV4EzmwYDy6h9PfGPN4sfcATJT29odoP/FWMYpEEL30ABe5QTc0jpUFios?=
- =?us-ascii?Q?l7otkSTwj8pOCjDri0gW8BEoqvBwJEEImrDez8ZS9fDTUjFXonxGIOtSuphS?=
- =?us-ascii?Q?6ykp2/+WW0wfx87iQ2x4M6JS3AT02nn+ASbQdZ04T1ddBFXhRAAWO/Gq8jKW?=
- =?us-ascii?Q?sNQ6LtZiRKiBOrS1HI1Pfl38ezthyDrHplEWnY9B0VJb3szJ6XK4WbNs6kPI?=
- =?us-ascii?Q?uYOEa/WvihUShjPeh/Ppj4l3Mtwr7tlycOZiqHev/QGXU4Lh3uIqt4dBspVD?=
- =?us-ascii?Q?kckeJgHyOHfu0rhkI1u7Te97KK3LJNhsW8zfOvlNDWJ/bwGoHDlwGrxUpoQf?=
- =?us-ascii?Q?/zwWy8KEKSrzZRlA4hmRXJ42zuVurzVaPhq9+LFnMxsM1aZ/v2w+Bsu7M1Bf?=
- =?us-ascii?Q?7jnv3/BJLkg03VE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?H6LqHGNxHCgoapM2suB5FjCcyLXq7ENDoYoVMYOOPw4HTaoGcfvi38IxZGpz?=
- =?us-ascii?Q?9Go61sbz49GjN1A3MXPe63jknOwPlOoVZ3m1KxG217GIgKC72m4nExYVqal9?=
- =?us-ascii?Q?dZc23zai43iKpW2LyuqX3hksYipKiO93blFGQK2M/tTU7++HiyNuIwXN5Nog?=
- =?us-ascii?Q?Ny4YwUyxz+TKX8dDaUavCCgP+Gu6GZjU+JejRRLbKL3xJxCji5rhknOMtMuq?=
- =?us-ascii?Q?NO0aT3L3mT/uZCC3BBqNFoLL4AfGEHgfiXiKiS+1kQcNWJjxR4cw2gWTozc0?=
- =?us-ascii?Q?QvQIAQM3nD1ZI+6BqRVHcnJFyg7dmaq5cB/XPZesceF1qAsRRULSTkB6TL7X?=
- =?us-ascii?Q?n76f3yVax1bBwyzakim06TOCM/4FtAwjbUHKwbjETCKi3QLo2OA5EawxE2Zu?=
- =?us-ascii?Q?1vUnUH9ZtItounlkBCkHcWmmGpespmQGdBroUi2Zvi7ugSyn6XWYmyiFWz8Y?=
- =?us-ascii?Q?gXt/WRGATJcnJZLhs15Z1EdPNadcKwpmlT4TU2BJgdgYcEebI9tHltRC4sJa?=
- =?us-ascii?Q?ryZ8lfoMmtSiesfGbZQRnunBDKI2eHkLZMyoWQrHfize9hn9aPMUB6qIkev9?=
- =?us-ascii?Q?ZqJsZmNplYn7DeaMMQaB+TvKKBU2eKbtW6/llRTtpbyU52gBBrNf6L5ZKBOi?=
- =?us-ascii?Q?p5SMBY/1IjNTOi1N1oMWxXJsE+kbbtH6bJiL76DMGoMRqN3bW2BkamWz+vVy?=
- =?us-ascii?Q?m8MSBUKB26gY8S3OxfGegwCGdJKkRM2QLVdA7xZCTGU/CCTcsF3ActUBoqTl?=
- =?us-ascii?Q?YZ6p/csZuAjNzriPwf2jJX/D7c52nIMgdwATUb8BGSqqUi4btjMgKKE0/jcm?=
- =?us-ascii?Q?urteHzx/pyB/F9nosRuci0C+lGktCou22w5O5jiaypV5iJ0N0swyh9+6YFbn?=
- =?us-ascii?Q?qI3SXdJXxubnWKrc8yowwpAP913YsYpWEjgGPT0jn62oYofHQDBuuG2BuGzw?=
- =?us-ascii?Q?SJkncO7SbEBmaS18WZU9aTskdBRCDclRTLyVXn0ykaGxldFw9w2xwNudi5+/?=
- =?us-ascii?Q?h+wO0pv1a5KK+nIkR+rHbRV0+7kmTs7fIW0h6ailWdX1sfAETFgC4RAS8Dam?=
- =?us-ascii?Q?JV45TBuj4PW2UYjn26ZcQV0zHX+042GxdgzvQiUz2g20AVWATb63YXqYxh9k?=
- =?us-ascii?Q?tDuotQmchO5MBntfevsCUznWI9Y9OplGC5g8mS4iEDZMLGTfMbUZLG05+rmT?=
- =?us-ascii?Q?h3Nh97eeg6dko/t2ynRIHgqH//3I9g/w/6nUDIdyADtgnp1wDjIFUt/pdsaS?=
- =?us-ascii?Q?hq+oqwgFzueIN4OJwDOq/+gW8RYUjNroFPPKZcuBFUWDkRyyTBYuxD3cMdNQ?=
- =?us-ascii?Q?OvMLUxpM5xDB+R8/q8xa9054AjvO/naMXjuXPbbTW9QnVGSPgkioGgYNatxO?=
- =?us-ascii?Q?67AQZLfk6xkT1e8WHptqT1rhIbZC7g/tvh8Pb/9QtaEIufGI0/Kqy48Llexi?=
- =?us-ascii?Q?svSFaPkcRsbEYtffWr2gmHuSv9en2A+Wf3eTLZf8wavmt5S00jCwHTu1c8o3?=
- =?us-ascii?Q?QV1/9kWsThBRLFjVk2AhszXGsO17gdBy2IuKxMcb6hvo7v864cmt1QOj43FO?=
- =?us-ascii?Q?0oS/nNjzb+f96cHQ4VTB0GXm9wrGboM8YG11pd9N?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a813cdd-e88b-4c26-ed70-08dddf2e4426
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2025 14:39:56.2965
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mV9Z3vo3iz3QUNFVXQ5HFRelWMGs6ZmQapX5ZuArafHiCBpPla2tKQ0XGrsBZfUdmMEalE8x9vEu0UJz5KXb8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6679
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_074008_736962_B337B35F 
-X-CRM114-Status: GOOD (  12.18  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,38 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use devm_kcalloc() in init_pins_table() and prepare_function_table() to
-gain built-in overflow protection, making memory allocation safer when
-calculating allocation size compared to explicit multiplication.
+On Tue, 19 Aug 2025 10:31:19 +0200 =C5=81ukasz Majewski wrote:
+> > The rx buffer circulation is very odd. =20
+>=20
+> The fec_main.c uses page_pool_alloc_pages() to allocate RX page from
+> the pool.
+>=20
+> At the RX function the __build_skb(data, ...) is called to create skb.
+>=20
+> Last step with the RX function is to call skb_mark_for_recycle(skb),
+> which sets skb->pp_recycle =3D 1.
+>=20
+> And yes, in the MTIP I do copy the data to the newly created skb in RX
+> function (anyway, I need to swap bytes in the buffer).=20
+>=20
+> It seems like extra copy is performed in the RX function.
 
-Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
----
- drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Right, so the use of page pool is entirely pointless.
+The strength of the page pool is recycling the pages.
+If you don't free / allocate pages on the fast path you're=20
+just paying the extra overhead (of having a populated cache)
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-index 4e34b0cd3b73..5f13315ebff3 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-@@ -103,7 +103,7 @@ static struct sunxi_desc_pin *init_pins_table(struct device *dev,
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	pins = devm_kzalloc(dev, desc->npins * sizeof(*pins), GFP_KERNEL);
-+	pins = devm_kcalloc(dev, desc->npins, sizeof(*pins), GFP_KERNEL);
- 	if (!pins)
- 		return ERR_PTR(-ENOMEM);
- 
-@@ -199,7 +199,7 @@ static int prepare_function_table(struct device *dev, struct device_node *pnode,
- 	 * Allocate the memory needed for the functions in one table.
- 	 * We later use pointers into this table to mark each pin.
- 	 */
--	func = devm_kzalloc(dev, num_funcs * sizeof(*func), GFP_KERNEL);
-+	func = devm_kcalloc(dev, num_funcs, sizeof(*func), GFP_KERNEL);
- 	if (!func)
- 		return -ENOMEM;
- 
--- 
-2.34.1
+> > Also you are releasing the page to be recycled without clearing it
+> > from the ring. I think you'd free it again on shutdown, so it's a
+> > double-free. =20
+>=20
+> No, the page is persistent. It will be removed when the driver is
+> closed and memory for pages and descriptors is released.
 
+So remove the page_pool_recycle_direct() call, please:
+
+  static int mtip_switch_rx(struct net_device *dev, int budget, int *port)
+	...
+	skb =3D netdev_alloc_skb(pndev, pkt_len + NET_IP_ALIGN);
+	if (unlikely(!skb)) {
+			...
+			page_pool_recycle_direct(fep->page_pool, page);
 
