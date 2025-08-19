@@ -4,89 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347D1CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D359CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 00:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=roe29+fz++V63so2dZhZwHT7bS9jaeraGI0E5iRcbX8=; b=XT6eYsX6/ftWoLk5A+Vq9QSiIU
-	aeBAp3ZTjdfP3qlBkc5LEbz8ICgeW1oWycX8ld/OHDStvpzDNsuhC8gN4kMA8l4qoJJ8UoCtKyiJY
-	YztzvdFJ96gkJ6099Dk7e0K0kaDEChWryLeZzAXAFsdFDb8iHicrAb3FPdWbL0h7RGjyVgc9ZMc0u
-	0yw8QbatBlUmNJIxr/Nb5flpPTmqchasNZCleuf/QdUgIX3SemrV3jU+l/BIUx3HJfjl/032Tt9UT
-	G7Zmz5gjkbbO7PAwkFg2p+TJxTDJB0tP43os24D2LV/eaDgc9nUvTGApVRHeixYD7giLQ26UM3nbk
-	CD26UkVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cvj//kx2QV9EnYaDVIX+ZlRNlS6DkhUsfaJdxDCnu6Y=; b=nilE9dtajZ6w+FNc6DLdYx8HyJ
+	BqzJUG+Ih+G7h/LEOljAoyf2TuMiNVmjVc+Ia8Y6TfGburO+XTOMubzz0PPQvU9mAug7ZrIHrruU7
+	pYAEsmBGTnol/mPg7fCLb3tSMLqxDvP6OS20y6ynOWWEkAZRDEtpWeGRftMmY+QoArtW5PQFMpsv3
+	RRFLSpwli+YEn9imvXYpgHRbc2BqH64P66Tu9r+EP67D99+QFqcmkBdY+zTrPTRRsakDCdJ1XuC9r
+	tyYwGCb5U1EcX0tKcz1tFptrGRc1cjp1IXNaHHYQhM4nlPO8kRwVg9UextfBDh40FswjAwlq/d4QP
+	z+JKFSUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoA7H-00000008ziu-0LSH;
-	Tue, 19 Aug 2025 00:22:19 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uo9k3-00000008xkh-3fDR;
-	Mon, 18 Aug 2025 23:58:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755561500; x=1787097500;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=c76ffSU+z29EdjuvcwEaZdMVo1BGLglOk32LHUKT+8Q=;
-  b=hOBQGF0jQtt5MsShE687WSvhVaMFaAaFtd0kwoOftpnL0eEm0SnN9hs4
-   DAMPEbDf6o7PhJtKyTGBaJ4iW00h8/dIfqHeftK2p3BZpaamAxrJtlCHT
-   mRhOMRvzFxhUEB8yKeC1MdaiZR6x7qQqj2CAsxSSgfxMPKtaCXVc5B7EC
-   yLSvFMXcR/lV+JjB+gWk5WSTd2WWy+DpbRVJpBT8je9T0tHTFfBbH8AUW
-   5Yf3wpkKWKs0tBaz+Oj/rODcTBec6hMy5LED/CB5jH3H828hS+PzivGnc
-   9FpDvqjkGzpfOaoxgE6ARwHx0zkBnoL2SrHi+f1b2+ENqLmD72y3BDLy7
-   A==;
-X-CSE-ConnectionGUID: xz8nKihNTtSLIt6jAUvilw==
-X-CSE-MsgGUID: v8iMwR87QMCNRjjtAZnycw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11526"; a="61609889"
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="61609889"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 16:58:16 -0700
-X-CSE-ConnectionGUID: 8bXpQ/8MRnerAdHif+U/Bw==
-X-CSE-MsgGUID: /qIoloXhS5W34Jon6neR7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="167934762"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa008.jf.intel.com with ESMTP; 18 Aug 2025 16:58:10 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uo9js-000GJr-0M;
-	Mon, 18 Aug 2025 23:58:08 +0000
-Date: Tue, 19 Aug 2025 07:57:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	id 1uoA9p-00000008zru-1EDU;
+	Tue, 19 Aug 2025 00:24:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoA3S-00000008zJw-28Od;
+	Tue, 19 Aug 2025 00:18:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 225EE1595;
+	Mon, 18 Aug 2025 17:18:11 -0700 (PDT)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BD8F3F63F;
+	Mon, 18 Aug 2025 17:18:17 -0700 (PDT)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Mikhail Kalashnikov <iuncuim@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, Qiqi Wang <qiqi.wang@mediatek.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
-	jh.hsu@mediatek.com, irving-ch.lin@mediatek.com
-Subject: Re: [PATCH 6/6] pmdomain: mediatek: Add power domain driver for
- MT8189 SoC
-Message-ID: <202508190709.36QIqpVt-lkp@intel.com>
-References: <20250818115754.1067154-7-irving-ch.lin@mediatek.com>
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH] phy: sun4i-usb: drop num_phys assumption
+Date: Tue, 19 Aug 2025 01:15:22 +0100
+Message-ID: <20250819001522.13011-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818115754.1067154-7-irving-ch.lin@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_165819_954949_D8D4AEFB 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20250818_171822_626116_37C022FC 
+X-CRM114-Status: GOOD (  26.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +68,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi irving.ch.lin,
+So far we set a number of expected Allwinner USB PHY instances for any
+given compatible string, and would fail if we do not find every PHY
+described properly in the DT (missing reset/PMU/clocks).
+This is somewhat redundant, as the DT only describes the resources for
+the implemented PHYs, but goes in line with being strict about firmware
+descriptions, and rather fixing things in the driver code, based on the
+compatible string.
+However this causes issues when we make a mistake, like we did recently
+on the A523: there are actually three USB PHYs, not two, as we assumed.
+Changing the number in the driver and the compatible string would cause
+all kinds of compatibility issues, both with older and newer DTs.
 
-kernel test robot noticed the following build warnings:
+To avoid problems with newer kernels and older or newer DTs, we can change
+the driver code to deduce the number of PHY instances from what's
+described in the DT. This has the added advantage of not requiring new
+compatible strings for new SoCs when just the number of PHYs change, which
+already happened and might occur again in the future.
 
-[auto build test WARNING on clk/clk-next]
-[also build test WARNING on robh/for-next linus/master v6.17-rc2 next-20250818]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Drop the num_phys member from the config struct, and remove the fixed
+number of PHYs from each SoC's config description. Then enumerate the
+usb<x>_reset properties for all of the maximum four PHY instances, and
+just stop once we cannot find such a property anymore.
+The binding describes the reset property as mandatory for each PHY
+instance, and each DT in the kernel tree matches exactly the num_phys
+value in the current driver code, so we can rely on that.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/irving-ch-lin/dt-bindings-clock-mediatek-Add-new-MT8189-clock/20250818-200449
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
-patch link:    https://lore.kernel.org/r/20250818115754.1067154-7-irving-ch.lin%40mediatek.com
-patch subject: [PATCH 6/6] pmdomain: mediatek: Add power domain driver for MT8189 SoC
-config: arm-randconfig-001-20250819 (https://download.01.org/0day-ci/archive/20250819/202508190709.36QIqpVt-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250819/202508190709.36QIqpVt-lkp@intel.com/reproduce)
+Apart from being more future proof, this will solve the A523 mishap:
+Older DTs would just describe two PHYs, whereas newer ones would feature
+all three of them. In any case we would get a valid number, matching the
+other nodes in the DT. Older kernels would always enumerate two PHYs,
+which at least does not cause any regressions.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508190709.36QIqpVt-lkp@intel.com/
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+Hi,
 
-All warnings (new ones prefixed by >>):
+this is in response to Mikhail's patch series for adding USB3.0 support
+for the Allwinner A523 SoC, which revealed the problem with the number
+of PHYs begin wrong:
+https://lore.kernel.org/linux-sunxi/20250816143117.4b86ecc6@minigeek.lan/
 
->> Warning: drivers/pmdomain/mediatek/mtk-scpsys.c:219 struct member 'sram_slp_bits' not described in 'scp_domain_data'
->> Warning: drivers/pmdomain/mediatek/mtk-scpsys.c:219 struct member 'sram_slp_ack_bits' not described in 'scp_domain_data'
->> Warning: drivers/pmdomain/mediatek/mtk-scpsys.c:219 struct member 'subsys_clk_prefix' not described in 'scp_domain_data'
->> Warning: drivers/pmdomain/mediatek/mtk-scpsys.c:219 struct member 'bp_table' not described in 'scp_domain_data'
+Regression tested on A64 and H6.
 
+Cheers,
+Andre
+
+ drivers/phy/allwinner/phy-sun4i-usb.c | 38 +++++++++------------------
+ 1 file changed, 13 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinner/phy-sun4i-usb.c
+index 8873aed3a52aa..59d38d88efb08 100644
+--- a/drivers/phy/allwinner/phy-sun4i-usb.c
++++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+@@ -97,7 +97,6 @@
+ #define POLL_TIME			msecs_to_jiffies(250)
+ 
+ struct sun4i_usb_phy_cfg {
+-	int num_phys;
+ 	int hsic_index;
+ 	u32 disc_thresh;
+ 	u32 hci_phy_ctl_clear;
+@@ -115,6 +114,7 @@ struct sun4i_usb_phy_data {
+ 	const struct sun4i_usb_phy_cfg *cfg;
+ 	enum usb_dr_mode dr_mode;
+ 	spinlock_t reg_lock; /* guard access to phyctl reg */
++	int num_phys;
+ 	struct sun4i_usb_phy {
+ 		struct phy *phy;
+ 		void __iomem *pmu;
+@@ -686,7 +686,7 @@ static struct phy *sun4i_usb_phy_xlate(struct device *dev,
+ {
+ 	struct sun4i_usb_phy_data *data = dev_get_drvdata(dev);
+ 
+-	if (args->args[0] >= data->cfg->num_phys)
++	if (args->args[0] >= data->num_phys)
+ 		return ERR_PTR(-ENODEV);
+ 
+ 	if (data->cfg->missing_phys & BIT(args->args[0]))
+@@ -779,13 +779,22 @@ static int sun4i_usb_phy_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	for (i = 0; i < data->cfg->num_phys; i++) {
++	for (i = 0; i < MAX_PHYS; i++) {
+ 		struct sun4i_usb_phy *phy = data->phys + i;
+ 		char name[32];
+ 
+ 		if (data->cfg->missing_phys & BIT(i))
+ 			continue;
+ 
++		snprintf(name, sizeof(name), "usb%d_reset", i);
++		phy->reset = devm_reset_control_get(dev, name);
++		if (IS_ERR(phy->reset)) {
++			if (PTR_ERR(phy->reset) == -ENOENT)
++				break;
++			dev_err(dev, "failed to get reset %s\n", name);
++			return PTR_ERR(phy->reset);
++		}
++
+ 		snprintf(name, sizeof(name), "usb%d_vbus", i);
+ 		phy->vbus = devm_regulator_get_optional(dev, name);
+ 		if (IS_ERR(phy->vbus)) {
+@@ -828,13 +837,6 @@ static int sun4i_usb_phy_probe(struct platform_device *pdev)
+ 			}
+ 		}
+ 
+-		snprintf(name, sizeof(name), "usb%d_reset", i);
+-		phy->reset = devm_reset_control_get(dev, name);
+-		if (IS_ERR(phy->reset)) {
+-			dev_err(dev, "failed to get reset %s\n", name);
+-			return PTR_ERR(phy->reset);
+-		}
+-
+ 		if (i || data->cfg->phy0_dual_route) { /* No pmu for musb */
+ 			snprintf(name, sizeof(name), "pmu%d", i);
+ 			phy->pmu = devm_platform_ioremap_resource_byname(pdev, name);
+@@ -851,6 +853,7 @@ static int sun4i_usb_phy_probe(struct platform_device *pdev)
+ 		phy->index = i;
+ 		phy_set_drvdata(phy->phy, &data->phys[i]);
+ 	}
++	data->num_phys = i;
+ 
+ 	data->id_det_irq = gpiod_to_irq(data->id_det_gpio);
+ 	if (data->id_det_irq > 0) {
+@@ -901,28 +904,24 @@ static int sun4i_usb_phy_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct sun4i_usb_phy_cfg suniv_f1c100s_cfg = {
+-	.num_phys = 1,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = true,
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun4i_a10_cfg = {
+-	.num_phys = 3,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = false,
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun5i_a13_cfg = {
+-	.num_phys = 2,
+ 	.disc_thresh = 2,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = false,
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun6i_a31_cfg = {
+-	.num_phys = 3,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = true,
+@@ -930,14 +929,12 @@ static const struct sun4i_usb_phy_cfg sun6i_a31_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun7i_a20_cfg = {
+-	.num_phys = 3,
+ 	.disc_thresh = 2,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = false,
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_a23_cfg = {
+-	.num_phys = 2,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A10,
+ 	.dedicated_clocks = true,
+@@ -945,7 +942,6 @@ static const struct sun4i_usb_phy_cfg sun8i_a23_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_a33_cfg = {
+-	.num_phys = 2,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -953,7 +949,6 @@ static const struct sun4i_usb_phy_cfg sun8i_a33_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_a83t_cfg = {
+-	.num_phys = 3,
+ 	.hsic_index = 2,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -961,7 +956,6 @@ static const struct sun4i_usb_phy_cfg sun8i_a83t_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_h3_cfg = {
+-	.num_phys = 4,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -970,7 +964,6 @@ static const struct sun4i_usb_phy_cfg sun8i_h3_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_r40_cfg = {
+-	.num_phys = 3,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -979,7 +972,6 @@ static const struct sun4i_usb_phy_cfg sun8i_r40_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun8i_v3s_cfg = {
+-	.num_phys = 1,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -988,7 +980,6 @@ static const struct sun4i_usb_phy_cfg sun8i_v3s_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun20i_d1_cfg = {
+-	.num_phys = 2,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+ 	.hci_phy_ctl_clear = PHY_CTL_SIDDQ,
+@@ -997,7 +988,6 @@ static const struct sun4i_usb_phy_cfg sun20i_d1_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun50i_a64_cfg = {
+-	.num_phys = 2,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+@@ -1006,7 +996,6 @@ static const struct sun4i_usb_phy_cfg sun50i_a64_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun50i_h6_cfg = {
+-	.num_phys = 4,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
+ 	.phy0_dual_route = true,
+@@ -1015,7 +1004,6 @@ static const struct sun4i_usb_phy_cfg sun50i_h6_cfg = {
+ };
+ 
+ static const struct sun4i_usb_phy_cfg sun50i_h616_cfg = {
+-	.num_phys = 4,
+ 	.disc_thresh = 3,
+ 	.phyctl_offset = REG_PHYCTL_A33,
+ 	.dedicated_clocks = true,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.46.3
+
 
