@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F530CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB49CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+JJR86sLJLFn0wCpzynJG6Djlht626/b+3oI3vg3wG4=; b=thGGgFTNVGVzARdpUKVr1IfRcP
-	+aPh45YHxFxckms5T5emB9taUCX9jQ4eoWPxMZbBrelmGELWSmjNThVcr8LiGIM50RYjRyF1OZyhC
-	Dzp65v6SuUj3pqpXs90qnBoSXaNd99r8zluO79c03sxTjG1eJQZmvEsdctsf93oGhiOqk1PbA6bte
-	jdg67QVgEW6ZKviDHwfGOp15hYJJpcP/Ak4SOjVt7ejqn3Aq0ERxBcsL8+y9F1F7PLjsYiOdULQrd
-	tNqCygRBx7mxBThbSS5yiVcSYwSnynKYwuiCritfeS+B8MwbjmH7XAKVglmZsVMQMR3wdDi1sd4Fy
-	0GeGkZFQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Xi518gsMPwf+xO6KMftj9HzM9h9TUyQOOtDZl1JTxQw=; b=KXYy5mq4dnNyRsSWCp2oTZN3HJ
+	Hf9aimS6GqPu9RJVv5bafhOU8ZuT2RuizokGNZZFSFfHoLETQQ2LT3ErzK3LD3Hv5ZFjt7WSzfsGz
+	1vdDaxVNcYXRnZeOv002Jo4j7h7dPJnC2JFQrbC7A01wMmTbYQUcH/drH48vwq7Gae0ktSaBMXfPR
+	wG3JboABkTz8JdmH9wAiXQ7FcYmFEhFMPhROtAICGk5Wrizc4O71/Dum+X1osKpWc+IKGqGfMgENx
+	I0X+3EyjDfVTAlePIFAn/T0Z20ss6jvKdvmNXJF1IA+jaVLtKSvmS++odirPgk6egF/t1aK8x2e08
+	2iofIPBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQpX-0000000BC0U-1l4R;
-	Tue, 19 Aug 2025 18:13:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMBy-0000000AYtJ-1EuD;
-	Tue, 19 Aug 2025 13:15:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0830C16A3;
-	Tue, 19 Aug 2025 06:15:48 -0700 (PDT)
-Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 078263F58B;
-	Tue, 19 Aug 2025 06:15:51 -0700 (PDT)
-Message-ID: <67a0d778-6e2c-4955-a7ce-56a10043ae8d@arm.com>
-Date: Tue, 19 Aug 2025 14:15:50 +0100
+	id 1uoQpa-0000000BC2l-1Q4J;
+	Tue, 19 Aug 2025 18:13:13 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoMCF-0000000AYzA-3OAY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 13:16:16 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afcb731ca55so71891066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:16:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755609374; x=1756214174; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Xi518gsMPwf+xO6KMftj9HzM9h9TUyQOOtDZl1JTxQw=;
+        b=VwZhVT+x2kcBuzqZrSUfZ08fz1pT1WPi96TqWwY2XC7+HPzqdTJGtbYWx72LJYBfse
+         cJhPyFFoxD+NoZH9COwhFyPBo/TtN95aMptPZqqhKBaJx+fxBo9AeYCwVNZDE6rDIzp7
+         8pyGaUq57ThA81F8J2EIthv3KQoXUYVCij6n9svew2GGxB2pyJpNWOEOBBnAFzl3VXVe
+         3ZJEtJ1zPYI/Vyl3ci4q8/hhsmWn6UieCDlniIMkGECy06pJXyA+i2wi25egucHqJVVN
+         D/km7+hu7gDoCHlb/kexCPL9qkHrMrXaj50iTyBSrLp8JRE1QWzrncrWSBhRzmpaanx2
+         +8Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755609374; x=1756214174;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Xi518gsMPwf+xO6KMftj9HzM9h9TUyQOOtDZl1JTxQw=;
+        b=GGYFbzstoNl9duzOnUVZtzgYYlU+RsSmFMN8QCapmIzjCBiwNGVzoU1sWcs6wY/jVF
+         VyOn6IQYZ3avsaoeEoPpEIwL8sZuQfzNHAgPRjQa/77wj7LXaI9ddQAaEb+9RzbJyYxp
+         wtI9JtYka4OMQrX50D5dbCDilDRZzvgsgPG9FMjiyzxfLE+mbipKmMjQ2RXg6+55muLW
+         nxohX58IOS9XryQF99C4y6W1di50WOxCzc4X9kAXrzzPA9oonkoo1YSGZZxAlE4TbHc9
+         He55RBw0gMdGw0KyZBegj4Q7BDY+gRGjw3dJZW17lFtg3vxCuCMHJsy/MC1OxjhqIC7d
+         C7Lw==
+X-Forwarded-Encrypted: i=1; AJvYcCUTPVGfdTQO2fCmFUUtPeEWrDEM1IQMTPaU0PEUf+u4ibzeW0VPYxcAaDNh+kmztKu2HXec/xba9r1KBWiypKxk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOtFDmpLGSMPaWRhFdiFlP9b9XLZzVIyVNGybft8kx1k00mN1N
+	LXEne4vYubgaqbQou0x+m1HQ+upx9kwMARO80dXP29LXvGJCtGJlBYWegweAYtJwR9I=
+X-Gm-Gg: ASbGncvoWQk+/fRNrlgXqxgqWfq2A8cw3x6pQ0BD98jIbiOB5x6CNSnZa6stZkuYorR
+	Emp4HoCkGmhm2Ips8hh3yy6yFE78G1A1j/L09CY1NyTjlV6D0xXB0TBqJ5RP3W9kJSL4/JEUJHt
+	mJ42MjV/FZhohR+QD2zydKFJEhzbTor0L8UpUTj28MgDdm1QLMT6vPwvcDGPBsbso+WWX2y2cWx
+	m3eM8CO8agEhvqKi50jyYHQ5phkf12zyb0Ejo1IgjI6roMT0sugMyGS0hMJUS/+/XsMIrcV6cdE
+	Ejed3lg3xYzMQfhar892H4YxzoFJ0sdUi6N6A8CIuL46W9BsSP9K7CmM6A354RtU/CBapq1c3p6
+	Lpb+rXTRCL/8xZCFdbBdL8NkKI4ZFsvIexIb0V/V1unO1
+X-Google-Smtp-Source: AGHT+IHNAQts7Tkq0in4K3BOL40AEJDywoXmLp4e38sGlmKMwBIojenupdYVLaUyK7UVgv2eYoj8jg==
+X-Received: by 2002:a17:906:c112:b0:af9:5903:3696 with SMTP id a640c23a62f3a-afddcb4df7cmr81510466b.2.1755609374036;
+        Tue, 19 Aug 2025 06:16:14 -0700 (PDT)
+Received: from kuoka.. ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce53d60sm998744666b.20.2025.08.19.06.16.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 06:16:13 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] ARM: dts: rockchip: Minor whitespace cleanup
+Date: Tue, 19 Aug 2025 15:16:08 +0200
+Message-ID: <20250819131607.86338-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 18/19] perf: Introduce positive capability for raw events
-From: Robin Murphy <robin.murphy@arm.com>
-To: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
- mark.rutland@arm.com, acme@kernel.org, namhyung@kernel.org,
- alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, kan.liang@linux.intel.com
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
- iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
- linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <cover.1755096883.git.robin.murphy@arm.com>
- <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1479; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=zzJHbwP59FIAJRbh/laHlAqr7S4UlzgO8wkJUgyct7M=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHkX1WKSqJhvQcELKxO426h67ZTlpdrZBKf1M
+ 5oH0eMggemJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5FwAKCRDBN2bmhouD
+ 1/bFD/4pTRoaumxN4qomkIs6yFeXrcTZBRmPV7OywqqKgE0NJ3WJviWn/dX3kiNForLEobrQSMA
+ 7i1yOWVOmKASx/uWgJIMy/Dfo6UbTYSCDfOlIHpIdW6TF7TyEIGbQRF88NP0ZHx6P3EqGh056/V
+ x4m3PTjiseJ1hWbmgE4fdcHlFyrRxo6QTnnOzhx82sdoQhpeRCM+zYe0iK7pkpo+Rn/+V2m8Y1V
+ bjV3p+u4+VT+lVfJhQZFpMvlZuyBD5ealdsJoFj9JE3/iB3DG+4eDqpywmkPWecdtsQcxC27K+O
+ x9T/J//KGtMnTguaOKQtB+rMAVPiq5H2lOGizXIhbikXopn+Woo5x+qW0Y59Q4PdzZW/IG5mDX9
+ Ej4CCCPSSbEsM0W6ch4fTN6ofGGWIkx3bw3SMI0WBEEHehrtPFRMCdR/o07DivyguWeJKcmkIws
+ 0NJcIH3Jn1JxBpHArx5tyAJ+nvB6c8Za5BX+IWOf1o/MQ7PzWgKRbtVUHouBAjwxfBABnNOvQxG
+ BeRbFi5dJSpKuph/cnHwj/9MxK9y+H4uK4/waTuAH8NkDRlZ37Zd/tA3sQlEcw7cKhMMDxgGwyV
+ f+VYKL+GDd5XIH2ft52QowEGKHBOhV/v+aBL+a0wWbuxlkoYAGyMcGi7E1lhu71rAHGAswuBucU BNVRX5amtmp0mqA==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_061558_425100_3AA523B4 
-X-CRM114-Status: GOOD (  25.38  )
+X-CRM114-CacheID: sfid-20250819_061615_845382_DB59F96B 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,142 +115,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2025 6:01 pm, Robin Murphy wrote:
-> Only a handful of CPU PMUs accept PERF_TYPE_{RAW,HARDWARE,HW_CACHE}
-> events without registering themselves as PERF_TYPE_RAW in the first
-> place. Add an explicit opt-in for these special cases, so that we can
-> make life easier for every other driver (and probably also speed up the
-> slow-path search) by having perf_try_init_event() do the basic type
-> checking to cover the majority of cases.
-> 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
-> 
-> A further possibility is to automatically add the cap to PERF_TYPE_RAW
-> PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
-> undecided...
-> ---
->   arch/s390/kernel/perf_cpum_cf.c    |  1 +
->   arch/s390/kernel/perf_pai_crypto.c |  2 +-
->   arch/s390/kernel/perf_pai_ext.c    |  2 +-
->   arch/x86/events/core.c             |  2 +-
->   drivers/perf/arm_pmu.c             |  1 +
->   include/linux/perf_event.h         |  1 +
->   kernel/events/core.c               | 15 +++++++++++++++
->   7 files changed, 21 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
-> index 1a94e0944bc5..782ab755ddd4 100644
-> --- a/arch/s390/kernel/perf_cpum_cf.c
-> +++ b/arch/s390/kernel/perf_cpum_cf.c
-> @@ -1054,6 +1054,7 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
->   /* Performance monitoring unit for s390x */
->   static struct pmu cpumf_pmu = {
->   	.task_ctx_nr  = perf_sw_context,
-> +	.capabilities = PERF_PMU_CAP_RAW_EVENTS,
->   	.pmu_enable   = cpumf_pmu_enable,
->   	.pmu_disable  = cpumf_pmu_disable,
->   	.event_init   = cpumf_pmu_event_init,
-> diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
-> index a64b6b056a21..b5b6d8b5d943 100644
-> --- a/arch/s390/kernel/perf_pai_crypto.c
-> +++ b/arch/s390/kernel/perf_pai_crypto.c
-> @@ -569,7 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
->   /* Performance monitoring unit for mapped counters */
->   static struct pmu paicrypt = {
->   	.task_ctx_nr  = perf_hw_context,
-> -	.capabilities = PERF_PMU_CAP_SAMPLING,
-> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->   	.event_init   = paicrypt_event_init,
->   	.add	      = paicrypt_add,
->   	.del	      = paicrypt_del,
-> diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
-> index 1261f80c6d52..bcd28c38da70 100644
-> --- a/arch/s390/kernel/perf_pai_ext.c
-> +++ b/arch/s390/kernel/perf_pai_ext.c
-> @@ -595,7 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
->   /* Performance monitoring unit for mapped counters */
->   static struct pmu paiext = {
->   	.task_ctx_nr  = perf_hw_context,
-> -	.capabilities = PERF_PMU_CAP_SAMPLING,
-> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->   	.event_init   = paiext_event_init,
->   	.add	      = paiext_add,
->   	.del	      = paiext_del,
-> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-> index 789dfca2fa67..764728bb80ae 100644
-> --- a/arch/x86/events/core.c
-> +++ b/arch/x86/events/core.c
-> @@ -2697,7 +2697,7 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
->   }
->   
->   static struct pmu pmu = {
-> -	.capabilities		= PERF_PMU_CAP_SAMPLING,
-> +	.capabilities		= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
->   
->   	.pmu_enable		= x86_pmu_enable,
->   	.pmu_disable		= x86_pmu_disable,
-> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> index 72d8f38d0aa5..bc772a3bf411 100644
-> --- a/drivers/perf/arm_pmu.c
-> +++ b/drivers/perf/arm_pmu.c
-> @@ -877,6 +877,7 @@ struct arm_pmu *armpmu_alloc(void)
->   		 * specific PMU.
->   		 */
->   		.capabilities	= PERF_PMU_CAP_SAMPLING |
-> +				  PERF_PMU_CAP_RAW_EVENTS |
->   				  PERF_PMU_CAP_EXTENDED_REGS |
->   				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
->   	};
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 183b7c48b329..c6ad036c0037 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
->   #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
->   #define PERF_PMU_CAP_AUX_PAUSE		0x0200
->   #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-> +#define PERF_PMU_CAP_RAW_EVENTS		0x0800
->   
->   /**
->    * pmu::scope
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 71b2a6730705..2ecee76d2ae2 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -12556,11 +12556,26 @@ static inline bool has_extended_regs(struct perf_event *event)
->   	       (event->attr.sample_regs_intr & PERF_REG_EXTENDED_MASK);
->   }
->   
-> +static bool is_raw_pmu(const struct pmu *pmu)
-> +{
-> +	return pmu->type == PERF_TYPE_RAW ||
-> +	       pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
-> +}
-> +
->   static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
->   {
->   	struct perf_event_context *ctx = NULL;
->   	int ret;
->   
-> +	/*
-> +	 * Before touching anything, we can safely skip:
-> +	 * - any event for a specific PMU which is not this one
-> +	 * - any common event if this PMU doesn't support them
-> +	 */
-> +	if (event->attr.type != pmu->type &&
-> +	    (event->attr.type >= PERF_TYPE_MAX || is_raw_pmu(pmu)))
+The DTS code coding style expects exactly one space around '='
+character.
 
-Ah, that should be "!is_raw_pmu(pmu)" there (although it's not entirely 
-the cause of the LKP report on the final patch.)
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts    | 2 +-
+ arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Thanks,
-Robin.
-
-> +		return -ENOENT;
-> +
->   	if (!try_module_get(pmu->module))
->   		return -ENODEV;
->   
+diff --git a/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts b/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
+index 21f824b09191..decbf2726ec4 100644
+--- a/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
++++ b/arch/arm/boot/dts/rockchip/rk3128-xpi-3128.dts
+@@ -272,7 +272,7 @@ &gmac {
+ 	phy-mode = "rmii";
+ 	phy-handle = <&phy0>;
+ 	assigned-clocks = <&cru SCLK_MAC_SRC>;
+-	assigned-clock-rates= <50000000>;
++	assigned-clock-rates = <50000000>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&rmii_pins>;
+ 	status = "okay";
+diff --git a/arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts b/arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts
+index c13829d32c32..8a92700349b4 100644
+--- a/arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts
++++ b/arch/arm/boot/dts/rockchip/rv1109-relfor-saib.dts
+@@ -250,9 +250,9 @@ rtc0: rtc@52 {
+ &i2s0 {
+ 	/delete-property/ pinctrl-0;
+ 	rockchip,trcm-sync-rx-only;
+-	pinctrl-0 =  <&i2s0m0_sclk_rx>,
+-		     <&i2s0m0_lrck_rx>,
+-		     <&i2s0m0_sdi0>;
++	pinctrl-0 = <&i2s0m0_sclk_rx>,
++		    <&i2s0m0_lrck_rx>,
++		    <&i2s0m0_sdi0>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+ };
+-- 
+2.48.1
 
 
