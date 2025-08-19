@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62968CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD5BCA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAoQdpzwxuti772MPMT9IU0xVBIlyeQ7u38tA+p9XEs=; b=Y8Kd2RPX7I+pqxC5qP/ZulFGyQ
-	VyxUrfQkYOtyBujseBaJcAjf0tqxeHrUev9HEpUNZTZsWqCbIyL1ggTDxnN7aoTO3OWtc2YkL6j3Z
-	04EW6i5wBic/VgQmviK78VQRjU+q2KY14hbVCuyz+lViOdf4k93Bn1qyXrrj/q9vV0uqNjl2aZ+O0
-	tgkAshbZoNBgQjfATj/+s+d9ngXoX9EVx9rdtOvW0rIvq/1x/W2kWzBMgcwDi3BINn9PGcIcBDbM+
-	A76FL/iCYJ2S314t4Wa/CIIQ84LgUysoG+HJTETMIOmyctlFmzTtg9TSRI1YsUo0rEELjVMia/VON
-	y2JJt89g==;
+	bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=; b=xw+ToY3fYABk4M41v+N6o2XRFD
+	7Zz45RWiO5ootpiJPNvrWJhqnFmXqwEtgsXSLeW+c9yhsh50oDb74a23RFL5FOmkNb4T5xEUbrrwS
+	e+ZfDkKVRGsFMEpfitvRtlkYKEf4qA5TYDJCF8OX1jcyPR2t0u3uXGpfbFcDG65SnqZu9abAqP/Zg
+	RounswhnPC/U69unO8tEOOD61Sen97MIztea4GTYI6KVMhkM8GX6mKISCHRiFmOa+2kUA2ZOQDeh6
+	U5kaGmggfZ+tLnQhfkdFALl74w6Zpr9AzVcn7kkqiGn2ws5vcwdYcbVzECknHWP8z2GmGWVQMIhBk
+	FMd19EkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHwY-00000009q6k-2duV;
-	Tue, 19 Aug 2025 08:43:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uoHz8-00000009qXm-2Lyj;
+	Tue, 19 Aug 2025 08:46:26 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHSC-00000009ltU-2ho6
+	id 1uoHSE-00000009ltX-0QXv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 08:12:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D8B375C5BCF;
-	Tue, 19 Aug 2025 08:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD04C4CEF1;
-	Tue, 19 Aug 2025 08:12:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755591143;
-	bh=/dfQAZayWIHQFfzoYaLoa9ZkINRtrj3kEglQs3WnKZM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Oh1vjBjXaqQbcJHw3DjqK6XlLzbF/z1jr+sMGRuWk+icJ8e1Uo5CFIT+NTudIih/e
-	 2nstt53rKHr03zEdKBOezlJQCXYYBeeRyta5adtumTVNKP54qnB38VNmu/joFhnSF0
-	 0Aqy0S+Uol1BCfeVQkIQUd48uY8T276Py30Pa8f35g+Mr920cqdQX+WWAI/T2JvEXb
-	 7nWBifR+388oDoXODW/RogsRMVbqFOt/w3jYDXht1kY7V/vFi8D5xLdhF0GySzs+Wd
-	 /LfM7ComIUQIQyg+97rkSvZaZyDzT5hElHtYy1sWSviQibf6nptwi+ITnNlWLqUD+3
-	 EvTGlH/zW0f1w==
-Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uoHS9-008szj-4s;
-	Tue, 19 Aug 2025 09:12:21 +0100
-Date: Tue, 19 Aug 2025 09:12:17 +0100
-Message-ID: <87v7mjk9we.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Tue, 19 Aug 2025 08:12:27 +0000
+Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-6188b7550c0so6815000a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 01:12:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1755591144; x=1756195944; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=;
+        b=aaXAdmbJ0YaAx3u59/TSksLD2vlQN0oKZELiYTVSVp/jKhCAxhGDDdTii40eZknbub
+         hRRuGKb4RXi0mJkcaWTATYm/jOkXoCgRXRi8SqUMzBAn0+ZR+3t9dak3sXwNMqXMvAD0
+         mrJX1uAg4MFOc17CkdDMPx8eeLnhLHSXg5MngBSRnwH8mT4797J9e6Y1u2Z7rYs5SdVf
+         hs2LVQNyfCfzsin+j9nWis3fO8hQmHufTgUJ5MABQh82xKWPYJt/KTDZoO3/7yZjTI3I
+         CapCsBoW9gdL/X1p/DGUTUSiQKfao1NhYZq4TMa2G4Njje8snRSPotcToK16p7/ok1CI
+         cO0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755591144; x=1756195944;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=;
+        b=nK5qHgInQg2QVi52tI8d80Z8q9RDJCfJlTXnnrT7mtNpPRWDlSR12t89G6U+V3jhSn
+         Pn2nGvm0LIodZ9wY+COWgF+9uxwUph+eYYw/FziFnhxiSHPOQOyllqtZbGrNu8ndevlu
+         xxXi7eDUq46O4xIsAPloQe6Bh3vvhvb/c79Se3QCGX7b3Cy3k67J51L3r9hraL21wDRm
+         YfJALTxj+MAgHBRMfDRITZk7HG4e+N7kmqql6TaR+XnYdnQOWMx8/wuqur2EF10o+R5T
+         GGxKAqHpegrdF2tAi8iibJgtY3xOMI17LM89SgG3mrteO9ZNEhEGkdsd4CActh7IFM2O
+         bnqg==
+X-Forwarded-Encrypted: i=1; AJvYcCXd04VIhmoiRJN/m0r+dQxlVX4LdetkMvXTs18Gc+rav9kI5iRNocdJejhQClbRNu6gLbrxhbuPHJrGhHVu9Ai6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfgbYQTHgYvn4nmq2/SwtiK0hN0di+hWT9XMh3yjy4th3Edou5
+	KHb4bo7bwO3FWo/5mdarmNGECdllbstfYDlvMxQEL14rUvnxulUzL6PjflCYXyxjdFArZe0XqPv
+	fItFRLJ4Prw==
+X-Gm-Gg: ASbGnctcQ0ZQ9S8YLgDAhY/E8yx1pAtemDcM9V1AjXPiWoFa8jlt1Er+N7tYSfbn5jl
+	vk5irO5FQjNRBml9gI2Q/muVxBYP0jCvyO6y7c5oxSXXIvbou4KbzrbyHhcPmr52xz6Ih1wbG9n
+	91pjMFwUlyLCEYJdayq8Vj1ENv+VvWdSvBrVVM1ra4v+WnlIy+/B7ogVk33L+Hc0EMzf5yz+3OY
+	6Fwe7ELGT7EmoR4FP/VMzrOS4QbXKltsFu7Xsfv9FzwHX8Q8iGvRJW7RNBbAw34jL6o9VMVVHJh
+	k/697yu5yPE/z/icQzEiiexnYQ9cODYdZjsEzq9AyjeDZYxAESEyqTgpRBRIqhZBdCDxeqj9jmR
+	mzrcK36AStDBiILl8lcK+zAln1hQ/ducRRWirxZxSvAjSYtya0WyKfuEKlaWIPiCUiSZDrbM=
+X-Google-Smtp-Source: AGHT+IFWUFHoGU/t7RtStcFRX+OfWnQMuoPAH5EIGoxs7IRL94PQgOjPHffK157QAOTE9MTriRH+/w==
+X-Received: by 2002:a17:907:6e89:b0:af9:71c2:9c3 with SMTP id a640c23a62f3a-afddd0b555cmr143308466b.35.1755591143820;
+        Tue, 19 Aug 2025 01:12:23 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdd01096csm949783566b.88.2025.08.19.01.12.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 01:12:23 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 19 Aug 2025 10:14:14 +0200
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] arm64/sysreg: Replace TCR_EL1 field macros
-In-Reply-To: <b63b6344-ab7c-43d8-b418-e030344dfd7c@arm.com>
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
-	<20250818045759.672408-3-anshuman.khandual@arm.com>
-	<87jz30my30.wl-maz@kernel.org>
-	<b63b6344-ab7c-43d8-b418-e030344dfd7c@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 86.149.246.145
-X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, broonie@kernel.org, ryan.roberts@arm.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Will Deacon <will@kernel.org>, iivanov@suse.de, mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
+Message-ID: <aKQyViTbXAsFEuT7@apocalypse>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
+ <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_011224_810559_A723B05F 
-X-CRM114-Status: GOOD (  33.11  )
+X-CRM114-CacheID: sfid-20250819_011226_142097_0A4DD1EB 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +108,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 07:46:50 +0100,
-Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+Hi Stanimir,
+
+On 10:40 Tue 19 Aug     , Stanimir Varbanov wrote:
+> Hi Andrea,
 > 
+> On 8/11/25 5:46 PM, Andrea della Porta wrote:
+> > From: "Ivan T. Ivanov" <iivanov@suse.de>
+> > 
+> > This driver provide pin muxing and configuration functionality
+> > for BCM2712 SoC used by RPi5. According to [1] this chip is an
+> > instance of the one used in Broadcom STB  product line.
+> > 
+> > [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+> > 
+> > Cc: Jonathan Bell <jonathan@raspberrypi.com>
+> > Cc: Phil Elwell <phil@raspberrypi.com>
+> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> > Reviewed-by: Phil Elwell <phil@raspberrypi.com>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  drivers/pinctrl/bcm/Kconfig           |   13 +
+> >  drivers/pinctrl/bcm/Makefile          |    1 +
+> >  drivers/pinctrl/bcm/pinctrl-brcmstb.c | 1197 +++++++++++++++++++++++++
+> >  3 files changed, 1211 insertions(+)
+> >  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+> > 
 > 
+> <snip>
 > 
-> On 18/08/25 9:16 PM, Marc Zyngier wrote:
-> > On Mon, 18 Aug 2025 05:57:57 +0100,
-> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-> >>
-> >> This just replaces all used TCR_EL1 field macros with tools sysreg variant
-> >> based fields and subsequently drops them from the header (pgtable-hwdef.h).
-> >> While here, also drop all the unused TCR_XXX macros from the header.
-> >>
-> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >> Cc: Will Deacon <will@kernel.org>
-> >> Cc: Marc Zyngier <maz@kernel.org>
-> >> Cc: Mark Brown <broonie@kernel.org>
-> >> Cc: kvmarm@lists.linux.dev
-> >> Cc: linux-arm-kernel@lists.infradead.org
-> >> Cc: linux-kernel@vger.kernel.org
-> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> >> ---
-> >>  arch/arm64/include/asm/assembler.h         |   6 +-
-> >>  arch/arm64/include/asm/cputype.h           |   2 +-
-> >>  arch/arm64/include/asm/kvm_arm.h           |  28 +++---
-> >>  arch/arm64/include/asm/kvm_nested.h        |   6 +-
-> >>  arch/arm64/include/asm/mmu_context.h       |   4 +-
-> >>  arch/arm64/include/asm/pgtable-hwdef.h     | 107 +++------------------
-> >>  arch/arm64/include/asm/pgtable-prot.h      |   2 +-
-> >>  arch/arm64/kernel/cpufeature.c             |   4 +-
-> >>  arch/arm64/kernel/pi/map_kernel.c          |   8 +-
-> >>  arch/arm64/kernel/vmcore_info.c            |   2 +-
-> >>  arch/arm64/kvm/arm.c                       |   6 +-
-> >>  arch/arm64/kvm/at.c                        |  48 ++++-----
-> >>  arch/arm64/kvm/hyp/include/hyp/switch.h    |   2 +-
-> >>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |   2 +-
-> >>  arch/arm64/kvm/hyp/nvhe/switch.c           |   2 +-
-> >>  arch/arm64/kvm/hyp/nvhe/tlb.c              |   2 +-
-> >>  arch/arm64/kvm/hyp/vhe/tlb.c               |   2 +-
-> >>  arch/arm64/kvm/nested.c                    |   8 +-
-> >>  arch/arm64/kvm/pauth.c                     |  12 +--
-> >>  arch/arm64/mm/proc.S                       |  29 +++---
-> >>  tools/arch/arm64/include/asm/cputype.h     |   2 +-
-> >>  21 files changed, 101 insertions(+), 183 deletions(-)
-> > 
-> > [...]
-> > 
-> >> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> >> index 888f7c7abf54..b47d6d530e57 100644
-> >> --- a/arch/arm64/kvm/arm.c
-> >> +++ b/arch/arm64/kvm/arm.c
-> >> @@ -2000,10 +2000,10 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
-> >>  
-> >>  	tcr = read_sysreg(tcr_el1);
-> >>  	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
-> >> -		tcr &= ~(TCR_HD | TCR_HA | TCR_A1 | TCR_T0SZ_MASK);
-> >> -		tcr |= TCR_EPD1_MASK;
-> >> +		tcr &= ~(TCR_EL1_HD | TCR_EL1_HA | TCR_EL1_A1 | TCR_EL1_T0SZ_MASK);
-> >> +		tcr |= TCR_EL1_EPD1_MASK;
-> > 
-> > Except that none of that code is about EL1. At all.
-> > 
-> >>  	} else {
-> >> -		unsigned long ips = FIELD_GET(TCR_IPS_MASK, tcr);
-> >> +		unsigned long ips = FIELD_GET(TCR_EL1_IPS_MASK, tcr);
-> >>  
-> >>  		tcr &= TCR_EL2_MASK;
-> >>  		tcr |= TCR_EL2_RES1 | FIELD_PREP(TCR_EL2_PS_MASK, ips);
-> >> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> >> index 0e5610533949..5f0f10ef38f0 100644
-> >> --- a/arch/arm64/kvm/at.c
-> >> +++ b/arch/arm64/kvm/at.c
-> >> @@ -134,8 +134,8 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
-> >>  	tbi = (wi->regime == TR_EL2 ?
-> >>  	       FIELD_GET(TCR_EL2_TBI, tcr) :
-> >>  	       (va55 ?
-> >> -		FIELD_GET(TCR_TBI1, tcr) :
-> >> -		FIELD_GET(TCR_TBI0, tcr)));
-> >> +		FIELD_GET(TCR_EL1_TBI1, tcr) :
-> >> +		FIELD_GET(TCR_EL1_TBI0, tcr)));
-> > 
-> > This is the reason number one why I dislike this patch.
-> > 
-> > Here, we deal with both the EL1&0 *and* the EL2&0 translation
-> > regimes. And I left the original definition *on purpose* so that
-> > nobody would read this code as being EL1-only. Now, you will glance
-> > over it with warm fuzzy feeling that you know what this is about --
-> > purely EL1. And that's what bugs are made of.
-> > 
-> > Of course, nothing changed functionally. But is it better? No.
+> > +static int brcmstb_pinctrl_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device_node *np = dev->of_node;
+> > +	const struct brcmstb_pdata *pdata;
+> > +	const struct of_device_id *match;
+> > +	struct brcmstb_pinctrl *pc;
+> > +	const char **names;
+> > +	int num_pins, i;
+> > +
+> > +	match = of_match_node(brcmstb_pinctrl_match, np);
 > 
-> Just wondering - will it be better to use TCR_EL1/TCR_EL2 definitions
-> conditionally for EL1&0 and EL2&0 translation regimes as applicable
-> ?
+> The 'match' variable is needless, you can drop it.
 
-Write the code, look at the result, realise this is totally
-useless. Because TCR_EL1 and TCR_EL2 *WHEN E2H==1* are designed to
-have the same layout.
+you mean something like this?
 
-> Could there any other better method here ? Because the current
-> situation where there are some custom TCR macros, some tools sysreg
-> generated macros, and then those macros getting used in an adhoc
-> manner in different places, is not very consistent either.
+pdata = of_match_node(brcmstb_pinctrl_match, np)->data;
 
-The better way is to leave this stuff alone. Honestly, I don't see any
-improvement in repainting the KVM code to make it less readable.
+I thought that kind of compact code was not really the way to go,
+at least taking a look at other driver exmaples: there's only one
+avoiding the intermediate variable and many others using it (although
+in some cases they also check for null, so in that case is fully
+justified). Anyway, I've no preference on that so I can proceed with
+your suggestion, unless anyone has something against it.
 
-If anything, define the old macros in terms of the new ones, and move
-them to be KVM-private.
+Many thanks,
+Andrea
 
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+> 
+> > +	pdata = match->data;
+> > +
+> 
+> <snip>
+> 
+> ~Stan
+> 
 
