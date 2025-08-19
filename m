@@ -4,98 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0295CCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C594ACA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PIjZ+DdmvuLwnrpTYlLbFeMpxoFxo/PTXBFZfTSGBg=; b=zQiK2imchx/EUvR+KNCf9gTEZ7
-	FVhEdlgE7/mBU+spCdP4nnyg+MuPngAeTnSTr0fHjHK0BRqKqkPoVt+o/kK//OtJDF929grkTuvk0
-	wINnc/kvFf+bT3mzmTe9Jqkv/vGb243id3UYHVN7zyBqd/kkbcCY5QUD5d4Yo4vBjmsK0tq4bdMHo
-	xPHxu50y/J9JR08eszkGgsWvcTS1A0DWBKXbHzDiDMR9GxfpmpYlhC+r9+FvL5UXZSlKEecILLWxn
-	Y/frD/RYcKLrOCDOKFCWm7G/SYRvvKNZDvYaL4FJfXzXkv7RXGgUBDtPRx+Rpab8h4gsk16Fn/KYq
-	UOH+84UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vd1fVjfecrNzv67FjQmaF3qTs66SkKr00KIyJJ5OAnY=; b=Qzqcdy5OnVh8fOf+kvhAlnghfe
+	Q4TMOjR5ZtbGi6ZnXA8F9gtEgxsocTdvMSov+9gzqrl21LzSQWLk5VtlkCso3Vug+CqGaOWOUk1ck
+	2hEwyHldx8WdAzH1M+tWK+pvBi/8suTf8ZN3p+jFdd8jUguMxjsE0ii2iGgZjdqXJA82HzK0iE71S
+	wiqDeR4tuFv3xdHBmAxw0z5I/puvG3tIt7yJI4aCr1/mPUPcq7jboJelsdNz9DLfEX5cAOxg9GHxD
+	D5vKf48CCndJWTo1HEor6Xh3a3mVywTIl+y2POEiFu542EV6f3026LsOVRpMrVJTiEkI/9VzojbnU
+	ComY72oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoRv5-0000000BOif-3nl2;
-	Tue, 19 Aug 2025 19:22:55 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uoRvC-0000000BOtT-2Z7K;
+	Tue, 19 Aug 2025 19:23:02 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoP6A-0000000B0E7-06vw;
-	Tue, 19 Aug 2025 16:22:11 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-76e2eb20a64so5935838b3a.3;
-        Tue, 19 Aug 2025 09:22:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755620529; x=1756225329; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2PIjZ+DdmvuLwnrpTYlLbFeMpxoFxo/PTXBFZfTSGBg=;
-        b=SC49yUJq3zSCugfEnQ5MS4dXmectgAv/hijJ1kCXrH2u7QuIWVfi2q4Yd+PkIxX7MA
-         AAbbDYirrvl11yhQpJv1+sDDCp1W5wWiaYUboOJdFYNfvgzMnkzaxrwK7alCdoIbBU7k
-         3FBo/FbTiU+Ljqu2XE1xCiSkyXxyu3BdphcJIEy2nGTN3X0Lrt6nzHlpH0QNMIcqkH7l
-         g3F+yuj/f1Byu2RjGNerjM6HisT3a+RmOkCTZ5OZsMVrZqrHoloaSj/+5kj9G6nljE71
-         LR/UCCOZNOs8PsXGCVz83Yz8RtH+vg/wYAja/X5kyoSOcdQKyhwGz4FlbQLWtZ+VsSxq
-         CdUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755620529; x=1756225329;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2PIjZ+DdmvuLwnrpTYlLbFeMpxoFxo/PTXBFZfTSGBg=;
-        b=qsL4Ej/V4+10/Lii4JQHsHphsMFodzl8CizoTwOLMNC/MPeWoUSAubhnZcf3+rFhUH
-         qM6rMly7UWB9nyWtDkaHjarAiiikXQ/2UxfPDeseL3suAdrPrf6f7f/LBVQIxYEM9FPu
-         2oZTjXs/SnSlWkpHgCOx4HBcUSWk6gMnjn5/uwhWUm67BpHgvYa+QwyFph8GYNTuWQUT
-         VnKdTbC0QWeltQDo55rZ+eQLTFE2El+LJ+gYjTTBh1w+l/UUdo6mfNOK4FHfyGPPjelW
-         vF589HFBAxdFiponVfyMx1CptA2C/sC0oJXUh77oCQ/9xp1ucLsW+ToM9ob3T+DXRxzs
-         X7Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCUF7J0Sy9Ali7R6kVfb3vJ/YvAFWg74KWcc4SmL2aWjYG+hpyyPvckuTQfdL/jG1gYimR6g6YQni7N//T6+Lxjf@lists.infradead.org, AJvYcCWwaOhGP7mWHTO7pn17LV7MwCbgDhIWFXs18ZMujlgrRho6hNhiAl4ndrwPOJtcNeC+O3pvU6VqqbQ5Dw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHZiraq8uoV8G+lHQwc6PXZnGw1Wgw6jPBR2MamwafAyZ+jYok
-	GL3RE46X8AF2AwAPqe5Gdw1QkPn40pqdXjnUVTJ9lOvdsTUaaQZTfvEC
-X-Gm-Gg: ASbGnctNdt27GpzPiYuTkN6ow0dDe99ohJbAR0akut9paP7UKAG63eUXfxUmlYpgz+Y
-	6gXM9QEwBGrFDsFDhIEg/v1PWR8UFJT1Vep7ayS2mWmqMlL+103qaWnIl0qgxkyC82xLHuctdq+
-	+HfJLPqlzk1kgtrp2UudG/dxOxAMJZPbQ4Prk1EU6RpMv+f4L/5Nrkjt9DxJXHd1K/KN5fnuuGU
-	bhW0kIyrKLskXvWipsxx2e9iLHoPA4Nk8SoOleRA2NpgrTZWuTkox5AfNlfhH7V/lH9W2W3VDYk
-	sJ/hYzA35aGytsVz+Miz0vASZ/3ICOyjEfRsVB9FFj0z9GMlxsFTzLxfz6xDs60zUnEDaWyMG2O
-	8TnfptW3FfQPLMqwj+PYkVGzp8/0DwSxhVrSb9Nc5oCIetldaDJCo1h9bcKP/J8Q=
-X-Google-Smtp-Source: AGHT+IE1/3he44rcwmPwhGdP/2lEsUGbA2b74tOIcgVsabuA/J7rKhxfaf9z31Cj2VPPRLhP8RZaew==
-X-Received: by 2002:a17:903:3804:b0:244:55b5:7cfc with SMTP id d9443c01a7336-245e047bc13mr43207695ad.37.1755620528713;
-        Tue, 19 Aug 2025 09:22:08 -0700 (PDT)
-Received: from [192.168.0.124] (061092221177.ctinets.com. [61.92.221.177])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245ed4cc807sm1323105ad.82.2025.08.19.09.22.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 09:22:08 -0700 (PDT)
-Message-ID: <66ec7bd7-6b14-4766-97a1-3928d9129880@gmail.com>
-Date: Wed, 20 Aug 2025 00:22:01 +0800
+	id 1uoP83-0000000B0R5-2FYf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 16:24:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Vd1fVjfecrNzv67FjQmaF3qTs66SkKr00KIyJJ5OAnY=; b=dX2G6QfFWoyouzS9hpaNTYhXe7
+	fMvuvgVpl32Z6z2GGcajeKuyu2uwqMX8YFi3nXNAtIF/APmT/AuOTeC1SiolObvTzZdNNom2HaQZC
+	qs2Can+jaTis9L6ghjqDlg8GQgXX7CCgXaEHKoEb30L/4lwy96kOspwgVa6Y7ZH+FVzU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uoP7w-005DFz-Gs; Tue, 19 Aug 2025 18:24:00 +0200
+Date: Tue, 19 Aug 2025 18:24:00 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: YijieYang <yijie.yang@oss.qualcomm.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, stable+noautosel@kernel.org,
+	Yijie Yang <quic_yijiyang@quicinc.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v4 4/6] arm64: dts: qcom: qcs615-ride: Enable ethernet
+ node
+Message-ID: <813548c2-02be-40fa-bb6b-00c4e713d17c@lunn.ch>
+References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
+ <20250819-qcs615_eth-v4-4-5050ed3402cb@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/9] nvme: apple: Add Apple A11 support
-To: Christoph Hellwig <hch@lst.de>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Sagi Grimberg <sagi@grimberg.me>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- iommu@lists.linux.dev, linux-nvme@lists.infradead.org
-References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
- <20250818-t8015-nvme-v2-7-65648cd189e0@gmail.com>
- <20250819083038.GA1901@lst.de>
-Content-Language: en-MW
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20250819083038.GA1901@lst.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250819-qcs615_eth-v4-4-5050ed3402cb@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_092210_070844_485A0C4B 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20250819_092407_572456_EF894A66 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +	mdio: mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		rgmii_phy: phy@7 {
+> +			compatible = "ethernet-phy-ieee802.3-c22";
+> +			reg = <0x7>;
+> +
+> +			interrupts-extended = <&tlmm 121 IRQ_TYPE_EDGE_FALLING>;
 
+PHY interrupt are always level, never edge.
 
-On 19/8/2025 16:30, Christoph Hellwig wrote:
-> On Mon, Aug 18, 2025 at 04:43:00PM +0800, Nick Chan wrote:
->>  };
->>  
->> +struct apple_nvme_hw {
->> +	bool has_lsq_nvmmu;
->> +	u32 max_queue_depth;
->> +	void (*submit_cmd)(struct apple_nvme_queue *q, struct nvme_command *cmd);
-> 
-> Please stick to 80 character lines for the NVMe code.
-> 
-> Also I don't think an indirect call here is a good idea.  This is right
-> in the command submission fast path.  A simple branch will be a lot
-> faster.
+    Andrew
 
-Ack for both of these points will check the other codes that got more
-indented as well.
-> 
->> +
->> +	if (q->is_adminq)
->> +		memcpy(&q->sqes[tag], cmd, sizeof(*cmd));
->> +	else
->> +		memcpy((void *)q->sqes + (tag << APPLE_NVME_IOSQES), cmd, sizeof(*cmd));
-> 
-> This could use a helper and / or comment to make the calculation
-> more obvious.
-
-This part of the code could be further simplified and after that
-it is similar to nvme_sq_copy_cmd() in pci.c:
-
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index f3999b8ef7ab..ff4c2f87770c 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -295,20 +295,17 @@ static void apple_nvme_submit_cmd_t8015(struct apple_nvme_queue *q,
- 				  struct nvme_command *cmd)
- {
- 	struct apple_nvme *anv = queue_to_apple_nvme(q);
--	u32 tag;
- 
- 	spin_lock_irq(&anv->lock);
- 
--	tag = q->sq_tail;
--	q->sq_tail += 1;
--
--	if (q->sq_tail == anv->hw->max_queue_depth)
--		q->sq_tail = 0;
--
- 	if (q->is_adminq)
--		memcpy(&q->sqes[tag], cmd, sizeof(*cmd));
-+		memcpy(&q->sqes[q->sq_tail], cmd, sizeof(*cmd));
- 	else
--		memcpy((void *)q->sqes + (tag << APPLE_NVME_IOSQES), cmd, sizeof(*cmd));
-+		memcpy((void *)q->sqes + (q->sq_tail << APPLE_NVME_IOSQES),
-+			cmd, sizeof(*cmd));
-+
-+	if (++q->sq_tail == anv->hw->max_queue_depth)
-+		q->sq_tail = 0;
- 
- 	writel(q->sq_tail, q->sq_db);
- 	spin_unlock_irq(&anv->lock);
-
-And this seems obvious enough on its own, and should not need comments.
-
-> 
->> +	anv->hw = (const struct apple_nvme_hw *)of_device_get_match_data(&pdev->dev);
-> 
-> Do we even need this cast?
-
-Don't think so, will remove.
-
-Best regards,
-Nick Chan
+---
+pw-bot: cr
 
 
