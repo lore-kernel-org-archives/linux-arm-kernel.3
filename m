@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65065CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB7CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1QEM++Y9PDjpkgY4pofg0fFVzuMEU/xHQJuoKwCPBg=; b=n1d3wx4s60JBKIhF/N4+8HzIKI
-	Q5XC7WOG8Cx1DbdcxL03Cj11TpQuLNthRdcYgj66w5uXo+LLoWFy2pN4t6PXGi6VcLn+K8fMJry3d
-	Z2FcgnYxuh1hMFhpEVbYyUi8sLDkHv6P63vqKeTHuCulTGMwT5scnYzo+2fNOUZj2RfIIwjT2xxkA
-	ZlXnOgrO/e8e1h0QRM0/QoNGra2ZJX8Qif7e3Rcp5V8sEGKBRHsy1oJrLNi2dvm7d20eszn/negdM
-	ZH+6l3p7sIs3fqK36GeGZrsJqFPakM6v6xIBwsJWN6o6QhbsB330ooUYuvpo+ObH6E5uT1FSmVW0k
-	8/D0+Jvw==;
+	bh=N5zf4qVfX/g7gC0JgqC0Ndc8AyQB5quvTRKB0s0dwoU=; b=NoSNRfDp6iE39xTQnSPSyw/Yzn
+	9pMFLCEKvVhJ6NeK2Q6jeve9Cootfga9OvNQPh15AXtEdI9czt2RW4Yv3svBuFyLThxLt8GW5Q0Sp
+	eWlgehLubtp5gO9F7Asflg/qHHiBeGk7s3AlY6pJdlOApPws9MnoDHwxvbAinn36hNV0zamnQUvxn
+	qUd4c0haaXza60nCVftXPQpXlTZ34ZC+nzMlm4qfU9GV1TVBEDW//mG1qyeCF/Wc0ZfBUaJNdk66h
+	qP3pQ1X3ZPTd1kcfPwXANgDeyghFUud+UBbVB97X4oj8c61FueYJ7cxKXp+lWawxLGE1D53kpisej
+	B01juoKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGiU-00000009fQp-3m1w;
-	Tue, 19 Aug 2025 07:25:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uoGl5-00000009fpQ-0Wrh;
+	Tue, 19 Aug 2025 07:27:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGD5-00000009aMn-3IvM;
-	Tue, 19 Aug 2025 06:52:43 +0000
+	id 1uoGDV-00000009aQB-1UJL;
+	Tue, 19 Aug 2025 06:53:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 35633613AE;
-	Tue, 19 Aug 2025 06:52:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC3FC4CEF1;
-	Tue, 19 Aug 2025 06:52:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF34B41738;
+	Tue, 19 Aug 2025 06:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB460C4CEF4;
+	Tue, 19 Aug 2025 06:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755586362;
-	bh=qo6fv3qjiH+tLfWV2opDEl1dq0elK7W7rPG/KXRhcJQ=;
+	s=k20201202; t=1755586388;
+	bh=SZzeGsLdORko4EIkIilRSYDe+PIqR32blCLx0Ud5yaE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q3Oo4us9UkswI6jW55B//FMxHKB89RJi9IKt0c8jN34d0XB1i5Y9p7SYieqIs4Trf
-	 xUjFI3Zy84CC00Eu4ye7Li7Y5lXrFeS81f6dUBldtiHqZejYktNBXDprVsPPp0KHA9
-	 vhzJPegQVH8sxCUwqWHwMEA8RJXYm73fqvTexiBT7ipVknQVe6N5JhFlwGL42ILUfT
-	 odz/yPzx1cIcbHE106pP8e/WJpJr5vlWzt3XMTjmMRoXm8H6JLeidfARz3jLgJxk4L
-	 S7DcIUwa1zj7jQQQ8Lyrcc562tkAZhnnFRhMXhhw7YMsUGmQeeALnX+vgM0XRWAQRp
-	 OuU/J0zbEMelQ==
-Message-ID: <0b866807-010f-4f17-b0bd-cc44a0b530f5@kernel.org>
-Date: Tue, 19 Aug 2025 08:52:38 +0200
+	b=sV1B4pQfTdHsKrgjYmdcAjGS5qTFjAaVMyErTmz91qe24pOYF9nISv5/OGBgUtQTz
+	 85MxRyusnTSq3az2Ypf5AlA8qBr54RUFBcKiR9W5dLDp+f4YVIXeWzfXc50aRAZiOz
+	 xRkYHpJWZQOnutMu/J0eEx1BW/FGc1ucbR93am0IaRgL+XBznKyelfHnG7S6PODQ4H
+	 G+DytLTbaU7vJSBTTyFcG+/pMWv9j5iTZxx0B6BKEDdSAAKuR0J/yGtXZ32EkRGo0L
+	 6oh4Ks+VaqTsgSqj4MTnPfhXUwHa6e6SNRN82faDVvdK9Cihl442t+B1MpvNgSf6eH
+	 ekP4mX8eHdahA==
+Message-ID: <197e3cb9-d3bb-4f37-9832-b4b82c4ca77f@kernel.org>
+Date: Tue, 19 Aug 2025 08:53:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arch: dts: mediatek: mt8390: add Grinn GenioSBC-700
+Subject: Re: [PATCH 2/4] dt-bindings: arm: mediatek: Add grinn,genio-700-sbc
+ as a valid platform
 To: Mateusz Koza <mateusz.koza@grinn-global.com>,
  angelogioacchino.delregno@collabora.com, robh@kernel.org
 Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
@@ -53,7 +54,7 @@ Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
  marcin.czarnecki@grinn-global.com, b.bilas@grinn-global.com
 References: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
- <20250815160837.371592-2-mateusz.koza@grinn-global.com>
+ <20250815160837.371592-3-mateusz.koza@grinn-global.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,9 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250815160837.371592-2-mateusz.koza@grinn-global.com>
+In-Reply-To: <20250815160837.371592-3-mateusz.koza@grinn-global.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_235309_438838_23B1D6EF 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,101 +121,32 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/08/2025 18:08, Mateusz Koza wrote:
-> Add support for Grinn GenioSBC-700. The Grinn GenioSBC-700 is a
-> single-board computer based on the MediaTek Genio 700 SoC. Its device
-> tree is split into seperate SoM (.dtsi) and SBC (.dtsi) files, which are
-> combined in the SoC-specific .dts file.
+> Add device tree bindings support for the Grinn GenioSBC-700, a
+> single-board computer based on the MediaTek Genio 700 SoC.
 > 
-> This separation enables:
-> - Reuse of the SoM-level .dtsi for future evaluation boards.
-> - Easy creation of DTS files for pin-to-pin compatible SoCs (e.g., Genio 510)
+> The new compatible string "grinn,genio-700-sbc" identifies this baord in
+> the device tree bindings, enabling future board-specific adjustments if
+> required.
 > 
 > More details about the hardware:
 > - https://grinn-global.com/products/grinn-geniosom-700
 > - https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
 > 
 > Signed-off-by: Mateusz Koza <mateusz.koza@grinn-global.com>
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-It is never "arch".
-
 > ---
->  arch/arm64/boot/dts/mediatek/Makefile         |   1 +
->  .../mediatek/mt8390-grinn-genio-700-sbc.dts   |  19 +
->  .../dts/mediatek/mt8390-grinn-genio-sbc.dtsi  | 673 ++++++++++++++++++
->  .../dts/mediatek/mt8390-grinn-genio-som.dtsi  | 208 ++++++
->  4 files changed, 901 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-> index 1dcea8b9aed9..7383d75d8041 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk-hdmi.dtbo
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
-> new file mode 100644
-> index 000000000000..44bba1ff74ae
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
-> @@ -0,0 +1,19 @@
-> +/*
-
-Missing SPDX.
-
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
-
-> + * Copyright (C) 2025 Grinn sp. z o.o.
-> + * Author: Mateusz Koza <mateusz.koza@grinn-global.com>
-> + */
-> +/dts-v1/;
-> +
-> +#include "mt8188.dtsi"
-> +#include "mt8390-grinn-genio-som.dtsi"
-> +#include "mt8390-grinn-genio-sbc.dtsi"
-> +
-> +/ {
-> +	model = "Grinn GenioSBC-700";
-> +	compatible = "grinn,genio-700-sbc", "mediatek,mt8390",
-> +		"mediatek,mt8188";
-
-1. Misaligned.
-
-2. Missing bindings.
-
-
-> +	memory@40000000 {
-> +		device_type = "memory";
-> +		reg = <0 0x40000000 1 0x00000000>;
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
-> new file mode 100644
-> index 000000000000..f6d19ee158d5
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
-> @@ -0,0 +1,673 @@
-> +/*
-
-We cannot take code on such license.
-
+> diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> index a7e0a72f6e4c..ad7fb85e3559 100644
+> --- a/Documentation/devicetree/bindings/arm/mediatek.yaml
+> +++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> @@ -431,6 +431,7 @@ properties:
+>        - items:
+>            - enum:
+>                - mediatek,mt8390-evk
+> +              - grinn,genio-700-sbc
+Don't break the ordering.
 
 Best regards,
 Krzysztof
