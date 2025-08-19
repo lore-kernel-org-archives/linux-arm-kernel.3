@@ -4,86 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298BCCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF022CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XdrGg3IWDU/GY25U8ubTbUehNz+Art3orP2VGI0bdnE=; b=e2dPTrchtVmLtrPsvxsw0vS9z3
-	KlXqhju7JLGnT1DeNsq1TFx7hDKgoKux6AcfCP8QZRkzT1a4lEbkF+gxS7qJA76gtB6fp18ojB0xF
-	QeGZVxFxYiO89EmfunMB4wyd6yNl2xppqjYenVY8nFMb5Y0xmRBK3MHWcSy77HiO8W4ZkwLt7R4J6
-	8aik9dDxU2Qxm5qhApYiSUfDV6oaknwWDFHa1xi6ivz5sg+W6H5M4k+8uMdukX0yXbOtjyIZuub7u
-	ggrrlBydY9goprm97deZ0dS31IzRxx2sm+DZTkiz8v4RBuG92hImCB8O9ga3q14kRX+htTvnNqgF5
-	0uBXNl1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RY8zvZa1mLQBR0cJGzsxE+voOQo4EjYhIIH3Gpk5nYY=; b=K4JNfcjX0NLAMk
+	mF5ecBrzMhpAsygVvxWWqMZx63rQhIQErGb500zsaUdqmwhKrCNvzZaGHsX/sRL/8XE5ws06s4Z72
+	G4L3okh28iFf9yhs627i39CUedgsa6mL/3xdONjs5Ydh/yiQqprQI5+egO3KMgafGK5KDgRC0wk+m
+	b+xHpgxSVbsesMVi1peOBokMxC8FZfmw4cyGYRCSyRBeTeuTSonVN42VkkgzkhEM8S0zr7lrOajhO
+	zR16fjOJ0PL92KXAbNE+nS0TWkVjx0kjzs4VgC4ITve/OYBsT/u2I0yNHAn55PiXmnXacqZlM4fWj
+	I1RgLadRezDptqEjjr7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTid-0000000Bcsr-2mNP;
-	Tue, 19 Aug 2025 21:18:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uoTnv-0000000BdAS-30GL;
+	Tue, 19 Aug 2025 21:23:39 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNfK-0000000Annq-0955;
-	Tue, 19 Aug 2025 14:50:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1755615020;
-	bh=Yiwz8AGMAP/ESeshF5msVk8My9HQeNxOKXjxXregOWI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Uew5WgqkH/9s5sSWxVLaf7HvDET5RtGtF94110P+MTIAkk7vEoSsUNp5X96yaMdaT
-	 e8Nka3IY9C0PDdvPqOAAyXANfWREhSPi1vyhYj9X9dmVsBA0GaN4HZGG/53ZOyRC13
-	 kqup/Woydv/9Oi+Zu3SmgB6R32sEfFCFrpnEnm0soK7Jyy3LYzJfMjTeQBI36POxoZ
-	 zwphSo61Azlnb+hb3a72Abj7CFzdisJZc+B8vFXZbYNxWm6EHeUNfP8RCQ6cVfhhvA
-	 i/l0NpUzGtSMfvwIpNmIMzO7JW8F7sYZrWl8L599DpydIaBOHxYA3XI3F8Dy/iQYjW
-	 Jtnsz6h+hXxqg==
-Received: from jupiter.universe (dyndsl-091-248-189-012.ewe-ip-backbone.de [91.248.189.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0751017E110D;
-	Tue, 19 Aug 2025 16:50:20 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id B77F1480044; Tue, 19 Aug 2025 16:50:19 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 19 Aug 2025 16:50:13 +0200
-Subject: [PATCH v4] arm64: dts: rockchip: add USB-C support for ROCK
- 5B/5B+/5T
+	id 1uoNjj-0000000Aoaq-0ghI;
+	Tue, 19 Aug 2025 14:54:56 +0000
+Received: from [192.168.1.106] (mob-5-90-52-92.net.vodafone.it [5.90.52.92])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 921D52391;
+	Tue, 19 Aug 2025 16:53:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755615235;
+	bh=Uu4/Kt51iG5RwW+QQycMfaL6T1BbngTCS7sEp6hsgVU=;
+	h=From:Subject:Date:To:Cc:From;
+	b=jsIg4ePx7VLhm2dRbRPrNhNbpAEPXJxuthzfud/jByC6kR2594I7TRzRc90yeCIFJ
+	 QGfHGsOm03lq3Q+j2tep+wvXGSeekCgRS4UQnHg+dYEifmP1hTZ9NghaxFqS9kQ7XE
+	 Y90PHo9EeFMD2HNGJVZ99/G7eAH+qz1lqOS3vpf0=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: [PATCH v3 0/8] media: Introduce V4L2 extensible parameters
+Date: Tue, 19 Aug 2025 16:54:41 +0200
+Message-Id: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250819-rock5bp-for-upstream-v4-1-7a2365ce7176@kernel.org>
-X-B4-Tracking: v=1; b=H4sIACSPpGgC/4XNQQrCMBCF4atI1o5kksZWV95DXDTJRIPalEktS
- undbd2IiLj8H8w3g8jEkbLYLgbB1MccUzNFsVwId6qbI0H0UwsllZFaFcDJnY1tISSGW5s7pvo
- KwVfGSmnNRlsxnbZMId5f7P4w9SnmLvHj9aXHef0D9ggS1gpL8gGNxc3uTNzQZZX4KGaxV2/Fy
- OqHomalLKXWzmHt1Jei30qFvxQNCB510M6Tq9buQxnH8QmTAAXCRQEAAA==
-X-Change-ID: 20250324-rock5bp-for-upstream-fd85b00b593b
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+X-B4-Tracking: v=1; b=H4sIADGQpGgC/43NQQqDMBCF4atI1k1JopLYVe9RuojjWAfUSCLBI
+ t69USh0UWiXb2C+f2UBPWFgl2xlHiMFcmMa+Slj0NnxgZyatJkSqhRaSI7LjGOgukc+WW8HnNE
+ HHm1PjZ3TMweTy1a3JYCoWWImjy0tR+J2T7ujMDv/PIpR7tc3bn7jUXLBqxaUhgq0MnClBm1wY
+ +2sb87gBrY3ovpwpfjDVcnVCKaSBqEo8i/utm0vp5xCAy8BAAA=
+X-Change-ID: 20250701-extensible-parameters-validation-c831f7f5cc0b
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9307; i=sre@kernel.org;
- h=from:subject:message-id; bh=Yiwz8AGMAP/ESeshF5msVk8My9HQeNxOKXjxXregOWI=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGikjyuF3J7QK518kBCdeKNz/W3LNWSqA/ttL
- wJxLjmSvA1+p4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJopI8rAAoJENju1/PI
- O/qaRMQP/1mdQ7NjIKQ2Br/iT5KidWYnSB8xTJJYCyrTkoCpqI8M73kPblwS8N3W4EFUZPTmCdV
- 6U2/5LAp/Ln6dqbLfxb76vwCIDIKf4E5XjWc87T5k28vcPv7pj6KLhza/g5ID2NhFIden45EChL
- 0VqxGmaV97BSGCZOh+UHwuobElXTRZMHkRjLMKUpe/pgrnDC5hQTgoB14+sqYY+RhmsFgXtd8Vm
- HZvIFl7Cei/4RGHE7NjpW/O4JMNtI897jdOociyYB09SvWIUpn2tTfj8miYUs9l0MLxPhjZMFXM
- u1UnhAL5j1P4EljoNr6Q5hWKTw7Po/l2iApVh0Xo9dzwb1mrqr2o6g9bACHKbCgV/FZWzqPsqlm
- ilR3vYrL+5/QYMtxEU/2OVzt59yPJ1VRR+wmLg7AA0ZfERa961wf4OLpcD0dl9uJF7/a9wOQ/My
- xqhCPiQpogAioBFugokPwtRMORjBB0SuvzKX5EfkUEeV2OJIzBw1lx37bEW/1ITWn2lAdsNUxZP
- zt4CnCNjj7kigkztz8t8gcHu81IM+wyUJqsKYXAS5OpPL+7rgaxPXM0AyR8UHA3vJmbTwYoXNGE
- GmXrw3EIEBuLor9RcNMtLOP5rjPvOuDKZh/p6glbvS4B0MLyJJ4FfCOhqTh0H+uhWvohWkBHT/B
- eXI9/gU9+nNNitQIyj0slHQ==
-X-Developer-Key: i=sre@kernel.org; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4202;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=Uu4/Kt51iG5RwW+QQycMfaL6T1BbngTCS7sEp6hsgVU=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBopJA62cdLWLMlt6AGMbXTv6os4+LZjbFwR87k6
+ UOq1JnEN5mJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaKSQOgAKCRByNAaPFqFW
+ PKwjD/44m7Qm+dP9cjMiQsenxysuX1jWvVJKqw8ecef/dYrwre9snlps09f/mRC9Q+3KXUTIa7r
+ kcBui+JiXIukGBQMKbrEFdHBJTnkwyeAAyXoQTbtYzdg4FCXF7WkEHQ4fKw7/cRzVAEs2X3Fjmk
+ XzmrzJANUwtUOQ7/JS8BwIk3oVomtIGmPgC+F2yt7tT53IJfrBOCWffc4TdZ7VKXjjv4uJa+0WJ
+ faRYM/zjxzCf1IbXyFUg78B8yiFGYe4twy4je8ZfD3vaUObH8Q2wDH5FTEc5o+eRg23ulelD5wZ
+ X1dSv1qtkDR2xSBuCDpXxjEb1g4gjjveqcYDVvZDNgN4aeQdjsiQX+0qd6c5gC4qyAXuoAfp75g
+ /JfoUX0HyOUNTTymzWdtM9l69CMSlges1WJL5+zpWGcMsPr8+VPSLFLQdJycdioelmdXcJF5e5z
+ bxgcO2UEPJnXPL9BKoP1TMrxeIykTGj7Ak16JTOFBcxWYDU7sxI3L3C6vPrleAF9VuPCgPRbweE
+ 4OK7uS6L09tXd50GLjMaIyQ+xJMkEzk2auupGUco/XinpymbZBLowERQaCv+5kJ3+BSe/MLUX/3
+ rN7lT5bjJeZd33VMefW2sModxyJ5Tz6D/F/BMrIryhmLep2O9F1TEYP5+aMnlPngoGS/N8OHEu+
+ xixlVsAj1k4FUyQ==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_075022_233939_85B417DF 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250819_075455_345003_4638BF22 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,331 +91,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add hardware description for the USB-C port in the Radxa ROCK 5 Model B
-family. This describes the OHCI, EHCI and XHCI USB parts. The DisplayPort
-AltMode is only partially described, as bindings for the necessary
-DisplayPort controller are still being reviewed.
+Extensible parameters meta formats have been introduced in the Linux
+kernel v6.12 initially to support different revision of the RkISP1 ISP
+implemented in different SoC. In order to avoid breaking userspace
+everytime an ISP configuration block is added or modified in the uAPI
+these new formats, which are versionated and extensible by their
+definition have been introduced.
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+See for reference:
+e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
+6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
+
+The Amlogic C3 ISP driver followed shortly, introducing an extensible
+format for the ISP configuration:
+
+6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
+
+with a very similar, if not identical, implementation of the routines to
+validate and handle the ISP configuration in the ISP driver in the
+c3-isp-params.c file.
+
+fb2e135208f3 ("media: platform: Add C3 ISP driver")
+
+With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
+a third user of extensible parameters is going to be itroduced in the
+kernel, duplicating again in the driver the procedure for validating and
+handling the ISP configuration blocks
+
+https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
+
+To avoid duplicating again the validation routines and common types
+definition, this series introduces v4l2-params.c/.h for the kAPI
+and v4l2-extensible-params.h for the uAPI and re-organize the RkISP1
+and Amlogic C3 drivers to use the common types and the helper validation
+routines.
+
+If the here proposed approach is accepted, I propose to rebase the Mali
+C55 driver on top of this series, to use the new common types and
+helpers.
+
+I have been able to test this on RkISP1 but not on C3.
+
+Thanks
+  j
+
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
-This series adds USB-C support for the ROCK 5B, ROCK 5B+ and ROCK 5T.
+Changes in v3:
+- Rebased on latest media-committers/next
+- Take in Dan's suggestion in block size validation
+- Documentation minor spelling fixes
+- Link to v2: https://lore.kernel.org/r/20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com
 
-Now that [0] has been merged, this should finally work reasonably
-stable. Note, that there is a regression in 6.17-rc1, which breaks
-stable operation again. I've send a revert of that in [1]. I think
-it's time to enable the USB-C interface, so that we can claim further
-breaks as proper regressions :)
-
-[0] https://lore.kernel.org/all/20250704-fusb302-race-condition-fix-v1-1-239012c0e27a@kernel.org/
-[1] https://lore.kernel.org/linux-usb/20250818-fusb302-unthreaded-irq-v1-1-3a9a11a9f56f@kernel.org/
-
-Changes in PATCHv4:
- - Link to v3: https://lore.kernel.org/r/20250818-rock5bp-for-upstream-v3-1-d13f3cdec86c@kernel.org
- - Fix ROCK 5T pinctrl DT warning
-
-Changes in PATCHv3:
- - Link to v2: https://lore.kernel.org/r/20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org
- - Rebased to latest for-next branch from Heiko
-   - Dropped merged patches for initial ROCK 5B+ support
- - Renamed series, since it just adds USB-C support now
- - Fix pinctrl for Rock 5B SBU DC pins
- - Also handle ROCK 5T
-
-Changes in PATCHv2:
- - Link to v1: https://lore.kernel.org/r/20250324-rock5bp-for-upstream-v1-0-6217edf15b19@kernel.org
- - Replaced DT binding patch with the version from NAOKI
- - Dropped unused pinctrl for vcc5v0_host_en from the shared DT
- - Moved USB-C SBU DC pins to board specific files, since they differ
-   between Rock 5B and Rock 5B+
- - Added pinmux for SBU DC pins
- - Rebased to latest version of Heiko's for-next branch
- - Disable USB-C on Rock 5B for now
----
- .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 136 +++++++++++++++++++++
- .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  12 ++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  12 ++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    |  14 +++
- 4 files changed, 174 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-index 612808d2b4c5d4c0de998798a0ce3002f64b32e0..f138e8df511a45a3f3de83024f5ed0fb58f38be2 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-@@ -5,6 +5,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
-+#include <dt-bindings/usb/pd.h>
- #include "rk3588.dtsi"
- 
- / {
-@@ -55,6 +56,18 @@ rfkill-bt {
- 		shutdown-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_HIGH>;
- 	};
- 
-+	vbus5v0_typec: vbus5v0-typec {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio2 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vbus5v0_typec_en>;
-+		regulator-name = "vbus5v0_typec";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
- 	vcc3v3_pcie2x1l0: regulator-vcc3v3-pcie2x1l0 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -291,6 +304,76 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2c4 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c4m1_xfer>;
-+	status = "okay";
-+
-+	usbc0: usb-typec@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PB4 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vbus5v0_typec>;
-+		/*
-+		 * When the board is starting to send power-delivery messages
-+		 * too late (5 seconds according to the specification), the
-+		 * power-supply reacts with a hard-reset. That removes the
-+		 * power from VBUS for some time, which resets te whole board.
-+		 */
-+		status = "fail";
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
-+			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
-+			power-role = "sink";
-+			try-power-role = "sink";
-+			op-sink-microwatt = <1000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>,
-+				<PDO_VAR(5000, 20000, 5000)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0xffffffff>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					usbc0_hs: endpoint {
-+						remote-endpoint = <&usb_host0_xhci_to_usbc0>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+					usbc0_ss: endpoint {
-+						remote-endpoint = <&usbdp_phy0_ss>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+					usbc0_sbu: endpoint {
-+						remote-endpoint = <&usbdp_phy0_sbu>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &i2c6 {
- 	status = "okay";
- 
-@@ -445,6 +528,16 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
- 			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	usb {
-+		usbc0_int: usbc0-int {
-+			rockchip,pins = <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		vbus5v0_typec_en: vbus5v0-typec-en {
-+			rockchip,pins = <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
- };
- 
- &pwm1 {
-@@ -860,6 +953,14 @@ &uart2 {
- 	status = "okay";
- };
- 
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	status = "okay";
-+};
-+
- &u2phy1 {
- 	status = "okay";
- };
-@@ -887,6 +988,27 @@ &u2phy3_host {
- 	status = "okay";
- };
- 
-+&usbdp_phy0 {
-+	mode-switch;
-+	orientation-switch;
-+	status = "okay";
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		usbdp_phy0_ss: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&usbc0_ss>;
-+		};
-+
-+		usbdp_phy0_sbu: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&usbc0_sbu>;
-+		};
-+	};
-+};
-+
- &usbdp_phy1 {
- 	status = "okay";
- };
-@@ -899,6 +1021,20 @@ &usb_host0_ohci {
- 	status = "okay";
- };
- 
-+&usb_host0_xhci {
-+	usb-role-switch;
-+	status = "okay";
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		usb_host0_xhci_to_usbc0: endpoint {
-+			remote-endpoint = <&usbc0_hs>;
-+		};
-+	};
-+};
-+
- &usb_host1_ehci {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-index 74c7b6502e4dda4b774f43c704ebaee350703c0d..5e984a44120e4086fce9e7b72b3db1feaa820275 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dts
-@@ -99,12 +99,24 @@ pcie3x2_rst: pcie3x2-rst {
- 	};
- 
- 	usb {
-+		usbc_sbu_dc: usbc-sbu-dc {
-+			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
-+					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
- 		vcc5v0_host_en: vcc5v0-host-en {
- 			rockchip,pins = <1 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
- };
- 
-+&usbdp_phy0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbc_sbu_dc>;
-+	sbu1-dc-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
-+};
-+
- &vcc5v0_host {
- 	enable-active-high;
- 	gpio = <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index 9407a7c9910ada1f6c803d2e15785a9cbd9bd655..8ef01010d985bab42db33f88e5e50a3e96053288 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -38,12 +38,24 @@ &uart6 {
- 
- &pinctrl {
- 	usb {
-+		usbc_sbu_dc: usbc-sbu-dc {
-+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>,
-+					<4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
- 		vcc5v0_host_en: vcc5v0-host-en {
- 			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
- };
- 
-+&usbdp_phy0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbc_sbu_dc>;
-+	sbu1-dc-gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_HIGH>;
-+};
-+
- &vcc5v0_host {
- 	enable-active-high;
- 	gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-index 258c7400301d7f77517197ab433946bbfa39cf63..217954767845a73c7462a71c27c724f1309144eb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-@@ -95,6 +95,20 @@ hp_detect: hp-detect {
- 			rockchip,pins = <4 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	usb {
-+		usbc_sbu_dc: usbc-sbu-dc {
-+			rockchip,pins = <0 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>,
-+					<0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&usbdp_phy0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbc_sbu_dc>;
-+	sbu1-dc-gpios = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
- };
- 
- &vcc3v3_pcie2x1l0 {
+Changes in v2:
+- Make v4l2_params_buffer directly usable
+- Centralize ENABLE/DISABLE flags definition and validation
+- Take in Dan's v4l2_params_buffer_size()
+- Allow blocks to only contain the header if they're going to be
+  disabled
+- Documentation fixes as reported by Nicolas
+- Link to v1: https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com
 
 ---
-base-commit: 7f0817eee7ba40b48e956955d6fd8ba14750168c
-change-id: 20250324-rock5bp-for-upstream-fd85b00b593b
+Jacopo Mondi (8):
+      media: uapi: Introduce V4L2 extensible params
+      media: uapi: Convert RkISP1 to V4L2 extensible params
+      media: uapi: Convert Amlogic C3 to V4L2 extensible params
+      media: Documentation: uapi: Add V4L2 extensible parameters
+      media: v4l2-common: Introduce v4l2-params.c
+      media: rkisp1: Use v4l2-params for validation
+      media: amlogic-c3: Use v4l2-params for validation
+      media: Documentation: kapi: Add v4l2 extensible parameters
+
+ Documentation/driver-api/media/v4l2-core.rst       |   1 +
+ Documentation/driver-api/media/v4l2-params.rst     |   5 +
+ .../media/v4l/extensible-parameters.rst            |  89 ++++++
+ .../userspace-api/media/v4l/meta-formats.rst       |   1 +
+ MAINTAINERS                                        |  10 +
+ .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 263 ++++++----------
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 349 +++++++++------------
+ drivers/media/v4l2-core/Makefile                   |   3 +-
+ drivers/media/v4l2-core/v4l2-params.c              | 123 ++++++++
+ include/media/v4l2-params.h                        | 165 ++++++++++
+ include/uapi/linux/media/amlogic/c3-isp-config.h   |  48 +--
+ include/uapi/linux/media/v4l2-extensible-params.h  | 144 +++++++++
+ include/uapi/linux/rkisp1-config.h                 |  67 ++--
+ 13 files changed, 813 insertions(+), 455 deletions(-)
+---
+base-commit: a75b8d198c55e9eb5feb6f6e155496305caba2dc
+change-id: 20250701-extensible-parameters-validation-c831f7f5cc0b
 
 Best regards,
 -- 
-Sebastian Reichel <sre@kernel.org>
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 
 
