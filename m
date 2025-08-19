@@ -4,129 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A58ECA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DADCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZX4WHq0FHGuUzi7xR9JeLuPrT8yDI2/1ljZuVcjfQm8=; b=04eFmpAOGP9K+7JzijYmuHyI30
-	qZ0p17mxK3Qkn3tvOCUbEL6Qm8CBP8chyHYk8yiJnSgXhmCJPk+ueQsk+NZS/oXHcO0yLNxJqV0E6
-	lYlmLYRh2JFq3nG2G6hJicg97a+TZORHsi50pWghGKIVbWqRnk4nAART6J0pGNfyCcHcVvN1zB5IO
-	xnY0QW1pm+bRIqBilgUaTC0rf2jLegfg3P3yt6SH1j2J4HxR6jjEtXKqJD8O64XS4m7tnyDXOPCjk
-	0/9S5HKFBRbvJ9VFiNq9UvCqMtcrIK9HLamOmr4KxH1wFLGgbhokDs82YVXavI2goIXmdmfOpvCGS
-	I6Oj6oJw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zC8+fLVFG+3OTa8Z2AsJkI4qy5ecQS3/x/aq/r42Ztk=; b=Eqr6ZYx6i1Z3lnwuELllKy5Lu3
+	CNkcnEeXf7WzPJfvUhAR3GM8+tNnpHvOHPXsUDIrUuT/6WyMVux9CLhP68e9dU4PnHoSqq4eAcVgo
+	DzCJHdF5h0DEzWn41uuLh/w7V9LDMZ68BN6yrujz1FFqlbKsIHctz023yM7DMD1OIbEUAywj+CTi5
+	zh6WWPuyKuDrgaDCcDmE03jKG2ng4nrooF1Njb5NHfjc+P6M30yqiUhNczK2TIUtPaW9gM/t92WRL
+	ljFt8XBuRZL+wK3eN5wKJsEWZbPUHCQCgzn+ehs1CsGPHqVplqFxcrvtIZ0Rbr8bsC5Wkfy5W2ywH
+	ORPlG9lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHLj-00000009lD3-2x5x;
-	Tue, 19 Aug 2025 08:05:43 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uoHOJ-00000009lSg-3OdU;
+	Tue, 19 Aug 2025 08:08:23 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGq5-00000009gad-2wQY
+	id 1uoGxg-00000009hjz-2gSV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 07:33:03 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J1iUkJ009007
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:33:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZX4WHq0FHGuUzi7xR9JeLuPrT8yDI2/1ljZuVcjfQm8=; b=NSTtg6xnzXxYa0kH
-	8N/Jl0r+Xq75clwMHnd5LFr21nLPlHJ4FJT+hTd3glAdegUGxZ2O2MJX33ZxZFWG
-	fmn/JNLUW6Ef/jQ92sM0OIQoDVXYl53KDrGSRt90gKHKpNgapHOkSIvyFxJaGggt
-	xbwVrs+h0ChA1wNj3feLRbsagfoIZKabNqFm4OD8yIuiTVcCOLh1Xz3UtRLLEssW
-	KKcWbq2iJd/59RYhpz9qsZZOzR+s9cTgAuzmOFcfwnmFpKPOybM9Uci6eMRPK5sF
-	BxUqa2RdOrQx/iBa4tY73Xyz9OpuFrqplXhwFMGCD51sl+8iY979EfvNmuvFPBZU
-	0buA5A==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jh077nsa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:33:00 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-32326e72dfbso9728536a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 00:33:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755588779; x=1756193579;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZX4WHq0FHGuUzi7xR9JeLuPrT8yDI2/1ljZuVcjfQm8=;
-        b=cV4Rxyd6KX/bZYsx0xoen6cnsRdJocBadyWs3i4zJb5WY0of8t3waeEe5nmeN8qZ+F
-         yVdYQLgA3v3+2BNhRSJB6ioTC8qoYnIx+y8guM3bHo2S/4pQxNiX+e8olFRbthCHvH0V
-         P0i2jV1qSHx6rY+EsRkK2lJ+KGm0O0AAQOXQqbTx9S7iDyNSsWyrHx7r+A4wOPBKQ+qv
-         GlDeSp46wPGbuISfs9Zj770xjs8FTdZJ7qmbk+7ecKCd/Wn2NtsZo0iKKQOt21IHCyae
-         yP579tpFliAgbmeNICabXFi1nSpvb74tI1j3DI30E5OeH/x+larKI/AruuJVoZo4yxqR
-         N8ig==
-X-Forwarded-Encrypted: i=1; AJvYcCWN9Wwf2gpSA6VJUSFzjXecP0XocriM4eCdZ8KLZmrPof/v2ajs4lyNJ27lCV9YeoEoQ86O8Fs9ElEjJD+dH+wW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxy+nSsgRXYTNmmxXHHJmBt0WzfTPro5LkPvuzhBRVsTnYILj+3
-	0gQm9ZQrJc7Ov+DioDMCKyWgXDNzAu+r5p62H0cJmGHDfsaw6YTamyyu4cr5Z5xEBK344Z3AVJS
-	pNGp/GDjFB7mbFBtmo4RhBDXANDmeURvyd/JyVHsbWvgYWhKIobZxwPeuMdfUI3CjDfcKu0QfM9
-	nntw==
-X-Gm-Gg: ASbGncthWD2oYsu9QZ2Uuj1KG9IFFBLVnCfinAafDDSn1ol9utwLoYcqSrj0V3VrQJz
-	Csd0CnF9QB/8IMVWQOIyJDsPyr0wrWtkBMHzR+e7YrbxXu94pVIjiE3PHX418pG+bv59iN7HF5G
-	Xm3h4KmoQzK9hZ0S/Vdg33pIcI45DWx75Yq7QWmaaRVPJnel32hLx8qUfbdAEbDwAC6T9lP6W3D
-	GHeDmsnQ8f/UgsPWqc0iFZsHa1n8bMYdo6TfDqctHUOszGB/KsYUxFmgUVHsLcNSA+KuECz9I3D
-	pgVPRB/mj/WV6O/V8EnXT0sJCvKnfU3XcA6xbkZbeixBiz9BhddzXEKOKgjbjNbXopaW1DBFqP3
-	GDvQvTNsRzyKTblEOekY9W5inRZ/5vRE1
-X-Received: by 2002:a17:90b:560b:b0:321:a2cf:9da9 with SMTP id 98e67ed59e1d1-32476a4fd20mr2605848a91.15.1755588779160;
-        Tue, 19 Aug 2025 00:32:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGhfH3UlxhiOYhnFv9vS+sUYiu5emcuumytoT8Wd2+lqdseeUtaxzogf3ZBo6T/gdJDJ/I08Q==
-X-Received: by 2002:a17:90b:560b:b0:321:a2cf:9da9 with SMTP id 98e67ed59e1d1-32476a4fd20mr2605819a91.15.1755588778666;
-        Tue, 19 Aug 2025 00:32:58 -0700 (PDT)
-Received: from [10.133.33.73] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3237e3c3063sm1988856a91.1.2025.08.19.00.32.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 00:32:58 -0700 (PDT)
-Message-ID: <754f2025-11da-4747-a98a-74c992006946@oss.qualcomm.com>
-Date: Tue, 19 Aug 2025 15:32:53 +0800
+	Tue, 19 Aug 2025 07:40:54 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id ED13C21251;
+	Tue, 19 Aug 2025 07:40:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755589251; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zC8+fLVFG+3OTa8Z2AsJkI4qy5ecQS3/x/aq/r42Ztk=;
+	b=16OiyQRuMZk0XiAebs7FL6KciCZ8OxUYBjxEBHW7PEtYQ4LiYz3OqVfJBEznjvayLcGWFQ
+	OVeXTmb/VyxBIdhNbTc+jMgIPeyzR1CLP7FekI9ozBqaCPosFYkAR2yCUfz4036QxgCchI
+	fD6Nl/5DQOpYT0wWdnTxMLW/SgW0fXQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755589251;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zC8+fLVFG+3OTa8Z2AsJkI4qy5ecQS3/x/aq/r42Ztk=;
+	b=qj4wKi0w0mXXWMH54ePbCqnNfpTCvPIGzeyVTPr8O5ZqP2tJQg3bop8CyLflFi9vFolfuG
+	XPWlamTkIKn18VBg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=16OiyQRu;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=qj4wKi0w
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755589251; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zC8+fLVFG+3OTa8Z2AsJkI4qy5ecQS3/x/aq/r42Ztk=;
+	b=16OiyQRuMZk0XiAebs7FL6KciCZ8OxUYBjxEBHW7PEtYQ4LiYz3OqVfJBEznjvayLcGWFQ
+	OVeXTmb/VyxBIdhNbTc+jMgIPeyzR1CLP7FekI9ozBqaCPosFYkAR2yCUfz4036QxgCchI
+	fD6Nl/5DQOpYT0wWdnTxMLW/SgW0fXQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755589251;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zC8+fLVFG+3OTa8Z2AsJkI4qy5ecQS3/x/aq/r42Ztk=;
+	b=qj4wKi0w0mXXWMH54ePbCqnNfpTCvPIGzeyVTPr8O5ZqP2tJQg3bop8CyLflFi9vFolfuG
+	XPWlamTkIKn18VBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 29BE513686;
+	Tue, 19 Aug 2025 07:40:50 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id fhD7B4IqpGgSJQAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Tue, 19 Aug 2025 07:40:50 +0000
+Message-ID: <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de>
+Date: Tue, 19 Aug 2025 10:40:41 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] coresight-tnoc: Add runtime PM support for
- Interconnect TNOC
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        kernel@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com>
- <20250815-itnoc-v1-3-62c8e4f7ad32@oss.qualcomm.com>
- <20250818143011.GB8071@e132581.arm.com>
+Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
+To: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ florian.fainelli@broadcom.com, wahrenst@gmx.net, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
+ Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
 Content-Language: en-US
-From: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
-In-Reply-To: <20250818143011.GB8071@e132581.arm.com>
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: y15xw3Cz_AEStoHtwktaHv0OW6oNMI4B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDAyMCBTYWx0ZWRfX36wygi4RmL+N
- LM79nCA+mZ/vTBeUXJvVbamKP1IhXJdyULaXLARAki3xjcYWfDer+56usJvQhj6LuPF3FSRtuaX
- 3hEKjnL/PhOEbg5hayZiEMCrbVjw7T45/POOF9MLXUZ2IH2FaAEFOpp9o5skKR2NnyGtMK2rizY
- U5ObFNGYlhz7f+g70tUoq6Vj3mdDe2lqt0KYgrrzj0JgdEpwJXSWREl/aTghgLrlhJllcfCv8hM
- 45gH/6KnPkUO+7GGKouqQVI/8qkRZFRuvjd2WcmxVDGnzCIrV7pvqqITqMrgFMEBDvJpMjSYsYO
- 0vRziOnF8VH/q9nXRFLdxqVSYZd9MfBcCo8xk0MBYdj8zAhgQ1mQ0WT3MbU+cRvjSA1z0KojqVx
- JKPNRz9h
-X-Authority-Analysis: v=2.4 cv=a+Mw9VSF c=1 sm=1 tr=0 ts=68a428ac cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
- a=Zm1HM0GOZpLsNU_EOA4A:9 a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: y15xw3Cz_AEStoHtwktaHv0OW6oNMI4B
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 suspectscore=0 impostorscore=0 phishscore=0
- adultscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508160020
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[suse.com,linaro.org,kernel.org,broadcom.com,gmx.net,vger.kernel.org,lists.infradead.org,arm.com,suse.de,raspberrypi.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmx.net];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:mid,suse.de:dkim,suse.de:email]
+X-Rspamd-Queue-Id: ED13C21251
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_003302_098368_3A91E5F6 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20250819_004052_894383_0DCAB61F 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,76 +150,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrea,
 
+On 8/11/25 5:46 PM, Andrea della Porta wrote:
+> From: "Ivan T. Ivanov" <iivanov@suse.de>
+> 
+> This driver provide pin muxing and configuration functionality
+> for BCM2712 SoC used by RPi5. According to [1] this chip is an
+> instance of the one used in Broadcom STB  product line.
+> 
+> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+> 
+> Cc: Jonathan Bell <jonathan@raspberrypi.com>
+> Cc: Phil Elwell <phil@raspberrypi.com>
+> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> Reviewed-by: Phil Elwell <phil@raspberrypi.com>
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  drivers/pinctrl/bcm/Kconfig           |   13 +
+>  drivers/pinctrl/bcm/Makefile          |    1 +
+>  drivers/pinctrl/bcm/pinctrl-brcmstb.c | 1197 +++++++++++++++++++++++++
+>  3 files changed, 1211 insertions(+)
+>  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+> 
 
-On 8/18/2025 10:30 PM, Leo Yan wrote:
-> On Fri, Aug 15, 2025 at 06:18:14AM -0700, Yuanfang Zhang wrote:
->> This patch adds runtime power management support for platform-based
->> CoreSight Interconnect TNOC (ITNOC) devices. It introduces suspend and
->> resume callbacks to manage the APB clock (`pclk`) during device runtime
->> transitions.
->>
->> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
->> ---
->>  drivers/hwtracing/coresight/coresight-tnoc.c | 26 ++++++++++++++++++++++++++
->>  1 file changed, 26 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
->> index aa6f48d838c00d71eff22c18e34e00b93755fd82..f12a1698824bc678545319a3f482fd27e67a7352 100644
->> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
->> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
->> @@ -270,6 +270,31 @@ static void itnoc_remove(struct platform_device *pdev)
->>  	pm_runtime_disable(&pdev->dev);
->>  }
->>  
->> +#ifdef CONFIG_PM
->> +static int itnoc_runtime_suspend(struct device *dev)
->> +{
->> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev);
->> +
->> +	clk_disable_unprepare(drvdata->pclk);
->> +
->> +	return 0;
->> +}
->> +
->> +static int itnoc_runtime_resume(struct device *dev)
->> +{
->> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev);
->> +	int ret;
->> +
->> +	ret = clk_prepare_enable(drvdata->pclk);
->> +
->> +	return ret;
-> 
-> Here can be simplified:
-> 
->     return clk_prepare_enable(drvdata->pclk);
-> 
-sure, will update.
->> +}
->> +#endif
->> +
->> +static const struct dev_pm_ops itnoc_dev_pm_ops = {
->> +	SET_RUNTIME_PM_OPS(itnoc_runtime_suspend, itnoc_runtime_resume, NULL)
->> +};
->> +
->>  static const struct of_device_id itnoc_of_match[] = {
->>  	{ .compatible = "qcom,coresight-itnoc" },
->>  	{}
->> @@ -282,6 +307,7 @@ static struct platform_driver itnoc_driver = {
->>  	.driver = {
->>  		.name = "coresight-itnoc",
->>  		.of_match_table = itnoc_of_match,
->> +		.pm = &itnoc_dev_pm_ops,
->>  	},
->>  };
->>  
->>
->> -- 
->> 2.34.1
->>
->> _______________________________________________
->> CoreSight mailing list -- coresight@lists.linaro.org
->> To unsubscribe send an email to coresight-leave@lists.linaro.org
+<snip>
+
+> +static int brcmstb_pinctrl_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	const struct brcmstb_pdata *pdata;
+> +	const struct of_device_id *match;
+> +	struct brcmstb_pinctrl *pc;
+> +	const char **names;
+> +	int num_pins, i;
+> +
+> +	match = of_match_node(brcmstb_pinctrl_match, np);
+
+The 'match' variable is needless, you can drop it.
+
+> +	pdata = match->data;
+> +
+
+<snip>
+
+~Stan
 
 
