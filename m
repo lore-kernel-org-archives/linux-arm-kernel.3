@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106EACA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921CDCA0EE6
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 13:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ZqIknf6Hma9EYbP+iTbt0PAC3yYeQPy0vP28ynE7Eo=; b=CTKDvZCgauvu8LhKipOz46DCH5
-	V0kNOhJLZ+dqjo/ArPXExmouUD2fA6Le653rQv/s4fmSVBJl+CHAh2FHm7UFCvAb+SJk/F9cLUNT/
-	v2StReVtK7FGl19vQP5yY9wNFet5SytkChBmQuLEAYAc7NQXVdBPiqsNbgz5LF7VswM3QaNJJHm2S
-	9V5E4dvz7JylMMxmemMfsWFqhOgimMI6CFxvILf4I9xgfXtQuc2WmyT+B3d1efIWddL9DI+5osnio
-	8fdTcFVfP0JW1PWDydNDh06VQa5dJacO3Pmw5OCwfPth7EXMuLmbVg269rGEbiAklWQGpCPaBr3lM
-	CwJZf1sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tl7aulnRN5FhYPpTxG+SmjpKIE2lFG8vUraDbN6PIzY=; b=OUHA+J5XCEQc2mqrgNF4/T6+F3
+	QxRBSWhoxXZUO1eRdYy+Y1pZcLmMfSORJwHMnzB5AlPkVnomMf9HKbkMBDdB8fOIFcSIXENoorVVt
+	zPMBKg2YHLVhuoKg6EgFr5gvCtu9CCX6PC71ESLAp0zKZJovi/ZAaC9P4bC/T3LGGcis1VY0UK2AK
+	CEPSBRAM1wY8Lw0BFndYiPzt2hl/2DsT0itb/x3gCFWQyyJW9YwQdtkHEE9nDjH5Yi3FZduENWIzj
+	74tnoQrW8mxJComRwHXuTNXEvfkU/RMdHjmVIekGVo37IQ2HFaBKl5CVHUsckDn/37qdZye1bGCAG
+	hzlKsimA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMZB-0000000Acbh-00WQ;
-	Tue, 19 Aug 2025 13:39:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uoMZ8-0000000AcaH-2JBm;
+	Tue, 19 Aug 2025 13:39:55 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJr6-0000000AAo7-0tbd
+	id 1uoHkk-00000009obR-0QQz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 10:46:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA65843BB0;
-	Tue, 19 Aug 2025 10:46:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD96C4CEF1;
-	Tue, 19 Aug 2025 10:46:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755600375;
-	bh=JfTBbv8jpNK14cUe0jQzor4Nu6VNU6jXNCwErFbJEAM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FEMPtvzGqBTk2bcuops306HDF1FUx7bqXIVqJgVtzhxivOnvZxP1I3a3hdf7Vxo57
-	 3Y5J72y0V4eMio1aoZyMXqMSnvRAqjb3xBhxL7gEOBJlXhwrzpN4wPKFs2L3VeLKB/
-	 lM3YRFSn9KfHzQ2cS8YuhGtWM4H7UDGRtockprpgOLvd9KIOxJeJ9SDTzFq+aE6ISe
-	 o5i84yhscZG1eOIVOlnGsbpfekv5hIaWdL0NQEiuSVy3SvF2CoUESvXsot7uSQg77q
-	 NMGExXcaJmdO7jasmxBayCvYicRC2Z7nu0CiA332ydy55BkVUUc0PBNAIp1hKEWqM/
-	 rVo11aaOtmz4A==
-Date: Tue, 19 Aug 2025 11:46:08 +0100
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, ahomescu@google.com,
-	armellel@google.com, arve@android.com, ayrton@google.com,
-	qperret@google.com, sebastianene@google.com, qwandor@google.com
-Subject: Re: [PATCH v10 2/6] KVM: arm64: Use SMCCC 1.2 for FF-A
- initialization and in host handler
-Message-ID: <aKRV8FEuO5ZOcEfn@willie-the-truck>
-References: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
- <20250809-virtio-msg-ffa-v10-2-189eeecf8ae8@google.com>
+	Tue, 19 Aug 2025 08:31:35 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4c5jV61chLz9srJ;
+	Tue, 19 Aug 2025 10:31:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1755592286;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tl7aulnRN5FhYPpTxG+SmjpKIE2lFG8vUraDbN6PIzY=;
+	b=l5pun4+Ua5NTJZAV1YIp2FsOds2mcCjcYgWrr/LZJeZQyl4xg959qSmyYoi7MATbnEpo6c
+	mNtPXA0fM0nrBPZKJUaaPGLLrDfkbAeCiMpkGaeFo172xDHnhmjgBMoBD3RQ7JMaY/FA3c
+	gT1XTUqwccImYjWLqaNp6u908YO28OYaj9bybt8PcjBH0YxBIZT173Kmg2w8uxZmyjdlG7
+	BD2KqFFzwBYiq4RaqS3XWft5IU4F8sC94PVKUEcdf61hG+FH/KEQWfjQjoO43md7vMWNso
+	Ha1KbIfexEfXoVOv9aYtRF/IKYPp9JCEGoqTaGoU+D1qvTPWVMyF3WTihKHeWw==
+Date: Tue, 19 Aug 2025 10:31:19 +0200
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
+Subject: Re: [net-next v18 5/7] net: mtip: Add mtip_switch_{rx|tx} functions
+ to the L2 switch driver
+Message-ID: <20250819103119.42a64541@wsk>
+In-Reply-To: <20250815183359.352a0ecb@kernel.org>
+References: <20250813070755.1523898-1-lukasz.majewski@mailbox.org>
+	<20250813070755.1523898-6-lukasz.majewski@mailbox.org>
+	<20250815183359.352a0ecb@kernel.org>
+Organization: mailbox.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250809-virtio-msg-ffa-v10-2-189eeecf8ae8@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-MBO-RS-ID: b305455ec3b5e15fab4
+X-MBO-RS-META: komf8jsgranox9twdw3rim746cyyc699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_034616_317027_98EB55C4 
-X-CRM114-Status: GOOD (  30.68  )
+X-CRM114-CacheID: sfid-20250819_013134_333217_38277EC9 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,125 +88,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 09, 2025 at 02:33:20AM +0000, Per Larsen via B4 Relay wrote:
-> From: Per Larsen <perlarsen@google.com>
-> 
-> SMCCC 1.1 and prior allows four registers to be sent back as a result
-> of an FF-A interface. SMCCC 1.2 increases the number of results that can
-> be sent back to 8 and 16 for 32-bit and 64-bit SMC/HVCs respectively.
-> 
-> FF-A 1.0 references SMCCC 1.2 (reference [4] on page xi) and FF-A 1.2
-> explicitly requires SMCCC 1.2 so it should be safe to use this version
-> unconditionally. Moreover, it is simpler to implement FF-A features
-> without having to worry about compatibility with SMCCC 1.1 and older.
-> 
-> SMCCC 1.2 requires that SMC32/HVC32 from aarch64 mode preserves x8-x30
-> but given that there is no reliable way to distinguish 32-bit/64-bit
-> calls, we assume SMC64 unconditionally. This has the benefit of being
-> consistent with the handling of calls that are passed through, i.e., not
-> proxied. (A cleaner solution will become available in FF-A 1.3.)
-> 
-> Update the FF-A initialization and host handler code to use SMCCC 1.2.
-> 
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
->  arch/arm64/kvm/hyp/nvhe/ffa.c    | 188 +++++++++++++++++++++++++--------------
->  2 files changed, 120 insertions(+), 69 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-> index 0b0a68b663d4bd202a7036384bf8a1748cc97ca5..a244ec25f8c5bd0a744f7791102265323ecc681c 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/Makefile
-> +++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-> @@ -27,6 +27,7 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
->  	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
->  hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
->  	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
-> +hyp-obj-y += ../../../kernel/smccc-call.o
->  hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
->  hyp-obj-y += $(lib-objs)
->  
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 2c199d40811efb5bfae199c4a67d8ae3d9307357..19239f133a1cfb86db1b85251035709481cdef5b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -71,36 +71,63 @@ static u32 hyp_ffa_version;
->  static bool has_version_negotiated;
->  static hyp_spinlock_t version_lock;
->  
-> -static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
-> +static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
->  {
-> -	*res = (struct arm_smccc_res) {
-> +	*res = (struct arm_smccc_1_2_regs) {
->  		.a0	= FFA_ERROR,
->  		.a2	= ffa_errno,
->  	};
->  }
->  
-> -static void ffa_to_smccc_res_prop(struct arm_smccc_res *res, int ret, u64 prop)
-> +static void ffa_to_smccc_res_prop(struct arm_smccc_1_2_regs *res, int ret, u64 prop)
->  {
->  	if (ret == FFA_RET_SUCCESS) {
-> -		*res = (struct arm_smccc_res) { .a0 = FFA_SUCCESS,
-> -						.a2 = prop };
-> +		*res = (struct arm_smccc_1_2_regs) { .a0 = FFA_SUCCESS,
-> +						      .a2 = prop };
->  	} else {
->  		ffa_to_smccc_error(res, ret);
->  	}
->  }
->  
-> -static void ffa_to_smccc_res(struct arm_smccc_res *res, int ret)
-> +static void ffa_to_smccc_res(struct arm_smccc_1_2_regs *res, int ret)
->  {
->  	ffa_to_smccc_res_prop(res, ret, 0);
->  }
->  
->  static void ffa_set_retval(struct kvm_cpu_context *ctxt,
-> -			   struct arm_smccc_res *res)
-> +			   struct arm_smccc_1_2_regs *res)
->  {
->  	cpu_reg(ctxt, 0) = res->a0;
->  	cpu_reg(ctxt, 1) = res->a1;
->  	cpu_reg(ctxt, 2) = res->a2;
->  	cpu_reg(ctxt, 3) = res->a3;
-> +	cpu_reg(ctxt, 4) = res->a4;
-> +	cpu_reg(ctxt, 5) = res->a5;
-> +	cpu_reg(ctxt, 6) = res->a6;
-> +	cpu_reg(ctxt, 7) = res->a7;
-> +
-> +	/*
-> +	 * DEN0028C 2.6: SMC32/HVC32 call from aarch64 must preserve x8-x30.
-> +	 *
-> +	 * In FF-A 1.2, we cannot rely on the function ID sent by the caller to
-> +	 * deteect 32-bit calls as there are cases where a 32-bit interface can
+Hi Jakub,
 
-typo: deteect
+> On Wed, 13 Aug 2025 09:07:53 +0200 Lukasz Majewski wrote:
+> > +		page =3D fep->page[bdp - fep->rx_bd_base];
+> > +		/* Process the incoming frame */
+> > +		pkt_len =3D bdp->cbd_datlen;
+> > +
+> > +		dma_sync_single_for_cpu(&fep->pdev->dev,
+> > bdp->cbd_bufaddr,
+> > +					pkt_len, DMA_FROM_DEVICE);
+> > +		net_prefetch(page_address(page));
+> > +		data =3D page_address(page);
+> > +
+> > +		if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> > +			swap_buffer(data, pkt_len);
+> > +
+> > +		eth_hdr =3D (struct ethhdr *)data;
+> > +		mtip_atable_get_entry_port_number(fep,
+> > eth_hdr->h_source,
+> > +						  &rx_port);
+> > +		if (rx_port =3D=3D MTIP_PORT_FORWARDING_INIT)
+> > +			mtip_atable_dynamicms_learn_migration(fep,
+> > +
+> > mtip_get_time(),
+> > +
+> > eth_hdr->h_source,
+> > +
+> > &rx_port); +
+> > +		if ((rx_port =3D=3D 1 || rx_port =3D=3D 2) &&
+> > fep->ndev[rx_port - 1])
+> > +			pndev =3D fep->ndev[rx_port - 1];
+> > +		else
+> > +			pndev =3D dev;
+> > +
+> > +		*port =3D rx_port;
+> > +
+> > +		/* This does 16 byte alignment, exactly what we
+> > need.
+> > +		 * The packet length includes FCS, but we don't
+> > want to
+> > +		 * include that when passing upstream as it messes
+> > up
+> > +		 * bridging applications.
+> > +		 */
+> > +		skb =3D netdev_alloc_skb(pndev, pkt_len +
+> > NET_IP_ALIGN);
+> > +		if (unlikely(!skb)) {
+> > +			dev_dbg(&fep->pdev->dev,
+> > +				"%s: Memory squeeze, dropping
+> > packet.\n",
+> > +				pndev->name);
+> > +			page_pool_recycle_direct(fep->page_pool,
+> > page);
+> > +			pndev->stats.rx_dropped++;
+> > +			return -ENOMEM;
+> > +		}
+> > +
+> > +		skb_reserve(skb, NET_IP_ALIGN);
+> > +		skb_put(skb, pkt_len);      /* Make room */
+> > +		skb_copy_to_linear_data(skb, data, pkt_len);
+> > +		skb->protocol =3D eth_type_trans(skb, pndev);
+> > +		skb->offload_fwd_mark =3D fep->br_offload;
+> > +		napi_gro_receive(&fep->napi, skb); =20
+>=20
+> The rx buffer circulation is very odd.
 
-> +	 * have a 64-bit response 1.2 (e.g. FFA_MSG_WAIT or FFA_RUN). This will
-> +	 * be addressed in FF-A 1.3. We also cannot rely on function IDs in the
-> +	 * response.
+The fec_main.c uses page_pool_alloc_pages() to allocate RX page from
+the pool.
 
-Do you know what the FF-A 1.3 update is likely to say? It would be nice
-to get an idea of what the code might need to do in future in case this
-approach is going in a completely different direction.
+At the RX function the __build_skb(data, ...) is called to create skb.
 
-> @@ -666,17 +703,21 @@ static bool do_ffa_features(struct arm_smccc_res *res,
->  static int hyp_ffa_post_init(void)
->  {
->  	size_t min_rxtx_sz;
-> -	struct arm_smccc_res res;
-> +	struct arm_smccc_1_2_regs res;
->  
-> -	arm_smccc_1_1_smc(FFA_ID_GET, 0, 0, 0, 0, 0, 0, 0, &res);
-> +	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs){
-> +		.a0 = FFA_ID_GET,
-> +	}, &res);
+Last step with the RX function is to call skb_mark_for_recycle(skb),
+which sets skb->pp_recycle =3D 1.
 
-Regardless of the problems with the spec, it's really nice to get rid
-of all those zero arguments that come with the arm_smccc_1_1_smc()
-macro.
+And yes, in the MTIP I do copy the data to the newly created skb in RX
+function (anyway, I need to swap bytes in the buffer).=20
 
-Will
+It seems like extra copy is performed in the RX function.
+
+> You seem to pre-allocate
+> buffers for the full ring from a page_pool. And then copy the data
+> out of those pages.
+
+Yes, correct.
+
+> The normal process is that after packet is
+> received a new page is allocated to give to HW, and old is attached
+> to an skb, and sent up the stack.
+
+Ok.
+
+>=20
+> Also you are releasing the page to be recycled without clearing it
+> from the ring. I think you'd free it again on shutdown, so it's a
+> double-free.
+
+No, the page is persistent. It will be removed when the driver is
+closed and memory for pages and descriptors is released.
+
+--=20
+Best regards,
+
+=C5=81ukasz Majewski
 
