@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8561BCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C29CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=92YCXkncC8mafjIE/bkZt8SEk1Hzf5E3KMeZS8Ny8sA=; b=Cmy+zBd5QkUd7YG1BqzavFuCoQ
-	73AbZqX0230LYgiNwJxO6cej6KF7FDIVDgUHOvluyLELvGrb9vcsV558XWOmS6p2TczPngGGyR95y
-	iLODvN3T5hKREalHdxEsCbRo6AlcFLRxZZXKh1QYw1oQSN8lfXtxqicg7QT/ijh0nMeM47awhJJhX
-	rm+U3G+329repffREyMlb4rX+F1++yFUoWXBL86+lejTuDIXJU5dlLaDdaWGNw4WE4bFbbCOi/BvO
-	MTOZaqCXHeSIFoEgoerthVZh8hmC5HTjZUPuyBiTsUeNKaJJP8OMWotS4fkD+anVZo4YaS++IbgCN
-	GueACszw==;
+	bh=cj4kI8/yD81x4k/3/fRhFKit8IIVcBticQyInzsa14o=; b=P4gm5CukQ53OwPLXYydQSuTcgk
+	55Y9QqiYW9TJ7LXXNvgnGp5HWxX/Sa3drV5jhJBJ25llw7vITpiZVteXG/WP1RHLmnP5ea3WV0vRD
+	J8iaSwAStXj96Jm0Hq51tFs/yKqdHCs11t/jhzkjB9qFuDpsDY8F4K2UarnQmaupVAJ02zibmE2hm
+	Qf1AZRsMFaSwxbO30VzcvPubE6pQItaaul0dBRs3pfyuCAO3SJnckc0i9MnKnOhaQKSGP4+MbZ80k
+	hXNur+p0oSFL6WsulHohZG8xji0ab6LxBF1qkCkE5B+eZ70GS1JEm/2OCWLclPh8/xks9LzzWIdUT
+	gP4mn2Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoV9f-0000000Bmw8-1DSe;
-	Tue, 19 Aug 2025 22:50:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uoVCH-0000000BnGQ-0qcS;
+	Tue, 19 Aug 2025 22:52:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTWz-0000000Bc0q-2mhc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 21:06:13 +0000
+	id 1uoTal-0000000BcIh-3j1d;
+	Tue, 19 Aug 2025 21:10:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D563E5C3698;
-	Tue, 19 Aug 2025 21:06:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EAF0C4CEF1;
-	Tue, 19 Aug 2025 21:06:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2C696613EF;
+	Tue, 19 Aug 2025 21:10:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12D18C4CEF1;
+	Tue, 19 Aug 2025 21:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755637568;
-	bh=JFybjif0PA4bThPHFS5Y8/tz+/sdsAZ8BMw48NI4TXg=;
+	s=k20201202; t=1755637801;
+	bh=V4rSZobOG7FpaYQDoGuuNjzv1YSuHyGLCK7LLSVzUOc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jlq1Np7Ye4pkVq+DvkC30NXf0evlSCoY07mDs0nXTxFZKxgu6ll6ry6C2tIS89ziF
-	 hGFXPz4yDKRzwO+rQz3NiKuhPMDqv7mwsXOIHst8SEqyAnIYhPw7M0wSBfpZOQEASV
-	 U6NXQbcbfXWUJL+pLy+QrC2pUeaLGWJaJA1rmMTu+gJm9tSNVETspHVxmkY4yRRA2n
-	 ICuq08mzgcUFeLzleLmusbO7kKv+eo7ryG+oKIuu/e+waow+7nLTG8LVrWEsgbKhY8
-	 sjx5apfhxFzP8e0K1+BX/mWOuFmYQMLV6gqbwsBcabW6DFBHAKqf83iukI+at43ICI
-	 jiVyp+B4fLPIg==
-Date: Tue, 19 Aug 2025 16:06:07 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, devicetree@vger.kernel.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/1] dt-bindings: soc: add vf610 reboot syscon
- controller
-Message-ID: <175563756689.1312101.13704825031197649543.robh@kernel.org>
-References: <20250819165317.3739366-1-Frank.Li@nxp.com>
+	b=thCYtja21lUCQto/XtSxT9corknakG5qz6lpKP/K4wUjJs3/kMDqfxL2Tl21gWLKy
+	 wtRmbwonV+WsfBYpt1o6aPIkq3OpZqDaqtDL0srux6zKqCGNgMCuY+ULNgE2uUPM/g
+	 OJl81QrxCpvL6rbm+VbahV0kte3eP8S/Ir9aUn52s/ERLlJ/vNDewrVvbeshxnxxjm
+	 MxeAHfpPkmQtNs2duT2AKbodr6IOX0sV9tynWgmLBr37v0VCb4qZfK874Mj7iHVDKp
+	 Q27kYIZ8xQc/fdVpXf/YtDOpu7Qae9xHz1CKBZJfZFH2nreVNcp6HlQHEOfGChL5dZ
+	 /LkdzawHJlhbA==
+Date: Tue, 19 Aug 2025 20:09:48 -0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Leilk Liu <leilk.liu@mediatek.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Qii Wang <qii.wang@mediatek.com>, Wolfram Sang <wsa@kernel.org>, 
+	Liguo Zhang <liguo.zhang@mediatek.com>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH] i2c: mediatek: fix potential incorrect use of
+ I2C_MASTER_WRRD
+Message-ID: <cf5wxalhd2536cxnj7zn2jngly5dmvoknjnb2gbq6mzqff4tgp@4syhblgi35yu>
+References: <20250816075434.31780-1-leilk.liu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250819165317.3739366-1-Frank.Li@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_140609_746137_EC7CB4A9 
-X-CRM114-Status: GOOD (  13.32  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250816075434.31780-1-leilk.liu@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Leilk,
 
-On Tue, 19 Aug 2025 12:53:16 -0400, Frank Li wrote:
-> Add vf610 reboot controller, which used to reboot whole system. Fix below
-> CHECK_DTB warnings:
+On Sat, Aug 16, 2025 at 03:53:54PM +0800, Leilk Liu wrote:
+> From: "Leilk.Liu" <leilk.liu@mediatek.com>
 > 
-> arch/arm/boot/dts/nxp/vf/vf610-bk4.dtb: /soc/bus@40000000/src@4006e000:
->     failed to match any schema with compatible: ['fsl,vf610-src', 'syscon']
+> The old IC does not support the I2C_MASTER_WRRD (write-then-read)
+> function, but the current code’s handling of i2c->auto_restart may
+> potentially lead to entering the I2C_MASTER_WRRD software flow,
+> resulting in unexpected bugs.
+
+do you mean unexpected behaviour?
+
+> Instead of repurposing the auto_restart flag, add a separate flag
+> to signal I2C_MASTER_WRRD operations.
 > 
-> IC reference manual calls it as system reset controller(SRC), but it is not
-> module as reset controller, which used to reset individual device. SRC
-> works as reboot controller, which reboots whole system. It provides a
-> syscon interface to syscon-reboot.
+> Also fix handling of msgs. If the operation (i2c->op) is
+> I2C_MASTER_WRRD, then the msgs pointer is incremented by 2.
+> For all other operations, msgs is simply incremented by 1.
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Fixes: 173b77e8d8fe ("i2c: mediatek: add i2c first write then read optimization")
+> 
+
+No need for blank line here. BTW, this doesn't look the commit
+that is introducing the issue.
+
+> Signed-off-by: Leilk.Liu <leilk.liu@mediatek.com>
 > ---
-> change in v3
-> - add missed 's' at description
-> - remove duplicate / at path
+>  drivers/i2c/busses/i2c-mt65xx.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
 > 
-> Change in v2
-> - change description to avoid confuse about reset controller.
-> - it is legacy device, more than 10 year. So try keep existed dts as it.
-> ---
->  .../bindings/soc/fsl/fsl,vf610-src.yaml       | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
-> 
+> diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
+> index ab456c3717db..dee40704825c 100644
+> --- a/drivers/i2c/busses/i2c-mt65xx.c
+> +++ b/drivers/i2c/busses/i2c-mt65xx.c
+> @@ -1243,6 +1243,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+>  {
+>  	int ret;
+>  	int left_num = num;
+> +	bool write_then_read_en = false;
+>  	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
+>  
+>  	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
+> @@ -1256,6 +1257,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
+>  		if (!(msgs[0].flags & I2C_M_RD) && (msgs[1].flags & I2C_M_RD) &&
+>  		    msgs[0].addr == msgs[1].addr) {
+>  			i2c->auto_restart = 0;
+> +			write_then_read_en = true;
 
-Applied, thanks!
+why don't we set "i2c->op = I2C_MASTER_WRRD" here and avoid an
+extra flag?
 
+Thanks,
+Andi
+
+>  		}
+>  	}
+>  
 
