@@ -4,151 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E491CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 01:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FD6CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 02:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Subject:Cc:To:
-	From:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MICfQuyfQvPiWBYlK5qME16GiTjn6Y+MXlYNbBQVO1I=; b=Cll5wJn47m+zlbw5hwqeb2vFLW
-	LxShdnIVyKAyHfczaAtQnEf+xBhaFl2TGAHFJ14VLp+zC3asJpsQ1VBrziQqZCMj9Ohck8lVyuAcM
-	0WVADZABMseLqZVMAa5e4bjLFSCUY7lyQdlQL4WxcwFM8thE8qovCB+dczs2renkHGivme/LJgH8m
-	mlCU1Bnm0vxiF7yd/hzwkkQY04PIg3DQs+Cd5/r8ooTGvQIJ9iyNE9dvuGini1vp+GYxSAF0FNwNA
-	WBii5WecUhi3JbTWOZGHJAuBwjOKAmapavUIZilkuu2XvbuViF/Bcb0DUbKUMytPtim4aopBJxVob
-	CD/e6rJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w72hmReb5KMNMVr1REunFBZzQRf6nu6DrZtxaxj3TWE=; b=aDMoysegv/I2TgBcH46ywkgJbW
+	LoQ1oFXA6y39R/+D4ZEELxxCO6gOFg2pPDveHlVgYjU/5lQbQEUjZUfnebTU23An0rY0NsI1anDKK
+	9cAtjUoa2G1XiOkDS+fcqWHERjYp21l3wigazUjfnURORECV4+yyBFVXMYYlLSE7zP7f6r4igfK9a
+	osRCR+/5vyjAd6Up68cN/btdeOgO74btQZmgWTCT7j0GNeTPkpFUajU8FmDaC83LvKyGNZrItdPrb
+	GGKq5G0PWxcHw5vqExSOqvdeefrCce6hQlFpn2DB6ruDFdaFbPPE3EAKFOpS3a7VnHOJsZgG4xp07
+	iYcHkIwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoBUf-000000098x4-01WU;
-	Tue, 19 Aug 2025 01:50:33 +0000
-Received: from mail-japanwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c406::1] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1uoBgP-000000099zw-1Nuo;
+	Tue, 19 Aug 2025 02:02:41 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoBS3-000000098kE-375s
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 01:47:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xf8/vXtLdSoo6l/pRirdWDA56GDD5tlEbHmjmdWkGMmKGpsJMy/f6bnLZYXbmo9LbCu/hPnO+4O3DBGAzDBGwZ0KHUr2J/xehHmL0g3qtm4gOPoSVFKTXgvj4aUmRgpPBWRQEJtaE2Hrj7dqwKkSHpwqh5vP/z2LtmiSx4ha8kHV6W+6LaPgsJvInKPA6OzHC8QAtwcydCJ7yqhSf8otoBmU3Z3T4RG/m7uulWrMVJaiwdT5IVuyxoSlNfo/zonKMYdcTbRTLImeYhXOc62ARuoPZqoEYhyxTQ4/FSZutujG0eqJEPE+5kkavzZeyxnl2peV3lYUli8Lo/lL4DquSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MICfQuyfQvPiWBYlK5qME16GiTjn6Y+MXlYNbBQVO1I=;
- b=QDRIFQ7k7cxs2pf3+w8e1ldUg6jg9miQ32AOq17yvA778rHZCy3Bbh4bzSn2ejMnfspUbQyKyqzbf/hI+uPINhzIA4u+peiY81x11URtUE+S6G3ppq2Rx38AoqumhQYMZBLXsStMk4YZpYxSiuAMoExLgdM3zvRcmyDcRHpZYI4Y0fbnGUF3srqUdh4u9iLkNfcoukf26DO4ZRH5AqzSf6CxyJoqtvT+PNwPPvi/Tr9elTgtyiFDwu4YmvdwEGMr+b92GRrNfbp+h96sCw8Z+h24lqZ4kZ0phicqZWf/fxFUuBDFK31fNZdPSESMpc7yv+Hoj9UN7AOBBnsCwDjOxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MICfQuyfQvPiWBYlK5qME16GiTjn6Y+MXlYNbBQVO1I=;
- b=Y1fn8JeWHPM3/NBs4qc+n7pv13Qf9CLeYbjdCSH8fTiV5fCskIXT0Sd3Ig0dLNGHdvuUQOxg1O/hdGsJlASzYtR9OsNgcTmDy43yIJ5MtI1eDnEji9VE9lYQVd5IOWhUm/N8RmX1tJgou8Ft3NTy1If9qnYLV5RbUbUQWu5HEDs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TY4PR01MB14084.jpnprd01.prod.outlook.com
- (2603:1096:405:209::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Tue, 19 Aug
- 2025 01:47:38 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%4]) with mapi id 15.20.9031.023; Tue, 19 Aug 2025
- 01:47:38 +0000
-Message-ID: <87h5y4ytdy.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: J. =?ISO-8859-1?Q?Neusch=E4fer?= <j.ne@posteo.net>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-sound@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [BISECTED] NULL pointer dereference while probing sun8i-codec
-In-Reply-To: <aJb311bMDc9x-dpW@probook>
-References: <aJb311bMDc9x-dpW@probook>
-User-Agent: Wanderlust/2.15.9 Emacs/29.3 Mule/6.0
-Content-Type: text/plain; charset=ISO-8859-1
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 19 Aug 2025 01:47:37 +0000
-X-ClientProxiedBy: TYCPR01CA0197.jpnprd01.prod.outlook.com
- (2603:1096:405:7a::10) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	id 1uoBdp-000000099b3-1u4N;
+	Tue, 19 Aug 2025 02:00:02 +0000
+X-UUID: 350871d87ca011f09f706fa2197c6ceb-20250818
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=w72hmReb5KMNMVr1REunFBZzQRf6nu6DrZtxaxj3TWE=;
+	b=IUbXgbREQa5WHcrOXbsqaoofXd0mYdUWJBvxAOHIsCpYRr9eixTeu4REs8QByKSRwFtBae8NQPxnQCVO8yWiQkzqwTYwtxMFrHOYbu0hgBD+qfk/nmEEH8E5zW3CjO8XYy44cD5UDBipxskXgp8tORmqE9fSRfnMJ+UgMMl1lcw=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:46d807b2-ae75-41da-9cd4-9a28d90f4a84,IP:0,UR
+	L:0,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:100
+X-CID-META: VersionHash:f1326cf,CLOUDID:3d3211f4-66cd-4ff9-9728-6a6f64661009,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|801,TC:-5,Content:3|15|50,EDM:-3
+	,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 350871d87ca011f09f706fa2197c6ceb-20250818
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <xiandong.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2081594345; Mon, 18 Aug 2025 18:59:57 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 19 Aug 2025 09:59:53 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Tue, 19 Aug 2025 09:59:52 +0800
+From: Xiandong Wang <xiandong.wang@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Houlong Wei
+	<houlong.wei@mediatek.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>
+Subject: [PATCH v2 0/4] Add GCE driver for 8189
+Date: Tue, 19 Aug 2025 09:59:37 +0800
+Message-ID: <20250819015948.15450-1-xiandong.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TY4PR01MB14084:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b495b2a-1b46-4575-c02b-08dddec26068
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?MyzDTPEEGKrTGVV3MDhUIEYvVOETJsxt2e+vo5k2T4feCpdbLeXUUXt0+o?=
- =?iso-8859-1?Q?OHUEpBe/0YkJSXz7dvE47ow0KVH4sf/KPQzfVUFO2tLg+3PAFSPN88z0ry?=
- =?iso-8859-1?Q?uQoLO8tA6DUHxZrvd5lzaZXM7y1y+eoloAj0SnO7RlOMOoRF1seyKKNFfa?=
- =?iso-8859-1?Q?swPDM8PQ3F744zhXR2MqGBB5Gzc16imQh5M2LYuUMO39840U2jb3Pmzkx/?=
- =?iso-8859-1?Q?uGP192ZQqUNOK3xNOTzKvRT7cb2BnHvXA3EEfiJc6YvaMVQM0qusfd1qW5?=
- =?iso-8859-1?Q?2DPVPba0lBGzsmWVR4oXASlUN+IGN0WC42I9DjY1rSKp1m0muKFT3EpvGm?=
- =?iso-8859-1?Q?x/vPmRSgYe/jpmDT8UyOWSz6l6TCc3jeS4WwJk+JffmWua3pWq2djnz7c3?=
- =?iso-8859-1?Q?t/hiCwu1/WPRPvDgUHkajaN67BOrusJ/O4dOaHv1foRBzuie71+kQhq/+F?=
- =?iso-8859-1?Q?CD8EermVlkCtWAgB+tcK8PShJPs2MJTAFb3NSHKqSeHVMSVLq8jMgbGkQ0?=
- =?iso-8859-1?Q?DclL/IJnr7UKqvGGgYbvOhI1jCOJK98SKBSHc9MUKAABbSe11pTnELbFl/?=
- =?iso-8859-1?Q?JCzDE9TRX+b4ajgXCFKB8a7qN/H3NXqyUNOLuWFI68ccNuHc1M7tqxMwOR?=
- =?iso-8859-1?Q?VlMpHQO0mT4PXrwULUwDBz3GIIoIK1k0JyNT/pzAe91nyGulcxUbicoTHp?=
- =?iso-8859-1?Q?sNFmfaCuMhmJLUvIA4jSI60k/o1Fl7J/Qx39IcEY//sH/UvzkKmnOmO5Qg?=
- =?iso-8859-1?Q?fxS6EAekn2SE4l9RjWiXj3v2zRKvRH0C0NVms7quvwBURPfr0QZhCyAM4U?=
- =?iso-8859-1?Q?85L6yRi4WENKFSTbNmHDdElFwJf5PLUo+/c9KCC6YojRJdgkBHiwlGS2oS?=
- =?iso-8859-1?Q?sB8mC5iCb+GHU1wouCn4fMiEV3aypzmv6jsSSJza2ELhtKmymwwLPmf7P9?=
- =?iso-8859-1?Q?dZLz/DtYZeFIdyw8z3hWkxPzF85RBFJ3lKvpUDNWqy9DR0z7FsXjV7K5xW?=
- =?iso-8859-1?Q?+ECqmmtCNjU7Wq/xSCbw4d0rZEtOVCGkMvgSrOEh+NGC0s9DtsyNZ13ZTa?=
- =?iso-8859-1?Q?tQ0dt7+frvdTpquS+TT4S52m9vx4tYRvu9n2qJsukfztWZQ0hQVO/o6NdN?=
- =?iso-8859-1?Q?IzdLbyspDjdfAor+AUf5PHYqw571EogwsXClMZOpEe1FHQSX/8NtgteJpf?=
- =?iso-8859-1?Q?p5UID4azeR1eHB+iPFj6Kapu4N1DwEb56pgpGACjZeGPcI5ZPAGrPd+9Yk?=
- =?iso-8859-1?Q?azBB0jC0se5+lm2sFR9p6h8ZU+1X0CIpN6vSV+1R3mm93keijHZaFaVV1J?=
- =?iso-8859-1?Q?cD0cgMrB5c4TOeACN0WqCvg1P9lpEJ93ISdZbvlF7o9fK1GPGAxA+nj2ml?=
- =?iso-8859-1?Q?nnOEl7lxyGrtXyn03NPUIoDGyb4XsO2RNyKkxQEdtKalxwZF0VYZRqqhNh?=
- =?iso-8859-1?Q?YZ42hgM5GA/x3tTlfHHrzvARZiL+7o2HLdt4ls9qToh+UQLOcU/r8o9eYD?=
- =?iso-8859-1?Q?uVKV1RGL2e87RKn7iGDWybTShloJqPNRWsO55D2MFPNg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?gFvvLR31JcyPRTQp3QEQ8Zg/MNrbsUxG5rtXrqLsGzs/YFjqkr00C5A4aS?=
- =?iso-8859-1?Q?cF9myF1k3fBJq2LpYl1OTDqp67xlAHOIkXHw7HF+2gTkaZ3y0+QpOXVyxx?=
- =?iso-8859-1?Q?h6V4C0XIus6Q2ZSDJAP8IIcSYIOyCxfrhJlnzNpCJzbENgSuQHqCLaoteU?=
- =?iso-8859-1?Q?VsylFbTiDkfjfltqZfzVb4brlh8BaGy0v+FwX2S/CNlZlsGD3XkpdzldIg?=
- =?iso-8859-1?Q?YCd7lhG2GSxv2PP9XslMFMMx04VSZklhCkvsX1PLus7AuuMbUMiSArWn49?=
- =?iso-8859-1?Q?DH4tbFvtUgyB1TE9ej1wUiMOLxFAkXvGSB3iJO6ccvj/yDRbslT+GCsyP8?=
- =?iso-8859-1?Q?FZorJyFogHxcnK1l7F9cJydq6viOxDUJXptfXwlqyub5hYgrULKLioPsDa?=
- =?iso-8859-1?Q?MXTUfp+0oeO89wwRDAztnCpGIRGy0F6ArkkJLLI/PKhqZwiCBgpPQzZ7QI?=
- =?iso-8859-1?Q?HaIYojtcyrcJIrg9Nyw6mDMAwHn9BDx5L+zavd3HXxAnVvp9d5uJyFfAOQ?=
- =?iso-8859-1?Q?gtIHJmYoR4O0p9tAmnJQSydbtlZTzhoNZ6X3TzE9GoleOSv9aQat5qEHYX?=
- =?iso-8859-1?Q?Q5s+ucQ3Iw7UiLKROxUIpsuyH9+julOqidNn5gTSsLrkLunfaf/52byVj7?=
- =?iso-8859-1?Q?y5fxbwclJG+oxZiisomL3EvsD3an1BSZBiasQJTcZYNOvGckgCf2X0fQYu?=
- =?iso-8859-1?Q?6v8JVUG1+ZH7f3xR0NbYMbRoIgbbGO3qSieS+ObKCuEowxvFRnMRiDVkzo?=
- =?iso-8859-1?Q?K7RXzwlOSojVyU5a6jFTaxv6DuAhu9mpI1tffCcKjIqMwXEieRAruY0pt/?=
- =?iso-8859-1?Q?sizvUApz+09p4Nd+xZBzAFwQWAMxteYHF0tMwnARHGKizwwiVHAOQYuT0J?=
- =?iso-8859-1?Q?wBwlYiI8m13TcnLP1jnPy6ObdpBMWlRlqbxCwrIkGZqKwPmdE8O0OrbsnF?=
- =?iso-8859-1?Q?6pA9Y8SpsJTjcUT4DDpeoMFFORtWtHppqTppLJ1BFZViTbdXshZpt/JJL4?=
- =?iso-8859-1?Q?9FxAsDg8GL89azCNHOu2W1HBc/QDnm29SFuU29KAkw1wIYSkshvv8D/acb?=
- =?iso-8859-1?Q?ovqH3Va8ghnJSxosaCItcd6Ki2i2gNtjNra9Ry6FirHZxdSNmV25q/vtL3?=
- =?iso-8859-1?Q?bFdcenk4qhgsTbmghQKjIMF7iBxvPk7IyG6lxi2/1x5FqXiayWrut7ekUW?=
- =?iso-8859-1?Q?aJy1mkQAQSCvIhC77JDTL5ncy6YUzd0Nab+hjJb2nvJKes131DTVFq1B0q?=
- =?iso-8859-1?Q?X+1HbjpKsuXKWoSSFf7V/3HXChK0fETC3Hj68DECud6JnGBE8O5IiCTzP0?=
- =?iso-8859-1?Q?3n1+DT9CD7FihKJp+JZ7TstqubBuBG403TnAy5Wuv1WvUgHWKF1vO9GFj9?=
- =?iso-8859-1?Q?eH4OcTBgeIVHr2r0D1k6/+WCD5mJOf3/4JhM4hysJ3j9VYUGDGxJVpXBJn?=
- =?iso-8859-1?Q?53kE9OUfURM0+L11ekvNLpPnuXoucGiayk2Qt1mrlvYt7qsDZ2Jv8QViJD?=
- =?iso-8859-1?Q?HRjIzoMAVb7S7gV5YEtvNqvKay0Nr2lF5D+/BJobykvZ9I7Fyr85HN7xGm?=
- =?iso-8859-1?Q?p/9xeoEvMf+JbaRaW/RYbjFJeSV3skq/YMtBbIRNSjQgQlQKy96yWc/Sf2?=
- =?iso-8859-1?Q?PnJzfzSs0+fxEYR8B4cJwKE/LJOK2ROOoRj9VCpplrSbJCZ4KCBCXsxbd9?=
- =?iso-8859-1?Q?LoqecWLhnRt/SvajaoE=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b495b2a-1b46-4575-c02b-08dddec26068
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2025 01:47:38.1250
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L8OwC8czYdlFEUw/wDzNi3axVhR5WQxerERcqVJf/p7RylYJ/m61ZXrqk3rEvdd4VbEe3k8ybVl60d3f7XCofwKrTABjgXTDStCUU8kEGVCWyNKKaAgj0ltUw/wLtdXN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB14084
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_184752_028269_68726A32 
-X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-CacheID: sfid-20250818_190001_505043_084A358D 
+X-CRM114-Status: UNSURE (   9.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -164,37 +90,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This serides patches dependent on:[1]https://lore.kernel.org/all/20250601173355.1731140-8-jason-jh.lin@mediatek.com/
 
-Hi J. Neusch=E4fer
+Xiandong Wang (4):
+ [v2,01/04] dt-bindings: mailbox: add cmdq yaml for MT8189
+ [v2,02/04] mailbox: mtk-cmdq: Add cmdq driver for mt8189
+ [v2,03/04] arm64: dts: mediatek: Add GCE header for mt8189
+ [v2,04/04] mailbox: mtk-cmdq: modify clk api for suspend/resume
 
-Thank you for reporting, and sorry for my late response (I was in summer
-vacation).
+ .../mailbox/mediatek,gce-mailbox.yaml         |   1 +
+ arch/arm64/boot/dts/mediatek/mt8189-gce.h     | 870 ++++++++++++++++++
+ drivers/mailbox/mtk-cmdq-mailbox.c            |  24 +-
+ 3 files changed, 885 insertions(+), 10 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8189-gce.h
 
-> When booting the Allwinner H2+ SoC (Orange Pi Zero) with the audio codec
-> enabled, recent kernels crash with a NULL pointer dereference:
-(snip)
-> This particular error path is taken after platform_probe returns -EPROBE_=
-DEFER
-> to call_driver_probe and really_probe calls device_unbind_cleanup.
->=20
-> The parameters to the strcmp call in snd_soc_lookup_component_nolocked ar=
-e
-> component->driver->name =3D NULL and driver_name =3D "snd_dmaengine_pcm".
+-- 
+2.46.0
 
-Thanks.
-I think it is...
-	- snd_dmaengine_pcm is sharing same dev with CPU and Platform
-	- Platform has driver->name (no problem)
-	- CPU doesn't have driver->name (will be NULL pointer access)
-
-I guess your CPU component doesn't have driver->name ?
-Anyway, it should care about such case. I will post 2 patches (1st is for
-fixup this issue, 2nd is cleanup patch).
-Could you please test both patches ?
-
-Thank you for your help !!
-
-Best regards
----
-Kuninori Morimoto
 
