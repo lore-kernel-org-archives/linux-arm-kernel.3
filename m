@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F84CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34633CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsrLrztTqTmEg4kWXtlnySYVXfdMgORVTUMbtDz7Yvw=; b=KHmbuhwXFapkmPvmd7iCPcz1nW
-	+KLMl++FjC0O1bs522GBk7jHYYNAyB2kGlv8ZMJ2ll2O1CM48V6/g61bEGmPtNusvv20l/l1P5GEN
-	EcPv/NTY4OVddVz/NugoZmGJKw4keKn9LXEm03cyCKJUlfhxq3WPD1IDF2haqe/wZvslwIxjPb2aV
-	MvOGqj0896pxNfHMlW+Xo5kax8ARnydOGYAJXNGrpEfiaavz677nrWIm507lHAj1SNUIQ+ed6ynnZ
-	3raprVAAcR5J1Eaai2K55YRAD3IarzBkQVT/fUqb2b4wbXmpbS8fr6R9J2KZkY1eb4shdSITQxMrO
-	UeywVQ2A==;
+	bh=HYbnyXonmBoqE7BQDIxlejCHskxYyzI/DdkSVXr/uKY=; b=m/X+8GVpNwlQv7OMQZ2EzHB97U
+	D7DiuaAnjR549lYHu7avOOpMXwDOMUVd5FjFOVX/pz/ReRjELNSQVSJ5qHrXr1bdLk/m/68YErAOL
+	iwRsfiohoA5Q/Cg+/z4qb7ptSiWZ8YP4R9auQpDnPQ7E+HoHJAhHfAME03UY+gfVP7OBoV/7n+aVJ
+	JiXMich/Fqq6O4bXjbmj92tl+2UAbb7ez5/IJhlHTcVxafFoJvIof8zqwnmy1XWaVsq3L9KkGjp+6
+	0msWosV230xFGWDsHJAEwuI7MO6oJnXsQLHKLYCLSd0HhrUQbHBX2hcahLY1fCIhavZkbrixEaYiJ
+	d1CHEsLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIHC-00000009tFp-23Qv;
-	Tue, 19 Aug 2025 09:05:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uoIJm-00000009tcF-1cKM;
+	Tue, 19 Aug 2025 09:07:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHiX-00000009oFW-1b1R
+	id 1uoHjU-00000009oOS-1Mtz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 08:29:18 +0000
+	Tue, 19 Aug 2025 08:30:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9593B5C5882;
-	Tue, 19 Aug 2025 08:29:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D158C4CEF1;
-	Tue, 19 Aug 2025 08:29:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B5E945C5979;
+	Tue, 19 Aug 2025 08:30:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F558C4CEF1;
+	Tue, 19 Aug 2025 08:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755592156;
-	bh=sb7IXWFytjY59+7DZrrxzCX6gg12LTHilkBQwAbPXW0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nAPw0vPEHV9zTl9wVPuYtFCyNNRDw38H6YnjcnVFk1I3N0mI2cxOSOIBd9OJPvRDc
-	 K4W+uoZv0PS/vqqdTEfnsS9Zy1fi52VpnoAhhHQsd6+UAvO7tFTLTLljZSsJ9PowLv
-	 x3kyxPA6nKdh9yYqio4UfY5LQsDsDmiMFmDjScleYVnlbxSNYIbK5Gj6rrcp9xXnDw
-	 p9goqfBdCjw/5FSsBtX2qhtO5NrfRyY0NkRnN2m7pXFpozJ84jkgoYzOgv1cegnwbc
-	 eqBmrMeAhtCNSsqIeCanlgRRHdPAFOKPW+UP/3oSk3XH12K8pTrwIvXNlE9maRIHVL
-	 /ldJ9ETfsbT7w==
-Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uoHiN-008tGS-TU;
-	Tue, 19 Aug 2025 09:29:09 +0100
-Date: Tue, 19 Aug 2025 09:29:07 +0100
-Message-ID: <87tt23k94c.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64/sysreg: Add TCR_EL2 register
-In-Reply-To: <bea0e6b4-4b9e-45c7-b42a-fde93d627cba@arm.com>
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
-	<20250818045759.672408-4-anshuman.khandual@arm.com>
-	<87ldngmy9h.wl-maz@kernel.org>
-	<bea0e6b4-4b9e-45c7-b42a-fde93d627cba@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 86.149.246.145
-X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, broonie@kernel.org, ryan.roberts@arm.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1755592215;
+	bh=Te4KR24g5JjkMDypQM9+bPiHN5Txeoy3EKnAS8A9PSg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=nJnBqq+B/PdXH9viS/GMk4WqVJqq9qFcvHBiU9+51wPiv7pVivxoDS1sz8OpK5Dmf
+	 zVLVrO+IskEs/LCan2a+U3wm5yzRFPhoE/4twSKu6Ftt2nTQ9HelxEceH5Wride50M
+	 1izQC9ofV/Q0M21R74s2F2u/evVE3EYMbNNPvS5vO7WDpB633TXxr1kJYBWx8Fox87
+	 jWEK3QgZJNJS1FhWkluwIwVq8QayJ/UCmrhyr0eqO7TKhO3b7O3cTRt1QW8kMczExL
+	 20w/HDS1u8z6EmAk1yVqvPNBxbVIptaW+Pod3U6hNkSipPTP4iFwLUbFtMk56nO60b
+	 QKAOKCCwAjHrQ==
+Date: Tue, 19 Aug 2025 03:30:14 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: festevam@gmail.com, linux-pci@vger.kernel.org, 
+ devicetree@vger.kernel.org, krzk+dt@kernel.org, s.hauer@pengutronix.de, 
+ lpieralisi@kernel.org, shawnguo@kernel.org, frank.li@nxp.com, 
+ l.stach@pengutronix.de, bhelgaas@google.com, mani@kernel.org, 
+ conor+dt@kernel.org, kernel@pengutronix.de, kwilczynski@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+To: Richard Zhu <hongxing.zhu@nxp.com>
+In-Reply-To: <20250819071630.1813134-2-hongxing.zhu@nxp.com>
+References: <20250819071630.1813134-1-hongxing.zhu@nxp.com>
+ <20250819071630.1813134-2-hongxing.zhu@nxp.com>
+Message-Id: <175559221431.3513325.13023489258693158920.robh@kernel.org>
+Subject: Re: [PATCH v4 1/2] dt-bindings: PCI: dwc: Add vaux regulator
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_012917_544645_2BE08CCE 
-X-CRM114-Status: GOOD (  32.40  )
+X-CRM114-CacheID: sfid-20250819_013016_409843_0F23B921 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,74 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 06:58:51 +0100,
-Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+
+On Tue, 19 Aug 2025 15:16:29 +0800, Richard Zhu wrote:
+> Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
+> asserted by the Add-in Card when all its functions are in D3Cold state
+> and at least one of its functions is enabled for wakeup generation.
 > 
-> On 18/08/25 9:13 PM, Marc Zyngier wrote:
-> > On Mon, 18 Aug 2025 05:57:58 +0100,
-> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
-> >>
-> >> Add TCR_EL2 register fields as per the latest ARM ARM DDI 0487 7.B in tools
-> > 
-> > 7.B??? My copy of the published ARM ARM has L.B as the version suffix.
+> The 3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+> process. Since the main power supply would be gated off to let Add-in
+> Card to be in D3Cold, add the vaux and keep it enabled to power up WAKE#
+> circuit for the entire PCIe controller lifecycle when WAKE# is supported.
 > 
-> Right, the version is L.B instead.
-> > 
-> > Also, if you got the registers from the ARM ARM, please stop doing
-> > so. This is terribly error prone, and likely to be incomplete, given
-> > that the ARM ARM lags about a year behind the published architecture.
-> > 
-> > You have the BSD-licensed MRS at your disposal, please make use of it.
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> I guess you are suggesting the latest layout from the XML. Sure will refer
-> the layout from the following description.
-> 
-> https://developer.arm.com/documentation/ddi0601/2025-06/AArch64-Registers/TCR-EL2--Translation-Control-Register--EL2-
 
-This not what I have said. Read this for a start:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-https://developer.arm.com/documentation/ddi0601/2025-06/Proprietary-Notice?lang=en
+yamllint warnings/errors:
 
-The XML is *NOT* usable to generate Linux descriptions, full stop. If
-you don't believe me, ask your favourite legal department.
+dtschema/dtc warnings/errors:
 
-What I'm asking you to do is to:
 
-- Download https://developer.arm.com/-/cdn-downloads/permalink/Exploration-Tools-OS-Machine-Readable-Data/AARCHMRS_BSD/AARCHMRS_OPENSOURCE_A_profile-2025-06.tar.gz
-  (which is BSD-licensed)
+doc reference errors (make refcheckdocs):
 
-- Parse the JSON files to *extract* the information -- not copy/paste
-  it or write it by hand. See
-  https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/getting-started-aarchmrs-features-json-python
-  as an example
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819071630.1813134-2-hongxing.zhu@nxp.com
 
-- If you can't be bothered to write your own script, have a look at:
-  git://git.kernel.org/pub/scm/linux/kernel/git/maz/AARCHMRS (the
-  'tooling' branch).
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-[...]
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-> > This is only the E2H==0 version of TCR_EL2. IF you are going to
-> > describe this register in a useful manner, then add both formats so
-> > that we know what we are dealing with.
-> 
-> IIUC two different runtime layouts for TCR_EL2 is not possible to be
-> defined in current tools sysreg format.
+pip3 install dtschema --upgrade
 
-Then the tool is broken. Fix the tool. You have the same problem with
-CNTHCTL_EL2, for example, and turning a blind eye is not going to
-help.
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-> Also one layout is not just a larger extension of the other - in
-> which cases we could have just defined the larger layout.
->
-> But curious do we have use cases for bits from the other layout now ?
-
-I don't. But given what you suggested in your reply to patch #2, this
-would become an absolute requirement.
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
