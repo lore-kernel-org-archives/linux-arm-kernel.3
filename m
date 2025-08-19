@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F80CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA72CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSAD6xfEyxZhtbs6l7fpAY63jmRWYHQxC9G8VceRiKg=; b=RR1C/GRylWmRQCiZwrrA33prGq
-	Ca5BhV1Xez1i6JBG96qS9tRprNbNCw2vB8Aek/MIMUxXCaQm7p5GKLXGP93A2TUjHJ41Amt93aURr
-	QMlAY/+Zg+3lf7yu+DQ2nR3DWkQfl5vI1QNqNyn4IFoR/Zs5VQ9QiiwTvsNVBkQvo/dMiZUbKRXBa
-	iQX73ogiAXVYng4yLBL0cbMp9dOdt2osqwzfkE3dJvBobXWec+gMG3pBp4cCca/3sKa5jIaj8noeM
-	Y3n+uQkE7q9v5j3P8kPZ9AmIUoUrS+/2znbvzPSh5diKAUGl+je22niqXqGTWfvxhzpUu7gEQWQ3b
-	I+iCptvA==;
+	bh=bsmf5bLEhDcMHd8HjlloeMrrkwwKS55Kw0bi6W7zyHI=; b=k7sdWfbKStrBSdIVDD6TDwhkAn
+	p4PHa5UNEYpEhOx5ecDMsQ5mAN24DL+ry8Zrb7zRkkLcYzlolXGAduBg8aYeT3WYzPDcVjrfAdZlL
+	tzquEKb9UT7cdJfgJcRz+9LKWc0v74tvuyCc3c8aot00bDS9sMXJpbYU19c2eG9v0+z1zzLDaiSoL
+	9JzTpQwxecgS7N9iU0ijSQezfzRJgpbPJn6mPVlQJ0plppJc6O8KfxFeqerkNuFzm4rN4WXNcsKh9
+	L7Yk9khZqeNpf/9qsGqQJQtNS4mU+kXcuq8hAMFrFcOalyRIbESr9GmsqBw8Jk2gGd70lbzQk+u4o
+	b/Z7MshA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJxo-0000000ABkH-1hQi;
-	Tue, 19 Aug 2025 10:53:12 +0000
+	id 1uoK0Q-0000000AC49-0buG;
+	Tue, 19 Aug 2025 10:55:54 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIUR-00000009vkM-2786
+	id 1uoIUS-00000009vkS-1JkE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 09:18:49 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J8iL9M013277;
+	Tue, 19 Aug 2025 09:18:50 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J8v5JQ021413;
 	Tue, 19 Aug 2025 11:18:30 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	FSAD6xfEyxZhtbs6l7fpAY63jmRWYHQxC9G8VceRiKg=; b=oJt6+pUMdzfgl5da
-	9z6JPFY8Kg9fVUV3d0QNCeXxwmDQ452DbdPoOa2EBKIdXSPTB0C7QXpuKQmJdWuJ
-	YNA81c0trx3Yi68ZYEHAoWc4XRz3oVsqCeTq39AALAMBMqRQEhrMiP07uhD36ozl
-	1rXA0+BGgTZ34D2vNN2Zg0oojyuS2lWZLYC0U8HL31CiKZMD2HEyHXk8/glQkxJJ
-	pFYKX0IA7A8L3QAZ26IyjPy4s51hwN8Y3XssEltQVA4XvLYV0KeWUhykHhnj7rCL
-	3sb0/Zd20GYPrd05Chhgn/obPXDsOoDHeg2GT38d+DhwLVmHIXHCam4wOoBNYnJ3
-	3Hw1kA==
+	bsmf5bLEhDcMHd8HjlloeMrrkwwKS55Kw0bi6W7zyHI=; b=AzJiCTMS8u4qIiBq
+	hF3AIkT4qualZwLrP7MXbRhbq/spspDkEVS5XnHdNHQxPsLFtWRMGnIwmrHAMNnX
+	WuPW9H2+xolEuZowgEaZYzQDkrc6bQV2ksE88Tdgc17h8aCTYwaKvN0OtC5+bAbw
+	/CvFCDw3JmTJGyxYOIlhdNAnIWa/P1/hawUR8JTtqLfECllOVKzYugJ9sJkigKMx
+	B5XZu0qjXMJVAH7S4vJoy9DwSTubxWKGJwHLvn+LrA1/9tU/q/jaN7EPmd8a5cl4
+	BJZy1fjpwQ4w961I+Ro6/yGXC0G6yr7jVgCgBKSpnaTt/p0AiplWaDsh62YDxGU1
+	grsKkA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48k3j4g8x3-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jfdkahpr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 19 Aug 2025 11:18:30 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AC42540051;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EFB6740052;
 	Tue, 19 Aug 2025 11:16:57 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EF1CC717657;
-	Tue, 19 Aug 2025 11:15:59 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3CA8A71CDAB;
+	Tue, 19 Aug 2025 11:16:01 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 19 Aug
- 2025 11:15:59 +0200
+ 2025 11:16:00 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Tue, 19 Aug 2025 11:15:58 +0200
-Subject: [PATCH v3 05/13] dt-bindings: display: st,stm32mp25-lvds: add
- power-domains property
+Date: Tue, 19 Aug 2025 11:16:00 +0200
+Subject: [PATCH v3 07/13] drm/stm: ltdc: support new hardware version for
+ STM32MP25 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250819-drm-misc-next-v3-5-04153978ebdb@foss.st.com>
+Message-ID: <20250819-drm-misc-next-v3-7-04153978ebdb@foss.st.com>
 References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
 In-Reply-To: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,9 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_021847_837764_940DC070 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_021848_653239_CFD7E25E 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +111,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STM32 LVDS peripheral may be in a power domain.  Allow an optional
-single 'power-domains' entry for STM32 LVDS devices.
+From: Yannick Fertre <yannick.fertre@foss.st.com>
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+STM32MP25 SoC features a new version of the LTDC IP.  Add its compatible
+to the list of device to probe and implement its quirks.
+
+This hardware supports a pad frequency of 150MHz and a peripheral bus
+clock.
+
+Signed-off-by: Yannick Fertre <yannick.fertre@foss.st.com>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/gpu/drm/stm/drv.c  | 11 ++++++++++-
+ drivers/gpu/drm/stm/ltdc.c | 37 ++++++++++++++++++++++++++++++++++---
+ drivers/gpu/drm/stm/ltdc.h |  5 +++++
+ 3 files changed, 49 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-index 05a73bbc246a8994b6aabf7c2cd9dca773232be4..14e042156179cb2f2d906422eaff6840da3c91ea 100644
---- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-+++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-@@ -62,6 +62,9 @@ properties:
-   access-controllers:
-     maxItems: 1
+diff --git a/drivers/gpu/drm/stm/drv.c b/drivers/gpu/drm/stm/drv.c
+index 8ebcaf953782d806a738d5a41ff1f428b0ccff78..8bfdeb486862a95df77427d25ce373e69e886c01 100644
+--- a/drivers/gpu/drm/stm/drv.c
++++ b/drivers/gpu/drm/stm/drv.c
+@@ -236,8 +236,17 @@ static void stm_drm_platform_shutdown(struct platform_device *pdev)
+ 	drm_atomic_helper_shutdown(platform_get_drvdata(pdev));
+ }
  
-+  power-domains:
-+    maxItems: 1
++static struct ltdc_plat_data stm_drm_plat_data = {
++	.pad_max_freq_hz = 90000000,
++};
 +
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
++static struct ltdc_plat_data stm_drm_plat_data_mp25 = {
++	.pad_max_freq_hz = 150000000,
++};
++
+ static const struct of_device_id drv_dt_ids[] = {
+-	{ .compatible = "st,stm32-ltdc"},
++	{ .compatible = "st,stm32-ltdc", .data = &stm_drm_plat_data, },
++	{ .compatible = "st,stm32mp251-ltdc", .data = &stm_drm_plat_data_mp25, },
+ 	{ /* end node */ },
+ };
+ MODULE_DEVICE_TABLE(of, drv_dt_ids);
+diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+index ba315c66a04d72758b9d3cfcd842432877f66d3a..74e93f076b62a46e7835985d9d330ba66d990e58 100644
+--- a/drivers/gpu/drm/stm/ltdc.c
++++ b/drivers/gpu/drm/stm/ltdc.c
+@@ -14,6 +14,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/media-bus-format.h>
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/of_graph.h>
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/platform_device.h>
+@@ -51,6 +52,7 @@
+ #define HWVER_10300 0x010300
+ #define HWVER_20101 0x020101
+ #define HWVER_40100 0x040100
++#define HWVER_40101 0x040101
  
+ /*
+  * The address of some registers depends on the HW version: such registers have
+@@ -1779,6 +1781,7 @@ static int ltdc_get_caps(struct drm_device *ddev)
+ {
+ 	struct ltdc_device *ldev = ddev->dev_private;
+ 	u32 bus_width_log2, lcr, gc2r;
++	const struct ltdc_plat_data *pdata = of_device_get_match_data(ddev->dev);
+ 
+ 	/*
+ 	 * at least 1 layer must be managed & the number of layers
+@@ -1794,6 +1797,8 @@ static int ltdc_get_caps(struct drm_device *ddev)
+ 	ldev->caps.bus_width = 8 << bus_width_log2;
+ 	regmap_read(ldev->regmap, LTDC_IDR, &ldev->caps.hw_version);
+ 
++	ldev->caps.pad_max_freq_hz = pdata->pad_max_freq_hz;
++
+ 	switch (ldev->caps.hw_version) {
+ 	case HWVER_10200:
+ 	case HWVER_10300:
+@@ -1811,7 +1816,6 @@ static int ltdc_get_caps(struct drm_device *ddev)
+ 		 * does not work on 2nd layer.
+ 		 */
+ 		ldev->caps.non_alpha_only_l1 = true;
+-		ldev->caps.pad_max_freq_hz = 90000000;
+ 		if (ldev->caps.hw_version == HWVER_10200)
+ 			ldev->caps.pad_max_freq_hz = 65000000;
+ 		ldev->caps.nb_irq = 2;
+@@ -1842,6 +1846,7 @@ static int ltdc_get_caps(struct drm_device *ddev)
+ 		ldev->caps.fifo_threshold = false;
+ 		break;
+ 	case HWVER_40100:
++	case HWVER_40101:
+ 		ldev->caps.layer_ofs = LAY_OFS_1;
+ 		ldev->caps.layer_regs = ltdc_layer_regs_a2;
+ 		ldev->caps.pix_fmt_hw = ltdc_pix_fmt_a2;
+@@ -1849,7 +1854,6 @@ static int ltdc_get_caps(struct drm_device *ddev)
+ 		ldev->caps.pix_fmt_nb = ARRAY_SIZE(ltdc_drm_fmt_a2);
+ 		ldev->caps.pix_fmt_flex = true;
+ 		ldev->caps.non_alpha_only_l1 = false;
+-		ldev->caps.pad_max_freq_hz = 90000000;
+ 		ldev->caps.nb_irq = 2;
+ 		ldev->caps.ycbcr_input = true;
+ 		ldev->caps.ycbcr_output = true;
+@@ -1872,6 +1876,8 @@ void ltdc_suspend(struct drm_device *ddev)
+ 
+ 	DRM_DEBUG_DRIVER("\n");
+ 	clk_disable_unprepare(ldev->pixel_clk);
++	if (ldev->bus_clk)
++		clk_disable_unprepare(ldev->bus_clk);
+ }
+ 
+ int ltdc_resume(struct drm_device *ddev)
+@@ -1887,7 +1893,13 @@ int ltdc_resume(struct drm_device *ddev)
+ 		return ret;
+ 	}
+ 
+-	return 0;
++	if (ldev->bus_clk) {
++		ret = clk_prepare_enable(ldev->bus_clk);
++		if (ret)
++			drm_err(ddev, "failed to enable bus clock (%d)\n", ret);
++	}
++
++	return ret;
+ }
+ 
+ int ltdc_load(struct drm_device *ddev)
+@@ -1922,6 +1934,19 @@ int ltdc_load(struct drm_device *ddev)
+ 		return -ENODEV;
+ 	}
+ 
++	if (of_device_is_compatible(np, "st,stm32mp251-ltdc")) {
++		ldev->bus_clk = devm_clk_get(dev, "bus");
++		if (IS_ERR(ldev->bus_clk))
++			return dev_err_probe(dev, PTR_ERR(ldev->bus_clk),
++					     "Unable to get bus clock\n");
++
++		ret = clk_prepare_enable(ldev->bus_clk);
++		if (ret) {
++			drm_err(ddev, "Unable to prepare bus clock\n");
++			return ret;
++		}
++	}
++
+ 	/* Get endpoints if any */
+ 	for (i = 0; i < nb_endpoints; i++) {
+ 		ret = drm_of_find_panel_or_bridge(np, 0, i, &panel, &bridge);
+@@ -2034,6 +2059,9 @@ int ltdc_load(struct drm_device *ddev)
+ 
+ 	clk_disable_unprepare(ldev->pixel_clk);
+ 
++	if (ldev->bus_clk)
++		clk_disable_unprepare(ldev->bus_clk);
++
+ 	pinctrl_pm_select_sleep_state(ddev->dev);
+ 
+ 	pm_runtime_enable(ddev->dev);
+@@ -2042,6 +2070,9 @@ int ltdc_load(struct drm_device *ddev)
+ err:
+ 	clk_disable_unprepare(ldev->pixel_clk);
+ 
++	if (ldev->bus_clk)
++		clk_disable_unprepare(ldev->bus_clk);
++
+ 	return ret;
+ }
+ 
+diff --git a/drivers/gpu/drm/stm/ltdc.h b/drivers/gpu/drm/stm/ltdc.h
+index 9d488043ffdbc652deeede71c9d57d45fb89d3c6..ddfa8ae61a7ba5dc446fae647562d0ec8e6953e1 100644
+--- a/drivers/gpu/drm/stm/ltdc.h
++++ b/drivers/gpu/drm/stm/ltdc.h
+@@ -40,10 +40,15 @@ struct fps_info {
+ 	ktime_t last_timestamp;
+ };
+ 
++struct ltdc_plat_data {
++	int pad_max_freq_hz;	/* max frequency supported by pad */
++};
++
+ struct ltdc_device {
+ 	void __iomem *regs;
+ 	struct regmap *regmap;
+ 	struct clk *pixel_clk;	/* lcd pixel clock */
++	struct clk *bus_clk;	/* bus clock */
+ 	struct mutex err_lock;	/* protecting error_status */
+ 	struct ltdc_caps caps;
+ 	u32 irq_status;
 
 -- 
 2.25.1
