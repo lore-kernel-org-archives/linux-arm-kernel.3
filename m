@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F53CA0EFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F172FCA0EF7
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 20:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ik2CZRraiL4wjLDuUaIjOn1b1SNp0YAfTL1m5BkDZ58=; b=XbPvBUe2DFHGie+fGo11WRovXy
-	6GDVd4e9ChHdW1tXfNN5gXlZAWZm1sk/xcXocJ6aO9RwQ8G/82sW3hPpJG7M4GKUFRkvKTCHKSciY
-	rkT79Ayoz+qxCrxdcQh4cw6G0vU0tjKfeu2x9P+a8BtaIG6xYDrnGExMnQDSvh6MSSMEur2z3PzbU
-	aMZ8J2bq7p4wArt9lnGkraU93ZkUrJs6SfOAfxy3SE0KHdBh4ZoU7eK6C6H5Q8GduwoMm3c+yOYfc
-	Ewyjp78j8YDDhFe6ZcKITsKWn93diTFr7BkleoHWRK/ruCGcCTqlA91wuqBYtXJXw+gV2YzxZSxwC
-	XGBCW6wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8l89w4bHTJH83H28ZxlWSCRMM0V8+br4qkqPy5/xjd0=; b=ITSsB5LDJ5hiUDAO7r6MTOjlQf
+	8BnxVB8lertLqmRngaXiP/W+gm3aIhaFVdFqUd7INyF0aA/vLsMDBCzoOm7JBQQSyfMHKhBe649ZV
+	ZKKaHaFx52hUH2gdvVuyd9CTde5+rvewkprX/zGUIluDpyOh2Fxja0UKgSqPkPG568kXNyZjdULe8
+	bjwEABxRKs60dQTtMpK4jW83PI9SzzZ/HheMUHpud+W17ym26CXJ5dVwbVKOf9Ia8vqn5a8f7wADr
+	62VXI6pxDt0LWip6H53MYhsp/Oz6NHm2sBnp/7kuJrLD4ihy9snEpDADs1+1QCOpxVPY6SITmvJHA
+	7O4mFs+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTAR-0000000BYtr-3dpw;
-	Tue, 19 Aug 2025 20:42:51 +0000
-Received: from mail-ej1-f54.google.com ([209.85.218.54])
+	id 1uoTAT-0000000BYvV-0caa;
+	Tue, 19 Aug 2025 20:42:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoREt-0000000BJzT-3WDn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 18:39:20 +0000
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-afcb7abfc5cso961805966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:39:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755628758; x=1756233558;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ik2CZRraiL4wjLDuUaIjOn1b1SNp0YAfTL1m5BkDZ58=;
-        b=jDPdqOeJM2f0x0UwJ6nNMG3jnsw5UiRioZjQ7xJ9uO5mrGDhzGmkDZ+vibfWmjqsBu
-         jpGYlkpsvaHdnLUcyaYnKrB46AQJ7Mqyw/3oyzsy2kQ0meh/k7wu52hBnFIxAQrxU68x
-         i5eXX/eCBQsJeV25X8FptuVyTXNFVQVI8vhiEO43Eo/Ko1aBqPmZBzqiHIQou/+Ka2+p
-         1wUp7RNtqqqoFMa6re6tqoGfF1063gaAXcpXjVh3Y2wqHBUIUhF0Sr+ypw465oN8deyQ
-         7FJffTtCOPjhtHtTCUBLex6oDXplfhVw1zOAylITfn9cQq98P+3KHLzVPc4SUaonInu0
-         kBIg==
-X-Forwarded-Encrypted: i=1; AJvYcCV2OWnXnOJEDtlKP3OILW/ZPqh5qy3dGyyTC5z7/xpOx2mD8Byxenh/cOE/KNMPLdmZIiWYpRIHRvmy3XTJjXaM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlK73XGHNuH2gxOzZf1j23YX6VjtiigeZ7rkH/QazQgUlxhhU5
-	3yUvpXfCX7yJIyYLlloT0RUTUPnx2LDifCWo1tIsO8V57gJn3JA5dGcEL/DKmauBjkE=
-X-Gm-Gg: ASbGnctiORxghlbGfQu+VOjBvkhGKSY8I+hkIBj1/knRYKshFsSHSAp/zRf8dFZsCIp
-	Q3El6CkjUQk6Lh7o6UW3zFBY8NMVrBV/VPKDEdB8jDGjTe4aR0RcVLjZOp/3VFSUV94cEmXS8/U
-	HIsB+7XagNd0OHdn9vcSb3JI9EYcM8tGT6tz8FPrySrbery+Wjm3tsL3OEQpHoyxPC8EfZBF0cN
-	dN+BcPf6VSYp7Xh3ZzS0gB1Y12QzdYqjHmgxcRM110nEJuZ9/Mm4OtfRJ2G5AktVHPl0F/6h+33
-	XJtT0hh3bxgVLDeEFPv3q/RHgvBhFgl5P2kkvyGS7dtBcMqo5aYEUJEzNZeoI6Q4R1KFHB4jCBe
-	u1zK/WN/62c993O929SBScofJckUyaeM9eE2B/gssfg3wNlcTQmW7laxoBHHU5xc=
-X-Google-Smtp-Source: AGHT+IHyA0FWl198bi2yJtMIJpUGfVLOkF/0jzpXHaYBsaT8NngdXIkCrpNa71koN+3csJZm4MU09Q==
-X-Received: by 2002:a17:907:7205:b0:afd:d994:7d19 with SMTP id a640c23a62f3a-afddd221443mr367672966b.62.1755628757417;
-        Tue, 19 Aug 2025 11:39:17 -0700 (PDT)
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded47909asm29121066b.54.2025.08.19.11.39.16
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 11:39:16 -0700 (PDT)
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-61a8b640e34so1329056a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:39:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX+swMv6/6URgwS+boI1k1BQb6cSo3W+zN6cu88811iCquvWGZy7Og1f8Kx41Kl+cCjmiNF2vxdpxfAbBSq7lIr@lists.infradead.org
-X-Received: by 2002:a05:6402:354a:b0:618:272a:6dc0 with SMTP id
- 4fb4d7f45d1cf-61a97825978mr311982a12.27.1755628756633; Tue, 19 Aug 2025
- 11:39:16 -0700 (PDT)
+	id 1uoRJu-0000000BKU6-0JZL;
+	Tue, 19 Aug 2025 18:44:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=8l89w4bHTJH83H28ZxlWSCRMM0V8+br4qkqPy5/xjd0=; b=gcR8kMD9Q71A7ezSFp0EEPQhem
+	TJqW4ftDjs3qSqnC8AZ0XXhgHZn9wkOD+bwUNPMEn9JTbWOm4DsgbMES6CmD5dWREc3BFGop2eJBH
+	+TEB01ubMjD8uJ0/T1fiSq4Kz5l21rKXWIGHnvm7CgRquGhL6v9H3ZimHeWfL86D6drVCh++UxjGF
+	+dln30WIYeoic3imgQ0tnzjIhzqNBvTtJzfsn0kbKxQD0VKHwsevGtMvh9gsvX/jTdh5wiYHs1bO+
+	g4+6KZTKeWf93whbuJErQgPevIuN1gl77doOV9YB98XI5+YjJoVzD/v5nVw9he7hC0hMegIiAgzGU
+	pZuimlAQ==;
+Received: from i53875a31.versanet.de ([83.135.90.49] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uoRJq-0004Ru-TA; Tue, 19 Aug 2025 20:44:26 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Dongjin Kim <tobetter@gmail.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Change ethernet TXD timing delay value
+Date: Tue, 19 Aug 2025 20:44:26 +0200
+Message-ID: <2821088.9PvXe5no7K@diego>
+In-Reply-To: <4d25c642-d457-4cb7-8bc1-587edd4f1d75@lunn.ch>
+References: <20250819045018.2094282-1-tobetter@gmail.com>
+ <4d25c642-d457-4cb7-8bc1-587edd4f1d75@lunn.ch>
 MIME-Version: 1.0
-References: <20250813-apple-dt-sync-6-17-v1-0-209f15d10aa0@jannau.net>
-In-Reply-To: <20250813-apple-dt-sync-6-17-v1-0-209f15d10aa0@jannau.net>
-From: Neal Gompa <neal@gompa.dev>
-Date: Tue, 19 Aug 2025 14:38:39 -0400
-X-Gmail-Original-Message-ID: <CAEg-Je-uMD4xPcmfcoxzdmo_wfHdiUvw=EByY+zG1c5UQ0=EfQ@mail.gmail.com>
-X-Gm-Features: Ac12FXwXcPnRZb3XHtBRKxe3pDOsXrkoCrBveLOoTcxv7QMCxYMri1d_dXh5Bt8
-Message-ID: <CAEg-Je-uMD4xPcmfcoxzdmo_wfHdiUvw=EByY+zG1c5UQ0=EfQ@mail.gmail.com>
-Subject: Re: [PATCH 0/5] Apple device tree sync from downstream kernel
-To: j@jannau.net
-Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Kettenis <kettenis@openbsd.org>, Hector Martin <marcan@marcan.st>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_113919_875921_40F00799 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20250819_114430_114653_0E194E8F 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +72,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 13, 2025 at 5:53=E2=80=AFAM Janne Grunau via B4 Relay
-<devnull+j.jannau.net@kernel.org> wrote:
->
-> This series pulls changes from the downstream device trees which are
-> supported in upstream kernel.
-> Most importantly it fixes the PCIe description for a specific iMac model
-> (iMac M1, 2 USB-C ports, 2021). This is worked around in the downstream
-> kernel by not disabling the port. In preparation for submitting M2
-> Pro/Max/Ultra devices trees I investigated the issue on the similarly
-> affected M2 Pro Mac mini and fixed it this way.
-> It completes the Wlan/BT device nodes for t600x based devices and adds
-> the missing 15-inch Macbook Air (M2, 2023).
->
-> Checkpatch emits following warnings:
->
-> WARNING: DT compatible string vendor "pci14e4" appears un-documented --
-> check ./Documentation/devicetree/bindings/vendor-prefixes.yaml
->
-> Which I chose to ignore. `vendor-prefixes.yaml` prefixes contains no
-> other mapping for PCI vendor code and the list of ignored prefixes
-> forbids extending it. Both options feel wrong though. "pci${vendor}" is
-> clearly a vendor prefix but duplicating the PCI vendor data base feels
-> wrong. `vendor-prefixes.yaml` currently does not contain and PCI vendor
-> aliases.
->
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> ---
-> Hector Martin (2):
->       arm64: dts: apple: t600x: Comple WiFi properties
->       arm64: dts: apple: t600x: Add bluetooth device nodes
->
-> Janne Grunau (3):
->       arm64: dts: apple: t8103-j457: Fix PCIe ethernet iommu-map
->       dt-bindings: arm: apple: Add t8112 j415 compatible
->       arm64: dts: apple: Add devicetreee for t8112-j415
->
->  Documentation/devicetree/bindings/arm/apple.yaml |  2 +
->  arch/arm64/boot/dts/apple/Makefile               |  1 +
->  arch/arm64/boot/dts/apple/t6000-j314s.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6000-j316s.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j314c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j316c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6001-j375c.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t6002-j375d.dts        |  8 +++
->  arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi   | 10 +++
->  arch/arm64/boot/dts/apple/t600x-j375.dtsi        | 10 +++
->  arch/arm64/boot/dts/apple/t8103-j457.dts         | 12 +++-
->  arch/arm64/boot/dts/apple/t8112-j415.dts         | 80 ++++++++++++++++++=
-++++++
->  12 files changed, 161 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250813-apple-dt-sync-6-17-d1fc1c89f7ca
->
+Am Dienstag, 19. August 2025, 18:03:47 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Andrew Lunn:
+> On Tue, Aug 19, 2025 at 01:50:17PM +0900, Dongjin Kim wrote:
+> > Very poor network performance is observed on the ODROID-M1 Board
+> > (REV 1.0 20220613) when running iperf3 (under 200Mbits/sec), and
+> > this problem can be resolved after changing the value of TXD
+> > timing to 0x35 from 0x4f.
+>=20
+> How did you decide on 0x35?
 
-Series LGTM.
+just because I accidentially stumbled over that recently, Rockchip has
+some scanning functionality in their vendor-kernel to get possible
+delay values for a board.
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
+Described in a document called "Rockchip GMAC RGMII Delayline Guide" [0]
+and one code location is for example the armbian tree [1]
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+At least that is one possible source of per-board delay values :-)
+
+
+Heiko
+
+
+[0] https://lo01.g77k.com/aeb/docs/en/Common/GMAC/Rockchip_Developer_Guide_=
+Linux_GMAC_RGMII_Delayline_EN.pdf
+(random internet source Google found me)
+[1] https://github.com/armbian/linux-rockchip/blob/rk-6.1-rkr5.1/drivers/ne=
+t/ethernet/stmicro/stmmac/dwmac-rk-tool.c
+
+
+>=20
+> ~/linux/arch/arm64$ grep -hr "tx_delay =3D " | sort | uniq -c
+>       4 	tx_delay =3D <0x10>;
+>       1 	tx_delay =3D <0x1a>;
+>       1 	tx_delay =3D <0x21>;
+>       2 	tx_delay =3D <0x22>;
+>       4 	tx_delay =3D <0x24>;
+>       2 	tx_delay =3D <0x26>;
+>      14 	tx_delay =3D <0x28>;
+>       1 	tx_delay =3D <0x2a>;
+>       6 	tx_delay =3D <0x30>;
+>       1 	tx_delay =3D <0x3a>;
+>       3 	tx_delay =3D <0x3c>;
+>       2 	tx_delay =3D <0x42>;
+>       5 	tx_delay =3D <0x43>;
+>       2 	tx_delay =3D <0x44>;
+>       1 	tx_delay =3D <0x46>;
+>       6 	tx_delay =3D <0x4f>;
+>=20
+> The numbers are all over the place, but it is clear that 0x28 is the
+> most popular for some reason. But since this delay values are magic,
+> i've no idea why.
+>=20
+>      Andrew
+>=20
+
+
+
+
 
