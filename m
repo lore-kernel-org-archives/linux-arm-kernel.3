@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D1BCCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 00:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E50FCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 00:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y1XMrJFUsZlHqUSwfaqqxufwXrUFJ8lXJIFDET8NUKg=; b=r8UMFPTedeefVh1kJJXgL49eIj
-	kt+dCtT2ZzpcGEcl7ApPzORy3Kue0J8CQ4mn7IAONESQ+fnicMvIfSnhkpYyoO4B4YD+jUaT5jGVl
-	+yDTXS9afUEZCTVNq79U3y7j2Dt12Jy/ZMT4YyNrvrc8QV/0VBPeFy1kDp8dddmbIiMKSjcI9XJQ1
-	punbwxFZZx+UQ9XLfzvJvjAMzA/Nb88kV3u/hjcE/uYF+Nd14Oio/GH8dwBMG/eodu7Sd8++CHTBT
-	D98coBvPHV6sz5upHboKFrySDw9d6dQlg2Momqew1gDkoWCYpn2iW1KqgjziA1BtC/vEFdP+sOkN1
-	lWxoevlQ==;
+	bh=PqV10pLXwwjj2OAipIDyVAMMO+u2/mFHIv6eR2zAaWM=; b=R6N/RdoOVUqflEVLH4DCIzxihf
+	TlwvwlnSbOv5SDTwVDNxxtPNI17DqrT4MMNaJfEQNLP/oGoEDnh7GbRm8OFAmEpMGxMb2VW0sRAXa
+	jvQrUB/gR/XJAYedA2StcPafCWm0nOHQlRZG1MZiEbEEJLmkyMqRb/FPD0yAHAGsFp5PGmMW6Y6nW
+	Ql9frCXo+Ikh9HKw6sExrf3d9/0/UZs3Fo9+/TfNne6i6V+bWBRxe3CTLkd8KtBZGowM8Skv4rKIT
+	MQR2omnqgM5tn60u1Hc78zGpyHDWQ34oMBjB53EKmOKLesUPp2SgnOS5Zy0V7ETyOGSnLJNYE5Aua
+	gQYUOU7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoWWX-0000000Bw00-1cV5;
-	Wed, 20 Aug 2025 00:17:53 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1uoWZ9-0000000BwHs-0lRd;
+	Wed, 20 Aug 2025 00:20:35 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoUG3-0000000BfV4-1dBz
+	id 1uoUG4-0000000BfVQ-0dT4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 21:52:44 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3b9e418aab7so2448250f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 14:52:42 -0700 (PDT)
+	Tue, 19 Aug 2025 21:52:45 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-afcb78e674eso514003066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 14:52:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755640361; x=1756245161; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755640362; x=1756245162; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=y1XMrJFUsZlHqUSwfaqqxufwXrUFJ8lXJIFDET8NUKg=;
-        b=A7KrCY6RI5sHERkNbIPsV58FVxVbPRt/ImMOEYG/d32dY3G2NLLRrBtG8PYq7ZSPNH
-         l6EQiuUvhJwvM8GeSZ1T3LWEtYQO0dkTXriIQIswsZVsSZkn3IBzirJT8rjTiMyWJUx4
-         osiGcbrorZziBghAZ6XW5Th4aVZmj6vE853WMOVZ4JZ3qoxPbTB2avOR5nkOTpCCE89s
-         Hf1/KF5AnrLiq79AwvW/YExFkB5WJ/NhxGDtry2y7DafcUieqkzf+Yqkv15JlQHQ0tX3
-         jIBTkXu+MW8IrFbZ/ACM2sOYKXiqiiS2BJSbXR/eOY3mKj1kKFd5r9wIYejZfXCbF23u
-         mp+g==
+        bh=PqV10pLXwwjj2OAipIDyVAMMO+u2/mFHIv6eR2zAaWM=;
+        b=QHz/0axIFSM4OrEC2ZI0tNkF/IZEFk2FfwK6RdA19t+DzgKAL8q1lj2wewBuUoQEXG
+         ep0zaX8WNshGeDMAUKQK/zWzjkKOahR783jXbNyGse1xAdnBBaDmRMOJyCUY7QFXaWsE
+         vlx1Sr+M/YH2a/j9fzvqr2OY7EfEw0D4r/VbSuWsgs3DXiAggZ6alpU73FHFQE3W3Ba0
+         4myZxbRaB9Fp0qT11imxvmJ06cG0OnM/Q28/NSqH9M4ogHXh+GdSs3MDhk/CFhtSmntv
+         rOyS1dKAumZac7O06bv/WIhm12XD8baJ+YD9Ylcn4KZQVRhYmuCIgpyBd21DmO2ARP+m
+         w3HA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755640361; x=1756245161;
+        d=1e100.net; s=20230601; t=1755640362; x=1756245162;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y1XMrJFUsZlHqUSwfaqqxufwXrUFJ8lXJIFDET8NUKg=;
-        b=FuwFK8cUNZpJFPHnyPoZD4Uq1aiXxBDVo39INedLsCaRD/30hU4N/wv0Kx0uK1mbRN
-         R3epQtwlt/MJ290NOgBIgHws0bDa0g6ah15IGdEnHHlXd/EpbHCJXqF0p887syJ1uGKl
-         veyzV52/xaZQc97Nob++MLGkvN+AWo0uR0pVxRQaGPs7kBrudj3nhuo8F2RpqQJQ/dQG
-         gxdaxRJlo1cXqkqEW7nYK0utvqBwG6Ib+m4RTXekxWq6vTRlgccbemd5NUyPQndxEGNQ
-         CYN0RBgSAPBml0cZskW0C7xwkh+PojCJ+tftcAq+bLn+rN2q2C1CqP+UOc1jRsVmvIAv
-         lkxg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxUIv/Ed102VurrmD65H3l8oAi8xsCF3nIevabu2QpvQTjUlwQ2S4Ou8zwDmcnAvHBhczZ57imzRAgYvCfTT2f@lists.infradead.org
-X-Gm-Message-State: AOJu0YziiwoZX3Ux+iFGouw3rKmdwKx2ku7aedUWAiNSvi5QbozPl/yw
-	kGw9WBUb+cXYmBq0/bwfJ369PMFOC9tWHkuPElHs7+9nsZ4TWTTo3jFB0Ez5fYg3wXd+Q6UoHHs
-	F3PcUdyiSJbhzlw==
-X-Google-Smtp-Source: AGHT+IGRK4bp6sesJCXzi77ty+REwj3D43YiESI0ZMsE4l0swwRaEoRodh4XIVE78li6aGNDnGWJRk469Etvfw==
-X-Received: from wrqf13.prod.google.com ([2002:adf:f8cd:0:b0:3b7:8aed:a63d])
+        bh=PqV10pLXwwjj2OAipIDyVAMMO+u2/mFHIv6eR2zAaWM=;
+        b=KrwlBIsZNXAgw5fl2JrDfGmkfDmlx1tVZ+OkNFGDN3uYnbJ79Js6oN/uRk37nhuCLS
+         c3JwTceUCzpmBWps+QcBs1LjgOpGS9RNznkW0rrLjX+q8/sfS/olqW1By46atzyO0yda
+         EZ00HnMtEMZtH5NqxFrdpxVaLQxClmvdSoLtdKXXeLlQZjTASSK+XLhDDUWAgvYnh+8O
+         Tv3dXqPy3cDtdwkXotSrEompMpwTithgS3IVnB8nwnYhTNp46gTQIjunx8JTF8i32Tl1
+         NlAmpdsDmfXQGOLpljbhIFeXhoUSbWe1vg+HbPEWEBAIOVJtgsYERWaE5iUJEr3XKOpy
+         /L9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWFlAeeFCeU61eZ7NXNxVWDShLlsEzn7NB2Sg+TY19ERaVTf9TVkWY/xSxuAArTRidDEdgEY4oO+2rsD6SpQPH6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvhQFseVO+Ph4+7WPK0FYziuLpro9Mw7bV+nCziZf677uX0jr+
+	xyZeK26WMV1vZ2LoZOpIGsvpOQx8rQGutvEYthPcYVhFZqW90Jiv17bl//ffYPoKM7emySm/bbr
+	8SKd8DSG4HzHsyw==
+X-Google-Smtp-Source: AGHT+IGtl/M2mX2DFxMKjU0G/SGsKcUwRPA08PYakKSf6zJpbc9gAmUuIUtlYOT263WzT4l5+3VnMXOmobBQ9w==
+X-Received: from ejctl25.prod.google.com ([2002:a17:907:c319:b0:ae3:6f1c:e0e1])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2309:b0:3b7:54b3:c512 with SMTP id ffacd0b85a97d-3c32e7fe680mr338963f8f.58.1755640361697;
- Tue, 19 Aug 2025 14:52:41 -0700 (PDT)
-Date: Tue, 19 Aug 2025 21:51:46 +0000
+ 2002:a17:907:2d23:b0:ae6:e25b:2413 with SMTP id a640c23a62f3a-afdf0201e20mr32340066b.44.1755640362537;
+ Tue, 19 Aug 2025 14:52:42 -0700 (PDT)
+Date: Tue, 19 Aug 2025 21:51:47 +0000
 In-Reply-To: <20250819215156.2494305-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20250819215156.2494305-1-smostafa@google.com>
 X-Mailer: git-send-email 2.51.0.rc1.167.g924127e9c0-goog
-Message-ID: <20250819215156.2494305-19-smostafa@google.com>
-Subject: [PATCH v4 18/28] iommu/arm-smmu-v3-kvm: Probe SMMU HW
+Message-ID: <20250819215156.2494305-20-smostafa@google.com>
+Subject: [PATCH v4 19/28] iommu/arm-smmu-v3-kvm: Add MMIO emulation
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
@@ -77,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_145243_426985_6A144030 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20250819_145244_202520_EDFA4FFE 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,135 +93,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Probe SMMU features from the IDR register space, most of
-the logic is common with the kernel.
+At the moment most registers are just passthrough, then in the next
+patches CMDQ/STE emulation will be added which inserts logic to some
+register access.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 57 ++++++++++++++++++-
- .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |  8 +++
- 3 files changed, 64 insertions(+), 2 deletions(-)
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 125 ++++++++++++++++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |  10 ++
+ 2 files changed, 135 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 8ffcc2e32474..f0e1feee8a49 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -48,6 +48,7 @@ struct arm_smmu_device;
- #define IDR0_S2P			(1 << 0)
- 
- #define ARM_SMMU_IDR1			0x4
-+#define IDR1_ECMDQ			(1 << 31)
- #define IDR1_TABLES_PRESET		(1 << 30)
- #define IDR1_QUEUES_PRESET		(1 << 29)
- #define IDR1_REL			(1 << 28)
 diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-index b56feae81dda..e45b4e50b1e4 100644
+index e45b4e50b1e4..32f199aeec9e 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -10,6 +10,7 @@
+@@ -8,6 +8,7 @@
+ 
+ #include <nvhe/iommu.h>
  #include <nvhe/mem_protect.h>
++#include <nvhe/trap_handler.h>
  
  #include "arm_smmu_v3.h"
-+#include "../arm-smmu-v3.h"
- 
- size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
- struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
-@@ -45,9 +46,56 @@ static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
+ #include "../arm-smmu-v3.h"
+@@ -140,6 +141,8 @@ static int smmu_init(void)
+ 			goto out_reclaim_smmu;
  	}
+ 
++	BUILD_BUG_ON(sizeof(hyp_spinlock_t) != sizeof(u32));
++
+ 	return 0;
+ 
+ out_reclaim_smmu:
+@@ -150,6 +153,127 @@ static int smmu_init(void)
+ 	return ret;
  }
  
-+/*
-+ * Mini-probe and validation for the hypervisor.
-+ */
-+static int smmu_probe(struct hyp_arm_smmu_v3_device *smmu)
++static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
++			     struct user_pt_regs *regs,
++			     u64 esr, u32 off)
 +{
-+	u32 reg;
++	bool is_write = esr & ESR_ELx_WNR;
++	unsigned int len = BIT((esr & ESR_ELx_SAS) >> ESR_ELx_SAS_SHIFT);
++	int rd = (esr & ESR_ELx_SRT_MASK) >> ESR_ELx_SRT_SHIFT;
++	const u64 read_write = -1ULL;
++	const u64 no_access = 0;
++	u64 mask = no_access;
++	const u64 read_only = is_write ? no_access : read_write;
++	u64 val = regs->regs[rd];
 +
-+	/* IDR0 */
-+	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR0);
-+	smmu->features = smmu_idr0_features(reg);
-+
++	switch (off) {
++	case ARM_SMMU_IDR0:
++		/* Clear stage-2 support, hide MSI to avoid write back to cmdq */
++		mask = read_only & ~(IDR0_S2P | IDR0_VMID16 | IDR0_MSI | IDR0_HYP);
++		WARN_ON(len != sizeof(u32));
++		break;
++	/* Passthrough the register access for bisectiblity, handled later */
++	case ARM_SMMU_CMDQ_BASE:
++	case ARM_SMMU_CMDQ_PROD:
++	case ARM_SMMU_CMDQ_CONS:
++	case ARM_SMMU_STRTAB_BASE:
++	case ARM_SMMU_STRTAB_BASE_CFG:
++	case ARM_SMMU_GBPA:
++		mask = read_write;
++		break;
++	case ARM_SMMU_CR0:
++		mask = read_write;
++		WARN_ON(len != sizeof(u32));
++		break;
++	case ARM_SMMU_CR1: {
++		/* Based on Linux implementation */
++		u64 cr2_template = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
++				FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
++				FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
++				FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
++				FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
++				FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
++		/* Don't mess with shareability/cacheability. */
++		if (is_write)
++			WARN_ON(val != cr2_template);
++		mask = read_write;
++		WARN_ON(len != sizeof(u32));
++		break;
++	}
 +	/*
-+	 * Some MMU600 and MMU700 have errata that prevent them from using nesting,
-+	 * not sure how can we identify those, so it's recommended not to enable this
-+	 * drivers on such systems.
-+	 * And preventing any of those will be too restrictive
++	 * These should be safe, just enforce RO or RW and size according to architecture.
++	 * There are some other registers that are not used by Linux as IDR2, IDR4
++	 * that won't be allowed.
 +	 */
-+	if (!(smmu->features & ARM_SMMU_FEAT_TRANS_S1) ||
-+	    !(smmu->features & ARM_SMMU_FEAT_TRANS_S2))
-+		return -ENXIO;
++	case ARM_SMMU_EVTQ_PROD + SZ_64K:
++	case ARM_SMMU_EVTQ_CONS + SZ_64K:
++	case ARM_SMMU_EVTQ_IRQ_CFG1:
++	case ARM_SMMU_EVTQ_IRQ_CFG2:
++	case ARM_SMMU_PRIQ_PROD + SZ_64K:
++	case ARM_SMMU_PRIQ_CONS + SZ_64K:
++	case ARM_SMMU_PRIQ_IRQ_CFG1:
++	case ARM_SMMU_PRIQ_IRQ_CFG2:
++	case ARM_SMMU_GERRORN:
++	case ARM_SMMU_GERROR_IRQ_CFG1:
++	case ARM_SMMU_GERROR_IRQ_CFG2:
++	case ARM_SMMU_IRQ_CTRLACK:
++	case ARM_SMMU_IRQ_CTRL:
++	case ARM_SMMU_CR0ACK:
++	case ARM_SMMU_CR2:
++		/* These are 32 bit registers. */
++		WARN_ON(len != sizeof(u32));
++		fallthrough;
++	case ARM_SMMU_EVTQ_BASE:
++	case ARM_SMMU_EVTQ_IRQ_CFG0:
++	case ARM_SMMU_PRIQ_BASE:
++	case ARM_SMMU_PRIQ_IRQ_CFG0:
++	case ARM_SMMU_GERROR_IRQ_CFG0:
++		mask = read_write;
++		break;
++	case ARM_SMMU_IIDR:
++	case ARM_SMMU_IDR5:
++	case ARM_SMMU_IDR3:
++	case ARM_SMMU_IDR1:
++	case ARM_SMMU_GERROR:
++		WARN_ON(len != sizeof(u32));
++		mask = read_only;
++	};
 +
-+	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR1);
-+	if (reg & (IDR1_TABLES_PRESET | IDR1_QUEUES_PRESET | IDR1_REL | IDR1_ECMDQ))
-+		return -EINVAL;
++	if (WARN_ON(!mask))
++		goto out_ret;
 +
-+	smmu->sid_bits = FIELD_GET(IDR1_SIDSIZE, reg);
-+	/* Follows the kernel logic */
-+	if (smmu->sid_bits <= STRTAB_SPLIT)
-+		smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
++	if (is_write) {
++		if (len == sizeof(u64))
++			writeq_relaxed(regs->regs[rd] & mask, smmu->base + off);
++		else
++			writel_relaxed(regs->regs[rd] & mask, smmu->base + off);
++	} else {
++		if (len == sizeof(u64))
++			regs->regs[rd] = readq_relaxed(smmu->base + off) & mask;
++		else
++			regs->regs[rd] = readl_relaxed(smmu->base + off) & mask;
++	}
 +
-+	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR3);
-+	smmu->features |= smmu_idr3_features(reg);
-+
-+	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
-+	smmu->pgsize_bitmap = smmu_idr5_to_pgsize(reg);
-+
-+	smmu->oas = smmu_idr5_to_oas(reg);
-+	if (smmu->oas == 52)
-+		smmu->pgsize_bitmap |= 1ULL << 42;
-+	else if (!smmu->oas)
-+		smmu->oas = 48;
-+
-+	smmu->ias = 64;
-+	smmu->ias = min(smmu->ias, smmu->oas);
-+	return 0;
++out_ret:
++	return true;
 +}
 +
- static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
++static bool smmu_dabt_handler(struct user_pt_regs *regs, u64 esr, u64 addr)
++{
++	struct hyp_arm_smmu_v3_device *smmu;
++	bool ret;
++
++	for_each_smmu(smmu) {
++		if (addr < smmu->mmio_addr || addr >= smmu->mmio_addr + smmu->mmio_size)
++			continue;
++		hyp_spin_lock(&smmu->lock);
++		ret = smmu_dabt_device(smmu, regs, esr, addr - smmu->mmio_addr);
++		hyp_spin_unlock(&smmu->lock);
++		return ret;
++	}
++	return false;
++}
++
+ static void smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
  {
--	int i;
-+	int i, ret;
- 	size_t nr_pages;
- 
- 	if (!PAGE_ALIGNED(smmu->mmio_addr | smmu->mmio_size))
-@@ -64,8 +112,13 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
- 		WARN_ON(__pkvm_host_donate_hyp_mmio(pfn));
- 	}
- 	smmu->base = hyp_phys_to_virt(smmu->mmio_addr);
--
-+	ret = smmu_probe(smmu);
-+	if (ret)
-+		goto out_ret;
- 	return 0;
-+out_ret:
-+	smmu_deinit_device(smmu);
-+	return ret;
  }
- 
- static int smmu_init(void)
+@@ -158,4 +282,5 @@ static void smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
+ struct kvm_iommu_ops smmu_ops = {
+ 	.init				= smmu_init,
+ 	.host_stage2_idmap		= smmu_host_stage2_idmap,
++	.dabt_handler			= smmu_dabt_handler,
+ };
 diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-index 744ee2b7f0b4..3550fa695539 100644
+index 3550fa695539..dfeaed728982 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-@@ -12,12 +12,20 @@
-  *
-  * Other members are filled and used at runtime by the SMMU driver.
-  * @base		Virtual address of SMMU registers
-+ * @ias			IPA size
-+ * @oas			PA size
-+ * @pgsize_bitmap	Supported page sizes
-+ * @sid_bits		Max number of SID bits supported
+@@ -4,6 +4,10 @@
+ 
+ #include <asm/kvm_asm.h>
+ 
++#ifdef __KVM_NVHE_HYPERVISOR__
++#include <nvhe/spinlock.h>
++#endif
++
+ /*
+  * Parameters from the trusted host:
+  * @mmio_addr		base address of the SMMU registers
+@@ -16,6 +20,7 @@
+  * @oas			PA size
+  * @pgsize_bitmap	Supported page sizes
+  * @sid_bits		Max number of SID bits supported
++ * @lock		Lock to protect SMMU
   */
  struct hyp_arm_smmu_v3_device {
  	phys_addr_t		mmio_addr;
- 	size_t			mmio_size;
- 	void __iomem		*base;
- 	u32			features;
-+	unsigned long		ias;
-+	unsigned long		oas;
-+	unsigned long		pgsize_bitmap;
-+	unsigned int		sid_bits;
+@@ -26,6 +31,11 @@ struct hyp_arm_smmu_v3_device {
+ 	unsigned long		oas;
+ 	unsigned long		pgsize_bitmap;
+ 	unsigned int		sid_bits;
++#ifdef __KVM_NVHE_HYPERVISOR__
++	hyp_spinlock_t		lock;
++#else
++	u32			lock;
++#endif
  };
  
  extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
