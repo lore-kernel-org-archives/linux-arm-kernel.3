@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2CECA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DA5CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=; b=DwVu8YXjxkzRGiNHFVVANTJMr0
-	4qvDP6DUp5Imgd7+hclOOaPtliMOzoYfW9+DmqbxN5tyglc4lI2al6KGI2kfkTqBfWdErGd758gtG
-	WraFJ2c+nqyfgSV2GtcWopnDtQ1Ybu2xY5F43nfgtq/X5QH8uQYk5ao3g9pzCLv374sgZq5vwQsNE
-	7RQz+1tU5JCA4qzTwf3SiAzFM861lLVCETOxpxHPW7KSq92f4Yn1I7/nwgoJcEcHKKOslLV921AJx
-	e7l0CUdO3DWcDei2ww4G9ClZBzbSaCRtb9YGpWsuHgQew1Vuq8UEeiO4eoV0gve6zutvjQd3hQ/xC
-	ITfHKlcg==;
+	bh=WAbqt8CDF2kHzSvdBHVSD8GvsuOxy72cfpK3VcIvX/E=; b=IaWNU5I2VHU/hfOk/or+WBPJj5
+	eARmzOYqyH6kqeVZE51FLFQ04QzEhEIOhsIMtlIjyqQovJriAXGDUCJ35gh17lSPto47XrnBjuie9
+	5go8XJcO/xVjETPtYh4mDbgCgzYLjjy0cK58GHr7kBrvihzlBxkpXdnnBPJh5wgCX2QPfjdFozgtH
+	95+r8buXYdKBQRuyCnTWBVkbTDNrmiP3I9NBgV/AAxgkWuD2Ca0l4Esi/ItMNdMYO2O3rtKkG1aIK
+	GKS6Z4m8w5MmVkHf2IlDZBHGKMLKP5T7+ds+p/lCfSa1gV7BMSqTaT9rNy32160v+wvjW6CjL3u91
+	egtOEftw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoUBZ-0000000Bf6y-465o;
-	Tue, 19 Aug 2025 21:48:05 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1uoUEB-0000000BfGT-3SVB;
+	Tue, 19 Aug 2025 21:50:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNlL-0000000Aozk-0vAq
+	id 1uoRe3-0000000BMxR-1Ff4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 14:56:36 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32326e09f58so5960177a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:56:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755615394; x=1756220194; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=;
-        b=QhA/diKwoJuqpTaZqkF2AUSOvMrXPRJLorL/ZHhBjYCz4RrIeCWIrwczXnf7JSUmBM
-         zn/Aid8y4kS+oD20U9EEUung9dya7ggJ3N2Pz4A5dKaGb5+HbodZ6gss4rN9ODhavu/x
-         YbuONVUUNYsYhBLlMC+KZg7sJ3ZYnSdh7wEF4Km4CVmgNz56B8kzG+tZYOvKB8y2FT3i
-         RsT2NuAj36L/pV6J8yX7Pca7mc78RpWJqif6bOM+kXkecTt9+JG9KzVjcURhQWrZ0fUF
-         LN1il5rOWNx+gMY/cvU1VcaTpOp3MRv4XcwUVD1MWnFIthm33X9aVha3vs1nPF4cFJf0
-         Xvkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755615394; x=1756220194;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=;
-        b=M3ND8h1jpqvmeO1d29dRRPzZ01oOxR34LBx7DyuYCHOfGSWn5aKjiRx6AQpy0ONWoq
-         nVExpiH35t24HGqczy4l3ynF5KU7jD+4cEjXPDPtSc99CUW+0yhscoJG/Mj5A0ktat24
-         hBmkDjOw8G/qGNixbBbNfAxuovrNhEjH6aby14gmQi1aBY09w0RgTCiATXi9W9cVmOgb
-         Umm1txJkObtu6Or5kc8QtEKKaAXt2phz7/bwHQQcAHD5gDjsinhEIWkXBe4DTiGqhtE9
-         5L2rerFJjzQ6OgDvGzu+UlWnbEflufph66SJkJdpWjDworr+2C5tVQm95Ve/mOrs77eu
-         Ze0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX2ap0+T9xY/KGvjKFGCjUaMsEYL4fcJVnDxtOBFrLUuYOuepWiSi3JjKYptMUr6tJVyEkINbP3+cA8OFyGac/R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDfrfQLbPt/ZF5WdHKqsBrt1HsL80GjbuBvifnJbGVfGhM19yJ
-	f1NYb7INg3hzQKi0sFbgvqHUyeJsSveohIzIZFS7avvl+0B7mSdDUBomqCEAnStxqnGHxutiP9a
-	k7zyMc2G6+JGNMZR7ZgS11QOjSJMqhgA=
-X-Gm-Gg: ASbGncv99G09WG/eLuv74CshCsH4iyxh/mNP7vj008nw1QjK37tAhf1sxyp67BGdG9Y
-	+Oo/KxLxIVvlQpYRFmWZW/0OVpm+KdNoJaXwyvNH3rD1yirEvu70pWPs/4JKd4ESXvz+NV1iv5l
-	V8mCkVII2IgvSlyXi4PFWIu2wAujhUplG4CGNFkGNEvFJNsP9rDgNXLmkv25gmra67Yh8XOhRm7
-	8pnAGUWlI0oPrU=
-X-Google-Smtp-Source: AGHT+IEpjmZ8XVkcuZKfCV290Wvmbyt6Tv4cR0Fg/t2sSiijLaZh9EFM7KMO1OHNGRVKT1fRGi1Jac5EIi6kT1CFbYs=
-X-Received: by 2002:a17:90b:37cf:b0:31f:3cfd:d334 with SMTP id
- 98e67ed59e1d1-32476a1d6d0mr4123679a91.4.1755615394148; Tue, 19 Aug 2025
- 07:56:34 -0700 (PDT)
+	Tue, 19 Aug 2025 19:05:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ED284629A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 19:05:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C6EFC4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 19:05:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755630315;
+	bh=hH8kgjEs7iIoOTPeQ6hvydKPNSJyjDJ0KoTwQYPWWas=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=k09xLxyysD/DsegmAfwTYLbN2/mHu+yn/N3p4sUGb+4PSEKsg+HK4efteVqZ7slNJ
+	 TYHdNsvLCr2Gy7YnK11cWkmm9UN4T7Dris/uROgdmEl7wzn5oGtswPZiMF1tnxZujc
+	 Sc9r40626B8G8tty8YQcrDswRHwS3pPQgbI1SBdhMD2oj8RSfg2VEqYWfYaZt6Yqx8
+	 4VclDf1t2aEnp/55WrilmZ+/U7Zn1DI84jloAzTseQBvD0PZ4lBqhdr58x7ngKA6zW
+	 bP3vpsAk6LE+XvdKUpAGjaDyal8tftPw1UD96HAwlSqDHMRm/jH5ofaOv+MfeBKuIC
+	 KaT5wA18tltKA==
+Received: by mail-oi1-f174.google.com with SMTP id 5614622812f47-435de7d6d05so3198227b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 12:05:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUsypQWQXdIpYoSbsATDhGdaWw41vCdqWZaJ5iUj8tpB6vl/ATDGpNU8OSzp44VZW5DvPthSrh0u0FJTAKcfLzT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCsRq2lEm5sZrkiMahtgt6gHEyG+x4Mayi+1HT2AFBAQW1dciv
+	QvN+j/yCT3ZGOGHV6clODdcCt1krRJjpvXw7OYZpiVMZVEJRb8Qw7EPh0IvLc2Etkc9vD+LWJTi
+	Zhzx/OwNWori7GVseoqYBnzVBwOo2Rc4=
+X-Google-Smtp-Source: AGHT+IGF/QT6e+pPhr1vLC3u2wJscJaUaLx01cqlV8pGMBaGHX6Rgoz7+QdefM8/iqEj0jRNYPJhUpY4V7SPrG1DX7A=
+X-Received: by 2002:a05:6808:1529:b0:40b:2566:9569 with SMTP id
+ 5614622812f47-437720b2a8cmr61845b6e.24.1755630314655; Tue, 19 Aug 2025
+ 12:05:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250819131800.86990-3-krzysztof.kozlowski@linaro.org> <20250819131800.86990-4-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250819131800.86990-4-krzysztof.kozlowski@linaro.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 19 Aug 2025 17:58:45 +0300
-X-Gm-Features: Ac12FXwVQ1C48dlhpVxnCgyHSgql8U6XY0RR1RKOzS1VLcKJpTIqytqaU50CpkI
-Message-ID: <CAEnQRZD-Ph+HUWp=X50YcaU1LRbz3KxJWopBRt7+3RQnG8oCGA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: freescale: Minor whitespace cleanup
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com> <20250819072931.1647431-3-zhenglifeng1@huawei.com>
+In-Reply-To: <20250819072931.1647431-3-zhenglifeng1@huawei.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Tue, 19 Aug 2025 21:05:03 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
+X-Gm-Features: Ac12FXyJaJYG2BakKB5SaG8-BG8-_3YJyJ3PnymO2pmfxbIOo-svJG1t7kHKvdM
+Message-ID: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
+Subject: Re: [PATCH v5 2/3] cpufreq: Add a new function to get cpufreq policy
+ without checking if the CPU is online
+To: Lifeng Zheng <zhenglifeng1@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
+	viresh.kumar@linaro.org, beata.michalska@arm.com, sudeep.holla@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com, 
+	jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com, lihuisong@huawei.com, 
+	yubowen8@huawei.com, zhangpengjie2@huawei.com, linhongye@h-partners.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_075635_253980_EF56B021 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_120519_381869_FE68246B 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +89,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 4:25=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+On Tue, Aug 19, 2025 at 9:30=E2=80=AFAM Lifeng Zheng <zhenglifeng1@huawei.c=
+om> wrote:
 >
-> The DTS code coding style expects exactly one space around '=3D' or '{'
-> characters.
+> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
+> policy->cpus mask, which means the CPU is already online. But in some
+> cases, the policy is needed before the CPU is added to cpus mask. Add a
+> function to get the policy in these cases.
 
-LGTM,
+I'd prefer the subject to be somewhat shorter.  For instance, something lik=
+e
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+cpufreq: Add new helper function returning cpufreq policy
 
-Do you have a script to find this kind of issues or just manual inspection?
+would suffice because the changelog explains the details.
+
+With that addressed
+
+Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> ---
+>  drivers/cpufreq/cpufreq.c | 6 ++++++
+>  include/linux/cpufreq.h   | 5 +++++
+>  2 files changed, 11 insertions(+)
+>
+> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+> index fc7eace8b65b..78ca68ea754d 100644
+> --- a/drivers/cpufreq/cpufreq.c
+> +++ b/drivers/cpufreq/cpufreq.c
+> @@ -198,6 +198,12 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned =
+int cpu)
+>  }
+>  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
+>
+> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
+> +{
+> +       return per_cpu(cpufreq_cpu_data, cpu);
+> +}
+> +EXPORT_SYMBOL_GPL(cpufreq_cpu_policy);
+> +
+>  unsigned int cpufreq_generic_get(unsigned int cpu)
+>  {
+>         struct cpufreq_policy *policy =3D cpufreq_cpu_get_raw(cpu);
+> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+> index 95f3807c8c55..26b3c3310d5b 100644
+> --- a/include/linux/cpufreq.h
+> +++ b/include/linux/cpufreq.h
+> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
+>
+>  #ifdef CONFIG_CPU_FREQ
+>  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
+> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu);
+>  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
+>  void cpufreq_cpu_put(struct cpufreq_policy *policy);
+>  #else
+> @@ -212,6 +213,10 @@ static inline struct cpufreq_policy *cpufreq_cpu_get=
+_raw(unsigned int cpu)
+>  {
+>         return NULL;
+>  }
+> +static inline struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu=
+)
+> +{
+> +       return NULL;
+> +}
+>  static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
+>  {
+>         return NULL;
+> --
+> 2.33.0
+>
+>
 
