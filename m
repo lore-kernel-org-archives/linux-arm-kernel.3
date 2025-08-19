@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB4ECA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 04:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47565CA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 05:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=; b=ei2VPLYXO37ksndhnwpVBIj+fW
-	K0eeEgjarpMv+Iet4dNW4W3rsfO/ksJEhmVqBsS5ii2HfTlKog74AT39FUKz5BpXb9jnI8/GC7jvr
-	o8qnn9KOPCkpDbTLAifUpwvxhIU591l7AxYBm58GKjY8P746fazcpY6v09z22yHAnpWz5Regu/cf7
-	vm0Dy+d9dKEj63YR4R1W65TSyOo8X9iBtEMIuzVbvpl/VhQwQdq/TwiHFNGzJhtevQWr+aNTRkFlP
-	HLH4+/pUuOfKYJ27h5hbcob1DWdO/V6zeN36GRlUCQYoWIh3fdiNNOllw8c+tk+bNUA5rMC99S82i
-	+zs02JxA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wN2pzI1ikS5r+rVDU7HKCplVqluQG6zRxAmzPk80T4=; b=t+E6RNNNroK5263j9CMVOam1k6
+	e7Eb5rgdK4JAwnrVj+5oK1qoGZbuDvNpiY4swoCkj4hxnLxLuOj2X+XR09QxKRCFh27YZ6PMsKtmj
+	34EytsNkyVjLuBO3U9K5AEjfzwfQIIVR56+Ps4wx788anXdKzNI0jPENeMJ/vMaqpbqsMj4B5FAgU
+	56yiM9fUr18eX0X9cE72dRpoCwY1tjlrmibev2aRHzqjKMfFueon86Hqb4ke/mkHNHmFP86RJHFx2
+	La4clJJpjKvi9UFVhP+goCPSPezatj7BCQq2RQKgWbmCmicqPyYp7r4q8H+4W7OZEwDRK4FS1mU3u
+	7gXnD7yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoELd-00000009OiR-37EM;
-	Tue, 19 Aug 2025 04:53:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uoEX6-00000009PGu-3BuJ;
+	Tue, 19 Aug 2025 05:05:16 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoEJ2-00000009ObZ-2UHo;
-	Tue, 19 Aug 2025 04:50:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=; b=JMim4CIkd4W/TR1onqluXR8aSu
-	UdxO4Xb7EG6kX4k5B1LKV9LgwVB7JsToilHiSC5Ql1UT9GzHZ8/INIl6xB6TZofnQboo0mJQtC9et
-	WS8X3dpObUgjsBAyT3R204RqGGMLP3xtPvm+/Y1IRzpswTm8pVuuJlB/iWherANNSlwS9oR7LxyZj
-	tLTwSwULIuuqqHKogpN6dL7r4iJoqHPkbRpBZPG16R1oawpL8UvS+xHRvcDMYBvu3uIR+60Fsyn3f
-	Z7MfVf4ROwiNlU4VgNl+4wftP0WJuuvMYUxl6lMHc7emL9O4MnNHGyNQy9YbioCGH1T9s281t5djb
-	qwHbjdhg==;
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoEIm-0000000HZNT-1JuG;
-	Tue, 19 Aug 2025 04:50:42 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b4717543ed9so3316394a12.3;
-        Mon, 18 Aug 2025 21:50:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755579024; x=1756183824; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=;
-        b=l77k+T+adrohVWuKQsMRnJJaKqYosOlL7p9hhwju/chvpxeyPfrMiRwihC0TleGRGp
-         RPRZqDq5C703EWj6Yz8MwDkKOYSsmdrBkPMGX2ZkU21J9EkLYl1qQcKzu8lJ4r4JS/sC
-         J0Wt5UkGZ0JfcXMc+lrWJGyzEEu33h9i4DmgxNH0fI7WIQMJrpFWbtRqvCrhSbu/6SjT
-         eqPD6p6L7UDUOwpMd6HRCf2ARTFu7upR17kl44CgFBIDzJQz2IyZ8uVwnAyTLLkFIqpr
-         POkTdbFRl3K/AXdR+3CxLqI7xBkNatTkb3f6tgx+qqATXL5Q8qlvJmbPr4l4B6SlXZi0
-         HvQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755579024; x=1756183824;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=;
-        b=GEpmktVZBBVlI/mxJFXlLKa/Uc8JopBf0GqUZLUHOXPfDUoDk9ROYYzVJaHmBN3mWZ
-         XcECL/8ZE23uTLaeYV8w+MOUk8JDiOFqwQboquOwWVGbnsQgQ8JuUa2GlO85e/C44nhc
-         55R/aUsxPlTAIaFIx0HPNCiyyvct/0S+73uKhpmkQWS12u4Jw4+6bgTFQ35QNaMOSt2c
-         F1pkv0SX3pEcdw14HRfj0Twczod+3rbuUen2ED7MML9XRcls3a1BDbswhSNQzCOZG/te
-         VOEg2TZiGci6ZUYR6QkTDyBXl5cPMAD1UqrtpLdVXLAQz23YoN2rxsQAmJMxEiJE1dMc
-         wdfg==
-X-Forwarded-Encrypted: i=1; AJvYcCWMSZHTlwEsaR/C0qLeOFoFUOWAoY8wqayiD3BCqReAMQupieRXJg7q4sEIrzMpiUpdxarobSrgnL32NlBBGjXx@lists.infradead.org, AJvYcCX7hgLvrwt+2Nxg7sn7TDlHNE+hrceZvuGHUL5oAkCpv+PFXkLVdFZT+Z+h2sspbVaSiEn1qoZvnzRTA93zOlo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdjuuOWcUbKr1ZgHy94dlbHBrM2mIcSXhwOGJmeECf+BpbVyfv
-	OLi1ys6DxiZckRDQwzoxENpMqJCaS5euzXBLu10dPmEBh6NgJrXiALDLQ/MK613Z
-X-Gm-Gg: ASbGnctOSlqXcC8x000t2WKHJ9coZktmeaFkuqRN7trQ0cUhP7uNhsbUfEpoqi1Wsif
-	4bdOLjRZylPHcUB7qVOJDnzAw8y+zhCkbLpvBUJh3m8y0YeWAhGV4V08iawanZa4oK2csmZbZBx
-	GzoKGu6tWI4nQULCkrW3KdqJz1OL16m2ALAaZq3p/8vRd7bJPvXpsN3zCqDUPx2BlftyvMHJLRH
-	qW24pTkzS6bwWA1g+oCUIrgkfVfNgJSH1d9SaO+hGIFmYtngkJnNt3Xe6Ov/eRc+UcoWBYA+CCY
-	O3jP9Z8FOdBwiJXiX19DnhM1eKjYLTVdITRBQ1njCkpn11nabtVxRzfdsiyvr3Wbe7mMnQfckPg
-	b59kojgR/nKWyMaN1eA==
-X-Google-Smtp-Source: AGHT+IE+vvFkCAMYWcasDYcaMWmjMZUKz3Kfg4C6k3T20iFxSNENGqz3MfkDySluEL6Scuwb+o/WUQ==
-X-Received: by 2002:a17:902:e94e:b0:235:e942:cb9e with SMTP id d9443c01a7336-245e043538cmr13109365ad.9.1755579023656;
-        Mon, 18 Aug 2025 21:50:23 -0700 (PDT)
-Received: from anyang.. ([106.250.177.234])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2446ca9d02csm96119415ad.7.2025.08.18.21.50.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 21:50:23 -0700 (PDT)
-From: Dongjin Kim <tobetter@gmail.com>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Change ethernet TXD timing delay value
-Date: Tue, 19 Aug 2025 13:50:17 +0900
-Message-Id: <20250819045018.2094282-1-tobetter@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uoEUV-00000009P5J-0zmy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 05:02:36 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57J52PBK3322171;
+	Tue, 19 Aug 2025 00:02:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755579745;
+	bh=4wN2pzI1ikS5r+rVDU7HKCplVqluQG6zRxAmzPk80T4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=xxNHPMLD21aJEZMol/9Gl0h+e6ywGSD47K9wWWqWYiOg/p2NHZQI3tgr/kdDfX0fc
+	 YYcpBDTh0znMgdfVIQeGwCE8tUwgBVwqMtIYluOh7LMjp2CrIddr3ImY3NlyOi0Dz2
+	 uNVfSV2tDE3x+VmdBjbmf+gCCOUCXdPNMSTyR1AY=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57J52P1B337947
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 19 Aug 2025 00:02:25 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 19
+ Aug 2025 00:02:24 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 19 Aug 2025 00:02:24 -0500
+Received: from [172.24.20.139] (lt5cd2489kgj.dhcp.ti.com [172.24.20.139])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57J52I422442985;
+	Tue, 19 Aug 2025 00:02:19 -0500
+Message-ID: <2440e1e4-e594-4037-8856-1181acb47b6e@ti.com>
+Date: Tue, 19 Aug 2025 10:32:18 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 2/3] arm64: dts: ti: k3-j721e-main: Add DSI and
+ DPHY-TX
+To: Harikrishna Shenoy <h-shenoy@ti.com>, <neil.armstrong@linaro.org>,
+        <jessica.zhang@oss.qualcomm.com>, <airlied@gmail.com>,
+        <simona@ffwll.ch>, <maarten.lankhorst@linux.intel.com>,
+        <mripard@kernel.org>, <tzimmermann@suse.de>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <thierry.reding@gmail.com>,
+        <sam@ravnborg.org>, <dri-devel@lists.freedesktop.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <s-jain1@ti.com>, <devarsht@ti.com>, <u-kumar1@ti.com>
+References: <20250818154746.1373656-1-h-shenoy@ti.com>
+ <20250818154746.1373656-3-h-shenoy@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250818154746.1373656-3-h-shenoy@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_055035_072978_262EF3A8 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250818_220235_374223_19EABA24 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,31 +92,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Very poor network performance is observed on the ODROID-M1 Board
-(REV 1.0 20220613) when running iperf3 (under 200Mbits/sec), and
-this problem can be resolved after changing the value of TXD
-timing to 0x35 from 0x4f.
 
-Signed-off-by: Dongjin Kim <tobetter@gmail.com>
-Change-Id: Idecd246e3fe93447b6e3e9b165d077d2050bbd75
----
- arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 8/18/2025 9:17 PM, Harikrishna Shenoy wrote:
+> From: Rahul T R <r-ravikumar@ti.com>
+>
+> TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
+> it's platform bus. The IP is from Cadence, and it has a custom TI
+> wrapper around it to facilitate integration.
+>
+> This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
+> it transmits DSI video signals out of the SoC.
+>
+> Add support for DSI bridge and the DPHY-TX.
+>
+> Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+> Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 31 +++++++++++++++++++++++
+>   1 file changed, 31 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> index 5bd0d36bf33e..ce34d68a70f2 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+> @@ -1881,6 +1881,37 @@ port@4 {
+>   		};
+>   	};
+>   
+> +	dphy2: phy@4480000 {
+> +		compatible = "ti,j721e-dphy";
+> +		reg = <0x0 0x04480000 0x0 0x1000>;
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-index 0f844806ec542..e1a550a04498e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-@@ -210,7 +210,7 @@ &gmac0_rgmii_clk
- 		     &gmac0_rgmii_bus>;
- 	status = "okay";
- 
--	tx_delay = <0x4f>;
-+	tx_delay = <0x35>;
- 	rx_delay = <0x2d>;
- };
- 
--- 
-2.34.1
+Please check format change to <0x00 0x04480000 0x00 0x1000> >
 
+
+> +		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
+> +		clock-names = "psm", "pll_ref";
+> +		#phy-cells = <0>;
+> +		power-domains = <&k3_pds 296 TI_SCI_PD_EXCLUSIVE>;
+> +		assigned-clocks = <&k3_clks 296 3>;
+> +		assigned-clock-parents = <&k3_clks 296 4>;
+> +		assigned-clock-rates = <19200000>;
+> +		status = "disabled";
+> +	};
+> +
+> +	dsi0: dsi@4800000 {
+> +		compatible = "ti,j721e-dsi";
+> +		reg = <0x0 0x04800000 0x0 0x100000>, <0x0 0x04710000 0x0 0x100>;
+> +		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
+> +		clock-names = "dsi_p_clk", "dsi_sys_clk";
+> +		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
+> +		interrupt-parent = <&gic500>;
+
+I think default parent is gic, may be you can avoid above line
+
+
+> +		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
+> +		phys = <&dphy2>;
+> +		phy-names = "dphy";
+> +		status = "disabled";
+> +
+> +		dsi0_ports: ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +	};
+> +
+>   	dss: dss@4a00000 {
+>   		compatible = "ti,j721e-dss";
+>   		reg =
 
