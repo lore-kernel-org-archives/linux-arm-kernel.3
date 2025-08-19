@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4379CA0EFB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F530CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1qvlXg8DsVAJN08O0NE0q6A8gMNQiG5QeP11hOQaZA=; b=zIn6oQprYcguUwLHdkibyhx3mj
-	7/GJLdqZpuPgMMKu2NUg827EG2fuqNfiStPqE74QAEX8iSFzDkPYCkfY0XYpoj9ZTNsANaBbyOqio
-	2vrCVC9qGrrOHhKbUQA3JIADVYccjMBL3oMZUOxU21MPAaI8ixU7DIKevbjaRioGzxyFIXSPthcan
-	p6vcc3j9gFzIaIDLZPb+GBIQQupHP3bE7dUI2sqmf4sw/GdgFKqVehliW/wSHmComckiHm1fHrES/
-	TARjl6PUk9z5ITVbc8FOZ5EdOs+NSyTMXT9/eZt64rj8+oW/n3Gw5/+iE1PnvXYwBODX4lauMBH7y
-	Tnw4TkCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+JJR86sLJLFn0wCpzynJG6Djlht626/b+3oI3vg3wG4=; b=thGGgFTNVGVzARdpUKVr1IfRcP
+	+aPh45YHxFxckms5T5emB9taUCX9jQ4eoWPxMZbBrelmGELWSmjNThVcr8LiGIM50RYjRyF1OZyhC
+	Dzp65v6SuUj3pqpXs90qnBoSXaNd99r8zluO79c03sxTjG1eJQZmvEsdctsf93oGhiOqk1PbA6bte
+	jdg67QVgEW6ZKviDHwfGOp15hYJJpcP/Ak4SOjVt7ejqn3Aq0ERxBcsL8+y9F1F7PLjsYiOdULQrd
+	tNqCygRBx7mxBThbSS5yiVcSYwSnynKYwuiCritfeS+B8MwbjmH7XAKVglmZsVMQMR3wdDi1sd4Fy
+	0GeGkZFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQpT-0000000BByI-2au8;
-	Tue, 19 Aug 2025 18:13:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoM6C-0000000AXcK-466o;
-	Tue, 19 Aug 2025 13:10:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26DF661432;
-	Tue, 19 Aug 2025 13:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9997FC4CEF1;
-	Tue, 19 Aug 2025 13:09:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755609000;
-	bh=hD9tklixCimPO7j0d38+GrqpKU9DTflGHV5ucMi/2rs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=HULyFZFoPK2W5GWcnJ3grCjr5a/JJDnhvW76IKKsUMfq47E10kHpXoz9KbxUnWmL/
-	 Iik8wL0rd7DJ5N4TSoObFEIwTn/MvKYzfnna6ztqZjdGkM5o1VBSlimIWUAL71MkDL
-	 Dz3hEG7lRJVm5UL1tLGGJbq6DrLifVZvHcXDStQg+JHDahpxZ1+JwLvYrUpVc84WSc
-	 JQnChPr6TefUtfPcFMHgv3gGdodpnWZOfxylw9cmOtW8PifF3PnZcoVxQ/jSmav26t
-	 TnvB8bjdtO+PddVCeFJH4EQLCP+SyQp4Qa6Ae0psxjZV5LI5CAjEzuDSymH4ZydlwW
-	 rZnx+ugfwI7ng==
-Date: Tue, 19 Aug 2025 08:09:58 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uoQpX-0000000BC0U-1l4R;
+	Tue, 19 Aug 2025 18:13:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoMBy-0000000AYtJ-1EuD;
+	Tue, 19 Aug 2025 13:15:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0830C16A3;
+	Tue, 19 Aug 2025 06:15:48 -0700 (PDT)
+Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 078263F58B;
+	Tue, 19 Aug 2025 06:15:51 -0700 (PDT)
+Message-ID: <67a0d778-6e2c-4955-a7ce-56a10043ae8d@arm.com>
+Date: Tue, 19 Aug 2025 14:15:50 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- Heiko Stuebner <heiko@sntech.de>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-In-Reply-To: <20250818-rock5bp-for-upstream-v3-1-d13f3cdec86c@kernel.org>
-References: <20250818-rock5bp-for-upstream-v3-1-d13f3cdec86c@kernel.org>
-Message-Id: <175560761722.43635.9593798407318901845.robh@kernel.org>
-Subject: Re: [PATCH v3] arm64: dts: rockchip: add USB-C support for ROCK
- 5B/5B+/5T
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 18/19] perf: Introduce positive capability for raw events
+From: Robin Murphy <robin.murphy@arm.com>
+To: peterz@infradead.org, mingo@redhat.com, will@kernel.org,
+ mark.rutland@arm.com, acme@kernel.org, namhyung@kernel.org,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, kan.liang@linux.intel.com
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, dmaengine@vger.kernel.org,
+ linux-fpga@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, coresight@lists.linaro.org,
+ iommu@lists.linux.dev, linux-amlogic@lists.infradead.org,
+ linux-cxl@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <cover.1755096883.git.robin.murphy@arm.com>
+ <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <542787fd188ea15ef41c53d557989c962ed44771.1755096883.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_061558_425100_3AA523B4 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,79 +79,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 18 Aug 2025 20:13:44 +0200, Sebastian Reichel wrote:
-> Add hardware description for the USB-C port in the Radxa ROCK 5 Model B
-> family. This describes the OHCI, EHCI and XHCI USB parts. The DisplayPort
-> AltMode is only partially described, as bindings for the necessary
-> DisplayPort controller are still being reviewed.
+On 13/08/2025 6:01 pm, Robin Murphy wrote:
+> Only a handful of CPU PMUs accept PERF_TYPE_{RAW,HARDWARE,HW_CACHE}
+> events without registering themselves as PERF_TYPE_RAW in the first
+> place. Add an explicit opt-in for these special cases, so that we can
+> make life easier for every other driver (and probably also speed up the
+> slow-path search) by having perf_try_init_event() do the basic type
+> checking to cover the majority of cases.
 > 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > ---
-> This series adds USB-C support for the ROCK 5B, ROCK 5B+ and ROCK 5T.
 > 
-> Now that [0] has been merged, this should finally work reasonably
-> stable. Note, that there is a regression in 6.17-rc1, which breaks
-> stable operation again. I've send a revert of that in [1]. I think
-> it's time to enable the USB-C interface, so that we can claim further
-> breaks as proper regressions :)
-> 
-> [0] https://lore.kernel.org/all/20250704-fusb302-race-condition-fix-v1-1-239012c0e27a@kernel.org/
-> [1] https://lore.kernel.org/linux-usb/20250818-fusb302-unthreaded-irq-v1-1-3a9a11a9f56f@kernel.org/
-> 
-> Changes in PATCHv3:
->  - Link to v2: https://lore.kernel.org/r/20250508-rock5bp-for-upstream-v2-0-677033cc1ac2@kernel.org
->  - Rebased to latest for-next branch from Heiko
->    - Dropped merged patches for initial ROCK 5B+ support
->  - Renamed series, since it just adds USB-C support now
->  - Fix pinctrl for Rock 5B SBU DC pins
->  - Also handle ROCK 5T
-> 
-> Changes in PATCHv2:
->  - Link to v1: https://lore.kernel.org/r/20250324-rock5bp-for-upstream-v1-0-6217edf15b19@kernel.org
->  - Replaced DT binding patch with the version from NAOKI
->  - Dropped unused pinctrl for vcc5v0_host_en from the shared DT
->  - Moved USB-C SBU DC pins to board specific files, since they differ
->    between Rock 5B and Rock 5B+
->  - Added pinmux for SBU DC pins
->  - Rebased to latest version of Heiko's for-next branch
->  - Disable USB-C on Rock 5B for now
+> A further possibility is to automatically add the cap to PERF_TYPE_RAW
+> PMUs in perf_pmu_register() to have a single point-of-use condition; I'm
+> undecided...
 > ---
->  .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 136 +++++++++++++++++++++
->  .../boot/dts/rockchip/rk3588-rock-5b-plus.dts      |  12 ++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |  12 ++
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    |  12 ++
->  4 files changed, 172 insertions(+)
+>   arch/s390/kernel/perf_cpum_cf.c    |  1 +
+>   arch/s390/kernel/perf_pai_crypto.c |  2 +-
+>   arch/s390/kernel/perf_pai_ext.c    |  2 +-
+>   arch/x86/events/core.c             |  2 +-
+>   drivers/perf/arm_pmu.c             |  1 +
+>   include/linux/perf_event.h         |  1 +
+>   kernel/events/core.c               | 15 +++++++++++++++
+>   7 files changed, 21 insertions(+), 3 deletions(-)
 > 
+> diff --git a/arch/s390/kernel/perf_cpum_cf.c b/arch/s390/kernel/perf_cpum_cf.c
+> index 1a94e0944bc5..782ab755ddd4 100644
+> --- a/arch/s390/kernel/perf_cpum_cf.c
+> +++ b/arch/s390/kernel/perf_cpum_cf.c
+> @@ -1054,6 +1054,7 @@ static void cpumf_pmu_del(struct perf_event *event, int flags)
+>   /* Performance monitoring unit for s390x */
+>   static struct pmu cpumf_pmu = {
+>   	.task_ctx_nr  = perf_sw_context,
+> +	.capabilities = PERF_PMU_CAP_RAW_EVENTS,
+>   	.pmu_enable   = cpumf_pmu_enable,
+>   	.pmu_disable  = cpumf_pmu_disable,
+>   	.event_init   = cpumf_pmu_event_init,
+> diff --git a/arch/s390/kernel/perf_pai_crypto.c b/arch/s390/kernel/perf_pai_crypto.c
+> index a64b6b056a21..b5b6d8b5d943 100644
+> --- a/arch/s390/kernel/perf_pai_crypto.c
+> +++ b/arch/s390/kernel/perf_pai_crypto.c
+> @@ -569,7 +569,7 @@ static const struct attribute_group *paicrypt_attr_groups[] = {
+>   /* Performance monitoring unit for mapped counters */
+>   static struct pmu paicrypt = {
+>   	.task_ctx_nr  = perf_hw_context,
+> -	.capabilities = PERF_PMU_CAP_SAMPLING,
+> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
+>   	.event_init   = paicrypt_event_init,
+>   	.add	      = paicrypt_add,
+>   	.del	      = paicrypt_del,
+> diff --git a/arch/s390/kernel/perf_pai_ext.c b/arch/s390/kernel/perf_pai_ext.c
+> index 1261f80c6d52..bcd28c38da70 100644
+> --- a/arch/s390/kernel/perf_pai_ext.c
+> +++ b/arch/s390/kernel/perf_pai_ext.c
+> @@ -595,7 +595,7 @@ static const struct attribute_group *paiext_attr_groups[] = {
+>   /* Performance monitoring unit for mapped counters */
+>   static struct pmu paiext = {
+>   	.task_ctx_nr  = perf_hw_context,
+> -	.capabilities = PERF_PMU_CAP_SAMPLING,
+> +	.capabilities = PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
+>   	.event_init   = paiext_event_init,
+>   	.add	      = paiext_add,
+>   	.del	      = paiext_del,
+> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+> index 789dfca2fa67..764728bb80ae 100644
+> --- a/arch/x86/events/core.c
+> +++ b/arch/x86/events/core.c
+> @@ -2697,7 +2697,7 @@ static bool x86_pmu_filter(struct pmu *pmu, int cpu)
+>   }
+>   
+>   static struct pmu pmu = {
+> -	.capabilities		= PERF_PMU_CAP_SAMPLING,
+> +	.capabilities		= PERF_PMU_CAP_SAMPLING | PERF_PMU_CAP_RAW_EVENTS,
+>   
+>   	.pmu_enable		= x86_pmu_enable,
+>   	.pmu_disable		= x86_pmu_disable,
+> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+> index 72d8f38d0aa5..bc772a3bf411 100644
+> --- a/drivers/perf/arm_pmu.c
+> +++ b/drivers/perf/arm_pmu.c
+> @@ -877,6 +877,7 @@ struct arm_pmu *armpmu_alloc(void)
+>   		 * specific PMU.
+>   		 */
+>   		.capabilities	= PERF_PMU_CAP_SAMPLING |
+> +				  PERF_PMU_CAP_RAW_EVENTS |
+>   				  PERF_PMU_CAP_EXTENDED_REGS |
+>   				  PERF_PMU_CAP_EXTENDED_HW_TYPE,
+>   	};
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 183b7c48b329..c6ad036c0037 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -305,6 +305,7 @@ struct perf_event_pmu_context;
+>   #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
+>   #define PERF_PMU_CAP_AUX_PAUSE		0x0200
+>   #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
+> +#define PERF_PMU_CAP_RAW_EVENTS		0x0800
+>   
+>   /**
+>    * pmu::scope
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index 71b2a6730705..2ecee76d2ae2 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -12556,11 +12556,26 @@ static inline bool has_extended_regs(struct perf_event *event)
+>   	       (event->attr.sample_regs_intr & PERF_REG_EXTENDED_MASK);
+>   }
+>   
+> +static bool is_raw_pmu(const struct pmu *pmu)
+> +{
+> +	return pmu->type == PERF_TYPE_RAW ||
+> +	       pmu->capabilities & PERF_PMU_CAP_RAW_EVENTS;
+> +}
+> +
+>   static int perf_try_init_event(struct pmu *pmu, struct perf_event *event)
+>   {
+>   	struct perf_event_context *ctx = NULL;
+>   	int ret;
+>   
+> +	/*
+> +	 * Before touching anything, we can safely skip:
+> +	 * - any event for a specific PMU which is not this one
+> +	 * - any common event if this PMU doesn't support them
+> +	 */
+> +	if (event->attr.type != pmu->type &&
+> +	    (event->attr.type >= PERF_TYPE_MAX || is_raw_pmu(pmu)))
 
+Ah, that should be "!is_raw_pmu(pmu)" there (although it's not entirely 
+the cause of the LKP report on the final patch.)
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Thanks,
+Robin.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 7f0817eee7ba40b48e956955d6fd8ba14750168c
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250818-rock5bp-for-upstream-v3-1-d13f3cdec86c@kernel.org:
-
-arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dtb: pinctrl (rockchip,rk3588-pinctrl): usbc-sbu-dc:rockchip,pins: [[0, 20, 0, 268], [0, 21, 0, 268]] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,pinctrl.yaml#
-
-
-
-
+> +		return -ENOENT;
+> +
+>   	if (!try_module_get(pmu->module))
+>   		return -ENODEV;
+>   
 
 
