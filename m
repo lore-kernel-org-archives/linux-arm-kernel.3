@@ -4,101 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E3ECA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C90D6CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QFvqz+B7siHkzQW6WosQ1OICBHcfdz0CqDSUjuLlYg8=; b=b8F6qXt4kP+GREsiPdKi++uDX7
-	jaccM3GQFCPBLLZTK17ySKTWOrrEqi4LA9me1LllkPTVwmF3GC9si8uoNKiZtEWOYt0yHygMhB/hl
-	y/3CM7EU9DoGC41o9skJLZ1rFXOe7CYDMLy8BNdUH4KOxrLPBP5vCjYwcAB78NzcPX98a62+5VnpZ
-	+Y0/j8CyUXqDsLDB/Co0IVpwk3ET1UDCkFEg8xUC/JlKC+OTsrdmXVhDW7k7h2/In6ZkdEUHB7Ze6
-	o6hL+tUXvI/6dlDLL7l4xIwxUMwTrjFzUPVb2KagHEr0s0bTOF/yV8HVL8F61S13BU0Mzu7w75o7y
-	xU0revLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dC94HbjbZIou/94/bfCKcAs3uf+gkU3X2AP/y0yU9yg=; b=4WazQKHYGs0dzbvqFOnfIuCFbV
+	kUujY4uFD26GiTW1QzfvQywrQDIhT9i03ahD/U5bZqVN1m9fllQbWdCs0auAE4FL4jv43HK6v9iPU
+	S1p9HZa2eMiVL0UKczJ6LN0TONpdRcWriWK8NSyq4BawHS6Fe/Ek/0guc5TjLTs/ygVv4itR4rRcE
+	Uv+x0LiQzGO/N3OpFhEvRtXDK8/MxQXXDyr8Ws9AKGN9qjpZkrhPrY1XeLgdIvUCWEOTvf0SDzBUu
+	698A0ggpMd8rL8lKKCddRR1e5q6buoa/VEhg3RWkjsCNFhKIe440CC08gX1iLlL6g6ZHoSPbNqFMJ
+	k3Z8P5mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQq3-0000000BClt-2oib;
-	Tue, 19 Aug 2025 18:13:39 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uoQq7-0000000BCrk-0px5;
+	Tue, 19 Aug 2025 18:13:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMG6-0000000AZnV-0lts
+	id 1uoMJq-0000000AadG-4Azq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 13:20:15 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57JC1ZpJ008923;
-	Tue, 19 Aug 2025 15:20:03 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	QFvqz+B7siHkzQW6WosQ1OICBHcfdz0CqDSUjuLlYg8=; b=v5ardJpZoJ/NvqNX
-	f4jxy8ZwgZYVTCJ1sCgIFZtE7m97VwKq5re3ao20inrRsqD7XZvG+zyXzn6Dz45t
-	gb2J10sr4S5W1yKGivcA8affvQLkF08RUucTuB/LR1qX1g+gT0fE38LtsZDZ1m/F
-	PKW351mdlAzcllWo5H0ChiXyW910ZnOSJMNdOKR6jzmRCn9m5AaqgPw1s6805YiE
-	GuDNNIalignEyZgHlHZCUO2Kzj/Vcsj6MruBIW7UDSNWlTse6eRzvtf6pyHukmWU
-	qwOZ0gd+xGksY5DQ9H3jgkYo4oGkVG2LZ7s213qfZk2t2UB5moYa3O/CzKKMwK6+
-	kUVxrg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48k4xmrrx8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Aug 2025 15:20:02 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B499040047;
-	Tue, 19 Aug 2025 15:18:43 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C12A772BD5A;
-	Tue, 19 Aug 2025 15:17:47 +0200 (CEST)
-Received: from [10.130.74.180] (10.130.74.180) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 19 Aug
- 2025 15:17:47 +0200
-Message-ID: <e144225c-e0e6-4d3e-a4d8-e4c48cdef3f6@foss.st.com>
-Date: Tue, 19 Aug 2025 15:17:46 +0200
+	Tue, 19 Aug 2025 13:24:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C01261428;
+	Tue, 19 Aug 2025 13:24:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC7FEC4CEF1;
+	Tue, 19 Aug 2025 13:24:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755609846;
+	bh=oMo/cdh38YCbOBw4iwATq7ozwW1TpUbE0yXhbYlUgU0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S+j8zTCxQdkcMEhMaej6GiAgIOaXfofvg7es9Jp2PGsrXvywOcYTBRmEuFNsYF/G8
+	 qIviixcV27EuzpLCP/Nry898wPulNLltPxo16ILqFJjYM1R5Du+rz8J7TWL0oQ73Lx
+	 Whwuwctm1JUeUeLNkuYPDOxjtAwdXZOaMTUS1hGTWXYn597TaUkbprtT5KuRs0qqzT
+	 +fBOqlgcskasEvnBNDu8U3MYiGCiDf+G1RHobrmRS2I7i2xvaFcNOsSsfmgjjZs+Xl
+	 iM7QRM7IS/3barZzPVPJn10e8de0FtZU4lWfYLD2JnIikAi9RjwVlfyjyHiHYwfnmm
+	 Uf6IF5fk5eAjg==
+Date: Tue, 19 Aug 2025 08:24:04 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"open list:FREESCALE SOC DRIVERS" <linuxppc-dev@lists.ozlabs.org>,
+	"moderated list:FREESCALE SOC DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [RESEND v2 1/1] dt-bindings: soc: add vf610 reboot syscon
+ controller
+Message-ID: <20250819132404.GA84481-robh@kernel.org>
+References: <20250818183427.3601986-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/13] dt-bindings: display: st: add new compatible to
- LTDC device
-To: "Rob Herring (Arm)" <robh@kernel.org>
-CC: Thomas Zimmermann <tzimmermann@suse.de>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>,
-        David Airlie <airlied@gmail.com>, <dri-devel@lists.freedesktop.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Simona Vetter <simona@ffwll.ch>,
-        "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>,
-        <linux-kernel@vger.kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        <devicetree@vger.kernel.org>,
-        Philippe Cornu <philippe.cornu@foss.st.com>,
-        Yannick Fertre <yannick.fertre@foss.st.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>
-References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
- <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
- <175560127037.3969097.6130940505156039734.robh@kernel.org>
-Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <175560127037.3969097.6130940505156039734.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.130.74.180]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-19_02,2025-08-14_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_062014_485813_12166053 
-X-CRM114-Status: GOOD (  19.16  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250818183427.3601986-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,53 +74,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 18, 2025 at 02:34:26PM -0400, Frank Li wrote:
+> Add vf610 reboot controller, which used to reboot whole system. Fix below
+> CHECK_DTB warnings:
+> 
+> arch/arm/boot/dts/nxp/vf/vf610-bk4.dtb: /soc/bus@40000000/src@4006e000:
+>     failed to match any schema with compatible: ['fsl,vf610-src', 'syscon']
+> 
+> IC reference manual call it as system reset controller(SRC), but it is not
+> module as linux reset controller, which used to reset individual device.
+> SRC work as reboot controller, which reboot whole system. It provides a
+> syscon interface to syscon-reboot.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Change in v2
+> - change description to avoid confuse about reset controller.
+> - it is legacy device, more than 10 year. So try keep existed dts as it.
+> ---
+>  .../bindings/soc/fsl/fsl,vf610-src.yaml       | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> new file mode 100644
+> index 0000000000000..cb8aa510a21f7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/fsl/fsl,vf610-src.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas//soc/fsl/fsl,vf610-src.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Freescale vf610 System Reset Controller (SRC)
+> +
+> +maintainers:
+> +  - Frank Li <Frank.Li@nxp.com>
+> +
+> +description: |
 
+Don't need '|'
 
-On 8/19/25 13:01, Rob Herring (Arm) wrote:
-> On Tue, 19 Aug 2025 11:15:54 +0200, Raphael Gallais-Pou wrote:
->> The new STMicroelectronics SoC features a display controller similar to
->> the one used in previous SoCs.  Because there is additional registers,
->> it is incompatible with existing IPs.
->>
->> Add the new name to the list of compatible string.
->>
->> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
->> ---
->>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 30 ++++++++++++++++++++--
->>  1 file changed, 28 insertions(+), 2 deletions(-)
+> +  IC reference manual call it as SRC, but it is not module as linux reset
 
-Hi Rob,
+calls
 
-It seems several patches of this series triggered your bot without
-warnings/errors messages.
+Linux details aren't really relevant.
 
-Did I missed something or is it just a glitch in the matrix ? :)
+> +  controller, which used to reset individual device. SRC work as reboot
 
-Best regards,
-Raphaël
-> My bot found errors running 'make dt_binding_check' on your patch:
->
-> yamllint warnings/errors:
->
-> dtschema/dtc warnings/errors:
->
->
-> doc reference errors (make refcheckdocs):
->
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com
->
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
->
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
->
-> pip3 install dtschema --upgrade
->
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
->
+works
 
+> +  controller, which reboot whole system. It provide a syscon interface to
+
+reboots
+
+> +  syscon-reboot.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - fsl,vf610-src
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    syscon@4006e000 {
+> +        compatible = "fsl,vf610-src", "syscon";
+> +        reg = <0x4006e000 0x1000>;
+> +        interrupts = <96 IRQ_TYPE_LEVEL_HIGH>;
+> +    };
+> +
+> -- 
+> 2.34.1
+> 
 
