@@ -4,117 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31959CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B0CCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hsZk4EsqeXO+ygu7nNYZqi5XWFO7fAn88+hcS8PBk0g=; b=M34WvvIeIEmBB/RI2LCz0aV5Mm
-	P2OLMyRU+XstX8DWHsLp/HpaQulfl8w0yWAvoqO01pcAd5kQ7dRe+n+y1ggLGV+jHZ9zlh5uNtc/H
-	RqMPW4BpN0OJGDb1dFMj7F5E5Mb1kiOBHhIx0ZQ7C8rQcg2FeqvvGxmYl04EZXL1LEzNlAm38iTOE
-	TIA5sUGoLL8fy9/vrDuV0djOMjCCrtBLC5vWWovNI5zme3UyMakVnNYzXiYeFa4JZM28/fmQbeLW7
-	5Hbn1u2Xc1Z3WSm44RB+duAH4cLBZYMMa9znQLpgj3rhli+uPYFNNGabKhrW+/j0UvsSpr6SBVJAO
-	rYeyaTUw==;
+	bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=; b=xU5B6zsgpW6Auuj3EGzFOaGf+L
+	w+bpnAYb2VKEPbS3Q8AN2DFTLRWSBczIaMBIoPNOovWIj86wzK8F5xBmiTG2UQa5gjQ9gfi+/fuF5
+	EP6WxQqWM+Mk16M9z/MJbWU1xH0Hj5ad51kWDRYKw+8i1zAdjCaZGWXY5+DCaorNNJPSP6XsmxgJq
+	S0pO3B/0QfrgfmujSWiIqpDi1BnTsIfKV8qikPKqJ+V/QpjUIEiOc2pF3zMmWbdt3Nneklqe+Gf7Y
+	Yp+lrEuG+BxIVsfQuOQcBUn+r6BEvYT0DPlS7QeJbJc/9oo+VKjDdUU0itVwxzxlMxFK0jxQn4oA4
+	QArmZLwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGxz-00000009hlU-16VY;
-	Tue, 19 Aug 2025 07:41:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoH12-00000009i8S-3Czt;
+	Tue, 19 Aug 2025 07:44:20 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGZA-00000009dbf-30mU
+	id 1uoGaz-00000009e18-1BWi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 07:15:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0024461416;
-	Tue, 19 Aug 2025 07:15:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71FF3C4CEF1;
-	Tue, 19 Aug 2025 07:15:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755587731;
-	bh=qb7GANw4C+UqX66VZ3gAIhm5HBFFgi8fcfQ4qfzA5NE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lZ9vIspT9pNYXBjzDYK9bP/2eE4wKSwOOLWQEV3jxjmKSoa/Nj+t1sdSUXm/SsXCu
-	 blgvNOc6cCXC7HhRR1t58wr+RDTwqJ3psEZZpEpyRt7os2JJlzy+tGKJHIC4w0s4vn
-	 dqtpgXbAZi7qbSWSespY9Zgmk8vtku7FYUOppovYhbGKXKQOST7oGrWH7pBo91Oqho
-	 0PZCOndnW5maYI0hDHrAVszs7TMJ3DFp2JBYN0cxPSIpd1Q4lC3Br4MGoi7TCKL8B0
-	 1JnmPrx9bQpjjwiZ5eDfvPRX4Pcx2J29Al2Y35bnL6AWgWoK/C4p6R8xuAiAl0hkca
-	 f8vofcr6rKoqw==
-Message-ID: <0b53dc0b-a96f-49e1-a81e-3748fa908144@kernel.org>
-Date: Tue, 19 Aug 2025 09:15:24 +0200
+	Tue, 19 Aug 2025 07:17:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JUoW5CZ2NDPnIsV58pVUsCwra/I8tmavkYghUDuj9oFEdnY1yGcrC7ojVn3IxDpQZZtu8a1r2tAyV9pQbavlDfXYtc+orW3QWxTv1vnFWtKlZ6WpLPBsCMNAuT+7S8NaecqjtCFfsnSWaNd4l+CS7manXMgmjRdGlqhBdAWpuFL76jyPSYOQ0Zm8POWIYdqk/VkD9+GWaG6lOvF0mzsdqFl96UFomU7qj6OZd8VYCKiSyFA55Dts5qoK7hauOVWkcn3pIQCGhxJtsAfapGzC6GBBX/0ib8Pz7A+gxMwRxyZ+cjBJrRUIPlf3dWHl5B+fgmU50icKpleycfh8PIPggg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=;
+ b=U1n0u79Wa47xSL2ip8nY2NzFWwdZM+uHxcOQmjK+knDK7YC8uyY+X23TrE9p4RMK/8SB+Fbde6FHYk1OC+Sv5Jf9s4h7kC/QBsf0U0hBTtBqD+i3YlccqqLEHeVDx/N0NlHeQHjHJBOaAgnD+MI6hw+m++rhTr+7tDVkOBSyfMHLHqkiZt0EF/yIvAmyFKTbk/p05LEhxDJaNM3tr9rPnIPLrL24AsMsKffVeqmyHGYYgPmO+6L5WGGSKm52nuI2aXrv/E4/T88JnCxgMZtMi9NbpLdOtgORwQl9J9EXAauqekZK3Dy6o8hJOdTKpyu53cVvF4exe4AIsazYbKJ/6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dLgVtPkbgrz2T9FOHhc4NCDYqgmk6y2CpZY7wFZxp1c=;
+ b=VJV3eJCvuJxXJ/GyiEb1ZYPu6bjPL3wqvc7ptZRQRHme4VydfreQOxIjftepRgTErPLPBbOrCTP9JmKoZFgVi3fY/W4gI+uSwAI3zBNEi1OAbEsbjRvmupunUP4KDCFAhOyGDOr0YVbEw8+ooNMe86Pm49jtRMbDvkuyZ7PbV3jC2itSsv+5Ob9PxMwvJTkpEJydtHHuC6tRQJ88MzQ09Gi8jdyF/WOUh8wWUy87GV0EXs8Bsnp9PiP34RknlE+Wu/sFtJtvII9sCpVa+dZBpqzy7vKcuqCoTIfdg67Fq92btWLWciFapEaS5K8lwVBC+5kzXX4l7AoAAfVg6On0Tg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by PA1PR04MB10844.eurprd04.prod.outlook.com (2603:10a6:102:493::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.17; Tue, 19 Aug
+ 2025 07:17:17 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9052.011; Tue, 19 Aug 2025
+ 07:17:16 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v4 2/2] PCI: imx6: Enable the vaux regulator when fetch it
+Date: Tue, 19 Aug 2025 15:16:30 +0800
+Message-Id: <20250819071630.1813134-3-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250819071630.1813134-1-hongxing.zhu@nxp.com>
+References: <20250819071630.1813134-1-hongxing.zhu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR04CA0163.apcprd04.prod.outlook.com (2603:1096:4::25)
+ To AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
-To: Yijie Yang <yijie.yang@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, stable+noautosel@kernel.org,
- Yijie Yang <quic_yijiyang@quicinc.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
- <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
- <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA1PR04MB10844:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58e612c1-5271-4678-f08d-08dddef06d1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|19092799006|7416014|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LnNtjdO1Pt4GedjtiiAQ4FpOXpBnMeJ23/X/kwReRL0zn33g+Pyu6isl0e71?=
+ =?us-ascii?Q?Djlax2g8uFS/ixeqztpR8c72oyk4wQ/+4jekqbgaNtkQHSUM1U3NRWxRfLCx?=
+ =?us-ascii?Q?JJeikAwrwVKg8FxRPB06Oo6wApMzuiZKtU6MdDNgqG3OsoeNM9/2ybXVTVlH?=
+ =?us-ascii?Q?r+aktAwvxL/VU4uQ5S8PJHNRslhlFfp2t0O69we2z32rnZjzWGsGkk05WY/b?=
+ =?us-ascii?Q?AGyx8d05EtPjk238Jm5+mKbK4nhUpbS3H7zcBDtCsTnpwrKX3AoDNFb0brqn?=
+ =?us-ascii?Q?jpooeRvVzd5o8+1ypL5va/uDTmMJAvQqCBFes93BLsLKdZZsLWSvwksx04Ft?=
+ =?us-ascii?Q?B9sJoOmVvd8Npn4eJBc8mYpSzRf9jGOBtrvGmSpP0d0mIQFYMEjvPS4i45hD?=
+ =?us-ascii?Q?MmHS0EgzDS4iqumNBQv+zocEmqoy95RMJQW89gsoHlxESd8ir1GtxXPA7AfD?=
+ =?us-ascii?Q?9g2dzWFomDVZGxisV/QE3hXceCyLd6Fk+X8L4SBv9j1BMIfmNxhsTPcEDxfN?=
+ =?us-ascii?Q?+b/zEaz/H+uv9NF2fwvaPhRAxjnoxtG1hwW/j6XUgiJ3HJLKvnEp0owtlOCj?=
+ =?us-ascii?Q?Cu8Md1C8S1f3GKkY19OW2d2vuJNC4OmR8PbwS0SqhMffvfQr5aHu6N80hsZw?=
+ =?us-ascii?Q?fhpvsbgMYDntv/AZp4DYSzTuCkJsfUhuRHPlLiQTM9xhDD1X+nd134IbdkYZ?=
+ =?us-ascii?Q?wIlTMxUv/JpNRSaDqJByEbEEQd4Jhx3vBDQA/PQHxFWQR12qbbuIzg0sWyO8?=
+ =?us-ascii?Q?NVyA8uGTOndjhRKMRrou1qYX3y1fSWWBRuEOh27cutWh3jbXsOlEMM+95/0V?=
+ =?us-ascii?Q?yUfIIS0ZfXFTFfwOSfvcGJaL90rckpEpm5plwLPSQ8HQtRh7bpD7GzTl9g+9?=
+ =?us-ascii?Q?4pCSJBxvDwIrRcojb36QkXJmvNskB7TT+rPSrI6p7/x1WyTOjtBjNjS5N972?=
+ =?us-ascii?Q?Q3SqsfBrRu6SVCNZvKe3LyVM3VOVeqoye2GSpm6fzrrgUSJ+WjBZm2WYX7DC?=
+ =?us-ascii?Q?9U4viHt/gVn956hfip8zW6+0Qn0Icfr97AY5xuiECFQsEfyJNjToSqkmVAJP?=
+ =?us-ascii?Q?FNpI7qZW6Xi3rsTTVh6hMZja9Ovdfy3vlNlz77gAi4qn/tlIdJhLJKLsKIJ9?=
+ =?us-ascii?Q?NIOGHt4DQXF+mwKOoED6Rg7HcrnDs8LZtXREgERhWaR14Dc9e6j7O6i9KFZ7?=
+ =?us-ascii?Q?IlTuMmYcurrpdLeQfTvLP8vgYTKVw9NkDjd59czzn1DshiQcdoJ6ZOHV+BYV?=
+ =?us-ascii?Q?4r++iKiNDKseQJ2WhOf/6PoCS7H9f0m2qW6OtItAGGMYPQxPlyRlS7Sj2c1L?=
+ =?us-ascii?Q?fOBQcu5PIDtiTufn2LMleW5wzyn4nDUOnX3g66UbTDis/pQqewRaX0yRzUlv?=
+ =?us-ascii?Q?xaphlFLbI5Bnw5VsNf1ht2vv0lqCNKwz6mMABXzrC0mnmTF9YlZm2gdp6B/Z?=
+ =?us-ascii?Q?othr0Sp4mx9F64yQFOkUGMv6Yv7MOwu0RdgWFgcDkVWuQO64mA37TInTp2mT?=
+ =?us-ascii?Q?00rFc7KwSN8SrP8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(19092799006)(7416014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gEbLbtws7rPCqwfHpZdqlL0OEhErAurlWizDWhlftwXhpqffJCnt84VKsR05?=
+ =?us-ascii?Q?vv2nB5InPGR+DFrk2iPTFqVBxQkMd7fyOP5e0UtiE3Onr0tVoKxXG075qmJa?=
+ =?us-ascii?Q?WvG0HQhHAcU/5J0nUlOX3ZJ5b7e0RIlpldAB3RQtCmbc58t9x0Qk3X0w57bV?=
+ =?us-ascii?Q?KTjO4qYGjitSpS2OesAT3GxhvKy2828jQpVzqa7wOYgF8eMgQJOOB18ajX9V?=
+ =?us-ascii?Q?1bokR/GgkQnTRklKdDdl7A2mqrWpd1S1CUyUpDsfXWMl/jXuNyL/rhqRGhGD?=
+ =?us-ascii?Q?cB6wgfzkCYZgeour/na77iFxeoW7ku5hCo0/6FlcyWcFcoWSqoZ6ERwt0XeZ?=
+ =?us-ascii?Q?8tK3mVuMnnyP57hiNk1hVCmsG6PrPTyLqJC288svuWulLB/C02sHNvNn9+xU?=
+ =?us-ascii?Q?n02pbg9ko2EfeDsqxbsoWHe6ZHRMVA4iefubomBb/+L8u+Ra3l15WwUTNBtc?=
+ =?us-ascii?Q?h/7aUwT+gQMiHbCr/fWWeI4PzO08npj6R0nnp0jngNMFeXAWDWuVCSir3PUe?=
+ =?us-ascii?Q?JP45P2ao7JEk87Ss6R4fj4xtgGqjprVcUd0D6go0VLI+JgOixif5Gk+O+FLh?=
+ =?us-ascii?Q?wkA4rtTxmzvXy2qM/l806unc/VIX1RFGpRi9HvskiqeV8Eh73Dqfa/++QHVh?=
+ =?us-ascii?Q?q8LjAsC+c33A96tISm0GGS9xnKBr5GtPQY1eh8zdbb+t/IIPgTfmD0rwk26K?=
+ =?us-ascii?Q?b2dC77ZT7cPEctSGt+RpfN4RBYJZnkUDA7aCiXDL8VuitoTFyx57eYhURsoC?=
+ =?us-ascii?Q?Bd72jZOvJ10Gpfe90k/CqXc3+TlB24nXw920SDfqscyRcxFQNfJZWQRdvsTh?=
+ =?us-ascii?Q?N1/WdHnUbzG3+P3Nbi3DDMWEcQm70Z5PMa2LxJs8YG6h80IeqYJS6b1TqOBU?=
+ =?us-ascii?Q?Vt5OJyY8B2JLitso5mMnujxFxlVV2mANArE9LGVCGZnjlIseywLJpAalbN5e?=
+ =?us-ascii?Q?iEvbviaFpLew8Sg/+xBu2h98iDZGk5Dog7WEpFOwciUu2jS/pt45SS4bA5kz?=
+ =?us-ascii?Q?0+5E+PDTsRo5lJnppw0sMM16xGxjSDolL/U619BI+PnA3IXMmHtZGdebOGJf?=
+ =?us-ascii?Q?G469RvtZ8y2rMaiciiHE5r0g4dq2eyRyhbBrr0u6aBoPqTLqLDgz5eCmQJWh?=
+ =?us-ascii?Q?IR2YZl/fzG55slyF09/4EueafVtayyxky+AFN97Pq8kwxROvTvA++/ftXfvJ?=
+ =?us-ascii?Q?MZ+mNYIWfpByr+Xo4wLM1rMxOcBaAqizTG99u95LuzX/rKUrcFqc5sJLKpJn?=
+ =?us-ascii?Q?sgn0ufRREVWmvJYeQNrNvebpcPqXYxuOk2zLet6/R7yD2hn5lJi1U72ovPRF?=
+ =?us-ascii?Q?BtAqYcYPUpvtmI7HkQVk+95UmnAlFmA7e8f+hmDh4JHOJYma6G7PY8Jy1bVA?=
+ =?us-ascii?Q?pr/y/yNAUk4FTFe53opI0QGadbJijESKCNihf221omjkwhV5I64kpENDCVcA?=
+ =?us-ascii?Q?giVBz4X1VdSCfqaj5FhDdGQj90O288gwGXB0g7N4YV9Ss4WK2SFmTrEybn5C?=
+ =?us-ascii?Q?LeKE+MV2UrRPSLUYfW1jPnCyMSUbcsQTeegcjy6l4znAnpSKs/Q+uoSEV0Ow?=
+ =?us-ascii?Q?iCZPvcNf+3m6Gmyeys3zWptSDwj93wnpfeklo6aw?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58e612c1-5271-4678-f08d-08dddef06d1c
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2025 07:17:16.2941
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZpV69XLTaQr77r4ESEcDvIzaFTN7L3Dg5vPRWoEFzRJlaZij0HYzAL37sGMDdGo/2ac1N1J0SgYfbAaKvnBiFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10844
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_001725_409977_9B4F83BC 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,31 +172,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 08:51, Yijie Yang wrote:
-> 
-> 
-> On 2025-08-19 14:44, Krzysztof Kozlowski wrote:
->> On 19/08/2025 08:35, YijieYang wrote:
->>> From: Yijie Yang <quic_yijiyang@quicinc.com>
->>>
->>> Add an ethernet controller node for QCS615 SoC to enable ethernet
->>> functionality.
->>>
->>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>> ---
->>
->>
->> Why do you mix up DTS and net-next patches? This only makes difficult to
->> apply it, for no benefits.
-> 
-> The DTS changes and driver code modifications work together to achieve a 
-> single purpose, so I included them in one patch series. Should I 
-> consider splitting them into two separate series?
-Of course yes. You are just making difficult to apply this. Patches are
-completely independent and even your internal guideline asks to NOT
-combine independent patches.
+Enable the vaux regulator at probe time and keep it enabled for the
+entire PCIe controller lifecycle. This ensures support for outbound
+wake-up mechanism such as WAKE# signaling.
 
-Best regards,
-Krzysztof
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 5a38cfaf989b1..1c1dce2d87e44 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -159,6 +159,7 @@ struct imx_pcie {
+ 	u32			tx_deemph_gen2_6db;
+ 	u32			tx_swing_full;
+ 	u32			tx_swing_low;
++	struct regulator	*vaux;
+ 	struct regulator	*vpcie;
+ 	struct regulator	*vph;
+ 	void __iomem		*phy_base;
+@@ -1739,6 +1740,20 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 	pci->max_link_speed = 1;
+ 	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
+ 
++	/*
++	 * Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
++	 * asserted by the Add-in Card when all its functions are in D3Cold
++	 * state and at least one of its functions is enabled for wakeup
++	 * generation. The 3.3V auxiliary power (+3.3Vaux) must be present and
++	 * used for wakeup process. Since the main power supply would be gated
++	 * off to let Add-in Card to be in D3Cold, get the vaux and keep it
++	 * enabled to power up WAKE# circuit for the entire PCIe controller
++	 * lifecycle when WAKE# is supported.
++	 */
++	ret = devm_regulator_get_enable_optional(&pdev->dev, "vaux");
++	if (ret < 0 && ret != -ENODEV)
++		return dev_err_probe(dev, ret, "failed to enable vaux");
++
+ 	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+ 	if (IS_ERR(imx_pcie->vpcie)) {
+ 		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
+-- 
+2.37.1
+
 
