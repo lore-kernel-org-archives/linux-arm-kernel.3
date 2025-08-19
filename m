@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9261CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51EACA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANhd86iuOMKoE/StQvz9g8L6r6QbejOrNXlH1hXjy9I=; b=LQl+96JtETw4ZRa3UWI5sw3aVi
-	tvwR1j9QupwaOQiuYX+jp1FiKrXePxsjiY/A3oFr5QVYAarEPhzIeQp+ZCaU089dq47ANtUAeMN8n
-	oHWKkjQ5UxrRiaTblkq+dGLOqG+kQf9SVn33D/M2ET4212PPOBxX1lrmT8M9evFq4VEgAXbeN86I/
-	jPh3+4U7dsl31rsiMJAwClJ7CiQ7Vsmz4jk464ThGd0xYa8O5zXA/waoxfpfVFaX0RTlFCwbNxQBr
-	9PZZY581nB33Qm7AazaEd4tp9W2sYEkoCGW9HMvfijsK516W78hZwCoZk67QKqFaIk2pnJd1GNopg
-	4YcgNLMw==;
+	bh=BNvWpWlRSblGZhC69PPUhVZpXXNc6RjruDTqVBFIuKA=; b=exkw971CxGFuzutDmEpdrQJ9f3
+	4yPNNf/FZpqfILTcqw4RE38E1JjAl3zB7Md2cp8x8EYtOjNo1BPwgqupskkfVYkKbKqqZgxUSj2r8
+	OKxM9dBxYHR8nyZLiLUZYQzqwMQW2F1w6NVNJIIeStCbc1oIyatO6Ig9yeP/cm3/oirQRT6k8iAF8
+	0Q7jpKDk98n+lw1XNeNxQafQCDGOpVu19cqoU2o98+SNwpWaA0Qlf70A0MePRbhLHMrla+LnVvKep
+	SaeTT+iYi8dhOKfN7I5jIqjhaATrKtNuRKo0DW0tfNv6Lh9TksfDPNDVfHASNrFIM/3NFdrZ2gzf5
+	NcSoUinQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoLtX-0000000AVMy-28zG;
-	Tue, 19 Aug 2025 12:56:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uoLw5-0000000AVjN-1B6h;
+	Tue, 19 Aug 2025 12:59:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoK5g-0000000ACxz-0QgK
+	id 1uoK5h-0000000ACx9-0uaR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 11:01:21 +0000
+	Tue, 19 Aug 2025 11:01:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D35594626A;
-	Tue, 19 Aug 2025 11:01:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79F9BC19423;
-	Tue, 19 Aug 2025 11:01:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A0D24625B;
+	Tue, 19 Aug 2025 11:01:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6E3EC4AF0D;
+	Tue, 19 Aug 2025 11:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755601279;
-	bh=3om6RlJ1FrtuQO9/XxQ8KBEG17jf3kejVcBwwMOA+mM=;
+	s=k20201202; t=1755601280;
+	bh=LLuG8UUhpyncc1Ow4ZHRPwCCdhOwxCqGMAhjDj7ySoI=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=lxezlpTQ1VJxdf0sF3n0/rnCC5CGmWaOdQERGWLOLzdxQ0gwflpmXEjxaoGoiJNaq
-	 LRMvTWMmc7D1V7y9qdS+Qui5fhozl713FNJQAFfUZtJLLO/husIrdEc8BHU8nnwNk1
-	 5H/Ux+E9/4IO43soMLS6pxKTNHeZdO1J7OfpSWV/uzDrSeDEw2/SW7jR+0PwUiBP9R
-	 oENsFr/qSfrkwcWjvtFas+aQeYLpyr+/GSj4NNbXEsj8K8O5EHpYQGz54DY1Gu+RBU
-	 XAM6yMaMK9KJ2/0QK2MFHgHM7HyRSO0R0DobKAnTonjmydQqwnmSXRVbt6c58NKc6V
-	 fuv+SzbfqA9eg==
-Date: Tue, 19 Aug 2025 06:01:18 -0500
+	b=ZZvyTfZmerde8pNhMfOL3u+TomyGc1qsh/jorWa49JCyGoe4OWFVjjKr7f5oXBfG4
+	 QMLiauXOd7UIw8Wzsd2SqefGzmrUdDuciqVYKUtLp7CCznE+tX/chq99np5nuWhBbf
+	 K4CdcvMXIUL5/h8C2TGbu4N8Lk4MgO+HmWIuFZtr4GINE5SiD9i6WSq5MydMn7A2jG
+	 5YRuO1DfX5y7jWvHtv6wLPDKE4N4g4HdRsymWuAPXqNU7T8uR0ZZlYwTGQ1Zl9zR7s
+	 CT04yyJajSDE+u0oiFNut8uQ2H1K5JF40w99h9HWpX9y16x4PJO7YoOZDWSPEgbqdb
+	 n4LCyT3l6tOAA==
+Date: Tue, 19 Aug 2025 06:01:19 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, 
+Cc: Conor Dooley <conor+dt@kernel.org>, 
  Philippe Cornu <philippe.cornu@foss.st.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Simona Vetter <simona@ffwll.ch>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>, 
- David Airlie <airlied@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Yannick Fertre <yannick.fertre@foss.st.com>, linux-kernel@vger.kernel.org, 
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+ Yannick Fertre <yannick.fertre@foss.st.com>, 
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Christophe Roullier <christophe.roullier@foss.st.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ dri-devel@lists.freedesktop.org, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>
 To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <20250819-drm-misc-next-v3-5-04153978ebdb@foss.st.com>
+In-Reply-To: <20250819-drm-misc-next-v3-6-04153978ebdb@foss.st.com>
 References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
- <20250819-drm-misc-next-v3-5-04153978ebdb@foss.st.com>
-Message-Id: <175560127275.3969236.2787022865949537210.robh@kernel.org>
-Subject: Re: [PATCH v3 05/13] dt-bindings: display: st,stm32mp25-lvds: add
- power-domains property
+ <20250819-drm-misc-next-v3-6-04153978ebdb@foss.st.com>
+Message-Id: <175560127329.3969258.11704849224286577096.robh@kernel.org>
+Subject: Re: [PATCH v3 06/13] dt-bindings: arm: stm32: add required
+ #clock-cells property
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_040120_162794_3DEF1895 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250819_040121_277639_6C3A0C6F 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,15 +87,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 19 Aug 2025 11:15:58 +0200, Raphael Gallais-Pou wrote:
-> STM32 LVDS peripheral may be in a power domain.  Allow an optional
-> single 'power-domains' entry for STM32 LVDS devices.
+On Tue, 19 Aug 2025 11:15:59 +0200, Raphael Gallais-Pou wrote:
+> On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
+> subsystem through a multiplexer.  Since it only provides a single clock,
+> the cell value is 0.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Doing so allows the clock consumers to reach the peripheral and gate the
+> clock accordingly.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 > ---
->  Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+>  .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
+>  1 file changed, 21 insertions(+), 10 deletions(-)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -107,7 +111,7 @@ dtschema/dtc warnings/errors:
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819-drm-misc-next-v3-5-04153978ebdb@foss.st.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819-drm-misc-next-v3-6-04153978ebdb@foss.st.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
