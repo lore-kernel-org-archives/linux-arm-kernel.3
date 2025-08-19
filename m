@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20536CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4198CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vpgl7WyLFrS0C/ZYYfn6MwQ/pZnCOwnJWShlT5q+tJ8=; b=LJQdSof2bOjxcGyNNKWf6rUF/v
-	PykbXqFgpPva4ohELbRD3DzO7nnE6z4zXitHuJpG1f3GC8oibMt9sWm+Tnd++y24on+Mcj9HswPcw
-	z4pXXrAxKRljM7jIocTFAb7CpTWCV7dP5WZPB1eC2vJQoDNN2kWjnm1SZZ/CQs6LBKQOEl0CSfE5d
-	8Grs5ezpEhXqA6yJBlTKrduzSdXgBAU5M55mycqcdCyqDmzXUbf0ABiBxfPNRXGrPaotzQW02nhNt
-	0eaCBI49Ut2DYD2gryXzzla5iHPHswcusy6laAyD1URydlTx+TuWunlGE8OwfRUy0ylPUt3Q4hqGc
-	2Pq5DYnA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NFTccCtP1uRd9Wzn26xkl65ZZWOAVPiCAiod9SnwQ6w=; b=rbIp07baZlrR3hBTpEggygve7h
+	nYIrrBmW2vZZjNUpQN+msC+meMXRHrzsltF+7cWs6UBVKqXdygBai4h3g3+DC8DjVizczCWcJPwI9
+	GrotsvL1k4OUIhakmG4RW4WgWOHsRuZPGHaieYiPDmfvTWUgRAiKMwa17AH2bCRvGWub10xle5cW0
+	1klya5tTpnsUmMVXg1yGd08dqJ9Ge9dgpIfqGlP3St0Fug+UiPOoGE9PdNlT3E5AICrR+YYtkAUKN
+	Ql3+U4XsOlyjulz1L5DnnbDSce5bqkjhNAYY/04rhGH9dI5fLe5y1XZY7jJUclNDelHelAtRhLVIU
+	oREmBrMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQpV-0000000BBys-1Sr1;
-	Tue, 19 Aug 2025 18:13:05 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1uoQph-0000000BC9e-2AjW;
+	Tue, 19 Aug 2025 18:13:17 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMAb-0000000AYcW-2RYy
+	id 1uoMCd-0000000AZ8D-3ZHa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 13:14:34 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-55ce5253a57so5483378e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:14:33 -0700 (PDT)
+	Tue, 19 Aug 2025 13:16:40 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-afcb7a41b78so71836966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:16:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755609272; x=1756214072; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Vpgl7WyLFrS0C/ZYYfn6MwQ/pZnCOwnJWShlT5q+tJ8=;
-        b=nZ21/FFz7GZ7VK9MAnDnOaYRtArn9CEgOKQYiXOcp1rMzYaqRzmwMYzN2Ju2vvmN3A
-         LKa5+NrTgfx+tTpzdtL2stdjoPJKF80mIQOhg9wnFF/UfWU1noZJCO185HF2eevJWcqY
-         WoUuk7O7w4NKHt1mDVLmauyKrjBg7I9jxa1IE4Bn1puhsPShomr/a+dAStHVdeO1ZYlm
-         Z+aSFc4OBygiy8UP7HHR0IbE47SfeeHjgwzD+XZh7NvSLgoat3Y6hfkU1TsKU6+N2aTa
-         wNOo3LJQtPvcsTohdQZS+wEEITmwQUR6lrb7Ru6flB8DMqmVwbaNF8OyYKllGwUo3yz3
-         kGWQ==
+        d=linaro.org; s=google; t=1755609398; x=1756214198; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NFTccCtP1uRd9Wzn26xkl65ZZWOAVPiCAiod9SnwQ6w=;
+        b=hSJPbmBmXjlSSt/mW+dW2HHiQWINU6y+nzJjEuzSotqKSzCOQqWkUc5PeNGwWLM/mW
+         qpLFJDLC8iFlgvJlFrC3mfrsKCG1qcolZvJbTon6oKC1PLfpj863L+UHsfaW1vUmlLCn
+         3zhTYydqYJsWAwsupj2f15GvjERCFDLToL34LQPvC7fBdBcz/4rhJH4EgrUzHustATjt
+         sWjG43WfaMteX47lpUNMGljU5UaabebG0cWdLCzcuVtyr6BBXVkKxPLalrbKzCUmGhqB
+         6g6QZ4YPXWYGV+0MEEfs4PSE5oX5M3+x2Q4a3Y8FljXzXM1HNpwAiGnnjsTJwl7gdHmR
+         OAqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755609272; x=1756214072;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Vpgl7WyLFrS0C/ZYYfn6MwQ/pZnCOwnJWShlT5q+tJ8=;
-        b=VbZcXPHp7jnQqWT5FqLlPgi3z/cRQZX7HlQqPNDxfXkgLjBL5H3j4GhHByFZxTnflK
-         LMrlPL76vzUSqlJJZ1kiUsnYtZWmPkpsYVRt0DPTT7rlMq6KKCrtF5xcAN6MpSz35uBm
-         5S/uudVemI5OsYEcI2WsI0jdE0Lper42gEcaddoNfkgXhc7UJCi8qbKfGdjVAlC4dslZ
-         wof1g21DSmbyrlMGO7jfqNliRwsVjeydP5ErF5gjvsEujRx42AfIM8fZzYo694J6FAs5
-         C16KoZdmnxytjE2Q/hcWl2qprUmbPbOSK9pPn1d7dqA/exWtldxqi0vz61xdB5DZzKfW
-         z/Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCXfrM4FMrh0yNfEZrQQTpTc+apTj+ATLd3AA9iuLJ7UQo+i7hn7ix44gc85Spm4HWK8XqxjFDjEclfc0Zu29XLw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyISMfHUjwSGtT1FCiSytl6fDVuesHefgYQ2VV+YpPjXy0iBreX
-	BKTUOXJ9kZGxHxFZEcshpOjcgPUJRzKiOugNpRuwmPQ3gCTJh9gTL94TrO7rRPtkTKQ0MDRebJz
-	YdJGQNBd74YQsv5ytkpCl+0O5b2dK21zJV+yfl2N0uhlzoXfd2v91wkD14A==
-X-Gm-Gg: ASbGnct7aNi8nTd833jNg3y6UuUbFB2gxEwgZyCTWZz1uKHmCjA2+wIQBOzWZslIEr/
-	UD1/PRUBbJmTZUcgavqP8l+eXbaCay4m4NqIcw88X8+QxQLGAC2n14Oy58Egp91KSHp/HhFYwbd
-	PzlyjAoPYo7tm29shywMemjT2mQiOK6YKgMG2mCydn7x0tk6V/vY/YPtz4Hnt25EP+SvVU85SNO
-	YdWh4U4Xre8
-X-Google-Smtp-Source: AGHT+IGCM1KzCADYv+7d911GPZZod1EPaNXRqTGrmgy/nj7uWJIDPQDYu8S6SC2inkRC3koGoFDH6NusO/qUGRi2QCs=
-X-Received: by 2002:a05:6512:3b89:b0:55b:7bbd:672d with SMTP id
- 2adb3069b0e04-55e0086f09emr1019476e87.51.1755609271646; Tue, 19 Aug 2025
- 06:14:31 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755609398; x=1756214198;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NFTccCtP1uRd9Wzn26xkl65ZZWOAVPiCAiod9SnwQ6w=;
+        b=GrIDx5Qnqk4xlbjB8NLyHe5nxzP06OhVdWJMUyKQJd1SZtZAFtHVsHr0Fa0mxSyL7D
+         Rpi+j6/GrPiyAhdhgb22ozhggTv96XGmMyfmC0xNfWhUkgiz0x7C8yffqRlJmgvg+1fA
+         4tdNvuTIas0uy1YO2ZrnRZzzr6eRIgUAbMBxzKh3kl+Ig4enh93KfvbRu015pIr6kxsT
+         fXrTuQvd/wGLDXUI1WENibmhEEIe6kDO1BVMa3WDTApMNav1/b15ZHlg8vTntK/l3OZT
+         lbk/BqjAkcBIo0LqyzGYysroQvLyvl3Nsh2ec19Z+GSGPNObIF26qaqPWjxZBAW1+/sn
+         tTyw==
+X-Forwarded-Encrypted: i=1; AJvYcCUiSjkR8LDKw8aR/NJhyd7obNtX79iqmc/JyjVpvusFInk6SGhzPSio/ePdz2i6ZiZebn1dhAJmpPzWvS40oZGg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5zwWJwUPe9zW0DspUpCwTO5HAn7uPcfYH6S5DX9+hNtvWqhU4
+	PJc17jgPYwV9DF9CvT4c4zlAq95E5DaYR3vgizwcJ20CPvtQlBNsBiRUc7YdfamCQCM=
+X-Gm-Gg: ASbGnctBZI2e0Zxec+mSVUVajys0HG0HZlXtU+eZ5i3AtKp6kJ2/Ew4xHQOrY/0zAbb
+	SXrvzVo4ESfmBeos/pD9dNj952Dc46A9gnuU+2CBU6gOeHZGQ0Qr+/L/b71yCmJtahtysP5U92S
+	ZyAakBCYSa3QNSuc9cMDa30d1492v4FNwIAOiUSrWtemw4wo+oh6AYTd6Rzkm54eRwjzz1v9ET6
+	TzExDCn4IK0EVQZP+Pnb7uhLVfRC27gntLbUl0SOtOnFGyHBhMhchmNLou0Ly0xz2Qs4i+Vl+NW
+	J1Q2oe2OHsehSmjpIJrrwa0AH4JEnWeOkZ4w0WSshnBIGZsjPzUkQHwLrUQAXd4DMmVhjahP6CF
+	C8JW2mzLyenEcGoMVLqyPqVqCGFcc8EhzCw==
+X-Google-Smtp-Source: AGHT+IFfradJwu63FUvwOcWbWyp08fd8Whf4HqNHMGG30wEYvsKB2XGXhYm0YYCzs8cM3Nd6qzySVw==
+X-Received: by 2002:a17:907:d90:b0:aec:4f0a:f9ac with SMTP id a640c23a62f3a-afddd1e433dmr90382066b.6.1755609398378;
+        Tue, 19 Aug 2025 06:16:38 -0700 (PDT)
+Received: from kuoka.. ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce73e22sm1014924066b.41.2025.08.19.06.16.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 06:16:37 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] arm64: dts: marvell: Minor whitespace cleanup
+Date: Tue, 19 Aug 2025 15:16:34 +0200
+Message-ID: <20250819131633.86478-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org> <175529260025.3212383.1843651240268969923.robh@kernel.org>
-In-Reply-To: <175529260025.3212383.1843651240268969923.robh@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 19 Aug 2025 15:14:20 +0200
-X-Gm-Features: Ac12FXzzR-dQTCGYXpk2upb89TzIiA9ngfM-ksyz3QF34dZzwFe2pZdcL3v_yBw
-Message-ID: <CACRpkdbB=uyNhvr1VMuartWif0PuQ3uH2AOEGgvdReESO8EMzw@mail.gmail.com>
-Subject: Re: [PATCH 0/3] ARM: dts: ixp4xx: Add device trees for MI424WR
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Imre Kaloz <kaloz@openwrt.org>, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2105; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=25w9nGp+VOPFwF4xTLHunMmNW2bcpRsbxGsrD/LXVBg=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHkxJCXGErwlGNb4uJVx8zh/NpiVZLUoMdgV6
+ s1NAOw/hOKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5MQAKCRDBN2bmhouD
+ 11/vD/9KkTiJjpBqGx1OFTTWGwcAynI2RwbCno697sZX6nOadE1UXEXPVYt/raAiGjguhjov+zP
+ 4NewcszElKfspMkCFlX2RDpILBiNfGCdf+1Uazl3Zi+Ltmfo8YzB+RjrD2NIyzeK1IS8tvaq7OK
+ rTcYVk17JbVGHeqh4L/ofJl1cpvm3rUq7F+RQiwEvCx6Ai9Kgb24R48y49+DR1XMOD30r7m+veJ
+ a0qyaHz8opg1LJI1ktI9A2GeQUdAeelDe7PcgNNOHRkUc95qNvdZDdq/JX1gLFeo0WkZLw63wMd
+ Zn/CsHu+Odo9L3p/YxLAyWN3p7byj7gKg1WSUSKTleIEca5/StBNqdTuuX+vdEn7OmevGhLj68D
+ RFMFbsK2yBk7SWNQORW+nM2OUCywV/sBZnDd6Xcfach6gnAYWDJGGCdcDnga4VxTaEYNWkwNQoG
+ WEgJd6OqacPsntBQG7cr8QrFBo9MLW1wvUSKquT90WkJQjuNk171q8RNmP566mrWiMlH6q6qF4T
+ CKtx6yQOLseAJR/O+Jsl4nIWm/qaK5M31RoDcv7PWqy5TpSn3dybtAodNajbYmmkPhvKDfj2Bvo
+ crn4Ax0STKTpxaYa+kIermy1ul++6DSrNCkLXPHIl6Gy7hvZ060ZE3zvaw4P27mnJ6+Nc7FigAR FaelHWw9cWGq7mw==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_061433_622915_B2FDDBE0 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250819_061639_887160_0F2F16DD 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +116,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 11:19=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org=
-> wrote:
+The DTS code coding style expects exactly one space around '='
+character.
 
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm/boot/dts/intel/' f=
-or 20250814-ixp4xx-mi424wr-dts-v1-0-b7c10f3c4193@linaro.org:
->
-> arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: gpio@1=
-,0 (brcm,bcm6345-gpio): 'bank-width', 'intel,ixp4xx-eb-write-enable', 'pci-=
-reset-hog', 'pstn-relay-hog-1', 'pstn-relay-hog-2' do not match any of the =
-regexes: '^pinctrl-[0-9]+$'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-mmio.yam=
-l#
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi   | 2 +-
+ arch/arm64/boot/dts/marvell/cn9132-clearfog.dts | 4 ++--
+ arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-This is an error since forever: the node is on an external bus and the
-external bus while
-defined in:
-Documentation/devicetree/bindings/memory-controllers/intel,ixp4xx-expansion=
--bus-controller.yaml
+diff --git a/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi b/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
+index 605f5be1538c..4878773883c9 100644
+--- a/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
++++ b/arch/arm64/boot/dts/marvell/ac5-98dx25xx.dtsi
+@@ -322,7 +322,7 @@ spi1: spi@805a8000 {
+ 
+ 		nand: nand-controller@805b0000 {
+ 			compatible = "marvell,ac5-nand-controller";
+-			reg =  <0x0 0x805b0000 0x0 0x00000054>;
++			reg = <0x0 0x805b0000 0x0 0x00000054>;
+ 			#address-cells = <0x1>;
+ 			#size-cells = <0x0>;
+ 			interrupts = <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
+diff --git a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts b/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+index 0f53745a6fa0..c872c8eca518 100644
+--- a/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
++++ b/arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+@@ -559,7 +559,7 @@ led@2 {
+ };
+ 
+ &cp2_ethernet {
+-	status =  "okay";
++	status = "okay";
+ };
+ 
+ /* SRDS #2 - 5GE */
+@@ -572,7 +572,7 @@ &cp2_eth0 {
+ };
+ 
+ &cp2_gpio1 {
+-	pinctrl-names= "default";
++	pinctrl-names = "default";
+ 	pinctrl-0 = <&cp2_rsvd9_pins>;
+ 
+ 	/* J21 */
+diff --git a/arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi b/arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi
+index afc041c1c448..1c9996d8cb24 100644
+--- a/arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9132-sr-cex7.dtsi
+@@ -442,7 +442,7 @@ tpm@0 {
+ 		reg = <0>;
+ 		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
+ 		spi-max-frequency = <10000000>;
+-		pinctrl-names  = "default";
++		pinctrl-names = "default";
+ 		pinctrl-0 = <&cp1_tpm_irq_pins>;
+ 		interrupt-parent = <&cp1_gpio1>;
+ 		interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
+-- 
+2.48.1
 
-Adds properties to any child, which can be any MMIO device.
-
-I don't know what is the proper way to solve this.
-
-A separate include .yaml for the children and then pull that into
-every possible device on that bus?
-
-> arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dtb: /soc/u=
-sb@c800b000: failed to match any schema with compatible: ['intel,ixp4xx-udc=
-']
-
-OK I should write that yaml file.
-
-Yours,
-Linus Walleij
 
