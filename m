@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4384FCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A097CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 22:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toOU8nMMCD2sZkA3Prtbkz7VP/YmlbYdryWZ9ip93GU=; b=4GW6EbNdfGoGPwmRfxhCA/9Tj0
-	EXvpKoPrsrhrGfKAFoGA2/kwxEETuy7FCNaeTY2aVpKkDopZ3hJj31Vo6Lt4nGR2nTIseXvV4xJF6
-	w+//ZvbcYljcVWaPnQ/nW8FLG5D3zOglBynp6lE7U1pRjQoi1qU2ideCQJGTz/93JL+C5N9pAQ8T7
-	F6bSIHK1E87sJUZzaOP8b5KMPNSxHjHnRSGjOyyC9whedMedBPFiPwcBYFOxKz1PIT47k1Jh1ub46
-	myDkgKiX/bBN/h3/7AKP/T+VRxv5+7Ovc7ZNOxDgM/hemj6VydgjIo6T5tUN9Tnjs0f1Ypn8wZkBl
-	0Ljsjkbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4lzQUEU9rDYLoqdLxAMqC2PJcUHq11yy5ENE3mGK6Uo=; b=zldhv4ZuqkZueCYBZ5CEbQJTg1
+	NvUm3ePpqpC2olgcnXRSyvfaV2Nu2mrDHiHAmBMOrL2X+G3IoZDZ1ZeWVSmMx76o02nC8sr5xXrM3
+	6CfUnBax9YtYbPICLOE6sFfTEH25b+H7Vkn0jx+0A29G0t9k+7+Mq4UgykjbvpCynsIiX3K2ERjML
+	EoBWBNSSWb60kSoiBSPEdpmJ3zJNigS8WitriGU2FbG3JDtnU/bMX6ln3a0TZDXouPwbg0hVHzEOo
+	9i0ruYrE8UrcOvnXr/v5Kr3ZQdoC/9vO4mjaOQDJjZxf0tbXIECI4Ar3odVsJZhE37/sWhSXgQYdq
+	knahojLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoV1r-0000000Bkg3-3hIY;
+	id 1uoV1r-0000000Bker-0ot4;
 	Tue, 19 Aug 2025 22:42:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoSLU-0000000BTAI-1wb9
+	id 1uoSIK-0000000BSh8-2DAO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 19:50:12 +0000
+	Tue, 19 Aug 2025 19:46:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB3D760209;
-	Tue, 19 Aug 2025 19:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEF38C4CEF1;
-	Tue, 19 Aug 2025 19:50:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0497243245;
+	Tue, 19 Aug 2025 19:46:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85C9EC4CEF1;
+	Tue, 19 Aug 2025 19:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755633009;
-	bh=rXxbSd4NGFsxG7Du96tt0eWEUIA3BJVgGFwkWbEkdlI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hbSR4YNABzlsy9pJN7WzfYzMVwnfolauDV1rXZvGW1mI57p37MW6oOe/+01+xg9uF
-	 zOXCvwuNvXPxm6cWiQ+QwG4+aQ5CfXoZ0i5/CzsnUVt8SMTgpdKuzYChqbu9fZs7FM
-	 WQl10SuiBy8dl8BBGcq8xO+lE7sfEYW1Ll9/qOBU7AjSmHPDXQBC/eU36HnOrllsLg
-	 1tWHtEsc0si4gDYUsimTmzNppaCEJ2nBflrXkrQjRUTnlVAgSc5CY+2Sa6hb9i0Dsf
-	 GZyAXddObnGMRBLA4YPev/YmuJ+IsW4i9++EooA4pKs4GusYblwazFzCp2/tINsGiy
-	 atSDfqecI84Lw==
-Date: Tue, 19 Aug 2025 14:50:08 -0500
-From: Rob Herring <robh@kernel.org>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: backlight: Add max25014 bindings
-Message-ID: <20250819195008.GA1218175-robh@kernel.org>
-References: <20250819-max25014-v2-0-5fd7aeb141ea@gocontroll.com>
- <20250819-max25014-v2-1-5fd7aeb141ea@gocontroll.com>
+	s=k20201202; t=1755632815;
+	bh=buCW/ZOs+zjtU8+u7JC48cij7cEtXIqatCc1jur/KTA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kLwueoPdpn/IT5tnlDGf/QqhxLe47X03Kl8uZwmPtYyybGRL+aGdGPMhdOkWiWrcc
+	 lWE5mxd8oVQ7j1UCTyFmYAbnUZAZU/MY2pQuu7jDt0GxTBK+8uvON6iPNU1IG31AVF
+	 cSpjEIcrzoMp6PhMDuvfcqgu5zQpWwFq0eM88u4BGhV3tDDSLs7hSPa/0h6qzjgKzJ
+	 lcjtvTQjs4xCwhfev/9FavNMlW104WNKnwnRunhgevTA1l5eu+oUYboQtoXOu6Cg4d
+	 uf5/zmEYmSIVgQo2/JabDET910rfq6mTAwYLyxmC7GpjtUBsiFz5nifnTbGhYLx/C4
+	 M+j114rj8jUFQ==
+From: Mark Brown <broonie@kernel.org>
+To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ Shimrra Shai <shimrrashai@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20250815042023.115485-1-shimrrashai@gmail.com>
+References: <20250815042023.115485-1-shimrrashai@gmail.com>
+Subject: Re: [PATCH 0/3] ASoC: es8323: power and mixer controls cleanup and
+ revision
+Message-Id: <175563281428.270039.6714574776717315231.b4-ty@kernel.org>
+Date: Tue, 19 Aug 2025 20:46:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819-max25014-v2-1-5fd7aeb141ea@gocontroll.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-cff91
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_124656_589695_8BA78A0C 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,141 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 12:58:59PM +0200, Maud Spierings wrote:
-> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> with intgrated boost controller.
+On Thu, 14 Aug 2025 23:20:20 -0500, Shimrra Shai wrote:
+> This is a revision of a previous patch submission of mine wherein one
+> part was accepted and one part was not. It was originally phrased for
+> a particular device using the ES8323 CODEC, and I was advised to make
+> the mixer controls user-selectable so it was not tied to the needs of
+> any specific device. This submission brings the DAC and mixer controls
+> for basic audio playback on this CODEC into line with the DAPM
+> infrastructure and enables their operation through the standard mixer
+> interface.
 > 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
->  .../bindings/leds/backlight/maxim,max25014.yaml    | 79 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 84 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..30b591152fa31d5e43243cac44c72028b05b5f8a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> @@ -0,0 +1,79 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Maxim max25014 backlight controller
-> +
-> +maintainers:
-> +  - Maud Spierings <maudspierings@gocontroll.com>
-> +
-> +allOf:
-> +  - $ref: common.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - maxim,max25014
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  enable-gpios:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  power-supply:
-> +    description: Regulator which controls the boost converter input rail.
-> +
-> +  pwms:
-> +    maxItems: 1
-> +
-> +  maxim,iset:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
+> [...]
 
-       maximum: 15
+Applied to
 
-> +    default: 11
-> +    description:
-> +      Value of the ISET register field (0-15).
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-Perhaps a little on what this controls? 
+Thanks!
 
-> +
-> +  maxim,strings:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description:
-> +      A 4-bit bitfield that describes which led strings to turn on.
-> +    minItems: 4
-> +    maxItems: 4
+[1/3] ASoC: es8323: remove DAC enablement write from es8323_probe
+      commit: 33bc29123d26f7caa7d11f139e153e39104afc6c
+[2/3] ASoC: es8323: add proper left/right mixer controls via DAPM
+      commit: 7e39ca4056d11fef6b90aedd9eeeb3e070d3ce9f
+[3/3] ASoC: es8323: enable DAPM power widgets for playback DAC
+      (no commit info)
 
-       items:
-         maximum: 1
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-But why not just an 8-bit value 0x0-0xF?
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - maxim,strings
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        backlight: backlight@6f {
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Drop unused labels.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-> +            reg = <0x6f>;
-> +            compatible = "maxim,max25014";
+Thanks,
+Mark
 
-compatible is always first.
-
-> +            default-brightness = <50>;
-> +            enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-> +            interrupt-parent = <&gpio1>;
-> +            interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-> +            pinctrl-names = "default";
-> +            pinctrl-0 = <&pinctrl_backlight>;
-
-Generally we don't put pinctrl properties in examples as they are always 
-allowed.
-
-> +            power-supply = <&reg_backlight>;
-> +            pwms = <&pwm1>;
-> +            maxim,iset = <7>;
-> +            maxim,strings = <1 1 1 1>;
-> +        };
-> +    };
-> +
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index e81d5f9fbd16cc384356804390d65652bbb9e3f6..11c73d2e37fac22aea852152746236c1472f41b8 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14972,6 +14972,11 @@ F:	Documentation/userspace-api/media/drivers/max2175.rst
->  F:	drivers/media/i2c/max2175*
->  F:	include/uapi/linux/max2175.h
->  
-> +MAX25014 BACKLIGHT DRIVER
-> +M:	Maud Spierings <maudspierings@gocontroll.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> +
->  MAX31335 RTC DRIVER
->  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
->  L:	linux-rtc@vger.kernel.org
-> 
-> -- 
-> 2.50.1
-> 
 
