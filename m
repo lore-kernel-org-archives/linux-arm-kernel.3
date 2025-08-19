@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83D7CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190E2CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmqOt1qwxreP164gTUMizrtv+rOPrzbBFfbunezxMlk=; b=mcIaP4ozEcrlxiQsJmBcFeztzy
-	eGZv1cUlBu1dXg5aJh6T9jOq0c6THDGeEsiSGqt+J7IrzQmA4GpRbSSHh/+BtrhtDvTScZt08b4bf
-	if5H8StyoCfq7km8lf0OQNOtl3EEX+i0cMlxsylpaKqWHkxwCfhepgF52q+3nTR+ZZ8kpdArJJ/4U
-	CJ2OzEZxx/rCWb5s0kdeXBeucz1JL8CxirhGbYt/AQno/qj6CuZ3Zphmede3UDypSdh0R04Sz3Ntv
-	Srf/KWHywmMPFQwyKc7A95bSO7/kV574WEq9bhNW2ftavs6ryDgqSsDZ1eFxk2Q0EaiVtZRymcp+G
-	mMijHPWg==;
+	bh=mI+27DCsZb1xNev2FOWjFwDPtlqZqOZA1lWdJsmrtJA=; b=3UIpclrp6Jpe1W8TiTBCH7Vm6z
+	JBAeaBTX5cxFZfCMv4hC8heZSlnLl4ycC9MvemGzzuxJtw57v8i6hC2KdxuYXrCc4GFDUjvrTEmMO
+	rmkZqKD9VPNpsEqX6mUEm5aEMWQAALy0IuoJFmGPaLrQGSSENG7c5c6O/m4ycqT0j81VmoZdeTMwc
+	ums9LHgsQ2sgnZl962AHDwT1Kn+VBtCGNIs5PAx1HOgu7qaoBOeBkwMAO23kFt8jm+gzvOJdVlQ0P
+	AL4CpPvAF5Hc107f7LYuaOLPHLw8NYPCds7+RW/iemMgu5BQdCvBnTUg8Zs7vYbwzGKH6E+q0E5sU
+	z0kxKmyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoL8A-0000000ANrv-2u6A;
-	Tue, 19 Aug 2025 12:07:58 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uoLAh-0000000AO7g-3kR0;
+	Tue, 19 Aug 2025 12:10:35 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJNO-0000000A6EW-1UDo
+	id 1uoJPX-0000000A6Zm-06bd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 10:15:35 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57JAFRD63379172;
-	Tue, 19 Aug 2025 05:15:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755598527;
-	bh=vmqOt1qwxreP164gTUMizrtv+rOPrzbBFfbunezxMlk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=w6njBmZNGqy/ECKVZ8/lpw2s3Y0du4nFdlNVCcCVtBZybbPbvbEx2/UcJx1DY/xp5
-	 SFzEQw+maoUpjTN/pTHqGpgLwAnRDifIiaNb3hiGndnWPq+01WmeVAAcyXVRJmvC7f
-	 GxppNTMX0NYVx7l55R21K2n3n1reKvC76vSTRa+0=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57JAFQr1333086
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 19 Aug 2025 05:15:26 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 19
- Aug 2025 05:15:26 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 19 Aug 2025 05:15:26 -0500
-Received: from [172.24.234.212] (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57JAFNTe2555595;
-	Tue, 19 Aug 2025 05:15:24 -0500
-Message-ID: <a92812be-7370-4c55-8c3b-728834bd83c1@ti.com>
-Date: Tue, 19 Aug 2025 15:45:23 +0530
+	Tue, 19 Aug 2025 10:17:48 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55ce5277b8eso5288329e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 03:17:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755598665; x=1756203465; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mI+27DCsZb1xNev2FOWjFwDPtlqZqOZA1lWdJsmrtJA=;
+        b=Iw2qKKYkzasIHXt9ZxX5SHvukMLHaCT3cJkbjysMLaphKo0qT/mqoKAule5fwMaRRM
+         Am3Lyedm4EgmZRgj2dwhl1rfisUQ7WFwqeiqjaQqVUR7GW4vkPP6SrLlzOLo+xWKLkYQ
+         V6uQOXxwJbm5q4m+3J3jPyTrL25jgOe9WwrLGaWjOyzXVtLybJ39TMsKrZ1Iq4GxLW5q
+         64CKnvhFKjgGbS0k9Wlc/H8pKxJAHj42HYrYZJxyQWpbQ+oCXR+tBsSOYDbyszQA2Hcc
+         nO/4poCjOB1as8JHFo/pxQreJEJn4i33CsYScGHFFdw9VLPzxwstYgKbs50NLHChztCW
+         3QkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755598665; x=1756203465;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mI+27DCsZb1xNev2FOWjFwDPtlqZqOZA1lWdJsmrtJA=;
+        b=pEj62rc5JmKgTVcSGkiqJFGlB3fvtJtNUk5UT3VDgz3pbW2dHhK1UXTL+59SyFUrM9
+         qBT28PVwXunJ68XXeoHQkJinTDMXM1Y6b+iOEJ9cEDZLqXxcSXNXdiEE6/Twh71nPpFy
+         bbV6XvaWSrkU5645ULcSJ/m3MtstGxG0UHkIOWdGUiZcuEa9gCJduhTYVXDVjen/eIPu
+         b6ZD0hHRsRSHtxS/qvCNU7CJid7MkkqhY0AeqpFOPybymovmb2ExKTopbKb/tl+Chd7b
+         i3tMcMPvDw52IbVY1yTPjIea6ukDV7CpF+ss/rudsiLVc4/LA0Bla8PWYaR84dRAaRM6
+         cYEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWcl1SbCf3r+ZxYsM5kZT2rZG4UNrh9B0sb8hq4/sA6Bjnr7920oVot09zVG0tTKY5mvb/tATonRJbj2smFLQIK@lists.infradead.org
+X-Gm-Message-State: AOJu0YykllOpb9n9YpNZc0tkaW8Kc3shLAgfKCxLB/JM0rgCpEostmiY
+	le/fxmQpOtJiHR3efrJqEK5NozcaJl2grQC65V9KqmjAarr2jJmxG31OwGpZhQVnjz3UKQoFVU5
+	SjV47iERcsD+CNuIUBwifrZ5MtAFUjBX99i0v7qwX/g==
+X-Gm-Gg: ASbGncuGtvGhtQl2gY0ro99ZOtjdAt1WaEzlD8HF2SKH8rzUTQrYprMS5lajR3aXtmW
+	HYwG+5ulHQMHkpUXAeu8h9Kt2ua9gD1+Lw2iyoCsWppY7faRRcp6TZNsgfWgYIQB83+M7XJIvm+
+	SGyBTBRzUy4PKueSviHH8WAXv+TjahNjr1qYKYdHCmaZoG6MbNPpLbKiWBUACQ3DOUaJP+t1r/g
+	fMLGN6wcm0h
+X-Google-Smtp-Source: AGHT+IHiB13v6ofDRBfj238q6m/OnZ2UwycLVlIeVJlojO24mSwpVb7ABxP+Y2+pth6WAptkaxKZGGCv9O4q9eeKwRE=
+X-Received: by 2002:a05:6512:6286:b0:55b:8a28:3cbc with SMTP id
+ 2adb3069b0e04-55e00869ba0mr639574e87.51.1755598665286; Tue, 19 Aug 2025
+ 03:17:45 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm: multi_v7_defconfig: Enable more OMAP related configs
-To: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Andrew Davis <afd@ti.com>,
-        Udit
- Kumar <u-kumar1@ti.com>, Praneeth Bajjuri <praneeth@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250806141808.4013462-1-b-padhi@ti.com>
- <133a5da2-d161-411c-9cc9-0bad46ab981d@app.fastmail.com>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <133a5da2-d161-411c-9cc9-0bad46ab981d@app.fastmail.com>
+References: <20250812-gpio-mmio-gpio-conv-v1-0-9f43e95dea98@linaro.org> <20250812-gpio-mmio-gpio-conv-v1-1-9f43e95dea98@linaro.org>
+In-Reply-To: <20250812-gpio-mmio-gpio-conv-v1-1-9f43e95dea98@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 19 Aug 2025 12:17:33 +0200
+X-Gm-Features: Ac12FXzXb3piolgH_vHThrJa6suApvy9Xnpd7N8-_ULnt_2vbNUV0h72uiLUeAM
+Message-ID: <CACRpkdat+HR6DC0xC-XzQ1V08QA6zqcp-PGPFfMoCWo5Y+efug@mail.gmail.com>
+Subject: Re: [PATCH 01/14] gpio: generic: provide to_gpio_generic_chip()
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Yinbo Zhu <zhuyinbo@loongson.cn>, Hoan Tran <hoan@os.amperecomputing.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Yang Shen <shenyang39@huawei.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-unisoc@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_031534_491299_A61604D5 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250819_031747_059976_6A7BFB1A 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,63 +99,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Tue, Aug 12, 2025 at 11:52=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl=
+> wrote:
 
-On 06/08/25 21:11, Arnd Bergmann wrote:
-> On Wed, Aug 6, 2025, at 16:18, Beleswar Padhi wrote:
->> From: Sinthu Raja <sinthu.raja@ti.com>
->>
->> This allows us to enable various peripherals in the TI OMAP family
->> platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
->> AM57XX-EVM using the multi_v7_defconfig, instead of only with the
->> OMAP specific defconfigs.
-> Hi Beleswar,
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 >
-> It's fine to enable drivers that are only used on a specific
-> platform, but those should generally be loadable modules, not
-> built-in.
+> Provide a helper allowing to convert a struct gpio_chip address to the
+> struct gpio_generic_chip that wraps it.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Sorry for the delay in getting back. I have sent out an v2 with your suggestions:
-https://lore.kernel.org/all/20250819101137.2878336-1-b-padhi@ti.com/
-
-Thanks,
-Beleswar
-
->
-> For the generic (platform-independent) options, I would
-> suggest splitting them out into a separate patch, so you
-> can describe better what the purpose is, since this is
-> clearly not just for OMAP.
->
->> IKCONFIG*:
->> Allows reading the current kernel configuration through /proc/config.gz
-> This one seems particularly unnecessary in a "defconfig" build
-> since the configuration is already known based on the version.
->
->> THERMAL_EMULATION:
->> Adds emul_temp sysfs node under thermal zones to allow emulating
->> temperature changes.
-> The documentation for this option suggests that we probably
-> don't want it enabled.
->
->> FANOTIFY:
->> Allows sending open file descriptors to userspace listeners along with
->> file access events.
->>
->> USER_NS:
->> NAMESPACES:
->> Enable user NS to provide user info of different users for different
->> process.
->>
->> POSIX_MQUEUE:
->> Supports POSIX message queues for priority-based IPC.
->>
->> BSD_PROCESS_ACCT:
->> Enables BSD process accounting to allow user space program to write
->> process accounting information to a file.
-> I assume these are all in order to run a particular userspace
-> distro?
->
->       Arnd
+Yours,
+Linus Walleij
 
