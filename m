@@ -4,140 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1826CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C02CA0EFE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtQwBBE7A/L6DYrB3suka029FN2KX9K7yxrcnIgCQII=; b=FfKXxCyZclG2SB3ltUhpX+G23H
-	9iC4iL4NY4xlC988RpiMO+brkp9h278D8q+3Orv4ZCpiJOj30mYnOnVVnK9uurx6Si3lNTjnZx6j2
-	8NAf40J9BRwQjAy3V/BqLBJsfbsnXNlnXavbxm5GGNXSq1+RMYNCXVKD2lukFHOaOVZ8KEbjKazcn
-	doDDhVR/h+P2fHCHHNobnFzYhMxIC+SBmzwb+ol4DcTiozv2QG1tvRxyeWT/FhaicTdDJoPUVFTVd
-	yOdyAOiwgGZZ5I3p/vPIw9eU6PvAc24hEcp6h6PR0AxiB/84Ltmtep6k6GrQOc6MlgHnagDFvSvj1
-	lF1FAzyw==;
+	bh=QnXiuIxaokcuSo15qKXZtA+QjWaeBQk02y9Ttn3mEC4=; b=NhR/9JVygDnm5I0xB4Y0ptxxC6
+	AhxCITyol2q50ZoO5P0biUpiKMtDnVuAmNzNZRXgokXO64NvmQh46XRRxGorez/ku3OZqvvZprBxV
+	nFeDEz2XwoG1c6xeZmZvSr+cfZGXzEz0NkOtOXt9Bwrw+eESt7aPS/Kr6uCf+8OKCJ8Atv96qC2mc
+	C+Lq6mMkIYnydNl97G5ZVhnKYqDqlYMJg8M2S/vYoWtilbsi+X1HykPk0npvczpq+/6iqlqE0oKIQ
+	R/zQpZu3sbHUSnTiWQu3WiBwhlpppT60X12nGvPbpHl47H3HmkSpEsZF381OQ5omcKyHSoF1zxH04
+	peu6ss4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIoI-00000009zev-1izX;
-	Tue, 19 Aug 2025 09:39:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uoIqt-0000000A0CE-1DQj;
+	Tue, 19 Aug 2025 09:41:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIGQ-00000009t2j-0Wre
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 09:04:19 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J90Z1Z029790
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 09:04:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	PtQwBBE7A/L6DYrB3suka029FN2KX9K7yxrcnIgCQII=; b=nb05A76YpPiOGSz2
-	vwKgyfBmE6HTLMxdi6KMSAwl+lCIrsM15BUf4wC5FcFazt++cmigwggE66ZVHZ+Z
-	LII/VhS37canuQuPj57BEoCVcQtDCQRHJZa1bDvjE7RmxNwQuI0qOdLDNEouVx1W
-	RXipSQsgCZ2tXrvtKmTPYVnzEQY10R31absN9NHWNQ4LNLFpHAHGlrwczdPAbeZK
-	8CvgKPFlbbnMT31my/tqNor12JVqpfefFg4bdNMJ7bIVA2gjNFoaNn6ovC/0KrYy
-	e3hZjWpl7xsh7UcxJcedHUcNRbJkRpLhqe2wYrcCxtTZakAiMefhOTSv3tC8E9Lk
-	zG1gJw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jk5mftej-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 09:04:17 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-323766e64d5so1499403a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 02:04:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755594257; x=1756199057;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PtQwBBE7A/L6DYrB3suka029FN2KX9K7yxrcnIgCQII=;
-        b=Jc5JDsk2PEmcSXGBe/CWcmgq5N0JxvLVgGtWEcf41Pybr2n2kOk9uIW3JvBoTcORFs
-         DWnrO3ONBbf1TQM9RYwgFtcaxfQ+p04H9uA7G1y4MB0imoCN2XTTlJeRPQFy1uIMYmuP
-         UVaE6sGHaMcU7ODBqB3CznX0m3RZIkdyD1iYxAl0FXZgKYkrTyJhbKRd1Ihjv/IQC8OS
-         gEmmiX+OBPBFQ6tILIIIpsey3HIAeNJbo994hRKGF15WjEKhk8FnKtzM0UaFm7E+NIl9
-         9D2i/o7ITIlsLR76/S8Q04bcZrCL3DOou3vBqVvCKO9d9FW+VHmkiPNG5qVazzKkJvhj
-         RHWw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgj2q4Cdj9P8bhaCdghVEU4wbKnE8e6ggv5O418uFCm9ijPL0Ampux0C2ye3m5JAJLCraFcAqVLB5f68pPhfjE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8Lrh1Sh8MZ+k7pxwdso1FjcldIxxnzkXq2rUnKYadu/uEXU9E
-	7AzNOtJUGT1CVUI7/aChWv6SFuBZT1v3yLg1wbgn2aEpYuTS5T0RiIFvuAEKFzit7+sKhmYd/CW
-	7LIKHx3QKkBVUdnOpezpNnbppsxh3V7zUJqCMVh+wjAlLziaiw47pruHuiNCPAb5WyIHiZNj3kj
-	Pr5g==
-X-Gm-Gg: ASbGnctgjollJyWjAjqdpYaEaBbjGpw8P9gWC/m7qP12sZJVO2t34vQ6T8b8nBYJBaw
-	XINQXLTZ4wGcnz0PlatUOTuCdZ6weHUVVGMz112jh9mDVN/guxMo/r50lhmYvkYQr37wWkeG39f
-	cSA+eOr3XdFkuTv50pBb7c1u/+sg7d1fac+thc/uhm7o2LmWVrmJJ/GqPpyAYhrCQ0GDOlJQI+v
-	guCO6PoHDVWL5vb2mEfcTnBzxY2xEzC/iopV+0LUlY3Aa/qUJlvt8FhbbDofXZyEWMbc+IuWC/M
-	oF5eHoDgU/b8tUpUC5ZeN7QTKnWVoIIizWiP6AaX4fXigxjc1ZxHk9zDPw462X0HxCxzb8/Q1IC
-	c7Iadh1teyGq2/hIAGNM8Jn3Ls0JdqTQC
-X-Received: by 2002:a17:903:1205:b0:231:d0da:5e1f with SMTP id d9443c01a7336-245e0f2775amr16133855ad.21.1755594256729;
-        Tue, 19 Aug 2025 02:04:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFkh7QwrfpTpI4CY81hIJagXgTCB6D+xkbxXMTtgq4VmPlFbLxOxb5dFrnqC4gKaobuk82+qA==
-X-Received: by 2002:a17:903:1205:b0:231:d0da:5e1f with SMTP id d9443c01a7336-245e0f2775amr16133355ad.21.1755594256080;
-        Tue, 19 Aug 2025 02:04:16 -0700 (PDT)
-Received: from [10.133.33.88] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d50f8d0sm102888145ad.100.2025.08.19.02.04.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 02:04:15 -0700 (PDT)
-Message-ID: <1394aa43-3edc-4ed5-9662-43d98bf8d85f@oss.qualcomm.com>
-Date: Tue, 19 Aug 2025 17:04:07 +0800
+	id 1uoIHh-00000009tMk-4AIO;
+	Tue, 19 Aug 2025 09:05:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B7D9345A6A;
+	Tue, 19 Aug 2025 09:05:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D362C4CEF1;
+	Tue, 19 Aug 2025 09:05:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755594337;
+	bh=pP3eZifOX9Dy1sY+bGhRqy5fEcOl+MhXTNZZ7gowFqA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=oGmj8yx8M/ZeZ1HSRSn4x6n5C+8tqlU5HrC+96h8MrbiGJxKrsCOdInNik43Gq/U0
+	 Xm16u0cDjQGpf0y8xk11AavN/XtbpZ4E/XcGCO/XkzM36yBA6CHVl6fq/1SSKL2dt2
+	 y9IrRRVBwij9bjLA3FIsZV+Wsgv46k7tjo+OobYoC0DhVL785MynE749ea0PEtrKuo
+	 joALcJzTGGQlXdx8KNcQ5tmizzrXPKbokXrKMqTbud+uQcBpSVWVVokr5z3wFNa8mj
+	 35x6GGYy7yWjE+3jLbapiRTMgN5a8B6JGtRMmuR0hWpP039q6Mv/bUEDyplIzU+cgS
+	 IFolBObuffIrQ==
+Message-ID: <b62ed000-e21f-4b19-8d26-c431dc3ea42b@kernel.org>
+Date: Tue, 19 Aug 2025 11:05:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
-To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, stable+noautosel@kernel.org,
-        Yijie Yang <quic_yijiyang@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
- <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
- <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
- <0b53dc0b-a96f-49e1-a81e-3748fa908144@kernel.org>
+Subject: Re: [PATCH v2 01/14] dt-bindings: media: mediatek: vcodec: add
+ decoder dt-bindings for mt8196
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yunfei Dong <yunfei.dong@mediatek.com>
+Cc: =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?=
+ <nfraprado@collabora.com>, Sebastian Fricke
+ <sebastian.fricke@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Nathan Hebert <nhebert@chromium.org>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig <frkoenig@chromium.org>,
+ Daniel Vetter <daniel@ffwll.ch>, Steve Cho <stevecho@chromium.org>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250815085232.30240-1-yunfei.dong@mediatek.com>
+ <20250815085232.30240-2-yunfei.dong@mediatek.com>
+ <20250819-expert-airborne-marten-caea84@kuoka>
 Content-Language: en-US
-From: Yijie Yang <yijie.yang@oss.qualcomm.com>
-In-Reply-To: <0b53dc0b-a96f-49e1-a81e-3748fa908144@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=Sdn3duRu c=1 sm=1 tr=0 ts=68a43e11 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
- a=WpKivvdH6quKUe0GCQ0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: 99gCIYWGlRdKvmLxoVJKM9-1gNOR4xN7
-X-Proofpoint-GUID: 99gCIYWGlRdKvmLxoVJKM9-1gNOR4xN7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDA0MiBTYWx0ZWRfXwCilkWuYA9r4
- xxnSkNTJIgraRGJeJqc0A1blRcVqnEqQ/Fs+rIeBRCSsTlUjySB8ay3hoN51C1DpkmFHewQrfPt
- iIlRrpw5ePAmR08TcUpzX7vtDwmebEcuUIc+bi3qLN9diW6fWgRUqdqv2zQuelJvMJvuQwY+vUN
- pvFwo50QbQ0P3wQkDjXa+c07NQEW63kJVSAU05hUOabNK0WbOdTeC9KC5o/QRH5DMzuiUqSXR6e
- 5V85yMbq5alp5FUWt9bFHG4w5k9Pc2sj526ffgvG9fDtJmJ3R/QdFflWDLJoQJh1j8Ach9hHQLT
- idvXFBEJiM3yqxNeAib6DN7AHSYumGva4cEjjyVjDiB/TmG20B/+qDbzoQofd/AwobjFF7vaBkR
- yomPYY0y
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 suspectscore=0 priorityscore=1501 spamscore=0
- adultscore=0 malwarescore=0 bulkscore=0 phishscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508160042
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250819-expert-airborne-marten-caea84@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_020418_232085_0CF56BC8 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250819_020538_080287_72BB632D 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,49 +132,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025-08-19 15:15, Krzysztof Kozlowski wrote:
-> On 19/08/2025 08:51, Yijie Yang wrote:
->>
->>
->> On 2025-08-19 14:44, Krzysztof Kozlowski wrote:
->>> On 19/08/2025 08:35, YijieYang wrote:
->>>> From: Yijie Yang <quic_yijiyang@quicinc.com>
->>>>
->>>> Add an ethernet controller node for QCS615 SoC to enable ethernet
->>>> functionality.
->>>>
->>>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->>>> ---
->>>
->>>
->>> Why do you mix up DTS and net-next patches? This only makes difficult to
->>> apply it, for no benefits.
->>
->> The DTS changes and driver code modifications work together to achieve a
->> single purpose, so I included them in one patch series. Should I
->> consider splitting them into two separate series?
-> Of course yes. You are just making difficult to apply this. Patches are
-> completely independent and even your internal guideline asks to NOT
-> combine independent patches.
-
-The challenge with splitting this series lies in the fact that it 
-attempts to reverse the incorrect semantics of phy-mode in both the 
-driver code and the device tree. Selecting only part of the series would 
-break Ethernet functionality on both boards.
-
-As you can see, I’ve CC’d noautosel to prevent this issue. Given the 
-circumstances, I’m wondering if it would be acceptable to leave the 
-series as-is?
-
+On 19/08/2025 11:01, Krzysztof Kozlowski wrote:
+> On Fri, Aug 15, 2025 at 04:52:14PM +0800, Yunfei Dong wrote:
+>> Add decoder document in dt-bindings yaml file for mt8196 platform.
 > 
-> Best regards,
-> Krzysztof
+> Nothing improved.
+Although maybe I am mixing patchsets, but all other comments apply here
+as well. Anyway, you did not bother to cc maintainers, so I will
+actually ignore patchset as requested.
 
--- 
-Best Regards,
-Yijie
-
+Best regards,
+Krzysztof
 
