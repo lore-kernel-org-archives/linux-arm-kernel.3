@@ -4,129 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5D0CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77732CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQIx6z7xh3Yq0HiZOhdiTPsATX7x+0559MUoedCSqqI=; b=XC149KfKLTz97g6DsyQp2+T0/e
-	MrLN/gKqNoVD2e9joY7d0aSfxDBTFu2g86VehhZwREUFlINqrLARMTdtR+jxnbUIkwqxoVRMyllIZ
-	BADokLU4EO3oiRSZ9OqacDw8y08O5bqmEYLLzIDFmvNbbHJnmn2JH5/W5qbdHB1t90zF/YetwNrdP
-	KawYGIUzTin8H7JcyfBr5wK8J6E6pzQZ9Aeg8rdMJPQtXwXRBxAewI2TS8RPcOnPcJ/IJ23Y4VrrJ
-	6sz3xqpdyg1D0wh+Hk1e2f9K+TWF9g3LIdXDhu7fXb9Hng07LxENNXgklBTQN6o2CMmIC296WiP1M
-	uOaCSqmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g8knHxrK/oRl6yteYe7uLtMAo/Nl8dG6L8yKajqRG5k=; b=tiAlFnDTm1EG20eo75ZVlsWJYl
+	ZZElmi16ZBDrzPrMGUuIj4R82CDOh9zjrk4wC/Z+MEf3N5SWU9tiEFI9xKPklJgR7hNYEV7l2b5t0
+	mtBnTYmBUc2yaaIIr1ZdNvRJCRtmSkS+H+Zb5xPhC7c48mAV6RfxuhwT6c1//WKBGMj3Hmd5qz//b
+	ImHAA1na7IKUa+VDOONp75J1jLO7wh8PzjS3S4oUQVCM+2Zo9hVvCE1leZSabum3TOGDTeSYQodmx
+	t9tu5rjK4mLDJ8MDP7DxnsHRULpBiz50IkhASHPATvpC8Gdi2Q48DhmkeEi8o9QabQvDvZFD0g1P4
+	hm97uGcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoH6D-00000009iyt-0rTA;
-	Tue, 19 Aug 2025 07:49:41 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uoH8o-00000009jLy-0KHs;
+	Tue, 19 Aug 2025 07:52:22 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGiU-00000009fQT-3LD4
+	id 1uoGnH-00000009g7i-0GyC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 07:25:12 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id C0EDB2124E;
-	Tue, 19 Aug 2025 07:25:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755588307; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qQIx6z7xh3Yq0HiZOhdiTPsATX7x+0559MUoedCSqqI=;
-	b=0NaHGUm+oxjnwt/66qrSimxzYJ74uTFlseVYKCnDGsq6Q0e8gyBf/aEt/9bVPYiHD8+J1v
-	HYCBGiTXpGwTOrdtfr7kG67dNLdOwQy0NHSbnZNBnD/JkhP5QZGZO+yBoZrOkpORBAiVTT
-	/ya3cIuAlzqQrmZ+VwX5dV9QtSaxS8A=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755588307;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qQIx6z7xh3Yq0HiZOhdiTPsATX7x+0559MUoedCSqqI=;
-	b=BD4zrxKozufVijkbzGxxx8nFStT+BAz/NNIP5KaRrwlyOLHHskEQlPfWLqKAfZ/iF2cF88
-	adphDBPj8x2QMzCA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755588307; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qQIx6z7xh3Yq0HiZOhdiTPsATX7x+0559MUoedCSqqI=;
-	b=0NaHGUm+oxjnwt/66qrSimxzYJ74uTFlseVYKCnDGsq6Q0e8gyBf/aEt/9bVPYiHD8+J1v
-	HYCBGiTXpGwTOrdtfr7kG67dNLdOwQy0NHSbnZNBnD/JkhP5QZGZO+yBoZrOkpORBAiVTT
-	/ya3cIuAlzqQrmZ+VwX5dV9QtSaxS8A=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755588307;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qQIx6z7xh3Yq0HiZOhdiTPsATX7x+0559MUoedCSqqI=;
-	b=BD4zrxKozufVijkbzGxxx8nFStT+BAz/NNIP5KaRrwlyOLHHskEQlPfWLqKAfZ/iF2cF88
-	adphDBPj8x2QMzCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0147F13686;
-	Tue, 19 Aug 2025 07:25:06 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Ph36ONImpGiaIAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Tue, 19 Aug 2025 07:25:06 +0000
-Message-ID: <570088fa-2861-487a-a2db-2d1d87d700f6@suse.de>
-Date: Tue, 19 Aug 2025 10:25:02 +0300
+	Tue, 19 Aug 2025 07:30:08 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c5h383K2cz13Mgm;
+	Tue, 19 Aug 2025 15:26:28 +0800 (CST)
+Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4F6A6140275;
+	Tue, 19 Aug 2025 15:30:00 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemh100008.china.huawei.com (7.202.181.93) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 19 Aug 2025 15:29:59 +0800
+From: Lifeng Zheng <zhenglifeng1@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
+	<viresh.kumar@linaro.org>, <beata.michalska@arm.com>, <sudeep.holla@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
+	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <zhangpengjie2@huawei.com>,
+	<linhongye@h-partners.com>, <zhenglifeng1@huawei.com>
+Subject: [PATCH v5 1/3] arm64: topology: Set scale freq source only for the CPUs that have not been set before
+Date: Tue, 19 Aug 2025 15:29:29 +0800
+Message-ID: <20250819072931.1647431-2-zhenglifeng1@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: defconfig: Enable BCM2712 on-chip pin
- controller driver
-To: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- florian.fainelli@broadcom.com, wahrenst@gmx.net, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
- Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
-References: <cover.1754922935.git.andrea.porta@suse.com>
- <04c67a8fc50f2688fd3a6616bc03b3ac4d4977fb.1754922935.git.andrea.porta@suse.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <04c67a8fc50f2688fd3a6616bc03b3ac4d4977fb.1754922935.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[dt];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[suse.com,linaro.org,kernel.org,broadcom.com,gmx.net,vger.kernel.org,lists.infradead.org,arm.com,suse.de,raspberrypi.com];
-	FREEMAIL_ENVRCPT(0.00)[gmx.net];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid]
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemh100008.china.huawei.com (7.202.181.93)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_002511_009019_95F4701F 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250819_003007_326816_9FDDD50A 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,31 +75,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+The scale freq source of the CPUs in 'amu_fie_cpus' mask are already set to
+AMU tick before, so in amu_fie_setup(), only the CPUs in the 'cpus' mask
+should be set.
 
-On 8/11/25 5:46 PM, Andrea della Porta wrote:
-> Select the on-chip pin controller driver for BCM2712 SoC.
-> 
-> On RapsberryPi 5 devices it is primarily needed to operate the
-> bluetooth and WiFi devices, to configure the uSD interface
-> and the power button.
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 58f87d09366c..fafcd7851eb2 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -592,6 +592,7 @@ CONFIG_SPI_TEGRA114=m
->  CONFIG_SPI_SPIDEV=m
->  CONFIG_SPMI=y
->  CONFIG_SPMI_MTK_PMIF=m
-> +CONFIG_PINCTRL_BRCMSTB=y
+Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+---
+ arch/arm64/kernel/topology.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Have you tried as module and part of initramfs?
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 5d07ee85bdae..9317a618bb87 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -373,7 +373,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
+ 
+ 	cpumask_or(amu_fie_cpus, amu_fie_cpus, cpus);
+ 
+-	topology_set_scale_freq_source(&amu_sfd, amu_fie_cpus);
++	topology_set_scale_freq_source(&amu_sfd, cpus);
+ 
+ 	pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
+ 		 cpumask_pr_args(cpus));
+-- 
+2.33.0
 
-~Stan
 
