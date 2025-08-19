@@ -4,92 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E07CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 20:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2709CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 20:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzUmwEYUX2Otvu38EhlbxtKO/chP2XGZHBpqa0NPilk=; b=xXBXrlz4LWejF5XCOCNUYWTzfw
-	cVM3eqyWEoxx/s6gYqdSY4cUqJZwDh/9T8dRZBwioX+IkO7TsVdiqXXMIQWHj2H9G6IOb0lImMPPB
-	AEm5N5LMxF7UHzm+QARBuJFUDNTJ+Wa1/QsDM4Mag9Z5p40l2R/Jq+MK6ciB/4bjE05v5nG3xYUG3
-	pYwHH//fGwEk6stDFw+zmktPVHfSp5oBtlA7VbuVgijBUVW8qPhBf6tguO3MAQc/YsDEijWKKq+nd
-	1b+c+UIG95Suk4g99zeKwWqi8MrmK2UbW4v4EW3LtN+DH46Oox3xI6vi0dLoxpKTRhg6Ckje6rn5J
-	1zhOb+yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=; b=QAakY07W9OIUh6ZS49S6+qecxr
+	Rkm9fetQhnxPd+F66OTEYBZDqT7J1Qbf6pZ9E6tj2UwlP/nGvK92HBf2p9ubPm2oYw/Oy3yn0jUXV
+	bS31elpHLyfGS50CC3xfO6Z/Z9Z9zI2Ra4dxvW21JYAy97M4bIPY/qitu/xJb0+4XctIbMgnRE3Hp
+	8gud355yfIAHnONG+mpSflLSnOZb/GAuFfTfMTrnbkQHZunPh1/Oke8B22CmLu460aU3bkRA7TqdF
+	4OyrYsr5pbZNeLeqdpcjHH8Wi4cWDfqUqy0mzt7HdIroGHVrFhZuuYuPakV6qIinS7CcUszXjfF+D
+	LwkgkHuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTAJ-0000000BYmO-2czl;
-	Tue, 19 Aug 2025 20:42:43 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uoTAO-0000000BYpL-41uw;
+	Tue, 19 Aug 2025 20:42:48 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQzY-0000000BHZK-1ux6;
-	Tue, 19 Aug 2025 18:23:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755627808; x=1787163808;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=X6TNDKntPbZtJQzM/AErcLByk3qrqJsaEa3eWLo9xcY=;
-  b=DBOllamKluLZ9vuhvhx/HXTQxQjkRq3B8ElA9BZEUk89tUVLSezDOhjy
-   2ThZl7Ddxg4NZRiDQGfMAkYgqlFUZag/2jLelTotIl1lj4WyU9+dhNGRw
-   4VyFs1FES1W93MqR6rQrTFhbWUDznhF5pCQgyOhQQhM26M9ENiw1he21b
-   vKCR0QDLiGYZZh1H1feuPioMgS5aHDxZzrd0iRoJkO3RzkIgsHrDtm9II
-   3WVsLIhaeWeK294c6RyDh+lTOP7ayBYtdVkGTnPNlE/gJkIxyceHyFnn3
-   /9FRzBqpON7NBeWz1GNIqSBiAlGbqDVeu2vF83vPmxbJ/CjOI9RnmYiUw
-   A==;
-X-CSE-ConnectionGUID: mwCohHzDTL6eqGuK3MhDWQ==
-X-CSE-MsgGUID: DVJfjYnYSy+75vf0NyZv8Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="57810841"
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="57810841"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 11:23:28 -0700
-X-CSE-ConnectionGUID: JDvgk7qFQq2x4WO42Pd+VA==
-X-CSE-MsgGUID: uvCyzmnMS4WkH1iDNjxp4Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="167874532"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 19 Aug 2025 11:23:22 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uoQzP-000HG3-1M;
-	Tue, 19 Aug 2025 18:23:19 +0000
-Date: Wed, 20 Aug 2025 02:23:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Pingfan Liu <piliu@redhat.com>, linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, Pingfan Liu <piliu@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Simon Horman <horms@kernel.org>, Gerd Hoffmann <kraxel@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Philipp Rudo <prudo@redhat.com>, Viktor Malik <vmalik@redhat.com>,
-	Jan Hendrik Farr <kernel@jfarr.cc>, Baoquan He <bhe@redhat.com>,
-	Dave Young <dyoung@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	kexec@lists.infradead.org, bpf@vger.kernel.org,
-	systemd-devel@lists.freedesktop.org
-Subject: Re: [PATCHv5 10/12] arm64/kexec: Add PE image format support
-Message-ID: <202508200205.qEn1adEu-lkp@intel.com>
-References: <20250819012428.6217-11-piliu@redhat.com>
+	id 1uoR4l-0000000BIed-0ml0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 18:28:52 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-afcb732eee6so917758666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:28:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755628130; x=1756232930; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=;
+        b=D4eJJhVOBr+CqROskLGMMrDUIvHlSoKm+irGv/isP/kko7dlB1hmsZilVqch+wngxI
+         je2W5FW3ag5cYbeFYEaEqhfUkwRzkYbwa8fcVG3AbJvjvZQVOyY+lIj2ZESGPV0/4xap
+         LtkQJomOpNY5izICxtkP6smJrZisgGb28o26xnpxrr4/XgYHeqD7zHrIfaG5tgz2yqW/
+         WWsydJ5OFwg2qhfq7Vgd7SxMwuiwfNtD4PzhNLFpLilSVHF65yF7DdB9eca4fB8M8DkW
+         OtefZMEbbliqj4K+GJXMkGUchAaK7j78WLZRg6eHMpUJBgjuBm+QjV6UE/XrZC1IGOhs
+         Gmww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755628130; x=1756232930;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=;
+        b=r7GMUmHiSG1tKYdqmGhPgte1Q2tjnBYDZx32khTasClwkcuq/HoNyAemBeYKnzx6Qe
+         0aZYWtu4vfO8psjtTyWNUDSl2ypJpkBHvK6NDAeo26OB7DVPrU9y+CZwb/ewt9iw5R8c
+         L+OSIG5rD84s3YKX5vCiHvstEzvKS0UycJQSuX7lj1wKdiAhAOmR+ln+m0eZk63QGgc4
+         xfnISIAh3Bawx8NlZH3wIil3MsW/DFk4hbWUtlEeuqAai64yGIukM9pj6uDpGsodfxT/
+         WxNz+0y/pyqh80W2w3zXp49mk6Dmqrv4rCsT75j3YsQv0+8mAQkBPQlo9IfMuD+fJPoT
+         SG2A==
+X-Forwarded-Encrypted: i=1; AJvYcCWUYRukDNixOzh4PwRdGh2m7CjPTUh3CTjKWBl6VRxu2Yn9HEIEYYlL4pIF2IPRQKQuBlC4RHaq5MnfM3JSoP4l@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQOA2Ei5WUfbFzCevU/fR9HGhB1s8mCC0A9XK/iyYHHe/KDGiH
+	um8/AHBqhWQ7YnSACNhkrTatw6T6xD41ebMIDGYuh16QIb2JO19mzdr5StPGP0KEVsmktqnfn0Y
+	5V5J3T1fCA8LAYBxs8cC35jWgKEz/eP8=
+X-Gm-Gg: ASbGnctV0bdel7HHfF9s84XAymQr1fi6vc/6EuEPDxhDmWmmdxHgxNrwfS3votmPZrv
+	++TS3Rs2weP9CMALZhmpCCgT0GAJ040EO0OZMMTbr44tOvCDVJeZjvLJPR6tq2fkSo93Ncczt4n
+	qAJUchV7/jCG5voejLXenjZeO29O9nMeY/oLuREh/OQ97HJjZTw8TIZ+rOO6lLseqEzL9VGHkM/
+	hbHHgW3r5MgD/716A==
+X-Google-Smtp-Source: AGHT+IEeGP1LFIY3EXRErHwtTbv4M2rk6nG5tRrYGtcmXGZOPqtXI9ACwjR9P80bcK39Tu/AL10NJ9kb41SRcmv8mC0=
+X-Received: by 2002:a17:907:2d10:b0:ae3:6ff6:1aad with SMTP id
+ a640c23a62f3a-afddcbb6b4cmr359441366b.14.1755628129253; Tue, 19 Aug 2025
+ 11:28:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819012428.6217-11-piliu@redhat.com>
+References: <20250819150448.1979170-1-salih.erim@amd.com> <BY5PR12MB4212A540F9799D6F326003388B30A@BY5PR12MB4212.namprd12.prod.outlook.com>
+ <20250819184442.25f6904e@jic23-huawei>
+In-Reply-To: <20250819184442.25f6904e@jic23-huawei>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 19 Aug 2025 21:28:12 +0300
+X-Gm-Features: Ac12FXyqadw1CvxKvYip12xTlF6JPr577hQM-tFyzXAossPM7HYZ5j8d-rvSi58
+Message-ID: <CAHp75Vf-daUx1H7+PgeLsvpQsEJTV_9AVdkudCab=KVUw2grVg@mail.gmail.com>
+Subject: Re: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+To: Jonathan Cameron <jic23@kernel.org>, Konstantin Ryabitsev <konstantin@linuxfoundation.org>
+Cc: "O'Griofa, Conall" <conall.ogriofa@amd.com>, "Erim, Salih" <Salih.Erim@amd.com>, 
+	"dlechner@baylibre.com" <dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>, 
+	"andy@kernel.org" <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, 
+	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_112328_508909_973A7517 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250819_112851_223004_6748CCC2 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,82 +102,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pingfan,
+On Tue, Aug 19, 2025 at 8:45=E2=80=AFPM Jonathan Cameron <jic23@kernel.org>=
+ wrote:
+> On Tue, 19 Aug 2025 15:10:15 +0000
+> "O'Griofa, Conall" <conall.ogriofa@amd.com> wrote:
+>
+> > Acked-by: O'Griofa, Conall <conall.ogriofa@amd.com>
+>
+> I'm not entirely sure why but b4 only picked up:
+>
+> [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+>     + Acked-by: Michal Simek <michal.simek@amd.com>
+>     + Acked-by:
 
-kernel test robot noticed the following build errors:
+Due to an unquoted comma, I believe.
++Konstantin
 
-[auto build test ERROR on c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Pingfan-Liu/kexec_file-Make-kexec_image_load_default-global-visible/20250819-093420
-base:   c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
-patch link:    https://lore.kernel.org/r/20250819012428.6217-11-piliu%40redhat.com
-patch subject: [PATCHv5 10/12] arm64/kexec: Add PE image format support
-config: arm64-randconfig-001-20250819 (https://download.01.org/0day-ci/archive/20250820/202508200205.qEn1adEu-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250820/202508200205.qEn1adEu-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508200205.qEn1adEu-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from kernel/kexec_bpf/kexec_pe_parser_bpf.lskel.h:6,
-                    from kernel/kexec_pe_image.c:25:
-   tools/lib/bpf/skel_internal.h: In function 'skel_finalize_map_data':
-   tools/lib/bpf/skel_internal.h:155:15: error: implicit declaration of function 'bpf_map_get'; did you mean 'bpf_map_put'? [-Wimplicit-function-declaration]
-     155 |         map = bpf_map_get(fd);
-         |               ^~~~~~~~~~~
-         |               bpf_map_put
->> tools/lib/bpf/skel_internal.h:155:13: error: assignment to 'struct bpf_map *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-     155 |         map = bpf_map_get(fd);
-         |             ^
-   kernel/kexec_pe_image.c: In function 'kexec_bpf_prog_run_init':
-   kernel/kexec_pe_image.c:267:16: error: implicit declaration of function 'register_btf_fmodret_id_set'; did you mean 'register_btf_kfunc_id_set'? [-Wimplicit-function-declaration]
-     267 |         return register_btf_fmodret_id_set(&kexec_modify_return_set);
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                register_btf_kfunc_id_set
-   kernel/kexec_pe_image.c: In function 'pe_image_load':
-   kernel/kexec_pe_image.c:312:44: warning: variable 'cmdline_sz' set but not used [-Wunused-but-set-variable]
-     312 |         unsigned long linux_sz, initrd_sz, cmdline_sz, bpf_sz;
-         |                                            ^~~~~~~~~~
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for KEXEC_PE_IMAGE
-   Depends on [n]: KEXEC_FILE [=y] && DEBUG_INFO_BTF [=n] && BPF_SYSCALL [=n]
-   Selected by [y]:
-   - ARCH_SELECTS_KEXEC_FILE [=y] && KEXEC_FILE [=y]
+>     + Link: https://patch.msgid.link/20250819150448.1979170-1-salih.erim@=
+amd.com
+>
+> Anyhow I fixed it up to include Connal's ack whilst applying.
 
 
-vim +155 tools/lib/bpf/skel_internal.h
-
-67234743736a6a Alexei Starovoitov 2021-05-13  143  
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  144  static inline void *skel_finalize_map_data(__u64 *init_val, size_t mmap_sz, int flags, int fd)
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  145  {
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  146  	struct bpf_map *map;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  147  	void *addr = NULL;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  148  
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  149  	kvfree((void *) (long) *init_val);
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  150  	*init_val = ~0ULL;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  151  
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  152  	/* At this point bpf_load_and_run() finished without error and
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  153  	 * 'fd' is a valid bpf map FD. All sanity checks below should succeed.
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  154  	 */
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09 @155  	map = bpf_map_get(fd);
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  156  	if (IS_ERR(map))
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  157  		return NULL;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  158  	if (map->map_type != BPF_MAP_TYPE_ARRAY)
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  159  		goto out;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  160  	addr = ((struct bpf_array *)map)->value;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  161  	/* the addr stays valid, since FD is not closed */
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  162  out:
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  163  	bpf_map_put(map);
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  164  	return addr;
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  165  }
-6fe65f1b4db3ff Alexei Starovoitov 2022-02-09  166  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=20
+With Best Regards,
+Andy Shevchenko
 
