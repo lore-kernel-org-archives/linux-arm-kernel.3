@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2120CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C9FCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtUgHBUtYcbKKLA5ma0d48Ll/uiztuWzcEbSSfjSW3E=; b=nXgVGwKULnEWcl+xHzjFzUfTXg
-	ie/hQDjE8NTNkFFsqqqKLlC7Fpj/M8V3j5/tjjmCPjTfDCflHFlig6JqzvJgWdm6oieJk56kqaeS9
-	TAnZG3r8HzpywQs87Ww79ot+qaf6yPv4g/YgMIum/GRWDWNoRRpNlq3KXwsn+RRN4YNjWZnJjFMOj
-	JMHz6prezmd2CuFYzxXCMxk6PT9gtU8aXI2Ee56iDI/uVe+Wg8WQqmMUpc/j07m+fJR0OwCHZFUQw
-	B2607P3F79w3zb7DwdfHiTuNmBu85IAYivBSyIeNNCWadI2L5PbeiGkuqygCUYrjkR4d1Cprw1bhS
-	+ZsCSoNA==;
+	bh=5SNM3HUR5vGaO/pHrUd0o/qgL9y44bCEiJzCSuGvkac=; b=FltQH1AsJUPmj2NrdL4tNnTFfK
+	iurBy6Y280Pgp3oNCP/GizKFR1WNG96iea0O6zk39lvLk2hQtz1VV6TW2A94xyPfwtGOdpIHl8s30
+	YOdUpNA/fVqDwwYyiZKStecBsbSW65j8Fe+eDe3rDBA4V6SUdsgOKgpyqK4YbAIYglQNGmP0D4/BP
+	3rk6kuvDfocJbm7v17ZmbwNezyrCdF0UAyhg9LenJnOPQhbB0vLiNUVi9ZLwDvvrpuLTJCWcKBmPu
+	+OtiWtsznDnkEvfbfOyUXA/QNLQYfQNVquUEeZ+WMxKqB13YWZncHKoWnbDObBw419+ORtgfDkVY1
+	sgoZJL6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGQP-00000009cPE-1KtY;
-	Tue, 19 Aug 2025 07:06:29 +0000
+	id 1uoGT1-00000009cpB-0MO6;
+	Tue, 19 Aug 2025 07:09:11 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoG53-00000009ZRM-3W4Y
+	id 1uoG6E-00000009ZfQ-0jo6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 06:44:25 +0000
+	Tue, 19 Aug 2025 06:45:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EBEA601EE;
-	Tue, 19 Aug 2025 06:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37F12C4CEF4;
-	Tue, 19 Aug 2025 06:44:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98768613AE;
+	Tue, 19 Aug 2025 06:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B6C8C4CEF4;
+	Tue, 19 Aug 2025 06:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755585859;
-	bh=A13ju+SQPSKzvs65vieUN2MHL6rBeN0oSeyPsi52s28=;
+	s=k20201202; t=1755585928;
+	bh=WWlJO0YGoyjRXT+i5OTeOeOVEpn70W9XxRHlWW2ZHIY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YRlLEoT3Dx7O768aBcKUkf6iLGreBAG9DwtdZMWPmZtPERjRIWzvqkUOrWj9PKr7/
-	 6gU3z8NyG+CqJdZWF4d2FlUkYbAVFL200aXfW2jofSZyvrlNEW1kfxgwOklaLOsGEX
-	 Ba6rjF6mNw2EARCWJiyjdDaP9rhqvTiiZJ0zTGl5bST3X7SVCPb479AClyKUvI5bhR
-	 Db0tKmEftlyfw3iGAmcHq0ANSDFcFjKFnmqaa1XZNXf3QJVAjuB8y8LSq89loXOMHk
-	 f8pCIaoUIKSEk4ji6HfDHPolb5ym8IM50abSd2UR9dbHUmcFnSNtFJ70rOuMYe8Xy9
-	 ZWVpxciOCNBPg==
-Message-ID: <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
-Date: Tue, 19 Aug 2025 08:44:12 +0200
+	b=c4F2V3zKOqne2DzeyIuyej/liwX4h+h2fKy4nbcf/pj0udWMGzsEUPSRwCXmsMjcC
+	 fTKBTUkJ556VWuM+hjuFvjuMSpi9lyd+neXzhS7IZalpt7jqvunMBfJwVWxIagjzXS
+	 kXrM4gqsJYeKxKXK6RPu4MyZOxk0Ntt+MqGYeMEHlpY60hYGMimz1OO4pd5cnF00Si
+	 cXcVoiX6DZGyh23x0jiu/N6H0VNx1AZWwL+7bLzPWtThyQFJzYmj98v0j/Ou6iTGgC
+	 Ma2f8B6v3msuiPxN7eNMHA929t5NYliT4a3M3gTeHuUZNpkEcJClABszKZYq93DfOQ
+	 uHaHDUQ1khkGQ==
+Message-ID: <2ad47450-4a94-4d17-9ed3-0428bff64335@kernel.org>
+Date: Tue, 19 Aug 2025 08:45:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
-To: YijieYang <yijie.yang@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, stable+noautosel@kernel.org,
- Yijie Yang <quic_yijiyang@quicinc.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
+Subject: Re: [RFC PATCH 1/3] devicetree: bindings: dsiplay: panel:
+ panel-simple.yaml: Add Raspberry pi dsi panel compatible
+To: Harikrishna Shenoy <h-shenoy@ti.com>, neil.armstrong@linaro.org,
+ jessica.zhang@oss.qualcomm.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
+ vigneshr@ti.com, kristo@kernel.org, thierry.reding@gmail.com,
+ sam@ravnborg.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: s-jain1@ti.com, devarsht@ti.com, u-kumar1@ti.com
+References: <20250818154746.1373656-1-h-shenoy@ti.com>
+ <20250818154746.1373656-2-h-shenoy@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
+In-Reply-To: <20250818154746.1373656-2-h-shenoy@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -127,19 +120,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 08:35, YijieYang wrote:
-> From: Yijie Yang <quic_yijiyang@quicinc.com>
+On 18/08/2025 17:47, Harikrishna Shenoy wrote:
+> Add RPi DSI panel[0] as a valid compatible for simple-panel.
 > 
-> Add an ethernet controller node for QCS615 SoC to enable ethernet
-> functionality.
+> [0]: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
 > 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
 > ---
 
 
-Why do you mix up DTS and net-next patches? This only makes difficult to
-apply it, for no benefits.
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+
+Plus typos...
 
 Best regards,
 Krzysztof
