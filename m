@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC42CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F63CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MJV/5RPaWGgc98oNUSkouDfULr+CWm4sm+LX0R1P6/M=; b=RhWXOW2gUdIavPNNwkGwc3OoVA
-	XzQC+dTeY0V5UgtdHc1+4iG6cOXmf3+3Rg2GYtdZTxfRV6dKkPEGRcIzT3Yphh76lgvgfBZzq64Fw
-	UWC5y7X+kZYVgqUPl0X/S+89c7a5tZweW3ie6jKWZ2hO4kb35+/2FNKeP7KLJ+6aQnYW2W0ltRzPx
-	nbjIZCVcW/y8aMvyheDBm7Hih7eHDNgzz99SHrFCkkkxvquaB1pDRTwM7BHqLQodXlST9oMvsQ7F9
-	j5FBZOQeCgOS1F1qwtX6wm+bN0CZDUBWMrWOZTlNlDdJqHaEoIvaluZqXRDVlEmQ2q8lxkTGeTc+H
-	OQv1GjHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=qllkwJbsv30Jkl1gsSLTyGfDymzJiKs+CIJF2OMRcU0=; b=P+LpUNd5Hzf/kT
+	0lgn+99hTzToJH0M42NCYZ3GM2K6mO8g0NC7ybwS7993mXg1vqEcgImXGAwjcGjXtBNK+89IhCkcR
+	tgYmIpFr4ahmcuRygwOyzGHwHnf/y0OUpFmWWqQpxoM8O+h8tFHsSf49GA4RUyM/eSHAZ1BUs9D5/
+	vA5W+fSA7bJaQ1rrmPwZCAFthLM78S+coEOWd25xb31tTR6IqvHXZysbdlpzzX+R4TyBBi0z+iwvk
+	BtoIOM5u5YNJyTxj5XbfUVKywrYGtVDxO551AM/+HH2vPerEYP8DeMxOszqwLjzVyXKK2AxRCCjA6
+	FMdQOGcwXgC4f+/bPIEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoRxW-0000000BQR4-08JO;
-	Tue, 19 Aug 2025 19:25:26 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1uoS2a-0000000BQt5-0Sc7;
+	Tue, 19 Aug 2025 19:30:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNpW-0000000Apa5-1ts8;
-	Tue, 19 Aug 2025 15:00:56 +0000
-Received: from localhost.localdomain (unknown [119.122.213.154])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1fe57a9c0;
-	Tue, 19 Aug 2025 23:00:50 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: naoki@radxa.com
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
+	id 1uoNvx-0000000Aqdo-48pw;
+	Tue, 19 Aug 2025 15:07:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AEA5C41B4E;
+	Tue, 19 Aug 2025 15:07:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08798C2BC86;
+	Tue, 19 Aug 2025 15:07:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755616049;
+	bh=FWERPV2b/K8+f34kGRRaIibkqQthKRkjtRIcOO9bI5Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=mE+N92nbp+0JXiAfwUIvsTH3cdqCCtHHsNuHILfE2mK2nj9Hu6eIbPQAYGqMadNYQ
+	 lE+BY04Cx6za6/mrYs/m3pr7JWmln6sXgeXvUZi9UP4Wj0RHKSxYZuMQKRWXb0RUTe
+	 TQmGYIyAGtIBlvq1EfONtAE15fNiJ+sSdAy+dimAV901J6WuE592aAiuzvEeimJeLr
+	 kZSiT12cx0D0uYSsObJj160WPnjKuyxpEKA57YcYffTu3t3VT7TxZ0ggDE6qFA8PuJ
+	 4EXUpJ00lgf0jG+1Jkvz9DD70nYzymAm09Ch9bl5Cu15uowQic72B51sLb+htyhYz8
+	 NAHjFR3vapv4g==
+Date: Tue, 19 Aug 2025 10:07:27 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: 'Krzysztof Kozlowski' <krzysztof.kozlowski@linaro.org>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: update pinctrl names for Radxa E52C
-Date: Tue, 19 Aug 2025 23:00:38 +0800
-Message-Id: <20250819150038.874297-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ABB74D9D1E3774F3+5a8c0d7d-fb7f-47c0-8308-e2b69f0628c1@radxa.com>
-References: <ABB74D9D1E3774F3+5a8c0d7d-fb7f-47c0-8308-e2b69f0628c1@radxa.com>
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, mani@kernel.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
+	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
+	jh80.chung@samsung.com, pankaj.dubey@samsung.com
+Subject: Re: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
+Message-ID: <20250819150727.GA586493@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a98c2d8e14303a2kunm2a21c9924065a4
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTk5KVktPHUlPQkJLHkJNTlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSFVKTk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
-	pCS0tZBg++
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <00b501dc10fd$f1fecc10$d5fc6430$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_080054_679488_79F70143 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250819_080734_045306_C71E7F70 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Aug 19, 2025 at 05:09:34PM +0530, Shradha Todi wrote:
+> ...
 
-> "The name of a node should be somewhat generic".
->
->   https://github.com/devicetree-org/devicetree-specification/blob/v0.4/source/chapter2-devicetree-basics.rst?plain=1#L193
+> > Another question about the test:
+> > 
+> >   if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
+> > 
+> > This assumes there are no other bits in FSD_IRQ2_STS that could be
+> > set.  I would have expected a test like this:
+> > 
+> >   if (val & FSD_IRQ_MSI_ENABLE) {
+> 
+> Thanks for pointing this out. FSD_IRQ_MSI_ENABLE is a single-bit, so there
+> is no functional difference in the two statements. I didn't have a specific
+> reason for using "== FSD_IRQ_MSI_ENABLE".
+> But I see that "val & FSD_IRQ_MSI_ENABLE" would have been the more
+> standard way to write this. I will update this for clarity.
 
-Usually we use the name on the schematic. For example, the patch for e24c:
+Oof, sorry, I don't know what I was thinking.  You're right, it's OK
+as is.  But "val & FSD_IRQ_MSI_ENABLE" *is* shorter and more
+idiomatic, so I think preferable anyway.
 
-https://lore.kernel.org/lkml/20250727144409.327740-4-jonas@kwiboo.se/
-
-```
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gpio0_a0_user>;
-```
-
-If this is incorrect, I will abandon the pinctrl changes for
-the user key and power LED.
-
-> > -		vcc_5v0_pwren_h: regulator-5v0-1 {
-> > -		usb_otg_pwren_h: regulator-5v0-0 {
-
-But I don't think the above is correct.
-
->   https://lore.kernel.org/all/20241216113052.15696-1-naoki@radxa.com/T/#u
->
-> (I don't understand why this only applies to me...)
-
-I don't know this. I thought the nodenames of pinctrl and regulator
-were a bit weird, so I changed the pinctrl's.
-
-Thanks,
-Chukun
-
---
-2.25.1
-
-
+Bjorn
 
