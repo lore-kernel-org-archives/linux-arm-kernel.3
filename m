@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36DBACA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D6ACA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k5kBnlU0UIp4AhqJpbkP30L2WoVtOnTPatg4jjrlAjY=; b=jdfCiKBAj0s1S1/pIxcz/vx0ny
-	CmPMbvwsePWph2vQG+AiyuWbVjnOYD5ikSBE1b57OMRKhyTtWgp87LDru9d0Qjkjwugz5Rjwoi+My
-	JWXkLEG3paDgigCOc5SQY1nHPsqsdRM/bSf8lbJxSdRNwD5yUDHpO6HTcuNyHir7cd+Dq2Gu1XSdU
-	CCR4duFjPLdUtDvfL+ze1CkIWmbQug4QC7e90dJH3rSerptToRePxHIXKlH4G2PMvPuDoLepHl5hi
-	XTzevuPW7xTLtcoXnatQGrUMV9KvzrFSk+u7qa6H2LXuhL/fPBsvsq0bvyWPd2fqla3EFbg7Pt72v
-	E7z/VQXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:CC:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vEFmdMR/Fxe/s6zG1hSbhpQD2pBSMUUAp3xRIOAC9uY=; b=mQ2EnfzCO+5FOom+MpUwjuxlUL
+	v0YS3xJOMl0F2wVGCm1yf9hxakSeUjtudxwwpkay/yg8l4ors5TLKdY68eCQtK0/qM7eQHzDYt+EE
+	GEZn7mU9d5Q35bstEOPDiXMq+K4DMZXJ9VtkbC8gMxucj4XD3CKxe5DTCn3GhcxjgL/lNcK0vBxcj
+	Y2fg9Uar4O8EmhL81FPjDJXVWgNkIgtc8HNAjLSJ1RbbmmYiJjcIJJDqrMIp9NYXwzX9XP38rVQJ0
+	HS6/E749fsPJl3vWWQGzNKO4iLRBJ058U6hnueav91BjY/sPC/j2/vpmiTuY21xJoF/fRXcTanKk/
+	HH8zsUBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQrT-0000000BEjJ-0o0h;
-	Tue, 19 Aug 2025 18:15:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uoQrU-0000000BEmR-3a94;
+	Tue, 19 Aug 2025 18:15:09 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMtV-0000000AggH-3M2N
+	id 1uoMtt-0000000Agkp-1JyA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 14:00:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A40E5C5D9D;
-	Tue, 19 Aug 2025 14:00:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFE42C113CF;
-	Tue, 19 Aug 2025 14:00:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755612056;
-	bh=v2bxLEdMiFhvVeDk2VKDc+laagxhg9z8Eu0qAxJIl7o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lmfdVUErvstxofMsyj58so3K6FN/i+YTaRTO5Jdsk3hoE2/J5nLYCgWa5YidwvM4C
-	 seymARtPPdkn19XQuu0a6MCL/ACSKM/nJ4AQebb3Y1AjoGyWigt817XVq1bscEqDYy
-	 1HxbrMmEo4xctC7SEyMD45hTgTqPqFXC/tJOqF9c90gvqt+cs+1LLW6y1Li8SknSVE
-	 QoE2tS8VIeu7K6Z+EJrTxXtGPVE6AArjv7RqSBYWde89QA21Pqo9zquBJ81Nf1t9fl
-	 45e7niWw65Fg3s/gvJwnSr7GTG9j+XmhnQuYGvjkels+cBANGm6iQlZP+lBKBd6KZa
-	 gdrZN8G/Bay+A==
-Date: Tue, 19 Aug 2025 09:00:55 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Cc: David Airlie <airlied@gmail.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	dri-devel@lists.freedesktop.org, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-kernel@vger.kernel.org,
-	Philippe Cornu <philippe.cornu@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Maxime Ripard <mripard@kernel.org>, Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Subject: Re: [PATCH v3 01/13] dt-bindings: display: st: add new compatible to
- LTDC device
-Message-ID: <175561205474.128167.15765669735400801632.robh@kernel.org>
-References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
- <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
+	Tue, 19 Aug 2025 14:01:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1755612082; x=1787148082;
+  h=message-id:date:mime-version:subject:to:references:from:
+   cc:in-reply-to:content-transfer-encoding;
+  bh=a2gMG2z4n/QilfiYn1/Anv7UTDKG8xPbDa/nrlRE1lY=;
+  b=u5aY44YmZrpMt/Uve4KhAKZUS//ff2lItrk/bICDAx1GSLlbqRTcjWB/
+   Wh5eONGjBP5XqK1Fcgh1qodJdr25HOzHV7SQelDjJHsaGa/nRBUUcZke8
+   3BZ7HlZmnKM4L55zRFIOrolHIS/wmExbLcr+lBnFrpvr5PbaIq/pgdYBz
+   7zZa6pi6+Knnv+zcmYb2vkXHCvGiomJIWuvx1LwJABaR5lDKPHRaVpjAT
+   JALeOmNUzmVBAcxdPC3lEbb0em9AXp72vXSNlB7k42X0T2mRCQ57+Ncvu
+   sgL7rUy7+VnpB1fy6NsmWbqAqpNwsAQLd9E2W5pysoLPhp09fV4uFqt07
+   g==;
+X-CSE-ConnectionGUID: yimjwyM6Qne79SKApcb1tQ==
+X-CSE-MsgGUID: qKPcykCuTreaKzASC2aKHA==
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="45371639"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Aug 2025 07:01:21 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 19 Aug 2025 07:00:59 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Tue, 19 Aug 2025 07:00:57 -0700
+Message-ID: <4a284c63-062c-4d2f-a2ff-c0fc7e5504c0@microchip.com>
+Date: Tue, 19 Aug 2025 16:00:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: microchip: Minor whitespace cleanup
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250819131736.86862-2-krzysztof.kozlowski@linaro.org>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+CC: Ryan Wanner <Ryan.Wanner@microchip.com>, Mihai Sain
+	<Mihai.Sain@microchip.com>
+Organization: microchip
+In-Reply-To: <20250819131736.86862-2-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_070057_888629_941ED195 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250819_070121_532009_72B42C64 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,20 +90,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 19/08/2025 at 15:17, Krzysztof Kozlowski wrote:
+> The DTS code coding style expects exactly one space around '=' or '{'
+> characters.
 
-On Tue, 19 Aug 2025 11:15:54 +0200, Raphael Gallais-Pou wrote:
-> The new STMicroelectronics SoC features a display controller similar to
-> the one used in previous SoCs.  Because there is additional registers,
-> it is incompatible with existing IPs.
-> 
-> Add the new name to the list of compatible string.
-> 
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Thanks Krzysztof, and sorry about that.
+
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+
 > ---
->  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 30 ++++++++++++++++++++--
->  1 file changed, 28 insertions(+), 2 deletions(-)
+>   arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 2 +-
+>   arch/arm/boot/dts/microchip/sama7d65.dtsi               | 2 +-
+>   2 files changed, 2 insertions(+), 2 deletions(-)
 > 
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> index 7eaf6ca233ec..c14c52936ecc 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> @@ -346,7 +346,7 @@ pinctrl_gmac0_txck_default: gmac0-txck-default {
+>                  bias-pull-up;
+>          };
+> 
+> -       pinctrl_i2c10_default: i2c10-default{
+> +       pinctrl_i2c10_default: i2c10-default {
+>                  pinmux = <PIN_PB19__FLEXCOM10_IO1>,
+>                           <PIN_PB20__FLEXCOM10_IO0>;
+>                  bias-pull-up;
+> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> index c191acc2c89f..84bac1d29421 100644
+> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> @@ -91,7 +91,7 @@ secumod: security-module@e0004000 {
+>                  };
+> 
+>                  sfrbu: sfr@e0008000 {
+> -                       compatible ="microchip,sama7d65-sfrbu", "atmel,sama5d2-sfrbu", "syscon";
+> +                       compatible = "microchip,sama7d65-sfrbu", "atmel,sama5d2-sfrbu", "syscon";
+>                          reg = <0xe0008000 0x20>;
+>                  };
+> 
+> --
+> 2.48.1
+> 
 
 
