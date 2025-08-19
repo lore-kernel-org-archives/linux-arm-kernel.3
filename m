@@ -4,91 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F12CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 13:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1BECA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 13:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MlZSqNXnF5cFT3EKTsD5C3uA+ixCm4MLZap6H11YwJU=; b=IfU70hZ8C7UwrT45UXb9oP2RtX
-	7aWj4I+xNrinwkB2pmA2P4PCbC/KUHZSZ7B2pFXtFqf4h4vZj5qZkgWpYmH6/8i/3nNoRetrErUZo
-	/0JX39iZwwRT8Y0kq2pGudAV6AHvB/iWmUVnlBIbcf5Cfjp8ESRvhgrgek24FlhN27M586qTnnNHc
-	pUma/48MI/OyfAuYHEGEPEHqh1FBtBTWmBg7ygXDAHvQ9dHGKFGNP7e0zMb/zApSnZwuezA+RfwjK
-	HX2HyewjC+2+0yCrccHiCnB+d2jX/GCxDBe4cZO9ladTYKmAhPzvCXRiKjOpysCxe/wSWc+9zWrWD
-	wiKEaZ5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sx2Gl/X6OShrP6yGOdDcB5UT3M4uuYVrYRG6IUICf/Q=; b=4XOFVKidlIUoVr0CPiCTK04pzS
+	nSeawADh6P0YZor/xI5cViXAqZrddgUYNfjD7AhDlOgd4b8cxJtai1HLqiEoZYdi4DMDXEEvu1wvA
+	CeonMe/7FZkMDH5cBFUeeaAM2cwdDQvhjvoA8ofH9iRuadiub4W4lFrMYN6OxbveP0qoUfWGzIQfb
+	z3KrUCJwT6MTzjq4kyYIWICLyZCOxuHVtAyRKqdRt1ImzZivfQEnvTiNZrzOnGTb7/A0RJAiapFzv
+	vRuM8CeCV7bCzRrIxO67CyM/bFXpkJ2uJ1zHvWQ8tfXnqGoC2T9ofWoSr0rWaf77BuCafAEsPUvtY
+	FP5RXeYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMEp-0000000AZag-24aL;
-	Tue, 19 Aug 2025 13:18:55 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1uoMHN-0000000Aa2T-11Db;
+	Tue, 19 Aug 2025 13:21:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKYN-0000000AHiM-2PFE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 11:31:00 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-afcb78ead12so730338266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 04:30:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755603057; x=1756207857; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=MlZSqNXnF5cFT3EKTsD5C3uA+ixCm4MLZap6H11YwJU=;
-        b=NayOq5msWqUFAkhW/+NGMaYE6qGGrE4dMNZ3pf1+d3FhvuBuEInQ81OWzng5p9vCgs
-         /UgHs8Z4vIqAc3rfCYHQxTz/6gVqqDmkmnbJ4BbYHwb9o8DbCcGdZiupKUBsHqyx1jP/
-         2Ldr3g24N9tVkHJ9/i2Ptiqoq+4eg2Nm0e3831pe56ZnaevDHPTPPVolhSmqMrJmlbSg
-         72zACSbR3s6gTfiPglI8aSU4VBxtNvoHnCWBNx/OT1hF9hOq/DCRRWmz8aRRgMgQ00RA
-         plB+SnvMrLHM//MIylblan3VNIdxqjLHODVVBQwcBsewaBfTYzSFrGMunL4nSp6IJBq1
-         JVXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755603057; x=1756207857;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MlZSqNXnF5cFT3EKTsD5C3uA+ixCm4MLZap6H11YwJU=;
-        b=BZuQCg307LjjJIY50ZF7++9vXqN1sDo5Vypr84tzA2Cc9xPVhDN9rD/CUzDPi4mY0x
-         d13MY4y3GDtIsMnkkihXYDB7NGIj7eI5pQvxSh7hYr958Ud+rR6QCdcr5kqVRIi3Kjgd
-         9XG7NJny78zKCLEEeGSD9gPuYht9aSUd4eSuFcAuwem2hthA58W6z/NVhmaCbqAU0apA
-         Uu8xPhnLKswQZnMKK/pznkm4ti/ue5zNb5Y9wKMvD1AXiwqZj+tJw31ayTBWobawXUVc
-         mYv7rx3DgeSiTpgHcOl+vSBFEFAB95uDaTdpK+EIP8GwLQWahnLjdvJvEdF9dD32EZZr
-         TO1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVKkrOvZ5q4cY9uH5dXeWA8J8hd9kuRPYTojG8nVtkRMkJVS/6CaTLVIHhwukGKK+YuTaIILfESduBrV+nFE1Kg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzC30TSVoCdDacRLru4gGSbW3VeaZ0YI29mVZAwrHxzr2dHqCY/
-	ZeDq/XLwG8yjwO+hIpHHyOhzTPiQ2vB/4tvVIob+7H1bNt0EleNHwAmC0oNEYzDEiwQbSivimVe
-	d32j6LyhJZAhRMLupKOBWGAJ5eUpL/JizHpzW50p0Wg==
-X-Gm-Gg: ASbGnctubdZCmpr+Wa/KXPWaksgpsMQAwUvPmPTnM4w4oeaKJsn/A/JYfItpZM6SVav
-	vd9E5YqbYPg0r3njlRdXTTvr3ncPZq8tUuHdTx/LRSA/YDWIITyaT1uD54BQ1CQljOER6MgwTU3
-	er1pf7ZUrpA5bBrY082HAQSq8JVKVJ6BKn0cN3JCJ1pjoWx39ZoxcWK/zu/2350YE5rKjxTEfjP
-	zIf
-X-Google-Smtp-Source: AGHT+IFc1qeOeB8SEpfLr5OOLAFUUqEj6GU45bLARYtHghlfX/crq9PpWhn+VH6PLkjxDEuyGteYvZKpflusqa5M/Ig=
-X-Received: by 2002:a17:906:c115:b0:af9:57ae:dbb3 with SMTP id
- a640c23a62f3a-afddcb81908mr192322866b.22.1755603057341; Tue, 19 Aug 2025
- 04:30:57 -0700 (PDT)
+	id 1uoKc0-0000000AIOk-0T9o;
+	Tue, 19 Aug 2025 11:34:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 60F655C5F89;
+	Tue, 19 Aug 2025 11:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 454EAC4CEF1;
+	Tue, 19 Aug 2025 11:34:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755603283;
+	bh=Q4yaDrURk+Xr79ZeU1JXAex3xPCQZk+Adyf7jM4uRnU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FvkjlBNV/ifyaYBf6CsubgRXO/iXF3ryhUwL+dv1tXG0efYvc4T2bR+gEw7udoG4o
+	 DYvCzvpCnV2zWiNqPHHIC2govsxhVk26GlYK2dxFnh36vNb5vpPa1+hPRMyIhvvsGd
+	 VCSwwBbmoufcYsKZqem18+p7KUqVWCtYVN7qWH4lJQbTdxnFxLEcs8qmPe0XNI2g0c
+	 ewecxxIdRFjg5c4sAIcCwW4svHN4OmDPI0sTpyx7w9qWwmtrCYHgijREoyEIQHLAv7
+	 TdCeFBW0GIq6/Tzy4OcPLDfEgv98ZsAgzcu4dRpOImSPkQ3RHgbXjz3h+6Fv9YaAIB
+	 n9/6gdci1DAeA==
+Message-ID: <b3cd1b3f-fa0e-4a98-84c7-e4271f262795@kernel.org>
+Date: Tue, 19 Aug 2025 13:34:35 +0200
 MIME-Version: 1.0
-References: <20250818124458.334548733@linuxfoundation.org> <CA+G9fYt5sknJ3jbebYZrqMRhbcLZKLCvTDHfg5feNnOpj-j9Wg@mail.gmail.com>
- <CA+G9fYt6SAsPo6TvfgtnDWHPHO2q7xfppGbCaW0JxpL50zqWew@mail.gmail.com>
-In-Reply-To: <CA+G9fYt6SAsPo6TvfgtnDWHPHO2q7xfppGbCaW0JxpL50zqWew@mail.gmail.com>
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Date: Tue, 19 Aug 2025 13:30:46 +0200
-X-Gm-Features: Ac12FXyaJepFNIeos9w4tdtDWEq_utvLUQ4wMo0fo8sqlMNsdeJO5hMNv6oFTrY
-Message-ID: <CACMJSeu_DTVK=XtvaSD3Fj3aTXBJ5d-MpQMuysJYEFBNwznDqQ@mail.gmail.com>
-Subject: Re: [PATCH 6.15 000/515] 6.15.11-rc1 review
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org, 
-	patches@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	torvalds@linux-foundation.org, akpm@linux-foundation.org, linux@roeck-us.net, 
-	shuah@kernel.org, patches@kernelci.org, lkft-triage@lists.linaro.org, 
-	pavel@denx.de, jonathanh@nvidia.com, f.fainelli@gmail.com, 
-	sudipm.mukherjee@gmail.com, srw@sladewatkins.net, rwarsow@gmx.de, 
-	conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, achill@achill.org, 
-	Ben Copeland <benjamin.copeland@linaro.org>, Anders Roxell <anders.roxell@linaro.org>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <andersson@kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, srinivas.kandagatla@oss.qualcomm.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/9] dt-bindings: nvme: apple,nvme-ans: Add Apple A11
+To: Sven Peter <sven@kernel.org>, Nick Chan <towinchenmi@gmail.com>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, iommu@lists.linux.dev,
+ linux-nvme@lists.infradead.org
+References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
+ <20250818-t8015-nvme-v2-6-65648cd189e0@gmail.com>
+ <20250819-polite-papaya-catfish-1a9d1a@kuoka>
+ <8ac418ae-7ff0-4d5c-9f11-c24e36618ac1@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <8ac418ae-7ff0-4d5c-9f11-c24e36618ac1@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_043059_615737_9BD3ABA8 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250819_043444_239388_A024D171 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +127,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 at 12:02, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
->
-> On Tue, 19 Aug 2025 at 00:18, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> >
-> >
-> > Boot regression: stable-rc 6.15.11-rc1 arm64 Qualcomm Dragonboard 410c
-> > Unable to handle kernel NULL pointer dereference
-> > qcom_scm_shm_bridge_enable
->
-> I have reverted the following patch and the regression got fixed.
->
-> firmware: qcom: scm: initialize tzmem before marking SCM as available
->     [ Upstream commit 87be3e7a2d0030cda6314d2ec96b37991f636ccd ]
->
+On 19/08/2025 12:01, Sven Peter wrote:
+> On 19.08.25 11:18, Krzysztof Kozlowski wrote:
+>> On Mon, Aug 18, 2025 at 04:42:59PM +0800, Nick Chan wrote:
+>>> Add ANS2 NVMe bindings for Apple A11 SoC.
+>>>
+>>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+>>> ---
+>>>   .../devicetree/bindings/nvme/apple,nvme-ans.yaml          | 15 +++++++++------
+>>>   1 file changed, 9 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
+>>> index fc6555724e1858e8a16f6750302ff0ad9c4e5b88..4127d7b0a0f066fd0e144b32d1b676e3406b9d5a 100644
+>>> --- a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
+>>> +++ b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
+>>> @@ -11,12 +11,14 @@ maintainers:
+>>>   
+>>>   properties:
+>>>     compatible:
+>>> -    items:
+>>> -      - enum:
+>>> -          - apple,t8103-nvme-ans2
+>>> -          - apple,t8112-nvme-ans2
+>>> -          - apple,t6000-nvme-ans2
+>>> -      - const: apple,nvme-ans2
+>>> +    oneOf:
+>>> +      - const: apple,t8015-nvme-ans2
+>>> +      - items:
+>>> +          - enum:
+>>> +              - apple,t8103-nvme-ans2
+>>> +              - apple,t8112-nvme-ans2
+>>> +              - apple,t6000-nvme-ans2
+>>> +          - const: apple,nvme-ans2
+>>
+>> When some months ago this pattern of generic fallback appeared, I
+>> believe I commented it is bad idea. So now months later we have a proof
+>> - generic fallback is useless and you should have been using SoC
+>> specific compatibles from the start.
+>>
+>> Now it is just confusing and this broken pattern will be spreading more
+>> and more, because you folks put generic compatibles everywhere.
+> 
+> I haven't commented on the dt-bindings yet because I suspect this patch 
+> is wrong but haven't had time to test this yet.
+> 
+> I believe we want "apple,t8015-nvme-ans2", "apple,nvme-ans2" here and
+> then use the code Nick added for "apple,nvme-ans2" by default and only
+> enable additional features (NVMMU, linear submission queue) when we see
+> the SoC-specific compatibles for t8103, t8112, and t6000. IIRC these
+> newer SoCs still support the old way of submitting commands just fine
+> and the new way was added at some point to add support for this weird
+> integrated IOMMU.
+> 
+> I've already seen some strings about ANS3 somewhere which I suspect
+> will be the controller in some future SoC (or maybe M3/M4 which we 
+> haven't reverse engineered yet) that actually breaks compatibility.
 
-Hi! I'm on vacation, I will look into this next week. I expect there
-to be a fix on top of this commit.
 
-Bart
+This was 99% predictable and expected months/years ago when first Apple
+M1 generic compatibles appeared. I just do not understand why so much
+effort from reviewers has to go into explaining this and for arguing
+over that, and eventually we are right.
+
+> 
+> It's too late to drop them here but if you're strongly opposed to these
+> generic fallbacks we can just switch to only use tXXXX-nvme-ans3 at that
+> point without making anything confusing. Same for any other new hardware
+> blocks we reverse engineer and upstream.
+
+
+
+Best regards,
+Krzysztof
 
