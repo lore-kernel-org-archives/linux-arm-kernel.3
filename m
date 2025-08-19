@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1059ECA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 23:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14364CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 23:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2sqM5qISDUrCJ87oJ5BewI5k9ypqMW8PZrOOLAvQzM=; b=cXSLDxdfkghciyD0kcq39p3tJe
-	bQYK1hqohw/7nDKQnsqZi4kIkpPxdJPYdjxaCWq0/IbFlwPb4t7pPjvrsFu2eTEjIfiddK3MYFAgv
-	5B8ExIeDg68cpYeGwFEfpwIVDldFWcedJPR6R6r5qqkHc1nqR/cexUaYVjqBlcey5aHDeTcXriH4E
-	YFsS1Bhl5FwaJGxrDICN326UqaYg/zECTz2OKq1uMCyJ1tH0izaRYEKstlUy///BzAdcOsKSF13gs
-	cwbAYaSYP//r566MVUYT5ryfsPa2WsN/rCmQW6Y3kp1RWCk6tbnucIlCaj4AsbXbieT9RwvXvLiT3
-	Eco/kptw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v6QH6didVlhvsoLsSeUzSOSslybHXROV9PQiHKzPOwc=; b=As4GvPe9YB3FmvUCjSCPiKTNLh
+	jaa8ybSwJoSByNomTBxO6VAYYfJhgfK305uSxfiyIEIhAnw1jt9F1omd3Y+C1XVdfx2Daq/tVmd62
+	JyzPzILMqqm/0PovPx6mbGAJvPd5oMx3MrpwFKFuiDw1oJwK9jfppfPg59avLUh91/yyk6K8VHml5
+	BmiSMC3tsM0iDN2ImlnomeSwld0J7yGlM6m8uKtNYHQStKvmNMxkAdL/2FtdLyWu3lz1p8TzACcGG
+	ROIdymhwvO9fgLDmHyonTK5u9YI5WyTMY9BJ9aai9IxNDOxn7N68PgWBJxGdHbc5ZMOnn4bJlq7Yz
+	nOkIX5hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoVw8-0000000BsOV-3O3X;
-	Tue, 19 Aug 2025 23:40:16 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1uoVyj-0000000Bseh-2ayz;
+	Tue, 19 Aug 2025 23:42:57 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoUgS-0000000Bipw-0Ukf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 22:20:01 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-76e2e614b84so5565957b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 15:20:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755641999; x=1756246799; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X2sqM5qISDUrCJ87oJ5BewI5k9ypqMW8PZrOOLAvQzM=;
-        b=LwTRRgSrONslVd37XFI1Syubtq9Zl0Cp37/pAWGRVuKyz0/i6lTmo8KpDL+SHANlQg
-         g8iF5+tnlbaR7IWqfAKm23jF9oRvvZQhl7cW0DvfrVQv3bU2tYxu448FPHxXcXI50SJG
-         TBoXyryk2cUrOeXqKap/IT1K9FvFrxm8bOODM1G9YhcYXoq+7g6APWp7tDi4QY1W6Srl
-         IG4t7Oe2CoZ9uB2DfQXWOST2xtfeBkXNgfh8endcP1STcDapoyZvenGGSC4uNn1VhlPQ
-         Wi13/IjBCxalYbxYXIaXy3hnkhv4/oN2JsgcZ4z7NtsXm0mAfxbLMXY7PxTXUUetNOEL
-         zYEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755641999; x=1756246799;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=X2sqM5qISDUrCJ87oJ5BewI5k9ypqMW8PZrOOLAvQzM=;
-        b=VpxoIoWJ37Y0SBcYIidj0cWSffRkQtWU97O0i4Hab1jQAjfEoiwmG83w+e8Nfc6Z7J
-         g2ADYRYiBi0FKu81I8c6LUsYVdH2H7jifKdL7gwUxlMtCsC6bRhESoo8JtWVsJLPuYPU
-         e2VXb5QAl6c9Vv29tFvtXqhuptHUgxtNDSVBolm1K/sKqlhpzetAjsHfkit3Wmk8sWqp
-         zVKxVvDccVwD1t7yC6YhKdaBi5TwWfA3ee+J54eeQbT7VpfmbJkphD6qAuSTNdETnG4K
-         z5476H5Lud09/hUuRPSEVwOQ+QFRkzWEJDVDFGsD4aB2he3pPkVFXiGpF852Qfr/HHPH
-         bgag==
-X-Forwarded-Encrypted: i=1; AJvYcCWBQtdudU1c1e/39sn7DtYAzEB5BUo5YuZCsrnDVkUoJNqBnpyrYFbxCqzpqXKpRcjCv1XO5rpt6w0Zk/C9+B9L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfcA/W3fNvvtsSFoHSiCD33S/ZV2iBVhX0F1B3zTUG5019ybOF
-	W5hiQEMUcuFW55vn4g5ESjw5JmwKKDdLf7doQ2tqZw6IXMrGFSMu/oG+5xivzm+k
-X-Gm-Gg: ASbGncuPRnSCY1e/oG4zshL27BM9MQYkim9YW9K/Nu/hEiVP6p26Vsa/FUqfdzmgo5P
-	Ocj/psPSytxCR7FYvtm2EDA1QWCT8e7uMtfvACinTCK4tbTy5yBaKS7mz1hpz2+yLS2/jvWlUfi
-	zXRZOOZtCeV9DOeNqzrND/vEaHyymbGr0/6NtK0JWPRJ5PHt7TmreZULNY+MF5qWBR2xVw8h0X5
-	6gNr3WP/C6AzoPShi2+0RSIwVzP1xJqExAtD2bwMG2dHEdoMf1iVT0daHlQbojmZI4ZSvJ0C9bs
-	UvWbDzvNM4UVNPWThwZLQDdiHnlnd3Ly71aPDQ8+hlv3JDpLIBYu0EeZqxkYeekE29d0CZPP1Cq
-	Nd8UeoYKNC6atLaL7Shom7M8wet10Teo7DOcsruMAZxR5xK4=
-X-Google-Smtp-Source: AGHT+IF5cKofX/a4TKLKcqwA7GwNEHWRW3fiSyXecSSHgYlyGJdmqyXEIDSQdYRwFK3qE+nYx90I/w==
-X-Received: by 2002:a05:6a00:189b:b0:76b:8b13:e06a with SMTP id d2e1a72fcca58-76e8dbc2741mr1035270b3a.14.1755641999417;
-        Tue, 19 Aug 2025 15:19:59 -0700 (PDT)
-Received: from [127.0.0.1] (aulavirtual.utp.edu.pe. [190.12.77.24])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d4f76b5sm3431545b3a.59.2025.08.19.15.19.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 15:19:59 -0700 (PDT)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-Date: Tue, 19 Aug 2025 17:19:38 -0500
-Subject: [PATCH 3/3] clk: samsung: exynos990: Fix PLL mux regs, add
- DPU/CMUREF
+	id 1uoUhL-0000000Bj2V-1VUc;
+	Tue, 19 Aug 2025 22:20:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755642055; x=1787178055;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0uo3k1XYjiEJ4XvxcQ7Gf0m/s5nmNqT8/MeqEb8lcYs=;
+  b=bjkRZFqFcXrShSfiqgyhgUVmwuCIxY6O5qNOnCtrL8zsN3RTDSy1bljK
+   qE9LDwKrmWXobbCQV55MOAhj8qEsS0eE+NqgyesuF363/Th0iSac//pig
+   p9kHvAQftRmLHlqTP5I+3t2kEG4b4dmvqF5BVTTbUUSQ8WGYg76T69LWp
+   lUWziyMRu/ckXdYn9VHmA47sD1UmCmJBCigxM4ODu+TW7Tq+bWFUYybOk
+   A0nlV4trygkZyDar6GQ0Mjpyire/9t5SDijCLKO2ERdMCetFBaR9FcvD0
+   tkeTCPpeyg0nKQBIaCeEBEKg9OA3b5GZwaJiZJGQ4UwO0JMA/ZJ3CWP/z
+   g==;
+X-CSE-ConnectionGUID: w84OG6yNRtukREzPJAD1vw==
+X-CSE-MsgGUID: pXNnacT6Rs6Wadrwz1MYIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="57829656"
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="57829656"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 15:20:52 -0700
+X-CSE-ConnectionGUID: gDNrxXQXSNSnVg6S4V2Hww==
+X-CSE-MsgGUID: J0+NOCL9SY6QLtIxaoL5cw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="168378063"
+Received: from sschumil-mobl2.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.235])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 15:20:49 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 4C39D11F8D4;
+	Wed, 20 Aug 2025 01:20:47 +0300 (EEST)
+Date: Wed, 20 Aug 2025 01:20:47 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Keke Li <keke.li@amlogic.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dan Scally <dan.scally@ideasonboard.com>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 5/8] media: v4l2-common: Introduce v4l2-params.c
+Message-ID: <aKT4vz-XeTgSo125@kekkonen.localdomain>
+References: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
+ <20250819-extensible-parameters-validation-v3-5-9dc008348b30@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250819-2-v1-3-e84b47b859ce@gmail.com>
-References: <20250819-2-v1-0-e84b47b859ce@gmail.com>
-In-Reply-To: <20250819-2-v1-0-e84b47b859ce@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755641982; l=12553;
- i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
- bh=ZHpCZLLloELdfWyk93sVzvPFDvmYjvaWkaNyDBvPBx0=;
- b=hcBeDrv4Ou5W+xbTosZ4msVpcxGFrglMADfSDfyFjjwG+DdBOzylkuZGTv32HfJ5+JRLPIOfi
- 8HBKTESGwspApRwGypVSD2t2UQwzH+sai/TLnb+U6HT5aSn2I5bm/li
-X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
- pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250819-extensible-parameters-validation-v3-5-9dc008348b30@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_152000_188536_03D9A6EB 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250819_152055_423717_B2B657FA 
+X-CRM114-Status: GOOD (  49.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,272 +94,374 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch PLL muxes to PLL_CON0 to correct parent selection and
-clock rates. Add DPU_BUS and CMUREF mux/div and their register
-hooks and parents.
+Hi Jacopo,
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/clk/samsung/clk-exynos990.c | 121 ++++++++++++++++++++++++++++++++++++++++++++++----------------------------
- 1 file changed, 75 insertions(+), 46 deletions(-)
+In the subject:
 
-diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-index 57e26c4d1f39cef838f3201956762a0c242f726a..c5f1dbaf45b6a718994c1dfa9f204cfccd74cb16 100644
---- a/drivers/clk/samsung/clk-exynos990.c
-+++ b/drivers/clk/samsung/clk-exynos990.c
-@@ -45,6 +45,7 @@
- #define PLL_CON3_PLL_SHARED3				0x024c
- #define PLL_CON0_PLL_SHARED4				0x0280
- #define PLL_CON3_PLL_SHARED4				0x028c
-+#define CLK_CON_MUX_CLKCMU_DPU_BUS			0x1000
- #define CLK_CON_MUX_MUX_CLKCMU_APM_BUS			0x1004
- #define CLK_CON_MUX_MUX_CLKCMU_AUD_CPU			0x1008
- #define CLK_CON_MUX_MUX_CLKCMU_BUS0_BUS			0x100c
-@@ -103,6 +104,8 @@
- #define CLK_CON_MUX_MUX_CLKCMU_SSP_BUS			0x10e0
- #define CLK_CON_MUX_MUX_CLKCMU_TNR_BUS			0x10e4
- #define CLK_CON_MUX_MUX_CLKCMU_VRA_BUS			0x10e8
-+#define CLK_CON_MUX_MUX_CLK_CMU_CMUREF			0x10f0
-+#define CLK_CON_MUX_MUX_CMU_CMUREF			0x10f4
- #define CLK_CON_DIV_CLKCMU_APM_BUS			0x1800
- #define CLK_CON_DIV_CLKCMU_AUD_CPU			0x1804
- #define CLK_CON_DIV_CLKCMU_BUS0_BUS			0x1808
-@@ -162,6 +165,7 @@
- #define CLK_CON_DIV_CLKCMU_VRA_BUS			0x18e0
- #define CLK_CON_DIV_DIV_CLKCMU_DPU			0x18e8
- #define CLK_CON_DIV_DIV_CLKCMU_DPU_ALT			0x18ec
-+#define CLK_CON_DIV_DIV_CLK_CMU_CMUREF			0x18f0
- #define CLK_CON_DIV_PLL_SHARED0_DIV2			0x18f4
- #define CLK_CON_DIV_PLL_SHARED0_DIV3			0x18f8
- #define CLK_CON_DIV_PLL_SHARED0_DIV4			0x18fc
-@@ -239,13 +243,21 @@ static const unsigned long top_clk_regs[] __initconst = {
- 	PLL_LOCKTIME_PLL_SHARED2,
- 	PLL_LOCKTIME_PLL_SHARED3,
- 	PLL_LOCKTIME_PLL_SHARED4,
-+	PLL_CON0_PLL_G3D,
- 	PLL_CON3_PLL_G3D,
-+	PLL_CON0_PLL_MMC,
- 	PLL_CON3_PLL_MMC,
-+	PLL_CON0_PLL_SHARED0,
- 	PLL_CON3_PLL_SHARED0,
-+	PLL_CON0_PLL_SHARED1,
- 	PLL_CON3_PLL_SHARED1,
-+	PLL_CON0_PLL_SHARED2,
- 	PLL_CON3_PLL_SHARED2,
-+	PLL_CON0_PLL_SHARED3,
- 	PLL_CON3_PLL_SHARED3,
-+	PLL_CON0_PLL_SHARED4,
- 	PLL_CON3_PLL_SHARED4,
-+	CLK_CON_MUX_CLKCMU_DPU_BUS,
- 	CLK_CON_MUX_MUX_CLKCMU_APM_BUS,
- 	CLK_CON_MUX_MUX_CLKCMU_AUD_CPU,
- 	CLK_CON_MUX_MUX_CLKCMU_BUS0_BUS,
-@@ -304,6 +316,8 @@ static const unsigned long top_clk_regs[] __initconst = {
- 	CLK_CON_MUX_MUX_CLKCMU_SSP_BUS,
- 	CLK_CON_MUX_MUX_CLKCMU_TNR_BUS,
- 	CLK_CON_MUX_MUX_CLKCMU_VRA_BUS,
-+	CLK_CON_MUX_MUX_CLK_CMU_CMUREF,
-+	CLK_CON_MUX_MUX_CMU_CMUREF,
- 	CLK_CON_DIV_CLKCMU_APM_BUS,
- 	CLK_CON_DIV_CLKCMU_AUD_CPU,
- 	CLK_CON_DIV_CLKCMU_BUS0_BUS,
-@@ -363,6 +377,7 @@ static const unsigned long top_clk_regs[] __initconst = {
- 	CLK_CON_DIV_CLKCMU_VRA_BUS,
- 	CLK_CON_DIV_DIV_CLKCMU_DPU,
- 	CLK_CON_DIV_DIV_CLKCMU_DPU_ALT,
-+	CLK_CON_DIV_DIV_CLK_CMU_CMUREF,
- 	CLK_CON_DIV_PLL_SHARED0_DIV2,
- 	CLK_CON_DIV_PLL_SHARED0_DIV3,
- 	CLK_CON_DIV_PLL_SHARED0_DIV4,
-@@ -434,6 +449,10 @@ static const unsigned long top_clk_regs[] __initconst = {
- };
- 
- static const struct samsung_pll_clock top_pll_clks[] __initconst = {
-+	PLL(pll_0718x, CLK_FOUT_G3D_PLL, "fout_g3d_pll", "oscclk",
-+	    PLL_LOCKTIME_PLL_G3D, PLL_CON3_PLL_G3D, NULL),
-+	PLL(pll_0732x, CLK_FOUT_MMC_PLL, "fout_mmc_pll", "oscclk",
-+	    PLL_LOCKTIME_PLL_MMC, PLL_CON3_PLL_MMC, NULL),
- 	PLL(pll_0717x, CLK_FOUT_SHARED0_PLL, "fout_shared0_pll", "oscclk",
- 	    PLL_LOCKTIME_PLL_SHARED0, PLL_CON3_PLL_SHARED0, NULL),
- 	PLL(pll_0717x, CLK_FOUT_SHARED1_PLL, "fout_shared1_pll", "oscclk",
-@@ -444,20 +463,18 @@ static const struct samsung_pll_clock top_pll_clks[] __initconst = {
- 	    PLL_LOCKTIME_PLL_SHARED3, PLL_CON3_PLL_SHARED3, NULL),
- 	PLL(pll_0717x, CLK_FOUT_SHARED4_PLL, "fout_shared4_pll", "oscclk",
- 	    PLL_LOCKTIME_PLL_SHARED4, PLL_CON3_PLL_SHARED4, NULL),
--	PLL(pll_0732x, CLK_FOUT_MMC_PLL, "fout_mmc_pll", "oscclk",
--	    PLL_LOCKTIME_PLL_MMC, PLL_CON3_PLL_MMC, NULL),
--	PLL(pll_0718x, CLK_FOUT_G3D_PLL, "fout_g3d_pll", "oscclk",
--	    PLL_LOCKTIME_PLL_G3D, PLL_CON3_PLL_G3D, NULL),
- };
- 
- /* Parent clock list for CMU_TOP muxes */
-+PNAME(mout_pll_g3d_p)			= { "oscclk", "fout_g3d_pll" };
-+PNAME(mout_pll_mmc_p)			= { "oscclk", "fout_mmc_pll" };
- PNAME(mout_pll_shared0_p)		= { "oscclk", "fout_shared0_pll" };
- PNAME(mout_pll_shared1_p)		= { "oscclk", "fout_shared1_pll" };
- PNAME(mout_pll_shared2_p)		= { "oscclk", "fout_shared2_pll" };
- PNAME(mout_pll_shared3_p)		= { "oscclk", "fout_shared3_pll" };
- PNAME(mout_pll_shared4_p)		= { "oscclk", "fout_shared4_pll" };
--PNAME(mout_pll_mmc_p)			= { "oscclk", "fout_mmc_pll" };
--PNAME(mout_pll_g3d_p)			= { "oscclk", "fout_g3d_pll" };
-+PNAME(mout_cmu_dpu_bus_p)		= { "dout_cmu_dpu",
-+					    "dout_cmu_dpu_alt" };
- PNAME(mout_cmu_apm_bus_p)		= { "dout_cmu_shared0_div2",
- 					    "dout_cmu_shared2_div2" };
- PNAME(mout_cmu_aud_cpu_p)		= { "dout_cmu_shared0_div2",
-@@ -507,7 +524,7 @@ PNAME(mout_cmu_cpucl0_switch_p)		= { "fout_shared4_pll",
- 					    "dout_cmu_shared0_div2",
- 					    "fout_shared2_pll",
- 					    "dout_cmu_shared0_div4" };
--PNAME(mout_cmu_cpucl1_switch_p)	= { "fout_shared4_pll",
-+PNAME(mout_cmu_cpucl1_switch_p)		= { "fout_shared4_pll",
- 					    "dout_cmu_shared0_div2",
- 					    "fout_shared2_pll",
- 					    "dout_cmu_shared0_div4" };
-@@ -577,7 +594,7 @@ PNAME(mout_cmu_hsi1_bus_p)		= { "dout_cmu_shared0_div3",
- 					    "dout_cmu_shared4_div3",
- 					    "dout_cmu_shared2_div2",
- 					    "fout_mmc_pll", "oscclk", "oscclk" };
--PNAME(mout_cmu_hsi1_mmc_card_p)	= { "oscclk", "fout_shared2_pll",
-+PNAME(mout_cmu_hsi1_mmc_card_p)		= { "oscclk", "fout_shared2_pll",
- 					    "fout_mmc_pll",
- 					    "dout_cmu_shared0_div4" };
- PNAME(mout_cmu_hsi1_pcie_p)		= { "oscclk", "fout_shared2_pll" };
-@@ -672,6 +689,12 @@ PNAME(mout_cmu_vra_bus_p)		= { "dout_cmu_shared0_div3",
- 					    "dout_cmu_shared4_div2",
- 					    "dout_cmu_shared0_div4",
- 					    "dout_cmu_shared4_div3" };
-+PNAME(mout_cmu_cmuref_p)		= { "oscclk",
-+					    "dout_cmu_clk_cmuref" };
-+PNAME(mout_cmu_clk_cmuref_p)		= { "dout_cmu_shared0_div4",
-+					    "dout_cmu_shared1_div4",
-+					    "dout_cmu_shared2_div2",
-+					    "oscclk" };
- 
- /*
-  * Register name to clock name mangling strategy used in this file
-@@ -688,20 +711,22 @@ PNAME(mout_cmu_vra_bus_p)		= { "dout_cmu_shared0_div3",
-  */
- 
- static const struct samsung_mux_clock top_mux_clks[] __initconst = {
-+	MUX(CLK_MOUT_PLL_MMC, "mout_pll_mmc", mout_pll_mmc_p,
-+	    PLL_CON0_PLL_MMC, 4, 1),
-+	MUX(CLK_MOUT_PLL_G3D, "mout_pll_g3d", mout_pll_g3d_p,
-+	    PLL_CON0_PLL_G3D, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED0, "mout_pll_shared0", mout_pll_shared0_p,
--	    PLL_CON3_PLL_SHARED0, 4, 1),
-+	    PLL_CON0_PLL_SHARED0, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED1, "mout_pll_shared1", mout_pll_shared1_p,
--	    PLL_CON3_PLL_SHARED1, 4, 1),
-+	    PLL_CON0_PLL_SHARED1, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED2, "mout_pll_shared2", mout_pll_shared2_p,
--	    PLL_CON3_PLL_SHARED2, 4, 1),
-+	    PLL_CON0_PLL_SHARED2, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED3, "mout_pll_shared3", mout_pll_shared3_p,
--	    PLL_CON3_PLL_SHARED3, 4, 1),
-+	    PLL_CON0_PLL_SHARED3, 4, 1),
- 	MUX(CLK_MOUT_PLL_SHARED4, "mout_pll_shared4", mout_pll_shared4_p,
- 	    PLL_CON0_PLL_SHARED4, 4, 1),
--	MUX(CLK_MOUT_PLL_MMC, "mout_pll_mmc", mout_pll_mmc_p,
--	    PLL_CON0_PLL_MMC, 4, 1),
--	MUX(CLK_MOUT_PLL_G3D, "mout_pll_g3d", mout_pll_g3d_p,
--	    PLL_CON0_PLL_G3D, 4, 1),
-+	MUX(CLK_MOUT_CMU_DPU_BUS, "mout_cmu_dpu_bus",
-+	    mout_cmu_dpu_bus_p, CLK_CON_MUX_CLKCMU_DPU_BUS, 0, 1),
- 	MUX(CLK_MOUT_CMU_APM_BUS, "mout_cmu_apm_bus",
- 	    mout_cmu_apm_bus_p, CLK_CON_MUX_MUX_CLKCMU_APM_BUS, 0, 1),
- 	MUX(CLK_MOUT_CMU_AUD_CPU, "mout_cmu_aud_cpu",
-@@ -830,37 +855,13 @@ static const struct samsung_mux_clock top_mux_clks[] __initconst = {
- 	    mout_cmu_tnr_bus_p, CLK_CON_MUX_MUX_CLKCMU_TNR_BUS, 0, 3),
- 	MUX(CLK_MOUT_CMU_VRA_BUS, "mout_cmu_vra_bus",
- 	    mout_cmu_vra_bus_p, CLK_CON_MUX_MUX_CLKCMU_VRA_BUS, 0, 2),
-+	MUX(CLK_MOUT_CMU_CMUREF, "mout_cmu_cmuref",
-+	    mout_cmu_cmuref_p, CLK_CON_MUX_MUX_CMU_CMUREF, 0, 1),
-+	MUX(CLK_MOUT_CMU_CLK_CMUREF, "mout_cmu_clk_cmuref",
-+	    mout_cmu_clk_cmuref_p, CLK_CON_MUX_MUX_CLK_CMU_CMUREF, 0, 2),
- };
- 
- static const struct samsung_div_clock top_div_clks[] __initconst = {
--	/* SHARED0 region*/
--	DIV(CLK_DOUT_CMU_SHARED0_DIV2, "dout_cmu_shared0_div2", "mout_pll_shared0",
--	    CLK_CON_DIV_PLL_SHARED0_DIV2, 0, 1),
--	DIV(CLK_DOUT_CMU_SHARED0_DIV3, "dout_cmu_shared0_div3", "mout_pll_shared0",
--	    CLK_CON_DIV_PLL_SHARED0_DIV3, 0, 1),
--	DIV(CLK_DOUT_CMU_SHARED0_DIV4, "dout_cmu_shared0_div4", "dout_cmu_shared0_div2",
--	    CLK_CON_DIV_PLL_SHARED0_DIV4, 0, 1),
--
--	/* SHARED1 region*/
--	DIV(CLK_DOUT_CMU_SHARED1_DIV2, "dout_cmu_shared1_div2", "mout_pll_shared1",
--	    CLK_CON_DIV_PLL_SHARED1_DIV2, 0, 1),
--	DIV(CLK_DOUT_CMU_SHARED1_DIV3, "dout_cmu_shared1_div3", "mout_pll_shared1",
--	    CLK_CON_DIV_PLL_SHARED1_DIV3, 0, 2),
--	DIV(CLK_DOUT_CMU_SHARED1_DIV4, "dout_cmu_shared1_div4", "dout_cmu_shared1_div2",
--	    CLK_CON_DIV_PLL_SHARED1_DIV4, 0, 1),
--
--	/* SHARED2 region */
--	DIV(CLK_DOUT_CMU_SHARED2_DIV2, "dout_cmu_shared2_div2", "mout_pll_shared2",
--	    CLK_CON_DIV_PLL_SHARED2_DIV2, 0, 1),
--
--	/* SHARED4 region*/
--	DIV(CLK_DOUT_CMU_SHARED4_DIV2, "dout_cmu_shared4_div2", "mout_pll_shared4",
--	    CLK_CON_DIV_PLL_SHARED4_DIV2, 0, 1),
--	DIV(CLK_DOUT_CMU_SHARED4_DIV3, "dout_cmu_shared4_div3", "mout_pll_shared4",
--	    CLK_CON_DIV_PLL_SHARED4_DIV3, 0, 2),
--	DIV(CLK_DOUT_CMU_SHARED4_DIV4, "dout_cmu_shared4_div4", "mout_pll_shared4",
--	    CLK_CON_DIV_PLL_SHARED4_DIV4, 0, 1),
--
- 	DIV(CLK_DOUT_CMU_APM_BUS, "dout_cmu_apm_bus", "gout_cmu_apm_bus",
- 	    CLK_CON_DIV_CLKCMU_APM_BUS, 0, 2),
- 	DIV(CLK_DOUT_CMU_AUD_CPU, "dout_cmu_aud_cpu", "gout_cmu_aud_cpu",
-@@ -887,7 +888,7 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
- 	    CLK_CON_DIV_CLKCMU_CMU_BOOST, 0, 2),
- 	DIV(CLK_DOUT_CMU_CORE_BUS, "dout_cmu_core_bus", "gout_cmu_core_bus",
- 	    CLK_CON_DIV_CLKCMU_CORE_BUS, 0, 4),
--	DIV(CLK_DOUT_CMU_CPUCL0_DBG_BUS, "dout_cmu_cpucl0_debug",
-+	DIV(CLK_DOUT_CMU_CPUCL0_DBG_BUS, "dout_cmu_cpucl0_dbg_bus",
- 	    "gout_cmu_cpucl0_dbg_bus", CLK_CON_DIV_CLKCMU_CPUCL0_DBG_BUS,
- 	    0, 4),
- 	DIV(CLK_DOUT_CMU_CPUCL0_SWITCH, "dout_cmu_cpucl0_switch",
-@@ -972,8 +973,36 @@ static const struct samsung_div_clock top_div_clks[] __initconst = {
- 	    CLK_CON_DIV_CLKCMU_TNR_BUS, 0, 4),
- 	DIV(CLK_DOUT_CMU_VRA_BUS, "dout_cmu_vra_bus", "gout_cmu_vra_bus",
- 	    CLK_CON_DIV_CLKCMU_VRA_BUS, 0, 4),
--	DIV(CLK_DOUT_CMU_DPU, "dout_cmu_clkcmu_dpu", "gout_cmu_dpu",
-+	DIV(CLK_DOUT_CMU_DPU, "dout_cmu_dpu", "gout_cmu_dpu",
- 	    CLK_CON_DIV_DIV_CLKCMU_DPU, 0, 3),
-+	DIV(CLK_DOUT_CMU_DPU_ALT, "dout_cmu_dpu_alt", "gout_cmu_dpu_bus",
-+	    CLK_CON_DIV_DIV_CLKCMU_DPU_ALT, 0, 4),
-+	DIV(CLK_DOUT_CMU_CLK_CMUREF, "dout_cmu_clk_cmuref", "mout_cmu_clk_cmuref",
-+	    CLK_CON_DIV_DIV_CLK_CMU_CMUREF, 0, 2),
-+	/* SHARED0 region*/
-+	DIV(CLK_DOUT_CMU_SHARED0_DIV2, "dout_cmu_shared0_div2", "mout_pll_shared0",
-+	    CLK_CON_DIV_PLL_SHARED0_DIV2, 0, 1),
-+	DIV(CLK_DOUT_CMU_SHARED0_DIV3, "dout_cmu_shared0_div3", "mout_pll_shared0",
-+	    CLK_CON_DIV_PLL_SHARED0_DIV3, 0, 2),
-+	DIV(CLK_DOUT_CMU_SHARED0_DIV4, "dout_cmu_shared0_div4", "dout_cmu_shared0_div2",
-+	    CLK_CON_DIV_PLL_SHARED0_DIV4, 0, 1),
-+	/* SHARED1 region*/
-+	DIV(CLK_DOUT_CMU_SHARED1_DIV2, "dout_cmu_shared1_div2", "mout_pll_shared1",
-+	    CLK_CON_DIV_PLL_SHARED1_DIV2, 0, 1),
-+	DIV(CLK_DOUT_CMU_SHARED1_DIV3, "dout_cmu_shared1_div3", "mout_pll_shared1",
-+	    CLK_CON_DIV_PLL_SHARED1_DIV3, 0, 2),
-+	DIV(CLK_DOUT_CMU_SHARED1_DIV4, "dout_cmu_shared1_div4", "dout_cmu_shared1_div2",
-+	    CLK_CON_DIV_PLL_SHARED1_DIV4, 0, 1),
-+	/* SHARED2 region */
-+	DIV(CLK_DOUT_CMU_SHARED2_DIV2, "dout_cmu_shared2_div2", "mout_pll_shared2",
-+	    CLK_CON_DIV_PLL_SHARED2_DIV2, 0, 1),
-+	/* SHARED4 region*/
-+	DIV(CLK_DOUT_CMU_SHARED4_DIV2, "dout_cmu_shared4_div2", "mout_pll_shared4",
-+	    CLK_CON_DIV_PLL_SHARED4_DIV2, 0, 1),
-+	DIV(CLK_DOUT_CMU_SHARED4_DIV3, "dout_cmu_shared4_div3", "mout_pll_shared4",
-+	    CLK_CON_DIV_PLL_SHARED4_DIV3, 0, 2),
-+	DIV(CLK_DOUT_CMU_SHARED4_DIV4, "dout_cmu_shared4_div4", "dout_cmu_shared4_div2",
-+	    CLK_CON_DIV_PLL_SHARED4_DIV4, 0, 1),
- };
- 
- static const struct samsung_fixed_factor_clock cmu_top_ffactor[] __initconst = {
+s/common/params/
+
+On Tue, Aug 19, 2025 at 04:54:46PM +0200, Jacopo Mondi wrote:
+> Add to the v4l2 framework an helper function to support drivers
+> when validating a buffer of extensible parameters.
+> 
+> Introduce new types in include/media/v4l2-params.h that drivers shall
+> use in order to comply with the v4l2-params validation procedure, and
+> add a helper functions to v4l2-params.c to perform block and buffer
+> validation.
+> 
+> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>  MAINTAINERS                           |   2 +
+>  drivers/media/v4l2-core/Makefile      |   3 +-
+>  drivers/media/v4l2-core/v4l2-params.c | 123 +++++++++++++++++++++++++
+>  include/media/v4l2-params.h           | 165 ++++++++++++++++++++++++++++++++++
+>  4 files changed, 292 insertions(+), 1 deletion(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 91df04e5d9022ccf2aea4445247369a8b86a4264..008f984c0769691f6ddec8d8f0f461fde056ddb3 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26385,6 +26385,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
+> +F:	drivers/media/v4l2-core/v4l2-params.c
+> +F:	include/media/v4l2-params.h
+>  F:	include/uapi/linux/media/v4l2-extensible-params.h
+>  
+>  VF610 NAND DRIVER
+> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
+> index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..323330dd359f95c1ae3d0c35bd6fcb8291a33a07 100644
+> --- a/drivers/media/v4l2-core/Makefile
+> +++ b/drivers/media/v4l2-core/Makefile
+> @@ -11,7 +11,8 @@ tuner-objs	:=	tuner-core.o
+>  videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
+>  			v4l2-event.o v4l2-subdev.o v4l2-common.o \
+>  			v4l2-ctrls-core.o v4l2-ctrls-api.o \
+> -			v4l2-ctrls-request.o v4l2-ctrls-defs.o
+> +			v4l2-ctrls-request.o v4l2-ctrls-defs.o \
+> +			v4l2-params.o
+>  
+>  # Please keep it alphabetically sorted by Kconfig name
+>  # (e. g. LC_ALL=C sort Makefile)
+> diff --git a/drivers/media/v4l2-core/v4l2-params.c b/drivers/media/v4l2-core/v4l2-params.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8eeb12414c0981c13725a59d1668c5798b9fcf50
+> --- /dev/null
+> +++ b/drivers/media/v4l2-core/v4l2-params.c
+> @@ -0,0 +1,123 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Video4Linux2 extensible parameters helpers
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#include <media/v4l2-params.h>
+> +
+> +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
+> +				size_t max_size,
+> +				v4l2_params_validate_buffer buffer_validate)
+> +{
+> +	size_t header_size = offsetof(struct v4l2_params_buffer, data);
+> +	struct v4l2_params_buffer *buffer = vb2_plane_vaddr(vb, 0);
+> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> +	size_t buffer_size;
+> +	int ret;
+> +
+> +	/* Payload size can't be greater than the destination buffer size */
+> +	if (payload_size > max_size) {
+> +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Payload size can't be smaller than the header size */
+> +	if (payload_size < header_size) {
+> +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Validate the size reported in the parameter buffer header */
+> +	buffer_size = header_size + buffer->data_size;
+> +	if (buffer_size != payload_size) {
+> +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
+> +			buffer_size, payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Driver-specific buffer validation. */
+> +	if (buffer_validate) {
+> +		ret = buffer_validate(dev, buffer);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_params_buffer_validate);
+> +
+> +int v4l2_params_blocks_validate(struct device *dev,
+> +				const struct v4l2_params_buffer *buffer,
+> +				const struct v4l2_params_handler *handlers,
+> +				size_t num_handlers,
+> +				v4l2_params_validate_block block_validate)
+> +{
+> +	size_t block_offset = 0;
+> +	size_t buffer_size;
+> +	int ret;
+> +
+> +	/* Walk the list of parameter blocks and validate them. */
+> +	buffer_size = buffer->data_size;
+> +	while (buffer_size >= sizeof(struct v4l2_params_block_header)) {
+> +		const struct v4l2_params_handler *handler;
+> +		const struct v4l2_params_block_header *block;
+> +
+> +		/* Validate block sizes and types against the handlers. */
+> +		block = (const struct v4l2_params_block_header *)
+> +			(buffer->data + block_offset);
+> +
+> +		if (block->type >= num_handlers) {
+> +			dev_dbg(dev, "Invalid parameters block type\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		if (block->size > buffer_size) {
+> +			dev_dbg(dev, "Premature end of parameters data\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		/* It's invalid to specify both ENABLE and DISABLE. */
+> +		if ((block->flags & (V4L2_PARAMS_FL_BLOCK_ENABLE |
+> +				     V4L2_PARAMS_FL_BLOCK_DISABLE)) ==
+> +		     (V4L2_PARAMS_FL_BLOCK_ENABLE |
+> +		     V4L2_PARAMS_FL_BLOCK_DISABLE)) {
+> +			dev_dbg(dev, "Invalid parameters block flags\n");
+
+There's also hweight*(); up to you.
+
+> +			return -EINVAL;
+> +		}
+> +
+> +		/*
+> +		 * Match the block reported size against the handler's expected
+> +		 * one, but allow the block to only contain the header in
+> +		 * case it is going to be disabled.
+> +		 */
+> +		handler = &handlers[block->type];
+> +		if (block->size != handler->size) {
+> +			if (!(block->flags & V4L2_PARAMS_FL_BLOCK_DISABLE) ||
+> +			      block->size != sizeof(*block)) {
+
+You could merge the two conditions.
+
+> +				dev_dbg(dev, "Invalid parameters block size\n");
+> +				return -EINVAL;
+> +			}
+> +		}
+> +
+> +		/* Driver-specific per-block validation. */
+> +		if (block_validate) {
+> +			ret = block_validate(dev, block);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +
+> +		block_offset += block->size;
+> +		buffer_size -= block->size;
+> +	}
+> +
+> +	if (buffer_size) {
+> +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_params_blocks_validate);
+> diff --git a/include/media/v4l2-params.h b/include/media/v4l2-params.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a8a4cc721bc4a51d8a6f9c7c009b34dfa3579229
+> --- /dev/null
+> +++ b/include/media/v4l2-params.h
+> @@ -0,0 +1,165 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Video4Linux2 extensible parameters helpers
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#ifndef V4L2_PARAMS_H_
+> +#define V4L2_PARAMS_H_
+> +
+> +#include <linux/media/v4l2-extensible-params.h>
+> +
+> +#include <linux/device.h>
+
+Alphabetic order?
+
+> +
+> +#include <media/videobuf2-core.h>
+
+Please use forward declarations instead of including the entire header
+here.
+
+> +
+> +/**
+> + * typedef v4l2_params_block_handler - V4L2 extensible format block handler
+> + * @arg: pointer the driver-specific argument
+> + * @block: the ISP configuration block to handle
+> + *
+> + * Defines the function signature of the functions that handle an ISP block
+> + * configuration.
+> + */
+> +typedef void (*v4l2_params_block_handler)(void *arg,
+> +					  const struct v4l2_params_block_header *block);
+> +
+> +/**
+> + * struct v4l2_params_handler - V4L2 extensible format handler
+> + * @size: the block expected size
+> + * @handler: the block handler function
+> + * @group: the device-specific group id the block belongs to (optional)
+> + * @features: the device-specific features flags (optional)
+> + *
+> + * The v4l2_params_handler defines the type that driver making use of the
+> + * V4L2 extensible parameters shall use to define their own ISP block
+> + * handlers.
+> + *
+> + * Drivers shall prepare a list of handlers, one for each supported ISP block
+> + * and correctly populate the structure's field with the expected block @size
+> + * (used for validation), a pointer to each block @handler function and an
+> + * optional @group and @feature flags, the driver can use to differentiate which
+> + * ISP blocks are present on the ISP implementation.
+> + *
+> + * The @group field is intended to be used as a bitmask of driver-specific
+> + * flags to allow the driver to setup certain blocks at different times. As an
+> + * example an ISP driver can divide its block handlers in "pre-configure" blocks
+> + * and "run-time" blocks and use the @group bitmask to identify the ISP blocks
+> + * that have to be pre-configured from the ones that only have to be handled at
+> + * run-time. The usage and definition of the @group field is totally
+> + * driver-specific.
+> + *
+> + * The @features flag can instead be used to differentiate between blocks
+> + * implemented in different revisions of the ISP design. In example some ISP
+> + * blocks might be present on more recent revision than others. Populating the
+> + * @features bitmask with the ISP/SoC machine identifier allows the driver to
+> + * correctly ignore the blocks not supported on the ISP revision it is running
+> + * on. As per the @group bitmask, the usage and definition of the @features
+> + * field is totally driver-specific.
+> + */
+> +struct v4l2_params_handler {
+> +	size_t size;
+> +	v4l2_params_block_handler handler;
+> +	unsigned int group;
+> +	unsigned int features;
+> +};
+> +
+> +/**
+> + * typedef v4l2_params_validate_buffer - V4L2 extensible parameters buffer
+> + *					 validation callback
+> + * @dev: the driver's device pointer (as passed by the driver to
+> + *	 v4l2_params_buffer_validate())
+> + * @buffer: the extensible parameters buffer
+> + *
+> + * Defines the function prototype for the driver's callback to perform
+> + * driver-specific validation on the extensible parameters buffer
+> + */
+> +typedef int (*v4l2_params_validate_buffer)(struct device *dev,
+> +					   const struct v4l2_params_buffer *buffer);
+> +
+> +/**
+> + * v4l2_params_buffer_validate - Validate a V4L2 extensible parameters buffer
+> + * @dev: the driver's device pointer
+> + * @vb: the videobuf2 buffer
+> + * @max_size: the maximum allowed buffer size
+> + * @buffer_validate: callback to the driver-specific buffer validation
+> + *
+> + * Helper function that performs validation of an extensible parameters buffer.
+> + *
+> + * The helper is meant to be used by drivers to perform validation of the
+> + * extensible parameters buffer size correctness.
+> + *
+> + * The @vb buffer as received from the vb2 .buf_prepare() operation is checked
+> + * against @max_size and its validated to be large enough to accommodate at
+> + * least one ISP configuration block. The effective buffer size is compared
+> + * with the reported data size to make sure they match.
+> + *
+> + * If provided, the @buffer_validate callback function is invoked to allow
+> + * drivers to perform driver-specific validation (such as checking that the
+> + * buffer version is supported).
+> + *
+> + * Drivers should use this function to validate the buffer size correctness
+> + * before performing a copy of the user-provided videobuf2 buffer content into a
+> + * kernel-only memory buffer to prevent userspace from modifying the buffer
+> + * content after it has been submitted to the driver.
+> + *.
+> + * Examples of users of this function can be found in
+> + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
+> + */
+> +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
+> +				size_t max_size,
+> +				v4l2_params_validate_buffer buffer_validate);
+> +
+> +/**
+> + * typedef v4l2_params_validate_block - V4L2 extensible parameters block
+> + *					validation callback
+> + * @dev: the driver's device pointer (as passed by the driver to
+> + *	 v4l2_params_validate())
+> + * @block: the ISP configuration block to validate
+> + *
+> + * Defines the function prototype for the driver's callback to perform
+> + * driver-specific validation on each ISP block.
+> + */
+> +typedef int (*v4l2_params_validate_block)(struct device *dev,
+> +					  const struct v4l2_params_block_header *block);
+> +
+> +/**
+> + * v4l2_params_blocks_validate - Validate V4L2 extensible parameters ISP
+> + *				 configuration blocks
+> + * @dev: the driver's device pointer
+> + * @buffer: the extensible parameters configuration buffer
+> + * @handlers: the list of block handlers
+> + * @num_handlers: the number of block handlers
+> + * @block_validate: callback to the driver-specific per-block validation
+> + *		    function
+> + *
+> + * Helper function that performs validation of the ISP configuration blocks in
+> + * an extensible parameters buffer.
+> + *
+> + * The helper is meant to be used by drivers to perform validation of the
+> + * ISP configuration data blocks. For each block in the extensible parameters
+> + * buffer, its size and correctness are validated against its associated handler
+> + * in the @handlers list. Additionally, if provided, the @block_validate
+> + * callback is invoked on each block to allow drivers to perform driver-specific
+> + * validation.
+> + *
+> + * Drivers should use this function to validate the ISP configuration blocks
+> + * after having validated the correctness of the vb2 buffer sizes by using the
+> + * v4l2_params_buffer_validate() helper first. Once the buffer size has been
+> + * validated, drivers should perform a copy of the user-provided buffer into a
+> + * kernel-only memory buffer to prevent userspace from modifying the buffer
+> + * content after it has been submitted to the driver, and then call this
+> + * function to perform per-block validation.
+> + *
+> + * Examples of users of this function can be found in
+> + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
+> + */
+> +int v4l2_params_blocks_validate(struct device *dev,
+> +				const struct v4l2_params_buffer *buffer,
+> +				const struct v4l2_params_handler *handlers,
+> +				size_t num_handlers,
+> +				v4l2_params_validate_block block_validate);
+> +
+> +#endif /* V4L2_PARAMS_H_ */
+> 
 
 -- 
-2.49.0
+Regards,
 
+Sakari Ailus
 
