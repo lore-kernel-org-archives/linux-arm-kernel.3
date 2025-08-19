@@ -4,65 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F63CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C6B4CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 19:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=qllkwJbsv30Jkl1gsSLTyGfDymzJiKs+CIJF2OMRcU0=; b=P+LpUNd5Hzf/kT
-	0lgn+99hTzToJH0M42NCYZ3GM2K6mO8g0NC7ybwS7993mXg1vqEcgImXGAwjcGjXtBNK+89IhCkcR
-	tgYmIpFr4ahmcuRygwOyzGHwHnf/y0OUpFmWWqQpxoM8O+h8tFHsSf49GA4RUyM/eSHAZ1BUs9D5/
-	vA5W+fSA7bJaQ1rrmPwZCAFthLM78S+coEOWd25xb31tTR6IqvHXZysbdlpzzX+R4TyBBi0z+iwvk
-	BtoIOM5u5YNJyTxj5XbfUVKywrYGtVDxO551AM/+HH2vPerEYP8DeMxOszqwLjzVyXKK2AxRCCjA6
-	FMdQOGcwXgC4f+/bPIEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FVXA3Kl7v914g49l8KxgyN21uNA8RghoGseL8TrFCjo=; b=MAWBRBaE+V4IwnRpZGUy5Lio4O
+	tpI+PvX6wfKSQIAMu3Lb78Hcmd8lAnRhmry1qgiE3Kyk14jG+M7IGmH9p3awkYhiyaMbdyWNjtD2I
+	ZwQiEM2ad8yUWHK3thjN85ARoKJHw4KZpGQzn/eP6Wu58f7TZJte8ik1L/ebu4ipff/Km92FP0xdJ
+	01hPs4qiOc5M+2baCPwP8y+oF5RM4IKa3DFF2irVXLHYmJ0DW74pUXRgVfjTwy0j+HkIwxLjFEHeH
+	QPzkMb6Q5DvKRZZqPj543PpPBhiCZ0EIPAwCuLPbWVpkSvJzotQDzmI+RKdVsUddqi94cx7SOceB1
+	mSGDUM+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoS2a-0000000BQt5-0Sc7;
-	Tue, 19 Aug 2025 19:30:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uoS56-0000000BR20-3aY6;
+	Tue, 19 Aug 2025 19:33:16 +0000
+Received: from mail-dm6nam04on20621.outbound.protection.outlook.com ([2a01:111:f403:2409::621] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNvx-0000000Aqdo-48pw;
-	Tue, 19 Aug 2025 15:07:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEA5C41B4E;
-	Tue, 19 Aug 2025 15:07:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08798C2BC86;
-	Tue, 19 Aug 2025 15:07:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755616049;
-	bh=FWERPV2b/K8+f34kGRRaIibkqQthKRkjtRIcOO9bI5Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=mE+N92nbp+0JXiAfwUIvsTH3cdqCCtHHsNuHILfE2mK2nj9Hu6eIbPQAYGqMadNYQ
-	 lE+BY04Cx6za6/mrYs/m3pr7JWmln6sXgeXvUZi9UP4Wj0RHKSxYZuMQKRWXb0RUTe
-	 TQmGYIyAGtIBlvq1EfONtAE15fNiJ+sSdAy+dimAV901J6WuE592aAiuzvEeimJeLr
-	 kZSiT12cx0D0uYSsObJj160WPnjKuyxpEKA57YcYffTu3t3VT7TxZ0ggDE6qFA8PuJ
-	 4EXUpJ00lgf0jG+1Jkvz9DD70nYzymAm09Ch9bl5Cu15uowQic72B51sLb+htyhYz8
-	 NAHjFR3vapv4g==
-Date: Tue, 19 Aug 2025 10:07:27 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: 'Krzysztof Kozlowski' <krzysztof.kozlowski@linaro.org>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, mani@kernel.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, alim.akhtar@samsung.com, vkoul@kernel.org,
-	kishon@kernel.org, arnd@arndb.de, m.szyprowski@samsung.com,
-	jh80.chung@samsung.com, pankaj.dubey@samsung.com
-Subject: Re: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
-Message-ID: <20250819150727.GA586493@bhelgaas>
+	id 1uoNyj-0000000Ar7r-1gPP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 15:10:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CBBDsj6ymq+6yk3V3nuDioi8Kht+r04RXOH40awzEedkST8nUf6UXrjUzABsOsGJhEmsoQcg8EABngVMV0QtvvcGQektRrJt1B5GDgfSqLL7Vr+ZtARoTfBVF2o4ykXN3EMnxtLcRAvW6tXQy/WphXKdgYBGRQTlwklYoRPzpmb26yEMKl0J+2ov7Fu1mcVNzm4CXLkfa+TuM5pq1xrqXf6+dmhpuOOUtrJ/7uzW58a6RH/wDAEpyRDGPxKSAfuMsunyBzDvoqr8kmpU9MkygVc17sXWGOtgbAwN5KWq9BQ+0E39IZxpcN8U1Nx00/1qmbxqwI5QpD7v+QuhlbPEbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FVXA3Kl7v914g49l8KxgyN21uNA8RghoGseL8TrFCjo=;
+ b=m/WXy/8PavrnOT5A/GHTNkB7TRyfEnZvq+AWigjqdPYggMejnfA6bmdv8EK9dYGccZaBhW/UFkVLW6ixpAkhfBCdcqpaF1/BtjxCikzUOBTxZJgT52lDT5/82BjjIYrXACv0lco2AgFXxaJVcMMvGgiDtIJdcWzuxfBbg3ZOB10r3pGT6MBrVY1yta7pwYyVw6/HByNLoKdsPU/eWBY0iB3SLF1mlyJ3xoug03t07E6GVDtLrbNICZ0qDcCgOV/X4JI7v0Y9oL62IZxiwv/n8+5w0sFxsgukKFjEmQtIUzJ1FZkFSx7gyzG/djZCXpQfry/veHpFE6c/1mr+fYtaZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FVXA3Kl7v914g49l8KxgyN21uNA8RghoGseL8TrFCjo=;
+ b=oGDilV6fz1Xbs+SXj4rFoUGa5JYJgRHKvpZdFq9C7fme7lDA7J3CSwXiDzsgPGS7O5ewyQMMlN+7sv+Ya95SoHezOCIG/3LioBrqCUTxQy0zi9yK2JBx8PGTmynCE93nLMG5XLrC5cNNhbrQePCiFJRVM9i9NnVpEfArIJ5n+a0=
+Received: from BY5PR12MB4212.namprd12.prod.outlook.com (2603:10b6:a03:202::8)
+ by MW4PR12MB7030.namprd12.prod.outlook.com (2603:10b6:303:20a::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.25; Tue, 19 Aug
+ 2025 15:10:16 +0000
+Received: from BY5PR12MB4212.namprd12.prod.outlook.com
+ ([fe80::c03b:dbbb:7472:fb15]) by BY5PR12MB4212.namprd12.prod.outlook.com
+ ([fe80::c03b:dbbb:7472:fb15%5]) with mapi id 15.20.9031.023; Tue, 19 Aug 2025
+ 15:10:16 +0000
+From: "O'Griofa, Conall" <conall.ogriofa@amd.com>
+To: "Erim, Salih" <Salih.Erim@amd.com>, "Erim, Salih" <Salih.Erim@amd.com>,
+	"jic23@kernel.org" <jic23@kernel.org>
+CC: "dlechner@baylibre.com" <dlechner@baylibre.com>, "nuno.sa@analog.com"
+	<nuno.sa@analog.com>, "andy@kernel.org" <andy@kernel.org>, "Simek, Michal"
+	<michal.simek@amd.com>, "linux-iio@vger.kernel.org"
+	<linux-iio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>
+Subject: RE: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+Thread-Topic: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+Thread-Index: AQHcERqvGY44VKDuf0SuYOy609Pw77RqFGpw
+Date: Tue, 19 Aug 2025 15:10:15 +0000
+Message-ID: <BY5PR12MB4212A540F9799D6F326003388B30A@BY5PR12MB4212.namprd12.prod.outlook.com>
+References: <20250819150448.1979170-1-salih.erim@amd.com>
+In-Reply-To: <20250819150448.1979170-1-salih.erim@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-08-19T15:09:51.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BY5PR12MB4212:EE_|MW4PR12MB7030:EE_
+x-ms-office365-filtering-correlation-id: 0db61388-be50-4a5d-b639-08dddf3280e7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700018|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?pLgh6y25B75yrqQm5ZacoAfa2Q1Yxlz+7bNQmv4YJ7RjvmFOKiWSbDwnwwO8?=
+ =?us-ascii?Q?UR44zmF/MbrDgHzqTZZuW/I66g7qrZI+xF+WePZwrbvhOU7L3EUAQzFPkK3n?=
+ =?us-ascii?Q?X3R02yzJTf4hs3KTd4Z+70/W5IWSFtA2zTM1cjLuer4agHj86XEDqFuhCpZQ?=
+ =?us-ascii?Q?yPwjMYg4t8zmCawsHE6jba/KSX2+PgbHbkYELI8QBshvrv9MVriZhNxiXITo?=
+ =?us-ascii?Q?vqKhcOiilJfjX8u9vhqAQEKgT4jGsXz8uXBBKt5atgvbop3NQ1T1rwduGvOV?=
+ =?us-ascii?Q?qOTrHMitmqCpEbNxu8kuz7bHgfy04gnLVaYPHF3vcEXvU8wH+6NW+SJDEGlk?=
+ =?us-ascii?Q?RW2/sBnJa3HVLzXENbpoxoG0KWoOjbAdyIc4sNj0eS7ezvjT6nBMpSwZlSF8?=
+ =?us-ascii?Q?zry9GrxaT+ZWXSxhzeNp8RsjXNua7E5MImQQliFjPrADtGgDR5WmD+6bzGya?=
+ =?us-ascii?Q?sjv2jtVfr8+SZCUPGywQHoOME9WLPvioBTxNHOsB9fr7BQcZeD9dPWU/mNEL?=
+ =?us-ascii?Q?mD/uj40Ba3gjWYyAtDQn+q260HH8QFcRTqJcpNmLjQxbY9mdg/fdXWy40zJ3?=
+ =?us-ascii?Q?YmJ0E6o2oB4FdLf+UaEKv90iBembGiTVVShO/hgdPVkJpvDgLRI7f2pYobkk?=
+ =?us-ascii?Q?fEWb5CFUiWcdVxrWLJ5j720lfHB4TT6hm/EYNY4Ywgh7b6HPXFVLjOHN//ND?=
+ =?us-ascii?Q?Hi4r0xMglkFOlg6QR7p7Ge1gXJXHd56NE+XztpQFpzNAXkLa8qEVmjYByDbo?=
+ =?us-ascii?Q?BpWCVUmvEanVeoFyFphHC+34HIsrlyO1FW3Lawaaqrsj5/PCGddjSDlTUjQE?=
+ =?us-ascii?Q?+9SpqMNFAB/9qNkPNP3T4aJ4CQ2+Bqu1PJUq+1J8ZnCnNSgxQJsxHyBPz6NQ?=
+ =?us-ascii?Q?kQIz5PazyrqqTP5weNEiMrTm8VGyT17KYskDHp3Lt6ActRUbTNN6MbdL+NmR?=
+ =?us-ascii?Q?r6xsoYDe/QLiwsm8746rMQykO+fZKYS1k1/jeKJLrhN+aVev5xUm4WgHxCR7?=
+ =?us-ascii?Q?RRF4Qfw4f26jKVSFxGEFYcWvCvWVd75DPcm1hdNe/NINAimlnWpT5z+XTcbO?=
+ =?us-ascii?Q?VlAFn2MyULEqPEkBPf+poYWJKRVNuZ6krZ7WVIfsW2iFana2KkvY5j2ayAza?=
+ =?us-ascii?Q?FIwjv/gwlRS9o9osEEJrMfNgRoXAJY+e3Nk+6gPzFMZsDnTyt15T0aau790r?=
+ =?us-ascii?Q?WTqaaaQ4R+jGnNgFqVJjndMR0+gZmChJ9VcjnNDNTYKGXLtK0IHYjSqxlrta?=
+ =?us-ascii?Q?glDV2Aehl6VGKhbRLvghr42+4wGVHPc7scIUhcv8ljNJZQcCkcnCPoRZL1wr?=
+ =?us-ascii?Q?ENISTelzCoFqh9+0gQtevtJaEX9syqGb/6eNP2P7IPV0/43E6x+TuuZSarvS?=
+ =?us-ascii?Q?1BtQ4yaSP7eCSXIHTQGi8WYra3iKH99/el5/O+KbzFar7bDpd82CNC/ananm?=
+ =?us-ascii?Q?OEpJmjub9AM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR12MB4212.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700018)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DUZ4q+w+lnsX/HGXDSdV8NMklF/JeYxD2zbMGlrQPS/kByXZpgVGgsiANqYL?=
+ =?us-ascii?Q?4XAsvhFtTWJM9yuXfTqGPqiVrAod/h9hSPB29d7FhvHAcFmKJ/WQehguvNBz?=
+ =?us-ascii?Q?bezaLHfNbZEPE6gZ8jSbpfLc22vhGgysKB6+UKmSxVJ2KZiawZm4Eguf5lr3?=
+ =?us-ascii?Q?5oBQvaq13eJq38I4nwI0+jSsLAguU2rrhsHqN5IOKDheirqU0w98N3ieMf9J?=
+ =?us-ascii?Q?MDUClC4V5ALzSLqYJn0llaWQ1KMRMH2iIVaIeZ+xtWuDctMDLobM/o7CRkZ0?=
+ =?us-ascii?Q?BRZFVsv49vcSAxA7DV3OPl6RhFbd7yoRsDjXj8K7H925ArUyFmBOx52tyHAG?=
+ =?us-ascii?Q?meFB1pVy3ENnGHbrlxmjZs8HwZ2p13RAfQOywDNxqpk1Xqisof3E3WaJmtRd?=
+ =?us-ascii?Q?fjycGKfMEKfGHFrq6UWIvkKYHdkNeJ5vYrTY+0toqNZJjnpSKCxPSUAZWIhb?=
+ =?us-ascii?Q?5MRFJAH2wWK8sAICNbsT+VFmOX62ZAEWMazci2hq9jAqWbk165kXaFeoJjS2?=
+ =?us-ascii?Q?GJfDmPS5mH4VddPxFgUc0U5qjHtzYaTl9mWqL1h6WWeZf9hS7Mfk/LdIKD4B?=
+ =?us-ascii?Q?t0TroN0B9pzoH0cXx996oAQCHNVO9xH1gQht5PDizhHKRJxo0XBynJYDgJln?=
+ =?us-ascii?Q?pEzR/cAbzNhf3MZSbsQtoIVtbCSXva5nir99Vek+KXeXH5M33aFihijkMo0q?=
+ =?us-ascii?Q?URcTnuUZKQ/izGtTekxX8dNfmNPjaxtN+Bwz0g74wlbMMymnAqomZpF787V8?=
+ =?us-ascii?Q?Z+NgzXQ3kUmFAxsrMAAGIATWXUOXO6MI9JwdS794vf4XopPv4HL1BN2DFLx5?=
+ =?us-ascii?Q?/tatygHt8/BOlvg4jqsz2LDNfWmhBfqdCsuBRsNVp2lU3sSL+Jt3u3fsqCg7?=
+ =?us-ascii?Q?5mBpIEUTJekLjhdds4bkaF6yHhoQXKHZgaGBc9KhbRt4Ppg1rwsiTrRw0ijH?=
+ =?us-ascii?Q?eHSXEOvrG2JfIoHlfrCIl9YM/sLHCYOuDx9D1id/cab3UfMOGqDAEX8cxviz?=
+ =?us-ascii?Q?s2bmHwhMfB2rFJALsEZtxS8O/PmQMA5kP+RGwXSz5Qy4H/MAvxtQ9PzV82Kr?=
+ =?us-ascii?Q?S1JWtRSkXqch7w2dY27N2HmicWONhGRJz3TddTBCQhIV5NMa6ghCzzuyiJNQ?=
+ =?us-ascii?Q?ryzUZ2o6KPFFq72ClvwwQetinX2Yk+cmqqdNF44GxjcwQ36YN/ApV5h5QWcd?=
+ =?us-ascii?Q?hTPaZNOk28igm2sQ4ObYd+G1uqmsrZAjkB7kpgW04+VRgvl2fE5MFCBLidjo?=
+ =?us-ascii?Q?RHspLNL+M4Z2WjjJo5DMrHSg2pxVOmXnIsLs1zhzTDLnJOE4GL1MLFlQCup3?=
+ =?us-ascii?Q?qBDn/424MmSLZE1nYmN6Ls5oL2EKcHN2E02sFtE6Cr5SKp6GSsct/zQesTlv?=
+ =?us-ascii?Q?4++ZgLCCRRovaJ0YqUMex+ktFMosLpbasDs6jcwxpK78Q+nLmwUmUcroYsQ6?=
+ =?us-ascii?Q?O6k7ujIFKYLerbUZaYnvxCLoVzqbM2qKnCrxWCp2nyOCDc1TGgqkrMuvNFJ4?=
+ =?us-ascii?Q?UBAh00pNsL7s1m8OpM45gYwya5Edlh4Ln11q/JdWG+Jc7px5xUSflkG649z4?=
+ =?us-ascii?Q?zfqJ2Ie5MC7wux04xHE=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <00b501dc10fd$f1fecc10$d5fc6430$@samsung.com>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR12MB4212.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0db61388-be50-4a5d-b639-08dddf3280e7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2025 15:10:15.7144
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: aMRMZrbgJ/GMb6bsUwAILTREWKCZAN2oc1m1Vc3ZWiKH7dp3Qpgvcp5cNx+QUt00
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_080734_045306_C71E7F70 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250819_081025_440173_DBC72E60 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +167,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 05:09:34PM +0530, Shradha Todi wrote:
-> ...
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-> > Another question about the test:
-> > 
-> >   if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
-> > 
-> > This assumes there are no other bits in FSD_IRQ2_STS that could be
-> > set.  I would have expected a test like this:
-> > 
-> >   if (val & FSD_IRQ_MSI_ENABLE) {
-> 
-> Thanks for pointing this out. FSD_IRQ_MSI_ENABLE is a single-bit, so there
-> is no functional difference in the two statements. I didn't have a specific
-> reason for using "== FSD_IRQ_MSI_ENABLE".
-> But I see that "val & FSD_IRQ_MSI_ENABLE" would have been the more
-> standard way to write this. I will update this for clarity.
+Acked-by: O'Griofa, Conall <conall.ogriofa@amd.com>
 
-Oof, sorry, I don't know what I was thinking.  You're right, it's OK
-as is.  But "val & FSD_IRQ_MSI_ENABLE" *is* shorter and more
-idiomatic, so I think preferable anyway.
+> -----Original Message-----
+> From: Salih Erim <salih.erim@amd.com>
+> Sent: 19 August 2025 16:05
+> To: Erim, Salih <Salih.Erim@amd.com>; O'Griofa, Conall
+> <conall.ogriofa@amd.com>; jic23@kernel.org
+> Cc: dlechner@baylibre.com; nuno.sa@analog.com; andy@kernel.org; Simek,
+> Michal <michal.simek@amd.com>; linux-iio@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> devicetree@vger.kernel.org
+> Subject: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+>
+> Removes Anand Ashok from maintainers and adds Salih and Conall as new
+> maintainers.
+>
+> Signed-off-by: Salih Erim <salih.erim@amd.com>
+> ---
+>  Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml | 3 ++-
+>  MAINTAINERS                                                    | 3 ++-
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.ya=
+ml
+> b/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
+> index a403392fb263..3ae1a0bab38f 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
+> @@ -7,7 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: Xilinx Zynq Ultrascale AMS controller
+>
+>  maintainers:
+> -  - Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>
+> +  - Salih Erim <salih.erim@amd.com>
+> +  - Conall O'Griofa <conall.ogriofa@amd.com>
+>
+>  description: |
+>    The AMS (Analog Monitoring System) includes an ADC as well as on-chip
+> sensors diff --git a/MAINTAINERS b/MAINTAINERS index
+> daf520a13bdf..b4b27a31a782 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -27537,7 +27537,8 @@ F:    include/uapi/linux/dqblk_xfs.h
+>  F:   include/uapi/linux/fsmap.h
+>
+>  XILINX AMS DRIVER
+> -M:   Anand Ashok Dumbre <anand.ashok.dumbre@xilinx.com>
+> +M:   Salih Erim <salih.erim@amd.com>
+> +M:   Conall O'Griofa <conall.ogriofa@amd.com>
+>  L:   linux-iio@vger.kernel.org
+>  S:   Maintained
+>  F:   Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml
+> --
+> 2.34.1
 
-Bjorn
 
