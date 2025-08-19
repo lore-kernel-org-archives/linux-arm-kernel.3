@@ -4,79 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0335CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 03:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E6CCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 03:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIWuG+WVJjNc2hcfx1hLo1CL1sEhZVXu1kn1PQUdOog=; b=HBAWsDH9TupCH+wg2RoMVqK/Vf
-	HyMciw7R/lJRno+320eRsGYlRu37mmvFkFzQxOTfGiXUTZvzT6jX0xfuohppVkDEm18NMkHzusl2D
-	qwoPe4VirH8Jj1q0O4CSfzJjVby39mlXvzlfXUjj352ke8hXfQq0kffU94us7obfMSXozNzxqZYnr
-	KonhYjtyUc+k8LP5zZQZOIM9o+bAmFR8786EKMiGYaSuffVkpPVY9u/WO5qfxNk75QK04gaADSFy6
-	rCFq4+eP1RJetfxxZMGhpKJjGLa1SnkkNlAZ57RJdJwxWU97JJUTvornhBvnd56I/jc4QD+qgk5aC
-	yuoSZJGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TufpTk6w8xSOTzbeKIrl7kQr4Qz9A3RXdfazBTLvPDg=; b=CH3RJgKxKb5Z+HTzaaA2rZz+JG
+	H0XsC7/dryWJXxVmBv8Ab8iFbozAdN7jfxll278et8/NFaD+5gnpSMPRyd6a+e1rQYWX383lT01AC
+	R3mIk/w9Lzp+TZCazI2mmWK+NWeS0P4WweuZsTYMbQIv4VLjknNKX91udchc80ugMgyMVDNr3VD2k
+	zT2ZnWhSdazz6nBkhvAR3FNhs1GgxU3sWjK4S1G+uG8G4TOLP0rTowhnOVo0zV/QijbI6e/hPRJX7
+	rElEjR8W06GobXbLIqsmyrrXQeTey3GbtWfSuiC5l4A036aMhSP/qsOHAY+bkDfzqLgqgBa+6Jljl
+	mdXwn1Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoDSj-00000009K1T-2U6B;
-	Tue, 19 Aug 2025 03:56:41 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoDAu-00000009HTR-1LU0;
-	Tue, 19 Aug 2025 03:38:17 +0000
-X-UUID: ecd7216c7cad11f09f706fa2197c6ceb-20250818
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=vIWuG+WVJjNc2hcfx1hLo1CL1sEhZVXu1kn1PQUdOog=;
-	b=OvJgfNkUw21g49uXU11j9E2EyeYsOpR6J6kpiQYfPstcisqXEe0QbL1dtWkWFh8eo+ZbQzLHzubYyDG2yWOOTZVOPRMHAqCTvcKll6I4AMmwpPbktYXwxIiMXYwzk70tavtIcdRcC+659oVsw5SYNFtmqfrdzcFUjS3N/zpDk0g=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:04e5663d-317d-42a6-aba2-370a5cf0201e,IP:0,UR
-	L:0,TC:0,Content:58,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:58
-X-CID-META: VersionHash:f1326cf,CLOUDID:b56212f4-66cd-4ff9-9728-6a6f64661009,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|801,TC:-5,Content:3|15|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ecd7216c7cad11f09f706fa2197c6ceb-20250818
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <xiandong.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 189241124; Mon, 18 Aug 2025 20:38:09 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 19 Aug 2025 11:38:05 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 19 Aug 2025 11:38:04 +0800
-From: Xiandong Wang <xiandong.wang@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Yongqiang Niu
-	<yongqiang.niu@mediatek.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<jh.hsu@mediatek.com>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	Xiandong Wang <xiandong.wang@mediatek.com>
-Subject: [PATCH v3 3/4] mailbox: mtk-cmdq: Add cmdq driver for mt8189
-Date: Tue, 19 Aug 2025 11:36:10 +0800
-Message-ID: <20250819033746.16405-4-xiandong.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250819033746.16405-1-xiandong.wang@mediatek.com>
-References: <20250819033746.16405-1-xiandong.wang@mediatek.com>
+	id 1uoDVQ-00000009Kv4-07Qa;
+	Tue, 19 Aug 2025 03:59:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoDGD-00000009IYg-1NeC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 03:43:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9790152B;
+	Mon, 18 Aug 2025 20:43:35 -0700 (PDT)
+Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C05703F58B;
+	Mon, 18 Aug 2025 20:43:40 -0700 (PDT)
+Message-ID: <cdc7bf7f-3237-43b7-ab9c-473fc65f0cad@arm.com>
+Date: Tue, 19 Aug 2025 09:13:37 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] arm64/sysreg: Update TCR_EL1 register
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mark Brown <broonie@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250818045759.672408-1-anshuman.khandual@arm.com>
+ <20250818045759.672408-2-anshuman.khandual@arm.com>
+ <aKLuQmfSi1Qg2och@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aKLuQmfSi1Qg2och@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_203816_365555_13B62E18 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250818_204345_447689_1535535D 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +69,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GCE platform data for MediaTek MT8189 to cmdq driver,
-enabling support for MT8189 SoC by register MT8189 platform
-data in gce_plat and device table.
 
-These changes ensure correct GCE operation for MT8189.
 
-Signed-off-by: Xiandong Wang <xiandong.wang@mediatek.com>
----
- drivers/mailbox/mtk-cmdq-mailbox.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+On 18/08/25 2:41 PM, Mark Rutland wrote:
+> On Mon, Aug 18, 2025 at 10:27:56AM +0530, Anshuman Khandual wrote:
+>> Update TCR_EL1 register fields as per latest ARM ARM DDI 0487 7.B and while
+>> here drop an explicit sysreg definition SYS_TCR_EL1 from sysreg.h, which is
+>> now redundant.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/sysreg.h |  2 --
+>>  arch/arm64/tools/sysreg         | 52 ++++++++++++++++++++++++++++-----
+>>  2 files changed, 44 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+>> index d5b5f2ae1afa..ad5c901af229 100644
+>> --- a/arch/arm64/include/asm/sysreg.h
+>> +++ b/arch/arm64/include/asm/sysreg.h
+>> @@ -281,8 +281,6 @@
+>>  #define SYS_RGSR_EL1			sys_reg(3, 0, 1, 0, 5)
+>>  #define SYS_GCR_EL1			sys_reg(3, 0, 1, 0, 6)
+>>  
+>> -#define SYS_TCR_EL1			sys_reg(3, 0, 2, 0, 2)
+>> -
+>>  #define SYS_APIAKEYLO_EL1		sys_reg(3, 0, 2, 1, 0)
+>>  #define SYS_APIAKEYHI_EL1		sys_reg(3, 0, 2, 1, 1)
+>>  #define SYS_APIBKEYLO_EL1		sys_reg(3, 0, 2, 1, 2)
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index 696ab1f32a67..4bdae8bb11dc 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -4756,17 +4756,53 @@ Field   37      TBI0
+>>  Field   36      AS
+>>  Res0    35
+>>  Field   34:32   IPS
+>> -Field   31:30   TG1
+>> -Field   29:28   SH1
+>> -Field   27:26   ORGN1
+>> -Field   25:24   IRGN1
+>> +UnsignedEnum   31:30   TG1
+>> +	0b01	16K
+>> +	0b10	4K
+>> +	0b11	64K
+>> +EndEnum
+> 
+> This is clearly not an ordered set.
+> 
+> This should just use Enum, not UnsignedEnum.
+> 
+> Likewise for all the other cases below.
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index 177de5ab0ab2..543cd86b5bb0 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -799,12 +799,22 @@ static const struct gce_plat gce_plat_mt8195 = {
- 	.gce_num = 2
- };
- 
-+static const struct gce_plat gce_plat_mt8189 = {
-+	.thread_nr = 32,
-+	.shift = 3,
-+	.mminfra_offset = 0x40000000, /* 1GB */
-+	.control_by_sw = false,
-+	.sw_ddr_en = true,
-+	.gce_num = 2
-+};
-+
- static const struct of_device_id cmdq_of_ids[] = {
- 	{.compatible = "mediatek,mt6779-gce", .data = (void *)&gce_plat_mt6779},
- 	{.compatible = "mediatek,mt8173-gce", .data = (void *)&gce_plat_mt8173},
- 	{.compatible = "mediatek,mt8183-gce", .data = (void *)&gce_plat_mt8183},
- 	{.compatible = "mediatek,mt8186-gce", .data = (void *)&gce_plat_mt8186},
- 	{.compatible = "mediatek,mt8188-gce", .data = (void *)&gce_plat_mt8188},
-+	{.compatible = "mediatek,mt8189-gce", .data = (void *)&gce_plat_mt8189},
- 	{.compatible = "mediatek,mt8192-gce", .data = (void *)&gce_plat_mt8192},
- 	{.compatible = "mediatek,mt8195-gce", .data = (void *)&gce_plat_mt8195},
- 	{}
--- 
-2.46.0
+Sure, will change.
+> 
+> Mark.
+> 
+>> +UnsignedEnum   29:28   SH1
+>> +	0b00	NONE
+>> +	0b10	OUTER
+>> +	0b11	INNER
+>> +EndEnum
+>> +UnsignedEnum   27:26  ORGN1
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>> +UnsignedEnum   25:24   IRGN1
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>>  Field   23      EPD1
+>>  Field   22      A1
+>>  Field   21:16   T1SZ
+>> -Field   15:14   TG0
+>> -Field   13:12   SH0
+>> -Field   11:10   ORGN0
+>> -Field   9:8     IRGN0
+>> +UnsignedEnum   15:14   TG0
+>> +	0b00	4K
+>> +	0b01	64K
+>> +	0b10	16K
+>> +EndEnum
+>> +UnsignedEnum   13:12   SH0
+>> +	0b00	NONE
+>> +	0b10	OUTER
+>> +	0b11	INNER
+>> +EndEnum
+>> +UnsignedEnum   11:10  ORGN0
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>> +UnsignedEnum   9:8   IRGN0
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>>  Field   7       EPD0
+>>  Res0    6
+>>  Field   5:0     T0SZ
+>> -- 
+>> 2.25.1
+>>
+>>
 
 
