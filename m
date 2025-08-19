@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10B8CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03470CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 09:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFC11YRDk3hLW4PFqQxAfzM0vOushhRghFk3Gc6p2xU=; b=2tgk8bsvqPw2xu1QvzSfMfnMT0
-	/WetjToAQkUy/CG1Hkc888uxRM3QQC6JOfoGgC0UX4fu1g0YH6fu7rsCXk17u/PtPaNtOsSOXYqLF
-	qMAzzWPAXt4IK6fQWUKAOAr+Q42TWI3/04HeGcp/RZk3vIXAwg+bRZKRDY+jLeZZZ7Ud1sihNa7xJ
-	WYSMPO5RpdnMQ4xUSiuVOxRKFjkWplzcpPhNS+u2Geg5cPwIkK51ed1NqLTRjqId2o8vpa6ujYLu7
-	VJT5RJIYmAw67cUJfsZdG3iVjPjMi4n+SGaIR5woQydBwg/NKNhYHdNaOTH6rVDTOZ6rzJKmuSGK8
-	KVuP2Udw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Bc1X/NnMh6JIzpgh7uq/jgkEpIGFmny+z9C05zPpng=; b=ika4Q7atziaG9NSpfjUgDQDk4m
+	hJb1v2H5iMYCM4ETt+Nr+IErbC5Z5wj41wzFR/W1HrUE5seXGCd4Em3a/VeiXJi3aaFjq8XLLIU7I
+	4rmmbbhqZjhen4fu8hysjOwMyv6nfPxYLIm0j02ZpjQfV1fMqAqyu1GEojJR+Q3MYoway49pR1tZc
+	57XTeVM94x9h+SkrTjn9GGnhoizJSmY2dsqECBKmQ+GyuavXGSXamaLdCBbJPAX8BK6eXJMDiXwUY
+	Tkvcx3qSKxVwcyub35MSEKiVruJjzTsoP2+ZpF/7v4aCZmsrE1mFQKdwS69wfYrrUwBCN2yWEh6iB
+	DpvUvr1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIWA-00000009w8i-0Pli;
-	Tue, 19 Aug 2025 09:20:34 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uoIYj-00000009wVQ-3joH;
+	Tue, 19 Aug 2025 09:23:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHwz-00000009qDT-3QZn
+	id 1uoHye-00000009qT7-3xVv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 08:44:14 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3bb61aff394so347517f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 01:44:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755593052; x=1756197852; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oFC11YRDk3hLW4PFqQxAfzM0vOushhRghFk3Gc6p2xU=;
-        b=c+vAwU5nruLYNvP1nKqTgOloH+srR5v0hzilcD6uFu4E+xMw5kjR5zz/aDCSD77Uz6
-         juusCfnhprGC0qPS+9vZ3VAXi7s44mb5x7z5z3PJ1ed+Cag4neflHZV6MXX8VXYD3+cm
-         nKNw3e7JO++/igR3WFdZ/YzmcANkqTPtpGmKqSfjpGU6Kbdu1OjpKg6ADh5XmreX5GYy
-         M8E6atCUl2IWHCJ15Tk7yeOv/kr47ZgldmeJW4I87G1SJoY2GNIH6ArsM38PJEcGOU8S
-         soIO1ie3oTwNB4oN5O723+ocdAAqDCYi2kKlVDZj47uNwEC8SEEOfpHx60xB9i/byZyv
-         YG9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755593052; x=1756197852;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oFC11YRDk3hLW4PFqQxAfzM0vOushhRghFk3Gc6p2xU=;
-        b=mqwof/+4agGcqffuMxXDkMPIJEAIQYXNfJRUgFcCbafTTMtm/quiNVoewe2ZvDSle2
-         +2nwgdojnxjF5I9w8Za7a9bq4iznwMbdS8AZjt4VSpCu5+VZRxBWAbd+woyrNzbXidhL
-         BAZVPSOdk7PBUdAlldESBXesDV8JLwNoaB3bK25uRBXfvfHhUdQq79cnHDPeCMksfca0
-         oP92ch2qdaG2dn0Ir8BJVBdgYg85i0jdHS5IW5U1fmK3w97LgWCEUm/EwbB6mVzU5qYq
-         Pq/XeMxSFqfnGelYDk4XhzgBicoxPsUmX0O1A1iV6TOb201cFWFhfhty3LyZG93T9zlQ
-         IsBA==
-X-Forwarded-Encrypted: i=1; AJvYcCWGzJPfFD6ruTFmxnGAjFcJNZfbxl9yJLLSTc5BPPOl9qSKWefQk2x0D8IeNn5yOz2OUb6PXTGiZLEmFN13F9Lk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2Wj04tNei8mjm0SYgnKt8gYQc1Fu40pPh//6j0ZmgPe75jVYu
-	YcNk44UrPF6f7CtSkapSviUQGuNkgmGe0bmd6Tzik/pzB0mb4a7MG8J3
-X-Gm-Gg: ASbGnculXIaJi//ZV3DNFykFheasEN/BImvBOblX35mLbi5nhVT9M+XkonzTXsLdtmq
-	shbxW99tBlo4CH7kZNBcfHnYv+iULLlCd9yR5aha72q/17FcdWFk679VU7Azd2O0ruM7kGnYWFR
-	XsVY2ih8GTNDanwvI6Qv+37MLvSOnvwrYq8rAYH/pDqrNDHOu5uaaQz3XIZ/YXrRkw/p3W2uHoL
-	ehXw4aEZwwgDYArcY8kNktbQULh3lql8JP3OhI+YTycFLhw7ckkZTQ/NKsTKbrCy0IDt7W5ydyj
-	oEa3ffwnVZrX4be5SnO7Lxi7zNQuz7ktT2D7hCIvtSjMvRgCj0pxiwXKmNdldeSguXMmZTYhJz4
-	Xg4E+00i8r7Uijzln3eoSbt/9NNbltC8UQnQcJKUvXNRP7GU0E9Mx
-X-Google-Smtp-Source: AGHT+IHofOdCeurN0rfQapxXw3T6dAf9uK8p0WB3BrcvzYJ1fUnpaHB4/Gv3aeR19imEmN6Xr0Vjbg==
-X-Received: by 2002:a05:6000:2884:b0:3b7:78c8:f23e with SMTP id ffacd0b85a97d-3c0ebfa85b3mr546045f8f.7.1755593051742;
-        Tue, 19 Aug 2025 01:44:11 -0700 (PDT)
-Received: from [192.168.100.5] ([149.3.87.76])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c074d43987sm2789350f8f.16.2025.08.19.01.44.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 01:44:11 -0700 (PDT)
-Message-ID: <17e83e3c-1314-4198-82eb-ffc18454e344@gmail.com>
-Date: Tue, 19 Aug 2025 12:44:09 +0400
+	Tue, 19 Aug 2025 08:45:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E1D125C5B99;
+	Tue, 19 Aug 2025 08:45:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9847DC116B1;
+	Tue, 19 Aug 2025 08:45:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755593155;
+	bh=GPOYK31qtoIEKqYJTIvUmVftyya/G7B893eokpWAOLw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MJ7QZoRY+YfkgplaAKdBhgdnZ1mgxJVxtoeFh9f3bYPMFNOfzgh8l6gbK7MtCpkeG
+	 Wr/LnrFaJ3P8ksQcW5/C0LcSxTjm/wAP4AsSQ3Hv4wzc168nDosYbTwdqQZcNiGoA8
+	 cQpuQVLv0XukgdDeaAjpr6tf4lZEzRuMa/D0BnEJ09qoT1xJD0roVHgXNBp6JNz3aV
+	 D23fJfH3JFwey5lsuExBf5/qMJpnJEQzR1RXuvks/4KdgcdZgRHyyO9E+ABU4N/Ij2
+	 /wjiCT8oH6+mHA+s3DlErVhfAAwh8gWqcRwwoDXnYhik+0QhPMhOlTaPE80daWJE4P
+	 lwPcZq08bSBiQ==
+Date: Tue, 19 Aug 2025 14:15:44 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	bhelgaas@google.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: PCI: dwc: Add vaux regulator
+Message-ID: <qnbwtgsl23we56tzdt2bih644uqrojwssa7d73a3s7hpsfc3v2@4653fhoitmpz>
+References: <20250819071630.1813134-1-hongxing.zhu@nxp.com>
+ <20250819071630.1813134-2-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/mm: Update create_kpti_ng_temp_pgd() to handle
- pgtable_alloc failure
-To: David Hildenbrand <david@redhat.com>,
- Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>, Joey Gouly <joey.gouly@arm.com>
-References: <20250813145607.1612234-1-chaitanyas.prakash@arm.com>
- <20250813145607.1612234-3-chaitanyas.prakash@arm.com>
- <4289fc02-8e09-4d33-a4a1-0e4b268b008c@redhat.com>
-Content-Language: en-US
-From: Giorgi Tchankvetadze <giorgitchankvetadze1997@gmail.com>
-In-Reply-To: <4289fc02-8e09-4d33-a4a1-0e4b268b008c@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250819071630.1813134-2-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_014413_856471_CFBAE154 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250819_014557_099766_E9F14D04 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Smart! BUG_ON() ends up in the generic “kernel bug” path, which on many 
-distros is configured to continue after printing the back-trace (e.g. 
-panic_on_oops=0).
-Since a memory-allocation failure in early boot is unrecoverable , we 
-must force a halt.
-
-On 8/19/2025 11:41 AM, David Hildenbrand wrote:
-> On 13.08.25 16:56, Chaitanya S Prakash wrote:
->> create_kpti_ng_temp_pgd() was created as an alias for void returning
->> __create_pgd_mapping_locked() and relied on pgtable_alloc() to BUG_ON()
->> if an allocation failure occurred. But as __create_pgd_mapping_locked()
->> has been updated as a part of the error propagation patch to return a
->> non-void value, update create_kpti_ng_temp_pgd() to act as a wrapper
->> around __create_pgd_mapping_locked() and BUG_ON() on ret being a non
->> zero value.
+On Tue, Aug 19, 2025 at 03:16:29PM GMT, Richard Zhu wrote:
+> Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
+> asserted by the Add-in Card when all its functions are in D3Cold state
+> and at least one of its functions is enabled for wakeup generation.
 > 
-> If  my memory serves me right, panic() is preferred in such unexpected 
-> early-boot scenarios (BUG_ON is frowned upon), where you can actually 
-> print what is going wrong.
+> The 3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+> process. Since the main power supply would be gated off to let Add-in
+> Card to be in D3Cold, add the vaux and keep it enabled to power up WAKE#
+> circuit for the entire PCIe controller lifecycle when WAKE# is supported.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  .../devicetree/bindings/pci/snps,dw-pcie-common.yaml        | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> index 34594972d8dbe..5283f51388584 100644
+> --- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> +++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml
+> @@ -262,6 +262,12 @@ properties:
+>  
+>    dma-coherent: true
+>  
+> +  vaux-supply:
+> +    description: Should specify the regulator in charge of power source
+> +      of the WAKE# generation on the PCIe connector. When the WAKE# is
+> +      enabled, this regualor would be always on and used to power up
+> +      WAKE# circuit.
+
+3.3Vaux supply is already documented in the dtschema:
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-bus-common.yaml#L179
+
+So you should use that instead.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
