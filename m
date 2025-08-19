@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFC0CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 05:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCFACA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 05:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fga+lbodUmPAZazOf43yy1bTgzdU2LByeFqojuOQ83w=; b=Sd6UpLFiO9PS98z2LD/9QhXGJJ
-	MvGrjElxkgpNj3qsVF9SK7r5Mbbv/5HkpGpXKNBnbpRwO0w3RgOzBqx0MUF96egDOXIdXKdQl1UKh
-	VsAjFTEXWS7ruEmsDimEqwOtTlgpEbADW9ZGa3xxFCncwGyCMB/9LS1J0EVzTGiRDn18sPpuKAmnR
-	nRPnl11vJ4Im1+kDP7gVVem9eHmLX0Mk6JKgJh1NjYuZi0zebaKoHUKN9qgsnSQcwLyZtpH4YMi2i
-	f/+2ImWpAorbsChWDQzBwBd5lzTy+Qr0/ro0TDbnGdsij2anX90ZPCjDu1bgDJ5jfq1UA4YwHykhH
-	MoqUam/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bcPL8o8Z4XmsLGjpASl8k9Dx4lA/LaSxR/sG1Qa60vw=; b=Oup7AKOBEzkTBwGvO21XuZmi2C
+	OuxkBYMmgDIqOXfht7tESUn5YQjwZhYRbwfKOyrcwJDWshGx51ZyFMPg9Rd+bdFTMgC91pU5pX5EY
+	w1W12ueWHNYyq0xiFzvlCSm2I7MosSNXSnDmPXgSVWn8hcK9Q4zfKNwzNb2dBoHsI4Bek/xhiFB+l
+	Q4nmvXrpUAHmgg6mm+jasXnTYgeySjkUe0fq2vxIvK/UDyhMElrSwQFnY74fzlvRzcQFGW/ugpDYL
+	KxYu8XkO5M1aoRmVKvAJ2ING0mbrJaTap4WTyAF7NR5FTqYwpg2F472zmHy1ZQ/rrAkNdlpX+X4Gx
+	RPX7jqAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoEbh-00000009PYJ-31XE;
-	Tue, 19 Aug 2025 05:10:01 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uoEeG-00000009Phq-22Ln;
+	Tue, 19 Aug 2025 05:12:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoEZ7-00000009POt-1Nd2
+	id 1uoEZx-00000009PS6-3zpr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 05:07:22 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-45a1b065d59so24397775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 22:07:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1755580039; x=1756184839; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fga+lbodUmPAZazOf43yy1bTgzdU2LByeFqojuOQ83w=;
-        b=fGBpbrh7qpE+r1p0RwbFBF65Gd/DCqr79q3QlI/gANOm2rKh0FjL5CUwl/bTbmq4yV
-         juM2zMRz0Y+Hf2Lg21gPofjzvzlctVGHnD5HskohSeM5+PAOZ+epFziqryxZ55Sya/qh
-         vTX2kx59byg37Z2nxjoBds4Orc6WXyV4pB/2TiBccwDK6+m/FdcuVNdBg27ypre2s19x
-         wsH9ZOOMPheUGHlAjlAC7afwyV6JE/4ggEltfVICXgBkyxBo04sGRsp0GgR1pDQz91BL
-         GJ27nMq3ZkfV2JDKdlo3hilNB3TnsrXQBrsvLrkKtVwANBO1mPqjiLB107y0v2ZFdRkE
-         fQZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755580039; x=1756184839;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fga+lbodUmPAZazOf43yy1bTgzdU2LByeFqojuOQ83w=;
-        b=uGNEeylW9tl4Ng3tXfuVZUjLDhimxOysKSGkL/vl8w7TNxA2Ph7KCkNTS6AFyO+0Ij
-         +cVHedpBG+SrGDNztGgkah0FlGpa558StfCuhPYCD9yVbqd0k5Uh1OiHQN6hipGtrnP3
-         y/g18BYo00VjgMZ388hiSYoHH82/eaRJYRTc3Br/DBboxILk0XFATFWHwk8fP4cXxBJN
-         G08yw0db//UbZKhXseuh9sd5K0liH+OOWKLlZzlePs4tuKiWKlA45mqNS0gfH4+P9JjJ
-         DnRNRS10hP8//7ZiqbetkGGFhtSOBIXhbe8Wd8FedVfQesQB8MVFocWgAHdu/NKxoC4v
-         Wlug==
-X-Forwarded-Encrypted: i=1; AJvYcCVJ5aicfD9WErgVahLhxB+kpnazPmaBYmRTI4Jc5+7v8tKzmAAiJK/yODJppY7IjQSKDq4MYZMHrLqYDCw3p82M@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQhyxuS/E4bkBx8E0jSn3QgK+xUbOCttxNat+CDZwAX6eofXEQ
-	50SgTLU/aJ3F3j7brIDf6alzQknu5U8Nc7Z+xYnBNizWdBJTa5TQBUCTZ5DKKSHDsx4=
-X-Gm-Gg: ASbGncuAoVXK0tHPuyC1yc8DfDzJc0WqfmMDgcKzaCmdabyH9HqtT16gIxtyyEDQ8oA
-	1ApdlRdypkMREdG7PVy6+o04GSCoLyc3m01cANVcYz8Cf7/dK9yHhNk554Y5mVfF/kvNcl+tVT0
-	9bGu5v2mYvfkafKJG+61Om/M8cLMZAj7UJ+DCTPB+QLAJj1OopKh8ARYMmOcsctzFPlsPsmWPl3
-	xfR+9PlInJe+2k9LebMgF9EKH4AlvU3ALP/45Wta/p3OSWjCikja1WbHg9IYm45bI0IQy8BsWpp
-	As3wsurZ+QykBI1yVwTr+nd0BRXH1Me5z6MWXBTkIuqFDq9dCLxFFR4MmPMqWEsgxxQXXVEv8jQ
-	QqFMUnde+kiQUZWTXPUdL5aCffXfiXpABv1iMzWYKnfKiakjCMTSOsrWEXQjnbp3RzJRofjUPtN
-	S2kw==
-X-Google-Smtp-Source: AGHT+IEGAIFSV01YojFxZG6ti+gZSOdnTisUwlACnGc8HPzYTSLd/Yrx6ey+bzDVw52KF6DYn9VA+A==
-X-Received: by 2002:a05:6000:2485:b0:3aa:34f4:d437 with SMTP id ffacd0b85a97d-3c0ecc31e8fmr784959f8f.37.1755580039233;
-        Mon, 18 Aug 2025 22:07:19 -0700 (PDT)
-Received: from ?IPV6:2a02:2f04:620a:8b00:4343:2ee6:dba1:7917? ([2a02:2f04:620a:8b00:4343:2ee6:dba1:7917])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c074879fe5sm2018512f8f.2.2025.08.18.22.07.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Aug 2025 22:07:18 -0700 (PDT)
-Message-ID: <d00ce701-2ddd-485e-8bfd-12cddec62fef@tuxon.dev>
-Date: Tue, 19 Aug 2025 08:07:16 +0300
+	Tue, 19 Aug 2025 05:08:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D836601FF;
+	Tue, 19 Aug 2025 05:08:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1C7FC4CEF4;
+	Tue, 19 Aug 2025 05:08:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755580092;
+	bh=v8ckINysU01zdhrDxYflMq4LyhKbfk5+seby+1Vuep0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EOVzgR6P8ZuYW6G/v1G9RUH3Fa2+XpSzz1TkLHsRKDbq2Vn1K6UFEC33TOxUAcruN
+	 tLTUz1siRWJn7b+cUwdprNOyjDYufOZcmLEru8HCNrUgtRDFPyjW4YfIbsyuzdU3vW
+	 5jGw/AAfC124CDX+foVBZCj8qKkXWY8DcjNKQv3xt/upGLJdKSdwaqt0/KqsoMo1B+
+	 KRPUVuVPg/4xU5qzKD+jRnZzC1jEy4jXL0oPGws8Jn5yTdzxK1GG1iD1lyZyOoXFXA
+	 Ff8t622Tq1tq40otnIZjiD1tXp3624zVnExt04b7X0uKGGRBxbnw9VFnSXjak5kctL
+	 KR+I+/zzoJb6A==
+Date: Tue, 19 Aug 2025 10:38:08 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Charles Keepax <ckeepax@opensource.cirrus.com>
+Cc: Takashi Iwai <tiwai@suse.de>, Joris Verhaegen <verhaegen@google.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org,
+	Miller Liang <millerliang@google.com>
+Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add
+ SNDRV_COMPRESS_TSTAMP64 ioctl
+Message-ID: <aKQGuPgwXE-Unzeq@vaman>
+References: <20250801092720.1845282-1-verhaegen@google.com>
+ <20250801092720.1845282-3-verhaegen@google.com>
+ <aJGM2zXS6hOLDFm1@vaman>
+ <87h5ym1f75.wl-tiwai@suse.de>
+ <aKMzGRzeRqkOwTNS@opensource.cirrus.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/6] soc: renesas: rz-sysc: Add syscon/regmap support
-To: John Madieu <john.madieu.xa@bp.renesas.com>, geert+renesas@glider.be,
- magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
- rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
- lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, catalin.marinas@arm.com,
- will@kernel.org
-Cc: john.madieu@gmail.com, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, biju.das.jz@bp.renesas.com,
- linux-arm-kernel@lists.infradead.org,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-References: <20250818162859.9661-1-john.madieu.xa@bp.renesas.com>
- <20250818162859.9661-2-john.madieu.xa@bp.renesas.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20250818162859.9661-2-john.madieu.xa@bp.renesas.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_220721_484639_2A7F848C 
-X-CRM114-Status: GOOD (  11.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKMzGRzeRqkOwTNS@opensource.cirrus.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,25 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 18-08-25, 15:05, Charles Keepax wrote:
+> On Tue, Aug 05, 2025 at 07:59:42AM +0200, Takashi Iwai wrote:
+> > On Tue, 05 Aug 2025 06:47:59 +0200,
+> > Vinod Koul wrote:
+> > > On 01-08-25, 10:27, Joris Verhaegen wrote:
+> > > >  	ret = snd_compr_update_tstamp(stream, &tstamp64);
+> > > >  	if (ret == 0) {
+> > > > -		snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> > > > -		ret = copy_to_user((struct snd_compr_tstamp __user *)arg,
+> > > > -				   &tstamp32, sizeof(tstamp32)) ?
+> > > > +		if (is_32bit) {
+> > > > +			snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> > > > +			copy_from = &tstamp32;
+> > > > +			copy_size = sizeof(tstamp32);
+> > > > +		}
+> > > 
+> > > Most of the applications and people would be 32bit right now and we
+> > > expect this to progressively change, but then this imposes a penalty as
+> > > default path is 64 bit, since we expect this ioctl to be called very
+> > > frequently, should we do this optimization for 64bit here?
+> > 
+> > Through a quick glance over the patch, I don't think you'll hit the
+> > significant performance loss.  It's merely a few bytes of extra copies
+> > before copy_to_user(), after all.  But, of course, it'd be more
+> > convincing if anyone can test and give the actual numbers.
 
+That would be better
 
-On 8/18/25 19:28, John Madieu wrote:
-> The RZ/G3E system controller has various registers that control or report
-> some properties specific to individual IPs. The regmap is registered as a
-> syscon device to allow these IP drivers to access the registers through the
-> regmap API.
-> 
-> As other RZ SoCs might have custom read/write callbacks or max-offsets,
-> register a custom regmap configuration.
-> 
-> Signed-off-by: John Madieu<john.madieu.xa@bp.renesas.com>
-> [claudiu.beznea:
->   - do not check the match->data validity in rz_sysc_probe() as it is
->     always valid
->   - dinamically allocate regmap_cfg]
-> Signed-off-by: Claudiu Beznea<claudiu.beznea.uj@bp.renesas.com>
+> I am inclined to agree the impact should be very minimal and the
+> only alternative is a more complex implementation. I would vote
+> for leaving this as is.
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Tested-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com> # on RZ/G3S
+But yes, we can for now, go ahead. It is internal kernel flow can be
+adapted anytime :-)
 
+-- 
+~Vinod
 
