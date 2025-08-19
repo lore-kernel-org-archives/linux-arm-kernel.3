@@ -4,104 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA0DCA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62968CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=; b=ZoFYvFkl+BiPU6gHtHh4YCvZAV
-	u0MQZ4AyCjXJVUjRfFN66s0j7EyD4a7DeI3UPMdkQP6Qs3ugMJ9RNLKi2eNEATUVImSYew5RjmQqu
-	oOCWRBf3Vonk7HqJB5KjYWUFE9DyP32zEN6GbfN7DjjGvyyKl74RxgK78x8dPSyl8BmbEIt/GAdwA
-	wq9DigUuPv/e4oCd5DSStp9qhMKHE3oknvkuBrq55f0OkirYMCOUwXTUznLkABKWXh194ZDhE1bfD
-	PwGzRyObQEl7/c5+XPbLjJw8N5fHL48KiUhaP6R9dozmK4w5sy0RIk8qWWCwKtM/nOTJpaa/GtPJo
-	lLrfszsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EAoQdpzwxuti772MPMT9IU0xVBIlyeQ7u38tA+p9XEs=; b=Y8Kd2RPX7I+pqxC5qP/ZulFGyQ
+	VyxUrfQkYOtyBujseBaJcAjf0tqxeHrUev9HEpUNZTZsWqCbIyL1ggTDxnN7aoTO3OWtc2YkL6j3Z
+	04EW6i5wBic/VgQmviK78VQRjU+q2KY14hbVCuyz+lViOdf4k93Bn1qyXrrj/q9vV0uqNjl2aZ+O0
+	tgkAshbZoNBgQjfATj/+s+d9ngXoX9EVx9rdtOvW0rIvq/1x/W2kWzBMgcwDi3BINn9PGcIcBDbM+
+	A76FL/iCYJ2S314t4Wa/CIIQ84LgUysoG+HJTETMIOmyctlFmzTtg9TSRI1YsUo0rEELjVMia/VON
+	y2JJt89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHty-00000009phf-0jFn;
-	Tue, 19 Aug 2025 08:41:06 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uoHwY-00000009q6k-2duV;
+	Tue, 19 Aug 2025 08:43:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHNi-00000009lPP-3t16
+	id 1uoHSC-00000009ltU-2ho6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 08:07:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b065d59so25234705e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 01:07:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755590865; x=1756195665; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=;
-        b=YQ/MRTMfJX0puPRjoRTVp/S1dY7MZ0uCozdZMeCCkFK+9PiVSNRvTpilTF+PutXc6r
-         ATe45UzohsqyanmKSyI56yJMyRJ5bbcbl4t8KqoUPgZEkj4tQNdN2a/4MFEZlRoyogJg
-         eV53LXRlEgPbS7o/6SjUoOESA1XUsaVu1vCp2O8VarPFDNsz6fzz+Qnxem9T+40IU4XB
-         sWUBFXlFGp3dpCni8ANWv58TEZ3Ox+lq9a+uPtuAWkaAqhkx5WJcLQWOX+ZGCYhshVL5
-         AXoPXmRd136OjdZKr2juIIkYPgl1wKujU+cyyXwDR8OQRi2RgcR2TUTyVaD+JGF/jrad
-         GUzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755590865; x=1756195665;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=;
-        b=vtgq43jTnn22RnKNzrx1kZzSR4fpw/U82/TENwkV8RYHSvAGafbmE8lNvoPDqQFEQY
-         SVK7moZgE8qyRYtmniy5BMmTEoKHiZVC6LN0O9IbUdQ0qmjyki/1dbiG86IwEn5bhxZH
-         Q0CIXV6PAluwDa9iPlFNpWzEGrlwRY8FtqJj2gahm0xgsJDrbw+24fJRsfE6G0FjT3g9
-         IuW7VhniXlb5LUnBc931Dbqg1ydK0B52/FPx+pG3tXS5YWlQTMLil9jCX+9USnWfi5bx
-         Id8/gTbdBvapVz4+sFhXM58hPf9IuKbedJ2SNOE99RPqkZLmVYwV5NrurKN9tDbUPMUA
-         142Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWEFGpToHVFRW2Xvuq+UPCa+EfuMHMkk0yf+OJjXY0+v6nlopfojJPdg6fTc0csd30u882eGrb0+Y4pddwCpv9Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YywKh2NoCdqf6SY5UBnJzTvG6RGqN8WNef4OD59HfboMFJYXUyF
-	vVXWtD43JUuFlJHd6JSrEmr5qjo0m+TnDpXrHMzF6nik+L0eW8Qg2cyF
-X-Gm-Gg: ASbGnctx/Qj+vV3i+nHHWxXRKD4fgRk4AY3FMw1mvy+pYrQlf6+P5k9tSrhNV67a67c
-	eDcQOZL/H9zdkrEVRXcPMGfq3mZPliFfinvWYaIgHoLJjykj7N4NB69he1WMBQ264qmkkSRaltF
-	FXYQIvVzewknz1Kj8EenHjtQjFTdcyCgE5KrPOusqpikdQqh/H96ixTHEhoCz0nEGNK/D5YgdmZ
-	c+BYqZWEtb5LyYsVn+yjE0ukvj3in9Nna54Q301Uevjf/8c/JrlrXv9K2FySI2buciYxbNE50EZ
-	9TLmtm2L8KT4vywFW++MRFzcITcd7YAJ7ooGM5c/xugg5OooXEMMrU9YbURMQMTc+h9Trg6jgJq
-	FONf78LtHuhGH+Ckljy5w+6ggJPDeo8EbB5KOoMSPXOo6UsFKQBDFUycTS98myE5VEixcCHzG93
-	nmJ+qSFITC
-X-Google-Smtp-Source: AGHT+IF0qT3S6QaRDTOtnywHkyQYjn24FhQXcdmgCV+CyKQOdIZxlhlDgAdk84rMMEvWXj0xBF+10Q==
-X-Received: by 2002:a05:600c:4587:b0:459:d645:bff7 with SMTP id 5b1f17b1804b1-45b43dc654cmr13172695e9.12.1755590864562;
-        Tue, 19 Aug 2025 01:07:44 -0700 (PDT)
-Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b42a771ecsm30719785e9.9.2025.08.19.01.07.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 01:07:43 -0700 (PDT)
-Message-ID: <0e0a0da5-8953-4238-af89-687fb5a34c9f@gmail.com>
-Date: Tue, 19 Aug 2025 10:07:41 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Gabor Juhos <j4g8y7@gmail.com>
-Subject: Re: [PATCH v2 2/3] i2c: pxa: prevent calling of the generic recovery
- init code
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Wolfram Sang <wsa@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Andi Shyti <andi.shyti@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Hanna Hawa <hhhawa@amazon.com>, Robert Marko <robert.marko@sartura.hr>,
- Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
-References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
- <20250811-i2c-pxa-fix-i2c-communication-v2-2-ca42ea818dc9@gmail.com>
- <aJpR96Kkj12BwW-M@smile.fi.intel.com>
- <8cb62eb9-9137-44b4-86f6-82f69813e83f@gmail.com>
- <aJyOu_GUlDPuJXO5@smile.fi.intel.com>
- <0bfcb570-dab3-4038-a1aa-8bc7fe2feee8@gmail.com>
- <aJyvHnLS-A3F2gN7@shell.armlinux.org.uk>
- <1261d3ed-e057-45b1-913e-f8bf1cd5d7bc@gmail.com>
- <aKH6_1MRqD24QTq5@shell.armlinux.org.uk>
-Content-Language: hu
-In-Reply-To: <aKH6_1MRqD24QTq5@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	Tue, 19 Aug 2025 08:12:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8B375C5BCF;
+	Tue, 19 Aug 2025 08:12:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD04C4CEF1;
+	Tue, 19 Aug 2025 08:12:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755591143;
+	bh=/dfQAZayWIHQFfzoYaLoa9ZkINRtrj3kEglQs3WnKZM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Oh1vjBjXaqQbcJHw3DjqK6XlLzbF/z1jr+sMGRuWk+icJ8e1Uo5CFIT+NTudIih/e
+	 2nstt53rKHr03zEdKBOezlJQCXYYBeeRyta5adtumTVNKP54qnB38VNmu/joFhnSF0
+	 0Aqy0S+Uol1BCfeVQkIQUd48uY8T276Py30Pa8f35g+Mr920cqdQX+WWAI/T2JvEXb
+	 7nWBifR+388oDoXODW/RogsRMVbqFOt/w3jYDXht1kY7V/vFi8D5xLdhF0GySzs+Wd
+	 /LfM7ComIUQIQyg+97rkSvZaZyDzT5hElHtYy1sWSviQibf6nptwi+ITnNlWLqUD+3
+	 EvTGlH/zW0f1w==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uoHS9-008szj-4s;
+	Tue, 19 Aug 2025 09:12:21 +0100
+Date: Tue, 19 Aug 2025 09:12:17 +0100
+Message-ID: <87v7mjk9we.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] arm64/sysreg: Replace TCR_EL1 field macros
+In-Reply-To: <b63b6344-ab7c-43d8-b418-e030344dfd7c@arm.com>
+References: <20250818045759.672408-1-anshuman.khandual@arm.com>
+	<20250818045759.672408-3-anshuman.khandual@arm.com>
+	<87jz30my30.wl-maz@kernel.org>
+	<b63b6344-ab7c-43d8-b418-e030344dfd7c@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, broonie@kernel.org, ryan.roberts@arm.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_010746_986055_AC5D6BFB 
-X-CRM114-Status: GOOD (  24.92  )
+X-CRM114-CacheID: sfid-20250819_011224_810559_A723B05F 
+X-CRM114-Status: GOOD (  33.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,116 +92,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025. 08. 17. 17:53 keltezéssel, Russell King (Oracle) írta:
-> On Sun, Aug 17, 2025 at 04:59:22PM +0200, Gabor Juhos wrote:
->> 2025. 08. 13. 17:28 keltezéssel, Russell King (Oracle) írta:
->>> On Wed, Aug 13, 2025 at 05:17:28PM +0200, Gabor Juhos wrote:
->>>> 2025. 08. 13. 15:10 keltezéssel, Andy Shevchenko írta:
->>>>> On Wed, Aug 13, 2025 at 12:36:45PM +0200, Gabor Juhos wrote:
->>>>>> 2025. 08. 11. 22:26 keltezéssel, Andy Shevchenko írta:
->>>>>>> On Mon, Aug 11, 2025 at 09:49:56PM +0200, Gabor Juhos wrote:
->>>>>
->>>>> ...
->>>>>
->>>>>>> TBH this sounds to me like trying to hack the solution and as you pointed out
->>>>>>> the problem is in pinctrl state changes. I think it may affect not only I2C case.
->>>>>>
->>>>>> It is not an error in the pinctrl code. I have checked and even fixed a few bugs
->>>>>> in that.
->>>>>>
->>>>>>> And I didn't get how recovery code affects the initialisation (enumeration).
->>>>>>
->>>>>> Without the fix, it is not possible to initiate a transaction on the bus, which
->>>>>> in turn prevents enumeration.
->>>>>
->>>>> But why? As you said below the first pin control state is changed during the
->>>>> probe, which is fine, and the culprit one happens on the recovery.
->>>>
->>>> Erm, no. Both happens during probe, before the I2C core tries to enumerate the
->>>> devices on the bus.
->>>>
->>>>> Why is recovery involved in probe? This is quite confusing...
->>>> Let me try to explain it differently. Here is the simplified call chain:
->>>>
->>>>   i2c_pxa_probe()
->>>>      ...
->>>>      i2c_pxa_init_recovery()
->>>>         pinctrl_select_state()                  <- selects GPIO state
->>>>         pinctrl_select_state()                  <- selects default (I2C) state
->>>>      ...
->>>>      i2c_add_numbered_adapter()
->>>>          i2c_register_adapter()
->>>>              ...
->>>>              i2c_init_recovery()
->>>>                  i2c_gpio_init_recovery()
->>>>                      i2c_gpio_init_generic_recovery()
->>>>                          pinctrl_select_state() <- selects GPIO state***
->>>>                          ...
->>>>                          pinctrl_select_state() <- selects default (I2C) state
->>>>              ...
->>>>              bus_for_each_drv()
->>>>                  __process_new_adapter()
->>>>                      i2c_do_add_adapter()
->>>>                          i2c_detect()           <- enumerates the devices
->>>>
->>>> The culprit is the first pinctrl_select_state() call in
->>>> i2c_gpio_init_generic_recovery() marked with '***'.
->>>>
->>>> That call causes the controller to go stuck, which makes it impossible to
->>>> transfer anything on the bus.
->>>
->>> Probably because when GPIO state is selected, the I2C bus pins end up
->>> being set low, which the I2C controller sees, so it thinks there's
->>> another device communicating on the bus.
->>
->> Yes, it seems so.
->>
->> When GPIO state is selected, the bits in the Bus Monitor register which are
->> continuously reflecting the value of the SCL and SDA pins contains zeros.
->>
->> Additionally, the Status register indicates an 'Early Bus Busy' condition, which
->> means that 'The SCL or SDA line is low, without a Start condition'.
->>
->>
->>> I could be wrong, as I don't have the hardware to hand to research
->>> the issue again.
->>>
->>> I have a vague memory that the GPIO state must _always_ reflect the
->>> actual pin state before switching to it to avoid glitches and avoid
->>> inadvertently changing the I2C controller state.
->>
->> Unfortunately, it only helps to avoid glitches on the external lines. At least,
->> in the current case the controller hungs no matter which value combination is
->> being set on the GPIO pins before switching to GPIO state.
+On Tue, 19 Aug 2025 07:46:50 +0100,
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
-> Note that my original i2c-pxa recovery implementation was proven
-> functional on the uDPU, both by myself and Telus.
 > 
+> 
+> On 18/08/25 9:16 PM, Marc Zyngier wrote:
+> > On Mon, 18 Aug 2025 05:57:57 +0100,
+> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> >>
+> >> This just replaces all used TCR_EL1 field macros with tools sysreg variant
+> >> based fields and subsequently drops them from the header (pgtable-hwdef.h).
+> >> While here, also drop all the unused TCR_XXX macros from the header.
+> >>
+> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >> Cc: Will Deacon <will@kernel.org>
+> >> Cc: Marc Zyngier <maz@kernel.org>
+> >> Cc: Mark Brown <broonie@kernel.org>
+> >> Cc: kvmarm@lists.linux.dev
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-kernel@vger.kernel.org
+> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> >> ---
+> >>  arch/arm64/include/asm/assembler.h         |   6 +-
+> >>  arch/arm64/include/asm/cputype.h           |   2 +-
+> >>  arch/arm64/include/asm/kvm_arm.h           |  28 +++---
+> >>  arch/arm64/include/asm/kvm_nested.h        |   6 +-
+> >>  arch/arm64/include/asm/mmu_context.h       |   4 +-
+> >>  arch/arm64/include/asm/pgtable-hwdef.h     | 107 +++------------------
+> >>  arch/arm64/include/asm/pgtable-prot.h      |   2 +-
+> >>  arch/arm64/kernel/cpufeature.c             |   4 +-
+> >>  arch/arm64/kernel/pi/map_kernel.c          |   8 +-
+> >>  arch/arm64/kernel/vmcore_info.c            |   2 +-
+> >>  arch/arm64/kvm/arm.c                       |   6 +-
+> >>  arch/arm64/kvm/at.c                        |  48 ++++-----
+> >>  arch/arm64/kvm/hyp/include/hyp/switch.h    |   2 +-
+> >>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |   2 +-
+> >>  arch/arm64/kvm/hyp/nvhe/switch.c           |   2 +-
+> >>  arch/arm64/kvm/hyp/nvhe/tlb.c              |   2 +-
+> >>  arch/arm64/kvm/hyp/vhe/tlb.c               |   2 +-
+> >>  arch/arm64/kvm/nested.c                    |   8 +-
+> >>  arch/arm64/kvm/pauth.c                     |  12 +--
+> >>  arch/arm64/mm/proc.S                       |  29 +++---
+> >>  tools/arch/arm64/include/asm/cputype.h     |   2 +-
+> >>  21 files changed, 101 insertions(+), 183 deletions(-)
+> > 
+> > [...]
+> > 
+> >> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> >> index 888f7c7abf54..b47d6d530e57 100644
+> >> --- a/arch/arm64/kvm/arm.c
+> >> +++ b/arch/arm64/kvm/arm.c
+> >> @@ -2000,10 +2000,10 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+> >>  
+> >>  	tcr = read_sysreg(tcr_el1);
+> >>  	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
+> >> -		tcr &= ~(TCR_HD | TCR_HA | TCR_A1 | TCR_T0SZ_MASK);
+> >> -		tcr |= TCR_EPD1_MASK;
+> >> +		tcr &= ~(TCR_EL1_HD | TCR_EL1_HA | TCR_EL1_A1 | TCR_EL1_T0SZ_MASK);
+> >> +		tcr |= TCR_EL1_EPD1_MASK;
+> > 
+> > Except that none of that code is about EL1. At all.
+> > 
+> >>  	} else {
+> >> -		unsigned long ips = FIELD_GET(TCR_IPS_MASK, tcr);
+> >> +		unsigned long ips = FIELD_GET(TCR_EL1_IPS_MASK, tcr);
+> >>  
+> >>  		tcr &= TCR_EL2_MASK;
+> >>  		tcr |= TCR_EL2_RES1 | FIELD_PREP(TCR_EL2_PS_MASK, ips);
+> >> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> >> index 0e5610533949..5f0f10ef38f0 100644
+> >> --- a/arch/arm64/kvm/at.c
+> >> +++ b/arch/arm64/kvm/at.c
+> >> @@ -134,8 +134,8 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+> >>  	tbi = (wi->regime == TR_EL2 ?
+> >>  	       FIELD_GET(TCR_EL2_TBI, tcr) :
+> >>  	       (va55 ?
+> >> -		FIELD_GET(TCR_TBI1, tcr) :
+> >> -		FIELD_GET(TCR_TBI0, tcr)));
+> >> +		FIELD_GET(TCR_EL1_TBI1, tcr) :
+> >> +		FIELD_GET(TCR_EL1_TBI0, tcr)));
+> > 
+> > This is the reason number one why I dislike this patch.
+> > 
+> > Here, we deal with both the EL1&0 *and* the EL2&0 translation
+> > regimes. And I left the original definition *on purpose* so that
+> > nobody would read this code as being EL1-only. Now, you will glance
+> > over it with warm fuzzy feeling that you know what this is about --
+> > purely EL1. And that's what bugs are made of.
+> > 
+> > Of course, nothing changed functionally. But is it better? No.
+> 
+> Just wondering - will it be better to use TCR_EL1/TCR_EL2 definitions
+> conditionally for EL1&0 and EL2&0 translation regimes as applicable
+> ?
 
-No doubt, and that is why we want to restore the original behaviour.
+Write the code, look at the result, realise this is totally
+useless. Because TCR_EL1 and TCR_EL2 *WHEN E2H==1* are designed to
+have the same layout.
 
-I just wanted to indicate, that the approach used during recovery, does not help
-to avoid the current hung.
+> Could there any other better method here ? Because the current
+> situation where there are some custom TCR macros, some tools sysreg
+> generated macros, and then those macros getting used in an adhoc
+> manner in different places, is not very consistent either.
 
-In other words, the i2c_gpio_init_generic_recovery() simply does this:
+The better way is to leave this stuff alone. Honestly, I don't see any
+improvement in repainting the KVM code to make it less readable.
 
-        pinctrl_select_state(bri->pinctrl, bri->pins_gpio);
+If anything, define the old macros in terms of the new ones, and move
+them to be KVM-private.
 
-But even if we replace that with the following code (copied from
-i2c_pxa_prepare_recovery()) ...
+	M.
 
-        u32 ibmr = readl(_IBMR(i2c));
-
-        /*
-         * Program the GPIOs to reflect the current I2C bus state while
-         * we transition to recovery; this avoids glitching the bus.
-         */
-        gpiod_set_value(i2c->recovery.scl_gpiod, ibmr & IBMR_SCLS);
-        gpiod_set_value(i2c->recovery.sda_gpiod, ibmr & IBMR_SDAS);
-
-        WARN_ON(pinctrl_select_state(i2c->pinctrl, i2c->pinctrl_recovery));
-
-... the controller still hangs once the pinctrl state is changed.
-
-
+-- 
+Jazz isn't dead. It just smells funny.
 
