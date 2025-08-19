@@ -4,77 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688CFCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2CECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQEkHOyQLuDAg4Xeifbm5M7LooZ2bfc8B8NoecbY20E=; b=HwS5+2MRSAXMwzxdX+Nggp4XXO
-	A0FNjfLVzFfDs9t7kpS5Q0GhnkoRh8x0n/ECwrOR7boI+wcLiG8PC788whdfLjuKYrQ5YyWyzlWnv
-	7aZJCEcErleJujte2z0xBDyIUvy9hLSeJ6ZSoce4A6sFngz47YHDPpp2drZwfWI8KO0CTRTfcIei/
-	nsGDiXJ7dHL8qN8mW/35q5f/h267p+28TQm2HPeEmQDOa4CVlOtfmfbBHGmevbQJVxGiXQb0pLdjD
-	r4IFu9cdLCs3Y8u97qGObUi88X5DBX/pqSmz3nEjGnBC6PNkeIx0CJJpyn2KbGzbHoLE3JZbBF+M2
-	ON47j68w==;
+	bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=; b=DwVu8YXjxkzRGiNHFVVANTJMr0
+	4qvDP6DUp5Imgd7+hclOOaPtliMOzoYfW9+DmqbxN5tyglc4lI2al6KGI2kfkTqBfWdErGd758gtG
+	WraFJ2c+nqyfgSV2GtcWopnDtQ1Ybu2xY5F43nfgtq/X5QH8uQYk5ao3g9pzCLv374sgZq5vwQsNE
+	7RQz+1tU5JCA4qzTwf3SiAzFM861lLVCETOxpxHPW7KSq92f4Yn1I7/nwgoJcEcHKKOslLV921AJx
+	e7l0CUdO3DWcDei2ww4G9ClZBzbSaCRtb9YGpWsuHgQew1Vuq8UEeiO4eoV0gve6zutvjQd3hQ/xC
+	ITfHKlcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoU8z-0000000BezR-0NF8;
-	Tue, 19 Aug 2025 21:45:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uoUBZ-0000000Bf6y-465o;
+	Tue, 19 Aug 2025 21:48:05 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNjx-0000000Aoj6-2uB7;
-	Tue, 19 Aug 2025 14:55:10 +0000
-Received: from [192.168.1.106] (mob-5-90-52-92.net.vodafone.it [5.90.52.92])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 156FD2F8A;
-	Tue, 19 Aug 2025 16:54:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755615250;
-	bh=iH2fNzQ3ZFHpzPlJuJdqflptF90hlToFOvzIGy7xjpo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qIzZreWj1upqtNMA5gqVxqS0/JDbIE2EUrjY5Oe8RU/npsWqm1kYciR7qXcRq3Z9n
-	 qbK4fhp/gWwo21lhKk9cKMwL2/nedmbZXbx0bYm9XDZqpt8aUTKEnoKAgCnUZm3Mu9
-	 tAYLO7J0Wsce1FHHskSWy/QOTyAuRms/wgZ7cBHc=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Tue, 19 Aug 2025 16:54:49 +0200
-Subject: [PATCH v3 8/8] media: Documentation: kapi: Add v4l2 extensible
- parameters
+	id 1uoNlL-0000000Aozk-0vAq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 14:56:36 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32326e09f58so5960177a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:56:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755615394; x=1756220194; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=;
+        b=QhA/diKwoJuqpTaZqkF2AUSOvMrXPRJLorL/ZHhBjYCz4RrIeCWIrwczXnf7JSUmBM
+         zn/Aid8y4kS+oD20U9EEUung9dya7ggJ3N2Pz4A5dKaGb5+HbodZ6gss4rN9ODhavu/x
+         YbuONVUUNYsYhBLlMC+KZg7sJ3ZYnSdh7wEF4Km4CVmgNz56B8kzG+tZYOvKB8y2FT3i
+         RsT2NuAj36L/pV6J8yX7Pca7mc78RpWJqif6bOM+kXkecTt9+JG9KzVjcURhQWrZ0fUF
+         LN1il5rOWNx+gMY/cvU1VcaTpOp3MRv4XcwUVD1MWnFIthm33X9aVha3vs1nPF4cFJf0
+         Xvkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755615394; x=1756220194;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SxK/8o8TYuy9PyLKW/7vylp/E9GnFz21EyXlXO2+pIQ=;
+        b=M3ND8h1jpqvmeO1d29dRRPzZ01oOxR34LBx7DyuYCHOfGSWn5aKjiRx6AQpy0ONWoq
+         nVExpiH35t24HGqczy4l3ynF5KU7jD+4cEjXPDPtSc99CUW+0yhscoJG/Mj5A0ktat24
+         hBmkDjOw8G/qGNixbBbNfAxuovrNhEjH6aby14gmQi1aBY09w0RgTCiATXi9W9cVmOgb
+         Umm1txJkObtu6Or5kc8QtEKKaAXt2phz7/bwHQQcAHD5gDjsinhEIWkXBe4DTiGqhtE9
+         5L2rerFJjzQ6OgDvGzu+UlWnbEflufph66SJkJdpWjDworr+2C5tVQm95Ve/mOrs77eu
+         Ze0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX2ap0+T9xY/KGvjKFGCjUaMsEYL4fcJVnDxtOBFrLUuYOuepWiSi3JjKYptMUr6tJVyEkINbP3+cA8OFyGac/R@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDfrfQLbPt/ZF5WdHKqsBrt1HsL80GjbuBvifnJbGVfGhM19yJ
+	f1NYb7INg3hzQKi0sFbgvqHUyeJsSveohIzIZFS7avvl+0B7mSdDUBomqCEAnStxqnGHxutiP9a
+	k7zyMc2G6+JGNMZR7ZgS11QOjSJMqhgA=
+X-Gm-Gg: ASbGncv99G09WG/eLuv74CshCsH4iyxh/mNP7vj008nw1QjK37tAhf1sxyp67BGdG9Y
+	+Oo/KxLxIVvlQpYRFmWZW/0OVpm+KdNoJaXwyvNH3rD1yirEvu70pWPs/4JKd4ESXvz+NV1iv5l
+	V8mCkVII2IgvSlyXi4PFWIu2wAujhUplG4CGNFkGNEvFJNsP9rDgNXLmkv25gmra67Yh8XOhRm7
+	8pnAGUWlI0oPrU=
+X-Google-Smtp-Source: AGHT+IEpjmZ8XVkcuZKfCV290Wvmbyt6Tv4cR0Fg/t2sSiijLaZh9EFM7KMO1OHNGRVKT1fRGi1Jac5EIi6kT1CFbYs=
+X-Received: by 2002:a17:90b:37cf:b0:31f:3cfd:d334 with SMTP id
+ 98e67ed59e1d1-32476a1d6d0mr4123679a91.4.1755615394148; Tue, 19 Aug 2025
+ 07:56:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250819-extensible-parameters-validation-v3-8-9dc008348b30@ideasonboard.com>
-References: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
-In-Reply-To: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1847;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=iH2fNzQ3ZFHpzPlJuJdqflptF90hlToFOvzIGy7xjpo=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBopJA7HthrV9FPEEFq/WvUsDHkN4su5F2GbYayv
- j9u4Yj779WJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaKSQOwAKCRByNAaPFqFW
- PIuRD/487NVywsuiC6cSTeBHNzqeEUPM+lYOX8MgCgjtfucq2L3g15QL1HJgXiRneteFi5eU2Sm
- A0lquhYAxjdMy544gjfSGXbzc2piZWmMzl47uOmHwJh8skaHGlw+Uh73b+IdA0u9FVxSC4sSW2o
- XTRdwaSYpCRMlTTmuGsF/HTh1MfbYo8+3Pu546pv5Rds2aXhREnl4NZMkHuYcwTso1x/JsqUaZs
- 5mz9PnaJZrGrZ/8wY9tvGE+4/A1mj/PPAgk470q7s7LwcxLwPWazePCJ3SIHM8l18Z1UMD+ZiKM
- 6WOdHuLt9x87UKKoINV8KWRipsoKnmlz12Z0IXrbmhdtnMTQ8EtkxUsAkAsYbXPjcFA2YVJ1CfN
- SsQg7p6I76QR0b6flmy6KYMtKoenrTt0789k+pP3isypXSgsntrLH5flFDQyxOCwM4MDRUne1vX
- maMdoawEPlPSZrcELgVChZIMjW1rBVWoglGnvSYwqaAscMYMA/p3sLDsgaDoEmQ89QQjJ9EqVLX
- WBmxhx/Fqr7dX279CKu9Tp2eYsWjnfos9WxZd5ZtrwP5knMM85fmih0TZ0r485cRR42ko6a1WsT
- 3s1ToeCvR+6TduLerJCCMwhPta68UsCqtZnHC9uYnUOH2X8E99zKBrSe+uRTbo19443GK8/Tc+E
- 2gh5gh/Ri4Rn/1A==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+References: <20250819131800.86990-3-krzysztof.kozlowski@linaro.org> <20250819131800.86990-4-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250819131800.86990-4-krzysztof.kozlowski@linaro.org>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 19 Aug 2025 17:58:45 +0300
+X-Gm-Features: Ac12FXwVQ1C48dlhpVxnCgyHSgql8U6XY0RR1RKOzS1VLcKJpTIqytqaU50CpkI
+Message-ID: <CAEnQRZD-Ph+HUWp=X50YcaU1LRbz3KxJWopBRt7+3RQnG8oCGA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: Minor whitespace cleanup
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_075509_876045_1955233A 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250819_075635_253980_EF56B021 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +99,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add to the driver-api documentation the v4l2-params.h types and
-helpers documentation.
+On Tue, Aug 19, 2025 at 4:25=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> The DTS code coding style expects exactly one space around '=3D' or '{'
+> characters.
 
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- Documentation/driver-api/media/v4l2-core.rst   | 1 +
- Documentation/driver-api/media/v4l2-params.rst | 5 +++++
- MAINTAINERS                                    | 1 +
- 3 files changed, 7 insertions(+)
+LGTM,
 
-diff --git a/Documentation/driver-api/media/v4l2-core.rst b/Documentation/driver-api/media/v4l2-core.rst
-index ad987c34ad2a8460bb95e97adc4d850d624e0b81..2d7793298c6a2046bdd59b185a411e092b659d52 100644
---- a/Documentation/driver-api/media/v4l2-core.rst
-+++ b/Documentation/driver-api/media/v4l2-core.rst
-@@ -27,3 +27,4 @@ Video4Linux devices
-     v4l2-common
-     v4l2-tveeprom
-     v4l2-jpeg
-+    v4l2-params
-diff --git a/Documentation/driver-api/media/v4l2-params.rst b/Documentation/driver-api/media/v4l2-params.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..8d2a5f004d21dfc3a81255cabbc6b7cce588db71
---- /dev/null
-+++ b/Documentation/driver-api/media/v4l2-params.rst
-@@ -0,0 +1,5 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+V4L2 extensible parameters kAPI
-+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-+.. kernel-doc:: include/media/v4l2-params.h
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 008f984c0769691f6ddec8d8f0f461fde056ddb3..44598a823f084e98a9b2d2e21881665d1ab64908 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26384,6 +26384,7 @@ V4L2 EXTENSIBLE PARAMETERS FORMAT
- M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
-+F:	Documentation/driver-api/media/v4l2-params.rst
- F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
- F:	drivers/media/v4l2-core/v4l2-params.c
- F:	include/media/v4l2-params.h
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
--- 
-2.50.1
-
+Do you have a script to find this kind of issues or just manual inspection?
 
