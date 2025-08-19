@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2709CA0EF5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD78CA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 20:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,82 +12,96 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=; b=QAakY07W9OIUh6ZS49S6+qecxr
-	Rkm9fetQhnxPd+F66OTEYBZDqT7J1Qbf6pZ9E6tj2UwlP/nGvK92HBf2p9ubPm2oYw/Oy3yn0jUXV
-	bS31elpHLyfGS50CC3xfO6Z/Z9Z9zI2Ra4dxvW21JYAy97M4bIPY/qitu/xJb0+4XctIbMgnRE3Hp
-	8gud355yfIAHnONG+mpSflLSnOZb/GAuFfTfMTrnbkQHZunPh1/Oke8B22CmLu460aU3bkRA7TqdF
-	4OyrYsr5pbZNeLeqdpcjHH8Wi4cWDfqUqy0mzt7HdIroGHVrFhZuuYuPakV6qIinS7CcUszXjfF+D
-	LwkgkHuQ==;
+	bh=nduGwRgCS4jl5SzExLMSPPD9EivCrI3lCOm2UzUncAk=; b=I/dsB5GFA//2PjEYABHC+yjBxC
+	Zta6e9fy4WlgU2r83NVFzAiUyUo9OvqxHMmJB9lAuDrQG9IEpSiip/dL02hZAyOfb75B9Yhc8Gk58
+	WqDZ69IfkHfcPMblPebALueAUsW/mAI+6oP9TgwxbTl19ofyXjBZp4wqWxXmo5gURUdZcDjXnbcnY
+	7PtRfU62IFQdR7Yk4PMeZSuTn+nrjMrDB6LBks5mQUHAtOIvkCfNowtnycf24ndwKLD+NZSlZnTOx
+	QcIei3GHa9JQnqhfcMQSRawCRaCosHTsK6TOk3X1F9+ch2TUDjG9v1T/qTHds7SJkG1qiKIN1LUt/
+	cb5C/C0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTAO-0000000BYpL-41uw;
-	Tue, 19 Aug 2025 20:42:48 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uoTAP-0000000BYqz-48Vm;
+	Tue, 19 Aug 2025 20:42:49 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoR4l-0000000BIed-0ml0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 18:28:52 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-afcb732eee6so917758666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:28:50 -0700 (PDT)
+	id 1uoR7k-0000000BJ6u-28bB;
+	Tue, 19 Aug 2025 18:31:57 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb78d5dcbso797311266b.1;
+        Tue, 19 Aug 2025 11:31:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755628130; x=1756232930; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1755628315; x=1756233115; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=;
-        b=D4eJJhVOBr+CqROskLGMMrDUIvHlSoKm+irGv/isP/kko7dlB1hmsZilVqch+wngxI
-         je2W5FW3ag5cYbeFYEaEqhfUkwRzkYbwa8fcVG3AbJvjvZQVOyY+lIj2ZESGPV0/4xap
-         LtkQJomOpNY5izICxtkP6smJrZisgGb28o26xnpxrr4/XgYHeqD7zHrIfaG5tgz2yqW/
-         WWsydJ5OFwg2qhfq7Vgd7SxMwuiwfNtD4PzhNLFpLilSVHF65yF7DdB9eca4fB8M8DkW
-         OtefZMEbbliqj4K+GJXMkGUchAaK7j78WLZRg6eHMpUJBgjuBm+QjV6UE/XrZC1IGOhs
-         Gmww==
+        bh=nduGwRgCS4jl5SzExLMSPPD9EivCrI3lCOm2UzUncAk=;
+        b=IyhBVW3i1f9UP5V1Wl0ZTNNpO61ceNl0MOrgm4tJGlK52wGPPhq7fcvN+PJdYUrcEi
+         r4WXLWOLjOMOm1Qlz1bpSIAUm9Dj47Gjk7Bk9qJpVdKD9TTQ+bNw1N3HmkVL27mTOcLJ
+         MTYdWTz2x2cU0ujmr3OF2bbwmHGRJ7gsIgn//rPvU0RXybqUKWyQ4eFZpenAylh4s9Is
+         pgJ6qM/jUwkC4j1x4rrZP1UDYMSssySiaQOumu9tJGmkdVKETLAyrAlNRnWD6Pl4af8F
+         rJdxDEgxxactL9fw4tv+VbNzskovs9eIe+kZu7iNOkIP5CDQMHlNZCRIKZA/WwSsFEKd
+         0Qyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755628130; x=1756232930;
+        d=1e100.net; s=20230601; t=1755628315; x=1756233115;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mi3M08Gy0PoAc8Y6YQtFVDIBLGpr8qeW8qRK7d3r3kA=;
-        b=r7GMUmHiSG1tKYdqmGhPgte1Q2tjnBYDZx32khTasClwkcuq/HoNyAemBeYKnzx6Qe
-         0aZYWtu4vfO8psjtTyWNUDSl2ypJpkBHvK6NDAeo26OB7DVPrU9y+CZwb/ewt9iw5R8c
-         L+OSIG5rD84s3YKX5vCiHvstEzvKS0UycJQSuX7lj1wKdiAhAOmR+ln+m0eZk63QGgc4
-         xfnISIAh3Bawx8NlZH3wIil3MsW/DFk4hbWUtlEeuqAai64yGIukM9pj6uDpGsodfxT/
-         WxNz+0y/pyqh80W2w3zXp49mk6Dmqrv4rCsT75j3YsQv0+8mAQkBPQlo9IfMuD+fJPoT
-         SG2A==
-X-Forwarded-Encrypted: i=1; AJvYcCWUYRukDNixOzh4PwRdGh2m7CjPTUh3CTjKWBl6VRxu2Yn9HEIEYYlL4pIF2IPRQKQuBlC4RHaq5MnfM3JSoP4l@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQOA2Ei5WUfbFzCevU/fR9HGhB1s8mCC0A9XK/iyYHHe/KDGiH
-	um8/AHBqhWQ7YnSACNhkrTatw6T6xD41ebMIDGYuh16QIb2JO19mzdr5StPGP0KEVsmktqnfn0Y
-	5V5J3T1fCA8LAYBxs8cC35jWgKEz/eP8=
-X-Gm-Gg: ASbGnctV0bdel7HHfF9s84XAymQr1fi6vc/6EuEPDxhDmWmmdxHgxNrwfS3votmPZrv
-	++TS3Rs2weP9CMALZhmpCCgT0GAJ040EO0OZMMTbr44tOvCDVJeZjvLJPR6tq2fkSo93Ncczt4n
-	qAJUchV7/jCG5voejLXenjZeO29O9nMeY/oLuREh/OQ97HJjZTw8TIZ+rOO6lLseqEzL9VGHkM/
-	hbHHgW3r5MgD/716A==
-X-Google-Smtp-Source: AGHT+IEeGP1LFIY3EXRErHwtTbv4M2rk6nG5tRrYGtcmXGZOPqtXI9ACwjR9P80bcK39Tu/AL10NJ9kb41SRcmv8mC0=
-X-Received: by 2002:a17:907:2d10:b0:ae3:6ff6:1aad with SMTP id
- a640c23a62f3a-afddcbb6b4cmr359441366b.14.1755628129253; Tue, 19 Aug 2025
- 11:28:49 -0700 (PDT)
+        bh=nduGwRgCS4jl5SzExLMSPPD9EivCrI3lCOm2UzUncAk=;
+        b=D5sQV2nwAH+Ubvt5VVQffG6XP0eQFr1w2C1i9GuSFlM8RP9PXkpZdv/EzU6D+uOOQz
+         w0VCjmotZGES6mwij21iiiSXr7n0GM/9q7apvdoTBwFIJyXikpZO6zX3Ro21bZAQWLYZ
+         Gd3LUXU+l9QxuLAwid4zkp+t/R+Vj5Mk2891cSVwp0ZGnQ+vXjgivodMYRhwn5flIrTa
+         NR0btNqnR7N//fUw0AsRuYLeNB9crDjd7F9K7Myz+DlYnGGfy7HYYH6YF6Fgp4pa+st4
+         7fyQ6S+Jv1yblug80Q6BemwWn0LTJlYbpL8QFN0GcLHW99m/GTpjPOdaA1uacd1haJk9
+         WveQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCv8lzmHeOaU3TomQZuQlZUFMEoH46OGJT09LE2x0UF9BzblPLXAwpjgVJ7/LPHQznS/75zJBZppiMuvB7+5Q=@lists.infradead.org, AJvYcCXqVKDcqHr/bNlQAcR3jhsDNnJI/DRrH5zThoU6fi4u2ZTxNNURyV1iJKfmGZLUG5QxQTgBNApJCXEaznkSc5TV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7W+bw4RAzTpoMV713B43UiTW/98NEUm1tP2wcU0FoUTBfJCDY
+	MICzA528H1ahg6REPjFmv96m2nhapGl3jDjsahKYF473myJgYLniNthUo0VOXDagdZ5XQtP2dY1
+	9OrRgiHvm21Uy8KVGSwF8UwwpJZQ/D2Q=
+X-Gm-Gg: ASbGncu07IARiGX/hWaWxpiWoO6ahcuZ13Z9p24xbDWWftFNWBCKhkPcApeY9h0V2cm
+	UxIDKgr2dQrutKce6p8oLoxpl2Qe4KtmXttJKjfWnSSjtUQsw5rbXKsf38xUk2n7uqXjosIGKcu
+	Qsc30SNWRKlLfhGBcCkBC9jooBzJGiuhr13ZRRw2wkGYPvH5NWVxkjrd5G3ThTOReqOADMRh1Be
+	0H5ja0=
+X-Google-Smtp-Source: AGHT+IF9qpemszLCjKdTIPsWz0t4GcsgIaQduXYK/rUO4127Ry+Cx5d3EXzVvEU87daLwDxw0y5nugBK0Rk2QA9qZjg=
+X-Received: by 2002:a17:906:dc8d:b0:af9:1be8:c2aa with SMTP id
+ a640c23a62f3a-afddd1e42e4mr344769166b.45.1755628314808; Tue, 19 Aug 2025
+ 11:31:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250819150448.1979170-1-salih.erim@amd.com> <BY5PR12MB4212A540F9799D6F326003388B30A@BY5PR12MB4212.namprd12.prod.outlook.com>
- <20250819184442.25f6904e@jic23-huawei>
-In-Reply-To: <20250819184442.25f6904e@jic23-huawei>
+References: <20250815-pinctrl-gpio-pinfuncs-v5-0-955de9fd91db@linaro.org> <CACRpkdaDGmdhaik+1saRv7Ts4myQ+tg1aQqGU3xQyT7ma8dJFw@mail.gmail.com>
+In-Reply-To: <CACRpkdaDGmdhaik+1saRv7Ts4myQ+tg1aQqGU3xQyT7ma8dJFw@mail.gmail.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Tue, 19 Aug 2025 21:28:12 +0300
-X-Gm-Features: Ac12FXyqadw1CvxKvYip12xTlF6JPr577hQM-tFyzXAossPM7HYZ5j8d-rvSi58
-Message-ID: <CAHp75Vf-daUx1H7+PgeLsvpQsEJTV_9AVdkudCab=KVUw2grVg@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
-To: Jonathan Cameron <jic23@kernel.org>, Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-Cc: "O'Griofa, Conall" <conall.ogriofa@amd.com>, "Erim, Salih" <Salih.Erim@amd.com>, 
-	"dlechner@baylibre.com" <dlechner@baylibre.com>, "nuno.sa@analog.com" <nuno.sa@analog.com>, 
-	"andy@kernel.org" <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, 
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Date: Tue, 19 Aug 2025 21:31:17 +0300
+X-Gm-Features: Ac12FXzsYRtjNObv84CHy6T-R0DRBoqbq7I0xmmsDobIVB43mAqIdnnlLv2k1FE
+Message-ID: <CAHp75VephepLq61HrVy=PX2oKUQd5NK2qS-vOC5h_NR65td3Uw@mail.gmail.com>
+Subject: Re: [PATCH v5 00/15] pinctrl: introduce the concept of a GPIO pin
+ function category
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
+	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_112851_223004_6748CCC2 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_113156_550002_7F0E65C6 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,26 +116,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 8:45=E2=80=AFPM Jonathan Cameron <jic23@kernel.org>=
- wrote:
-> On Tue, 19 Aug 2025 15:10:15 +0000
-> "O'Griofa, Conall" <conall.ogriofa@amd.com> wrote:
->
-> > Acked-by: O'Griofa, Conall <conall.ogriofa@amd.com>
->
-> I'm not entirely sure why but b4 only picked up:
->
-> [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
->     + Acked-by: Michal Simek <michal.simek@amd.com>
->     + Acked-by:
+On Tue, Aug 19, 2025 at 4:02=E2=80=AFPM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
+> On Fri, Aug 15, 2025 at 11:09=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.=
+pl> wrote:
 
-Due to an unquoted comma, I believe.
-+Konstantin
+...
 
->     + Link: https://patch.msgid.link/20250819150448.1979170-1-salih.erim@=
-amd.com
+> >       devres: provide devm_kmemdup_const()
+> >       pinctrl: ingenic: use struct pinfunction instead of struct functi=
+on_desc
+> >       pinctrl: airoha: replace struct function_desc with struct pinfunc=
+tion
+> >       pinctrl: mediatek: mt7988: use PINCTRL_PIN_FUNCTION()
+> >       pinctrl: mediatek: moore: replace struct function_desc with struc=
+t pinfunction
+> >       pinctrl: imx: don't access the pin function radix tree directly
+> >       pinctrl: keembay: release allocated memory in detach path
+> >       pinctrl: keembay: use a dedicated structure for the pinfunction d=
+escription
+> >       pinctrl: constify pinmux_generic_get_function()
+> >       pinctrl: make struct pinfunction a pointer in struct function_des=
+c
+> >       pinctrl: qcom: use generic pin function helpers
+> >       pinctrl: allow to mark pin functions as requestable GPIOs
 >
-> Anyhow I fixed it up to include Connal's ack whilst applying.
+> I applied these 12 patches as a starter so they can
+> stabilize in linux-next.
+
+Hmm... I'm still sure that we don't need to have a separate flags
+field, but since I am on vacation and will be able to look at this
+closer next week, I can't look closer to it.
 
 
 --=20
