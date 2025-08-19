@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87F1CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 15:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B15CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 15:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BCxm8hP2GfHWz3xnxP0rrau+zktn6B/K0RUTv4riUy0=; b=236/MUxhdRwcFe
-	blls7HuUj28lb2rXMEb0+8Zmq4Mz/xyf1mFG/nuyVEUK3Yh/FJZ5STs2dZacPtddFWXr9K2bqP1xd
-	om9EYC1zXfh4h1W8ZHHL1c+D7I0tv9sIeio23viM3cHUX2n+g7DxHpmgWl2VHk9+QkKkM2jIChKfE
-	ro9qSwjI0HpVwRJXLVm+IrG92el8/3HNhQ/5Reb+c0g34xe5DH2mVzs27A5yviiyK+kRGPLC8OpA3
-	A2ZRrN+httplR/y3Vu7l6J7RrCpKOGAta2jA2wSKD6sTrN8362hT4MGUWX+7UQaC6ZbegrtSsNV30
-	4fuYbxjY7GXG1AWJpgdw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WL+nSB+BBwtwEnngPEB1drEpiNJ9TrE7GnyiMHNtwL8=; b=H8O3deZBEL77pEU5zpJ84Wkd5R
+	v8Qn/j9ybxcctcTziPggCMnDP62W3L8MrzHJxrLWgDjunq3sjyh5PVvKA8QvMWRlmFgOnGQCVmI/p
+	VtPKjEcoT/jN426r5cv93aYGT0O+piTLhaXGccp6jPF/aGQg8roR4GmeHw9jYRgtqegvq0OFRhzty
+	o0OkAdkLkxl7wUHUJSqzvSMfK4xOzTtxutp3/i/fvcxUEYsYO7V9H2GiCtwal/jvV4p9BksMVsE8c
+	JjesO4HeTV0WEx6FXiihy5cjDQtaAAcGC4S/vPqhmc9rVp1Qp/LclFFcA6z6OElx6vWew6Jp8UZk9
+	k3TEJWVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNpi-0000000Apcy-3B3M;
-	Tue, 19 Aug 2025 15:01:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoNsF-0000000Aq1D-3hml;
+	Tue, 19 Aug 2025 15:03:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoLL9-0000000APpQ-2wsh;
-	Tue, 19 Aug 2025 12:21:23 +0000
+	id 1uoLLD-0000000APqU-0IJ3;
+	Tue, 19 Aug 2025 12:21:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1944D61427;
-	Tue, 19 Aug 2025 12:21:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7205BC4CEF1;
-	Tue, 19 Aug 2025 12:21:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 62FF96142A;
+	Tue, 19 Aug 2025 12:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65C46C4CEF1;
+	Tue, 19 Aug 2025 12:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755606082;
-	bh=kXp8GWA0rgI3EgE6rlfYCc10wvDZVs53PRBwMH6HPlU=;
-	h=From:Subject:Date:To:Cc:From;
-	b=ZV7UHce/2o7Aawu1yMkCXiy9gdcDEVS6mjdvLFJBxjQOCT3clfOyIIbpeoMQ0QVIO
-	 Z176ti1kidYT5aVWIsu60Cik6ProTOpJlZEpxAAO1qa8qy88VHD+QrdQLU5MHFIs6/
-	 fuUMLjNuYbDXYmfkSLe5Q/oFBj85i+TXbOj96y9yU76Es8GtFfosedV3GSA6q2xwMN
-	 ri1MPS+latxWlqJow9jfvHXMYNyp7xgfFlTvqXNY1atXimMYYr6o4B+RN29+Ybqskw
-	 xz8Uc5Vs4GfviE9Rdf9OIYUfE9FmzviNKtSYjLgl5tCiHNE8Kye2joy263BWWhISzg
-	 UaFBY3FKJ2KMw==
+	s=k20201202; t=1755606085;
+	bh=LRGy/NRdIaClMog/+9KxOMMANWnTaZpp/9kvA4YLbSo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TShZKr3Gm/BxO7zA424m3828ndLGqhxIzOVFLIKsQD/sqxP1LBa6GlA188KVoj7OM
+	 RcbZ1K7GDtZmqw7Y/Rlc/nqgACMLCmstx2tDaiUZbxChBjH51ABFVM0RybtSQlFF3F
+	 z7M1XxK0xIwJHDUVsE2eqQFWjPGJ6zQ8ecJmKmyhijwuBcX/PmEcXGxgb2+IxClRDc
+	 vT17b3BGPRDhZj0IlIqZs6eo/OwAwMRPiTcMM8R2KD2mxFomKsLr0VF1ewIAGKO/9P
+	 0ai90SG5vApCY/7G30XFHupogVOHWEgRg1vbEKS0gPGsBBCKb9Bzkj4tAuOSCHLjLu
+	 r8FPht1W0Ubgw==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next 0/3] net: airoha: Add PPE support for RX wlan
- offload
-Date: Tue, 19 Aug 2025 14:21:05 +0200
-Message-Id: <20250819-airoha-en7581-wlan-rx-offload-v1-0-71a097e0e2a1@kernel.org>
+Date: Tue, 19 Aug 2025 14:21:06 +0200
+Subject: [PATCH net-next 1/3] net: airoha: Rely on airoha_eth struct in
+ airoha_ppe_flow_offload_cmd signature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADFspGgC/x3MSwqEMAwA0KtI1hOw9TtzFXERNNGAtEMKKoh3t
- 7h8m3dBYlNO8CsuMN41aQwZ7lPAtFJYGHXOBl/6puzdF0ktroQcuqZ3eGwU0E6MIlukGZ1nkba
- dxFc15ONvLHq+/zDe9wMZrtlAbwAAAA==
-X-Change-ID: 20250819-airoha-en7581-wlan-rx-offload-12eff66cf234
+Message-Id: <20250819-airoha-en7581-wlan-rx-offload-v1-1-71a097e0e2a1@kernel.org>
+References: <20250819-airoha-en7581-wlan-rx-offload-v1-0-71a097e0e2a1@kernel.org>
+In-Reply-To: <20250819-airoha-en7581-wlan-rx-offload-v1-0-71a097e0e2a1@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
@@ -74,28 +72,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the missing bits to airoha ppe driver to offload traffic received
-by the MT76 driver (wireless NIC) and forwarded by the Packet Processor
-Engine (PPE) to the ethernet interface.
+Rely on airoha_eth struct in airoha_ppe_flow_offload_cmd routine
+signature and in all the called subroutines.
+This is a preliminary patch to introduce flowtable offload for traffic
+received by the wlan NIC and forwarded to the ethernet one.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Lorenzo Bianconi (3):
-      net: airoha: Rely on airoha_eth struct in airoha_ppe_flow_offload_cmd signature
-      net: airoha: Add airoha_ppe_dev struct definition
-      net: airoha: Introduce check_skb callback in ppe_dev ops
+ drivers/net/ethernet/airoha/airoha_ppe.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
- drivers/net/ethernet/airoha/airoha_eth.c  |   7 +-
- drivers/net/ethernet/airoha/airoha_eth.h  |  12 ++--
- drivers/net/ethernet/airoha/airoha_npu.c  |   1 -
- drivers/net/ethernet/airoha/airoha_ppe.c  | 113 +++++++++++++++++++++++-------
- include/linux/soc/airoha/airoha_offload.h |  55 +++++++++++++++
- 5 files changed, 151 insertions(+), 37 deletions(-)
----
-base-commit: a8bdd935d1ddb7186358fb60ffe84253e85340c8
-change-id: 20250819-airoha-en7581-wlan-rx-offload-12eff66cf234
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 2bf1c584ba7b7217549ce79df86f7a123199b5e1..2fabf33a5034d98c46efcaf3934e4ff21bd60e4a 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -937,11 +937,10 @@ static int airoha_ppe_entry_idle_time(struct airoha_ppe *ppe,
+ 	return airoha_ppe_get_entry_idle_time(ppe, e->data.ib1);
+ }
+ 
+-static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 					   struct flow_cls_offload *f)
+ {
+ 	struct flow_rule *rule = flow_cls_offload_flow_rule(f);
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 	struct airoha_flow_data data = {};
+ 	struct net_device *odev = NULL;
+@@ -1138,10 +1137,9 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
+ 	return err;
+ }
+ 
+-static int airoha_ppe_flow_offload_destroy(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_destroy(struct airoha_eth *eth,
+ 					   struct flow_cls_offload *f)
+ {
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 
+ 	e = rhashtable_lookup(&eth->flow_table, &f->cookie,
+@@ -1184,10 +1182,9 @@ void airoha_ppe_foe_entry_get_stats(struct airoha_ppe *ppe, u32 hash,
+ 	rcu_read_unlock();
+ }
+ 
+-static int airoha_ppe_flow_offload_stats(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_stats(struct airoha_eth *eth,
+ 					 struct flow_cls_offload *f)
+ {
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 	u32 idle;
+ 
+@@ -1211,16 +1208,16 @@ static int airoha_ppe_flow_offload_stats(struct airoha_gdm_port *port,
+ 	return 0;
+ }
+ 
+-static int airoha_ppe_flow_offload_cmd(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_cmd(struct airoha_eth *eth,
+ 				       struct flow_cls_offload *f)
+ {
+ 	switch (f->command) {
+ 	case FLOW_CLS_REPLACE:
+-		return airoha_ppe_flow_offload_replace(port, f);
++		return airoha_ppe_flow_offload_replace(eth, f);
+ 	case FLOW_CLS_DESTROY:
+-		return airoha_ppe_flow_offload_destroy(port, f);
++		return airoha_ppe_flow_offload_destroy(eth, f);
+ 	case FLOW_CLS_STATS:
+-		return airoha_ppe_flow_offload_stats(port, f);
++		return airoha_ppe_flow_offload_stats(eth, f);
+ 	default:
+ 		break;
+ 	}
+@@ -1290,7 +1287,6 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
+ {
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+-	struct flow_cls_offload *cls = type_data;
+ 	struct airoha_eth *eth = port->qdma->eth;
+ 	int err = 0;
+ 
+@@ -1299,7 +1295,7 @@ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
+ 	if (!eth->npu)
+ 		err = airoha_ppe_offload_setup(eth);
+ 	if (!err)
+-		err = airoha_ppe_flow_offload_cmd(port, cls);
++		err = airoha_ppe_flow_offload_cmd(eth, type_data);
+ 
+ 	mutex_unlock(&flow_offload_mutex);
+ 
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.50.1
 
 
