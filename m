@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5C6CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 11:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE325CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GBseufnTrkiprToC1hEN+V9bNDsJi2enuQf3IdAPE+Q=; b=21lptwilcONH8IC4HSnY2S1D1c
-	Ofb6KQYYLSAlUppmGz/es5uahJxZUZ/WB7LxUgqQIvXiwVvZLgknH+K2A04c3rrh22x8XZF0crDDj
-	n98tZV+FOPNjh6IpUtxhTnb2FtsJd/ROxlYvF9m679Qw1rbOpvy5zl+0M+aGwj5avjSH/VJZqbuJd
-	HDHHCM9w6qxMp1ksp70/fJTCEgjZWQux9OJ1JHpn3gXiFVWSANltVnKRaiG6B0gzrdfxKYW/SF6S3
-	xJj3pd+DHRtP3kstMz8ddMKB/CFyrkHV0kC/DWkTNeEflZyheIAusSXxn6HGFJ1dxfBCd+LMqjPKQ
-	QshAbrJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mycHp6qSRzlcFd4YjpHc32Iz3RHm3l/TUwPIdxqYeFA=; b=iClXV2FFlg+vSwfmdUupYHCy48
+	TuW9BH00xdLCJBSEOYZ33GmjuiCTfO+rnzCeKwgp9f1vFYElpWka1LoM9sS6KrPOis6K3stBqQ8YF
+	+GRPkdxaI48M2cBp0zCu4VUoQGX5LbRsJXpjg9OyPX6LXguN9ceKunYJykA63zrKTFiVSAyZla9th
+	V0nJnj0pe5t8NxyTsEGLkFfACrvcG/7UakTg+SUJnHsTIXrJhozJFK2HDFafoVHTKzO4tjeEp60yh
+	bY9MgIjgjDQ4oFv+lusOJWGCwIUmg8imLyD56r6PHp7Y3eOO9KoJ1M/6pCRuVCIG+E+jVo62y1JmO
+	gt0ltJLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKy1-0000000AMM4-1n9e;
-	Tue, 19 Aug 2025 11:57:29 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uoL0Z-0000000AMsF-0k50;
+	Tue, 19 Aug 2025 12:00:07 +0000
+Received: from mail-vs1-f47.google.com ([209.85.217.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJJv-0000000A5Xa-4Ait
+	id 1uoJK6-0000000A5bj-0oAF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 10:12:01 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57JABgZl2931017;
-	Tue, 19 Aug 2025 05:11:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755598302;
-	bh=GBseufnTrkiprToC1hEN+V9bNDsJi2enuQf3IdAPE+Q=;
-	h=From:To:CC:Subject:Date;
-	b=N70PXs3TIPiz+Cb3ic2Ofohfyxe7TrSOO3rI3pMSoGN1HQ59QNMLn7ehsOCgI41Hc
-	 oLY3GcDN5soDs8EsZFjywg7du8tlqGmFHaZuFXw2xJG3h/NGBemRyORlMuA13SdjnH
-	 rZSWx+6YFndODx4zt3w1+7VGB3ZU/h1i/kdsswzM=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57JABfsK1207830
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 19 Aug 2025 05:11:41 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 19
- Aug 2025 05:11:41 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 19 Aug 2025 05:11:41 -0500
-Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57JABbiw2552213;
-	Tue, 19 Aug 2025 05:11:38 -0500
-From: Beleswar Padhi <b-padhi@ti.com>
-To: <linux@armlinux.org.uk>, <arnd@arndb.de>
-CC: <krzk@kernel.org>, <afd@ti.com>, <u-kumar1@ti.com>, <praneeth@ti.com>,
-        <b-padhi@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] arm: multi_v7_defconfig: Enable more OMAP related configs
-Date: Tue, 19 Aug 2025 15:41:37 +0530
-Message-ID: <20250819101137.2878336-1-b-padhi@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 19 Aug 2025 10:12:11 +0000
+Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-50f8b94c6adso1237855137.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 03:12:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755598329; x=1756203129;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mycHp6qSRzlcFd4YjpHc32Iz3RHm3l/TUwPIdxqYeFA=;
+        b=GI5HMA3916x8yZre5SlWhAD5VE8ZrHTFoS/cK0ymZzN6XpWa/SQrwt8cAkqplucdj/
+         FfWdG+VC3NNFWs8DQYTITfsM6xgArgNDHcU4r9TtQPRG5FoM8RuMoQWNK0ae0rP4J3Fy
+         Q5+wI1p5tHLhp9BundfgZnBGiKsDCYagoxYMxHsYhNZriNDMWODzLD1KHxqkVPkXZ3nK
+         yRtTGSIcVFKOqr3oA8tK0AOOJo6EW1ku5iR1q7DLLM+mW8vdYfj399HdjsoNFn9sX1KL
+         nSzyGs/49TEjYRdQQovCRMhIcuTN8PcPmkECE3MNvI0zcV2hZ6NEdLi436Pm3gKRjz2t
+         u8uA==
+X-Gm-Message-State: AOJu0Yy1rlOMsAC0X41oSpCeORoQxeY879rI1ZsOP49fs0B5wUkzpbkn
+	LORs3wv6cPVs2acQQJB5m6mpRtNnjWC4mkSlsObqxiEztojCVBshiksszr9Uln4A
+X-Gm-Gg: ASbGncu/JMGBKo5ioReAQtTHTAz56OydewqfRUJoX1f4dD8YePSqZychgaN7+KtYpoV
+	Ybzb864/wF2dVKiRvlH17qTJypdggqckUagAAmAVlhcSRGcYE0p8lNDjaJTMfIbAGvU4yVbfyo+
+	d/VOQ3YsByBQuVo/l3pEBDGlsE516lhfAE3uhqrw3F28G0dt2ezWyDLyJcR+/RJlN14fxndjqCt
+	JMPOGMTFcp4ea5maot07V2bxdoERlcDxlmXPOvzqOMCsguog0wHiV6c0uh1+jBvSbDULCperNfa
+	oHEzL3gWoaDKplLAytneSYV17oNLtZhEvu6dYyB06bFrwADEU6YecOUG1XQPNQ5gxBbvEGeOrn3
+	eihwUqgyTPBFqFMI6p36pHcTI57VpxYRnqRmG+epu/is4TMQ8sHV00JrPl80f
+X-Google-Smtp-Source: AGHT+IFd3r8ATJpN41kniPpIoWb1VAwYu9tQTi8MHdvCw/cFBWh1nEQUJuYMEvo5fmFAa99gcjelZQ==
+X-Received: by 2002:a05:6102:418c:b0:4f9:6a91:cc95 with SMTP id ada2fe7eead31-5192453c1bemr472881137.27.1755598328835;
+        Tue, 19 Aug 2025 03:12:08 -0700 (PDT)
+Received: from mail-ua1-f52.google.com (mail-ua1-f52.google.com. [209.85.222.52])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-890278ec6c1sm2367347241.19.2025.08.19.03.12.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Aug 2025 03:12:08 -0700 (PDT)
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-890190da557so1004557241.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 03:12:08 -0700 (PDT)
+X-Received: by 2002:a05:6102:548e:b0:4fb:f2ff:dd16 with SMTP id
+ ada2fe7eead31-51923a25723mr489752137.17.1755598328341; Tue, 19 Aug 2025
+ 03:12:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250806192821.133302-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250806192821.133302-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 19 Aug 2025 12:11:56 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVdM2qd_DWiiPr2OwX5=nf1UBuHRUX5Za9P20XPsJG1xA@mail.gmail.com>
+X-Gm-Features: Ac12FXzJGw-LH6Umblaudi03B5kX_ZYvIGSqV9QE23hvFag9FOrGjoyEvIY4p5g
+Message-ID: <CAMuHMdVdM2qd_DWiiPr2OwX5=nf1UBuHRUX5Za9P20XPsJG1xA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Set VDDQ18_25_AVB voltage
+ on Retronix R-Car V4H Sparrow Hawk EVTB1
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_031200_077595_5F84EF17 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_031210_232503_8D2528A4 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This allows us to enable various peripherals in the TI OMAP family
-platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
-AM57XX-EVM using the multi_v7_defconfig, instead of only with the
-OMAP specific defconfigs.
+On Wed, 6 Aug 2025 at 21:28, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> The Retronix R-Car V4H Sparrow Hawk EVTB1 uses 1V8 IO voltage supply
+> for VDDQ18_25_AVB power rail. Update the AVB0 pinmux to reflect the
+> change in IO voltage. Since the VDDQ18_25_AVB power rail is shared,
+> all four AVB0, AVB1, AVB2, TSN0 PFC/GPIO POC[7..4] registers have to
+> be configured the same way. As the EVTA1 boards are from a limited run
+> and generally not available, update the DT to make it compatible with
+> EVTB1 IO voltage settings.
+>
+> Fixes: a719915e76f2 ("arm64: dts: renesas: r8a779g3: Add Retronix R-Car V4H Sparrow Hawk board support")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-DRM_PANEL_OSD_OSD101T2587_53TS:
-Enables OSD LCD panel support used in AM57XX evaluation modules.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.18.
 
-SPI_TI_QSPI:
-Enables TI's QSPI master controller driver for accessing flash devices
-on OMAP5 platforms.
+Gr{oetje,eeting}s,
 
-Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
----
-v2: Changelog:
-1. Enabled only OMAP related configs as modules.
-Dropped userspace distribution related configs and other generic ones.
+                        Geert
 
-Link to v1:
-https://lore.kernel.org/all/20250806141808.4013462-1-b-padhi@ti.com/
-
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index f2822eeefb95..2b226b0ecaa2 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -453,6 +453,7 @@ CONFIG_SPI_GXP=m
- CONFIG_SPI_GPIO=m
- CONFIG_SPI_FSL_DSPI=m
- CONFIG_SPI_OMAP24XX=y
-+CONFIG_SPI_TI_QSPI=m
- CONFIG_SPI_ORION=y
- CONFIG_SPI_PL022=y
- CONFIG_SPI_ROCKCHIP=m
-@@ -747,6 +748,7 @@ CONFIG_DRM_PANEL_SIMPLE=y
- CONFIG_DRM_PANEL_EDP=y
- CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
- CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
-+CONFIG_DRM_PANEL_OSD_OSD101T2587_53TS=m
- CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
- CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
