@@ -4,91 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D7ACA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 06:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30420CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 06:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0AWIYj2epFr+qx1fVpqnAX5UanwZB2y/LnSEJHpETPc=; b=HrSfiAewE3T9lLP0M07pPYN0Lx
-	EIXkzc/5RQLl3qJtPk0a2VpCqv/Qqa5hUdVKEOCBJqjeyEpxO9cVTSSKPuWLyb96bvSbFWoxBaNF+
-	h7ChT0v7TogOkncym3ekivg+i1ycNh/Kkz8wzLpfG9NIYbGQI2+oWxfcIqs04w7IHWibzSKNEqik9
-	2nqrJkv+L9Dp7d4sdvjQuxj/vv4Q/MvvKOLu3zT+i4ifQtCV6cFrx/hrIBbOcOhp+C3URDT6Vyu0K
-	HcZwkDaH+ZZbsmBSX/2L3zRddUrLA5Lcr1YnyQjioQjaiV0bFCm0ASd9G+GZgSoQj6RpSMpM2p9ia
-	d8RR5dxQ==;
+	bh=FFJuHd+UJ5xkh9eJu3xzSFUzMihD4amaKjFroZy79Ag=; b=c1mn/NGmj7Yh+OLC5HDE8d12ga
+	qGL1W5U1fGHxrAS8eo0cVbWRGXcBtrr11575ziMAHI0vwrIeMKxUrg42f/LTgPwlZWdfZ0G5+TwZ7
+	aobKCchwYKtzG2Cvxrf27hweYutuhZsJrhAjA5r6oMy9f/MVeJWI55HXLODTcILrTm6IjWUSjw8PN
+	eFS60OFtiJGMptAhWix7s+Hjd25Armg3mJ1W7bB3BrKXqCHIh/4UrxOkY+NhtkudWVvSDm5VuhyUo
+	pabLBDP/72+mvfrHoRnqYlVxmdG0E41ruOgwVFh+naoc0baVXrpw4iFbbMyZvbDQwwRQXCCkl9wqU
+	eos5n+qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoFOR-00000009TgB-2QU5;
-	Tue, 19 Aug 2025 06:00:23 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoFLq-00000009TSs-05u1
+	id 1uoFQz-00000009Tw9-2jPl;
+	Tue, 19 Aug 2025 06:03:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoFN8-00000009TbI-0TTE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 05:57:44 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250819055736epoutp02d833a97592c21247b5fdbb8f6337eb51~dFXzt-yn-2443424434epoutp02V
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 05:57:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250819055736epoutp02d833a97592c21247b5fdbb8f6337eb51~dFXzt-yn-2443424434epoutp02V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755583056;
-	bh=0AWIYj2epFr+qx1fVpqnAX5UanwZB2y/LnSEJHpETPc=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=KNSW+IwRMopQ1HaN87qTcS0ySHULMA+cVlVfrLHwswVS4Kx2rTyHdixJ1+Ec+WWbH
-	 1PnbPlr8opoX5C/Hy5PbzSa2S3PMXKdueVDGEgGvCY3LBnGdVHxpv4wh0Rm3hDUrua
-	 ++ebrrMeFsmmEcDZ3CRoW4LcIhEAJQUH3dh1snHE=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250819055735epcas5p3e2ba939105f3a113e44f166c5accc5f8~dFXzAutSr3096130961epcas5p3v;
-	Tue, 19 Aug 2025 05:57:35 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4c5f4Z1pyLz2SSKf; Tue, 19 Aug
-	2025 05:57:34 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250819054102epcas5p3d7ddf2f221eb29aea94e01a20ae475f1~dFJWy6v4S2754527545epcas5p3R;
-	Tue, 19 Aug 2025 05:41:02 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250819054059epsmtip17dc08bb104387a48e7c613e31273ea49~dFJT6ERqW0874408744epsmtip1h;
-	Tue, 19 Aug 2025 05:40:59 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Vinod Koul'" <vkoul@kernel.org>
-Cc: <kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <aJtNGGjKy762BLcX@vaman>
-Subject: RE: [PATCH v5 4/6] phy: exynos5-usbdrd: support HS combo phy for
- ExynosAutov920
-Date: Tue, 19 Aug 2025 11:10:58 +0530
-Message-ID: <008401dc10cb$d97ebec0$8c7c3c40$@samsung.com>
+	Tue, 19 Aug 2025 05:59:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A786F152B;
+	Mon, 18 Aug 2025 22:58:49 -0700 (PDT)
+Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 913663F63F;
+	Mon, 18 Aug 2025 22:58:54 -0700 (PDT)
+Message-ID: <bea0e6b4-4b9e-45c7-b42a-fde93d627cba@arm.com>
+Date: Tue, 19 Aug 2025 11:28:51 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64/sysreg: Add TCR_EL2 register
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Mark Brown <broonie@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250818045759.672408-1-anshuman.khandual@arm.com>
+ <20250818045759.672408-4-anshuman.khandual@arm.com>
+ <87ldngmy9h.wl-maz@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <87ldngmy9h.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJ+ZgWj3OwstM5ZbwFL0KmcSzrOlQOFHe52AnwI3/8CqtxTAbLfaf6A
-Content-Language: en-in
-X-CMS-MailID: 20250819054102epcas5p3d7ddf2f221eb29aea94e01a20ae475f1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250805114316epcas5p49b78db499c2e37a1fe68f4b2f0be62a7
-References: <20250805115216.3798121-1-pritam.sutar@samsung.com>
-	<CGME20250805114316epcas5p49b78db499c2e37a1fe68f4b2f0be62a7@epcas5p4.samsung.com>
-	<20250805115216.3798121-5-pritam.sutar@samsung.com> <aJtNGGjKy762BLcX@vaman>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_225742_719845_070AE338 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20250818_225902_243396_328E9F22 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,189 +69,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
-
-> -----Original Message-----
-> From: Vinod Koul <vkoul@kernel.org>
-> Sent: 12 August 2025 07:48 PM
-> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> Cc: kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
-> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
-> peter.griffin@linaro.org; kauschluss@disroot.org;
-> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
-> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
-> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-linux-samsung-
-> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
-> faraz.ata@samsung.com; muhammed.ali@samsung.com;
-> selvarasu.g@samsung.com
-> Subject: Re: [PATCH v5 4/6] phy: exynos5-usbdrd: support HS combo phy for
-> ExynosAutov920
+On 18/08/25 9:13 PM, Marc Zyngier wrote:
+> On Mon, 18 Aug 2025 05:57:58 +0100,
+> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>>
+>> Add TCR_EL2 register fields as per the latest ARM ARM DDI 0487 7.B in tools
 > 
-> On 05-08-25, 17:22, Pritam Manohar Sutar wrote:
-> > Support UTMI+ combo phy for this SoC which is somewhat simmilar to
-> > what the existing Exynos850 support does. The difference is that some
-> > register offsets and bit fields are defferent from Exynos850.
-> >
-> > Add required change in phy driver to support combo HS phy for this SoC.
-> >
-> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> > ---
-> >  drivers/phy/samsung/phy-exynos5-usbdrd.c | 210
-> > +++++++++++++++++++++++
-> >  1 file changed, 210 insertions(+)
-> >
-> > diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > index 5400dd23e500..c22f4de7d094 100644
-> > --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-> > @@ -41,6 +41,13 @@
-> >  #define EXYNOS2200_CLKRST_LINK_PCLK_SEL		BIT(1)
-> >
-> >  #define EXYNOS2200_DRD_UTMI			0x10
-> > +
-> > +/* ExynosAutov920 bits */
-> > +#define UTMICTL_FORCE_UTMI_SUSPEND		BIT(13)
-> > +#define UTMICTL_FORCE_UTMI_SLEEP		BIT(12)
-> > +#define UTMICTL_FORCE_DPPULLDOWN		BIT(9)
-> > +#define UTMICTL_FORCE_DMPULLDOWN		BIT(8)
-> > +
-> >  #define EXYNOS2200_UTMI_FORCE_VBUSVALID		BIT(1)
-> >  #define EXYNOS2200_UTMI_FORCE_BVALID		BIT(0)
-> >
-> > @@ -250,6 +257,22 @@
-> >  #define EXYNOS850_DRD_HSP_TEST			0x5c
-> >  #define HSP_TEST_SIDDQ				BIT(24)
-> >
-> > +#define EXYNOSAUTOV920_DRD_HSP_CLKRST		0x100
-> > +#define HSPCLKRST_PHY20_SW_PORTRESET		BIT(3)
-> > +#define HSPCLKRST_PHY20_SW_POR			BIT(1)
-> > +#define HSPCLKRST_PHY20_SW_POR_SEL		BIT(0)
-> > +
-> > +#define EXYNOSAUTOV920_DRD_HSPCTL		0x104
-> > +#define HSPCTRL_VBUSVLDEXTSEL			BIT(13)
-> > +#define HSPCTRL_VBUSVLDEXT			BIT(12)
-> > +#define HSPCTRL_EN_UTMISUSPEND			BIT(9)
-> > +#define HSPCTRL_COMMONONN			BIT(8)
-> > +
-> > +#define EXYNOSAUTOV920_DRD_HSP_TEST		0x10c
-> > +
-> > +#define EXYNOSAUTOV920_DRD_HSPPLLTUNE		0x110
-> > +#define HSPPLLTUNE_FSEL				GENMASK(18, 16)
-> > +
-> >  /* Exynos9 - GS101 */
-> >  #define EXYNOS850_DRD_SECPMACTL			0x48
-> >  #define SECPMACTL_PMA_ROPLL_REF_CLK_SEL		GENMASK(13,
-> 12)
-> > @@ -2054,6 +2077,139 @@ static const struct exynos5_usbdrd_phy_drvdata
-> exynos990_usbdrd_phy = {
-> >  	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
-> >  };
-> >
-> > +static void
-> > +exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd) {
-> > +	void __iomem *reg_phy = phy_drd->reg_phy;
-> > +	u32 reg;
-> > +
-> > +	/*
-> > +	 * Disable HWACG (hardware auto clock gating control). This
-> > +	 * forces QACTIVE signal in Q-Channel interface to HIGH level,
-> > +	 * to make sure the PHY clock is not gated by the hardware.
-> > +	 */
-> > +	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
-> > +	reg |= LINKCTRL_FORCE_QACT;
-> > +	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
+> 7.B??? My copy of the published ARM ARM has L.B as the version suffix.
+
+Right, the version is L.B instead.
 > 
-> maybe add a read-modify-write helper, this is user a lot here
-
-Used this convention for readability purpose. Other SoCs are also using 
-convention in this file. 
-
-Moreover, noted this and will consider to clean-up this file later.
-
+> Also, if you got the registers from the ARM ARM, please stop doing
+> so. This is terribly error prone, and likely to be incomplete, given
+> that the ARM ARM lags about a year behind the published architecture.
 > 
-> > +
-> > +	/* De-assert link reset */
-> > +	reg = readl(reg_phy + EXYNOS2200_DRD_CLKRST);
-> > +	reg &= ~CLKRST_LINK_SW_RST;
-> > +	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
-> > +
-> > +	/* Set PHY POR High */
-> > +	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
-> > +	reg |= HSPCLKRST_PHY20_SW_POR | HSPCLKRST_PHY20_SW_POR_SEL;
-> > +	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSP_CLKRST);
-> > +
-> > +	/* Enable UTMI+ */
-> > +	reg = readl(reg_phy + EXYNOS2200_DRD_UTMI);
-> > +	reg &= ~(UTMICTL_FORCE_UTMI_SUSPEND |
-> UTMICTL_FORCE_UTMI_SLEEP |
-> > +		UTMICTL_FORCE_DPPULLDOWN |
-> UTMICTL_FORCE_DMPULLDOWN);
-> > +	writel(reg, reg_phy + EXYNOS2200_DRD_UTMI);
-> > +
-> > +	/* set phy clock & control HS phy */
-> > +	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
-> > +	reg |= HSPCTRL_EN_UTMISUSPEND | HSPCTRL_COMMONONN;
-> > +	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
-> > +
-> > +	fsleep(100);
-> > +
-> > +	/* Set VBUS Valid and DP-Pull up control by VBUS pad usage */
-> > +	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
-> > +	reg |= FIELD_PREP_CONST(LINKCTRL_BUS_FILTER_BYPASS, 0xf);
-> > +	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
-> > +
-> > +	reg = readl(reg_phy + EXYNOS2200_DRD_UTMI);
-> > +	reg |= EXYNOS2200_UTMI_FORCE_VBUSVALID |
-> EXYNOS2200_UTMI_FORCE_BVALID;
-> > +	writel(reg, reg_phy + EXYNOS2200_DRD_UTMI);
-> > +
-> > +	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
-> > +	reg |= HSPCTRL_VBUSVLDEXTSEL | HSPCTRL_VBUSVLDEXT;
-> > +	writel(reg, reg_phy + EXYNOSAUTOV920_DRD_HSPCTL);
-> > +
-> > +	/* Setting FSEL for refference clock */
-> > +	reg = readl(reg_phy + EXYNOSAUTOV920_DRD_HSPPLLTUNE);
-> > +	reg &= ~HSPPLLTUNE_FSEL;
+> You have the BSD-licensed MRS at your disposal, please make use of it.
+
+I guess you are suggesting the latest layout from the XML. Sure will refer
+the layout from the following description.
+
+https://developer.arm.com/documentation/ddi0601/2025-06/AArch64-Registers/TCR-EL2--Translation-Control-Register--EL2-
 > 
-> Empty line here please
-
-Will add empty line.
-
+>> sysreg format and drop all the existing redundant macros from the header
+>> (arch/arm64/include/asm/kvm_arm.h). While here also drop an explicit sysreg
+>> definction SYS_TCR_EL2 from sysreg.h header.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oliver.upton@linux.dev>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/kvm_arm.h | 13 ----------
+>>  arch/arm64/include/asm/sysreg.h  |  1 -
+>>  arch/arm64/tools/sysreg          | 44 ++++++++++++++++++++++++++++++++
+>>  3 files changed, 44 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+>> index 560d9cb63413..8994cddef182 100644
+>> --- a/arch/arm64/include/asm/kvm_arm.h
+>> +++ b/arch/arm64/include/asm/kvm_arm.h
+>> @@ -107,19 +107,6 @@
+>>  
+>>  #define MPAMHCR_HOST_FLAGS	0
+>>  
+>> -/* TCR_EL2 Registers bits */
+>> -#define TCR_EL2_DS		(1UL << 32)
+>> -#define TCR_EL2_RES1		((1U << 31) | (1 << 23))
+>> -#define TCR_EL2_HPD		(1 << 24)
+>> -#define TCR_EL2_TBI		(1 << 20)
+>> -#define TCR_EL2_PS_SHIFT	16
+>> -#define TCR_EL2_PS_MASK		(7 << TCR_EL2_PS_SHIFT)
+>> -#define TCR_EL2_PS_40B		(2 << TCR_EL2_PS_SHIFT)
+>> -#define TCR_EL2_TG0_MASK	TCR_EL1_TG0_MASK
+>> -#define TCR_EL2_SH0_MASK	TCR_EL1_SH0_MASK
+>> -#define TCR_EL2_ORGN0_MASK	TCR_EL1_ORGN0_MASK
+>> -#define TCR_EL2_IRGN0_MASK	TCR_EL1_IRGN0_MASK
+>> -#define TCR_EL2_T0SZ_MASK	0x3f
+>>  #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
+>>  			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
+>>  
+>> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+>> index ad5c901af229..112d5d0acb50 100644
+>> --- a/arch/arm64/include/asm/sysreg.h
+>> +++ b/arch/arm64/include/asm/sysreg.h
+>> @@ -523,7 +523,6 @@
+>>  
+>>  #define SYS_TTBR0_EL2			sys_reg(3, 4, 2, 0, 0)
+>>  #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
+>> -#define SYS_TCR_EL2			sys_reg(3, 4, 2, 0, 2)
+>>  #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+>>  #define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+>>  
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index 4bdae8bb11dc..d2b40105eb41 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -4812,6 +4812,50 @@ Sysreg	TCR_EL12        3	5	2	0	2
+>>  Mapping	TCR_EL1
+>>  EndSysreg
+>>  
+>> +Sysreg	TCR_EL2        3	4	2	0	2
+>> +Res0	63:34
+>> +Field	33	MTX
+>> +Field	32	DS
+>> +Res1	31
+>> +Field	30	TCMA
+>> +Field	29	TBID
+>> +Field	28	HWU62
+>> +Field	27	HWU61
+>> +Field	26	HWU60
+>> +Field	25	HWU59
+>> +Field	24	HPD
+>> +Res1	23
+>> +Field	22	HD
+>> +Field	21	HA
+>> +Field	20	TBI
+>> +Res0	19
+>> +Field   18:16	PS
+>> +UnsignedEnum	15:14	TG0
+>> +	0b00	4K
+>> +	0b01	64K
+>> +	0b10	16K
+>> +EndEnum
+>> +UnsignedEnum	13:12	SH0
+>> +	0b00	NONE
+>> +	0b10	OUTER
+>> +	0b11	INNER
+>> +EndEnum
+>> +UnsignedEnum	11:10	ORGN0
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>> +UnsignedEnum	9:8	IRGN0
+>> +	0b00	NC
+>> +	0b01	WBWA
+>> +	0b10	WT
+>> +	0b11	WBnWA
+>> +EndEnum
+>> +Res0    7:6
+>> +Field   5:0	T0SZ
+>> +EndSysreg
 > 
-> > +	switch (phy_drd->extrefclk) {
-> > +	case EXYNOS5_FSEL_50MHZ:
-> > +		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 7);
-> > +		break;
-> > +	case EXYNOS5_FSEL_26MHZ:
-> > +		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 6);
-> > +		break;
-> > +	case EXYNOS5_FSEL_24MHZ:
-> > +		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 2);
-> > +		break;
-> > +	case EXYNOS5_FSEL_20MHZ:
-> > +		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 1);
-> > +		break;
-> > +	case EXYNOS5_FSEL_19MHZ2:
-> > +		reg |= FIELD_PREP(HSPPLLTUNE_FSEL, 0);
-> > +		break;
-> > +	default:
-> > +		dev_warn(phy_drd->dev, "unsupported ref clk: %#.2x\n",
-> > +			 phy_drd->extrefclk);
-> 
-> but we still continue?
+> This is only the E2H==0 version of TCR_EL2. IF you are going to
+> describe this register in a useful manner, then add both formats so
+> that we know what we are dealing with.
 
-This SoC supports 19.2Mhz refclk and it sets default reg value for this
-refclk if it does not find clk.
+IIUC two different runtime layouts for TCR_EL2 is not possible to be
+defined in current tools sysreg format. Also one layout is not just
+a larger extension of the other - in which cases we could have just
+defined the larger layout.
 
-> --
-> ~Vinod
-
-Thank you,
-
-Regards,
-Pritam
-
+But curious do we have use cases for bits from the other layout now ?
 
