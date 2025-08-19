@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7B1CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D90CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W20PrwyIbAYQgwrvBzTFnlxpxnGMU7JnTyqkCQGTx3c=; b=oK9oP411kwntxdM/Nnv630uje1
-	vvhfWhMuRN9K3DC8dFxL7vM+doUbpka6n3U6b6DI4kksWIrYVZsZ4VahMLJv2jJ+SCwf6KhJAwNLY
-	Nw1plbO6KNKGXKZrem2DgfJAkOqJXt4Sl40S8xbfMA96S8ZI6EReqmt3hJHokqAUhZrGSREY5TSMp
-	xdK7FkcYE2mpW6IByx4bQr9esXM3akREzrb3NvJpupRPiP/3YMEc+Yidg3Cy/Rfwebr3GYXRGp85X
-	zsmrUfPYue8ZrR7AFFM5VOt8EJhPeYFXfkr48QkhbOaui+/b+19Vw4Bydq/78OOq8/EV9FCAMWDsa
-	h/BS7M0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=9gSWcuKd0wU9job7na3f+ExlNImfUm9ntr2EO+b33F0=; b=RrDYfqYC0g1jkF
+	WeJFJspXsiIlwA1CkHiLeusMuUJ/WD2XwmMM4Q8J4aH8dgvu7UAQc/jFNDLCoIHauFZLYjQqncYXA
+	Fa3wJoggCIh7xxe7eSa31XSvbBzPXNfWrDRz1sGNHOQlqzy7T1NIEvBA1in/BKAKU0D83KIlz9m2b
+	cgWRzJROH+ULnBlDEDMNzG135o+Vke0H5bmQYRKDluOvmILB8miNGei+vHOkSyC9YyxVexU6VXhSa
+	odM9bSnxrhjLdWHdHsO2v/dT+QCYxnmiZUWcGj0K8zen+HkNsHil45e20CXGpbDDIRcbEDtryJl+K
+	dAsbMb5EPYdaIU/HW80Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTai-0000000BcHp-1GaV;
-	Tue, 19 Aug 2025 21:10:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoTdN-0000000Bcap-0EJV;
+	Tue, 19 Aug 2025 21:12:45 +0000
+Received: from mail-io1-f72.google.com ([209.85.166.72])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNXZ-0000000Aml9-1pQk
+	id 1uoNah-0000000An7I-0Ql6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 14:42:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9761E60209;
-	Tue, 19 Aug 2025 14:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC71C4CEF1;
-	Tue, 19 Aug 2025 14:42:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755614536;
-	bh=cqwQADpES4py+UAccBwue5Qou0LgZbNLPNo27fvu4p0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kicv+klc2cIfiXFaq2sWfwYPPMXQsWzdHFOAlFRIs5e3dbX95dkJ7kDUog6a62sOh
-	 jPJwjboA5nDUPvI4at1SAw8OWQ+a9SvASNHzu5wg+9sBB56p/iyIhXs0rX87l+cozs
-	 UmkXEwwGbg3p8q+o2yCwCztEeZolwoCccDFGHK4Sxzbd2q3Ng1BsOCTND2d9zqP/kc
-	 cP7JvWhhOKDowMXIP0YJfXGW1kMYsFtJlFvulYGeabY4C7cMwViRgbzh1wTezFEd5g
-	 2Z41X0WxNsA7oiNTqBtCB/gmEqWfbjW3evPvSoEFgj8Mzlx/YWCcYHGm2N5lfEY403
-	 tGxAqddpzvM9A==
-Date: Tue, 19 Aug 2025 07:42:14 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukasz.majewski@mailbox.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v18 5/7] net: mtip: Add mtip_switch_{rx|tx} functions
- to the L2 switch driver
-Message-ID: <20250819074214.23d4332a@kernel.org>
-In-Reply-To: <20250819103119.42a64541@wsk>
-References: <20250813070755.1523898-1-lukasz.majewski@mailbox.org>
-	<20250813070755.1523898-6-lukasz.majewski@mailbox.org>
-	<20250815183359.352a0ecb@kernel.org>
-	<20250819103119.42a64541@wsk>
+	Tue, 19 Aug 2025 14:45:36 +0000
+Received: by mail-io1-f72.google.com with SMTP id ca18e2360f4ac-88432dc61d9so1407435539f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:45:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755614733; x=1756219533;
+        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9gSWcuKd0wU9job7na3f+ExlNImfUm9ntr2EO+b33F0=;
+        b=bMGRphNQez/baaFCipDXqy+U530BqxSAeOSNU2bx33u7p7tAsUMzHmzPjf1rsTg/Ma
+         2AJUNKpqjXVpqUBBGbbKb0sU3BjnIMOdXp49qP6496EeyGGRDiY0N1BsO8NQBCmkh/g2
+         IItoCZPaqUrSF42/vKbFoT3lyyyWn1+dy0B5Xstb+id36hK/9eqFvDNiGtecjX/FFupv
+         VDHNIWQyXolXz0uLHEtnSQckhtJ6nFPvsm/Qo58kcYVProUxnP/xFQzfLBLZ/Y8FksUi
+         PQ+gP0mKGmHFCGpSAWjD4Cq+n2i1Att0Lfqd8g7uzahLjiHuXAk+IbjQFoMcce+cldy3
+         TkLw==
+X-Forwarded-Encrypted: i=1; AJvYcCX69q3tp914GutsMu+re3DLBK50gV4w06wSAVI8ux9eKFFa2NRxsiYy45ylIvCu4N6DI1jwsyIU8slR94i7QkPh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR++fcqx+esZ1akJydcvBS9eUUSfgSdVp1p0ErhX+f7NGFTunv
+	MSvHjxbWgamYHR9JDKYMIsnAln1MaXuXoAE77Aoj/jibgVDko8QnaclBV3nKzktU5SH6sksGVr1
+	CQNLGM7D8zRmOk6wSzfz/Qb+ZzQYON5Mdci3JJqQy/YW3Zk2M8Cm+O0redk0=
+X-Google-Smtp-Source: AGHT+IHOAYQxCWVcuuhK6rTr3fCVucH64A72KBcVKxz26yW9h7hf3hjUhPdz6KOUFEV8iD3iZmTLNpyS0nqK6zLqK97aBfgRNWkg
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-Received: by 2002:a05:6602:1d88:b0:87c:49fe:cafe with SMTP id
+ ca18e2360f4ac-88467f37802mr435941139f.11.1755614733624; Tue, 19 Aug 2025
+ 07:45:33 -0700 (PDT)
+Date: Tue, 19 Aug 2025 07:45:33 -0700
+In-Reply-To: <20250819090853.3988626-1-keirf@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <68a48e0d.050a0220.e29e5.00c7.GAE@google.com>
+Subject: [syzbot ci] Re: KVM: Speed up MMIO registrations
+From: syzbot ci <syzbot+cidf4b445961d44cba@syzkaller.appspotmail.com>
+To: eric.auger@redhat.com, keirf@google.com, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com, 
+	seanjc@google.com, will@kernel.org
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_074535_143588_006478C4 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +80,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 Aug 2025 10:31:19 +0200 =C5=81ukasz Majewski wrote:
-> > The rx buffer circulation is very odd. =20
->=20
-> The fec_main.c uses page_pool_alloc_pages() to allocate RX page from
-> the pool.
->=20
-> At the RX function the __build_skb(data, ...) is called to create skb.
->=20
-> Last step with the RX function is to call skb_mark_for_recycle(skb),
-> which sets skb->pp_recycle =3D 1.
->=20
-> And yes, in the MTIP I do copy the data to the newly created skb in RX
-> function (anyway, I need to swap bytes in the buffer).=20
->=20
-> It seems like extra copy is performed in the RX function.
+syzbot ci has tested the following series
 
-Right, so the use of page pool is entirely pointless.
-The strength of the page pool is recycling the pages.
-If you don't free / allocate pages on the fast path you're=20
-just paying the extra overhead (of having a populated cache)
+[v3] KVM: Speed up MMIO registrations
+https://lore.kernel.org/all/20250819090853.3988626-1-keirf@google.com
+* [PATCH v3 1/4] KVM: arm64: vgic-init: Remove vgic_ready() macro
+* [PATCH v3 2/4] KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
+* [PATCH v3 3/4] KVM: Implement barriers before accessing kvm->buses[] on SRCU read paths
+* [PATCH v3 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
 
-> > Also you are releasing the page to be recycled without clearing it
-> > from the ring. I think you'd free it again on shutdown, so it's a
-> > double-free. =20
->=20
-> No, the page is persistent. It will be removed when the driver is
-> closed and memory for pages and descriptors is released.
+and found the following issue:
+WARNING in kvm_put_kvm
 
-So remove the page_pool_recycle_direct() call, please:
+Full report is available here:
+https://ci.syzbot.org/series/3dc60813-f155-4817-8552-1f86bd35f4e4
 
-  static int mtip_switch_rx(struct net_device *dev, int budget, int *port)
-	...
-	skb =3D netdev_alloc_skb(pndev, pkt_len + NET_IP_ALIGN);
-	if (unlikely(!skb)) {
-			...
-			page_pool_recycle_direct(fep->page_pool, page);
+***
+
+WARNING in kvm_put_kvm
+
+tree:      torvalds
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
+base:      dfc0f6373094dd88e1eaf76c44f2ff01b65db851
+arch:      amd64
+compiler:  Debian clang version 20.1.7 (++20250616065708+6146a88f6049-1~exp1~20250616065826.132), Debian LLD 20.1.7
+config:    https://ci.syzbot.org/builds/a80ce1fb-9721-4229-8c84-f01975da18a2/config
+C repro:   https://ci.syzbot.org/findings/c7213edd-3666-4fca-886f-07477eb19900/c_repro
+syz repro: https://ci.syzbot.org/findings/c7213edd-3666-4fca-886f-07477eb19900/syz_repro
+
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 6003 at kernel/rcu/srcutree.c:697 cleanup_srcu_struct+0x4ea/0x5f0 kernel/rcu/srcutree.c:697
+Modules linked in:
+CPU: 0 UID: 0 PID: 6003 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:cleanup_srcu_struct+0x4ea/0x5f0 kernel/rcu/srcutree.c:697
+Code: 8b 5c 24 08 74 08 48 89 df e8 e2 30 7d 00 48 c7 03 00 00 00 00 48 83 c4 20 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 90 <0f> 0b 90 eb e6 90 0f 0b 90 eb e0 90 0f 0b 90 eb 14 90 0f 0b 90 eb
+RSP: 0018:ffffc90003b0fc78 EFLAGS: 00010202
+RAX: 1ffffd1fe28c5059 RBX: 1ffff1102341db2b RCX: b3fdaa5e0844b500
+RDX: 0000000000000000 RSI: ffffffff8dba5bb5 RDI: ffff888022170000
+RBP: ffffe8ff146282c8 R08: ffffe8ff14628367 R09: 1ffffd1fe28c506c
+R10: dffffc0000000000 R11: fffff91fe28c506d R12: ffff88811a0ed958
+R13: 0000000000000000 R14: dffffc0000000000 R15: 1ffffffff1b7be74
+FS:  000055557858e500(0000) GS:ffff8880b861c000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000c002fcff88 CR3: 000000003a46e000 CR4: 0000000000352ef0
+Call Trace:
+ <TASK>
+ kvm_destroy_vm virt/kvm/kvm_main.c:1324 [inline]
+ kvm_put_kvm+0x8ca/0xa70 virt/kvm/kvm_main.c:1353
+ kvm_vm_release+0x43/0x50 virt/kvm/kvm_main.c:1376
+ __fput+0x44c/0xa70 fs/file_table.c:468
+ task_work_run+0x1d1/0x260 kernel/task_work.c:227
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ exit_to_user_mode_loop+0xec/0x110 kernel/entry/common.c:43
+ exit_to_user_mode_prepare include/linux/irq-entry-common.h:225 [inline]
+ syscall_exit_to_user_mode_work include/linux/entry-common.h:175 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:210 [inline]
+ do_syscall_64+0x2bd/0x3b0 arch/x86/entry/syscall_64.c:100
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f975198ebe9
+Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fffbfd6bfd8 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
+RAX: 0000000000000000 RBX: 000000000000ed88 RCX: 00007f975198ebe9
+RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
+RBP: 0000000000000000 R08: 0000000000000001 R09: 00000003bfd6c2cf
+R10: 0000001b2fa20000 R11: 0000000000000246 R12: 00007f9751bb5fac
+R13: 00007f9751bb5fa0 R14: ffffffffffffffff R15: 0000000000000003
+ </TASK>
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
 
