@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4EBCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E442CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JKZOwRgVgk/u0KdrUt1cAkiGVJS+RKkMWzXrX75b1m0=; b=ImiXn90JXCPXQVyx2P4TTHYRoB
-	6S0Zr0O9W+TzlTul9L4ywpLkyoootZZOIOkeI60sZ9IuVyaTdwqWI79mZnqd//MjP49GnX7V5Wrap
-	Ehsp+M1u6dPsAPGsmOgaZYxrTKdzYUyc+py27ypmQ0hppm1ljI3qF/114iojH36nP5IBXd8wNSj1e
-	L+WDNt3Atv4SfjiNi2C7A/YaPdIW8uVniLOnczESLNrPgUdv66ETRQF7HJL8RwxHblWFu+AV+Hs5v
-	fLCEnNBEgpFAFw7OA599aOEa4dXb96foOnw7Buxmx3l2CB+KjZh438X9t6uBil81doU9FgkbFMr21
-	XZx4gdOQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eYMdhxIUQ31/cy7vzWDrnpVEGbQxqOB4QZi3i8Wf6a0=; b=jrIVDkSkuIYVlm2q31yuM9oWS0
+	O88SwkwEauBbPSrT+qWZuk75ETpSBvyoDiHpwEsin42jK1wKX97f8bHEvD/WWukipeTpBX6550Ga3
+	uTFIq3OIvAkFPTSyQtDZd9wqXL5+uhw7WR5+oDqZD1cHXtDCg7BOrfkbCu1RUbV8Ye1O4uJlNjs7D
+	KX82fzjHSKyKJ/y8/uRbdi9YB3KCgA2Jx/HndwyzDyDd2BQsm5nlD5dIRXgwtlIfqrA6jxR5P+kKt
+	s8S21WBaERccnC6uGXzRsxxsG8DOSS+YyvT1rw6xniIBM7RPfE/MxgHi+jQumlMnOedoc+OtmQg9a
+	0G+q/8sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQpo-0000000BCOL-336o;
-	Tue, 19 Aug 2025 18:13:24 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uoQpt-0000000BCTn-1qZ4;
+	Tue, 19 Aug 2025 18:13:29 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMDC-0000000AZHr-14DR
+	id 1uoMDE-0000000AZIB-0UmL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 13:17:15 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-afcb79fb221so72410166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:17:14 -0700 (PDT)
+	Tue, 19 Aug 2025 13:17:17 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-61a3a7c09d9so332034a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:17:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755609433; x=1756214233; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JKZOwRgVgk/u0KdrUt1cAkiGVJS+RKkMWzXrX75b1m0=;
-        b=ZVht2GUjp8UQufUldxLyd+9oruzx15KdQlx6QtV3GV6qg56vL29NmSa9cX3s7Fc4fj
-         ttdQqhs2cxzYtn2ELKTaXJEZfA6/EhVFn9bupmdPmmNOuaIi9hX8TSWJ7SfacDTeyka7
-         7rtVXStTNvpV152lZ/KWTDPMU3FEBPDLdWxtIn+L9XYDkiS9/DQmVEsvm9r+aFZball6
-         oan5ZbFRj19KMf+L9kRbPAOqGLYgajOZoUvA/j8GW1Uzwni2dv69Cyt1ySCJa3eWUY0U
-         n+P6lfhvEoNP+QhZObZRAMStY5nb1FLtxfNcCr/nH3HJb1X08xytvDTVtZgiMQ6E3QMG
-         NbxQ==
+        d=linaro.org; s=google; t=1755609434; x=1756214234; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eYMdhxIUQ31/cy7vzWDrnpVEGbQxqOB4QZi3i8Wf6a0=;
+        b=zph7BAneAemvNiOEGXlTw8P/LAc12Tl4Txj+ycudyFAbS3JOku7Scy861iBQOJFqyn
+         6dfbec4rG1e56nVYJx+m6HMwZGkxyEQX12j4SERXeohR4iGWSL+t41w+TbVYwYiDIXQO
+         KLVLq8C55YWOPjRYZU3yIFIEO3sUaPWLGTN9kg3aDSy6jgOV5GD3MidW83OIHT/zuny4
+         gd0Gu7eCWqo6lJQbPs6px52IIS39i19dPGlxxsRlrANdpKs++cbnqcdOyScwHc18Em+v
+         KP9WaHreHSu1N4RUiJk0nq3MrCJAmLgWeiDC2Gc58qyHARf1CKlXPXiyX6iSxiXpcSUi
+         lTwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755609433; x=1756214233;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JKZOwRgVgk/u0KdrUt1cAkiGVJS+RKkMWzXrX75b1m0=;
-        b=ckRd+Ze+aoPZ0I1xofqy5ktfvEo1VifX9L10LNkL8hC/W7eqFtfmQ7RWojaP50WmT4
-         7PnNuz+Fv0umTGO7D89S2UavFn8ePB2UFZzU8M6NCUj5bHtXZ3DU5xyokD0mjdAD7jTG
-         AAED6Dzsapbh07rvKwobu4MMQCMW6/xyR4Fn7XIY/TGEz8tdUVI+hSE5qICHvwbloiP5
-         wBZSyqI1G7EXu7kPw+N0x/nCvRMIX54GAzwMoovXuWnLwL0hN0ALgT/av6qZjpjYAkJE
-         eOlG+84fgpoXqGiaMaqugQAkIfVFud7FIam+uMjnlSYUR3uflfTQ7Kdg6lDWrM0PVCMU
-         6cQg==
-X-Forwarded-Encrypted: i=1; AJvYcCUepC9ufWNkEpUyaMWcIXnhyYOyDUGqHbSPeIltz3sfHiMy9wyw6m8L7/aaHh77yUYEdCXDrVS/XvQSEEKKx8WF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBkLgdiTAYBFqn+ZraCStUL2m+7wgCQrFdcRGPqNTv0HTxAgBT
-	O//hOrtJ/KK/B6V5Ng9yj8ZsldQwk8j1asBz7wHWAz8Bpg4etyqcirZ6d5pekEL2Hyg=
-X-Gm-Gg: ASbGnctPkXyNJ4jCz3Lc95HvCCaO530ZvBHJXVyceOAgFthEs+evu6xuDJ7aG3kXDT3
-	dwpxpaaQe8tMTL0QVVdq7X2x0mt4ArVgHOPT/dtTjXQms8TcZVRcqSMcNkv7WV7WsIHU3jnDJLi
-	gX2iYzE9F6GrwUgecagWRyIEja6b5uy1ghnXACGloGmDc/aPVQQrcWuEItOJmhl/39qrsr8rIZS
-	1ZXKvYEvXe+r0EpIJtN8ZWnqUaAWVHJzB1SEwd1bcv39TxtfQ71QkrGQ9B6ZAPOIQKuEBNwnM6m
-	okJk3Zu8cbLgT0aT+Qa39SChQRqOpezF01PNf6V5bzl+G5dZ6Dm+olOJnY+uufGDQApcYiOnPA0
-	Mcw6+MaJk1Y/F2HNh7202HBXrbxkoCZdwtg==
-X-Google-Smtp-Source: AGHT+IE/vAUGvaFZ7UmmcB7vUKiiYyvdlgsGn3EINffXwUbDoJ0n2eu7BMJecMYq+4729BjHVfjv/w==
-X-Received: by 2002:a05:6402:13c7:b0:612:e258:33e2 with SMTP id 4fb4d7f45d1cf-61a7e768851mr1075178a12.4.1755609432667;
-        Tue, 19 Aug 2025 06:17:12 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755609434; x=1756214234;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eYMdhxIUQ31/cy7vzWDrnpVEGbQxqOB4QZi3i8Wf6a0=;
+        b=UCB9QQFBzQDvKqn9ZI6GZnrBY9xmDrSfq2703Zn9OByqY6YzAyLmuZ/TMVL+iSS+xo
+         /J7sNCTs94nePf4RqSeEJG0fqBnpOxPohefmBwXChc/2G46e/dCyrt7nb53xeympxKfE
+         vrmDjUzp47+Bbmzn9eKOCpYyrUSleaU2/yvsO7CTu9Yh2Y6Q2qHX3mvQk20TVFqao2pP
+         91ye7c1e6AskqYIMpiFDUyFzzqCv1ipKtTeqsjlpi/dMKiMuo0T9xjS8a+IXXAizcDxB
+         LxzCmfTTsI8/gKU6jh8MSg32GA4TGKnpYfwLJBMlV+/bXNhk4hgqgz+AGoq+J3RtaQhg
+         QD8w==
+X-Forwarded-Encrypted: i=1; AJvYcCWt4SyESQ63sPpOiLyWoh1Z62NX9Sff5zd5E7dwH3uoP4SCksz7Z18XmzsAGOg5w+rnkkK10SoduD77dYZFEiQP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx12/2PH4zv0dof7dp1SMNd2Zjh6oP+NWj3Voeb4MHOvhAXYc0j
+	D/8ZJ2vq9ud28Oi+ae/uZqs0Fk+gw6PKisq4TF2PNJD+scXWpe5MMmvjWP0uWsMAdAI=
+X-Gm-Gg: ASbGncuvvKT/7xFTRsTOdJgDf1vlZ/lKnC6BGNTDu1LXvstu6/NRWn1u+QVGmciWLn/
+	X2UQWoU/5iaFER9DNUAYCXHuO/erX2fvhw4uH56ozaJ0U57KaBojgygoWE34XsXov7Xma/4+L73
+	bDgQpbhb9vH47UXkG4NjvwQGzw6kC322AuHJ0B+kbNvXhgyitmdsr1Ppv54ZPb4fG2DEuRx469A
+	yWOBFsWYWTzCTU+uEUDB0qR9wZO85uMEuPFRUDm6sri3kn/UPp2Q1qXT1sFMbrYpqnBo0IC1w0T
+	gGDuEGn3LXIxmG8XX4Y9C8sVSQWv57qCLUaWCWrgTf0C+fSJLpxkJUXcTew5bzsu1c6KTBbnSlu
+	ZOWFXIokHxk8+8/DPuwR85uL/V05vkGtQmg==
+X-Google-Smtp-Source: AGHT+IGKdkV+1r589d0SVRi3O+feTSsj4hmOGvm3/y18TTqAWbPqtEd00j4EtkVL8S15WigaZDcifQ==
+X-Received: by 2002:a05:6402:35ce:b0:612:f2fc:2b9b with SMTP id 4fb4d7f45d1cf-61a7e6d953emr1012321a12.1.1755609434365;
+        Tue, 19 Aug 2025 06:17:14 -0700 (PDT)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61a92678f45sm129674a12.18.2025.08.19.06.17.11
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61a92678f45sm129674a12.18.2025.08.19.06.17.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 06:17:12 -0700 (PDT)
+        Tue, 19 Aug 2025 06:17:13 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -81,29 +82,31 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] ARM: dts: stm32: Minor whitespace cleanup
-Date: Tue, 19 Aug 2025 15:17:08 +0200
-Message-ID: <20250819131707.86657-3-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] arm64: dts: stm32: Minor whitespace cleanup
+Date: Tue, 19 Aug 2025 15:17:09 +0200
+Message-ID: <20250819131707.86657-4-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250819131707.86657-3-krzysztof.kozlowski@linaro.org>
+References: <20250819131707.86657-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1895; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=B3zj8kIxlI6NNxjczKCH38wkItfXZHU2cc6N45nCziM=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHlTkXi33JJKHIMfKBoPhPxIx908F+l6S81a7
- m1fzcytzaeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5UwAKCRDBN2bmhouD
- 1346EACYQWFZHMhc9Q28PrXrM2zH4iKyydMy43eCV8WTv37Msn65uyxgguJ7kyC7hc5MaL4HKOa
- d0JKgl4tyaTwoIkCHUvT5ZewBrP+RHxyq7mTQqTfVHCIwKXtFf8liWHQ1noXqVcWnsy0I1sbcw5
- MMU25nXzXQvz4Aqiv/BIDN0C5N2e4znVVzQcaoHiSjB2Fzdrgi4d3UKDrMCK5gZKfDE8cbFVIbf
- GksfXa95bREav2g46bo/xcVRDYQhRp5Hfk1zyG2Dr3ck7eqQ3AVOxp4tVT9/Hwxgz0bykWSIxCV
- qA0chuos9BWz/JF2cwNxHR27T+R9ezSXbSjMoVf6tjFnZkJXuXKlrRWa3WZ57CRAPFZnnSNH/d5
- lPVdiZiTTBEEw1oySG4+ukrMqs6VEJdNa6ZnSeFclm1PGWhmRyfrRGCJWOf+SZ0YF6tkbbSJUmU
- 0sHwyexaVYtKSrY3polDkTaDIU8gPZkHYBIfW7dwPd8bojdX5ghigh+k14+ZGDnSINFI4dJZVKy
- kITbrPn1Udz5I2aRC2GSFK4c75IxREqD4ZxqgKjgakZoc2eY8zLdzJNgY+ps4sHu6GWPhxaam1f
- VRpB5DfQ4FaAdxO7awxj+qtl9dsqEsRQBSoMxHLrpuW7ZYfe+kBEy4aEquCc7+hIY3redt+aRdS E6E7i24wVw2SGxA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=937; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=CbjadNNNEe8Yn9p48OvNEAWuQJuq9CsOCkHrF+TBmzM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHlUh9ijAKsBRMt2aMyQYJ9QM9JmObsPeF4fB
+ AxubSnhgyCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5VAAKCRDBN2bmhouD
+ 1xayD/9T2Czt91Y2lD5WnyYHRP0t4bhHs/mS2Qe5NTJa2kew7W8Ij/MB5UdXtd0mQcNRTLa1RmQ
+ zXdldkv7Q4qLc0e8j8u6/U+ZeGUQ0TNC0amXAXc1XbKOrQI8RmACzjSwjV7bueIInrNE+Wm3xh4
+ JjHAbMbiTxjc5DFkVK33xKIzty0UwuTjB0GrFPdA5aMfnRQTrtyux3nG5b3BrlvheRM8u/iAB05
+ YdIBZDyrB7Zp/W2+4lxfUuSmRrp8Q9LZX4mSCVQXPKAgKiHcWYQTTgKcudviMw/owCZrKDmfu8j
+ Qyc3qwE5+zfAMMHEZGMMBjxd0eFcXj94nTyZET3KIyG76XwIbyuU82mc11GVAk5x0C5jrIFCwm0
+ W8ogs68q1bM6Hj78EeyNLzdnVpg8l8wo9c9WIsJwvT8SALOtFSRGeyTh6Jxq5GnQF1HOJKs/TrK
+ kUHl7U3aLmpMrPUtwTDtCSdyhIKxNBdfX6AknvtipYJ24n4a953GkS8UVw2FefBkvaCbt/scdjR
+ tTYvQMz0UXez7T6LuMsDNIR9DuKvK0PXXcbn01XzwSaI9YmmDPpiSb+y6RnNHn2aoKNQ1FABysk
+ YaI8qpT+itvR0oJ1W1chMdyl7JA5C5KpZdSgnK4kLjb6jjrv190uoih1k91q9q4z2S+Pgak9lV2 zSIyIDqwPENIr1w==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_061714_289649_13EC6BA5 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250819_061716_156502_79A21E4C 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,55 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DTS code coding style expects exactly one space around '=' or '{'
-characters.
+The DTS code coding style expects exactly one space around '='
+character.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts        | 2 +-
- arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts | 2 +-
- arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi      | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
-index 39a3211c6133..b886aa91bb86 100644
---- a/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
-+++ b/arch/arm/boot/dts/st/stm32mp151c-plyaqm.dts
-@@ -255,7 +255,7 @@ &m4_rproc {
- 	/delete-property/ st,syscfg-holdboot;
- 	resets = <&scmi_reset RST_SCMI_MCU>,
- 		 <&scmi_reset RST_SCMI_MCU_HOLD_BOOT>;
--	reset-names =  "mcu_rst", "hold_boot";
-+	reset-names = "mcu_rst", "hold_boot";
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+index 836b1958ce65..4ff334563599 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+@@ -100,7 +100,7 @@ &combophy {
  };
  
- &mdma1 {
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-index ac42d462d449..2531f4bc8ca4 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
-@@ -92,7 +92,7 @@ gpu_reserved: gpu@f8000000 {
- 	leds: leds {
- 		compatible = "gpio-leds";
- 
--		led0{
-+		led0 {
- 			label = "buzzer";
- 			gpios = <&gpiof 2 GPIO_ACTIVE_HIGH>;
- 			default-state = "off";
-diff --git a/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi b/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-index be0c355d3105..154698f87b0e 100644
---- a/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-@@ -262,7 +262,7 @@ &i2c5 {
+ &csi {
+-	vdd-supply =  <&scmi_vddcore>;
++	vdd-supply = <&scmi_vddcore>;
+ 	vdda18-supply = <&scmi_v1v8>;
  	status = "okay";
- 
- 	usbhub: usbhub@2c {
--		compatible ="microchip,usb2514b";
-+		compatible = "microchip,usb2514b";
- 		reg = <0x2c>;
- 		vdd-supply = <&v3v3>;
- 		reset-gpios = <&gpiob 6 GPIO_ACTIVE_LOW>;
+ 	ports {
+@@ -151,7 +151,7 @@ phy0_eth2: ethernet-phy@1 {
+ 			reg = <1>;
+ 			reset-assert-us = <10000>;
+ 			reset-deassert-us = <300>;
+-			reset-gpios =  <&gpiog 6 GPIO_ACTIVE_LOW>;
++			reset-gpios = <&gpiog 6 GPIO_ACTIVE_LOW>;
+ 		};
+ 	};
+ };
 -- 
 2.48.1
 
