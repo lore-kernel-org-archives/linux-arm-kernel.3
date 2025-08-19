@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFD9CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A37CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xSaurBdtkeatTy6B+DotbAZ9znHLVwGVjALlNHAHq3k=; b=u4wCC1+vGJSrAC5uobHnPzpmPu
-	7NT84xy46w3heugtm1gyMbz8lD9Ljn2IMRVKObjG5s8IDmBhLYaIAafTKSt42s6I5kpL1EXppmhOp
-	CrsnqAiMez/HBuNX0W7blkAh76FIAX26kjoJiBLzczBshCYrYXuCn70Y2TKbjt6lDjwhoBM+R57UU
-	X6iI3WHHT1wApHBgS0Kt0yUXyhl5xgFlyro9OR7hIJOPnGlw2zOac7xhgSUjMKVkcflQL5eBH5/58
-	fKG6iZCGw/nMfJGOkUiSJuvkgDcb+jWOKl/qRkxOsKFNznOfejTTPchOteOBif/1Zl1+SbnPIBTF6
-	izRGo6Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlVIeoby2Tqzgrsv+ZuVu4uYXHlpH4uyosFxxOSmnT4=; b=w+QjBrNUiOfuL4WJNVREQmBhAe
+	6K7JgXw8/E3cxv0miTPaH0BNqBXgQZqP/yy5SHRVYKYsygdvX9oBDksBQqiLtZSSkvTKr9VzQLms6
+	cYGLJTuU9XzFz3QmBkkcfenveXMM0TYJUvCvsGgikKxTQSLWSxz8Gy8GHsbmWt6dpSU4+ecOTh0xo
+	9eK7LXkRBoGP8xiflzp97qGIEjd1Z7EFkHi5gBhFHiJEFOSgpp20Auu/vJ0xlAelsC9ac9hUt4Krq
+	R3fB2NGF+TQyAACErgf1+FOnJHNT5RZx5OtSeQtGSznyZuEkiVZfSt7Q+4lnM3oXoDAXL/T4Dk6rz
+	i6j04ZUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJRu-0000000A6v2-3ggj;
-	Tue, 19 Aug 2025 10:20:14 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1uoJUV-0000000A7KS-3ufW;
+	Tue, 19 Aug 2025 10:22:55 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIKx-00000009tkD-3vWl
+	id 1uoITt-00000009vXq-0VUI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 09:09:01 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1ba17bbcso21890785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 02:08:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755594537; x=1756199337; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=xSaurBdtkeatTy6B+DotbAZ9znHLVwGVjALlNHAHq3k=;
-        b=VHnmCRUtgxDY0S1aC6Qx0fL1+jWQzDFUD3moAc+iuNvMHpRxSd8l+sjXUXLybuuJG9
-         4kmZPFTj5U5Nxmm65Pz8KtQAy5Ya7pq9lbovlN7OMRQfyMC04T+9myun+XndST0VGe+L
-         aWOaPV3a3o+Jo4Ii5/C0xv0Cr4kGEC4rKyNkTfN9vhIaSexSlBzuquEYI8xaxQ3+aT2W
-         pkqWmDTrMKCzlp2uZK3SrnXm7XW/T/tu9fQuqCwOmgmcyRNdAxu+FdPG1Nw7jLOMTIP/
-         Wy8mcsSFizaE5JRTka56ddrelzq5JQwGei+wP0aFzhO/7PHIA3iFHvNNTOhjR+XKUWCh
-         Ok/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755594537; x=1756199337;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xSaurBdtkeatTy6B+DotbAZ9znHLVwGVjALlNHAHq3k=;
-        b=EM5ynZmoCUohfvMw1dNhN1VTSj750jUqCMV4O7PRxTyL1TQh1zDlgyQU05XmzNCQSj
-         mdmw7fbCrIM3ty8R7NyhbAgaQHhGnuVdfBuSMgkqLc7CzhJHEd32sD0cLQu4K5NQPKTm
-         nWLvpdeTXUKPZT3LK42MhadQ50u3pGKfyW+UoMcpA6F81su6YFx8yMXpCjYtXeGtusZZ
-         ESNhBhJUiBhJlX4uD+LV0xlNAgpP6pWolpZSzxcJH7/LFmrrHOWXIZXuhl8dZagADMce
-         R4Gh0nWllFSoZlq/r4i8NSbwJ/ZAE5qP8dL66RYNt84ix1tVZhLpOUOOycu8x4LM4p6+
-         8i0Q==
-X-Gm-Message-State: AOJu0YwEdzjRYtNkQjl6Gv4C0UF7bAtlp4iddKzy8Iv4wUeVa0SgBzxg
-	1IJQ9NxM0k1lr63qIoo3giuJNfC/bOzkmwXLC4MVtqmc9W33cRVUMu0CsR6JWG01iH4ThVkhVpb
-	BCK0vraq1w81sMlASAP4VMIDvabjRK3NKCS/mP2y6KxLz0lpEdvHAj7koe+P5vINNSdTdDSP88l
-	DlSWiBf6WaCD+z4PjJ0xVJexx9zXrLHpSD+MEPKC2nytGEZI6Tsg==
-X-Google-Smtp-Source: AGHT+IHFzh5SplXqAOBrKAfeyO99AyDuMMskBj43Avq17S+aAskX3w24CpOWJaJWAvu7y8AaSea+fSpu8Q==
-X-Received: from wmqa2.prod.google.com ([2002:a05:600c:3482:b0:458:bdde:5c9b])
- (user=keirf job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ecd:b0:459:e35e:a90d
- with SMTP id 5b1f17b1804b1-45b43e0bf28mr11429015e9.27.1755594537022; Tue, 19
- Aug 2025 02:08:57 -0700 (PDT)
-Date: Tue, 19 Aug 2025 09:08:49 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.0.rc1.193.gad69d77794-goog
-Message-ID: <20250819090853.3988626-1-keirf@google.com>
-Subject: [PATCH v3 0/4] KVM: Speed up MMIO registrations
-From: Keir Fraser <keirf@google.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org
-Cc: Sean Christopherson <seanjc@google.com>, Eric Auger <eric.auger@redhat.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Keir Fraser <keirf@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 19 Aug 2025 09:18:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1755595084; x=1756199884; i=wahrenst@gmx.net;
+	bh=AlVIeoby2Tqzgrsv+ZuVu4uYXHlpH4uyosFxxOSmnT4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=hNrNC0Ne6n7BT0bFfWRRHo/N3FHsJjxZ2JdGoO8BqPbn27U/Ts4Bgz3oMxoEBa/Z
+	 +ewSrxseYPI67wOz7R7/qWTnJLQFD9AAWOUHk3X3eAbpFeI23V4pCfLJxdtCAtr+p
+	 5SSIZsl1qVWP4xmQ9bsQcrw2Gq0GmeLuvRkPsUD8PvYkZvfeoA3uGYhi3UWBVhknc
+	 3sbQbD/crXeZheQ2nVl2ohrU9agqAg5i4oa9j8F5k1pGz6JFpLtlWRq3TdeSk76WG
+	 IO8D+Eq0iJL4HuRMb7zLl0NLNLnIrXQee6UTj0PUPfiAtK6i7jkiS4Dgm5aRtJH7k
+	 3fHVpU55DMbAKZZpsg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([79.235.128.112]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MnakX-1u5eP848Av-00ea1P; Tue, 19
+ Aug 2025 11:18:04 +0200
+Message-ID: <6d812c08-341f-4f7f-a9ed-4545217cb8a8@gmx.net>
+Date: Tue, 19 Aug 2025 11:18:02 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
+To: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ florian.fainelli@broadcom.com, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
+ Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Wspc8HiojZaugpMhWvJAMYMAW6WrnpjejmlEgUoicunrjoy0wUh
+ chZHQiJrku5dToF9Xhh+1r3EsuuCQf2xnbZBhhlTwK1BajpJhheWGNUbug+5lwCUnFw2478
+ mvgMTt+n5LwEumWSm0s9ZkLSHlcCqIx0nptlrczRP8SsBCnVFWyF73l+iYrgEvgSNSkyuVU
+ Y5Lknbp1k0TaZa9rXfX6g==
+UI-OutboundReport: notjunk:1;M01:P0:bRXDiYYwcJQ=;C0jAyzQn5x/JjZ+KRQEOKGWmt56 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 jVxM/wjNp89gsfpAcM5vFQqXPg0/Bsf9H7SHn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_020859_974382_455A309B 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20250819_021813_457791_EC32897A 
+X-CRM114-Status: UNSURE (   9.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,29 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is version 3 of the patches I previously posted here:
+Hi Andrea,
 
- https://lore.kernel.org/all/20250716110737.2513665-1-keirf@google.com/
+Am 11.08.25 um 16:46 schrieb Andrea della Porta:
+> From: "Ivan T. Ivanov" <iivanov@suse.de>
+>
+> This driver provide pin muxing and configuration functionality
+> for BCM2712 SoC used by RPi5. According to [1] this chip is an
+> instance of the one used in Broadcom STB  product line.
+i'm not sure about the whole driver naming. The cover letter describe it=
+=20
+as "pin control driver for BCM2712 SoC", but this patch is described as=20
+"STB family pin controller driver". So as a reviewer, I'm a little bit=20
+confused of the domain of this driver. Is it for a single SoC or really=20
+for a whole family of many SoCs?
 
-Changes since v2:
+I'm asking because all the other BCM pinctrl drivers are mostly SoC=20
+specific and not really general for a product line.
 
- * Rebased to v6.17-rc2
+In the former case, I would expect a driver name like pinctrl-bcm2712 to=
+=20
+make it more clear.
 
-Keir Fraser (4):
-  KVM: arm64: vgic-init: Remove vgic_ready() macro
-  KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
-  KVM: Implement barriers before accessing kvm->buses[] on SRCU read
-    paths
-  KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-
- arch/arm64/kvm/vgic/vgic-init.c | 14 +++--------
- arch/x86/kvm/vmx/vmx.c          |  7 ++++++
- include/kvm/arm_vgic.h          |  1 -
- include/linux/kvm_host.h        | 11 ++++++---
- virt/kvm/kvm_main.c             | 43 +++++++++++++++++++++++++++------
- 5 files changed, 53 insertions(+), 23 deletions(-)
-
--- 
-2.51.0.rc1.193.gad69d77794-goog
-
+Best regards
 
