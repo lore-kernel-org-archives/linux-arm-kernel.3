@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DA5CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6F6CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAbqt8CDF2kHzSvdBHVSD8GvsuOxy72cfpK3VcIvX/E=; b=IaWNU5I2VHU/hfOk/or+WBPJj5
-	eARmzOYqyH6kqeVZE51FLFQ04QzEhEIOhsIMtlIjyqQovJriAXGDUCJ35gh17lSPto47XrnBjuie9
-	5go8XJcO/xVjETPtYh4mDbgCgzYLjjy0cK58GHr7kBrvihzlBxkpXdnnBPJh5wgCX2QPfjdFozgtH
-	95+r8buXYdKBQRuyCnTWBVkbTDNrmiP3I9NBgV/AAxgkWuD2Ca0l4Esi/ItMNdMYO2O3rtKkG1aIK
-	GKS6Z4m8w5MmVkHf2IlDZBHGKMLKP5T7+ds+p/lCfSa1gV7BMSqTaT9rNy32160v+wvjW6CjL3u91
-	egtOEftw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=iw3RlRQJXZlRBZ4emdsRqj4JFJnjpuspckc44kU8lI8=; b=2IZZ8OqEgL0oY3
+	DGPMOGOUd74EyjeYpTFZdDEHczcWkXUg31ie46IPNk/Jcp2jiiguXKY423UKMAeEzG3+1DXYbw27U
+	GNxNhqwEWAsVhPbcuYKGb59Gt6HADMT/a+NUPCIsvUISrT4IkidfodBSx01ADMKiU+J2Hy18x/SC1
+	cgwucelwLvLnau36EVgNZPFNPDw7rZFV/u+cxV1EdMVjvmgDUvoBnsSZWR6ejUzPXkHFlWTlQQmgp
+	HzChRJd/QWZPPAHfYBvM+qD14PcFZh1CTJt357oIN9b/D8NeZHifKg3OHYqOXuY7Cg10j4YBfhN6o
+	DOTQKo67mKjQgoZa6yrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoUEB-0000000BfGT-3SVB;
-	Tue, 19 Aug 2025 21:50:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uoUGo-0000000Bfg9-2Pr5;
+	Tue, 19 Aug 2025 21:53:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoRe3-0000000BMxR-1Ff4
+	id 1uoRg4-0000000BN4k-2wto
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 19:05:20 +0000
+	Tue, 19 Aug 2025 19:07:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3ED284629A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 19:05:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C6EFC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 19:05:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E0C2C613EF;
+	Tue, 19 Aug 2025 19:07:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1622AC4CEF1;
+	Tue, 19 Aug 2025 19:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755630315;
-	bh=hH8kgjEs7iIoOTPeQ6hvydKPNSJyjDJ0KoTwQYPWWas=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=k09xLxyysD/DsegmAfwTYLbN2/mHu+yn/N3p4sUGb+4PSEKsg+HK4efteVqZ7slNJ
-	 TYHdNsvLCr2Gy7YnK11cWkmm9UN4T7Dris/uROgdmEl7wzn5oGtswPZiMF1tnxZujc
-	 Sc9r40626B8G8tty8YQcrDswRHwS3pPQgbI1SBdhMD2oj8RSfg2VEqYWfYaZt6Yqx8
-	 4VclDf1t2aEnp/55WrilmZ+/U7Zn1DI84jloAzTseQBvD0PZ4lBqhdr58x7ngKA6zW
-	 bP3vpsAk6LE+XvdKUpAGjaDyal8tftPw1UD96HAwlSqDHMRm/jH5ofaOv+MfeBKuIC
-	 KaT5wA18tltKA==
-Received: by mail-oi1-f174.google.com with SMTP id 5614622812f47-435de7d6d05so3198227b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 12:05:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUsypQWQXdIpYoSbsATDhGdaWw41vCdqWZaJ5iUj8tpB6vl/ATDGpNU8OSzp44VZW5DvPthSrh0u0FJTAKcfLzT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCsRq2lEm5sZrkiMahtgt6gHEyG+x4Mayi+1HT2AFBAQW1dciv
-	QvN+j/yCT3ZGOGHV6clODdcCt1krRJjpvXw7OYZpiVMZVEJRb8Qw7EPh0IvLc2Etkc9vD+LWJTi
-	Zhzx/OwNWori7GVseoqYBnzVBwOo2Rc4=
-X-Google-Smtp-Source: AGHT+IGF/QT6e+pPhr1vLC3u2wJscJaUaLx01cqlV8pGMBaGHX6Rgoz7+QdefM8/iqEj0jRNYPJhUpY4V7SPrG1DX7A=
-X-Received: by 2002:a05:6808:1529:b0:40b:2566:9569 with SMTP id
- 5614622812f47-437720b2a8cmr61845b6e.24.1755630314655; Tue, 19 Aug 2025
- 12:05:14 -0700 (PDT)
+	s=k20201202; t=1755630441;
+	bh=EhPwi7uM8bEX6mz/D+2QkJ4QnZQxgt8yu80Tgm2qqx8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=U4QrDKEmu+cy0+u+n9LbZ/mdyRzNpo/0x7oc1EXA6v0Jl1rmMOMgZ0dREPMp63n73
+	 qoT2zeChi7GzvWa8XuqJ8uMpKi7FEECSuyv3XQWjICn9xVCYl50OpNAOPPPgtx2VkD
+	 UALIyZWElFbpx7PBzJswhu0yRQc5GsWbJNoxhcFKnxq3UqocWPK/+rKgY1QtjKkrmp
+	 gVl1/UixsC7wf5gRZGViFIjpSoKkmCSQr/3Qy9K+3d+4YIoUOcy6pkuiPZmuUJoqvP
+	 ePgUZ9uZbRzaNIq2IMtLjjiR/4J04V4jaydHaasX3QQNswoS0M/x2+tGpcIgNMVsAR
+	 XSQL7Q0fl/uqA==
+Date: Tue, 19 Aug 2025 14:07:19 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, jingoohan1@gmail.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [RESEND v3 4/5] PCI: dwc: Skip PME_Turn_Off message if there is
+ no endpoint connected
+Message-ID: <20250819190719.GA553003@bhelgaas>
 MIME-Version: 1.0
-References: <20250819072931.1647431-1-zhenglifeng1@huawei.com> <20250819072931.1647431-3-zhenglifeng1@huawei.com>
-In-Reply-To: <20250819072931.1647431-3-zhenglifeng1@huawei.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 19 Aug 2025 21:05:03 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
-X-Gm-Features: Ac12FXyJaJYG2BakKB5SaG8-BG8-_3YJyJ3PnymO2pmfxbIOo-svJG1t7kHKvdM
-Message-ID: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
-Subject: Re: [PATCH v5 2/3] cpufreq: Add a new function to get cpufreq policy
- without checking if the CPU is online
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
-	viresh.kumar@linaro.org, beata.michalska@arm.com, sudeep.holla@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linuxarm@huawei.com, 
-	jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
-	yangyicong@hisilicon.com, zhanjie9@hisilicon.com, lihuisong@huawei.com, 
-	yubowen8@huawei.com, zhangpengjie2@huawei.com, linhongye@h-partners.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_120519_381869_FE68246B 
-X-CRM114-Status: GOOD (  20.25  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250818073205.1412507-5-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,76 +72,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 9:30=E2=80=AFAM Lifeng Zheng <zhenglifeng1@huawei.c=
-om> wrote:
->
-> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
-> policy->cpus mask, which means the CPU is already online. But in some
-> cases, the policy is needed before the CPU is added to cpus mask. Add a
-> function to get the policy in these cases.
+On Mon, Aug 18, 2025 at 03:32:04PM +0800, Richard Zhu wrote:
+> Skip PME_Turn_Off message if there is no endpoint connected.
 
-I'd prefer the subject to be somewhat shorter.  For instance, something lik=
-e
+What's the value of doing this?  Is this to make something faster?  If
+so, what and by how much?
 
-cpufreq: Add new helper function returning cpufreq policy
+Or does it fix something that's currently broken?
 
-would suffice because the changelog explains the details.
+Seems like the discussion at
+https://lore.kernel.org/linux-pci/20241107084455.3623576-1-hongxing.zhu@nxp.com/t/#u
+might be relevant.
 
-With that addressed
+This commit log only restates what the code does.  In my opinion we
+need actual justification for making this change.
 
-Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  drivers/cpufreq/cpufreq.c | 6 ++++++
->  include/linux/cpufreq.h   | 5 +++++
->  2 files changed, 11 insertions(+)
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++++------
+>  1 file changed, 9 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index 20a7f827babbf..868e7db4e3381 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -1016,12 +1016,15 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+>  		return 0;
+>  
+> -	if (pci->pp.ops->pme_turn_off) {
+> -		pci->pp.ops->pme_turn_off(&pci->pp);
+> -	} else {
+> -		ret = dw_pcie_pme_turn_off(pci);
+> -		if (ret)
+> -			return ret;
+> +	/* Skip PME_Turn_Off message if there is no endpoint connected */
+> +	if (dw_pcie_get_ltssm(pci) > DW_PCIE_LTSSM_DETECT_WAIT) {
+> +		if (pci->pp.ops->pme_turn_off) {
+> +			pci->pp.ops->pme_turn_off(&pci->pp);
+> +		} else {
+> +			ret = dw_pcie_pme_turn_off(pci);
+> +			if (ret)
+> +				return ret;
+> +		}
+>  	}
 >
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index fc7eace8b65b..78ca68ea754d 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -198,6 +198,12 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned =
-int cpu)
->  }
->  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
->
-> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
-> +{
-> +       return per_cpu(cpufreq_cpu_data, cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(cpufreq_cpu_policy);
-> +
->  unsigned int cpufreq_generic_get(unsigned int cpu)
->  {
->         struct cpufreq_policy *policy =3D cpufreq_cpu_get_raw(cpu);
-> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> index 95f3807c8c55..26b3c3310d5b 100644
-> --- a/include/linux/cpufreq.h
-> +++ b/include/linux/cpufreq.h
-> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
->
->  #ifdef CONFIG_CPU_FREQ
->  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
-> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu);
->  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
->  void cpufreq_cpu_put(struct cpufreq_policy *policy);
->  #else
-> @@ -212,6 +213,10 @@ static inline struct cpufreq_policy *cpufreq_cpu_get=
-_raw(unsigned int cpu)
->  {
->         return NULL;
->  }
-> +static inline struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu=
-)
-> +{
-> +       return NULL;
-> +}
->  static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
->  {
->         return NULL;
-> --
-> 2.33.0
->
->
+>  	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
+> -- 
+> 2.37.1
+> 
 
