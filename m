@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7762DCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 15:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE3CCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 15:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JVWtj8XQc1C9lLwt1FcMX/eIkkSlGNDGrGDZMXe/QAI=; b=sGNJR23xBj1qe4EY5edLcFQlQ3
-	LcVPXgSPyi9tAwHYC9DL7NAeqQDOf/rfK3t+jpzC+MAy0x72iV1WWoJNxbx2jBoaKRdu8xT16kwjm
-	2VVaRuUPZFTibzhSGA+FhjaBhzyqiM+4XMjP53ZqPkh+nNC0ToY9o/Q/lzmA6Z9V11v9L0nRm0Tmi
-	qvhp4eZmAn7RgvV2Np38prpShrCk4FKYuIcQEBPgMPjxHTEOj4HUP5CDAQS4BJaU/RFjajcXPcdQx
-	qBEG/vUg988bdgg6wywkqmdDMqJ+HQ5SCjhuPnxxYHAx0jR4Od9rOb5fydTJur3der2j4oTdHHvUd
-	TmZxIt1A==;
+	bh=RcKeHPyKL+a7NSEHR3Dxu6EbaAzxWVsXveyS5MKgZH8=; b=s2o/6vu8RFN4biRdI1qaHfinGR
+	lN0+/w5EE5rA8XVe+y1tOTgR82yMzi0wPWYvX5G5F7lQBabq/52ywQ2wPLxBuEqwKu5UyTp+OjG56
+	LfAbRXazbXElDcuyre2Ify5ywDsjFdJQpEQ6UpxBjdqVk3HHo9IunJqa3S89hfiEgnV92sl62mPmT
+	Eady+OlAkd59H6tdhTkVWB/VQvzEthRYXKoirFXblgxy92LRxBLx71hX73vdNvVyxiK7q5kU+s9NZ
+	VgUVCb5Uzmc96J8WHDEfChFxmBV5Nv3dHfsJLS1t/RXPd4fPm68abgFeut+5uZAJzAdJAK4O4s97e
+	8nfp62rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoOHa-0000000AtYq-3XcW;
-	Tue, 19 Aug 2025 15:29:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoLVu-0000000ARbw-3nMT
+	id 1uoOK8-0000000AtrO-2QtV;
+	Tue, 19 Aug 2025 15:32:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoLWk-0000000ARl8-0BqP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 12:32:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B58061426;
-	Tue, 19 Aug 2025 12:32:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9002C116C6;
-	Tue, 19 Aug 2025 12:32:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755606750;
-	bh=wjs09Gdigf2R0IE1uLQxql5R4PimNeWNLQzbngasLiU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=KUV1pM+PSUrbgiuC2qfRrjBmoh/K7SwKUZPEG9Sx43lERH2mIAhJXE43x+YxV+SGd
-	 BdtNUMqKKJlINMh6dccC0ScwziqT9emXyV3D+9wnX46JUt0c61L45wM8zOfFf0CUsy
-	 97atbCKu7MfQ/4A3q50GqnxaNp6SbtNu00FjCioMQHjnpu///w0Wgu48LG7iKegR3U
-	 RtPibAw8lDKnpEhhsGpLfj9WdTX0+K7FHZIU0mYidnxYnEIqCUDkH/n/cMTfLHPWT7
-	 IhwS1l80k7T0xpDkP4EHbmRjQGlOAcqofRTPzapIJnpKAwBV6uY2JPtc91+jz2rP06
-	 rz76yHEIf9sUQ==
-Date: Tue, 19 Aug 2025 07:32:29 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 19 Aug 2025 12:33:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFC0116A3;
+	Tue, 19 Aug 2025 05:33:12 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15C753F63F;
+	Tue, 19 Aug 2025 05:33:18 -0700 (PDT)
+Date: Tue, 19 Aug 2025 13:33:10 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Junnan Wu <junnan01.wu@samsung.com>
+Cc: sudeep.holla@arm.com, cristian.marussi@arm.com,
+	florian.fainelli@broadcom.com, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	lei19.wang@samsung.com, q1.huang@samsung.com
+Subject: Re: [PATCH] firmware: arm_scmi: Set device ready before register
+ scmi_virtio_driver
+Message-ID: <aKRvBrRstEFDu93g@pluto>
+References: <CGME20250812075350epcas5p1cc4533582704978ec3a4a8b73dc1535c@epcas5p1.samsung.com>
+ <20250812075343.3201365-1-junnan01.wu@samsung.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- devicetree@vger.kernel.org, linux-fbdev@vger.kernel.org, 
- Lee Jones <lee@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Daniel Thompson <danielt@kernel.org>, Pavel Machek <pavel@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, linux-arm-kernel@lists.infradead.org, 
- linux-leds@vger.kernel.org, Helge Deller <deller@gmx.de>
-To: Maud Spierings <maudspierings@gocontroll.com>
-In-Reply-To: <20250819-max25014-v2-1-5fd7aeb141ea@gocontroll.com>
-References: <20250819-max25014-v2-0-5fd7aeb141ea@gocontroll.com>
- <20250819-max25014-v2-1-5fd7aeb141ea@gocontroll.com>
-Message-Id: <175560674579.26233.12902824583404207699.robh@kernel.org>
-Subject: Re: [PATCH v2 1/4] dt-bindings: backlight: Add max25014 bindings
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250812075343.3201365-1-junnan01.wu@samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_053322_160983_477C0A53 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +66,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 19 Aug 2025 12:58:59 +0200, Maud Spierings wrote:
-> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> with intgrated boost controller.
+On Tue, Aug 12, 2025 at 03:53:43PM +0800, Junnan Wu wrote:
+> Fix irregularities in scmi driver probe.
 > 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+
+Good catch, thanks for this: indeed after the transports have been
+converted to modules the probe sequence changed a bit and we cannot
+leverage anymore the virtio_device_ready() called by the core in
+virtio_dev_probe() since the scmi_vio_probe() does not complete until
+the core SCMI stack has probed with scmi_probe() which in turn transmits
+the first BASE protocol exchanges.
+
+I did not know about this behaviour of type_1 hyp..
+
+> After 'commit 20bda12a0ea0 ("firmware: arm_scmi: Make VirtIO transport a standalone driver")'
+> making SCMI VirtIO transport a standalone driver,
+> `scmi_virtio_probe` will follow `scmi_vio_probe`,
+> and during `scmi_virtio_probe`, it will do `scmi_probe` which will invoke
+> function `scmi_protocol_acquire(handle, SCMI_PROTOCOL_BASE)`,
+> and this function will send message via virtqueue and wait device's reply
+> 
+> Before this patch, only after `scmi_vio_probe`,
+> frontend will mark device DRIVER_OK by function `virtio_dev_probe`
+> in 'drivers/virtio/virtio.c' itself.
+> 
+> Accroding to chapter '3.1 Device Initialization' in virtio-spec,
+> ```
+> The driver MUST NOT send any buffer available notifications
+> to the device before setting DRIVER_OK.
+> ```
+> 
+> In some type1-hypervisor, available buffer notifications
+> will be intercepted until virtio driver is okay. In this case,
+> `scmi_vio_probe` will be blocked at `scmi_wait_for_reply`
+> and probe can never complete.
+> 
+> Therefore, the operation to set DRIVER_OK must follow
+> perform device-specific setup immediately,
+> then available buffer notifications can be sent in function `scmi_probe`.
+> 
+> Fixes: 20bda12a0ea0 ("firmware: arm_scmi: Make VirtIO transport a standalone driver")
+> Signed-off-by: Junnan Wu <junnan01.wu@samsung.com>
 > ---
->  .../bindings/leds/backlight/maxim,max25014.yaml    | 79 ++++++++++++++++++++++
->  MAINTAINERS                                        |  5 ++
->  2 files changed, 84 insertions(+)
+>  drivers/firmware/arm_scmi/transports/virtio.c | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
+> diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+> index cb934db9b2b4..326c4a93e44b 100644
+> --- a/drivers/firmware/arm_scmi/transports/virtio.c
+> +++ b/drivers/firmware/arm_scmi/transports/virtio.c
+> @@ -871,6 +871,9 @@ static int scmi_vio_probe(struct virtio_device *vdev)
+>  	/* Ensure initialized scmi_vdev is visible */
+>  	smp_store_mb(scmi_vdev, vdev);
+>  
+> +	/* Set device ready */
+> +	virtio_device_ready(vdev);
+> +
+>  	ret = platform_driver_register(&scmi_virtio_driver);
+>  	if (ret) {
+>  		vdev->priv = NULL;
 
-My bot found errors running 'make dt_binding_check' on your patch:
+...also, I suppose, that here nothing is to be done on the error path
+regarding the vdedv status, becasue is already taken care in the error
+path of virtio_dev_probe()...am I right ? (just confirming..)
 
-yamllint warnings/errors:
+Maybe you could simplify a bit the commit message but other than this
 
-dtschema/dtc warnings/errors:
+LGTM.
 
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Tested-by: Cristian Marussi <cristian.marussi@arm.com>
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819-max25014-v2-1-5fd7aeb141ea@gocontroll.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Thanks,
+Cristian
 
