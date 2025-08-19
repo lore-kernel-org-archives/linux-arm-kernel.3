@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA88CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C1ECA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXOlBkog1oeN3W6r4s05i0E001XtYVWY8fR5cyLGwKA=; b=WXvMrifgb6GcwVG4zZy/7fVBfh
-	3c2M8lWlVkeQI2KLt4RDEeqULdZEht40YzXEdRpjwi+Rvd2j79TRJj2NwCFRlGvZgBpl4mRmWGhLA
-	gM/gwjzIEJ/vO1ejJiZSOmgXODBDWQFqz+XIbV0MfF7HBsYCzxVrveXG9i6YeOjmnGy2XWCueCj+F
-	GwfKQXE73LW1L+0D04oo2o/uYR4dUfEthBbqBaBjuTfmPfUvbKm90PYrs1xC2gonZ+g4EC9cfvCG7
-	s9viJABCc3GoEIeMuMAPijBxRjQoQbKYJjj0oJOMIyW/Q4O4R+0xdq2BNyqgfpGDHfE1t6Amk6Day
-	Y0Ondong==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M4n7YqAQbrAxNCkBjqyuYrgKNlSo6g0FLnHuL1Mly08=; b=wIgnZ8iUhCvAXWjjFOiaqXXZl9
+	RaRGNP+x4o4SyASWhYyE8jJgKIIaZvOeYgR21sQaHbHSsmA+e9yvfOoJ0Zeam6I0XL5lGZsqV/IgC
+	HNxqtp8Ryto1DVEuiospBzqyvh4Ph5TrZNo2O1jy5PpT+anaQQE58WTTEqbSg9JyCg4YJDxLOUJkQ
+	yaKBxwVlFJkCLMOoINzjlYIQXzyjbOCAPJyqouLk5fjhLjW271s6Di252RMPQ4PdS5rysn/TTzoB9
+	9I/EQvr1EihvflXGO/kwTXIAMb+w7utNmNUlODEmnuuohE9Lus+Z1T3yyOScAmuj4JXQl37DPdkqt
+	XntDFvGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoLgp-0000000ATaU-1FBM;
-	Tue, 19 Aug 2025 12:43:47 +0000
+	id 1uoLjN-0000000ATra-0aI1;
+	Tue, 19 Aug 2025 12:46:25 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoK3W-0000000ACXe-3SNb
+	id 1uoK5b-0000000ACv7-2ZJo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 10:59:09 +0000
+	Tue, 19 Aug 2025 11:01:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3CFEC5C5E65;
-	Tue, 19 Aug 2025 10:59:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 231FDC16AAE;
-	Tue, 19 Aug 2025 10:59:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AB2D35C5E17;
+	Tue, 19 Aug 2025 11:01:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133B4C113D0;
+	Tue, 19 Aug 2025 11:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755601144;
-	bh=IqjXzr05zSduckLPDfWkg7xIEVFrdf8l5BHBSomO7vs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=r7EwYQCJ9AkhvYx4Yp9r6f6F9lF0u1sSPIQIPM/8p29+kbYyFXwspO37yeT4Gx5p4
-	 h8fgk4floTNfbR9TRLj8gY10JxwzYZn85jTNg1iH+MtP7FN//5MQuMZif+RIL8xzDI
-	 sg4783DSANSNOAcJOZuLC2m2KhUJc0mEpd5RKbdymq9nrp6lCRTBhdCdlii7vRRjjN
-	 s5grXxmvwRjrlLnRC/V1mnqoXJIGsuVd3phlttJkojCvWNWqn+6Y2+xmlh2Z4C30hF
-	 I/M3V1L/gMh5fBvqnJCZndbxKjxkn9qXpfQ5GANSQ0zgRB0ircZaNFqB1Qg/NppVKe
-	 CaITJm34TENoQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16AD1CA0EEB;
-	Tue, 19 Aug 2025 10:59:04 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Tue, 19 Aug 2025 12:59:01 +0200
-Subject: [PATCH v2 3/4] arm64: dts: freescale:
- moduline-display-av101hdt-a10: add backlight
-MIME-Version: 1.0
+	s=k20201202; t=1755601274;
+	bh=UGEMRjTBsqlULw3vbm/co9eRDP9gi0S0uyPX0lvQ2dA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=I6WTmdxO2ti6c+P6AFRq0hFKJeuNl1wFUwj0NCunRFIAIcpiYhbCXl39rX1uzzk8p
+	 oB5gYz/yLkDitbzhq+hzzS/ov6i4f6lfXYm8gfYf78Yj8YQctSATdeDNwnjk+P4Bgh
+	 TXZ6h0UT0zxfLzwhySiolmUo5sHRgZhl61Ty5XusA0xmFH/L8mxqO3Nh3h4lT/x+gj
+	 PPjGvvzqEB8eh57UahoNtdT05LPmExIqkehWo5qmkQK/wwF3EVtLCVQr50SHozv6L0
+	 ZLRYekP4w/pHX34fIfDMtoNHVeDAfe+c3JPOJQjACZGhjU/2TJoUNe6c1afwx2+c3o
+	 pRqIiEKcfDqPQ==
+Date: Tue, 19 Aug 2025 06:01:13 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250819-max25014-v2-3-5fd7aeb141ea@gocontroll.com>
-References: <20250819-max25014-v2-0-5fd7aeb141ea@gocontroll.com>
-In-Reply-To: <20250819-max25014-v2-0-5fd7aeb141ea@gocontroll.com>
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755601142; l=1541;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=hP/iMSDnGfJ92Bbev2fKqlJFdnLO6wB7nn/ebAUvpWI=;
- b=nNR/p/xEsP3b/4DiXK7GkttSOvmSvpk+twYdNEKrmyAuoUm0sCmK7rijwIuZ4/FPLyS8W4NYF
- dlSh1xWDGeSBi7e+KWoO93cmoY5gRFj3CNDkFqkmwb/1pPvhevOWDQT
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>, 
+ Christophe Roullier <christophe.roullier@foss.st.com>, 
+ David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-kernel@vger.kernel.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ devicetree@vger.kernel.org, Philippe Cornu <philippe.cornu@foss.st.com>, 
+ Yannick Fertre <yannick.fertre@foss.st.com>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+In-Reply-To: <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
+References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
+ <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
+Message-Id: <175560127037.3969097.6130940505156039734.robh@kernel.org>
+Subject: Re: [PATCH v3 01/13] dt-bindings: display: st: add new compatible
+ to LTDC device
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_035906_979182_FE562F46 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_040115_693018_913731AB 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,62 +82,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
 
-Add the missing backlight driver.
+On Tue, 19 Aug 2025 11:15:54 +0200, Raphael Gallais-Pou wrote:
+> The new STMicroelectronics SoC features a display controller similar to
+> the one used in previous SoCs.  Because there is additional registers,
+> it is incompatible with existing IPs.
+> 
+> Add the new name to the list of compatible string.
+> 
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 30 ++++++++++++++++++++--
+>  1 file changed, 28 insertions(+), 2 deletions(-)
+> 
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- ...tx8p-ml81-moduline-display-106-av101hdt-a10.dtso | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-index e3965caca6be42a17aa89b77bd5b919382c84151..143243ba95cd7a69c7b043fa0fb32c37b67e1064 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
-@@ -17,6 +17,7 @@
- 
- 	panel {
- 		compatible = "boe,av101hdt-a10";
-+		backlight = <&backlight>;
- 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&pinctrl_panel>;
- 		pinctrl-names = "default";
-@@ -40,7 +41,27 @@ reg_vbus: regulator-vbus {
- 	};
- };
- 
-+&i2c4 {
-+	backlight: backlight@6f {
-+		reg = <0x6f>;
-+		compatible = "maxim,max25014";
-+		default-brightness = <50>;
-+		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		maxim,iset = <7>;
-+		maxim,strings = <1 1 1 0>;
-+	};
-+};
-+
- &iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
-+				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
-+		>;
-+	};
-+
- 	pinctrl_panel: panelgrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
+yamllint warnings/errors:
 
--- 
-2.50.1
+dtschema/dtc warnings/errors:
 
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
