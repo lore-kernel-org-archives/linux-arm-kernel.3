@@ -4,79 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EF2CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31959CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c1BxtWxFSzVI01nWbBEkqZ/G2VNra/FxRh8DQNAAobM=; b=J7FZfUkc/1wofQckBWfciInhQ9
-	JjkSyks7dg4NHcaR+5xacZMP6jCL1EJdci9dOWHL343JAM2IccJz5GybF3+NbLOU8mjCzVe1E0uLH
-	D3TAoi3V0WTbd5AVSIHPQjnaRVBaVRYIXQ3mCyoS3FrBk4dMN6aLOt3kcx6G2EjAhDbTk875cMnna
-	9f9xnPp+qUBmpKu2Fky0VLO5mm93zoaEokyF6e4aZjm+JnnKVoPs4wob9RDgBrJd1mUyCwKPecQjY
-	tJLSWeXgq1lPaDj37vIKib8l7MSQ2o+99zEw+iuRthbFRtkD7op3c0Cgj1Opj/Wpz6Kll4umIF2tD
-	292QCcJQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hsZk4EsqeXO+ygu7nNYZqi5XWFO7fAn88+hcS8PBk0g=; b=M34WvvIeIEmBB/RI2LCz0aV5Mm
+	P2OLMyRU+XstX8DWHsLp/HpaQulfl8w0yWAvoqO01pcAd5kQ7dRe+n+y1ggLGV+jHZ9zlh5uNtc/H
+	RqMPW4BpN0OJGDb1dFMj7F5E5Mb1kiOBHhIx0ZQ7C8rQcg2FeqvvGxmYl04EZXL1LEzNlAm38iTOE
+	TIA5sUGoLL8fy9/vrDuV0djOMjCCrtBLC5vWWovNI5zme3UyMakVnNYzXiYeFa4JZM28/fmQbeLW7
+	5Hbn1u2Xc1Z3WSm44RB+duAH4cLBZYMMa9znQLpgj3rhli+uPYFNNGabKhrW+/j0UvsSpr6SBVJAO
+	rYeyaTUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGvO-00000009hLW-25gU;
-	Tue, 19 Aug 2025 07:38:30 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uoGxz-00000009hlU-16VY;
+	Tue, 19 Aug 2025 07:41:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGPN-00000009cFI-1H5a
+	id 1uoGZA-00000009dbf-30mU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 07:05:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1755587125; x=1787123125;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=c1BxtWxFSzVI01nWbBEkqZ/G2VNra/FxRh8DQNAAobM=;
-  b=MXnzRaE/OCQbo2BstXRdcUhOuNa1ZX5VMxkl4AxIv/5HSmSydE6AxGRN
-   6UVhp066c7vNRRIlu9a6d9sEQZ3Z/drDjLv2SR8105OYhApdLJTwv2kIA
-   yGdcMYryBbDWCyQJRmnOu40RsaayTn0fFoCqADKka7f1UIf7+2nzwlN4Q
-   MQu3caL8hoRz3NMwxWpZxYjv+NKCJMD6oc7WBee67mEZFJgvXM3mhokYY
-   GB7oLkADs1xTBTFgSJlKoB/bYANfYFnLFHKEoVeMwUdDqNVhRX0ebJjYK
-   +95OrTHN1I1GpE5Zzx6u60KFzp+pzm2ULqmr76JZEssy+c5xjAW27/BI6
-   Q==;
-X-CSE-ConnectionGUID: fIwxeDp0R6+2sZww5NY2GQ==
-X-CSE-MsgGUID: t4fCMBi3Tzi/l0NmZyvFkA==
-X-IronPort-AV: E=Sophos;i="6.17,300,1747692000"; 
-   d="scan'208";a="45796382"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 19 Aug 2025 09:05:22 +0200
-X-CheckPoint: {68A42232-45-299FBAB0-EF52EDE7}
-X-MAIL-CPID: 6C09F7E41B71AA5AEA1F17DECCEFAC1D_5
-X-Control-Analysis: str=0001.0A00211B.68A421CD.001A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7B2211632DA;
-	Tue, 19 Aug 2025 09:05:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1755587118; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=c1BxtWxFSzVI01nWbBEkqZ/G2VNra/FxRh8DQNAAobM=;
-	b=ewMRqAntA6oODBtgjE7i+UeOXcV8RT4OzCEikUxqiOoxv+/bpnomoQdCUUxUY4KFKJ8M4o
-	muMrUY8YljVX8QI2yYLeFGZ+WfFoBfQXomWuZkm8Wrk0BmrIgjq4qkU+ghN/cNiL5YY6yH
-	Q3CGnkDkWFiaG1kvds1i0ECODJy6njRjd65s1Id0fhiLsZTplAf093SncXYwFtVtIIwIcB
-	gQMLO1QuNibHEw7KbwdA5EQZmY4deRvS8JRjqFzQErlBTeRNHQn+VkYCHtobxK7yV0IlOi
-	d93+CBxrUwfRYDzCUYfphrGX0OcGNSp1epe0CQ/B83RWGfk+vwFdgmqNr6aEtw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Lee Jones <lee@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 1/1] mfd: stmpe: Allow building as module
-Date: Tue, 19 Aug 2025 09:04:57 +0200
-Message-ID: <20250819070458.1027883-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 19 Aug 2025 07:15:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0024461416;
+	Tue, 19 Aug 2025 07:15:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71FF3C4CEF1;
+	Tue, 19 Aug 2025 07:15:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755587731;
+	bh=qb7GANw4C+UqX66VZ3gAIhm5HBFFgi8fcfQ4qfzA5NE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lZ9vIspT9pNYXBjzDYK9bP/2eE4wKSwOOLWQEV3jxjmKSoa/Nj+t1sdSUXm/SsXCu
+	 blgvNOc6cCXC7HhRR1t58wr+RDTwqJ3psEZZpEpyRt7os2JJlzy+tGKJHIC4w0s4vn
+	 dqtpgXbAZi7qbSWSespY9Zgmk8vtku7FYUOppovYhbGKXKQOST7oGrWH7pBo91Oqho
+	 0PZCOndnW5maYI0hDHrAVszs7TMJ3DFp2JBYN0cxPSIpd1Q4lC3Br4MGoi7TCKL8B0
+	 1JnmPrx9bQpjjwiZ5eDfvPRX4Pcx2J29Al2Y35bnL6AWgWoK/C4p6R8xuAiAl0hkca
+	 f8vofcr6rKoqw==
+Message-ID: <0b53dc0b-a96f-49e1-a81e-3748fa908144@kernel.org>
+Date: Tue, 19 Aug 2025 09:15:24 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_000525_849106_1051AC69 
-X-CRM114-Status: GOOD (  11.90  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
+To: Yijie Yang <yijie.yang@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, stable+noautosel@kernel.org,
+ Yijie Yang <quic_yijiyang@quicinc.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
+ <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
+ <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
+ <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,85 +129,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export the core probe and remove function to be used by i2c and spi
-drivers. Also add necessary module information so the drivers can be built
-as modules. This reduces footprint of the driver is enabled but unused.
+On 19/08/2025 08:51, Yijie Yang wrote:
+> 
+> 
+> On 2025-08-19 14:44, Krzysztof Kozlowski wrote:
+>> On 19/08/2025 08:35, YijieYang wrote:
+>>> From: Yijie Yang <quic_yijiyang@quicinc.com>
+>>>
+>>> Add an ethernet controller node for QCS615 SoC to enable ethernet
+>>> functionality.
+>>>
+>>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>>> ---
+>>
+>>
+>> Why do you mix up DTS and net-next patches? This only makes difficult to
+>> apply it, for no benefits.
+> 
+> The DTS changes and driver code modifications work together to achieve a 
+> single purpose, so I included them in one patch series. Should I 
+> consider splitting them into two separate series?
+Of course yes. You are just making difficult to apply this. Patches are
+completely independent and even your internal guideline asks to NOT
+combine independent patches.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Improved commit message
-* Remove superfluous text from module description
-* Patch 1/3 and 2/3 already applied in next-20250819
-
-v1: https://lore.kernel.org/all/20250725071153.338912-1-alexander.stein@ew.tq-group.com/
-
- drivers/mfd/Kconfig | 10 +++++-----
- drivers/mfd/stmpe.c |  6 ++++++
- 2 files changed, 11 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index a403a3daedd52..874fee5681658 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1539,8 +1539,8 @@ config MFD_DB8500_PRCMU
- 	  through a register map.
- 
- config MFD_STMPE
--	bool "STMicroelectronics STMPE"
--	depends on I2C=y || SPI_MASTER=y
-+	tristate "STMicroelectronics STMPE"
-+	depends on I2C || SPI_MASTER
- 	depends on OF
- 	select MFD_CORE
- 	help
-@@ -1568,14 +1568,14 @@ menu "STMicroelectronics STMPE Interface Drivers"
- depends on MFD_STMPE
- 
- config STMPE_I2C
--	bool "STMicroelectronics STMPE I2C Interface"
--	depends on I2C=y
-+	tristate "STMicroelectronics STMPE I2C Interface"
-+	depends on I2C
- 	default y
- 	help
- 	  This is used to enable I2C interface of STMPE
- 
- config STMPE_SPI
--	bool "STMicroelectronics STMPE SPI Interface"
-+	tristate "STMicroelectronics STMPE SPI Interface"
- 	depends on SPI_MASTER
- 	help
- 	  This is used to enable SPI interface of STMPE
-diff --git a/drivers/mfd/stmpe.c b/drivers/mfd/stmpe.c
-index e1165f63aedae..3c5c2f157f529 100644
---- a/drivers/mfd/stmpe.c
-+++ b/drivers/mfd/stmpe.c
-@@ -1482,6 +1482,7 @@ int stmpe_probe(struct stmpe_client_info *ci, enum stmpe_partnum partnum)
- 
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(stmpe_probe);
- 
- void stmpe_remove(struct stmpe *stmpe)
- {
-@@ -1497,6 +1498,7 @@ void stmpe_remove(struct stmpe *stmpe)
- 
- 	mfd_remove_devices(stmpe->dev);
- }
-+EXPORT_SYMBOL_GPL(stmpe_remove);
- 
- static int stmpe_suspend(struct device *dev)
- {
-@@ -1520,3 +1522,7 @@ static int stmpe_resume(struct device *dev)
- 
- EXPORT_GPL_SIMPLE_DEV_PM_OPS(stmpe_dev_pm_ops,
- 			     stmpe_suspend, stmpe_resume);
-+
-+MODULE_DESCRIPTION("STMPE Core driver");
-+MODULE_AUTHOR("Rabin Vincent <rabin.vincent@stericsson.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
