@@ -4,57 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79D5CCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:17:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5541CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nTc+s+nkOGGDCWVIbK4uhNgN46LfKBOqz3RATwxzMq8=; b=ilSw+DB4CPhOjJJiB04Q5BPXPh
-	cqY07QgmhN7Nd73b4Zcl7To6k9rcxXeIMVM51scbm0UiJbRHhkHYhro4pE0aYiJCQXNtKhCsoKXem
-	f14BR2av6AzbTafrCTBtTuQop8/xBhq0Yi3vQ4xqGec1y1ryP8gO1w9Bye+12V8qa6YPervya2Uj3
-	vvvOmVq/f8vuK2Onl/OCLZQFKuhzqCargttqOqRkJHMoIPGIQg7w2a+s/JR+3ah+c/OtIOnMS5Jsu
-	hDW30iyAIplOJAO87LOx6V+d3iipC78/5FtX0OaHft3ppFKXBDiMICPSuKYd72+Q+Gt+mlWQzDwGh
-	Gaevl6Qw==;
+	bh=O8ebbA2mHdqbrb1e0dLZcqd28OobIkoiV2XWS+d10jE=; b=xPkW4DMUg1WLQdlZ0Z/vrKhBC7
+	ftoOx5OMEeC3lep9TszprEDF+MWSUP7O1JAMZ8QuRK1jdr+CDsibC15se/5otQy5zzL6goE4V8y56
+	kXrf0K8gCcmKKb4UmUMGLfGTpsZQjmZLLEUdLBzwso68DkBknY3vKNdSk3th2IxmmRtEEWjNr5M12
+	3oN43hDnOTSPwuJqR3sY53sEZpCxGZQ2TspyE2SZpQpqHtYcp7UUkZ7g5zOdb7O5IvRIZChBWMp9N
+	a41DWO27aTQxAZEvtf6Qw9iF8ZLsEVlBG7RjoE8ijWDLcDaeEw3L73hpwL7wQ/VeHPB0H+UW4CsSc
+	X05B0z6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGaf-00000009duS-3AQw;
-	Tue, 19 Aug 2025 07:17:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoG7V-00000009Zpq-2g6y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 06:46:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61E4B152B;
-	Mon, 18 Aug 2025 23:46:48 -0700 (PDT)
-Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B8693F63F;
-	Mon, 18 Aug 2025 23:46:53 -0700 (PDT)
-Message-ID: <b63b6344-ab7c-43d8-b418-e030344dfd7c@arm.com>
-Date: Tue, 19 Aug 2025 12:16:50 +0530
+	id 1uoGdF-00000009eNX-2PL5;
+	Tue, 19 Aug 2025 07:19:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoGBH-00000009a7z-0uSh;
+	Tue, 19 Aug 2025 06:50:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AD4A543ACC;
+	Tue, 19 Aug 2025 06:50:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 785E5C4CEF1;
+	Tue, 19 Aug 2025 06:50:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755586246;
+	bh=5LX4MjHPti9Y/a5w1WqE/dutfRYGLgXP5r5MCac7GZ4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KOuMG7AV+y/CU8NY70Aj4BdD2gpM9erxGEodjG/BjMjlFwpJCeSogGifAv1yeiEn0
+	 18198o2NUbRskge+7Yk11rd9VLtUcVahojC0wjTEte5/jtZfne4Gr/Q+96Ohl+oFh3
+	 u0CF0YAjZcCYqHMvtxqsvOAfiBhJIU0vUNqKnG87Pq89HcM1KCbewitPYVWHqnImGK
+	 H/qqhsweitN+AD0PrfjkHzs5IOgrq807n1nM5uYoeqpVPkGuIwVpRirhYUU9rqPKRG
+	 RB+xlY8vUZ+Sm9YJs8SyfLDVoW3tgruPW78kc09RYqfMkmwOkJNkaKDI1KVd4N9k7p
+	 xqYDAiAUZ1ffQ==
+Message-ID: <2ebd588a-cdc2-4734-8b3f-734a1125e726@kernel.org>
+Date: Tue, 19 Aug 2025 08:50:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64/sysreg: Replace TCR_EL1 field macros
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Mark Brown <broonie@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250818045759.672408-1-anshuman.khandual@arm.com>
- <20250818045759.672408-3-anshuman.khandual@arm.com>
- <87jz30my30.wl-maz@kernel.org>
+Subject: Re: [PATCH v3 0/4] Add GCE driver for 8189
+To: Xiandong Wang <xiandong.wang@mediatek.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Yongqiang Niu <yongqiang.niu@mediatek.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, jh.hsu@mediatek.com,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250819033746.16405-1-xiandong.wang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <87jz30my30.wl-maz@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250819033746.16405-1-xiandong.wang@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_234657_789267_DBEA9DF2 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250818_235051_381101_06867B5B 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,98 +123,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 19/08/2025 05:36, Xiandong Wang wrote:
+> This serides patches dependent on:[1]https://lore.kernel.org/all/20250601173355.1731140-8-jason-jh.lin@mediatek.com/
+> 
+> Xiandong Wang (4):
+>  [v3,01/04] dt-bindings: mailbox: add cmdq yaml for MT8189
+>  [v3,02/04] arm64: dts: mediatek: Add GCE header for mt8189
+>  [v3,03/04] mailbox: mtk-cmdq: Add cmdq driver for mt8189
+>  [v3,04/04] mailbox: mtk-cmdq: modify clk api for suspend/resume
 
+No changelog, multiple versions the same day (wait 24h!).
 
-On 18/08/25 9:16 PM, Marc Zyngier wrote:
-> On Mon, 18 Aug 2025 05:57:57 +0100,
-> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
->>
->> This just replaces all used TCR_EL1 field macros with tools sysreg variant
->> based fields and subsequently drops them from the header (pgtable-hwdef.h).
->> While here, also drop all the unused TCR_XXX macros from the header.
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Mark Brown <broonie@kernel.org>
->> Cc: kvmarm@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  arch/arm64/include/asm/assembler.h         |   6 +-
->>  arch/arm64/include/asm/cputype.h           |   2 +-
->>  arch/arm64/include/asm/kvm_arm.h           |  28 +++---
->>  arch/arm64/include/asm/kvm_nested.h        |   6 +-
->>  arch/arm64/include/asm/mmu_context.h       |   4 +-
->>  arch/arm64/include/asm/pgtable-hwdef.h     | 107 +++------------------
->>  arch/arm64/include/asm/pgtable-prot.h      |   2 +-
->>  arch/arm64/kernel/cpufeature.c             |   4 +-
->>  arch/arm64/kernel/pi/map_kernel.c          |   8 +-
->>  arch/arm64/kernel/vmcore_info.c            |   2 +-
->>  arch/arm64/kvm/arm.c                       |   6 +-
->>  arch/arm64/kvm/at.c                        |  48 ++++-----
->>  arch/arm64/kvm/hyp/include/hyp/switch.h    |   2 +-
->>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |   2 +-
->>  arch/arm64/kvm/hyp/nvhe/switch.c           |   2 +-
->>  arch/arm64/kvm/hyp/nvhe/tlb.c              |   2 +-
->>  arch/arm64/kvm/hyp/vhe/tlb.c               |   2 +-
->>  arch/arm64/kvm/nested.c                    |   8 +-
->>  arch/arm64/kvm/pauth.c                     |  12 +--
->>  arch/arm64/mm/proc.S                       |  29 +++---
->>  tools/arch/arm64/include/asm/cputype.h     |   2 +-
->>  21 files changed, 101 insertions(+), 183 deletions(-)
-> 
-> [...]
-> 
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 888f7c7abf54..b47d6d530e57 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -2000,10 +2000,10 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
->>  
->>  	tcr = read_sysreg(tcr_el1);
->>  	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
->> -		tcr &= ~(TCR_HD | TCR_HA | TCR_A1 | TCR_T0SZ_MASK);
->> -		tcr |= TCR_EPD1_MASK;
->> +		tcr &= ~(TCR_EL1_HD | TCR_EL1_HA | TCR_EL1_A1 | TCR_EL1_T0SZ_MASK);
->> +		tcr |= TCR_EL1_EPD1_MASK;
-> 
-> Except that none of that code is about EL1. At all.
-> 
->>  	} else {
->> -		unsigned long ips = FIELD_GET(TCR_IPS_MASK, tcr);
->> +		unsigned long ips = FIELD_GET(TCR_EL1_IPS_MASK, tcr);
->>  
->>  		tcr &= TCR_EL2_MASK;
->>  		tcr |= TCR_EL2_RES1 | FIELD_PREP(TCR_EL2_PS_MASK, ips);
->> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
->> index 0e5610533949..5f0f10ef38f0 100644
->> --- a/arch/arm64/kvm/at.c
->> +++ b/arch/arm64/kvm/at.c
->> @@ -134,8 +134,8 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
->>  	tbi = (wi->regime == TR_EL2 ?
->>  	       FIELD_GET(TCR_EL2_TBI, tcr) :
->>  	       (va55 ?
->> -		FIELD_GET(TCR_TBI1, tcr) :
->> -		FIELD_GET(TCR_TBI0, tcr)));
->> +		FIELD_GET(TCR_EL1_TBI1, tcr) :
->> +		FIELD_GET(TCR_EL1_TBI0, tcr)));
-> 
-> This is the reason number one why I dislike this patch.
-> 
-> Here, we deal with both the EL1&0 *and* the EL2&0 translation
-> regimes. And I left the original definition *on purpose* so that
-> nobody would read this code as being EL1-only. Now, you will glance
-> over it with warm fuzzy feeling that you know what this is about --
-> purely EL1. And that's what bugs are made of.
-> 
-> Of course, nothing changed functionally. But is it better? No.
-
-Just wondering - will it be better to use TCR_EL1/TCR_EL2 definitions
-conditionally for EL1&0 and EL2&0 translation regimes as applicable ?
-Could there any other better method here ? Because the current situation
-where there are some custom TCR macros, some tools sysreg generated macros,
-and then those macros getting used in an adhoc manner in different places,
-is not very consistent either.
+Best regards,
+Krzysztof
 
