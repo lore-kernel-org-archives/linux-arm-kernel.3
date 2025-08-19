@@ -4,119 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDACCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D3FCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rBc6JI+rXDenZLs/7q2zEEMseKJi700QtOnj1AY6TBs=; b=r+2Dqy/z2z0QGJ6n+H06BTuofy
-	AvYjKnlpYHmBFcKPpBjcDSfMtB9WWsIe2Q6quam1ohcnNrZfV4DJlim61hzhcUPgSM22higgTrTOi
-	XSeeGZH5BIbMlHys0AS92jYjJtbsdN+WNKrhaWuufC/dVSSSgCbqCYsr3VfPWbQ2Sqc3R1Rur1Yfk
-	w160SOFqfx2YXJaRKqvCiYFGx2P90MqPKdYbIWQ7kLj90zK28tDoga2P/+5uH6Q6SzOA0LBXUiRld
-	2j4bVLyvqLqHpDZ4GP9ZIAh/ITDDqlBvYYSC37LVU4CDgng3s1gy2soYoMrqER827T5jjsKtb+l04
-	qVgdHRxg==;
+	bh=yPl+L2c17TgIniY4vYM1AwB/mzaniLIQARemsHNrxDg=; b=FrFaHRk+zU5lG9H4G6x+vObgSx
+	dMaH6nvee2YFIp4BknnITQPU88SVrVPQ5T+AupyPh/TAdyE6zkPiJYgzi6MgGmv1T/Y31ckOnUzFn
+	OxHz6GBFNGQZn2rWnBIfEeAI7SRRU6nTSh9P/tjN93ehse/6ISDamy32jU64Gky6JzvSmvESr+lVp
+	b0MGMuSzRTgGKlkSc1CmukJfT4KQpZSAfAjNjv0xjDuxqRLeQVL2gn6mwsgt7Xzuklu1lwyFcOAkx
+	mivQGHb344ghuEPMVskA0s8a+F+32T7OfQrqePGIlMIwg+iIARD08e4rxkZajOvFUSFCqOKcGrmPQ
+	GP6a7PdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoI4H-00000009r9Q-42mn;
-	Tue, 19 Aug 2025 08:51:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uoI6s-00000009rUI-0lFr;
+	Tue, 19 Aug 2025 08:54:26 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHVs-00000009mMJ-1pFi;
-	Tue, 19 Aug 2025 08:16:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C11FD44D1F;
-	Tue, 19 Aug 2025 08:16:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81ECFC4CEF1;
-	Tue, 19 Aug 2025 08:16:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755591371;
-	bh=2EpmU3JGUFXygGaDOaTCoq4ACqqe9wAUN6krW/ZWLXU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jbXuyBZC+BJ+U/2Sapq2STr7sYy6Ey4+G06glyZkFSAUgwI9TzLRW64B8zRg8+Lo6
-	 O9JmrBtkmAN6nP9mdOUainYKC5mmgv2fZgwFBugVkURKIJhYhR2vPqOUSqMq0HZoVJ
-	 hOQ26WpiuYWHiYRVo364ZPdtYkL5KgivzGRnnmJpDHNxBGhwo4VoQrb+Y0TCFkvkim
-	 kZC2iP5xlKS6PmlGhG3yhbqfSqu+cvoDFK/n5rKGjINSd93PiPXKdGT1o2Zow24MD8
-	 XklwbWZiCu9kdg/vNf1s2mnZBZKDdK+FiMfOdOnwsim6VKtQNPinfnUjeuKfEOZQfe
-	 E5d4vprYhw+Pg==
-Message-ID: <97cb6271-9881-40e0-83a6-e41f14c85865@kernel.org>
-Date: Tue, 19 Aug 2025 10:16:06 +0200
+	id 1uoHYr-00000009mh4-0CNw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 08:19:18 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 681102125E;
+	Tue, 19 Aug 2025 08:19:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755591555; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yPl+L2c17TgIniY4vYM1AwB/mzaniLIQARemsHNrxDg=;
+	b=PRvo6MBhGhadrTQy7iYxlvNSKC/DqFvsWvJNRyMqSwPYMQhkAgHqp08Kh+iw0BmQioqxTL
+	bwdiPqBPZgyeC+o3vf/h2hMVGVg+ULlOJdgC/WyabG8sneunKeKXki7L5FRNvR2zxMC+0E
+	uX6KDCH2ntCU2kFUEDN9ekPQciuqgkQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755591555;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yPl+L2c17TgIniY4vYM1AwB/mzaniLIQARemsHNrxDg=;
+	b=gDsEzmyWD4hkDrugvp/dOHUvVEYEx4yL+d11RPxuFCWd4Q5V0kz5AQ8cynWqmFfIZnKssJ
+	uoC5wNknSSLyFTAw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755591555; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yPl+L2c17TgIniY4vYM1AwB/mzaniLIQARemsHNrxDg=;
+	b=PRvo6MBhGhadrTQy7iYxlvNSKC/DqFvsWvJNRyMqSwPYMQhkAgHqp08Kh+iw0BmQioqxTL
+	bwdiPqBPZgyeC+o3vf/h2hMVGVg+ULlOJdgC/WyabG8sneunKeKXki7L5FRNvR2zxMC+0E
+	uX6KDCH2ntCU2kFUEDN9ekPQciuqgkQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755591555;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yPl+L2c17TgIniY4vYM1AwB/mzaniLIQARemsHNrxDg=;
+	b=gDsEzmyWD4hkDrugvp/dOHUvVEYEx4yL+d11RPxuFCWd4Q5V0kz5AQ8cynWqmFfIZnKssJ
+	uoC5wNknSSLyFTAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A2DAA139B3;
+	Tue, 19 Aug 2025 08:19:14 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id uX9hJYIzpGiIMAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Tue, 19 Aug 2025 08:19:14 +0000
+Message-ID: <9af1eb5b-7eb1-4686-869d-eda597145819@suse.de>
+Date: Tue, 19 Aug 2025 11:19:14 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] mfd: mt6397: Add new bit definitions for RTC_BBPU
- register
-To: =?UTF-8?B?U2h1bnhpIFpoYW5nICjnq6Dpobrllpwp?=
- <ot_shunxi.zhang@mediatek.com>, Sean Wang <Sean.Wang@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "lee@kernel.org" <lee@kernel.org>,
- "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
- =?UTF-8?B?RWRkaWUgSHVhbmcgKOm7g+aZuuWCkSk=?= <eddie.huang@mediatek.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?SmggSHN1ICjoqLHluIzlrZwp?= <Jh.Hsu@mediatek.com>,
- =?UTF-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <Vince-WL.Liu@mediatek.com>
-References: <20250811081543.4377-1-ot_shunxi.zhang@mediatek.com>
- <20250811081543.4377-2-ot_shunxi.zhang@mediatek.com>
- <b41749ae-640b-4911-976f-8aa36d40ed6b@kernel.org>
- <40342432bf4638b54615b70320f72095f18c0490.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Stanimir Varbanov <svarbanov@suse.de>
+Cc: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, florian.fainelli@broadcom.com, wahrenst@gmx.net,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ iivanov@suse.de, mbrugger@suse.com, Jonathan Bell
+ <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
+ <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de> <aKQyViTbXAsFEuT7@apocalypse>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <40342432bf4638b54615b70320f72095f18c0490.camel@mediatek.com>
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <aKQyViTbXAsFEuT7@apocalypse>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[dt];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[17];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmx.net];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linaro.org,kernel.org,broadcom.com,gmx.net,vger.kernel.org,lists.infradead.org,arm.com,suse.de,suse.com,raspberrypi.com];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	URIBL_BLOCKED(0.00)[suse.com:email,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,raspberrypi.com:email];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_011612_623889_F38E7D15 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_011917_267031_95622437 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,33 +144,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 09:54, Shunxi Zhang (章顺喜) wrote:
->>>  #define RTC_BBPU               0x0000
->>> +#define RTC_BBPU_PWREN         BIT(0)
->>> +#define RTC_BBPU_CLR           BIT(1)
->>> +#define RTC_BBPU_RESET_AL      BIT(3)
->>>  #define RTC_BBPU_CBUSY         BIT(6)
->>> -#define RTC_BBPU_KEY            (0x43 << 8)
->>> +#define RTC_BBPU_KEY           (0x43 << 8)
->>
->>
->> Why?
->>
->>
->>
->> Best regards,
->> Krzysztof
+
+
+On 8/19/25 11:14 AM, Andrea della Porta wrote:
+> Hi Stanimir,
 > 
-> Dear sir,
-> The MT6397 is an integration of several ICs and does not have a
-> separate IC specification. I will check the relevant IC datasheets
-> again. I will remove the useless define in next version.
+> On 10:40 Tue 19 Aug     , Stanimir Varbanov wrote:
+>> Hi Andrea,
+>>
+>> On 8/11/25 5:46 PM, Andrea della Porta wrote:
+>>> From: "Ivan T. Ivanov" <iivanov@suse.de>
+>>>
+>>> This driver provide pin muxing and configuration functionality
+>>> for BCM2712 SoC used by RPi5. According to [1] this chip is an
+>>> instance of the one used in Broadcom STB  product line.
+>>>
+>>> [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
+>>>
+>>> Cc: Jonathan Bell <jonathan@raspberrypi.com>
+>>> Cc: Phil Elwell <phil@raspberrypi.com>
+>>> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+>>> Reviewed-by: Phil Elwell <phil@raspberrypi.com>
+>>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+>>> ---
+>>>  drivers/pinctrl/bcm/Kconfig           |   13 +
+>>>  drivers/pinctrl/bcm/Makefile          |    1 +
+>>>  drivers/pinctrl/bcm/pinctrl-brcmstb.c | 1197 +++++++++++++++++++++++++
+>>>  3 files changed, 1211 insertions(+)
+>>>  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
+>>>
+>>
+>> <snip>
+>>
+>>> +static int brcmstb_pinctrl_probe(struct platform_device *pdev)
+>>> +{
+>>> +	struct device *dev = &pdev->dev;
+>>> +	struct device_node *np = dev->of_node;
+>>> +	const struct brcmstb_pdata *pdata;
+>>> +	const struct of_device_id *match;
+>>> +	struct brcmstb_pinctrl *pc;
+>>> +	const char **names;
+>>> +	int num_pins, i;
+>>> +
+>>> +	match = of_match_node(brcmstb_pinctrl_match, np);
+>>
+>> The 'match' variable is needless, you can drop it.
+> 
+> you mean something like this?
+> 
+> pdata = of_match_node(brcmstb_pinctrl_match, np)->data;
+> 
 
+No, I meant:
 
-I understand nothing from this reply. I do not see it related to my
-questions at all. Do you want to say that you change indentation,
-because MT6397 is integration? That makes absolutely NO SENSE!
+pdata = of_device_get_match_data(dev)
 
-Best regards,
-Krzysztof
+Also as a bonus you could move brcmstb_pinctrl_match[] array after .probe.
+
+~Stan
 
