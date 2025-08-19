@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9B9CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 14:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6C3CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 14:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IM67WPQOHye2i+1z72epmy92Qmx4agSMBIMH1WeYbtQ=; b=vrrAOM///QogoNaObLM3soC8Kh
-	0RobHq58q2JexxyutXVshrZYXJBgFiR+AzBVMDGidB749ld+oXcJRyqkFGuWPKeqCuMJj7GrM7mxf
-	xAZ9fwhlQZYgfWtE+4oCgXn/56kHXk+Iug1Etbij0KHLEsEyi6dZJkqdaOyM+UeSMN/dSmct88pDf
-	2h/yszjgn0hgx7f5psbHCGluayHQ5uv9Du5oKxdBgLxBuPyVBdxKH98nqMWGCniUgnA7u1xq0yxAG
-	ODYmHbeLNY0tXvW0zX2htn/tOAdn+5rE06XmTgtwkPN8AbJABSSlnl838Po4vOiB0mWiXt4qEsgDD
-	g8dnBcrQ==;
+	bh=1P2Rps+nWLL6vuu8v5AZ6QLluRY8gS5KDMDYoN14d3E=; b=VKB18cPWMvs75cmJIuFK6RQlh4
+	pjPQ59GHqzmdo6VQYRtrY1lwftN0SvIMribnkJLxs3S/rf5XKCMeTCCkp3LWNj+J60DarfeK2H/ib
+	3rHDv2HaggN5uY7gtVjOfeasUONGTMLOE2Mxwa3GNrw85t9zyPv9C0s3PFKrxlRkNUgeMpcce01nQ
+	wa9a1xVaFvzkjxlqFSvjqlf60s2I+kw+4PyTZbmbMXYtxM5NHN198kXoyTt1ISUwt37+uEsb5jhEE
+	mS/b/9WSmJHD3lDkih9hU3vH3Tpo6IsRsHeOXGYXzjszLNNNSpUcc4pZ7F+mOy9G7sZ0xNR+Y+EW3
+	uMbbjSmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMtP-0000000AgeN-2GJl;
-	Tue, 19 Aug 2025 14:00:51 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1uoMvx-0000000Ah1J-3Xr9;
+	Tue, 19 Aug 2025 14:03:30 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKPe-0000000AGBt-2hLq
+	id 1uoKgs-0000000AJbo-3jLA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 11:21:59 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55ce521f77bso5217206e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 04:21:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755602517; x=1756207317; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IM67WPQOHye2i+1z72epmy92Qmx4agSMBIMH1WeYbtQ=;
-        b=QY3kBcGOQeOtCpuwO/+2dzxl9GqAM/s0pYq37cicPpYAseJGmKNeTx2LXurVGMxcNK
-         8JV2w4ytrjPTRMqwoEGOoLwezPG7o+Cb4UjHVlCl5WjVBL+L6nBIjgXhhofHa8VorGb8
-         20ujtvhc+44BWOXzZiETr6Zvfhl+tkDGBWarK/ukS2c6hMeb0RtJp8pHxTaniXIFoG6x
-         +V6l9uPji2H0k1Ushl3HVJi9d/GxmZ6kkj5m9+C2qurj8vAKRoynkbS12mDHOkBo7zDF
-         flj9HzkC4hF3sYjOnG/mD2sNMPCCLurmvHkOtNUJTAYe4dZ06QOfwtTrLUjA+PTDfmry
-         twKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755602517; x=1756207317;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IM67WPQOHye2i+1z72epmy92Qmx4agSMBIMH1WeYbtQ=;
-        b=BHQSTtfFnVTthuAKqpn/00ObTqGM21hoiMuBYL3voiKReu+mCprq/D51nT4zammcm+
-         j7c/l1iojgVd7n9YcuN7DlOkLoWmULLE8YLI765JHYrHetwYsYWHl/qxagoxaHbeQZf6
-         4r7iTzgIkHN4p37FSQZoqLzZjMGPHOR9xVj8Hf1CeUlMZF/AAbAlHk7J8IdKJmsoY+ee
-         2XQt7bGrgiUOfDPTraXwJoHFM0F6Io+CKS3Q3vmFt3YPGIupBoe6wpDhcDtXYJeucoiI
-         oqcFB0UdeEvxGTM+jfMDuq5VBxWlsu3oI7uqUGZYLITptkRjVZDWMlZPOEQ5Xa1piBmY
-         dYOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXwmD7eZ9lAR9mV6mrhnFwU7tuQWE9KvbtFjLrZUerGQPeHIMx1oosn0KxSpcp/+59wsJ6pmeFWfJQLIL97dz+0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywomrte9SKpuA7j72rA+c2uS8Fme2/0kURR3s36+0UUms6PmQUp
-	kfYb1bEHIxFsPiTXBioHvTf1SuEupHniWRCkpGiI9/Ipq/NceYD2vquCGlyluPo+js2UWRe4D98
-	1MGQcZB5L8/QnZlxU/vaHU7LlxztDad4g6sCW1Wzp5Q==
-X-Gm-Gg: ASbGncvZgW47tlPNX0hxafItvkyoJ5/LKcLh31hXCFCCtduKZ3Rplof0O3M4yqDB4Y8
-	Ds7mby/tHYogAuulA8+gAq5lwzRFMbPm7ihx5qAV7K3oCqP60V0mEDdNzObMZhTprLtYp7kSjyc
-	EKRDjJx0Ka+nlpoEWUsZo+436O216M2M6nwb5r3izPTAV5/Sxcbl2SaimbSBfTB46+MEPK9gef1
-	U4HgDY=
-X-Google-Smtp-Source: AGHT+IHB9ZE3HHwBP8KRu0As5tM0j3eS8qOs+KX5e0XlvnFV/qrios6LpoJC/eBjHm40/aNMJAbseQeE3Ftd5lSOg8c=
-X-Received: by 2002:ac2:4c45:0:b0:55b:8698:6a1d with SMTP id
- 2adb3069b0e04-55e0079296fmr723607e87.3.1755602516865; Tue, 19 Aug 2025
- 04:21:56 -0700 (PDT)
+	Tue, 19 Aug 2025 11:39:49 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250819113941epoutp04c3b4979d2e009f67e2f168ad5caef3f7~dKCfjLdzX1529515295epoutp044
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:39:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250819113941epoutp04c3b4979d2e009f67e2f168ad5caef3f7~dKCfjLdzX1529515295epoutp044
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755603581;
+	bh=1P2Rps+nWLL6vuu8v5AZ6QLluRY8gS5KDMDYoN14d3E=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=ZVvYutnRrj1vsaoIzlGc1d/RjPE60V5uAz1QTRDCZxI81j7cue1sfgSA7oaKZO8YW
+	 2qVnzb45IaXeEFXrgbk+ARvR9GiIrmLx90CgXtFOidCb4d1xvFEEGV8mqz30CiOzoN
+	 ZcxgykS5DuOVlEM5wzk/ytKYpW7LZdaE9Lb5rgp8=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250819113940epcas5p44becd1ec50dff43ea959114a166fe0dd~dKCeeitQH2997129971epcas5p49;
+	Tue, 19 Aug 2025 11:39:40 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c5ngH2cfwz3hhT3; Tue, 19 Aug
+	2025 11:39:39 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250819113938epcas5p3cac2467171b234b921448bf9b537cce2~dKCdAIEYh2225622256epcas5p3a;
+	Tue, 19 Aug 2025 11:39:38 +0000 (GMT)
+Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250819113935epsmtip16d1c515c409672f87d62e0dbcafa0d4d~dKCaJwZgR0293302933epsmtip1n;
+	Tue, 19 Aug 2025 11:39:35 +0000 (GMT)
+From: "Shradha Todi" <shradha.t@samsung.com>
+To: "'Bjorn Helgaas'" <helgaas@kernel.org>, "'Krzysztof Kozlowski'"
+	<krzysztof.kozlowski@linaro.org>
+Cc: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+	<mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<vkoul@kernel.org>, <kishon@kernel.org>, <arnd@arndb.de>,
+	<m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
+	<pankaj.dubey@samsung.com>
+In-Reply-To: <20250818182544.GA534647@bhelgaas>
+Subject: RE: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
+Date: Tue, 19 Aug 2025 17:09:34 +0530
+Message-ID: <00b501dc10fd$f1fecc10$d5fc6430$@samsung.com>
 MIME-Version: 1.0
-References: <20250812203348.733749-1-robh@kernel.org>
-In-Reply-To: <20250812203348.733749-1-robh@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 19 Aug 2025 13:21:44 +0200
-X-Gm-Features: Ac12FXwBOtQCyCuqh-xFzcRsUI8fbtRh0MGdvIn7jfDa7EoepbxRk616CgxWIGc
-Message-ID: <CACRpkdYxFj9ZCdpOpE7G2A8cNTRTWoJatDP7OmCkkH_4eApz6w@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: pinctrl: Convert brcm,iproc-gpio to DT schema
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFRpmM4OvQHoLmp1/7yOMMM/WjwMQMTDUGCtWYRPHA=
+Content-Language: en-in
+X-CMS-MailID: 20250819113938epcas5p3cac2467171b234b921448bf9b537cce2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250818182551epcas5p33fbe099df79778031b489f0902cceed3
+References: <CGME20250818182551epcas5p33fbe099df79778031b489f0902cceed3@epcas5p3.samsung.com>
+	<20250818182544.GA534647@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_042158_680796_748CDC28 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20250819_043947_630127_AC4ADACC 
+X-CRM114-Status: GOOD (  31.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,26 +100,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 10:33=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org=
-> wrote:
+> > > > +static irqreturn_t fsd_pcie_irq_handler(int irq, void *arg)
+> > > > +{
+> > > > +	u32 val;
+> > > > +	struct exynos_pcie *ep = arg;
+> > > > +	struct dw_pcie *pci = &ep->pci;
+> > > > +	struct dw_pcie_rp *pp = &pci->pp;
+> > > > +
+> > > > +	val = readl(ep->elbi_base + FSD_IRQ2_STS);
+> > > > +	if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
+> > > > +		val &= FSD_IRQ_MSI_ENABLE;
+> > > > +		writel(val, ep->elbi_base + FSD_IRQ2_STS);
+> > >
+> > > This looks weird because FSD_IRQ_MSI_ENABLE sounds like an *enable*
+> > > bit, but here you're treating it as a *status* bit.
+> > >
+> > > As far as I can tell, you set FSD_IRQ_MSI_ENABLE once at probe-time in
+> > > fsd_pcie_msi_init(), then you clear it here in an IRQ handler, and it
+> > > will never be set again.  That seems wrong; am I missing something?
+> >
+> > Actually the status IRQ and enable IRQ registers are different offsets
+> > but the bit position for MSI remains same in both cases so I just reused
+> > the macro.
+> 
+> Ah, that's what I missed, thanks!  At probe-time, fsd_pcie_msi_init()
+> enables it in FSD_IRQ2_EN.  Here you clear it in FSD_IRQ2_STS.
+> 
+> > But I understand that it's confusing so I will add another
+> > macro for FSD_IRQ_MSI_STATUS or just rename the macro to
+> > FSD_IRQ_MSI to re-use.
+> 
+> Using the same name just because a similar bit happens to be at the
+> same position in two different registers is definitely confusing.  I
+> think it will be better to have two macros, one for FSD_IRQ2_STS and
+> another for FSD_IRQ2_EN, e.g.,
+> 
+>   #define FSD_IRQ2_STS                         0x008
+>   #define   FSD_IRQ2_STS_MSI                   BIT(17)
+>   #define FSD_IRQ2_EN                          0x018
+>   #define   FSD_IRQ2_EN_MSI                    BIT(17)
+> 
+> Another question about the test:
+> 
+>   if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
+> 
+> This assumes there are no other bits in FSD_IRQ2_STS that could be
+> set.  I would have expected a test like this:
+> 
+>   if (val & FSD_IRQ_MSI_ENABLE) {
+> 
 
-> Convert the Broadcom iProc/Cygnus GPIO/Pinconf binding to DT schema
-> format.
->
-> The child node structure is based on the example as there's not any
-> actual .dts files with child nodes.
->
-> The binding wasn't clear that "reg" can be 1 or 2 entries. The number of
-> "reg" entries doesn't appear to be based on compatible, so no per
-> compatible constraints for it
->
-> The "brcm,iproc-stingray-gpio" could possibly be dropped. There are no
-> .dts files using it, but the driver uses it.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Thanks for pointing this out. FSD_IRQ_MSI_ENABLE is a single-bit, so there
+is no functional difference in the two statements. I didn't have a specific
+reason for using "== FSD_IRQ_MSI_ENABLE".
+But I see that "val & FSD_IRQ_MSI_ENABLE" would have been the more
+standard way to write this. I will update this for clarity.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+> Is there a reason to restrict it to the case when *only*
+> FSD_IRQ_MSI_ENABLE is set?
+> 
+> Bjorn
 
-Yours,
-Linus Walleij
 
