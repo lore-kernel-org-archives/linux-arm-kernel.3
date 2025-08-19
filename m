@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD5BCA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01FACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=; b=xw+ToY3fYABk4M41v+N6o2XRFD
-	7Zz45RWiO5ootpiJPNvrWJhqnFmXqwEtgsXSLeW+c9yhsh50oDb74a23RFL5FOmkNb4T5xEUbrrwS
-	e+ZfDkKVRGsFMEpfitvRtlkYKEf4qA5TYDJCF8OX1jcyPR2t0u3uXGpfbFcDG65SnqZu9abAqP/Zg
-	RounswhnPC/U69unO8tEOOD61Sen97MIztea4GTYI6KVMhkM8GX6mKISCHRiFmOa+2kUA2ZOQDeh6
-	U5kaGmggfZ+tLnQhfkdFALl74w6Zpr9AzVcn7kkqiGn2ws5vcwdYcbVzECknHWP8z2GmGWVQMIhBk
-	FMd19EkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UxiKAyBziT9e+nTMG+2xkk2xG/b2nNG83CX/r2e5bz4=; b=1TESAT/2ZdUFXZz11n5O6g6raY
+	4PtX8hQZH6ksCdpWNXfP0ihS8utohpnmLLq4SD7x92OvBZV3I5fv8tjUajKbv3Jxo9AankRoFGl64
+	2HIimKKMlLIpXzgUx/mesEpZ7kH22SY5V1midzckEr/f0p3voUb54/qYDcFLpPOA89pYaQ9nm+8S3
+	3VCQ05xJjXDd83lXjV/fx4YvhB3zLZtkbxiVB5tMcVmHp5HdlQHEMPNfa/vn2SySGMbHYzaLSz2e6
+	RH6Mi2zSUYG1iIpa9R880UFANfPDxV3Be4GkGrVI3aPyXzLetfFVIdilbYZELtFk/737i9eNMhxRF
+	nbqk8EMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHz8-00000009qXm-2Lyj;
-	Tue, 19 Aug 2025 08:46:26 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1uoI1i-00000009qns-1Mi1;
+	Tue, 19 Aug 2025 08:49:06 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHSE-00000009ltX-0QXv
+	id 1uoHTC-00000009lxv-0rzn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 08:12:27 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-6188b7550c0so6815000a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 01:12:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1755591144; x=1756195944; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=;
-        b=aaXAdmbJ0YaAx3u59/TSksLD2vlQN0oKZELiYTVSVp/jKhCAxhGDDdTii40eZknbub
-         hRRuGKb4RXi0mJkcaWTATYm/jOkXoCgRXRi8SqUMzBAn0+ZR+3t9dak3sXwNMqXMvAD0
-         mrJX1uAg4MFOc17CkdDMPx8eeLnhLHSXg5MngBSRnwH8mT4797J9e6Y1u2Z7rYs5SdVf
-         hs2LVQNyfCfzsin+j9nWis3fO8hQmHufTgUJ5MABQh82xKWPYJt/KTDZoO3/7yZjTI3I
-         CapCsBoW9gdL/X1p/DGUTUSiQKfao1NhYZq4TMa2G4Njje8snRSPotcToK16p7/ok1CI
-         cO0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755591144; x=1756195944;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9nzPUQ0/d41BabMrdFj7Ztc0g/CB1x+z2efsCXODZwQ=;
-        b=nK5qHgInQg2QVi52tI8d80Z8q9RDJCfJlTXnnrT7mtNpPRWDlSR12t89G6U+V3jhSn
-         Pn2nGvm0LIodZ9wY+COWgF+9uxwUph+eYYw/FziFnhxiSHPOQOyllqtZbGrNu8ndevlu
-         xxXi7eDUq46O4xIsAPloQe6Bh3vvhvb/c79Se3QCGX7b3Cy3k67J51L3r9hraL21wDRm
-         YfJALTxj+MAgHBRMfDRITZk7HG4e+N7kmqql6TaR+XnYdnQOWMx8/wuqur2EF10o+R5T
-         GGxKAqHpegrdF2tAi8iibJgtY3xOMI17LM89SgG3mrteO9ZNEhEGkdsd4CActh7IFM2O
-         bnqg==
-X-Forwarded-Encrypted: i=1; AJvYcCXd04VIhmoiRJN/m0r+dQxlVX4LdetkMvXTs18Gc+rav9kI5iRNocdJejhQClbRNu6gLbrxhbuPHJrGhHVu9Ai6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfgbYQTHgYvn4nmq2/SwtiK0hN0di+hWT9XMh3yjy4th3Edou5
-	KHb4bo7bwO3FWo/5mdarmNGECdllbstfYDlvMxQEL14rUvnxulUzL6PjflCYXyxjdFArZe0XqPv
-	fItFRLJ4Prw==
-X-Gm-Gg: ASbGnctcQ0ZQ9S8YLgDAhY/E8yx1pAtemDcM9V1AjXPiWoFa8jlt1Er+N7tYSfbn5jl
-	vk5irO5FQjNRBml9gI2Q/muVxBYP0jCvyO6y7c5oxSXXIvbou4KbzrbyHhcPmr52xz6Ih1wbG9n
-	91pjMFwUlyLCEYJdayq8Vj1ENv+VvWdSvBrVVM1ra4v+WnlIy+/B7ogVk33L+Hc0EMzf5yz+3OY
-	6Fwe7ELGT7EmoR4FP/VMzrOS4QbXKltsFu7Xsfv9FzwHX8Q8iGvRJW7RNBbAw34jL6o9VMVVHJh
-	k/697yu5yPE/z/icQzEiiexnYQ9cODYdZjsEzq9AyjeDZYxAESEyqTgpRBRIqhZBdCDxeqj9jmR
-	mzrcK36AStDBiILl8lcK+zAln1hQ/ducRRWirxZxSvAjSYtya0WyKfuEKlaWIPiCUiSZDrbM=
-X-Google-Smtp-Source: AGHT+IFWUFHoGU/t7RtStcFRX+OfWnQMuoPAH5EIGoxs7IRL94PQgOjPHffK157QAOTE9MTriRH+/w==
-X-Received: by 2002:a17:907:6e89:b0:af9:71c2:9c3 with SMTP id a640c23a62f3a-afddd0b555cmr143308466b.35.1755591143820;
-        Tue, 19 Aug 2025 01:12:23 -0700 (PDT)
-Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdd01096csm949783566b.88.2025.08.19.01.12.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 01:12:23 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 19 Aug 2025 10:14:14 +0200
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	florian.fainelli@broadcom.com, wahrenst@gmx.net,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, iivanov@suse.de, mbrugger@suse.com,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
-Message-ID: <aKQyViTbXAsFEuT7@apocalypse>
-References: <cover.1754922935.git.andrea.porta@suse.com>
- <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
- <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de>
+	Tue, 19 Aug 2025 08:13:28 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250819081319epoutp044718fb7e85f2f91d14fcab0d97d9322e~dHOUJAJ3g1755117551epoutp04R
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 08:13:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250819081319epoutp044718fb7e85f2f91d14fcab0d97d9322e~dHOUJAJ3g1755117551epoutp04R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755591199;
+	bh=UxiKAyBziT9e+nTMG+2xkk2xG/b2nNG83CX/r2e5bz4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=J9sgQ4/PiSeAhGcrXAvZsGIjGReblZLfUSDGsK1e6qMBwvd2scEn0tQZJvrcqR4Pc
+	 gzyGg8xtJ4+8UI+QbYoEDNGlKkHxYUeNO4920fxFDZltSMKXWGS2kYlP3fC4/Jd/7/
+	 pG+r/qPZLOy3wprc9/ydkrxShIImsWLcwOdC3Qrk=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250819081318epcas5p3324c7219edd64e8c1fc1e87d1abc60a7~dHOS4TnRk1172211722epcas5p30;
+	Tue, 19 Aug 2025 08:13:18 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c5j594yK1z3hhT8; Tue, 19 Aug
+	2025 08:13:17 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250819074434epcas5p3aba12adc12ef9a64dceff0ba5ec62e4d~dG1Ng9NQA3036730367epcas5p3E;
+	Tue, 19 Aug 2025 07:44:34 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250819074431epsmtip15ad820317f1a1565de1ff3da8c977d8a~dG1KpWY5o2126621266epsmtip1k;
+	Tue, 19 Aug 2025 07:44:31 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Vinod Koul'" <vkoul@kernel.org>
+Cc: <kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <aKQfsgRXL-Nj8CkC@vaman>
+Subject: RE: [PATCH v5 6/6] phy: exynos5-usbdrd: support SS combo phy for
+ ExynosAutov920
+Date: Tue, 19 Aug 2025 13:14:30 +0530
+Message-ID: <003401dc10dd$1b39c560$51ad5020$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f7892abc-1063-4b12-8d47-c80714aeb8fe@suse.de>
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJ+ZgWj3OwstM5ZbwFL0KmcSzrOlQGuc5yxAsdJ9S8B+nVVqAJlMeHKAknGxWeyy/PDQA==
+Content-Language: en-in
+X-CMS-MailID: 20250819074434epcas5p3aba12adc12ef9a64dceff0ba5ec62e4d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250805114323epcas5p39bf73c5e0a9382ff54b1832724804cc9
+References: <20250805115216.3798121-1-pritam.sutar@samsung.com>
+	<CGME20250805114323epcas5p39bf73c5e0a9382ff54b1832724804cc9@epcas5p3.samsung.com>
+	<20250805115216.3798121-7-pritam.sutar@samsung.com> <aJtN7uVUV3YhfY5-@vaman>
+	<038a01dc1013$900a2800$b01e7800$@samsung.com> <aKQfsgRXL-Nj8CkC@vaman>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_011226_142097_0A4DD1EB 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20250819_011326_955496_0613B3D2 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stanimir,
+Hi Vinod, 
 
-On 10:40 Tue 19 Aug     , Stanimir Varbanov wrote:
-> Hi Andrea,
+> -----Original Message-----
+> From: Vinod Koul <vkoul@kernel.org>
+> Sent: 19 August 2025 12:25 PM
+> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> Cc: kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
+> peter.griffin@linaro.org; kauschluss@disroot.org;
+> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
+> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+linux-samsung-
+> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
+> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+> selvarasu.g@samsung.com
+> Subject: Re: [PATCH v5 6/6] phy: exynos5-usbdrd: support SS combo phy for
+> ExynosAutov920
 > 
-> On 8/11/25 5:46 PM, Andrea della Porta wrote:
-> > From: "Ivan T. Ivanov" <iivanov@suse.de>
-> > 
-> > This driver provide pin muxing and configuration functionality
-> > for BCM2712 SoC used by RPi5. According to [1] this chip is an
-> > instance of the one used in Broadcom STB  product line.
-> > 
-> > [1] https://lore.kernel.org/lkml/f6601f73-cb22-4ba3-88c5-241be8421fc3@broadcom.com/
-> > 
-> > Cc: Jonathan Bell <jonathan@raspberrypi.com>
-> > Cc: Phil Elwell <phil@raspberrypi.com>
-> > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> > Reviewed-by: Phil Elwell <phil@raspberrypi.com>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  drivers/pinctrl/bcm/Kconfig           |   13 +
-> >  drivers/pinctrl/bcm/Makefile          |    1 +
-> >  drivers/pinctrl/bcm/pinctrl-brcmstb.c | 1197 +++++++++++++++++++++++++
-> >  3 files changed, 1211 insertions(+)
-> >  create mode 100644 drivers/pinctrl/bcm/pinctrl-brcmstb.c
-> > 
+> On 18-08-25, 13:11, Pritam Manohar Sutar wrote:
 > 
-> <snip>
+> > > > +	/* check cr_para_ack*/
+> > > > +	cnt = 0;
+> > > > +	do {
+> > > > +		/*
+> > > > +		 * data symbols are captured by phy on rising edge
+of the
+> > > > +		 * tx_clk when tx data enabled.
+> > > > +		 * completion of the write cycle is acknowledged by
+> > assertion
+> > > > +		 * of the cr_para_ack.
+> > > > +		 */
+> > > > +		exynosautov920_usb31drd_cr_clk(phy_drd, true);
+> > > > +		reg = readl(reg_phy +
+> > > EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> > > > +		if ((reg & PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK))
+> > > > +			break;
+> > > > +
+> > > > +		exynosautov920_usb31drd_cr_clk(phy_drd, false);
+> > > > +
+> > > > +		/*
+> > > > +		 * wait for minimum of 10 cr_para_clk cycles after
+phy reset
+> > > > +		 * is negated, before accessing control regs to
+allow for
+> > > > +		 * internal resets.
+> > > > +		 */
+> > > > +		cnt++;
+> > > > +	} while (cnt < 10);
+> > > > +
+> > > > +	if (cnt == 10)
+> > > > +		dev_dbg(dev, "CR write failed to 0x%04x\n", addr);
+> > >
+> > > Not error?
+> >
+> > This is only for debugging purpose. It is not considered as error.
 > 
-> > +static int brcmstb_pinctrl_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct device_node *np = dev->of_node;
-> > +	const struct brcmstb_pdata *pdata;
-> > +	const struct of_device_id *match;
-> > +	struct brcmstb_pinctrl *pc;
-> > +	const char **names;
-> > +	int num_pins, i;
-> > +
-> > +	match = of_match_node(brcmstb_pinctrl_match, np);
-> 
-> The 'match' variable is needless, you can drop it.
+> Write failed is not an error? If this code is only for debug, pls drop it.
 
-you mean something like this?
-
-pdata = of_match_node(brcmstb_pinctrl_match, np)->data;
-
-I thought that kind of compact code was not really the way to go,
-at least taking a look at other driver exmaples: there's only one
-avoiding the intermediate variable and many others using it (although
-in some cases they also check for null, so in that case is fully
-justified). Anyway, I've no preference on that so I can proceed with
-your suggestion, unless anyone has something against it.
-
-Many thanks,
-Andrea
+Sure. will drop it. 
 
 > 
-> > +	pdata = match->data;
-> > +
-> 
-> <snip>
-> 
-> ~Stan
-> 
+> --
+> ~Vinod
+
+Regards,
+Pritam
+
 
