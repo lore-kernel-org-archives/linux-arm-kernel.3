@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC4FCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 11:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5C6CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 11:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmevPJuzAQEfh9Vfoz9jvKbY+uv3U7ML4Z/zdPtsuCY=; b=lFnzleyMaSmaaUcj2SFLJEHi/Z
-	WX5482yCywTXWdoUs1YOqoMlPUUQeci6Tom8WBGMUChepB53ZoFhKKF6pCmfT9VI2FnPICrYrRODA
-	lRnFsBGwlhSAF9GS1eLM2IyjatpntjZfaQUn4/dbDHCHRWBEJZFetnj989W1JHiswWmRXBlGycS25
-	qmUx9lbhcsev+x8VanADsKK5bBoqJjOI5q4HpgJcV3GEHbM9b5XjHVFvEKAPG6/KVLJKYYPJRevY4
-	zE2Rd9mTF8J+/it2YTCNKYMvi+YKoNCiyUMCQ4aHudXAqOotsSHwq5WKfKl9rqnKZMUPEC0Txtu3n
-	3TUMb9TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GBseufnTrkiprToC1hEN+V9bNDsJi2enuQf3IdAPE+Q=; b=21lptwilcONH8IC4HSnY2S1D1c
+	Ofb6KQYYLSAlUppmGz/es5uahJxZUZ/WB7LxUgqQIvXiwVvZLgknH+K2A04c3rrh22x8XZF0crDDj
+	n98tZV+FOPNjh6IpUtxhTnb2FtsJd/ROxlYvF9m679Qw1rbOpvy5zl+0M+aGwj5avjSH/VJZqbuJd
+	HDHHCM9w6qxMp1ksp70/fJTCEgjZWQux9OJ1JHpn3gXiFVWSANltVnKRaiG6B0gzrdfxKYW/SF6S3
+	xJj3pd+DHRtP3kstMz8ddMKB/CFyrkHV0kC/DWkTNeEflZyheIAusSXxn6HGFJ1dxfBCd+LMqjPKQ
+	QshAbrJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKvT-0000000ALqc-2ar4;
-	Tue, 19 Aug 2025 11:54:51 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1uoKy1-0000000AMM4-1n9e;
+	Tue, 19 Aug 2025 11:57:29 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJE2-0000000A4cp-0yfS
+	id 1uoJJv-0000000A5Xa-4Ait
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 10:05:55 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55ce5247da6so5358140e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 03:05:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755597952; x=1756202752; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fmevPJuzAQEfh9Vfoz9jvKbY+uv3U7ML4Z/zdPtsuCY=;
-        b=EzfcZIwi68c/ShfRFCFryFmI+wchP7bBk8ebl9DolSnU92SfQ5UkBmfu0Hokfxpx5h
-         M4AFb+0U3976W5wcgGR1O9sB1/2eCsDPW6sFni7tghKqWEFP7tDe1ezNdI2Ech6cQ8Wc
-         gB+cRiW/YgSHrzFwCUpzExQ9bVmr5ukBHMofhN6SHrg/kr6LpxfDrT4h3zaDLqv7kWjT
-         Xk90dTphTRJuCRWse6fhdOF+TAfIfg77sbeiwvnref0WkQA5cSrOkCmdfqgp2wFhnInD
-         rf2/B/q5Ux3QQ9DTjInk4Jl1KKRYu4CZltqQjdBvc3RfwOF6jHHeQ9+NkIq3v2RT0oi/
-         7Xfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755597952; x=1756202752;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fmevPJuzAQEfh9Vfoz9jvKbY+uv3U7ML4Z/zdPtsuCY=;
-        b=GqkpgLV2fnys19DMXqFef5XMqz9P2Rt1GvfqDus6Po+PIpYk5OKU0vNnzqXyxopSex
-         qcPFMZLEaUkdv7zGfp0k1rklnt9ldcHXP9IDkPYI0l26xZATSY4Qk8xUYCt9VtBzkODv
-         PhZGE5N6fHXDn7tfralAI4x3DNjd2VJtP1HQIYdwQ4SnC4MLC2cya0z+EPqtx58S0+Py
-         b/2ZfYqbTJ77pVgxF4pMmbu1GQDr7piCwSyC/3Lifzq4HzPNxdK4swY4YyS5Aip5t56S
-         DM9xxsXlJcB0B/hhTg1f8BmB9a7RSOZvbn8ZhefzMBiWEry8rLkLHnyOQJJHRuu5EBL3
-         mHvA==
-X-Gm-Message-State: AOJu0YxoA0VEd0L78hd+7xOSFWFpqvAKADLEK6prs3wpU/7R/098yFE9
-	FggYeYl0JFEWC8EQWGATIbA2kvVAxOerJMpNbkRBcax2SGCYRKviaSiFqQuM1EcrDoKmSOjsoFB
-	wwr8cVmUcrLsFELB2GUqnWbL5/QkVFxY1Nrx2QGbWmQ==
-X-Gm-Gg: ASbGncv4VegbnhFhGP4zH6axnhCg26TwuwMvhsN8L+jiK8/mw3aLrfOegn2J6LqmKJo
-	CqXBM7ac+jRfABq+4VGLmHhRXGQft9wYHIBL4eairk3qcPWlLvs9LPepwM2IZhmfEin4s2z2nya
-	2BZxEyHAXy0wZ36oumc2bLNx+O+nXPE85RlT+IqkO9E+7Z6eUafRmE5mcfYIqD6Lk6ss3mFKsDj
-	qNBlqByDyWS
-X-Google-Smtp-Source: AGHT+IH8Ywy6QSFNQrvMFIhOqJl9NzQkU24rJxBfbjgtO+LyNYl+wrL8ALdkmABTyTYg+Fzy2PCJ15fLq6pB7xmbNNk=
-X-Received: by 2002:a05:651c:1107:20b0:32a:7d76:262e with SMTP id
- 38308e7fff4ca-335305348c2mr3828141fa.3.1755597952457; Tue, 19 Aug 2025
- 03:05:52 -0700 (PDT)
+	Tue, 19 Aug 2025 10:12:01 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57JABgZl2931017;
+	Tue, 19 Aug 2025 05:11:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755598302;
+	bh=GBseufnTrkiprToC1hEN+V9bNDsJi2enuQf3IdAPE+Q=;
+	h=From:To:CC:Subject:Date;
+	b=N70PXs3TIPiz+Cb3ic2Ofohfyxe7TrSOO3rI3pMSoGN1HQ59QNMLn7ehsOCgI41Hc
+	 oLY3GcDN5soDs8EsZFjywg7du8tlqGmFHaZuFXw2xJG3h/NGBemRyORlMuA13SdjnH
+	 rZSWx+6YFndODx4zt3w1+7VGB3ZU/h1i/kdsswzM=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57JABfsK1207830
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 19 Aug 2025 05:11:41 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 19
+ Aug 2025 05:11:41 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 19 Aug 2025 05:11:41 -0500
+Received: from uda0510294.dhcp.ti.com (uda0510294.dhcp.ti.com [172.24.234.212])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57JABbiw2552213;
+	Tue, 19 Aug 2025 05:11:38 -0500
+From: Beleswar Padhi <b-padhi@ti.com>
+To: <linux@armlinux.org.uk>, <arnd@arndb.de>
+CC: <krzk@kernel.org>, <afd@ti.com>, <u-kumar1@ti.com>, <praneeth@ti.com>,
+        <b-padhi@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] arm: multi_v7_defconfig: Enable more OMAP related configs
+Date: Tue, 19 Aug 2025 15:41:37 +0530
+Message-ID: <20250819101137.2878336-1-b-padhi@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250811183711.8980-1-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20250811183711.8980-1-wsa+renesas@sang-engineering.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 19 Aug 2025 12:05:40 +0200
-X-Gm-Features: Ac12FXzYVYJtSbcKCZlu97zMX-yVdkps4sEMp4LqhVyztQAdSGb-Vpac3W8oRbM
-Message-ID: <CACRpkdbbHY=yXFtD7T=K=kn0MAdy7c2xqL6=ZJWy10EMuuCL6Q@mail.gmail.com>
-Subject: Re: [PATCH RESEND 0/2] ARM: dts: use recent scl/sda gpio bindings
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_030554_270081_25D0ECD9 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250819_031200_077595_5F84EF17 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,20 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 8:37=E2=80=AFPM Wolfram Sang
-<wsa+renesas@sang-engineering.com> wrote:
+This allows us to enable various peripherals in the TI OMAP family
+platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
+AM57XX-EVM using the multi_v7_defconfig, instead of only with the
+OMAP specific defconfigs.
 
-> Some ARM boards still use the deprecated 'gpios' property to describe a
-> GPIO based I2C bus. Let them use the proper '{scl|sda}-gpios' property.
->
-> Based on 6.17-rc1. No dependencies. These patches are the leftovers from
-> the series for the 6.16 cycle. Please apply.
+DRM_PANEL_OSD_OSD101T2587_53TS:
+Enables OSD LCD panel support used in AM57XX evaluation modules.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+SPI_TI_QSPI:
+Enables TI's QSPI master controller driver for accessing flash devices
+on OMAP5 platforms.
 
-I think you need to send a PR to linux-soc to get this merged but
-maybe the DT people want to queue it?
+Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+---
+v2: Changelog:
+1. Enabled only OMAP related configs as modules.
+Dropped userspace distribution related configs and other generic ones.
 
-Yours,
-Linus Walleij
+Link to v1:
+https://lore.kernel.org/all/20250806141808.4013462-1-b-padhi@ti.com/
+
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index f2822eeefb95..2b226b0ecaa2 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -453,6 +453,7 @@ CONFIG_SPI_GXP=m
+ CONFIG_SPI_GPIO=m
+ CONFIG_SPI_FSL_DSPI=m
+ CONFIG_SPI_OMAP24XX=y
++CONFIG_SPI_TI_QSPI=m
+ CONFIG_SPI_ORION=y
+ CONFIG_SPI_PL022=y
+ CONFIG_SPI_ROCKCHIP=m
+@@ -747,6 +748,7 @@ CONFIG_DRM_PANEL_SIMPLE=y
+ CONFIG_DRM_PANEL_EDP=y
+ CONFIG_DRM_PANEL_SAMSUNG_LD9040=m
+ CONFIG_DRM_PANEL_ORISETECH_OTM8009A=m
++CONFIG_DRM_PANEL_OSD_OSD101T2587_53TS=m
+ CONFIG_DRM_PANEL_RAYDIUM_RM68200=m
+ CONFIG_DRM_PANEL_SAMSUNG_S6E63J0X03=m
+ CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0=m
+-- 
+2.34.1
+
 
