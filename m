@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C9FCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A01CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SNM3HUR5vGaO/pHrUd0o/qgL9y44bCEiJzCSuGvkac=; b=FltQH1AsJUPmj2NrdL4tNnTFfK
-	iurBy6Y280Pgp3oNCP/GizKFR1WNG96iea0O6zk39lvLk2hQtz1VV6TW2A94xyPfwtGOdpIHl8s30
-	YOdUpNA/fVqDwwYyiZKStecBsbSW65j8Fe+eDe3rDBA4V6SUdsgOKgpyqK4YbAIYglQNGmP0D4/BP
-	3rk6kuvDfocJbm7v17ZmbwNezyrCdF0UAyhg9LenJnOPQhbB0vLiNUVi9ZLwDvvrpuLTJCWcKBmPu
-	+OtiWtsznDnkEvfbfOyUXA/QNLQYfQNVquUEeZ+WMxKqB13YWZncHKoWnbDObBw419+ORtgfDkVY1
-	sgoZJL6Q==;
+	bh=bILw9J7VfBQwUWckMa20W6iIRkE/PpYqpZiwu/FCpYc=; b=cnE/VKUr+H6/2e8fKXWyloeZc0
+	x5q79AFhTVLKdbBmdfI7ed7vt5BUBsPKOJHsFMWNzTCwtGClTJFDdDetDvm+ttQ1RpzB7r98I1Ros
+	7iMkyoV5YFAfBO/O9pCgMcpORGa2/EfUd+QnujCpfxAEAiBnUDMzhA2Bk+yLkBeBJYuCTI3XVkcEP
+	bUq/6Z5SsIdNg2Bxufpy78O24fDGLRL//2+NyiiqJZp0OHtKL6mK1ckcLchQQ6ZPS7LkOk+BkKV5E
+	7LamLbQGgBHDB4iSZevEoNbvaHgUJuWwszn3DRJILRHesqE1Cy3O6EnmT5e+ibVI6ZB0RoXPcU12p
+	n3NPgeSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGT1-00000009cpB-0MO6;
-	Tue, 19 Aug 2025 07:09:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uoGVb-00000009d3q-01N1;
+	Tue, 19 Aug 2025 07:11:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoG6E-00000009ZfQ-0jo6
+	id 1uoG6Q-00000009Zhi-2DLK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 06:45:38 +0000
+	Tue, 19 Aug 2025 06:45:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98768613AE;
-	Tue, 19 Aug 2025 06:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B6C8C4CEF4;
-	Tue, 19 Aug 2025 06:45:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D66865C5556;
+	Tue, 19 Aug 2025 06:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDE20C4CEF4;
+	Tue, 19 Aug 2025 06:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755585928;
-	bh=WWlJO0YGoyjRXT+i5OTeOeOVEpn70W9XxRHlWW2ZHIY=;
+	s=k20201202; t=1755585949;
+	bh=30dK5kUXOs6+u4uB68wroZS57yvJCcYw4PvxdbNBzvI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c4F2V3zKOqne2DzeyIuyej/liwX4h+h2fKy4nbcf/pj0udWMGzsEUPSRwCXmsMjcC
-	 fTKBTUkJ556VWuM+hjuFvjuMSpi9lyd+neXzhS7IZalpt7jqvunMBfJwVWxIagjzXS
-	 kXrM4gqsJYeKxKXK6RPu4MyZOxk0Ntt+MqGYeMEHlpY60hYGMimz1OO4pd5cnF00Si
-	 cXcVoiX6DZGyh23x0jiu/N6H0VNx1AZWwL+7bLzPWtThyQFJzYmj98v0j/Ou6iTGgC
-	 Ma2f8B6v3msuiPxN7eNMHA929t5NYliT4a3M3gTeHuUZNpkEcJClABszKZYq93DfOQ
-	 uHaHDUQ1khkGQ==
-Message-ID: <2ad47450-4a94-4d17-9ed3-0428bff64335@kernel.org>
-Date: Tue, 19 Aug 2025 08:45:21 +0200
+	b=VGwwQNQctWNpYmj4oDAMTdIUeNv5f32q2OZME6EIkAKcDcZh2dJhiUkJxXnAiqvcm
+	 r3VNpKgbr9ANiUJ94WfZOq8JJHtfCHVfvqvVCpTp30q+mM58+PXK35p1tFnzyZFph6
+	 WdDV705dLrineuKevtOWVZZRWDGfpNfPLPJlt2fH2i20d5oCaBtoalYrlicFgzet4s
+	 kXxvg/gkKy//PyqpuKsJDOtTjY83gGvPZeWTzegX3kT0Br0BuiOWRcaWzvYUavo9Ka
+	 yR62uqlfmSmvWeKCyH8SlyaBBPmaLfsof7xeNxZvJgcPtE1S1+vNBDZmRyAPvhGQ5t
+	 W34kSw37zzA7w==
+Message-ID: <b33cb5b7-7028-4942-8490-dbe693c4badb@kernel.org>
+Date: Tue, 19 Aug 2025 08:45:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH 1/3] devicetree: bindings: dsiplay: panel:
  panel-simple.yaml: Add Raspberry pi dsi panel compatible
-To: Harikrishna Shenoy <h-shenoy@ti.com>, neil.armstrong@linaro.org,
- jessica.zhang@oss.qualcomm.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
- vigneshr@ti.com, kristo@kernel.org, thierry.reding@gmail.com,
- sam@ravnborg.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: s-jain1@ti.com, devarsht@ti.com, u-kumar1@ti.com
+To: "Kumar, Udit" <u-kumar1@ti.com>, Harikrishna Shenoy <h-shenoy@ti.com>,
+ neil.armstrong@linaro.org, jessica.zhang@oss.qualcomm.com,
+ airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, thierry.reding@gmail.com, sam@ravnborg.org,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: s-jain1@ti.com, devarsht@ti.com
 References: <20250818154746.1373656-1-h-shenoy@ti.com>
  <20250818154746.1373656-2-h-shenoy@ti.com>
+ <06a9fa20-e45a-458c-971a-a6f0f1d08004@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,9 +105,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250818154746.1373656-2-h-shenoy@ti.com>
+In-Reply-To: <06a9fa20-e45a-458c-971a-a6f0f1d08004@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250818_234550_656359_9FA138D8 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,22 +126,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2025 17:47, Harikrishna Shenoy wrote:
-> Add RPi DSI panel[0] as a valid compatible for simple-panel.
+On 19/08/2025 06:54, Kumar, Udit wrote:
+>> diff --git a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+>> index 1ac1f0219079..65f486f2bc9d 100644
+>> --- a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+>> +++ b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+>> @@ -268,6 +268,8 @@ properties:
+>>         - rocktech,rk070er9427
+>>           # Rocktech Display Ltd. RK043FN48H 4.3" 480x272 LCD-TFT panel
+>>         - rocktech,rk043fn48h
+>> +        # Raspberry, 7" dsi panel
+>> +      - rpi,7inch-dsi
 > 
-> [0]: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
+> Hello Hari,
 > 
-> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
-> ---
+> Driver changes should come first to match new compatible before device 
+> tree changes.
 
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-Plus typos...
+Read submitting patches before giving advices.
 
 Best regards,
 Krzysztof
