@@ -4,87 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 322D3CA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA0DCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 08:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N5Aq+ST5cYyv8tlu5A5YNOSa76L+WIXOA4kn5tBLtHw=; b=uw1j2C5wuXVVsFyGTX/kVnbN1A
-	xkpeg00NP03+/utkiUufE6ta2CljtbWSa1d08UqzPIS0FeTLs8DFRE5qPzRmMGgHiO5rbzjmawy3F
-	w4nKAAzE9U740Q+ehPWwKJVSAF14UwyWjxi9PoQv/dDRTX7jUgyQalTBymD1CiGR7YuI7Y2Fh9EwL
-	53rYnO3lVmu0Rtr/OYOIFiEGuYRaHgqJxry6Vk6hAcC9HpCAKwrxVDRe+I8lEO04R3J194jhcFx1e
-	GZemj7dcthnn5jLvoKwNlP9kVs/vYEdzKirNHCcKxsxU2mghvNETtXdVgT/P+lmBTO0C6LH1+NwPT
-	cX+7wqww==;
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=; b=ZoFYvFkl+BiPU6gHtHh4YCvZAV
+	u0MQZ4AyCjXJVUjRfFN66s0j7EyD4a7DeI3UPMdkQP6Qs3ugMJ9RNLKi2eNEATUVImSYew5RjmQqu
+	oOCWRBf3Vonk7HqJB5KjYWUFE9DyP32zEN6GbfN7DjjGvyyKl74RxgK78x8dPSyl8BmbEIt/GAdwA
+	wq9DigUuPv/e4oCd5DSStp9qhMKHE3oknvkuBrq55f0OkirYMCOUwXTUznLkABKWXh194ZDhE1bfD
+	PwGzRyObQEl7/c5+XPbLjJw8N5fHL48KiUhaP6R9dozmK4w5sy0RIk8qWWCwKtM/nOTJpaa/GtPJo
+	lLrfszsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHqi-00000009pIO-2k7Q;
-	Tue, 19 Aug 2025 08:37:44 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1uoHty-00000009phf-0jFn;
+	Tue, 19 Aug 2025 08:41:06 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoHBp-00000009jrS-0F7X;
-	Tue, 19 Aug 2025 07:55:30 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-32326e06496so5562345a91.2;
-        Tue, 19 Aug 2025 00:55:28 -0700 (PDT)
+	id 1uoHNi-00000009lPP-3t16
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 08:07:48 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45a1b065d59so25234705e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 01:07:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755590128; x=1756194928; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=N5Aq+ST5cYyv8tlu5A5YNOSa76L+WIXOA4kn5tBLtHw=;
-        b=HD9RfhX+MsPOz1i3fr8Ac8WfXNYzU9t2g7qYJAiuXWlMkO+1KURAim9so3fEPOgz6y
-         zCpjEjXae/PEcKrYfstXRCWPJ1wroUHfGgelvNLA5IAj3wVK4o3+Ey8khD2k8diX6FAJ
-         OMYMkOxxOoSLWAy8sLjRU40KkUqGbeFm1exOzX6BAqqizgAdIPcf39ZMvkbS7qGya9UK
-         jf1SPlnPaN0f3HD2wzwCfNZ/CzctQuE5eQY/ZAk2vqsAGjRox8LN//xltvIoy6Z/HSur
-         FoGhsoh8NG1HHp3Ec6/4p15l5+Rg2yxfygzj9qDbUgH4+SWpl/tUiVWTu/0IbvU/JzO+
-         QQHQ==
+        d=gmail.com; s=20230601; t=1755590865; x=1756195665; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=;
+        b=YQ/MRTMfJX0puPRjoRTVp/S1dY7MZ0uCozdZMeCCkFK+9PiVSNRvTpilTF+PutXc6r
+         ATe45UzohsqyanmKSyI56yJMyRJ5bbcbl4t8KqoUPgZEkj4tQNdN2a/4MFEZlRoyogJg
+         eV53LXRlEgPbS7o/6SjUoOESA1XUsaVu1vCp2O8VarPFDNsz6fzz+Qnxem9T+40IU4XB
+         sWUBFXlFGp3dpCni8ANWv58TEZ3Ox+lq9a+uPtuAWkaAqhkx5WJcLQWOX+ZGCYhshVL5
+         AXoPXmRd136OjdZKr2juIIkYPgl1wKujU+cyyXwDR8OQRi2RgcR2TUTyVaD+JGF/jrad
+         GUzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755590128; x=1756194928;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=N5Aq+ST5cYyv8tlu5A5YNOSa76L+WIXOA4kn5tBLtHw=;
-        b=vSCrhAzwxmwbISawUeqDkhLauqOqLh9SVGYoeRn2G1k30+eRL7rgq30uXWOeJNlA7D
-         N21aLcXRw65wzZgKM1UhmnG68WrxTM95ARxcc+dqFiEiEYfmKklMl58fSK2bj9CgdunL
-         b1/y3p+TBc+UdOA4hYsPGjuyE4JFGDEHj5b95oqmhRXgZ87FH7mHDhLJDAhsITH/1iZR
-         qTph1nSs8vRb1qVJpff/6C+khqi+2tLflffN2YILJtt7tXkQuZ+OiGwEus6l+y7UsKaE
-         Iu9aZY4f0sUj72FgtB9IGDv3mptarINCbd69mQumJKI394DxouNwZpYhDOlPInbWgs2i
-         SNTA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2CquuX3ylW8yfMrQsUHz950sflesykf9ntO1Xj/uIJUxLqMtiS/auIqbQ7LWKcWZsGTRbCqun3BpwQG00fv7w@lists.infradead.org, AJvYcCWYZxQ2JRYNOLIycRDGDgr/HNha7jRTrKbqP1jQ8s0hTDzJri42kfrW4blQE99yKADldEI9mw6f0HD10zYTuq4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8xN1fuq+7y7xYqMG7Ajsb+OKakSixQfoLYVM1dR1Z85sg80xP
-	Gz8txVs/puZOq88THH3/2huTRk4H8r/AlsRgu6ztr3uDWv2DXjZK9zoD
-X-Gm-Gg: ASbGncuYfJZlscSY/sFjjq3ZC9jX1rKV2l7QhNd/kVSR38HWCths+5RXVonQ6LI/ybv
-	t3l8qDSbJKm+1AeMZPXwWSb0XxMWvVTc3mbpM80pemOEp4AuaytaM6WCQuGKRoKfJeuVwAk0Gxc
-	iv+7iP5SKl3FNhFqDhCzJWQrnoaq0y81hrduRGyVg08+u0jUD27JL0lmRG+pmhCbs1xZ4gBSecD
-	sX2dLQgm9ntyu3rFiUoLZCIyQBUQcLinWxNp4Sw1/gJi/687oK6eM7yc7Uk7ABnSHVNBcaoV704
-	nh/rx/p5PSWqImC5+ycBeLY3OE0orA8BO2YHbV6bYFtyrdBDnWjHjoOA1qBeFm3oqlaZqQk1U/u
-	DrMSbSJEMVOC7VAwxeQ==
-X-Google-Smtp-Source: AGHT+IF1CAYew4CGA4v+u7+nVAa0yl7ZMPkqTWB83cnzs2wUTgdyhQO16uHY7uws+QlbrVRoF6b+qg==
-X-Received: by 2002:a17:90b:39cd:b0:31e:d929:5ca5 with SMTP id 98e67ed59e1d1-32476a132fbmr2297388a91.1.1755590128116;
-        Tue, 19 Aug 2025 00:55:28 -0700 (PDT)
-Received: from anyang.. ([106.250.177.234])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-32330f8309asm13542871a91.4.2025.08.19.00.55.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 00:55:27 -0700 (PDT)
-From: Dongjin Kim <tobetter@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: rockchip: Change ethernet TXD timing delay value
-Date: Tue, 19 Aug 2025 16:55:21 +0900
-Message-Id: <20250819075522.2238643-1-tobetter@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1755590865; x=1756195665;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=A0A+ysSRX0BDGHubAfWN6+x/GTCkfulb6z+OLk3j05E=;
+        b=vtgq43jTnn22RnKNzrx1kZzSR4fpw/U82/TENwkV8RYHSvAGafbmE8lNvoPDqQFEQY
+         SVK7moZgE8qyRYtmniy5BMmTEoKHiZVC6LN0O9IbUdQ0qmjyki/1dbiG86IwEn5bhxZH
+         Q0CIXV6PAluwDa9iPlFNpWzEGrlwRY8FtqJj2gahm0xgsJDrbw+24fJRsfE6G0FjT3g9
+         IuW7VhniXlb5LUnBc931Dbqg1ydK0B52/FPx+pG3tXS5YWlQTMLil9jCX+9USnWfi5bx
+         Id8/gTbdBvapVz4+sFhXM58hPf9IuKbedJ2SNOE99RPqkZLmVYwV5NrurKN9tDbUPMUA
+         142Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWEFGpToHVFRW2Xvuq+UPCa+EfuMHMkk0yf+OJjXY0+v6nlopfojJPdg6fTc0csd30u882eGrb0+Y4pddwCpv9Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YywKh2NoCdqf6SY5UBnJzTvG6RGqN8WNef4OD59HfboMFJYXUyF
+	vVXWtD43JUuFlJHd6JSrEmr5qjo0m+TnDpXrHMzF6nik+L0eW8Qg2cyF
+X-Gm-Gg: ASbGnctx/Qj+vV3i+nHHWxXRKD4fgRk4AY3FMw1mvy+pYrQlf6+P5k9tSrhNV67a67c
+	eDcQOZL/H9zdkrEVRXcPMGfq3mZPliFfinvWYaIgHoLJjykj7N4NB69he1WMBQ264qmkkSRaltF
+	FXYQIvVzewknz1Kj8EenHjtQjFTdcyCgE5KrPOusqpikdQqh/H96ixTHEhoCz0nEGNK/D5YgdmZ
+	c+BYqZWEtb5LyYsVn+yjE0ukvj3in9Nna54Q301Uevjf/8c/JrlrXv9K2FySI2buciYxbNE50EZ
+	9TLmtm2L8KT4vywFW++MRFzcITcd7YAJ7ooGM5c/xugg5OooXEMMrU9YbURMQMTc+h9Trg6jgJq
+	FONf78LtHuhGH+Ckljy5w+6ggJPDeo8EbB5KOoMSPXOo6UsFKQBDFUycTS98myE5VEixcCHzG93
+	nmJ+qSFITC
+X-Google-Smtp-Source: AGHT+IF0qT3S6QaRDTOtnywHkyQYjn24FhQXcdmgCV+CyKQOdIZxlhlDgAdk84rMMEvWXj0xBF+10Q==
+X-Received: by 2002:a05:600c:4587:b0:459:d645:bff7 with SMTP id 5b1f17b1804b1-45b43dc654cmr13172695e9.12.1755590864562;
+        Tue, 19 Aug 2025 01:07:44 -0700 (PDT)
+Received: from [192.168.20.170] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b42a771ecsm30719785e9.9.2025.08.19.01.07.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Aug 2025 01:07:43 -0700 (PDT)
+Message-ID: <0e0a0da5-8953-4238-af89-687fb5a34c9f@gmail.com>
+Date: Tue, 19 Aug 2025 10:07:41 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Gabor Juhos <j4g8y7@gmail.com>
+Subject: Re: [PATCH v2 2/3] i2c: pxa: prevent calling of the generic recovery
+ init code
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Wolfram Sang <wsa@kernel.org>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Hanna Hawa <hhhawa@amazon.com>, Robert Marko <robert.marko@sartura.hr>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-2-ca42ea818dc9@gmail.com>
+ <aJpR96Kkj12BwW-M@smile.fi.intel.com>
+ <8cb62eb9-9137-44b4-86f6-82f69813e83f@gmail.com>
+ <aJyOu_GUlDPuJXO5@smile.fi.intel.com>
+ <0bfcb570-dab3-4038-a1aa-8bc7fe2feee8@gmail.com>
+ <aJyvHnLS-A3F2gN7@shell.armlinux.org.uk>
+ <1261d3ed-e057-45b1-913e-f8bf1cd5d7bc@gmail.com>
+ <aKH6_1MRqD24QTq5@shell.armlinux.org.uk>
+Content-Language: hu
+In-Reply-To: <aKH6_1MRqD24QTq5@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_005529_110728_F1FB9B67 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250819_010746_986055_AC5D6BFB 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +116,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Very poor network performance is observed on the ODROID-M1 Board
-(REV 1.0 20220613) when running iperf3 (under 200Mbits/sec), and
-this problem can be resolved after changing the value of TXD
-timing to 0x35 from 0x4f.
+2025. 08. 17. 17:53 keltezéssel, Russell King (Oracle) írta:
+> On Sun, Aug 17, 2025 at 04:59:22PM +0200, Gabor Juhos wrote:
+>> 2025. 08. 13. 17:28 keltezéssel, Russell King (Oracle) írta:
+>>> On Wed, Aug 13, 2025 at 05:17:28PM +0200, Gabor Juhos wrote:
+>>>> 2025. 08. 13. 15:10 keltezéssel, Andy Shevchenko írta:
+>>>>> On Wed, Aug 13, 2025 at 12:36:45PM +0200, Gabor Juhos wrote:
+>>>>>> 2025. 08. 11. 22:26 keltezéssel, Andy Shevchenko írta:
+>>>>>>> On Mon, Aug 11, 2025 at 09:49:56PM +0200, Gabor Juhos wrote:
+>>>>>
+>>>>> ...
+>>>>>
+>>>>>>> TBH this sounds to me like trying to hack the solution and as you pointed out
+>>>>>>> the problem is in pinctrl state changes. I think it may affect not only I2C case.
+>>>>>>
+>>>>>> It is not an error in the pinctrl code. I have checked and even fixed a few bugs
+>>>>>> in that.
+>>>>>>
+>>>>>>> And I didn't get how recovery code affects the initialisation (enumeration).
+>>>>>>
+>>>>>> Without the fix, it is not possible to initiate a transaction on the bus, which
+>>>>>> in turn prevents enumeration.
+>>>>>
+>>>>> But why? As you said below the first pin control state is changed during the
+>>>>> probe, which is fine, and the culprit one happens on the recovery.
+>>>>
+>>>> Erm, no. Both happens during probe, before the I2C core tries to enumerate the
+>>>> devices on the bus.
+>>>>
+>>>>> Why is recovery involved in probe? This is quite confusing...
+>>>> Let me try to explain it differently. Here is the simplified call chain:
+>>>>
+>>>>   i2c_pxa_probe()
+>>>>      ...
+>>>>      i2c_pxa_init_recovery()
+>>>>         pinctrl_select_state()                  <- selects GPIO state
+>>>>         pinctrl_select_state()                  <- selects default (I2C) state
+>>>>      ...
+>>>>      i2c_add_numbered_adapter()
+>>>>          i2c_register_adapter()
+>>>>              ...
+>>>>              i2c_init_recovery()
+>>>>                  i2c_gpio_init_recovery()
+>>>>                      i2c_gpio_init_generic_recovery()
+>>>>                          pinctrl_select_state() <- selects GPIO state***
+>>>>                          ...
+>>>>                          pinctrl_select_state() <- selects default (I2C) state
+>>>>              ...
+>>>>              bus_for_each_drv()
+>>>>                  __process_new_adapter()
+>>>>                      i2c_do_add_adapter()
+>>>>                          i2c_detect()           <- enumerates the devices
+>>>>
+>>>> The culprit is the first pinctrl_select_state() call in
+>>>> i2c_gpio_init_generic_recovery() marked with '***'.
+>>>>
+>>>> That call causes the controller to go stuck, which makes it impossible to
+>>>> transfer anything on the bus.
+>>>
+>>> Probably because when GPIO state is selected, the I2C bus pins end up
+>>> being set low, which the I2C controller sees, so it thinks there's
+>>> another device communicating on the bus.
+>>
+>> Yes, it seems so.
+>>
+>> When GPIO state is selected, the bits in the Bus Monitor register which are
+>> continuously reflecting the value of the SCL and SDA pins contains zeros.
+>>
+>> Additionally, the Status register indicates an 'Early Bus Busy' condition, which
+>> means that 'The SCL or SDA line is low, without a Start condition'.
+>>
+>>
+>>> I could be wrong, as I don't have the hardware to hand to research
+>>> the issue again.
+>>>
+>>> I have a vague memory that the GPIO state must _always_ reflect the
+>>> actual pin state before switching to it to avoid glitches and avoid
+>>> inadvertently changing the I2C controller state.
+>>
+>> Unfortunately, it only helps to avoid glitches on the external lines. At least,
+>> in the current case the controller hungs no matter which value combination is
+>> being set on the GPIO pins before switching to GPIO state.
+> 
+> Note that my original i2c-pxa recovery implementation was proven
+> functional on the uDPU, both by myself and Telus.
+> 
 
-Signed-off-by: Dongjin Kim <tobetter@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+No doubt, and that is why we want to restore the original behaviour.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-index 0f844806ec542..e1a550a04498e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
-@@ -210,7 +210,7 @@ &gmac0_rgmii_clk
- 		     &gmac0_rgmii_bus>;
- 	status = "okay";
- 
--	tx_delay = <0x4f>;
-+	tx_delay = <0x35>;
- 	rx_delay = <0x2d>;
- };
- 
--- 
-2.34.1
+I just wanted to indicate, that the approach used during recovery, does not help
+to avoid the current hung.
+
+In other words, the i2c_gpio_init_generic_recovery() simply does this:
+
+        pinctrl_select_state(bri->pinctrl, bri->pins_gpio);
+
+But even if we replace that with the following code (copied from
+i2c_pxa_prepare_recovery()) ...
+
+        u32 ibmr = readl(_IBMR(i2c));
+
+        /*
+         * Program the GPIOs to reflect the current I2C bus state while
+         * we transition to recovery; this avoids glitching the bus.
+         */
+        gpiod_set_value(i2c->recovery.scl_gpiod, ibmr & IBMR_SCLS);
+        gpiod_set_value(i2c->recovery.sda_gpiod, ibmr & IBMR_SDAS);
+
+        WARN_ON(pinctrl_select_state(i2c->pinctrl, i2c->pinctrl_recovery));
+
+... the controller still hangs once the pinctrl state is changed.
+
 
 
