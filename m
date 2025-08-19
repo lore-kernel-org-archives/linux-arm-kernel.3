@@ -4,138 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24ACCA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65065CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 07:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KhcnubSus7MkpUMzXlz1FJ9i66J4sJ3ytWF3Qtk0VoU=; b=FSEQu0Jy7m0JMs1UtGQ+KH62mf
-	dtoWBEp1RlN9VLXMeh1g+TmXlixUBGySpjeaES1necM1HCfJx0qcz02myod1pL7Rx0qIpo6QkqW4R
-	15RMO2a1j83JmpI5dbl8gsZxqSNkRHI4j+7rMo1h4P8Fj5wXv3Voh2RVOlgHtlvWSkswKWHmgrbok
-	JdJJ9AhuD0FI8Zk2jdlxum57R6xfncfnpUaXTmFo9D4mxpABg+204Gi+C46CCd6/e2ongDDamxOle
-	bF9d2mfS1+GljADgQ4HTjoyIZoIec3BEbAQNb6K8JeAnnoHok12rOJsY9CzIcNzPfDVRnKGJ496dC
-	SW4LL7xQ==;
+	bh=f1QEM++Y9PDjpkgY4pofg0fFVzuMEU/xHQJuoKwCPBg=; b=n1d3wx4s60JBKIhF/N4+8HzIKI
+	Q5XC7WOG8Cx1DbdcxL03Cj11TpQuLNthRdcYgj66w5uXo+LLoWFy2pN4t6PXGi6VcLn+K8fMJry3d
+	Z2FcgnYxuh1hMFhpEVbYyUi8sLDkHv6P63vqKeTHuCulTGMwT5scnYzo+2fNOUZj2RfIIwjT2xxkA
+	ZlXnOgrO/e8e1h0QRM0/QoNGra2ZJX8Qif7e3Rcp5V8sEGKBRHsy1oJrLNi2dvm7d20eszn/negdM
+	ZH+6l3p7sIs3fqK36GeGZrsJqFPakM6v6xIBwsJWN6o6QhbsB330ooUYuvpo+ObH6E5uT1FSmVW0k
+	8/D0+Jvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGft-00000009ewL-09aw;
-	Tue, 19 Aug 2025 07:22:29 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uoGiU-00000009fQp-3m1w;
+	Tue, 19 Aug 2025 07:25:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoGBx-00000009aFR-4B06
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 06:51:35 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57INtCpM002291
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:51:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KhcnubSus7MkpUMzXlz1FJ9i66J4sJ3ytWF3Qtk0VoU=; b=RA1xZPkvzllF0MpV
-	naoDi0yR2CxSqphg6p90qxi8lyy6MADcfyIb+nkKPjEoCoBV9uc+tBLfOsHmszpO
-	xyJO08L2fhdIpPJKpszYhLkQzhlB3U8XKYaiWda/pkkAkRVK3HmBcdHV0DAx9+Dn
-	LX7AjA3/OdnWRDTgQV94el6hFDRookIlXq1U+6SF1dzX2ia/3+Dp3slRNc/522k9
-	oI1RPosK4xauiQymYlcQyykReT4tCir++VLdkabDx3DL02Rhn640eXmVfoqZLr2N
-	VaG/+Tx1EDRKPPhWBqP31mETZ1MukY3FNGhCQAJj0+KAMbUMmdoOC5MBnAwSyNYG
-	u2tiRw==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48jgxtfq2f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:51:33 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b4716fc56a9so8335532a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 23:51:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755586293; x=1756191093;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KhcnubSus7MkpUMzXlz1FJ9i66J4sJ3ytWF3Qtk0VoU=;
-        b=n/EPOT5NSUDiNZAp6r6ekDqi8nAyZf3LFpodGRvTOZV36+02oJGllmcBjAKa1Rokya
-         DwpXzpg8DwXIio6FHG0sZgsovNnyp/8mOQKUFwp5F1VOsUbA01HwRo5ItOzN4Ya06kzD
-         5PiIn5crDCBtsWpEWWqwDwnlWf1J4x5uj42B3/gJvbOR7/XJC3XoJnZRLid9eIzVnu9c
-         CpPc3dmdZpSFqSlgJYIbyigfYt6yZnT8Nkyi6kZmTb568zU3H5xSX+LOj86ellAXdUUW
-         BMJ/097RxZ2kba132rClWe3GLM+7UECEa2V6g1Oa9Or1vE6BwX+rQYyIwsRow/Hp0DoW
-         wrrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWaypVCnWpSrDBGG/jNkKDOMAto9zU4+NnENjRo9Gix0kkkNorFIIJp5pZfI2hCK6ibOIzk+ZI1KxJBXXYf5Fyq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb/slQms250GNlOYIIgHCcRnyVYatHPwyoiVAjKJTOUyJovS1W
-	5L4EghzFC9RscNUaJ/HL/ookXWzfLi0ZCUSU0YyA9cgaN29E5mdMt/g6sfRJS+F2/6aOXDVUerA
-	E2mCRaBoq/ypkdQA13VbEz+rmNLkVmppkARYrOCHhEHWgtbsCJNr5PnMSx+v0ZSMvE1bvGZ9+bq
-	HBlA==
-X-Gm-Gg: ASbGncuYtFqRzqtUVODUIBel5IKGAqWUpT/BkG9cDa2ClkfIMfBiXLVIO0sZhDN9WWv
-	MxrzB9vYoPGXL9IxiE9IpGGywWF3yvosFOQSiyug7eAUWamLulM3bnN0RpQZkR6Cumrr0SXCDb1
-	CZ29wrf+arypP3EXVbvBtFBwYbet/fpd4VRK/2onfcn7sZ6KfAc5m626sJzDOVwOzRdK/QKLiPu
-	DeMkhKB37NkOxCxswDa12+YpweVlF+KGqUYYgq/yB4odRGm11SKDkuIYDP/K5v5QhugX5yGHRYH
-	39Fq8zXU9Dvx8sgthk3yMJjbXeus8ikZWd95637mfZS2G7p2RDpt0u7Glx8ke/BQOKuY9IvhA74
-	vs6NW9E3kDwO2AQOnL38UTCKVKxs8Yatl
-X-Received: by 2002:a17:902:da8c:b0:240:aba:fe3b with SMTP id d9443c01a7336-245e02d7726mr20776695ad.16.1755586292689;
-        Mon, 18 Aug 2025 23:51:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHrRQRvLzaR0no9uz4wl3VWShxiXhdMnGmDhx8W5wXZivwjwGSDV2ohd6ogQppD0UOvYx2W2A==
-X-Received: by 2002:a17:902:da8c:b0:240:aba:fe3b with SMTP id d9443c01a7336-245e02d7726mr20776395ad.16.1755586292249;
-        Mon, 18 Aug 2025 23:51:32 -0700 (PDT)
-Received: from [10.133.33.88] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446caa3e5bsm99455325ad.33.2025.08.18.23.51.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Aug 2025 23:51:31 -0700 (PDT)
-Message-ID: <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
-Date: Tue, 19 Aug 2025 14:51:22 +0800
+	id 1uoGD5-00000009aMn-3IvM;
+	Tue, 19 Aug 2025 06:52:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35633613AE;
+	Tue, 19 Aug 2025 06:52:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC3FC4CEF1;
+	Tue, 19 Aug 2025 06:52:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755586362;
+	bh=qo6fv3qjiH+tLfWV2opDEl1dq0elK7W7rPG/KXRhcJQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=q3Oo4us9UkswI6jW55B//FMxHKB89RJi9IKt0c8jN34d0XB1i5Y9p7SYieqIs4Trf
+	 xUjFI3Zy84CC00Eu4ye7Li7Y5lXrFeS81f6dUBldtiHqZejYktNBXDprVsPPp0KHA9
+	 vhzJPegQVH8sxCUwqWHwMEA8RJXYm73fqvTexiBT7ipVknQVe6N5JhFlwGL42ILUfT
+	 odz/yPzx1cIcbHE106pP8e/WJpJr5vlWzt3XMTjmMRoXm8H6JLeidfARz3jLgJxk4L
+	 S7DcIUwa1zj7jQQQ8Lyrcc562tkAZhnnFRhMXhhw7YMsUGmQeeALnX+vgM0XRWAQRp
+	 OuU/J0zbEMelQ==
+Message-ID: <0b866807-010f-4f17-b0bd-cc44a0b530f5@kernel.org>
+Date: Tue, 19 Aug 2025 08:52:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
-To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, stable+noautosel@kernel.org,
-        Yijie Yang <quic_yijiyang@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
- <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
+Subject: Re: [PATCH 1/4] arch: dts: mediatek: mt8390: add Grinn GenioSBC-700
+To: Mateusz Koza <mateusz.koza@grinn-global.com>,
+ angelogioacchino.delregno@collabora.com, robh@kernel.org
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ marcin.czarnecki@grinn-global.com, b.bilas@grinn-global.com
+References: <20250815160837.371592-1-mateusz.koza@grinn-global.com>
+ <20250815160837.371592-2-mateusz.koza@grinn-global.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Yijie Yang <yijie.yang@oss.qualcomm.com>
-In-Reply-To: <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250815160837.371592-2-mateusz.koza@grinn-global.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: FywTKzhlbjvlU_7rkKfFC-70zfIWueq3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE2MDAyMCBTYWx0ZWRfX0G0lZFq5861m
- j+z4sSbq0guCuZZnUkGSHrIKmrL2M4zjix7/0AmXXuGNAe80T82PIh3hCkAj+PuxGAzPaTrWhWQ
- fq0IHLMfzRaV9igcG6yot8PMMvpdqgLkxwmfDWl53qk6eydtJSDQmGB5G6jydd8S1rcAzR9kfZ0
- Ud8SDok/cr3Z8s2heLt/V/uzH1+E6UY0K1iVzlfabupTOUVnXbKgSixuJvs/94/mShrChd0nSzt
- Sc1ORcRhyhdxTo9dxh0j4m7B66f58HCevidYpmsGruEciPwaZxxcRV2NW4Po4xfXM5EpviVsQs1
- 1EJHyGDpYBHxNFZrNQWf1W2znAGEHzIQO+5rAU+ly5yYVu3FwolVXSiQ4u7C611b1qAOf53GbWq
- QBmRBdde
-X-Proofpoint-GUID: FywTKzhlbjvlU_7rkKfFC-70zfIWueq3
-X-Authority-Analysis: v=2.4 cv=V7B90fni c=1 sm=1 tr=0 ts=68a41ef5 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8
- a=XWQ9mN7VkJ-Tecl8lUkA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 malwarescore=0 adultscore=0 clxscore=1015
- suspectscore=0 impostorscore=0 bulkscore=0 spamscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508160020
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_235134_073618_8C498056 
-X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,33 +116,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025-08-19 14:44, Krzysztof Kozlowski wrote:
-> On 19/08/2025 08:35, YijieYang wrote:
->> From: Yijie Yang <quic_yijiyang@quicinc.com>
->>
->> Add an ethernet controller node for QCS615 SoC to enable ethernet
->> functionality.
->>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
->> ---
+On 15/08/2025 18:08, Mateusz Koza wrote:
+> Add support for Grinn GenioSBC-700. The Grinn GenioSBC-700 is a
+> single-board computer based on the MediaTek Genio 700 SoC. Its device
+> tree is split into seperate SoM (.dtsi) and SBC (.dtsi) files, which are
+> combined in the SoC-specific .dts file.
 > 
+> This separation enables:
+> - Reuse of the SoM-level .dtsi for future evaluation boards.
+> - Easy creation of DTS files for pin-to-pin compatible SoCs (e.g., Genio 510)
 > 
-> Why do you mix up DTS and net-next patches? This only makes difficult to
-> apply it, for no benefits.
-
-The DTS changes and driver code modifications work together to achieve a 
-single purpose, so I included them in one patch series. Should I 
-consider splitting them into two separate series?
-
+> More details about the hardware:
+> - https://grinn-global.com/products/grinn-geniosom-700
+> - https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
 > 
-> Best regards,
-> Krzysztof
+> Signed-off-by: Mateusz Koza <mateusz.koza@grinn-global.com>
 
--- 
-Best Regards,
-Yijie
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
+It is never "arch".
+
+> ---
+>  arch/arm64/boot/dts/mediatek/Makefile         |   1 +
+>  .../mediatek/mt8390-grinn-genio-700-sbc.dts   |  19 +
+>  .../dts/mediatek/mt8390-grinn-genio-sbc.dtsi  | 673 ++++++++++++++++++
+>  .../dts/mediatek/mt8390-grinn-genio-som.dtsi  | 208 ++++++
+>  4 files changed, 901 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-som.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> index 1dcea8b9aed9..7383d75d8041 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -104,6 +104,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk-hdmi.dtbo
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+> new file mode 100644
+> index 000000000000..44bba1ff74ae
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-700-sbc.dts
+> @@ -0,0 +1,19 @@
+> +/*
+
+Missing SPDX.
+
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
+
+> + * Copyright (C) 2025 Grinn sp. z o.o.
+> + * Author: Mateusz Koza <mateusz.koza@grinn-global.com>
+> + */
+> +/dts-v1/;
+> +
+> +#include "mt8188.dtsi"
+> +#include "mt8390-grinn-genio-som.dtsi"
+> +#include "mt8390-grinn-genio-sbc.dtsi"
+> +
+> +/ {
+> +	model = "Grinn GenioSBC-700";
+> +	compatible = "grinn,genio-700-sbc", "mediatek,mt8390",
+> +		"mediatek,mt8188";
+
+1. Misaligned.
+
+2. Missing bindings.
+
+
+> +	memory@40000000 {
+> +		device_type = "memory";
+> +		reg = <0 0x40000000 1 0x00000000>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+> new file mode 100644
+> index 000000000000..f6d19ee158d5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8390-grinn-genio-sbc.dtsi
+> @@ -0,0 +1,673 @@
+> +/*
+
+We cannot take code on such license.
+
+
+Best regards,
+Krzysztof
 
