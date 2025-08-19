@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20176CA0EE6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA4FCA0EF5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 18:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,100 +12,98 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yX8jqUNVoaT/pP/QBlusgZO8WrcJpEh11O3LQ2VZcys=; b=mYRr/6gGywuqUp7uzkXsJBM46W
-	7GwKSLV6rFJPvkk8ll1ONA6ssNnkCdrsxAXtF3wUHZRPm/3YRTArIj1vgXCuq4uoXNR52O5+fpc3v
-	7Ku1aa5w5hCOuxn2hhePE3rjjqWezqVj9mBV96NpXg6ezpXsO/mAhwn+prjvX/eTFCBNCY+RSf9Yu
-	qNiVeAS8/Oc1PEOubJ3ySZCWSyR+hZoM6LNsUAUarghWKemzf7j0u5Kz//W2HCPJpwC+eKZa1wxpw
-	lw69fz5trq4JX+B2GLteyaKhFaCRS2A53jgTwyPdxk1vfIvawnU/HG9bpsBi8WVkwNp1G5VmfaWQF
-	wBI0MJSg==;
+	bh=A2jIqckmzmL31HAyK5saMTVF8f6NQtPgJyovhg4/VOc=; b=bBD28YNhdnBsP252DbOpcZoQw6
+	0ZiXATyFuJHSGNVTytUn0fpiHEV2BGwLGtFLfT0OXYFfMgN0o4ZKAGlmX38XaDTCnyX8kaZ301f5X
+	2tr/r0aohFWqBZDmiASYvWhcxdWFWgrPXxsag2V4BiPPT+7YtBIZKpy3IP/plHMGkoelw0yzedWDV
+	IddnyPeMRv+vsCCk67unlnTm1xWW+ejxpzAWfpNVowyI5FzHA3Dt+3mWDQOkckjnO7TjNKLRE8nA0
+	gIgApno2a6ccQlTeq3F2mV6Q+9bJRsmAZ/D3WVUQp0hs9W8qoC0acAYrGZ9povzvWhY/+HIGq1U7X
+	sjRgJfyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoQpx-0000000BCb7-3UQX;
-	Tue, 19 Aug 2025 18:13:33 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uoQpz-0000000BCf0-3Xpj;
+	Tue, 19 Aug 2025 18:13:35 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMDn-0000000AZN3-1BTA
+	id 1uoME3-0000000AZOr-0WMk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 13:17:52 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-afcb78fd0c2so74174966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:17:51 -0700 (PDT)
+	Tue, 19 Aug 2025 13:18:08 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-afcb731ca55so71927466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 06:18:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755609470; x=1756214270; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755609486; x=1756214286; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yX8jqUNVoaT/pP/QBlusgZO8WrcJpEh11O3LQ2VZcys=;
-        b=edlhZPQxBcEVISzYcJDIWmmE+tedZc6s36ATUHHp6+k3t3VnssRE1swzkqi2wcpV8J
-         cxOgRp0RIjhZHux4p0BDYJ2pe/XBAdLWdYeF7HE5xiL0BanNmYU/90UmDm6Nuz5e4RE+
-         PwpGw73PKEuDOVANiOTM7TwjhG/1Os6XlnkQ/Ho8ac3BWE9AmbpzuXr9rH9Lhy0awFzy
-         lXjGolg1jsBHTOuBd89d/dVVHALY5I2jB0bUOr5slsRJ0S9JUF0OfpE+1wF1LIO7k4HZ
-         BMR6it9Mh4AKHyj5vc61QZh1uMj07TONCfnIPIUMfOh1skPvVcPo9jkItCi5D3diKVQF
-         z7Dw==
+        bh=A2jIqckmzmL31HAyK5saMTVF8f6NQtPgJyovhg4/VOc=;
+        b=pPkpsMrDzseQros6v1w9yTSoHtqiN4xQ7QgaHAQFv8sO3HN4ass9NUWxD8pKMztPkA
+         O2q+CyRunm7RCJr6hFiIo6PTRuB1l2wsS9OycGvy2d++kBJk7XjPlmSoUAOBtXcg2D7j
+         bcEjYexSAe4wCOuYkLkhlwx5/qOPulEKfpv/xf/0HMYpIzdLXqGOUGp6ZmKGay+FVz9+
+         KW0QcnmkEi3fCsOHTU0qZOBnnGGt+1OBVzl2Wn1n4ERr5TheKDz4Zlpw5fN01fO7XMS7
+         cpsYLglO/NXA3r2bYlVRDK7lYmAwp78UQjLszlIJgD0k0aj8EPU/KrGJ/AisBSEKA8vQ
+         /A0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755609470; x=1756214270;
+        d=1e100.net; s=20230601; t=1755609486; x=1756214286;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yX8jqUNVoaT/pP/QBlusgZO8WrcJpEh11O3LQ2VZcys=;
-        b=czWSaslJVVczw2QGIMkUqof6srGQkQkSXBlEN+XeOQYp52iKk1PdNAxpRnJYASRPQW
-         MouAZIeVxMLMJPI/K2FzPLx9CBG4Wupc5HpufrWx2TRVsOlF5PAy48MUu4qOXqF5hCAS
-         Eidmcb+VPfXDuf6lK0BO2pVuPwSo4N0NB39shrMg+NkL04JCLMg5597r0/hbboLHWot+
-         AsrOy4457ba+rZvsO5w6CnEc2sfW8EHJOGHFMxUhayHQIaO2/hMSjs+yfF9cDeYn5dBI
-         nbcEZMa52tUC8AA5XtNjSZtRXnKs9otwe08Z/AeE1RZLt8LvRIxB8Qt0qTSdae62mpJI
-         0KDw==
-X-Forwarded-Encrypted: i=1; AJvYcCUILTewvTlwjPXlPkOJfiTskfMX01r1BU6VcnMYt3DOl6hHMOCthGW7EJyXTnSNZbne+rcKu6iUX6L/JHb1YUA4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxa8YK4DTzoCiz4d+LXHAqHVllrtcWl0jM5L4C18z+Rsy6Ne8IY
-	yaWKPMT7fdF8BkBnFji+xzq9t/RjK3DrkhZrdVlyYBR2OVfQkKd8F0qsWxuU6wmNT50=
-X-Gm-Gg: ASbGnct6/HZ/I5QCgnu5GXZTsMOR0gS1FZYHgRwLQDiDRpXH5Np5y/qbKEtY1tKMD6a
-	pzY5LXMYzhq97sftYZQnMSoynyQulYUQ2P5mhDFBzIIXvRjyZYS4vSIEczvmuWthlvbdKlSTxEk
-	nss+E9Cxhjf7Usayz668wgxsRzjASsIvRhIEatDl7J8A2O15glEnDdojZYIEP2ojdnYsaygdLSr
-	lkfjO/IhrDP94fwBut53o7uCww6fprUkwVbrBcuwr7jxzUtHRqa0rWHjr9Op3j01LDTXANRGTiv
-	dvvlbr4J8wTicHcFdAwdh6iNYciqDbWZOofOV9vVzdl753W7Yp+hq3g2uJHLUYZQg8z8sk67Pup
-	nowPtP1anrHltuqs69sHdsLd8mEoxdlv7MaCwp+EymmTw
-X-Google-Smtp-Source: AGHT+IHRYPCS3CIXpz9ep32Qtx6spFR8eE7gvHlEe/afYX4onbStKp+kGa6meEY3YtnW6Pv8oWVyMQ==
-X-Received: by 2002:a17:907:968a:b0:ad8:a2b3:66fb with SMTP id a640c23a62f3a-afddcbadb07mr124772066b.3.1755609469701;
-        Tue, 19 Aug 2025 06:17:49 -0700 (PDT)
+        bh=A2jIqckmzmL31HAyK5saMTVF8f6NQtPgJyovhg4/VOc=;
+        b=v0IU6RX7IMN998GfkyHMyMNpO85LeBkWO1QaGBV7Eo4sefJUKAmP/J1QJE6NbwyZ7O
+         Rr/2fjEiqW65KAgihq37jRp8Miqi0TXp+tw1mIyU9sDtcCK6u2Mk/HFRA7/b9zTPT1qi
+         APFNYHEDyYHj9t7qaCjvcKQ3ftPYi8vgi3gp+uoXiJqqNjI2wZSaaOTZtBw95k3YUN61
+         mTNG86p+TKvBv1tjLsjf6Mfe32mgMie6S13B3sQNUifms8uPUEA8NuHS5TCT27VMPecm
+         oR6WyN1RG7VPjuGuEHmxG30b/cqk7R+rd03SFl11Xn0XJEhl4YDTw+8F1lyj1km/bAdR
+         DTSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoAvmiWS6yEe8jEWmC3IQ553WFOCjRp/npOp/UQx/aPB373nsUnuJ3khyL5A8lqDw/vyEYAdrYwSTkcpTigtyF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNSeGZ7EAeGGlqFysFlnwrNOKsZwev5bVYL5oiGI3MRXa3VEj1
+	TrpJDPfdZIY8RcdLDyeTcps/kJ5c3Qxz5pxwGHjm0fY6g/pUTR7pb8ieo6DyiKgiwvY=
+X-Gm-Gg: ASbGncsFC6MVNBMn4tmA5FQ1+qMA17UmNrYXJBX4i8q+W8jtb0TnBHgAHk1WKfShmDU
+	CwJbbj9+C6C5AlUPAvDb5P1MpuxNBkcY81a4nSTAs2JeSjqwLk8pJR8KjNuBvR+uX0ujRAUoYcJ
+	i4cxarrTdFHibNRpwvrEBuH+I37wXHKWkKItHpzU2QFnyh2aInu3gEWy22vTkox4VGkrjeLuFTA
+	FKUcX6Sdu/PpzOgY3CUZOyQw+3HHi52+x6ioemBRmwCer6jhsTnmwdPCWS66XZ5dUg6BdZo8SYJ
+	CParf0LkbXwGytFLnMHL1YjwFih7rvjraVXFc8fUZQayXH4+EPY3+sXHB0J6VCFe+zPRKV0m5Qw
+	HxdO6FmrnXpdyKGdyoNupSjdIJHrPB3tMWg==
+X-Google-Smtp-Source: AGHT+IGyvvSsYmBOqUpNPKJ0n3bvvP0DcDCulcG/syIt2wzsfbzAt0lyKnerC5YPY0kHA2qlG+r2Mw==
+X-Received: by 2002:a17:907:7e9d:b0:ade:902e:7b4b with SMTP id a640c23a62f3a-afddd1f8b4bmr100763666b.7.1755609485345;
+        Tue, 19 Aug 2025 06:18:05 -0700 (PDT)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdce53f49sm1007251066b.7.2025.08.19.06.17.48
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afcdd01ab3fsm1006508966b.102.2025.08.19.06.18.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 06:17:49 -0700 (PDT)
+        Tue, 19 Aug 2025 06:18:04 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
+	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] ARM: dts: aspeed: Minor whitespace cleanup
-Date: Tue, 19 Aug 2025 15:17:44 +0200
-Message-ID: <20250819131743.86905-2-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] ARM: dts: nxp: imx6ull: Minor whitespace cleanup
+Date: Tue, 19 Aug 2025 15:18:01 +0200
+Message-ID: <20250819131800.86990-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9010; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=J/hsPKtt4JbGzEI1pCl4hW7h1QPoxR3/5npoimUrZNQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHl3mN1BKV6PxXk7jlrwxP7edMkWFv03fc9Q3
- tA7yxN2kDqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5dwAKCRDBN2bmhouD
- 12wrEACF0czF4yiRZj5xxAq/TmjYthxtMYW9SNh1wmjiPXvf5M2AiAzTIli8cRpczKhhvWN3qEJ
- qH3aARLi0lTJXzcnGDcI+CpxdRvuLpLG+UlM0C0TEMzIXZJLf1bKy+R8zpmdKCZI1cb1iOieubr
- 65DQZUfVUCVwfIy36b/tG35fgcBgf59x5kisxw5jKNj98ZqTK95UrSGkmwMY8BztU8USV8TABG4
- WtZeGUwdrbgZjBfDv7OqrCaR04NUCHpZB51V6MtiRYTAecUGg40DtQSWwLIIN7oL4AcyEEwdlIX
- v/ZBmJ3OdXAfkVWlg5GVlQzHUEZeuFa4y+kIT//k/Vuna/VObLIs5tg60vINmhq14AE030krBKG
- hYZpeiA3Y3wRJYlmEdIY7/SUuhqQ6rGh4KRpjtQHufKF/NPJOlduxebYKS1ZtesZSs5Dj4EpApI
- RgnH47VCBru9xdUvn6CWk+ZpTbzz+Rub3K+7+8TdT8sK1ZVXKr+OZTwaf53JAsbWXN+xGLk3Cdu
- 7Uhnu/dxC2YW4tu/urgD2b01L4SyvhXHHXBcTtsxWInt4Bs2Qe+YLx5FKy6kuBsBt9Erf5x/zBw
- 6B3ujHdYTjMA1xcncq9EuwQQEv/UW2PyYxmswjbb6eO2VQjo6sBvr+1AbMYmCP56E+nYkmka0uy Bno9k6UHwpW/itg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=833; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=xtnDCv4eFzy5ACNTqpXuFQnkdvi4l046jdxQ272mGQw=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopHmIdIih5hgjFKYVXkgjYOmgK6x+Rs7p3ybX3
+ j/4k1od8vWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKR5iAAKCRDBN2bmhouD
+ 15GYEACDpblDVOMuoKN4y9jt8cF4hJgLK9fli2s9chrgNEGKFUVpYq6K4M+iWYmXrBBPvZ2Kw2t
+ CCjeHxVNkOM2PcH9C/3h5Xz4Aft/0XIK+EdQugnDfaYQr46cwlJ8C75O9KMtes/hR8llTh3qLIZ
+ M26wOApvdXKMkvl4GKfHB6tdyQmW0xhLW+VB6BuY0TKWnsWfAkYr/tslhGE7URwyDbhEo3T43Gz
+ ifcSgZeURLeyjrgztlS/HGjOb+Uh5XDBkxi2IWrVe0U+05Gv0TTJEv/HXIMok0oGwInp3JPnAcT
+ UweplIcOEfh4A34gX+ZwtQ5RgycMcv+fwFgFNPbV0idAEtIsbljzAid19ikRmgi5vb6W3Sm0xyu
+ joCSm4o9dg5PL0aYjcBIfDh6u17YJKhcYqvOrKDcFvTRUAOjEx8P+wJLFoPMOrtsamyxxaJZnTe
+ 2bmECOATOzSM9afaIO6irt1G7C4ocQUoF+OvFTbunP4XihRxHq1xcYCqJ/z+j8lERvCh9INlttD
+ vAcAOl0CnNNL9FTOCQ7UM8xu5ovV/ssTxNXhZOT8RItS0Ze4RJj1jI3mDtZratMYt4qv4rQI4WQ
+ Ep+Ez9WVUXvf2YKA4/ivB4fhn0bCLghsu6zIrVmbe7gVPCqrUb5QFlyMIIjgQ4zYNn6Sr36Rosp Q6PdBrAfYq3+2Mg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_061751_320726_CE5F332B 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250819_061807_163123_FAE09562 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,283 +118,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DTS code coding style expects exactly one space around '=' or '{'
-characters.
+The DTS code coding style expects exactly one space around '='
+character.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../dts/aspeed/aspeed-bmc-ampere-mtjefferson.dts     |  2 +-
- .../boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts |  4 ++--
- .../boot/dts/aspeed/aspeed-bmc-facebook-harma.dts    |  4 ++--
- .../boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts  | 12 ++++++------
- .../dts/aspeed/aspeed-bmc-facebook-santabarbara.dts  |  2 +-
- .../dts/aspeed/aspeed-bmc-facebook-yosemite4.dts     | 12 ++++++------
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts  |  2 +-
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts     |  8 ++++----
- .../boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts   |  2 +-
- .../dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts    |  2 +-
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts    |  2 +-
- arch/arm/boot/dts/aspeed/aspeed-bmc-vegman.dtsi      |  2 +-
- 12 files changed, 27 insertions(+), 27 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dts
-index c435359a4bd9..53b4372f1a08 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dts
-@@ -243,7 +243,7 @@ temperature-sensor@49 {
- 				compatible = "ti,tmp75";
- 				reg = <0x49>;
- 			};
--			temperature-sensor@4a{
-+			temperature-sensor@4a {
- 				compatible = "ti,tmp75";
- 				reg = <0x4a>;
- 			};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-index 8d786510167f..14dd0ab64130 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dts
-@@ -526,11 +526,11 @@ fan-3 {
- 					tach-ch = /bits/ 8 <0x03>;
- 				};
- 			};
--			fanctl0: fan-controller@21{
-+			fanctl0: fan-controller@21 {
- 				compatible = "maxim,max31790";
- 				reg = <0x21>;
- 			};
--			fanctl1: fan-controller@27{
-+			fanctl1: fan-controller@27 {
- 				compatible = "maxim,max31790";
- 				reg = <0x27>;
- 			};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index b9a93f23bd0a..59249e5f2fce 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -183,7 +183,7 @@ &kcs3 {
- &i2c0 {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
+index 5d1cc8a1f555..107b00b9a939 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
+@@ -129,7 +129,7 @@ &i2c1 {
  	status = "okay";
  
--	pwm@5e{
-+	pwm@5e {
- 		compatible = "max31790";
- 		reg = <0x5e>;
- 		#address-cells = <1>;
-@@ -257,7 +257,7 @@ eeprom@50 {
- &i2c2 {
- 	status = "okay";
- 
--	pwm@5e{
-+	pwm@5e {
- 		compatible = "max31790";
- 		reg = <0x5e>;
- 		#address-cells = <1>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-index ef96b17becb2..399e244bcd79 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dts
-@@ -312,7 +312,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-@@ -435,7 +435,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-@@ -558,7 +558,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-@@ -681,7 +681,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-@@ -804,7 +804,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-@@ -926,7 +926,7 @@ eeprom@50 {
- 				reg = <0x50>;
- 			};
- 
--			pwm@5e{
-+			pwm@5e {
- 				compatible = "max31790";
- 				reg = <0x5e>;
- 				#address-cells = <1>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index ee93a971c500..72c84f31bdf6 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -233,7 +233,7 @@ gpio@20 {
- 			"FM_NIC_PPS_IN_S0_R","FM_NIC_PPS_IN_S1_R";
- 	};
- 
--	fan-controller@21{
-+	fan-controller@21 {
- 		compatible = "maxim,max31790";
- 		reg = <0x21>;
- 	};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index aae789854c52..60b98d602e80 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -1186,19 +1186,19 @@ adc@1f {
- 				ti,mode = /bits/ 8 <1>;
- 			};
- 
--			pwm@20{
-+			pwm@20 {
- 				compatible = "maxim,max31790";
- 				reg = <0x20>;
- 			};
- 
--			gpio@22{
-+			gpio@22 {
- 				compatible = "ti,tca6424";
- 				reg = <0x22>;
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 			};
- 
--			pwm@2f{
-+			pwm@2f {
- 				compatible = "maxim,max31790";
- 				reg = <0x2f>;
- 			};
-@@ -1234,19 +1234,19 @@ adc@1f {
- 				ti,mode = /bits/ 8 <1>;
- 			};
- 
--			pwm@20{
-+			pwm@20 {
- 				compatible = "maxim,max31790";
- 				reg = <0x20>;
- 			};
- 
--			gpio@22{
-+			gpio@22 {
- 				compatible = "ti,tca6424";
- 				reg = <0x22>;
- 				gpio-controller;
- 				#gpio-cells = <2>;
- 			};
- 
--			pwm@2f{
-+			pwm@2f {
- 				compatible = "maxim,max31790";
- 				reg = <0x2f>;
- 			};
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
-index 757421bc3605..c5fb5d410001 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dts
-@@ -263,7 +263,7 @@ eeprom@51 {
- 		reg = <0x51>;
- 	};
- 
--	tca_pres1: tca9554@20{
-+	tca_pres1: tca9554@20 {
- 		compatible = "ti,tca9554";
- 		reg = <0x20>;
- 		#address-cells = <1>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts
-index 8d98be3d5f2e..dbadba8eb698 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts
-@@ -3778,10 +3778,10 @@ smb_svc_pex_rssd01_16: pinctrl@20 {
- 			pinctrl-0 = <&U65200_pins>;
- 			pinctrl-names = "default";
- 			U65200_pins: cfg-pins {
--				pins =  "gp60", "gp61", "gp62",
--				"gp63", "gp64", "gp65", "gp66",
--				"gp67", "gp70", "gp71", "gp72",
--				"gp73", "gp74", "gp75", "gp76", "gp77";
-+				pins = "gp60", "gp61", "gp62", "gp63", "gp64",
-+				       "gp65", "gp66", "gp67", "gp70", "gp71",
-+				       "gp72", "gp73", "gp74", "gp75", "gp76",
-+				       "gp77";
- 				function = "gpio";
- 				input-enable;
- 				bias-pull-up;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-index de61eac54585..c63f0b43090e 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-lenovo-hr855xg2.dts
-@@ -151,7 +151,7 @@ &mac1 {
- 	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
- };
- 
--&adc{
-+&adc {
- 	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_adc0_default
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-index 72dafebc080d..4de38613b0ea 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
-@@ -282,7 +282,7 @@ &uhci {
- };
- 
- &sgpiom0 {
--	status="okay";
-+	status = "okay";
- 	ngpios = <128>;
- 	gpio-line-names =
- 		"","",
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
-index 627c91f178e6..af3a9d39d277 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts
-@@ -64,7 +64,7 @@ event-checkstop {
- 			linux,code = <ASPEED_GPIO(F, 7)>;
- 		};
- 
--		event-pcie-e2b-present{
-+		event-pcie-e2b-present {
- 			label = "pcie-e2b-present";
- 			gpios = <&gpio ASPEED_GPIO(E, 7) GPIO_ACTIVE_LOW>;
- 			linux,code = <ASPEED_GPIO(E, 7)>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-vegman.dtsi b/arch/arm/boot/dts/aspeed/aspeed-bmc-vegman.dtsi
-index 16815eede710..8c953e3a1d41 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-vegman.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-vegman.dtsi
-@@ -30,7 +30,7 @@ video_engine_memory: jpegbuffer {
- 			reusable;
- 		};
- 
--		ramoops@9eff0000{
-+		ramoops@9eff0000 {
- 			compatible = "ramoops";
- 			reg = <0x9eff0000 0x10000>;
- 			record-size = <0x2000>;
+ 	touchscreen: touchscreen@38 {
+-		compatible ="edt,edt-ft5306";
++		compatible = "edt,edt-ft5306";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_touchscreen>;
 -- 
 2.48.1
 
