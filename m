@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECF3CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 05:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FAFCA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 05:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHADKkUG74H8DgiMJwyJ3n8CdyNUxQbiZqR+ru3KJ5g=; b=P5/ygj7zTIZUzGJfc6jp+jGwo3
-	JLoSHsUihmBzZmllem1+7xnKCG7Zwq9d93xFfR/9izwxVCWV6p4UTwNhJO1C5UP2JkMdxEbJ41TS/
-	f5Bu13oLmFg2argg03xUEZYJ64VWKbPehdnZ4SU9fOBxygLMY8OlU8i61GCuNVzkSbReSYwVqxqxF
-	D1Tr8o8jA3CRxWtLhTM4ZhO991CfdlwrPg2WEG/FX+2ZFdRrztT8BDCkTDFy6vXynO4j+6y4Xfl7K
-	QYVxSsZpU1vKlvJ4LZHcogw5Tzx50JPM4VHW9WHUQRb8TqBH0GqwEvBkvxXUI3+PbGHmwt3mG68ZE
-	jYwvogDQ==;
+	bh=WsYp5szV0xyNktXKyNpHlGjtRi7D/yzfr9+tShTScEo=; b=NftzQgCKbgdINafBzrE0uvbZO9
+	uLXqO7SYyyRoa1cYmqWSkMYfBgo5cENxGTTaGAhtZD5AFmM62jCax6eBwz4VpZGxSyIwnBKfkcHcF
+	42NeM5dBcFmCFQWSoPaIrIcBkvfy1fResJAe145nBFnYNCvigGo7IWHJqkQI/zpy/jSA82kW2cAmj
+	6gIHfP+8xkymnfFIUVvuu4gw/6CNOn+IcS81KorPJRA+LAd5H6ft+yd0GOCnwqItbLWayAlXh5V4x
+	4ZHCiWzrN/aAaDBahkeN21Ek9FA8/Itvic7b/m7cokvWdoS5vkhvXH9Hl4iLSQSYgWYgwThzAVXpb
+	JPW2Zpig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoF3U-00000009Rnl-1q21;
-	Tue, 19 Aug 2025 05:38:44 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uoFCs-00000009SkY-3EvI;
+	Tue, 19 Aug 2025 05:48:26 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoEvs-00000009R3X-0YdY
+	id 1uoFAG-00000009Sb6-2KCs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 05:30:53 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b472fd93b4aso2970812a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 Aug 2025 22:30:51 -0700 (PDT)
+	Tue, 19 Aug 2025 05:45:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755581451; x=1756186251; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NHADKkUG74H8DgiMJwyJ3n8CdyNUxQbiZqR+ru3KJ5g=;
-        b=giBiGwP/Wya7V6ctJalSMq6/FSa8ojiGJAkEEp5n0m7+x0twNzfnklGd0MOOhgBJHM
-         HEoEQS6dFbUSGxxdDPLmCPC2Ih0Pc58gOYzAuLuq+KRzcoUkrtVewYEEJytVT+H+YBGy
-         izl2PAqWb8qKIPr4304K7Pzi4f2Ab3YVrOgvJUXC2eIhEl6SJf7W+h8b9aa4jBUlDuZY
-         E8WrapO8mhWu8bgNFLY2hgI+KcrOY501/zHqsoL4+KAEaS+SmABb2ZxhZxIc4lm1lclq
-         d8m9wHtw+fPCIZNd88kvSC9Fghqx+z/4eadJQcjD1FzDu0Rp5is+8pBytjhtFjw9X7hT
-         NJKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755581451; x=1756186251;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NHADKkUG74H8DgiMJwyJ3n8CdyNUxQbiZqR+ru3KJ5g=;
-        b=LksJoadaSN6IHpib4sBQ1La0LFa+xauVWHxw3UIAh+yC45RfDxhNfpzye1ZRQAbF/n
-         xM9AIN3FpnFz01zDzh074zD06RniWQIlKubtiv6jPy/Sxc94ikirAdwG2C7xy98H4riQ
-         IeBxrflkd62YmyFC7Eq1wMjoaQe0amWNkD7ml1qaie0jy27WkwONfmcOPjYmQletC7w2
-         MNNPOfR91XH9lJHOK+VwPJFa15vgj6TECCtlAf64Tn/mFPwJL0h6PRFrdL/2XyDdMVly
-         T2zlPv7b40tWBfyVD9RNHvOB3+oHibQ4MKIQdvIwp5cSjThRfDr42//j2PNMigKXOaGa
-         ZgsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXkHR5aqUcwkJxJwYvkdsBCff5y8/7kuPQZeKLcUsumhwyXq8kTEjRpbRsBvIiZtYIySSy+UiC0wKEIWdS+74i7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAR2+wK8SqMn1KKR08fpqRoPY59kQcCTTXQKFc+xJdSAlboTH2
-	7slgb+IUv35oOlaFNDwLLjq2PlMmMAE5znZQPbDGFzMmMaSKMk/jXgTXKVsSJZTXtMo=
-X-Gm-Gg: ASbGncsC1oXK37U/IQlI2AEBICHFUsQvX95Kqtox55J2fV6XrWIE98AXG13ng3Qj6Hj
-	ZqhOeRWtezTnidzm1WHpH50pQyAJYljeFDeafL/JJMi5cAJmjLsosltuysbIKhLHJfWemMeblNJ
-	L2cpYHUYwOp4xqURheEE/TcdS7YIIFYaaqspWxn6WSzMB2DdmeBWjX56vdeskP3FPi5gE7L+chy
-	RDHRTCeQ4DAToQGIXAg75bTevNNCy7ClM8ZpmvCYbRic97M0o2idyO09ZQV6xvuTGrq40/o1nJ6
-	MjQeyZLlf7giFJ+uGq3sbeIrFQRfxuEpsIJ4scDrvDmdX3WArRmeVYLoMO69pScKX62giPziB7m
-	B7tgJvvcBnEyAyRPpu5uXQhYgjtMQ5fvNkUU=
-X-Google-Smtp-Source: AGHT+IERt6oCE4RMNflHw7TCKFgdRx6IB0LQJLR9mIihyCp5VdPHl033jFifzhuL917Po4PZMKKnDg==
-X-Received: by 2002:a17:903:290:b0:243:38d:b3c5 with SMTP id d9443c01a7336-245e04ca7bfmr18923145ad.47.1755581451291;
-        Mon, 18 Aug 2025 22:30:51 -0700 (PDT)
-Received: from localhost ([122.172.87.165])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2446d50f55esm97139685ad.82.2025.08.18.22.30.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Aug 2025 22:30:50 -0700 (PDT)
-Date: Tue, 19 Aug 2025 11:00:48 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-kernel@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mike Tipton <quic_mdtipton@quicinc.com>,
-	Peng Fan <peng.fan@nxp.com>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v3] cpufreq: scmi: Account for malformed DT in
- scmi_dev_used_by_cpus()
-Message-ID: <20250819053048.t3dfmyu2xqd4ypef@vireshk-i7>
-References: <20250818155048.551054-1-florian.fainelli@broadcom.com>
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1755582344; x=1787118344;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=WsYp5szV0xyNktXKyNpHlGjtRi7D/yzfr9+tShTScEo=;
+  b=oSShtEFwqeNgXmHE7SBlcWQlXrcErxo6aVLKeg4s3mpI626F8nPkt1SH
+   DAni9B0wqwlyZU9h+Ma42s8k03fi/ZzoNZfyJ0aCduyIUncsmmAU7sYkn
+   rKMtrEQ1pr2WfyKCc6/RjVNDd9/kh/jWQ97ffkiHTRQE52mFf5BXIdB4o
+   nNsQB9FF5TBjsCgxq3bUD8sjAKk32BcFBQJkvuRfS6ynTYpu5HKfJPEOK
+   bmsmzL1GEUr1eDc36WNavgOF5oFnlGhO6mHglFSYrkC+MOJTIMTQNm2pa
+   4lD0QT4T1L50fYb938NbIeckZ8xYpQrBX1nXn0JiJTij5thL6JOrHn3cQ
+   w==;
+X-CSE-ConnectionGUID: pIE3H7EkSU2KpnRbqdg2tw==
+X-CSE-MsgGUID: gemojgD+SnG0Uwlr5Nqd3g==
+X-IronPort-AV: E=Sophos;i="6.17,300,1747692000"; 
+   d="scan'208";a="45794411"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 19 Aug 2025 07:45:33 +0200
+X-CheckPoint: {68A40F7C-3A-9821D066-F5C64F68}
+X-MAIL-CPID: FA256BEDB6305F126D1DB31ADA1A04C9_2
+X-Control-Analysis: str=0001.0A002115.68A40F37.0061,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 07F281632DA;
+	Tue, 19 Aug 2025 07:45:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1755582328;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=WsYp5szV0xyNktXKyNpHlGjtRi7D/yzfr9+tShTScEo=;
+	b=Hj+nbwMMZTxOWhrFndQYU6J6dMbz9J1u6gZvEnOsZDeCrIb+B1baPv04ofFHNq/N7Mu3QE
+	2Bwf0kq5lUEfkNNWZ6HAaU9pro+LVN0e4uHZHFl11iRTUYV7XVs8No3AqkyYNy1KmwIjDq
+	0ubTNQiWSi+0RTc3rpZVp6fbrSBJAe5wqu918FhSsb6UeIitZBq9r5gbEeUOaUCCx6ktYc
+	+FatrOfHiLglLTztecpGNemEPGJ3W4VRR2lobspHaWq2QxJeprw0Y+M/bitj29ybf/LnIT
+	W9lmSFHQCqS2dYizdttwa14Txx/yuIFOG560yt2A390b1lcXzhaxjcYFWC0lFg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ Frank Li <Frank.Li@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 00/15] ARM: dts: clean up most ls1021a CHECK_DTB warning
+Date: Tue, 19 Aug 2025 07:45:26 +0200
+Message-ID: <2800197.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250818-ls1021a_dts_warning-v1-0-7a79b6b4a0e2@nxp.com>
+References: <20250818-ls1021a_dts_warning-v1-0-7a79b6b4a0e2@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818155048.551054-1-florian.fainelli@broadcom.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_223052_182117_12523450 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250818_224545_090214_D09F8E2E 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,25 +95,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18-08-25, 08:50, Florian Fainelli wrote:
-> Broadcom STB platforms were early adopters (2017) of the SCMI framework and as
-> a result, not all deployed systems have a Device Tree entry where SCMI
-> protocol 0x13 (PERFORMANCE) is declared as a clock provider, nor are the
-> CPU Device Tree node(s) referencing protocol 0x13 as their clock
-> provider. This was clarified in commit e11c480b6df1 ("dt-bindings:
-> firmware: arm,scmi: Extend bindings for protocol@13") in 2023.
-> 
-> For those platforms, we allow the checks done by scmi_dev_used_by_cpus()
-> to continue, and in the event of not having done an early return, we key
-> off the documented compatible string and give them a pass to continue to
-> use scmi-cpufreq.
-> 
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> Fixes: 6c9bb8692272 ("cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Hi Frank,
 
-Applied. Thanks.
+thanks for the series.
+I've already sent a similar one at [1]. But I haven't check which are
+duplicates and which are not.
 
--- 
-viresh
+Best regards
+Alexander
+
+Am Montag, 18. August 2025, 22:48:11 CEST schrieb Frank Li:
+> clean up most ls1021a CHECK_DTB warning.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Frank Li (15):
+>       ARM: dts: ls1021a: swap dma tx/rx channel to fix DTB_CHECK warning
+>       ARM: dts: ls1021a: correct node name "timer0" to 'rtc' and remove r=
+eg-names
+>       ARM: dts: ls1021a: remove redundant snps,host-vbus-glitches
+>       ARM: dts: ls1021a: remove big-endian for memory-controller node
+>       ARM: dts: ls1021a: Rename node name nor to flash
+>       ARM: dts: ls1021a: Remove redundant #address-cells for queue-group@=
+* of fsl,etsec2
+>       ARM: dts: ls1021a: Rename esdhc@1560000 to mmc@1560000
+>       ARM: dts: ls1021a: Rename node name power-controler to wakeup-contr=
+oller
+>       ARM: dts: ls1021a-qds: Rename node name at45db021d@0 to flash@0
+>       ARM: dts: ls1021a: remove big-endian for mmc modes
+>       ARM: dts: ls1021a: add fsl,ls1021a-wdt for watchdog node
+>       ARM: dts: ls1021a-tsn: Remove redundant #address-cells for ethernet=
+=2Dswitch@1
+>       ARM: dts: ls1021a-tqmls1021a-mbls1021a-rgb-cdtech: Remove fallback =
+compatible string edt,edt-ft5x06
+>       ARM: dts: ls1021a-qads: Add fallback compatible string mdio-mux
+>       ARM: dts: ls1021a-qds: rename 'nor' to 'flash' and 'mdio-mux-emi1' =
+to 'mdio-mux@54'
+>=20
+>  arch/arm/boot/dts/nxp/ls/ls1021a-qds.dts           |  8 ++---
+>  ...1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso |  2 +-
+>  ...1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso |  2 +-
+>  arch/arm/boot/dts/nxp/ls/ls1021a-tsn.dts           |  2 --
+>  arch/arm/boot/dts/nxp/ls/ls1021a-twr.dts           |  2 +-
+>  arch/arm/boot/dts/nxp/ls/ls1021a.dtsi              | 38 ++++++----------=
+=2D-----
+>  6 files changed, 17 insertions(+), 37 deletions(-)
+> ---
+> base-commit: 3ede6e44fad31f1c80dd01188683f0caa0f19247
+> change-id: 20250818-ls1021a_dts_warning-fff933bd83da
+>=20
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
+>=20
+>=20
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
