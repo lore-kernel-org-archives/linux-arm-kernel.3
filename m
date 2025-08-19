@@ -4,88 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA6C3CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 14:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E661DCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 14:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1P2Rps+nWLL6vuu8v5AZ6QLluRY8gS5KDMDYoN14d3E=; b=VKB18cPWMvs75cmJIuFK6RQlh4
-	pjPQ59GHqzmdo6VQYRtrY1lwftN0SvIMribnkJLxs3S/rf5XKCMeTCCkp3LWNj+J60DarfeK2H/ib
-	3rHDv2HaggN5uY7gtVjOfeasUONGTMLOE2Mxwa3GNrw85t9zyPv9C0s3PFKrxlRkNUgeMpcce01nQ
-	wa9a1xVaFvzkjxlqFSvjqlf60s2I+kw+4PyTZbmbMXYtxM5NHN198kXoyTt1ISUwt37+uEsb5jhEE
-	mS/b/9WSmJHD3lDkih9hU3vH3Tpo6IsRsHeOXGYXzjszLNNNSpUcc4pZ7F+mOy9G7sZ0xNR+Y+EW3
-	uMbbjSmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9mI1h+BmNbILdGpeniKvEeoyTFz8pMoc//wK6fMdn9Q=; b=J3kczKkWMiJPRG
+	gowGQz8V5RqkqL3VZe9NhGYdtXBkVb5Tavjw6j4AUeuEx0P3Pw3mDu898BaDfo0U+S7ZsBkjJYBzj
+	xZP/5Yd3a4xFc6KhMn3N/TusMz+GbXbsln/avKaekOO7cO6KMwGCr5davOKNGb+2he0I1Al2te+55
+	d5vo32jx9cyLW7yCo+4OeqCSu97nT2VQJjYm5EO95CMvsG8NQUTzE6O1v8ycVfbymnRX4ch3FquQg
+	2C3EvFjqR1Fs/6Qvfle8hqya95necICMOG+v+IwnHqIUswj2zRVePxqv8GgzpZYDlF8uyy3ITtdhi
+	WjCcDn8kJCwJOSUnrpUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoMvx-0000000Ah1J-3Xr9;
-	Tue, 19 Aug 2025 14:03:30 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uoMyV-0000000AheI-0sfc;
+	Tue, 19 Aug 2025 14:06:07 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKgs-0000000AJbo-3jLA
+	id 1uoKmo-0000000AKKv-43zy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 11:39:49 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250819113941epoutp04c3b4979d2e009f67e2f168ad5caef3f7~dKCfjLdzX1529515295epoutp044
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 11:39:41 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250819113941epoutp04c3b4979d2e009f67e2f168ad5caef3f7~dKCfjLdzX1529515295epoutp044
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755603581;
-	bh=1P2Rps+nWLL6vuu8v5AZ6QLluRY8gS5KDMDYoN14d3E=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=ZVvYutnRrj1vsaoIzlGc1d/RjPE60V5uAz1QTRDCZxI81j7cue1sfgSA7oaKZO8YW
-	 2qVnzb45IaXeEFXrgbk+ARvR9GiIrmLx90CgXtFOidCb4d1xvFEEGV8mqz30CiOzoN
-	 ZcxgykS5DuOVlEM5wzk/ytKYpW7LZdaE9Lb5rgp8=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250819113940epcas5p44becd1ec50dff43ea959114a166fe0dd~dKCeeitQH2997129971epcas5p49;
-	Tue, 19 Aug 2025 11:39:40 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.87]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4c5ngH2cfwz3hhT3; Tue, 19 Aug
-	2025 11:39:39 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250819113938epcas5p3cac2467171b234b921448bf9b537cce2~dKCdAIEYh2225622256epcas5p3a;
-	Tue, 19 Aug 2025 11:39:38 +0000 (GMT)
-Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250819113935epsmtip16d1c515c409672f87d62e0dbcafa0d4d~dKCaJwZgR0293302933epsmtip1n;
-	Tue, 19 Aug 2025 11:39:35 +0000 (GMT)
-From: "Shradha Todi" <shradha.t@samsung.com>
-To: "'Bjorn Helgaas'" <helgaas@kernel.org>, "'Krzysztof Kozlowski'"
-	<krzysztof.kozlowski@linaro.org>
-Cc: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<mani@kernel.org>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<vkoul@kernel.org>, <kishon@kernel.org>, <arnd@arndb.de>,
-	<m.szyprowski@samsung.com>, <jh80.chung@samsung.com>,
-	<pankaj.dubey@samsung.com>
-In-Reply-To: <20250818182544.GA534647@bhelgaas>
-Subject: RE: [PATCH v3 11/12] PCI: exynos: Add support for Tesla FSD SoC
-Date: Tue, 19 Aug 2025 17:09:34 +0530
-Message-ID: <00b501dc10fd$f1fecc10$d5fc6430$@samsung.com>
+	Tue, 19 Aug 2025 11:45:56 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-45a1b0b2d21so26046105e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 04:45:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755603953; x=1756208753; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9mI1h+BmNbILdGpeniKvEeoyTFz8pMoc//wK6fMdn9Q=;
+        b=og0qli/RQk1D/p8gIw4uVsZvrCS/BYvsUXwDSWZG7PuQ1CcDceGcmsvOHgrIx8IAs+
+         M3H63ITBKABq952Bg1W06WZxQ0mnTdCj3k3vj/sEL0hX2f+0FtWa0UCrsYGpKQkOaz6e
+         RMs+25cJxu1IjI36VdtdADs/x8Lqdna+yB4oiN2XVh+i9ICyIx/YT+MRCebR6U5DULag
+         zFNxeEr3ehQgAHdbPJ9vTJEBnwpIXYDdZWtWS59mFZVUfFu6VIykeCQQ2fbU1qrDW7a8
+         a3Po0Hvti9wKr3AUqUCVdpMYWiSmrK0zV7OdYAlVh6nO0XgQ6LD9daapO1SYzNOlc7Mr
+         hsnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755603953; x=1756208753;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9mI1h+BmNbILdGpeniKvEeoyTFz8pMoc//wK6fMdn9Q=;
+        b=KMJxmWdVD8OYQHhMc/qja8htnR2rKfiEIvf5BCGbo56YIRfacUKNS8jPkU83zHrQpd
+         /Dqm5eezqIgoLfDJdHIstY7qKB7UadefG2wKimPeHIw7qSwezLzOppChjhtgbv6w1IKz
+         0QcdXi6f2MUWgmxucDzWFAXCAncttMxTXe9CWjRpiZj5gNbInTbrtEp+GMcmlGKqVVve
+         OzibD+iN8aSMfZ8SYluFRB9HP+IrnpR5c7uxCmbv2PE5tzzI9VfR9i+8773WhD15x3Q/
+         1b4CZ/y0AtqKUUrkKevvr7rPEw+GKh8K9au+rv/ftH5EqH4n06tdg/v9UBMapt8Djl2x
+         i8+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUhUKr4YH3uL0N/EJP6ze12cgprehPDWcXgmY6nUGv03d1HHTNs9WGwfFWLBzOJWKiWBjnv3xc3upQ6aAur2RZX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSks8m16Zj1Om/z0b3X/tI1rpeatYr7i9nmYMkDSjYUCwNHGAW
+	tsDJCHcCWc8ZvgPhl4Ta+gKWWAPGVmtmHO5TkwaU0ocWFTnl77kOp7iXMc5LUhcgrNk=
+X-Gm-Gg: ASbGncu82U7ojfA5z488HOr/pMIppnCY7Fcbnz1CIisRhDFmiK7KFHIDbIdMs6wu/KR
+	fu9aOE43yspTws4zGKYJvztXaph/UFl0NfS5zQBtT45geUHEhQ2DTk+pW8WV1XwU1OGdC3bbV8s
+	qZnlWurrplWXmwmGFnoXfwV2Qo3OYdXpndT9aUmgps7pfPj4nKwYDmXftBBklaGIFnD07tRItX+
+	F43diAwGIImJOr3OQYwnSjw+6NzPV92wEPzcxqdPryxwAR1CxA3kp9WzAjc0+ELNhEkPfUCtnCS
+	sUqj1lDq1uzgnl90mncMEWAu+FP2XSEf7ieS7r+9PQMjGuWYTykRvrwGkzvkrDTLoYcRIjRGs7m
+	qGGx0qE3AAm91hhqjh/K4hanjpVIm0vwj5XXRYLirJPohtQC0j/oP7HRBpS64VRBmJQWT0F9uHh
+	kw3A==
+X-Google-Smtp-Source: AGHT+IEnwmvW6IIY3fHtQYIYoD1wKmz1nhv91N571YRo5fDdb1O2yoXT6VRpNYHi8x8OdTISvstKRw==
+X-Received: by 2002:a05:600c:3ba5:b0:456:2698:d4d9 with SMTP id 5b1f17b1804b1-45b45374caamr14002615e9.3.1755603953268;
+        Tue, 19 Aug 2025 04:45:53 -0700 (PDT)
+Received: from ta2.c.googlers.com (245.92.187.35.bc.googleusercontent.com. [35.187.92.245])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c077788df7sm3430817f8f.48.2025.08.19.04.45.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Aug 2025 04:45:52 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH 0/3] exynos-acpm: add DVFS protocol and clock driver
+Date: Tue, 19 Aug 2025 11:45:35 +0000
+Message-Id: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFRpmM4OvQHoLmp1/7yOMMM/WjwMQMTDUGCtWYRPHA=
-Content-Language: en-in
-X-CMS-MailID: 20250819113938epcas5p3cac2467171b234b921448bf9b537cce2
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250818182551epcas5p33fbe099df79778031b489f0902cceed3
-References: <CGME20250818182551epcas5p33fbe099df79778031b489f0902cceed3@epcas5p3.samsung.com>
-	<20250818182544.GA534647@bhelgaas>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN9jpGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDC0NL3cTkglzd5JxsXSOLFKNEc4tUA2MDcyWg8oKi1LTMCrBR0bG1tQD
+ TV39kWgAAAA==
+X-Change-ID: 20250819-acpm-clk-28d2a78e0307
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755603952; l=1667;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=atHOVDZrHoC4KUAzLF3V2ExuFabINMR3JpSKKqoKhGM=;
+ b=h6Bb36OJtt4jZDYOdwe5maGI2bcHWggh27JZXK/hNIDehiPXcAddUEhsj/76QM7GPPUeu3kqb
+ jydYZwKtvyDBk4+2SmWwopkALIvvL42OrRHIifDVPAm8txJvXd+GSM0
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_043947_630127_AC4ADACC 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20250819_044555_014743_27CB9848 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +118,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > > +static irqreturn_t fsd_pcie_irq_handler(int irq, void *arg)
-> > > > +{
-> > > > +	u32 val;
-> > > > +	struct exynos_pcie *ep = arg;
-> > > > +	struct dw_pcie *pci = &ep->pci;
-> > > > +	struct dw_pcie_rp *pp = &pci->pp;
-> > > > +
-> > > > +	val = readl(ep->elbi_base + FSD_IRQ2_STS);
-> > > > +	if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
-> > > > +		val &= FSD_IRQ_MSI_ENABLE;
-> > > > +		writel(val, ep->elbi_base + FSD_IRQ2_STS);
-> > >
-> > > This looks weird because FSD_IRQ_MSI_ENABLE sounds like an *enable*
-> > > bit, but here you're treating it as a *status* bit.
-> > >
-> > > As far as I can tell, you set FSD_IRQ_MSI_ENABLE once at probe-time in
-> > > fsd_pcie_msi_init(), then you clear it here in an IRQ handler, and it
-> > > will never be set again.  That seems wrong; am I missing something?
-> >
-> > Actually the status IRQ and enable IRQ registers are different offsets
-> > but the bit position for MSI remains same in both cases so I just reused
-> > the macro.
-> 
-> Ah, that's what I missed, thanks!  At probe-time, fsd_pcie_msi_init()
-> enables it in FSD_IRQ2_EN.  Here you clear it in FSD_IRQ2_STS.
-> 
-> > But I understand that it's confusing so I will add another
-> > macro for FSD_IRQ_MSI_STATUS or just rename the macro to
-> > FSD_IRQ_MSI to re-use.
-> 
-> Using the same name just because a similar bit happens to be at the
-> same position in two different registers is definitely confusing.  I
-> think it will be better to have two macros, one for FSD_IRQ2_STS and
-> another for FSD_IRQ2_EN, e.g.,
-> 
->   #define FSD_IRQ2_STS                         0x008
->   #define   FSD_IRQ2_STS_MSI                   BIT(17)
->   #define FSD_IRQ2_EN                          0x018
->   #define   FSD_IRQ2_EN_MSI                    BIT(17)
-> 
-> Another question about the test:
-> 
->   if ((val & FSD_IRQ_MSI_ENABLE) == FSD_IRQ_MSI_ENABLE) {
-> 
-> This assumes there are no other bits in FSD_IRQ2_STS that could be
-> set.  I would have expected a test like this:
-> 
->   if (val & FSD_IRQ_MSI_ENABLE) {
-> 
+The APM firmware exposes clocks that are variable and index based.
+These clocks don't provide an entire range of values between the limits
+but only discrete points within the range. The firmware also manages
+the voltage scaling appropriately with the clock scaling.
 
-Thanks for pointing this out. FSD_IRQ_MSI_ENABLE is a single-bit, so there
-is no functional difference in the two statements. I didn't have a specific
-reason for using "== FSD_IRQ_MSI_ENABLE".
-But I see that "val & FSD_IRQ_MSI_ENABLE" would have been the more
-standard way to write this. I will update this for clarity.
+Add support for the ACPM DVFS protocol. It translates clock frequency
+requests to messages that can be interpreted by the APM firmware.
+Add an ACPM clock driver to model the clocks exposed by the APM firmware.
 
-> Is there a reason to restrict it to the case when *only*
-> FSD_IRQ_MSI_ENABLE is set?
-> 
-> Bjorn
+All patches can go through the samsung tree.
+
+Thanks,
+ta
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Tudor Ambarus (3):
+      dt-bindings: firmware: google,gs101-acpm-ipc: add clocks node
+      firmware: exynos-acpm: add DVFS protocol
+      clk: samsung: add Exynos ACPM clock driver
+
+ .../bindings/firmware/google,gs101-acpm-ipc.yaml   |  28 +++
+ drivers/clk/samsung/Kconfig                        |  10 ++
+ drivers/clk/samsung/Makefile                       |   1 +
+ drivers/clk/samsung/clk-acpm.c                     | 192 +++++++++++++++++++++
+ drivers/firmware/samsung/Makefile                  |   4 +-
+ drivers/firmware/samsung/exynos-acpm-dvfs.c        |  85 +++++++++
+ drivers/firmware/samsung/exynos-acpm-dvfs.h        |  21 +++
+ drivers/firmware/samsung/exynos-acpm.c             |   5 +
+ include/dt-bindings/clock/google,gs101.h           |  15 ++
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  10 ++
+ 10 files changed, 370 insertions(+), 1 deletion(-)
+---
+base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+change-id: 20250819-acpm-clk-28d2a78e0307
+
+Best regards,
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
 
 
