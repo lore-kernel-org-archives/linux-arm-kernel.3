@@ -4,81 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA56CCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CD3CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 12:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQKFYbTMtOOT+BOY1Z2vHblWk9jabFt601AY6uvOUVo=; b=Fvrlh95e495DyDNYjgqTE1b6QR
-	oSLX2ceslG+KAVdL79Jw00lMSiGEa7cARjWpFXnb2UOnSsMYGZzpoayKyL7mrRPeVufbuhTEuJbiF
-	e/gTsYBBmdiCGpYrKHKs2mXCACbBqpJyBnFFuVnMrkvibB6WgHNyXXyyjWbOi659mLT/bHZ0Aur2h
-	DcOtbFhBCjZbblcqYM/iCPS9Z836oR3rKcZDVOAweqZagUiDtOJUgDI3dRR8rj4Wa/Fh1CRCryiz6
-	TsA48Ze+XFfWDxJ4NwlEqWvGdD/vTwOnx669DWa6WyHlAcsgwCSWQUzEfnXNWqi2nh5JUrZkloJqe
-	Cr1LiNeQ==;
+	bh=6SS1JqwRjjqdsFLQmT2MfY6LOSC4xZZFVHZciuXtnvM=; b=RLDtsC7Db8KjjgxmCqqdkAzsC6
+	fNDYuQrUOPf1r5OU13DqcEyGJCUPSb5MqaPJXC1r/hiYSE/PObc3TQrnH6m68XsoEl6hGdmfe+3WC
+	NR5D5lutqCS3qUU8T3H7WOF3AFb0d8nubel2HCumj+UQvIFkpSzE1rb84RgZjdhN7jJ5JDhT9vThb
+	lXD2XMjhkyTxUFBRt1VmCCmdnSt/P0qWTVaiwapPtF8aaGlcWfwkviCn8A7xQsPL6b12BnzgGGwlF
+	Qdby24RPtBSdKlypAyHiEqYC6q870ECiR6KPqBYo21f662zeR7VnPjrxxM1Hmx/kE/3Ov7p4VcFoR
+	nhHZr1xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoLFn-0000000AOmY-23vX;
-	Tue, 19 Aug 2025 12:15:51 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJSK-0000000A71M-1lM6;
-	Tue, 19 Aug 2025 10:20:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755598840; x=1787134840;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=S47ygKL32ruBO8bjIs8S4nUDrgHAc2oSYPXd6ncSwnQ=;
-  b=W8XDfIKsNjX0wk1bKIn/ee/FC29vQYKDpo5UVSIFdA50zZhxDLpfLR41
-   BiGB9FgUcnJJkiXSgMgVepHuWRxT04mUMokXkSx0H8DFaCe5AMpmZie50
-   xqPBQLT+JvQEvA45gTisCpRJWGebFEIO3K9215kaQsgdKFztoYcbGbS8J
-   0aka3PhDhRszA6RztBew7SQp0afSWerS80EoxiC9sN9lvh7pROU2xiiYQ
-   w2vLyW9/wb9ry/qFmOOame9Cl6uzvV/vhHwf5F4ZtnZ4/yVxZk1Hly/ln
-   Mk8NjadHmeW4gFXfG2rg/Hmry7TS0NgazC9RF4EsAKvWgdgbpWaZu/Db2
-   g==;
-X-CSE-ConnectionGUID: mkqjinUdTWa+pfShcdcgeA==
-X-CSE-MsgGUID: hLGj+6AZTuCIscdMBxj6EQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11526"; a="69210747"
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="69210747"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2025 03:20:38 -0700
-X-CSE-ConnectionGUID: lOIoTR8OSUOebrRJdcrf/Q==
-X-CSE-MsgGUID: lQlgxSwwTqerOwWQ0WNYmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="172049373"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 19 Aug 2025 03:20:35 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uoJSC-000Gjf-2S;
-	Tue, 19 Aug 2025 10:20:32 +0000
-Date: Tue, 19 Aug 2025 18:19:14 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: [PATCH] thermal: rockchip: shut up GRF warning
-Message-ID: <202508191909.EIZEWxiJ-lkp@intel.com>
-References: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
+	id 1uoLIL-0000000APMi-30eA;
+	Tue, 19 Aug 2025 12:18:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoJWp-0000000A7hU-3a9e
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 Aug 2025 10:25:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0CF81BD0;
+	Tue, 19 Aug 2025 03:25:08 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C0B33F63F;
+	Tue, 19 Aug 2025 03:25:15 -0700 (PDT)
+Date: Tue, 19 Aug 2025 11:24:34 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: Re: [PATCH v3 3/6] KVM: arm64: Ignore HCR_EL2.FIEN set by L1 guest's
+ EL2
+Message-ID: <20250819102434.GA3736290@e124191.cambridge.arm.com>
+References: <20250817202158.395078-1-maz@kernel.org>
+ <20250817202158.395078-4-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818-thermal-rockchip-grf-warning-v1-1-134152c97097@kernel.org>
+In-Reply-To: <20250817202158.395078-4-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_032040_470388_FB4FF902 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250819_032519_943578_13A5A250 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,30 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Sun, Aug 17, 2025 at 09:21:55PM +0100, Marc Zyngier wrote:
+> An EL2 guest can set HCR_EL2.FIEN, which gives access to the RASv1p1
+> fault injection mechanism. This would allow an EL1 guest to inject
+> error records into the system, which does sound like a terrible idea.
+> 
+> Prevent this situation by added FIEN to the list of bits we silently
+> exclude from being inserted into the host configuration.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-kernel test robot noticed the following build warnings:
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-[auto build test WARNING on c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/thermal-rockchip-shut-up-GRF-warning/20250819-012807
-base:   c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
-patch link:    https://lore.kernel.org/r/20250818-thermal-rockchip-grf-warning-v1-1-134152c97097%40kernel.org
-patch subject: [PATCH] thermal: rockchip: shut up GRF warning
-config: riscv-randconfig-001-20250819 (https://download.01.org/0day-ci/archive/20250819/202508191909.EIZEWxiJ-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 93d24b6b7b148c47a2fa228a4ef31524fa1d9f3f)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250819/202508191909.EIZEWxiJ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508191909.EIZEWxiJ-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/thermal/rockchip_thermal.c:133 struct member 'grf_mode' not described in 'rockchip_tsadc_chip'
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+>  arch/arm64/kvm/hyp/vhe/switch.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index e482181c66322..0998ad4a25524 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -43,8 +43,11 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+>   *
+>   * - API/APK: they are already accounted for by vcpu_load(), and can
+>   *   only take effect across a load/put cycle (such as ERET)
+> + *
+> + * - FIEN: no way we let a guest have access to the RAS "Common Fault
+> + *   Injection" thing, whatever that does
+>   */
+> -#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK)
+> +#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK | HCR_FIEN)
+>  
+>  static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+>  {
+> -- 
+> 2.39.2
+> 
 
