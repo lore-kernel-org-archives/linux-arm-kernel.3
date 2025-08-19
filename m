@@ -4,86 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B09CA0EE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 04:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB4ECA0EE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 04:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+QCQHoHMZMKL4gCByhn+RUDlkHZshjMLMIJ1PFBFVo=; b=fFZdGJGxEDTIHgNWiXKDRkInNc
-	ZYdrMnsjqwfi/Z6WWYSjARdiG93JYSflHS0ISzfFr8tWL69WMrhsx/2aHuVmQj1+0jkQZJM9vApWu
-	1y3eogkA149qTNA4jfKUA3FFw2Lu9OjLx13AAQGJ25QIcHV3PqWcUKO1N+CEBTR53roMIFgzVBx7A
-	xXmYcXR+ZrKk15/TaeCps12Tm/Wgm9ufOUJd/mcBdZmY4eWRwBNIH5oxTQE0l66p2rrEjPq8TPXRf
-	dF69g0Br+8qIVZoUybSIKKtsaRbkyFdPMHbkZMYZxvUQVxdH7LtE/0HMu66EvZqDrc1TjhCdy7Aqq
-	nPPs+gFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=; b=ei2VPLYXO37ksndhnwpVBIj+fW
+	K0eeEgjarpMv+Iet4dNW4W3rsfO/ksJEhmVqBsS5ii2HfTlKog74AT39FUKz5BpXb9jnI8/GC7jvr
+	o8qnn9KOPCkpDbTLAifUpwvxhIU591l7AxYBm58GKjY8P746fazcpY6v09z22yHAnpWz5Regu/cf7
+	vm0Dy+d9dKEj63YR4R1W65TSyOo8X9iBtEMIuzVbvpl/VhQwQdq/TwiHFNGzJhtevQWr+aNTRkFlP
+	HLH4+/pUuOfKYJ27h5hbcob1DWdO/V6zeN36GRlUCQYoWIh3fdiNNOllw8c+tk+bNUA5rMC99S82i
+	+zs02JxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoE9s-00000009Npw-0lZB;
-	Tue, 19 Aug 2025 04:41:16 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1uoELd-00000009OiR-37EM;
+	Tue, 19 Aug 2025 04:53:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoE7G-00000009Nlm-0Nzj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 04:38:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755578314; x=1787114314;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fX1fDtkJlgXe21ThnDLJ12QhRuLIMPpV4e+3sPurSW0=;
-  b=UxwsOZ1ulEZYVQIiVzewu33WAQcTwICFFB9AIRLG/YjXQDXUlLqRGFzC
-   Ie1ADYwBltMu2Nhr5WXpxhFSiUSG0/ph77cS8I524/5XK6VcnKKreHoDS
-   yvRtg0F9KxzQH1U3jlaD9GVZLy2DgS/mGcoWZ6vUdtAesYCxCtGKvna/d
-   DaUpiy86JDdcfsl2vEG0Xrsr6iwNG3V5fUPRNIMi01gIYrVlDTNoP06Q9
-   EdKL660xpWOgJhjyE97URmsqTVa/aiv/2+QvNvhXcqzD3d6Lcb60imyVv
-   QL+Yx3MLsU78U3XpMhTvpUXWYgIFYV3pwgXzTWzfLsjyeTOe7/WkOTHof
-   g==;
-X-CSE-ConnectionGUID: SWDnuV0pSq+zAIcjglupSw==
-X-CSE-MsgGUID: GKhQCyfqTRu6+XnaHBo64g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11526"; a="57882453"
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="57882453"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2025 21:38:33 -0700
-X-CSE-ConnectionGUID: xr1bnbrgSICKne4JN1ZibA==
-X-CSE-MsgGUID: Zwnm0lBgRl6z9KTr/9UVMw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,300,1747724400"; 
-   d="scan'208";a="166981588"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 18 Aug 2025 21:38:29 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uoE78-000GVn-2D;
-	Tue, 19 Aug 2025 04:38:26 +0000
-Date: Tue, 19 Aug 2025 12:38:16 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Jacky Bai <ping.bai@nxp.com>
-Subject: Re: [PATCH v3 3/4] thermal: qoriq: workaround unexpected temperature
- readings from tmu
-Message-ID: <202508191258.tYXB63eu-lkp@intel.com>
-References: <20250818-imx93_tmu-v3-3-35f79a86c072@nxp.com>
+	id 1uoEJ2-00000009ObZ-2UHo;
+	Tue, 19 Aug 2025 04:50:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=; b=JMim4CIkd4W/TR1onqluXR8aSu
+	UdxO4Xb7EG6kX4k5B1LKV9LgwVB7JsToilHiSC5Ql1UT9GzHZ8/INIl6xB6TZofnQboo0mJQtC9et
+	WS8X3dpObUgjsBAyT3R204RqGGMLP3xtPvm+/Y1IRzpswTm8pVuuJlB/iWherANNSlwS9oR7LxyZj
+	tLTwSwULIuuqqHKogpN6dL7r4iJoqHPkbRpBZPG16R1oawpL8UvS+xHRvcDMYBvu3uIR+60Fsyn3f
+	Z7MfVf4ROwiNlU4VgNl+4wftP0WJuuvMYUxl6lMHc7emL9O4MnNHGyNQy9YbioCGH1T9s281t5djb
+	qwHbjdhg==;
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoEIm-0000000HZNT-1JuG;
+	Tue, 19 Aug 2025 04:50:42 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b4717543ed9so3316394a12.3;
+        Mon, 18 Aug 2025 21:50:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755579024; x=1756183824; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=;
+        b=l77k+T+adrohVWuKQsMRnJJaKqYosOlL7p9hhwju/chvpxeyPfrMiRwihC0TleGRGp
+         RPRZqDq5C703EWj6Yz8MwDkKOYSsmdrBkPMGX2ZkU21J9EkLYl1qQcKzu8lJ4r4JS/sC
+         J0Wt5UkGZ0JfcXMc+lrWJGyzEEu33h9i4DmgxNH0fI7WIQMJrpFWbtRqvCrhSbu/6SjT
+         eqPD6p6L7UDUOwpMd6HRCf2ARTFu7upR17kl44CgFBIDzJQz2IyZ8uVwnAyTLLkFIqpr
+         POkTdbFRl3K/AXdR+3CxLqI7xBkNatTkb3f6tgx+qqATXL5Q8qlvJmbPr4l4B6SlXZi0
+         HvQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755579024; x=1756183824;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+vJmKQWtl6J7yVeYEb7WsF4szveHuDGwgxqszhsgVgg=;
+        b=GEpmktVZBBVlI/mxJFXlLKa/Uc8JopBf0GqUZLUHOXPfDUoDk9ROYYzVJaHmBN3mWZ
+         XcECL/8ZE23uTLaeYV8w+MOUk8JDiOFqwQboquOwWVGbnsQgQ8JuUa2GlO85e/C44nhc
+         55R/aUsxPlTAIaFIx0HPNCiyyvct/0S+73uKhpmkQWS12u4Jw4+6bgTFQ35QNaMOSt2c
+         F1pkv0SX3pEcdw14HRfj0Twczod+3rbuUen2ED7MML9XRcls3a1BDbswhSNQzCOZG/te
+         VOEg2TZiGci6ZUYR6QkTDyBXl5cPMAD1UqrtpLdVXLAQz23YoN2rxsQAmJMxEiJE1dMc
+         wdfg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMSZHTlwEsaR/C0qLeOFoFUOWAoY8wqayiD3BCqReAMQupieRXJg7q4sEIrzMpiUpdxarobSrgnL32NlBBGjXx@lists.infradead.org, AJvYcCX7hgLvrwt+2Nxg7sn7TDlHNE+hrceZvuGHUL5oAkCpv+PFXkLVdFZT+Z+h2sspbVaSiEn1qoZvnzRTA93zOlo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdjuuOWcUbKr1ZgHy94dlbHBrM2mIcSXhwOGJmeECf+BpbVyfv
+	OLi1ys6DxiZckRDQwzoxENpMqJCaS5euzXBLu10dPmEBh6NgJrXiALDLQ/MK613Z
+X-Gm-Gg: ASbGnctOSlqXcC8x000t2WKHJ9coZktmeaFkuqRN7trQ0cUhP7uNhsbUfEpoqi1Wsif
+	4bdOLjRZylPHcUB7qVOJDnzAw8y+zhCkbLpvBUJh3m8y0YeWAhGV4V08iawanZa4oK2csmZbZBx
+	GzoKGu6tWI4nQULCkrW3KdqJz1OL16m2ALAaZq3p/8vRd7bJPvXpsN3zCqDUPx2BlftyvMHJLRH
+	qW24pTkzS6bwWA1g+oCUIrgkfVfNgJSH1d9SaO+hGIFmYtngkJnNt3Xe6Ov/eRc+UcoWBYA+CCY
+	O3jP9Z8FOdBwiJXiX19DnhM1eKjYLTVdITRBQ1njCkpn11nabtVxRzfdsiyvr3Wbe7mMnQfckPg
+	b59kojgR/nKWyMaN1eA==
+X-Google-Smtp-Source: AGHT+IE+vvFkCAMYWcasDYcaMWmjMZUKz3Kfg4C6k3T20iFxSNENGqz3MfkDySluEL6Scuwb+o/WUQ==
+X-Received: by 2002:a17:902:e94e:b0:235:e942:cb9e with SMTP id d9443c01a7336-245e043538cmr13109365ad.9.1755579023656;
+        Mon, 18 Aug 2025 21:50:23 -0700 (PDT)
+Received: from anyang.. ([106.250.177.234])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2446ca9d02csm96119415ad.7.2025.08.18.21.50.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Aug 2025 21:50:23 -0700 (PDT)
+From: Dongjin Kim <tobetter@gmail.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Change ethernet TXD timing delay value
+Date: Tue, 19 Aug 2025 13:50:17 +0900
+Message-Id: <20250819045018.2094282-1-tobetter@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818-imx93_tmu-v3-3-35f79a86c072@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250818_213834_176665_B90DCAE5 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20250819_055035_072978_262EF3A8 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,123 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacky,
+Very poor network performance is observed on the ODROID-M1 Board
+(REV 1.0 20220613) when running iperf3 (under 200Mbits/sec), and
+this problem can be resolved after changing the value of TXD
+timing to 0x35 from 0x4f.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Dongjin Kim <tobetter@gmail.com>
+Change-Id: Idecd246e3fe93447b6e3e9b165d077d2050bbd75
+---
+ arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[auto build test ERROR on b9ddaa95fd283bce7041550ddbbe7e764c477110]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Bai/dt-bindings-thermal-qoriq-Add-compatible-string-for-imx93/20250818-173822
-base:   b9ddaa95fd283bce7041550ddbbe7e764c477110
-patch link:    https://lore.kernel.org/r/20250818-imx93_tmu-v3-3-35f79a86c072%40nxp.com
-patch subject: [PATCH v3 3/4] thermal: qoriq: workaround unexpected temperature readings from tmu
-config: riscv-randconfig-001-20250819 (https://download.01.org/0day-ci/archive/20250819/202508191258.tYXB63eu-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 93d24b6b7b148c47a2fa228a4ef31524fa1d9f3f)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250819/202508191258.tYXB63eu-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508191258.tYXB63eu-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:804:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     804 |         insb(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:104:53: note: expanded from macro 'insb'
-     104 | #define insb(addr, buffer, count) __insb(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:812:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     812 |         insw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:105:53: note: expanded from macro 'insw'
-     105 | #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:820:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     820 |         insl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:106:53: note: expanded from macro 'insl'
-     106 | #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
-         |                                          ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:829:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     829 |         outsb(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:118:55: note: expanded from macro 'outsb'
-     118 | #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:838:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     838 |         outsw(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:119:55: note: expanded from macro 'outsw'
-     119 | #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:847:2: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-     847 |         outsl(addr, buffer, count);
-         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   arch/riscv/include/asm/io.h:120:55: note: expanded from macro 'outsl'
-     120 | #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
-         |                                            ~~~~~~~~~~ ^
-   In file included from drivers/thermal/qoriq_thermal.c:8:
-   In file included from include/linux/io.h:12:
-   In file included from arch/riscv/include/asm/io.h:136:
-   include/asm-generic/io.h:1175:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-    1175 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
-         |                                                   ~~~~~~~~~~ ^
->> drivers/thermal/qoriq_thermal.c:281:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     281 |                              FIELD_PREP(TMRTRCTR_TEMP_MASK, 0x7));
-         |                              ^
-   7 warnings and 1 error generated.
-
-
-vim +/FIELD_PREP +281 drivers/thermal/qoriq_thermal.c
-
-   264	
-   265	static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
-   266	{
-   267		/* Disable interrupt, using polling instead */
-   268		regmap_write(data->regmap, REGS_TIER, TIER_DISABLE);
-   269	
-   270		/* Set update_interval */
-   271		if (data->ver == TMU_VER1) {
-   272			regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
-   273		} else {
-   274			regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
-   275			regmap_write(data->regmap, REGS_V2_TEUMR(0), GET_TEUMR0(data->drvdata));
-   276		}
-   277	
-   278		/* ERR052243: Set the raising & falling edge monitor */
-   279		if (CHECK_ERRATA_FLAG(data->drvdata, TMU_ERR052243)) {
-   280			regmap_write(data->regmap, TMRTRCTR, TMRTRCTR_EN |
- > 281				     FIELD_PREP(TMRTRCTR_TEMP_MASK, 0x7));
-   282			regmap_write(data->regmap, TMFTRCTR, TMFTRCTR_EN |
-   283				     FIELD_PREP(TMFTRCTR_TEMP_MASK, 0x7));
-   284	
-   285		}
-   286		/* Disable monitoring */
-   287		regmap_write(data->regmap, REGS_TMR, TMR_DISABLE);
-   288	}
-   289	
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+index 0f844806ec542..e1a550a04498e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+@@ -210,7 +210,7 @@ &gmac0_rgmii_clk
+ 		     &gmac0_rgmii_bus>;
+ 	status = "okay";
+ 
+-	tx_delay = <0x4f>;
++	tx_delay = <0x35>;
+ 	rx_delay = <0x2d>;
+ };
+ 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
