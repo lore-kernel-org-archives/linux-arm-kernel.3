@@ -4,54 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED0ACA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 13:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A23CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 13:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ozkjTGBo9qtzDr7Rizd5PrDZIDiIOfldhJYliCXG4l8=; b=RNnSNcnuS88FzwvJAyainbwYKn
-	hgHBwy4bbV4Q++qGO/aBG95anArFg4BZv1+c7Ur3P+YmYYKVOQ7dxVW/QN9gNPePc7qUGNC4/QcSL
-	3Vw5K08+XjpzWsqB/vpEzP1IlofUYy1+2y5wdFHmU/l/S8AaRrTYCMceKGSjQBPXoE9C9Qcym8T1i
-	GtWXxbt3xRlsYGxy7rKXXzWcgsEp0t/Ppn/xeymDrEY6b8u6nv8PBUQEgdNYHEQ1AQgfqolxsICKA
-	KaSKSPcuByLmmG9VlfyQB8/MWiJHy86Y+6W2PUrYnQCsSGB0UUMmGoCRrYzqukMgnseCND8wt71XZ
-	4K6AQ+bg==;
+	bh=DxglpTbdeQTQZS+HJugwwb7SRd0rE5dj4ieUM65erVg=; b=j4Tj7/w5gq/Yv/6c1yUzGVrgq8
+	Hd+UlC/VIqeSM2tgQmsM7+bQz0sNlBs05BIwLiM5tP9JjzlANhLucStCduh3Ryy7Q1S+5kr/G/djV
+	un7UkMBnjt868tTIMk2gRBVIZlLjg0ACkrG4dAgrvKKmwnd9FHT3N0VjbOmXVESZ01PMN19bUkf3+
+	MDrsiKLWIxrZ9Xxw/eHIvZs0DUW0fcdXAh40hcdiKdbz3Eoss22wBoE4bxvV5u/0Hb3r9ZMCObNBB
+	s6JMDkfNJBAryod++aFmL2+1ZI20MXNRvEhsXuIKlk9PhrYPctFml+AvdqfUd3+2v5aCY9D609SjE
+	LjJvVTPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoM9i-0000000AYMc-3aDK;
-	Tue, 19 Aug 2025 13:13:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoMCH-0000000AZ0M-2fuW;
+	Tue, 19 Aug 2025 13:16:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoKUQ-0000000AGt7-2SdU
+	id 1uoKY8-0000000AHdm-19k1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 11:26:54 +0000
+	Tue, 19 Aug 2025 11:30:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB97C601F9;
-	Tue, 19 Aug 2025 11:26:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D36BC4CEF1;
-	Tue, 19 Aug 2025 11:26:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C32445C5A22;
+	Tue, 19 Aug 2025 11:30:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030C4C116C6;
+	Tue, 19 Aug 2025 11:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755602813;
-	bh=Xlk0cJXPp5Z1DlZCNv951nIVFa6RyNhToamz2XstySc=;
+	s=k20201202; t=1755603039;
+	bh=j7/9/8MvQE7gNxxV/8cXnjyYBT55tXdw0tWY30qH1p8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DnNR/d74jb9pL6pAcFKM1Xi18x12kaMbzVdKQTRtrwAR/nMVETCMq3LY7/TDfmu2V
-	 au3KkuB59Op1jLe4EVSqxWsZd+Wsvsat0V34DxNKJnTOuhjF38g8xlmoqvUfwGfNKl
-	 SuMgqbIjOqpYAlOhwY7D0BX74iCqpV1lRKxgWyamCgNWBJITGMC0T3rIMviLVy1i8u
-	 ds6u5682tkn7AGCaKqaZZBGwo2QgB1YF81guM/St4qM+fQs5d1L9khxONppdz2O8qE
-	 +gwX0geJnOXe9iMJCJfOR4OOe+sFpb5KCbk2SSMsCUC5rgBjbjOLmXIt2gPT6jOzIt
-	 xOJVlx6DuuLlg==
-Message-ID: <e688e2e3-4376-4bd4-a882-b73399967a5a@kernel.org>
-Date: Tue, 19 Aug 2025 13:26:49 +0200
+	b=epIcSTweFBESTgqUvw7gkKxlJgG1ssfTzu3hG9e5Da3ozR2d2T5xN6sX4GTDyAS38
+	 bV7j+e8HmiNfrAxD76d/CbGOY9tes8rWOCeMth0xyvPZOWzjSkxhs4tawNJ15aKVHp
+	 61rYc+9SN9tWcKhAYLJTZsG8A50Z0z6etsMLtw6/hOdlsLSIoTfdGKTSwHx6e2Iw2h
+	 79sn5BBi0xpctlRSH0x4IZ8b9js0fdHFMXwPajb9h+gIYpm42giwFD1QbqQ8UxlXlk
+	 li+mlVEa+2/k/65wi+mlDikVkDER822BjQQK546aGj0Rw1B8QWRn/uSgqNDof0xzT1
+	 Lv7jqNq6SqAzA==
+Message-ID: <aba6bf1d-5974-4003-9ae2-62033ddf87c5@kernel.org>
+Date: Tue, 19 Aug 2025 13:30:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm: multi_v7_defconfig: Enable more OMAP related
- configs
-To: Beleswar Padhi <b-padhi@ti.com>, linux@armlinux.org.uk, arnd@arndb.de
-Cc: afd@ti.com, u-kumar1@ti.com, praneeth@ti.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250819101137.2878336-1-b-padhi@ti.com>
+Subject: Re: [PATCH v2 0/3] coresight-tnoc: Add support for Interconnect TNOC
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250819101137.2878336-1-b-padhi@ti.com>
+In-Reply-To: <20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_043044_398749_959BCCDC 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,23 +122,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2025 12:11, Beleswar Padhi wrote:
-> This allows us to enable various peripherals in the TI OMAP family
-> platforms like AM571X-IDK, AM572X-IDK, AM574X-IDK, AM57XX-BEAGLE-X15,
-> AM57XX-EVM using the multi_v7_defconfig, instead of only with the
-> OMAP specific defconfigs.
+On 19/08/2025 12:27, Yuanfang Zhang wrote:
+> This patch series adds support for the Qualcomm CoreSight Interconnect TNOC
+> (Trace Network On Chip) block, which acts as a CoreSight graph link forwarding
+> trace data from subsystems to the Aggregator TNOC. Unlike the Aggregator TNOC,
+> this block does not support aggregation or ATID assignment.
 > 
-> DRM_PANEL_OSD_OSD101T2587_53TS:
-> Enables OSD LCD panel support used in AM57XX evaluation modules.
-> 
-> SPI_TI_QSPI:
-> Enables TI's QSPI master controller driver for accessing flash devices
-> on OMAP5 platforms.
-> 
-> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 > ---
+> Changes in v2:
+> - Refactor the dt-binding file.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Everything is rafactor. What changed specifically?
+
+Or you just ignored prevous feedback and did other changes?
+
+
 
 Best regards,
 Krzysztof
