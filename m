@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D90CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBD2CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 21:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:In-Reply-To:Date:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9gSWcuKd0wU9job7na3f+ExlNImfUm9ntr2EO+b33F0=; b=RrDYfqYC0g1jkF
-	WeJFJspXsiIlwA1CkHiLeusMuUJ/WD2XwmMM4Q8J4aH8dgvu7UAQc/jFNDLCoIHauFZLYjQqncYXA
-	Fa3wJoggCIh7xxe7eSa31XSvbBzPXNfWrDRz1sGNHOQlqzy7T1NIEvBA1in/BKAKU0D83KIlz9m2b
-	cgWRzJROH+ULnBlDEDMNzG135o+Vke0H5bmQYRKDluOvmILB8miNGei+vHOkSyC9YyxVexU6VXhSa
-	odM9bSnxrhjLdWHdHsO2v/dT+QCYxnmiZUWcGj0K8zen+HkNsHil45e20CXGpbDDIRcbEDtryJl+K
-	dAsbMb5EPYdaIU/HW80Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c9wYGF4pOutbHnRA9CKnGsvb7OecahxdqMP8ccX3iVQ=; b=VD9zru34rNylo4L9yycufFJFwv
+	eodMvLjNx8sqImewoq1XMAkFaf0POyF3APS9rCFR+VMoOvJYkI8Y+X4/66QBDJ7wh0ucvqFQA0Q3Q
+	a0jAaIF3Frb4019Wegz5vM0xVBC1W+9tqTgHTVoyh4g0md7eE0qEq52UK+u/41NcmcsHvy7axvvPw
+	Va8ul+WWrssOK5c0jm4vRJ0y+q8z5+ogpUp73Bt+n3dlS+QkeeDg3PvvHJp2IvLheO4HZxOouPaRz
+	8oDM+YM/vGQVNpmGaBHq4WjUHgxPIZXyl771hEEnCOf+NX87M7Pa3uyvkPEl90oAsOXwwvsXesZqP
+	3u+56Umw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoTdN-0000000Bcap-0EJV;
-	Tue, 19 Aug 2025 21:12:45 +0000
-Received: from mail-io1-f72.google.com ([209.85.166.72])
+	id 1uoTg0-0000000Bciz-3kxm;
+	Tue, 19 Aug 2025 21:15:28 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoNah-0000000An7I-0Ql6
+	id 1uoNd2-0000000AnTm-0696
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 Aug 2025 14:45:36 +0000
-Received: by mail-io1-f72.google.com with SMTP id ca18e2360f4ac-88432dc61d9so1407435539f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 07:45:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755614733; x=1756219533;
-        h=cc:to:from:subject:message-id:in-reply-to:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9gSWcuKd0wU9job7na3f+ExlNImfUm9ntr2EO+b33F0=;
-        b=bMGRphNQez/baaFCipDXqy+U530BqxSAeOSNU2bx33u7p7tAsUMzHmzPjf1rsTg/Ma
-         2AJUNKpqjXVpqUBBGbbKb0sU3BjnIMOdXp49qP6496EeyGGRDiY0N1BsO8NQBCmkh/g2
-         IItoCZPaqUrSF42/vKbFoT3lyyyWn1+dy0B5Xstb+id36hK/9eqFvDNiGtecjX/FFupv
-         VDHNIWQyXolXz0uLHEtnSQckhtJ6nFPvsm/Qo58kcYVProUxnP/xFQzfLBLZ/Y8FksUi
-         PQ+gP0mKGmHFCGpSAWjD4Cq+n2i1Att0Lfqd8g7uzahLjiHuXAk+IbjQFoMcce+cldy3
-         TkLw==
-X-Forwarded-Encrypted: i=1; AJvYcCX69q3tp914GutsMu+re3DLBK50gV4w06wSAVI8ux9eKFFa2NRxsiYy45ylIvCu4N6DI1jwsyIU8slR94i7QkPh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR++fcqx+esZ1akJydcvBS9eUUSfgSdVp1p0ErhX+f7NGFTunv
-	MSvHjxbWgamYHR9JDKYMIsnAln1MaXuXoAE77Aoj/jibgVDko8QnaclBV3nKzktU5SH6sksGVr1
-	CQNLGM7D8zRmOk6wSzfz/Qb+ZzQYON5Mdci3JJqQy/YW3Zk2M8Cm+O0redk0=
-X-Google-Smtp-Source: AGHT+IHOAYQxCWVcuuhK6rTr3fCVucH64A72KBcVKxz26yW9h7hf3hjUhPdz6KOUFEV8iD3iZmTLNpyS0nqK6zLqK97aBfgRNWkg
+	Tue, 19 Aug 2025 14:48:02 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c5smJ5Yn5z13NM7;
+	Tue, 19 Aug 2025 22:44:16 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0AC7F18007F;
+	Tue, 19 Aug 2025 22:47:49 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 19 Aug 2025 22:47:48 +0800
+Subject: Re: [PATCH] ACPI: AGDI: Add interrupt signaling mode support
+To: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250818065437.85905-1-fj1078ii@aa.jp.fujitsu.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <57c0e289-8d03-785b-15a7-18df3763be8a@huawei.com>
+Date: Tue, 19 Aug 2025 22:47:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-Received: by 2002:a05:6602:1d88:b0:87c:49fe:cafe with SMTP id
- ca18e2360f4ac-88467f37802mr435941139f.11.1755614733624; Tue, 19 Aug 2025
- 07:45:33 -0700 (PDT)
-Date: Tue, 19 Aug 2025 07:45:33 -0700
-In-Reply-To: <20250819090853.3988626-1-keirf@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <68a48e0d.050a0220.e29e5.00c7.GAE@google.com>
-Subject: [syzbot ci] Re: KVM: Speed up MMIO registrations
-From: syzbot ci <syzbot+cidf4b445961d44cba@syzkaller.appspotmail.com>
-To: eric.auger@redhat.com, keirf@google.com, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com, 
-	seanjc@google.com, will@kernel.org
-Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20250818065437.85905-1-fj1078ii@aa.jp.fujitsu.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_074535_143588_006478C4 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_074800_866304_63A0B94E 
+X-CRM114-Status: GOOD (  36.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,82 +74,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-syzbot ci has tested the following series
+Hi Kazuhiro,
 
-[v3] KVM: Speed up MMIO registrations
-https://lore.kernel.org/all/20250819090853.3988626-1-keirf@google.com
-* [PATCH v3 1/4] KVM: arm64: vgic-init: Remove vgic_ready() macro
-* [PATCH v3 2/4] KVM: arm64: vgic: Explicitly implement vgic_dist::ready ordering
-* [PATCH v3 3/4] KVM: Implement barriers before accessing kvm->buses[] on SRCU read paths
-* [PATCH v3 4/4] KVM: Avoid synchronize_srcu() in kvm_io_bus_register_dev()
-
-and found the following issue:
-WARNING in kvm_put_kvm
-
-Full report is available here:
-https://ci.syzbot.org/series/3dc60813-f155-4817-8552-1f86bd35f4e4
-
-***
-
-WARNING in kvm_put_kvm
-
-tree:      torvalds
-URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
-base:      dfc0f6373094dd88e1eaf76c44f2ff01b65db851
-arch:      amd64
-compiler:  Debian clang version 20.1.7 (++20250616065708+6146a88f6049-1~exp1~20250616065826.132), Debian LLD 20.1.7
-config:    https://ci.syzbot.org/builds/a80ce1fb-9721-4229-8c84-f01975da18a2/config
-C repro:   https://ci.syzbot.org/findings/c7213edd-3666-4fca-886f-07477eb19900/c_repro
-syz repro: https://ci.syzbot.org/findings/c7213edd-3666-4fca-886f-07477eb19900/syz_repro
-
-------------[ cut here ]------------
-WARNING: CPU: 0 PID: 6003 at kernel/rcu/srcutree.c:697 cleanup_srcu_struct+0x4ea/0x5f0 kernel/rcu/srcutree.c:697
-Modules linked in:
-CPU: 0 UID: 0 PID: 6003 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-RIP: 0010:cleanup_srcu_struct+0x4ea/0x5f0 kernel/rcu/srcutree.c:697
-Code: 8b 5c 24 08 74 08 48 89 df e8 e2 30 7d 00 48 c7 03 00 00 00 00 48 83 c4 20 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 90 <0f> 0b 90 eb e6 90 0f 0b 90 eb e0 90 0f 0b 90 eb 14 90 0f 0b 90 eb
-RSP: 0018:ffffc90003b0fc78 EFLAGS: 00010202
-RAX: 1ffffd1fe28c5059 RBX: 1ffff1102341db2b RCX: b3fdaa5e0844b500
-RDX: 0000000000000000 RSI: ffffffff8dba5bb5 RDI: ffff888022170000
-RBP: ffffe8ff146282c8 R08: ffffe8ff14628367 R09: 1ffffd1fe28c506c
-R10: dffffc0000000000 R11: fffff91fe28c506d R12: ffff88811a0ed958
-R13: 0000000000000000 R14: dffffc0000000000 R15: 1ffffffff1b7be74
-FS:  000055557858e500(0000) GS:ffff8880b861c000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 000000c002fcff88 CR3: 000000003a46e000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- kvm_destroy_vm virt/kvm/kvm_main.c:1324 [inline]
- kvm_put_kvm+0x8ca/0xa70 virt/kvm/kvm_main.c:1353
- kvm_vm_release+0x43/0x50 virt/kvm/kvm_main.c:1376
- __fput+0x44c/0xa70 fs/file_table.c:468
- task_work_run+0x1d1/0x260 kernel/task_work.c:227
- resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
- exit_to_user_mode_loop+0xec/0x110 kernel/entry/common.c:43
- exit_to_user_mode_prepare include/linux/irq-entry-common.h:225 [inline]
- syscall_exit_to_user_mode_work include/linux/entry-common.h:175 [inline]
- syscall_exit_to_user_mode include/linux/entry-common.h:210 [inline]
- do_syscall_64+0x2bd/0x3b0 arch/x86/entry/syscall_64.c:100
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f975198ebe9
-Code: ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 40 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 a8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007fffbfd6bfd8 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
-RAX: 0000000000000000 RBX: 000000000000ed88 RCX: 00007f975198ebe9
-RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
-RBP: 0000000000000000 R08: 0000000000000001 R09: 00000003bfd6c2cf
-R10: 0000001b2fa20000 R11: 0000000000000246 R12: 00007f9751bb5fac
-R13: 00007f9751bb5fa0 R14: ffffffffffffffff R15: 0000000000000003
- </TASK>
+On 2025/8/18 14:54, Kazuhiro Abe wrote:
+> AGDI has two types of signaling modes: SDEI and interrupt.
+> Currently, the AGDI driver only supports SDEI.
+> Therefore, add support for interrupt singaling mode
+> The interrupt vector is retrieved from the AGDI table, and call panic
+> function when an interrupt occurs.
 
 
-***
+> SDEI & Interrupt mode is not supported.
 
-If these findings have caused you to resend the series or submit a
-separate fix, please add the following tag to your commit message:
-Tested-by: syzbot@syzkaller.appspotmail.com
+I think this can be removed, it's not allowed naturely.
 
----
-This report is generated by a bot. It may contain errors.
-syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+> 
+> Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+> ---
+>   drivers/acpi/arm64/agdi.c | 114 +++++++++++++++++++++++++++++++++++---
+>   include/acpi/actbl2.h     |   4 +-
+>   2 files changed, 110 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+> index e0df3daa4abf0..c514bb874c5d3 100644
+> --- a/drivers/acpi/arm64/agdi.c
+> +++ b/drivers/acpi/arm64/agdi.c
+> @@ -16,7 +16,11 @@
+>   #include "init.h"
+>   
+>   struct agdi_data {
+> +	unsigned char flags;
+>   	int sdei_event;
+> +	unsigned int gsiv;
+> +	bool use_nmi;
+
+will we use normal interrupt as the signaling?
+
+In the spec, it says:
+
+Some use-cases, such as system management, require the ability to
+generate a non-maskable event to the OS to request the OS kernel to
+perform a diagnostic dump and reset the system.
+
+Seems only non-maskable event is allowed, Sudeep, any idea about this?
+
+> +	int irq;
+>   };
+>   
+>   static int agdi_sdei_handler(u32 sdei_event, struct pt_regs *regs, void *arg)
+> @@ -48,6 +52,55 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+>   	return 0;
+>   }
+>   
+> +static irqreturn_t agdi_interrupt_handler_nmi(int irq, void *dev_id)
+> +{
+> +	nmi_panic(NULL, "Arm Generic Diagnostic Dump and Reset NMI Interrupt event issued\n");
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static irqreturn_t agdi_interrupt_handler_irq(int irq, void *dev_id)
+> +{
+> +	panic("Arm Generic Diagnostic Dump and Reset Interrupt event issued\n");
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int agdi_interrupt_probe(struct platform_device *pdev,
+> +				struct agdi_data *adata)
+> +{
+> +	unsigned long irq_flags;
+> +	int ret;
+> +	int irq;
+> +
+> +	irq = acpi_register_gsi(NULL, adata->gsiv, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_HIGH);
+> +	if (irq < 0) {
+> +		dev_err(&pdev->dev, "cannot register GSI#%d (%d)\n", adata->gsiv, irq);
+> +		return irq;
+> +	}
+> +
+> +	irq_flags = IRQF_PERCPU | IRQF_NOBALANCING | IRQF_NO_AUTOEN |
+> +		    IRQF_NO_THREAD;
+> +	/* try NMI first */
+> +	ret = request_nmi(irq, &agdi_interrupt_handler_nmi, irq_flags,
+> +			  "agdi_interrupt_nmi", NULL);
+> +	if (ret) {
+> +		ret = request_irq(irq, &agdi_interrupt_handler_irq,
+> +				  irq_flags, "agdi_interrupt_irq", NULL);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "cannot register IRQ %d\n", ret);
+> +			acpi_unregister_gsi(adata->gsiv);
+> +			return ret;
+> +		}
+> +		enable_irq(irq);
+> +		adata->irq = irq;
+> +	} else {
+> +		enable_nmi(irq);
+> +		adata->irq = irq;
+> +		adata->use_nmi = true;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int agdi_probe(struct platform_device *pdev)
+>   {
+>   	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+> @@ -55,12 +108,20 @@ static int agdi_probe(struct platform_device *pdev)
+>   	if (!adata)
+>   		return -EINVAL;
+>   
+> -	return agdi_sdei_probe(pdev, adata);
+> +	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		return agdi_sdei_probe(pdev, adata);
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		return agdi_interrupt_probe(pdev, adata);
+> +	}
+> +
+> +	return 0;
+>   }
+>   
+> -static void agdi_remove(struct platform_device *pdev)
+> +static void agdi_sdei_remove(struct platform_device *pdev,
+> +			     struct agdi_data *adata)
+>   {
+> -	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+>   	int err, i;
+>   
+>   	err = sdei_event_disable(adata->sdei_event);
+> @@ -83,6 +144,34 @@ static void agdi_remove(struct platform_device *pdev)
+>   			adata->sdei_event, ERR_PTR(err));
+>   }
+>   
+> +static void agdi_interrupt_remove(struct platform_device *pdev,
+> +				  struct agdi_data *adata)
+> +{
+> +	if (adata->irq != -1) {
+> +		if (adata->use_nmi)
+> +			free_nmi(adata->irq, NULL);
+> +		else
+> +			free_irq(adata->irq, NULL);
+> +
+> +		acpi_unregister_gsi(adata->gsiv);
+> +	}
+> +}
+> +
+> +static void agdi_remove(struct platform_device *pdev)
+> +{
+> +	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+> +
+> +	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		agdi_sdei_remove(pdev, adata);
+> +		break;
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		agdi_interrupt_remove(pdev, adata);
+> +		break;
+> +	}
+> +}
+> +
+>   static struct platform_driver agdi_driver = {
+>   	.driver = {
+>   		.name = "agdi",
+> @@ -94,7 +183,7 @@ static struct platform_driver agdi_driver = {
+>   void __init acpi_agdi_init(void)
+>   {
+>   	struct acpi_table_agdi *agdi_table;
+> -	struct agdi_data pdata;
+> +	struct agdi_data pdata = {0};
+>   	struct platform_device *pdev;
+>   	acpi_status status;
+>   
+> @@ -103,12 +192,23 @@ void __init acpi_agdi_init(void)
+>   	if (ACPI_FAILURE(status))
+>   		return;
+>   
+> -	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
+> -		pr_warn("Interrupt signaling is not supported");
+> +	switch (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		pdata.sdei_event = agdi_table->sdei_event;
+> +		break;
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		pdata.gsiv = agdi_table->gsiv;
+> +		break;
+> +
+> +	default:
+> +		pr_warn("Signaling mode(%d) is not supported",
+> +			agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK);
+>   		goto err_put_table;
+>   	}
+>   
+> -	pdata.sdei_event = agdi_table->sdei_event;
+> +	pdata.irq = -1;
+> +	pdata.flags = agdi_table->flags;
+
+My major concern is about the normal interrrupt as the event, not sure
+if it is ok, let's figure it out first.
+
+>   
+>   	pdev = platform_device_register_data(NULL, "agdi", 0, &pdata, sizeof(pdata));
+>   	if (IS_ERR(pdev))
+> diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+> index 048f5f47f8b88..9ddbdd772f139 100644
+> --- a/include/acpi/actbl2.h
+> +++ b/include/acpi/actbl2.h
+> @@ -339,7 +339,9 @@ struct acpi_table_agdi {
+>   
+>   /* Mask for Flags field above */
+>   
+> -#define ACPI_AGDI_SIGNALING_MODE (1)
+> +#define ACPI_AGDI_SIGNALING_MODE_MASK (3)
+> +#define ACPI_AGDI_SIGNALING_MODE_SDEI (0)
+> +#define ACPI_AGDI_SIGNALING_MODE_INTERRUPT (1)
+
+You need to send a patch to ACPICA first to add interrupt support,
+this file belongs acpica.
+
+Thanks
+Hanjun
 
