@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECBFCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9985CA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 Aug 2025 10:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wTq02ZA/awCyjRcLAWcCoPCehHYtltr818J8SinY8Pc=; b=xV8aPNUwI1NYMqDeBvgnqC+iNX
-	15hLnQs9Tq54bWRZPKcuLyHCBpsB1/giafFicC2KnZLlxkhnRJRrFAC0t2hXKT/uf7LTLtT5wxigC
-	UUMFxhgUuQEJW7DUpiSAyoNuR+rGfSrHUKAAbVxGFJ9jFRKC5qSik9fAKhw42Re1HNDogGbnvsiWm
-	dxeOME+0VaST0xkadoGRKeRkATKsN2W0MNt9PRq0U8V+yFbSQvdBVF1DWIyyQLeRosKVXgRjE5aOh
-	NrsBgjFiYdq/8zzoevZk+U24YW6WL3NG8yEdJRVkRHnyfk0niNhxVIjqWgDRCRgD2ZQu+KefDzaxT
-	f2t1N0tw==;
+	bh=HOLkOxh3NUb5BnUIjwpE62BqrGkBGy2RFZaS/ppVfto=; b=X/Vyct29WUdYr9p1/YRHYri96k
+	sWYSYGg+tbp9AWKESCKcJ9T9Nx1LwHITOWO/r751CqwyBK7LIIXpQa/gpHqtktXwmUAcLBjTxS91C
+	IMI8Fa6RmWlg7NK0vrjYMCTcMMpMMZ6Ge6UTMF1sA+o239FfClhobz6ZM9cdTkjPUpGu+lG0VRjRl
+	rhJ/Hx13WWYULtOncS9g+mHp1tyHXIgRt6g7BQv+Aj9BAqbpQ1ZOIpMdvi32HZ5RnxIYGJm5Ed4Mw
+	VkH4IefVTb9Z+ewLMWuf1GimbqNo/yTqL8pFFc0sHVl5XcHCh6I6iiY0ntIldCU0buq34VEbsVzf2
+	aQ4LuRJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoJZk-0000000A81C-3XRF;
-	Tue, 19 Aug 2025 10:28:20 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uoJcM-0000000A8Sy-2stn;
+	Tue, 19 Aug 2025 10:31:02 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoIU9-00000009vaO-1G6h
+	id 1uoIUA-00000009vaQ-1Xme
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 19 Aug 2025 09:18:31 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J8EMBC028895;
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57J8mVwW006539;
 	Tue, 19 Aug 2025 11:18:16 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	wTq02ZA/awCyjRcLAWcCoPCehHYtltr818J8SinY8Pc=; b=BtphlpWTIqurFYuE
-	r/HQPKUMyhv+IafnaMiFfH1aPL8oqtnYvx/GJJI2QbdgE1ZjMaeNy0huX6cvH2pk
-	5W9F6Px7Mlj7u4aDevfQvSzf5udOMCzAwzoJ66msHP/ZKW18wfqy3iwHgp4RrMIG
-	mNXBBkiEda+J3adORCDED5xEdUHzRq8DbYzX5l8Lzh7DJHLN393/IiTXts7fdu8X
-	NA2KcT7MGbIeDWV1bJ2y4gVCmT2jX1Ymf6y/TmVQgRwUhU+aglt0jHZPur7X+W+q
-	RpNtNT5DkLjdz+onEK7mnDDMu/Y2Bq2Hdeb1WgbkTQCLza5d38R2F62TLX3Uw7Vs
-	Vl08AA==
+	HOLkOxh3NUb5BnUIjwpE62BqrGkBGy2RFZaS/ppVfto=; b=sDL2Hq9Pcq2/Xudd
+	yJGy/beNiAFtIXMG6TI68q9Y+CcuZPCjH+sf3Oju1y/699qcp4ZvQ+2VIxb8KCRI
+	n8i4W1eA18u4lsA5KF/0g4eUXUuWfpU+svQ465mOcozZ3goRbAa7Ap2cfGurcfJ2
+	HeD9XtxZKOowCPePHZDgIacfRx8yepYGdGa0D1UUNl4LWHgiTfSXN1biFkZY0F0J
+	WlcW0qZQEtvnC3PS+pQqKTogZzKJ6DmICJcPxZ3fIZYdEHYsNIhC/oLPMEiZEfsr
+	/fsIZPM1C19J9xRBr3KSFpEfxV65iB40uPTKj4bZx580wgwtKVpcXoa2MX8y1poY
+	Mff6aA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48jf47t0d5-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48k4xmqwkk-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 19 Aug 2025 11:18:16 +0200 (MEST)
+	Tue, 19 Aug 2025 11:18:15 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6B9E64004F;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6B8544004D;
 	Tue, 19 Aug 2025 11:16:54 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6BD9571764B;
-	Tue, 19 Aug 2025 11:15:57 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0EC1F71764D;
+	Tue, 19 Aug 2025 11:15:58 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 19 Aug
  2025 11:15:57 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Tue, 19 Aug 2025 11:15:54 +0200
-Subject: [PATCH v3 01/13] dt-bindings: display: st: add new compatible to
- LTDC device
+Date: Tue, 19 Aug 2025 11:15:55 +0200
+Subject: [PATCH v3 02/13] dt-bindings: display: st,stm32-ltdc: add
+ access-controllers property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250819-drm-misc-next-v3-1-04153978ebdb@foss.st.com>
+Message-ID: <20250819-drm-misc-next-v3-2-04153978ebdb@foss.st.com>
 References: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
 In-Reply-To: <20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,8 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-19_01,2025-08-14_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_021829_636100_B4D98C81 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250819_021830_704541_9C747C2B 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,76 +111,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new STMicroelectronics SoC features a display controller similar to
-the one used in previous SoCs.  Because there is additional registers,
-it is incompatible with existing IPs.
+access-controllers is an optional property that allows a peripheral to
+refer to one or more domain access controller(s).
 
-Add the new name to the list of compatible string.
+This property is added when the peripheral is under the STM32 firewall
+controller.  It allows an accurate representation of the hardware, where
+the peripheral is connected to a firewall bus.  The firewall can then check
+the peripheral accesses before allowing its device to probe.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- .../devicetree/bindings/display/st,stm32-ltdc.yaml | 30 ++++++++++++++++++++--
- 1 file changed, 28 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
-index d6ea4d62a2cfae26353c9f20a326a4329fed3a2f..4a227799717637df882170ec08c0a8e88ac430ab 100644
+index 4a227799717637df882170ec08c0a8e88ac430ab..d432983a8b20b6e482b411ad0254884d92848d8c 100644
 --- a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
 +++ b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
-@@ -12,7 +12,9 @@ maintainers:
- 
- properties:
-   compatible:
--    const: st,stm32-ltdc
-+    enum:
-+      - st,stm32-ltdc
-+      - st,stm32mp251-ltdc
- 
-   reg:
-     maxItems: 1
-@@ -24,11 +26,16 @@ properties:
-     minItems: 1
- 
-   clocks:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 4
- 
-   clock-names:
-     items:
-       - const: lcd
-+      - const: bus
-+      - const: ref
-+      - const: lvds
-+    minItems: 1
- 
+@@ -40,6 +40,9 @@ properties:
    resets:
      maxItems: 1
-@@ -51,6 +58,25 @@ required:
-   - resets
-   - port
  
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - st,stm32-ltdc
-+then:
-+  properties:
-+    clocks:
-+      maxItems: 1
-+    clock-names:
-+      maxItems: 1
-+else:
-+  properties:
-+    clocks:
-+      minItems: 4
-+    clock-names:
-+      minItems: 4
++  access-controllers:
++    maxItems: 1
 +
- additionalProperties: false
- 
- examples:
+   port:
+     $ref: /schemas/graph.yaml#/properties/port
+     description: |
 
 -- 
 2.25.1
