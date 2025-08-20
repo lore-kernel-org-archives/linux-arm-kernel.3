@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B232FCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88D68CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g1pmOmzinn4Zel2RAwuEijTrbLzfBWZ7OW/0+Iey3do=; b=AFlHmEyX52eg3JRSRU3PTr03Pj
-	AbNrR99gVSx6ddvcF0c2lzFnY7+um+ldtQi7i7CKqv1obTY8TzS0tZEXz8jJelD9CltF4FsiEsEjp
-	CnWB9t/o6jn2OI73D3qP6Id3uPg6T+qUxYVpHGQ0G/j+uDfN57NXHHvgNDBrzlu6pQA/GvWelZnSJ
-	oaTjDzvqWrAHLC6DXZLBTiFyieTU/F4TS+8cri+x+69kvBH+3sG/hMFrrKkQxhKco32DxbktrDg/H
-	H5AqFYoWDYFTAU77cs8qUscviykpzcrBToduSRFoe0oaER4/Y+Jeqx/Z6UjlpBqwJCFPYqNESjaXx
-	WL/l5o2A==;
+	bh=r5ce2vnAWwshsgRlImURtynlRilgSXboTdKci1gbEto=; b=hsTuk96i26BJpT6Gr8UGiMin/0
+	7t60MFFfA/4QEFOp37rfwIOiDLIM3RcET6KExDSsQjPvoQn5a13FrwMEiUUtmvgms6EkPoXWwlLrD
+	YO5B6kTqwlMfYDUJOT6lWwZvFs7eGyk0ikq+tp3kgRarcfi1TlTVzh7rzognfdmzgDOP4iIQLyg9W
+	JNV7RUL0yBPTJBN4QDBMBIoLsBEG51EFRGFjc+cO53VcwQt4y2uYTiymgb0ESDk2XLrELBpitvVfd
+	pZO4rSMhZT9KfVKC8jaL+8ifWQRSkuk5Vm+j075LsxtrSUwW++dLpG9GdXzyZX6Ld7PfgWywBDHu2
+	qbuh2I/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqFX-0000000Eyp8-1VaE;
-	Wed, 20 Aug 2025 21:21:39 +0000
+	id 1uoqI7-0000000Ez6y-1mSS;
+	Wed, 20 Aug 2025 21:24:19 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomPz-0000000EVS3-3FU3;
-	Wed, 20 Aug 2025 17:16:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755710129; cv=none; 
+	id 1uomQJ-0000000EVW3-3Rns;
+	Wed, 20 Aug 2025 17:16:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755710143; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=BTD4/yi51xI5xgmgdejWLelEC3fo0iFmJGFJ5s1AD/OXfAWRj/RRzveuoKugFaO4J1jujyZg6NAzHrI/kQeHwpvJFgaKm6Z8nx4Jv3S8IH4do8v2XnJco6uiTHifLfd4qxo/zWvEDxCUjp6kObd7fr+CgzyO/Uy0Yys1yfmQ77A=
+	b=hNLFFnLSVZfTH6obyIu9vB7kNyghZB46uNT/owLhChrUkt43dDp2CiEQBc+X98R/RJRqrt8h+Oh8iX1T8k1hBjdOBqxq294Oqq6cRySvRmUWN5ryFv2Ledz+zouEe95+3GYLPbhUHsYTT5w6kwyrvGkceVOn1PLKaH/tAAQNy7U=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755710129; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=g1pmOmzinn4Zel2RAwuEijTrbLzfBWZ7OW/0+Iey3do=; 
-	b=kCBlZRfHOwxELL+EQPWD60fUEsuiJK8DrWI5Wpl0w1NtgHPX0BvQupPbwUuINS8Zocfvey7vHLdoeKBWvvLkZnPtKrWFDqzZTh/oCfua8NTYqGk4Zg1HcrIRVMEU9O8WvsivPshsCiQBF8vbcH+0MxVJPA6sDopCQRRdhL7Wry0=
+	t=1755710143; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=r5ce2vnAWwshsgRlImURtynlRilgSXboTdKci1gbEto=; 
+	b=XINCOMJQ073ZT+t6eryGdxXhIaB/jBYBRPnSaFtbLaOn5zu9/TdTolsWmTqZxQObonwiVm4YUHl43pDT2YbIkXmRjm+B73eBf6c9tyHuf2gfGmAE6lAlxz0uR+er23XIuH23SLkD84Q52L+AoEONYXjTS9OvIqS/CG8Dx+UCR9Y=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
 	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710129;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710143;
 	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=g1pmOmzinn4Zel2RAwuEijTrbLzfBWZ7OW/0+Iey3do=;
-	b=ZyKThXjUBPU5VYAi4/gDZSTtglUWqQS3Ve5STJzG6ZDaSonlqHQu14W8AVVANEia
-	BN+ql4Ig6pxRrc76waxL2r6qugMHm2onZPM9/iJILrqQlzm8c9jo8ZVc6f8wHm3rOJ1
-	GhAaCJp4LIkkhP4t5UD9pB5JTai8qibB4oFQwPIM=
-Received: by mx.zohomail.com with SMTPS id 1755710127144405.5634791495629;
-	Wed, 20 Aug 2025 10:15:27 -0700 (PDT)
+	bh=r5ce2vnAWwshsgRlImURtynlRilgSXboTdKci1gbEto=;
+	b=VQR9NnG/NVAZ6T9+0zthHG6IpuE7PIoRMgzP8KW0dXszaYXMff6R+3xjuF42A0sn
+	8XLm3HIMEfXrvoqbF4PyQvwSvIGPPmgrr/fBKUfjbfRIXa6ss5bVfcaFZEOPZCh+z/I
+	JuOaD7CD1Vln8Bzn3QBp405PC7EtsV50hWldI21o=
+Received: by mx.zohomail.com with SMTPS id 17557101417048.584499419248232;
+	Wed, 20 Aug 2025 10:15:41 -0700 (PDT)
 From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 To: airlied@gmail.com,
 	amergnat@baylibre.com,
@@ -96,9 +96,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH v1 06/14] dt-bindings: display: mediatek,od: Add mediatek,gce-client-reg property
-Date: Wed, 20 Aug 2025 14:12:54 -0300
-Message-ID: <20250820171302.324142-7-ariel.dalessandro@collabora.com>
+Subject: [PATCH v1 07/14] dt-bindings: display: mediatek,ufoe: Add mediatek,gce-client-reg property
+Date: Wed, 20 Aug 2025 14:12:55 -0300
+Message-ID: <20250820171302.324142-8-ariel.dalessandro@collabora.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
@@ -106,9 +106,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_101611_867444_2E26E35A 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_101631_910119_C992EAB1 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,20 +122,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current, the DT bindings for Mediatek OD (display overdrive) is missing
-the mediatek,gce-client-reg property. Add it and update the example as
-well.
+Current, the DT bindings for Mediatek UFOe (Unified Frame Optimization
+engine) is missing the mediatek,gce-client-reg property. Add it and
+update the example as well.
 
 Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 ---
- .../bindings/display/mediatek/mediatek,od.yaml         | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../bindings/display/mediatek/mediatek,ufoe.yaml      | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-index 71534febd49c6..d5b42a4bba190 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-@@ -60,6 +60,14 @@ properties:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+index 61a5e22effbf2..ecb4c0359fec3 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+@@ -64,6 +64,14 @@ properties:
        - port@0
        - port@1
  
@@ -151,19 +150,21 @@ index 71534febd49c6..d5b42a4bba190 100644
  required:
    - compatible
    - reg
-@@ -70,6 +78,7 @@ additionalProperties: false
- examples:
+@@ -77,7 +85,9 @@ examples:
    - |
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
      #include <dt-bindings/clock/mt8173-clk.h>
 +    #include <dt-bindings/gce/mt8173-gce.h>
- 
+     #include <dt-bindings/power/mt8173-power.h>
++
      soc {
          #address-cells = <2>;
-@@ -79,5 +88,6 @@ examples:
-             compatible = "mediatek,mt8173-disp-od";
-             reg = <0 0x14023000 0 0x1000>;
-             clocks = <&mmsys CLK_MM_DISP_OD>;
-+            mediatek,gce-client-reg = <&gce SUBSYS_1402XXXX 0x3000 0x1000>;
+         #size-cells = <2>;
+@@ -88,5 +98,6 @@ examples:
+             interrupts = <GIC_SPI 191 IRQ_TYPE_LEVEL_LOW>;
+             power-domains = <&scpsys MT8173_POWER_DOMAIN_MM>;
+             clocks = <&mmsys CLK_MM_DISP_UFOE>;
++            mediatek,gce-client-reg = <&gce SUBSYS_1401XXXX 0xa000 0x1000>;
          };
      };
 -- 
