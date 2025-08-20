@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80175CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD30CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2O6UfvoDf2q39veAVk0xoKX64L8ZAcRZ+Hfjh7dr2I=; b=mHI5qVjfstPnOfNS1y7X83IG3d
-	blWaeU6FBM8x8iihFJ9SOXMdqhYdQ1Qnat2jyzAOCIjFftyWh0itR4pO40A/P/We6cnu46iXmb0tl
-	0xs/81dd4eEhJYeUt9BX6dLGnkv7DoZN/bV84d+UH+PhBDCuVF/SR0IFhtmviWn/aND1pDccz9lpv
-	es9qA1SRJ7Bi4q8aFZZa4g1QhinB86xbhNCy6ykuGbbQkre/Fza6pJcpoLAB+5dSl+BSQt0nzOoOr
-	gP2xNvzD24IwCth7jX45j6s68Dw0ZQU1eQTGF0ixCWfumjGLFqy9Rt6ukL2J4xu59lR3r0zXDdZ71
-	3NZP/3fQ==;
+	bh=xkR4rONaXtekytURydVCH77DowLYp9V+d3cs5YgAAAU=; b=2fa8obOiDcIy3hxQ65Vs3GbROj
+	YeYDJmBYxXPeqnFXkGgcJgzhWZx53DsQDuvCE459QEeMkgiR5n1kTVEqbt59wust5J/n0Mz03vktC
+	y10emCiWLrR9p03aFY6c+qoHzZecx/U8addTABdcgyZv5uiaYG7hzXMTI8kpcGUXd3dbcP2UrEq8/
+	afS0Ir8LB2QoWpKayCSLktMqJbm+R78sqLf1f3H3HHfQiEPbPwq7fZOq+jE1Os6Qd3c8gvC/sLvZ2
+	8Ma8Son9S8xcCePmlUznxBo2SyDeABgDZfcrL7fRnvhUlszrAq/SrE0LVI3yitr7jKQCcjTdzqpKG
+	wsJy4Q9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uogHb-0000000DDLQ-1Hs4;
-	Wed, 20 Aug 2025 10:43:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uogKB-0000000DE09-0gOe;
+	Wed, 20 Aug 2025 10:45:47 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uof1p-0000000CuJD-17CY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 Aug 2025 09:22:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=N2O6UfvoDf2q39veAVk0xoKX64L8ZAcRZ+Hfjh7dr2I=; b=I1oLHTQ7dAeQQ3vChYkINRwPx+
-	UhnDDAg7JRDTJ0W0bGbS8zBnc84FXhF1oY4CTx+yN1/d7/cXuoXAXrEYc9NNW8/jK5UodwGEXtoRh
-	Wj28XRk/3kPDBRjnwSr3U3KSK1TY8/H+kYl6LGT8JrQNbtB7e6McTFtv9T+xK7MYUB+UuZK1Ylq1q
-	x8KxIcBhjysn0ljIdEn3MCneXZ/pnyhG4TqCUL+0C1sDcDImryw+s5b8rBvoz1py9+LOhPn40LH17
-	YyHlTWrK3NQ35B7r9BWSOo3nmbMgQOwJfiBWEo4rcu61dviSyEYlgvL475DNW6dRG6faytcR+wwYX
-	CiYmv0QQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uof1m-00000000FtM-1BVF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 09:22:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AF9C152B;
-	Wed, 20 Aug 2025 02:22:33 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA4553F58B;
-	Wed, 20 Aug 2025 02:22:35 -0700 (PDT)
-Date: Wed, 20 Aug 2025 11:22:20 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
-	viresh.kumar@linaro.org, sudeep.holla@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
-	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
-	yangyicong@hisilicon.com, zhanjie9@hisilicon.com,
-	lihuisong@huawei.com, yubowen8@huawei.com, zhangpengjie2@huawei.com,
-	linhongye@h-partners.com
-Subject: Re: [PATCH v5 1/3] arm64: topology: Set scale freq source only for
- the CPUs that have not been set before
-Message-ID: <aKWTzPl3bYPy-81e@arm.com>
-References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
- <20250819072931.1647431-2-zhenglifeng1@huawei.com>
+	id 1uofHS-0000000Cy3G-1pJH;
+	Wed, 20 Aug 2025 09:38:55 +0000
+X-UUID: 750b9e907da911f09f706fa2197c6ceb-20250820
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=xkR4rONaXtekytURydVCH77DowLYp9V+d3cs5YgAAAU=;
+	b=G7tU03cBBKnrvyMDfO9Gjwbumfh66GXPMGfXk4ZUw9TIDFd7fvXJ/nF3eRemD2hr35A/cCnhVB0Z8nyPG2Q5/MDoCLWtJLbnfpDGALyt85/27azc1uNeNWKxKYYivmNFykG6d4H8AnNHuVESxW5ZQf5s9BBKwWwqLZYlbXqfgpk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:feac32ae-a650-48f0-90c9-8d8ecd8a7929,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:f1326cf,CLOUDID:0d3bac44-18c5-4075-a135-4c0afe29f9d6,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 750b9e907da911f09f706fa2197c6ceb-20250820
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <xiandong.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1338757411; Wed, 20 Aug 2025 02:38:41 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 20 Aug 2025 17:38:35 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 20 Aug 2025 17:38:36 +0800
+From: Xiandong Wang <xiandong.wang@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Yongqiang Niu
+	<yongqiang.niu@mediatek.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>
+Subject: [PATCH v4 4/4] mailbox: mtk-cmdq: Fix clock handling using clk_bulk_prepare_enable
+Date: Wed, 20 Aug 2025 17:38:23 +0800
+Message-ID: <20250820093831.23437-5-xiandong.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250820093831.23437-1-xiandong.wang@mediatek.com>
+References: <20250820093831.23437-1-xiandong.wang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819072931.1647431-2-zhenglifeng1@huawei.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_102242_598617_05753CFB 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20250820_023854_482969_72F64257 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +91,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'd say it will apply across the series, but shorter commit message could be
-used, like:
+On MT8189, the GCE clock is mounted on the MMInfra clock, so it is
+necessary to enable or disable the parent clock before handling  the GCE
+clock to ensure correct switching for GCE usage.
 
-	arm64: topology: Skip already covered CPUs when setting freq source
+Replace clk_bulk_enable and clk_bulk_disable with
+clk_bulk_prepare_enable and clk_bulk_disable_unprepare in  suspend and
+resume, so both the module clock and its parent clock can be enabled or
+disabled properly.
 
-Otherwise, once that's updated:
-Reviewed-by: Beata Michalska <beata.michalska@arm.com>
+This change modifies the clock API used for suspend and resume
+to ensure correct module and parent clock handling on MT8189.
 
+Signed-off-by: Xiandong Wang <xiandong.wang@mediatek.com>
 ---
-BR
-Beata
+ drivers/mailbox/mtk-cmdq-mailbox.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
 
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 54d008ebdf33..98c9742ea6f4 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -211,7 +211,7 @@ static void cmdq_init(struct cmdq *cmdq)
+ {
+ 	int i;
+ 
+-	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
++	WARN_ON(clk_bulk_prepare_enable(cmdq->pdata->gce_num, cmdq->clocks));
+ 
+ 	cmdq_vm_toggle(cmdq, true);
+ 	cmdq_gctl_value_toggle(cmdq, true);
+@@ -219,7 +219,7 @@ static void cmdq_init(struct cmdq *cmdq)
+ 	writel(CMDQ_THR_ACTIVE_SLOT_CYCLES, cmdq->base + CMDQ_THR_SLOT_CYCLES);
+ 	for (i = 0; i <= CMDQ_MAX_EVENT; i++)
+ 		writel(i, cmdq->base + CMDQ_SYNC_TOKEN_UPDATE);
+-	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
++	clk_bulk_disable_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
+ }
+ 
+ static int cmdq_thread_reset(struct cmdq *cmdq, struct cmdq_thread *thread)
+@@ -383,7 +383,7 @@ static int cmdq_runtime_resume(struct device *dev)
+ 	struct cmdq *cmdq = dev_get_drvdata(dev);
+ 	int ret;
+ 
+-	ret = clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
++	ret = clk_bulk_prepare_enable(cmdq->pdata->gce_num, cmdq->clocks);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -398,7 +398,7 @@ static int cmdq_runtime_suspend(struct device *dev)
+ 
+ 	cmdq_gctl_value_toggle(cmdq, false);
+ 	cmdq_vm_toggle(cmdq, false);
+-	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
++	clk_bulk_disable_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
+ 	return 0;
+ }
+ 
+@@ -437,12 +437,8 @@ static int cmdq_resume(struct device *dev)
+ 
+ static void cmdq_remove(struct platform_device *pdev)
+ {
+-	struct cmdq *cmdq = platform_get_drvdata(pdev);
+-
+ 	if (!IS_ENABLED(CONFIG_PM))
+ 		cmdq_runtime_suspend(&pdev->dev);
+-
+-	clk_bulk_unprepare(cmdq->pdata->gce_num, cmdq->clocks);
+ }
+ 
+ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
+@@ -761,8 +757,6 @@ static int cmdq_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, cmdq);
+ 
+-	WARN_ON(clk_bulk_prepare(cmdq->pdata->gce_num, cmdq->clocks));
+-
+ 	cmdq_init(cmdq);
+ 
+ 	err = devm_request_irq(dev, cmdq->irq, cmdq_irq_handler, IRQF_SHARED,
+-- 
+2.46.0
 
-On Tue, Aug 19, 2025 at 03:29:29PM +0800, Lifeng Zheng wrote:
-> The scale freq source of the CPUs in 'amu_fie_cpus' mask are already set to
-> AMU tick before, so in amu_fie_setup(), only the CPUs in the 'cpus' mask
-> should be set.
-> 
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> ---
->  arch/arm64/kernel/topology.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 5d07ee85bdae..9317a618bb87 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -373,7 +373,7 @@ static void amu_fie_setup(const struct cpumask *cpus)
->  
->  	cpumask_or(amu_fie_cpus, amu_fie_cpus, cpus);
->  
-> -	topology_set_scale_freq_source(&amu_sfd, amu_fie_cpus);
-> +	topology_set_scale_freq_source(&amu_sfd, cpus);
->  
->  	pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
->  		 cpumask_pr_args(cpus));
-> -- 
-> 2.33.0
-> 
 
