@@ -4,107 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E27CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61ABCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlariyUg/2e3sM/3EKHYDRoybrUl8t7Wg/1mNFbV/AA=; b=p3EblzuaWZXic6Ddc2XrxCQ1cR
-	KGgqI/SgG9zogEwEug2Y1jZWW0WRgB4r6wDxAHlALQ4WzvHoYdlpcoMj3X7MsPGoFPrMGP07k3v3H
-	lslMKp/ouQxPsuE/+fhUPnoicA7xN0uRe8+6VxdtTjMUAuug4Zw8LoHrGNuO7jELMrOCrcyGZcB6M
-	apVMjmcrTqzg69Wwz2WggqirSoJMUZaiZBRlGowbyTgvvZ9FkWgXrQjban5Y5JmBvdRMz5dn7Ktrx
-	IXTOfUnu97WWwyFSPrUgR0uGWq5zbr4GyUtw6an8IYN+UuOUda47zqOSa2zqPII7JHFP6lrDirHyX
-	esNfPGRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aNyvWD9cuGIw3hFT+zTgohwmRVegMF/wmArmlAjfCq8=; b=iPtfB4Fv/0KqdvbEZR1OHTVyq0
+	FdATy86owlW1IExS7WqhPC+p3clZT9bg/n9RSo2QUkYxKkjsxWfzRPuRG5Kx8PIOZbPtPf0NpWLFn
+	282TXvG1Avf6py8JdCWjUa+ysGtxN61PS0XngJ0Of1qG3xrX3hFkVSw2JJBo/jG0s6ODqxKS7F5Xn
+	dXVXGJQiU3QoliDXjlh4dFFru75deEo8/miOkcf1XdK/DQDUC1tqJZkUqHzl/QgXymVk7Jvt3xHkP
+	pN6jLF8WeBdF1zZfsZhjRN4kjf7cl8hjZdKIIbKhsIK9geWco+YYxhSoJMjPhrKQfkSCv2mdPzHYD
+	k3apPXiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofro-0000000D6li-06LE;
-	Wed, 20 Aug 2025 10:16:28 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uofuN-0000000D78s-2KWo;
+	Wed, 20 Aug 2025 10:19:07 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofHl-0000000Cy7v-06F2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 09:39:15 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K9Y2ox000924;
-	Wed, 20 Aug 2025 11:39:02 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	vlariyUg/2e3sM/3EKHYDRoybrUl8t7Wg/1mNFbV/AA=; b=8QJZqQQOdu73pxWF
-	/8WRjLizsLGRCWdqzd6mc0DDZXQIQF9pNKeVdKEpnR3UBd8645bs3uAi/GOBIsL2
-	GaABo7FcA1YQDNzmubKpKd2ZLrVG8i638heMKjcO0UdXkEN39LmKJSHUMDMyXrof
-	w7Jy0gPxVBdero2AIz18ReBuzWE/IJ2BPKH77fRYftkM98jOjc00eTL9ps4eFZJA
-	CZDy0+OVHszAdaV4l5nEOpkDESwzRoKXuCtqcLukr8dsTjqbhEZm19rUpU0by2Xc
-	HHpqbY38qmmuB2lHlYISbw2mAHCfH9RGomTFOGXLCZfqlAfopJkV+N9sVWEOcBKC
-	OsLtVQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n6uj9dxb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 20 Aug 2025 11:39:02 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 45DDA40044;
-	Wed, 20 Aug 2025 11:37:15 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 623115FE4CD;
-	Wed, 20 Aug 2025 11:35:58 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 20 Aug
- 2025 11:35:57 +0200
-Message-ID: <72c32584-26a8-41bc-9eb6-1b5c0b25a6b2@foss.st.com>
-Date: Wed, 20 Aug 2025 11:35:56 +0200
+	id 1uofNP-0000000Czrn-2Z7p;
+	Wed, 20 Aug 2025 09:45:04 +0000
+X-UUID: 56541a447daa11f09f706fa2197c6ceb-20250820
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=aNyvWD9cuGIw3hFT+zTgohwmRVegMF/wmArmlAjfCq8=;
+	b=IQo+kzl6xztVn751FrrcxIoqxC8KfenRYcGLg4UqrqCe90zZH+o8g8afItUHKQLFt3wO83g0SC/KGkfiDpFm/wg9qiATViJDHJbrucXaYq2HdM1z/hM2yWtjbrQe/mizUXktdiCE0FCrh3G4fQ42X9dZY/p6C1e78VOU27aualo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:09d56d45-0a7c-4569-bcf5-9c85eab3a556,IP:0,UR
+	L:0,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:100
+X-CID-META: VersionHash:f1326cf,CLOUDID:8c6a20f4-66cd-4ff9-9728-6a6f64661009,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|801,TC:-5,Content:3|15|50,EDM:-3
+	,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 56541a447daa11f09f706fa2197c6ceb-20250820
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1005918573; Wed, 20 Aug 2025 02:44:59 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 20 Aug 2025 17:44:55 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 20 Aug 2025 17:44:54 +0800
+From: Jjian Zhou <jjian.zhou@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
+	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
+	<jjian.zhou@mediatek.com>
+Subject: [PATCH v4 0/2] add VCP mailbox driver
+Date: Wed, 20 Aug 2025 17:44:37 +0800
+Message-ID: <20250820094450.23783-1-jjian.zhou@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] remoteproc: Use of_reserved_mem_region_* functions for
- "memory-region"
-To: Daniel Baluta <daniel.baluta@gmail.com>,
-        "Rob Herring (Arm)"
-	<robh@kernel.org>
-CC: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Shawn
- Guo" <shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        "Pengutronix Kernel Team" <kernel@pengutronix.de>,
-        Fabio Estevam
-	<festevam@gmail.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Magnus
- Damm <magnus.damm@gmail.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Arnaud Pouliquen
-	<arnaud.pouliquen@foss.st.com>,
-        Peng Fan <peng.fan@nxp.com>, <linux-remoteproc@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-renesas-soc@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Iuliana Prodan
-	<iuliana.prodan@nxp.com>,
-        Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>,
-        Aisheng Dong <aisheng.dong@nxp.com>
-References: <20250819213831.1368296-1-robh@kernel.org>
- <CAEnQRZDga2cX=YPY5Z9NDyro94bxFjK9k5Xm5Vt2vVzf4ysKyA@mail.gmail.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <CAEnQRZDga2cX=YPY5Z9NDyro94bxFjK9k5Xm5Vt2vVzf4ysKyA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-20_03,2025-08-20_01,2025-03-28_01
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_023913_658705_B214ACC0 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250820_024503_660938_3C210E94 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,72 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since the reviewer hopes to combine the VCP IPC driver and
+the VCP driver for a unified review, the original three patches
+have been split into two parts: the VCP mailbox driver and
+the binding remain together, while the VCP IPC driver is merged
+with the VCP driver and submitted as one.
 
+To prevent the information discussed in the previous cover letter
+from being lost, the previous link is attached.
+https://lore.kernel.org/all/CAGXv+5FXqZb_v2dQNgCKbFpJrLhbVk3f0sWrrMCVk3jaWwoBqA@mail.gmail.com/
 
-On 8/20/25 10:21, Daniel Baluta wrote:
-> Hi Rob,
-> 
-> This patch will break IMX RPROC support.
-> <snip>
-> 
->> --- a/drivers/remoteproc/imx_rproc.c
->> +++ b/drivers/remoteproc/imx_rproc.c
-> 
-> <snip>
->>  static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
-> <snip>
-> 
->> -               priv->mem[b].cpu_addr = devm_ioremap_wc(&pdev->dev, res.start, resource_size(&res));
->> +               priv->mem[b].cpu_addr = devm_ioremap_resource_wc(&pdev->dev, &res);
-> 
-> devm_ioremap_resource_wc works only for IORESOURCE_MEM resources:
-> 
-> lib/devres.c:124
-> static void __iomem *
-> __devm_ioremap_resource(struct device *dev, const struct resource *res,
-> 
-> »       if (!res || resource_type(res) != IORESOURCE_MEM) {
-> »       »       ret = dev_err_probe(dev, -EINVAL, "invalid resource
-> %pR\n", res);
-> »       »       return IOMEM_ERR_PTR(ret);
-> »       }
-> 
-> while the devm_ioremap_wc doesn't care about this.
-> 
-Hi All,
+Jjian Zhou (2):
+  dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox
+    document
+  mailbox: mediatek: Add mtk-vcp-mailbox driver
 
-> So we cannot use devm_ioremap_resource_wc here unless you add
-> IORESOURCE_MEM flags
-> to  of_reserved_mem_region_to_resource as discussed here:
+ .../mailbox/mediatek,mt8196-vcp-mbox.yaml     |  49 +++++
+ drivers/mailbox/Kconfig                       |   9 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/mtk-vcp-mailbox.c             | 174 ++++++++++++++++++
+ include/linux/mailbox/mtk-vcp-mailbox.h       |  32 ++++
+ 5 files changed, 266 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+ create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+ create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
 
-Agree with Daniel, IORESOURCE_MEM flags should be set in of_reserved_mem_region_to_resource().
+--
+2.45.2
 
-I got a similar issue since commit defe01abfb7f ("spi: stm32-ospi: Use of_reserved_mem_region_to_resource() for "memory-region")
-resource flags is unset, which causing the following error:
-
-[   11.455387] stm32-ospi 40430000.spi: error -EINVAL: invalid resource [??? 0x60000000-0x6fffffff flags 0x0]
-
-Thanks
-Patrice
-> 
-> https://lkml.org/lkml/2025/4/28/759
-> 
-> The same issue we are already experiencing with Sound Open Firmware
-> where the change was already merged
-> and we have a bug already reported.
-> 
-> How should we fix this:
-> 
-> 1) Add  res->flags = IORESOURCE_MEM; in  of_reserved_mem_region_to_resource
-> 
-> OR
-> 
-> 2) Use devm_ioremap_wc instead of devm_ioremap_resource_wc.
-> 
-> thanks,
-> Daniel.
-> 
-> 
-> 
-> Daniel.
 
