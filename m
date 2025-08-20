@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B100FCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F5BCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncpqx4j339hqWj+ozGFH+5vRN/crJz5rqcC6dDBTCmQ=; b=kQnZqWOl96WQmIqTNSupqcbfBd
-	DLagGVc0sNi+mzt4b5Zs87ginPuagIfNUawOPtW3yI2U2xrjUv/1FahxpRq0S++8k40OnuV2Nz+Qy
-	fWCWkFl806/3QrUda56ZFdm17rX6NjwJKaDRSUU0CADxO94N3CI21AsRamxv8jcBtbjVROWnD0WXU
-	xosEir25Api9pQgmVIDKOnYH6ZmvB5Z/el7i+eiyP4iCKKKTKVISKkxvb4+s5xhW71mEUKhEwpjQt
-	Way/U2B7lTBn9nWFOtZBrgt+cceXqTuhGFjAThwrZ8b+HCzIwP5asrXOSUqW2hvNPQCH5h2FtbY8r
-	kkKOxy7Q==;
+	bh=EsahCHfqrBFRjhyc82OBnfDFlMS56jf8D22YaplW1QY=; b=M5Cb9i4NkXQQvI14nJt6TiQFcG
+	HIvZTDQMejFYQ5tk5Qllyk+jsiT6NcfbOCzhurZ9i/phjDmeGGE97i9XB5afVuWsSjBlNkHmMt9rU
+	gLlvUFx674/PeJ2C/LY0JwwZ5p8z/aF5sHPT3+hU6B7O6KEeq9tLZX39vsNYn97Yd8Y6IcmMfm0fn
+	K0KPD09n8klhxKJsnxi9CBU1ntegLpHbnOu1uZmeZwbMlrlEkoajbKrl4Kr8+8grgr3uxI+eYbAcP
+	n6pQyFyTHGZpLZYrfh6ErrGq52tgE7tzz2at8Zr74qNu2qsqL+f3Vlb5YFtymYeDn4ZWZiVKvsTWN
+	xTh9UX1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uouHD-0000000FTQ6-2A6B;
-	Thu, 21 Aug 2025 01:39:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uouJm-0000000FTwU-2gh3;
+	Thu, 21 Aug 2025 01:42:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorAj-0000000F576-2QFW;
-	Wed, 20 Aug 2025 22:20:46 +0000
+	id 1uorEK-0000000F5YH-1CI1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 22:24:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03024451D8;
-	Wed, 20 Aug 2025 22:20:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2FA6C4CEE7;
-	Wed, 20 Aug 2025 22:20:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8E9EDA57837;
+	Wed, 20 Aug 2025 22:24:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 346C4C4CEE7;
+	Wed, 20 Aug 2025 22:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755728444;
-	bh=wsUPldU04Nc0Tm1FqMCC1+DGwqczRsoyIsHWywBiPgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LvsougiKOoa5TSf6WheDqGzlEMw00QFrCBKPtwUf2Tj9Nc4GtcSPwAfQpiNWBbMHc
-	 E8qH/k7/hsk/RF3qbvoavwyuL17GbLlrCyU+7YzdQ61EHOGWKCtUybMhI0bsvL8o7m
-	 T91q85AUiTZeiZmnEq7pMcS+5rSRcAWpFhJtqRXT/mYz/Bi7zGNGC/AuraNoQMnBTq
-	 FyYxpl8DPOnWIemaxZnlpHuT/AhTETzjwLko+J71Bzr3wODLBVMkYOW5eRfZLOecGt
-	 jlBK0S8hxOvvtj+JVF+fqiPZPbm97dPvagupwd9+f5tVqJ8iAGC5ffci5EJC8V27rT
-	 vJlROA+aDptSA==
-Date: Wed, 20 Aug 2025 17:20:44 -0500
-From: Rob Herring <robh@kernel.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	iommu@lists.linux.dev, linux-nvme@lists.infradead.org
-Subject: Re: [PATCH v2 3/9] dt-bindings: iommu: apple,sart: Add Apple A11
-Message-ID: <20250820222044.GA1513864-robh@kernel.org>
-References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
- <20250818-t8015-nvme-v2-3-65648cd189e0@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818-t8015-nvme-v2-3-65648cd189e0@gmail.com>
+	s=k20201202; t=1755728667;
+	bh=ysNe3rGWwElNFQFScxZngEi0VfXeoQjX5AlbYef/6wk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=E0LHqwsB/FLhEq23DaO6O76nUZpFqFY5BwK9BXZi06/G/EzcYm081Mx6tA99iCfDS
+	 eOCG+JnnXDq13atuzO5CYJqlEDjZcJPBgcDgXNuSpxl4GFINUKHRU59cXTCoWSa2g1
+	 zTGQbt/gpVGni5/XJ6N2eHClmVLY94gnyl1QoV7/Drc/es+LQ2BEj6q5aNOj0D/EGj
+	 ugqr+4JHh6jdnCxol72zTj/IpkmB9/B/BHiMu0wXj0YzE4f3x5FilwetESXcJ+esEJ
+	 LVDGcT9VcITtewtQAX0hhlsonOF/6/UiX+afEspBp/YTqZygiPQ/CTIQbI78cLfpnO
+	 H2KYQEt+MC+IA==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uorEH-009W7G-8x;
+	Wed, 20 Aug 2025 23:24:25 +0100
+Date: Wed, 20 Aug 2025 23:24:24 +0100
+Message-ID: <87ikihk4x3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v15 1/6] arm64/gcs: Ensure FGTs for EL1 GCS instructions are disabled
+In-Reply-To: <20250820-arm64-gcs-v15-1-5e334da18b84@kernel.org>
+References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
+	<20250820-arm64-gcs-v15-1-5e334da18b84@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_152045_635934_F1E3ECC3 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20250820_152428_389399_05CAF40C 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 04:42:56PM +0800, Nick Chan wrote:
-> Add bindings for SARTv0 as found on Apple A11 SoC.
+On Wed, 20 Aug 2025 15:14:41 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> Reviewed-by: Sven Peter <sven@kernel.org>
-> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> The initial EL2 setup for GCS did not include disabling of EL1 usage of
+> GCS instructions, also disable these traps.  This is the first disabling
+> of instruction traps, use x2 to store the value to be written.
+
+Written where?
+
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
->  Documentation/devicetree/bindings/iommu/apple,sart.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/include/asm/el2_setup.h | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/iommu/apple,sart.yaml b/Documentation/devicetree/bindings/iommu/apple,sart.yaml
-> index e87c1520fea60a2de549aa8a469fcded52e3b6e3..95d55ec688779bd52b8aef316a4c1ba7b7449574 100644
-> --- a/Documentation/devicetree/bindings/iommu/apple,sart.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/apple,sart.yaml
-> @@ -29,6 +29,7 @@ description:
->  properties:
->    compatible:
->      oneOf:
-> +      - const: apple,t8015-sart
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index 46033027510c..0ac14ea4dbc8 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -355,6 +355,10 @@
+>  
+>  .Lskip_gce_fgt_\@:
+>  
+> +	orr	x2, x2, #HFGITR_EL2_nGCSEPP_MASK
 
-Actually I take back my ack, move this to the existing 'enum' down 
-below. With that change, you can keep the ack.
+What is x2 set to before this?
 
->        - items:
->            - const: apple,t8112-sart
->            - const: apple,t6000-sart
-> 
-> -- 
-> 2.50.1
-> 
+> +	orr	x2, x2, #HFGITR_EL2_nGCSSTR_EL1_MASK
+> +	orr	x2, x2, #HFGITR_EL2_nGCSPUSHM_EL1_MASK
+> +
+>  .Lset_fgt_\@:
+>  	msr_s	SYS_HFGRTR_EL2, x0
+>  	msr_s	SYS_HFGWTR_EL2, x0
+
+Followed by:
+
+	msr_s	SYS_HFGITR_EL2, xzr
+
+Puzzled.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
