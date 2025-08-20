@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABEFCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AEACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=av3oqOvtB2ThwjD67LDV+aOPf/pCLtIRK9+HfjgV6Tc=; b=mcBS61Kza4wo1poVbGBcyee7Qj
-	6vwj8qKgJbZP7oSgRH2Yi1UX1wRsPL+s22qc5Tg4ob6q4MjJpWg6JNBNWiumqeh22M/sy7GCNN2VT
-	+jDqnyjyd+klhRJyAIaCxRNrovwQwgMyug0t3Eu71k/su7AtKUB6fRqrphcLYHlyFRrszFKn6mOLN
-	oIAxyLalsY9DcjLg99QWM2ukdSSo+KpVhMJHJXVdWKq8aHZAL56JHY5JHkjIhFUoVMoA+CxbOLwVQ
-	Oter6zBMyoRhxrlbs654EK8uYW1cjDu10nr0/7o0Fk3kg4wkEOczMk3sbdGTCjTE/CGaj1e5k5lE+
-	aBN+uiIA==;
+	bh=3bptWMPpkGqe9t+MngyZUM1GMWI6w0ldp1LU/Sh+VFo=; b=c8nO62ibesIGvhI0G5Xh65PPQ/
+	lX19DE8hA5Co82xnoBOHB5xb4nogERTxiEEkdG4Ph+0tleCLl2dbjZD9YWijSxz1RD40wyBeUuc1y
+	87hXWCxJAEeH2EEl7S1SKEEWokX2K113ZiATuNgD3aVT77lau222vqp+2idQ7nIA0r1zhtk+7IExi
+	lzi62XO6N7EP+1Z7kMKhVAcAwF2FxaPQRZs+hCndT2wiJcQPimdl3VNkY0RggvMNktoFndBEkN/BN
+	NUUhuZ8GLP1x30M3t8g9s3dAaOEtcfNpr3jD1aiWcCHPxBX5olxrY+dYa3nfOZYBDswHVLAmk9vFK
+	MNZrjACQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uou1m-0000000FRSY-1ZgN;
-	Thu, 21 Aug 2025 01:23:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uou4L-0000000FRnQ-0sA5;
+	Thu, 21 Aug 2025 01:26:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uor4B-0000000F47d-1uw8
+	id 1uor5g-0000000F4HR-2Ns8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 22:14:00 +0000
+	Wed, 20 Aug 2025 22:15:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 851B844618;
-	Wed, 20 Aug 2025 22:13:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 093ECC4CEE7;
-	Wed, 20 Aug 2025 22:13:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 889A361444;
+	Wed, 20 Aug 2025 22:15:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3690CC4CEE7;
+	Wed, 20 Aug 2025 22:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755728037;
-	bh=723mCQUWr4vd81W677iTRLHJxWJWtzlIUtHlOa32V2c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NSwEfGU/YJrPF3PALBhfdolw0CHUjRu08AInSQfl2oOFBo69/fuTXpzGZwvjoaJdB
-	 rQYI4nMpqDfU9sxX15xmXjazClgIP2wxPYwwNa6I0VCbVYMGpWY/PEqRV0l5UXVrs9
-	 U+Nci3ttrnIrMHvMkF/mWu3GjYDDzWJ94MN16eC6x3t+P6XGjoBLVQMsA9yU3e5Sm7
-	 kPZHWAGTE1vGTiscwRLtNeTW/7xBYsZValPSquuhueO9073mlb5tWJW20d9g/AmkO5
-	 bWu3H1/p9uEmQiEOvmob4rT6gGAGpSJ6Is7CdXGrvAwEHi/pp/xZCSHYBKLXZP8piE
-	 NO7XFUVIJnmTg==
-Date: Wed, 20 Aug 2025 23:13:52 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
+	s=k20201202; t=1755728130;
+	bh=pV6kDL6PIDFC0mwCK5gV9e0W2aPceEaVuWKaFn/7g6M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y2KyhvhAVR3/gKC7W/S1QdsFqJ5l4WaOyzdLBEUDZr+vdUm4Lr790sESxZA6BBclN
+	 fugWGpTAV8t9htbX9EdrBo+hZfDjLGkZGcWeN6z7ISrP14fcfyMoCfRxsEH96nQ8qv
+	 XcWsitR1H7qLNcM6BAxEaY1886/48KQlU25v+SAdx/y1r9ApGvpzOeW77R2+T/Bic7
+	 A4DFUFvsPSf94l+fA5Hr8khXeNpPIqZRJsKxYorDa0kY92r6vTZZc8ObaZ6i6rJLPj
+	 +e+M75CMCrtpkSJKP1Bc4X9yGqBQrBu3uLYmWqzwNaB6iIGa506aI+IRk3gQLhlWmr
+	 JQRBM5AoNvohw==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uor5b-009VxZ-Sz;
+	Wed, 20 Aug 2025 23:15:28 +0100
+Date: Wed, 20 Aug 2025 23:15:25 +0100
+Message-ID: <87ldndk5c2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v15 2/6] KVM: arm64: Manage GCS access and registers for
- guests
-Message-ID: <6ea4127b-813d-49b0-9922-b5f298ca5f0e@sirena.org.uk>
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v15 3/6] KVM: arm64: Forward GCS exceptions to nested guests
+In-Reply-To: <20250820-arm64-gcs-v15-3-5e334da18b84@kernel.org>
 References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
- <20250820-arm64-gcs-v15-2-5e334da18b84@kernel.org>
- <87o6s9k8ie.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JKL6PMQq5ZwIKYYm"
-Content-Disposition: inline
-In-Reply-To: <87o6s9k8ie.wl-maz@kernel.org>
-X-Cookie: Whoever dies with the most toys wins.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_151359_517008_6CAE3CF1 
-X-CRM114-Status: GOOD (  16.74  )
+	<20250820-arm64-gcs-v15-3-5e334da18b84@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,47 +90,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 20 Aug 2025 15:14:43 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> GCS can generate exceptions with an EC of 0x2D (GCS Data Check
+> Exception) when data validation checks fail.  When running a nested
+> guest which has access to GCS such exceptions can be directed from EL0
+> to EL2 and therefore need to be forwarded to the guest hypervisor, add
+> handling for this.
 
---JKL6PMQq5ZwIKYYm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Why is it so? A GCS exception from EL0 should be routed to EL1, no
+matter what (either this is an L1 guest with EL1 pretending to be EL2,
+or this is an L2 guest that has its own EL1).
 
-On Wed, Aug 20, 2025 at 10:06:49PM +0100, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+Can you describe the case where we need to reinject the exception?
 
-> > In order to allow userspace to control availability of the feature to
-> > guests we enable writability for only ID_AA64PFR1_EL1.GCS, this is a
-> > deliberately conservative choice to avoid errors due to oversights.
-> > Further fields should be made writable in future.
+>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kvm/handle_exit.c | 14 +++++++++++---
+>  1 file changed, 11 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index a598072f36d2..2f5aef84b294 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -301,10 +301,18 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+>  
+>  static int kvm_handle_gcs(struct kvm_vcpu *vcpu)
+>  {
+> -	/* We don't expect GCS, so treat it with contempt */
+> -	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> -		WARN_ON_ONCE(1);
+> +	if (!kvm_has_gcs(vcpu->kvm)) {
+> +		kvm_inject_undefined(vcpu);
+> +		return 1;
+> +	}
+>  
+> +	if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
 
-> I'm not sure what you mean by that. Making the feature field writable
-> is only allowable if we have some level of support (and otherwise we
-> should prevent both the feature being exposed, and the field being
-> writable).
+We now have is_nested_ctxt(), which is more obvious.
 
-> So future fields being writable will only happen when the features are
-> fully supported, and only then.
+> +		kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
+> +		return 1;
+> +	}
+> +
+> +	/* We shouldn't have generated a trap in this case */
+> +	WARN_ON_ONCE(1);
+>  	kvm_inject_undefined(vcpu);
+>  	return 1;
+>  }
+> 
 
-> Please clarify, or drop this altogether.
+Thanks,
 
-That's bitrot from earlier versions where we needed to enable
-ID_AA64PFR1_EL1, the other versions were similar.  I'll remove these
-stale references.
+	M.
 
---JKL6PMQq5ZwIKYYm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmimSJ8ACgkQJNaLcl1U
-h9ArWQf/eQm5fVrMcWS54gUdtfiVe/qKLMrda9FKLpovpB8GsKqKDBef8b7Mo0GZ
-wv/jvtET+UErD1lSyfeYcMoKrjKryCkuA9/vbNs+pB3j/wo9/DS11IgYXyj+fy/h
-EpFn4aJieXOnKMBAngpXM3ZcSpio/ZPVASw28Ux17L8gfmYcLmAgNC1XaxD6bj7x
-+IsTvk7ekqeUGzFYeZVZetm76oozpkKRKV3N8X4d5YfPukP83y8HrDKJZp0yIklF
-+tLpcqGjMgmEb8XMWdGNY5PwHzPeQou/Dx4Tn0+lilEJV8vOZDyJKSHeQDvjeZnV
-EVWu21kCgBmxXm8RxEmGCalLJpYV3A==
-=2ze9
------END PGP SIGNATURE-----
-
---JKL6PMQq5ZwIKYYm--
+-- 
+Jazz isn't dead. It just smells funny.
 
