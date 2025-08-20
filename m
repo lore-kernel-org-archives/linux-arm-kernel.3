@@ -4,150 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FE3CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 01:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3CBCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 01:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3Ipok0sKa4CF0MBPsUKOOEzHc5+wUPZsMxN4YjvsMM=; b=veLXir1atS3FcyUFmn5e4W6Boj
-	sAQu7UyKSeEO1azW9lNYQwKimnpTDb+LQjAK+7bj7jhKZdenB8GYNSEneAE/W1LhfMBtodUYqItpv
-	CZ6Hy7nN3zJg7IO1hKglmKlOojKu6iXjZBn937ecOwkhOuZjgEJ4WVM15C9X4YVqwvsnF7Uy5EVig
-	AkbyFUBCwfUKaLVVyVmAKkfVaxU6qFwaU/G2Gow7FFxxXt6RKTuH9FZFEC3UTl3oBjeVG1aCmgK6U
-	laSnq60JNvR6IZfSTuSlGLRvCjKgdF+TfF89unglWYZEnFU5xYDXtSWkHo+aeuZW7DSaS66q6q4ts
-	KcT3x5RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dF3UOYMc7muJs71UWTd/bxCq5x/to6zNlVDjm2ki1yk=; b=rtWhNMADHC6poS8Q8MBlnAg5z7
+	Mg9wXjuqgaYObkoi+0k8nqg6wGAg6z2slWTWc99sYdXeFJ4hkGcChMYmSUZlWFqggY12rWCzi42nM
+	0vsaWxKAd/5u4J7YamLwvVWAQyTEnjs4b7eW2op/C6DltZ65v1lv47+2LLbWfwHkFT6TV1W8DqjOq
+	ZDpBnbGG8ASECJU2QTydrr89eV9tRnpvorggalL4zz+HHZuR9yBTjznIAh6FnkLA4djPTN1ZIdyqi
+	dpyOJ2/OMUAnl08NcsLW/ssOjHhb3+udNg4wNS2y4F4rtCy5YKEWmkXEEqbuJBbCe/aHmJ6kzzF5o
+	dlKIJKLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoXo6-0000000C6x4-106h;
-	Wed, 20 Aug 2025 01:40:06 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uoY1d-0000000C841-2Y4H;
+	Wed, 20 Aug 2025 01:54:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoXiP-0000000C6CR-0A5B
+	id 1uoXz1-0000000C7q2-42Qs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 Aug 2025 01:51:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dF3UOYMc7muJs71UWTd/bxCq5x/to6zNlVDjm2ki1yk=; b=a3r+0c/IiKg9l/AZqvTzcWT/yK
+	hYalFOzbUR0Yy4MEqnuKFHja+yQMRYvHNsQOooM7rLygRhFe2YO4xb93WswPlMr/kx2kZxF96TrVE
+	VUNCq1wmF//rheeJgZp2cPQPBUZYNNAx826ma0w5cW+88RWqjz4J26W6zPILnKZPGlkeWIy2zbyta
+	SKIvgEvb5DZPdBzAfHgMAOWnz0cxgmRpRo0qahgNEus7XhBV1mCArwaCrpBtPcpaLlx161PdT7WVA
+	9raJZeN5gLReJvw2SI9QsfxnjbbPewBW13yvbpPfF89sobVPXhB7eTJq3i8WTBzm8W682STxk0YmG
+	sG3apiOA==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoXyq-000000008ki-2Ad8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 01:34:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z6VlA5HZ8uyHb22wzJ27d8TkrK9uHfnDsOJskPjLiYQ2u3Ki/UbZdmK3bfojZfy/DtAKzwU4jpdOngFLbAna2JXa0693KWRKKV7+cjKOyLX4OIGBIXzDUMoDlomC8vK/DWsE2V6018jC4QFhv+bOohp39XzMPjn2ADWFuUeTZcThYh1m+KzcrTp3QRQ6GlpMLEAU3VMzS0icsR+mr7zr7ou+THVmbFjHnqb2/IzCZHRs+HIWAWL1zxH8EVDWn2nONnRwQ8bic2JoHe13DRBxiOVOb9Qq7tvvPzOkoEm2AjKkHnIkwX+fz5FJJrE9S3W6vT+NnIV7mpG7T9Re/d2QFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L3Ipok0sKa4CF0MBPsUKOOEzHc5+wUPZsMxN4YjvsMM=;
- b=LA8Ckb2G4epAO3MzsftXWa12ty9KTFZl9cioTHjXBAz3OQxc1v3VhD8DWfQVSq3BubBQ+n+cSsf6P/hxHRaPwrdXgsFR67d32loDSbeAFtuFTpKtyt0opFM/4zCYwth9lykr9cD8yfhu1bAdv3Dy7Q1ZF9B2RexlM8/+sufbgD8wRAChtPck1yNzIekt6BRMXsT2co9wTsWJFU6E3X/SrzHH68ZzaZVOPvZkqMxF0ivJ0moRNipgck4oXPqNzTseQHIhB1NhmDikhO7/UmbwSM6+IvmxB6jniuVFN7MMzBhVxNJeXlJnoHYOzupFFuBZ9FiflgiB0J3pRGWVvKoQcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L3Ipok0sKa4CF0MBPsUKOOEzHc5+wUPZsMxN4YjvsMM=;
- b=M50rNK9579Q4AEdfnbZI1bm/MjpM7/Oz2UFIFehqZ01i8MN5JSzSKykQW0EOSq81uLx8YzK+HYaiyuZuOTSUYfCpo6ZB/gBhRHK7CHgzrrC3sD3f+MNFJHCnath8IcqJKcMo95dZWRDn0xa/hQxVvHhBysjo8Q2f3UluFIidcUrNSV+0BigJJdR57YmafWwl5HvFY4ntkJ6lBagP086MPuN9+RcY07uMJLJob+tb7tfZ7PJfo9HNj09VudYEQ1E4BZ5wQ/BputjEmxH8TJB0nH8oJWT9xdYpJWxcyfyJIP72w12HJ+CHjTtaCK1e6CKgSazTFHdquwXnLosjy8TLJA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB8258.eurprd04.prod.outlook.com (2603:10a6:20b:3e2::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
- 2025 01:34:06 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9052.013; Wed, 20 Aug 2025
- 01:34:06 +0000
-Date: Wed, 20 Aug 2025 10:45:10 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com
-Subject: Re: [PATCH v3 0/3] arm64: dts: imx8m: support more sample rates
-Message-ID: <20250820024510.GA17332@nxa18884-linux.ap.freescale.net>
-References: <20250815102317.910014-1-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250815102317.910014-1-shengjiu.wang@nxp.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR02CA0034.apcprd02.prod.outlook.com
- (2603:1096:4:195::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 20 Aug 2025 01:51:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4c68Zd4WySz27j7S;
+	Wed, 20 Aug 2025 09:51:53 +0800 (CST)
+Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
+	by mail.maildlp.com (Postfix) with ESMTPS id 59FCF140277;
+	Wed, 20 Aug 2025 09:50:48 +0800 (CST)
+Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
+ (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 20 Aug
+ 2025 09:50:47 +0800
+Message-ID: <cbecda55-db03-409a-b892-65171e00f6bc@huawei.com>
+Date: Wed, 20 Aug 2025 09:50:47 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8258:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5bcad4d2-13af-495c-3e99-08dddf89a700
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0YLP9sJ1itBRkmN6uoaikTzmohPjxB2jFvPJJy7oj89CqTxSoTvPpRWLIUoo?=
- =?us-ascii?Q?hp3NQEExHbT5TxGgVFVEEqYZPllfEtVFgtU4/D2MZj3QOLju91DeG3lKy0fu?=
- =?us-ascii?Q?pJKDNQSA7ab8XIIArDuS0eKYSAbT52eJP7tT2ClXPBLtm7HvEJMTJ0ThXQtg?=
- =?us-ascii?Q?mzpzRvrV4p26NuRVXhkEaMN0ocPe2Y17RDE+zZ6zmimwvecbd+uhq8xokZE6?=
- =?us-ascii?Q?LIzHaMc8Ssa4CzUl7MakZXEFicZQIA7jKLbnY6+o8ZhITItdlxsVmt1voKWZ?=
- =?us-ascii?Q?LK9jmlB2b5Fkgkbqhun+RqO0KPZD4G3hsSfPHc2BngxfOqV7t65hwgts7pE9?=
- =?us-ascii?Q?63k1xt4m9qAZmsnx77jkwzcV96xVTepXQw0JobmcINmc3zYyvQJhZ6uAITo/?=
- =?us-ascii?Q?XTpYyGKiRL/ewC//NvaUTGKo3Lfo7YP7bOXlNBLJDCfwD03lCKpgNNxMeN45?=
- =?us-ascii?Q?jSNvG6DKIeBBCzMvI2o0oyxC9EuhRbk2CpTH9g4Z5ktIuHHOsa/ZWeBN7/FF?=
- =?us-ascii?Q?IpzDmI8PIy8Whii8BJRJm06fOvN6u5BUtJWDcXLt5Wl+T9mh8qsjP0C3AhCc?=
- =?us-ascii?Q?+Wj5nxMUane9hIc2P25DS4USli61MBGfKC//W/g0PnUqf6sAnQ98kdpSNr01?=
- =?us-ascii?Q?sJt/S8X7Nol93NYfTOsE8IioyDEFyS5DUyXMFAa9Zcux8EDP+64T8H79/ibE?=
- =?us-ascii?Q?lHMybh2zhBaOi/9k9RjTIzSyX0s22stZFb/ye8rctwrPX47RdVk+BAUdaWS+?=
- =?us-ascii?Q?2P6v9Kq4iLFcXZOlnOwYIPMJV3yUjFioA43wTq/P74d+njZlBBpk3+d1NQEk?=
- =?us-ascii?Q?3JefHXAC1dKIwNTzMUf4KCoSLaBlptmpFcEskJjLN4LzenelolmzN+2IrRa+?=
- =?us-ascii?Q?TqtgYlE7LR10QDrDaQHnTpFzY66S4IJ+MYGJaGycUy1CPyFR1tn+OEdP8sF+?=
- =?us-ascii?Q?IpPSrHFOya1CYzNOXxkXA5MjGo2W02xWg7umfffbiCIwHRJpRI8ExuBoxELs?=
- =?us-ascii?Q?I0e0PYutMEyhBo3a1FRn/7RiU+YsjOsoaZvU+E7XAg/OizinbE/n/dKIZ5py?=
- =?us-ascii?Q?K8Mp85WILdpTiXmt46ObeRIlvFgLBZgV5aO2EJH15wBVs0CEWJ3azRej4Dv/?=
- =?us-ascii?Q?TjXTChfiTPcvWypXYK0SP2MchzAiPwR9k03Y+5uT1uViFC998glEfwadmF2F?=
- =?us-ascii?Q?3udtKGcPQrj6QXlJ+M2Z5ppUkUXu6u3t1Ygk72p7uYxVQuAagZC8htW1x4V+?=
- =?us-ascii?Q?UlRoVv3Htd6QI1zg/G1GTSGig7h/Thquq/O5DtXNeSG+xwGQBEw7zG16U5OL?=
- =?us-ascii?Q?yAMp2HwwHl12WjnWsKuGVvsBGZq+DruzGLO0EB4TqwUkVz3sagdm0TEXqaJR?=
- =?us-ascii?Q?xw83hnxlil5mEkw6giNL2OaoE8/CA5qqR4BGRVNkL79PC9noL6hoHwEX0JWq?=
- =?us-ascii?Q?Ra6W3Xf8qNupzJT4fACMdIxKllW99P6YYnhovWGgSwdNlSHE+lC11w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3YSMkXJhxwMQz45cbpesNRQy7ANeqph9wlWq4ri3uuXFxv0T4g0yTVjtboAg?=
- =?us-ascii?Q?5Wb7HxxGc6D6Lt679snhLPD0+Sbmf8yWkGmy6uWWEP861/AJJz8e63tQs+mY?=
- =?us-ascii?Q?TyyfQVBiim3lljWTIAsAydVZXhiYGzHwidMSm2c3ef7DupIrwzsfiYJrftKB?=
- =?us-ascii?Q?kaxnR0uQ/5UXA4d/US17eiefE1gmL7XRsbEQ4vQFRA4B2Yb0exl7n/STRdkZ?=
- =?us-ascii?Q?1KlsEZDBAtRZRtTYZClnStkkzEuQQgq96HQjwaJyVMRruoFUb+PP4BXOTFRq?=
- =?us-ascii?Q?ktw8SH1DO36s8veSl1SqKbU4aHcs0idRu/u9bD0lm8Zq3cqf/h2yttAjGLZ7?=
- =?us-ascii?Q?TxeBukOHAn+JXOsEzJv2UZY6+onNNLFt7T2YtKtjr+Tr4r3sV+Jx8vcAtAnZ?=
- =?us-ascii?Q?60U7Ahcwy8Za8DRslV/fK4t6TWFC5QmAr+9Rt6ZSxIKXRWMcloiuH09OYQ7j?=
- =?us-ascii?Q?nEahP30oPDJC/j3b31dm7xiayLXWLbGGceF0MHpdhCgCNDKuebzzdGgqoM2b?=
- =?us-ascii?Q?cosHDL6OWECRVhGxAZgyrSa3HO8Y5kcKRinZ3X+zA6g+kacsASJfBmt1wOdD?=
- =?us-ascii?Q?/ATHiGhKJGUzOMRYmqjDdAjV38WiTQEjo4Nk9bnmABo/z5StYQObzbdgdJ1O?=
- =?us-ascii?Q?H4b6dybgjIIAB4MR7NskPNQuvjOslx2grV8ny4UvUjoSaQh5lxww/ViESmuY?=
- =?us-ascii?Q?hglPWmN1/nySugCLEUX8dIZCi92xXhzF1Q/1RK0skRVwIHOYeDwJLfslhKT8?=
- =?us-ascii?Q?2i0X+cwxHHlTLrguvJKW7dVasOUPDRLDbWu1PXECGAbcSuNnbLeYNpauZmus?=
- =?us-ascii?Q?SeUCPXHxgOMlRqGjZqxyzgBIKePpr9M1NVyubsXExr987HBwxUirUVLF13f4?=
- =?us-ascii?Q?CYdWXJo8jicLE+kGxSZW4IXZE08wFBU0JN8Z4AtnElJytsHm6naDXXGtfnwT?=
- =?us-ascii?Q?lqUELUs6pSh2Logs0MzX2ZTPVyTR61YOU8Z7Pwel/aHSG5hsH0CyLNn9mqq2?=
- =?us-ascii?Q?d1LNwJIfc9yUWaCQF+NnNPTKp8Cb9cUTRsAPSOL8kJpB6M7luBLc4rY6x0Lz?=
- =?us-ascii?Q?E2szoQj+BtjJLfLKoYSXhdfU81Wec6sdI7zqBDyZtwAHFs3mplFcf708G6Ca?=
- =?us-ascii?Q?KeEjWbD7Ci41LBYaHZgmMytWvBO7Zutmf+T1dfhuf68BwY1ZTtqcIW6iGJJ1?=
- =?us-ascii?Q?u4AtYQ2CHoYNZSypB3ph/xoO+Z+S1RvM7k9nMEiPZ73LwsdeqtY5S2KNJfGg?=
- =?us-ascii?Q?QAgmRnt8bQYlmYklnmaWiTVHSCi784fAsRJeczg/coBKUt04pJoU4lVXPFg2?=
- =?us-ascii?Q?sjPeCEoO4mgx1fnOsLGEzL2c2ylX9ctntsMzfkQJsGH9dHYNASt8M9l7w3KS?=
- =?us-ascii?Q?xg3o23uthnC14Pu3KX6xN9e2T7/bELdzEezCMc5XNQQKOyZ+xvWxnSLQWVrD?=
- =?us-ascii?Q?hAKEXdGxqW7calyVhCMncqLOZIrbbcfahC6XgRTLO8C1EVdEZ31yYEB3WaSC?=
- =?us-ascii?Q?CDJbH7/LLakvzQcBJ5zf19vQo9i+KQ9VNYTsC/8d7xMZJMOB6cXcGPeZK0ym?=
- =?us-ascii?Q?RaRSNIuWslJdH58eMcFMpOQiFm+TaxNxjncStGPG?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5bcad4d2-13af-495c-3e99-08dddf89a700
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 01:34:06.5324
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sG15jxUqNqwLo8JHu5fMs2zdpPd7RAcP6Dp5E+dYq4aNxcZgvu+7MyNo+XrWgMJ1DVuXiw4nOp8CasUVANdMZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8258
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] cpufreq: Add a new function to get cpufreq policy
+ without checking if the CPU is online
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <viresh.kumar@linaro.org>,
+	<beata.michalska@arm.com>, <sudeep.holla@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
+	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <zhangpengjie2@huawei.com>, <linhongye@h-partners.com>
+References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
+ <20250819072931.1647431-3-zhenglifeng1@huawei.com>
+ <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
+From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+In-Reply-To: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.90]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemh100008.china.huawei.com (7.202.181.93)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_183413_084183_FDE17BD0 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250820_025117_070462_80CB9328 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,29 +93,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 06:23:14PM +0800, Shengjiu Wang wrote:
->The wm8524 codec is connected to the SAI interface. There are two audio
->plls on i.MX8MQ, i.MX8MM, i.MX8MN, one pll can be the clock source of
->44kHz series rates, another pll can be clock source of 48kHz series rates.
->
->Previously it only supported 48kHz series rates, with this change the
->supported rates will include 44kHz series rates, from 8kHz to 192kHz.
->
->changes in v3:
->- Minor change in commit message for comments from Frank Li
->
->changes in v2:
->- Add more comments in commit message.
->
->Shengjiu Wang (3):
->  arm64: dts: imx8mm-evk: support more sample rates for wm8524 card
->  arm64: dts: imx8mq-evk: support more sample rates for wm8524 card
->  arm64: dts: imx8mn-evk: support more sample rates for wm8524 card
->
-> arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi | 17 +++++++++++++----
-> arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi |  5 +++++
-> arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  8 +++++++-
-> 3 files changed, 25 insertions(+), 5 deletions(-)
+On 2025/8/20 3:05, Rafael J. Wysocki wrote:
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> On Tue, Aug 19, 2025 at 9:30 AM Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
+>>
+>> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
+>> policy->cpus mask, which means the CPU is already online. But in some
+>> cases, the policy is needed before the CPU is added to cpus mask. Add a
+>> function to get the policy in these cases.
+> 
+> I'd prefer the subject to be somewhat shorter.  For instance, something like
+> 
+> cpufreq: Add new helper function returning cpufreq policy
+> 
+> would suffice because the changelog explains the details.
+> 
+> With that addressed
+> 
+> Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+
+Thanks! Will shorten it in the next version.
+
+> 
+>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+>> ---
+>>  drivers/cpufreq/cpufreq.c | 6 ++++++
+>>  include/linux/cpufreq.h   | 5 +++++
+>>  2 files changed, 11 insertions(+)
+>>
+>> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+>> index fc7eace8b65b..78ca68ea754d 100644
+>> --- a/drivers/cpufreq/cpufreq.c
+>> +++ b/drivers/cpufreq/cpufreq.c
+>> @@ -198,6 +198,12 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
+>>  }
+>>  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
+>>
+>> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
+>> +{
+>> +       return per_cpu(cpufreq_cpu_data, cpu);
+>> +}
+>> +EXPORT_SYMBOL_GPL(cpufreq_cpu_policy);
+>> +
+>>  unsigned int cpufreq_generic_get(unsigned int cpu)
+>>  {
+>>         struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
+>> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
+>> index 95f3807c8c55..26b3c3310d5b 100644
+>> --- a/include/linux/cpufreq.h
+>> +++ b/include/linux/cpufreq.h
+>> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
+>>
+>>  #ifdef CONFIG_CPU_FREQ
+>>  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
+>> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu);
+>>  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
+>>  void cpufreq_cpu_put(struct cpufreq_policy *policy);
+>>  #else
+>> @@ -212,6 +213,10 @@ static inline struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
+>>  {
+>>         return NULL;
+>>  }
+>> +static inline struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
+>> +{
+>> +       return NULL;
+>> +}
+>>  static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
+>>  {
+>>         return NULL;
+>> --
+>> 2.33.0
+>>
+>>
+> 
+
 
