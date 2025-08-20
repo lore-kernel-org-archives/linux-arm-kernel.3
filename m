@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2731CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E77CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDyg3zSsGZUg1Vqiwe+QweEJRCeWEpLbUoM6PuBNJPU=; b=J0HB/8vrvP4fic+oTaJPoA8A+a
-	/Ql5dXN43zyYkafvqITrMdnSeEaRzTGp2w/5yCQDOskl0Usi/10OCj8cpV9TP1m1QbxPhW/PxBm/r
-	OVqv1nzXSqcclcAIpsaM85hV8QD1Dsrneyi5Si5Um1w8v5D0KaOC0EPeo4sMXWDLWIeiw6YTGNYC9
-	WkSiIJ1Bj26ax/ywZh3KvfUvnjSAeo1F+8rRXsw/oItKUwkXuSxE6LKH7zoWQVo1iREE8B5BEC99Z
-	8jgO6Jkn2IIvlvKehJLIxYZ0zx7EOLOJCVXs4Fk4EVRbo2tqwLQHCbXwmfrd81DZkrfhSkiXK2bU9
-	+ArV2Oyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4fIk62b9tX8cuFnX3IXU8b8kQDW97QC3a5jEYNR86AA=; b=YixkAapmQ3ns237bs6UvnBdUyP
+	Qn+hRZ//zEgC3QyCyZuO0tqwQ2tmffru9rZK/FGA1whh9dxHixdkPdq8g+fNgCKeaXI6i7Z8fwgVp
+	/+r63kEXiDRYgvk777rtntdjqmPOCEV72/swKS4MAy3JsDgjeHFeVaD6BnhEWWau8iL32R8aE+JDo
+	qfy/uGiJtW733vOtDDAlOI4tvvDbr1tsxuOcSupe7+uBMWmEMF1SwsEVv+vRqDDHs3Eyf+cD4am9r
+	scfWalvihGpUclDnPwDacNnXc0f/gFRTQ/qhpEqb2oGWfPAMV9ezZt1IP1i89tfrT+EXG/24YxFX/
+	04NmcFXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonG8-0000000Ee8o-0HSc;
-	Wed, 20 Aug 2025 18:10:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokIU-0000000EAnH-13BT
+	id 1uonIg-0000000EeUv-3YGr;
+	Wed, 20 Aug 2025 18:12:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokIZ-0000000EAog-0oPk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 Aug 2025 15:00:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4fIk62b9tX8cuFnX3IXU8b8kQDW97QC3a5jEYNR86AA=; b=ePVgcxw0dV9DvDD1oxvyPv2AiH
+	/r6YmLih21J4SU0y96dH4xJT+tFeFmG1nEYnLpUHDHFClGGFEq+hPsVx30Af6JMd6JbsSZEZVwCDO
+	gZZRseUDHHXZsQ8/ZLSwPhyEG9KGjc5ss/P9lcxzrVkN/PINXqhcgwaytwS8zdY8MNBLkRHGny1qi
+	1YF6PCbHbnCXBVCN4nY2Yrb6yivJ3eBV/C0cPGp3u4Vfb/JVQBMRAVj7a6V+2+yMEjqe9li3Mdr8K
+	qm7K2OGSUJKZg7wfEY7O3JuCSXNgM6+uS6gmtTAdVtIa41awmviyxFzjEnYrkrG37pqmUsFEwmoOr
+	6CZZailA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokIW-00000000LqW-14Ay
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:00:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91ABD2C3E;
-	Wed, 20 Aug 2025 08:00:09 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.2.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9373D3F738;
-	Wed, 20 Aug 2025 08:00:13 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v10 39/43] arm64: RME: Provide register list for unfinalized RME RECs
-Date: Wed, 20 Aug 2025 15:55:59 +0100
-Message-ID: <20250820145606.180644-40-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
+	Wed, 20 Aug 2025 15:00:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A8B175C65EC;
+	Wed, 20 Aug 2025 15:00:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27167C116B1;
+	Wed, 20 Aug 2025 15:00:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755702015;
+	bh=HQ5b81Apoab6czGcXH0vKrkZjdSXVB5vGQChQZigfGs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WZJH9/EH88gSyhql/auK4PWa7AtEO2Igy0GRER4LLH7ThQiHl0XH6BnCy5/NN3PMT
+	 RFjDzlxjxBrucO8iCpfXpZD76n+Jm+rOfMI+VGnnDiT6/srjtvkUYGOax/5UWOxpbK
+	 64tLdCgCpiXUAhq8NfP1OK6R24kUspG7B7i6j1GQRJ8kZoYvs0yKtNtcAG7pTsJy3Z
+	 oXGXc9x484fXChvSvNbcBYhewPk+SLQnaSdOFV1agHVRLoBNL3ao0Wjj/0LmdTQe95
+	 pIJiD4uEDJiHNf7o6jJB1oMItVzWHJZkZbFFK+W0g97QucjyTUS+eTaY2fWfejq6Wg
+	 MAXxr90IR5uPg==
+Date: Wed, 20 Aug 2025 17:00:13 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Liao Yuanhong <liaoyuanhong@vivo.com>
+Cc: Chen-Yu Tsai <wens@csie.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	"open list:DRM DRIVERS FOR ALLWINNER A10" <dri-devel@lists.freedesktop.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] drm/sun4i: Replace redundant return value judgment with
+ PTR_ERR_OR_ZERO()
+Message-ID: <20250820-skilled-dragonfly-of-symmetry-b4f4dc@houat>
+References: <20250815133727.418204-1-liaoyuanhong@vivo.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="su26l5zhm5tjwxui"
+Content-Disposition: inline
+In-Reply-To: <20250815133727.418204-1-liaoyuanhong@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_080018_388620_576D8188 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20250820_160020_518697_62825235 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +93,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-KVM_GET_REG_LIST should not be called before SVE is finalized. The ioctl
-handler currently returns -EPERM in this case. But because it uses
-kvm_arm_vcpu_is_finalized(), it now also rejects the call for
-unfinalized REC even though finalizing the REC can only be done late,
-after Realm descriptor creation.
+--su26l5zhm5tjwxui
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] drm/sun4i: Replace redundant return value judgment with
+ PTR_ERR_OR_ZERO()
+MIME-Version: 1.0
 
-Move the check to copy_sve_reg_indices(). One adverse side effect of
-this change is that a KVM_GET_REG_LIST call that only probes for the
-array size will now succeed even if SVE is not finalized, but that seems
-harmless since the following KVM_GET_REG_LIST with the full array will
-fail.
+Hi,
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
- arch/arm64/kvm/arm.c   |  4 ----
- arch/arm64/kvm/guest.c | 10 +++++-----
- 2 files changed, 5 insertions(+), 9 deletions(-)
+On Fri, Aug 15, 2025 at 09:37:27PM +0800, Liao Yuanhong wrote:
+> Replace redundant return value judgment with PTR_ERR_OR_ZERO() to
+> enhance code readability.
+>=20
+> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
+> ---
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c | 5 +----
+>  drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c     | 5 +----
+>  drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c  | 5 +----
+>  3 files changed, 3 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c b/drivers/gpu/dr=
+m/sun4i/sun4i_hdmi_tmds_clk.c
+> index fbf7da9d9592..c90dd0ad040f 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+> @@ -229,8 +229,5 @@ int sun4i_tmds_create(struct sun4i_hdmi *hdmi)
+>  	tmds->div_offset =3D hdmi->variant->tmds_clk_div_offset;
+> =20
+>  	hdmi->tmds_clk =3D devm_clk_register(hdmi->dev, &tmds->hw);
+> -	if (IS_ERR(hdmi->tmds_clk))
+> -		return PTR_ERR(hdmi->tmds_clk);
+> -
+> -	return 0;
+> +	return PTR_ERR_OR_ZERO(hdmi->tmds_clk);
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 23e87076330e..d90db9b9c62f 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1856,10 +1856,6 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
- 		if (unlikely(!kvm_vcpu_initialized(vcpu)))
- 			break;
- 
--		r = -EPERM;
--		if (!kvm_arm_vcpu_is_finalized(vcpu))
--			break;
--
- 		r = -EFAULT;
- 		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
- 			break;
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 5dcf3728fe25..c95a00b711c0 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -675,8 +675,8 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 	if (!vcpu_has_sve(vcpu))
- 		return 0;
- 
--	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
-+	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+		return 1; /* KVM_REG_ARM64_SVE_VLS */
- 
- 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
- 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
-@@ -693,9 +693,6 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 	if (!vcpu_has_sve(vcpu))
- 		return 0;
- 
--	/* Policed by KVM_GET_REG_LIST: */
--	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
--
- 	/*
- 	 * Enumerate this first, so that userspace can save/restore in
- 	 * the order reported by KVM_GET_REG_LIST:
-@@ -705,6 +702,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 		return -EFAULT;
- 	++num_regs;
- 
-+	if (!kvm_arm_vcpu_sve_finalized(vcpu))
-+		return num_regs;
-+
- 	for (i = 0; i < slices; i++) {
- 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
- 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
--- 
-2.43.0
+The readibility improvement is very subjective, and this makes it harder
+to extend later on, so I don't think this should be merged.
 
+Maxime
+
+--su26l5zhm5tjwxui
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaKXi/AAKCRAnX84Zoj2+
+dm+UAX9RCkx9gaut6YQRzmpPslaiJ2m2jmUpynn6QC21/IDDMsYsSM6cisPFTO21
+AMJZZp4BgJ+CB1UtTTi+hgvHJSfJvEL0psMKwkK1KB/+wu91d4SMqbEVnzCyIbxY
++wBkUAEZIQ==
+=93ng
+-----END PGP SIGNATURE-----
+
+--su26l5zhm5tjwxui--
 
