@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE24CA0EDC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F7ECA0FE0
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,69 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/smMiKT1VkzaccdkIeZm8AlenlQpq7cbEs3sAqJdIkU=; b=kmvSCQAk7QriFo6/3wK4z1bTEi
-	eYGs4hW9Iu/q6Q5slh7cKneLLFQYugAP9RH9h04oItShkiyWAJOe5CkoWlq+eIZtR84Smn/HnSOZv
-	N3+egoVr3F6fiTwMIKtAo8gQPJhie0fecqlKaswZrXGx1XJ+O15YbCs+jvtogovzUQhyA2EhXvDuA
-	gYiyiHcA3OighaAeCcLjMauoIB0UM75C4DzfXehIHjKMmSc42v5e90xWGQ/ECUkW4YQRDDJIJC6ET
-	exfjQcRKFJyLMHcIrOydbfGAs9dSyckOB9CqxXMZloi5ioPJLw39lsN4qyI3EaHcdmVt5kGn1cE/A
-	FNcYn4Fg==;
+	bh=psKQDcwLfUIxvT/3Kw0yGrQwYdKTm4Y1dzUrb2i0nos=; b=uUAcx3NpmA+JyC3F47Z7IH4vL5
+	gYKpA7DB4MBMm7sNxSa1Rp6NhJGlwBIS2nvUx7wS4/EMhwohi45oISm1/JlPew+MtjGJL2AOPYq7D
+	lvLfQ5euNVZTRPwRC6HU16HvWtaXljPz3t00mbHylTfd+HXiDy+Z0LL6kWDPeIBhKg3fWbRnGGEua
+	ir9iWXFRQQ6PA13kfLyFAilGZPJfgA1B7yyq8ehgGFLBUvOjfwFQYK1E77VmnNZ8o+BA7OdzOxE0n
+	ExPP2G7eO6zdgNENLm2Goz4ewrBclXS/7KMGZjwa8uV4XGfUhkNKVvHtDddmT7FwhLrpBipl/AF4w
+	w1+yZ1Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopka-0000000Es1A-0mGM;
-	Wed, 20 Aug 2025 20:49:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolDJ-0000000EKCi-0uw3
+	id 1uopkR-0000000ErtM-3FkV;
+	Wed, 20 Aug 2025 20:49:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokGv-0000000EARE-1a9x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:59:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2456601F5;
-	Wed, 20 Aug 2025 15:59:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C750C113CF;
-	Wed, 20 Aug 2025 15:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755705540;
-	bh=3yUWsIxkW8qzK5gi9AtNqttGslx05/6Cqkuua0jSepg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mpYjeVFfuND3nz/WtpBTs8CSNdLRsPHIRLDTMSdozP6kGI7Gtj25iygIgYRBwNaOy
-	 /eKLo8WA/gRRvPpPhXSW5HqgLCSjc0ps4UnjzhG3QfHczjUKspCgyEMwKnun6TvDry
-	 DBRCmmREWc5H3yzP+h5pvCybcFMarNnofKhZN3hseLT8fXyUAY5b0NlEjRRiDR8Lot
-	 zu90HmaZzx4aBrRKQvll0EAXNnLL87M9gS+x4iLJVT7TFdV96bdWxtdEC3DRdC4Ixl
-	 oQFdP5ggs5YAQDagfjoKx5dlrlHvLITjd1QiuYBR9OQG63j44YXO4b0rlK1L/vT6yR
-	 nsd6hJIUhxcCA==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Michael Buesch <m@bues.ch>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Daniel Palmer <daniel@thingy.jp>,
-	Romain Perier <romain.perier@gmail.com>,
-	Grygorii Strashko <grygorii.strashko@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Kevin Hilman <khilman@kernel.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-gpio@vger.kernel.org,
+	Wed, 20 Aug 2025 14:58:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 574EA2C27;
+	Wed, 20 Aug 2025 07:58:32 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.2.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00B613F738;
+	Wed, 20 Aug 2025 07:58:34 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH 07/16] gpio: ml-ioh: Use modern PM macros
-Date: Wed, 20 Aug 2025 23:40:28 +0800
-Message-ID: <20250820154037.22228-8-jszhang@kernel.org>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
-References: <20250820154037.22228-1-jszhang@kernel.org>
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: [PATCH v10 18/43] KVM: arm64: Handle realm MMIO emulation
+Date: Wed, 20 Aug 2025 15:55:38 +0100
+Message-ID: <20250820145606.180644-19-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_075841_500857_7677C626 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,74 +83,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the modern PM macros for the suspend and resume functions to be
-automatically dropped by the compiler when CONFIG_PM or
-CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
+MMIO emulation for a realm cannot be done directly with the VM's
+registers as they are protected from the host. However, for emulatable
+data aborts, the RMM uses GPRS[0] to provide the read/written value.
+We can transfer this from/to the equivalent VCPU's register entry and
+then depend on the generic MMIO handling code in KVM.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+For a MMIO read, the value is placed in the shared RecExit structure
+during kvm_handle_mmio_return() rather than in the VCPU's register
+entry.
+
+Signed-off-by: Steven Price <steven.price@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- drivers/gpio/gpio-ml-ioh.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes since v7:
+ * New comment for rec_exit_sync_dabt() explaining the call to
+   vcpu_set_reg().
+Changes since v5:
+ * Inject SEA to the guest is an emulatable MMIO access triggers a data
+   abort.
+ * kvm_handle_mmio_return() - disable kvm_incr_pc() for a REC (as the PC
+   isn't under the host's control) and move the REC_ENTER_EMULATED_MMIO
+   flag setting to this location (as that tells the RMM to skip the
+   instruction).
+---
+ arch/arm64/kvm/inject_fault.c |  4 +++-
+ arch/arm64/kvm/mmio.c         | 16 ++++++++++++----
+ arch/arm64/kvm/rme-exit.c     | 14 ++++++++++++++
+ 3 files changed, 29 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpio/gpio-ml-ioh.c b/drivers/gpio/gpio-ml-ioh.c
-index f6af81bf2b13..6576e5dcb0ee 100644
---- a/drivers/gpio/gpio-ml-ioh.c
-+++ b/drivers/gpio/gpio-ml-ioh.c
-@@ -160,7 +160,7 @@ static int ioh_gpio_direction_input(struct gpio_chip *gpio, unsigned nr)
- /*
-  * Save register configuration and disable interrupts.
-  */
--static void __maybe_unused ioh_gpio_save_reg_conf(struct ioh_gpio *chip)
-+static void ioh_gpio_save_reg_conf(struct ioh_gpio *chip)
- {
- 	int i;
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index 6745f38b64f9..79815a68ff2e 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -201,7 +201,9 @@ static void inject_abt32(struct kvm_vcpu *vcpu, bool is_pabt, u32 addr)
  
-@@ -186,7 +186,7 @@ static void __maybe_unused ioh_gpio_save_reg_conf(struct ioh_gpio *chip)
- /*
-  * This function restores the register configuration of the GPIO device.
-  */
--static void __maybe_unused ioh_gpio_restore_reg_conf(struct ioh_gpio *chip)
-+static void ioh_gpio_restore_reg_conf(struct ioh_gpio *chip)
+ static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
  {
- 	int i;
+-	if (vcpu_el1_is_32bit(vcpu))
++	if (unlikely(vcpu_is_rec(vcpu)))
++		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
++	else if (vcpu_el1_is_32bit(vcpu))
+ 		inject_abt32(vcpu, iabt, addr);
+ 	else
+ 		inject_abt64(vcpu, iabt, addr);
+diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+index 54f9358c9e0e..d7ad291b5357 100644
+--- a/arch/arm64/kvm/mmio.c
++++ b/arch/arm64/kvm/mmio.c
+@@ -6,6 +6,7 @@
  
-@@ -479,7 +479,7 @@ static int ioh_gpio_probe(struct pci_dev *pdev,
- 	return 0;
+ #include <linux/kvm_host.h>
+ #include <asm/kvm_emulate.h>
++#include <asm/rmi_smc.h>
+ #include <trace/events/kvm.h>
+ 
+ #include "trace.h"
+@@ -138,14 +139,21 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
+ 		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
+ 			       &data);
+ 		data = vcpu_data_host_to_guest(vcpu, data, len);
+-		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
++
++		if (vcpu_is_rec(vcpu))
++			vcpu->arch.rec.run->enter.gprs[0] = data;
++		else
++			vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
+ 	}
+ 
+ 	/*
+ 	 * The MMIO instruction is emulated and should not be re-executed
+ 	 * in the guest.
+ 	 */
+-	kvm_incr_pc(vcpu);
++	if (vcpu_is_rec(vcpu))
++		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_EMULATED_MMIO;
++	else
++		kvm_incr_pc(vcpu);
+ 
+ 	return 1;
  }
+@@ -164,14 +172,14 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ 	 * No valid syndrome? Ask userspace for help if it has
+ 	 * volunteered to do so, and bail out otherwise.
+ 	 *
+-	 * In the protected VM case, there isn't much userspace can do
++	 * In the protected/realm VM case, there isn't much userspace can do
+ 	 * though, so directly deliver an exception to the guest.
+ 	 */
+ 	if (!kvm_vcpu_dabt_isvalid(vcpu)) {
+ 		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
+ 				    kvm_vcpu_get_hfar(vcpu), fault_ipa);
  
--static int __maybe_unused ioh_gpio_suspend(struct device *dev)
-+static int ioh_gpio_suspend(struct device *dev)
+-		if (vcpu_is_protected(vcpu))
++		if (vcpu_is_protected(vcpu) || vcpu_is_rec(vcpu))
+ 			return kvm_inject_sea_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
+ 
+ 		if (test_bit(KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
+diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+index feb248f4377c..768e0674a060 100644
+--- a/arch/arm64/kvm/rme-exit.c
++++ b/arch/arm64/kvm/rme-exit.c
+@@ -25,6 +25,20 @@ static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
+ 
+ static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
  {
- 	struct ioh_gpio *chip = dev_get_drvdata(dev);
- 	unsigned long flags;
-@@ -491,7 +491,7 @@ static int __maybe_unused ioh_gpio_suspend(struct device *dev)
- 	return 0;
++	struct realm_rec *rec = &vcpu->arch.rec;
++
++	/*
++	 * In the case of a write, copy over gprs[0] to the target GPR,
++	 * preparing to handle MMIO write fault. The content to be written has
++	 * been saved to gprs[0] by the RMM (even if another register was used
++	 * by the guest). In the case of normal memory access this is redundant
++	 * (the guest will replay the instruction), but the overhead is
++	 * minimal.
++	 */
++	if (kvm_vcpu_dabt_iswrite(vcpu) && kvm_vcpu_dabt_isvalid(vcpu))
++		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu),
++			     rec->run->exit.gprs[0]);
++
+ 	return kvm_handle_guest_abort(vcpu);
  }
- 
--static int __maybe_unused ioh_gpio_resume(struct device *dev)
-+static int ioh_gpio_resume(struct device *dev)
- {
- 	struct ioh_gpio *chip = dev_get_drvdata(dev);
- 	unsigned long flags;
-@@ -505,7 +505,7 @@ static int __maybe_unused ioh_gpio_resume(struct device *dev)
- 	return 0;
- }
- 
--static SIMPLE_DEV_PM_OPS(ioh_gpio_pm_ops, ioh_gpio_suspend, ioh_gpio_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(ioh_gpio_pm_ops, ioh_gpio_suspend, ioh_gpio_resume);
- 
- static const struct pci_device_id ioh_gpio_pcidev_id[] = {
- 	{ PCI_DEVICE(PCI_VENDOR_ID_ROHM, 0x802E) },
-@@ -518,7 +518,7 @@ static struct pci_driver ioh_gpio_driver = {
- 	.id_table = ioh_gpio_pcidev_id,
- 	.probe = ioh_gpio_probe,
- 	.driver = {
--		.pm = &ioh_gpio_pm_ops,
-+		.pm = pm_sleep_ptr(&ioh_gpio_pm_ops),
- 	},
- };
  
 -- 
-2.50.1
+2.43.0
 
 
