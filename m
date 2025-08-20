@@ -4,129 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A74CA0EFE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA7ACA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=11RILgASqebrtw2UrosgID+qYHkhszgpHlOkkTGkunQ=; b=fjaNO1zjgsDTPj0igYiIioHdDX
-	JB/0gDxIJSYTQaV8zxJga81TcqCrF1DZ1KVDYgrKbIRef88RjWjm7iKY9PLAyZMO+USVbjBUkTCmh
-	CpyT24/L96thS9BApDnQ6Mqspc1LZkaFOBth8FLxEOp+4LrvCfNxIWi0wYfiEHYfVBFxk1CQ7z1wn
-	nN7iuQpQ+d7UO5RfaH0JFb0H7hQrKlEz+MhZAGOMJ9pL091oitYtJboPO+CJH6WqBTmGiH8KwqnoH
-	G72/4rO5s83qZXcrDRJsyYkewEkx3oSAH//oTDkkf+rxSoayZJ2md00RzgCNNcKLAq6dz0joOTIe0
-	AoJKrsYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BSAo2GzDndt91/rib0KUjUJ111dm3GwAZeCzOHuNrIQ=; b=bi2y3eptcqpvvafJrl+wdZ/4re
+	foSwLc/1ByIi0FPllFfzCSlNup3VtvZGrAMT02CBFN688xQlPx8EEqwxXa7WoV1qKoSZZgr7Qq9r1
+	RbNy3FO96845RgtiIAg8oaSFkQplIC3YSQVaHQ9S6nH92rUmn195s+5QXXczxxBS7eYPxADDwc8u6
+	/m3YZvo+b5sq7OhyWYeQwEdNhZz8UXUcJXkVEV4akj2yCPRHYGljpJxnmNNFNKmVAyxAeqDs/A2JH
+	2/1pA9RO1Pq/FtXPWeHIemEPsC/08/ElU1xIVBigQVs9PerLIFxEenzRtmQrkPXtyDCUHf7l7gpGv
+	bVI19WOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uogbh-0000000DHHZ-0cj3;
-	Wed, 20 Aug 2025 11:03:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uogbm-0000000DHOy-23Fk;
+	Wed, 20 Aug 2025 11:03:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoeaT-0000000CoJ1-1Nx6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 08:54:30 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K1oisW028174
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 08:54:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=11RILgASqebrtw2UrosgID
-	+qYHkhszgpHlOkkTGkunQ=; b=npN1oFyQ+DdVNktnIkKKbNGGVcbQnhgbe7oYnD
-	cf27wT4yQOKBqJ7ArC/LaDw1y5AC5SmCT7NtV0xMi8FRsjpW1W18/QogC72rr+CK
-	gqe+pE76ceLaRU+D/d1keQ0dkazOePK/N7D2eWBZvY/5tXsemLEZHjSHH5kWgtcy
-	Cplp2WpbtqJ+LxxjpaTQ4cmsuqQUMDyjE5/H/Q3Pu9W/key9BzpYATo+BmIQ8v8i
-	+E4+AqXznUZs3jnQtJ55qD0L5OBuEIGZw+GVrIy0dhHceYcGTGdzyY197DYiXkng
-	EExaQ/TePxRUhewVQK8DYAzjrFYdoK3EM/haj0RAhcr4OXZA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n52as1j0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 08:54:28 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b471757d82fso5028347a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 01:54:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755680067; x=1756284867;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=11RILgASqebrtw2UrosgID+qYHkhszgpHlOkkTGkunQ=;
-        b=HC6/Z+5QeiQtY6v3OJStQKuHBXSCWJOX4q36t3OVI+89YMNUqa9BWtoGMQsOMpsJnn
-         wXv26FkshGdc4RwRhChz40/cMbPA/xDVO4pcDL0NRCD2Ls10Er57IrjFnPzopdspouVc
-         3Kn6v/in/FAhI1jOeXxNS4jmvDBZ1ovS0eXnBrQlky5tijQPwuW9hYydr6wIhNnFuOqy
-         zSpac3jOpk8tGIB4mspSYDn9nXH4t9nZhzKh1RA19cMQ7/k840VlPFHTtiNm6xZlazrE
-         QWY+UA1Krgq8klg25btFj9lHvCbyjFvfyhIUiZFQCt5/prKInryJbedIelHfYdjj512u
-         hrsg==
-X-Gm-Message-State: AOJu0YzYSvda+iJgqYof0dTHQICYsCr8a71BDzmbinXBdmL1IsKeI7xH
-	LFMa9MflrAAYGTQkKMFDiiv4W2SGukmRGX57NbkphRIpgRnD09EINrKaeqxoEXmeiomHrYddneE
-	lrdXaG0kM7KhrZ1hs1pNGHgiIqueAvdAHomRD5btCou+Vv12NE3nNjKmyn1uXmNXRaS0zMKZhOm
-	2PGA==
-X-Gm-Gg: ASbGncudSP9fxmGGvKUlNjldQZkBIZy6q9eK+Mxjk4Pc4yvp+tQsWN/Po5QFJgywZK+
-	SdnVO0zT2557fNxSBZHzyQuRRc0jjfv3Gpye26mFoEXQseSftR4cu89BLUiIiF7ANASWwijS1pB
-	/FwwPG+qUr8OMBHFvbzRzbwDIjnAmXDEUyeUtUDAqSXLeDMvT6ZfO2AXHBLOmUl5CAhhxHj5bkf
-	s3+VgWjijnWnErjzUVgXPcJSzcyS3xc54D3w+3UBaQsTmAnzBf6h/cRE6IBNQqXZSSCcjO+PGd8
-	YkEia04xOrs+ie+mgbnbaWNpbv3D/G65s/fDMzCSWPEi2SaOANYzYQ1PLYzeYpk8HrsQhh+TtEu
-	v2aCAYslut/ggASwWguL1ISiTLFy2L1IK2/I8djHMFTqappCJatUXKTen
-X-Received: by 2002:a05:6a20:9389:b0:243:755:58b5 with SMTP id adf61e73a8af0-2431ba73584mr3553128637.54.1755680067087;
-        Wed, 20 Aug 2025 01:54:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGqdr4ixEHQumfORfUTOCWmF6r5RptPIsSTTUcwk/Feiql/w4YOg/rHr802Ne8ttx0t2841MA==
-X-Received: by 2002:a05:6a20:9389:b0:243:755:58b5 with SMTP id adf61e73a8af0-2431ba73584mr3553105637.54.1755680066647;
-        Wed, 20 Aug 2025 01:54:26 -0700 (PDT)
-Received: from sziotdisp01-gv.qualcomm.com.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-324e25532b1sm1658263a91.13.2025.08.20.01.54.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Aug 2025 01:54:26 -0700 (PDT)
-From: Fange Zhang <fange.zhang@oss.qualcomm.com>
-Date: Wed, 20 Aug 2025 16:53:30 +0800
-Subject: [PATCH v2] arm64: defconfig: Modularize SX150X GPIO expander
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250820-modularize-sx150x-gpio-expander-v2-1-e6eba22f0a0f@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAqNpWgC/4WNQQ6CMBBFr2K6dsh0YgVdeQ/DorQDNAGKrRCUc
- Hcrce/mJ+8v3ltF5OA4iuthFYFnF50fEtDxIEyrh4bB2cSCkBQWhNB7O3U6uDdDXKTCBZrReeB
- l1IPlAHii3JwrUyl1EckyBq7dshfuZeLWxacPrz04y+/7c8vir3uWgGBII+WEWLO9+Rizx6Q74
- /s+SyPKbds+EKDnStUAAAA=
-X-Change-ID: 20250820-modularize-sx150x-gpio-expander-0427c6bcb559
-To: Bjorn Andersson <andersson@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        dmitry.baryshkov@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
-        xiangxu.yin@oss.qualcomm.com, kernel@oss.qualcomm.com,
-        Fange Zhang <fange.zhang@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755680063; l=1437;
- i=fange.zhang@oss.qualcomm.com; s=20250714; h=from:subject:message-id;
- bh=xbVBMpbJC84OL2H7l69MUgBetsy+dP2jsa2Y/+6cwCc=;
- b=jn3BkxMQtWkJzSfSvhNQIDRyXaz1dXEFNHqSp4o9g2oveGTDNGTAnsvbh8pOWyaT6tGCLk426
- jcL55gsOAZbAN3mRbybNMHW3XWHP6P8fS9JdMi5Ygx+Hee+gGkDGmYo
-X-Developer-Key: i=fange.zhang@oss.qualcomm.com; a=ed25519;
- pk=tn190A7bjF3/EyH7AYy/eNzPoS9lwXGznYamlMv6TE0=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfXzHShHSB8P6jY
- tAxgtKWbZChFpRk4foz+sTiN99wcHYxdcr57YGCf6UlzX2DiHpLoXepSTELDJ+NJPCopHl8u7SL
- U7Buhmh5qG9ine9zsdDs9kCVvU2JY2+EUUPfROQhfHskwrwQLgpMMdpYAa5BAYUvITmwOLl1pvz
- 0CtoC7tWEUC/NUmvqd0jJtHlBxOSedXObzbZmE1qMBjfABQtvQwTeIdP+NyAI+bPdz7/smS7dsv
- 7//VEDnPvzf/A1UhQLmLL/RD/2Qve+JBhzXVLzxszcfG7mUOVZP5ms/2b5bf4w8OKYApEgBW+D+
- vzEo45FDJDIXOxID5iVMeRD2rnWfA5Hw9TLpLNk0XP/7mU86F/bYiIypEpQBcKtvwRmocrEW/oe
- 5MXBxUL7AxpQG8qar/0Eq8MIFGafAA==
-X-Authority-Analysis: v=2.4 cv=TIIci1la c=1 sm=1 tr=0 ts=68a58d44 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=wWMmKHWDNrKRBeep4CkA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-ORIG-GUID: fUEzwPDfiiahHs2B3OGNfiIAWiK5JGVJ
-X-Proofpoint-GUID: fUEzwPDfiiahHs2B3OGNfiIAWiK5JGVJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-20_03,2025-08-20_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 phishscore=0
- bulkscore=0 impostorscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_015429_493293_9ECC4DD7 
-X-CRM114-Status: GOOD (  13.34  )
+	id 1uoecw-0000000Coko-277W;
+	Wed, 20 Aug 2025 08:57:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C680B61415;
+	Wed, 20 Aug 2025 08:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FC50C4CEEB;
+	Wed, 20 Aug 2025 08:57:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755680221;
+	bh=BHwPoKTEj91/GJKNcfj8Dutl5ARN4HeFYrbIABszgyQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pmkTE9jJU5lk0aBrpb6xdBQ7V52EGOI29RmwuHE5yHKLH0xwOCUQaQKWx9/0GdZ/l
+	 tFk0G1SBDkN5s5yzpqY3VRLBIB+pVY5RmTRk8OOQSRzb2phI6twM3XkwlqrHHW2WQV
+	 C00qSxkC/Yrf2nNmAI/bvRlhOJsrf/EmT1PgBWBk+Spb6yRE63tzcezinWzYPrC89h
+	 /GjRy669yXDIWKNKM5eCBxk63FGSO6RTV2HB4Ij2p+lFdXQUQeZdwFRnCW0jKrj8Dc
+	 u5PscMpxtfG4SG0wQCN4sCneBYdRiZZG9RDKXg0SM5/DDd6LUquXN2/brmRI9s5a/j
+	 ckawFDNrAy/xw==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uoecl-009Gtj-19;
+	Wed, 20 Aug 2025 09:56:51 +0100
+Date: Wed, 20 Aug 2025 09:56:50 +0100
+Message-ID: <87qzx6jrql.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Coiby Xu <coxu@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: Re: [Regression] kdump fails to get DHCP address unless booting with pci=nomsi or without nr_cpus=1
+In-Reply-To: <j4atkwhumotioe2nhu6esrb3yrvwsoz2eyqeopwmr7o6iw65ga@wdkvgahnyhln>
+References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
+	<87bjom8106.ffs@tglx>
+	<878qjq80yu.ffs@tglx>
+	<86v7mt9ai3.wl-maz@kernel.org>
+	<i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
+	<86ms84974v.wl-maz@kernel.org>
+	<gec2yl5wx6vvt67smx5emhcoifvtp4orw6sub24b2nrqwryhp2@i4h7qbtwjo3r>
+	<86ldno8yxa.wl-maz@kernel.org>
+	<yweverlt7onyse3rbm7phxzwrwfk4pq2dipzdjenrx4onrak6r@dsm4ra3x3gv6>
+	<j4atkwhumotioe2nhu6esrb3yrvwsoz2eyqeopwmr7o6iw65ga@wdkvgahnyhln>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: coxu@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,44 +90,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Modularize the SX150X GPIO expander which is equipped on the Qualcomm
-QCS615 Ride board to allow the ANX7625 external bridge to function
-correctly.
+On Wed, 20 Aug 2025 00:30:12 +0100,
+Coiby Xu <coxu@redhat.com> wrote:
+> 
+> On Wed, Aug 13, 2025 at 08:08:28PM +0800, Coiby Xu wrote:
+> > On Tue, Aug 12, 2025 at 02:14:25PM +0100, Marc Zyngier wrote:
+> [...]
+> >> 
+> >> Can you at the very least share:
+> 
+> Thanks for your patience! I've attached a zip file with the info you
+> need. Additionally I've included the dmidecode of guest
+> (dmidecode_guest), host machine (dmidecode_host) and the domain info
+> of guest (libvirt.xml) in case they may be helpful. If you need further
+> info or any experiment I need to do, feel free to let me know! Now I
+> have access to the host machine so I can respond much faster.
+> 
+> >> 
+> >> - the boot log of the guest on its first kernel
+> 
+> Please check file boot_log_1st_kernel
 
-Signed-off-by: Fange Zhang <fange.zhang@oss.qualcomm.com>
----
-The ANX7625 relies on SX150X-controlled GPIOs for reset and HPD for
-the Qualcomm QCS615 Ride board
+Old kernel. It would have been better to use a vanilla v6.16, so that
+we know exactly what you are running. I have zero interest in finding
+out what 6.15.9-201.fc42.aarch64 corresponds to in real life.
 
-Please note that this driver has recently been updated from bool to tristate:
-https://lore.kernel.org/all/20250818-modularize-sx150x-gpio-expander-v1-1-c2a027200fed@oss.qualcomm.com/
----
-Changes in v2:
-- Drop patch 1/2, which have already been merged upstream
-- Link to v1: https://lore.kernel.org/r/20250818-modularize-sx150x-gpio-expander-v1-0-c2a027200fed@oss.qualcomm.com
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> >> - the boot log of the guest running kdump
+> 
+> boot_log_2nd_kernel
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 667c4859ecc3cda9b0a3dae7abdd8587fc4f8dbe..dce4450fa9fa58fab0556a6e84b899a3306b4db3 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -598,6 +598,7 @@ CONFIG_PINCTRL_DA9062=m
- CONFIG_PINCTRL_MAX77620=y
- CONFIG_PINCTRL_RK805=m
- CONFIG_PINCTRL_SINGLE=y
-+CONFIG_PINCTRL_SX150X=m
- CONFIG_PINCTRL_OWL=y
- CONFIG_PINCTRL_S700=y
- CONFIG_PINCTRL_S900=y
+Same thing.
 
----
-base-commit: 5303936d609e09665deda94eaedf26a0e5c3a087
-change-id: 20250820-modularize-sx150x-gpio-expander-0427c6bcb559
+> 
+> >> 
+> >> - the content of /sys/kernel/debug/kvm/$PID-xx/vgic*state* when
+> >> running both kernels
+> 
+> vgic-state_{1st,2nd}_kernel
 
-Best regards,
+What is the host running? It also looks like a pre-6.16 kernel, which
+lacks important information.
+
+> 
+> >> 
+> >> - the QEMU command-line to get to run the whole thing
+> 
+> qemu_cmdline
+
+I'm sorry, but that doesn't look like a command line as I know it. I
+certainly cannot feed this to QEMU and reproduce your findings.
+
+Now, there is *one* thing that is interesting:
+
+The second vgic_state dump indicates that LPI 8225 is routed to
+vcpu-3. Given that your guest boots into the second kernel on vcpu-0,
+and that this is the only online vcpu at this stage, the LPI will
+never be presented to the CPU (and the vgic has it as pending, which
+is what I'd expect).
+
+I'd suggest you instrument the second kernel to try and see why this
+affinity is not changed.
+
+Thanks,
+
+	M.
+
 -- 
-Fange Zhang <fange.zhang@oss.qualcomm.com>
-
+Jazz isn't dead. It just smells funny.
 
