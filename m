@@ -4,158 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9917CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D08CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bezVhWTR1gRHpCVs5fagH3IIYHRSy2g/INic32z2vw=; b=oIfZ+hmHMkgyxOP9exouHfF9gJ
-	CMi9bn0wnr8Gm1p4FYbOPtjq5uT779mThXOodLESIBm+4igAMwSYda1vhoNYQzlqXPiQZ+iudutov
-	olBAEsh8+kxXSmWrEK4jdpH9SRAv7F9q87sv1S65aI8+4JWdkyY4HrWWAXxFnAEuaMAR0VxaylLrm
-	CQWQeUKnzpHwfVcNhNDm9BiERjGow5TjntsrtTDbwy8+FaEDlFjfJFX4u3+9qExKMOAUMR4HIAh/M
-	eaS90DjB+FDId92iagPst1AoMG8Cd6DCek4zgb4ttoMatwrLyIuBFmwc9gkfZIinBgm5Vsp1lwjS6
-	WaCKOW6w==;
+	bh=AYdJoKULzgg1QvjfOA9lakEkkI+xA5P2j748lkMe6qg=; b=yK4WU8hOPviKz6OzP7yC7vq2IA
+	y058aoaSZuXBQQMM6zOURZYIlWTHaFf9XNBMZh/hpLes1fmrTKnevXk+x61+An7xKaZo7eSGFh1cU
+	KtHXf43DZ8Qc6EnSc8PwXsf/fLWydml9CTUCl+Fl/Cdn8MSpKynUEhRWyfkIdqvqsQteEnPifi2NU
+	5w+OLjeBWqEk362OtNicnBD6vl1xCLcScNTSXtJIkYHAqzsZLVWNwfGMHdNlFJKf4rHzXf6uOsL+/
+	SLSH2ZjguaN5tMlR92eWhILFy8H7WQdewT9+diB6P2fjALKLEFCptejWHVdCvI5bBNmZdaPwhfcw0
+	7IO0xDgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uot1d-0000000FIFA-31mK;
-	Thu, 21 Aug 2025 00:19:30 +0000
-Received: from mail-bn8nam11on2062e.outbound.protection.outlook.com ([2a01:111:f403:2414::62e] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uot4D-0000000FIPX-3Wj2;
+	Thu, 21 Aug 2025 00:22:10 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoo9U-0000000EkDr-0sGH
+	id 1uooAo-0000000EkL6-3zhk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 19:07:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GyD6XthJZJqu+pTvEk1ErQVDDdVS227ysqTuJvWV1TcOTDbg0RAgP1qG3y4DdH5w81sKKwIm3YGSxkmnq8I3poasvXScFCO4T5jSZLEAeOb0ouzGCgy5fJs1FMTTrIN0QPP4hpHFzrxtCTCSDrceS5mg1W/ffnGmuIqz1Bnamj7ODAO/9f2Zzv+/ZUROzHmwjAywBP53VSxJQt+ieIj7YvsXr2CysQnhd6KYuExBlP6/lrokvZcUnJrS1UkckefMGCTRy2LzfEcFrsZ+mF3yjSXbzk7bZBJWga+WqPRatxi9JyTzHXeAGlut2RVYAMR6NvU9r/MveazGElmgmtdzQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+bezVhWTR1gRHpCVs5fagH3IIYHRSy2g/INic32z2vw=;
- b=fgdKoW0L4E/tR63kr9nK8f3GTZiJy2rL0REOZv7L8ec/Chcsh6pvf7L+ap8X+XqJ0MYHHI/o2v9gPtMv5kUKXH4qxuW+05+/LOd7hi0KzJBwH0kje/7g3BJYnJtZd+hQNoN/tvDdFW1Gyky5gJdad4FH55dfGpBfFCCJZr9CdXErgDCdanMPpyNyOOFQHnB2SY06egqvhPbCH+DkOJfNg6i9zIS/EX+F6Wnz+bOM4ScsCwaFNmdcgO/F01X/AmkjzAmO3PB8jZETktdrFT9gJv7DOWQNyRZh4Qm5Tu/PgEuzpp2kQ+1qZRrRIDXJTMIh8WnCY/d2nCpOoqYtTm72jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+bezVhWTR1gRHpCVs5fagH3IIYHRSy2g/INic32z2vw=;
- b=A/ZEd8fll+GHcmQQ28txtP5zfNYtU9XO/A1tju1tnJl55v84FVZsM6zDmmqUAB2uUqgm7hoM9F1jcyQDItxrZk/4HcSlwzU8KZ6t0h5Aoefpjf9H4JwNvDQ6AvhrDmXVm6c1HApkVkiumxPt098F6TTw2lkJqzhXdt7A21LTuhbkpnP+gvxtJ/jZHncggzwHSkjWGn5vsmU5db0/GWqs7B0jn0pHC66MHWpFPQlbUS5X2jYTHuTcpG347LGSSsl2YLlj6nggJcAGDnKI2tZ4WeihVdD/hLMbCiQAesklOVz1AVoS37HAZ7hUL9EUECa3KktGUPMpPsgDwGFTfvv3JA==
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com (2603:10b6:a03:42e::8)
- by LV9PR12MB9806.namprd12.prod.outlook.com (2603:10b6:408:2ea::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.24; Wed, 20 Aug
- 2025 19:07:02 +0000
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::abdb:7990:cc95:89ce]) by SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::abdb:7990:cc95:89ce%5]) with mapi id 15.20.9031.023; Wed, 20 Aug 2025
- 19:07:02 +0000
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-CC: "will@kernel.org" <will@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "suzuki.poulose@arm.com"
-	<suzuki.poulose@arm.com>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, Thierry Reding
-	<treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>, Vikram Sethi
-	<vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>, Shanker Donthineni
-	<sdonthineni@nvidia.com>
-Subject: RE: [PATCH 1/5] perf/arm_cspmu: Export arm_cspmu_apmt_node
-Thread-Topic: [PATCH 1/5] perf/arm_cspmu: Export arm_cspmu_apmt_node
-Thread-Index: AQHcC+ImMFs5yr1DfUmkmrpnMiJW+rRqdGWAgAF7uzA=
-Date: Wed, 20 Aug 2025 19:07:02 +0000
-Message-ID: <SJ0PR12MB567600C6753A076E2ECD6FC6A033A@SJ0PR12MB5676.namprd12.prod.outlook.com>
-References: <20250812233411.1694012-1-bwicaksono@nvidia.com>
- <20250812233411.1694012-2-bwicaksono@nvidia.com>
- <88a25a26-109d-b5cc-4bd2-776c3c2ba113@os.amperecomputing.com>
-In-Reply-To: <88a25a26-109d-b5cc-4bd2-776c3c2ba113@os.amperecomputing.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR12MB5676:EE_|LV9PR12MB9806:EE_
-x-ms-office365-filtering-correlation-id: d0549e50-9829-4ca7-a3ae-08dde01cbf11
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700018|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?oD2ZnbAaknmD+93/SW8fiSLIubxYu5b8U8BtjXUdel9OiC7lTwjF0EbQe34K?=
- =?us-ascii?Q?4CNdqrVXoBbwQO+34cbcMZUlVJuUruSrYprbZB6OwWADmsV6H4M2mXRmkZso?=
- =?us-ascii?Q?9Iih4SzUelOjX0pHQZ8kyxcPAk1GXCYy2D1Uw9zBb8H+iRdWh6EMjpkEeFUV?=
- =?us-ascii?Q?86FSzulT661Bd7pJD5BsWZROtOJyH4aciaYaDZ1qf+cf8VWBNhikUeS4bcqp?=
- =?us-ascii?Q?cwifJmrba2AB0GGI/S/mrYdNpXFZsk0MSp2WzBo5TqyKobWQ5OUMPseRt3vA?=
- =?us-ascii?Q?m6RBeLwWKzZXIlyhNpxmsUOX6cyrV7yJpg/DbT6Hc/aqOU9zR1njQBS6N2/f?=
- =?us-ascii?Q?OkJZkoWRnLFr5v06nKblz551l+3rcJHcmogNwk6XP8F1yAxWJbfI17//1bXv?=
- =?us-ascii?Q?xIariPaA7qap1viFcXSPXdrcuLpMT/mVIiUoD4UxTZ6+oSBnsxxXT7h2JVYK?=
- =?us-ascii?Q?rjTy/zzm3s3j7w5LTZfBLazb2GB6JOBCvnPGtIaYTCwfN87U+eWQbXlv1Woo?=
- =?us-ascii?Q?X14Da/YYm1UZ3y+3tHsXzF/LU2PN8pDN/4IEpxzLR4LmTCWVnfjaOLvOnrB5?=
- =?us-ascii?Q?Vl7tPy0MqMtllUa58cU867f3sKv9oyWMVIJ9G39j32JS2jzJDTODyN6UfDZ1?=
- =?us-ascii?Q?sbaWAHZ9JEgXTPhURGBX9upQOMD/J2G0BSzU+QEHBudXkawdnE0kYC1yr9f/?=
- =?us-ascii?Q?xeDW+pZL0Uslc9KQKLLIHXp4iG+NQjDSJ3SdH/c+jtSEemZpbNOmOO4oa/+6?=
- =?us-ascii?Q?lNgcJPlIIc4h0haC9L43ovFdi3PUIkkZMuF/mfCaRPvTNpslVc4n/d7o5JQX?=
- =?us-ascii?Q?YDqz9X4Z0suthkH++9wVbSwj4ZErzQxTQ2QhhhGaEjl/58aikbxJRuwx2pHi?=
- =?us-ascii?Q?Rw1m1N+EdJs7pimPDdbdP6b9rwukyJIp6PXRQDU+NnShfOxyQVBCzWkW8+LL?=
- =?us-ascii?Q?Y6Fc+JbqcrlPfXjSW9bpql974V1ilDlYQKNJk6Ft5lYGweaUpTF2/RObetUq?=
- =?us-ascii?Q?tUuwLZj2VsjMXQKL+Co26HnqwDqni6ExlOzD2P0OLjvfnzOTi8I6QrDlae5Y?=
- =?us-ascii?Q?fXFcwltefT0YUacgRrQ9vnD+2j61G4+v02lAgB4d/Dgq1u0rOv00EwbZ20rk?=
- =?us-ascii?Q?KIiFUtdz8cLQK7UYM5mb8tKbcDrbdE2Yh6iC3/dA/e4dVC5oBLMLJHoCukB9?=
- =?us-ascii?Q?ypDngOHE/QIJ/ZYL7hC5lFpPQh9nCEDNwGLz2Axdnrf1+oxrdOPUOZcRWhz1?=
- =?us-ascii?Q?8gbIcFiFTxmOScmw0UNfkSOKz7REpAr6/oqQxBCHlwKqemIb+aKyhgkf7Kr4?=
- =?us-ascii?Q?vdfifPzXXKsSXFhF/0bhDER/FE65HyCshlWgYqEhmlQTycBRxrQH4S4vWe+s?=
- =?us-ascii?Q?ucYRYv0jwlhoBPlTKLTekgaXtccm/b+/oDwYkVoRBsTYJsWYsi7XngMRQz9m?=
- =?us-ascii?Q?wQVMo9KLNxz976Ua465ICpTxx7RB41VJxfkzJCn4mCn/FrW6agcoJB6pjUV1?=
- =?us-ascii?Q?uh7K4HPD5sjjUFU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5676.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700018)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Y87ssEqYq+/nDh+AAV++PPUUiMzOewy4GnG9sG1h3dRMGG1Cas0SHYfvaBEN?=
- =?us-ascii?Q?XJgihloZBLt77NAxvA6P9JBT6wqIXnL/J96oBF+SL3dyt3fZDGcNgizq1GoT?=
- =?us-ascii?Q?boELys5afqCJi2TdPBy/vgvyqY2dZu7tLbqJRVKbkPcget1wLSxmVFC0LaBK?=
- =?us-ascii?Q?VTubsNKs0DhKDHACNasw0nq2wfaNPub1Dn6Trra3NAjSsXiLF0XkvDiJ/3FN?=
- =?us-ascii?Q?HFl+/CBLEJbyyXAbzyumxTahS6vaaZ/l5zsnCjYhJqwTHOtEBTYpr+uzQM5t?=
- =?us-ascii?Q?zoMmuje2sWM85HN+dsrX4ePGCN8LtxWzHbfdjWtk8qT+AUxiQi2XrLi1cNjf?=
- =?us-ascii?Q?/ru65JhJ6sKOCCOSpTeQuZ22vzaj4PT2ikqgxxu7ss78RRXa6W+ZxUDYL9jk?=
- =?us-ascii?Q?U4fP6RCNZGwV3glJroOzwIA3lo88VlrqaPJPUDphg0omAwbKQOt/p76oGGOU?=
- =?us-ascii?Q?xpl6A8JWtyfKCLpDYR5gXoZGuaP225K/7ZFVALsgRzbOYgLyaPRmwZZafMx0?=
- =?us-ascii?Q?+zfLwrA43pLJddSxcjgMVWLNNZqACvzewtgtYetU0nJ0438rNzCb1Cdp+X+L?=
- =?us-ascii?Q?JzuYkpaUOrzcLy6DF28MJoBNNeL0gzq1fgsXtmt6OJlQojrvTdwr9hecMv+L?=
- =?us-ascii?Q?toHVUt/g1jb3tnYbVGcXCXNzsEsGUO3lu8BP1ddf3Ukp9Lyi9QNdvew7mk5A?=
- =?us-ascii?Q?UsDkmZub5Wp2WcjhSEBrrk8FQ6qYbczJKr1JpRjIYUGtF60e09zrKvsCUxH4?=
- =?us-ascii?Q?CKSyabYytVyY0gt19JsMtjA7q5IBnj7Zt//LWprf+R1UOBbdKvUJTwA1BxnT?=
- =?us-ascii?Q?n2Io8hHYmUvmheKxHVwEMO2naanNEiGOtcL9za9JFSUmcyiNj2SQve0vUi0L?=
- =?us-ascii?Q?Y9T0h73T8ZngY06gM4WsOKSc3TRBMOAcdWB0X6YLTynpnXs4YOKq7oCwaF48?=
- =?us-ascii?Q?xuh1jagVhHDTYHQKIS2zeGTT2TUbmOEvswlFa1S/47A5VmXb496fKeKbst1v?=
- =?us-ascii?Q?nnVWDQJ75lEmqyvcP/x/uDYkfTuHcZA2nZh+UsqmXwrMnOHR+2DnkeuF0589?=
- =?us-ascii?Q?vyRX3Wu/f7vDrE09VXZ2M6U1McFefwpgUHFkhlJu2xhAf6CvaZSP1o84DAZv?=
- =?us-ascii?Q?cIOF4O0OOp+wkFS8SLRu8fnaG6AXFFb03luICrjwWHFtWckwsxHGzcncpd1R?=
- =?us-ascii?Q?vfFcgI4YKSUnFc7arqjPj1pmVxcRgXDMWcoNC8n+QuNGFuDx+UL56iS013pY?=
- =?us-ascii?Q?q0NLRyQHq+ul3ZDKKiixr5ad7L0tdVBFlnA3nmjL+gEvNXlg0VEGAUtQCPNR?=
- =?us-ascii?Q?edzeUj+RNIUPYTecCngl+dbZPZm/XvGSfhkGM4O+tM08yP8SgEyCW3ayKgba?=
- =?us-ascii?Q?G6m5rUUf2sp6NAZvagKtqvl+OqSZzh7sUY+kXAnIL32N94smRRMswmltF/t6?=
- =?us-ascii?Q?hTL4+gY28MFKO2pzwtLx2XBA/JqP1TqYNh3DCnjJYszR+xXDBcSlex58K/Xe?=
- =?us-ascii?Q?owbZRJ03ICBxg7NF2oXovVclcjkbKo9JYrSZe1kcf5WsYBmLP+Y3zUc7bm8m?=
- =?us-ascii?Q?dq7Ts0S45NdyLevQgpMJdULj5KmyfjSOa90rFhQ8?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 20 Aug 2025 19:08:40 +0000
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 7982A7A0133;
+	Wed, 20 Aug 2025 15:08:35 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-10.internal (MEProxy); Wed, 20 Aug 2025 15:08:35 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1755716915; x=1755803315; bh=AYdJoKULzg
+	g1QvjfOA9lakEkkI+xA5P2j748lkMe6qg=; b=nXMjhO0vtYolVH2STFuanuJxr4
+	k2J7ULmkPHUyExYqyKMwQucjLFoF03B/9zH31+5esKWW0v15Zw/CBsgzRGGNLXRa
+	+4eEkvr2YPPeV/Am0ZnW9WnIJE874SaCarXmc3tZpMq2EEu/OK7EJl5JlyxP+clW
+	k6+L5HS5DiY4sgESyoMq/cH2oo2zYxQIKxmghGq2PU9gBfliSQNt5QvrYK1RJ7Na
+	j8RcBorl+a6YnMpIf+VUJjW+cTtJLvAGmGjU6rlntz8ogcqTxRJM9spF/aNlIt7q
+	hoGIYCI9k5x4gOZCZpni4R39Fl6OwDLboJ7ejw9QngGOI6AfDqyHSQ0f4LmQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1755716915; x=1755803315; bh=AYdJoKULzgg1QvjfOA9lakEkkI+xA5P2j74
+	8lkMe6qg=; b=kgDllEpDUCrVdnQCczRMP5OyQewF/MB4YN64JOAmooBjWKEQOVj
+	4djZQdyEexbZL1a4h7IA3Rp9TWIqna/WgGgtUZFzPBVG/gQ6CSgig5DhvCl+RAnX
+	KVDD2n+mFI0p7igFC9Jm4dRwyRZgSwDE7U3oLjiIn9Xr269W9hy5apLZJza4vTaV
+	8aPhzGlBY7naam7HUkxyuffRAewxKgm63x2o7ZtwL2x2TuPosexu7vXgvl2pDanB
+	x1Zn7HUXFs0I5Ka2KJBTPw951xJJJXGi4w7aO0NPKJcaGnB6hD5nJh29Duw+EEfg
+	7blLszdUaNCqHqf9PzA9G1df24LRfCCaNQg==
+X-ME-Sender: <xms:Mh2maHeGnvIQN0XRZLQ_20H-a5Ij1_4hoUwUgAoepXK4OS5RBPok8Q>
+    <xme:Mh2maE2G3FXr88uGi9TE08y5qEu7TBrjdI6VtheB2xqiSB559aKdNOwxsVC9M67pY
+    Wkf9GZ-iz9Lub_EbA>
+X-ME-Received: <xmr:Mh2maOJX89Li6sfz9QzJHkX_BrE6HiHyLUmutxQm1XvjfZFehwNiKOwdTM7PPVh4uhsCciEs3B3LPn-5UR9aysMF_o19OrH2SA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduheeludeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujggfsehttdfstddtreejnecuhfhrohhmpeflrghnucfr
+    rghluhhsuceojhhprghluhhssehfrghsthhmrghilhdrtghomheqnecuggftrfgrthhtvg
+    hrnhepudeviefhueeuudekfeeuiedvffegieefvdejgfetffeivdejueevheegheffteej
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpmhhsghhiugdrlhhinhhknecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhprghluhhssehf
+    rghsthhmrghilhdrtghomhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouh
+    htpdhrtghpthhtohephhgvlhhgrggrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
+    rhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgrii
+    iiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehprghliheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
+    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqphgtihesvhhgvghr
+    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrvghgrhgvshhsihhonhhssehlihhsth
+    hsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:Mh2maDE1dgbcHB8PRwDMUyrWhaQGGMJsXF3JAsAA4uj2uzcwlBLwKA>
+    <xmx:Mh2maKXJM_DEfIaHwGE8zxvHXgCbn7oPitvro9b3CW40JiyUJ1tGgg>
+    <xmx:Mh2maLynke-YACPjxv3BBKNlFIFJpmV2sNjeDjVXLDVn5Zq1Hx_x-A>
+    <xmx:Mh2maPRQv2fTa-m9YGFpPM5J5y0OyjE6cp0Mvwr9JBpwbtX_T06Rtw>
+    <xmx:Mx2maDJCu8OvVfwt43zr7C7yJupt-4Nqv1mtYGBIxg6q_HoXKl0w2Gqn>
+Feedback-ID: i01894241:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 20 Aug 2025 15:08:34 -0400 (EDT)
+Date: Wed, 20 Aug 2025 21:08:33 +0200
+From: Jan Palus <jpalus@fastmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <gn4sih6yrohqn35jc3hesxpgqhodtvq44ad7a6tbmknjywowvk@p2y24kjlnprd>
+References: <bug-220479-41252@https.bugzilla.kernel.org/>
+ <20250820184603.GA633069@bhelgaas>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5676.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0549e50-9829-4ca7-a3ae-08dde01cbf11
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Aug 2025 19:07:02.5711
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: tGLxBt42vef6j9zKDxQH1odqqqRAHjV6b3PxAhcqArG0TRdKmo+ShgzXn4OBUl7WJ+2h9xAG7T1t3+9hOEdFtw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR12MB9806
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250820184603.GA633069@bhelgaas>
+User-Agent: NeoMutt/20250510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_120716_249663_632131C4 
-X-CRM114-Status: GOOD (  28.08  )
+X-CRM114-CacheID: sfid-20250820_120839_391870_12307110 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,110 +115,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ilkka,
+On 20.08.2025 13:46, Bjorn Helgaas wrote:
+> [+cc maintainers, regressions list]
+> 
+> Jan, thanks very much for the report and the bisection.  Could you
+> attach the devicetree you're using to the bugzilla?
 
-Thanks for the feedback. Please see my comment inline.
+I guess I could dump it from running system if you'd like me to, but it's
+an upstream one without any customizations.
 
-> -----Original Message-----
-> From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-> Sent: Tuesday, August 19, 2025 3:16 PM
-> To: Besar Wicaksono <bwicaksono@nvidia.com>
-> Cc: will@kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; linux-tegra@vger.kernel.org;
-> suzuki.poulose@arm.com; robin.murphy@arm.com;
-> ilkka@os.amperecomputing.com; mark.rutland@arm.com; Thierry Reding
-> <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>; Vikram Sethi
-> <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker Donthineni
-> <sdonthineni@nvidia.com>
-> Subject: Re: [PATCH 1/5] perf/arm_cspmu: Export arm_cspmu_apmt_node
->=20
-> External email: Use caution opening links or attachments
->=20
->=20
-> Hi Ben,
->=20
-> On Tue, 12 Aug 2025, Besar Wicaksono wrote:
-> > Make arm_cspmu_apmt_node API accessible to vendor driver.
->=20
-> I think I haven't seen the latest version of the spec. So, I'm curious,
-> what kind of information the table has that the vendor drivers needs to
-> have access to it?
->=20
-
-The vendor driver may need the node instance primary and secondary
-fields to get additional properties of the PMU that is not covered
-by the standard properties. For example, the PMU device entry in
-APMT can be defined as ACPI node type. The node instance primary
-and secondary will contain the HID and UID of an ACPI device object
-that is associated with the PMU. This ACPI object can have more info
-to supplement the standard props.
-
-> >
-> > Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-> > ---
-> > drivers/perf/arm_cspmu/arm_cspmu.c | 3 ++-
-> > drivers/perf/arm_cspmu/arm_cspmu.h | 4 ++++
-> > 2 files changed, 6 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c
-> b/drivers/perf/arm_cspmu/arm_cspmu.c
-> > index efa9b229e701..e4b98cfa606c 100644
-> > --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> > +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> > @@ -70,12 +70,13 @@ static void arm_cspmu_set_ev_filter(struct
-> arm_cspmu *cspmu,
-> > static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-> >                                   const struct perf_event *event);
-> >
-> > -static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
-> > +struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
-> > {
-> >       struct acpi_apmt_node **ptr =3D dev_get_platdata(dev);
-> >
-> >       return ptr ? *ptr : NULL;
-> > }
-> > +EXPORT_SYMBOL_GPL(arm_cspmu_apmt_node);
->=20
-> Rather than exporting the function, wouldn't it be better to move it to
-> arm_cspmu.h instead?
-
-Sounds good to me. I will make the change on the next revision.
-
-Thanks,
-Besar
-
->=20
-> Cheers, Ilkka
->=20
-> >
-> > /*
-> >  * In CoreSight PMU architecture, all of the MMIO registers are 32-bit =
-except
-> > diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h
-> b/drivers/perf/arm_cspmu/arm_cspmu.h
-> > index 19684b76bd96..36c1dcce33d6 100644
-> > --- a/drivers/perf/arm_cspmu/arm_cspmu.h
-> > +++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-> > @@ -8,6 +8,7 @@
-> > #ifndef __ARM_CSPMU_H__
-> > #define __ARM_CSPMU_H__
-> >
-> > +#include <linux/acpi.h>
-> > #include <linux/bitfield.h>
-> > #include <linux/cpumask.h>
-> > #include <linux/device.h>
-> > @@ -222,4 +223,7 @@ int arm_cspmu_impl_register(const struct
-> arm_cspmu_impl_match *impl_match);
-> > /* Unregister vendor backend. */
-> > void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match
-> *impl_match);
-> >
-> > +/* Get ACPI APMT node. */
-> > +struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev);
-> > +
-> > #endif /* __ARM_CSPMU_H__ */
-> > --
-> > 2.47.0
-> >
-> >
+ 
+> On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
+> > https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> > 
+> >            Summary: [regression 6.16] mvebu: no pci devices detected on
+> >                     turris omnia
+> >           Reporter: jpalus@fastmail.com
+> > 
+> > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
+> > is completely empty). Bisected to:
+> > 
+> > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
+> > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
+> > Author: Rob Herring (Arm) <robh@kernel.org>
+> > Date:   Thu Nov 7 16:32:55 2024
+> > 
+> >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+> > 
+> >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> >     but it's still just normal "ranges" as far as parsing is concerned.
+> >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> >     instead of open coding the parsing.
+> > 
+> >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
+> > 
+> >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
+> >  1 file changed, 9 insertions(+), 17 deletions(-)
+> > 
+> > 
+> > kernel 6.16 logs following mesages related to PCI:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > PCI: bus0: Fast back to back transfers enabled
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > 
+> > 
+> > while kernel 6.15 logs following:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:01.0: PCI bridge to [bus 00]
+> > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@1,0/interrupt-controller
+> > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:02.0: PCI bridge to [bus 00]
+> > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@2,0/interrupt-controller
+> > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:03.0: PCI bridge to [bus 00]
+> > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@3,0/interrupt-controller
+> > PCI: bus0: Fast back to back transfers disabled
+> > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > PCI: bus1: Fast back to back transfers enabled
+> > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+> > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:02:00.0: supports D1
+> > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus2: Fast back to back transfers disabled
+> > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+> > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+> > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:03:00.0: supports D1
+> > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus3: Fast back to back transfers disabled
+> > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+> > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
+> > add_size 200000 add_align 200000
+> > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
+> > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
+> > pci 0000:00:01.0: PCI bridge to [bus 01]
+> > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
+> > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
+> > pci 0000:00:02.0: PCI bridge to [bus 02]
+> > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
+> > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
+> > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
+> > pci 0000:00:03.0: PCI bridge to [bus 03]
+> > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
+> > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
+> > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
+> > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+> 
+> #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
 
