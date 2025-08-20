@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2653CA0FE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467A5CA0EF8
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xI07lhqPeRsH6rDnEGBdO59255o3unvRUboB8B1xdpA=; b=JVTpfsS6EnmufNJ3N+c3T0eVwt
-	P651qLLjEN9v7k+FiF69thnOKVx+6gNLHKaQfpCXJjkQK2gsyvL2kJVuCg7frVvn7TeyinbM5BQUp
-	4dHZfShgolCaIsfyadycJH8vJEYGm5D7kEQ2HEIPwFxwzZVYIOj0EqroG10+FE+A5szkcyC40unjT
-	dmo+Lx2/eKXZDgN8ZbWEmYTodNOw1/uC5QM87h8UY0cnkW+MFO+vVNWQljVlfsmL9wv/0oy6epAnL
-	eClf8o6/TgdLhntI0azfi4/T80NaFweRHcRabuKUrrCbIUETfKhckWnZLk0nkRpLj0PdPvl4qpdgV
-	zPTtJjbg==;
+	bh=55i7wJ2ySvENX6OFoHwP53Kw9OUvpU44Nxs7wZwCSNY=; b=JT0Psolb4nR9+8Ejq/er3zK1kl
+	hnLZAqV735YgUn6jSQINzAAYySsKQYEc0tBHAHKALkg1CxMZs8jFs74F1FC2ElHDfjbLonkYRvq0E
+	ieaboN1K4FSE9ia0wUPMoT94EN4uzcmfBmtVwT8qrYppIlEBXlhKRpp/Fu4B4Arzh8K0W9x9E0Vt8
+	zRK8i+mV22v/CMZZf09i0xNH3X+8AytyV672nxku93rPzm+CzbNn6nlw17bDE2tapoVmWU3h3tNtX
+	FA0PAez6vL7iPmwcpGQJxN4LYEJfhhhAv+Ax6dAKHKK9u7s63OvgaqmKXHNqi1bYJdj6oY6DuyBIX
+	fm17Fm3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopkY-0000000EryV-3Cno;
-	Wed, 20 Aug 2025 20:49:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uopkX-0000000ErxL-07XA;
+	Wed, 20 Aug 2025 20:49:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolCw-0000000EK9o-2YUE
+	id 1uolCW-0000000EK2d-3Xro
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:58:39 +0000
+	Wed, 20 Aug 2025 15:58:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3AB6945AD6;
-	Wed, 20 Aug 2025 15:58:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC37C4CEE7;
-	Wed, 20 Aug 2025 15:58:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DA0E44022;
+	Wed, 20 Aug 2025 15:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FFEC4CEEB;
+	Wed, 20 Aug 2025 15:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755705518;
-	bh=82OKclnpvuD5JTVMrBqlAJu0EBMZWMFAgygO3iLIMjQ=;
+	s=k20201202; t=1755705492;
+	bh=2Y6pXY5C3fzYpd9lxWJ0ZagqNozVP0PkFBHNE3P4K2I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=htY+Xgu35L1eDvFMvjtOBm4WrBQpGOHDGbBCSSz6VdfPGoP9FdppScKn94yuWQWag
-	 1nNHhyJZJBhB8YC9TiUgrNmv2Dz/nQiD5UQ/juQKuaoFRifSJe9j71xvaVmwSER2wE
-	 Pow7aULI8LhAjCa6XUMRQLEzhiE0JUn8GcgihXpumV+9KzYBd7djpWdsyIuOehSLDn
-	 eBTYEV0oxpOPvrzqe6qj9PbGVPnTkLDG3VV+G2eHscgFqE0AzVXc8CSDwB/4v6oEoy
-	 LXnd8KjWiupyx2Gk4Bm9p+mReDUnitRD7oWYgQNhnU9kEdq8vX73kLKIelw3+g/c8p
-	 kO1wuvXmMNwCA==
+	b=FlWwG/6+6E1DT25N7XcMNcfSJZkErGpZxNGhz97Dkv1SYq9n3s+mPI6kH9RGSaftL
+	 a7RbelbN65r34/f4YunyhYa90/w/doU+dKQf3fCQH7uAX6B2GTu9nGa+ewGno1Qo28
+	 nK+OIuQf9yS+YxHVRakyMtYk1jQj1h6+j5mg8nptG7CbI+TFBgSXmc0wVC3QhqVhmM
+	 eS7tfTx/O7R8CoLN/6V5TkBd5GE0GA9wAQ5ByYk9ZO/PsKmp8KMU37kHvKWFhNMK8i
+	 4UJ2qtuAF3fJGjjMxGTVOAXXgJJOz24Q1xXCja9lnFCU38V3xDatum4KmBnOMF5QNR
+	 s/ScKIGQmFjJA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -67,17 +67,17 @@ Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 04/16] gpio: htc-egpio: Use modern PM macros
-Date: Wed, 20 Aug 2025 23:40:25 +0800
-Message-ID: <20250820154037.22228-5-jszhang@kernel.org>
+Subject: [PATCH 01/16] gpio: dwapb: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:22 +0800
+Message-ID: <20250820154037.22228-2-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
 References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_085838_686079_24B2C958 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250820_085812_933841_46E2830C 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +100,136 @@ This has the advantage of always compiling these functions in,
 independently of any Kconfig option. Thanks to that, bugs and other
 regressions are subsequently easier to catch.
 
+The dwapb_context structure is always embedded into struct
+dwapb_gpio_port to simplify code. Sure this brings a tiny 36 bytes
+data overhead for !CONFIG_PM_SLEP.
+
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/gpio/gpio-htc-egpio.c | 21 ++++++++-------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+ drivers/gpio/gpio-dwapb.c | 31 +++++++------------------------
+ 1 file changed, 7 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/gpio/gpio-htc-egpio.c b/drivers/gpio/gpio-htc-egpio.c
-index 2eaed83214d8..72935d6dbebf 100644
---- a/drivers/gpio/gpio-htc-egpio.c
-+++ b/drivers/gpio/gpio-htc-egpio.c
-@@ -364,21 +364,20 @@ static int __init egpio_probe(struct platform_device *pdev)
+diff --git a/drivers/gpio/gpio-dwapb.c b/drivers/gpio/gpio-dwapb.c
+index 43b667b41f5d..d831e6c61566 100644
+--- a/drivers/gpio/gpio-dwapb.c
++++ b/drivers/gpio/gpio-dwapb.c
+@@ -78,7 +78,6 @@ struct dwapb_platform_data {
+ 	unsigned int nports;
+ };
+ 
+-#ifdef CONFIG_PM_SLEEP
+ /* Store GPIO context across system-wide suspend/resume transitions */
+ struct dwapb_context {
+ 	u32 data;
+@@ -91,7 +90,6 @@ struct dwapb_context {
+ 	u32 int_deb;
+ 	u32 wake_en;
+ };
+-#endif
+ 
+ struct dwapb_gpio_port_irqchip {
+ 	unsigned int		nr_irqs;
+@@ -102,9 +100,7 @@ struct dwapb_gpio_port {
+ 	struct gpio_chip	gc;
+ 	struct dwapb_gpio_port_irqchip *pirq;
+ 	struct dwapb_gpio	*gpio;
+-#ifdef CONFIG_PM_SLEEP
+-	struct dwapb_context	*ctx;
+-#endif
++	struct dwapb_context	ctx;
+ 	unsigned int		idx;
+ };
+ #define to_dwapb_gpio(_gc) \
+@@ -357,12 +353,11 @@ static int dwapb_irq_set_type(struct irq_data *d, u32 type)
  	return 0;
  }
  
--#ifdef CONFIG_PM
--static int egpio_suspend(struct platform_device *pdev, pm_message_t state)
-+static int egpio_suspend(struct device *dev)
+-#ifdef CONFIG_PM_SLEEP
+ static int dwapb_irq_set_wake(struct irq_data *d, unsigned int enable)
  {
--	struct egpio_info *ei = platform_get_drvdata(pdev);
-+	struct egpio_info *ei = dev_get_drvdata(dev);
+ 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+ 	struct dwapb_gpio *gpio = to_dwapb_gpio(gc);
+-	struct dwapb_context *ctx = gpio->ports[0].ctx;
++	struct dwapb_context *ctx = &gpio->ports[0].ctx;
+ 	irq_hw_number_t bit = irqd_to_hwirq(d);
  
--	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
-+	if (ei->chained_irq && device_may_wakeup(dev))
- 		enable_irq_wake(ei->chained_irq);
- 	return 0;
- }
+ 	if (enable)
+@@ -372,9 +367,6 @@ static int dwapb_irq_set_wake(struct irq_data *d, unsigned int enable)
  
--static int egpio_resume(struct platform_device *pdev)
-+static int egpio_resume(struct device *dev)
- {
--	struct egpio_info *ei = platform_get_drvdata(pdev);
-+	struct egpio_info *ei = dev_get_drvdata(dev);
- 
--	if (ei->chained_irq && device_may_wakeup(&pdev->dev))
-+	if (ei->chained_irq && device_may_wakeup(dev))
- 		disable_irq_wake(ei->chained_irq);
- 
- 	/* Update registers from the cache, in case
-@@ -386,19 +385,15 @@ static int egpio_resume(struct platform_device *pdev)
- 	egpio_write_cache(ei);
  	return 0;
  }
 -#else
--#define egpio_suspend NULL
--#define egpio_resume NULL
+-#define dwapb_irq_set_wake	NULL
 -#endif
  
-+static DEFINE_SIMPLE_DEV_PM_OPS(egpio_pm_ops, egpio_suspend, egpio_resume);
- 
- static struct platform_driver egpio_driver = {
- 	.driver = {
- 		.name = "htc-egpio",
- 		.suppress_bind_attrs = true,
-+		.pm = pm_sleep_ptr(&egpio_pm_ops),
- 	},
--	.suspend      = egpio_suspend,
--	.resume       = egpio_resume,
+ static const struct irq_chip dwapb_irq_chip = {
+ 	.name		= DWAPB_DRIVER_NAME,
+@@ -384,7 +376,7 @@ static const struct irq_chip dwapb_irq_chip = {
+ 	.irq_set_type	= dwapb_irq_set_type,
+ 	.irq_enable	= dwapb_irq_enable,
+ 	.irq_disable	= dwapb_irq_disable,
+-	.irq_set_wake	= dwapb_irq_set_wake,
++	.irq_set_wake	= pm_sleep_ptr(dwapb_irq_set_wake),
+ 	.flags		= IRQCHIP_IMMUTABLE,
+ 	GPIOCHIP_IRQ_RESOURCE_HELPERS,
  };
+@@ -509,12 +501,6 @@ static int dwapb_gpio_add_port(struct dwapb_gpio *gpio,
+ 	port->gpio = gpio;
+ 	port->idx = pp->idx;
  
- static int __init egpio_init(void)
+-#ifdef CONFIG_PM_SLEEP
+-	port->ctx = devm_kzalloc(gpio->dev, sizeof(*port->ctx), GFP_KERNEL);
+-	if (!port->ctx)
+-		return -ENOMEM;
+-#endif
+-
+ 	dat = gpio->regs + GPIO_EXT_PORTA + pp->idx * GPIO_EXT_PORT_STRIDE;
+ 	set = gpio->regs + GPIO_SWPORTA_DR + pp->idx * GPIO_SWPORT_DR_STRIDE;
+ 	dirout = gpio->regs + GPIO_SWPORTA_DDR + pp->idx * GPIO_SWPORT_DDR_STRIDE;
+@@ -746,7 +732,6 @@ static int dwapb_gpio_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
+-#ifdef CONFIG_PM_SLEEP
+ static int dwapb_gpio_suspend(struct device *dev)
+ {
+ 	struct dwapb_gpio *gpio = dev_get_drvdata(dev);
+@@ -758,7 +743,7 @@ static int dwapb_gpio_suspend(struct device *dev)
+ 	for (i = 0; i < gpio->nr_ports; i++) {
+ 		unsigned int offset;
+ 		unsigned int idx = gpio->ports[i].idx;
+-		struct dwapb_context *ctx = gpio->ports[i].ctx;
++		struct dwapb_context *ctx = &gpio->ports[i].ctx;
+ 
+ 		offset = GPIO_SWPORTA_DDR + idx * GPIO_SWPORT_DDR_STRIDE;
+ 		ctx->dir = dwapb_read(gpio, offset);
+@@ -805,7 +790,7 @@ static int dwapb_gpio_resume(struct device *dev)
+ 	for (i = 0; i < gpio->nr_ports; i++) {
+ 		unsigned int offset;
+ 		unsigned int idx = gpio->ports[i].idx;
+-		struct dwapb_context *ctx = gpio->ports[i].ctx;
++		struct dwapb_context *ctx = &gpio->ports[i].ctx;
+ 
+ 		offset = GPIO_SWPORTA_DR + idx * GPIO_SWPORT_DR_STRIDE;
+ 		dwapb_write(gpio, offset, ctx->data);
+@@ -832,15 +817,13 @@ static int dwapb_gpio_resume(struct device *dev)
+ 
+ 	return 0;
+ }
+-#endif
+ 
+-static SIMPLE_DEV_PM_OPS(dwapb_gpio_pm_ops, dwapb_gpio_suspend,
+-			 dwapb_gpio_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(dwapb_gpio_pm_ops, dwapb_gpio_suspend, dwapb_gpio_resume);
+ 
+ static struct platform_driver dwapb_gpio_driver = {
+ 	.driver		= {
+ 		.name	= DWAPB_DRIVER_NAME,
+-		.pm	= &dwapb_gpio_pm_ops,
++		.pm	= pm_sleep_ptr(&dwapb_gpio_pm_ops),
+ 		.of_match_table = dwapb_of_match,
+ 		.acpi_match_table = dwapb_acpi_match,
+ 	},
 -- 
 2.50.1
 
