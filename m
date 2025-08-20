@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E11F5CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD4BCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FkjoUVrkEbxgoQaDk5ZZ3XPrtdMLBaFU+7TZ7EnSAjc=; b=QkXU+/zwSgqJRK
-	4/+K9P8t6Czc3glQFXnoYUdPmvxK2cCG1FRhtyixIY9WhWk1rUIq89GbhYbIt945r/pHUgh5jOUoS
-	zXqkiNXdRnoCkEkT1sXPGmi0DRAQRo7bff5GkH0W/mf9SRMaJzBLtmZDfBYZcj4ew6vlQawck0Wfs
-	cqW2z/zA1+qk8ZCP4EQrQlgBARh63iZcDjzllCwJrL2JySHHZtMC3OFRm4gN/v0uIO2Lwwyh8VdkW
-	3vz8lpBppCF1Zd+OUFvP3Y4ojH3vCl48BiVHmm+Gpkl5CX3QSvQ3doV+IZcu5XZDYA4qVd/2K8a9z
-	6pTVQ+s0/a6/9dZx9LTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gvg5eiBFdfh332hZ+qy5KKmK4l7YaZYxVdrp/7ocSow=; b=iyvH5h+33YZz2RheuPfk2VNk83
+	HLWvWfbyMCcLIwfH159lTbSAl5DKPG1scWHZ8SwDTMRn875+45D+d9Pj9d9ZAgJuXoq02mR6LDYkn
+	47XI/HtjXtKvZaukGyZSVCHD9FnMMk3f+OzRqSaFhsOZjmVlUEjIFiJnzNZkdS8rmmmNH+u8QVYs7
+	rOq9DnP7bsFcr1GL2HQsd3qUSz96M7BdKGFMorkRp7VjE/Z/mlIX/40XwfnO7gscL4Vwblum3BSOQ
+	hdjdXxIK+XbKspU6fZpc6mPxbl9gt2AptSyKoTWwdFUyOHR5KwEV0ccWIFFJGuOcP+smIlGqIY5EA
+	4wvyWFww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojEB-0000000Du9Y-07uu;
-	Wed, 20 Aug 2025 13:51:47 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uojGk-0000000Duah-3UXv;
+	Wed, 20 Aug 2025 13:54:26 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoibw-0000000DiyU-02QI
+	id 1uoiFc-0000000DeUJ-1iOa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 13:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=FkjoUVrkEbxgoQaDk5ZZ3XPrtdMLBaFU+7TZ7EnSAjc=; b=UTZuHWwC+2InavEBSqseZpQwkk
-	HFv0y6A+LZKM4LSBCnb0FXrm4N3Rki55rC2HaUcF6w4mqri8P4R/PksgIB0sNYE4TFH981obQ6nkN
-	vhTt88CmcJy3d0WpfJm8BEWrVDXeoOFrJWCIECPtjG1oKvHZyLPp6Rpc9SDctPeloCkcxv59O5xyv
-	KTEynBButoxre+2YWfjoGzr1/rQmp6vnCZzGrsMoYfHqXfGcWIA5K1Uv2g7evSz/7bUtOVz9Ce0R5
-	AIPA2wCWELkZLcycT6HYWE4GgrYJlV5QU0LSz0UPfdNQHfuddWI0Vo1Tlo8f5OcHiXxTsRor2VAoz
-	NFGSRy0Q==;
-Received: from [122.175.9.182] (port=37861 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uoibs-0000000GEBr-3E16;
-	Wed, 20 Aug 2025 09:12:13 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 1937A1783F55;
-	Wed, 20 Aug 2025 18:42:07 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id EE3171781A82;
-	Wed, 20 Aug 2025 18:42:06 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 7Zh1uusK_KgJ; Wed, 20 Aug 2025 18:42:06 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 973CE17823F4;
-	Wed, 20 Aug 2025 18:42:06 +0530 (IST)
-Date: Wed, 20 Aug 2025 18:42:06 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Md Danish Anwar <a0501179@ti.com>
-Message-ID: <723941373.207922.1755695526505.JavaMail.zimbra@couthit.local>
-In-Reply-To: <8ad6bb71-9ce5-414a-bbf6-b9893b88cb4f@ti.com>
-References: <20250812110723.4116929-1-parvathi@couthit.com> <8ad6bb71-9ce5-414a-bbf6-b9893b88cb4f@ti.com>
-Subject: Re: [PATCH net-next v13 0/5] PRU-ICSSM Ethernet Driver
+	Wed, 20 Aug 2025 12:49:13 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57KA26sE022612;
+	Wed, 20 Aug 2025 12:49:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gvg5eiBFdfh332hZ+qy5KKmK4l7YaZYxVdrp/7ocSow=; b=hSr4ipYBMgnZmj/W
+	l1gEkZPU5Y0KqZIOHHkJthDnG4vwRYv839KQgcGjyqgPE+g0vl6kdoDzsgojqPUN
+	G0ZX4fkl96nItgZbI/BicPAZqLwfb3XXJ8/iWao1l27sVUsS4mLbY6QUlSOr19aD
+	d2g+C0jw9ZnqzIfWNX7NwGui/eZLSD8CtJRBURn/0LBiGDiRtuLS4rhlMTgUvO38
+	ToMuAY2fbJsxn+Ews500qUy2Nb3wuXwhPaXIxoA+tHewv9L7QsDcBYZmO4qED1S4
+	gfQHeHFYQvsrkUy7Gl4Fu0EhgQfAyuYf4FmwpHTOzJfxBzvWMvGBNTCToMNnsUhQ
+	FOV00g==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n5291qve-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 20 Aug 2025 12:49:00 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 57KCmxvs031813
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 20 Aug 2025 12:48:59 GMT
+Received: from [10.216.4.222] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 20 Aug
+ 2025 05:48:56 -0700
+Message-ID: <06bcf2f6-4a3e-4f87-93e4-29e17ae89e62@quicinc.com>
+Date: Wed, 20 Aug 2025 18:18:52 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/14] spi: airoha: add support of dual/quad wires spi
+ modes
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+        Lorenzo Bianconi
+	<lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
+        Mark Brown
+	<broonie@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-spi@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        Frieder Schrempf
+	<frieder.schrempf@kontron.de>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
+ <20250820123317.728148-4-mikhail.kshevetskiy@iopsys.eu>
+Content-Language: en-US
+From: Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>
+In-Reply-To: <20250820123317.728148-4-mikhail.kshevetskiy@iopsys.eu>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: PRU-ICSSM Ethernet Driver
-Thread-Index: yzIaHTMGcOq0ItatwNI8VBAAqPuE7g==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 9QcnaJaeDKhjHyzh_KN94-ECNUxjtNW2
+X-Proofpoint-ORIG-GUID: 9QcnaJaeDKhjHyzh_KN94-ECNUxjtNW2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfX8cKxNs1iNO0G
+ jsrauxzUqZOcf4/lNd2HegxdLa9+uPzq3AAIy0vFFxXvnzZPV7boLEdsncAvaa/aek33ywG0djs
+ dy0dEk5mLNtBxLmAr7ISgwYtsTbkW7UDWd5+f0iBulm/lefJ0U4FgnxIwUHDgkOVR73NFVaoqrN
+ gu/YJqwRQTF2xwwjBBJkLE5kEuAkhjj91olVhEtlyFN5OnwwGVQXp0FfJaL6DAKlOir3FumhbvT
+ 5+5iCxNswGLRe9dzINPrjfE2skGS79uBRKdoAXN5OFdAgKlxONP6OlNHkyNh0qwWCMgUxeHcnoO
+ pOpG1okTdd1aDCi1/Bo0iF89Wndw/LWboZhjM/YHH+KVo8PYgCiCXC/lUyc0IWE7B6dKlD9jqTv
+ XkVaQCbZpq/ayXkGtm7OBoAzGip1/g==
+X-Authority-Analysis: v=2.4 cv=SPkblOvH c=1 sm=1 tr=0 ts=68a5c43c cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=Xrz4UN6QAAAA:8
+ a=-btNFGgskHoW0r722lAA:9 a=QEXdDO2ut3YA:10 a=ttJoe86O9ml44D0ClCJH:22
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-20_04,2025-08-20_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 bulkscore=0 spamscore=0 phishscore=0
+ impostorscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1011
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_061216_083459_6324E723 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20250820_054912_460128_89B4C35D 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,198 +115,195 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: pratheesh <pratheesh@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag <saikrishnag@marvell.com>, m-karicheri2 <m-karicheri2@ti.com>, Bastien Curutchet <bastien.curutchet@bootlin.com>, mohan <mohan@couthit.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, s hauer <s.hauer@pengutronix.de>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, ALOK TIWARI <alok.a.tiwari@oracle.com>, richardcochran <richardcochran@gmail.com>, johan <johan@kernel.org>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, kory maincent <kory.maincent@bootlin.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> On 8/12/2025 4:35 PM, Parvathi Pudi wrote:
->> Hi,
->> 
->> The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
->> is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
->> Megabit ICSS (ICSSM).
->> 
->> Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
->> fundamental components/drivers such as PRUSS driver, Remoteproc driver,
->> PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
->> Linux kernel. The current set of patch series builds on top of these components
->> and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
->> AM437x and AM335x devices.
->> 
->> AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
->> with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet
->> interface
->> (MII, MDIO), timers, capture modules, and serial communication interfaces, and
->> (b) dedicated data and instruction RAM as well as shared RAM for inter PRU
->> communication within the PRU-ICSS.
->> 
->> These patches add support for basic RX and TX  functionality over PRU Ethernet
->> ports in Dual-EMAC mode.
->> 
->> Further, note that these are the initial set of patches for a single instance of
->> PRU-ICSS Ethernet.  Additional features such as Ethtool support, VLAN Filtering,
->> Multicast Filtering, Promiscuous mode, Storm prevention, Interrupt coalescing,
->> Linux PTP (ptp4l) Ordinary clock and Switch mode support for AM335x, AM437x
->> and AM57x along with support for a second instance of  PRU-ICSS on AM57x
->> will be posted subsequently.
->> 
->> The patches presented in this series have gone through the patch verification
->> tools and no warnings or errors are reported. Sample test logs obtained from
->> AM33x,
->> AM43x and AM57x verifying the functionality on Linux next kernel are available
->> here:
->> 
->> [Interface up
->> Testing](https://gist.github.com/ParvathiPudi/e24ae1971258b689c411bf6d8b504576)
->> 
->> [Ping
->> Testing](https://gist.github.com/ParvathiPudi/6077cc7ab71eb0bc62ef0435ce9a5572)
->> 
->> [Iperf
->> Testing](https://gist.github.com/ParvathiPudi/54aec8d6aaa1149b68589af9c8511b23)
->> 
->> [1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
->> [2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
->> 
->> This is the v13 of the patch series [v1]. This version of the patchset
->> addresses the comments made on [v12] of the series.
->> 
->> Changes from v12 to v13 :
->> 
->> *) Addressed Alok Tiwari comments on patch 2, 3 and 5 of the series.
->> *) Addressed Bastien Curutchet comment on patch 2 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v11 to v12 :
->> 
->> *) Addressed Jakub Kicinski's comments on patch 2 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v10 to v11 :
->> 
->> *) Reduced patch series size by removing features such as Ethtool support,
->> VLAN filtering, Multicast filtering, Promiscuous mode handling, Storm
->> Prevention,
->> Interrupt coalescing, and Linux PTP (ptp4l) ordinary clock support. This was
->> done
->> based on Jakub Kicinski's feedback regarding the large patch size (~5kLoC).
->> Excluded features will be resubmitted.
->> *) Addressed Jakub Kicinski comments on patch 2, and 3 of the series.
->> *) Addressed Jakub Kicinski's comment on patch 4 of the series by implementing
->> hrtimer based TX resume logic to notify upper layers in case of TX busy.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v9 to v10 :
->> 
->> *) Addressed Vadim Fedorenko comments on patch 6 and 11 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v8 to v9 :
->> 
->> *) Addressed Vadim Fedorenko comments on patch 6 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v7 to v8 :
->> 
->> *) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
->> *) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo
->> Abeni.
->> *) Added Reviewed-by: tag from Rob Herring for patch 1.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v6 to v7 :
->> 
->> *) Addressed Rob Herring comments on patch 1 of the series.
->> *) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
->> *) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v5 to v6 :
->> 
->> *) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
->> *) Addressed Andrew Lunn comments on patch 5 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v4 to v5 :
->> 
->> *) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v3 to v4 :
->> 
->> *) Added support for AM33x and AM43x platforms.
->> *) Removed SOC patch [2] and its dependencies.
->> *) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on
->> cover
->>    letter of the series.
->> *) Addressed Rob Herring comments on patch 1 of the series.
->> *) Addressed Ratheesh Kannoth comments on patch 2 of the series.
->> *) Addressed Maxime Chevallier comments on patch 4 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v2 to v3 :
->> 
->> *) Addressed Conor Dooley comments on patch 1 of the series.
->> *) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
->> *) Addressed Joe Damato comments on patch 4 of the series.
->> *) Rebased the series on latest net-next.
->> 
->> Changes from v1 to v2 :
->> 
->> *) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
->> *) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
->> *) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
->> *) Rebased patchset on next-202401xx linux-next.
->> 
->> [v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
->> [v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
->> [v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
->> [v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
->> [v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
->> [v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
->> [v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
->> [v8] https://lore.kernel.org/all/20250610105721.3063503-1-parvathi@couthit.com/
->> [v9] https://lore.kernel.org/all/20250623135949.254674-1-parvathi@couthit.com/
->> [v10] https://lore.kernel.org/all/20250702140633.1612269-1-parvathi@couthit.com/
->> [v11] https://lore.kernel.org/all/20250722132700.2655208-1-parvathi@couthit.com/
->> [v12] https://lore.kernel.org/all/20250724072535.3062604-1-parvathi@couthit.com/
->> 
->> Thanks and Regards,
->> Parvathi.
->> 
->> Parvathi Pudi (2):
->>   dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
->>     AM57xx, AM43xx and AM33xx SOCs
->>   net: ti: prueth: Adds IEP support for PRUETH on AM33x, AM43x and AM57x
->>     SOCs
->> 
->> Roger Quadros (3):
->>   net: ti: prueth: Adds ICSSM Ethernet driver
->>   net: ti: prueth: Adds PRUETH HW and SW configuration
->>   net: ti: prueth: Adds link detection, RX and TX support.
->> 
+
+On 8/20/2025 6:03 PM, Mikhail Kshevetskiy wrote:
+> This patch adds support of dual and quad wires spi modes. It will
+> speed up flash operations on the hardware with corresponding hardware
+> support.
 > 
-> Can you please use prefix "net: ti: icssm-prueth" instead of net: ti:
-> prueth" throughout the series?
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> ---
+>   drivers/spi/spi-airoha-snfi.c | 107 +++++++++++++++++++++++++---------
+>   1 file changed, 80 insertions(+), 27 deletions(-)
 > 
-> icssg driver uses prefix "net: ti: icssg-prueth" so this will be similar
-> to that.
-> 
-> This way grepping in git log for,
-> - icssm will give you only icssm patches
-> - icssg will give you only icssg patches
-> - prueth will give you both icssm and icssg patches
-> 
-> --
-> Thanks and Regards,
-> Md Danish Anwar
+> diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+> index bcc464ec9c61..7aab3506834a 100644
+> --- a/drivers/spi/spi-airoha-snfi.c
+> +++ b/drivers/spi/spi-airoha-snfi.c
+> @@ -192,6 +192,14 @@
+>   #define SPI_NAND_OP_RESET			0xff
+>   #define SPI_NAND_OP_DIE_SELECT			0xc2
+>   
+> +/* SNAND FIFO commands */
+> +#define SNAND_FIFO_TX_BUSWIDTH_SINGLE		0x08
+> +#define SNAND_FIFO_TX_BUSWIDTH_DUAL		0x09
+> +#define SNAND_FIFO_TX_BUSWIDTH_QUAD		0x0a
+> +#define SNAND_FIFO_RX_BUSWIDTH_SINGLE		0x0c
+> +#define SNAND_FIFO_RX_BUSWIDTH_DUAL		0x0e
+> +#define SNAND_FIFO_RX_BUSWIDTH_QUAD		0x0f
+> +
+>   #define SPI_NAND_CACHE_SIZE			(SZ_4K + SZ_256)
+>   #define SPI_MAX_TRANSFER_SIZE			511
+>   
+> @@ -387,10 +395,25 @@ static int airoha_snand_set_mode(struct airoha_snand_ctrl *as_ctrl,
+>   	return regmap_write(as_ctrl->regmap_ctrl, REG_SPI_CTRL_DUMMY, 0);
+>   }
+>   
+> -static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
+> -				   const u8 *data, int len)
+> +static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl,
+> +				   const u8 *data, int len, int buswidth)
+>   {
+>   	int i, data_len;
+> +	u8 cmd;
+> +
+> +	switch (buswidth) {
+> +	case 1:
+> +		cmd = SNAND_FIFO_TX_BUSWIDTH_SINGLE;
+> +		break;
+> +	case 2:
+> +		cmd = SNAND_FIFO_TX_BUSWIDTH_DUAL;
+> +		break;
+> +	case 4:
+> +		cmd = SNAND_FIFO_TX_BUSWIDTH_QUAD;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+>   
+>   	for (i = 0; i < len; i += data_len) {
+>   		int err;
+> @@ -409,16 +432,31 @@ static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
+>   	return 0;
+>   }
+>   
+> -static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl, u8 *data,
+> -				  int len)
+> +static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl,
+> +				  u8 *data, int len, int buswidth)
+>   {
+>   	int i, data_len;
+> +	u8 cmd;
+> +
+> +	switch (buswidth) {
+> +	case 1:
+> +		cmd = SNAND_FIFO_RX_BUSWIDTH_SINGLE;
+> +		break;
+> +	case 2:
+> +		cmd = SNAND_FIFO_RX_BUSWIDTH_DUAL;
+> +		break;
+> +	case 4:
+> +		cmd = SNAND_FIFO_RX_BUSWIDTH_QUAD;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+For unknown buswidth cases, not falling back to single lane?
+What if the bus width is 0 ? (for SPI, typically default 
+SPI_NBITS_SINGLE is used for buswidth 0).> +	}
+>   
+>   	for (i = 0; i < len; i += data_len) {
+>   		int err;
+>   
+>   		data_len = min(len - i, SPI_MAX_TRANSFER_SIZE);
+> -		err = airoha_snand_set_fifo_op(as_ctrl, 0xc, data_len);
+> +		err = airoha_snand_set_fifo_op(as_ctrl, cmd, data_len);
+>   		if (err)
+>   			return err;
+>   
+> @@ -895,12 +933,27 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
+>   static int airoha_snand_exec_op(struct spi_mem *mem,
+>   				const struct spi_mem_op *op)
+>   {
+> -	u8 data[8], cmd, opcode = op->cmd.opcode;
+>   	struct airoha_snand_ctrl *as_ctrl;
+> -	int i, err;
+> +	char buf[20], *data;
+> +	int i, err, op_len, addr_len, dummy_len;
+>   
+>   	as_ctrl = spi_controller_get_devdata(mem->spi->controller);
+>   
+> +	op_len = op->cmd.nbytes;
+> +	addr_len = op->addr.nbytes;
+> +	dummy_len = op->dummy.nbytes;
+> +
+> +	if (op_len + dummy_len + addr_len > sizeof(buf))
+> +		return -EIO;
+> +
+> +	data = buf;
+> +	for (i = 0; i < op_len; i++)
+> +		*data++ = op->cmd.opcode >> (8 * (op_len - i - 1));
+> +	for (i = 0; i < addr_len; i++)
+> +		*data++ = op->addr.val >> (8 * (addr_len - i - 1));
+> +	for (i = 0; i < dummy_len; i++)
+> +		*data++ = 0xff;
+> +
+>   	/* switch to manual mode */
+>   	err = airoha_snand_set_mode(as_ctrl, SPI_MODE_MANUAL);
+>   	if (err < 0)
+> @@ -911,40 +964,40 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
+>   		return err;
+>   
+>   	/* opcode */
+> -	err = airoha_snand_write_data(as_ctrl, 0x8, &opcode, sizeof(opcode));
+> +	data = buf;
+> +	err = airoha_snand_write_data(as_ctrl, data, op_len,
+> +				      op->cmd.buswidth);
+>   	if (err)
+>   		return err;
+>   
+>   	/* addr part */
+> -	cmd = opcode == SPI_NAND_OP_GET_FEATURE ? 0x11 : 0x8;
+> -	put_unaligned_be64(op->addr.val, data);
+> -
+> -	for (i = ARRAY_SIZE(data) - op->addr.nbytes;
+> -	     i < ARRAY_SIZE(data); i++) {
+> -		err = airoha_snand_write_data(as_ctrl, cmd, &data[i],
+> -					      sizeof(data[0]));
+> +	data += op_len;
+> +	if (addr_len) {
+> +		err = airoha_snand_write_data(as_ctrl, data, addr_len,
+> +					      op->addr.buswidth);
+>   		if (err)
+>   			return err;
+>   	}
+>   
+>   	/* dummy */
+> -	data[0] = 0xff;
+> -	for (i = 0; i < op->dummy.nbytes; i++) {
+> -		err = airoha_snand_write_data(as_ctrl, 0x8, &data[0],
+> -					      sizeof(data[0]));
+> +	data += addr_len;
+> +	if (dummy_len) {
+> +		err = airoha_snand_write_data(as_ctrl, data, dummy_len,
+> +					      op->dummy.buswidth);
+>   		if (err)
+>   			return err;
+>   	}
+>   
+>   	/* data */
+> -	if (op->data.dir == SPI_MEM_DATA_IN) {
+> -		err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
+> -					     op->data.nbytes);
+> -		if (err)
+> -			return err;
+> -	} else {
+> -		err = airoha_snand_write_data(as_ctrl, 0x8, op->data.buf.out,
+> -					      op->data.nbytes);
+> +	if (op->data.nbytes) {
+> +		if (op->data.dir == SPI_MEM_DATA_IN)
+> +			err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
+> +						     op->data.nbytes,
+> +						     op->data.buswidth);
+> +		else
+> +			err = airoha_snand_write_data(as_ctrl, op->data.buf.out,
+> +						      op->data.nbytes,
+> +						      op->data.buswidth);
+>   		if (err)
+>   			return err;
+>   	}
 
-
-We will update the prefix to "net: ti: icssm-prueth" in the next version.
-
-
-Thanks and Regards,
-Parvathi.
 
