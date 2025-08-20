@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68ECCA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248AECA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rs1AQNSyTZqUX4JnpdUSzm8PYYvXAiR99GW8vwczn/M=; b=OMibmVFtJwaiaPZqNn7UjVyVXi
-	aIl7lFQL0UUZO0UFWFdMEEqYXFNfou+AQq0htr2gvi4Cfie2JmAdcVk8u1VCKcBf+3zpH+GrhNqd3
-	b2h4OjORXmPTx1/7gJhQo+NgFn9nAyGG8kJSytUbbQe2uViHnOVpM3xOO2cCJzG9uAoNDeTWzYCHD
-	C331QmK4vcwGXvs9vl6p0GVoztPjuaW9VYLTo5AwfJHnM1nlrcmKPDpdBqpiAp/l4O7dIY+McVMDF
-	j0Ii7xdDSfqM1maRJ4v8RJIpYN4SS5rczu802sFz9O4sAL0Aln/oR8uqVfOwDyjHMlg4qlaWhjd1l
-	tBPzwVvA==;
+	bh=A2v+wIBkhTtFV2QGuLLBN8dKb9PIL2iIiXcD3hI2LCo=; b=nOp59tsbMVeOS58I/r5KV+6pOx
+	hWntt8Yt5AO58gK5uMECEjCNqIBdWxvlQKnLB1qI+Ua8rZQytL5n5z9NL+3cauc//fdyXs5O29h6Y
+	TSCjDnX3QjhlHeRjFzTtFby3kfujBAvnYWB45MzSEWbvz4QdPxqFpAdr6dEGF9yhbg2DhIQAT91HF
+	nh/5QQzmNPvjfcP/ecluHiluwfMnbFBbTWyhdX7fPPv8gxMwf4UoeEUA1phKsbqwfNiEClSgMa7YT
+	NyM44drNpsYve4YZB/SerFp9uBcT0p3Kd6qPFpniAIdqICCBMnRQ7t/mRLo3RUVggVwvFZ+ytdPZP
+	Epuxei1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopko-0000000EsRF-3eqD;
-	Wed, 20 Aug 2025 20:49:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uopkt-0000000EsbS-3jmo;
+	Wed, 20 Aug 2025 20:49:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolEB-0000000EKKo-3CTW
+	id 1uolEH-0000000EKLi-2JiD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:59:56 +0000
+	Wed, 20 Aug 2025 16:00:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CE44456B7;
-	Wed, 20 Aug 2025 15:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF6C9C4CEEB;
-	Wed, 20 Aug 2025 15:59:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 015695C6908;
+	Wed, 20 Aug 2025 16:00:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B94C4CEE7;
+	Wed, 20 Aug 2025 15:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755705595;
-	bh=uil8ZdRjg4HFrRJeLS26HOwIZusTXb+xLTXvjBw8om4=;
+	s=k20201202; t=1755705590;
+	bh=Vtm9o+lfZgJz6qZfo2+Y/aRAO42PD5GrpWRB3GXupms=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Dzj53rDiYwXvWskMsVLAaz4vmIFVf5W8xckeEZ/ZahMIv02o2UU7KMUO1IFwTJ21x
-	 dYKdxngWr8sb8tXV99EgmwY4Hz+YlETAlMEZK3dOtrep5IqwjmN5a2RkHW8WO9jfwh
-	 7JvN4FO8LwSH+CFm8JT2ye+XZyUyDIPtOOLw3T5dgzB8+PoVvFf/Oeu7GvDz5U0/3d
-	 evfCspyI87F/IjzqI6GVaWniR1G3ldgqEic1CCSWGnnV9xxODKFnt+7FTtdJdX/Upi
-	 AOlfN8Kg8GgB02PXRlz41Mfk0i7qGaQvitlyERI1biLUhbsEG16QjlsiIoizFRQHz3
-	 o/eGiYnrQoJFg==
+	b=lnwdob8u7vTynCCY08iaw4u+A4csAK/+9v91WXwx5pSJS8RKa0s+gVtJFFqJoV8nG
+	 ecYTWvN2zxAoRrBS/8BbfeXhlTLj9MspmzIISHJR7TcpJL1eEIFI7IvKnaIqBQ8o7d
+	 hbtWG08gwGGYa/3wyniAqDLfJwt65LifrNeDftfn+f/qnFyyw8ZZbSAlGQJc3ZhFA2
+	 BMOlcJXpD5fy6el5tb/e+AJMspA32ZnIifuz9EcfPc4oK/UvmRzBgiXE4fsEmLtDk1
+	 YpDpsC7MmWrUYU8Lt1rzJLdNJOMpqZV6CQ24lsFProTU8+aFDTnZ1sfm0F5TjDIm2k
+	 mDtth6r6t+rMQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -67,17 +67,17 @@ Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 15/16] gpio: xilinx: Use modern PM macros
-Date: Wed, 20 Aug 2025 23:40:36 +0800
-Message-ID: <20250820154037.22228-16-jszhang@kernel.org>
+Subject: [PATCH 14/16] gpio: xgene: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:35 +0800
+Message-ID: <20250820154037.22228-15-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
 References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_085955_840111_2222C30B 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250820_090001_635750_FA5DCCBF 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,70 +98,49 @@ CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/gpio/gpio-xilinx.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ drivers/gpio/gpio-xgene.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
-index 83675ac81077..be4b4d730547 100644
---- a/drivers/gpio/gpio-xilinx.c
-+++ b/drivers/gpio/gpio-xilinx.c
-@@ -286,7 +286,7 @@ static void xgpio_free(struct gpio_chip *chip, unsigned int offset)
- 	pm_runtime_put(chip->parent);
- }
- 
--static int __maybe_unused xgpio_suspend(struct device *dev)
-+static int xgpio_suspend(struct device *dev)
- {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -327,7 +327,7 @@ static void xgpio_irq_ack(struct irq_data *irq_data)
- {
- }
- 
--static int __maybe_unused xgpio_resume(struct device *dev)
-+static int xgpio_resume(struct device *dev)
- {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 	struct irq_data *data = irq_get_irq_data(gpio->irq);
-@@ -343,7 +343,7 @@ static int __maybe_unused xgpio_resume(struct device *dev)
+diff --git a/drivers/gpio/gpio-xgene.c b/drivers/gpio/gpio-xgene.c
+index 4f627de3f56c..809668449dbe 100644
+--- a/drivers/gpio/gpio-xgene.c
++++ b/drivers/gpio/gpio-xgene.c
+@@ -130,7 +130,7 @@ static int xgene_gpio_dir_out(struct gpio_chip *gc,
  	return 0;
  }
  
--static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
-+static int xgpio_runtime_suspend(struct device *dev)
+-static __maybe_unused int xgene_gpio_suspend(struct device *dev)
++static int xgene_gpio_suspend(struct device *dev)
  {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 
-@@ -352,7 +352,7 @@ static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
+ 	struct xgene_gpio *gpio = dev_get_drvdata(dev);
+ 	unsigned long bank_offset;
+@@ -143,7 +143,7 @@ static __maybe_unused int xgene_gpio_suspend(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused xgpio_runtime_resume(struct device *dev)
-+static int xgpio_runtime_resume(struct device *dev)
+-static __maybe_unused int xgene_gpio_resume(struct device *dev)
++static int xgene_gpio_resume(struct device *dev)
  {
- 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
- 
-@@ -360,9 +360,8 @@ static int __maybe_unused xgpio_runtime_resume(struct device *dev)
+ 	struct xgene_gpio *gpio = dev_get_drvdata(dev);
+ 	unsigned long bank_offset;
+@@ -156,7 +156,7 @@ static __maybe_unused int xgene_gpio_resume(struct device *dev)
+ 	return 0;
  }
  
- static const struct dev_pm_ops xgpio_dev_pm_ops = {
--	SET_SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
--	SET_RUNTIME_PM_OPS(xgpio_runtime_suspend,
--			   xgpio_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
-+	RUNTIME_PM_OPS(xgpio_runtime_suspend, xgpio_runtime_resume, NULL)
- };
+-static SIMPLE_DEV_PM_OPS(xgene_gpio_pm, xgene_gpio_suspend, xgene_gpio_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(xgene_gpio_pm, xgene_gpio_suspend, xgene_gpio_resume);
  
- /**
-@@ -682,7 +681,7 @@ static struct platform_driver xgpio_plat_driver = {
- 	.driver		= {
- 			.name = "gpio-xilinx",
- 			.of_match_table	= xgpio_of_match,
--			.pm = &xgpio_dev_pm_ops,
-+			.pm = pm_ptr(&xgpio_dev_pm_ops),
+ static int xgene_gpio_probe(struct platform_device *pdev)
+ {
+@@ -204,7 +204,7 @@ static struct platform_driver xgene_gpio_driver = {
+ 		.name = "xgene-gpio",
+ 		.of_match_table = xgene_gpio_of_match,
+ 		.acpi_match_table = ACPI_PTR(xgene_gpio_acpi_match),
+-		.pm     = &xgene_gpio_pm,
++		.pm     = pm_sleep_ptr(&xgene_gpio_pm),
  	},
+ 	.probe = xgene_gpio_probe,
  };
- 
 -- 
 2.50.1
 
