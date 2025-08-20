@@ -4,80 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD13CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FBFCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h3mB2cl4p/TqPu4iPQbvSZDivmPC/Vaf6YhcK7yexPA=; b=UNABnpMM73gXjn
-	tUxeQA4RRtkTU0OUW6c9F+kzUUJY0FR2JyMjoYMZhIkPuvrBYksofhKBDIv4YegLSiRyejN0mSzk0
-	QSewy0a5L5ptj2PC1d5BSGSgoGb5E/+V8N+I2XZrPbTmTCeDcA7NhKYsLMzxchNBtXbLLoZ0a1Qu4
-	kBuwJSME+qLU4G2kWD8UgNe44AK+KhUJjEAc5prJokdednKj+i9V8khb6IJ4MP2LLtCiN2Oq85iak
-	KhnwXtpBUGaNTLxQn8xbN7phKqL/8/jkKLrjsCUnJ+cGFiQxqqA+WjDUtXO6RkhkHNfjv4zh7P/Ou
-	dc4cx9GICtYdG3+aGdHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L/Ek9ahyvLJXOjuQE8zTuiaLTzC0yOsevKndUWOy+RE=; b=EAGwEHcnKtLb98qK0k8PD/b1tI
+	OuHf4Ro8E5mmze1q1Ajn3n0QCeFJaixMGgTe4OWOJrUtxk/7Itkv6TK2H81XsuJPi1TP0lBPgqWdh
+	1EQNpn6gStfnjj742d0KaL7wTCL4RsWBzw9iN9a/Nb6lOOP8PxPNB91w1R6SUvww5OphHcM7H+SzE
+	PW91OjzUNRFFSVZeLrCSZn71Am7TmWmSTsB2Mjt5ZzCK9i8IdbAE5e1caugES3ihYpe2vzfq5AumN
+	EiGdCTvwLIsMkYGonevHJ+rjoouSXe5/8fLMG8O/UhAqj35jBxDeW1r/Ajy0xZzyCAlrU+f14pwee
+	qCRsKwgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojOT-0000000DvWu-2rIo;
-	Wed, 20 Aug 2025 14:02:25 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoiOW-0000000DgjS-1hN0;
-	Wed, 20 Aug 2025 12:58:25 +0000
-Received: from [192.168.1.106] (mob-5-90-62-213.net.vodafone.it [5.90.62.213])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0872D606;
-	Wed, 20 Aug 2025 14:57:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755694642;
-	bh=VlqmzQIwlpXikjkPlKR2I94E0UF92cGjx+1RjdvBpNE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=mVmJgllukzJ3Ydpfpwxg/TvXR/NvDxrNVKFfjL2tNpxwTD+hzus12wR8OxtKf44Ku
-	 VpSTqkHstjnzY2vkY0bMAZ3b+mz8UnKXZWdBPRbM/yanK8o5MjTF1o51asQCw9ip8q
-	 capxP6aMKBTiZgx7I0crcEFWpulIbyxY5BWP50wo=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Subject: [PATCH v4 0/8] media: Introduce V4L2 extensible parameters
-Date: Wed, 20 Aug 2025 14:58:08 +0200
-Message-Id: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+	id 1uojR2-0000000Dvt3-22T4;
+	Wed, 20 Aug 2025 14:05:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoig7-0000000DjYL-3W5x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 13:16:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0524B152B;
+	Wed, 20 Aug 2025 06:16:25 -0700 (PDT)
+Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52B843F58B;
+	Wed, 20 Aug 2025 06:16:32 -0700 (PDT)
+From: Dave Martin <Dave.Martin@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	James Morse <james.morse@arm.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Subject: [PATCH] arm_mpam: Relax num_rmids parameter advertised to userspace
+Date: Wed, 20 Aug 2025 14:15:21 +0100
+Message-Id: <20250820131621.54983-1-Dave.Martin@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGDGpWgC/43OQWrDMBAF0KsEraswkmwkd5V7lC7k0TgZSCwjG
- ZESfPfKhtIsEpLl/zDvz01kSkxZfO5uIlHhzHGsofnYCTz58UiSQ81Cg27BgpJ0nWnM3J9JTj7
- 5C82Usiz+zMHP9ViiM2qwQ4sIvajMlGjg6zbx9V3zifMc08+2WNTa/uHuNV6UBNkNqC12aLXDA
- wfyOY599CnsMV7EulH0navgDVdX1xK6TjnCpjFPXPPvOtW94Zr134AAzjSuN/DAXZblF5k+wLi
- HAQAA
-X-Change-ID: 20250701-extensible-parameters-validation-c831f7f5cc0b
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4506;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=VlqmzQIwlpXikjkPlKR2I94E0UF92cGjx+1RjdvBpNE=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBopcZqUP+v3qfQ5FclgFKcqD43UIEUAG31vkvJN
- rGPW1wA/wWJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaKXGagAKCRByNAaPFqFW
- PH02EAC1yWqE4Nlz0JR90TvILx72evh+0j7AALA8vxr+1ExEf59SPPC2FYd5DtNPalD//lzl/bx
- 75GcgK4U+Xi66oM/0TGx4Ms2++KYks2wgtGia9wimmSQNnuFVlPHI/xYcPDTzeBk+ipN6xIjnxK
- vLmxv2PCGDvj2orNy/MMMhZDkqv3hNmy+0RC+BE8be9uFzUm/hRA4YmdSOfH0a7kmbfgCEh4UBz
- rSzl0tFZQveJYFHsgmC6evbxckKV2TR0QmYlZOozwVvvvHlsh0U/0NQSVfo2jolqAEWWBzzkOKH
- AZuI1OZv5Jym8YCErk7MP6YCJqtFfhiUDI00LBHfOheLt5fmCDjFzyn5O+2Eij36o2VWgmn60f5
- KbZnmdlCH9h25fFH76Fqa2lYGaFZJHPzygIDCO8M8J3HZipN57wBTY9saU8BXI7ojNoEDTxf0n7
- vFpF6BiTBzA6qL4Dc4MX+DZ0gK2VuNuyvyR3v1LrHgAA83f3yp/K/vcLoKOz4X94ePuOn92e2UU
- fOF+EQOl+rt2OuEX2V00Lphc6llPIs06P/+Omq5f+wVAXrzT1hdrluEaYsZGpxhKavkI0u2ycUv
- q1x4AWL4/G4fcoHBvPER5P03MdAogt3MJOVrqQxgasi81DoQ3KHk1t0U2f/LOJKeoMCHGXz419e
- tH2Jo5Hc8TIr0AQ==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_055824_593540_651B626C 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250820_061635_915551_5BF015BE 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,105 +61,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extensible parameters meta formats have been introduced in the Linux
-kernel v6.12 initially to support different revision of the RkISP1 ISP
-implemented in different SoC. In order to avoid breaking userspace
-everytime an ISP configuration block is added or modified in the uAPI
-these new formats, which are versionated and extensible by their
-definition have been introduced.
+On MPAM systems, monitoring groups are identified in the hardware by a
+(PARTID, PMG) pair.  Two monitoring group identifiers are the same only
+if the PARTIDs and PMGs both match.  This means that the number of
+monitoring groups that can be created in each control group is the same
+as the number of distinct PMG values supported by the hardware.  The
+number of monitoring groups that exist in other control groups at the
+same time makes no difference to this.
 
-See for reference:
-e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
-6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
+Currently, the MPAM driver takes the cautious approach and always
+num_rmids = 1.
 
-The Amlogic C3 ISP driver followed shortly, introducing an extensible
-format for the ISP configuration:
+Relax this limit, by advertising the number of distinct PMG values
+supported by the hardware.
 
-6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
+Code/Data Prioritization (CDP) makes no difference, since although this
+doubles the number of (PARTID, PMG) pairs available to a control group,
+each monitoring group now consumes two pairs instead of one.
 
-with a very similar, if not identical, implementation of the routines to
-validate and handle the ISP configuration in the ISP driver in the
-c3-isp-params.c file.
-
-fb2e135208f3 ("media: platform: Add C3 ISP driver")
-
-With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
-a third user of extensible parameters is going to be itroduced in the
-kernel, duplicating again in the driver the procedure for validating and
-handling the ISP configuration blocks
-
-https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
-
-To avoid duplicating again the validation routines and common types
-definition, this series introduces v4l2-params.c/.h for the kAPI
-and v4l2-extensible-params.h for the uAPI and re-organize the RkISP1
-and Amlogic C3 drivers to use the common types and the helper validation
-routines.
-
-If the here proposed approach is accepted, I propose to rebase the Mali
-C55 driver on top of this series, to use the new common types and
-helpers.
-
-I have been able to test this on RkISP1 but not on C3.
-
-Thanks
-  j
-
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Suggested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
 ---
-Changes in v4:
-- Fix the definition of V4L2_PARAMS_FL_PLATFORM_FLAGS
-- Add __counted_by() attribute to the data[] flexible-array member of
-  v4l2_params_buffer
-- Minor style change
-- Link to v3: https://lore.kernel.org/r/20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com
 
-Changes in v3:
-- Rebased on latest media-committers/next
-- Take in Dan's suggestion in block size validation
-- Documentation minor spelling fixes
-- Link to v2: https://lore.kernel.org/r/20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com
+This patch is based on:
 
-Changes in v2:
-- Make v4l2_params_buffer directly usable
-- Centralize ENABLE/DISABLE flags definition and validation
-- Take in Dan's v4l2_params_buffer_size()
-- Allow blocks to only contain the header if they're going to be
-  disabled
-- Documentation fixes as reported by Nicolas
-- Link to v1: https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com
+git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.16-rc5
 
----
-Jacopo Mondi (8):
-      media: uapi: Introduce V4L2 extensible params
-      media: uapi: Convert RkISP1 to V4L2 extensible params
-      media: uapi: Convert Amlogic C3 to V4L2 extensible params
-      media: Documentation: uapi: Add V4L2 extensible parameters
-      media: v4l2-core: Introduce v4l2-params.c
-      media: rkisp1: Use v4l2-params for validation
-      media: amlogic-c3: Use v4l2-params for validation
-      media: Documentation: kapi: Add v4l2 extensible parameters
+ drivers/platform/arm64/mpam/mpam_resctrl.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
- Documentation/driver-api/media/v4l2-core.rst       |   1 +
- Documentation/driver-api/media/v4l2-params.rst     |   5 +
- .../media/v4l/extensible-parameters.rst            |  89 ++++++
- .../userspace-api/media/v4l/meta-formats.rst       |   1 +
- MAINTAINERS                                        |  10 +
- .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 263 ++++++----------
- .../media/platform/rockchip/rkisp1/rkisp1-params.c | 349 +++++++++------------
- drivers/media/v4l2-core/Makefile                   |   3 +-
- drivers/media/v4l2-core/v4l2-params.c              | 126 ++++++++
- include/media/v4l2-params.h                        | 164 ++++++++++
- include/uapi/linux/media/amlogic/c3-isp-config.h   |  48 +--
- include/uapi/linux/media/v4l2-extensible-params.h  | 146 +++++++++
- include/uapi/linux/rkisp1-config.h                 |  67 ++--
- 13 files changed, 817 insertions(+), 455 deletions(-)
----
-base-commit: a75b8d198c55e9eb5feb6f6e155496305caba2dc
-change-id: 20250701-extensible-parameters-validation-c831f7f5cc0b
+diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
+index f1e565cd1aac..f4f6fa9acfff 100644
+--- a/drivers/platform/arm64/mpam/mpam_resctrl.c
++++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+@@ -1208,12 +1208,17 @@ static void mpam_resctrl_monitor_init(struct mpam_class *class,
+ 		/*
+ 		 * Unfortunately, num_rmid doesn't mean anything for
+ 		 * mpam, and its exposed to user-space!
+-		 * num-rmid is supposed to mean the number of groups
+-		 * that can be created, both control or monitor groups.
+-		 * For mpam, each control group has its own pmg/rmid
+-		 * space.
++		 *
++		 * num-rmid is supposed to mean the minimum number of
++		 * monitoring groups that can exist simultaneously, including
++		 * the default monitoring group for each control group.
++		 *
++		 * For mpam, each control group has its own pmg/rmid space, so
++		 * it is not appropriate to advertise the whole rmid_idx space
++		 * here.  But the pmgs corresponding to the parent control
++		 * group can be allocated freely:
+ 		 */
+-		l3->num_rmid = 1;
++		l3->num_rmid = mpam_pmg_max + 1;
+ 
+ 		switch (type) {
+ 		case QOS_L3_MBM_LOCAL_EVENT_ID:
 
-Best regards,
+base-commit: b8e4905233fe45814b3c73be7e091f172cfb86ce
 -- 
-Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+2.34.1
 
 
