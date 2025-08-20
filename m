@@ -4,194 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C16CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAAFCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUyD0s1eQ951P74v33ovVPkbxeX46yrj/XpjODv0aUY=; b=bvZp9+x7bDQ3wdAUjKMd0V8gAf
-	XGPPVhWEIehsbfChhEIz2EVWuGYRGYVhLhEo70iroMUT3pb5HKwObSaprDQAZ3wcXY2v+Txi5BZ1S
-	L2nTkvnn9JizeqKw10oLbR/1mmfNw8690L+yWbyZmHy/O6/9Rr7+r7WUuMaqUvTyIzRqZ8XS0DaQw
-	mJV5qluj5V3Sk5o9OxbxFhKXSvT/YOeTwxM0luziXxKx94yVgtcu9gPVFnjY+WmJknmp08EXQnTJZ
-	P4FUlqkx18NU1P1+wgMCyiVX+XvXPIcAFLmU19vGdfWtcEdzHjPTfWg9LIMf1EGI2hMvv19pAehwE
-	JrvBhBBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jlW6/IddUFlCMIBGkLf/azvMT0LzeJjDvY/ob0lXncs=; b=4nobRuMw3edE72r0XGgAsEkgHC
+	gW67HMCdjwXVEC4T57LnNslfJIP5pLvw6lFybvjmdyAlu6eW1NQ8wUaK7m1ijDCd57JlGtAZskrUd
+	CMeb6WfMJ+bMi0Poop1IgrWyjw6k0E2czdAHtXjrnzSY74DStkOOy9cdVL4nrPt5HzbCUijOadoZg
+	KOjC+dgh0eXZ0BeRF5Ww75S5197oABxRcMt+uh9E5ITJf0WbqIHWrzyxbQsibi2NwuS3axWqxQ/Qh
+	gVo6kS6Bopef7EhbKuApXyVQz1YQ4qlIvmUEh8MQqHTecXlOqi4uGpweEhwCAGRuHt0yXrN4sgJhP
+	oa1JO3xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqzo-0000000F3pS-3AFH;
-	Wed, 20 Aug 2025 22:09:28 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uor2N-0000000F3z4-22qu;
+	Wed, 20 Aug 2025 22:12:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomiU-0000000EZIn-3BRs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 17:35:20 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=u+DyQVQGrCpbE69Tqy5YLdCpUODvhP2Bp2Z3F6D2A4oC8LXMoX1QGD2dMErtGCoMt3rQM2eW5DjXosv2p99mVApGBldpoUwpt4dpvhPWZMR/RjOZz/Vw4C5ARFHbHtT0OrrP6zWO8URydBmU1lEU0CGgH9p0urVaMxKa+Zgb9Uq34iis6Du0nA4XEU378mOHFztL7D6WP/Jrg8zmCAKuKwe0OXxHRdFXznzYYRE0c87G8e1dsFquN6S73+zpoLR8Y763422CLt8u6cVqFbM0K6kldEIuNQy30lDxEqACEayRqtdudzToWmfQz4BTu24ehs2ZGi2jMPCzacn/c1M1Eg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yUyD0s1eQ951P74v33ovVPkbxeX46yrj/XpjODv0aUY=;
- b=qxd4fef1R9Ph56BtdGRLFtuDT58LuAt/wcj4Xp5ykXTJ3Ly9hVtk9wxkxND8hZUz6bX5oRCIJie2OZ9PxwD68PaOmPbJN28I0WavP4xAydRY7gcKWp49zw3PmjjNOX8t09G8gpaOQrNO47cE5+jYVEQnNT1HB1znCgmOvxB760MhjU/iuW5fcd1CV0cef/0U0VmddUwkqwjpjhKa/KH5lgB+Ozg4pVjQMfsluMsze+wdKC1ysqp+ZWaa0uSmMaPSIqfm+bWP12zzB65RZoDAznMl71SQqUcKAxECgCvDcOybKLjmB/PpaNa+Jz539IxS1e7BOtYI7EPBeUNK/NZ5Sw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yUyD0s1eQ951P74v33ovVPkbxeX46yrj/XpjODv0aUY=;
- b=O+aMI9EnS+1FotvoW4M1GHbQCzyJcXm1V+/uIksxFwDA9lqkJNqoB7Kazs0auysovA1/V/PbjJN4AJN9itF1rSxF8jl347TIGe5HPlZJjK8tCJQzVPFDS+/OkqR4smdg2klXs9Yp4BVIzpXou7cGpMppbo0hyMHyT+eu0I0x55E=
-Received: from AS4P190CA0023.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::9)
- by AS8PR08MB7862.eurprd08.prod.outlook.com (2603:10a6:20b:52a::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
- 2025 17:35:12 +0000
-Received: from AMS0EPF000001A5.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d0:cafe::e7) by AS4P190CA0023.outlook.office365.com
- (2603:10a6:20b:5d0::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.14 via Frontend Transport; Wed,
- 20 Aug 2025 17:35:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001A5.mail.protection.outlook.com (10.167.16.232) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.8
- via Frontend Transport; Wed, 20 Aug 2025 17:35:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s73uW2c4xeOUjaEOsKgz7rulB7Z05piYxk7ml+5cI6ZksQhsgblHBl32wRe1p6Gw/xg081LFjgxledlkZ6pFR64ELGmQ9br1XNtNuylkQAPVNlzHPgSR0Y4wEqGXI42J0FdSMhAK1PHwsJfQl1IXCQJ9/696F/8A6fc+sCkairKVot6imdj55hcWoohIhEjITxdEFEHuqIrArYcANTdtboswRc9iavu/1NlHslagdFYPeyR8Bfs3YtfPy/yGM4suUwowZClBToY5aazf69sH9/weZhP/wp5rrFJOryCNXG+Nv5bBBzPbJfzNltZNL8pb26jWWMLKuf7SYRjLjiN98g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yUyD0s1eQ951P74v33ovVPkbxeX46yrj/XpjODv0aUY=;
- b=vNWKUqnHhSmmUNEUTOm/MuL1N8ETHlupnMgkrvANkFBl9fg1XnJ0wBQusmHz8299g0guQc+Lrb7mnDb5+u7uXhE9QEmC1GXlChpS7IXO0qsB9RKoUopVlOqmAE2bEQULya47BTaOstkct5Q/OA7heroEbsMYtIpcHLFHP/gtcMHWumiW0rQ+0r3fOdvizJQ1CS1JPRC2Had5LwlG9de+5AmxfiCTR2rHY+YGCox6ibub/2UerGOtdsa8Y/aAIaK9n22DX4Fa1KpZ3f6lBMUcZaOvCYrdtpohL19y8gnXHU3Cg9AULW4UGqrr2oqgR87h/OYhx+FDV2HkRmCKS7n9Xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yUyD0s1eQ951P74v33ovVPkbxeX46yrj/XpjODv0aUY=;
- b=O+aMI9EnS+1FotvoW4M1GHbQCzyJcXm1V+/uIksxFwDA9lqkJNqoB7Kazs0auysovA1/V/PbjJN4AJN9itF1rSxF8jl347TIGe5HPlZJjK8tCJQzVPFDS+/OkqR4smdg2klXs9Yp4BVIzpXou7cGpMppbo0hyMHyT+eu0I0x55E=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS4PR08MB7407.eurprd08.prod.outlook.com
- (2603:10a6:20b:4e2::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.19; Wed, 20 Aug
- 2025 17:34:38 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
- 17:34:38 +0000
-Date: Wed, 20 Aug 2025 18:34:35 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Dave Martin <Dave.Martin@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ahmed.genidi@arm.com, kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 5/5] arm64: make the per-task SCTLR2_EL1
-Message-ID: <aKYHK1tYEji3jKWJ@e129823.arm.com>
-References: <20250813120118.3953541-1-yeoreum.yun@arm.com>
- <20250813120118.3953541-6-yeoreum.yun@arm.com>
- <aKXlqsnLyTL6lsh5@e133380.arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKXlqsnLyTL6lsh5@e133380.arm.com>
-X-ClientProxiedBy: LO4P265CA0024.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2ae::19) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1uomnz-0000000EZzA-0qrg;
+	Wed, 20 Aug 2025 17:41:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755711657;
+	bh=Au5yTrQB84jFwkCOgmGw2+Tw7pL8gxb6s+o7q0BYyIc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nvSufX4vy+v80iEyytN0KD/6uKu97HIsWogtYGGwHTcXUEBDb7y/4YpJkDMEXUQaB
+	 d+NIzo1Z6WEExpx9Njm/DVw4hGAte7HrHYCe51U+2t7wH7aJoe4qvqFFmI0OoVzVRy
+	 PizVGSW0dSTqyvC1DbSar2vTAdfvCCFIzueiT1Lu4OoIfCUVdk7nNK/OaEdbsnGaiq
+	 4BSoMK2GwUhkvhfMyTcqrQppXn6NAVpsG7LkjOiCIepynPkfHJVYBYyLJ6ILQSq7Nw
+	 iDFxcNcPVNTj+B2b9baokTDYK45vrs/cFLGsFrO+b0s4OGVyQWgDv0DcZCE+fb7d23
+	 s8LjyCmFftbdw==
+Received: from jupiter.universe (dyndsl-091-248-213-114.ewe-ip-backbone.de [91.248.213.114])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E632817E086B;
+	Wed, 20 Aug 2025 19:40:56 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id A68AE48004E; Wed, 20 Aug 2025 19:40:56 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Wed, 20 Aug 2025 19:40:49 +0200
+Subject: [PATCH v2 3/3] dt-bindings: thermal: rockchip: tighten grf
+ requirements
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB7407:EE_|AMS0EPF000001A5:EE_|AS8PR08MB7862:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46261121-7934-4e4f-77fb-08dde00fe9ed
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024|7416014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?lH/jp6Tn3vrwWfONB7HxnY4AG8Zlr6XWBeTdUDfPvnsdXZhxlbdoc2ZFijsl?=
- =?us-ascii?Q?FWDcChzFhkBFaAGog5iIc/js6EcD3JShgqZW3rkioTEAjTFtvZR/7VfAaDhD?=
- =?us-ascii?Q?5Rijr4Dz3b2q2NYKhDJt2AxgKbxz3UevEdj91FwPSXWF4mvT/Cew/huHbRj1?=
- =?us-ascii?Q?ILXXI7zUYL8BEbAisJP3tBcOCdUESoMCarZXaYf1I2YcwDxVIMcqYJxpVaPj?=
- =?us-ascii?Q?tSkOsufQ1jADelO8DiNtWf7djqq5RWHsAPc45oOduGVUIJ39KRPMzSnNkO3+?=
- =?us-ascii?Q?SyAzQZVNyY2XtiXaBtCu9PPtC9t76N2HSXsdD+fnmO964HUOKDVk7GATJGR1?=
- =?us-ascii?Q?rONsQWM5vgdNT7+ag+Vd2rj2hIiFksVCyHkP7GiVVI7Dxg54d4nLsLfbZGer?=
- =?us-ascii?Q?212u8vBpBLme7LdXHo6vnbTB3N1jBpt1dZEe7eOFl/NPsZbmtEiCFH6hqcw+?=
- =?us-ascii?Q?lXWDh2TlFAP8jS7/3V+wAucORVGc0yODS7T5R7bwKa+TRLJZqvv2tGgen7hc?=
- =?us-ascii?Q?4x1MmCFz6fSqU5LbIi4zUGeAL1901YB4Yv/pLB+oYoYYraW7BP3Y8S9Zgmw7?=
- =?us-ascii?Q?i/mZ/KzVVtV1fDdeLpGIpwRShqu3zLhunRci1/Kf4KFdPCu2dNao2rliF7ql?=
- =?us-ascii?Q?VgaKCp511W2aTtaawpGmDOaYuD8RhRtuGlErTCiHvX9+rOKej8VCDCWbriH7?=
- =?us-ascii?Q?1WIk9ZiIIttcK8Rs8RznkWAaQQBMtJ1/wr5ejbYdd+Adg69rN5GYAvEkvQ9F?=
- =?us-ascii?Q?mcF4knpubFg9L34FrEYvH7dWuRo//g85cWNbxrHNpwi7fQq5vc+whwxOF86p?=
- =?us-ascii?Q?/sv64Hzclgt3AnWb7PHHQ/xDTVX1KH4nNIfb04OFZoiXBktb5GqhncZWBnDY?=
- =?us-ascii?Q?DnexHs5cW4md7ZOx8yqHMRSxjojutNudGDc5eIUPD5EGR29xFs0jlQoJF8rb?=
- =?us-ascii?Q?jhfs/GR+P0wUdUIxoH0qD7rKdkqppvpECKgBGDkNT/DmHP8/L6HF9YQqQ+LA?=
- =?us-ascii?Q?1sw6LmfFuEldRPC5wJk00fIOSb+XVmV9w9dGRrIG1GABCaBGIyy5EPBGPxlk?=
- =?us-ascii?Q?qZgCLDqn57b69yULI9ZdOn1HbtZuWJhjyW4cigjfOnxeds4v/jc9a3xVkEWn?=
- =?us-ascii?Q?wb3KnKIVi4Dv6sZu0oaWTNPfD/407XKlaFz+BoJOonmahNFEF/twvxc06tPM?=
- =?us-ascii?Q?e3SQcPVmcEAOwX8TUoL7848ld1nT73BgqxGO6I/SWcBqvOtpklyU2t30HeUf?=
- =?us-ascii?Q?mKJpaUHH8Uq16EaGrZEiLkKet/Kzi6KaJy5aIqSMK4twGSoa3rKoQB1iqIX0?=
- =?us-ascii?Q?udXs7mDPWMf+ou3xwifunaVrM/l0AjWvK9vOdSFYvz9bCr+f2MoTRSY+zrFD?=
- =?us-ascii?Q?vJpzAW0QZOyjuaSHln/m8HEOUN2d6432iUgGZIjEtOQsZfmbLPTRE1QkUfiP?=
- =?us-ascii?Q?WB6hLJ2trIw=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7407
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A5.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 46de1c19-a5dc-43e7-5d20-08dde00fd663
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|35042699022|82310400026|1800799024|14060799003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IVR+TAa3wg8QYuA26mtlW4JVM5OxBAwKZ/6HsjGRhcHRwm8f9IN/lvuRovAJ?=
- =?us-ascii?Q?sPvl/cIkwYY1zwYNlVOjwnLAMNpzixcnE7kHOhy2G6iXgAu9P6kgnR8f/xtE?=
- =?us-ascii?Q?jvK9PpCkftG1wesRp71Yg7co3ZjTmggasEGE3PP2QmRekOonA98VqUVWxYaa?=
- =?us-ascii?Q?XyeHRgJ2qAmHnXYbBUU0v4lAnu1gQlLRsG/zdugVVj+mfocGCcsjoPNRnXFG?=
- =?us-ascii?Q?Q44T+S8uRUWquTSLnfqIjilRV2A7/RTYEJTgy1X+BtHwD3At+30+afP400GK?=
- =?us-ascii?Q?Pf/6gz6azQidy/ewv6YG1UOQh/EeZJ7234SCDax6APYrQA7o26DPzO/U56tX?=
- =?us-ascii?Q?Qw0hg++jLo4oIkGZEWu6uOembEBOwMm5eCHGPcvcptWRFH0+ZZxOqYu5fHnr?=
- =?us-ascii?Q?FU1M2Sb51vQQGc4Kxp5xr/EotTA+vynRJdz07YjTAqh/FxQYBcdyjmbeyNFo?=
- =?us-ascii?Q?7wmfhWv/bzbMsxsY8F2YFUCyitfDp4nWav3TET3tcZ0n/Le9VHN/bgYw1ylt?=
- =?us-ascii?Q?AHPYtq8BHnOVmpLt2tri4eOMT5Lpy1+1kpiETyas7OI8HEX2UT1WtHMmnfuH?=
- =?us-ascii?Q?UUYFGrl9OTF32NpjxdnGPgj1a66sEVyXd9LX9g3TesqHegugWYv0Jvs7Riok?=
- =?us-ascii?Q?JcK75xdVnOeAHkYmX/n6WCwG9E6Q5RfrD1ktIB6eNUAmQrn5SSgZNFtHeeXW?=
- =?us-ascii?Q?AjcognNSKoVkYuqRPoR6b8Ycu07JQJrs/3drkrd+QkcVo2WaIpzsYvs1U8pE?=
- =?us-ascii?Q?m0o7PeqMPuKPenDUlD0OdLtwPELRfsoBAvB5WPundYLBjOYaSFNEWypJsjuF?=
- =?us-ascii?Q?BReanAGvN+eQRsU+2WYlCUd3KvFZccjSbTUIeuRHosRQErDv346NBpQi9kp5?=
- =?us-ascii?Q?MvWRf5jh9WYJaD47nzcDVBB7twWmTFvjH58ry1VfllrxuiwFmQeHjhzZ1fO3?=
- =?us-ascii?Q?AOqwfXrIc3MTSyXSdAft5dXBxMiKp+QWRMdjhdVJ3ufn72HMub+MQdClpnne?=
- =?us-ascii?Q?8xqxyvjYgMkFer1IuC9215OBj9WCIVowjGx1gD4/bWbWVdaFhAIn+QL5WU8d?=
- =?us-ascii?Q?Ef0ZpZAcQqjTO8KwmEL6lzBypi/SnM8f1B7RKwrVlDstt7aAGBypSJ38tNob?=
- =?us-ascii?Q?PX8YBs6YzMYn5DUu9Oj6Y+TmT/cylqcacZCCr38cI3N9n+CyXs3MfoPzVt8g?=
- =?us-ascii?Q?noI289H5s4tyPOG1K7DoOiFFlj7EWT+/oBbgcMOQkFB4MTUigirAKfIMf2ON?=
- =?us-ascii?Q?stRVEeiSyF6i30QhmKlm6/iOkhwF6mEUpDsMN6VPQKV6pAdW8C8rpNJu2L1u?=
- =?us-ascii?Q?VBNX6XaEOnSSpDTxHAnlTeZWYaAPQKlIY56QyZqOmbvn6Ac3+AYdBHAvh4qm?=
- =?us-ascii?Q?08XOhLosIu9mCGKOlmsW7siIdc0ag/thKurCMDWMT3ILRD4VauEYx52knLP3?=
- =?us-ascii?Q?0g80u0w5KcgAKCnmgWxFVyYSbkcvYWV+ctLw6Yc7TYNHWP0lLcvCVBcCYTC4?=
- =?us-ascii?Q?GLgtX4kl42wAX/hgMtq+y5lhvIG54sNvH1Il?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(35042699022)(82310400026)(1800799024)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 17:35:10.9363
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46261121-7934-4e4f-77fb-08dde00fe9ed
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A5.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7862
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
+References: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org>
+In-Reply-To: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, 
+ Diederik de Haas <didi.debian@cknow.org>, linux-pm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1270; i=sre@kernel.org;
+ h=from:subject:message-id; bh=Au5yTrQB84jFwkCOgmGw2+Tw7pL8gxb6s+o7q0BYyIc=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGimCKhlGYYCe/U2tChbQRkiLHhxGSQ6BpBxa
+ WOuv5ACEVPMEokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJopgioAAoJENju1/PI
+ O/qaM+sP/2Nn0diaMf83Q0cmf1E57OtX4JtDr8KsLopYMbzIygSUE/y+C2k2HaGN/oHpW8+feyD
+ lUZoaaLnjUrf00HmIWJZwgvWRzwuOjkm0M+e+N0MWJfZVjDoYQ1ROkqQ76yKOGk8XyNxO/THwze
+ T3xoZZHZrmeTzdopWbt5UGoqoy0tyD5S96w3R0eSIGEaXrAxPoTMH+9Q7wx60YNrVHQbsHO3S26
+ UMDo1NUOqpFNBeX6SARmZey2cak/yWjt0jNER6eCXZJJPmocwXhpBSO2JX+9ouGmIt9N/qEQSh0
+ l7f44DzCaRNOjYsfJx2E4e7EkQ35VQY9jdvybQ7Yu9dc8SFiNDJyT4YZ3zQbeXcENVpgxj8LdlN
+ vKgfAnvWNjzFEnbf+MiFOOJH1C6oO2VlxRWVtoiIf+qOfA1exal5+ImohIBEtK+WHlDyE2wg8Kz
+ HycDZwMDTm6GPMI65Cgcvn/JgBVPDQWVOX9B0eDErChUxwI6Ls4bDJeyv/YrnWKZqNmz4iroEtD
+ qI5Ghzp44gJdFi4W+x3Z6mlDq0vprB06MDgRMEa58+L1eIbq+LTcOLkI3s+JdqPQd+NZ1iHSWrR
+ +c0vP416yo52o09HMPJD6AAXeZhpzIl5WFP5E9zKNGwqvVfqfTjQ88Dt/+P1L4+gJOHEpb3R8E9
+ D/tf6TQDQez0tL2uz1t4qkg==
+X-Developer-Key: i=sre@kernel.org; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_103518_950067_625B98AB 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20250820_104059_399044_A9EB135C 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -206,117 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave,
+Instead of having an optional rockchip,grf property, forbid using it on
+platforms without registers in a GRF being needed for thermal monitoring
+and make it mandatory on the platforms actually needing it.
 
-> On Wed, Aug 13, 2025 at 01:01:18PM +0100, Yeoreum Yun wrote:
-> > SCTLR2_EL1 register is optional starting from ARMv8.8/ARMv9.3,
-> > and becomes mandatory from ARMv8.9/ARMv9.4
-> > and serveral architectural feature are controled by bits in
-> > these registers and some of bits could be configurable per task
-> > not globally -- i.e) FEAT_CPA2 related field and etc.
-> >
-> > For future usage of these fields, make the per-task SCTLR2_EL1.
->
-> It is worth pointing out the impact of this: for platforms without
-> FEAT_SCTLR2 support, there is no functional change and minimal
-> performance overhead.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../devicetree/bindings/thermal/rockchip-thermal.yaml     | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Thanks for your suggestion :)
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index 573f447cc26ed7100638277598b0e745d436fd01..9fa5c4c49d76e3a689f31797875124e7fb30d3df 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -119,6 +119,21 @@ required:
+   - resets
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - rockchip,px30-tsadc
++              - rockchip,rk3366-tsadc
++              - rockchip,rk3399-tsadc
++              - rockchip,rk3568-tsadc
++    then:
++      required:
++        - rockchip,grf
++    else:
++      properties:
++        rockchip,grf: false
+   - if:
+       not:
+         properties:
 
->
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/include/asm/processor.h | 5 +++++
-> >  arch/arm64/kernel/process.c        | 9 +++++++++
-> >  2 files changed, 14 insertions(+)
-> >
-> > diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-> > index 61d62bfd5a7b..2c962816de70 100644
-> > --- a/arch/arm64/include/asm/processor.h
-> > +++ b/arch/arm64/include/asm/processor.h
-> > @@ -184,6 +184,7 @@ struct thread_struct {
-> >  	u64			mte_ctrl;
-> >  #endif
-> >  	u64			sctlr_user;
-> > +	u64			sctlr2_user;
-> >  	u64			svcr;
-> >  	u64			tpidr2_el0;
-> >  	u64			por_el0;
-> > @@ -258,6 +259,9 @@ static inline void task_set_sve_vl_onexec(struct task_struct *task,
-> >  	(SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
-> >  	 SCTLR_EL1_TCF0_MASK)
-> >
-> > +#define SCTLR2_USER_MASK	\
-> > +	(SCTLR2_EL1_EnPACM0 | SCTLR2_EL1_CPTA0 | SCTLR2_EL1_CPTM0)
-> > +
->
-> The kernel doesn't know about any of these features, yet.
->
-> It's probably better to make this 0 for this patch series, and add bits
-> to this mask only when they are needed / used.
+-- 
+2.50.1
 
-I see. Thanks!
-
->
-> >  static inline void arch_thread_struct_whitelist(unsigned long *offset,
-> >  						unsigned long *size)
-> >  {
-> > @@ -370,6 +374,7 @@ struct task_struct;
-> >  unsigned long __get_wchan(struct task_struct *p);
-> >
-> >  void update_sctlr_el1(u64 sctlr);
-> > +void update_sctlr2_el1(u64 sctlr2);
->
-> Is this function used outside process.c yet?  If not, you can drop this
-> declaration and [... below ...]
-> >
-> >  /* Thread switching */
-> >  extern struct task_struct *cpu_switch_to(struct task_struct *prev,
-> > diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> > index 96482a1412c6..9191180c4875 100644
-> > --- a/arch/arm64/kernel/process.c
-> > +++ b/arch/arm64/kernel/process.c
-> > @@ -698,6 +698,11 @@ void update_sctlr_el1(u64 sctlr)
-> >  	isb();
-> >  }
-> >
-> > +void update_sctlr2_el1(u64 sctlr2)
->
-> [...] make the function static here.
-
-You're right. there's no usage anyware except here.
-I'll change this.
-
-Thanks!
-
->
->
-> > +{
-> > +	sysreg_clear_set_s(SYS_SCTLR2_EL1, SCTLR2_USER_MASK, sctlr2);
-> > +}
-> > +
-> >  /*
-> >   * Thread switching.
-> >   */
-> > @@ -737,6 +742,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
-> >  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
-> >  		update_sctlr_el1(next->thread.sctlr_user);
-> >
-> > +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2) &&
-> > +	    prev->thread.sctlr2_user != next->thread.sctlr2_user)
-> > +		update_sctlr2_el1(next->thread.sctlr2_user);
-> > +
-> >  	/* the actual thread switch */
-> >  	last = cpu_switch_to(prev, next);
->
-> [...]
->
-> Otherwise, I guess this looks OK.
->
-> Cheers
-> ---Dave
-
---
-Sincerely,
-Yeoreum Yun
 
