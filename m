@@ -4,71 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C3EBCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DE7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BtQOhDJDdpA03+d/8z21YcB9Smds3YGgfJ1KdE49oLs=; b=0N089JM9g7SX12rMx5tCLdezQl
-	Xqmj9uze09Vt8AtqnF6B7Pd+S0x6Md9kJEfTdm0vC9bMdFJ22+QAEnBWdXzhXvDaQOA+Uzamy9R4l
-	xyXf3r39SRfaRLihOc3ZP6io84pmwKdHo9fg2EAMQje0iNxPWnE4zxa9HozuCL88p3STcEfd3Ryk+
-	hv3jvu9bodej0+vO/dsAHDCDMjPrVJwL2MYxEyJHPcYh0iuqyQO3hfOO+V6HFHISwjlY7c71oIOHS
-	MqJwzO5pLrtsWpFyvLYLNJ3nGHXin55uHVOf1y62o0iHduvW60D/LeCgZ+n2+6qYZV53G3GQdO3wE
-	IG1eTZ6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uAVtJCz9hj861a0/av5zeX8q9iPSvyX3Uw11B7ltlqU=; b=d+dEUJoJHQthvHgpMe1bj6EWZV
+	6oUZV/dJB3OM2l51PeahoO4jIRmnKHcZ/LZH8cro1Ve8SGaCmPQyIL0pm3ZItNlMHNeEgUBJ8gwzF
+	RZrglGgPFABIq5IPV2F98Omd57ofXY5TQy+0KgHWDv9vDfbcUTvRmwci94oEJDF3m8CnnAfve4VjH
+	8lH3BdA7V+7p7Rgz9X8dHX8fT+SSRPI7iFnr31rijBC6eeMPFiLWhWzxSW6SPQM+vDTUqa2JFqh10
+	cYV3M4jMysxfnaqNNTdvt1G7yFMSTJ1U1Arj/DIlKQmpg3mKKtw54kCXuHATQu9HYV+E+haLxcHIR
+	3+lqYvAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonSz-0000000EflF-0Xzy;
-	Wed, 20 Aug 2025 18:23:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokIl-0000000EArN-38Ah
+	id 1uonVY-0000000Eg1Z-2Bth;
+	Wed, 20 Aug 2025 18:26:00 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokMP-0000000EBS4-0U3R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:00:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FF7B2F27;
-	Wed, 20 Aug 2025 08:00:27 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.2.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EFD343F738;
-	Wed, 20 Aug 2025 08:00:30 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v10 43/43] KVM: arm64: Allow activating realms
-Date: Wed, 20 Aug 2025 15:56:03 +0100
-Message-ID: <20250820145606.180644-44-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
+	Wed, 20 Aug 2025 15:04:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OA0ybhQdslisgcP3aapG5j9icUzfEcWPZHoFRrQpmFzXe1xrPQ51MGhTTm9kqBljx5mLPJBHvMZiKE3jO3OS7Z7DO6NQPpO/03xcJGUTL6JbGOD2g6K6fvxb8yGrWMYw+hYkI/v2el7abKrlkbY62M4MwappoHH14Vv3oZDjJUA9evGvhEDUMCd6iR97g6YZkYneCGy/2Aea8NOdv7/zYULc1dJ+aiOwOEVZXkBfEs1CvFSQxhijP65/9g1syRloywQg4ME+zk8Fzl65W5n0ypYUGiMqzHCvOIw5V2nLlxD1tqoAlpGwAOixV+LZqLdjtvFrVLt1y8Ad84tMh4AwBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uAVtJCz9hj861a0/av5zeX8q9iPSvyX3Uw11B7ltlqU=;
+ b=FpsY34C+CfQKWGLzIS01NEx+Cx6P7coYpUNiqBnOlo8lcMjXpiGVzLPYTqfnxg+A/y5rReb2KZciRPJzDWQTsRyv+1cdJP8BMBNW2pQRiZcut7FCUOFZawMrQXf0zuoDkNQ03XAejqi5ctVj1Ccy/o+y015viJ7+9hZ+TLg0Asjhuxw+aux1k9VPF2Z9EFfuNtnMFJVn/ImO2/TYKLWiUpQLyq38ZFdv3dtEau9PtNyak5tHNM6LMjdpVyJLm5OBWaB2oQGUJ3mXhpf+EYFldbXwJt49Zi4EhhpKQ1qgBiydQHiCP9wck4x2v//qLT6CbQVhofbyPDD7Fl6SeMwTfw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uAVtJCz9hj861a0/av5zeX8q9iPSvyX3Uw11B7ltlqU=;
+ b=nJh1zVD7DYo36ZCr4XWPwfGnKm6Vm/aQSl0IIBnXQB/t5QRksqowNtBF4e+jR6p03zY2cpvyKKOfZOzesnpK44Q+EK+sfmjyU7PiSm+vy3QD0ACzo1r7R+pCvqZS6dXa8zQJhm+N/smxtvPXzN+6aJ9RzwO9eAJJxhwgfyPWUBJ3NP6K6EEM9j1sjSopwSxkWtDdYn+sE5YijL4HrKYv60pNGu0N38GXehzUTdatHuW9TNmJFFpuwRwDBIGwZZ/co6kSWyq+8dD3h2DFg5cOluxVHeMeHZynxQpH9lo7tB4xyOLxofJhPVG+mpcpAnn/XqLURG3dqVOWQS3qY7PnxA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AM9PR04MB8698.eurprd04.prod.outlook.com (2603:10a6:20b:43d::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Wed, 20 Aug
+ 2025 15:04:12 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
+ 15:04:12 +0000
+Date: Wed, 20 Aug 2025 11:04:04 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] PCI: imx6: Enable the vpcie3v3aux regulator when
+ fetch it
+Message-ID: <aKXj5IT9yEWYn6BG@lizhi-Precision-Tower-5810>
+References: <20250820022328.2143374-1-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250820022328.2143374-1-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: PH8PR02CA0054.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8698:EE_
+X-MS-Office365-Filtering-Correlation-Id: d754a8f0-ae0e-4f81-8e47-08dddffad1ff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tDCwi+vQ/nmON968S5WTZli85IO9Tm0IycjBHxrcwt2RCvC8jB8x39se1sN9?=
+ =?us-ascii?Q?cF4RkPN48SxGO1WfuZ1rCbAZmcPO9dOYl/JtIPtz8/hUkkzcManTQTsTh6Ox?=
+ =?us-ascii?Q?dZ2uGxj2i+GxgzUi2aUmjg7r51J43MxH1QIGtTBehieEm9lmoKaSTuyW2+JW?=
+ =?us-ascii?Q?KOVp30YGnaKljhTOyJJ96Pqqf+1hz2Z2reHDRUeo6dDK0ue237wdDx73wtaw?=
+ =?us-ascii?Q?7uNnd1xP4m4KeqaMZ8djnzHNuQjtOkLBTyYRyv+kLOII2wDgX3yT8iY01W7d?=
+ =?us-ascii?Q?I41A/T99ipxtE5rRkVzlJTWJIrHD1d5trtpyKbPhMGug2iC1XAA/LK/0Cu12?=
+ =?us-ascii?Q?2IazKo4UpuBs36VcX2CwMa1ajwKsAKz5RIBqeq2cCTIVn0Dk24oKnYxQxZc8?=
+ =?us-ascii?Q?vupO24hW/2fKgIjuB0O6wPMyfXb34J1K1bas+ebqJUni0jHStvMo0xx1Vg0H?=
+ =?us-ascii?Q?bcf10DELlSWdrzaIRT2IyMGdKuwkibURpD5eCFjWVXhQ2PMbmi6cml5wg70w?=
+ =?us-ascii?Q?GnBio3Vb/OA5mDa5q5kKGjxob0xulA/diY/Vc/Qdk21u6x22LjpV2bUucdk+?=
+ =?us-ascii?Q?5jK76fZNdyJqBwW8zfmc6KUxvhhJWIQ4q7ceUVoNT8fqqrUcyvMa2F8MwiRW?=
+ =?us-ascii?Q?oazLQ2SjzoxsgnMafI3I7q88WoIRQ2DP/M3FPiyEqYfQpKtG5in+EmKZKFfC?=
+ =?us-ascii?Q?9YFVhMylAF9h7swqDgP5qUNQOdQPrp56cgr0WoKSVoCjeuyZCh7I8hSpbhRu?=
+ =?us-ascii?Q?krdehmwFDD6EgnH1EJV7HsxOgJ9aZqCOGj+hGIGLuf3VpQe/8JN7on24CZr0?=
+ =?us-ascii?Q?HhzWY+w2+Yiak0sxOPN/jjFHRic10R22oi91xGKwYq3u4w8EDc+si8dJsTxy?=
+ =?us-ascii?Q?hQJlO4uoQjCJ/RfZIgOr0j7KCROoaegoawFWbrBhf8T7kfcgkc8kg1SwXiZV?=
+ =?us-ascii?Q?4ZXj7JPNeDMrnuwmiqBCJvmyipPQLjmeqItU85KUD+CcutHNN5ArDPckI3yL?=
+ =?us-ascii?Q?yMqm1D3Nayk9cv4djGVW5wlOVl1XY4THX2waaNX7UmXDFHxTErWlaq9m9sD1?=
+ =?us-ascii?Q?jRenR8SGTBTPxqryFKz159hb+uJ1oNLvjBSxtLgH1xjCXx7YBvoVtpCl0jco?=
+ =?us-ascii?Q?OM4Db8OBtjwIIjk34FuXCW7gDMpU+o8Kbgm+ddVB1RVuVFCd6bn9bMZWNN/n?=
+ =?us-ascii?Q?b4cjyzWNjAVb2epDk9lrjWtVtXPkP5XR14GhTSkE5jSopEnOvXa24uyj/wWw?=
+ =?us-ascii?Q?p4tltCjWqvEOYEwyWrTiRSCso4NgeTbCNFSSN9La7rj/bB26S+gtjQCRqS/k?=
+ =?us-ascii?Q?LPGzwqrwSrE+6BuFHhkESBzZF5OWfnEMDcybEAEW3g6oEOxH4pZggjBpMw4T?=
+ =?us-ascii?Q?lzXecbPZzPeGHWwBOxHbIov1T5PU4jsHRTOuvVTuG7AsCMUCDqp5j46E1J0Z?=
+ =?us-ascii?Q?cFhW2aPSQ51f4SYD1qjQflnz1iCvHSbHvXubk3WM2d5LoePEmQ9shH+rTyVo?=
+ =?us-ascii?Q?ylSWeB7E/VGWMuo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ebxpT22WMxFxo40mUYaj2KMvcubWtgODm0LKeXlSHh8bi/cLaIVaGEls1qVy?=
+ =?us-ascii?Q?ksQKyDhK7+BcSvEwQd+8FYArnhwodsJGpBHkWkV89J3m7jadxuhlBFE+i5jT?=
+ =?us-ascii?Q?oBEjnHjgGFlG8F9YpdATpsWfarOohaApt96RhoGqWE+v/T5cCxXDOlPycfRk?=
+ =?us-ascii?Q?rrFrIjfzx4AgY1VTISoFXEQFiCb2CQioR9OFmBKACSpZRbNG7yuXm3n6lOGv?=
+ =?us-ascii?Q?AkvKvWF3OW77qUJ1hyC6WyM1SCDu6JvBuL5iVhBDhN/n7hB2i3skhw/Rtmmn?=
+ =?us-ascii?Q?ATLkzcpVCCvhWZRprTeAl99pXvqU7N3hBseOmkSAoLXFJbifyTbEyhllb/tb?=
+ =?us-ascii?Q?ohOQTGvF4XlsFFBmjsdpI7hobzxEz2aZuvyuuQGbqUFeM0JD9AHqVDd7YahZ?=
+ =?us-ascii?Q?ioXYTDZ4fPZtrKEpvRVAXJrOdDgCsK/yTuyJMXsfekvHXCmP47quIO4dLc2L?=
+ =?us-ascii?Q?NSiezIOlTrESZDiORYE6CRm4/NQANSfeuq5VJLdddzpZL2fB8L1A7DplrrQb?=
+ =?us-ascii?Q?vwKMj+q9e4uu2PCwWjhnDZP35YfjEdjfPgqPh/rPqutdqjsjdHFMQSgJZMkE?=
+ =?us-ascii?Q?MroKo5ml4ZGU6+VZKaP3OFJDj7Un+uUCqbRQa/WlM88wHrxj5Bg09ro0lk11?=
+ =?us-ascii?Q?/MMfl5bHdMgluw7IN2FUwPrBZhu4iTYctMPgGpczK5xagZu325dH0ZfmzNuq?=
+ =?us-ascii?Q?DfienzMmO+DNWytf48knRk/hGQm3MDjkuRMlOwPOF6iEdJczbpqUMNsoVPGK?=
+ =?us-ascii?Q?25mqynbx3zVSSv1aBAIlGQQjfQ9GSwRv3MDXz9xwFDxCoTTv57wbRQPfsUDm?=
+ =?us-ascii?Q?chnpYm6/eUQF9u0CGEIuEygJSyyldNlnF3GTLdH+wCaTrb3OqOG1E2e9vVXu?=
+ =?us-ascii?Q?ZLmqkv/KUl/biwVD11qxw/UKwAt1RJ7SEXLjdPhbBKNDWSwO1l+NTLdo23Ry?=
+ =?us-ascii?Q?AO1D4QysR1JUYnuuyja4J2sVx6JDXvcVMYpz2Wru+KKvVRomJIE1FtxZKpKJ?=
+ =?us-ascii?Q?QhfC7nNL/A49nz0Aeypm3qmQMk8lwm8QGAYNPhzGrmae7mrH7ZFzkB7Jym+K?=
+ =?us-ascii?Q?sjK/Fk78Sjg6lRa2xsVz8oM76WS4RVhQgMZNF1dOgbxU3/0/cRBPXU5/hEfs?=
+ =?us-ascii?Q?ufllzqAKWWPtFrgUkZy0zqm2mO6BHXM1UGzr+wEk99BZPqbA6V6GO3tN9lu9?=
+ =?us-ascii?Q?nni/ewauZLw7FmLxPf+Klda+2ngsFyitpP5aLAqHGdSzVU2QYXzbZQFyTnam?=
+ =?us-ascii?Q?kFDaMt/L/V3C08tgWnQVguLtbUjz2JVmSN9PdvaQrd1UI/AR4hfJ8o0hnqgS?=
+ =?us-ascii?Q?sC40JVV5MCeIQhbSpAgnDO10cgrzgFijOOy8/wvWW7sZl6EbHD2zu2O9cPQa?=
+ =?us-ascii?Q?S7SQ5RmsE3gwRd21p/UV11i5COvverHCjBaSR4xIE2LItyXxU7v1QxaT+tT7?=
+ =?us-ascii?Q?N+IGr5oZO3q//pw4mouDHwRo6TcxlblK0VdBT+X6+lBBJiv9+0z5ZlWy/GQl?=
+ =?us-ascii?Q?cHccvAEJM3m1Xk7RkBrZLFqHWwjif7zGghpz7C/SviZrAALHMkC8dz6ukygq?=
+ =?us-ascii?Q?+10MlPH5GZnQqI8Jq2IEi0p2ZXjEr2DdBMjpCawc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d754a8f0-ae0e-4f81-8e47-08dddffad1ff
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 15:04:12.6164
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g5vGT8RWPOOZDn94xEeFvYAlEWdp3OKxicG15r1QhiWmmZc/J0L3wLdo/arHiZKNBbU25IhzGN89RWOq0tLiww==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8698
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_080035_821758_1D5129B6 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250820_080421_154995_71BA6CC9 
+X-CRM114-Status: GOOD (  24.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +162,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ioctl to activate a realm and set the static branch to enable
-access to the realm functionality if the RMM is detected.
+On Wed, Aug 20, 2025 at 10:23:28AM +0800, Richard Zhu wrote:
+> Refer to PCIe CEM r6.0, sec 2.3 WAKE# Signal, WAKE# signal is only
+> asserted by the Add-in Card when all its functions are in D3Cold state
+> and at least one of its functions is enabled for wakeup generation. The
+> 3.3V auxiliary power (+3.3Vaux) must be present and used for wakeup
+> process.
+>
+> When the 3.3V auxiliary power is present, fetch this auxiliary regulator
+> at probe time and keep it enabled for the entire PCIe controller
+> lifecycle. This ensures support for outbound wake-up mechanism such as
+> WAKE# signaling.
+>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
- arch/arm64/kvm/rme.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 55ef3143a7b2..299473298720 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -1253,6 +1253,20 @@ static int kvm_init_ipa_range_realm(struct kvm *kvm,
- 	return realm_init_ipa_state(kvm, addr, end);
- }
- 
-+static int kvm_activate_realm(struct kvm *kvm)
-+{
-+	struct realm *realm = &kvm->arch.realm;
-+
-+	if (kvm_realm_state(kvm) != REALM_STATE_NEW)
-+		return -EINVAL;
-+
-+	if (rmi_realm_activate(virt_to_phys(realm->rd)))
-+		return -ENXIO;
-+
-+	WRITE_ONCE(realm->state, REALM_STATE_ACTIVE);
-+	return 0;
-+}
-+
- /* Protects access to rme_vmid_bitmap */
- static DEFINE_SPINLOCK(rme_vmid_lock);
- static unsigned long *rme_vmid_bitmap;
-@@ -1400,6 +1414,9 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
- 		r = kvm_populate_realm(kvm, &args);
- 		break;
- 	}
-+	case KVM_CAP_ARM_RME_ACTIVATE_REALM:
-+		r = kvm_activate_realm(kvm);
-+		break;
- 	default:
- 		r = -EINVAL;
- 		break;
-@@ -1725,5 +1742,5 @@ void kvm_init_rme(void)
- 	if (rme_vmid_init())
- 		return;
- 
--	/* Future patch will enable static branch kvm_rme_is_available */
-+	static_branch_enable(&kvm_rme_is_available);
- }
--- 
-2.43.0
-
+> ---
+> v5 changes:
+> - Use the vpcie3v3aux property instead of adding a duplicated one.
+> - Move the comments from the code changes into the description of
+>   commit.
+>
+> v4 changes:
+> Move the dt-binding to snps,dw-pcie-common.yaml.
+>
+> v3 changes:
+> Add a new vaux power supply used to specify the regulator powered up the
+> WAKE# circuit on the connector when WAKE# is supported.
+>
+> v2 changes:
+> Update the commit message, and add reviewed-by from Frank.
+> https://patchwork.kernel.org/project/linux-pci/patch/20250619072438.125921-1-hongxing.zhu@nxp.com/
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 5a38cfaf989b1..5067da14bc053 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1739,6 +1739,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	pci->max_link_speed = 1;
+>  	of_property_read_u32(node, "fsl,max-link-speed", &pci->max_link_speed);
+>
+> +	ret = devm_regulator_get_enable_optional(&pdev->dev, "vpcie3v3aux");
+> +	if (ret < 0 && ret != -ENODEV)
+> +		return dev_err_probe(dev, ret, "failed to enable pcie3v3vaux");
+> +
+>  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+>  	if (IS_ERR(imx_pcie->vpcie)) {
+>  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV)
+> --
+> 2.37.1
+>
 
