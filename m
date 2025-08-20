@@ -4,137 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09166CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 03:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34DACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 03:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1N/ucuPVyTyuNbkPcCCW3UQru9In3TiK2iev/+oe3mM=; b=kuqti3C4sHl18x9KZLKGmd+YWj
-	w8pv4kO277ooylercHT1OWINJLXtV10NL+FW+rK1x6Wqx6ygFWPcJ6KjraXHJQ6OOpO44lforZJXp
-	Qn0EoW7LRACVjsuqJbZWP+5ZXb2gPW/5wkz5nFw1aCRQvsZLqC0iWRkApd6bqWf3Uab0ocaxNOwNc
-	6bPXgDbvFQMWILxHWBuqwb8ZEhRTWE67N7oJCgowa6AfDoIsfwAcaN9vPJZm3JpwgF9GN69IRRUfD
-	gWTQE2CiGKw1jh1+0z/vKSec/VteszrZ0WIpC2rvRpG2ct8Sadk7F42AjEE4Tjfou2KX2YuXnUz2c
-	xOIW842g==;
+	bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=; b=uU4oQWW2MufA4yyNcFRpCqSw8g
+	uohP3ZxavEsnxN1z18zO+1bthkLgfpk15PbZH7kSso2Jlos+/Uu8a1UwqoN5F46g/BR/b/0FSgp2W
+	D2uIphodJyJOWJxqZEWFGLM8N/moMi60xfQfHa5vBsCk1JAyQBtyAZu9vW1V71EvC7ygJiFjCeNG9
+	ci7LE5ZuNDtWVfoX7Nzyuumtn0Ll2SoVbCv6IGfC/7NngSFpX27KEzD+y3XPx7Qfgldj12FxWXqvm
+	/Jss0GsABzsUPNdCa5zZ6QWAK3qXH6WeA2QfiCDcBzDAEgpumOhGW1WrJ6B2IK2gGDjttdDksM/Y+
+	XQZL015A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZPK-0000000CGPm-1jhG;
-	Wed, 20 Aug 2025 03:22:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uoZRx-0000000CGZe-19Q4;
+	Wed, 20 Aug 2025 03:25:21 +0000
+Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZLD-0000000CG2R-1MGP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 03:18:24 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K1p2QJ009540
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 03:18:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1N/ucuPVyTyuNbkPcCCW3UQru9In3TiK2iev/+oe3mM=; b=gdoEGRrSMiZHcCc6
-	Oo5swe3fsHJEfhNQ9+pgvKJjnB8H0gCiv4Wfiz1NZw1JdjbBEBnykd0DDKRxIE+V
-	VkOZxED24WT/zu4meCWY4MclmKfzkTwdlJmlNFH4pe0LQOnu5UUoATxq6Q9qCVlk
-	thlNab6rJABofIEzlVHIVkuX0/B9h4qta4DgFKzcx2ABdd/Cua/ofVIXWds1sJ0s
-	z2+ph3z5CDFp19I6hLEz4x6qd+wZ7+B2STwLp2ogEFsfaIAmF6GpSTE8eV/0ioOq
-	zPx9tHwmTtQLvCc3KSdGQimJeMvzG98dn75hIdBgHUAigUTz5ZGIoQo/fozxbpbX
-	VuuNMQ==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n52a06n4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 03:18:22 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b47630f9aa7so533315a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 20:18:22 -0700 (PDT)
+	id 1uoZLr-0000000CG8k-2x7b;
+	Wed, 20 Aug 2025 03:19:04 +0000
+Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-afcb78e70c5so932632566b.1;
+        Tue, 19 Aug 2025 20:19:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755659942; x=1756264742; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=;
+        b=DLey6+u9WCKaptscL0GzBe4qV6U5rcyFN1jjS32bVgtGIAZUDz5PatzAHDd9FaLGI7
+         YjMda4bEaG6fSSQmj9uu8syPbOcA7icMi/KpIhnz1/gE2ud1lU2oin/GKfcd3fRqldx8
+         68xKra0lV1RodoPyUmo4SuvpcnLQkLqb+C4fDBiXZhI4mhcCb85cjKPDdGaw25J32/kn
+         xobNLVfHU5fZW0xa+jBJVl3vRQISrMuH0TpBKhaZ+pjw3ND7ipyFBrDarT/ElB3tkJ2D
+         sXcxm0OZpk0PWynQSN2MdPKF4QwVzzUkkkyzG28ZnxXuZiW3lv4tWT3MPB7U8xfeFIV7
+         /Yxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755659902; x=1756264702;
+        d=1e100.net; s=20230601; t=1755659942; x=1756264742;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1N/ucuPVyTyuNbkPcCCW3UQru9In3TiK2iev/+oe3mM=;
-        b=DFwuZ4SvEKCYhiPp647a+YqrKjfiHuq+mNz/MKJZbMzorpl4BP+YXO2U8uRpNAX0la
-         V+buP15v+oKBSN1F7F6BVYwLYgk1Av6gdnDDr2UBPqgEGVGLVZcZ+4vhxsq/LMgZV1qr
-         vq9Zje7ozSSQ640r5JZC2i1aIiUfut7aJX38gR7BlUlWwLJYIuov7wFm3+HNtjvymKLu
-         SY31KS+3uBmDfLqBn5EoL8r6XwyQsAcWJWqY3H1Sio7IuSDD8kLsU/LQMLITofpN7bpG
-         WrODa4uY8pZC1I9fVVizGvJEg4XLD/imLueOAtVWp9iPJp0wvsC6B/dIgykFasaJ7Zl1
-         WccQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVKzz3PcXXq9IDlIFNP69Lj+VhIgzFc1uMy0AG3jkrfgs9bDwVek8EY1NmkFeuu3ZHP7txWgy3ERGYnMEovPSfM@lists.infradead.org
-X-Gm-Message-State: AOJu0YypCe9a40bYLxLorm/NzO3cvHi8R8wRFwY0Oshajb10Kigz50OD
-	4+1t1DDVqPZifPNCYttCKa8cyIil9K4ngz0vZ6+bPSh/WjzsKrQSiV+QBAeryN3GztWXCOuaaYO
-	l2eU9x+Alk8GUk/TZzpOXvj+bOhwguLsx1d8b13EA84Vp/D3r9S724flxb0nsk1/L2WlB7DRlDR
-	XIkA==
-X-Gm-Gg: ASbGncvOhrNRxrlnHJ9Lb3pZv8yzikicwL+RKTEuzd7xbgJ9oMW9Hw2jFr09+laSODT
-	FMsVdgdEFThkZKBp48GmNJuZ6M/W4/nDt5UicJQWQyu4dnT09m4ZL/QLoyCxJxRrDIH2IxaxTbr
-	wUYUws9BcaqMk2e9YeDUbQH3CHs6GxHL/Hbm6VgTdVMMVQLaUN0Kf8PlZYCrcCeDiwPUZ2aUO5I
-	dGxgz/Ol10lJoeJJluOALbbpJG32pZ64CcESW7jaWJjTH4pYDPbwI25hRZoCz6+exSDCgSTRYkd
-	9BjoxZ3GGG6YrcDeNSaHGeLvbNp3+uYH1Qtm0IE90vRtM81csj0zpVyv52sljoXZDHV0XvqbgC6
-	w6+ZnHISUx00/YIqzpNJ+PxtqRLF167Ba
-X-Received: by 2002:a05:6a21:6d84:b0:23f:f5bf:35d7 with SMTP id adf61e73a8af0-2431b988debmr2421278637.45.1755659901670;
-        Tue, 19 Aug 2025 20:18:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEg42eG76MsaUYs0q0AlQR/5jkH+O6t3EbXik5YsVCq2cwrkly7cX1JNA8zlN9xV7ue3HTcKg==
-X-Received: by 2002:a05:6a21:6d84:b0:23f:f5bf:35d7 with SMTP id adf61e73a8af0-2431b988debmr2421234637.45.1755659901283;
-        Tue, 19 Aug 2025 20:18:21 -0700 (PDT)
-Received: from [10.133.33.88] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-324e253cff5sm702559a91.12.2025.08.19.20.18.14
+        bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=;
+        b=ks7wTAeyCFSiaEgDGV+sKBtsXBzL7E8lqXvLExjDZ7eqwfcxzSRHJvk6q9mwI4WpNM
+         BWaSJDs48FQ7dSMqdVuPMw2MNPBdqDokLR9sF1PdaTIhoZX9XIlrOWzMeMLayb8WVYiy
+         0SdjI/yMV4jogIj/oCulBeRcsnUMP8l8Ozmw4BxUiuFYn73ixOjE5K2czr58peq0pxBv
+         xOVdZqLXNYW6hvpsiAWG7GIJk9quE/7o19988gbRcy5LVSaLEdx/aukU+LHxoqDEIfiS
+         2qN9AHISIvRjJ7zEOPDUQQVfCQ2EDTg4d59GBcBaDiep7R+EkCfK53UnsBZTmiTKsPom
+         LlDw==
+X-Forwarded-Encrypted: i=1; AJvYcCVFJlMDyK6S66WhOy+HPMNtCJc7+YyQUpfCJRdTijpogfir21B1j8FAd8YO+A+89FdLeFcLogrPq3DK67EPqbM=@lists.infradead.org, AJvYcCW/KG1InlANcrd0X0OmgTtgz9f66yGKkth64yvWpsstbZ25K46cC+a++vAOD9bAWL7ae1p7pBWkz+WxN9260wOm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1l60prZttKiw8zI9yjmEkttbtDM4ZevmsDIs6UTww5jeSBLpu
+	z2A8WIXxSG1Et5qPf1urp34MtswevcKbVgL8+bh1nSAJLrFgyCh87SMu
+X-Gm-Gg: ASbGnctfqgoYzKNbKZTVigK9UA9a+3cQAF4QttjK1004Eqk9TwKxN2wZlbWwLWOF08m
+	MdZts5lOOxKv4DEQ5zgsdNk0AcuH7Akt3iuhaDIBQ3o64VzW3ublmT9Wzj54oIpD32+9G0JQsE/
+	jNm3JCZhwrYnuxpCMvcQDs1uE9F/TwmLfEOAT8LLy4FqqOFNR6vdH8g/z54uQBFD/5rdHCpGUug
+	lSKnoGv/BdC2A6EPbeB+zbl4hT1qHFkxymJJEw2Arj8OF33xIJlakz6DUzFJ+opYjh55FbxNEG/
+	zmft2RXl7SL9P7Qfjo5v/LLLZXloBRVqokSZPuqHQvMZ/RwDNlE+193I7j7TFZ5qnBtVa1Rr2Yy
+	1HprHfsb84tI1UHfKhO1e4V3YDfCL870ptcUlwbQBu7wO3HPz910kIETZr8wPZ+Iuvxg5BqscN0
+	wgpbyaws5GYVe6RAIOq8Du5bHvUG9vyYLO0g==
+X-Google-Smtp-Source: AGHT+IEIwwlIwoTIiNuhUQ07/bBrVkoWwe0s7LnQYSy2POy+c888AvHzKbMqqWN1VrmqgpQIHAF1pA==
+X-Received: by 2002:a17:906:6a1d:b0:af9:237c:bb35 with SMTP id a640c23a62f3a-afdf00e2e81mr95410766b.22.1755659941758;
+        Tue, 19 Aug 2025 20:19:01 -0700 (PDT)
+Received: from [26.26.26.1] (ec2-3-75-144-20.eu-central-1.compute.amazonaws.com. [3.75.144.20])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded52ea4asm96482666b.101.2025.08.19.20.18.54
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 20:18:20 -0700 (PDT)
-Message-ID: <648e5f1a-5945-4562-b280-c12d26ad65a8@oss.qualcomm.com>
-Date: Wed, 20 Aug 2025 11:18:10 +0800
+        Tue, 19 Aug 2025 20:19:01 -0700 (PDT)
+Message-ID: <d6b852bc-328a-41af-b125-e250c72c0d22@gmail.com>
+Date: Wed, 20 Aug 2025 11:18:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/6] arm64: dts: qcom: qcs615-ride: Enable ethernet
- node
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, stable+noautosel@kernel.org,
-        Yijie Yang <quic_yijiyang@quicinc.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-4-5050ed3402cb@oss.qualcomm.com>
- <813548c2-02be-40fa-bb6b-00c4e713d17c@lunn.ch>
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
+ jgg@nvidia.com, will@kernel.org, robin.clark@oss.qualcomm.com,
+ yong.wu@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, thierry.reding@gmail.com,
+ vdumpa@nvidia.com, jonathanh@nvidia.com, rafael@kernel.org, lenb@kernel.org,
+ kevin.tian@intel.com, yi.l.liu@intel.com, baolu.lu@linux.intel.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+ patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
+ helgaas@kernel.org
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
 Content-Language: en-US
-From: Yijie Yang <yijie.yang@oss.qualcomm.com>
-In-Reply-To: <813548c2-02be-40fa-bb6b-00c4e713d17c@lunn.ch>
+From: Ethan Zhao <etzhao1900@gmail.com>
+In-Reply-To: <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=feD0C0QF c=1 sm=1 tr=0 ts=68a53e7e cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=TQ9DYVZ7-X13aS6S9P0A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-ORIG-GUID: 4NirG9zvvWf4oiLUQNNqK32xD0vEnbX6
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfX1cDwrQ11NFgV
- +vzouAUPDEX1u7SRz/zS8gFZqzevPeo8hrJT/UGbGHIBlCp9GsUhE95qEtFA+626GQ8IceKHHs4
- TDtU7HIWuTRf/9ggbMex+6AqaSvJojiZvMqd8dIr/+e3lpY2vx7mRW6/x5fMf3jcd0TsA5rU7Ma
- 6nYHaZfC+cbWP+WWfCipJ4YKNIZ+RTDRxL/TzBhPxpzMSNcCgN7uF1d3r2+qms95jyQerjCnEGs
- g+H174NmoZDr16cYJkDYdZWbcg5SudfZip3WBLka4hTamQdTxmbiUa7kMR1hRAAe+e2Mi+nApzi
- K13l94iw3ti8eWCug3tVEghUvVUSEEJQiQBhDJjXreWnLTPfxqbmiKhoUvNL2dG1emzUtqUG4xY
- Ht8FGY/d972aK3YSfhyb8u6GjDGnMA==
-X-Proofpoint-GUID: 4NirG9zvvWf4oiLUQNNqK32xD0vEnbX6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-20_01,2025-08-14_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 adultscore=0 malwarescore=0 bulkscore=0
- lowpriorityscore=0 spamscore=0 impostorscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_201823_395487_3A330A31 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250819_201903_751116_005A4566 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,31 +116,88 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2025-08-20 00:24, Andrew Lunn wrote:
->> +	mdio: mdio {
->> +		compatible = "snps,dwmac-mdio";
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +
->> +		rgmii_phy: phy@7 {
->> +			compatible = "ethernet-phy-ieee802.3-c22";
->> +			reg = <0x7>;
->> +
->> +			interrupts-extended = <&tlmm 121 IRQ_TYPE_EDGE_FALLING>;
+On 8/20/2025 5:59 AM, Nicolin Chen wrote:
+> On Tue, Aug 19, 2025 at 10:12:41PM +0800, Ethan Zhao wrote:
+>> On 8/12/2025 6:59 AM, Nicolin Chen wrote:
+>>> @@ -4529,13 +4530,26 @@ EXPORT_SYMBOL(pci_wait_for_pending_transaction);
+>>>     */
+>>>    int pcie_flr(struct pci_dev *dev)
+>>>    {
+>>> +	int ret = 0;
+>>> +
+>>>    	if (!pci_wait_for_pending_transaction(dev))
+>>>    		pci_err(dev, "timed out waiting for pending transaction; performing function level reset anyway\n");
+>>> +	/*
+>>> +	 * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software disables ATS
+>>> +	 * before initiating a reset. Notify the iommu driver that enabled ATS.
+>>> +	 * Have to call it after waiting for pending DMA transaction.
+>>> +	 */
+>>> +	ret = iommu_dev_reset_prepare(&dev->dev);
 > 
-> PHY interrupt are always level, never edge.
+>> If we dont' consider the association between IOMMU and devices in FLR(),
+>> it can be understood that more complex processing logic resides outside
+>> this function. However, if the FLR() function already synchironizes and
+>> handles the association with IOMMU like this (disabling ATS by attaching
+>> device to blocking domain), then how would the following scenarios
+>> behave ?
+> 
+> That's a good point. The iommu-level reset is per struct device.
+> So, basically it'll match with the FLR per pci_dev. Yet, the RID
+> isolation between siblings might be a concern:
+> 
+>> 1. Reset one of PCIe alias devices.
+> 
+> IIRC, an alias device might have:
+> 
+>   a) one pci_dev; multiple RIDs
+> 
+>      In this case, neither FLR nor IOMMU isolates between RIDs.
+>      So, both FLR and IOMMU blocking will reset all RIDs. There
+>      should be no issue resulted from the IOMMU blocking.
+> 
+>   b) multiple pci_devs; single RID
+> 
+>      In this case, FLR only resets one device, while the IOMMU-
+>      level reset will block the entire RID (i.e. all devices),
+>      since they share the single translation tunnel. This could
+>      break the siblings, if they aren't also being reset along.
+Yup, such alias devices might not have ATS cap. because of they
+are PCI devices or they share the RID(BDF), so checking ATS cap
+condition might be useful here to skip the prepare()/done() .>
+>> 2. Reset PF when its VFs are actvie.
+> 
+>   c) multiple pci_devs with their own RIDs
+> 
+>      In this case, either FLR or IOMMU only resets the PF. That
+>      being said, VFs might be affected since PF is resetting?
+>      If there is an issue, I don't see it coming from the IOMMU-
+>      level reset..
+Each of the PF and its VFs has it owns RID(BDF), but the VFs' life
+depends on the living of PF, resetting PF, means all its VFs are
+lost.
 
-Thanks for pointing that out — I’ll get it fixed.
+There is no processing logic about PF and its VFs in FLR() yet.
+my understanding the upper layer callers should consider the
+complexity of such case.
 
-> 
->      Andrew
-> 
-> ---
-> pw-bot: cr
-> 
+While we introducing the connection of IOMMU & device in FLR(),
+seems we brought some of the logic from the outside to the inside
+part.
 
--- 
-Best Regards,
-Yijie
+One method might we don't handle PF either by explicit checking its
+VF configuration existing to skip prepare()/done() ? till we have
+much clearer handling logic about it.
+
+Thanks,
+Ethan
+   > d
+> Thus, case b might be breaking. So, perhaps we should add a few
+> conditions when calling iommu_dev_reset_prepare/done():
+>   + Make sure that the pci_dev has ATS capability
+>   + Make sure no sibling pci_dev(s) sharing the same RID
+>   + Any others?
+> 
+> Thanks
+> Nicolin
 
 
