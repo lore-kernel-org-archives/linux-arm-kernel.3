@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278FCCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 08:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FF1CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 08:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cb4CTa4khRkhXoHP9hGMAI4OWMfdIrzKxXnUyCaI3OA=; b=c30twmhANI4CwiJUtffuL+loC2
-	dUQYShgnZxaJYbdZEiwRESpUFtOep8VWpN88q3rfT1SgR1kgnOXgGpdP7Nfy8+FPji7fSAEwkyJ9j
-	26py9Mm9dhdRjz2tj5wkDQhvcVTMjxD+563rdISQhgrtzM3A8Q4zwQ0girq4/5EKhhEEWc3LmHjtb
-	KZfnt4D6eWbfCNge0Nq2kJxD37lZ2DTlxhvaInfsDJFeUsiDO8luuCeS5x6FPJbhDa5+SRg/HIa+g
-	eM9HgafdWmhR8aNpXuysouW47P5mdVDKwaJ5V44C2MHoW2YpAOw/pK+YuVasAwHQRPmJoZx+aUkju
-	uur60O+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ffBfXfkWnxBLysk65/GWI3ham98Fz2RAzunURzEpHM=; b=wE9ubskh+Mz635IzFTD8D1722N
+	71ZrNivOaJZlUA44vL3i43uFt3g/ZWUbrsPLDRT6AdSomhdU4n/oNuNoT1PK/MwFL1e9zMT1CRZsR
+	To1zC0oweNWWD/9UDvSwOSE07839CF55fRFQ9QlIK864Rgu4J0dvxg62yb5rdaaRkMJj0CuUmFVht
+	8gyv1HbmxkVNLYH7UdW/CP6hKp4SFLN55Gp/+C5cB1n/ESKmWHNLj84wNL47W2tmPuf28aYxByVIs
+	SIGuJ5jMkWN9R5PzFPfbXIaKbNPM0TDpeAr/mmt/h/8a2Ympk5sfpNGu5iOzT8ocn/LdRrC217zkh
+	dUxT94wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoed4-0000000Col7-1WbQ;
-	Wed, 20 Aug 2025 08:57:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uoefd-0000000CpD7-34Gu;
+	Wed, 20 Aug 2025 08:59:49 +0000
+Received: from mailout.nod.at ([116.203.167.152] helo=lithops.sigma-star.at)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodvD-0000000CgiV-0BEn;
-	Wed, 20 Aug 2025 08:11:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76C216113B;
-	Wed, 20 Aug 2025 08:11:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AFF1C4CEEB;
-	Wed, 20 Aug 2025 08:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755677510;
-	bh=7I4mVhsZ4PWXlRPOcS5Vrjm3MfJ24J5kXv7MZGrueVk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=irknLw6HuwAWuSpoOl4fh1JZJBvojr+SJx27gy2XXvH8vp2SQIp76Ei5+15Uy5T2D
-	 KcPgbPBIE8FZUoO7HKg3AvRJ3cxZxkCOI613d9KsFLgVtFHDJQHuJI0Lfbaxzp4NMf
-	 ZAi6JN0SXueuU1bc+rBwyxTCaA+n3OjaK4qYM8vh+7zUyX9CDxhd4FKa8d24rsZ9Rv
-	 hzLmnsGPqVl+wbDH1wOunRjDUkKFMc4yzsOEsqsoXa5UG4SKyzBBXlbM7/oyp8C6Y2
-	 56QCSbLzZWluN7V3mb0+MWTOC89SCsJkyR8JerWMjfkDJgeI62goisrSn6PNUbELzl
-	 oD8hK5UNiamWw==
-Date: Wed, 20 Aug 2025 10:11:47 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 08/13] arm64: dts: amlogic: Unify the compatible property
- for clk-measure
-Message-ID: <20250820-sweet-herring-of-luck-9c3431@kuoka>
-References: <20250815-add-more-socs-to-support-clk_measure-v1-0-59f04ba67457@amlogic.com>
- <20250815-add-more-socs-to-support-clk_measure-v1-8-59f04ba67457@amlogic.com>
+	id 1uodvS-0000000Cgk6-02aM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 08:12:07 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id 183792CE348;
+	Wed, 20 Aug 2025 10:11:55 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id XVIhD7bjm513; Wed, 20 Aug 2025 10:11:54 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by lithops.sigma-star.at (Postfix) with ESMTP id A84F02CE374;
+	Wed, 20 Aug 2025 10:11:54 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id ObgVaPfNnbRa; Wed, 20 Aug 2025 10:11:54 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+	by lithops.sigma-star.at (Postfix) with ESMTP id 7C0032CE348;
+	Wed, 20 Aug 2025 10:11:54 +0200 (CEST)
+Date: Wed, 20 Aug 2025 10:11:54 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Russell King <linux@armlinux.org.uk>, Steven Rostedt <rostedt@goodmis.org>, 
+	mhiramat <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	ardb@kernel.org, Eric Biggers <ebiggers@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, dave@vasilevsky.ca, 
+	ruanjinjie@huawei.com, liuyuntao12@huawei.com, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-trace-kernel@vger.kernel.org, 
+	Donglin Peng <pengdonglin@sangfor.com.cn>
+Message-ID: <1672011332.146872.1755677514318.JavaMail.zimbra@nod.at>
+In-Reply-To: <CACRpkdYYTe0YArbheo3msd6r+CNrt9oSZWNjkiwb=ZNWfJ1dkQ@mail.gmail.com>
+References: <20250818103931.1100084-1-richard@nod.at> <CACRpkdYYTe0YArbheo3msd6r+CNrt9oSZWNjkiwb=ZNWfJ1dkQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: ftrace: Implement HAVE_FUNCTION_GRAPH_FREGS
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250815-add-more-socs-to-support-clk_measure-v1-8-59f04ba67457@amlogic.com>
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF141 (Linux)/8.8.12_GA_3809)
+Thread-Topic: ftrace: Implement HAVE_FUNCTION_GRAPH_FREGS
+Thread-Index: CVXhU17DidlkWtQ6Ka0vacHBgIlQ2A==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_011206_192002_40D7B4B9 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,37 +83,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 04:37:34PM +0800, Chuan Liu wrote:
-> The clk-measure IPs across Amlogic SoCs have minimal differences, so
-> they can be managed with a unified compatible property.
-> 
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->  arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi       | 2 +-
->  arch/arm64/boot/dts/amlogic/meson-axg.dtsi        | 2 +-
->  arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi | 2 +-
->  arch/arm64/boot/dts/amlogic/meson-gx.dtsi         | 2 +-
->  arch/arm64/boot/dts/amlogic/meson-s4.dtsi         | 2 +-
->  arch/arm64/boot/dts/amlogic/meson-sm1.dtsi        | 1 -
->  6 files changed, 5 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-> index ab9ebabce171..570cac451d63 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi
-> @@ -761,7 +761,7 @@ internal_ephy: ethernet_phy@8 {
->  			};
->  
->  			clk_msr: clock-measure@48000 {
-> -				compatible = "amlogic,c3-clk-measure";
-> +				compatible = "amlogic,clk-measure";
+----- Urspr=C3=BCngliche Mail -----
+> Von: "Linus Walleij" <linus.walleij@linaro.org>
+> Can you put this patch into Russell's patch tracker?
+> https://www.armlinux.org.uk/developer/patches/
 
-NAK
+So far I had no success doing so.
+Whenever I add the patch, I get back to the patch add form without
+an error message or such.
 
-Don't ever send such broken code. You just affect all users without any
-valid reason. This patchset is horrible.
-
-Best regards,
-Krzysztof
-
+Thanks,
+//richard
 
