@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D4FCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADBACA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKyTJ+rzRAwZsKf2YndwUs02uJ01LqEKScUDRfqb95Q=; b=PmgL2Jzv0l0aNZDu78/HhzVDye
-	rF8HUPs5lLsFXpQwVlrIK6tDgAtsRDuY/Eg1HnM+oRNxartC3GgaPj64Q4CzUrD5vcfL074MDL2+o
-	1iDcoFBCbjE61qr7Le28Eh9wgTzbX+Dlkcku6CTZup+ZSAQu6R5zzKTKQ/gsiQ35tPayAdsrf/ImK
-	7I9ENT0XCcp2NSLlw18VfI3hh9GoTe1urz71u5s0j+vnjjyO9bZMLxnAD8ImMwcl6H9yvnHJECrbS
-	dJMToPoAynwOEx5M11td3Mnu5R4NJp4F/Mg8i8IcyhSO0IgBu7qkM/4+6M8tnhuJ89HydseA7KyW1
-	gaL+d8Rw==;
+	bh=uCugYihezCTfBSsuWTU7DrkqQC8Wmz7iLcRn/3SHls4=; b=eG1DV4dv85kuXo8ADIqE8h1/0X
+	Dht2pPuId9XtY7/g3n4jQxmfqF9WRofEfsKUkFq2ecT1bcgAzon3Zp4kNeOsvPJbYmOIr+Y8KR4iv
+	PFjRV1KAPKUYzKWlsfiC4CkoZhmBnPOoOL/1KaUGwjK5bUDhl35d8cz0AiijsGTIcqm6fAwccRBdz
+	8nlIGzNoRxMbegulTLB3rFmG38qQw472ouBTD+45+XseNEM/f7BEIrvcPAEytwpKy48hSQLLRGyhf
+	GMFCHkkTdmO9tLgT+xHpcbsjMBWsyAEByrSXnxF4gpe0W20IgfjDUyUVWDK4TjzIoOQkaCSQ1QLQt
+	mZ14T09A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uouOx-0000000FUQl-11En;
-	Thu, 21 Aug 2025 01:47:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uouSb-0000000FV6W-49zL;
+	Thu, 21 Aug 2025 01:51:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorII-0000000F65m-1vnY
+	id 1uorKF-0000000F6NS-2kQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 22:28:35 +0000
+	Wed, 20 Aug 2025 22:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C6EA05C59C0;
-	Wed, 20 Aug 2025 22:28:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E07C4CEE7;
-	Wed, 20 Aug 2025 22:28:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 126BE448B5;
+	Wed, 20 Aug 2025 22:30:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC465C4CEE7;
+	Wed, 20 Aug 2025 22:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755728913;
-	bh=PjVVrFOvOrmZlky6gvsbAAlEHD3EctTHJhm2W439Kxk=;
+	s=k20201202; t=1755729034;
+	bh=tGAdZc0KS9L/r5jqwEnengTd6HhtdTELMF/rxwYJ2II=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lc4O/ib2w/vfzDHVAfmaSHpPIDx36lt3h8vuYfnXugwtpkpDulA4cPd2Z3p3GnRV+
-	 GO5PeEQ6Z+4ruPMKy0+Uno5hqiYIr7DEV+D7V8EehvfO9SrQTrFNAVTyT6fsIF2hao
-	 AcTZIxoLdYUmv5Dg2uLmvaiJq6SIImz2UodZI8dlHIkEvFUN6wrZPqtZn5yjhysIsL
-	 bzAqBMYPedl51B0btQ0wUnUsCFhlMukZ81WH0RX3xeUMMwLh4CFGQwO7sVTb++jK14
-	 HV4Vf1aU2Fb3iARaQytpx71bK2XYg0TTWYo+FkVSS+yU8Q11DktM+HQS/qpkZcyrxE
-	 DT1/iNTw79MOA==
+	b=sNgPr9TbvOuO5FT4aQkcoymboru/M7IsHTWgI1aK4LDgWZI7NitjiK0FrvWzFfN+X
+	 Zg0OdRE3DHIXKd70iaf+hy4nUl1Kh+sN8EljRSxUT8AVWLfPaMVYG71L5XQSw2GOII
+	 LTGTzaJVN7NBgbltGqtdI1VGJIjAA3Kuzv0pHVtn1DPXYVgDl6eAKWMR/mA+znrCMK
+	 6udb3AAC0WS3qlNA//gTe/b0e1xoRc3M+ebRSa3LrX3ZQxDaOsX2rskr/QJKxwdUci
+	 uxKvytdKrGAdCzX+MpLbOZys9fgWsVuiKZQbX5ZLuDFsLJG41k/yOPVOxxJiMJDAP9
+	 0ct0cxFuydFFw==
 Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uorIF-009WB8-54;
-	Wed, 20 Aug 2025 23:28:31 +0100
-Date: Wed, 20 Aug 2025 23:28:30 +0100
-Message-ID: <87h5y1k4q9.wl-maz@kernel.org>
+	id 1uorKC-009WCr-U7;
+	Wed, 20 Aug 2025 23:30:33 +0100
+Date: Wed, 20 Aug 2025 23:30:31 +0100
+Message-ID: <87frdlk4mw.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -62,24 +62,23 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-doc@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v15 1/6] arm64/gcs: Ensure FGTs for EL1 GCS instructions are disabled
-In-Reply-To: <87ikihk4x3.wl-maz@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Subject: Re: [PATCH v15 0/6] KVM: arm64: Provide guest support for GCS
+In-Reply-To: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
 References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
-	<20250820-arm64-gcs-v15-1-5e334da18b84@kernel.org>
-	<87ikihk4x3.wl-maz@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 86.149.246.145
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, thiago.bauermann@linaro.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_152834_538485_1069E726 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250820_153035_745695_2E4FE92C 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,21 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 23:24:24 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
+On Wed, 20 Aug 2025 15:14:40 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> On Wed, 20 Aug 2025 15:14:41 +0100,
-> Mark Brown <broonie@kernel.org> wrote:
-> > 
-> > The initial EL2 setup for GCS did not include disabling of EL1 usage of
-> > GCS instructions, also disable these traps.  This is the first disabling
-> > of instruction traps, use x2 to store the value to be written.
+> The arm64 Guarded Control Stack (GCS) feature provides support for
+> hardware protected stacks of return addresses, intended to provide
+> hardening against return oriented programming (ROP) attacks and to make
+> it easier to gather call stacks for applications such as profiling.
 > 
-> Written where?
+> When GCS is active a secondary stack called the Guarded Control Stack is
+> maintained, protected with a memory attribute which means that it can
+> only be written with specific GCS operations.  The current GCS pointer
+> can not be directly written to by userspace.  When a BL is executed the
+> value stored in LR is also pushed onto the GCS, and when a RET is
+> executed the top of the GCS is popped and compared to LR with a fault
+> being raised if the values do not match.  GCS operations may only be
+> performed on GCS pages, a data abort is generated if they are not.
+> 
+> The combination of hardware enforcement and lack of extra instructions
+> in the function entry and exit paths should result in something which
+> has less overhead and is more difficult to attack than a purely software
+> implementation like clang's shadow stacks.
+> 
+> This series implements support for managing GCS for KVM guests, it also
+> includes a fix for S1PIE which has also been sent separately as this
+> feature is a dependency for GCS.  It is based on:
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/gcs
+>
 
-Gah, I was looking at 6.16, not 6.17-rc1.
-
-Apologies for the noise.
+Is this cover letter accurate? I don't see any PIE-related patch, and
+you indicate this being rebased on 6.17-rc1...
 
 	M.
 
