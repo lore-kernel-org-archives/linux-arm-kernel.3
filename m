@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C1ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27897CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=pT+ouFauXnts6akzkIdwbsKzNuH91rJK7JEEvqYTvfs=; b=I36Qx38eFkbWqv
-	LvGRLD5kRFcYNBQWsw3vvvz4O3SFsQXA4jiysl2oo1jL3q28e+EgLRR28BIMVXizQtzXy0ZnwfG2M
-	GjBqqVsfh8H9xezxAU1cuxPsmygHBSr2IWKY7Mq+GOKgrgXm/B4Q38Flb2se2emygxPCEcoJ9bS13
-	TOkSnAJFLz+4AyHFqi98VwXgwXzxIRNvF0Sa3b85ILs6QKWfA0P+ntSMwX4V6nPfm6k/DKLc0o3/3
-	7BMah5hImv4XQyH7Qhe/61HkIJ0ztlSsVJchWOzavxk+9UQHMFVqj99W1/br2EWQQQGmqKiulmPCN
-	gX16lA47ci4hOUVAtHIQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKEKDF5pYH7uw2jdxG3hEamgo/a+h7BGRdavJKjObeM=; b=OW2PI/EEXSd6eaKkKAPqs3WdQ9
+	F8RI5d7qtF4zvLIfAX7HtaSzZP/mA8UUcJakFovwJj48cwNsC8SJF3LcN99SfC7+Uqx4ym8aUrP5r
+	qWgk1RI+nikW9cQx+dzMwYRVofDDvff+Xgvay0UbNWtSBhW2pCyToCZq2oXJ1WJbp2xONfuXN85Zy
+	cuq93jv5vdVatex5UvcNwsV1QgfpOC/0ghkqqPF90uQqUMDOx/DsqTX7rzKUlaYH9TkZF6RtAWd9w
+	mSPOeiZPHDyTJuX9/L6CfXgsNOzqIhBo323sZgPWDRbz+1yGXeoCWzz/BBu/0DPgmd9cYMpnzAOYU
+	qyKRvF5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotwb-0000000FQHu-3S94;
-	Thu, 21 Aug 2025 01:18:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uotzC-0000000FR0q-2SEo;
+	Thu, 21 Aug 2025 01:21:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqXe-0000000F0lz-3Z6f
+	id 1uoqss-0000000F3BX-2jXJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 21:40:22 +0000
+	Wed, 20 Aug 2025 22:02:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49B3461446;
-	Wed, 20 Aug 2025 21:40:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1341C4CEE7;
-	Wed, 20 Aug 2025 21:40:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEF5CA57835;
+	Wed, 20 Aug 2025 22:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61231C4CEE7;
+	Wed, 20 Aug 2025 22:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755726022;
-	bh=UlCRTwSLmwKQr0YwNHerwqMBRt2+8fBf8IqS9jRLz44=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Xm9b3MOYmGZwfe/+T/RE9l64lloLOkoZx4nC3P5mVkGeAyouqtTe07TlLenc2grNH
-	 GAH3FQ72DqGjgf97K/XaK9xd5osInhycYx4/0A4F9syrFP/fqwjH1MVH97lglLbhbQ
-	 kirx7HmYDlQWU36UEMXE5NQ5KNCTVZWf7FFQC2S12ADoFnPIQtM0R6Wf8ov+nGAEUC
-	 jrexAPMNYPyOxPz0AMeXP/y7feS//+sKIiLIfP+ILO7RHefF89hr1RjuqNHNNNqpgt
-	 zUTOgSKRzPPIhaUD0OZHrPa3tPFkjh6wUNI8FBNAAWjvcNaEs+MwUeVUECAQuRRFSX
-	 pUbopEAiqGjQg==
-Date: Wed, 20 Aug 2025 16:40:20 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 2/2] PCI: imx6: Add a method to handle CLKREQ#
- override active low
-Message-ID: <20250820214020.GA641554@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKY35MOg7reH1Fhh@lizhi-Precision-Tower-5810>
+	s=k20201202; t=1755727337;
+	bh=qpzq8xFh8O6Sfd7kFjk7FbKEkmABy8wjXxb1oqoY7tI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X44mG8TCXKK5v+P1T8NFCEeTLrc+6wn3VP87ZC8S3yaCZgtyj/JJW1cdiFVMevpOR
+	 xoPp+AYCEthoV9/9T/EE6O3/DlVrM2DJiCwxpZjhaT/PKkwNOYRPn+hsSv6gKqqk8R
+	 THzOB/8edGNO+Krn+REkTz5qNsIu/LEzMXTbKu1hsZhU3dwB20Bg6JqGdoEPYZqhmz
+	 Ke5ocy23JyUtOwGSMD7vd+v36QNEKW26ZXbck6uHzEPqaNaTJSUFHCH6geUQJTh4KS
+	 ErXQmnB2FrGYukkGW2oXFHsT34lLGC7ws1wBNwGz6s+clfw3lFVBUK7uVJcng6FOQb
+	 OoQ6KWnyrqGww==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uoqsm-009Vp5-4r;
+	Wed, 20 Aug 2025 23:02:12 +0100
+Date: Wed, 20 Aug 2025 23:02:11 +0100
+Message-ID: <87ms7tk5y4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v15 4/6] KVM: arm64: Set PSTATE.EXLOCK when entering an exception
+In-Reply-To: <20250820-arm64-gcs-v15-4-5e334da18b84@kernel.org>
+References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
+	<20250820-arm64-gcs-v15-4-5e334da18b84@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_150218_839039_48A5668D 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,132 +93,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 05:02:28PM -0400, Frank Li wrote:
-> On Wed, Aug 20, 2025 at 03:35:36PM -0500, Bjorn Helgaas wrote:
-> > On Wed, Aug 20, 2025 at 04:10:48PM +0800, Richard Zhu wrote:
-> > > The CLKREQ# is an open drain, active low signal that is driven low by
-> > > the card to request reference clock.
-> > >
-> > > Since the reference clock may be required by i.MX PCIe host too. To make
-> > > sure this clock is available even when the CLKREQ# isn't driven low by
-> > > the card(e.x no card connected), force CLKREQ# override active low for
-> > > i.MX PCIe host during initialization.
-
-What is the effect of refclk not being available when no card is
-connected?  I guess something is wrong with the i.MX PCIe host?  Maybe
-register accesses don't work?  Something else?
-
-How would a user know that something is wrong when the slot is empty?
-Presumably this patch fixes whatever is wrong in that case.
-
-> > > The CLKREQ# override can be cleared safely when supports-clkreq is
-> > > present and PCIe link is up later. Because the CLKREQ# would be driven
-> > > low by the card in this case.
-> > >
-> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pci-imx6.c | 35 +++++++++++++++++++++++++++
-> > >  1 file changed, 35 insertions(+)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> > > index 80e48746bbaf6..a73632b47e2d3 100644
-> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > @@ -52,6 +52,8 @@
-> > >  #define IMX95_PCIE_REF_CLKEN			BIT(23)
-> > >  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
-> > >  #define IMX95_PCIE_SS_RW_REG_1			0xf4
-> > > +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
-> > > +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
-> > >  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
-> > >
-> > >  #define IMX95_PE0_GEN_CTRL_1			0x1050
-> > > @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
-> > >  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
-> > >  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
-> > >  	int (*wait_pll_lock)(struct imx_pcie *pcie);
-> > > +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
-> > >  	const struct dw_pcie_host_ops *ops;
-> > >  };
-> > >
-> > > @@ -149,6 +152,7 @@ struct imx_pcie {
-> > >  	struct gpio_desc	*reset_gpiod;
-> > >  	struct clk_bulk_data	*clks;
-> > >  	int			num_clks;
-> > > +	bool			supports_clkreq;
-> > >  	struct regmap		*iomuxc_gpr;
-> > >  	u16			msi_ctrl;
-> > >  	u32			controller_id;
-> > > @@ -267,6 +271,13 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
-> > >  			   IMX95_PCIE_REF_CLKEN,
-> > >  			   IMX95_PCIE_REF_CLKEN);
-> > >
-> > > +	/* Force CLKREQ# low by override */
-> > > +	regmap_update_bits(imx_pcie->iomuxc_gpr,
-> > > +			   IMX95_PCIE_SS_RW_REG_1,
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL);
-> > >  	return 0;
-> > >  }
-> > >
-> > > @@ -1298,6 +1309,18 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
-> > >  		regulator_disable(imx_pcie->vpcie);
-> > >  }
-> > >
-> > > +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-> > > +{
-> > > +	imx8mm_pcie_enable_ref_clk(imx_pcie, false);
-> > > +}
-> > > +
-> > > +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
-> > > +{
-> > > +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN |
-> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL, 0);
-> > > +}
-> > > +
-> > >  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
-> > >  {
-> > >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > @@ -1322,6 +1345,12 @@ static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
-> > >  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-> > >  		dw_pcie_dbi_ro_wr_dis(pci);
-> > >  	}
-> > > +
-> > > +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
-> > > +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
-> > > +		if (imx_pcie->drvdata->clr_clkreq_override)
-> > > +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
-> >
-> > It seems racy to clear the override when the link is up.
-> >
-> > Since it sounds like the i.MX host requires refclock all the time, why
-> > not keep the override permanently?
+On Wed, 20 Aug 2025 15:14:44 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> It will Lost l1ss support if enable override permanetly. I think other
-> platform have similar issues (at least dwc controller). Most platform use
-> m.2 socket, which pull down clk_req by EP side devices.
-> 
-> Only standard PCIe slots,  which clkreq have not connect by EP devices
-> because stardard PCIe slots add #clkreq signal happen recent years (maybe
-> after miniPCIe slot spec). Some old PCIe devices have not connect it.
-> 
-> Even latest PCIe devices, I saw have jumper in PCIe card to controller
-> #clkreq.
-> 
-> > Obviously it must be ok to keep the override for a while, because
-> > there is some interval between the link coming up and the call of
-> > .clr_clkreq_override().
-> >
-> > Would something bad happen if we *never* called
-> > .clr_clkreq_override()?
-> 
-> clock will always running, lost L1SS power save feature.
+> As per DDI 0487 RWTXBY we need to manage PSTATE.EXLOCK when entering an
 
-Thanks!  Let's include a little of this back story in the next rev of
-the commit log and the comment near the .clr_clkreq_override() call.
+Nit: please use an underscore between the type of a statement and its
+"name", as it makes it a bit more readable (R_WTXBY).
 
-Bjorn
+> exception, when the exception is entered from a lower EL the bit is cleared
+> while if entering from the same EL it is set to GCSCR_ELx.EXLOCKEN.
+> Implement this behaviour in enter_exception64().
+> 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/include/uapi/asm/ptrace.h |  1 +
+>  arch/arm64/kvm/hyp/exception.c       | 37 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 38 insertions(+)
+> 
+> diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+> index 0f39ba4f3efd..f2fb029fb61a 100644
+> --- a/arch/arm64/include/uapi/asm/ptrace.h
+> +++ b/arch/arm64/include/uapi/asm/ptrace.h
+> @@ -56,6 +56,7 @@
+>  #define PSR_C_BIT	0x20000000
+>  #define PSR_Z_BIT	0x40000000
+>  #define PSR_N_BIT	0x80000000
+> +#define PSR_EXLOCK_BIT 0x400000000
+>  
+>  #define PSR_BTYPE_SHIFT		10
+>  
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index 95d186e0bf54..46e1d0c3038c 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -73,6 +73,38 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
+>  		vcpu->arch.ctxt.spsr_und = val;
+>  }
+>  
+> +static unsigned long enter_exception64_gcs(struct kvm_vcpu *vcpu,
+> +					   unsigned long mode,
+> +					   unsigned long target_mode)
+
+A more appropriate name would be compute_exlock().
+
+> +{
+> +	u64 gcscr;
+> +
+> +	if (!kvm_has_gcs(kern_hyp_va(vcpu->kvm)))
+> +		return 0;
+> +
+> +	/* GCS can't be enabled for 32 bit */
+> +	if (mode & PSR_MODE32_BIT)
+> +		return 0;
+> +
+> +	/* When taking an exception to a higher EL EXLOCK is cleared. */
+> +	if ((mode | PSR_MODE_THREAD_BIT) != target_mode)
+> +		return 0;
+> +
+> +	/*
+> +	 * When taking an exception to the same EL EXLOCK is set to
+> +	 * the effective value of GCSR_ELx.EXLOCKEN.
+> +	 */
+> +	if (vcpu_is_el2(vcpu))
+> +		gcscr = __vcpu_read_sys_reg(vcpu, GCSCR_EL2);
+> +	else
+> +		gcscr = __vcpu_read_sys_reg(vcpu, GCSCR_EL1);
+> +
+> +	if (gcscr & GCSCR_ELx_EXLOCKEN)
+> +		return PSR_EXLOCK_BIT;
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * This performs the exception entry at a given EL (@target_mode), stashing PC
+>   * and PSTATE into ELR and SPSR respectively, and compute the new PC/PSTATE.
+> @@ -162,6 +194,11 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  	// PSTATE.BTYPE is set to zero upon any exception to AArch64
+>  	// See ARM DDI 0487E.a, pages D1-2293 to D1-2294.
+>  
+> +	// PSTATE.EXLOCK is set to 0 upon any exception to a higher
+> +	// EL, or to GCSCR_ELx.EXLOCKEN for an exception to the same
+> +	// exception level.  See ARM DDI 0487 RWTXBY, D.1.3.2 in K.a.
+> +	new |= enter_exception64_gcs(vcpu, mode, target_mode);
+> +
+>  	new |= PSR_D_BIT;
+>  	new |= PSR_A_BIT;
+>  	new |= PSR_I_BIT;
+> 
+
+But that's not the only case where we have to deal with EXLOCK, is it?
+What of ERET and its PAuth variants? R_TYTWB says:
+
+<quote>
+If in AArch64 state, any of the following situations can cause an
+illegal exception return:
+
+[...]
+
+- If the Effective value of GCSCR_ELx.EXLOCKEN is 1 and PSTATE.EXLOCK
+  is 0, the execution of an exception return instruction to return to
+  the current Exception level ELx.
+</quote>
+
+My reading of the spec is that this needs handling.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
