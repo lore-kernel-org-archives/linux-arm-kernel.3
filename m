@@ -4,76 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE060CA0EFD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A74CA0EFE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmAZ2BdFIcm0GZcUMZUZlhZiZlUyDdcvv1g9sQMU0IQ=; b=L1TaR9I4xYLR4GcB2KCV/aNQi7
-	Fi9+6puOcl9fgI0zR2dzLcG6Ybrs3CmLV809qo/g5O/1jzfWyCB+huwzsJexZBNUyB7DRvg6SrT3+
-	I9G+pnQDkLltoyDplnoqhkCYvmji1fp9ePv7M9TNK4wkWX8TMycMFtDXAVzpYK1vehme6HqpfqDr+
-	F39n75rtxqLoEeimyWDTly2EO7Xd9V1uLKZ0pRUZuTRp3AIhJcZS9DCx/f5qcgSAx4uxptzMBV4da
-	YC29Bo+R/rnA4uScant6mNExkemhLeyl7cqroG9pEhGPFwSdKfUqRI6qFsnWVp0GHNA1U07Z0VVGj
-	8kerZEug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=11RILgASqebrtw2UrosgID+qYHkhszgpHlOkkTGkunQ=; b=fjaNO1zjgsDTPj0igYiIioHdDX
+	JB/0gDxIJSYTQaV8zxJga81TcqCrF1DZ1KVDYgrKbIRef88RjWjm7iKY9PLAyZMO+USVbjBUkTCmh
+	CpyT24/L96thS9BApDnQ6Mqspc1LZkaFOBth8FLxEOp+4LrvCfNxIWi0wYfiEHYfVBFxk1CQ7z1wn
+	nN7iuQpQ+d7UO5RfaH0JFb0H7hQrKlEz+MhZAGOMJ9pL091oitYtJboPO+CJH6WqBTmGiH8KwqnoH
+	G72/4rO5s83qZXcrDRJsyYkewEkx3oSAH//oTDkkf+rxSoayZJ2md00RzgCNNcKLAq6dz0joOTIe0
+	AoJKrsYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uogbf-0000000DHG5-3avT;
-	Wed, 20 Aug 2025 11:03:51 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uogbh-0000000DHHZ-0cj3;
+	Wed, 20 Aug 2025 11:03:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoeXZ-0000000CnuP-1WWP
+	id 1uoeaT-0000000CoJ1-1Nx6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 08:51:30 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57K8pOWL3095684;
-	Wed, 20 Aug 2025 03:51:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755679884;
-	bh=BmAZ2BdFIcm0GZcUMZUZlhZiZlUyDdcvv1g9sQMU0IQ=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=rGCFhcD0p8VlCoczb7RcDFp3nCeZ2mm0uWWXEdGj8jVT4exFdVsB+tHA6TkTFxauT
-	 /MEeXhc2InNjWeATp4GF4/iN4mVHQvvB4A4ymcXqn1E9L7jRgr9FoK7w5pItvfCkep
-	 Hofj9nKtHrD1cfE4/6wqjJUj9kyO5uRTqzFMGnis=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57K8pNUX1670831
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 20 Aug 2025 03:51:23 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 20
- Aug 2025 03:51:23 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 20 Aug 2025 03:51:23 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57K8pMmk4155000;
-	Wed, 20 Aug 2025 03:51:23 -0500
-Date: Wed, 20 Aug 2025 14:21:21 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <kishon@kernel.org>, <vigneshr@ti.com>,
-        <stable@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2] PCI: j721e: Fix programming sequence of "strap"
- settings
-Message-ID: <f955f547-250e-49a7-aa06-f77ebf7425e1@ti.com>
-References: <20250819101336.292013-1-s-vadapalli@ti.com>
- <20250819221748.GA598958@bhelgaas>
+	Wed, 20 Aug 2025 08:54:30 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K1oisW028174
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 08:54:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=11RILgASqebrtw2UrosgID
+	+qYHkhszgpHlOkkTGkunQ=; b=npN1oFyQ+DdVNktnIkKKbNGGVcbQnhgbe7oYnD
+	cf27wT4yQOKBqJ7ArC/LaDw1y5AC5SmCT7NtV0xMi8FRsjpW1W18/QogC72rr+CK
+	gqe+pE76ceLaRU+D/d1keQ0dkazOePK/N7D2eWBZvY/5tXsemLEZHjSHH5kWgtcy
+	Cplp2WpbtqJ+LxxjpaTQ4cmsuqQUMDyjE5/H/Q3Pu9W/key9BzpYATo+BmIQ8v8i
+	+E4+AqXznUZs3jnQtJ55qD0L5OBuEIGZw+GVrIy0dhHceYcGTGdzyY197DYiXkng
+	EExaQ/TePxRUhewVQK8DYAzjrFYdoK3EM/haj0RAhcr4OXZA==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n52as1j0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 08:54:28 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b471757d82fso5028347a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 01:54:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755680067; x=1756284867;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=11RILgASqebrtw2UrosgID+qYHkhszgpHlOkkTGkunQ=;
+        b=HC6/Z+5QeiQtY6v3OJStQKuHBXSCWJOX4q36t3OVI+89YMNUqa9BWtoGMQsOMpsJnn
+         wXv26FkshGdc4RwRhChz40/cMbPA/xDVO4pcDL0NRCD2Ls10Er57IrjFnPzopdspouVc
+         3Kn6v/in/FAhI1jOeXxNS4jmvDBZ1ovS0eXnBrQlky5tijQPwuW9hYydr6wIhNnFuOqy
+         zSpac3jOpk8tGIB4mspSYDn9nXH4t9nZhzKh1RA19cMQ7/k840VlPFHTtiNm6xZlazrE
+         QWY+UA1Krgq8klg25btFj9lHvCbyjFvfyhIUiZFQCt5/prKInryJbedIelHfYdjj512u
+         hrsg==
+X-Gm-Message-State: AOJu0YzYSvda+iJgqYof0dTHQICYsCr8a71BDzmbinXBdmL1IsKeI7xH
+	LFMa9MflrAAYGTQkKMFDiiv4W2SGukmRGX57NbkphRIpgRnD09EINrKaeqxoEXmeiomHrYddneE
+	lrdXaG0kM7KhrZ1hs1pNGHgiIqueAvdAHomRD5btCou+Vv12NE3nNjKmyn1uXmNXRaS0zMKZhOm
+	2PGA==
+X-Gm-Gg: ASbGncudSP9fxmGGvKUlNjldQZkBIZy6q9eK+Mxjk4Pc4yvp+tQsWN/Po5QFJgywZK+
+	SdnVO0zT2557fNxSBZHzyQuRRc0jjfv3Gpye26mFoEXQseSftR4cu89BLUiIiF7ANASWwijS1pB
+	/FwwPG+qUr8OMBHFvbzRzbwDIjnAmXDEUyeUtUDAqSXLeDMvT6ZfO2AXHBLOmUl5CAhhxHj5bkf
+	s3+VgWjijnWnErjzUVgXPcJSzcyS3xc54D3w+3UBaQsTmAnzBf6h/cRE6IBNQqXZSSCcjO+PGd8
+	YkEia04xOrs+ie+mgbnbaWNpbv3D/G65s/fDMzCSWPEi2SaOANYzYQ1PLYzeYpk8HrsQhh+TtEu
+	v2aCAYslut/ggASwWguL1ISiTLFy2L1IK2/I8djHMFTqappCJatUXKTen
+X-Received: by 2002:a05:6a20:9389:b0:243:755:58b5 with SMTP id adf61e73a8af0-2431ba73584mr3553128637.54.1755680067087;
+        Wed, 20 Aug 2025 01:54:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGqdr4ixEHQumfORfUTOCWmF6r5RptPIsSTTUcwk/Feiql/w4YOg/rHr802Ne8ttx0t2841MA==
+X-Received: by 2002:a05:6a20:9389:b0:243:755:58b5 with SMTP id adf61e73a8af0-2431ba73584mr3553105637.54.1755680066647;
+        Wed, 20 Aug 2025 01:54:26 -0700 (PDT)
+Received: from sziotdisp01-gv.qualcomm.com.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-324e25532b1sm1658263a91.13.2025.08.20.01.54.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Aug 2025 01:54:26 -0700 (PDT)
+From: Fange Zhang <fange.zhang@oss.qualcomm.com>
+Date: Wed, 20 Aug 2025 16:53:30 +0800
+Subject: [PATCH v2] arm64: defconfig: Modularize SX150X GPIO expander
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250819221748.GA598958@bhelgaas>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250820-modularize-sx150x-gpio-expander-v2-1-e6eba22f0a0f@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAqNpWgC/4WNQQ6CMBBFr2K6dsh0YgVdeQ/DorQDNAGKrRCUc
+ Hcrce/mJ+8v3ltF5OA4iuthFYFnF50fEtDxIEyrh4bB2cSCkBQWhNB7O3U6uDdDXKTCBZrReeB
+ l1IPlAHii3JwrUyl1EckyBq7dshfuZeLWxacPrz04y+/7c8vir3uWgGBII+WEWLO9+Rizx6Q74
+ /s+SyPKbds+EKDnStUAAAA=
+X-Change-ID: 20250820-modularize-sx150x-gpio-expander-0427c6bcb559
+To: Bjorn Andersson <andersson@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        dmitry.baryshkov@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+        xiangxu.yin@oss.qualcomm.com, kernel@oss.qualcomm.com,
+        Fange Zhang <fange.zhang@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755680063; l=1437;
+ i=fange.zhang@oss.qualcomm.com; s=20250714; h=from:subject:message-id;
+ bh=xbVBMpbJC84OL2H7l69MUgBetsy+dP2jsa2Y/+6cwCc=;
+ b=jn3BkxMQtWkJzSfSvhNQIDRyXaz1dXEFNHqSp4o9g2oveGTDNGTAnsvbh8pOWyaT6tGCLk426
+ jcL55gsOAZbAN3mRbybNMHW3XWHP6P8fS9JdMi5Ygx+Hee+gGkDGmYo
+X-Developer-Key: i=fange.zhang@oss.qualcomm.com; a=ed25519;
+ pk=tn190A7bjF3/EyH7AYy/eNzPoS9lwXGznYamlMv6TE0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfXzHShHSB8P6jY
+ tAxgtKWbZChFpRk4foz+sTiN99wcHYxdcr57YGCf6UlzX2DiHpLoXepSTELDJ+NJPCopHl8u7SL
+ U7Buhmh5qG9ine9zsdDs9kCVvU2JY2+EUUPfROQhfHskwrwQLgpMMdpYAa5BAYUvITmwOLl1pvz
+ 0CtoC7tWEUC/NUmvqd0jJtHlBxOSedXObzbZmE1qMBjfABQtvQwTeIdP+NyAI+bPdz7/smS7dsv
+ 7//VEDnPvzf/A1UhQLmLL/RD/2Qve+JBhzXVLzxszcfG7mUOVZP5ms/2b5bf4w8OKYApEgBW+D+
+ vzEo45FDJDIXOxID5iVMeRD2rnWfA5Hw9TLpLNk0XP/7mU86F/bYiIypEpQBcKtvwRmocrEW/oe
+ 5MXBxUL7AxpQG8qar/0Eq8MIFGafAA==
+X-Authority-Analysis: v=2.4 cv=TIIci1la c=1 sm=1 tr=0 ts=68a58d44 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=wWMmKHWDNrKRBeep4CkA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-ORIG-GUID: fUEzwPDfiiahHs2B3OGNfiIAWiK5JGVJ
+X-Proofpoint-GUID: fUEzwPDfiiahHs2B3OGNfiIAWiK5JGVJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-20_03,2025-08-20_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 phishscore=0
+ bulkscore=0 impostorscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_015129_499579_16ABD4D4 
-X-CRM114-Status: GOOD (  58.19  )
+X-CRM114-CacheID: sfid-20250820_015429_493293_9ECC4DD7 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,290 +141,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 05:17:48PM -0500, Bjorn Helgaas wrote:
+Modularize the SX150X GPIO expander which is equipped on the Qualcomm
+QCS615 Ride board to allow the ANX7625 external bridge to function
+correctly.
 
-Hello Bjorn,
+Signed-off-by: Fange Zhang <fange.zhang@oss.qualcomm.com>
+---
+The ANX7625 relies on SX150X-controlled GPIOs for reset and HPD for
+the Qualcomm QCS615 Ride board
 
-> On Tue, Aug 19, 2025 at 03:43:35PM +0530, Siddharth Vadapalli wrote:
-> > The Cadence PCIe Controller integrated in the TI K3 SoCs supports both
-> > Root-Complex and Endpoint modes of operation. The Glue Layer allows
-> > "strapping" the mode of operation of the Controller, the Link Speed
-> > and the Link Width. This is enabled by programming the "PCIEn_CTRL"
-> > register (n corresponds to the PCIe instance) within the CTRL_MMR
-> > memory-mapped register space.
-> > 
-> > In the PCIe Controller's register space, the same set of registers
-> > that correspond to the Root-Port configuration space when the
-> > Controller is configured for Root-Complex mode of operation, also
-> > correspond to the Physical Function configuration space when the
-> > Controller is configured for Endpoint mode of operation. As a result,
-> > the "reset-value" of these set of registers _should_ vary depending
-> > on the selected mode of operation. This is the expected behavior
-> > according to the description of the registers and their reset values
-> > in the Technical Reference Manual for the SoCs.
-> > 
-> > However, it is observed that the "reset-value" seen in practice
-> > do not match the description. To be precise, when the Controller
-> > is configured for Root-Complex mode of operation, the "reset-value"
-> > of the Root-Port configuration space reflect the "reset-value"
-> > corresponding to the Physical Function configuration space.
-> > This can be attributed to the fact that the "strap" settings play
-> > a role in "switching" the "reset-value" of the registers to match
-> > the expected values as determined by the selected mode of operation.
-> > Since the "strap" settings are sampled the moment the PCIe Controller
-> > is powered ON, the "reset-value" of the registers are setup at that
-> > point in time. As a result, if the "strap" settings are programmed
-> > at a later point in time, it _will not_ update the "reset-value" of
-> > the registers. This will cause the Physical Function configuration
-> > space to be seen when the Root-Port configuration space is accessed
-> > after programming the PCIe Controller for Root-Complex mode of
-> > operation.
-> > 
-> > Fix this by powering off the PCIe Controller before programming the
-> > "strap" settings and powering it on after that. This will ensure
-> > that the "strap" settings that have been sampled convey the intended
-> > mode of operation, thereby resulting in the "reset-value" of the
-> > registers being accurate.
-> 
-> This is a lot of text to convey the idea that:
-> 
->   - The PCIe controller powers on and latches reset values of several
->     registers
-> 
->   - Later, the driver programs Glue Layer "mode", which determines
->     those reset values
-> 
->   - Therefore, controller has latched the wrong values
+Please note that this driver has recently been updated from bool to tristate:
+https://lore.kernel.org/all/20250818-modularize-sx150x-gpio-expander-v1-1-c2a027200fed@oss.qualcomm.com/
+---
+Changes in v2:
+- Drop patch 1/2, which have already been merged upstream
+- Link to v1: https://lore.kernel.org/r/20250818-modularize-sx150x-gpio-expander-v1-0-c2a027200fed@oss.qualcomm.com
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-I will rephrase the commit message and will try to limit it to a few
-sentences based on your feedback.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 667c4859ecc3cda9b0a3dae7abdd8587fc4f8dbe..dce4450fa9fa58fab0556a6e84b899a3306b4db3 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -598,6 +598,7 @@ CONFIG_PINCTRL_DA9062=m
+ CONFIG_PINCTRL_MAX77620=y
+ CONFIG_PINCTRL_RK805=m
+ CONFIG_PINCTRL_SINGLE=y
++CONFIG_PINCTRL_SX150X=m
+ CONFIG_PINCTRL_OWL=y
+ CONFIG_PINCTRL_S700=y
+ CONFIG_PINCTRL_S900=y
 
-> 
-> What does this problem look like to a user? 
+---
+base-commit: 5303936d609e09665deda94eaedf26a0e5c3a087
+change-id: 20250820-modularize-sx150x-gpio-expander-0427c6bcb559
 
-Adding to the following statement in the commit message:
-"... This will cause the Physical Function configuration space to be
-seen when the Root-Port configuration space is accessed..."
-All capability registers whose reset values differ in terms of
-advertising the capability for Root-Port while denying it for the
-Physical Function will be affected.
+Best regards,
+-- 
+Fange Zhang <fange.zhang@oss.qualcomm.com>
 
-Examples of capabilities that will incorrectly be deemed as unsupported
-by the Root-Port are:
-Link Bandwidth Notification
-ARI Forwarding Support
-Next Capability Offset within the Advanced Error Reporting capability:
- - Points to an offset of 0x140 in Physical Function space versus
-   0x150 in Root-Port space => 0x140 is non-existent in Root-Port space
-   and therefore the reset value latching on will point to a
-   non-existent offset in the Root-Port mode
-
-As a result, the user will find that the above capabilities are not enabled
-by Software despite being supported by the PCIe Controller.
-
-> 
-> > Fixes: f3e25911a430 ("PCI: j721e: Add TI J721E PCIe driver")
-> > Cc: <stable@vger.kernel.org>
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > ---
-> > 
-> > Hello,
-> > 
-> > This patch is based on commit
-> > be48bcf004f9 Merge tag 'for-6.17-rc2-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux
-> > of Mainline Linux.
-> > 
-> > v1 of this patch is at:
-> > https://lore.kernel.org/r/20250716102851.121742-1-s-vadapalli@ti.com/
-> > Changes since v1:
-> > - Rebased patch on latest Mainline Linux.
-> > 
-> > Regards,
-> > Siddharth.
-> > 
-> >  drivers/pci/controller/cadence/pci-j721e.c | 82 ++++++++++++++--------
-> >  1 file changed, 53 insertions(+), 29 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> > index 6c93f39d0288..d5e7cb7277dc 100644
-> > --- a/drivers/pci/controller/cadence/pci-j721e.c
-> > +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> > @@ -19,6 +19,7 @@
-> >  #include <linux/of.h>
-> >  #include <linux/pci.h>
-> >  #include <linux/platform_device.h>
-> > +#include <linux/pm_domain.h>
-> >  #include <linux/pm_runtime.h>
-> >  #include <linux/regmap.h>
-> >  
-> > @@ -173,10 +174,9 @@ static const struct cdns_pcie_ops j721e_pcie_ops = {
-> >  	.link_up = j721e_pcie_link_up,
-> >  };
-> >  
-> > -static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
-> > -			       unsigned int offset)
-> > +static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct device *dev,
-> > +			       struct regmap *syscon, unsigned int offset)
-> >  {
-> > -	struct device *dev = pcie->cdns_pcie->dev;
-> >  	u32 mask = J721E_MODE_RC;
-> >  	u32 mode = pcie->mode;
-> >  	u32 val = 0;
-> > @@ -193,9 +193,9 @@ static int j721e_pcie_set_mode(struct j721e_pcie *pcie, struct regmap *syscon,
-> >  }
-> >  
-> >  static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
-> > +				     struct device *dev,
-> >  				     struct regmap *syscon, unsigned int offset)
-> >  {
-> > -	struct device *dev = pcie->cdns_pcie->dev;
-> >  	struct device_node *np = dev->of_node;
-> >  	int link_speed;
-> >  	u32 val = 0;
-> > @@ -214,9 +214,9 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
-> >  }
-> >  
-> >  static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
-> > +				     struct device *dev,
-> >  				     struct regmap *syscon, unsigned int offset)
-> >  {
-> > -	struct device *dev = pcie->cdns_pcie->dev;
-> >  	u32 lanes = pcie->num_lanes;
-> >  	u32 mask = BIT(8);
-> >  	u32 val = 0;
-> > @@ -234,9 +234,9 @@ static int j721e_pcie_set_lane_count(struct j721e_pcie *pcie,
-> >  }
-> >  
-> >  static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
-> > +				       struct device *dev,
-> >  				       struct regmap *syscon)
-> >  {
-> > -	struct device *dev = pcie->cdns_pcie->dev;
-> >  	struct device_node *node = dev->of_node;
-> >  	u32 mask = ACSPCIE_PAD_DISABLE_MASK;
-> >  	struct of_phandle_args args;
-> > @@ -263,9 +263,8 @@ static int j721e_enable_acspcie_refclk(struct j721e_pcie *pcie,
-> >  	return 0;
-> >  }
-> >  
-> > -static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
-> > +static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie, struct device *dev)
-> >  {
-> > -	struct device *dev = pcie->cdns_pcie->dev;
-> >  	struct device_node *node = dev->of_node;
-> >  	struct of_phandle_args args;
-> >  	unsigned int offset = 0;
-> > @@ -284,19 +283,19 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
-> >  	if (!ret)
-> >  		offset = args.args[0];
-> >  
-> > -	ret = j721e_pcie_set_mode(pcie, syscon, offset);
-> > +	ret = j721e_pcie_set_mode(pcie, dev, syscon, offset);
-> >  	if (ret < 0) {
-> >  		dev_err(dev, "Failed to set pci mode\n");
-> >  		return ret;
-> >  	}
-> >  
-> > -	ret = j721e_pcie_set_link_speed(pcie, syscon, offset);
-> > +	ret = j721e_pcie_set_link_speed(pcie, dev, syscon, offset);
-> >  	if (ret < 0) {
-> >  		dev_err(dev, "Failed to set link speed\n");
-> >  		return ret;
-> >  	}
-> >  
-> > -	ret = j721e_pcie_set_lane_count(pcie, syscon, offset);
-> > +	ret = j721e_pcie_set_lane_count(pcie, dev, syscon, offset);
-> >  	if (ret < 0) {
-> >  		dev_err(dev, "Failed to set num-lanes\n");
-> >  		return ret;
-> > @@ -308,7 +307,7 @@ static int j721e_pcie_ctrl_init(struct j721e_pcie *pcie)
-> >  	if (!syscon)
-> >  		return 0;
-> >  
-> > -	return j721e_enable_acspcie_refclk(pcie, syscon);
-> > +	return j721e_enable_acspcie_refclk(pcie, dev, syscon);
-> >  }
-> >  
-> >  static int cdns_ti_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
-> > @@ -469,6 +468,47 @@ static int j721e_pcie_probe(struct platform_device *pdev)
-> >  	if (!pcie)
-> >  		return -ENOMEM;
-> >  
-> > +	pcie->mode = mode;
-> > +
-> > +	ret = of_property_read_u32(node, "num-lanes", &num_lanes);
-> > +	if (ret || num_lanes > data->max_lanes) {
-> > +		dev_warn(dev, "num-lanes property not provided or invalid, setting num-lanes to 1\n");
-> > +		num_lanes = 1;
-> > +	}
-> > +
-> > +	pcie->num_lanes = num_lanes;
-> > +	pcie->max_lanes = data->max_lanes;
-> > +
-> > +	/*
-> > +	 * The PCIe Controller's registers have different "reset-values" depending
-> > +	 * on the "strap" settings programmed into the Controller's Glue Layer.
-> > +	 * This is because the same set of registers are used for representing the
-> > +	 * Physical Function configuration space in Endpoint mode and for
-> > +	 * representing the Root-Port configuration space in Root-Complex mode.
-> > +	 *
-> > +	 * The registers latch onto a "reset-value" based on the "strap" settings
-> > +	 * sampled after the Controller is powered on. Therefore, for the
-> > +	 * "reset-value" to be accurate, it is necessary to program the "strap"
-> > +	 * settings when the Controller is powered off, and power on the Controller
-> > +	 * after the "strap" settings have been programmed.
-> > +	 *
-> > +	 * The "strap" settings are programmed by "j721e_pcie_ctrl_init()".
-> > +	 * Therefore, power off the Controller before invoking "j721e_pcie_ctrl_init()",
-> > +	 * program the "strap" settings, and then power on the Controller. This ensures
-> > +	 * that the reset values are accurate and reflect the "strap" settings.
-> 
-> Wrap to fit in 80 columns like the rest of the file.  And maybe
-> shorten.
-
-Ok.
-
-> 
-> > +	dev_pm_domain_detach(dev, true);
-> > +
-> > +	ret = j721e_pcie_ctrl_init(pcie, dev);
-> 
-> This moves the "num-lanes" lookup and the call of
-> j721e_pcie_ctrl_init() earlier, but I don't think that move is
-> necessary.  Even before this patch, we don't actually touch anything
-> in the hardware before j721e_pcie_ctrl_init().  The code between the
-> new call location and the old call location is just memory allocation,
-> data structure initialization, ioremap, DMA mask setting, etc.
-> 
-> AFAICT, the important thing is to power off the PCIe controller before
-> j721e_pcie_ctrl_init() programs the mode in the glue layer, and you
-> should be able to do that without moving the call location.
-
-Thank you for pointing it out. As long as it is ensured that the 'mode'
-is configured before the call to 'pci_init_capabilities()', the issue
-will be prevented.
-
-> 
-> And that means you probably don't have to add the "struct device *dev"
-> parameter to all those interfaces.
-
-Ok.
-
-> 
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	ret = dev_pm_domain_attach(dev, true);
-> 
-> dev_pm_domain_detach() takes a bool, but dev_pm_domain_attach() does
-> not, so this doesn't look right.
-
-Yes, I should have used "PD_FLAG_ATTACH_POWER_ON" instead of "true".
-It works coincidentally due to the manner in which the parameter is
-passed to "acpi_dev_pm_attach()". I will fix this.
-
-[...]
-
-Regards,
-Siddharth.
 
