@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E77CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED59DCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4fIk62b9tX8cuFnX3IXU8b8kQDW97QC3a5jEYNR86AA=; b=YixkAapmQ3ns237bs6UvnBdUyP
-	Qn+hRZ//zEgC3QyCyZuO0tqwQ2tmffru9rZK/FGA1whh9dxHixdkPdq8g+fNgCKeaXI6i7Z8fwgVp
-	/+r63kEXiDRYgvk777rtntdjqmPOCEV72/swKS4MAy3JsDgjeHFeVaD6BnhEWWau8iL32R8aE+JDo
-	qfy/uGiJtW733vOtDDAlOI4tvvDbr1tsxuOcSupe7+uBMWmEMF1SwsEVv+vRqDDHs3Eyf+cD4am9r
-	scfWalvihGpUclDnPwDacNnXc0f/gFRTQ/qhpEqb2oGWfPAMV9ezZt1IP1i89tfrT+EXG/24YxFX/
-	04NmcFXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QPtHhjeiKZGeYIvobzLPLR8GA72nYDkocWOfhnPeMbs=; b=RryAFQN2abJu8O4pTUkjc+CYie
+	4hkFdq7v+g6+Z9QtqYrnaPQhG3Z9zEBRMFkqhQUDOxjknVzHhIVCcOUwtUkPZnz/fTya3umiYjzUJ
+	ns3mAV47ccykOhzm3rBDnmjvX6f8TrqVPRXLdgE7go7cIsdvIeewvFKeMCR1UlMaxa40CC2VGQ6oE
+	1f6BhpH1DUEmd/b+DO/n/4rmR+/brB6ErP/teULRsKBVQz13mD6pgVKKD44ud2t6BhilawT4ZLPkb
+	f1VhaSoj6ALO3FP3F9vXso2yoKpqMs/mBrhx0I6YhMYbkzoWHvWhc/KUdHORndwtwfRdfihl5DTsZ
+	1c+zD8fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonIg-0000000EeUv-3YGr;
-	Wed, 20 Aug 2025 18:12:42 +0000
+	id 1uonLG-0000000EepL-30rF;
+	Wed, 20 Aug 2025 18:15:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokIZ-0000000EAog-0oPk
+	id 1uokIc-0000000EAp7-0wZN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 Aug 2025 15:00:23 +0000
+	Wed, 20 Aug 2025 15:00:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4fIk62b9tX8cuFnX3IXU8b8kQDW97QC3a5jEYNR86AA=; b=ePVgcxw0dV9DvDD1oxvyPv2AiH
-	/r6YmLih21J4SU0y96dH4xJT+tFeFmG1nEYnLpUHDHFClGGFEq+hPsVx30Af6JMd6JbsSZEZVwCDO
-	gZZRseUDHHXZsQ8/ZLSwPhyEG9KGjc5ss/P9lcxzrVkN/PINXqhcgwaytwS8zdY8MNBLkRHGny1qi
-	1YF6PCbHbnCXBVCN4nY2Yrb6yivJ3eBV/C0cPGp3u4Vfb/JVQBMRAVj7a6V+2+yMEjqe9li3Mdr8K
-	qm7K2OGSUJKZg7wfEY7O3JuCSXNgM6+uS6gmtTAdVtIa41awmviyxFzjEnYrkrG37pqmUsFEwmoOr
-	6CZZailA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokIW-00000000LqW-14Ay
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=QPtHhjeiKZGeYIvobzLPLR8GA72nYDkocWOfhnPeMbs=; b=ZrpejVagcdNoF8w/hKFPdSq4rq
+	hDrsoiR7G5pfJ4uUrUJ6A0GrgszgACa673xcYqR6OCLDSGmo4/2olRFlhe5zvbin53JSV7JuY1bi5
+	tKvEnuR0i/QIuPOFAe8EGwN7iUV1udJYsJ17+Ic39jAdJdWx8bOFrGEQnQhFcAHHFxa/BCLbl5qRs
+	GAIwPcgKWWe47EfNqQWMCxJ318XCVUzsONrviYl420FqdOJ1jkmHxRcpiZKta3lqF3NllOOkEMv1i
+	7S1IeP3KhORB0jmYcqVLenxh6S/IrAZf5a5HV5FveJTugFsILozHKtOiUhTLWu9B4zYCgwbBzXhQB
+	BvKcFpCg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokIY-00000000Lrz-48XO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:00:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A8B175C65EC;
-	Wed, 20 Aug 2025 15:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27167C116B1;
-	Wed, 20 Aug 2025 15:00:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755702015;
-	bh=HQ5b81Apoab6czGcXH0vKrkZjdSXVB5vGQChQZigfGs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WZJH9/EH88gSyhql/auK4PWa7AtEO2Igy0GRER4LLH7ThQiHl0XH6BnCy5/NN3PMT
-	 RFjDzlxjxBrucO8iCpfXpZD76n+Jm+rOfMI+VGnnDiT6/srjtvkUYGOax/5UWOxpbK
-	 64tLdCgCpiXUAhq8NfP1OK6R24kUspG7B7i6j1GQRJ8kZoYvs0yKtNtcAG7pTsJy3Z
-	 oXGXc9x484fXChvSvNbcBYhewPk+SLQnaSdOFV1agHVRLoBNL3ao0Wjj/0LmdTQe95
-	 pIJiD4uEDJiHNf7o6jJB1oMItVzWHJZkZbFFK+W0g97QucjyTUS+eTaY2fWfejq6Wg
-	 MAXxr90IR5uPg==
-Date: Wed, 20 Aug 2025 17:00:13 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Liao Yuanhong <liaoyuanhong@vivo.com>
-Cc: Chen-Yu Tsai <wens@csie.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	"open list:DRM DRIVERS FOR ALLWINNER A10" <dri-devel@lists.freedesktop.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] drm/sun4i: Replace redundant return value judgment with
- PTR_ERR_OR_ZERO()
-Message-ID: <20250820-skilled-dragonfly-of-symmetry-b4f4dc@houat>
-References: <20250815133727.418204-1-liaoyuanhong@vivo.com>
+	Wed, 20 Aug 2025 15:00:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0AEE2F27;
+	Wed, 20 Aug 2025 08:00:13 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.2.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D4433F738;
+	Wed, 20 Aug 2025 08:00:17 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v10 40/43] arm64: RME: Provide accurate register list
+Date: Wed, 20 Aug 2025 15:56:00 +0100
+Message-ID: <20250820145606.180644-41-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="su26l5zhm5tjwxui"
-Content-Disposition: inline
-In-Reply-To: <20250815133727.418204-1-liaoyuanhong@vivo.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_160020_518697_62825235 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250820_160023_509273_961C00F2 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +99,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
---su26l5zhm5tjwxui
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] drm/sun4i: Replace redundant return value judgment with
- PTR_ERR_OR_ZERO()
-MIME-Version: 1.0
+Userspace can set a few registers with KVM_SET_ONE_REG (9 GP registers
+at runtime, and 3 system registers during initialization). Update the
+register list returned by KVM_GET_REG_LIST.
 
-Hi,
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Signed-off-by: Steven Price <steven.price@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
+Changes since v8:
+ * Minor type changes following review.
+Changes since v7:
+ * Reworked on upstream changes.
+---
+ arch/arm64/kvm/guest.c      | 19 ++++++++++++++-----
+ arch/arm64/kvm/hypercalls.c |  4 ++--
+ arch/arm64/kvm/sys_regs.c   | 29 +++++++++++++++++++++++------
+ 3 files changed, 39 insertions(+), 13 deletions(-)
 
-On Fri, Aug 15, 2025 at 09:37:27PM +0800, Liao Yuanhong wrote:
-> Replace redundant return value judgment with PTR_ERR_OR_ZERO() to
-> enhance code readability.
->=20
-> Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
-> ---
->  drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c | 5 +----
->  drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c     | 5 +----
->  drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c  | 5 +----
->  3 files changed, 3 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c b/drivers/gpu/dr=
-m/sun4i/sun4i_hdmi_tmds_clk.c
-> index fbf7da9d9592..c90dd0ad040f 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
-> @@ -229,8 +229,5 @@ int sun4i_tmds_create(struct sun4i_hdmi *hdmi)
->  	tmds->div_offset =3D hdmi->variant->tmds_clk_div_offset;
-> =20
->  	hdmi->tmds_clk =3D devm_clk_register(hdmi->dev, &tmds->hw);
-> -	if (IS_ERR(hdmi->tmds_clk))
-> -		return PTR_ERR(hdmi->tmds_clk);
-> -
-> -	return 0;
-> +	return PTR_ERR_OR_ZERO(hdmi->tmds_clk);
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index c95a00b711c0..c5bdbcede086 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -619,8 +619,6 @@ static const u64 timer_reg_list[] = {
+ 	KVM_REG_ARM_PTIMER_CVAL,
+ };
+ 
+-#define NUM_TIMER_REGS ARRAY_SIZE(timer_reg_list)
+-
+ static bool is_timer_reg(u64 index)
+ {
+ 	switch (index) {
+@@ -635,9 +633,14 @@ static bool is_timer_reg(u64 index)
+ 	return false;
+ }
+ 
++static inline unsigned long num_timer_regs(struct kvm_vcpu *vcpu)
++{
++	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(timer_reg_list);
++}
++
+ static int copy_timer_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ {
+-	for (int i = 0; i < NUM_TIMER_REGS; i++) {
++	for (unsigned long i = 0; i < num_timer_regs(vcpu); i++) {
+ 		if (put_user(timer_reg_list[i], uindices))
+ 			return -EFAULT;
+ 		uindices++;
+@@ -678,6 +681,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+ 		return 1; /* KVM_REG_ARM64_SVE_VLS */
+ 
++	if (kvm_is_realm(vcpu->kvm))
++		return 1; /* KVM_REG_ARM64_SVE_VLS */
++
+ 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
+ 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
+ }
+@@ -705,6 +711,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+ 		return num_regs;
+ 
++	if (kvm_is_realm(vcpu->kvm))
++		return num_regs;
++
+ 	for (i = 0; i < slices; i++) {
+ 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
+ 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
+@@ -743,7 +752,7 @@ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu)
+ 	res += num_sve_regs(vcpu);
+ 	res += kvm_arm_num_sys_reg_descs(vcpu);
+ 	res += kvm_arm_get_fw_num_regs(vcpu);
+-	res += NUM_TIMER_REGS;
++	res += num_timer_regs(vcpu);
+ 
+ 	return res;
+ }
+@@ -777,7 +786,7 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ 	ret = copy_timer_indices(vcpu, uindices);
+ 	if (ret < 0)
+ 		return ret;
+-	uindices += NUM_TIMER_REGS;
++	uindices += num_timer_regs(vcpu);
+ 
+ 	return kvm_arm_copy_sys_reg_indices(vcpu, uindices);
+ }
+diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+index 58c5fe7d7572..70ac7971416c 100644
+--- a/arch/arm64/kvm/hypercalls.c
++++ b/arch/arm64/kvm/hypercalls.c
+@@ -414,14 +414,14 @@ void kvm_arm_teardown_hypercalls(struct kvm *kvm)
+ 
+ int kvm_arm_get_fw_num_regs(struct kvm_vcpu *vcpu)
+ {
+-	return ARRAY_SIZE(kvm_arm_fw_reg_ids);
++	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(kvm_arm_fw_reg_ids);
+ }
+ 
+ int kvm_arm_copy_fw_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ {
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(kvm_arm_fw_reg_ids); i++) {
++	for (i = 0; i < kvm_arm_get_fw_num_regs(vcpu); i++) {
+ 		if (put_user(kvm_arm_fw_reg_ids[i], uindices++))
+ 			return -EFAULT;
+ 	}
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 2b8de301f057..e32cf63b04a3 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5120,18 +5120,18 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
+ 				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
+ }
+ 
+-static unsigned int num_demux_regs(void)
++static inline unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
+ {
+-	return CSSELR_MAX;
++	return kvm_is_realm(vcpu->kvm) ? 0 : CSSELR_MAX;
+ }
+ 
+-static int write_demux_regids(u64 __user *uindices)
++static int write_demux_regids(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ {
+ 	u64 val = KVM_REG_ARM64 | KVM_REG_SIZE_U32 | KVM_REG_ARM_DEMUX;
+ 	unsigned int i;
+ 
+ 	val |= KVM_REG_ARM_DEMUX_ID_CCSIDR;
+-	for (i = 0; i < CSSELR_MAX; i++) {
++	for (i = 0; i < num_demux_regs(vcpu); i++) {
+ 		if (put_user(val | i, uindices))
+ 			return -EFAULT;
+ 		uindices++;
+@@ -5162,11 +5162,28 @@ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
+ 	return true;
+ }
+ 
++static inline bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu,
++						 u64 reg)
++{
++	if (!kvm_is_realm(vcpu->kvm))
++		return false;
++
++	switch (reg) {
++	case SYS_ID_AA64DFR0_EL1:
++	case SYS_PMCR_EL0:
++		return false;
++	}
++	return true;
++}
++
+ static int walk_one_sys_reg(const struct kvm_vcpu *vcpu,
+ 			    const struct sys_reg_desc *rd,
+ 			    u64 __user **uind,
+ 			    unsigned int *total)
+ {
++	if (kvm_realm_sys_reg_hidden_user(vcpu, reg_to_encoding(rd)))
++		return 0;
++
+ 	/*
+ 	 * Ignore registers we trap but don't save,
+ 	 * and for which no custom user accessor is provided.
+@@ -5204,7 +5221,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
+ 
+ unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu)
+ {
+-	return num_demux_regs()
++	return num_demux_regs(vcpu)
+ 		+ walk_sys_regs(vcpu, (u64 __user *)NULL);
+ }
+ 
+@@ -5217,7 +5234,7 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ 		return err;
+ 	uindices += err;
+ 
+-	return write_demux_regids(uindices);
++	return write_demux_regids(vcpu, uindices);
+ }
+ 
+ #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
+-- 
+2.43.0
 
-The readibility improvement is very subjective, and this makes it harder
-to extend later on, so I don't think this should be merged.
-
-Maxime
-
---su26l5zhm5tjwxui
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaKXi/AAKCRAnX84Zoj2+
-dm+UAX9RCkx9gaut6YQRzmpPslaiJ2m2jmUpynn6QC21/IDDMsYsSM6cisPFTO21
-AMJZZp4BgJ+CB1UtTTi+hgvHJSfJvEL0psMKwkK1KB/+wu91d4SMqbEVnzCyIbxY
-+wBkUAEZIQ==
-=93ng
------END PGP SIGNATURE-----
-
---su26l5zhm5tjwxui--
 
