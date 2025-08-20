@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8733ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68ECCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3EHID2hrABQC+BwzHXPsX4lzatRJpQZngM5mEmWwni0=; b=P2uhJUCs0zMOU2+i4kwQ2axtJA
-	JVH0QxeJJIIbPhtZNmNyCxVeg7KEkJd+JDRYuAKNFL8dazCeUxtx/yyyJZ+DaqgfPZ4b9QiZXKm/J
-	Gj2G31GwRjSJRDLE+97NuDejasxJeNYo6TOhZuvA41QtB7DtZhMXzx+i7vCqrTnpKO1dS6/ff1S+A
-	qJRPhAfIzDDYmIZLMfVMgzPoDiJ9b9M0VNeekSxy8s0VNfp23I29L8K+BG6S2yF260l4mOGn+inqM
-	yw1sKnbAksoKmnCKImcei+9Cq1lDa5IEeILlZlhVdFwxeJff31s13HEnU3BvV+1CcocDGvkKgtJaR
-	mqocwpYg==;
+	bh=rs1AQNSyTZqUX4JnpdUSzm8PYYvXAiR99GW8vwczn/M=; b=OMibmVFtJwaiaPZqNn7UjVyVXi
+	aIl7lFQL0UUZO0UFWFdMEEqYXFNfou+AQq0htr2gvi4Cfie2JmAdcVk8u1VCKcBf+3zpH+GrhNqd3
+	b2h4OjORXmPTx1/7gJhQo+NgFn9nAyGG8kJSytUbbQe2uViHnOVpM3xOO2cCJzG9uAoNDeTWzYCHD
+	C331QmK4vcwGXvs9vl6p0GVoztPjuaW9VYLTo5AwfJHnM1nlrcmKPDpdBqpiAp/l4O7dIY+McVMDF
+	j0Ii7xdDSfqM1maRJ4v8RJIpYN4SS5rczu802sFz9O4sAL0Aln/oR8uqVfOwDyjHMlg4qlaWhjd1l
+	tBPzwVvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopkl-0000000EsKU-0j63;
-	Wed, 20 Aug 2025 20:49:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uopko-0000000EsRF-3eqD;
+	Wed, 20 Aug 2025 20:49:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolE2-0000000EKJ4-3Vwe
+	id 1uolEB-0000000EKKo-3CTW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:59:47 +0000
+	Wed, 20 Aug 2025 15:59:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E622437FC;
-	Wed, 20 Aug 2025 15:59:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D717AC116C6;
-	Wed, 20 Aug 2025 15:59:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CE44456B7;
+	Wed, 20 Aug 2025 15:59:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF6C9C4CEEB;
+	Wed, 20 Aug 2025 15:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755705576;
-	bh=Umn5vwhGD2cJbBze7Y+K5YYl5ku0sduec7+7WcHtJDE=;
+	s=k20201202; t=1755705595;
+	bh=uil8ZdRjg4HFrRJeLS26HOwIZusTXb+xLTXvjBw8om4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YJB7FAyJmFIy/7bU6Y6i71u2o8MXfowgFrIDXqIk6YPIU/lj6nyoRUOXhv3daXST0
-	 1WRNZLp8D+8M12Ww6v0xaiKqbZ63Ay2gkgmI4XLJImrTQ58j1Ktr1AV/0XU7MPpyWO
-	 bIUUL54nRyeY4an1pQCOq2T+0U2v+YdeUlvRUC0gRRY5tcz7O9RNA83vs1smq6pTtb
-	 A2BvVA9odZs4EQO3oT9BnUBbeydgFtP9ND05ez31VZ7aI67jCIPD03JgP/shTTLQcv
-	 BODBh4bhLBUxCtWuwnlTENxKEq9nErah3SNyaWQaaC5wifuk5ZY5pBZ1a9928FT/RG
-	 MVIS2LTeazW6w==
+	b=Dzj53rDiYwXvWskMsVLAaz4vmIFVf5W8xckeEZ/ZahMIv02o2UU7KMUO1IFwTJ21x
+	 dYKdxngWr8sb8tXV99EgmwY4Hz+YlETAlMEZK3dOtrep5IqwjmN5a2RkHW8WO9jfwh
+	 7JvN4FO8LwSH+CFm8JT2ye+XZyUyDIPtOOLw3T5dgzB8+PoVvFf/Oeu7GvDz5U0/3d
+	 evfCspyI87F/IjzqI6GVaWniR1G3ldgqEic1CCSWGnnV9xxODKFnt+7FTtdJdX/Upi
+	 AOlfN8Kg8GgB02PXRlz41Mfk0i7qGaQvitlyERI1biLUhbsEG16QjlsiIoizFRQHz3
+	 o/eGiYnrQoJFg==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -67,17 +67,17 @@ Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 12/16] gpio: tqmx86: Use modern PM macros
-Date: Wed, 20 Aug 2025 23:40:33 +0800
-Message-ID: <20250820154037.22228-13-jszhang@kernel.org>
+Subject: [PATCH 15/16] gpio: xilinx: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:36 +0800
+Message-ID: <20250820154037.22228-16-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
 References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_085946_894532_41D0D5F5 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250820_085955_840111_2222C30B 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +98,70 @@ CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/gpio/gpio-tqmx86.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/gpio/gpio-xilinx.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpio/gpio-tqmx86.c b/drivers/gpio/gpio-tqmx86.c
-index 27dd09273292..d79f515137a5 100644
---- a/drivers/gpio/gpio-tqmx86.c
-+++ b/drivers/gpio/gpio-tqmx86.c
-@@ -279,19 +279,18 @@ static void tqmx86_gpio_irq_handler(struct irq_desc *desc)
+diff --git a/drivers/gpio/gpio-xilinx.c b/drivers/gpio/gpio-xilinx.c
+index 83675ac81077..be4b4d730547 100644
+--- a/drivers/gpio/gpio-xilinx.c
++++ b/drivers/gpio/gpio-xilinx.c
+@@ -286,7 +286,7 @@ static void xgpio_free(struct gpio_chip *chip, unsigned int offset)
+ 	pm_runtime_put(chip->parent);
  }
  
- /* Minimal runtime PM is needed by the IRQ subsystem */
--static int __maybe_unused tqmx86_gpio_runtime_suspend(struct device *dev)
-+static int tqmx86_gpio_runtime_suspend(struct device *dev)
+-static int __maybe_unused xgpio_suspend(struct device *dev)
++static int xgpio_suspend(struct device *dev)
  {
+ 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 	struct irq_data *data = irq_get_irq_data(gpio->irq);
+@@ -327,7 +327,7 @@ static void xgpio_irq_ack(struct irq_data *irq_data)
+ {
+ }
+ 
+-static int __maybe_unused xgpio_resume(struct device *dev)
++static int xgpio_resume(struct device *dev)
+ {
+ 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 	struct irq_data *data = irq_get_irq_data(gpio->irq);
+@@ -343,7 +343,7 @@ static int __maybe_unused xgpio_resume(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused tqmx86_gpio_runtime_resume(struct device *dev)
-+static int tqmx86_gpio_runtime_resume(struct device *dev)
+-static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
++static int xgpio_runtime_suspend(struct device *dev)
  {
+ 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 
+@@ -352,7 +352,7 @@ static int __maybe_unused xgpio_runtime_suspend(struct device *dev)
  	return 0;
  }
  
- static const struct dev_pm_ops tqmx86_gpio_dev_pm_ops = {
--	SET_RUNTIME_PM_OPS(tqmx86_gpio_runtime_suspend,
--			   tqmx86_gpio_runtime_resume, NULL)
-+	RUNTIME_PM_OPS(tqmx86_gpio_runtime_suspend, tqmx86_gpio_runtime_resume, NULL)
+-static int __maybe_unused xgpio_runtime_resume(struct device *dev)
++static int xgpio_runtime_resume(struct device *dev)
+ {
+ 	struct xgpio_instance *gpio = dev_get_drvdata(dev);
+ 
+@@ -360,9 +360,8 @@ static int __maybe_unused xgpio_runtime_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops xgpio_dev_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
+-	SET_RUNTIME_PM_OPS(xgpio_runtime_suspend,
+-			   xgpio_runtime_resume, NULL)
++	SYSTEM_SLEEP_PM_OPS(xgpio_suspend, xgpio_resume)
++	RUNTIME_PM_OPS(xgpio_runtime_suspend, xgpio_runtime_resume, NULL)
  };
  
- static void tqmx86_init_irq_valid_mask(struct gpio_chip *chip,
-@@ -425,7 +424,7 @@ static int tqmx86_gpio_probe(struct platform_device *pdev)
- static struct platform_driver tqmx86_gpio_driver = {
- 	.driver = {
- 		.name = "tqmx86-gpio",
--		.pm = &tqmx86_gpio_dev_pm_ops,
-+		.pm = pm_sleep_ptr(&tqmx86_gpio_dev_pm_ops),
+ /**
+@@ -682,7 +681,7 @@ static struct platform_driver xgpio_plat_driver = {
+ 	.driver		= {
+ 			.name = "gpio-xilinx",
+ 			.of_match_table	= xgpio_of_match,
+-			.pm = &xgpio_dev_pm_ops,
++			.pm = pm_ptr(&xgpio_dev_pm_ops),
  	},
- 	.probe		= tqmx86_gpio_probe,
  };
+ 
 -- 
 2.50.1
 
