@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4CACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:29:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB22ECA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCrCunTdU8xEFp07Ey9PdiNzt/IieIkKwVuDc+HiN88=; b=qtgC+2jAyBFxrHEywpt8+DYUgW
-	8mO4AMzMDXS8i6B+2ZyetGEhuu9IDWZT6RsADTgQJQ+hBE/S4zYRO9a1NvojznZDNVzLiY45us2mr
-	eKv+4z/RjkR0BwE9PhYIWTIAvoiXQB5IqgOK5ucog9Wb6lTTGcSy+QXH/VZeNNmlc3fVOY46KZHUp
-	q/SBJH4kCYZkYcVgu6u9PFi/stcT5fOjcVG+136v2+jggClfkAxHvI1Pf5cAefDdSg84+MMC2X6VL
-	YzG1OPLXXlFlkTlmUPM/jBeWpQf6SoVhNTxcDkNfE3DCChj83CQWrZ1VEu+2raPNFUBR0v1NdyXvH
-	A6OILVhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4YdgsXbuF6m3lxhc0jvnC71E6G4Iah17pbh5wtlkK+Y=; b=0UC3iv3gBWIuY5mEQsKM7udJAF
+	WW1ZdAhRoXKY8WYPfXQo9Hr1wYHTVQWeCpHCPspmr6VvOsHJng7Hag8IKhmHi2J+qcWDI30sIoRSa
+	o1Dmr769sYT7fq3r+TM032mZzbs2QLrpqbfYrpU+A8S7CY+nGdGsgy4BOocWY+HfYtyxRI12dSt/F
+	0B1jaTGuewpIuyQ3xSNxsuPbrIeLD5aMV/3rCGhMN33xKoID4GkohRDpRdOJQzcS7t1a3Kk/8ns/d
+	nCyhE810a6VxTfb0DmbbABttL7PK36k8HCJyRc4HOOCfjNWQz2EPsfLY3Gq0Mp3JbfOdXohsyB8rB
+	owIXh5sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uou6u-0000000FS66-0Dbu;
-	Thu, 21 Aug 2025 01:29:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uou9T-0000000FSLv-3egU;
+	Thu, 21 Aug 2025 01:31:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uor7l-0000000F4Ux-0Q8N
+	id 1uor8G-0000000F4bZ-15gA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 22:17:42 +0000
+	Wed, 20 Aug 2025 22:18:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4F474A57880;
-	Wed, 20 Aug 2025 22:17:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F05CC4CEE7;
-	Wed, 20 Aug 2025 22:17:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A201D5C6C01;
+	Wed, 20 Aug 2025 22:18:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 484D4C4CEE7;
+	Wed, 20 Aug 2025 22:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755728260;
-	bh=eDu8QR5kIr07udxsRmoFGBACAqMZM7dZomdO2wR2NFw=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=deFp5pNHdK9Cn8YK/W/UKn93sLyXcRafl7AIdHn4ca4HS+VyBIBvZhfkU3SqZkqOO
-	 Pd+zHaWlLPUw9NZEkK4FY+bWmjAHkgnjdA5JAvuXVx1pH5myfGRuY0j0skW6VlEXxI
-	 jxb/FIxaydITafislJLf9s9gY+BR4oKz8S2VhPZV0/4uuYIy34UFhnOYig6d7eXaZH
-	 7J92rop1Ic+bftYa4Dk3KrEIO30AfYuVx3el0WAoMB189W8Ie5xcPZTEvKfjUpOXnj
-	 MKTiK92pD2q/dfi1duF3KTjvCWSK8t3AJKSMHSwWvL76SzEIOE/fiyKLJ47YDlXWFL
-	 KansHdGD6Jxog==
-From: Mark Brown <broonie@kernel.org>
-To: Nick Li <nick.li@foursemi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Shengjiu Wang <shengjiu.wang@gmail.com>, Xiubo Li <Xiubo.Lee@gmail.com>, 
- Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- Andrew Davis <afd@ti.com>, Chen Ni <nichen@iscas.ac.cn>, 
- Linus Walleij <linus.walleij@linaro.org>, Al Viro <viro@zeniv.linux.org.uk>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Qianfeng Rong <rongqianfeng@vivo.com>
-In-Reply-To: <20250820123423.470486-1-rongqianfeng@vivo.com>
-References: <20250820123423.470486-1-rongqianfeng@vivo.com>
-Subject: Re: [PATCH 0/3] ASoC: Use kcalloc() instead of kzalloc()
-Message-Id: <175572825608.300376.7595587079585456413.b4-ty@kernel.org>
-Date: Wed, 20 Aug 2025 23:17:36 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cff91
+	s=k20201202; t=1755728291;
+	bh=TGQmzkspugVB5qBEUpdujC25KIeihWnVs9IUgXT1UOE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jgpFo5rWJ4pzUbV4s3NIXt30fTeWof+pZ3u+I1ZB+VY7dCND39o9inCzVHWygFDKD
+	 QH3yYsrpWSHRpoU7wsOZQxBmHRTxQp/jrHVd2L2nAfjGWbA9oB3OXASBfl/txY2y5n
+	 zq4bkpKpHOn08Cs+cnU+OvZDVvtoTynjfeyMxXIPnMy5NrUqCJA1xykXMyTn32vTIx
+	 MDlmAgWKDqXKB5X69EN9GXkOSFLzw1YBLMWZ0JX343mwyHJzHy/9Dni5p6hUNhGwdH
+	 TX0s75NmqbuFugE3MPi2lmiBRKmERtfe+KpgFnSTrCt+k7sZBmHqVtcu/h2fSyVtQo
+	 hQfYLIT3q14/g==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uor8A-009W00-5o;
+	Wed, 20 Aug 2025 23:18:06 +0100
+Date: Wed, 20 Aug 2025 23:18:05 +0100
+Message-ID: <87jz2xk57m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v15 5/6] KVM: arm64: Allow GCS to be enabled for guests
+In-Reply-To: <20250820-arm64-gcs-v15-5-5e334da18b84@kernel.org>
+References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
+	<20250820-arm64-gcs-v15-5-5e334da18b84@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_151741_216669_231A9A05 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250820_151812_335483_6B9978E7 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,47 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 20:34:17 +0800, Qianfeng Rong wrote:
-> Replace devm_kzalloc() with devm_kcalloc() in sound/soc.  As noted in the
-> kernel documentation [1], open-coded multiplication in allocator arguments
-> is discouraged because it can lead to integer overflow.
+On Wed, 20 Aug 2025 15:14:45 +0100,
+Mark Brown <broonie@kernel.org> wrote:
 > 
-> Using devm_kcalloc() provides built-in overflow protection, making the
-> memory allocation safer when calculating the allocation size compared
-> to explicit multiplication.
+> Now that required functionality for GCS is in place expose
+> ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
 > 
-> [...]
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 592cb5d6497a..60e234422064 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1616,7 +1616,6 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
+> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
+>  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
+> 
 
-Applied to
+Still disabled for NV in limit_nv_id_reg().
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+	M.
 
-Thanks!
-
-[1/3] ASoC: codecs: Use kcalloc() instead of kzalloc()
-      commit: 45441b933cdfb7a018674049f269d7a1bc1688df
-[2/3] ASoC: fsl: Use kcalloc() instead of kzalloc()
-      commit: 3b6f4bd6cda2797b0d999a129376c112d41604f4
-[3/3] ASoC: test-component: Use kcalloc() instead of kzalloc()
-      commit: 96bcb34df55f7fee99795127c796315950c94fed
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Jazz isn't dead. It just smells funny.
 
