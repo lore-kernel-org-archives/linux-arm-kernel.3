@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 041A7CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 16:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4B5CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 16:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6J3bLH3lxnU1wq9lp33HkB5R033P8bBP3qGJYX3dOFU=; b=iZyweZOnNAay44kWWpBiMpymjB
-	DZ4FIOkcio5s4j++6+Qnk8sEcwimxbNwJx5eG67dj9WBTw1uV+BNQI71vGEf7EabCT3mXm/2ImxHc
-	sbTzZbDDhT+Xc6srxSomI3viBcKFql7LCoS67uI6RW5pK9cz35KyT2s73b3jDHf3AhbdG1Ig4R74E
-	fjL0UIFwZpsQ1EsVgdcCNFwmmtGumTjQTVjiFye91HkTwUl+vXBXUX/C7ywM+Wp/wb723rgsVVzqB
-	TlVZEDxQCPP4ZmaWJyXejcya1L3OrGokr/iUJ/dStflmemb10EB+VwKYyPHWkRaostOLn7GNuxHIF
-	mTkVX0dg==;
+	bh=O0y9+S+0/oGs/jRLQ8Wbum1MkKzM8lvngx2r14lP66Y=; b=QEWZa5961IeqWSBvcFAXo7Pe8S
+	OiJqh7lBguA41W5LEzeV/ndGZOKMASQCMcv8flvyC4NYbfsCeAWxkv3+BfC85ZyqosQUPZXL0KYBM
+	oflI24TOsj9aa1NhhYiJmkGSd/u3s6FKofFdT1votLnwWHZ7oVvAjyjRB6kz+2TtY/z+U3EuhMvi3
+	oh+l+DJYWyKQKzNA1jgU6KeOeNnhQrZ1vR6hQdG250r5EBG3TJnpaZMFuT3yzTtCnRJXTbcxoCc3Q
+	/UQLvG7rmhs0qx7562hf9hpuNn0XIk39HLoTw26pTmvEQqztFj1q2wjCYNUbq9VK0NSwczrNUnU4B
+	vzluhKgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolPK-0000000EMCc-2ZBL;
-	Wed, 20 Aug 2025 16:11:26 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uolRu-0000000EMdh-1X8W;
+	Wed, 20 Aug 2025 16:14:06 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojjg-0000000E27u-3WjU
+	id 1uojmf-0000000E34h-2Tnp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 14:24:22 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3b9dc52c430so3361639f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 07:24:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755699859; x=1756304659; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6J3bLH3lxnU1wq9lp33HkB5R033P8bBP3qGJYX3dOFU=;
-        b=sJxJ3zspXP7GW/+eMDeZf3DF8NMfXx6q1MDBQLbDK6chKwT2T6/WnFTbAhO0ZeOScK
-         o1yRgh0jc04W5w0I9a2RT/Ga77sTbuRkgUHxDG0SK4C0BwXl3AlhLAOE5ay34cMa684W
-         PsD7q3AKdAhP8Ha0l0dtzKNbp2CuCAH0vY+144GeOXvfPrCxjEfu7FK7wd1uhXPhnRl5
-         geSjZMOf3VXbeIj1MGVPMkrZGm61yPu3sw7eAV217x8xXL5A2jMng2Fjh5J0iw9JBNR7
-         KljlEMj2U5gyFPAJXRNlOvwbU008/+5vF2TzNR7CPPr8apFZCzERWFQH3+/yhAm3iRf7
-         dimw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755699859; x=1756304659;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6J3bLH3lxnU1wq9lp33HkB5R033P8bBP3qGJYX3dOFU=;
-        b=e+BrMGM9fMNQXhyqmVqHpe15eG+uO336IlTj1yetNu19nTqhPi4rATCcCDu+DJZco4
-         uph12zQ0BZQ+V6uTuwwKPxleXKptY7yiI6IuHKt0H1hUllI/Yjx04GYgnj4sozMUxesh
-         KvWseLrAwJYoksggYgCNRrpd4BJkD6pUPyer6bUfQOkAC/7fpcDuf/S+GqveO9f4I6DD
-         c5hEc7EsrFaZBMg5SEiEpHh10+LI1VgHNjeLnpsnp/X9o5ybsfFf4XjEj5Y7W90IUPj3
-         kx7MaUX3H0bB2Q6KR8zRJmSW2tBYs2ZGprirlKwxvuY0g3jYVtGUTzdAXy4WidT0Pb4K
-         l6aQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXkptyU220i/rIb6E6vd3X+ghZfRTLcfZwUWlL9AlKawduYdUB916WaWLhzhgGJ1jR77qkYSD3n5lGBcq+LsnLV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhYG08cDyr8djlC6I1/OpvvU1s9S6vrPYmZd04G6tnPCuP2ahQ
-	/QdBIaBI086BfFu8y+DGgzHTefu2/DNrXNRqbry+x3G1HL7X83kph1h+Bm2dldRhcgY=
-X-Gm-Gg: ASbGnctdAs17550Z4QMqQJfOnJrmVNvw9T0zvJ9x7bjMXxnVljLrqAoAMXfJyxFHRju
-	P3GDJFHTXwA7DiMjdYEJIpSpg15G0dh7+mOqP8LNepeOVPPgRC8FBrZEC/AFNBKChh8+L4SkHIV
-	5E5VuE4U4nHiSSRTsBft0oY3y/rWPW+mswYVs65kWSnhQzOvMtTg9eQpaqwmEIn9lqQA3arldvZ
-	n0xRdDx9iocjjFFiz7+LWfNs/C7NN69IZulbKh4bOBCIlIqFflGhTDrOvKkYE7XVKrI5rvlwil6
-	IHR491aqMJD6AYDyna6j8E+f8u3w/fQQ1nOaDa3NG/CoVuMzLNRbq7yrWzEnrpgjugsq/KrR8Dt
-	d5zTML9JgXmsjnagCxGDerEp2O/g=
-X-Google-Smtp-Source: AGHT+IFnea2n21+kS1N+9kldwzmLDXovzHwkQ2dtRizVAVyYeiR3u+rellXeEys1h8pnuViATD2x5w==
-X-Received: by 2002:a05:6000:4007:b0:3b7:94c3:2786 with SMTP id ffacd0b85a97d-3c32e2294d9mr2203490f8f.34.1755699858694;
-        Wed, 20 Aug 2025 07:24:18 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c3a8980ed5sm2231742f8f.16.2025.08.20.07.24.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Aug 2025 07:24:18 -0700 (PDT)
-Date: Wed, 20 Aug 2025 17:24:14 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>, lkft-triage@lists.linaro.org,
-	Linux Regressions <regressions@lists.linux.dev>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>,
-	Anders Roxell <anders.roxell@linaro.org>
-Subject: Re: Juno-r2 WARNING kernel time clockevents.c cev_delta2ns
- clockevents_config.part
-Message-ID: <aKXajiHqhhkFeV4a@stanley.mountain>
-References: <CA+G9fYsYVuEpL5KnYdq4ciRmpnUMQqkNQHmy7y5XvUm48kjxyA@mail.gmail.com>
-MIME-Version: 1.0
+	Wed, 20 Aug 2025 14:27:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hqFFU81RfNVvtSzCTVaOrbg+R7Q8OwjuSafePmEEgcSjnRnT3RN9y5/MigVIMG/zDr7CM4FHuDh+B0ajvvh2K1jJ8+eld3XyUXL+JheZYiW33yF6NwPAAJdm8SofOQN70Ea6x1QDEp/BAqZcvZwWpC5YtgbubqEkaX6khZ7pf3oy092c7QFJe8o6aiggSrbqkGJAD5HizAlY282CR01667U9v1aVJMPSdf60WsysGdKSK2fvZ3eQWyzZ3jtfwWA44olt4G2CZrF2jj3JzZiGm/dDDC8/MnrR05SHj/4SM8A416wH7uQ4bOnDJ1xQi2Fw8MpB7lbTb+a938rVB/UvFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O0y9+S+0/oGs/jRLQ8Wbum1MkKzM8lvngx2r14lP66Y=;
+ b=sGpAj1ZOk4oRfWxJdBaesJx5WyZJMStx3H86xk9QzSf4XUqGSA2arLz+fyKgUFnunNJlwY7h5k8Q+gDS8GntSP8Uh+WeyYVmODaTHvGz5NSLXSp8TmKKw5S9HF3YpbTvDzDnCXuZRJRW9lOjog/kcM/6aNmEHCwXsYK0jog4nB2sgruD8IrqVncgpdcspvTQJv6rSag96XEjvCL3Wm8C32blFgeGR0RREpzIxdOAmzlkH3aot+6f0mae6jeElCPs90R7mtNy39vwyNwidWrriNh5r94zjM/9YpODaNfxwsgfP3FYVrk+FtzcnKgjJ2lw9WKOHcUftqcyjL0WfQkFag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O0y9+S+0/oGs/jRLQ8Wbum1MkKzM8lvngx2r14lP66Y=;
+ b=eMBm/pJpTHxcRevH1xjyjd2WVx6q10z8945MWVC1YDYPFoDfAKfrtGuTCbFn70VBgdhsZt/c0aVVr+b9aEooYW0/yfknyUbbQZ9HnHYODexjWvu/esrrmLJ3oMkOxNWvhmkuxYOJwfj54C9jRdShlEvmYWHpM9QQ9QqkENGIc0UdPrHqWBeU3OM7oqSv0TXYdhBKK3/09IGnWd87mtT+4ciby1W4WFk4hbUP4jH2RZGIehz6vDtzUuyXUe1JJ9Kgvl+UEK4WjdVX6JZR7ThvKFQVcKmHcjLHohEUmIZ4EyG+l8l+Hj/TVKxNIw4AHgUSTo8aVC00Ydz75yDkMFsHiQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AS8PR04MB8069.eurprd04.prod.outlook.com (2603:10a6:20b:3f5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
+ 2025 14:27:18 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
+ 14:27:18 +0000
+Date: Wed, 20 Aug 2025 10:27:07 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/4] media: imx8mq-mipi-csi2: Remove width field in
+ csi2_pix_format
+Message-ID: <aKXbO+P1az2HiB8i@lizhi-Precision-Tower-5810>
+References: <20250820-csi2_imx8mq-v5-0-e04a6fc593bd@nxp.com>
+ <20250820-csi2_imx8mq-v5-1-e04a6fc593bd@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+G9fYsYVuEpL5KnYdq4ciRmpnUMQqkNQHmy7y5XvUm48kjxyA@mail.gmail.com>
+In-Reply-To: <20250820-csi2_imx8mq-v5-1-e04a6fc593bd@nxp.com>
+X-ClientProxiedBy: BYAPR06CA0003.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::16) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8069:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6368639f-7a0c-4efb-6464-08dddff5aa93
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QsKOWynkCc7rPtEsmwajHgPd45PZdLcTsV1qOE2iTg/P4WMm3VM+0vtLCoZb?=
+ =?us-ascii?Q?udC9Mr7CkrWhaU4C9U/BLAUKGG3K/bEBnl571EcZjkZ6dV82FoILKuP+m031?=
+ =?us-ascii?Q?5sxalbfWM1MEFsu1AovwpHJDg8qFO47V7Yc//2pDjoT8AGNKHBZ8fiQ3iKnN?=
+ =?us-ascii?Q?/jdDDhCpGsylfZWC8kZlNPU65MMvZEnVjLUgeOYD55y264qtbmCkh5NXLxO6?=
+ =?us-ascii?Q?Bbv8HhnD9g1y6JWYc+pf+vIFY3ap7VNQvo1+u1ybECpDsTbWAtAEK4IROg8y?=
+ =?us-ascii?Q?A8IAIuJT9OcS39ZQxN2kxvLYAM0lUIv88tC6QvdjhssD3JQW07/uqwbZeaZ2?=
+ =?us-ascii?Q?JrkpZ9CswqxIiqyw64uXv+NKq2fIz7CYx+19FobvX62DcjQgS1bmgfFUgjBZ?=
+ =?us-ascii?Q?5RvxCKyNF0Uq8MxG773+tMmBLDJ2aJHfn9Kiq0BUelnK38gl4QApw7F0HlIv?=
+ =?us-ascii?Q?AnSidXqCVDIRLd3Bf7z7zXX9bex0+GcBIuAqK7hTi2oS0a3q+YdEVXbGtLt7?=
+ =?us-ascii?Q?mkfCnV0a6J6xCFMl3rFQRjl0bO9SuLekayXMejAUDU38GwJK+KcvO0NgaA11?=
+ =?us-ascii?Q?XxtpxY5gc0AfZPUIFPhjy376tHIN7FqJBReiEXYWlD6onfPH5T0cNYNMrap5?=
+ =?us-ascii?Q?KdLl91QSrejSXaoOeVN/3JopyH5fFKUl/B613BGVFElm8/OXWq1Uzy/xl8uf?=
+ =?us-ascii?Q?2ADmI8fHh0JtFUUp4XY6+fbmLoNGSO2yzUUvFaYFwhkHmFuCV71EXvy9NFGq?=
+ =?us-ascii?Q?EjLHGkX/Z3SFXK76VzafSK+BYjwfauDDmLnvGPMyzyyix9bcVLROzxPZ7Ecq?=
+ =?us-ascii?Q?LXBHMq0dMAEIeWGP9Sn+kqEGCFupx+VfuJ6/JhieOTcP/ZD26r395oRDSbYE?=
+ =?us-ascii?Q?KNUa4n92JZmQCD5vBTryXIE/1418YaMfOF8RRoVymVuBFv6i5fGb9c/CIb0t?=
+ =?us-ascii?Q?8lDHIH9ooNmB9CGUw2GxUXRUNs2t+K95le2ESjAkavy9qt/gn0Vpe9fDiXQm?=
+ =?us-ascii?Q?o9CT844BReUu7S7Le3ABM+j4FGDzV7tgfknpotz/VNe3efiXQ2cjITBbmDZT?=
+ =?us-ascii?Q?rgHx9AgvBaZwB8i8WnrEYpqXTXWPTQkytXuQdDbGPVbCowGD+0mNTk05RHRL?=
+ =?us-ascii?Q?fL3JI4QOUKtKwjNXjcOMwmIWzDd2s4r/e3sGwyrSGNvQEvM1/VweAliRrSPu?=
+ =?us-ascii?Q?6k1/bh7xS15pUtdmxtmWN6yYCcBouYmJsUoidkLAKgq7jg32B+eu5SVaeaeP?=
+ =?us-ascii?Q?mnJ9O6DGw07tB2emBDratxDqpE4jEpDTjII9+J8faWlccGNahZghRDOW2ejY?=
+ =?us-ascii?Q?whn9rzJMcqN5tXl8PwaUhivvBp2bdMEoKeYYBLbl9VJE1V1RWeWZxkGMuBxv?=
+ =?us-ascii?Q?nm7d9FWRPp+r9KeZnJLf8mtQZ+0DkHcjxUSuII+ecwj/YD0XwsCajfaxcnTk?=
+ =?us-ascii?Q?81M2kCmBdRoKq/xu+/qcLiV1s+xLLw5KRN5lXdggY8+Kfe4PNvGkLA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4jHiaUyvYySAlJitFro4hFE18v1qqm5UhONBCESKDNmHBkqiEIBU4ElwcWPG?=
+ =?us-ascii?Q?qXmfB7n6D5UOlcfOGqbdnSRn7yel35IUdXqS5tZ3KOBNCpfvLypTAf96iNJU?=
+ =?us-ascii?Q?9iIxWZNvgh1tuJly6YNVtMN6F9+qZW7gMrMNpMW1bFwwQmgGQ8Gt258bhiFf?=
+ =?us-ascii?Q?h3hrt+JmnNsk4z3kx4YFFstonvB4mkzG2GN4MMNkhjfKuoIgu6J/F/U4T5CU?=
+ =?us-ascii?Q?u0KSB5z0p/WhvrI2KybtokBFIcSpZV/Y4aOcZDBHPAE2BkVWLZqFwWlLP12D?=
+ =?us-ascii?Q?IEBW//Wu45aYKj7n5PJpILvXkv4cZEKEO9v/Yjvc+tuKFCxvRunpPKusjhZ/?=
+ =?us-ascii?Q?yieKbAIz03KW0u5kM9BT8eaSrZaKPgqQ7aVH2hCGJfEwHJND1WbjhPo4tI9q?=
+ =?us-ascii?Q?Lcg3i9th6aMwhnLKJSBqYxqcFo5vd9VY0LpMp8viLclLEwT2fUitbUnxo+/B?=
+ =?us-ascii?Q?E+1AHcezKdAUQ1an5XsjDF+d6pIYO+5HG6Kw3UaADRR/k5jEyqQMyZ/eTFv2?=
+ =?us-ascii?Q?x35FRCGzt0GFBdIGcGqA+mExAV+vllBdamcFif6PRiG5D9t6BFJ59U4XyGTa?=
+ =?us-ascii?Q?J7Eta9/oY6Wund+NAV9cBh4io/FwoEMcDf5weEJ4F6bCWK/ulQWR5xHTS6md?=
+ =?us-ascii?Q?X4F9ao3jO98Y4ZZiK1aTIkHkoaDem2A1DsD0Ai25iHa2k/HU1s9opRyvWyPV?=
+ =?us-ascii?Q?altIyf70AJ5BaY1n1H9kYmxIn87vkwADpeKowjhfCT+1XRgQI/Pt1bCe/ZM7?=
+ =?us-ascii?Q?t30APtBGl5kPEqwUBSOfo3KQ08qM6rluBnlyvksSvpKDwv1Ejo/WYwlaRtGX?=
+ =?us-ascii?Q?8cipD6ifTHBaE8VEQXDXV4xzUmHdrUngfRz2tf9LVv6pfOL68DlSDKpzCEaU?=
+ =?us-ascii?Q?F5EzshcyEb1DNTnWA66wmUQBdZegbm7vxJ9J/Ro2ZSWIjjoyBmujRVehBcpX?=
+ =?us-ascii?Q?pw0nc7+a8VJn9NMXiClM+G5lCYQxJUQ/K68cj84bwqxdhHU49uovZYrll46r?=
+ =?us-ascii?Q?UDEytAEG8aZiCRtAOLZDoC8dxapFlpDvqrZdSTzSPu1S2XmDgQXFloOatq6K?=
+ =?us-ascii?Q?lVs0pUDQ6wHIo7ZQFG/0if2JZZ2COHcMfSVCNWP1VqF5tn1llFl0OdzTgtsS?=
+ =?us-ascii?Q?APtozlc9dw2mo26rxNoaZa7I/rarA0SdS17aqDoBpV/el1HH0kfY0gRibSnX?=
+ =?us-ascii?Q?nULb+ilG7IPjD3eMEmGnY74TtpBwxuC6ygCmDYwEmP7R+evkk7o2okZvW+46?=
+ =?us-ascii?Q?7zESVBelqosgKVwjs05A1d6muyaMjK+s+txXR+ufeNeWnwgkpRXbOOV4wb3R?=
+ =?us-ascii?Q?sdjGA4itzOM75qOoglKoAEbT5bcsitNNHRVh0fokO+pVaZ7zZnrH7bUAD/kp?=
+ =?us-ascii?Q?W/beEIfuMmdu3n2exTB/VdzAngweYWZGSdopJIzbXGqcIui39/x4EELE6gNZ?=
+ =?us-ascii?Q?arAULHTyZKU0dv6WzWh4Gv3Aa5Qf13e5U1x1sLoyje4yY8z98+MHXxSjpE9P?=
+ =?us-ascii?Q?s2RMfx9axzUt4T3fOUWaqZIpf10+7Wfeyx+ohG+XrIKY7K/dHxPPMRwm6WNm?=
+ =?us-ascii?Q?sDQ4r0d7hmZZkrVqWJnSGE86Oa+J6E8zQd4IZhJy?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6368639f-7a0c-4efb-6464-08dddff5aa93
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 14:27:18.1418
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jnymbaxKWsAFweJrrm8moKpkfuyoJaSkflrICnLSRIrP0DVgznzc8UVoHu9kz7weshEm7GspLIOznLHrcdM9OA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_072420_884903_0A6C876A 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20250820_072725_629256_D58BBBC2 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,137 +167,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On Wed, Aug 20, 2025 at 07:04:56PM +0800, Guoniu Zhou wrote:
+> Simplify the code by using helper function media_bus_fmt_to_csi2_bpp()
+> to get width for supported format.
+>
+> No functions changed.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 
-Could we revert commit 1fa3ed04ac55 ("arm64: dts: arm: Drop the
-clock-frequency property from timer nodes")?  We're still getting this
-warning on our Juno systems (with admittedly ancient firmware).
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-regards,
-dan carpenter
-
-On Tue, Jun 10, 2025 at 12:48:18PM +0530, Naresh Kamboju wrote:
-> Regression while booting Juno-r2 with the Linux next-20250606
-> the following kernel warnings found.
-> 
-> This boot warning was reproduced with juno-r2.dtb and juno-r2-scmi.dtb.
-> 
-> Regressions found on Juno-r2
-> - boot warning
-> 
-> Regression Analysis:
-> - New regression? Yes
-> - Reproducibility? Yes
-> 
-> First seen on the next-20250606
-> Good: next-20250512
-> Bad:  next-20250606
-> 
-> The suspected patch that found between tags is,
-> 
-> # git show next-20250512..next-20250513 --
-> arch/arm64/boot/dts/arm/juno-base.dtsi
-> commit 1fa3ed04ac55134063e3cd465b41aeb26715e52a
-> Author: Sudeep Holla <sudeep.holla@arm.com>
-> Date:   Mon May 12 11:11:32 2025 +0100
-> 
->     arm64: dts: arm: Drop the clock-frequency property from timer nodes
-> 
->     Drop the clock-frequency property from the timer nodes, since it must be
->     configured by the boot/secure firmware.
-> 
->     Cc: Liviu Dudau <liviu.dudau@arm.com>
->     Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
->     Cc: Mark Rutland <mark.rutland@arm.com>
->     Message-Id: <20250512101132.1743920-1-sudeep.holla@arm.com>
->     Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> 
-> diff --git a/arch/arm64/boot/dts/arm/juno-base.dtsi
-> b/arch/arm64/boot/dts/arm/juno-base.dtsi
-> index 055764d0b9e5..9ccb80821bdb 100644
-> --- a/arch/arm64/boot/dts/arm/juno-base.dtsi
-> +++ b/arch/arm64/boot/dts/arm/juno-base.dtsi
-> @@ -10,7 +10,6 @@ / {
->         memtimer: timer@2a810000 {
->                 compatible = "arm,armv7-timer-mem";
->                 reg = <0x0 0x2a810000 0x0 0x10000>;
-> -               clock-frequency = <50000000>;
->                 #address-cells = <1>;
->                 #size-cells = <1>;
->                 ranges = <0 0x0 0x2a820000 0x20000>;
-> 
-> 
-> Boot regression: Juno-r2 WARNING kernel time clockevents.c
-> cev_delta2ns clockevents_config.part
-> 
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> 
-> ## Boot warning
-> [    0.000000] timer_sp804: timer clock not found: -517
-> [    0.000000] timer_sp804: arm,sp804 clock not found: -2
-> [    0.000000] Failed to initialize
-> '/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@110000':
-> -22
-> [    0.000000] timer_sp804: timer clock not found: -517
-> [    0.000000] timer_sp804: arm,sp804 clock not found: -2
-> [    0.000000] Failed to initialize
-> '/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@120000':
-> -22
-> [    0.000000] arch_timer: frequency not available
-> [    0.000000] ------------[ cut here ]------------
-> [    0.000000] WARNING: CPU: 0 PID: 0 at kernel/time/clockevents.c:38
-> cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1))
-> [    0.000000] Modules linked in:
-> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
-> 6.15.0-next-20250605 #1 PREEMPT
-> [    0.000000] Hardware name: ARM Juno development board (r2) (DT)
-> [    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [    0.000000] pc : cev_delta2ns (kernel/time/clockevents.c:38
-> (discriminator 1))
-> [    0.000000] lr : clockevents_config.part.0 (kernel/time/clockevents.c:499)
-> [    0.000000] sp : ffff800082923cd0
-> [    0.000000] x29: ffff800082923cd0 x28: 0000000000000400 x27: ffff800081650000
-> [    0.000000] x26: ffff80008292fcc0 x25: ffff800082425888 x24: ffff8000829343c0
-> [    0.000000] x23: ffff800083210000 x22: 000000000000000b x21: ffff8000823cf178
-> [    0.000000] x20: ffff800082433880 x19: ffff00080021e240 x18: 0000000000000000
-> [    0.000000] x17: ffff00080021a400 x16: ffff00080021a200 x15: 0000000000000100
-> [    0.000000] x14: fffffdffe0008a00 x13: ffff800080000000 x12: 0000000000000000
-> [    0.000000] x11: 0000000000000068 x10: 0000000000000100 x9 : ffff8000801b50f8
-> [    0.000000] x8 : 000000001dcd6500 x7 : 000000003b9aca00 x6 : 0000000000000020
-> [    0.000000] x5 : 0000000000000020 x4 : 0000000000000000 x3 : 0000000f00000000
-> [    0.000000] x2 : 0000000000000000 x1 : ffff00080021e240 x0 : 000000000000000f
-> [    0.000000] Call trace:
-> [    0.000000] cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1)) (P)
-> [    0.000000] clockevents_config_and_register (kernel/time/clockevents.c:519)
-> [    0.000000] arch_timer_mem_frame_register
-> (drivers/clocksource/arm_arch_timer.c:1319
-> drivers/clocksource/arm_arch_timer.c:1580)
-> [    0.000000] arch_timer_mem_of_init
-> (drivers/clocksource/arm_arch_timer.c:1653)
-> [    0.000000] timer_probe (drivers/clocksource/timer-probe.c:31)
-> [    0.000000] time_init (arch/arm64/kernel/time.c:62)
-> [    0.000000] start_kernel (init/main.c:1014)
-> [    0.000000] __primary_switched (arch/arm64/kernel/head.S:247)
-> [    0.000000] ---[ end trace 0000000000000000 ]---
-> [    0.000000] arch_timer: cp15 and mmio timer(s) running at 50.00MHz
-> (phys/phys).
-> 
-> ## Source
-> * Kernel version: 6.15.0-next-20250513 to 6.15.0-next-20250606
-> * Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
-> * Git sha: 4f27f06ec12190c7c62c722e99ab6243dea81a94
-> * Toolchain: gcc-13
-> 
-> ## Boot details
-> * Boot lava log: https://lkft.validation.linaro.org/scheduler/job/8309469#L622
-> * Boot log: https://qa-reports.linaro.org/api/testruns/28679128/log_file/
-> * Boot warning:
-> https://regressions.linaro.org/lkft/linux-next-master/next-20250605/log-parser-boot/exception-warning-cpu-pid-at-kerneltimeclockevents-cev_delta2ns/
-> * Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/
-> * Kernel config:
-> https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/config
-> 
+> ---
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 29 +++++----------------------
+>  1 file changed, 5 insertions(+), 24 deletions(-)
+>
+...
+>
 > --
-> Linaro LKFT
-> https://lkft.linaro.org
+> 2.34.1
+>
 
