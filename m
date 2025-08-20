@@ -4,179 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DD0CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 08:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C98FCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 08:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzrsi2n7wxbfWVFhmCFUnfRZjRMJ2SRTp/WukrKzSB0=; b=gsapM2D8TAwQ6gHrJIogomJzQb
-	711Z3wvSwL5fR8TiQhLwi8x/66gxVI2/z0wAFuouwzw1hHC5WTttF5HB9zkyW84qwPRfNMFiHnkh2
-	T+NPFWdbuIC+aTIZz479BCX68UBqNfHWnC74hWf+ZcPaAqcWdrUXnj/R+ImMTxKJUy08cLxlBNzSp
-	EeuBFzMUobKCLq0FqjdS2S00PzFd+sEcjARiaekjyBjLwS40FreJV5Jm5bRQLY3vU++7xoiFVq4wx
-	sC4u67eBJA0z/UtQrp9Si+2jrNUShmjF5xYqjCQLFV9zbKNBV9ilnsR8jdEPlxQLiu/BFgmikgg8S
-	u3TjnAuw==;
+	bh=OufJCp1rsW8Y0CwW3FwQWRlgvOGtMFrmPlUPtX/3tvI=; b=Jcue0HGXvjKS+hEIoHpbBijWT5
+	ovHTj55Zehx5JnPxOekSLzu1VSaq+q/7EhFyuBWAonL4fOgS4/ABUHqoacDejDxGrUEpUnFPAC8kW
+	+JaE5a7dmXkGhuKwMgy37HyBpEN6PIf83yzvKgIHB8ldR+7Ao0Qn72mbrWyPmLIjag4tWTK28mrkk
+	+/95pOrBb9a3erRt1vo//OGzgnAdOj5+KKbNd/Ajpr2tw6ciTottixkDJRFs6foTMxtNnpIogJF9R
+	JX3hj5SIma4J31et0NNgozLpBmDaSEKaqTsPVZ6ilsVkyM1orbvFYs0eSlkW28bDTBD9f1MJDAu6h
+	geryuu8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uodnQ-0000000Cfgh-16yq;
-	Wed, 20 Aug 2025 08:03:48 +0000
-Received: from mail-bn8nam12on20616.outbound.protection.outlook.com ([2a01:111:f403:2418::616] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uodph-0000000Cg2N-0Qis;
+	Wed, 20 Aug 2025 08:06:09 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoclF-0000000CY4J-0Dcp
+	id 1uodhs-0000000Cegk-0Av7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 06:57:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wuwkyHZv7e17ayM6Zwesyiy1qvGWeNfD0Jnd9IRs6n+7LBmc7EYQwACEBa0zf2/dzLENVlnMUkMZR+oKkXx30da4BQcvRlTL15LN0uo/EQGLHAbK2lzGiyNw4EDkhvvHbDbd3lu0Ek+D+cF9xkTKXGPiS1bvj26h6qkzGvjRLMphE6DJm0AZRGOmsEVH5lBd9cR6ivCNs/ynk5TZZ37HTQ/WDRN34gFhkxtQOyOVyjHBLahbgDUlYrLv4fVGitwRBPpVLsTo/EACpAHSUMot6Qaq6oWk7AMxj9Tlq2/omEUzFEL0y8xhm7wArbQyaaTihDCtXyGaREnbxV8+tt6thA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qzrsi2n7wxbfWVFhmCFUnfRZjRMJ2SRTp/WukrKzSB0=;
- b=g2TovVcLRF0JXD0FNVczb06kFlRFTDWofLNVmo4JGwuyp7RAi37F0w3BY1V4jLW0b3bytGrIWXis8YqVdLfPQdRN7mOj65X/ADPgL6Xc/t+3Au4y+AmZ+7Yo/8xrkUQP88bMode0dUdkSk330b6V1oQb3JWWHI/fOBvJk6TwVz98HCJhCfh2dmBpEjLUvkNOHFsaAok4HImt7tU/PAky3EqbxIkvffNyVS97WG9UMCgCf8V/uKmI5dj86GbrtuIxXFGZMfgnS/ipcmgOdLrLlYykm6wmQ9g40F8dhJ1BxSSZv3nZVPNQQNJ2fFZwZN3PNXM4+jbTmeF66aT0rw8r1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qzrsi2n7wxbfWVFhmCFUnfRZjRMJ2SRTp/WukrKzSB0=;
- b=UGqxHuVicoKrYMAOLkR1QDq5waLf39K+g6066OluHa8tBUjrQsY+5hdCqBHdMHU077sz0UB9ngeGDIwL0vi86KX9MUSaTmgUQlNma8HT97dYyVsB7/XEakSCO3EUclERS/PrzvTJUP+0Vz0QSEtr7F1JXFgvKtQ4DaxxxdT6o+2oBLb3WpCLjEkTwWMN5O/RP9uqulwp01BkVIHbgNMN8tD38wdguuFJBP1sRn27rxMuRAsdXRGtGJn2SkiHmMYn/fOWR+pxaH4cvWN0svQOJ6GdfcKkmYGpFX0o6iMcLfr0DYR2TJLfM+sLlgI8jLxprwNC9rwvzWmLggB0WYSAmQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
- by CH5PR03MB7840.namprd03.prod.outlook.com (2603:10b6:610:20d::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
- 2025 06:57:24 +0000
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076%3]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
- 06:57:24 +0000
-Message-ID: <4f6b4593-0658-44be-95ad-07172e9afc9c@altera.com>
-Date: Wed, 20 Aug 2025 12:27:13 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/3] net: stmmac: xgmac: Correct supported
- speed modes
-To: Jakub Kicinski <kuba@kernel.org>,
- Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- Ong Boon Leong <boon.leong.ong@intel.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20250816-xgmac-minor-fixes-v2-0-699552cf8a7f@altera.com>
- <20250816-xgmac-minor-fixes-v2-2-699552cf8a7f@altera.com>
- <20250819181920.275f2827@kernel.org>
-Content-Language: en-US
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-In-Reply-To: <20250819181920.275f2827@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MAXPR01CA0116.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::34) To DM6PR03MB5371.namprd03.prod.outlook.com
- (2603:10b6:5:24c::21)
+	Wed, 20 Aug 2025 07:58:06 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K7ONlA019376;
+	Wed, 20 Aug 2025 09:57:35 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	OufJCp1rsW8Y0CwW3FwQWRlgvOGtMFrmPlUPtX/3tvI=; b=TyroSmEuVdY6idAu
+	OUnsV10dWfwzxPh5fPhQ6+8E8xUWkWZP6832cHrI2t1ViE7R29zInci/QfN8HW3T
+	hWWol3Mr2JDufPAq/7kWOCHOEYSiEk22TmSapyaoWsSwgg9HSr+GMNTyUc8IiqLy
+	DpJbC63vdoGNdCvYlfXR7GemBqlMbdHIogrJ8yygrOSTDR60tetEPVxzVUlxo7QA
+	SLBvfNzmzhQ9TtDy36T5zTDLAk00KmGsZQn1sA8kwieVVE5/sXfhg/q4Av/cosTW
+	NFHnCX1/QhnRb+Aa14jFIQjZX9nFJz7xzarnAAmv+hX8xx2EKV2q3c2AYQ2u0vJw
+	5Zk2eA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n7548wy4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 20 Aug 2025 09:57:35 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E76E540046;
+	Wed, 20 Aug 2025 09:56:03 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7D32C475830;
+	Wed, 20 Aug 2025 09:54:42 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 20 Aug
+ 2025 09:54:42 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
+        <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <linus.walleij@linaro.org>, <corbet@lwn.net>, <p.zabel@pengutronix.de>,
+        <shradha.t@samsung.com>, <mayank.rana@oss.qualcomm.com>,
+        <namcao@linutronix.de>, <qiang.yu@oss.qualcomm.com>,
+        <thippeswamy.havalige@amd.com>, <inochiama@gmail.com>,
+        <quic_schintav@quicinc.com>
+CC: <johan+linaro@kernel.org>, <linux-pci@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, <linux-doc@vger.kernel.org>
+Subject: [PATCH v13 01/11] Documentation: pinctrl: Describe PM helper functions for standard states.
+Date: Wed, 20 Aug 2025 09:54:01 +0200
+Message-ID: <20250820075411.1178729-2-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250820075411.1178729-1-christian.bruel@foss.st.com>
+References: <20250820075411.1178729-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|CH5PR03MB7840:EE_
-X-MS-Office365-Filtering-Correlation-Id: 439c1bbc-dcdd-409c-f6d2-08dddfb6d0bd
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Wk9mL3JBNDVhVUcwNkRRaG0zU0VFQ2V4VHhHWW0rRkRBQmhKbzFlVkJXTlcz?=
- =?utf-8?B?L2VaNjgrUDJZaWJBdk9yUkZZZkRLZ2N3S3YzYTNNWkFiNzdnZkpQMXhwSHpw?=
- =?utf-8?B?NCtpMEswYW1lNjdUTGdNNWQxSk5NYXlENXhORkRMOUVOekJ3ajRqVUIyNk9Y?=
- =?utf-8?B?WmtXM2hsKy9YTTdUK1BDOFJuWnhGNDdYZkJjdmlPNXhkYURUYUJ1NHlncEFN?=
- =?utf-8?B?L3V2eVErZXB0N20rcUpUOFZJZnI1UHhiRHhOb2cvcDVZVHkvQVpsWTljdGlD?=
- =?utf-8?B?SjBuSG12b05LbnQ2ZTdXNzNJczhqRm8wUlNzbHhiOTB4ZHNtTnVwYkx5bDlX?=
- =?utf-8?B?UndFbGwxQ0U2QzlDVWR1Uk5xL0ZCbnN0K2JkSno0dU1NY25DSC9pOUl6Q3M2?=
- =?utf-8?B?SlppVzdHeU5TVnNwNE80T3RYVUpxYzJXdnpDSzNsSi8zbG9IUzZYaURWVGEw?=
- =?utf-8?B?Tm9TZkk3SFFhWk5EcmYvSXlrcmowUFd2cUlZL016cjBXM1hGS094ZVJJRnZv?=
- =?utf-8?B?amZsMGRVakdscDllV0ZQSld2aUFLVDhhZm5yU3FpNTEvaWpjbDB0eERpWlBy?=
- =?utf-8?B?UE9hL28xSlVkSm90QkhRaWtIRWhMeGorUWdzdnFDNU0rMks3bEJIbjV2N0Vv?=
- =?utf-8?B?ZjFYcDFjakdSNFUza3k3aVBKRHdHSU1maDNHaXN2UUFMNHBoQmNZa0Fic0c5?=
- =?utf-8?B?NE9CMEhoa0o5UXJ4Yk53ak1CUGoyWDM5SjFJdEhrbTExVDFhUDU4ZzlIcjNz?=
- =?utf-8?B?QldzdUxGa2NQaTd5UDlUZWtVMVlDb1B4a3pEZWJKS1JxQ0RraGs0RDJIbXdU?=
- =?utf-8?B?cWtBZjByLy9OdUw2cmxPNnpDQTdoSG1mcS9PTFZ3T0FCRTlRSldRdXlqMFZk?=
- =?utf-8?B?d0tGR1Z3SS9CcVBhVHYwTUkzYUxraGlBY1hydnpKTWVwejRoUk5rWUlpR0l1?=
- =?utf-8?B?RTYvMDVnQVZ5M0VUMjV1eW9NYmVBbFVJUml3aHdsYzE2VGtPWFU5MWhxc1JY?=
- =?utf-8?B?b2V0UWtlRGFrTTdQVnFVWG16RmlWT2poUnhONVhZOUJTV2hEc0JzL3pxTERC?=
- =?utf-8?B?dlhHODZRSGpNbjFGRm4xcStlVUdMS0lNK0Fmbmd6Zis5bUFVVFVmZklOaHZw?=
- =?utf-8?B?QmQ0MzNqUEtHdmcwUmMvNEpFbFUrN1Fyd2tJSm9SMkY4MGVBKzBlZ3lUZTBG?=
- =?utf-8?B?SVFVTkpQY2JPdWRFUVpYZTRiYTg2RVg0OWZreWltUCtsaTBVbC9wVWNyMHd4?=
- =?utf-8?B?WjNUM2Vqa2l2ZFRGZmRGT3p3VU9HR3c0WXZ2eGJINmowTVpjY21OKzFCWDA4?=
- =?utf-8?B?VWpJRUJSM2E1WE5OTDZoS29NU0VpWDZycGxRdWVWbkdUVmNadEZnbVUyVmJn?=
- =?utf-8?B?ZktRRkhFSVp5Q29zQ2NhcG85Sk9NdGd3RTJuRXVyRzZPTXhnQzhEdW4ySk1y?=
- =?utf-8?B?SXpTaVFEODE5Y3VpeThRTlFhR3F2QkZMc0tPRG5yMTFuYkM0UWZtREgwbUFS?=
- =?utf-8?B?N3hhTnVjZ2JnK1VkT2NYTFhMYm9PWUkyNkNmOUFxRkI3ajl2Q29TUGtRdTFC?=
- =?utf-8?B?YS9mMWo5WUVJZ1ZML2dHNnRya0htVHI3cFN6Y3dzbjdNRURQcThnRGpJSHVk?=
- =?utf-8?B?OWE5SFNONGtONFJWcVFsMFdXeHl3MXpyNGFoR1Z5MDBibVRpZkZPcFdNcGpz?=
- =?utf-8?B?cTh1VHRoRC9nTFdVNFNHVWJlMDQzTUxNZXN0ZmhIV05PS0RZUnF6R0ZUZytV?=
- =?utf-8?B?d0hweW9FRjlFYWFyUkVkUTFJVUxodjBIK0xjdmxhL0hpd1dxMDNBNk1Lazdm?=
- =?utf-8?B?ZkR0Y2M0QnQ4ZytSYVY1SHNxN0dSMGtHMkgvbU5HVTg2SCt1T2lHTy9aWVRp?=
- =?utf-8?B?UVg2Wk5UR1gvdWduTFMvbFFIMkwxWDQzR3ZTMmo2Ull0UGwwL29tbXlZMWVJ?=
- =?utf-8?Q?3BowxvpmNQQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NFArTkw3QTl0K3Y2eitvSzZWd0FuRk5JZURzcFh0bkVUeEtlWXQ2OFV4cXRx?=
- =?utf-8?B?a1h2VllLcTR0WGhnbjdKbzRZanpyeGhzMGVyZTc0UGVxY1d1UllyVzFtb0pi?=
- =?utf-8?B?cDNXS01BTS9FK29tblJiZTNaVFFIMnNBL2EyMnlMc09qYTgzZmhMSktzSW1I?=
- =?utf-8?B?c0gxRnlnTW81bXhWWHl1SFh6YzRzdGxRNlJScU5ZNlVCNG0ySXVROERwaU9L?=
- =?utf-8?B?cW5PK2w0ZzN4ZzMxZUlOeVh4blRBc2QyN1dMRklDeDNIdlFMVlRvK2pDRzZG?=
- =?utf-8?B?eHVVVkNNU0sxNDBtUkp2T2tJVm1rY1R0aFFhaFdibFV3SldYRHFxMENLV20r?=
- =?utf-8?B?dzVQSFZ4QnlUMG5PZVpzNHh2N0tFekZFQ1JPVXJkOEJnOHA3WmdxSTZlSjEr?=
- =?utf-8?B?RU1KY2ZDSzRYK012NVZ5VldrN2RYZElUazFSZ2V1WTVzeENlbnQzMFpUV2dN?=
- =?utf-8?B?VTFUVjJxTlJaSFZTdmQ3bGFnUjlwanUyWFRjZTRPNVF3RXVGNW5McG5yS294?=
- =?utf-8?B?VUxjYTBaUUFmMXlNRmZMa1pmR05lZlByZERMaXRqTDVITUk4ZHYwenFmd1dq?=
- =?utf-8?B?MlJQQ3U4Zkhua04ra1Z6Qm40dzFyNjdWSmdxZWpHZVBLVEpYaHV5TDBjVjAw?=
- =?utf-8?B?TDJSK2VqQlNHUkFoTTRTQlNiQnlDWjNxUmdPd0R0R3VESGpJZnQvUnpZU2VW?=
- =?utf-8?B?d2kzWkVaVHEzYndCOUhMM05odEp0ckEzbFNnV0FOSFNvbzN5SE1yQ2F5Tm5S?=
- =?utf-8?B?WkFCbmx1M0ZpYjhIYXZDak54LzFpaWUwNGtWeFBra0w0d1hUYlk5QUhOQXdo?=
- =?utf-8?B?aWtpZ0xJT2IybndrYnZQeUdySDI5VUw1a29udHdpRXJ5UTdoVHM1QUZab2Ro?=
- =?utf-8?B?eGV5R1JGTWFwN1NjK0hUZlc2aWVEQzR5dTVsZXppWlZ6eFZMU2N1QndTeTFZ?=
- =?utf-8?B?V3MrR1p6TDQ3c3JBQng4K0w2akZ4UlIranR5dzVtcjBqUDlVSzJjbWloTjdP?=
- =?utf-8?B?Y25BRVlRMVJCYmlmSk53RVowSVRLYWVNend3Y1hoZFhpYy9JWFY2OHVLSncv?=
- =?utf-8?B?dnd0NW05QkwwOGJST0RWSm5kMGNPMGcvdjFOVzRmTUw0NW5TV3V2dkM0elBC?=
- =?utf-8?B?U2FtUHpmVVE1VXlud0xlNGJlMnNNYVRCcXQzd0hnbXVaRkZZRGF2V1hUWjYx?=
- =?utf-8?B?VTRpREtQamVILzBWSnY0cjN5QnZ5RG45Ky9wL0hxaFRFS2hocUp6QjQyZG1o?=
- =?utf-8?B?MEVkS25PWlRFejVEYVVHaFMrK3dadGY4N3pUdCt3TUd1a3pLZlJaU3lpdkMy?=
- =?utf-8?B?SXFsKzdFQm1uV2RnRGh3bTRmcDdydG85OEo2TStsUnRVY3JhMkIwN0o4K3NZ?=
- =?utf-8?B?OG9RM3h4bUs3bmx6TTVscjQwTlhNcWxvcURyYWljanc1MkN6RkNFM2NZQ014?=
- =?utf-8?B?ZDlQUHBPMVlod3Y3NnVVQ1IwSU9iU1ZsYUlweFNGMjhobDdZTXB2UDdzK0pH?=
- =?utf-8?B?VmFxblZVb3RGM05yaFBXUnd2U2pRWDRFcFNqbzFCTldUbi9YTEhUdTlKcGJ4?=
- =?utf-8?B?M3JlU3B5ekw1ei8rK2Zsa29nM25SUzNOSDhqSGJXTWR4MHlRUjdoK0F1UE9Q?=
- =?utf-8?B?RXNtczhBZlo2QlN3Qm5FT250TVgwdzZ2QjBmK3haV29QdGc0UjEzck00QVRw?=
- =?utf-8?B?QmxLUXhUaUYxYlpvcWh2RFQyT3VLU096aTZqaU5rNFBjTkJVUm55V1B5NlY5?=
- =?utf-8?B?b2VNU2lEaTM1emc1eEh4R3NxMjkxaFZTUmozSXNWZVVnMm1sVUNCQUV1VlpQ?=
- =?utf-8?B?UFpaYzVLNjJneDZwcmd1ZlRxYWVCeHRFRTNPVlU0a0t1ZmdMRWJ2YlZGSXRx?=
- =?utf-8?B?TWZzSnlhbTIyN1IwSDlhUWxHWTRoVldhTHFOcTk2TXMrVEwrUlM2UVdHNmln?=
- =?utf-8?B?Vk1QamFBUXRRWlZNRVpZZ1lEeUhnQjBURTZuTFpDYnVHN3hueXBpVHpaUGR0?=
- =?utf-8?B?TmVrelJUTnNFdm1FamtSYTFxazlkV1JaUVFHMlJhUWFucS92MFp1b3lTS24x?=
- =?utf-8?B?RXBZelZVWmluMGhWVlAyMk9TUVdNU055QjRBcHZFY3AxODVOazFiU240cU90?=
- =?utf-8?B?WnFBY2Z0cnhIem9tSi9pNE5WNzFxeU9Td3JWOWl0WnBvTE5rYktHMGdoSXJx?=
- =?utf-8?B?YWc9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 439c1bbc-dcdd-409c-f6d2-08dddfb6d0bd
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 06:57:24.1115
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cqeHWdbCY+K/zaiIOPFeeHlIkZuwt6ACiwiAaqwRumGQ3Tn4HdCwqlViJ3DYjYRmsVnNRbLXYlINeLJ30d838WPvqr+sWHWTXp5Do7xdyYo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH5PR03MB7840
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-20_03,2025-08-20_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_235729_118609_97980DAB 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_005804_391853_3074580A 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,31 +101,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+Clarify documentation for predefined standard state names 'default',
+'init', 'sleep', 'idle' and their associated PM API.
 
-Thanks for reviewing the patch.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ Documentation/driver-api/pin-control.rst | 57 +++++++++++++++++++++++-
+ 1 file changed, 55 insertions(+), 2 deletions(-)
 
-On 8/20/2025 6:49 AM, Jakub Kicinski wrote:
-> On Sat, 16 Aug 2025 00:55:24 +0800 Rohan G Thomas via B4 Relay wrote:
->>   {
->>   	u32 hw_cap;
->>   
->> +	struct stmmac_priv *priv = container_of(dma_cap, struct stmmac_priv,
->> +						dma_cap);
->> +
->>   	/* MAC HW feature 0 */
-> 
-> nit: no empty lines between variable declarations and longest to
-> shortest, so:
+diff --git a/Documentation/driver-api/pin-control.rst b/Documentation/driver-api/pin-control.rst
+index 27ea1236307e..204cc3e162e2 100644
+--- a/Documentation/driver-api/pin-control.rst
++++ b/Documentation/driver-api/pin-control.rst
+@@ -1162,8 +1162,55 @@ pinmux core.
+ Pin control requests from drivers
+ =================================
+ 
+-When a device driver is about to probe the device core will automatically
+-attempt to issue ``pinctrl_get_select_default()`` on these devices.
++When a device driver is about to probe, the device core attaches the
++standard states if they are defined in the device tree by calling
++``pinctrl_bind_pins()`` on these devices.
++Possible standard state names are: "default", "init", "sleep" and "idle".
++
++- if ``default`` is defined in the device tree, it is selected before
++  device probe.
++
++- if ``init`` and ``default`` are defined in the device tree, the "init"
++  state is selected before the driver probe and the "default" state is
++  selected after the driver probe.
++
++- the ``sleep`` and ``idle`` states are for power management and can only
++  be selected with the PM API bellow.
++
++PM interfaces
++=================
++PM runtime suspend/resume might need to execute the same init sequence as
++during probe. Since the predefined states are already attached to the
++device, the driver can activate these states explicitly with the
++following helper functions:
++
++- ``pinctrl_pm_select_default_state()``
++- ``pinctrl_pm_select_init_state()``
++- ``pinctrl_pm_select_sleep_state()``
++- ``pinctrl_pm_select_idle_state()``
++
++For example, if resuming the device depend on certain pinmux states
++
++.. code-block:: c
++
++	foo_suspend()
++	{
++		/* suspend device */
++		...
++
++		pinctrl_pm_select_sleep_state(dev);
++	}
++
++	foo_resume()
++	{
++		pinctrl_pm_select_init_state(dev);
++
++		/* resuming device */
++		...
++
++		pinctrl_pm_select_default_state(dev);
++	}
++
+ This way driver writers do not need to add any of the boilerplate code
+ of the type found below. However when doing fine-grained state selection
+ and not using the "default" state, you may have to do some device driver
+@@ -1185,6 +1232,12 @@ operation and going to sleep, moving from the ``PINCTRL_STATE_DEFAULT`` to
+ ``PINCTRL_STATE_SLEEP`` at runtime, re-biasing or even re-muxing pins to save
+ current in sleep mode.
+ 
++Another case is when the pinctrl needs to switch to a certain mode during
++probe and then revert to the default state at the end of probe. For example
++a PINMUX may need to be configured as a GPIO during probe. In this case, use
++``PINCTRL_STATE_INIT`` to switch state before probe, then move to
++``PINCTRL_STATE_DEFAULT`` at the end of probe for normal operation.
++
+ A driver may request a certain control state to be activated, usually just the
+ default state like this:
+ 
+-- 
+2.34.1
 
-Sure, will fix this in the next version.
-
-> 
->   {
-> +	struct stmmac_priv *priv = container_of(dma_cap, struct stmmac_priv,
-> +						dma_cap);
->   	u32 hw_cap;
-
-Best Regards,
-Rohan
 
