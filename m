@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CC7CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32A4CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+yBHmbqr/zZLRoIg2NnwJrRTTjtfuQblJe79SXBYYA=; b=zqJzGEEwGtz/Q5y6Yg1Ezt9yLF
-	+LNJNi9DPpsBMG55Al4KoNN+X/x3B4Om401q7DarrGz4pP3M/7D3Vz2Xskp2qxmxtjNNvOTGTumKm
-	HyajR/aFtb2MA1HkkGHQjijh16i4gCsUp8SaimKBbXUEH491hVVP7BjH7GVxbaRuYXgrFtbo0y6Pq
-	AT9Y7Mg7FEkMnQlMo4LDI8QjpD8w4WLERLq7bXEn/kEpU3MIt1IEURXyuzSvlEPwCmFOO31ATZVAq
-	XL/GZbtliG6qPZQDG8jv3EZaTKczdcO+1GtueyJAg/QzgnaydhcjfPheTk/VxykLOLthCs9RsZy1B
-	ovyUSEMA==;
+	bh=FoPVuBStBvUM57EnDHdyDOSI/MqVu22rPsFJ0LZ4BLU=; b=c79ucLEkYw/F/foaRtEQC4vVJh
+	ERcNCu2jZQudoaGHPDPI/7ZdUrpGBscjFjxCgmOmfXxfwBrlWYQUI78pveZhSwBbwdRQhT8tLSiL5
+	Cn7PBnqOU6SG6nN0jRclD6LgiiyPqgi0BQKSncx1/ChBZUDPhXQoTPpZNaDK/fE0//fPTMiBRczba
+	Tc9BhJAOqvmortY9w/yx93325xlhN3ztURjmdw8mRth5PAdNYdwxNo0UB3Y+Vp6d6bj1hOv0BOo3O
+	F37WsepWdvbCJL5DqApFFy75Ze2S7v2A5kl7GlAZkzVxEsQuUamOoi8Uh9c5V8Dyxd/yHteFeRCJZ
+	ZglYHtLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoq5E-0000000ExRh-13C3;
-	Wed, 20 Aug 2025 21:11:00 +0000
+	id 1uoq7n-0000000ExjD-2gIx;
+	Wed, 20 Aug 2025 21:13:39 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomOx-0000000EVBx-1SxI;
-	Wed, 20 Aug 2025 17:15:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755710071; cv=none; 
+	id 1uomPD-0000000EVGE-1QTS;
+	Wed, 20 Aug 2025 17:15:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755710085; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Fgv0vo/4eTvYLTGrBunN6RbBFVH2GgZpaujpINNTNWhAD8sUN9k9XiWFjf9/oV1QdpvVcm365Us3h7wMnQRMCGDcpKEwA/QGvYaZ3wVy/igeMJMQ+RlLdNS46LA0RTa2APgveu9iFdJriVmC5qV763zBPO7ustSz0oK/YMHOJHI=
+	b=FTnWVGb5ktCfnaCYrS5yenNeDc7vDsN2aJVUGxm2/9Cqcw4eVg2x/EiacItHeT5AIYXkxGEnWkocJbTpl0iy17gLUoHAlorkG3/lX+3wpyszhE/dajidQ5il1t6s5duZOmHXmfZa5/FbW71YZXchwW5mH7c8a6F+psjgPKpX5M8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755710071; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8+yBHmbqr/zZLRoIg2NnwJrRTTjtfuQblJe79SXBYYA=; 
-	b=ixtSgrnxyfbyySBmTna4NESFslrWqAoCAN8SZ2G7vsOGHda2Zavnnqbt56lKdEvRMM2si7YWjqQ/Rxy3oGG8rrtIOBKW5w6+epTqH66ec+t+xo2BjmrDQzJGWTpanv9lbSwtCKtHER3zCC84xUub/ALnQ009G5JTrGzAZiDLVt8=
+	t=1755710085; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FoPVuBStBvUM57EnDHdyDOSI/MqVu22rPsFJ0LZ4BLU=; 
+	b=MTv/99UW8etAyy5/38QR+E2c+ZruaERBMxdoqgEreTKCTZ09U1lN343bk9qUCYH2PBx3GVug3n5QHkIUu2u3e0nclzcRkZkJIePFH+KjzD3aPGg6GUAfG4Ae521HDkvmYOc1kXcWUWr3mSf45kMXm0/1zsj5OvRc+5JPJxWUAvg=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
 	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710071;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710085;
 	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=8+yBHmbqr/zZLRoIg2NnwJrRTTjtfuQblJe79SXBYYA=;
-	b=Zv9peki7NdiBdhWaFokdbnOjwGygIkr21fheSYJNmrWFXlvA3so7V08PtDYDRnF7
-	lWYT04DqtSe3+QftlrGoyWgWQL5vRN1Dk0PbyZ0JtV350EyXhZGy40DguzISCH/4CNV
-	ygan79017OsncnA7JqtNQXaS5hksn5RGHSo4DuB8=
-Received: by mx.zohomail.com with SMTPS id 1755710069122260.91788975203167;
-	Wed, 20 Aug 2025 10:14:29 -0700 (PDT)
+	bh=FoPVuBStBvUM57EnDHdyDOSI/MqVu22rPsFJ0LZ4BLU=;
+	b=jGjcsFSKI9tNIT2mMc7ULHhV9VXmZ2mN8VTO4r4iatqo2USNHECT9uTRPAvRboVX
+	7dseJNDMWoP6p5FI3rov+csDBr/HAyoSmH/HydhHOxtDjdVGeJsO8eo/iVBltpuH39e
+	z9+rZe8b9K7VCyyS4CvyFRyVSsAyIU0yJ/VhAeIA=
+Received: by mx.zohomail.com with SMTPS id 1755710083545671.3749174712098;
+	Wed, 20 Aug 2025 10:14:43 -0700 (PDT)
 From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 To: airlied@gmail.com,
 	amergnat@baylibre.com,
@@ -96,9 +96,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH v1 02/14] media: dt-bindings: Convert MediaTek mt8173-vpu bindings to YAML
-Date: Wed, 20 Aug 2025 14:12:50 -0300
-Message-ID: <20250820171302.324142-3-ariel.dalessandro@collabora.com>
+Subject: [PATCH v1 03/14] dt-bindings: arm: mediatek: mmsys: Add assigned-clocks/rates properties
+Date: Wed, 20 Aug 2025 14:12:51 -0300
+Message-ID: <20250820171302.324142-4-ariel.dalessandro@collabora.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
@@ -106,8 +106,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_101507_442477_7AA1A3EC 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250820_101523_437985_8A500863 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,136 +123,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the existing text-based DT bindings for Mediatek MT8173 Video Processor
-Unit to a YAML schema.
+Current, the DT bindings for MediaTek mmsys controller is missing the
+assigned-clocks and assigned-clocks-rates properties. Add these and
+update the example as well.
 
 Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 ---
- .../bindings/media/mediatek,mt8173-vpu.yaml   | 76 +++++++++++++++++++
- .../bindings/media/mediatek-vpu.txt           | 31 --------
- 2 files changed, 76 insertions(+), 31 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
- delete mode 100644 Documentation/devicetree/bindings/media/mediatek-vpu.txt
+ .../devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
-new file mode 100644
-index 0000000000000..44f5d7cc44042
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
-@@ -0,0 +1,76 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/mediatek,mt8173-vpu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Mediatek MT8173 Video Processor Unit
-+
-+maintainers:
-+  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-+
-+description:
-+  Video Processor Unit is a HW video controller. It controls HW Codec including
-+  H.264/VP8/VP9 Decode, H.264/VP8 Encode and Image Processor (scale/rotate/color convert).
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt8173-vpu
-+
-+  reg:
-+    minItems: 2
-+
-+  reg-names:
-+    items:
-+      - const: tcm
-+      - const: cfg_reg
-+
-+  interrupts:
+diff --git a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
+index 3f4262e93c789..d045d366eb8e2 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
+@@ -68,6 +68,12 @@ properties:
+       of the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  assigned-clocks:
 +    maxItems: 1
 +
-+  clocks:
++  assigned-clock-rates:
 +    maxItems: 1
 +
-+  clock-names:
-+    items:
-+      - const: main
-+
-+  memory-region:
-+    description:
-+      phandle to a node describing reserved memory used by VPU
-+      (see bindings/reserved-memory/reserved-memory.txt)
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - memory-region
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
+   mboxes:
+     description:
+       Using mailbox to communicate with GCE, it should have this
+@@ -130,6 +136,7 @@ additionalProperties: false
+ 
+ examples:
+   - |
 +    #include <dt-bindings/clock/mt8173-clk.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        vpu: vpu@10020000 {
-+            compatible = "mediatek,mt8173-vpu";
-+            reg = <0 0x10020000 0 0x30000>,
-+                  <0 0x10050000 0 0x100>;
-+            reg-names = "tcm", "cfg_reg";
-+            interrupts = <GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&topckgen CLK_TOP_SCP_SEL>;
-+            clock-names = "main";
-+            memory-region = <&vpu_dma_reserved>;
-+        };
-+    };
-+
-+...
-diff --git a/Documentation/devicetree/bindings/media/mediatek-vpu.txt b/Documentation/devicetree/bindings/media/mediatek-vpu.txt
-deleted file mode 100644
-index 2a5bac37f9a22..0000000000000
---- a/Documentation/devicetree/bindings/media/mediatek-vpu.txt
-+++ /dev/null
-@@ -1,31 +0,0 @@
--* Mediatek Video Processor Unit
--
--Video Processor Unit is a HW video controller. It controls HW Codec including
--H.264/VP8/VP9 Decode, H.264/VP8 Encode and Image Processor (scale/rotate/color convert).
--
--Required properties:
--  - compatible: "mediatek,mt8173-vpu"
--  - reg: Must contain an entry for each entry in reg-names.
--  - reg-names: Must include the following entries:
--    "tcm": tcm base
--    "cfg_reg": Main configuration registers base
--  - interrupts: interrupt number to the cpu.
--  - clocks : clock name from clock manager
--  - clock-names: must be main. It is the main clock of VPU
--
--Optional properties:
--  - memory-region: phandle to a node describing memory (see
--    Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt)
--    to be used for VPU extended memory; if not present, VPU may be located
--    anywhere in the memory
--
--Example:
--	vpu: vpu@10020000 {
--		compatible = "mediatek,mt8173-vpu";
--		reg = <0 0x10020000 0 0x30000>,
--		      <0 0x10050000 0 0x100>;
--		reg-names = "tcm", "cfg_reg";
--		interrupts = <GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>;
--		clocks = <&topckgen TOP_SCP_SEL>;
--		clock-names = "main";
--	};
+     #include <dt-bindings/power/mt8173-power.h>
+     #include <dt-bindings/gce/mt8173-gce.h>
+ 
+@@ -137,6 +144,8 @@ examples:
+         compatible = "mediatek,mt8173-mmsys", "syscon";
+         reg = <0x14000000 0x1000>;
+         power-domains = <&spm MT8173_POWER_DOMAIN_MM>;
++        assigned-clocks = <&topckgen CLK_TOP_MM_SEL>;
++        assigned-clock-rates = <400000000>;
+         #clock-cells = <1>;
+         #reset-cells = <1>;
+         mboxes = <&gce 0 CMDQ_THR_PRIO_HIGHEST>,
 -- 
 2.50.1
 
