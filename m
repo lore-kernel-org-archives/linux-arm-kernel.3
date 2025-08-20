@@ -4,82 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D8ACA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 23:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEEFFCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 23:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kvOQXhZjl3Riu3Bp8W5at5u0uo3ZABQvzRMmv52jOg=; b=wxSyQBCUNVIrssxoFizmMnj8nz
-	NinDFsDnnjDh24cLx9XOA2mpOXXES00jqgnE81A/90zlA5FacxC1t8TMvhk7pbma+VWWXGO9yB5ML
-	WXR76WEZxEba1IeDNn6z3UhxL3uYA2Og1DPPFg1BT5fKh8pg+N9by6Fgl4t7eAj485FPql60xgw2q
-	ril14eTbqpZypB5UIVUTAz+L9fQVqgx/bsyA1Tv9UYDIfdW0PA6qhSSefJF0ZwcuuJoI0ZvcHLEia
-	jLy+AkwUcvqYJzjFnqPXCDe7+r4I9VucJAXV347cfQi+M6+DeKvgDKRZJ70PeWjzutPkuBn2xzwvS
-	bBki0eRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5aqAiit2WG7l1+p6tYgqlCN4YXImpRtsEulIKW/NJsU=; b=4DFiQ1bxzwzwV81VC9iQVa4RQ3
+	/FFhF9L39vR/Y3fNpfcbx8q2zo0MYGZg2W/SWcl+MB6Z8egpcFEf0Fxg2J9UQh9bodTV4fHYxl8jW
+	dDYTlWrAmH1aV1QgnFwkyFH8bQF0GOeeR+LB3UHLj4bhJojDqWrrqNpufG6ju9dl88oy5h6GShypJ
+	iQYkKb07VGse6ACgMkn5Mg1DXESKUfV8fpsA/Ss27cMmT4Dq5sd6/6aZgYQfARgj3O5wSrYOUjRz2
+	XBaFVk/QThVX6gaUaUKBgRmMxC+TcBeKkkiGnmr4YEz4O7Bs0v5/VHB8i2sw+e0SAArwq2X3NoP7q
+	x6Ba9Q6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uosRN-0000000FEH9-0Cql;
-	Wed, 20 Aug 2025 23:42:01 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uosTv-0000000FEcC-3nyi;
+	Wed, 20 Aug 2025 23:44:39 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolyl-0000000ERbl-2lbS
+	id 1uom0r-0000000ERqf-2IH9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 16:48:05 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57KGlgCv3240046;
-	Wed, 20 Aug 2025 11:47:42 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755708462;
-	bh=1kvOQXhZjl3Riu3Bp8W5at5u0uo3ZABQvzRMmv52jOg=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=lYNof3uNzL6Q59bWj6aZOuMleWm9WqbNqSmV8L5pMTlj86O3vIbFuUIMZX0kE93li
-	 x5y/DRvN6hY9zYIQAkbNddOG7vYOFACGjzO8O7zznij3js3p7zRbHNou553XLkaP69
-	 QpeaacRHHVRqFKQTuMAbDWxFRk8psQ3TtLwnYqFs=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57KGlfQq2186756
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 20 Aug 2025 11:47:41 -0500
-Received: from lewvowa01.ent.ti.com (10.180.75.79) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 20
- Aug 2025 11:47:41 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by lewvowa01.ent.ti.com
- (10.180.75.79) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2507.55; Wed, 20 Aug
- 2025 11:47:41 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 20 Aug 2025 11:47:41 -0500
-Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57KGlfsw526664;
-	Wed, 20 Aug 2025 11:47:41 -0500
-Message-ID: <9315875c-3358-4f56-b99e-a530baa8ca0e@ti.com>
-Date: Wed, 20 Aug 2025 11:47:41 -0500
+	Wed, 20 Aug 2025 16:50:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeCo/PVoT5oEoxwPP6JzJUusiynkVzmD97n3oJ85OhgjugpsK4/IcLebThh/LfBGtkgAsvIgFIk/CKmv3pkOLdj+yBbb2swiT7YOiBHv3OcfN8Qs7a4Don3ZepgL0BJ5xwySavt0pGyi7xC5uvRYGux3wDHDxo1zg0OUcWqjcDtbvU4BNgm08gWOlL5DHx+AyD+RWjEsTUcB1k2f0O5lDhn0llFSWrTKFYBMSMVABI8MlsGfX3JgX8I3hS924k5sSEuwy3DpjVvZn415ZezSLJjIbBAELWkYRhe94gteKvyo1irl3ZZHF3B8+ajhUv9vRVOcVYTwYIZeZtxf8hTGZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5aqAiit2WG7l1+p6tYgqlCN4YXImpRtsEulIKW/NJsU=;
+ b=LkillOYCMm3gs/31IiQHRKtxn/mmjtUwGb8BTCkfzlpOQHoTTL/k6APf9rFb2uFCjZQcDbA1YaFUvchm39VKDBIsjHoW0W4qahL+8sTrPd4BVxqQGTkZNXyCs3ZhCgJGOhbjZggHzUoC61Ap1pn+IpwGN2LjLOGUMchI0FTQI9fJlevpkHAC+zOE4BrdhIXq2Xq4fa8niY4/A33J7xb9MKPsBxdJh2LYBGVHsaXZPIs1DcA/G+2IGF0buqVHJ1X2ho4gV174Oike0OfyvqlhO/38eoVAojeVH+gtzXrhJHK0JwNw8UGvguX85dXi8hxbDyW2p+Nnr03sFnQN+GnlBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5aqAiit2WG7l1+p6tYgqlCN4YXImpRtsEulIKW/NJsU=;
+ b=hIaPCsGkaFRdLugWwP+2nRWt3WZPN2QULWcnyhr96QAmYkv6/d54DPLboroqC9zr08+xnAQoS1h7FP7zevz87YLwgqNKeZ5Hwz72beeJ8UU/xhQFcNxvan1Wzm4OCr3k5MTcwlsZrkUWPwnJE7/Xfph/do4YGKGNKLBSGls9Ip3bWSdTVk+e+fGQWRAmVQqOCZ6pzxXTtAhdyXShF/e9L5SvZjpnM7r+kKyi/Pvjll4xe86xmfw2GeiILSbuVFQW1AqPa573y5e/kVd5qBGohkUKZd88FVIBeYWRh73xRFsJfrJYSrhAKxSUrf87oE8Fr1gxMWaNwsPhf/pcgMTlAw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by AM0PR04MB6913.eurprd04.prod.outlook.com (2603:10a6:208:184::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Wed, 20 Aug
+ 2025 16:50:07 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
+ 16:50:06 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	linux-gpio@vger.kernel.org (open list:GPIO SUBSYSTEM),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] dt-bindings: gpio: Move fsl,mxs-pinctrl.txt into gpio-mxs.yaml
+Date: Wed, 20 Aug 2025 12:49:45 -0400
+Message-Id: <20250820164946.3782702-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BY5PR16CA0009.namprd16.prod.outlook.com
+ (2603:10b6:a03:1a0::22) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clocksource/drivers/arm_global_timer: Add auto-detection
- for initial prescaler values
-To: Markus Schneider-Pargmann <msp@baylibre.com>,
-        Daniel Lezcano
-	<daniel.lezcano@linaro.org>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        "Patrice
- Chotard" <patrice.chotard@foss.st.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Kevin Hilman <khilman@baylibre.com>
-References: <20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com>
-Content-Language: en-US
-From: Judith Mendez <jm@ti.com>
-In-Reply-To: <20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM0PR04MB6913:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e147f96-cd52-41bb-25de-08dde0099d71
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|52116014|7416014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?waW/RWNfjuwfE4rdGjmjfKQo0JQKdyDOutqMFocY9jf7LP61z03Ts/vcJKAD?=
+ =?us-ascii?Q?+loNM1+yqbgEeWsOgnbxMDe1R85JUK2AZkfGJFy4qZc8wkoYwkaQl5sgHaQo?=
+ =?us-ascii?Q?/dgovu0LfQ3P2Dz1XUKh9OodFGFJ3fvFyrNb/B/06yUElJIS4HrRF+eZOsqM?=
+ =?us-ascii?Q?+0D3jzrOtgcJp3EcDddgRfppuSjk3OQlCkAcexOZarY7I2enJCv0unufwGou?=
+ =?us-ascii?Q?alQ4BbqFaEQMdb3xPvu+NhXUxUnF+n3jNk5bYVg4I8nmc9YX5IFUBCWJz7eL?=
+ =?us-ascii?Q?CyVe9bR2i558O9c9gg1LMs1OKAOmz4Jbcak8GIczlmJjDp96J+fEhc5S16Cj?=
+ =?us-ascii?Q?4mJvPKoKYUOmFTAdftMhxqceRIkTCHpsej75T9kDwZAv4yD0EtmtFity1N+C?=
+ =?us-ascii?Q?w//FVGG4iWnC+4wTOYQI7boUZBiKOV18WacUQ70OEaBvQYdfA8JewIlGp44C?=
+ =?us-ascii?Q?HLgMHifzDXmq07Rt8rCj7v61bMth/BP/oGwAn/f+p4NUhTS91VCR4zUqD7WY?=
+ =?us-ascii?Q?JesQDRm1fk3KA7i3RKhnMaAVNZ3F8VQe22wfiTQZ7oivEtGY0uPWeWgThK7l?=
+ =?us-ascii?Q?IyFY9vHJbCGQCs7SyBHXV+gPoIguxjljyejZFgalUI6JZCbXlr2AVhyib78f?=
+ =?us-ascii?Q?PHOcJTTjeeZhjWLy0+vbWOzTeEGUG6/YKPODx9HrroPyrj58PXyiut+vauwG?=
+ =?us-ascii?Q?yIfbnZW/2DCqzzyBSb+v81l0t+302VwzicwtVuhnW3K+9U0xg6LaBvl8DLNU?=
+ =?us-ascii?Q?kztWVY+VSU8+dcpvXeBkHdztBtWxJWTqDZZNLpufr2d8fRweYie/xfgtDcun?=
+ =?us-ascii?Q?SF9WG22hnY0TZpn5x/EHrYov3Nmw7tf6TItMXt1IVEcP9H9/tveT+rKtOANf?=
+ =?us-ascii?Q?NSwCBP7vkmDf3Y6L+56qLGe3gW/SvccA8hknNLOTsNP3rC10cNfO3hxwqZfK?=
+ =?us-ascii?Q?rnMxAZKwTod/kPX7Tb3+bK5sR0x0yahx3m7vqPgbZ7FV3zpEUhmk83U0ULDf?=
+ =?us-ascii?Q?zzEULm4JJlrdeG/zomzVdi7DTn8MGA+DrR6MJG6kFoPKtNr3+jk9jY1aV+ii?=
+ =?us-ascii?Q?vm+UF+syz28ETSUyZo4EsUftZuVEvn5Ug3vvHZwN93xL1XT3U+9QwrjhZMis?=
+ =?us-ascii?Q?DaZm27dIgA2HVXjHiyxGN/6l+of0JGwv9C6fN4XG2gY8lmT/p2eokaEvCIoT?=
+ =?us-ascii?Q?mHY0+si7fRiFLbQe9u4StlBJF1SSzMdxjR9CTtxx3yKFcoGrljk9m48QVr9b?=
+ =?us-ascii?Q?/7XmhRNZc6CoBjVyehwFpnllLz5tJkYAazzHdA7krXBQccas8MjeBTnh2qEA?=
+ =?us-ascii?Q?JUOLlWOhDkCe5zESUOzGfR1RtnTk+l/B3AcEQrVr23ZygckemjynVpFKwsEF?=
+ =?us-ascii?Q?3soNFJ+ffVh6VaVPPjx1+dNU2PvnV4bvyXD66+WOoWCzp1QVggEe488nHssl?=
+ =?us-ascii?Q?G1O4AShsM0xTzI0XtZp7rtRTvfy7OpCaYi9wKVTMrFizZUQ1Vxk3Ctwo+ilo?=
+ =?us-ascii?Q?EtJbyjwpa8cqbLA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0tPHI/d8BoF0cpEesmfFmvnrclb/7GEdClg/T8fMD2Al6WimK288V/voFcyq?=
+ =?us-ascii?Q?Zam/POwJiIo9OsfeOLP93lNPjwM74xN8oBnzZr0JvRDnOT5qsA+zSnhCj7KP?=
+ =?us-ascii?Q?+b7+KkS4fmLcH/0P5MoxPibD8jEg1L2bzHM2NM3b91kNg4uRuFAb8vwbJP6a?=
+ =?us-ascii?Q?0r4lqqTzeq2VfuivbLXNErAlVpOPXfv5jpd5OfeVn1RpLFcbH45qDMowOTm1?=
+ =?us-ascii?Q?vKK6yR1HSdaHHDIbuXmYhSuLO9ZWdNs7FB2PYrVn94hJ6vTNLjKrjTO9NF69?=
+ =?us-ascii?Q?E/fKeqsS705QChq4TgvELaMuNmGbonySD9UUbdcVCTg9AYys8kkpPukKnBh9?=
+ =?us-ascii?Q?MiOidqBXFM4AfoMqinTfP7KAyt2yzOM3JZ/XGT7CMGeisUyGrrU3ZAI5p2xG?=
+ =?us-ascii?Q?MVCYFGBjrgrxIZ13B45eQnirakK2f6ZpRGAhx9xhNgu0eNgGtFHvVWY/R04T?=
+ =?us-ascii?Q?q188xFXgnee8zXmgaQ5O6rLzXHL4x07sLyRWuWeF4SAgpdt87H9nPVsWgoX1?=
+ =?us-ascii?Q?b8INKyDC5hUJeedP2Te8HKx/KzdgiJir95zhqB6NOe8k/AZZd7kSylhX7YXA?=
+ =?us-ascii?Q?CKFk2sGPYXsgmGocAGoxntZB3rr2oR0PZsImVGd9uber8lk+9Fw9/TmI84g5?=
+ =?us-ascii?Q?K+0w38X4/TQd5SwOaylSpa2oiFK2XmSKMKupqUc07wpfyOSU+TaqG0F0+kBv?=
+ =?us-ascii?Q?Y6ga/a78X8ftGk6C/7rGRhEKvqG3eKhwbI08N/PqUiawH+CJwd+Ah2DUuOPJ?=
+ =?us-ascii?Q?IuWVeKz8s3YFUGiwGuCTCU1xbUFTjx5jCy1ws741jUb60CBSXGltnu/+IyTD?=
+ =?us-ascii?Q?5UcPYjOR1CeqfBmCY+Wwu9Zi9iJlV6Tm07YFlpIg0GDCxcU3ats5tgAUs9eo?=
+ =?us-ascii?Q?f/jNEMshib2UQPNAl0RHO4XuAtYTF9pc1Cqvvi9erTFBtH1h74nGm96VNTz8?=
+ =?us-ascii?Q?y95JvJu5PytY70mZp/QiFGCWy0taR+oMvunv8tUQhVS+zCQkYMTadK9QyTu6?=
+ =?us-ascii?Q?O976Uz73mBbRXGfQezubax+Zo7ZkSyVBtOUlyVxkfxCFY4GvFBbtKz0AmWYP?=
+ =?us-ascii?Q?GGU9oswTfM5H5UdoQybmmvecYrSXyduHetRl7q/9nmCkf4jTLomrexYDkEfV?=
+ =?us-ascii?Q?6devurMOnLX88JhhCCqchfHT9SvdIO36y9yib9AYCXNm2GOGQ4COw2htZk80?=
+ =?us-ascii?Q?ShyzY88ssMf2wjyPxyiQidT0/Kq5joy9Y/dd/YAw+a+JOKUMgmi6+iyItlZm?=
+ =?us-ascii?Q?Ai/AH2CBTYqREAgw6uTZbCabvFZGnAwA0QUZRAzFzG1RNcF+Feud1S+PNRZt?=
+ =?us-ascii?Q?z9iLOI5cQBIgzlna3b+UaMAw4OBR13h3rZNQJZ8N5I4DifkS/SJwnjrPn4vj?=
+ =?us-ascii?Q?qnk7ABbkNiJgw6pZbkoCoPWWND4FwvUbSLpvJIlDQcP93XpK/aulX+MswZNZ?=
+ =?us-ascii?Q?i0joomGU4vme9j6KKOEKvYLMo/P9hGdzeJxCyge6mczzWImD8ZA6ozsaO1W5?=
+ =?us-ascii?Q?n/yvIZPY5xVWmjSnKo9qK7N4fmnOhzEK2SPTXlio7CP5FsaXfvz3Ewj3NRVT?=
+ =?us-ascii?Q?o/seWiRFRiSApTm3k3jcgfBIuv7kAOn9E1/wNRvU?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e147f96-cd52-41bb-25de-08dde0099d71
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 16:50:06.3426
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aZs/dSG/NH4hOr6HhYGTLBB2Bd9Kk/SDskIUUrQxOgUY2zvMSenUwdOMlkwcf90FoQoT3n7RWlV/hEGlef8cRg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6913
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_094803_889342_A3452048 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250820_095013_742386_9AF8A817 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +170,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+Move mxs-pinctrl part into gpio-mxs.yaml and add pinctrl examples to fix
+below CHECK_DTB warning:
 
-On 8/8/25 5:35 AM, Markus Schneider-Pargmann wrote:
-> am43xx has a clock tree where the global timer clock is an indirect child
-> of the CPU clock used for frequency scaling:
-> 
->    dpll_mpu_ck -- CPU/cpufreq
->          |
->          v
->    dpll_mpu_m2_ck -- divider
->          |
->          v
->    mpu_periphclk -- fixed divider by 2 used for global timer
-> 
-> When CPU frequency changes, the global timer's clock notifier rejects
-> the change because the hardcoded prescaler (1 or 2) cannot accommodate
-> the frequency range across all CPU OPPs (300, 600, 720, 800, 1000 MHz).
-> 
-> Add platform-specific prescaler auto-detection to solve this issue:
-> 
-> - am43xx: prescaler = 50 (calculated as initial_freq/GCD of all OPP
->    freqs) This allows the timer to work across all CPU frequencies after
->    the fixed divider by 2. Tested on am4372-idk-evm.
-> 
-> - zynq-7000: prescaler = 2 (preserves previous Kconfig default)
-> 
-> - Other platforms: prescaler = 1 (previous default)
-> 
-> The Kconfig option now defaults to 0 (auto-detection) but can still
-> override the auto-detected value when set to a non-zero value,
-> preserving existing customization workflows.
-> 
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+arch/arm/boot/dts/nxp/mxs/imx28-xea.dtb: pinctrl@80018000 (fsl,imx28-pinctrl):
+   'auart0-2pins@0', 'auart0@0',  ... 'usb1@1' do not match any of the regexes: 'gpio@[0-9]+$', 'pinctrl-[0-9]+'
 
-Tested-by: Judith Mendez <jm@ti.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v2
+- Add more description about over 10 years devices.
+---
+ .../devicetree/bindings/gpio/gpio-mxs.yaml    |  80 ++++++++++-
+ .../bindings/pinctrl/fsl,mxs-pinctrl.txt      | 127 ------------------
+ 2 files changed, 75 insertions(+), 132 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
 
-
-Thanks for you patch, it also cleared the noise on my end
-on am437x board.
-
-~ Judith
-
-
-
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+index b58e08c8ecd8a..aaf97124803f4 100644
+--- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
++++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+@@ -18,9 +18,13 @@ description: |
+ 
+ properties:
+   compatible:
+-    enum:
+-      - fsl,imx23-pinctrl
+-      - fsl,imx28-pinctrl
++    items:
++      - enum:
++          - fsl,imx23-pinctrl
++          - fsl,imx28-pinctrl
++      # Over 10 years old devices, driver use simple-bus to probe child gpio
++      # Devices. Keep it as it to be compatible existed dts files.
++      - const: simple-bus
+ 
+   '#address-cells':
+     const: 1
+@@ -31,7 +35,65 @@ properties:
+     maxItems: 1
+ 
+ patternProperties:
+-  "gpio@[0-9]+$":
++  "^(?!gpio@)[^@]+@[0-9]+$":
++    type: object
++    properties:
++      fsl,pinmux-ids:
++        $ref: /schemas/types.yaml#/definitions/uint32-array
++        description: |
++          An integer array.  Each integer in the array specify a pin
++          with given mux function, with bank, pin and mux packed as below.
++
++          [15..12] : bank number
++          [11..4]  : pin number
++          [3..0]   : mux selection
++
++          This integer with mux selection packed is used as an entity by both group
++          and config nodes to identify a pin.  The mux selection in the integer takes
++          effects only on group node, and will get ignored by driver with config node,
++          since config node is only meant to set up pin configurations.
++
++          Valid values for these integers are listed below.
++
++      reg:
++        items:
++          - description: |
++              pin group index. NOTE: it is supposed wrong use reg property
++              here. But it is over 10 years devices. Just keep it as it.
++
++      fsl,drive-strength:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1, 2, 3]
++        description: |
++          0: MXS_DRIVE_4mA
++          1: MXS_DRIVE_8mA
++          2: MXS_DRIVE_12mA
++          3: MXS_DRIVE_16mA
++
++      fsl,voltage:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1]
++        description: |
++          0: MXS_VOLTAGE_LOW  - 1.8 V
++          1: MXS_VOLTAGE_HIGH - 3.3 V
++
++      fsl,pull-up:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        enum: [0, 1]
++        description: |
++          0: MXS_PULL_DISABLE - Disable the internal pull-up
++          1: MXS_PULL_ENABLE  - Enable the internal pull-up
++
++          Note that when enabling the pull-up, the internal pad keeper gets disabled.
++          Also, some pins doesn't have a pull up, in that case, setting the fsl,pull-up
++          will only disable the internal pad keeper.
++
++    required:
++      - fsl,pinmux-ids
++
++    additionalProperties: false
++
++  "^gpio@[0-9]+$":
+     type: object
+     properties:
+       compatible:
+@@ -80,7 +142,7 @@ examples:
+     pinctrl@80018000 {
+         #address-cells = <1>;
+         #size-cells = <0>;
+-        compatible = "fsl,imx28-pinctrl";
++        compatible = "fsl,imx28-pinctrl", "simple-bus";
+         reg = <0x80018000 0x2000>;
+ 
+         gpio@0 {
+@@ -132,4 +194,12 @@ examples:
+             interrupt-controller;
+             #interrupt-cells = <2>;
+         };
++
++        lcdif-apx4@5 {
++            reg = <5>;
++            fsl,pinmux-ids = <0x1181 0x1191>;
++            fsl,drive-strength = <0>;
++            fsl,voltage = <0>;
++            fsl,pull-up = <0>;
++        };
+     };
+diff --git a/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt b/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
+deleted file mode 100644
+index 1e70a8aff2600..0000000000000
+--- a/Documentation/devicetree/bindings/pinctrl/fsl,mxs-pinctrl.txt
++++ /dev/null
+@@ -1,127 +0,0 @@
+-* Freescale MXS Pin Controller
+-
+-The pins controlled by mxs pin controller are organized in banks, each bank
+-has 32 pins.  Each pin has 4 multiplexing functions, and generally, the 4th
+-function is GPIO.  The configuration on the pins includes drive strength,
+-voltage and pull-up.
+-
+-Required properties:
+-- compatible: "fsl,imx23-pinctrl" or "fsl,imx28-pinctrl"
+-- reg: Should contain the register physical address and length for the
+-  pin controller.
+-
+-Please refer to pinctrl-bindings.txt in this directory for details of the
+-common pinctrl bindings used by client devices.
+-
+-The node of mxs pin controller acts as a container for an arbitrary number of
+-subnodes.  Each of these subnodes represents some desired configuration for
+-a group of pins, and only affects those parameters that are explicitly listed.
+-In other words, a subnode that describes a drive strength parameter implies no
+-information about pull-up. For this reason, even seemingly boolean values are
+-actually tristates in this binding: unspecified, off, or on. Unspecified is
+-represented as an absent property, and off/on are represented as integer
+-values 0 and 1.
+-
+-Those subnodes under mxs pin controller node will fall into two categories.
+-One is to set up a group of pins for a function, both mux selection and pin
+-configurations, and it's called group node in the binding document.   The other
+-one is to adjust the pin configuration for some particular pins that need a
+-different configuration than what is defined in group node.  The binding
+-document calls this type of node config node.
+-
+-On mxs, there is no hardware pin group. The pin group in this binding only
+-means a group of pins put together for particular peripheral to work in
+-particular function, like SSP0 functioning as mmc0-8bit.  That said, the
+-group node should include all the pins needed for one function rather than
+-having these pins defined in several group nodes.  It also means each of
+-"pinctrl-*" phandle in client device node should only have one group node
+-pointed in there, while the phandle can have multiple config node referenced
+-there to adjust configurations for some pins in the group.
+-
+-Required subnode-properties:
+-- fsl,pinmux-ids: An integer array.  Each integer in the array specify a pin
+-  with given mux function, with bank, pin and mux packed as below.
+-
+-    [15..12] : bank number
+-    [11..4]  : pin number
+-    [3..0]   : mux selection
+-
+-  This integer with mux selection packed is used as an entity by both group
+-  and config nodes to identify a pin.  The mux selection in the integer takes
+-  effects only on group node, and will get ignored by driver with config node,
+-  since config node is only meant to set up pin configurations.
+-
+-  Valid values for these integers are listed below.
+-
+-- reg: Should be the index of the group nodes for same function.  This property
+-  is required only for group nodes, and should not be present in any config
+-  nodes.
+-
+-Optional subnode-properties:
+-- fsl,drive-strength: Integer.
+-    0: MXS_DRIVE_4mA
+-    1: MXS_DRIVE_8mA
+-    2: MXS_DRIVE_12mA
+-    3: MXS_DRIVE_16mA
+-- fsl,voltage: Integer.
+-    0: MXS_VOLTAGE_LOW  - 1.8 V
+-    1: MXS_VOLTAGE_HIGH - 3.3 V
+-- fsl,pull-up: Integer.
+-    0: MXS_PULL_DISABLE - Disable the internal pull-up
+-    1: MXS_PULL_ENABLE  - Enable the internal pull-up
+-
+-Note that when enabling the pull-up, the internal pad keeper gets disabled.
+-Also, some pins doesn't have a pull up, in that case, setting the fsl,pull-up
+-will only disable the internal pad keeper.
+-
+-Examples:
+-
+-pinctrl@80018000 {
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+-	compatible = "fsl,imx28-pinctrl";
+-	reg = <0x80018000 2000>;
+-
+-	mmc0_8bit_pins_a: mmc0-8bit@0 {
+-		reg = <0>;
+-		fsl,pinmux-ids = <
+-			MX28_PAD_SSP0_DATA0__SSP0_D0
+-			MX28_PAD_SSP0_DATA1__SSP0_D1
+-			MX28_PAD_SSP0_DATA2__SSP0_D2
+-			MX28_PAD_SSP0_DATA3__SSP0_D3
+-			MX28_PAD_SSP0_DATA4__SSP0_D4
+-			MX28_PAD_SSP0_DATA5__SSP0_D5
+-			MX28_PAD_SSP0_DATA6__SSP0_D6
+-			MX28_PAD_SSP0_DATA7__SSP0_D7
+-			MX28_PAD_SSP0_CMD__SSP0_CMD
+-			MX28_PAD_SSP0_DETECT__SSP0_CARD_DETECT
+-			MX28_PAD_SSP0_SCK__SSP0_SCK
+-		>;
+-		fsl,drive-strength = <MXS_DRIVE_4mA>;
+-		fsl,voltage = <MXS_VOLTAGE_HIGH>;
+-		fsl,pull-up = <MXS_PULL_ENABLE>;
+-	};
+-
+-	mmc_cd_cfg: mmc-cd-cfg {
+-		fsl,pinmux-ids = <MX28_PAD_SSP0_DETECT__SSP0_CARD_DETECT>;
+-		fsl,pull-up = <MXS_PULL_DISABLE>;
+-	};
+-
+-	mmc_sck_cfg: mmc-sck-cfg {
+-		fsl,pinmux-ids = <MX28_PAD_SSP0_SCK__SSP0_SCK>;
+-		fsl,drive-strength = <MXS_DRIVE_12mA>;
+-		fsl,pull-up = <MXS_PULL_DISABLE>;
+-	};
+-};
+-
+-In this example, group node mmc0-8bit defines a group of pins for mxs SSP0
+-to function as a 8-bit mmc device, with 8mA, 3.3V and pull-up configurations
+-applied on all these pins.  And config nodes mmc-cd-cfg and mmc-sck-cfg are
+-adjusting the configuration for pins card-detection and clock from what group
+-node mmc0-8bit defines.  Only the configuration properties to be adjusted need
+-to be listed in the config nodes.
+-
+-Valid values for i.MX28/i.MX23 pinmux-id are defined in
+-arch/arm/boot/dts/imx28-pinfunc.h and arch/arm/boot/dts/imx23-pinfunc.h.
+-The definitions for the padconfig properties can be found in
+-arch/arm/boot/dts/mxs-pinfunc.h.
+-- 
+2.34.1
 
 
