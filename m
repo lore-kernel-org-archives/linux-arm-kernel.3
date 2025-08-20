@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCE7CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D739ACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CXQSwAv8e6eEfacG/HeYdxYzZSrhuUbOicdQbourYnc=; b=RvvzEISHK4mGIdW9ecw2Px14m8
-	klJPpz+Csxr6tmx9MgBYV8dUAL1jJwy6l33J0WtdZ7CuvEMFSlZXF2i4UxkEbHHDAbrcL98Nz1HL7
-	08StIOPn+K1rQG7/Cy1GvK62ho8gMTDVcpDWEmkDChSNhyMTIRD/w9a1HidWtSXBh/fWW7WhtHcvg
-	5ly8zlj02pUFDEA1pzeJrXH3OzQxEZLEmovx7I/G0XQLSWQK/mRbC/Px/tdxXWv8visHNbdKDKt8i
-	XcXuVFDewPIUEyGAvK4/VQhOdWqvZNXyKT/s5/LclE3uDI213CwDN3tV43eGlAMitp6j+oDevSqZe
-	sKfy2e7g==;
+	bh=xMfe/1pq+OlxwXSMepCY97jqsV7w44DfRMtiM5C5ElQ=; b=fvpUF3kp5NYu4Hdv6e+vcK7kps
+	3i+a9ZRshR2P+nLvFp2Fd/N4UIU5WDS1MmvcYn0LmA1UbGPSK0xnDTpZMlVjFQXUVBcnmHiFZF4ku
+	8RD6C9aD2kRfWB/Bgbe2FIazIyib6f1ucCzcmIlKFOd5t7ZPVJe7FWBz6X1x0aEZKb+Xz0ZSjHFP+
+	3FDQeOvl7oV+4HWTbTytBxyO1k+i8/69sdUWsEbt9XNe3+qdkbfn3PzsfxUnaGMdCasvaJy3zgi+n
+	I6E+yXHn4QpvYZ1z0FCQ9zqlLuqwK9eCBtbc+/5iHHKBvxFg666i968/w4A/hC2rc1IPPqXv7Ce+l
+	m2PmqDpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojtU-0000000E5sq-33lJ;
-	Wed, 20 Aug 2025 14:34:28 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uojw5-0000000E6lc-0fyT;
+	Wed, 20 Aug 2025 14:37:09 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoixr-0000000Dp2G-3I8V;
-	Wed, 20 Aug 2025 13:34:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1755696894;
-	bh=CXQSwAv8e6eEfacG/HeYdxYzZSrhuUbOicdQbourYnc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=BMyk2AYeLys2RolPoykxrhvNbeytaoF2/aKwgif7GzLleZCp2kTE5vHm5rsTNPH/9
-	 wRxe1QgO5JRhTIelbfqDkmKX6vs1zhr7/ROYfDwXjLpBt/AG2VrjNl8hiDh1h/htNm
-	 IytmPOMbYs3FKvK6FJ0fNXcWrwW+xQ4BATx/7a9O+D/rvH0RClxrICXYvHY23U6Xr/
-	 LmqE3lHwB99RvuFO5LQLTAjXGVMlIYunVwGj0pRrkl8O33F18PYSKyyIjexX+O7gO4
-	 t4KYJujfi0dUClNfSgIfIBkC/Lx/oTo76KmPAtaXRQYyIOtbLDJw6tn4iPnMYJmJdh
-	 KQ+kdM7IIBeFA==
-Received: from localhost-live.home (2a01cb0892F2D600C8F85Cf092D4aF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0D76817E02B0;
-	Wed, 20 Aug 2025 15:34:53 +0200 (CEST)
-Message-ID: <5ae569e8a1b3d00408d8ad4e934a4585a7479f7e.camel@collabora.com>
-Subject: Re: [PATCH 6/9] ASoC: dt-binding: Convert MediaTek mt8183-mt6358
- bindings to YAML
-From: Julien Massot <julien.massot@collabora.com>
-To: Rob Herring <robh@kernel.org>
-Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Ikjoon Jang
- <ikjn@chromium.org>, Enric Balletbo i Serra <eballetbo@kernel.org>, Chen-Yu
- Tsai	 <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>, Eugen Hristev
-	 <eugen.hristev@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown	 <broonie@kernel.org>, Julien Massot <jmassot@collabora.com>, Sean
- Wang	 <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-gpio@vger.kernel.org
-Date: Wed, 20 Aug 2025 15:34:52 +0200
-In-Reply-To: <20250801172927.GA3114452-robh@kernel.org>
-References: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
-	 <20250801-mtk-dtb-warnings-v1-6-6ba4e432427b@collabora.com>
-	 <20250801172927.GA3114452-robh@kernel.org>
-Organization: Collabora Ltd.
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1uoj6m-0000000DsBT-0Nmf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 13:44:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1755697448; x=1787233448;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ccW4DJ+w5B0tvFfy06eJzbjKks79ZjN2ZpCdAnZH4Ak=;
+  b=n+niXZTaP8gHIc5QcLpemeHcez9QOY6oX143hodzDE2oAllgKuos39xG
+   usVqmk99mjLUFF4xAdX35RUjZgFYIYsH1EfuCJLCSj6LlhcA6nMlO3ZlY
+   PvIwSdZtZbQSjm3fwsLRkgFK0uA83gMmDhH2UZkU891xPDXFra64By/GN
+   N/DFV+NRNX2D7ZLo7JoVO3wr17FEcVTEfniwdbEKMhuPZeX+JRwWdguuA
+   pYJsmxNiJTkkVI1dGuhghk0wucPYA0dDogrMZsIYAJ3y8OaZQx0XX6LBN
+   RNQwSe8dxw07NU9/P4mNEry9UcEumZMrffE4FcVse/pUHcD1m/NOqDei1
+   g==;
+X-CSE-ConnectionGUID: /WtkIbWpSfWfoY0D2ao6rA==
+X-CSE-MsgGUID: j6ixKsjQSGOrW+F3GRTtyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="75413014"
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="75413014"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 06:44:07 -0700
+X-CSE-ConnectionGUID: 4QaIxjvgQ0aK7kjMmX1XtQ==
+X-CSE-MsgGUID: q2Qzs15iR/Wyot4b2RKPmQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
+   d="scan'208";a="168481230"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 06:44:00 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uoj6a-00000006wmS-3DCw;
+	Wed, 20 Aug 2025 16:43:56 +0300
+Date: Wed, 20 Aug 2025 16:43:56 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Hui Pu <Hui.Pu@gehealthcare.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Zijun Hu <quic_zijuhu@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
+Message-ID: <aKXRHAyfPHPpZmMs@smile.fi.intel.com>
+References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
+ <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-1-888912b0be13@bootlin.com>
+ <aJJ9ttmL7wiw41fY@smile.fi.intel.com>
+ <20250814183609.3788a6df@booty>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814183609.3788a6df@booty>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_063456_003426_0120B02D 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250820_064408_175949_29D15520 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,20 +113,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-08-01 at 12:29 -0500, Rob Herring wrote:
-> On Fri, Aug 01, 2025 at 01:18:08PM +0200, Julien Massot wrote:
-> > Convert the existing text-based DT binding for MT8183 sound cards using
-> > MT6358 and various other codecs to a YAML schema.
-> >=20
-> > Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> > ---
-> > =C2=A0.../sound/mt8183-mt6358-ts3a227-max98357.txt=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 25 ---------
-> > =C2=A0.../devicetree/bindings/sound/mt8183-mt6358.yaml=C2=A0=C2=A0 | 59=
- ++++++++++++++++++++++
->=20
-> mediatek,mt8183_mt6358_ts3a227.yaml
+On Thu, Aug 14, 2025 at 06:36:09PM +0200, Luca Ceresoli wrote:
+> On Wed, 6 Aug 2025 00:55:02 +0300
+> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+> 
+> > On Fri, Aug 01, 2025 at 07:05:23PM +0200, Luca Ceresoli wrote:
+> > > Add an equivalent of list_first_entry_or_null() to obtain the last element
+> > > of a list.  
+> > 
+> > Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> 
+> Thanks Andy!
+> 
+> However I'm not sure when and where this should be applied.
+> 
+> Except for this one patch, all patches in the series are for
+> drm-misc-next. Also, patch 1 is currently not needed by any other
+> series AFAIK.
+> 
+> Based on the above, is it correct to assume that the whole series can
+> be applied on drm-misc-next? (when other patches will have a
+> R-by/Ack-by of course)
+> 
+> Also, is Andy's A-by enough to apply this patch?
 
-Ok, Thanks for the review.
-Julien
+The list.h is common for many, I think going via DRM with my Ack is enough
+based on the Git history of my changes in this file. But if you want more
+reliable source, get an Ack from Andrew Morton.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
