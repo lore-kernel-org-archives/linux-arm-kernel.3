@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB22ECA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50AB5CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 01:34:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YdgsXbuF6m3lxhc0jvnC71E6G4Iah17pbh5wtlkK+Y=; b=0UC3iv3gBWIuY5mEQsKM7udJAF
-	WW1ZdAhRoXKY8WYPfXQo9Hr1wYHTVQWeCpHCPspmr6VvOsHJng7Hag8IKhmHi2J+qcWDI30sIoRSa
-	o1Dmr769sYT7fq3r+TM032mZzbs2QLrpqbfYrpU+A8S7CY+nGdGsgy4BOocWY+HfYtyxRI12dSt/F
-	0B1jaTGuewpIuyQ3xSNxsuPbrIeLD5aMV/3rCGhMN33xKoID4GkohRDpRdOJQzcS7t1a3Kk/8ns/d
-	nCyhE810a6VxTfb0DmbbABttL7PK36k8HCJyRc4HOOCfjNWQz2EPsfLY3Gq0Mp3JbfOdXohsyB8rB
-	owIXh5sQ==;
+	bh=/A6vfnDj7wFUUnWczWrJvhkdD9wNZtDdtaVVMVfjN24=; b=AZp+46Rz63FC7NgLDxXEu7IA9P
+	GUNMp61juo12w9sGN1YM/yLT50Orb5Mj6htd3DItbzxNiZX/hPn/rYP0wvhhFkoUwkN1SPN00TT57
+	hV5f5o2hS3D8H+DEnqPu26rpQG80CFyoD5wUMHA3aRS8Q/RG9Pu3hHmTJmderibf0zoGO7gjk/VjS
+	HDIc6Syxa/N2S71Axs41owG9eJW/7kWkw8vXb84WatHofRywoVyrmZ02W1tFNdOwXplC6lV6QiYyG
+	54T3ygpO5P16XF9WIr8Ui+RtHxokp2L95kbd5kkR8KLe0dA+aUtuDkUltT9XHt+rLuZs+USRXllld
+	B8NYHWpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uou9T-0000000FSLv-3egU;
-	Thu, 21 Aug 2025 01:31:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uouC2-0000000FScg-314H;
+	Thu, 21 Aug 2025 01:34:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uor8G-0000000F4bZ-15gA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 22:18:13 +0000
+	id 1uor8L-0000000F4cm-0xpq;
+	Wed, 20 Aug 2025 22:18:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A201D5C6C01;
-	Wed, 20 Aug 2025 22:18:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 484D4C4CEE7;
-	Wed, 20 Aug 2025 22:18:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 97A6F5C6880;
+	Wed, 20 Aug 2025 22:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D540C4CEE7;
+	Wed, 20 Aug 2025 22:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755728291;
-	bh=TGQmzkspugVB5qBEUpdujC25KIeihWnVs9IUgXT1UOE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jgpFo5rWJ4pzUbV4s3NIXt30fTeWof+pZ3u+I1ZB+VY7dCND39o9inCzVHWygFDKD
-	 QH3yYsrpWSHRpoU7wsOZQxBmHRTxQp/jrHVd2L2nAfjGWbA9oB3OXASBfl/txY2y5n
-	 zq4bkpKpHOn08Cs+cnU+OvZDVvtoTynjfeyMxXIPnMy5NrUqCJA1xykXMyTn32vTIx
-	 MDlmAgWKDqXKB5X69EN9GXkOSFLzw1YBLMWZ0JX343mwyHJzHy/9Dni5p6hUNhGwdH
-	 TX0s75NmqbuFugE3MPi2lmiBRKmERtfe+KpgFnSTrCt+k7sZBmHqVtcu/h2fSyVtQo
-	 hQfYLIT3q14/g==
-Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uor8A-009W00-5o;
-	Wed, 20 Aug 2025 23:18:06 +0100
-Date: Wed, 20 Aug 2025 23:18:05 +0100
-Message-ID: <87jz2xk57m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v15 5/6] KVM: arm64: Allow GCS to be enabled for guests
-In-Reply-To: <20250820-arm64-gcs-v15-5-5e334da18b84@kernel.org>
-References: <20250820-arm64-gcs-v15-0-5e334da18b84@kernel.org>
-	<20250820-arm64-gcs-v15-5-5e334da18b84@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 86.149.246.145
-X-SA-Exim-Rcpt-To: broonie@kernel.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1755728296;
+	bh=/JY0iqrp4JSe7nyCZ7qTFtuYchueOQZRK2oCJASh9jA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YTfP7tgNNAP8bsZydX8VBSDKuM65d5RZP+Iy/o8rQIXB+6ff+6A3oxKAo7SV2WUhO
+	 Rv0yhlu4Pwr4auKLXw3xrIU0TwPgazkTmKPJgRO+vZ6o/bIThAXoylOqfipxn8mYlA
+	 RXOWfcTfrKttn/5yb8TQMNllxa3pxkkRSZjuNt/sT+UGLyNcclUd30VklOjZTHOGhU
+	 GQEMiIFf0PgnSiGPnloPDPhCrZlfcCI81BxzQbY050J/nocZgM/BUSENAO1Mdo6pQ1
+	 R1UbpoPV3UjcpFL/UeUDgSkDUDGGRJDp7vHyHF6KhxEPtAp7BhQVlQsjG5v+h1HJwm
+	 HG1gM6rgmCWfw==
+Date: Wed, 20 Aug 2025 17:18:15 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-nvme@lists.infradead.org, Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Christoph Hellwig <hch@lst.de>, Robin Murphy <robin.murphy@arm.com>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Joerg Roedel <joro@8bytes.org>, Hector Martin <marcan@marcan.st>,
+	Conor Dooley <conor+dt@kernel.org>, Keith Busch <kbusch@kernel.org>,
+	linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>,
+	Sven Peter <sven@kernel.org>, iommu@lists.linux.dev,
+	Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
+	Jens Axboe <axboe@kernel.dk>
+Subject: Re: [PATCH v2 1/9] dt-bindings: mailbox: apple,mailbox: Add ASC
+ mailboxes on Apple A11 and T2
+Message-ID: <175572829424.1511541.14649448626507633958.robh@kernel.org>
+References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
+ <20250818-t8015-nvme-v2-1-65648cd189e0@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250818-t8015-nvme-v2-1-65648cd189e0@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_151812_335483_6B9978E7 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20250820_151817_304223_E9CD5B71 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 15:14:45 +0100,
-Mark Brown <broonie@kernel.org> wrote:
+
+On Mon, 18 Aug 2025 16:42:54 +0800, Nick Chan wrote:
+> Add bindings for ASC mailboxes as found on Apple A11 and T2 SoCs. These
+> mailboxes are used for coprocessors including Secure Enclave Processor
+> (SEP), the NVMe coprocessor and the system management controller.
 > 
-> Now that required functionality for GCS is in place expose
-> ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 > ---
->  arch/arm64/kvm/sys_regs.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 592cb5d6497a..60e234422064 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1616,7 +1616,6 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
-> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
->  		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
+>  Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
 
-Still disabled for NV in limit_nv_id_reg().
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
