@@ -4,102 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34DACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 03:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D1FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 03:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=; b=uU4oQWW2MufA4yyNcFRpCqSw8g
-	uohP3ZxavEsnxN1z18zO+1bthkLgfpk15PbZH7kSso2Jlos+/Uu8a1UwqoN5F46g/BR/b/0FSgp2W
-	D2uIphodJyJOWJxqZEWFGLM8N/moMi60xfQfHa5vBsCk1JAyQBtyAZu9vW1V71EvC7ygJiFjCeNG9
-	ci7LE5ZuNDtWVfoX7Nzyuumtn0Ll2SoVbCv6IGfC/7NngSFpX27KEzD+y3XPx7Qfgldj12FxWXqvm
-	/Jss0GsABzsUPNdCa5zZ6QWAK3qXH6WeA2QfiCDcBzDAEgpumOhGW1WrJ6B2IK2gGDjttdDksM/Y+
-	XQZL015A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=odRY6BcYZ+8QVhNaKNFyX2Y8DrKA/CHzt8DcPqI5UoM=; b=NGvJMP/4lFwmYVEPlaHjhi7F93
+	AW0PXuS5T0Lay0xWbAQsLfYp7CJzCQ+0Yvz70tPPBvAvdYKzEhnRCYLRCbsNB2c0rtZzN9uZcYdPD
+	O7Sd2fwr7PlykvvDQpk047Rd0Nsx6K1OYsBTpdEGcEkcIrjNmutsCCsv6m79Ms4y2sH4GGbLyL8Ds
+	y9hAksYdUgebYUhnyveYoYfZQ9KdlMJDz5luEB1PfOyUPBoW14kUU0YKeMFIUnNPfbtgs2IYuHq/v
+	QxRy4XXmzrEetRBwxAcpsqB3cNoBtSs5djm/e7I4excfBrB6a8TNaQUWjYu+qg+zYk5n/7rsa6N+2
+	XC+jdQOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZRx-0000000CGZe-19Q4;
-	Wed, 20 Aug 2025 03:25:21 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1uoZW3-0000000CGu9-1R6F;
+	Wed, 20 Aug 2025 03:29:35 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoZLr-0000000CG8k-2x7b;
-	Wed, 20 Aug 2025 03:19:04 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-afcb78e70c5so932632566b.1;
-        Tue, 19 Aug 2025 20:19:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755659942; x=1756264742; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=;
-        b=DLey6+u9WCKaptscL0GzBe4qV6U5rcyFN1jjS32bVgtGIAZUDz5PatzAHDd9FaLGI7
-         YjMda4bEaG6fSSQmj9uu8syPbOcA7icMi/KpIhnz1/gE2ud1lU2oin/GKfcd3fRqldx8
-         68xKra0lV1RodoPyUmo4SuvpcnLQkLqb+C4fDBiXZhI4mhcCb85cjKPDdGaw25J32/kn
-         xobNLVfHU5fZW0xa+jBJVl3vRQISrMuH0TpBKhaZ+pjw3ND7ipyFBrDarT/ElB3tkJ2D
-         sXcxm0OZpk0PWynQSN2MdPKF4QwVzzUkkkyzG28ZnxXuZiW3lv4tWT3MPB7U8xfeFIV7
-         /Yxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755659942; x=1756264742;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/vdg4dKKl5Y5qxmdvIci/v8EsYo7STve3t3ZtY/n9Z0=;
-        b=ks7wTAeyCFSiaEgDGV+sKBtsXBzL7E8lqXvLExjDZ7eqwfcxzSRHJvk6q9mwI4WpNM
-         BWaSJDs48FQ7dSMqdVuPMw2MNPBdqDokLR9sF1PdaTIhoZX9XIlrOWzMeMLayb8WVYiy
-         0SdjI/yMV4jogIj/oCulBeRcsnUMP8l8Ozmw4BxUiuFYn73ixOjE5K2czr58peq0pxBv
-         xOVdZqLXNYW6hvpsiAWG7GIJk9quE/7o19988gbRcy5LVSaLEdx/aukU+LHxoqDEIfiS
-         2qN9AHISIvRjJ7zEOPDUQQVfCQ2EDTg4d59GBcBaDiep7R+EkCfK53UnsBZTmiTKsPom
-         LlDw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFJlMDyK6S66WhOy+HPMNtCJc7+YyQUpfCJRdTijpogfir21B1j8FAd8YO+A+89FdLeFcLogrPq3DK67EPqbM=@lists.infradead.org, AJvYcCW/KG1InlANcrd0X0OmgTtgz9f66yGKkth64yvWpsstbZ25K46cC+a++vAOD9bAWL7ae1p7pBWkz+WxN9260wOm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1l60prZttKiw8zI9yjmEkttbtDM4ZevmsDIs6UTww5jeSBLpu
-	z2A8WIXxSG1Et5qPf1urp34MtswevcKbVgL8+bh1nSAJLrFgyCh87SMu
-X-Gm-Gg: ASbGnctfqgoYzKNbKZTVigK9UA9a+3cQAF4QttjK1004Eqk9TwKxN2wZlbWwLWOF08m
-	MdZts5lOOxKv4DEQ5zgsdNk0AcuH7Akt3iuhaDIBQ3o64VzW3ublmT9Wzj54oIpD32+9G0JQsE/
-	jNm3JCZhwrYnuxpCMvcQDs1uE9F/TwmLfEOAT8LLy4FqqOFNR6vdH8g/z54uQBFD/5rdHCpGUug
-	lSKnoGv/BdC2A6EPbeB+zbl4hT1qHFkxymJJEw2Arj8OF33xIJlakz6DUzFJ+opYjh55FbxNEG/
-	zmft2RXl7SL9P7Qfjo5v/LLLZXloBRVqokSZPuqHQvMZ/RwDNlE+193I7j7TFZ5qnBtVa1Rr2Yy
-	1HprHfsb84tI1UHfKhO1e4V3YDfCL870ptcUlwbQBu7wO3HPz910kIETZr8wPZ+Iuvxg5BqscN0
-	wgpbyaws5GYVe6RAIOq8Du5bHvUG9vyYLO0g==
-X-Google-Smtp-Source: AGHT+IEIwwlIwoTIiNuhUQ07/bBrVkoWwe0s7LnQYSy2POy+c888AvHzKbMqqWN1VrmqgpQIHAF1pA==
-X-Received: by 2002:a17:906:6a1d:b0:af9:237c:bb35 with SMTP id a640c23a62f3a-afdf00e2e81mr95410766b.22.1755659941758;
-        Tue, 19 Aug 2025 20:19:01 -0700 (PDT)
-Received: from [26.26.26.1] (ec2-3-75-144-20.eu-central-1.compute.amazonaws.com. [3.75.144.20])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded52ea4asm96482666b.101.2025.08.19.20.18.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 20:19:01 -0700 (PDT)
-Message-ID: <d6b852bc-328a-41af-b125-e250c72c0d22@gmail.com>
-Date: Wed, 20 Aug 2025 11:18:52 +0800
-MIME-Version: 1.0
+	id 1uoZTP-0000000CGiy-2oIP;
+	Wed, 20 Aug 2025 03:26:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rSM6iPE15TsJAPpiP6pxd+pOPZeIDya8crWsKGN5LMEnrJhkFKJUStdFBZIrChNT1ISLCIcnyYKQ0/7/0HDGl1SHoIGqkvxtYQtrU1Ki7bB9oz0mcS+rfHHmSn8mD/SQPVS0t8E1QGJNaewgMz4iFPGgZtRabqxa4mp2SUXFH6U9tuMmaC4Z5GzI6bOYxgp60iUJsLL1Wop9kKwv/V+a/VWs/IC5g+HbUfxI2OtX/Zpu5IlO82kb9yCi6WQZiD/Wq9FbkPO/z+OJOUSe4PcLgv9vnFADLzFz4yjRNYlIb8DnWZeAxsYqU2883/znF1xYWRmOXEfpTQ14SCCQEpe/gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=odRY6BcYZ+8QVhNaKNFyX2Y8DrKA/CHzt8DcPqI5UoM=;
+ b=ErNRavjxEhF8cCtPQy1elvsDrSYReH+FvKMqr1OOP5phvr2cYXfoHucRIQe6Wxg+TGwECZqvG4+pqo3FZknzVzKkz1mdI+Fga8pHB1hEAtVc70gzIP8QLwZlhZiwz3pIqtauTYMN8QQjWOlSSTrVKyF4RMKblV9HARjgAraLNtvtRRS3gsdYhPLt9biiIkooA23MXM7P+CQZWo97zUHikJrNawBZC2uDIW4DnsqLB6mnLih9X+Ub8Q8tSc26cdqjAn9tzXAReL6qMZd1NRxAUaHf0AU0gmSadZhLeWdYjEbCbWlTpH7nosW1w7IFK1XmXtg21kAoRrm1Qy7ZJSiMKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=odRY6BcYZ+8QVhNaKNFyX2Y8DrKA/CHzt8DcPqI5UoM=;
+ b=WEVgsAbSFRV+cjPtNNRf8PuCDUF1L/CUuJ0d+dJWQjDCXzTuPYaQOgrwVkikMlFD1vzVvkxZaTD5RkF7MI2c921+T77tCUg18dXuPuvFmSDgpPyrqixrHIl417tQYN485/pAsTXJBmzYarLN+UkAYqOFXKLU3szzEUZKZFdtgGyKK7tZzgNzhI6usPN6L3lo7j7u6L3095mhrlhOpPsVp8cu/rUvqmHfOEs5D845VobD79L3K/GZAKThXbIB5C4pWC/rbSmmowL14VjrO9zghwobgpfX9REQxplb4CaqChIsT5jsbqg3TNyBUvx+28NgDcCVawWiFRp6sITp8K5DYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by PA1PR04MB11384.eurprd04.prod.outlook.com (2603:10a6:102:4f5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Wed, 20 Aug
+ 2025 03:26:44 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
+ 03:26:43 +0000
+Message-ID: <185e3a1f-0d84-460f-a9b3-bc4bdc13e543@nxp.com>
+Date: Wed, 20 Aug 2025 11:28:14 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
- device
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
- jgg@nvidia.com, will@kernel.org, robin.clark@oss.qualcomm.com,
- yong.wu@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, thierry.reding@gmail.com,
- vdumpa@nvidia.com, jonathanh@nvidia.com, rafael@kernel.org, lenb@kernel.org,
- kevin.tian@intel.com, yi.l.liu@intel.com, baolu.lu@linux.intel.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
- patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
- helgaas@kernel.org
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
- <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
- <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+Subject: Re: [PATCH 3/7] drm/bridge: ite-it6232: declare supported infoframes
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org
+References: <20250816-drm-limit-infoframes-v1-0-6dc17d5f07e9@oss.qualcomm.com>
+ <20250816-drm-limit-infoframes-v1-3-6dc17d5f07e9@oss.qualcomm.com>
+ <9e77615a-9d5b-4971-b1db-74d6bed39533@nxp.com>
+ <24392da1-02f4-4d57-a145-6285d46d3bad@oss.qualcomm.com>
+From: Liu Ying <victor.liu@nxp.com>
 Content-Language: en-US
-From: Ethan Zhao <etzhao1900@gmail.com>
-In-Reply-To: <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <24392da1-02f4-4d57-a145-6285d46d3bad@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR01CA0197.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:189::8) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA1PR04MB11384:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d67fbb1-cff5-46f2-d518-08dddf9962bd
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TzlnR2ptVFlLR2tVc1VuYTd0OXkyb284dXlGZDVxbUlEWDFqemlJQnUrYWkw?=
+ =?utf-8?B?QjZmRHAxb3NiVklML01JZjBLVVBuQXNCWFI0bG5GZ1pXenpVWldWZFRmd3pR?=
+ =?utf-8?B?RS8weEp2VXpOUDNYci9YQ294QjNxZ0dxZFVlYUxKbktUeExrYVdPWThhV0xL?=
+ =?utf-8?B?Z3l1NnlJWVpWL2VSTXA3VHlXbHRsNVJhWjFTclFRdFBFYWJZNmxOaVZCUGJo?=
+ =?utf-8?B?dHVSaFBZNWlCQjdQTDZXWmdNWE9hajdDWE83ZDVHVGtxL1d1ZDZQYlZhaFA3?=
+ =?utf-8?B?M3Bkd2l3NkFIVUhSdEpYZDJ1NG9hQzFtTS9aNjlTbVBXblBHSERROUMxV0pz?=
+ =?utf-8?B?SlhCY0o2UnVKa0wrWUFBNFpZbVkzVzB5OVh6bS9DaWF4VG1WRW5rd1dRR09Q?=
+ =?utf-8?B?Qlp1RDVscENFRnVzT3dTVy9aellRcStvcjhpT1k1TVNUYkl5V2MybVZSeVk0?=
+ =?utf-8?B?VFVzdVZiaElXZE81bjRnYzZ3SlJxL29ncFZQM1Q3RlZXREl6akk4bTZiQ2Nh?=
+ =?utf-8?B?T1lvMWJjM1lVRFA2azBHVW5oTnQ4Vk1CdnkxcmgzaWVWMHZFcHNzYWY1Mk5D?=
+ =?utf-8?B?SW1TZFB4bEdYTlNzUmh1T2MxT1Q1SEI1cktWck5DZWEvNjJ2Z2Zwd3llZGxa?=
+ =?utf-8?B?Ym9OdWNIYWVkdmd1ZnhzWm5LRkhDYUVaRmc1TS9WaUFsb1FwRVhlV3hHTXFG?=
+ =?utf-8?B?QncyYnEyVFhVZEFmSk5qMmo3R0RoKzV3YjlvcnFJdEttZkdUaDkwYXhKQnRJ?=
+ =?utf-8?B?V3BBUk1Bb2crMkJBbzVQcWVsQ1ZyTE1LNHFMZmc1RDdzRXYwK0FsVUlQWXZT?=
+ =?utf-8?B?YTJVcmtVeXJ5Y3FOTUVBM1dyb3RKZkpKeEhFTTZKUFh1UnFPYnk4eUUwK1Iz?=
+ =?utf-8?B?REFMMWtaMDc1ZlZ4OVVJR3dkS3h1aGFoSmJ6OExKTjRrN0x3OWgvbmpyRUJY?=
+ =?utf-8?B?Sjg2Q210WEQ3UHVBR3E2c3V6ZFdQa0NCZUFFci8wL3lRTiswNDAwUGYyOVl2?=
+ =?utf-8?B?akU3Qnl4VHNuTXZUdUN2N1VEYjJiZnZTa01LSTlOMFRhU2QwcGZ5VlZYRXR4?=
+ =?utf-8?B?OWd3cTg5cHlkQWFIOVVYRHFMZklDYVk3OXlhb3owOUVYUnl6NWhDK0ZEZjVn?=
+ =?utf-8?B?YjF5d0J3Y0IwcUJEY3hNdHppbThVRGtkdUt6OUhKbldTNGFVSjgxN3RRNGZU?=
+ =?utf-8?B?dk1oMjZlTTlJdGRGTVJ1WktrcEJFWmN6emdJMDQ1TDlKNXZGeFovb3ZpUTBy?=
+ =?utf-8?B?SWQ4dTU5elNEd0Y0WlhMUFZZb0ZPK3VWNkZVdUVCc0RPRzdIOWtmV01SeHJ2?=
+ =?utf-8?B?bjNZNEp3NWt6R3NOQ2JvUzZjbEtGYmpJTUpwRVVsQVpCcW53Q3NaL29CaHlX?=
+ =?utf-8?B?eG1SRVlQeXlBZkcxSWV4aHJ6K0NvM3RIOHdrZnAvR200NFZzWXNrNURrWjdC?=
+ =?utf-8?B?RGFSR1JUNGJLdVpjdUJQOCtLWnZiTWE2Q3duM0FOcnkrZjVoOGZnSjBNc2t3?=
+ =?utf-8?B?WVkrbmN2TzZXQm1IaDh3SzFyUjU1Rm9DRGs4UjdyWUpKZXVJMDF1ZGdmQTZq?=
+ =?utf-8?B?eHUrNlVUZGlUUEtnK3V6VG42dEltMWU0ZGZHNHAwbUwvME5xWmhlRFRHTWpj?=
+ =?utf-8?B?WjlHVVBxOGpEakZJdWVsZGRUbmRQL1g5UVRUY3ROaHRGMXJtMVpyOGtxd3Mw?=
+ =?utf-8?B?bU8zR3VrU3VFbFhrYUNpYTgyeG9yWE9mZVBiZkdOdVBDdW51UldwaHg5cEly?=
+ =?utf-8?B?NHlLVHdkQXVlU0RJdjJvTld6N0RFZDJUREdlNEhMYmlxanhzUktUWnVmNTBu?=
+ =?utf-8?B?ZmkvaUg4Y21RZ1NyUkQvREdrTURZNjZVK3gyWC9vbWtueEdaMWhiQ1FFK2py?=
+ =?utf-8?B?OVZqdXpMVEU2eFNBekI2S2diTHV6cVUxUG1VeDNwaytSelJzRUU3emZBQ3RT?=
+ =?utf-8?B?RVRSbzVWMU1oY0E1SmhSUVM1eDUwdkxOcXZyTm5qOUxwOVdtOFFTQmIrQWc3?=
+ =?utf-8?B?NlNOemFWVjVnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZE9EUURGUFhCMnQ1cDdCR3hGTGRVU0N5YlZjNVY3Rkh3MHNDN1d0KzRWUFdv?=
+ =?utf-8?B?MzRhV3g2RVlrY3ZtdXVZaGd5bkVuc3o0Ykw1SWhYZFc0WWtPRUJOTEtjbUZX?=
+ =?utf-8?B?Z1E2M0Qwc1NQdXp2WVVub0pnMnIvdnhuakx3VStlemhiM1lOL3VQcy9vMEtW?=
+ =?utf-8?B?UmR3ZjArNjlueVVCbmRGRklBck0vZWVnYUt6bzR1ZDB5QTQ3SHlXdGg0dU5q?=
+ =?utf-8?B?Nmxrd3RWTkVkNWd3NFJ6VFlwVHFYK3ZNSXFET01mS0pMcTNxMDhTbnB2emZT?=
+ =?utf-8?B?WjdpTVU2blZ4cm9OMkVNNUhtREEvaXBWSUdnMHllSGdPUVBHQ01maW5UQ3BX?=
+ =?utf-8?B?RHNybEsybHRLeGI0clp3blV1NTd3M3gxQ3FaaGxONjlQVEFlcnFKckx6ZTZr?=
+ =?utf-8?B?UDEzU3ZhamgrQ0FyUzZpN2F6N0dNNnRGYm8rSHgzRitwYjUyb2g4K0gvWi9X?=
+ =?utf-8?B?NXBRMkZOeUIyZDdSTVY5eDBOTTNxenA0c0taUFhWNXBRMHpxQU5vRjB0d1Vy?=
+ =?utf-8?B?cUROM3RzZmI1RGpBVGpQelZZQ3lPTlFHTnQwdTVML21LN0FDdHROMWdQaUdN?=
+ =?utf-8?B?amZBbm8yTXF5WHc0b2tPYmVZRGhqSlh0bWRxOVkxSkR3d3NMMlpGY3hKZEdN?=
+ =?utf-8?B?aWpMVDAycmRtM0lqRWRrb0dGV05HVldkbG9uOUVTTTBFQkVkalk1cm1MTzJi?=
+ =?utf-8?B?RVBZQXk5czRHbUNYc052ejVtM2RsV0hYbEJkOFNtdHpZaUE4emQ1blNwSnMx?=
+ =?utf-8?B?OXlhWDdUMTVRUEpqVVNVUFNORDFoSXU4WWNmUGdqbEhFVlZadEtGelZEbm5w?=
+ =?utf-8?B?UisxbGs4dVpxQnkxdDdTOGhJMEZlMFRtTG5YTXpIUHQ0TG5aZEZxdDNHMW5q?=
+ =?utf-8?B?Y21XQnZTb1VQQUFyUXZyUG9tVDFqUGZFMFpqOVJyTlVLME5ESGN6RFhmWFlO?=
+ =?utf-8?B?ZWt0Y2JZOW1wZUNkZFlSQTlMaGxtQVRXK3kwTnZsV2hNc3FITUVlZzFZRjNF?=
+ =?utf-8?B?WUd6SitvOHNjTSt0VGJaaC9uS2YzMkZhQjFUT1RsbHJpZm5RYkEzeFdkelFH?=
+ =?utf-8?B?VXg3bEx4WXNoaHp6OTdGZFBqUmIvRVB3ZGMyeUFocG1lbjVWL0JuZGlNUGV0?=
+ =?utf-8?B?YXdHN3dsUU10cTgxYzlKNyt6R2lUMHJyMzN1SnNzeld0NDFzbCtMcFk0dE5k?=
+ =?utf-8?B?YTNrSVFNMXRPQWxlWVF3N01aUUIyRVcwakc0Y1ZjNjh5UHFZT1FjWGlDUUJy?=
+ =?utf-8?B?UGhEbnBKK1BFcGwxOWVZWW0rYkxTQUJ2ODJwcTI3NC8zSmo4ZGFDY2xqcEdB?=
+ =?utf-8?B?SEExdEpTVm5kRXF2VlEzanJGWGlqVitNWCt3cXluWEJlYXNsUEp2VWxEdDYz?=
+ =?utf-8?B?WCtRQnVXZm1LTVRYNUFnem5nU1BUZ0Rhc3hGUEpLb1dCTUZwbDB4QTJ0VkxC?=
+ =?utf-8?B?c1VVVGp0a1pBQlo0L2tubzV0MFJaa1UyMnlLTVFNdWtPUnR1b0llQU4xckVU?=
+ =?utf-8?B?YXE3SHoxNlprc2trdjNtK0phTnlhRFh2bmdZcnpwMU5wOGQrcGNxWmF2cU1P?=
+ =?utf-8?B?V21sdVdpU1Jjb3p2S1NDTHJZN0Vtb1RveEZxbUFCYUJlZW9CeVpyMDMvamYz?=
+ =?utf-8?B?RzBEaDk5VFZFa3ZVT0Z3dWRuRm1mejRuSEpNdjZoMG54SGdWMEFrQ3FDMkYx?=
+ =?utf-8?B?RW5ZWm03Y3p5WWxhY0dBdHdNVjNpR3JGcFVScjhpS3EwY1RnTUV3UlQwYXY3?=
+ =?utf-8?B?T0pzSGFVS01nMkFRNmF3SHAwQXRUS0gyN1ZsaGllRjU1dU5wZmJBOG9reHdp?=
+ =?utf-8?B?WkEwVXFXeWdmTktRUllCN1dUcFNnWlFFYjhpLzNSTjRsdmJtNWtkajZQcnpa?=
+ =?utf-8?B?by91M0xCbldWNkRDMThMejFwSEVxLzA1b2Naam9laHlXVXFBRUFtdGR6RFNV?=
+ =?utf-8?B?RmJVUVlYQ2JiV0xsQ00xNUJlclNPK0REQ2xQQ3JHdkpKd09sTnBFQlRUMSsx?=
+ =?utf-8?B?alN6MnI2ekpMMldpMzFWb3NFUTUzU2F1dCtzcHRqKy9wMVNyRmNScG1YR1o4?=
+ =?utf-8?B?YXAvRFJKdzlHM1JnUVM5Zk1FUmNaN040aFNTTHhwMjJkaENXeHZDZFU4QlRo?=
+ =?utf-8?Q?Ltt0GnM8CDIUPU3fdZIgRKfzc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d67fbb1-cff5-46f2-d518-08dddf9962bd
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 03:26:43.8346
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qYBBkyvJ42WqfGFdFzXhdp+XKW0hdXFj+kQa5iP9VjXLiKAoDXuA7NLbaQ2t0LyzLMtsswtMBFSuY5hFmx3vqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11384
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_201903_751116_005A4566 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20250819_202651_711800_B6ECCADB 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,90 +197,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 08/19/2025, Dmitry Baryshkov wrote:
+> On 19/08/2025 12:49, Liu Ying wrote:
+>> Hi Dmitry,
+>>
+>> On 08/16/2025, Dmitry Baryshkov wrote:
+>>> Declare which infoframes are supported via the .hdmi_write_infoframe()
+>>> interface.
+>>>
+>>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>>> ---
+>>>   drivers/gpu/drm/bridge/ite-it6263.c | 1 +
+>>>   1 file changed, 1 insertion(+)
+>>
+>> For subject, s/it6232/it6263.
+> 
+> Ack
+> 
+>>
+>>>
+>>> diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+>>> index cf813672b4ffb8ab5c524c6414ee7b414cebc018..b1956891a8388401c13cd2fc5c78f0779063adf4 100644
+>>> --- a/drivers/gpu/drm/bridge/ite-it6263.c
+>>> +++ b/drivers/gpu/drm/bridge/ite-it6263.c
+>>> @@ -875,6 +875,7 @@ static int it6263_probe(struct i2c_client *client)
+>>>       it->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+>>>       it->bridge.vendor = "ITE";
+>>>       it->bridge.product = "IT6263";
+>>> +    it->bridge.supported_infoframes = DRM_CONNECTOR_INFOFRAME_AVI;
+>>
+>> With supported_infoframes set, the two lines setting vendor and product
+>> are dead code.  I think it's worth dropping them and updating kerneldoc
+>> for vendor and product members because they don't have to be required if
+>> DRM_BRIDGE_OP_HDMI is set.  But, this could be done with future patch(not
+>> in this patch series).
+> 
+> They are still required by the framework itself, see drmm_connector_hdmi_init().
+
+Yes.  But it's a bit too strict since SPD infoframe is optional according
+to CTA standard documentation.
+
+> 
+> BTW: I don't have ITE datasheet. Do you know if it really supports only the AVI frame?
+
+AFAICS, it seems that ITE6263 supports inforframes from 0x81 to 0x85, so
+including SPD inforframe.  Maybe, just keep those dead vendor&product
+settings for now and add SPD inforframe in future.
+
+> 
+> 
+>>
+>> Reviewed-by: Liu Ying <victor.liu@nxp.com>
+>>
+>>>         return devm_drm_bridge_add(dev, &it->bridge);
+>>>   }
+>>>
+>>
+>>
+> 
+> 
 
 
-On 8/20/2025 5:59 AM, Nicolin Chen wrote:
-> On Tue, Aug 19, 2025 at 10:12:41PM +0800, Ethan Zhao wrote:
->> On 8/12/2025 6:59 AM, Nicolin Chen wrote:
->>> @@ -4529,13 +4530,26 @@ EXPORT_SYMBOL(pci_wait_for_pending_transaction);
->>>     */
->>>    int pcie_flr(struct pci_dev *dev)
->>>    {
->>> +	int ret = 0;
->>> +
->>>    	if (!pci_wait_for_pending_transaction(dev))
->>>    		pci_err(dev, "timed out waiting for pending transaction; performing function level reset anyway\n");
->>> +	/*
->>> +	 * Per PCIe r6.3, sec 10.3.1 IMPLEMENTATION NOTE, software disables ATS
->>> +	 * before initiating a reset. Notify the iommu driver that enabled ATS.
->>> +	 * Have to call it after waiting for pending DMA transaction.
->>> +	 */
->>> +	ret = iommu_dev_reset_prepare(&dev->dev);
-> 
->> If we dont' consider the association between IOMMU and devices in FLR(),
->> it can be understood that more complex processing logic resides outside
->> this function. However, if the FLR() function already synchironizes and
->> handles the association with IOMMU like this (disabling ATS by attaching
->> device to blocking domain), then how would the following scenarios
->> behave ?
-> 
-> That's a good point. The iommu-level reset is per struct device.
-> So, basically it'll match with the FLR per pci_dev. Yet, the RID
-> isolation between siblings might be a concern:
-> 
->> 1. Reset one of PCIe alias devices.
-> 
-> IIRC, an alias device might have:
-> 
->   a) one pci_dev; multiple RIDs
-> 
->      In this case, neither FLR nor IOMMU isolates between RIDs.
->      So, both FLR and IOMMU blocking will reset all RIDs. There
->      should be no issue resulted from the IOMMU blocking.
-> 
->   b) multiple pci_devs; single RID
-> 
->      In this case, FLR only resets one device, while the IOMMU-
->      level reset will block the entire RID (i.e. all devices),
->      since they share the single translation tunnel. This could
->      break the siblings, if they aren't also being reset along.
-Yup, such alias devices might not have ATS cap. because of they
-are PCI devices or they share the RID(BDF), so checking ATS cap
-condition might be useful here to skip the prepare()/done() .>
->> 2. Reset PF when its VFs are actvie.
-> 
->   c) multiple pci_devs with their own RIDs
-> 
->      In this case, either FLR or IOMMU only resets the PF. That
->      being said, VFs might be affected since PF is resetting?
->      If there is an issue, I don't see it coming from the IOMMU-
->      level reset..
-Each of the PF and its VFs has it owns RID(BDF), but the VFs' life
-depends on the living of PF, resetting PF, means all its VFs are
-lost.
-
-There is no processing logic about PF and its VFs in FLR() yet.
-my understanding the upper layer callers should consider the
-complexity of such case.
-
-While we introducing the connection of IOMMU & device in FLR(),
-seems we brought some of the logic from the outside to the inside
-part.
-
-One method might we don't handle PF either by explicit checking its
-VF configuration existing to skip prepare()/done() ? till we have
-much clearer handling logic about it.
-
-Thanks,
-Ethan
-   > d
-> Thus, case b might be breaking. So, perhaps we should add a few
-> conditions when calling iommu_dev_reset_prepare/done():
->   + Make sure that the pci_dev has ATS capability
->   + Make sure no sibling pci_dev(s) sharing the same RID
->   + Any others?
-> 
-> Thanks
-> Nicolin
-
+-- 
+Regards,
+Liu Ying
 
