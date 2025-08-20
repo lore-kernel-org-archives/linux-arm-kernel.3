@@ -4,53 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BD7CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 15:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC296CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 15:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kj3IN+qWrNLTJNkOKoee76vOwexQhhZOwIf81Qb9wrI=; b=W7nIg2qYnENhC6vAnRRNgB5S5/
-	vLoy5cLooKfOcq3N2HxQ6YW50nPrYgPmzrv42byoRjD4hMYXmME3N8f+us08/a2SZXDVbgwmqGHce
-	RlA72p/2AEGGThYGtsdIYzm0QaXJF6KjwGZIco6F37ojR2xibUJcOQ/zgcYJh5hmhUG4u36Am8b89
-	Cz34nTFhwJ8nNKldYaYUq8Ncv6hm8vnVD8D1UHR8XD2pcP5t0JX178cZ+pvqmOLzrVyHXmpHksYNl
-	jUOR8+zu7wAVXbkDPYo3Mh07fqizRa1ZhB2scfsQjncVKHFCleNigjhd0CoVnTrX0k0mK5k2RYnEe
-	+ARB5sog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LYrr6xqYdoElAJ1H2K8buta5BbHoTL4x4sjuu8jfM04=; b=Z8S9VP4+WxC5xOu2V95nAlCZy1
+	hPhAaAAOEbGIcUmuArwnclmUeyEAAep+vAjKT5+Q4zxcunafiYUgARQC+eMMwHb477k3bukM5KesX
+	Gbmgux693K1WXFsrV6iFxzgjZ5RSuUX/IwJ5GhVbg9CbXVlYjHdUVZ79dBnWDQgTIrpxGcR/OW5KX
+	ey/Yr/QNreiqFoC7LacWplnY3zRbNuXFiQ0vJ3b0PqEGe0K5bnXlHnuaa3zUWxtJ8GBV9SzhitN4v
+	86EfvRQk/OFbOluwJ+2CXIeCPWHRUR/CRvbSYR/wKA4W2NvV2dVJ0oIz6qKtzuOwOP4sMPD9qTFl4
+	opXM2/Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokmp-0000000EGjz-3Eez;
-	Wed, 20 Aug 2025 15:31:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojU7-0000000Dx6D-2okI
+	id 1uokpP-0000000EHC5-2eYq;
+	Wed, 20 Aug 2025 15:34:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uojai-0000000Dz74-22jF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 14:08:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 157EF1D31;
-	Wed, 20 Aug 2025 07:08:05 -0700 (PDT)
-Received: from [10.1.196.50] (e121345-lin.cambridge.arm.com [10.1.196.50])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC4643F63F;
-	Wed, 20 Aug 2025 07:08:12 -0700 (PDT)
-Message-ID: <9bb085e7-9833-480b-8804-e9a0d2167f25@arm.com>
-Date: Wed, 20 Aug 2025 15:08:11 +0100
+	Wed, 20 Aug 2025 14:15:05 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id ED109606;
+	Wed, 20 Aug 2025 16:14:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755699244;
+	bh=g/rGbdSPbqrHGAoJ1YXWtvncYfbQMQU0610yMszQsao=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=v8PeiQWJ5magojmvPcL8N9BMO1Nw4Od86lgD6VmPaPtyQrmtJTBVG0t+Ne+qTg52g
+	 5FjWp8TZqeu3Bz6oVKlAE9v5ajtYX6LeKfsTSMpxzQVMsuiIgdesWAKEFe6MfFbMT1
+	 0HEvzrk9Z1DepufHLl2XdR1mOKefL+vxnI+4dLPs=
+Date: Wed, 20 Aug 2025 17:14:39 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Maud Spierings <maudspierings@gocontroll.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: nxp: imx8-isi: Check whether pad is non-NULL
+ before access
+Message-ID: <20250820141439.GA10547@pendragon.ideasonboard.com>
+References: <20250818-imx8_isi-v1-1-e9cfe994c435@gocontroll.com>
+ <20250820140154.GB6190@pendragon.ideasonboard.com>
+ <a9283349-c58d-47e6-ac33-77b5a6b893fe@gocontroll.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/dma-mapping: Fix arch_sync_dma_for_device to
- respect dir parameter
-To: Catalin Marinas <catalin.marinas@arm.com>, john.cox@raspberrypi.com
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-References: <20250820-arm64-dma-direction-fix-v1-1-818a4ca8f879@raspberrypi.com>
- <aKXMx5RZCy6cuc33@arm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aKXMx5RZCy6cuc33@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <a9283349-c58d-47e6-ac33-77b5a6b893fe@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_070815_790482_7D498008 
-X-CRM114-Status: GOOD (  38.76  )
+X-CRM114-CacheID: sfid-20250820_071504_668685_5A75A7DA 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,135 +78,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2025 2:25 pm, Catalin Marinas wrote:
-> On Wed, Aug 20, 2025 at 11:28:06AM +0100, John Cox via B4 Relay wrote:
->> All other architectures do different cache operations depending on the
->> dir parameter. Fix arm64 to do the same.
+On Wed, Aug 20, 2025 at 04:07:55PM +0200, Maud Spierings wrote:
+> On 8/20/25 16:01, Laurent Pinchart wrote:
+> > On Mon, Aug 18, 2025 at 02:31:43PM +0200, Maud Spierings via B4 Relay wrote:
+> >> From: Maud Spierings <maudspierings@gocontroll.com>
+> >>
+> >> media_pad_remote_pad_first() can return NULL if no valid link is found.
+> >> Check for this possibility before dereferencing it in the next line.
+> >>
+> >> Reported/investigated in [1]:
+> >>
+> >> Link: https://lore.kernel.org/all/1536a61b-b405-4762-9fb4-7e257f95e49e@gocontroll.com/ [1]
+> >> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> >> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> >> ---
+> >> I'm not sure if this should be a dev_dbg(), just following the pattern
+> >> around it for now, also not sure if EPIPE is the correct error.
+> > 
+> > I've submitted
+> > https://lore.kernel.org/linux-media/20250820140021.8026-1-laurent.pinchart@ideasonboard.com,
+> > which should fix this issue in a more generic way.
 > 
-> I suspect that's a bug in the users of the DMA API. We shouldn't modify
-> the arm64 implementation to cope with them.
-> 
->> This fixes udmabuf operations when syncing for read e.g. when the CPU
->> reads back a V4L2 decoded frame buffer.
->>
->> Signed-off-by: John Cox <john.cox@raspberrypi.com>
->> ---
->> This patch makes the arch_sync_dma_for_device function on arm64
->> do different things depending on the value of the dir parameter. In
->> particular it does a cache invalidate operation if the dir flag is
->> set to DMA_FROM_DEVICE. The current code does a writeback without
->> invalidate under all circumstances. Nearly all other architectures do
->> an invalidate if the direction is FROM_DEVICE which seems like the
->> correct thing to do to me.
-> 
-> So does arm64 but in the arch_sync_dma_for_cpu(). That's the correct
-> place to do it, otherwise after arch_sync_dma_for_device() you may have
-> speculative loads by the CPU populating the caches with stale data
-> before the device finished writing.
+> Saw it, but I think my patch technically is still correct as the 
+> function documentation states it can potentially return NULL right? [1]
 
-Exactly, not only is it unnecessary, it's not even guaranteed to have 
-any lasting effect. arch_sync_dma_for_device() has two jobs to do: 1) 
-ensure that any new data going in the DMA_TO_DEVICE direction is visible 
-to the device; a clean is sufficient for that. 2) ensure that no dirty 
-cachelines may be written back over new DMA_FROM_DEVICE data; a clean is 
-sufficient for that also. Adding an invalidate at this point serves no 
-purpose since the CPU is still free to immediately speculatively fetch 
-the same cleaned data back into the cache.
+The function documentation states
 
->> This patch fixes a problem I was having with udmabuf allocated
->> dmabufs. It also fixes a very similar problem I had with dma_heap
->> allocated dmabuf but that occured very much less frequently and I
->> haven't traced exactly what was going on there.
->>
->> My problem (on a Raspberry Pi5):
->>
->> [Userland]
->> Alloc memory with memfd_create + ftruncate
->> Derive dmabuf from memfd with udmabuf
->> Close memfd
->> Queue dmabuf into V4L2 with QBUF
->> <decode a video frame>
->> Extract dmabuf from V4L2 with DQBUF
->> Map dmabuf for read with mmap
->> Sync for read with DMA_BUF_IOCTL_SYNC with (DMA_BUF_SYNC_START |
->> DMA_BUF_SYNC_READ)
->> Read buffer
->> Sync end
->> Unmap
-> 
-> Between the device writing to the buffer and the "read buffer" step
-> above, is there a call to arch_sync_dma_for_cpu()? A quick look at
-> begin_cpu_udmabuf() shows a dma_sync_sgtable_for_cpu(), though there is
-> a branch where this is skipped. get_sg_table() seems to do a DMA map
-> which I think ends up in arch_sync_dma_for_device() but the sync
-> for-CPU is skipped.
+"returns a pointer to the pad at the remote end of the first found
+enabled link, or NULL if no enabled link has been found."
 
-Indeed that path is clearly wrong.
+The MUST_CONNECT flag ensures that there is an enabled link, so the
+function can't return NULL.
 
-Thanks,
-Robin.
+> Link: 
+> https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html [1]
+> 
+> I will test you patches tomorrow.
+> 
+> >> ---
+> >>   drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 7 +++++++
+> >>   1 file changed, 7 insertions(+)
+> >>
+> >> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> >> index ede6cc74c0234049fa225ad82aaddaad64aa53d7..1ed8b031178b7d934b04a8752747f556bd1fc5a9 100644
+> >> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> >> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> >> @@ -160,6 +160,13 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
+> >>   	}
+> >>   
+> >>   	pad = media_pad_remote_pad_first(&xbar->pads[sink_pad]);
+> >> +
+> >> +	if (pad == NULL) {
+> >> +		dev_dbg(xbar->isi->dev, "no valid link found to pad %u\n",
+> >> +			sink_pad);
+> >> +		return ERR_PTR(-EPIPE);
+> >> +	}
+> >> +
+> >>   	sd = media_entity_to_v4l2_subdev(pad->entity);
+> >>   	if (!sd) {
+> >>   		dev_dbg(xbar->isi->dev,
+> >>
+> >> ---
+> >> base-commit: 3ac864c2d9bb8608ee236e89bf561811613abfce
+> >> change-id: 20250818-imx8_isi-954898628bb6
 
-> An attempt to a udmabuf fix (untested):
-> 
-> diff --git a/drivers/dma-buf/udmabuf.c b/drivers/dma-buf/udmabuf.c
-> index 40399c26e6be..9ab4a6c01143 100644
-> --- a/drivers/dma-buf/udmabuf.c
-> +++ b/drivers/dma-buf/udmabuf.c
-> @@ -256,10 +256,11 @@ static int begin_cpu_udmabuf(struct dma_buf *buf,
->   			ret = PTR_ERR(ubuf->sg);
->   			ubuf->sg = NULL;
->   		}
-> -	} else {
-> -		dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
->   	}
->   
-> +	if (ubuf->sg)
-> +		dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
-> +
->   	return ret;
->   }
-> 
->> I get old (zero) data out of the "Read buffer" stage in some cache
->> lines sometimes.
->> It doesn't matter which way round the mmap & sync are.
->>
->> I am aware that there is a patchset going through for udmabuf that may
->> well fix the udmabuf case above, but given that this patch fixes
->> something similar in dma_heap/system too I think it is still worth
->> having.
->> ---
->>   arch/arm64/mm/dma-mapping.c | 16 +++++++++++++++-
->>   1 file changed, 15 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/mm/dma-mapping.c b/arch/arm64/mm/dma-mapping.c
->> index b2b5792b2caaf81ccfc3204c94395bb0faeabddd..51c43c1f563015139e365ed86f0f5f0d9483fa7f 100644
->> --- a/arch/arm64/mm/dma-mapping.c
->> +++ b/arch/arm64/mm/dma-mapping.c
->> @@ -16,8 +16,22 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
->>   			      enum dma_data_direction dir)
->>   {
->>   	unsigned long start = (unsigned long)phys_to_virt(paddr);
->> +	unsigned long end = start + size;
->>   
->> -	dcache_clean_poc(start, start + size);
->> +	switch (dir) {
->> +	case DMA_BIDIRECTIONAL:
->> +		dcache_clean_inval_poc(start, end);
->> +		break;
->> +	case DMA_TO_DEVICE:
->> +		dcache_clean_poc(start, end);
->> +		break;
->> +	case DMA_FROM_DEVICE:
->> +		dcache_inval_poc(start, end);
->> +		break;
->> +	case DMA_NONE:
->> +	default:
->> +		break;
->> +	}
->>   }
-> 
-> As explained above, that's not the right fix. We need to identify what's
-> missing on the ioctl() paths.
-> 
+-- 
+Regards,
 
+Laurent Pinchart
 
