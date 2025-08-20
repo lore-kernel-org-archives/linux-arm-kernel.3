@@ -4,101 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D739ACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E4ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMfe/1pq+OlxwXSMepCY97jqsV7w44DfRMtiM5C5ElQ=; b=fvpUF3kp5NYu4Hdv6e+vcK7kps
-	3i+a9ZRshR2P+nLvFp2Fd/N4UIU5WDS1MmvcYn0LmA1UbGPSK0xnDTpZMlVjFQXUVBcnmHiFZF4ku
-	8RD6C9aD2kRfWB/Bgbe2FIazIyib6f1ucCzcmIlKFOd5t7ZPVJe7FWBz6X1x0aEZKb+Xz0ZSjHFP+
-	3FDQeOvl7oV+4HWTbTytBxyO1k+i8/69sdUWsEbt9XNe3+qdkbfn3PzsfxUnaGMdCasvaJy3zgi+n
-	I6E+yXHn4QpvYZ1z0FCQ9zqlLuqwK9eCBtbc+/5iHHKBvxFg666i968/w4A/hC2rc1IPPqXv7Ce+l
-	m2PmqDpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eqmP9vgg2YTWAUuE8YE8aiTjhe6juTxiIV2rXz3Bw1k=; b=ckF3Tnsft9a+h3O1YELM34dhFN
+	wXzczdL44Mil70zUM6W+vmPuDpWpY2M7zfGzguL5iCl9aXd6ZmN35xKFSS/r2b12PjFkhu4rHxPMm
+	fw50DqtYeCn38vpf7E06H8g2n6ZeCJqhCppZRWjCCZV0TSF1h4ELntLxwvATKHtW5AbZO6yh5leB+
+	xA8Ls/8zRiDaSvBOJHcfW4z9RkMMbGscjSyflX8oNN4TYfq9OUQSUnkM8Wx+rYkmDexrTBQ9tiopJ
+	Z31wHhCRaF/qkrVI4ODGO7r7z+SzkZwEmwn5BC2ltqoct9z9dSJWVo8xb+ZO//REWpFNYkmyFd/aA
+	uEz8xyFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojw5-0000000E6lc-0fyT;
-	Wed, 20 Aug 2025 14:37:09 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1uojzr-0000000E84L-2WPz;
+	Wed, 20 Aug 2025 14:41:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoj6m-0000000DsBT-0Nmf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 13:44:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755697448; x=1787233448;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ccW4DJ+w5B0tvFfy06eJzbjKks79ZjN2ZpCdAnZH4Ak=;
-  b=n+niXZTaP8gHIc5QcLpemeHcez9QOY6oX143hodzDE2oAllgKuos39xG
-   usVqmk99mjLUFF4xAdX35RUjZgFYIYsH1EfuCJLCSj6LlhcA6nMlO3ZlY
-   PvIwSdZtZbQSjm3fwsLRkgFK0uA83gMmDhH2UZkU891xPDXFra64By/GN
-   N/DFV+NRNX2D7ZLo7JoVO3wr17FEcVTEfniwdbEKMhuPZeX+JRwWdguuA
-   pYJsmxNiJTkkVI1dGuhghk0wucPYA0dDogrMZsIYAJ3y8OaZQx0XX6LBN
-   RNQwSe8dxw07NU9/P4mNEry9UcEumZMrffE4FcVse/pUHcD1m/NOqDei1
-   g==;
-X-CSE-ConnectionGUID: /WtkIbWpSfWfoY0D2ao6rA==
-X-CSE-MsgGUID: j6ixKsjQSGOrW+F3GRTtyg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11527"; a="75413014"
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="75413014"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 06:44:07 -0700
-X-CSE-ConnectionGUID: 4QaIxjvgQ0aK7kjMmX1XtQ==
-X-CSE-MsgGUID: q2Qzs15iR/Wyot4b2RKPmQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,302,1747724400"; 
-   d="scan'208";a="168481230"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2025 06:44:00 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uoj6a-00000006wmS-3DCw;
-	Wed, 20 Aug 2025 16:43:56 +0300
-Date: Wed, 20 Aug 2025 16:43:56 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Zijun Hu <quic_zijuhu@quicinc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v2 1/9] list: add list_last_entry_or_null()
-Message-ID: <aKXRHAyfPHPpZmMs@smile.fi.intel.com>
-References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
- <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-1-888912b0be13@bootlin.com>
- <aJJ9ttmL7wiw41fY@smile.fi.intel.com>
- <20250814183609.3788a6df@booty>
+	id 1uoj7l-0000000DsXm-2nxZ;
+	Wed, 20 Aug 2025 13:45:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755697508;
+	bh=USQrAZZJj10MR5a19PgXs2S92DCFQyDjwkKul1A2/QU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=V+ACyZEeuzaNAus8J+TTuv3/kSXjuUTRWqt2YJhX28Fu/ocqChkEESUuwNvexKYvu
+	 uFTfvMwN5FX12IBFr+W/iGQZ6KVG9lJMbu8pq7KmVaEK9MkQNqF+il2DUWwXnuNTVz
+	 fbJdNJWeI0JiQxFuQ9PZwwJkrNLOP2WXd0D8ryHB5HB76nIWIn8+jKpCBofN2ZHk6d
+	 MfwHTkX1F2D/CAuBtShAvxpjkNYsCsWdEYBVZZ8X8XQkBRq9hZDxwjsal+e9HmzUnp
+	 Vh9pOrZbiHSQ9vrTU9H4fW95oS9qZHzBqHjAX+m3ui9FCiIL9/0CWdz0f3r8VLg7Ju
+	 QCY69rb1HpHTQ==
+Received: from localhost-live.home (2a01cb0892F2D600C8f85CF092d4AF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2905F17E0483;
+	Wed, 20 Aug 2025 15:45:07 +0200 (CEST)
+From: Julien Massot <julien.massot@collabora.com>
+Date: Wed, 20 Aug 2025 15:44:57 +0200
+Subject: [PATCH v2 6/6] ASoC: dt-binding: Convert MediaTek mt8183-mt6358
+ bindings to YAML
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250814183609.3788a6df@booty>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250820-mtk-dtb-warnings-v2-6-cf4721e58f4e@collabora.com>
+References: <20250820-mtk-dtb-warnings-v2-0-cf4721e58f4e@collabora.com>
+In-Reply-To: <20250820-mtk-dtb-warnings-v2-0-cf4721e58f4e@collabora.com>
+To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ikjoon Jang <ikjn@chromium.org>, 
+ Enric Balletbo i Serra <eballetbo@kernel.org>, 
+ Chen-Yu Tsai <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Julien Massot <jmassot@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_064408_175949_29D15520 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20250820_064509_861439_21900018 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +88,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 14, 2025 at 06:36:09PM +0200, Luca Ceresoli wrote:
-> On Wed, 6 Aug 2025 00:55:02 +0300
-> Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
-> 
-> > On Fri, Aug 01, 2025 at 07:05:23PM +0200, Luca Ceresoli wrote:
-> > > Add an equivalent of list_first_entry_or_null() to obtain the last element
-> > > of a list.  
-> > 
-> > Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> 
-> Thanks Andy!
-> 
-> However I'm not sure when and where this should be applied.
-> 
-> Except for this one patch, all patches in the series are for
-> drm-misc-next. Also, patch 1 is currently not needed by any other
-> series AFAIK.
-> 
-> Based on the above, is it correct to assume that the whole series can
-> be applied on drm-misc-next? (when other patches will have a
-> R-by/Ack-by of course)
-> 
-> Also, is Andy's A-by enough to apply this patch?
+Convert the existing text-based DT binding for MT8183 sound cards using
+MT6358 and various other codecs to a YAML schema.
 
-The list.h is common for many, I think going via DRM with my Ack is enough
-based on the Git history of my changes in this file. But if you want more
-reliable source, get an Ack from Andrew Morton.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+ .../sound/mediatek,mt8183_mt6358_ts3a227.yaml      | 59 ++++++++++++++++++++++
+ .../sound/mt8183-mt6358-ts3a227-max98357.txt       | 25 ---------
+ 2 files changed, 59 insertions(+), 25 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..048fe62715d67d44daa08e75a63c782238815689
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/mediatek,mt8183_mt6358_ts3a227.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT8183 sound card with MT6358, TS3A227, and MAX98357/RT1015 codecs
++
++maintainers:
++  - Julien Massot <julien.massot@collabora.com>
++
++description:
++  Binding for MediaTek MT8183 SoC-based sound cards using the MT6358 codec,
++  with optional TS3A227 headset codec, EC codec (via Chrome EC), and HDMI audio.
++  Speaker amplifier can be one of MAX98357A/B, RT1015, or RT1015P.
++
++properties:
++  compatible:
++    enum:
++      - mediatek,mt8183_mt6358_ts3a227_max98357
++      - mediatek,mt8183_mt6358_ts3a227_max98357b
++      - mediatek,mt8183_mt6358_ts3a227_rt1015
++      - mediatek,mt8183_mt6358_ts3a227_rt1015p
++
++  mediatek,platform:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the MT8183 ASoC platform node (e.g., AFE).
++
++  mediatek,headset-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the TS3A227 headset codec.
++
++  mediatek,ec-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Optional phandle to a ChromeOS EC codec node.
++      See bindings in google,cros-ec-codec.yaml.
++
++  mediatek,hdmi-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Optional phandle to an HDMI audio codec node.
++
++required:
++  - compatible
++  - mediatek,platform
++
++additionalProperties: false
++
++examples:
++  - |
++    sound {
++        compatible = "mediatek,mt8183_mt6358_ts3a227_max98357";
++        mediatek,headset-codec = <&ts3a227>;
++        mediatek,ec-codec = <&ec_codec>;
++        mediatek,hdmi-codec = <&it6505dptx>;
++        mediatek,platform = <&afe>;
++    };
++
++...
+diff --git a/Documentation/devicetree/bindings/sound/mt8183-mt6358-ts3a227-max98357.txt b/Documentation/devicetree/bindings/sound/mt8183-mt6358-ts3a227-max98357.txt
+deleted file mode 100644
+index ecd46ed8eb98b99d0f2cc9eeca5f6d0aef6a5ada..0000000000000000000000000000000000000000
+--- a/Documentation/devicetree/bindings/sound/mt8183-mt6358-ts3a227-max98357.txt
++++ /dev/null
+@@ -1,25 +0,0 @@
+-MT8183 with MT6358, TS3A227, MAX98357, and RT1015 CODECS
+-
+-Required properties:
+-- compatible : "mediatek,mt8183_mt6358_ts3a227_max98357" for MAX98357A codec
+-               "mediatek,mt8183_mt6358_ts3a227_max98357b" for MAX98357B codec
+-               "mediatek,mt8183_mt6358_ts3a227_rt1015" for RT1015 codec
+-               "mediatek,mt8183_mt6358_ts3a227_rt1015p" for RT1015P codec
+-- mediatek,platform: the phandle of MT8183 ASoC platform
+-
+-Optional properties:
+-- mediatek,headset-codec: the phandles of ts3a227 codecs
+-- mediatek,ec-codec: the phandle of EC codecs.
+-                     See google,cros-ec-codec.txt for more details.
+-- mediatek,hdmi-codec: the phandles of HDMI codec
+-
+-Example:
+-
+-	sound {
+-		compatible = "mediatek,mt8183_mt6358_ts3a227_max98357";
+-		mediatek,headset-codec = <&ts3a227>;
+-		mediatek,ec-codec = <&ec_codec>;
+-		mediatek,hdmi-codec = <&it6505dptx>;
+-		mediatek,platform = <&afe>;
+-	};
+-
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.50.1
 
 
