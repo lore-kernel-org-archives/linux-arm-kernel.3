@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA3ACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE4CCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Dja7mprWhK5ownaxRjalZcPpHt0Z020C9XYEeoHjdeY=; b=YpI4fg3qhPTAwa
-	w67heLKq+hV/Fdalab4IcGXIuPKfX0hmbQY1H56eF+IoArVd0lGs17x+dOulDMD0YA6/VklB/owiv
-	KVIPAYsYA4Uj9Nyh5kPDa0PgeD8m/Wub7afefyHhi3brDSJSaKCFvVLK2XpvDHIP1SEbBVaq4Wvw5
-	xqdQo8y/6uuriFVxXkMKUd0GXvkRlUMetjI4W8SOECAXcmzx+zev9YHQFlqt0+5M2hZTfLUuqJPrH
-	1E+/cK2Z7BltcOMFbYOFcKEGk1Y1f1LqRpMuThoAdZU365dG6gpF05BMqemlY3vsTZMZ8BPx0m/94
-	wXclD125EfvhTl8oy2cA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uFk8vv08503AHLbsZbQi6q6SkykCXmgwWLOF/vnD+Cc=; b=y8HeCtlRu7Bf1F9lVxz4TUrKOR
+	0+nPhUIszEJ8r1boUj2v+38DLOX2GoWSIl3Y1DO2GLWuvMBpYWgDaidFxBZoRs+ROSD8X3zcqncO/
+	iT+3FgweiyZFO60XBT2wuuwZgt+6Io8OiXs8lGlKVXxLjoAMGR/Xgheb+qKE2QNcSiDRBEu/y3wff
+	ENs07/iZSe4r19n/vMO7k3+OfuH94itXezq/VJAklOsP2SIL7ZG7wra8XMc+8WZShDvxtoPYkHAgC
+	33y0nPLzuoN39jyWPiJgRBiIbY3GL+89jC7OaBvf5VRTxURXQt9clWVpLS8w2lom32sUupsvrz7Rh
+	UkGL9U6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorXI-0000000F7Jh-1IUJ;
-	Wed, 20 Aug 2025 22:44:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uorZr-0000000F7eH-0aii;
+	Wed, 20 Aug 2025 22:46:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonYu-0000000EgQP-46pi
+	id 1uonYx-0000000EgRb-3BHi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 18:29:30 +0000
+	Wed, 20 Aug 2025 18:29:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 327105C6984;
+	by dfw.source.kernel.org (Postfix) with ESMTP id F2C5E5C6AB7;
+	Wed, 20 Aug 2025 18:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F287C116B1;
 	Wed, 20 Aug 2025 18:29:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4560EC113CF;
-	Wed, 20 Aug 2025 18:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755714567;
-	bh=0SzMeuxfOcNRRFI3htotgO4HznADUizoh4BxITQXZOk=;
-	h=From:Subject:Date:To:Cc:From;
-	b=HLcZNj6Xx1YnNkL7/pmzTjPZLtq7r0D4LDQY6xconSMbLOgivCj75OKolau7e4REA
-	 bnUKL52WlM4nwx13xRELTbxCXC2L6t8m2vZnPuh8al/NsXRc0qJKI3FoecooLrR+Tl
-	 3bn4dWdH7BxPD0EXItX7Q8rOPQIuWbcWQKdc+2q3V4d9xth5+BFV9BIX6Pb1JwWkqO
-	 4bviGi+1eYSf8BQRI5DkWPc4Ay7vScetR8CwefUTokTRcjlSdW9XIb6XVw18nCFqps
-	 D+CIRZFVdBMB0Zgql050NCJlSlq69VLxXfUFmm7wMrl2CIcrURIQ6ZNmXbwhZOKMZ8
-	 gKMbNJ2xTy/oQ==
+	s=k20201202; t=1755714570;
+	bh=xFa+NeJG2jF6wE7Joj16Oc51n2//5XUYYYZ0eG8q3lU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=L/E5hUdy/Zq7DwlSV0lPuwRI4qKR/gShAYBuHGCXtWSw1T+zi3r4KS/3B3e9ZKCuZ
+	 Lu6er1KZgxXNzYBURZeBKIMtXwAAZTnpwv6K8fop1co5id4aR+W/s2WVibsyXdLFmQ
+	 cHhv2l+O3IyvE0NFtWnRNwOH+uY7jRnIURC6wSFe047cetUW+W8YwQeu3CMhTuqSVd
+	 OePOrOfoH4nn9KXTrR5S+AXxd9fKu88FheFdmfxzUdDSt1+LNU0btTkDI4ACpJ03mG
+	 RqeOlQAOHKADvzKpES6vvcX4mTsUM15tvGPX7CNFuWZ+aNBhtuaMte7JznQNFRNwip
+	 +cEcPTGiCUTHQ==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 0/5] arm64/sme: Support disabling streaming mode via ptrace
- on SME only systems
-Date: Wed, 20 Aug 2025 19:29:02 +0100
-Message-Id: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+Date: Wed, 20 Aug 2025 19:29:03 +0100
+Subject: [PATCH 1/5] kselftest/arm64: Verify that we reject out of bounds
+ VLs in sve-ptrace
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO8TpmgC/02NwQ6CMBBEf6XZs2u2VbDhVwyHUhZtIhS3SDSEf
- 7cBD97mTTLzFkgsgRNUagHhOaQQhwz6oMDf3XBjDG1mMGQKuugLOunLM6aecZzEed5iHB4f1F1
- jCyqJ2BHk/Sjchff2fa13Fn6+smLaS2hcYvSxD1Ol5vKY38Ub+FdXahNbsj9xN+Ku7Z2XiGS4Z
- bKn1hUa6nX9AsHKlt/QAAAA
-X-Change-ID: 20250717-arm64-sme-ptrace-sme-only-1fb850600ea0
+Message-Id: <20250820-arm64-sme-ptrace-sme-only-v1-1-f7c22b2871f8@kernel.org>
+References: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+In-Reply-To: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
  Jonathan Corbet <corbet@lwn.net>, Oleg Nesterov <oleg@redhat.com>
@@ -66,20 +63,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2972; i=broonie@kernel.org;
- h=from:subject:message-id; bh=0SzMeuxfOcNRRFI3htotgO4HznADUizoh4BxITQXZOk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBophQAKGsvgPWYjakzBehyIWbniPGNVwMRy7IMp
- jdIOYBYrriJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKYUAAAKCRAk1otyXVSH
- 0FfpB/4gF/goxVk8COhAg47IRT39tjP26tJuUhi0mMHRnEDvhOuV8V+5vaQPbO+Xjfw8uHwDEuw
- AytR+JXZJv9UotF4ySgcaTMJ9lAN3VkoESEmjNHN/PrPIY8Ft2h6FykhQQkTl6sTUmgZLkf5p2a
- lmU78YM6rXOhB6s+g6Hw7CgUHNbH+2hTJYnVw87P+QiH7vR+njPZ13RFp4bd2hmzuszifcUywQ4
- XPBtfXAUqiiQQtj5UtEhAwkFuKFHtg1e3SbHORXOIhavM2ymwS0hMMbpcloDqDAFtJF8pT8H1Nq
- AZ61yit7STjWoeFvVjYeSLdXFpvSSoVtFP880qhy7P5a3sdO
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2329; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=xFa+NeJG2jF6wE7Joj16Oc51n2//5XUYYYZ0eG8q3lU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBophQBBnrnyJoBRFW07hBrEL9iNoVV/fdd5wyni
+ /xIOYEjiUWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKYUAQAKCRAk1otyXVSH
+ 0PvRB/9HIoad8JkWcAcMr/vzFQGFNApVF/Y7Cxbekiy2xFDCnzN5ih7L//v6ELI/8AqffCg8lkG
+ XGBWKHeOkxxLwgd1ZluEFrH3NmdwvvGJbsuGaryl4oqje3yoaLtOJo6Dq0AI2/f45CY8JNRdwcA
+ 2+WIlTGpFcy4ikG0o/jBeoMd7k5WNsmU7Tl4cB6l1s/gXmdY2pHzg8S5SsJKuY/j86aUQ1UREo+
+ VVqoaZ37uymnkTgcVFcOGxGyYCwXQd1ejXjEfYKQi3V7ADTlJoh9k7pKJOcJ44kgSNGVmaSyPCc
+ NMDy7iHNt0auoOQveAajjJ1ADUmHNfguB10Eyc1SEV7eHG6O
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_112929_106731_823405E5 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250820_112931_889430_A001807C 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently it is not possible to disable streaming mode via ptrace on SME
-only systems, the interface for doing this is to write via NT_ARM_SVE but
-such writes will be rejected on a system without SVE support. Enable this
-functionality by allowing userspace to write SVE_PT_REGS_FPSIMD format data
-via NT_ARM_SVE with the vector length set to 0 on SME only systems. Such
-writes currently error since we require that a vector length is specified
-which should minimise the risk that existing software is relying on current
-behaviour.
-
-Reads are not supported since I am not aware of any use case for this and
-there is some risk that an existing userspace application may be confused if
-it reads NT_ARM_SVE on a system without SVE. Existing kernels will return
-FPSIMD formatted register state from NT_ARM_SVE if full SVE state is not
-stored, for example if the task has not used SVE. Returning a vector length
-of 0 would create a risk that software could try to do things like allocate
-space for register state with zero sizes, while returning a vector length of
-128 bits would look like SVE is supported. It seems safer to just not make
-the changes to add read support.
-
-It remains possible for userspace to detect a SME only system via the ptrace
-interface only since reads of NT_ARM_SSVE and NT_ARM_ZA will suceed while
-reads of NT_ARM_SVE will fail. Read/write access to the FPSIMD registers in
-non-streaming mode is available via REGSET_FPR.
-
-The aim is is to make a minimally invasive change, no operation that would
-previously have succeeded will be affected, and we use a previously defined
-interface in new circumstances rather than define completely new ABI.
-
-The series starts with some enhancements to sve-ptrace to cover some
-further corners of existing behaviours in order to reduce the risk of
-inadvertent changes, implements the proposed new ABI, then extends both
-sve-ptrace and fp-ptrace to exercise it.
+We do not currently have a test that asserts that we reject attempts to set
+a vector length smaller than SVE_VL_MIN or larger than SVE_VL_MAX, add one
+since that is our current behaviour.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Mark Brown (5):
-      kselftest/arm64: Verify that we reject out of bounds VLs in sve-ptrace
-      kselftest/arm64: Check that unsupported regsets fail in sve-ptrace
-      arm64/sme: Support disabling streaming mode via ptrace on SME only systems
-      kselftst/arm64: Test NT_ARM_SVE FPSIMD format writes on non-SVE systems
-      kselftest/arm64: Cover disabling streaming mode without SVE in fp-ptrace
+ tools/testing/selftests/arm64/fp/sve-ptrace.c | 32 ++++++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
- Documentation/arch/arm64/sve.rst              |   5 +
- arch/arm64/kernel/ptrace.c                    |  40 ++++++--
- tools/testing/selftests/arm64/fp/fp-ptrace.c  |   5 +-
- tools/testing/selftests/arm64/fp/sve-ptrace.c | 139 +++++++++++++++++++++++++-
- 4 files changed, 177 insertions(+), 12 deletions(-)
----
-base-commit: 768361ab16ce943ef3577cea204dc81aa4a47517
-change-id: 20250717-arm64-sme-ptrace-sme-only-1fb850600ea0
-prerequisite-change-id: 20250808-arm64-fp-trace-macro-02ede083da51
+diff --git a/tools/testing/selftests/arm64/fp/sve-ptrace.c b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+index b22303778fb0..a9b2377c46b8 100644
+--- a/tools/testing/selftests/arm64/fp/sve-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+@@ -66,7 +66,7 @@ static const struct vec_type vec_types[] = {
+ };
+ 
+ #define VL_TESTS (((TEST_VQ_MAX - SVE_VQ_MIN) + 1) * 4)
+-#define FLAG_TESTS 2
++#define FLAG_TESTS 4
+ #define FPSIMD_TESTS 2
+ 
+ #define EXPECTED_TESTS ((VL_TESTS + FLAG_TESTS + FPSIMD_TESTS) * ARRAY_SIZE(vec_types))
+@@ -270,6 +270,25 @@ static void check_u32(unsigned int vl, const char *reg,
+ 	}
+ }
+ 
++/* Set out of range VLs */
++static void ptrace_set_vl_ranges(pid_t child, const struct vec_type *type)
++{
++	struct user_sve_header sve;
++	int ret;
++
++	memset(&sve, 0, sizeof(sve));
++	sve.flags = SVE_PT_REGS_SVE;
++	sve.size = sizeof(sve);
++
++	ret = set_sve(child, type, &sve);
++	ksft_test_result(ret != 0, "%s Set invalid VL 0\n", type->name);
++
++	sve.vl = SVE_VL_MAX + SVE_VQ_BYTES;
++	ret = set_sve(child, type, &sve);
++	ksft_test_result(ret != 0, "%s Set invalid VL %d\n", type->name,
++			 SVE_VL_MAX + SVE_VQ_BYTES);
++}
++
+ /* Access the FPSIMD registers via the SVE regset */
+ static void ptrace_sve_fpsimd(pid_t child, const struct vec_type *type)
+ {
+@@ -703,6 +722,17 @@ static int do_parent(pid_t child)
+ 					      vec_types[i].name);
+ 		}
+ 
++		/* Setting out of bounds VLs should fail */
++		if (getauxval(vec_types[i].hwcap_type) & vec_types[i].hwcap) {
++			ptrace_set_vl_ranges(child, &vec_types[i]);
++		} else {
++			ksft_test_result_skip("%s Set invalid VL 0\n",
++					      vec_types[i].name);
++			ksft_test_result_skip("%s Set invalid VL %d\n",
++					      vec_types[i].name,
++					      SVE_VL_MAX + SVE_VQ_BYTES);
++		}
++
+ 		/* Step through every possible VQ */
+ 		for (vq = SVE_VQ_MIN; vq <= TEST_VQ_MAX; vq++) {
+ 			vl = sve_vl_from_vq(vq);
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.39.5
 
 
