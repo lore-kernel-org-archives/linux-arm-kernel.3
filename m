@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D24CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6DBCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtKlr2u5RpdA8PPLtbWef5yD8IKy8kDOnW6zNfQ0qZM=; b=ETkg2X7z/aPRYXm6488kvmkYlm
-	MEc8VmrTaD6rDpO13S1/0PbPoQeHk33ZdVdH9bwWh7P/D5Nj2lj30fCbXkbKrdN0RzjKV1uDgfW7Z
-	8JMPEXQp0XWG8I6oBGaOtlNUWhmKOSrkXFeMUNIrYciPGaw2sKg5osMTbzWdrGNk1/kezU3MmOlJ7
-	MTNi8wvfD+LxDD9v8SocvdU0xnOwQT0t71ClNvz4+qFVQiZFPv+BbxC69Wa2Wn1TYQtAmMf4p7i5S
-	4Kiv4fqJCIk33+7EZzRtmoEgKk0t3xfRidpazgXkNggq66cq/tWAUTqNHy84lahzxv2cdNZeNtMfJ
-	kNSAvmvw==;
+	bh=AsjZMMtaBbupc4oGzIo3XvAEclb3sb0eigWneHj5NVQ=; b=phzw2xxONkmSDfnid4TFoJBRvH
+	SCKNGhH7mUiCvZYF7C6eFh29bBxYFqQZ3LCmy8G9wwiWOIZxc75uiik54SohbTF1MCIVGr8X4RMAQ
+	d3QObc3CNx11shPxX6wlSEzyPYlK+2Awb4rMes18GN2EWQz+KUxiKRmgXM7qVUz7p6g76ck5kfXSt
+	QgYAvHXBFQgHUmY9IHjX5OTBrwr8HxFqnCxKTWabJnHJFnLYZebpaec4UmkrY0x4W8vVEG7i3kpS2
+	iqkm8zXkraL+8pgAIU2JJqk7KZ2p+KikQxDpfMNp6a7ICoKi1Ldz0mXMkeYVjFgvlK7U6UzfYfC3c
+	5iP32kbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoh1x-0000000DPe4-0AQj;
-	Wed, 20 Aug 2025 11:31:01 +0000
+	id 1uoh4W-0000000DQGc-3jWd;
+	Wed, 20 Aug 2025 11:33:40 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uog8L-0000000DB8e-1lNY
+	id 1uog8u-0000000DBKS-3UjA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 10:33:35 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4c6N8G6023z6L5TV;
-	Wed, 20 Aug 2025 18:33:18 +0800 (CST)
+	Wed, 20 Aug 2025 10:34:10 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4c6N6g74knz6M4qN;
+	Wed, 20 Aug 2025 18:31:55 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id CC8821402F4;
-	Wed, 20 Aug 2025 18:33:31 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 5B24F140119;
+	Wed, 20 Aug 2025 18:34:03 +0800 (CST)
 Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
  frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 20 Aug 2025 12:33:30 +0200
+ 15.1.2507.39; Wed, 20 Aug 2025 12:34:02 +0200
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
 	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -50,9 +50,9 @@ CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
 	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
 	<luto@kernel.org>
-Subject: [PATCH v3 7/8] acpi: PoC of Cache control via ACPI0019 and _DSM
-Date: Wed, 20 Aug 2025 11:29:49 +0100
-Message-ID: <20250820102950.175065-8-Jonathan.Cameron@huawei.com>
+Subject: [PATCH v3 8/8] Hack: Pretend we have PSCI 1.2
+Date: Wed, 20 Aug 2025 11:29:50 +0100
+Message-ID: <20250820102950.175065-9-Jonathan.Cameron@huawei.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
 References: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
@@ -63,8 +63,8 @@ X-Originating-IP: [10.122.19.247]
 X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_033333_751832_3EFDE5C2 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250820_033409_008856_B3AC7A5D 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,232 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not merge. This is the bare outline of what may become an ACPI code
-first specification proposal. For that reason it remains an RFC and is
-mainly here to show that the framework is flexible enough to be useful
-by providing a second driver.
+Need to update QEMU to PSCI 1.2. In meantime lie.
+This is just here to aid testing, not for review!
 
-From various discussions, it has become clear that there is some desire not
-to end up needing a cache flushing driver for every host that supports the
-flush by PA range functionality that is needed for CXL and similar
-disagregated memory pools where the host PA mapping to actual memory may
-change over time and where various races can occur with prefetchers making
-it hard to use CPU instructions to flush all stale data out.
-
-There was once an ARM PSCI specification [1] that defined a firmware
-interface to solve this problem. However that meant dropping into a more
-privileged mode, or chatting to an external firmware. That was overkill for
-those systems that provide a simple MMIO register interface for these
-operations (which seems to be the common case). That specification never
-made it beyond alpha level.
-
-For the typical class of machine that actually uses these disaggregated
-pools, ACPI can potentially provide the same benefits with a great deal
-more flexibility. A _DSM in DSDT via operation regions, may be used to do
-any of:
-1) Make firmware calls
-2) Operate a register based state machine.
-3) Most other things you might dream of.
-
-This was prototyped against an implementation of the ARM specification in
-[1] wrapped up in _DSM magic. That was chosen to give a second (be it
-abandoned) example of how this cache control class can be used.
-
-Link: https://developer.arm.com/documentation/den0022/falp1/?lang=en [1]
 Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 ---
- drivers/cache/Kconfig              |   7 ++
- drivers/cache/Makefile             |   1 +
- drivers/cache/acpi_cache_control.c | 153 +++++++++++++++++++++++++++++
- 3 files changed, 161 insertions(+)
+ drivers/firmware/psci/psci.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
-index 4551b28e14dd..158d3819004e 100644
---- a/drivers/cache/Kconfig
-+++ b/drivers/cache/Kconfig
-@@ -3,6 +3,13 @@ menu "Cache Drivers"
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index 38ca190d4a22..804b0d7cda4b 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -646,6 +646,8 @@ static void __init psci_init_smccc(void)
+ 		}
+ 	}
  
- if GENERIC_CPU_CACHE_MAINTENANCE
- 
-+config ACPI_CACHE_CONTROL
-+       tristate "ACPI cache maintenance"
-+       depends on ARM64 && ACPI
-+       help
-+         ACPI0019 device ID in DSDT identifies an interface that may be used
-+	 to carry out certain forms of cache flush operation.
-+
- config HISI_SOC_HHA
- 	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
- 	depends on (ARM64 && ACPI) || COMPILE_TEST
-diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
-index b3362b15d6c1..94c41b018cd5 100644
---- a/drivers/cache/Makefile
-+++ b/drivers/cache/Makefile
-@@ -4,4 +4,5 @@ obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
- obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
- obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
- 
-+obj-$(CONFIG_ACPI_CACHE_CONTROL)   	+= acpi_cache_control.o
- obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
-diff --git a/drivers/cache/acpi_cache_control.c b/drivers/cache/acpi_cache_control.c
-new file mode 100644
-index 000000000000..8da7fc2e189e
---- /dev/null
-+++ b/drivers/cache/acpi_cache_control.c
-@@ -0,0 +1,153 @@
-+
-+#include <linux/acpi.h>
-+#include <linux/cache_coherency.h>
-+#include <asm/cacheflush.h>
-+
-+struct acpi_cache_control {
-+	struct cache_coherency_device ccd;
-+	struct acpi_device *acpi_dev;
-+};
-+
-+static const guid_t testguid =
-+	GUID_INIT(0x61FDC7D5, 0x1468, 0x4807,
-+		0xB5, 0x65, 0x51, 0x5B, 0xF6, 0xB7, 0x53, 0x19);
-+
-+static int acpi_cache_control_query(struct acpi_device *device)
-+{
-+	union acpi_object *out_obj;
-+
-+	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 1, NULL);//&in_obj);
-+	if (out_obj->package.count < 4) {
-+		printk("Only partial capabilities received\n");
-+		return -EINVAL;
-+	}
-+	for (int i = 0; i < out_obj->package.count; i++)
-+		if (out_obj->package.elements[i].type != 1) {
-+			printk("Element %d not integer\n", i);
-+			return -EINVAL;
-+		}
-+	switch (out_obj->package.elements[0].integer.value) {
-+	case 0:
-+		printk("Supports range\n");
-+		break;
-+	case 1:
-+		printk("Full flush only\n");
-+		break;
-+	default:
-+		printk("unknown op type %llx\n",
-+			out_obj->package.elements[0].integer.value);
-+		break;
-+	}
-+
-+	printk("Latency is %lld msecs\n",
-+		out_obj->package.elements[1].integer.value);
-+	printk("Min delay between calls is %lld msecs\n",
-+		out_obj->package.elements[2].integer.value);
-+
-+	if (out_obj->package.elements[3].integer.value & BIT(0))
-+		printk("CLEAN_INVALIDATE\n");
-+	if (out_obj->package.elements[3].integer.value & BIT(1))
-+		printk("CLEAN\n");
-+	if (out_obj->package.elements[3].integer.value & BIT(2))
-+		printk("INVALIDATE\n");
-+	ACPI_FREE(out_obj);
-+	return 0;
-+}
-+
-+static int acpi_cache_control_inval(struct acpi_device *device, u64 base, u64 size)
-+{
-+	union acpi_object *out_obj;
-+	union acpi_object in_array[] = {
-+		[0].integer = { ACPI_TYPE_INTEGER, base },
-+		[1].integer = { ACPI_TYPE_INTEGER, size },
-+		[2].integer = { ACPI_TYPE_INTEGER, 0 }, // Clean invalidate
-+	};
-+	union acpi_object in_obj = {
-+		.package = {
-+			.type = ACPI_TYPE_PACKAGE,
-+			.count = ARRAY_SIZE(in_array),
-+			.elements = in_array,
-+		},
-+	};
-+
-+	out_obj = acpi_evaluate_dsm(device->handle, &testguid, 1, 2, &in_obj);
-+	ACPI_FREE(out_obj);
-+	return 0;
-+}
-+
-+static int acpi_cc_wbinv(struct cache_coherency_device *ccd,
-+			 struct cc_inval_params *invp)
-+{
-+	struct acpi_cache_control *acpi_cc =
-+		container_of(ccd, struct acpi_cache_control, ccd);
-+
-+	return acpi_cache_control_inval(acpi_cc->acpi_dev, invp->addr, invp->size);
-+}
-+
-+static int acpi_cc_done(struct cache_coherency_device *ccd)
-+{
-+	/* Todo */
-+	return 0;
-+}
-+
-+static const struct coherency_ops acpi_cc_ops = {
-+	.wbinv = acpi_cc_wbinv,
-+	.done = acpi_cc_done,
-+};
-+
-+static int acpi_cache_control_add(struct acpi_device *device)
-+{
-+	struct acpi_cache_control *acpi_cc;
-+	int ret;
-+
-+	ret = acpi_cache_control_query(device);
-+	if (ret)
-+		return ret;
-+
-+	acpi_cc = cache_coherency_device_alloc(&acpi_cc_ops,
-+					       struct acpi_cache_control, ccd);
-+	if (!acpi_cc)
-+		return -ENOMEM;
-+
-+	acpi_cc->acpi_dev = device;
-+
-+	ret = cache_coherency_device_register(&acpi_cc->ccd);
-+	if (ret) {
-+		cache_coherency_device_free(&acpi_cc->ccd);
-+		return ret;
-+	}
-+
-+	dev_set_drvdata(&device->dev, acpi_cc);
-+	return 0;
-+}
-+
-+static void acpi_cache_control_del(struct acpi_device *device)
-+{
-+	struct acpi_cache_control *acpi_cc = dev_get_drvdata(&device->dev);
-+
-+	cache_coherency_device_unregister(&acpi_cc->ccd);
-+	cache_coherency_device_free(&acpi_cc->ccd);
-+}
-+
-+static const struct acpi_device_id acpi_cache_control_ids[] = {
-+	{ "ACPI0019" },
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(acpi, acpi_cache_control_ids);
-+
-+static struct acpi_driver acpi_cache_control_driver = {
-+	.name = "acpi_cache_control",
-+	.ids = acpi_cache_control_ids,
-+	.ops = {
-+		.add = acpi_cache_control_add,
-+		.remove = acpi_cache_control_del,
-+	},
-+};
-+
-+module_acpi_driver(acpi_cache_control_driver);
-+
-+MODULE_IMPORT_NS("CACHE_COHERENCY");
-+MODULE_AUTHOR("Jonathan Cameron <Jonathan.Cameron@huawei.com>");
-+MODULE_DESCRIPTION("HACKS HACKS HACKS");
-+MODULE_LICENSE("GPL");
++	/* Hack until qemu version stuff updated */
++	arm_smccc_version_init(ARM_SMCCC_VERSION_1_2, psci_conduit);
+ 	/*
+ 	 * Conveniently, the SMCCC and PSCI versions are encoded the
+ 	 * same way. No, this isn't accidental.
 -- 
 2.48.1
 
