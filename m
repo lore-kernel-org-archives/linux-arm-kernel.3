@@ -4,129 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A055CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 00:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4E1CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 01:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxCsAUhNU6df1F1I++Z1eLGUQBDjhswursX1dh2wRaE=; b=xYx+YfDPINlvAqTHwVIEBO7Jae
-	teAzgo4UjlSPW6rRF2fzUKpHUzkZTRV75Ox+4sXILUmMb7DdKRCxymyHms1g9PhzNE60gVfEl0633
-	tv5m+F5vXrbTnzFaMhdeJxp5v+ITuB2bG1pyLveJvwACaYqgshXTKu/AqxOp0vmr8jC/D/Yl/1Wlo
-	bACb6yjNwP1wopS9x0pV5wsszQhlWvQWbOFn4OVMDAOSnAoBvKrHmkOPpvrkIWWgUoTFgZKWt0ERV
-	ZSUYSR/MySuNh59/sPRgzxQyeZqlgbTM2qq1pc4ORP5IFWniaW0OFJvbwz6pyApB3nrHnvktK2DJj
-	RLgT28GA==;
+	bh=fFHU5Uj+jXoPoAM1BiBDUT8IhXi09SdGNJ1NomSthLE=; b=YErzPLmsfSVCZgECwozMuwy2ng
+	IQBzX4Z0Wf91rjoi6+GtiW+NTUTEv2UgSnQ17IAWg++0jsJlvCf9PJEezkpmM572WS+EuCn1hL6Tc
+	UwPaECKBhVmV17URYXzpmUEjMwEGKTP2spa4YJ1d6M9F/K+L4+Z1oV1jy4M0Anu8g6A27pwSrH1dI
+	hmzGNjqK7UT3N+MIlspqTMlGcdQTS1kD2QInjSfW1FOtYRVG9xe4XQCYyFgGP91HoO/K3dO/e4S9I
+	lD3G3JvT9CTOBoYpfsl3h4qom9zPh32KOSuUIkoMGVIVIiyfzotAxRqaRFAoT6GuFtpJlbhJ6+geY
+	VAu66F1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoX9g-0000000C0fL-3haw;
-	Wed, 20 Aug 2025 00:58:20 +0000
+	id 1uoXCK-0000000C13p-1msX;
+	Wed, 20 Aug 2025 01:01:04 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoX09-0000000BzTU-43ZY
+	id 1uoX25-0000000Bzno-2GyZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 00:48:31 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57JL0u6H030362
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:48:28 GMT
+	Wed, 20 Aug 2025 00:50:30 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57JL1BAF027711
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:50:28 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zxCsAUhNU6df1F1I++Z1eLGU
-	QBDjhswursX1dh2wRaE=; b=DS4DBU+fPa9WHAiMUOpGkzofSujP9EjK7ZVT7lbu
-	ONhmP2pBEeUTdtOz50SsGdGJ5CIDDsPI+US9g8QewnxebslM/ZUGgm0MHkwlhT4i
-	+X+rbSfB0BHj6HKDpp34G/ScZ0wm/6HOLWmXLm9mPZD7eNUB60qDe8QqO67/Ztja
-	jBiZ9C78m6VZAXN46HIW03DOnUFBA1/mjGQvog1c+t/QZ9DMCu+D+eVHJhdyPb9a
-	dzgDklgjRevYt6Oop7c3TP3L3VA470/vkYWEZQPVbHbK+rAzv3wC0bLoTPL3X742
-	Em5AvC26KypiWz37J8cKk82mSY7AF0kJyrID2DqQxTC8ZA==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n0tdrd6d-1
+	:references:subject:to; s=qcppdkim1; bh=fFHU5Uj+jXoPoAM1BiBDUT8I
+	hXi09SdGNJ1NomSthLE=; b=M0G0lzwBza41VuZ6YB1X0z5czf2rGCswbu0hfe1R
+	nnq1jEIb87cSyTsnH4s8YEg6Td7mYwIGrN+KkXxAMTcmpceRz+IIfX65QJxluT4Z
+	HnsR0h5Ebpoi3zg1yiLhdNXfMwOWQIqwuZ2rm8y96Cl1GlXh4zFyvgrxvD0VbXlD
+	YMl39iKdWHMpBAHB+lO3dNnLHnoriq8seVJp03cVsT6/2WEcJ/9tsm3sETjzOid+
+	F+zAOJr3yzJfB5aV2asOtw6XMANoIs1VbcUlszRDU1kooZOe8YvXnmuYFkZ72naN
+	4a/kjdsfYe3eWKd5/zWByF8GT+qEhoPUt7XeVIyEQsWKaQ==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n0th0d7d-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:48:28 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-70a8b32a6e3so119155476d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 17:48:28 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:50:28 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-70a88dae248so9658606d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 17:50:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755650908; x=1756255708;
+        d=1e100.net; s=20230601; t=1755651028; x=1756255828;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zxCsAUhNU6df1F1I++Z1eLGUQBDjhswursX1dh2wRaE=;
-        b=p+HgxVoXnWYyoZSP2MFprL3M40VrFnv6JSK9jxNL3snT44Mu5tl/JhMgDg178H7Tzo
-         /fGtid3GmwWsTJKtJgjZ/tqJage70VtXuaRUVnRPhffs8FfhxC21YbOWPMNX9tLTrq5m
-         QlJZcujULpAVpwIfahZrBIDKEQqHQHFCb7rIYYDkDcMk45JzK22pVeJqLJDcthVVLBWp
-         1oiiOyJ6ht43oijfWBrq7rzrn6ebVZKsGNfPMDgXDKqUyCKHH5SVi6Al1uBt8X/xpj1f
-         OVWrHcHI+W8O9eiW1R6tQQ6hr17H4seNN6l5LCZ+mw7CaYh57VZAiigNUy6jOR5AXGi8
-         GEQA==
-X-Forwarded-Encrypted: i=1; AJvYcCXrTCro9NU+jAzV13c2DHZUUQrMMAA7PEMBOr8K7sQ/xEIZjQxbqshvMqgoUamioF+88w+llFmWP392Cm+KVMzi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5LDRpSkDyGHF1uDkIW/B+iSDT3TZxXr7pxu4K5NNxZQvMxkn4
-	gXSG9blXm55HAoZOeKXif8JbAM03Ur9VgBMXJJybHAywXayr+msbrECSd9EP88Xf/XLMCaTv3ty
-	bPb0/+m47OaD721q2xO7VfSLo7oJ/s0v9pu5nZyC5rC+fDLK2tgu0GfnnhuXbgYMak5fHofnMru
-	Zv2w==
-X-Gm-Gg: ASbGncsA2zTjuqTIiyXEgtUpLvsDJB0lscup8YqFi3AzwiK+mei+w7UVaYGMPHxOV/w
-	Ax6t02yf4+QXDB+YnxzfvdRtHPOp6VEXgdGoYhydVONoEDQh/blRXpyI9zKSiLqpnYYmpWJ8S6O
-	YurSKWC7Ezq+PxPXdptGaydn542aTMRDz6O5O7Twzl72s8UZlw4deLXzZ8zlOMJpSWVAQUQHtTM
-	osgptHUGS9I9nFTnkuFFUp+KhryVjjkntCCP9Ssd+nzj6eTlYef2kl9Rv+sck0KtciCeW3ED8rC
-	g20nQ7ltItsTfbga1BtrZWOXoRE7PgdYXjhgHpM96lYvgGbx6HFhxCWX3t+xJZ0GKRsTfKd357f
-	SNcsP/OE2rHqJnjSAiex/UhVULP5nI/Z4/23OeC1vmZY/zGxWdCkC
-X-Received: by 2002:a05:6214:4119:b0:70b:8a30:ecad with SMTP id 6a1803df08f44-70d76f5d7bbmr13343166d6.7.1755650907748;
-        Tue, 19 Aug 2025 17:48:27 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE3X2dMCwIgfJclfhzbEeQSa5AZSTe1W3Eu1uTsUTeRfUaK1fqK3+wI212pgSqH5x66KOuXag==
-X-Received: by 2002:a05:6214:4119:b0:70b:8a30:ecad with SMTP id 6a1803df08f44-70d76f5d7bbmr13342796d6.7.1755650907272;
-        Tue, 19 Aug 2025 17:48:27 -0700 (PDT)
+        bh=fFHU5Uj+jXoPoAM1BiBDUT8IhXi09SdGNJ1NomSthLE=;
+        b=GaFTSNdhaeMAaY8Gyo8tIBRq7Jrl/igg33VT+UfpIP/V73AX7K5EAR7U88do6OmK9D
+         UvoZYM5iCtkm2H/pRx8Mq2JgU8+gqrHOJKJRTTUzy3plROBqzrwlZCVpHVd0Ht6baPAd
+         qNJbiAS8EqxagWnPZfcQtgXKIOJEr1Pe124mmio2AvksvD7PJWFlCV6MsXJRMNwqwStC
+         2p7UGwXuTJcM/jvxTpmQmmzTlXI7czBECL+KqCslNO2+aXeQ/AlNL7txhh3OnUMKr3HC
+         DisS8LvTpy9q0Gm2DUCJUsfjT4yg4bDDHFwcuJZJHY0cHCKqbEfCIRmBiFwy91hh0nOX
+         DADw==
+X-Forwarded-Encrypted: i=1; AJvYcCWcgh2/AL211JB47qs5PDH1BVXxU5APZcmx+FGXrxkVJNHNx9A/6u5UkVfrOSGCIOtnDb5qzV4Hp8E1ZgAlOzzR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyvBL7TkhJEyLafkEO2f+XDe6Ag4iJyl6bNgwJRLU8WvdnvmX1
+	TXzEQMqZWmFaHPkqGBreuZwNASUmHnTLe3j/ifiNQz1iqZMZSPaPMgU8zsZjlU+z1amKHV0wHYn
+	NhDMUBO2zWM+Ef/Nripz4Vwm2V7pRxaPUaKLbAuOa0L7P5ha2d0t6YYUZ9YCxkv1jNJQMEfjMep
+	a0fQ==
+X-Gm-Gg: ASbGnctqvGsCyEbQ4Xo7knGN4dzmV7AqjTasJTRGTl9fznX+R622l9bd4HWUHmgz2FB
+	cyDRt0gs4s2Y9NzxjElF0des+/F1Hy0O3mWfgBJpCbEWuuZV3Jwh2AiD4PKewZvUdRgqVXTxSR7
+	bnUghFkCYlOoMQ/xVhg+s9LndBxAYPlJJdkfsav3+7KtYv0l+crxE5Sryeom2ZxpVx6mwnISMaQ
+	If2MknljL6VwVUIdZn3h+zGOT9YlRhwy3y6KM14Te/bM+T4fJJpAhBWK4dv/GWqLsTnpu3Mhx77
+	NNlYoFStKngO4R9ixUyaxG+xOil3HtGkPVCyIxTWqt8En4rmPMewW2wlQHRlrI2T2Sjf/JzZ0hK
+	OzZ8SjasV1v6gg4Yh7pa4BtWSwNjNX/iFMMlkwsWbNENnhWaRt6S7
+X-Received: by 2002:a05:6214:2347:b0:707:6cf8:5963 with SMTP id 6a1803df08f44-70c6769d407mr51600246d6.9.1755651027799;
+        Tue, 19 Aug 2025 17:50:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IESN0BIvM6CuJAs/DUGKSJfPhZ/a+kgpIoYK/BoCUIvKjOBaanSEDI8cOaQ20OdYtUduS4y3A==
+X-Received: by 2002:a05:6214:2347:b0:707:6cf8:5963 with SMTP id 6a1803df08f44-70c6769d407mr51600096d6.9.1755651027357;
+        Tue, 19 Aug 2025 17:50:27 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef3ccaf1sm2411211e87.94.2025.08.19.17.48.25
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef35a187sm2325712e87.46.2025.08.19.17.50.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Aug 2025 17:48:26 -0700 (PDT)
-Date: Wed, 20 Aug 2025 03:48:24 +0300
+        Tue, 19 Aug 2025 17:50:26 -0700 (PDT)
+Date: Wed, 20 Aug 2025 03:50:24 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Trevor Woerner <twoerner@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Eric Biggers <ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Takashi Iwai <tiwai@suse.de>,
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
         Geert Uytterhoeven <geert+renesas@glider.be>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Kory Maincent <kory.maincent@bootlin.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-        Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
-        "open list:ARM/QUALCOMM SUPPORT" <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH] ARM: defconfig: cleanup orphaned CONFIGs
-Message-ID: <shrn6yrf6tmx2jog2z2qvwmic3vl2tsauhj6a2pdtodnjcciyz@wssbxvgsrjir>
-References: <20250819231652.15938-1-twoerner@gmail.com>
+        Magnus Damm <magnus.damm@gmail.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+        Peng Fan <peng.fan@nxp.com>, linux-remoteproc@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-renesas-soc@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v5] remoteproc: Use of_reserved_mem_region_* functions
+ for "memory-region"
+Message-ID: <6lbathmvpjxdvcnhtncxclcdro7nv6gjwkvznnpv5zrbh2lcde@qw3gjj5lp7ev>
+References: <20250819213831.1368296-1-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819231652.15938-1-twoerner@gmail.com>
-X-Authority-Analysis: v=2.4 cv=a4RpNUSF c=1 sm=1 tr=0 ts=68a51b5c cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=SBwMwNJHQgdzs6wY48kA:9
- a=CjuIK1q_8ugA:10 a=1HOtulTD9v-eNWfpl4qZ:22
-X-Proofpoint-ORIG-GUID: _lq6AlHnWe-8MQKUggXGdqreW70G44sL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE5MDE5NiBTYWx0ZWRfX9BTGg9h1fdU5
- K7eFhcPhcObXWUVPP1Yqu1kz5MRiGTjpjoeEc1UHNEesV7IB1MxclllCAVVGuF37UfZbDJICmFs
- sAdVnvM6m6hkJe4wuZzS7IVcQXj5CQUGG705S5pplrQcKFnkdqs9VoVP07cUtzUOmXMhJzjybla
- g3R67mG3MC5wECPP0Ka54vxIWFfD4IVZtNyPA15OLV/YS6931D0vscJzdCuF21/3tljGMHkrtb3
- yEAniJ0aaChA+t0GWUHZEB7vWJd6u2GkXmJDlexIijTCbjSpvniKn1rLRrpXFdYyj8DZMJD6vF0
- tKtqBxQdWLKweMgJi9SBUCk5v0TJRQj/DQnIcCb0vWMVenn+3qQ6H3r42B1Mjn/rC5l2V0rPBhY
- e5XWTpqEhVVA9fq0D6hJrQ3i9oY8Yw==
-X-Proofpoint-GUID: _lq6AlHnWe-8MQKUggXGdqreW70G44sL
+In-Reply-To: <20250819213831.1368296-1-robh@kernel.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODE5MDE5NiBTYWx0ZWRfX1tVQy092JShL
+ oVU9yW/0AAlyAcgtzn6qfm0eRIwSyf+3P6XqK0Jr1ot2LftpY7GiJ1GwzcRLzl2gLjh4m02JcUx
+ /XvHwA9NTEdSVP8HeQ87CpEO1eJlifWkoItwBVcBUt+O3dMzLmcXSpvPrvzTiSBGTmQxq0T9dHK
+ kgPgS3JZm+JK8XrKmnCTKkH+SYtq+5am1CKz5aT6AsGRj8rHvvk1ALMcDr1Qj4ixq+T1lczTt+S
+ QknVEEVrsvAoJLhRRgN8f9jjzg6HZosMSCsc5k8ET5LIQLc0oVD0E4iKJhPWgbbxjkNDSY4nniE
+ CWa093LbtSubCPXW1EjYHc80HvxNlMt3Y2bP9h+q5yqOw12dI0UYRdrXpxP2urR6MmQSyr8wFu+
+ UnlDHYuS7oUFqEsutMnhdG/kSb8E8g==
+X-Authority-Analysis: v=2.4 cv=dI7/WOZb c=1 sm=1 tr=0 ts=68a51bd4 cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=8b9GpE9nAAAA:8 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=_lrZVZmJbgvpAXfrVDQA:9 a=CjuIK1q_8ugA:10
+ a=OIgjcC2v60KrkQgK7BGD:22 a=T3LWEMljR5ZiDmsYVIUa:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: LgvBGTcYkOUgDvaxrFr_jEhv_XxFlPYk
+X-Proofpoint-GUID: LgvBGTcYkOUgDvaxrFr_jEhv_XxFlPYk
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-19_04,2025-08-14_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 impostorscore=0 bulkscore=0 adultscore=0
- priorityscore=1501 clxscore=1015 phishscore=0 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2508110000
- definitions=main-2508190196
+ lowpriorityscore=0 malwarescore=0 suspectscore=0 phishscore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508190196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_174830_122730_935BC20D 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20250819_175029_696024_D2839FC2 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,22 +143,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 07:16:30PM -0400, Trevor Woerner wrote:
-> Drop CONFIG_ARCH_MSM8X60 and CONFIG_ARCH_MSM8960 which were removed in
-> commit 99497df59427 ("ARM: qcom: merge remaining subplatforms into sensible
-> Kconfig entry").
+On Tue, Aug 19, 2025 at 04:38:27PM -0500, Rob Herring (Arm) wrote:
+> Use the newly added of_reserved_mem_region_to_resource() and
+> of_reserved_mem_region_count() functions to handle "memory-region"
+> properties.
 > 
-> Drop CONFIG_ARCH_MSM8916 and CONFIG_ARCH_MSM8974 which were removed in
-> commit 85148df36835 ("ARM: qcom: drop most of 32-bit ARCH_QCOM subtypes").
+> The error handling is a bit different in some cases. Often
+> "memory-region" is optional, so failed lookup is not an error. But then
+> an error in of_reserved_mem_lookup() is treated as an error. However,
+> that distinction is not really important. Either the region is available
+> and usable or it is not. So now, it is just
+> of_reserved_mem_region_to_resource() which is checked for an error.
 > 
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
+> Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> Tested-by: Peng Fan <peng.fan@nxp.com> # i.MX93-11x11-EVK for imx_rproc.c
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  arch/arm/configs/multi_v7_defconfig | 4 ----
->  arch/arm/configs/qcom_defconfig     | 3 ---
->  2 files changed, 7 deletions(-)
+> v5:
+>  - Drop some inadvertent whitespace changes in qcom_q6v5_pas.c and ti_k3.
+>  - Fix error handling in adsp_alloc_memory_region()
+>  - Drop unreachable returns after 'while (1)' loops
+> 
+> v4:
+>  - Rebase on v6.17-rc1. qcom_q6v5_pas.c conflicted needing s/adsp/pas/
+> 
+> v3:
+>  - Rebase on v6.16-rc1. Move TI K3 changes to new common file.
+>  - Fix double increment of "i" in xlnx_r5
+> 
+> v2:
+>  - Use strstarts instead of strcmp for resource names as they include
+>    the unit-address.
+>  - Drop the unit-address from resource name for imx and st drivers
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c      | 47 +++++++----------
+>  drivers/remoteproc/imx_rproc.c          | 70 ++++++++++---------------
+>  drivers/remoteproc/qcom_q6v5_adsp.c     | 24 ++++-----
+>  drivers/remoteproc/qcom_q6v5_mss.c      | 60 +++++++--------------
+>  drivers/remoteproc/qcom_q6v5_pas.c      | 69 +++++++++---------------
+>  drivers/remoteproc/qcom_q6v5_wcss.c     | 25 ++++-----
+>  drivers/remoteproc/qcom_wcnss.c         | 23 ++++----
+>  drivers/remoteproc/rcar_rproc.c         | 38 +++++---------
+>  drivers/remoteproc/st_remoteproc.c      | 41 +++++++--------
+>  drivers/remoteproc/stm32_rproc.c        | 46 +++++++---------
+>  drivers/remoteproc/ti_k3_common.c       | 28 ++++------
+>  drivers/remoteproc/xlnx_r5_remoteproc.c | 53 +++++++------------
+>  12 files changed, 199 insertions(+), 325 deletions(-)
 > 
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com> # msm
 
 
 -- 
