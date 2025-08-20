@@ -4,130 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC568CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 06:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FFCCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 06:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKDfblzDNT46YZA30uGR6v1f2o7XXcul3XVrMddX/YY=; b=Z866maMTBxrLEZik8KsQrtdxcZ
-	lXeKd0bq88t4NfnyNMD/wBGHaJ82h7Ma/8bZarRb6/yWDbBtvoNX6WVae1Dwp0bEHmZZ2FzMXKCtA
-	oVmZmCw5QAUBJaKA52IZZAevn5qkgVtEQjgzcpbku1oa8lAeEFDrcY5dTl7ElCXNQYbMJAJmlE4Kl
-	+1CcycAhI2DJPz5pJcKVWGq8/CVYdegD4WGVtRU1XQ0+ddV6ecMAvdSRMDZQO0m9Lu6r7D3F47Nzn
-	fSIKkZhTWke+FQ9GXevn21ChsxJXeREijyQICdX/Yzaw7RXl5OqSm7dXMq2ljsASBvj4w+K/g/Yew
-	7r6Q0viw==;
+	bh=0YWM5S4dm7vSz3gmoQTVjUJYFT5kv0kabSHfWarxYxM=; b=r2CLWP588jfoM0AzDN7vDQqemM
+	GAFMDDDYsvAlm6ULNwiZlYQ7KWtm5JrNDFYywizGkpl5JKsdDq4l1Wvl7MHgQE2JATFMZzZiMg2DQ
+	1mjb7wSMQM/V/6RW7QFv9KqmOwQi5adh98MKPpQH3JZWHF05zN+oM2RVG5NIr2pVHJc/afRNbG2az
+	TipJFtxByQM8nqSsbRlDEPqmVi9gBZL+uLbk/2xJvsoMUVg55RgINN5BxaNUBpVCK/D+hj9MkP/nr
+	PfnQgJLsI0u4RjmsPNO/D3MGl2ykYq6arwHVpF+BwIksJGTKyjdGXc3MGQ7atd2WsWPQAhqsTaokL
+	CVXcZEmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocIP-0000000CV8m-3svj;
-	Wed, 20 Aug 2025 06:27:41 +0000
+	id 1uocL1-0000000CVT9-1WFO;
+	Wed, 20 Aug 2025 06:30:23 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocFV-0000000CUkS-3iKb
+	id 1uocIK-0000000CV8K-2FPc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 06:24:43 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K1oYRF010752
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:24:41 GMT
+	Wed, 20 Aug 2025 06:27:37 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57K1p8t4004207
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:27:35 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iKDfblzDNT46YZA30uGR6v1f2o7XXcul3XVrMddX/YY=; b=WTvN35Q6cki4NjFv
-	C5dybd5+82zGxiD4rcGhPQQ1avtwaO98mO6sOW4g2DKVdKj79cZ1fsyUW7j7xaLI
-	h/c1+tEUyDS7uhXswB2G7bJASsZ5Psoy8OQVE3ZnoHIcHtrNbLUffcNf5helDQam
-	602iIpsi0r6yM/Tctw6FZsq6jG8WnQr8NlKffGAjz8H7jADQu8xYN+Ojon8BnIvd
-	jszcof3gc6JGkTuOGskFg6VtkzL2x22p/umtw5L/ks1f26fSmu9cEGWKZIWV5WYV
-	sEngmni5ywi1I9QSwofXUHzgE0YqSTPEt5WYKPzaaIsqrewX2toB2hIZtgfxrOWl
-	MIGg1A==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n528rmse-1
+	0YWM5S4dm7vSz3gmoQTVjUJYFT5kv0kabSHfWarxYxM=; b=XCFGBTN23/Vp6ulk
+	cA1/eLv7ZLhSywt+Wb89npC+Wr4qQopzFDxh3SWtGIyBXbX9mE780j3emx34FDD2
+	7An1K03U+tRmtCtL/shMlVDdgzWHaomLSwsYBMXpgulk5MFSVcFl9KMss+eU0bHF
+	y52Zda7qOO0Jjzft7aMR/2FXw93epdhrl4b7jxH8b9OV2PrNXFD6mFRfq17snyx4
+	7kErxl79pwoE89eiIHhbdCqqUtYtWwbSVzpPTqWLRZi5wfDhm0FbvcrLoX9QiZrl
+	tKOn2mpsoA6ScYJ92Xqe6L02NcziB8WicwJvfWAD5bzylnLikpQvhgpY5jfNrB3U
+	wcuzKA==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n52agmsr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:24:40 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-76e2eb787f2so6111548b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 23:24:40 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:27:35 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-76e2e614c60so5420677b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 Aug 2025 23:27:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755671079; x=1756275879;
+        d=1e100.net; s=20230601; t=1755671254; x=1756276054;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iKDfblzDNT46YZA30uGR6v1f2o7XXcul3XVrMddX/YY=;
-        b=lepCu4rxqBSkzTZkK8CES4FK9N0zRxHTZsh/sVTUwCkVMPxSSBFTkV4CGp80OfNuxP
-         yhe4I5BL+46WSt0CdpLay6fLQNzdVMWI1ahSzK3UTp/tDloUxyjxEDP539sT0Q+grFFM
-         md3PpzMvjZ1vD0vCmFELg86TNRsbzPQczrB4iN+pMHaSZisE1KVptFGse53e6CyqCn/f
-         2c74W40KfAt87tOl8QGQGrMDreQaHIazWSnErGOVtD5PS3KMpzbwNZYmvLzmlMEnkEWr
-         p6a/h2EBBG2ReTwz723AHjQyDAieqmKoZM+Zi3aAwwlj6U3jtM7CBOgVbBoFjO1rKlyo
-         +35A==
-X-Forwarded-Encrypted: i=1; AJvYcCXBK7/iF38NjBKPbGA/ooxWUfGTsoqB6FAV9K6SxHoMAXSYEgdpUkQRzoS93pGCPiPag02pybaallraj8kRGJYZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsnhEEuDD2l0RbO+cMTN8+p1wYyDEJoPFig3Kob61fHixyGR5N
-	2sRt5DsTlgEARwr3RPBTmF1upDVheoZxBl0jnjHuze4xiBSimqXssfEu+SxwgHig3cUlJzBNtXu
-	qFTygqh+NDzkuCaQOusUzkdxUaYuczT33SaLMDQfwE6CQjJCbN0aHyhU4/H6qWPoYZkewpJc0tJ
-	0Fyw==
-X-Gm-Gg: ASbGncvHEezv4BAoWztyJar5aL9EBkkMaXzoEVhneJdd8ogbs+iyrDyNlOQx4sQkjhv
-	q5juRA5XjfEPvmaH1e6/tYO3ps3nP1bgwVLRCr6c2e6PgJkEJfpYoWWenWue23Nri0tSrV4iB4t
-	iHqmFwuhGDfdWaBCKjBgLdpwqg0jLaGMTzRIzWKaM1z+ej1rU1kcj3oSHQXFUp9wCfGCwCeUSAW
-	bocw0ryQ/xWsPJW1qMrBO39vDJv4WmW0rIAtg0Jrcr8BRf8VumlkCAvGXi/DEHqCyeEwR9U62pS
-	NkZ/o+VArvq5C8lIPvgUZnB7Z1X/rUkCml7wV0fWa5QKgWNC0t2+pZZSVYfrE11h8Famonwcr9B
-	xMIKxCcK8e7G8Cc+CBaBzqQgILjzczBnW
-X-Received: by 2002:a05:6a00:1486:b0:75f:8239:5c2b with SMTP id d2e1a72fcca58-76e8dd255ccmr2038340b3a.23.1755671079374;
-        Tue, 19 Aug 2025 23:24:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEfH/JRqULP7unNKt/bNqp2cJbEU4cxpppDZWazMbkq05YCUx/tWuR3V1ofH2rijz+Dk6oT6g==
-X-Received: by 2002:a05:6a00:1486:b0:75f:8239:5c2b with SMTP id d2e1a72fcca58-76e8dd255ccmr2038315b3a.23.1755671078900;
-        Tue, 19 Aug 2025 23:24:38 -0700 (PDT)
+        bh=0YWM5S4dm7vSz3gmoQTVjUJYFT5kv0kabSHfWarxYxM=;
+        b=AAROTxXYUU9HGxmo6nr03wxXsgmLa7Z0+YoIAgVEKOy9h+MHh3BTBN9xQKkAJei9Qv
+         UaKOKQB0GYtOXmjno/Agl0XkNb5EjbGWXX8hzmkthq2zL/zysUE0l0VDBtZecdmheUmO
+         ffznvjEvpeuFbD26ulpu8UQDBZlO2ZvQlPGIprXyUQC/06sKLiRMLvD3PEpvchlJuepq
+         GQZd58DiIvxZNhB7HmQ6X0gYJEA4JVoVoGvI+Npi+ME9jidG8MpIfU1FJ7g8UbYH6QIr
+         ozHTpL5381EpF9MC9n3O21GhhyglorrJ4NRILJh6c5+zHf8pu/eT6ZPi/T+lPm3OjNc2
+         FFXg==
+X-Forwarded-Encrypted: i=1; AJvYcCVpk5PKzLoUSZJCABBcdT26s+pUCXXRxOixPVXWDCh8wWM3XoyC/d92z3PCLFisciNNbgoUUc0FC8wCneLokk+i@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjM36vGzJEV7g0BJvfqwezYT/TWiHBcN7w9H8ruEIYYb4jWHTf
+	ST0a8SUk9jkcAhOZWjMrua4Jgwo/nO0AdaEJi6hSmMJXq8HJ48joOU3NkwsOUs3RA3qhyxZA+Nn
+	+xr059ig6vNcR7YaDP1GI+3CLLGjYbYQawl6Sn0PGlD09B+SrWttz1EMXod4ghX17xkXyaHdeju
+	C+Rg==
+X-Gm-Gg: ASbGncuyY4en4nl3xsyN/JvMbB/3DaLNb0abY+gn37tjdb7E32VCaLLtZCKxWj6WKsl
+	A568ZzvOvCH2TAh9ooh4ZV2CVfLTgLk90KX3qJjOeTolLiFLgJ33njdW+63S54cUOWx4rsInKgT
+	4OlcYfnQmJZuKv9Od+L9DarKPpGrVY7effFNx1/vQYQ/A/nS+o6TMuNYvepMPKtibrkk3uqGek0
+	F/kBLCQCp0H3OzURmV9XvuQppBZouLdh5SRzsn7HuQvp/YaLmzsXVxjZQjACseo1kpMQmK+t9sy
+	zYkD0Yl1X817CwXMOJ2EyFGPhRWs2NIl50BfYmjzyJDxL/XTN4KnK/5uNRm4x5UrMg4Z9vOwFkF
+	OlpAINhmrEJDNT2dtIaIyEdt4uwvYTR7i
+X-Received: by 2002:a05:6a00:17a5:b0:76e:885a:c344 with SMTP id d2e1a72fcca58-76e8dd4cb80mr2579629b3a.26.1755671254277;
+        Tue, 19 Aug 2025 23:27:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEmS791N0ixCzI5dRAxbIiWf0iE1fLD86Phx2bw91vneJ+muUr6Yon5CmZn6QVf8jfjkBKoJg==
+X-Received: by 2002:a05:6a00:17a5:b0:76e:885a:c344 with SMTP id d2e1a72fcca58-76e8dd4cb80mr2579594b3a.26.1755671253812;
+        Tue, 19 Aug 2025 23:27:33 -0700 (PDT)
 Received: from [10.133.33.73] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d0d9438sm4271920b3a.21.2025.08.19.23.24.35
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d4fa868sm4294504b3a.64.2025.08.19.23.27.30
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Aug 2025 23:24:38 -0700 (PDT)
-Message-ID: <60628e3d-0a59-453e-acb3-acfc6dfe62af@oss.qualcomm.com>
-Date: Wed, 20 Aug 2025 14:24:33 +0800
+        Tue, 19 Aug 2025 23:27:33 -0700 (PDT)
+Message-ID: <baa85e52-f275-4d29-b3a9-2880664434f9@oss.qualcomm.com>
+Date: Wed, 20 Aug 2025 14:27:28 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: arm: qcom: Add Coresight Interconnect
- TNOC
-To: Rob Herring <robh@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
+Subject: Re: [PATCH v2 0/3] coresight-tnoc: Add support for Interconnect TNOC
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com>
- <20250819-itnoc-v2-1-2d0e6be44e2f@oss.qualcomm.com>
- <20250819194538.GA1214644-robh@kernel.org>
+ <aba6bf1d-5974-4003-9ae2-62033ddf87c5@kernel.org>
 Content-Language: en-US
 From: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
-In-Reply-To: <20250819194538.GA1214644-robh@kernel.org>
+In-Reply-To: <aba6bf1d-5974-4003-9ae2-62033ddf87c5@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=I4c8hNgg c=1 sm=1 tr=0 ts=68a56a28 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8
- a=q2rpgh4P1k-zP0bRiPwA:9 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
- a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-GUID: SZKsE6W2rfo95CUl5yo17Rx_sw6UCoRV
-X-Proofpoint-ORIG-GUID: SZKsE6W2rfo95CUl5yo17Rx_sw6UCoRV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfX8duWGaYegN0a
- KHmgM8AiW60URc7P8BLvpN4gRj2COG2Bzl4x7ud7ZBthNCY22TuVOtD6VPRlafYPS0Ow6L2S6JA
- 6vcSexBzTewr9frg1xOVLAm1vOsRTLzz81ST22T3R4zQwwC9B1A1ioVJu0ETXWp7FxoJjgZeEFd
- EIG0rvNsY6tXPGfKFdY0S7WNyVRJBDHDxUeVUTDP1NdBXIdi8UBRHfZUtFVBAEAkfqsHjx0g5Z3
- BNP8b/7VekfPA/TyK1p4dN7zbg2MDIzepervK8Iz/o/XMdVuidrbqkQNmQ71Wn6gO9Nrg7mTr+h
- jCDAFof95EBN8vPZgAYD9ZhTaayaq4cKaDpCZGB9ACDmYgfn6d2YiEISAkvo6CIOQcRY6MoB9l+
- 0+74L6CXzAEy6n7Ml3JvUAG82Dj16w==
+X-Proofpoint-GUID: YqI-y7QyeSBFD_fbs5CgF7kr3RHag2ny
+X-Proofpoint-ORIG-GUID: YqI-y7QyeSBFD_fbs5CgF7kr3RHag2ny
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfXyvUt4AZ7JZUz
+ cOAS+LCdoN19TGQTgbKn+RAakbJIVMUibyeJZvfx5i3IuvcskJdq0a+5SyiDWB8V543xOdozdhU
+ osoxvZguVLKpoaOyVf/H67UAODFbjqM96dkEE/Tl9WSvUDPUw8K8zjc2SKJe0WTq3KLctHvsyyx
+ 52qBtZ8JDVN5Ci6ghCUdcuBHqBd2pVjvc/Csj2X2oQdcwfOdOSqdJ3OWP2ueKQMtC6jWqnodNmp
+ lZPlW4Vz/bDoPtNrKyYmOL/qqC/u1H+zaulMZov4G26qMJC8y9my1KRsNiVijI90zfRhga3hW0q
+ /QWgXNBXvXpCb2vd8emeZbudYmZyStQY0zzt01DdCUadVCndHqw+xBgsOL+8i1PG1AniTp5Tc45
+ ySkbXsTo/pzVkR38RvXct6QUreyvlA==
+X-Authority-Analysis: v=2.4 cv=XfbQDI55 c=1 sm=1 tr=0 ts=68a56ad7 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=T5-8DVSjhCRqEL8X1fcA:9
+ a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-20_02,2025-08-14_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 malwarescore=0 spamscore=0 priorityscore=1501
- lowpriorityscore=0 phishscore=0 impostorscore=0 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
+ lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 spamscore=0 suspectscore=0 bulkscore=0 malwarescore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2508110000
+ definitions=main-2508200013
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_232442_047328_B70C5608 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250819_232736_704631_9EF7EA14 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,127 +142,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/20/2025 3:45 AM, Rob Herring wrote:
-> On Tue, Aug 19, 2025 at 03:27:43AM -0700, Yuanfang Zhang wrote:
->> Add device tree binding for Qualcomm Coresight Interconnect Trace
->> Network On Chip (ITNOC). This TNOC acts as a CoreSight
->> graph link that forwards trace data from a subsystem to the
->> Aggregator TNOC, without aggregation or ATID functionality.
+On 8/19/2025 7:30 PM, Krzysztof Kozlowski wrote:
+> On 19/08/2025 12:27, Yuanfang Zhang wrote:
+>> This patch series adds support for the Qualcomm CoreSight Interconnect TNOC
+>> (Trace Network On Chip) block, which acts as a CoreSight graph link forwarding
+>> trace data from subsystems to the Aggregator TNOC. Unlike the Aggregator TNOC,
+>> this block does not support aggregation or ATID assignment.
 >>
 >> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 >> ---
->>  .../bindings/arm/qcom,coresight-itnoc.yaml         | 96 ++++++++++++++++++++++
->>  1 file changed, 96 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..a3b5f2b949f69617a014d0ae2831c9c767178f8c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
->> @@ -0,0 +1,96 @@
->> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/arm/qcom,coresight-itnoc.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Qualcomm Interconnect Trace Network On Chip - ITNOC
->> +
->> +maintainers:
->> +  - Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
->> +
->> +description:
->> +  The Interconnect TNOC is a CoreSight graph link that forwards trace data
->> +  from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC, it
->> +  does not have aggregation and ATID functionality.
->> +
->> +properties:
->> +  $nodename:
->> +    pattern: "^itnoc(@[0-9a-f]+)?$"
->> +
->> +  compatible:
->> +    const: qcom,coresight-itnoc
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  clock-names:
->> +    items:
->> +      - const: apb
->> +
->> +  in-ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
+>> Changes in v2:
+>> - Refactor the dt-binding file.
 > 
->> +    properties:
->> +      '#address-cells':
->> +        const: 1
->> +      '#size-cells':
->> +        const: 0
+> Everything is rafactor. What changed specifically?
 > 
-> Drop these. Already defined by the above ref.
+> Or you just ignored prevous feedback and did other changes?
 > 
-sure, will update.
->> +
->> +    patternProperties:
->> +      '^port(@[0-9a-f]{1,2})?$':
->> +        description: Input connections from CoreSight Trace Bus
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +
->> +  out-ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +    additionalProperties: false
->> +
->> +    properties:
->> +      port:
->> +        description: out connections to aggregator TNOC
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - in-ports
->> +  - out-ports
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    itnoc@109ac000 {
->> +        compatible = "qcom,coresight-itnoc";
->> +        reg = <0x109ac000 0x1000>;
->> +
->> +        clocks = <&aoss_qmp>;
->> +        clock-names = "apb";
->> +
->> +        in-ports {
->> +            #address-cells = <1>;
->> +            #size-cells = <0>;
->> +            port@0 {
->> +                reg = <0>;
->> +                tn_ic_in_tpdm_dcc: endpoint {
->> +                    remote-endpoint = <&tpdm_dcc_out_tn_ic>;
->> +                };
->> +            };
->> +        };
->> +
->> +        out-ports {
->> +            port {
->> +                tn_ic_out_tnoc_aggr: endpoint {
->> +                    /* to Aggregator TNOC input */
->> +                    remote-endpoint = <&tn_ag_in_tn_ic>;
->> +                };
->> +            };
->> +        };
->> +    };
->> +...
->>
->> -- 
->> 2.34.1
->>
+The feedback has not been ignored, i will update the detail in next patch.
+> 
+> 
+> Best regards,
+> Krzysztof
 
 
