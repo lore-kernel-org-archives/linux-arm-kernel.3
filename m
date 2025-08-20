@@ -4,77 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5ECCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B86CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIU/i4LiCe59ZVf3B0YEYh89ChK/bpahQ0iukI4r94A=; b=Fat4aIjVT9VyhSL7KYZCgrexHr
-	3fm67Dv395svGGeEJm9nNATCI/yhYlq5flztrOVkKy5BuLbXid66wrg9Eh+OjzfcguZgtgRkokhgO
-	tLEqUOBc28AxwV7tPoHt5RCIBpyaxKBHLW8LigbvMF5kgcxpnjzpH+sz+cQq575oqVfwcDXqzHUEA
-	1Q8eGJhU5JSoDuNPiRanTzmpkaYhkjNjHTsJfqitoPmXeMfhNOkKpCAdHqoqyxY43a4FpKkOywmXS
-	GNbSFc5q9shStFtRffyAq3sTpIVoZJ7b3loHdjsaLN+OLfx6b5c9qLECQ3veCiDfSiKdJIxDzogBU
-	Wmw4KQvw==;
+	bh=LWMv8t39VI8GohGscyBGminST/Wca11UfNC5E+jU7P8=; b=rLoqVS0bC8IP8UT9+qGhMyaUHR
+	701IQ+KC2NuhoWypipMjzXQEXzXxJi6jEWH38bmDpppAuF78WyTL73cPmA+uWgFJyawtyiAOclkwH
+	0mCCrvJOagpbYOl+CsjMzRyyBHnDqC60gKjQCj40d2JlyUWZrERgJSMDMcjTuKMWZ3izV7gCHc3CV
+	HYHOX7/x1o5cDwU31MrVCaMfsD/MP/W+FumF+zJcD7az6VmiC+z3CJs9YatLHenPHpXa8T8VlzBf1
+	3DGMcRirNgLnlu7luOY7opF9nYGkB5zmeZPTY3LSwiC2BSr3OQ6oXMLRQR37u50yjfXkA0+BrPILM
+	DgtCFDsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoj6S-0000000Ds2b-43xA;
-	Wed, 20 Aug 2025 13:43:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uoj92-0000000DstT-1pYe;
+	Wed, 20 Aug 2025 13:46:28 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoiUZ-0000000Di5g-0BfD;
-	Wed, 20 Aug 2025 13:04:40 +0000
-Received: from [192.168.1.106] (mob-5-90-62-213.net.vodafone.it [5.90.62.213])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id DC7F31AE2;
-	Wed, 20 Aug 2025 14:57:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755694645;
-	bh=U7TtISZ9KEkfggbxSuQktBM+tgxpd90TPfrry/poVGI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MzWUL1zCNFZkJeyJkIQEQ/9nVcp/6wU+oTMIZU640mvx7s/QnYbPIwsEc/utX+PXs
-	 C1JEA5/g67VFdgAE+Qpm8iNChdpIkPyVlnDHxvuf7pA5CMkOlyBs3mSx6j7NGdnf8Q
-	 5bzp3hz+N4V4xa+jHCh4zZbPq9QOgJ7j8dkNhSFQ=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Wed, 20 Aug 2025 14:58:11 +0200
-Subject: [PATCH v4 3/8] media: uapi: Convert Amlogic C3 to V4L2 extensible
- params
+	id 1uoiYb-0000000DiUb-0zYg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 13:08:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B10FF5C5A67;
+	Wed, 20 Aug 2025 13:08:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 694ADC4CEED;
+	Wed, 20 Aug 2025 13:08:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755695328;
+	bh=ZMa6c5IXXc7FTpDi4XwZl4jGC7UySzLS0/LL8shetd8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CpVkkvsC4Vdv5Os71gtsmYfUWJ/rB6peVMstYHp5nr3ZjHT69/1UcRQkYkQivO91T
+	 KUhGyRC/fEzdupijaiv00W2E9JW+8j4yidXGgkxBv4kTCAHnzeNGn3PPfSwEZN8CME
+	 eplaQVTvPWKk8Y4qoCgUuT3u/UoBx+I2yBQrvFx19SqJtfIwJY8GrxtWEBpV1j9SFM
+	 tFJXq8X1TUEGQNSo6cGUEhyoiWUBt+NhAvMIN5CTmZrcEDGGRRGMOFD/bLTfz0MWMW
+	 f6XWwNgGzj5RWmo7/Ulc8XR/ARkOSfSD39yIiFL5ubzLt6YY0D5OzdOyHPFp8XUsaK
+	 kYUpvn33knZ5Q==
+Message-ID: <9fe9d86e-0d24-4877-aefc-438248d7024e@kernel.org>
+Date: Wed, 20 Aug 2025 15:08:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/6] arm64: dts: qcom: qcs615: add ethernet node
+To: Yijie Yang <yijie.yang@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, stable+noautosel@kernel.org,
+ Yijie Yang <quic_yijiyang@quicinc.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
+ <20250819-qcs615_eth-v4-3-5050ed3402cb@oss.qualcomm.com>
+ <c4cbd50e-82e3-410b-bec6-72b9db1bafca@kernel.org>
+ <157c048d-0efd-458c-8a3f-dfc30d07edf8@oss.qualcomm.com>
+ <0b53dc0b-a96f-49e1-a81e-3748fa908144@kernel.org>
+ <1394aa43-3edc-4ed5-9662-43d98bf8d85f@oss.qualcomm.com>
+ <7c072b63-f4ff-4d7f-b71e-01f239f6b465@kernel.org>
+ <b1eb2ed6-9743-465e-9b2e-75d5a06c1497@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <b1eb2ed6-9743-465e-9b2e-75d5a06c1497@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250820-extensible-parameters-validation-v4-3-30fe5a99cb1f@ideasonboard.com>
-References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
-In-Reply-To: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4678;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=U7TtISZ9KEkfggbxSuQktBM+tgxpd90TPfrry/poVGI=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBopcZrl3yLv/+1pdzMFnDC4qgvuGnFTE/G6ymzA
- 1VBEo8BbwiJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaKXGawAKCRByNAaPFqFW
- PCB2D/9uGiVH+feZ2RddhmXr/mLjqHqSkz84I4hf49PA2Iq/qieBsQRs9/8FnDpuBXetoY1ZWgR
- MX+pvfHKjPiXt0h5YXwqJUFBFXkalWPKe5zkA/aTJrikbzmncPzbfvgrkkdYg0BCW4Q+XruCGQR
- Yctc/jo9ILBeVIG21rq5ypH2/5NjROP9rS+5/VWriAgtjMUZJIxJ6mfNCYjKuOxkvhesfA8GFX4
- ic0LZuAAcBe36a6i0eM3abbRoA3PNNT1aycfcyDWKH6n5LFfOia+WD3j8C2RwDUq9PCjLVz7k07
- Q/QtgSY8SgUNtbZDyfl3WF2C04XaMxo5IZ9dnXDSa7OGFNWH8Cj6QbX+k1L/Zoip+tqJu2tLlK6
- K1lfYbPp5pMKEW2A3eMuCEkL4aiUQgnOD5VawRQUkcD4fa0UyJ5fVbrnpTwsXStfbywyd5BPee3
- kxaGB49YOhwuQlu0jNY22NwY5NF6cjB/qnB5SIEoSCPhtD0ybl9j5IJR0Fa3Nv1i0L9159w+K+U
- APRaIKk4k+TcwHS9n9mCzP0jTXh5Bysml4o186EPxMF4bwBHjmM5BwaOWs+aOkx2gr2EIS7lGVQ
- 7XhFmtiW2G2ncY3lHJelDyeChupUhHbnbAvloO5KLNsqILTeR41lVDZErmZhb1oBDNvQSKkhsXd
- wxPmiexq3R9jQ6w==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_060439_218738_A0636D3A 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20250820_060849_359948_40D854ED 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,113 +136,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of common types for extensible parameters
-format, convert the c3-isp-config.h header to use the new types.
+On 20/08/2025 10:57, Yijie Yang wrote:
+> 
+> 
+> On 2025-08-19 17:08, Krzysztof Kozlowski wrote:
+>> On 19/08/2025 11:04, Yijie Yang wrote:
+>>>
+>>>
+>>> On 2025-08-19 15:15, Krzysztof Kozlowski wrote:
+>>>> On 19/08/2025 08:51, Yijie Yang wrote:
+>>>>>
+>>>>>
+>>>>> On 2025-08-19 14:44, Krzysztof Kozlowski wrote:
+>>>>>> On 19/08/2025 08:35, YijieYang wrote:
+>>>>>>> From: Yijie Yang <quic_yijiyang@quicinc.com>
+>>>>>>>
+>>>>>>> Add an ethernet controller node for QCS615 SoC to enable ethernet
+>>>>>>> functionality.
+>>>>>>>
+>>>>>>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>>>>>>> Signed-off-by: Yijie Yang <quic_yijiyang@quicinc.com>
+>>>>>>> ---
+>>>>>>
+>>>>>>
+>>>>>> Why do you mix up DTS and net-next patches? This only makes difficult to
+>>>>>> apply it, for no benefits.
+>>>>>
+>>>>> The DTS changes and driver code modifications work together to achieve a
+>>>>> single purpose, so I included them in one patch series. Should I
+>>>>> consider splitting them into two separate series?
+>>>> Of course yes. You are just making difficult to apply this. Patches are
+>>>> completely independent and even your internal guideline asks to NOT
+>>>> combine independent patches.
+>>>
+>>> The challenge with splitting this series lies in the fact that it
+>>> attempts to reverse the incorrect semantics of phy-mode in both the
+>>> driver code and the device tree. Selecting only part of the series would
+>>> break Ethernet functionality on both boards.
+>>
+>> And where did you explain that? Anyway, you did not achieve your goal,
+>> because you broke the boards still.
+>>
+>> Your patchset is not bisectable and does not follow standard submission
+>> guidelines. DTS is always independent, please read carefully the docs.
+> 
+> The approach I'm taking will inevitably make the series non-bisectable, 
 
-Factor-out the documentation that is now part of the common header
-and only keep the driver-specific on in place.
+The series are non-bisectable now!
 
-The conversion to use common types doesn't impact userspace as the
-new types are either identical to the ones already existing in the
-C3 ISP uAPI or are 1-to-1 type convertible.
+Do you understand the concept of commit and how patch is applied? How
+splitting this patchset per two changes ANYTHING in bisectability?
 
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-Reviewed-by: Keke Li <keke.li@amlogic.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- include/uapi/linux/media/amlogic/c3-isp-config.h | 48 ++++++++----------------
- 1 file changed, 15 insertions(+), 33 deletions(-)
+And you keep arguing on this...
 
-diff --git a/include/uapi/linux/media/amlogic/c3-isp-config.h b/include/uapi/linux/media/amlogic/c3-isp-config.h
-index ed085ea62a574932c7ad8d59d34b2c5c74a597d8..15d3ac289ece610132e1d4b43ecd56b7ef527ef6 100644
---- a/include/uapi/linux/media/amlogic/c3-isp-config.h
-+++ b/include/uapi/linux/media/amlogic/c3-isp-config.h
-@@ -6,8 +6,13 @@
- #ifndef _UAPI_C3_ISP_CONFIG_H_
- #define _UAPI_C3_ISP_CONFIG_H_
- 
-+#ifdef __KERNEL__
-+#include <linux/build_bug.h>
-+#endif /* __KERNEL__ */
- #include <linux/types.h>
- 
-+#include <linux/media/v4l2-extensible-params.h>
-+
- /*
-  * Frames are split into zones of almost equal width and height - a zone is a
-  * rectangular tile of a frame. The metering blocks within the ISP collect
-@@ -183,11 +188,6 @@ enum c3_isp_params_block_type {
-  * struct c3_isp_params_block_header - C3 ISP parameter block header
-  *
-  * This structure represents the common part of all the ISP configuration
-- * blocks. Each parameters block shall embed an instance of this structure type
-- * as its first member, followed by the block-specific configuration data. The
-- * driver inspects this common header to discern the block type and its size and
-- * properly handle the block content by casting it to the correct block-specific
-- * type.
-  *
-  * The @type field is one of the values enumerated by
-  * :c:type:`c3_isp_params_block_type` and specifies how the data should be
-@@ -223,15 +223,8 @@ enum c3_isp_params_block_type {
-  *			gamma->pst_gamma_lut[i] = i;
-  *	}
-  *
-- * @type: The parameters block type from :c:type:`c3_isp_params_block_type`
-- * @flags: A bitmask of block flags
-- * @size: Size (in bytes) of the parameters block, including this header
-  */
--struct c3_isp_params_block_header {
--	__u16 type;
--	__u16 flags;
--	__u32 size;
--};
-+#define c3_isp_params_block_header v4l2_params_block_header
- 
- /**
-  * struct c3_isp_params_awb_gains - Gains for auto-white balance
-@@ -498,26 +491,9 @@ struct c3_isp_params_blc {
- /**
-  * struct c3_isp_params_cfg - C3 ISP configuration parameters
-  *
-- * This struct contains the configuration parameters of the C3 ISP
-- * algorithms, serialized by userspace into an opaque data buffer. Each
-- * configuration parameter block is represented by a block-specific structure
-- * which contains a :c:type:`c3_isp_param_block_header` entry as first
-- * member. Userspace populates the @data buffer with configuration parameters
-- * for the blocks that it intends to configure. As a consequence, the data
-- * buffer effective size changes according to the number of ISP blocks that
-- * userspace intends to configure.
-- *
-- * The parameters buffer is versioned by the @version field to allow modifying
-- * and extending its definition. Userspace should populate the @version field to
-- * inform the driver about the version it intends to use. The driver will parse
-- * and handle the @data buffer according to the data layout specific to the
-- * indicated revision and return an error if the desired revision is not
-- * supported.
-- *
-- * For each ISP block that userspace wants to configure, a block-specific
-- * structure is appended to the @data buffer, one after the other without gaps
-- * in between nor overlaps. Userspace shall populate the @total_size field with
-- * the effective size, in bytes, of the @data buffer.
-+ * This is the driver-specific implementation of :c:type:`v4l2_params_buffer`.
-+ *
-+ * Currently only C3_ISP_PARAM_BUFFER_V0 is supported.
-  *
-  * The expected memory layout of the parameters buffer is::
-  *
-@@ -561,4 +537,10 @@ struct c3_isp_params_cfg {
- 	__u8 data[C3_ISP_PARAMS_MAX_SIZE];
- };
- 
-+#ifdef __KERNEL__
-+/* Make sure the header is type-convertible to the generic v4l2 params one */
-+static_assert((sizeof(struct c3_isp_params_cfg) - C3_ISP_PARAMS_MAX_SIZE) ==
-+	      sizeof(struct v4l2_params_buffer));
-+#endif /* __KERNEL__ */
-+
- #endif
-
--- 
-2.50.1
-
+Best regards,
+Krzysztof
 
