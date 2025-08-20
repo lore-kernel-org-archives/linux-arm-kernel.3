@@ -4,62 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4ACACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 23:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5785CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 23:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=NlBBGfW7LW4mcszkeYVESntRwEb6oS14Ks7u+ztxYes=; b=kPwpcPN+1ulUg2
-	6gMAUAJmL1ebepR1SGM7h+e9TTmf8bVGQb24yqje1wSNtiK8g3ihQ9QfVFHUYrq+ECcQgb4ndlUtU
-	8MOxYRYgzRV1tyEZ1qVWltqyP0dhI68cAaCESwiq15UXkqTWDMWUyoBmiTwXBBq7oAsVxQOCUnds0
-	S9ozau23aRf30VlanBXC4GRXNzSehQ2QfboJfzrV89ZRyCevTiVDJhVC+CYaT7DwWrwM6SNO/feJh
-	0VkCnORRTMV0GgmlBukI4DA2YHZC7vf0OHByZs0VYe1dmIxU9vDkE96bnegcZdKa8ndVlmgur5/tk
-	C2MEMkoXZMlRKdRI0+CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=da9LUAyKv0YKznX40faP6GRrAbNpA1rpTFVSqyZmgXU=; b=00uU/PeaQeZzhZy+fgs3L347Yg
+	KX3JfVnHqKVITLAmbbRWuyC/XvSKRhSWNxuxZEE1Z1Cj1uA4HIgQVNLoOY69sJQqU5JY1XxfBMk1x
+	P5WY2tw7x6YpKyDyqEDuipOEOn/n9u1ykGS+NT9Ynzw7wFuDAkBhukewrdlGsvg6NVfu69L4JMMus
+	vq9VdZLS+mq4QM2hZFNbvcDkAPkfR+3XoruYHiSmnJL+KPK0U7EpZaWTGwE06PLOsEFz3xleH2E2e
+	0Wf22FN0bimNgQ0DbDPDar2BhmjuVvy3fszYTEqpSEbG5JJoT4cZuAjh398mn/eDblUWQ690pgyGh
+	STam0scw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorzX-0000000F9pI-1Bqf;
-	Wed, 20 Aug 2025 23:13:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uos6j-0000000FBkq-1fCX;
+	Wed, 20 Aug 2025 23:20:41 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonoz-0000000Ei6S-3eTH
+	id 1uoloM-0000000EQCu-0aI3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 18:46:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 52A9A43F86;
-	Wed, 20 Aug 2025 18:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03DB8C4CEE7;
-	Wed, 20 Aug 2025 18:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755715565;
-	bh=j9d5F5hOnILLhyNGlMupTClw/zrKYm3BliVu/NfBtsY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=dBNMWpPn54Vjp6IoSb+8vC2KBwaurBdV4AQ97cehpfnKFHwaVmnoe4NVLVbF3vTTd
-	 s++LCg3NTWJjxntc1Ubf5DQR5uXzhjCz24O4kc3UvUR3AGNDrdt8/VkECpmfTh5Jsg
-	 iKLNrAAnqd2KCTnMk0LX4NVWYRFHZwkiqzpoKMyF/0ng13je6OA4RyEqPDXNU2WPKN
-	 BExzxWal/gFbyIW1byYkaJvWifDhKzVdlQCHMFb0x5LY1sGdXqE53249Gd2PPCvfb5
-	 qsDNI4/r7wcAxLztTX6/ikTsfr20dMU/fjNAx9gflq3757tKlj7QTY+9Gnc+yPBg+/
-	 m8EzyhLLKKMhQ==
-Date: Wed, 20 Aug 2025 13:46:03 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	Jan Palus <jpalus@fastmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
- detected on turris omnia
-Message-ID: <20250820184603.GA633069@bhelgaas>
+	Wed, 20 Aug 2025 16:37:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TZQ/0pitC1IlIkkDArLVOhgNU4+GbVMS6uY3wG/8gNLi07+7vivvL8/t4g266MEN4HR2bG/x95PFHT1E1JPHCg4OueYwjnkMQfUiydWnfrj8D15k//Anlcf8Qo3xJVg56/gHxVagiwS1XY8byNtASn+kcCfXXQoUq0ALIQWGZm+09ig18N5p9ti804n9C40w/MoPq/9P8EVXIGuDjD2hNggO5pSY+SPsSnKE76AuHYrcq5Cys3scwfVCF1jc8LQG+cwq+Wm4zbMaVxu++6Rh0YpN8vGbziE14VwGEAWqJF6bO4w0uGk+u20XCeT3nqUffWJRlECTKRAhkkyAFbJtpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=da9LUAyKv0YKznX40faP6GRrAbNpA1rpTFVSqyZmgXU=;
+ b=WbuRfUqjHdoJe6b1FvVjIX2h9Gg3ORqzlryZioEuZ/9f01g1CCan7RA3kks2vda2QV00tcs83Xdd3ubo1hlgPo6eFHv8Uxi6U/w365UPAZWGet2pUQcIPZVCXCYFjdF0g5wSz+gsAfWSRTuOzJPfc4B5U9qlXVbCAnN9yJbbPEnBouHOrepcQNT55IujgRmqh2Fynk9CPFoinzy9wvI/N22oHD7zGT5Fo7R6yU4VesE5ByXacMqhcRWLU9ntbFmLXTsgoehj3HVMEUJb7GBR6J5qbpXuSKxrk5kKyNieSESQhMzTXLwG/kJJ7JB2FjrYjdzIk5GM9X4Qajk7Vx0Uwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=da9LUAyKv0YKznX40faP6GRrAbNpA1rpTFVSqyZmgXU=;
+ b=M4CmMqHdY0C9cESF/nqL8JNc1kwo+v40+Sum1NYCHbM4poPxgudo5ZRxvWIVIaTwWJmDZx246PpWlo1+ZhXHh59mKf80wuuQoP1J+a8lSruLrT72L14iBgbhiLZlRBscwFb4DKUMj5cOisYjHLKnkBx9ZpFK/ks0ZsCgVGxKXiHolMgeoAM9Re6naJ6ROdGhpgV3LR/ehtao/HL45bbrQhv52pSe08PNw3G8azcY6bSoaNv7q2bL6kXdb6aVSFf594ENboZt9Ei0PfjTJPXWnN1xIR+7LUmjLh7a2H32G+nsrjQeqfnzxMsPnC4AaJoUzbpUx7V6K7O3U3jjfltpYQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DU4PR04MB10338.eurprd04.prod.outlook.com (2603:10a6:10:565::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
+ 2025 16:37:13 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
+ 16:37:13 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 0/7] ARM: dts: clean up most ls1021a CHECK_DTB warning
+Date: Wed, 20 Aug 2025 12:36:50 -0400
+Message-Id: <20250820-ls1021a_dts_warning-v2-0-2e39648a32b7@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKL5pWgC/32NWw7CIBQFt9LcbzE81D6+3IdpGijQ3kShgQZrG
+ vYudgF+ziRnzg7RBDQRumqHYBJG9K4AP1UwztJNhqAuDJzyK21YQ56RUc7koNc4vGVw6CZirW2
+ FULoRWkJZLsFY3I7qoy88Y1x9+Bwnif3s/15ihJJa1q26qYukht/dtpxH/4I+5/wFP9UkJrQAA
+ AA=
+X-Change-ID: 20250818-ls1021a_dts_warning-fff933bd83da
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755707830; l=1729;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=4zpzh8YvZVs3SPwJDzW3ShZrMlrYcOEy540xZEIFuzM=;
+ b=LKhTxO1Qtzf96ROPfTDOnepQVWnE/4O0GmQo8Hwnvevs/vqoJclkIwQM3bOJZVL7nCzsorhP0
+ DrusjMR6XmtAbk1r/7WKeYz0/u15LfhXCb1fU7LqztCsD0hOdV4NfMq
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0231.namprd03.prod.outlook.com
+ (2603:10b6:a03:39f::26) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <bug-220479-41252@https.bugzilla.kernel.org/>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DU4PR04MB10338:EE_
+X-MS-Office365-Filtering-Correlation-Id: b1de6c54-b567-44ea-9233-08dde007d0dd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eVZIUVNJbTcvVDN2WkZOd1dzKzVnM3hIMUg0bzI0NUU3eDRhdHRodEUxaVpW?=
+ =?utf-8?B?V0xHS01mZitDd0o2M3lyVXlZaXg1M2kzQUFoMy9vaS9zQmpoUjRPOVJXZVBV?=
+ =?utf-8?B?aE5HeGE4M3NjenFNa0phanQwc1F2eWRwVWxCYktZV3E2OWhkRGs0ZFE0bm9v?=
+ =?utf-8?B?Z1JHWW1SV3VtczZIZjk1RjVpQXFRWUpCRFJmY29QYVQ0ZE5mV2J2QklrZlZZ?=
+ =?utf-8?B?TkFRZm5IZ1JoVHlERUZDd295VG1zdzdYYnpCeEJwelYxbzJmT1dCakZsT2hC?=
+ =?utf-8?B?L3pvd013RmYrRTFSR1RmMERoSnlBbzY5K1ZpSldpT1U4NHdQSnprVVpTWVM2?=
+ =?utf-8?B?UXhoT3JZZzhGOU1paWlDTkRxdm8xQk9tcm8xTE9xeWJzWXdnVHRhN2t0U0p2?=
+ =?utf-8?B?M1lEQWJwamhXcjIvajNrL1krMkdYT3NvWHlxRWZZTldPZmJKQzNKRVY4OXpq?=
+ =?utf-8?B?eHprc3ljMDR4cndCY2VCUllweFdCTEZRVGJEMno2b2IwSkI5OFc3dEU4OTNy?=
+ =?utf-8?B?dHJoclJSTjV0dldST1Y5NkNES2xrQWdwcG1qUUtpMDBNdWFWMEY0bmw1S3ZL?=
+ =?utf-8?B?RE95VGptaXlsY3FYU2p0OHJQUU5Sc09nalZCOUJjS3I5Y0lSQTlHMHFJUkJs?=
+ =?utf-8?B?ZVFyYXRrS3hBd252WmNZVUttK1YvTld6dzgwQno1VHpJTHg5YzdNRk9EeW45?=
+ =?utf-8?B?ZDJSL3hiTjlhNy9uRmQ5Mkl3NExYR0N5eUtEZ1pkN0JLUnBwcXJ1NktjWVds?=
+ =?utf-8?B?OFo4YkFHRFdQaHhCMVZRZ3RYeklMcEY4anJoSXBMK2dRYlJlQ015d2VWL1hF?=
+ =?utf-8?B?QmUzaDlMb05OTXRWSE9wdk12eEw4bnpiNGV4NFlLUm1iaUxvWUtKcU9mTUpS?=
+ =?utf-8?B?VHlwUkhOSk1ycTQ5dzRmRWdtVHVVOFgzQnNxaGY2WXpKNDJsME5wY1Fva1oz?=
+ =?utf-8?B?QzdaZ3pQM0xCcHl2aTF4akc3Zm1FQXZPNnFVNUNtaVZwdEQyQTQ0M1RDaGxz?=
+ =?utf-8?B?R01uVkNSa25sNm1QY21mQVk1T0cyRExmd1RVSWdrZm5YUHBHOGlvVFBZZ25U?=
+ =?utf-8?B?WVhLRDRscWRPY3EyWkI0a3NDanpYcHJ0NEJqUWh1L29OM0xiQnNRdVlmTVky?=
+ =?utf-8?B?YkdHMGlOVEMrdU1xSm9Mb1ZPbjVRMDZwOXluVUNhTnBabE05Y2RXR0lsMkxZ?=
+ =?utf-8?B?cVBFRkhZWnUvUGlCbjFWd1pPKzJtWVBJR0Fkc2JBeXA3VjkveUd4alBwQXY0?=
+ =?utf-8?B?cUdiOTNTbTNlcFJtc2RFZzRUWU51NGRtR2grNDhJa2dTbXNORmFTWVJxMEhO?=
+ =?utf-8?B?c2NjSkRLdldaekdKN1FTa3pvTmZndk1NdlhzSzNPWGZjSWgzOEVVY0hIUUtT?=
+ =?utf-8?B?Q1IrOXQrVWVFcGxEcFBkNHA0OEVxaE5tcFcySnB3YkoyeW81emh1Tk9ybkx6?=
+ =?utf-8?B?UnEwNUJKZ0J2aUlaMkVZRTNyMnZGOEttSytDQy9xNmR4Nkd6L1JCbnVqcFF1?=
+ =?utf-8?B?RTRXS2grS1J6T3VzQU1IcjhybzdlZm5EbDYrN0x2cFFDanpsRHMxc25qUkZY?=
+ =?utf-8?B?d21hM01pUmhpTks4R29PWmpESFN4cDlJbVdQUWkyakoxUDhYY3JpNHpxcXhC?=
+ =?utf-8?B?am5BZCtDUWNaWlQrdENUeTV0K1NWZ0U5Tzk4OUtuWkFISnVxYms0Mi96dDZC?=
+ =?utf-8?B?VnlVUzlDU3NiYnNDaGlSN1ZSVVVzOVNuZzdaMVd2T2NZc0FMUnhtMDNBVi8y?=
+ =?utf-8?B?RWdob2ZTU1dzRlIxa2lrTHI5S0NvajBycUpYc0RlNngxRlMvd05yd2xFOUpU?=
+ =?utf-8?B?dnhRU1hqWVdFYTNyWklTd3ZhOE9IRHJyMDdjTkp5MVZ2TjMya3FoR1huYjVs?=
+ =?utf-8?B?N1dyQWZiU05TL2tXUEdVUndkb2dqYUFEdFRtbTM4bFpyMHJOWm42QVd2QWdy?=
+ =?utf-8?B?UUtleFdIYm5RR2Y4eXBLUnB1S1BDRUc2eGRRRi9iNFR1M2xQRFF3R1lsaHRy?=
+ =?utf-8?Q?eraKmRxYT+W6GeS665hW7l2dHq0TRY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFJld3Y5cmd0blVOdDRLbllPZHh3aDQ0NytOaSttNGJMR0NRS2VyUEJkOEZl?=
+ =?utf-8?B?WkZBbWJnbVIrK0xlVzM3TWpieGJxMDV4OEZHWkNZdXp2WDlPN2ZkVThwWjVZ?=
+ =?utf-8?B?SU1OSFdFaTREa1cveENOZ25DWlJ3bEcxcWs5MUVwMERaZFJoYjA0L0pNUXpV?=
+ =?utf-8?B?OEcwT2V0SUQrakNIQjNJZDhjcUlxRkt4OHYrYjhiM2tnKzNpdENvaEtYblpi?=
+ =?utf-8?B?VmF2blU2NDl5T1lraldRMG9PbnBxcFJCWEV1UVp6R01yNHFCWHdiaDhqanB4?=
+ =?utf-8?B?a056bHJTQzVWVExMemgwSThzdHRZUkxTazF0ZVlLRXBuN0lPdjlvTk01RUpL?=
+ =?utf-8?B?NEUzeStiSkpOeUJHaHJDNlcraTN0VU05L3dPQkdOMW1wMlBxdzVOT0sxMGFj?=
+ =?utf-8?B?ZlBTUlNFaVYza3NmL256enZZZnV1MmwzMWVvcGNIYmNoSHd0clFwemNoeE11?=
+ =?utf-8?B?Q203Q3RrQ2lkaHRoQ1B0bmUvYkllUExacUJWeHcyRU1Na2tsRHo2OVhpVzI5?=
+ =?utf-8?B?enR5b3FLMGplOURFVHNOTENuUU1CYmk3YTZjMHZBakJneSt0OHA5enRYNHJI?=
+ =?utf-8?B?YVBkUFNVN1FvMzNHOVZ2ZnBydHhnVSs2Qm41UjZQZDAwVXBTV3FXQXArUjlh?=
+ =?utf-8?B?TXZ2L2dWNGFsVVptdlFLbnkvQjdMNi9JbXhmaVkxSHZQRHdBVnJxTGd2NHpv?=
+ =?utf-8?B?QUIxbzV1MlVXbENBMUV5VnVBOCt6RGFQTTltMGhPVnphUlBvVWg5NmlDOEFY?=
+ =?utf-8?B?c0pzYmJjTlZJdG1rc3NVREpuSGxXWlRXamIyczV6WFlDbkpqbC94MWhVNUJY?=
+ =?utf-8?B?MncrVSt0alZwZXVuNDZGcjJrdndEdjFkbWt4SzlCMWtIcm1FM3cvTTJvV25Y?=
+ =?utf-8?B?MGVtRDlJcHoyeHpyK0pDZE90bG9yK091UjBpQU92d3RDTHNxT0lWMERRNldh?=
+ =?utf-8?B?Z0ZjTTV0c1E3aGFsazBxYmtVbkg3d0VIeTNsOTFsOXZLWllhOG1qYjhQNTNP?=
+ =?utf-8?B?Z3ZyTjBUTC95dmI2bkRwMCszN1JybEhEMzNVNTJWTG55SlpVZTY5SU0vVlA4?=
+ =?utf-8?B?cHBIUng3NVk3cjlndi9TVWh4ZUtDVkhQN05KaFhUSlFvSmVZY2tJZWNrazVL?=
+ =?utf-8?B?L2JDRUxqb01uVUUrb1FObWdON2J4VEpQc1JxL0djbERibCtvWnlHNGxkR0l4?=
+ =?utf-8?B?eHNlWnVTSktzdkdlTGtieElxb0JOV0JYTzNORGlIWE9OaXBkd0VRd2Z2RGJi?=
+ =?utf-8?B?TXN5UDJUTXRxcUlUREFBRlhTSXUxcERHTGN1Y3VWMzFqRlRjVWptaVBaellx?=
+ =?utf-8?B?S2p2Y2hDc252U1paYXdIZ1pxZWt3ejBwQkpiNHJZUCt5dTdVcTM0T3FiaEFE?=
+ =?utf-8?B?MEw0Z2hrLzJCM0ptNWN2QURSOThnbnhCb0phNGYrS0xlYk4vSzA3YmJydllr?=
+ =?utf-8?B?NDdLSlBTQzIxUE9DQzdpTlVSVGV0TlBPVGZTMEQ2SjI0aTdaUEZrUzIrSDRr?=
+ =?utf-8?B?Sk1JWXdtZE96TUgzVFBFcFptUEtjSGZ5OE5WSzZNOGkzK3cyTVNWTGRMZFZ4?=
+ =?utf-8?B?YUFMRzh5MGJEUHVmTWwrbU44WVpabFhTV2hLZW5KUjk4YTh1OHhpNThYK3Rv?=
+ =?utf-8?B?SkJsbElWNjkwdnA5Njl1ZlhabnlCK2FUam9sRnNHdUMyMjkxRFJSYmtqUkho?=
+ =?utf-8?B?YURJSEdGQURENWd2SHgwTjlEYWI2T01qc1hlTUtKTjA3clJkQm1jdUYvUWwy?=
+ =?utf-8?B?Tmh2aHR5V2Z6SUg3YjRwUUVaSDY5OFFrQzNCbFh2cXRVS1Fhc2E4QVpXT3BC?=
+ =?utf-8?B?alc0OU9GUHZnOUhZOXA5bUdtaithYm91UlIvb1JCNGp2RnZ5aHJRZDRta0hE?=
+ =?utf-8?B?MURQSWtYVTEwSkFtZ0lZRndiTkxoU21qNW5hMmg0SGl6MEZtTGVzZWJIN3FV?=
+ =?utf-8?B?WW4vaitrZXN3YTNvRFQ3YXE5S1ROTldBL2FTL2s4SDdJNzdEallod3NPMllQ?=
+ =?utf-8?B?TVcweUlzQVJXNnA2bi82TXpNQndpNjNoWUtNNXV2a2tOeks0ZGVkbEVKem1C?=
+ =?utf-8?B?RkUzakFvbnUvQlFZMnNiOEFMNnp3NFZueXlDTCtzaktoZ0R0aGRSeTIxeU9E?=
+ =?utf-8?Q?PkzQKJxv2bbIk9+9hcHTzteZL?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1de6c54-b567-44ea-9233-08dde007d0dd
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 16:37:13.2113
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BUuqj0unUcSMFAPDSLEJhcMME55R72k0MhIP5Iur3clxN/8v3urEFnYve0UI15ERU7oc+1FTbtvSGokTl/x3/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10338
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_114605_953463_085A6161 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250820_093718_186693_34BB5D44 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,180 +188,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc maintainers, regressions list]
+clean up most ls1021a CHECK_DTB warning.
 
-Jan, thanks very much for the report and the bisection.  Could you
-attach the devicetree you're using to the bugzilla?
+Old uboot check esdhc@1560000. The new uboot already switch to check both
+esdhc@1560000 and mmc@1560000. So we can rename it now.
 
-On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
-> https://bugzilla.kernel.org/show_bug.cgi?id=220479
-> 
->            Summary: [regression 6.16] mvebu: no pci devices detected on
->                     turris omnia
->           Reporter: jpalus@fastmail.com
-> 
-> Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
-> is completely empty). Bisected to:
-> 
-> 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
-> commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
-> Author: Rob Herring (Arm) <robh@kernel.org>
-> Date:   Thu Nov 7 16:32:55 2024
-> 
->     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
-> 
->     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
->     but it's still just normal "ranges" as far as parsing is concerned.
->     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
->     instead of open coding the parsing.
-> 
->     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
-> 
->  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
->  1 file changed, 9 insertions(+), 17 deletions(-)
-> 
-> 
-> kernel 6.16 logs following mesages related to PCI:
-> 
-> mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
-> mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
-> mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
-> mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> pci_bus 0000:00: root bus resource [bus 00-ff]
-> pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> [0x00080000-0x00081fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> [0x00040000-0x00041fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> [0x00044000-0x00045fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> [0x00048000-0x00049fff])
-> pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> PCI: bus0: Fast back to back transfers enabled
-> pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> 
-> 
-> while kernel 6.15 logs following:
-> 
-> mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
-> mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
-> mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
-> mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> pci_bus 0000:00: root bus resource [bus 00-ff]
-> pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> [0x00080000-0x00081fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> [0x00040000-0x00041fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> [0x00044000-0x00045fff])
-> pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> [0x00048000-0x00049fff])
-> pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> pci 0000:00:01.0: PCI bridge to [bus 00]
-> pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
-> pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
-> /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
-> /soc/pcie/pcie@1,0/interrupt-controller
-> pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> pci 0000:00:02.0: PCI bridge to [bus 00]
-> pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
-> pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
-> /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
-> /soc/pcie/pcie@2,0/interrupt-controller
-> pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> pci 0000:00:03.0: PCI bridge to [bus 00]
-> pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
-> pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
-> /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
-> /soc/pcie/pcie@3,0/interrupt-controller
-> PCI: bus0: Fast back to back transfers disabled
-> pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> PCI: bus1: Fast back to back transfers enabled
-> pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
-> pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
-> pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> pci 0000:02:00.0: supports D1
-> pci 0000:02:00.0: PME# supported from D0 D1 D3hot
-> pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
-> reconfiguring
-> pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> PCI: bus2: Fast back to back transfers disabled
-> pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
-> pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
-> pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
-> pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> pci 0000:03:00.0: supports D1
-> pci 0000:03:00.0: PME# supported from D0 D1 D3hot
-> pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
-> reconfiguring
-> pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> PCI: bus3: Fast back to back transfers disabled
-> pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
-> pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
-> add_size 200000 add_align 200000
-> pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
-> pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
-> pci 0000:00:01.0: PCI bridge to [bus 01]
-> pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
-> pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
-> pci 0000:00:02.0: PCI bridge to [bus 02]
-> pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
-> pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
-> pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
-> pci 0000:00:03.0: PCI bridge to [bus 03]
-> pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
-> pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
-> pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
-> pcieport 0000:00:02.0: enabling device (0140 -> 0142)
-> pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v2:
+- squash rename to flash patches
+- remove duplicate patches already post in
+https://lore.kernel.org/linux-devicetree/20250725061339.266125-1-alexander.stein@ew.tq-group.com/
+- Link to v1: https://lore.kernel.org/r/20250818-ls1021a_dts_warning-v1-0-7a79b6b4a0e2@nxp.com
 
-#regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
+---
+Frank Li (7):
+      ARM: dts: ls1021a: Rename node name nor to flash
+      ARM: dts: ls1021a: Rename 'mdio-mux-emi1' to 'mdio-mux@54'
+      ARM: dts: ls1021a: Rename esdhc@1560000 to mmc@1560000
+      ARM: dts: ls1021a: Rename node name power-controler to wakeup-controller
+      ARM: dts: ls1021a: remove big-endian for mmc modes
+      ARM: dts: ls1021a-tsn: Remove redundant #address-cells for ethernet-switch@1
+      ARM: dts: ls1021a-tqmls1021a-mbls1021a-rgb-cdtech: Remove fallback compatible string edt,edt-ft5x06
+
+ arch/arm/boot/dts/nxp/ls/ls1021a-qds.dts                          | 8 ++++----
+ .../dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso  | 2 +-
+ .../dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso  | 2 +-
+ arch/arm/boot/dts/nxp/ls/ls1021a-tsn.dts                          | 2 --
+ arch/arm/boot/dts/nxp/ls/ls1021a-twr.dts                          | 2 +-
+ arch/arm/boot/dts/nxp/ls/ls1021a.dtsi                             | 6 ++----
+ 6 files changed, 9 insertions(+), 13 deletions(-)
+---
+base-commit: 3ede6e44fad31f1c80dd01188683f0caa0f19247
+change-id: 20250818-ls1021a_dts_warning-fff933bd83da
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
+
 
