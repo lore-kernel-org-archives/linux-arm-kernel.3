@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513E7CA0FE1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D64CA0FE2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j5oPyiDB/53w/CRfP1moEAE6TI5Pb990V/JJmWOvCnE=; b=pw4xqtnoZnAMc50pVSi72eGi1W
-	sTn+9NQWwIqVCjscc86uykIRchzTmk/HgEF1cksoTbmI6UasF4pQPV6uBD+XS59soSfabv83XaywZ
-	AW8oi0nOGtyJxfde7Q/7A4Qyu5RaHGKyc1zNajE+aIrqhVtfE5sxSAXTKy9TXfjLUXeeOf5cNKmgE
-	Mx5UaxnDYiOp79tX7mZvQDzqiEeIfb5qj4kpVwtJ4d0pIoaYaNU9vEbbkZeuBXOq71K80htyrsDVP
-	wPep8MtWAfb/xwtwIFem3stiTHCLMXNHYNIDJScF6cVbm2qugfyC/aEz5mCvTiMKfq8FRKyZeSFwB
-	z0YJ+iNw==;
+	bh=us6FRP1o3oxlC+lx8gc7bSQ/pJj+NWeiXGsP63tz6pA=; b=0k/kq/h+ZuUSF7FcCWwN/2S7N/
+	m83fSZIs+nuUPjxzrNN353ww66UNCwBbeuHw0hWO11ipVLKSCXc7NnkrfgjhX4wbWFn8BNaaJ37Tx
+	uVffPQrUj41aVTZZQBe1JTT/k6yE8fJfICv5kgbNRHenHBGiGDNYU0aidLcCP1I+MlcxxbxMhVZSC
+	Gz4B6UeeAx3wRvrY/X+qnF98jb5hqFeLn5cPGvmro5oOZeTWV9gWrj9txesfDTVOgEeHRUM+rw9V3
+	gY/9Mz+ElyiDrJy208YZAB+sJGdMLa5NYYlNVTgj/kWnz97MLk/dVybTeK+pZ8XYn6CUEonIiAdj1
+	vQax9MCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopkR-0000000Ert1-0sks;
-	Wed, 20 Aug 2025 20:49:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokGp-0000000EAQA-14xQ
+	id 1uopkZ-0000000ErzR-1qkj;
+	Wed, 20 Aug 2025 20:49:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uolD2-0000000EKAp-3Sli
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 14:58:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 628421D31;
-	Wed, 20 Aug 2025 07:58:26 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.2.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5641F3F738;
-	Wed, 20 Aug 2025 07:58:29 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Wed, 20 Aug 2025 15:58:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 417E35C59E3;
+	Wed, 20 Aug 2025 15:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A8E4C4CEEB;
+	Wed, 20 Aug 2025 15:58:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755705523;
+	bh=eaC5Mndp+PmBWbuGuWerLDsOlSXZFVRbJRhuoDO7Lrw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AZTEIJLxD4mBWLOWCTkpbDA7AfdLuBY2oOhqxRG24Ahper15tdfkkifUydndnRl7U
+	 6GgLJii/FLsxDEqhzyfHOOvyvhqP/erXCl5oNohAmqMMy3Jq+1bSjf7vMHQkpJrJJ0
+	 aR0DyGZji2JrEIlOyiIN6jku3VK4nqWzrOf1NXGJFG6s48iQw5XkrZr6ywMvoOTmJE
+	 dz3Kzn8oHgpivKyv0FEXJ+bNUDxYdewAmJapOU5jOnk12AFLrwuy/OqA7MtHaRRdeI
+	 jeqPxjB5K4XeI4nCC6MHEONj0CP9b55ImpQ+3cZkl9wCQbpWuA/vi6KmP+Esq/Dlyk
+	 VUHt0Cx703AKQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Michael Buesch <m@bues.ch>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v10 17/43] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
-Date: Wed, 20 Aug 2025 15:55:37 +0100
-Message-ID: <20250820145606.180644-18-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
+	linux-omap@vger.kernel.org,
+	linux@ew.tq-group.com
+Subject: [PATCH 05/16] gpio: pl061: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:26 +0800
+Message-ID: <20250820154037.22228-6-jszhang@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
+References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_075835_379163_786A94F8 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250820_085844_945023_316AF5B6 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +92,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The guest can request that a region of it's protected address space is
-switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
-RSI_IPA_STATE_SET. This causes a guest exit with the
-RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
-protected region to unprotected (or back), exiting to the VMM to make
-the necessary changes to the guest_memfd and memslot mappings. On the
-next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
-calls.
+Use the modern PM macros for the suspend and resume functions to be
+automatically dropped by the compiler when CONFIG_PM or
+CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
 
-The VMM may wish to reject the RIPAS change requested by the guest. For
-now it can only do with by no longer scheduling the VCPU as we don't
-currently have a usecase for returning that rejection to the guest, but
-by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
-open for adding a new ioctl in the future for this purpose.
+This has the advantage of always compiling these functions in,
+independently of any Kconfig option. Thanks to that, bugs and other
+regressions are subsequently easier to catch.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+The pl061_context_save_regs structure is always embedded into struct
+pl061 to simplify code, so this brings a tiny 8 bytes memory overhead
+for !CONFIG_PM_SLEP.
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
-Changes since v8:
- * Make use of ripas_change() from a previous patch to implement
-   realm_set_ipa_state().
- * Update exit.ripas_base after a RIPAS change so that, if instead of
-   entering the guest we exit to user space, we don't attempt to repeat
-   the RIPAS change (triggering an error from the RMM).
-Changes since v7:
- * Rework the loop in realm_set_ipa_state() to make it clear when the
-   'next' output value of rmi_rtt_set_ripas() is used.
-New patch for v7: The code was previously split awkwardly between two
-other patches.
----
- arch/arm64/kvm/rme.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
+ drivers/gpio/gpio-pl061.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index a8ea469a9e3b..22168e8d8db7 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -733,6 +733,21 @@ static int ripas_change(struct kvm *kvm,
+diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
+index 02e4ffcf5a6f..919cf86fd590 100644
+--- a/drivers/gpio/gpio-pl061.c
++++ b/drivers/gpio/gpio-pl061.c
+@@ -37,7 +37,6 @@
+ 
+ #define PL061_GPIO_NR	8
+ 
+-#ifdef CONFIG_PM
+ struct pl061_context_save_regs {
+ 	u8 gpio_data;
+ 	u8 gpio_dir;
+@@ -46,7 +45,6 @@ struct pl061_context_save_regs {
+ 	u8 gpio_iev;
+ 	u8 gpio_ie;
+ };
+-#endif
+ 
+ struct pl061 {
+ 	raw_spinlock_t		lock;
+@@ -55,9 +53,7 @@ struct pl061 {
+ 	struct gpio_chip	gc;
+ 	int			parent_irq;
+ 
+-#ifdef CONFIG_PM
+ 	struct pl061_context_save_regs csave_regs;
+-#endif
+ };
+ 
+ static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
+@@ -367,7 +363,6 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
  	return 0;
  }
  
-+static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
-+			       unsigned long start,
-+			       unsigned long end,
-+			       unsigned long ripas,
-+			       unsigned long *top_ipa)
-+{
-+	struct kvm *kvm = vcpu->kvm;
-+	int ret = ripas_change(kvm, vcpu, start, end, RIPAS_SET, top_ipa);
-+
-+	if (ripas == RMI_EMPTY && *top_ipa != start)
-+		realm_unmap_private_range(kvm, start, *top_ipa, false);
-+
-+	return ret;
-+}
-+
- static int realm_init_ipa_state(struct kvm *kvm,
- 				unsigned long ipa,
- 				unsigned long end)
-@@ -940,6 +955,34 @@ void kvm_destroy_realm(struct kvm *kvm)
- 	kvm_free_stage2_pgd(&kvm->arch.mmu);
+-#ifdef CONFIG_PM
+ static int pl061_suspend(struct device *dev)
+ {
+ 	struct pl061 *pl061 = dev_get_drvdata(dev);
+@@ -411,13 +406,7 @@ static int pl061_resume(struct device *dev)
+ 	return 0;
  }
  
-+static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm *kvm = vcpu->kvm;
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+	unsigned long base = rec->run->exit.ripas_base;
-+	unsigned long top = rec->run->exit.ripas_top;
-+	unsigned long ripas = rec->run->exit.ripas_value;
-+	unsigned long top_ipa;
-+	int ret;
-+
-+	do {
-+		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
-+					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-+		write_lock(&kvm->mmu_lock);
-+		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
-+		write_unlock(&kvm->mmu_lock);
-+
-+		if (WARN_RATELIMIT(ret && ret != -ENOMEM,
-+				   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
-+				   base, top, ripas))
-+			break;
-+
-+		base = top_ipa;
-+	} while (base < top);
-+
-+	rec->run->exit.ripas_base = base;
-+}
-+
- /*
-  * kvm_rec_pre_enter - Complete operations before entering a REC
-  *
-@@ -965,6 +1008,9 @@ int kvm_rec_pre_enter(struct kvm_vcpu *vcpu)
- 		for (int i = 0; i < REC_RUN_GPRS; i++)
- 			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
- 		break;
-+	case RMI_EXIT_RIPAS_CHANGE:
-+		kvm_complete_ripas_change(vcpu);
-+		break;
- 	}
+-static const struct dev_pm_ops pl061_dev_pm_ops = {
+-	.suspend = pl061_suspend,
+-	.resume = pl061_resume,
+-	.freeze = pl061_suspend,
+-	.restore = pl061_resume,
+-};
+-#endif
++static DEFINE_SIMPLE_DEV_PM_OPS(pl061_dev_pm_ops, pl061_suspend, pl061_resume);
  
- 	return 1;
+ static const struct amba_id pl061_ids[] = {
+ 	{
+@@ -431,9 +420,7 @@ MODULE_DEVICE_TABLE(amba, pl061_ids);
+ static struct amba_driver pl061_gpio_driver = {
+ 	.drv = {
+ 		.name	= "pl061_gpio",
+-#ifdef CONFIG_PM
+-		.pm	= &pl061_dev_pm_ops,
+-#endif
++		.pm	= pm_sleep_ptr(&pl061_dev_pm_ops),
+ 	},
+ 	.id_table	= pl061_ids,
+ 	.probe		= pl061_probe,
 -- 
-2.43.0
+2.50.1
 
 
