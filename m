@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE8ECA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4E3CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 21:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sjr5FjezJ3DnctvttPhGjVA1HSx0Nva4gNLgYPU187w=; b=Bq1ho5UmUuRtsTf2nUahY6TvaP
-	MHkcoraKVnS/Tn0ssukmaCmVXRfF64565uzK4AKekFlE2awN/iS0sqFCTShyaTJBa3LHZ/LpgJhFn
-	QnL93VjdF8RMdVnwYo9mcUwlKmlfsmWWzfHO1Ef/8NR8cWoeZg8iuaAMbWp8aVhSaP4JqftnnWRqZ
-	tqMZrJH+ln830XPT6ZHixTQG37XiOmoKkEZuk/lLZes8TjYRbhRe4bdVUPcNhQOTv05VmVCISJcrA
-	AlhXQTS2pqUe/KInODi5Q4hhXiyeze+QHLcZKrnwhPeoKD7Y5fuS1bx5rS8v10UadeUPiBgWorYZu
-	oaE4otPA==;
+	bh=ycniQyaJgGJqNZKTwz8OPAQgXyL5GobzzmE9CRpgq1Q=; b=0E9tw3WCxj/hR1IF1uXlGludXg
+	ED72kmT6Eu3i++/wgenbU5/i1lLADTwlmDsTZn7rv8w8ssJQZ1sCNuaqVMwlpzBqYQLPco/YX0dxo
+	UC96nDaCNE8OWyeeQU8ixfcBMPKxWkoArRubp1kdLkizyQoWqcV6IqvG5jJx7vp4wWwcfFkk2bGzp
+	E2pQ32DrcHAAS8KSThcJ2HBEMf6vd8marEC98hx6Vb/jhTDMWWEM1Xs0HYDcnjoF2gMgw0Ema2Wa7
+	WRdhuDu5LzwQ4al2ELpb33Zu+nQdMjlqoyiD95xZU8Q6wluYnD3/PPXjkfWR5EpqMVjCacGdvPJkn
+	EJPy7q+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqUy-0000000F0Qm-2EPj;
-	Wed, 20 Aug 2025 21:37:36 +0000
+	id 1uoqXX-0000000F0j8-2byz;
+	Wed, 20 Aug 2025 21:40:15 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomRJ-0000000EVnD-3gk3;
-	Wed, 20 Aug 2025 17:17:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755710216; cv=none; 
+	id 1uomRY-0000000EVrj-0BJI;
+	Wed, 20 Aug 2025 17:17:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755710230; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=PLrIntXILnml1BIJ4BKOOJHB+dggwwR55pQmTCMNaVaL56E+NhRK0NYvDgVfAppUw9JSWVJF4Fb2oQ7s844Fb6gW5dijwYE/egCvJk+2C2BEKF2BsIRe+KULPPGGpmpVP7/0onVFbWiKK1pmkaC2wiXSJktd6w6mtkUVJjJGeQs=
+	b=jxMnTm6Cuq0s86rLXIMY4+PooMQsFtb1doQSY1MnqoA/Xqd1GOc9UWYlu16tWqn1cLRbAUsY8C96wu9EnUD0LdNCGiXyLINotXg+/S5NVQheSvUqlD76+eIdf7hBz3aGv+MjSJv+oX1vrMO5gFPr9/4/5y9WVHWpXkKazANYovs=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755710216; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Sjr5FjezJ3DnctvttPhGjVA1HSx0Nva4gNLgYPU187w=; 
-	b=hwpkoa+EEzGcfuGj09O2DUaJhu3NH1zsClkAgUEsW22wBsHCCyvGcj9LqBtiKfEllRfrPVb3xMa+7t7KnRGSrgHLtjEYwe7QkRnvCZbu7JXwQkEme1TO05+5DZhzksRlJV1T7l/aS+3Y/QQGLWFxhJmMYfA7oxurqJ2abFqm1BU=
+	t=1755710230; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ycniQyaJgGJqNZKTwz8OPAQgXyL5GobzzmE9CRpgq1Q=; 
+	b=QA2/VXsJM1yPDLmu9RLzq/qNo/5wgIgdL8s6ggml4QgXh7m1a3g2oHdz1cnVFksiud7+63fQqkooIUDZAMbq7N52BRMdUoDUs5MSO/d5VUKo8b7acny+Afl1XVJn87VEZcrB2LcB4TXJbRO1JVSJ5dwwRWWTBjOF8bLVA9jpVX4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
 	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710216;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755710230;
 	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Sjr5FjezJ3DnctvttPhGjVA1HSx0Nva4gNLgYPU187w=;
-	b=TvxHDTFqL5xmg0YBTOXCeinVn4RGQeDw+WcChZtVbiilJeA2+ZvhS3b5GZr699c+
-	6UrdZhv/P8WzDCeEE2MEmjb/0RYaaQXDKwMJT6YrEYVY1ahn0FkBWU6h0eYCGlZY1EF
-	WwEmckYK+LJ0hx59BNRzJb/wUPwSR6ytm8GwUgtQ=
-Received: by mx.zohomail.com with SMTPS id 1755710214216103.48931777604218;
-	Wed, 20 Aug 2025 10:16:54 -0700 (PDT)
+	bh=ycniQyaJgGJqNZKTwz8OPAQgXyL5GobzzmE9CRpgq1Q=;
+	b=czRh2mvzHkUEpQ+isiTqQNdXOID4rSWSeTrMIHdCtSJQn8UmJQY5A6I/UrheE2AS
+	UMqC1Qm+Hde8EWnoaR+Bje4ROzNkKoJQwKzzcYL07IMKyTUfGBoD790NCfpAMgyEteH
+	4/n1O8QC2u3/FyE2yl7F1pR4kTc2DrPUGWpBEc1M=
+Received: by mx.zohomail.com with SMTPS id 1755710228543472.88877592218955;
+	Wed, 20 Aug 2025 10:17:08 -0700 (PDT)
 From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 To: airlied@gmail.com,
 	amergnat@baylibre.com,
@@ -96,9 +96,9 @@ Cc: devicetree@vger.kernel.org,
 	linux-mediatek@lists.infradead.org,
 	linux-sound@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH v1 12/14] dt-bindings: soc: mediatek: pwrap: Add power-domains property
-Date: Wed, 20 Aug 2025 14:13:00 -0300
-Message-ID: <20250820171302.324142-13-ariel.dalessandro@collabora.com>
+Subject: [PATCH v1 13/14] dt-bindings: input/touchscreen: Convert MELFAS MIP4 Touchscreen to YAML
+Date: Wed, 20 Aug 2025 14:13:01 -0300
+Message-ID: <20250820171302.324142-14-ariel.dalessandro@collabora.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
@@ -106,9 +106,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_101733_968642_4266E8A7 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_101748_134692_94718C2F 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,48 +122,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the DT bindings for Mediatek PMIC Wrapper is missing the
-power-domains property, which is used in the MT8173 E1 evaluation board
-as it needs USB power domain.
+Convert the existing text-based DT bindings for MELFAS MIP4 Touchscreen
+controller to a YAML schema.
 
 Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 ---
- .../bindings/soc/mediatek/mediatek,pwrap.yaml     | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ .../input/touchscreen/melfas,mip4_ts.yaml     | 55 +++++++++++++++++++
+ .../input/touchscreen/melfas_mip4.txt         | 20 -------
+ 2 files changed, 55 insertions(+), 20 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+ delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt
 
-diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-index 4737e5f45d541..54c0cd64d3094 100644
---- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-+++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-@@ -98,6 +98,9 @@ properties:
-       - const: pwrap
-       - const: pwrap-bridge
- 
-+  power-domains:
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+new file mode 100644
+index 0000000000000..170fd4212467e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/melfas,mip4_ts.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MELFAS MIP4 Touchscreen
++
++maintainers:
++  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
++
++properties:
++  compatible:
++    const: "melfas,mip4_ts"
++
++  reg:
++    description: I2C address of the chip (0x48 or 0x34)
 +    maxItems: 1
 +
-   pmic:
-     type: object
- 
-@@ -126,6 +129,18 @@ allOf:
-         clock-names:
-           minItems: 4
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8173-pwrap
-+    then:
-+      properties:
-+        power-domains: true
-+    else:
-+      properties:
-+        power-domains: false
++  interrupts:
++    maxItems: 1
 +
- additionalProperties: false
- 
- examples:
++  ce-gpios:
++    description: GPIO connected to the CE (chip enable) pin of the chip
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        touchscreen@34 {
++            compatible = "melfas,mip4_ts";
++            reg = <0x34>;
++
++            interrupts-extended = <&tlmm 13 IRQ_TYPE_EDGE_FALLING>;
++            ce-gpios = <&tlmm 12 GPIO_ACTIVE_HIGH>;
++
++            pinctrl-0 = <&touchscreen_default>;
++            pinctrl-names = "default";
++        };
++    };
++
++...
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt b/Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt
+deleted file mode 100644
+index b2ab5498e5190..0000000000000
+--- a/Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt
++++ /dev/null
+@@ -1,20 +0,0 @@
+-* MELFAS MIP4 Touchscreen
+-
+-Required properties:
+-- compatible: must be "melfas,mip4_ts"
+-- reg: I2C slave address of the chip (0x48 or 0x34)
+-- interrupts: interrupt to which the chip is connected
+-
+-Optional properties:
+-- ce-gpios: GPIO connected to the CE (chip enable) pin of the chip
+-
+-Example:
+-	i2c@00000000 {
+-		touchscreen: melfas_mip4@48 {
+-			compatible = "melfas,mip4_ts";
+-			reg = <0x48>;
+-			interrupt-parent = <&gpio>;
+-			interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
+-			ce-gpios = <&gpio 0 GPIO_ACTIVE_HIGH>;
+-		};
+-	};
 -- 
 2.50.1
 
