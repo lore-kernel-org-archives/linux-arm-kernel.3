@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F3FCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 06:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2F6CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 06:25:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jS9VktXiJniAyPj1uN28Ximvq6MeFERRKEnfOoqrgX8=; b=HLO3coCnlBPnBdzoDl9kPAbi27
-	yGW4D7NYJHaKgxVh1h45+JL3iac3qGwYdBF5+UogCDifDpzghIXjBVQ2PBL/tKUu3P7+Az0RHFTDK
-	JXzENTbGXqkz+7gv/YFL6aTBj+hXJzXyhTLtL/l/vOSdOM7ewkslvUJSwSjlx+ElHpu9lYdBmhCPi
-	vvuhUChAWEDCEZX58hz/dDQ3Q2jOT+J7Tu2Rt79EtZ9vgWedQA0qrLUV5xKhz0p7dEWdGG9FHWLp2
-	DfUzoxT8xXFc4vfk11Zhfn5z3H7YXtMLLaUl+Jf7zLaR0OM48go4Pm5WW+iT7Q5A2r3flKpDM4QWG
-	P8wWZT7A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aEIZBIMFq6xdHWEOzRwSBDmucr5UZSCZf/ZSPbVK51E=; b=ECvU/ljMXZLWCG70/06IhJ5Ssq
+	smjqdsmi4LFbvo1emBtjiMlL6CUOi3dAXCmidft4I4QEzHxapJiwpMp5m03eWScaqQV7PSv7ROemD
+	AwWfeDayilBVe7C+HfwrKxs+awtBQOAGF8QAKnUD6PpXzT+Wp+7AAm2ZjKh+J7itx0SB0jK6wKcNf
+	NtwsFvPzpBiPGK5PC6RS+frihZH9E4qyKi0Gqczw7X9Ee+l523T6leoZ9126wocRyoYCj04oJQyrG
+	Jl/ZsVtwDKGsfIR9G0xxbbxkG6/PW2+K6ZYRqSCnmkyWQEw9Sg59GWaIERPe6yDp0jHPxHqa/jSn0
+	Vth1iVDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocDE-0000000CUXY-3FxJ;
-	Wed, 20 Aug 2025 06:22:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uocFo-0000000CUm6-3bVU;
+	Wed, 20 Aug 2025 06:25:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoc8O-0000000CU9c-2FNx
+	id 1uoc9l-0000000CUGE-43mI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 06:17:21 +0000
+	Wed, 20 Aug 2025 06:18:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B38F05C61DD;
-	Wed, 20 Aug 2025 06:17:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F5F9C4CEEB;
-	Wed, 20 Aug 2025 06:17:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5EA845C5C03;
+	Wed, 20 Aug 2025 06:18:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A179AC4CEEB;
+	Wed, 20 Aug 2025 06:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755670639;
-	bh=gIZI4/C1H5dO/tMDUfS4AhKuW/3rIGhUjAMCyvfyufM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=lM2mFlbhRCbjf/j8lqKb5WOmE+s964nJ2YpRSM3ZWdbPt/6iIgZzzPh/frKKvu2f2
-	 Sy1ZGqYqs2dkVWt1HNBSIaiD3qsSlNd0lbU5DFvATLBllhJp0WPhc1kcGgCJtTwyGm
-	 AoSlwJo5uOHQIDZVGN1zeHPEADuJinB+XQrqSCf/7kXJhpPXPGH4X+lMGNpd3TKk2Q
-	 fXlqaAx3oGGacEXEV2gm9M0mrfcqcVoXmzRkk7jYgT603ukKoQwo9/mPBFOkfu5WlT
-	 NyuI8Ikp7fkngr1ha+NLgj9QuBt0051Xmgsr8p14gaQ1VfSJE0Eu1YIhVkKc8puY12
-	 Fiw/OeMj+Zhew==
-Message-ID: <b001b5e8-ff43-4243-877a-d3341ca0f768@kernel.org>
-Date: Wed, 20 Aug 2025 08:17:13 +0200
+	s=k20201202; t=1755670723;
+	bh=NxIDmbmxXA7v2gqku88upnUpEvlZKRCqWBNMilfOCg8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SOVMSRZltrtVilIcVcIK+xXe+bhgXSTYj5CL2XasR4R6lZzygrtRa87sbGO8tz5rK
+	 yaWRSyElZdZkTh+bnFSZ9bsXL99tBWDQ9esAa1GBck0UCXtm9fTVf1ceYv+q5G99ZH
+	 stC6TU+mOzPhlrJj7pJQ6FowB5U0YFIJxVhE3sxF1pDosQb7tKYGUC1txus5wx5mMd
+	 QT8nN/DSX127P1AucEdXxwgRoFzK3LhHZbVRWLIH/uz93+b1HQ3YCYArD2QUVpK+Hw
+	 3M/ha5sqWpaOWKii5tpHWRzxgzIM9/40jobP+IP2SPKUBONvZcqUL3GkHe7a7F/vKE
+	 3U0Sh4npPwpoQ==
+Message-ID: <ab60bd1f-0000-47a8-94fd-899b4e3eefd7@kernel.org>
+Date: Wed, 20 Aug 2025 08:18:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: defconfig: cleanup orphaned CONFIGs
-To: Trevor Woerner <twoerner@gmail.com>, linux-kernel@vger.kernel.org,
- Russell King <linux@armlinux.org.uk>, Bjorn Andersson
- <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
- Eric Biggers <ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Takashi Iwai <tiwai@suse.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Kory Maincent <kory.maincent@bootlin.com>,
- Dmitry Baryshkov <lumag@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/QUALCOMM SUPPORT" <linux-arm-msm@vger.kernel.org>
-References: <20250819231652.15938-1-twoerner@gmail.com>
+Subject: Re: [PATCH 1/2] pinctrl: sx150x: Make the driver tristate
+To: Fange Zhang <fange.zhang@oss.qualcomm.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, dmitry.baryshkov@oss.qualcomm.com,
+ tingwei.zhang@oss.qualcomm.com, xiangxu.yin@oss.qualcomm.com,
+ kernel@oss.qualcomm.com
+References: <20250818-modularize-sx150x-gpio-expander-v1-0-c2a027200fed@oss.qualcomm.com>
+ <20250818-modularize-sx150x-gpio-expander-v1-1-c2a027200fed@oss.qualcomm.com>
+ <CACRpkdaeAqD=mpG4y16CPKwJ=pjATY9TxeRnXR9abziCOQb-0Q@mail.gmail.com>
+ <aae972ca-5b8f-4329-ab32-12da1522e01b@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,13 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250819231652.15938-1-twoerner@gmail.com>
+In-Reply-To: <aae972ca-5b8f-4329-ab32-12da1522e01b@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250819_231720_658852_5C64CCE6 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250819_231846_086892_4B5B11D1 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +125,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2025 01:16, Trevor Woerner wrote:
-> Drop CONFIG_ARCH_MSM8X60 and CONFIG_ARCH_MSM8960 which were removed in
-> commit 99497df59427 ("ARM: qcom: merge remaining subplatforms into sensible
-> Kconfig entry").
+On 20/08/2025 04:55, Fange Zhang wrote:
 > 
-> Drop CONFIG_ARCH_MSM8916 and CONFIG_ARCH_MSM8974 which were removed in
-> commit 85148df36835 ("ARM: qcom: drop most of 32-bit ARCH_QCOM subtypes").
 > 
-> Signed-off-by: Trevor Woerner <twoerner@gmail.com>
-> ---
+> On 8/19/2025 8:55 PM, Linus Walleij wrote:
+>> On Mon, Aug 18, 2025 at 6:41 AM Fange Zhang
+>> <fange.zhang@oss.qualcomm.com> wrote:
+>>
+>>> Set PINCTRL_SX150X config option as a tristate and add
+>>> MODULE_DEVICE_TABLE()/MODULE_LICENSE() to export appropriate information.
+>>>
+>>> Signed-off-by: Fange Zhang <fange.zhang@oss.qualcomm.com>
+>>
+>> Fair enough!
+>>
+>> This patch 1/2 applied to the pinctrl tree.
+> 
+> Thanks
+> 
+>>
+>> Please funnel patch 2/2 through the SoC tree.
+> 
+> Hi Bjorn, Konrad,
+> 
+> Would it be acceptable to include this defconfig change, or is there a 
+> preferred process I should follow to get it reviewed and accepted?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+You need to send it to them... Cc-ing people on random email does not
+solve the problem. You need to send the patch to proper maintainers.
 
 Best regards,
 Krzysztof
