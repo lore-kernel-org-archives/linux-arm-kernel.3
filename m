@@ -4,106 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA10CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762A6CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPSwHXJiuPboMvGmzdZl86YoheXT2JJemMGGCNbTXh4=; b=hLg5PWh53Zx29GK7hMNpMN5Blk
-	9ysm5Dsflj09P+3Ev7hj4Ytx4g8G2XCUt2RmdfyS1KmSy1gjVJxlZruDhmOszHfhsGrVSCv3HhVKz
-	kSedMs7rPghShljFXL0PBzdWx2OP5oNZld9L/uZDILUFQa7oY0CLom/Pjc72ZjVdyPJGBdAkSA5uH
-	yiCBrhDRGPZDRoehYFRU5BiP5YBSwGAK2q6w115BKJ0T0jw6hB7OrCr58bcvAPNwn1Q5WAm8RyhRR
-	BPxMrZt5DU+1ZJOkcCcs7h+2dSUn3z7puIbPVQBauWrLHBNifxnWU3Bw+qWMhIpo0vwVWyw2wS8he
-	Z8oo7T6g==;
+	bh=Bg/wxNDlDGejcpYhDbQUNn4X6pECHdSGzNxkCuMyiXA=; b=NTsP1To7W5CqK5VFbhOv9PFiqL
+	0QQi8dLgPXJAaRehGMLpFvQ3uVffFTNh2u7aqZpe96zsZp6DmAirivUcfBCypOZgmZp3XKIfLnsM8
+	9MuET0NSFS8KFlgZEb9vwdkJp0TOOKKJzJidRgSGfsVPxR37KxLg2Nb2cIrKvc+18lMqDI0F7wiLr
+	P4tJH92+zAW+7HPDZJobUK0/FlukxzbqnZq0wteaHIDSykqNQ7fKpYh9T8bQb7D8hO50J7Sek1sZ7
+	g4YBfHB8we3CsbET9KhClkzCUwYoEaCXG7+1aFhRKyGJN21HWOcQ9T5BQ9kLI4Rja3lWhLEt0GCfa
+	mZxpCd9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uogRx-0000000DFbR-3Q5W;
-	Wed, 20 Aug 2025 10:53:49 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1uogUU-0000000DFqD-2sbX;
+	Wed, 20 Aug 2025 10:56:26 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofbY-0000000D43f-0Bso;
-	Wed, 20 Aug 2025 09:59:41 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-afcb7a8dd3dso896843666b.3;
-        Wed, 20 Aug 2025 02:59:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755683978; x=1756288778; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pPSwHXJiuPboMvGmzdZl86YoheXT2JJemMGGCNbTXh4=;
-        b=YzN27j+V4ME6RNAJ7ZeGQBnfIQr0jjrG0tL9u60PgF/us/B/VoEmj5gayw6s+0LPCr
-         vKpr6OctWqH3uoIfznnAwRCEaKvpYvLny01rcOxOTn+klP6QkA+XiTJv9YIvpPblXow3
-         v3EO98Qr6bVg2Qq0/snDGqQfwS6nHYSvedrBUPRrvYMZ8J88vGm/V9AJq1NBUyK8cBFP
-         HGCmHrQzJ3PDdpXvw8nu5cb9jfKJkCEhKKlrb7Jk9COujVrd0P8ilE6yLte0ibeyHP8V
-         hcUV/Hmkh0j9tcMg+/nGqqVsx0kfwegc/rDkZXKo9VygQLkF6WNMeKIm7IdXvpaMvAxg
-         /dEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755683978; x=1756288778;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pPSwHXJiuPboMvGmzdZl86YoheXT2JJemMGGCNbTXh4=;
-        b=J2czjpinbJFwyxVDXigTYWQMmh3xRcC/NwJ2Ismm2hi+6Le4PewLWwhMjJJRTsL/i+
-         Iw31ISM0yXMsdNWgk95LChRdeIZssgJK4u5CON/KrQXGoITSg6L5Oc8N9DwBGBMtihXq
-         YifNmGybJvjmZWFw3QmMeaytCV1I3mjYEMv9w52djW41uBDPcXE/PTbTBFFKf+Agu0SJ
-         atJf3wAWA5/gmdBHx0UOarpxpPaCD3DP+SD0+pGrr8rvLqr+9kkW4jCs0Nl0oAh/sNYH
-         chpW145V8cTLNwkl9yXk4egRLMGG7honHFMbOm+wVrq/TQZjZQBNhpTsWJVCKBeQPkXy
-         G1Xw==
-X-Forwarded-Encrypted: i=1; AJvYcCVxtljx7XUC8SzgqU61QoHEaIrjArUMpYS5ZwxGCk2Y1+HYzSR91awJ9rp5chXlhiSun6HTqtNxSFmQWsDpOHr9@lists.infradead.org, AJvYcCXgJ5MjRXzARG5FS1i2N7J+6tqDi0AnEJ/VTj/IAKH/LpRKzl0QTZjNvBh60FGFMOfLuAcobpP8G0U8F4W7yEA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFRJ1gjisrbL0EEftLAsX1uL/GIDOCYDJl4Rjn5Ml50tDCEkrc
-	HnE9KEQqTySzydkjr07Veikf8sDFnT/sHwKI3uf5uj7ghrGjTaPQErl7I5yEjabyHbS72zB2fJr
-	KKM8F4g3VsVQNJoAyeVQQCDCoQO6D/hc891nHG80=
-X-Gm-Gg: ASbGncumxYCfGWFgoKOX36otxJp18qjugxMz+5QmIF6tIhTQKMKtkuNarZFp0Fb935M
-	pcYwJnnf7u1WZowRfXhZ1wUYYyev8jBZIGEMf/PXyM1TGrSS5o6to2ImzVZKJ6aNGEg6MObW/e+
-	ZifykSH02K42h+N3CPk5465n3bU+DdQXYOnYeecpXnxehput4MfKbG3MzvUiiSYr9AtoATC9TmO
-	AO2yUNXkw==
-X-Google-Smtp-Source: AGHT+IFLILsumUxXGG8Le22U8VXLfiB3UImn/sKCUBHCwulcrWRoCPLLCjJAWxmPAx6D8QUNkGdtQmpTps7zJUlvWzY=
-X-Received: by 2002:a17:906:fe01:b0:ae8:fd2d:44b8 with SMTP id
- a640c23a62f3a-afdf00e1d0amr167565066b.29.1755683978222; Wed, 20 Aug 2025
- 02:59:38 -0700 (PDT)
+	id 1uofg3-0000000D4qj-44fX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 10:04:21 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57KA4Awu3170873;
+	Wed, 20 Aug 2025 05:04:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755684250;
+	bh=Bg/wxNDlDGejcpYhDbQUNn4X6pECHdSGzNxkCuMyiXA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=mEKy38OCJYJjiL5hbZQeX59/TDkd1HvrdDP+aBPsOYK81A8vFPxSzWqKw/pfjI343
+	 0ryP0VzsISe3sZKNOzbiuaau0lDM3TZoOmJmTI/s0+u7xdECyJoLFjhrPb8v/VgZFt
+	 +aeqOJ+xcQrN5Uf2XrO33oauZeWnZanyx9K8C9ec=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57KA4ABj1973989
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 20 Aug 2025 05:04:10 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 20
+ Aug 2025 05:04:08 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 20 Aug 2025 05:04:08 -0500
+Received: from [172.24.22.46] (lt5cg1457vgj.dhcp.ti.com [172.24.22.46])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57KA42TR052951;
+	Wed, 20 Aug 2025 05:04:02 -0500
+Message-ID: <fe6f848e-d7bf-477d-bad0-0c8a860f3ae6@ti.com>
+Date: Wed, 20 Aug 2025 15:34:01 +0530
 MIME-Version: 1.0
-References: <20250815-pinctrl-gpio-pinfuncs-v5-0-955de9fd91db@linaro.org>
- <CACRpkdaDGmdhaik+1saRv7Ts4myQ+tg1aQqGU3xQyT7ma8dJFw@mail.gmail.com>
- <CAHp75VephepLq61HrVy=PX2oKUQd5NK2qS-vOC5h_NR65td3Uw@mail.gmail.com> <CACRpkda4soRCLF5=W=6R4wnwT3pjk743j022XfJxjTTQzuarAA@mail.gmail.com>
-In-Reply-To: <CACRpkda4soRCLF5=W=6R4wnwT3pjk743j022XfJxjTTQzuarAA@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 20 Aug 2025 12:59:01 +0300
-X-Gm-Features: Ac12FXycXziPzAbLNx1s7hMXfLqQ2mmNzJaOepqBGK1kK3uBfF-tyE-7OZscDUk
-Message-ID: <CAHp75VfNhBrukJ46ahY77La5Ywkeu1xiC_eUbUj99ZQcderHbw@mail.gmail.com>
-Subject: Re: [PATCH v5 00/15] pinctrl: introduce the concept of a GPIO pin
- function category
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
-	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
-	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [RFC PATCH 1/3] devicetree: bindings: dsiplay: panel:
+ panel-simple.yaml: Add Raspberry pi dsi panel compatible
+To: Harikrishna Shenoy <a0512644@ti.com>,
+        Dmitry Baryshkov
+	<dmitry.baryshkov@oss.qualcomm.com>,
+        Harikrishna Shenoy <h-shenoy@ti.com>
+CC: <neil.armstrong@linaro.org>, <jessica.zhang@oss.qualcomm.com>,
+        <airlied@gmail.com>, <simona@ffwll.ch>,
+        <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+        <tzimmermann@suse.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <nm@ti.com>, <kristo@kernel.org>,
+        <thierry.reding@gmail.com>, <sam@ravnborg.org>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <s-jain1@ti.com>,
+        <devarsht@ti.com>, <u-kumar1@ti.com>
+References: <20250818154746.1373656-1-h-shenoy@ti.com>
+ <20250818154746.1373656-2-h-shenoy@ti.com>
+ <td7d5mldzdunb4sxs5rxa4tfnvvpolcmpwurcv5ubn47whnqek@azedwe6h3y5r>
+ <8a31d1c5-4233-4696-bf8c-58f5db68d41f@ti.com>
+From: "Raghavendra, Vignesh" <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <8a31d1c5-4233-4696-bf8c-58f5db68d41f@ti.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_025940_083939_A5495410 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250820_030420_098998_5BBE54FA 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,56 +98,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 10:13=E2=80=AFAM Linus Walleij <linus.walleij@linar=
-o.org> wrote:
-> On Tue, Aug 19, 2025 at 8:31=E2=80=AFPM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
-> > On Tue, Aug 19, 2025 at 4:02=E2=80=AFPM Linus Walleij <linus.walleij@li=
-naro.org> wrote:
-> > > On Fri, Aug 15, 2025 at 11:09=E2=80=AFAM Bartosz Golaszewski <brgl@bg=
-dev.pl> wrote:
 
-...
 
-> > > >       devres: provide devm_kmemdup_const()
-> > > >       pinctrl: ingenic: use struct pinfunction instead of struct fu=
-nction_desc
-> > > >       pinctrl: airoha: replace struct function_desc with struct pin=
-function
-> > > >       pinctrl: mediatek: mt7988: use PINCTRL_PIN_FUNCTION()
-> > > >       pinctrl: mediatek: moore: replace struct function_desc with s=
-truct pinfunction
-> > > >       pinctrl: imx: don't access the pin function radix tree direct=
-ly
-> > > >       pinctrl: keembay: release allocated memory in detach path
-> > > >       pinctrl: keembay: use a dedicated structure for the pinfuncti=
-on description
-> > > >       pinctrl: constify pinmux_generic_get_function()
+On 8/20/2025 11:06 AM, Harikrishna Shenoy wrote:
+> 
+> On 8/19/25 06:54, Dmitry Baryshkov wrote:
+>> On Mon, Aug 18, 2025 at 09:17:44PM +0530, Harikrishna Shenoy wrote:
+>>> Add RPi DSI panel[0] as a valid compatible for simple-panel.
+>>>
+>>> [0]: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
+>>>
+>>> Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+>>> ---
+>>>   .../devicetree/bindings/display/panel/panel-simple.yaml         | 2 ++
+>>>   1 file changed, 2 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/display/panel/panel-
+>>> simple.yaml b/Documentation/devicetree/bindings/display/panel/panel-
+>>> simple.yaml
+>>> index 1ac1f0219079..65f486f2bc9d 100644
+>>> --- a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+>>> +++ b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
+>>> @@ -268,6 +268,8 @@ properties:
+>>>         - rocktech,rk070er9427
+>>>           # Rocktech Display Ltd. RK043FN48H 4.3" 480x272 LCD-TFT panel
+>>>         - rocktech,rk043fn48h
+>>> +        # Raspberry, 7" dsi panel
+>>> +      - rpi,7inch-dsi
+>> It's powertip,ph800480t013-idf02
+> Could you please point to any documentation for this?
 
-At least the above I'm pretty much okay with. Can you still have them
-being applied?
+Git log would point you to it: 
 
-> > > >       pinctrl: make struct pinfunction a pointer in struct function=
-_desc
-> > > >       pinctrl: qcom: use generic pin function helpers
-> > > >       pinctrl: allow to mark pin functions as requestable GPIOs
-> > >
-> > > I applied these 12 patches as a starter so they can
-> > > stabilize in linux-next.
-> >
-> > Hmm... I'm still sure that we don't need to have a separate flags
-> > field, but since I am on vacation and will be able to look at this
-> > closer next week, I can't look closer to it.
->
-> The qualcomm 32bit platforms fail in next anyway so I dropped the patches
-> for now.
->
-> Both you and Bartosz are on vacation so let's let it rest for a week or t=
-wo.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=051e95ee7ec10050154e4c8f48be4d99ac83f8fc
 
-I will be available fully next week.
+>>
+>>>           # Samsung Electronics 10.1" WXGA (1280x800) TFT LCD panel
+>>>         - samsung,ltl101al01
+>>>           # Samsung Electronics 10.1" WSVGA TFT LCD panel
+>>> -- 
+>>> 2.34.1
+>>>
 
---=20
-With Best Regards,
-Andy Shevchenko
 
