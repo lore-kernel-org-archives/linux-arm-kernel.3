@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24164CA0FE0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D202BCA0EDC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JCyPxTNIQDOE9Q9j38dReLSGK1AYDU2v18onUB5hl/M=; b=AnJVc3rNVfhY+Ma/Ot+lIiN1LA
-	Xudc30D+BPqWB5ebJfYxDb1aNzYv1X6eiTqn2GBC8RfsgX+fYDALinTsXeEOgm1RKczZovjGowThB
-	XbOprNXs/pVrU3IYbP7fbFRaNQGfsK51osGQk3107f16cheCqiS28EH9eqfDmVuwifzey0CEauiBp
-	YUK1scPa5Qgr6yNzX4BKcTw5DGOEAQVcx3vhgCAptDNWwac5Bz2G48jkeBEHUrrfHo8q0eozpPJNu
-	cCvH6nji6K96pJWZVryUSVrAum5jSwZjPJUc8i7XXpjVwOJDkWC3tyVn7rnhTzqZ0odtTzZQf6KyJ
-	rwouYmkA==;
+	bh=gMDVElC2I4r+Hg9IRuvD5bI5L8IdSlajHTTYnfShKlQ=; b=HgSZtLDy1Wzwv7d/Js4RH4p3JQ
+	P538H6pM4E990RCzcFgc1B2mkg4kaoQG5PwCx+JaA64g1LqLW9FMtEKxHNSEqeaKIzjUPedPYFkkF
+	CGqfZf8UkcM8U354qg0HKgP46baZ2of1UjKbDh+wXRJB4eC5R1UFXzsKxowwjmRiY4OmNzwxX9nUj
+	PwbcdLhG9EIj/PTaiGIlUFBvPjKXDmjopemi+6zDaDn6b+sUOrqhJLnv5KGKV5uCugk+o866V9Inn
+	qxcp9EY8O8dAX6hSNYD0HfwKSGLU0TzqUAMPLJUJto6PiPxi7fsEFwh3cWjvdLPxbnSOCrdfYsQZn
+	JcXzmWLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopkf-0000000Es8k-27cP;
-	Wed, 20 Aug 2025 20:49:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uopkY-0000000Ery3-0iq9;
+	Wed, 20 Aug 2025 20:49:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolDm-0000000EKGN-1ju5
+	id 1uolCn-0000000EK7t-3SwY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:59:31 +0000
+	Wed, 20 Aug 2025 15:58:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BAC645C6908;
-	Wed, 20 Aug 2025 15:59:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C13C7C4CEEB;
-	Wed, 20 Aug 2025 15:59:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DCC160200;
+	Wed, 20 Aug 2025 15:58:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022F5C4AF0B;
+	Wed, 20 Aug 2025 15:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755705569;
-	bh=Y36HuswNodbrKyVb7di2itIAsIENlff5yeL0ohIKL+c=;
+	s=k20201202; t=1755705508;
+	bh=uoSbjGAjNpOfd1OcdZRXRKGUEQEMmIyMXjnKacIc5oM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dhnIqRFbolFKv669g/NhMWBFRHr/HWpQODcjF/txYp2sHqjmyPE+idjqIBAmjca28
-	 g8JbQObc+iVBY4jupekGiywCUR6Jsa7Kr4b8rzbcsUWiMkuK8dHObBKor1ThgtfsZo
-	 ZPbooLJ6ONssJHGvDUC1BJxKjvYjjVCZcvFeUFKaZ9JfgfJ82Iyg/dUO+DcoRuq526
-	 62TCon+/GRMSRZWRGCCTmFi1bHBY+1soNPeSq9t/3aohhWz8+58o7ce9xumqlRUMm+
-	 659LoLVxp+YgMM15sJbMO1BS7EIiJKHCKhFXSHa0LeLpBk3StrPq3kLScaHxkM10w7
-	 c4pDUY86uymLg==
+	b=RMarVKiBdQIuLgKwPfD13No3DlA+Kc8jorgjnuRyCKP94YwgFFJt2Lr7Aa0N1fTzV
+	 dRXrmIDwFF7WhmpixyqE3PLfYw5Ivct5fOm18+3VH0JhK2U/77LVg3UhuAdYZ5BDBV
+	 CpKOAuqIWVz8Zn54RxbTBPQgEtD0+LZOfeBgwwWxEKXS2JPjINTAUuZVd4TL46i8Wz
+	 YOoqhHtUo6AR43QkZ76fx4NljkrzsTx1kNCvxo+3TBykmi/4kRsYAEGxmuebwiSDZS
+	 Fyx17aG/S9b316OQKH13qhuoWGpsmO0IwWeZYe3hlrE+/sjsjEzIJjRMPpDjL5jTO/
+	 zV13/GtnO1/HQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Doug Berger <opendmb@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -67,17 +67,14 @@ Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
 	linux-kernel@vger.kernel.org,
 	linux-omap@vger.kernel.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 11/16] gpio: pch: Use modern PM macros
-Date: Wed, 20 Aug 2025 23:40:32 +0800
-Message-ID: <20250820154037.22228-12-jszhang@kernel.org>
+Subject: [PATCH 03/16] gpio: bt8xx: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:24 +0800
+Message-ID: <20250820154037.22228-4-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
 References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_085930_532249_EADB851F 
-X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,71 +91,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Use the modern PM macros for the suspend and resume functions to be
 automatically dropped by the compiler when CONFIG_PM or
-CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
+CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+
+This has the advantage of always compiling these functions in,
+independently of any Kconfig option. Thanks to that, bugs and other
+regressions are subsequently easier to catch.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/gpio/gpio-pch.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/gpio/gpio-bt8xx.c | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/gpio/gpio-pch.c b/drivers/gpio/gpio-pch.c
-index 9925687e05fb..4ffa0955a9e3 100644
---- a/drivers/gpio/gpio-pch.c
-+++ b/drivers/gpio/gpio-pch.c
-@@ -171,7 +171,7 @@ static int pch_gpio_direction_input(struct gpio_chip *gpio, unsigned int nr)
- /*
-  * Save register configuration and disable interrupts.
-  */
--static void __maybe_unused pch_gpio_save_reg_conf(struct pch_gpio *chip)
-+static void pch_gpio_save_reg_conf(struct pch_gpio *chip)
- {
- 	chip->pch_gpio_reg.ien_reg = ioread32(&chip->reg->ien);
- 	chip->pch_gpio_reg.imask_reg = ioread32(&chip->reg->imask);
-@@ -187,7 +187,7 @@ static void __maybe_unused pch_gpio_save_reg_conf(struct pch_gpio *chip)
- /*
-  * This function restores the register configuration of the GPIO device.
-  */
--static void __maybe_unused pch_gpio_restore_reg_conf(struct pch_gpio *chip)
-+static void pch_gpio_restore_reg_conf(struct pch_gpio *chip)
- {
- 	iowrite32(chip->pch_gpio_reg.ien_reg, &chip->reg->ien);
- 	iowrite32(chip->pch_gpio_reg.imask_reg, &chip->reg->imask);
-@@ -402,7 +402,7 @@ static int pch_gpio_probe(struct pci_dev *pdev,
- 	return pch_gpio_alloc_generic_chip(chip, irq_base, gpio_pins[chip->ioh]);
- }
+diff --git a/drivers/gpio/gpio-bt8xx.c b/drivers/gpio/gpio-bt8xx.c
+index 05401da03ca3..5e120c4dfea5 100644
+--- a/drivers/gpio/gpio-bt8xx.c
++++ b/drivers/gpio/gpio-bt8xx.c
+@@ -52,10 +52,8 @@ struct bt8xxgpio {
+ 	struct pci_dev *pdev;
+ 	struct gpio_chip gpio;
  
--static int __maybe_unused pch_gpio_suspend(struct device *dev)
-+static int pch_gpio_suspend(struct device *dev)
- {
- 	struct pch_gpio *chip = dev_get_drvdata(dev);
- 	unsigned long flags;
-@@ -414,7 +414,7 @@ static int __maybe_unused pch_gpio_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused pch_gpio_resume(struct device *dev)
-+static int pch_gpio_resume(struct device *dev)
- {
- 	struct pch_gpio *chip = dev_get_drvdata(dev);
- 	unsigned long flags;
-@@ -428,7 +428,7 @@ static int __maybe_unused pch_gpio_resume(struct device *dev)
- 	return 0;
- }
- 
--static SIMPLE_DEV_PM_OPS(pch_gpio_pm_ops, pch_gpio_suspend, pch_gpio_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(pch_gpio_pm_ops, pch_gpio_suspend, pch_gpio_resume);
- 
- static const struct pci_device_id pch_gpio_pcidev_id[] = {
- 	{ PCI_DEVICE_DATA(INTEL, EG20T_PCH, INTEL_EG20T_PCH) },
-@@ -444,7 +444,7 @@ static struct pci_driver pch_gpio_driver = {
- 	.id_table = pch_gpio_pcidev_id,
- 	.probe = pch_gpio_probe,
- 	.driver = {
--		.pm = &pch_gpio_pm_ops,
-+		.pm = pm_sleep_ptr(&pch_gpio_pm_ops),
- 	},
+-#ifdef CONFIG_PM
+ 	u32 saved_outen;
+ 	u32 saved_data;
+-#endif
  };
  
+ #define bgwrite(dat, adr)	writel((dat), bg->mmio+(adr))
+@@ -224,7 +222,6 @@ static void bt8xxgpio_remove(struct pci_dev *pdev)
+ 	pci_disable_device(pdev);
+ }
+ 
+-#ifdef CONFIG_PM
+ static int bt8xxgpio_suspend(struct pci_dev *pdev, pm_message_t state)
+ {
+ 	struct bt8xxgpio *bg = pci_get_drvdata(pdev);
+@@ -267,10 +264,6 @@ static int bt8xxgpio_resume(struct pci_dev *pdev)
+ 
+ 	return 0;
+ }
+-#else
+-#define bt8xxgpio_suspend NULL
+-#define bt8xxgpio_resume NULL
+-#endif /* CONFIG_PM */
+ 
+ static const struct pci_device_id bt8xxgpio_pci_tbl[] = {
+ 	{ PCI_DEVICE(PCI_VENDOR_ID_BROOKTREE, PCI_DEVICE_ID_BT848) },
+@@ -286,8 +279,8 @@ static struct pci_driver bt8xxgpio_pci_driver = {
+ 	.id_table	= bt8xxgpio_pci_tbl,
+ 	.probe		= bt8xxgpio_probe,
+ 	.remove		= bt8xxgpio_remove,
+-	.suspend	= bt8xxgpio_suspend,
+-	.resume		= bt8xxgpio_resume,
++	.suspend	= pm_ptr(bt8xxgpio_suspend),
++	.resume		= pm_ptr(bt8xxgpio_resume),
+ };
+ 
+ module_pci_driver(bt8xxgpio_pci_driver);
 -- 
 2.50.1
 
