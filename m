@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8B0CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D18ACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GVu6+r9ritv5Rj3Y5Yea2dPr2F0oa8WRm8M6/dY902M=; b=t3Sr7+2imgk9+TRpQRkv/qkUEt
-	a1h60wDwq3DlHY6AS/JP/ud+aUZ4Z9n0r1vqnCO/pxAmP7kHfJI9NxHdG0qASx4tQ0+vIXWY3kDAj
-	MAU954xgZpSxpWS4Iyiq57MgYcsZcJ+Tnej2+aii/ilMqHWF5aBq9tSGeq79QRjK0TFo0+HF/fDsI
-	eeLDiAuvT9takSiASycI25NY0hH2KWm/s/FunsijpZScB0hFdYHzJ9Si1Xu6PeX8bpzBZNh0qKzgS
-	aSKJvKWywyW8fdoRKOgs3QoAw0aCdUHvJD1xyFsCIaIjNsVz1MZIhQVrzdbsaxPPaudzXdj/H1F3q
-	AGvyqS1A==;
+	bh=8rHN4QkQquzDN7CIFjG0tdGKHeuY3Gb3995IOjLembg=; b=5FWiPeWm6VX6eCdIVmeTWaNEqT
+	6gL6nZgedYTPDsHx8xddyrWctdpZjwmdQKVW3xW5XHI5Vlf3TuqFYW1PmsfQxQMCAsbVVicTfl+JY
+	lyLNK0GzZKir1hBhegGPstQypNDMq9czLEV7joQrJ79v5jsmdITdAlMp6KIUWTNIFj+Cdr1BQYMaX
+	RqgYTKwJ/SrKIu8BEpRSeeWLSgz499nZC+PRsnKZ0+3u80gVY9tFP6JcJNraiLPY66vA1UXsA1dos
+	NQtZxE3S4OqujluEdU5WocYn748O6fin+NUQHzDORSws1LHQXQUIIHreOBVDgBk31eQ39kxfRtRZD
+	Pg8yeoog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoniQ-0000000EhZk-0Jrj;
-	Wed, 20 Aug 2025 18:39:18 +0000
+	id 1uonkz-0000000EhpW-3jqV;
+	Wed, 20 Aug 2025 18:41:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokTN-0000000EChc-0QkK
+	id 1uokTa-0000000ECkG-0M7t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:11:34 +0000
+	Wed, 20 Aug 2025 15:11:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63D991D31;
-	Wed, 20 Aug 2025 08:11:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 511A41D31;
+	Wed, 20 Aug 2025 08:11:37 -0700 (PDT)
 Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9CFA3F738;
-	Wed, 20 Aug 2025 08:11:28 -0700 (PDT)
-Date: Wed, 20 Aug 2025 16:11:25 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9F0B3F738;
+	Wed, 20 Aug 2025 08:11:41 -0700 (PDT)
+Date: Wed, 20 Aug 2025 16:11:38 +0100
 From: Dave Martin <Dave.Martin@arm.com>
 To: Yeoreum Yun <yeoreum.yun@arm.com>
 Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
@@ -45,17 +45,17 @@ Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
 	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 4/5] arm64: initialise SCTLR2_EL1 at cpu_soft_restart()
-Message-ID: <aKXlnZ8HXHBZMj4T@e133380.arm.com>
+Subject: Re: [PATCH v3 5/5] arm64: make the per-task SCTLR2_EL1
+Message-ID: <aKXlqsnLyTL6lsh5@e133380.arm.com>
 References: <20250813120118.3953541-1-yeoreum.yun@arm.com>
- <20250813120118.3953541-5-yeoreum.yun@arm.com>
+ <20250813120118.3953541-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250813120118.3953541-5-yeoreum.yun@arm.com>
+In-Reply-To: <20250813120118.3953541-6-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_081133_182770_EFD55D8F 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250820_081146_198343_E1EEBE10 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,54 +72,98 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Wed, Aug 13, 2025 at 01:01:17PM +0100, Yeoreum Yun wrote:
+On Wed, Aug 13, 2025 at 01:01:18PM +0100, Yeoreum Yun wrote:
 > SCTLR2_EL1 register is optional starting from ARMv8.8/ARMv9.3,
 > and becomes mandatory from ARMv8.9/ARMv9.4
 > and serveral architectural feature are controled by bits in
-> these registers.
+> these registers and some of bits could be configurable per task
+> not globally -- i.e) FEAT_CPA2 related field and etc.
 > 
-> Before, launching new kernel via kexec, initialise SCTLR2_EL1 explicitly.
-> 
+> For future usage of these fields, make the per-task SCTLR2_EL1.
+
+It is worth pointing out the impact of this: for platforms without
+FEAT_SCTLR2 support, there is no functional change and minimal
+performance overhead.
+
 > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->  arch/arm64/kernel/cpu-reset.S | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  arch/arm64/include/asm/processor.h | 5 +++++
+>  arch/arm64/kernel/process.c        | 9 +++++++++
+>  2 files changed, 14 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
-> index c87445dde674..123564af345b 100644
-> --- a/arch/arm64/kernel/cpu-reset.S
-> +++ b/arch/arm64/kernel/cpu-reset.S
-> @@ -37,6 +37,12 @@ SYM_TYPED_FUNC_START(cpu_soft_restart)
->  	 * regime if HCR_EL2.E2H == 1
->  	 */
->  	msr	sctlr_el1, x12
-> +
-> +alternative_if ARM64_HAS_SCTLR2
-> +	mov_q	x12, INIT_SCTLR2_EL1
-> +	msr_s	SYS_SCTLR2_EL1, x12
-> +alternative_else_nop_endif
-> +
-
-It would be better to do this based on the ID regs.
-
-Although the previous kernel _shouldn't_ have used SCTLR2 if the
-capability ARM64_HAS_SCTLR2 did not get enabled, it would be better to
-enforce a clean state here for the new kernel.
-
-If so, maybe one of the macros that you already defined can be used
-here?  (But it's also fine to open-code it.)
-
->  	isb
+> diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+> index 61d62bfd5a7b..2c962816de70 100644
+> --- a/arch/arm64/include/asm/processor.h
+> +++ b/arch/arm64/include/asm/processor.h
+> @@ -184,6 +184,7 @@ struct thread_struct {
+>  	u64			mte_ctrl;
+>  #endif
+>  	u64			sctlr_user;
+> +	u64			sctlr2_user;
+>  	u64			svcr;
+>  	u64			tpidr2_el0;
+>  	u64			por_el0;
+> @@ -258,6 +259,9 @@ static inline void task_set_sve_vl_onexec(struct task_struct *task,
+>  	(SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
+>  	 SCTLR_EL1_TCF0_MASK)
 >  
->  	cbz	x0, 1f				// el2_switch?
+> +#define SCTLR2_USER_MASK	\
+> +	(SCTLR2_EL1_EnPACM0 | SCTLR2_EL1_CPTA0 | SCTLR2_EL1_CPTM0)
+> +
+
+The kernel doesn't know about any of these features, yet.
+
+It's probably better to make this 0 for this patch series, and add bits
+to this mask only when they are needed / used.
+
+>  static inline void arch_thread_struct_whitelist(unsigned long *offset,
+>  						unsigned long *size)
+>  {
+> @@ -370,6 +374,7 @@ struct task_struct;
+>  unsigned long __get_wchan(struct task_struct *p);
+>  
+>  void update_sctlr_el1(u64 sctlr);
+> +void update_sctlr2_el1(u64 sctlr2);
+
+Is this function used outside process.c yet?  If not, you can drop this
+declaration and [... below ...]
+>  
+>  /* Thread switching */
+>  extern struct task_struct *cpu_switch_to(struct task_struct *prev,
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index 96482a1412c6..9191180c4875 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -698,6 +698,11 @@ void update_sctlr_el1(u64 sctlr)
+>  	isb();
+>  }
+>  
+> +void update_sctlr2_el1(u64 sctlr2)
+
+[...] make the function static here.
+
+
+> +{
+> +	sysreg_clear_set_s(SYS_SCTLR2_EL1, SCTLR2_USER_MASK, sctlr2);
+> +}
+> +
+>  /*
+>   * Thread switching.
+>   */
+> @@ -737,6 +742,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
+>  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
+>  		update_sctlr_el1(next->thread.sctlr_user);
+>  
+> +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2) &&
+> +	    prev->thread.sctlr2_user != next->thread.sctlr2_user)
+> +		update_sctlr2_el1(next->thread.sctlr2_user);
+> +
+>  	/* the actual thread switch */
+>  	last = cpu_switch_to(prev, next);
 
 [...]
 
-In the case where the el2_switch argument in non-zero, don't we also
-need to do something to reinitialise SCTLR2_EL2 after switching back
-to EL2, in the HVC_SOFT_RESTART handler?
-
-Maybe I missed something.
+Otherwise, I guess this looks OK.
 
 Cheers
 ---Dave
