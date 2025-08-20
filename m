@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3CBCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 01:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3282CCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 02:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dF3UOYMc7muJs71UWTd/bxCq5x/to6zNlVDjm2ki1yk=; b=rtWhNMADHC6poS8Q8MBlnAg5z7
-	Mg9wXjuqgaYObkoi+0k8nqg6wGAg6z2slWTWc99sYdXeFJ4hkGcChMYmSUZlWFqggY12rWCzi42nM
-	0vsaWxKAd/5u4J7YamLwvVWAQyTEnjs4b7eW2op/C6DltZ65v1lv47+2LLbWfwHkFT6TV1W8DqjOq
-	ZDpBnbGG8ASECJU2QTydrr89eV9tRnpvorggalL4zz+HHZuR9yBTjznIAh6FnkLA4djPTN1ZIdyqi
-	dpyOJ2/OMUAnl08NcsLW/ssOjHhb3+udNg4wNS2y4F4rtCy5YKEWmkXEEqbuJBbCe/aHmJ6kzzF5o
-	dlKIJKLA==;
+	bh=LgZu0qoNyK+biSKE5JfrxUczmD2BQkXHBmhCCKdki+k=; b=1GkNVUkVH7XBUqxJiWWtXetGxl
+	DtumQZbCogybHKf/05cIWWD9UQS30dqdMoM+xsm1q7xFv9ciW6y1n/UNFK5ySv0Ik8TjdyK9I+edU
+	s0t6zcJwIPaDQc+Q2xiMYEJXSZzqWpZXItrr/gWlpy+zFCErexEpngX0tZo9XFQm7biQIIu2TE7P2
+	4gxK1Ji9glT5RuImIbnWIr0jMg8kK1vOTJKm6fKK94GE3xoN9evDs2i1sqC6xoswVc86+TZk1TU4f
+	UDzH53UnX8y6hPtH7/eMe5pawdVkT60rbXjEnL48XWNJID3bQ0R2aJpe2/7hupWPzQMoENawhEto5
+	oLrYqaaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoY1d-0000000C841-2Y4H;
-	Wed, 20 Aug 2025 01:54:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uoYL8-0000000C9Xh-2RaR;
+	Wed, 20 Aug 2025 02:14:14 +0000
+Received: from smtpbgau1.qq.com ([54.206.16.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoXz1-0000000C7q2-42Qs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 Aug 2025 01:51:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dF3UOYMc7muJs71UWTd/bxCq5x/to6zNlVDjm2ki1yk=; b=a3r+0c/IiKg9l/AZqvTzcWT/yK
-	hYalFOzbUR0Yy4MEqnuKFHja+yQMRYvHNsQOooM7rLygRhFe2YO4xb93WswPlMr/kx2kZxF96TrVE
-	VUNCq1wmF//rheeJgZp2cPQPBUZYNNAx826ma0w5cW+88RWqjz4J26W6zPILnKZPGlkeWIy2zbyta
-	SKIvgEvb5DZPdBzAfHgMAOWnz0cxgmRpRo0qahgNEus7XhBV1mCArwaCrpBtPcpaLlx161PdT7WVA
-	9raJZeN5gLReJvw2SI9QsfxnjbbPewBW13yvbpPfF89sobVPXhB7eTJq3i8WTBzm8W682STxk0YmG
-	sG3apiOA==;
-Received: from szxga06-in.huawei.com ([45.249.212.32])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoXyq-000000008ki-2Ad8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 01:51:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4c68Zd4WySz27j7S;
-	Wed, 20 Aug 2025 09:51:53 +0800 (CST)
-Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 59FCF140277;
-	Wed, 20 Aug 2025 09:50:48 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
- (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 20 Aug
- 2025 09:50:47 +0800
-Message-ID: <cbecda55-db03-409a-b892-65171e00f6bc@huawei.com>
-Date: Wed, 20 Aug 2025 09:50:47 +0800
+	id 1uoYIW-0000000C9L8-0qKa;
+	Wed, 20 Aug 2025 02:11:33 +0000
+X-QQ-mid: zesmtpip4t1755655827t927a0bd5
+X-QQ-Originating-IP: ZT11A4xCrpS+Sor2dkaS5pC77IPe/BP9zy8H4U6AHgI=
+Received: from [IPV6:240f:10b:7440:1:74a0:7bf7 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 20 Aug 2025 10:10:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11893107500383784646
+Message-ID: <0318E801E3D6726D+65c4f189-4e22-4a9b-83d7-cbb0816df373@radxa.com>
+Date: Wed, 20 Aug 2025 11:10:24 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] cpufreq: Add a new function to get cpufreq policy
- without checking if the CPU is online
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <viresh.kumar@linaro.org>,
-	<beata.michalska@arm.com>, <sudeep.holla@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <zhangpengjie2@huawei.com>, <linhongye@h-partners.com>
-References: <20250819072931.1647431-1-zhenglifeng1@huawei.com>
- <20250819072931.1647431-3-zhenglifeng1@huawei.com>
- <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <CAJZ5v0i7g8i8m9GPi9=-Y0x36491Ng3akUfVP2vPOBS-OAEg=w@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemh100008.china.huawei.com (7.202.181.93)
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: remove vcc_3v3_pmu regulator
+ for Radxa E52C
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <BCD8E43E564BC334+1e45d36f-edc7-4c3c-90c9-7b0f2a52360f@radxa.com>
+ <20250819134028.634780-1-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250819134028.634780-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MmpliBmRb3iCLdw8c0spTNXU6TGj4Xmfp1WZIYGew9nEtKY/wIFp5pn9
+	TNXMWzB2m0kjG9wVZOKqHfCk0SPETLP87/VchZ3ehWPz15kjsrniYdmgnRyMMXjb/ycANw5
+	W5ORlKAPkVdMc3ZPaY04V3guJ6sizPXcU0eD5lx/j3jzhfLn3SDjUtE6dMslx50Kv54FrW5
+	+Q+AUaiY4Cd5mL0nBVy+UnaVd0JNwkbKCoakyi5WPHS8yT4HAoTZOHY1HHY0wdX7ghJzjjW
+	MQ52JzF+lqyDfWFI/1SRRXJzeAAigElGP17zjCsnvX0KjXeEDH554lwOycoMbn95n04/pv3
+	2dZ0IM5nq3uWme7XRKCCMIm2NGOCrJnn7bHPnT3i6fFgKoh9llivxcJWp/qCjWpigM7QZ9P
+	KpeXu81J3Adw0Nu9OCEQ/R7m46QQcyEMF6Fi7ygLawhN+BmMNjn26J3jZEiCe++G1xbgkbr
+	EIJ4RI8YNRobWC89+/p5PMi3bNk2kupLDQwv9Uad8L6rtMMWtsRmA8ZpNlONLzR/oyoOFGU
+	BFU3kdxFMmQTaLCt8sO1XIWHvXZjFUGjlKudR+MbFIz/DgPCAJ1857hE2ikGcqS0kKPm6MQ
+	RhDmrYLgR1qWvV78y3p5UITewahjjH4tAGVmwTL7c+VG28cOJDM+YO9D5LjI0Xmydj42DDU
+	wkeztLdh1Wftm7Yw6dEUR29eyNZUbEHanoQnfJFkh7pYU2Bqq06GUYQTqpS3DonavKtinHi
+	6MjQx+D/F/9HKl6r3IK2ozeTqfAnnqttdEeac9nysfIh7q/iPD8rAiv6RVeN3+3X2iPj0Pr
+	gCBd9xqvXcKi+Z2FhFYBr+TDYcFOETV6qRlVeBefTh+HGv+z93+zcZh9rIu9x6xEol1hLuP
+	UFCPS7sYAnsrN+UZpNsD4t2DhikRnNq9F/I0EM6F3xJA6XQt0FOuL6TJ0aL9fcQIwG2nz8k
+	R6fV4Q3ZKgsHMYA2v826UivwbkAkoIwAzDVt7iK5w9N/wiqvGj7RiO7KLr4/hR/7LqBdq+S
+	CPz0WtYVc7h61uCVGm
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_025117_070462_80CB9328 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250819_191132_700069_A282A58F 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/20 3:05, Rafael J. Wysocki wrote:
+Hi Chukun,
 
-> On Tue, Aug 19, 2025 at 9:30 AM Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
+On 8/19/25 22:40, Chukun Pan wrote:
+> Hi,
+> 
+>> How about the following instead?
 >>
->> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
->> policy->cpus mask, which means the CPU is already online. But in some
->> cases, the policy is needed before the CPU is added to cpus mask. Add a
->> function to get the policy in these cases.
+>> @@ -538,7 +538,7 @@ regulator-state-mem {
+>> 				};
+>> 			};
+>>
+>> -			vcc_3v3_s3: dcdc-reg8 {
+>> +			vcc_3v3_pmu: vcc_3v3_s3: dcdc-reg8 {
+>> 				regulator-name = "vcc_3v3_s3";
+>> 				regulator-always-on;
+>> 				regulator-boot-on;
 > 
-> I'd prefer the subject to be somewhat shorter.  For instance, something like
-> 
-> cpufreq: Add new helper function returning cpufreq policy
-> 
-> would suffice because the changelog explains the details.
-> 
-> With that addressed
-> 
-> Reviewed-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+> On rk356x, the Flash chip is usually powered by VCCIO_FLASH, which
+> is also connected through a 0 ohm resistor, so I didn't write like
+> this. e.g. https://github.com/torvalds/linux/commit/a706a593cb19
 
-Thanks! Will shorten it in the next version.
+I think it should match the schematic, i.e. it should be "vcc-supply = 
+<&vccio_flash>;".
 
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> Thanks,
+> Chukun
 > 
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> ---
->>  drivers/cpufreq/cpufreq.c | 6 ++++++
->>  include/linux/cpufreq.h   | 5 +++++
->>  2 files changed, 11 insertions(+)
->>
->> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
->> index fc7eace8b65b..78ca68ea754d 100644
->> --- a/drivers/cpufreq/cpufreq.c
->> +++ b/drivers/cpufreq/cpufreq.c
->> @@ -198,6 +198,12 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
->>  }
->>  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
->>
->> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
->> +{
->> +       return per_cpu(cpufreq_cpu_data, cpu);
->> +}
->> +EXPORT_SYMBOL_GPL(cpufreq_cpu_policy);
->> +
->>  unsigned int cpufreq_generic_get(unsigned int cpu)
->>  {
->>         struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
->> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
->> index 95f3807c8c55..26b3c3310d5b 100644
->> --- a/include/linux/cpufreq.h
->> +++ b/include/linux/cpufreq.h
->> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
->>
->>  #ifdef CONFIG_CPU_FREQ
->>  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
->> +struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu);
->>  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
->>  void cpufreq_cpu_put(struct cpufreq_policy *policy);
->>  #else
->> @@ -212,6 +213,10 @@ static inline struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
->>  {
->>         return NULL;
->>  }
->> +static inline struct cpufreq_policy *cpufreq_cpu_policy(unsigned int cpu)
->> +{
->> +       return NULL;
->> +}
->>  static inline struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
->>  {
->>         return NULL;
->> --
->> 2.33.0
->>
->>
+> --
+> 2.25.1
+> 
+> 
 > 
 
 
