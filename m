@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 215ABCA0EF5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0381FCA0EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 13:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U+xAES4ksR5IY7QvzcvRpGvVOPtaXnPBzVj9ciizyr4=; b=w2vrCx0AFYPJSpS11vHYsjka2l
-	753wCmexoYUwDUpupSbNdFhxzb0f9WOu+pqK9OO/1/rp2x/y+ssY/of6I51Dmld7iaMTk8q11KF5P
-	NbdKf/7sboxh4/6tG/uGLzR1F5zMTNkY0d9mxNwdXK8/RsWv6ktBr8YitudEJuVVtbLRnj3uUZKW6
-	qpjg6ccvpC9aN0RfvtVonIhkCljPu0ybtyEvUfDfU2HyrOTv+5AUrXyrxdb8P+XgEWTpgOnVMmubX
-	qrqRPwT0gxtx/tMLYSQaiaSKZltIbKayslTueAlzKliWqYmA97Wk36WUrDefDETDJ3LroXFCpKUN+
-	ilzMMJ7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBLba5GuEe9S+ipobDHMncyFewiwn0qDuLH9/rcwihg=; b=gsRJEAKgNfJ0DRcCxMXJqLIq7k
+	a01uYnHcDGzeTXJ6Ep0Md9+Z9rdnj+Fs1WjnUHy/ydjh+dsT69C2VZixzzb6cPwwy185sBNlFUs0w
+	CVu/02DEeTQrLapby/l3AmirUCZwOZqsMKEFiafJv9G4cXon5Na6DQpWvpIn71tJtNALlq8L8OtLv
+	kXnC9ExeNsBgmQc9wnOrYuldALvZ4qP+RcYYeY7gfJrYfW8IkwjaNKsdeLa9rwM5mL1wZ5acSL2so
+	u/LCGQAb+I83eugTgDJkMOtnJZ43dKcOYNfvUpV7Z58HtOQ1IY0XZ8jFxiqbWJmBgvmJ/FkjvZlM1
+	09UiO9cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoiyk-0000000DpLK-2RLF;
-	Wed, 20 Aug 2025 13:35:50 +0000
+	id 1uoj1K-0000000DqSD-1h3f;
+	Wed, 20 Aug 2025 13:38:30 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoiPa-0000000Dh5T-2UMO;
-	Wed, 20 Aug 2025 12:59:32 +0000
-Received: from ideasonboard.com (mob-5-90-62-213.net.vodafone.it [5.90.62.213])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E72ED24AB;
-	Wed, 20 Aug 2025 14:58:30 +0200 (CEST)
+	id 1uoiUX-0000000Di53-0Wnk;
+	Wed, 20 Aug 2025 13:04:38 +0000
+Received: from [192.168.1.106] (mob-5-90-62-213.net.vodafone.it [5.90.62.213])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CDE2D2F0D;
+	Wed, 20 Aug 2025 14:57:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755694711;
-	bh=xeBOmvCFwizoGSZtMTSjmpEINhZWEE0c85+xZ21sl3c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tbznrUC6b3AlFHhBQm3GCCEt4Ai7JLMzV/tv00+xg2LnRY/dUv/K2QlvSqOo3Vziz
-	 fx8BcA8Bx8Na6g1sWICTklXLjrYYAXB2y23HkUMCQ5QmzzXlHWq539HcNDNNEGv64+
-	 JrNYx+QLfBjeBON4FNPfOQDSNap69aLkCpErMnEM=
-Date: Wed, 20 Aug 2025 14:59:26 +0200
+	s=mail; t=1755694649;
+	bh=60RNjZpwSNZ6wBilj4su/4Aeh008/tMwIResm6EJvmA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=BdimJlESJvXOqNFAC73aoODI0hwIJSIRiZ0KLhZhEmBpFFTN2uFnxQPsHBuzBRZ67
+	 7XQZFAMhCkKe6fMpSXysqOdZltIl8KU48HiEJLVetypgXWpfPkdt53svVLKpFJV5Hh
+	 GhtQWjdWjYudUJHO6Si2QmZpOTkIVJ8MAmVxuI+w=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 5/8] media: v4l2-common: Introduce v4l2-params.c
-Message-ID: <fx5klk52nulqouum7rteyfkvbmxjq63z3mgjkgnjtc563fsr2z@mhq7glvsopvp>
-References: <20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com>
- <20250819-extensible-parameters-validation-v3-5-9dc008348b30@ideasonboard.com>
- <aKT4vz-XeTgSo125@kekkonen.localdomain>
+Date: Wed, 20 Aug 2025 14:58:15 +0200
+Subject: [PATCH v4 7/8] media: amlogic-c3: Use v4l2-params for validation
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aKT4vz-XeTgSo125@kekkonen.localdomain>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250820-extensible-parameters-validation-v4-7-30fe5a99cb1f@ideasonboard.com>
+References: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+In-Reply-To: <20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com>
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17404;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=60RNjZpwSNZ6wBilj4su/4Aeh008/tMwIResm6EJvmA=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBopcZrntxB/p4OdPOTLYRHgVgjvAybu9eSaxqNK
+ cxghk9yJBSJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaKXGawAKCRByNAaPFqFW
+ PDWqD/921OXH72ertvmpZHmsiwHK0I7UNgZlFoPln+f78U1kNG18f226vP2F1Sx/zIDJCxVT+M3
+ XKiP1d7qPjbGhKpr3Fu6REf0po2vCykOHQaQHQaz+Nvx+Mco4Q1vrlwJ6mMFhpgR0utdL/1e16C
+ OLlJmj1V2LK6xGVAfQd5Co6sm73vjXaGmSE3XFwXC66TQeCef2RAtVX9esZcC/G/kvTG6RraLGt
+ nKviStQBaztMs7DW2i5upRQsegkAzZ1MSpJmZW7u3ArUNEGZ+zlHwNn2/RVwnakJD0uul41EfIh
+ /6ULfLCbCBuADMk7TfaEDR7moJzsKg+PZd2ZgxuMdCZ6Q1ktmeqGEQRVVm1FGxYi/hGqeYMdGDf
+ zL5jNR+rdnLvU8vyqTtFqSvDDZSly95Q8H7BY35HrYT6Nu+qiCU/v/uDyGiy8xzy3vhDSzAmuGD
+ drnVs+ar35QMHN9d22moCb6Z+DyzFSSOe3j19ZLqrSYjQY/mIQEQ0SBFnWoTiUhsG++/+EQFiJ7
+ Fqr9bres1XYdSvoaLLvkVq8NdXC7W8fmCe1xJtIaipnrGBqNThnq/kGRxwxjDOzAJQo8tS9SMln
+ 1r2HYvqX9dFwGM5u/BhmtNyMsFajLoMxIKMk71Aox7zYxFE2PGnuJkXv/JIfACHWFhsT6ZJgOXr
+ ffEZH/Iym2XN2Yw==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_055930_915261_8C220F33 
-X-CRM114-Status: GOOD (  52.67  )
+X-CRM114-CacheID: sfid-20250820_060437_443852_05451E89 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,387 +88,460 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sakari
+Convert c3-ispa-params.c to use the new types fro block handlers
+defined in v4l2-params.h and use the new helpers from v4l2-params.c
+to remove boilerplate code from the driver.
 
-On Wed, Aug 20, 2025 at 01:20:47AM +0300, Sakari Ailus wrote:
-> Hi Jacopo,
->
-> In the subject:
->
-> s/common/params/
->
-> On Tue, Aug 19, 2025 at 04:54:46PM +0200, Jacopo Mondi wrote:
-> > Add to the v4l2 framework an helper function to support drivers
-> > when validating a buffer of extensible parameters.
-> >
-> > Introduce new types in include/media/v4l2-params.h that drivers shall
-> > use in order to comply with the v4l2-params validation procedure, and
-> > add a helper functions to v4l2-params.c to perform block and buffer
-> > validation.
-> >
-> > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > ---
-> >  MAINTAINERS                           |   2 +
-> >  drivers/media/v4l2-core/Makefile      |   3 +-
-> >  drivers/media/v4l2-core/v4l2-params.c | 123 +++++++++++++++++++++++++
-> >  include/media/v4l2-params.h           | 165 ++++++++++++++++++++++++++++++++++
-> >  4 files changed, 292 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 91df04e5d9022ccf2aea4445247369a8b86a4264..008f984c0769691f6ddec8d8f0f461fde056ddb3 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -26385,6 +26385,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> >  L:	linux-media@vger.kernel.org
-> >  S:	Maintained
-> >  F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> > +F:	drivers/media/v4l2-core/v4l2-params.c
-> > +F:	include/media/v4l2-params.h
-> >  F:	include/uapi/linux/media/v4l2-extensible-params.h
-> >
-> >  VF610 NAND DRIVER
-> > diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
-> > index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..323330dd359f95c1ae3d0c35bd6fcb8291a33a07 100644
-> > --- a/drivers/media/v4l2-core/Makefile
-> > +++ b/drivers/media/v4l2-core/Makefile
-> > @@ -11,7 +11,8 @@ tuner-objs	:=	tuner-core.o
-> >  videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
-> >  			v4l2-event.o v4l2-subdev.o v4l2-common.o \
-> >  			v4l2-ctrls-core.o v4l2-ctrls-api.o \
-> > -			v4l2-ctrls-request.o v4l2-ctrls-defs.o
-> > +			v4l2-ctrls-request.o v4l2-ctrls-defs.o \
-> > +			v4l2-params.o
-> >
-> >  # Please keep it alphabetically sorted by Kconfig name
-> >  # (e. g. LC_ALL=C sort Makefile)
-> > diff --git a/drivers/media/v4l2-core/v4l2-params.c b/drivers/media/v4l2-core/v4l2-params.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..8eeb12414c0981c13725a59d1668c5798b9fcf50
-> > --- /dev/null
-> > +++ b/drivers/media/v4l2-core/v4l2-params.c
-> > @@ -0,0 +1,123 @@
-> > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > +/*
-> > + * Video4Linux2 extensible parameters helpers
-> > + *
-> > + * Copyright (C) 2025 Ideas On Board Oy
-> > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > + */
-> > +
-> > +#include <media/v4l2-params.h>
-> > +
-> > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > +				size_t max_size,
-> > +				v4l2_params_validate_buffer buffer_validate)
-> > +{
-> > +	size_t header_size = offsetof(struct v4l2_params_buffer, data);
-> > +	struct v4l2_params_buffer *buffer = vb2_plane_vaddr(vb, 0);
-> > +	size_t payload_size = vb2_get_plane_payload(vb, 0);
-> > +	size_t buffer_size;
-> > +	int ret;
-> > +
-> > +	/* Payload size can't be greater than the destination buffer size */
-> > +	if (payload_size > max_size) {
-> > +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Payload size can't be smaller than the header size */
-> > +	if (payload_size < header_size) {
-> > +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Validate the size reported in the parameter buffer header */
-> > +	buffer_size = header_size + buffer->data_size;
-> > +	if (buffer_size != payload_size) {
-> > +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
-> > +			buffer_size, payload_size);
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	/* Driver-specific buffer validation. */
-> > +	if (buffer_validate) {
-> > +		ret = buffer_validate(dev, buffer);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(v4l2_params_buffer_validate);
-> > +
-> > +int v4l2_params_blocks_validate(struct device *dev,
-> > +				const struct v4l2_params_buffer *buffer,
-> > +				const struct v4l2_params_handler *handlers,
-> > +				size_t num_handlers,
-> > +				v4l2_params_validate_block block_validate)
-> > +{
-> > +	size_t block_offset = 0;
-> > +	size_t buffer_size;
-> > +	int ret;
-> > +
-> > +	/* Walk the list of parameter blocks and validate them. */
-> > +	buffer_size = buffer->data_size;
-> > +	while (buffer_size >= sizeof(struct v4l2_params_block_header)) {
-> > +		const struct v4l2_params_handler *handler;
-> > +		const struct v4l2_params_block_header *block;
-> > +
-> > +		/* Validate block sizes and types against the handlers. */
-> > +		block = (const struct v4l2_params_block_header *)
-> > +			(buffer->data + block_offset);
-> > +
-> > +		if (block->type >= num_handlers) {
-> > +			dev_dbg(dev, "Invalid parameters block type\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		if (block->size > buffer_size) {
-> > +			dev_dbg(dev, "Premature end of parameters data\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		/* It's invalid to specify both ENABLE and DISABLE. */
-> > +		if ((block->flags & (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> > +				     V4L2_PARAMS_FL_BLOCK_DISABLE)) ==
-> > +		     (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> > +		     V4L2_PARAMS_FL_BLOCK_DISABLE)) {
-> > +			dev_dbg(dev, "Invalid parameters block flags\n");
->
-> There's also hweight*(); up to you.
->
+Reviewed-by: Keke Li <keke.li@amlogic.com>
+Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+ .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 263 ++++++++-------------
+ 1 file changed, 94 insertions(+), 169 deletions(-)
 
-I ended up leaving it the way it is.
+diff --git a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+index c80667dd766210d2b2e1ee60c8254a5814b9d81b..259cb354ffddf4a1195422dfd9b3ba24c79607fc 100644
+--- a/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
++++ b/drivers/media/platform/amlogic/c3/isp/c3-isp-params.c
+@@ -9,64 +9,26 @@
+ 
+ #include <media/v4l2-ioctl.h>
+ #include <media/v4l2-mc.h>
++#include <media/v4l2-params.h>
+ #include <media/videobuf2-vmalloc.h>
+ 
+ #include "c3-isp-common.h"
+ #include "c3-isp-regs.h"
+ 
+-/*
+- * union c3_isp_params_block - Generalisation of a parameter block
+- *
+- * This union allows the driver to treat a block as a generic struct to this
+- * union and safely access the header and block-specific struct without having
+- * to resort to casting. The header member is accessed first, and the type field
+- * checked which allows the driver to determine which of the other members
+- * should be used.
+- *
+- * @header:		The shared header struct embedded as the first member
+- *			of all the possible other members. This member would be
+- *			accessed first and the type field checked to determine
+- *			which of the other members should be accessed.
+- * @awb_gains:		For header.type == C3_ISP_PARAMS_BLOCK_AWB_GAINS
+- * @awb_cfg:		For header.type == C3_ISP_PARAMS_BLOCK_AWB_CONFIG
+- * @ae_cfg:		For header.type == C3_ISP_PARAMS_BLOCK_AE_CONFIG
+- * @af_cfg:		For header.type == C3_ISP_PARAMS_BLOCK_AF_CONFIG
+- * @pst_gamma:		For header.type == C3_ISP_PARAMS_BLOCK_PST_GAMMA
+- * @ccm:		For header.type == C3_ISP_PARAMS_BLOCK_CCM
+- * @csc:		For header.type == C3_ISP_PARAMS_BLOCK_CSC
+- * @blc:		For header.type == C3_ISP_PARAMS_BLOCK_BLC
+- */
+-union c3_isp_params_block {
+-	struct c3_isp_params_block_header header;
+-	struct c3_isp_params_awb_gains awb_gains;
+-	struct c3_isp_params_awb_config awb_cfg;
+-	struct c3_isp_params_ae_config ae_cfg;
+-	struct c3_isp_params_af_config af_cfg;
+-	struct c3_isp_params_pst_gamma pst_gamma;
+-	struct c3_isp_params_ccm ccm;
+-	struct c3_isp_params_csc csc;
+-	struct c3_isp_params_blc blc;
+-};
+-
+-typedef void (*c3_isp_block_handler)(struct c3_isp_device *isp,
+-				     const union c3_isp_params_block *block);
+-
+-struct c3_isp_params_handler {
+-	size_t size;
+-	c3_isp_block_handler handler;
+-};
+-
+ #define to_c3_isp_params_buffer(vbuf) \
+ 	container_of(vbuf, struct c3_isp_params_buffer, vb)
+ 
+ /* Hardware configuration */
+ 
+-static void c3_isp_params_cfg_awb_gains(struct c3_isp_device *isp,
+-					const union c3_isp_params_block *block)
++static void
++c3_isp_params_cfg_awb_gains(void *dev,
++			    const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_awb_gains *awb_gains = &block->awb_gains;
++	const struct c3_isp_params_awb_gains *awb_gains =
++		(const struct c3_isp_params_awb_gains *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_BEO_CTRL,
+ 				   ISP_TOP_BEO_CTRL_WB_EN_MASK,
+ 				   ISP_TOP_BEO_CTRL_WB_DIS);
+@@ -89,7 +51,7 @@ static void c3_isp_params_cfg_awb_gains(struct c3_isp_device *isp,
+ 			   ISP_LSWB_WB_GAIN2_IR_GAIN_MASK,
+ 			   ISP_LSWB_WB_GAIN2_IR_GAIN(awb_gains->gb_gain));
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_BEO_CTRL,
+ 				   ISP_TOP_BEO_CTRL_WB_EN_MASK,
+ 				   ISP_TOP_BEO_CTRL_WB_EN);
+@@ -151,12 +113,15 @@ static void c3_isp_params_awb_cood(struct c3_isp_device *isp,
+ 			     ISP_AWB_IDX_DATA_VIDX_DATA(cfg->vert_coord[i]));
+ }
+ 
+-static void c3_isp_params_cfg_awb_config(struct c3_isp_device *isp,
+-					 const union c3_isp_params_block *block)
++static void
++c3_isp_params_cfg_awb_config(void *dev,
++			     const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_awb_config *awb_cfg = &block->awb_cfg;
++	const struct c3_isp_params_awb_config *awb_cfg =
++		(const struct c3_isp_params_awb_config *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AWB_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AWB_STAT_DIS);
+@@ -205,7 +170,7 @@ static void c3_isp_params_cfg_awb_config(struct c3_isp_device *isp,
+ 	c3_isp_params_awb_wt(isp, awb_cfg);
+ 	c3_isp_params_awb_cood(isp, awb_cfg);
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AWB_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AWB_STAT_EN);
+@@ -268,12 +233,15 @@ static void c3_isp_params_ae_cood(struct c3_isp_device *isp,
+ 			     ISP_AE_IDX_DATA_VIDX_DATA(cfg->vert_coord[i]));
+ }
+ 
+-static void c3_isp_params_cfg_ae_config(struct c3_isp_device *isp,
+-					const union c3_isp_params_block *block)
++static void
++c3_isp_params_cfg_ae_config(void *dev,
++			    const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_ae_config *ae_cfg = &block->ae_cfg;
++	const struct c3_isp_params_ae_config *ae_cfg =
++		(const struct c3_isp_params_ae_config *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AE_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AE_STAT_DIS);
+@@ -303,7 +271,7 @@ static void c3_isp_params_cfg_ae_config(struct c3_isp_device *isp,
+ 	c3_isp_params_ae_wt(isp, ae_cfg);
+ 	c3_isp_params_ae_cood(isp, ae_cfg);
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AE_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AE_STAT_EN);
+@@ -326,12 +294,15 @@ static void c3_isp_params_af_cood(struct c3_isp_device *isp,
+ 			     ISP_AF_IDX_DATA_VIDX_DATA(cfg->vert_coord[i]));
+ }
+ 
+-static void c3_isp_params_cfg_af_config(struct c3_isp_device *isp,
+-					const union c3_isp_params_block *block)
++static void
++c3_isp_params_cfg_af_config(void *dev,
++			    const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_af_config *af_cfg = &block->af_cfg;
++	const struct c3_isp_params_af_config *af_cfg =
++		(const struct c3_isp_params_af_config *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AF_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AF_STAT_DIS);
+@@ -351,20 +322,23 @@ static void c3_isp_params_cfg_af_config(struct c3_isp_device *isp,
+ 
+ 	c3_isp_params_af_cood(isp, af_cfg);
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_3A_STAT_CRTL,
+ 				   ISP_TOP_3A_STAT_CRTL_AF_STAT_EN_MASK,
+ 				   ISP_TOP_3A_STAT_CRTL_AF_STAT_EN);
+ }
+ 
+-static void c3_isp_params_cfg_pst_gamma(struct c3_isp_device *isp,
+-					const union c3_isp_params_block *block)
++static void
++c3_isp_params_cfg_pst_gamma(void *dev,
++			    const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_pst_gamma *gm = &block->pst_gamma;
++	const struct c3_isp_params_pst_gamma *gm =
++		(const struct c3_isp_params_pst_gamma *)block;
++	struct c3_isp_device *isp = dev;
+ 	unsigned int base;
+ 	unsigned int i;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_PST_GAMMA_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_PST_GAMMA_DIS);
+@@ -393,19 +367,21 @@ static void c3_isp_params_cfg_pst_gamma(struct c3_isp_device *isp,
+ 		}
+ 	}
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_PST_GAMMA_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_PST_GAMMA_EN);
+ }
+ 
+ /* Configure 3 x 3 ccm matrix */
+-static void c3_isp_params_cfg_ccm(struct c3_isp_device *isp,
+-				  const union c3_isp_params_block *block)
++static void c3_isp_params_cfg_ccm(void *dev,
++				  const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_ccm *ccm = &block->ccm;
++	const struct c3_isp_params_ccm *ccm =
++		(const struct c3_isp_params_ccm *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_CCM_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_CCM_DIS);
+@@ -442,19 +418,21 @@ static void c3_isp_params_cfg_ccm(struct c3_isp_device *isp,
+ 			   ISP_CCM_MTX_22_23_RS_MTX_22_MASK,
+ 			   ISP_CCM_MTX_22_23_RS_MTX_22(ccm->matrix[2][2]));
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_CCM_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_CCM_EN);
+ }
+ 
+ /* Configure color space conversion matrix parameters */
+-static void c3_isp_params_cfg_csc(struct c3_isp_device *isp,
+-				  const union c3_isp_params_block *block)
++static void c3_isp_params_cfg_csc(void *dev,
++				  const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_csc *csc = &block->csc;
++	const struct c3_isp_params_csc *csc =
++		(const struct c3_isp_params_csc *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_CM0_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_CM0_DIS);
+@@ -491,19 +469,21 @@ static void c3_isp_params_cfg_csc(struct c3_isp_device *isp,
+ 			   ISP_CM0_COEF22_OUP_OFST0_MTX_22_MASK,
+ 			   ISP_CM0_COEF22_OUP_OFST0_MTX_22(csc->matrix[2][2]));
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_BED_CTRL,
+ 				   ISP_TOP_BED_CTRL_CM0_EN_MASK,
+ 				   ISP_TOP_BED_CTRL_CM0_EN);
+ }
+ 
+ /* Set blc offset of each color channel */
+-static void c3_isp_params_cfg_blc(struct c3_isp_device *isp,
+-				  const union c3_isp_params_block *block)
++static void c3_isp_params_cfg_blc(void *dev,
++				  const struct v4l2_params_block_header *block)
+ {
+-	const struct c3_isp_params_blc *blc = &block->blc;
++	const struct c3_isp_params_blc *blc =
++		(const struct c3_isp_params_blc *)block;
++	struct c3_isp_device *isp = dev;
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_DISABLE) {
+ 		c3_isp_update_bits(isp, ISP_TOP_BEO_CTRL,
+ 				   ISP_TOP_BEO_CTRL_BLC_EN_MASK,
+ 				   ISP_TOP_BEO_CTRL_BLC_DIS);
+@@ -517,13 +497,13 @@ static void c3_isp_params_cfg_blc(struct c3_isp_device *isp,
+ 		     ISP_LSWB_BLC_OFST1_GB_OFST(blc->gb_ofst) |
+ 		     ISP_LSWB_BLC_OFST1_B_OFST(blc->b_ofst));
+ 
+-	if (block->header.flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
++	if (block->flags & C3_ISP_PARAMS_BLOCK_FL_ENABLE)
+ 		c3_isp_update_bits(isp, ISP_TOP_BEO_CTRL,
+ 				   ISP_TOP_BEO_CTRL_BLC_EN_MASK,
+ 				   ISP_TOP_BEO_CTRL_BLC_EN);
+ }
+ 
+-static const struct c3_isp_params_handler c3_isp_params_handlers[] = {
++static const struct v4l2_params_handler c3_isp_params_handlers[] = {
+ 	[C3_ISP_PARAMS_BLOCK_AWB_GAINS] = {
+ 		.size = sizeof(struct c3_isp_params_awb_gains),
+ 		.handler = c3_isp_params_cfg_awb_gains,
+@@ -568,16 +548,16 @@ static void c3_isp_params_cfg_blocks(struct c3_isp_params *params)
+ 
+ 	/* Walk the list of parameter blocks and process them */
+ 	while (block_offset < config->data_size) {
+-		const struct c3_isp_params_handler *block_handler;
+-		const union c3_isp_params_block *block;
++		const struct v4l2_params_handler *block_handler;
++		const struct v4l2_params_block_header *block;
+ 
+-		block = (const union c3_isp_params_block *)
++		block = (const struct v4l2_params_block_header *)
+ 			 &config->data[block_offset];
+ 
+-		block_handler = &c3_isp_params_handlers[block->header.type];
++		block_handler = &c3_isp_params_handlers[block->type];
+ 		block_handler->handler(params->isp, block);
+ 
+-		block_offset += block->header.size;
++		block_offset += block->size;
+ 	}
+ }
+ 
+@@ -766,31 +746,35 @@ static void c3_isp_params_vb2_buf_queue(struct vb2_buffer *vb)
+ 	list_add_tail(&buf->list, &params->pending);
+ }
+ 
++static int
++c3_isp_params_validate_buffer(struct device *dev,
++			      const struct v4l2_params_buffer *buffer)
++{
++	/* Only v0 is supported at the moment */
++	if (buffer->version != C3_ISP_PARAMS_BUFFER_V0) {
++		dev_dbg(dev, "Invalid params buffer version: %u\n",
++			buffer->version);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+ {
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct c3_isp_params_buffer *buf = to_c3_isp_params_buffer(vbuf);
+ 	struct c3_isp_params *params = vb2_get_drv_priv(vb->vb2_queue);
+-	struct c3_isp_params_cfg *cfg = buf->cfg;
+ 	struct c3_isp_params_cfg *usr_cfg = vb2_plane_vaddr(vb, 0);
+ 	size_t payload_size = vb2_get_plane_payload(vb, 0);
+-	size_t header_size = offsetof(struct c3_isp_params_cfg, data);
+-	size_t block_offset = 0;
+-	size_t cfg_size;
+-
+-	/* Payload size can't be greater than the destination buffer size */
+-	if (payload_size > params->vfmt.fmt.meta.buffersize) {
+-		dev_dbg(params->isp->dev,
+-			"Payload size is too large: %zu\n", payload_size);
+-		return -EINVAL;
+-	}
++	struct c3_isp_params_cfg *cfg = buf->cfg;
++	int ret;
+ 
+-	/* Payload size can't be smaller than the header size */
+-	if (payload_size < header_size) {
+-		dev_dbg(params->isp->dev,
+-			"Payload size is too small: %zu\n", payload_size);
+-		return -EINVAL;
+-	}
++	ret = v4l2_params_buffer_validate(params->isp->dev, vb,
++					  params->vfmt.fmt.meta.buffersize,
++					  c3_isp_params_validate_buffer);
++	if (ret)
++		return ret;
+ 
+ 	/*
+ 	 * Use the internal scratch buffer to avoid userspace modifying
+@@ -798,70 +782,11 @@ static int c3_isp_params_vb2_buf_prepare(struct vb2_buffer *vb)
+ 	 */
+ 	memcpy(cfg, usr_cfg, payload_size);
+ 
+-	/* Only v0 is supported at the moment */
+-	if (cfg->version != C3_ISP_PARAMS_BUFFER_V0) {
+-		dev_dbg(params->isp->dev,
+-			"Invalid params buffer version: %u\n", cfg->version);
+-		return -EINVAL;
+-	}
+-
+-	/* Validate the size reported in the parameter buffer header */
+-	cfg_size = header_size + cfg->data_size;
+-	if (cfg_size != payload_size) {
+-		dev_dbg(params->isp->dev,
+-			"Data size %zu and payload size %zu are different\n",
+-			cfg_size, payload_size);
+-		return -EINVAL;
+-	}
+-
+-	/* Walk the list of parameter blocks and validate them */
+-	cfg_size = cfg->data_size;
+-	while (cfg_size >= sizeof(struct c3_isp_params_block_header)) {
+-		const struct c3_isp_params_block_header *block;
+-		const struct c3_isp_params_handler *handler;
+-
+-		block = (struct c3_isp_params_block_header *)
+-			&cfg->data[block_offset];
+-
+-		if (block->type >= ARRAY_SIZE(c3_isp_params_handlers)) {
+-			dev_dbg(params->isp->dev,
+-				"Invalid params block type\n");
+-			return -EINVAL;
+-		}
+-
+-		if (block->size > cfg_size) {
+-			dev_dbg(params->isp->dev,
+-				"Block size is greater than cfg size\n");
+-			return -EINVAL;
+-		}
+-
+-		if ((block->flags & (C3_ISP_PARAMS_BLOCK_FL_ENABLE |
+-				     C3_ISP_PARAMS_BLOCK_FL_DISABLE)) ==
+-		    (C3_ISP_PARAMS_BLOCK_FL_ENABLE |
+-		     C3_ISP_PARAMS_BLOCK_FL_DISABLE)) {
+-			dev_dbg(params->isp->dev,
+-				"Invalid parameters block flags\n");
+-			return -EINVAL;
+-		}
+-
+-		handler = &c3_isp_params_handlers[block->type];
+-		if (block->size != handler->size) {
+-			dev_dbg(params->isp->dev,
+-				"Invalid params block size\n");
+-			return -EINVAL;
+-		}
+-
+-		block_offset += block->size;
+-		cfg_size -= block->size;
+-	}
+-
+-	if (cfg_size) {
+-		dev_dbg(params->isp->dev,
+-			"Unexpected data after the params buffer end\n");
+-		return -EINVAL;
+-	}
+-
+-	return 0;
++	return v4l2_params_blocks_validate(params->isp->dev,
++					   (struct v4l2_params_buffer *)cfg,
++					   c3_isp_params_handlers,
++					   ARRAY_SIZE(c3_isp_params_handlers),
++					   NULL);
+ }
+ 
+ static int c3_isp_params_vb2_buf_init(struct vb2_buffer *vb)
 
-ENABLE/DISABLE are mutally exclusive, while other flags might be not.
+-- 
+2.50.1
 
-Let's wait to see what other flags we'll need
-
-Thanks
-   j
-
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		/*
-> > +		 * Match the block reported size against the handler's expected
-> > +		 * one, but allow the block to only contain the header in
-> > +		 * case it is going to be disabled.
-> > +		 */
-> > +		handler = &handlers[block->type];
-> > +		if (block->size != handler->size) {
-> > +			if (!(block->flags & V4L2_PARAMS_FL_BLOCK_DISABLE) ||
-> > +			      block->size != sizeof(*block)) {
->
-> You could merge the two conditions.
->
-> > +				dev_dbg(dev, "Invalid parameters block size\n");
-> > +				return -EINVAL;
-> > +			}
-> > +		}
-> > +
-> > +		/* Driver-specific per-block validation. */
-> > +		if (block_validate) {
-> > +			ret = block_validate(dev, block);
-> > +			if (ret)
-> > +				return ret;
-> > +		}
-> > +
-> > +		block_offset += block->size;
-> > +		buffer_size -= block->size;
-> > +	}
-> > +
-> > +	if (buffer_size) {
-> > +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +EXPORT_SYMBOL_GPL(v4l2_params_blocks_validate);
-> > diff --git a/include/media/v4l2-params.h b/include/media/v4l2-params.h
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..a8a4cc721bc4a51d8a6f9c7c009b34dfa3579229
-> > --- /dev/null
-> > +++ b/include/media/v4l2-params.h
-> > @@ -0,0 +1,165 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> > +/*
-> > + * Video4Linux2 extensible parameters helpers
-> > + *
-> > + * Copyright (C) 2025 Ideas On Board Oy
-> > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > + */
-> > +
-> > +#ifndef V4L2_PARAMS_H_
-> > +#define V4L2_PARAMS_H_
-> > +
-> > +#include <linux/media/v4l2-extensible-params.h>
-> > +
-> > +#include <linux/device.h>
->
-> Alphabetic order?
->
-> > +
-> > +#include <media/videobuf2-core.h>
->
-> Please use forward declarations instead of including the entire header
-> here.
->
-> > +
-> > +/**
-> > + * typedef v4l2_params_block_handler - V4L2 extensible format block handler
-> > + * @arg: pointer the driver-specific argument
-> > + * @block: the ISP configuration block to handle
-> > + *
-> > + * Defines the function signature of the functions that handle an ISP block
-> > + * configuration.
-> > + */
-> > +typedef void (*v4l2_params_block_handler)(void *arg,
-> > +					  const struct v4l2_params_block_header *block);
-> > +
-> > +/**
-> > + * struct v4l2_params_handler - V4L2 extensible format handler
-> > + * @size: the block expected size
-> > + * @handler: the block handler function
-> > + * @group: the device-specific group id the block belongs to (optional)
-> > + * @features: the device-specific features flags (optional)
-> > + *
-> > + * The v4l2_params_handler defines the type that driver making use of the
-> > + * V4L2 extensible parameters shall use to define their own ISP block
-> > + * handlers.
-> > + *
-> > + * Drivers shall prepare a list of handlers, one for each supported ISP block
-> > + * and correctly populate the structure's field with the expected block @size
-> > + * (used for validation), a pointer to each block @handler function and an
-> > + * optional @group and @feature flags, the driver can use to differentiate which
-> > + * ISP blocks are present on the ISP implementation.
-> > + *
-> > + * The @group field is intended to be used as a bitmask of driver-specific
-> > + * flags to allow the driver to setup certain blocks at different times. As an
-> > + * example an ISP driver can divide its block handlers in "pre-configure" blocks
-> > + * and "run-time" blocks and use the @group bitmask to identify the ISP blocks
-> > + * that have to be pre-configured from the ones that only have to be handled at
-> > + * run-time. The usage and definition of the @group field is totally
-> > + * driver-specific.
-> > + *
-> > + * The @features flag can instead be used to differentiate between blocks
-> > + * implemented in different revisions of the ISP design. In example some ISP
-> > + * blocks might be present on more recent revision than others. Populating the
-> > + * @features bitmask with the ISP/SoC machine identifier allows the driver to
-> > + * correctly ignore the blocks not supported on the ISP revision it is running
-> > + * on. As per the @group bitmask, the usage and definition of the @features
-> > + * field is totally driver-specific.
-> > + */
-> > +struct v4l2_params_handler {
-> > +	size_t size;
-> > +	v4l2_params_block_handler handler;
-> > +	unsigned int group;
-> > +	unsigned int features;
-> > +};
-> > +
-> > +/**
-> > + * typedef v4l2_params_validate_buffer - V4L2 extensible parameters buffer
-> > + *					 validation callback
-> > + * @dev: the driver's device pointer (as passed by the driver to
-> > + *	 v4l2_params_buffer_validate())
-> > + * @buffer: the extensible parameters buffer
-> > + *
-> > + * Defines the function prototype for the driver's callback to perform
-> > + * driver-specific validation on the extensible parameters buffer
-> > + */
-> > +typedef int (*v4l2_params_validate_buffer)(struct device *dev,
-> > +					   const struct v4l2_params_buffer *buffer);
-> > +
-> > +/**
-> > + * v4l2_params_buffer_validate - Validate a V4L2 extensible parameters buffer
-> > + * @dev: the driver's device pointer
-> > + * @vb: the videobuf2 buffer
-> > + * @max_size: the maximum allowed buffer size
-> > + * @buffer_validate: callback to the driver-specific buffer validation
-> > + *
-> > + * Helper function that performs validation of an extensible parameters buffer.
-> > + *
-> > + * The helper is meant to be used by drivers to perform validation of the
-> > + * extensible parameters buffer size correctness.
-> > + *
-> > + * The @vb buffer as received from the vb2 .buf_prepare() operation is checked
-> > + * against @max_size and its validated to be large enough to accommodate at
-> > + * least one ISP configuration block. The effective buffer size is compared
-> > + * with the reported data size to make sure they match.
-> > + *
-> > + * If provided, the @buffer_validate callback function is invoked to allow
-> > + * drivers to perform driver-specific validation (such as checking that the
-> > + * buffer version is supported).
-> > + *
-> > + * Drivers should use this function to validate the buffer size correctness
-> > + * before performing a copy of the user-provided videobuf2 buffer content into a
-> > + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> > + * content after it has been submitted to the driver.
-> > + *.
-> > + * Examples of users of this function can be found in
-> > + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> > + */
-> > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > +				size_t max_size,
-> > +				v4l2_params_validate_buffer buffer_validate);
-> > +
-> > +/**
-> > + * typedef v4l2_params_validate_block - V4L2 extensible parameters block
-> > + *					validation callback
-> > + * @dev: the driver's device pointer (as passed by the driver to
-> > + *	 v4l2_params_validate())
-> > + * @block: the ISP configuration block to validate
-> > + *
-> > + * Defines the function prototype for the driver's callback to perform
-> > + * driver-specific validation on each ISP block.
-> > + */
-> > +typedef int (*v4l2_params_validate_block)(struct device *dev,
-> > +					  const struct v4l2_params_block_header *block);
-> > +
-> > +/**
-> > + * v4l2_params_blocks_validate - Validate V4L2 extensible parameters ISP
-> > + *				 configuration blocks
-> > + * @dev: the driver's device pointer
-> > + * @buffer: the extensible parameters configuration buffer
-> > + * @handlers: the list of block handlers
-> > + * @num_handlers: the number of block handlers
-> > + * @block_validate: callback to the driver-specific per-block validation
-> > + *		    function
-> > + *
-> > + * Helper function that performs validation of the ISP configuration blocks in
-> > + * an extensible parameters buffer.
-> > + *
-> > + * The helper is meant to be used by drivers to perform validation of the
-> > + * ISP configuration data blocks. For each block in the extensible parameters
-> > + * buffer, its size and correctness are validated against its associated handler
-> > + * in the @handlers list. Additionally, if provided, the @block_validate
-> > + * callback is invoked on each block to allow drivers to perform driver-specific
-> > + * validation.
-> > + *
-> > + * Drivers should use this function to validate the ISP configuration blocks
-> > + * after having validated the correctness of the vb2 buffer sizes by using the
-> > + * v4l2_params_buffer_validate() helper first. Once the buffer size has been
-> > + * validated, drivers should perform a copy of the user-provided buffer into a
-> > + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> > + * content after it has been submitted to the driver, and then call this
-> > + * function to perform per-block validation.
-> > + *
-> > + * Examples of users of this function can be found in
-> > + * rkisp1_params_prepare_ext_params() and in c3_isp_params_vb2_buf_prepare().
-> > + */
-> > +int v4l2_params_blocks_validate(struct device *dev,
-> > +				const struct v4l2_params_buffer *buffer,
-> > +				const struct v4l2_params_handler *handlers,
-> > +				size_t num_handlers,
-> > +				v4l2_params_validate_block block_validate);
-> > +
-> > +#endif /* V4L2_PARAMS_H_ */
-> >
->
-> --
-> Regards,
->
-> Sakari Ailus
 
