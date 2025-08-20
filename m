@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E190ECA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797B0CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzDFiOpjRLlbHQfddlIazcw4li2buRLnzj+tlUDzLn0=; b=hBW0Z9sRy0O87roZ4jpzBCh7np
-	3WlBM9MoOrCchGvZU2YpckVWjX3AqFUAYvSf5DHefZWc9L9moN2FUdo0352HItTZ+JQ4Rd2FPUmOD
-	mPw1Op9yt4/Mw9eV6OGoId1OwqysAoLEuW0nTr8Mw/4K2EZoSeiBR1k9V4AUfmaptDW2iablQG2N3
-	v6cUMIaaX437zkHNwCDw60ACCp146wNhqfg0q7+dq8qaX0Q3+Rh0mhxmFWhXCpOi/EWMN6mItrJlb
-	Rg1xXitjAwxyH3onRKE8obbdOGILSLdUpDHgssGhc/+VmOUkOGkxcfLID7jmy0L1x1Ugob4GiAm7A
-	LSwG7VSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SuF/Oflk0EGtFwSUt1lIc+g91x71wm++DJyeLPvXXB0=; b=3o5pASPEL4DdSTuPDySJtZpYqJ
+	LvwJqfBggxneUk8oHWw1UEEazZmETbrgk6r+41axxqwbAdp9B1byHrKsjfjlPqGNLgNbivew+bejq
+	0yUxC5QoiMKOER4CIg9Zy+i3gnoJaeSS56Y9DrnslD+054QIGMLFaGtjedq363WOffjFMmuUkyGOQ
+	kF8hyVc9nILc1eK06mx+D1zR76dCbL3B8IC9bdck8ejEAwDh06YXsjNTOZfxvyiKdgyGGcBmrlhIt
+	L58JrPyyb+yO6+BbvITEbXapOQucFpW/UQdSU7nRUUHLrL8rlzettsIdyuL3RvHv7E6deHlyd+Ja8
+	Wx6phB7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uorcP-0000000F7vh-3nDg;
-	Wed, 20 Aug 2025 22:49:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uorez-0000000F8Bk-38ec;
+	Wed, 20 Aug 2025 22:52:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonYz-0000000EgRc-2Y8l
+	id 1uonZ0-0000000EgSb-22jg
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 Aug 2025 18:29:35 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id AC3FA24AB;
-	Wed, 20 Aug 2025 20:28:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755714511;
-	bh=nknvIm7qouE2F67cnbHIE1UPId2DhzpV9SfuOm3wm0A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LxCtZOlguIBb6tO4Jdxx9cqEy09BUrfn4pCtYJ/tpo3TdT62btrbz5JQVKq+DdA/H
-	 KTZZDTHhj5MiypO+nmyr8Mq3MZHYu6dopZaWfXRThGoIvzPA+y/xK2hHsfTHJR316r
-	 bspyR0SJ28MLF7Opfw6+wl14CSljjFTz/wtp5CqU=
-Date: Wed, 20 Aug 2025 21:29:06 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH] arm64: dts: imx95: Fix JPEG encoder node assigned clock
-Message-ID: <20250820182906.GI10308@pendragon.ideasonboard.com>
-References: <20250820162747.209626-1-marek.vasut@mailbox.org>
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D452B468B0;
+	Wed, 20 Aug 2025 18:29:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B4AC113CF;
+	Wed, 20 Aug 2025 18:29:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755714573;
+	bh=OMuQjCF+LEZgzxsBMcsJNa9yV1ZyVyIxF/02RSfwA9w=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=OhBmXqQL69XWfsGVFWp2pL/cMtfurNw6+7j363cugbyi8aJf+ZqZm+iHOy1eKLZn2
+	 8QRQu7MxHqvJDgmu7QoxZ0WsPicOVAch51AjpUW/ZecIYUfeS+LcciVcglsrT04m64
+	 gClvL9u+u1cr/1wtBQboezre3jeoVqzMJPrOz9d/9ZRQgbdUo63s+4YiawIzgaMME4
+	 0zUEV1WfvWVYeQuXuvbNLTRBc53PxTE93gL8QTYDV46U14N2JeCnGA+9LMqRTx9u9L
+	 bDmMU8EqTuZ19PGO4lMvPCTgi/O4H3rymQppPdZfvW/BatIyg14RonP8G7NJf6QCT4
+	 ls007xoMEHJOw==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 20 Aug 2025 19:29:04 +0100
+Subject: [PATCH 2/5] kselftest/arm64: Check that unsupported regsets fail
+ in sve-ptrace
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250820162747.209626-1-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250820-arm64-sme-ptrace-sme-only-v1-2-f7c22b2871f8@kernel.org>
+References: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+In-Reply-To: <20250820-arm64-sme-ptrace-sme-only-v1-0-f7c22b2871f8@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Oleg Nesterov <oleg@redhat.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, 
+ David Spickett <david.spickett@arm.com>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
+ Luis Machado <luis.machado.foss@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2392; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=OMuQjCF+LEZgzxsBMcsJNa9yV1ZyVyIxF/02RSfwA9w=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBophQBEDrSy5gbCqYmjEOVsYPzA4r4WdGUBR02Q
+ RVoZ08qRU+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKYUAQAKCRAk1otyXVSH
+ 0LFHB/oC7r5NmS8rvezdaqGX2+jaZs1ybK8ILWXxbmD+IDd6cmq1X8uUwnciGXVu22tSN9cG/Wq
+ 3KWsSiqlDjt1kXrsRDAzETo67WqYE7X7J0+Dk+trnLio0RCAhEaKImXWuOJ4x8aZLHSer9ighDu
+ ehY4ZcFL1aRkV/BGAgDvHGxf4HBSJp4jzcyGx4PH1Z4ImeCyNvTgAVSr8ou9CbuRzLvWj8os9B6
+ iQrDaF3OxR+AaeZ4MbstnNh0o8ZMCODMfiek2GRRBhgYfNyP/TmPzOdygh1JvY976Bp2sM74AT0
+ 9onIDfm5+mSUwp7qBm7f4QbxWhEtVqO8dtOseV4qykTrTeua
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_112933_797217_DA7284AB 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250820_112934_570217_0CB5D5C2 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,55 +91,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Add a test which verifies that NT_ARM_SVE and NT_ARM_SSVE reads and writes
+are rejected as expected when the relevant architecture feature is not
+supported.
 
-Thank you for the patch.
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/fp/sve-ptrace.c | 46 +++++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-On Wed, Aug 20, 2025 at 06:27:26PM +0200, Marek Vasut wrote:
-> The assigned clock for JPEG encoder IP has to be IMX95_CLK_VPUBLK_JPEG_ENC
-> and not IMX95_CLK_VPUBLK_JPEG_DEC (_ENC at the end, not _DEC). This is a
-> simple copy-paste error, fix it.
-> 
-> Fixes: 153c039a7357 ("arm64: dts: imx95: add jpeg encode and decode nodes")
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-
-Looks like a straightforward fix.
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  arch/arm64/boot/dts/freescale/imx95.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> index 4ca6a7ea586ea..8296888bce594 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> @@ -1843,7 +1843,7 @@ jpegenc: jpegenc@4c550000 {
->  				     <GIC_SPI 294 IRQ_TYPE_LEVEL_HIGH>;
->  			clocks = <&scmi_clk IMX95_CLK_VPU>,
->  				 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_ENC>;
-> -			assigned-clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_DEC>;
-> +			assigned-clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_JPEG_ENC>;
->  			assigned-clock-parents = <&scmi_clk IMX95_CLK_VPUJPEG>;
->  			power-domains = <&scmi_devpd IMX95_PD_VPU>;
->  		};
+diff --git a/tools/testing/selftests/arm64/fp/sve-ptrace.c b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+index a9b2377c46b8..5f39ca0b4194 100644
+--- a/tools/testing/selftests/arm64/fp/sve-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/sve-ptrace.c
+@@ -158,6 +158,38 @@ static int set_sve(pid_t pid, const struct vec_type *type,
+ 	return ptrace(PTRACE_SETREGSET, pid, type->regset, &iov);
+ }
+ 
++/* A read operation fails */
++static void read_fails(pid_t child, const struct vec_type *type)
++{
++	struct user_sve_header *new_sve = NULL;
++	size_t new_sve_size = 0;
++	void *ret;
++
++	ret = get_sve(child, type, (void **)&new_sve, &new_sve_size);
++
++	ksft_test_result(ret == NULL, "%s unsupported read fails\n",
++			 type->name);
++
++	free(new_sve);
++}
++
++/* A write operation fails */
++static void write_fails(pid_t child, const struct vec_type *type)
++{
++	struct user_sve_header sve;
++	int ret;
++
++	/* Just the header, no data */
++	memset(&sve, 0, sizeof(sve));
++	sve.size = sizeof(sve);
++	sve.flags = SVE_PT_REGS_SVE;
++	sve.vl = SVE_VL_MIN;
++	ret = set_sve(child, type, &sve);
++
++	ksft_test_result(ret != 0, "%s unsupported write fails\n",
++			 type->name);
++}
++
+ /* Validate setting and getting the inherit flag */
+ static void ptrace_set_get_inherit(pid_t child, const struct vec_type *type)
+ {
+@@ -702,6 +734,20 @@ static int do_parent(pid_t child)
+ 	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(vec_types); i++) {
++		/*
++		 * If the vector type isn't supported reads and writes
++		 * should fail.
++		 */
++		if (!(getauxval(vec_types[i].hwcap_type) & vec_types[i].hwcap)) {
++			read_fails(child, &vec_types[i]);
++			write_fails(child, &vec_types[i]);
++		} else {
++			ksft_test_result_skip("%s unsupported read fails\n",
++					      vec_types[i].name);
++			ksft_test_result_skip("%s unsupported write fails\n",
++					      vec_types[i].name);
++		}
++
+ 		/* FPSIMD via SVE regset */
+ 		if (getauxval(vec_types[i].hwcap_type) & vec_types[i].hwcap) {
+ 			ptrace_sve_fpsimd(child, &vec_types[i]);
 
 -- 
-Regards,
+2.39.5
 
-Laurent Pinchart
 
