@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECB5CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 15:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93818CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 15:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GL9sAeRKOASA+eAc8v67yQLe5ezdU+IrDN1Fs5amqjc=; b=c8+SM+Y6pMeKdHYLxv5PxQjTaq
-	0aXt7lPq5bH60cu3lfi7knX91IQWcw3clnyhXHbx5mcgdX3HMbkXVuf3rSZpsq6ooLNCNS9f82qyH
-	LGcSLzwJoly41CvirT8/24CmArgxchwHeGQRlTyJdIcfRpyjzS/M0dm3tIjpvHIfDeSK5PMkgxEFL
-	+aGZRYhrJVyHafs3pIoPpNHdEGJL3lpFBO/y9xEuTbq2JtHZBcKolTuFw0bKwiUw/cZQov0wLsoj+
-	5IilYhxYwC7WQ877N9D0Th1oFQfttX9ObAUEajAcVksaaQaIVWoIa9dVv9Ge/ZXPt7KOfVHsJ8c3g
-	nJo/bA5A==;
+	bh=VzuJIHrLOatCif1mYOvPygXmFvxefs9LM1o3ex4/k/Q=; b=leZmnauBctvImPvJFlsnAUsgby
+	1aXcrNTO5O/Pk9PHb68oTLIcy9qtzEhTvH/ECgNnDSnFmWWMV9z8iemIacjXKuUduORTUJa+wnOon
+	IPa24ElmmRZ7QgbNZEk+5ULjxfm1E9kmAFq6DpuKi+Fqd/r75CmCFBELzDtZhqAZhK1zO6x+zQfnQ
+	7uzTwOfxPMuyZL5SP2EvlZogelq9xIe4JAMRyLDpEh7Zv5Kvr4stY0HY86v5+GCBfHdQyXk7DtOh1
+	DnyiL/ZLqCHCvUZjGu0VhVkYwcSII7w/7Gr4kYlAGzeGpVP/Fhy1sOINYHTsw3zduqVrjtgbPRFgy
+	vn6+mZxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokPi-0000000EBy9-2CNF;
-	Wed, 20 Aug 2025 15:07:46 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojEr-0000000DuG2-3vmw
+	id 1uokSH-0000000ECR8-1bjk;
+	Wed, 20 Aug 2025 15:10:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uojFk-0000000DuQf-09kn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 13:52:31 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57KDqJ2e261463;
-	Wed, 20 Aug 2025 08:52:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755697939;
-	bh=GL9sAeRKOASA+eAc8v67yQLe5ezdU+IrDN1Fs5amqjc=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=UFGFeipw+uQJHat4UONB2RUWeM6loMedMBLjso0MpqRCE3IgGqPYxnTxPOoS9W1hD
-	 WyfYAbu1bac8ShGI28m8/xVwdQhH+hzo9wJDyZwu7e3rC4TaneV5rdAvkzLLFvZPkO
-	 ViAAOPixF+DGi3dIlHBCcvmJ+wk19mHvo0VOIvzA=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57KDqJSe1828734
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 20 Aug 2025 08:52:19 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 20
- Aug 2025 08:52:19 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 20 Aug 2025 08:52:19 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57KDqIHg597953;
-	Wed, 20 Aug 2025 08:52:18 -0500
-Date: Wed, 20 Aug 2025 19:22:17 +0530
-From: s-vadapalli <s-vadapalli@ti.com>
-To: Michael Walle <mwalle@kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <s-vadapalli@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-j722s-main: add legacy PCIe interrupts
-Message-ID: <ae898bf0-705f-4e36-9664-37c401f5fee7@ti.com>
-References: <20250819111317.1082515-1-mwalle@kernel.org>
+	Wed, 20 Aug 2025 13:53:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDC031D31;
+	Wed, 20 Aug 2025 06:53:14 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 040873F63F;
+	Wed, 20 Aug 2025 06:53:20 -0700 (PDT)
+Date: Wed, 20 Aug 2025 14:53:18 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] firmware: imx: Add stub functions for SCMI CPU API
+Message-ID: <aKXTTqoIBAMWbeCI@pluto>
+References: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
+ <20250807-imx9-sm-v1-3-3489e41a6fda@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250819111317.1082515-1-mwalle@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250807-imx9-sm-v1-3-3489e41a6fda@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_065230_016668_E1DF77F3 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20250820_065324_114495_5D182A0A 
+X-CRM114-Status: GOOD (  16.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +67,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 01:13:17PM +0200, Michael Walle wrote:
-
-Hello Michael,
-
-> The kernel will try to map the legacy interrupt pins, but the
-> interrupt mapping is missing from the device tree and thus that
-> fails with:
+On Thu, Aug 07, 2025 at 09:47:44AM +0800, Peng Fan wrote:
+> To ensure successful builds when CONFIG_IMX_SCMI_CPU_DRV is not enabled,
+> this patch adds static inline stub implementations for the following
+> functions:
 > 
->    pcieport 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
+>   - scmi_imx_cpu_start()
+>   - scmi_imx_cpu_started()
+>   - scmi_imx_cpu_reset_vector_set()
 > 
-> Add the node for the legacy PCIe interrupts to fix that. This is just
-> compile-time tested.
+> These stubs return -EOPNOTSUPP to indicate that the functionality is not
+> supported in the current configuration. This avoids potential build or
+> link errors in code that conditionally calls these functions based on
+> feature availability.
+> 
+> Fixes: 1055faa5d660 ("firmware: imx: Add i.MX95 SCMI CPU driver")
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  include/linux/firmware/imx/sm.h | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
+> index f2a72177bb37c1d46145a60710e3809641e0f5a2..a33b45027356751f4b8ad9b9136f0dd302a82520 100644
+> --- a/include/linux/firmware/imx/sm.h
+> +++ b/include/linux/firmware/imx/sm.h
+> @@ -41,10 +41,28 @@ static inline int scmi_imx_misc_ctrl_set(u32 id, u32 val)
+>  }
+>  #endif
+>  
+> +#if IS_ENABLED(CONFIG_IMX_SCMI_CPU_DRV)
+>  int scmi_imx_cpu_start(u32 cpuid, bool start);
+>  int scmi_imx_cpu_started(u32 cpuid, bool *started);
+>  int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start, bool boot,
+>  				  bool resume);
+> +#else
+> +static inline int scmi_imx_cpu_start(u32 cpuid, bool start)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline int scmi_imx_cpu_started(u32 cpuid, bool *started)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start,
+> +						bool boot, bool resume)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +#endif
 
-INTx is not supported by the driver as explained at:
-https://lore.kernel.org/r/be3e3c5f-0d48-41b0-87f4-2210f13b9460@ti.com/
+LGTM.
 
-The patch to fix the error displayed in the logs was posted at:
-https://lore.kernel.org/r/20240726135903.1255825-1-s-vadapalli@ti.com/
-but wasn't accepted as-is. A different approach will be required to fix
-of_irq_parse_pci() instead as pointed out at:
-https://lore.kernel.org/r/20240729080006.GA8698@thinkpad/
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
-[Trimmed]
-
-Regards,
-Siddharth.
+Thanks,
+Cristian
 
