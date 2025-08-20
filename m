@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CF7CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3011CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKygej7IWEGf7H40vZpU5ce7fzOdqWTT1taC8ke0gZc=; b=Sic7AQ/rGXSogJa7WWuNdLE1p+
-	6iApGA/IjQJMdDOe65A+ci3NrFoUndBQyxcQix9y2r0H6FFrx85nhyzuQnrVuyfhCf3SBVH3+/Xjv
-	YSnQ48oLCm7Opo+aDRLVFnBeQhqzUZbw0o7IsomdcQGDiuOb+EN6t+Egd1ThNCq2vBWBhZMUbWvbz
-	Vod+rj9zP/s4QbFm21WPNwh4xuxHlXXXzEe/Nyt4eGrGHOasH6MRYmqCouHEFUcqNzQrLQ9lLDqj9
-	75li4iZGFJ2TMWSRrbXCR3IiTIv+1XpdKrohjhOlmjMBHOWKbhKmEqOJCqm664q+/UpRc20xQsTMv
-	3nkGzYyw==;
+	bh=6oqR0CmQIWa35GKXWfmkJIdRwbhr/OcoLxPW2XMgDFA=; b=Av3mKJj834FDfWBSw9hxwyTcsy
+	tGi4ES0or8B01dd9LSpOpyZBddQFcoWHdGOPIzH5sGxbABdnLRcV7KtToux9YcERRn27PU4DIP13B
+	q3842s5VsQEN/gke29LxJ75HSDUrR7uzHbhsWQiHsyit28JMhz6JFhXzMBKjx1d8E+Amipb2fgkwW
+	y0meFwxABZ1eVp7cUcapumr2B6ZZb+9h5Y7MPj0HRfOyInOcaARzepoyjJiYQYcDkdVTQgtZz+AaT
+	w/gsMiEtEO50eGKGjTk+fGOYq411iicykIn6B7UoiFGPGhYrfgxz2rwKW921AO0eVgLhur0QAiZfv
+	M0oG3Jzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uosob-0000000FGgh-2HS0;
-	Thu, 21 Aug 2025 00:06:01 +0000
+	id 1uosrF-0000000FH3b-1vmM;
+	Thu, 21 Aug 2025 00:08:45 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uonzd-0000000Ej0X-0boz;
-	Wed, 20 Aug 2025 18:57:06 +0000
+	id 1uonzd-0000000Ej14-3rLv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 18:57:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 27F9C5C6AB2;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 717EF5C6AE6;
+	Wed, 20 Aug 2025 18:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5408C4CEE7;
 	Wed, 20 Aug 2025 18:57:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FC9CC4CEE7;
-	Wed, 20 Aug 2025 18:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755716223;
-	bh=Sm2i3f1Ai5xvO93wNv5WISAxdQySXwq4uo3BepUxtxk=;
+	s=k20201202; t=1755716224;
+	bh=xmH9ICu1+8c4k7z7aUw6QdF70bVyfaZxpW8X5Hd9OUE=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=K9fvQlve8t/ZMqe7N1WklottI71bQxVIp0sm31LKMw1jQaYMTw2a7S35KKepwSQUz
-	 u6um9AKT3vQPJfXUpkIOQXA8jx56WD+0zIGMRlC89A7zJiv6JGArBR7pu+1WthGJaj
-	 l+7ErMokDHztw+BpIdRkWQJXRKKSU0Qu60oFxY3LsvcVZknLHXMNQQ89XRBLihUtjm
-	 ffDMPFAg2FCo763HWX83lLh18dAMAsFNihIQ958OvImvSc+1HT6UZ2ofGyk6S7LUyB
-	 OlsQckcs4k/4uzmT2UxlGUzEDZcJUSvgAKUT3ppmm8cJWKSABuRWC3SjpW3ak+9DRs
-	 sexWQiPie6OWw==
+	b=fmbgBOMBWKy0U0kdm4mDpEMvbd+C/tGwAnJlGjtkDieL7UKWbPiedmQjJpuc8/Eab
+	 0VzrsTdTJ/GY8KDcXXT1rybQJgjrb9Grg+wpI8WORFyMVpB9t98nKMz8WVcr16nrL3
+	 VjjSTK+Wz8gxdcIC9fz9HHb6OsboihJk9HE4Gd36lDc1zRe9tHSZTW8UxaP1TFg/Xb
+	 ORjkHSvsThBPlPX4/ql1dvNhUfXe3FR+XqNpcb2Nuh1OBIRQxA2enGdGN58Kcb0r4+
+	 UyA2x8cG2Mzx7x8tPw4+vPDdlmhRQAmaQKRJIY7OsBIEIliTBDwKDBv0gXt1XaRR7l
+	 BVPYAFSEb43Tg==
 Date: Wed, 20 Aug 2025 13:57:03 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- jmassot@collabora.com, amergnat@baylibre.com, chunkuang.hu@kernel.org, 
- mchehab@kernel.org, conor+dt@kernel.org, support.opensource@diasemi.com, 
- maarten.lankhorst@linux.intel.com, angelogioacchino.delregno@collabora.com, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- airlied@gmail.com, davem@davemloft.net, mripard@kernel.org, 
- andrew+netdev@lunn.ch, krzk+dt@kernel.org, linus.walleij@linaro.org, 
- tiffany.lin@mediatek.com, linux-media@vger.kernel.org, 
- linux-input@vger.kernel.org, yunfei.dong@mediatek.com, kuba@kernel.org, 
- kyrie.wu@mediatek.corp-partner.google.com, sean.wang@kernel.org, 
- dri-devel@lists.freedesktop.org, edumazet@google.com, flora.fu@mediatek.com, 
- minghsiu.tsai@mediatek.com, dmitry.torokhov@gmail.com, jeesw@melfas.com, 
- linux-clk@vger.kernel.org, louisalexis.eyraud@collabora.com, 
- andrew-ct.chen@mediatek.com, p.zabel@pengutronix.de, 
- devicetree@vger.kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com, 
- broonie@kernel.org, linux-gpio@vger.kernel.org, pabeni@redhat.com, 
- lgirdwood@gmail.com, simona@ffwll.ch, linux-mediatek@lists.infradead.org, 
- houlong.wei@mediatek.com, linux-sound@vger.kernel.org, tzimmermann@suse.de
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
-Message-Id: <175571287488.265851.15813545781419111729.robh@kernel.org>
-Subject: Re: [PATCH v1 00/14] MediaTek dt-bindings sanitization (MT8173)
+Cc: Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+To: Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20250820-ls1021a_dts_warning-v2-0-2e39648a32b7@nxp.com>
+References: <20250820-ls1021a_dts_warning-v2-0-2e39648a32b7@nxp.com>
+Message-Id: <175571287545.265879.1160274338030207211.robh@kernel.org>
+Subject: Re: [PATCH v2 0/7] ARM: dts: clean up most ls1021a CHECK_DTB
+ warning
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_115705_272643_F478093D 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250820_115706_043260_35E6FC84 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +75,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 20 Aug 2025 14:12:48 -0300, Ariel D'Alessandro wrote:
-> This patch series continues the effort to address Device Tree validation
-> warnings for MediaTek platforms, with a focus on MT8173. It follows the initial
-> cleanup series by Angelo (https://www.spinics.net/lists/kernel/msg5780177.html)
+On Wed, 20 Aug 2025 12:36:50 -0400, Frank Li wrote:
+> clean up most ls1021a CHECK_DTB warning.
 > 
-> Similarly to the ongoing MT8183 work done by Julien Massot, this patchset
-> eliminates several of the remaining warnings by improving or converting DT
-> bindings to YAML, adding missing properties, and updating device tree files
-> accordingly.
+> Old uboot check esdhc@1560000. The new uboot already switch to check both
+> esdhc@1560000 and mmc@1560000. So we can rename it now.
 > 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Changes in v2:
+> - squash rename to flash patches
+> - remove duplicate patches already post in
+> https://lore.kernel.org/linux-devicetree/20250725061339.266125-1-alexander.stein@ew.tq-group.com/
+> - Link to v1: https://lore.kernel.org/r/20250818-ls1021a_dts_warning-v1-0-7a79b6b4a0e2@nxp.com
 > 
-> Ariel D'Alessandro (14):
->   media: dt-bindings: Convert MediaTek mt8173-mdp bindings to YAML
->   media: dt-bindings: Convert MediaTek mt8173-vpu bindings to YAML
->   dt-bindings: arm: mediatek: mmsys: Add assigned-clocks/rates
->     properties
->   net: dt-bindings: Convert Marvell 8897/8997 bindings to YAML
->   sound: dt-bindings: Convert MediaTek RT5650 codecs bindings to YAML
->   dt-bindings: display: mediatek,od: Add mediatek,gce-client-reg
->     property
->   dt-bindings: display: mediatek,ufoe: Add mediatek,gce-client-reg
->     property
->   arm64: dts: mediatek: mt8173: Fix mt8173-pinctrl node names
->   dt-bindings: pinctrl: mediatek,mt65xx-pinctrl: Allow gpio-line-names
->   regulator: dt-bindings: Convert Dialog Semiconductor DA9211 Regulators
->     to YAML
->   arm64: dts: mediatek: mt8173-elm: Drop unused bank supply
->   dt-bindings: soc: mediatek: pwrap: Add power-domains property
->   dt-bindings: input/touchscreen: Convert MELFAS MIP4 Touchscreen to
->     YAML
->   dt-bindings: media: mediatek,jpeg: Fix jpeg encoder/decoder ranges
+> ---
+> Frank Li (7):
+>       ARM: dts: ls1021a: Rename node name nor to flash
+>       ARM: dts: ls1021a: Rename 'mdio-mux-emi1' to 'mdio-mux@54'
+>       ARM: dts: ls1021a: Rename esdhc@1560000 to mmc@1560000
+>       ARM: dts: ls1021a: Rename node name power-controler to wakeup-controller
+>       ARM: dts: ls1021a: remove big-endian for mmc modes
+>       ARM: dts: ls1021a-tsn: Remove redundant #address-cells for ethernet-switch@1
+>       ARM: dts: ls1021a-tqmls1021a-mbls1021a-rgb-cdtech: Remove fallback compatible string edt,edt-ft5x06
 > 
->  .../bindings/arm/mediatek/mediatek,mmsys.yaml |   9 +
->  .../display/mediatek/mediatek,od.yaml         |  10 +
->  .../display/mediatek/mediatek,ufoe.yaml       |  11 +
->  .../input/touchscreen/melfas,mip4_ts.yaml     |  55 +++++
->  .../input/touchscreen/melfas_mip4.txt         |  20 --
->  .../bindings/media/mediatek,mt8173-mdp.yaml   | 174 +++++++++++++++
->  .../bindings/media/mediatek,mt8173-vpu.yaml   |  76 +++++++
->  .../media/mediatek,mt8195-jpegdec.yaml        |  31 +--
->  .../media/mediatek,mt8195-jpegenc.yaml        |  15 +-
->  .../bindings/media/mediatek-mdp.txt           |  95 --------
->  .../bindings/media/mediatek-vpu.txt           |  31 ---
->  .../bindings/net/marvell,sd8897-bt.yaml       |  91 ++++++++
->  .../bindings/net/marvell-bt-8xxx.txt          |  83 -------
->  .../pinctrl/mediatek,mt65xx-pinctrl.yaml      |   2 +
->  .../devicetree/bindings/regulator/da9211.txt  | 205 ------------------
->  .../bindings/regulator/dlg,da9211.yaml        | 104 +++++++++
->  .../bindings/soc/mediatek/mediatek,pwrap.yaml |  15 ++
->  .../sound/mediatek,mt8173-rt5650.yaml         |  73 +++++++
->  .../bindings/sound/mt8173-rt5650.txt          |  31 ---
->  .../boot/dts/mediatek/mt8173-elm-hana.dtsi    |   2 +-
->  arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi  |  31 ++-
->  arch/arm64/boot/dts/mediatek/mt8173-evb.dts   |  14 +-
->  arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  14 +-
->  23 files changed, 672 insertions(+), 520 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
->  delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt
->  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
->  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
->  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-mdp.txt
->  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-vpu.txt
->  create mode 100644 Documentation/devicetree/bindings/net/marvell,sd8897-bt.yaml
->  delete mode 100644 Documentation/devicetree/bindings/net/marvell-bt-8xxx.txt
->  delete mode 100644 Documentation/devicetree/bindings/regulator/da9211.txt
->  create mode 100644 Documentation/devicetree/bindings/regulator/dlg,da9211.yaml
->  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
->  delete mode 100644 Documentation/devicetree/bindings/sound/mt8173-rt5650.txt
+>  arch/arm/boot/dts/nxp/ls/ls1021a-qds.dts                          | 8 ++++----
+>  .../dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-dc44.dtso  | 2 +-
+>  .../dts/nxp/ls/ls1021a-tqmls1021a-mbls1021a-rgb-cdtech-fc21.dtso  | 2 +-
+>  arch/arm/boot/dts/nxp/ls/ls1021a-tsn.dts                          | 2 --
+>  arch/arm/boot/dts/nxp/ls/ls1021a-twr.dts                          | 2 +-
+>  arch/arm/boot/dts/nxp/ls/ls1021a.dtsi                             | 6 ++----
+>  6 files changed, 9 insertions(+), 13 deletions(-)
+> ---
+> base-commit: 3ede6e44fad31f1c80dd01188683f0caa0f19247
+> change-id: 20250818-ls1021a_dts_warning-fff933bd83da
 > 
+> Best regards,
 > --
-> 2.50.1
+> Frank Li <Frank.Li@nxp.com>
 > 
 > 
 > 
@@ -179,56 +133,19 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
+ Base: base-commit 3ede6e44fad31f1c80dd01188683f0caa0f19247 not known, ignoring
  Base: attempting to guess base-commit...
  Base: tags/next-20250820 (exact match)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250820171302.324142-1-ariel.dalessandro@collabora.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20250820-ls1021a_dts_warning-v2-0-2e39648a32b7@nxp.com:
 
-arch/arm64/boot/dts/mediatek/mt8173-evb.dtb: da9211@68 (dlg,da9211): 'oneOf' conditional failed, one must be fixed:
-	'interrupts' is a required property
-	'interrupts-extended' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/dlg,da9211.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r2.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r2.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-kontron-3-5-sbc-i1200.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-demo.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-demo.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-evb.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-evb.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-dojo-r1.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-dojo-r1.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dtb: pinctrl@10005000 (mediatek,mt8183-pinctrl): mmc1-pins-uhs:pins-clk:mediatek,pull-down-adv: 10 is not one of [0, 1, 2, 3]
-	from schema $id: http://devicetree.org/schemas/pinctrl/mediatek,mt8183-pinctrl.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r3.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r3.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r1.dtb: jpgdec-master (mediatek,mt8195-jpgdec): 'jpgdec@1a040000', 'jpgdec@1a050000', 'jpgdec@1b040000' do not match any of the regexes: '^jpgdec@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegdec.yaml#
-arch/arm64/boot/dts/mediatek/mt8195-cherry-tomato-r1.dtb: jpgenc-master (mediatek,mt8195-jpgenc): 'jpgenc@1a030000', 'jpgenc@1b030000' do not match any of the regexes: '^jpgenc@[0-9],[0-9a-f]+$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/mediatek,mt8195-jpegenc.yaml#
+arch/arm/boot/dts/nxp/ls/ls1021a-qds.dtb: memory-controller@1530000 (fsl,ifc): board-control@3,0: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'bank-width', 'compatible', 'device-width', 'mdio-mux@54', 'ranges', 'reg' were unexpected)
+	from schema $id: http://devicetree.org/schemas/memory-controllers/fsl/fsl,ifc.yaml#
+arch/arm/boot/dts/nxp/ls/ls1021a-qds.dtb: flash@0 (atmel,at45db021d): Unevaluated properties are not allowed ('spi-cpha', 'spi-cpol' were unexpected)
+	from schema $id: http://devicetree.org/schemas/mtd/atmel,dataflash.yaml#
 
 
 
