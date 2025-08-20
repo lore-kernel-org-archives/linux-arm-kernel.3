@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524C6CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 07:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2253FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 07:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kz8t+h/h/0n0QXBXq+nhgUGC9ql7IeTr95ekPgWAy9w=; b=xe5nDSqdLoXB6S
-	/NaDlyB6o33ssxJ/rjntMLyuCGbTayrK9N13LG2snuuhM9CGKgFEpi2/9r8aWHO9xmP6d5dNECkMA
-	mFeFHbYSGN5bJ7ooLjsLBEVjGyIHvPBE/AqviUvuidMgW+vqfnB/GH0LorQY3IXrWCqBhQh2tPckl
-	hWCl8nQQbPNAcsfyxqbiy0nvj4DDalb8/TRRbSIsWxY6ECfSg+VKCorqcxLjVcaKz3qvi3/DD/b9u
-	es/a9zxE/OlEq051T738BVUcX9Q5ZYFU9rOA91xH+JGFXZkpd/XnZ1gUHVNnFSYCtNEbFMHSwmi/G
-	OQ1SDbxecVPigbrgjnYA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DH177aI32fcw+0fi3Kr7cEylMFjtb1+kKdAUsXxCdWo=; b=b0rvT1+8EuDeh0Sq4Ht3Jp9dAn
+	wP0Y3p7sqTmjyZYq6QLH4TY3c+vv6QNuFao59jHgYYqg0X+pyhZg/diQm06uMjwUZJPwjVFTdxpeZ
+	ZGAwD6jsCuEk4Ij1Blbwvv+SEwJB9L4l0T6ntjtRKTzMV6uFxCcWAnT/WcdyzFHUa2GRwCtj8wiS1
+	mmGaWqTs3/6Ik7uTkVMT4W+EgL77dMgq03I07qcQ8XaU6bVsPpoDPOWLlz+vSk0i5tSPSsDnI2dJ9
+	G2Y0msv1i2k3Ye28b8us116pWgbUvKmzjNTG5BtxDW/llCC9cSRCGS8N6AfM+MBBPM6tHEIaNdbF9
+	cTWRA+5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoct9-0000000CYwb-1Pv9;
-	Wed, 20 Aug 2025 07:05:39 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1uocvj-0000000CZE5-2QZw;
+	Wed, 20 Aug 2025 07:08:19 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uocqR-0000000CYWJ-3913
+	id 1uocqU-0000000CYX4-2SW4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 07:02:53 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-afcb7322aa0so85578466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:02:51 -0700 (PDT)
+	Wed, 20 Aug 2025 07:02:55 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb7aecf92so81693366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 00:02:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755673370; x=1756278170; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kz8t+h/h/0n0QXBXq+nhgUGC9ql7IeTr95ekPgWAy9w=;
-        b=vfd8Su8G+t6Eyvzq3ynD2H1FErwrC1Cl4bo0mm7tlYbWV+8YzIpKAt4EkJiDHN7xYl
-         rV44vpDC1LvNZeH4D0XpSBsKWBrlAbXC8Xqke8XFAOQt5z4Hr2c/VF3v73E/m6O78ba8
-         jKmGLzrfzuep1bb4UYV3DfXPS7rt7ALXsA8qeddXS+9CBoYOw3+33BHmgVq07WQ2ErjW
-         x682Mz922IOfFr3F4RkHpsbQa0bG6TB+79MwHzscFfFfyVGCGe9ZqlJfsshGtuqdWkyM
-         d3G7DDNthEKnCIon+cIeYVJmWFlWnQvp7gsgoiHkXcMyZQOf+6vuiQ2C3ENsT45aGgmK
-         mXDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755673370; x=1756278170;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1755673372; x=1756278172; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Kz8t+h/h/0n0QXBXq+nhgUGC9ql7IeTr95ekPgWAy9w=;
-        b=GbL+oqS1S9OVoyy6uxsk96qeWKhFsS9a+5PhZP06tWxtP1XCKYebyJNrP2tU+uZ7g0
-         2o09Jh7WQCK4B9CD0nrRCb6WaZJb5ihJndyhjZZuxHn8XoVR3eL2Z3Cb5f3pk2LG2Qj+
-         OzL65I2eDwq5uH5yOGCXvM9rJZvjeu5Bpnby5hzUcOyySU/ryfkJeEBpLiOlVVxDpLJj
-         QtJUfAUtl97pmjkKQdnyv41tDLlbxeCXU4tAhuwaAkvTiqAcPNCCaQyEe286romaAV97
-         QHxqw1itiAtN49GdXwT7kHfRnCR9x7mUtL9pT8jOJ5FeOGPvR/5HNVmUIAOWRJ2Ljgbc
-         Z2uA==
-X-Forwarded-Encrypted: i=1; AJvYcCVnrg819z7kLuuBkNqff9ll3T5rpqevASM0pY1E4lrwpC2f320KjRDKUmyFMtv6Ck1FBAKugXcPGB4bkrYJUhT+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3/tS4+yv2WJcGnwyvPvV/9HYe+jZHU6B/Xoe/cl0Pu+CuDfrX
-	fmfNH6WYHxogM4UAnn3DPaT64CUnAlE/n7RR62BTFyGG8JYkZuizESJHt760ut/fhOA=
-X-Gm-Gg: ASbGnctYjBoLkFP4vMAlivb3x4k0Uj54VlcDMYYSMdyjM3cVbsv7TV9qMm8NNGbik92
-	/5T2IoqOUHY1WWq6M0ErddaE3B06iq9MwvluCB/DnhnH1x8eUc6BJGFjN7RI9ZvUuKT1qPnlfi5
-	0E6niPWKXyrIOjwphtZpAHDjWCBugSwHDx/Ey7MyMCMkUamsLnLgPlpWBifz/GloS8pG62IEWYc
-	pHpzFEbvJpg3NRxWDU5m22LgL7qOjMu2fdSAx/Pvcit8+gRNR9Oa2sFeDcK6bOgyfA1d0pqw78j
-	CBISJmBqskOq3mrnNh9jZNG3PzOC0APRK4KCiiCYvBHF6XArHSzD+vwgD69Au4rqAD1zgPqGMef
-	JfVgRjJqNFIYbrtk/ou9A42zcM+duYa3496IgQ1eQq7YUCiOMeA==
-X-Google-Smtp-Source: AGHT+IEUJtY9T7M3w+t6NgODZP2UMBO1bB6yUNgABbdBlZ++2gMxl+ZFtQKIgu4nmM7A4aFMOc3sVQ==
-X-Received: by 2002:a17:907:6094:b0:af9:3d0a:f383 with SMTP id a640c23a62f3a-afdf019afd1mr77479066b.6.1755673370012;
-        Wed, 20 Aug 2025 00:02:50 -0700 (PDT)
+        bh=DH177aI32fcw+0fi3Kr7cEylMFjtb1+kKdAUsXxCdWo=;
+        b=bO9y7eRMh3OSJR7U0FWmONkQ0UvS5AUALBe4VpDDoVFRKNZSARzEflqzz4rqXggNS2
+         jq+cyaA4bNyuYP9rTzLeJ/VG8Z/6U8uQYDWqjzNIZ1aYDq7FXI0YAYF5VNr6o7dDU/D9
+         ISCCYO9ACnxrgxnD0sVfx0QjYHKhqwnpgKuuCBrvebRrQpDH3b6PKXEOpo8CMYtC1c+x
+         Wrle1MSNGJvB6kDeIZFoHGrqnXzLUtPWmWNVj+hRiXUF6Y6XsMMBbzyyjCGH3WcNL6n4
+         W7Sk8jMhF6t4bGOBzCUvjyNHNnjvp39LErtxh3oAj1u1S85jJDm6OENucXpUue/CyWRx
+         lsMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755673372; x=1756278172;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DH177aI32fcw+0fi3Kr7cEylMFjtb1+kKdAUsXxCdWo=;
+        b=f+Sj+kaJmygRuM43HMBvHBG+8jkl53YWj0hXQH+iwwk9t5nZ5X+QWUImeEjRzXW+wP
+         9eo4L7dzYHuTJ9JEAR7FXCoFcQYVuzdykGeubDXz09POx8CWgAtcB/Esn9awl6Yp5mmP
+         3KjCLOVdY4cRRZQpaPSNtaI2lE27Efh+ykEjCE+NvCthkJjZbkM57Lf5iDTgw5V3M5Dk
+         VjsCv0ihzMWdKYIxSJI5uGEh+M5RJoeFrTpJNvTBFpt8K/X6gkx3AkPX7a0OtBjLdM+G
+         IR+pGDN1yV01P7iXdMJo36D4tVQX9BMqAMJW9qP1IRrQk7q4zTyRV32mSkwqcZ9fMND9
+         grIg==
+X-Forwarded-Encrypted: i=1; AJvYcCWYnL9KohqxSl8ytnNw5kqxhc+OhMQDD0Ls2TlKOGNCDdy5PrGkt9XsR4P+DeTHGVN7vii2crdgrKoZXPW5wl6G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/zL2Fxh2YI3AEBcc1EDxS0g2PJ4qiPYXNuiecx26hRbNx2p61
+	bUmRLYtNl3TOV109xCCVxoeW8iCbuihJzxTGGxZ6ma59AJ6XkguyN3zI3S9HGw4CmYE=
+X-Gm-Gg: ASbGncsyb1AoDrSEOF5fGCS6ojWzlco1ImsS6iaHpYygKhgfiAmT5wSCarCxb/r0TAL
+	a4R5M4xmtdsCO0ypQtB/mf4F5mHAtu9aEB1ClHHxvo6AwWDBEcOKRN/8Z62QMBpn1rpVgRUXQPN
+	k7x7sXrCm8PSAgpY9a/wBYrKxQSv3OiyXi9p9mVUqi3pDLm7NnOmfNPilvpnkpc6kCWMHtEPfZK
+	IzDHAKWtkiDHmXjpQ/UqqBhP7xPUoqOnsa/0N7fGXER0H/MwG5dBlkRwsnmjrI2av0CYnwNhypd
+	T+3xK6CBTxki72E9CnrcwdTo6+rooiVv/KjOuwdcp6MAmhzGA9pU0x7jMWOet8w4ifuoyaL2T15
+	Y+0g7pekexcJj0ya6DJnQktb291pofOJww4kZFEs=
+X-Google-Smtp-Source: AGHT+IF9FNxgrgCt2MNISlOazft7efckRUUOCCyDUI6tMZE11GXZO0az7ewPiYnvvCxno2JpihA7NQ==
+X-Received: by 2002:a17:906:7316:b0:aec:4f0a:f9ac with SMTP id a640c23a62f3a-afdf02106f1mr69015866b.6.1755673372063;
+        Wed, 20 Aug 2025 00:02:52 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf6ff14f8sm37756466b.67.2025.08.20.00.02.47
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf6ff14f8sm37756466b.67.2025.08.20.00.02.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Aug 2025 00:02:49 -0700 (PDT)
+        Wed, 20 Aug 2025 00:02:51 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 0/3] dt-bindings: display: Few cleanups
-Date: Wed, 20 Aug 2025 09:02:39 +0200
-Message-Id: <20250820-dt-bindings-display-v1-0-d5b2555df51f@linaro.org>
+Date: Wed, 20 Aug 2025 09:02:40 +0200
+Subject: [PATCH 1/3] dt-bindings: display: ingenic,jz4780-hdmi: Add missing
+ clock-names
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAA9zpWgC/x3M3QpAQBBA4VfRXJta6ye8ilwsM5jS0o5E8u42l
- 9/FOQ8oB2GFNnkg8Ckqm4/I0gTGxfmZUSgarLGlqa1BOnAQT+JnRRLdV3dj01QuK/KxrhxBLPf
- Ak1z/tevf9wMZuMYIZQAAAA==
-X-Change-ID: 20250820-dt-bindings-display-996a143c86ad
+Message-Id: <20250820-dt-bindings-display-v1-1-d5b2555df51f@linaro.org>
+References: <20250820-dt-bindings-display-v1-0-d5b2555df51f@linaro.org>
+In-Reply-To: <20250820-dt-bindings-display-v1-0-d5b2555df51f@linaro.org>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
  Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
@@ -98,26 +98,26 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-rockchip@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=871;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=999;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=x6AMMrfKmpsnt80qI/jaePh0x1MxD2M+8h0kme5S3Q4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopXMRGm342NsJMwTGBeIUU3aEDsSSJNSmaCf3z
- 2hb1+uhE/aJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKVzEQAKCRDBN2bmhouD
- 18bZD/91yp/iNgPOT/8uepdf/zbiG/DGKC1+o61nNJG7BV5sIXxSsdSZ1foiLkHXibtjcNRwQ/s
- x+wbb+LGT8rwNihSQTbClhlnGpXKGOb5kIJQ9z3T+PIKGYN6CIV3o4p6hfvnGiiew5aADThPKJ9
- 8NFQigShv/pzBXx/7yRzb4UyRxhkvfSjxBXf76ppaLwyvUh3Tcf5awj8aHfTVb9kR2jVBM21gAD
- SRTfGiqhC9yWvPJP16o9c3sdHOf8Pak2qnpJyfXj8yXGv3+EpcwZ4oJj55lq0mjIBoTlHaedT8L
- CwM/STq7YsVkiQHD2Yd6bln07WWyUdQtXiVUbm/JBKJgSAyysh1/E7VRbp17BQ2yvsl8AuRzi1X
- qVjHurkILLCLqiOGWuyYBYbr+Oddhxx3w3ZDR47yvJGMmXlHwfzTab5U5IW8OfiXHiSgAP0STuS
- zfMQFCqSeskPBGzRZm3FMVw6Cmlt4kZSgBff7JbYb6rD7dQZF1Z185+7beNhzP7mkFdtVplBT6B
- ueg1Uhz/o51bOZgNc3s2Jf/nBPRDEFwXdw5iSS63VO+LfPJsFJmg98MoUMEpkCbz4oMfag2Ig6Z
- Tl/wWTVLi9tC3Z4XuYkUHpUtHbUGghMGsxPnlZ+gCDNEYcdQN30wBgZOxKPet6HCgmghz8FDqla
- d+DIIriSdXsoRwg==
+ bh=Pxy1ceX/K708ATMRkgiCl/qGBMScopnigW8cLcERjdY=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBopXMVT/M8Kz0Rj97OPMv9sVNcaz0uJrb0hpTH8
+ kC19UClVTGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKVzFQAKCRDBN2bmhouD
+ 18JrD/0Q2MVyZwW9e4PQUvRkQCrJj1FZOoyd6meUdkZZCtOx5WXnCz6j7oqqPHzA84QftUJIEsb
+ J4c4cgQf6k6PZn+zX7ck4MK2YbM5Z/ptaV6cyi5Q3nB+sNqkWxX2ZTEt2GFPbSjFVhmYB9G28K4
+ Ov8uyjdeLuFnCQxWj9RtBVw0joZGfx5pEs5xI9dHfCJbMd95Qou4cqJtAbFwUnE8dLMROGaJyp0
+ sxJYXnKH91zEJl+MxF5orITmFGsZsdBUfeBrzOlkJHZWSEDQHaJ5u8e6qzq6z3tVXu8wUWdL5kw
+ PaiwcT8AQrcAndkVNiUDkjMc14HH383AyaT0//MGYrdZPxZmd03GC8hGGBAf/duk2GfNHN7ZifZ
+ dGPbiOqW6FdyG5Hztz3myV2M9Tozh5G0/H5NHGpehXf3dgFqQTgWKp9xBiGUcsuPBLrJft2S0U9
+ OC4BNjPaJ+KtIYYmMETw84dGimY/hECbjUO9Oo+d8z0fMtuPrSp2j4130edqJNQ5SrEPEfuEgDj
+ +vk/PCpEVNFcSGXMqqrTfeewDXEfp+mdbh2t6yLFC6pnfcu7X85/2W7+8Qbcohm+mmv1EcpG6EP
+ IPbnKFuQQIHsU4CgtjCPd4w0QEevG7ssarieYUB4hEUsO005lHEsQP8BMgUTZCPPdDUPAp//BRy
+ HNJzhF/eT5axvSQ==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_000251_809085_BF47F327 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20250820_000254_619941_2CC28C80 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,29 +133,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Few minor issues fixed.
-Rob, can you take them directly? Display bindings are pretty often not
-picked up.
+The binding references synopsys,dw-hdmi.yaml schema which defines both
+'clocks' and 'clock-names' with variable length, therefore we need here
+also same constraint for 'clock-names' as for 'clocks'.
 
-Best regards,
-Krzysztof
-
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Krzysztof Kozlowski (3):
-      dt-bindings: display: ingenic,jz4780-hdmi: Add missing clock-names
-      dt-bindings: display: ti,tdp158: Add missing reg constraint
-      dt-bindings: display: rockchip,dw-mipi-ds: Narrow clocks for rockchip,rk3288-mipi-dsi
-
  .../devicetree/bindings/display/bridge/ingenic,jz4780-hdmi.yaml        | 3 +++
- Documentation/devicetree/bindings/display/bridge/ti,tdp158.yaml        | 1 +
- .../devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml     | 2 ++
- 3 files changed, 6 insertions(+)
----
-base-commit: c2a1a5ede4717e6f12d49fe5177a66d40cbf4847
-change-id: 20250820-dt-bindings-display-996a143c86ad
+ 1 file changed, 3 insertions(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/display/bridge/ingenic,jz4780-hdmi.yaml b/Documentation/devicetree/bindings/display/bridge/ingenic,jz4780-hdmi.yaml
+index 0b27df429bdce0b7e080ab291ee0c4c6b51f8e1f..84df3cf239d5bedf8a5806bb48507fea207c7167 100644
+--- a/Documentation/devicetree/bindings/display/bridge/ingenic,jz4780-hdmi.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/ingenic,jz4780-hdmi.yaml
+@@ -26,6 +26,9 @@ properties:
+   clocks:
+     maxItems: 2
+ 
++  clock-names:
++    maxItems: 2
++
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+ 
+
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.48.1
 
 
