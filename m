@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB52CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E1ECA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0laE0wCgoDJEuTNWuPZN1G4PXigdiVdpR7aVnfEF65Y=; b=jwVc7qt6lc2NkO9/fct6IBDNJB
-	KD4/l6Ff6ti8QziMH2H9YLjy8Owlw5HARt/n+qJ45LNof/UYJuAGwAD4IuWv9+fc6UgNO6fg5VHQ2
-	b9mjFpdm9vrV6mEGbOW0TKVMxUhau3zY92AFQ1kLB8i5lbtir0l3R7zEl7MOkIHru14evjcBrZsQj
-	qrOEcDPzn7QHAXthPpJd5LwaeH3oTcnErT0F4DdjJ0K449A907OnX/AeHrlWTiQfJGNB8kDfF2xuA
-	VkvgBA41bxNdnA3VHjTipdDTcudqGp+Q3BS6vxS66sDjOsOoRs1STgtbLtfvd3ytfuqmjXumnQg6V
-	0ZSgkLnA==;
+	bh=AiKoz+YouufYqOh6BIG65LAEG3PR5n5zIMeouy0/+00=; b=Z3vNZsA7AMM8TxQC7TYXuVsRm+
+	Rq68h96aCuYYL0EVsh9gjrgRWaAhtVF8OjYIiO0jwOA1PFBl3UJiJPU3xewp5BpGHQn4Tt0PZTj6I
+	ERo5AQoY/HY0aGH05mkhIf93pa/ez7JCXWLtmu1NLZ//UoG2VUYl5gaHuHmpoLDpdirt0JTaum+kF
+	JaKnduJ9zpfJmBK5cs2oroYXXltq1W8iCWhd290DXTrmkmma8t3uIWZd0cdsacCs8KGSCvpZ/I4f1
+	bhfYLAvuBnzA3jM7uLHHkISbYqrI13UJVH04kJU8WrW49NeZfOOvFBdZzr8Uo5O8hmMUJVwlaMPHP
+	0KFXUhJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopkS-0000000Eru0-1OWQ;
-	Wed, 20 Aug 2025 20:49:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokH2-0000000EASi-0n9y
+	id 1uopka-0000000Es1x-3X1g;
+	Wed, 20 Aug 2025 20:49:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uolDO-0000000EKDc-0YDR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 14:58:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 599072C27;
-	Wed, 20 Aug 2025 07:58:39 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.2.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F43E3F738;
-	Wed, 20 Aug 2025 07:58:40 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Wed, 20 Aug 2025 15:59:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5FFB75C5B4A;
+	Wed, 20 Aug 2025 15:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D5B3C4CEE7;
+	Wed, 20 Aug 2025 15:58:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755705534;
+	bh=oPqtKgFreHnLsUNC2EY7WHHjaSeINUT8RuOawyyZA5A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZkZkH2wBzqw6wGRB5skSUnmXedvk5OgGjsCW4k/UVKgQeWK0RTDu9YWTYizL1nPYJ
+	 9p8wx1jNTci75I8/TYE8CTalbUKTpEjcCd2XrPATbUF6Kb/UKgAWjI1yHjxQcwR4Fk
+	 rX7DSnyqpSpZK4wgXRuNQsF3ovroyfQAlvVZBbQlJbTVZmEINAktLdEu67Fm64/qri
+	 hA6fxX60L/MyI5tf+uiZd6T+mpUFLHUuoyIM1ZGvCAAYGmRrd2JoLS9sb5KOriWcUC
+	 OPTc2NxJcQz33eQkssFTNCFZabFQphaTjjO36jRIcLoqD1Abgvi7dMw0JEAC10xN2R
+	 2HWvFsB4wrA9A==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Michael Buesch <m@bues.ch>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Daniel Palmer <daniel@thingy.jp>,
+	Romain Perier <romain.perier@gmail.com>,
+	Grygorii Strashko <grygorii.strashko@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kevin Hilman <khilman@kernel.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Srinivas Neeli <srinivas.neeli@amd.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v10 19/43] arm64: RME: Allow populating initial contents
-Date: Wed, 20 Aug 2025 15:55:39 +0100
-Message-ID: <20250820145606.180644-20-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
+	linux-omap@vger.kernel.org,
+	linux@ew.tq-group.com
+Subject: [PATCH 06/16] gpio: pxa: Use modern PM macros
+Date: Wed, 20 Aug 2025 23:40:27 +0800
+Message-ID: <20250820154037.22228-7-jszhang@kernel.org>
+X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250820154037.22228-1-jszhang@kernel.org>
+References: <20250820154037.22228-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_075848_316282_884CC8E6 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250820_085906_208319_EB9822ED 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,282 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VMM needs to populate the realm with some data before starting (e.g.
-a kernel and initrd). This is measured by the RMM and used as part of
-the attestation later on.
+Use the modern PM macros for the suspend and resume functions to be
+automatically dropped by the compiler when CONFIG_PM or
+CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
 
-Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
-Changes since v7:
- * Improve the error codes.
- * Other minor changes from review.
-Changes since v6:
- * Handle host potentially having a larger page size than the RMM
-   granule.
- * Drop historic "par" (protected address range) from
-   populate_par_region() - it doesn't exist within the current
-   architecture.
- * Add a cond_resched() call in kvm_populate_realm().
-Changes since v5:
- * Refactor to use PFNs rather than tracking struct page in
-   realm_create_protected_data_page().
- * Pull changes from a later patch (in the v5 series) for accessing
-   pages from a guest memfd.
- * Do the populate in chunks to avoid holding locks for too long and
-   triggering RCU stall warnings.
----
- arch/arm64/kvm/rme.c | 227 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 227 insertions(+)
+This has the advantage of always compiling these functions in,
+independently of any Kconfig option. Thanks to that, bugs and other
+regressions are subsequently easier to catch.
 
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 22168e8d8db7..817eb5c96728 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -663,6 +663,221 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
- 		realm_unmap_private_range(kvm, start, end, may_block);
- }
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ drivers/gpio/gpio-pxa.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/gpio/gpio-pxa.c b/drivers/gpio/gpio-pxa.c
+index fa22f3faa163..288c72f9c015 100644
+--- a/drivers/gpio/gpio-pxa.c
++++ b/drivers/gpio/gpio-pxa.c
+@@ -66,13 +66,10 @@ struct pxa_gpio_bank {
+ 	unsigned long	irq_mask;
+ 	unsigned long	irq_edge_rise;
+ 	unsigned long	irq_edge_fall;
+-
+-#ifdef CONFIG_PM
+ 	unsigned long	saved_gplr;
+ 	unsigned long	saved_gpdr;
+ 	unsigned long	saved_grer;
+ 	unsigned long	saved_gfer;
+-#endif
+ };
  
-+static int realm_create_protected_data_granule(struct realm *realm,
-+					       unsigned long ipa,
-+					       phys_addr_t dst_phys,
-+					       phys_addr_t src_phys,
-+					       unsigned long flags)
-+{
-+	phys_addr_t rd = virt_to_phys(realm->rd);
-+	int ret;
-+
-+	if (rmi_granule_delegate(dst_phys))
-+		return -ENXIO;
-+
-+	ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
-+	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-+		/* Create missing RTTs and retry */
-+		int level = RMI_RETURN_INDEX(ret);
-+
-+		WARN_ON(level == RMM_RTT_MAX_LEVEL);
-+
-+		ret = realm_create_rtt_levels(realm, ipa, level,
-+					      RMM_RTT_MAX_LEVEL, NULL);
-+		if (ret)
-+			return -EIO;
-+
-+		ret = rmi_data_create(rd, dst_phys, ipa, src_phys, flags);
-+	}
-+	if (ret)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static int realm_create_protected_data_page(struct realm *realm,
-+					    unsigned long ipa,
-+					    kvm_pfn_t dst_pfn,
-+					    kvm_pfn_t src_pfn,
-+					    unsigned long flags)
-+{
-+	unsigned long rd = virt_to_phys(realm->rd);
-+	phys_addr_t dst_phys, src_phys;
-+	bool undelegate_failed = false;
-+	int ret, offset;
-+
-+	dst_phys = __pfn_to_phys(dst_pfn);
-+	src_phys = __pfn_to_phys(src_pfn);
-+
-+	for (offset = 0; offset < PAGE_SIZE; offset += RMM_PAGE_SIZE) {
-+		ret = realm_create_protected_data_granule(realm,
-+							  ipa,
-+							  dst_phys,
-+							  src_phys,
-+							  flags);
-+		if (ret)
-+			goto err;
-+
-+		ipa += RMM_PAGE_SIZE;
-+		dst_phys += RMM_PAGE_SIZE;
-+		src_phys += RMM_PAGE_SIZE;
-+	}
-+
-+	return 0;
-+
-+err:
-+	if (ret == -EIO) {
-+		/* current offset needs undelegating */
-+		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
-+			undelegate_failed = true;
-+	}
-+	while (offset > 0) {
-+		ipa -= RMM_PAGE_SIZE;
-+		offset -= RMM_PAGE_SIZE;
-+		dst_phys -= RMM_PAGE_SIZE;
-+
-+		rmi_data_destroy(rd, ipa, NULL, NULL);
-+
-+		if (WARN_ON(rmi_granule_undelegate(dst_phys)))
-+			undelegate_failed = true;
-+	}
-+
-+	if (undelegate_failed) {
-+		/*
-+		 * A granule could not be undelegated,
-+		 * so the page has to be leaked
-+		 */
-+		get_page(pfn_to_page(dst_pfn));
-+	}
-+
-+	return -ENXIO;
-+}
-+
-+static int populate_region(struct kvm *kvm,
-+			   phys_addr_t ipa_base,
-+			   phys_addr_t ipa_end,
-+			   unsigned long data_flags)
-+{
-+	struct realm *realm = &kvm->arch.realm;
-+	struct kvm_memory_slot *memslot;
-+	gfn_t base_gfn, end_gfn;
-+	int idx;
-+	phys_addr_t ipa = ipa_base;
-+	int ret = 0;
-+
-+	base_gfn = gpa_to_gfn(ipa_base);
-+	end_gfn = gpa_to_gfn(ipa_end);
-+
-+	idx = srcu_read_lock(&kvm->srcu);
-+	memslot = gfn_to_memslot(kvm, base_gfn);
-+	if (!memslot) {
-+		ret = -EFAULT;
-+		goto out;
-+	}
-+
-+	/* We require the region to be contained within a single memslot */
-+	if (memslot->base_gfn + memslot->npages < end_gfn) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+
-+	if (!kvm_slot_can_be_private(memslot)) {
-+		ret = -EPERM;
-+		goto out;
-+	}
-+
-+	while (ipa < ipa_end) {
-+		struct vm_area_struct *vma;
-+		unsigned long hva;
-+		struct page *page;
-+		bool writeable;
-+		kvm_pfn_t pfn;
-+		kvm_pfn_t priv_pfn;
-+		struct page *gmem_page;
-+
-+		hva = gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
-+		vma = vma_lookup(current->mm, hva);
-+		if (!vma) {
-+			ret = -EFAULT;
-+			break;
-+		}
-+
-+		pfn = __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FOLL_WRITE,
-+					&writeable, &page);
-+
-+		if (is_error_pfn(pfn)) {
-+			ret = -EFAULT;
-+			break;
-+		}
-+
-+		ret = kvm_gmem_get_pfn(kvm, memslot,
-+				       ipa >> PAGE_SHIFT,
-+				       &priv_pfn, &gmem_page, NULL);
-+		if (ret)
-+			break;
-+
-+		ret = realm_create_protected_data_page(realm, ipa,
-+						       priv_pfn,
-+						       pfn,
-+						       data_flags);
-+
-+		kvm_release_page_clean(page);
-+
-+		if (ret)
-+			break;
-+
-+		ipa += PAGE_SIZE;
-+	}
-+
-+out:
-+	srcu_read_unlock(&kvm->srcu, idx);
-+	return ret;
-+}
-+
-+static int kvm_populate_realm(struct kvm *kvm,
-+			      struct arm_rme_populate_realm *args)
-+{
-+	phys_addr_t ipa_base, ipa_end;
-+	unsigned long data_flags = 0;
-+
-+	if (kvm_realm_state(kvm) != REALM_STATE_NEW)
-+		return -EPERM;
-+
-+	if (!IS_ALIGNED(args->base, PAGE_SIZE) ||
-+	    !IS_ALIGNED(args->size, PAGE_SIZE) ||
-+	    (args->flags & ~RMI_MEASURE_CONTENT))
-+		return -EINVAL;
-+
-+	ipa_base = args->base;
-+	ipa_end = ipa_base + args->size;
-+
-+	if (ipa_end < ipa_base)
-+		return -EINVAL;
-+
-+	if (args->flags & RMI_MEASURE_CONTENT)
-+		data_flags |= RMI_MEASURE_CONTENT;
-+
-+	/*
-+	 * Perform the population in parts to ensure locks are not held for too
-+	 * long
-+	 */
-+	while (ipa_base < ipa_end) {
-+		phys_addr_t end = min(ipa_end, ipa_base + SZ_2M);
-+
-+		int ret = populate_region(kvm, ipa_base, end,
-+					  args->flags);
-+
-+		if (ret)
-+			return ret;
-+
-+		ipa_base = end;
-+
-+		cond_resched();
-+	}
-+
-+	return 0;
-+}
-+
- enum ripas_action {
- 	RIPAS_INIT,
- 	RIPAS_SET,
-@@ -907,6 +1122,18 @@ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
- 		r = kvm_init_ipa_range_realm(kvm, &args);
- 		break;
+ struct pxa_gpio_chip {
+@@ -746,7 +743,6 @@ static int __init pxa_gpio_dt_init(void)
+ }
+ device_initcall(pxa_gpio_dt_init);
+ 
+-#ifdef CONFIG_PM
+ static int pxa_gpio_suspend(void)
+ {
+ 	struct pxa_gpio_chip *pchip = pxa_gpio_chip;
+@@ -787,14 +783,10 @@ static void pxa_gpio_resume(void)
+ 		writel_relaxed(c->saved_gpdr, c->regbase + GPDR_OFFSET);
  	}
-+	case KVM_CAP_ARM_RME_POPULATE_REALM: {
-+		struct arm_rme_populate_realm args;
-+		void __user *argp = u64_to_user_ptr(cap->args[1]);
-+
-+		if (copy_from_user(&args, argp, sizeof(args))) {
-+			r = -EFAULT;
-+			break;
-+		}
-+
-+		r = kvm_populate_realm(kvm, &args);
-+		break;
-+	}
- 	default:
- 		r = -EINVAL;
- 		break;
+ }
+-#else
+-#define pxa_gpio_suspend	NULL
+-#define pxa_gpio_resume		NULL
+-#endif
+ 
+ static struct syscore_ops pxa_gpio_syscore_ops = {
+-	.suspend	= pxa_gpio_suspend,
+-	.resume		= pxa_gpio_resume,
++	.suspend	= pm_ptr(pxa_gpio_suspend),
++	.resume		= pm_ptr(pxa_gpio_resume),
+ };
+ 
+ static int __init pxa_gpio_sysinit(void)
 -- 
-2.43.0
+2.50.1
 
 
