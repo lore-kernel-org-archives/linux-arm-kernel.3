@@ -4,79 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FD9CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 05:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63180CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 06:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Th0aex22vpUXxeMnBghyy/cXmBUbZKgG6ASEEtClCfQ=; b=2fdlYvNlJUMrtWEGzDtMM5L8Hd
-	EVfnsovJcK3+LIdNRwLyB+b1jXUPPaj3OwuLPUK5sW+jMir+BAOYWP4G1RuDIP9gLJ/zKIJU140ZM
-	dt8PITq+lUYWReVasHC5GeGXHFBZFaNxL6f/0newERAEkH930hY+jw3g94u4CY9VgBm0mP78vD84/
-	LVn7QjmgeDf0FR1ykANI2JjPkd9IqzRg+uCbHhT6dbg5ylqwPTuK0q/hOZYHhIUBwT9nZwrZhMBLb
-	kIIczycde1iGzqfnDiBT1li8g44fJ2q6R6UhJ15Z7L420PBKk6azMZAmJgcCR8Mb9nwq1gO0fEv7x
-	a4tZi+XQ==;
+	bh=USra0jssnVeb3QB98kDilg6Zutgvup3e2NZU+4UR7kg=; b=3v150QJH61KTnrOBAv4Dp7Lk1y
+	LVBn75/Y7/aSvwil0+27pJqNY92praSePO7mV2L+k6eEGxlG/q7MLWyPqW+Rs9gL3c5keiXTTW795
+	+4T6I7FdIYdYnC3fbC+rD29VKTzikgXBXF/KB1RJQ614erta4HtseeFdWYK+WtMAKbeXnrKmePQdH
+	mtMUEOdhShJ8NlIv0BJmG7IM7Hasry2eykeARsoVFyfN7Gs3o1GFQHtF3n5JwVU8ra9HSkQ85ovlM
+	lOX40a93kKZWiKa8UpLO8gdoEfPNcIkDv7M77/Nv4a8UnqmrINkujEA8rl7JGiCdc3Dh7EBHw6NOU
+	eRmUBrYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uobq9-0000000CSdW-16Kk;
-	Wed, 20 Aug 2025 05:58:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uoc5I-0000000CTw0-00Rh;
+	Wed, 20 Aug 2025 06:14:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uobnY-0000000CSR1-043Y;
-	Wed, 20 Aug 2025 05:55:48 +0000
+	id 1uoc2g-0000000CTnz-2DLE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 06:11:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54D1A601EF;
-	Wed, 20 Aug 2025 05:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF70FC4CEEB;
-	Wed, 20 Aug 2025 05:55:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DEF595C5C0D;
+	Wed, 20 Aug 2025 06:11:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADDDC4CEEB;
+	Wed, 20 Aug 2025 06:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755669346;
-	bh=E0+N2wRZMXrF5z7DzstfXp7XFzQUZ047KHqMx/8n9/c=;
+	s=k20201202; t=1755670285;
+	bh=USra0jssnVeb3QB98kDilg6Zutgvup3e2NZU+4UR7kg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MaYnT4m0WN5eTjiALC52eebZA7CkBr3MIQgRikIjOLXsB1N/2HNI44GM7HjYB0eMO
-	 35d8QG8sppzDG/FQA4DJ6YRhE7zFvBRcsPPnZFxLuWdKGqWLyfk+r4OETZLoOlbpU2
-	 2I9MGCNJJBp0HStJczx2UvAveNeXt6dZLsH3ssUbSD5zn0zklCvyFEeAUI8LpglyA8
-	 16AGF6zKHv0PlLhuPRhiuugUPQX/nNMUS0Cg1Y0gPf/zwP0PNIDRweRbQGDURyY1L+
-	 2KOz61EailChCTvdMFzZtvnqRVGNJiYk8P9Amq95gVlQUL85iysu9N0n1aRha0lE14
-	 YGCMqKkRc5l0Q==
-Message-ID: <aab06f96-83c9-4e1c-9e1b-6148a3055e67@kernel.org>
-Date: Wed, 20 Aug 2025 07:55:38 +0200
+	b=AhucbLaNUkHpV75a6PeGEyeas85IfcVi3BIKOEOBuKizS4CppwLswKUZBp+z+YgZe
+	 s9yQQMBiQmnGJJXSoHKnk7JICoqgfeGkkeK1UxPMDJgA2p9oicgvNvRPtipMZ56JBB
+	 wRoTC8HFUdCLIfenylNJ5QxhQoAFGD7O8//PDIBOnIzk7YT+sYG9EpPrs43GgWygAD
+	 GPKQTy+MOPpiDtYL+SODvs83rvP/GGTPhvype+mgVBC7+ZIE/Tw+gddK4MGGWXmAfU
+	 TQGI3RwncbTxKhr8nPCaC77yk/z8gvYWyVlRCkwA6kntz0cpnE9blBqpb9TpbLqU8s
+	 BNi3oshDttseA==
+Message-ID: <6048713c-9be8-4078-b612-b67c7bd39103@kernel.org>
+Date: Wed, 20 Aug 2025 08:11:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/6] dt-bindings: media: Add MT8196
- mediatek,vcodec-encoder
-To: =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
- =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- =?UTF-8?B?R2VvcmdlIFN1biAo5a2Z5p6XKQ==?= <George.Sun@mediatek.com>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "andrzejtp2010@gmail.com" <andrzejtp2010@gmail.com>,
- "nhebert@chromium.org" <nhebert@chromium.org>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "christophe.jaillet@wanadoo.fr" <christophe.jaillet@wanadoo.fr>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
- =?UTF-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
- <Andrew-CT.Chen@mediatek.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>
-References: <20250814085642.17343-1-kyrie.wu@mediatek.com>
- <20250814085642.17343-6-kyrie.wu@mediatek.com>
- <20250815-meek-porcelain-oarfish-1411e3@kuoka>
- <cff7beabdfce15b014597f6fbb0ea23375ecb902.camel@mediatek.com>
+Subject: Re: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
+To: Salih Erim <salih.erim@amd.com>, conall.ogriofa@amd.com, jic23@kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+ michal.simek@amd.com, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250819150448.1979170-1-salih.erim@amd.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,9 +98,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <cff7beabdfce15b014597f6fbb0ea23375ecb902.camel@mediatek.com>
+In-Reply-To: <20250819150448.1979170-1-salih.erim@amd.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250819_231126_650254_6536FDFE 
+X-CRM114-Status: UNSURE (   4.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,121 +119,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2025 04:55, Irui Wang (王瑞) wrote:
-> Dear Krzysztof,
-> 
-> Thanks for your reviewing.
-> 
-> On Fri, 2025-08-15 at 10:54 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On Thu, Aug 14, 2025 at 04:56:41PM +0800, Kyrie Wu wrote:
->>> From: Irui Wang <irui.wang@mediatek.com>
->>>
->>> Add MT8196 encoder compatible string, which will reference VCP
->>> device.
->>
->> You ignored comments from v2.
-> 
-> I think I misunderstood the v2 comments, I rewrote the title because it
-> said dt-bindings and encoder twice, this is not enough, right? we need
-> to describe more information in Body text?
+On 19/08/2025 17:04, Salih Erim wrote:
+> Removes Anand Ashok from maintainers and adds Salih
+> and Conall as new maintainers.
 
-where are lore links in the changelog? Why aren't you using b4 to submit
-patches?
-
-> 
->>
->>>
->>> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
->>
->> Incorrect SoB chain.
->>
->>> ---
->>>  .../bindings/media/mediatek,vcodec-encoder.yaml | 17
->>> +++++++++++++++++
->>>  1 file changed, 17 insertions(+)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> b/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> index ebc615584f92..bb4dbf23ccc5 100644
->>> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-
->>> encoder.yaml
->>> @@ -24,6 +24,7 @@ properties:
->>>                - mediatek,mt8188-vcodec-enc
->>>                - mediatek,mt8192-vcodec-enc
->>>                - mediatek,mt8195-vcodec-enc
->>> +              - mediatek,mt8196-vcodec-enc
->>>        - items:
->>>            - const: mediatek,mt8186-vcodec-enc
->>>            - const: mediatek,mt8183-vcodec-enc
->>> @@ -58,6 +59,11 @@ properties:
->>>      description:
->>>        Describes point to scp.
->>>
->>> +  mediatek,vcp:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description:
->>> +      Describes point to vcp.
->>
->> For what? You just repeated the property name. You must say here
->> something useful instead: why this is needed, what is its purpose.
-> 
-> I would like to say:
-> "define this 'mediatek,vcp' property here, this is a phandle point to
-
-Don't explain to us what DT is. Above is 100% redundant.
-
-> vcp device, for platforms using vcp firmware."
-
-Explain what is the purpose of this in hardware, how hardware uses it,
-what problem for hardware this addresses.
-
-
-> 
-> Is this OK for you?
->>
->>
-> 
->>> +
->>>    power-domains:
->>>      maxItems: 1
->>>
->>> @@ -76,6 +82,17 @@ required:
->>>    - iommus
->>>
->>>  allOf:
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - mediatek,mt8196-vcodec-enc
->>> +
->>> +    then:
->>> +      required:
->>> +        - mediatek,vcp
->>
->> else
->>
->> mediatek,vcp: false
-> 
-> I think the else statement is no need here. Different platforms are
-> using different firmware phandle, vpu, scp, and vcp. so we use if-then
-> to describe the required property for these platforms. 
-
-Hm? I just told you it is needed. Otherwise, explain why each
-variant/device has now VCP.
-
-You have entire commit msg to explain all this.
-
+We see that from the diff. Don't write what is obvious. Explain what is
+not obvious: why you are doing this.
 
 Best regards,
 Krzysztof
