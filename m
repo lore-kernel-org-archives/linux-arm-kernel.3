@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A9BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 12:18:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17A7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 12:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iq9Rp/OuC3PCbtXKJ+rrICU+++sBXQCJ0QqJmyLjg+I=; b=1erTlWp+aBVFGcCRdAj588KyKX
-	Sa++xMTttJ4qTpEKdO7wudbOXyECYqAWdqBMCqJZe6LZ9Y258Kbvw0cpgEtkQep9dpdvafPt6SebT
-	Hdv9kNS0KfFZL/glSGW8a+5C6VVzIjrMT8ms1PnYN0u/zvCAwPgDj8DjyGC3t7EhC5ML5bDsfwL4z
-	kI/mW0LJRozY5nYSxcMVyx4OnRkPCjGFweDyqLZJPh5N1g8qg/vkoLrCOPsUndEZgCuYzm3jW7qfm
-	3mhsS0CpF/VB25FoAoB3TFCM9JxE+PGF+5KAOm5E8Ci7Vt03fS/rP5icQhgCciZNsHJkXWknyHhEe
-	HHViixGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RnRtL0mJnAXo6RKnAbHz4UZe7fbv6cMDcPHXS2xQHck=; b=XbEG2siVDlMix8qH6OGinnNvif
+	m4isVWCzqPgMJ5yFZfIt/4yBXQMrWVDSDctDx/SGEDS1y4GvfpO08Vaz2Ixtf1+lf2n53ZC8GB8c1
+	1tGHv1/BFUxnOa0ucIx0jUMTbG7iJRsw+h/0PkUhuwJcLLy6enEkXJ05lEuExyZHjdCuJj4O4h4+7
+	SLSkcKGsnFhSHPxvUqX55arFm4H/MPQFhAIjDB/UkUEvxTB3t/fCUmWAu+kWRj3MLFUT1x86xKipj
+	x97HWg/8fMOHOYzstkeyog3I9xEPem8N1LDtVJNOAlS0i6F5YNSKC/L45Zo5huu7XrvOLBdW8dCod
+	xk+feePQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uohmE-0000000DXAY-0kVd;
-	Wed, 20 Aug 2025 12:18:50 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uohoM-0000000DXo8-1oxa;
+	Wed, 20 Aug 2025 12:21:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofqY-0000000D6fz-2ADg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 10:15:11 +0000
-Date: Wed, 20 Aug 2025 12:15:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1755684907;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Iq9Rp/OuC3PCbtXKJ+rrICU+++sBXQCJ0QqJmyLjg+I=;
-	b=xk/l9YjbZxA1WTuNZDPDzZ8Wdc5Ml1Z8iLcrdiinHR/jwkPKoZe+/Yal4T3iQYwXywj3aL
-	TuAdMOj+eQI0qmH4cwrwb6A3GMEaaVQoSspG8drK9wAs5SV2ideGv0qB3XhysuV56KbSJ4
-	Ji1ZYj+TAl0GzjJEk9GVKmLEw7BefXb3EhPgFPnViqNPKbjRmStIhai3NtAluEf5PrZHVV
-	T4448Dt1lvhIAkl03wcMAqvjtP2i+hGi5Mem2w/M3c9233P9HviyrsxwKIaTEioVDHmkb5
-	w4lNJSNOF2EW+K8iCdf0/FKJRU8M0mcWk1yvh6VZByLxUK8W+1DJdnpNq/W+nA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1755684907;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Iq9Rp/OuC3PCbtXKJ+rrICU+++sBXQCJ0QqJmyLjg+I=;
-	b=uqPIa7gzVKO93eAxiDkhCF2+ypJHv38VRv3c6TBXEdvdEQOGkI4lmIgUVLp7mtuPYYNrwu
-	m3d54o5VitT9DoBQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: John Stultz <jstultz@google.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Shuah Khan <shuah@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Richard Cochran <richardcochran@gmail.com>, Christopher Hall <christopher.s.hall@intel.com>, 
-	Miroslav Lichvar <mlichvar@redhat.com>, Werner Abt <werner.abt@meinberg-usa.com>, 
-	David Woodhouse <dwmw2@infradead.org>, Kurt Kanzenbach <kurt@linutronix.de>, 
-	Nam Cao <namcao@linutronix.de>, Antoine Tenart <atenart@kernel.org>
-Subject: Re: [PATCH 12/14] vdso/gettimeofday: Add support for auxiliary clocks
-Message-ID: <20250820113704-8b174953-f02a-4376-9359-e4007914ac2a@linutronix.de>
-References: <20250701-vdso-auxclock-v1-0-df7d9f87b9b8@linutronix.de>
- <20250701-vdso-auxclock-v1-12-df7d9f87b9b8@linutronix.de>
- <CANDhNCqvKOc9JgphQwr0eDyJiyG4oLFS9R8rSFvU0fpurrJFDg@mail.gmail.com>
+	id 1uoheq-0000000DWRQ-1IGr;
+	Wed, 20 Aug 2025 12:11:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=RnRtL0mJnAXo6RKnAbHz4UZe7fbv6cMDcPHXS2xQHck=; b=eUpwcvjhxv/5IxFiCI21R9jvKR
+	1Wo9RV2KUxJMofw6/2kcDSQe3FVHIiUbOKu32FenuS0EEWcTOMYiTtlti1lqzEbBn2NvsYpgIBu7T
+	5azNXKYlylrRhGUOXN2gJzMVN1iBX7ow+hXwAo64XHU7PqqVznkMpLynBuJL8QryK3AyWgD9/g3vk
+	YDYG9q3Oh8ciW1W4FYvCNh9e7PzFN1Le/XAzk+QwwcgUoltIVc4Fzun6GmrfJgmGoRjOXsDKo5NAz
+	9vyBAeN2CxBML+vdMmO0xX1YI3Fu7hNTGhMe196sh+eOqFNo/+VuTmynCqdpWL7DDVBw6SFtU0/zE
+	a4/Mf8IQ==;
+Received: from mail.grinn-global.com ([77.55.128.204])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uohen-00000000Jo4-0Yhy;
+	Wed, 20 Aug 2025 12:11:11 +0000
+X-Virus-Scanned: by amavisd-new using ClamAV (16)
+Received: from mateusz.int.grinn-global.com (f90-187.icpnet.pl [46.228.90.187])
+	by server220076.nazwa.pl (Postfix) with ESMTP id 603A21BDE37;
+	Wed, 20 Aug 2025 14:11:05 +0200 (CEST)
+From: Mateusz Koza <mateusz.koza@grinn-global.com>
+To: angelogioacchino.delregno@collabora.com,
+	robh@kernel.org
+Cc: krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	marcin.czarnecki@grinn-global.com,
+	b.bilas@grinn-global.com,
+	mateusz.koza@grinn-global.com,
+	andrew@lunn.ch
+Subject: [PATCH v3 3/4] arm64: dts: mediatek: mt8370-grinn-genio-510-sbc: Add Grinn GenioSBC-510
+Date: Wed, 20 Aug 2025 14:09:04 +0200
+Message-ID: <20250820120905.993189-4-mateusz.koza@grinn-global.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250820120905.993189-1-mateusz.koza@grinn-global.com>
+References: <20250820120905.993189-1-mateusz.koza@grinn-global.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CANDhNCqvKOc9JgphQwr0eDyJiyG4oLFS9R8rSFvU0fpurrJFDg@mail.gmail.com>
+X-NA-AI-Spam-Probability: 0.44
+X-NA-AI-Is-Spam: no
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_031510_695459_4433213B 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20250820_131109_337149_FEEDD6A3 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +85,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+From: Bartosz Bilas <b.bilas@grinn-global.com>
 
-On Wed, Aug 20, 2025 at 01:03:56AM -0700, John Stultz wrote:
-> On Tue, Jul 1, 2025 at 1:58 AM Thomas Weißschuh
-> <thomas.weissschuh@linutronix.de> wrote:
-> >
-> > Expose the auxiliary clocks through the vDSO.
-> >
-> > Architectures not using the generic vDSO time framework,
-> > namely SPARC64, are not supported.
-> >
-> > Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> 
-> Just as a heads up, I've just been bisecting and this commit seems to
-> be causing problems on arm64 devices, running 32bit versions of
-> kselftest nanosleep or inconsistency-check tests. Running the 64bit
-> versions of the tests are not showing issues.
+Add support for Grinn GenioSBC-510. Based on the commit introducing
+support for the Grinn GenioSBC-700, this change adds support for the
+Grinn GenioSBC-510, a single-board computer based on the MediaTek Genio
+510 SoC.
 
-Thanks for the report, I can reproduce the issue.
+More details about the hardware:
+- https://grinn-global.com/products/grinn-geniosom-510
+- https://grinn-global.com/products/grinn-genioboard-edge-ai-sbc
 
-> From my initial digging, it looks like clockids that aren't vdso
-> enabled (CLOCK_PROCESS_CPUTIME_ID, CLOCK_THREAD_CPUTIME_ID,
-> CLOCK_REALTIME_ALARM, CLOCK_BOOTTIME_ALARM) are somehow getting caught
-> in the vdso logic and are *not* falling back to the syscall (stracing
-> the test I don't see syscalls happen before the failure), and the
-> values returned don't look to be correct.
+Signed-off-by: Bartosz Bilas <b.bilas@grinn-global.com>
+---
+ arch/arm64/boot/dts/mediatek/Makefile         |  1 +
+ .../mediatek/mt8370-grinn-genio-510-sbc.dts   | 19 +++++++++++++++++++
+ 2 files changed, 20 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8370-grinn-genio-510-sbc.dts
 
-The generic vDSO code assumes that it can use the UAPI headers, also in the
-compat vDSO. This is true for most architectures, as the UAPI headers work
-correctly in 32-bit and 64-bit mode. On arm64 this is different, as the headers
-from arm64/ are never used by regular 32-bit userpspace. So
-arch/arm64/include/uapi/asm/bitsperlong.h defines __BITS_PER_LONG=64 even when
-used by the 32-bit compat vDSO. The commit you identified uses __GENMASK()
-which uses __BITS_PER_LONG. Due to the mismatch between __BITS_PER_LONG and the
-real long datatype we run into an out-of-bounds shift and therefore undefined
-behaviour. And of course -Wshift-count-overflow is explicitly disabled.
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index 7383d75d8041..729d786b1236 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -102,6 +102,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk-eth.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk-hdmi.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-grinn-genio-510-sbc.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+diff --git a/arch/arm64/boot/dts/mediatek/mt8370-grinn-genio-510-sbc.dts b/arch/arm64/boot/dts/mediatek/mt8370-grinn-genio-510-sbc.dts
+new file mode 100644
+index 000000000000..117ea694cda3
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8370-grinn-genio-510-sbc.dts
+@@ -0,0 +1,19 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Grinn sp. z o.o.
++ * Author: Bartosz Bilas <bartosz.bilas@grinn-global.com>
++ */
++/dts-v1/;
++
++#include "mt8370.dtsi"
++#include "mt8390-grinn-genio-som.dtsi"
++#include "mt8390-grinn-genio-sbc.dtsi"
++
++/ {
++	model = "Grinn GenioSBC-510";
++	compatible = "grinn,genio-510-sbc", "mediatek,mt8370", "mediatek,mt8188";
++	memory@40000000 {
++		device_type = "memory";
++		reg = <0 0x40000000 1 0x00000000>;
++	};
++};
+-- 
+2.43.0
 
-There are a few possible fixes, none of which is really great.
-I'll send some patches.
-
-> The inconsistency-check output looks like:
-
-(...)
-
-> Which hints we're returning nanosecond values in the tv_sec field somehow.
-
-That seems to be an artifact of the UB from above, this happens even if
-do_aux() just returns 'false'.
-
-
-Thomas
 
