@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73AACA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E450CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOeDuWL/2kyW6zEsHPO1B6NTEakeZzLR0eYv4f1tIgQ=; b=HREv11gVGvPaSEY4R0gvSBqxC1
-	b/Ykl6gIMbe71xsEMi/+k/z4AaUptdf6EtqCQg3a4N9R7pabe0lpPeE6fJjm6AsO+XYuVO7wFoiZ9
-	JCWRSRjrAMdpcJZI2LVdShIAZLgEjWB36A6LeNK1tNvP4dDa/3q44cJ6cr2SMw+ieX7HIAdAJuqAV
-	EBVl8tWwKmCGDdTD3uC6lPy9lr/6oQZCImQwlngJJkezIUlGqa0R9UsowXcAy0EiLoDfznsaObkJ4
-	YqoZhopuTge4iFBPzwgNASkrUONYDE8qC8br85x5QPsO59sEFh/DGJumGWJMcEacau/Tua1rYvJpg
-	mlDsPV+w==;
+	bh=ZsgdsMTWvJVq/njCoYgEtTgqWIq+0P6+Lg9YsYCtXoc=; b=wnj5VYfX6azmrWLtY7SKOPndvJ
+	fT/tqxFCsR1UCoNC0KUEI1CNO0uEpmm2OmMWO1kVhD7DHbw4jaeq0pmVM8tOCkmywaYOvTIA160wp
+	u8krzOAmxIOF647Ry1WWxS1s78iJHdsuUWUIQhZo5A8Ze4OY6FxT2IXxHyUqLYtwx6297DsBPUF5a
+	n91CEmUkMzTwgGPZQuoaE5Z8BD/9qFeGrNHGvguGj7aX4EEVtGXN6czm+TKP0EyubgLm3hdZN4oq6
+	eJEtvmswPS7IMLIhsq2egwZH5Ny68uGl1xACqgW3zUHILuVk19XgySqbPq7TR8cmI17/e2/STMgS6
+	hzIDsimw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotBx-0000000FJ1b-2L76;
-	Thu, 21 Aug 2025 00:30:09 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uotEY-0000000FJPD-1MVp;
+	Thu, 21 Aug 2025 00:32:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uooR4-0000000EkzM-34P7
+	id 1uooUk-0000000El8M-1NBr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 19:25:28 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 56B516A6;
-	Wed, 20 Aug 2025 21:24:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755717866;
-	bh=OaJ+PXLz7ARjupcj+6znF62eHM/3YCK8NV41zxUE6W8=;
+	Wed, 20 Aug 2025 19:29:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 415C846860;
+	Wed, 20 Aug 2025 19:29:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5EDC113CF;
+	Wed, 20 Aug 2025 19:29:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755718153;
+	bh=62vU8ilKaL5wsgXTzF19fFgYXyl0Lr33PmPL5Y9P+KE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SSfd4Dies8ZjERJ70j0zYiJkTuJWcgJ4+4tOoYIMR3JDT3tM/G5+JmzW9PPhE83V9
-	 p81pXRCwszjJMEx5wqZNtHlFKhgy/kgJD3kfQE9mF4FGjXez0Wb1sM7fFU2D/5mWVO
-	 1OE9anmLuBS0EGhipvcya/CSJDBARBBiIArpFDWQ=
-Date: Wed, 20 Aug 2025 22:25:01 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Martin Kepplinger-Novakovic <martink@posteo.de>
-Cc: mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: nxp: imx8-isi: check return value of
- media_pad_remote_pad_first()
-Message-ID: <20250820192501.GA10430@pendragon.ideasonboard.com>
-References: <20250205172957.182362-1-martink@posteo.de>
- <1f4b4e707762c0926c0acece18cb9cc3ecc242bc.camel@posteo.de>
- <20250820140135.GA6190@pendragon.ideasonboard.com>
- <af64e20ba242d4742f650057254029257a40ae79.camel@posteo.de>
+	b=SHy1PKyyEmAftGaOfX6w479yzXwJNnQ6GF3aS1orl1Pg23L3mekd95C67GTmmg1yL
+	 MoeVt6g2iUxyLEjNh59p+7vn5AEiPG0rKlnai0og68XbqfOlAbgoSBJbRiY1LjIMUI
+	 XJEVbXRx3DbiFzwkAp4P9nnZh3psAO82T8R3KmASOF+58tZ4pJCK//mB/+lAMOBBTu
+	 gmF7vEiywWCA9gh8kD9l44F++mcD3MdCQE97Ye+1qqjl9JTsbxz3YvrtwyYWdV+ENh
+	 zGe7o9EvKV+1UtpNAkz6rfq3FNVI/KDR3I4biCGWUjdGIBWl8Bt8X6UmYWzPRwJjBT
+	 nxJV4oaVhzTsQ==
+Date: Wed, 20 Aug 2025 20:29:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Denzeel Oliva <wachiturroxd150@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: clock: exynos990: Reorder IDs clocks
+ and extend
+Message-ID: <20250820-diffused-impaired-ba776d39692f@spud>
+References: <20250820-2-v2-0-bd45e196d4c4@gmail.com>
+ <20250820-2-v2-2-bd45e196d4c4@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bnr8dC5IV+SmTfxS"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <af64e20ba242d4742f650057254029257a40ae79.camel@posteo.de>
+In-Reply-To: <20250820-2-v2-2-bd45e196d4c4@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_122526_912065_453CC05C 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20250820_122914_416375_27DA7583 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,87 +82,459 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 02:54:35PM +0000, Martin Kepplinger-Novakovic wrote:
-> Am Mittwoch, dem 20.08.2025 um 17:01 +0300 schrieb Laurent Pinchart:
-> > On Thu, Feb 06, 2025 at 08:49:37AM +0000, Martin Kepplinger wrote:
-> > > Am Mittwoch, dem 05.02.2025 um 17:29 +0000 schrieb Martin Kepplinger-Novaković:
-> > > > media_pad_remote_pad_first() return NULL if "no enabled link has been found".
-> > > > Check for that.
-> > > > 
-> > > > backstory
-> > > > =========
-> > > > While trying to get a (Y10 grey) sensor working on imx8mp (v6.12.12 now and
-> > > > I know the hardware works on an ancient nxp-kernel),
-> > > > I tried to enable the sensor link, set formats and stream:
-> > > 
-> > > btw, that's roughly the
-> > > driver: 
-> > > https://github.com/VC-MIPI-modules/vc_mipi_nxp/tree/master/src
-> > > that might need additions to with recent mainline kernels. Will the
-> > > sensor be the reason for the link not being found here?
-> > 
-> > I've submitted
-> > https://lore.kernel.org/linux-media/20250820140021.8026-1-laurent.pinchart@ideasonboard.com,
-> > which should fix this issue in a more generic way.
-> 
-> Hi, thank you. As posted over there, this indeed fixes the crash
-> itself.
-> 
-> P.S.:
-> Not that you should care :) But as for my specific "vision components"
-> sensor I want to use here, where this rpi-driver exists:
-> https://github.com/VC-MIPI-modules/vc_mipi_raspi/blob/main/src/vc_mipi_camera/vc_mipi_camera.c
-> a script like
-> 
-> media-ctl -d 1 --links "'vc_mipi_camera 3-001a':0->'csis-
-> 32e50000.csi':0[1]"
-> 
-> # format settings for mipi rx and ISI
-> media-ctl -d "platform:32e00000.isi" --set-v4l2 '"vc_mipi_camera 3-001a":0[fmt:Y10_1X10/2592x1944 field:none]'
-> media-ctl -d "platform:32e00000.isi" --set-v4l2 '"csis-32e50000.csi":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-> media-ctl -d "platform:32e00000.isi" --set-v4l2 '"crossbar":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-> media-ctl -d "platform:32e00000.isi" --set-v4l2 '"mxc_isi.0":0[fmt:Y10_1X10/2592x1944 field:none colorspace:srgb]'
-> 
-> v4l2-ctl -d /dev/video2 --set-fmt-video=width=2592,height=1944,pixelformat='Y10 '
-> v4l2-ctl --verbose --device=/dev/video2 --stream-mmap --stream-count=10
-> 
-> 
-> still fails with
-> 
-> 
-> [   34.642252] vc_mipi_camera 3-001a: vc_core_set_format(): Set format: 0x200a (Y10_1X10)
-> [   34.650227] vc_mipi_camera 3-001a: vc_core_try_format(): Try format 0x200a (Y10_1X10, format: 0x2b)
-> [   34.659284] vc_mipi_camera 3-001a: vc_core_try_format(): Checking mode 0 (format: 0x2b)
-> [   34.667295] vc_mipi_camera 3-001a: vc_core_calculate_max_exposure(): period_1H_ns: 7407, vmax.max: 1048575, vmax.min: 9
-> [   34.678083] vc_mipi_camera 3-001a: vc_core_get_optimized_vmax(): vmax_def: 4500, v_factor: 0, height: 1944/1944
-> [   34.688178] vc_mipi_camera 3-001a: vc_core_calculate_max_frame_rate(): period_1H_ns: 7407, vmax: 4500/4500, max_frame_rate: 30002
-> [   34.699833] vc_mipi_camera 3-001a: vc_core_update_controls(): num_lanes: 2, format 43, exposure.max: 7766728 us, framerate.max: 30002 mHz
-> [   34.712184] vc_mipi_camera 3-001a: vc_core_set_frame(): Set frame (left: 0, top: 0, width: 2592, height: 1944)
-> [   34.722208] vc_mipi_camera 3-001a: vc_core_calculate_max_exposure(): period_1H_ns: 7407, vmax.max: 1048575, vmax.min: 9
-> [   34.733000] vc_mipi_camera 3-001a: vc_core_get_optimized_vmax(): vmax_def: 4500, v_factor: 0, height: 1944/1944
-> [   34.743112] vc_mipi_camera 3-001a: vc_core_calculate_max_frame_rate(): period_1H_ns: 7407, vmax: 4500/4500, max_frame_rate: 30002
-> [   34.754768] vc_mipi_camera 3-001a: vc_core_update_controls(): num_lanes: 2, format 43, exposure.max: 7766728 us, framerate.max: 30002 mHz
-> VIDIOC_QUERYCAP: ok
-> 		VIDIOC_REQBUFS returned 0 (Success)
-> 		VIDIOC_CREATE_BUFS returned 0 (Success)
-> 		VIDIOC_QUERYBUF returned 0 (Success)
-> 		VIDIOC_QUERYBUF returned 0 (Success)
-> 		VIDIOC_QUERYBUF returned 0 (Success)
-> 		VIDIOC_QUERYBUF returned 0 (Success)
-> 		VIDIOC_G_FMT returned 0 (Success)
-> 		VIDIOC_QBUF returned 0 (Success)
-> 		VIDIOC_QBUF returned 0 (Success)
-> 		VIDIOC_QBUF returned 0 (Success)
-> 		VIDIOC_QBUF returned 0 (Success)
-> 		VIDIOC_STREAMON returned -1 (Broken pipe)
 
-The pipeline validation code at stream start time contains extensive
-debugging messages, in particular in v4l2_subdev_link_validate_default()
-and v4l2_subdev_link_validate_locked(). Enabling those should help you
-figure out why your pipeline fails.
+--bnr8dC5IV+SmTfxS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-Regards,
+On Wed, Aug 20, 2025 at 09:57:23AM -0500, Denzeel Oliva wrote:
+> Reorganize CMU_TOP clock definitions
+> and add missing clock definitions for DPU and CMUREF.
+>=20
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 
-Laurent Pinchart
+This looks like a massive ABI break, where is the justification for
+doing it?
+
+Cheers,
+Conor.
+
+> ---
+>  include/dt-bindings/clock/samsung,exynos990.h | 402 ++++++++++++++++++++=
+++++++++++++--------------------------------
+>  1 file changed, 203 insertions(+), 199 deletions(-)
+>=20
+> diff --git a/include/dt-bindings/clock/samsung,exynos990.h b/include/dt-b=
+indings/clock/samsung,exynos990.h
+> index 6b9df09d2822f1c8e5086a2fc0bda783ca224812..b384e271bf276a375f67659fc=
+84e53350ea73c0e 100644
+> --- a/include/dt-bindings/clock/samsung,exynos990.h
+> +++ b/include/dt-bindings/clock/samsung,exynos990.h
+> @@ -9,205 +9,209 @@
+>  #define _DT_BINDINGS_CLOCK_EXYNOS_990_H
+> =20
+>  /* CMU_TOP */
+> -#define CLK_FOUT_SHARED0_PLL		1
+> -#define CLK_FOUT_SHARED1_PLL		2
+> -#define CLK_FOUT_SHARED2_PLL		3
+> -#define CLK_FOUT_SHARED3_PLL		4
+> -#define CLK_FOUT_SHARED4_PLL		5
+> -#define CLK_FOUT_G3D_PLL		6
+> -#define CLK_FOUT_MMC_PLL		7
+> -#define CLK_MOUT_PLL_SHARED0		8
+> -#define CLK_MOUT_PLL_SHARED1		9
+> -#define CLK_MOUT_PLL_SHARED2		10
+> -#define CLK_MOUT_PLL_SHARED3		11
+> -#define CLK_MOUT_PLL_SHARED4		12
+> -#define CLK_MOUT_PLL_MMC		13
+> -#define CLK_MOUT_PLL_G3D		14
+> -#define CLK_MOUT_CMU_APM_BUS		15
+> -#define CLK_MOUT_CMU_AUD_CPU		16
+> -#define CLK_MOUT_CMU_BUS0_BUS		17
+> -#define CLK_MOUT_CMU_BUS1_BUS		18
+> -#define CLK_MOUT_CMU_BUS1_SSS		19
+> -#define CLK_MOUT_CMU_CIS_CLK0		20
+> -#define CLK_MOUT_CMU_CIS_CLK1		21
+> -#define CLK_MOUT_CMU_CIS_CLK2		22
+> -#define CLK_MOUT_CMU_CIS_CLK3		23
+> -#define CLK_MOUT_CMU_CIS_CLK4		24
+> -#define CLK_MOUT_CMU_CIS_CLK5		25
+> -#define CLK_MOUT_CMU_CMU_BOOST		26
+> -#define CLK_MOUT_CMU_CORE_BUS		27
+> -#define CLK_MOUT_CMU_CPUCL0_DBG_BUS	28
+> -#define CLK_MOUT_CMU_CPUCL0_SWITCH	29
+> -#define CLK_MOUT_CMU_CPUCL1_SWITCH	30
+> -#define CLK_MOUT_CMU_CPUCL2_BUSP	31
+> -#define CLK_MOUT_CMU_CPUCL2_SWITCH	32
+> -#define CLK_MOUT_CMU_CSIS_BUS		33
+> -#define CLK_MOUT_CMU_CSIS_OIS_MCU	34
+> -#define CLK_MOUT_CMU_DNC_BUS		35
+> -#define CLK_MOUT_CMU_DNC_BUSM		36
+> -#define CLK_MOUT_CMU_DNS_BUS		37
+> -#define CLK_MOUT_CMU_DPU		38
+> -#define CLK_MOUT_CMU_DPU_ALT		39
+> -#define CLK_MOUT_CMU_DSP_BUS		40
+> -#define CLK_MOUT_CMU_G2D_G2D		41
+> -#define CLK_MOUT_CMU_G2D_MSCL		42
+> -#define CLK_MOUT_CMU_HPM		43
+> -#define CLK_MOUT_CMU_HSI0_BUS		44
+> -#define CLK_MOUT_CMU_HSI0_DPGTC		45
+> -#define CLK_MOUT_CMU_HSI0_USB31DRD	46
+> -#define CLK_MOUT_CMU_HSI0_USBDP_DEBUG	47
+> -#define CLK_MOUT_CMU_HSI1_BUS		48
+> -#define CLK_MOUT_CMU_HSI1_MMC_CARD	49
+> -#define CLK_MOUT_CMU_HSI1_PCIE		50
+> -#define CLK_MOUT_CMU_HSI1_UFS_CARD	51
+> -#define CLK_MOUT_CMU_HSI1_UFS_EMBD	52
+> -#define CLK_MOUT_CMU_HSI2_BUS		53
+> -#define CLK_MOUT_CMU_HSI2_PCIE		54
+> -#define CLK_MOUT_CMU_IPP_BUS		55
+> -#define CLK_MOUT_CMU_ITP_BUS		56
+> -#define CLK_MOUT_CMU_MCSC_BUS		57
+> -#define CLK_MOUT_CMU_MCSC_GDC		58
+> -#define CLK_MOUT_CMU_CMU_BOOST_CPU	59
+> -#define CLK_MOUT_CMU_MFC0_MFC0		60
+> -#define CLK_MOUT_CMU_MFC0_WFD		61
+> -#define CLK_MOUT_CMU_MIF_BUSP		62
+> -#define CLK_MOUT_CMU_MIF_SWITCH		63
+> -#define CLK_MOUT_CMU_NPU_BUS		64
+> -#define CLK_MOUT_CMU_PERIC0_BUS		65
+> -#define CLK_MOUT_CMU_PERIC0_IP		66
+> -#define CLK_MOUT_CMU_PERIC1_BUS		67
+> -#define CLK_MOUT_CMU_PERIC1_IP		68
+> -#define CLK_MOUT_CMU_PERIS_BUS		69
+> -#define CLK_MOUT_CMU_SSP_BUS		70
+> -#define CLK_MOUT_CMU_TNR_BUS		71
+> -#define CLK_MOUT_CMU_VRA_BUS		72
+> -#define CLK_DOUT_CMU_APM_BUS		73
+> -#define CLK_DOUT_CMU_AUD_CPU		74
+> -#define CLK_DOUT_CMU_BUS0_BUS		75
+> -#define CLK_DOUT_CMU_BUS1_BUS		76
+> -#define CLK_DOUT_CMU_BUS1_SSS		77
+> -#define CLK_DOUT_CMU_CIS_CLK0		78
+> -#define CLK_DOUT_CMU_CIS_CLK1		79
+> -#define CLK_DOUT_CMU_CIS_CLK2		80
+> -#define CLK_DOUT_CMU_CIS_CLK3		81
+> -#define CLK_DOUT_CMU_CIS_CLK4		82
+> -#define CLK_DOUT_CMU_CIS_CLK5		83
+> -#define CLK_DOUT_CMU_CMU_BOOST		84
+> -#define CLK_DOUT_CMU_CORE_BUS		85
+> -#define CLK_DOUT_CMU_CPUCL0_DBG_BUS	86
+> -#define CLK_DOUT_CMU_CPUCL0_SWITCH	87
+> -#define CLK_DOUT_CMU_CPUCL1_SWITCH	88
+> -#define CLK_DOUT_CMU_CPUCL2_BUSP	89
+> -#define CLK_DOUT_CMU_CPUCL2_SWITCH	90
+> -#define CLK_DOUT_CMU_CSIS_BUS		91
+> -#define CLK_DOUT_CMU_CSIS_OIS_MCU	92
+> -#define CLK_DOUT_CMU_DNC_BUS		93
+> -#define CLK_DOUT_CMU_DNC_BUSM		94
+> -#define CLK_DOUT_CMU_DNS_BUS		95
+> -#define CLK_DOUT_CMU_DSP_BUS		96
+> -#define CLK_DOUT_CMU_G2D_G2D		97
+> -#define CLK_DOUT_CMU_G2D_MSCL		98
+> -#define CLK_DOUT_CMU_G3D_SWITCH		99
+> -#define CLK_DOUT_CMU_HPM		100
+> -#define CLK_DOUT_CMU_HSI0_BUS		101
+> -#define CLK_DOUT_CMU_HSI0_DPGTC		102
+> -#define CLK_DOUT_CMU_HSI0_USB31DRD	103
+> -#define CLK_DOUT_CMU_HSI0_USBDP_DEBUG	104
+> -#define CLK_DOUT_CMU_HSI1_BUS		105
+> -#define CLK_DOUT_CMU_HSI1_MMC_CARD	106
+> -#define CLK_DOUT_CMU_HSI1_PCIE		107
+> -#define CLK_DOUT_CMU_HSI1_UFS_CARD	108
+> -#define CLK_DOUT_CMU_HSI1_UFS_EMBD	109
+> -#define CLK_DOUT_CMU_HSI2_BUS		110
+> -#define CLK_DOUT_CMU_HSI2_PCIE		111
+> -#define CLK_DOUT_CMU_IPP_BUS		112
+> -#define CLK_DOUT_CMU_ITP_BUS		113
+> -#define CLK_DOUT_CMU_MCSC_BUS		114
+> -#define CLK_DOUT_CMU_MCSC_GDC		115
+> -#define CLK_DOUT_CMU_CMU_BOOST_CPU	116
+> -#define CLK_DOUT_CMU_MFC0_MFC0		117
+> -#define CLK_DOUT_CMU_MFC0_WFD		118
+> -#define CLK_DOUT_CMU_MIF_BUSP		119
+> -#define CLK_DOUT_CMU_NPU_BUS		120
+> -#define CLK_DOUT_CMU_OTP		121
+> -#define CLK_DOUT_CMU_PERIC0_BUS		122
+> -#define CLK_DOUT_CMU_PERIC0_IP		123
+> -#define CLK_DOUT_CMU_PERIC1_BUS		124
+> -#define CLK_DOUT_CMU_PERIC1_IP		125
+> -#define CLK_DOUT_CMU_PERIS_BUS		126
+> -#define CLK_DOUT_CMU_SSP_BUS		127
+> -#define CLK_DOUT_CMU_TNR_BUS		128
+> -#define CLK_DOUT_CMU_VRA_BUS		129
+> -#define CLK_DOUT_CMU_DPU		130
+> -#define CLK_DOUT_CMU_DPU_ALT		131
+> -#define CLK_DOUT_CMU_SHARED0_DIV2	132
+> -#define CLK_DOUT_CMU_SHARED0_DIV3	133
+> -#define CLK_DOUT_CMU_SHARED0_DIV4	134
+> -#define CLK_DOUT_CMU_SHARED1_DIV2	135
+> -#define CLK_DOUT_CMU_SHARED1_DIV3	136
+> -#define CLK_DOUT_CMU_SHARED1_DIV4	137
+> -#define CLK_DOUT_CMU_SHARED2_DIV2	138
+> -#define CLK_DOUT_CMU_SHARED4_DIV2	139
+> -#define CLK_DOUT_CMU_SHARED4_DIV3	140
+> -#define CLK_DOUT_CMU_SHARED4_DIV4	141
+> -#define CLK_GOUT_CMU_G3D_BUS		142
+> -#define CLK_GOUT_CMU_MIF_SWITCH		143
+> -#define CLK_GOUT_CMU_APM_BUS		144
+> -#define CLK_GOUT_CMU_AUD_CPU		145
+> -#define CLK_GOUT_CMU_BUS0_BUS		146
+> -#define CLK_GOUT_CMU_BUS1_BUS		147
+> -#define CLK_GOUT_CMU_BUS1_SSS		148
+> -#define CLK_GOUT_CMU_CIS_CLK0		149
+> -#define CLK_GOUT_CMU_CIS_CLK1		150
+> -#define CLK_GOUT_CMU_CIS_CLK2		151
+> -#define CLK_GOUT_CMU_CIS_CLK3		152
+> -#define CLK_GOUT_CMU_CIS_CLK4		153
+> -#define CLK_GOUT_CMU_CIS_CLK5		154
+> -#define CLK_GOUT_CMU_CORE_BUS		155
+> -#define CLK_GOUT_CMU_CPUCL0_DBG_BUS	156
+> -#define CLK_GOUT_CMU_CPUCL0_SWITCH	157
+> -#define CLK_GOUT_CMU_CPUCL1_SWITCH	158
+> -#define CLK_GOUT_CMU_CPUCL2_BUSP	159
+> -#define CLK_GOUT_CMU_CPUCL2_SWITCH	160
+> -#define CLK_GOUT_CMU_CSIS_BUS		161
+> -#define CLK_GOUT_CMU_CSIS_OIS_MCU	162
+> -#define CLK_GOUT_CMU_DNC_BUS		163
+> -#define CLK_GOUT_CMU_DNC_BUSM		164
+> -#define CLK_GOUT_CMU_DNS_BUS		165
+> -#define CLK_GOUT_CMU_DPU		166
+> -#define CLK_GOUT_CMU_DPU_BUS		167
+> -#define CLK_GOUT_CMU_DSP_BUS		168
+> -#define CLK_GOUT_CMU_G2D_G2D		169
+> -#define CLK_GOUT_CMU_G2D_MSCL		170
+> -#define CLK_GOUT_CMU_G3D_SWITCH		171
+> -#define CLK_GOUT_CMU_HPM		172
+> -#define CLK_GOUT_CMU_HSI0_BUS		173
+> -#define CLK_GOUT_CMU_HSI0_DPGTC		174
+> -#define CLK_GOUT_CMU_HSI0_USB31DRD	175
+> -#define CLK_GOUT_CMU_HSI0_USBDP_DEBUG	176
+> -#define CLK_GOUT_CMU_HSI1_BUS		177
+> -#define CLK_GOUT_CMU_HSI1_MMC_CARD	178
+> -#define CLK_GOUT_CMU_HSI1_PCIE		179
+> -#define CLK_GOUT_CMU_HSI1_UFS_CARD	180
+> -#define CLK_GOUT_CMU_HSI1_UFS_EMBD	181
+> -#define CLK_GOUT_CMU_HSI2_BUS		182
+> -#define CLK_GOUT_CMU_HSI2_PCIE		183
+> -#define CLK_GOUT_CMU_IPP_BUS		184
+> -#define CLK_GOUT_CMU_ITP_BUS		185
+> -#define CLK_GOUT_CMU_MCSC_BUS		186
+> -#define CLK_GOUT_CMU_MCSC_GDC		187
+> -#define CLK_GOUT_CMU_MFC0_MFC0		188
+> -#define CLK_GOUT_CMU_MFC0_WFD		189
+> -#define CLK_GOUT_CMU_MIF_BUSP		190
+> -#define CLK_GOUT_CMU_NPU_BUS		191
+> -#define CLK_GOUT_CMU_PERIC0_BUS		192
+> -#define CLK_GOUT_CMU_PERIC0_IP		193
+> -#define CLK_GOUT_CMU_PERIC1_BUS		194
+> -#define CLK_GOUT_CMU_PERIC1_IP		195
+> -#define CLK_GOUT_CMU_PERIS_BUS		196
+> -#define CLK_GOUT_CMU_SSP_BUS		197
+> -#define CLK_GOUT_CMU_TNR_BUS		198
+> -#define CLK_GOUT_CMU_VRA_BUS		199
+> +#define CLK_FOUT_G3D_PLL		1
+> +#define CLK_FOUT_MMC_PLL		2
+> +#define CLK_FOUT_SHARED0_PLL		3
+> +#define CLK_FOUT_SHARED1_PLL		4
+> +#define CLK_FOUT_SHARED2_PLL		5
+> +#define CLK_FOUT_SHARED3_PLL		6
+> +#define CLK_FOUT_SHARED4_PLL		7
+> +#define CLK_MOUT_PLL_G3D		8
+> +#define CLK_MOUT_PLL_MMC		9
+> +#define CLK_MOUT_PLL_SHARED0		10
+> +#define CLK_MOUT_PLL_SHARED1		11
+> +#define CLK_MOUT_PLL_SHARED2		12
+> +#define CLK_MOUT_PLL_SHARED3		13
+> +#define CLK_MOUT_PLL_SHARED4		14
+> +#define CLK_MOUT_CMU_DPU_BUS		15
+> +#define CLK_MOUT_CMU_APM_BUS		16
+> +#define CLK_MOUT_CMU_AUD_CPU		17
+> +#define CLK_MOUT_CMU_BUS0_BUS		18
+> +#define CLK_MOUT_CMU_BUS1_BUS		19
+> +#define CLK_MOUT_CMU_BUS1_SSS		20
+> +#define CLK_MOUT_CMU_CIS_CLK0		21
+> +#define CLK_MOUT_CMU_CIS_CLK1		22
+> +#define CLK_MOUT_CMU_CIS_CLK2		23
+> +#define CLK_MOUT_CMU_CIS_CLK3		24
+> +#define CLK_MOUT_CMU_CIS_CLK4		25
+> +#define CLK_MOUT_CMU_CIS_CLK5		26
+> +#define CLK_MOUT_CMU_CMU_BOOST		27
+> +#define CLK_MOUT_CMU_CORE_BUS		28
+> +#define CLK_MOUT_CMU_CPUCL0_DBG_BUS	29
+> +#define CLK_MOUT_CMU_CPUCL0_SWITCH	30
+> +#define CLK_MOUT_CMU_CPUCL1_SWITCH	31
+> +#define CLK_MOUT_CMU_CPUCL2_BUSP	32
+> +#define CLK_MOUT_CMU_CPUCL2_SWITCH	33
+> +#define CLK_MOUT_CMU_CSIS_BUS		34
+> +#define CLK_MOUT_CMU_CSIS_OIS_MCU	35
+> +#define CLK_MOUT_CMU_DNC_BUS		36
+> +#define CLK_MOUT_CMU_DNC_BUSM		37
+> +#define CLK_MOUT_CMU_DNS_BUS		38
+> +#define CLK_MOUT_CMU_DPU		39
+> +#define CLK_MOUT_CMU_DPU_ALT		40
+> +#define CLK_MOUT_CMU_DSP_BUS		41
+> +#define CLK_MOUT_CMU_G2D_G2D		42
+> +#define CLK_MOUT_CMU_G2D_MSCL		43
+> +#define CLK_MOUT_CMU_HPM		44
+> +#define CLK_MOUT_CMU_HSI0_BUS		45
+> +#define CLK_MOUT_CMU_HSI0_DPGTC		46
+> +#define CLK_MOUT_CMU_HSI0_USB31DRD	47
+> +#define CLK_MOUT_CMU_HSI0_USBDP_DEBUG	48
+> +#define CLK_MOUT_CMU_HSI1_BUS		49
+> +#define CLK_MOUT_CMU_HSI1_MMC_CARD	50
+> +#define CLK_MOUT_CMU_HSI1_PCIE		51
+> +#define CLK_MOUT_CMU_HSI1_UFS_CARD	52
+> +#define CLK_MOUT_CMU_HSI1_UFS_EMBD	53
+> +#define CLK_MOUT_CMU_HSI2_BUS		54
+> +#define CLK_MOUT_CMU_HSI2_PCIE		55
+> +#define CLK_MOUT_CMU_IPP_BUS		56
+> +#define CLK_MOUT_CMU_ITP_BUS		57
+> +#define CLK_MOUT_CMU_MCSC_BUS		58
+> +#define CLK_MOUT_CMU_MCSC_GDC		59
+> +#define CLK_MOUT_CMU_CMU_BOOST_CPU	60
+> +#define CLK_MOUT_CMU_MFC0_MFC0		61
+> +#define CLK_MOUT_CMU_MFC0_WFD		62
+> +#define CLK_MOUT_CMU_MIF_BUSP		63
+> +#define CLK_MOUT_CMU_MIF_SWITCH		64
+> +#define CLK_MOUT_CMU_NPU_BUS		65
+> +#define CLK_MOUT_CMU_PERIC0_BUS		66
+> +#define CLK_MOUT_CMU_PERIC0_IP		67
+> +#define CLK_MOUT_CMU_PERIC1_BUS		68
+> +#define CLK_MOUT_CMU_PERIC1_IP		69
+> +#define CLK_MOUT_CMU_PERIS_BUS		70
+> +#define CLK_MOUT_CMU_SSP_BUS		71
+> +#define CLK_MOUT_CMU_TNR_BUS		72
+> +#define CLK_MOUT_CMU_VRA_BUS		73
+> +#define CLK_MOUT_CMU_CMUREF		74
+> +#define CLK_MOUT_CMU_CLK_CMUREF		75
+> +#define CLK_DOUT_CMU_APM_BUS		76
+> +#define CLK_DOUT_CMU_AUD_CPU		77
+> +#define CLK_DOUT_CMU_BUS0_BUS		78
+> +#define CLK_DOUT_CMU_BUS1_BUS		79
+> +#define CLK_DOUT_CMU_BUS1_SSS		80
+> +#define CLK_DOUT_CMU_CIS_CLK0		81
+> +#define CLK_DOUT_CMU_CIS_CLK1		82
+> +#define CLK_DOUT_CMU_CIS_CLK2		83
+> +#define CLK_DOUT_CMU_CIS_CLK3		84
+> +#define CLK_DOUT_CMU_CIS_CLK4		85
+> +#define CLK_DOUT_CMU_CIS_CLK5		86
+> +#define CLK_DOUT_CMU_CMU_BOOST		87
+> +#define CLK_DOUT_CMU_CORE_BUS		88
+> +#define CLK_DOUT_CMU_CPUCL0_DBG_BUS	89
+> +#define CLK_DOUT_CMU_CPUCL0_SWITCH	90
+> +#define CLK_DOUT_CMU_CPUCL1_SWITCH	91
+> +#define CLK_DOUT_CMU_CPUCL2_BUSP	92
+> +#define CLK_DOUT_CMU_CPUCL2_SWITCH	93
+> +#define CLK_DOUT_CMU_CSIS_BUS		94
+> +#define CLK_DOUT_CMU_CSIS_OIS_MCU	95
+> +#define CLK_DOUT_CMU_DNC_BUS		96
+> +#define CLK_DOUT_CMU_DNC_BUSM		97
+> +#define CLK_DOUT_CMU_DNS_BUS		98
+> +#define CLK_DOUT_CMU_DSP_BUS		99
+> +#define CLK_DOUT_CMU_G2D_G2D		100
+> +#define CLK_DOUT_CMU_G2D_MSCL		101
+> +#define CLK_DOUT_CMU_G3D_SWITCH		102
+> +#define CLK_DOUT_CMU_HPM		103
+> +#define CLK_DOUT_CMU_HSI0_BUS		104
+> +#define CLK_DOUT_CMU_HSI0_DPGTC		105
+> +#define CLK_DOUT_CMU_HSI0_USB31DRD	106
+> +#define CLK_DOUT_CMU_HSI0_USBDP_DEBUG	107
+> +#define CLK_DOUT_CMU_HSI1_BUS		108
+> +#define CLK_DOUT_CMU_HSI1_MMC_CARD	109
+> +#define CLK_DOUT_CMU_HSI1_PCIE		110
+> +#define CLK_DOUT_CMU_HSI1_UFS_CARD	111
+> +#define CLK_DOUT_CMU_HSI1_UFS_EMBD	112
+> +#define CLK_DOUT_CMU_HSI2_BUS		113
+> +#define CLK_DOUT_CMU_HSI2_PCIE		114
+> +#define CLK_DOUT_CMU_IPP_BUS		115
+> +#define CLK_DOUT_CMU_ITP_BUS		116
+> +#define CLK_DOUT_CMU_MCSC_BUS		117
+> +#define CLK_DOUT_CMU_MCSC_GDC		118
+> +#define CLK_DOUT_CMU_CMU_BOOST_CPU	119
+> +#define CLK_DOUT_CMU_MFC0_MFC0		120
+> +#define CLK_DOUT_CMU_MFC0_WFD		121
+> +#define CLK_DOUT_CMU_MIF_BUSP		122
+> +#define CLK_DOUT_CMU_NPU_BUS		123
+> +#define CLK_DOUT_CMU_OTP		124
+> +#define CLK_DOUT_CMU_PERIC0_BUS		125
+> +#define CLK_DOUT_CMU_PERIC0_IP		126
+> +#define CLK_DOUT_CMU_PERIC1_BUS		127
+> +#define CLK_DOUT_CMU_PERIC1_IP		128
+> +#define CLK_DOUT_CMU_PERIS_BUS		129
+> +#define CLK_DOUT_CMU_SSP_BUS		130
+> +#define CLK_DOUT_CMU_TNR_BUS		131
+> +#define CLK_DOUT_CMU_VRA_BUS		132
+> +#define CLK_DOUT_CMU_DPU		133
+> +#define CLK_DOUT_CMU_DPU_ALT		134
+> +#define CLK_DOUT_CMU_CLK_CMUREF		135
+> +#define CLK_DOUT_CMU_SHARED0_DIV2	136
+> +#define CLK_DOUT_CMU_SHARED0_DIV3	137
+> +#define CLK_DOUT_CMU_SHARED0_DIV4	138
+> +#define CLK_DOUT_CMU_SHARED1_DIV2	139
+> +#define CLK_DOUT_CMU_SHARED1_DIV3	140
+> +#define CLK_DOUT_CMU_SHARED1_DIV4	141
+> +#define CLK_DOUT_CMU_SHARED2_DIV2	142
+> +#define CLK_DOUT_CMU_SHARED4_DIV2	145
+> +#define CLK_DOUT_CMU_SHARED4_DIV3	146
+> +#define CLK_DOUT_CMU_SHARED4_DIV4	147
+> +#define CLK_GOUT_CMU_G3D_BUS		148
+> +#define CLK_GOUT_CMU_MIF_SWITCH		149
+> +#define CLK_GOUT_CMU_APM_BUS		150
+> +#define CLK_GOUT_CMU_AUD_CPU		151
+> +#define CLK_GOUT_CMU_BUS0_BUS		152
+> +#define CLK_GOUT_CMU_BUS1_BUS		153
+> +#define CLK_GOUT_CMU_BUS1_SSS		154
+> +#define CLK_GOUT_CMU_CIS_CLK0		155
+> +#define CLK_GOUT_CMU_CIS_CLK1		156
+> +#define CLK_GOUT_CMU_CIS_CLK2		157
+> +#define CLK_GOUT_CMU_CIS_CLK3		158
+> +#define CLK_GOUT_CMU_CIS_CLK4		159
+> +#define CLK_GOUT_CMU_CIS_CLK5		160
+> +#define CLK_GOUT_CMU_CORE_BUS		161
+> +#define CLK_GOUT_CMU_CPUCL0_DBG_BUS	162
+> +#define CLK_GOUT_CMU_CPUCL0_SWITCH	163
+> +#define CLK_GOUT_CMU_CPUCL1_SWITCH	164
+> +#define CLK_GOUT_CMU_CPUCL2_BUSP	165
+> +#define CLK_GOUT_CMU_CPUCL2_SWITCH	166
+> +#define CLK_GOUT_CMU_CSIS_BUS		167
+> +#define CLK_GOUT_CMU_CSIS_OIS_MCU	168
+> +#define CLK_GOUT_CMU_DNC_BUS		169
+> +#define CLK_GOUT_CMU_DNC_BUSM		170
+> +#define CLK_GOUT_CMU_DNS_BUS		171
+> +#define CLK_GOUT_CMU_DPU		172
+> +#define CLK_GOUT_CMU_DPU_BUS		173
+> +#define CLK_GOUT_CMU_DSP_BUS		174
+> +#define CLK_GOUT_CMU_G2D_G2D		175
+> +#define CLK_GOUT_CMU_G2D_MSCL		176
+> +#define CLK_GOUT_CMU_G3D_SWITCH		177
+> +#define CLK_GOUT_CMU_HPM		178
+> +#define CLK_GOUT_CMU_HSI0_BUS		179
+> +#define CLK_GOUT_CMU_HSI0_DPGTC		180
+> +#define CLK_GOUT_CMU_HSI0_USB31DRD	181
+> +#define CLK_GOUT_CMU_HSI0_USBDP_DEBUG	182
+> +#define CLK_GOUT_CMU_HSI1_BUS		183
+> +#define CLK_GOUT_CMU_HSI1_MMC_CARD	184
+> +#define CLK_GOUT_CMU_HSI1_PCIE		185
+> +#define CLK_GOUT_CMU_HSI1_UFS_CARD	186
+> +#define CLK_GOUT_CMU_HSI1_UFS_EMBD	187
+> +#define CLK_GOUT_CMU_HSI2_BUS		188
+> +#define CLK_GOUT_CMU_HSI2_PCIE		189
+> +#define CLK_GOUT_CMU_IPP_BUS		190
+> +#define CLK_GOUT_CMU_ITP_BUS		191
+> +#define CLK_GOUT_CMU_MCSC_BUS		192
+> +#define CLK_GOUT_CMU_MCSC_GDC		193
+> +#define CLK_GOUT_CMU_MFC0_MFC0		194
+> +#define CLK_GOUT_CMU_MFC0_WFD		195
+> +#define CLK_GOUT_CMU_MIF_BUSP		196
+> +#define CLK_GOUT_CMU_NPU_BUS		197
+> +#define CLK_GOUT_CMU_PERIC0_BUS		198
+> +#define CLK_GOUT_CMU_PERIC0_IP		199
+> +#define CLK_GOUT_CMU_PERIC1_BUS		200
+> +#define CLK_GOUT_CMU_PERIC1_IP		201
+> +#define CLK_GOUT_CMU_PERIS_BUS		202
+> +#define CLK_GOUT_CMU_SSP_BUS		203
+> +#define CLK_GOUT_CMU_TNR_BUS		204
+> +#define CLK_GOUT_CMU_VRA_BUS		205
+> =20
+>  /* CMU_HSI0 */
+>  #define CLK_MOUT_HSI0_BUS_USER				1
+>=20
+> --=20
+> 2.49.0
+>=20
+
+--bnr8dC5IV+SmTfxS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKYiBAAKCRB4tDGHoIJi
+0o2PAQCH6LolsLhX7oqaS5is4/JSBOMmnqz9fvWsyTMyI9G5DwEAjEnHAIp6l9KK
+OgbThI8zc3FNefN3dIhdaL4BMxWOSwc=
+=7jJV
+-----END PGP SIGNATURE-----
+
+--bnr8dC5IV+SmTfxS--
 
