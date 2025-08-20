@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6DBCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877B0CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 11:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsjZMMtaBbupc4oGzIo3XvAEclb3sb0eigWneHj5NVQ=; b=phzw2xxONkmSDfnid4TFoJBRvH
-	SCKNGhH7mUiCvZYF7C6eFh29bBxYFqQZ3LCmy8G9wwiWOIZxc75uiik54SohbTF1MCIVGr8X4RMAQ
-	d3QObc3CNx11shPxX6wlSEzyPYlK+2Awb4rMes18GN2EWQz+KUxiKRmgXM7qVUz7p6g76ck5kfXSt
-	QgYAvHXBFQgHUmY9IHjX5OTBrwr8HxFqnCxKTWabJnHJFnLYZebpaec4UmkrY0x4W8vVEG7i3kpS2
-	iqkm8zXkraL+8pgAIU2JJqk7KZ2p+KikQxDpfMNp6a7ICoKi1Ldz0mXMkeYVjFgvlK7U6UzfYfC3c
-	5iP32kbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6sQ5FbRrULkpIFvk8FI5Eq+eWI+JvUPH5SPuXVvoo0w=; b=ydMJCexVWoiwE1BJUUPRbitFN0
+	LVBMQF8/cCWr/3/KRyXwX9UkdwsZ7OZjvfjiI2NjhMbM96J95DeWlBCFkzbYhf1KV5NeoNdbVYgtr
+	YF5OuiC1DRsHCYf2iBwBmTlORukJdtbzD83+NlgbpZX6QzRv0P1c3eD5aJ4GtzPj/Hg4Zqb9mt/CI
+	AJ7QOS/FUfLVd8znDc34fLNVxzi5mpoonkDHchZpinNv55Cf0wBrdsCrc+YgPjXtMdhb2c32oN01W
+	BHdYfaWlgmp3PzeoThlbBL2Q9LvKSh9cl3uuLtSlDq12Oy8/d5Zj12LWWVPQt3UdO0qnzIRFhChLd
+	Ht0GU9yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoh4W-0000000DQGc-3jWd;
-	Wed, 20 Aug 2025 11:33:40 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uoh76-0000000DR43-3JhM;
+	Wed, 20 Aug 2025 11:36:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uog8u-0000000DBKS-3UjA
+	id 1uogMI-0000000DEUs-2cSy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 10:34:10 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4c6N6g74knz6M4qN;
-	Wed, 20 Aug 2025 18:31:55 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5B24F140119;
-	Wed, 20 Aug 2025 18:34:03 +0800 (CST)
-Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Wed, 20 Aug 2025 12:34:02 +0200
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Will Deacon <will@kernel.org>, Dan Williams
-	<dan.j.williams@intel.com>, Davidlohr Bueso <dave@stgolabs.net>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>
-CC: Yicong Yang <yangyicong@huawei.com>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>
-Subject: [PATCH v3 8/8] Hack: Pretend we have PSCI 1.2
-Date: Wed, 20 Aug 2025 11:29:50 +0100
-Message-ID: <20250820102950.175065-9-Jonathan.Cameron@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
-References: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
+	Wed, 20 Aug 2025 10:47:59 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4491B666;
+	Wed, 20 Aug 2025 12:46:56 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755686816;
+	bh=oRmxz6sCrDBEVI9hEkCWNXBiflwkluoQLt2izmd/Pe8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OSrK9gsKGfeMtFy9C7KBku9ZgD8imKvIawbMHSncqFmFRIXZwV65F+X9Dla+vK1r+
+	 r4ONrT205osLvuQBjjtFfISj4JnusJwYzvI9pDMr8BgvDk22CSH/3GkwC6wDohuFIn
+	 hR574FBtfNRiRpIR92OHOxa+7D4K2vdYncKOSn6c=
+Message-ID: <cf9bb518-58f9-42bf-bcb8-5727d2f9abef@ideasonboard.com>
+Date: Wed, 20 Aug 2025 11:47:51 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml500005.china.huawei.com (7.191.163.240) To
- frapeml500008.china.huawei.com (7.182.85.71)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 01/19] media: mc: entity: Add pipeline_started/stopped
+ ops
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+ nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+ <20250714-c55-v11-1-bc20e460e42a@ideasonboard.com>
+ <wgve5k52jxfiscon77trvg6iyyc3k7ud6agz7czydgefmbvpha@56jbro6w4yqa>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <wgve5k52jxfiscon77trvg6iyyc3k7ud6agz7czydgefmbvpha@56jbro6w4yqa>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_033409_008856_B3AC7A5D 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250820_034758_812743_7BDE8ECE 
+X-CRM114-Status: GOOD (  39.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +76,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Need to update QEMU to PSCI 1.2. In meantime lie.
-This is just here to aid testing, not for review!
+Hi Jacopo
 
-Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
----
- drivers/firmware/psci/psci.c | 2 ++
- 1 file changed, 2 insertions(+)
+On 05/08/2025 08:45, Jacopo Mondi wrote:
+> Hi Dan
+> 
+> On Mon, Jul 14, 2025 at 04:06:27PM +0100, Daniel Scally wrote:
+>> Add two new members to struct media_entity_operations, along with new
+>> functions in media-entity.c to traverse a media pipeline and call the
+>> new operations. The new functions are intended to be used to signal
+>> to a media pipeline that it has fully started, with the entity ops
+>> allowing drivers to define some action to be taken when those
+>> conditions are met.
+>>
+>> The combination of the new functions and operations allows drivers
+>> which are part of a multi-driver pipeline to delay actually starting
+>> streaming until all of the conditions for streaming succcessfully are
+>> met across all drivers.
+>>
+>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>> ---
+>> Changes in v5:
+>>
+>> 	- Update kerneldoc comments with Optional statement in the
+>> 	  right place
+>>
+>> Changes in v4:
+>>
+>> 	- Reverted to having the iter variable
+>>
+>> Changes in v3:
+>>
+>> 	- Dropped the iter variable now that the pipeline entity
+>> 	  iterator functions don't need it.
+>> 	- Updated documentation to specify Optional and return
+>> 	  values
+>>
+>> Changes in v2:
+>>
+>> 	- Refactored media_pipeline_started() such that the cleanup
+>> 	  function for media_pipeline_entity_iter is unconditionally
+>> 	  called
+>> 	- Avoided using media_entity_call() helper for operation that
+>> 	  has return type void to avoid compiler warnings
+>> ---
+>>   drivers/media/mc/mc-entity.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
+>>   include/media/media-entity.h | 29 ++++++++++++++++++++++++++++
+>>   2 files changed, 75 insertions(+)
+>>
+>> diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
+>> index 045590905582054c46656e20463271b1f93fa6b4..d3443537d4304e12cb015630101efba22375c011 100644
+>> --- a/drivers/media/mc/mc-entity.c
+>> +++ b/drivers/media/mc/mc-entity.c
+>> @@ -1053,6 +1053,52 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
+>>   }
+>>   EXPORT_SYMBOL_GPL(__media_pipeline_entity_iter_next);
+>>
+>> +int media_pipeline_started(struct media_pipeline *pipe)
+>> +{
+>> +	struct media_pipeline_entity_iter iter;
+>> +	struct media_entity *entity;
+>> +	int ret;
+>> +
+>> +	ret = media_pipeline_entity_iter_init(pipe, &iter);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	media_pipeline_for_each_entity(pipe, &iter, entity) {
+>> +		ret = media_entity_call(entity, pipeline_started);
+>> +		if (ret && ret != -ENOIOCTLCMD)
+>> +			break;
+>> +	}
+>> +
+>> +	media_pipeline_entity_iter_cleanup(&iter);
+>> +
+>> +	ret = ret == -ENOIOCTLCMD ? 0 : ret;
+>> +	if (ret)
+>> +		media_pipeline_stopped(pipe);
+>> +
+>> +	return ret;
+>> +}
+>> +EXPORT_SYMBOL_GPL(media_pipeline_started);
+>> +
+>> +int media_pipeline_stopped(struct media_pipeline *pipe)
+>> +{
+>> +	struct media_pipeline_entity_iter iter;
+>> +	struct media_entity *entity;
+>> +	int ret;
+>> +
+>> +	ret = media_pipeline_entity_iter_init(pipe, &iter);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	media_pipeline_for_each_entity(pipe, &iter, entity)
+>> +		if (entity->ops && entity->ops->pipeline_stopped)
+>> +			entity->ops->pipeline_stopped(entity);
+> 
+> I was sure I asked this already, but I wasn't able to find any
+> reference to this in the review of the previous version, so I'll
+> re-ask (sorry if it's the second time):
+> 
+> why can't you use media_entity_call() here as well ?
 
-diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-index 38ca190d4a22..804b0d7cda4b 100644
---- a/drivers/firmware/psci/psci.c
-+++ b/drivers/firmware/psci/psci.c
-@@ -646,6 +646,8 @@ static void __init psci_init_smccc(void)
- 		}
- 	}
- 
-+	/* Hack until qemu version stuff updated */
-+	arm_smccc_version_init(ARM_SMCCC_VERSION_1_2, psci_conduit);
- 	/*
- 	 * Conveniently, the SMCCC and PSCI versions are encoded the
- 	 * same way. No, this isn't accidental.
--- 
-2.48.1
+It causes compilation errors because media_entity_call() explicitly assumes that the callback will 
+return an integer, and .pipeline_stopped() returns void.
+
+> 
+>> +
+>> +	media_pipeline_entity_iter_cleanup(&iter);
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(media_pipeline_stopped);
+>> +
+>>   /* -----------------------------------------------------------------------------
+>>    * Links management
+>>    */
+>> diff --git a/include/media/media-entity.h b/include/media/media-entity.h
+>> index 64cf590b11343f68a456c5870ca2f32917c122f9..1e1026f65f2050bb9aa39bde68794da8d2d0a669 100644
+>> --- a/include/media/media-entity.h
+>> +++ b/include/media/media-entity.h
+>> @@ -269,6 +269,10 @@ struct media_pad {
+>>    *			media_entity_has_pad_interdep().
+>>    *			Optional: If the operation isn't implemented all pads
+>>    *			will be considered as interdependent.
+>> + * @pipeline_started:	Optional: Notify this entity that the pipeline it is a
+>> + *			part of has been started.
+>> + * @pipeline_stopped:	Optional: Notify this entity that the pipeline it is a
+>> + *			part of has been stopped.
+> 
+> Why not use the same style as the other entries ?
+
+Poor reading comprehension - I thought I had! Thanks, I'll adopt your suggestion.
+
+> 
+>   * @get_fwnode_pad:	Return the pad number based on a fwnode endpoint or
+>   *			a negative value on error. This operation can be used
+>   *			to map a fwnode to a media pad number. Optional.
+> 
+>   Or
+>   * @has_pad_interdep:	Return whether two pads of the entity are
+>   *			interdependent. If two pads are interdependent they are
+>   *			part of the same pipeline and enabling one of the pads
+>   *			means that the other pad will become "locked" and
+>   *			doesn't allow configuration changes. pad0 and pad1 are
+>   *			guaranteed to not both be sinks or sources. Never call
+>   *			the .has_pad_interdep() operation directly, always use
+>   *			media_entity_has_pad_interdep().
+>   *			Optional: If the operation isn't implemented all pads
+>   *			will be considered as interdependent.
+> 
+> Also, the existing doc uses "the entity" and not "this entity"
+> 
+> 
+> These would then be
+> 
+> * @pipeline_started:	Notify the entity that the pipeline it is a
+> *			part of has been started. Optional.
+> * @pipeline_stopped:	Notify the entity that the pipeline it is a
+> *			part of has been stopped. Optional
+> 
+> Question from a non-native speaker: "it is a part of" or "it is part
+> of" ?
+
+I think either would be acceptable; I can switch if it's clearer to you?
+
+> 
+>>    *
+>>    * .. note::
+>>    *
+>> @@ -284,6 +288,8 @@ struct media_entity_operations {
+>>   	int (*link_validate)(struct media_link *link);
+>>   	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
+>>   				 unsigned int pad1);
+>> +	int (*pipeline_started)(struct media_entity *entity);
+>> +	void (*pipeline_stopped)(struct media_entity *entity);
+>>   };
+>>
+>>   /**
+>> @@ -1261,6 +1267,29 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
+>>   	     entity != NULL;							\
+>>   	     entity = __media_pipeline_entity_iter_next((pipe), iter, entity))
+>>
+>> +/**
+>> + * media_pipeline_started - Inform entities in a pipeline that it has started
+>> + * @pipe:	The pipeline
+>> + *
+>> + * Iterate on all entities in a media pipeline and call their pipeline_started
+>> + * member of media_entity_operations.
+>> + *
+>> + * Return: zero on success, or a negative error code passed through from an
+>> + * entity's .pipeline_started() operation.
+> 
+> If you don't have specific return codes to document you could consider
+> a simpler
+> 
+>   * Returns zero on success or a negative error code otherwise.
+> 
+> Up to you on this one.
+> 
+> With the above documentation aligned to the existing one and a
+> clarification on the media_entity_call usage:
+> 
+> Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+
+Thanks!
+> 
+> Thanks
+> 
+>> + */
+>> +int media_pipeline_started(struct media_pipeline *pipe);
+>> +
+>> +/**
+>> + * media_pipeline_stopped - Inform entities in a pipeline that it has stopped
+>> + * @pipe:	The pipeline
+>> + *
+>> + * Iterate on all entities in a media pipeline and call their pipeline_stopped
+>> + * member of media_entity_operations.
+>> + *
+>> + * Return: zero on success, or -ENOMEM if the iterator initialisation failed.
+>> + */
+>> +int media_pipeline_stopped(struct media_pipeline *pipe);
+>> +
+>>   /**
+>>    * media_pipeline_alloc_start - Mark a pipeline as streaming
+>>    * @pad: Starting pad
+>>
+>> --
+>> 2.34.1
+>>
+>>
 
 
