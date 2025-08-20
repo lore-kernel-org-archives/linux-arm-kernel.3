@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F21CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92626CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7nsBxVhM4rWa0Z0+1sKMa3EeiQcWomlA63Ko4Qo9Uo=; b=HH6HnY+XQTN4UZDtNmwXbpWXor
-	q3X2nKYfTP+7QMhVDBFWVPJ0gPOsi0hlmjz66LrfawVAI0byeVliEwXHwbwg+st5tvKTv8QbyAi+E
-	rY+Kv9FTiV38XA3yNqcoooAJX4tModDuhQT1Y8XkG5a51tML79ntcv2seN+RFM7NE6t8nrw7BSf7B
-	Knldy5xEJdgHkcecGurxiMF3x4m0V/asDn9XEnGkOx1QmkhX2oIGNoJr8IF+0IuAcSnPdTO46YnvF
-	kMzMSTRQl83u5WhPC0vWqS2VsFyfCbKUrHK09i95jNzSFlknR1Hr8CJoi6B1ZW5QhOWPBJ77/cun2
-	iVdyBgmg==;
+	bh=tMts4sHesj6GSNDqFnt9UYF3UMEWpW38HDAZR306TOw=; b=P2C0aJXwQ9vcZY/EQl4TuB9r3L
+	c6i52srWpSMZVO34Dvj8qctGfU6Qaz/tHMwGwvde+SisZlHvdRkpHfb7o8+Q1TcGF1cdvQqVNo+BU
+	YKStyIesbBR0f6wk3y7tV2C3khnFjzPkUhbHQT8Apmls92o89AG9YfMoGtophwnJEUul/TnTgjAFy
+	N9VPxiTz4X8qNT7zbZWJN1gVjOxS2WtGirwo1rRi/zrrzwvIrm/uNQz+dSIX8CRLLs+ZWdrOqYw+M
+	4fabd5ubb4sgFBrecK1qCCc0bgJwTuuHtk8vGV1AYiSRgqm9hS5zyNS/AaDdbyZhPwhKYIZDL8RNP
+	hzc00wzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotRR-0000000FKbX-1cww;
-	Thu, 21 Aug 2025 00:46:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uotU1-0000000FKtB-0cbT;
+	Thu, 21 Aug 2025 00:48:49 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoonO-0000000EmNn-2C3M;
-	Wed, 20 Aug 2025 19:48:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CFAD0A40934;
-	Wed, 20 Aug 2025 19:48:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1396CC4CEE7;
-	Wed, 20 Aug 2025 19:48:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755719309;
-	bh=ZAdsCPJer5cp70aNhszFdULfEcYeJDeg4An1kUlxQno=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uVa9a26WlpOd2lExJFNhW8+6lwgSbRgExkhkldbI0j4xzDmMulzGbeeGY6QqW1fkc
-	 5I+GOYGIT80lsYnM86pUsgDPyrDe8Wxqbm65JRjPrDfaIncSDwgtY/Y6TC1DROvb2F
-	 hmIyFjb6NKBu+6fJBmPjZSQVj9R1J5LCEogNn1DGtGIAAt+SIKqG1oqlnddN5O6EJ4
-	 //ea56WkFOEwm2khUhByKpGg2AVMm7Q5zTuymgE4qk+O9GZV5QpTICjhzLU6cwD299
-	 nvQaVGRCkzZrMwnHZDEOTyBjTFkVd4ACMTQs4P+rbb4dtD+KsqB1r0PUXfJcslaDcP
-	 P3ADJFHe9jCDQ==
-Date: Wed, 20 Aug 2025 20:48:23 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Diederik de Haas <didi.debian@cknow.org>, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH v2 3/3] dt-bindings: thermal: rockchip: tighten grf
- requirements
-Message-ID: <20250820-await-chomp-9812902c0f74@spud>
-References: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org>
- <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
+	id 1uooqG-0000000Emfm-1WEI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 19:51:29 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id B68A21D0010E;
+	Wed, 20 Aug 2025 15:51:26 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Wed, 20 Aug 2025 15:51:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1755719486; x=1755805886; bh=tMts4sHesj
+	6GSNDqFnt9UYF3UMEWpW38HDAZR306TOw=; b=kjPOP8UbesEeV4E9Bf0H+UGgd0
+	n7v8oKJJqo3KK4F8JpFElNj7cZKg6L2Je1DTqqTeyMl/oAnDsqd+h1Xhe/C/tvGo
+	FHEWXRiCJ/8N24wfVMJiEUrnZPkjhOvvdCgwNyoa2LIrbxb2pNfdeuWtIJIwIEHB
+	lnZ9M3oQ7RZwwwnzM+QaYtYH1AXAJdo1HvAN7eQk9CpFsmp+TKWkFS9fw5La1bZs
+	zqs0mr0yE9Sl7x9BzTOzkkM0VNI0uEMYj84kA7BwDwNfHr7mYYgeLIw+tcfiMwXi
+	19g2FAtiTCQphSbDtKF6M/rNJMqx9R+VMb0HrCPBHa7UpSdZIpV0YcN3wCdQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1755719486; x=1755805886; bh=tMts4sHesj6GSNDqFnt9UYF3UMEWpW38HDA
+	ZR306TOw=; b=g4Wf1KAvYTtaqjgSeraif43qBXAKjmfRoGJ+udkf4iYhm6wkxvA
+	iI0m4WV5gbinkQ5oceT6e0QLZhqO6ofFkgTbhi70K5m6ce2yHcw8Ovc1sYiMfQY/
+	nixXEWedAbpL44o0zvq4zo4AcfUUJQsI+m50NDuGlsVmTgrzRgJuMgDnVC0EoFfU
+	wtQuUqx/BorRSVJ8CF+AHxp+fdF6L7ay3UIH5x93oY/QixFDuiiGjDLiE5iN0lOZ
+	MADmmG6Bwj82eKf8vWeKhbdBeBVdRTfYnRDGBDpzja1SLe2GTTYf7ekmr/FRpT91
+	2wrWk/iE27RWkjdWoX05TdGpkiqctatEtsg==
+X-ME-Sender: <xms:PSemaC-Z_Ot9YL8AZ4NAAz-XvKLeXHhIEogovBWPDppsi8yuync5Og>
+    <xme:PSemaKXOW9np-5mjAqheo_UIFPoX1-bftkuf_vD4_fvCLlcoQOczkro2_1AYBlhxy
+    foxkpt2x3qHnvg94Q>
+X-ME-Received: <xmr:PSemaFo1RCyHfgzv0eKVsMZ14h86Pf7qYBp6KaQYtc-gSumwfNPrEiaIl_JypNpPx0nX69W_HN1QpjWIuPLlXDFZXoOYcot32A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduheelvdehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujggfsehttdfstddtreejnecuhfhrohhmpeflrghnucfr
+    rghluhhsuceojhhprghluhhssehfrghsthhmrghilhdrtghomheqnecuggftrfgrthhtvg
+    hrnhepudeviefhueeuudekfeeuiedvffegieefvdejgfetffeivdejueevheegheffteej
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpmhhsghhiugdrlhhinhhknecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhprghluhhssehf
+    rghsthhmrghilhdrtghomhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouh
+    htpdhrtghpthhtohephhgvlhhgrggrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
+    rhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgrii
+    iiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehprghliheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
+    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqphgtihesvhhgvghr
+    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrvghgrhgvshhsihhonhhssehlihhsth
+    hsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:PiemaElRfu-BcsJ0sxUnmx_oXPHzQSqQovn8mLuFh4dhy2yUEVf4tg>
+    <xmx:PiemaN1PBSiMAjm1Izwx7xoExp9Mfr9VUBouGJkrPfrxXv8L2pbArw>
+    <xmx:PiemaJQd_j2n5XhRbawqICRUkD_thjD75MMIhOUgdIBCxRRCQbDrqg>
+    <xmx:PiemaOyN7TByDAfNlCCe2uI6KRZBPC7kYJDOULOtC5Tb7fnfyG2t-Q>
+    <xmx:PiemaIpVMdy6B-o6NKnUnrUG6DjHcN2lvGDoCDHCaOMmLJLYvyhc0UvK>
+Feedback-ID: i01894241:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 20 Aug 2025 15:51:25 -0400 (EDT)
+Date: Wed, 20 Aug 2025 21:51:24 +0200
+From: Jan Palus <jpalus@fastmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <lxel4w2rpv5viwdv22sx72qyjvyircukzm5dkrxntrevighrav@zjsnisjum4us>
+References: <gn4sih6yrohqn35jc3hesxpgqhodtvq44ad7a6tbmknjywowvk@p2y24kjlnprd>
+ <20250820193055.GA636030@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Q0FCgrQS2OQS+FoE"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
+In-Reply-To: <20250820193055.GA636030@bhelgaas>
+User-Agent: NeoMutt/20250510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_124830_692752_029B5AD7 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250820_125128_508362_3F3E0D3E 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +115,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 20.08.2025 14:30, Bjorn Helgaas wrote:
+> On Wed, Aug 20, 2025 at 09:08:33PM +0200, Jan Palus wrote:
+> > On 20.08.2025 13:46, Bjorn Helgaas wrote:
+> > > [+cc maintainers, regressions list]
+> > > 
+> > > Jan, thanks very much for the report and the bisection.  Could you
+> > > attach the devicetree you're using to the bugzilla?
+> > 
+> > I guess I could dump it from running system if you'd like me to, but it's
+> > an upstream one without any customizations.
+> 
+> It's just easier if we know exactly what you're using.  I'm not an
+> mvebu user and can't guess.
+> 
 
---Q0FCgrQS2OQS+FoE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Just to make it clear, as stated in summary, issue concerns Turris Omnia
+device for which following dts is applicable:
 
-On Wed, Aug 20, 2025 at 07:40:49PM +0200, Sebastian Reichel wrote:
-> Instead of having an optional rockchip,grf property, forbid using it on
-> platforms without registers in a GRF being needed for thermal monitoring
-> and make it mandatory on the platforms actually needing it.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm/boot/dts/marvell/armada-385-turris-omnia.dts?h=v6.16
 
-I am assuming that "needing it" means that it was actually mandatory but
-the binding was just missing the required required entry. If so
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
->=20
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../devicetree/bindings/thermal/rockchip-thermal.yaml     | 15 +++++++++=
-++++++
->  1 file changed, 15 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.y=
-aml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> index 573f447cc26ed7100638277598b0e745d436fd01..9fa5c4c49d76e3a689f317978=
-75124e7fb30d3df 100644
-> --- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> @@ -119,6 +119,21 @@ required:
->    - resets
-> =20
->  allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,px30-tsadc
-> +              - rockchip,rk3366-tsadc
-> +              - rockchip,rk3399-tsadc
-> +              - rockchip,rk3568-tsadc
-> +    then:
-> +      required:
-> +        - rockchip,grf
-> +    else:
-> +      properties:
-> +        rockchip,grf: false
->    - if:
->        not:
->          properties:
->=20
-> --=20
-> 2.50.1
->=20
-
---Q0FCgrQS2OQS+FoE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKYmhwAKCRB4tDGHoIJi
-0lk7AP9pdXnawAo7vHzgRoCDQLvEYOnbJv5NOJbb8mHXjbf0lAEAsFcbnQidHn69
-nDsAJTevUWIbM9hHfimNJ3pk9is+lg8=
-=v71N
------END PGP SIGNATURE-----
-
---Q0FCgrQS2OQS+FoE--
+> > > On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
+> > > > https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> > > > 
+> > > >            Summary: [regression 6.16] mvebu: no pci devices detected on
+> > > >                     turris omnia
+> > > >           Reporter: jpalus@fastmail.com
+> > > > 
+> > > > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
+> > > > is completely empty). Bisected to:
+> > > > 
+> > > > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
+> > > > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
+> > > > Author: Rob Herring (Arm) <robh@kernel.org>
+> > > > Date:   Thu Nov 7 16:32:55 2024
+> > > > 
+> > > >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+> > > > 
+> > > >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> > > >     but it's still just normal "ranges" as far as parsing is concerned.
+> > > >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> > > >     instead of open coding the parsing.
+> > > > 
+> > > >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > > >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > > >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > > >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
+> > > > 
+> > > >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
+> > > >  1 file changed, 9 insertions(+), 17 deletions(-)
+> > > > 
+> > > > 
+> > > > kernel 6.16 logs following mesages related to PCI:
+> > > > 
+> > > > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
+> > > > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
+> > > > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
+> > > > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > > > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > > > [0x00080000-0x00081fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > > > [0x00040000-0x00041fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > > > [0x00044000-0x00045fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > > > [0x00048000-0x00049fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > > > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > > > PCI: bus0: Fast back to back transfers enabled
+> > > > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > > > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > > > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > > > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > > > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > > > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > > > 
+> > > > 
+> > > > while kernel 6.15 logs following:
+> > > > 
+> > > > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > > > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
+> > > > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
+> > > > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
+> > > > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > > > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > > > [0x00080000-0x00081fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > > > [0x00040000-0x00041fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > > > [0x00044000-0x00045fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > > > [0x00048000-0x00049fff])
+> > > > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > > > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > > > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > > pci 0000:00:01.0: PCI bridge to [bus 00]
+> > > > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
+> > > > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
+> > > > /soc/pcie/pcie@1,0/interrupt-controller
+> > > > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > > pci 0000:00:02.0: PCI bridge to [bus 00]
+> > > > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
+> > > > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
+> > > > /soc/pcie/pcie@2,0/interrupt-controller
+> > > > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > > pci 0000:00:03.0: PCI bridge to [bus 00]
+> > > > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
+> > > > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
+> > > > /soc/pcie/pcie@3,0/interrupt-controller
+> > > > PCI: bus0: Fast back to back transfers disabled
+> > > > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > > PCI: bus1: Fast back to back transfers enabled
+> > > > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > > > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
+> > > > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+> > > > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > > > pci 0000:02:00.0: supports D1
+> > > > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
+> > > > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
+> > > > reconfiguring
+> > > > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > > > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > > > PCI: bus2: Fast back to back transfers disabled
+> > > > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+> > > > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
+> > > > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+> > > > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > > > pci 0000:03:00.0: supports D1
+> > > > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
+> > > > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
+> > > > reconfiguring
+> > > > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > > > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > > > PCI: bus3: Fast back to back transfers disabled
+> > > > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+> > > > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
+> > > > add_size 200000 add_align 200000
+> > > > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
+> > > > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
+> > > > pci 0000:00:01.0: PCI bridge to [bus 01]
+> > > > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
+> > > > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
+> > > > pci 0000:00:02.0: PCI bridge to [bus 02]
+> > > > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
+> > > > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
+> > > > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
+> > > > pci 0000:00:03.0: PCI bridge to [bus 03]
+> > > > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
+> > > > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > > > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > > > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > > > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > > > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > > > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > > > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
+> > > > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
+> > > > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
+> > > > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+> > > 
+> > > #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
 
