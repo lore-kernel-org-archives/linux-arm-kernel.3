@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E421BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:51:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D966CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 20:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kHX3BHOVyKDr1vkSjiBcFwyG72/E1SLSWwTaTy9ZuNQ=; b=PEO9dwqlROtG9zgoyYdS43bMgl
-	NH/wOQCJSjUDqiS4664/gB+CGUEtt1WevSHtggKqiWgWhTiZXAb2GNN6lVDujf9hUHK/GBg+8JXyY
-	I4SAPwb0+oOgdGa26nm/pzjyZULFLjh3hh/VXvM0PdMpuThXdXzyijNZwhRDGC+gtP9vhQEi8Kim7
-	fWEU3jA7R8KHSO6aRJgbpVcwHxSOi+/t5+iTDkSAiDys/jca9gpl99mXFW7KOOj17eZT2TxyTqC8m
-	mETAiF9Ld0U4P/GrpdieBwlP9uEdVFdExOW0pvi6coLyS6aAaKyTlQQhzIqZ0uZH/2ibQ732JErl+
-	qRg6ZV+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iRm9I8Xj4cKI+TfaT/DXzAPfqmULZ/iiCDV0viStt4g=; b=guGdMhQcnIkbXr4XNJqI/1WPXb
+	uPxGzYjgtBR10u47q4w0koUxNY4dm7txvF5un+gVlZp2Are8u0naJdeyIh8yBpwITcr9oatF/3ozh
+	aE920U9IbMGiUjZ9vuwF1FcejWXfbf7z9XtEKHg9BXQB0GwoFIGVa3XFy9WrCNKqOZQnO0eUkpPa6
+	0zhFGN4n6K0W6Zj9/Jt3P77FR+9KV4sykjSsEAKZGfDTBDcekozn+1l/J+r/5ZiUiSXsNilkNRnm+
+	akj9f65IXcqBvxLGOX4dQcdzPgp/kV/nvi/iJVW/3byEsvd/yeQdg3Td2ciQFDhjPNBQfittobuem
+	0OUmWv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uopmE-0000000EuOF-0wut;
+	id 1uopmE-0000000EuPT-49w1;
 	Wed, 20 Aug 2025 20:51:22 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoliH-0000000EP9X-2QPP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 16:31:02 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4c6X4z71W5z9vMg;
-	Wed, 20 Aug 2025 18:30:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1755707460;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kHX3BHOVyKDr1vkSjiBcFwyG72/E1SLSWwTaTy9ZuNQ=;
-	b=VhqdhUpNPmGW+KEPWH6K5tDuGBxQhOK+BGOvOoemCrvixzTc2IRS57TWliX55pIxjryPUA
-	DRu730wmT/NgWQ+9cKc4WOB+AZAeu4xPo3oxS5zy87i2aLWrfhOsXX8EjfaVM+3UPBo+dW
-	xOi6+ULU0nrt560SEfgZnSi0zU3WujWWngNYUIn3fv5e3IQh/7ajFsDkxX0n7IKdgQZ7oM
-	AhgGGLc+JYU5aryhs0PnUpAgFjwmBSSGKx7LiuWE+wFoaT2ebswnqdsPBpnDXGxvdUQKmc
-	0dAkLnm5Sw9tlAVHRHMDB1uaGvCJeI3HCnkp+8t2y/2r0z8oVm7A72Fq/K1SAg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=JYM4aPen;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1755707458;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kHX3BHOVyKDr1vkSjiBcFwyG72/E1SLSWwTaTy9ZuNQ=;
-	b=JYM4aPenlEoMXC6t6hOptefkWXAlhy0cTi+IJjzx2EvtnWkADM6mROMswJmluONAQUYC0O
-	J+rEAqilgqXrl4BIsGSR7a3jQ/ubR4kCxAb/riipYolwzzUCBmc8WqiuZ7v1VNFivDHBcX
-	JdLpcnMnqGwSRWZm2FgLT/135Qhyr/8zShtJR+NGDr2EnKm4s/1ObXNKM/6sNlAoHIJ8qh
-	hB0m/nargpm2Br38aW4xGzCv6IASzd3g2Nt1xunc4sYkgliEtZ465HeIZvucscjmVr4cR5
-	XlxLwbZUjaw4IsbJe21FZGOFNUo24BWVpmR14AJ/QfeuiNwtcZaeGN4nofnAZA==
-To: linux-media@vger.kernel.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Ming Qian <ming.qian@oss.nxp.com>,
-	Mirela Rabulea <mirela.rabulea@nxp.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] media: imx-jpeg: Add support for descriptor allocation from SRAM
-Date: Wed, 20 Aug 2025 18:29:53 +0200
-Message-ID: <20250820163046.209917-1-marek.vasut@mailbox.org>
+	id 1uollY-0000000EPjJ-3Wlq;
+	Wed, 20 Aug 2025 16:34:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4CE275C673D;
+	Wed, 20 Aug 2025 16:34:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12721C4CEE7;
+	Wed, 20 Aug 2025 16:34:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755707664;
+	bh=1SmINIXApk/rDoKKx82uVKPJSOdJg4DUAj+yAYn/Qlo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P25E8I0+N9soufsYxe6o1473U2YqA0vAMqaUeSoWcBvu3nz5DZxu7YpXwArUa4dp0
+	 C7Q6nq6HFLweUc1x7FKbAmYPsTJ5jDweX7ErKBDU4+icafh84YyWVK15Sw2vHUYiC6
+	 8ZqdFgzXHrNG7BHasTre09//Aj7CKO/ttOudvO3EuFyZ4ec0jiJGif3jRkX5ILY2LT
+	 fL08dCXQdRS+OX8ZFs0TBKqYE4KuiU2LxRWv0gQZoBOXWArDZq3PF6PH1gnf0SpbtB
+	 6DS4v3H30/RNHz9TM4IsQaXcLzZT4Yzat4gRjTj8fA1MDDSzZCUCgZzI8PaClHTGSG
+	 fmaMdfOtn9TtQ==
+Date: Wed, 20 Aug 2025 22:04:19 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
+	William Mcvicker <willmcvicker@google.com>,
+	Manivannan Sadhasivam <mani@kernel.org>, neil.armstrong@linaro.org
+Subject: Re: [PATCH v3 1/2] phy: add new phy_notify_state() api
+Message-ID: <aKX5C9Xlx2CSJraY@vaman>
+References: <20250813-phy-notify-pmstate-v3-0-3bda59055dd3@linaro.org>
+ <20250813-phy-notify-pmstate-v3-1-3bda59055dd3@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 533af5eeeb0adf48f1b
-X-MBO-RS-META: it9z8mmorgymzt8d999x7urox1a7z8ws
-X-Rspamd-Queue-Id: 4c6X4z71W5z9vMg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250813-phy-notify-pmstate-v3-1-3bda59055dd3@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_093101_758458_CDF8F9F5 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20250820_093424_964540_5D11789C 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,189 +79,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for optional allocation of bitstream descriptors from SRAM
-instead of DRAM. In case the encoder/decoder DT node contains 'sram'
-property which points to 'mmio-sram', the driver will attempt to use
-the SRAM instead of DRAM for descriptor allocation, which might improve
-performance.
+On 13-08-25, 16:00, Peter Griffin wrote:
+> Add a new phy_notify_state() api that notifies and configures a phy for a
+> given state transition.
+> 
+> This is intended to be by phy drivers which need to do some runtime
+                    ^^^^^^^^^^
+Missing 'used' possibly? 
 
-This however helps on i.MX95 with sporadic SLOTn_STATUS IMG_RD_ERR bit 11
-being triggered during JPEG encoding. The following pipeline triggers the
-problem when descriptors get allocated from DRAM, the pipeline often hangs
-after a few seconds and the encoder driver indicates "timeout, cancel it" :
+> configuration of parameters that can't be handled by phy_calibrate() or
+> phy_power_{on|off}().
+> 
+> The first usage of this API is in the Samsung UFS phy that needs to issue
+> some register writes when entering and exiting the hibernate link state.
+> 
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> ---
+>  drivers/phy/phy-core.c  | 25 +++++++++++++++++++++++++
+>  include/linux/phy/phy.h | 19 +++++++++++++++++++
+>  2 files changed, 44 insertions(+)
+> 
+> diff --git a/drivers/phy/phy-core.c b/drivers/phy/phy-core.c
+> index 04a5a34e7a950ae94fae915673c25d476fc071c1..60be8af984bf06649ef00e695d0ed4ced597cdb9 100644
+> --- a/drivers/phy/phy-core.c
+> +++ b/drivers/phy/phy-core.c
+> @@ -520,6 +520,31 @@ int phy_notify_disconnect(struct phy *phy, int port)
+>  }
+>  EXPORT_SYMBOL_GPL(phy_notify_disconnect);
+>  
+> +/**
+> + * phy_notify_state() - phy state notification
+> + * @phy: the PHY returned by phy_get()
+> + * @state: the PHY state
+> + *
+> + * Notify the PHY of a state transition. Used to notify and
+> + * configure the PHY accordingly.
+> + *
+> + * Returns: %0 if successful, a negative error code otherwise
+> + */
+> +int phy_notify_state(struct phy *phy, union phy_notify state)
+> +{
+> +	int ret;
+> +
+> +	if (!phy || !phy->ops->notify_phystate)
+> +		return 0;
+> +
+> +	mutex_lock(&phy->mutex);
+> +	ret = phy->ops->notify_phystate(phy, state);
+> +	mutex_unlock(&phy->mutex);
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(phy_notify_state);
+> +
+>  /**
+>   * phy_configure() - Changes the phy parameters
+>   * @phy: the phy returned by phy_get()
+> diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
+> index 13add0c2c40721fe9ca3f0350d13c035cd25af45..664d0864c3a5042949cb121e982368fe0a97827f 100644
+> --- a/include/linux/phy/phy.h
+> +++ b/include/linux/phy/phy.h
+> @@ -53,6 +53,15 @@ enum phy_media {
+>  	PHY_MEDIA_DAC,
+>  };
+>  
+> +enum phy_ufs_state {
+> +	PHY_UFS_HIBERN8_ENTER,
+> +	PHY_UFS_HIBERN8_EXIT,
+> +};
+> +
+> +union phy_notify {
+> +	enum phy_ufs_state ufs_state;
+> +};
+> +
+>  /**
+>   * union phy_configure_opts - Opaque generic phy configuration
+>   *
+> @@ -83,6 +92,7 @@ union phy_configure_opts {
+>   * @set_speed: set the speed of the phy (optional)
+>   * @reset: resetting the phy
+>   * @calibrate: calibrate the phy
+> + * @notify_phystate: notify and configure the phy for a particular state
+>   * @release: ops to be performed while the consumer relinquishes the PHY
+>   * @owner: the module owner containing the ops
+>   */
+> @@ -132,6 +142,7 @@ struct phy_ops {
+>  	int	(*connect)(struct phy *phy, int port);
+>  	int	(*disconnect)(struct phy *phy, int port);
+>  
+> +	int	(*notify_phystate)(struct phy *phy, union phy_notify state);
+>  	void	(*release)(struct phy *phy);
+>  	struct module *owner;
+>  };
+> @@ -255,6 +266,7 @@ int phy_reset(struct phy *phy);
+>  int phy_calibrate(struct phy *phy);
+>  int phy_notify_connect(struct phy *phy, int port);
+>  int phy_notify_disconnect(struct phy *phy, int port);
+> +int phy_notify_state(struct phy *phy, union phy_notify state);
+>  static inline int phy_get_bus_width(struct phy *phy)
+>  {
+>  	return phy->attrs.bus_width;
+> @@ -412,6 +424,13 @@ static inline int phy_notify_disconnect(struct phy *phy, int index)
+>  	return -ENOSYS;
+>  }
+>  
+> +static inline int phy_notify_phystate(struct phy *phy, union phy_notify state)
+> +{
+> +	if (!phy)
+> +		return 0;
+> +	return -ENOSYS;
 
-gst-launch-1.0 videotestsrc ! video/x-raw,width=256,height=256,format=YUY2 ! \
-               queue ! v4l2jpegenc ! queue ! fakesink
+Should be -ENOSYS either way, right?
 
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Ming Qian <ming.qian@oss.nxp.com>
-Cc: Mirela Rabulea <mirela.rabulea@nxp.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-media@vger.kernel.org
----
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 69 +++++++++++--------
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.h    |  1 +
- 2 files changed, 42 insertions(+), 28 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index aef1d6473eb8d..0095c2182ed39 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -44,6 +44,7 @@
- #include <linux/module.h>
- #include <linux/io.h>
- #include <linux/clk.h>
-+#include <linux/genalloc.h>
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-@@ -783,32 +784,40 @@ static int mxc_get_free_slot(struct mxc_jpeg_slot_data *slot_data)
- 	return -1;
- }
- 
-+static void mxc_jpeg_free(struct mxc_jpeg_dev *jpeg, size_t size, void *addr, dma_addr_t handle)
-+{
-+	if (jpeg->sram_pool)
-+		gen_pool_free(jpeg->sram_pool, (unsigned long)addr, size);
-+	else
-+		dma_free_coherent(jpeg->dev, size, addr, handle);
-+}
-+
- static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
- {
- 	/* free descriptor for decoding/encoding phase */
--	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
--			  jpeg->slot_data.desc,
--			  jpeg->slot_data.desc_handle);
-+	mxc_jpeg_free(jpeg, sizeof(struct mxc_jpeg_desc),
-+		      jpeg->slot_data.desc,
-+		      jpeg->slot_data.desc_handle);
- 	jpeg->slot_data.desc = NULL;
- 	jpeg->slot_data.desc_handle = 0;
- 
- 	/* free descriptor for encoder configuration phase / decoder DHT */
--	dma_free_coherent(jpeg->dev, sizeof(struct mxc_jpeg_desc),
--			  jpeg->slot_data.cfg_desc,
--			  jpeg->slot_data.cfg_desc_handle);
-+	mxc_jpeg_free(jpeg, sizeof(struct mxc_jpeg_desc),
-+		      jpeg->slot_data.cfg_desc,
-+		      jpeg->slot_data.cfg_desc_handle);
- 	jpeg->slot_data.cfg_desc_handle = 0;
- 	jpeg->slot_data.cfg_desc = NULL;
- 
- 	/* free configuration stream */
--	dma_free_coherent(jpeg->dev, MXC_JPEG_MAX_CFG_STREAM,
--			  jpeg->slot_data.cfg_stream_vaddr,
--			  jpeg->slot_data.cfg_stream_handle);
-+	mxc_jpeg_free(jpeg, MXC_JPEG_MAX_CFG_STREAM,
-+		      jpeg->slot_data.cfg_stream_vaddr,
-+		      jpeg->slot_data.cfg_stream_handle);
- 	jpeg->slot_data.cfg_stream_vaddr = NULL;
- 	jpeg->slot_data.cfg_stream_handle = 0;
- 
--	dma_free_coherent(jpeg->dev, jpeg->slot_data.cfg_dec_size,
--			  jpeg->slot_data.cfg_dec_vaddr,
--			  jpeg->slot_data.cfg_dec_daddr);
-+	mxc_jpeg_free(jpeg, jpeg->slot_data.cfg_dec_size,
-+		      jpeg->slot_data.cfg_dec_vaddr,
-+		      jpeg->slot_data.cfg_dec_daddr);
- 	jpeg->slot_data.cfg_dec_size = 0;
- 	jpeg->slot_data.cfg_dec_vaddr = NULL;
- 	jpeg->slot_data.cfg_dec_daddr = 0;
-@@ -816,6 +825,14 @@ static void mxc_jpeg_free_slot_data(struct mxc_jpeg_dev *jpeg)
- 	jpeg->slot_data.used = false;
- }
- 
-+static struct mxc_jpeg_desc *mxc_jpeg_alloc(struct mxc_jpeg_dev *jpeg, size_t size, dma_addr_t *handle)
-+{
-+	if (jpeg->sram_pool)
-+		return gen_pool_dma_zalloc(jpeg->sram_pool, size, handle);
-+	else
-+		return dma_alloc_coherent(jpeg->dev, size, handle, GFP_ATOMIC);
-+}
-+
- static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
- {
- 	struct mxc_jpeg_desc *desc;
-@@ -826,37 +843,29 @@ static bool mxc_jpeg_alloc_slot_data(struct mxc_jpeg_dev *jpeg)
- 		goto skip_alloc; /* already allocated, reuse it */
- 
- 	/* allocate descriptor for decoding/encoding phase */
--	desc = dma_alloc_coherent(jpeg->dev,
--				  sizeof(struct mxc_jpeg_desc),
--				  &jpeg->slot_data.desc_handle,
--				  GFP_ATOMIC);
-+	desc = mxc_jpeg_alloc(jpeg, sizeof(struct mxc_jpeg_desc),
-+			      &jpeg->slot_data.desc_handle);
- 	if (!desc)
- 		goto err;
- 	jpeg->slot_data.desc = desc;
- 
- 	/* allocate descriptor for configuration phase (encoder only) */
--	cfg_desc = dma_alloc_coherent(jpeg->dev,
--				      sizeof(struct mxc_jpeg_desc),
--				      &jpeg->slot_data.cfg_desc_handle,
--				      GFP_ATOMIC);
-+	cfg_desc = mxc_jpeg_alloc(jpeg, sizeof(struct mxc_jpeg_desc),
-+				  &jpeg->slot_data.cfg_desc_handle);
- 	if (!cfg_desc)
- 		goto err;
- 	jpeg->slot_data.cfg_desc = cfg_desc;
- 
- 	/* allocate configuration stream */
--	cfg_stm = dma_alloc_coherent(jpeg->dev,
--				     MXC_JPEG_MAX_CFG_STREAM,
--				     &jpeg->slot_data.cfg_stream_handle,
--				     GFP_ATOMIC);
-+	cfg_stm = mxc_jpeg_alloc(jpeg, MXC_JPEG_MAX_CFG_STREAM,
-+				 &jpeg->slot_data.cfg_stream_handle);
- 	if (!cfg_stm)
- 		goto err;
- 	jpeg->slot_data.cfg_stream_vaddr = cfg_stm;
- 
- 	jpeg->slot_data.cfg_dec_size = MXC_JPEG_PATTERN_WIDTH * MXC_JPEG_PATTERN_HEIGHT * 2;
--	jpeg->slot_data.cfg_dec_vaddr = dma_alloc_coherent(jpeg->dev,
--							   jpeg->slot_data.cfg_dec_size,
--							   &jpeg->slot_data.cfg_dec_daddr,
--							   GFP_ATOMIC);
-+	jpeg->slot_data.cfg_dec_vaddr = mxc_jpeg_alloc(jpeg, jpeg->slot_data.cfg_dec_size,
-+						       &jpeg->slot_data.cfg_dec_daddr);
- 	if (!jpeg->slot_data.cfg_dec_vaddr)
- 		goto err;
- 
-@@ -2902,6 +2911,10 @@ static int mxc_jpeg_probe(struct platform_device *pdev)
- 	jpeg->dev = dev;
- 	jpeg->mode = mode;
- 
-+	/* SRAM pool is optional */
-+	jpeg->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
-+	dev_info(dev, "Using DMA descriptor pool in %cRAM\n", jpeg->sram_pool ? 'S' : 'D');
-+
- 	/* Get clocks */
- 	ret = devm_clk_bulk_get_all(&pdev->dev, &jpeg->clks);
- 	if (ret < 0) {
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-index 7f0910fc9b47e..311f2f2ac519f 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
-@@ -142,6 +142,7 @@ struct mxc_jpeg_dev {
- 	int				num_domains;
- 	struct device			**pd_dev;
- 	struct device_link		**pd_link;
-+	struct gen_pool			*sram_pool;
- };
- 
- /**
 -- 
-2.50.1
-
+~Vinod
 
