@@ -4,49 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FBFCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:05:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5865CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L/Ek9ahyvLJXOjuQE8zTuiaLTzC0yOsevKndUWOy+RE=; b=EAGwEHcnKtLb98qK0k8PD/b1tI
-	OuHf4Ro8E5mmze1q1Ajn3n0QCeFJaixMGgTe4OWOJrUtxk/7Itkv6TK2H81XsuJPi1TP0lBPgqWdh
-	1EQNpn6gStfnjj742d0KaL7wTCL4RsWBzw9iN9a/Nb6lOOP8PxPNB91w1R6SUvww5OphHcM7H+SzE
-	PW91OjzUNRFFSVZeLrCSZn71Am7TmWmSTsB2Mjt5ZzCK9i8IdbAE5e1caugES3ihYpe2vzfq5AumN
-	EiGdCTvwLIsMkYGonevHJ+rjoouSXe5/8fLMG8O/UhAqj35jBxDeW1r/Ajy0xZzyCAlrU+f14pwee
-	qCRsKwgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pPixgx/r2pzG9SYlVyxWbRJbcFdefcug1MJMB9A4a4U=; b=sOfmofwDDrB6lG
+	brKLNBGy4H68oIWWFVvOMsQFY0JdpZG6VwDqwYv6UY4pqHGQlOLMnQCMrzzwDa2TMsKY9JFaZLKO5
+	kQRCP/lA34Ak+jeYTjR5FK3W6SYPpvyo21dc2cE95H9jOcM5xhiTykinKmI85SeSjeem/J1aH5yKV
+	FkRYhfH7bTsKzmUU+9CLlON6OXbE6KFiuWL8RsoYqeQ3mfZNOphzsCnah1MgzHrh6Sivy427WtnQn
+	SHLysmAjns6q07rSYJOIT8UAzRcCULNa/AOSNuWxWQPMCwkUzvx0vdEAsrto95hZj42Z9JVVK+SEJ
+	olfp5CuNRcLr2tuhM9lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojR2-0000000Dvt3-22T4;
-	Wed, 20 Aug 2025 14:05:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoig7-0000000DjYL-3W5x
+	id 1uojTd-0000000DwgA-1lSk;
+	Wed, 20 Aug 2025 14:07:45 +0000
+Received: from mail-lf1-f43.google.com ([209.85.167.43])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uoihO-0000000Djs2-2NnP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 13:16:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0524B152B;
-	Wed, 20 Aug 2025 06:16:25 -0700 (PDT)
-Received: from e133380.cambridge.arm.com (e133380.arm.com [10.1.197.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52B843F58B;
-	Wed, 20 Aug 2025 06:16:32 -0700 (PDT)
-From: Dave Martin <Dave.Martin@arm.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	James Morse <james.morse@arm.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Subject: [PATCH] arm_mpam: Relax num_rmids parameter advertised to userspace
-Date: Wed, 20 Aug 2025 14:15:21 +0100
-Message-Id: <20250820131621.54983-1-Dave.Martin@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 20 Aug 2025 13:17:55 +0000
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-55ce508d4d6so5155005e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:17:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755695871; x=1756300671;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pPixgx/r2pzG9SYlVyxWbRJbcFdefcug1MJMB9A4a4U=;
+        b=aJWlPe4FoyVvN0toiZGyAlewC9mbM7uiwqAxTiVPf76ULFdcotay4v9ES0mFPJhza6
+         YcQ1si6VK5s5qhL/bNQY7+kRw/WIHyghMlCspgElpx5IH2JjK7F/k4D4bk1MB8Gc29qh
+         iwCKZR4fwH/A4FuZp/uC3JTKBZuf+ovAK6KXNXkJa+QU1p8V9HyDqAgJXEx8hZnjT+0+
+         uAnYzTnmFdDWhXZDLOR9KKtbSGwj6jRf1dM6OSANpRS57LmZvfxj/6FPDpJN00X38QUt
+         Q9jgUXV8NO7d3AFKTAoAVFJ0TRaUvp4wnW2GNSl0kp77k2QX8h64nDkuSRSpnTQQNaxA
+         DDeA==
+X-Forwarded-Encrypted: i=1; AJvYcCV3IyyAc1+WIzw0/CXREbY9IB5BIJ+BYLI9rrHLSTwFbtu/MfhgvLxTdYlc1FWhrU9Rll0RkgaFmEU+ZVLEKHru@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/2sNR/DcwW9wchFxJ4R96RD8U7kx7P3RmMEmlkqakI4XOWIVW
+	19mhagCI1CbIEGjaqXtIMR/fny2hX6qT0MlU3CKXOBom3oMdpfSS618L7FC0m0NX
+X-Gm-Gg: ASbGncu5kbXy7ZYemLw15/K6KWKoO01jNoR1SOLHXtef3IZa7sJPt8QXkBCxTRmczy4
+	rYSDkMlZs4XgyHKCFLwfE8HOh74DAxH3uwY0hmfWNkwSGNL9Ue8YsABmRjbL/F7Gk2dTVmIwX04
+	6vo0LSb21lUs6S2E529t3yb/6xgQOMqjiEmn9ve9yWKFr6c/qQOpYylBaqFlynW91KYWK3BoghA
+	WfrVf7YxcVq1X4ws9NhIJ9YhDwbOj9Zd7xIan9CjuNjOIBPPqXMLf1PnBYZ2kEShFHG/dYq5OJN
+	DDTOjRZywJZwMvijSf4syZRwDoftaQcMWASsff1kHF+3QBW9OmndArd3G2E0ijHcnMYn6kCp6bv
+	SIbynI095czAjV+r/s8G3A3BsKuOP7KbNeHt6Gg9JrMXg3strmsE=
+X-Google-Smtp-Source: AGHT+IH1RlKgqQnUaZWfqcjZX4zQngGPJyh7z7Z3FMioJ5BRfrEPcRSOkTCB40noiZDqb4XJ2xt0yg==
+X-Received: by 2002:a19:6a13:0:b0:55b:96e5:195f with SMTP id 2adb3069b0e04-55e06b2c4c2mr667998e87.11.1755695870647;
+        Wed, 20 Aug 2025 06:17:50 -0700 (PDT)
+Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com. [209.85.167.48])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cef3f3525sm2562553e87.108.2025.08.20.06.17.47
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 Aug 2025 06:17:47 -0700 (PDT)
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-55ce5243f6dso7162541e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:17:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXZF3uySI3zueHw9aUcFI0PImvadwg4+7S17y0hn6PxnMRT585Dl8TEkVChTxWlwAUEB9UUH5O0gt93Z/5/WRLa@lists.infradead.org
+X-Received: by 2002:a05:651c:4102:b0:333:b656:a69d with SMTP id
+ 38308e7fff4ca-3353bcd77efmr4582191fa.7.1755695867435; Wed, 20 Aug 2025
+ 06:17:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250819143935.372084-1-rongqianfeng@vivo.com> <20250819143935.372084-5-rongqianfeng@vivo.com>
+In-Reply-To: <20250819143935.372084-5-rongqianfeng@vivo.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Wed, 20 Aug 2025 21:17:33 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67aScycSHQr+cToshGz=u6vOCcdamZmqBaDbpgD3zg0_Q@mail.gmail.com>
+X-Gm-Features: Ac12FXxY1RMn12OMP_6ZvaC7ig2Ko0gOCjNM_-u3K-s-PXBOydhAFgSyE2Itvsw
+Message-ID: <CAGb2v67aScycSHQr+cToshGz=u6vOCcdamZmqBaDbpgD3zg0_Q@mail.gmail.com>
+Subject: Re: [PATCH 4/4] pinctrl: sunxi: use kcalloc() instead of kzalloc()
+To: Qianfeng Rong <rongqianfeng@vivo.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, 
+	"open list:PIN CONTROL SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_061635_915551_5BF015BE 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250820_061754_607037_39FB69D5 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,68 +95,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MPAM systems, monitoring groups are identified in the hardware by a
-(PARTID, PMG) pair.  Two monitoring group identifiers are the same only
-if the PARTIDs and PMGs both match.  This means that the number of
-monitoring groups that can be created in each control group is the same
-as the number of distinct PMG values supported by the hardware.  The
-number of monitoring groups that exist in other control groups at the
-same time makes no difference to this.
+On Tue, Aug 19, 2025 at 10:40=E2=80=AFPM Qianfeng Rong <rongqianfeng@vivo.c=
+om> wrote:
+>
+> Use devm_kcalloc() in init_pins_table() and prepare_function_table() to
+> gain built-in overflow protection, making memory allocation safer when
+> calculating allocation size compared to explicit multiplication.
+>
+> Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
 
-Currently, the MPAM driver takes the cautious approach and always
-num_rmids = 1.
+Acked-by: Chen-Yu Tsai <wens@csie.org>
 
-Relax this limit, by advertising the number of distinct PMG values
-supported by the hardware.
-
-Code/Data Prioritization (CDP) makes no difference, since although this
-doubles the number of (PARTID, PMG) pairs available to a control group,
-each monitoring group now consumes two pairs instead of one.
-
-Suggested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
----
-
-This patch is based on:
-
-git://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.16-rc5
-
- drivers/platform/arm64/mpam/mpam_resctrl.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
-index f1e565cd1aac..f4f6fa9acfff 100644
---- a/drivers/platform/arm64/mpam/mpam_resctrl.c
-+++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
-@@ -1208,12 +1208,17 @@ static void mpam_resctrl_monitor_init(struct mpam_class *class,
- 		/*
- 		 * Unfortunately, num_rmid doesn't mean anything for
- 		 * mpam, and its exposed to user-space!
--		 * num-rmid is supposed to mean the number of groups
--		 * that can be created, both control or monitor groups.
--		 * For mpam, each control group has its own pmg/rmid
--		 * space.
-+		 *
-+		 * num-rmid is supposed to mean the minimum number of
-+		 * monitoring groups that can exist simultaneously, including
-+		 * the default monitoring group for each control group.
-+		 *
-+		 * For mpam, each control group has its own pmg/rmid space, so
-+		 * it is not appropriate to advertise the whole rmid_idx space
-+		 * here.  But the pmgs corresponding to the parent control
-+		 * group can be allocated freely:
- 		 */
--		l3->num_rmid = 1;
-+		l3->num_rmid = mpam_pmg_max + 1;
- 
- 		switch (type) {
- 		case QOS_L3_MBM_LOCAL_EVENT_ID:
-
-base-commit: b8e4905233fe45814b3c73be7e091f172cfb86ce
--- 
-2.34.1
-
+> ---
+>  drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c b/drivers/pinctrl/s=
+unxi/pinctrl-sunxi-dt.c
+> index 4e34b0cd3b73..5f13315ebff3 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+> @@ -103,7 +103,7 @@ static struct sunxi_desc_pin *init_pins_table(struct =
+device *dev,
+>                 return ERR_PTR(-EINVAL);
+>         }
+>
+> -       pins =3D devm_kzalloc(dev, desc->npins * sizeof(*pins), GFP_KERNE=
+L);
+> +       pins =3D devm_kcalloc(dev, desc->npins, sizeof(*pins), GFP_KERNEL=
+);
+>         if (!pins)
+>                 return ERR_PTR(-ENOMEM);
+>
+> @@ -199,7 +199,7 @@ static int prepare_function_table(struct device *dev,=
+ struct device_node *pnode,
+>          * Allocate the memory needed for the functions in one table.
+>          * We later use pointers into this table to mark each pin.
+>          */
+> -       func =3D devm_kzalloc(dev, num_funcs * sizeof(*func), GFP_KERNEL)=
+;
+> +       func =3D devm_kcalloc(dev, num_funcs, sizeof(*func), GFP_KERNEL);
+>         if (!func)
+>                 return -ENOMEM;
+>
+> --
+> 2.34.1
+>
 
