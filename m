@@ -4,190 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D9ECA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72E9CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9i1oBURNLeyRxps0JxepzLZ7pq47oD1CA792qvWQ8k=; b=g/fYVquEzBQDv5oFyIOW6pz+a1
-	JjA9ScQzuRJwBMHzlLJxBpDLryVqHV+fDDIuHvxJffUhMOniwK48er//OicLOZkU6LOI0mXqTZDIX
-	nOof2R69OsRJo5yC1gCVBBbutpv564OzWPwA0mdHjFf3G+BWjSVBjFYw3vluaxkIuzoXL8i/NOT/n
-	Vt2QtVYnviJxjYAWfL0HJ7sfXY77oiEXdOJPA67kGSj2hfew/X/V97FO6TvWcAh0VDlfzqiPWAunO
-	Aerek6ga793jq+8FF68PNjNk7elYkBcoCjoV5RgQqy4b1Eeg5skB5uDk7wo3PWdwD5zokHmE6pySj
-	a1Y74+vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ViWwyk8xA5c8CjACEGnBSfHoir4577hj2jzKqCqnRAw=; b=QLd5lKm1OO7IuGzw7/Jc3aLSPg
+	HwbcbrWYupQe65RrufA1iLBZZlhGVqQk5eUI5IlR/wwig3kUm1TaMJHNKirlbA2gMNzVSY/fVdsue
+	HjCtPjhKoasFY0Ala5lnd9veIq6XkGSaqmifXcMdVAQrHzqLGIEX8P3XxHP2gzeY6sKW6J7RzQe6W
+	miI553hKKB6d3m1IBRVvQUd8BzXG4Y2skTvEF6pv/Tjad/MdICMh/zMnu1AcCtqD4SdpAXvyyt6/w
+	tioCICxhVBsXtu67cB0eMY1M7cK1IL6xyjL86tBB7+FBZeA7PVw0RtLVYoDAtyCESHQKIuI80mZkt
+	NuNYUd5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uog7H-0000000DAlw-0FqX;
-	Wed, 20 Aug 2025 10:32:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uog8a-0000000DBED-32MV;
+	Wed, 20 Aug 2025 10:33:48 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofRd-0000000D16s-05L0;
-	Wed, 20 Aug 2025 09:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=g9i1oBURNLeyRxps0JxepzLZ7pq47oD1CA792qvWQ8k=; b=IJSBaxW9LTecg+FEdf2ONNTuVc
-	cAP/ezoq8OTA9yqr99902kVmbs7fvDAECD7GkbXjVpnoLBifFS/3Uty678HdSLqHqHNtM7WcoE73c
-	izVNmDONDblF1/fq0KhGSo8YVtTCVg6E6KQRmHyNTp+lQmwIRV2yNQbFgcxQvYo7k5faryycQMWH1
-	l9ugfHidLAM6h28fWvxp9W+KqeHLv2d6Y1BbuhSl2v2tHkjfMSWQJAwUDjVMoz1AXxAMK15Lmb4mI
-	YuS8safDwXRZEOx6t2F4ITFe5/Zk1UzEX8cpWocYgn0eM/4k2kyRkMl4BgNJMgPr/1zPCJszT8v8x
-	KjO8MgMA==;
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofRZ-00000000Hcj-2VUU;
-	Wed, 20 Aug 2025 09:49:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t2IGr+xXAIu6vL18hPk0CzomKwLtZTmspuZwvK9G2aGY9tVRDDNrZU0CHIjsJltiYmXwbFjpQ4IkCoaM+dCRebppG0t0TvtfMQQpnH/iZL01EOXz4RFD9206Sr9CIKoQGiwG/J6iKYVZa4akhJLo7IQaUq8/vN0CTICRK+ZeUJBuHGqW8JdOmduk3Hwv9q362F1A/p2vik/ynGUgKujSLLSto0uF0fIMqdFoVmxyI3QI2jShSS6d6fa+iCPDQxUZmuFeIY+dkoK93sMS1WJzGsioj3yQn11ozkWtSsUHEAM13lGFsWXnl3Mmq5Bs0fajP+QMNMwj8vUvunuhCwhVRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g9i1oBURNLeyRxps0JxepzLZ7pq47oD1CA792qvWQ8k=;
- b=qfGD31OVf84crgqiToFQqkmQXDZY3Hyv/Su28iXg3czWWwhGToeglhuTSQtZ4Bg7Y359MPWnN/Y/WUZ83mmprdojjzn1BOcd4+Hi4SsDETGWdW8dBwLaV+1R848+5oW+LzuM1P2pyndWfyplvO/kkhUmBWsZNJGu6RAzRA93RryVwvpNHuSZ67mSelo23SVBhKxe/+KJnSUCFh4W9U6iREmKT6EHeSLVNFGyn1vejYhdDhRldkb8W6zvgcZTn3hyQ5Nc2ybmrb3kYz0ORSvTwb4IImXOrYe9R7WnJNUPFmf7tkN5FCmnnMKWmSi/kGWfX0F+xLAmkThS4gbVDrsYMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g9i1oBURNLeyRxps0JxepzLZ7pq47oD1CA792qvWQ8k=;
- b=5h2vI/n78p6yf/bOkdwY/zJ7DwTbraeodizQkrMfT0vEvphY5P+YodfY3hYHfhQ/gMgER5crcCGFMSln5gFTkfXLwOn+Z6hrg/d67RKjeMn5cjHyZcODs5Fq8rqSiz5K9QbadshC47XSb0Xx60b32cEfKSi3gt1PjSuyS2w2+itmb495wVNOxk/9rkk3bqyRFnNxJIGmEg4uoCrbM65iyVfhWOo3G18tqRHgL1We9SHUazAzO4EwICYa3VTI7Ld/a4Evn83s4cCpCyWTCUcxJdW+LZZnZR0p5SL4WixR1bj41t16RSz1Rj+80Fa3WPRA4X6FMZP2frv1CGlOjAw2fA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS1PR08MB7450.eurprd08.prod.outlook.com (2603:10a6:20b:4de::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.15; Wed, 20 Aug
- 2025 09:49:12 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Wed, 20 Aug 2025
- 09:49:11 +0000
-Message-ID: <3e82cb6e-7edd-432c-9a3b-60e78c873b14@iopsys.eu>
-Date: Wed, 20 Aug 2025 12:49:09 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 4/4] spi: spi-airoha-snfi: return an error for
- continuous mode dirmap creation cases
-To: Frieder Schrempf <frieder.schrempf@kontron.de>,
- Mark Brown <broonie@kernel.org>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Martin Kurbanov <mmkurbanov@salutedevices.com>,
- Takahiro Kuwano <Takahiro.Kuwano@infineon.com>,
- Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-mtd@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org
-References: <20250814065423.3980305-1-mikhail.kshevetskiy@iopsys.eu>
- <20250814065423.3980305-5-mikhail.kshevetskiy@iopsys.eu>
- <78542bbe-1def-4aca-8424-cc26542d9762@sirena.org.uk>
- <e8f77b06-b47c-456e-8671-ac8ae573af64@iopsys.eu>
- <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: GV3PEPF00007A7C.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:401::607) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1uoeS1-0000000Cn2p-0jmq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 08:45:47 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c6Klw0kDdz14MgL;
+	Wed, 20 Aug 2025 16:45:32 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id DD7A5140123;
+	Wed, 20 Aug 2025 16:45:35 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 20 Aug 2025 16:45:35 +0800
+Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 20 Aug 2025 16:45:34 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <sudeep.holla@arm.com>, <james.clark@linaro.org>, <robh@kernel.org>,
+	<anshuman.khandual@arm.com>, <jonathan.cameron@huawei.com>,
+	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <prime.zeng@hisilicon.com>,
+	<xuwei5@huawei.com>, <wangyushan12@huawei.com>, <yangyicong@hisilicon.com>
+Subject: [PATCH v2 0/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+Date: Wed, 20 Aug 2025 16:45:32 +0800
+Message-ID: <20250820084534.28037-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS1PR08MB7450:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a9bc90c-4443-4de5-d179-08dddfced0d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cldxYlAyMi9Va1hxRW85OTR3VXFkTHFCVmZFZnZOOFVFeHhCYjgvSkhqUG42?=
- =?utf-8?B?dnJ3Y2ZwOXE0d2R6b0xOOW1UV0QrU3d5aVllMnU1ci8rM2wvU1p0cGJBOU85?=
- =?utf-8?B?UWVNN29aREZRa0Q2Wm5rYTNPMDdNdEZ4Si9ScnRxd0UvcytTQ1M1QVZhUDg3?=
- =?utf-8?B?WHJ2YmtlWDJDZHJkcWVLMWFNdGRMclo2cmhQdENJQnBDblJZelVkd3BvYnRo?=
- =?utf-8?B?MGN6NXFEVTVkN3dyRGxOZzlQOXZsM2wxclpIclNtUUY4R3dIVFVEcEVtSEpO?=
- =?utf-8?B?ell2cDJZaHo3aGJ0aldoUUFDakJZVmtNNnI5ZWorMUJpaXZmMkI1TCtZaGJy?=
- =?utf-8?B?RTRrYmJGM0VmWGFpME5ZSnlaTHlWK3pXTnpRTTh5eTByc0hidTQ1OG4xd20v?=
- =?utf-8?B?YU52TE5lZUJDM1UvbHdwYmFUWXpCTXk1Ly9adzM5RmFIQ25zYW9zM01kRXZk?=
- =?utf-8?B?YlZpVFNyNldpUmZsWkZtRmIwU3FnYWdmclh0VFJaVndwMHlSNEZIL21iaFJt?=
- =?utf-8?B?ZmhJVGN0WkQvYkZ3WG0yNXZqMCtsa0ppN2o2ZUtqUndJQlFycTBYbVBwVzQ0?=
- =?utf-8?B?azN2dmpwNzdrRWkyNE1Rb2UzOFREL0E1cUNMQ0NMcEplNTZjcEhvWmV5THk5?=
- =?utf-8?B?cEFYSnlHdFpqcXM1aVZ6L0xTS3hvOXhGWWNGVGNuZUxINVUxUFN3VUpaNC83?=
- =?utf-8?B?bGZXQkVXNy9HMEJqZTBpQ2l4KzF4Y09XdnMvQ2Rmd2NRWHNITVAvaE53R2ha?=
- =?utf-8?B?NTMxRHFYOVd3YUhFS2M5Zy9VakxreFp6eXJrNEoyNUR6T1NweFJZcWZ2V0E5?=
- =?utf-8?B?bXg4OENRTWlmamxvd1J0TGlybFZRTWNRNXRZMU5xNGZ1eCtBY2JwSi81dDJw?=
- =?utf-8?B?OUVYSUF4aWlPRndYU1ZUNW5NdnBBL1JJUEpYY0FzYkdxSTA2WnJLNGs0bTNH?=
- =?utf-8?B?TkRhb2dJKyswOVpWRHA0Q29FNnJrL1lFMGs5UDVVdk5aUWxQL1MwVHZIV0dW?=
- =?utf-8?B?dGRINWpnRk90YnMzUi9ZaGtBcUN6ejhaNWkyN1BFMFhYNjVHTEpCcm9MUk9u?=
- =?utf-8?B?OTArYzEweTBVd1BoQ0RVZVVtdXNsUTFKQ3RoYXdtRCtDVldRZDd0ME03ZkY5?=
- =?utf-8?B?bDdieDkzR1Z2cURXTDBVY3RXb3B5YTZYbzVMR1VFMDdMNi9BNGN3Z041Nm1n?=
- =?utf-8?B?UEF5Z25rL2ZGcXFHdGltZURDb2ljMW93QmdaQzVuMVc3SkpqYlQxMlFhVW8v?=
- =?utf-8?B?Q3RqU204TnZGa2FEeitnUExpVXFmck1OS3dFcDdtekZKdHB0SnRyb3pRaGhy?=
- =?utf-8?B?NnlKUVFVb3ZqUFNhOEsrdzBkRzJDb0ZiRGhPZmR6a1J1WWJzdWs2V3RBTEM1?=
- =?utf-8?B?VFUxSWQxVFNIcFdPVVQ1WWFONEhlekZ1czlrUG96bGFMeURmWmlBTlQ5ODdO?=
- =?utf-8?B?NGZjLzdtZ3F4cmkrUU5MclZUUkFYQURTUlZLbDQ3bzFFdy8rNDRaeE5vNmp1?=
- =?utf-8?B?cWU3QWtSNkZxeWFSYjZRNlQ3K0o0M01adEtEZFRFbHdydEtMUUUzQW9HOWsx?=
- =?utf-8?B?L3ZpaE1qR0E0bGJCYWdrWjNDY3pPei9hK2l1RG1GSmxtVTM2ZkZmMWxOYUc3?=
- =?utf-8?B?SEc4ajFwa1BJeXlPRWptM2diQzZsL0l1Q1dvWGNqWDRMbWxFMWl3QVZkMzRt?=
- =?utf-8?B?Y2JZZDFjdFlxYkFtdHBod1hPRXJSODFocmFybzNlK2lXdmVzOUdNT0pzZ3Qr?=
- =?utf-8?B?Z1RMbGRnT1E1WWthOVZzK0kvWDFWSk93eWxkR3E4U0VtQ3pzRDRWdXhsWi9o?=
- =?utf-8?B?RVYzWmUzVHB4Zmx5MDVYVDFHeVVZbzFSQlJHZmVjSEgwbkl0MGhrMS9mS1dk?=
- =?utf-8?B?ajgraUNDaDQzeEo4NW1nQ1lPRG9yMUtDeTNEcFdHTW52WmllVTNrUGxDNmgr?=
- =?utf-8?Q?2X0vfP8+MoU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cUZsdkovQlRoUlhaSDA2ZzNQOVpWK0lGQkFvanNNR2Vwa0dwUFQrOGQreDdh?=
- =?utf-8?B?MDJ0NVZrcFhVS0pHUDg5K2pMeG9SWHJ4djR5U0JrSFZWUXVjNEJiUnloWlNv?=
- =?utf-8?B?VVZGWWtSa3RiSWpDNFhuSXlBN0l1NmZWYlZUcW9YL2VsYThGMUlGWjc5Y1Ex?=
- =?utf-8?B?ZzZYVi9RZlN0K3JISjUweHI1anZSSFhKMWIxV0ZKcG9BeHV3dlg2NnRIVFpZ?=
- =?utf-8?B?YWlsa2trS25xSWJZRHFEcjRiVW4zRWh0dFhPell3QW9ocERvYXVhN1lvRDQv?=
- =?utf-8?B?VFEyMmV2cDF3RDljT3Awc1JvZGdpODc1amRTOXhjelJJcXpKa3Jrek1GaFNB?=
- =?utf-8?B?TklPdWhDYytIcnJBRldoVVF5SkJHQjgvUG50YWNZVThPdHZjUmRWOHR4L1Zk?=
- =?utf-8?B?UHMrK2Q2M0FacEVlRHRzcmk2S3JzWDM1NTJUWEc3WVlVREVJUHRkTWljMHJt?=
- =?utf-8?B?dHM0Mzdjc1VxcW1NRjJ2dUxrakx3RXczSFNzV1VEdGx2SENNV3lOMkM1M3dV?=
- =?utf-8?B?bldEaW0vaDEvdVUwMHp1VmQ0SFh4amxwSWxJYXhEMTVIV2tNRGQ3YXpZT0RY?=
- =?utf-8?B?UUkyUVp1bWUvS20yLzkvdUgzZElMNXQ0WjVzaFRPYXZHc1hWR2VBZSs5QnVo?=
- =?utf-8?B?ZVlMQ3l1U3lrWmlyVWJHbEUvTE1tUnJvUXNYUmhzWmpHVmVESUE4cW44alZv?=
- =?utf-8?B?Y1dtZHRiRFBNTktRaVZVSlhNVVFrYXJJZUFUZStzamhsZUxTd3JudFlLRGhM?=
- =?utf-8?B?Sk5pU2paSnpybHE1Z3NiS3ZDc25hZk1QNmdEWkxpSm90cmV1Wm1SMXU4SnpC?=
- =?utf-8?B?aDZiYnhzdjN2SEdGQ1JucWdaQ01QNEZLc29LWnFyaGRKZ09HVGJGd3JrME13?=
- =?utf-8?B?cjVKeU54MTA4WmQrN0NGdTJWalFmUUNuTVdxbXVGT044b2lNMXRCTlB6RjNO?=
- =?utf-8?B?NmRTL2EyS2d6QU1hZXZhRXdSTnF4VDZIdmY1Q2cxMkI4SkhySTNTdWtjUjNL?=
- =?utf-8?B?K0hZZ3lNOXMvMVVMMWVYNlVZdDJjVzVaRUxqMTFpOFhwL3dhWmtOUWJZbm04?=
- =?utf-8?B?SUt2bTd2VVljUkh3aGtrYkFyYnV4SnJ0YmFoNlBSNEVONHVNUGZyTkQzMFJy?=
- =?utf-8?B?K0RmL3FuaXE4R0ljdzNyNm5WVHNMcU44eS9VR0FvbkhaWThkYzBqZERXOVl6?=
- =?utf-8?B?K0x6b2RCUDQwRUYramZUbWZXM3krcWxsU29lQ1pOZXpLLzJzUUtJNXN4MGp4?=
- =?utf-8?B?bkVGUDdWMTRIQ01qTjlJa2k3VEdwTUNoVW9yQmxld1FuSVBZNFJPeU9IcHpo?=
- =?utf-8?B?K1J6QmxBczgyUFpTTlE4eG4yc1QrQ3VBV0ErelUrS2pwNFdHS1pzRksvRHVh?=
- =?utf-8?B?eFNjc3ZJK0h1bXkvWEpFVHk4clZZT2RzdE05VGV3TVY2Q2RFK0J2K3cybmdM?=
- =?utf-8?B?Y2N5c3BVMXVuQXI0Y3lGYmxCQ0FYaWV2bnlBZW9jNHhYL09zQjBvYlgyc0E2?=
- =?utf-8?B?LzBodmllTElkWWxwcktZYmdGNXRPTG5KV2lXdkZJWU9EMk9zUWlwRHVVOUpH?=
- =?utf-8?B?Ymh1Z3cvL2U0NHo5c2Jybm50RVBxT2ZKc3RMWWg1NXF4bE5UNjNhbW1BRGh0?=
- =?utf-8?B?bkR0Z0IwWFFZdjJ6UUpHcUsyY0FWVVpRdFlSVE9xTlRhSmZpMU5zeGZudTV0?=
- =?utf-8?B?cVp6TGJuNHVQK1ExMDl5aUxVb095ZXdvVVpzS2ZXL1JDd1JKbDNhSnhzZU53?=
- =?utf-8?B?aUgrUmEvOTJHdHZ5eHRXTWhoSHM1dnRJUHl1TjlYd1lqZk90b2ZRTUZWQmR4?=
- =?utf-8?B?TTN2cXV2bUcwWUJVc0NvdDlramlrMEk1SkNyYWIzSUxUbDZNaHRKK3ExT1Ri?=
- =?utf-8?B?RUVVaXNkNmFmU21zaDVlc3NVQ2Q3TmFJa1NOMXNYZnROL1Q1Z0lhOTZrQndt?=
- =?utf-8?B?RjdyUFpmaE9kRnpETXo0ZTBzT0dJREpVK0g2ci92LzNTbmYxaVpYVGdUZm1m?=
- =?utf-8?B?VkovbkR4SVRwbisrTzJpTW04aGJMMS9iVXpPZFJBc1RIZ3UwKzBPYzFTUUFK?=
- =?utf-8?B?OGxadXJOL0tLZjhXbzlmeVdTalBuTHl6MnJVcU8zQmo2U2taYkZ0UXRpdzZo?=
- =?utf-8?B?YXNaL08rZVZpdDhJOEpJMnZ4cHptNTNPcTZENjNmdmZkbE02NUJTTUFKcmJl?=
- =?utf-8?Q?4u11+f4Ex4A1Nff32JzVclM=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a9bc90c-4443-4de5-d179-08dddfced0d5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 09:49:11.8049
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BXmD9Jn1RurULeYN2be/SyFExTTWlDCCtArZmZOJ9qTGyXulV2Kan5xHfBV7dW1+nOHAfZwg07mlpWb3wMOj3tl/bToHCeOt2QSo1DwFw18=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR08MB7450
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_104922_202015_AE7C1ACC 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20250820_014545_375198_740B786C 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,23 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.08.2025 11:49, Frieder Schrempf wrote:
-> Am 14.08.25 um 17:33 schrieb Mikhail Kshevetskiy:
->> On 14.08.2025 18:29, Mark Brown wrote:
->>> On Thu, Aug 14, 2025 at 09:54:23AM +0300, Mikhail Kshevetskiy wrote:
->>>> This driver can accelerate single page operations only, thus
->>>> continuous reading mode should not be used.
->>>>
->>>> Continuous reading will use sizes up to the size of one erase block.
->>>> This size is much larger than the size of single flash page. Use this
->>>> difference to identify continuous reading and return an error.
->>> This seems like it just applies anyway regardless of the rest of the
->>> series?
->> Could you provide a link? I do not see this in upstream linux repo.
-> Mark asked if this could be applied without the other patches of this
-> series through his SPI tree and I think that is indeed correct. The
-> other patches are still being reviewed and applied via the MTD tree.
-Thanks for clarification. I could add it to other aihoha spi driver fixes.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-Mikhail
+This patchset fixed CPU_CYCLES counting on SMT system. CPU_CYCLES can use
+PMCCNTR_EL0 which will count the hardware processor clock rather than the
+PE clock (ARM DDI0487 L.b D13.1.3) on SMT cores which fails the users
+expectation as CPU_CYCLES (0x0011) is defined to count on each PE cycles.
+Fix this by avoid using PMCCNTR_EL0 on SMT cores when counting CPU_CYCLES.
+
+Changes since v1:
+- remove redundant comment and add tags on Patch 1/2
+- detect the SMT implementation during PMU probe rather than runtime
+Link: https://lore.kernel.org/linux-arm-kernel/20250812080830.20796-1-yangyicong@huawei.com/
+
+Yicong Yang (2):
+  perf: arm_pmuv3: Factor out PMCCNTR_EL0 use conditions
+  perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+
+ drivers/perf/arm_pmu.c        |  3 +++
+ drivers/perf/arm_pmuv3.c      | 39 +++++++++++++++++++++++++++++++++--
+ include/linux/arch_topology.h | 11 ++++++++++
+ include/linux/perf/arm_pmu.h  |  1 +
+ 4 files changed, 52 insertions(+), 2 deletions(-)
+
+-- 
+2.24.0
+
 
