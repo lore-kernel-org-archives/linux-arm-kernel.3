@@ -4,71 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E9DCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 17:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B884CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 17:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPQ4TtmKPU0LQNk3SQGznbqpb8L4TmFGtvANC2QDbJY=; b=2Jd10zH6A9HiOIkB8Ld6Q6WRK1
-	EE18qgMvSHzzignmDdvYDkX/xaOi9wBsYGcz/Tsc+UKwIAaBsAThf8amiYSDEhobjd6IZgpGsNSUJ
-	pbLwc6hF0QJsy0i1/cvkfvD78uCuofPbemHp+GjobWuKpTKhKpdlJJWaoobQJOyteJw6ZEdf93iRx
-	0yaISPdcm4RWNIEojtuXYaksOrseIngg0b+YAmxZU52QwyU5Wj/9rXuaauoxzb+9Iwg5Ve3/UNuWj
-	f/O1gw295/gTpzxNfOpuwFG7b9no81ZrqYbfM4N5F9w77Phw8EAt7LqrHLDKZT8vOde7sk7r400lt
-	Kbbmy3Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+gWtZEHKoGP7mw0rgmfais8XlelkoGry/mMQ7iZX7hc=; b=S2gz4A2WRkuzKg
+	vj97za0ei4dqYYLdCIe9Acr7Npznda/RYuSAU+bac8rn5TP0mdZHhOW81fm3EYd1/+JrDzXQyRhKh
+	Gfb3/pRq5yb2W2LmoV0+dA2jp/S1YvyRonoMnA2AVCb2wspdHgTSKDjZYJJNBW6kkSt/GQdA1MOw9
+	nHnKVVL3HCC1mKB2EbNOrZG+brQFkGuQuwhQq7AiOXPKyL2CA/c5yninm1giQN/7+ljhaVmmKNyDZ
+	p4+6g5O+pxGnRoYM0otFlhseKG3BsKUXRKeJ9uNGm3xlVRmfN7Y7Eb2xpUw+W1nFWDdi9q78GEMu6
+	7Iw+OebLRnoCe35ei0Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomVo-0000000EWgh-42T0;
-	Wed, 20 Aug 2025 17:22:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokHU-0000000EAYA-29ik
+	id 1uomYP-0000000EXCU-3DGH;
+	Wed, 20 Aug 2025 17:24:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokHX-0000000EAYo-0U66
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 Aug 2025 14:59:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=+gWtZEHKoGP7mw0rgmfais8XlelkoGry/mMQ7iZX7hc=; b=BX/ezW/qvMT1s7swsn03ElxkyQ
+	PkeEEkizpzZyhRNOr8iQM3qkWqXtx/PSQloLGFU2SFTmV3Rc3wxgaJdEzIbOlaoVdBcMqJji2de7V
+	aoy9FqQAwbjfIZNLKrJgYSHyDgeXJeX77c9+4HAAN064CIUr1/MfAfdfOcTQtILegcf7TzY77uZKV
+	yzdNnz590TjCPZ+e6NSrYovFCeiIK3l73D8SIu6KQlN0Z1a2+R2uGzgf/FhtuD5nKODbrWDbXqxm1
+	m5vtqugayPdPFjPQNI85Va4NUb1sFpGNFTMcBUeII6FeNqnowV+XLi6Ls2oyyXFgBFtL7QlEzVvsN
+	WQPP/6MA==;
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uokHT-00000000Lo9-3XtT
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 Aug 2025 14:59:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6A882C27;
-	Wed, 20 Aug 2025 07:59:07 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.2.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1189C3F738;
-	Wed, 20 Aug 2025 07:59:11 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v10 25/43] arm64: Don't expose stolen time for realm guests
-Date: Wed, 20 Aug 2025 15:55:45 +0100
-Message-ID: <20250820145606.180644-26-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-245f5213679so4966775ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 07:59:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755701953; x=1756306753; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+gWtZEHKoGP7mw0rgmfais8XlelkoGry/mMQ7iZX7hc=;
+        b=ZQucbfZBLJvTjwfYXXfSm3moJum6QOwA+sh5b8Xx3fIyvAtNCCmoyfSaKpLpTHr0E3
+         bFxoN+tEfHkovXMtmeL22L/k/51ILk1U1A4rMTiWo7Z8Q/7QE+IboHTZrUzkrY+WyYOe
+         knTPaizCcE9nYReJ5+BNnG081ioceXx27idYdvbH6MsO8AgzwdKIH/a02aL5JcVnOtJi
+         BtplhnNf5ox9KkBesf6GBbY62aq9Ap7l4xHCQX7LETuE4xkNYOxkrP5eUf8QfZUf7GbX
+         SQ2Tgx846SPWcealJsJlTp/pTIwONQmpuUMxicJ5Z1w6UHzsHRC30x/F/juagu9CDdom
+         dWKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755701953; x=1756306753;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+gWtZEHKoGP7mw0rgmfais8XlelkoGry/mMQ7iZX7hc=;
+        b=N2oS0wpD6SgEg/52j1dYM1rA2Tk8kMu3lPFHREGOYrZXP9COqTl6lgyrkeghlrtZLl
+         pO/NvLmB5YLhcfoDcAMXQcu+JLUXpXH9e3Vd56sUQmdHsnGUx+wcJGa36c+/b/egOgpD
+         8orLkPvA7rCm2T9pIc/iUFzaHHgpT2g0aC2LfEPG+nx6L2TmGScVeyzSIEXKZ89O0Za2
+         pJ3rB5YOabTsk98p+pq5r4rG0r8yChsLcVhadXq6EVEwZBUbkvZBbUDb5YeiC7nRYdOL
+         xpIicf2GjgRe5y1Lb2U9WnKRmvNxxIj1fRTIs+1JLe78NCHQOeNhfCmlFsOYC3JuKXqD
+         8ilA==
+X-Forwarded-Encrypted: i=1; AJvYcCUpfxD1yaj4pxHXRyleLzab7betYBjLyG5hi2jzXq0tP3Te+RPaRqngw1mW3hJFtq5iMiIx7jB2eokSbCuB/8Uj@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywfv9XQyaxOX4kwEouno3x6KErbC6GwXxqsIYS4rjUsghiMNUvx
+	DBVunZv2N/O+uhADIerXr4Yiuz6JhR0u9oLt3OZFWqDpusPcjkvArN/S
+X-Gm-Gg: ASbGncsf0Y72PF7UzhdxDyMsV2AnIcnw/TRzt74PX5WfYK+q2Pl42TYc9pAW8VyUdeO
+	jsd1fCzaRUcAv/BPlDnGuBrKToiAfKWmn1zOqzXw/OMnTHEoqKWTxAYul4kfnqgoKSLuOrIJ7WG
+	GKAf7WHwIXos4R8S6p5/YWF0qf9EIc+w9YYFQvZ36IRtLV+3UQjLfyd9sw+3AVLiITPpUYQMcjF
+	2HOQ4qSGDkzqagDZSTov4K7Hz8gHWl7FGbTIOb1ESnz9c6b09lOU+giPAT1cT2Qc7xcGQg6hkhl
+	nXTYZ50an6XEcEB5GU97+u7yu81DG7dm6miV5zfwXOc9CdniAgs0NjZL2nrKb792Zc5nWU+e5dI
+	QBT5IGoqX7F2idoKErxw9+otXbJlySStgY8H6btW2CwL282E=
+X-Google-Smtp-Source: AGHT+IFuZGLvyxMcilBbJyU+WX5ieFDHPZ5qcPgTlkAoOpIPQGjsZxxRLuTraJW+LFjnoMiyYGMkLw==
+X-Received: by 2002:a17:903:32c8:b0:234:d292:be95 with SMTP id d9443c01a7336-245ef237f3bmr39664895ad.42.1755701953108;
+        Wed, 20 Aug 2025 07:59:13 -0700 (PDT)
+Received: from [127.0.0.1] (aulavirtual.utp.edu.pe. [190.12.77.24])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-324e257809esm2606455a91.24.2025.08.20.07.59.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Aug 2025 07:59:12 -0700 (PDT)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH v2 0/3] clk: samsung: exynos990: CMU_TOP fixes (mux regs,
+ widths, factors)
+Date: Wed, 20 Aug 2025 09:57:21 -0500
+Message-Id: <20250820-2-v2-0-bd45e196d4c4@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFLipWgC/02Myw6DIBBFf8XMujRAtGBX/Y/GBY9RJ6nSQEM0h
+ n8vddXlubnnHJAwEia4NwdEzJQorBXkpQE3m3VCRr4ySC47rkXPJDP25rT1I1deQf29I460nY3
+ nUHmm9AlxP5NZ/NZ/OwvGGerWtsrqrnf4mBZDr6sLCwyllC83XA3XkgAAAA==
+X-Change-ID: 20250819-2-ab6c8bdf07d7
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Denzeel Oliva <wachiturroxd150@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755701948; l=1078;
+ i=wachiturroxd150@gmail.com; s=20250819; h=from:subject:message-id;
+ bh=W68k0m74FKq6rT8PIZd3IxIAE0Dive0UITAv+zCe5+g=;
+ b=u9TvdLut9T/l2pJ/hsZbjYfVLj1dhqtUVvMITE8G9SK/eUYZGzp7h0OtJjP51LUJjTi8syUTb
+ /JlJJyTwBsfCogQd8FAkonDyS60JQ0a7+mCVss5qZP2pgSvtW4nVz5E
+X-Developer-Key: i=wachiturroxd150@gmail.com; a=ed25519;
+ pk=qNvcL0Ehm3chrW9jFA2JaPVgubN5mHH//uriMxR/DlI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_075916_589075_BABF348D 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20250820_155916_033047_D5AC523D 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +130,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It doesn't make much sense as a realm guest wouldn't want to trust the
-host. It will also need some extra work to ensure that KVM will only
-attempt to write into a shared memory region. So for now just disable
-it.
+Hi,
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
----
-Changes since v7:
- * Update the documentation to add a note about stolen time being
-   unavailable in a realm.
----
- Documentation/virt/kvm/api.rst | 3 +++
- arch/arm64/kvm/arm.c           | 5 ++++-
- 2 files changed, 7 insertions(+), 1 deletion(-)
+Two small fixes for Exynos990 CMU_TOP:
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index fad3191df311..33f7edd97802 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -9012,6 +9012,9 @@ is supported, than the other should as well and vice versa.  For arm64
- see Documentation/virt/kvm/devices/vcpu.rst "KVM_ARM_VCPU_PVTIME_CTRL".
- For x86 see Documentation/virt/kvm/x86/msr.rst "MSR_KVM_STEAL_TIME".
- 
-+Note that steal time accounting is not available when a guest is running
-+within a Arm CCA realm (machine type KVM_VM_TYPE_ARM_REALM).
-+
- 8.25 KVM_CAP_S390_DIAG318
- -------------------------
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 08fd97b486e4..4a5d97b4e7d0 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -397,7 +397,10 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		r = system_supports_mte();
- 		break;
- 	case KVM_CAP_STEAL_TIME:
--		r = kvm_arm_pvtime_supported();
-+		if (kvm_is_realm(kvm))
-+			r = 0;
-+		else
-+			r = kvm_arm_pvtime_supported();
- 		break;
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+Correct PLL mux register selection (use PLL_CON0), add DPU_BUS and
+CMUREF mux/div, and update clock IDs.
+Fix mux/div bit widths and replace a few bogus divs with fixed-factor
+clocks (HSI1/2 PCIe, USBDP debug); also fix OTP rate.
+
+Changes in v2:
+
+- In the first commit the divratio of 
+  PLL_SHARED0_DIV3 should not be changed.
+
+Please review.
+
+Denzeel Oliva
+
+---
+Denzeel Oliva (3):
+      clk: samsung: exynos990: Fix CMU TOP mux/div widths and add fixed-factors
+      dt-bindings: clock: exynos990: Reorder IDs clocks and extend
+      clk: samsung: exynos990: Fix PLL mux regs, add DPU/CMUREF
+
+ drivers/clk/samsung/clk-exynos990.c           | 154 +++++++++++++++----------
+ include/dt-bindings/clock/samsung,exynos990.h | 402 ++++++++++++++++++++++++++++++++--------------------------------
+ 2 files changed, 297 insertions(+), 259 deletions(-)
+---
+base-commit: 886e5e7b0432360842303d587bb4a65d10741ae8
+change-id: 20250819-2-ab6c8bdf07d7
+
+Best regards,
 -- 
-2.43.0
+Denzeel Oliva <wachiturroxd150@gmail.com>
 
 
