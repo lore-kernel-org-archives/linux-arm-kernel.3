@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A254CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 09:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4E6CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 09:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNwDWm77mENGZsF5oiL+jLkr8I6XjKMJkanIdlVb2vs=; b=hWIPKtksxYrpEVNp91U81W1YBU
-	owgxnzCNCakBxbSybk+UP9Jz9kYlxOpZvX5uc5161tNC3TtTpb0EyAjuSSCu6eESOzjogQTPLLh1k
-	SKI/WE2k5Ms48JGjoKDl+RsDjUo7QQNQYSmkX+xPSbmcnFRFo5TfGNKpyid0BfZkmQ28cmqOJIslB
-	WHLSo+qXfqHaJUVbZAv6jlWbNFmMsJhrzq+Us3fnGBI7cWH+Qo6kNsK9CNRKKNGNdPOU8iyUglpV6
-	7ZlWk+gDHOtidzpplS3DsDn0n5RMscRK5VMpmVPc8MBG39KCEy07hoLskg1Rs7dWCbUg3t4T9BAfd
-	X4yxuGOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PnhKc8g8H0kWfIoMnf2P/Giz7+/dSwkw4FZNG9iIes4=; b=BMpO79h4dV3zdDSiqlX5fmDpDP
+	Xuh21kJH6KV3etM7E1JgUdFXbl6YQiryDP18Hc4Q+jrR08PkpkImizeU0Jm1t7XaBCK8zKAge7moJ
+	O+wTHVRcKEM+wckN8fIS6PifT0Wq4hqtbfXYUbxvAHGTSxpxkqPOTQA57HgAPzG0kLs5cnQYAuM18
+	1N5w8Rou/r6L3qVF3TLoYIwQMQMMwYCfigPprqRJrzUeAT9u5Stb11nZGlpt3ZrkZfC8aezmn7/P+
+	a4F+NpjCmmFZ3twXEScOY8pXOmbS4uOyyNK53gtCzAg/0rju7Jha9p1D+ttK5sJPASp1jIOyCF3rZ
+	TvP8zu1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofWI-0000000D2Z3-3HUW;
-	Wed, 20 Aug 2025 09:54:14 +0000
-Received: from mailout.nod.at ([116.203.167.152] helo=lithops.sigma-star.at)
+	id 1uofYr-0000000D3R1-2Uqn;
+	Wed, 20 Aug 2025 09:56:53 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoeD1-0000000CkAm-1dSM
+	id 1uoeGj-0000000Cl3K-0Roe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 08:30:16 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by lithops.sigma-star.at (Postfix) with ESMTP id A24502CE348;
-	Wed, 20 Aug 2025 10:30:13 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
-	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
-	with ESMTP id ASXCLEDPmnkd; Wed, 20 Aug 2025 10:30:13 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by lithops.sigma-star.at (Postfix) with ESMTP id 2A0C42CE374;
-	Wed, 20 Aug 2025 10:30:13 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
-	by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id STTOJMYm45J3; Wed, 20 Aug 2025 10:30:13 +0200 (CEST)
-Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
-	by lithops.sigma-star.at (Postfix) with ESMTP id EEAD82CE348;
-	Wed, 20 Aug 2025 10:30:12 +0200 (CEST)
-Date: Wed, 20 Aug 2025 10:30:12 +0200 (CEST)
-From: Richard Weinberger <richard@nod.at>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Russell King <linux@armlinux.org.uk>, Steven Rostedt <rostedt@goodmis.org>, 
-	mhiramat <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	ardb <ardb@kernel.org>, Eric Biggers <ebiggers@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, dave <dave@vasilevsky.ca>, 
-	ruanjinjie <ruanjinjie@huawei.com>, 
-	liuyuntao12 <liuyuntao12@huawei.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, 
-	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>, 
-	Donglin Peng <pengdonglin@sangfor.com.cn>
-Message-ID: <1362230792.146894.1755678612763.JavaMail.zimbra@nod.at>
-In-Reply-To: <1672011332.146872.1755677514318.JavaMail.zimbra@nod.at>
-References: <20250818103931.1100084-1-richard@nod.at> <CACRpkdYYTe0YArbheo3msd6r+CNrt9oSZWNjkiwb=ZNWfJ1dkQ@mail.gmail.com> <1672011332.146872.1755677514318.JavaMail.zimbra@nod.at>
-Subject: Re: [PATCH] ARM: ftrace: Implement HAVE_FUNCTION_GRAPH_FREGS
+	Wed, 20 Aug 2025 08:34:06 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57K8Xx3P3154182;
+	Wed, 20 Aug 2025 03:33:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755678839;
+	bh=PnhKc8g8H0kWfIoMnf2P/Giz7+/dSwkw4FZNG9iIes4=;
+	h=From:To:CC:Subject:Date;
+	b=Km6Cim3AdlaexZ7iEUPrWAEzfAlC2vTcPFUXnEtQxEPhDIeOnGIX+p6pz12dSSZVP
+	 1S0M7KomD0YNN8QAhXAa9pWf3iQx0pi150ccUvRPHBWvZVPp//s+hfrJROI7lHkLC8
+	 3pKoqCCYADtvK/YfpVxmuWJmhUau51AhX3Yi8cV4=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57K8XxC91919840
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 20 Aug 2025 03:33:59 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 20
+ Aug 2025 03:33:59 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 20 Aug 2025 03:33:59 -0500
+Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57K8Xvku4133408;
+	Wed, 20 Aug 2025 03:33:58 -0500
+From: Paresh Bhagat <p-bhagat@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <rafael@kernel.org>, <viresh.kumar@linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH 0/4] Add cpufreq and USB support for AM62D2
+Date: Wed, 20 Aug 2025 14:03:27 +0530
+Message-ID: <20250820083331.3412378-1-p-bhagat@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [195.201.40.130]
-X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF141 (Linux)/8.8.12_GA_3809)
-Thread-Topic: ftrace: Implement HAVE_FUNCTION_GRAPH_FREGS
-Thread-Index: CVXhU17DidlkWtQ6Ka0vacHBgIlQ2GnRE7g7
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_013015_572071_5898DD94 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_013405_187376_0767112A 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,18 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
------ Urspr=C3=BCngliche Mail -----
-> Von: "richard" <richard@nod.at>
->> Can you put this patch into Russell's patch tracker?
->> https://www.armlinux.org.uk/developer/patches/
->=20
-> So far I had no success doing so.
-> Whenever I add the patch, I get back to the patch add form without
-> an error message or such.
+This patch series introduces following changes:
 
-Worked. :-)
-It took just some time until patchd's mail arrived.
+* Patch 1 fixes the register length in main_pmx/padconfig for AM62D
+ and AM62A.
 
-Thanks,
-//richard
+* Patch 2 enables USB support for AM62D2-EVM by adding pinmux and device
+ tree nodes.
+
+* Patch 3 adds AM62D2 SoC to cpufreq-dt-platdev blacklist so that
+ cpufreq is handled by the ti-cpufreq driver instead of the
+ generic cpufreq-dt driver.
+
+* Patch 4 extends ti-cpufreq to register AM62D2 SoC support by
+ reusing the am62a7_soc_data.
+
+Boot Logs-
+https://gist.github.com/paresh-bhagat12/e29d33c3fd92ff17580edf1441ece9f9
+
+Tech Ref Manual-https://www.ti.com/lit/pdf/sprujd4
+Schematics Link-https://www.ti.com/lit/zip/sprcal5
+
+Paresh Bhagat (3):
+  arm64: dts: ti: k3-am62d2-evm: Enable USB support
+  cpufreq: dt-platdev: Blacklist ti,am62d2 SoC
+  cpufreq: ti: Add support for AM62D2
+
+Vibhore Vardhan (1):
+  arm64: dts: ti: k3-am62a-main: Fix pinctrl properties
+
+ arch/arm64/boot/dts/ti/k3-am62a-main.dtsi |  2 +-
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts  | 21 +++++++++++++++++++++
+ drivers/cpufreq/cpufreq-dt-platdev.c      |  1 +
+ drivers/cpufreq/ti-cpufreq.c              |  2 ++
+ 4 files changed, 25 insertions(+), 1 deletion(-)
+
+-- 
+2.34.1
+
 
