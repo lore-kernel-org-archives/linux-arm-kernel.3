@@ -4,67 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FB9CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F460CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 22:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rrs7nZ2HdS1rITm98oUG35bECgGtt4ki18QFH5cAi2w=; b=HzaFBGEX32KVaaWaQONWgVm8Iq
-	8KNvDqF44Wq6JaLBDM4qBgyVUrYn7WOWbmmVnzLy7S94hRbxpX5LYkgjY+6P+Np7stnE1mhUDkUDg
-	3JQhG7tQNikR9CGc5Eilfs76dpyLnaX45mdTlpnEvaVL5FB3pS+uEbgR2FW0OBzhDgmhifrcsb+Tw
-	zzEN34UIXkcPtKyuucBQ4tfYIjGHpxBYb/8iiLmvjTPtM9qln4nPSC8geC6vg3wF77uG/DWJ/PzhE
-	HvzkeT5oTubK6AwDPt5FUGKjDjGn6BSIDVAW+WdT5mJ3xo43+gk9HtN4KXxazRLvvc2fc68ydzsQ9
-	xqpsskCg==;
+	bh=y70NAvFqmHqQ/QHVWzEdqMxMN+9/pnnsuJyiP3UY3H8=; b=rezDo+PkfqETW2ISssPrIVZTNl
+	1LRZ2TMvoSqK6atLEMQRVj+98MYDJSkdiWuxN8wXdMg2SPKBFJ7jWDIRRBnn+wgfihhGu1RreW0P/
+	ejuI1r7LwzYFt/pYW3WEOcj4DSz2472XYs9qxyro+G2/hR9zP6BT4FEhdKjTGxmEsJEN0pbtL4pnN
+	ccpAjg0orHg9E//lLhTnUCEV9d/GOAclgT3xn6VLkfD8Xwy4ezQJwXEmyVci9+iWUykR2ucI3uGK/
+	BZwADA1crzzqnoFbc14ky2/bD/ENqow5kC9b8uYR+JqAYsiNFj/DoJTbikTu/EvT0aJK9AML42r0C
+	RykVWWhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoqs7-0000000F33w-1RzG;
-	Wed, 20 Aug 2025 22:01:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uoquh-0000000F3RD-0KYS;
+	Wed, 20 Aug 2025 22:04:11 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uomY5-0000000EX9C-0uA0
+	id 1uombJ-0000000EXsR-3T2W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 17:24:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BB31601D7;
-	Wed, 20 Aug 2025 17:24:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29CE3C4CEE7;
-	Wed, 20 Aug 2025 17:24:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755710671;
-	bh=zK2/t7pB5uRi95w0k0HULqrZQXZoKb6HKfmiVR24b+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dt7gdEqTTlWr9uPsmbh5dC5JHyQ4ajY1BeBLVEaA84XW568wCEGwP59iZSsYbHZIa
-	 Fg2vygO7X8vp2m0Cm8YNFm4BhJ0cPlOHCvQXCj08/3tNm8Sxc4iKm6wZCiDOLd0f+Q
-	 1mUo6JG+1d3EvgEjhlPdbZq2YQeh51uVV/NZel0Mz4AGEFZ9gSJf71pS09llaBr1tY
-	 ErI0mCisKCney0RRErNlxuIam2AH6ODhP72wMuuXXpqF4K2jA3yjtOQ+NBoc/Vodlh
-	 Q7h/cj0WBupi6f8SVmwzot9Vv7r6LhQ6Jk/BHLy4+BjC4dpexOyvP8xLGC9M1B1MRY
-	 J5/PE82VmYVaA==
-Date: Wed, 20 Aug 2025 18:24:24 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Jeremy Linton <jeremy.linton@arm.com>
-Cc: linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mhiramat@kernel.org, oleg@redhat.com, peterz@infradead.org,
-	mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
-	kan.liang@linux.intel.com, thiago.bauermann@linaro.org,
-	yury.khrustalev@arm.com, kristina.martsenko@arm.com,
-	liaochang1@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/7] arm64: uaccess: Add additional userspace GCS
- accessors
-Message-ID: <7bc27e3d-7667-4366-89bc-93a084808ace@sirena.org.uk>
-References: <20250818213452.50439-1-jeremy.linton@arm.com>
- <20250818213452.50439-4-jeremy.linton@arm.com>
+	Wed, 20 Aug 2025 17:27:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755710872;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=y70NAvFqmHqQ/QHVWzEdqMxMN+9/pnnsuJyiP3UY3H8=;
+	b=Ruj+qky1TjKcom6RBL9L1Y4aT5TaoHwAkDttdO16EsMflwn2JWD421RKXNnwPSt2ggN7mw
+	AobJvdKk23FfINNFYmo2AMUg4U4UhuIB+3fVBFWiBf+Lq8XQCH4aD7DvYRBXMeP4KFgRzx
+	7K04kd+Kmxk+9enXszpw0/vK2iyCrPM=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-322-bp7F4-j3OVmF8TsC7oivDg-1; Wed, 20 Aug 2025 13:27:48 -0400
+X-MC-Unique: bp7F4-j3OVmF8TsC7oivDg-1
+X-Mimecast-MFC-AGG-ID: bp7F4-j3OVmF8TsC7oivDg_1755710867
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70a92827a70so3857576d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 10:27:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755710863; x=1756315663;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y70NAvFqmHqQ/QHVWzEdqMxMN+9/pnnsuJyiP3UY3H8=;
+        b=GJ/j/ZZ4+g5aSq/Fsi0oZg9fypISGKsNdeWk+nnHnEs7wsSeYbINe25mkCTviuHlit
+         Z/POHExkexXx4OeF0uhMouQRnGY+GBGlHpsJkbTaFL2bnCjk2TyonK3EnsWZeEDAOsel
+         vN4+phLUZykkHrAuLHoJWKElMgYK0MBRQ+MabpHlGOHMMS0Y0lsVskScj34dmsT5slRJ
+         92aRMaXHuR09fwOYurjR0ENvPrwA4GbGDbv3dNycrGlo7nXZpT41+BYSLdNbQFpOs0A9
+         rQY9ZZgN+Fxzn3VHMIfb8EeeRkpwZbZ0BEQhCCpN9AN10MPZQOS9/sOCkcJj4hfd42AI
+         /Ayg==
+X-Forwarded-Encrypted: i=1; AJvYcCWagG5bc8ibCXpjXamimjOl/BvOunaDZy55kKNQ448SQBXimL5keKDKWhE6lP9qVEFONF3NDLfQPijrqqJ1j7R+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzunUvV5qR/RtvgSRSWkqujINQkSFocwBNARNmZEjX6mMSDygti
+	ZElEfKjt+rx53igzZpkfAefKFU5jL8Reu6REoc76fuzFbLrVmYzAGrkroaXWeHLCYLB6+c+EjOc
+	Rbmb7W+sORB4PfwRP4GKqI2Qkeat9kfh9jX0ncVwAuDg93ja9K6ENqfEBRDKvL7mzYEUxPyiTTi
+	jJ
+X-Gm-Gg: ASbGncvYHXDTORxWFsmiAJ13H9t7eyYNEb+VsCd5Hwq7aWdTEXfZj8hdnVrVxgfz+2/
+	0AJZeMp+ekdoinzxo9aV8dW8uB41o6GCOmKtHMWvjOwbWCEUWtD8c2I2PB4mNT8ioPZJJo4Ba+B
+	qk1eJ/CFiaOrZs+PamRUv1CBg9TBCzEr9GSyEiMP8CzAbILB5DZopMwRHrHQi6x6pH5dZ56xCjL
+	hhlSXlNXyCD/TBRnBlxnCbcIC6l2J5R2t3zvHAKQ8U2u7ZrmAJFp06BbDuaK1wOQ6nMJM/hs8SB
+	Px3IQQjk5CcXXsjHqGkyQYZCGf/K+9dxJwBbF3hhIz1a+HGQ2varJSslmb+u9P4=
+X-Received: by 2002:ac8:5dc6:0:b0:4b2:9ac2:6857 with SMTP id d75a77b69052e-4b29ac27162mr22632751cf.78.1755710863380;
+        Wed, 20 Aug 2025 10:27:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGBHjmp0EQimLUiSVjKdx79ljrj20Q8jlRYnemWAhO0v2X5MfDUxphjoE81Tq8MZ5J1pPp2Eg==
+X-Received: by 2002:ac8:5dc6:0:b0:4b2:9ac2:6857 with SMTP id d75a77b69052e-4b29ac27162mr22632391cf.78.1755710862940;
+        Wed, 20 Aug 2025 10:27:42 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b11dc5aeaasm87927511cf.19.2025.08.20.10.27.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Aug 2025 10:27:41 -0700 (PDT)
+Date: Wed, 20 Aug 2025 13:27:35 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 2/9] phy: mediatek: phy-mtk-hdmi-mt2701: convert from
+ round_rate() to determine_rate()
+Message-ID: <aKYFh5YI9j-MHKH4@x1>
+References: <20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com>
+ <20250810-phy-clk-round-rate-v2-2-9162470bb9f2@redhat.com>
+ <aKX35U4jX55W3W61@vaman>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="CxxZay3cgRaUrHlW"
+In-Reply-To: <aKX35U4jX55W3W61@vaman>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 8s7bu2mx5_B8lDFHra96epPFbehVPd3M4BjbKQz4rYw_1755710867
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818213452.50439-4-jeremy.linton@arm.com>
-X-Cookie: Whoever dies with the most toys wins.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_102753_929112_E76AD13C 
+X-CRM114-Status: GOOD (  25.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,46 +120,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vinod,
 
---CxxZay3cgRaUrHlW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Wed, Aug 20, 2025 at 09:59:25PM +0530, Vinod Koul wrote:
+> On 10-08-25, 18:45, Brian Masney wrote:
+> > The round_rate() clk ops is deprecated, so migrate this driver from
+> > round_rate() to determine_rate() using the Coccinelle semantic patch
+> > on the cover letter of this series.
+> > 
+> > Signed-off-by: Brian Masney <bmasney@redhat.com>
+> > ---
+> >  drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c b/drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c
+> > index e51b2d13eab473dddace48c75c2a8d73c8c65635..b0b6497e7eedcb6867541b573d22156ded29a4d5 100644
+> > --- a/drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c
+> > +++ b/drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c
+> > @@ -90,10 +90,10 @@ static void mtk_hdmi_pll_unprepare(struct clk_hw *hw)
+> >  	usleep_range(80, 100);
+> >  }
+> >  
+> > -static long mtk_hdmi_pll_round_rate(struct clk_hw *hw, unsigned long rate,
+> > -				    unsigned long *parent_rate)
+> > +static int mtk_hdmi_pll_determine_rate(struct clk_hw *hw,
+> > +				       struct clk_rate_request *req)
+> >  {
+> > -	return rate;
+> > +	return 0;
+> 
+> This does not sound correct to me? should this not check the requested
+> rate?
 
-On Mon, Aug 18, 2025 at 04:34:48PM -0500, Jeremy Linton wrote:
+I can't speak as to whether or not this specific driver should have a
+rate check here. I've seen in some other drivers where the specific
+frequencies are managed in firmware, and Linux just passes on the rate
+request as is.
 
-> Its important to note that GCS pages can be read by normal
-> instructions, but the hardware validates that pages used by GCS
-> specific operations, have a GCS privilege set. We aren't validating this
-> in load_user_gcs because it requires stabilizing the VMA over the read
-> which may fault.
+Some other phy drivers (most notably drivers/gpu/drm/msm/dsi/phy/) only
+makes sure that the requested rate is within a min/max range. Assuming
+I read this driver's set_rate() correctly, it looks like the min/max
+range may be 64-192 MHz. I'm not sure to be honest.
 
-I think in the context of uprobes this is reasonable.  We can always go
-back later and tighten things up.
+This change keeps the existing behavior of the driver as it is today,
+and just migrates off an old API.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Brian
 
-> +/*
-> + * Unlike put/push_user_gcs() above, get/pop_user_gsc() doesn't
-> + * validate the GCS permission is set on the page being read.  This
-> + * differs from how the hardware works when it consumes data stored at
-> + * GCSPR. Callers should assure this is acceptable.
-
-s/assure/ensure/
-
---CxxZay3cgRaUrHlW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmimBMcACgkQJNaLcl1U
-h9DStgf6A0dCzGu8uuMoynkApBSWEG4f5HAlmVPAHWXzCcGU2w83eDn+Q9HoQHoV
-JY8tRaql2Xt08gBFi2xdoJIsgVGy5vSpAqXC0gA62YDv9sjsyKAsklb8D0bv+9kw
-2Omq5CiJDjBCH0eREe52xvExTcCazZeiXpI18GXPU9/D5t8cWNwIqCaQojQoEqFV
-pJN+543otg+v8NN9fFgwkGlQ1vfdnIHa8ERKEYykCdx1oQ98dXonsbWnwhH1WYyw
-Om6XvXeDLfnRajhgFM7gSSp1jK900upFFXeOQRPwaNgRnCcwQOeVCC+1zfIp6P1v
-IfNStDtyZvXvoMdlMY7QrIB/yBbLVg==
-=igX0
------END PGP SIGNATURE-----
-
---CxxZay3cgRaUrHlW--
 
