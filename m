@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58443CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBFBCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 14:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71Qkw8Hy/P+iGBViOApzul3IXKCx7c5tsaWiYZHLSgg=; b=rwLy7/GOPzT9uP6Nrz8QFiV2xp
-	V3BiFlo5o1ux+Cc2Kjnjtr4fOloQRWiXhA8zsAKi9jy7W+xGdl+ZHw1hjGyNo6pbAdajCbEBsc99N
-	jiuu+l25eM/JmAWzTPSYN5f04Wc7xJPx8ZJ6c9oksWkhgDR04wAD4HdxY2FZhSvhCfefwdalkX6ER
-	k8jHNzQpKnv5Nu0dNyj53bhj/0ZSbPBcNIsU/9LYdKtuaedr1dIHyA2KtfE4OShY9TsbTnJTESD6M
-	T9xxEYMGKi8UcjfdfFJX+4/eePjopVwuc72LCJcpUcjWcPHKTMAAOvUUG9Yx1CPislPFfD10Nc9HP
-	Q+Qi0wxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0nVpFwznHMpNpqwkISsWqIDhkZo9GN/5f7ypKNFeZFY=; b=lbbS9M+syfEKQ3wWCq0mAnG/it
+	Yyexbysj8liVT2CN7LahiPI9nnHXAwazfhLjf/PfHQLlBnv7cCSB5H8tr0FXlIyjgi67mbICJJpiR
+	g0fmVWISrFCpM+hNgHk7UED76EIX8K8Ks6K8LjHyIZVkkneHb7e8ox4Th9hrj0y+kriyRRJf6x9+f
+	Aw4pMNsMf5afjKGoMf12EYaDRx0MGWHlKYTxM7k14bpWtMjoIa/zH9P30l2C2dX0F+wCI5U5PhYd/
+	e8ELVTeXZANcDcePyKMXZXxfp5CjQHr+lGTfJ6yvO9Ounw9Z57tzmVTiJK1bJGoG0xTdtdCvslNXj
+	XJJd2fkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojbN-0000000DzIe-1ew6;
-	Wed, 20 Aug 2025 14:15:45 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uojdw-0000000E07g-2HSN;
+	Wed, 20 Aug 2025 14:18:24 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoirq-0000000Dmmo-0iJt;
-	Wed, 20 Aug 2025 13:28:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1755696520;
-	bh=71Qkw8Hy/P+iGBViOApzul3IXKCx7c5tsaWiYZHLSgg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=iTq12KNWSC9E9H/1v6af6iHkChbR9pZyRLHBaUbD7YIJFBKOSy6riJ/C4k8FtnIEH
-	 6Fiv4EAvB6E7GkwTHALIMoffHcUGvuCwzeMyr6k/zQMnwPQGQQv+JZ+dDw3jtyU8R8
-	 fUbxoOGNK2jvDcXAITiU9PJUR0V4Tj3UbKkC1OTWyg6E3mtW/P1Hqs8cr0srLyJ3NI
-	 jjvJZKrCYzD0cWrQG8FK59eyvluG2va4mWnIhod/92fvUVHtPXKcy6NlRz1y1/gUpP
-	 bY2857VT7F9P0svczGWlSHx07jjQyStRDyX0JEH+LukctjvB9BTUYNjhPy5ZA1pQGA
-	 /pSyslgYppzwQ==
-Received: from localhost-live.home (2a01cb0892f2d600C8f85Cf092d4AF51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 65A6917E01F5;
-	Wed, 20 Aug 2025 15:28:39 +0200 (CEST)
-Message-ID: <58234e996f245216aa93b5520e4792f7c1ff4a4f.camel@collabora.com>
-Subject: Re: [PATCH 2/9] dt-bindings: arm: mediatek: Support mt8183-audiosys
- binding variant
-From: Julien Massot <julien.massot@collabora.com>
-To: Rob Herring <robh@kernel.org>
-Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Ikjoon Jang
- <ikjn@chromium.org>, Enric Balletbo i Serra <eballetbo@kernel.org>, Chen-Yu
- Tsai	 <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>, Eugen Hristev
-	 <eugen.hristev@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown	 <broonie@kernel.org>, Julien Massot <jmassot@collabora.com>, Sean
- Wang	 <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-gpio@vger.kernel.org
-Date: Wed, 20 Aug 2025 15:28:38 +0200
-In-Reply-To: <20250801172136.GA3104927-robh@kernel.org>
-References: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
-	 <20250801-mtk-dtb-warnings-v1-2-6ba4e432427b@collabora.com>
-	 <20250801172136.GA3104927-robh@kernel.org>
-Organization: Collabora Ltd.
+	id 1uoisA-0000000DmtW-48xJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 13:29:04 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6188b5b11b2so7987378a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 06:29:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755696541; x=1756301341; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0nVpFwznHMpNpqwkISsWqIDhkZo9GN/5f7ypKNFeZFY=;
+        b=iGJPC/kQPfPyT2fcq3R/XBO9Q3SCYooEIBXr+PZN4wJZp49DeD3WZu52Nv/j1gM0NL
+         c/BDCRmFhdDyRMLjH+jkgFsn+FTeqzoFvV+YYRm6OWBBCw/oPsK+03CbtLT1lTnknb4w
+         0aUH9uBGKzKNg49ERPrnCymPNA2pHKXYGNDZ8+H30wQ8mpcGj9pa2PXPL95kqMQqGto+
+         50bW/+wwVspc9xSgBsrPQsXk1MfAbQTmI3LIrB7ysBpBVUaxAz+Gh8wIZw5/G/Y4EmNQ
+         HCScReDspzPFvys/rbwjhDD+jUgnbhvfxEwhAviNoW6DhLm8HKN0mf+BYh2LZXNcX/H0
+         TCiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755696541; x=1756301341;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0nVpFwznHMpNpqwkISsWqIDhkZo9GN/5f7ypKNFeZFY=;
+        b=lbDdnYLZhmeDW1M7ROpzVESMIw3B0Tkn5OGy1EcqhKt8WL/VsuxCmhrKcw9uJJeJmr
+         H9W8pb5sPLJ/zioQeNmKRLhtJsHG2/3w6Hmk7rOlZgl+qRXloAMOJb8zAqR9IM1ujgCl
+         1KGbkIbV2IXPEGOEneVQ6DKFsFTn+LiyWt/QX0LK5aB87tyFxGDB/aPoe4DsJKDtY4Sp
+         XSiOws3e9shJd/7AvfxLNx7QxWVgTdfI2vfB1traucYOYRS8zQcwrqO1Eam1FmlvR4ng
+         o2zk+s9Zh8BUxDHn18cz36bw7pP1tfyM+aDnWFuWQMTdKmyTB/P6qVUgHDILomPCrdpI
+         jhDg==
+X-Forwarded-Encrypted: i=1; AJvYcCWTfRgmI/wiv7e6TEjKCZh6A1s9hL0xO7hFjl1kgrSalwxi8mGc4+JWIcOi9AeG+W3qHICJN8tNb6pqVFp2rToz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOmydDaQBIoZ9/TdErLJZ7iD3hZDg3eshxkHe0DHBAh+6xach1
+	TLr2jNKkDkeTMHM0Wg9eITY0lLvNYSLktL3dCrdmIGdXufrIKbQaR1pQnCSZjEvhG6GYUCeo5/A
+	130Tlyv8oG5TovD+v51/ftDbis2f0pd8=
+X-Gm-Gg: ASbGncvkmWnYTNrXRmixuz5noiHpWq0EmexSuyGhFe7V2p8T5AfYHGYHkDPsdyB3dkH
+	0W4RI3mW5Y/djmBL0YF/qO8gMEb39w/XKDKNZLukwsLOqDoplDV0ukp2V9wNUp+rBqZiSJpJdRG
+	6KMM2yNBIOU9Bs9zZiEOwS13U0nSguYubAmxlK6I62p4Wh0Nrpr5hgkMeBZG0Dy92CRAK5Zq1dN
+	4QlfA==
+X-Google-Smtp-Source: AGHT+IE1YhFYDwX8RTFqCBvI/O0nzvU66srlAToMGQhCnvv7ApS2NTfh2GSqAw7utXfVWbtfNzrw3Bn9dL0oJJc7q1g=
+X-Received: by 2002:a05:6402:460a:b0:612:b742:5bba with SMTP id
+ 4fb4d7f45d1cf-61a975521a9mr2385263a12.13.1755696540707; Wed, 20 Aug 2025
+ 06:29:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <CGME20250819131732eucas1p26bd491e9b6b747a4857905bfd50420a9@eucas1p2.samsung.com>
+ <20250813131007.343402-7-linux.amoon@gmail.com> <20250819131704.19780-1-m.majewski2@samsung.com>
+In-Reply-To: <20250819131704.19780-1-m.majewski2@samsung.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 20 Aug 2025 18:58:43 +0530
+X-Gm-Features: Ac12FXxJk9FiRDbaSI1KGn0qHUotnyfsd3cxseyNycA4dBDFvpr7OUkV8SN9KUE
+Message-ID: <CANAwSgSjkP_wZ2Wvk1bZ2j6GHwAqEw1f5ZXLfQyEWgzcBzb6Mw@mail.gmail.com>
+Subject: Re: [PATCH v7 6/7] thermal/drivers/exynos: Handle temperature
+ threshold IRQs with SoC-specific mapping
+To: Mateusz Majewski <m.majewski2@samsung.com>
+Cc: alim.akhtar@samsung.com, bzolnier@gmail.com, daniel.lezcano@linaro.org, 
+	justinstitt@google.com, krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, llvm@lists.linux.dev, lukasz.luba@arm.com, 
+	morbo@google.com, nathan@kernel.org, nick.desaulniers+lkml@gmail.com, 
+	rafael@kernel.org, rui.zhang@intel.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_062842_350975_78C7D4EF 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250820_062903_029018_C7821D4C 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,16 +101,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-On Fri, 2025-08-01 at 12:21 -0500, Rob Herring wrote:
-> On Fri, Aug 01, 2025 at 01:18:04PM +0200, Julien Massot wrote:
-> > Update the mediatek,audsys binding to support the mt8183-audiosys
-> > compatible, which uses a different audio controller binding
-> > (mt8183-afe-pcm.yaml) compared to the legacy mt2701-audio controller.
->=20
-> Looks like this one needs 'memory-region' added?
-Correct, I will add 'memory-region' in v2.
+Hi Mateusz,
 
-Regards,
-Julien
+Thanks for your review comments..
+
+On Tue, 19 Aug 2025 at 18:47, Mateusz Majewski <m.majewski2@samsung.com> wr=
+ote:
+>
+> Hello :)
+>
+> > +/* Map Rise and Falling edges for IRQ Clean */
+> > +struct tmu_irq_map {
+> > +     u32 fall[3];
+> > +     u32 rise[3];
+> > +};
+>
+Ops, this is an overkill approach that could be simplified further.
+
+static void exynos4412_tmu_clear_irqs(struct exynos_tmu_data *data)
+{
+        unsigned int val_irq, clear_irq =3D 0;
+        u32 tmu_intstat =3D data->tmu_intstat;
+        u32 tmu_intclear =3D data->tmu_intclear;
+        static const u32 irq_bits[] =3D {
+                BIT(0), BIT(4), BIT(8),   /* Rising edge */
+                BIT(12), BIT(16), BIT(20) /* Falling edge */
+        };
+
+        val_irq =3D readl(data->base + tmu_intstat);
+
+        /* Set SoC-specific interrupt bit mappings */
+        for (int i =3D 0; i < ARRAY_SIZE(irq_bits); i++) {
+                if (val_irq & irq_bits[i])
+                        clear_irq |=3D irq_bits[i];
+        }
+
+        if (clear_irq)
+                writel(clear_irq, data->base + tmu_intclear);
+}
+
+> Hmm, we can probably get away with less interrupts. We actually only
+> enable one fall interrupt in tmu_set_low_temp and one rise interrupt in
+> tmu_set_high_temp.
+
+Got it =E2=80=94 we need to enable INTEN for both rising and falling edges,
+specific to each SoC.
+So each SoC has a one-to-one mapping of INTEN with INTSTAT and INTCLEAR bit=
+s
+for rising and falling edge detection:.
+
+Exynos4412
+   Falling edge: bits 20, 16, 12
+   Rising edge: bits 8, 4, 0
+Exynos5422
+  Falling edge: bits 24, 20, 16
+  Rising edge: bits 8, 4, 0
+Exynos5433
+  Falling edge: bits 23, 17, 16
+  Rising edge: bits 7, 1, 0
+
+So we need to enable INTEN like below.
+
+ static void exynos4412_tmu_set_low_temp(struct exynos_tmu_data *data, u8 t=
+emp)
+ {
+        exynos_tmu_update_temp(data, EXYNOS_THD_TEMP_FALL, 0, temp);
+-       exynos_tmu_update_bit(data, EXYNOS_TMU_REG_INTEN,
+-                             EXYNOS_TMU_INTEN_FALL0_SHIFT, true);
++       for (int i =3D 0; i < 3; i++)
++               exynos_tmu_update_bit(data, EXYNOS_TMU_REG_INTEN,
++                                     EXYNOS_TMU_INTEN_FALL0_SHIFT + i
+* 4, true);
+ }
+
+ static void exynos4412_tmu_set_high_temp(struct exynos_tmu_data *data, u8 =
+temp)
+ {
+        exynos_tmu_update_temp(data, EXYNOS_THD_TEMP_RISE, 8, temp);
+-       exynos_tmu_update_bit(data, EXYNOS_TMU_REG_INTEN,
+-                             EXYNOS_TMU_INTEN_RISE0_SHIFT + 4, true);
++       for (int i =3D 0; i < 3; i++)
++               exynos_tmu_update_bit(data, EXYNOS_TMU_REG_INTEN,
++                             EXYNOS_TMU_INTEN_RISE0_SHIFT + 1 * 4, true);
+ }
+
+>
+> Regarding tmu_set_crit_temp, on SoCs that have hardware thermal tripping
+> there is nothing to clear. On others we will reboot immediately anyway,
+> though maybe there is nothing wrong with clearing the interrupt
+> beforehand? Regardless of this, there is only a rise critical
+> temperature interrupt, we never set a matching fall interrupt.
+>
+As per my understanding, it depends on the calibration consists of reading =
+the
+measured data from e-fuse and wrote the calibrated threshold temperature to
+generate interrupts into trigger level 0-3
+
+THRES_TEMP_RISE and THRES_TEMP_FALL.
+
+When the current temperature exceeds a threshold rise temperature,
+ then it generates the corresponding interrupt (INTREQ_RISE[2:0]).
+When the current temperature goes below a threshold fall temperature, t
+hen it generates a corresponding interrupt (INTREQ_FALL[2:0].
+
+It also depends on the sample interval
+
+> Maybe it would also be good to add a bool to this struct containing
+> information about whether a fall interrupt is in use, and reuse
+> the same logic for 4210?
+>
+> (Nitpick: I am not a native speaker of English, but I think "clean" and
+> "clear" have slightly different meanings, and the rest of the code
+> consistently uses "clear", so it would be worthwhile to also use "clear"
+> here.)
+>
+> > +             break;
+>
+> Maybe put irq_map inside exynos_tmu_data? exynos_map_dt_data has a
+> switch block that is quite similar, in that it also matches on the SoC
+> type. This way also there is no need to have a fallback.
+>
+I want to avoid this If you have any design feedback, plz let me know.
+
+I had attempted to refactor exynos_tmu_data by splitting it per-SoC,
+assigning dedicated callback functions for each variant. The goal was
+to eliminate
+the need for data->soc checks and make the code more modular.
+However, the approach didn=E2=80=99t work as expected=E2=80=94devm_thermal_=
+of_zone_register()
+wouldn=E2=80=99t bind the sensor-specific callbacks correctly.
+
+static const struct thermal_zone_device_ops exynos_sensor_ops =3D {
+.get_temp =3D exynos_get_temp,
+.set_emul_temp =3D exynos_tmu_set_emulation,
+.set_trips =3D exynos_set_trips,
+};
+
+> Kind regards,
+> Mateusz Majewski
+
+Thanks
+-Anand
 
