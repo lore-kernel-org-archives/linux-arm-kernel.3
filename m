@@ -4,115 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7A5CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B7CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 10:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ip4LKASpSqmzP0RLaWheQaaN9hhfIGzEOBUvHhMSZcI=; b=3oPRI1cKkDSks5plhcxZxIcp+u
-	audndHZy33rGMTO0iFhUQ9QxOr558K0IaDla4YBYdHDBP3J/y11BYhq9OGk//EvGXYZiZ17V6deFT
-	gstLl2rr7UrebothDh60wL5wGZ2GI1/x1s3VJcdKiDzFbjrnQGQpe+YXyHGKLY96qbMi425xtVhEs
-	p2sA2I3XAC81CHxN9xicvvdohRfz+DJtUz39/mF9c5m64ipWJ26/SmMWjypYyrf7YEyBwm2niDfVL
-	/NjDNOQUaZcIVOfYBw7YdaGfPPnzPDA5/JMHVFZHbXXV/okiWAuVSvNCinQuwzfHjbCRZGhUkFUpe
-	oB4nLn+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w78QeFyGreVf7tMSy4TKKfr5c2/3G42Hlc0lLvKZiDE=; b=bmzKP0tHRsnGjFzV8Ej6Ukw/l7
+	J/VTO4Ssbjk1o6nRJ1dpvoBz4emfVoG9Wh9S77+BKRVbWlM8RPwtyRpV9CFl1WfcRQCk0VA3v+Ydz
+	IgxEDSjuGZM5sAciNTGY8vpKnd5JFj2y3HdorWv42LRZ7ZyCqe/1qh5z0B+hsucloFHyfKksYAfrm
+	p7Ba7togSH3dn2WEgQjlmWpRd/um6/v7dvlnF/XS/HpVB+VLGpHNsTAiMgWxX7uvMKMiSULg+mJcF
+	y9pU2cfC4hxERoDkGo2x3KGMvT0lXMC+AV3UM068WoKk+x6gcGHqxZkfe+cPHaPj+qwrMZlWIqEki
+	tNP1m66Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofwx-0000000D7aV-1OFe;
-	Wed, 20 Aug 2025 10:21:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uofzW-0000000D8Dj-23Is;
+	Wed, 20 Aug 2025 10:24:26 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uofNi-0000000Czx6-124o
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 09:45:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9CDC15C5DFC;
-	Wed, 20 Aug 2025 09:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634BAC4CEEB;
-	Wed, 20 Aug 2025 09:45:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755683120;
-	bh=9Ow/lpQ1zZH0deSwrOd3Aa2pmlE4AXa6soIfo0gK3Gw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BsTFUzgu8K5SweINNGRHyp9W7MKIR4xDIq5IKV/AnibgTtucIeznIrQNwSzl+aXui
-	 2+D5+RRZNZYU1v/2orLSbY5SugqQRaAtuN5EvNPO5t6igPVWQrPUScaHUb6L3Esep3
-	 tXnXkZ/sn4W8U1IwfwgVVcB0AW6yHfv0lfXCYYR9qQMPvtDCLc+iX75/gshkjYg218
-	 851iszCAGj8OjRVc0PRLp6ekQxPAB5uvNA3unB9hUJUha+VA4G61KSf5p+1D0k2LZZ
-	 /wL2EbNHvOpjNAPwD86Ouom9LP/d1r3IxadxxKWUvnGLT0VEnTRxMDnWRjto2l3IlD
-	 U1TzFK+xC20Lg==
-Message-ID: <44c20b00-a71e-4d1f-8d73-d4255025d9ab@kernel.org>
-Date: Wed, 20 Aug 2025 11:45:16 +0200
+	id 1uofOH-0000000D068-0Yip;
+	Wed, 20 Aug 2025 09:45:58 +0000
+X-UUID: 7634769c7daa11f09f706fa2197c6ceb-20250820
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=w78QeFyGreVf7tMSy4TKKfr5c2/3G42Hlc0lLvKZiDE=;
+	b=TgcqEcVzrWWfmsTGCPSnNwsiMIvc3AVPnTyVgiRhmbri2bSXHjg50SEyh+S3kYCY/2jf28HZoSze3iALF3pniKpRoDNn9fqqF8UjMHMZwMf6vDcS1HcJLmFT4qC13VDBArnQmy08YmF34gL8CjSOLne/D6hNh61IW0iN5Oe48fA=;
+X-CID-P-RULE: Spam_GS6885AD
+X-CID-O-INFO: VERSION:1.3.3,REQID:843d8236-e63b-4d04-a20c-094c6bd2ad94,IP:0,UR
+	L:25,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Spam_GS6885AD,ACT
+	ION:quarantine,TS:125
+X-CID-META: VersionHash:f1326cf,CLOUDID:c46c20f4-66cd-4ff9-9728-6a6f64661009,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|801,TC:-5,Content:3|15|50,EDM:
+	-3,IP:nil,URL:11|97|99|83|106|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 7634769c7daa11f09f706fa2197c6ceb-20250820
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1274622520; Wed, 20 Aug 2025 02:45:52 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 20 Aug 2025 17:45:48 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 20 Aug 2025 17:45:47 +0800
+From: Jjian Zhou <jjian.zhou@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
+	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
+	<jjian.zhou@mediatek.com>
+Subject: [PATCH v4 1/2] dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox document
+Date: Wed, 20 Aug 2025 17:45:37 +0800
+Message-ID: <20250820094545.23821-2-jjian.zhou@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250820094545.23821-1-jjian.zhou@mediatek.com>
+References: <20250820094545.23821-1-jjian.zhou@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: Update xilinx-ams driver maintainers
-To: "Erim, Salih" <Salih.Erim@amd.com>,
- "O'Griofa, Conall" <conall.ogriofa@amd.com>,
- "jic23@kernel.org" <jic23@kernel.org>
-Cc: "dlechner@baylibre.com" <dlechner@baylibre.com>,
- "nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org"
- <andy@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-References: <20250819150448.1979170-1-salih.erim@amd.com>
- <6048713c-9be8-4078-b612-b67c7bd39103@kernel.org>
- <IA1PR12MB7736460C9ACC449D58F992559F33A@IA1PR12MB7736.namprd12.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <IA1PR12MB7736460C9ACC449D58F992559F33A@IA1PR12MB7736.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_024522_372139_5FE4FD8B 
-X-CRM114-Status: UNSURE (   6.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_024557_176496_0C2C1300 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,17 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2025 11:10, Erim, Salih wrote:
->> We see that from the diff. Don't write what is obvious. Explain what is not obvious:
->> why you are doing this.
-> 
-> As Michal explained, Anand left AMD while ago. Me and Conall continue to maintain the driver.
-> 
-> Thanks for warning, I will be careful about future comments and communications.
-> 
+The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
+messages through 64 32-bit wide registers. It has 32 interrupt vectors in
+either direction for signalling purposes.
 
-No, your commit msg should explain that. Do not say what you do.
+This adds a binding for Mediatek VCP mailbox.
 
-Best regards,
-Krzysztof
+Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+---
+ .../mailbox/mediatek,mt8196-vcp-mbox.yaml     | 49 +++++++++++++++++++
+ 1 file changed, 49 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+
+diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+new file mode 100644
+index 000000000000..bd1b024e22f1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/mtk,mt8196-vcp-mbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek Video Companion Processor (VCP) mailbox
++
++maintainers:
++  - Jjian Zhou <Jjian.Zhou@mediatek.com>
++
++description:
++  The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
++  messages through 64 32-bit wide registers. It has 32 interrupt vectors in
++  either direction for signalling purposes.
++
++properties:
++  compatible:
++    enum:
++      - mediatek,mt8196-vcp-mbox
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  "#mbox-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#mbox-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    mailbox@31b80000 {
++        compatible = "mediatek,mt8196-vcp-mbox";
++        reg = <0x31b80000 0x1000>;
++        interrupts = <GIC_SPI 789 IRQ_TYPE_LEVEL_HIGH 0>;
++        #mbox-cells = <0>;
++    };
+--
+2.45.2
+
 
