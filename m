@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183C2CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 18:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D34CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 19:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OaAdYLUCjKX665SPiNgujbPAFCtj51/JdtAuXgcYhE=; b=oVBM8WOj/OTSEKGwMAwkedwlqO
-	UvlBQkiYogPNWAow75hBo9IVlN8BQn/O5uro2YhPRxFSI6zzoq60eV6Vze+DFI12syLSXI57bpS3z
-	8/t0jhnzfkmDfzP1MCReU3mqNSoJRoBtAExi2QlTudNoTlzrlWpOeBk48eXxAZejsfpg93GK9CTO1
-	ua/MqmX4Fx/DLzgg2nkpJIXwlpAQ+eL65xgXBwjKZGYTAxvfwWt0w5mn4brXyB7iYyQqSPCznJBPY
-	QTvcCYWFyKuI6hf5cx5UZ9l4EGSQ/nLDU2IHvaDu/XAz3QwXLXzwmkV47oa/Ttz16tkM/ea4r4cAN
-	/RhK44Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cf4oXxiFdVycZSssVBNQAVii0RaKh03vtvd/RXvabkM=; b=gQLs7CHCQUxvhnpsMTMx41mo6o
+	FDj4vSIPcXtJov+29IulfHHoIXGfrW5KzYobrAiYldnBo+Xb0IMt9S2GFM9UXvN03nxbQREopAFRS
+	jIlmLyKkKJOmoDhjGpQsaWty6yspeptEZURYDnTBd/InMcSiTDMsxSaQ26Sf3br3S/92wUYj06kt7
+	bE/Cvj/hCvA6OSLiqcMmCv0O7x8eq1pxYm6V2T/29rZsUE0Wp2ELU4RoapLd0v9KKq6q2r6i5G1d+
+	H/Av9jG0OSB1SjAyZAfLrmY+5KX8Y7BFzE1y9w5DlMP+OX7iJCnaGz46nCdBwpIRUhaVcCt4c8DIH
+	Ger3CPBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoo0P-0000000Ej6l-1GeL;
-	Wed, 20 Aug 2025 18:57:53 +0000
-Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
+	id 1uoo2z-0000000EjbU-1FpJ;
+	Wed, 20 Aug 2025 19:00:33 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uokqx-0000000EHS5-3jNP
+	id 1uokyw-0000000EIKb-2uHO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 15:35:57 +0000
-Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e94f7232b30so7336276.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 08:35:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1755704155; x=1756308955; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/OaAdYLUCjKX665SPiNgujbPAFCtj51/JdtAuXgcYhE=;
-        b=iG9rmZmKsMrVhBF01L3y8748dJpFS9jCyn32LWl8Kp5bCs20ZEXvXEHZgINYvfrJgI
-         YlPSZLjSCb9OM5VHei6u1ZYrsZEIlMX3QabO87zpNzDcpnwMLnZaeWOBfvKEBBEmLzWi
-         Bkofp7cUsyCEOzlt4EGicd68gnLZw6kRcl3351UCJHmntTSqCybk97a7Z2iF9VzJzMqF
-         M3flSRKeXZR1QxN3PoTpFtPNnCB7wTfmnC0f9dJ9UJpy9xTtrDjhdMFrHvWFM5e3IkIg
-         SVL8aEF0nPvAWzIDNrkpvTLBRWbLKddtEnjtgJQ8sbc52OBO4PGvrVKMbg4VpUdM8s3o
-         EuMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755704155; x=1756308955;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/OaAdYLUCjKX665SPiNgujbPAFCtj51/JdtAuXgcYhE=;
-        b=g59eMh76uAuy8OCKQF3usqcWXqQqOzrXAcjEQqxk3Fc81K9RsnBHijs3qYBUDmslH1
-         jvWxs2PDNSjgbyHQtNOuDIFs2uku4KociBFSeeYGwnp5lD0jmQXmbUDFRR29RzR6fjfq
-         5zITLUe24rSfbUBjNzmHdD/t2eE6h/mt4BImRbrBiMy4XCUSZA/Kj24lbcLrO3EwZ7KV
-         0w7yk+/ayu9I6IRVRTWXMg0am06pLV01FRn2Pn2N6Uve5g7DeDDzuJLwzGbUPmElWApi
-         +pu8Fy75/efcFj487oGyfaQnOylpiAwJRCGjkWgLe9DdUC83olRxYp4YkYECKF2tjUEU
-         VWyw==
-X-Forwarded-Encrypted: i=1; AJvYcCVE2uwYpuO+7nTMreWa+odjKM8R/bv3I1uTOcxhGfyCWUt8yanzlvnc5BNkFgC2qdau9M0jhwYACobQVrCFDrDy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXL6Lr+8xDSoz6oSHNed75yti7vZ3TJ4orUCpZRgu3JoLzIlYl
-	KwMYZVmLMD+aFGnGkx9/9cYMQxcPazrHFx/pj5GmDbTf+TqM97xxQmPka5KvgCK88PYUKNEoFDQ
-	jYxWMLi2RyoJ1FQiP0Tjjy+QvqjGuLd6ojqeEz1KDulx3b1NpxDGb
-X-Gm-Gg: ASbGncuQKqZMqwz/LELZoiQpesIBjo8XaAzBY1BDtfyGlMQ8Ym2AkeNQ/azcafPsqy5
-	icSOYbG/ga8V1Y5wqe8k1FZJMaXQznDqLJMOquEhJT918nB8/iQYlN9Bl+tfHt4egvddf0iWCng
-	pldHpJSfGGF1+S27pMsG499zJUkmEKrZr4parQ8BCBZgQhitDwU4g4n/dYeagVqQ1IOLDnDsRmn
-	V2moLrC9v2LR3+K
-X-Google-Smtp-Source: AGHT+IGsLYoqB6a7x6p7HrOdV6EBm8xUlwEUiEmKFBa4rxPR++1b6vCL2PyVSC7EE2YziIh3mVMucKSbHqyFIo48mlI=
-X-Received: by 2002:a05:6902:610a:b0:e90:58b3:6442 with SMTP id
- 3f1490d57ef6-e94f64c9f98mr3257051276.3.1755704154686; Wed, 20 Aug 2025
- 08:35:54 -0700 (PDT)
+	Wed, 20 Aug 2025 15:44:12 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57KFOO56027241;
+	Wed, 20 Aug 2025 17:43:56 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	cf4oXxiFdVycZSssVBNQAVii0RaKh03vtvd/RXvabkM=; b=IS2+UeADT352MV7r
+	YeAWrAb9vz4yjiu6QM5V+99hO79K/c9+/xPzY6G8grVpWk9akS/zGoY0WjDAOG6r
+	II0Lzdb0BeuHdxQR+e/B298KGFM1jM3L6kuIQKRkFi+KyRjU7ogj1sRw0wrhQckW
+	Ke3ondnGka3YUqB2ZW8cx2keO5HgnbcFy5UkVbYN01tnbk4nu5NsFZrkHjsji1SF
+	7G0Vq5srAKxEutO2j2t7RJ1Wx0043jKqaSqNPK4l4QQ1wifMirYApNJPi/JoyhLs
+	eEEN25iYgR1y4Y42IL9rniD3TqSlXKMMhB5W/udHgeU+6kbbF1b9NSEFr3DLT0r2
+	Ggciig==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n7w5tgt7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 20 Aug 2025 17:43:56 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EC3E94002D;
+	Wed, 20 Aug 2025 17:42:54 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 27C247266C1;
+	Wed, 20 Aug 2025 17:42:33 +0200 (CEST)
+Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 20 Aug
+ 2025 17:42:32 +0200
+Message-ID: <8c934d9c-9837-4d24-b2cc-f72533131ece@foss.st.com>
+Date: Wed, 20 Aug 2025 17:42:31 +0200
 MIME-Version: 1.0
-References: <20250820-arm64-dma-direction-fix-v1-1-818a4ca8f879@raspberrypi.com>
- <aKXMx5RZCy6cuc33@arm.com> <9bb085e7-9833-480b-8804-e9a0d2167f25@arm.com>
- <CAEgJzYOj3dQgS-g4ffG4eGJUQdvtSmAt_ECkMogHfvgsp+aWMw@mail.gmail.com> <aKXmzryGjmYMG7kB@arm.com>
-In-Reply-To: <aKXmzryGjmYMG7kB@arm.com>
-From: John Cox <john.cox@raspberrypi.com>
-Date: Wed, 20 Aug 2025 16:35:42 +0100
-X-Gm-Features: Ac12FXzJSXS64irVa3hLsu_OEObHprErnbNqCNfUMh-o8yTpwTTsrKgm-f2jwIE
-Message-ID: <CAEgJzYOps1io_-XSjS4nDa5G8Fx4_=yW3O5GyzonZCJTxv_f5g@mail.gmail.com>
-Subject: Re: [PATCH] arm64/dma-mapping: Fix arch_sync_dma_for_device to
- respect dir parameter
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+From: Christian Bruel <christian.bruel@foss.st.com>
+Subject: Re: [PATCH v1] irqchip: gic-v2m: Handle Multiple MSI base IRQ
+ Alignment
+To: Marc Zyngier <maz@kernel.org>
+CC: <tglx@linutronix.de>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <fabrice.gasnier@foss.st.com>,
+        <mani@kernel.org>
+References: <20250811103942.4144-1-christian.bruel@foss.st.com>
+ <87ikikmwds.wl-maz@kernel.org>
+Content-Language: en-US
+In-Reply-To: <87ikikmwds.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-20_04,2025-08-20_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_083555_971175_1252FD87 
-X-CRM114-Status: GOOD (  50.45  )
+X-CRM114-CacheID: sfid-20250820_084411_382013_E116042B 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,105 +94,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 at 16:16, Catalin Marinas <catalin.marinas@arm.com> wrote:
->
-> On Wed, Aug 20, 2025 at 03:43:16PM +0100, John Cox wrote:
-> > On Wed, 20 Aug 2025 at 15:08, Robin Murphy <robin.murphy@arm.com> wrote:
-> > >
-> > > On 20/08/2025 2:25 pm, Catalin Marinas wrote:
-> > > > On Wed, Aug 20, 2025 at 11:28:06AM +0100, John Cox via B4 Relay wrote:
-> > > >> This patch makes the arch_sync_dma_for_device function on arm64
-> > > >> do different things depending on the value of the dir parameter. In
-> > > >> particular it does a cache invalidate operation if the dir flag is
-> > > >> set to DMA_FROM_DEVICE. The current code does a writeback without
-> > > >> invalidate under all circumstances. Nearly all other architectures do
-> > > >> an invalidate if the direction is FROM_DEVICE which seems like the
-> > > >> correct thing to do to me.
-> > > >
-> > > > So does arm64 but in the arch_sync_dma_for_cpu(). That's the correct
-> > > > place to do it, otherwise after arch_sync_dma_for_device() you may have
-> > > > speculative loads by the CPU populating the caches with stale data
-> > > > before the device finished writing.
-> > >
-> > > Exactly, not only is it unnecessary, it's not even guaranteed to have
-> > > any lasting effect. arch_sync_dma_for_device() has two jobs to do: 1)
-> > > ensure that any new data going in the DMA_TO_DEVICE direction is visible
-> > > to the device; a clean is sufficient for that. 2) ensure that no dirty
-> > > cachelines may be written back over new DMA_FROM_DEVICE data; a clean is
-> > > sufficient for that also. Adding an invalidate at this point serves no
-> > > purpose since the CPU is still free to immediately speculatively fetch
-> > > the same cleaned data back into the cache.
-> >
-> > An invalidate at this point for DMA_FROM_DEVICE does satisfy (2) at least as
-> > well as clean and has the side benefit that any used cache lines are
-> > now free for use by the CPU. (1) is unaffected by this patch.
-> >
-> > I believe that my patch is no less functional than the current code..
->
-> It's no less functional but it does not address the problem, it simply
-> makes it less likely. Both Robin and I explained the speculative loads
-> potentially leading to inconsistent data if the for_cpu API is not
-> called.
->
-> So I'd rather have the current behaviour and we can spot problems early
-> than hiding it and making it harder to debug.
->
-> > > > An attempt to a udmabuf fix (untested):
-> > > >
-> > > > diff --git a/drivers/dma-buf/udmabuf.c b/drivers/dma-buf/udmabuf.c
-> > > > index 40399c26e6be..9ab4a6c01143 100644
-> > > > --- a/drivers/dma-buf/udmabuf.c
-> > > > +++ b/drivers/dma-buf/udmabuf.c
-> > > > @@ -256,10 +256,11 @@ static int begin_cpu_udmabuf(struct dma_buf *buf,
-> > > >                       ret = PTR_ERR(ubuf->sg);
-> > > >                       ubuf->sg = NULL;
-> > > >               }
-> > > > -     } else {
-> > > > -             dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
-> > > >       }
-> > > >
-> > > > +     if (ubuf->sg)
-> > > > +             dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
-> > > > +
-> > > >       return ret;
-> > > >   }
-> >
-> > Indeed, though that does have the annoyance that you run two sets
-> > of cache ops over the entire buffer rather than one and for a decent
-> > size of buffer (e.g. video frame) that is not free given that you have
-> > to loop over every cache line.
->
-> The udmabuf code is slightly dodgy anyway. I expect the DMA buffer to
-> have been mapped already and a sync to_device issued long before
-> begin_cpu_udmabuf() is called without needing an additional dma_map here
-> just to populate the sg list. Otherwise it's quite late to do the sync
-> for_device just before the CPU is about to start reading. I'm not
-> familiar with this code but at this point we really should only have the
-> for_cpu loop.
->
-> Maybe the problem is elsewhere, I just spotted a corner case where the
-> sync for_cpu is not called.
->
-> > I take your points, but this patch should be no less functional and no slower
-> > than the current code and does work around existing cases where other
-> > drivers haven't got it right.
->
-> It does not work around them, it just makes them rarer. Other
-> architectures may get away with doing such maintenance in the for_device
-> sync only if they don't have aggressive speculative loads into the
-> cache. That's not the case for arm64.
 
-Fair enough. I do understand your speculative load point and I do
-understand that my patch just makes stuff rarer. I believe that
-making such issues rarer is worthwhile when they are already
-rare enough that they will often be simply dismissed as general
-instability rather than leading to better debugging.
 
-Having said that, I accept your point of view. Thank you for your
-time.
+On 8/18/25 18:23, Marc Zyngier wrote:
+> On Mon, 11 Aug 2025 11:39:42 +0100,
+> Christian Bruel <christian.bruel@foss.st.com> wrote:
+>>
+>> The PCI Local Bus Specification (section 6.8.3.4 in Rev 3) permits
+>> modifying the low-order bits of the DATA register to encode the interrupt
+>> number. These bits must be reserved, but the base SPI may not be aligned to
+>> the requested number of SPIs.
+> 
+> The PCI spec knows nothing of SPIs.
 
-John Cox
+OK, admittedly unclear. I was referring to the base SPI from the GICV2M 
+register and the MSI Message DATA register together. Need to rephrase.
 
-> --
-> Catalin
+> 
+>> For example, with an initial MSI_TYPER base SPI of 0x16A and allocating a
+>> multiple MSI of size 8, the offset returned is 8, resulting in an MSI DATA
+>> base of 0x172.
+>> This causes the endpoint device to send interrupt 3 wrong interrupt number:
+>>
+> 
+> Please use the correct terminology: an interrupt is a signal delivered
+> to the CPU. A *message* is what the device sends, which the GIC turns
+> into an interrupt. Here, you are using the same word for two different
+> things.
+
+OK. by 'interrupt number' I reused the vocabulary used by 
+dw_pcie_ep_raise_msi_irq() when writing the message. Which is a shortcut 
+for the "MSI interrupt number" identifier. I will clarify.
+
+> 
+> The problem is that the device encodes a delta from a base message,
+> that the delta is encoded with log2(nr_vectors) bits, OR'ing the
+> vector number with the base message. If the base message is not
+> correctly aligned, shit happens.
+> 
+>> 1st MSI = 0x172 | 0x0 = 0x172
+>> 2nd MSI = 0x172 | 0x1 = 0x173
+>> 3rd MSI = 0x172 | 0x2 = 0x172 wrongly triggers the 1st MSI
+>> ...
+>>
+>> To fix this, use bitmap_find_next_zero_area_off() instead of
+>> bitmap_find_free_region() applying an initial offset of
+>> base_spi - rounded(base_spi, nr_irqs) to accommodate the required alignment
+>> for the first MSI.
+>>
+>> With the above case, the returned bitmap offset is 6 which results in the
+>> correct interrupts number encoding:
+>>
+>> 1st MSI = 0x170 | 0x0 = 0x170
+>> 2nd MSI = 0x170 | 0x1 = 0x171
+>> 3rd MSI = 0x170 | 0x2 = 0x172
+>> ...
+> 
+> Please rephrase this commit message so that it actually makes sense.
+> We shouldn't need examples if the commit message was correctly
+> written.
+
+OK
+
+> 
+>>
+>> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+>> ---
+>> Changes in v1:
+>>     (Marc Zyngier)
+>>   - Replace the incorrect usage of msi_attrib.multiple with nr_irqs
+>>   - Reworked changelog
+>> ---
+>>   drivers/irqchip/irq-gic-v2m.c | 12 ++++++++----
+>>   1 file changed, 8 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+>> index 24ef5af569fe..2d5cf36340b1 100644
+>> --- a/drivers/irqchip/irq-gic-v2m.c
+>> +++ b/drivers/irqchip/irq-gic-v2m.c
+>> @@ -153,14 +153,18 @@ static int gicv2m_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>>   {
+>>   	msi_alloc_info_t *info = args;
+>>   	struct v2m_data *v2m = NULL, *tmp;
+>> -	int hwirq, offset, i, err = 0;
+>> +	int hwirq, i, err = 0;
+>> +	unsigned long align_off, offset;
+> 
+> Move the definition of align_off inside the loop.
+> 
+>> +	unsigned long align_mask = nr_irqs - 1;
+>>   
+>>   	spin_lock(&v2m_lock);
+>>   	list_for_each_entry(tmp, &v2m_nodes, entry) {
+>> -		offset = bitmap_find_free_region(tmp->bm, tmp->nr_spis,
+>> -						 get_count_order(nr_irqs));
+>> -		if (offset >= 0) {
+>> +		align_off = tmp->spi_start - (tmp->spi_start & ~align_mask);
+>> +		offset = bitmap_find_next_zero_area_off(tmp->bm, tmp->nr_spis, 0,
+>> +							nr_irqs, align_mask, align_off);
+>> +		if (offset < tmp->nr_spis) {
+>>   			v2m = tmp;
+>> +			bitmap_set(v2m->bm, offset, nr_irqs);
+>>   			break;
+>>   		}
+>>   	}
+> 
+> Isn't the GICv3 MBI driver affected by the same issue?
+
+I’m not sure. From a brief look at the code, it seems that the GICv3 
+obtains spi_start from the Device Tree (mbi-ranges), not from the hardware.
+
+I noticed one platform that looks suspicious:
+rockchip/rk3568-lubancat-2.dts with mbi-ranges = <94 31>, <229 31>, <289 
+31>;
+For this platform, spi_start might not be aligned for multiple MSIs. 
+Could it be a latent issue ?
+
+We can apply a similar fix in mbi_irq_domain_alloc(), but I would 
+appreciate a Tested-By, as unable to test myself...
+
+thank you
+
+Christian
+
+> 
+> 	M.
+> 
+
 
