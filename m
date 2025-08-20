@@ -4,163 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683EACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 16:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5C9CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 Aug 2025 16:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=712Mo12sKlHcVkrmO2j4o0z54IbkgMamv7susORvjSc=; b=fm964ltXSZD7112NyrvGvhzVGW
-	r99gG/Cb5753nqmQq1zIBxvKazR03bBQ+35vCLPm0rXT2CoHZuSr5P0fMTQRtMAjgdTVE/MeEbaub
-	5encSi65gqeik0LaKHCgeEYm6fGTKNm7w3CLUciuj3FvEgf2f5nXfAr6E/zCOd1u9bNkvDDT5iqYK
-	2VTR+mjNNqGz2Ro8F7qWHjk1H8EMRgG67j0ir8RGzxegsh70rYxeL8HB4d10xZjLrRv3sOQFzaH6Q
-	ftkKVdv6Jlnax/j5Fqx/zXjz6U0MIhpAXcOqTz4YVbqEAu9B6jlqvIjqk2dxecN3ChbvqHDU1r3qi
-	7GMn9c+g==;
+	bh=xfXvIw8M3rhpGDqe9ypeEk0Xb18BQOEfD1R8D+1jD8Y=; b=dfVS/1fJYB//BA0AF/4mNO3Vqv
+	dZilpUablra+n/54xflSRXD0w8GjO8hCzWEvxBDxQyLoND/jATiNgZ/hBQPn7GH19ytTAIxANYQJc
+	oC/W6nPvdzO2HE7zGQ4kkOTYsu6F90haTuDiARsT+fSf4ATtDpWpU9MSoALW8ADfTUITCrVdyQOGR
+	05WqRSYvs6/Xn+FCgb7Cn0KDgA3Pzls85Ye/sOmVz3BGCZsrMViWUIVEbLmmsVajIIaEx5Gg81mkg
+	Oh+AFIglyzHb7bLF9/2tKtV4v3819D+L8l4+KT62diC5RpnN0gf/7JqBQYnvpqmWnbQkPA24Yg7LV
+	bpLzeFEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uolhL-0000000EOv1-0G2C;
-	Wed, 20 Aug 2025 16:30:03 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uoljv-0000000EPPr-0Wpe;
+	Wed, 20 Aug 2025 16:32:43 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uojyV-0000000E7q2-1MUU;
-	Wed, 20 Aug 2025 14:39:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hneVOL7wV+3j2Ew3ROQMOMM3kTlJ5FVCvGdXeCj2iYlncbXdzKT8LNIjOWIFTgCLIaNWmjHTHvbBtfT5+IfmutqSUCCZ7nnMQLZGWS9ljQCGg7u6xpZ3qbiWkqyymphEyCAgwzQ2CFbbH315wZqPA+poChllikoTzBNnDn8Omsrq/MFjzDCrWB3SHEWpqe6wq3bGmhcxWhlocK4uqR1mOtTi7y8uqN0JIrG9NV/qCBPmKEgVPqTM1nhQbBctUhym+R6v8Ph5mp71GZkJtvU89RYIqrnxb4DfziaMLnmEWMd8VnZQN3V4g1dHYVhUPQ17B4TfRmJacOi58hGfmXuwVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=712Mo12sKlHcVkrmO2j4o0z54IbkgMamv7susORvjSc=;
- b=QMyXK5u+wJGd7WblaWDxSd8dzjWqLLXoy0A6/S4N1y70r/CQgTcjDXf0ouau6SphOkkED/snFaaB9DME2OsXaVsJhi2RZUC2EcsAXeF4HIVI9439RutyobAuXhiY1z1gP9r6DY3dt1L20b0+5bbrjfBzO/jgXld/Frn5WZHJU7TjB/Qklcpttt6vQM73m/Xr5Erp6bHwqPlS1O8bS+0H4Yay7I353Df1SYXWqNiBq9qEJ+xQEnyi6ZbD4aSGAZfqr/Y+LuU99ndRSauGIGun1XMRDz2IdbDcw68In+KrmzIb4WW3EH4k7mYodNQYq02a/fiNtpbQRpMoFFTKdTh2CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=712Mo12sKlHcVkrmO2j4o0z54IbkgMamv7susORvjSc=;
- b=b9C7AH5daSnXF10jk7NwWJ3N1ZSerpWWHTFHGPoveX4LHmxk5tXksn5HpM9QtKecpOEE8V7i0meOxWtpJCnaU0ZWTLTB6Q8s1LmSH4rXOoKTf8HLu1WY1cwHiDtuEpLx5hTApI7InM8QGOQO7Ny9OpgrpJ7JD6NsoV9mE2sn5LsEymuaXVdqkg7PsurUqo2zpbIQtQM6QUVV9YXCQELdeIlXb5hoF2BZN5X0mgJQwHXUNGkBlDlUGP5CL1SpdcG9t625cz3ZMDRoCcoUV1/z/Ga+Wyc2Jjw06XImnUhZ9ZrxMFhPHIyedWw9TCaFUZTnRbPuoJgpKWO+NdumPIB6/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM9PR04MB8857.eurprd04.prod.outlook.com (2603:10a6:20b:408::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Wed, 20 Aug
- 2025 14:39:34 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Wed, 20 Aug 2025
- 14:39:34 +0000
-Date: Wed, 20 Aug 2025 10:39:23 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-staging@lists.linux.dev, Luis Oliveira <lolivei@synopsys.com>
-Subject: Re: [PATCH v2 00/32] media: add imx93 mipi/controller csi support
-Message-ID: <aKXeG0+QxcgZYiUE@lizhi-Precision-Tower-5810>
-References: <20250808-95_cam-v2-0-4b29fa6919a7@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250808-95_cam-v2-0-4b29fa6919a7@nxp.com>
-X-ClientProxiedBy: BYAPR11CA0079.namprd11.prod.outlook.com
- (2603:10b6:a03:f4::20) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1uok2E-0000000E8O5-2TSy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 Aug 2025 14:43:31 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e931cad1fd8so6677444276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 07:43:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1755701009; x=1756305809; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xfXvIw8M3rhpGDqe9ypeEk0Xb18BQOEfD1R8D+1jD8Y=;
+        b=MLX+JFd6CDlgk1K3+CS+t4zLqCZAaZ0X4Zoce5BXt4wwpkmcKJxF+50eG1mRo+xxqw
+         dgoec/agp7/HqPeJVypWD9Ksld+PyCsQOWXZWI+FGtzTR5Ubg++Ddp8bpUTyKF57Qh9r
+         3rJzDb0rNVzQBWuPa6ZMFk9pTdYm7meCh3lA3JkZWdNvRBWXFABN5WA4clqbAqu+Ho9d
+         rUl9aaQkPilpA4n2CUTUgY6pAE+A20mbK4y0Sn15Pwq7OjQyLnIs/DQVpdeiZjzbR3Oc
+         1dEDn92GHYt5ZwEZf8GYcG23L18b8JCpkGxUlKw/8L3zEIR/fVbXmLdCa54ujnPgVc/j
+         Qpxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755701009; x=1756305809;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xfXvIw8M3rhpGDqe9ypeEk0Xb18BQOEfD1R8D+1jD8Y=;
+        b=TuTtFLfoIlKsBuDYzOOnEWduvFrJosca+yROLg6vgSTbo5dvpaCs/Px/GdjuBzyJ5Z
+         C0sjgy77OIrT92Rt4joTbqUcjTRUUtXVHavYRCWqmay4tojP3wkX/mu9sdfZmR8APR6Q
+         Wcqvom10k9/UmwqMPMkjwYuiTB9TmFhsPlesep4qg0qGUlyrd+DgF69TcCwMpkJMk6Yb
+         2i1IkhwE/4p/Q164QyNhLKxjN475O56jSq/lfBwZtLqnv9kspKpfAhAY9RiyD31+CxWK
+         vZC4tWXiUGwKp2+VNPNaQivT252GGfhqrd0z1UIRhmytZ0MzW7btBfIvLc39Q3H7Hzdu
+         +0AA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmJveYaa931OVaBp9ryQsFWq4ngqKchjtXJxBxwFJEdB0C48yavOSPexuRloPR8eZNUiWzP8o4UQzl9W3MFG4k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzuvw7PLPXG5YSNVo3tAro+38IV+Cd/gECu9E3N91E3Q+1LS9Pu
+	vzoxDDY4Y8JZqEIxKQT1bliUy9TCgVBvkE+yJ0XKFo7UxNGLV+wb2S6VFpybmDBmDCa2zHKfxIR
+	rRz7KTRMaPo1j/iCsy3BCVlvT0WAIV0PwXUoPc7ufVQ==
+X-Gm-Gg: ASbGnctUQKjIeFSNCukW/1l8tDg45CouOG56a6evfd4axc6hsV9vvmsD+0Q8T8g21p4
+	2z3LafMME/gATTMThcpk4f5GMYPfHcUdWpCCkzQcQmRsplcqfSS2fBiCh/1gwxd8Osu4gBfDPmg
+	vkkjx0DAeweXuXlijMFs73e6ASlDngMLolrv36o34D6gpedMvEGseL+H6RvxvXH9ecRy7v/vWRz
+	jT32Yjwo+tZPO94
+X-Google-Smtp-Source: AGHT+IGKVwurNNVoTc+24AR7qNEs19XqT6ymEiGAd/pauKcT2CdeYLK79V42u0xyC9b9JOo/FRonGkezfrGKdcHpM9c=
+X-Received: by 2002:a05:6902:4005:b0:e94:626b:c13a with SMTP id
+ 3f1490d57ef6-e94f657af0dmr3861671276.15.1755701008953; Wed, 20 Aug 2025
+ 07:43:28 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8857:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32a2548b-27b0-4b4d-7217-08dddff76186
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|52116014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cUgS/xgwr08loJpK3yRa+vP9ni0itRRZICPw3FOBaONDQC9ggyAkfHq/iRC5?=
- =?us-ascii?Q?/P2sbEoEq+3OxOtcCCxI9y803DvimFMJcsg26OEbOzV0l5Cx1sZEcijN3/EP?=
- =?us-ascii?Q?bC043eMjMt4xB3rTpZJoaO7z73ZllBfj8wElA7CLCXSPPtxzitLY6mBWt0Fx?=
- =?us-ascii?Q?huEaPWMk+2Bk2QtRk1Nib0g+mR7bEEvqtYHXc/oNct6//ctPVOkia7l1yZ0H?=
- =?us-ascii?Q?Kmd/7LgtE+EbLlLFm3xh4gO4qqJPhCkcscmqRRax1c2DK1UZRqfs7+SzBS/I?=
- =?us-ascii?Q?mN+bWDjKPJQyohza5Q9GnjqeeaOyJq6aOQQl/MJIwdQ3q0tuk+AubaLDJH44?=
- =?us-ascii?Q?4WnjN86XkW7yLNjFAEtwzr5c45t24JBcE+MBfHV2/rjdGugxfBMmZlLdM1Sb?=
- =?us-ascii?Q?csLn3C4iO84DYZ5ch7fme94ygdd9xdym3QVoAXNVUQLopqM72Qd845sKW1RH?=
- =?us-ascii?Q?v6o3cw7+fOdT9VP24YOPgbO9ITyM3FBSgAoxW2MVDhF5q5KgK+QXNjEQnzrq?=
- =?us-ascii?Q?cNK/ocCYnadABnVYWulvMEQesm60o6w3gNK/1fYJkgXgGeau/Y0STSQ5UVVZ?=
- =?us-ascii?Q?LmPYyy9J2yeMZEfMK2T+7vFdDPZv6yD2Hdi0FbxNpXvYESEYA9bexJnB24i8?=
- =?us-ascii?Q?kC2ETY6n+hKwQTBsCHDa+nf1+gMt6A5xJdieZO8KTrV3aU3YHPxce+YaakOi?=
- =?us-ascii?Q?LXQ39oJoXzsUJa0Zb2iHA6uCL8ctqkK23Dy4exthtVgfPI/lLYrZLD1na4Bw?=
- =?us-ascii?Q?DfSjW40f7OBWz9+erxKaBnYA4iC/a+RoEtcqQGwJ2HfjDK2X9uSptAQwBt0D?=
- =?us-ascii?Q?a6tVHGaEK+rN93NYjphosr9/Txfx9CKyks11yagOhcf+P2bklblJpidKIV7W?=
- =?us-ascii?Q?t1t5Ugmp6606tHhjW96obRrfk19e73Hy5YT+0iuZQZzh7zaD8wP901oBSDgA?=
- =?us-ascii?Q?ZZ3ZY/9RPyFF68M7HznOAPz85+DjSkBygEp7iNwMKtqrcefWutWat7sNq/GX?=
- =?us-ascii?Q?orjhPNh9uXhqrujM2CIiD1kRM824d8Icb6As/7AQMbLO9KFCjDckgh5sLkKN?=
- =?us-ascii?Q?1xY57fE5JutNwTXlzBhJm1ImvlgWIiO1pXASSjgBewC/CUncjyk3Cduchebk?=
- =?us-ascii?Q?4DYQuyCU10og/Ga2k/0y4q+BupdNbY/cr8llA+EP45XuFDrEZzgi9fW1cE3y?=
- =?us-ascii?Q?AgKJpyPSuQX1tFh6Xi88hCq2ngT6Vy+FdHMm/o1sOq+CQ/lscXathiQ4lNYY?=
- =?us-ascii?Q?0UQZNGrE9s4+AJX/JNbmQ7DyZY9U8S32rQhu7io0vpFfetRbFKlQHtCh1jma?=
- =?us-ascii?Q?MtPg9F0xXa9Z9WCyhQO5QQcG8+BlS8iLFj6VKGDWO2/Qsz+m3amDsATcBen1?=
- =?us-ascii?Q?AXgd6NdM0Cp793jlr7Qo9ljS19hEBzNSPJn2HJQoPw5BCGclB5GKE3aBxIYU?=
- =?us-ascii?Q?J4kI+jLFUemk/OTm6LVwLekPwEKfcbXiXPi4yjfi3R0KKigFcIfTyZMsR+q6?=
- =?us-ascii?Q?aVk7wHu3i3USqLCpFBQmVJztwAU7XrO9finm?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(52116014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c0YmqQx/8kG6iOz7fMek7L506RemRVi/HtEtvjp40UnnsOR6gdBwxYUsi4GN?=
- =?us-ascii?Q?hADF6aQNx/VdyaeMTA6FW6SOg1yl5UE7QS5qSTzYPy0I24C+zulCuy53QGJr?=
- =?us-ascii?Q?TXlgKOkNUtHOdgV9Wek1e8v/0fBBjgLtcedAgDgbNDN7BSBfrYaOqsSBMQgQ?=
- =?us-ascii?Q?FJdSkmXlptT1dUgOBp6NwrlhftSA6yC5LNT4duJFTTqxoECHEE1QAFNyD/aB?=
- =?us-ascii?Q?5uALoJSI9dH1cOyfN5J2JE+bfbqBz4msJGza7M3TYnoHTmH3UFXNDUSKR9wy?=
- =?us-ascii?Q?UrBS2zpef0LCYEOIgXUXChyAr+G+mzZtKQBAupJhWtBn2+3DCYKURu/r1Bq7?=
- =?us-ascii?Q?mbGLEIUWdiOoyJ0eKHuN2QuYqxTKxLsNB6xxbPmrED3r7/Rb91sZqEHje8+p?=
- =?us-ascii?Q?8x07mNUFvH3C5jBKrkVdIGcr04ew2gqrUrmAxrFNeTnpzY63GwIcEpEC2oFg?=
- =?us-ascii?Q?917B1hssQ/VZw+92qJr23U+ZJ2S5B9fSuIOFThSz/kb7aCMRm5O1CT+APoTQ?=
- =?us-ascii?Q?9MZ2QdRuVfXoJBHh/CKET9FC1TRZZuuMsDNYyGvIwrf5AsiwuWFDo7xlI+GN?=
- =?us-ascii?Q?6wfeqDjd2PP3suER8oLqEZOIy3l+KJNCVzGKhJQ/8ohmuV2fKr4zEp7BAn45?=
- =?us-ascii?Q?nasoupMfL47rOIlK1yLzvX+q8TrZltSCQwnSVRaPSXTR5Xm3B3kWSyZK+zA1?=
- =?us-ascii?Q?386i6lKJBpreVs93nJ3X4cGrRNBiv7ygAeriNsAcc6x6azVu57vTVzOOyI7h?=
- =?us-ascii?Q?0GfTEAkEKav3zMEHuGs1JQMObi9wnLlg3DajS76FkBEOYGgMUwIv/hqhUefK?=
- =?us-ascii?Q?UYUhZNFKkwAKF1kkAWYs1ANKTXvcbhd3Htgv+ipGCetsut2S19nKS0E0wuUi?=
- =?us-ascii?Q?cfl2XL+o1zlZJ1wrzd7lRC3qdzJd3nX7ekC8lf8uwxmLpGFVq+uAhJby4CIH?=
- =?us-ascii?Q?oEVvo1Le6P6HIj/bIRrekhVYhipr80+coD1f4qXweJ+louksu7qPLf1lc1MS?=
- =?us-ascii?Q?zOejITZE5OFE5DwL3BjC5S+8GY54SN5TBEa0iVkdigJ+/DCfH8RVo2acQjvt?=
- =?us-ascii?Q?q0wvnpWce66YrqCmOoWSfEMqMW0G1+0wx18Rw4k7klGBBFJX7hK8mJ0KwvyS?=
- =?us-ascii?Q?WtXYRzRez44vcTMT7QkEXJQ5jTGqU/EQCjAO1prIno0giRHOdxCTCzzSa2VG?=
- =?us-ascii?Q?BSWQ/m6FRNfgOB7lP0Y8//8/86G8NaZGSJIQfK4VBiUgo4/QEmRkQHXtS3nP?=
- =?us-ascii?Q?Rykwq5TYXl4QVnUno01t8PSvRBsHAY9H/vA8Nb8Ur5DLeA1ESNqTeB9oAgoF?=
- =?us-ascii?Q?cUHv1Ue7Vlqy+1tegclB26lkousxTrG+OYYWPuRfZBxkBAbB4m84u6E6fk3d?=
- =?us-ascii?Q?M8r16kArw2dFdpoCpT3FYtKEx611kFpy71tO7HYtTAkn+vQDTF1gytuezjtt?=
- =?us-ascii?Q?CW29PN679iyHx3tyeaHJjlFwEBYfxrScPIPDAzBf2Jo217CksrOzA4e33Nu7?=
- =?us-ascii?Q?2vFFhYQNWlsblc033pm0IMRvufYR1jTVSwK0X1snGVg2lewYpQwd0kyxThgT?=
- =?us-ascii?Q?B32Yj4FbNkjZNhzsB2/JSqutin47lTfH73vRmMWW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32a2548b-27b0-4b4d-7217-08dddff76186
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2025 14:39:34.4667
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FQZGjtjowiVqyufy89XO6YtPLJCQA20oLl3MYBMGK1wD246IdgmdoJm+vTefb9T4NKLHr0N/1AidHG3y/Eb3Lg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8857
+References: <20250820-arm64-dma-direction-fix-v1-1-818a4ca8f879@raspberrypi.com>
+ <aKXMx5RZCy6cuc33@arm.com> <9bb085e7-9833-480b-8804-e9a0d2167f25@arm.com>
+In-Reply-To: <9bb085e7-9833-480b-8804-e9a0d2167f25@arm.com>
+From: John Cox <john.cox@raspberrypi.com>
+Date: Wed, 20 Aug 2025 15:43:16 +0100
+X-Gm-Features: Ac12FXyTjMjSCWZ1ObQfEsmEe7w2RdfkJQZOOSeF70CU7hFAK8rLEYepRHg6oX8
+Message-ID: <CAEgJzYOj3dQgS-g4ffG4eGJUQdvtSmAt_ECkMogHfvgsp+aWMw@mail.gmail.com>
+Subject: Re: [PATCH] arm64/dma-mapping: Fix arch_sync_dma_for_device to
+ respect dir parameter
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_073939_535443_B09F6D9E 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20250820_074330_722767_33CCDB36 
+X-CRM114-Status: GOOD (  55.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,116 +95,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 06:39:03PM -0400, Frank Li wrote:
-> Totally rewrite CSI part driver compared to V1.
+On Wed, 20 Aug 2025 at 15:08, Robin Murphy <robin.murphy@arm.com> wrote:
+>
+> On 20/08/2025 2:25 pm, Catalin Marinas wrote:
+> > On Wed, Aug 20, 2025 at 11:28:06AM +0100, John Cox via B4 Relay wrote:
+> >> All other architectures do different cache operations depending on the
+> >> dir parameter. Fix arm64 to do the same.
+> >
+> > I suspect that's a bug in the users of the DMA API. We shouldn't modify
+> > the arm64 implementation to cope with them.
+> >
+> >> This fixes udmabuf operations when syncing for read e.g. when the CPU
+> >> reads back a V4L2 decoded frame buffer.
+> >>
+> >> Signed-off-by: John Cox <john.cox@raspberrypi.com>
+> >> ---
+> >> This patch makes the arch_sync_dma_for_device function on arm64
+> >> do different things depending on the value of the dir parameter. In
+> >> particular it does a cache invalidate operation if the dir flag is
+> >> set to DMA_FROM_DEVICE. The current code does a writeback without
+> >> invalidate under all circumstances. Nearly all other architectures do
+> >> an invalidate if the direction is FROM_DEVICE which seems like the
+> >> correct thing to do to me.
+> >
+> > So does arm64 but in the arch_sync_dma_for_cpu(). That's the correct
+> > place to do it, otherwise after arch_sync_dma_for_device() you may have
+> > speculative loads by the CPU populating the caches with stale data
+> > before the device finished writing.
+>
+> Exactly, not only is it unnecessary, it's not even guaranteed to have
+> any lasting effect. arch_sync_dma_for_device() has two jobs to do: 1)
+> ensure that any new data going in the DMA_TO_DEVICE direction is visible
+> to the device; a clean is sufficient for that. 2) ensure that no dirty
+> cachelines may be written back over new DMA_FROM_DEVICE data; a clean is
+> sufficient for that also. Adding an invalidate at this point serves no
+> purpose since the CPU is still free to immediately speculatively fetch
+> the same cleaned data back into the cache.
 
-Laurent Pinchart:
+An invalidate at this point for DMA_FROM_DEVICE does satisfy (2) at least as
+well as clean and has the side benefit that any used cache lines are
+now free for
+use by the CPU. (1) is unaffected by this patch.
 
-	Not sure if you have chance to look this patches, which is big
-changeset.
+I believe that my patch is no less functional than the current code..
 
-	Please check first 3 patches firstly, which help reduce many
-hardcode in current code base.
+> >> This patch fixes a problem I was having with udmabuf allocated
+> >> dmabufs. It also fixes a very similar problem I had with dma_heap
+> >> allocated dmabuf but that occured very much less frequently and I
+> >> haven't traced exactly what was going on there.
+> >>
+> >> My problem (on a Raspberry Pi5):
+> >>
+> >> [Userland]
+> >> Alloc memory with memfd_create + ftruncate
+> >> Derive dmabuf from memfd with udmabuf
+> >> Close memfd
+> >> Queue dmabuf into V4L2 with QBUF
+> >> <decode a video frame>
+> >> Extract dmabuf from V4L2 with DQBUF
+> >> Map dmabuf for read with mmap
+> >> Sync for read with DMA_BUF_IOCTL_SYNC with (DMA_BUF_SYNC_START |
+> >> DMA_BUF_SYNC_READ)
+> >> Read buffer
+> >> Sync end
+> >> Unmap
+> >
+> > Between the device writing to the buffer and the "read buffer" step
+> > above, is there a call to arch_sync_dma_for_cpu()? A quick look at
+> > begin_cpu_udmabuf() shows a dma_sync_sgtable_for_cpu(), though there is
+> > a branch where this is skipped. get_sg_table() seems to do a DMA map
+> > which I think ends up in arch_sync_dma_for_device() but the sync
+> > for-CPU is skipped.
+>
+> Indeed that path is clearly wrong.
 
-	media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
-	media: v4l2-common: Add helper function media_bus_fmt_to_csi2_bpp()
-	media: v4l2-common: Add helper function media_bus_fmt_to_csi2_dt()
+As I noted, there is a patch for udmabuf going through at the moment that
+reworks that section of the code and may well fix the issue above. However
+I had a similar issue, though much less frequent with dma_heap/system
+allocated buffers which this patch also fixes. Now I grant that finding and
+fixing every bit of code that gets this wrong would be ideal but this does
+improve the situation where other drivers make incorrect / outdated
+assumptions about what arch_sync_dma_for_device does, possibly based
+on what is done for other architectures (e.g. armv7).
 
-	The other patchset https://lore.kernel.org/imx/20250820-csi2_imx8mq-v5-0-e04a6fc593bd@nxp.com/T/#t
-depend on this first 3 patches.
+> Thanks,
+> Robin.
+>
+> > An attempt to a udmabuf fix (untested):
+> >
+> > diff --git a/drivers/dma-buf/udmabuf.c b/drivers/dma-buf/udmabuf.c
+> > index 40399c26e6be..9ab4a6c01143 100644
+> > --- a/drivers/dma-buf/udmabuf.c
+> > +++ b/drivers/dma-buf/udmabuf.c
+> > @@ -256,10 +256,11 @@ static int begin_cpu_udmabuf(struct dma_buf *buf,
+> >                       ret = PTR_ERR(ubuf->sg);
+> >                       ubuf->sg = NULL;
+> >               }
+> > -     } else {
+> > -             dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
+> >       }
+> >
+> > +     if (ubuf->sg)
+> > +             dma_sync_sgtable_for_cpu(dev, ubuf->sg, direction);
+> > +
+> >       return ret;
+> >   }
 
-Frank
->
-> This only includes CSI related patches.
->
-> DTS part: see https://lore.kernel.org/imx/20250701-95_cam-v1-6-c5172bab387b@nxp.com/
-> PHY part: see https://lore.kernel.org/imx/20250701-95_cam-v1-4-c5172bab387b@nxp.com/
-> AP1302 part: see https://lore.kernel.org/imx/20250701-95_cam-v1-7-c5172bab387b@nxp.com/
-> 	upstream: https://lore.kernel.org/imx/20250623-ap1302-v3-0-c9ca5b791494@nxp.com/
->
-> First 3 patches add some common helper function to simple code and remove
-> duplicated code in difference CSI2 drivers.
->
-> Clean up stage imx6 old version csi2 driver, and prepare create common
-> dw csi2 library for difference IP version.
->
-> Move stage driver under driver/media/synosis.
->
-> Create simple platform driver for common dw csi2 use case.
->
-> TODO:
-> 	1. create bus, to probe phy driver under "test_if" interface for
-> specific phys under CSI2.
-> 	2. support to combine phy, (which connect to both dw CSI and DSI's
-> test_if). Need use DSI's test_if to config combo phy to switch to RX mode.
-> and also need config RX part's phy register by use CSI's testif.
-> 	3. move other vendor's csi driver to use this common DWC CSI
-> library.
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v2:
-> - totally rewrite, see above section
-> - Link to v1: https://lore.kernel.org/r/20250701-95_cam-v1-0-c5172bab387b@nxp.com
->
-> ---
-> Eugen Hristev (1):
->       dt-bindings: media: add DW MIPI CSI-2 Host support
->
-> Frank Li (31):
->       media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
->       media: v4l2-common: Add helper function media_bus_fmt_to_csi2_bpp()
->       media: v4l2-common: Add helper function media_bus_fmt_to_csi2_dt()
->       media: staging: media: imx6-mipi-csi2: replace space with tab for alignment
->       media: staging: media: imx6-mipi-csi2: use devm_add_action_or_reset() to simplify code
->       media: staging: media: imx6-mipi-csi2: use devm_clk_bulk_get_all() to fetch clocks
->       media: staging: media: imx6-mipi-csi2: use devm_mutex_init() to simplify code
->       media: staging: media: imx6-mipi-csi2: use guard() to simplify code
->       media: staging: media: imx6-mipi-csi2: use register structure to match hardware
->       media: staging: media: imx6-mipi-csi2: use devm_platform_ioremap_resource() simplify code
->       media: staging: media: imx6-mipi-csi2: move probe part to imx6-csi2.c
->       media: staging: media: imx6-mipi-csi2: move sd imx6's specific initialization into imx6-sci2.c
->       media: staging: media: imx6-mipi-csi2: move csi2ipu_gasket_init() to imx6-csi2.c
->       media: staging: media: imx6-mipi-csi2: move number pad macro define into imx6-csi2.c
->       media: staging: media: imx6-mipi-csi2: move dphy init part to imx6-csi2.c
->       media: staging: media: imx6-mipi-csi2: use runtime_pm frame to control clks
->       media: synopsys: move imx6-mipi-csi2.c to synopsys/mipi-csi2.c
->       media: synopsys: csi2: Remove deprecated s_stream and use v4l2_subdev_pad_ops
->       media: synopsys: csi2: Add phy interface support
->       media: synopsys: csi2: Add basic v150* version register
->       media: synopsys: csi2: Add irq support to record error count
->       media: synopsys: csi2: Handle alignment requirement for width
->       media: synopsys: csi2: Add register prefix to register field definitions
->       media: synopsys: csi2: Add need_dphy_reset in config
->       media: synopsys: csi2: Add default simple dw_csi2_subdev_init_state
->       media: synopsys: csi2: Add v150 lane stop state register bit define
->       media: synopsys: csi2: use standard v4l2_subdev_get_fmt() function
->       media: synopsys: csi2: Add customize get_frame_desc() callback
->       media: synopsys: csi2: Add Image Pixel Interface (IPI) support for v150
->       media: synopsys: csi2: Remove source pad connected check at dw_csi2_enable_streams()
->       media: synopsys: csi2: Add simple synopsys platform driver
->
->  .../bindings/media/snps,dw-mipi-csi2-v150.yaml     |  158 +++
->  MAINTAINERS                                        |    1 +
->  drivers/media/platform/synopsys/Kconfig            |   20 +
->  drivers/media/platform/synopsys/Makefile           |    3 +
->  drivers/media/platform/synopsys/mipi-csi2-simple.c |   75 ++
->  drivers/media/platform/synopsys/mipi-csi2.c        | 1258 ++++++++++++++++++++
->  drivers/media/v4l2-core/v4l2-common.c              |  220 ++++
->  drivers/staging/media/imx/Kconfig                  |    1 +
->  drivers/staging/media/imx/Makefile                 |    2 +-
->  drivers/staging/media/imx/imx6-csi2.c              |  181 +++
->  drivers/staging/media/imx/imx6-mipi-csi2.c         |  846 -------------
->  include/media/dw-mipi-csi2.h                       |  120 ++
->  include/media/mipi-csi2.h                          |    5 +
->  include/media/v4l2-common.h                        |   30 +
->  14 files changed, 2073 insertions(+), 847 deletions(-)
-> ---
-> base-commit: 33652d58b64e92d2598205fd992989bd93cd61f4
-> change-id: 20250606-95_cam-b74c094ad1fb
->
-> Best regards,
-> --
-> Frank Li <Frank.Li@nxp.com>
->
+Indeed, though that does have the annoyance that you run two sets
+of cache ops over the entire buffer rather than one and for a decent
+size of buffer (e.g. video frame) that is not free given that you have
+to loop over every cache line.
+
+> >> I get old (zero) data out of the "Read buffer" stage in some cache
+> >> lines sometimes.
+> >> It doesn't matter which way round the mmap & sync are.
+> >>
+> >> I am aware that there is a patchset going through for udmabuf that may
+> >> well fix the udmabuf case above, but given that this patch fixes
+> >> something similar in dma_heap/system too I think it is still worth
+> >> having.
+> >> ---
+> >>   arch/arm64/mm/dma-mapping.c | 16 +++++++++++++++-
+> >>   1 file changed, 15 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/arch/arm64/mm/dma-mapping.c b/arch/arm64/mm/dma-mapping.c
+> >> index b2b5792b2caaf81ccfc3204c94395bb0faeabddd..51c43c1f563015139e365ed86f0f5f0d9483fa7f 100644
+> >> --- a/arch/arm64/mm/dma-mapping.c
+> >> +++ b/arch/arm64/mm/dma-mapping.c
+> >> @@ -16,8 +16,22 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> >>                            enum dma_data_direction dir)
+> >>   {
+> >>      unsigned long start = (unsigned long)phys_to_virt(paddr);
+> >> +    unsigned long end = start + size;
+> >>
+> >> -    dcache_clean_poc(start, start + size);
+> >> +    switch (dir) {
+> >> +    case DMA_BIDIRECTIONAL:
+> >> +            dcache_clean_inval_poc(start, end);
+> >> +            break;
+> >> +    case DMA_TO_DEVICE:
+> >> +            dcache_clean_poc(start, end);
+> >> +            break;
+> >> +    case DMA_FROM_DEVICE:
+> >> +            dcache_inval_poc(start, end);
+> >> +            break;
+> >> +    case DMA_NONE:
+> >> +    default:
+> >> +            break;
+> >> +    }
+> >>   }
+> >
+> > As explained above, that's not the right fix. We need to identify what's
+> > missing on the ioctl() paths.
+> >
+
+I take your points, but this patch should be no less functional and no slower
+than the current code and does work around existing cases where other
+drivers haven't got it right.
+
+Many thanks for your swift responses
+
+John Cox
 
