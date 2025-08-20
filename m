@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E450CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E64CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 00:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZsgdsMTWvJVq/njCoYgEtTgqWIq+0P6+Lg9YsYCtXoc=; b=wnj5VYfX6azmrWLtY7SKOPndvJ
-	fT/tqxFCsR1UCoNC0KUEI1CNO0uEpmm2OmMWO1kVhD7DHbw4jaeq0pmVM8tOCkmywaYOvTIA160wp
-	u8krzOAmxIOF647Ry1WWxS1s78iJHdsuUWUIQhZo5A8Ze4OY6FxT2IXxHyUqLYtwx6297DsBPUF5a
-	n91CEmUkMzTwgGPZQuoaE5Z8BD/9qFeGrNHGvguGj7aX4EEVtGXN6czm+TKP0EyubgLm3hdZN4oq6
-	eJEtvmswPS7IMLIhsq2egwZH5Ny68uGl1xACqgW3zUHILuVk19XgySqbPq7TR8cmI17/e2/STMgS6
-	hzIDsimw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=AQ2T5G8Cvdb7uVFIZVdZezwi6dMjSG0hKH8PHA8yVJk=; b=wq/kaPTgYjKCVv
+	ozv3YlE/ET9xvdLfyr1xnDP3BcpwO2jTooxNnCxMq6z3Bma00Rcl4dcIPYl4KVDwNXxo+RfJ3Jqy0
+	FD42wPxZoXJ1YUBVzXGKVeCuPVlcaEK1F5ry3UzrUGUwuPozQztjBhMf3ZVQyl2D51whAqBZG+Ia1
+	Cdk5qwmZHTWBfBu4znkbvmWIucrCLUPcGTALJ3RSzea5UoYLwmFE5DMgfQON77Kh+KBPmUMigLV9v
+	wGHhDzW1pgOUdOP9ofKukw31Vhehu2pc7aBm1voHvNmOBtKO5HBMiwiQj4b951DfyPhIGERWNc1c+
+	aKaly2i9Afk+U2GCTa8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotEY-0000000FJPD-1MVp;
-	Thu, 21 Aug 2025 00:32:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uotH8-0000000FJcy-0em5;
+	Thu, 21 Aug 2025 00:35:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uooUk-0000000El8M-1NBr
+	id 1uooWP-0000000ElHK-3q5v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 19:29:15 +0000
+	Wed, 20 Aug 2025 19:30:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 415C846860;
-	Wed, 20 Aug 2025 19:29:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5EDC113CF;
-	Wed, 20 Aug 2025 19:29:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F0F8360200;
+	Wed, 20 Aug 2025 19:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7910FC4CEE7;
+	Wed, 20 Aug 2025 19:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755718153;
-	bh=62vU8ilKaL5wsgXTzF19fFgYXyl0Lr33PmPL5Y9P+KE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SHy1PKyyEmAftGaOfX6w479yzXwJNnQ6GF3aS1orl1Pg23L3mekd95C67GTmmg1yL
-	 MoeVt6g2iUxyLEjNh59p+7vn5AEiPG0rKlnai0og68XbqfOlAbgoSBJbRiY1LjIMUI
-	 XJEVbXRx3DbiFzwkAp4P9nnZh3psAO82T8R3KmASOF+58tZ4pJCK//mB/+lAMOBBTu
-	 gmF7vEiywWCA9gh8kD9l44F++mcD3MdCQE97Ye+1qqjl9JTsbxz3YvrtwyYWdV+ENh
-	 zGe7o9EvKV+1UtpNAkz6rfq3FNVI/KDR3I4biCGWUjdGIBWl8Bt8X6UmYWzPRwJjBT
-	 nxJV4oaVhzTsQ==
-Date: Wed, 20 Aug 2025 20:29:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: clock: exynos990: Reorder IDs clocks
- and extend
-Message-ID: <20250820-diffused-impaired-ba776d39692f@spud>
-References: <20250820-2-v2-0-bd45e196d4c4@gmail.com>
- <20250820-2-v2-2-bd45e196d4c4@gmail.com>
+	s=k20201202; t=1755718256;
+	bh=uIkSKK84UyahT1Xp48rZSWKtDfcamhfPzzkjH1el5nI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=UwQyVEfp9g3pr5dcur0bXmpsqzt3VXSqOvDTRheEcpq+oRCP1S+rKunjWUt+JGY8L
+	 60FShe6wGmUO6Rk62IF+CtsdFr6EoPwqQKa7NqMa0BC/o6c2+bDSqRQnYVaPXKJs2o
+	 XGPXzuz19brPg45uSpqpJJmQCOvG4Ra3yGvt/+/MD+V3iHtBU5lFpS1f/Ca70O3JMm
+	 OyypkcUyBQRMIGG5ZfwdZNVy86FIHxVNrXnihoNe6kMsph0K+gNBlj0MDtEL0DdoVA
+	 petc8vO4rU1wHVXa7Lp9j+0u++337UONoWTEItWEv7Hv5pcaRPNs/HpsDFcuDMakS1
+	 Jc7NhwpjA7GXg==
+Date: Wed, 20 Aug 2025 14:30:55 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jan Palus <jpalus@fastmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <20250820193055.GA636030@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bnr8dC5IV+SmTfxS"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250820-2-v2-2-bd45e196d4c4@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_122914_416375_27DA7583 
-X-CRM114-Status: GOOD (  14.00  )
+In-Reply-To: <gn4sih6yrohqn35jc3hesxpgqhodtvq44ad7a6tbmknjywowvk@p2y24kjlnprd>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,459 +71,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 20, 2025 at 09:08:33PM +0200, Jan Palus wrote:
+> On 20.08.2025 13:46, Bjorn Helgaas wrote:
+> > [+cc maintainers, regressions list]
+> > 
+> > Jan, thanks very much for the report and the bisection.  Could you
+> > attach the devicetree you're using to the bugzilla?
+> 
+> I guess I could dump it from running system if you'd like me to, but it's
+> an upstream one without any customizations.
 
---bnr8dC5IV+SmTfxS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It's just easier if we know exactly what you're using.  I'm not an
+mvebu user and can't guess.
 
-On Wed, Aug 20, 2025 at 09:57:23AM -0500, Denzeel Oliva wrote:
-> Reorganize CMU_TOP clock definitions
-> and add missing clock definitions for DPU and CMUREF.
->=20
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-
-This looks like a massive ABI break, where is the justification for
-doing it?
-
-Cheers,
-Conor.
-
-> ---
->  include/dt-bindings/clock/samsung,exynos990.h | 402 ++++++++++++++++++++=
-++++++++++++--------------------------------
->  1 file changed, 203 insertions(+), 199 deletions(-)
->=20
-> diff --git a/include/dt-bindings/clock/samsung,exynos990.h b/include/dt-b=
-indings/clock/samsung,exynos990.h
-> index 6b9df09d2822f1c8e5086a2fc0bda783ca224812..b384e271bf276a375f67659fc=
-84e53350ea73c0e 100644
-> --- a/include/dt-bindings/clock/samsung,exynos990.h
-> +++ b/include/dt-bindings/clock/samsung,exynos990.h
-> @@ -9,205 +9,209 @@
->  #define _DT_BINDINGS_CLOCK_EXYNOS_990_H
-> =20
->  /* CMU_TOP */
-> -#define CLK_FOUT_SHARED0_PLL		1
-> -#define CLK_FOUT_SHARED1_PLL		2
-> -#define CLK_FOUT_SHARED2_PLL		3
-> -#define CLK_FOUT_SHARED3_PLL		4
-> -#define CLK_FOUT_SHARED4_PLL		5
-> -#define CLK_FOUT_G3D_PLL		6
-> -#define CLK_FOUT_MMC_PLL		7
-> -#define CLK_MOUT_PLL_SHARED0		8
-> -#define CLK_MOUT_PLL_SHARED1		9
-> -#define CLK_MOUT_PLL_SHARED2		10
-> -#define CLK_MOUT_PLL_SHARED3		11
-> -#define CLK_MOUT_PLL_SHARED4		12
-> -#define CLK_MOUT_PLL_MMC		13
-> -#define CLK_MOUT_PLL_G3D		14
-> -#define CLK_MOUT_CMU_APM_BUS		15
-> -#define CLK_MOUT_CMU_AUD_CPU		16
-> -#define CLK_MOUT_CMU_BUS0_BUS		17
-> -#define CLK_MOUT_CMU_BUS1_BUS		18
-> -#define CLK_MOUT_CMU_BUS1_SSS		19
-> -#define CLK_MOUT_CMU_CIS_CLK0		20
-> -#define CLK_MOUT_CMU_CIS_CLK1		21
-> -#define CLK_MOUT_CMU_CIS_CLK2		22
-> -#define CLK_MOUT_CMU_CIS_CLK3		23
-> -#define CLK_MOUT_CMU_CIS_CLK4		24
-> -#define CLK_MOUT_CMU_CIS_CLK5		25
-> -#define CLK_MOUT_CMU_CMU_BOOST		26
-> -#define CLK_MOUT_CMU_CORE_BUS		27
-> -#define CLK_MOUT_CMU_CPUCL0_DBG_BUS	28
-> -#define CLK_MOUT_CMU_CPUCL0_SWITCH	29
-> -#define CLK_MOUT_CMU_CPUCL1_SWITCH	30
-> -#define CLK_MOUT_CMU_CPUCL2_BUSP	31
-> -#define CLK_MOUT_CMU_CPUCL2_SWITCH	32
-> -#define CLK_MOUT_CMU_CSIS_BUS		33
-> -#define CLK_MOUT_CMU_CSIS_OIS_MCU	34
-> -#define CLK_MOUT_CMU_DNC_BUS		35
-> -#define CLK_MOUT_CMU_DNC_BUSM		36
-> -#define CLK_MOUT_CMU_DNS_BUS		37
-> -#define CLK_MOUT_CMU_DPU		38
-> -#define CLK_MOUT_CMU_DPU_ALT		39
-> -#define CLK_MOUT_CMU_DSP_BUS		40
-> -#define CLK_MOUT_CMU_G2D_G2D		41
-> -#define CLK_MOUT_CMU_G2D_MSCL		42
-> -#define CLK_MOUT_CMU_HPM		43
-> -#define CLK_MOUT_CMU_HSI0_BUS		44
-> -#define CLK_MOUT_CMU_HSI0_DPGTC		45
-> -#define CLK_MOUT_CMU_HSI0_USB31DRD	46
-> -#define CLK_MOUT_CMU_HSI0_USBDP_DEBUG	47
-> -#define CLK_MOUT_CMU_HSI1_BUS		48
-> -#define CLK_MOUT_CMU_HSI1_MMC_CARD	49
-> -#define CLK_MOUT_CMU_HSI1_PCIE		50
-> -#define CLK_MOUT_CMU_HSI1_UFS_CARD	51
-> -#define CLK_MOUT_CMU_HSI1_UFS_EMBD	52
-> -#define CLK_MOUT_CMU_HSI2_BUS		53
-> -#define CLK_MOUT_CMU_HSI2_PCIE		54
-> -#define CLK_MOUT_CMU_IPP_BUS		55
-> -#define CLK_MOUT_CMU_ITP_BUS		56
-> -#define CLK_MOUT_CMU_MCSC_BUS		57
-> -#define CLK_MOUT_CMU_MCSC_GDC		58
-> -#define CLK_MOUT_CMU_CMU_BOOST_CPU	59
-> -#define CLK_MOUT_CMU_MFC0_MFC0		60
-> -#define CLK_MOUT_CMU_MFC0_WFD		61
-> -#define CLK_MOUT_CMU_MIF_BUSP		62
-> -#define CLK_MOUT_CMU_MIF_SWITCH		63
-> -#define CLK_MOUT_CMU_NPU_BUS		64
-> -#define CLK_MOUT_CMU_PERIC0_BUS		65
-> -#define CLK_MOUT_CMU_PERIC0_IP		66
-> -#define CLK_MOUT_CMU_PERIC1_BUS		67
-> -#define CLK_MOUT_CMU_PERIC1_IP		68
-> -#define CLK_MOUT_CMU_PERIS_BUS		69
-> -#define CLK_MOUT_CMU_SSP_BUS		70
-> -#define CLK_MOUT_CMU_TNR_BUS		71
-> -#define CLK_MOUT_CMU_VRA_BUS		72
-> -#define CLK_DOUT_CMU_APM_BUS		73
-> -#define CLK_DOUT_CMU_AUD_CPU		74
-> -#define CLK_DOUT_CMU_BUS0_BUS		75
-> -#define CLK_DOUT_CMU_BUS1_BUS		76
-> -#define CLK_DOUT_CMU_BUS1_SSS		77
-> -#define CLK_DOUT_CMU_CIS_CLK0		78
-> -#define CLK_DOUT_CMU_CIS_CLK1		79
-> -#define CLK_DOUT_CMU_CIS_CLK2		80
-> -#define CLK_DOUT_CMU_CIS_CLK3		81
-> -#define CLK_DOUT_CMU_CIS_CLK4		82
-> -#define CLK_DOUT_CMU_CIS_CLK5		83
-> -#define CLK_DOUT_CMU_CMU_BOOST		84
-> -#define CLK_DOUT_CMU_CORE_BUS		85
-> -#define CLK_DOUT_CMU_CPUCL0_DBG_BUS	86
-> -#define CLK_DOUT_CMU_CPUCL0_SWITCH	87
-> -#define CLK_DOUT_CMU_CPUCL1_SWITCH	88
-> -#define CLK_DOUT_CMU_CPUCL2_BUSP	89
-> -#define CLK_DOUT_CMU_CPUCL2_SWITCH	90
-> -#define CLK_DOUT_CMU_CSIS_BUS		91
-> -#define CLK_DOUT_CMU_CSIS_OIS_MCU	92
-> -#define CLK_DOUT_CMU_DNC_BUS		93
-> -#define CLK_DOUT_CMU_DNC_BUSM		94
-> -#define CLK_DOUT_CMU_DNS_BUS		95
-> -#define CLK_DOUT_CMU_DSP_BUS		96
-> -#define CLK_DOUT_CMU_G2D_G2D		97
-> -#define CLK_DOUT_CMU_G2D_MSCL		98
-> -#define CLK_DOUT_CMU_G3D_SWITCH		99
-> -#define CLK_DOUT_CMU_HPM		100
-> -#define CLK_DOUT_CMU_HSI0_BUS		101
-> -#define CLK_DOUT_CMU_HSI0_DPGTC		102
-> -#define CLK_DOUT_CMU_HSI0_USB31DRD	103
-> -#define CLK_DOUT_CMU_HSI0_USBDP_DEBUG	104
-> -#define CLK_DOUT_CMU_HSI1_BUS		105
-> -#define CLK_DOUT_CMU_HSI1_MMC_CARD	106
-> -#define CLK_DOUT_CMU_HSI1_PCIE		107
-> -#define CLK_DOUT_CMU_HSI1_UFS_CARD	108
-> -#define CLK_DOUT_CMU_HSI1_UFS_EMBD	109
-> -#define CLK_DOUT_CMU_HSI2_BUS		110
-> -#define CLK_DOUT_CMU_HSI2_PCIE		111
-> -#define CLK_DOUT_CMU_IPP_BUS		112
-> -#define CLK_DOUT_CMU_ITP_BUS		113
-> -#define CLK_DOUT_CMU_MCSC_BUS		114
-> -#define CLK_DOUT_CMU_MCSC_GDC		115
-> -#define CLK_DOUT_CMU_CMU_BOOST_CPU	116
-> -#define CLK_DOUT_CMU_MFC0_MFC0		117
-> -#define CLK_DOUT_CMU_MFC0_WFD		118
-> -#define CLK_DOUT_CMU_MIF_BUSP		119
-> -#define CLK_DOUT_CMU_NPU_BUS		120
-> -#define CLK_DOUT_CMU_OTP		121
-> -#define CLK_DOUT_CMU_PERIC0_BUS		122
-> -#define CLK_DOUT_CMU_PERIC0_IP		123
-> -#define CLK_DOUT_CMU_PERIC1_BUS		124
-> -#define CLK_DOUT_CMU_PERIC1_IP		125
-> -#define CLK_DOUT_CMU_PERIS_BUS		126
-> -#define CLK_DOUT_CMU_SSP_BUS		127
-> -#define CLK_DOUT_CMU_TNR_BUS		128
-> -#define CLK_DOUT_CMU_VRA_BUS		129
-> -#define CLK_DOUT_CMU_DPU		130
-> -#define CLK_DOUT_CMU_DPU_ALT		131
-> -#define CLK_DOUT_CMU_SHARED0_DIV2	132
-> -#define CLK_DOUT_CMU_SHARED0_DIV3	133
-> -#define CLK_DOUT_CMU_SHARED0_DIV4	134
-> -#define CLK_DOUT_CMU_SHARED1_DIV2	135
-> -#define CLK_DOUT_CMU_SHARED1_DIV3	136
-> -#define CLK_DOUT_CMU_SHARED1_DIV4	137
-> -#define CLK_DOUT_CMU_SHARED2_DIV2	138
-> -#define CLK_DOUT_CMU_SHARED4_DIV2	139
-> -#define CLK_DOUT_CMU_SHARED4_DIV3	140
-> -#define CLK_DOUT_CMU_SHARED4_DIV4	141
-> -#define CLK_GOUT_CMU_G3D_BUS		142
-> -#define CLK_GOUT_CMU_MIF_SWITCH		143
-> -#define CLK_GOUT_CMU_APM_BUS		144
-> -#define CLK_GOUT_CMU_AUD_CPU		145
-> -#define CLK_GOUT_CMU_BUS0_BUS		146
-> -#define CLK_GOUT_CMU_BUS1_BUS		147
-> -#define CLK_GOUT_CMU_BUS1_SSS		148
-> -#define CLK_GOUT_CMU_CIS_CLK0		149
-> -#define CLK_GOUT_CMU_CIS_CLK1		150
-> -#define CLK_GOUT_CMU_CIS_CLK2		151
-> -#define CLK_GOUT_CMU_CIS_CLK3		152
-> -#define CLK_GOUT_CMU_CIS_CLK4		153
-> -#define CLK_GOUT_CMU_CIS_CLK5		154
-> -#define CLK_GOUT_CMU_CORE_BUS		155
-> -#define CLK_GOUT_CMU_CPUCL0_DBG_BUS	156
-> -#define CLK_GOUT_CMU_CPUCL0_SWITCH	157
-> -#define CLK_GOUT_CMU_CPUCL1_SWITCH	158
-> -#define CLK_GOUT_CMU_CPUCL2_BUSP	159
-> -#define CLK_GOUT_CMU_CPUCL2_SWITCH	160
-> -#define CLK_GOUT_CMU_CSIS_BUS		161
-> -#define CLK_GOUT_CMU_CSIS_OIS_MCU	162
-> -#define CLK_GOUT_CMU_DNC_BUS		163
-> -#define CLK_GOUT_CMU_DNC_BUSM		164
-> -#define CLK_GOUT_CMU_DNS_BUS		165
-> -#define CLK_GOUT_CMU_DPU		166
-> -#define CLK_GOUT_CMU_DPU_BUS		167
-> -#define CLK_GOUT_CMU_DSP_BUS		168
-> -#define CLK_GOUT_CMU_G2D_G2D		169
-> -#define CLK_GOUT_CMU_G2D_MSCL		170
-> -#define CLK_GOUT_CMU_G3D_SWITCH		171
-> -#define CLK_GOUT_CMU_HPM		172
-> -#define CLK_GOUT_CMU_HSI0_BUS		173
-> -#define CLK_GOUT_CMU_HSI0_DPGTC		174
-> -#define CLK_GOUT_CMU_HSI0_USB31DRD	175
-> -#define CLK_GOUT_CMU_HSI0_USBDP_DEBUG	176
-> -#define CLK_GOUT_CMU_HSI1_BUS		177
-> -#define CLK_GOUT_CMU_HSI1_MMC_CARD	178
-> -#define CLK_GOUT_CMU_HSI1_PCIE		179
-> -#define CLK_GOUT_CMU_HSI1_UFS_CARD	180
-> -#define CLK_GOUT_CMU_HSI1_UFS_EMBD	181
-> -#define CLK_GOUT_CMU_HSI2_BUS		182
-> -#define CLK_GOUT_CMU_HSI2_PCIE		183
-> -#define CLK_GOUT_CMU_IPP_BUS		184
-> -#define CLK_GOUT_CMU_ITP_BUS		185
-> -#define CLK_GOUT_CMU_MCSC_BUS		186
-> -#define CLK_GOUT_CMU_MCSC_GDC		187
-> -#define CLK_GOUT_CMU_MFC0_MFC0		188
-> -#define CLK_GOUT_CMU_MFC0_WFD		189
-> -#define CLK_GOUT_CMU_MIF_BUSP		190
-> -#define CLK_GOUT_CMU_NPU_BUS		191
-> -#define CLK_GOUT_CMU_PERIC0_BUS		192
-> -#define CLK_GOUT_CMU_PERIC0_IP		193
-> -#define CLK_GOUT_CMU_PERIC1_BUS		194
-> -#define CLK_GOUT_CMU_PERIC1_IP		195
-> -#define CLK_GOUT_CMU_PERIS_BUS		196
-> -#define CLK_GOUT_CMU_SSP_BUS		197
-> -#define CLK_GOUT_CMU_TNR_BUS		198
-> -#define CLK_GOUT_CMU_VRA_BUS		199
-> +#define CLK_FOUT_G3D_PLL		1
-> +#define CLK_FOUT_MMC_PLL		2
-> +#define CLK_FOUT_SHARED0_PLL		3
-> +#define CLK_FOUT_SHARED1_PLL		4
-> +#define CLK_FOUT_SHARED2_PLL		5
-> +#define CLK_FOUT_SHARED3_PLL		6
-> +#define CLK_FOUT_SHARED4_PLL		7
-> +#define CLK_MOUT_PLL_G3D		8
-> +#define CLK_MOUT_PLL_MMC		9
-> +#define CLK_MOUT_PLL_SHARED0		10
-> +#define CLK_MOUT_PLL_SHARED1		11
-> +#define CLK_MOUT_PLL_SHARED2		12
-> +#define CLK_MOUT_PLL_SHARED3		13
-> +#define CLK_MOUT_PLL_SHARED4		14
-> +#define CLK_MOUT_CMU_DPU_BUS		15
-> +#define CLK_MOUT_CMU_APM_BUS		16
-> +#define CLK_MOUT_CMU_AUD_CPU		17
-> +#define CLK_MOUT_CMU_BUS0_BUS		18
-> +#define CLK_MOUT_CMU_BUS1_BUS		19
-> +#define CLK_MOUT_CMU_BUS1_SSS		20
-> +#define CLK_MOUT_CMU_CIS_CLK0		21
-> +#define CLK_MOUT_CMU_CIS_CLK1		22
-> +#define CLK_MOUT_CMU_CIS_CLK2		23
-> +#define CLK_MOUT_CMU_CIS_CLK3		24
-> +#define CLK_MOUT_CMU_CIS_CLK4		25
-> +#define CLK_MOUT_CMU_CIS_CLK5		26
-> +#define CLK_MOUT_CMU_CMU_BOOST		27
-> +#define CLK_MOUT_CMU_CORE_BUS		28
-> +#define CLK_MOUT_CMU_CPUCL0_DBG_BUS	29
-> +#define CLK_MOUT_CMU_CPUCL0_SWITCH	30
-> +#define CLK_MOUT_CMU_CPUCL1_SWITCH	31
-> +#define CLK_MOUT_CMU_CPUCL2_BUSP	32
-> +#define CLK_MOUT_CMU_CPUCL2_SWITCH	33
-> +#define CLK_MOUT_CMU_CSIS_BUS		34
-> +#define CLK_MOUT_CMU_CSIS_OIS_MCU	35
-> +#define CLK_MOUT_CMU_DNC_BUS		36
-> +#define CLK_MOUT_CMU_DNC_BUSM		37
-> +#define CLK_MOUT_CMU_DNS_BUS		38
-> +#define CLK_MOUT_CMU_DPU		39
-> +#define CLK_MOUT_CMU_DPU_ALT		40
-> +#define CLK_MOUT_CMU_DSP_BUS		41
-> +#define CLK_MOUT_CMU_G2D_G2D		42
-> +#define CLK_MOUT_CMU_G2D_MSCL		43
-> +#define CLK_MOUT_CMU_HPM		44
-> +#define CLK_MOUT_CMU_HSI0_BUS		45
-> +#define CLK_MOUT_CMU_HSI0_DPGTC		46
-> +#define CLK_MOUT_CMU_HSI0_USB31DRD	47
-> +#define CLK_MOUT_CMU_HSI0_USBDP_DEBUG	48
-> +#define CLK_MOUT_CMU_HSI1_BUS		49
-> +#define CLK_MOUT_CMU_HSI1_MMC_CARD	50
-> +#define CLK_MOUT_CMU_HSI1_PCIE		51
-> +#define CLK_MOUT_CMU_HSI1_UFS_CARD	52
-> +#define CLK_MOUT_CMU_HSI1_UFS_EMBD	53
-> +#define CLK_MOUT_CMU_HSI2_BUS		54
-> +#define CLK_MOUT_CMU_HSI2_PCIE		55
-> +#define CLK_MOUT_CMU_IPP_BUS		56
-> +#define CLK_MOUT_CMU_ITP_BUS		57
-> +#define CLK_MOUT_CMU_MCSC_BUS		58
-> +#define CLK_MOUT_CMU_MCSC_GDC		59
-> +#define CLK_MOUT_CMU_CMU_BOOST_CPU	60
-> +#define CLK_MOUT_CMU_MFC0_MFC0		61
-> +#define CLK_MOUT_CMU_MFC0_WFD		62
-> +#define CLK_MOUT_CMU_MIF_BUSP		63
-> +#define CLK_MOUT_CMU_MIF_SWITCH		64
-> +#define CLK_MOUT_CMU_NPU_BUS		65
-> +#define CLK_MOUT_CMU_PERIC0_BUS		66
-> +#define CLK_MOUT_CMU_PERIC0_IP		67
-> +#define CLK_MOUT_CMU_PERIC1_BUS		68
-> +#define CLK_MOUT_CMU_PERIC1_IP		69
-> +#define CLK_MOUT_CMU_PERIS_BUS		70
-> +#define CLK_MOUT_CMU_SSP_BUS		71
-> +#define CLK_MOUT_CMU_TNR_BUS		72
-> +#define CLK_MOUT_CMU_VRA_BUS		73
-> +#define CLK_MOUT_CMU_CMUREF		74
-> +#define CLK_MOUT_CMU_CLK_CMUREF		75
-> +#define CLK_DOUT_CMU_APM_BUS		76
-> +#define CLK_DOUT_CMU_AUD_CPU		77
-> +#define CLK_DOUT_CMU_BUS0_BUS		78
-> +#define CLK_DOUT_CMU_BUS1_BUS		79
-> +#define CLK_DOUT_CMU_BUS1_SSS		80
-> +#define CLK_DOUT_CMU_CIS_CLK0		81
-> +#define CLK_DOUT_CMU_CIS_CLK1		82
-> +#define CLK_DOUT_CMU_CIS_CLK2		83
-> +#define CLK_DOUT_CMU_CIS_CLK3		84
-> +#define CLK_DOUT_CMU_CIS_CLK4		85
-> +#define CLK_DOUT_CMU_CIS_CLK5		86
-> +#define CLK_DOUT_CMU_CMU_BOOST		87
-> +#define CLK_DOUT_CMU_CORE_BUS		88
-> +#define CLK_DOUT_CMU_CPUCL0_DBG_BUS	89
-> +#define CLK_DOUT_CMU_CPUCL0_SWITCH	90
-> +#define CLK_DOUT_CMU_CPUCL1_SWITCH	91
-> +#define CLK_DOUT_CMU_CPUCL2_BUSP	92
-> +#define CLK_DOUT_CMU_CPUCL2_SWITCH	93
-> +#define CLK_DOUT_CMU_CSIS_BUS		94
-> +#define CLK_DOUT_CMU_CSIS_OIS_MCU	95
-> +#define CLK_DOUT_CMU_DNC_BUS		96
-> +#define CLK_DOUT_CMU_DNC_BUSM		97
-> +#define CLK_DOUT_CMU_DNS_BUS		98
-> +#define CLK_DOUT_CMU_DSP_BUS		99
-> +#define CLK_DOUT_CMU_G2D_G2D		100
-> +#define CLK_DOUT_CMU_G2D_MSCL		101
-> +#define CLK_DOUT_CMU_G3D_SWITCH		102
-> +#define CLK_DOUT_CMU_HPM		103
-> +#define CLK_DOUT_CMU_HSI0_BUS		104
-> +#define CLK_DOUT_CMU_HSI0_DPGTC		105
-> +#define CLK_DOUT_CMU_HSI0_USB31DRD	106
-> +#define CLK_DOUT_CMU_HSI0_USBDP_DEBUG	107
-> +#define CLK_DOUT_CMU_HSI1_BUS		108
-> +#define CLK_DOUT_CMU_HSI1_MMC_CARD	109
-> +#define CLK_DOUT_CMU_HSI1_PCIE		110
-> +#define CLK_DOUT_CMU_HSI1_UFS_CARD	111
-> +#define CLK_DOUT_CMU_HSI1_UFS_EMBD	112
-> +#define CLK_DOUT_CMU_HSI2_BUS		113
-> +#define CLK_DOUT_CMU_HSI2_PCIE		114
-> +#define CLK_DOUT_CMU_IPP_BUS		115
-> +#define CLK_DOUT_CMU_ITP_BUS		116
-> +#define CLK_DOUT_CMU_MCSC_BUS		117
-> +#define CLK_DOUT_CMU_MCSC_GDC		118
-> +#define CLK_DOUT_CMU_CMU_BOOST_CPU	119
-> +#define CLK_DOUT_CMU_MFC0_MFC0		120
-> +#define CLK_DOUT_CMU_MFC0_WFD		121
-> +#define CLK_DOUT_CMU_MIF_BUSP		122
-> +#define CLK_DOUT_CMU_NPU_BUS		123
-> +#define CLK_DOUT_CMU_OTP		124
-> +#define CLK_DOUT_CMU_PERIC0_BUS		125
-> +#define CLK_DOUT_CMU_PERIC0_IP		126
-> +#define CLK_DOUT_CMU_PERIC1_BUS		127
-> +#define CLK_DOUT_CMU_PERIC1_IP		128
-> +#define CLK_DOUT_CMU_PERIS_BUS		129
-> +#define CLK_DOUT_CMU_SSP_BUS		130
-> +#define CLK_DOUT_CMU_TNR_BUS		131
-> +#define CLK_DOUT_CMU_VRA_BUS		132
-> +#define CLK_DOUT_CMU_DPU		133
-> +#define CLK_DOUT_CMU_DPU_ALT		134
-> +#define CLK_DOUT_CMU_CLK_CMUREF		135
-> +#define CLK_DOUT_CMU_SHARED0_DIV2	136
-> +#define CLK_DOUT_CMU_SHARED0_DIV3	137
-> +#define CLK_DOUT_CMU_SHARED0_DIV4	138
-> +#define CLK_DOUT_CMU_SHARED1_DIV2	139
-> +#define CLK_DOUT_CMU_SHARED1_DIV3	140
-> +#define CLK_DOUT_CMU_SHARED1_DIV4	141
-> +#define CLK_DOUT_CMU_SHARED2_DIV2	142
-> +#define CLK_DOUT_CMU_SHARED4_DIV2	145
-> +#define CLK_DOUT_CMU_SHARED4_DIV3	146
-> +#define CLK_DOUT_CMU_SHARED4_DIV4	147
-> +#define CLK_GOUT_CMU_G3D_BUS		148
-> +#define CLK_GOUT_CMU_MIF_SWITCH		149
-> +#define CLK_GOUT_CMU_APM_BUS		150
-> +#define CLK_GOUT_CMU_AUD_CPU		151
-> +#define CLK_GOUT_CMU_BUS0_BUS		152
-> +#define CLK_GOUT_CMU_BUS1_BUS		153
-> +#define CLK_GOUT_CMU_BUS1_SSS		154
-> +#define CLK_GOUT_CMU_CIS_CLK0		155
-> +#define CLK_GOUT_CMU_CIS_CLK1		156
-> +#define CLK_GOUT_CMU_CIS_CLK2		157
-> +#define CLK_GOUT_CMU_CIS_CLK3		158
-> +#define CLK_GOUT_CMU_CIS_CLK4		159
-> +#define CLK_GOUT_CMU_CIS_CLK5		160
-> +#define CLK_GOUT_CMU_CORE_BUS		161
-> +#define CLK_GOUT_CMU_CPUCL0_DBG_BUS	162
-> +#define CLK_GOUT_CMU_CPUCL0_SWITCH	163
-> +#define CLK_GOUT_CMU_CPUCL1_SWITCH	164
-> +#define CLK_GOUT_CMU_CPUCL2_BUSP	165
-> +#define CLK_GOUT_CMU_CPUCL2_SWITCH	166
-> +#define CLK_GOUT_CMU_CSIS_BUS		167
-> +#define CLK_GOUT_CMU_CSIS_OIS_MCU	168
-> +#define CLK_GOUT_CMU_DNC_BUS		169
-> +#define CLK_GOUT_CMU_DNC_BUSM		170
-> +#define CLK_GOUT_CMU_DNS_BUS		171
-> +#define CLK_GOUT_CMU_DPU		172
-> +#define CLK_GOUT_CMU_DPU_BUS		173
-> +#define CLK_GOUT_CMU_DSP_BUS		174
-> +#define CLK_GOUT_CMU_G2D_G2D		175
-> +#define CLK_GOUT_CMU_G2D_MSCL		176
-> +#define CLK_GOUT_CMU_G3D_SWITCH		177
-> +#define CLK_GOUT_CMU_HPM		178
-> +#define CLK_GOUT_CMU_HSI0_BUS		179
-> +#define CLK_GOUT_CMU_HSI0_DPGTC		180
-> +#define CLK_GOUT_CMU_HSI0_USB31DRD	181
-> +#define CLK_GOUT_CMU_HSI0_USBDP_DEBUG	182
-> +#define CLK_GOUT_CMU_HSI1_BUS		183
-> +#define CLK_GOUT_CMU_HSI1_MMC_CARD	184
-> +#define CLK_GOUT_CMU_HSI1_PCIE		185
-> +#define CLK_GOUT_CMU_HSI1_UFS_CARD	186
-> +#define CLK_GOUT_CMU_HSI1_UFS_EMBD	187
-> +#define CLK_GOUT_CMU_HSI2_BUS		188
-> +#define CLK_GOUT_CMU_HSI2_PCIE		189
-> +#define CLK_GOUT_CMU_IPP_BUS		190
-> +#define CLK_GOUT_CMU_ITP_BUS		191
-> +#define CLK_GOUT_CMU_MCSC_BUS		192
-> +#define CLK_GOUT_CMU_MCSC_GDC		193
-> +#define CLK_GOUT_CMU_MFC0_MFC0		194
-> +#define CLK_GOUT_CMU_MFC0_WFD		195
-> +#define CLK_GOUT_CMU_MIF_BUSP		196
-> +#define CLK_GOUT_CMU_NPU_BUS		197
-> +#define CLK_GOUT_CMU_PERIC0_BUS		198
-> +#define CLK_GOUT_CMU_PERIC0_IP		199
-> +#define CLK_GOUT_CMU_PERIC1_BUS		200
-> +#define CLK_GOUT_CMU_PERIC1_IP		201
-> +#define CLK_GOUT_CMU_PERIS_BUS		202
-> +#define CLK_GOUT_CMU_SSP_BUS		203
-> +#define CLK_GOUT_CMU_TNR_BUS		204
-> +#define CLK_GOUT_CMU_VRA_BUS		205
-> =20
->  /* CMU_HSI0 */
->  #define CLK_MOUT_HSI0_BUS_USER				1
->=20
-> --=20
-> 2.49.0
->=20
-
---bnr8dC5IV+SmTfxS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKYiBAAKCRB4tDGHoIJi
-0o2PAQCH6LolsLhX7oqaS5is4/JSBOMmnqz9fvWsyTMyI9G5DwEAjEnHAIp6l9KK
-OgbThI8zc3FNefN3dIhdaL4BMxWOSwc=
-=7jJV
------END PGP SIGNATURE-----
-
---bnr8dC5IV+SmTfxS--
+> > On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
+> > > https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> > > 
+> > >            Summary: [regression 6.16] mvebu: no pci devices detected on
+> > >                     turris omnia
+> > >           Reporter: jpalus@fastmail.com
+> > > 
+> > > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
+> > > is completely empty). Bisected to:
+> > > 
+> > > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
+> > > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
+> > > Author: Rob Herring (Arm) <robh@kernel.org>
+> > > Date:   Thu Nov 7 16:32:55 2024
+> > > 
+> > >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+> > > 
+> > >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> > >     but it's still just normal "ranges" as far as parsing is concerned.
+> > >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> > >     instead of open coding the parsing.
+> > > 
+> > >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
+> > > 
+> > >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
+> > >  1 file changed, 9 insertions(+), 17 deletions(-)
+> > > 
+> > > 
+> > > kernel 6.16 logs following mesages related to PCI:
+> > > 
+> > > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
+> > > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
+> > > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
+> > > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > > [0x00080000-0x00081fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > > [0x00040000-0x00041fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > > [0x00044000-0x00045fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > > [0x00048000-0x00049fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > > PCI: bus0: Fast back to back transfers enabled
+> > > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > > 
+> > > 
+> > > while kernel 6.15 logs following:
+> > > 
+> > > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
+> > > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
+> > > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
+> > > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > > [0x00080000-0x00081fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > > [0x00040000-0x00041fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > > [0x00044000-0x00045fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > > [0x00048000-0x00049fff])
+> > > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > pci 0000:00:01.0: PCI bridge to [bus 00]
+> > > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
+> > > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
+> > > /soc/pcie/pcie@1,0/interrupt-controller
+> > > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > pci 0000:00:02.0: PCI bridge to [bus 00]
+> > > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
+> > > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
+> > > /soc/pcie/pcie@2,0/interrupt-controller
+> > > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > > pci 0000:00:03.0: PCI bridge to [bus 00]
+> > > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
+> > > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
+> > > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
+> > > /soc/pcie/pcie@3,0/interrupt-controller
+> > > PCI: bus0: Fast back to back transfers disabled
+> > > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > > PCI: bus1: Fast back to back transfers enabled
+> > > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
+> > > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+> > > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > > pci 0000:02:00.0: supports D1
+> > > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
+> > > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
+> > > reconfiguring
+> > > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > > PCI: bus2: Fast back to back transfers disabled
+> > > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+> > > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
+> > > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+> > > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > > pci 0000:03:00.0: supports D1
+> > > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
+> > > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
+> > > reconfiguring
+> > > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > > PCI: bus3: Fast back to back transfers disabled
+> > > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+> > > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
+> > > add_size 200000 add_align 200000
+> > > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
+> > > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
+> > > pci 0000:00:01.0: PCI bridge to [bus 01]
+> > > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
+> > > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
+> > > pci 0000:00:02.0: PCI bridge to [bus 02]
+> > > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
+> > > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
+> > > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
+> > > pci 0000:00:03.0: PCI bridge to [bus 03]
+> > > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
+> > > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
+> > > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
+> > > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
+> > > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+> > 
+> > #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
 
