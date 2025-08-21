@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56993CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF52CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTNxbx9tMOxC+WoCyDPLOlH2rnXaf5qZBRj5k0gCBMc=; b=jHGmPDeLGKUu6icqG5bCJd0Xro
-	efICjEEWAFy5UkjpoGGDpCPH4CbZmrDwsuxtMM4FX+I/FXXIdMcdSMJIaKBEz/NTlXdmXjx2bbtcc
-	fbAFiaPrqkGuLV1FsqjMSEeCtIZp1P5X7tMY4WgHItAC7cE7xdtGCvU/fctUuAzKdsxm3IT6eDrmd
-	EsJXxQFMDCGQayxRIIya3UHJ2prR7YyZkn6Hq7DC50hdn1JxDwWZqdaFl9nALVhkfiRlX3+6T711X
-	JqQcnK8plifu+DGW+5SkWZT5yLASmKFS23y6fXkAlCJFzbwmbCKUwmNEGFU0SZQFkiOMmewTLWynA
-	1c3ON4Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V4z2GbfINs2UhJLpqAZOyM0KnzFNihvHqwe1pBBOS1Q=; b=k3ClZOGaW8pNXWvrrckMyd2kKT
+	R5x3k6nQlgcCw/d9443palSlzBR6Pk8V4de1wj2RkjOn1kKqD12CeuSWWc2joKfZnpXTW7oLojiH5
+	DrL2hUHG98yULmVZQmovDFDb87PJRJJos8Z8pWKwd/QPcTz0jlPTVtJnzY6ry79kfy6JiJpUdQfcf
+	4/F6OUDL53YssKJ09vPg9N9bkhq6POHxU0M1ybdC/+8Ycey8InRzmXg9wVjq0qmceCrpXhUWOI3tV
+	joYD5N9ipqSWaTyC7+15VwKj+60aECd0i51GCNoO5DyD0wr6/EiFUbq1z0Ita4aeYfa7/ZEpNIV2w
+	mYezQRKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7b-0000000Fdav-3wpC;
-	Thu, 21 Aug 2025 03:37:51 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uow7h-0000000FdhG-2sJm;
+	Thu, 21 Aug 2025 03:37:58 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uosss-0000000FHMs-2q5Q
+	id 1uotR0-0000000FKSa-30IP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 00:10:28 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A0E7911D5;
-	Thu, 21 Aug 2025 02:09:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755734966;
-	bh=EE1788kRdf1mC+THN9eNWqYoqO/IR9gmDwF46MVqSxI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SSJAwAnyv3KDSkL20vMR08LiRU6j7EYtclIVuvQQfcsGX7yMSGSX9tIgRcOnnFgx2
-	 9NZDcNyhyWHyqq4J8UFxPOUjNkIJGoJiQyBbXtE43J2Zly7u9NtMimHv0bvgYtsjr3
-	 v54nSco4DGGfGwC254MymLjloSM3gq5dJaHz7Om4=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 11/12] media: imx-mipi-csis: Initial support for multiple output channels
-Date: Thu, 21 Aug 2025 03:09:43 +0300
-Message-ID: <20250821000944.27849-12-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
-References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
+	Thu, 21 Aug 2025 00:45:44 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 3DFF47A01FC;
+	Wed, 20 Aug 2025 20:45:41 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Wed, 20 Aug 2025 20:45:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1755737141; x=1755823541; bh=V4z2GbfINs
+	2UhJLpqAZOyM0KnzFNihvHqwe1pBBOS1Q=; b=gF/oaxrlFBKDxWKhSXy/fjXCyX
+	Pbz6dc68JU9fO0Ky4e+WIDMhzZmXg3ryD8j8JQaNr3qQJog5HsmXkFmX0S3ICn1N
+	UIvlo3W2LXPaNEAvFboS7PgcFt5ukwpxzPhYMhKDuCn2JucpHCmKRMKf5W+wvyuu
+	EPXF8v1wumc7V+nG9pzP68zsVommm3PuPborAXOb++VGun4UT0i1qwnuNRQbLOgx
+	4tNfQVZ9fh6B+uZW+Hl9x/Kf77ckoUbvBSvts85WwzFZNBUGTrHV+sBkZO6ZyVB/
+	ZVIKl1UEHhJmKg5wqhzHEod8Ii0WNC1W8Xg3aQOskVUlWb68Ii6uXYMOL2bQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1755737141; x=1755823541; bh=V4z2GbfINs2UhJLpqAZOyM0KnzFNihvHqwe
+	1pBBOS1Q=; b=eEou+RDAvHsBX68iB/YD6EJGexfxC4podEwvnz1u5U2e9COX/LO
+	vlg6izadNEpUPZczxGKIuJtfEeU6FVuY+I77mGDz3xABgkY2/KWo5C3kj7PxQytX
+	oyfE8LVEU3Qn4roOWuvbREHnYZB7XMXCi2hFxiwN+f7OF7emmYrOJ0RxBRMwQmno
+	FshFRk4R+g46dgZ00X5z49WbCXHQC/YHrO5+uy+PI2XAuClwzRd4HMR+6UqsfM0y
+	1JID5Zjc5IAfXy0y0X9JIyL89gWmVd3qEvt1Y8bZjHHmSfCZh5+VIKHldqM331bx
+	nFBjPhMBMvpWF659+FU6gQLJr3Gp4q5SFdg==
+X-ME-Sender: <xms:NGymaOxut4arym5ta3gDsnRwMqL3vqtCGfJqQjFatAlnv3jx4EdO8w>
+    <xme:NGymaB6eLIcHsE8h7_kOLh82F9urhwRCxFyVu5C9AmsLqATMU_tdMIf8C7ToN3-Gl
+    7MF-duZvMv2czHnSQ>
+X-ME-Received: <xmr:NGymaN9BH_owiPjlM2jE4g6fD1A-VSewo2GfIbmgVIpncleT9OlWIiCKvGa6Je8eO5BdYYTLanRZW5tPhgcEHS8G3IxGxqxSPA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduheelkeefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujggfsehttdfstddtreejnecuhfhrohhmpeflrghnucfr
+    rghluhhsuceojhhprghluhhssehfrghsthhmrghilhdrtghomheqnecuggftrfgrthhtvg
+    hrnhepudeviefhueeuudekfeeuiedvffegieefvdejgfetffeivdejueevheegheffteej
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpmhhsghhiugdrlhhinhhknecuvehluh
+    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhprghluhhssehf
+    rghsthhmrghilhdrtghomhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouh
+    htpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghl
+    ghgrrghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgrii
+    iiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehprghliheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
+    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqphgtihesvhhgvghr
+    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrvghgrhgvshhsihhonhhssehlihhsth
+    hsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:NGymaOojnkNoOcFCpzGvwtiU3eo2A4ftyeayuiXeeef13oR0prCK3w>
+    <xmx:NGymaGqkOltrFwoOb33orQmKHqsm-Vs4zmGSBcdkwme_VbWnnhaUQg>
+    <xmx:NGymaJ3LpS0dgAlXbEShPl_C4tWzV4OEwbFxvfoVTy2Juk7yMtH7Hw>
+    <xmx:NGymaMG9-h8GF3DDDXPGzrMKxkKmgWYbTm9xhdKl4iyXsBBu1EY3Dg>
+    <xmx:NWymaCP87p4PUqKdQGi8zJNbk0IDdCj0m2c1WxAiKO-W1x1D87-uBTPo>
+Feedback-ID: i01894241:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 20 Aug 2025 20:45:40 -0400 (EDT)
+Date: Thu, 21 Aug 2025 02:45:37 +0200
+From: Jan Palus <jpalus@fastmail.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
+ detected on turris omnia
+Message-ID: <42rznc7krv3gdwmdzfz6o5nalnzleiwfg44yleqjet67cu4ijm@pwap3ph2n2u7>
+References: <bug-220479-41252@https.bugzilla.kernel.org/>
+ <20250820184603.GA633069@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250820184603.GA633069@bhelgaas>
+User-Agent: NeoMutt/20250510
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_171026_997945_DA2D7D69 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20250820_174542_861147_EF4F7533 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,401 +115,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some CSIS instances feature more than one output channel. Update
-register macros accordingly, parse the number of channels from the
-device tree, and update register dumps and event counters to log
-per-channel data.
 
-Support for routing virtual channels and data types to output channels
-through the subdev internal routing API will come later.
+> On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
+> > https://bugzilla.kernel.org/show_bug.cgi?id=220479
+> > 
+> >            Summary: [regression 6.16] mvebu: no pci devices detected on
+> >                     turris omnia
+> >           Reporter: jpalus@fastmail.com
+> > 
+> > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
+> > is completely empty). Bisected to:
+> > 
+> > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
+> > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
+> > Author: Rob Herring (Arm) <robh@kernel.org>
+> > Date:   Thu Nov 7 16:32:55 2024
+> > 
+> >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
+> > 
+> >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
+> >     but it's still just normal "ranges" as far as parsing is concerned.
+> >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
+> >     instead of open coding the parsing.
+> > 
+> >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
+> > 
+> >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
+> >  1 file changed, 9 insertions(+), 17 deletions(-)
+> > 
+> > 
+> > kernel 6.16 logs following mesages related to PCI:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
+> > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
-Changes since v1:
+Relevant fragment of mvebu_get_tgt_attr() in mentioned commit:
 
-- Update more per-channel registers
-- Update commit message
----
- drivers/media/platform/nxp/imx-mipi-csis.c | 239 +++++++++++++--------
- 1 file changed, 152 insertions(+), 87 deletions(-)
++		u32 slot = upper_32_bits(range.bus_addr);
+ 
+-		if (DT_FLAGS_TO_TYPE(flags) == DT_TYPE_IO)
++		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
+ 			rtype = IORESOURCE_IO;
+-		else if (DT_FLAGS_TO_TYPE(flags) == DT_TYPE_MEM32)
++		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
+ 			rtype = IORESOURCE_MEM;
+ 		else
+ 			continue;
+ 
+ 		if (slot == PCI_SLOT(devfn) && type == rtype) {
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 83ba68a20bd1..b1136336a57f 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -54,7 +54,7 @@
- 
- /* CSIS common control */
- #define MIPI_CSIS_CMN_CTRL			0x04
--#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
-+#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(n)	BIT((n) + 16)
- #define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE	(0 << 10)
- #define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	(1 << 10)
- #define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
-@@ -65,12 +65,9 @@
- 
- /* CSIS clock control */
- #define MIPI_CSIS_CLK_CTRL			0x08
--#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH3(x)	((x) << 28)
--#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH2(x)	((x) << 24)
--#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH1(x)	((x) << 20)
--#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(x)	((x) << 16)
-+#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL(n, x)	((x) << ((n) * 4 + 16))
- #define MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK	(0xf << 4)
--#define MIPI_CSIS_CLK_CTRL_WCLK_SRC		BIT(0)
-+#define MIPI_CSIS_CLK_CTRL_WCLK_SRC(n)		BIT(n)
- 
- /* CSIS Interrupt mask */
- #define MIPI_CSIS_INT_MSK			0x10
-@@ -98,12 +95,12 @@
- #define MIPI_CSIS_INT_SRC_ODD_AFTER		BIT(28)
- #define MIPI_CSIS_INT_SRC_ODD			(0x3 << 28)
- #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
--#define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
--#define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
-+#define MIPI_CSIS_INT_SRC_FRAME_START(n)	BIT((n) + 24)
-+#define MIPI_CSIS_INT_SRC_FRAME_END(n)		BIT((n) + 20)
- #define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((n) + 16)
--#define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
--#define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
--#define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
-+#define MIPI_CSIS_INT_SRC_ERR_LOST_FS(n)	BIT((n) + 12)
-+#define MIPI_CSIS_INT_SRC_ERR_LOST_FE(n)	BIT((n) + 8)
-+#define MIPI_CSIS_INT_SRC_ERR_OVER(n)		BIT((n) + 4)
- #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
- #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
- #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
-@@ -205,23 +202,23 @@
- /* Debug control register */
- #define MIPI_CSIS_DBG_CTRL			0xc0
- #define MIPI_CSIS_DBG_INTR_MSK			0xc4
--#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT	BIT(25)
--#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE	BIT(24)
--#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE	BIT(20)
--#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME	BIT(16)
--#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE		BIT(12)
--#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS		BIT(8)
--#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL	BIT(4)
--#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE	BIT(0)
-+#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT		BIT(25)
-+#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE		BIT(24)
-+#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE(n)	BIT((n) + 20)
-+#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME(n)	BIT((n) + 16)
-+#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE(n)		BIT((n) + 12)
-+#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS(n)		BIT((n) + 8)
-+#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL(n)	BIT((n) + 4)
-+#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE(n)	BIT((n) + 0)
- #define MIPI_CSIS_DBG_INTR_SRC			0xc8
--#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT	BIT(25)
--#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE	BIT(24)
--#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE	BIT(20)
--#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME	BIT(16)
--#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE		BIT(12)
--#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS		BIT(8)
--#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL	BIT(4)
--#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE	BIT(0)
-+#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT		BIT(25)
-+#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE		BIT(24)
-+#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(n)	BIT((n) + 20)
-+#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(n)	BIT((n) + 16)
-+#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(n)		BIT((n) + 12)
-+#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(n)		BIT((n) + 8)
-+#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(n)	BIT((n) + 4)
-+#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(n)	BIT((n) + 0)
- 
- #define MIPI_CSIS_FRAME_COUNTER_CH(n)		(0x0100 + (n) * 4)
- 
-@@ -230,8 +227,11 @@
- #define MIPI_CSIS_PKTDATA_EVEN			0x3000
- #define MIPI_CSIS_PKTDATA_SIZE			SZ_4K
- 
-+#define MIPI_CSIS_MAX_CHANNELS			4
-+
- struct mipi_csis_event {
- 	bool debug;
-+	unsigned int channel;
- 	u32 mask;
- 	const char * const name;
- 	unsigned int counter;
-@@ -239,36 +239,70 @@ struct mipi_csis_event {
- 
- static const struct mipi_csis_event mipi_csis_events[] = {
- 	/* Errors */
--	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),	"SOT 0 Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),	"SOT 1 Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),	"SOT 2 Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),	"SOT 3 Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME,	"Truncated Frame" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE,	"Early Frame End" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS,	"Early Frame Start" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),		"SOT 0 Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),		"SOT 1 Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),		"SOT 2 Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),		"SOT 3 Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_LOST_FS(0),		"Lost Frame Start Error 0" },
-+	{ false, 1, MIPI_CSIS_INT_SRC_ERR_LOST_FS(1),		"Lost Frame Start Error 1" },
-+	{ false, 2, MIPI_CSIS_INT_SRC_ERR_LOST_FS(2),		"Lost Frame Start Error 2" },
-+	{ false, 3, MIPI_CSIS_INT_SRC_ERR_LOST_FS(3),		"Lost Frame Start Error 3" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_LOST_FE(0),		"Lost Frame End Error 0" },
-+	{ false, 1, MIPI_CSIS_INT_SRC_ERR_LOST_FE(1),		"Lost Frame End Error 1" },
-+	{ false, 2, MIPI_CSIS_INT_SRC_ERR_LOST_FE(2),		"Lost Frame End Error 2" },
-+	{ false, 3, MIPI_CSIS_INT_SRC_ERR_LOST_FE(3),		"Lost Frame End Error 3" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_OVER(0),		"FIFO Overflow Error 0" },
-+	{ false, 1, MIPI_CSIS_INT_SRC_ERR_OVER(1),		"FIFO Overflow Error 1" },
-+	{ false, 2, MIPI_CSIS_INT_SRC_ERR_OVER(2),		"FIFO Overflow Error 2" },
-+	{ false, 3, MIPI_CSIS_INT_SRC_ERR_OVER(3),		"FIFO Overflow Error 3" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,		"Wrong Configuration Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_ECC,			"ECC Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_CRC,			"CRC Error" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ERR_ID,			"Unknown ID Error" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,		"Data Type Ignored" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(0),	"Frame Size Error 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(1),	"Frame Size Error 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(2),	"Frame Size Error 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(3),	"Frame Size Error 3" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(0),	"Truncated Frame 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(1),	"Truncated Frame 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(2),	"Truncated Frame 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(3),	"Truncated Frame 3" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(0),		"Early Frame End 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(1),		"Early Frame End 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(2),		"Early Frame End 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(3),		"Early Frame End 3" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(0),		"Early Frame Start 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(1),		"Early Frame Start 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(2),		"Early Frame Start 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(3),		"Early Frame Start 3" },
- 	/* Non-image data receive events */
--	{ false, MIPI_CSIS_INT_SRC_EVEN_BEFORE,		"Non-image data before even frame" },
--	{ false, MIPI_CSIS_INT_SRC_EVEN_AFTER,		"Non-image data after even frame" },
--	{ false, MIPI_CSIS_INT_SRC_ODD_BEFORE,		"Non-image data before odd frame" },
--	{ false, MIPI_CSIS_INT_SRC_ODD_AFTER,		"Non-image data after odd frame" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_EVEN_BEFORE,		"Non-image data before even frame" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_EVEN_AFTER,		"Non-image data after even frame" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ODD_BEFORE,		"Non-image data before odd frame" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_ODD_AFTER,		"Non-image data after odd frame" },
- 	/* Frame start/end */
--	{ false, MIPI_CSIS_INT_SRC_FRAME_START,		"Frame Start" },
--	{ false, MIPI_CSIS_INT_SRC_FRAME_END,		"Frame End" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,	"VSYNC Falling Edge" },
--	{ true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,	"VSYNC Rising Edge" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_FRAME_START(0),		"Frame Start 0" },
-+	{ false, 1, MIPI_CSIS_INT_SRC_FRAME_START(1),		"Frame Start 1" },
-+	{ false, 2, MIPI_CSIS_INT_SRC_FRAME_START(2),		"Frame Start 2" },
-+	{ false, 3, MIPI_CSIS_INT_SRC_FRAME_START(3),		"Frame Start 3" },
-+	{ false, 0, MIPI_CSIS_INT_SRC_FRAME_END(0),		"Frame End 0" },
-+	{ false, 1, MIPI_CSIS_INT_SRC_FRAME_END(1),		"Frame End 1" },
-+	{ false, 2, MIPI_CSIS_INT_SRC_FRAME_END(2),		"Frame End 2" },
-+	{ false, 3, MIPI_CSIS_INT_SRC_FRAME_END(3),		"Frame End 3" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(0),	"VSYNC Falling Edge 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(1),	"VSYNC Falling Edge 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(2),	"VSYNC Falling Edge 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(3),	"VSYNC Falling Edge 3" },
-+	{ true, 0, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(0),	"VSYNC Rising Edge 0" },
-+	{ true, 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(1),	"VSYNC Rising Edge 1" },
-+	{ true, 2, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(2),	"VSYNC Rising Edge 2" },
-+	{ true, 3, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(3),	"VSYNC Rising Edge 3" },
- };
- 
--#define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
-+#define MIPI_CSIS_NUM_EVENTS		ARRAY_SIZE(mipi_csis_events)
-+#define MIPI_CSIS_NUM_ERROR_EVENTS	(MIPI_CSIS_NUM_EVENTS - 20)
- 
- enum mipi_csis_clk {
- 	MIPI_CSIS_CLK_PCLK,
-@@ -300,7 +334,9 @@ struct mipi_csis_device {
- 	struct clk_bulk_data *clks;
- 	struct reset_control *mrst;
- 	struct regulator *mipi_phy_regulator;
-+
- 	const struct mipi_csis_info *info;
-+	unsigned int num_channels;
- 
- 	struct v4l2_subdev sd;
- 	struct media_pad pads[CSIS_PADS_NUM];
-@@ -655,8 +691,8 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
- 			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
--	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
--	val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(15);
-+	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC(0);
-+	val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL(0, 15);
- 	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK;
- 	mipi_csis_write(csis, MIPI_CSIS_CLK_CTRL, val);
- 
-@@ -673,7 +709,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
- 	/* Update the shadow register. */
- 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
- 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
--			val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW |
-+			val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(0) |
- 			MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL);
- }
- 
-@@ -764,16 +800,19 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
- 
- 	/* Update the event/error counters */
- 	if ((status & MIPI_CSIS_INT_SRC_ERRORS) || csis->debug.enable) {
--		for (i = 0; i < MIPI_CSIS_NUM_EVENTS; i++) {
-+		for (i = 0; i < ARRAY_SIZE(csis->events); i++) {
- 			struct mipi_csis_event *event = &csis->events[i];
- 
-+			if (event->channel >= csis->num_channels)
-+				continue;
-+
- 			if ((!event->debug && (status & event->mask)) ||
- 			    (event->debug && (dbg_status & event->mask)))
- 				event->counter++;
- 		}
- 	}
- 
--	if (status & MIPI_CSIS_INT_SRC_FRAME_START)
-+	if (status & MIPI_CSIS_INT_SRC_FRAME_START(0))
- 		mipi_csis_queue_event_sof(csis);
- 
- 	spin_unlock_irqrestore(&csis->slock, flags);
-@@ -850,7 +889,7 @@ static void mipi_csis_clear_counters(struct mipi_csis_device *csis)
- static void mipi_csis_log_counters(struct mipi_csis_device *csis, bool non_errors)
- {
- 	unsigned int num_events = non_errors ? MIPI_CSIS_NUM_EVENTS
--				: MIPI_CSIS_NUM_EVENTS - 8;
-+				: MIPI_CSIS_NUM_ERROR_EVENTS;
- 	unsigned int counters[MIPI_CSIS_NUM_EVENTS];
- 	unsigned long flags;
- 	unsigned int i;
-@@ -861,45 +900,67 @@ static void mipi_csis_log_counters(struct mipi_csis_device *csis, bool non_error
- 	spin_unlock_irqrestore(&csis->slock, flags);
- 
- 	for (i = 0; i < num_events; ++i) {
-+		const struct mipi_csis_event *event = &csis->events[i];
-+
-+		if (event->channel >= csis->num_channels)
-+			continue;
-+
- 		if (counters[i] > 0 || csis->debug.enable)
- 			dev_info(csis->dev, "%s events: %d\n",
--				 csis->events[i].name,
--				 counters[i]);
-+				 event->name, counters[i]);
- 	}
- }
- 
-+struct mipi_csis_reg_info {
-+	u32 addr;
-+	unsigned int offset;
-+	const char * const name;
-+};
-+
-+static void mipi_csis_dump_channel_reg(struct mipi_csis_device *csis,
-+				       const struct mipi_csis_reg_info *reg,
-+				       unsigned int channel)
-+{
-+	dev_info(csis->dev, "%16s%u: 0x%08x\n", reg->name, channel,
-+		 mipi_csis_read(csis, reg->addr + channel * reg->offset));
-+}
-+
- static int mipi_csis_dump_regs(struct mipi_csis_device *csis)
- {
--	static const struct {
--		u32 offset;
--		const char * const name;
--	} registers[] = {
--		{ MIPI_CSIS_CMN_CTRL, "CMN_CTRL" },
--		{ MIPI_CSIS_CLK_CTRL, "CLK_CTRL" },
--		{ MIPI_CSIS_INT_MSK, "INT_MSK" },
--		{ MIPI_CSIS_DPHY_STATUS, "DPHY_STATUS" },
--		{ MIPI_CSIS_DPHY_CMN_CTRL, "DPHY_CMN_CTRL" },
--		{ MIPI_CSIS_DPHY_SCTRL_L, "DPHY_SCTRL_L" },
--		{ MIPI_CSIS_DPHY_SCTRL_H, "DPHY_SCTRL_H" },
--		{ MIPI_CSIS_ISP_CONFIG_CH(0), "ISP_CONFIG_CH0" },
--		{ MIPI_CSIS_ISP_RESOL_CH(0), "ISP_RESOL_CH0" },
--		{ MIPI_CSIS_SDW_CONFIG_CH(0), "SDW_CONFIG_CH0" },
--		{ MIPI_CSIS_SDW_RESOL_CH(0), "SDW_RESOL_CH0" },
--		{ MIPI_CSIS_DBG_CTRL, "DBG_CTRL" },
--		{ MIPI_CSIS_FRAME_COUNTER_CH(0), "FRAME_COUNTER_CH0" },
-+	static const struct mipi_csis_reg_info common_registers[] = {
-+		{ MIPI_CSIS_CMN_CTRL, 0, "CMN_CTRL" },
-+		{ MIPI_CSIS_CLK_CTRL, 0, "CLK_CTRL" },
-+		{ MIPI_CSIS_INT_MSK, 0, "INT_MSK" },
-+		{ MIPI_CSIS_DPHY_STATUS, 0, "DPHY_STATUS" },
-+		{ MIPI_CSIS_DPHY_CMN_CTRL, 0, "DPHY_CMN_CTRL" },
-+		{ MIPI_CSIS_DPHY_SCTRL_L, 0, "DPHY_SCTRL_L" },
-+		{ MIPI_CSIS_DPHY_SCTRL_H, 0, "DPHY_SCTRL_H" },
-+		{ MIPI_CSIS_DBG_CTRL, 0, "DBG_CTRL" },
-+	};
-+	static const struct mipi_csis_reg_info channel_registers[] = {
-+		{ MIPI_CSIS_ISP_CONFIG_CH(0), 0x10, "ISP_CONFIG_CH" },
-+		{ MIPI_CSIS_ISP_RESOL_CH(0), 0x10, "ISP_RESOL_CH" },
-+		{ MIPI_CSIS_SDW_CONFIG_CH(0), 0x10, "SDW_CONFIG_CH" },
-+		{ MIPI_CSIS_SDW_RESOL_CH(0), 0x10, "SDW_RESOL_CH" },
-+		{ MIPI_CSIS_FRAME_COUNTER_CH(0), 4, "FRAME_COUNTER_CH" },
- 	};
--
--	unsigned int i;
--	u32 cfg;
- 
- 	if (!pm_runtime_get_if_in_use(csis->dev))
- 		return 0;
- 
- 	dev_info(csis->dev, "--- REGISTERS ---\n");
- 
--	for (i = 0; i < ARRAY_SIZE(registers); i++) {
--		cfg = mipi_csis_read(csis, registers[i].offset);
--		dev_info(csis->dev, "%17s: 0x%08x\n", registers[i].name, cfg);
-+	for (unsigned int i = 0; i < ARRAY_SIZE(common_registers); i++) {
-+		const struct mipi_csis_reg_info *reg = &common_registers[i];
-+
-+		dev_info(csis->dev, "%17s: 0x%08x\n", reg->name,
-+			 mipi_csis_read(csis, reg->addr));
-+	}
-+
-+	for (unsigned int chan = 0; chan < csis->num_channels; chan++) {
-+		for (unsigned int i = 0; i < ARRAY_SIZE(channel_registers); ++i)
-+			mipi_csis_dump_channel_reg(csis, &channel_registers[i],
-+						   chan);
- 	}
- 
- 	pm_runtime_put(csis->dev);
-@@ -1422,6 +1483,12 @@ static int mipi_csis_parse_dt(struct mipi_csis_device *csis)
- 
- 	of_property_read_u32(node, "clock-frequency", &csis->clk_frequency);
- 
-+	csis->num_channels = 1;
-+	of_property_read_u32(node, "fsl,num-channels", &csis->num_channels);
-+	if (csis->num_channels < 1 || csis->num_channels > MIPI_CSIS_MAX_CHANNELS)
-+		return dev_err_probe(csis->dev, -EINVAL,
-+				     "Invalid fsl,num-channels value\n");
-+
- 	return 0;
- }
- 
-@@ -1445,10 +1512,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
- 
- 	/* Parse DT properties. */
- 	ret = mipi_csis_parse_dt(csis);
--	if (ret < 0) {
--		dev_err(dev, "Failed to parse device tree: %d\n", ret);
-+	if (ret < 0)
- 		return ret;
--	}
- 
- 	/* Acquire resources. */
- 	csis->regs = devm_platform_ioremap_resource(pdev, 0);
--- 
-Regards,
+mvebu_get_tgt_attr() gets called with type (either 512 or 256) and slot
+(1, 2 or 3), after this commit last condition is never met though --
+slot is fine but rtype never is.
 
-Laurent Pinchart
+What appears to be very much different are values of previous 'flags'
+and current 'range.flags'. Judging by the code they should still carry
+same values but in practice
 
+before: flags=2181038080 end up with rtype=512 (match)
+after: range.flags=512 results in no rtype (no match)
+
+before: flags=2164260864 end up with rtype=256 (match)
+after: range.flags=256 results in no rtype (no match)
+
+as if now range.flags already represented rtype directly. If I use it
+like this situation improves, bridge gets detected, although whole device
+reboots without any error on first probe from card driver. Something
+that I've noticed during bisect but seems to be an independent
+regression.
+
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > PCI: bus0: Fast back to back transfers enabled
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > 
+> > 
+> > while kernel 6.15 logs following:
+> > 
+> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
+> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
+> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
+> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
+> > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
+> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
+> > pci_bus 0000:00: root bus resource [bus 00-ff]
+> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
+> > [0x00080000-0x00081fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
+> > [0x00040000-0x00041fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
+> > [0x00044000-0x00045fff])
+> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
+> > [0x00048000-0x00049fff])
+> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
+> > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:01.0: PCI bridge to [bus 00]
+> > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@1,0/interrupt-controller
+> > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:02.0: PCI bridge to [bus 00]
+> > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@2,0/interrupt-controller
+> > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
+> > pci 0000:00:03.0: PCI bridge to [bus 00]
+> > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
+> > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
+> > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
+> > /soc/pcie/pcie@3,0/interrupt-controller
+> > PCI: bus0: Fast back to back transfers disabled
+> > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> > PCI: bus1: Fast back to back transfers enabled
+> > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+> > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+> > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:02:00.0: supports D1
+> > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus2: Fast back to back transfers disabled
+> > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+> > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
+> > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+> > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
+> > pci 0000:03:00.0: supports D1
+> > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
+> > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
+> > reconfiguring
+> > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
+> > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
+> > PCI: bus3: Fast back to back transfers disabled
+> > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+> > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
+> > add_size 200000 add_align 200000
+> > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
+> > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
+> > pci 0000:00:01.0: PCI bridge to [bus 01]
+> > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
+> > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
+> > pci 0000:00:02.0: PCI bridge to [bus 02]
+> > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
+> > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
+> > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
+> > pci 0000:00:03.0: PCI bridge to [bus 03]
+> > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
+> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
+> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
+> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
+> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
+> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
+> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
+> > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
+> > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
+> > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
+> > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
+> 
+> #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
 
