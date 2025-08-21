@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9D2CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 04:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BBBCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 05:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NhecIOpybuUkmVRn+RV36PWvwdJyuFnrfxzmzDFBna8=; b=kkf2CDAkDoD0ZY1CXub2jZOmOz
-	0MmnPbp8859t3W15bScByjpqs9uGfROZb+4ppIm55O2ZC54Koc4usQ//zMUqgkrVIT3YDx9CeMq34
-	U999RvkS9moMRnJFMSiLK5491A3NFV+FjNXKOzx8yzcp5tAIdPZMPfzqopIyp+JJW2uJYKi80Eyfk
-	ztWtID3qAcFkkxbRfOoLfK36R+knUmDUHNGV+SdJFXUm7kvD4fdbaoaAeHbmxdmUo4YEGkKu5n17X
-	Of/kSLjiVudVcUCSppvFu4IjrrsDpGHEyea1DmUj9+26nMYin0FXigkw5jWBLZ4+ApGdyJ9HnNvEc
-	qGGS2Ehw==;
+	bh=hFB3oC/joJWZDcoQlOQoYsmel5gZzcnRSFC0rE3cftg=; b=vVkTTYcCeZznavWzu8BLusq4RO
+	gzw/PQ0lP4SvN6NQoiBMEQoaAs9Q/7MMcERh1VFYUzDRDO6VWcdvBIYhMTsHyFHjOIY++x3xNwKx0
+	hLNhiUO23iLYaJdbQQln4Nd5t6t52EGOqFV7eY84YsAz8+orpcOZC8QJGkDOV8Yt/lfRq0fFhVgxl
+	VZnJq3aft9ddpPTBZppo0H4BUlmfYXt4zylXRU3bp+W9kIqEvTlZmYFjcfugabfg+rRmepdUQA+I8
+	5tNNTr2mYjepD8wIDK/3x/pk+fh6LbEHv8r7t0ZN/YSdOuhT7lvqU0kT0InYH0XjlAH8RZqPJyaRe
+	CSUlST+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoxEV-0000000FpHX-2wPY;
-	Thu, 21 Aug 2025 04:49:03 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uoxgF-0000000FrdA-26lv;
+	Thu, 21 Aug 2025 05:17:43 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow3T-0000000Fd1b-2AVe
+	id 1uoxY9-0000000Fr9x-2cqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 03:33:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NhecIOpybuUkmVRn+RV36PWvwdJyuFnrfxzmzDFBna8=; b=Hmv4e2X61kfRt4AKpoofe646kq
-	+OlNDQvtDGPXi8oms7OYJ/6oEIjEzhjsJL7A5gesXFfDlcKge+jHv9dBJY7j3XTHjRIhzF4LDk1xe
-	gSVBZl88aCPwpRJU9bXmBTeLW2ajoPbGtz6VNWFLA7d3SqcqG1hM3eowksQ0wkAClWoE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uow3G-005P9K-PC; Thu, 21 Aug 2025 05:33:22 +0200
-Date: Thu, 21 Aug 2025 05:33:22 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yijie Yang <yijie.yang@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, stable+noautosel@kernel.org
-Subject: Re: [PATCH v4 2/6] net: stmmac: Inverse the phy-mode definition
-Message-ID: <f93d325f-2c04-49ab-ae92-b87ae88ab49d@lunn.ch>
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-2-5050ed3402cb@oss.qualcomm.com>
- <80a60564-3174-4edd-a57c-706431f2ad91@lunn.ch>
- <f467aade-e604-448d-b23e-9b169c30ff2e@oss.qualcomm.com>
+	Thu, 21 Aug 2025 05:09:23 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57L59Hcf411850;
+	Thu, 21 Aug 2025 00:09:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755752957;
+	bh=hFB3oC/joJWZDcoQlOQoYsmel5gZzcnRSFC0rE3cftg=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=ADTSZn+8UYtlDiHeijjFNw4nqgkzvEBRHAmOdfnJDVjd91hUvHWgea8fWeW220BUr
+	 3qe9QDWQYoQKoVhArf5XvRmhccoNIXoh/1F2cI+RLO7d2piuitCtjwmaE5Jg/TrN90
+	 z5sSiKgk4hzEuYZnD/3Zo5wxVCHQlfiW2p4z/KUw=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57L59Huj1883868
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 21 Aug 2025 00:09:17 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 21
+ Aug 2025 00:09:17 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 21 Aug 2025 00:09:17 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [172.24.231.84])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57L59Gf41621045;
+	Thu, 21 Aug 2025 00:09:16 -0500
+Date: Thu, 21 Aug 2025 10:39:15 +0530
+From: s-vadapalli <s-vadapalli@ti.com>
+To: Michael Walle <mwalle@kernel.org>
+CC: s-vadapalli <s-vadapalli@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-j722s-main: add legacy PCIe interrupts
+Message-ID: <663079dc-54cf-4f29-a68b-fc9678c44af0@ti.com>
+References: <20250819111317.1082515-1-mwalle@kernel.org>
+ <ae898bf0-705f-4e36-9664-37c401f5fee7@ti.com>
+ <DC7B5N92V9KZ.34OXBFYOIEWBO@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <f467aade-e604-448d-b23e-9b169c30ff2e@oss.qualcomm.com>
+In-Reply-To: <DC7B5N92V9KZ.34OXBFYOIEWBO@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_203335_557365_6DF7DFDE 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250820_220921_762612_C89CFA9E 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +92,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 10:22:05AM +0800, Yijie Yang wrote:
+On Wed, Aug 20, 2025 at 04:00:45PM +0200, Michael Walle wrote:
+> Hi Siddharth,
 > 
+> On Wed Aug 20, 2025 at 3:52 PM CEST, s-vadapalli wrote:
+> > On Tue, Aug 19, 2025 at 01:13:17PM +0200, Michael Walle wrote:
+> >
+> > Hello Michael,
+> >
+> >> The kernel will try to map the legacy interrupt pins, but the
+> >> interrupt mapping is missing from the device tree and thus that
+> >> fails with:
+> >> 
+> >>    pcieport 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
+> >> 
+> >> Add the node for the legacy PCIe interrupts to fix that. This is just
+> >> compile-time tested.
+> >
+> > INTx is not supported by the driver as explained at:
+> > https://lore.kernel.org/r/be3e3c5f-0d48-41b0-87f4-2210f13b9460@ti.com/
+> >
+> > The patch to fix the error displayed in the logs was posted at:
+> > https://lore.kernel.org/r/20240726135903.1255825-1-s-vadapalli@ti.com/
+> > but wasn't accepted as-is. A different approach will be required to fix
+> > of_irq_parse_pci() instead as pointed out at:
+> > https://lore.kernel.org/r/20240729080006.GA8698@thinkpad/
 > 
-> On 2025-08-20 00:20, Andrew Lunn wrote:
-> > >   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
-> > >   {
-> > >   	struct device *dev = &ethqos->pdev->dev;
-> > > -	int phase_shift;
-> > > +	int phase_shift = 0;
-> > >   	int loopback;
-> > >   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
-> > > -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
-> > > -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
-> > > -		phase_shift = 0;
-> > > -	else
-> > > +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
-> > >   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
-> > 
-> > Does this one setting control both RX and TX delays? The hardware
-> > cannot support 2ns delay on TX, but 0ns on RX? Or 2ns on RX but 0ns on
-> > TX?
-> > 
+> Thanks for the pointers.
 > 
-> This setting is only for Tx delay. Rx delays are taken care separately with
-> DLL delays.
+> I've just checked the J722S errata sheet and there is no such
+> erratum. So, is that sheet outdated or was it fixed?
 
-If this is only for Tx delays, why is it also not used for
-PHY_INTERFACE_MODE_RGMII_TXID?
+According to the Errata documents, the errata only affects J721E SoC.
+The procedure to enable the INTx support is the following:
+1. Update DT bindings to indicate that INTx is valid only for SoCs other
+   than J721E SoCs on the basis of the compatible.
+2. Add support in the pci-j721e.c driver for INTx.
+3. Finally, the current patch or patches for other SoCs to add INTx can
+   be posted and merged.
 
-It is simpler to just let the PHY add the delays, the PHY drivers get
-this right, are well tested, and just work. MAC drivers often get
-delays wrong.
+The following series which was posted in 2021 corresponds to 1 and 2
+above:
+https://lore.kernel.org/r/20210811123846.31921-1-kishon@ti.com/
 
-	Andrew
+Please note that the above series was included in the downstream (TI)
+Linux in the past. It was observed that despite the Errata not affecting
+the AM64 SoC (contains a Cadence PCIe Controller and is programmed by the
+same pci-j721e.c driver), legacy interrupts were missed and resulted in the
+PCIe Endpoint device becoming non-functional. Resolving this issue
+required retriggering the interrupt following which the device became
+functional.
+
+Therefore, it is encouraged that MSI/MSI-X are used instead. If INTx is a
+necessity (unlike the current patch which only aims to prevent error logs
+from showing up), then the aforementioned series can be used with the
+disclaimer that it may still lead to interrupts being missed.
+
+Regards,
+Siddharth.
 
