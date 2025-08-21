@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE133CA0FE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC1C1CA0FE1
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSAD6xfEyxZhtbs6l7fpAY63jmRWYHQxC9G8VceRiKg=; b=EaTG/oPuOfpI8mEI7A2/o+Qtpt
-	VIooSTyRELdI+XKue2v4/sqIjS2dEV6z4HAZ+DnjhWt6X8iySeYq/mp9WgrFWoQUSGQbrkKp5ttwL
-	g55nM1c2eUMKFApD3VU5otwRxB9dWTElCGDNJbBUyj1Tob5JyV/LjERzdkYd60OHpBaz8Utangt96
-	FS2K2JIFeZyu1jYEOwif8kdBaHJUIEGBChiDfJM/xi3aK8TvymEtZ54p/LyBYE9Y4Ty+p7Lz8Xu1A
-	Wqf3W4rzP82XhgTInmtke1dUTurKQ72fQIEwIB0oKcaAZ7FZqC4a5gYIRARKi+lA+xWVCN14bBOAd
-	lQzlQrVg==;
+	bh=t2r6I+FjF8X/Q6JXp+JxD3mM0KS1eA6oPXOx1AouaN4=; b=dYD0jQfDIVGf8ETPHR1HA/MGDt
+	4o9psg3oUz0uu1WZjtTrAHUImRrWpYJFEHj/HnsOM2wigPklmwGt41jIP9mMclywPLgO2Wj5Q8HSp
+	7Keq160/zO6MO5lX7oAiLp8cM7CXcHEpERGgi8wfKwWYf9LSFurroOOA96LmFyM8unVh6Wv6cTLnK
+	zKlSpJO666/fercH/i4N4MAjPl/M9CvqO2mSRtVXeeD8/XF0X02QOBCFzdtr0BSd5qF5Ic7Yys6Fl
+	ELqujTLgTTGgqKd7USVPd3PCZMjdtoWO5LPD3gTxgLrm4PqI1mKiHCQGOECLejb2ChudKmDmu7oNN
+	Si9U08Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7Ei-0000000HM3L-3EUQ;
-	Thu, 21 Aug 2025 15:29:57 +0000
+	id 1up7El-0000000HM5A-2SMP;
+	Thu, 21 Aug 2025 15:29:59 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3DS-0000000GiHR-3mnV
+	id 1up3Db-0000000GiLz-1vPE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 11:12:24 +0000
+	Thu, 21 Aug 2025 11:12:32 +0000
 Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LAxMcE032608;
-	Thu, 21 Aug 2025 13:12:06 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LAXCLf023288;
+	Thu, 21 Aug 2025 13:12:20 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	FSAD6xfEyxZhtbs6l7fpAY63jmRWYHQxC9G8VceRiKg=; b=JHQ6UfZJM3kWKrS5
-	X+8uDnGCPOyi+uQrDLfmgB7QFnmIGXQzmBN/HCjB2g36JljLpGBe1Y7e+u5oxJAs
-	MeNIej8xABljL632TIRjkCzvTZpbbr0T5dkMl20+K3jp2Kb0leImKpg2N/QSy+du
-	4YNaIwwSIpS0WDnLC2xNTzhxazSccZr8IfSylGiv+b7Sf3hU6Wk7rKib2h6JaMTE
-	VmzZnVyhKi9hKph8aegO77abmKnZRCgx1ET/MqE/sn+XhrygQ+zsd4klZbYBLpJb
-	qZGxFBdwYquG4OdyILiwp4t73jdCwHqDUk3dvm/KbAxXWlg0Slm6JQxMQUUDO2JE
-	4Omg9g==
+	t2r6I+FjF8X/Q6JXp+JxD3mM0KS1eA6oPXOx1AouaN4=; b=FYBAajTXngcm+Squ
+	039p5JTgxFE2nOB7+jiG2nS5C/+oo95L9tnNbx1wRfXEA3ZIKvxDqyS75YTDtZbh
+	YHFJcAfKDalmGYD8Hyd4s8VYnEm4huhjtOFKCbmHcBsGQ3QjlSRZGkL8ONYtHhJc
+	X8IOxGcpYGodusbkQnICrh1uarTX+BbUtjwlTRRtG2Tybrx3yeSqUDcEyh92ixFV
+	zJum4xs8IVgaB0qh7rdFd3ZxtgExrEKz6UPw7i9qrM1UIsWVuXCQ0JEKcoy+XVX8
+	vCkHq18J/mDAUIZwWUd+gQ0gyxOgYZ6gGKyPBvNnn/C0kpllqhqllfNDih/TJ+9X
+	+a5zCA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n70dej3t-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n70dej4b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Aug 2025 13:12:06 +0200 (MEST)
+	Thu, 21 Aug 2025 13:12:20 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 12D124004F;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1559040051;
 	Thu, 21 Aug 2025 13:10:52 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6044174E7CA;
-	Thu, 21 Aug 2025 13:09:55 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6370774E7A3;
+	Thu, 21 Aug 2025 13:09:54 +0200 (CEST)
 Received: from localhost (10.252.7.99) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 13:09:55 +0200
+ 2025 13:09:54 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Thu, 21 Aug 2025 13:08:55 +0200
-Subject: [PATCH v4 05/13] dt-bindings: display: st,stm32mp25-lvds: add
- power-domains property
+Date: Thu, 21 Aug 2025 13:08:54 +0200
+Subject: [PATCH v4 04/13] dt-bindings: display: st,stm32mp25-lvds: add
+ access-controllers property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250821-drm-misc-next-v4-5-7060500f8fd3@foss.st.com>
+Message-ID: <20250821-drm-misc-next-v4-4-7060500f8fd3@foss.st.com>
 References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
 In-Reply-To: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,9 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-21_03,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_041223_564940_FA76404F 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_041231_786093_89E7E80F 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,8 +111,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STM32 LVDS peripheral may be in a power domain.  Allow an optional
-single 'power-domains' entry for STM32 LVDS devices.
+access-controllers is an optional property that allows a peripheral to
+refer to one or more domain access controller(s).
+
+This property is added when the peripheral is under the STM32 firewall
+controller.  It allows an accurate representation of the hardware, where
+the peripheral is connected to a firewall bus.  The firewall can then
+check the peripheral accesses before allowing its device to probe.
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
@@ -122,14 +126,14 @@ Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-index 05a73bbc246a8994b6aabf7c2cd9dca773232be4..14e042156179cb2f2d906422eaff6840da3c91ea 100644
+index 74e61d95370c299130410cdaae833514324c3e8f..05a73bbc246a8994b6aabf7c2cd9dca773232be4 100644
 --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
 +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-@@ -62,6 +62,9 @@ properties:
-   access-controllers:
+@@ -59,6 +59,9 @@ properties:
+   resets:
      maxItems: 1
  
-+  power-domains:
++  access-controllers:
 +    maxItems: 1
 +
    ports:
