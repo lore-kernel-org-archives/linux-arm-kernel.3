@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D953BCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3542DCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XyiNTzVCgRpstN7QGs9Y1yoqXesRVoERKYbQPB5PhAk=; b=CPbnoYti3G3eFx68r1zc2rBxl7
-	rIeY5YrUgqLSww61IS8Bo39/sH88PvCGKAT3CFzFwKoHKeMQBW/5TeDPBmiVoUwe39GLl+pRQEIW5
-	scPtgBdoKXaw3v+Of/SvBMG9nzNvnnejYw5E3Oel/PjoGAhx5WmLae1PJc3wHRjhHmRZ2hkIkzIQL
-	8yem9ETNXsLTILRRG3pZUiXoygBp8iPUuaPkGLw7tqKlQSmQ42dQNzNDxAVc/BCMhldzjuCf4Ot5g
-	+ngxSZ83cSNp2JbqEJhI+OpLGXVOHB7XbNdhYP4N+avHA3tpnY2IwyBPUvqOLnxuvuG5kpBmqGDxY
-	srh8N2pw==;
+	bh=QHynjD9WnZ1E9QTFCo3jsxZ+nUSYiBC7LKhzY6ZlN5I=; b=Y+iCaNX+5b/IjwuB/nHVlkh4Z2
+	y0gapkrHKjOE+ZDLaot255zwBjluhNLQG6NZTQFOYrRCbLURsYn2cVjnFFMSrfI/pG4gPZE4aeVtF
+	mu8SFybP6mNfXQBnWPKSQ/PggBjd6p73H09/ZU5TZZ8BTnKVtTW7Nzl0rKb8vXCyE/cxbNDlXeULF
+	uOwvZ7G3a+DDC3rDdBJnVyGCUgQdUvQKm31+UN4zkqrjxMIsCJuJb+hiwB1Z7xVPCnoEUKQq5vHPR
+	nBFd09PmKdSCuGHtR+49fSiCH9UdpBkJIi/cAf12CG3ui6Ni2iP0MCUI33G1N92knla1rYFjTpiGu
+	G6FrfiAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJYO-00000001WO9-25VY;
-	Fri, 22 Aug 2025 04:39:04 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1upJdZ-00000001Wk7-2LeL;
+	Fri, 22 Aug 2025 04:44:25 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBii-00000000QPV-0Emq;
-	Thu, 21 Aug 2025 20:17:13 +0000
+	id 1upBis-00000000QSg-1xiW;
+	Thu, 21 Aug 2025 20:17:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EQh7FFoJ0spo1ABioZnA5AEFwz1g0wq4Z01HsRSTQVVwvGO4ZrU5LLma+gqJQ56d1fy+94+1OTKyMjhs9ZH45tj5Otlv3FwA1AzDatTKwyVHGzHQwgwQAQa92/D85AmxniPSKLJPrwQWLFISCZPSl2BniT9gjw69YfAJJKMHXsoBmwB3TZtWTegUHnTYlnSBzTwqqHjh29WXtcwIEy86Jt783DhuxUI4iUvF0Dgf0OdyIJTiJJIiTTkbmPWdaMjby8QrWwCQvTnxTJ0vRVjHRrvu1OQFgtconXswSgjPDli1fGVutLnSmBQM7oTqtf5V181paiCGUuk323M2e+e3Sw==
+ b=PEGLyZXHVEHUKtjL6Mog+IwvDxPG074gRyVzygzlp/7/mgJfNLrJKHubICDXedR3xIMSlhmtN5qhOSLyUkVgcqNuV+J+650YzgryfUhL0HxaVjSChqrB3S72iYwvC3eQzyc5ZZoadIkHpFCQhh5LCYPvtPPGuBWn7zbxwdlTbbtWe7HUEYC0wpj129y83Kv1Ts3KtlrM1BMfEJs/hc49iTwipjPOWtizGMCmCTNCEyY9AGw/DD4ENaiWOf5+uhSoiWSvAMqHcbxB+brTyxVe3mtxDuqhzSCRBdawYoeCTdfa8DC7qpBYmuyjNWvyQREEaYwQmxhRE6C3t9bSwOVt3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XyiNTzVCgRpstN7QGs9Y1yoqXesRVoERKYbQPB5PhAk=;
- b=LkaQ1GklrWF8mZnBHwkN/BxyyvAaibwybTQT1pr2DjFzdv+z6RWLUHokKWTdO3z2zmHffuaP4A0wSfjRxlSelyqEtXu+qxlBxdR0k+JfFKqYQIUTB/NC2MNOsgrosG7calLJMyadJhMqRM5210mrNhExxfax74cdrwHoSgR9KlK5vLAieCBJVNTNs/TT5h661tbTx6YGfqoZl+8kcanwyw3igM/ET4EA0edUqSqFHUqQUYppluedms4h9DAsAPtoMabE5nJIIIIBS/XSCYVq652S6mD2o+Rx+6yRmV9mBeA4JgqCTRdinK9Dfmk5s0hiE6+UZOmrTF+zSCikQwPoug==
+ bh=QHynjD9WnZ1E9QTFCo3jsxZ+nUSYiBC7LKhzY6ZlN5I=;
+ b=orlKVk6bPf/42mcoD+5hnOimPsac4tIvsGAz4OCZAkkw1pbWRT9VnYn7phIzsAt6SE/8wLlKMP0SvWfbTM7328NaFrXsY8Lc3zJWy+hyxZpfC5iC41zABTtNd0TArzDMTAYWxSxIry3GUsdVfYZaT8A7n0gZCgJFDADPy7gDzUYsdg2jIXfGrjROrk7BlpGg/JvZ6R+3LpXvKIQeEygSYheO/FCEgxnVLccmuPzpI2zOfvHf16de6WY4wR2UssCksfB05WPl3ArkM4kCj3B/AzHLqRWkVEjhrcZjtoTxmVJih5aZ1bunSWWLw5kuNb7HmRYoJ7qZIkz6MDTYk46Q0A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XyiNTzVCgRpstN7QGs9Y1yoqXesRVoERKYbQPB5PhAk=;
- b=K+q6IkURvwknTb+v9HkUzaQ/i7XGmg5jLakpmx1cusGNTQo6q65B75/zLBpBaxsfmiyW/Zu5/lQV6eEhpK6Qpolh4iiHmYVtWdzDfR7yrN+UMwhjStXCf6MtYX5oitGyE4PhfVgx4s4uKUXZ/eXq1Ticoxy8dADsQLoTqlwKyADVyb7QfsanbNpkLY3bv2+2X4zbN92iXErRxqTFdP1TZp8X+h8OX7m323x4ICCtH3a4VeYNYyTh8hw9JDJdjQa2dn6/Duh4IxbQF+Jyx8fdnXPt/beeEwBuVGMY6ILxIvoDZ37ZdnC6ahazKc4nmiLkhbGJ2GbYC9pzEhY+rIkdVg==
+ bh=QHynjD9WnZ1E9QTFCo3jsxZ+nUSYiBC7LKhzY6ZlN5I=;
+ b=UbdMnmCwFpHIn+bV21HCsdg/zLrA3O3rQwO9bDv+rLWajH0F61fyWwhJNChisIzC/8oWps1kFfTyrNSTwxR4VoM7xIIMO/OdbyaE8b/K3UGEmLa9OxlcamOMtzBXpa1dVlnnpoN3yqxj7UA/IShhyFv3W75Os2YPuEPFQLAo+OmHKSmp1zGiFyGFG8I86kPloXe9nqmZhS5bm/hwBV6YYuBBnM4sEtn23HD4ApnwQhMMdDQu9Ab4/jx1/aLewuywPLCM4XrtDxt9+Xa2hE/tkLnY8pNluut5wqbd6tTAIAtE8IIJH0ZCN4A5u/s7MHld7UYq5Uasd5DfwMNb/cBxLw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by VI1PR04MB7181.eurprd04.prod.outlook.com (2603:10a6:800:12a::24) with
+ by AM9PR04MB8438.eurprd04.prod.outlook.com (2603:10a6:20b:411::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Thu, 21 Aug
- 2025 20:17:05 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.12; Thu, 21 Aug
+ 2025 20:17:17 +0000
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Thu, 21 Aug 2025
- 20:17:05 +0000
+ 20:17:17 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Thu, 21 Aug 2025 16:15:44 -0400
-Subject: [PATCH v3 09/31] media: staging: media: imx6-mipi-csi2: use
- register structure to match hardware
+Date: Thu, 21 Aug 2025 16:15:46 -0400
+Subject: [PATCH v3 11/31] media: staging: media: imx6-mipi-csi2: move probe
+ part to imx6-csi2.c
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-95_cam-v3-9-c9286fbb34b9@nxp.com>
+Message-Id: <20250821-95_cam-v3-11-c9286fbb34b9@nxp.com>
 References: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
 In-Reply-To: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
 To: Rui Miguel Silva <rmfrfs@gmail.com>, 
@@ -80,11 +80,11 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
  linux-staging@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755807361; l=10227;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755807361; l=16267;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=3pDTYj54ZDo4n98QHzd+FXpEBsweRyFJ3wROB1HMjiE=;
- b=ojTUAaJimF+Sofh4Dt2/VKHqTvM5vIreAz/O3G2BuPLduq9bzSmmP04ASUskfB8msyX8pP74k
- mPtGYEG2p92AqCCFEcGB2TggE1mDA0CGSRBy/sGMnrCMxRvjAYoGxDy
+ bh=hH7/rhTJ88NOxiRxYMd7JYvI16I4CIVL3+9vr1CK+Nc=;
+ b=6mICnbE2lNVMYW5uK9YQc1h4dqDKIORu748t/hIeghSVPHbfIFSBmQ/bWO6bjr7Fmu094Ni0a
+ g3r/XrFUBkBAfi40ugJx9goZGAqTOfVYwDspXygM3jmWJZbeN/FuJv5
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: SJ0PR03CA0338.namprd03.prod.outlook.com
@@ -92,98 +92,98 @@ X-ClientProxiedBy: SJ0PR03CA0338.namprd03.prod.outlook.com
  (2603:10a6:10:309::18)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VI1PR04MB7181:EE_
-X-MS-Office365-Filtering-Correlation-Id: 719165ad-bd7f-49e8-61d2-08dde0efb231
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8438:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f537e42-6b26-417f-5729-08dde0efb997
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|7416014|376014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WEFZeGhJeDNhb2g3ZU5NYWcvMXZWcFdQNGx4aTgzVXNUUEhJQ2RzWlRRcW11?=
- =?utf-8?B?NTRtaUNtTXcwRTFvcURuTFZQSWF0dnQxVlNpZ2hxakhCL0gwWW9BZ045T2Zp?=
- =?utf-8?B?dFRDOEUyZnVNNDNHZzhnSnp0a1duQ3dyUmw2UkthS3djUTNRRTZrN0M4U2tj?=
- =?utf-8?B?YSt5V1RxdC9NeC9GU1FjYzdLVTdKaWxmMUlKK2tmWWVNdDJ3NzdLajZLWXdV?=
- =?utf-8?B?Q1ZyY2tqKzZ0Z3BEeWsyQVNXNjNicCtsSG0waU00Y21MaUlHRnFBZHlXbEZv?=
- =?utf-8?B?WktzemFHSWtRTzdpSDVpUmZpK0llMU42Y3IyZVFCczhEN010RWpaMjBUdHlS?=
- =?utf-8?B?d200S3ZIU3gzMGE0VEQ5U2h3N1RBbU5pRFdOU3FhQlM4N0dVYjg4QUZnOU9D?=
- =?utf-8?B?NFk2ZjNRTGJXWElyczY2dnZGeFdwd2EwY1JtSXI0OEVYdHFVR3FzNU5HR1JG?=
- =?utf-8?B?QkdWODRFU3B0OWFnSk43RWNLKzRhcE1PTEtoV0VsanBobnVPeHZGSTJXaERu?=
- =?utf-8?B?N1c5NlV4YTh5b2o1Z3d2TWFnZExWdXUxa3NtWC9HbUFTNTR5VXRqUlA2bWJ5?=
- =?utf-8?B?V2lqMG53cjlvNGtVYTcxSU1jZDdYcmV6ek96cFFtbzArd2FBM2V1cy9WSnR3?=
- =?utf-8?B?SnNzNnhHUGRld1pqa0cxK2VEU2M3ZnY3eFFiYVBxWU9BZ0M0c0pvUFljMm4v?=
- =?utf-8?B?QnYwTDNIYjhYYUpjRzlsQUdzRFJVSjNmYStoV0VWOHJlTi8zWFdTN0t0dHlU?=
- =?utf-8?B?NDRZQXE0Z3ZwYlpiS1p5cUl4MU1RVmVqS2R6T1lVUDl5QkFNM2N1ekZnRjcz?=
- =?utf-8?B?aVd4ZHlkQnNkYk1CWXhXdWxCaG91REZ4NXpFTVRESGR3ejB6WnhSNXdWT2oy?=
- =?utf-8?B?Vkx3NXRuWmloZHJ1NVNPM0xRZWVmODNKVEM2cGdob1RydEtqR2l3azVGM0VW?=
- =?utf-8?B?UWFYT0dWaTM2T1JTN1VFdndBcUFSQW83anJOeU1lMlBpWUhSYWVrYTB4d2tr?=
- =?utf-8?B?ZzV4Mm8rR3VjZjN6cGZxVEo5MVNnREJ1TnFaKzVDOE1xanRVUWNuT3EyRmk1?=
- =?utf-8?B?TENQb2ZwSVIrbzI4TWc2NlZGZk5GMGsvRkNyYThPT0d3bWhFaC9OUU5IUi8y?=
- =?utf-8?B?RmxKNFFpT3hoUm9sbjJiZUM3YkphaWxOc1J3L3RtNjdSMGhqQndIOS9uUUpQ?=
- =?utf-8?B?YWlHRDQ2SXlvRUxkQWM2S2E1WSs1VUEySUVCY29YaEt4SUZJWldJeE5MVlFi?=
- =?utf-8?B?M1F6cmc3bWg5YUMyQ3UrSTNQRDVnUjNMakZWWnZ5M1Z3eHBianRPaVhoVjBT?=
- =?utf-8?B?YmI2Qmt1eTNkeGlqQ3EybkJJQTg2M1Rqa3RHYXZSbXV1MXhweCt0WTlKaFlx?=
- =?utf-8?B?OGV3YytBRXB0NktyYTl0V0FtU1lINVNobFJFekRlNVNCLzM2b1BOSDhnRHFx?=
- =?utf-8?B?TjdVRlllWnQ3dXR2dGlvZjV6ajNWenlIQldFbDkyaElxMVc0dmxDOTl4a1lm?=
- =?utf-8?B?aHFpd2RCK2VtNFhkenk4V3d5ZU5kRUF0clc2T3l0UnJCWEFZT1YrSFE2UjhZ?=
- =?utf-8?B?SEdSZWN4dWFiQjBraWJLL0E3OGtoMlQ2OGFnNkZCM20wa0VSZVFGUmhpdDc0?=
- =?utf-8?B?NEI2WlM0dUxmaUFIWTdzYW53NDhnS05iOVFnMEh1L0xsd1ZrcEdKdmJra3hM?=
- =?utf-8?B?bmZ0V3phUFAvS1BnS0NuUnYzUTk2TmpaUGdpU0YxUkpZZXhzdWdHcnJVQ1Zm?=
- =?utf-8?B?Z2pBckxRKzBpWTlXblBBM1BLTDlXQWR6WXVPNWtsb0haZll4cWxBbEdlaHE2?=
- =?utf-8?B?MzRlNlU4YXlpSk5wMmtvUTlNaGZ1MFJMNUhVOGFweHQ1SG96YmxhOGYyQmw3?=
- =?utf-8?B?Qk80ZURVTVJrTTY1TnRkN1NzY1JtVVg2L1dRKzZEa2FhdHhwdG5TeTZaVmJy?=
- =?utf-8?B?RGpNL2Z0Y2ROTlF1cnNNdmxiOXNjRDMrV0JJaHhCSldFWXdJaFM5YlFPYVFZ?=
- =?utf-8?Q?gMVl5mKlTevnxKwvndFDjQFdn/Xpo0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|52116014|7416014|1800799024|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QVRhOEFneCtTWGdnUkY5SVlvY3Avd1dxQkpMdU43TDdtbFJsRk54NkFYQ1Va?=
+ =?utf-8?B?UmRCdnRjb0l1UzVPLzVSSm03dmNsTkpOR3NFSXh0OXFmSHlQeVpVQk9qWURG?=
+ =?utf-8?B?Rm9ZZFlMTUU4S2hhWFhHc3NRTjZFeXZ2WVczajVtWm5Da2R5eHNGeEFqQVZO?=
+ =?utf-8?B?QkVCc0llRFhJOXYvZ0ZKR2NDc21xdmtwVUh3ay9Ic2FlNTdqR0dOMzNVaWw5?=
+ =?utf-8?B?Y1huMmVJSzRSSXVkbVQwdmJDbHVGQ0g0c1hMK0xFMVBTekNjRkd5S1NNb1dQ?=
+ =?utf-8?B?MWZ6ZzQ3WXpRRGxmQThxbnhRMS9WUENjVGw4UngzUkQreWVpS1hIM2d3ZDdJ?=
+ =?utf-8?B?Ny8vSnBnVS9RenVCNjNSRVhydFBQMkpSbmFMR3Z2RlVtTU5PTFBkSVpHaFVh?=
+ =?utf-8?B?dHJMVWJnZFpUcUZRMlI5bUZCWFRwZzBacjd6SlZ2TVdiYm1vMkdaNTdXaE5V?=
+ =?utf-8?B?ejc2Z1J1UUZ2NmNxb3FGTkJDQzY2KzFiMFlWQ3VCcXZCeGkrOFp3WGFkRzho?=
+ =?utf-8?B?WkNaRllEblBucTl3MEJCRmREQTl6THZ1Ylp1enlyTkZ6T3BQWkpmY1BUejE4?=
+ =?utf-8?B?eTdFbUZodU5MZGc4T3dROE5veExOUzZzc01ZdjRnK2VTU1E0a0ZXYTlzOXRV?=
+ =?utf-8?B?bFE0akRkamRyUWpBYkhaTURReXhuUVk4NStWQStYTSs2dGsxWnRZZkZXOStR?=
+ =?utf-8?B?SXlTdFIwdDZQT2JRbGFqQWtsY2VPVUcrTWNxeTVyK3N4ZGJCU0F4MTE5Y3RR?=
+ =?utf-8?B?NThJR2lGRUsxUWJESUg4YzRFc2ZQcXVnZmNzdEdMRlpDdCs4N3FMUFpaR2kx?=
+ =?utf-8?B?NndCeUtFTThMcWdNa0o5YjMvdGFZbUhzcWp4anZ0TjdiWHEreit6bThTaTZP?=
+ =?utf-8?B?NWZYaUVyYU10VUM0L05Ba1lYaHI1MHYyM0JhQnlVdkNqM3hkODFnbXUrUm9Q?=
+ =?utf-8?B?S3lnQUIxeko1YitwQ3BzM09QZHk2Qms5ZWpFNldSSmE4RE0vNTNjUnk5LzE0?=
+ =?utf-8?B?Z1ZsTFdUY3pvVlQ0VmREeFBuWmxlM3NYZGI2UFd4d3Jya2szNjJ3QU1mK1Vy?=
+ =?utf-8?B?ekVRTnREaVk5dndDOFBYWk9vdDlvMmZRVjZ6ZUE1aUhkYi81cTBrQWZhSlY1?=
+ =?utf-8?B?YUJOd1hnUjFHV2VpOXdEWlk0SXVoQmFQMXNLT2Z4UElsV1EySWs0d2J3MlNs?=
+ =?utf-8?B?T3RaNnlGUldHamhhWGlaR2NWejhWT01NVlFqTTE5OGRYcVl2Ym03bWFTcW80?=
+ =?utf-8?B?WHpzbDlSV0ZrOEJEQlI2eWtxNUlKb2E1MEIydkZGbTJQODkwdTIvdkdVYUdz?=
+ =?utf-8?B?b0R0dlRiSW5Oc0hpckpYQUk2U1pjdnEySXd3WDZ3ZkJRT1BwUWxBS1Z5MGp4?=
+ =?utf-8?B?ZTlxOVRzaHp2VlkvM0JmMENHRHg0UDdsN0FuNmNCUitqLzZ1NEpVcFdMWG1O?=
+ =?utf-8?B?VkhmZ0svVTM1dGJURWJHRDMyTGNwMVZXL1ZvMzJGczA3NU4yTmVhSmYyNEZw?=
+ =?utf-8?B?dkRSeVVPZEoyQStRSkMxUEYrWUNZbmtXQzFKOUQrVzcybXE1V3JIQnJQMmV5?=
+ =?utf-8?B?eUJZc0ZVdnNBMU42aVM3bFMrbld2RkI1YWNlY1FNQ1RvQVVZeGJWL0Zva2Yy?=
+ =?utf-8?B?aVhOYUIveGVpd1FhVVFJNWdRUlhONzlRUld2LzhDNjlSamQ3TElnNWdydVk1?=
+ =?utf-8?B?Rld6Y1dEMjIwTUwvbmhjYUMxRW5NYmYrZ1RpaU8zUnMwVWhVOW9iRGRXTlFk?=
+ =?utf-8?B?NkIyaVgydFpRd1hxNmRzWm9LbUxXUGdlSytrRzdXTkRxYlFmOERrZ1hWV3E2?=
+ =?utf-8?B?QnZDU3UrelJTMWJxU1QzRjlnZXNzY2xoazFPK2krNExjWTh5RFNKbUF6K0Rm?=
+ =?utf-8?B?SW8zdGlWcVpTeFAyd1oxRUR2Zm5MbWFLL2xBb1ZKZk1nWk5nQjZrOVVuN0Zj?=
+ =?utf-8?B?RE9RWHZQSVhKZFZ0aUFoVUFWTUVTTnIxcnRaRXEvU2J3SWNwYjMvVCt0SEdI?=
+ =?utf-8?Q?Zad5E25NyF/F/vhxyyAHqzbiJzyMq4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(52116014)(7416014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VmZGQlJyMjlVTjJUYWpmaE9FVzI2UXRyS0Y2N1JNbVRicGFMcDFURkdybWhv?=
- =?utf-8?B?TWh1OC96NVgrc3dBclM4SEcxTmFMWjQyMEN5bUsyQVF6dUFZQ0RGVDh3cXVQ?=
- =?utf-8?B?U2tTSEZHZTNxd25udGwxUjJRdU44ZUM4K1hXR1dNNHhzWExJdTFTd3gzK0kr?=
- =?utf-8?B?dkhHbTdsZ1E4eXJoM0RkWGsxWityQWViakhNaDJHajBWZE1uU0pFS2J3eWtJ?=
- =?utf-8?B?V2lzd2g0UVJ1cDczQ011cWFsYklEY2hSRFdlOVVLMndDT3VTVS9kY29Ndk5l?=
- =?utf-8?B?OUJVd05TQ0dhN3ZPV0hLYldib2ErV3FyYW02OThYZmpVUDFxcWNEV3BqYVh4?=
- =?utf-8?B?LzdncGtWM0VaUEtUT3prTWxhNE92MWZSblE1NU1lOGtBWkF5YlBzcVlBWkhH?=
- =?utf-8?B?VUlUSUVjbjkxUy90UkVIYzNOaTNvTXozV0JpNDR5azdRSld5SWRtZGlicEN6?=
- =?utf-8?B?Vlp0eFdNZjFIN0NMSVFxN0RpcEtONHgvejhKc2pITVhqTXhJK253SGR2dkJN?=
- =?utf-8?B?SGlpWU01TllZZW12Qk13V3dZUjhmL2ZOUkF2TFB1dFgwN3oyN0h3SUxHeFhs?=
- =?utf-8?B?V0RZdmR1bVFnTXhpTWpDaDhQakhqa3BjSlRkNjJvZWo0SmRYakMyTCtENzNU?=
- =?utf-8?B?N29DNzBMeXV4a1NYbDVCQTU4UEdZVGh1a05LWmplMUFEWVZyODhqdUJYN1Ja?=
- =?utf-8?B?NzMyK3VMazFpcGhBdzI3eTdCYU9oQyt4NzNzcTEzNG1pWFdZbkhKS2c5ZzM1?=
- =?utf-8?B?ekZ2dzYvNDUwUHFodTlKYUphZGRxMHpvWUowQ256VkhKaDlnNExxUFJEK0h1?=
- =?utf-8?B?QnBMWWV2RjRTVHBlL216T1FIOW9oSGcvVFBha3BUeDdUQWV4c2RqZUgveSti?=
- =?utf-8?B?MkNvajZuc2tRQTlQVXZHU1dyV3FkdWtBM1NHc1g3MExuZ3pwdlJvL1NaK045?=
- =?utf-8?B?ajNrSXFRakF4YTlzR0NaT1hEcXJQNWt5bEliS3BQTEoyZnlQK2RKaHcvQ0RW?=
- =?utf-8?B?Qm9mZGcxRDlVR0p4ck1oR3EyWlMxTGxsWWt4dWRDbXJIS1FNWjc3TUZFNzFB?=
- =?utf-8?B?ZlBxRWtMN205WE1LTHJqU2FlS1dqNFlyVnNEUW5EYVRqR3RQK2VPU0tRSVNj?=
- =?utf-8?B?YjNDUnBxSUlSNWxBUnYvdUI3bGo0Uld5SzBpQkltaTVBV3hlR2p0Rk9ZazVP?=
- =?utf-8?B?K0UyazBqZCt1Q0p5bkpCMzJKcWVOOGlzdG5OaW11SmZ4bEdiU1NjVHcxUzJC?=
- =?utf-8?B?WmNnbXVOZysrNnZwdTJrZUl1dU9YVnFqNEFZQ1hzY0t4bCtKa0FXZFVFUEtq?=
- =?utf-8?B?MEF6aFZSc3R6OFVnSUFSdUp2elV4NUxPejA4WXVCdWo4ZFJ4c1hERiswNXNF?=
- =?utf-8?B?N0VEeXliUURLSkcrRkp2Q0F2SUlvajdpRGM3R3I0QVJtZWRIdHh1TE9ncVd3?=
- =?utf-8?B?THRSUE1wTHp2R0hyZG5ZNHBEZ3ZJNWg3eEJ3SHplRmw5TzEyZXBxUjZaN2tp?=
- =?utf-8?B?MUhveUlkNzNlQ0dYbUJSdjgySFpEMXJLbHlXOFlZMlhUZldWaCtOTzNMdXc1?=
- =?utf-8?B?ekpEYWRlTDlOMkhmRGJUOTFkRjd1NDc1bGpBZjg2TkFwNDAvMURhVXRLblFo?=
- =?utf-8?B?dFVDNC9kVm93bG9JbmNOODhvamJyWWVHbTZWMGVsZEFVdDhLSnVTaXdobnhP?=
- =?utf-8?B?di9GRW1KNGQzaTZMNm42R01PVUJWWEZuLzFEV2h5b2lqOExsWVNJWmFqVWZz?=
- =?utf-8?B?OEY1ZzQ4ZTliaFNUODZCa2VTREZPRk9wRkRXVDRCR2ovWEVKTDgzRHE3dG5t?=
- =?utf-8?B?OVRUTThvdkRJYVM4SUlEQ09DWE1tekw1Zy9BaWxpdEFzeTBoUEtCNkZXRVNU?=
- =?utf-8?B?eUN1NllocU9CU0tudWdPVDJaT0VRZm5QaTZjbm5SYWFZbS9JUWdxdlk5N05Q?=
- =?utf-8?B?WDhyUTRLbWZpZjlCdklJYWhiM2c2TFdhR0xtVUtCWUo3UGVDdkNKdXF4bDNo?=
- =?utf-8?B?YmtnT25zUXc4Y1pmSXlYNVVzNXdpL3ZuM3o2UDFJNlZNeUwxbmRGYTl1eWVL?=
- =?utf-8?B?T0ZiU2dSQUMzMVBFMzRpMFIrb21LeUJ2YWZab1VqcnJpMUs2Ti9YMXVSSEFh?=
- =?utf-8?Q?hLjU=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STJiVlhNWldXZzdJYWRwNDJxUENzNGk1cFJZckROWmJHUXZlN2hFRU5OSlFk?=
+ =?utf-8?B?QU1WZ25PWHNPcExvZm90cnM0bzFYNCtuUEhCSlZSSjhJYklTMVFEV0c2aUla?=
+ =?utf-8?B?WkhMYlZ0R1hvWURqYk81Zk9vWm9KUi9TVG1yOHJPRzhuMU5MdG5wUzZLZ3o4?=
+ =?utf-8?B?VVlnWkxpNUFMaXFLbC9EdHdZeUwxd0QxekZ4ekl1cThPblRXVlFTd3BqbFdq?=
+ =?utf-8?B?OFVGQjBISFBpN1YvZEV4Q2xDK3V5d3FrN1h4b1E1VDNORWdaRk9lMnBBc25o?=
+ =?utf-8?B?U3hVRlJuRE53NGt2ZnloUVA5MFlzbmRxUlNyVE16Q0JLSUVlS3hqTXNwdVk3?=
+ =?utf-8?B?T1lCVnFrRmI5MVNQKzEwV3ZLODBvN0Y4VnhCOS9ZMGR1cG1vRmgzeVdDWDgx?=
+ =?utf-8?B?RGkySEg4UTk5ZzkzQXZwK2tjNit3dDN1T0U0T3FRcC8xNnN1VkdzVllZeWhz?=
+ =?utf-8?B?Q2thc2RYU3lPbDMzdVRPckRwdWlqeElKcE5GZEExWmwwdHVHZ3ZDaHc1d0cv?=
+ =?utf-8?B?RitSUVFUVnhWa1RYelpUcmRoUFFmcmhyUlpEeHlNQ0lTRXFUQTczK2ljRDlv?=
+ =?utf-8?B?ZTJNWldiY0w2ZE5vWXppcisrOHF2ajFEM045WTNSWW1vYkZweFpyTEE0VWM2?=
+ =?utf-8?B?RGNMc2JnOE5Lak41T1JoNzRUMERJNm9Zazg4MkhZZ3J1SmZDdDBNOVVaOGhi?=
+ =?utf-8?B?ZEVDY0FZQ0NWQnRIc05YaktOWFdWd2ZEdjlvU2tGcWVxU3BGOVlnWXVIQURC?=
+ =?utf-8?B?SEVnRDk4NEM3N2RlaWlpWks4NTNpYTQvemdQd051SlhWU0xMblVZa29YQkRS?=
+ =?utf-8?B?VXNyTGFJbHI1MVVPNy9qNDd4dEZYa2U1NXY1d0pZcDF1ajlCeWNEWXdUQWZZ?=
+ =?utf-8?B?dnFvS0V4WEJ0ZnBRTDV4dVZITytBWXFEWFpURm5hcDNvb1JFdDBZZHNob3Nj?=
+ =?utf-8?B?bXAyQUk4em55YjhpeS94UzU2VUszMm9LSjNkZ0VCMzl1NHh1OWFKREljd1BS?=
+ =?utf-8?B?NXBka2pOMWJvdEZDeGtuYmZPQ3FxYytydjJWczF2QjdyektmRHZyL1JHOTBV?=
+ =?utf-8?B?WEdEa3Q2VDdaL3huNWg1MitPb0hlYkNKVndSa253L1NHOCtsK1ZuOWlMMFp1?=
+ =?utf-8?B?ZFZzL3RzQXM0elZiZUIvanJPQzZHc0xsME5QenhnYkV3SXo3V1dUQkNHNHJh?=
+ =?utf-8?B?SG1zRDhOM0IrLzRRL3JLZjE3d1dIRXhHbTJKZnhHbjM1a0hyM1l6am9vWnky?=
+ =?utf-8?B?Z3pZdzFQRWRNbDFaZVYrUCtyYURtbnpicnVKSWpMYkpSWWl1SEF6ai9rQWwx?=
+ =?utf-8?B?KzZuSWtLYk9KMTg0eGN1dyt6RjZVTzRhc3VGMEZTeEhLeGVoUkk4Z2s0aFg5?=
+ =?utf-8?B?UnFZb2VIcWEzby9BZU05U2UvRkpHS3BLQ2ZBY1VQbWthWnc5SkcwaXhEVmJ0?=
+ =?utf-8?B?OVcwby8wMHd2L3A2dGx3UUlUMThnbXRzaDFMKzNYaU1CSjJlY1JseXpUYklk?=
+ =?utf-8?B?dmR0ZFlOck94SzQ4MUpYc2ttNkhEQmxDR3JEYVY0THpXY2RXT25tOHpFT21J?=
+ =?utf-8?B?QnI0b3k2WktkbG5QVDFxUUsrcVFMSkhETVE5eXgrblJTU2RmU2dtSXNnKzdG?=
+ =?utf-8?B?bTNvREJhd2ptaEhUYVJRek5yZmpZNll1bSs5QU9OM0hqZk5xRVdXS0JnWTda?=
+ =?utf-8?B?V3ZLUWwrTVNuZTYzc0Vab0NPWHFwZElpS2wvRi9va2Q0MWQxQWtVYmhrMkls?=
+ =?utf-8?B?allpaUNGNmRoVGd4OEpld0hRQVMwcnpMcXBObWx2ZDJTOE1keVE1L1EyQWlD?=
+ =?utf-8?B?eGhHeGpVSkdteVVsUTZjc2NQMzIzb2RWbFpRVFVuZGtTSDZZMmd2VkR4NGcy?=
+ =?utf-8?B?OEkxeHhWVXpCTHdqNnplb1BWdTZGRzc2U1JYNDRUYitldEIzMjg0aE5aTEsv?=
+ =?utf-8?B?endGY1VlVUEwcWVJK1BDdDdUYmw1cXBubTRObzFsbmxaa1BNSEc1Vm5xSDhR?=
+ =?utf-8?B?OXFtYmJOK0w2K3gwSU9qM3JPVmlocDZ2V1VHVzRlLzBXd0tkTW9tKzNLTVE1?=
+ =?utf-8?B?K0FmTVNnZCt0YVI3b20zT2wwU0lpazFNYnU0L1JsNmpZK3o5aEZZbURDYXlr?=
+ =?utf-8?Q?8AKk=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 719165ad-bd7f-49e8-61d2-08dde0efb231
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f537e42-6b26-417f-5729-08dde0efb997
 X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 20:17:05.0185
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 20:17:17.3526
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8laeaI+flk5pIsqrHtaCUG3ju/iefwp/WBXNvdEJbHjWaVlnwr/G6FbPgd3BY8XFxjacCz9ogsLwyNI6ZlQz5w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7181
+X-MS-Exchange-CrossTenant-UserPrincipalName: RiGDo0PhteEzlS+JA9wChx5TXaPFPdyWn8e6nzV1nGaT+DNN0jdpAoDob/b9UJCzl4RORIPYQQN3Q3nn46iPhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8438
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_131712_241042_F4C7E928 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250821_131722_683298_42DE09CE 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,289 +198,514 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use register structure to handle different versions of the DesignWare CSI2
-controller, as register offsets slightly differ between versions. Add
-register existence bits to detect invalid register access when using
-different versions of the CSI2 controller.
+Prepare create common dw mipi csi2 library from imx6-mipi-csi2.c.
+
+Move probe part to imx6-csi.c.
+
+Rename struct csi2_dev to struct dw_mipi_csi2_dev and move it
+include/media/dw-mipi-csi2.h.
+
+Create two API dw_mipi_csi2_init() and dw_mipi_csi2_deinit().
 
 No functional change.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/staging/media/imx/imx6-mipi-csi2.c | 165 +++++++++++++++++------------
- 1 file changed, 96 insertions(+), 69 deletions(-)
+ drivers/staging/media/imx/Makefile         |   2 +-
+ drivers/staging/media/imx/imx6-csi2.c      |  61 ++++++++++++++
+ drivers/staging/media/imx/imx6-mipi-csi2.c | 130 ++++++++---------------------
+ include/media/dw-mipi-csi2.h               |  62 ++++++++++++++
+ 4 files changed, 159 insertions(+), 96 deletions(-)
 
-diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
-index 54e9491d3428686288a5bc9bb58a5a0a25aca696..b04c1b98c088b8bfa66eb3f61cca8bb735b7eae4 100644
---- a/drivers/staging/media/imx/imx6-mipi-csi2.c
-+++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
-@@ -34,12 +34,30 @@
-  */
- #define CSI2_DEFAULT_MAX_MBPS	849
- 
-+struct dw_csi2_regs {
-+	u32	version;
-+	u32	n_lanes;
-+	u32	phy_shutdownz;
-+	u32	dphy_rstz;
-+	u32	resetn;
-+	u32	phy_state;
-+	u32	data_ids_1;
-+	u32	data_ids_2;
-+	u32	err1;
-+	u32	err2;
-+	u32	msk1;
-+	u32	msk2;
-+	u32	phy_tst_ctrl0;
-+	u32	phy_tst_ctrl1;
+diff --git a/drivers/staging/media/imx/Makefile b/drivers/staging/media/imx/Makefile
+index 330e0825f506bd98d6a8093a58d3b7d06a94a626..064a6c6c069aa440c72a483080cbedf89d370193 100644
+--- a/drivers/staging/media/imx/Makefile
++++ b/drivers/staging/media/imx/Makefile
+@@ -11,4 +11,4 @@ imx6-media-csi-objs := imx-media-csi.o imx-media-fim.o
+ obj-$(CONFIG_VIDEO_IMX_MEDIA) += imx-media-common.o
+ obj-$(CONFIG_VIDEO_IMX_MEDIA) += imx6-media.o
+ obj-$(CONFIG_VIDEO_IMX_MEDIA) += imx6-media-csi.o
+-obj-$(CONFIG_VIDEO_IMX_MEDIA) += imx6-mipi-csi2.o
++obj-$(CONFIG_VIDEO_IMX_MEDIA) += imx6-mipi-csi2.o imx6-csi2.o
+diff --git a/drivers/staging/media/imx/imx6-csi2.c b/drivers/staging/media/imx/imx6-csi2.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..72eff685fad99b3def46cf2866565191b7de9a8b
+--- /dev/null
++++ b/drivers/staging/media/imx/imx6-csi2.c
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * MIPI CSI-2 Receiver Subdev for Freescale i.MX6 SOC.
++ *
++ * Copyright (c) 2012-2017 Mentor Graphics Inc.
++ */
++#include <linux/clk.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/irq.h>
++#include <linux/module.h>
++#include <linux/of_graph.h>
++#include <linux/platform_device.h>
++#include <media/dw-mipi-csi2.h>
++#include "imx-media.h"
++
++struct imx6_csi2 {
++	struct dw_mipi_csi2_dev dw;
 +};
 +
- struct csi2_dev {
- 	struct device			*dev;
- 	struct v4l2_subdev		sd;
- 	struct v4l2_async_notifier	notifier;
- 	struct media_pad		pad[CSI2_NUM_PADS];
- 	void __iomem			*base;
-+	const struct dw_csi2_regs	*regs;
- 
- 	struct clk_bulk_data		*clks;
- 	int				num_clks;
-@@ -60,28 +78,53 @@ struct csi2_dev {
- 
- #define DEVICE_NAME "imx6-mipi-csi2"
- 
--/* Register offsets */
--#define CSI2_VERSION		0x000
--#define CSI2_N_LANES		0x004
--#define CSI2_PHY_SHUTDOWNZ	0x008
--#define CSI2_DPHY_RSTZ		0x00c
--#define CSI2_RESETN		0x010
--#define CSI2_PHY_STATE		0x014
-+/* Help check wrong access unexisted register at difference IP version */
-+#define DW_REG_EXIST		0x80000000
-+#define DW_REG(x)		(DW_REG_EXIST | (x))
-+
-+/* Register offsets for v0 */
-+static const struct dw_csi2_regs dw_csi2_v0 = {
-+	.version = DW_REG(0x0),
-+	.n_lanes = DW_REG(0x4),
-+	.phy_shutdownz = DW_REG(0x8),
-+	.dphy_rstz = DW_REG(0xc),
-+	.resetn = DW_REG(0x10),
-+	.phy_state = DW_REG(0x14),
-+	.data_ids_1 = DW_REG(0x18),
-+	.data_ids_2 = DW_REG(0x1c),
-+	.err1 = DW_REG(0x20),
-+	.err2 = DW_REG(0x24),
-+	.msk1 = DW_REG(0x28),
-+	.msk2 = DW_REG(0x2c),
-+	.phy_tst_ctrl0 = DW_REG(0x30),
-+	.phy_tst_ctrl1 = DW_REG(0x34),
-+};
-+
-+static int dw_csi2_reg_err(struct csi2_dev *csi2, const char *name)
++static int csi2_probe(struct platform_device *pdev)
 +{
-+	dev_err_once(csi2->dev, "access to unexisted register: %s", name);
-+	return 0;
++	struct imx6_csi2 *csi2;
++
++	csi2 = devm_kzalloc(&pdev->dev, sizeof(*csi2), GFP_KERNEL);
++	if (!csi2)
++		return -ENOMEM;
++
++	return dw_mipi_csi2_init(pdev, &csi2->dw, NULL);
 +}
 +
-+#define dw_reg_exist(csi2, __name) ((csi2)->regs->__name & DW_REG_EXIST)
++static void csi2_remove(struct platform_device *pdev)
++{
++	struct v4l2_subdev *sd = platform_get_drvdata(pdev);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dw_mipi_csi2_dev(sd);
 +
-+#define dw_writel(csi2, value, __name) (dw_reg_exist((csi2), __name) ? \
-+writel(value, (csi2)->base + (csi2->regs->__name & ~DW_REG_EXIST)) : \
-+dw_csi2_reg_err((csi2), #__name))
++	dw_mipi_csi2_deinit(csi2);
++}
 +
-+#define dw_readl(csi2, __name) (dw_reg_exist((csi2), __name) ? \
-+readl((csi2)->base + ((csi2)->regs->__name & ~DW_REG_EXIST)) : \
-+dw_csi2_reg_err(csi2, #__name))
++static const struct of_device_id csi2_dt_ids[] = {
++	{ .compatible = "fsl,imx6-mipi-csi2"},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, csi2_dt_ids);
 +
- #define PHY_STOPSTATEDATA_BIT	4
- #define PHY_STOPSTATEDATA(n)	BIT(PHY_STOPSTATEDATA_BIT + (n))
- #define PHY_RXCLKACTIVEHS	BIT(8)
- #define PHY_RXULPSCLKNOT	BIT(9)
- #define PHY_STOPSTATECLK	BIT(10)
--#define CSI2_DATA_IDS_1		0x018
--#define CSI2_DATA_IDS_2		0x01c
--#define CSI2_ERR1		0x020
--#define CSI2_ERR2		0x024
--#define CSI2_MSK1		0x028
--#define CSI2_MSK2		0x02c
--#define CSI2_PHY_TST_CTRL0	0x030
++static struct platform_driver csi2_driver = {
++	.driver = {
++		.name = "imx6-mipi-csi2",
++		.of_match_table = csi2_dt_ids,
++	},
++	.probe = csi2_probe,
++	.remove = csi2_remove,
++};
 +
- #define PHY_TESTCLR		BIT(0)
- #define PHY_TESTCLK		BIT(1)
--#define CSI2_PHY_TST_CTRL1	0x034
++module_platform_driver(csi2_driver);
 +
- #define PHY_TESTEN		BIT(16)
++MODULE_DESCRIPTION("i.MX5/6 MIPI CSI-2 Receiver driver");
++MODULE_AUTHOR("Steve Longerbeam <steve_longerbeam@mentor.com>");
++MODULE_LICENSE("GPL");
++
+diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
+index 7b8911bea3fad8187fafb1d0916d730fd6fa671c..b5911a37972be868e10c115ada1910fa04b2765c 100644
+--- a/drivers/staging/media/imx/imx6-mipi-csi2.c
++++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
+@@ -4,6 +4,7 @@
+  *
+  * Copyright (c) 2012-2017 Mentor Graphics Inc.
+  */
++#include <linux/export.h>
+ #include <linux/clk.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -12,6 +13,7 @@
+ #include <linux/module.h>
+ #include <linux/of_graph.h>
+ #include <linux/platform_device.h>
++#include <media/dw-mipi-csi2.h>
+ #include <media/v4l2-common.h>
+ #include <media/v4l2-device.h>
+ #include <media/v4l2-fwnode.h>
+@@ -19,15 +21,6 @@
+ #include <media/v4l2-subdev.h>
+ #include "imx-media.h"
+ 
+-/*
+- * there must be 5 pads: 1 input pad from sensor, and
+- * the 4 virtual channel output pads
+- */
+-#define CSI2_SINK_PAD		0
+-#define CSI2_NUM_SINK_PADS	1
+-#define CSI2_NUM_SRC_PADS	4
+-#define CSI2_NUM_PADS		5
+-
  /*
-  * i.MX CSI2IPU Gasket registers follow. The CSI2IPU gasket is
-@@ -132,42 +175,42 @@ static inline struct csi2_dev *notifier_to_dev(struct v4l2_async_notifier *n)
- static void csi2_enable(struct csi2_dev *csi2, bool enable)
+  * The default maximum bit-rate per lane in Mbps, if the
+  * source subdev does not provide V4L2_CID_LINK_FREQ.
+@@ -51,31 +44,6 @@ struct dw_csi2_regs {
+ 	u32	phy_tst_ctrl1;
+ };
+ 
+-struct csi2_dev {
+-	struct device			*dev;
+-	struct v4l2_subdev		sd;
+-	struct v4l2_async_notifier	notifier;
+-	struct media_pad		pad[CSI2_NUM_PADS];
+-	void __iomem			*base;
+-	const struct dw_csi2_regs	*regs;
+-
+-	struct clk_bulk_data		*clks;
+-	int				num_clks;
+-
+-	struct v4l2_subdev		*remote;
+-	unsigned int			remote_pad;
+-	unsigned short			data_lanes;
+-
+-	/* lock to protect all members below */
+-	struct mutex			lock;
+-
+-	struct v4l2_mbus_framefmt	format_mbus;
+-
+-	int				stream_count;
+-	struct v4l2_subdev		*src_sd;
+-	bool				sink_linked[CSI2_NUM_SRC_PADS];
+-};
+-
+ #define DEVICE_NAME "imx6-mipi-csi2"
+ 
+ /* Help check wrong access unexisted register at difference IP version */
+@@ -100,7 +68,7 @@ static const struct dw_csi2_regs dw_csi2_v0 = {
+ 	.phy_tst_ctrl1 = DW_REG(0x34),
+ };
+ 
+-static int dw_csi2_reg_err(struct csi2_dev *csi2, const char *name)
++static int dw_csi2_reg_err(struct dw_mipi_csi2_dev *csi2, const char *name)
+ {
+ 	dev_err_once(csi2->dev, "access to unexisted register: %s", name);
+ 	return 0;
+@@ -134,14 +102,11 @@ dw_csi2_reg_err(csi2, #__name))
+ #define CSI2IPU_GASKET		0xf00
+ #define CSI2IPU_YUV422_YUYV	BIT(2)
+ 
+-static inline struct csi2_dev *sd_to_dev(struct v4l2_subdev *sdev)
+-{
+-	return container_of(sdev, struct csi2_dev, sd);
+-}
++#define sd_to_dev sd_to_dw_mipi_csi2_dev
+ 
+-static inline struct csi2_dev *notifier_to_dev(struct v4l2_async_notifier *n)
++static inline struct dw_mipi_csi2_dev *notifier_to_dev(struct v4l2_async_notifier *n)
+ {
+-	return container_of(n, struct csi2_dev, notifier);
++	return container_of(n, struct dw_mipi_csi2_dev, notifier);
+ }
+ 
+ /*
+@@ -172,7 +137,7 @@ static inline struct csi2_dev *notifier_to_dev(struct v4l2_async_notifier *n)
+  * steps 5 and 7.
+  */
+ 
+-static void csi2_enable(struct csi2_dev *csi2, bool enable)
++static void csi2_enable(struct dw_mipi_csi2_dev *csi2, bool enable)
  {
  	if (enable) {
--		writel(0x1, csi2->base + CSI2_PHY_SHUTDOWNZ);
--		writel(0x1, csi2->base + CSI2_DPHY_RSTZ);
--		writel(0x1, csi2->base + CSI2_RESETN);
-+		dw_writel(csi2, 0x1, phy_shutdownz);
-+		dw_writel(csi2, 0x1, dphy_rstz);
-+		dw_writel(csi2, 0x1, resetn);
- 	} else {
--		writel(0x0, csi2->base + CSI2_PHY_SHUTDOWNZ);
--		writel(0x0, csi2->base + CSI2_DPHY_RSTZ);
--		writel(0x0, csi2->base + CSI2_RESETN);
-+		dw_writel(csi2, 0x0, phy_shutdownz);
-+		dw_writel(csi2, 0x0, dphy_rstz);
-+		dw_writel(csi2, 0x0, resetn);
+ 		dw_writel(csi2, 0x1, phy_shutdownz);
+@@ -185,12 +150,12 @@ static void csi2_enable(struct csi2_dev *csi2, bool enable)
  	}
  }
  
- static void csi2_set_lanes(struct csi2_dev *csi2, unsigned int lanes)
+-static void csi2_set_lanes(struct csi2_dev *csi2, unsigned int lanes)
++static void csi2_set_lanes(struct dw_mipi_csi2_dev *csi2, unsigned int lanes)
  {
--	writel(lanes - 1, csi2->base + CSI2_N_LANES);
-+	dw_writel(csi2, lanes - 1, n_lanes);
+ 	dw_writel(csi2, lanes - 1, n_lanes);
  }
  
- static void dw_mipi_csi2_phy_write(struct csi2_dev *csi2,
+-static void dw_mipi_csi2_phy_write(struct csi2_dev *csi2,
++static void dw_mipi_csi2_phy_write(struct dw_mipi_csi2_dev *csi2,
  				   u32 test_code, u32 test_data)
  {
  	/* Clear PHY test interface */
--	writel(PHY_TESTCLR, csi2->base + CSI2_PHY_TST_CTRL0);
--	writel(0x0, csi2->base + CSI2_PHY_TST_CTRL1);
--	writel(0x0, csi2->base + CSI2_PHY_TST_CTRL0);
-+	dw_writel(csi2, PHY_TESTCLR, phy_tst_ctrl0);
-+	dw_writel(csi2, 0x0, phy_tst_ctrl1);
-+	dw_writel(csi2, 0x0, phy_tst_ctrl0);
- 
- 	/* Raise test interface strobe signal */
--	writel(PHY_TESTCLK, csi2->base + CSI2_PHY_TST_CTRL0);
-+	dw_writel(csi2, PHY_TESTCLK, phy_tst_ctrl0);
- 
- 	/* Configure address write on falling edge and lower strobe signal */
--	writel(PHY_TESTEN | test_code, csi2->base + CSI2_PHY_TST_CTRL1);
--	writel(0x0, csi2->base + CSI2_PHY_TST_CTRL0);
-+	dw_writel(csi2, PHY_TESTEN | test_code, phy_tst_ctrl1);
-+	dw_writel(csi2, 0x0, phy_tst_ctrl0);
- 
- 	/* Configure data write on rising edge and raise strobe signal */
--	writel(test_data, csi2->base + CSI2_PHY_TST_CTRL1);
--	writel(PHY_TESTCLK, csi2->base + CSI2_PHY_TST_CTRL0);
-+	dw_writel(csi2, test_data, phy_tst_ctrl1);
-+	dw_writel(csi2, PHY_TESTCLK, phy_tst_ctrl0);
- 
- 	/* Clear strobe signal */
--	writel(0x0, csi2->base + CSI2_PHY_TST_CTRL0);
-+	dw_writel(csi2, 0x0, phy_tst_ctrl0);
+@@ -243,7 +208,7 @@ static int max_mbps_to_hsfreqrange_sel(u32 max_mbps)
+ 	return -EINVAL;
  }
  
- /*
-@@ -233,16 +276,15 @@ static int __maybe_unused csi2_dphy_wait_ulp(struct csi2_dev *csi2)
- 	int ret;
- 
- 	/* wait for ULP on clock lane */
--	ret = readl_poll_timeout(csi2->base + CSI2_PHY_STATE, reg,
--				 !(reg & PHY_RXULPSCLKNOT), 0, 500000);
-+	ret = read_poll_timeout(dw_readl, reg, !(reg & PHY_RXULPSCLKNOT),
-+				0, 500000, 0, csi2, phy_state);
- 	if (ret) {
- 		v4l2_err(&csi2->sd, "ULP timeout, phy_state = 0x%08x\n", reg);
- 		return ret;
- 	}
- 
- 	/* wait until no errors on bus */
--	ret = readl_poll_timeout(csi2->base + CSI2_ERR1, reg,
--				 reg == 0x0, 0, 500000);
-+	ret = read_poll_timeout(dw_readl, reg, reg == 0x0, 0, 500000, 0, csi2, err1);
- 	if (ret) {
- 		v4l2_err(&csi2->sd, "stable bus timeout, err1 = 0x%08x\n", reg);
- 		return ret;
-@@ -259,8 +301,7 @@ static void csi2_dphy_wait_stopstate(struct csi2_dev *csi2, unsigned int lanes)
- 
- 	mask = PHY_STOPSTATECLK | (((1 << lanes) - 1) << PHY_STOPSTATEDATA_BIT);
- 
--	ret = readl_poll_timeout(csi2->base + CSI2_PHY_STATE, reg,
--				 (reg & mask) == mask, 0, 500000);
-+	ret = read_poll_timeout(dw_readl, reg, (reg & mask) == mask, 0, 500000, 0, csi2, phy_state);
- 	if (ret) {
- 		v4l2_warn(&csi2->sd, "LP-11 wait timeout, likely a sensor driver bug, expect capture failures.\n");
- 		v4l2_warn(&csi2->sd, "phy_state = 0x%08x\n", reg);
-@@ -273,8 +314,8 @@ static int csi2_dphy_wait_clock_lane(struct csi2_dev *csi2)
+-static int csi2_dphy_init(struct csi2_dev *csi2)
++static int csi2_dphy_init(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	struct v4l2_ctrl *ctrl;
+ 	u32 mbps_per_lane;
+@@ -270,7 +235,7 @@ static int csi2_dphy_init(struct csi2_dev *csi2)
+  * Waits for ultra-low-power state on D-PHY clock lane. This is currently
+  * unused and may not be needed at all, but keep around just in case.
+  */
+-static int __maybe_unused csi2_dphy_wait_ulp(struct csi2_dev *csi2)
++static int __maybe_unused csi2_dphy_wait_ulp(struct dw_mipi_csi2_dev *csi2)
+ {
  	u32 reg;
  	int ret;
+@@ -294,7 +259,7 @@ static int __maybe_unused csi2_dphy_wait_ulp(struct csi2_dev *csi2)
+ }
  
--	ret = readl_poll_timeout(csi2->base + CSI2_PHY_STATE, reg,
--				 (reg & PHY_RXCLKACTIVEHS), 0, 500000);
-+	ret = read_poll_timeout(dw_readl, reg, (reg & PHY_RXCLKACTIVEHS),
-+				0, 500000, 0, csi2, phy_state);
- 	if (ret) {
- 		v4l2_err(&csi2->sd, "clock lane timeout, phy_state = 0x%08x\n",
- 			 reg);
-@@ -556,34 +597,20 @@ static int csi2_log_status(struct v4l2_subdev *sd)
- 	struct csi2_dev *csi2 = sd_to_dev(sd);
+ /* Waits for low-power LP-11 state on data and clock lanes. */
+-static void csi2_dphy_wait_stopstate(struct csi2_dev *csi2, unsigned int lanes)
++static void csi2_dphy_wait_stopstate(struct dw_mipi_csi2_dev *csi2, unsigned int lanes)
+ {
+ 	u32 mask, reg;
+ 	int ret;
+@@ -309,7 +274,7 @@ static void csi2_dphy_wait_stopstate(struct csi2_dev *csi2, unsigned int lanes)
+ }
  
- 	v4l2_info(sd, "-----MIPI CSI status-----\n");
--	v4l2_info(sd, "VERSION: 0x%x\n",
--		  readl(csi2->base + CSI2_VERSION));
--	v4l2_info(sd, "N_LANES: 0x%x\n",
--		  readl(csi2->base + CSI2_N_LANES));
--	v4l2_info(sd, "PHY_SHUTDOWNZ: 0x%x\n",
--		  readl(csi2->base + CSI2_PHY_SHUTDOWNZ));
--	v4l2_info(sd, "DPHY_RSTZ: 0x%x\n",
--		  readl(csi2->base + CSI2_DPHY_RSTZ));
--	v4l2_info(sd, "RESETN: 0x%x\n",
--		  readl(csi2->base + CSI2_RESETN));
--	v4l2_info(sd, "PHY_STATE: 0x%x\n",
--		  readl(csi2->base + CSI2_PHY_STATE));
--	v4l2_info(sd, "DATA_IDS_1: 0x%x\n",
--		  readl(csi2->base + CSI2_DATA_IDS_1));
--	v4l2_info(sd, "DATA_IDS_2: 0x%x\n",
--		  readl(csi2->base + CSI2_DATA_IDS_2));
--	v4l2_info(sd, "ERR1: 0x%x\n",
--		  readl(csi2->base + CSI2_ERR1));
--	v4l2_info(sd, "ERR2: 0x%x\n",
--		  readl(csi2->base + CSI2_ERR2));
--	v4l2_info(sd, "MSK1: 0x%x\n",
--		  readl(csi2->base + CSI2_MSK1));
--	v4l2_info(sd, "MSK2: 0x%x\n",
--		  readl(csi2->base + CSI2_MSK2));
--	v4l2_info(sd, "PHY_TST_CTRL0: 0x%x\n",
--		  readl(csi2->base + CSI2_PHY_TST_CTRL0));
--	v4l2_info(sd, "PHY_TST_CTRL1: 0x%x\n",
--		  readl(csi2->base + CSI2_PHY_TST_CTRL1));
-+	v4l2_info(sd, "VERSION: 0x%x\n", dw_readl(csi2, version));
-+	v4l2_info(sd, "N_LANES: 0x%x\n", dw_readl(csi2, n_lanes));
-+	v4l2_info(sd, "PHY_SHUTDOWNZ: 0x%x\n", dw_readl(csi2, phy_shutdownz));
-+	v4l2_info(sd, "DPHY_RSTZ: 0x%x\n", dw_readl(csi2, dphy_rstz));
-+	v4l2_info(sd, "RESETN: 0x%x\n", dw_readl(csi2, resetn));
-+	v4l2_info(sd, "PHY_STATE: 0x%x\n", dw_readl(csi2, phy_state));
-+	v4l2_info(sd, "DATA_IDS_1: 0x%x\n", dw_readl(csi2, data_ids_1));
-+	v4l2_info(sd, "DATA_IDS_2: 0x%x\n", dw_readl(csi2, data_ids_2));
-+	v4l2_info(sd, "ERR1: 0x%x\n", dw_readl(csi2, err1));
-+	v4l2_info(sd, "ERR2: 0x%x\n", dw_readl(csi2, err2));
-+	v4l2_info(sd, "MSK1: 0x%x\n", dw_readl(csi2, msk1));
-+	v4l2_info(sd, "MSK2: 0x%x\n", dw_readl(csi2, msk2));
-+	v4l2_info(sd, "PHY_TST_CTRL0: 0x%x\n", dw_readl(csi2, phy_tst_ctrl0));
-+	v4l2_info(sd, "PHY_TST_CTRL1: 0x%x\n", dw_readl(csi2, phy_tst_ctrl1));
+ /* Wait for active clock on the clock lane. */
+-static int csi2_dphy_wait_clock_lane(struct csi2_dev *csi2)
++static int csi2_dphy_wait_clock_lane(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	u32 reg;
+ 	int ret;
+@@ -326,7 +291,7 @@ static int csi2_dphy_wait_clock_lane(struct csi2_dev *csi2)
+ }
  
+ /* Setup the i.MX CSI2IPU Gasket */
+-static void csi2ipu_gasket_init(struct csi2_dev *csi2)
++static void csi2ipu_gasket_init(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	u32 reg = 0;
+ 
+@@ -342,7 +307,7 @@ static void csi2ipu_gasket_init(struct csi2_dev *csi2)
+ 	writel(reg, csi2->base + CSI2IPU_GASKET);
+ }
+ 
+-static int csi2_get_active_lanes(struct csi2_dev *csi2, unsigned int *lanes)
++static int csi2_get_active_lanes(struct dw_mipi_csi2_dev *csi2, unsigned int *lanes)
+ {
+ 	struct v4l2_mbus_config mbus_config = { 0 };
+ 	int ret;
+@@ -379,7 +344,7 @@ static int csi2_get_active_lanes(struct csi2_dev *csi2, unsigned int *lanes)
  	return 0;
  }
-@@ -719,7 +746,7 @@ static int csi2_probe(struct platform_device *pdev)
- 		return -ENOMEM;
  
- 	csi2->dev = &pdev->dev;
--
-+	csi2->regs = &dw_csi2_v0;
- 	v4l2_subdev_init(&csi2->sd, &csi2_subdev_ops);
- 	v4l2_set_subdevdata(&csi2->sd, &pdev->dev);
- 	csi2->sd.internal_ops = &csi2_internal_ops;
-@@ -776,7 +803,7 @@ static void csi2_remove(struct platform_device *pdev)
+-static int csi2_start(struct csi2_dev *csi2)
++static int csi2_start(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	unsigned int lanes;
+ 	int ret;
+@@ -435,7 +400,7 @@ static int csi2_start(struct csi2_dev *csi2)
+ 	return ret;
  }
  
- static const struct of_device_id csi2_dt_ids[] = {
--	{ .compatible = "fsl,imx6-mipi-csi2", },
-+	{ .compatible = "fsl,imx6-mipi-csi2"},
- 	{ /* sentinel */ }
+-static void csi2_stop(struct csi2_dev *csi2)
++static void csi2_stop(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	/* stop upstream */
+ 	v4l2_subdev_call(csi2->src_sd, video, s_stream, 0);
+@@ -451,7 +416,7 @@ static void csi2_stop(struct csi2_dev *csi2)
+ 
+ static int csi2_s_stream(struct v4l2_subdev *sd, int enable)
+ {
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 	int i, ret = 0;
+ 
+ 	guard(mutex)(&csi2->lock);
+@@ -493,7 +458,7 @@ static int csi2_link_setup(struct media_entity *entity,
+ 			   const struct media_pad *remote, u32 flags)
+ {
+ 	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 	struct v4l2_subdev *remote_sd;
+ 	int ret = 0;
+ 
+@@ -528,7 +493,7 @@ static int csi2_link_setup(struct media_entity *entity,
+ }
+ 
+ static struct v4l2_mbus_framefmt *
+-__csi2_get_fmt(struct csi2_dev *csi2, struct v4l2_subdev_state *sd_state,
++__csi2_get_fmt(struct dw_mipi_csi2_dev *csi2, struct v4l2_subdev_state *sd_state,
+ 	       unsigned int pad, enum v4l2_subdev_format_whence which)
+ {
+ 	if (which == V4L2_SUBDEV_FORMAT_TRY)
+@@ -541,7 +506,7 @@ static int csi2_get_fmt(struct v4l2_subdev *sd,
+ 			struct v4l2_subdev_state *sd_state,
+ 			struct v4l2_subdev_format *sdformat)
+ {
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 	struct v4l2_mbus_framefmt *fmt;
+ 
+ 	guard(mutex)(&csi2->lock);
+@@ -557,7 +522,7 @@ static int csi2_set_fmt(struct v4l2_subdev *sd,
+ 			struct v4l2_subdev_state *sd_state,
+ 			struct v4l2_subdev_format *sdformat)
+ {
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 	struct v4l2_mbus_framefmt *fmt;
+ 
+ 	if (sdformat->pad >= CSI2_NUM_PADS)
+@@ -581,7 +546,7 @@ static int csi2_set_fmt(struct v4l2_subdev *sd,
+ 
+ static int csi2_registered(struct v4l2_subdev *sd)
+ {
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 
+ 	/* set a default mbus format  */
+ 	return imx_media_init_mbus_fmt(&csi2->format_mbus,
+@@ -594,7 +559,7 @@ static int csi2_registered(struct v4l2_subdev *sd)
+ 
+ static int csi2_log_status(struct v4l2_subdev *sd)
+ {
+-	struct csi2_dev *csi2 = sd_to_dev(sd);
++	struct dw_mipi_csi2_dev *csi2 = sd_to_dev(sd);
+ 
+ 	v4l2_info(sd, "-----MIPI CSI status-----\n");
+ 	v4l2_info(sd, "VERSION: 0x%x\n", dw_readl(csi2, version));
+@@ -649,7 +614,7 @@ static int csi2_notify_bound(struct v4l2_async_notifier *notifier,
+ 			     struct v4l2_subdev *sd,
+ 			     struct v4l2_async_connection *asd)
+ {
+-	struct csi2_dev *csi2 = notifier_to_dev(notifier);
++	struct dw_mipi_csi2_dev *csi2 = notifier_to_dev(notifier);
+ 	struct media_pad *sink = &csi2->sd.entity.pads[CSI2_SINK_PAD];
+ 	int pad;
+ 
+@@ -672,7 +637,7 @@ static void csi2_notify_unbind(struct v4l2_async_notifier *notifier,
+ 			       struct v4l2_subdev *sd,
+ 			       struct v4l2_async_connection *asd)
+ {
+-	struct csi2_dev *csi2 = notifier_to_dev(notifier);
++	struct dw_mipi_csi2_dev *csi2 = notifier_to_dev(notifier);
+ 
+ 	csi2->remote = NULL;
+ }
+@@ -682,7 +647,7 @@ static const struct v4l2_async_notifier_operations csi2_notify_ops = {
+ 	.unbind = csi2_notify_unbind,
  };
- MODULE_DEVICE_TABLE(of, csi2_dt_ids);
+ 
+-static int csi2_async_register(struct csi2_dev *csi2)
++static int csi2_async_register(struct dw_mipi_csi2_dev *csi2)
+ {
+ 	struct v4l2_fwnode_endpoint vep = {
+ 		.bus_type = V4L2_MBUS_CSI2_DPHY,
+@@ -729,21 +694,17 @@ static int csi2_async_register(struct csi2_dev *csi2)
+ 
+ static void csi2_nf_cleanup(void *data)
+ {
+-	struct csi2_dev *csi2 = data;
++	struct dw_mipi_csi2_dev *csi2 = data;
+ 
+ 	v4l2_async_nf_unregister(&csi2->notifier);
+ 	v4l2_async_nf_cleanup(&csi2->notifier);
+ }
+ 
+-static int csi2_probe(struct platform_device *pdev)
++int dw_mipi_csi2_init(struct platform_device *pdev, struct dw_mipi_csi2_dev *csi2,
++		      const struct dw_mipi_csi2_config *config)
+ {
+-	struct csi2_dev *csi2;
+ 	int i, ret;
+ 
+-	csi2 = devm_kzalloc(&pdev->dev, sizeof(*csi2), GFP_KERNEL);
+-	if (!csi2)
+-		return -ENOMEM;
+-
+ 	csi2->dev = &pdev->dev;
+ 	csi2->regs = &dw_csi2_v0;
+ 	v4l2_subdev_init(&csi2->sd, &csi2_subdev_ops);
+@@ -787,32 +748,11 @@ static int csi2_probe(struct platform_device *pdev)
+ 	return csi2_async_register(csi2);
+ 
+ }
++EXPORT_SYMBOL_GPL(dw_mipi_csi2_init);
+ 
+-static void csi2_remove(struct platform_device *pdev)
++void dw_mipi_csi2_deinit(struct dw_mipi_csi2_dev *csi2)
+ {
+-	struct v4l2_subdev *sd = platform_get_drvdata(pdev);
+-
+-	v4l2_async_unregister_subdev(sd);
+-	media_entity_cleanup(&sd->entity);
++	v4l2_async_unregister_subdev(&csi2->sd);
++	media_entity_cleanup(&csi2->sd.entity);
+ }
+-
+-static const struct of_device_id csi2_dt_ids[] = {
+-	{ .compatible = "fsl,imx6-mipi-csi2"},
+-	{ /* sentinel */ }
+-};
+-MODULE_DEVICE_TABLE(of, csi2_dt_ids);
+-
+-static struct platform_driver csi2_driver = {
+-	.driver = {
+-		.name = DEVICE_NAME,
+-		.of_match_table = csi2_dt_ids,
+-	},
+-	.probe = csi2_probe,
+-	.remove = csi2_remove,
+-};
+-
+-module_platform_driver(csi2_driver);
+-
+-MODULE_DESCRIPTION("i.MX5/6 MIPI CSI-2 Receiver driver");
+-MODULE_AUTHOR("Steve Longerbeam <steve_longerbeam@mentor.com>");
+-MODULE_LICENSE("GPL");
++EXPORT_SYMBOL_GPL(dw_mipi_csi2_deinit);
+diff --git a/include/media/dw-mipi-csi2.h b/include/media/dw-mipi-csi2.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e656f09c81db9dc9f232ed061f70803a5478c85
+--- /dev/null
++++ b/include/media/dw-mipi-csi2.h
+@@ -0,0 +1,62 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++
++#ifndef __DW_MIPI_CSI2_COMMON_
++#define __DW_MIPI_CSI2_COMMON_
++
++#include <media/v4l2-common.h>
++#include <media/v4l2-device.h>
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-mc.h>
++#include <media/v4l2-subdev.h>
++
++struct dw_mipi_csi2_config {
++};
++
++/*
++ * there must be 5 pads: 1 input pad from sensor, and
++ * the 4 virtual channel output pads
++ */
++#define CSI2_SINK_PAD		0
++#define CSI2_NUM_SINK_PADS	1
++#define CSI2_NUM_SRC_PADS	4
++#define CSI2_NUM_PADS		5
++
++struct dw_mipi_csi2_dev {
++	struct device			*dev;
++	struct v4l2_subdev		sd;
++	struct v4l2_async_notifier	notifier;
++	struct media_pad		pad[CSI2_NUM_PADS];
++	void __iomem			*base;
++	const struct dw_csi2_regs	*regs;
++
++	struct clk_bulk_data		*clks;
++	int				num_clks;
++
++	struct v4l2_subdev		*remote;
++	unsigned int			remote_pad;
++	unsigned short			data_lanes;
++
++	/* lock to protect all members below */
++	struct mutex			lock;
++
++	struct v4l2_mbus_framefmt	format_mbus;
++
++	int				stream_count;
++	struct v4l2_subdev		*src_sd;
++	bool				sink_linked[CSI2_NUM_SRC_PADS];
++};
++
++static inline struct dw_mipi_csi2_dev *
++sd_to_dw_mipi_csi2_dev(struct v4l2_subdev *sd)
++{
++	return container_of(sd, struct dw_mipi_csi2_dev, sd);
++}
++
++int dw_mipi_csi2_init(struct platform_device *pdev,
++		      struct dw_mipi_csi2_dev *csi2,
++		      const struct dw_mipi_csi2_config *config);
++
++void dw_mipi_csi2_deinit(struct dw_mipi_csi2_dev *csi2);
++
++#endif
++
 
 -- 
 2.34.1
