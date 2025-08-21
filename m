@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DA8CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206F4CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=; b=ZTD6EefxqNqk9EygfVO1Fltg1X
-	mslyeG9EZG9frA3lMNm7A4mvf89y5OL0vHeL9L9rEaZE3ZnsIB/D9JGFvY7KtMzo3QQB6uZEyzK9c
-	7Zek5fy8107z61BR+hCnwMCOdR8uuRMgq0hzkesPbEOXojNxAeHmZa7O+laU6JHDBrUYL0+LMPwVZ
-	wNDX2nd8A7f0Fi3TKWcFpJOzz6TXavnPduh24Y1FYdbo5CPJjaKMVspcYoHBNcTMJ2KwNRbhyHqHF
-	hak5kxIlYJJzYlUjPEY4xs2TE13WWwrWRiDR2HHHClClzofhVnsl1cKqSace/TkX4pn6WcIZOYDlA
-	1LQ3gGJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PWUJOpVst/YmMMRlLpZwMEFvROh86/hNVtmyCtTvurw=; b=qw5dWnD9BUWEAJ8nSyZaeABPH0
+	OjiKzg7xWCp3ketZ26X6jML73alqBOZxLyX/QxQK5G/YH+js6vphooTQmg5UlpNy4HQY+QqT/nLSC
+	+Gf+fvLpo4J0P9HL0ZmJfY1wM27EuROrE/Zz1YC/H40sCpeYmvI8ijKbUVG4259xKP4z4Lgbz66hJ
+	fcKCP6wXJaQYSzlHX29AEWvZOnd5QbyEMY/Apvq4TgPzP/yMuQ5hcSML4VPnd9oZ9lMaYCi1p7glj
+	X7kRE1a+GSdkGebiVtR6G8wZet1zGdS+HMJXXkjmSNoY13+xJmsss1D22DFyRJU0Zm/IhCc8QxHqZ
+	bsRkyDaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3nJ-0000000Gnyl-1KHF;
-	Thu, 21 Aug 2025 11:49:25 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1up3pu-0000000GoT4-0IQB;
+	Thu, 21 Aug 2025 11:52:06 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up13l-0000000GJpg-06sM
+	id 1up16D-0000000GKEM-2dG1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:54:14 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-244580591b0so5975535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:54:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755766451; x=1756371251; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=;
-        b=Tpd9kFnheYUSsbeRm+9ybc4CAPHImnVa3hqkZpk5jfkKkw7pEHBlYJF5ZGQfSoLy3a
-         kEjqQ6yT7idHPdgZRJq5y9u9SGgCh0bSfpVhEFhm5uJTn75WGja/FFv0XEVJUarjhWfk
-         XBY1dAGo3FdK0HspLnjYyUWvb3Yoocatrx5IgXgDjaQO9MNoi633aYN5zJKqpjazZHLS
-         T1vhA7Z/0q9kIW/3iPzt3phbYGU0kE/+dctP7aWzvwtVI1g2BczciEhogXMJl+HhEpwR
-         JTJAx8W80PliUY9Q6r1r3/s2USkGxcVSAH8kCcuZFMRh+DFE4LLxLxV2NtjT5gJGmqI6
-         ilFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755766451; x=1756371251;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=;
-        b=TXR/6M0j2iWBsuIiwQqQXx32CrYdRkVNPuVppOfqiDEiizrYXtEoYYxCzMqnV+UcHC
-         AVq83e84Mbqgn47AtexrzH5Rf3tZLk9mwOOZ0B3470kFfi4UZA/IRU1Da+naOluJG+c1
-         alQh3bS+znqa2EQZHe5GjHz1KQ97Xn2AD1E4l8G3u8/n5WmBaV8M4izxnYrcm42U3AnI
-         OMkOKaUMrDG6hDKmnUnD+tmRUNapJx/JM4m//TlM8Bw9lTttbeE+WJgCLWXiRUefj0Nj
-         Y3T0GTWZCxstMJ5QECfdyep7nvXodSlXsSxCynwPVqd0L6DTLyukriyO3lS1Md1T4+pq
-         ZkjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxdtyrsljcL2TOsnIHsLiObmaA9A815DFFrLpr4x8APSkYwP8CdY//UDkQLsvGaOuWc+AJi/aXQDSyJlW85nbc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxtcx3BG9yI7lojKjatmeHP0KKlvm/sWAq5u54sQAadeYGgcqx4
-	j64LNgxW7fE7e+jCDSbGr8qKOrTb5VuLp8eCzWDNuIwkcdJKjpuJu7PbaxvW5pFJOqmTjLp2IlU
-	IzME7tJLbOWVOyFvTWr619uIjdbY6COtlRA9RDePN
-X-Gm-Gg: ASbGncsLj/AallOD2LQLHIteLEG2izl4t+/QLiHnA/qRLqtiol/7NLS01MkvoVfgQLL
-	Wf+gZnk7ZuBvONkR73zGWmIdtajFfkNOdD13vfun+NFIgGwpk6i42KD5kTfuUHSmNEF62haAunv
-	ldRtu9O0nCU3r+KijBtu5OekITkmh/aUL2h1qhuWu2/4+VSqSnfVTUo66iilyP5HebYMvRx8t5v
-	ARYcCP6tgK0Y6lDSHc1R/XK
-X-Google-Smtp-Source: AGHT+IEOJ+GiHnoM0xXwePeIaKaKu+bZ/GYxKzuA6yTE5qBa74SEtPQ+etUTrmOlcSdW9xiNKjgOpyr6oyET1zwx1W4=
-X-Received: by 2002:a17:903:46c3:b0:246:570:2d93 with SMTP id
- d9443c01a7336-24605703276mr19916595ad.59.1755766451273; Thu, 21 Aug 2025
- 01:54:11 -0700 (PDT)
+	Thu, 21 Aug 2025 08:56:47 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id D49E1EC007C;
+	Thu, 21 Aug 2025 04:56:43 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Thu, 21 Aug 2025 04:56:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1755766603;
+	 x=1755853003; bh=PWUJOpVst/YmMMRlLpZwMEFvROh86/hNVtmyCtTvurw=; b=
+	ka18AQYlhBDAu0f0gGvasfnP7Gx4ZkscfHtofGo7wXTdZRpCy212fX5SWsewEwo4
+	qSDcO/DoohtC1kUngNakGflIf9cJIF+dr4bm9OON2PZ7zPf0Oswc4kbw8obrEW18
+	ZJ/a+Y8RsFi7ywGioMhP6n3f//aNLc8+sUV6ByI8rCZJsEE0iQLLmzhlqDmmbRGU
+	jIk3VRK/as38x6mGilROBeHX4dRwB8/ivy4QgtHeFk0xe3ThA05hU2uZrOiJtbys
+	ezvMKztRmzk07vAdQn2YDnW9sfvUBiF3m6BecZ84FskqbRf99L5EJO/FgARKhDBM
+	XrOTAJ33R69+RLRBr2IxLg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755766603; x=
+	1755853003; bh=PWUJOpVst/YmMMRlLpZwMEFvROh86/hNVtmyCtTvurw=; b=G
+	rQ80cykBTpscz+0cte7aixSEKdpEleELfCJbR+AOsCZyBws8Zvol3u1fZ8Was10c
+	4qbmNp6MqUp0ZufnVJJW8P6A983ErEgyTVKYyYeqAWF+qoXaMOrxMvso6L+60aap
+	VwH/6f6zyg6qoUzp1P0gj2MK9sWyr9n53E/hpioHusgDpZyUdPqGPjDNa0dRZPxd
+	OyD89ri6upLpZ4GGRMHwkESrZ2Rlw9l5A26CfRPYLZeNKiDHgTHkIaN/IhpLUzl/
+	tS4/nasrMe66ZOhWaQqckaYLembyaFH9yTIYZY0mQ7g/NikG97RFKnZU7Vzar6d/
+	1OemTpBIjip+JV1WkyZAQ==
+X-ME-Sender: <xms:S9-maL8pmu64l9nEtKTGP1Z_c2z0MECdFrFst-KkU7KjxuL0AlDG6A>
+    <xme:S9-maHt8L3-tFafCR_g7iRdWVuNiM1B2lLTMiziKlOxVdhyK07o7yfTkLR9cIKIjv
+    NEvqF09S39XK_mY-gU>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedtkeduucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrhhishhtihgrnhdrmhgrrhhushhsihesrghrmhdrtghomhdprh
+    gtphhtthhopehsuhguvggvphdrhhholhhlrgesrghrmhdrtghomhdprhgtphhtthhopehf
+    vghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehl
+    ihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepihhmgieslhhishhtsh
+    drlhhinhhugidruggvvhdprhgtphhtthhopehpvghnghdrfhgrnhesnhigphdrtghomhdp
+    rhgtphhtthhopehpvghnghdrfhgrnhesohhsshdrnhigphdrtghomhdprhgtphhtthhope
+    hkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggv
+X-ME-Proxy: <xmx:S9-maOCrP5OE2BCPwQrHUwLMCXuy82-ITAilNRTItJOIwLDeSlthvA>
+    <xmx:S9-maOAEkt86365ksOCQbqB8S3f5ZAsbj15tdoOhHEycoWaDomj20w>
+    <xmx:S9-maAolDEsGL_wpYjXy7a8YjvVcy8EKHPz8hLy7ixr4CcuRsD0jAQ>
+    <xmx:S9-maBHPQ3gnUyk7DSxjdL98zBCCfH7l4UV_om2sWqnuwh_dOKrkFg>
+    <xmx:S9-maOXTQFC_sPO9vJCFBxjut-TQnhsM8RCraBoVTttupZ4j0wxVELf5>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 4FF34700068; Thu, 21 Aug 2025 04:56:43 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20250801092720.1845282-1-verhaegen@google.com>
- <20250801092720.1845282-4-verhaegen@google.com> <aJGNgphPCTuE7FFD@vaman>
-In-Reply-To: <aJGNgphPCTuE7FFD@vaman>
-From: George Verhaegen <verhaegen@google.com>
-Date: Thu, 21 Aug 2025 10:53:44 +0200
-X-Gm-Features: Ac12FXzXjgkmnFwjD3_zb-Ps1Osi-BQvLWpKMG84-DK22RezOWC3UFnJT0qOukE
-Message-ID: <CAAntYmKu_tsm1D9koxCZmHpBMQYhrt-HxNBYFeWz6rCqdMZqPg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	kernel-team@android.com, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-arm-msm@vger.kernel.org, sound-open-firmware@alsa-project.org, 
-	linux-arm-kernel@lists.infradead.org, Miller Liang <millerliang@google.com>
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: A6YapAphagno
+Date: Thu, 21 Aug 2025 10:56:23 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Peng Fan" <peng.fan@oss.nxp.com>
+Cc: "Peng Fan" <peng.fan@nxp.com>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>, "Sudeep Holla" <sudeep.holla@arm.com>,
+ "Cristian Marussi" <cristian.marussi@arm.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <b92218a6-e30c-4163-b441-1187d2e429d0@app.fastmail.com>
+In-Reply-To: <20250821095657.GB19763@nxa18884-linux.ap.freescale.net>
+References: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
+ <20250807-imx9-sm-v1-1-3489e41a6fda@nxp.com>
+ <2ff85fec-b571-4423-9161-674f88a32e18@app.fastmail.com>
+ <20250821095657.GB19763@nxa18884-linux.ap.freescale.net>
+Subject: Re: [PATCH 1/3] firmware: imx: Add stub functions for SCMI MISC API
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_015413_065881_29260506 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250821_015646_208562_489A995B 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,88 +121,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 Aug 2025 at 06:50, Vinod Koul <vkoul@kernel.org> wrote:
-> >  static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
-> > -             struct snd_compr_avail *avail)
-> > +                                struct snd_compr_avail64 *avail)
-> >  {
-> > -     struct snd_compr_tstamp64 tstamp64 = { 0 };
-> > -
-> >       memset(avail, 0, sizeof(*avail));
-> > -     snd_compr_update_tstamp(stream, &tstamp64);
-> > -     snd_compr_tstamp32_from_64(&avail->tstamp, &tstamp64);
-> > +     snd_compr_update_tstamp(stream, &avail->tstamp);
-> >       /* Still need to return avail even if tstamp can't be filled in */
-> >
-> >       if (stream->runtime->total_bytes_available == 0 &&
-> > @@ -233,32 +230,47 @@ static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
-> >       }
-> >
-> >       avail->avail = stream->runtime->total_bytes_available -
-> > -                     stream->runtime->total_bytes_transferred;
-> > +                    stream->runtime->total_bytes_transferred;
+On Thu, Aug 21, 2025, at 11:56, Peng Fan wrote:
+> On Wed, Aug 20, 2025 at 03:55:20PM +0200, Arnd Bergmann wrote:
+>>On Thu, Aug 7, 2025, at 03:47, Peng Fan wrote:
+>>
+>>
+>>When a caller of this function is in a built-in driver but the
+>>IMX_SCMI_MISC_DRV code is in a loadable module, you still
+>>get a link failure, see 514b2262ade4 ("firmware: arm_scmi:
+>>Fix i.MX build dependency") for an example.
+>>
+>>As you still need the correct Kconfig dependencies, I
+>>think your patch here is not helpful.
 >
-> Lets not do formatting changes in current patch please
-
-I'm happy to revert the formatting changes. Are you only referring to
-the alignment of the subtraction operation (avail->avail), or
-something else too? Note that the second line of the function
-signature of snd_compr_calc_avail got re-aligned by clang-format due
-to an actual change (type change to struct snd_compr_avail64) so I
-assume the re-alignment here is OK, but please confirm.
-
-> >       if (stream->direction == SND_COMPRESS_PLAYBACK)
-> >               avail->avail = stream->runtime->buffer_size - avail->avail;
-> >
-> > -     pr_debug("ret avail as %llu\n", avail->avail);
-> > +     pr_debug("ret avail as %zu\n", (size_t)avail->avail);
-> >       return avail->avail;
-> >  }
-> >
-> >  static inline size_t snd_compr_get_avail(struct snd_compr_stream *stream)
-> >  {
-> > -     struct snd_compr_avail avail;
-> > +     struct snd_compr_avail64 avail;
-> >
-> >       return snd_compr_calc_avail(stream, &avail);
-> >  }
-> >
-> > -static int
-> > -snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
-> > +static void snd_compr_avail32_from_64(struct snd_compr_avail *avail32,
-> > +                                   const struct snd_compr_avail64 *avail64)
-> >  {
-> > -     struct snd_compr_avail ioctl_avail;
-> > +     avail32->avail = avail64->avail;
-> > +     snd_compr_tstamp32_from_64(&avail32->tstamp, &avail64->tstamp);
-> > +}
-> > +
-> > +static int snd_compr_ioctl_avail(struct snd_compr_stream *stream,
-> > +                              unsigned long arg, bool is_32bit)
-> > +{
-> > +     struct snd_compr_avail64 ioctl_avail64;
-> > +     struct snd_compr_avail ioctl_avail32;
-> >       size_t avail;
-> > +     const void *copy_from = &ioctl_avail64;
-> > +     size_t copy_size = sizeof(ioctl_avail64);
-> >
-> >       if (stream->direction == SND_COMPRESS_ACCEL)
-> >               return -EBADFD;
-> >
-> > -     avail = snd_compr_calc_avail(stream, &ioctl_avail);
-> > -     ioctl_avail.avail = avail;
-> > +     avail = snd_compr_calc_avail(stream, &ioctl_avail64);
-> > +     ioctl_avail64.avail = avail;
-> > +     if (is_32bit) {
-> > +             snd_compr_avail32_from_64(&ioctl_avail32, &ioctl_avail64);
-> > +             copy_from = &ioctl_avail32;
-> > +             copy_size = sizeof(ioctl_avail32);
-> > +     }
+> The consumer driver still needs Kconfig dependcies, such as
+>   depends on IMX_SCMI_MISC_DRV || !IMX_SCMI_MISC_DRV
 >
-> Same comment as previous patch
+> So when IMX_SCMI_MISC_DRV is module built, the consumer driver will
+> also be module built.
+>
+> But if IMX_SCMI_MISC_DRV is n, the consumer driver is y, there will be
+> link error.
+>
+> The consumer driver is to support platform A and platform B.
+>
+> Platform A does not require the real API in IMX_SCMI_MISC_DRV.
+> Platform B requires the real API in IMX_SCMI_MISC_DRV.
+>
+> So when producing an image for platform A, IMX_SCMI_MISC_DRV could set
+> to n to make Image smaller. Introducing the stub API is mainly for this
+> case.
+>
+> Hope this is clear
 
-As agreed in the previous patch, will leave as is.
+I see. In this case the stub helpers are not wrong, but I
+still find them more error-prone than not having them and
+using IS_ENABLED() checks as in commit 101c9023594a
+("ASoC: fsl_mqs: Support accessing registers by scmi interface"):
 
-Thanks,
-George
++static int fsl_mqs_sm_read(void *context, unsigned int reg, unsigned int *val)
++{
++       struct fsl_mqs *mqs_priv = context;
++       int num = 1;
++
++       if (IS_ENABLED(CONFIG_IMX_SCMI_MISC_DRV) &&
++           mqs_priv->soc->ctrl_off == reg)
++               return scmi_imx_misc_ctrl_get(SCMI_IMX_CTRL_MQS1_SETTINGS, &num, val);
++
++       return -EINVAL;
++};
+
+The logic is the same here in the end, but the link failure
+is easier to trigger and repair if someone gets it wrong.
+
+Also, for drivers that actually need the exported interface,
+the dependency becomes the simpler 'depends on IMX_SCMI_MISC_DRV'.
+
+Which driver using this symbol are you actually looking
+at? I see you have three similar patches for a couple of
+interfaces, and want to make sure the added complexity is
+really needed here. I do a lot of randconfig build tests,
+so quite often I end up being the one that runs into
+the subtle link failures from these.
+
+      Arnd
 
