@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7C2CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2F9CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=; b=pofo16Iii5iAiEV8PlNjKlUJBY
-	TtvMzKf+ZwkZ4+O+SBpijaIVr00hLKYUykhO+ev8HdcyO5cU9DW1uJqpnzKIkLafKCcVRiYKSUger
-	KXbFU4f13wM3luW9NseK7WKoGwpWaaAQTFrsgyPZn3zj0i1QqJb2H7qRaFZWkDFAv4S8v/0wGdaw7
-	wcxrdBLmc2SBwgasH9uweezMQnKgRf7gK62MCFSa9oWmflVpgx4Xzb8e8MIo6LThACOCY9leW6tMT
-	UegxDzcqHlUOcHiwCUMP7Yo5kj6MA7x7ULm1mOakAbPYkZ8ydvGctxKn2RC9PcPA8b6Frkewh0J4e
-	dqUllf+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LUCPVUXdG9PVGF9U72KgIMySP01mf0mWul1VzXQ7y68=; b=efFGdqPTu5BAsX
+	5CLe0DK9dSLzmUoIuNmPlY9pdqvm/fsnTUQ/lvS1eKL6r57nZtGYxZmjsEO9xV6trm74QIeIG3zsG
+	PnzL0PHx5iSLput3WZbbLYTeWGKoNNUFw3Vg2Gtq+0izTacYdgDDUHg1mQdtYbRUs2STd8dcYX7PC
+	rFGRw2Z3qHZbL/nGOhyMD1efRc0j0V86EMsQ+RkZ9lUaf+iBAeUGOClVHhqKnah6ztsv6ihHx4+qh
+	eDOPyIPmyHYJPtA8q13rMM7I29Lj/bGxz6raB4yBhXhHlOrodspnW0Fqvie+INHDDSX/IihCe0CAs
+	RK4cHxBLg+5147m5homg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1nD-0000000GSXB-3G7j;
-	Thu, 21 Aug 2025 09:41:11 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1up1na-0000000GSxv-0n9C;
+	Thu, 21 Aug 2025 09:41:34 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0AH-0000000GAM7-0UCY
+	id 1up0FW-0000000GAyz-472K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:56:54 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1755763010;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=;
-	b=H+CnCdjd6lpe6sysQTEYx7JoBc7gUd7yqoTXHWwDnYDNWqHQWhJDZkF/7Z1m8eoooFoLIb
-	4ONKeYMLeD1qZ7Vst5585Wv7xvy4+3zBoIIMORWMOhxQhmR76M44IA3JACSUKlGPXfszeX
-	KpqDgEpkjD4bi6BPbyZ33u6EGkJP1nuIGbB8m/0YxIaJHhxFhrv5sPS1eORfzfF4JMFay0
-	JRkqbSm938V6Kk7i3I45+/rT1MV8lodVQHeII3YwNu4wGIi3DVjlE3c2voDQPl3qgypvv0
-	rth9HRa/EmVHYMjzhZy2YAK18v1fT8usqJ81B5K1R0hwLl35MFEXvWYdQ29gHg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1755763010;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=;
-	b=VHD7/huPGIBLHZ0WUatDCVttPmtxuhxsxAl13SRQ0PwP/Pr2K8Ev+hDU6Oq4X09R2YR23a
-	YhKqHTUda3fecEBA==
-Date: Thu, 21 Aug 2025 09:56:45 +0200
-Subject: [PATCH 2/3] arm64: vdso32: Stop suppressing warnings
+	Thu, 21 Aug 2025 08:02:20 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 21 Aug
+ 2025 16:02:14 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 21 Aug 2025 16:02:14 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
+	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
+	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<soc@lists.linux.dev>, Mo Elbadry <elbadrym@google.com>, Rom Lemarchand
+	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
+	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
+	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
+Subject: [PATCH v4 0/5] Introduce ASPEED AST2700 BMC SoC
+Date: Thu, 21 Aug 2025 16:02:09 +0800
+Message-ID: <20250821080214.513090-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250821-vdso-arm64-compat-bitsperlong-v1-2-700bcabe7732@linutronix.de>
-References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
-In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: John Stultz <jstultz@google.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755763005; l=1932;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=n2qRj27gMV9HtrK57nk2Kj0O4VPuGEHIaNui3njxil0=;
- b=hrJA2V3Iy/r5NOoKeqjug/i0yJoFJEzzZgrEcad1UejfeMjHC3zloJ0dWqbWIKBsroLpH4YcF
- xf7nz6xP71MB5ixHNKa7ccT8sq+zwk4u1Q0/d6MiNmsDy9HbwqHt2H6
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_005653_307579_AB16ECA6 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_010219_020744_E6B5C657 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,49 +75,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These warnings don't seem to trigger anymore. Probably due to the
-introduction of the vdso/ header namespace. Nowadays these suppression
-only hide real problems.
+This introduces initial support for the Aspeed AST2700 SoC and the AST2700
+Evaluation Board (EVB) to the Linux kernel. The AST27XX is the 7th
+generation Baseboard Management Controller (BMC) SoC from Aspeed,
+featuring improved performance, enhanced security, and expanded I/O
+capabilities compared to previous generations.
 
-Re-enable the warnings.
+AST27XX SOC Family
+ - https://www.aspeedtech.com/server_ast2700/
+ - https://www.aspeedtech.com/server_ast2720/
+ - https://www.aspeedtech.com/server_ast2750/
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/arm64/kernel/vdso32/Makefile | 12 ------------
- 1 file changed, 12 deletions(-)
+Bindings Dependencies:
+- intc-ic: Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-intc.yaml
+- scu/silicon-id: Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+- gpio: Documentation/devicetree/bindings/gpio/aspeed,ast2400-gpio.yaml
+- mdio: Documentation/devicetree/bindings/net/aspeed,ast2600-mdio.yaml
 
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index f2dfdc7dc8185bc045907283b68ab18fed980312..fd80123bc8e620d868040a61244e83575d855e35 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -21,8 +21,6 @@ endif
- 
- cc32-option = $(call try-run,\
-         $(CC_COMPAT) $(1) -c -x c /dev/null -o "$$TMP",$(1),$(2))
--cc32-disable-warning = $(call try-run,\
--	$(CC_COMPAT) -W$(strip $(1)) -c -x c /dev/null -o "$$TMP",-Wno-$(strip $(1)))
- 
- # We cannot use the global flags to compile the vDSO files, the main reason
- # being that the 32-bit compiler may be older than the main (64-bit) compiler
-@@ -74,16 +72,6 @@ VDSO_CFLAGS += $(call cc32-option,-Werror=strict-prototypes)
- VDSO_CFLAGS += -Werror=date-time
- VDSO_CFLAGS += $(call cc32-option,-Werror=incompatible-pointer-types)
- 
--# The 32-bit compiler does not provide 128-bit integers, which are used in
--# some headers that are indirectly included from the vDSO code.
--# This hack makes the compiler happy and should trigger a warning/error if
--# variables of such type are referenced.
--VDSO_CFLAGS += -D__uint128_t='void*'
--# Silence some warnings coming from headers that operate on long's
--# (on GCC 4.8 or older, there is unfortunately no way to silence this warning)
--VDSO_CFLAGS += $(call cc32-disable-warning,shift-count-overflow)
--VDSO_CFLAGS += -Wno-int-to-pointer-cast
--
- # Compile as THUMB2 or ARM. Unwinding via frame-pointers in THUMB2 is
- # unreliable.
- ifeq ($(CONFIG_THUMB2_COMPAT_VDSO), y)
+v4:
+- make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ fix.
+- modify commit message remove itemlize.
+- remove modify aspeed,ast2700-intc.yaml patch.
+- aspeed.yaml
+ - Add AST2700 board compatible.
+- aspeed-g7.dtsi
+ - modify all size-cells from 1 to 2.
+ - add serial aliases, gpio, mdio, uart0 ~ 14.
+ - add firmware for optee, reserved memory for atf and optee.
+ - modify cpu@0 to cpu0: cpu@0.
+ - fix intc-ic for yaml dependency.
+- ast2700-evb.dts
+ - update stdout-path = "serial12:115200n8";
+
+v3:
+- https://lore.kernel.org/all/20241212155237.848336-1-kevin_chen@aspeedtech.com/
+- Split clk and reset driver to other commits, which are in series of
+  "Add support for AST2700 clk driver".
+- For BMC console by UART12, add uart12 using ASPEED INTC architecture.
+
+aspeed,ast2700-intc.yaml
+- Add minItems to 1 to fix the warning by "make dtbs_check W=1".
+- Add intc1 into example.
+
+Kconfig.platforms
+  - Remove MACH_ASPEED_G7.
+
+Ryan Chen (5):
+  dt-bindings: arm: aspeed: Add AST2700 board compatible
+  arm64: Kconfig: Add Aspeed SoC family (ast27XX) Kconfig support
+  arm64: dts: aspeed: Add initial AST2700 SoC device tree
+  arm64: dts: aspeed: Add AST2700 Evaluation Board
+  arm64: configs: Update defconfig for AST2700 platform support
+
+ .../bindings/arm/aspeed/aspeed.yaml           |   5 +
+ arch/arm64/Kconfig.platforms                  |   6 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/aspeed/Makefile           |   4 +
+ arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi     | 452 ++++++++++++++++++
+ arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  22 +
+ arch/arm64/configs/defconfig                  |   1 +
+ 7 files changed, 491 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
+ create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+ create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
 
 -- 
-2.50.1
+2.34.1
 
 
