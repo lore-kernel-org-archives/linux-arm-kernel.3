@@ -4,87 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D52ACA0FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D22CA0FE0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oC8+wABge0eCpTBWQPlU18vFXIcnsK90CnWdr7GdcF0=; b=PHeOPiK/omHYPiAjucX8TDx/k4
-	Py+VI9O6uV3SG8/ALcEhKuQ+iv2CM8jiog5lfxeb5NkGaxYcg45FfOs3hv2Iz3ZnEisqrbqLRoPwt
-	2T4MJDQVzdjj0q+PfXSlD7EfWmf9Eet2FJthrmiUyTcvR0TCuq0fZGdO9pmEemhjVM64YGInmTT+w
-	LWajS81G5wuU2Pke8MUWvCwbshqsl/jc+LD5AfwZI8fUZ0EAQ4mkjNF0086VEG0IKpfFG7+Cughvo
-	J0nAgQCH1RsoW60T2fvapXSHmVOfrviYPtmX+ppYzGWwQsQOcQ0VYqvg3EOgOgL43heiecKC4FraU
-	RUKJUbKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=92ZR5vUvFx+O++ptS1y2L7Xgqorn9efLj7L4394BGTE=; b=hABvb17Uq70MKw6Wl8wZxBoFJt
+	8BHzmaxYcxUI+6TgthM8UqAcPTG7u17eZJ5awyq5YE+JJwj4SQ272J5F7Bp3LmvySRip2hhubfpgo
+	USD5efYQ9QRe5oSNUgUAogo12iLIQ2ZrYUqKaBY03IzhYFjJhJJqlqtekFq5D7872oWY1+VIHDXR7
+	+9M3VOQNrRL87ksqpBMaG4+4KUUzszlKxib9PHQOIpopGld5eytT3lO3Cb0nB2nPx69m2aEzntERf
+	sRaVK7e+RDqdL6crnjfHz/EvUTYQRc554NtZ6Xa6fuu/Vmg2j0aG/jU+Qq4CXqZHiA48tmUCGjgrD
+	R8E+ssdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1lt-0000000GQLh-47AY;
-	Thu, 21 Aug 2025 09:39:49 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1up1lj-0000000GQBK-47lr;
+	Thu, 21 Aug 2025 09:39:39 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoziZ-0000000G6SZ-2Uwd
+	id 1uozNj-0000000G3QV-44ZH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:28:21 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250821072810epoutp01ad3179af77492421d29959556ba9a407~dt5dQpx8g2111521115epoutp01S
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 07:28:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250821072810epoutp01ad3179af77492421d29959556ba9a407~dt5dQpx8g2111521115epoutp01S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755761290;
-	bh=oC8+wABge0eCpTBWQPlU18vFXIcnsK90CnWdr7GdcF0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XG/HCwIwVFSVHDSHXnZ7En2I3IUApYRLbYcNegae///p3TNtF9TRHn/yUwWGmqb0w
-	 Au8mtwQ+z/l29x4wXpsJjE1DugVqkTZQhuzjJldk728i6oaprgSm9gIfOnF/Uc/7TH
-	 PLD1HahAoBTjcFLtzfp192HIcAugGCP/qSD90GMQ=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250821072809epcas5p27555c8fe84677186bc0f9ab245a8cb33~dt5cwB8z70550705507epcas5p2N;
-	Thu, 21 Aug 2025 07:28:09 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4c6w086fLJz3hhT4; Thu, 21 Aug
-	2025 07:28:08 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250821072807epcas5p2d8e2e2508cf2318b640a45cc54ee3afa~dt5bIDoZO0277302773epcas5p2m;
-	Thu, 21 Aug 2025 07:28:07 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821072804epsmtip192a00e93d94b944d2f98b0a9eca6c620~dt5YFaiiq0622006220epsmtip1X;
-	Thu, 21 Aug 2025 07:28:04 +0000 (GMT)
-From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
-	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
-	johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
-	pritam.sutar@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
-	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
-	selvarasu.g@samsung.com
-Subject: [PATCH v6 2/6] phy: exynos5-usbdrd: support HS phy for
- ExynosAutov920
-Date: Thu, 21 Aug 2025 13:06:59 +0530
-Message-Id: <20250821073703.2498302-3-pritam.sutar@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250821073703.2498302-1-pritam.sutar@samsung.com>
+	Thu, 21 Aug 2025 07:06:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CtufsoIZVHKbyc48whwDXopwyvpK8vc+vLWfiuj60K6zImGkArElF4AYLCs5kW+hGzyZKcvu+Am8EDkcz/qY/365cj8xJPQFQV2gvKrSH1jTEl+6MjeM/DLnHssTPZqEEFkF9a24NvDyl+u5yTETZ8h+T/Rb5swIS7Qop1VImeYwJ64LYuoMmUTlqtHjtohly8H1FHqS2UIYk88EdrHPgExyJQ2iPcSqUHEZOKJtW9OAbKTsFifY/zFVNqcdoPC2iUkJpjDslReKNO48PnFuO7YJyreGsjJYLtQ0lt9OR9g2wADoJYTTRpOg25GAg6NR3zpkKiTbFHLcBV5ezbP7LA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=92ZR5vUvFx+O++ptS1y2L7Xgqorn9efLj7L4394BGTE=;
+ b=UIPJ6B/ccmWogSv5SNIo4x+E748BKR/w0Q0Wk2H2Eqy/m66QzZDIe/npwfTORP6TGpXeaKoxsSmrgRkwVuUJIhdfmaqeGblJy2PaNvVBX6sFL1wq00rUhrsK0B6c7ZtNAkMyWgGtqYywNNsfB3lG5GbxcnMlRRyAZHMJfLrkuB8jyRBzF2JIX4xRLzvERIYCeQ7fu9ZQ/P6qVx0aqZevZVOG+YBsmzRT9T6sNPJg0AaGGz29P+JVtdYmhKUNw9O+HtxbmIXnEJrTzNOAkivtIQK1rsFRmLSw5NMlPvWRWMvDICvZ7M0RZs7xdprJNlQ1ZGYteOPdTjm9bq6khWvDcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=92ZR5vUvFx+O++ptS1y2L7Xgqorn9efLj7L4394BGTE=;
+ b=ack4v1BW+t3bCSC43Of6KyGCWQd/jdpGmWFwVDhjKZhr1VYSd5ZtdIoG24usV2IO8+b1DoQ5k0eAZbMciYfVTeQvbILvG6mZV5cuJ6ze+E6hrURpGoKyYoyh62OpMf2hU1S3kXlyu+mMBB6cfxhy3ElEefTJlYz9du07tHkBxk6TP5v/WfxcyNxXenASxr28bqRLTgsA3acTG2ZBO3kIOlNiJRJYFJqlBQX57H0i4ebZ3SXEnKuJfkdjvLikfu59Z2cwckSPVmuItjLdkVjOQyFNOKsFC62JHmOekl5n/hspXjNPPRzzxFVV/sdaK4Nth+ovN/Yfh+RK9tzVTSQkLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by AS1PR04MB9502.eurprd04.prod.outlook.com (2603:10a6:20b:4d0::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
+ 2025 07:06:40 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9052.013; Thu, 21 Aug 2025
+ 07:06:39 +0000
+Message-ID: <4a8531f9-801b-4744-8821-923961211199@oss.nxp.com>
+Date: Thu, 21 Aug 2025 15:06:28 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: imx-jpeg: Fix JPEG encoder ready race condition
+To: Marek Vasut <marek.vasut@mailbox.org>, linux-media@vger.kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Mirela Rabulea <mirela.rabulea@nxp.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250820162938.209892-1-marek.vasut@mailbox.org>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <20250820162938.209892-1-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2P153CA0013.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::12) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250821072807epcas5p2d8e2e2508cf2318b640a45cc54ee3afa
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250821072807epcas5p2d8e2e2508cf2318b640a45cc54ee3afa
-References: <20250821073703.2498302-1-pritam.sutar@samsung.com>
-	<CGME20250821072807epcas5p2d8e2e2508cf2318b640a45cc54ee3afa@epcas5p2.samsung.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AS1PR04MB9502:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0e1991f4-b80d-4a3a-5264-08dde081467a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SzJyY0hmMTNMVlUwV1F4TzJzUUhnU1liTUxjcnZKV0ZjbmZTZXJXSFJXdUVB?=
+ =?utf-8?B?Q0NBUXMzeXQ5dlZua0RiVXlldXZBbElkcVhaVUlFV3k3aHhkVVpLNFlRaVAz?=
+ =?utf-8?B?eHlPSHN5YnpCKzltOWRQSzRkNDhmazhuZFgyVzU3VzRIQ2FUTlBVbG44UTI1?=
+ =?utf-8?B?c29PbVg1T052Y0dEdGZiS2ZUYWdlTDZSaER1emRDWGlTbVZvaWIwQ1M2VGJo?=
+ =?utf-8?B?TEN2UEtaUXNOUE9QRUdHVXJka2VLdml6MjdUTGtWdWtFM3RCWFplYXhPVll2?=
+ =?utf-8?B?c2F3a056d0hqWmQ5U29YZlJzNjhHeEY0ampoN1hHQ2ZKU3pmNEFPenRBMkYw?=
+ =?utf-8?B?dWFxN3NNSmMxMjIvNExvUmpSbWlSalBTT2JnY3kxOTBNQUlLSnVrd0pTbG1k?=
+ =?utf-8?B?ZXFDQnNnYlY1WGM2RmJYb3NvTlhKNEl0dnFxaWc3WWVOMDc3cGhpOFZxWE1a?=
+ =?utf-8?B?K0Q1N1pXV3FrYTlLWnpGb1hqUHdWdHJoV0lyZUQ5dHlycndkazFvcU90dmpk?=
+ =?utf-8?B?NmtHNnhWWXlFN3RRb0FEQjdWU3A1aERURytnSHZ3SlRYdXZRUm5QZ2IyY3FM?=
+ =?utf-8?B?SWRpc1ljaUQzUlIxSjlpNWs0Q2UrTDExem9LQ0V1RUNhQ3hFYWJMRWorTUx3?=
+ =?utf-8?B?TWxpbzVzWit1aUJiQm9WN0JhRmU5WFI1eDVWcEVEZlBGZFBqS09IUnJjTytY?=
+ =?utf-8?B?TTdnZ0M0SDNPaVphZUFIM0RPSEtLNy82VFF0R24zTHhNZCtFeVRJbnpzTTlL?=
+ =?utf-8?B?VDZSQWl2SFpWYXIydmcwQjg5M0lhL283ZC85anNPVWh0L1RIZVhNVU5FSGd1?=
+ =?utf-8?B?Q2hGWkJWZHVscUlkSFlGNlA0RDBCcmJKL0RuMHQ3cldhZlN2NVFQTU4yVUlk?=
+ =?utf-8?B?U2MwM21OTGxER3VGUVNmVWpjSkp5L1pSN3NRR1dTOEpva1NkcE1ZNFc2dEpE?=
+ =?utf-8?B?SXRhY1RlaUV1SW8xS3dwNFRVeVZCRkJwK29VaEtaTU1HV3RxNUxaRjRBK1l3?=
+ =?utf-8?B?Njc1aGZYbjlOaUdVRXQyY0UzaDlteENoMW9XU0xlakp6VHM3dmkzMzJSZVhU?=
+ =?utf-8?B?eGp2ZlN0enJXd2RNTVFJdjdGOUhEZG1YdlZGYTRyUVd4bDF4OXo1WElPVmFo?=
+ =?utf-8?B?Wms1N1dNR21rWUt0M0pENlUvK3k4eWRFVlo3Zmd3SjFxMUNwdE9uV2lJNEZx?=
+ =?utf-8?B?UHF5bXZ3NkNNbDNlNFkrUGNxems3MGZpc3BMOXlxV0pFU0NESlloV0FYNlE3?=
+ =?utf-8?B?TlZZK2FuQVQ2YjJvTWtuL3cvVjU4NHB3Z1g5N2R4eStISmdWekpzblI3UTg1?=
+ =?utf-8?B?MjNValhEbDFaeGw0aldaRTkvVmtsVkMwZ0NJV0l4cVJyRyt0STFPa0YvaHc4?=
+ =?utf-8?B?aDRzUnJhRlNMbTJhREhNUUkwV21zTUVPR0g3ckVvakdraGdXaFRtQ0NHdWJH?=
+ =?utf-8?B?YUVZelV1dXkxMSsvYkwwbTR0RFJMdEw3ZjJmSW9IcXMxYVdHV2RPSFhNL1Mr?=
+ =?utf-8?B?TldGWGFIQXNTSTNhQ1pzVHFXa0E4M3VBOXg3d2xxdGpyUFFoNjJzV3htMlQz?=
+ =?utf-8?B?VWVsazVETGpPVkYyQU1xSXBuSWxaZFVlYVdmbnpaV0wzQ0tsTUN4NDlCODNv?=
+ =?utf-8?B?KzFpdDRSeERZYmhyQ3JYeWFjOWlBcERYTXl0ZForUDlhN0c2T2hpUXZwbytV?=
+ =?utf-8?B?SUg1Y2NvMlRob0J4YjZPeVJVM29MWGUxeHJ2d09JUVlZZGpGR0ExczNVSmxt?=
+ =?utf-8?B?Q2Z1RjlHcmlSS2lUbnB2QU9Ja1c5YnJPcUp4Zmg5eDFwSG54Z2ZqMitDM2dz?=
+ =?utf-8?B?YTRQa3ZMNWY3TjNFS3g3Vkp3eFlqWlhaU0NiZUM3eHlPdXRaWWNpZHZxVGRx?=
+ =?utf-8?B?TkdCa2pZMXVJcERPWWdrWE1wV0REQk9oSElLVGdqN3EyT0t3cmxtMkJsQmhO?=
+ =?utf-8?Q?4FKC6KEHtWQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0R6dytJNWlrUUZKYW5FNlBwSk5iazJEdzA2YjRQTHRHMi9aM1ZGYW5zU3Nm?=
+ =?utf-8?B?eWJBMVY2RWxkQnVZRTVLNHRPMS9zbUNNUTlGR1JSK3RHSEZMWFN3M1JLbmRU?=
+ =?utf-8?B?VFd4bnJUTWpBMDlXdEpBQXNJK3M0MDlUczVvdmpYNWp1NzBRUlJEQUwwUmNP?=
+ =?utf-8?B?SDdBUzBoRlN0RGVEdEh1TXpsOHBuUkF2MjhSZU4vYVQxOUZuRnV2M2FvMlM4?=
+ =?utf-8?B?MnV3b3JWcEJlckpRbk05WHl4WWp6TGt0SEFmVnpTQjEyT3RFRktmZUZHOWkr?=
+ =?utf-8?B?TjEzWWNlWThvcTdCeThEVngyNGhZM3hKbDFBWlNaWiszRThwWXUzR2FmbThi?=
+ =?utf-8?B?R3htbGNXRVBubjkwdGpUWlVLbmVFQUJ2OG1LWEFwcVkvTzVNWDhzNjM5b0J4?=
+ =?utf-8?B?enVyVjQ4STJjRlZuSnpjVVdyc0t2TUVoWEozQVlkYU9Cd1cxUE9SekhDWGc0?=
+ =?utf-8?B?R3FrTUxLd2Z4a2c0ZE1MMlZFYnkvTWZWc2dxQTgzZDJjclNKNzNlMzRsSUdV?=
+ =?utf-8?B?VXdKVW1MWjJzV2NrRUUzd1NMV1pkNFJJYmxyVEVOTmhybDFpZE1hamlBY2wz?=
+ =?utf-8?B?UFgxazlMMVB2R3MwUUFtWEV5QU5oVnF0aHUwcTNLMTZFK2lXMDl1T0lVS2pp?=
+ =?utf-8?B?dHZVR25OTFd4QzdJVUlNNUhwclI0TS9TLy8xOGlUZmlYd1l3SjRNV2ZVQis1?=
+ =?utf-8?B?cytzYTNkcjlMRy9XSXJkWjhxL2JXbEdmS2E3SWtlRkNVSUtYQkdoUXYyQVVO?=
+ =?utf-8?B?K2RsR2NkYmNxTWJHNnNsRDNlNGYzdURwZDNLaTdpWjl2ZEQ4bE5iSTY1N0xN?=
+ =?utf-8?B?bk5Lak5iT1pmM2pNT01DTHROTUphd3ZyNjZBTG9ERU9YUXArU1FoVEpwdlNa?=
+ =?utf-8?B?Uk5EL2hHclNTLzdsVzBTckZxRXpTc1dxVDd4Y1lIYjE5MklYaW1kR3dPRkJN?=
+ =?utf-8?B?Uk1qZ09oMU1ZSml2czZJM2pMRENKdFhUK3M5TytoTVhGaCtadG9tVmx5QnV1?=
+ =?utf-8?B?RHE1OFNLemxpKzZocit3M3pjMGF2L3kxYktWQUNtN3RCbFVPWFArbXlZTjZ4?=
+ =?utf-8?B?a0E4RWRvbVpMRmpLVVFORkpOQm1qNGorY0NyazNtYWpNdW5mVG40SU1TZ1F0?=
+ =?utf-8?B?c0RnWGFZeEo2L2xHNXVRY0FBU2Q0VU1XSGdSOGdPem9ON1BxSS9YT3B3Mnd3?=
+ =?utf-8?B?UTJBOFAzaUhxU21RK285cmhVWVdpZXoraUNUZVZGK2JqdDlnYjcrZHNuaGhI?=
+ =?utf-8?B?cUJvQ0tCbkppT2l4c1dkTzBKVWQzL3FCQmtnQnl3RmNXMlhZengxSndsWUhF?=
+ =?utf-8?B?dEcrUUh0dVZiZ0RocmFIWUpueG84YmpMNlhYRTV0N0pSV0hYR1p2b0srQTBQ?=
+ =?utf-8?B?ZUFwWmJiVDVPaG1KelJGaTRZM3pVdWxyWGNFVSthbXJBRDdiL2oxSk9BazNL?=
+ =?utf-8?B?bk1kMExSUkUyL0RFeXUyQmwrU21nR0Rwc3g2Ry9LdkJtZDloUjhhUERaQ1hz?=
+ =?utf-8?B?U090WVUvSUg0M0VEKzN5VSt3SXhYYTg3aSszbXExamlLNm1NQ2JPOFRCejRT?=
+ =?utf-8?B?dHBTSHB1YS9hWEEreVhiVGxHYjI1RnJkekFvaGRZblRnMVkrM2tHK3BUYmtv?=
+ =?utf-8?B?YVVLVkNLSElTMlBHclV6WE45d09ZUE90QlNlckc2QXN5UUxJdTI5eE8wYzZR?=
+ =?utf-8?B?V20veFpsR28vMlNlTW40VWd0bHUvYWN6eXA4UGZQdUhKU0psMHBCTFJNNTl1?=
+ =?utf-8?B?ZW5hZXlxMy9JR0E0YU5OMFF2QmpNREtHNEkvVGkzWldFYzFrdkVVVmk5UXNI?=
+ =?utf-8?B?Mzl4R2lqSGpKM2VmNjRIdlVWMVllVW40cDNnTTd0Q1dzTzZFMEJ2Vkg3bHZo?=
+ =?utf-8?B?dmVHTytYalp3M0tSZ2tEbW4rdnNqb3Fmc2tPaVZJb291ak1ac2Rrc3BUYTJ2?=
+ =?utf-8?B?UTlVNHo0L1BKVUxDM1BOUVJPT09hUlZvUDExZ2ZFN2ZjdTFuOVErcGY3Y3Ro?=
+ =?utf-8?B?YWszeFNyOUNxSUxrLzR3dHhNallqNHhzakl4TVNXUE53YnVHZUJjdnRlaDhz?=
+ =?utf-8?B?LzNveCtsRTd0RWdpaVQ5aDMrajEybnJ4aEV3RDQ4TzNCZ0x0bWc0WWphdy9G?=
+ =?utf-8?Q?gVmExXV9HC1UDJrDepdqAnWRG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0e1991f4-b80d-4a3a-5264-08dde081467a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 07:06:39.8128
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wKLNC6LqdVkhsUs3KGX5cYgeje3N5jznLi3hm7KS/YM5lrwlByXWoHUW7ZqFQzZGL1ftrLkog1Uiw/LzkuyQDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9502
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_002816_964361_3C7FD0CA 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250821_000644_169262_5470B264 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,170 +183,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable UTMI+ phy support for this SoC which is very similar to what
-the existing Exynos850 supports.
+Hi Marek,
 
-Add required change in phy driver to support HS phy for this SoC.
+On 8/21/2025 12:29 AM, Marek Vasut wrote:
+> [You don't often get email from marek.vasut@mailbox.org. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> The current mxc_jpeg_job_ready() implementation works for JPEG decode
+> side of this IP, it does not work at all for the JPEG encode side. The
+> JPEG encode side does not change ctx->source_change at all, therefore
+> the mxc_jpeg_source_change() always returns right away and the encode
+> side somehow works.
+> 
+> However, this is susceptible to a race condition between mxc_jpeg_dec_irq()
+> and mxc_jpeg_start_streaming(), where mxc_jpeg_start_streaming() might
+> start decoding another frame before mxc_jpeg_dec_irq() indicates completion
+> of encoding of current frame. Add new state, MXC_JPEG_ENC_DONE, which is
+> set in three locations, first when streaming starts to indicate the encoder
+> is ready to start processing a frame, second in mxc_jpeg_dec_irq() when the
+> encoder finishes encoding current frame, and third in mxc_jpeg_dec_irq() in
+> case of an error so the encoder can proceed with encoding another frame.
+> 
+> Update mxc_jpeg_job_ready() to check whether the encoder is in this new
+> MXC_JPEG_ENC_DONE state before reporting the encoder is ready to encode
+> new frame.
+> 
 
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c    | 123 ++++++++++++++++++++
- include/linux/soc/samsung/exynos-regs-pmu.h |   2 +
- 2 files changed, 125 insertions(+)
+The jpeg encoder and jpeg decoder are 2 different devices, so they won't
+compete with each other.
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index a88ba95bdc8f..b238d14e2f4a 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -2054,6 +2054,126 @@ static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
- 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
- };
- 
-+static int exynosautov920_usbdrd_phy_init(struct phy *phy)
-+{
-+	struct phy_usb_instance *inst = phy_get_drvdata(phy);
-+	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
-+	int ret;
-+
-+	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clks);
-+	if (ret)
-+		return ret;
-+
-+	/* Bypass PHY isol */
-+	inst->phy_cfg->phy_isol(inst, false);
-+
-+	/* UTMI or PIPE3 specific init */
-+	inst->phy_cfg->phy_init(phy_drd);
-+
-+	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
-+
-+	return 0;
-+}
-+
-+static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
-+{
-+	struct phy_usb_instance *inst = phy_get_drvdata(phy);
-+	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
-+	int ret;
-+
-+	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_clks, phy_drd->clks);
-+	if (ret)
-+		return ret;
-+
-+	exynos850_usbdrd_phy_exit(phy);
-+
-+	/* enable PHY isol */
-+	inst->phy_cfg->phy_isol(inst, true);
-+
-+	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
-+
-+	return 0;
-+}
-+
-+static int exynosautov920_usbdrd_phy_power_on(struct phy *phy)
-+{
-+	struct phy_usb_instance *inst = phy_get_drvdata(phy);
-+	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
-+	int ret;
-+
-+	dev_dbg(phy_drd->dev, "Request to power_on usbdrd_phy phy\n");
-+
-+	ret = clk_bulk_prepare_enable(phy_drd->drv_data->n_core_clks,
-+				      phy_drd->core_clks);
-+	if (ret)
-+		return ret;
-+
-+	/* Enable supply */
-+	ret = regulator_bulk_enable(phy_drd->drv_data->n_regulators,
-+				    phy_drd->regulators);
-+	if (ret) {
-+		dev_err(phy_drd->dev, "Failed to enable PHY regulator(s)\n");
-+		goto fail_supply;
-+	}
-+
-+	return 0;
-+
-+fail_supply:
-+	clk_bulk_disable_unprepare(phy_drd->drv_data->n_core_clks,
-+				   phy_drd->core_clks);
-+
-+	return ret;
-+}
-+
-+static int exynosautov920_usbdrd_phy_power_off(struct phy *phy)
-+{
-+	struct phy_usb_instance *inst = phy_get_drvdata(phy);
-+	struct exynos5_usbdrd_phy *phy_drd = to_usbdrd_phy(inst);
-+
-+	dev_dbg(phy_drd->dev, "Request to power_off usbdrd_phy phy\n");
-+
-+	/* Disable supply */
-+	regulator_bulk_disable(phy_drd->drv_data->n_regulators,
-+			       phy_drd->regulators);
-+
-+	clk_bulk_disable_unprepare(phy_drd->drv_data->n_core_clks,
-+				   phy_drd->core_clks);
-+
-+	return 0;
-+}
-+
-+static const char * const exynosautov920_usb20_regulators[] = {
-+	"dvdd075-usb20", "vdd18-usb20", "vdd33-usb20",
-+};
-+
-+static const struct phy_ops exynosautov920_usbdrd_phy_ops = {
-+	.init		= exynosautov920_usbdrd_phy_init,
-+	.exit		= exynosautov920_usbdrd_phy_exit,
-+	.power_on       = exynosautov920_usbdrd_phy_power_on,
-+	.power_off      = exynosautov920_usbdrd_phy_power_off,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
-+	{
-+		.id		= EXYNOS5_DRDPHY_UTMI,
-+		.phy_isol	= exynos5_usbdrd_phy_isol,
-+		.phy_init	= exynos850_usbdrd_utmi_init,
-+	},
-+};
-+
-+static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
-+	.phy_cfg		= phy_cfg_exynosautov920,
-+	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
-+	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB20,
-+	.clk_names		= exynos5_clk_names,
-+	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
-+	.core_clk_names		= exynos5_core_clk_names,
-+	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
-+	.regulator_names	= exynosautov920_usb20_regulators,
-+	.n_regulators		= ARRAY_SIZE(exynosautov920_usb20_regulators),
-+};
-+
- static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] = {
- 	{
- 		.id		= EXYNOS5_DRDPHY_UTMI,
-@@ -2260,6 +2380,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos990-usbdrd-phy",
- 		.data = &exynos990_usbdrd_phy
-+	}, {
-+		.compatible = "samsung,exynosautov920-usbdrd-phy",
-+		.data = &exynosautov920_usbdrd_phy
- 	},
- 	{ },
- };
-diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-index 71e0c09a49eb..4923f9be3d1f 100644
---- a/include/linux/soc/samsung/exynos-regs-pmu.h
-+++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-@@ -688,4 +688,6 @@
- #define GS101_GRP2_INTR_BID_UPEND				(0x0208)
- #define GS101_GRP2_INTR_BID_CLEAR				(0x020c)
- 
-+/* exynosautov920 */
-+#define EXYNOSAUTOV920_PHY_CTRL_USB20				(0x0710)
- #endif /* __LINUX_SOC_EXYNOS_REGS_PMU_H */
--- 
-2.34.1
+For encoder, we always want mxc_jpeg_job_ready() to return true.
 
+And v4l2_m2m has ensured that there will be no race condition between
+mxc_jpeg_dec_irq() and mxc_jpeg_start_streaming().
+
+After v4l2_m2m_job_finish() is called in the mxc_jpeg_dec_irq(),
+then it is possible to start encoding the next frame.
+
+So I don't think it's necessary to add a new state MXC_JPEG_ENC_DONE,
+as It is almost equivalent to the completion status of the v4l2 m2m job.
+
+Regards,
+Ming
+
+> Fixes: b4e1fb8643da ("media: imx-jpeg: Support dynamic resolution change")
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+> Cc: Ming Qian <ming.qian@oss.nxp.com>
+> Cc: Mirela Rabulea <mirela.rabulea@nxp.com>
+> Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-media@vger.kernel.org
+> ---
+>   drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 18 ++++++++++++++++--
+>   drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h |  1 +
+>   2 files changed, 17 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> index df3ccdf767baf..aef1d6473eb8d 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+> @@ -1009,6 +1009,7 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+> 
+>                  dev_err(dev, "Encoder/decoder error, dec_ret = 0x%08x, status=0x%08x",
+>                          dec_ret, ret);
+> +               ctx->enc_state = MXC_JPEG_ENC_DONE;
+>                  mxc_jpeg_clr_desc(reg, slot);
+>                  mxc_jpeg_sw_reset(reg);
+>                  buf_state = VB2_BUF_STATE_ERROR;
+> @@ -1062,9 +1063,16 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
+> 
+>   buffers_done:
+>          mxc_jpeg_job_finish(ctx, buf_state, false);
+> -       spin_unlock(&jpeg->hw_lock);
+>          cancel_delayed_work(&ctx->task_timer);
+> +
+> +       if (jpeg->mode == MXC_JPEG_ENCODE && ctx->enc_state == MXC_JPEG_ENCODING)
+> +               ctx->enc_state = MXC_JPEG_ENC_DONE;
+> +
+>          v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+> +
+> +       spin_unlock(&jpeg->hw_lock);
+> +
+> +
+>          return IRQ_HANDLED;
+>   job_unlock:
+>          spin_unlock(&jpeg->hw_lock);
+> @@ -1488,8 +1496,12 @@ static bool mxc_jpeg_source_change(struct mxc_jpeg_ctx *ctx,
+>   static int mxc_jpeg_job_ready(void *priv)
+>   {
+>          struct mxc_jpeg_ctx *ctx = priv;
+> +       struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
+> 
+> -       return ctx->source_change ? 0 : 1;
+> +       if (jpeg->mode == MXC_JPEG_ENCODE)
+> +               return ctx->enc_state == MXC_JPEG_ENC_DONE;
+> +       else
+> +               return ctx->source_change ? 0 : 1;
+>   }
+> 
+>   static void mxc_jpeg_device_run_timeout(struct work_struct *work)
+> @@ -1713,6 +1725,8 @@ static int mxc_jpeg_start_streaming(struct vb2_queue *q, unsigned int count)
+> 
+>          if (ctx->mxc_jpeg->mode == MXC_JPEG_DECODE && V4L2_TYPE_IS_CAPTURE(q->type))
+>                  ctx->source_change = 0;
+> +       if (ctx->mxc_jpeg->mode == MXC_JPEG_ENCODE)
+> +               ctx->enc_state = MXC_JPEG_ENC_DONE;
+>          dev_dbg(ctx->mxc_jpeg->dev, "Start streaming ctx=%p", ctx);
+>          q_data->sequence = 0;
+> 
+> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> index 44e46face6d1d..7f0910fc9b47e 100644
+> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.h
+> @@ -35,6 +35,7 @@
+>   enum mxc_jpeg_enc_state {
+>          MXC_JPEG_ENCODING       = 0, /* jpeg encode phase */
+>          MXC_JPEG_ENC_CONF       = 1, /* jpeg encoder config phase */
+> +       MXC_JPEG_ENC_DONE       = 2, /* jpeg encoder done/ready phase */
+>   };
+> 
+>   enum mxc_jpeg_mode {
+> --
+> 2.50.1
+> 
 
