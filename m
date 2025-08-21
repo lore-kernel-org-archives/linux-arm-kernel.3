@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0454CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFE1CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EaJAXK2wOTdF1z31qS2L/1Jcukpna02k48jPpUzUhP4=; b=uSrBDUz7Wbj1qxyzl2tlgU6Z+t
-	63Wfytp1wihtNLl7njgn4w1f+EFrqOETPM2BWIJa2S0U+OL4/bQZXstEoHNDT29VWbUwveN0X84Y2
-	XkzQWIIqS62k6XQA6ym0Y3ihNz56EBi20+dRIUSglJIsSqWDKpuGC80prXLcVwTnE0EKtyE4Jf7bP
-	iLEZSDMdFJc0wZIg+j5u0Akgg0UZeW3g1uwqqZ19StzMlIxrZJ21SiCcnqYwzPXV5Lnpuoqwbqe4p
-	D4BAQwBYP8a/8KQrHcbNsuZZjCc4NKvHvqyPT/DhxgxaveDx30u20q2el0Kt9CoEFgmELkDW2LfVs
-	vkbJPXhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:In-Reply-To:Message-ID:
+	Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F34rBVTGFAPHq2X3ggcCEoe0+YH4ZXUFphYgrwUVCIQ=; b=bnBfzDZwyRLchB+GltZOPYtOXs
+	qD8tw9Y6YtX+rIWi0y+S0CLDI+isfFM20sydml5Oq6EwHoGCC0mWojIGi6+SaqX6u6dG5hRu6vQLr
+	l6gTdmyYxBQiV+D9zyAwV8kyr5Wv7LzQOcCTMRXH48crrDz82L4aiEvvoUxBdTt4NhOOre5lXuRqx
+	3zrHOkYutjcy4hASisAh44Y3klld28bIBcUC5bfGS0TfiYGOP4a7MAYjS1r9DwKmBaLrBfgnN/k3t
+	VIrBH4zN0w5TWoVjvOZfEjcbvi9SVf6dg218m32GJWpgyDvgwzNPWjUARUPJgPXMP/BeLPSt4vawy
+	nTUOomtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8KV-0000000HZ3P-1Zr9;
-	Thu, 21 Aug 2025 16:39:59 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1up8N5-0000000HZIK-0aHN;
+	Thu, 21 Aug 2025 16:42:39 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4b9-0000000Gvdb-2apE
+	id 1up4bE-0000000Gvei-3Mj9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 12:40:57 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250821124053epoutp048d800509cfe6859141e84cf8d5d94cec~dyKgSeeMA1828218282epoutp04c
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 12:40:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250821124053epoutp048d800509cfe6859141e84cf8d5d94cec~dyKgSeeMA1828218282epoutp04c
+	Thu, 21 Aug 2025 12:41:02 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250821124057epoutp0117ad8f008238c2c1490c2dbe8b124b5c~dyKj6Ug9h2177121771epoutp01H
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 12:40:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250821124057epoutp0117ad8f008238c2c1490c2dbe8b124b5c~dyKj6Ug9h2177121771epoutp01H
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755780053;
-	bh=EaJAXK2wOTdF1z31qS2L/1Jcukpna02k48jPpUzUhP4=;
+	s=mail20170921; t=1755780057;
+	bh=F34rBVTGFAPHq2X3ggcCEoe0+YH4ZXUFphYgrwUVCIQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Fe/TUYttMcVyXw0g4h18Hj6vUPme+ljsY9hYu7SS3js+ABVPpW2aEMGiHOGoN/UKB
-	 1eXP6fQiRpO5sXZQ753PmChgU3w9I7rcw/zkG0Ew3PpdtzlHV74b3fFHiE0bs9YLR3
-	 DG2Kn/n7BRM7tCI9ba+LRyiqn5bybwBIiLrOJmOo=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250821124052epcas5p109ce75936e0e30ea2f11c90dcaa1e3e3~dyKethypv2595525955epcas5p1t;
-	Thu, 21 Aug 2025 12:40:52 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4c72wz1xGLz2SSKY; Thu, 21 Aug
-	2025 12:40:51 +0000 (GMT)
+	b=gnzpwcMAGBeV7fIlF2Lpr/XVjQvrgZtuYqZQMOvgS5us+Y/ca5f49fht/4IA2Mt6N
+	 nFf51r62ob2smNFR0mQL6WLHPjrNF3V7qFr4wM6DHZyKUHJ/bBZZYIzf4LkoWxoHmg
+	 Z30alS5KV1p3IFBEHnyUT++sdTqgBaGDTR0u/S4U=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250821124057epcas5p4017233f5f63832f1bcea8b638ee0df2a~dyKjNWul11533315333epcas5p42;
+	Thu, 21 Aug 2025 12:40:57 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.86]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4c72x40xwqz3hhT4; Thu, 21 Aug
+	2025 12:40:56 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250821124050epcas5p22b08f66c69633f10986b7c19b3cd8cb4~dyKc7nYw81778317783epcas5p2J;
-	Thu, 21 Aug 2025 12:40:50 +0000 (GMT)
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250821124055epcas5p4d1072e9b4ef29587e0fd8606bc1abc4f~dyKhuJ3oR1461614616epcas5p45;
+	Thu, 21 Aug 2025 12:40:55 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250821124045epsmtip2ce3689d8c8c55cae7f27daa7e2ca514e~dyKYVddln2624826248epsmtip2P;
-	Thu, 21 Aug 2025 12:40:45 +0000 (GMT)
+	20250821124050epsmtip2cab6ceb28f085caa2826b833110fcdfa~dyKdK__AO2602126021epsmtip2n;
+	Thu, 21 Aug 2025 12:40:50 +0000 (GMT)
 From: Ravi Patel <ravi.patel@samsung.com>
 To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
@@ -68,26 +68,27 @@ Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
 	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Subject: [PATCH v2 07/10] dt-bindings: arm: axis: Add ARTPEC-8 grizzly board
-Date: Thu, 21 Aug 2025 18:02:51 +0530
-Message-ID: <20250821123310.94089-8-ravi.patel@samsung.com>
+Subject: [PATCH v2 08/10] arm64: dts: exynos: axis: Add initial ARTPEC-8 SoC
+ support
+Date: Thu, 21 Aug 2025 18:02:52 +0530
+Message-ID: <20250821123310.94089-9-ravi.patel@samsung.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250821123310.94089-1-ravi.patel@samsung.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="Yes"
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250821124050epcas5p22b08f66c69633f10986b7c19b3cd8cb4
+X-CMS-MailID: 20250821124055epcas5p4d1072e9b4ef29587e0fd8606bc1abc4f
 X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250821124050epcas5p22b08f66c69633f10986b7c19b3cd8cb4
+X-CMS-RootMailID: 20250821124055epcas5p4d1072e9b4ef29587e0fd8606bc1abc4f
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
 	<20250821123310.94089-1-ravi.patel@samsung.com>
-	<CGME20250821124050epcas5p22b08f66c69633f10986b7c19b3cd8cb4@epcas5p2.samsung.com>
+	<CGME20250821124055epcas5p4d1072e9b4ef29587e0fd8606bc1abc4f@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_054055_971248_F1F50CD3 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250821_054101_172325_C5F24DF3 
+X-CRM114-Status: GOOD (  22.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +105,495 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: SungMin Park <smn1196@coasia.com>
 
-Document the Axis ARTPEC-8 SoC binding and the grizzly board
-which uses ARTPEC-8 SoC.
+Add initial device tree support for Axis ARTPEC-8 SoC.
+
+This SoC contains 4 Cortex-A53 CPUs and several other peripheral IPs.
 
 Signed-off-by: SungMin Park <smn1196@coasia.com>
 Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
 Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 ---
- Documentation/devicetree/bindings/arm/axis.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ MAINTAINERS                                   |  12 +
+ arch/arm64/Kconfig.platforms                  |   7 +
+ arch/arm64/boot/dts/exynos/Makefile           |   1 +
+ .../boot/dts/exynos/axis/artpec-pinctrl.h     |  36 +++
+ .../boot/dts/exynos/axis/artpec8-pinctrl.dtsi | 120 +++++++++
+ arch/arm64/boot/dts/exynos/axis/artpec8.dtsi  | 244 ++++++++++++++++++
+ 6 files changed, 420 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
 
-diff --git a/Documentation/devicetree/bindings/arm/axis.yaml b/Documentation/devicetree/bindings/arm/axis.yaml
-index 610806d87416..941eaed2b3cb 100644
---- a/Documentation/devicetree/bindings/arm/axis.yaml
-+++ b/Documentation/devicetree/bindings/arm/axis.yaml
-@@ -8,6 +8,7 @@ title: Axis ARTPEC platforms
-
- maintainers:
-   - Jesper Nilsson <jesper.nilsson@axis.com>
-+  - Lars Persson <lars.persson@axis.com>
-   - linux-arm-kernel@axis.com
-
- description: |
-@@ -24,6 +25,12 @@ properties:
-               - axis,artpec6-dev-board
-           - const: axis,artpec6
-
-+      - description: Axis ARTPEC-8 SoC board
-+        items:
-+          - enum:
-+              - axis,artpec8-grizzly
-+          - const: axis,artpec8
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 69511c3b2b76..956140fbf639 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3929,6 +3929,18 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/sound/axentia,*
+ F:	sound/soc/atmel/tse850-pcm5142.c
+ 
++AXIS ARTPEC ARM64 SoC SUPPORT
++M:	Jesper Nilsson <jesper.nilsson@axis.com>
++M:	Lars Persson <lars.persson@axis.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++L:	linux-samsung-soc@vger.kernel.org
++L:	linux-arm-kernel@axis.com
++S:	Maintained
++F:	Documentation/devicetree/bindings/clock/axis,artpec*-clock.yaml
++F:	arch/arm64/boot/dts/exynos/axis/
++F:	drivers/clk/samsung/clk-artpec*.c
++F:	include/dt-bindings/clock/axis,artpec*-clk.h
 +
- additionalProperties: true
-
- ...
---
+ AXI-FAN-CONTROL HARDWARE MONITOR DRIVER
+ M:	Nuno Sá <nuno.sa@analog.com>
+ L:	linux-hwmon@vger.kernel.org
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 8b76821f190f..48af8b154f7a 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -40,6 +40,13 @@ config ARCH_APPLE
+ 	  This enables support for Apple's in-house ARM SoC family, such
+ 	  as the Apple M1.
+ 
++config ARCH_ARTPEC
++	bool "Axis Communications ARTPEC SoC Family"
++	depends on ARCH_EXYNOS
++	select ARM_GIC
++	help
++	   This enables support for the ARMv8 based ARTPEC SoC Family.
++
+ menuconfig ARCH_BCM
+ 	bool "Broadcom SoC Support"
+ 
+diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
+index f6f4bc650a94..c1a64cd29078 100644
+--- a/arch/arm64/boot/dts/exynos/Makefile
++++ b/arch/arm64/boot/dts/exynos/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++subdir-y += axis
+ subdir-y += google
+ 
+ dtb-$(CONFIG_ARCH_EXYNOS) += \
+diff --git a/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+new file mode 100644
+index 000000000000..70bd1dcac85e
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/axis/artpec-pinctrl.h
+@@ -0,0 +1,36 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Axis ARTPEC-8 SoC device tree pinctrl constants
++ *
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *             https://www.samsung.com
++ * Copyright (c) 2025  Axis Communications AB.
++ *             https://www.axis.com
++ */
++
++#ifndef __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
++#define __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__
++
++#define ARTPEC_PIN_PULL_NONE		0
++#define ARTPEC_PIN_PULL_DOWN		1
++#define ARTPEC_PIN_PULL_UP		3
++
++#define ARTPEC_PIN_FUNC_INPUT		0
++#define ARTPEC_PIN_FUNC_OUTPUT		1
++#define ARTPEC_PIN_FUNC_2		2
++#define ARTPEC_PIN_FUNC_3		3
++#define ARTPEC_PIN_FUNC_4		4
++#define ARTPEC_PIN_FUNC_5		5
++#define ARTPEC_PIN_FUNC_6		6
++#define ARTPEC_PIN_FUNC_EINT		0xf
++#define ARTPEC_PIN_FUNC_F		ARTPEC_PIN_FUNC_EINT
++
++/* Drive strength for ARTPEC */
++#define ARTPEC_PIN_DRV_SR1		0x8
++#define ARTPEC_PIN_DRV_SR2		0x9
++#define ARTPEC_PIN_DRV_SR3		0xa
++#define ARTPEC_PIN_DRV_SR4		0xb
++#define ARTPEC_PIN_DRV_SR5		0xc
++#define ARTPEC_PIN_DRV_SR6		0xd
++
++#endif /* __DTS_ARM64_SAMSUNG_EXYNOS_AXIS_ARTPEC_PINCTRL_H__ */
+diff --git a/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+new file mode 100644
+index 000000000000..8d239a70f1b4
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/axis/artpec8-pinctrl.dtsi
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Axis ARTPEC-8 SoC pin-mux and pin-config device tree source
++ *
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *             https://www.samsung.com
++ * Copyright (c) 2025  Axis Communications AB.
++ *             https://www.axis.com
++ */
++
++#include "artpec-pinctrl.h"
++
++&pinctrl_fsys {
++	gpe0: gpe0-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpe1: gpe1-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpe2: gpe2-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpf0: gpf0-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpf1: gpf1-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpf2: gpf2-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpf3: gpf3-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpf4: gpf4-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gps0: gps0-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gps1: gps1-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	serial0_bus: serial0-bus-pins {
++		samsung,pins = "gpf4-4", "gpf4-5";
++		samsung,pin-function = <ARTPEC_PIN_FUNC_2>;
++		samsung,pin-pud = <ARTPEC_PIN_PULL_UP>;
++		samsung,pin-drv = <ARTPEC_PIN_DRV_SR3>;
++	};
++};
++
++&pinctrl_peric {
++	gpa0: gpa0-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpa1: gpa1-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpa2: gpa2-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++
++	gpk0: gpk0-gpio-bank {
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/exynos/axis/artpec8.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
+new file mode 100644
+index 000000000000..8ee20bf4f680
+--- /dev/null
++++ b/arch/arm64/boot/dts/exynos/axis/artpec8.dtsi
+@@ -0,0 +1,244 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Axis ARTPEC-8 SoC device tree source
++ *
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *             https://www.samsung.com
++ * Copyright (c) 2025  Axis Communications AB.
++ *             https://www.axis.com
++ */
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/clock/axis,artpec8-clk.h>
++
++/ {
++	compatible = "axis,artpec8";
++	interrupt-parent = <&gic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	aliases {
++		pinctrl0 = &pinctrl_fsys;
++		pinctrl1 = &pinctrl_peric;
++	};
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0x0>;
++			enable-method = "psci";
++			cpu-idle-states = <&cpu_sleep>;
++			clocks = <&cmu_cpucl CLK_GOUT_CPUCL_CLUSTER_CPU>;
++			clock-names = "cpu";
++		};
++
++		cpu1: cpu@1 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0x1>;
++			enable-method = "psci";
++			cpu-idle-states = <&cpu_sleep>;
++		};
++
++		cpu2: cpu@2 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0x2>;
++			enable-method = "psci";
++			cpu-idle-states = <&cpu_sleep>;
++		};
++
++		cpu3: cpu@3 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0x3>;
++			enable-method = "psci";
++			cpu-idle-states = <&cpu_sleep>;
++		};
++
++		idle-states {
++			entry-method = "psci";
++
++			cpu_sleep: cpu-sleep {
++				compatible = "arm,idle-state";
++				arm,psci-suspend-param = <0x0010000>;
++				local-timer-stop;
++				entry-latency-us = <300>;
++				exit-latency-us = <1200>;
++				min-residency-us = <2000>;
++			};
++		};
++	};
++
++	fin_pll: clock-finpll {
++		compatible = "fixed-factor-clock";
++		clocks = <&osc_clk>;
++		#clock-cells = <0>;
++		clock-div = <2>;
++		clock-mult = <1>;
++		clock-output-names = "fin_pll";
++	};
++
++	osc_clk: clock-osc {
++		/* XXTI */
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-output-names = "osc_clk";
++	};
++
++	pmu {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>;
++	};
++
++	psci {
++		compatible = "arm,psci-0.2";
++		method = "smc";
++	};
++
++	soc: soc@0 {
++		compatible = "simple-bus";
++		ranges = <0x0 0x0 0x0 0x17000000>;
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		cmu_imem: clock-controller@10010000 {
++			compatible = "axis,artpec8-cmu-imem";
++			reg = <0x10010000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_IMEM_ACLK>,
++				 <&cmu_cmu CLK_DOUT_CMU_IMEM_JPEG>;
++			clock-names = "fin_pll", "aclk", "jpeg";
++		};
++
++		timer@10040000 {
++			compatible = "axis,artpec8-mct", "samsung,exynos4210-mct";
++			reg = <0x10040000 0x1000>;
++			clocks = <&fin_pll>, <&cmu_imem CLK_GOUT_IMEM_MCT_PCLK>;
++			clock-names = "fin_pll", "mct";
++			interrupts = <GIC_SPI 455 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 457 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 458 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 459 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 460 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 461 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 462 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 463 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 464 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 465 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 466 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		gic: interrupt-controller@10201000 {
++			compatible = "arm,gic-400";
++			reg = <0x10201000 0x1000>,
++			      <0x10202000 0x2000>,
++			      <0x10204000 0x2000>,
++			      <0x10206000 0x2000>;
++			#interrupt-cells = <3>;
++			interrupt-controller;
++			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		cmu_cpucl: clock-controller@11410000 {
++			compatible = "axis,artpec8-cmu-cpucl";
++			reg = <0x11410000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_CPUCL_SWITCH>;
++			clock-names = "fin_pll", "switch";
++		};
++
++		cmu_cmu: clock-controller@12400000 {
++			compatible = "axis,artpec8-cmu-cmu";
++			reg = <0x12400000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>;
++			clock-names = "fin_pll";
++		};
++
++		cmu_core: clock-controller@12410000 {
++			compatible = "axis,artpec8-cmu-core";
++			reg = <0x12410000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_CORE_MAIN>,
++				 <&cmu_cmu CLK_DOUT_CMU_CORE_DLP>;
++			clock-names = "fin_pll", "main", "dlp";
++		};
++
++		cmu_bus: clock-controller@12c10000 {
++			compatible = "axis,artpec8-cmu-bus";
++			reg = <0x12c10000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_BUS>,
++				 <&cmu_cmu CLK_DOUT_CMU_BUS_DLP>;
++			clock-names = "fin_pll", "bus", "dlp";
++		};
++
++		cmu_peri: clock-controller@16410000 {
++			compatible = "axis,artpec8-cmu-peri";
++			reg = <0x16410000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_PERI_IP>,
++				 <&cmu_cmu CLK_DOUT_CMU_PERI_AUDIO>,
++				 <&cmu_cmu CLK_DOUT_CMU_PERI_DISP>;
++			clock-names = "fin_pll", "ip", "audio", "disp";
++		};
++
++		pinctrl_peric: pinctrl@165f0000 {
++			compatible = "axis,artpec8-pinctrl";
++			reg = <0x165f0000 0x1000>;
++			interrupts = <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		cmu_fsys: clock-controller@16c10000 {
++			compatible = "axis,artpec8-cmu-fsys";
++			reg = <0x16c10000 0x4000>;
++			#clock-cells = <1>;
++			clocks = <&fin_pll>,
++				 <&cmu_cmu CLK_DOUT_CMU_FSYS_SCAN0>,
++				 <&cmu_cmu CLK_DOUT_CMU_FSYS_SCAN1>,
++				 <&cmu_cmu CLK_DOUT_CMU_FSYS_BUS>,
++				 <&cmu_cmu CLK_DOUT_CMU_FSYS_IP>;
++			clock-names = "fin_pll", "scan0", "scan1", "bus", "ip";
++		};
++
++		pinctrl_fsys: pinctrl@16c30000 {
++			compatible = "axis,artpec8-pinctrl";
++			reg = <0x16c30000 0x1000>;
++			interrupts = <GIC_SPI 99 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
++		serial_0: serial@16cc0000 {
++			compatible = "axis,artpec8-uart";
++			reg = <0x16cc0000 0x100>;
++			clocks = <&cmu_fsys CLK_GOUT_FSYS_UART0_PCLK>,
++				 <&cmu_fsys CLK_GOUT_FSYS_UART0_SCLK_UART>;
++			clock-names = "uart", "clk_uart_baud0";
++			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&serial0_bus>;
++		};
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
+-- 
 2.49.0
 
 
