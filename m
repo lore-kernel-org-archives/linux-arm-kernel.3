@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DE0CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BF9CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YSW64KWlEWguGEP5S6aHwmfVaZSZlb36SUEt3aN4gtI=; b=x5XRaIAzkYK8EQuShpjVXEI9Sh
-	4dMeStxW/SBZ22NaXY8ln8C9vI138MM5aDnV+4QmLsC0GQRZtFfgsl8lNiGvrVsXTqXF0zjsuyWKP
-	Iv0jdeCTa3eylQGSZO2c45Tr5oGy7OHqhrgh8ICpp5y00Oar2La+Vmn9yPnhggBKcr3Z2jLXZ8ABG
-	VA2OBQBLyQU4Oo1L9hHoT/HqByKZ07/8e8kCMRoXx6//iszb8cr0/9ghMIizlWLVSN0q/Ne/ksS/C
-	tRsUAxCnzrvLshQ7MD37QPOmHCtpLGWau0eS6UTAdIcecromxsHRWOTQdl9w+gIxlwiKrjx2FgIU2
-	AcjFz//w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2qBXp2L6ghuaOFTwpw0VcF+lJn82b0iwLgdjpHusKRY=; b=U1eSnQ3ZN33jBHE7yn/1z9FjeS
+	EWZPaBbh94J7FDYDBZX9gQp4ZBoj9/eAqeO3e66OAnXZx/VDNx+cJb4trDVnI6DdYhMGTiVd0K1pX
+	krrbO4uWklyOVbYHeGPpPbzYSyIxpaJpsn043dqFUhbUVMbHF8O3goczNxIQd2/QGI02ISdBeMnuY
+	RILxwxje/KlHCp/k7QB47c0yfnEKf+hgvmBjLWBlKSoFPY7UKmEq/PU0QQuTkbf1iaVaxcdsiJ7nG
+	2yXMXXl3O7gfyrWdJ825HAjA5jfc4W95sk2C312uchRwJCa49DWTNSSF/S+1/gdU9OTkjfXognCuz
+	AZGQ20QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7KJ-0000000HPgc-2S5j;
-	Thu, 21 Aug 2025 15:35:43 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1up7Mt-0000000HQBA-320i;
+	Thu, 21 Aug 2025 15:38:24 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4bO-0000000GvhH-0VGo
+	id 1up4cE-0000000GvpL-00vn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 12:41:11 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250821124108epoutp0334758daf5c62ac1ddfd1ede9b4a1c01c~dyKt0INnm1135811358epoutp03j
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 12:41:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250821124108epoutp0334758daf5c62ac1ddfd1ede9b4a1c01c~dyKt0INnm1135811358epoutp03j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755780068;
-	bh=YSW64KWlEWguGEP5S6aHwmfVaZSZlb36SUEt3aN4gtI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QWXx8Tb211F14jUMSrcwT07DY7tg/o+idoGrQraXOqpAfx+TwGAeM9Y8kBjDv+4Ox
-	 4YDHdVWNmCKBzze9otwaUXMP8wH8BEAlYTNhm4ENoecs6qsA0141K6a97exhYIgwd+
-	 uZFv1gmF08usf6AqhXs0eeQlC3tr4Wt7o80yXL7M=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250821124107epcas5p3d0165e6d8c4fefbe9990d4ed54b437af~dyKtBAz0d1592915929epcas5p37;
-	Thu, 21 Aug 2025 12:41:07 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.95]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4c72xG4gNtz3hhT3; Thu, 21 Aug
-	2025 12:41:06 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250821124105epcas5p402a0f6ec6a893d0e5e305547976e4c80~dyKrZpFEa1534115341epcas5p41;
-	Thu, 21 Aug 2025 12:41:05 +0000 (GMT)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250821124100epsmtip24bf607fee6cda2466f7f16b0c3a40894~dyKmvfG7k2624826248epsmtip2b;
-	Thu, 21 Aug 2025 12:41:00 +0000 (GMT)
-From: Ravi Patel <ravi.patel@samsung.com>
-To: jesper.nilsson@axis.com, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, krzk@kernel.org,
-	s.nawrocki@samsung.com, cw00.choi@samsung.com, alim.akhtar@samsung.com,
-	linus.walleij@linaro.org, tomasz.figa@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
-	gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
-	smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
-	ravi.patel@samsung.com, inbaraj.e@samsung.com, swathi.ks@samsung.com,
-	hrishikesh.d@samsung.com, dj76.yang@samsung.com, hypmean.kim@samsung.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Subject: [PATCH v2 10/10] arm64: defconfig: Enable Axis ARTPEC SoC
-Date: Thu, 21 Aug 2025 18:02:54 +0530
-Message-ID: <20250821123310.94089-11-ravi.patel@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250821123310.94089-1-ravi.patel@samsung.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250821124105epcas5p402a0f6ec6a893d0e5e305547976e4c80
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250821124105epcas5p402a0f6ec6a893d0e5e305547976e4c80
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
-	<20250821123310.94089-1-ravi.patel@samsung.com>
-	<CGME20250821124105epcas5p402a0f6ec6a893d0e5e305547976e4c80@epcas5p4.samsung.com>
+	Thu, 21 Aug 2025 12:42:03 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1755780117;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2qBXp2L6ghuaOFTwpw0VcF+lJn82b0iwLgdjpHusKRY=;
+	b=txzMEN3FKtz1olFZUVrErfLHlhVNtHZp9Kd/i2sWnJtnGBam8Rdp3Oaogr0G23n5z4Eehf
+	nGkZ9OB8Xo587f3LLNgNZFk6nWKx26GGOODXnDG6QmhwykAptAb4nKdWsxH5mY0lzf762R
+	v5ZuMJSkoNsbXkwH1yFunobZ3E4zLw9ecdcIjUIrrUWy3yPU3o8Radlqb5OGtBQjUE46wM
+	IzknYv9LHjnyR4g9tqA83ILR4aotfauXFfh970xI8ortZznliPacH7OK51v7hjHYF0jUKk
+	eCuIcurdewmlFv0qdyBGbByDQeQawkgA59EaxihTeqGqU8F1X+bMOwNtY3h9UA==
+Content-Type: multipart/signed;
+ boundary=3b571f17c3ddaedec092828a238ae966d2c316d9a762f9d2cf5b0d604e2a;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 21 Aug 2025 14:41:34 +0200
+Message-Id: <DC843K2CRBHH.1IUX1SB576TFZ@cknow.org>
+Cc: "Robin Murphy" <robin.murphy@arm.com>, <linux-pm@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <kernel@collabora.com>
+Subject: Re: [PATCH v2 2/3] thermal: rockchip: shut up GRF warning
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
+ "Heiko Stuebner" <heiko@sntech.de>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>
+References: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org> <20250820-thermal-rockchip-grf-warning-v2-2-c7e2d35017b8@kernel.org>
+In-Reply-To: <20250820-thermal-rockchip-grf-warning-v2-2-c7e2d35017b8@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_054110_471817_A471CE8F 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250821_054202_675793_49DC1E70 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: SungMin Park <smn1196@coasia.com>
+--3b571f17c3ddaedec092828a238ae966d2c316d9a762f9d2cf5b0d604e2a
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Enable the Axis ARTPEC-8 SoC in arm64 defconfig.
+On Wed Aug 20, 2025 at 7:40 PM CEST, Sebastian Reichel wrote:
+> Most of the recent Rockchip devices do not have a GRF associated
+> with the tsadc IP. Let's avoid printing a warning on those devices.
 
-Signed-off-by: SungMin Park <smn1196@coasia.com>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Retested with v2 of this patch (set) and there were still no regressions
+on Rock64 (rk3328), RockPro64 (rk3399) and Quartz64-B (rk3566).
+I skipped testing my NanoPi R5S (rk3568) this time.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 5bb8f09422a2..f94c1357d6f5 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -38,6 +38,7 @@ CONFIG_ARCH_AIROHA=y
- CONFIG_ARCH_SUNXI=y
- CONFIG_ARCH_ALPINE=y
- CONFIG_ARCH_APPLE=y
-+CONFIG_ARCH_ARTPEC=y
- CONFIG_ARCH_BCM=y
- CONFIG_ARCH_BCM2835=y
- CONFIG_ARCH_BCM_IPROC=y
--- 
-2.49.0
+And on Rock 5B (rk3588) I (still) no longer see this warning:
 
+  rockchip-thermal fec00000.tsadc: Missing rockchip,grf property
+
+So also with v2:
+
+Tested-by: Diederik de Haas <didi.debian@cknow.org>
+
+Cheers,
+  Diederik
+
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  drivers/thermal/rockchip_thermal.c | 23 ++++++++++++++++++-----
+>  1 file changed, 18 insertions(+), 5 deletions(-)
+
+--3b571f17c3ddaedec092828a238ae966d2c316d9a762f9d2cf5b0d604e2a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaKcUAwAKCRDXblvOeH7b
+bkU/AQCEUoGxVyVSNGRj6qG6NCl2nThKkgrDRtbsVWcAv4iiLQEA5qiGnnUdk7ma
+IuxRHRF24a7aweQEHZRYm58eco2GUQQ=
+=xzaV
+-----END PGP SIGNATURE-----
+
+--3b571f17c3ddaedec092828a238ae966d2c316d9a762f9d2cf5b0d604e2a--
 
