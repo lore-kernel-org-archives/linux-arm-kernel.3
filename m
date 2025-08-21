@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0D2CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D867CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3/dQIN/6bQs5cMkEYR2kGWQIOG8oSziPJNK6u+M3TKI=; b=3RG/IY71yWpI88XEVFZSjUMwD6
-	eU4fggrHPvqNBT2rMUXFa97C9gVCP5pbuLBDHs1d+g66ETt1rwpCSELZhG2oDHBP0d9vF47UB+4sB
-	25Gfp9XFMQ8fTIQaXdwlcrTC3K6diMn6fd9q4nroEnPNuFYEBQZ+JFjCLPsG8YOVvEBbrxSHu/oDC
-	cL+oP9SxE+YWZUxdAehczWh4RoOOeBMptr0YkPMfeyxZz/2+J++fPtx+77xLif3h0swduDLX++iT9
-	5V3EMHm588wXqO17lzz2nY6lJMzykZTbWGuCeZQ3GqspVSqPi9h4PA/5Ux7q88SI9b7wk6iV+INFq
-	Wmqv5u1A==;
+	bh=2wGT35ACRJqeMBans5AxgJKwaQp7w8jXRanXd6Ne1bQ=; b=YvMgObZOm7JCYYiQZvZrU+gbGu
+	oybtQkF5psADmME4HJt+qhQq2IZ9hMp81fFr3G86Kw3fD9eIeb4mjXQRRqftbeWHaX/tbkknPXWU4
+	PWSb0ZCnnYfakn/ZdW44qRY9at4mRdjiqA2eI83h81fdd8aqcUsfR5VsZBHN422ScLcx+2t3+GKgd
+	Cr7VVK1Iex0/9KwLt4yKeyJvIyQhHmApBTOK6uXXouDQsWm79FevrEeI6mE02XR1S7fUGzmxwh9Rz
+	Jvc34a/AHBpdYkmkki15oZEk6j7OQp25ni5Gx3PWMF1kD/cN8CwWegsqEF3aSOoJjGc4KgnHQZ/I/
+	5p3WCCJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upEGg-00000000sri-13up;
-	Thu, 21 Aug 2025 23:00:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1upEJH-00000000tP8-0iwO;
+	Thu, 21 Aug 2025 23:03:07 +0000
+Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up91z-000000003ij-3VoK
+	id 1up94L-0000000041G-3Et2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 17:24:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E73B0601F8;
-	Thu, 21 Aug 2025 17:24:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB0EC4CEEB;
-	Thu, 21 Aug 2025 17:24:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755797094;
-	bh=3/dQIN/6bQs5cMkEYR2kGWQIOG8oSziPJNK6u+M3TKI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TbbRsU2FbjHzWD8HhM2bCrBS0hMiRzteNS9o3F40QEvuuGSIZ0EhnGRscZ8uDMONG
-	 IL5cT9ZTjmrSovM0Conzjx4X7ZkmqUyrKXrGjDq51s6e93LQ0IZkRdngZTBfFdeahN
-	 rF9N8MCZ2RChmIK1IH4hQo+LkEzbQ/NrrK98DOpPaEZnjlHMyMZSEMPMhU4NDp/UfS
-	 Ae2nl/nJe2VGlaS74QhlNI2cnUGMclBz/OFMYysAMvO0HCU0ysVMSzrNG4usoHO4fr
-	 72fy4rgAhRmcnp/m2cBscXutwTuRKhmxinX3AcXrc38HnD4FFiiL/rbXP8+/PQDTO+
-	 6BQRSXmOsuong==
-Date: Thu, 21 Aug 2025 18:24:50 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] kselftest/arm64/gcs: Use nolibc's getauxval()
-Message-ID: <d5a26257-769e-4ad4-8d6c-723529b66aec@sirena.org.uk>
-References: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
- <20250821-nolibc-gcs-fixes-v1-2-88519836c915@weissschuh.net>
+	Thu, 21 Aug 2025 17:27:23 +0000
+Received: from hillosipuli.retiisi.eu (91-158-51-183.elisa-laajakaista.fi [91.158.51.183])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by meesny.iki.fi (Postfix) with ESMTPSA id 4c79HP5p9NzyT0;
+	Thu, 21 Aug 2025 20:27:13 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
+	t=1755797235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2wGT35ACRJqeMBans5AxgJKwaQp7w8jXRanXd6Ne1bQ=;
+	b=JxaM6Dv/fZ9UGmi8CIeam1q+xqkRmkbdNQvPActPXC/F/ZJAfA1SANSNEef801sTCREpta
+	YKtbu3aaab9QwC5GNPKJpISv8XZJIlpnDAD+XGUi0YyPn1luTNz7As5Kq0rLtf0XubLuUY
+	r+WE9vmFIJCrSPtCDqz+sDqPSv2oS1g=
+ARC-Seal: i=1; s=meesny; d=iki.fi; t=1755797235; a=rsa-sha256; cv=none;
+	b=AAONFo51j+0I9vh1CUJfqDu6AUoQysbFgjHSUs5GTdaLwvJdkuZhQI/fiXC134ugRux76U
+	SU7ZtRfOlaxIi8HmGOHAEPe/dIaLbBSBhG+V1V7ddsOMQpctXUcniOiVLOwMWpCz1IqyAl
+	UBhYz3+7bKqfJ8TTw1LZ+yhl/vKPeUI=
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=meesny; t=1755797235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2wGT35ACRJqeMBans5AxgJKwaQp7w8jXRanXd6Ne1bQ=;
+	b=RQKnfDy1jf2/IN5lvVEIE8Af/aGZg4F51igPJJc5QMJavnyyXHPwljquRXiiL6rRBo5jUL
+	ahLh8L0Tz3KsRiGJbxlHr01Nvq0ycF+ofEgp7GNQB21CehYOExQdkgJpldETtYSmmoY3f7
+	tq4GOx2hMLv8B+0pArLngQqbABCtlaM=
+Received: from valkosipuli.retiisi.eu (valkosipuli.local [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 2E407634C98;
+	Thu, 21 Aug 2025 20:25:48 +0300 (EEST)
+Date: Thu, 21 Aug 2025 17:25:48 +0000
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Chandra Mohan Sundar <chandramohan.explore@gmail.com>
+Cc: alain.volmat@foss.st.com, mchehab@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, shuah@kernel.org,
+	linux-kernel-mentees@lists.linux.dev
+Subject: Re: [PATCH] media: v4l: Fix dereference before NULL check
+Message-ID: <aKdWnKdSDs2j73F-@valkosipuli.retiisi.eu>
+References: <20250818093159.612208-1-chandramohan.explore@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aTcioaIg2uzKW47S"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250821-nolibc-gcs-fixes-v1-2-88519836c915@weissschuh.net>
-X-Cookie: Warp 7 -- It's a law we can live with.
+In-Reply-To: <20250818093159.612208-1-chandramohan.explore@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250821_102721_979290_159A0620 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,31 +96,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Chandra,
 
---aTcioaIg2uzKW47S
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Please choose an appropriate subject on the next time, this is missing what
+the patch is for -- see git log if in doubt.
 
-On Thu, Aug 21, 2025 at 05:13:03PM +0200, Thomas Wei=DFschuh wrote:
-> Nolibc now does have getauxval(), use it.
+On Mon, Aug 18, 2025 at 03:01:57PM +0530, Chandra Mohan Sundar wrote:
+> In 'stm32_csi_start', 'csidev->s_subdev' is dereferenced directly while
+> assigning a value to the 'src_pad'. However the same value is being
+> checked against NULL at a later point of time indicating that there
+> are chances that the value can be NULL.
+> 
+> Move the dereference after the NULL check.
+> 
+> Fixes: e7bad98c205d1 ("media: v4l: Convert the users of v4l2_get_link_freq to call it on a pad")
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Fixes: requires Cc: stable. I've fixed these this time. See
+Documentation/process/submitting-patches.rst .
 
---aTcioaIg2uzKW47S
-Content-Type: application/pgp-signature; name="signature.asc"
+> Signed-off-by: Chandra Mohan Sundar <chandramohan.explore@gmail.com>
+> ---
+>  drivers/media/platform/st/stm32/stm32-csi.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+> index b69048144cc1..fd2b6dfbd44c 100644
+> --- a/drivers/media/platform/st/stm32/stm32-csi.c
+> +++ b/drivers/media/platform/st/stm32/stm32-csi.c
+> @@ -443,8 +443,7 @@ static void stm32_csi_phy_reg_write(struct stm32_csi_dev *csidev,
+>  static int stm32_csi_start(struct stm32_csi_dev *csidev,
+>  			   struct v4l2_subdev_state *state)
+>  {
+> -	struct media_pad *src_pad =
+> -		&csidev->s_subdev->entity.pads[csidev->s_subdev_pad_nb];
+> +	struct media_pad *src_pad;
+>  	const struct stm32_csi_mbps_phy_reg *phy_regs = NULL;
+>  	struct v4l2_mbus_framefmt *sink_fmt;
+>  	const struct stm32_csi_fmts *fmt;
+> @@ -466,6 +465,7 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
+>  	if (!csidev->s_subdev)
+>  		return -EIO;
+>  
+> +	src_pad = &csidev->s_subdev->entity.pads[csidev->s_subdev_pad_nb];
+>  	link_freq = v4l2_get_link_freq(src_pad,
+>  				       fmt->bpp, 2 * csidev->num_lanes);
+>  	if (link_freq < 0)
 
------BEGIN PGP SIGNATURE-----
+-- 
+Regards,
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAminVmEACgkQJNaLcl1U
-h9AVxQf6A1M5k78zL2oHUCa1XHXmZ2SNKsaRCAl+dwv0NAAGZVrcPpptgN6brFHI
-2wmu+akQQ4ySojXlKtQZ9N1huH8OhNU3KB+OdPQTQkz7rI6u9LN47eZNRDW3I6cd
-X//TqDY3s0/a+nYkBDvWWEW4/BicZ2NP0BQiafY0JjioM7Oz5H3TjXwRDsDP44/2
-WmcsLUmySNoCcAP85z8m7X2t9btxDKFvcg9VadNJKSeOH1DFhRaoPMODtosGzzv/
-4hdiBqn+n1m25AdceKsRDCyOjcBJjvKz7a7LwTCJBtt2swGrLU/zZ9VhSuSUYv3N
-PQd9ZCJsh3vYd7SKImd3L5vEL2TX5w==
-=DLpa
------END PGP SIGNATURE-----
-
---aTcioaIg2uzKW47S--
+Sakari Ailus
 
