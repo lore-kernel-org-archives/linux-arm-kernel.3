@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB690CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3F0CA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fk0xDD8EPIhERL0BEWTkkqwiBfkZLYWi21PeTKx1dEw=; b=nJropDT8edRRue0NDp7TqMLpME
-	D2u6AcA1R2jeyzw4eZQhM6HNUTduupx8Jyp4ucaQJDj8qtkLC9xffxgmMrB46PL5efFCkr5G5Lo4s
-	3YkD7q3gBZINldS61kfiadbc0Qf34H4qAjxto8BbjC0qCQm8iIrwXBzQ9if+N7cGa5lRTfLpP4ez2
-	gWCQhv3Xu2v6eAwUBKnFYqoqMAdFVy4gku3EQt6CCBHztROHilSe4/EjztdZekRRnLdzByftuLqrM
-	08LUelsseCl9ygjsIQ9WwXgcwGYHqpy6edukrLQtpLuibvPlrzp0HwRXIDaM+BOm6JuPhUqZUUBmE
-	tQX3JTCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/UZny0nmt2vMBkU2e/gpL3R9Mx0QIOy020xV8xd0zVI=; b=fY7AT8wlFsv3AuAPWmFIMZRtJf
+	ZD8kA1GtelBwfAFLsKjT82y9oPeLs95vbGkMqD7D4tgfVUNitqKq/6byV2OyODuiyhnlczN5XzTfA
+	1Zu1PxkyAeHIhhOBOCfYNCBLGyes2umvxsFTYOf/0AriKuJ0JbgjHXLbzk4ph6iTMLeN5iw55fqOn
+	aq1It9yallhEFbQ6fy2BZ4P3MQC1vTJbWV6bauinijo3xzkwPcJibCg2nYQRSDRqRUhj4cTJeXs/c
+	+koGD0HlV6HYnAP+KNOFLXQaY11EPTfW9I/UU0KgLwXx9JGu15kVzo94rTruuTTlpnwDeTOLyHUMd
+	LoedHSsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1lj-0000000GQB3-1mV0;
-	Thu, 21 Aug 2025 09:39:39 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
+	id 1up1ls-0000000GQJo-2v3W;
+	Thu, 21 Aug 2025 09:39:49 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozLv-0000000G39e-2Oc8
+	id 1uoziZ-0000000G6SL-2UtA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:04:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=Fk0xDD8EPIhERL0BEWTkkqwiBfkZLYWi21PeTKx1dEw=;
-	b=RGXDACYuomVrVszZwmqbb8g7OMlsV/8uZbysjYBOV0ebGpaUyWTzEeceztAueh
-	uKJTPh5498+RzendPtffTU8RwF9ubELeLTMZbhZRs70XHGZj1NaTBXr8gS91gZbL
-	xT8s9/778pSoOVGUkQiLaEZSn4mt09aPej6EvjQ9JGe/U=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDnbyf+xKZoHlYZAw--.40022S3;
-	Thu, 21 Aug 2025 15:04:32 +0800 (CST)
-Date: Thu, 21 Aug 2025 15:04:29 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] arm64: dts: support the i.MX8ULP EVK9 board
-Message-ID: <aKbE_dWm9T0sdzTj@dragon>
-References: <20250714151346.7575-1-laurentiumihalcea111@gmail.com>
+	Thu, 21 Aug 2025 07:28:20 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250821072807epoutp02faca17fe80d4fa280a11919265e0f6ac~dt5aYVPTn0131201312epoutp024
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 07:28:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250821072807epoutp02faca17fe80d4fa280a11919265e0f6ac~dt5aYVPTn0131201312epoutp024
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755761287;
+	bh=/UZny0nmt2vMBkU2e/gpL3R9Mx0QIOy020xV8xd0zVI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=llwLGrfwDTxzOdI6xv87THuL6s+Ai4wIhJVXMcxuIgyvn0EebpKYTatCaiU9DadyG
+	 xoya5nNwPpLx9kOAlNItiWWJv+/SueYuQM2nqNKZ9thxf1YSDVEl+a2GLOvXUTqv8U
+	 EnQENjv7UVs8G1qWynk1Q/5Hx9cctospbohtiyk4=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250821072806epcas5p1d013b385ea49b1be2cf7989d44b02877~dt5ZhYmnr0117501175epcas5p18;
+	Thu, 21 Aug 2025 07:28:06 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4c6w051R5Sz2SSKf; Thu, 21 Aug
+	2025 07:28:05 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250821072804epcas5p20256917f2a714f4946139174f8fc20f5~dt5X2Ebhl0550705507epcas5p29;
+	Thu, 21 Aug 2025 07:28:04 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250821072801epsmtip13370fcd9bc3653a3c56cfcf69abae89a~dt5UxkUol0593105931epsmtip1E;
+	Thu, 21 Aug 2025 07:28:01 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
+	johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
+	pritam.sutar@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com
+Subject: [PATCH v6 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Thu, 21 Aug 2025 13:06:58 +0530
+Message-Id: <20250821073703.2498302-2-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250821073703.2498302-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250714151346.7575-1-laurentiumihalcea111@gmail.com>
-X-CM-TRANSID: Ms8vCgDnbyf+xKZoHlYZAw--.40022S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUYJPEUUUUU
-X-Originating-IP: [117.81.240.235]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIAA1mmimxQDR8AAA3l
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250821072804epcas5p20256917f2a714f4946139174f8fc20f5
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250821072804epcas5p20256917f2a714f4946139174f8fc20f5
+References: <20250821073703.2498302-1-pritam.sutar@samsung.com>
+	<CGME20250821072804epcas5p20256917f2a714f4946139174f8fc20f5@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_000451_964191_F8C6751B 
-X-CRM114-Status: UNSURE (   6.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_002816_941203_7CBF47F2 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,11 +99,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 14, 2025 at 11:13:44AM -0400, Laurentiu Mihalcea wrote:
-> Laurentiu Mihalcea (2):
->   dt-bindings: arm: fsl: add i.MX8ULP EVK9 board
->   arm64: dts: imx: add dts for the imx8ulp evk9 board
+This SoC has USB2.0 phy and supports only UTMI+ interface. This phy
+requires two clocks, named as "phy" and "ref". The required supplies for
+this phy are vdd075_usb20(0.75v), vdd18_usb20(1.8v), vdd33_usb20(3.3v).
 
-Applied both, thanks!
+Add a dedicated compatible string for USB HS phy found in this SoC.
+
+Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+---
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index e906403208c0..e238fd0c9f6c 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -34,6 +34,7 @@ properties:
+       - samsung,exynos7870-usbdrd-phy
+       - samsung,exynos850-usbdrd-phy
+       - samsung,exynos990-usbdrd-phy
++      - samsung,exynosautov920-usbdrd-phy
+ 
+   clocks:
+     minItems: 1
+@@ -110,6 +111,12 @@ properties:
+   vddh-usbdp-supply:
+     description: VDDh power supply for the USB DP phy.
+ 
++  dvdd075-usb20-supply:
++    description: 0.75V power supply for the USB 2.0 phy.
++
++  vdd18-usb20-supply:
++    description: 1.8V power supply for the USB 2.0 phy.
++
+ required:
+   - compatible
+   - clocks
+@@ -219,6 +226,7 @@ allOf:
+               - samsung,exynos7870-usbdrd-phy
+               - samsung,exynos850-usbdrd-phy
+               - samsung,exynos990-usbdrd-phy
++              - samsung,exynosautov920-usbdrd-phy
+     then:
+       properties:
+         clocks:
+@@ -235,6 +243,22 @@ allOf:
+ 
+         reg-names:
+           maxItems: 1
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynosautov920-usbdrd-phy
++    then:
++      required:
++        - dvdd075-usb20-supply
++        - vdd18-usb20-supply
++        - vdd33-usb20-supply
++
++    else:
++      properties:
++        dvdd075-usb20-supply: false
++        vdd18-usb20-supply: false
+ 
+ unevaluatedProperties: false
+ 
+-- 
+2.34.1
 
 
