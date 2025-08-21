@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC0BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C01FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KSMK+0z+lciYSqTdZxGlttwhMX/+UOX3vxLx+gHanqI=; b=X3SV6cbhUdWKdZYuYn4uovIoPA
-	KXgqNTvl2DsM4tWcxQ/5AJNWbLRF/eORu/cSRBX/8vFreDuFRFOxAuRPAqBEHChDj7IGtjnxigw3U
-	hNxOpc6YpvujCg4taat16sYUyNnElrF7GUUJrQj9ctCaUBs+tTf7ZZlBB9zKsWn8u1y0LPwW202HL
-	i+YXmF6W2sUe7wjJYhrkJY8imIq6bt/gi5D7lkCUVoyv+9+4I4+OI9zYZmDm2vD+6lfdTSobHlEtY
-	EIDdNYtqeEprJMtUNq/5Co27Anc4o/pDCXBxrtRzY0AnAS/QWx4g6RPNrQqlkNALXO2jTkhN5soAw
-	tTE/BlJQ==;
+	bh=dy56BGyXUFeNC6+7rM4Q+DhOs5rjOSsjWVWdgWGAUws=; b=qivPlq8OENkt9zYsBqIQoIVAeU
+	V0vdeYO6SsSjaPLUnlppoKWrN47M1nXoShOnIwAJ2Fvk50lbwK4T6hcw5v4C8ZG1SFSmOYia1OdXV
+	+uZZkszt2VlkXPFnKiObLGfTcvssMfPtjn66vCMrmX6NGqGaSi/mvbzO2cxMEdW43gtVefcJwgDXL
+	C2W//M+3x/wFT9eSWqJOcCqhJcxDjorDZ6cq1YIUQRQrDBER7OyNn2R7vLCXLTxgjcKQ1cLFVLtIF
+	QozqXxvLNH1bnE1lkP1eYdnzm3a/puF7HAOummXKK4eX3u5C3ZaM360bcNp6TmrZmIVFfsj5s7XE3
+	2h1OYHGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoybq-0000000Fw2X-1lt7;
-	Thu, 21 Aug 2025 06:17:14 +0000
+	id 1uoyeQ-0000000FwNx-0eQY;
+	Thu, 21 Aug 2025 06:19:54 +0000
 Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyWH-0000000FvIr-3sRj
+	id 1uoyWI-0000000FvIu-18Ou
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 21 Aug 2025 06:11:31 +0000
 Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 79554EC0064;
-	Thu, 21 Aug 2025 02:11:26 -0400 (EDT)
+	by mailfout.phl.internal (Postfix) with ESMTP id A918DEC00E5;
+	Thu, 21 Aug 2025 02:11:29 -0400 (EDT)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Thu, 21 Aug 2025 02:11:26 -0400
+  by phl-compute-01.internal (MEProxy); Thu, 21 Aug 2025 02:11:29 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1755756686; x=
-	1755843086; bh=KSMK+0z+lciYSqTdZxGlttwhMX/+UOX3vxLx+gHanqI=; b=h
-	AADwq7cznn8DbO8oiVt8MP9LUyLE9L2IbTxrVnaO0KJJcXqyQMT5EGM8MD960wxf
-	4FKcKuIhMm6xIfO3wF/VwUKf0GQVD1fmgx8Os9mKXSKzTmkZ+h5kF86hpyhpiWwx
-	O4U8JmdZPRS91WpQ/kb6/2ynM6Kh6L0hObi8A7A/cGe3LT78h4awgGwDHlKZNTQa
-	uv8fQZAcSppAUgOblrrWymRNUAKIrz3L3lcCHtRfheKGGBiF1yTFqEObKuTtHCcB
-	yTawsB00uZ5rNS7lC24R/m528w8RSyglqZ1TMhLfLug67j76oVFRUUf9NEAQQ+fp
-	7w7ECTuptmJSpbcKSa9Yg==
+	:reply-to:subject:subject:to:to; s=fm2; t=1755756689; x=
+	1755843089; bh=dy56BGyXUFeNC6+7rM4Q+DhOs5rjOSsjWVWdgWGAUws=; b=A
+	pAbjqVyLCnwq4ocJtdJIJKIGax3+1SrCKPfO5+kZzUn2bjfGJ1RC0blgzV26ll9C
+	+2R4zU3yLUKF4DW34lU3yH56g51yPqG9QasaXxjUavIQOyS8u0ikTeBgiDpbgD0M
+	oSiUbChaBs093tKB0K4Qv1K/c/PJw8nR2b9/qmaI4xPRGkN20UpASaHJeZ3ZpcSb
+	vMgUdXaToQURC1ALJa2o//nYLPrLerd4cvN0xweFdysyJcSGHPKY5EZ/GY3YmKPN
+	4rjcmFA99YHPwkEsEuENCGUuBGrndlsdzjylJIgITqsaGYs+Sd/g52x/rqkMojo6
+	8dalXZSMZoq2w98NVrCMQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1755756686; x=1755843086; bh=K
-	SMK+0z+lciYSqTdZxGlttwhMX/+UOX3vxLx+gHanqI=; b=OzDBlRPBX+aXDKDMz
-	o0cNRkI8ZgMIFTz1BL8fgoM+pKOQcWJ/+wL6QGO+2KHPIgVajakZWYYykqqikeNI
-	DLmL2RuvwWnH/5fbcjwCIdSILUHvvfRyehg6WGgiH5RvaQ1XH6RnQGYKJJcCd01B
-	zsiltqUqr6GbAaP3rSdnR1c3qnNUs1PMj8lGzRetYrC+lanpZaCazdEczajsiCeF
-	GVtIcKjozCH8tBbvixEW+i5OLDalq5gGsXB+KfDZesN2vvRJ28NjR64YSTJtTGUr
-	cSV3QFOBhS+FFx4UrSC2L5EmuB+jAMml7zsJXdQPBCIJqfsSO8gq4N/+C0YLnQFG
-	ky2zg==
-X-ME-Sender: <xms:jrimaCsIj0aakceg_Vsdv7cuhsgEMZaoBBJ77wlYXlbx0Q9CAZnlGw>
-    <xme:jrimaONspODL0heJ7zmQDtS_y1CgUrQgRbbdJzR0adtimM2SQrY4QjKmaJwZhO9hM
-    zenxs8TvddVzAibqxE>
-X-ME-Received: <xmr:jrimaPguzs3PETGmbVWWtbNb1mubUbQByDw7sK69d-QfJGDaqLd7oSr_OKiFI0N7gxYV5GCcq-ncDAMX1r11H_NGiKJ1wqIn5U7UKe-FqJUheEIhjwQZhEw1kiZ8PqgG3LkEGVSzX5i5lNKzn0ow45NXyXY>
+	:x-me-sender:x-sasl-enc; s=fm3; t=1755756689; x=1755843089; bh=d
+	y56BGyXUFeNC6+7rM4Q+DhOs5rjOSsjWVWdgWGAUws=; b=l8AfyutLuJSzYdGpA
+	6GixLmequufsJUlhdCzLb9zAhUyieEoyGgPZ5zU3c0kjNQFVUAP3pKUT70dHFXGi
+	TD4alGz7MSty5kPPgLhXvTKV0gBjesbhQzLv/SuP4wX8MV/EYMO68T32Iyc3SPs/
+	F6KZJTppL5sZucoIcPYtNsRiz/bCy/bA2NcS2iNnyrsE5qE5eVsI7bvwO50kMhep
+	kMxvaNNBfQUaXHwYbJSfbL6kt7aEF6bCMDmlBCc4gwr7+3zjcYlbxvZlqH1Hi5kY
+	L5su5EmazhxngWjFBOFRAT5uqGTRcO4dE9lThadS0ju/W25pzAb5ytp5gi8QL4Ds
+	ZVmlA==
+X-ME-Sender: <xms:kbimaEOOqUt0vtp3zbPKLBaOuKbGBKgfznNlyldn3Hy4XgiN0Xjk3A>
+    <xme:kbimaBsViU_qez81m1qK96tS620n44LPuYRvAUxykYKmfRJCEkcY3lV60zNEyzLFB
+    OY6nTHtjbtRhMg6R1E>
+X-ME-Received: <xmr:kbimaNAe7Bc7LoxWajHpIVgdL8ccgBZ_ycVZLJIMugXFXTx-mBD3MP9HLza2-1VWZ8UoSPRZUjBEfIbz2Xy3cdajFsEaaWJOWXV0RF9ZbM_gMEfnxNr4zR2UTfUNvwA4XAPdxuVKXXYI073996bb4tPL8so>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedtgeelucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrthhhvgif
     ucfotgeurhhiuggvuceomhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghuqeenucggtf
-    frrghtthgvrhhnpefhteehkeektddvveejffetleevkeekfeehieffleeikeduveehtdfh
-    keehhfffffenucffohhmrghinhepohiilhgrsghsrdhorhhgnecuvehluhhsthgvrhfuih
-    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmhgrthhtsehtrhgrvhgvrhhsvgdr
-    tghomhdrrghupdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtph
-    htthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphht
-    thhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrug
-    drohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghp
-    thhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdho
-    rhhgpdhrtghpthhtoheplhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrth
-    htsehtrhgrvhgvrhhsvgdrtghomhdrrghu
-X-ME-Proxy: <xmx:jrimaI6kusII9f0QZaesjlzRteveMzMJNpzqlN4Lw-pxiRgW1Yv6Aw>
-    <xmx:jrimaO1ZxH0z84bYihH5ZWPZ0Bd64oMvl5H6l7jf1IoOTMUfNiI3cw>
-    <xmx:jrimaLtnYeNWvz6s1DWcSjUdU2_wsO4OeyuU9eabwAH77Ik6YAwtVw>
-    <xmx:jrimaM7isC_FooADj9JKQ8Ql8-yBGmQONuIf4YBWlY8XJltW6_Y6kw>
-    <xmx:jrimaOlq-GttWL9x67ls388GfHg9AEfa_kbH2tfYS4oNY4qhDaob5xZp>
+    frrghtthgvrhhnpedtveffiefhgfduiefhgfduuddvueeukeetkedviefhgeevlefgffev
+    gefhgeeigfenucffohhmrghinhepthhrrghvvghrshgvrdgtohhmrdgruhdpuggvvhhitg
+    gvthhrvggvrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
+    lhhfrhhomhepmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghupdhnsggprhgtphhtth
+    hopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopeguvghvihgtvghtrhgvvges
+    vhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvg
+    hrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehshhgr
+    fihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlh
+    drohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhgvvgeskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdr
+    rghu
+X-ME-Proxy: <xmx:kbimaIbTFaKZZhLMRqg7oiaUoXYctH7Jy4VRGv8Rwee6jEuKpz2ymA>
+    <xmx:kbimaIUpauC36FBcErg0GAU5JJ1sp2cLA3fMkMNv_H8x_vBrzHozbw>
+    <xmx:kbimaHNbnQwhWMlp7BEyS4z8xrElkVkx0RmV_CBiXEyb0PuRsumypQ>
+    <xmx:kbimaCb4ztgjmeu-0MonI_iBwhrR5_bTeRVg3suNRKAf4B4BPVdvKQ>
+    <xmx:kbimaMEVDlUE5fkvjdgQ1KhikjEhIrKSIk8mQFNJ0KVHwqizeB9WZmIF>
 Feedback-ID: i426947f3:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 21 Aug 2025 02:11:23 -0400 (EDT)
+ 21 Aug 2025 02:11:26 -0400 (EDT)
 From: Mathew McBride <matt@traverse.com.au>
 To: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -93,17 +94,18 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Lee Jones <lee@kernel.org>,
 	Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v3 0/2] dt-bindings: mfd: add Ten64 board controller
-Date: Thu, 21 Aug 2025 16:11:13 +1000
-Message-ID: <20250821061115.18254-1-matt@traverse.com.au>
+Subject: [PATCH v3 1/2] dt-bindings: mfd: add Traverse Ten64 board controller
+Date: Thu, 21 Aug 2025 16:11:14 +1000
+Message-ID: <20250821061115.18254-2-matt@traverse.com.au>
 X-Mailer: git-send-email 2.45.1
-In-Reply-To: <20250813023435.27776-2-matt@traverse.com.au>
+In-Reply-To: <20250821061115.18254-1-matt@traverse.com.au>
 References: <20250813023435.27776-2-matt@traverse.com.au>
+ <20250821061115.18254-1-matt@traverse.com.au>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_231130_632737_2F7A88AD 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250820_231130_634408_72CD5BCE 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +120,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a rework of a binding I submitted a while ago (2023)[1].
+Add device tree binding for the board (micro)controller on Ten64 family
+boards[1].
 
-Because the nature of the device-tree binding was very simple (it is an I2C
-device with no configuration parameters apart from the I2C endpoint address),
-I had submitted it as a "trivial" device.  I now understand that is not the
-right approach.
+The schema is simple and is (presently) only consumed by U-Boot, but it
+is possible that it could be consumed by nvmem or other type drivers in
+the future, as well as extended to future Traverse boards.
 
-I have categorised the controller as a MFD device, following devices of
-a similar nature, such as "gw,gsc", "google,chros-ec" and "kontron,sl28cpld".
+The categorisation as a "MFD" follows that of comparable devices such
+as "gw,gsc", "google,chros-ec" and "kontron,sl28cpld".
 
-Unlike these devices, there are currently no child "MFD" features available,
-but it is possible there could be bindings for nvmem or other functions in the future.
-
-[1] https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20230501064727.8921-2-matt@traverse.com.au/
+[1] https://ten64doc.traverse.com.au/hardware/microcontroller/
 
 Signed-off-by: Mathew McBride <matt@traverse.com.au>
 ---
-Changes in v2 (2025):
-  - Create dt-binding yaml file and categorise as an 'mfd' device
-  - Removed the unrelated MMC controller fix, which will be submitted separately
-  at another time
-
-Changes in v3:
-  - Fix typos and style issues in yaml and commit message
----
-Mathew McBride (2):
-  dt-bindings: mfd: add Traverse Ten64 board controller
-  arm: dts: freescale: ten64: add board controller binding
-
  .../mfd/traverse,ten64-controller.yaml        | 45 +++++++++++++++++++
- .../boot/dts/freescale/fsl-ls1088a-ten64.dts  |  4 ++
- 2 files changed, 49 insertions(+)
+ 1 file changed, 45 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
 
+diff --git a/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
+new file mode 100644
+index 0000000000000..4e2f2063605cd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/traverse,ten64-controller.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/traverse,ten64-controller.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Traverse Ten64 board microcontroller
++
++maintainers:
++  - Mathew McBride <matt@traverse.com.au>
++
++description: |
++  The board microcontroller on the Ten64 board family is responsible for
++  management of power sources on the board, as well as signalling the SoC
++  to power on and reset.
++
++  Communication between the SoC and controller is via I2C, at a fixed address
++  of 0x7e. While the controller firmware implements several functions, there
++  are presently no parameters that are configurable by DT properties, except
++  those that are required of an I2C bus endpoint.
++
++properties:
++  compatible:
++    const: traverse,ten64-controller
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        board-controller@7e {
++            compatible = "traverse,ten64-controller";
++            reg = <0x7e>;
++        };
++    };
 -- 
 2.45.1
 
