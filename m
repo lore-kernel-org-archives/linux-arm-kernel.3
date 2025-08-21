@@ -4,114 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD02CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599FACA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=; b=LN7zXEfIkNxkPSGqWZ8geX2stn
-	eMtPDjsUUBvrUPUhBIW8qmZEnZ7mTQNlLXv0dQyKiaoCD5+w+diaDQqT+wGdd6LPPeLTxIud4T0QE
-	FDKRDMnmGO223HGcHXPFaPjnEekg3vfMoGOtGLyiET2ite4IpOWDUGlJgXsyOzXX/M1NBCsq+s4bn
-	jomYbo9hkl0BQ0KBgZ5V9vADEw8T5/LCp3hgiN9L/ndoT1spSd6PLK/ZZlCO/lEJiaDhlZ8IF0dv+
-	3vaBDe73BXRlTE0waITkzPqjEvZwhkvJOvVUz1PoZ3yejQ8a+cCNcdgaTRI7Fc+5RooqHKLmOzAyS
-	8e0WzopA==;
+	bh=saIpwl0G6zoDDZA6kqzaAKGDHCkLp/ivw/dNNi90asQ=; b=GVYI7RhdEfvYi469WqE8NH40HF
+	K+KS3pLcv5y+vkgpoEY5eWJupkHml1YM63Y9FuB6NUxLt1ridp3oVtDHFY8MDcdrvCsfGIshoElLO
+	rd00LgakH0y3Yd2KbrYemumyXV1il7Q++OthgLBLCRGaK3eP5fBYnHcYrjJeVUsO53ClnGd09oBhJ
+	brWpAGBiaRQS6o950lkKRK6VkeWSCLy149FO0ta+XzdM3c+UcColH5/DSUatjbPfTfbFMo4DCttpx
+	u8thKCUq7yUpLqOsoUH8CEf6srKo1WgDTnl959DLl4lKCTS9qPkcbcOCRhlgP14DXrf8/rpLoQv3t
+	DYmpeyKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJ3a-00000001TLP-3v6y;
-	Fri, 22 Aug 2025 04:07:14 +0000
+	id 1upJ6B-00000001Tey-3DXC;
+	Fri, 22 Aug 2025 04:09:55 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaf-00000000OF4-2Cad
+	id 1upBag-00000000OF9-0FpV
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:08:53 +0000
+	Thu, 21 Aug 2025 20:08:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=; b=CEOIsL+ehyeq2oUxCrCByBC+o3
-	LARu7KEIqy90lkzxcJIQeO2L/i3dXhAMhJ6HIuUCPzCVVUp1YqydHCu4gzm3dalhH9R5DGNHUX6aY
-	bsmlsNoOhkM7UDg/AmwwAj2wSu6zHe5p1umTkliCfDTbrKbdoF2B2YaHstEUFB+lt4aPuQEG7S/J0
-	hxbRnB7ZOt0ab78+4lCN7puGyzsIkH06j2LUOqUVXYmHznz9kmGAr/Zk8Faie4TNp696gzQMWpPVA
-	TAJ1N+MxUpshOX91c98YiGcrAXfrAS5gYjuaBUMX+XEG+R1t9QoVMFguj4BmEn0BU7+YCrke8DO4k
-	JzXWEIcQ==;
+	bh=saIpwl0G6zoDDZA6kqzaAKGDHCkLp/ivw/dNNi90asQ=; b=KATIC5F861x3XpMQFjd7smbkJf
+	zeuESi5dIWEBAL/km7wpexOCDbU1lKHMDgIlISr0JjrVY40J1V1DzWRVDU4OSQKlErm+eeW8Lstqe
+	HwjR76ITXCFqMAY5ITvpiLW0BzGKL3qPjT/jedrLbcDwJkYdYLUfwUKnC90243haLHQycKSBeFhTp
+	QUYNeQaIB6z5YnXWcxM8alzLaw6EHl/1YR4m/tjQIXfs/zSFXzutRWJgWXkTpazvyqsnnpQZ6XTvG
+	Fj3KR/7RgMgX7Bp++DtV1prngpjjXuPvnVsvnAp1MaBqvY8iHBDOlHuT/sq25jYPuGMp0e9Rjl3Rg
+	DX4O6zSg==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaX-00000000fFm-3lXB
+	id 1upBaZ-00000000fGJ-0B2B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:49 +0000
+	Thu, 21 Aug 2025 20:08:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806924;
+	s=mimecast20190719; t=1755806925;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
-	b=Sbqter2nKK4C2zMH3KFaXwxJMxo8wEcDZC1qjozRr0fsz/vODO31s0RNZlnTJ7K98TT7U5
-	sxC+r8Cp6Jjp0E064f32FdY3EU9sTPES/RJ0Xc/0zb4ewjf30BgoTki6vw7Ct1RKZA+OpY
-	16lQOdiYeNwqV4kfd0yYKmZSr2QptNs=
+	bh=saIpwl0G6zoDDZA6kqzaAKGDHCkLp/ivw/dNNi90asQ=;
+	b=ZD/4IrbbZ7RqzXVD54IOdaWGnkqwT0MfyW1F8vqVur3kESmlkInyu14II7WelsiKHNv3cA
+	1PAZJI2G3nj/mAw4zAayoEO1bOXe14kT4c5werXTOEdGYuYJA/02b737/3hNWBDmlpVBC+
+	cZEXL7kzwyCcKgj4S2+gRhS8K7S0Kg8=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806924;
+	s=mimecast20190719; t=1755806926;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
-	b=Sbqter2nKK4C2zMH3KFaXwxJMxo8wEcDZC1qjozRr0fsz/vODO31s0RNZlnTJ7K98TT7U5
-	sxC+r8Cp6Jjp0E064f32FdY3EU9sTPES/RJ0Xc/0zb4ewjf30BgoTki6vw7Ct1RKZA+OpY
-	16lQOdiYeNwqV4kfd0yYKmZSr2QptNs=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=saIpwl0G6zoDDZA6kqzaAKGDHCkLp/ivw/dNNi90asQ=;
+	b=cTWsbsAt7GWYHIYKURD1Pyw7M0tD3fRjasIPIX2VqOmtlhJp4Ez6qCZWU1vBbq95EqTvvH
+	Y+2UxVqCHZyWNbAY+Ym1j+pecnexuqVQSrmuiOJXwQ6b8ZIVh28sVmR+f8i3dBqmR92AHL
+	v1zd2kpbSKN3qo17pgZUpO+OKYEoyR0=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-536-I9S9_x9xM0qvB1aiCy3wcg-1; Thu, 21 Aug 2025 16:08:41 -0400
-X-MC-Unique: I9S9_x9xM0qvB1aiCy3wcg-1
-X-Mimecast-MFC-AGG-ID: I9S9_x9xM0qvB1aiCy3wcg_1755806920
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45a1b0c5366so7719595e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:08:41 -0700 (PDT)
+ us-mta-43-jGVsjX_gMy2UE4O3JPYCyw-1; Thu, 21 Aug 2025 16:07:25 -0400
+X-MC-Unique: jGVsjX_gMy2UE4O3JPYCyw-1
+X-Mimecast-MFC-AGG-ID: jGVsjX_gMy2UE4O3JPYCyw_1755806845
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0ccb6cso6971455e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:07:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806920; x=1756411720;
+        d=1e100.net; s=20230601; t=1755806844; x=1756411644;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
-        b=Bt9THeJbQq2BVqmlk1qs/UlRRH4TfPgaUrmRA2pZStwewswcOCTRDTZuHVJXc7zQOa
-         djof3auIIu17ViQ3k7tFNN11DGP0JeifsmiDtxq1ubMv8UUBM9yfAktOZROnR6Pk5hak
-         oYB5lzNPXsQ/bNidCUWIm6l8JAoDyC+oH0AjfwHccoiTxUTXpz5QtBIEQGHx8azaQZLl
-         VtWM1lsQl+Ren1ZGGrodgIngA/e5DkXqZEB5cml8X5HjY6bShTUX1v+N+eJTONVlkT1D
-         O75cby5Hd75AfeNLqMW9yHOmZcbLG9PpIIt1m7fdVag+t3CgDkNYpeoAk1gjd8wbrwIa
-         2mBg==
-X-Forwarded-Encrypted: i=1; AJvYcCU76D/EaOPKeh9Ub1Zq3hjMQTW96wnMXb227P37K9QeN7vaxOccTBbqlSOAEl5UpbXAcFG4xYSGNJsUEK5ax7Jk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL7009SU8NSVPGenEdJVnVUjep/dGz1mhWnCnAwMmhG5xytGpW
-	urcRKkLUr1AVPhyhvFzBhKKXeMnW8JK2mcdNxKy2VR0pjHwTN0Fcv0FzimJCSdJeGWH9ImkHOhx
-	qbtZsbmMncXPfFKKMT7Xgst4JprtOmzppuEJhpyV+h2PZKHBC68bHDhZzM/4YVsrevVC9QlW3HY
-	aT
-X-Gm-Gg: ASbGncsWYa8EHREPVRvVt0ulcsvsVslvkMp0MkU+Kyd+dR1HSHe2fukgFncw6l0z8lz
-	h5LSFiuLwG/WhHK6YoSzLSyKMSmEWuJKR6SxA2uLNQpwH1BfMn+l3GHbtgO88EE3/RJyVayam7C
-	LbqcjeOEkuq3rcL6svmNXubRKm08Xj2XL0uJkqTeU3g4hpUKbF0KDAmhNNC/EEcHBcY/93bN+GS
-	9cLrroayjWmSNCi7ppFyCJB5QcfEEsunbPGDQT28NoVLSMbuNMsPIBJM7rabyam6tqym/amVwxX
-	p8+kxDS+TEMel8t8EQi/DP53eFgSfKIDY1THvPTZEChvR0LJt+oW+zCsgoSjFV/6cJ+Dbj99ord
-	z33M/VnAwDMuZhqtQ0CUxvw==
-X-Received: by 2002:a05:6000:2405:b0:3a4:e841:b236 with SMTP id ffacd0b85a97d-3c5dc735246mr192372f8f.33.1755806920390;
-        Thu, 21 Aug 2025 13:08:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFrWn9aM0C/1GZBHvF1UL+fKz7WhllpDdsBGpm2GmVOIF4Yc/dULhABMcTdk4u9sLFplZdR3g==
-X-Received: by 2002:a05:6000:2405:b0:3a4:e841:b236 with SMTP id ffacd0b85a97d-3c5dc735246mr192328f8f.33.1755806919917;
-        Thu, 21 Aug 2025 13:08:39 -0700 (PDT)
+        bh=saIpwl0G6zoDDZA6kqzaAKGDHCkLp/ivw/dNNi90asQ=;
+        b=pSxCJa7YPi9c22SrPLd3sNsHxe7MQL/CTtJfwssk0/Xz2wSxKDTM0TnOmNqaUWw61B
+         G0+lNwavN4MIFjBIrosMsCbHjiqn9pLmqh8gzqweclZM1OBJpCQLgzJl1GK7mZf7vaje
+         GOD+k0pKi8UofWxCunEP7KadC0dCnD0jWSBi63ylGcpv7cPM930xLAZ5PGnbJv3xIxc8
+         xbQl8Hq6urVoBZo/z/BGJh8Vu2U30toRYDB9j+R59pQE1y1F0gyGyRvytmkgY4vpsuMt
+         pNNSltgetNkIg4ACLeKwhziFjdocJN42Sfp9QiSpeEPLJ+xjsLo85Pqz5zoHKZTvrUzp
+         veyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXnapXIAfBvMKgBCxZMVHF5v43beOABCbfO/VOTI/NaH5NbnCGadClrnoH3VluxMSmxYss+6VzbwSTMGjsdQzPk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaWhotBXfbRK/IiHZ98d+wHtzc6mDJ9ZEnnrijtvmF/09mZqso
+	Qab5wgMZ/3JhQP0yID6HjzqkCcfVwZ8oVpW+tr2ne4pL3S7JjLApLI+s7O6Ec8KJS6SemCMK1lE
+	GGynmRBgDvDUnwG79o8lEPUvSJi0889njr8ACythsXcRljnMLHHkiOGDis/VVh4F6E+pYGZD2OQ
+	cJ
+X-Gm-Gg: ASbGncvklqXhI5NxNF9E8K9ju6U4CIRuV/FnwC/Fq9xDh3CBvd+KwD6HzJTZeJraBVu
+	0l+rdzjcbPDeRPgGyTqjwzAl+24L5y5mNHNBDTGwwvRCjKGBDnnO4XXGzM5FR+nYMWxWAnURLNY
+	JQVfoTSLvwSfx40bxxjt+qIQfZ0EUmVY1GvrsfwLrJBztZF4pO+Cy/RElltb4lDEwk7h6CAa/bq
+	z/vuXBFoDrS7IrorxF4ZvqvVmiTNJwb0F/Y/IlZYtGBXtJMt/PNL0aVl8oIR84IRE2Ex0Jw/3Sb
+	3jLyZano0G5K9bBPaAxymkSMoOX1+2otyHd9zHaNMMkoBPsIbf4U6ReOfQ4BwF/vLsCFcCtD7MT
+	rR6/Lo+x4zW8kBQQ1E+bi3A==
+X-Received: by 2002:a05:600c:35c3:b0:456:285b:db3c with SMTP id 5b1f17b1804b1-45b5178e768mr3050335e9.3.1755806844566;
+        Thu, 21 Aug 2025 13:07:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFwjTyvRglWWHHllkR7aRLdEFYS2lmKXV2DYH9bn4L7+YG6UNdB0HbBuiJbZZ1vy18QyYWFNg==
+X-Received: by 2002:a05:600c:35c3:b0:456:285b:db3c with SMTP id 5b1f17b1804b1-45b5178e768mr3049835e9.3.1755806844048;
+        Thu, 21 Aug 2025 13:07:24 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c0771c166bsm12920369f8f.33.2025.08.21.13.08.38
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c074e38d65sm12980909f8f.27.2025.08.21.13.07.22
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:08:39 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:23 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
 	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Brendan Jackman <jackmanb@google.com>,
 	Christoph Lameter <cl@gentwo.org>,
 	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
 	dri-devel@lists.freedesktop.org,
 	intel-gfx@lists.freedesktop.org,
 	iommu@lists.linux.dev,
@@ -136,6 +135,7 @@ Cc: David Hildenbrand <david@redhat.com>,
 	linux-s390@vger.kernel.org,
 	linux-scsi@vger.kernel.org,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Michal Hocko <mhocko@suse.com>,
 	Mike Rapoport <rppt@kernel.org>,
@@ -151,21 +151,21 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 33/35] kfence: drop nth_page() usage
-Date: Thu, 21 Aug 2025 22:06:59 +0200
-Message-ID: <20250821200701.1329277-34-david@redhat.com>
+Subject: [PATCH RFC 06/35] mm/page_alloc: reject unreasonable folio/compound page sizes in alloc_contig_range_noprof()
+Date: Thu, 21 Aug 2025 22:06:32 +0200
+Message-ID: <20250821200701.1329277-7-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3ZKiWm3BgzEHsTfxMj1IHCYwajt_jkE4v09IUbpHg_k_1755806920
+X-Mimecast-MFC-PROC-ID: iFIE9ESSdYcRBYDqe-5QhwFcxy6DyVxg_WreZrlxOps_1755806845
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210846_310638_4CA156E7 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250821_210847_423663_BD8F3890 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,82 +180,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We want to get rid of nth_page(), and kfence init code is the last user.
+Let's reject them early, which in turn makes folio_alloc_gigantic() reject
+them properly.
 
-Unfortunately, we might actually walk a PFN range where the pages are
-not contiguous, because we might be allocating an area from memblock
-that could span memory sections in problematic kernel configs (SPARSEMEM
-without SPARSEMEM_VMEMMAP).
+To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
+and calculate MAX_FOLIO_NR_PAGES based on that.
 
-We could check whether the page range is contiguous
-using page_range_contiguous() and failing kfence init, or making kfence
-incompatible these problemtic kernel configs.
-
-Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
-
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Marco Elver <elver@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- mm/kfence/core.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+ include/linux/mm.h | 6 ++++--
+ mm/page_alloc.c    | 5 ++++-
+ 2 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/mm/kfence/core.c b/mm/kfence/core.c
-index 0ed3be100963a..793507c77f9e8 100644
---- a/mm/kfence/core.c
-+++ b/mm/kfence/core.c
-@@ -594,15 +594,15 @@ static void rcu_guarded_free(struct rcu_head *h)
-  */
- static unsigned long kfence_init_pool(void)
- {
--	unsigned long addr;
--	struct page *pages;
-+	unsigned long addr, pfn, start_pfn, end_pfn;
- 	int i;
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 00c8a54127d37..77737cbf2216a 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
  
- 	if (!arch_kfence_init_pool())
- 		return (unsigned long)__kfence_pool;
- 
- 	addr = (unsigned long)__kfence_pool;
--	pages = virt_to_page(__kfence_pool);
-+	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
-+	end_pfn = start_pfn + KFENCE_POOL_SIZE / PAGE_SIZE;
- 
- 	/*
- 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
-@@ -612,12 +612,13 @@ static unsigned long kfence_init_pool(void)
- 	 * fast-path in SLUB, and therefore need to ensure kfree() correctly
- 	 * enters __slab_free() slow-path.
- 	 */
--	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+	for (pfn = start_pfn; pfn != end_pfn; pfn++) {
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
- 
-+		slab = page_slab(pfn_to_page(pfn));
- 		__folio_set_slab(slab_folio(slab));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
-@@ -664,11 +665,13 @@ static unsigned long kfence_init_pool(void)
- 	return 0;
- 
- reset_slab:
--	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
--		struct slab *slab = page_slab(nth_page(pages, i));
-+	for (pfn = start_pfn; pfn != end_pfn; pfn++) {
-+		struct slab *slab;
- 
- 		if (!i || (i % 2))
- 			continue;
-+
-+		slab = page_slab(pfn_to_page(pfn));
- #ifdef CONFIG_MEMCG
- 		slab->obj_exts = 0;
+ /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
+ #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+-#define MAX_FOLIO_NR_PAGES	(1UL << PUD_ORDER)
++#define MAX_FOLIO_ORDER		PUD_ORDER
+ #else
+-#define MAX_FOLIO_NR_PAGES	MAX_ORDER_NR_PAGES
++#define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
  #endif
+ 
++#define MAX_FOLIO_NR_PAGES	(1UL << MAX_FOLIO_ORDER)
++
+ /*
+  * compound_nr() returns the number of pages in this potentially compound
+  * page.  compound_nr() can be called on a tail page, and is defined to
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index ca9e6b9633f79..1e6ae4c395b30 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
+ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 			      acr_flags_t alloc_flags, gfp_t gfp_mask)
+ {
++	const unsigned int order = ilog2(end - start);
+ 	unsigned long outer_start, outer_end;
+ 	int ret = 0;
+ 
+@@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 					    PB_ISOLATE_MODE_CMA_ALLOC :
+ 					    PB_ISOLATE_MODE_OTHER;
+ 
++	if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
++		return -EINVAL;
++
+ 	gfp_mask = current_gfp_context(gfp_mask);
+ 	if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
+ 		return -EINVAL;
+@@ -6947,7 +6951,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
+ 			free_contig_range(end, outer_end - end);
+ 	} else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
+ 		struct page *head = pfn_to_page(start);
+-		int order = ilog2(end - start);
+ 
+ 		check_new_pages(head, order);
+ 		prep_new_page(head, order, gfp_mask, 0);
 -- 
 2.50.1
 
