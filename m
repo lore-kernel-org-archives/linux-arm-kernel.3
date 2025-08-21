@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0B4CA0EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D699BCA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 03:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,91 +12,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHa4LrampbSXQx1Wyi9Bh9OjrywcR0PvG9lus2xsnNw=; b=zeDTN0+xK0BBD8AEvTUc381zt3
-	hAPosSx6Qf9NUuBBWE9fLv7nZSH7I60ZlClWn3MlFI5xC95FzW9Ga4wxGHwj/c9MnvhP7gkmpMgKr
-	NDop3GwUWfqFF2iZtlPwIWWWjI0PAWNb+xK/H41wW4meyIUdcPsIsqqFtVcavg1PW4NXz5Rfl9IAo
-	CM/azSFx2KISXHA1aXA6yHzp5SWDiVls9eoBWov99a84YQKx0BJmCxBrt+vanUhQMAJWS9OE3FUMk
-	GL7sLKCKLY9b1glMdGHgOb3v5vbjlVpwa3VbU6H44jSzpjbe6Xbyvzi5SBA0yP+bSVNDB+x28vB06
-	DWWi7Zyg==;
+	bh=7HMnbUJjOig9s+/+Eizv6zpmYG/IGENV4CSNveOOfxM=; b=SdfPq+QnGm0HmhkqJ3sKtfc2KV
+	knbA4kYmF8L2Kr0WP5MYh2Gv7ZpJWw3kY8OyvcNOybHxHfiieN4ELa7BYBJ8N5+WCtMwOvXX7a/U7
+	wER28Kf2zeu2tTXNpqMJs5ooWoK0QGs3m2P1aQWu731YX2OoXZK62l+rblJhyPdtvU6ikYErsJ29w
+	KVmd06SurxqVKUAiHUeOj4kU+fQ5ldCNXW6gOjlmglVYawxQts6oLcMdOSzGLc44Ts6aQnj3S7F8t
+	bGGDfkmJRNyjwhEoA/0iTvr4Bo3lbSt2P1wvdPun4Cr/y/H5IOGELvzqCMCMaQ5n2xMKyWJMBgscR
+	mh+nRwiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIJ3-00000001MgS-1I8I;
-	Fri, 22 Aug 2025 03:19:09 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1upIJ4-00000001MhQ-1WSX;
+	Fri, 22 Aug 2025 03:19:10 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upC5D-00000000Via-2Ah0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 20:40:28 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e931cddb0e2so1169476276.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:40:27 -0700 (PDT)
+	id 1upC7j-00000000WLn-3KZG;
+	Thu, 21 Aug 2025 20:43:05 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-245fb4c8738so17232555ad.0;
+        Thu, 21 Aug 2025 13:43:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1755808826; x=1756413626; darn=lists.infradead.org;
+        d=googlemail.com; s=20230601; t=1755808983; x=1756413783; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lHa4LrampbSXQx1Wyi9Bh9OjrywcR0PvG9lus2xsnNw=;
-        b=et6Dc3AT3qcojWDhWVJXNKzArikdvb97cRK980yXrycvqFdmU3JyxHYd2eEe1hREli
-         /CAjqcodqACkN9p7w3bbvN/LYCDExgDMT++GxoxS5VCFXhDipMZ9BCOH50qnw6qa4AXy
-         0X2JYypCo4mzAEWX7IshXvjumEbLEfDdZEJlE=
+        bh=7HMnbUJjOig9s+/+Eizv6zpmYG/IGENV4CSNveOOfxM=;
+        b=lkxMy5UpLtV156REkC2bO+meBGLf/vqXPJ3BRpTE5oVfFiG2E5Ta7bmklds7lEUeex
+         saHCZue9fCdYoP3VaWBPtpER579W9KAWD5Nmcij6dV3ECznZo0LJ66KFsIQKZZmzfDDe
+         5xsGcmRYFuVhVE28meoui6gaLwkeO8j4tIZdiSxKbY/VoJbocrQBXb/Vm+ADrKqu6z9k
+         PIZpd0cTYMUGif5zeDuQdSCZtRdEHnKeXBWu2uU8doVY6Gevds52AkipL3vnfL61ZXXX
+         op5NKjZjmz/ytlgjaJargtaIp47xRrNpta1kp2o04HSxi0ltDw+8LwGOrUCiv4PnKxg/
+         OFfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755808826; x=1756413626;
+        d=1e100.net; s=20230601; t=1755808983; x=1756413783;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lHa4LrampbSXQx1Wyi9Bh9OjrywcR0PvG9lus2xsnNw=;
-        b=BvRVjb28IcY5oufnmoCG/znHL4Ui1AHf8dB2tUjm644Rz9SIrEq1xRfyrEdANbpUGB
-         gBgE3PLZuqglT7+jcs6/sejoqjsLilfPRlJZm5jAQTwYZIru0fD2tBtENRk77/Cn40eo
-         zMgMUgdX+5qiYCcwzpiI58scZqRfTc3RbAC6JEj3Eiw4HB7dMRwilMEQTs6ajnv7gPQA
-         1zSn7y6JyUyP3no/xtZJDphUHQqzfolozaAiZDlAyjgHBMo+PW2V8LUdHrooeArDzh0A
-         ma1AR8pGVSr+DtjnQxBjiNprGpZMb+yTKmkc/SevS7u1qydicEfmzLgXSkdFQq9cAS6I
-         +jJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWs/PtiFmWrh7v/YW4uMHr8qZRHy6+oAPgHcKgvOcbKCAiP4WcsX7KFNugb1t9Kaln7XFXEI+WOR/vGqz1tqC3P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtLUQyy7xw8gH7EjVDDEF9169YL34T0ShG/ERLeoDwokSnAKqd
-	OpZYuAV7Z/QncK8uVT/aqo5ybbDylxiC6gUj8Wlwbxj1JzJUCIw/NbLOiTo4KiVXLlMhroab4Lh
-	C5aLSnZwLT6x4Hxde7uisW4U9RR/AvkjPIs5M1V0aqA==
-X-Gm-Gg: ASbGnctneqV6tR/HFkq735H9AyB+2koY9Qjsl73d4JLPDz74rDquwHV6T4clVVrVD+o
-	YhL5dS8xXb54aL6Wh2R8G85tLpJom17TP0o/LYDfiSTsAsk3kvhfE6SDP7G6QvtvEnpTtZZ1W89
-	PFqeXY39Y/qBjHYd1nRi6fcEkn3k8zOSzogLSrBuekRrgPbuBb6Cp8hVhq767t+3wWUIKWE4pYy
-	wr9h0S5U5ocosgM
-X-Google-Smtp-Source: AGHT+IEDbX/Imr3oMuC/SvPpVgA4gK54+Q+BCEwHjysz7tgNECdpdXbU462KLrYXAP4tYmTYkQFLOtkp14xdKE7/w+U=
-X-Received: by 2002:a05:6902:c12:b0:e93:457a:37b0 with SMTP id
- 3f1490d57ef6-e951c33ee1bmr998901276.20.1755808826442; Thu, 21 Aug 2025
- 13:40:26 -0700 (PDT)
+        bh=7HMnbUJjOig9s+/+Eizv6zpmYG/IGENV4CSNveOOfxM=;
+        b=GiOrmMa+aAtuY8ex1cmpRtCF2aGdk8k111PWKaq/Gwg0uwI60AYSeL6hnJ2agYVgrO
+         +vpuBjH+XfpdrxcLP0s+shu98IOPjbMRGc9pfl+YBomgtrsPE5BwvowepGyjNIyg0002
+         M//V2bL4IDj36XF2xZ86spwBKgxn3QDZeazKCmfhdxI7qeczeygrCWRuimWAIjGCApZ9
+         r+7K4A5h7x66jtuAn1e99t0l3XkrerW141ELOQTKA6fMt6NxxZCIxjSWAfFipuIy2eCi
+         Y5/d3NSIyGbWauA27DA3Z4zUrUBe5hXUPaavVoZJwa4cfQq6tyle4DHZoGycA1MgNe8f
+         JuMA==
+X-Forwarded-Encrypted: i=1; AJvYcCXJqUz7njLI0r8kvpcvGmYv3Cdu77Tz7Du2BMRFV8SKcf4YanqS7IYIo8LICQ8o6O+mPWcMfzzB376dW0PuthTWgw==@lists.infradead.org, AJvYcCXaD5nSLnLov3ULWrUoWluBIpZr2E+0vPkVqnHAevQMJ88pIrIECcEPx2xZwSLBf3OPDJksppgiew81MmdP@lists.infradead.org
+X-Gm-Message-State: AOJu0YznCCda1OrK2SCNAlYRKbazQ/FtXE/ekfNr1kvZeWBn/JvWxO8r
+	djMHaBS67Elb4sCiWTdMXr2IDF27qo8nQ8Xv2NsYl9tTn3cY/LeStTtbvioQqEyrNGfEu+m1N4Y
+	mK12wJrxFcpysxbfB2F/BhSXK0WsYZfQ=
+X-Gm-Gg: ASbGnctRYYas3fb8gekgxeoeATlnfFR4hSW0Or4IA4OTZrl9i/fDXxoTHSET5Xer72x
+	CIg0Zp/iRRZ6SGPVnCeecLfqUKCW0n1rJSW2JA4imaGFFFYEwTVqV3j8MkimD2qgsh5QqvfZtrR
+	bR1irEh0WEovYgwpViIiY3v3WXiKQ+pBWHK8mi99XLNVnk6Kbuw8Q6j/+hPBGovEer8Du+KJPlF
+	HPDO58wsQ3F+owUQ9/f8uBbpO2TS7Yaeo0yBdTY
+X-Google-Smtp-Source: AGHT+IGuprKMUQEODaMep9Ho8yPNqOKRMqZI02yinYtRQ7Fki1XZs3M4IXAeEY52gzg1zE/0hwBQh7l6+wPOYT0Ocrc=
+X-Received: by 2002:a17:902:e888:b0:246:570:2d99 with SMTP id
+ d9443c01a7336-2462efc9965mr8562475ad.58.1755808982872; Thu, 21 Aug 2025
+ 13:43:02 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250821200701.1329277-1-david@redhat.com> <20250821200701.1329277-32-david@redhat.com>
- <CAHk-=wjGzyGPgqKDNXM6_2Puf7OJ+DQAXMg5NgtSASN8De1roQ@mail.gmail.com> <2926d7d9-b44e-40c0-b05d-8c42e99c511d@redhat.com>
-In-Reply-To: <2926d7d9-b44e-40c0-b05d-8c42e99c511d@redhat.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 21 Aug 2025 16:40:13 -0400
-X-Gm-Features: Ac12FXw_AatpwCNNPCEiMwiwdQxQbayKDzVf5K7yc3iQ5tLY7APrv3zl2U8Z_SA
-Message-ID: <CAADWXX_5AJxTsk5m_RvP58d=quRMqT4-XbnQQx=obBTKjHr1Og@mail.gmail.com>
-Subject: Re: [PATCH RFC 31/35] crypto: remove nth_page() usage within SG entry
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Alexander Potapenko <glider@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Brendan Jackman <jackmanb@google.com>, 
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, 
-	iommu@lists.linux.dev, io-uring@vger.kernel.org, 
-	Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>, 
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com, kvm@vger.kernel.org, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, linux-arm-kernel@axis.com, 
-	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>, 
-	Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>, 
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, 
-	x86@kernel.org, Zi Yan <ziy@nvidia.com>
+References: <20250814200953.1969944-1-da@libre.computer>
+In-Reply-To: <20250814200953.1969944-1-da@libre.computer>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Thu, 21 Aug 2025 22:42:51 +0200
+X-Gm-Features: Ac12FXweMQUvhGMxkUIwx9HmkMNbiRniVi18J_hwc2Z1Wue7xjXq3oeWyHupql0
+Message-ID: <CAFBinCA2XZfiY2ESDSp2WyM9r-XB_LSj9s91woU9iWoQKrp6QA@mail.gmail.com>
+Subject: Re: [PATCH] clk: meson-g12a: fix bit range for fixed sys and hifi pll
+To: Da Xue <da@libre.computer>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Kevin Hilman <khilman@baylibre.com>, linux-amlogic@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_134027_561887_60CE69BC 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250821_134303_832073_FE03F559 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +97,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 4:29=E2=80=AFPM David Hildenbrand <david@redhat.com=
-> wrote:
-> > Because doing a 64-bit shift on x86-32 is like three cycles. Doing a
-> > 64-bit signed division by a simple constant is something like ten
-> > strange instructions even if the end result is only 32-bit.
+On Thu, Aug 14, 2025 at 10:09=E2=80=AFPM Da Xue <da@libre.computer> wrote:
 >
-> I would have thought that the compiler is smart enough to optimize that?
-> PAGE_SIZE is a constant.
+> The bit range 17:0 does not match the datasheet for A311D / S905D3.
+> Change the bit range to 19:0 for FIX and HIFI PLLs to match datasheet.
+I have:
+-  S905X3_Public_Datasheet_Hardkernel.pdf
+-  S922X_Datasheet_Wesion.pdf
+-  A311D_Datasheet_01_Wesion.pdf
+These state (for all three PLLs) that .frac is [18:0] (that's shift =3D
+0 and width =3D 19).
+I get where you're coming from with 19:0 - in the context of this
+patch this can be misleading as it would mean that the fractional
+divider is 20 bits wide.
 
-Oh, the compiler optimizes things. But dividing a 64-bit signed value
-with a constant is still quite complicated.
+> There's no frac for sys pll so add that as well.
+I first read this as sys pll does not have a fractional divider.
+What do you think about: "The frac field for sys pll is missing so add
+that as well"
 
-It doesn't generate a 'div' instruction, but it generates something like th=
-is:
+I guess at this point this should include:
+Fixes: 085a4ea93d54 ("clk: meson: g12a: add peripheral clock controller")
+> Signed-off-by: Da Xue <da@libre.computer>
 
-    movl %ebx, %edx
-    sarl $31, %edx
-    movl %edx, %eax
-    xorl %edx, %edx
-    andl $4095, %eax
-    addl %ecx, %eax
-    adcl %ebx, %edx
+[...]
+Have you compared /sys/kernel/debug/meson-clk-msr/measure_summary and
+/sys/kernel/debug/clk/clk_summary before/after this patch?
+I'll test this during the weekend and then give my Tested/Reviewed by
 
-and that's certainly a lot faster than an actual 64-bit divide would be.
 
-An unsigned divide - or a shift - results in just
-
-    shrdl $12, %ecx, %eax
-
-which is still not the fastest instruction (I think shrld gets split
-into two uops), but it's certainly simpler and easier to read.
-
-           Linus
+Best regards,
+Martin
 
