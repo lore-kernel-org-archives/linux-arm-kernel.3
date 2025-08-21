@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1957CA0FE0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01579CA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kd0bflpJIVbIWBrwdFe7REoj653wZXP68rl1FSKTtss=; b=ANlItpzSWXTdK5yl7IXaDXkBM0
-	XEeH9pxxeqgqClTFjlJe8Bw3bRt1sLsHSNcoFJI9MvjB9ZHlphfJR6lRFX+90H1dLU1pA/xTkcVlq
-	OHOwNFx72RwNlxU58kL2ATjwFKiIGDCJG5QgXM16fwAW15PZfm/KxjDmMMvN3fpOL5u30ubSSfKdU
-	dDnojWj6+NPU93Vs5EStKCFQOtSQz7cZJ2ZCAz2r8Ran9fW1rnG174WUn4P6LVMGeyBMP5VYXVGxX
-	gZGeCUEngJqRuVgjjSHcS8OalCyrG8zQ/BZi5icTnMZZgGG9RAMLAMRqRW7c6qkDT/ORuD8owqmS6
-	nFQUW3rQ==;
+	bh=C/yj8V5UqS/5iIEMEVjqHpk+FkeeteV1a4+bzZZ6nSk=; b=eICz/uyQPitE2w9fujLDxADcA7
+	M1qntkooA6H+VycbWxqNqPuNadyc1h1VkitDB8FIXWkZCCXcG5TflmJVsL05wTKX9JU6LVFqon7b0
+	JODHDhEYwIVJPtA/pXLvbgEzsOtQHXrwZoVf7scEoAvHLFyiCyQNY90T3nGE2HlGKZeK6pIFag8jx
+	/0fJrMEYAEId/fZEQSszjkxRkOK84klbky6/QP2jcn06yiCSUt2HVgYuI7DooiXAjPCN9uQhh2olw
+	ae1dPYFlAZoZeAAvux5PaUDbhyd7QGN6RhTPrj/qxJQP+S5ZcjcdjQHO8lOT+9FD2gY9NXQ930TQy
+	kR6BF0UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7j-0000000Fdkf-3xny;
-	Thu, 21 Aug 2025 03:37:59 +0000
+	id 1uow7l-0000000Fdmw-0cWs;
+	Thu, 21 Aug 2025 03:38:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotR3-0000000FKU9-3mR8
+	id 1uotR5-0000000FKUk-0cLq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 00:45:47 +0000
+	Thu, 21 Aug 2025 00:45:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282002437;
-	Wed, 20 Aug 2025 17:45:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFC8C1F37;
+	Wed, 20 Aug 2025 17:45:34 -0700 (PDT)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 681993F63F;
-	Wed, 20 Aug 2025 17:45:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2996A3F63F;
+	Wed, 20 Aug 2025 17:45:41 -0700 (PDT)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -46,17 +46,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [RFC PATCH 2/9] pinctrl: sunxi: pass down flags to pinctrl routines
-Date: Thu, 21 Aug 2025 01:42:25 +0100
-Message-ID: <20250821004232.8134-3-andre.przywara@arm.com>
+Subject: [RFC PATCH 1/9] pinctrl: sunxi: rename SUNXI_PINCTRL_NEW_REG_LAYOUT
+Date: Thu, 21 Aug 2025 01:42:24 +0100
+Message-ID: <20250821004232.8134-2-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250821004232.8134-1-andre.przywara@arm.com>
 References: <20250821004232.8134-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_174546_032538_C2022634 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20250820_174547_313639_9BD0BE03 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,132 +71,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recent changes in the Allwinner pinctrl/GPIO IP made us add some quirks,
-which the new SoCs (A523 family) need to use. We now have a comfortable
-"flags" field on the per-SoC setup side, to tag those quirks we need, but
-were translating those flag bits into specific fields for runtime use, in
-the init routine.
-Now the newest Allwinner GPIO IP adds even more quirks and exceptions,
-some of a boolean nature.
-To avoid inventing various new boolean flags for the runtime struct
-sunxi_pinctrl, let's just directly pass on the flags variable used by the
-setup code, so runtime can check for those various quirk bits directly.
+After keeping the pinctrl IP mostly register compatible for almost a
+decade, in 2021 Allwinner introduced some changes to the register
+layout, which made us use a flag called SUNXI_PINCTRL_NEW_REG_LAYOUT.
+Now with their latest SoC (A733), Allwinner changed the pinctrl IP
+again, so "NEW" isn't really a fitting name anymore.
 
-Rename the "variant" member to "flags", and directly copy the value from
-the setup code into there. Move the variant masking from the init
-routine to the functions which actually use the "variant" value.
+Rename the symbol to SUNXI_PINCTRL_NCAT2_REG_LAYOUT, with "NCAT2" being
+a name often used in vendor source code to signify this "new" generation
+of SoCs.
 
-This mostly paves the way for the new A733 IP generation, which needs
-more quirks to be checked at runtime.
+Just a rename of the symbol, no actual code changes.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 19 +++++++++++--------
- drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 +-
- 2 files changed, 12 insertions(+), 9 deletions(-)
+ drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     | 2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   | 2 +-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 2 +-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c b/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+index 8efe35b77af4d..37a60e5d1163b 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+@@ -821,7 +821,7 @@ static const struct sunxi_pinctrl_desc d1_pinctrl_data = {
+ static int d1_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	return sunxi_pinctrl_init_with_flags(pdev, &d1_pinctrl_data,
+-					     SUNXI_PINCTRL_NEW_REG_LAYOUT);
++					     SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
+ }
+ 
+ static const struct of_device_id d1_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+index 69cd2b4ebd7d7..86a12bce0e335 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+@@ -36,7 +36,7 @@ static int a523_r_pinctrl_probe(struct platform_device *pdev)
+ 	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
+ 					   a523_r_irq_bank_muxes,
+ 					   &a523_r_pinctrl_data,
+-					   SUNXI_PINCTRL_NEW_REG_LAYOUT);
++					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT);
+ }
+ 
+ static const struct of_device_id a523_r_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+index 7d2308c37d29e..0f703cacfe5e3 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+@@ -35,7 +35,7 @@ static int a523_pinctrl_probe(struct platform_device *pdev)
+ 	return sunxi_pinctrl_dt_table_init(pdev, a523_nr_bank_pins,
+ 					   a523_irq_bank_muxes,
+ 					   &a523_pinctrl_data,
+-					   SUNXI_PINCTRL_NEW_REG_LAYOUT |
++					   SUNXI_PINCTRL_NCAT2_REG_LAYOUT |
+ 					   SUNXI_PINCTRL_ELEVEN_BANKS);
+ }
+ 
 diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index 0a5acbd978da9..a5e390c7ba0ba 100644
+index 0fb057a07dccb..0a5acbd978da9 100644
 --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
 +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -157,6 +157,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
- 					 const char *pin_name,
- 					 const char *func_name)
- {
-+	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 	int i;
- 
- 	for (i = 0; i < pctl->desc->npins; i++) {
-@@ -168,7 +169,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
- 			while (func->name) {
- 				if (!strcmp(func->name, func_name) &&
- 					(!func->variant ||
--					func->variant & pctl->variant))
-+					func->variant & variant))
- 					return func;
- 
- 				func++;
-@@ -1288,6 +1289,7 @@ static int sunxi_pinctrl_add_function(struct sunxi_pinctrl *pctl,
- static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- {
- 	struct sunxi_pinctrl *pctl = platform_get_drvdata(pdev);
-+	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 	void *ptr;
- 	int i;
- 
-@@ -1312,7 +1314,7 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_pinctrl_group *group = pctl->groups + pctl->ngroups;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		group->name = pin->pin.name;
-@@ -1339,11 +1341,11 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_desc_function *func;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		for (func = pin->functions; func->name; func++) {
--			if (func->variant && !(pctl->variant & func->variant))
-+			if (func->variant && !(variant & func->variant))
- 				continue;
- 
- 			/* Create interrupt mapping while we're at it */
-@@ -1371,14 +1373,14 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
- 		struct sunxi_desc_function *func;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		for (func = pin->functions; func->name; func++) {
- 			struct sunxi_pinctrl_function *func_item;
- 			const char **func_grp;
- 
--			if (func->variant && !(pctl->variant & func->variant))
-+			if (func->variant && !(variant & func->variant))
- 				continue;
- 
- 			func_item = sunxi_pinctrl_find_function_by_name(pctl,
-@@ -1520,7 +1522,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 
+@@ -1521,7 +1521,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
  	pctl->dev = &pdev->dev;
  	pctl->desc = desc;
--	pctl->variant = flags & SUNXI_PINCTRL_VARIANT_MASK;
-+	pctl->flags = flags;
- 	if (flags & SUNXI_PINCTRL_NCAT2_REG_LAYOUT) {
+ 	pctl->variant = flags & SUNXI_PINCTRL_VARIANT_MASK;
+-	if (flags & SUNXI_PINCTRL_NEW_REG_LAYOUT) {
++	if (flags & SUNXI_PINCTRL_NCAT2_REG_LAYOUT) {
  		pctl->bank_mem_size = D1_BANK_MEM_SIZE;
  		pctl->pull_regs_offset = D1_PULL_REGS_OFFSET;
-@@ -1556,8 +1558,9 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 
- 	for (i = 0, pin_idx = 0; i < pctl->desc->npins; i++) {
- 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
-+		unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
- 
--		if (pin->variant && !(pctl->variant & pin->variant))
-+		if (pin->variant && !(variant & pin->variant))
- 			continue;
- 
- 		pins[pin_idx++] = pin->pin;
+ 		pctl->dlevel_field_width = D1_DLEVEL_FIELD_WIDTH;
 diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-index fb17fae2dab69..77a08ccde095a 100644
+index ad26e4de16a85..fb17fae2dab69 100644
 --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
 +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-@@ -174,7 +174,7 @@ struct sunxi_pinctrl {
- 	unsigned			*irq_array;
- 	raw_spinlock_t			lock;
- 	struct pinctrl_dev		*pctl_dev;
--	unsigned long			variant;
-+	unsigned long			flags;
- 	u32				bank_mem_size;
- 	u32				pull_regs_offset;
- 	u32				dlevel_field_width;
+@@ -88,7 +88,7 @@
+ #define SUN4I_FUNC_IRQ		6
+ 
+ #define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
+-#define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
++#define SUNXI_PINCTRL_NCAT2_REG_LAYOUT	BIT(8)
+ #define SUNXI_PINCTRL_PORTF_SWITCH	BIT(9)
+ #define SUNXI_PINCTRL_ELEVEN_BANKS	BIT(10)
+ 
 -- 
 2.46.3
 
