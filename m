@@ -4,56 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C49CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C824CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vavK3n4jLICQXkojNkvAyvhmVEYhEWu/wrFccniUBwM=; b=fe6n09DLDpZCPIRCstj4HAE1wo
-	QK9hxNs2Izyewc80TDrBrNi1P5gvO4Ei/nylDVNa8tmR57ERZ92/rXh4v0X18PWMOprNCn1eOvUIX
-	ZxK+TF6ELWQoxEfsuoMlfzs56a7VStJOoNSUs++kTwqGXBSlBd5Wcv2A21+9fUv27BC+UqNG7ZzaH
-	kamiFR/1Z2YPrr8a9rKL6EsVXZ0I2Px0FYRvO+uhVdOdAaofpCPVswFSEqol5r1/90ZvdwgqndPx9
-	YIeyNsmBkdAyCOpet9/u/OCQVeBYZGdYEw1fFJDPsvSw+6U5GGHqhKn8VkjD4Cef0LiLtuAINRsPu
-	61bt2Ygg==;
+	bh=1HfvgkKViBDBmpYljJpo0E9vtsQUhTJ9vwqBCEaAPZ4=; b=l+bjyWsVQJBrMlGIZtsGLY//f0
+	B8h49YV1hFzM6cF0xie0CSzCd15Hz6OS3FPin+ZcEf5mC3aas85JDc3st+Lme9QFp+aCAHErk6nxg
+	z5pmBWumDCs9dAvUhKlOy6SV2wRn+YWeubKb06E2R210Rr6MaPgTTuZz2zMpvkTaibkRpk2rCZw0V
+	7832z9PlXULKfADmZdWPLIx7pEH7Oh97RNXM73NJE7ktbF4klQBdgR1r7vOaWmWxC4NcmOBqvGoTv
+	Dx7h7zXk+OxGDnRH7WsHIm+oM/YwArAJbRURaV1JtkoLe0YA27k1IJLCrFwseWY+waGt7GM0nvYbH
+	LUOuPMOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7S7-0000000HRQQ-1ZHZ;
-	Thu, 21 Aug 2025 15:43:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3UL-0000000GlDS-2Aaf
+	id 1up7Uj-0000000HRtg-0sQc;
+	Thu, 21 Aug 2025 15:46:29 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up3q5-0000000GoWA-32F3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 11:29:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 780B7152B;
-	Thu, 21 Aug 2025 04:29:38 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E7603F58B;
-	Thu, 21 Aug 2025 04:29:44 -0700 (PDT)
-Message-ID: <fb782326-06d6-4e3d-9614-6f5798dafee4@arm.com>
-Date: Thu, 21 Aug 2025 12:29:43 +0100
+	Thu, 21 Aug 2025 11:52:18 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-55ce5287a47so794376e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 04:52:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755777136; x=1756381936; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1HfvgkKViBDBmpYljJpo0E9vtsQUhTJ9vwqBCEaAPZ4=;
+        b=TgtVV/RwxFtVM4lhqijKwvx2U/TM+3KgHt7HmdcVK9nXZsi5+PVmRG/3pe4YNQAY9e
+         8c+OQ13SuXeHjoH4mKPd9UCD8Yc0rnKZD4xDqX51I8AQT94u61VQlP3pRkdqsD8YSeUT
+         Gw/rphluXlTINoTuh25KqnU0CaLXnv7tTcOHx2C6e3h1sFnop8j8OIs1U5EMpN7DK43Q
+         g/9mbYY5m9efTmrGr01zD0yeIO934I0adf+kp7yKPGSJWjzOG8dPhJfzCjyOOZQl0E3l
+         9GROTagWnDuexrSbPcMq8sLdjCt+B9pjM32APQYbyndTqIm7ffHbI5CUDm5lx2Bz9RGB
+         9GWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755777136; x=1756381936;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1HfvgkKViBDBmpYljJpo0E9vtsQUhTJ9vwqBCEaAPZ4=;
+        b=k8NnyPF8qAt75BYplBtKShFiUmOqueUcVCEaNvyCdLJyZdQp2WkLNRGsGRdq0sc71P
+         P4HZRjRWPclyGNH1uiQBJ5LKXuLhZgM8+cTceWCY+kpRK1k+7ydbOKrDGewjkC/LNBLx
+         JT/CC85l6oqXbuJ1PcWsK3dKXr865sYJU7TPPT0vCILB4/emcdzxmo0lV6ABFeqY8Vea
+         02y/YHNyxYOEuTG+YCafjWu7PWRWIYUxhlM1sAclVD4y4Dq/gLbtwpaZmLZnEHM25O7I
+         R6OoJGXKMqnt9pUTRF6va5yUtgDWLXclkyZASqyyU8h1r2s1qUO2R+lYNe4wXpRItvmV
+         phvw==
+X-Forwarded-Encrypted: i=1; AJvYcCWeg3sniNcQh3WO2UnoRLePQqdop+Z6gr87NVYnOzfMsgBqvkQKLY0gdk7H1jCfEisRKU+oxXKqx906r/259GOk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzf4gJIIxwVf2EprtbExmcF1kQxSMQNCjmoP5gscXTkGgZnsATG
+	nUyTW7kvao3+qZjj7+8XOR9CUVoSvDNKZnt+hbGJrL6oSIHQadr9qCacbi2vhr7jaWNttl9zHV4
+	PMivVfuTvkiNBDFfaC0FAbyBFsKQ4/IgaioG6x4I/eQ==
+X-Gm-Gg: ASbGnctfZnllUURCTuxkxmRHL3KwontKZnCEHotY/su5MDiv1V77KT5OJFLXq1zfjd7
+	861XcGwbgcKXb6YI1fMOAU9Zt0/gN36cVe1S3HHuqrZw1JxBuZcfV97iEGtv9JYrh/p5otg9x8E
+	BXIxJYRkYBWl/Bgscvp0YST1UPiI2e6daTOp5avcwwpvAIULJH/n+1A8n1hOJFjmwmKzR3sfz+t
+	1lUxWw=
+X-Google-Smtp-Source: AGHT+IE7DsV+WQk14KSKY0ALtymqoUNW021ikvEa1U5yioRxACQmRRzQMDDiUa3zI76UT8Ua7qd03ScrDSQ9aaYIYQI=
+X-Received: by 2002:a05:651c:235a:10b0:32c:bc69:e926 with SMTP id
+ 38308e7fff4ca-33549e3a7e2mr4759881fa.7.1755777135941; Thu, 21 Aug 2025
+ 04:52:15 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/6] KVM: arm64: Get rid of ARM64_FEATURE_MASK()
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Cornelia Huck <cohuck@redhat.com>
-References: <20250817202158.395078-1-maz@kernel.org>
- <20250817202158.395078-7-maz@kernel.org>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250817202158.395078-7-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250820154037.22228-1-jszhang@kernel.org> <20250820154037.22228-6-jszhang@kernel.org>
+In-Reply-To: <20250820154037.22228-6-jszhang@kernel.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 21 Aug 2025 13:52:05 +0200
+X-Gm-Features: Ac12FXyaf06rfmzUvXDVHS6gsoqtOPyc_OHXCIqFKQWuBvT2rlmZGUdGjdqba8o
+Message-ID: <CACRpkdYQLqDxh=zqrZ+wK_Ky2wD5AUoVLmCV_JDfmaqJC4Yzqg@mail.gmail.com>
+Subject: Re: [PATCH 05/16] gpio: pl061: Use modern PM macros
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Michael Buesch <m@bues.ch>, Hoan Tran <hoan@os.amperecomputing.com>, 
+	Andy Shevchenko <andy@kernel.org>, Daniel Palmer <daniel@thingy.jp>, 
+	Romain Perier <romain.perier@gmail.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, 
+	Robert Jarzmik <robert.jarzmik@free.fr>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
+	Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-omap@vger.kernel.org, linux@ew.tq-group.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_042949_714869_589FADBC 
-X-CRM114-Status: GOOD (  27.55  )
+X-CRM114-CacheID: sfid-20250821_045217_775905_5186BB41 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,340 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Wed, Aug 20, 2025 at 5:58=E2=80=AFPM Jisheng Zhang <jszhang@kernel.org> =
+wrote:
 
-On 8/17/25 21:21, Marc Zyngier wrote:
-> The ARM64_FEATURE_MASK() macro was a hack introduce whilst the
-> automatic generation of sysreg encoding was introduced, and was
-> too unreliable to be entirely trusted.
-> 
-> We are in a better place now, and we could really do without this
-> macro. Get rid of it altogether.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   arch/arm64/include/asm/sysreg.h               |  3 --
->   arch/arm64/kvm/arm.c                          |  8 ++--
->   arch/arm64/kvm/sys_regs.c                     | 40 +++++++++----------
->   tools/arch/arm64/include/asm/sysreg.h         |  3 --
->   .../selftests/kvm/arm64/aarch32_id_regs.c     |  2 +-
->   .../selftests/kvm/arm64/debug-exceptions.c    | 12 +++---
->   .../testing/selftests/kvm/arm64/no-vgic-v3.c  |  4 +-
->   .../selftests/kvm/arm64/page_fault_test.c     |  6 +--
->   .../testing/selftests/kvm/arm64/set_id_regs.c |  8 ++--
->   .../selftests/kvm/arm64/vpmu_counter_access.c |  2 +-
->   .../selftests/kvm/lib/arm64/processor.c       |  6 +--
->   11 files changed, 44 insertions(+), 50 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index d5b5f2ae1afaa..6604fd6f33f45 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -1142,9 +1142,6 @@
->   
->   #define ARM64_FEATURE_FIELD_BITS	4
-While you're at it, consider getting rid of ARM64_FEATURE_FIELD_BITS 
-too. This is only used in the set_id_regs.c selftest.
->   
-> -/* Defined for compatibility only, do not add new users. */
-> -#define ARM64_FEATURE_MASK(x)	(x##_MASK)
-> -
->   #ifdef __ASSEMBLY__
->   
->   	.macro	mrs_s, rt, sreg
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 888f7c7abf547..5bf101c869c9a 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2408,12 +2408,12 @@ static u64 get_hyp_id_aa64pfr0_el1(void)
->   	 */
->   	u64 val = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
->   
-> -	val &= ~(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV2) |
-> -		 ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV3));
-> +	val &= ~(ID_AA64PFR0_EL1_CSV2 |
-> +		 ID_AA64PFR0_EL1_CSV3);
->   
-> -	val |= FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV2),
-> +	val |= FIELD_PREP(ID_AA64PFR0_EL1_CSV2,
->   			  arm64_get_spectre_v2_state() == SPECTRE_UNAFFECTED);
-> -	val |= FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV3),
-> +	val |= FIELD_PREP(ID_AA64PFR0_EL1_CSV3,
->   			  arm64_get_meltdown_state() == SPECTRE_UNAFFECTED);
->   
->   	return val;
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index e149786f8bde0..00a485180c4eb 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1617,18 +1617,18 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
->   		break;
->   	case SYS_ID_AA64ISAR1_EL1:
->   		if (!vcpu_has_ptrauth(vcpu))
-> -			val &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_APA) |
-> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_API) |
-> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPA) |
-> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI));
-> +			val &= ~(ID_AA64ISAR1_EL1_APA |
-> +				 ID_AA64ISAR1_EL1_API |
-> +				 ID_AA64ISAR1_EL1_GPA |
-> +				 ID_AA64ISAR1_EL1_GPI);
->   		break;
->   	case SYS_ID_AA64ISAR2_EL1:
->   		if (!vcpu_has_ptrauth(vcpu))
-> -			val &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3) |
-> -				 ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_GPA3));
-> +			val &= ~(ID_AA64ISAR2_EL1_APA3 |
-> +				 ID_AA64ISAR2_EL1_GPA3);
->   		if (!cpus_have_final_cap(ARM64_HAS_WFXT) ||
->   		    has_broken_cntvoff())
-> -			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
-> +			val &= ~ID_AA64ISAR2_EL1_WFxT;
->   		break;
->   	case SYS_ID_AA64ISAR3_EL1:
->   		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
-> @@ -1644,7 +1644,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
->   		       ID_AA64MMFR3_EL1_S1PIE;
->   		break;
->   	case SYS_ID_MMFR4_EL1:
-> -		val &= ~ARM64_FEATURE_MASK(ID_MMFR4_EL1_CCIDX);
-> +		val &= ~ID_MMFR4_EL1_CCIDX;
->   		break;
->   	}
->   
-> @@ -1830,22 +1830,22 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
->   	u64 pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
->   
->   	if (!kvm_has_mte(vcpu->kvm)) {
-> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
-> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac);
-> +		val &= ~ID_AA64PFR1_EL1_MTE;
-> +		val &= ~ID_AA64PFR1_EL1_MTE_frac;
->   	}
->   
->   	if (!(cpus_have_final_cap(ARM64_HAS_RASV1P1_EXTN) &&
->   	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
-> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RAS_frac);
-> -
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
-> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
-> +		val &= ~ID_AA64PFR1_EL1_RAS_frac;
-> +
-> +	val &= ~ID_AA64PFR1_EL1_SME;
-> +	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
-> +	val &= ~ID_AA64PFR1_EL1_NMI;
-> +	val &= ~ID_AA64PFR1_EL1_GCS;
-> +	val &= ~ID_AA64PFR1_EL1_THE;
-> +	val &= ~ID_AA64PFR1_EL1_MTEX;
-> +	val &= ~ID_AA64PFR1_EL1_PFAR;
-> +	val &= ~ID_AA64PFR1_EL1_MPAM_frac;
->   
->   	return val;
->   }
-> diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-> index 690b6ebd118f4..65f2759ea27a3 100644
-> --- a/tools/arch/arm64/include/asm/sysreg.h
-> +++ b/tools/arch/arm64/include/asm/sysreg.h
-> @@ -1080,9 +1080,6 @@
->   
->   #define ARM64_FEATURE_FIELD_BITS	4
->   
-> -/* Defined for compatibility only, do not add new users. */
-> -#define ARM64_FEATURE_MASK(x)	(x##_MASK)
-> -
->   #ifdef __ASSEMBLY__
->   
->   	.macro	mrs_s, rt, sreg
-> diff --git a/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c b/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
-> index cef8f7323ceb8..713005b6f508e 100644
-> --- a/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
-> @@ -146,7 +146,7 @@ static bool vcpu_aarch64_only(struct kvm_vcpu *vcpu)
->   
->   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
->   
-> -	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
-> +	el0 = FIELD_GET(ID_AA64PFR0_EL1_EL0, val);
->   	return el0 == ID_AA64PFR0_EL1_EL0_IMP;
->   }
->   
-> diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-> index e34963956fbc9..1d431de8729c5 100644
-> --- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-> +++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-> @@ -116,12 +116,12 @@ static void reset_debug_state(void)
->   
->   	/* Reset all bcr/bvr/wcr/wvr registers */
->   	dfr0 = read_sysreg(id_aa64dfr0_el1);
-> -	brps = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_BRPs), dfr0);
-> +	brps = FIELD_GET(ID_AA64DFR0_EL1_BRPs, dfr0);
->   	for (i = 0; i <= brps; i++) {
->   		write_dbgbcr(i, 0);
->   		write_dbgbvr(i, 0);
->   	}
-> -	wrps = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_WRPs), dfr0);
-> +	wrps = FIELD_GET(ID_AA64DFR0_EL1_WRPs, dfr0);
->   	for (i = 0; i <= wrps; i++) {
->   		write_dbgwcr(i, 0);
->   		write_dbgwvr(i, 0);
-> @@ -418,7 +418,7 @@ static void guest_code_ss(int test_cnt)
->   
->   static int debug_version(uint64_t id_aa64dfr0)
->   {
-> -	return FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_DebugVer), id_aa64dfr0);
-> +	return FIELD_GET(ID_AA64DFR0_EL1_DebugVer, id_aa64dfr0);
->   }
->   
->   static void test_guest_debug_exceptions(uint8_t bpn, uint8_t wpn, uint8_t ctx_bpn)
-> @@ -539,14 +539,14 @@ void test_guest_debug_exceptions_all(uint64_t aa64dfr0)
->   	int b, w, c;
->   
->   	/* Number of breakpoints */
-> -	brp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_BRPs), aa64dfr0) + 1;
-> +	brp_num = FIELD_GET(ID_AA64DFR0_EL1_BRPs, aa64dfr0) + 1;
->   	__TEST_REQUIRE(brp_num >= 2, "At least two breakpoints are required");
->   
->   	/* Number of watchpoints */
-> -	wrp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_WRPs), aa64dfr0) + 1;
-> +	wrp_num = FIELD_GET(ID_AA64DFR0_EL1_WRPs, aa64dfr0) + 1;
->   
->   	/* Number of context aware breakpoints */
-> -	ctx_brp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_CTX_CMPs), aa64dfr0) + 1;
-> +	ctx_brp_num = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, aa64dfr0) + 1;
->   
->   	pr_debug("%s brp_num:%d, wrp_num:%d, ctx_brp_num:%d\n", __func__,
->   		 brp_num, wrp_num, ctx_brp_num);
-> diff --git a/tools/testing/selftests/kvm/arm64/no-vgic-v3.c b/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
-> index ebd70430c89de..f222538e60841 100644
-> --- a/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
-> +++ b/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
-> @@ -54,7 +54,7 @@ static void guest_code(void)
->   	 * Check that we advertise that ID_AA64PFR0_EL1.GIC == 0, having
->   	 * hidden the feature at runtime without any other userspace action.
->   	 */
-> -	__GUEST_ASSERT(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_GIC),
-> +	__GUEST_ASSERT(FIELD_GET(ID_AA64PFR0_EL1_GIC,
->   				 read_sysreg(id_aa64pfr0_el1)) == 0,
->   		       "GICv3 wrongly advertised");
->   
-> @@ -165,7 +165,7 @@ int main(int argc, char *argv[])
->   
->   	vm = vm_create_with_one_vcpu(&vcpu, NULL);
->   	pfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
-> -	__TEST_REQUIRE(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_GIC), pfr0),
-> +	__TEST_REQUIRE(FIELD_GET(ID_AA64PFR0_EL1_GIC, pfr0),
->   		       "GICv3 not supported.");
->   	kvm_vm_free(vm);
->   
-> diff --git a/tools/testing/selftests/kvm/arm64/page_fault_test.c b/tools/testing/selftests/kvm/arm64/page_fault_test.c
-> index dc6559dad9d86..4ccbd389d1336 100644
-> --- a/tools/testing/selftests/kvm/arm64/page_fault_test.c
-> +++ b/tools/testing/selftests/kvm/arm64/page_fault_test.c
-> @@ -95,14 +95,14 @@ static bool guest_check_lse(void)
->   	uint64_t isar0 = read_sysreg(id_aa64isar0_el1);
->   	uint64_t atomic;
->   
-> -	atomic = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_ATOMIC), isar0);
-> +	atomic = FIELD_GET(ID_AA64ISAR0_EL1_ATOMIC, isar0);
->   	return atomic >= 2;
->   }
->   
->   static bool guest_check_dc_zva(void)
->   {
->   	uint64_t dczid = read_sysreg(dczid_el0);
-> -	uint64_t dzp = FIELD_GET(ARM64_FEATURE_MASK(DCZID_EL0_DZP), dczid);
-> +	uint64_t dzp = FIELD_GET(DCZID_EL0_DZP, dczid);
->   
->   	return dzp == 0;
->   }
-> @@ -195,7 +195,7 @@ static bool guest_set_ha(void)
->   	uint64_t hadbs, tcr;
->   
->   	/* Skip if HA is not supported. */
-> -	hadbs = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_HAFDBS), mmfr1);
-> +	hadbs = FIELD_GET(ID_AA64MMFR1_EL1_HAFDBS, mmfr1);
->   	if (hadbs == 0)
->   		return false;
->   
-> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> index d3bf9204409c3..36d40c267b994 100644
-> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> @@ -594,8 +594,8 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
->   	 */
->   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
->   
-> -	mte = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE), val);
-> -	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
-> +	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
-> +	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
->   	if (mte != ID_AA64PFR1_EL1_MTE_MTE2 ||
->   	    mte_frac != ID_AA64PFR1_EL1_MTE_frac_NI) {
->   		ksft_test_result_skip("MTE_ASYNC or MTE_ASYMM are supported, nothing to test\n");
-> @@ -612,7 +612,7 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
->   	}
->   
->   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
-> -	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
-> +	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
->   	if (mte_frac == ID_AA64PFR1_EL1_MTE_frac_NI)
->   		ksft_test_result_pass("ID_AA64PFR1_EL1.MTE_frac=0 accepted and still 0xF\n");
->   	else
-> @@ -774,7 +774,7 @@ int main(void)
->   
->   	/* Check for AARCH64 only system */
->   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
-> -	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
-> +	el0 = FIELD_GET(ID_AA64PFR0_EL1_EL0, val);
->   	aarch64_only = (el0 == ID_AA64PFR0_EL1_EL0_IMP);
->   
->   	ksft_print_header();
-> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> index f16b3b27e32ed..a0c4ab8391559 100644
-> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-> @@ -441,7 +441,7 @@ static void create_vpmu_vm(void *guest_code)
->   
->   	/* Make sure that PMUv3 support is indicated in the ID register */
->   	dfr0 = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
-> -	pmuver = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), dfr0);
-> +	pmuver = FIELD_GET(ID_AA64DFR0_EL1_PMUVer, dfr0);
->   	TEST_ASSERT(pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF &&
->   		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
->   		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
-> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> index 9d69904cb6084..eb115123d7411 100644
-> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-> @@ -573,15 +573,15 @@ void aarch64_get_supported_page_sizes(uint32_t ipa, uint32_t *ipa4k,
->   	err = ioctl(vcpu_fd, KVM_GET_ONE_REG, &reg);
->   	TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_GET_ONE_REG, vcpu_fd));
->   
-> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN4), val);
-> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN4, val);
->   	*ipa4k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN4_NI,
->   					ID_AA64MMFR0_EL1_TGRAN4_52_BIT);
->   
-> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN64), val);
-> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN64, val);
->   	*ipa64k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN64_NI,
->   					ID_AA64MMFR0_EL1_TGRAN64_IMP);
->   
-> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN16), val);
-> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN16, val);
->   	*ipa16k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN16_NI,
->   					ID_AA64MMFR0_EL1_TGRAN16_52_BIT);
->   
+> Use the modern PM macros for the suspend and resume functions to be
+> automatically dropped by the compiler when CONFIG_PM or
+> CONFIG_PM_SLEEP are disabled, without having to use #ifdef guards.
+>
+> This has the advantage of always compiling these functions in,
+> independently of any Kconfig option. Thanks to that, bugs and other
+> regressions are subsequently easier to catch.
+>
+> The pl061_context_save_regs structure is always embedded into struct
+> pl061 to simplify code, so this brings a tiny 8 bytes memory overhead
+> for !CONFIG_PM_SLEP.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
--- 
-Thanks,
+Hm true, 8 bytes is not a big deal.
 
-Ben
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
+Yours,
+Linus Walleij
 
