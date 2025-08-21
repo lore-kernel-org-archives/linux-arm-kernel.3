@@ -4,156 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A13CA0EFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8861DCA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9A5r3pAPRE4RAEw49RJijJBWD4fj7aG831Fv2dBq0c=; b=wcDkjjd0Z5U4UIRSa8GUOb6xwc
-	EyVLABTOfl/5gUdFIJVGhnAtjnbFEKxHf8jLRYvnzHLCpEfeZnbNdEl5cLwi4h+aTHVfxu3iqAV31
-	qn6FUzO7Vaxy6DMlY8CrjBMziEg5lZl6Wmf3bg8QeJKMiqiol6oHAM4eIM4cUfijLts4v7I2o7UG8
-	xVZ4UyVBCx8vLw/YxSzPjHVchaU4TIo0TyWWGx7rr4vmw8l9tQlc7Ge/mCerFCAW/9KMmLgfkfjoA
-	wMV9J+oBuLdT9P6/sVKpmlYTaMAMuXYidGJdK8PXyEu5wuMUUlIFAuaUVvfORTxtEX6UL3NnEOCqp
-	8lC8JgMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RPcWzBqzpxH/vCcPwbyHpvWcL3mp+B3rVgPV/lNh930=; b=xpkw5tmFaYfhjhBfFLRay3YRUh
+	ruwETHLO/hkxe3vS9gBHVRHzk7Eje7OX+dq9qvaU03xJ2wK//fXL3RAw81qAUEKwgoVDIGTiBGYMP
+	RDmsiDbfNe6N7vag8zY1eq/Mw2Bp3HiON2TXAQQnnIGFS7j7GzaPA6zpZbcupZdOArFv2kbhChb1P
+	Qk6NEy0KygK3XYhZllhCKwV6dyBVJOelo8HCaUpDSp8B8vLTIP+rp7Set+omgors2rWtTFg6MnpWi
+	8b/GemsVZRWFlUA32b6bIJRJXuKDLOG0rAaIPFX4B8C+httWuq9pQzn5uDOkbmb2mA5YRmp2hSMIJ
+	OZ5CywAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDsr-00000000kd3-3PbN;
-	Thu, 21 Aug 2025 22:35:49 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1upDsx-00000000kiL-11am;
+	Thu, 21 Aug 2025 22:35:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up72p-0000000HKVp-4AFB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 15:17:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VZxXaS+8wxjCRFLQEZDZOlcMHj8Z3QA4a9K8l0yme6NuMBH/RqnXl16juSE62m4hmctZDBVZz8DxVYe8IYVYqCThkxJ5jnojTkdQthSSFcW9gvflhEVEvaU7TZFSi24deb1ROpGuhPxJ3EZJDbzxHnX1ms9dXqBvJlfTVV7RqRbNjsgAoQrQm4K2PWBcuR1yPMpXEXBQwWCopmsjz248iHvlXMW5KpDWGpLgRKJWGxFOzzbBDHc/eYDb09H0Fnrb9SXYXKDpdL5Mne59aLaBiw4+I+pF6g3QqyLc1PBk62OHw4gG1N5kmzhOGaSHj+QMvdlijD3Z4WP523gNvdDEfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l9A5r3pAPRE4RAEw49RJijJBWD4fj7aG831Fv2dBq0c=;
- b=KPKt1G5OlBpDM0Jd55pBDqiXjdWAayW07pJWY986aCjs1aspUg7F7rNzfiDKtaIPcb4eT8cEK/AHOnmJkD/0zortXbibVh553ZZ6f12vQqZ0f5wS/kp2cGZjGxQHu+602H8kFlHVuhxehbn6ShKbs6Z+2q5B1EGTqzsFlD524X9U/weqqtIisK/d3bzjCydIP62L7NZKPmrSnDmoPP/mJImJNKybyZlwBQyEu2wnb/T8GZVOhTDxLFQ+YItHFuftf9Ijh80uX7ma6jTchxNqtMiIx7F94nP61vMM1sgjAnGotJzCPu02k50NXcuHqOuqYzkE9qIyJbB0YexYvKztbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l9A5r3pAPRE4RAEw49RJijJBWD4fj7aG831Fv2dBq0c=;
- b=mU7eVO2CmQ19qD5shRFXEXHFGJnKKhXaAiH16zr/EAYiqfci7G0kgJI0Rrc+XH4fnfHPS4CPFCYarCynYLa8xIROjSoSqAOgJHuTVxekd6elHEvxrusijtabKaMpcTR+IKpmIlFLoyiS2meK7hfEzqTTywsMYalVRNgRbXsXTK2L/4+dxSQyVs8N0gOpJhap7eJvw67ilWwlXO2MS1ihybXsw1OpplKUfP6GPZNKUc+T2XRhpo0T6K7bZsQ7pHTjQSm6qOJCJLFdsdZL5FhPS4i5bP2eTcTW85SEcEmnu10gPSmrvoRZh/38A9vsCNEOJ5JRtBBz8tHQ3m0SF4AI5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM9PR04MB8699.eurprd04.prod.outlook.com (2603:10a6:20b:43e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Thu, 21 Aug
- 2025 15:17:35 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Thu, 21 Aug 2025
- 15:17:35 +0000
-Date: Thu, 21 Aug 2025 11:17:29 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 04/12] media: imx-mipi-csis: Shorten name of subdev
- state variables
-Message-ID: <aKc4iQ+BQjn6vGGO@lizhi-Precision-Tower-5810>
-References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
- <20250821000944.27849-5-laurent.pinchart@ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821000944.27849-5-laurent.pinchart@ideasonboard.com>
-X-ClientProxiedBy: AS4P189CA0034.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::12) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	id 1up7OW-0000000HQWe-3VB4;
+	Thu, 21 Aug 2025 15:40:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0836260241;
+	Thu, 21 Aug 2025 15:40:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 507A2C2BCB5;
+	Thu, 21 Aug 2025 15:40:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755790803;
+	bh=IkYJcWoLA2rLfckELzZ7/MEeJmaNFSfjqJBO6WsyuPI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=FsfyrmlEOKV+Wb+nIM0lqChcTyEtRUJwpKmwIfppm56OsPjLHZRUvzYwEjEnTEbKB
+	 YWZR+I0Bi1RIr+OVpFr/hTBtjm/7sdd2/jFUTyDkJIwew2u1UGbp1g526XOxIeB5WC
+	 5eSM2pZyRYyGNVOkTFw5VLud2gG2nRh50775TpImxEsaWCbi8yJrR4IaQ1otIbzIB1
+	 l9pC2ffPSY4mi7svuFSz1B6GNMuhqgsTuLV5V+A4PsGoNiJGH+AeevRuZTk5g+wpvn
+	 4FaflDJI0AB1oQkibW0qL57LAiLvAqzfMwQlI1HQkaUVhPXpZLEHudEd5K5Vdeq+S3
+	 JgNJEhEU0gi4A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 47261CA0EEB;
+	Thu, 21 Aug 2025 15:40:03 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Thu, 21 Aug 2025 15:38:58 +0000
+Subject: [PATCH RFC 06/22] usb: dwc3: apple: Use synchronous role switch
+ for apple
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8699:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5e510d6-c01b-41c0-a37b-08dde0c5db4d
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|376014|19092799006|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1yuvDJd2n18UfEy3LkHRNsUXULmq5ZaDaxWi1eaoJE8TOF1umGJCkzP8Qcdr?=
- =?us-ascii?Q?D72nfUY5oOKrM3GtILFTgsgUqMHAtubaMrazHxCjPy1YQh47SB+J2t3PQhHy?=
- =?us-ascii?Q?Ip+R7vvtZT8tAZwSF1OS74GcyqrzKWDRZ8Y6HA+0oZRJrBKh1KC/TDzqJt8R?=
- =?us-ascii?Q?2lm7S7DPftMoxS+7ekMfkRuwpPimtSpx3bABugSuWgCZhHRTa2fuFo1EfH3D?=
- =?us-ascii?Q?YM54CIHwPwOVmv0SzRhnqLxf0byRApJWNSqBfh4eQeN9omD24HivbPY1prgC?=
- =?us-ascii?Q?5pjFkj4Ts6FX9z7dm0AVmJ2vJy8NNBmrzOb8CdHWj3HmT5xW4YcQaagL4594?=
- =?us-ascii?Q?jHGYMC8eK4pkXRCQGMEAtwQGGd5rccZCub/lPDyWtMzivVxGZ2Av3NXJn1vb?=
- =?us-ascii?Q?VFIzf8TBpE9iP3tswqtHuaAWyALDuaV9fyFKvwPiooqD2TACwMnQqlzzjy3H?=
- =?us-ascii?Q?yuwxlk1Vu1wuqT6R8uoX31gjgZRyXfRDmC1I+2LkOrVmF5QPr+J+hJfaTKOw?=
- =?us-ascii?Q?zu3uaNTnxdA0LhH2DAzLDyrDpln1+h0mv7qYCAUj7N1ZJWh6nMk24N6a3WQF?=
- =?us-ascii?Q?f2g+n9MZUhQe2MZ2xGjTuXFYhswVhKBH9DKOFBbGtZcXrHBrJXy9Xrh+rKX5?=
- =?us-ascii?Q?yWlyRdwxCUsSn5Q/qobvqB/3j5QqOdvdWnByn3bAtxQ83+wZnJmmzmA2Bp+O?=
- =?us-ascii?Q?y3bcRwtz1AvquqBqIAYp16Zb3IEU/AVNhxOQpuRjOcOBA+W4epC09BvIHXyC?=
- =?us-ascii?Q?KlhQoNrGKF1/nvcfu/D/mf4hnL4k4Qi5KGlsvtGdonmJjaLMj5fwmEQ0bF2j?=
- =?us-ascii?Q?ygq/2+xuyB6ImD6OQx4CKMfUB7quoeBy+mc9Z8LgSIFn8ST+3niNsOwrNoPF?=
- =?us-ascii?Q?IvzkVYU8Y9uUiBFo4yp9gYujXKP+UNpuRLGn3kPlWIZjcat67TWBrqSKLkAq?=
- =?us-ascii?Q?Y5a4pefe4WfXQl8QPPhvbv5AV8BWVz0Po9mwrjTRSxwpdnEV/4bYYEOAT46p?=
- =?us-ascii?Q?MgNhC+g1Hdw0ha04waXBmh54CyFlcitE9GnSStO8L87M0xjKFYCaztkXlFCp?=
- =?us-ascii?Q?IrKKNZuMjDU2m6aDmZoD+Vm2I4sqbyb0GLy6zr82wCsGyIlZiT3v04v0aXBT?=
- =?us-ascii?Q?cuuEdwHcsWU/TxSVB/hMtvh69CKzlycST4R2o9ASsT21z0MbmVDc2DmvwZnV?=
- =?us-ascii?Q?8aV6ps+emS7NCuprG731lyCZtpvKPNIxYcJDd4b23Pu1HLrVmQnALT9lIGlJ?=
- =?us-ascii?Q?Wd9pU2vgNdE+dZjXE1FX/6KLPz/kFiBSequBu58ULgHuDFy7R3x8+WtgjcPx?=
- =?us-ascii?Q?09lZvn4hJZbP5vcTW1GMRMk/xAKF5LLw71Q+vTFGmoHEoMHhOQjnSFUnDz1y?=
- =?us-ascii?Q?ouOUBqnPjgg/VmcAdD0MboEZBeCMpNKRKAi9iBLJ3Gs1OHX7q6S6qsMZCbPY?=
- =?us-ascii?Q?7AlcnYRtkdYugCQHzNz5P5DCtudDU8/EP/+KU6tWtx+VHQDfq+Md9g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(376014)(19092799006)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?40g68149cGQcok2vHeIInbu3/0ZuwbOEEMIcBv2V9+NaLzpsD3Gc5bPk7WsH?=
- =?us-ascii?Q?1zArh7IVLvLChMq5gflf7BkRw2RDQt50CELHT/liboyOb6YlCf82OxEkz3J0?=
- =?us-ascii?Q?Tg0J+ZPodbDc/Dc8d8tFgbR3PHYHkI5BNZ+nT7ATFZ+3je07AMO5sb4QvO89?=
- =?us-ascii?Q?9x6kjUDAz2sH1s4OTBvPYqFZwMWcS9hfNpFcEMdVrksWe4aSBXmQRGgC9J59?=
- =?us-ascii?Q?oYhuwx7x7+I/VZH4YdljWPXy0wU7XQCqJ3BiVRv95IVhXHNYttrb7cj3EbtF?=
- =?us-ascii?Q?0KELXVeAiFswDVQt4AmYY7SZIM8f1WKvd5a2GY2kLgT7ljZxm1Fz8/weDOXL?=
- =?us-ascii?Q?ieEXVT9s55MzVWb9tMeEo/Eg4Dobm5WjhdpNkiE/bEIap9RnLouW8YeB4rR2?=
- =?us-ascii?Q?Y6LmFtrQvicX9CdxK5I+MzuIuoLeZHvvB4HtGrgYWyaGL9gN/8k4iWBWmTT1?=
- =?us-ascii?Q?O7sk4uwTF+p+CkHAB/KFgZ5+atBQH+Z5l4UtlCVrkxmvVtrhrVjI866JWwua?=
- =?us-ascii?Q?bdAyz2G8wgIt1lQf/UMtzZn1wu3d7CxY2h7IjFHGLgMIZTsnrEARjwt/jH/B?=
- =?us-ascii?Q?ZqzEXb+X4ipCCiZ5w3LcXrwUH5OqSQ+k1tcW/80H75KK39ww4Q40UizQw2SW?=
- =?us-ascii?Q?uWTFyGp7I2dg8+qIp1D4HiRX4M4rLrB6s1ff2nLAEj3xExNSIk21vma3V2/3?=
- =?us-ascii?Q?z0FhYzOZYXy7dQf/EVy2ZavukgQtQXuvyOifr2XAZtd//66Pwts/4Au/Mp/2?=
- =?us-ascii?Q?2bd/idwVQoq4Z+/GwMbC7+1My/lh32z+Z3QaxI1Kc0nS9cC+C133AJLVPBQr?=
- =?us-ascii?Q?/0GMtAMwT3ifOeJjFwdbLRuld75ZbVz1K/MSNR4emzy65/NW3DWtmQz+hypW?=
- =?us-ascii?Q?hs+Xa93lqwoF5TJjmx5FtwI+5Gl87hTC99PtY99LFK+oNO5oWycDhxKPPPDw?=
- =?us-ascii?Q?uL6XuR22+U3bUhsZ0oFHTp2q/gIpzgQXG/6RqKv5wYe/xCWWZHA2y7PMQ+j8?=
- =?us-ascii?Q?vPAV0JSHdYHfkWgrKRkyRyhpd7V1JFRVtyibZYDvgDLUhBDy4IVTIpLFY6Jt?=
- =?us-ascii?Q?jN7Orlb7f0MRvhXbDVE9G4sG8A+d+b3UONn6pleELiBPWWN/yUM2QyhG/C3i?=
- =?us-ascii?Q?n92dDwyEKq/AVNZ24j0XbAucot8ZkVjuUGlx1Fh0yU19+wsw78jNBgfZ7TC/?=
- =?us-ascii?Q?euotHl1lYMFEeP/UBZb0dWIbYXNRz8aqol6m/xmvxrP7OCz4QManMpndia64?=
- =?us-ascii?Q?84zxIlvER8Mt+4CUeUwH+ndeqfrrCIOK0+Awwvqo+w9r09dgusidHHmA88aa?=
- =?us-ascii?Q?D0TLB690aWBW0BK/pui3ZFZTQTWcdsxKyFT6MD7LHQQ+pANIgjyGoQV33qZj?=
- =?us-ascii?Q?pOi1Wpg/3ouC7zYYvF/iO9Q8OZQjbbNGVzMqlsJXKNM5lmalbQk9xmFaGlF6?=
- =?us-ascii?Q?HF2ENrjC0i6Q1BoTvGtRvQzJOYMQIU/pL7ffGS9gg36G9UjjdMtf7qeByfcG?=
- =?us-ascii?Q?zA0dBcSmtCfGWQ+t45XXNw0WSJW/75ErJLroVklnoLob4OnKCAFMonJipB0t?=
- =?us-ascii?Q?BI6lygTqifFaX3j02vejfAQFNhVX+4Ne5YIf9g9p?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5e510d6-c01b-41c0-a37b-08dde0c5db4d
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 15:17:35.1050
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SIrqiC5gWHr7c6u0Jd+SoAOPDu0ND/rJypXUF7SW1dNnzRQuPXHeJLUcKTt9RJRPjMdXcV3ZpPNpur0B2aM44Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8699
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_081740_031479_EC4AFFAB 
-X-CRM114-Status: GOOD (  21.41  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250821-atcphy-6-17-v1-6-172beda182b8@kernel.org>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+In-Reply-To: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ Sven Peter <sven@kernel.org>, Hector Martin <marcan@marcan.st>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2573; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=058aqG9bEa8oe7SO+GMmVlqjGZcjvS/tEo3r4EQvouk=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8Zy2+UC0hd+Bh823r3XcKJ8oEPnnJ3HmfjaXOV2l7ybd
+ 2dpspNjRykLgxgHg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAij7IYGfq0fz73rlgw8+zH
+ w99XssXN+PqrL/+oTxr39wN3ha5FGaswMvyzSAzbEJJwf1ad3P38q6p3lrSHS6XvVD/GPOHQ5a5
+ VR3gB
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,105 +93,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 03:09:36AM +0300, Laurent Pinchart wrote:
-> Rename subdev state parameters passed to subdev operations from sd_state
-> to state. This standardizes the naming of the subdev state variables
-> through the driver, and helps shortening lines.
+From: Hector Martin <marcan@marcan.st>
 
-Nit: I like simple sentence.
+Apple's dwc3 is connected to a Type-C PHY which supports multiple
+protocols (USB2, 3, DisplayPort, Thunderbolt) and has to act as a Type-C
+protocol mux driven by the PD prot driver (tipd). The mode and mux
+transitions have to be tightly synchronized with dwc3 bringup and
+shutdown.
 
-Rename sd_state to state to standardize the naming of the subdev state
-variables and help shortening lines.
+To avoid racing PHY (re-)configuration during hotplug or role switch
+events run the role switching inside dwc3 synchronously instead of
+relying on a work queue on these controllers.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+[sven: added commit description]
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/usb/dwc3/core.c | 6 +++++-
+ drivers/usb/dwc3/core.h | 3 +++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-Frank
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 8d2dc7fa18114102cc8893c4ca0e745e16f30754..f8013ba2bdc22fa5e719df0841b12b84d9465b62 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -317,7 +317,10 @@ void dwc3_set_mode(struct dwc3 *dwc, u32 mode)
+ 	dwc->desired_dr_role = mode;
+ 	spin_unlock_irqrestore(&dwc->lock, flags);
+ 
+-	queue_work(system_freezable_wq, &dwc->drd_work);
++	if (dwc->synchronous_drd_switch)
++		__dwc3_set_mode(&dwc->drd_work);
++	else
++		queue_work(system_freezable_wq, &dwc->drd_work);
+ }
+ 
+ u32 dwc3_core_fifo_space(struct dwc3_ep *dep, u8 type)
+@@ -2274,6 +2277,7 @@ int dwc3_core_probe(const struct dwc3_probe_data *data)
+ 			dwc->dr_mode = USB_DR_MODE_OTG;
+ 			dwc->role_switch_reset_quirk = true;
+ 			dwc->no_early_roothub_poweroff = true;
++			dwc->synchronous_drd_switch = true;
+ 		}
+ 	}
+ 
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index 3c3a36ec37345b2f9e71444ba3b90b52dbd24443..98e748cc348dfd9de1962c93fcf9f6a6690c2388 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -1156,6 +1156,8 @@ struct dwc3_scratchpad_array {
+  *		  before PM suspend.
+  * @role_switch_reset_quirk: set to force reinitialization after any role switch
+  * @no_early_roothub_poweroff: set to skip early root hub port power off
++ * @synchronous_drd_switch: set to perform role switches synchronously instead
++ *			    of using a workqueue
+  * @imod_interval: set the interrupt moderation interval in 250ns
+  *			increments or 0 to disable.
+  * @max_cfg_eps: current max number of IN eps used across all USB configs.
+@@ -1396,6 +1398,7 @@ struct dwc3 {
+ 
+ 	unsigned		role_switch_reset_quirk:1;
+ 	unsigned		no_early_roothub_poweroff:1;
++	unsigned		synchronous_drd_switch:1;
+ 
+ 	u16			imod_interval;
+ 
 
->
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index 0f0863011230..894d12fef519 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -996,7 +996,7 @@ static int mipi_csis_s_stream(struct v4l2_subdev *sd, int enable)
->  }
->
->  static int mipi_csis_enum_mbus_code(struct v4l2_subdev *sd,
-> -				    struct v4l2_subdev_state *sd_state,
-> +				    struct v4l2_subdev_state *state,
->  				    struct v4l2_subdev_mbus_code_enum *code)
->  {
->  	/*
-> @@ -1009,7 +1009,7 @@ static int mipi_csis_enum_mbus_code(struct v4l2_subdev *sd,
->  		if (code->index > 0)
->  			return -EINVAL;
->
-> -		fmt = v4l2_subdev_state_get_format(sd_state, code->pad);
-> +		fmt = v4l2_subdev_state_get_format(state, code->pad);
->  		code->code = fmt->code;
->  		return 0;
->  	}
-> @@ -1026,7 +1026,7 @@ static int mipi_csis_enum_mbus_code(struct v4l2_subdev *sd,
->  }
->
->  static int mipi_csis_set_fmt(struct v4l2_subdev *sd,
-> -			     struct v4l2_subdev_state *sd_state,
-> +			     struct v4l2_subdev_state *state,
->  			     struct v4l2_subdev_format *sdformat)
->  {
->  	const struct csis_pix_format *csis_fmt;
-> @@ -1038,7 +1038,7 @@ static int mipi_csis_set_fmt(struct v4l2_subdev *sd,
->  	 * modified.
->  	 */
->  	if (sdformat->pad == CSIS_PAD_SOURCE)
-> -		return v4l2_subdev_get_fmt(sd, sd_state, sdformat);
-> +		return v4l2_subdev_get_fmt(sd, state, sdformat);
->
->  	if (sdformat->pad != CSIS_PAD_SINK)
->  		return -EINVAL;
-> @@ -1076,7 +1076,7 @@ static int mipi_csis_set_fmt(struct v4l2_subdev *sd,
->  			      &sdformat->format.height, 1,
->  			      CSIS_MAX_PIX_HEIGHT, 0, 0);
->
-> -	fmt = v4l2_subdev_state_get_format(sd_state, sdformat->pad);
-> +	fmt = v4l2_subdev_state_get_format(state, sdformat->pad);
->
->  	fmt->code = csis_fmt->code;
->  	fmt->width = sdformat->format.width;
-> @@ -1090,7 +1090,7 @@ static int mipi_csis_set_fmt(struct v4l2_subdev *sd,
->  	sdformat->format = *fmt;
->
->  	/* Propagate the format from sink to source. */
-> -	fmt = v4l2_subdev_state_get_format(sd_state, CSIS_PAD_SOURCE);
-> +	fmt = v4l2_subdev_state_get_format(state, CSIS_PAD_SOURCE);
->  	*fmt = sdformat->format;
->
->  	/* The format on the source pad might change due to unpacking. */
-> @@ -1130,7 +1130,7 @@ static int mipi_csis_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
->  }
->
->  static int mipi_csis_init_state(struct v4l2_subdev *sd,
-> -				struct v4l2_subdev_state *sd_state)
-> +				struct v4l2_subdev_state *state)
->  {
->  	struct v4l2_subdev_format fmt = {
->  		.pad = CSIS_PAD_SINK,
-> @@ -1147,7 +1147,7 @@ static int mipi_csis_init_state(struct v4l2_subdev *sd,
->  		V4L2_MAP_QUANTIZATION_DEFAULT(false, fmt.format.colorspace,
->  					      fmt.format.ycbcr_enc);
->
-> -	return mipi_csis_set_fmt(sd, sd_state, &fmt);
-> +	return mipi_csis_set_fmt(sd, state, &fmt);
->  }
->
->  static int mipi_csis_log_status(struct v4l2_subdev *sd)
-> --
-> Regards,
->
-> Laurent Pinchart
->
+-- 
+2.34.1
+
+
 
