@@ -4,94 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A74CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E364CCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XjehKGt2s9Iw0S60/WJtSyoiI8bGy2dbzPpshFFO9Q=; b=RQOpr3TMvYyIYXopnhMsp8tiVY
-	IAcOkzN6CJJMgpvBYiWTHw1GbESTB6ewJKjWXsU8VXXsDcrb55BL35yrwnB8Ma8W5oRRC8dGelhj5
-	GM7KcWIdSQ2qwvqQDRlMtHeI8dMj5TYlMblLkTDQpnc+GWTHAu3a5KrGl2NmWDmX1MWYMKJQRUDVY
-	OTXxTVrcBbrk2L4utoem1iITpZNSGjdXycVCn842CVTYkwYJ5ERw3fmftoGWJVseIHoHbqAr5UVrn
-	8QvKNzScBMJ+1y+kiZWJGzXjgHSqFK9aVhyZLwtIx3H6wFy0Zs+5WMSjYuSnSCpltgfQtCBzr968Y
-	vItdMmHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R1hCB7HcS2bzez3S37eGrymsQTBw9cIzkfsQShPc09s=; b=37b71fYxJIP2SZw+gx9uzenEV2
+	AY7+pHemtBSvgT9+5h7m18Q3M0hhmK4/qYxSFr/qfbm3B23rcWmAV6KUHBMnSmmE33m5N9EtGYAcz
+	OREIyK8eCvdrvkiY2K2P13qVMoESqK3tDPKOs7oBZVsjJkG2gPBc9pbW5FP8GNg+G5tp23rlJd5hn
+	120aSej+hdJKZ2ppRH7FgYvfW4r3HAI5e6o+1N6hd/tqGw2vHiO475n/7RM9oV5bEwRbbLocvQ2JM
+	Nd846Kf1fKe8B6CfzJbKkz+HN3ObCFWlgjvSevGTOHj42mP1C+0/NtXjywESvVvuJt+sRnJQS0yV/
+	JbzkTlVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1np-0000000GTJ5-17v7;
-	Thu, 21 Aug 2025 09:41:49 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1up1o0-0000000GTWu-2FM0;
+	Thu, 21 Aug 2025 09:42:00 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0H3-0000000GBC5-1nRs
+	id 1up0HN-0000000GBGr-1bMA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:03:54 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-45a286135c8so9052235e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:03:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1755763432; x=1756368232; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2XjehKGt2s9Iw0S60/WJtSyoiI8bGy2dbzPpshFFO9Q=;
-        b=Bk2fL9mxIdywII786LDvbTkBx5vMKp/9ag6sLRVRvaJwraDiGll61BJED/0FpRcPpc
-         jS8FPvGT+YSqfoH1WfWX0f10B9MB5/Hu6arqndz8STLNpejtNa+IU+wKzAF1oeX0aCH3
-         aJM4C3A8Evzy7S8XTuLw1gf5pknCQtR05Ml+CedNpkF+C2yQt0AlVGDx8TluvY7OjzLX
-         hKqjLYmNYRXicTln2s1eLR6jqHfz09CQEJJVSk36J421uUV4yEPniJR43BHmKEIG35JH
-         pTe+xiY8yiS+kTpqoXS+G4fZzWSqd7M61tAv+sJGjrPWytOXjsmRmRx0ZQJP12Fy1qxi
-         fRrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755763432; x=1756368232;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2XjehKGt2s9Iw0S60/WJtSyoiI8bGy2dbzPpshFFO9Q=;
-        b=LBn4Cz6wol5Gy6zdV+mw/BwuO98oK5EvAe1xJFl7na2nLJGJeNlZacYSOwEmJtjv0L
-         hTiSIhwjeM7QSzQthKpIBl0FQKl783fnIok/UuzvZgNEXzCeCcKigLrXR3Ng/akiVqL5
-         mxALCyccXHYtdQBQv/SwPow0PKmAykdnOlTbgdCI17fR6aRjYQTslcIe97IXHg2FNHeq
-         MamGZLp/3Mgg/hwv8VitE4K3bTooK7tEpUjWDuEiEr3Svjg+a4kgX9y+b9A0Wntc6Bje
-         Yujltwdz+AF4wcasrUxmllkcoKeBH1PRvkPp40hDHuVp84FG2FEXOIVCtSfLh6o0iMNc
-         wSfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW4e08TThTa1UgzQOT/ysF3gCxAVuRypIVLONEJMGm4UhCwUbpD6yUmdM7/XKkh/gHYZscY3FP8d5Cp6a9Yi1DB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6kdeDTDauoALrWP4FMCRBAgIwutx8Gy+p8uVTtBrqWWltL94j
-	6bb///azjiBSGZHn4HDaneXbSBcEpGgke7wNa67npxy71MsvlYvhufT4BhXmg8qgm/U=
-X-Gm-Gg: ASbGncuc+fZUQ8PbQLyKDnlLYfRfVw31xRoj/b5h+Srv7ZQR8SP6ezl4+x0SKj66ZQ/
-	u8A9nXA3x94UeDFwxgNdZI6/sfrwO4LXZl4v6wbMUe25M1Z/CqCEj30xIJchufvNzldWPURPeoe
-	VccxTHfcuQXDUtOl7coljSNxvyiQVTWM1r/xc18G9D07RHcaE1EwSr60JHGvZAEN+9oT7hG9dOB
-	pvi67t4TDr+2XTTC6ft9ovWpEXLvewW8HqzZiFEY2Jadj3HCRviwa5Fok+4RkZt+dZXYPU2kg4I
-	JtFoqQqwexs1JhcLLFCM99iik1SanY2YHQLbM/YNVYO0CqkP57iQR+fkarHqezNuSTQjBm9nGWh
-	k3KHI7+DqZkUxZUI3yJJE3FQv9muOYDM/7efqNj8zUWBnJGAlSUA=
-X-Google-Smtp-Source: AGHT+IHc431XLCYaF8pLi9lptfBNKV1wKndQFd3h8KySRGUYBaDuLZGptDhbLDqZIqPusEPqY1JIQg==
-X-Received: by 2002:a5d:5f56:0:b0:3c4:9c59:52e2 with SMTP id ffacd0b85a97d-3c4aec25ae2mr1116773f8f.7.1755763431534;
-        Thu, 21 Aug 2025 01:03:51 -0700 (PDT)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.81])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b4dc155b8sm17356225e9.19.2025.08.21.01.03.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 01:03:50 -0700 (PDT)
-From: Claudiu <claudiu.beznea@tuxon.dev>
-X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	geert+renesas@glider.be,
-	linux@armlinux.org.uk
-Cc: claudiu.beznea@tuxon.dev,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 1/2] clk: Export clk_disable_unused()
-Date: Thu, 21 Aug 2025 11:03:31 +0300
-Message-ID: <20250821080333.27049-2-claudiu.beznea.uj@bp.renesas.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
-References: <20250821080333.27049-1-claudiu.beznea.uj@bp.renesas.com>
+	Thu, 21 Aug 2025 08:04:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iNc2hhrAntqpRYPu2aO81KDbjq0N/ZVr0PbpfVUYERnTFIHPAKcd+1gX+4jEl8LI0Cgy+XvqVttgAwL8UxVBmxpPnkrv27FMwUaUwVVaeyCTQxpLf/MUzzboDmRfyRWCub63Ztt4fJAM1fXreyoFOsuU+ynNtMZMmo8LKY2onu6jSbuegSFUvekcVUsbh9cxGVFwnjOnkGH4vVxA6OzH73vIPkSoeY+yPXfWMqQrEd+hx40Qki2KhpTpHQhJxJLYqbPDFVJ6zPVRmF8v59yyoVqp3zXob9KXKd22vaNG0E0JwYedjP94d2j7QCDTeyglMUleFaBcrfuCYKmvgQs+HQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R1hCB7HcS2bzez3S37eGrymsQTBw9cIzkfsQShPc09s=;
+ b=odjQfuOLrVWJ2tgJvJ9W2I1ndPZSiLt1CpDR5F1MLJRE0K5xWDjkGu4Ad/tHyxrucwyDNavkRGRaHTx4iatSZbrpqTJkzx6aRs+5OLeT9LrxlwXrxj3N+biVi2H1TdzNslTHbt+CRI6pLFsM4Ec6Nm0wn/R5o/UfupSPk50Eytf4jweWGC6XxI9udrntNHU4QPRzDt9klZg4kG9MMsiAeJ6oyFRX6qvj6rfosdi1sWDAnxCszLqqAZGX5gNiAZYE5/58M39mcL5K3fs0IpzVLxwTEoQCT8S9KEHCRbEWZZC/AJMIBWa+CdFouIK4exgqzQ8Of+VntbV8XYqzR+T2MA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R1hCB7HcS2bzez3S37eGrymsQTBw9cIzkfsQShPc09s=;
+ b=GdlNB+/V+xU13lhS5IGmH6T76zE0/6p+Y7LBQJU+qMkI75yVa/N5J7Y4Pg01bWY59gMWPGZSb9sm+kmxP2KFc4W6P53IFIe9GKRLQwPtZIfUEHVmuJVpSvxB8wg/frdR7vbwThw8W78hgWSn5OF+XQncVwfDZDah6KOEALQrdNV5kOkfFScQ4Ukpzrk33SnnrJQsqX0W0vIFkEsp+JgAgwzLMUIMYDz1hz9UySkSceotOLsYi7ooNrRXNyVobOeoZqLVwaBeXgu8NKqTnOe39ofEV/rfFXOdNADpbwxmtHWSFPzBQ9WiD2KNBK90F1K4n+RaujW32abdDLyhvqnewA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS5PR04MB9798.eurprd04.prod.outlook.com (2603:10a6:20b:654::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
+ 2025 07:59:03 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9052.013; Thu, 21 Aug 2025
+ 07:59:03 +0000
+Date: Thu, 21 Aug 2025 17:05:15 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] firmware: arm_scmi: imx: Support getting syslog
+ of MISC protocol
+Message-ID: <20250821090515.GA19763@nxa18884-linux.ap.freescale.net>
+References: <20250710-sm-misc-api-v1-v2-0-c3e953e34be6@nxp.com>
+ <20250710-sm-misc-api-v1-v2-5-c3e953e34be6@nxp.com>
+ <aKSv4NrDfC33Niqs@pluto>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKSv4NrDfC33Niqs@pluto>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR06CA0008.apcprd06.prod.outlook.com
+ (2603:1096:4:186::23) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS5PR04MB9798:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7a263266-e106-4b89-1d68-08dde088981c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BdhTJogwqCBcPHxW4PwU+p+ffDF7+gymabzfP7rcMlSc4bilrGdlGDko0HHV?=
+ =?us-ascii?Q?lnUTZcUmse5uEHszdtasPbKFbmJTjfFswuu8UEgXH8BfY5VdWHPE03Wk5fjV?=
+ =?us-ascii?Q?LA0srXfsKsVb67pPFAjOe/wpnhu097IruHwtOwtvPNcjI5mi0MrP7N5+FfDf?=
+ =?us-ascii?Q?LXvlW5TFeoDPWf8qYu4l6YoFURKTB/OTa2nLk3KVW065uXEQi60Vsd8qO/vi?=
+ =?us-ascii?Q?wKM4Xr7xR9u4509pSkF5Ix4QZLgi4wgq+EaJQc8C+pplfA+u1CVhtdEbhHvW?=
+ =?us-ascii?Q?ghwfe79sUDK9FSHQ1DbHWH4yPL4WTM3JOUy7sFKcn2Tj03Wh4QWUapvCpLu/?=
+ =?us-ascii?Q?vrhtlM2DMKE0VEZIhFZ1YAW5g+jQeLsqVVU5K7Zmj0wsc0UHg0gXajfm/ml5?=
+ =?us-ascii?Q?TkEKmGRZGgZISwBdlNQVWmMzP9/y4UWpfKHW6WFrsKaX+ly5NUzhCbdX0QPw?=
+ =?us-ascii?Q?GpQfjWf/25ff12+3eHYpSeeaKgAl5G2Bo8v7Wza8TwxwNDjiH88kitENLHu/?=
+ =?us-ascii?Q?jnxeqr/lQr3L+RP8rReMRatd2JK+1yshkPZfXXXNe+Li2qGFZPma3TnaiDWu?=
+ =?us-ascii?Q?HbCbw+89rNDfYxDK+o5LMdm5wj6Z9AYK3GNMA2YVQGyhyFx2Gj/8xsLrVvRz?=
+ =?us-ascii?Q?lFBUWkdyKenGc322MrFGX0QUctmDgmcFDUnxIFBkOMABaY0Xj31e/Gnzwsfa?=
+ =?us-ascii?Q?ivrf8cAzzvs6fbpRBKD5H6tY4myje8u7vIWvlW6I9JWj5SmfljTeoQSOqg6a?=
+ =?us-ascii?Q?0MOGI5xE7xxvqjhvBlOLWEr6wnjcaVhPCSTmmy+bm/57ChdvqTsJXGG4WNAy?=
+ =?us-ascii?Q?GDkGHBIKHIgBx23ow1Monr2O245k13dIVVNb1yrfPPA11CJ4nTsGaubAricq?=
+ =?us-ascii?Q?huRfWEBfmxbgqKoJvz7CUnxPop4dBwjcVHZI7j8XH3AIujHzxMMmOKjs5aLS?=
+ =?us-ascii?Q?PaNTJkVVbyfDj31JBDxrQifX3Nq93ZgYZLTCrTQKbqgpYstCguyCcGkCv5RS?=
+ =?us-ascii?Q?S3BNQrtZGVAYqtGGC8SjyDr5rhdKnyC58uFVmE1UHj/r49bRVAEQtLxWFKm2?=
+ =?us-ascii?Q?s40x3AZNoOCaAl8LSybVLlYEdpouK1TAIj2+KyNnR5jcbV7i/YCFluCjXWMw?=
+ =?us-ascii?Q?oPavoppP5+dfcDOWYpe7BZg9+kR+R/PZn2MladKCfyvjZSfKFm8NRscXyCcz?=
+ =?us-ascii?Q?2xMHXamqP1A1pwtIDRJAHQgcctyThsBTPxv0l75sjCMeen5RPgNKw6kz1Rsf?=
+ =?us-ascii?Q?b13a6HPNgZMb4ERZDPROgVzuI6zPnaVP//BnLWu+VTowyohKzKVhibsfJdrX?=
+ =?us-ascii?Q?49bO6OsfnZ5yHMV3bxQ0ryrMA8G0i+QLV0FJHKhR6u6lG2yfNIGSjG7MkbtD?=
+ =?us-ascii?Q?mmSG73q0wSmdZTf2mqmPtpnQ+YHYqshTzs/XjSfQbjJh04YO4Sl4G4ltv3yc?=
+ =?us-ascii?Q?q2iWdZ1GD2O44lZoGFc/2QnGi6dngILrIib6phR6cbB/VwWnTMcsTQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Yj94LCOaM97VPb2luc2J81mwGClra0lijx7bdQ/i4d5mDGE+g7ikaq8WsHwH?=
+ =?us-ascii?Q?zdq72FrtFDOJli7kO44Qah4f/kXFs+z/h8/R6ji1tGEDGNDIbACAmNUHGWwZ?=
+ =?us-ascii?Q?6HIUj8DK7tmXi3NCNIjeUvXV0XJiX4rzlkZpYwgu+PN/HbKF53V6jQ/I5iVS?=
+ =?us-ascii?Q?/dj6MQLQUnEJL9LBM/q/y+GzV1yTMWJzf1ej0ahFrpcR4jZim3mChVqVw3LD?=
+ =?us-ascii?Q?LDu6HjatqIAUpMJ/Q2XxqwjVFMn4R6gFck578G5gQyTR69FbD8CSeEY9OU2h?=
+ =?us-ascii?Q?Y9UHU/58gZ8JeudAm5xDakjKfUi8amZyaeaGRGeTF8XE6kGWgMNJE92jrlX/?=
+ =?us-ascii?Q?DeiTf30h/CCDDAzByt9TNmk6IL69N/HGERxCE2ih7H5aCmLYOsF7F6LYdNSn?=
+ =?us-ascii?Q?jbvkOyK5eXhEmr2i9lZIoz+2Ij8Y7JlE+qAJlyOf69DLbluoCZ96CPswxBCp?=
+ =?us-ascii?Q?Qu8y1wkVOIvTAMP6UxP8v6WNIcuYoaAk4qFJu0PxshSBFNSwtjWwbdi7pwZQ?=
+ =?us-ascii?Q?H08RkG1+nTUUxyseXQdQFkpLMSruAtNf+aZ+vhE9cQQZu9E5tcjc/RICS4hR?=
+ =?us-ascii?Q?rFp9NbFnVUGjdByP5f5q9mqZd5fv/IePlFfUd+tM3NXSBDdDkrSqBR3IgPZF?=
+ =?us-ascii?Q?B4zPf0TaIAO7Lk3JgSw2H/CE8rMHJLuC2xZRVWzGdAXrJrHcme51qJdUZH3Z?=
+ =?us-ascii?Q?0cKigXzuzheD6m04pOKB5LQKL5sv3p/fOguc8q/AzhyKwmrSyenerZU4mj/7?=
+ =?us-ascii?Q?ENAfGVAtgAZdZo0YSBjtB/PGmtUkKd2zgNyW5aZ5+x61EZNK62+0q6niwtlm?=
+ =?us-ascii?Q?ahNV8xtsFrpm1Q86oLOvf8zVBSts52nh802UbDp95/59Ttikp1O0gJTm0jIZ?=
+ =?us-ascii?Q?gPV8/jVYtcuLn9/aeJA4AefQDuyNVstDp49+lMOcUHyV9H+mYzSrI4j1Kt44?=
+ =?us-ascii?Q?5IIoDqUX5pvFbUoUAbwx92/zm/f086h+IjZ7+YUchW+sNVqzgV2A77hb9bBE?=
+ =?us-ascii?Q?xtBfO/RxCV8cBC2jjVrrQ9SMnNxkwQc6VjQKsNg6+QIgrpri90w60PwcQAoD?=
+ =?us-ascii?Q?1qtFqbkxRwXqNEhBLDxmnue+9lzQuRPWVrkV0ISIvQ4jAXJ7xdK/vog20sp5?=
+ =?us-ascii?Q?8fkBk+Y1vD1puaj3HVA3ghYa21zt5zxOWh5nwo/enDTUjcLnfH9MmhCcFE9q?=
+ =?us-ascii?Q?kmNTG1gmDSRLgZSZ9HdwTndnHyEREM7hpoDDSVVcuxT1HUmLTXJh1V0E7UX4?=
+ =?us-ascii?Q?XgYnXgHVprijFYdPa7DDYQMeZE3SSNQaWBCI9+tjbIKo5ijU3EzcG5zkn4HR?=
+ =?us-ascii?Q?XFdDsta/l7s2weUdVw7Muy7vDyLLmxgonGZ3C0Vnev8TVwhpS+PuieDYLdCV?=
+ =?us-ascii?Q?ioqXb0KokE0w6loczWYG2KgoxokikyuCTbAkyExvhdymcc6qpo2nQbM9tV3g?=
+ =?us-ascii?Q?xuBA0ky5VRYBkQkFc9IxPYE3CHEq4XH2xxYMsYREf9H1oiRVgtXnczf5q+gR?=
+ =?us-ascii?Q?A46pyemvW9/smzvrNcY8uTD0wpoM9YtQVNOLZPp73SE/T+vMR53zJ733KRiF?=
+ =?us-ascii?Q?lTfsTOZ2bseMUS+I2MeTppmXg3mrzxKSD3TpoJfR?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a263266-e106-4b89-1d68-08dde088981c
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 07:59:03.4340
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5snDTVsurJmF6xIHvJztYifudz6OYwP4XbaOHXPF2yCPFBxC2pdTg5WcVBKqP+x+XXae/yYo4eqEfGfMf6VkYQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9798
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_010353_466254_7C7C7D51 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20250821_010413_445436_3AF44B1E 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,108 +167,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Hi Cristian,
 
-The Renesas RZ/G3S SoC has a suspend mode where power to most components is
-turned off and RAM is switched to self-refresh. Resuming from this
-low-power mode is done with the help of the bootloader. During resume, the
-bootloader re-enables the clocks for the modules needed in the resume
-process (e.g. SDHI or serial). After that, control is passed to Linux.
+On Tue, Aug 19, 2025 at 06:09:52PM +0100, Cristian Marussi wrote:
+>On Thu, Jul 10, 2025 at 04:33:30PM +0800, Peng Fan wrote:
+>> MISC protocol supports getting system log regarding system sleep latency
+>> ,wakeup interrupt and etc. Add the API for user to retrieve the
+>> information from SM.
+>> 
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>>  .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 78 ++++++++++++++++++++++
+>>  include/linux/scmi_imx_protocol.h                  | 19 ++++++
+>>  2 files changed, 97 insertions(+)
+>> 
+>> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+>> index 6b86c35c192d02e13f0d2a7d713bc447886b84bf..193a862cf9b807232f04a6dbbd6a8efd1b40ff73 100644
+>> --- a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+>> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
+>> @@ -27,6 +27,7 @@ enum scmi_imx_misc_protocol_cmd {
+>>  	SCMI_IMX_MISC_CTRL_GET	= 0x4,
+>>  	SCMI_IMX_MISC_DISCOVER_BUILDINFO = 0x6,
+>>  	SCMI_IMX_MISC_CFG_INFO = 0xC,
+>> +	SCMI_IMX_MISC_SYSLOG = 0xD,
+>>  	SCMI_IMX_MISC_BOARD_INFO = 0xE,
+>>  	SCMI_IMX_MISC_CTRL_NOTIFY = 0x8,
+>>  };
+>> @@ -89,6 +90,19 @@ struct scmi_imx_misc_cfg_info_out {
+>>  	u8 cfgname[MISC_MAX_CFGNAME];
+>>  };
+>
+>Hi,
+>
+>one consideration down below...
+>
+>>  
+>> +struct scmi_imx_misc_syslog_in {
+>> +	__le32 flags;
+>> +	__le32 index;
+>> +};
+>> +
+>> +#define REMAINING(x)	le32_get_bits((x), GENMASK(31, 20))
+>> +#define RETURNED(x)	le32_get_bits((x), GENMASK(11, 0))
+>> +
+>> +struct scmi_imx_misc_syslog_out {
+>> +	__le32 numlogflags;
+>> +	__le32 syslog[];
+>> +};
+>> +
+>>  static int scmi_imx_misc_attributes_get(const struct scmi_protocol_handle *ph,
+>>  					struct scmi_imx_misc_info *mi)
+>>  {
+>> @@ -372,10 +386,74 @@ static int scmi_imx_misc_cfg_info(const struct scmi_protocol_handle *ph)
+>>  	return ret;
+>>  }
+>>  
+>> +struct scmi_imx_misc_syslog_ipriv {
+>> +	u32 *array;
+>> +};
+>> +
+>
+>So, AFAIU, you basically use this generic u32 array to retrieve data words from
+>your FW in a generic way....
+>
+>> +static void iter_misc_syslog_prepare_message(void *message, u32 desc_index,
+>> +					     const void *priv)
+>> +{
+>> +	struct scmi_imx_misc_syslog_in *msg = message;
+>> +
+>> +	msg->flags = cpu_to_le32(0);
+>> +	msg->index = cpu_to_le32(desc_index);
+>> +}
+>> +
+>> +static int iter_misc_syslog_update_state(struct scmi_iterator_state *st,
+>> +					 const void *response, void *priv)
+>> +{
+>> +	const struct scmi_imx_misc_syslog_out *r = response;
+>> +
+>> +	st->num_returned = RETURNED(r->numlogflags);
+>> +	st->num_remaining = REMAINING(r->numlogflags);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int
+>> +iter_misc_syslog_process_response(const struct scmi_protocol_handle *ph,
+>> +				  const void *response,
+>> +				  struct scmi_iterator_state *st, void *priv)
+>> +{
+>> +	const struct scmi_imx_misc_syslog_out *r = response;
+>> +	struct scmi_imx_misc_syslog_ipriv *p = priv;
+>> +
+>> +	p->array[st->desc_index + st->loop_idx] =
+>> +		le32_to_cpu(r->syslog[st->loop_idx]);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int scmi_imx_misc_syslog(const struct scmi_protocol_handle *ph, u16 size,
+>> +				void *array)
+>
+>...and you provide a output array param and its size to use in the
+>iterators to retrieve your data...
+>
+>...so you can use size to properly let iterators check bounds...
+>
+>...so far so good BUT...
+>
+>...is it not a possibility, especially with different FW versions in the
+>future, that the platform will return LESS than size data, because maybe
+>different platform can return different log data...I deduce this from
+>the fact that you are using a generic u32 array...
+>
+>...so in this scenario wouldn't be useful to have the above size param as
+>being both an input and an output parameter using a pointer ? 
+>
+>So that you can...
+>
+>	static int scmi_imx_misc_syslog(const struct scmi_protocol_handle *ph,
+>					u16 *size, void *array)
+>
+>...use *size as the max_resources for iterators as of now BUT also pass
+>it down to the iterators in ipriv->size so that you can easily once for
+>all in prepare_message
+>
+>	*(ipriv->size) = st->num_returned + st->num_remaining;
+>
+>...so that you can KNOW if the specific FW has returned less items than
+>the maximum *size slots provided in *array ?
+>
+>I maybe overthinking...and also this scenario will assume that the FW
+>can return less items, BUT still contiguos items...i.e. no holes in the
+>array....
+>
+>...thoughts ?
 
-If Linux has not probed a driver for one of the modules enabled by the
-bootloader, or if the module was previously in a runtime-suspended state,
-the corresponding clocks remain enabled after resume, even though they have
-no consumers or they were previously disabled.
+The current platforms that deployed i.MX System Manager firmware use
+a fixed log structure and return them all when input log index is 0.
+But you bring a valid point that the firmware may report less in future
+or new platforms. I will follow you suggestion and update in V3.
 
-To avoid keeping these clocks enabled unnecessarily, make the
-clk_disable_unused() function available to other drivers. Drivers can then
-call it during resume to disable any unused clocks.
+I would send out V3 in early next week. Wait to see if Sudeep has
+other comments.
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
----
- drivers/clk/clk.c   |  9 +++++----
- include/linux/clk.h | 12 ++++++++++++
- 2 files changed, 17 insertions(+), 4 deletions(-)
+Thanks for reviewing the patchset.
 
-diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index b821b2cdb155..5278030b0ad8 100644
---- a/drivers/clk/clk.c
-+++ b/drivers/clk/clk.c
-@@ -1460,7 +1460,7 @@ static void clk_core_disable_unprepare(struct clk_core *core)
- 	clk_core_unprepare_lock(core);
- }
- 
--static void __init clk_unprepare_unused_subtree(struct clk_core *core)
-+static void clk_unprepare_unused_subtree(struct clk_core *core)
- {
- 	struct clk_core *child;
- 
-@@ -1485,7 +1485,7 @@ static void __init clk_unprepare_unused_subtree(struct clk_core *core)
- 	}
- }
- 
--static void __init clk_disable_unused_subtree(struct clk_core *core)
-+static void clk_disable_unused_subtree(struct clk_core *core)
- {
- 	struct clk_core *child;
- 	unsigned long flags;
-@@ -1526,7 +1526,7 @@ static void __init clk_disable_unused_subtree(struct clk_core *core)
- 		clk_core_disable_unprepare(core->parent);
- }
- 
--static bool clk_ignore_unused __initdata;
-+static bool clk_ignore_unused;
- static int __init clk_ignore_unused_setup(char *__unused)
- {
- 	clk_ignore_unused = true;
-@@ -1534,7 +1534,7 @@ static int __init clk_ignore_unused_setup(char *__unused)
- }
- __setup("clk_ignore_unused", clk_ignore_unused_setup);
- 
--static int __init clk_disable_unused(void)
-+int clk_disable_unused(void)
- {
- 	struct clk_core *core;
- 	int ret;
-@@ -1574,6 +1574,7 @@ static int __init clk_disable_unused(void)
- 	return 0;
- }
- late_initcall_sync(clk_disable_unused);
-+EXPORT_SYMBOL_GPL(clk_disable_unused);
- 
- static int clk_core_determine_round_nolock(struct clk_core *core,
- 					   struct clk_rate_request *req)
-diff --git a/include/linux/clk.h b/include/linux/clk.h
-index b607482ca77e..7eb0e5eb9aba 100644
---- a/include/linux/clk.h
-+++ b/include/linux/clk.h
-@@ -950,6 +950,13 @@ int clk_save_context(void);
-  */
- void clk_restore_context(void);
- 
-+/**
-+ * clk_disable_unused - disable unused clocks
-+ *
-+ * Disable unused clocks at boot or resume time.
-+ */
-+int clk_disable_unused(void);
-+
- #else /* !CONFIG_HAVE_CLK */
- 
- static inline struct clk *clk_get(struct device *dev, const char *id)
-@@ -1136,6 +1143,11 @@ static inline int clk_save_context(void)
- 
- static inline void clk_restore_context(void) {}
- 
-+static inline int clk_disbale_unused(void)
-+{
-+	return 0;
-+}
-+
- #endif
- 
- /* clk_prepare_enable helps cases using clk_enable in non-atomic context. */
--- 
-2.43.0
+Thanks,
+Peng
 
+>
+>Thanks,
+>Cristian
 
