@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A7ACA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CD4CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fUfL5bKnDp2X/NiKP63dUX2P6xrzq3fLobwT70t10jM=; b=3ajorjaxRTdA7g69aXDcBHT+Wt
-	RG8uRDaVXm+Mc74hlqL6IzyGYAvxWFtJjPmB54hj7dYHvNLXmpwn+/ubTNX0knjQR5KHxgSDOIL44
-	lV61fgszbIXXLxt2UXPXDz63vbagv/Y4TcWyw4X3YTLr52Ubo+frI1V+d4oTXtLL1L0kcFPJyf5v7
-	10eXLmWjSaJtxTBe8gYeTT3T6/D4j5Ky9/guqZ//e8epZwYDmFLL0DhS/ox7Io5+9+2bUB4vGtALC
-	2mo1jYf+b0lCWikjCY24yMzlntFTjuFD81UWr+tv4JW0LCcqF9ba1gGm2pBUuhqAhuaZL/kM7SIrH
-	l/m+HxTA==;
+	bh=efNWH/AS6xmf9znRuGczLaN+guZu1JHSVN4wYc2RDV0=; b=cL6eLt4q2eSiV4TYcztof1VDle
+	GRGRqVpg8whdNY6qc9g9ahmH7J8Kxi/5FSuuG6ss2MwIKJuDmIKptVuIsz6DqU1nvaiMcdgbHfoPC
+	udS1k9K2zENl0+BFH0bX0M1FNW3VqSG9uQQ7FZaJqJglC23kZm7KFpJPK58VE1/I6pVOJrevoraBS
+	Wk3vDSseqVCEbYkWdQx7Zc14SnzmOPlNo+OLYTimJSRXZ33/dvMurbXJDPWRORf4xWjRfUVE+Lp54
+	Okzf+l2SkjuGWFcRDN5Yfes+4v7fVQcoqebNx00YfL/jvYX8ODk3jxnEwtoVuxExf3cbR01GynU17
+	H2qQPgOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7ue-0000000HWD1-3KRB;
-	Thu, 21 Aug 2025 16:13:16 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1up7xE-0000000HWSi-2KRd;
+	Thu, 21 Aug 2025 16:15:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4OQ-0000000GuCl-2bp2
+	id 1up4U5-0000000GusN-3Pxk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 21 Aug 2025 12:33:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=efNWH/AS6xmf9znRuGczLaN+guZu1JHSVN4wYc2RDV0=; b=o5gdfJrdYwOcepGpGabrQNTdeD
+	YxpxEKrQ8BA6RoSsrant31xKx31e5PsEgSkv/NvPM88a3nsGISCCgg/Ai+VH3KXLqQnIzM+zdOuVd
+	lEiyunb5KL35lkWWy9fC0fgVjQsKGgs8z/hwRIOY2sbEaVO4mD+2JZiCV2n1Lx52+Gk4LCQ/nMvSK
+	PxHFNa36HMPe5hpfDgdz2z8Wx+FvzRvT4P3iGNGG0xYaZesqDSCxtm1IkxwcJh6mv7iwiO6djt9Tm
+	LnZls898MSkZ0iiV2xCIh5tbxG0wV9F5joZ7+bOnCp8PHtilI/WjPqqxf9JZW/bef4ioDOpn9t0Xf
+	5GJpcy9A==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up4U2-00000000Xvy-2H70
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 12:27:48 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57LCRfix485110;
-	Thu, 21 Aug 2025 07:27:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755779261;
-	bh=fUfL5bKnDp2X/NiKP63dUX2P6xrzq3fLobwT70t10jM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=vaJ0vgiPuzv3cjC4kGWxErhToHZ6hY+OXaVVTMRK5UUzPWti5Lady/qEf239x9qv1
-	 kgGLriP1vdAhQ/AxztGI511KUe+b84sVDxHpT64qqXXKTOJJfdezVJDtu+cTI9/K+M
-	 bkfIOEZMC+vHzDrt5bi53wMLlfnms0IoeQv1tneU=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57LCRfvs2526117
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 21 Aug 2025 07:27:41 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 21
- Aug 2025 07:27:41 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 21 Aug 2025 07:27:41 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57LCRfU42146850;
-	Thu, 21 Aug 2025 07:27:41 -0500
-Date: Thu, 21 Aug 2025 07:27:41 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Paresh Bhagat <p-bhagat@ti.com>
-CC: <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <rafael@kernel.org>, <viresh.kumar@linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
-        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: Re: [PATCH 0/4] Add cpufreq and USB support for AM62D2
-Message-ID: <20250821122741.eqrwystfey7nwvym@outfit>
-References: <20250820083331.3412378-1-p-bhagat@ti.com>
+	Thu, 21 Aug 2025 12:33:36 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A342EEFF;
+	Thu, 21 Aug 2025 14:32:31 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755779551;
+	bh=STIWLtVOMHk9RfVFUUas9ZZPysmjI7JRjEhbfGJJX/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=L1YncIOH3YE/EcyBbynXHYa8GJMi6nL8Pm2nCWAJhQKuipg3XJiAAE6Yx8H49oOBY
+	 SacwpnqIkyhRZFahZoypuiEzmLg/m6DrUn1QcqWOvPJ9GAxFs1g0tqTVhMrcXUFdmL
+	 aRoIUsqUg0uespog5NQTpTPVY9T6FKgbOoePB/dM=
+Date: Thu, 21 Aug 2025 15:33:07 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Christian Hemp <c.hemp@phytec.de>, Jacopo Mondi <jacopo@jmondi.org>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2] media: nxp: imx8-isi: Fix streamon/streamoff calls
+ are imbalanced issue
+Message-ID: <20250821123307.GB8865@pendragon.ideasonboard.com>
+References: <20250821-isi_m2m-v2-1-c616e4b00600@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250820083331.3412378-1-p-bhagat@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250821-isi_m2m-v2-1-c616e4b00600@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_052746_814551_6085D73B 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250821_133334_727139_FAEDB72D 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:03-20250820, Paresh Bhagat wrote:
-> This patch series introduces following changes:
-> 
-> * Patch 1 fixes the register length in main_pmx/padconfig for AM62D
->  and AM62A.
-> 
-> * Patch 2 enables USB support for AM62D2-EVM by adding pinmux and device
->  tree nodes.
-> 
-> * Patch 3 adds AM62D2 SoC to cpufreq-dt-platdev blacklist so that
->  cpufreq is handled by the ti-cpufreq driver instead of the
->  generic cpufreq-dt driver.
-> 
-> * Patch 4 extends ti-cpufreq to register AM62D2 SoC support by
->  reusing the am62a7_soc_data.
-> 
-> Boot Logs-
-> https://gist.github.com/paresh-bhagat12/e29d33c3fd92ff17580edf1441ece9f9
-> 
-> Tech Ref Manual-https://www.ti.com/lit/pdf/sprujd4
-> Schematics Link-https://www.ti.com/lit/zip/sprcal5
-> 
-> Paresh Bhagat (3):
->   arm64: dts: ti: k3-am62d2-evm: Enable USB support
->   cpufreq: dt-platdev: Blacklist ti,am62d2 SoC
->   cpufreq: ti: Add support for AM62D2
-> 
-> Vibhore Vardhan (1):
->   arm64: dts: ti: k3-am62a-main: Fix pinctrl properties
+Hi Guoniu,
 
-Please do not mix things up to maintainers. Please post patches #1,2
-separately to DT maintainers - these do not have any relationship with
-the rest of the driver patches.
+Thank you for the patch.
 
+On Thu, Aug 21, 2025 at 02:08:29PM +0800, Guoniu Zhou wrote:
+> If streamon/streamoff calls are imbalanced, such as exit application
+> with Ctrl+C when streaming, m2m usage_count will never reach to zero
+> and ISI channel won't be freed. Besides from that, if the input line
+> width is more 2K and exit with Ctrl+C when streaming, it will trigger
+> kernel panic, like bellow:
 > 
->  arch/arm64/boot/dts/ti/k3-am62a-main.dtsi |  2 +-
->  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts  | 21 +++++++++++++++++++++
->  drivers/cpufreq/cpufreq-dt-platdev.c      |  1 +
->  drivers/cpufreq/ti-cpufreq.c              |  2 ++
->  4 files changed, 25 insertions(+), 1 deletion(-)
+> [ 59.222120] ------------[ cut here ]------------
+> [ 59.226758] WARNING: drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c:631 at mxc_isi_channel_chain+0xa4/0x120, CPU#4: v4l2-ctl/654
+> [ 59.238569] Modules linked in: ap1302
+> [ 59.242231] CPU: 4 UID: 0 PID: 654 Comm: v4l2-ctl Not tainted 6.16.0-rc4-next-20250704-06511-gff0e002d480a-dirty #258 PREEMPT
+> [ 59.253597] Hardware name: NXP i.MX95 15X15 board (DT)
+> [ 59.258720] pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [ 59.265669] pc : mxc_isi_channel_chain+0xa4/0x120
+> [ 59.270358] lr : mxc_isi_channel_chain+0x44/0x120
+> [ 59.275047] sp : ffff8000848c3b40
+> [ 59.278348] x29: ffff8000848c3b40 x28: ffff0000859b4c98 x27: ffff800081939f00
+> [ 59.285472] x26: 000000000000000a x25: ffff0000859b4cb8 x24: 0000000000000001
+> [ 59.292597] x23: ffff0000816f4760 x22: ffff0000816f4258 x21: ffff000084ceb780
+> [ 59.299720] x20: ffff000084342ff8 x19: ffff000084340000 x18: 0000000000000000
+> [ 59.306845] x17: 0000000000000000 x16: 0000000000000000 x15: 0000ffffdb369e1c
+> [ 59.313969] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> [ 59.321093] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
+> [ 59.328217] x8 : ffff8000848c3d48 x7 : ffff800081930b30 x6 : ffff800081930b30
+> [ 59.335340] x5 : ffff0000859b6000 x4 : ffff80008193ae80 x3 : ffff800081022420
+> [ 59.342464] x2 : ffff0000852f6900 x1 : 0000000000000001 x0 : ffff000084341000
+> [ 59.349590] Call trace:
+> [ 59.352025]  mxc_isi_channel_chain+0xa4/0x120 (P)
+> [ 59.356722]  mxc_isi_m2m_streamon+0x160/0x20c
+> [ 59.361072]  v4l_streamon+0x24/0x30
+> [ 59.364556]  __video_do_ioctl+0x40c/0x4a0
+> [ 59.368560]  video_usercopy+0x2bc/0x690
+> [ 59.372382]  video_ioctl2+0x18/0x24
+> [ 59.375857]  v4l2_ioctl+0x40/0x60
+> [ 59.379168]  __arm64_sys_ioctl+0xac/0x104
+> [ 59.383172]  invoke_syscall+0x48/0x104
+> [ 59.386916]  el0_svc_common.constprop.0+0xc0/0xe0
+> [ 59.391613]  do_el0_svc+0x1c/0x28
+> [ 59.394915]  el0_svc+0x34/0xf4
+> [ 59.397966]  el0t_64_sync_handler+0xa0/0xe4
+> [ 59.402143]  el0t_64_sync+0x198/0x19c
+> [ 59.405801] ---[ end trace 0000000000000000 ]---
+> 		VIDIOC_STREAMON returned -1 (Invalid argument)
 > 
-> -- 
-> 2.34.1
+> So check the queue streaming status when application close and call
+> streamoff to fix the issue.
 > 
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v2:
+> - No functions changed, add Cc:stable@vger.kernel.org tag in the sign-off area
+> - Link to v1: https://lore.kernel.org/r/20250818-isi_m2m-v1-1-bbe2b774d4bf@nxp.com
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 22e49d3a128732c077beb7ac2e2f688e0899f8e2..7650a9fe6b093e2b4e09e3e66b624c8c019c8583 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -709,6 +709,14 @@ static int mxc_isi_m2m_release(struct file *file)
+>  	struct mxc_isi_m2m *m2m = video_drvdata(file);
+>  	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(file->private_data);
+>  
+> +	if (ctx->queues.out.streaming)
+> +		mxc_isi_m2m_streamoff(file, &ctx->fh,
+> +				      V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
+> +
+> +	if (ctx->queues.cap.streaming)
+> +		mxc_isi_m2m_streamoff(file, &ctx->fh,
+> +				      V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
+> +
+
+Stopping streaming is supposed to be handled by the
+v4l2_m2m_ctx_release() function, which calls vb2_queue_release() for
+both queues. This doesn't work today because mxc_isi_m2m_streamon() and
+mxc_isi_m2m_streamoff() perform extra operations before calling
+v4l2_m2m_ioctl_streamon() and v4l2_m2m_ioctl_streamoff(). I think moving
+that code to the .prepare_streaming() and .unprepare_streaming()
+operations would be best, as done in
+https://lore.kernel.org/r/20250813212451.22140-2-laurent.pinchart@ideasonboard.com
+for the non-M2M case.
+
+I'm testing a patch and I will send it out.
+
+>  	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+>  	mxc_isi_m2m_ctx_ctrls_delete(ctx);
+>  
+> 
+> ---
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> change-id: 20250818-isi_m2m-ac52338ae925
 
 -- 
 Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+
+Laurent Pinchart
 
