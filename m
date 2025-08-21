@@ -4,81 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B64CA0FE2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26C6CA0EFA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m22CVUh5ssuA0MSvMdgCylzINTWekwPBijUpcVgPa4M=; b=YEJfya1AZhJqL/Xo8Rg6b5NtQf
-	lNLr3YGhNM64zITC42KRAzrQwk5BkvCw5zdosvkfcZHLN/WHVnbNIwqNvsfx07Rb3ZxlkYTQtKSst
-	lTNXxP1KOSvXUEgngtHngAhQ8xO5ZtCegSSBLUZ66/aPOmaf0E2wgpgeY1spbqm1Zyec1HQ5AT/F8
-	CN9NEUlu4JA+sYADTv5yF2xtDZ5nW2ZIrj0SEtBCvsFhpINP/W5TeuWChRwsnGcaUUPW9hyx8TJMk
-	BvNRhwCFYwXhSSKoSpldOGuPYpd1YEjo/J3OW9dMeeyD4eEuKXCOveOnQAjyOtksMNGzvYIPNsO/R
-	blryZ69Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=83vM9lnRqG9v479UQhkfA08L4uVGlAoySxmDnnepw50=; b=nUAlwkrHeHLKQJiJLzuPRvWduL
+	UhOq4bX+EoM7uB7BHt56PAAgQdRjXfI98R/8DkRaI0iXVhd9gol0xIXF806v3DkYd9upVa3UdTdR5
+	o7WjOaBdqKZzTxZbvjNC66eHANyordvBhPd52HPrNhamm+GHdhm5rTnf3770mnakM1xZQog2y+Kmd
+	avM60JhsdnREtopKshd+doJL7tjDrP1IUyGYuvCpSAgqQaFosHkGWoahxoovGG3rZnupFO7mt+DDQ
+	Vgm1edPu+4hI5dFiNugYpgl++NK8dVQ5lNFx/0s3hf1sJKQpswj4MEvWHBcyi5HBPcDAYTXwj20RH
+	D/OFYLcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDt0-00000000kmo-033m;
-	Thu, 21 Aug 2025 22:35:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1upDss-00000000kda-2AC9;
+	Thu, 21 Aug 2025 22:35:50 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7OX-0000000HQXQ-1O8L;
-	Thu, 21 Aug 2025 15:40:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FD1760256;
-	Thu, 21 Aug 2025 15:40:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C96C9C4AF48;
-	Thu, 21 Aug 2025 15:40:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755790803;
-	bh=Urxdz7uHH/ApxVzU2fUlpMXmcppMZ1TW/uJf2k/UbqU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=sPCBoCXLhsoIf9D+LlpaQlkp8JNDcmmyTbVUIVYwSFrkP612oMkdDpsNWCofgfaNs
-	 1X6SUaEl9uK2gHNn8xHKeaag3NwACbFMn5p3T3KZQJLNOsIFDlppak1YrLCETeNkjR
-	 NRCaA0rPpo5W0eyNwkJ/nhHz51rGMIDlct/G97sR6UjdO2Q3xCx/5mx98/Kedtf3cn
-	 3YkVnZyNm+cWzAVGx5zob/6werMi36QSWNm9oAbr7SksUGwwWbuYyHZXfGRCaagr2Q
-	 QlNZod5RC0sXRIQIPsUJ+qJUPOrSsc6vj6DYTJwpSwJFbe3zKaA/rIYqcwSykdI7V0
-	 Vc9UTfPYObaGw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BFAE0CA0EEB;
-	Thu, 21 Aug 2025 15:40:03 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Thu, 21 Aug 2025 15:39:05 +0000
-Subject: [PATCH RFC 13/22] usb: typec: tipd: Read USB4, Thunderbolt and
- DisplayPort status for cd321x
+	id 1up7Cc-0000000HLlV-0zKN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 15:27:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D+WktL50eRbfV0hbLx+Ry2zHn5fkG3V6oQgXTMfXzbtliKBWMW69i3XGRc2R+HSCF7dROKHzYYGU2A2LlCYfqJjmiQcOZEWwKyTRw7nW426JeyN/bAh2zZxvgR35l52EQKuE1afFbJXlvZErfV01Ag/MdoDUfL1r42lD8YFvSOUVSdGtpTAt1G0RB7Lvz/tsusj0EenZQgUo4tRSym1eB/3i35W6BrhSitHoTYLUtXUY3rX4zoOrV/6XwOGKShf65AQonf941kuoRN6cDotmnktoH3998dC7t8/FNW4n9fysQHhOL7uvly9ia0SiaADbm1cC3SDP/jhaBqAUN8fwJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=83vM9lnRqG9v479UQhkfA08L4uVGlAoySxmDnnepw50=;
+ b=FrZrk04gwfLr88e5w3a8AKI5zVXil8Xu+TYfeffl1N+mwrM71spSaUFitUwL3che7ywqYdwTlXBzehIVpeDN5funrUZtol7uJ1QfAETY1NGJ8LIdMJxDxNpeujf91ENdqitRQOSaIptHsLWkA4IUZkw8Arn19h1NUYZjxin/wIt+R1YRcE5+BdwlicSlm6+GWYT12cXixQAMBWxiVylxrB7Rth83Aqwu+ZIeQFAj3Z8gz6nBOZWXfJZKkT8lMTS6x0W9B+pRJZ2oGDY6clnTCeJjZ4uSNXSia43lnF7jE42RL8XH7JrJvKLrUK6eodOvItzguqDaqaHLM+zpvkwWPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=83vM9lnRqG9v479UQhkfA08L4uVGlAoySxmDnnepw50=;
+ b=YFY+Ru+2nXxpuFxWQQ3A5ENmVEBreReeILWY6MTvtN39ooZmodQWy59eXX+q8i64IYHsrlbMMMfmeBi2un9ZXclhZpescaU7vw9tnRGwRbQyS7lGxsUxyAJ1iA60Ez9DFLwI4KaeOeK21kYtR/y160UrHmZRAnx7xdFJtRQBehaUs+73OpgndqtjkUi+A7dFcpDhwFM7utooZvSxkCtBXhyflJcPAky8IfFu1UBInDQveYzgOVLytWYSUvfqIgl/VoZFm6P05xX1OuKHmhfD/B5mCVZYCeoY6s1dyCInWg/JpIpkVa1r2sQZOW7vmIGqGKT2omTUHRkwtbwhUXc7XA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PR3PR04MB7258.eurprd04.prod.outlook.com (2603:10a6:102:80::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
+ 2025 15:27:41 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Thu, 21 Aug 2025
+ 15:27:41 +0000
+Date: Thu, 21 Aug 2025 11:27:33 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 07/12] media: imx-mipi-csis: Log per-lane start of
+ transmission errors
+Message-ID: <aKc65YeQRYGsU6cn@lizhi-Precision-Tower-5810>
+References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
+ <20250821000944.27849-8-laurent.pinchart@ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250821000944.27849-8-laurent.pinchart@ideasonboard.com>
+X-ClientProxiedBy: PH5P220CA0013.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:34a::10) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-atcphy-6-17-v1-13-172beda182b8@kernel.org>
-References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
-In-Reply-To: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>, 
- Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
- Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5722; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=Urxdz7uHH/ApxVzU2fUlpMXmcppMZ1TW/uJf2k/UbqU=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ8Zy240Vn53sy+2LVu8SlD+0wuwkt7TT+hVrVgW8O7/j2
- v3yE18EO0pZGMQ4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQATObqOkeFiTuDOHLa6CLa/
- JepWwcvnvty33KVtgvT12XXrdDhKd6sy/I+a8u5FvuSyFU0Sfkt0DqfZeulsaC7qkUjjMlMSYd/
- 2mxUA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PR3PR04MB7258:EE_
+X-MS-Office365-Filtering-Correlation-Id: f63a5af5-4bc8-4a44-1f8a-08dde0c74470
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cZ/JpKvgw5q8c9On+hvYRoIqNPVEfebdKH+r8Qj5SUlmke5pnx823Dfaen+n?=
+ =?us-ascii?Q?J/SPAR6mwMsYfqjTyKtGZEmfkkIgqEbkOjtL4R1dJW84c5/rVtlgfXQj1zvc?=
+ =?us-ascii?Q?Jlc7Y1StSPqKQNYKUIOmNoQ1X+V8W5l5j9sasp6FBpBqbZOKkt27M0XJyi3M?=
+ =?us-ascii?Q?4OvC+AtnawrVhcfzx04FxDqaHruxPFR6mUjGBab6/7hZ+S/A0zrryXFBkvOb?=
+ =?us-ascii?Q?NfB9NB7NUXrFyccDcCAFvchauRSpU1h2RSjWwMQraJHtpUYmaa6b8qWuEg90?=
+ =?us-ascii?Q?EUdlf2sR7a1Tv5rl9M8mlKx+qvixgoru0/QrvkZ/zY/s/EVyD5iYCF0dVbFS?=
+ =?us-ascii?Q?n2UzqI9chDb6BQLBXOX4N59+au4BnijCoSivbBQkF1WIPHgUTMSQfOl7r8Mu?=
+ =?us-ascii?Q?VCq2hVUO1bscjw7ZZw1dsNW4ck3qVyV/vBS89FIGwNhWLR1aiovcEAqnY0K8?=
+ =?us-ascii?Q?L7cX6MYMy8/8LsW1us1aAUc/wTvzvz46TwonvAAgYI5wlDmSG+YUUFbXMTi1?=
+ =?us-ascii?Q?BmVwZn1XUqhmVVNOi6A+lQzOm/DwHoi/yqbqWLxsfrEuK6eaRih0h65uhx4m?=
+ =?us-ascii?Q?Y7bTHMiZOSgqVGHyQsFz5BoIRBcttd/w6DwJ85KhtxwjQaJUeQVkQYbiE7f4?=
+ =?us-ascii?Q?PoP1bMYc7Ki9knnUk3Ng6tuQS/Daciphx/ancT2kTz0QTCXJzccHCsKYAiHz?=
+ =?us-ascii?Q?pQa/mM+nSBkmIZkeacMhXB0jV8q0p2YEoq/4EH02xDctAXpgkIg8TIL2Rruo?=
+ =?us-ascii?Q?dNvOtloegKr3Z+Y6o1peH9P9YG4QRbykMD3js2m2JwP5PvHPWo3LX1Tr5e1D?=
+ =?us-ascii?Q?pLkPNJhZZo/DWJ6+55Niglu9awUeNccVm3CneiMOI24/x1Ca/NMEUWjz9TFC?=
+ =?us-ascii?Q?qcoQI4C48EImAE7a/w6nuQ63sKOnQxZyLv+PgSsbUmki6aJFItzv0mRwFE8c?=
+ =?us-ascii?Q?iYsAqAvoylsHKw2jwdC762UG6lCjEZfqFSNT6tlSaJObyCc1WqJ/bMzNGfQP?=
+ =?us-ascii?Q?pNM4bAyy0egIVqIIFmhBINC9bTEL+4BGxo3KJey1kmmY70ytTuYDR+UUGQsZ?=
+ =?us-ascii?Q?Se2vxpwOjN9eQijBRywzsVmfsRX9E7jgSeOLkB88EekzOgenUYSInEonhECn?=
+ =?us-ascii?Q?lCyFwsP6YiXnRFP2GYX1QDml7VzbhtVMFyovdjI4Kos/rxBm3Rw8XYffcCwi?=
+ =?us-ascii?Q?8srUD4jmY6xL8NKma+IWN27QbYclScu4wcCIFbkMY0kubGFGGsd6uaVj2ol0?=
+ =?us-ascii?Q?bSgyBwO+/QNJUEzimL2kCH9NFkQbxA/WUwoHkg1KzTFeoFwj8eGghkYLRIZp?=
+ =?us-ascii?Q?pHZYannhbbSn1UJdguCYaRnESVaobatJkB03HdNV04zgosL5vKmlkL8rrl6Z?=
+ =?us-ascii?Q?RvCRa4oN4cv6ZnD0xmsjhrhxeTmM4np1yJN1bJIofSEhhXgqJvyFX/qcD2b4?=
+ =?us-ascii?Q?rxiWW+NxXmf2Gq1fUs7424LGgM9tFMNOGjQ+x0ysD6GEkXS/QJq/DA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rJ4hFjtEWCkW8C2CaSitj8w9x6VZaEPj5OkswIVQiAEtcUkAl2vh77ACA4xc?=
+ =?us-ascii?Q?FzZ5Zioa+SpE0W7veLnoUaEEf2ZGPRJhCQ1yT74xgaFAXcV8jd7wbPNMm9KC?=
+ =?us-ascii?Q?jIxAnXhSqMtCwjhglRzYLjNNhgUwFb710vlq/EWs0J3t5RpZzzMmMpzTbM9N?=
+ =?us-ascii?Q?iDwApUuestYTXqvI/VQ4lgpzz/VOImHLmZyEuNq4a+7g7LfzV0m0cAlj4s/0?=
+ =?us-ascii?Q?Krul2eeVIoI60hxZH1aIev8PMzv5y4x46gEMgMsKQHA7tU5N8qmhChDz23nM?=
+ =?us-ascii?Q?5VPKPS9lZbZkJJZEkR2J0kCsGPTE/xqom/6lJjr9CZBzpEgWjbHnwD3QI8EJ?=
+ =?us-ascii?Q?12Og1o1tOn/ORGyihYfZR/8Y73waKlX7geAi1mRcN/smkIRFNjF24P0STPJC?=
+ =?us-ascii?Q?TlLd8BuXwPs8S/7hiiePav/FOnxZBg0VB3u6WMStE2fNTkGMtGNqPxdg5Osp?=
+ =?us-ascii?Q?bgeSk8d5to2NBDRPtXScgLqUwt20ZSoJ6b6ZAKQ+LmSPP5nG31DryZdt9six?=
+ =?us-ascii?Q?ljo7KwEKBHCMtUQ04/+edk/VpPA8/pzhaGpAEGMwvzI5/HjvQiUCCaw4heQ6?=
+ =?us-ascii?Q?6MW19eeZQ0iWleVOP5+0IU+RFPPrtWbFUNZouHOny1g5Vi91rs704m9+0AiQ?=
+ =?us-ascii?Q?mZcUq/r27Xm6J91v9v3iiql0+mI1tDtaeuhnTMGwHZBdoyUvgEoSi31djikc?=
+ =?us-ascii?Q?wo9+ATPuaeUnF1kLvxaajkiCygAPv2jpe57AVpDD+/49v+o31FNM4AKOqcMv?=
+ =?us-ascii?Q?m9aDhKC3/LUSe7ohT+93aamXkxl6V9iztu4LsA1dgSZzh74ASocLXa93oa9g?=
+ =?us-ascii?Q?x5J1Wf8DuPD12UMJFRhEv75kZA8h4n/9aAHKEl2ZknMJ+hXeKitBoBOne/b3?=
+ =?us-ascii?Q?Z3jHbvCDWW9kHAt4c6YH8rsqCji6zbV5Pusj57+xniR8Bt6ISX9GcWHb3Ycl?=
+ =?us-ascii?Q?p+FV/pYbdkxs3SccHoroMWWP7tTPeEdF7cmuhZcnG/mxYxQ47AGGzWH5SYbw?=
+ =?us-ascii?Q?klyYcx/ESkKN9vQ5yvwdw+mtuQQ0uJOloUbv5vvsIsuF1NqQUk23aQYdBvT6?=
+ =?us-ascii?Q?1FxBHWYHykOvwAl//YnmoIxmXDRQrHqoC0aR6fDAXlSF8Nw3k8latvtg7zAr?=
+ =?us-ascii?Q?FxIimTNZcjndygO7sa2JhEjBVJC+Y4Fv9fT5+xSeePmy0r1LizOEo3D7sUcy?=
+ =?us-ascii?Q?vECsxr+96/hUA007HKFwU6M3CH5uGG4uie6mUmczR1BeZpgObJzwcyiHMZBf?=
+ =?us-ascii?Q?PAmpo//4AVRtmJJW9/LKAgRaRqDL5nN/GSNMYa7yY1aVt/mw6yxZRp6tZQqP?=
+ =?us-ascii?Q?3FFu0da2gLK1m4U6k5R/Vh6ckpNXhsswNaqJ7BhHvXzqNPC5vt+ircPkx6RJ?=
+ =?us-ascii?Q?eDU9kz3W5AJ5g1XMeVNpyaYj5Hw0tbMviFLJaA4b8Qcs5XDqm1VAkWR80B5G?=
+ =?us-ascii?Q?ZV8lzo28f4Nil1Y6I+lo6wor9L222yZEgF3TVinsf1xL5od9R8cUn578X9xL?=
+ =?us-ascii?Q?mGqhm2YDnUeiC+D2iCTgtsW4Srf30wnfe7FxCbiRK1IWlZimi9/8wd94a7/K?=
+ =?us-ascii?Q?IfisINVtI7s/v6cv7v5DefBf8zBwHLD88NuQhfbt?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f63a5af5-4bc8-4a44-1f8a-08dde0c74470
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 15:27:40.9891
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SWIM+rc26SfAHGvn6lYUhon5RrXqAb7yWi0XiPo28PG7JXnPD7PahwpE+7PwNRR3AislG2d1zNAwkvlEZAJeDw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7258
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250821_082746_272047_801CED84 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,187 +168,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CD321x supports various alternate modes and stores information once
-these are entered into separate status registers. Read those when they
-are active when reading TPS_DATA_STATUS to prepare supporting these.
+On Thu, Aug 21, 2025 at 03:09:39AM +0300, Laurent Pinchart wrote:
+> The CSIS has per-line start of transmission error interrupts. Log them
+> all, instead of only the first data lane.
+>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- drivers/usb/typec/tipd/core.c | 81 ++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 77 insertions(+), 4 deletions(-)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-index 51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c..59d270eb50ea3dc49ad32ff71f8354e23c1083c9 100644
---- a/drivers/usb/typec/tipd/core.c
-+++ b/drivers/usb/typec/tipd/core.c
-@@ -35,14 +35,19 @@
- #define TPS_REG_INT_MASK2		0x17
- #define TPS_REG_INT_CLEAR1		0x18
- #define TPS_REG_INT_CLEAR2		0x19
--#define TPS_REG_SYSTEM_POWER_STATE	0x20
- #define TPS_REG_STATUS			0x1a
-+#define TPS_REG_SYSTEM_POWER_STATE	0x20
-+#define TPS_REG_USB4_STATUS		0x24
-+#define TPS_REG_DP_SID_STATUS		0x58
- #define TPS_REG_SYSTEM_CONF		0x28
- #define TPS_REG_CTRL_CONF		0x29
- #define TPS_REG_BOOT_STATUS		0x2D
- #define TPS_REG_POWER_STATUS		0x3f
- #define TPS_REG_PD_STATUS		0x40
- #define TPS_REG_RX_IDENTITY_SOP		0x48
-+#define TPS_REG_CF_VID_STATUS		0x5e
-+#define TPS_REG_DP_SID_STATUS		0x58
-+#define TPS_REG_INTEL_VID_STATUS	0x59
- #define TPS_REG_DATA_STATUS		0x5f
- #define TPS_REG_SLEEP_CONF		0x70
- 
-@@ -85,6 +90,31 @@ struct tps6598x_rx_identity_reg {
- 	struct usb_pd_identity identity;
- } __packed;
- 
-+/* TPS_REG_USB4_STATUS */
-+struct tps6598x_usb4_status_reg {
-+	u8 mode_status;
-+	__le32 eudo;
-+	__le32 unknown;
-+} __packed;
-+
-+/* TPS_REG_DP_SID_STATUS */
-+struct tps6598x_dp_sid_status_reg {
-+	u8 mode_status;
-+	__le32 status_tx;
-+	__le32 status_rx;
-+	__le32 configure;
-+	__le32 mode_data;
-+} __packed;
-+
-+/* TPS_REG_INTEL_VID_STATUS */
-+struct tps6598x_intel_vid_status_reg {
-+	u8 mode_status;
-+	__le32 attention_vdo;
-+	__le16 enter_vdo;
-+	__le16 device_mode;
-+	__le16 cable_mode;
-+} __packed;
-+
- /* Standard Task return codes */
- #define TPS_TASK_TIMEOUT		1
- #define TPS_TASK_REJECTED		3
-@@ -121,6 +151,7 @@ struct tipd_data {
- 	int (*apply_patch)(struct tps6598x *tps);
- 	int (*init)(struct tps6598x *tps);
- 	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
-+	bool (*read_data_status)(struct tps6598x *tps);
- 	int (*reset)(struct tps6598x *tps);
- };
- 
-@@ -151,6 +182,10 @@ struct tps6598x {
- 
- struct cd321x {
- 	struct tps6598x tps;
-+
-+	struct tps6598x_dp_sid_status_reg dp_sid_status;
-+	struct tps6598x_intel_vid_status_reg intel_vid_status;
-+	struct tps6598x_usb4_status_reg usb4_status;
- };
- 
- static enum power_supply_property tps6598x_psy_props[] = {
-@@ -505,6 +540,41 @@ static bool tps6598x_read_data_status(struct tps6598x *tps)
- 	return true;
- }
- 
-+static bool cd321x_read_data_status(struct tps6598x *tps)
-+{
-+	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
-+	int ret;
-+
-+	ret = tps6598x_read_data_status(tps);
-+	if (ret < 0)
-+		return false;
-+
-+	if (tps->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
-+		ret = tps6598x_block_read(tps, TPS_REG_DP_SID_STATUS,
-+				&cd321x->dp_sid_status, sizeof(cd321x->dp_sid_status));
-+		if (ret)
-+			dev_err(tps->dev, "Failed to read DP SID Status: %d\n",
-+				ret);
-+	}
-+
-+	if (tps->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
-+		ret = tps6598x_block_read(tps, TPS_REG_INTEL_VID_STATUS,
-+				&cd321x->intel_vid_status, sizeof(cd321x->intel_vid_status));
-+		if (ret)
-+			dev_err(tps->dev, "Failed to read Intel VID Status: %d\n", ret);
-+	}
-+
-+	if (tps->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
-+		ret = tps6598x_block_read(tps, TPS_REG_USB4_STATUS,
-+				&cd321x->usb4_status, sizeof(cd321x->usb4_status));
-+		if (ret)
-+			dev_err(tps->dev,
-+				"Failed to read USB4 Status: %d\n", ret);
-+	}
-+
-+	return true;
-+}
-+
- static bool tps6598x_read_power_status(struct tps6598x *tps)
- {
- 	u16 pwr_status;
-@@ -565,7 +635,7 @@ static irqreturn_t cd321x_interrupt(int irq, void *data)
- 			goto err_unlock;
- 
- 	if (event & APPLE_CD_REG_INT_DATA_STATUS_UPDATE)
--		if (!tps6598x_read_data_status(tps))
-+		if (!tps->data->read_data_status(tps))
- 			goto err_unlock;
- 
- 	/* Handle plug insert or removal */
-@@ -614,7 +684,7 @@ static irqreturn_t tps25750_interrupt(int irq, void *data)
- 			goto err_clear_ints;
- 
- 	if (event[0] & TPS_REG_INT_DATA_STATUS_UPDATE)
--		if (!tps6598x_read_data_status(tps))
-+		if (!tps->data->read_data_status(tps))
- 			goto err_clear_ints;
- 
- 	/*
-@@ -688,7 +758,7 @@ static irqreturn_t tps6598x_interrupt(int irq, void *data)
- 			goto err_unlock;
- 
- 	if ((event1[0] | event2[0]) & TPS_REG_INT_DATA_STATUS_UPDATE)
--		if (!tps6598x_read_data_status(tps))
-+		if (!tps->data->read_data_status(tps))
- 			goto err_unlock;
- 
- 	/* Handle plug insert or removal */
-@@ -1534,6 +1604,7 @@ static const struct tipd_data cd321x_data = {
- 	.trace_power_status = trace_tps6598x_power_status,
- 	.trace_status = trace_tps6598x_status,
- 	.init = cd321x_init,
-+	.read_data_status = cd321x_read_data_status,
- 	.reset = cd321x_reset,
- 	.switch_power_state = cd321x_switch_power_state,
- };
-@@ -1550,6 +1621,7 @@ static const struct tipd_data tps6598x_data = {
- 	.trace_status = trace_tps6598x_status,
- 	.apply_patch = tps6598x_apply_patch,
- 	.init = tps6598x_init,
-+	.read_data_status = tps6598x_read_data_status,
- 	.reset = tps6598x_reset,
- };
- 
-@@ -1565,6 +1637,7 @@ static const struct tipd_data tps25750_data = {
- 	.trace_status = trace_tps25750_status,
- 	.apply_patch = tps25750_apply_patch,
- 	.init = tps25750_init,
-+	.read_data_status = tps6598x_read_data_status,
- 	.reset = tps25750_reset,
- };
- 
-
--- 
-2.34.1
-
-
+> ---
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> index 35c8d5309424..67da8326540b 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -100,7 +100,7 @@
+>  #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
+>  #define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
+>  #define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
+> -#define MIPI_CSIS_INT_SRC_ERR_SOT_HS		BIT(16)
+> +#define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((n) + 16)
+>  #define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
+>  #define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
+>  #define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
+> @@ -241,7 +241,10 @@ struct mipi_csis_event {
+>
+>  static const struct mipi_csis_event mipi_csis_events[] = {
+>  	/* Errors */
+> -	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS,		"SOT Error" },
+> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),	"SOT 0 Error" },
+> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),	"SOT 1 Error" },
+> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),	"SOT 2 Error" },
+> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),	"SOT 3 Error" },
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error" },
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error" },
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error" },
+> --
+> Regards,
+>
+> Laurent Pinchart
+>
 
