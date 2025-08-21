@@ -4,144 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A28CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2E20CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jaRFM4K4Pg6WYlxhcM2k1BGbQ/DW6XfjnDsCttbmjXY=; b=r0aepluA6OTJEXdSyr1a60WAIE
-	1R59mHsuGRblZXlq+V4wU2+WJB4TWX8WJ0261ehWKAxUS5B10Ri1S15z6egqd4BG8OMDKOMHDHvoK
-	fYlfPq6vg0Mk/bKIjogEcJH5d/tkbbayoUqj/LFdBqiV3B535YgJXP9WNVnGFOy6oy3sc9Ai8NrTz
-	RyHtwmYJBLY7Y+4p45TlMBZ223+rAVHxfgISU8YoqPtn+hh/H86y7VhndNEdDmmb2td0rrqFmysE+
-	2y/WffsaMQv2UfZBec2BqfIhESL/7FCjMEx91AIsUt6K21EGIshbS/2mHs/Q31CSYTIWn5+IX0/gu
-	r7z/DcmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hAZKIl7VFsJA7T3DhrwuzSXASjRuY7aTSJnOGFZNr3c=; b=UAU0suZ7wsiFCLTifQgceKf9P/
+	oncartR2xlwrPcjqVvG4T/FiDOOfMA7OLqtxlA7k3SiI99P1V1I+bW/acBM66hz5LKv4x2vAx/6E4
+	XDPw6NDkqF8/oKriIsIrOUh6Ix3+nWDEncaa+UYc9/y6HD+w66YN/WZIQ0pGf/ZwcteAHSc59h604
+	V7SQPzvGO2i9U1d59GfcaWbpgmXvA8gSK78pQRirC3PEpu3gjZqEkfaTO+jVucZLlDkVTcN7LqLjZ
+	mMY/oOYMwFZHGsKMhe7g+Vd+vOUzl42H0rgOhdzWfsfhwGGFUMf2s2irNZpSA8JA8h90PCaKej7zz
+	fECY+gEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFmu-000000013Ub-3N6t;
-	Fri, 22 Aug 2025 00:37:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1upFpW-000000013id-0WmA;
+	Fri, 22 Aug 2025 00:40:30 +0000
+Received: from mail-dm6nam11on20715.outbound.protection.outlook.com ([2a01:111:f403:2415::715] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBZw-00000000Npt-15a8
+	id 1upBZy-00000000NqH-0W82
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806887;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jaRFM4K4Pg6WYlxhcM2k1BGbQ/DW6XfjnDsCttbmjXY=;
-	b=AOjiswY8q7JYSpY8Iqi5mGRrJbHm74NA3YPe0Wedmvy8pniMWj5Ie9XJjd5hZEjER8S8dZ
-	aGDfDfq0pBh637kOXPFCjWMG5gCdNPW83cMgGtUTqgBoX8YKQR7gCCoBgrcgPcMLqDiA99
-	h68R6jd3Q3KI/OGMjdZ9ZQ5Kk4cotWg=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-505-R8TJl4qJPsWeHu-MzLssPw-1; Thu, 21 Aug 2025 16:08:04 -0400
-X-MC-Unique: R8TJl4qJPsWeHu-MzLssPw-1
-X-Mimecast-MFC-AGG-ID: R8TJl4qJPsWeHu-MzLssPw_1755806883
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3b9dc566cb4so996490f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:08:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806883; x=1756411683;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jaRFM4K4Pg6WYlxhcM2k1BGbQ/DW6XfjnDsCttbmjXY=;
-        b=nc6d6ttfkyQ0BFVMlDyvnO74NSrx90Zv6Pd1lXhA2RAkpPaZn1NXGTcHVJAtCtpn00
-         VZvdNgIu8+4wSGp3frLZQLPiyCQjy/aPeg6fiXk5qBnOvMMPaVkvvQcXMJasCB9fsEKx
-         bAR7cLtMT9qbWlcy8GJQc8Eg+cVCVjYBCkdOwhdrFQ5+SA0SVeBGhz5UBP00makiHgev
-         P3PfeV3zio/46dHu3M1mSKDqf9KWByAQssYMJB10etD7VKW855KBNtuBQSRYiSMXzATg
-         fyiCdn20LhmZkPYG7oBlK9vkyrXVNi3O/201yL1r+3di+eehR4ow5coPv00l9vnIJsQN
-         sOTA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQg9GTgoXKODQjG2BuDXF502o/9SK62xk2IVEJWdf2HFYZ3wVCTzQicCYBOhD4cMFpCCukpux13T9mEaKbkcH7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMiqT6uOxNl+dQTYhychxIQ7iACPlQIQzL1dROd45SjpEcdBVP
-	iQLNy/Wck+5/tpFAZCNWyeU6curP32UV40RZ7yOS9DGjP8BF6Lw+TgPEU9DLUxSLjbDeth2/CbC
-	r7bm3p14VJsYfG4NMkJ4EhTmsCvWYK5IepxJPHpq9LcHD93zS52jNe5VfaXQBJc4DfVDnW/7Cyx
-	q4
-X-Gm-Gg: ASbGncvXwgHibJUk1TUGbihFpjONJ7qSe5uWTc9yT6MQmtgkQfrwcSg/6bbMRy2M7nl
-	kPMQUzT8mpHkcSYB4y8963AUFeigv5+OQG6LQFGvWTY1EjfQCoLyJD35AODMYhxKSxHyGQ3EQ/Q
-	xvpgAGasu2zBcXajg1BVCYW5teG8uDGBvoIOiY/BIbzNz5OyzcF61uko3Me1MUT2NYNwDXZV9Gv
-	OW+hN2Iu0/4Sz6ovElHEqneWioSw/9VXjv79yDwvZpVZZCVLWExnNJyzaZJWwf6uSp8kOWp3VtQ
-	bsQQ3SXBDJw3Hbx2tfZIO9VBhGq2RIGMFlUMITu/SzIFdSrgnWr1cH2T1G+MEECsULJM2g+rPGH
-	rWRMwJ5DmAUR7GvCF5s/a7Q==
-X-Received: by 2002:a05:6000:2012:b0:3b7:dd87:d741 with SMTP id ffacd0b85a97d-3c5dcc095c3mr196180f8f.42.1755806882799;
-        Thu, 21 Aug 2025 13:08:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFiRO9AsztHDXjXXwtKcCswXKV/HQQvQjujQOlltIgK9F5s1Ca8ikdDYrX2bvCVEtKZoFK6NA==
-X-Received: by 2002:a05:6000:2012:b0:3b7:dd87:d741 with SMTP id ffacd0b85a97d-3c5dcc095c3mr196155f8f.42.1755806882316;
-        Thu, 21 Aug 2025 13:08:02 -0700 (PDT)
-Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50e0b299sm8957945e9.22.2025.08.21.13.08.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:08:01 -0700 (PDT)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: David Hildenbrand <david@redhat.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>,
-	Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	iommu@lists.linux.dev,
-	io-uring@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>,
-	kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org,
-	Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev,
-	Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com,
-	x86@kernel.org,
-	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 20/35] mips: mm: convert __flush_dcache_pages() to __flush_dcache_folio_pages()
-Date: Thu, 21 Aug 2025 22:06:46 +0200
-Message-ID: <20250821200701.1329277-21-david@redhat.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
-References: <20250821200701.1329277-1-david@redhat.com>
+	Thu, 21 Aug 2025 20:08:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QO161KxaaUi0E+OFkLF4O2/DXhNcZZLBh3ml/iqspKAgrCG5JC0GhJhLe/e4t40gB6bwV+RsBA6Okgo+pCrm2ZPqpWAMwf4hAwpNlPEBprE1xUcM/Jo1T0eJLgpcvv0jcK+ofAzrEP1QTGw6BklenMoyxTvZXeG8ciijCJFDgW20b150Oe/kfdZEd/7hdTlIf8m22tEmM+GVYgf9tCuqZXb3wJ0R89RmuwAE47wR4fflrGdWGinVeWfg9730ECA88CXAzXEnDJ8Zsu312sNvhJIPNnaBRG5r857QDnDRmLzV5On2GtA3Z9cWdrPweNcqZtTJ/R2QCy/wwmSTMEyk3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hAZKIl7VFsJA7T3DhrwuzSXASjRuY7aTSJnOGFZNr3c=;
+ b=Z4AMCNJoKFkqb9QpBTpiWs5PAw+ufpa0tgzZOpsAw6ufXOHZWjXbbW+ADbhQN6uaWKtnuFcKhk/RehCtiZiddP1EUhVh8q0hFvd26ndQZ0WjkWqxJnEOwPrBI8vKA9eXbH4qzOBSM/Q9O37Xp5HtY3x0ERXjP4PfixUmODg9G4+GCpRc0K6kmBrN7Yi2qyBAPi8bWQ9j/PAI1Yle0zxt49NqWct2qwFpQRIhr/tJIWUUYBpux6LV/GojqnKGb9THI+Hu526WTCIIZ1GJpYcGxS7ZFFpOLmxtwiCeJxN5barVb4uLnnLdnazmj4zPiu63fSeMZHPiKXTy8tMZJchHLw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 50.233.182.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hAZKIl7VFsJA7T3DhrwuzSXASjRuY7aTSJnOGFZNr3c=;
+ b=jpXHWhf5c2IotDn2TedD/3O9583mohIEaEHFr7xqwQavgMW7CRg5O69IorjDjhJID/hhFGuk8z2fFRRyjHxABdaMWpGvc+FGLBLlpKqV23dQUKEfrurnLG+vXHQoOQbyjh0yHvQ4Scm4y2fgCepjdvBWCduxMMO79PaWz5LzDz/xeTYqIMLfaDTY+92WDsO9eV8ME+GNGUSABh66BAGtJdINt3HpS/ZXYaINsvg9SbIIXricln8NTI19hfw7LHHSiQhaBz7FPD4tLKRGaLtn3rQ4W/nPNZSjxYIlI2QT/fv7C6MUeNhBFQM4lmbHCHP/nuiclWU75m2ktnuAwpSa5A==
+Received: from MW4PR03CA0219.namprd03.prod.outlook.com (2603:10b6:303:b9::14)
+ by BL4PR18MB6432.namprd18.prod.outlook.com (2603:10b6:208:5a7::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Thu, 21 Aug
+ 2025 20:07:54 +0000
+Received: from BY1PEPF0001AE19.namprd04.prod.outlook.com
+ (2603:10b6:303:b9:cafe::a0) by MW4PR03CA0219.outlook.office365.com
+ (2603:10b6:303:b9::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.16 via Frontend Transport; Thu,
+ 21 Aug 2025 20:07:54 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 50.233.182.194 as permitted sender)
+ receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.1.1];
+Received: from [127.0.1.1] (50.233.182.194) by
+ BY1PEPF0001AE19.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.8
+ via Frontend Transport; Thu, 21 Aug 2025 20:07:54 +0000
+From: Harshit Shah <hshah@axiado.com>
+Date: Thu, 21 Aug 2025 13:07:44 -0700
+Subject: [PATCH] arm64: dts: axiado: Add missing UART aliases
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iEIr1wJH5QJXFVsbCjTx3yWFTlW6uDJdkvSU74ifsbw_1755806883
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250821-axiado-ax3000-missing-serial-alias-v1-1-527d979c3ea0@axiado.com>
+X-B4-Tracking: v=1; b=H4sIAI98p2gC/y2NQQ6CQAxFr0K6tklhJDJexbCoULEJDjpVQ0K4u
+ xVd/by/eG8Bk6xicCwWyPJW0yk5lLsCuiunQVB7Z6ioqqkpA/Ks3E8+gYjwpmaaBvxaeEQelQ1
+ D7PZNDAc6cwQX3bNcdN4ip/bHWR4vbz3/57p+AIvTkUiJAAAA
+X-Change-ID: 20250813-axiado-ax3000-missing-serial-alias-39c489370ba9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Harshit Shah <hshah@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=929; i=hshah@axiado.com;
+ h=from:subject:message-id; bh=V6IYRrIJVaz8j/NBH5b4Ydgi+A5f1DjeTUAup4PVBZo=;
+ b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBop3yW6oNfUZsuN8AzgM4L4eM95icW6V5pxi/GX
+ wkIh/xATqiJAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaKd8lgAKCRDxWHMRoTLV
+ +0xAC/90XyxfM7F6i58VlfHWvJfJ/5FFw1HjNOyhguRd6YIxM7vNm+ERPJG2+u6GAc4ag1bbQtI
+ oUXxjEinz07Ro31XKNsvHaqG3vyJQ+PwJlIYzed1zy5PJiWNMJy/x6rOpZCl91dsojWNR1EoSU7
+ h8emdqdsmKvxBI3FnA2iyqlkBLwmpvadjwl5FdTDWQJIB+6PLM1MfvnmLyvOy6uoL/hZZhMxYNu
+ eZeO3VPGMB3235wi7wQPNkaxz3EexCwrg2dcV5Hl4fHgQbyqIfrAZSdfD9G0aQnR5D4a148BeB4
+ sq5LhATwJorWPBabEC17Bi3SRzTs3a3uMxhoUdLWHAxDqMYah/yr75PI1xEwe+a+f9HQUQYCr0x
+ FAjiM7TudLmcq3quNoOjYhzSiM7JHSIwEJttQUkhrDfDxjljolj5PyNv2FYIKtluCJ/lpDFYf8S
+ l4QY+/WX2IGH25BDVPpnBhbg8l8tmjPf0UCv588izYWF7Asjehw2mFAei2tbWXP7vTqCo=
+X-Developer-Key: i=hshah@axiado.com; a=openpgp;
+ fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE19:EE_|BL4PR18MB6432:EE_
+X-MS-Office365-Filtering-Correlation-Id: d01f2c56-5bd9-449d-6b9c-08dde0ee69fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SXpRcFZMcVNGSkUwNGFmSDBGS2tiaDdGcGZ3K2RQeDl4Ly9wU2laenNQK2Fn?=
+ =?utf-8?B?NU53QlBWREVmL3VwdytOZ2UwMHdlZ3FOSlBFSDBVNk9YS3FJeldicVJLdy9q?=
+ =?utf-8?B?U05lSkpGNFg1Y2lqYzgzUUFMYzBNOTRieTJZVDhFTDhiWU55aFhxa25lWXdh?=
+ =?utf-8?B?ZzAzYjQvTndLMlllS1I3Q3JWR0xpdXRQR2JzWjNNM2ZqVWdJaGF3SFVlK016?=
+ =?utf-8?B?bzdSTGFHMTdxVUU3NnAzOTE0SFkrWlRRWS9kSnpQRVNpTTJYcDFiMjdsaTVv?=
+ =?utf-8?B?amtnc1pFMTlwY1NYOTh5aWYrTURQQTQrNUQ2c3FSSWtLWG9tbDZSWi9qT2Rt?=
+ =?utf-8?B?VEhkTWc5QlJxN1I3RTRDZGxWcGZuWnBuNVFSS0g2Qk81OTN5VHdZNUlFL1pT?=
+ =?utf-8?B?VER6a2V5c1A3VnNLUjJiVUI0NHh4L3l0d2Y0U2hDdHMzZlppSEhwUjhpMG1X?=
+ =?utf-8?B?Q0RodUlYeXBGZVRyUDg4UUZhTTFpVERrdWpESCtvUm51aHJWdnJxM1F0V1Jn?=
+ =?utf-8?B?aVN1Ty9MUmo1aUhTYnlCRmMzMTV3c2ErdTNJMlRNNWNrSStwRWcydGVjY2xH?=
+ =?utf-8?B?TklXYnh4Wnl3Q3RWS0xKWENEOW9lU2syKzhyQWNaMnlhQUVGOFVJcjVSZTE5?=
+ =?utf-8?B?aklYSDNZS0JHSEJmV2VObXNJN2lHVGhlcllCSDZ3YlhERTJxMjNHMmRzRnZk?=
+ =?utf-8?B?VDV6SnRKd3pZUnNraDNUYXErWmw2SVNJRDdPNW5LcStvTmVHTzJ0Y3gzeXBl?=
+ =?utf-8?B?bmhxT1dmUEswcWtNTjJoUlZjL3NkcmRUNFdBTFUwY2RhdWZ0VUU2WG5nYTZU?=
+ =?utf-8?B?Y3ZnbnN1SkVKdkRRbW1EcTJ2MlRFb25wTDhSMFlDdWljcXdlUXhHZGlJMnVL?=
+ =?utf-8?B?V0I0T1pTeTRyWStuK3RxWHBDME54MG0yNnJ4TVpib0VSYnVtbmRjNnh5MUVH?=
+ =?utf-8?B?eG4wa3FKb1VLYmk1aGMrR201cjEwbnhiRUE1YU91MFl4UnprNWo0SHVKMWNm?=
+ =?utf-8?B?Ky9aTkhQSlFEVklTVWFESGNZY1pTRTIzOEVuYjVrRnU3Q2VkSXZJUjIyd3lH?=
+ =?utf-8?B?RFJ6RlJHNzFLMk5KeTVhaTAxaXNHSTZLRFRxVDFrUTFJZlFoQ3JBYjdyalVD?=
+ =?utf-8?B?WFE5RVc4WXpncG5CVW1PNExVb3JSNjZoNWt0a2Voc2NjRmFITk1CaDByZW96?=
+ =?utf-8?B?MDI2dTRIZjM5QXNWSEdTTm5lbUtpdEwvRjk0UGs4S0MzKzJmWGYrS3d1RU1V?=
+ =?utf-8?B?WDJocklpdWtoL2x1NTBEOWhOMXpHRWpQUjhucEhJMG9pS2J3NEVqcWxJZ1Mz?=
+ =?utf-8?B?SWx6OWt1aW5jcDZqQk1YWUVwazgyYzg4OUVlRXJEWVlpaTR2a1Y4ZWdzYzRV?=
+ =?utf-8?B?c21DTFpkN0hvenQ2cFVDNnlwSFRuUTZOUHBkcUdpYXNRdi8rM1FQSWQ1ZU5q?=
+ =?utf-8?B?dngvc0w4ekF2RWlQQklPeis0WnhqSlRjUllZVTJ0ZmxUYXltZHVxVWljZThB?=
+ =?utf-8?B?TW44TGhBMEFlWDhBTEQzaC9HSXRaZEVRWXUyeW51MFoxcjNieGNJbll2ZmR5?=
+ =?utf-8?B?YlZ1OGJibGo1dEJETnFKeUx3RkNhWU52K0tSWlM4bCtxNDBGM2xFMWRqcDFr?=
+ =?utf-8?B?eVcra2V1SnFWSXFCL1dOSWtlTy8rREhqUjR3MWlLYXB6ZzN6ckRDZEw3TStI?=
+ =?utf-8?B?TGVDYjA5SkRrNFIzWEl1ZCsxUHNtOU9LczlSVHFSMC9OUmxTNWluQlVJVC81?=
+ =?utf-8?B?L3o0TFhvTk9icWhUT1lLT2g4UG94K3J3MXAybXBLdlhMVGk2ZDNJMmVNQVVp?=
+ =?utf-8?B?QmZCYnp0SG52OXJaY0U2aHVTRWtTaUYxNlVuMDNnUy9DWWxYZ2ZBTk45VDZy?=
+ =?utf-8?B?akZMeWFzTHRnY0dCL21hYWg0V2QwckpDWG4zOW5YRDZaYTB5d0pLOVQ0Z3RH?=
+ =?utf-8?B?WVlVeU1QZUloZk12cXBPWDFsK2Uwb3B5bXpvdUxYb2JzUW9uNXA2NFFsMXc2?=
+ =?utf-8?B?aE44aWQyMW94YlBjNzVMRW1FRGFvdkp2M1V4bzh0RkpFcjBqMlA5N2JvL0pO?=
+ =?utf-8?Q?c36eLt?=
+X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.1.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 20:07:54.1271
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d01f2c56-5bd9-449d-6b9c-08dde0ee69fd
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.1.1]]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE19.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR18MB6432
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_130808_371092_F310BFEE 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20250821_130810_185601_5D672DE3 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,87 +163,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's make it clearer that we are operating within a single folio by
-providing both the folio and the page.
+Axiado AX3000 EVK has total of 4 UART ports. Add missing alias for uart0,
+uart1, uart2.
 
-This implies that for flush_dcache_folio() we'll now avoid one more
-page->folio lookup, and that we can safely drop the "nth_page" usage.
+This fixes the probe failures on the remaining UARTs.
 
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Signed-off-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Harshit Shah <hshah@axiado.com>
 ---
- arch/mips/include/asm/cacheflush.h | 11 +++++++----
- arch/mips/mm/cache.c               |  8 ++++----
- 2 files changed, 11 insertions(+), 8 deletions(-)
+ arch/arm64/boot/dts/axiado/ax3000-evk.dts | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/mips/include/asm/cacheflush.h b/arch/mips/include/asm/cacheflush.h
-index 1f14132b3fc98..8a2de28936e07 100644
---- a/arch/mips/include/asm/cacheflush.h
-+++ b/arch/mips/include/asm/cacheflush.h
-@@ -50,13 +50,14 @@ extern void (*flush_cache_mm)(struct mm_struct *mm);
- extern void (*flush_cache_range)(struct vm_area_struct *vma,
- 	unsigned long start, unsigned long end);
- extern void (*flush_cache_page)(struct vm_area_struct *vma, unsigned long page, unsigned long pfn);
--extern void __flush_dcache_pages(struct page *page, unsigned int nr);
-+extern void __flush_dcache_folio_pages(struct folio *folio, struct page *page, unsigned int nr);
+diff --git a/arch/arm64/boot/dts/axiado/ax3000-evk.dts b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
+index 92101c5b534bfac8b463adaa1c4f0d4367d01e21..b86e969625573bf92bdd5e4435ea571dd7500de2 100644
+--- a/arch/arm64/boot/dts/axiado/ax3000-evk.dts
++++ b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
+@@ -14,6 +14,9 @@ / {
+ 	#size-cells = <2>;
  
- #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
- static inline void flush_dcache_folio(struct folio *folio)
- {
- 	if (cpu_has_dc_aliases)
--		__flush_dcache_pages(&folio->page, folio_nr_pages(folio));
-+		__flush_dcache_folio_pages(folio, folio_page(folio, 0),
-+					   folio_nr_pages(folio));
- 	else if (!cpu_has_ic_fills_f_dc)
- 		folio_set_dcache_dirty(folio);
- }
-@@ -64,10 +65,12 @@ static inline void flush_dcache_folio(struct folio *folio)
+ 	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
+ 		serial3 = &uart3;
+ 	};
  
- static inline void flush_dcache_page(struct page *page)
- {
-+	struct folio *folio = page_folio(page);
-+
- 	if (cpu_has_dc_aliases)
--		__flush_dcache_pages(page, 1);
-+		__flush_dcache_folio_pages(folio, page, folio_nr_pages(folio));
- 	else if (!cpu_has_ic_fills_f_dc)
--		folio_set_dcache_dirty(page_folio(page));
-+		folio_set_dcache_dirty(folio);
- }
- 
- #define flush_dcache_mmap_lock(mapping)		do { } while (0)
-diff --git a/arch/mips/mm/cache.c b/arch/mips/mm/cache.c
-index bf9a37c60e9f0..e3b4224c9a406 100644
---- a/arch/mips/mm/cache.c
-+++ b/arch/mips/mm/cache.c
-@@ -99,9 +99,9 @@ SYSCALL_DEFINE3(cacheflush, unsigned long, addr, unsigned long, bytes,
- 	return 0;
- }
- 
--void __flush_dcache_pages(struct page *page, unsigned int nr)
-+void __flush_dcache_folio_pages(struct folio *folio, struct page *page,
-+		unsigned int nr)
- {
--	struct folio *folio = page_folio(page);
- 	struct address_space *mapping = folio_flush_mapping(folio);
- 	unsigned long addr;
- 	unsigned int i;
-@@ -117,12 +117,12 @@ void __flush_dcache_pages(struct page *page, unsigned int nr)
- 	 * get faulted into the tlb (and thus flushed) anyways.
- 	 */
- 	for (i = 0; i < nr; i++) {
--		addr = (unsigned long)kmap_local_page(nth_page(page, i));
-+		addr = (unsigned long)kmap_local_page(page + i);
- 		flush_data_cache_page(addr);
- 		kunmap_local((void *)addr);
- 	}
- }
--EXPORT_SYMBOL(__flush_dcache_pages);
-+EXPORT_SYMBOL(__flush_dcache_folio_pages);
- 
- void __flush_anon_page(struct page *page, unsigned long vmaddr)
- {
+
+---
+base-commit: 8742b2d8935f476449ef37e263bc4da3295c7b58
+change-id: 20250813-axiado-ax3000-missing-serial-alias-39c489370ba9
+
+Best regards,
 -- 
-2.50.1
+Harshit Shah <hshah@axiado.com>
 
 
