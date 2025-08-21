@@ -4,100 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5B0CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D07CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=awCl8mZNDWUiA7LOi84dnKU9phxqklU6SWZAtwSFwMc=; b=c0hqgeBTcr9H3cyH+0Y1ljUCqI
-	pnVWlkqBPsDnk1owQBJjM9u8fnJxH3fgen9jjGqdiOZRr31xg5oYTGiGv9QgsD3TjRkY14ArJW8+w
-	S4A124PQXgmj2I0tCVBqHst16ROR5FWoxUmegHRECeMQ06JzSVJmEVQ2ZpNJ1iKlFXTf4rceY7ETW
-	cYo7UqgxLi/dTsc5Q8cUEKgaqEYEXqBjFZXEVMuYIJZ0esfpFeUVuLKYtV7TGt1WRGedTuyTgDKt1
-	sOynhJ6Z7WkwI3sAcdBVVCxzh8mCS89/BKuGa0+BbjifWRNX9O1vaZx6OsxxAiT3jHMPiJNQ0+Hsv
-	m2xFCplQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zr1ClKYb90yrQwVrgN/bVVgL9u31pYqFjhU2JA5XXNQ=; b=nl06kAc/xam42Ya69amyGuMMkx
+	puRYT34HfM98uUK8mTT/rHAiBOpdN8JfLOcNS6Cjh6i/OgYx10YcFsVC4kvRnw9JhXFzJ8l6r6xho
+	Alvv3OT2KRaOrBm0R3dxBIx9FJy6NBJhZ+9uWpdC+8kIMapEGfxrBKNM8JN0lsrYR5opMuT4XPH30
+	FqCXkZHJtoAl33MY/1EI7MfJK+uadBVD3t84swe3jXgvwdqnQk1doWzYATVtK9UOCfNk3SxW4lnuI
+	MNC/e3/GJndLKDQIdKEnxRNbkHNuFkBnLDN4H/k9/aJ7dpro6U1s7gQD4Z+oGR0x+qZWgHHQEWGP7
+	S4Gard+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozHG-0000000G1un-3O5t;
-	Thu, 21 Aug 2025 07:00:03 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1uozLA-0000000G309-37At;
+	Thu, 21 Aug 2025 07:04:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyu7-0000000FyHW-3BJx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 06:36:09 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id AAB46EC0064;
-	Thu, 21 Aug 2025 02:36:06 -0400 (EDT)
-Received: from phl-imap-18 ([10.202.2.89])
-  by phl-compute-01.internal (MEProxy); Thu, 21 Aug 2025 02:36:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1755758166; x=1755844566; bh=awCl8mZNDWUiA7LOi84dnKU9phxqklU6
-	SWZAtwSFwMc=; b=J7juqJTvx//eV3PJ7g/3JHvO7F/qYTCA43EnQFhCnwFXE83Z
-	lUa3dHNqasLVRZTEF9rISjkj9psjKBzHEzaw932+eKU6wIhOHnPIA14S4g4CBCJ3
-	AllGN0Lq6k0UdJmZNaHAmd4T3Kmp7dvMHVgKAD2MiOwZQT48Gjf/yNYWXXl7ds8C
-	FY1n5T9mQYOdVo7PfaDzhScLfNE1PEeuSyXfqF4NadhXm558YzmJ7+KXMWTDUQlU
-	eiegecjvRNkdcFI+Z9LQq/+bv0kpF1YCjRfr7Y4ZAiWMFrZLqRpEzLmwPykdCVFv
-	qjwUaCsTO69sr5wHIf+E4xGMVVkEz+zPUV5jjA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755758166; x=
-	1755844566; bh=awCl8mZNDWUiA7LOi84dnKU9phxqklU6SWZAtwSFwMc=; b=D
-	0ae8aPSqTIEc50/HBJTnrKhVO4Ey/y3sPTmlif7+DB+s/BQPCcgETKnO7orzLwJZ
-	lKRWZlxAEKZe1ll2uttMEHEBMMuHkBJxUllI3gssxeTZhEFxILHUk2WiLPJIqz5u
-	Pmpi1dIQoEk1X/E4cVIFvcxnJSoNnXPmRPoEQz2Xk6mN5rQQOnua1gOUCaUSVsAJ
-	vqZcx5iVqGT/XZNsXd+gKS/IeD+lrsXh9x/tfDyUs4TtHPOtaozITNdZ4hAU9fx1
-	atJBIs81OoV5luznkpIXDTsYIl2MX15aEfPfls7VqSsTgEKQBDOjlpQwpMpQEehK
-	CeD8j1FtCyqp3QF9Gre0g==
-X-ME-Sender: <xms:Vr6maJPsETLIxCzpY0xs-UQTZCjBh8RKyJ-uo_ty6aGgPJgy6KzhNw>
-    <xme:Vr6maL_op0W_LTi4mR3vD0UbjjiJO_ruSoxb0IffE5fOLnxupSOXjE0lopwFdLqE3
-    L6tDUClWe6eXL04GKY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedtheefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedfofgrthhh
-    vgifucfotgeurhhiuggvfdcuoehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruheqne
-    cuggftrfgrthhtvghrnhepvdeitdeufeffheeltddutddtuddugfdtveffffekvdffvdfh
-    gfejuedtgeeluddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghupdhnsggprhgtphhtthho
-    peefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhi
-    nhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrh
-    drkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:Vr6maM0C-vOL3QsoAgcqMBlvO-x1lGauUm1ll6E5xhD4hV3L_W8arA>
-    <xmx:Vr6maB9pxkhQ-608VgtvyVD7WxNTOMeBjdgRpuXbyetcpaR5_Cw5Mw>
-    <xmx:Vr6maMtcr2zjRUXBQB8U_gRKuqWOrszUOQhjyjdL4r8A1dAFiK_sbg>
-    <xmx:Vr6maEDyFtdrtI6QBlzYk7aINfpFrO1RBmlQb082VSUKvCQlsJcxTg>
-    <xmx:Vr6maL6XNoTFixNrjH3VVeY8CwJ-00ZRHRQC_ZZmwbJG3pzvbi1P9ZgJ>
-Feedback-ID: i426947f3:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 747A515C008C; Thu, 21 Aug 2025 02:36:06 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uoz3y-0000000FzYF-3Ce4;
+	Thu, 21 Aug 2025 06:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28592601E9;
+	Thu, 21 Aug 2025 06:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44E33C4CEED;
+	Thu, 21 Aug 2025 06:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755758777;
+	bh=i+n/4B/MiYix4PhRatm6mvUq8Z++Ah+iaPndzC5npow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qWVE8Im28bcNByDb4nmbii+MVUYW1gsPh1TPxiVjMbVj3iGap2s3VVKOPiLVFPKnd
+	 4Eu+45zODx7dsxT4FLsoLUe0zDJrLe5xa06Y4lRzGAeJkKV+7Q3eT3SmSmt7R0F38z
+	 ra0pegJVHDO71R+XeH/4/xx8U4aL3pNN3wGmeUw2uRh0CQ0qpXe4RFtix1Xr1djnbJ
+	 MJGnBfQGKhAyz67jrXPCbdi1Q5DUERLN2mJz5bq4a9VH+9MpAN986KJJnQD3D9pdrV
+	 POjph9k+6aZgMrrQ5ZAoMjAy48TcKN2O+H2a4/6p5ClojOr7JIlJnE6/E4UsYZ4wFd
+	 c5wAQG7EG7dcg==
+Date: Thu, 21 Aug 2025 08:46:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
+	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
+	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, davem@davemloft.net, 
+	dmitry.torokhov@gmail.com, edumazet@google.com, flora.fu@mediatek.com, 
+	houlong.wei@mediatek.com, jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com, 
+	krzk+dt@kernel.org, kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com, 
+	lgirdwood@gmail.com, linus.walleij@linaro.org, louisalexis.eyraud@collabora.com, 
+	maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, mchehab@kernel.org, 
+	minghsiu.tsai@mediatek.com, mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
+	robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch, 
+	support.opensource@diasemi.com, tiffany.lin@mediatek.com, tzimmermann@suse.de, 
+	yunfei.dong@mediatek.com, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v1 01/14] media: dt-bindings: Convert MediaTek mt8173-mdp
+ bindings to YAML
+Message-ID: <20250821-silky-slug-of-novelty-e4bb64@kuoka>
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-2-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
-X-ThreadId: Abvx3TMA-vy3
-Date: Thu, 21 Aug 2025 16:35:22 +1000
-From: "Mathew McBride" <matt@traverse.com.au>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Message-Id: <26199775-297f-4b91-9cc9-ec06d0a86e7e@app.fastmail.com>
-In-Reply-To: <58192df0-aa6e-44e2-9dfd-9e0402d1fe9a@kernel.org>
-References: <20250813023435.27776-2-matt@traverse.com.au>
- <20250821061115.18254-1-matt@traverse.com.au>
- <20250821061115.18254-2-matt@traverse.com.au>
- <58192df0-aa6e-44e2-9dfd-9e0402d1fe9a@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: mfd: add Traverse Ten64 board controller
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_233607_870937_F59D1A47 
-X-CRM114-Status: GOOD (  21.81  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250820171302.324142-2-ariel.dalessandro@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,58 +82,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Wed, Aug 20, 2025 at 02:12:49PM -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for MediaTek MT8173 Media Data Path
+> to a YAML schema.
 
-Thank for your feedback.
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
 
-On Thu, Aug 21, 2025, at 4:19 PM, Krzysztof Kozlowski wrote:
-> On 21/08/2025 08:11, Mathew McBride wrote:
-> > Add device tree binding for the board (micro)controller on Ten64 family
-> > boards[1].
-> > 
 > 
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets.
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> ---
+>  .../bindings/media/mediatek,mt8173-mdp.yaml   | 174 ++++++++++++++++++
+>  .../bindings/media/mediatek-mdp.txt           |  95 ----------
+>  2 files changed, 174 insertions(+), 95 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-mdp.txt
 > 
-Understood, my apologies.
+> diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
+> new file mode 100644
+> index 0000000000000..f3a08afc305b1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
+> @@ -0,0 +1,174 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/mediatek,mt8173-mdp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT8173 Media Data Path
+> +
+> +maintainers:
+> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> +
+> +description:
+> +  Media Data Path is used for scaling and color space conversion.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
 
-> > The schema is simple and is (presently) only consumed by U-Boot, but it
-> > is possible that it could be consumed by nvmem or other type drivers in
-> > the future, as well as extended to future Traverse boards.
-> > 
-> > The categorisation as a "MFD" follows that of comparable devices such
-> > as "gw,gsc", "google,chros-ec" and "kontron,sl28cpld".
-> 
-> That is not MFD device. Google EC is for example, but you have only one
-> function. I think we will move all of them to some separate ec directory.
+Just enum, no items here
 
-Noted, I will wait for that change to progress before moving any further with this.
 
-Hypothetically, the ten64-controller may acquire some sort of "child" binding such as
-watchdog and nvmem in the future, similar to the other "EC" devices, there just has not
-been a need to do so yet.
+> +          - enum:
+> +              - mediatek,mt8173-mdp-rdma
+> +              - mediatek,mt8173-mdp-rsz
+> +              - mediatek,mt8173-mdp-wdma
+> +              - mediatek,mt8173-mdp-wrot
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt8173-mdp-rdma
+> +              - mediatek,mt8173-mdp-rsz
+> +              - mediatek,mt8173-mdp-wdma
+> +              - mediatek,mt8173-mdp-wrot
+> +          - const: mediatek,mt8173-mdp
 
-[snip]
+This makes no sense. How devices can be compatible and can not be
+compatible.
 
-> > +  Communication between the SoC and controller is via I2C, at a fixed address
-> 
-> Either you make it a schema or drop it.
-Is this in reference to the "fixed address"? In which case, I'll remove references to any fixed address.
-> 
-> > +  of 0x7e. While the controller firmware implements several functions, there
-> > +  are presently no parameters that are configurable by DT properties, except
-> > +  those that are required of an I2C bus endpoint.
-> 
-> This paragraph wasn't here before. It's completely redundant, drop.
-Will be removed as noted above.
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Best regards,
-> Krzysztof
-> 
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks: true
 
-Many Thanks,
-Matt
+No, there's no such syntax. Look at other bindings.
+
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  iommus:
+> +    description: |
+
+Drop |
+
+> +      This property should point to the respective IOMMU block with master port as argument,
+> +      see Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml for details.
+
+Drop entire description, completely redundant. I don't know why my patch
+fixing this was not applied, so you keep repeating same mistakes...
+
+> +    maxItems: 1
+> +
+> +  mediatek,vpu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Describes point to vpu.
+
+Useless description. We see that from the property name. Explain the
+purpose in the hardware.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - power-domains
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: mediatek,mt8173-mdp-rdma
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Main clock
+> +            - description: Mutex clock
+> +    else:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Main clock
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8173-mdp-rdma
+> +              - mediatek,mt8173-mdp-wdma
+> +              - mediatek,mt8173-mdp-wrot
+> +    then:
+> +      required:
+> +        - iommus
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: mediatek,mt8173-mdp
+
+This makes no sense either.
+
+> +    then:
+> +      required:
+> +        - mediatek,vpu
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/mt8173-clk.h>
+> +    #include <dt-bindings/memory/mt8173-larb-port.h>
+> +    #include <dt-bindings/power/mt8173-power.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        mdp_rdma0: rdma@14001000 {
+
+One example is enough. Two could be fine if they differ significantly.
+
+Best regards,
+Krzysztof
+
 
