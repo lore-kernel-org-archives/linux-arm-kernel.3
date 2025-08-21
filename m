@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ECACA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2B7CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrScFWxwUweYwsRmH5bskazblTnrXR09gx4xHuFB8Kg=; b=CLrfDWSfBvqVznBpdUipIzvihL
-	H/QdiaCeVeQYYcI/em/tNIvZceS178ddN5eyJieORMfee3jEnNvRP07sQLC6lkLHTcJXCn1oWsbVC
-	l4I39x5wbSx0Vieotjx6sJDM8RPp3tMWTHFAyYdKB1my5qiWR+NZbOA6vCsuoEzQnJAbzmUIL42q8
-	168DCAUEdOQ1RvcAbjMtZC0UdHhaf4ShTEgZLQa5dv/j3pE1dd/sRvYFzpkUWjMYiRXHv53H4lJi1
-	iTY6ZBvpTpAZi79jvKu0D9lf4J8qY6H2KdRZfy7COhlvSOOmEfd/oHXTIzenqhGzduTDvjqjVnOXQ
-	Zf4A8Ndg==;
+	bh=5LeyRtpyuW55yhWUN6UCJJFNU3yjTx94Q5pC/9mD8Go=; b=Ku+tiNHOVt+H3Woii/AGvamjxA
+	1msnpM9MCr4syNNA4ozhgTEHMgXuf/0r7uenCoyDo2LfnMwZfPQqLBHCxBDfbopol6AIz/jq9DCEg
+	3N5d+hnGMlygFZiA6HV9N0krPraazWnTPH426pMOY/pGIfqdSGNEBNsG3G2H9iIzOUO12Zg7gWgiC
+	atlVG+M4/OZWW45RMxGtMxDpWGnJc+MJHOUnZc1N6s9heYOE9qOBifQMe0kZO+fzdWSPfW6JL62om
+	o4Jz6rqfBGIJq6trzeca6zg439rkn1sAmGFKNA4cHdPwt+gE/6fwwSP+R3gXGMxc6Q8Yauiloilqc
+	dwZSa3+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyRH-0000000Fuxz-15Ez;
-	Thu, 21 Aug 2025 06:06:19 +0000
+	id 1uoyU7-0000000Fv8n-00ss;
+	Thu, 21 Aug 2025 06:09:15 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyOe-0000000Fuqp-0wVp
+	id 1uoyRU-0000000Fuz8-2aqn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 06:03:38 +0000
+	Thu, 21 Aug 2025 06:06:33 +0000
 Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id CA76C1F928;
-	Thu, 21 Aug 2025 08:03:27 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 693211F99A;
+	Thu, 21 Aug 2025 08:06:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1755756208;
-	bh=FrScFWxwUweYwsRmH5bskazblTnrXR09gx4xHuFB8Kg=; h=From:To:Subject;
-	b=zONGa+v4bwGNv4NkMlLXJBcl+T66Aubn6+uZeZqZRxlK6EgqdY9fErRukWmC0wcPt
-	 pn+NE89+6dK+apL5q0hIvkumyummyYKvGo+21g+mKTaGmaVZcabaqZCg43Q/6fnbcd
-	 QW/kncFmMvnikr+nvoWPZYcleJNZ36/AhUhEcGq8/2p+Y7wtNc9ujO35A0Uy3ZaTcm
-	 pE3kSJCiUk+54u+aHTd813thKqqoG3Mud2to++HEWJM4axNNQkqSejgqDNRlXa3fY7
-	 KR7xNojpleTwPv/DH5HtYZ8BIuAl1PSQ3o4AKlzatsaRjzSLfzyqjmmrwUPADRDzp6
-	 xFoJWqyMOhsMw==
-Date: Thu, 21 Aug 2025 08:03:24 +0200
+	s=default; t=1755756391;
+	bh=5LeyRtpyuW55yhWUN6UCJJFNU3yjTx94Q5pC/9mD8Go=; h=From:To:Subject;
+	b=vXAGdynY/VP5F5OmYQXNvMje6hhApmzcNLSY6ngtZvjmSghuVWQuTQuLEA05pZrnf
+	 Aj5zKNypjtmuDmKMhRpX6nPW3UuE2yqAQIAidK+6HtPXXU0yr0wEqsWWswnDv3Cqu9
+	 +tqwYExKHQIGm1B84+tmJB5d47VAi/yEismZ+DsItrvmQtW9FcHGGOJAU3fESkxk5o
+	 syxsvbU8TBiyckoHiBC5EO0oute5VSzeD2sX4mDi8URj0rAdL+WHUyUu/K6MSUlUkP
+	 8tRQeK/40xZso/EwYmU6RbNWo8M6sUIe+ZMVLDU5467qXp8JzlB5yVCkI1PFNrJdeK
+	 9uBdICyocm6Sg==
+Date: Thu, 21 Aug 2025 08:06:29 +0200
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Beleswar Padhi <b-padhi@ti.com>
 Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com,
 	u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 20/33] arm64: dts: ti: k3-am62: Enable Mailbox nodes at
- the board level
-Message-ID: <20250821060324.GA7503@francesco-nb>
+	linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
+	Parth Pancholi <parth.pancholi@toradex.com>,
+	Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+Subject: Re: [PATCH 16/33] arm64: dts: ti: k3-am62p-verdin: Add missing cfg
+ for TI IPC Firmware
+Message-ID: <20250821060629.GB7503@francesco-nb>
 References: <20250814223839.3256046-1-b-padhi@ti.com>
- <20250814223839.3256046-21-b-padhi@ti.com>
+ <20250814223839.3256046-17-b-padhi@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250814223839.3256046-21-b-padhi@ti.com>
+In-Reply-To: <20250814223839.3256046-17-b-padhi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_230337_303525_EE167888 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20250820_230632_815559_87D8C7E8 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,67 +77,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 15, 2025 at 04:08:26AM +0530, Beleswar Padhi wrote:
-> Mailbox nodes defined in the top-level AM62x SoC dtsi files are
-> incomplete and may not be functional unless they are extended with a
-> chosen interrupt and connection to a remote processor.
+On Fri, Aug 15, 2025 at 04:08:22AM +0530, Beleswar Padhi wrote:
+> The wkup_r5fss0_core0_memory_region is used to store the text/data
+> sections of the Device Manager (DM) firmware itself and is necessary for
+> platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
+> for allocating the Virtio buffers needed for IPC with the DM core which
+> could be optional. The labels were incorrectly used in the
+> k3-am62p-verdin.dtsi file. Correct the firmware memory region label.
 > 
-> As the remote processors depend on memory nodes which are only known at
-> the board integration level, these nodes should only be enabled when
-> provided with the above information.
-> 
-> Disable the Mailbox nodes in the dtsi files and only enable the ones
-> that are actually used on a given board.
+> Currently, only mailbox node is enabled with FIFO assignment. However,
+> there are no users of the enabled mailboxes. Add the missing carveouts
+> for WKUP and MCU R5F remote processors, and enable those by associating
+> to the above carveout and mailboxes. This config aligns with other AM62P
+> boards and can be refactored out later.
 > 
 > Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 > ---
->  arch/arm64/boot/dts/ti/k3-am62-main.dtsi         | 1 +
->  arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts | 1 +
->  arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi       | 1 +
->  3 files changed, 3 insertions(+)
+> Cc: Francesco Dolcini <francesco.dolcini@toradex.com>
+> Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+> Cc: Parth Pancholi <parth.pancholi@toradex.com>
+> Cc: Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>
+> Requesting for a review/test.
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> index 029380dc1a35..40fb3c9e674c 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-> @@ -808,6 +808,7 @@ mailbox0_cluster0: mailbox@29000000 {
->  		#mbox-cells = <1>;
->  		ti,mbox-num-users = <4>;
->  		ti,mbox-num-fifos = <16>;
-> +		status = "disabled";
+>  arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 42 ++++++++++++++++++++-
+>  1 file changed, 41 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> index 6a04b370d149..0687debf3bbb 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+> @@ -162,7 +162,25 @@ secure_ddr: optee@9e800000 {
+>  			no-map;
+>  		};
+>  
+> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+
+Node name should be generic, `memory@9b900000` ?
+
+this applies in multiple patches in this series
+
+
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0x00 0x9c800000 0x00 0x100000>;
+> +			no-map;
+> +		};
+> +
+> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+>  			compatible = "shared-dma-pool";
+>  			reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>  			no-map;
+> @@ -848,6 +866,28 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
 >  	};
->  
->  	ecap0: pwm@23100000 {
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> index df2e1b0e74a1..2140e0cdec85 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-> @@ -299,6 +299,7 @@ &epwm2 {
 >  };
 >  
->  &mailbox0_cluster0 {
+> +&wkup_r5fss0 {
 > +	status = "okay";
-
-add new line
-
->  	mbox_m4_0: mbox-m4-0 {
->  		ti,mbox-rx = <0 0 0>;
->  		ti,mbox-tx = <1 0 0>;
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> index fba6f5c8d099..1c44d17281dd 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-> @@ -1335,6 +1335,7 @@ &main_i2c3 {
+> +};
+> +
+> +&wkup_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> +			<&wkup_r5fss0_core0_memory_region>;
+> +	status = "okay";
+> +};
+> +
+> +&mcu_r5fss0 {
+> +	status = "okay";
+> +};
+> +
+> +&mcu_r5fss0_core0 {
+> +	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+> +			<&mcu_r5fss0_core0_memory_region>;
+> +	status = "okay";
+> +};
+> +
+>  &main0_alert {
+>  	temperature = <95000>;
 >  };
->  
->  &mailbox0_cluster0 {
-> +	status = "okay";
-
-add new line
-
->  	mbox_m4_0: mbox-m4-0 {
->  		ti,mbox-rx = <0 0 0>;
->  		ti,mbox-tx = <1 0 0>;
 > -- 
 > 2.34.1
 > 
