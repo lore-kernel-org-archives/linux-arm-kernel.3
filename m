@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AA7CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE8FCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=; b=PGb0yMh7XGgLD7OeZ0YM1wXm8X
-	qRiTOeQRxyeoXBL+2Ug2UigfUzlDgChd6uJP4hGGhM4oxq9vyjLAyur/rklpkCyD+mS2iXkVbtSe4
-	7jGWWUfaRrpGER5VcI4egrJ2RCPjbrVYcG+uLVQemaJlXS56f7nTO8GzQhE5Vd0xEVf9ZeAWBgENp
-	udRdEkz2R5JxpfFtUVtoZ4Wn8iXv6NyRboNzhdZONSZJhG4PMSp7c6aDSsxqgXvzz+xE2NUf9eavP
-	La8QM0MXhO2j2JHOyUdAOAxp+h7O6qMADJw8M1wUXSlvGsyfT8cL9MctOxIr1GuiErZptZTioPko9
-	s/r52jFQ==;
+	bh=l3aBAqBLvvziXAff3l7qHBrH3ii9s2uHCbYHv1XlpUE=; b=OSfijkav1gBiMtgN5kaJ3wCa3n
+	boRI6msLH4JGrNGF6JfiCwSwK59BwWI0xmrvtkrPkbev8MyZZevn33/xXhES3hOF8Q476tUIPUWEx
+	I9I26TksuseHZOp9ctfEqUWZePSSdtcBH7rRSRXP5EW7tAXU54/c9VLoL9YmwSsMAqOqSfYGcA5PF
+	FIBDdKL9Slc3TohAn8/ByrHgi1jCXqN57OLV03Q9WD2lEaqfEVMksdNsEZ3Gyn1wD6uOs/y0+H+PJ
+	dH6/YeuxSDOXj6cZq3bg3k6BXnZlYSE83kXpnel1zJ78MYeJFRIv/SLmMBXLjicw6NnPGUOlCM3SO
+	KZ6M9xwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHxf-00000001KAG-3dk6;
-	Fri, 22 Aug 2025 02:57:03 +0000
+	id 1upI0G-00000001KND-2xsW;
+	Fri, 22 Aug 2025 02:59:44 +0000
 Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCPA-00000000bbx-0tb1
+	id 1upCPB-00000000bcw-34j3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:01:05 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32515e8e4cbso579626a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:03 -0700 (PDT)
+	Thu, 21 Aug 2025 21:01:06 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32505dbe21cso582259a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810063; x=1756414863; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755810065; x=1756414865; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=;
-        b=aXd2zVC3SBAYX90gktvIljE0DpOjTH50BTUQcCnSA4u0ybxQvQA9DPauv39hKgB81P
-         0DJJqVKyMFjiFzBffjwEjG3h8X8O5tF5wnT29avWMiwK8+7+z8xkU9Jy0zVhqXBwA8v0
-         73+X/C5epxfTmHwUq/qmv0BWDuRMljxceduy3Itt3d/0rnGpuF8X1Q3slYyxrL5+wr2q
-         ecB82uZpRYB34CC/VNN3ggI8guTr0vvEz8wXYnD/v/IYkhLWqnk77sUOrgVVs5RIIgOJ
-         C/fWBbBikabA2Yg7wiLja+9/9te2gD+yNdLeYM5g5gz08Wwa4JJh9/jWhKe8slxTk7RH
-         G3hw==
+        bh=l3aBAqBLvvziXAff3l7qHBrH3ii9s2uHCbYHv1XlpUE=;
+        b=ZJT2xJtj7/XNpItJ3Q4rM5PqW4bSCuMCzmh6agakCYAnT/e43S+jh/pVtvmdjJKh55
+         vAT+MDn5xvj2e9EUZDGewcan6si+jRb7RDoWhl7G21ri4KaDCR4vJg0XfPMypmIOxDYH
+         Blhlv1twULUVJPkv+6Ga7E/vQ1NsvcH9wsGlnyIQXM60NR/Yb2fGYxHLKCEwU9w+Qkb+
+         31uSEw0jCUF6I9Q6hEe4mYwxpB0AB4CMeKcxKhGnIHnbs5VulS31KF/6r5sxr1OGzh12
+         ZxNp1b2S4KgSZudSBX697S3YwyV7khuIo+5bTVQzK0JjUdrPKqJAG0pDyTA75BI943oj
+         8zew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810063; x=1756414863;
+        d=1e100.net; s=20230601; t=1755810065; x=1756414865;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=;
-        b=xJ0UGmde5ypitmw5w0u+8SQWsY2ahNEeEbQGfI+rx8VW8gRUSvXinxyI9URrUyFAMZ
-         pv27AmBh2s+ipuTmtsQha33Goukzj4whN3cdrx/Ke2kck7nvesPzqdyZuMhuJyMp+aKI
-         fzZM9bmW7C7hcNu6/hB+m1g3mFW3Y27Dl0PNKXZ9dlEpptADWA2WQb4Qu6hVC3BCt63J
-         1y0VTa6+ZjLw819JqBYr9r6OLTx2l53iBzw12SkZNKazfrLnXOp96lpT60u1J+XU4veS
-         2k3zcX5Ebdlu1jBjbxi05zYoxFDRy7LBU/sTfxNpjKvn0/PIyuo3odEjaZUlSwuXA4cf
-         el5Q==
-X-Gm-Message-State: AOJu0YzuJmpZIJwy0D0844/CFnBaRvEI2jOjRpxry1G5swwoHwEGO+aQ
-	/E2vUNT/SzC4VitK8jP2msuUicfGOIIK+816xoFPqhTlLRJFUVLZcZJGY9iHlBVv5zvV0//ApXy
-	zpimpUw==
-X-Google-Smtp-Source: AGHT+IEVYwl5YEkw1vqENiDixKFNtOSSF5og6sdGONTLhDTmarsazTWsy/GXacXJvdeMD+BKnVg4vh8e0tk=
-X-Received: from pjbsd14.prod.google.com ([2002:a17:90b:514e:b0:321:78e7:57fb])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1b4c:b0:31e:d929:5ca5
- with SMTP id 98e67ed59e1d1-32515e2230emr1041388a91.1.1755810063041; Thu, 21
- Aug 2025 14:01:03 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:36 -0700
+        bh=l3aBAqBLvvziXAff3l7qHBrH3ii9s2uHCbYHv1XlpUE=;
+        b=OAIfJT2SNDEbU2pZNTTkoC7KKBfRxsZhUwo/xoXLiKpQWW4viR0AlNgJKell5k87eC
+         i1TT8GwQG0K6yNoCYZcCEHB77G6Qi195UCz8U4DvVTBw5rEIbZ2x9vHPCJGtLtuDcFl2
+         UJoPA64GDq7SKFe2lBe8PcgaVV7c1bnZ/Ybwc+G36aayAm3UX6zu2NGJ/EunIrxOPMa+
+         Yn9cxOI3Pd0Z138bLKhH2e6b/D7BJpd87TfPLy3e5C9ywr7OBMPaGP81tDKvHH6ZNCe6
+         LOCkP6stMbox7pIeGkYDoTsX4TXgOzWsPFoAZ7ZS7KBbDuk8bsfJhGZbGmRDRvg3c03j
+         y0ZA==
+X-Gm-Message-State: AOJu0YwOlfrHL++vGVubVP657SJx2A3j0vPtYMOqds6kreZRwQN+vvlE
+	qGE1ACSa5sj0+KI0LR3tcCoarThFxcJS3KVwz9kWoCr5+veelDDAI3Vght4/ld1lHoLdaMGU4Bq
+	9DQyPRA==
+X-Google-Smtp-Source: AGHT+IHyv2vSy5H3gPx/CMXMIii4nN/TDg0JEF0C1pJibiyBy90Nx8cGqdPBlytbuWHgL7DJUzJnyJ3Kweo=
+X-Received: from pjbee11.prod.google.com ([2002:a17:90a:fc4b:b0:312:187d:382d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2c87:b0:324:ec53:1385
+ with SMTP id 98e67ed59e1d1-32515e36b2emr1212430a91.10.1755810064638; Thu, 21
+ Aug 2025 14:01:04 -0700 (PDT)
+Date: Thu, 21 Aug 2025 14:00:37 -0700
 In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250821210042.3451147-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-11-seanjc@google.com>
-Subject: [RFC PATCH 10/16] KVM: arm64: Drop local vfio_allow_any_uc, use
- vm_flags snapshot
+Message-ID: <20250821210042.3451147-12-seanjc@google.com>
+Subject: [RFC PATCH 11/16] KVM: arm64: Drop local mte_allowed, use vm_flags snapshot
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
@@ -75,8 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140104_252948_7C163418 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250821_140105_772663_B97CC37A 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +91,75 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop user_mem_abort()'s local vfio_allow_any_uc variable and instead use
-the vm_flags snapshot.
+Drop user_mem_abort()'s local mte_allowed and instead use the vm_flags
+snapshot.  The redundant variables aren't problematic per se, but will be
+quite awkward when a future change moves the vm_flags snapshot into
+"struct kvm_page_fault".
+
+Opportunistically drop kvm_vma_mte_allowed() and open code the vm_flags
+check in the memslot preparation code, as there's little value in hiding
+VM_MTE_ALLOWED (arguably negative "value), and the fault path can't use
+the VMA-based helper (because looking at the VMA outside of mmap_lock is
+unsafe).
 
 No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/mmu.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/mmu.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 10c73494d505..e1375296940b 100644
+index e1375296940b..b85968019dd4 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1476,7 +1476,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+@@ -1454,11 +1454,6 @@ static void sanitise_mte_tags(struct kvm *kvm, kvm_pfn_t pfn,
+ 	}
+ }
+ 
+-static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
+-{
+-	return vma->vm_flags & VM_MTE_ALLOWED;
+-}
+-
+ static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
+ {
+ 	switch (FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(vma->vm_page_prot))) {
+@@ -1475,7 +1470,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ {
  	int ret = 0;
  	bool writable, force_pte = false;
- 	bool mte_allowed, is_vma_cacheable;
--	bool s2_force_noncacheable = false, vfio_allow_any_uc = false;
-+	bool s2_force_noncacheable = false;
+-	bool mte_allowed, is_vma_cacheable;
++	bool is_vma_cacheable;
+ 	bool s2_force_noncacheable = false;
  	unsigned long mmu_seq;
  	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
-@@ -1608,8 +1608,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	fault->gfn = fault->ipa >> PAGE_SHIFT;
- 	mte_allowed = kvm_vma_mte_allowed(vma);
+@@ -1606,7 +1601,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	}
  
--	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
--
+ 	fault->gfn = fault->ipa >> PAGE_SHIFT;
+-	mte_allowed = kvm_vma_mte_allowed(vma);
+ 
  	vm_flags = vma->vm_flags;
  
- 	is_vma_cacheable = kvm_vma_is_cacheable(vma);
-@@ -1741,7 +1739,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		prot |= KVM_PGTABLE_PROT_X;
+@@ -1724,7 +1718,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
  
- 	if (s2_force_noncacheable) {
--		if (vfio_allow_any_uc)
-+		if (vm_flags & VM_ALLOW_ANY_UNCACHED)
- 			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
- 		else
- 			prot |= KVM_PGTABLE_PROT_DEVICE;
+ 	if (!fault->is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
+ 		/* Check the VMM hasn't introduced a new disallowed VMA */
+-		if (mte_allowed) {
++		if (vm_flags & VM_MTE_ALLOWED) {
+ 			sanitise_mte_tags(kvm, fault->pfn, vma_pagesize);
+ 		} else {
+ 			ret = -EFAULT;
+@@ -2215,7 +2209,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 		if (!vma)
+ 			break;
+ 
+-		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
++		if (kvm_has_mte(kvm) && !(vma->vm_flags & VM_MTE_ALLOWED)) {
+ 			ret = -EINVAL;
+ 			break;
+ 		}
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
