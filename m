@@ -4,73 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683F4CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 12:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D06CCA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 12:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULIITHzdH1zdzlPs3aegUg0do98HWFXepw5dkwdktuU=; b=wxFQlRyyfR8e+JxaldFyn2zOz9
-	JH2wfme66nKJl/LfoQ7Z1G4zSEcvCX+uXAPFwmcWOt5WC/Eiaaq/yJvby8VX5E8GomFPFq+f1WKEh
-	Dxhzchzrkx7uVB1UKSZqdIJFtHvknf1JrEkn7XNzVEkqDOX60vB8KhXJezU9rO7/VmJUTXW5RXFip
-	4lG4lr3/keJvKNLNLgJ0iTlgIzNhuUtY3CrnxcUqEL2I/ucronzOf3X9CvocSF1Hm+q3vJuI9B247
-	LVLqNA41rSjxR1nmBVHCTQZ+2YVXv08kIhUuLOECos+iHSDCIBQclbLjSIAcfdvhrI+lSildS9nVn
-	SODxr2UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EX+OmVsHALFhoO6Ww9SWkxQEx3YLEuoLuDxeJ73Y/hc=; b=JHEnMeHjWrJU2UhiD70HSXkb26
+	xNPmLF60opOb3aN7DUKwTvB9L6xi9rE81rT99lXWNx03uKvLbA+5Y/Cb9BovZOkx20NaFt4KJBT/L
+	g+UDLhz3LiJjf3NPuN3hH9pw3zqRqkMkFL+cA+jMMOUI6RKrOOJRCaG5tb8T33Wy2r1pU9DSC7zPe
+	NB+g1FNSZCy7YoU9OZrNzOEhd5qNWdvqw4xetFft+YPTUgBsdK/PPwF2yU9BUt74sX6A5GP1dV4sA
+	DI8WLews+6uojSxqbIx6+SuH634ijLh5z3n/EKKQcF4cmwGHcsiINsxHIkORkBW1qB3Ry+HqgZtQK
+	ohbfiacg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4ch-0000000Gvsk-2EpP;
-	Thu, 21 Aug 2025 12:42:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1up4fI-0000000GwRt-0UWi;
+	Thu, 21 Aug 2025 12:45:12 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up2Tx-0000000GaFf-0K8k;
-	Thu, 21 Aug 2025 10:25:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 22EE45C0429;
-	Thu, 21 Aug 2025 10:25:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F9A1C4CEEB;
-	Thu, 21 Aug 2025 10:25:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755771919;
-	bh=ORTjv3YVqf7tKuswYRO+Ecti+tHql9FqphRkmWE57tg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QPULIdwcaNqt09nbyOt6cG69mFU7KE+z/YDsBLC+6QCrO733Rv8gicsUdi/n2CLra
-	 3pjjq3rP7mvOXOfd2byRx9QriPg0Tev/gGPaV9mz3O0DvpWyzBCvi6cFyT38BehraB
-	 KKphm+1osP13chkL5WxNxZd7sE+hHAQ3jP+d0o+LW88a1X+j89AJW1F2KB3iaU0x3E
-	 EvHLNVKv8Tff+anLhmUPHpmoCpUzq+XUQ3f94dPR9PFeQVBzq3txIrdAX+0ynUF4Nn
-	 qe27HLnYSx+ZLvON6+k87GoFcr9c/jWh6tRDYVqXro9/k/Yubt3N1Sf40TE8rL3v5F
-	 P3jFLeR5cR66Q==
-Message-ID: <8279536d-c4f4-477a-9823-3e7b452c3c33@kernel.org>
-Date: Thu, 21 Aug 2025 12:25:13 +0200
+	id 1up2YI-0000000GcJJ-06Bt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 10:29:51 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 34071EC0184;
+	Thu, 21 Aug 2025 06:29:49 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Thu, 21 Aug 2025 06:29:49 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1755772189; x=1755858589; bh=EX+OmVsHAL
+	FhoO6Ww9SWkxQEx3YLEuoLuDxeJ73Y/hc=; b=Q8VCuR+KJ2eU2Yj1L1IqI6xcvV
+	a6S5ZBAtp38yxO6dvPAYK0aKoZpOEzsSmlIIkSuT3gihDHGUiqQsgj8acIpCHXW/
+	uF5pgp6XhfT2+RlyjppbxG5zSK6asRHvtGhfoceevnR6PiuFj/AGWRA4Yo9cG0n1
+	5AoNAop7iSInUJWyi+hL8U4yG+JPu+9WQX4+UjL8G/v9BJGo2HE9N49CYelOP6fL
+	Jrxum0Realj5n0XkwZC4ooC7yTrPVDS6Imc+Y+TXrB2EXehZOFRg8LpfcD2iUeda
+	VjrTQHPE6H42Ify9RhZi9wMy6IhNDW6l5UfT1s1Xk31KxAiBSZDU11hXIiZQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1755772189; x=1755858589; bh=EX+OmVsHALFhoO6Ww9SWkxQEx3YLEuoLuDx
+	eJ73Y/hc=; b=Y74xPArQQXGdcaVLCR17ShYvusmgrHJOtbQwJ8XTc7iHo9h327/
+	i/vQddq+26nn+N+/Kz1nV6L9PKtXCyaUWcJaWIpr7Cm/84eZPLanA4xmlaljxRZ3
+	wZuRtb/KJzwqCMhEGBTR6IseAs5H8ekGt+H2IJcvf45VxjuiXTrDFIml8mFxDit/
+	uuoa3dYRcuuRJWSEXT+rga3ZxXBjtEUvYLIi8oO5lSACnTSmrVH5g1n6K7EdeyBX
+	Qs7wul+ykCrgANQSvnqdP0BHPfUhMEaWk2afXNsVykJqUUIVwoy+6PMS2Wo19qmS
+	hWQ0QaGLXw1U0qIYpc8RlRZxnsiB9u85tYg==
+X-ME-Sender: <xms:HPWmaFez2AGDrRjdszOhOSakiWSAhAloVVhAzowPrmhlL8oNZI21OQ>
+    <xme:HPWmaJKniL0VFApnlQIx7o6WNpgeLXQHgggbjoszXhacpB57vyheUJjPMUH4bLCpu
+    cVm-ozyGcDlfa77CIQ>
+X-ME-Received: <xmr:HPWmaLokwvX_7qc-jY8mgvLEbOGSh0cKjnfc56aOToT6AnxomfAMzhhPu4M5dK2sOt5435T1ZURVpu0JTmEwudh7cwPLvszbQgk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedutddtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhvvghnsehkvghrnh
+    gvlhdrohhrghdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdp
+    rhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehkrhiikhdoug
+    htsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtohepkhgvthhtvghnihhssehophgvnhgsshgurdhorhhgpdhrtg
+    hpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshhtpdhrtghpthhtoheprghsrghhihes
+    lhhishhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:HPWmaPvJCtGmjZVJzcl60pjY8Xh26Y-Ckbw7HmSKOeEgo33EsynQNQ>
+    <xmx:HPWmaNLNHZ6aR7dav9V4dKFchmF7fh61NcF3dMJiZM7Cvqy-XQfVjg>
+    <xmx:HPWmaGoxIW3WLxmleh77I5Y0miTht3-iPmyjJ4iIi-5Umaxej6U2TQ>
+    <xmx:HPWmaIU5BWEs5chvI0neYUHlDpaIG-M7aKXmcfxZoy-oDkZBtmCIxw>
+    <xmx:HfWmaE93QrR0D0nTe9rnjifrOMaLPReJP1q1595nUIXfIxZ2bdEziFzR>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 21 Aug 2025 06:29:48 -0400 (EDT)
+Date: Thu, 21 Aug 2025 12:29:47 +0200
+From: Janne Grunau <j@jannau.net>
+To: Rob Herring <robh@kernel.org>
+Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Hector Martin <marcan@marcan.st>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/5] arm64: dts: apple: t600x: Comple WiFi properties
+Message-ID: <20250821102947.GC1270980@robin.jannau.net>
+References: <20250813-apple-dt-sync-6-17-v1-0-209f15d10aa0@jannau.net>
+ <20250813-apple-dt-sync-6-17-v1-2-209f15d10aa0@jannau.net>
+ <20250820190920.GB538860-robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] dt-bindings: nvme: apple,nvme-ans: Add Apple A11
-To: Krzysztof Kozlowski <krzk@kernel.org>, Nick Chan <towinchenmi@gmail.com>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, iommu@lists.linux.dev,
- linux-nvme@lists.infradead.org
-References: <20250818-t8015-nvme-v2-0-65648cd189e0@gmail.com>
- <20250818-t8015-nvme-v2-6-65648cd189e0@gmail.com>
- <20250819-polite-papaya-catfish-1a9d1a@kuoka>
- <8ac418ae-7ff0-4d5c-9f11-c24e36618ac1@kernel.org>
- <b3cd1b3f-fa0e-4a98-84c7-e4271f262795@kernel.org>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <b3cd1b3f-fa0e-4a98-84c7-e4271f262795@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250820190920.GB538860-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_032521_205398_0B29A84B 
-X-CRM114-Status: GOOD (  30.64  )
+X-CRM114-CacheID: sfid-20250821_032950_136950_D14EE352 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +119,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.08.25 13:34, Krzysztof Kozlowski wrote:
-> On 19/08/2025 12:01, Sven Peter wrote:
->> On 19.08.25 11:18, Krzysztof Kozlowski wrote:
->>> On Mon, Aug 18, 2025 at 04:42:59PM +0800, Nick Chan wrote:
->>>> Add ANS2 NVMe bindings for Apple A11 SoC.
->>>>
->>>> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
->>>> ---
->>>>    .../devicetree/bindings/nvme/apple,nvme-ans.yaml          | 15 +++++++++------
->>>>    1 file changed, 9 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->>>> index fc6555724e1858e8a16f6750302ff0ad9c4e5b88..4127d7b0a0f066fd0e144b32d1b676e3406b9d5a 100644
->>>> --- a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->>>> +++ b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->>>> @@ -11,12 +11,14 @@ maintainers:
->>>>    
->>>>    properties:
->>>>      compatible:
->>>> -    items:
->>>> -      - enum:
->>>> -          - apple,t8103-nvme-ans2
->>>> -          - apple,t8112-nvme-ans2
->>>> -          - apple,t6000-nvme-ans2
->>>> -      - const: apple,nvme-ans2
->>>> +    oneOf:
->>>> +      - const: apple,t8015-nvme-ans2
->>>> +      - items:
->>>> +          - enum:
->>>> +              - apple,t8103-nvme-ans2
->>>> +              - apple,t8112-nvme-ans2
->>>> +              - apple,t6000-nvme-ans2
->>>> +          - const: apple,nvme-ans2
->>>
->>> When some months ago this pattern of generic fallback appeared, I
->>> believe I commented it is bad idea. So now months later we have a proof
->>> - generic fallback is useless and you should have been using SoC
->>> specific compatibles from the start.
->>>
->>> Now it is just confusing and this broken pattern will be spreading more
->>> and more, because you folks put generic compatibles everywhere.
->>
->> I haven't commented on the dt-bindings yet because I suspect this patch
->> is wrong but haven't had time to test this yet.
->>
->> I believe we want "apple,t8015-nvme-ans2", "apple,nvme-ans2" here and
->> then use the code Nick added for "apple,nvme-ans2" by default and only
->> enable additional features (NVMMU, linear submission queue) when we see
->> the SoC-specific compatibles for t8103, t8112, and t6000. IIRC these
->> newer SoCs still support the old way of submitting commands just fine
->> and the new way was added at some point to add support for this weird
->> integrated IOMMU.
->>
->> I've already seen some strings about ANS3 somewhere which I suspect
->> will be the controller in some future SoC (or maybe M3/M4 which we
->> haven't reverse engineered yet) that actually breaks compatibility.
+On Wed, Aug 20, 2025 at 02:09:20PM -0500, Rob Herring wrote:
+> On Wed, Aug 13, 2025 at 11:53:34AM +0200, Janne Grunau wrote:
+> > From: Hector Martin <marcan@marcan.st>
 > 
-> 
-> This was 99% predictable and expected months/years ago when first Apple
-> M1 generic compatibles appeared. I just do not understand why so much
-> effort from reviewers has to go into explaining this and for arguing
-> over that, and eventually we are right.
-> 
+> What does 'Comple' in the subject mean?
 
-Right, so we're in a bad situation now because we didn't listen. That 
-sucks and I'm sorry.
+'Complete'. I've changed it locally to
+"arm64: dts: apple: t600x: Add missing WiFi properties" and removed
+stray words from the end of the commit message.
 
-How do we move on from here now though?
-
-I think for any new bindings it's pretty clear, we just do what we 
-should've done from the very beginning:
-Whenever we upstream a new device that has no bindings yet we only use 
-tXXXX-whatever as compatible and use that as a fallback in case later 
-(or earlier) SoCs work with the same driver.
-
-
-
-Then we still have to deal with the stuff that's already upstream. I see 
-two options here:
-
-
-1) For situations like this one where the generic one just doesn't make 
-any sense we deprecate "apple,nvme-ans2" in the binding and use
-"apple,t8103-nvme-ans2" as the fallback instead, i.e. just
-"apple,t8103-nvme-ans2" for M1, "apple,t6000-nvme-ans2", 
-"apple,t8103-nvme-ans2" for M1 Pro, and just "apple,t8015-nvme-ans2" for 
-A11.
-
-We keep the generic one in the driver for now but also add
-"apple,t8103-nvme-ans2". We then remove the generic one from all 
-upstream DTS files but keep it inside the downstream files we ship to 
-users for now to avoid pain with kernel upgrades/downgrades.
-A year or two from now we can then delete the deprecated generic 
-compatibles everywhere. This all has to be synced with OpenBSD and 
-u-boot as well since both also use these bindings.
-It's gonna be rather painful but this would clean up the entire mess.
-
-
-2) We keep using the ones that are already upstream and just accept that 
-the situation is a mess and add comment above all the bindings that we 
-messed up and that this should not be used as pattern.
-In this case that means it'll just be "apple,t8015-nvme-ans2" for A11 
-without any fallback and we keep everything else the way it is.
-
-I prefer option (2) but if you really want to get rid of all this mess 
-I'll also work on (1).
-
-Would either option work for you or do you have a better idea?
-
-
-
-Thanks,
-
-
-Sven
+Janne
 
