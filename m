@@ -4,43 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA8BCA0FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054AECA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGYlFPfb87VFFBc+Q7HFF7jL4AT0Rrj7gtPhDY2gBrw=; b=rwiVWACmdVwmAqQTSPiugMLLij
-	W9x2lZqXf2ZAFyH4htSZqZoWECy0ig2WGQGyz/qTcmRusAshfDawB/WbYn/eDbGIx437GhPggnJ3m
-	VmO8TdMUGDf+NfHw5hFs7ULflO/MImLxJs0WXTcgXqb8QW7GwcJFEYVQsm/h7/NR0/FvGej2P/vem
-	0SNcA2jA7myBAUFc5o8WhpGO6uofmYxsxt/hDEHW8WFuP4coQV9FaLFGFzmyxhWlcLXIi6B6Jp5XL
-	5h3xMdr5SIieh9qfnom2hXVDWd34Ad2VJvY/bI/xsvBiH+t/OnkYgaYw0zDaBfHcxir+79xTU1os4
-	uxLEfzAQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CnZErLQMG8GrqoZsiDD3ZBU+dUwVNSpi5xq1RleW2m8=; b=OqmC6T4CqRSh5IvfzQ9/cjiZ6C
+	83HmW9ekkuFRotYD9azNMX5L8/FZH9N8/QyJF1UPF+uQs/LkAGQrOlQwctkuov+czZJZsLTl+8C8q
+	c4DqhsG3W5fukhS6xzmWcgUTPrPmhRVmg86iYovLW10IH3EqKTrM1/qg78FEqcgwUXC+E2NrmjC9t
+	6tP0hXYduRvcAcUF+UpXyDRDWlKhTEb9tCr94jYGYV6V+/szEof8mZ8evq6w25yxoZMGiwg78FeJM
+	zQ4t1RNun0J+/RehuCBLAOs8c58SsADHvrt26gFc83n3MlmLOBAbgouYamUUJGPJujOLVKeCOoiRd
+	WtiXhx3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAhp-00000000ERW-2223;
-	Thu, 21 Aug 2025 19:12:13 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1upAhs-00000000EXH-24UJ;
+	Thu, 21 Aug 2025 19:12:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5h0-0000000H7Ra-0AvG
+	id 1up5hC-0000000H7Um-0xWX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 21 Aug 2025 13:51:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=CnZErLQMG8GrqoZsiDD3ZBU+dUwVNSpi5xq1RleW2m8=; b=iSWADMKCOpM4TTdXHHNeCeRSVS
+	6Ih0XJoh2oRgXJP/4VoGcc6prK1YbFZWSV5JjqLr/e1QScMWO9bpOGd5SCW8PaDvBLE1+AgTMM70m
+	WGkaMnDCPT2VfTdQoXHXKVvoR1icUixjA3aVeKlGvnLilBjZXsBD+QEFqbJ4w4y4pigbZZD9gWraP
+	gpLudYaxxPke01suy8ayKH1B7E9Eds+KFdHJlvKVPdtbMSFjeNitKtBwmr38oiLVRhX+cTsHszbBz
+	0EzUI9pt87ahmtCyOqMtVId8DVNKuLVWG+cAww1sinZrIfwARswQnyRwRz7NZKLq+/oWF5B6BwxA5
+	1T5vaong==;
+Received: from szxga02-in.huawei.com ([45.249.212.188])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up5h8-00000000a4p-04i7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 13:51:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c74Sh6YPdztTKF;
-	Thu, 21 Aug 2025 21:49:56 +0800 (CST)
+	Thu, 21 Aug 2025 13:51:12 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4c74NR0SqVzPpKf;
+	Thu, 21 Aug 2025 21:46:15 +0800 (CST)
 Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9F16C180485;
-	Thu, 21 Aug 2025 21:50:55 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 03B27180087;
+	Thu, 21 Aug 2025 21:50:51 +0800 (CST)
 Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
  dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 21 Aug 2025 21:50:55 +0800
+ 15.2.1544.11; Thu, 21 Aug 2025 21:50:50 +0800
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 21 Aug 2025 21:50:54 +0800
+ 15.2.1544.11; Thu, 21 Aug 2025 21:50:49 +0800
 From: Yushan Wang <wangyushan12@huawei.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -48,12 +63,10 @@ CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
 	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
 	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
 	<wangyushan12@huawei.com>, <hejunhao3@h-partners.com>
-Subject: [PATCH v2 9/9] Documentation: hisi-pmu: Add introduction to HiSilicon
-Date: Thu, 21 Aug 2025 21:50:49 +0800
-Message-ID: <20250821135049.2010220-10-wangyushan12@huawei.com>
+Subject: [PATCH v2 0/9] Updates of HiSilicon Uncore L3C PMU
+Date: Thu, 21 Aug 2025 21:50:40 +0800
+Message-ID: <20250821135049.2010220-1-wangyushan12@huawei.com>
 X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20250821135049.2010220-1-wangyushan12@huawei.com>
-References: <20250821135049.2010220-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -61,8 +74,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_065102_450027_11C4FC8B 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250821_145110_956240_910513FF 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,78 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some of HiSilicon V3 PMU hardware is divided into parts to fulfill the
-job of monitoring specific parts of a device.  Add description on that
-as well as the newly added ext operand for L3C PMU.
+Support new version of L3C PMU, which supports extended events space
+which can be controlled in up to 2 extra address spaces with separate
+overflow interrupts.  The layout of the control/event registers are kept
+the same.  The extended events with original ones together cover the
+monitoring job of all transactions on L3C.
 
-Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+That's said, the driver supports finer granual statistics of L3 cache
+with separated and dedicated PMUs, and a new operand `ext` to give a
+hint of to which part should perf counting command be delivered.
+
+The extended events is specified with `ext=[1|2]` option for the driver
+to distinguish:
+
+perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=<ext>/
+
+Currently only event option using config bit [7, 0]. There's still
+plenty unused space. Make ext using config [16, 17] and reserve
+bit [15, 8] for event option for future extension.
+
+With the capability of extra counters, number of counters for HiSilicon
+uncore PMU could reach up to 24, the usedmap is extended accordingly.
+
+The hw_perf_event::event_base is initialized to the base MMIO address
+of the event and will be used for later control, overflow handling and
+counts readout.
+
+We still make use of the Uncore PMU framework for handling the events
+and interrupt migration on CPU hotplug. The framework's cpuhp callback
+will handle the event migration and interrupt migration of orginial
+event, if PMU supports extended events then the interrupt of extended
+events is migrated to the same CPU choosed by the framework.
+
+A new HID of HISI0215 is used for this version of L3C PMU.
+
+Some necessary refactor is included, allowing the framework to cope with
+the new version of driver.
+
+Depends-on: drivers/perf: hisi: Add support for HiSilicon NOC and MN PMU driver
+Depends-on: Message-ID: <20250717121727.61057-1-yangyicong@huawei.com>
+
 ---
- Documentation/admin-guide/perf/hisi-pmu.rst | 38 +++++++++++++++++++--
- 1 file changed, 36 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-index a307bce2f5c5..4c7584fe3c1a 100644
---- a/Documentation/admin-guide/perf/hisi-pmu.rst
-+++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-@@ -12,8 +12,8 @@ The HiSilicon SoC encapsulates multiple CPU and IO dies. Each CPU cluster
- called Super CPU cluster (SCCL) and is made up of 6 CCLs. Each SCCL has
- two HHAs (0 - 1) and four DDRCs (0 - 3), respectively.
- 
--HiSilicon SoC uncore PMU driver
---------------------------------
-+HiSilicon SoC uncore PMU v1
-+---------------------------
- 
- Each device PMU has separate registers for event counting, control and
- interrupt, and the PMU driver shall register perf PMU drivers like L3C,
-@@ -56,6 +56,9 @@ Example usage of perf::
-   $# perf stat -a -e hisi_sccl3_l3c0/rd_hit_cpipe/ sleep 5
-   $# perf stat -a -e hisi_sccl3_l3c0/config=0x02/ sleep 5
- 
-+HiSilicon SoC uncore PMU v2
-+----------------------------------
-+
- For HiSilicon uncore PMU v2 whose identifier is 0x30, the topology is the same
- as PMU v1, but some new functions are added to the hardware.
- 
-@@ -113,6 +116,37 @@ uring channel. It is 2 bits. Some important codes are as follows:
- - 2'b00: default value, count the events which sent to the both uring and
-   uring_ext channel;
- 
-+HiSilicon SoC uncore PMU v3
-+----------------------------------
-+
-+For HiSilicon uncore PMU v3 whose identifier is 0x40, some uncore PMUs are
-+further divided into parts for finer granularity of tracing, each part has its
-+own dedicated PMU, and all such PMUs together cover the monitoring job of events
-+on particular uncore device. Such PMUs are described in sysfs with name format
-+slightly changed::
-+
-+/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}_{Z}/ddrc{Y}_{Z}/noc{Y}_{Z}>
-+
-+Z is the sub-id, indicating different PMUs for part of hardware device.
-+
-+Usage of most PMUs with different sub-ids are identical. Specially, L3C PMU
-+provides ``ext`` operand to allow exploration of even finer granual statistics
-+of L3C PMU, L3C PMU driver use that as hint of termination when delivering perf
-+command to hardware:
-+
-+- ext=0: Default, could be used with event names.
-+- ext=1 and ext=2: Must be used with event codes, event names are not supported.
-+
-+An example of perf command could be::
-+
-+  $# perf stat -a -e hisi_sccl0_l3c1_0/event=0x1,ext=1/ sleep 5
-+
-+or::
-+
-+  $# perf stat -a -e hisi_sccl0_l3c1_0/rd_spipe/ sleep 5
-+
-+As above, ``hisi_sccl0_l3c1_0`` locates PMU on CPU cluster 0, L3 cache 1 pipe0.
-+
- Users could configure IDs to count data come from specific CCL/ICL, by setting
- srcid_cmd & srcid_msk, and data desitined for specific CCL/ICL by setting
- tgtid_cmd & tgtid_msk. A set bit in srcid_msk/tgtid_msk means the PMU will not
+Changes:
+
+v1 -> v2:
+  - Don't call disable_irq() and simply return success when there is no
+    CPU available for irq migration.
+  - Documentation patch split.
+  - Fix of a few other issues etc. per Jonathan.
+
+Yicong Yang (7):
+  drivers/perf: hisi: Relax the event ID check in the framework
+  drivers/perf: hisi: Export hisi_uncore_pmu_isr()
+  drivers/perf: hisi: Simplify the probe process of each L3C PMU version
+  drivers/perf: hisi: Extract the event filter check of L3C PMU
+  drivers/perf: hisi: Extend the field of tt_core
+  drivers/perf: hisi: Refactor the event configuration of L3C PMU
+  drivers/perf: hisi: Add support for L3C PMU v3
+
+Yushan Wang (2):
+  Documentation: hisi-pmu: Fix of minor format error
+  Documentation: hisi-pmu: Add introduction to HiSilicon
+
+ Documentation/admin-guide/perf/hisi-pmu.rst  |  43 +-
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 520 +++++++++++++++----
+ drivers/perf/hisilicon/hisi_uncore_pmu.c     |   5 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.h     |   6 +-
+ 4 files changed, 477 insertions(+), 97 deletions(-)
+
 -- 
 2.33.0
 
