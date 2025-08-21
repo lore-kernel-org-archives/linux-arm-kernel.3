@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6FDCA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202BFCA0FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzyta2RpwZZkPSoINkCs6FPoiQyGdt7Ek43OoHB8SWI=; b=ao2sLNWKspKGTmq5DeO7EUFVKl
-	tOzkFiiQpEJrYHHrjgADruddIu7+f0iLtMIkWjnjj9SpvRzYThKcdw58O1O7+w9+GpDtSSv+CuWUA
-	Y/6W9NjHZ9X9SWNE0HVUvgHuWO4wfZYSqgJjwu5fDIzcw0EJ3/V3rFv4ViBOy7ntbgug3MugbEkuJ
-	Q6PuPxMGQ7LqJL/aA158M29F5/45mvmZ0GyxDlLqX+gMnKqQf8Cq940MjHcKs17tm+MDTRpaH2h5v
-	e3MnGZxwVb+U0hcTMmIlrVVEfELGnabXlW1hBZE9lWpCBO2L5tRGgIfIGhltpulwYKAEdFJpI5rUK
-	1K7lJ6ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v0cO89z3PkoYbh97RT/8fb4C+lqpJkRVy3QDD3+pvdc=; b=keJyyxU8e4EQOCJYqhz6EFfhfK
+	DVOSnkfN46ISuqNTi1cMOeY3+9dsakDGMF3/fFVmdAu4Iv4f7CyRNgUPy8r/uuR62kXDPHJ+uCEXU
+	oPfDRtHYfwT4smrv5l3kjWZnGXuvJpAurQ45XizxgH/0P+Wg1wpRIF73I+FuKkzi+kAMY0nbwYiFi
+	jaOeNfhwSKUQKYHiR9rQ3Ei5p0KV73hPf8/GtsOjDdJKYfrp/x3BTKaaH5G2oW0n6TsEVqm3pMFiG
+	2QtUvyt2z4S5PYTCHRNBvbvrtviuqiY+jWf24krQRjL3dS4lZGcvG6oYXpjyzHj8VY5Cfx8B5H4AR
+	P8oPPpgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upF1r-00000000xrQ-2Kev;
-	Thu, 21 Aug 2025 23:49:11 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1upF1p-00000000xok-28SZ;
+	Thu, 21 Aug 2025 23:49:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8nb-0000000021O-095a
+	id 1up7uJ-0000000HWBi-1feZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 17:10:04 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-55ce5095c8fso1138360e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 10:10:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755796200; x=1756401000; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qzyta2RpwZZkPSoINkCs6FPoiQyGdt7Ek43OoHB8SWI=;
-        b=zEKmTyXHl8tYVYOGRbrXrheZN25fqD4C27vPb8h5Iup9maTMUJbZFb9t+UkRzNpD5v
-         447kaNg7BZTOOTZv+hirYaxOG3KZuxsaop/zM/bzqfuGpJnl7pbptNw47EMVeNSYljtX
-         CaaR/w1D9Q3lI6XEdB17CeovpwpXBi89IR95pGOxtN+l09C7893ABPwtbJR7cvJ7E/Wg
-         VVducf1Ty6FxTrBiz4Nf6AiQw1R5efNDdp+8sLmCYyohTJD7LuT67b3Z4FsgabYSMffo
-         0mHSxdrkLZ8BSbONs29h22k9RTbLJ/tkWYtsY1qpQ8TlLVM0mkf3GQwUG/IVfZFXV2cg
-         WO/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755796200; x=1756401000;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qzyta2RpwZZkPSoINkCs6FPoiQyGdt7Ek43OoHB8SWI=;
-        b=bjCT8a+hvFIBdSLFXOwBkd62134vNll1tLkpyb64O9xJWKlcXUp8T3/xBkozjZy5Hd
-         xeaq8xCo7w0Mg3/PIGz9gu1QwObXVRViC6VPNgVOJoAuI5BGCXXJh4YMnXJnyU7eBTEj
-         JvDGvD7hz0/FhpSSwB7m2Qho17h2IcClX4q5BKfTYBQM+CqOJ1fJuwd3UL4YiZoiP5/D
-         GuPrecIp61X+kWxncdJA5Y+Wk6Vuebl8ZFhpw8JUTwlL6P3R1XbA/9anEIF4GDXrz3bc
-         OLn+QABmjXHQTr0jXpX9e8wqziIP3z51i5QoqEqla/rIYruRq+8ClAktMZB+ZUrEbN1Z
-         tLvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsqiWHKaZRNSx9PPmrmsA/c5GrqLDoXhwxDUNGz/AJu2tjitHZJrGr5174yCWgpwsBsYKCHFRfyt+J2rU2qjGN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcsyoFlw0Rvj7EORgZYvPSMiuWk0O2LWT4FYF/IPqSv79A4R52
-	0ExPSfk2LKKgtkgnNHi07dXMejOq+yblPJSNFhrjQTM6hUlcFneBhSNCM2Ue4xCzdWnkhSUQPFQ
-	zQh0R3wWOxgxWCU4ZJcimnGI7RyOFeC+isjEt8eA=
-X-Gm-Gg: ASbGnct/77GfIQl5qaJOMbfIq24sluQoQ4eU/3xKM2iffSKBUSLnFwrzFf7pZk1wn8i
-	xMkz1dLdch4Go9YEj6QJB8G+/FoSl5vZsIdX7QuX/s8mkw3yODdktsZ1t0Hm34QXGLzfgwPVnhf
-	S7iPTFZnrh2JI9XE9ubnHKf5NSD+SkXM5/aT3llVeJmd1E/tTLdnCZjns8vARG0RtB1nHibHL8+
-	rDZJyP0oQJMkODKAXw5Lzrl6icB2/CEYQi4h98jwUI=
-X-Google-Smtp-Source: AGHT+IGCtOn7tbH9t0p8srawhbiUJfL181nmv8fCMU5ZSgZahzHyg5r83rFQoVb5IzGafcrdKfDNDNBRg7nmKzntFD8=
-X-Received: by 2002:a05:6512:3d87:b0:55c:d64e:f941 with SMTP id
- 2adb3069b0e04-55f0ccefb10mr68135e87.1.1755796200079; Thu, 21 Aug 2025
- 10:10:00 -0700 (PDT)
+	Thu, 21 Aug 2025 16:12:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9C468A584F5;
+	Thu, 21 Aug 2025 16:12:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42AD8C4CEEB;
+	Thu, 21 Aug 2025 16:12:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755792774;
+	bh=MR+7f396WrEbtGRfUw87oG8dHsGs9G0ZUbfzqDxjrJ4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GNkjCTTkFAfE89O7CSkd8OPIM+LP6OHO/fGvcWd2Vx8ep5+8HTwEZA3C/JoRsZsq9
+	 /cDw4G9Bp1nXa1Zh+A60Ll+Q4TJn8rGPwtmqJOJFfsC+wVO7MP4ad+FY7oazJZg/Sv
+	 mmLsjkBDJZdPvm9BmMiAMf/60Wdf3v1HdEoOYDQKBp3gObAEcJdDHmsZi+OltD5T6l
+	 kvu7Ay1cLDJKF7ssNzbHDIB3Lp2DgNDeFIVeFA0rQvUFDeAzawwAKYAqU7VFo0iUVc
+	 4Rl75VNfxDt+KF8hWOO42gBFY05z71B4X5rqZafOnf8NHKQ8BdBEkdVIOVBAgNWr99
+	 RyVxSccqkbYBg==
+Date: Thu, 21 Aug 2025 23:55:38 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: timer: Add ARM SSE(Subsystems for
+ Embedded) timer
+Message-ID: <aKdBejl-aC4uNjh8@xhacker>
+References: <20250821152429.26995-1-jszhang@kernel.org>
+ <20250821152429.26995-2-jszhang@kernel.org>
 MIME-Version: 1.0
-References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
- <20250821-vdso-arm64-compat-bitsperlong-v1-1-700bcabe7732@linutronix.de>
-In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-1-700bcabe7732@linutronix.de>
-From: John Stultz <jstultz@google.com>
-Date: Thu, 21 Aug 2025 10:09:47 -0700
-X-Gm-Features: Ac12FXzdv4nEar1SRFxGb-uqGlOF-O5VXp_mUrNfgvVnxfVbcoJVpWP9zgsBo4I
-Message-ID: <CANDhNCqbZbhSLgvFYnzK0Fmu2qndQ-7qHwHmGtRcFwirgZvcEg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] arm64: uapi: Provide correct __BITS_PER_LONG for the
- compat vDSO
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250821152429.26995-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_101003_077890_C7350A01 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250821_091255_566040_70CB1C19 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,26 +76,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 12:56=E2=80=AFAM Thomas Wei=C3=9Fschuh
-<thomas.weissschuh@linutronix.de> wrote:
->
-> The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG =
-is
-> always '64' even when used from the compat vDSO. In that case __GENMASK()
-> does an illegal bitshift, invoking undefined behaviour.
->
-> Change __BITS_PER_LONG to also work when used from the comapt vDSO.
-> To not confuse real userspace, only do this when building the kernel.
->
-> Reported-by: John Stultz <jstultz@google.com>
-> Closes: https://lore.kernel.org/lkml/CANDhNCqvKOc9JgphQwr0eDyJiyG4oLFS9R8=
-rSFvU0fpurrJFDg@mail.gmail.com/
-> Fixes: cd3557a7618b ("vdso/gettimeofday: Add support for auxiliary clocks=
-")
-> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
-
-Tested-by: John Stultz <jstultz@google.com>
-
-Thank you so much for the quick fix!
--john
+On Thu, Aug 21, 2025 at 11:24:28PM +0800, Jisheng Zhang wrote:
+> Add binding doc for the ARM SSE(Subsystems for Embedded) timer. Here
+> is the document URL:
+> https://developer.arm.com/documentation/107610/0000/System-timer-components?lang=en
+> 
+> Although the IP is mostly seen on MCU SoC platforms, but nothing
+> prevent it from being integrated into linux capable SoC platforms.
+> 
+> The IP core may have a system counter to generate timestamp value,
+> a system timer to raise an interrupt when a period has elapsed, and
+> a System Watchdog to detect errant system behaviour then reset the
+> system if a period elapses without ping.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/timer/arm,sse_timer.yaml         | 90 +++++++++++++++++++
+>  1 file changed, 90 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/arm,sse_timer.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/timer/arm,sse_timer.yaml b/Documentation/devicetree/bindings/timer/arm,sse_timer.yaml
+> new file mode 100644
+> index 000000000000..37a79f9052d0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/arm,sse_timer.yaml
+> @@ -0,0 +1,90 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/arm,sse_timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ARM SSE(Subsystems for Embedded) system timer
+> +
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +
+> +description: |+
+> +  ARM SSE(Subsystems for Embedded) system timer core may have a system counter
+> +  to generate timestamp value, a system timer to raise an interrupt when a
+> +  period has elapsed, and a System Watchdog to detect errant system behaviour
+> +  then reset the system if a period elapses without ping.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - arm,sse-timer
+> +
+> +  reg:
+> +    maxItems: 1
+> +    description: The system counter control frame base
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  '#address-cells':
+> +    enum: [1, 2]
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+> +  ranges: true
+> +
+> +patternProperties:
+> +  '^frame@[0-9a-f]+$':
+> +    type: object
+> +    additionalProperties: false
+> +    description: A timer node has some frame sub-nodes, each frame can be timer frame or watchdog frame. Each frame has the following properties.
+> +    properties:
+> +      interrupts:
+> +        minItems: 1
+> +        items:
+> +          - description: timer irq
+> +
+> +      reg:
+> +        minItems: 1
+> +        items:
+> +          - description: 1st view base address
+> +          - description: 2nd optional view base address if this is a watchdog frame
+> +
+> +    required:
+> +      - interrupts
+> +      - reg
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    timer@f7f3e000 {
+> +      compatible = "arm,sse-timer";
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      ranges;
+> +      reg = <0xf7f3e000 0x2000>;
+> +      clocks = <&core_clk>;
+> +
+> +      frame@f7f20000 {
+> +        reg = <0xf7f20000 0x1000>;
+> +        interrupts = <0 26 0x8>;
+> +      };
+> +
+> +      frame@f7f30000 {
+> +        interrupts = <0 15 0x8>;
+> +        reg = <0xf7f32000 0x1000>,
+> +              <0xf7f33000 0x1000>;
+> +      };
+> +    };
+> +
+> +...
+> -- 
+> 2.50.1
+> 
 
