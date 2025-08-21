@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE862CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 12:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB31CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 12:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6BOkbyAGtdvgUiMh/kKj7ZRKD/HbLjntfFa+ezIW/E=; b=XysPjH4v/BqT+z7DhVDxI+3rDs
-	Dsos+dDUWxyGvZ15XRuFHYx9RQouNVDOBHqY8TZ3epl3JjkD0SmlBY/b98zlbYcL09RfxP7GyYFwQ
-	x/8TtWF5GijhTSWBDGkKg0SJEq0LRzHlYbt897taftL9iOab5VRW6hyGykBhoGMvZeemats2O5KSl
-	v0CWhld5HgSUjGeDQmyj3Ta+vjeMHI2yol224frbld7M7HuYk6RxRGqI2wxzqGsT5KQ7GMJLbec44
-	uzb6BNwkLJqLncoRwYpS3PulkJHSYlDh2FLpjL3gvKffaNyQFsr7nd3+cLiL/fu6vOm6zvdhV6rqm
-	B6lpxdBA==;
+	bh=zbHVx0AjhuMt4y2W1PFPxfaxziXKltNhN58wsnEMP24=; b=PNx7DJFQ69NzZP5mcdlpSwdncn
+	InSmDP32YbVEo5XIrDunXB4QDg1NdwzHrbQ7Cm7RIGX7aOlgNjNkOMw0CMfziDZRjqcM1FiQYiltm
+	Fiq1bLcgp3S7tIKll8XtjMCigy1gcslMTNLJcfn1nvV2oQQyPeiIsRr7FQjgc8j0KMWAdwYjPb82c
+	FakwYjBHZiqwn8h4WlrOKuj0ekASxfL83vzuryHsix9GjXF7ye02NQIpUc7HUlhOPQQ3MC4bVcKr6
+	tjeGh7D9Uq2dihu9PvyFO1lZaQi9DVGbGaho22yuVQ9GW1xKOAlHE9oVX5wfNpLEhmZL+pFNAqrOt
+	a4XTwN3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3xf-0000000Gpqr-2NUg;
-	Thu, 21 Aug 2025 12:00:07 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1up40F-0000000GqJq-42VO;
+	Thu, 21 Aug 2025 12:02:47 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1C6-0000000GKy4-1JGt
+	id 1up1D6-0000000GL8s-1fyz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 09:02:52 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	Thu, 21 Aug 2025 09:03:53 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4c6y5F0LMbz9tXv;
-	Thu, 21 Aug 2025 11:02:41 +0200 (CEST)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4c6y6X3tZTz9tPJ;
+	Thu, 21 Aug 2025 11:03:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1755766961;
+	t=1755767028;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=n6BOkbyAGtdvgUiMh/kKj7ZRKD/HbLjntfFa+ezIW/E=;
-	b=fvbApd/r5kcBywhJ0vUs5fAoOSamigpM4ZP0fsASAtCE1VeCQ4zMvjQZSIx93J4LKUNom9
-	QpFK/0TP1VlYxEvj7APkLg/XUVSJsUOQxvztaTBFGdpjvmSAVERBFG3LhZl84sKssJ6WY/
-	jzwSl4A7R1q+R7c0HXPEXP9akoT7JS5bKMq4CSz9FJlN/W7DPzJcH9wYkAT0SheLcdWR54
-	48VfiHLaJVopokeN8GmNWw5t2ki/lmTETQGSa1FGzuB9R5t4URnqul3CTQKYSHKwMzw3p4
-	Do4PEWu1QZrbFjXp5zC5dVfNt9SjU3Z9OjOD1Ii09+696vuWSBBaR6XUpbj6Fw==
-Message-ID: <1a25c41e-1139-41da-b056-50be47016138@mailbox.org>
-Date: Thu, 21 Aug 2025 10:59:49 +0200
+	bh=zbHVx0AjhuMt4y2W1PFPxfaxziXKltNhN58wsnEMP24=;
+	b=b2V6OGIK+9faRLgIyZYk6uRabl45mm0HCdGaL9s465n3dtJ3XMH35fcyk3NnBsqvmmxHAA
+	dMUMj+e2RqYo3JYdzZEnKijCAugtBUaSj9Z4qnUwjRykf//RRJWqPri69DY7v9wGIA4nM1
+	AB7FOUC4K3Z3gjYtotbnzv2wvvVvNO2kcjXZOqULnAMzCCbPJJeugtv+6rIUT7LBJMEqGT
+	KAaQ/bHhOB7ZsVLuZCvBA/F2cdvb64Uw52U45xMROpDI12jU8SbNzC4lNzUOScBcpwhkjW
+	n2XHjV9YzJxTIDjDsOyUNmNIj0FTdtMUqKayIsj6CZxCeLwwcuPPXm4t1j4XUA==
+Message-ID: <83a65b18-76e8-4ad4-9d4d-c1ef68d3d181@mailbox.org>
+Date: Thu, 21 Aug 2025 11:03:46 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH] media: imx-jpeg: Fix JPEG encoder ready race condition
+Subject: Re: [PATCH] media: imx-jpeg: Add support for descriptor allocation
+ from SRAM
 To: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>, linux-media@vger.kernel.org
 Cc: Fabio Estevam <festevam@gmail.com>,
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
@@ -58,18 +59,18 @@ Cc: Fabio Estevam <festevam@gmail.com>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
  Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250820162938.209892-1-marek.vasut@mailbox.org>
- <4a8531f9-801b-4744-8821-923961211199@oss.nxp.com>
+References: <20250820163046.209917-1-marek.vasut@mailbox.org>
+ <8d38e622-a743-41f9-81e6-d8608e3c60ec@oss.nxp.com>
 Content-Language: en-US
 From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <4a8531f9-801b-4744-8821-923961211199@oss.nxp.com>
+In-Reply-To: <8d38e622-a743-41f9-81e6-d8608e3c60ec@oss.nxp.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 657304f80e464479387
-X-MBO-RS-META: kf8p9grk6m41y7e848e8q7d7ugzz8s6y
+X-MBO-RS-ID: 79b755643f9efdfb172
+X-MBO-RS-META: 5w55qm7f67jhh9dnw5fsdc7xw59emh36
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_020250_497994_28C38748 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20250821_020352_587304_AB9F6D09 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/21/25 9:06 AM, Ming Qian(OSS) wrote:
+On 8/21/25 8:28 AM, Ming Qian(OSS) wrote:
 > Hi Marek,
 
-Hi,
+Hello Ming,
 
 > On 8/21/2025 12:29 AM, Marek Vasut wrote:
 >> [You don't often get email from marek.vasut@mailbox.org. Learn why 
 >> this is important at https://aka.ms/LearnAboutSenderIdentification ]
 >>
->> The current mxc_jpeg_job_ready() implementation works for JPEG decode
->> side of this IP, it does not work at all for the JPEG encode side. The
->> JPEG encode side does not change ctx->source_change at all, therefore
->> the mxc_jpeg_source_change() always returns right away and the encode
->> side somehow works.
+>> Add support for optional allocation of bitstream descriptors from SRAM
+>> instead of DRAM. In case the encoder/decoder DT node contains 'sram'
+>> property which points to 'mmio-sram', the driver will attempt to use
+>> the SRAM instead of DRAM for descriptor allocation, which might improve
+>> performance.
 >>
->> However, this is susceptible to a race condition between 
->> mxc_jpeg_dec_irq()
->> and mxc_jpeg_start_streaming(), where mxc_jpeg_start_streaming() might
->> start decoding another frame before mxc_jpeg_dec_irq() indicates 
->> completion
->> of encoding of current frame. Add new state, MXC_JPEG_ENC_DONE, which is
->> set in three locations, first when streaming starts to indicate the 
->> encoder
->> is ready to start processing a frame, second in mxc_jpeg_dec_irq() 
->> when the
->> encoder finishes encoding current frame, and third in 
->> mxc_jpeg_dec_irq() in
->> case of an error so the encoder can proceed with encoding another frame.
->>
->> Update mxc_jpeg_job_ready() to check whether the encoder is in this new
->> MXC_JPEG_ENC_DONE state before reporting the encoder is ready to encode
->> new frame.
->>
+>> This however helps on i.MX95 with sporadic SLOTn_STATUS IMG_RD_ERR bit 11
+>> being triggered during JPEG encoding. The following pipeline triggers the
+>> problem when descriptors get allocated from DRAM, the pipeline often 
+>> hangs
+>> after a few seconds and the encoder driver indicates "timeout, cancel 
+>> it" :
 > 
-> The jpeg encoder and jpeg decoder are 2 different devices, so they won't
-> compete with each other.
+> It's a hardware bug in i.MX95 A0, and the i.MX95 B0 has fixed this issue.
 
-I know.
+Ahh, this helps, thank you.
 
-> For encoder, we always want mxc_jpeg_job_ready() to return true.
-
-For encoder, mxc_jpeg_job_ready() currently returns !ctx->source_change 
-, which is only set by decoder side of the driver. This seems wrong.
-
-> And v4l2_m2m has ensured that there will be no race condition between
-> mxc_jpeg_dec_irq() and mxc_jpeg_start_streaming().
-> 
-> After v4l2_m2m_job_finish() is called in the mxc_jpeg_dec_irq(),
-> then it is possible to start encoding the next frame.
-This part would be true if the IRQ function couldn't be called by 
-anything except end of configuration or end of encoding, but it can be 
-triggered by other things, like AXI READ error IRQ.
+> Using sram instead of dram only improves timing, but doesn't completely 
+> circumvent the hardware bug
+Does it make sense to upstream this patch anyway ?
 
