@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FCE2CA0FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18914CA0FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r31fWWg+2kMjMmJjr+sR6b3as70jWLVhI1dnGZrUqlg=; b=AJrPCDfKpm128Pz+15kmheXdv4
-	Tnz+/HzM3m2AxBdDFOPfRbHG3h4xdbViTuEuQwctt65+mcc8htqgMJjLHuaFawUXI2LpYZoKarRAI
-	bipXfKnKpDEvCchChCOqgWy+ymDhZwskoMvVAh6t+4OV04t8az4gMqiUHAE0qesU1oB8xlZUW9M6n
-	VK/0pBexlm/mJKUYOx1HKjQZxciykwUCTW5xYqNcPjs0Am7CXpe9vHT/UfnBNRRu2ggW9BAN3UgJL
-	0cVA0yCO0BWjRNLqz3NHa9Gi1exKSyTzurpHf3/f7Xm1MIUKHPMXCgkh5DM6fD44fdoPFoT2vvU77
-	5G1vFVYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8lx3aufoXd6nTNp0Oxh53o31mC/s+LAKaFQEV0siXoE=; b=dx1QTmHJGyGP6HgpNom/5vvyl+
+	JE/4u5Lki0QXwFrOzSocFRTbqi1HHFpOC2dZfLidUIhtaeX+BsxKOWbWcKBCJ/dVrCEP4fGAiVLEx
+	exWF5Uiqi9r1OQcKywNLTD6Tctn6nKMXU+4r/gBXUTYuNZZ498X9MvQuVv+J0X1HTWXDEHyLX/kKc
+	/Kwb3u5gjH7yacUXAWfnAIiT7fadE+GO5D0CVwDi+StlLTX4S58klC9JalkjR1iFenAje1HdpRzUX
+	wdLLhplDHQ/qgXmQLhTbhdvFQ5NFdPm3+/2iANWCIZNBS/QAPTeDjCz+mFp7Wfxrjf/t39BL+QZna
+	wmmTrb0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAhl-00000000EMy-3Lvj;
-	Thu, 21 Aug 2025 19:12:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5af-0000000H6KD-0NBw
+	id 1upAhk-00000000ELz-3mOA;
+	Thu, 21 Aug 2025 19:12:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up5aG-0000000H6FX-2rQR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 13:44:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E77CD152B;
-	Thu, 21 Aug 2025 06:44:19 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FB583F59E;
-	Thu, 21 Aug 2025 06:44:26 -0700 (PDT)
-Message-ID: <56e049d4-dc15-40e0-a3ba-62d45678780d@arm.com>
-Date: Thu, 21 Aug 2025 14:44:25 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/6] KVM: arm64: Handle RASv1p1 registers
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Cornelia Huck <cohuck@redhat.com>
+	Thu, 21 Aug 2025 13:44:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD8A7A583EB;
+	Thu, 21 Aug 2025 13:44:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A248C4CEED;
+	Thu, 21 Aug 2025 13:44:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755783843;
+	bh=51ppjBwI5H4RwL9SltGTpPChSEY3LYuPKVmovIKwViE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=i1KlP9rL9f6yeE22Pi4q77QUz9CpLh4Y1QvJYtG/vpYEd7cLx02hTL9ZvoIp7X/4I
+	 ++u5YMAf3t/9jCYhsWJ3sZeZ4YqvUJabaNCXRv8eR8Mm9FNbcF1VCOeG9jowjFHC8g
+	 BXBxJpmA/Po3fHPCnxTV8mXz90tMkYai1X0iYdDowR2N4a/CWcOdZJ+CN3hQYUjHad
+	 YpBsl811mtLr+vXWDTaNCQan9nNxyCS4byF1FHlC1RgzPgtLSPflEDbvMEpBVa+SKD
+	 5OiJ52ktgd499Ckys2O9yIdrOG5BsT/O5D+KThJFV8x0Ynbym/ZgutZzHP+iT8RMTd
+	 wztv7nAaWB6/A==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1up5a0-009l8u-7K;
+	Thu, 21 Aug 2025 14:43:48 +0100
+Date: Thu, 21 Aug 2025 14:43:47 +0100
+Message-ID: <87cy8okcx8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: Re: [PATCH v3 6/6] KVM: arm64: Get rid of ARM64_FEATURE_MASK()
+In-Reply-To: <fb782326-06d6-4e3d-9614-6f5798dafee4@arm.com>
 References: <20250817202158.395078-1-maz@kernel.org>
- <20250817202158.395078-3-maz@kernel.org>
- <95819606-ef3b-46e1-8201-1abf0219659f@arm.com> <87ect4kd7a.wl-maz@kernel.org>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <87ect4kd7a.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	<20250817202158.395078-7-maz@kernel.org>
+	<fb782326-06d6-4e3d-9614-6f5798dafee4@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_064429_164656_4AA843B2 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250821_064404_847592_B71581E9 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,63 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Thu, 21 Aug 2025 12:29:43 +0100,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 8/17/25 21:21, Marc Zyngier wrote:
+> > The ARM64_FEATURE_MASK() macro was a hack introduce whilst the
+> > automatic generation of sysreg encoding was introduced, and was
+> > too unreliable to be entirely trusted.
+> > 
+> > We are in a better place now, and we could really do without this
+> > macro. Get rid of it altogether.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >   arch/arm64/include/asm/sysreg.h               |  3 --
+> >   arch/arm64/kvm/arm.c                          |  8 ++--
+> >   arch/arm64/kvm/sys_regs.c                     | 40 +++++++++----------
+> >   tools/arch/arm64/include/asm/sysreg.h         |  3 --
+> >   .../selftests/kvm/arm64/aarch32_id_regs.c     |  2 +-
+> >   .../selftests/kvm/arm64/debug-exceptions.c    | 12 +++---
+> >   .../testing/selftests/kvm/arm64/no-vgic-v3.c  |  4 +-
+> >   .../selftests/kvm/arm64/page_fault_test.c     |  6 +--
+> >   .../testing/selftests/kvm/arm64/set_id_regs.c |  8 ++--
+> >   .../selftests/kvm/arm64/vpmu_counter_access.c |  2 +-
+> >   .../selftests/kvm/lib/arm64/processor.c       |  6 +--
+> >   11 files changed, 44 insertions(+), 50 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > index d5b5f2ae1afaa..6604fd6f33f45 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -1142,9 +1142,6 @@
+> >     #define ARM64_FEATURE_FIELD_BITS	4
+> While you're at it, consider getting rid of ARM64_FEATURE_FIELD_BITS
+> too. This is only used in the set_id_regs.c selftest.
 
-On 8/21/25 14:37, Marc Zyngier wrote:
-> On Thu, 21 Aug 2025 14:13:52 +0100,
-> Ben Horgan <ben.horgan@arm.com> wrote:
->>
->>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
->>> index 82ffb3b3b3cf7..feb1a7a708e25 100644
->>> --- a/arch/arm64/kvm/sys_regs.c
->>> +++ b/arch/arm64/kvm/sys_regs.c
->>> @@ -2697,6 +2697,18 @@ static bool access_ras(struct kvm_vcpu *vcpu,
->>>   	struct kvm *kvm = vcpu->kvm;
->>>     	switch(reg_to_encoding(r)) {
->>> +	case SYS_ERXPFGCDN_EL1:
->>> +	case SYS_ERXPFGCTL_EL1:
->>> +	case SYS_ERXPFGF_EL1:
->>> +	case SYS_ERXMISC2_EL1:
->>> +	case SYS_ERXMISC3_EL1:
->>> +		if (!(kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, V1P1) ||
->>> +		      (kvm_has_feat_enum(kvm, ID_AA64PFR0_EL1, RAS, IMP) &&
->>> +		       kvm_has_feat(kvm, ID_AA64PFR1_EL1, RAS_frac, RASv1p1)))) {
->>> +			kvm_inject_undefined(vcpu);
->>> +			return false;
->>> +		}
->>> +		break;
->>>   	default:
->>>   		if (!kvm_has_feat(kvm, ID_AA64PFR0_EL1, RAS, IMP)) {
->>>   			kvm_inject_undefined(vcpu);
->> The default condition needs updating for the case when
->> ID_AA64PFR0_EL1.RAS = b10 otherwise access to the non-v1 specific RAS
->> registers will result in an UNDEF being injected.
-> 
-> I don't think so. The RAS field is described as such:
-> 
-> 	UnsignedEnum    31:28   RAS
-> 	        0b0000  NI
->         	0b0001  IMP
-> 	        0b0010  V1P1
-> 	        0b0011  V2
-> 	EndEnum
-> 
-> Since this is an unsigned enum, this checks for a value < IMP. Only
-> RAS not being implemented is this condition satisfied, and an UNDEF
-> injected.
-> 
-> Or am I missing something obvious here (I wouldn't be surprised...)?
+I don't really understand what this test (like most tests) is doing,
+so I'm not going to touch it. If you figure it out, feel free to send
+a patch.
 
-No, you are indeed correct. I missed the difference between
-kvm_has_feat_enum() and kvm_has_feat(). Sorry for the noise.
-
-> 
-> 	M.
-> 
-
--- 
 Thanks,
 
-Ben
+	M.
 
+-- 
+Jazz isn't dead. It just smells funny.
 
