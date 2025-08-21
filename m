@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC15CCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B68CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTAUFqQj+Srt76jvVzsWjRdQqnKeQiisH+eWp10upeM=; b=H3NJExRUiEE9Kcpkf32GqHsUBA
-	z7fMFpMJLNHZhSfmNNhShO6U1lxk3OhnWYJ/doz1nSvQdpfFpRpMcsN2LUOpABUp3qa/4bqpXWiPg
-	qgEK+U9ExM8iIqeDO/TTGct3mtzvRzpQ/5eVq6mALVvBwmxOoG4/di+lrnr0drH6uxvJiNPFWd+5l
-	P8bke9Oqlcb10R06IZjo/kv18M2MiAn0mnkoWLKWPkYoN8hQcsAISKEe/hBkUR24NH9v5qs/T+uM/
-	jDbaCWrhm0ousxrdKEtbEyh/9QpOtcg0VDuAOFQw6YIblk+6hzR36QpJdVB8FjS26KC/tn0pIBekW
-	jRuyF6kw==;
+	bh=qiIFOOX5cTeFtxjFg4qC88nb0t3jgyvT3V3axSy5paY=; b=KRSuC2D9X2FAHqtu/4VJyZootX
+	o0aAtwL/ErHt3ZPfWfULGyQ78U5s9NbAbjeAWOYptcMWfKZAMowJVcDbB+ziLxWzqv4JrKLlJI0Rh
+	UsJJuxzd8ARSMcg4MCJ93EYtxfk3jO34kaj3mqQiTS6UzfqBL/mbmlcFXIXHTbsibCxVLMBKRMM33
+	n18YjmCLuvMaa8QSQg8qeKGRk6NaRHcBd1B88+bLWzkcJDa4UAtadTehrOE5nYieZl55O5EFwvdp1
+	XJkhUQhi4L+gPgnsty4PZVPAZIPKWZEVnWX6Dz+7rWTaAbxUYE014+5cegkZ4TGDsWGFUkEWE4fpy
+	q8SbDhuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7FK-0000000HN2c-1Sfb;
-	Thu, 21 Aug 2025 15:30:34 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1up7FM-0000000HN5s-1uyB;
+	Thu, 21 Aug 2025 15:30:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3YW-0000000Glzl-0APQ
+	id 1up3ZQ-0000000Gm8q-2fly
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 11:34:09 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57LBXsjW3422679;
-	Thu, 21 Aug 2025 06:33:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755776034;
-	bh=oTAUFqQj+Srt76jvVzsWjRdQqnKeQiisH+eWp10upeM=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Xjb4qtzu8M6RZpELdSuAm2Boqv1Punv/CZ41zdOAImU+FvVK/Q5PvtUdbJthVefdP
-	 u4jLPevxs2LDibXoejsGNNU0j6KstqWcC93Vq16QreyE3US8BI8zmJ5PnglX/nEbvc
-	 FgbHbQjYCgXS+6KtoWFyYIHLnKv70+cr1+SKAxgA=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57LBXsV22789075
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 21 Aug 2025 06:33:54 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 21
- Aug 2025 06:33:53 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 21 Aug 2025 06:33:53 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57LBXrPB1799874;
-	Thu, 21 Aug 2025 06:33:53 -0500
-Date: Thu, 21 Aug 2025 06:33:53 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Randolph Sapp <rs@ti.com>
-CC: Michael Walle <michael@walle.cc>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <d-gole@ti.com>, <afd@ti.com>, <bb@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <detheridge@ti.com>,
-        <matt.coster@imgtec.com>
-Subject: Re: [PATCH 3/3] arm64: dts: ti: k3-j784s4-j742s2: enable the bxs-4-64
-Message-ID: <20250821113353.mhumx2omf3i5mdtv@cubicle>
-References: <20250808232522.1296240-1-rs@ti.com>
- <20250808232522.1296240-3-rs@ti.com>
- <20250813151819.5rthljjrpryfwezz@skinning>
- <DC1HU458W3QA.YLONSMYKK0C4@ti.com>
- <20250813181300.xfpsu23arx7xy4fy@anointer>
- <DC5C5JA237HD.1ACBQVG1LYQ7Z@walle.cc>
- <DC5T752T3P8B.1UC57G2GH35Z5@ti.com>
- <f0353dea24751f2f2ad6e7735232b933@walle.cc>
- <DC6P6R1L2ZED.2UR8XRHH5RPJ0@ti.com>
+	Thu, 21 Aug 2025 11:35:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B557A61157;
+	Thu, 21 Aug 2025 11:35:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBBDC4CEEB;
+	Thu, 21 Aug 2025 11:35:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755776102;
+	bh=Mtgl0PdlBLAE8c0yy8tJp7Vtvf88Vj9PP/tXS+OYlo8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T5usWGKAAO1lQsOx+rbsDR6gLbfmiGENVcU1hT+ZsyVVSBOaBXiQILxohvFDlax3H
+	 WGHZS7z6Sna8K9FJ9MidFbpIxR/UR4baaXcusFHgHHLF8r/9AUwYe2OT78GNN35fGH
+	 /GYXmSiWrWjmEo4sU/8Ki81WkELLfSUt/H99qa1t1e8Pt5g7BNu9uOmAdv1WARaaeh
+	 JTv/cvB7QMlBRPJs5NRX51ynb2E37mjhnz1IO8VFe5ntIWcf4OEcnaS24InoScgOrJ
+	 AsHDwF6x4xwxjg9k26a7kfD4anhPga9AotZyhLjOatcvf3p0IhIOfuuv3PxD1O1mxu
+	 WBZM2qjU4WghA==
+Date: Thu, 21 Aug 2025 13:34:58 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
+Message-ID: <aKcEYn_hX0ZIusne@lore-rh-laptop>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
+ <aKbDjIZhJuWo3yFu@lore-rh-laptop>
+ <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="x8+Rd9hZnvWmebul"
 Content-Disposition: inline
-In-Reply-To: <DC6P6R1L2ZED.2UR8XRHH5RPJ0@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_043408_167787_DFBCAE92 
-X-CRM114-Status: GOOD (  13.40  )
+In-Reply-To: <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +73,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:47-20250819, Randolph Sapp wrote:
-> On Tue Aug 19, 2025 at 1:38 AM CDT, Michael Walle wrote:
-> > Hi,
-> >
-> >>> Apart from that, we now have two series which partly overlap.
-> >>> Should I repost mine, as that's more than just the DT entry? (Which
-> >>> doesn't work as is, I'd guess.)
-> >> 
-> >> Ah, I don't see that series on the linux-arm-kernel list. If you can 
-> >> forward me
-> >> that I can work around whatever you've got.
-> >
-> > That was the one Nishanth mentioned earlier:
-> > https://lore.kernel.org/linux-arm-kernel/20250716134717.4085567-1-mwalle@kernel.org/
-> >
-> > Also this:
-> > https://lore.kernel.org/all/DC5KCSEUZQUJ.3KPENNUQBUFM8@kernel.org/
-> >
-> > -michael
-> 
-> Ah, alright. I'll hold off on this series until the AM62P related sections you
-> were proposing are picked up.
 
-Are all SoCs impacted by this need? just hold off the am62p changes,
-perhaps?
+--x8+Rd9hZnvWmebul
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
+>=20
+> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
+> >> This patch series greatly improve airoha snfi driver and fix a
+> >> number of serious bug.
+> >>
+> >> Fixed bugs:
+> >>  * Fix reading/writing of flashes with more than one plane per lun
+> >>  * Fix inability to read/write oob area
+> >>  * Fill the buffer with 0xff before writing
+> >>  * Fix reading of flashes supporting continuous reading mode
+> >>  * Fix error paths
+> >>
+> >> Improvements:
+> >>  * Add support of dual/quad wires spi modes in exec_op().
+> >>  * Support of dualio/quadio flash reading commands
+> >>  * Remove dirty hack that reads flash page settings from SNFI registers
+> >>    during driver startup
+> >>
+> >> Unfortunately I am unable to test the driver with linux at the moment,
+> >> so only the following testing was done:
+> > It seems to me this is quite an important rework of the driver. I would=
+ prefer
+> > to have some test results for this series. Are you able to run mtd_test=
+ kernel
+> > module for testing?
+>=20
+> I'll try to build latest openwrt with this patches=A0 and mtd_test kernel
+> module and try it on one of our boards.
+
+what board are you using for testing? If it is based on Airoha-7581 you cou=
+ld
+use the following repo for testing.
+
+https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-stable
+
 Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Lorenzo
+
+>=20
+> Actually patches can be divided on to parts:
+> * fixes of current driver (patches 1-10)
+> * change of behavior to avoid reading flash page settings from SNFI
+> registers during driver startup (patches 11-14)
+>=20
+> The changes are based on the code we are using for more than 3 years. I
+> adapt it to latest linux/u-boot code.
+>=20
+> Up to now the only known issue appears on en7523 chips only. Here a
+> corresponding patch description (not added to this series)
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D spi: airoha:
+> en7523: workaround flash damaging if UART_TXD was short to GND We found
+> that some serial console may pull TX line to GROUND during board boot
+> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
+> booting in RESERVED boot mode. It was found that some flashes operates
+> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definitely
+> affected by the issue, Winbond flashes are NOT affected. Details:
+> -------- DMA reading of odd pages on affected flashes operates
+> incorrectly. Page reading offset (start of the page) on hardware level
+> is replaced by 0x10. Thus results in incorrect data reading. Usage of
+> UBI make things even worse. Any attempt to access UBI leads to ubi
+> damaging. As result OS loading becomes impossible. Non-DMA reading is
+> OK. =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+>=20
+> Regards,
+> Mikhail
+>=20
+>=20
+> >
+> > Regards,
+> > Lorenzo
+> >
+> >>  * Driver compiles without error.
+> >>  * All changes were tested with corresponding u-boot driver. U-Boot
+> >>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
+> >>    additional fixes for continuous mode.
+> >>
+> >> Changes v2:
+> >>  * minor fix
+> >>  * add comments to code
+> >>
+> >> Changes v3:
+> >>  * add patch to prevent continuous reading
+> >>
+> >> Mikhail Kshevetskiy (14):
+> >>   spi: airoha: return an error for continuous mode dirmap creation cas=
+es
+> >>   spi: airoha: remove unnecessary restriction length
+> >>   spi: airoha: add support of dual/quad wires spi modes
+> >>   spi: airoha: remove unnecessary switch to non-dma mode
+> >>   spi: airoha: unify dirmap read/write code
+> >>   spi: airoha: switch back to non-dma mode in the case of error
+> >>   spi: airoha: fix reading/writing of flashes with more than one plane
+> >>     per lun
+> >>   spi: airoha: support of dualio/quadio flash reading commands
+> >>   spi: airoha: allow reading/writing of oob area
+> >>   spi: airoha: buffer must be 0xff-ed before writing
+> >>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
+> >>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG a=
+nd
+> >>     REG_SPI_NFI_SECCUS_SIZE registers
+> >>   spi: airoha: set custom sector size equal to flash page size
+> >>   spi: airoha: avoid reading flash page settings from SNFI registers
+> >>     during driver startup
+> >>
+> >>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++-----------------
+> >>  1 file changed, 260 insertions(+), 248 deletions(-)
+> >>
+> >> --=20
+> >> 2.50.1
+> >>
+
+--x8+Rd9hZnvWmebul
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKcEXgAKCRA6cBh0uS2t
+rHlkAQCnnfXQhEwCqeyAoAXrliU5ohBl9ETMGPOldm648EN+fgEAvncAtUoj/911
+w8qFdbO/bXNBPXs4NLY9ZsmLqe96dA4=
+=SuZn
+-----END PGP SIGNATURE-----
+
+--x8+Rd9hZnvWmebul--
 
