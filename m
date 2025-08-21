@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8720ACA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836ACCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0Z/pTdbdovWbyHvSHReuxVD1HiyGRrZamOwAdV82+M=; b=Chw4JyIOWKaPWHlb6J2uDvDoQL
-	mlVTmt7XZNaTeAycRKo63mAmPJquTyGun3/tHqcqqiKuJh3ZeDDUDp74eU8YkQkev5ddNu6ZaEMNj
-	3Qfpiava0dJpX7GWUw9czR9eJkXeI4YRmvX18seMzpMPKN4asDRUy421/Pw0apQRyy/PzLpnjDvlT
-	+xm18qBKFX5+UvT3PziCY7Gm0PAAKPNLbC35n4PKgEgHxFXdBsqrWDPJysyiX7l55itP64cWxAjOU
-	r8oFpOuWMYkxLkVnH7RJLxrNmwPt0OQXXsLpamjq+kibuRHuudGmKhBbnQIdo37Sn9btqUWy7AUWK
-	sYN8tBQQ==;
+	bh=FisHcql+V+/m643js1MdbE6gdMnibSHHvbfcAxNA4Z8=; b=hAVGJTDfD4DMv3t9h+7JjEEOE2
+	3msyqUZJTSLAVRhKALQYqViZfQ6ipK4hVYNE+Dn6jebkzXB41FXK8G/VSNeePtMTNqqE+fDt1AEcG
+	9t6T8v3TO2Db7mXs80fl/zM3SVrDzfn097RT9XgqTV7Xv8S+N+ENreZej3VwSpOS9V7XNQsU15rdE
+	DrCYcUgtQoJ0LqwKCHNNKlcq1iLRE5vZlZLH9ldhRUkCo/v+AqDiKjYVzRJJXUH/Cc8zrSg+2MEwG
+	0a/zuIDiomBlrsfRq1P26PFxNVnZbddX7f2TrIR8A3t/K/75elzpwzk3Y71hzmNChjbRS3g42IQH+
+	yvEiSZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJTb-00000001VlQ-1YXM;
-	Fri, 22 Aug 2025 04:34:07 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1upJTc-00000001Vlw-2KzX;
+	Fri, 22 Aug 2025 04:34:09 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCdi-00000000ds0-24hL
+	id 1upCgU-00000000eBl-05M1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:16:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0F88A586B6;
-	Thu, 21 Aug 2025 21:16:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCDAC113D0;
-	Thu, 21 Aug 2025 21:16:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755810965;
-	bh=k8t2LMzkHbTix/DiHIeNz0Pk9z8ZvuqlTYVV5CKGLxo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GD3v7WtlG5xYR/Z3EK1MnOl2iyyRM1rMSx2wm9Ua0PX2kRPwtG8LJifnqf+9Hwd7B
-	 32ZCrQsemML2UayOB6DeS4YK8pe0XyMb89Te++sSe6Vog6m9tZjGoLxKAqo0E2CJFk
-	 xYVKu7iBHzizPxx8io2A2sYbqBUjuVQiLm0izajDr7WaMPF2dS9VsvxxuggrICGoJj
-	 bn8bX4seFrjEXTtlxAMNjOpOzDxq6OdxNQH+KI3j8C5uO6k/cVq6JOgi5iQer/XSrP
-	 F2RRD6H1JQxwgBTl4R+pJI5IMnIbqOAsg0SQeUzDAt9cVnUDsdoJXxcIIvQtiyWbRE
-	 n5dcfhppWLwzw==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Thu, 21 Aug 2025 14:15:41 -0700
-Subject: [PATCH v2 04/12] arm64: Remove tautological LLVM Kconfig
- conditions
+	Thu, 21 Aug 2025 21:18:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1755811137; bh=FisHcql+V+/m643js1MdbE6gdMnibSHHvbfcAxNA4Z8=;
+ b=wAAlHnGiJW4aMCK2k9GDw8gVW6avIuacMFk1BFg/XK9ijAqG8T/8UGdf804c3CQq59yU9dhf1
+ bbHapiJ0nFXgcRG1/lmocMBnyHW30yor2pNQiLZNxniE0xsJEdgviKFdgQUL4cVb1Y2t1ZV6pYT
+ eSHifLOaE9foXyJJEm/nt4wXzxWo70iiDuPungbk6T8h759C3JJUSFO9YFflbGSIhBEXW5WzkIN
+ MAeNotsKg4mcM0zFE8ApeiCDm3FZ1ZfB9nTgoBL9OXFVkJhx5hw6kZBe8Nn3WAvFHePrzXefdsc
+ VZ1gLpDpfnrBT5z0VS0AkXIVsBR96VMsCxtaZoY7kVvA==
+X-Forward-Email-ID: 68a78d3e1990298b555d6906
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.2.9
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v3 1/1] arm64: dts: rockchip: Enable more power domains for RK3528
+Date: Thu, 21 Aug 2025 21:18:41 +0000
+Message-ID: <20250821211843.3051349-2-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20250821211843.3051349-1-jonas@kwiboo.se>
+References: <20250821211843.3051349-1-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-bump-min-llvm-ver-15-v2-4-635f3294e5f0@kernel.org>
-References: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
-In-Reply-To: <20250821-bump-min-llvm-ver-15-v2-0-635f3294e5f0@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- llvm@lists.linux.dev, patches@lists.linux.dev, 
- Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1412; i=nathan@kernel.org;
- h=from:subject:message-id; bh=k8t2LMzkHbTix/DiHIeNz0Pk9z8ZvuqlTYVV5CKGLxo=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDBnLe5rCEk5cW9wg6jDh4UvntsNHek/MaTbebxi/2m+5X
- 3ltuUFoRykLgxgXg6yYIkv1Y9XjhoZzzjLeODUJZg4rE8gQBi5OAZjIE3dGhssZXDFm/YrseQVT
- Lpeqvv+hva78ke18lYRjTYU7ZaeWfWT4HxA96azS8XR/v3krUs34Wr7f+vrZO/2EVLPfhzU9dfY
- q/AA=
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_141606_608030_F328A505 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250821_141858_119153_5FEBFC05 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +81,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the minimum supported version of LLVM for building the kernel
-has been bumped to 15.0.0, two sets of always true conditions can be
-safely removed in the arm64 Kconfig file.
+Describe device power-domains and enable the PD_RKVENC, PD_VO and PD_VPU
+power-domains on RK3528.
 
-Acked-by: Will Deacon <will@kernel.org>
-Reviewed-by: Kees Cook <kees@kernel.org>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+The PD_RKVDEC is used by RKVDEC and DDRPHY CRU, and is kept disabled to
+prevent a full system reset trying to read the rate of the SCMI_CLK_DDR
+clock.
+
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-Cc: linux-arm-kernel@lists.infradead.org
+Changes in v3:
+- No change
+- Rebased on top of next-20250821
+
+Changes in v2:
+- Add power-domains for spi nodes
+- Rebased on top of next-20250722
 ---
- arch/arm64/Kconfig | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 30 +++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..41c05562e9af 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1492,8 +1492,6 @@ choice
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index 54fa8089c4d3..85bc3f5aa2c7 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -155,6 +155,7 @@ gpio1: gpio@ffaf0000 {
+ 			gpio-ranges = <&pinctrl 0 32 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 		};
  
- config CPU_BIG_ENDIAN
- 	bool "Build big-endian kernel"
--	# https://github.com/llvm/llvm-project/commit/1379b150991f70a5782e9a143c2ba5308da1161c
--	depends on AS_IS_GNU || AS_VERSION >= 150000
- 	help
- 	  Say Y if you plan on running a kernel with a big-endian userspace.
+ 		gpio2: gpio@ffb00000 {
+@@ -167,6 +168,7 @@ gpio2: gpio@ffb00000 {
+ 			gpio-ranges = <&pinctrl 0 64 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VO>;
+ 		};
  
-@@ -2363,8 +2361,7 @@ config STACKPROTECTOR_PER_TASK
+ 		gpio3: gpio@ffb10000 {
+@@ -179,6 +181,7 @@ gpio3: gpio@ffb10000 {
+ 			gpio-ranges = <&pinctrl 0 96 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 		};
  
- config UNWIND_PATCH_PAC_INTO_SCS
- 	bool "Enable shadow call stack dynamically using code patching"
--	# needs Clang with https://github.com/llvm/llvm-project/commit/de07cde67b5d205d58690be012106022aea6d2b3 incorporated
--	depends on CC_IS_CLANG && CLANG_VERSION >= 150000
-+	depends on CC_IS_CLANG
- 	depends on ARM64_PTR_AUTH_KERNEL && CC_HAS_BRANCH_PROT_PAC_RET
- 	depends on SHADOW_CALL_STACK
- 	select UNWIND_TABLES
-
+ 		gpio4: gpio@ffb20000 {
+@@ -191,6 +194,7 @@ gpio4: gpio@ffb20000 {
+ 			gpio-ranges = <&pinctrl 0 128 32>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 		};
+ 	};
+ 
+@@ -501,7 +505,6 @@ power-domain@RK3528_PD_RKVENC {
+ 					reg = <RK3528_PD_RKVENC>;
+ 					pm_qos = <&qos_rkvenc>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 				power-domain@RK3528_PD_VO {
+ 					reg = <RK3528_PD_VO>;
+@@ -515,7 +518,6 @@ power-domain@RK3528_PD_VO {
+ 						 <&qos_vdpp>,
+ 						 <&qos_vop>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 				power-domain@RK3528_PD_VPU {
+ 					reg = <RK3528_PD_VPU>;
+@@ -529,7 +531,6 @@ power-domain@RK3528_PD_VPU {
+ 						 <&qos_usb3otg>,
+ 						 <&qos_vpu>;
+ 					#power-domain-cells = <0>;
+-					status = "disabled";
+ 				};
+ 			};
+ 		};
+@@ -571,6 +572,7 @@ spi0: spi@ff9c0000 {
+ 			interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 25>, <&dmac 24>;
+ 			dma-names = "tx", "rx";
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -585,6 +587,7 @@ spi1: spi@ff9d0000 {
+ 			interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 31>, <&dmac 30>;
+ 			dma-names = "tx", "rx";
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -609,6 +612,7 @@ uart1: serial@ff9f8000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 11>, <&dmac 10>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -621,6 +625,7 @@ uart2: serial@ffa00000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 13>, <&dmac 12>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -633,6 +638,7 @@ uart3: serial@ffa08000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 15>, <&dmac 14>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -645,6 +651,7 @@ uart4: serial@ffa10000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 17>, <&dmac 16>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -657,6 +664,7 @@ uart5: serial@ffa18000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 19>, <&dmac 18>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -669,6 +677,7 @@ uart6: serial@ffa20000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 21>, <&dmac 20>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -681,6 +690,7 @@ uart7: serial@ffa28000 {
+ 			clock-names = "baudclk", "apb_pclk";
+ 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+ 			dmas = <&dmac 23>, <&dmac 22>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			reg-io-width = <4>;
+ 			reg-shift = <2>;
+ 			status = "disabled";
+@@ -693,6 +703,7 @@ i2c0: i2c@ffa50000 {
+ 			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -705,6 +716,7 @@ i2c1: i2c@ffa58000 {
+ 			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_RKVENC>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -731,6 +743,7 @@ i2c3: i2c@ffa68000 {
+ 			clocks = <&cru CLK_I2C3>, <&cru PCLK_I2C3>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -745,6 +758,7 @@ i2c4: i2c@ffa70000 {
+ 			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&i2c4_xfer>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -757,6 +771,7 @@ i2c5: i2c@ffa78000 {
+ 			clocks = <&cru CLK_I2C5>, <&cru PCLK_I2C5>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -769,6 +784,7 @@ i2c6: i2c@ffa80000 {
+ 			clocks = <&cru CLK_I2C6>, <&cru PCLK_I2C6>;
+ 			clock-names = "i2c", "pclk";
+ 			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -783,6 +799,7 @@ i2c7: i2c@ffa88000 {
+ 			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&i2c7_xfer>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -874,6 +891,7 @@ saradc: adc@ffae0000 {
+ 			clocks = <&cru CLK_SARADC>, <&cru PCLK_SARADC>;
+ 			clock-names = "saradc", "apb_pclk";
+ 			interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_P_SARADC>;
+ 			reset-names = "saradc-apb";
+ 			#io-channel-cells = <1>;
+@@ -894,6 +912,7 @@ gmac0: ethernet@ffbd0000 {
+ 			interrupt-names = "macirq", "eth_wake_irq";
+ 			phy-handle = <&rmii0_phy>;
+ 			phy-mode = "rmii";
++			power-domains = <&power RK3528_PD_VO>;
+ 			resets = <&cru SRST_A_MAC_VO>;
+ 			reset-names = "stmmaceth";
+ 			rockchip,grf = <&vo_grf>;
+@@ -952,6 +971,7 @@ gmac1: ethernet@ffbe0000 {
+ 			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "macirq", "eth_wake_irq";
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_A_MAC>;
+ 			reset-names = "stmmaceth";
+ 			rockchip,grf = <&vpu_grf>;
+@@ -1002,6 +1022,7 @@ sdhci: mmc@ffbf0000 {
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&emmc_bus8>, <&emmc_clk>, <&emmc_cmd>,
+ 				    <&emmc_strb>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_C_EMMC>, <&cru SRST_H_EMMC>,
+ 				 <&cru SRST_A_EMMC>, <&cru SRST_B_EMMC>,
+ 				 <&cru SRST_T_EMMC>;
+@@ -1023,6 +1044,7 @@ sdio0: mmc@ffc10000 {
+ 			max-frequency = <200000000>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_H_SDIO0>;
+ 			reset-names = "reset";
+ 			status = "disabled";
+@@ -1042,6 +1064,7 @@ sdio1: mmc@ffc20000 {
+ 			max-frequency = <200000000>;
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdio1_bus4>, <&sdio1_clk>, <&sdio1_cmd>;
++			power-domains = <&power RK3528_PD_VPU>;
+ 			resets = <&cru SRST_H_SDIO1>;
+ 			reset-names = "reset";
+ 			status = "disabled";
+@@ -1062,6 +1085,7 @@ sdmmc: mmc@ffc30000 {
+ 			pinctrl-names = "default";
+ 			pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>,
+ 				    <&sdmmc_det>;
++			power-domains = <&power RK3528_PD_VO>;
+ 			resets = <&cru SRST_H_SDMMC0>;
+ 			reset-names = "reset";
+ 			rockchip,default-sample-phase = <90>;
 -- 
-2.50.1
+2.51.0
 
 
