@@ -4,134 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3B0CA0EE6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF19FCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhuQQAYtkFz1+EMzbo9h41xY8JijUtMlK2wIkAFemmg=; b=ltFfZtvdZl3V6a7Glj8O7EHPRU
-	h+KA3SI1kOqsvikRK20l5vCbZaxGuwMGAWkmcosMcMeVF0WUFUhFiTqEY/z8tyF3VuyaD+6a61q1G
-	R9LhM7ZylfwpauVnBw+88y2RiJthE1OZjQhdC1Ox37JHyNb20ps6FiNz7FI1YeckerER5PsG8MWFq
-	e4BiV3aP54EJO6siboxsNjaMvLjArwt3ZSGGqAK7UeDO6Ygs4G+edNlfqcHgwfzRzl+TLlL/+L3yh
-	6Z8MNx7ysBTtVKw8yNRKspi4ABzMMcwUxT3G5GNhKTQV1GHtWxCZ5SwdiUlBwGQMVmznMttAcMIRk
-	YLZR84Pw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=; b=ytIISKVMWtwCw94v/IssQMvJt5
+	gvEFihHd8NGrMdmagXlJZBpDs1B6Q3KGxeLHX/0grV3cOFAY/1yE/3Aey4gFNf5qsLxdp30/BB/4i
+	JQt76YFGC3AIO4fUVrWrTzQQpIanu29d1Oe5JgH7iMnCWjrJnU3q3NGI6aFsL2OGFFxFahkXxOmK1
+	KsHBd9REt2E2QLv6MHE6O+cXIjPD91VXgaCo1zRMC3z6I3SbCUV+HOdCYqsGcgRQuRIvamX6m7q4S
+	jt9bmvSlr4hDlHT/1epGzBtPgxl5i+scb3BjNilPXfAz/Z/KU32gKXEeWt+Rc0d3I8nHOwmuNM2+J
+	H6tgA55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow8J-0000000Feqi-0L1m;
-	Thu, 21 Aug 2025 03:38:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uowBc-0000000Fgyo-0Pgg;
+	Thu, 21 Aug 2025 03:42:00 +0000
+Received: from mail-pl1-f178.google.com ([209.85.214.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uouwT-0000000FXVl-26OL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 02:22:18 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57KJWAw0005798
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 02:22:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	fhuQQAYtkFz1+EMzbo9h41xY8JijUtMlK2wIkAFemmg=; b=mx8Xv+UKFekjgIea
-	zpwoOjBGpC8vG24HybBj9dFPUt5QlmnxYQI1nLF8qREnKjpKlPZWWhwvbIQSm75g
-	AcfvH8kA10kv7f/86IZhqHh0uayUClUfBvRuLXE/AJBKZPrNY2mJlOufKoHv0fVy
-	c0OBFnzpDknd9ZbpLkJ98UFg9FM+oxyx+q7o3t19K0C754pSN2QwlwdVhOeGq05S
-	wyA/ACFZPVgH4tfzv/wZNXwBN7MwYWzXTMeO+citUmkwfWKIixxOuoUwhJzeacWI
-	NaBtSrWeTcKHyU4ig+xdplvCIu80jwleequB4k36qWtceMtk4klLI/tzwrWQemCl
-	SJD2FQ==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48n52ckpe6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 02:22:16 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-323266b700cso1204172a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 Aug 2025 19:22:16 -0700 (PDT)
+	id 1uow8t-0000000Ffmb-113Y;
+	Thu, 21 Aug 2025 03:39:13 +0000
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2445811e19dso4426795ad.1;
+        Wed, 20 Aug 2025 20:39:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755747550; x=1756352350; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=;
+        b=IclCbMStF3huiGFIfEPVwm6sNK8ChEWIq2bBfg4RwRLooLgqHJEagzyTIJ74ScC/sk
+         VVjPGs5e9ZyV8K5jIZeRfZEPvSK4uRT9gZwARRPLk4mDOh9RKyXWZirubL5r7qRntcTj
+         gapj99AC8UOZm9MaIuXyYssr+GeOFmCKT2gyQKtwQfs5m/Q/1abA6VBXhvBZ4/HeblXH
+         Ht6z5Y1PrNiYyxYBlEtqINzIAO/GnxZZdO1jNfDZyUPN37CI0sZiqMDP/mUZ93dsmYle
+         l+O2s4ErwtbFGYNK+x8DBjjB6QunKn4wVX2JqcMnifGYSzuD8Uc6AZZklNcuH+xqatgt
+         LoKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755742936; x=1756347736;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fhuQQAYtkFz1+EMzbo9h41xY8JijUtMlK2wIkAFemmg=;
-        b=WSCck8Cks8+8wwXWpPCXmzzxY4FBbIinPjQXmEvOz4re0CL2GPmSyH5DuWyuPd0qMT
-         Sl0pWfhagxMqo+huImJOjUHdUP/X+E1SMwfgCmQtvbwDLx0XnBRevmpAs1EKFOU8rk69
-         i+P+slETYgq/2he3f6tDpipuQdRQZYusgLZofTYNQiE8BdT/CiH1Jes3TZupEBBFrzNN
-         obpOGai+G2s8xOVJp/LwksEpWgL8HBJIbaNe5q5xjuiPXFI2dx5ksXPAkLvKRyJYBqck
-         kI0cITITB1414uSk25tg/DsaNxGeTZL+ueZJ0mZGopKV+80oiTquDJKWucencaqrcwqP
-         Wl1w==
-X-Forwarded-Encrypted: i=1; AJvYcCVlFDAqsVR994/ukZB8dK81QFncgC99X102hxR0ifiso/9ov1KsR1eht1bUHx7GQdrofLLJaaymqtA86BvRaU89@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx76hmm0IxKZz+jyQSReqUblnnQm5Zomc8KlRptzsi2oJAqpbT6
-	T9YpsQL+sOgthO4DcnECv0OLCpsYrQtOzSxnI2PARJjMQcbOFdfs/fwMgglsdZ2zEoNAWXs9DxV
-	NdmpbAOGFIbpkvq0KdGy08zrXNs6giVY/mhH2Sy4CqXGSFT7MNdcPcgRg2Icndi4HoAb7MGfS/K
-	QYMg==
-X-Gm-Gg: ASbGnctrdlVMWtNyBhXiXpLA3S7EVDjjBtS14pa43Zr4YchyWu40Q9Aax/Kg0Eootk/
-	ABfbSvtOCqPwLwx819k1ihjEXvRSfms/AoHN4HtKcm6paLP8+82laISsmM/46jVD5F6RTsOUyHt
-	CIH9tdnUmaHJ/9liDtlwoqtn+chfcU25WZogEMz8hm4eWKqr2FluZC5zAmR5Rvg0n0opZXX/rPb
-	KNNr0E1W0UDfis3P6NBZ/5rMH8qy9vNXlqmqqjFNGu06UCVOER2OGnKdwnKq9Kt1rAD/6pMASTq
-	+NZCCclmZhIvj7MLxY8Nck+tJDswWOMVpj4KpWPqO02BMS0SAkZ8eqsI419habzdMjtxLwcz0me
-	t2wkum3za3ctafF7StWG97qb9AzRq5pEF
-X-Received: by 2002:a17:90b:53c4:b0:324:e642:b5ca with SMTP id 98e67ed59e1d1-324ed13a72dmr1379022a91.29.1755742935722;
-        Wed, 20 Aug 2025 19:22:15 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEJRz4sysTqGhrRLL4dSQy2QlK07feYrDXxAVKB+n79aOM7MsuZWRLWFY/xgGqdwpBUmHYgnw==
-X-Received: by 2002:a17:90b:53c4:b0:324:e642:b5ca with SMTP id 98e67ed59e1d1-324ed13a72dmr1378979a91.29.1755742935196;
-        Wed, 20 Aug 2025 19:22:15 -0700 (PDT)
-Received: from [10.133.33.88] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-324f23d745csm356703a91.4.2025.08.20.19.22.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 Aug 2025 19:22:14 -0700 (PDT)
-Message-ID: <f467aade-e604-448d-b23e-9b169c30ff2e@oss.qualcomm.com>
-Date: Thu, 21 Aug 2025 10:22:05 +0800
+        d=1e100.net; s=20230601; t=1755747550; x=1756352350;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=;
+        b=GuOhnb5pX0JhpeahBj4Z9SNZSzzmTFZm0rUY3JkgYNr0TYS964DXfnH0Tj9bYoLjXJ
+         LdteN4ksYyxEQ8Z0DNb6eqPjqsGKPCOPbWJwRoQvqx5geR3GOR8+8gK1uQhqYRP+FThL
+         FaDwXCZWnsSTjPXK5C0VBImILNiT9q1S1s9rKTPVDvKcYiBnx6dnD18CYz/7vCp8PwzS
+         yjQVukWm/2x3hqMt5p/pL4+DDG4L3A65y0v+ABPpUnG8oJ+7S47vrUkpQplhp0X0tg1X
+         gH2wB19vmZBBL5V7sRPlYbZmAGxip5eobwGUae2tcCoi5wIukKykQ3DJMHbfMHyuPyBc
+         OEMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW5HzHj2qiUnujYjpRVjQKykL7SnLWogPGN4OOIc8+gMulqoobmWpf42HbNg6CVClb1oa5QBD8N4IU1MwCo@lists.infradead.org, AJvYcCXMnTLreHrWv1EOSS2VjhiyYZPwapfFfrYd1LGinkLYWhbwbHpx7BqAV/COvq/4IoSZqFjnjmDVNjxGvscDCsZ6pg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxK1O9l8zI9hDt2PIxqprDlvwe0MD2dDYLBLlxyWbBEtSPxGZ9
+	vM90kT14zut09SS0X6Yvg7i3ksADNZ1YLSvKVT4ypPc8X1Y2PBBiwMYoXVUzAA==
+X-Gm-Gg: ASbGncsJM0iazY6/jOAaHFf8RmOQiUm0DADNqC4bRWRWsnT0upnSYCy1opQ2gLO4EKY
+	2MPS579ta+WI4Y+z7SS4bRSLKKXDqUsPMSSqhiMwE9H/JryZI6NM//WjEw0/QJKo7fzaAY38Kjw
+	KLFZcAdLWmBjnW0BIM52HyYrEjnuCLLXkH2KZdMYk5OND3DgtNVJZxgEA7/d2mdWJAu3mgR0kbB
+	392tSKWtHXOQeSrydP2YAoRJPOvOlGOUKrKJnpMF6rjwzFj7ubk50YeylIvpP+2WFM1o22YnKyN
+	mnJfqEL/Vxh9Fcv61VwP1GWz9b3ubd4NhFXt4e87l4cgM0TZBscF0WLVCGfNSHXA29Dpd6n9PEw
+	jME/Q
+X-Google-Smtp-Source: AGHT+IHwuUrsCGRj99hLQ285uZapEb5o3oL6q6U0D5DJlzBFxoN/jLfLD8vBbPMDeM4DW+vxhrlf4Q==
+X-Received: by 2002:a17:902:d50b:b0:242:fba2:b8e4 with SMTP id d9443c01a7336-245ff87d7cbmr15536745ad.56.1755747549584;
+        Wed, 20 Aug 2025 20:39:09 -0700 (PDT)
+Received: from archlinux.lan ([2601:644:8200:acc7::1f6])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d524c88sm6799386b3a.76.2025.08.20.20.39.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 Aug 2025 20:39:09 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE)
+Subject: [PATCH ath-next] wifi: ath9k: simplify eeprom format strings
+Date: Wed, 20 Aug 2025 20:39:08 -0700
+Message-ID: <20250821033908.638871-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/6] net: stmmac: Inverse the phy-mode definition
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Vinod Koul <vkoul@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, stable+noautosel@kernel.org
-References: <20250819-qcs615_eth-v4-0-5050ed3402cb@oss.qualcomm.com>
- <20250819-qcs615_eth-v4-2-5050ed3402cb@oss.qualcomm.com>
- <80a60564-3174-4edd-a57c-706431f2ad91@lunn.ch>
-Content-Language: en-US
-From: Yijie Yang <yijie.yang@oss.qualcomm.com>
-In-Reply-To: <80a60564-3174-4edd-a57c-706431f2ad91@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: gWvw01-t_HSb3XpvPZv7hJkqAgRRjp4Q
-X-Proofpoint-ORIG-GUID: gWvw01-t_HSb3XpvPZv7hJkqAgRRjp4Q
-X-Authority-Analysis: v=2.4 cv=Xpij+VF9 c=1 sm=1 tr=0 ts=68a682d8 cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=uddfqdTxQVX4ueY0IN0A:9
- a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIwMDAxMyBTYWx0ZWRfX1nhx66jjlTCc
- /ickF24/wH1d/jmVyfimtqrIfc8pbiVQwTK0gdNvc27W8yPRGeZ8TQtIcHE6vw+QVClzzax0CXO
- TS7rFc2l/vDVhfxtp1+Ne3HUf8KtvDslE/CFMbuMf0JYlShkb3m1EvShA1wghP2spFjClHDTKDA
- XxOioTO8AoRbSUMO4U1hzHV/a8GgCCsRPl0D26Gmc9FMR8ROYKgG55ftjeDPmMKzR61xH0NSD4i
- Wy5PbaywY6mXuR/KqN/j+XpsaFzLqtt95ppojVH5OLbx3OlrY36nj2cLqOA/X9pnZF4PLbAMh2e
- l8t7f+TivWvm9bm+VHwGsmE2vrSoChuCvmA7cijsajd/uxRNV51Q7olJgBoqDmh0D6MMYcRlM3G
- 2QJiICqwXcqVXbo9yCGi7Rz1J/o1Wg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-20_06,2025-08-20_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 impostorscore=0
- adultscore=0 spamscore=0 phishscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2508110000 definitions=main-2508200013
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_192217_553060_65C81FB1 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250820_203911_370157_14A68D36 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,36 +98,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+devm is already used here so might as well simplify the whole function
+with devm_kasprintf.
 
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/net/wireless/ath/ath9k/ath9k.h                |  2 +-
+ drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c | 11 +----------
+ drivers/net/wireless/ath/ath9k/init.c                 |  7 +++----
+ drivers/net/wireless/ath/ath9k/rng.c                  |  4 ++--
+ 4 files changed, 7 insertions(+), 17 deletions(-)
 
-On 2025-08-20 00:20, Andrew Lunn wrote:
->>   static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
->>   {
->>   	struct device *dev = &ethqos->pdev->dev;
->> -	int phase_shift;
->> +	int phase_shift = 0;
->>   	int loopback;
->>   
->>   	/* Determine if the PHY adds a 2 ns TX delay or the MAC handles it */
->> -	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID ||
->> -	    ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_TXID)
->> -		phase_shift = 0;
->> -	else
->> +	if (ethqos->phy_mode == PHY_INTERFACE_MODE_RGMII_ID)
->>   		phase_shift = RGMII_CONFIG2_TX_CLK_PHASE_SHIFT_EN;
-> 
-> Does this one setting control both RX and TX delays? The hardware
-> cannot support 2ns delay on TX, but 0ns on RX? Or 2ns on RX but 0ns on
-> TX?
-> 
-
-This setting is only for Tx delay. Rx delays are taken care separately 
-with DLL delays.
-
-> 	Andrew
-
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k.h b/drivers/net/wireless/ath/ath9k/ath9k.h
+index 6e38aa7351e3..60aac2c50409 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k.h
++++ b/drivers/net/wireless/ath/ath9k/ath9k.h
+@@ -1076,7 +1076,7 @@ struct ath_softc {
+ #ifdef CONFIG_ATH9K_HWRNG
+ 	struct hwrng rng_ops;
+ 	u32 rng_last;
+-	char rng_name[sizeof("ath9k_65535")];
++	const char *rng_name;
+ #endif
+ };
+ 
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+index fe1013a3a588..c4f8d1f98369 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
++++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+@@ -140,19 +140,10 @@ static void owl_fw_cb(const struct firmware *fw, void *context)
+ static const char *owl_get_eeprom_name(struct pci_dev *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+-	char *eeprom_name;
+ 
+ 	dev_dbg(dev, "using auto-generated eeprom filename\n");
+ 
+-	eeprom_name = devm_kzalloc(dev, EEPROM_FILENAME_LEN, GFP_KERNEL);
+-	if (!eeprom_name)
+-		return NULL;
+-
+-	/* this should match the pattern used in ath9k/init.c */
+-	scnprintf(eeprom_name, EEPROM_FILENAME_LEN, "ath9k-eeprom-pci-%s.bin",
+-		  dev_name(dev));
+-
+-	return eeprom_name;
++	return devm_kasprintf(dev, GFP_KERNEL, "ath9k-eeprom-pci-%s.bin", dev_name(dev));
+ }
+ 
+ static void owl_nvmem_work(struct work_struct *work)
+diff --git a/drivers/net/wireless/ath/ath9k/init.c b/drivers/net/wireless/ath/ath9k/init.c
+index ee951493e993..04903b5c611f 100644
+--- a/drivers/net/wireless/ath/ath9k/init.c
++++ b/drivers/net/wireless/ath/ath9k/init.c
+@@ -625,7 +625,7 @@ static int ath9k_of_init(struct ath_softc *sc)
+ 	struct ath_hw *ah = sc->sc_ah;
+ 	struct ath_common *common = ath9k_hw_common(ah);
+ 	enum ath_bus_type bus_type = common->bus_ops->ath_bus_type;
+-	char eeprom_name[100];
++	const char *eeprom_name;
+ 	int ret;
+ 
+ 	if (!of_device_is_available(np))
+@@ -635,9 +635,8 @@ static int ath9k_of_init(struct ath_softc *sc)
+ 
+ 	if (of_property_read_bool(np, "qca,no-eeprom")) {
+ 		/* ath9k-eeprom-<bus>-<id>.bin */
+-		scnprintf(eeprom_name, sizeof(eeprom_name),
+-			  "ath9k-eeprom-%s-%s.bin",
+-			  ath_bus_type_to_string(bus_type), dev_name(ah->dev));
++		eeprom_name = devm_kasprintf(ah->dev, GFP_KERNEL, "ath9k-eeprom-%s-%s.bin",
++					     ath_bus_type_to_string(bus_type), dev_name(ah->dev));
+ 
+ 		ret = ath9k_eeprom_request(sc, eeprom_name);
+ 		if (ret)
+diff --git a/drivers/net/wireless/ath/ath9k/rng.c b/drivers/net/wireless/ath/ath9k/rng.c
+index e1def77591c6..7d549d18f605 100644
+--- a/drivers/net/wireless/ath/ath9k/rng.c
++++ b/drivers/net/wireless/ath/ath9k/rng.c
+@@ -103,8 +103,8 @@ void ath9k_rng_start(struct ath_softc *sc)
+ 	if (!AR_SREV_9300_20_OR_LATER(ah))
+ 		return;
+ 
+-	snprintf(sc->rng_name, sizeof(sc->rng_name), "ath9k_%u",
+-		 (atomic_inc_return(&serial) - 1) & U16_MAX);
++	sc->rng_name = devm_kasprintf(sc->dev, GFP_KERNEL, "ath9k_%u",
++				      (atomic_inc_return(&serial) - 1) & U16_MAX);
+ 	sc->rng_ops.name = sc->rng_name;
+ 	sc->rng_ops.read = ath9k_rng_read;
+ 	sc->rng_ops.quality = 320;
 -- 
-Best Regards,
-Yijie
+2.50.1
 
 
