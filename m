@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA5FCA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBBECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1WnKbqGJMz5GKuhjASXO9eryfCuYBOVak1j8VKvvaQ=; b=0yKLX5tzLjl3dvL77+MiQ4CQLN
-	8d5FdYJr9skcA8bqfOnjjdCTKFl6Bqqm+qnczQTe3Xht1WihX5YBzsOTshWACtTaUnQQ/g4FQpsuV
-	nq1ErsGKenb0PCNnBJtpI5OGKfrwN1iOEXVC26hASnQxdmKJ2kqa+SirLdfVDMJZ5PHv7Yo7Odfue
-	KB7lIy09G26beKTRNFLFohr3uxWGJf2kX+k5rsSfDuBeLOVsKZY8y/yIo32KkQ7CzwmgaldS8hOzn
-	eqAn1vpRx7b1f9vG/9lVp3sD8viuZxj03rXio1LZZUPn2sXRHGQIWZSaA/MYoq0bl9Ow3+gUewnQ6
-	aHKECPHA==;
+	bh=MPIqYp3UxnrgGl3qJNmgFxP+ej/sPqPAZCQlcsmkZcU=; b=dF4SVQe1+3xRNuqeWrS3rUXGsQ
+	vj7Y4PLh+AqHix64I4GJtgp5iudKe2bbEzVAjqRcGdj0UilXzmfzGqcr/PSRvjrhTZFPiopic9p5M
+	saNhAdw4RLd/TU/v8LCMJ9ry9fFngmg1S4Gkmem+fVGxGqofulNOzT42xgWUzViO08D06UdksplSq
+	XVU49bsxFNoz9HwFwzz0lflCfRhM++ZxvfQ+m67jkma8KnNOM58wk54271EX9Ny+CYWI1ImeG7yD2
+	OOFO+gxgxKeThzHxhCgl76UeBeeEQzrghGmfDy5cInRd1Fp1Fc6UWfuhOM+Mt/SHys+AU5k/SPfv6
+	wZME6DBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up21j-0000000GWbi-3rJM;
-	Thu, 21 Aug 2025 09:56:11 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1up24J-0000000GWr7-2r1f;
+	Thu, 21 Aug 2025 09:58:51 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0RU-0000000GChZ-39Kn
+	id 1up0RV-0000000GChz-3rJK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:14:41 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1b0045a0so4165335e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:40 -0700 (PDT)
+	Thu, 21 Aug 2025 08:14:42 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3b9e4134a34so570133f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755764079; x=1756368879; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755764080; x=1756368880; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P1WnKbqGJMz5GKuhjASXO9eryfCuYBOVak1j8VKvvaQ=;
-        b=OdIs2WNYYHCgzXv5zhgvVmeEMi/mfX6NU3kDUbxzybRXRRP1sLNm+ODzLDDKDGGmFu
-         mDegnshVtPRRTB9u3hrSiShhpBSCH/Z+F5df/jr7Q+XZ+R/VPYGp6hts0T1WmuuEmGi8
-         ZvuOWIwSuhNIddspNYNThixRK7eTAk+e+HqMAHqilUxLjbfgLevQxQFp9Unkr2BNcKxp
-         g2FQHAsU7chlskldrZ2cLQdSMTiG4EZerMpCF+0Rgxpj3kNwOoqADszP+YZ4XMXhKwJz
-         1JU+aFD1ehw2Yp8ThzZGrV3A8Dtro9akzM0G0nydJ4ZB3u8q/TzOJo+ZG6oSLuyI3ww5
-         BCJQ==
+        bh=MPIqYp3UxnrgGl3qJNmgFxP+ej/sPqPAZCQlcsmkZcU=;
+        b=rANmpob38WtfxKQTKkdkN+/nH/RYP+l8ddb3Oq69AJJHo0w3NYgR3ZhBVzXqjDEl8E
+         daByH7SJnE1CaoWsKxPiRzfASszvOu8HEmUu8hhasAPT3Bvi/fbZxl/h5yN/Xjc7bjCN
+         +zQVxxafYYEABBXPvpQzlDU7gDxW8TI1vsQIet9o112xUFElm+dJDkBDCpwalulsLeI2
+         ywGgPPFVq6r6CaFhbL1ikBlbPlqQZy5R4hYC+ORA4sj+o80JnAk0QTXP64AGh91M9ipN
+         SEOUK1rza+knQNZ8tBPtkqYa8d/5oib7Iyuvc+slWw6fQUr7/hwrAdvBxDor57eyI83c
+         exUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755764079; x=1756368879;
+        d=1e100.net; s=20230601; t=1755764080; x=1756368880;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P1WnKbqGJMz5GKuhjASXO9eryfCuYBOVak1j8VKvvaQ=;
-        b=mYUrm4V0aRuIDCzvp8yyzdWs1z2UfSDmSzPNVGsfUHZPOX3gTbQoIR2+BY2GohFS97
-         ookWrP2XHtG6w7RhELG1C8k+xPoM96H79F0KDMAQnBY6HHLA6V+lLEb5WxnSwKbjNIuH
-         eaZ+qDPFLUVbloO5Gm7w6ClqCHhAhrhXgR2vTDUksehvEOXsck2IsSySWI2TZxymgzop
-         5AexFgdaqmVme7X8T3s+BGZLQ9gRrk8p9bZ0CpUPfZ8aBsGemj98VGnhZmaD+Vxo4deR
-         QWh27Cffmhxmq1gnjm7HUtcy0K1CRi8faqYCJvQhfNAU5YTNtCEeD5cW8/2pPSSpXiPP
-         Obpg==
-X-Forwarded-Encrypted: i=1; AJvYcCWTuGn7EAkGPel05MzumOeG4YmrBcAZxTMOCGp6zuN8r2cQgb+4qjJh2kdBUOb4snGBO33GZ7XWeD8w1nGJcKhv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGsX54pazi20LF4g4tN3J0kaxQFtf8O3J5xvEAQ+wOHcWBWha/
-	FS9xEBaA0phAIRB9kmfPhVhpkcL2bc0WsHQx1uaXRt3iZKHvbJD9gRu5k2WgagTICXamSdSG8AC
-	F6v4SFdkfN2bOi2hSbVP4GQ==
-X-Google-Smtp-Source: AGHT+IGDwbMV0G2Q6eX5Ty92Ruu8G0gWgsOI3nyPGZY41v04cwU8/dEgbGIM8RR7KNaNp8Qt7tiVh+uNmLBvDtT9
-X-Received: from wmbep22.prod.google.com ([2002:a05:600c:8416:b0:459:d776:c35d])
+        bh=MPIqYp3UxnrgGl3qJNmgFxP+ej/sPqPAZCQlcsmkZcU=;
+        b=L/iAOlW5SmqyuWjUwNMqtuSTt+QEZfO/7hGlOSqJK+p7paB9MGIc2UGZ8ErTqTm/JH
+         FOe6BBx2+k55aMKC5LnpgoPdRwuNTH/nV92B3QMjimmtLt5p7N7bbGrE14jNgMuASEZV
+         u0KsIALvofnxfx1zobrkt0hN9/EhO8oRfk0zyyzNCJmAKcFlb3crDcdhwnUURItvrFq/
+         VBEoBg3IJ4tXtocF4WlE5zTxbYToo7TF0AuOR6i4rkOj/y3H5ilx1uUZbzEGAq+2GsMn
+         Gpjogs4pg6/AIaPWlUYg+TpJJargVHCFICktwFXuVt2QHKhZSYkMzX0vun7gStrVnFeD
+         u0JA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0xXLg1BpJktHuI8FBzd4YOMZLWNUlaErjLjjGXY2VN9kY+32117C9GqM3vxca8CjiyDYEd+wDXp+Q7kR83nSe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHrLB8FYDc7k68XviV2ZK7F10/VHsiNkKd0qcSpgRR8j1l8WiQ
+	ZGGVfOoWn94g9Ibv3KCtcYGNAdtOA/8BDxoY4hgYIYXFChMd4vs6uNUrlr6z6NPyWUYsPV6GHsN
+	G7XRPNenlhTxxLgy5fko4tw==
+X-Google-Smtp-Source: AGHT+IFW0oHYaYpDIBDZYmTqCX5wHO/vO6Eo9gvoYMFEfcVe8Gc0SJN49mBNwuBaONnBa7e5yp3hTafs+zGb5o3m
+X-Received: from wrno12.prod.google.com ([2002:adf:eacc:0:b0:3b8:e019:9f6b])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e51:b0:459:d709:e5a1 with SMTP id 5b1f17b1804b1-45b4dc74ff9mr10294255e9.6.1755764079281;
- Thu, 21 Aug 2025 01:14:39 -0700 (PDT)
-Date: Thu, 21 Aug 2025 09:14:02 +0100
+ 2002:a05:6000:220b:b0:3b7:8412:4540 with SMTP id ffacd0b85a97d-3c49596dddcmr1244691f8f.27.1755764080019;
+ Thu, 21 Aug 2025 01:14:40 -0700 (PDT)
+Date: Thu, 21 Aug 2025 09:14:03 +0100
 In-Reply-To: <20250821081412.1008261-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250821081412.1008261-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.rc2.233.g662b1ed5c5-goog
-Message-ID: <20250821081412.1008261-15-vdonnefort@google.com>
-Subject: [PATCH v6 14/24] tracing: Check for undefined symbols in simple_ring_buffer
+Message-ID: <20250821081412.1008261-16-vdonnefort@google.com>
+Subject: [PATCH v6 15/24] KVM: arm64: Support unaligned fixmap in the pKVM hyp
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_011440_786282_072DEBF4 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20250821_011441_955571_908EC47E 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,37 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The simple_ring_buffer implementation must remain simple enough to be
-used by the pKVM hypervisor. Prevent the object build if unresolved
-symbols are found.
+Return the fixmap VA with the page offset, instead of the page base
+address. This allows to use hyp_fixmap_map() seamlessly regardless of
+the address alignment.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-index 53534447e70b..38523ea2e19b 100644
---- a/kernel/trace/Makefile
-+++ b/kernel/trace/Makefile
-@@ -114,4 +114,20 @@ obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
- obj-$(CONFIG_SIMPLE_RING_BUFFER) += simple_ring_buffer.o
- obj-$(CONFIG_TRACE_REMOTE_TEST) += remote_test.o
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index ae8391baebc3..75014dc7d82e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -239,7 +239,7 @@ static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
+ 	WRITE_ONCE(*ptep, pte);
+ 	dsb(ishst);
  
-+#
-+# simple_ring_buffer is used by the pKVM hypervisor which does not have access
-+# to all kernel symbols. Fail the build if forbidden symbols are found.
-+#
-+UNDEFINED_ALLOWLIST := memset alt_cb_patch_nops __x86 __ubsan __asan __kasan __gcov __aeabi_unwind
-+UNDEFINED_ALLOWLIST += __stack_chk_fail stackleak_track_stack __ref_stack __sanitizer
-+UNDEFINED_ALLOWLIST := $(addprefix -e , $(UNDEFINED_ALLOWLIST))
-+
-+quiet_cmd_check_undefined = NM      $<
-+      cmd_check_undefined = test -z "`$(NM) -u $< | grep -v $(UNDEFINED_ALLOWLIST)`"
-+
-+$(obj)/%.o.checked: $(obj)/%.o FORCE
-+	$(call if_changed,check_undefined)
-+
-+always-$(CONFIG_SIMPLE_RING_BUFFER) += simple_ring_buffer.o.checked
-+
- libftrace-y := ftrace.o
+-	return (void *)slot->addr;
++	return (void *)slot->addr + offset_in_page(phys);
+ }
+ 
+ void *hyp_fixmap_map(phys_addr_t phys)
 -- 
 2.51.0.rc2.233.g662b1ed5c5-goog
 
