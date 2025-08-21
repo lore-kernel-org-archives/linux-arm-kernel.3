@@ -4,103 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF52CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D670CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4z2GbfINs2UhJLpqAZOyM0KnzFNihvHqwe1pBBOS1Q=; b=k3ClZOGaW8pNXWvrrckMyd2kKT
-	R5x3k6nQlgcCw/d9443palSlzBR6Pk8V4de1wj2RkjOn1kKqD12CeuSWWc2joKfZnpXTW7oLojiH5
-	DrL2hUHG98yULmVZQmovDFDb87PJRJJos8Z8pWKwd/QPcTz0jlPTVtJnzY6ry79kfy6JiJpUdQfcf
-	4/F6OUDL53YssKJ09vPg9N9bkhq6POHxU0M1ybdC/+8Ycey8InRzmXg9wVjq0qmceCrpXhUWOI3tV
-	joYD5N9ipqSWaTyC7+15VwKj+60aECd0i51GCNoO5DyD0wr6/EiFUbq1z0Ita4aeYfa7/ZEpNIV2w
-	mYezQRKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iueolqUDLKvRCwvYIVU8AArOHe/7DRJotawGVS0PL+g=; b=Ti0FtubJ7END7B0FO8hgqzq0Fl
+	h6s9BsicOjDkRK2U/Ia947GnkcEMgeAmcXibD4bdpQnManrs5zbSJIa9aAW1dU6whEkkqJMpmtR1U
+	MOB2M2LaekRW+15thqWo12oAuhLtuR4ssrK1JkZXFHPzG+6BR7Q38rvzj/NARcA75jyASHhnlUc2R
+	9WFuWm61SOGdhZfgoI4zZGRBjmFMSS8zLwVR0A8vhFcos9Fv07aZabtQaRhF5UxJUHO/r2yKaAJ6n
+	QncUpeXjwcQHYXA8ud0DDeCKuO8lKCDcvrVaUet8+ignVcC89gk+oDRpuejAeq8II+NaXym450tjd
+	VCPjnvRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7h-0000000FdhG-2sJm;
-	Thu, 21 Aug 2025 03:37:58 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotR0-0000000FKSa-30IP
+	id 1uow7j-0000000FdjA-0dEm;
+	Thu, 21 Aug 2025 03:37:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uotR2-0000000FKSZ-1HQK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 00:45:44 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 3DFF47A01FC;
-	Wed, 20 Aug 2025 20:45:41 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Wed, 20 Aug 2025 20:45:41 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.com; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1755737141; x=1755823541; bh=V4z2GbfINs
-	2UhJLpqAZOyM0KnzFNihvHqwe1pBBOS1Q=; b=gF/oaxrlFBKDxWKhSXy/fjXCyX
-	Pbz6dc68JU9fO0Ky4e+WIDMhzZmXg3ryD8j8JQaNr3qQJog5HsmXkFmX0S3ICn1N
-	UIvlo3W2LXPaNEAvFboS7PgcFt5ukwpxzPhYMhKDuCn2JucpHCmKRMKf5W+wvyuu
-	EPXF8v1wumc7V+nG9pzP68zsVommm3PuPborAXOb++VGun4UT0i1qwnuNRQbLOgx
-	4tNfQVZ9fh6B+uZW+Hl9x/Kf77ckoUbvBSvts85WwzFZNBUGTrHV+sBkZO6ZyVB/
-	ZVIKl1UEHhJmKg5wqhzHEod8Ii0WNC1W8Xg3aQOskVUlWb68Ii6uXYMOL2bQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1755737141; x=1755823541; bh=V4z2GbfINs2UhJLpqAZOyM0KnzFNihvHqwe
-	1pBBOS1Q=; b=eEou+RDAvHsBX68iB/YD6EJGexfxC4podEwvnz1u5U2e9COX/LO
-	vlg6izadNEpUPZczxGKIuJtfEeU6FVuY+I77mGDz3xABgkY2/KWo5C3kj7PxQytX
-	oyfE8LVEU3Qn4roOWuvbREHnYZB7XMXCi2hFxiwN+f7OF7emmYrOJ0RxBRMwQmno
-	FshFRk4R+g46dgZ00X5z49WbCXHQC/YHrO5+uy+PI2XAuClwzRd4HMR+6UqsfM0y
-	1JID5Zjc5IAfXy0y0X9JIyL89gWmVd3qEvt1Y8bZjHHmSfCZh5+VIKHldqM331bx
-	nFBjPhMBMvpWF659+FU6gQLJr3Gp4q5SFdg==
-X-ME-Sender: <xms:NGymaOxut4arym5ta3gDsnRwMqL3vqtCGfJqQjFatAlnv3jx4EdO8w>
-    <xme:NGymaB6eLIcHsE8h7_kOLh82F9urhwRCxFyVu5C9AmsLqATMU_tdMIf8C7ToN3-Gl
-    7MF-duZvMv2czHnSQ>
-X-ME-Received: <xmr:NGymaN9BH_owiPjlM2jE4g6fD1A-VSewo2GfIbmgVIpncleT9OlWIiCKvGa6Je8eO5BdYYTLanRZW5tPhgcEHS8G3IxGxqxSPA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduheelkeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujggfsehttdfstddtreejnecuhfhrohhmpeflrghnucfr
-    rghluhhsuceojhhprghluhhssehfrghsthhmrghilhdrtghomheqnecuggftrfgrthhtvg
-    hrnhepudeviefhueeuudekfeeuiedvffegieefvdejgfetffeivdejueevheegheffteej
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpmhhsghhiugdrlhhinhhknecuvehluh
-    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhhprghluhhssehf
-    rghsthhmrghilhdrtghomhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouh
-    htpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghl
-    ghgrrghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgrii
-    iiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehprghliheskhgvrhhnvghl
-    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
-    hinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqphgtihesvhhgvghr
-    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrvghgrhgvshhsihhonhhssehlihhsth
-    hsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:NGymaOojnkNoOcFCpzGvwtiU3eo2A4ftyeayuiXeeef13oR0prCK3w>
-    <xmx:NGymaGqkOltrFwoOb33orQmKHqsm-Vs4zmGSBcdkwme_VbWnnhaUQg>
-    <xmx:NGymaJ3LpS0dgAlXbEShPl_C4tWzV4OEwbFxvfoVTy2Juk7yMtH7Hw>
-    <xmx:NGymaMG9-h8GF3DDDXPGzrMKxkKmgWYbTm9xhdKl4iyXsBBu1EY3Dg>
-    <xmx:NWymaCP87p4PUqKdQGi8zJNbk0IDdCj0m2c1WxAiKO-W1x1D87-uBTPo>
-Feedback-ID: i01894241:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 20 Aug 2025 20:45:40 -0400 (EDT)
-Date: Thu, 21 Aug 2025 02:45:37 +0200
-From: Jan Palus <jpalus@fastmail.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, regressions@lists.linux.dev
-Subject: Re: [Bug 220479] New: [regression 6.16] mvebu: no pci devices
- detected on turris omnia
-Message-ID: <42rznc7krv3gdwmdzfz6o5nalnzleiwfg44yleqjet67cu4ijm@pwap3ph2n2u7>
-References: <bug-220479-41252@https.bugzilla.kernel.org/>
- <20250820184603.GA633069@bhelgaas>
+	Thu, 21 Aug 2025 00:45:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A454212FC;
+	Wed, 20 Aug 2025 17:45:32 -0700 (PDT)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEA5B3F63F;
+	Wed, 20 Aug 2025 17:45:38 -0700 (PDT)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [RFC PATCH 0/9] pinctrl: sunxi: Allwinner A733 support
+Date: Thu, 21 Aug 2025 01:42:23 +0100
+Message-ID: <20250821004232.8134-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250820184603.GA633069@bhelgaas>
-User-Agent: NeoMutt/20250510
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_174542_861147_EF4F7533 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20250820_174544_429176_2733EF0E 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,212 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds support for the pinctrl and GPIO IP in the new
+Allwinner A733 SoC.
+With all our abstractions and data structure driven code, life could
+have been so easy, but Allwinner decided to change the layout of the
+MMIO register frame, which requires all kinds of special handling and
+code changes here and there. Hopefully this new layout (which admittedly
+looks more future proof) will stay around for a while, but I am not
+holding my breath on this.
 
-> On Wed, Aug 20, 2025 at 05:43:39PM +0000, bugzilla-daemon@kernel.org wrote:
-> > https://bugzilla.kernel.org/show_bug.cgi?id=220479
-> > 
-> >            Summary: [regression 6.16] mvebu: no pci devices detected on
-> >                     turris omnia
-> >           Reporter: jpalus@fastmail.com
-> > 
-> > Booting kernel 6.16 results in no PCI devices being detected (output of `lspci`
-> > is completely empty). Bisected to:
-> > 
-> > 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 is the first new commit
-> > commit 5da3d94a23c6c1ee1f896aeeb00965eacf1d0bb3 (HEAD)
-> > Author: Rob Herring (Arm) <robh@kernel.org>
-> > Date:   Thu Nov 7 16:32:55 2024
-> > 
-> >     PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"
-> > 
-> >     The mvebu "ranges" is a bit unusual with its own encoding of addresses,
-> >     but it's still just normal "ranges" as far as parsing is concerned.
-> >     Convert mvebu_get_tgt_attr() to use the for_each_of_range() iterator
-> >     instead of open coding the parsing.
-> > 
-> >     Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> >     Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> >     Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> >     Link: https://patch.msgid.link/20241107153255.2740610-1-robh@kernel.org
-> > 
-> >  drivers/pci/controller/pci-mvebu.c | 26 +++++++++-----------------
-> >  1 file changed, 9 insertions(+), 17 deletions(-)
-> > 
-> > 
-> > kernel 6.16 logs following mesages related to PCI:
-> > 
-> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie: pcie0.0: cannot get tgt/attr for mem window
-> > mvebu-pcie soc:pcie: pcie1.0: cannot get tgt/attr for mem window
-> > mvebu-pcie soc:pcie: pcie2.0: cannot get tgt/attr for mem window
+In summary, the changes are:
+- Each GPIO bank now occupies 128 bytes instead of just 36 or 48.
+- PortA (not implemented on the A733) starts at offset 0x80, not at 0.
+- The non-bank specific registers are moved into this gap at the
+  beginning.
+- There are two new registers per bank, to set or clear bits in the GPIO
+  data register, to allow for single-write, lockless GPIO settings.
+- The drive level register is moved (to make room for the set/clr regs).
+- The IRQ registers are moved into the now bigger respective bank control
+  registers part, instead of being grouped separately, as before.
 
-Relevant fragment of mvebu_get_tgt_attr() in mentioned commit:
+The series follows the usual pattern of refactoring first, to prepare
+for the new MMIO frame layout (patches 1-4), then using the changed code
+to enable support for this new generation, in patch 5/9.
+Patch 6/9 adds support for the one new feature of this SoC's pinctrl IP,
+the lockless GPIO settings feature.
+Patch 7/9 adds the new DT bindings, patch 8/9 enables the secondary
+controller, which curiously is not using the new layout, but looks very
+similar to the secondary A523 pin controller.
+The final patch 9/9 then adds the driver stub file, which just describes
+the GPIO bank configuration and lists the two quirk bits that engage the
+code changes added for the new layout.
 
-+		u32 slot = upper_32_bits(range.bus_addr);
- 
--		if (DT_FLAGS_TO_TYPE(flags) == DT_TYPE_IO)
-+		if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_IO)
- 			rtype = IORESOURCE_IO;
--		else if (DT_FLAGS_TO_TYPE(flags) == DT_TYPE_MEM32)
-+		else if (DT_FLAGS_TO_TYPE(range.flags) == DT_TYPE_MEM32)
- 			rtype = IORESOURCE_MEM;
- 		else
- 			continue;
- 
- 		if (slot == PCI_SLOT(devfn) && type == rtype) {
+Based on v6.17-rc1.
 
-mvebu_get_tgt_attr() gets called with type (either 512 or 256) and slot
-(1, 2 or 3), after this commit last condition is never met though --
-slot is fine but rtype never is.
+I am marking this as RFC, as I don't have suitable hardware for testing.
+Also I am not 100% convinced the IRQ number to pin mapping, as needed by
+the new IRQ register location, works correctly.
+Please have a look, check whether the changes look sane, and test it if
+you have access to hardware.
 
-What appears to be very much different are values of previous 'flags'
-and current 'range.flags'. Judging by the code they should still carry
-same values but in practice
+A branch (together with the AXP318W PMIC code) is available at:
+https://github.com/apritzel/linux/commits/a733-rfc
 
-before: flags=2181038080 end up with rtype=512 (match)
-after: range.flags=512 results in no rtype (no match)
+Cheers,
+Andre
 
-before: flags=2164260864 end up with rtype=256 (match)
-after: range.flags=256 results in no rtype (no match)
+Andre Przywara (9):
+  pinctrl: sunxi: rename SUNXI_PINCTRL_NEW_REG_LAYOUT
+  pinctrl: sunxi: pass down flags to pinctrl routines
+  pinctrl: sunxi: only use PortK special handling on A523
+  pinctrl: sunxi: refactor IRQ register accessors
+  pinctrl: sunxi: support A733 generation MMIO register layout
+  pinctrl: sunxi: add support for set/clear regs
+  dt-bindings: pinctrl: add compatible for Allwinner A733
+  pinctrl: sunxi: a523-r: add a733-r compatible string
+  pinctrl: sunxi: Add support for the Allwinner A733
 
-as if now range.flags already represented rtype directly. If I use it
-like this situation improves, bridge gets detected, although whole device
-reboots without any error on first probe from card driver. Something
-that I've noticed during bisect but seems to be an independent
-regression.
+ .../allwinner,sun55i-a523-pinctrl.yaml        |  6 +-
+ drivers/pinctrl/sunxi/Kconfig                 |  5 ++
+ drivers/pinctrl/sunxi/Makefile                |  1 +
+ drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     |  2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  3 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  2 +-
+ drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c   | 51 +++++++++++
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 85 +++++++++++--------
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 76 +++++++++++------
+ 9 files changed, 169 insertions(+), 62 deletions(-)
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
 
-> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> > pci_bus 0000:00: root bus resource [bus 00-ff]
-> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> > [0x00080000-0x00081fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> > [0x00040000-0x00041fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> > [0x00044000-0x00045fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> > [0x00048000-0x00049fff])
-> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> > PCI: bus0: Fast back to back transfers enabled
-> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> > 
-> > 
-> > while kernel 6.15 logs following:
-> > 
-> > mvebu-pcie soc:pcie: host bridge /soc/pcie ranges:
-> > mvebu-pcie soc:pcie:      MEM 0x00f1080000..0x00f1081fff -> 0x0000080000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1040000..0x00f1041fff -> 0x0000040000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1044000..0x00f1045fff -> 0x0000044000
-> > mvebu-pcie soc:pcie:      MEM 0x00f1048000..0x00f1049fff -> 0x0000048000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0100000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0200000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0300000000
-> > mvebu-pcie soc:pcie:      MEM 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie:       IO 0xffffffffffffffff..0x00fffffffe -> 0x0400000000
-> > mvebu-pcie soc:pcie: pcie0.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: pcie1.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: pcie2.0: Slot power limit 10.0W
-> > mvebu-pcie soc:pcie: PCI host bridge to bus 0000:00
-> > pci_bus 0000:00: root bus resource [bus 00-ff]
-> > pci_bus 0000:00: root bus resource [mem 0xf1080000-0xf1081fff] (bus address
-> > [0x00080000-0x00081fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1040000-0xf1041fff] (bus address
-> > [0x00040000-0x00041fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1044000-0xf1045fff] (bus address
-> > [0x00044000-0x00045fff])
-> > pci_bus 0000:00: root bus resource [mem 0xf1048000-0xf1049fff] (bus address
-> > [0x00048000-0x00049fff])
-> > pci_bus 0000:00: root bus resource [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: root bus resource [io  0x1000-0xeffff]
-> > pci 0000:00:01.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:01.0: PCI bridge to [bus 00]
-> > pci 0000:00:01.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:01.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@1,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@1,0/interrupt-controller
-> > pci 0000:00:02.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:02.0: PCI bridge to [bus 00]
-> > pci 0000:00:02.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:02.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@2,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@2,0/interrupt-controller
-> > pci 0000:00:03.0: [11ab:6820] type 01 class 0x060400 PCIe Root Port
-> > pci 0000:00:03.0: PCI bridge to [bus 00]
-> > pci 0000:00:03.0:   bridge window [io  0x0000-0x0fff]
-> > pci 0000:00:03.0:   bridge window [mem 0x00000000-0x000fffff]
-> > /soc/pcie/pcie@3,0: Fixed dependency cycle(s) with
-> > /soc/pcie/pcie@3,0/interrupt-controller
-> > PCI: bus0: Fast back to back transfers disabled
-> > pci 0000:00:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > pci 0000:00:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > pci 0000:00:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> > PCI: bus1: Fast back to back transfers enabled
-> > pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
-> > pci 0000:02:00.0: [168c:003c] type 00 class 0x028000 PCIe Endpoint
-> > pci 0000:02:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
-> > pci 0000:02:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> > pci 0000:02:00.0: supports D1
-> > pci 0000:02:00.0: PME# supported from D0 D1 D3hot
-> > pci 0000:00:02.0: ASPM: current common clock configuration is inconsistent,
-> > reconfiguring
-> > pci 0000:00:02.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> > pci 0000:00:02.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> > PCI: bus2: Fast back to back transfers disabled
-> > pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
-> > pci 0000:03:00.0: [168c:0033] type 00 class 0x028000 PCIe Endpoint
-> > pci 0000:03:00.0: BAR 0 [mem 0x00000000-0x0001ffff 64bit]
-> > pci 0000:03:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-> > pci 0000:03:00.0: supports D1
-> > pci 0000:03:00.0: PME# supported from D0 D1 D3hot
-> > pci 0000:00:03.0: ASPM: current common clock configuration is inconsistent,
-> > reconfiguring
-> > pci 0000:00:03.0: ASPM: Bridge does not support changing Link Speed to 2.5 GT/s
-> > pci 0000:00:03.0: ASPM: Retrain Link at higher speed is disallowed by quirk
-> > PCI: bus3: Fast back to back transfers disabled
-> > pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
-> > pci 0000:00:02.0: bridge window [mem 0x00200000-0x003fffff] to [bus 02]
-> > add_size 200000 add_align 200000
-> > pci 0000:00:02.0: bridge window [mem 0xe0000000-0xe03fffff]: assigned
-> > pci 0000:00:03.0: bridge window [mem 0xe0400000-0xe04fffff]: assigned
-> > pci 0000:00:01.0: PCI bridge to [bus 01]
-> > pci 0000:02:00.0: BAR 0 [mem 0xe0000000-0xe01fffff 64bit]: assigned
-> > pci 0000:02:00.0: ROM [mem 0xe0200000-0xe020ffff pref]: assigned
-> > pci 0000:00:02.0: PCI bridge to [bus 02]
-> > pci 0000:00:02.0:   bridge window [mem 0xe0000000-0xe03fffff]
-> > pci 0000:03:00.0: BAR 0 [mem 0xe0400000-0xe041ffff 64bit]: assigned
-> > pci 0000:03:00.0: ROM [mem 0xe0420000-0xe042ffff pref]: assigned
-> > pci 0000:00:03.0: PCI bridge to [bus 03]
-> > pci 0000:00:03.0:   bridge window [mem 0xe0400000-0xe04fffff]
-> > pci_bus 0000:00: resource 4 [mem 0xf1080000-0xf1081fff]
-> > pci_bus 0000:00: resource 5 [mem 0xf1040000-0xf1041fff]
-> > pci_bus 0000:00: resource 6 [mem 0xf1044000-0xf1045fff]
-> > pci_bus 0000:00: resource 7 [mem 0xf1048000-0xf1049fff]
-> > pci_bus 0000:00: resource 8 [mem 0xe0000000-0xe7ffffff]
-> > pci_bus 0000:00: resource 9 [io  0x1000-0xeffff]
-> > pci_bus 0000:02: resource 1 [mem 0xe0000000-0xe03fffff]
-> > pci_bus 0000:03: resource 1 [mem 0xe0400000-0xe04fffff]
-> > pcieport 0000:00:02.0: enabling device (0140 -> 0142)
-> > pcieport 0000:00:03.0: enabling device (0140 -> 0142)
-> 
-> #regzbot introduced: 5da3d94a23c6 ("PCI: mvebu: Use for_each_of_range() iterator for parsing "ranges"")
+-- 
+2.46.3
+
 
