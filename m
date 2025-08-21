@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD09CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 10:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B1ECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 10:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lXmeaJhI9e99CmL9wkkDfiednrjI4qTS7gtaFJx7Vrs=; b=plRCK7a0bt1PlGFfD3OuyyQVca
-	yh59+b4ytn8np0x/Uy/aKdHMN60cMFONwlg+B9T7sJujXb79BmgjCsKOg2UEszUmaYYBCyquBx0B9
-	AMyk+7QaX0bx+/FZ0E6HsHLEmpQw/yJynOThE5uzxZ4Un8peVCtoin4ZdwDVPjV8ltXbofT0D4UrQ
-	Dmu502R+62HgVXev8Ji2c2774jwuaK6m3tfPpToz4PnYaIsW3JNOzl9HPkeABTTWDrtwoQD33wkpK
-	G972EWWl/gilL5C0k6vZCc+qssXancCpOy2Rou4/QMmq0ecgeMOdMeS3Q78M2/c5A7p4q/KpcHtcz
-	s5c74iVA==;
+	bh=oczo8BqWoxAu72Yl1h11Twj/njC3ajgarOax9nDxmtg=; b=jZBb/z9rXh9JrBLB+6CnFNuzfR
+	v1shhnGlqE8U2yxTPD+tBqAzw7W1zdxsnhNYuQkAtu21EFCvFaP10unxvldfBEuOMnirNVBM6JbD0
+	hpF2o4oh3or0qQKLJ6iogHix7uJzprgIAheqfuueqMOPD7/Eux4VE3ixIigr+Pa4YCPZAKsQCaFlC
+	QnvrrwN5nu5/AqgWzyfYr7YZUGQDRzqxKN3NI7RqgoqADn/23HbzWnZc2SePueq4dFRSkCSH9JhH/
+	+vK8qTCBZd71VFtf6sE+T4Me7JMWgyW8tD4nRHs+u6mxd/e5q1AAT0lN/c04ieyH8mav8nlHxfziO
+	Uty7b/2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up2Rb-0000000GZlw-1rgm;
-	Thu, 21 Aug 2025 10:22:55 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0Rl-0000000GCm0-4BtM
+	id 1up2UB-0000000GaJA-0rxd;
+	Thu, 21 Aug 2025 10:25:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up0Vw-0000000GDMv-1DJA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:14:59 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a256a20fcso3517965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755764096; x=1756368896; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lXmeaJhI9e99CmL9wkkDfiednrjI4qTS7gtaFJx7Vrs=;
-        b=bxBfy/Y6nzz+sjUEynHlYNHlts0S1KeHZ4vcVUi+niP6KH2nc3Lv37tS0jYo5cCNJw
-         IrY0wbIyCrM5LDkve98w5nimDwbfuXKuXQVXHO9xWWxNGU+DMgfSCoAlHyGCFuskerA5
-         8rdnMMDv00Vff884kahR5Ks34QwdIuNrrOVmS3GQm5SDBa+tA2kDsBICrnIM7AoxWXj+
-         O1zmYwqEqZWyrGH6uxKx9W5V7mN2ZEAQovGeVqc9GeyGg5sWBc3Qozje2T/4mxo8kepj
-         HZj4SI2HSDVEQUULGI/vXo0QZGa0/GTgwCIaA7J/MDARdjwyqtcEuKUCPNKH4/GZ16bU
-         gPPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755764096; x=1756368896;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lXmeaJhI9e99CmL9wkkDfiednrjI4qTS7gtaFJx7Vrs=;
-        b=MAcxZDoxYNuufPWIU8u6V3Gy+CAPsE7MNbPKuJXcfC+EG9UOU14l5GVD+2VlVPaDdY
-         IGX4Jz2klFbRGzYdl6329kTPSmhY7S7l8qZXXr2/H7VdF/CgX8wC1OG9+62Bs/nR5fiS
-         UyHmJm/EFDxP5SLudzvfFVFSOuTWqtgBdjeAeVC/CukxuEgVTyyCbJvZRTuOeiGGubpF
-         ivb9cajIy1iDzPEAyRC2uhpPA45cRpxu6VDHjk6A5Rye166l65DZbAkqg6MTkWye1CJ5
-         QkOaGQbKZmNig1Rks6TYam24B27Blxl4fSlqALmUvJ6TGGSqrkcstOYdShnqHW9O3KBv
-         ynXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXDjn7VdrMOkami//IG1TLytLQZeLZDN1s5q80qps4fG5WNcjLZrWM5a8IKe9n0scI1Zj0oa7wuOYrxoLRlSef6@lists.infradead.org
-X-Gm-Message-State: AOJu0YznbAV19lbjp4jdQ7Am3ZluMyaU9PsGfn52L0RXADqE+vb/mlX7
-	GytRA50c7YHLsKyMv7T1STVWqLC6wh9pIbEPBm0L3RAnOCt/kOkEyvsJcQvxSFImVoM8yTQ2p/4
-	1+CB5/UNo6D824xjLroM29g==
-X-Google-Smtp-Source: AGHT+IHVkLSbuPXaBGbeYxLB8Apzj2J/LjIQ1ACzqcVV+IhVmKpANZi8n0fKVREaY1XDOmHvrY0P+LX9S3g8rjan
-X-Received: from wmcn3-n2.prod.google.com ([2002:a05:600c:c0c3:20b0:45b:4777:8063])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a46:b0:45b:47e1:ef79 with SMTP id 5b1f17b1804b1-45b4d869ceemr12017085e9.36.1755764096134;
- Thu, 21 Aug 2025 01:14:56 -0700 (PDT)
-Date: Thu, 21 Aug 2025 09:14:12 +0100
-In-Reply-To: <20250821081412.1008261-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250821081412.1008261-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.51.0.rc2.233.g662b1ed5c5-goog
-Message-ID: <20250821081412.1008261-25-vdonnefort@google.com>
-Subject: [PATCH v6 24/24] tracing: selftests: Add pKVM trace remote tests
-From: Vincent Donnefort <vdonnefort@google.com>
-To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	jstultz@google.com, qperret@google.com, will@kernel.org, 
-	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 21 Aug 2025 08:19:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 307041515;
+	Thu, 21 Aug 2025 01:19:07 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 217CA3F63F;
+	Thu, 21 Aug 2025 01:19:14 -0700 (PDT)
+Date: Thu, 21 Aug 2025 09:19:11 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	AKASHI Takahiro <takahiro.akashi@linaro.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v2 2/7] firmware: arm_scmi: add is_gpio() function
+Message-ID: <aKbWf5SuDPNcfJWj@pluto>
+References: <cover.1753039612.git.dan.carpenter@linaro.org>
+ <fbcf6cca-784e-47bb-9b61-3028f59a92ba@sabinyo.mountain>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fbcf6cca-784e-47bb-9b61-3028f59a92ba@sabinyo.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_011458_042715_4FE59AD4 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_011916_363225_D0E97322 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,77 +67,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Run the trace remote selftests with the pKVM trace remote "hypervisor".
+On Sun, Jul 20, 2025 at 02:38:42PM -0500, Dan Carpenter wrote:
+> Parse the GPIO response in scmi_pinctrl_attributes(), set the gpio
+> flag, and create an is_gpio() function pointer so that it can be queried.
+> 
 
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kselftest@vger.kernel.org
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Hi,
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-new file mode 100644
-index 000000000000..383ef7a84274
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing buffer size
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/buffer_size.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_buffer_size
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-new file mode 100644
-index 000000000000..679e31257d0b
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing reset
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/reset.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_reset
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-new file mode 100644
-index 000000000000..4c77431e884f
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing pipe
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/trace_pipe.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_trace_pipe
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-new file mode 100644
-index 000000000000..059c7ad1c008
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
-@@ -0,0 +1,10 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test pkvm hypervisor tracing buffer unloading
-+
-+SOURCE_REMOTE_TEST=1
-+. $TEST_DIR/remotes/unloading.tc
-+
-+set -e
-+setup_remote "hypervisor"
-+test_unloading
--- 
-2.51.0.rc2.233.g662b1ed5c5-goog
+> In SCMI only functions and pins have a GPIO flag so that's why groups are
+> not handled here.
+> 
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
+[snip]
+
+>  static const struct scmi_pinctrl_proto_ops pinctrl_proto_ops = {
+>  	.count_get = scmi_pinctrl_count_get,
+>  	.name_get = scmi_pinctrl_name_get,
+> +	.is_gpio = scmi_pinctrl_is_gpio,
+>  	.group_pins_get = scmi_pinctrl_group_pins_get,
+>  	.function_groups_get = scmi_pinctrl_function_groups_get,
+>  	.mux_set = scmi_pinctrl_mux_set,
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index 688466a0e816..b4ad32067fc4 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+> @@ -792,6 +792,8 @@ struct scmi_pinctrl_proto_ops {
+>  	int (*name_get)(const struct scmi_protocol_handle *ph, u32 selector,
+>  			enum scmi_pinctrl_selector_type type,
+>  			const char **name);
+> +	int (*is_gpio)(const struct scmi_protocol_handle *ph, u32 selector,
+> +		       enum scmi_pinctrl_selector_type type);
+
+Doxygen comment above too please...
+
+With that fixed, LGTM.
+
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+
+Thanks,
+Cristian
 
