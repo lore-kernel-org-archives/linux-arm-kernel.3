@@ -4,86 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6A9CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 05:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3F1CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 05:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GBj8SHJfZNGuq71dQKyp+ING7ZoPtD6w+DOcmGVXVSg=; b=tJwzjM1GW7NWBecBEmWs4cwEhN
-	unOprrEUEp9+DG7rzF3S3zJcFitLkNq1PkDafb9j7qevYa/qa4ScBQX89U5fI/YdQWgNSyaVAjY3I
-	WSSnFM833rEDKhsLngDJqrPUXeXg9hr1XKoN+IiyAB0+CMkZPgnwgdBfhg5epiUrRdtfBx7Do2lQY
-	l4tixtUjJMfuW64Yc9bPFnXXkpv8K2ypyvfZWY5/wjWPDxeFnaU91t50DrCyQlUTRE4tK+vr4NRc/
-	MNVfF1tducxuYYd5hkl9gAo31kM4EkRnfQ6Yemh7Nlxa+udgA0+iXycINHKzVl7fuYgBk1jf0ePnn
-	aEfUa4EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=; b=EfPU7uZHBmW4rBuFThTaLugJbD
+	n59wAybZBtsSRjQ4Siqu0wk/MgtaDQGT72pHWcrfATK+ICC7r3WB76T95+rXcZ2iFS6///1MMR6Su
+	UON9bHaLKhSIBb+fNsmNTDlZP6cCgvPyYRWdTrWg13q3llXOdRp5eopfCXWuw/el8U1388rD6BHPN
+	4YI84f1ND55dpGVMQMuEQAwB1QQOdZhAklcDnsx5Y9zZzXMV005bH63S6bnQJXAZYP5lCjDczCF5M
+	BSBHKsA5CUlCItZNTXtlYPcQzpry55N4JNuIIQQHNaeCpBsYtJKEO8800p3GwvAjqhXRFXc1UJjWF
+	/ARsoM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upK8a-00000001ZRB-15ti;
-	Fri, 22 Aug 2025 05:16:28 +0000
-Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
+	id 1upKBA-00000001ZfG-2dVE;
+	Fri, 22 Aug 2025 05:19:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDfZ-00000000jXf-3EUS
+	id 1upBax-00000000ONJ-0LiI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 22:22:06 +0000
-Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e933af9f8b5so1217531276.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 15:22:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=libre.computer; s=google; t=1755814924; x=1756419724; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GBj8SHJfZNGuq71dQKyp+ING7ZoPtD6w+DOcmGVXVSg=;
-        b=JFqepFP6WTLC9ukFxVc0v0Crwtn1zmocKru8S7hczPlRwkjPbe3YjpYAnmxyhlv7gS
-         2lVuXJSvPuNuizZzvGksACsn5TvO7RXUI55fFBqgmm3Hb63zdKaVFoFFddCdHOtkhcVb
-         gxTVv8+wyVd/9szIMujc3mRzDgLoCFw+60u7nCcmf/ClrIEF7SWdW6yVOeV027NBPFhG
-         DntyFKFIA22h6+2eFzzVddM2AQ0pCHUXUr8opYK0zB0Mxr+TKWsushtJs9DpLmJoAK2e
-         6zPfQZZTAOCXm4L+qIJxzYyFULqgw2BfnAhrWmDjJJcsb4X00P1aPkpo+la+QT1IjBmD
-         Hx9w==
+	Thu, 21 Aug 2025 20:09:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755806950;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=;
+	b=F0rJ02Fy5sYdAzAIbmC3iZXjQcv2iB2rYRReDO6RkJ2QB4WZXKossWw3qqua5zDR5rxEDZ
+	5D5PkzUYb9MZeHNBuJbCp/nQwthfcIkQ0hujA/CleQgbxuuoisYvpWU5+y0yne9tkyI6iO
+	DhrZlsg07IslMxWBl8g+99lWRH/2Ptc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-44-vYIYomlfOZ2X-PngAKATww-1; Thu, 21 Aug 2025 16:07:39 -0400
+X-MC-Unique: vYIYomlfOZ2X-PngAKATww-1
+X-Mimecast-MFC-AGG-ID: vYIYomlfOZ2X-PngAKATww_1755806858
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45b51411839so821415e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:07:38 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755814924; x=1756419724;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1755806858; x=1756411658;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GBj8SHJfZNGuq71dQKyp+ING7ZoPtD6w+DOcmGVXVSg=;
-        b=Ud4/7mfJPWfkgs/e0bA0pNT9A3EmPDhjLySg0F2uGTPV/NEtACyZLVMi7cpIAbTDl8
-         s2aWHP8WgBS8Qx1sz/YH/neit7riV+cgkU3Dzuosr70Om0ngCOc4NSaynPa+Lady8zcX
-         k7A7JdG9Yj2xOnxClAOZKzs5n6jPp6M+bg9Q9ZzmiZ7flhDQQSWPQ8uQZmFBWjBXkf+I
-         nsU09v2vol5NEec/L4mNmz4UJfMcMGVemDWis9UmoxFmNsxdL7Ro7z9Oy1k8b/wWqGQS
-         G+i9DIem1p9FQ/gtyYUjJn3mvmubNoTPS9NZohiiQZ7B5wm2I8G+KNbHbcyrNAcRylIu
-         52Gg==
-X-Forwarded-Encrypted: i=1; AJvYcCXcIBQhVgHEwyN4Jiu1hk/KAoc2EmxffN0oL4PutfSbFR8OE81WK0qWl0cvkBjXmKNA9lmOVfhRdIC4F0tXxykv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEAClfBIY9+hFW5iAkT9268hBfXIwlIkTcoPP3asrfGM1t6QEc
-	iRDZZqETnffMfL4sTsuKX+kEJiPeFUX3p2lvq2tGqyfsaLehAWUq700vLURRSKF+vtRplnyg8fF
-	RFPPbo7npX2U+3eqN+9VdBiULi9UQIMFCDY6i6ex8
-X-Gm-Gg: ASbGnctvLdytLYqZf3JcWdly//i6Hsa5KxYnTqvsX5Sm2koKY6ibR1GC/23mlQVCm4n
-	Tyq6Am4VqV2/C+LFmR9ss7AZqisegY0EkcWxOrvgD4/T/E5c2XR8r+69m+m25kinsi82EukRwby
-	MzOXN+ZMBYZd1EFvINIOvV5Q4I6z4rUK+EJ8qZByLr7uiE35hlAm9EC9KIKf5eZqua4URaumkL/
-	NAHTsLuK2OcFy1tgTKR2yKrcwprNVvxDjX3EoOL4aZzfHMrvnfTnfznwqeSig==
-X-Google-Smtp-Source: AGHT+IGsRvIzVdiLiubOw6s26FCV+8GUBa/zvOZHQKwnuxp9m8DDW2C1NVHDopq1Qw9f3dHJcaZcP9J53I+yjNcPN2E=
-X-Received: by 2002:a05:690c:9a01:b0:71f:96b4:9adc with SMTP id
- 00721157ae682-71fdc327bd2mr9169047b3.18.1755814924223; Thu, 21 Aug 2025
- 15:22:04 -0700 (PDT)
+        bh=QQ4Uu4zoWyKmYQrq0i4l3HgKr6VpAHaNUVdQgPTsBAE=;
+        b=BZWRfDBbVL+RLR+DCmhXqIeKhDV80o+kqudZzymhEP/SuwKGYrDHAb8EPBcTScYMxY
+         cV93k5iYYHbsc1VouFhBxxXXOLRtHqIyILb2itNxk7EOARVueb+CJm1DkmC53zWQOQfM
+         2PAP2mGAl26QSOzMR1+bFYAnLkJDKX30s9/NUJHjf+pizeGIYuzdM1h1CFAZZBA6fb63
+         vi4/iPIS+KNgg2NXizvEcv7rElzIUiNDpwOq+ECu7TVQRCMtkwL518kuKUJAgZuGp1F6
+         nWePZsS/QlK1f2nKXmF/1PCRuJT3IZ+4Os68D++RMnwUYGo8GEhNeMQ0JtMXer6ux0wX
+         LeFw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgTqxdS3/GA03Kud8pXIU6HpMTbDbOlHkVac15iBcbjPEQBtJwUgsAh2nEx7GRCNw+Y6NnfK0WUtG6hi/7E7EX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNPeT1RIvpd15c5UBVmpW7IbZ8881AFYGOiSOK0zhrFLT1aU8+
+	mE8zhqeWoeOk/j9Ti/cS2MYFK3o6VG0fYrw75zx06/dFQV14YfUoM14w0453eeaCcVN/qp6zML3
+	siRhzGItqUVAl5avDpXZg8Pfr/AD8kYgu1naPBP9yAG1S5NEqJSUPxGuzEaZmxMidmF+1o2pyoK
+	xv
+X-Gm-Gg: ASbGncttdEcxTcC9Fh5cbvsUYnjpVRouDzsg/Y4QNDzYBufmXQrnPoExMMGb4ZLBllv
+	mIZMlvhxu7zIEDCG/jhsE9hTjoDbvZIzmscrADnlZL3xfrMngDlD+0npm1KwKTvbs17785wS+JF
+	uphyuLe37yHfbaj9NAtaRaOQ60mUSjzWBcxNCN6mwguMoW1JmkcYyzWNYwkHq0dfuiJ4eRPcfRr
+	hONnLJaHohn6RObXn+yf8zcUqLrEE5UdQXgh7UnfU1BveC+vMrasPdNsGXgLvDy12F9UxuwQIXw
+	hwndFVgxSRhBXKO8qt2g5f9siNr2z/yHoYk1kQmRAW+8IG9o/TjryeNlMAPSkV7SG+uAeNMN/mm
+	4PSUF+lYm+qUtauhujSg+5w==
+X-Received: by 2002:a05:600c:5251:b0:455:f380:32e2 with SMTP id 5b1f17b1804b1-45b517ca54cmr2646745e9.18.1755806857904;
+        Thu, 21 Aug 2025 13:07:37 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHlSU80KqPPviGOLp6CI40u/NjPujjG4FLCG6NoakJIlvY80lRDOTTm20w50mEKFuk0YjVSLQ==
+X-Received: by 2002:a05:600c:5251:b0:455:f380:32e2 with SMTP id 5b1f17b1804b1-45b517ca54cmr2646245e9.18.1755806857378;
+        Thu, 21 Aug 2025 13:07:37 -0700 (PDT)
+Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b4e87858asm18672185e9.3.2025.08.21.13.07.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 Aug 2025 13:07:36 -0700 (PDT)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH RFC 11/35] mm: sanity-check maximum folio size in folio_set_order()
+Date: Thu, 21 Aug 2025 22:06:37 +0200
+Message-ID: <20250821200701.1329277-12-david@redhat.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
+References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
-References: <20250814200953.1969944-1-da@libre.computer> <CAFBinCA2XZfiY2ESDSp2WyM9r-XB_LSj9s91woU9iWoQKrp6QA@mail.gmail.com>
-In-Reply-To: <CAFBinCA2XZfiY2ESDSp2WyM9r-XB_LSj9s91woU9iWoQKrp6QA@mail.gmail.com>
-From: Da Xue <da@libre.computer>
-Date: Thu, 21 Aug 2025 18:21:53 -0400
-X-Gm-Features: Ac12FXxi99gixxdRQMIukXDBwJ56n_o8uuNClN7qs096fAcZ04uxsTATA3IRRuY
-Message-ID: <CACqvRUaZaoh7vV7Qo_dtnxC-NE227rY7EQe=dx2a_nCcfiZB2Q@mail.gmail.com>
-Subject: Re: [PATCH] clk: meson-g12a: fix bit range for fixed sys and hifi pll
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Da Xue <da@libre.computer>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -ckiKNs34SYX4BsxzCMkKJaLltsx-a6xUSRaJSjquGM_1755806858
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_152205_889216_98EA88F9 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250821_130911_188989_771D49C6 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +155,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 4:43=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
->
-> On Thu, Aug 14, 2025 at 10:09=E2=80=AFPM Da Xue <da@libre.computer> wrote=
-:
-> >
-> > The bit range 17:0 does not match the datasheet for A311D / S905D3.
-> > Change the bit range to 19:0 for FIX and HIFI PLLs to match datasheet.
-> I have:
-> -  S905X3_Public_Datasheet_Hardkernel.pdf
-> -  S922X_Datasheet_Wesion.pdf
-> -  A311D_Datasheet_01_Wesion.pdf
-> These state (for all three PLLs) that .frac is [18:0] (that's shift =3D
-> 0 and width =3D 19).
-> I get where you're coming from with 19:0 - in the context of this
-> patch this can be misleading as it would mean that the fractional
-> divider is 20 bits wide.
+Let's sanity-check in folio_set_order() whether we would be trying to
+create a folio with an order that would make it exceed MAX_FOLIO_ORDER.
 
-Yes, I was in a rush and missed this. The description is bad and I'll
-spin a v2 with the Fixes as well as report the clock differences.
+This will enable the check whenever a folio/compound page is initialized
+through prepare_compound_head() / prepare_compound_page().
 
->
-> > There's no frac for sys pll so add that as well.
-> I first read this as sys pll does not have a fractional divider.
-> What do you think about: "The frac field for sys pll is missing so add
-> that as well"
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ mm/internal.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-Will correct in V2.
+diff --git a/mm/internal.h b/mm/internal.h
+index 45b725c3dc030..946ce97036d67 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -755,6 +755,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
+ {
+ 	if (WARN_ON_ONCE(!order || !folio_test_large(folio)))
+ 		return;
++	VM_WARN_ON_ONCE(order > MAX_FOLIO_ORDER);
+ 
+ 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
+ #ifdef NR_PAGES_IN_LARGE_FOLIO
+-- 
+2.50.1
 
->
-> I guess at this point this should include:
-> Fixes: 085a4ea93d54 ("clk: meson: g12a: add peripheral clock controller")
-> > Signed-off-by: Da Xue <da@libre.computer>
-
-Ack
->
-> [...]
-> Have you compared /sys/kernel/debug/meson-clk-msr/measure_summary and
-> /sys/kernel/debug/clk/clk_summary before/after this patch?
-> I'll test this during the weekend and then give my Tested/Reviewed by
-
-Will provide in V2.
-
->
->
-> Best regards,
-> Martin
 
