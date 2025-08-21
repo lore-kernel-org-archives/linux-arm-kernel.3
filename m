@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B00CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB08CCA0EE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xT3sR+u6fuM4LUgDjjqKlDHfvPADwQODk7H4bzjwmpo=; b=Vp0v6S2J9JLLbrla98F+ZSWxKO
-	6NMKeyebzRsIYVLA+7JKb2QbVs3PHXFkmlVVy3veTLTzDY7tF1xnhctJ3CfJg34tQY+RUc1XFwCn1
-	FD+gSpV1GnOTOSVVsfIklAQIW3b7ITsDBJ3JgsD/qJVznfz9nOsqbTpVzrFRqWJmDoG6nq5HVN79/
-	224Y/mbMHGoEyvvAnulAB+oK8L8jCeExQ0Y8zaQpc4rLMZWqiBS4Oq/ijtR8ZNTPo5yLPETVgTdil
-	Gu+e0lWQj89CZY8FUF6HE6D7A1XIubJjgQi7HJulxpARxvFwr+j6wQJ4VzrcuSYccqXrE8ZDNaILS
-	ygJcM1oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NJO6+lnpiL3tyUy96V8M/9mIk0w6RhG2+4t1jg5wAY=; b=oE3/ZmPPIEusVguRVuMjCz0KJ5
+	XUjhwgZai10ClzjNIxxhKh4EVj/IsLR0cK/6nmGNLMS7NSrBDGlSn1FsPl7/tNaU7+9FqKTkmK3pt
+	f+uMWhixDiQ/gcd0XIV5BctdTG0r9n+qdH4m7+QiIkeW7OhovEw2GTCA7cIn2tSsJlPkyr5TFk9CF
+	+E05x/8wMQPzZAP4tagEDtpkDdcqOCUDzwN3slQI4J7ODLkQg6GcFiyN8m5WViaTvR9AKrfcYOt47
+	XaLzUSclLas4A2kq5OSWgxvPmMyGsExQfjEZ1YvIXgHBiLqBtjgnuFYfcRTOnDzjVWZKQkppvILKF
+	t28tr3+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7U-0000000FdUT-0N9J;
-	Thu, 21 Aug 2025 03:37:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uosLN-0000000FDIQ-3OcQ
+	id 1uow7n-0000000FdrU-2qe0;
+	Thu, 21 Aug 2025 03:38:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uotR8-0000000FKVh-0rrn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 Aug 2025 23:35:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E2C1061444;
-	Wed, 20 Aug 2025 23:35:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36F06C4CEE7;
-	Wed, 20 Aug 2025 23:35:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755732948;
-	bh=y57OXA2qf0ImBgIAMIygDKuxGU0lido+XJCFV2fG2rs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sKcM1ibb8MR4oGQMr9Iti0vVq6ftAwMHTG7m7VQxgWzQIf+aJWsugCZci+v0gqIgN
-	 NThenXhxpwjRr3sjjWbs9s5fi4o8Q3MVZ4PK2pGvjgnY3E9/rTXKyCjKue+TwQLwvY
-	 4LcJbfkfPbafd/mauVtJXps5f89CcfL1RZ2UYpnQ8sW/ycGKfGSjZxyd87YYbnbV+U
-	 or0dwV6f3xxcVdEoggkerG69Ijm3Ufr6Mx9dEelBFTWLOmYD874mkcUj+Y0KtYd16D
-	 0p9e19/egc/sfba2OA9OFld/JbA+ZwCcAGFuEnaf5tWPZ1fGkAo2xIcyZDHLkdstfT
-	 psocEQxyqFI/A==
-Date: Wed, 20 Aug 2025 18:35:42 -0500
-From: Rob Herring <robh@kernel.org>
-To: "Kumar, Udit" <u-kumar1@ti.com>
-Cc: "Raghavendra, Vignesh" <vigneshr@ti.com>,
-	Harikrishna Shenoy <h-shenoy@ti.com>, neil.armstrong@linaro.org,
-	jessica.zhang@oss.qualcomm.com, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nm@ti.com, kristo@kernel.org, thierry.reding@gmail.com,
-	sam@ravnborg.org, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	s-jain1@ti.com, devarsht@ti.com
-Subject: Re: [RFC PATCH 1/3] devicetree: bindings: dsiplay: panel:
- panel-simple.yaml: Add Raspberry pi dsi panel compatible
-Message-ID: <20250820233542.GA1691241-robh@kernel.org>
-References: <20250818154746.1373656-1-h-shenoy@ti.com>
- <20250818154746.1373656-2-h-shenoy@ti.com>
- <06a9fa20-e45a-458c-971a-a6f0f1d08004@ti.com>
- <f2fff09a-376a-44b9-a421-13202b1079fb@ti.com>
- <0268561b-8a3b-4508-bd28-3b47f5a8b754@ti.com>
+	Thu, 21 Aug 2025 00:45:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A53E712FC;
+	Wed, 20 Aug 2025 17:45:41 -0700 (PDT)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E427D3F63F;
+	Wed, 20 Aug 2025 17:45:47 -0700 (PDT)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [RFC PATCH 4/9] pinctrl: sunxi: refactor IRQ register accessors
+Date: Thu, 21 Aug 2025 01:42:27 +0100
+Message-ID: <20250821004232.8134-5-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
+In-Reply-To: <20250821004232.8134-1-andre.przywara@arm.com>
+References: <20250821004232.8134-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <0268561b-8a3b-4508-bd28-3b47f5a8b754@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_174550_321475_F409C5D8 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +71,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 11:22:42AM +0530, Kumar, Udit wrote:
-> 
-> On 8/19/2025 10:46 AM, Raghavendra, Vignesh wrote:
-> > 
-> > On 8/19/2025 10:24 AM, Kumar, Udit wrote:
-> > > On 8/18/2025 9:17 PM, Harikrishna Shenoy wrote:
-> > > > Add RPi DSI panel[0] as a valid compatible for simple-panel.
-> > > > 
-> > > > [0]: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
-> > $subject has typo s/dsiplay/display and s/dsi/DSI
-> > (use a spellcheck with your editor).
-> > 
-> > Also follow the existing prefix convention for the file (run
-> > git log --oneline to figure out the right prefix)
-> > 
-> > > > Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
-> > > > ---
-> > > >    .../devicetree/bindings/display/panel/panel-simple.yaml         | 2 ++
-> > > >    1 file changed, 2 insertions(+)
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/display/panel/panel-
-> > > > simple.yaml b/Documentation/devicetree/bindings/display/panel/panel-
-> > > > simple.yaml
-> > > > index 1ac1f0219079..65f486f2bc9d 100644
-> > > > --- a/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
-> > > > +++ b/Documentation/devicetree/bindings/display/panel/panel-simple.yaml
-> > > > @@ -268,6 +268,8 @@ properties:
-> > > >          - rocktech,rk070er9427
-> > > >            # Rocktech Display Ltd. RK043FN48H 4.3" 480x272 LCD-TFT panel
-> > > >          - rocktech,rk043fn48h
-> > > > +        # Raspberry, 7" dsi panel
-> > > > +      - rpi,7inch-dsi
-> > > Hello Hari,
-> > > 
-> > > Driver changes should come first to match new compatible before device
-> > > tree changes.
-> > No, there isnt a driver update that I can see in the current series. But
-> 
-> correct current series does not have driver changes.
-> 
-> I would expect driver changes as well, which should come before device tree.
+So far on Allwinner SoCs the registers for controlling the IRQ
+capabilities of each bank are grouped separately, behind all the pinmux
+related register for all banks:
+    0x000   0x024      0x144       0x200  0x220     0x320
+    PortA   PortB  ... PortJ <gap> IRQ-A  IRQ-B ... IRQ-J
 
-If you rely on that, then you are likely breaking the ABI. Please don't 
-submit any DT related patches until you understand that.
+The newest SoCs now group the IRQ registers together with the other
+per-bank registers, so we need to change the accessor functions to
+account for that:
+    0x080 0x0c0   0x100 0x140      0x580 0x5c0
+    PortA IRQ-A   PortB IRQ-B  ... PortK IRQ-K
 
-You must define the ABI first, then add users of that ABI. Users are 
-both .dts files and drivers. It is that simple.
+In preparation for supporting those newer SoCs, pass in the pointer to
+"struct sunxi_pinctrl" instead of just its member "desc", so that we gain
+access to the flags, to later determine which of the layout variants we
+need to use. To simplify that, add a new sunxi_irq_base_reg() function
+that returns the respective IRQ register base address.
+Also split off the IRQ control register base offset (0x200) from each
+IRQ register's offset, so that the individual offsets can be added later
+separately, to that base address.
 
-Rob
+No functional change at this point, just refactoring.
+
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 21 +++++-----
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h | 55 ++++++++++++++++-----------
+ 2 files changed, 44 insertions(+), 32 deletions(-)
+
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 2af6ebef7a10b..540fa6c285cfc 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -734,9 +734,10 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi_pinctrl *pctl,
+ 		else
+ 			val = 0xD; /* 3.3V */
+ 
+-		reg = readl(pctl->membase + sunxi_grp_config_reg(pin));
++		reg = readl(pctl->membase + sunxi_grp_config_reg(pctl, pin));
+ 		reg &= ~IO_BIAS_MASK;
+-		writel(reg | val, pctl->membase + sunxi_grp_config_reg(pin));
++		writel(reg | val, pctl->membase +
++		       sunxi_grp_config_reg(pctl, pin));
+ 		return 0;
+ 	case BIAS_VOLTAGE_PIO_POW_MODE_CTL:
+ 		val = uV > 1800000 && uV <= 2500000 ? BIT(bank) : 0;
+@@ -1072,7 +1073,7 @@ static void sunxi_pinctrl_irq_release_resources(struct irq_data *d)
+ static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned int type)
+ {
+ 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+-	u32 reg = sunxi_irq_cfg_reg(pctl->desc, d->hwirq);
++	u32 reg = sunxi_irq_cfg_reg(pctl, d->hwirq);
+ 	u8 index = sunxi_irq_cfg_offset(d->hwirq);
+ 	unsigned long flags;
+ 	u32 regval;
+@@ -1119,7 +1120,7 @@ static int sunxi_pinctrl_irq_set_type(struct irq_data *d, unsigned int type)
+ static void sunxi_pinctrl_irq_ack(struct irq_data *d)
+ {
+ 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+-	u32 status_reg = sunxi_irq_status_reg(pctl->desc, d->hwirq);
++	u32 status_reg = sunxi_irq_status_reg(pctl, d->hwirq);
+ 	u8 status_idx = sunxi_irq_status_offset(d->hwirq);
+ 
+ 	/* Clear the IRQ */
+@@ -1129,7 +1130,7 @@ static void sunxi_pinctrl_irq_ack(struct irq_data *d)
+ static void sunxi_pinctrl_irq_mask(struct irq_data *d)
+ {
+ 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+-	u32 reg = sunxi_irq_ctrl_reg(pctl->desc, d->hwirq);
++	u32 reg = sunxi_irq_ctrl_reg(pctl, d->hwirq);
+ 	u8 idx = sunxi_irq_ctrl_offset(d->hwirq);
+ 	unsigned long flags;
+ 	u32 val;
+@@ -1146,7 +1147,7 @@ static void sunxi_pinctrl_irq_mask(struct irq_data *d)
+ static void sunxi_pinctrl_irq_unmask(struct irq_data *d)
+ {
+ 	struct sunxi_pinctrl *pctl = irq_data_get_irq_chip_data(d);
+-	u32 reg = sunxi_irq_ctrl_reg(pctl->desc, d->hwirq);
++	u32 reg = sunxi_irq_ctrl_reg(pctl, d->hwirq);
+ 	u8 idx = sunxi_irq_ctrl_offset(d->hwirq);
+ 	unsigned long flags;
+ 	u32 val;
+@@ -1250,7 +1251,7 @@ static void sunxi_pinctrl_irq_handler(struct irq_desc *desc)
+ 
+ 	chained_irq_enter(chip, desc);
+ 
+-	reg = sunxi_irq_status_reg_from_bank(pctl->desc, bank);
++	reg = sunxi_irq_status_reg_from_bank(pctl, bank);
+ 	val = readl(pctl->membase + reg);
+ 
+ 	if (val) {
+@@ -1491,7 +1492,7 @@ static int sunxi_pinctrl_setup_debounce(struct sunxi_pinctrl *pctl,
+ 
+ 		writel(src | div << 4,
+ 		       pctl->membase +
+-		       sunxi_irq_debounce_reg_from_bank(pctl->desc, i));
++		       sunxi_irq_debounce_reg_from_bank(pctl, i));
+ 	}
+ 
+ 	return 0;
+@@ -1678,10 +1679,10 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	for (i = 0; i < pctl->desc->irq_banks; i++) {
+ 		/* Mask and clear all IRQs before registering a handler */
+ 		writel(0, pctl->membase +
+-			  sunxi_irq_ctrl_reg_from_bank(pctl->desc, i));
++			  sunxi_irq_ctrl_reg_from_bank(pctl, i));
+ 		writel(0xffffffff,
+ 		       pctl->membase +
+-		       sunxi_irq_status_reg_from_bank(pctl->desc, i));
++		       sunxi_irq_status_reg_from_bank(pctl, i));
+ 
+ 		irq_set_chained_handler_and_data(pctl->irq[i],
+ 						 sunxi_pinctrl_irq_handler,
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 77a08ccde095a..252cf58387e33 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -57,20 +57,21 @@
+ 
+ #define IRQ_PER_BANK		32
+ 
+-#define IRQ_CFG_REG		0x200
++#define IRQ_REGS_OFFSET		0x200
++#define IRQ_CFG_REG_OFFSET	0x00
+ #define IRQ_CFG_IRQ_PER_REG		8
+ #define IRQ_CFG_IRQ_BITS		4
+ #define IRQ_CFG_IRQ_MASK		((1 << IRQ_CFG_IRQ_BITS) - 1)
+-#define IRQ_CTRL_REG		0x210
++#define IRQ_CTRL_REG_OFFSET	0x10
+ #define IRQ_CTRL_IRQ_PER_REG		32
+ #define IRQ_CTRL_IRQ_BITS		1
+ #define IRQ_CTRL_IRQ_MASK		((1 << IRQ_CTRL_IRQ_BITS) - 1)
+-#define IRQ_STATUS_REG		0x214
++#define IRQ_STATUS_REG_OFFSET	0x14
+ #define IRQ_STATUS_IRQ_PER_REG		32
+ #define IRQ_STATUS_IRQ_BITS		1
+ #define IRQ_STATUS_IRQ_MASK		((1 << IRQ_STATUS_IRQ_BITS) - 1)
+ 
+-#define IRQ_DEBOUNCE_REG	0x218
++#define IRQ_DEBOUNCE_REG_OFFSET	0x18
+ 
+ #define IRQ_MEM_SIZE		0x20
+ 
+@@ -224,7 +225,8 @@ struct sunxi_pinctrl {
+ 		.irqnum = _irq,					\
+ 	}
+ 
+-static inline u32 sunxi_irq_hw_bank_num(const struct sunxi_pinctrl_desc *desc, u8 bank)
++static inline u32 sunxi_irq_hw_bank_num(const struct sunxi_pinctrl_desc *desc,
++					u8 bank)
+ {
+ 	if (!desc->irq_bank_map)
+ 		return bank;
+@@ -232,68 +234,77 @@ static inline u32 sunxi_irq_hw_bank_num(const struct sunxi_pinctrl_desc *desc, u
+ 		return desc->irq_bank_map[bank];
+ }
+ 
+-static inline u32 sunxi_irq_cfg_reg(const struct sunxi_pinctrl_desc *desc,
++static inline u32 sunxi_irq_base_reg(const struct sunxi_pinctrl *pctl, u16 bank)
++{
++	return IRQ_REGS_OFFSET +
++	       sunxi_irq_hw_bank_num(pctl->desc, bank) * IRQ_MEM_SIZE;
++}
++
++static inline u32 sunxi_irq_cfg_reg(const struct sunxi_pinctrl *pctl,
+ 				    u16 irq)
+ {
+ 	u8 bank = irq / IRQ_PER_BANK;
+ 	u8 reg = (irq % IRQ_PER_BANK) / IRQ_CFG_IRQ_PER_REG * 0x04;
+ 
+-	return IRQ_CFG_REG +
+-	       sunxi_irq_hw_bank_num(desc, bank) * IRQ_MEM_SIZE + reg;
++	return sunxi_irq_base_reg(pctl, bank) + IRQ_CFG_REG_OFFSET + reg;
+ }
+ 
+ static inline u32 sunxi_irq_cfg_offset(u16 irq)
+ {
+ 	u32 irq_num = irq % IRQ_CFG_IRQ_PER_REG;
++
+ 	return irq_num * IRQ_CFG_IRQ_BITS;
+ }
+ 
+-static inline u32 sunxi_irq_ctrl_reg_from_bank(const struct sunxi_pinctrl_desc *desc, u8 bank)
++static inline u32 sunxi_irq_ctrl_reg_from_bank(const struct sunxi_pinctrl *pctl,
++					       u8 bank)
+ {
+-	return IRQ_CTRL_REG + sunxi_irq_hw_bank_num(desc, bank) * IRQ_MEM_SIZE;
++	return sunxi_irq_base_reg(pctl, bank) + IRQ_CTRL_REG_OFFSET;
+ }
+ 
+-static inline u32 sunxi_irq_ctrl_reg(const struct sunxi_pinctrl_desc *desc,
+-				     u16 irq)
++static inline u32 sunxi_irq_ctrl_reg(const struct sunxi_pinctrl *pctl, u16 irq)
+ {
+ 	u8 bank = irq / IRQ_PER_BANK;
+ 
+-	return sunxi_irq_ctrl_reg_from_bank(desc, bank);
++	return sunxi_irq_ctrl_reg_from_bank(pctl, bank);
+ }
+ 
+ static inline u32 sunxi_irq_ctrl_offset(u16 irq)
+ {
+ 	u32 irq_num = irq % IRQ_CTRL_IRQ_PER_REG;
++
+ 	return irq_num * IRQ_CTRL_IRQ_BITS;
+ }
+ 
+-static inline u32 sunxi_irq_debounce_reg_from_bank(const struct sunxi_pinctrl_desc *desc, u8 bank)
++static inline
++u32 sunxi_irq_debounce_reg_from_bank(const struct sunxi_pinctrl *pctl, u8 bank)
+ {
+-	return IRQ_DEBOUNCE_REG +
+-	       sunxi_irq_hw_bank_num(desc, bank) * IRQ_MEM_SIZE;
++	return sunxi_irq_base_reg(pctl, bank) + IRQ_DEBOUNCE_REG_OFFSET;
+ }
+ 
+-static inline u32 sunxi_irq_status_reg_from_bank(const struct sunxi_pinctrl_desc *desc, u8 bank)
++static inline
++u32 sunxi_irq_status_reg_from_bank(const struct sunxi_pinctrl *pctl, u8 bank)
+ {
+-	return IRQ_STATUS_REG +
+-	       sunxi_irq_hw_bank_num(desc, bank) * IRQ_MEM_SIZE;
++	return sunxi_irq_base_reg(pctl, bank) + IRQ_STATUS_REG_OFFSET;
+ }
+ 
+-static inline u32 sunxi_irq_status_reg(const struct sunxi_pinctrl_desc *desc,
++static inline u32 sunxi_irq_status_reg(const struct sunxi_pinctrl *pctl,
+ 				       u16 irq)
+ {
+ 	u8 bank = irq / IRQ_PER_BANK;
+ 
+-	return sunxi_irq_status_reg_from_bank(desc, bank);
++	return sunxi_irq_status_reg_from_bank(pctl, bank);
+ }
+ 
+ static inline u32 sunxi_irq_status_offset(u16 irq)
+ {
+ 	u32 irq_num = irq % IRQ_STATUS_IRQ_PER_REG;
++
+ 	return irq_num * IRQ_STATUS_IRQ_BITS;
+ }
+ 
+-static inline u32 sunxi_grp_config_reg(u16 pin)
++static inline u32 sunxi_grp_config_reg(const struct sunxi_pinctrl *pctl,
++				       u16 pin)
+ {
+ 	u8 bank = pin / PINS_PER_BANK;
+ 
+-- 
+2.46.3
+
 
