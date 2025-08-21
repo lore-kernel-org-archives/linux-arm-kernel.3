@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B91EECA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA32CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8CcZrXnG1JviyezbOmZi9lSul/m6IUwEsJI7r8Fbjqo=; b=TAkug3PGAyL/qEa0T2782LRRJD
-	ixDKZY3715kZPXQDYhnx91UemkmEA/Cza53+pjqSv5X5S4ap5sQx4QDmGCmwkdlJ9pCbLDY1OdFKA
-	G+sRZQ8EZh1xuh/p7ObONqLnPX0+viTITblYVSG4mEDxBPxCr0x2X1p36YPxg6KcE5Q3QtZ6wuo/4
-	CekAGdv4nVv72J3gnRFVon1daWj08+e1s8D1EW9UiVkq7eewv6L7SaAjJPyDZS/9GfC08tfXMVFpH
-	MBh1UOyVaWAthizCmUJlU4lLSt2YT+q1HBwaKqpNgReSMnjK0TDdequ3B8TzhwUdhUroQu5oZU0qo
-	xcgO2wRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RfPOWbVRUC2ftEQ8/ZhtZEj1I9GSOS1lR3GmPpWbzms=; b=Tik3ML8qPBkx5TSSEgM0Dv20c9
+	ah3tNLTQoxhfj0fCOE3+2x8yM33+ewQqFKcxm/vDP1FqivjTSjnjGOxnelI4757TACRWKfe93eNs6
+	tG4xS+aByjLlVUk6hEGw3g0CdXlcp6dqpp3ApO+iq2prf6Xh1eCDKYfjPOAGKKy3iS+3eJj1y0AyQ
+	VcpAVkLLJuQVgmpBC8NgvUbLC8H7jeIVNP5wKQhU4mk9zaAtKINzMUjYNcYzdb2Xq+4LDuf9mY2Ej
+	loLn9xIgWNL/RJ6QEzn5weGccdf9CJ6Sm1Kns/mElRhnGev0aDLSZjZLn/RqbKN5psQl3Ivb8ZLDu
+	8meZGRfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1lz-0000000GQVN-1SbM;
-	Thu, 21 Aug 2025 09:39:55 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1up1lk-0000000GQBk-2Myi;
+	Thu, 21 Aug 2025 09:39:40 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozie-0000000G6Se-2yx7
+	id 1uozQR-0000000G3kU-1cVS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:28:23 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250821072814epoutp035560fb9cc763721cd74e63dd2c143be5~dt5hLnc9W1021110211epoutp03G
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 07:28:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250821072814epoutp035560fb9cc763721cd74e63dd2c143be5~dt5hLnc9W1021110211epoutp03G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755761294;
-	bh=8CcZrXnG1JviyezbOmZi9lSul/m6IUwEsJI7r8Fbjqo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I/WfWG+3EjERIh9WVuqGA1VcU3S3Rm5/vM0bfBjy3rDyCeAj6SFU8vqS1PmgbDyzF
-	 JJs4/y8UJxFX4vloZccmcxhOykr33UPEzBroBf3e6XSztaJBfwLqmpQneZZlVl3wpB
-	 XskMnM5R43wdxehgAB/EdHkj+YrxI10iADjnVI7Y=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250821072813epcas5p2be30a2e1791496db24bf1b776fef2982~dt5gQoFvb0277302773epcas5p2A;
-	Thu, 21 Aug 2025 07:28:13 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4c6w0D3bBYz3hhT4; Thu, 21 Aug
-	2025 07:28:12 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250821072811epcas5p39b60f480203e26e99dec09321951d4ea~dt5ekTiYF3130531305epcas5p39;
-	Thu, 21 Aug 2025 07:28:11 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250821072808epsmtip146a924be7482a7eabe6e861e42181b6e~dt5bXKxno0625606256epsmtip1c;
-	Thu, 21 Aug 2025 07:28:08 +0000 (GMT)
-From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
-	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
-	johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
-	pritam.sutar@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
-	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
-	selvarasu.g@samsung.com
-Subject: [PATCH v6 3/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo hsphy
-Date: Thu, 21 Aug 2025 13:07:00 +0530
-Message-Id: <20250821073703.2498302-4-pritam.sutar@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250821073703.2498302-1-pritam.sutar@samsung.com>
+	Thu, 21 Aug 2025 07:09:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=RfPOWbVRUC2ftEQ8/ZhtZEj1I9GSOS1lR3GmPpWbzms=;
+	b=B4Ps3rxA5lTLKOMX9qz4KLmfQrRInSuwWyASzKpE8BzdORqUVxYMRs7LRTHMd7
+	SAziTySrOi108CliGQfaDT4Jng65U7PMGDioaXIl/eTKtTdsMJYgjIf4kMP7bXMD
+	JW8f3za/C4lYET9Jp2+PH+kM1G2bjYBqw+5h88X9xYpJY=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAHe3sUxqZoZKcNAw--.5607S3;
+	Thu, 21 Aug 2025 15:09:10 +0800 (CST)
+Date: Thu, 21 Aug 2025 15:09:08 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Martin Kepplinger <martink@posteo.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+	kernel@pengutronix.de, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: dts: imx8mp: add idle cooling devices to cpu
+ core
+Message-ID: <aKbGFMnmM4OHiimg@dragon>
+References: <20250715055903.1806961-1-martink@posteo.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250821072811epcas5p39b60f480203e26e99dec09321951d4ea
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250821072811epcas5p39b60f480203e26e99dec09321951d4ea
-References: <20250821073703.2498302-1-pritam.sutar@samsung.com>
-	<CGME20250821072811epcas5p39b60f480203e26e99dec09321951d4ea@epcas5p3.samsung.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250715055903.1806961-1-martink@posteo.de>
+X-CM-TRANSID: Mc8vCgAHe3sUxqZoZKcNAw--.5607S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tF13XF18WFy8Xw1Uuw48JFb_yoW8ZrWUpr
+	48uwn5W3Wvgr47C3yaqwnYkrnY9ws5tFW5Wr12gryfK345Zr90gayYyF13Wr18Xw18ua1f
+	ZF4avryI9r4DJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UyCJQUUUUU=
+X-Originating-IP: [117.81.240.235]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNhZ632imxhaGowAA3+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_002821_058521_40B0DC61 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250821_000931_758835_26A5D5B4 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,47 +76,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This phy only supports USB2.0 HS(480Mbps), FS(12Mbps) and
-LS(1.5Mbps) data rates. It requires two clocks, named as "phy" and "ref".
-The required supplies for this phy, named as vdd075_usb20(0.75v),
-vdd18_usb20(1.8v), vdd33_usb20(3.3v).
+On Tue, Jul 15, 2025 at 05:59:22AM +0000, Martin Kepplinger wrote:
+> The thermal framework can use the cpu-idle-states as
+> described for imx8mp as an alternative or in parallel to
+> cpufreq.
+> 
+> Add the DT node to the cpu so the cooling devices will be present
+> and the thermal zone descriptions can use them.
+> 
+> Signed-off-by: Martin Kepplinger <martink@posteo.de>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> index bb24dba7338ea..66e1a27d6eed9 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -80,6 +80,11 @@ A53_0: cpu@0 {
+>  			operating-points-v2 = <&a53_opp_table>;
+>  			#cooling-cells = <2>;
+>  			cpu-idle-states = <&cpu_pd_wait>;
+> +			cpu0_therm: thermal-idle {
 
-Add schema for combo hsphy found on this SoC.
+Have a newline between properties and child node.
 
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- .../devicetree/bindings/phy/samsung,usb3-drd-phy.yaml          | 3 +++
- 1 file changed, 3 insertions(+)
+Shawn
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index e238fd0c9f6c..f0cfca5736b8 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -34,6 +34,7 @@ properties:
-       - samsung,exynos7870-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-       - samsung,exynos990-usbdrd-phy
-+      - samsung,exynosautov920-usbdrd-combo-hsphy
-       - samsung,exynosautov920-usbdrd-phy
- 
-   clocks:
-@@ -226,6 +227,7 @@ allOf:
-               - samsung,exynos7870-usbdrd-phy
-               - samsung,exynos850-usbdrd-phy
-               - samsung,exynos990-usbdrd-phy
-+              - samsung,exynosautov920-usbdrd-combo-hsphy
-               - samsung,exynosautov920-usbdrd-phy
-     then:
-       properties:
-@@ -248,6 +250,7 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - samsung,exynosautov920-usbdrd-combo-hsphy
-               - samsung,exynosautov920-usbdrd-phy
-     then:
-       required:
--- 
-2.34.1
+> +				#cooling-cells = <2>;
+> +				duration-us = <10000>;
+> +				exit-latency-us = <700>;
+> +			};
+>  		};
+>  
+>  		A53_1: cpu@1 {
+> @@ -98,6 +103,11 @@ A53_1: cpu@1 {
+>  			operating-points-v2 = <&a53_opp_table>;
+>  			#cooling-cells = <2>;
+>  			cpu-idle-states = <&cpu_pd_wait>;
+> +			cpu1_therm: thermal-idle {
+> +				#cooling-cells = <2>;
+> +				duration-us = <10000>;
+> +				exit-latency-us = <700>;
+> +			};
+>  		};
+>  
+>  		A53_2: cpu@2 {
+> @@ -116,6 +126,11 @@ A53_2: cpu@2 {
+>  			operating-points-v2 = <&a53_opp_table>;
+>  			#cooling-cells = <2>;
+>  			cpu-idle-states = <&cpu_pd_wait>;
+> +			cpu2_therm: thermal-idle {
+> +				#cooling-cells = <2>;
+> +				duration-us = <10000>;
+> +				exit-latency-us = <700>;
+> +			};
+>  		};
+>  
+>  		A53_3: cpu@3 {
+> @@ -134,6 +149,11 @@ A53_3: cpu@3 {
+>  			operating-points-v2 = <&a53_opp_table>;
+>  			#cooling-cells = <2>;
+>  			cpu-idle-states = <&cpu_pd_wait>;
+> +			cpu3_therm: thermal-idle {
+> +				#cooling-cells = <2>;
+> +				duration-us = <10000>;
+> +				exit-latency-us = <700>;
+> +			};
+>  		};
+>  
+>  		A53_L2: l2-cache0 {
+> -- 
+> 2.39.5
+> 
 
 
