@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F48CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDEDCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kP8M+83ssqO6dNwfXdJUOoxGNlSXFzicbgZV4R7Bd/4=; b=V4AMLzzrRK13hzzlkTbDfvhhCe
-	W8bbLDjCTlXpL3r9kEg6iTdj3Ce/JBTJ8tG/m1cErc7kQk+WUUoDF5ASBjYxQPuVacr7WmYQDFxPx
-	oH2/VeZ3FXCz6UPlRkpskqOKLsZckkVc5hi51DcPz4MB3r3fXvJXewxH1IDSKndmfrLXq+SODNnx/
-	gbk1PLWJYYw5N3P2UyJ6VcZ+E3RRc6peQpv0JUtg8Nn5j1gsFuaQAmVQneFa+apqWmQmyzY1Xpsm7
-	4GUbUXEXXx6LasfvsTa1GYFyXWbSy+8cdjqHnVWbPMbkmE2mwjIxLz22AT3kjHmllyEfSvYbB3z+w
-	t1yps3dQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y993clWh4GrSxQaHCWNWbxnscEMdOEVHZxjvAP6JQiY=; b=DTIkn5Z9lI31Wr
+	5fAdFPRoXdGmn5LP68rSGmoQZN415Ewb+ScdbV9sCYvVSQ7EA/DWswshsYg7Lh2B/HZHFf+sV9nO4
+	cGx41XQyIeuw+FufZl/yGJhBt5XnNU++BeH/t1tontW5sHzhZxCRri84UMNN0y7TZUa1lci1sOTLQ
+	0gqhICO68u8jb26PlMuIjNrmagrs41ziCmqX3DhEuteYWbuTA11+YHXOaeZqx64P1EtK68ZuBkpBg
+	fY8rj70/QIYTgxenp/3d6lE43zxDSdZiGS6DMlPKCzFAiBq/GPD7cUvOFKM8FViuuLegZNtPbRdBV
+	SmwwS8nQKFSkcd+lFQnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDup-00000000mv0-1RSk;
-	Thu, 21 Aug 2025 22:37:51 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1upDus-00000000mxd-07oE;
+	Thu, 21 Aug 2025 22:37:54 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7P3-0000000HQjM-3lmh
+	id 1up7P3-0000000HQjN-43Uu
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 21 Aug 2025 15:40:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
 	s=mail; t=1755790835;
-	bh=Q57fMOSIHmitf0RgmFKEHgmC2mjuTNIw+xrEbPhFM0A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=oSG85jo53WxZgChcG3vNCa8gPefb1cturzLp9fcUP98upOiFiroLPHpHpgE38s2QB
-	 gqX4zuyIOYV3okHTd69KK+maRfMpns8+JCInjuIUn4DzlXTkVnLnmPwtgZIyG/CsgJ
-	 4q8kZgGaxstJA8CEJjfkA68GgkE0l+6ORojsh/h8=
+	bh=EDi7kgFTFGG9Vox1cVUjyMOtC59OypbC935AUmppWQM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Wn4rSLgAtBESNTpqj4tuLfgY95Xb0GTw1j3Yjf1aWIl+QbESxXrkWN+oq/d1EkFGt
+	 sNthlD3h7gTF7wnD8mNtzl69KvFjL4BwpGQUqZKpJJnS10BiLLybmqBS2txPp2FNC1
+	 KsY+eqDn92GhYEQ0FJKP9nzDDHezyltqFPr7Gm+s=
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Thu, 21 Aug 2025 17:40:35 +0200
-Subject: [PATCH 4/7] tools/nolibc: remove __nolibc_enosys() fallback from
- fork functions
+Subject: [PATCH 0/7] tools/nolibc: reduce __nolibc_enosys() fallbacks
+Date: Thu, 21 Aug 2025 17:40:31 +0200
+Message-Id: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250821-nolibc-enosys-v1-4-4b63f2caaa89@weissschuh.net>
-References: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
-In-Reply-To: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
+X-B4-Tracking: v=1; b=H4sIAO89p2gC/x3MQQqAIBBA0avIrBN0QIiuEi3UphoIDQeiEO+et
+ HyL/ysIFSaBSVUodLNwTh12UBAPn3bSvHYDGnRmRKtTPjlETSnLKxoDUjTBGRc89OYqtPHz/+a
+ ltQ+QOsuCXwAAAA==
+X-Change-ID: 20250821-nolibc-enosys-2b2ec0b505ba
 To: Willy Tarreau <w@1wt.eu>, Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
 Cc: Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755790835; l=1260;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755790835; l=1762;
  i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=Q57fMOSIHmitf0RgmFKEHgmC2mjuTNIw+xrEbPhFM0A=;
- b=Jj4T58dHtrOBuyLoxgHvWb7fDfeE6kTlbVgRDvn6fIGP5YcQbg/u386kNVBZ8TQh6ak/SuV7Y
- XyieRAHMi+7DaJKjka98snqABIVCEl0ZB62dI4HElo+w7UIqKKzcXjL
+ bh=EDi7kgFTFGG9Vox1cVUjyMOtC59OypbC935AUmppWQM=;
+ b=IWi1WXyurTh7V5K7rWfEYUuPalw0ndbYdqh6apShuST0cLYoa1D/Ii+IMbwJFHiFj7eau7szJ
+ aZbpUT8VPeYAaNLfOyw9Uqpz9yDKCnzYiCoI0jqlT91qHoe4fU4/1Hi
 X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
  pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_084038_129108_9B8BDC42 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20250821_084038_153909_F2068F5A 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,50 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All architectures have one of the real functions available.
-The additional fallback to __nolibc_enosys() is superfluous.
+The __nolibc_enosys() fallback is used when the UAPI headers do not
+provide a certain syscall number or any possible fallback syscall.
+This is either because the syscall definition is fairly new and nolibc
+tries to be compatible with old UAPI headers or an architecture does not
+support a syscall at all.
+Many of these __nolibc_enosys() fallbacks have become unnecessary.
+Either because the "new" syscalls or not so new anymore or real
+fallbacks have been implemented in the meantime.
+
+Unnecessary usages of __nolibc_enosys() as it is not obvious anymore if
+a given function is really implemented on all architectures.
 
 Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
 ---
- tools/include/nolibc/sys.h | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+Thomas Weißschuh (7):
+      tools/nolibc: remove __nolibc_enosys() fallback from time64-related functions
+      tools/nolibc: remove __nolibc_enosys() fallback from *at() functions
+      tools/nolibc: remove __nolibc_enosys() fallback from dup2()
+      tools/nolibc: remove __nolibc_enosys() fallback from fork functions
+      tools/nolibc: fold llseek fallback into lseek()
+      kselftest/arm64: tpidr2: Switch to waitpid() over wait4()
+      tools/nolibc: drop wait4() support
 
-diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
-index 9c4fa7efc1d606f18a5a92b0a3dd9ad7b9b4521b..fc3c8a3d02e9a031aad2229a430c232eb60065b1 100644
---- a/tools/include/nolibc/sys.h
-+++ b/tools/include/nolibc/sys.h
-@@ -321,10 +321,8 @@ pid_t sys_fork(void)
- 	 * will not use the rest with no other flag.
- 	 */
- 	return my_syscall5(__NR_clone, SIGCHLD, 0, 0, 0, 0);
--#elif defined(__NR_fork)
--	return my_syscall0(__NR_fork);
- #else
--	return __nolibc_enosys(__func__);
-+	return my_syscall0(__NR_fork);
- #endif
- }
- #endif
-@@ -341,7 +339,7 @@ pid_t sys_vfork(void)
- {
- #if defined(__NR_vfork)
- 	return my_syscall0(__NR_vfork);
--#elif defined(__NR_clone3)
-+#else
- 	/*
- 	 * clone() could be used but has different argument orders per
- 	 * architecture.
-@@ -352,8 +350,6 @@ pid_t sys_vfork(void)
- 	};
- 
- 	return my_syscall2(__NR_clone3, &args, sizeof(args));
--#else
--	return __nolibc_enosys(__func__);
- #endif
- }
- #endif
+ tools/include/nolibc/poll.h                |  4 +-
+ tools/include/nolibc/sys.h                 | 90 +++++++++---------------------
+ tools/include/nolibc/sys/timerfd.h         |  8 +--
+ tools/include/nolibc/sys/wait.h            | 17 ------
+ tools/include/nolibc/time.h                |  8 +--
+ tools/testing/selftests/arm64/abi/tpidr2.c |  6 +-
+ 6 files changed, 34 insertions(+), 99 deletions(-)
+---
+base-commit: 850047b19741490631855a475ccaa3ed29316039
+change-id: 20250821-nolibc-enosys-2b2ec0b505ba
 
+Best regards,
 -- 
-2.50.1
+Thomas Weißschuh <linux@weissschuh.net>
 
 
