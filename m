@@ -4,63 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D703CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04A4CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 20:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jThOaufkY1GMl8CHVBUGH6gcnuocuuMSc1p6rCYHqx0=; b=bMlHNx3OGDTjW2Z/Aqoaz7iv2t
-	iwf8EW3QzLR4Ppsx0bPytTU6vtgDbYO5aTud+GU3vR1jcEiaSR0N+5ReEn/iP18INDPRPR3yRKwjr
-	bItbi1roGiIXSIiZapJA/3F3tQiKJwN2MvA289NtlToQdMmE6AjTVoSE7odEGpGhBR29qOqtIeKDj
-	aZnemB6LHO6dnAg4f9k0yl8q5aEUK6X8D2E/gJh2uu4QulB1Lu2n6oBrYvWyXW+nSZR4i1saQ+jRR
-	kxnYsP+RlFLutTVYRuqjCpVVoRxjF52l5tbCf50f0ulgBmQ4biJTmMYKJXZv3heQIlc2OsGRgvyj6
-	ZXhWG+ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZUqfvz8d9K9ODltIL+LeaCIsA/d4p1xyaHIX6SU9BUk=; b=INVXGhDOe/BECsMfxqokVAhpVo
+	8L7ask3lNA4QwLE3snuLSxJ8/YOTbcAL2/QDggbMg4G5jf6qmetDyuJy3nWMr4ZzTt29tjOYQG4zW
+	qZZfGZa5cOQjkUfDuaR9ypqvFls7tAX7sJoTrEQxIMFDl9VGt3Bgao7F2HumJ+xPpvxHq8btyW9LV
+	g2073KhRXmvZwPOos7jOmpBgRbBzlc0x5zP1cRad6ze8o0oltVpzaHO9KUaLIiOWgiESQ45WXj2AO
+	ri21oHoP0lTMjrfior4zo9GEPtAxzEvRlNp9Cy9c8pbzqYQgbndQ3uq8K3jHWHUecH2KAj99MG3yA
+	05eT2q0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBRN-00000000MgT-2khd;
-	Thu, 21 Aug 2025 19:59:17 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1upBU0-00000000Mx9-1gDe;
+	Thu, 21 Aug 2025 20:02:00 +0000
+Received: from mail-dm6nam10on2061a.outbound.protection.outlook.com ([2a01:111:f403:2413::61a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7P6-0000000HQl8-0xK7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 15:40:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1755790835;
-	bh=Nytg3brGBX94RkJqufZjR2+fI2MqCelukAJyT2C5iuA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ehysW5Ti14GbYFhA26/1gVMOc2+KTHF/h4tN3ojF7izVXO2E6sUcmCrRHdTJhy9U2
-	 Q+4khxVCHYmfxyNbWUEceTDgDIemdajFjc4rCJlxPt9LiN232sK9qvTcgxBHXYwIIv
-	 aur07jnAWkia87y1UW1975zb7YLEvYv3XXofnsxg=
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Date: Thu, 21 Aug 2025 17:40:37 +0200
-Subject: [PATCH 6/7] kselftest/arm64: tpidr2: Switch to waitpid() over
- wait4()
+	id 1up77f-0000000HLBc-3EDf;
+	Thu, 21 Aug 2025 15:22:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WrVWBU0A8tfwtVsqeHHBXW3qT16FCEkQlIvuE5aXwRy2bLqDfXjq1G+asA0bcmu2qwUTXH5rpmM7g0Zih73lZH+hnmm3lQpdJA5ZeErDSxzkHE727C0SlIDNOOH6pU9lGFsDla2vXTaqrlYrUpyqPyHtVtARLMjmSjKyiIWCHQ+iVEExCgXQ8gm2QFrL3eUjVFoUGTUzKl/2gjXtfwRir7k3H/sZcXiOstCvJhjRMRjrAFVlMomwhFiq0rS49c/ySppxZZP75+JPtLE2OC5PJdp0QW22xOiFz/xDsA8e4dhqsrIIpd2iH06lQlawpDeDiiSrqKqeW1ExMnMGmOoMWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZUqfvz8d9K9ODltIL+LeaCIsA/d4p1xyaHIX6SU9BUk=;
+ b=bLUxD8jrtgop9JbLIilOXe2v1CQfQN3mWWJGApbrDD5K18UGzSXEwPK99UU86RZ2cIfNKcg0yxNh/VKONIPqn84OuI8xNxPQsd5iL3AHW+YeiC9Rx+kzV8NvH6lzQSl3mIXwLVB2hPnjS0Eo/SHCFLFlS5KG534dkbRsLExQteOacB4LBwEDI+V1u68iURIn1Tn9MzwEb1r/Tg7NNIUWqfyrHL0c6EeKu119pja721ksbSaspB0Y65EFMSJn6ZVuAEVxYenZAt0g8/dQK/ju8/Jh9FMdQB6dYhNGkC8hXFx3d0Is2FHawey2l9S7WZipjUGS1N+NIjvsRQsRcwjfug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZUqfvz8d9K9ODltIL+LeaCIsA/d4p1xyaHIX6SU9BUk=;
+ b=e0gS56nawReNppy5OTvkhCLiwDrilBYOLlC18blDKLpY9y23925184TDgXbH0ZZmqffpHzCK3GDdLQ/8LtA/e4Ar0HdzhS181cVXE5wI5YBrIn3q7XGiFsx5UbdPHn8z1J/BzaxV65WpRxIlD50w6KDv6lijyc2Wi001sIaDA3mbg1QVHYBiv4JVejCCdY/mNnsQ2f4dv86SftTZ8p0gVgPe6BmwtvTztkVMno/Ujf822u4Y+RKkuava9F89DbM7RK5ehdTlz4vwD5O2B9fSCGSHOtAI3KQZNfRkeHlR/SAfjHsW/9JmpmFwoBxaC78jGLJkifC1te1r9nwpdeBcaQ==
+Received: from BYAPR01CA0007.prod.exchangelabs.com (2603:10b6:a02:80::20) by
+ CH2PR12MB4166.namprd12.prod.outlook.com (2603:10b6:610:78::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.14; Thu, 21 Aug 2025 15:22:23 +0000
+Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
+ (2603:10b6:a02:80:cafe::d6) by BYAPR01CA0007.outlook.office365.com
+ (2603:10b6:a02:80::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.16 via Frontend Transport; Thu,
+ 21 Aug 2025 15:22:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.8 via Frontend Transport; Thu, 21 Aug 2025 15:22:23 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 21 Aug
+ 2025 08:22:09 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Thu, 21 Aug 2025 08:22:08 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 21 Aug 2025 08:22:07 -0700
+Date: Thu, 21 Aug 2025 08:22:06 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<will@kernel.org>, <robin.clark@oss.qualcomm.com>, <yong.wu@mediatek.com>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<rafael@kernel.org>, <lenb@kernel.org>, <kevin.tian@intel.com>,
+	<yi.l.liu@intel.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
+	<helgaas@kernel.org>, <etzhao1900@gmail.com>
+Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
+ helper
+Message-ID: <aKc5niDWTwaCInH2@Asurada-Nvidia>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
+ <20250818143949.GO802098@nvidia.com>
+ <aKNhIr08fK+xIYcg@Asurada-Nvidia>
+ <20250818234241.GF802098@nvidia.com>
+ <aKQG9/skig6F8LdQ@Asurada-Nvidia>
+ <20250819125249.GG802098@nvidia.com>
+ <aKSyzI9Xz3J0nhfk@Asurada-Nvidia>
+ <20250821131304.GM802098@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250821-nolibc-enosys-v1-6-4b63f2caaa89@weissschuh.net>
-References: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
-In-Reply-To: <20250821-nolibc-enosys-v1-0-4b63f2caaa89@weissschuh.net>
-To: Willy Tarreau <w@1wt.eu>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755790835; l=1157;
- i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=Nytg3brGBX94RkJqufZjR2+fI2MqCelukAJyT2C5iuA=;
- b=VqLBwVGYCEIudHHlBaFHOBetWwInVKrleIrbKcGtAm22hGoGNMsD8h8JJQiG88d2h8qI7f1f7
- PR8nnUUDe10CiRbHV66a9YcSv/TqfRjhX2KHuXKXIFqXr0HyQtO8xf5
-X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
- pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250821131304.GM802098@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|CH2PR12MB4166:EE_
+X-MS-Office365-Filtering-Correlation-Id: 915b38c3-4cdc-4ff6-6f14-08dde0c68744
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0utZ2LvmVrNGPlF499/MZ1M6jAdl87UEMGZGIydoGkZBt+Y2lXzYFcrRnWgT?=
+ =?us-ascii?Q?qatAkIhU8DwHYy/oN0owuRJoS+eeUaCYT6R5N0gpen3sJKNunRQaEr61azuJ?=
+ =?us-ascii?Q?JMJkFkVRUdRaxwlRQKCvu4Devr8gNiUsRhgQPUQ3ujJWBuNPqMQ3Asog2dA0?=
+ =?us-ascii?Q?ZrLQApwdXTWEnQadbYgOo8vr2xzE/Wvwv9YKk0UFBKqaARfGefMQw/dW1mOp?=
+ =?us-ascii?Q?7HNEmAqAeTIyZmxVqKodb1YGQs9YDRzQVOI/nSlozf47h4WWbRuNrRvuuu9A?=
+ =?us-ascii?Q?tQKi3xq27hsPfbs4i7wrD34hUdekLx7mWcpxdLBK83eOoxqDnMMbFf0kWrtd?=
+ =?us-ascii?Q?4RN1U0EgfP/3lFN752z0bBNO+KhETkVjbeBjYqUkBrgNKoPRyLwDmkGDiu6S?=
+ =?us-ascii?Q?GKbFk1aeOzBPYCOVjNLmvnIXKQ1CzyWmqbs57/04Ly8O0Ubheqhb7raKGFr8?=
+ =?us-ascii?Q?g6CfrMTqPhoC0HWAnn7oEfHARPzlIBIVnJsmKHq4AEU6MbW+17p3dmO3IYer?=
+ =?us-ascii?Q?awl96rV4FNogVH91+8c6xjIGWvCRg2wh0wtHDTQQ1f1a2DssVmoAz2rlUsq7?=
+ =?us-ascii?Q?GsFmZeZkx/tO9o1P0s5bZDcIYAMcOr01PErsJcErApu6fPBxEF7VyDxgDycD?=
+ =?us-ascii?Q?7pyqIKW7z+uVUo/JTddSiqUTqJlp7PGN8I86uh6j9XmKQFKUHoZyVtxSnLhz?=
+ =?us-ascii?Q?unoEMgzh2Sx5ntlBwt3GOuvEupI812XNe2kFwqPNztNzyJrALHIvm3xGt7Ef?=
+ =?us-ascii?Q?cxAfhjVvQyreZmt0mMGWhC7ekuSB/KV2EZVR8fQm7ABUkLYHy5XbLWMxfM5b?=
+ =?us-ascii?Q?xbGpNibLzZYlyLe/THdQWC+MrL+NlfjTx7h4NRswDbaolnAGmo3KkVhkNffN?=
+ =?us-ascii?Q?xQ3QXt+BtatTcIQBAisLpxInIB59TOu9b8MluvMNlpwfeDECVVMQvX4U1P9Y?=
+ =?us-ascii?Q?ZH2MPbIZK+wL1tRxKINJmWtdAxSzICj7sPdVmQWCMMhgORl7VfrU6KQ2Ikr1?=
+ =?us-ascii?Q?l8m9GWSMHKBD/TatRi7sRxJMKSDfniW30aoOynVjsTPqXmSxx2yHAZHqhQM3?=
+ =?us-ascii?Q?+hIR30Gpd7gqn0eatma307rK4iR0C+xrmB4fbScaQhEN9hXH+ua/nhuc2ZkK?=
+ =?us-ascii?Q?yrvWx4Foq9l5LroAfsgBJZuuuREh0SFKo6QfGSEflsxSZxyVkO7wnr45kIG1?=
+ =?us-ascii?Q?2xFIGdGkJeXun/5b98IIqPosdfPMvRspia/KSEDKa4gLMpK6zrOiXQuTYz4E?=
+ =?us-ascii?Q?p0fEyJT1ndR0Yewv8IMBGvT8m3MT0TqHZTEOwO2pgj/cgaVVBulhXi/h1nx+?=
+ =?us-ascii?Q?Da6/YV0doV4eYl0cJ4h8zAYOJjz6YBycopoenDfDxZj3n6B4o1fch0x/ztVt?=
+ =?us-ascii?Q?Td1mrCqbk3p+u/keGxzYQewA+YaWlCwF3gI3Cfk7sa4YhFf7foaSwWxccvmc?=
+ =?us-ascii?Q?x+WQOrWrmdMoPxdQleW+14GUG+DTJpkNYueFZkbIIv0q3oTuhbZMMPId1FcF?=
+ =?us-ascii?Q?KkNQ0Nzj9t7doczcmaCPxUPbIzHCPXjpmtdx?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 15:22:23.3610
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 915b38c3-4cdc-4ff6-6f14-08dde0c68744
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D1.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4166
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_084040_446552_12C516C8 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_082239_813517_8A5A44C9 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +166,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-wait4() is deprecated, non-standard and about to be removed from nolibc.
+On Thu, Aug 21, 2025 at 10:13:04AM -0300, Jason Gunthorpe wrote:
+> On Tue, Aug 19, 2025 at 10:22:20AM -0700, Nicolin Chen wrote:
+> 
+> > Yet, I also see some other cases that cannot be helped with the
+> > type function. Just listing a few:
+> 
+> Probably several query functions are needed that can be lock safe
+>  
+> > 1) domain matching (and type)
+> > drivers/gpu/drm/tegra/drm.c:965:        if (domain && domain->type != IOMMU_DOMAIN_IDENTITY &&
+> > drivers/gpu/drm/tegra/drm.c:966:            domain != tegra->domain)
+> > drivers/gpu/drm/tegra/drm.c-967-                return 0;
+> 
+> is attached
 
-Switch to the equivalent waitpid() call.
+I should have pasted the full piece:
+drivers/gpu/drm/tegra/drm.c-960-	/*
+drivers/gpu/drm/tegra/drm.c:961:	 * If the host1x client is already attached to an IOMMU domain that is
+drivers/gpu/drm/tegra/drm.c-962-	 * not the shared IOMMU domain, don't try to attach it to a different
+drivers/gpu/drm/tegra/drm.c-963-	 * domain. This allows using the IOMMU-backed DMA API.
+drivers/gpu/drm/tegra/drm.c-964-	 */
+drivers/gpu/drm/tegra/drm.c-965-	if (domain && domain->type != IOMMU_DOMAIN_IDENTITY &&
+drivers/gpu/drm/tegra/drm.c-966-	    domain != tegra->domain)
 
-Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
----
- tools/testing/selftests/arm64/abi/tpidr2.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+So, the check is two-fold:
+1) is attached
+2) is the shared IOMMU domain (tegra->domain?)
+  
+> > 4) map/unmap
+> > drivers/net/ipa/ipa_mem.c:465:  domain = iommu_get_domain_for_dev(dev);
+> > drivers/net/ipa/ipa_mem.c-466-  if (!domain) {
+> > drivers/net/ipa/ipa_mem.c-467-          dev_err(dev, "no IOMMU domain found for IMEM\n");
+> > drivers/net/ipa/ipa_mem.c-468-          return -EINVAL;
+> > drivers/net/ipa/ipa_mem.c-469-  }
+> > drivers/net/ipa/ipa_mem.c-470-
+> > drivers/net/ipa/ipa_mem.c-471-  /* Align the address down and the size up to page boundaries */
+> > drivers/net/ipa/ipa_mem.c-472-  phys = addr & PAGE_MASK;
+> > drivers/net/ipa/ipa_mem.c-473-  size = PAGE_ALIGN(size + addr - phys);
+> > drivers/net/ipa/ipa_mem.c-474-  iova = phys;    /* We just want a direct mapping */
+> > drivers/net/ipa/ipa_mem.c-475-
+> > drivers/net/ipa/ipa_mem.c-476-  ret = iommu_map(domain, iova, phys, size, IOMMU_READ | IOMMU_WRITE,
+> > ...
+> > drivers/net/ipa/ipa_mem.c:495:  domain = iommu_get_domain_for_dev(dev);
+> > drivers/net/ipa/ipa_mem.c-496-  if (domain) {
+> > drivers/net/ipa/ipa_mem.c-497-          size_t size;
+> > drivers/net/ipa/ipa_mem.c-498-
+> > drivers/net/ipa/ipa_mem.c-499-          size = iommu_unmap(domain, ipa->imem_iova, ipa->imem_size);
+> 
+> Broken! Illegal to call iommu_map on a DMA API domain.
+> 
+> This is exactly the sort of abuse I would like to see made imposible :(
+> 
+> If it really needs something like this then it needs a proper dma api
+> interface to do it and properly reserve the iova from the allocator.
 
-diff --git a/tools/testing/selftests/arm64/abi/tpidr2.c b/tools/testing/selftests/arm64/abi/tpidr2.c
-index f58a9f89b952c42c5393b93a2db4fefe3f335e5a..3b520b7efa49e0058616c04fcdc0222bd8b03d8a 100644
---- a/tools/testing/selftests/arm64/abi/tpidr2.c
-+++ b/tools/testing/selftests/arm64/abi/tpidr2.c
-@@ -182,16 +182,16 @@ static int write_clone_read(void)
- 	}
- 
- 	for (;;) {
--		waiting = wait4(ret, &status, __WCLONE, NULL);
-+		waiting = waitpid(ret, &status, __WCLONE);
- 
- 		if (waiting < 0) {
- 			if (errno == EINTR)
- 				continue;
--			ksft_print_msg("wait4() failed: %d\n", errno);
-+			ksft_print_msg("waitpid() failed: %d\n", errno);
- 			return 0;
- 		}
- 		if (waiting != ret) {
--			ksft_print_msg("wait4() returned wrong PID %d\n",
-+			ksft_print_msg("waitpid() returned wrong PID %d\n",
- 				       waiting);
- 			return 0;
- 		}
+Yea. This particular case is forcing a direct mapping for a small
+piece of memory. So it should probably be described in the Device
+Tree v.s. the of_match_table data in the driver, so that _of core
+would allocate an IOMMU_RESV_DIRECT.
 
--- 
-2.50.1
+Overall, I feel this would be a big project yet arguably for a low
+reward..
 
+Nicolin
 
