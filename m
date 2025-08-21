@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D670CA0EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1957CA0FE0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iueolqUDLKvRCwvYIVU8AArOHe/7DRJotawGVS0PL+g=; b=Ti0FtubJ7END7B0FO8hgqzq0Fl
-	h6s9BsicOjDkRK2U/Ia947GnkcEMgeAmcXibD4bdpQnManrs5zbSJIa9aAW1dU6whEkkqJMpmtR1U
-	MOB2M2LaekRW+15thqWo12oAuhLtuR4ssrK1JkZXFHPzG+6BR7Q38rvzj/NARcA75jyASHhnlUc2R
-	9WFuWm61SOGdhZfgoI4zZGRBjmFMSS8zLwVR0A8vhFcos9Fv07aZabtQaRhF5UxJUHO/r2yKaAJ6n
-	QncUpeXjwcQHYXA8ud0DDeCKuO8lKCDcvrVaUet8+ignVcC89gk+oDRpuejAeq8II+NaXym450tjd
-	VCPjnvRw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kd0bflpJIVbIWBrwdFe7REoj653wZXP68rl1FSKTtss=; b=ANlItpzSWXTdK5yl7IXaDXkBM0
+	XEeH9pxxeqgqClTFjlJe8Bw3bRt1sLsHSNcoFJI9MvjB9ZHlphfJR6lRFX+90H1dLU1pA/xTkcVlq
+	OHOwNFx72RwNlxU58kL2ATjwFKiIGDCJG5QgXM16fwAW15PZfm/KxjDmMMvN3fpOL5u30ubSSfKdU
+	dDnojWj6+NPU93Vs5EStKCFQOtSQz7cZJ2ZCAz2r8Ran9fW1rnG174WUn4P6LVMGeyBMP5VYXVGxX
+	gZGeCUEngJqRuVgjjSHcS8OalCyrG8zQ/BZi5icTnMZZgGG9RAMLAMRqRW7c6qkDT/ORuD8owqmS6
+	nFQUW3rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7j-0000000FdjA-0dEm;
+	id 1uow7j-0000000Fdkf-3xny;
 	Thu, 21 Aug 2025 03:37:59 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uotR2-0000000FKSZ-1HQK
+	id 1uotR3-0000000FKU9-3mR8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 00:45:45 +0000
+	Thu, 21 Aug 2025 00:45:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A454212FC;
-	Wed, 20 Aug 2025 17:45:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282002437;
+	Wed, 20 Aug 2025 17:45:37 -0700 (PDT)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEA5B3F63F;
-	Wed, 20 Aug 2025 17:45:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 681993F63F;
+	Wed, 20 Aug 2025 17:45:43 -0700 (PDT)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -46,15 +46,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [RFC PATCH 0/9] pinctrl: sunxi: Allwinner A733 support
-Date: Thu, 21 Aug 2025 01:42:23 +0100
-Message-ID: <20250821004232.8134-1-andre.przywara@arm.com>
+Subject: [RFC PATCH 2/9] pinctrl: sunxi: pass down flags to pinctrl routines
+Date: Thu, 21 Aug 2025 01:42:25 +0100
+Message-ID: <20250821004232.8134-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
+In-Reply-To: <20250821004232.8134-1-andre.przywara@arm.com>
+References: <20250821004232.8134-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_174544_429176_2733EF0E 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20250820_174546_032538_C2022634 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,75 +71,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the pinctrl and GPIO IP in the new
-Allwinner A733 SoC.
-With all our abstractions and data structure driven code, life could
-have been so easy, but Allwinner decided to change the layout of the
-MMIO register frame, which requires all kinds of special handling and
-code changes here and there. Hopefully this new layout (which admittedly
-looks more future proof) will stay around for a while, but I am not
-holding my breath on this.
+Recent changes in the Allwinner pinctrl/GPIO IP made us add some quirks,
+which the new SoCs (A523 family) need to use. We now have a comfortable
+"flags" field on the per-SoC setup side, to tag those quirks we need, but
+were translating those flag bits into specific fields for runtime use, in
+the init routine.
+Now the newest Allwinner GPIO IP adds even more quirks and exceptions,
+some of a boolean nature.
+To avoid inventing various new boolean flags for the runtime struct
+sunxi_pinctrl, let's just directly pass on the flags variable used by the
+setup code, so runtime can check for those various quirk bits directly.
 
-In summary, the changes are:
-- Each GPIO bank now occupies 128 bytes instead of just 36 or 48.
-- PortA (not implemented on the A733) starts at offset 0x80, not at 0.
-- The non-bank specific registers are moved into this gap at the
-  beginning.
-- There are two new registers per bank, to set or clear bits in the GPIO
-  data register, to allow for single-write, lockless GPIO settings.
-- The drive level register is moved (to make room for the set/clr regs).
-- The IRQ registers are moved into the now bigger respective bank control
-  registers part, instead of being grouped separately, as before.
+Rename the "variant" member to "flags", and directly copy the value from
+the setup code into there. Move the variant masking from the init
+routine to the functions which actually use the "variant" value.
 
-The series follows the usual pattern of refactoring first, to prepare
-for the new MMIO frame layout (patches 1-4), then using the changed code
-to enable support for this new generation, in patch 5/9.
-Patch 6/9 adds support for the one new feature of this SoC's pinctrl IP,
-the lockless GPIO settings feature.
-Patch 7/9 adds the new DT bindings, patch 8/9 enables the secondary
-controller, which curiously is not using the new layout, but looks very
-similar to the secondary A523 pin controller.
-The final patch 9/9 then adds the driver stub file, which just describes
-the GPIO bank configuration and lists the two quirk bits that engage the
-code changes added for the new layout.
+This mostly paves the way for the new A733 IP generation, which needs
+more quirks to be checked at runtime.
 
-Based on v6.17-rc1.
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 19 +++++++++++--------
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h |  2 +-
+ 2 files changed, 12 insertions(+), 9 deletions(-)
 
-I am marking this as RFC, as I don't have suitable hardware for testing.
-Also I am not 100% convinced the IRQ number to pin mapping, as needed by
-the new IRQ register location, works correctly.
-Please have a look, check whether the changes look sane, and test it if
-you have access to hardware.
-
-A branch (together with the AXP318W PMIC code) is available at:
-https://github.com/apritzel/linux/commits/a733-rfc
-
-Cheers,
-Andre
-
-Andre Przywara (9):
-  pinctrl: sunxi: rename SUNXI_PINCTRL_NEW_REG_LAYOUT
-  pinctrl: sunxi: pass down flags to pinctrl routines
-  pinctrl: sunxi: only use PortK special handling on A523
-  pinctrl: sunxi: refactor IRQ register accessors
-  pinctrl: sunxi: support A733 generation MMIO register layout
-  pinctrl: sunxi: add support for set/clear regs
-  dt-bindings: pinctrl: add compatible for Allwinner A733
-  pinctrl: sunxi: a523-r: add a733-r compatible string
-  pinctrl: sunxi: Add support for the Allwinner A733
-
- .../allwinner,sun55i-a523-pinctrl.yaml        |  6 +-
- drivers/pinctrl/sunxi/Kconfig                 |  5 ++
- drivers/pinctrl/sunxi/Makefile                |  1 +
- drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     |  2 +-
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  3 +-
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  2 +-
- drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c   | 51 +++++++++++
- drivers/pinctrl/sunxi/pinctrl-sunxi.c         | 85 +++++++++++--------
- drivers/pinctrl/sunxi/pinctrl-sunxi.h         | 76 +++++++++++------
- 9 files changed, 169 insertions(+), 62 deletions(-)
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun60i-a733.c
-
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 0a5acbd978da9..a5e390c7ba0ba 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -157,6 +157,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
+ 					 const char *pin_name,
+ 					 const char *func_name)
+ {
++	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
+ 	int i;
+ 
+ 	for (i = 0; i < pctl->desc->npins; i++) {
+@@ -168,7 +169,7 @@ sunxi_pinctrl_desc_find_function_by_name(struct sunxi_pinctrl *pctl,
+ 			while (func->name) {
+ 				if (!strcmp(func->name, func_name) &&
+ 					(!func->variant ||
+-					func->variant & pctl->variant))
++					func->variant & variant))
+ 					return func;
+ 
+ 				func++;
+@@ -1288,6 +1289,7 @@ static int sunxi_pinctrl_add_function(struct sunxi_pinctrl *pctl,
+ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
+ {
+ 	struct sunxi_pinctrl *pctl = platform_get_drvdata(pdev);
++	unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
+ 	void *ptr;
+ 	int i;
+ 
+@@ -1312,7 +1314,7 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
+ 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
+ 		struct sunxi_pinctrl_group *group = pctl->groups + pctl->ngroups;
+ 
+-		if (pin->variant && !(pctl->variant & pin->variant))
++		if (pin->variant && !(variant & pin->variant))
+ 			continue;
+ 
+ 		group->name = pin->pin.name;
+@@ -1339,11 +1341,11 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
+ 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
+ 		struct sunxi_desc_function *func;
+ 
+-		if (pin->variant && !(pctl->variant & pin->variant))
++		if (pin->variant && !(variant & pin->variant))
+ 			continue;
+ 
+ 		for (func = pin->functions; func->name; func++) {
+-			if (func->variant && !(pctl->variant & func->variant))
++			if (func->variant && !(variant & func->variant))
+ 				continue;
+ 
+ 			/* Create interrupt mapping while we're at it */
+@@ -1371,14 +1373,14 @@ static int sunxi_pinctrl_build_state(struct platform_device *pdev)
+ 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
+ 		struct sunxi_desc_function *func;
+ 
+-		if (pin->variant && !(pctl->variant & pin->variant))
++		if (pin->variant && !(variant & pin->variant))
+ 			continue;
+ 
+ 		for (func = pin->functions; func->name; func++) {
+ 			struct sunxi_pinctrl_function *func_item;
+ 			const char **func_grp;
+ 
+-			if (func->variant && !(pctl->variant & func->variant))
++			if (func->variant && !(variant & func->variant))
+ 				continue;
+ 
+ 			func_item = sunxi_pinctrl_find_function_by_name(pctl,
+@@ -1520,7 +1522,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 
+ 	pctl->dev = &pdev->dev;
+ 	pctl->desc = desc;
+-	pctl->variant = flags & SUNXI_PINCTRL_VARIANT_MASK;
++	pctl->flags = flags;
+ 	if (flags & SUNXI_PINCTRL_NCAT2_REG_LAYOUT) {
+ 		pctl->bank_mem_size = D1_BANK_MEM_SIZE;
+ 		pctl->pull_regs_offset = D1_PULL_REGS_OFFSET;
+@@ -1556,8 +1558,9 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 
+ 	for (i = 0, pin_idx = 0; i < pctl->desc->npins; i++) {
+ 		const struct sunxi_desc_pin *pin = pctl->desc->pins + i;
++		unsigned long variant = pctl->flags & SUNXI_PINCTRL_VARIANT_MASK;
+ 
+-		if (pin->variant && !(pctl->variant & pin->variant))
++		if (pin->variant && !(variant & pin->variant))
+ 			continue;
+ 
+ 		pins[pin_idx++] = pin->pin;
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index fb17fae2dab69..77a08ccde095a 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -174,7 +174,7 @@ struct sunxi_pinctrl {
+ 	unsigned			*irq_array;
+ 	raw_spinlock_t			lock;
+ 	struct pinctrl_dev		*pctl_dev;
+-	unsigned long			variant;
++	unsigned long			flags;
+ 	u32				bank_mem_size;
+ 	u32				pull_regs_offset;
+ 	u32				dlevel_field_width;
 -- 
 2.46.3
 
