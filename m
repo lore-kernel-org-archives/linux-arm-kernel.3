@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A26CCA0FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A594CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeRV0fCZInpvBFeIqpbtu5LsqQSf6syUhTop8jBWx7k=; b=x37op1hQNH1N7Tn/ThbeewGImL
-	nCYEN8wRavkpzVMuw2Dk2R4ECFx0hFlMTC9+haxK+3XTHNLJhKRSSZu1e1Ps40EJmTQ5ymGoBEEOH
-	f9X7yOdKwnUpIQXkixDG2YH1KtIEVMgOkWLty9RctEcATTJ5kV8ZjMds1rsoKIkTy6jF8zyTHVU7B
-	zbnvENEkUqlX+WVEQBnq78PDpmfHv4sBAttm/N7PkuDZH7L5h4Za2j3UChWaAMf7PpPJPjuYNzJ52
-	+HFaDaOEJffVqluH20WgNd3sCOgCIyCSjYRb7W1Sy3dVOhG/6I0VzEJo2Cg6cmR1XH9Y6BhspLYYa
-	mk1e661g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AM4OD0ojCKLvzb+DXvzlpUY/czMzSAO9Cd4n+tCoqhQ=; b=ZPGK8OLQqpv5ptZBmqGSbZrbZp
+	ziLSftSJIIK7IEuMXkF1aURhH8Bf/ypROBJ+32I0mekEguZ8nnSj5YIivr0A0yYCnrruE7i9SRXvV
+	IMKrGXUmNYOTvlNPvfCTWrmMHO0PVUI7EiUXlAMjpY6BOIB+R0i6xO8Hc/ZqC6mRBobCGpYqxO4ng
+	rdWXa16gUY0ANU5/XDuoptHltV5VLQTOGoKs1L69TwDW/Y03NiOQHbV49xrArHrL9ruCDdsV4S7na
+	ge4a8s3fJSrrQCZ2v/i4nRPQ3lS3MUtvvnsY9+aqaEmB/bniG6xVDqCHvFLm4o2ex6o3yL5I0VtnX
+	eI2JabpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8a3-0000000Hb3a-1HE8;
-	Thu, 21 Aug 2025 16:56:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4lO-0000000Gxac-0qim
+	id 1up8ce-000000000dX-2yJR;
+	Thu, 21 Aug 2025 16:58:44 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up50m-0000000GzgE-0aIf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 12:51:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83DDB152B;
-	Thu, 21 Aug 2025 05:51:19 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59AD33F63F;
-	Thu, 21 Aug 2025 05:51:27 -0700 (PDT)
-Date: Thu, 21 Aug 2025 13:51:25 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Levi Yun <yeoreum.yun@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>
-Subject: Re: [PATCH v2 02/28] coresight: etm4x: Always set tracer's device
- mode on target CPU
-Message-ID: <20250821125125.GA745921@e132581.arm.com>
-References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
- <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
- <751030d7-444e-46e6-b56f-0b72206969fc@linaro.org>
+	Thu, 21 Aug 2025 13:07:26 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LB4tWm012904;
+	Thu, 21 Aug 2025 15:07:10 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=AM4OD0ojCKLvzb+DXvzlpU
+	Y/czMzSAO9Cd4n+tCoqhQ=; b=5ly2KWTKMaKRWNgLT6m8yXRZyFFSx7vU5TD0dg
+	fF5FPBmVuLsMwxluolw4cpKShapA57n+LhkOxFXBjeQepE9+bWDy7JAF5IzspHRz
+	/FlIOi5iEPWBE7V5hvt3rsktheKawHTbUHOM+RfQ5ZSRCsSoAL2n5qluaT7YvRQL
+	zhh8X2s/4OUs6bYU4kmxgOVDvScNY/0Bz/400Ay5Ua009Qpf3oHseQxCtTeENBGj
+	SC9ePnpN3xz/5MSDtfZ20fdkg2A05hD/gjW9HvWVle2ZGXXggzcEE+ajws1iOYOG
+	RLAZq3F5c2iWIwKCv4nCzbjhluZV85N7naAHQat3LwaTsV5w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n35mn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 21 Aug 2025 15:07:10 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9FE664002D;
+	Thu, 21 Aug 2025 15:06:05 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4631F7559D2;
+	Thu, 21 Aug 2025 15:05:32 +0200 (CEST)
+Received: from localhost (10.252.7.99) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
+ 2025 15:05:31 +0200
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+To: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] drm/stm: ltdc: unify log system
+Date: Thu, 21 Aug 2025 15:03:56 +0200
+Message-ID: <20250821130356.883553-1-raphael.gallais-pou@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <751030d7-444e-46e6-b56f-0b72206969fc@linaro.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.252.7.99]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-21_03,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_055130_319262_F294FC23 
+X-CRM114-CacheID: sfid-20250821_060724_451629_132F7DE6 
 X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,67 +97,475 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 10:45:10AM +0100, James Clark wrote:
+DRM_ERROR and similar are deprecated.  Use drm_dev based logging.
 
-[...]
+Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+---
+ drivers/gpu/drm/stm/ltdc.c | 135 +++++++++++++++++++------------------
+ 1 file changed, 68 insertions(+), 67 deletions(-)
 
-> > The flow is updated with this change:
-> > 
-> >   CPU0                                    CPU1
-> >   etm4_enable()
-> >    ` etm4_enable_sysfs()
-> >       ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
-> >                                            ` coresight_take_mode(SYSFS)
-> > 	                                    Failed, set back to DISABLED
-> >                                            ` coresight_set_mode(DISABLED)
-> > 
-> >                                            CPU idle:
-> >                                            etm4_cpu_save()
-> >                                             ` coresight_get_mode()
-> >                                                ^^^
-> >                                                Read out the DISABLED mode
-> 
-> There's no lock though, so can't it do this:
-> 
->  CPU0                                    CPU1
->  etm4_enable()
->    ` etm4_enable_sysfs()
->       ` smp_call_function_single() --->  etm4_enable_hw_smp_call()
->                                              `coresight_take_mode(SYSFS)
-> 
->                                          CPU idle:
->                                          etm4_cpu_save()
->                                            ` coresight_get_mode()
->                                           ^^ Intermediate SYSFS mode
+diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+index ba315c66a04d..6c93e19d241e 100644
+--- a/drivers/gpu/drm/stm/ltdc.c
++++ b/drivers/gpu/drm/stm/ltdc.c
+@@ -641,7 +641,7 @@ static inline void ltdc_set_ycbcr_config(struct drm_plane *plane, u32 drm_pix_fm
+ 		break;
+ 	default:
+ 		/* RGB or not a YCbCr supported format */
+-		DRM_ERROR("Unsupported pixel format: %u\n", drm_pix_fmt);
++		drm_err(plane->dev, "Unsupported pixel format: %u\n", drm_pix_fmt);
+ 		return;
+ 	}
+ 
+@@ -664,18 +664,19 @@ static inline void ltdc_set_ycbcr_coeffs(struct drm_plane *plane)
+ 	u32 lofs = plane->index * LAY_OFS;
+ 
+ 	if (enc != DRM_COLOR_YCBCR_BT601 && enc != DRM_COLOR_YCBCR_BT709) {
+-		DRM_ERROR("color encoding %d not supported, use bt601 by default\n", enc);
++		drm_err(plane->dev, "color encoding %d not supported, use bt601 by default\n", enc);
+ 		/* set by default color encoding to DRM_COLOR_YCBCR_BT601 */
+ 		enc = DRM_COLOR_YCBCR_BT601;
+ 	}
+ 
+ 	if (ran != DRM_COLOR_YCBCR_LIMITED_RANGE && ran != DRM_COLOR_YCBCR_FULL_RANGE) {
+-		DRM_ERROR("color range %d not supported, use limited range by default\n", ran);
++		drm_err(plane->dev,
++			"color range %d not supported, use limited range by default\n", ran);
+ 		/* set by default color range to DRM_COLOR_YCBCR_LIMITED_RANGE */
+ 		ran = DRM_COLOR_YCBCR_LIMITED_RANGE;
+ 	}
+ 
+-	DRM_DEBUG_DRIVER("Color encoding=%d, range=%d\n", enc, ran);
++	drm_err(plane->dev, "Color encoding=%d, range=%d\n", enc, ran);
+ 	regmap_write(ldev->regmap, LTDC_L1CYR0R + lofs,
+ 		     ltdc_ycbcr2rgb_coeffs[enc][ran][0]);
+ 	regmap_write(ldev->regmap, LTDC_L1CYR1R + lofs,
+@@ -774,7 +775,7 @@ static void ltdc_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+ 	struct drm_device *ddev = crtc->dev;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 
+ 	pm_runtime_get_sync(ddev->dev);
+ 
+@@ -798,7 +799,7 @@ static void ltdc_crtc_atomic_disable(struct drm_crtc *crtc,
+ 	struct drm_device *ddev = crtc->dev;
+ 	int layer_index = 0;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 
+ 	drm_crtc_vblank_off(crtc);
+ 
+@@ -837,7 +838,7 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
+ 
+ 	result = clk_round_rate(ldev->pixel_clk, target);
+ 
+-	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
++	drm_dbg_driver(crtc->dev, "clk rate target %d, available %d\n", target, result);
+ 
+ 	/* Filter modes according to the max frequency supported by the pads */
+ 	if (result > ldev->caps.pad_max_freq_hz)
+@@ -872,14 +873,14 @@ static bool ltdc_crtc_mode_fixup(struct drm_crtc *crtc,
+ 	int rate = mode->clock * 1000;
+ 
+ 	if (clk_set_rate(ldev->pixel_clk, rate) < 0) {
+-		DRM_ERROR("Cannot set rate (%dHz) for pixel clk\n", rate);
++		drm_err(crtc->dev, "Cannot set rate (%dHz) for pixel clk\n", rate);
+ 		return false;
+ 	}
+ 
+ 	adjusted_mode->clock = clk_get_rate(ldev->pixel_clk) / 1000;
+ 
+-	DRM_DEBUG_DRIVER("requested clock %dkHz, adjusted clock %dkHz\n",
+-			 mode->clock, adjusted_mode->clock);
++	drm_dbg_driver(crtc->dev, "requested clock %dkHz, adjusted clock %dkHz\n",
++		       mode->clock, adjusted_mode->clock);
+ 
+ 	return true;
+ }
+@@ -934,20 +935,20 @@ static void ltdc_crtc_mode_set_nofb(struct drm_crtc *crtc)
+ 	if (!pm_runtime_active(ddev->dev)) {
+ 		ret = pm_runtime_get_sync(ddev->dev);
+ 		if (ret) {
+-			DRM_ERROR("Failed to set mode, cannot get sync\n");
++			drm_err(crtc->dev, "Failed to set mode, cannot get sync\n");
+ 			return;
+ 		}
+ 	}
+ 
+-	DRM_DEBUG_DRIVER("CRTC:%d mode:%s\n", crtc->base.id, mode->name);
+-	DRM_DEBUG_DRIVER("Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
+-	DRM_DEBUG_DRIVER(" hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
+-			 mode->hsync_start - mode->hdisplay,
+-			 mode->htotal - mode->hsync_end,
+-			 mode->hsync_end - mode->hsync_start,
+-			 mode->vsync_start - mode->vdisplay,
+-			 mode->vtotal - mode->vsync_end,
+-			 mode->vsync_end - mode->vsync_start);
++	drm_dbg_driver(crtc->dev, "CRTC:%d mode:%s\n", crtc->base.id, mode->name);
++	drm_dbg_driver(crtc->dev, "Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
++	drm_dbg_driver(crtc->dev, " hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
++		       mode->hsync_start - mode->hdisplay,
++		       mode->htotal - mode->hsync_end,
++		       mode->hsync_end - mode->hsync_start,
++		       mode->vsync_start - mode->vdisplay,
++		       mode->vtotal - mode->vsync_end,
++		       mode->vsync_end - mode->vsync_start);
+ 
+ 	/* Convert video timings to ltdc timings */
+ 	hsync = mode->hsync_end - mode->hsync_start - 1;
+@@ -1033,7 +1034,7 @@ static void ltdc_crtc_atomic_flush(struct drm_crtc *crtc,
+ 	struct drm_device *ddev = crtc->dev;
+ 	struct drm_pending_vblank_event *event = crtc->state->event;
+ 
+-	DRM_DEBUG_ATOMIC("\n");
++	drm_dbg_atomic(crtc->dev, "\n");
+ 
+ 	ltdc_crtc_update_clut(crtc);
+ 
+@@ -1121,7 +1122,7 @@ static int ltdc_crtc_enable_vblank(struct drm_crtc *crtc)
+ 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+ 	struct drm_crtc_state *state = crtc->state;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 
+ 	if (state->enable)
+ 		regmap_set_bits(ldev->regmap, LTDC_IER, IER_LIE);
+@@ -1135,7 +1136,7 @@ static void ltdc_crtc_disable_vblank(struct drm_crtc *crtc)
+ {
+ 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_LIE);
+ }
+ 
+@@ -1144,7 +1145,7 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
+ 	struct ltdc_device *ldev;
+ 	int ret;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 
+ 	if (!crtc)
+ 		return -ENODEV;
+@@ -1168,14 +1169,14 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
+ static int ltdc_crtc_verify_crc_source(struct drm_crtc *crtc,
+ 				       const char *source, size_t *values_cnt)
+ {
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(crtc->dev, "\n");
+ 
+ 	if (!crtc)
+ 		return -ENODEV;
+ 
+ 	if (source && strcmp(source, "auto") != 0) {
+-		DRM_DEBUG_DRIVER("Unknown CRC source %s for %s\n",
+-				 source, crtc->name);
++		drm_dbg_driver(crtc->dev, "Unknown CRC source %s for %s\n",
++			       source, crtc->name);
+ 		return -EINVAL;
+ 	}
+ 
+@@ -1233,7 +1234,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
+ 	struct drm_framebuffer *fb = new_plane_state->fb;
+ 	u32 src_w, src_h;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(plane->dev, "\n");
+ 
+ 	if (!fb)
+ 		return 0;
+@@ -1244,7 +1245,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
+ 
+ 	/* Reject scaling */
+ 	if (src_w != new_plane_state->crtc_w || src_h != new_plane_state->crtc_h) {
+-		DRM_DEBUG_DRIVER("Scaling is not supported");
++		drm_dbg_driver(plane->dev, "Scaling is not supported");
+ 
+ 		return -EINVAL;
+ 	}
+@@ -1270,7 +1271,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+ 	enum ltdc_pix_fmt pf;
+ 
+ 	if (!newstate->crtc || !fb) {
+-		DRM_DEBUG_DRIVER("fb or crtc NULL");
++		drm_dbg_driver(plane->dev, "fb or crtc NULL");
+ 		return;
+ 	}
+ 
+@@ -1280,11 +1281,11 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+ 	src_w = newstate->src_w >> 16;
+ 	src_h = newstate->src_h >> 16;
+ 
+-	DRM_DEBUG_DRIVER("plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
+-			 plane->base.id, fb->base.id,
+-			 src_w, src_h, src_x, src_y,
+-			 newstate->crtc_w, newstate->crtc_h,
+-			 newstate->crtc_x, newstate->crtc_y);
++	drm_dbg_driver(plane->dev, "plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
++		       plane->base.id, fb->base.id,
++		       src_w, src_h, src_x, src_y,
++		       newstate->crtc_w, newstate->crtc_h,
++		       newstate->crtc_x, newstate->crtc_y);
+ 
+ 	regmap_read(ldev->regmap, LTDC_BPCR, &bpcr);
+ 
+@@ -1312,8 +1313,8 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+ 		val = ltdc_set_flexible_pixel_format(plane, pf);
+ 
+ 	if (val == NB_PF) {
+-		DRM_ERROR("Pixel format %.4s not supported\n",
+-			  (char *)&fb->format->format);
++		drm_err(fb->dev, "Pixel format %.4s not supported\n",
++			(char *)&fb->format->format);
+ 		val = 0;	/* set by default ARGB 32 bits */
+ 	}
+ 	regmap_write_bits(ldev->regmap, LTDC_L1PFCR + lofs, LXPFCR_PF, val);
+@@ -1350,7 +1351,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
+ 	if (newstate->rotation & DRM_MODE_REFLECT_Y)
+ 		paddr += (fb->pitches[0] * (y1 - y0));
+ 
+-	DRM_DEBUG_DRIVER("fb: phys 0x%08x", paddr);
++	drm_dbg_driver(fb->dev, "fb: phys 0x%08x", paddr);
+ 	regmap_write(ldev->regmap, LTDC_L1CFBAR + lofs, paddr);
+ 
+ 	/* Configures the color frame buffer pitch in bytes & line length */
+@@ -1517,8 +1518,8 @@ static void ltdc_plane_atomic_disable(struct drm_plane *plane,
+ 		regmap_write_bits(ldev->regmap, LTDC_L1RCR + lofs,
+ 				  LXRCR_IMR | LXRCR_VBR | LXRCR_GRMSK, LXRCR_VBR);
+ 
+-	DRM_DEBUG_DRIVER("CRTC:%d plane:%d\n",
+-			 oldstate->crtc->base.id, plane->base.id);
++	drm_dbg_driver(plane->dev, "CRTC:%d plane:%d\n",
++		       oldstate->crtc->base.id, plane->base.id);
+ }
+ 
+ static void ltdc_plane_atomic_print_state(struct drm_printer *p,
+@@ -1632,7 +1633,7 @@ static struct drm_plane *ltdc_plane_create(struct drm_device *ddev,
+ 
+ 	drm_plane_create_alpha_property(plane);
+ 
+-	DRM_DEBUG_DRIVER("plane:%d created\n", plane->base.id);
++	drm_dbg_driver(plane->dev, "plane:%d created\n", plane->base.id);
+ 
+ 	return plane;
+ }
+@@ -1647,7 +1648,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+ 
+ 	primary = ltdc_plane_create(ddev, DRM_PLANE_TYPE_PRIMARY, 0);
+ 	if (!primary) {
+-		DRM_ERROR("Can not create primary plane\n");
++		drm_err(ddev, "Can not create primary plane\n");
+ 		return -EINVAL;
+ 	}
+ 
+@@ -1668,7 +1669,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+ 		ret = drmm_crtc_init_with_planes(ddev, crtc, primary, NULL,
+ 						 &ltdc_crtc_funcs, NULL);
+ 	if (ret) {
+-		DRM_ERROR("Can not initialize CRTC\n");
++		drm_err(ddev, "Can not initialize CRTC\n");
+ 		return ret;
+ 	}
+ 
+@@ -1677,13 +1678,13 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
+ 	drm_mode_crtc_set_gamma_size(crtc, CLUT_SIZE);
+ 	drm_crtc_enable_color_mgmt(crtc, 0, false, CLUT_SIZE);
+ 
+-	DRM_DEBUG_DRIVER("CRTC:%d created\n", crtc->base.id);
++	drm_dbg_driver(ddev, "CRTC:%d created\n", crtc->base.id);
+ 
+ 	/* Add planes. Note : the first layer is used by primary plane */
+ 	for (i = 1; i < ldev->caps.nb_layers; i++) {
+ 		overlay = ltdc_plane_create(ddev, DRM_PLANE_TYPE_OVERLAY, i);
+ 		if (!overlay) {
+-			DRM_ERROR("Can not create overlay plane %d\n", i);
++			drm_err(ddev, "Can not create overlay plane %d\n", i);
+ 			return -ENOMEM;
+ 		}
+ 		if (ldev->caps.dynamic_zorder)
+@@ -1704,7 +1705,7 @@ static void ltdc_encoder_disable(struct drm_encoder *encoder)
+ 	struct drm_device *ddev = encoder->dev;
+ 	struct ltdc_device *ldev = ddev->dev_private;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(encoder->dev, "\n");
+ 
+ 	/* Disable LTDC */
+ 	regmap_clear_bits(ldev->regmap, LTDC_GCR, GCR_LTDCEN);
+@@ -1718,7 +1719,7 @@ static void ltdc_encoder_enable(struct drm_encoder *encoder)
+ 	struct drm_device *ddev = encoder->dev;
+ 	struct ltdc_device *ldev = ddev->dev_private;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(encoder->dev, "\n");
+ 
+ 	/* set fifo underrun threshold register */
+ 	if (ldev->caps.fifo_threshold)
+@@ -1734,7 +1735,7 @@ static void ltdc_encoder_mode_set(struct drm_encoder *encoder,
+ {
+ 	struct drm_device *ddev = encoder->dev;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(encoder->dev, "\n");
+ 
+ 	/*
+ 	 * Set to default state the pinctrl only with DPI type.
+@@ -1770,7 +1771,7 @@ static int ltdc_encoder_init(struct drm_device *ddev, struct drm_bridge *bridge)
+ 	if (ret)
+ 		return ret;
+ 
+-	DRM_DEBUG_DRIVER("Bridge encoder:%d created\n", encoder->base.id);
++	drm_dbg_driver(encoder->dev, "Bridge encoder:%d created\n", encoder->base.id);
+ 
+ 	return 0;
+ }
+@@ -1870,7 +1871,7 @@ void ltdc_suspend(struct drm_device *ddev)
+ {
+ 	struct ltdc_device *ldev = ddev->dev_private;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(ddev, "\n");
+ 	clk_disable_unprepare(ldev->pixel_clk);
+ }
+ 
+@@ -1879,11 +1880,11 @@ int ltdc_resume(struct drm_device *ddev)
+ 	struct ltdc_device *ldev = ddev->dev_private;
+ 	int ret;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(ddev, "\n");
+ 
+ 	ret = clk_prepare_enable(ldev->pixel_clk);
+ 	if (ret) {
+-		DRM_ERROR("failed to enable pixel clock (%d)\n", ret);
++		drm_err(ddev, "failed to enable pixel clock (%d)\n", ret);
+ 		return ret;
+ 	}
+ 
+@@ -1903,7 +1904,7 @@ int ltdc_load(struct drm_device *ddev)
+ 	int irq, i, nb_endpoints;
+ 	int ret = -ENODEV;
+ 
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(ddev, "\n");
+ 
+ 	/* Get number of endpoints */
+ 	nb_endpoints = of_graph_get_endpoint_count(np);
+@@ -1913,12 +1914,12 @@ int ltdc_load(struct drm_device *ddev)
+ 	ldev->pixel_clk = devm_clk_get(dev, "lcd");
+ 	if (IS_ERR(ldev->pixel_clk)) {
+ 		if (PTR_ERR(ldev->pixel_clk) != -EPROBE_DEFER)
+-			DRM_ERROR("Unable to get lcd clock\n");
++			drm_err(ddev, "Unable to get lcd clock\n");
+ 		return PTR_ERR(ldev->pixel_clk);
+ 	}
+ 
+ 	if (clk_prepare_enable(ldev->pixel_clk)) {
+-		DRM_ERROR("Unable to prepare pixel clock\n");
++		drm_err(ddev, "Unable to prepare pixel clock\n");
+ 		return -ENODEV;
+ 	}
+ 
+@@ -1939,7 +1940,7 @@ int ltdc_load(struct drm_device *ddev)
+ 		if (panel) {
+ 			bridge = drmm_panel_bridge_add(ddev, panel);
+ 			if (IS_ERR(bridge)) {
+-				DRM_ERROR("panel-bridge endpoint %d\n", i);
++				drm_err(ddev, "panel-bridge endpoint %d\n", i);
+ 				ret = PTR_ERR(bridge);
+ 				goto err;
+ 			}
+@@ -1949,7 +1950,7 @@ int ltdc_load(struct drm_device *ddev)
+ 			ret = ltdc_encoder_init(ddev, bridge);
+ 			if (ret) {
+ 				if (ret != -EPROBE_DEFER)
+-					DRM_ERROR("init encoder endpoint %d\n", i);
++					drm_err(ddev, "init encoder endpoint %d\n", i);
+ 				goto err;
+ 			}
+ 		}
+@@ -1967,29 +1968,29 @@ int ltdc_load(struct drm_device *ddev)
+ 
+ 	ldev->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(ldev->regs)) {
+-		DRM_ERROR("Unable to get ltdc registers\n");
++		drm_err(ddev, "Unable to get ltdc registers\n");
+ 		ret = PTR_ERR(ldev->regs);
+ 		goto err;
+ 	}
+ 
+ 	ldev->regmap = devm_regmap_init_mmio(&pdev->dev, ldev->regs, &stm32_ltdc_regmap_cfg);
+ 	if (IS_ERR(ldev->regmap)) {
+-		DRM_ERROR("Unable to regmap ltdc registers\n");
++		drm_err(ddev, "Unable to regmap ltdc registers\n");
+ 		ret = PTR_ERR(ldev->regmap);
+ 		goto err;
+ 	}
+ 
+ 	ret = ltdc_get_caps(ddev);
+ 	if (ret) {
+-		DRM_ERROR("hardware identifier (0x%08x) not supported!\n",
+-			  ldev->caps.hw_version);
++		drm_err(ddev, "hardware identifier (0x%08x) not supported!\n",
++			ldev->caps.hw_version);
+ 		goto err;
+ 	}
+ 
+ 	/* Disable all interrupts */
+ 	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_MASK);
+ 
+-	DRM_DEBUG_DRIVER("ltdc hw version 0x%08x\n", ldev->caps.hw_version);
++	drm_dbg_driver(ddev, "ltdc hw version 0x%08x\n", ldev->caps.hw_version);
+ 
+ 	/* initialize default value for fifo underrun threshold & clear interrupt error counters */
+ 	ldev->transfer_err = 0;
+@@ -2008,27 +2009,27 @@ int ltdc_load(struct drm_device *ddev)
+ 						ltdc_irq_thread, IRQF_ONESHOT,
+ 						dev_name(dev), ddev);
+ 		if (ret) {
+-			DRM_ERROR("Failed to register LTDC interrupt\n");
++			drm_err(ddev, "Failed to register LTDC interrupt\n");
+ 			goto err;
+ 		}
+ 	}
+ 
+ 	crtc = drmm_kzalloc(ddev, sizeof(*crtc), GFP_KERNEL);
+ 	if (!crtc) {
+-		DRM_ERROR("Failed to allocate crtc\n");
++		drm_err(ddev, "Failed to allocate crtc\n");
+ 		ret = -ENOMEM;
+ 		goto err;
+ 	}
+ 
+ 	ret = ltdc_crtc_init(ddev, crtc);
+ 	if (ret) {
+-		DRM_ERROR("Failed to init crtc\n");
++		drm_err(ddev, "Failed to init crtc\n");
+ 		goto err;
+ 	}
+ 
+ 	ret = drm_vblank_init(ddev, NB_CRTC);
+ 	if (ret) {
+-		DRM_ERROR("Failed calling drm_vblank_init()\n");
++		drm_err(ddev, "Failed calling drm_vblank_init()\n");
+ 		goto err;
+ 	}
+ 
+@@ -2047,7 +2048,7 @@ int ltdc_load(struct drm_device *ddev)
+ 
+ void ltdc_unload(struct drm_device *ddev)
+ {
+-	DRM_DEBUG_DRIVER("\n");
++	drm_dbg_driver(ddev, "\n");
+ 
+ 	pm_runtime_disable(ddev->dev);
+ }
+-- 
+2.25.1
 
-No.
-
-The point is a target CPU will execute etm4_enable_hw_smp_call() and CPU
-idle flow sequentially. It is no chance for the idle flow to preempt the
-ETM flow. This is why using the target CPU to set the ETM state machine
-will dismiss the race condition.
-
-> This is why I was voting for changing the compare and swap mode stuff to
-> spinlocks so we can be sure it's correct. The lock shouldn't be released
-> until the mode is at its final value.
-
-The question is a spinlock usage. If both initiate CPUs and target CPU
-try to acquire the spinlock, the low level's CPU idle flow
-(etm4_cpu_save() / etm4_cpu_restore()) needs to wait for high level's
-SysFS operation to complete - which is what we try to avoid.
-
-If we move the state machine on the target CPU - the operation and its
-state transition on the same CPU so that dismiss a race condition. And
-the idle flow is sequential to the ETM enabling/disabling, then, we can
-achieve lockless approach.
-
-A global picture is ETM's state is used in multiple places (Sysfs knobs,
-ETM enabling / disabling, CPU idle and hotplug flow), if we start to use
-spinlock for exclusively access the statch machine, then everywhere will
-use it. This is why this series wants to do reliable state transition
-based on appropriate atomic APIs (it also can promise atomicity and
-ordering but lockless).
-
-Thanks,
-Leo
 
