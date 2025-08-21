@@ -4,110 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D8CCA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:27:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC90CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0L3vM6YLmg9pq/ypW1IqncbW6S6DkPhBxKBhDP3z0o0=; b=GDy3AzBPBT7ZecYJFw1ynRs7zL
-	t7dJyyNzBiosFUQc/6Rw6hZMglxVJvZdhKph0QmlH6nr/CQcVcRZgUIyuXl8sQZZ1Fys9uhI2M8Wx
-	dzvnG5K4W01DM2i/dRgf3dk+HlZmeZn7tsWTqrjrp4wQLiPkrnporkF4+8U/2nBuBw/FrXWyVC9Hm
-	+K97svRkIr/XDVS/E1TnSOhkz5exewtUKcqrEmfgI3fc7K5jqWfRsNaFcWbba55VNYH56l/vDJGCQ
-	EfGXR92Br2Gbqa59DZya2VGh139pO58mrRN6sCOILneHDU66FNSim1U5rqAleIFVgP2P41Mse6plS
-	XLhAVAPg==;
+	bh=TaqjYk7qiFpFT4dP16wKMuC8fiQfbkUwRRgQVKGzHC8=; b=OYdmgfvjyk5r9qpgRrBN2/Yz+T
+	NgcMJvdNKaTN3XvHzgJU3eZ/JaiROvq3gW9SChAv6DcMDj9tOUfb4+H8aIKDqFfK68BZFFNgxsKxL
+	qJoEThBoGsUpLFshIKTn+pvSA0qPRHWV1T2rRuLJuNnjLU0FtAWLRKfp3XICuoaXW/0W2l8RwYJxS
+	sotq1pfF2Oi0aHtfzqt+unmjsXyEAxlokiRSNwZ6EpxwV+79DXPbRXPG8tHBHsGxTmgt+60Ad2Hue
+	dq5y0qjDIvgfqkE5t1RkdPVdcZ/UJmjZygtmngbpDN+w7oL/WxesLp8YB9sWvouFgtgfWL5FMJyGt
+	30AOVLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFcW-000000011Xk-2C8Z;
-	Fri, 22 Aug 2025 00:27:04 +0000
-Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
+	id 1upFf8-000000012oG-3MKN;
+	Fri, 22 Aug 2025 00:29:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8QX-0000000HZth-2BCH;
-	Thu, 21 Aug 2025 16:46:14 +0000
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfout.phl.internal (Postfix) with ESMTP id 4A4F0EC0787;
-	Thu, 21 Aug 2025 12:46:12 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-07.internal (MEProxy); Thu, 21 Aug 2025 12:46:12 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1755794772; x=1755881172; bh=0L3vM6YLmg
-	9pq/ypW1IqncbW6S6DkPhBxKBhDP3z0o0=; b=Ng7N4n9hWaKAXoCUELKodmIoji
-	oDL3Zzpv7nQCCsaclA0XaLOjXCyXp5c6tn54FhoT3QrxEtGRpF/P4Z/CAcq14OJR
-	/BLDh4Y5OVUvMxcE8qZnzEEjzq+hjmbbY8fMuyc6bCWqPpYWmYlpfeWZHXnAOWA8
-	+Zt2E4RTMAbjOp1yReYdCwymgE2UXV1FQ8/a12O+RrQK3pjZMyxEnKQG6Gs2YJhs
-	wWmw5COkxZzWq5tlC225WBY77NwedNmQJhZyTR0eFntmo7rBe7ANiHYI5t2Zn4vl
-	SVLYkck3kIP1XfGIZRCRei4h5rfFtbqQ516kp5whyjPCnKlUD/q5EwXfdV/A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1755794772; x=1755881172; bh=0L3vM6YLmg9pq/ypW1IqncbW6S6DkPhBxKB
-	hDP3z0o0=; b=OSYTZMdMAIaG24G5LpRZuVxYDMHEnqIZNPTIkiKpV/6nKgIx49S
-	fGLl2phjvaJ+Bubu2ZbsSY2QBZk3KM0i4LCiwnRhsDjrEiW1pX93GFLxU69c0wWc
-	IrgqarCbu5oyv4l2qFxIsRrg8ywScwMbubQZXMiOCJRL1yq9FpQmKjbyINYoB41a
-	5CggNO9p9DkUw/qSm3Sd03LZhuSkvQU3KKlM97fvw44hNWQeJMaB9U53pUAiwm1v
-	TIaNkV6sae5rNkwvfPDu/ujAOXX4cR5GFAZp4rvmcg9jP8dfeZhzk/X8iUH8Y3fJ
-	1AbOkF2uDxu95rhV7uMbpbnbQ72PVesZM/w==
-X-ME-Sender: <xms:U02naD1N0U4V6oV3luaKuJXxkv0zi0v6MnhWUXbm4UcDjFzVZxDjtA>
-    <xme:U02naPyX0r1a-0rYWFWGTsV2EhBJAIpcy3nqA9cDzCFN1SB-DE0AjmF5g2KC2e_RB
-    8kD-gYPmUflUcm_Iyw>
-X-ME-Received: <xmr:U02naFoI-v70Z4EWn51BxGS4H7ZZec5W_gZOC-ALfJEclI_XWcD_ZE51OBloEypSOPEhYljIIoCGZ2YGgcF0HiW-zm2KGAWsSqo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedujeehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepudelpdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhrvghgkhhhsehlih
-    hnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsggrlhgs
-    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvg
-    highdrihhopdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohep
-    vhhkohhulheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:U02naFUjWm7bqMbHMqhQOCBhCTseEZUUqtqp52JO8fKZz8P1qoCuSg>
-    <xmx:U02naMr_1gCuchPPYb_lPU7gPd33-HA5ykGlwbhi5ub0OkizlWaajQ>
-    <xmx:U02naJGGXIlio0tWiw2kv2dxlo_bRfyM7IUSQTIlc135VcoQnhlV6w>
-    <xmx:U02naOtFBjO-D_11veXXRj35ifrFUX03GuGhNW1JFbdYuu5srvLD5A>
-    <xmx:VE2naLhO1Uz_DBEYnjSUo92ko0qwruBAvn3Kka33EQIKTm_9aTB1P2JV>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 21 Aug 2025 12:46:11 -0400 (EDT)
-Date: Thu, 21 Aug 2025 18:46:10 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH RFC 13/22] usb: typec: tipd: Read USB4, Thunderbolt and
- DisplayPort status for cd321x
-Message-ID: <20250821164610.GF1270980@robin.jannau.net>
-References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-13-172beda182b8@kernel.org>
+	id 1upBZm-00000000NlF-3dAb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 20:08:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755806878;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TaqjYk7qiFpFT4dP16wKMuC8fiQfbkUwRRgQVKGzHC8=;
+	b=VHCH6zjvhS/7B2NvvLSqhmwYfr+xkNsd3qnuHe1jh4c5WrZaPSPrBeG+diV2jTMDlNNtY5
+	5BEqQxjnZvt7V3j9+HXC8k3SeK0pBaKxSki2I6FmjHyDbZP8KjmdX9YVUbzJLelmdHzR3y
+	smp9rTsn9ABbFWJHtsANJqbT5F22aMU=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-575-OS4AqlSfOoyru5zhP3TZLA-1; Thu, 21 Aug 2025 16:07:47 -0400
+X-MC-Unique: OS4AqlSfOoyru5zhP3TZLA-1
+X-Mimecast-MFC-AGG-ID: OS4AqlSfOoyru5zhP3TZLA_1755806866
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-45a1b0d221aso6547735e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:07:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755806866; x=1756411666;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TaqjYk7qiFpFT4dP16wKMuC8fiQfbkUwRRgQVKGzHC8=;
+        b=SQNF9Fa/ovg4l2drebPHO+UfKwVeaPFXZJr2fRyD3x4jx+RtFyUxve5FVTaWv4N0IS
+         29b3rGMYKzwHIFVaf5J/O2WMcmtFswTEkaZ1Dk9jPKopKGh86W2Cs4lhLbjHEzgrLrat
+         zffbuXyFJJDZPxpUbcqEi9nBwARUTlR5PVBamcq8dBoBAaQHm69ks2RURDjF7KQcT/9q
+         OEXXUS0oZ04mlZHy8UeTr6jUlH5Xr0adWHX2awfGYwKqQxV2gBcfnTOTHSX+u2OMujBn
+         OZDRPmowzOi9JKQyiv+11wM7IF3L6CMtKMYd4v0xoDKM7QIIMZRDjqTPM0kaDARCmfkw
+         QyYA==
+X-Forwarded-Encrypted: i=1; AJvYcCXg5UuONZhn6IHyMRnPG1wkURTsJiWq7TdwsYUesmrKFemAdV0JaZ0yM4BWl1HNmLFgXYIvjNQJRpNad9wxd5hu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcF+L7K2jPs6kh5UhiWoJMdnZkDcFwgeggK4KebCanSSXljLJM
+	rZdlTTELOF0Vo2Gdxkd0p6R6atc8P1IrItjfsJ+RHv2oxW2DLjZasg1shdgAqgb2MsGbtQBA8HZ
+	d6mZkGTpFmIJrGGbY5YMCDqqBvaQOYXuTdKh2O6xEdfwUDLv1SKwYq6kv9c3voI6HfC++nHZGN+
+	4Q
+X-Gm-Gg: ASbGncuhwZQQ6r6aFprp9guQPszXWvvohZT9hIwQlcbOxG9YWoq7yYDgp6eQi+uJB3N
+	faQRorBUAT+KnU3PfSDQ5lPIOL1YZu0Z9Mx21VRFu2FhrO4X818TKFKcnOfzdTa4RiGHj0VrT9m
+	iZgnUHLVLcHCaFYTNCSXtEAQfNY2VeHe773LKbhbtn4SdrXrOnaRoh1D8Uf303d7hRFenznYjdf
+	I3igpsgWPrvAm28eMksobJi1VTRfofWHDgmaa4Z4Ns+3PODWcbcsb9Gsn6a9Jy7txScBjsywXi8
+	b1XdfPzEsh0rPBRKTeh9ydVQ6qROa7hdBSzVHKuycBl/wUVX+MtqjUUmKw0JRQp5EE/ir2bN7IR
+	dv/vtE0KuCdZHMcwOI5aPYA==
+X-Received: by 2002:a05:600c:1392:b0:453:5a04:b60e with SMTP id 5b1f17b1804b1-45b517d4e23mr2819355e9.26.1755806866184;
+        Thu, 21 Aug 2025 13:07:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHUtzGc4rPv18tjnV22wd1xjfGI25AJiVbHUBF3o7jj7YvZLrrv8XzLc39l/Z4dCqHj4yY2QA==
+X-Received: by 2002:a05:600c:1392:b0:453:5a04:b60e with SMTP id 5b1f17b1804b1-45b517d4e23mr2819075e9.26.1755806865726;
+        Thu, 21 Aug 2025 13:07:45 -0700 (PDT)
+Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50dd0380sm8632985e9.10.2025.08.21.13.07.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 Aug 2025 13:07:45 -0700 (PDT)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marco Elver <elver@google.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH RFC 14/35] mm/mm/percpu-km: drop nth_page() usage within single allocation
+Date: Thu, 21 Aug 2025 22:06:40 +0200
+Message-ID: <20250821200701.1329277-15-david@redhat.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
+References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250821-atcphy-6-17-v1-13-172beda182b8@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7yECejdoF9wHFpe9cmD1j2FHNkK0dSD6GmcNzC5gBZY_1755806866
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_094613_627139_97A0E6EF 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250821_130758_972340_979C7231 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,42 +155,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 03:39:05PM +0000, Sven Peter wrote:
-> CD321x supports various alternate modes and stores information once
-> these are entered into separate status registers. Read those when they
-> are active when reading TPS_DATA_STATUS to prepare supporting these.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  drivers/usb/typec/tipd/core.c | 81 ++++++++++++++++++++++++++++++++++++++++---
->  1 file changed, 77 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index 51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c..59d270eb50ea3dc49ad32ff71f8354e23c1083c9 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -35,14 +35,19 @@
->  #define TPS_REG_INT_MASK2		0x17
->  #define TPS_REG_INT_CLEAR1		0x18
->  #define TPS_REG_INT_CLEAR2		0x19
-> -#define TPS_REG_SYSTEM_POWER_STATE	0x20
->  #define TPS_REG_STATUS			0x1a
-> +#define TPS_REG_SYSTEM_POWER_STATE	0x20
-> +#define TPS_REG_USB4_STATUS		0x24
-> +#define TPS_REG_DP_SID_STATUS		0x58
+We're allocating a higher-order page from the buddy. For these pages
+(that are guaranteed to not exceed a single memory section) there is no
+need to use nth_page().
 
-TPS_REG_DP_SID_STATUS is added twice, below in the correct order
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ mm/percpu-km.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  #define TPS_REG_SYSTEM_CONF		0x28
->  #define TPS_REG_CTRL_CONF		0x29
->  #define TPS_REG_BOOT_STATUS		0x2D
->  #define TPS_REG_POWER_STATUS		0x3f
->  #define TPS_REG_PD_STATUS		0x40
->  #define TPS_REG_RX_IDENTITY_SOP		0x48
-> +#define TPS_REG_CF_VID_STATUS		0x5e
-> +#define TPS_REG_DP_SID_STATUS		0x58
+diff --git a/mm/percpu-km.c b/mm/percpu-km.c
+index fe31aa19db81a..4efa74a495cb6 100644
+--- a/mm/percpu-km.c
++++ b/mm/percpu-km.c
+@@ -69,7 +69,7 @@ static struct pcpu_chunk *pcpu_create_chunk(gfp_t gfp)
+ 	}
+ 
+ 	for (i = 0; i < nr_pages; i++)
+-		pcpu_set_page_chunk(nth_page(pages, i), chunk);
++		pcpu_set_page_chunk(pages + i, chunk);
+ 
+ 	chunk->data = pages;
+ 	chunk->base_addr = page_address(pages);
+-- 
+2.50.1
 
-here
-
-Janne
 
