@@ -4,85 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A594CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 16:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27A9CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 17:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AM4OD0ojCKLvzb+DXvzlpUY/czMzSAO9Cd4n+tCoqhQ=; b=ZPGK8OLQqpv5ptZBmqGSbZrbZp
-	ziLSftSJIIK7IEuMXkF1aURhH8Bf/ypROBJ+32I0mekEguZ8nnSj5YIivr0A0yYCnrruE7i9SRXvV
-	IMKrGXUmNYOTvlNPvfCTWrmMHO0PVUI7EiUXlAMjpY6BOIB+R0i6xO8Hc/ZqC6mRBobCGpYqxO4ng
-	rdWXa16gUY0ANU5/XDuoptHltV5VLQTOGoKs1L69TwDW/Y03NiOQHbV49xrArHrL9ruCDdsV4S7na
-	ge4a8s3fJSrrQCZ2v/i4nRPQ3lS3MUtvvnsY9+aqaEmB/bniG6xVDqCHvFLm4o2ex6o3yL5I0VtnX
-	eI2JabpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWMYkjtDw3K8m2LYn07A7Ejsx/lWKVU0omqfaCp9OEQ=; b=b7g4vz1jAifxHgAnGBd0rI5tSA
+	LqGU10dXlrEbwQhq0XEPYId8JmT5eeDMG2sAS1PvMGK8A6QdqNIv2QTGG7hW3Q5+U3R2zIZTmAMbV
+	3EU5ioZPaRfPW8ggt20dH38QwkxHQMqFuNE5R9Hx2siLeSXv3fBY+ibXUQTPVLCJsa2TBVTfpx2r4
+	MWrTFKKmP1yfO+PFg6yifECGqomhGxJJOxIrdq9yzzy/fW8u38nxa3uMNEj9lPZGN+FEMAzEI+Py/
+	fN601+e5swFNfdu27xSEiyI6UgK1G2LZ7ELKQOD3sWDsMGjXuDcET4me068KV4e3qU3ABWYPyJKDO
+	yQp4UOuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8ce-000000000dX-2yJR;
-	Thu, 21 Aug 2025 16:58:44 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1up8fF-0000000012b-1dq2;
+	Thu, 21 Aug 2025 17:01:25 +0000
+Received: from mail-bn1nam02on20618.outbound.protection.outlook.com ([2a01:111:f403:2407::618] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up50m-0000000GzgE-0aIf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 13:07:26 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LB4tWm012904;
-	Thu, 21 Aug 2025 15:07:10 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=AM4OD0ojCKLvzb+DXvzlpU
-	Y/czMzSAO9Cd4n+tCoqhQ=; b=5ly2KWTKMaKRWNgLT6m8yXRZyFFSx7vU5TD0dg
-	fF5FPBmVuLsMwxluolw4cpKShapA57n+LhkOxFXBjeQepE9+bWDy7JAF5IzspHRz
-	/FlIOi5iEPWBE7V5hvt3rsktheKawHTbUHOM+RfQ5ZSRCsSoAL2n5qluaT7YvRQL
-	zhh8X2s/4OUs6bYU4kmxgOVDvScNY/0Bz/400Ay5Ua009Qpf3oHseQxCtTeENBGj
-	SC9ePnpN3xz/5MSDtfZ20fdkg2A05hD/gjW9HvWVle2ZGXXggzcEE+ajws1iOYOG
-	RLAZq3F5c2iWIwKCv4nCzbjhluZV85N7naAHQat3LwaTsV5w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n35mn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Aug 2025 15:07:10 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9FE664002D;
-	Thu, 21 Aug 2025 15:06:05 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4631F7559D2;
-	Thu, 21 Aug 2025 15:05:32 +0200 (CEST)
-Received: from localhost (10.252.7.99) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 15:05:31 +0200
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-To: Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] drm/stm: ltdc: unify log system
-Date: Thu, 21 Aug 2025 15:03:56 +0200
-Message-ID: <20250821130356.883553-1-raphael.gallais-pou@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	id 1up51D-0000000GzlK-2wYj;
+	Thu, 21 Aug 2025 13:07:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fi9D/Y2usxGoOLX4WK3MlN7/gaC4s11mXsKZ7j4ftsi18uu4C9X+WJNTfgXtiON1GLHlMCYoQ/O2v+BlAAeB0W+DNRfaAr7TG1CE77+3HBVZJE4VLCHPSB+KlcjyhYFfGpG3LoYiAyIy4GlzaBP5g5H1728T2rDIZcRMF3ubxfY7JT/OMjQNyoNKrAb5LlWe/hmnHG7bqse1YwsJh83vsRpuHrEUpitJAvP8eV+OUaGR60U+Sy9ZI+7y5xC7VMQhZxxCuDav5jc7L5/SC0N/U4k9whWYcWfFpArn0IDH6fJ6q4zCo9m+x9ElBIjz0grrSJpw+2xMlnnME3GPk+oOUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qWMYkjtDw3K8m2LYn07A7Ejsx/lWKVU0omqfaCp9OEQ=;
+ b=N18Aypof0DNToq1zrlXXPjgpybAX7TBQHXUBjO5oiQzvWWTAMtFKgWM9fbayv/Ysc/niwmE96C3NYirZtguNO+o6N/gy8WcNhFaFRbzwaJtxGEAttbfiTGbUAF59ADhOMlotmQkxdrCNiP8f3/G0C9AzeyFucm9170uS6kBRK7T7T9/Ev38KumYLYCHVB2RIacEQOpgORaPUIcTBtFGxkGseooD1c7JdWzxlikGNyNgp6BcEXMusL79nA9QKJrvXm3coko/88Bfc4H+JmFbBDUkuuhn6mvaF87ttF+BfjrtSacceF4PEWEfY4gqnZzLw+qc8GepueCtxeN6iS2hnNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qWMYkjtDw3K8m2LYn07A7Ejsx/lWKVU0omqfaCp9OEQ=;
+ b=Pxw4xOvLy5bg3GDrjgS9lEkuiI36lF0RS4eAvwaL2cH/R7UgqZEUdgHlhLr1HZcIGuv9JEJ0EhwKQVQ6+9p4ICTTCCi0J3qznTllPmfQS6fImKlP9fKCwVTjkLkmvVHUdXNGawoI/95uSvQFckCAKMw15xJUNUvgA9rBXygmaHQdtR8njyu9+J4TR2XKfjA1raNS3vVyTCAvz10IfwsYcL7h0ioFYwMaTeicOMAcC2tIGs7CG6pUTW8r0Q5RxdvJqzwRURzvFgmyWZuJHRtK+QjmQ6a532KH3vi+t5uzQQFdt0CIhj5hQ+eBWIr8n4oozH/EKujzIwd11HuaFQbTHg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA1PR12MB8191.namprd12.prod.outlook.com (2603:10b6:208:3f3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
+ 2025 13:07:45 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.024; Thu, 21 Aug 2025
+ 13:07:43 +0000
+Date: Thu, 21 Aug 2025 10:07:41 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Ethan Zhao <etzhao1900@gmail.com>, robin.murphy@arm.com,
+	joro@8bytes.org, bhelgaas@google.com, will@kernel.org,
+	robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
+	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
+	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
+	helgaas@kernel.org
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <20250821130741.GL802098@nvidia.com>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+X-ClientProxiedBy: SJ0PR05CA0178.namprd05.prod.outlook.com
+ (2603:10b6:a03:339::33) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.7.99]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-21_03,2025-08-20_03,2025-03-28_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA1PR12MB8191:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6840f9d1-da1c-43f7-5ac1-08dde0b3b761
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vROU9jV2HL5poXDV0cH7YNHOAwxF9UjqSLkAN/zUVIya+FpfhP1dlvP9dFsa?=
+ =?us-ascii?Q?07WNEaICAbuvTXrATtYH7XWhgxm4k7uDHmWmN6IG37I1Q05N3nwxs550s52j?=
+ =?us-ascii?Q?SDOB+Z5wGxVHdbo/4+CdmR1nsgaRlqpN6tuAMIJeuCoPQg3FmXrjfO9LlO/6?=
+ =?us-ascii?Q?b5MhKfS3jxLB0VwuqyWfWJGfVjsMj4GCL9aUp+8Gv44awg1j7lqIR/tsF+F8?=
+ =?us-ascii?Q?lGJSDVT/R4N09ut57Ne/EI9KSwsq1vliJntILQCSSHOOtZLSQwIGm/O/xIqS?=
+ =?us-ascii?Q?/dPTdPIhzTO2oEXH2HP/GzrEWjf1oiSgrGLuY55SMEmMD3EpKW1sjgJoACui?=
+ =?us-ascii?Q?nrVKm7MeSO3vXuhF0ro/Y43HVT6widPDcYG27pIG3kVUjJJbbJpmcolOIVYJ?=
+ =?us-ascii?Q?fpyK5yZeHGfPI/ZdU/Nt67Ci8Jky94Oz2h6afjDDFVBJWO80bAKMbzVQ9UZK?=
+ =?us-ascii?Q?maSpukFU2UZEdp8MZzOtL1WVDfeeTWSfPjGroLxK4F2qtxlewVSoBZlBXm6p?=
+ =?us-ascii?Q?PPsnN8yaX8bkcB1n/EcFzRuT6lN6r+rOwfwVV07AEA3mKXIkJrrvpXPtsgb1?=
+ =?us-ascii?Q?Zln4Tw7VoU8klJP1Wk4DZUd7XifFVBvOItfD2qBERm9grUshIH7Mx1gmyNkV?=
+ =?us-ascii?Q?aboM/B26AEWZB1Zp47WGP4bMwBZ3QpVPlcly0XBaFnS/jlujKn5n3YNJkESO?=
+ =?us-ascii?Q?RQwh5CLh2RbWQV4cgkwL2TS9VMo2UU6tREht5MMKjA5pzOsC1eYpjtOsPRaV?=
+ =?us-ascii?Q?8rgDInogw8AjVGvuo6Ayz8ldmaZODO7ylMMtiEi6vXAR8rC6Vl0lSNVORzrn?=
+ =?us-ascii?Q?5hX0+f564ak77F8UoqY7f/HKWqw1qeBKNzyBnKIkEDPFmefQZyQWyp643eHp?=
+ =?us-ascii?Q?FAxeznlTKH8UAdPd1VB/KfMWRtvRmn++EiHzHHIwf2OCM6s7276e0S5xqEi2?=
+ =?us-ascii?Q?c+i9v0R7zn/MMe4Fbnn2opcHHputkikOK5Khv20Uthwg0anDUfERNIg4ZQsH?=
+ =?us-ascii?Q?ShFJtLiQZbJG+SnmQO2PPOdBC4fvfUVLIG1EhysJKkwpORgL+hVG2Sugfzrr?=
+ =?us-ascii?Q?leoJPZMtvum6pgf3UakNKDr1WnJazoZI2ZadbQCPnWy3Lw6sDs2OD3VI+8vy?=
+ =?us-ascii?Q?nJDhGaPQUnMs2FLBV0QUWdWoxf1E4gkcytROIxwy2UPRnmqAD+meVMTYbnCY?=
+ =?us-ascii?Q?rirDz01v3HMRAuN2WHJJNWZTxwFJEwfgs/QqcESS/mIvqjMEJCxMX9imzHb+?=
+ =?us-ascii?Q?GN4CYiuZ5WTfA2476HzXnMalv5yCVfa6IjWIQ9JxcfSGyaH64eVLW9OmwdGR?=
+ =?us-ascii?Q?EL1hLvJNVuJ46x0gxPdr8PWq8wUYU1lOM5wHUF6/U0d5e2WTHh/fvial9jFO?=
+ =?us-ascii?Q?tthr+R0mJDOhbE76+woUkOmMsXht2E0vmd9l3cHEcifN8TsNfKS7qpQaZ0bj?=
+ =?us-ascii?Q?gR0HkcvIjwY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eqeD9lxcWqHis5hh+Y1/SFiVT8CbkVDVyV9IMZuvE5aenm6w4f+ecVh8Woaj?=
+ =?us-ascii?Q?JpJN91FImSEhXcSWRGQX1s//288clAZ+6nka9Vf46IavDWuuGVDRnzP70uOa?=
+ =?us-ascii?Q?pIXacJnyln0H6/oFJSxSH0kojfSTLiFST7zghd3huH4jhf+iDZXvksFdLg2w?=
+ =?us-ascii?Q?HUHL6NXMxdnntud5T6Ge+d7FyC8oOWnnOyIXVNrqYq4fPt1vlbXxugi7zAuc?=
+ =?us-ascii?Q?OPxBv3HsEy6OH1eOjCuHNQj6NDxCvAnvB39EbNIfLYIa0P8KAlhytpc4p9TS?=
+ =?us-ascii?Q?oiN4pJBP18V5WgZ9N1vy69ts/3KBy/JRgCCd9V+KZG0Kk1A9O2bHjqyJsGTs?=
+ =?us-ascii?Q?d4iphXFoBH6yrqfYg6ziecvCG19ErecH1aABcCPS4ZC4VY+r9N8zeXi1Upge?=
+ =?us-ascii?Q?aA7OpEhkGrzUDv46U5WrG50BpFeajBIFMZPC1AA9GAsGyiXj5Rt7V5zqY5uS?=
+ =?us-ascii?Q?dDxDvIsBG+zVkXQJPhiDJk4iAw3uhnal86+28s7U8DHFSPeUVzsKQqBtm5xW?=
+ =?us-ascii?Q?/geNqMLBOPItEUPsisVzWOHBX2qQyaQ7ofGHS9jwlOqWb9NwsFYfi21SvSby?=
+ =?us-ascii?Q?I/ndnuNwvMYjD9npHS1PmcWcKgcupRs02VTpjYSTr+vXFny7aH1nKXTJQpvJ?=
+ =?us-ascii?Q?DGz753wGpvRCJO8w5V0qEHT4rtjZre4MogcS4cdjGotmQT2hSo+1Sqp+PqDT?=
+ =?us-ascii?Q?fc/SoZ8cb7YSiuieRF7KJlnVhNzA6tKIteQ4XFJnImkVuMKa17sB+MC41NRa?=
+ =?us-ascii?Q?84HvMs8xDY0OKZETfgZb7yIHfwPJ8jUuIGmfk4F6SRaDMA2yqPb5tgdHH7y2?=
+ =?us-ascii?Q?uHtlAz+n5dL7Py3ngNBwV75E5F2zcQGEeu0YKD587yj8tP8/Sj7EBWNjAT/q?=
+ =?us-ascii?Q?7zqbGJgS7NB/wgz0Q7MS/9WLol7KxThqeftdz9xQPgiEIvQYMv7JnRg2YOKK?=
+ =?us-ascii?Q?Qw9DEvhnH8Wp8yTkDKROKkHQmhlShs19TbHqiqPPkVb5MpqeEE8G92WULuZM?=
+ =?us-ascii?Q?zbVsOC7nk2oCyFMM0J54pVH6oO56jPt6RRup+Mt6wpt44luwAJQhpIvt2h3p?=
+ =?us-ascii?Q?uL4k/7QvX9QYYZE4n9DQcsR2m2APu1IpvSgiIxjrZ2srZgRYLt7Tz2TLe7cW?=
+ =?us-ascii?Q?+uNy5GGDEirIBMT81zZy/P0NDiHIcnkiLZ0I5S8aO1dJs+xAFbNgR4kafImU?=
+ =?us-ascii?Q?yNUs2YXBTOuIZKU0SjSikVG+qVfe9m75YLEkHy7M3pzCcV9AUA4xODx9sHa8?=
+ =?us-ascii?Q?ewyPDUqQatfj+CBZvl+Vmf7X9mNUU05MKL4FHEetPHh5Qjk9DwwtS8efU/lT?=
+ =?us-ascii?Q?bL66IiEgdsBf6kj4l3/ZThE+Pqp0W+83b3y9CrdCDNnIHV92j3XN9YYH+6IN?=
+ =?us-ascii?Q?LGKro6G+RhSoOF8DZvynUWS5lfE2uAT6Pil1yIkm28/asrpktCy4Jhzn7wAQ?=
+ =?us-ascii?Q?eCO6V4zJ2rYfQkYPf1+d76JYoTYjszxcj6UqwLP+sjQzXS0/911o2QJP3tuU?=
+ =?us-ascii?Q?beqgI9VZ+rSnqH03VUmbXLo/IbGbB5fpw6Jh8/8Ii8K1GiRc8hlh4ZlXYffL?=
+ =?us-ascii?Q?HDF7OUqKBOHrlzzh2+U8RMQ75UWel8o3LEBF27Ii?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6840f9d1-da1c-43f7-5ac1-08dde0b3b761
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 13:07:43.8992
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AouWxZnohcmS2zD6Pv4f2xJEgrSueEdvNbhuckvZfxtNx0/WNUkaJ5GYdKt/4gT2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_060724_451629_132F7DE6 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250821_060751_742043_B34C10D8 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,475 +170,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DRM_ERROR and similar are deprecated.  Use drm_dev based logging.
+On Tue, Aug 19, 2025 at 02:59:07PM -0700, Nicolin Chen wrote:
+>  c) multiple pci_devs with their own RIDs
+> 
+>     In this case, either FLR or IOMMU only resets the PF. That
+>     being said, VFs might be affected since PF is resetting?
+>     If there is an issue, I don't see it coming from the IOMMU-
+>     level reset..
 
-Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
----
- drivers/gpu/drm/stm/ltdc.c | 135 +++++++++++++++++++------------------
- 1 file changed, 68 insertions(+), 67 deletions(-)
+It would still allow the ATS issue from the VF side. The VF could be
+pushing an invalidation during the PF reset that will get clobbered.
 
-diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
-index ba315c66a04d..6c93e19d241e 100644
---- a/drivers/gpu/drm/stm/ltdc.c
-+++ b/drivers/gpu/drm/stm/ltdc.c
-@@ -641,7 +641,7 @@ static inline void ltdc_set_ycbcr_config(struct drm_plane *plane, u32 drm_pix_fm
- 		break;
- 	default:
- 		/* RGB or not a YCbCr supported format */
--		DRM_ERROR("Unsupported pixel format: %u\n", drm_pix_fmt);
-+		drm_err(plane->dev, "Unsupported pixel format: %u\n", drm_pix_fmt);
- 		return;
- 	}
- 
-@@ -664,18 +664,19 @@ static inline void ltdc_set_ycbcr_coeffs(struct drm_plane *plane)
- 	u32 lofs = plane->index * LAY_OFS;
- 
- 	if (enc != DRM_COLOR_YCBCR_BT601 && enc != DRM_COLOR_YCBCR_BT709) {
--		DRM_ERROR("color encoding %d not supported, use bt601 by default\n", enc);
-+		drm_err(plane->dev, "color encoding %d not supported, use bt601 by default\n", enc);
- 		/* set by default color encoding to DRM_COLOR_YCBCR_BT601 */
- 		enc = DRM_COLOR_YCBCR_BT601;
- 	}
- 
- 	if (ran != DRM_COLOR_YCBCR_LIMITED_RANGE && ran != DRM_COLOR_YCBCR_FULL_RANGE) {
--		DRM_ERROR("color range %d not supported, use limited range by default\n", ran);
-+		drm_err(plane->dev,
-+			"color range %d not supported, use limited range by default\n", ran);
- 		/* set by default color range to DRM_COLOR_YCBCR_LIMITED_RANGE */
- 		ran = DRM_COLOR_YCBCR_LIMITED_RANGE;
- 	}
- 
--	DRM_DEBUG_DRIVER("Color encoding=%d, range=%d\n", enc, ran);
-+	drm_err(plane->dev, "Color encoding=%d, range=%d\n", enc, ran);
- 	regmap_write(ldev->regmap, LTDC_L1CYR0R + lofs,
- 		     ltdc_ycbcr2rgb_coeffs[enc][ran][0]);
- 	regmap_write(ldev->regmap, LTDC_L1CYR1R + lofs,
-@@ -774,7 +775,7 @@ static void ltdc_crtc_atomic_enable(struct drm_crtc *crtc,
- 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
- 	struct drm_device *ddev = crtc->dev;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 
- 	pm_runtime_get_sync(ddev->dev);
- 
-@@ -798,7 +799,7 @@ static void ltdc_crtc_atomic_disable(struct drm_crtc *crtc,
- 	struct drm_device *ddev = crtc->dev;
- 	int layer_index = 0;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 
- 	drm_crtc_vblank_off(crtc);
- 
-@@ -837,7 +838,7 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
- 
- 	result = clk_round_rate(ldev->pixel_clk, target);
- 
--	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
-+	drm_dbg_driver(crtc->dev, "clk rate target %d, available %d\n", target, result);
- 
- 	/* Filter modes according to the max frequency supported by the pads */
- 	if (result > ldev->caps.pad_max_freq_hz)
-@@ -872,14 +873,14 @@ static bool ltdc_crtc_mode_fixup(struct drm_crtc *crtc,
- 	int rate = mode->clock * 1000;
- 
- 	if (clk_set_rate(ldev->pixel_clk, rate) < 0) {
--		DRM_ERROR("Cannot set rate (%dHz) for pixel clk\n", rate);
-+		drm_err(crtc->dev, "Cannot set rate (%dHz) for pixel clk\n", rate);
- 		return false;
- 	}
- 
- 	adjusted_mode->clock = clk_get_rate(ldev->pixel_clk) / 1000;
- 
--	DRM_DEBUG_DRIVER("requested clock %dkHz, adjusted clock %dkHz\n",
--			 mode->clock, adjusted_mode->clock);
-+	drm_dbg_driver(crtc->dev, "requested clock %dkHz, adjusted clock %dkHz\n",
-+		       mode->clock, adjusted_mode->clock);
- 
- 	return true;
- }
-@@ -934,20 +935,20 @@ static void ltdc_crtc_mode_set_nofb(struct drm_crtc *crtc)
- 	if (!pm_runtime_active(ddev->dev)) {
- 		ret = pm_runtime_get_sync(ddev->dev);
- 		if (ret) {
--			DRM_ERROR("Failed to set mode, cannot get sync\n");
-+			drm_err(crtc->dev, "Failed to set mode, cannot get sync\n");
- 			return;
- 		}
- 	}
- 
--	DRM_DEBUG_DRIVER("CRTC:%d mode:%s\n", crtc->base.id, mode->name);
--	DRM_DEBUG_DRIVER("Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
--	DRM_DEBUG_DRIVER(" hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
--			 mode->hsync_start - mode->hdisplay,
--			 mode->htotal - mode->hsync_end,
--			 mode->hsync_end - mode->hsync_start,
--			 mode->vsync_start - mode->vdisplay,
--			 mode->vtotal - mode->vsync_end,
--			 mode->vsync_end - mode->vsync_start);
-+	drm_dbg_driver(crtc->dev, "CRTC:%d mode:%s\n", crtc->base.id, mode->name);
-+	drm_dbg_driver(crtc->dev, "Video mode: %dx%d", mode->hdisplay, mode->vdisplay);
-+	drm_dbg_driver(crtc->dev, " hfp %d hbp %d hsl %d vfp %d vbp %d vsl %d\n",
-+		       mode->hsync_start - mode->hdisplay,
-+		       mode->htotal - mode->hsync_end,
-+		       mode->hsync_end - mode->hsync_start,
-+		       mode->vsync_start - mode->vdisplay,
-+		       mode->vtotal - mode->vsync_end,
-+		       mode->vsync_end - mode->vsync_start);
- 
- 	/* Convert video timings to ltdc timings */
- 	hsync = mode->hsync_end - mode->hsync_start - 1;
-@@ -1033,7 +1034,7 @@ static void ltdc_crtc_atomic_flush(struct drm_crtc *crtc,
- 	struct drm_device *ddev = crtc->dev;
- 	struct drm_pending_vblank_event *event = crtc->state->event;
- 
--	DRM_DEBUG_ATOMIC("\n");
-+	drm_dbg_atomic(crtc->dev, "\n");
- 
- 	ltdc_crtc_update_clut(crtc);
- 
-@@ -1121,7 +1122,7 @@ static int ltdc_crtc_enable_vblank(struct drm_crtc *crtc)
- 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
- 	struct drm_crtc_state *state = crtc->state;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 
- 	if (state->enable)
- 		regmap_set_bits(ldev->regmap, LTDC_IER, IER_LIE);
-@@ -1135,7 +1136,7 @@ static void ltdc_crtc_disable_vblank(struct drm_crtc *crtc)
- {
- 	struct ltdc_device *ldev = crtc_to_ltdc(crtc);
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_LIE);
- }
- 
-@@ -1144,7 +1145,7 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
- 	struct ltdc_device *ldev;
- 	int ret;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 
- 	if (!crtc)
- 		return -ENODEV;
-@@ -1168,14 +1169,14 @@ static int ltdc_crtc_set_crc_source(struct drm_crtc *crtc, const char *source)
- static int ltdc_crtc_verify_crc_source(struct drm_crtc *crtc,
- 				       const char *source, size_t *values_cnt)
- {
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(crtc->dev, "\n");
- 
- 	if (!crtc)
- 		return -ENODEV;
- 
- 	if (source && strcmp(source, "auto") != 0) {
--		DRM_DEBUG_DRIVER("Unknown CRC source %s for %s\n",
--				 source, crtc->name);
-+		drm_dbg_driver(crtc->dev, "Unknown CRC source %s for %s\n",
-+			       source, crtc->name);
- 		return -EINVAL;
- 	}
- 
-@@ -1233,7 +1234,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
- 	struct drm_framebuffer *fb = new_plane_state->fb;
- 	u32 src_w, src_h;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(plane->dev, "\n");
- 
- 	if (!fb)
- 		return 0;
-@@ -1244,7 +1245,7 @@ static int ltdc_plane_atomic_check(struct drm_plane *plane,
- 
- 	/* Reject scaling */
- 	if (src_w != new_plane_state->crtc_w || src_h != new_plane_state->crtc_h) {
--		DRM_DEBUG_DRIVER("Scaling is not supported");
-+		drm_dbg_driver(plane->dev, "Scaling is not supported");
- 
- 		return -EINVAL;
- 	}
-@@ -1270,7 +1271,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
- 	enum ltdc_pix_fmt pf;
- 
- 	if (!newstate->crtc || !fb) {
--		DRM_DEBUG_DRIVER("fb or crtc NULL");
-+		drm_dbg_driver(plane->dev, "fb or crtc NULL");
- 		return;
- 	}
- 
-@@ -1280,11 +1281,11 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
- 	src_w = newstate->src_w >> 16;
- 	src_h = newstate->src_h >> 16;
- 
--	DRM_DEBUG_DRIVER("plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
--			 plane->base.id, fb->base.id,
--			 src_w, src_h, src_x, src_y,
--			 newstate->crtc_w, newstate->crtc_h,
--			 newstate->crtc_x, newstate->crtc_y);
-+	drm_dbg_driver(plane->dev, "plane:%d fb:%d (%dx%d)@(%d,%d) -> (%dx%d)@(%d,%d)\n",
-+		       plane->base.id, fb->base.id,
-+		       src_w, src_h, src_x, src_y,
-+		       newstate->crtc_w, newstate->crtc_h,
-+		       newstate->crtc_x, newstate->crtc_y);
- 
- 	regmap_read(ldev->regmap, LTDC_BPCR, &bpcr);
- 
-@@ -1312,8 +1313,8 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
- 		val = ltdc_set_flexible_pixel_format(plane, pf);
- 
- 	if (val == NB_PF) {
--		DRM_ERROR("Pixel format %.4s not supported\n",
--			  (char *)&fb->format->format);
-+		drm_err(fb->dev, "Pixel format %.4s not supported\n",
-+			(char *)&fb->format->format);
- 		val = 0;	/* set by default ARGB 32 bits */
- 	}
- 	regmap_write_bits(ldev->regmap, LTDC_L1PFCR + lofs, LXPFCR_PF, val);
-@@ -1350,7 +1351,7 @@ static void ltdc_plane_atomic_update(struct drm_plane *plane,
- 	if (newstate->rotation & DRM_MODE_REFLECT_Y)
- 		paddr += (fb->pitches[0] * (y1 - y0));
- 
--	DRM_DEBUG_DRIVER("fb: phys 0x%08x", paddr);
-+	drm_dbg_driver(fb->dev, "fb: phys 0x%08x", paddr);
- 	regmap_write(ldev->regmap, LTDC_L1CFBAR + lofs, paddr);
- 
- 	/* Configures the color frame buffer pitch in bytes & line length */
-@@ -1517,8 +1518,8 @@ static void ltdc_plane_atomic_disable(struct drm_plane *plane,
- 		regmap_write_bits(ldev->regmap, LTDC_L1RCR + lofs,
- 				  LXRCR_IMR | LXRCR_VBR | LXRCR_GRMSK, LXRCR_VBR);
- 
--	DRM_DEBUG_DRIVER("CRTC:%d plane:%d\n",
--			 oldstate->crtc->base.id, plane->base.id);
-+	drm_dbg_driver(plane->dev, "CRTC:%d plane:%d\n",
-+		       oldstate->crtc->base.id, plane->base.id);
- }
- 
- static void ltdc_plane_atomic_print_state(struct drm_printer *p,
-@@ -1632,7 +1633,7 @@ static struct drm_plane *ltdc_plane_create(struct drm_device *ddev,
- 
- 	drm_plane_create_alpha_property(plane);
- 
--	DRM_DEBUG_DRIVER("plane:%d created\n", plane->base.id);
-+	drm_dbg_driver(plane->dev, "plane:%d created\n", plane->base.id);
- 
- 	return plane;
- }
-@@ -1647,7 +1648,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
- 
- 	primary = ltdc_plane_create(ddev, DRM_PLANE_TYPE_PRIMARY, 0);
- 	if (!primary) {
--		DRM_ERROR("Can not create primary plane\n");
-+		drm_err(ddev, "Can not create primary plane\n");
- 		return -EINVAL;
- 	}
- 
-@@ -1668,7 +1669,7 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
- 		ret = drmm_crtc_init_with_planes(ddev, crtc, primary, NULL,
- 						 &ltdc_crtc_funcs, NULL);
- 	if (ret) {
--		DRM_ERROR("Can not initialize CRTC\n");
-+		drm_err(ddev, "Can not initialize CRTC\n");
- 		return ret;
- 	}
- 
-@@ -1677,13 +1678,13 @@ static int ltdc_crtc_init(struct drm_device *ddev, struct drm_crtc *crtc)
- 	drm_mode_crtc_set_gamma_size(crtc, CLUT_SIZE);
- 	drm_crtc_enable_color_mgmt(crtc, 0, false, CLUT_SIZE);
- 
--	DRM_DEBUG_DRIVER("CRTC:%d created\n", crtc->base.id);
-+	drm_dbg_driver(ddev, "CRTC:%d created\n", crtc->base.id);
- 
- 	/* Add planes. Note : the first layer is used by primary plane */
- 	for (i = 1; i < ldev->caps.nb_layers; i++) {
- 		overlay = ltdc_plane_create(ddev, DRM_PLANE_TYPE_OVERLAY, i);
- 		if (!overlay) {
--			DRM_ERROR("Can not create overlay plane %d\n", i);
-+			drm_err(ddev, "Can not create overlay plane %d\n", i);
- 			return -ENOMEM;
- 		}
- 		if (ldev->caps.dynamic_zorder)
-@@ -1704,7 +1705,7 @@ static void ltdc_encoder_disable(struct drm_encoder *encoder)
- 	struct drm_device *ddev = encoder->dev;
- 	struct ltdc_device *ldev = ddev->dev_private;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(encoder->dev, "\n");
- 
- 	/* Disable LTDC */
- 	regmap_clear_bits(ldev->regmap, LTDC_GCR, GCR_LTDCEN);
-@@ -1718,7 +1719,7 @@ static void ltdc_encoder_enable(struct drm_encoder *encoder)
- 	struct drm_device *ddev = encoder->dev;
- 	struct ltdc_device *ldev = ddev->dev_private;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(encoder->dev, "\n");
- 
- 	/* set fifo underrun threshold register */
- 	if (ldev->caps.fifo_threshold)
-@@ -1734,7 +1735,7 @@ static void ltdc_encoder_mode_set(struct drm_encoder *encoder,
- {
- 	struct drm_device *ddev = encoder->dev;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(encoder->dev, "\n");
- 
- 	/*
- 	 * Set to default state the pinctrl only with DPI type.
-@@ -1770,7 +1771,7 @@ static int ltdc_encoder_init(struct drm_device *ddev, struct drm_bridge *bridge)
- 	if (ret)
- 		return ret;
- 
--	DRM_DEBUG_DRIVER("Bridge encoder:%d created\n", encoder->base.id);
-+	drm_dbg_driver(encoder->dev, "Bridge encoder:%d created\n", encoder->base.id);
- 
- 	return 0;
- }
-@@ -1870,7 +1871,7 @@ void ltdc_suspend(struct drm_device *ddev)
- {
- 	struct ltdc_device *ldev = ddev->dev_private;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(ddev, "\n");
- 	clk_disable_unprepare(ldev->pixel_clk);
- }
- 
-@@ -1879,11 +1880,11 @@ int ltdc_resume(struct drm_device *ddev)
- 	struct ltdc_device *ldev = ddev->dev_private;
- 	int ret;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(ddev, "\n");
- 
- 	ret = clk_prepare_enable(ldev->pixel_clk);
- 	if (ret) {
--		DRM_ERROR("failed to enable pixel clock (%d)\n", ret);
-+		drm_err(ddev, "failed to enable pixel clock (%d)\n", ret);
- 		return ret;
- 	}
- 
-@@ -1903,7 +1904,7 @@ int ltdc_load(struct drm_device *ddev)
- 	int irq, i, nb_endpoints;
- 	int ret = -ENODEV;
- 
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(ddev, "\n");
- 
- 	/* Get number of endpoints */
- 	nb_endpoints = of_graph_get_endpoint_count(np);
-@@ -1913,12 +1914,12 @@ int ltdc_load(struct drm_device *ddev)
- 	ldev->pixel_clk = devm_clk_get(dev, "lcd");
- 	if (IS_ERR(ldev->pixel_clk)) {
- 		if (PTR_ERR(ldev->pixel_clk) != -EPROBE_DEFER)
--			DRM_ERROR("Unable to get lcd clock\n");
-+			drm_err(ddev, "Unable to get lcd clock\n");
- 		return PTR_ERR(ldev->pixel_clk);
- 	}
- 
- 	if (clk_prepare_enable(ldev->pixel_clk)) {
--		DRM_ERROR("Unable to prepare pixel clock\n");
-+		drm_err(ddev, "Unable to prepare pixel clock\n");
- 		return -ENODEV;
- 	}
- 
-@@ -1939,7 +1940,7 @@ int ltdc_load(struct drm_device *ddev)
- 		if (panel) {
- 			bridge = drmm_panel_bridge_add(ddev, panel);
- 			if (IS_ERR(bridge)) {
--				DRM_ERROR("panel-bridge endpoint %d\n", i);
-+				drm_err(ddev, "panel-bridge endpoint %d\n", i);
- 				ret = PTR_ERR(bridge);
- 				goto err;
- 			}
-@@ -1949,7 +1950,7 @@ int ltdc_load(struct drm_device *ddev)
- 			ret = ltdc_encoder_init(ddev, bridge);
- 			if (ret) {
- 				if (ret != -EPROBE_DEFER)
--					DRM_ERROR("init encoder endpoint %d\n", i);
-+					drm_err(ddev, "init encoder endpoint %d\n", i);
- 				goto err;
- 			}
- 		}
-@@ -1967,29 +1968,29 @@ int ltdc_load(struct drm_device *ddev)
- 
- 	ldev->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ldev->regs)) {
--		DRM_ERROR("Unable to get ltdc registers\n");
-+		drm_err(ddev, "Unable to get ltdc registers\n");
- 		ret = PTR_ERR(ldev->regs);
- 		goto err;
- 	}
- 
- 	ldev->regmap = devm_regmap_init_mmio(&pdev->dev, ldev->regs, &stm32_ltdc_regmap_cfg);
- 	if (IS_ERR(ldev->regmap)) {
--		DRM_ERROR("Unable to regmap ltdc registers\n");
-+		drm_err(ddev, "Unable to regmap ltdc registers\n");
- 		ret = PTR_ERR(ldev->regmap);
- 		goto err;
- 	}
- 
- 	ret = ltdc_get_caps(ddev);
- 	if (ret) {
--		DRM_ERROR("hardware identifier (0x%08x) not supported!\n",
--			  ldev->caps.hw_version);
-+		drm_err(ddev, "hardware identifier (0x%08x) not supported!\n",
-+			ldev->caps.hw_version);
- 		goto err;
- 	}
- 
- 	/* Disable all interrupts */
- 	regmap_clear_bits(ldev->regmap, LTDC_IER, IER_MASK);
- 
--	DRM_DEBUG_DRIVER("ltdc hw version 0x%08x\n", ldev->caps.hw_version);
-+	drm_dbg_driver(ddev, "ltdc hw version 0x%08x\n", ldev->caps.hw_version);
- 
- 	/* initialize default value for fifo underrun threshold & clear interrupt error counters */
- 	ldev->transfer_err = 0;
-@@ -2008,27 +2009,27 @@ int ltdc_load(struct drm_device *ddev)
- 						ltdc_irq_thread, IRQF_ONESHOT,
- 						dev_name(dev), ddev);
- 		if (ret) {
--			DRM_ERROR("Failed to register LTDC interrupt\n");
-+			drm_err(ddev, "Failed to register LTDC interrupt\n");
- 			goto err;
- 		}
- 	}
- 
- 	crtc = drmm_kzalloc(ddev, sizeof(*crtc), GFP_KERNEL);
- 	if (!crtc) {
--		DRM_ERROR("Failed to allocate crtc\n");
-+		drm_err(ddev, "Failed to allocate crtc\n");
- 		ret = -ENOMEM;
- 		goto err;
- 	}
- 
- 	ret = ltdc_crtc_init(ddev, crtc);
- 	if (ret) {
--		DRM_ERROR("Failed to init crtc\n");
-+		drm_err(ddev, "Failed to init crtc\n");
- 		goto err;
- 	}
- 
- 	ret = drm_vblank_init(ddev, NB_CRTC);
- 	if (ret) {
--		DRM_ERROR("Failed calling drm_vblank_init()\n");
-+		drm_err(ddev, "Failed calling drm_vblank_init()\n");
- 		goto err;
- 	}
- 
-@@ -2047,7 +2048,7 @@ int ltdc_load(struct drm_device *ddev)
- 
- void ltdc_unload(struct drm_device *ddev)
- {
--	DRM_DEBUG_DRIVER("\n");
-+	drm_dbg_driver(ddev, "\n");
- 
- 	pm_runtime_disable(ddev->dev);
- }
--- 
-2.25.1
+I haven't fully checked but I think Linux doesn't really (easially?)
+allow resetting a PF while a VF is present...
 
+Arguably if the PF is reset the VFs should have their translations
+blocked too.
+
+Jason
 
