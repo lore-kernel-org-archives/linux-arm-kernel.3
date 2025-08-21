@@ -4,54 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E7ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 05:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9D2CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 05:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LiP5o2r6Mo1S84cq3k8Il687TcQ3VU1MlBiHABTYSqM=; b=WGHbICdlR/EGdu+TMN/1elKeNR
-	0qA5urZXltTOulkiGibUaWrLA2Ghvaw1j4ZpRlpMr5OGpPCc7yOsWj1iine3lWoFAvrd5/bQxktaD
-	NRc5bqewSCE/dHC3e0W2xXUSdlQi5/1N3hIVew3KBEC2gXV3BRGl6NYLjhTzMUKR882zEmlo/BbwJ
-	dJH48sfcply0FKvn0CjqjOdVpBuznNEuoElwESylHorOXUJINPOwqUMF3+GMk1fLBW1+X8ncFhT2q
-	G49t0tt5byLJ7tetYTie0gf3YrvIQ9Bogd2N2/9GM2aemYxhWYALkrzn3cjl9vDlbXfAlqXCmlNZa
-	e5EUv3ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=INDwu74SUZqMLDFJ75XtVfARPgjTW9Gu5nodYyc+mxU=; b=xY1g1lElmLHdD3yyyWrUuP177H
+	/h/M5gf8+ka2MFM5WQg3zl3xQur+u/UT1mrxnEpzC9W2vZOC5i3Tno8crlj2w+m+q2gqbiAGTc9ZE
+	dv1wo14IWcPA7OX1TfKSSY14MtFJ3jrmANKhhRl5t3xeXAnLMucdOMMkN7aKVw7N/SNjFSrjPLN4Z
+	olvNNrbxAy7hMs8g87CGDeq17F+w/l+BCUySxMy4TRG4jUqJgOo277QMh+/RvbrLKUZCzJau09bfu
+	/Qbu95v+IPtMhIHPeqKQly1eDmmFyx7Kk0JRrEp009gDD1BE31bs7Mltl0tYmjEtdjEU31pQRRePh
+	i0z4zwsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoxqu-0000000Fsu5-33gE;
-	Thu, 21 Aug 2025 05:28:44 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uoxuU-0000000FtBR-2Miu;
+	Thu, 21 Aug 2025 05:32:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoxoH-0000000FsYH-3CaV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 05:26:03 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 21 Aug
- 2025 13:25:55 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 21 Aug 2025 13:25:55 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<howard_chiu@aspeedtech.com>, <arnd@arndb.de>, <andrew+netdev@lunn.ch>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<jacky_chou@aspeedtech.com>
-Subject: [net] ARM: dts: aspeed: ast2600-evb: Correct phy-mode to rgmii-id
-Date: Thu, 21 Aug 2025 13:25:55 +0800
-Message-ID: <20250821052555.298860-1-jacky_chou@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uoxru-0000000FszV-114c;
+	Thu, 21 Aug 2025 05:29:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA8D942B81;
+	Thu, 21 Aug 2025 05:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B327C4CEED;
+	Thu, 21 Aug 2025 05:29:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755754185;
+	bh=okRW6FFazSlKUnEisFp7x3V8vbljvh2Ty8xEGZtNcDM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=fUhvOiMV0uLCi8BqtXnIpiPSOVnByxHq+hizLdvyE3gl8E3jsx36yX8KrdLWTqfs5
+	 Ro/K2EmyJx5YrK2asUgQlnfATVohbSfivo8s91EwBhzHc0Hm5Hgt3lC34isdy9jGqx
+	 3qMFTvDfGO45qv2VHEynRgP6XG/VqPbfCivfPTLtmhmIaZ62ti+ccDUTy3ACD1ZKKO
+	 QUeDzqq3HTA/hcxzDkgr5wiaHY0Zm/iOeOKBCsmLga7kLy4b9Ubiff6mKjdE/rm7JK
+	 orNdpjf6+1RMfnDf6QX01zZ3mCoNb7j+OlbazBSVp4+WuVCFC972LRQr08AH9b+XU6
+	 rxM7XcccZXxLQ==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 8A9725FE2C; Thu, 21 Aug 2025 13:29:42 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Chen-Yu Tsai <wens@csie.org>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: rk3588-orangepi-5: Add supplies for eMMC
+Date: Thu, 21 Aug 2025 13:29:39 +0800
+Message-Id: <20250821052939.1869171-1-wens@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_222601_803102_2ED14200 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_222946_300913_1941463D 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,58 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the latest ethernet-controller.yaml.
-Since there is no RGMII delay on AST2600 EVB, the phy-mode property of all
-MACs change to "rgmii-id" mode.
+From: Chen-Yu Tsai <wens@csie.org>
 
-Fixes: 4d338ee40ba8 ("ARM: dts: aspeed: ast2600-evb: Enable RX delay for MAC0/MAC1")
-Fixes: 2ca5646b5c2f ("ARM: dts: aspeed: Add AST2600 and EVB")
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+The eMMC description is missing both vmmc and vqmmc supplies.
+
+Add them to complete the description.
+
+Fixes: 236d225e1ee7 ("arm64: dts: rockchip: Add board device tree for rk3588-orangepi-5-plus")
+Fixes: ea63f4666e48 ("arm64: dts: rockchip: refactor common rk3588-orangepi-5.dtsi")
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
- arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-index de83c0eb1d6e..c4964e536ed7 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-@@ -123,7 +123,7 @@ ethphy3: ethernet-phy@0 {
- &mac0 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
+index 91d56c34a1e4..8a8f3b26754d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
+@@ -365,6 +365,8 @@ &sdhci {
+ 	max-frequency = <200000000>;
+ 	mmc-hs400-1_8v;
+ 	mmc-hs400-enhanced-strobe;
++	vmmc-supply = <&vcc_3v3_s3>;
++	vqmmc-supply = <&vcc_1v8_s3>;
  	status = "okay";
+ };
  
--	phy-mode = "rgmii-rxid";
-+	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy0>;
- 
- 	pinctrl-names = "default";
-@@ -134,7 +134,7 @@ &mac0 {
- &mac1 {
- 	status = "okay";
- 
--	phy-mode = "rgmii-rxid";
-+	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy1>;
- 
- 	pinctrl-names = "default";
-@@ -144,7 +144,7 @@ &mac1 {
- &mac2 {
- 	status = "okay";
- 
--	phy-mode = "rgmii";
-+	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy2>;
- 
- 	pinctrl-names = "default";
-@@ -154,7 +154,7 @@ &mac2 {
- &mac3 {
- 	status = "okay";
- 
--	phy-mode = "rgmii";
-+	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy3>;
- 
- 	pinctrl-names = "default";
 -- 
-2.34.1
+2.39.5
 
 
