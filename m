@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B82C5CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A077CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yqkoXHNh1TnGR7/oWjW8HjeGpQZBhmw0ro3M+AoE5o=; b=YQMfmG8/ox7Adc0LIoQWgdJ01w
-	fQEn7S8CXTfPs5+FFqTk0jkvVFhyaSAr+eOuwqU0Lo90JW+va53EAP49seI0pGH5WP5uVsh8ZvfAA
-	Q0NaSHczL4tGKhBX2hgC/07/a4wm4VHXbo13R662DEJb/plcwAXRZwdoCMbLLuRXFFiHyYpx2fch2
-	IVoRjy2HsZX/bkgZn/pWLaj2FIoyzpje7sOEE5JX7QyyuNz1nJ/MtrxN5eAQ0eBycCBGJGTjV9Yib
-	jkEgk4XMVxsCAEhNabLA63knvI0p+Jg0a+zn8sl0ShEWpbaQXxKISUYiUn0oFP2/EqOsQH8IvzCF6
-	y3V6UgqQ==;
+	bh=Y0sfXJfCphk4QmYHhe0o/NiD24xHpneO/mC+nLkwNSg=; b=SnRHaP4yAFxDVf1uneF15Qwojo
+	1wJswuLDMj7p0FAPDOGdcUNCXj3Ph0P7vItkdIh3nOcAsfSAbyuX49O3bMckl/YBwaC1V9i/6DcC7
+	d5KQeNW21TyVYcv+88nAdRJSPeCmgDP4BBlkYkhZqv8He4pqVZY+iFKNZYFeryZlDXcdsTQa/5raQ
+	m3iXOYHEQm9KDzw+3qINoEXKiBfyXB3V7+4TByrqGxAu1+Ov2ViKu4gLcxn94Bh7EelVb6Mrrrt0I
+	V4WmuzLfLO+m0IgfV9Tfn/ey/6ElxB/zLN/z3a+4QUz16kX8lgjhZ7v5B+4/q/GCa45wyTr1f7lrm
+	IoMmk8lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozY6-0000000G4kK-21m3;
-	Thu, 21 Aug 2025 07:17:26 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1uozb5-0000000G5P3-0pcf;
+	Thu, 21 Aug 2025 07:20:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozAe-0000000G0wm-3gph
+	id 1uoyzY-0000000FyuK-1DWr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 06:53:14 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4c6v8K6Wbdz2gLPM;
-	Thu, 21 Aug 2025 14:50:09 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6859A1400DA;
-	Thu, 21 Aug 2025 14:53:03 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 21 Aug 2025 14:53:02 +0800
-Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false
- positives
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>
-References: <20250811135001.1333684-1-lpieralisi@kernel.org>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <82bac373-21d6-7aab-0b3d-509b5bce25db@huawei.com>
-Date: Thu, 21 Aug 2025 14:53:02 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Thu, 21 Aug 2025 06:41:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 59D93601D7;
+	Thu, 21 Aug 2025 06:41:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A27DC4CEED;
+	Thu, 21 Aug 2025 06:41:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755758503;
+	bh=9PEzyol7wQFy/1dAk0Qh7SZudKqBxCEm3GVlzbfSz20=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZS1q+9lZ1l/qElFHk84VdlGgyIqMQYIfJ18InCMT33y5ib002gi7RYZmKEQ0tsASk
+	 YVphcCf551f2rgIg0NyuQBRre3yn9AXBucTeI89s3Q39okTxM+NYNZ4vgKU0AtZpWV
+	 yPLDPdQdDQoKoImQ8nFsPtGXPN7ZcgWCPYd/IHQDEGyorFAJJRWkIP0cQWve47gIXg
+	 3bhVeXoVZTD1Jfwkv4cmTDxehCIN5W0BcDixiM2HXKE3g47wLfS+eRCux/w6yR37RA
+	 pTGdyTtC+rZ+PEXXK6OzQC0DbUOeT436kGNGeBIHxF0aymtnBLoCp25v6Oa2Esin34
+	 XmuW2NhXOqa0w==
+Message-ID: <d04841fb-03ce-448d-ab53-be14baf00b27@kernel.org>
+Date: Thu, 21 Aug 2025 08:41:40 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250811135001.1333684-1-lpieralisi@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: mfd: add Traverse Ten64 board
+ controller
+To: Mathew McBride <matt@traverse.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250813023435.27776-2-matt@traverse.com.au>
+ <20250821061115.18254-1-matt@traverse.com.au>
+ <20250821061115.18254-2-matt@traverse.com.au>
+ <58192df0-aa6e-44e2-9dfd-9e0402d1fe9a@kernel.org>
+ <26199775-297f-4b91-9cc9-ec06d0a86e7e@app.fastmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <26199775-297f-4b91-9cc9-ec06d0a86e7e@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200017.china.huawei.com (7.202.194.83)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_235313_337237_6A150F62 
-X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,78 +117,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/11 21:50, Lorenzo Pieralisi wrote:
-> L2 IST table entries are allocated with the kmalloc interface
-> and their physical addresses are programmed in the GIC (either
-> IST base address register or L1 IST table entries) but their
-> virtual addresses are not stored in any kernel data structure
-> because they are not needed at runtime - the L2 IST table entries
-> are managed through system instructions but never dereferenced
-> directly by the driver.
+On 21/08/2025 08:35, Mathew McBride wrote:
 > 
-> This triggers kmemleak false positive reports:
-> 
-> unreferenced object 0xffff00080039a000 (size 4096):
->   comm "swapper/0", pid 0, jiffies 4294892296
->   hex dump (first 32 bytes):
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->   backtrace (crc 0):
->     kmemleak_alloc+0x34/0x40
->     __kmalloc_noprof+0x320/0x464
->     gicv5_irs_iste_alloc+0x1a4/0x484
->     gicv5_irq_lpi_domain_alloc+0xe4/0x194
->     irq_domain_alloc_irqs_parent+0x78/0xd8
->     gicv5_irq_ipi_domain_alloc+0x180/0x238
->     irq_domain_alloc_irqs_locked+0x238/0x7d4
->     __irq_domain_alloc_irqs+0x88/0x114
->     gicv5_of_init+0x284/0x37c
->     of_irq_init+0x3b8/0xb18
->     irqchip_init+0x18/0x40
->     init_IRQ+0x104/0x164
->     start_kernel+0x1a4/0x3d4
->     __primary_switched+0x8c/0x94
-> 
-> Instruct kmemleak to ignore L2 IST table memory allocation
-> virtual addresses to prevent these false positive reports.
-> 
-> Reported-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Closes: https://lore.kernel.org/lkml/cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com/
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v5-irs.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> index ad1435a858a4..e8a576f66366 100644
-> --- a/drivers/irqchip/irq-gic-v5-irs.c
-> +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> @@ -5,6 +5,7 @@
->  
->  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
->  
-> +#include <linux/kmemleak.h>
->  #include <linux/log2.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
->  		kfree(ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(ist);
->  
->  	return 0;
->  }
-> @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
->  		kfree(l2ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(l2ist);
+>>> +  Communication between the SoC and controller is via I2C, at a fixed address
+>>
+>> Either you make it a schema or drop it.
+> Is this in reference to the "fixed address"? In which case, I'll remove references to any fixed address.
 
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+Yes. You can make it 'const: 0x7e' in the binding as well.
 
-Thanks,
-Zenghui
+nks,
+> Matt
+
+
+Best regards,
+Krzysztof
 
