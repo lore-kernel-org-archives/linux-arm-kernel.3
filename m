@@ -4,114 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4B1CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14F2CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=; b=x/RqSBj2F/srOUsk6Z1YhiCMhc
-	XKYaeC0DyJ1jCohKakl17yM9ZtqwnZnBramGWxHEfcep7ObyYxKovbC9HWtaK5JfWD0fzxHmtXdCo
-	ah7ofNeAHR1Z4Zk9lfyYd/3uj1GmKXA6GFYpthGi+Rg0KLKYcpX6OS8U3Y7LPSWKy9zgjB/DDmqAn
-	hWm1wWSKe3/nXD8SM9solfFc9tixh4e6SKL/VFXJaTUk0mi+noqAFol2GdVmb/dA16noHHZygEiQe
-	Sbkj2LeHiVvCLnbNbn480EGvuLkUnD6n8Pcj4aa17fVBIo5liMRA5hNt3i/4X6x3BCHlpLIw5Gnpg
-	JNZKkqlQ==;
+	bh=PkrXh5PHMEq3NY5i+0892fbAshOERsmwyMLhbVIa0Cc=; b=ZWtnPLOqwUUNbzHgCuQEiAzXJj
+	rz8eJmnDYjRFizyzTBFV3VMswjwjzP1Gu44gsJm5RSafi27usc8eealWpQMZ3P3mz4uChKNxp82oB
+	lJNvetuYQoUQtHwwd6HlpPPXi5YZS26kBQejsZ1f34o5H8mifAn86Vk3zlDRxv1xeU/XXvqTK+/P0
+	zUl/BujQ/tDs6hwiaOk66k/Zr0osRo5pu1Zl7gn3mVCzRSJ6t+rOl1AB9il2msdMstTmmX5ZigZ4L
+	OYJA2KaeHM+T5mdZkU0FQsJThI9K9FzcCUMrB2CxhBJTZGMqwJaOJhTk80EsEIbUYQQP0E97BML7K
+	b+X3Ko5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJBL-00000001U8P-1Lij;
-	Fri, 22 Aug 2025 04:15:15 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBaj-00000000OHd-3hRN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 21 Aug 2025 20:08:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=content-type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=; b=nICgXHQCCUDnDOJq8vOs7notLp
-	IbKyHx4aM7b/Agw45ybdXyfs9bECRdFmExEAEtKCGDXTFqlmNIjZWC/1rMNG5EKL/g8fms+bFTsjA
-	If47Hi6akFsLsZDJcJbVzsV0J0nW1aKYi7CZ/Av0Bg7NmH1S+7eaUj9ASkUR08x1U50e+kHFUhr0S
-	ttwLIGfGnGzkWkNWmSHt5c5ABjNulv48SMaqs7veIqqhrpzWFfxxPzW3O1/UE+S7T8/MbolXEFaMN
-	vf7UELSUhC8V1bGV6lmYTYlpUBvVlGyUONbI060k2qjqUAEjihSXog3JX8obxBzkmOfFvK3Mbsn/O
-	P9UUIvBg==;
+	id 1upJGV-00000001Uhh-1gwZ;
+	Fri, 22 Aug 2025 04:20:35 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upBae-0000000D2xI-0fMD
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upBbA-00000000OQn-0uBU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 20:08:56 +0000
+	Thu, 21 Aug 2025 20:09:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806930;
+	s=mimecast20190719; t=1755806963;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=;
-	b=P+om3Ly1mt0yX1sZYucJqz2xveBZcrjY6vWU9Y8+C69qNmguqbB4f+M7otevDQThyuz/FS
-	YSNpckBX2waGaJekmPCzDo1xIjPmAySgByOfcLI1YJZYOSAwTOFVGj0dhYWIH+rtYNE2Vl
-	deT3wZ+FJ8BYxl27wuLNOWfBQ6TXgwI=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=;
-	b=P+om3Ly1mt0yX1sZYucJqz2xveBZcrjY6vWU9Y8+C69qNmguqbB4f+M7otevDQThyuz/FS
-	YSNpckBX2waGaJekmPCzDo1xIjPmAySgByOfcLI1YJZYOSAwTOFVGj0dhYWIH+rtYNE2Vl
-	deT3wZ+FJ8BYxl27wuLNOWfBQ6TXgwI=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755806930;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=;
-	b=P+om3Ly1mt0yX1sZYucJqz2xveBZcrjY6vWU9Y8+C69qNmguqbB4f+M7otevDQThyuz/FS
-	YSNpckBX2waGaJekmPCzDo1xIjPmAySgByOfcLI1YJZYOSAwTOFVGj0dhYWIH+rtYNE2Vl
-	deT3wZ+FJ8BYxl27wuLNOWfBQ6TXgwI=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=PkrXh5PHMEq3NY5i+0892fbAshOERsmwyMLhbVIa0Cc=;
+	b=ArQO70iEy9QfzHSGpJbzt/hCMBAKPjREyqmVf6FC4YiqKLUgMsFRicbiZVlQRzmZ+Wac/Z
+	WZYPFTefGPuAN9edj2yYEfpzZaN7n6R2eSvLK3MrZ9nIfSQ5SI58JReeOrD597US42Wtfk
+	Xd9vqUOc9QcqpDeXsH9y75qLBztnPcs=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-313-Q2wb5nIfPv6LWmKMIthRQQ-1; Thu, 21 Aug 2025 16:08:47 -0400
-X-MC-Unique: Q2wb5nIfPv6LWmKMIthRQQ-1
-X-Mimecast-MFC-AGG-ID: Q2wb5nIfPv6LWmKMIthRQQ_1755806925
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-45a1b0d221aso6550415e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:08:46 -0700 (PDT)
+ us-mta-167-k2pfAnqSO4SDBMYCQWZFYQ-1; Thu, 21 Aug 2025 16:07:44 -0400
+X-MC-Unique: k2pfAnqSO4SDBMYCQWZFYQ-1
+X-Mimecast-MFC-AGG-ID: k2pfAnqSO4SDBMYCQWZFYQ_1755806863
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3b9e4f039ecso759272f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:07:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755806925; x=1756411725;
+        d=1e100.net; s=20230601; t=1755806863; x=1756411663;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8aQmj/0+AYT4mPx/DatgQPPbmq0Lkvm9KCqKkKCdC9Q=;
-        b=mwZxGrSytyrQPaybfs0D3sloG+UUwbA2O4mZn4BXWX3iHfMCtxeuO5nmXCxsOYL6BJ
-         /rltoLZWYINC8kHmJ0dor4daNePKM0ytGAa2ilGor0F17bqOGWjlB2KeWAKcMm5OMXOZ
-         zbY8BnUrXe5yl3toXiOColxZ3/UgAu7WIIoFnzMs3yy/LnlqOr8JgqqxV+V9c92Y9voF
-         ZRPkzjyG4KCiY9xfy6yl7EPJPc7wAw6a61JvbnhKvDKvScAKPUMQWIKhprouPAEWrghw
-         H92ZrebkdJ6asm0Y50j06CQUpBBM2/vQygJP7sHgMZYRQT33KJfThPDYXynhzk7QHIy6
-         HHVw==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ+xa607FZqyJNjAfcqzK25nbYXBKNvIuR0pncFDktY6GFFGrC63zv5ufn/2lclT+c2SlYUWDIpXWNfD1q1lMd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzalJKjEEWXhFIvxE0ui1vMd+f9D2xzULDYxWt+ZiULuKu9fQwH
-	fjm+he3tpc5e1xagwS5tz1lrlWVvxz47uYs2A24IRZHIlVHMOBQuo8B1t0mgOesQIACghSUjC/B
-	ALTQfgCxPcaC12HlVKTmkkI2q2N8t7Hv0zbyZ9W9Jn6UpS8y5O/pDL99b5HjiDYJl3SqXgBfhKu
-	z+
-X-Gm-Gg: ASbGncshFf42Rwz6rzJa3Z9Esp9th8MB6dIp+yLpUqumrpGCb3gt9tDdD/7SajLOZca
-	+395YdiiI4Eey9NVIz9gwbdDt69F8FlwWGAaDli5jEixG6bAsikCK5lCk0lnUkweDA4iPJozlXB
-	v3bhHkNZxDeA3z4xltw5E5D3GRPQElffRYx5kT4YN2Lh9998PJHNehY72HmZKvJrrK6y5J86/q6
-	iH3rWDjhEUTsVY8lJyoAzMUOBEJFjqibGC3wwGzNJoX1OmEpWmWJBcpPHZETCzeMbeERi9eu8xI
-	3/wg963EGGbsLf4PQ4EPeMUfhvvx6mGctCy39qr5i+2CqO3Gep0Dl4T/YW81raIvzEvvhICZzBd
-	4B+9uReL/2KacwAm9O5/Ubg==
-X-Received: by 2002:a05:600c:3b25:b0:459:da89:b06 with SMTP id 5b1f17b1804b1-45b517b008dmr3774305e9.16.1755806925529;
-        Thu, 21 Aug 2025 13:08:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHDDv+I9AWZPVyKVFD2prHDmQqsK3mzEWwP5yNf0oRJXtHjmqgi3hMC3hwAmszm5rTAtK85Rg==
-X-Received: by 2002:a05:600c:3b25:b0:459:da89:b06 with SMTP id 5b1f17b1804b1-45b517b008dmr3774035e9.16.1755806925116;
-        Thu, 21 Aug 2025 13:08:45 -0700 (PDT)
+        bh=PkrXh5PHMEq3NY5i+0892fbAshOERsmwyMLhbVIa0Cc=;
+        b=h14rCsv2q0UOze4atx9zeqQdTBE6z/8EKpiwu6gwNHWfj32rJ7wFdyavmYeTT6OwGq
+         B/aO8tidVhIj/EOB1NvkbaAJHT1gN5LFCBSgZJPMGUb8Wnd6u30IxIbyyQXNDRkZ7t1g
+         rZ83llM9ECXwNIKVLc1HQMF+AovUeU3v3l8NN/YxCyqi/72cgl2rSqRJuGLR4zzMSI3i
+         1Pa/eV4qrT4urKWPnyKIGt8pENjV/ztqDLvTc9ftOUfupm5w2FGXEKmRj3Cvbm6yOMRw
+         L/e+epdyybdWFUlRBl5unVbyqmL0EpsGEvJGKZTPfrK63Y7s4FJ4ORmuAn2zREQc679Q
+         Xtug==
+X-Forwarded-Encrypted: i=1; AJvYcCVTZb1rEwjDd/drvHIuv46bmMXKEOESICkQt/5pKmwsUPHMj6LfAaqbTtmsExFpZZmm8cs+THTxM6AU04qRnauM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3H0HsaT0R+ySiaME5TW70Kj62n1FXrYElz00u4O8vuLzS8bAr
+	UZ4E1ZJpsywpT4qV4uNbopetFbihay+2VRUi/k7kuLNXJELdzWsgavG2bu6FbiQ2q9EnqYBdBUO
+	C7kzgxYxSaKkLIotm6GtishJ8c/0UAIQCQbnrbSAz6S+ElBL3P5XK8kBSHEjVD0/9r7zsUyzQ37
+	SF
+X-Gm-Gg: ASbGnctwFWgtLTWPmTUsOfujy6BcgW0XvTlDY/UcDPZ+CPRUOJyrAg6BQVxkhvHmSDS
+	TysPOl+ECVnr3sMrvP5ncLHEc8RAwcEXcdQb4EMizrz9/vlecYzNh0NdqKH5+ql91U9CPHlmBJT
+	H/v6orV2ibGpjpHEjFnr9uQoA2D9nF08bxv+aj0M1WG0Z0t+dzCpqzwffOZjQT7YWc4CDMjZcqh
+	/Gso6k+Se5Hda83LD1YtVyqkN6AuAta9nszIPOeUYlTXaXoh7vNh6XIvoKth63qAxLvDsEmCJHO
+	o4o2ppJN/qzoVaEvwUwKNxo4tr73IiczyPs4NFS0Efn1VWwHV+cbydnsvLgYXTQIEP3LwFPADRp
+	l4f/uNQgO7ijxtg6ddC6NHg==
+X-Received: by 2002:a5d:5d0a:0:b0:3b9:14f2:7eea with SMTP id ffacd0b85a97d-3c5daefc2a3mr192565f8f.18.1755806863494;
+        Thu, 21 Aug 2025 13:07:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFB28V/U3gI+p1afMr2c1HujEN1g59N1A45YIj+RBO5vrtdOMlsNhrN6BtrkE7YShkW7nBB8Q==
+X-Received: by 2002:a5d:5d0a:0:b0:3b9:14f2:7eea with SMTP id ffacd0b85a97d-3c5daefc2a3mr192518f8f.18.1755806862961;
+        Thu, 21 Aug 2025 13:07:42 -0700 (PDT)
 Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b50e0a479sm8895255e9.21.2025.08.21.13.08.43
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45b51b61256sm1742995e9.3.2025.08.21.13.07.40
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Aug 2025 13:08:44 -0700 (PDT)
+        Thu, 21 Aug 2025 13:07:42 -0700 (PDT)
 From: David Hildenbrand <david@redhat.com>
 To: linux-kernel@vger.kernel.org
 Cc: David Hildenbrand <david@redhat.com>,
@@ -161,21 +126,21 @@ Cc: David Hildenbrand <david@redhat.com>,
 	wireguard@lists.zx2c4.com,
 	x86@kernel.org,
 	Zi Yan <ziy@nvidia.com>
-Subject: [PATCH RFC 35/35] mm: remove nth_page()
-Date: Thu, 21 Aug 2025 22:07:01 +0200
-Message-ID: <20250821200701.1329277-36-david@redhat.com>
+Subject: [PATCH RFC 13/35] mm: simplify folio_page() and folio_page_idx()
+Date: Thu, 21 Aug 2025 22:06:39 +0200
+Message-ID: <20250821200701.1329277-14-david@redhat.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
 References: <20250821200701.1329277-1-david@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Trqngk_hVW2m83-029O5akJboWE38z3rVcP9_4p-OCI_1755806925
+X-Mimecast-MFC-PROC-ID: So09dCQFBQqg-wBe9_pgSFXhu8JBJrA-403XnSgAdUA_1755806863
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_210852_944202_461E3DF2 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250821_130924_334078_3188E3E0 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,40 +155,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all users are gone, let's remove it.
+Now that a single folio/compound page can no longer span memory sections
+in problematic kernel configurations, we can stop using nth_page().
+
+While at it, turn both macros into static inline functions and add
+kernel doc for folio_page_idx().
 
 Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- include/linux/mm.h                   | 2 --
- tools/testing/scatterlist/linux/mm.h | 1 -
- 2 files changed, 3 deletions(-)
+ include/linux/mm.h         | 16 ++++++++++++++--
+ include/linux/page-flags.h |  5 ++++-
+ 2 files changed, 18 insertions(+), 3 deletions(-)
 
 diff --git a/include/linux/mm.h b/include/linux/mm.h
-index f59ad1f9fc792..3ded0db8322f7 100644
+index 48a985e17ef4e..ef360b72cb05c 100644
 --- a/include/linux/mm.h
 +++ b/include/linux/mm.h
-@@ -210,9 +210,7 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+@@ -210,10 +210,8 @@ extern unsigned long sysctl_admin_reserve_kbytes;
  
  #if defined(CONFIG_SPARSEMEM) && !defined(CONFIG_SPARSEMEM_VMEMMAP)
- bool page_range_contiguous(const struct page *page, unsigned long nr_pages);
--#define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+ #define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
+-#define folio_page_idx(folio, p)	(page_to_pfn(p) - folio_pfn(folio))
  #else
--#define nth_page(page,n) ((page) + (n))
- static inline bool page_range_contiguous(const struct page *page,
- 		unsigned long nr_pages)
+ #define nth_page(page,n) ((page) + (n))
+-#define folio_page_idx(folio, p)	((p) - &(folio)->page)
+ #endif
+ 
+ /* to align the pointer to the (next) page boundary */
+@@ -225,6 +223,20 @@ extern unsigned long sysctl_admin_reserve_kbytes;
+ /* test whether an address (unsigned long or pointer) is aligned to PAGE_SIZE */
+ #define PAGE_ALIGNED(addr)	IS_ALIGNED((unsigned long)(addr), PAGE_SIZE)
+ 
++/**
++ * folio_page_idx - Return the number of a page in a folio.
++ * @folio: The folio.
++ * @page: The folio page.
++ *
++ * This function expects that the page is actually part of the folio.
++ * The returned number is relative to the start of the folio.
++ */
++static inline unsigned long folio_page_idx(const struct folio *folio,
++		const struct page *page)
++{
++	return page - &folio->page;
++}
++
+ static inline struct folio *lru_to_folio(struct list_head *head)
  {
-diff --git a/tools/testing/scatterlist/linux/mm.h b/tools/testing/scatterlist/linux/mm.h
-index 5bd9e6e806254..121ae78d6e885 100644
---- a/tools/testing/scatterlist/linux/mm.h
-+++ b/tools/testing/scatterlist/linux/mm.h
-@@ -51,7 +51,6 @@ static inline unsigned long page_to_phys(struct page *page)
+ 	return list_entry((head)->prev, struct folio, lru);
+diff --git a/include/linux/page-flags.h b/include/linux/page-flags.h
+index d53a86e68c89b..080ad10c0defc 100644
+--- a/include/linux/page-flags.h
++++ b/include/linux/page-flags.h
+@@ -316,7 +316,10 @@ static __always_inline unsigned long _compound_head(const struct page *page)
+  * check that the page number lies within @folio; the caller is presumed
+  * to have a reference to the page.
+  */
+-#define folio_page(folio, n)	nth_page(&(folio)->page, n)
++static inline struct page *folio_page(struct folio *folio, unsigned long nr)
++{
++	return &folio->page + nr;
++}
  
- #define page_to_pfn(page) ((unsigned long)(page) / PAGE_SIZE)
- #define pfn_to_page(pfn) (void *)((pfn) * PAGE_SIZE)
--#define nth_page(page,n) pfn_to_page(page_to_pfn((page)) + (n))
- 
- #define __min(t1, t2, min1, min2, x, y) ({              \
- 	t1 min1 = (x);                                  \
+ static __always_inline int PageTail(const struct page *page)
+ {
 -- 
 2.50.1
 
