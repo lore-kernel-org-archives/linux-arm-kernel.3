@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A242CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFAECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+0mq+aZ8FiVuglcge/zbddfw9AWlhCmxeevWfZs8Ufk=; b=V6PTtMzkNSp+usydg4Lc8k+T5C
-	jy/KvSMWNUDt3HjCldjY+vlNK4CZ8SZL2IMWjbccuo2OlzImW7KDXOcWvz7NWIzT0xeWLWW9S1mar
-	wNODpgZamBJeTovUeEEMm6t8eRwIM/tu5gTy5Xy7tS/SEu3YzTiycSRr7mWktA+NC+X+smF+OJO31
-	P8lk94NQvaKyiO4Tf5uHFCvIY9a1Oth+GV/jTlLGaUt52sHxlk+2dXV6MB45BdmLi/WWswcYaE3h7
-	dMzS7r+yrhDhAjmz494AjMoOWyH6zFMJL+G1ilXdjearAag32tN+kiLVlEMHa1bHGdE8CpHTLXibp
-	zXEbI9Xg==;
+	bh=vioVXt2ZZgg7NeYPZVOuYjJyML9DfewAFD4Lo8ICLyI=; b=0yi+18WuKFnRRupMIoe4pBRNzE
+	AYLspQMIlFhDbx832PenxEPOLNGR3fX9wLGLpdmocwxze4H9OoaSa0H4meUpCzSLxGBjSKrNQX8xC
+	FFj4ryetlmmmCVm9cc+pj2+SmZqJ3GnJsDpTOw2PR4oJ9O4Hv774iEjNeCNxA6GtX2HnPxmrwfj34
+	HDyYKcAsxc8M5OwTlv/SfyUrhDu9mvjeIAEhddISouxe4QXAngPTEPtW9qc8W3c7FLerTdSk1xL0D
+	bQJ1bdm20PVIUpyRVGX7xgH/4IbwEp81CrZnqR3u2RtB5bu517gXfoVvZ0ohMItaoIyJNK1I5pKx4
+	ERSuyDsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHkf-00000001IzJ-3vYi;
-	Fri, 22 Aug 2025 02:43:37 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1upHnG-00000001JDm-2sc2;
+	Fri, 22 Aug 2025 02:46:18 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCP1-00000000bWo-22Ny
+	id 1upCP3-00000000bXx-1d5I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:00:56 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b4716fc08abso1167554a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:00:54 -0700 (PDT)
+	Thu, 21 Aug 2025 21:00:58 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3235e45b815so1629044a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:00:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810054; x=1756414854; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755810056; x=1756414856; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=+0mq+aZ8FiVuglcge/zbddfw9AWlhCmxeevWfZs8Ufk=;
-        b=AXbiYBfNgSS0EZVDDqzkswWqewAiBE95IYvpFu47mdNzJOg3s/zbSM+8VaILU/4n/V
-         iiCed86cmpOnld8r7/wiURyAiYK3K5gBeWOuk0mc4Ya8rztWFQCidgMpBnEN/q7ujkBx
-         7Ogiws1L4EsP9h/+/KSNpltYfS1ogHCTw5aFXfL52JS8d3CWiMuc6NhCFr1alAw6OnDJ
-         ZEoWHUEyK5jhNN1PEsLGIT8xS6zErJWcEy9Z1OWcS2CYJ1HYXOOVkKYCvSEDN9XOz8it
-         GuB9MEmeI4tN/JKT9m9vtM9l1jdPewvjrqq5t4zIxO/oNKE2L/0XJEM7qtcnA8TF8ILP
-         doug==
+        bh=vioVXt2ZZgg7NeYPZVOuYjJyML9DfewAFD4Lo8ICLyI=;
+        b=YHx2bX2tZ8/ezH8COHE+RKoN8vK8kD/4sjmdFz0eUCiaPigTUjqf91fwS6h32fTu/r
+         rga6+r1D2yjy4eRa8s1ZHkpcKR+m9werS6F8JcXTUa64gDot9VLdW2EA1mGRxb8TEGh5
+         o2SlEs+9rWyVInVcbtMs4qJfeuhG1ucExzhnsEOsYBNAKxWeAludDgzpvFrGVhf7d1EA
+         DBW9dfM1NqDVtTBubp24gwvhH/3NTBs99KWZGcJ3VfFr6PPDFqlp1LXq1Y/l+feduvtS
+         JHgKVBlTafVT2hCw2jg2Mie3q83PrBBKXxPGR7R6NdDC0SDdImmiHvTNW9ABpSTz2Q+M
+         ynrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810054; x=1756414854;
+        d=1e100.net; s=20230601; t=1755810056; x=1756414856;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+0mq+aZ8FiVuglcge/zbddfw9AWlhCmxeevWfZs8Ufk=;
-        b=l+jYjNlngXIfihz8TyxXzz5nwCI6suuE3XxN3aQ4HQzIKaW+nAf49RGLcoDAcMuOM2
-         C+5qHpvrL4pr656aD1QaohgxSZoHbS9NsJHAYowYIilaMxBhXIeq7YjnfoEGvyjyeAIf
-         ykBXuVTD/F5kvWaTUx0dE2kM6prq6ocX05iSPv5pvMKOsGFT/LBXMpaAkDAg1XFheWH7
-         3j7Ztns32h4RaGqctrFOcOlG2GS5LICYmeUYT57EqEwXvVYH4KHPQOXOtiD85tTWB8Qm
-         EaHVU8OZHATcaHK1CKWxDvO6HsHnhA+WVM8Eeg65hsUJEawWmuus3uBiUyXYvD/+yVkN
-         7Cig==
-X-Gm-Message-State: AOJu0YwK84D97YGnhfxupaBeDb60dkpKZKi0WA/7NaqEOk4fCaRPawwq
-	OCJCelTDAsjIwqhmn5BIMhsJovC2xl1EUWsFtkfyfNFgOIgjnrUjJ2t+VV+u1KDZ22Z0/kOzDlH
-	PlyOIHQ==
-X-Google-Smtp-Source: AGHT+IGtL8cs3Nlow7DOdUj6noypYWB7mEAPGYg2neHXfT0CwVRf3Tt3Ig6UudknxiqaomdBF2z+yZTd9eo=
-X-Received: from plcx18.prod.google.com ([2002:a17:903:d2:b0:23f:df55:cf6f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d2c5:b0:246:570:2d91
- with SMTP id d9443c01a7336-2462efcb0bemr7750285ad.61.1755810054013; Thu, 21
- Aug 2025 14:00:54 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:31 -0700
+        bh=vioVXt2ZZgg7NeYPZVOuYjJyML9DfewAFD4Lo8ICLyI=;
+        b=MUD9bNAorTjl6h+KdK1b0a879gvO9J0WQ25T6tSm3+V9FVe9PjwOn0ccCobH1w+nro
+         WdkIHp2TXZcYkMnJYjAbaY5K5lm2ji2P+3YUmaaNzrtkWmjRCFm5v2xHs1NC3eN/Bs1X
+         UCDspxY10tb0CLiVk0ftvifTEXVpOYxJCRg9edC3JF5cxBQonQJbKnCG1VKN16Wlympj
+         GDUfh582oaxKALGAaFvVc8tVl0umi7AEe++Jl1jqrXLtQZ+t9dUvh/yaUPSD4A+vnYvf
+         6QSHJt0n2uJJwOOmXgci4CJVQn32bkpC7f1/BlnHly4uRAiu6yvd7AEXy0k+s5yoM8NL
+         Hrcw==
+X-Gm-Message-State: AOJu0YzOefQeEz7nuom0a+uoPPi8LjACR3qVkPPnUbmGDJ1MD08Bamzu
+	hESmE0FgFdVTol2QJo+09B2EKNMsBTg/JmtblWHYBQZvDyVJ3ck1wpSC7ZefJbsmxMVzk+xFHnl
+	RruRgsw==
+X-Google-Smtp-Source: AGHT+IFMAoySLGWaBGxxLE7EGe5/JK70vfGurcQkwXtR0YxVIkKbRYcB3XHf65NsmmZ5Hb+78WjJ0WrD9XU=
+X-Received: from pjbee15.prod.google.com ([2002:a17:90a:fc4f:b0:321:c3cc:2574])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c45:b0:324:e96a:2ada
+ with SMTP id 98e67ed59e1d1-3251774ac2emr940105a91.21.1755810055944; Thu, 21
+ Aug 2025 14:00:55 -0700 (PDT)
+Date: Thu, 21 Aug 2025 14:00:32 -0700
 In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250821210042.3451147-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-6-seanjc@google.com>
-Subject: [RFC PATCH 05/16] KVM: arm64: Introduce "struct kvm_page_fault" for
- tracking abort state
+Message-ID: <20250821210042.3451147-7-seanjc@google.com>
+Subject: [RFC PATCH 06/16] KVM: arm64: Pass kvm_page_fault pointer to transparent_hugepage_adjust()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
@@ -75,8 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140055_533915_68C1640E 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20250821_140057_426015_0522D223 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,410 +91,68 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add and use a kvm_page_fault structure to track state when handling a
-guest abort.  Collecting everything in a single structure will enable a
-variety of cleanups (reduce the number of params passed to helpers), and
-will pave the way toward using "struct kvm_page_fault" in arch-neutral KVM
-code, e.g. to consolidate logic for KVM_EXIT_MEMORY_FAULT.
+Use the local kvm_page_fault structure to adjust for transparent hugepages
+when resolving guest aborts, to reduce the number of parameters from 5=>2,
+and to eliminate the less-than-pleasant pointer dereferences.
 
 No functional change intended.
 
-Cc: James Houghton <jthoughton@google.com>
-Link: https://lore.kernel.org/all/20250618042424.330664-1-jthoughton@google.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  18 ++++
- arch/arm64/kvm/mmu.c              | 143 ++++++++++++++----------------
- 2 files changed, 87 insertions(+), 74 deletions(-)
+ arch/arm64/kvm/mmu.c | 20 ++++++--------------
+ 1 file changed, 6 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 2f2394cce24e..4623cbc1edf4 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -413,6 +413,24 @@ struct kvm_vcpu_fault_info {
- 	u64 disr_el1;		/* Deferred [SError] Status Register */
- };
- 
-+struct kvm_page_fault {
-+	const u64 esr;
-+	const bool exec;
-+	const bool write;
-+	const bool is_perm;
-+
-+	phys_addr_t fault_ipa; /* The address we faulted on */
-+	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
-+
-+	struct kvm_s2_trans *nested;
-+
-+	gfn_t gfn;
-+	struct kvm_memory_slot *slot;
-+	unsigned long hva;
-+	kvm_pfn_t pfn;
-+	struct page *page;
-+};
-+
- /*
-  * VNCR() just places the VNCR_capable registers in the enum after
-  * __VNCR_START__, and the value (after correction) to be an 8-byte offset
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 49ce6bf623f7..ca98778989b2 100644
+index ca98778989b2..047aba00388c 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1477,38 +1477,29 @@ static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
- 	}
- }
- 
--static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
--			  struct kvm_s2_trans *nested,
--			  struct kvm_memory_slot *memslot, unsigned long hva,
--			  bool fault_is_perm)
-+static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+@@ -1361,19 +1361,15 @@ static bool fault_supports_stage2_huge_mapping(struct kvm_memory_slot *memslot,
+  * Returns the size of the mapping.
+  */
+ static long
+-transparent_hugepage_adjust(struct kvm *kvm, struct kvm_memory_slot *memslot,
+-			    unsigned long hva, kvm_pfn_t *pfnp,
+-			    phys_addr_t *ipap)
++transparent_hugepage_adjust(struct kvm *kvm, struct kvm_page_fault *fault)
  {
- 	int ret = 0;
--	bool write_fault, writable, force_pte = false;
--	bool exec_fault, mte_allowed, is_vma_cacheable;
-+	bool writable, force_pte = false;
-+	bool mte_allowed, is_vma_cacheable;
- 	bool s2_force_noncacheable = false, vfio_allow_any_uc = false;
- 	unsigned long mmu_seq;
--	phys_addr_t ipa = fault_ipa;
- 	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
- 	short vma_shift;
- 	void *memcache;
--	gfn_t gfn;
--	kvm_pfn_t pfn;
--	bool logging_active = memslot_is_logging(memslot);
-+	bool logging_active = memslot_is_logging(fault->slot);
- 	long vma_pagesize, fault_granule;
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt;
--	struct page *page;
- 	vm_flags_t vm_flags;
- 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
- 
--	if (fault_is_perm)
-+	if (fault->is_perm)
- 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
--	write_fault = kvm_is_write_fault(vcpu);
--	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
--	VM_BUG_ON(write_fault && exec_fault);
-+	VM_BUG_ON(fault->write && fault->exec);
- 
--	if (fault_is_perm && !write_fault && !exec_fault) {
-+	if (fault->is_perm && !fault->write && !fault->exec) {
- 		kvm_err("Unexpected L2 read permission error\n");
- 		return -EFAULT;
- 	}
-@@ -1524,7 +1515,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * only exception to this is when dirty logging is enabled at runtime
- 	 * and a write fault needs to collapse a block entry into a table.
- 	 */
--	if (!fault_is_perm || (logging_active && write_fault)) {
-+	if (!fault->is_perm || (logging_active && fault->write)) {
- 		int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
- 
- 		if (!is_protected_kvm_enabled())
-@@ -1541,9 +1532,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * get block mapping for device MMIO region.
- 	 */
- 	mmap_read_lock(current->mm);
--	vma = vma_lookup(current->mm, hva);
-+	vma = vma_lookup(current->mm, fault->hva);
- 	if (unlikely(!vma)) {
--		kvm_err("Failed to find VMA for hva 0x%lx\n", hva);
-+		kvm_err("Failed to find VMA for hva 0x%lx\n", fault->hva);
- 		mmap_read_unlock(current->mm);
- 		return -EFAULT;
- 	}
-@@ -1556,13 +1547,13 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		force_pte = true;
- 		vma_shift = PAGE_SHIFT;
- 	} else {
--		vma_shift = get_vma_page_shift(vma, hva);
-+		vma_shift = get_vma_page_shift(vma, fault->hva);
- 	}
- 
- 	switch (vma_shift) {
- #ifndef __PAGETABLE_PMD_FOLDED
- 	case PUD_SHIFT:
--		if (fault_supports_stage2_huge_mapping(memslot, hva, PUD_SIZE))
-+		if (fault_supports_stage2_huge_mapping(fault->slot, fault->hva, PUD_SIZE))
- 			break;
- 		fallthrough;
- #endif
-@@ -1570,7 +1561,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		vma_shift = PMD_SHIFT;
- 		fallthrough;
- 	case PMD_SHIFT:
--		if (fault_supports_stage2_huge_mapping(memslot, hva, PMD_SIZE))
-+		if (fault_supports_stage2_huge_mapping(fault->slot, fault->hva, PMD_SIZE))
- 			break;
- 		fallthrough;
- 	case CONT_PTE_SHIFT:
-@@ -1585,19 +1576,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 
- 	vma_pagesize = 1UL << vma_shift;
- 
--	if (nested) {
-+	if (fault->nested) {
- 		unsigned long max_map_size;
- 
- 		max_map_size = force_pte ? PAGE_SIZE : PUD_SIZE;
- 
--		ipa = kvm_s2_trans_output(nested);
-+		WARN_ON_ONCE(fault->ipa != kvm_s2_trans_output(fault->nested));
- 
- 		/*
- 		 * If we're about to create a shadow stage 2 entry, then we
- 		 * can only create a block mapping if the guest stage 2 page
- 		 * table uses at least as big a mapping.
- 		 */
--		max_map_size = min(kvm_s2_trans_size(nested), max_map_size);
-+		max_map_size = min(kvm_s2_trans_size(fault->nested), max_map_size);
- 
- 		/*
- 		 * Be careful that if the mapping size falls between
-@@ -1618,11 +1609,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * place.
- 	 */
- 	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE) {
--		fault_ipa &= ~(vma_pagesize - 1);
--		ipa &= ~(vma_pagesize - 1);
-+		fault->fault_ipa &= ~(vma_pagesize - 1);
-+		fault->ipa &= ~(vma_pagesize - 1);
- 	}
- 
--	gfn = ipa >> PAGE_SHIFT;
-+	fault->gfn = fault->ipa >> PAGE_SHIFT;
- 	mte_allowed = kvm_vma_mte_allowed(vma);
- 
- 	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-@@ -1645,20 +1636,21 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	mmu_seq = vcpu->kvm->mmu_invalidate_seq;
- 	mmap_read_unlock(current->mm);
- 
--	pfn = __kvm_faultin_pfn(memslot, gfn, write_fault ? FOLL_WRITE : 0,
--				&writable, &page);
--	if (pfn == KVM_PFN_ERR_HWPOISON) {
--		kvm_send_hwpoison_signal(hva, vma_shift);
-+	fault->pfn = __kvm_faultin_pfn(fault->slot, fault->gfn,
-+				       fault->write ? FOLL_WRITE : 0,
-+				       &writable, &fault->page);
-+	if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
-+		kvm_send_hwpoison_signal(fault->hva, vma_shift);
- 		return 0;
- 	}
--	if (is_error_noslot_pfn(pfn))
-+	if (is_error_noslot_pfn(fault->pfn))
- 		return -EFAULT;
- 
+-	kvm_pfn_t pfn = *pfnp;
+-
  	/*
- 	 * Check if this is non-struct page memory PFN, and cannot support
- 	 * CMOs. It could potentially be unsafe to access as cachable.
+ 	 * Make sure the adjustment is done only for THP pages. Also make
+ 	 * sure that the HVA and IPA are sufficiently aligned and that the
+ 	 * block map is contained within the memslot.
  	 */
--	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(pfn)) {
-+	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
- 		if (is_vma_cacheable) {
- 			/*
- 			 * Whilst the VMA owner expects cacheable mapping to this
-@@ -1687,7 +1679,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			 */
- 			s2_force_noncacheable = true;
- 		}
--	} else if (logging_active && !write_fault) {
-+	} else if (logging_active && !fault->write) {
- 		/*
- 		 * Only actually map the page as writable if this was a write
- 		 * fault.
-@@ -1695,7 +1687,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		writable = false;
+-	if (fault_supports_stage2_huge_mapping(memslot, hva, PMD_SIZE)) {
+-		int sz = get_user_mapping_size(kvm, hva);
++	if (fault_supports_stage2_huge_mapping(fault->slot, fault->hva, PMD_SIZE)) {
++		int sz = get_user_mapping_size(kvm, fault->hva);
+ 
+ 		if (sz < 0)
+ 			return sz;
+@@ -1381,10 +1377,8 @@ transparent_hugepage_adjust(struct kvm *kvm, struct kvm_memory_slot *memslot,
+ 		if (sz < PMD_SIZE)
+ 			return PAGE_SIZE;
+ 
+-		*ipap &= PMD_MASK;
+-		pfn &= ~(PTRS_PER_PMD - 1);
+-		*pfnp = pfn;
+-
++		fault->ipa &= PMD_MASK;
++		fault->pfn &= ~(PTRS_PER_PMD - 1);
+ 		return PMD_SIZE;
  	}
  
--	if (exec_fault && s2_force_noncacheable)
-+	if (fault->exec && s2_force_noncacheable)
- 		return -ENOEXEC;
- 
- 	/*
-@@ -1709,12 +1701,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * used to limit the invalidation scope if a TTL hint or a range
- 	 * isn't provided.
- 	 */
--	if (nested) {
--		writable &= kvm_s2_trans_writable(nested);
--		if (!kvm_s2_trans_readable(nested))
-+	if (fault->nested) {
-+		writable &= kvm_s2_trans_writable(fault->nested);
-+		if (!kvm_s2_trans_readable(fault->nested))
- 			prot &= ~KVM_PGTABLE_PROT_R;
- 
--		prot |= kvm_encode_nested_level(nested);
-+		prot |= kvm_encode_nested_level(fault->nested);
- 	}
- 
- 	kvm_fault_lock(kvm);
-@@ -1729,12 +1721,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
- 	if (vma_pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
--		if (fault_is_perm && fault_granule > PAGE_SIZE)
-+		if (fault->is_perm && fault_granule > PAGE_SIZE)
+@@ -1724,9 +1718,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 		if (fault->is_perm && fault_granule > PAGE_SIZE)
  			vma_pagesize = fault_granule;
  		else
--			vma_pagesize = transparent_hugepage_adjust(kvm, memslot,
--								   hva, &pfn,
--								   &fault_ipa);
-+			vma_pagesize = transparent_hugepage_adjust(kvm, fault->slot,
-+								   fault->hva, &fault->pfn,
-+								   &fault->fault_ipa);
+-			vma_pagesize = transparent_hugepage_adjust(kvm, fault->slot,
+-								   fault->hva, &fault->pfn,
+-								   &fault->fault_ipa);
++			vma_pagesize = transparent_hugepage_adjust(kvm, fault);
  
  		if (vma_pagesize < 0) {
  			ret = vma_pagesize;
-@@ -1742,10 +1734,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		}
- 	}
- 
--	if (!fault_is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
-+	if (!fault->is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
- 		if (mte_allowed) {
--			sanitise_mte_tags(kvm, pfn, vma_pagesize);
-+			sanitise_mte_tags(kvm, fault->pfn, vma_pagesize);
- 		} else {
- 			ret = -EFAULT;
- 			goto out_unlock;
-@@ -1755,7 +1747,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (writable)
- 		prot |= KVM_PGTABLE_PROT_W;
- 
--	if (exec_fault)
-+	if (fault->exec)
- 		prot |= KVM_PGTABLE_PROT_X;
- 
- 	if (s2_force_noncacheable) {
-@@ -1764,7 +1756,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		else
- 			prot |= KVM_PGTABLE_PROT_DEVICE;
- 	} else if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC) &&
--		   (!nested || kvm_s2_trans_executable(nested))) {
-+		   (!fault->nested || kvm_s2_trans_executable(fault->nested))) {
- 		prot |= KVM_PGTABLE_PROT_X;
- 	}
- 
-@@ -1773,26 +1765,26 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	 * permissions only if vma_pagesize equals fault_granule. Otherwise,
- 	 * kvm_pgtable_stage2_map() should be called to change block size.
- 	 */
--	if (fault_is_perm && vma_pagesize == fault_granule) {
-+	if (fault->is_perm && vma_pagesize == fault_granule) {
- 		/*
- 		 * Drop the SW bits in favour of those stored in the
- 		 * PTE, which will be preserved.
- 		 */
- 		prot &= ~KVM_NV_GUEST_MAP_SZ;
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault->fault_ipa, prot, flags);
- 	} else {
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
--					     __pfn_to_phys(pfn), prot,
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault->fault_ipa, vma_pagesize,
-+					     __pfn_to_phys(fault->pfn), prot,
- 					     memcache, flags);
- 	}
- 
- out_unlock:
--	kvm_release_faultin_page(kvm, page, !!ret, writable);
-+	kvm_release_faultin_page(kvm, fault->page, !!ret, writable);
- 	kvm_fault_unlock(kvm);
- 
- 	/* Mark the page dirty only if the fault is handled successfully */
- 	if (writable && !ret)
--		mark_page_dirty_in_slot(kvm, memslot, gfn);
-+		mark_page_dirty_in_slot(kvm, fault->slot, fault->gfn);
- 
- 	return ret != -EAGAIN ? ret : 0;
- }
-@@ -1814,12 +1806,17 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- static int __kvm_handle_guest_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 				    unsigned long esr)
- {
--	struct kvm_s2_trans nested_trans, *nested = NULL;
--	struct kvm_memory_slot *memslot;
--	bool write_fault, writable;
--	unsigned long hva;
--	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
--	gfn_t gfn;
-+	struct kvm_page_fault fault = {
-+		.fault_ipa = fault_ipa,
-+		.esr = esr,
-+		.ipa = fault_ipa,
-+
-+		.write = kvm_is_write_fault(vcpu),
-+		.exec  = kvm_vcpu_trap_is_exec_fault(vcpu),
-+		.is_perm = esr_fsc_is_permission_fault(esr),
-+	};
-+	struct kvm_s2_trans nested_trans;
-+	bool writable;
- 	int ret;
- 
- 	/*
-@@ -1849,15 +1846,14 @@ static int __kvm_handle_guest_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa
- 			return ret;
- 		}
- 
--		ipa = kvm_s2_trans_output(&nested_trans);
--		nested = &nested_trans;
-+		fault.ipa = kvm_s2_trans_output(&nested_trans);
-+		fault.nested = &nested_trans;
- 	}
- 
--	gfn = ipa >> PAGE_SHIFT;
--	memslot = gfn_to_memslot(vcpu->kvm, gfn);
--	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
--	write_fault = kvm_is_write_fault(vcpu);
--	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-+	fault.gfn = fault.ipa >> PAGE_SHIFT;
-+	fault.slot = gfn_to_memslot(vcpu->kvm, fault.gfn);
-+	fault.hva = gfn_to_hva_memslot_prot(fault.slot, fault.gfn, &writable);
-+	if (kvm_is_error_hva(fault.hva) || (fault.write && !writable)) {
- 		/*
- 		 * The guest has put either its instructions or its page-tables
- 		 * somewhere it shouldn't have. Userspace won't be able to do
-@@ -1882,7 +1878,7 @@ static int __kvm_handle_guest_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa
- 		 * So let's assume that the guest is just being
- 		 * cautious, and skip the instruction.
- 		 */
--		if (kvm_is_error_hva(hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
-+		if (kvm_is_error_hva(fault.hva) && kvm_vcpu_dabt_is_cm(vcpu)) {
- 			kvm_incr_pc(vcpu);
- 			return 1;
- 		}
-@@ -1893,20 +1889,19 @@ static int __kvm_handle_guest_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa
- 		 * faulting VA. This is always 12 bits, irrespective
- 		 * of the page size.
- 		 */
--		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
--		return io_mem_abort(vcpu, ipa);
-+		fault.ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-+		return io_mem_abort(vcpu, fault.ipa);
- 	}
- 
- 	/* Userspace should not be able to register out-of-bounds IPAs */
--	VM_BUG_ON(ipa >= kvm_phys_size(vcpu->arch.hw_mmu));
-+	VM_BUG_ON(fault.ipa >= kvm_phys_size(vcpu->arch.hw_mmu));
- 
- 	if (esr_fsc_is_access_flag_fault(esr)) {
--		handle_access_fault(vcpu, fault_ipa);
-+		handle_access_fault(vcpu, fault.fault_ipa);
- 		return 1;
- 	}
- 
--	ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
--			     esr_fsc_is_permission_fault(esr));
-+	ret = user_mem_abort(vcpu, &fault);
- 	if (ret == 0)
- 		ret = 1;
- out:
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
