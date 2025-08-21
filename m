@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB21CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14158CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCZ0kjAgUkAIpsCpKchImse+J2pCgtoEVGXX3D5TZ6s=; b=JLF2rxqFx9ejImkhDNxy/ka0bk
-	JhIMdxFioqddDbpeoyltLNxSs+xk1lr3gzsmOu3YZeCTuoGs+MNVrNFN/XTtpKfX5tPtSmVzaw3cG
-	5QO5Wh+A1uAjIu0ijmBgKov/BpfDejCrX1J9RoCuauhF0gbOEUL7CtqG8Ps/wNrEVCJtXWMxk1FFj
-	EgQT+I1F0nYvHwg7zL9kWUa053SSqZvY86zab8nT/+4suq8ubL4Skh/sx0/4uhT4fBuHKCnkNSNE7
-	nzxn/uUq9qIJuwPp94iS9zByYoahLWVKOBWixIL85F6lCgGG5kWqB37Rx4eIB5hAS35goLkloH8uW
-	X+xuCTkw==;
+	bh=yWNEyQOtCobSuNf/mAxWSywHqvnhTzYxaDBuFiwhLBA=; b=uqR363u/heB0mM35EI92U+zYOD
+	7YTbk4iAtOxv8H9zaoJtx8/c/e844miKPQMxSZvhf7dS3bZvDunm1aVzHysa69fPkvK42uOJtC5h1
+	iTw4Q8Ofdstl+jXFZbrT4L4ubmSTezNPN4O2tmjSwB8EB2PtAnFePd++9SSLdGREBoyJvs1RMIJwT
+	Dt2G0Vg96R/Ylcdmwf3BYppd81BFT/53vdbqLzQOh++hvMQXePxdDW9hT8VpQQnH4LAWQsH8T/g2Q
+	S6lIDSiv1iemJbasDSJKU06DhZgExV4bekPb25Dpkcwaxjhg6GhE5BU7cbtMXSqldggr6sIDxv3U+
+	zTHVLLnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upF1o-00000000xnG-0ZLm;
+	id 1upF1o-00000000xny-3Pmd;
 	Thu, 21 Aug 2025 23:49:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7oG-0000000HVV2-1Mga
+	id 1up7rb-0000000HVwm-3mjI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 16:06:41 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A6157C78;
-	Thu, 21 Aug 2025 18:05:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755792337;
-	bh=reNOgaI66JpG7BCmaKX/JcvTZ2uK0khXqFeK3NpfnDQ=;
+	Thu, 21 Aug 2025 16:10:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 010CC5C67B7;
+	Thu, 21 Aug 2025 16:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2C1DC4CEEB;
+	Thu, 21 Aug 2025 16:10:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755792606;
+	bh=CY0uyhDm+JK1RcB31oDW3kPt/bvUFL+bFY6F0nxVZmc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pFfDnDKmTxUVEqUGHNPN0kzSTpwjHEJtAD/4LerCKHwLoRSdRSlxa7oi0G8IOm3JK
-	 B4lPhsBNxAv0fzDABC79KW8xpRLeh0s+capxkmRedX0aqwDj1jy7mOOUmiD/vdoO1y
-	 3km2CpAPWVjOehJoS+ta2BSEXfVAC3+/4TZLHWe0=
-Date: Thu, 21 Aug 2025 19:06:13 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	b=E6Xgn0Bp2btGcrx0id7JdIM5f25qfgtTN2FntK0nTa20TrZgV51C1zjDw4GfaoWVO
+	 OrJGCBSrJpVm5i6hnc9zf1PWWvxafxzmk40exck+7IQDYw5R3AS9VSGZnaVdAziJ6Q
+	 QCSYJdigHotkfDvXKUMluT1zxwXsuCfzrhDelPafLfx4Ij+CX+DRkMyOFa5ysx3/4v
+	 G/ZS6a8S0QNagNv3K+rIZI+fbZrC3xB9MTZnSKZnGQCd125Ahy5+Eirk/MdMn9MeU6
+	 4iWcaGG8uNMXkmg9obiFvREQxaLSNaH4ngiRvEeei3+W1YEO8KSA6OQ1xIcp9Prox3
+	 nUBvkfQK9beUA==
+Date: Thu, 21 Aug 2025 23:52:51 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 05/12] media: imx-mipi-csis: Rename register macros to
- match reference manual
-Message-ID: <20250821160613.GA29629@pendragon.ideasonboard.com>
-References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
- <20250821000944.27849-6-laurent.pinchart@ideasonboard.com>
- <aKc6gzH5nyAeusu3@lizhi-Precision-Tower-5810>
+	linux-arm-kernel@lists.infradead.org,
+	"linux-watchdog@vger.kernel.org Conor Dooley" <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/2] clocksource/drivers: Add ARM SSE(Subsystems for
+ Embedded) Timer driver
+Message-ID: <aKdA030OhAlIXRxU@xhacker>
+References: <20250821152429.26995-1-jszhang@kernel.org>
+ <20250821152429.26995-3-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aKc6gzH5nyAeusu3@lizhi-Precision-Tower-5810>
+In-Reply-To: <20250821152429.26995-3-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_090640_502694_CCF4D18D 
-X-CRM114-Status: GOOD (  26.29  )
+X-CRM114-CacheID: sfid-20250821_091008_039071_31E08BEA 
+X-CRM114-Status: GOOD (  39.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +76,616 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-On Thu, Aug 21, 2025 at 11:25:55AM -0400, Frank Li wrote:
-> On Thu, Aug 21, 2025 at 03:09:37AM +0300, Laurent Pinchart wrote:
-> > The CSIS driver uses register macro names that do not match the
-> > reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
-> > is integrated. Rename them to match the documentation, making the code
-> > easier to read alongside the reference manuals.
-> >
-> > One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
-> > which led to the corresponding event being logged as "Unknown Error".
-> > The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
-> > as "Unknown ID error". Update the event description accordingly.
-> >
-> > While at it, also replace a few *_OFFSET macros with parametric macros
-> > for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
-> > MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
-> >
-> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/nxp/imx-mipi-csis.c | 69 +++++++++++-----------
-> >  1 file changed, 36 insertions(+), 33 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > index 894d12fef519..1ca327e6be00 100644
-> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > @@ -55,13 +55,13 @@
-> >  /* CSIS common control */
-> >  #define MIPI_CSIS_CMN_CTRL			0x04
-> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
-> > -#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
-> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE	(0 << 10)
-> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	(1 << 10)
+On Thu, Aug 21, 2025 at 11:24:29PM +0800, Jisheng Zhang wrote:
+> Here is the ARM SSE(Subsystems for Embedded) timer doc URL:
+> https://developer.arm.com/documentation/107610/0000/System-timer-components?lang=en
 > 
-> BIT(10)?
-
-INTERLAVE_MODE is a 2-bit field. I'm working on a series that add
-support for the VC interleave mode, which has value 2. I'll however drop
-this change and keep BIT(10) for now, as the commit message doesn't
-explain why this has been modified.
-
-> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
-> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
+> Although the IP is mostly seen on MCU SoC platforms, but nothing
+> prevent it from being integrated into linux capable SoC platforms.
 > 
-> GEN_MASK() is better here, And below other registers.
+> The IP core may have a system counter to generate timestamp value,
+> a system timer to raise an interrupt when a period has elapsed, and
+> a System Watchdog to detect errant system behaviour then reset the
+> system if a period elapses without ping.
+> 
+> The differences between this IP and arm mmio arch timer include not
+> limit to:
+> 1. The system can add the timer frames as many as it want, I.E no
+> up to 8 timer frames limitation at all.
+> 2. The IP supports watchdog.
+> 3. physical timer only.
+> 4. The system counter can be exposed to so can be under the control of
+>    linux.
+> 
+> Introduce a clocksource+watchdog driver for the ARM SSE timer IP.
 
-It is, but I wanted this patch to focus on the renames. I actually have
-a patch in my branch to switch to GENMASK for all masks, I will add it
-to the next version of this series.
-
-> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
-> > -#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
-> > -#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
-> > -
-> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
-> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
-> > +#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
-> > +#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
-> >
-> >  /* CSIS clock control */
-> ...
-
--- 
-Regards,
-
-Laurent Pinchart
++ arm and wdt maillist
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  drivers/clocksource/Kconfig     |   7 +
+>  drivers/clocksource/Makefile    |   1 +
+>  drivers/clocksource/timer-sse.c | 540 ++++++++++++++++++++++++++++++++
+>  3 files changed, 548 insertions(+)
+>  create mode 100644 drivers/clocksource/timer-sse.c
+> 
+> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+> index 645f517a1ac2..bfcbd7a1a498 100644
+> --- a/drivers/clocksource/Kconfig
+> +++ b/drivers/clocksource/Kconfig
+> @@ -152,6 +152,13 @@ config REALTEK_OTTO_TIMER
+>  	  RT8391, RTL8392, RTL8393 and RTL8396 and chips of the RTL930x series
+>  	  such as RTL9301, RTL9302 or RTL9303.
+>  
+> +config SSE_TIMER
+> +	bool "ARM SSE(Subsystems for Embedded) system timer driver"
+> +	depends on COMMON_CLK
+> +	default n
+> +	help
+> +	  Enables support for the ARM SSE(Subsystems for Embedded) system timer driver.
+> +
+>  config SUN4I_TIMER
+>  	bool "Sun4i timer driver" if COMPILE_TEST
+>  	depends on HAS_IOMEM
+> diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
+> index 205bf3b0a8f3..dd688807694d 100644
+> --- a/drivers/clocksource/Makefile
+> +++ b/drivers/clocksource/Makefile
+> @@ -33,6 +33,7 @@ obj-$(CONFIG_BCM2835_TIMER)	+= bcm2835_timer.o
+>  obj-$(CONFIG_CLPS711X_TIMER)	+= clps711x-timer.o
+>  obj-$(CONFIG_MXS_TIMER)		+= mxs_timer.o
+>  obj-$(CONFIG_CLKSRC_PXA)	+= timer-pxa.o
+> +obj-$(CONFIG_SSE_TIMER)		+= timer-sse.o
+>  obj-$(CONFIG_SUN4I_TIMER)	+= timer-sun4i.o
+>  obj-$(CONFIG_SUN5I_HSTIMER)	+= timer-sun5i.o
+>  obj-$(CONFIG_MESON6_TIMER)	+= timer-meson6.o
+> diff --git a/drivers/clocksource/timer-sse.c b/drivers/clocksource/timer-sse.c
+> new file mode 100644
+> index 000000000000..cf7d0bf07c2e
+> --- /dev/null
+> +++ b/drivers/clocksource/timer-sse.c
+> @@ -0,0 +1,540 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + *
+> + * Some code are borrow from
+> + * linux/drivers/clocksource/arm_arch_timer.c
+> + * Copyright (C) 2011 ARM Ltd.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/clockchips.h>
+> +#include <linux/clocksource.h>
+> +#include <linux/delay.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/io-64-nonatomic-lo-hi.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqreturn.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +#include <linux/slab.h>
+> +#include <linux/watchdog.h>
+> +
+> +#define CNTCR				0x00
+> +#define CNTCV				0x08
+> +
+> +#define CNTPCT				0x00
+> +#define CNTP_CVAL			0x20
+> +#define CNTP_CTL			0x2c
+> +#define  CNTP_CTL_ENABLE		BIT(0)
+> +#define  CNTP_CTL_IMASK			BIT(1)
+> +#define  CNTP_CTL_ISTATUS		BIT(2)
+> +#define CNTP_AIVAL_RELOAD		0x48
+> +#define CNTP_AIVAL_CTL			0x4c
+> +#define  CNTP_AIVAL_CTL_EN		BIT(0)
+> +#define  CNTP_AIVAL_CTL_CLR		BIT(1)
+> +#define CNTP_CFG			0x50
+> +#define  CNTP_CFG_AIVAL_MASK		GENMASK(3, 0)
+> +#define  CNTP_CFG_AIVAL_IMPL		1
+> +
+> +#define WCS				0x00
+> +#define  WCS_EN				BIT(0)
+> +#define  WCS_WS0			BIT(1)
+> +#define  WCS_WS1			BIT(2)
+> +#define WOR				0x08
+> +#define WCV				0x10
+> +
+> +#define WRR				0x00
+> +
+> +#define SSE_WDT_DEFAULT_SECONDS		30
+> +
+> +enum sse_timer_mode {
+> +	SSE_TIMER_NORMAL,
+> +	SSE_TIMER_AUTOINC,
+> +};
+> +
+> +struct sse_timer_frame {
+> +	void __iomem *base;
+> +	struct clocksource cs;
+> +	struct clock_event_device ce;
+> +	u32 ticks_per_jiffy;
+> +	int irq;
+> +	enum sse_timer_mode mode;
+> +};
+> +
+> +struct sse_wdt_frame {
+> +	struct watchdog_device wdd;
+> +	void __iomem *ctrl_base;
+> +	void __iomem *refr_base;
+> +	unsigned long freq;
+> +	int irq;
+> +};
+> +
+> +struct sse_timer {
+> +	void __iomem *cntctrl_base;
+> +	struct clk *clk;
+> +	struct sse_timer_frame *timers;
+> +	struct sse_wdt_frame *wdts;
+> +	int timer_num;
+> +	int wdt_num;
+> +};
+> +
+> +#define cs_to_sse_timer_frame(x) \
+> +	container_of(x, struct sse_timer_frame, cs)
+> +#define ce_to_sse_timer_frame(x) \
+> +	container_of(x, struct sse_timer_frame, ce)
+> +
+> +static bool nowayout = WATCHDOG_NOWAYOUT;
+> +module_param(nowayout, bool, 0444);
+> +MODULE_PARM_DESC(nowayout,
+> +		 "Watchdog cannot be stopped once started (default="
+> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
+> +
+> +static __always_inline u64 sse_get_cntpct(struct sse_timer_frame *f)
+> +{
+> +#ifndef CONFIG_64BIT
+> +	u32 cnt_lo, cnt_hi, tmp_hi;
+> +
+> +	do {
+> +		cnt_hi = __le32_to_cpu((__le32 __force)__raw_readl(f->base + CNTPCT + 4));
+> +		cnt_lo = __le32_to_cpu((__le32 __force)__raw_readl(f->base + CNTPCT));
+> +		tmp_hi = __le32_to_cpu((__le32 __force)__raw_readl(f->base + CNTPCT + 4));
+> +	} while (cnt_hi != tmp_hi);
+> +
+> +	return ((u64) cnt_hi << 32) | cnt_lo;
+> +#else
+> +	return readq_relaxed(f->base + CNTPCT);
+> +#endif
+> +
+> +}
+> +
+> +static int sse_ce_shutdown(struct clock_event_device *ce)
+> +{
+> +	struct sse_timer_frame *f = ce_to_sse_timer_frame(ce);
+> +	u32 val;
+> +
+> +	val = readl_relaxed(f->base + CNTP_CTL);
+> +	val &= ~CNTP_CTL_ENABLE;
+> +	writel_relaxed(val, f->base + CNTP_CTL);
+> +	return 0;
+> +}
+> +
+> +static int sse_ce_set_oneshot(struct clock_event_device *ce)
+> +{
+> +	struct sse_timer_frame *f = ce_to_sse_timer_frame(ce);
+> +	u32 val;
+> +
+> +	f->mode = SSE_TIMER_NORMAL;
+> +
+> +	val = readl_relaxed(f->base + CNTP_CTL);
+> +	if (val & CNTP_CTL_ENABLE) {
+> +		val &= ~CNTP_CTL_ENABLE;
+> +		writel_relaxed(val, f->base + CNTP_CTL);
+> +	}
+> +
+> +	writel_relaxed(0, f->base + CNTP_AIVAL_CTL);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_ce_set_periodic(struct clock_event_device *ce)
+> +{
+> +	struct sse_timer_frame *f = ce_to_sse_timer_frame(ce);
+> +	u32 val;
+> +
+> +	f->mode = SSE_TIMER_AUTOINC;
+> +
+> +	val = readl_relaxed(f->base + CNTP_CTL);
+> +	if (val & CNTP_CTL_ENABLE) {
+> +		val &= ~CNTP_CTL_ENABLE;
+> +		writel_relaxed(val, f->base + CNTP_CTL);
+> +	}
+> +
+> +	val |= CNTP_CTL_ENABLE;
+> +	val &= ~CNTP_CTL_IMASK;
+> +
+> +	writel_relaxed(f->ticks_per_jiffy, f->base + CNTP_AIVAL_RELOAD);
+> +	writel_relaxed(CNTP_AIVAL_CTL_EN, f->base + CNTP_AIVAL_CTL);
+> +	writel_relaxed(val, f->base + CNTP_CTL);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_ce_next_event(unsigned long evt, struct clock_event_device *ce)
+> +{
+> +	struct sse_timer_frame *f = ce_to_sse_timer_frame(ce);
+> +	u32 val;
+> +	u64 cnt;
+> +
+> +	val = readl_relaxed(f->base + CNTP_CTL);
+> +	if (val & CNTP_CTL_ENABLE) {
+> +		val &= ~CNTP_CTL_ENABLE;
+> +		writel_relaxed(val, f->base + CNTP_CTL);
+> +	}
+> +
+> +	val |= CNTP_CTL_ENABLE;
+> +	val &= ~CNTP_CTL_IMASK;
+> +
+> +	cnt = sse_get_cntpct(f);
+> +	writeq_relaxed(evt + cnt, f->base + CNTP_CVAL);
+> +	writel_relaxed(val, f->base + CNTP_CTL);
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t sse_timer_interrupt(int irq, void *dev_id)
+> +{
+> +	struct sse_timer_frame *f = dev_id;
+> +	u32 val;
+> +
+> +	val = readl_relaxed(f->base + CNTP_CTL);
+> +	if (!(val & CNTP_CTL_ISTATUS))
+> +		return IRQ_NONE;
+> +
+> +	if (f->mode == SSE_TIMER_AUTOINC) {
+> +		val = readl_relaxed(f->base + CNTP_AIVAL_CTL);
+> +		val &= ~CNTP_AIVAL_CTL_CLR;
+> +		writel_relaxed(val, f->base + CNTP_AIVAL_CTL);
+> +	} else {
+> +		val |= CNTP_CTL_IMASK;
+> +		writel_relaxed(val, f->base + CNTP_CTL);
+> +	}
+> +	f->ce.event_handler(&f->ce);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int sse_setup_clockevent(struct device *dev, struct sse_timer_frame *f,
+> +				unsigned long rate)
+> +{
+> +	int ret;
+> +	u32 val = readl_relaxed(f->base + CNTP_CFG);
+> +
+> +	f->ticks_per_jiffy = DIV_ROUND_UP(rate, HZ);
+> +
+> +	f->ce.name = "sse-timer";
+> +	f->ce.rating = 300;
+> +	f->ce.irq = f->irq;
+> +	f->ce.cpumask = cpu_possible_mask;
+> +	f->ce.features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_DYNIRQ;
+> +	f->ce.set_state_shutdown = sse_ce_shutdown;
+> +	f->ce.set_next_event = sse_ce_next_event;
+> +	f->ce.set_state_oneshot_stopped = sse_ce_shutdown;
+> +	if (FIELD_GET(CNTP_CFG_AIVAL_MASK, val) == CNTP_CFG_AIVAL_IMPL) {
+> +		f->ce.set_state_periodic = sse_ce_set_periodic;
+> +		f->ce.set_state_oneshot = sse_ce_set_oneshot;
+> +	}
+> +
+> +	clockevents_config_and_register(&f->ce, rate, 0xf, ULONG_MAX);
+> +
+> +	ret = devm_request_irq(dev, f->irq, sse_timer_interrupt,
+> +			       IRQF_TIMER | IRQF_NOBALANCING,
+> +			       f->ce.name, f);
+> +	if (ret) {
+> +		dev_err(dev, "Unable to register interrupt\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static noinstr u64 cs_sse_get_cntpct(struct clocksource *cs)
+> +{
+> +	struct sse_timer_frame *f = cs_to_sse_timer_frame(cs);
+> +
+> +	return sse_get_cntpct(f);
+> +}
+> +
+> +static int sse_setup_clocksource(struct device *dev, struct sse_timer_frame *f,
+> +				 unsigned long rate)
+> +{
+> +	int ret;
+> +
+> +	f->cs.name = "sse-timer";
+> +	f->cs.rating = 300;
+> +	f->cs.read = cs_sse_get_cntpct;
+> +	f->cs.mask = CLOCKSOURCE_MASK(64);
+> +	f->cs.flags = CLOCK_SOURCE_IS_CONTINUOUS;
+> +
+> +	ret = clocksource_register_hz(&f->cs, rate);
+> +	if (ret) {
+> +		dev_err(dev, "Couldn't register clock source.\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t sse_wdt_interrupt(int irq, void *dev_id)
+> +{
+> +	struct sse_wdt_frame *f = dev_id;
+> +	u32 val;
+> +
+> +	val = readl_relaxed(f->ctrl_base + WCS);
+> +	if (val & WCS_WS0)
+> +		watchdog_notify_pretimeout(&f->wdd);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int sse_wdt_set_timeout(struct watchdog_device *wdd, unsigned int timeout)
+> +{
+> +	struct sse_wdt_frame *f = watchdog_get_drvdata(wdd);
+> +
+> +	wdd->timeout = timeout;
+> +
+> +	/* Pretimeout is 1/2 of timeout */
+> +	wdd->pretimeout = timeout / 2;
+> +
+> +	writel_relaxed(((u64)f->freq / 2) * timeout, f->ctrl_base + WOR);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_wdt_set_pretimeout(struct watchdog_device *wdd, unsigned int timeout)
+> +{
+> +	struct sse_wdt_frame *f = watchdog_get_drvdata(wdd);
+> +
+> +	if (!timeout)
+> +		return -EINVAL;
+> +
+> +	/* pretimeout should not exceed 1/2 of max_timeout */
+> +	if (timeout * 2 <= f->wdd.max_timeout)
+> +		return sse_wdt_set_timeout(wdd, timeout * 2);
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static int sse_wdt_ping(struct watchdog_device *wdd)
+> +{
+> +	struct sse_wdt_frame *f = watchdog_get_drvdata(wdd);
+> +
+> +	writel_relaxed(0, f->refr_base + WRR);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_wdt_start(struct watchdog_device *wdd)
+> +{
+> +	struct sse_wdt_frame *f = watchdog_get_drvdata(wdd);
+> +
+> +	writel_relaxed(WCS_EN, f->ctrl_base + WCS);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_wdt_stop(struct watchdog_device *wdd)
+> +{
+> +	struct sse_wdt_frame *f = watchdog_get_drvdata(wdd);
+> +
+> +	writel_relaxed(0, f->ctrl_base + WCS);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct watchdog_info sse_wdt_info = {
+> +	.identity	= "ARM SSE Watchdog",
+> +	.options	= WDIOF_SETTIMEOUT |
+> +			  WDIOF_PRETIMEOUT |
+> +			  WDIOF_KEEPALIVEPING |
+> +			  WDIOF_MAGICCLOSE |
+> +			  WDIOF_CARDRESET,
+> +};
+> +
+> +static const struct watchdog_ops sse_wdt_ops = {
+> +	.owner		= THIS_MODULE,
+> +	.start		= sse_wdt_start,
+> +	.stop		= sse_wdt_stop,
+> +	.ping		= sse_wdt_ping,
+> +	.set_timeout	= sse_wdt_set_timeout,
+> +	.set_pretimeout	= sse_wdt_set_pretimeout,
+> +};
+> +
+> +static int sse_setup_wdt(struct device *dev, struct sse_wdt_frame *f, unsigned long rate)
+> +{
+> +	u32 val;
+> +	int ret;
+> +	unsigned int max_pretimeout, timeout = SSE_WDT_DEFAULT_SECONDS;
+> +
+> +	f->freq = rate;
+> +	f->wdd.info = &sse_wdt_info;
+> +	f->wdd.ops = &sse_wdt_ops;
+> +	f->wdd.parent = dev;
+> +
+> +	max_pretimeout = U32_MAX / f->freq;
+> +	/* Maximum timeout is twice the pretimeout */
+> +	f->wdd.max_timeout = max_pretimeout * 2;
+> +	f->wdd.max_hw_heartbeat_ms = max_pretimeout * 1000;
+> +	/* Minimum first timeout (pretimeout) is 1, so min_timeout as 2 */
+> +	f->wdd.min_timeout = 2;
+> +
+> +	val = readl_relaxed(f->ctrl_base + WCS);
+> +	if (val & WCS_WS1) {
+> +		dev_warn(dev, "System reset by WDT.\n");
+> +		f->wdd.bootstatus |= WDIOF_CARDRESET;
+> +	}
+> +
+> +	if (val & WCS_EN) {
+> +		timeout = readl_relaxed(f->ctrl_base + WOR) / 2 / f->freq;
+> +		set_bit(WDOG_HW_RUNNING, &f->wdd.status);
+> +	}
+> +
+> +	watchdog_set_drvdata(&f->wdd, f);
+> +	watchdog_set_nowayout(&f->wdd, nowayout);
+> +	watchdog_init_timeout(&f->wdd, timeout, dev);
+> +	watchdog_stop_on_reboot(&f->wdd);
+> +	watchdog_stop_on_unregister(&f->wdd);
+> +
+> +	ret = devm_watchdog_register_device(dev, &f->wdd);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = devm_request_irq(dev, f->irq, sse_wdt_interrupt, 0, "sse-wdt", f);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to register interrupt handler\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int sse_timer_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *np = pdev->dev.of_node;
+> +	struct sse_timer *sse;
+> +	unsigned long rate;
+> +	int i, j, ret;
+> +
+> +	sse = devm_kzalloc(&pdev->dev, sizeof(*sse), GFP_KERNEL);
+> +	if (!sse)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, sse);
+> +
+> +	sse->cntctrl_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(sse->cntctrl_base)) {
+> +		dev_err(&pdev->dev, "Can't map registers\n");
+> +		return PTR_ERR(sse->cntctrl_base);
+> +	}
+> +
+> +	sse->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(sse->clk)) {
+> +		dev_err(&pdev->dev, "Can't get timer clock\n");
+> +		return PTR_ERR(sse->clk);
+> +	}
+> +
+> +	rate = clk_get_rate(sse->clk);
+> +	if (!rate) {
+> +		dev_err(&pdev->dev, "Couldn't get parent clock rate\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	for_each_available_child_of_node_scoped(np, frame_node) {
+> +		const __be32 *addr = of_get_address(frame_node, 1, NULL, NULL);
+> +
+> +		if (!addr)
+> +			sse->timer_num++;
+> +		else
+> +			sse->wdt_num++;
+> +	}
+> +
+> +	sse->timers = devm_kcalloc(&pdev->dev, sse->timer_num, sizeof(*sse->timers), GFP_KERNEL);
+> +	if (!sse->timers)
+> +		return -ENOMEM;
+> +	sse->wdts = devm_kcalloc(&pdev->dev, sse->wdt_num, sizeof(*sse->wdts), GFP_KERNEL);
+> +	if (!sse->wdts)
+> +		return -ENOMEM;
+> +
+> +	writel_relaxed(0, sse->cntctrl_base + CNTCR);
+> +	writeq_relaxed(0, sse->cntctrl_base + CNTCV);
+> +	writel_relaxed(1, sse->cntctrl_base + CNTCR);
+> +
+> +	i = j = 0;
+> +	for_each_available_child_of_node_scoped(np, frame_node) {
+> +		struct resource res;
+> +		void __iomem *base;
+> +		const __be32 *addr;
+> +
+> +		ret = of_address_to_resource(frame_node, 0, &res);
+> +		if (ret < 0)
+> +			return ret;
+> +		base = devm_ioremap_resource(&pdev->dev, &res);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+> +
+> +		addr = of_get_address(frame_node, 1, NULL, NULL);
+> +		if (!addr) {
+> +			sse->timers[i].base = base;
+> +
+> +			ret = of_irq_get(frame_node, 0);
+> +			if (ret < 0)
+> +				return ret;
+> +			sse->timers[i].irq = ret;
+> +			i++;
+> +		} else {
+> +			sse->wdts[j].ctrl_base = base;
+> +
+> +			ret = of_address_to_resource(frame_node, 1, &res);
+> +			if (ret < 0)
+> +				return ret;
+> +			sse->wdts[j].refr_base = devm_ioremap_resource(&pdev->dev, &res);
+> +			if (IS_ERR(sse->wdts[j].refr_base))
+> +				return PTR_ERR(sse->wdts[j].refr_base);
+> +
+> +			ret = of_irq_get(frame_node, 0);
+> +			if (ret < 0)
+> +				return ret;
+> +			sse->wdts[j].irq = ret;
+> +			j++;
+> +		}
+> +	}
+> +
+> +	if (IS_ENABLED(CONFIG_WATCHDOG)) {
+> +		for (i = 0; i < sse->wdt_num; i++) {
+> +			ret = sse_setup_wdt(&pdev->dev, &sse->wdts[i], rate);
+> +			if (ret)
+> +				return ret;
+> +		}
+> +	}
+> +
+> +	for (i = 0; i < sse->timer_num; i++) {
+> +		ret = sse_setup_clocksource(&pdev->dev, &sse->timers[i], rate);
+> +		if (ret)
+> +			goto err_unreg_clocksource;
+> +	}
+> +
+> +	if (sse->timer_num > 0) {
+> +		ret = sse_setup_clockevent(&pdev->dev, &sse->timers[0], rate);
+> +		if (ret)
+> +			goto err_unreg_clocksource;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_unreg_clocksource:
+> +	for (j = 0; j < i; j++)
+> +		clocksource_unregister(&sse->timers[j].cs);
+> +	return ret;
+> +}
+> +
+> +static const struct of_device_id sse_timer_of_match[] = {
+> +	{ .compatible = "arm,sse-timer" },
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, sse_timer_of_match);
+> +
+> +static struct platform_driver sse_timer_driver = {
+> +	.probe		= sse_timer_probe,
+> +	.driver	= {
+> +		.name	= "sse-timer",
+> +		.of_match_table = sse_timer_of_match,
+> +	},
+> +};
+> +module_platform_driver(sse_timer_driver);
+> +
+> +MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
+> +MODULE_DESCRIPTION("ARM SSE system timer driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.50.1
+> 
 
