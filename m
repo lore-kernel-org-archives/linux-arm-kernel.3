@@ -4,110 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849ADCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 10:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497CECA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 10:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hh/M2EwfSa9FwHQzHqRzfiw+17/lHcQFKbZckUyEnvs=; b=pEjWzh1wpN6HLAhRmJtvtokO6M
-	GR52pvWp2tz1H1HNLJXBLFTd1GhI9DS15nPz4M5S41gVLO0ITh2XrIJYIhyyoGs6rbSlpuEUIsgPy
-	7FHyAuscVX3vwY4YzzFwrsd61W//8X5GkiSCK/2JKtuzXQynk1+mPnoX8JMXEtoWSEH+0lgVGzJ9E
-	Qo4ln6z6suFbRnKo+zPKHtuZMA7ZoT1IOmHMPz+2HJDYaMPd/8tVpRnpyHQkf7+jM8T6VTPxnbR/V
-	u3Ra6c5t9E2znFg6XojuwpgUO1i9h9ND1CCb/4zVx/XaCiNDjSgWpd5L4Q15VbAWHySLoTDKKs6kV
-	ah7pi3lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eFk83CXRUT92P3+BiK0rArrXXY+KdlyqnAXLmJEMLjY=; b=I9G/7JlowBVIAGFwS9jbmGo+lv
+	vkkjOMIxHj2/ORa5EQgvdXp00bDB00LF4igKz3/zMmlZ7Pn3mNMVb4QMJQTkTaLGhlYiIJms1k3iF
+	WaUGEF9a3CxCerAbz/D3/bn+ImwPPubDR0+FnY2CQ+3AsfYvbcY8JodQfEI5YziQRsv/HNXYKjYIY
+	kpmEMBLsilzEifykDVLvZwQnyilFmpfqkOMPHXHCrhHv1Cu9h3BqZalngI+NxBDboTKuvb4PZ+di0
+	FkcMiMjk2XfCnrbqti/euW0KnFf2WtL1x3rJcTPnyWFyfyLUieJU512flKjKkRln7AJFJWQhodtg9
+	tw3p8aXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up2Xd-0000000Gc4A-1Ak3;
-	Thu, 21 Aug 2025 10:29:09 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1up2aE-0000000Gcc6-0dCK;
+	Thu, 21 Aug 2025 10:31:50 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0hP-0000000GG6E-005V
+	id 1up0kH-0000000GGa0-0fwr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:31:08 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb7322aa0so7841566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:31:06 -0700 (PDT)
+	Thu, 21 Aug 2025 08:34:06 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3b9e7437908so499358f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:34:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755765065; x=1756369865; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hh/M2EwfSa9FwHQzHqRzfiw+17/lHcQFKbZckUyEnvs=;
-        b=NrQMSgV9RFHD63NO+zej8sxgNHmWvN335ZqNPSXpNONoq0NTBHaX2Qb2jXZvPgv31l
-         NqIrG12XIoNureLIdqI2Vob70BGFWAPXwszN01D01huXlRVeYWEba1PjEs0RG9iY2Rvp
-         99Zw2JZXGUR2GAhsx0pts/yaDFPgJIeRj+8LwOTMXypBiREwzl/rOj2g8rMLv8iyqOir
-         3tsezEsxeK1gnxRhJd6m21Qng8y6qFYn2KZRUHgA0AKaDdg/cF7S6GYkvkwzFksfGN+w
-         l6uzFi01HLX0kwahQmTLWdK3P6aKRSdG81vv/i6/tbxSFz09pXu1JM/D4abvvZO+Dicn
-         n52Q==
+        d=linaro.org; s=google; t=1755765243; x=1756370043; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eFk83CXRUT92P3+BiK0rArrXXY+KdlyqnAXLmJEMLjY=;
+        b=JwF++7ORPXh82ZLxbEnL0QuFBHMRkmqJSzTQgjcviAOvYIAaYryRL7YhWrgNun3O6v
+         n3IajP7lPCKkbOaHemBjSI5dSgK0IgQzNCuPICC7c9Vzgfq8vvTCDAJ36OXQ4G0s0BIg
+         Kd13k7WMQi9HZzAQ0fja3UXnjCsif49UMGRsA3T9GcjEjEYXY+wd/9R24V9/0kVCc+hQ
+         chdukwh9CWwAbfLLf2ZeC4d2xtohrGlauAZlCRpCLf7K0qkrPgsntXywXFN9QPpVaXnP
+         xLxefL9AeAiFiFrMn75OEmNfukN+u5QOByO/64heJ3Kaus1F+YTBJj4fxvgBMw9pdSic
+         E97w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755765065; x=1756369865;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1755765243; x=1756370043;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hh/M2EwfSa9FwHQzHqRzfiw+17/lHcQFKbZckUyEnvs=;
-        b=FK5B+z38NZQ4bA4fL7bM90fAbbu0H4ZT+94TyUCXkxcRKyze7vqLjLyjNSbqZvOtie
-         hlxGT1x9oIrDBiJvzPyQR8kiRFhAF761c+hN3klX5aPiN/Js8XplM2B/aqqJZuMscmJC
-         LASPHkYFvlPr3ps5917jGD9F600rTXIV+9zMCQHq0fI+lgDlGxNcOht8FsTZV02+ofGz
-         pRG7NRUzX42yQMBOM67bLiJW+zU6ISGBQVLAIb+n/dfV/eCEkLsYcyNjH7DCdjabKN1A
-         CefaJZuGL+cJGSluZrqvavQ3opAaqjvLb5opw6AxhIlEjXxiRT/cEtF4dDSPwodMBEA1
-         MaIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVzdVfgEmeJ/9JNBCjyZko56ZPp/ghHp/3VqMXvhudt71Q9UYMPI8oxcLpwxCJfVMnCo1faFD0Gts+xi0ls7Kj5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpmvHxug8bBvPA79JOcaVfDOf7h5N44n0RPjP6A63TjDNsHu2N
-	o647wz+hYTNaG6lmiyeYS2NnaOylR+8U2ZdVSxVWS/VAzIONZVccjEECX4xPNIRzbrQ=
-X-Gm-Gg: ASbGncvkpaBHisiAxHnZ9HZN4SRql8EYhGWtuAzBlWiRKCQC+l0EzS7R6j3wOiYk7b6
-	5w3xrGlR7JaOK/iFzV9vrha3G42jSXL6ESZ5Jb5mkMR6vXxoGxg2ygzDTtUhxmQlWfc5aOgO/VR
-	vsylxTEDvy0cJb1ljMhFm0FZSqbdKPvj1830iyq8QAssNDvtDNvYb59rujvqQcv7TWIvy4Mbw+Z
-	d0/6VMI32HJkA10qpTC1T9+SgHsTmmS/ewEtQF2W50M7m1BPOqB32CcDvJ7+vs4QzczPmlk3h5Y
-	KQAW/qzgw/SjSDxv5DCBatvwr4NqjE/l+sBuh6EdZcZVc95MsGf1GKXDPGhJHqMW4sozTfmfiiy
-	Mraf9sviq4l9deGAy3HJV4CPvSgIfpd9jLg==
-X-Google-Smtp-Source: AGHT+IFNk/pJFnDs4lRHPJnbj+R0+UoDvHoNWBUQnniqvKfqWInUDOjeDP+OKC+piYhF74oUFSgD6Q==
-X-Received: by 2002:a17:907:972a:b0:ad8:8c0c:bb3d with SMTP id a640c23a62f3a-afe079e2116mr74283566b.3.1755765065406;
-        Thu, 21 Aug 2025 01:31:05 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2fc568sm346436166b.38.2025.08.21.01.31.03
+        bh=eFk83CXRUT92P3+BiK0rArrXXY+KdlyqnAXLmJEMLjY=;
+        b=lyBvrCwPpp0g17tTJaOZ3avrFnOfGYydkqUrqcGulBzVZ4gpXyEqlZXTaZDiixICuz
+         zrF0z+uFvx4YrT869qHDFEclNd7Oo0CMM3/TFaBMH9jTMmdg5pFxXEL25fCuvVAZfITT
+         oqY5tglgVVKzG7dvhaiBdKvOp9v5FoM/963i0ucLkd29/It9VYkOdnp3IZiHIdz2j2f7
+         1XQ4m9M/rYAkzk579yKPqfgCjsBQ7CWQZVnoSmTi98kqHe4K+B3XLJCI6/T9r3csu7Bw
+         rENNMnKUqfw5e2tjixYomXxHogpi1PHRkRLcA4RBnLae4ET6b8QCPiVoPpSA0le/cCVr
+         +TDw==
+X-Forwarded-Encrypted: i=1; AJvYcCV2C34GS5LwHS2a6PPzn1o1dDwhH9jfQ11nJ727Ipti0cnr+l68OvFCdZWO8k2X3hTb+Hw1YlzCVA08HAgHcFYZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyT7zuyrJGmf4Fc6eIv5uN9pZeVK2Hh6tdRODtlBSLbyKhE5eAw
+	MWXYyH6w+ollhc/B1wE5QEGiZosrnuHcpNzUwn353oHsgxebdLPic4SyZbcjGqt3/yI=
+X-Gm-Gg: ASbGncuV+umTGMfU/AMQXsnmUxmJgYVvKSB/BW+4p/djHgHf7gXr4+2pQKeC9FwQT/i
+	QSWZ67xKyQ4vSpZbRzEg3pVkwQhmrQgj+KlRXwC/yrJfMG7h248RcDBC4BlPZ5Ot7f3OTxeEdiD
+	9q1fNiW1El+SElKNruW8MUOM/AAWgyRDWdfEXxp3ZrOzfw5dqC/atvMk7sZGUOZO0ldQFtqn7Bb
+	5Q04/iLBUR4j8cbPZQkZ6WCmEySnpFdBOxLevStgWY6MB/Hi4SfCp66vSoSAVVGm1yNeyU8Z+xe
+	o157XWr5Cc22roGCzfbsrYZmIYTvGlRcCaUSJmbv5m/VhixMVsgBDhdj410bFlqdbsFjw8XzFw+
+	1Q0FtDAWBqkloKMRTES3a6XpHsdP135hFb6bm
+X-Google-Smtp-Source: AGHT+IHW+YsmBVfepjw0RvvbIvLuyUZUzNrK5+vJha1JHDeloaVHEaX39wtYCOugbW2Umy9rn6hFAA==
+X-Received: by 2002:a5d:64e7:0:b0:3b7:899c:e867 with SMTP id ffacd0b85a97d-3c497741f55mr1258810f8f.59.1755765243275;
+        Thu, 21 Aug 2025 01:34:03 -0700 (PDT)
+Received: from [127.0.0.2] ([2a02:2454:ff21:ef41:a59f:f2cf:3ca3:965])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b4db2a491sm18681295e9.8.2025.08.21.01.34.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 01:31:04 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] ASoC: dt-bindings: Minor whitespace cleanup in example
-Date: Thu, 21 Aug 2025 10:31:01 +0200
-Message-ID: <20250821083100.46340-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+        Thu, 21 Aug 2025 01:34:02 -0700 (PDT)
+From: Stephan Gerhold <stephan.gerhold@linaro.org>
+Date: Thu, 21 Aug 2025 10:33:53 +0200
+Subject: [PATCH] iommu/arm-smmu-qcom: Enable use of all SMR groups when
+ running bare-metal
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1541; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=iqqc9H3kVGDEO4owcMh77Y6V/4jzKjChKYZ4/hBrnt4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoptlEzToO3Ku+DKnz2vaPiN1ssj2RVk8DjRQKc
- Qtcz+MExfyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKbZRAAKCRDBN2bmhouD
- 1/4tEACNYir9uMarV45GanTEgmnE4LFISWmgKJwbLjhiKVj51LWYivtWPj6mF04MOvmQ/0uO4oC
- eZoanmeV9/UPVaCWfsvGdXfIwkF8G3ezVQSCFHL8s/VzedE9HUpJUqTU50rc9jZtZKhZ4ACtsr9
- Ci2yCUbRSaoDyloZXA5YI0ImHjPi8QXHCa4TJQnoQPrIiTUw8QupgbCttoCDPzrcZWBpsjb7EIq
- aKun5PQRfFRYgBN1V6bl6v+1XG8GLHEfxnvFMEF9Hd5ve561qriEMBuzC3tYaSmfaAr0KTMgJOc
- YKJr6lmLHAPCZcbiIpVDFAx8/dtmHvuayFfFjuFmf321cHCUYfdAvLR66Fe8hfBpeI/xEOEBDCj
- 7bB6b4sPJLZRCH9KSRHud0IaFOZGC6bukzBRVc95w0EqFIYgpcIDzA9mq/GIfUSnKSj4XWFqlBm
- DRmXsOAnThbF2L5ZDfaux9b2woTITUBSKUwcSCEYiQqNJlyBkja4nfOJ1rQfvIC8WqEu69gV8Ku
- +hCx1Dx6/lkn0FJwJs2hDLlRczw//7mZonnGXjdaEWslBwqK0bAGEspxUG9wwEDfMtYjJHRQzWy
- ovcuxx5q9cnEdPmVYf89/0u7owD8QmBimSmPtg+UCWVkkDMeYcatGhMRTur/sdy4OZU/I9uri1D Q1A603HnLHhssWQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250821-arm-smmu-qcom-all-smr-v1-1-7f5cbbceac3e@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAPDZpmgC/x3MSwqAMAwA0atI1gYaUSheRVyUmmrA+klRhOLdL
+ S7fYiZDYhVO0FcZlG9Jsm8FVFfgF7fNjDIVQ2Oazljq0GnEFOOFp98junUtUqTgLXkytjUBSns
+ oB3n+7zC+7wdtNni7ZwAAAA==
+X-Change-ID: 20250815-arm-smmu-qcom-all-smr-1fc81c10840f
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Joerg Roedel <joro@8bytes.org>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Johan Hovold <johan@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, iommu@lists.linux.dev, 
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_013107_037383_1183B384 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20250821_013405_205208_2AD39F64 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +105,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DTS code coding style expects exactly one space around '='
-character.
+Some platforms (e.g. SC8280XP and X1E) support more than 128 stream
+matching groups. This is more than what is defined as maximum by the ARM
+SMMU architecture specification. Commit 122611347326 ("iommu/arm-smmu-qcom:
+Limit the SMR groups to 128") disabled use of the additional groups because
+they don't exhibit the same behavior as the architecture supported ones.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+It seems like this is just another quirk of the hypervisor: When running
+bare-metal without the hypervisor, the additional groups appear to behave
+just like all others. The boot firmware uses some of the additional groups,
+so ignoring them in this situation leads to stream match conflicts whenever
+we allocate a new SMR group for the same SID.
+
+The workaround exists primarily because the bypass quirk detection fails
+when using a S2CR register from the additional matching groups, so let's
+perform the test with the last reliable S2CR (127) and then limit the
+number of SMR groups only if we detect that we are running below the
+hypervisor (because of the bypass quirk).
+
+Fixes: 122611347326 ("iommu/arm-smmu-qcom: Limit the SMR groups to 128")
+Signed-off-by: Stephan Gerhold <stephan.gerhold@linaro.org>
 ---
- Documentation/devicetree/bindings/sound/fsl,easrc.yaml    | 2 +-
- Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+I modified arm_smmu_find_sme() to prefer allocating from the SMR groups
+above 128 (until they are all used). I did not see any issues, so I don't
+see any indication that they behave any different from the others.
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 27 +++++++++++++++++----------
+ 1 file changed, 17 insertions(+), 10 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/fsl,easrc.yaml b/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-index 8f1108e7e14e..d5727f8bfb0b 100644
---- a/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-+++ b/Documentation/devicetree/bindings/sound/fsl,easrc.yaml
-@@ -104,6 +104,6 @@ examples:
-                     "ctx2_rx", "ctx2_tx",
-                     "ctx3_rx", "ctx3_tx";
-         firmware-name = "imx/easrc/easrc-imx8mn.bin";
--        fsl,asrc-rate  = <8000>;
-+        fsl,asrc-rate = <8000>;
-         fsl,asrc-format = <2>;
-     };
-diff --git a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-index 85799f83e65f..c9152bac7421 100644
---- a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-+++ b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-@@ -176,7 +176,7 @@ examples:
-                <&sdma 20 23 1>, <&sdma 21 23 1>, <&sdma 22 23 1>;
-         dma-names = "rxa", "rxb", "rxc",
-                     "txa", "txb", "txc";
--        fsl,asrc-rate  = <48000>;
-+        fsl,asrc-rate = <48000>;
-         fsl,asrc-width = <16>;
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 57c097e87613084ffdfbe685d4406a236d3b4b74..c939d0856b719cd2a5501c1206c594dfd115b1c5 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -431,17 +431,19 @@ static int qcom_smmu_cfg_probe(struct arm_smmu_device *smmu)
  
-         port {
+ 	/*
+ 	 * Some platforms support more than the Arm SMMU architected maximum of
+-	 * 128 stream matching groups. For unknown reasons, the additional
+-	 * groups don't exhibit the same behavior as the architected registers,
+-	 * so limit the groups to 128 until the behavior is fixed for the other
+-	 * groups.
++	 * 128 stream matching groups. The additional registers appear to have
++	 * the same behavior as the architected registers in the hardware.
++	 * However, on some firmware versions, the hypervisor does not
++	 * correctly trap and emulate accesses to the additional registers,
++	 * resulting in unexpected behavior.
++	 *
++	 * If there are more than 128 groups, use the last reliable group to
++	 * detect if we need to apply the bypass quirk.
+ 	 */
+-	if (smmu->num_mapping_groups > 128) {
+-		dev_notice(smmu->dev, "\tLimiting the stream matching groups to 128\n");
+-		smmu->num_mapping_groups = 128;
+-	}
+-
+-	last_s2cr = ARM_SMMU_GR0_S2CR(smmu->num_mapping_groups - 1);
++	if (smmu->num_mapping_groups > 128)
++		last_s2cr = ARM_SMMU_GR0_S2CR(127);
++	else
++		last_s2cr = ARM_SMMU_GR0_S2CR(smmu->num_mapping_groups - 1);
+ 
+ 	/*
+ 	 * With some firmware versions writes to S2CR of type FAULT are
+@@ -464,6 +466,11 @@ static int qcom_smmu_cfg_probe(struct arm_smmu_device *smmu)
+ 
+ 		reg = FIELD_PREP(ARM_SMMU_CBAR_TYPE, CBAR_TYPE_S1_TRANS_S2_BYPASS);
+ 		arm_smmu_gr1_write(smmu, ARM_SMMU_GR1_CBAR(qsmmu->bypass_cbndx), reg);
++
++		if (smmu->num_mapping_groups > 128) {
++			dev_notice(smmu->dev, "\tLimiting the stream matching groups to 128\n");
++			smmu->num_mapping_groups = 128;
++		}
+ 	}
+ 
+ 	for (i = 0; i < smmu->num_mapping_groups; i++) {
+
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250815-arm-smmu-qcom-all-smr-1fc81c10840f
+
+Best regards,
 -- 
-2.48.1
+Stephan Gerhold <stephan.gerhold@linaro.org>
 
 
