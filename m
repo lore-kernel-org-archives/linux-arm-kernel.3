@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCECCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA6ECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vuQY2HuepKB5t5U67BTcopXXonRlXHtdLgfJBFihPDE=; b=4DFLZwHq3vZr/ADmDANYb4jDz9
-	1SiHtIx9/1/RtIt+DHpkB/luj8m78s8NUz1o7RxrKKGRyU187+L/m2hJuOcPbFtvuk8ausT4qpnPt
-	smvEUQ+NzSIs2fPuJNZ5y32h/7meL9u0ZsvWMZp/lBRI+V6JHntIassAE+tQ73JBIUEGHXyM/irfu
-	EXiX7X6xClCJ+BdhbZuY3PmlS2id5ql2udICRXyRqS/ZgKY+NqZDlJDBWMh8aDmgOmCd1r8iPvzbc
-	G/CUNisQBKOwSXtAC4Zfqy2s+bBvqfIcGADhqfxipYUKGa/grLkc3GG9P7+L7/wEdoFrlOGr4jLUN
-	o7AFA/EQ==;
+	bh=cqV32R8BauF0D9RcGuPTvw5bHyckwkMGjqU7llEphYg=; b=c2RvpC2rn3mj2PzPqLd6zs+47g
+	KbiRf/TZXUOpMASbzcpcuJyiXO697n9C5Rr0ttiPjPTSMY9ANl5aOxWt8JQG88X74i0FbmYyPSjd6
+	iRvqjbyxTk4I6hH8qkLxcm7Gf6kok37BIXTAqcY3uHPa6nD/SKuoyKjU0gKjGQD4w5ilI+4mSItoP
+	Pw19RcUDMEiVUPrEaFq9W5vajOkHS/AQju+K+6pBXZTsvdy4FrIK7vuVxEPjYJsys7djpjXzGNcWe
+	SJtT4Gp/uzN5BIUALFO3/MF5mLyz7PvFK72L+nnhUFLHHmbQ2PMhhHaWjaIf4gL3ZAyUSTjlaO/RS
+	NaC3Sqvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upEbN-00000000vbM-3lYZ;
-	Thu, 21 Aug 2025 23:21:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1upEdx-00000000vp2-2hMC;
+	Thu, 21 Aug 2025 23:24:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up9gG-000000008jY-18LG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 18:06:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vuQY2HuepKB5t5U67BTcopXXonRlXHtdLgfJBFihPDE=; b=NbUsgwLrQXI4L+IQKROV3GcfNQ
-	FRXJpQOKFHvHUFbaIbQ5mFL3W1xFqWpuwAMC8aNcbfCieNjYu3ELpr6yZvCZPebQ2WXWklJLc2QMX
-	W66uybxtg1x8qyNxxKMj95XPOBSNOIpdL/QXqc11JDuHI+p1NbqRez9VzrSk8IaYOC1fyNSTMczVu
-	mHBuk5k9g7/xVFB8zljWpmXPhlo7KQD6iODCCGYNd2JOOa0XMcVajeFm083zTeb0uX3wIcxED2pEP
-	D1qt+90d8L5VzPbwFFG+6KrgIIjzJ31wNj47bbTfwf6hylnvrb0aVrw8+ocKMMf9syXyjdZ6bEXsd
-	GzkUit/w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38870)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1up9g7-000000001Tf-0XXn;
-	Thu, 21 Aug 2025 19:06:23 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1up9g4-000000001Gr-27Qf;
-	Thu, 21 Aug 2025 19:06:20 +0100
-Date: Thu, 21 Aug 2025 19:06:20 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Frank Wunderlich <frank-w@public-files.de>
-Cc: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Subject: Re: [PATCH v2] ARM64: dts: mcbin: fix SATA ports on Macchiatobin
-Message-ID: <aKdgHGElBEyHeP67@shell.armlinux.org.uk>
-References: <E1up9Jw-00BbOE-VC@rmk-PC.armlinux.org.uk>
+	id 1up9hb-000000008pD-0beF;
+	Thu, 21 Aug 2025 18:07:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 72C90434D4;
+	Thu, 21 Aug 2025 18:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C22C4CEEB;
+	Thu, 21 Aug 2025 18:07:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755799674;
+	bh=cqV32R8BauF0D9RcGuPTvw5bHyckwkMGjqU7llEphYg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SoZuMqbtNodZBdlB7WdbDgWySAkmHnvNA4/90X/Eojf8vkCVPMu46gsuc/pSMYzqc
+	 O3Muhgm5HPqVV+9TW0jNkSlqdfyk86ROBJOUHV/MeKY5hlvyo++ylCpXZmha89oo9C
+	 TR0hSVJSRTupBpsI6qgdt4DewUjOof+bPu5Y0/jr+KSYYmvud64kznOaF5F0yBXNbZ
+	 hJfB2AQJ9X0VG+3N7u3AZHC1WwqD5GGaXMpxjalBbFccke4uRA0vx3+iueKGR8BmLs
+	 HjF2a8p8GpQsPlZS0qk4mF8+E6B9F52WjhNLJ5gTaZ+r6syy3RFsFVUEDWlyrLojb/
+	 8l/twFM5g1ppw==
+Date: Thu, 21 Aug 2025 19:07:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Hsun Lai <i@chainsx.cn>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	heiko@sntech.de, andrew@lunn.ch, inindev@gmail.com,
+	quentin.schulz@cherry.de, jonas@kwiboo.se, sfr@canb.auug.org.au,
+	nicolas.frattaroli@collabora.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	krzysztof.kozlowski@linaro.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: rockchip: Add 100ASK DShanPi A1
+Message-ID: <20250821-java-tapping-a828a2775e29@spud>
+References: <20250821110942.172150-1-i@chainsx.cn>
+ <20250821110942.172150-2-i@chainsx.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="BT4qYPKxiViwhuZI"
 Content-Disposition: inline
-In-Reply-To: <E1up9Jw-00BbOE-VC@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20250821110942.172150-2-i@chainsx.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_110632_313145_823C91B3 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250821_110755_206215_F94D69E4 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 06:43:28PM +0100, Russell King (Oracle) wrote:
-> Booting 6.16 on the Macchiatobin, I discover that I can no longer
-> access my disks, and thus the userspace boot fails. The cause appears
-> to be that one of the SATA controllers doesn't have any ports:
-> 
-> [    1.190312] ahci f4540000.sata: supply ahci not found, using dummy regulator
-> [    1.196255] ahci f4540000.sata: supply phy not found, using dummy regulator
-> [    1.202026] ahci f4540000.sata: No port enabled
-> 
-> This is as a result of the blamed commit below which added a default
-> disabled status to the .dtsi, but didn't properly update the mcbin
-> dtsi file. Fix this regression.
-> 
-> Fixes: 30023876aef4 ("arm64: dts: marvell: only enable complete sata nodes")
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Frank,
+--BT4qYPKxiViwhuZI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I think this is also similarly broken by your patch:
+On Thu, Aug 21, 2025 at 07:09:41PM +0800, Hsun Lai wrote:
+> This documents 100ASK DShanPi A1 which is a SBC based on RK3576 SoC.
+>=20
+> Link: https://wiki.dshanpi.org/en/docs/DshanPi-A1/intro/
+>=20
+> Signed-off-by: Hsun Lai <i@chainsx.cn>
 
-arch/arm64/boot/dts/marvell/armada-8040-db.dts
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-as you've updated the ports on one SATA controller but not the other
-in the same way as you omitted the second controller on mcbin.
+--BT4qYPKxiViwhuZI
+Content-Type: application/pgp-signature; name="signature.asc"
 
-I'd also question this:
+-----BEGIN PGP SIGNATURE-----
 
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dts
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKdgdAAKCRB4tDGHoIJi
+0qd9AQCqoS6NzL53hBCjSPNRb1IEtMcHrfzfvhXri8oJ6S4m7gEAtCM6t9wk+Rjr
+r9QVywY0EGRtNRxOMkSUulbpp+KCSgk=
+=qr+H
+-----END PGP SIGNATURE-----
 
-as you updated the other cn9132, but not this one which was introduced
-in 6.11, and your change was in 6.13. Please can you look at both of
-these and send appropriate fixes?
-
-Thanks.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+--BT4qYPKxiViwhuZI--
 
