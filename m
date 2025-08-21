@@ -4,185 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DD5CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 13:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3DBCA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 13:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhrKMFo/VsPQqNjfXNjAqS46zReffM34GEnqjIuSzcA=; b=IenIXMGFgrwhyustJU6h0hIurU
-	dd9E6ppE5Wm7pN0APeWylVwvWQhYb/+hU/rbhGsxv4H5SJTU8Hfl8LfUFk1WD32EDLfLZ7iV/0Jq/
-	rHraftbUi4V9fVBVrV5yboEP8tanzLEeW513pBncPuLEFU0fkUhf2PjtxQ2bM8nO3JvgqGpc9rm5F
-	KhDrQJ5i4X5nTcgouO947ZkX2CF2UvwEd3gzEwevLzM+JWfY0RYPEiPv8+7lZsAl+C+roLKDWdHeh
-	rUqcj1g/UCIeqHG+lmaloJl5sPblirbeTALtgFRFnkcTKBm84uFSwjyGRLCTqqcpxwB/oST3xhtNd
-	v58xdIqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iMvMUbqwzYMs+NFv5DBsdmg4oCEeEiFeKnSlIqNtn8M=; b=PjXbXrfE37hiRmxk2FPMseGRki
+	1slgyiQ0wTe5fbLtBOSzIegXG94RGKvk+97fzI+7u4vGX/ze8XTbbSFscaP/BYrYOIT+irkwAcSPj
+	qLDSoaOx/WPooRFhwc+EhHnNLpDf0OW/f7QoNQzKnznLni0HVIa5tIyk3asUSJyJXacBbVH+97FZg
+	or1XXPjvweo/l40fxkfJMntvCDxK4P5yvSB9q7Y8Q1+IbqkmYcvEf2vlLZx2pZb5w27PPgP9G0h4b
+	G8ddIrFDmYxjR3VOETrWfqGzD4i2L3gmf7E9jZVnQnPBUE+SAW6WWsF37KYiO6YkfrKGA6s2K6yO1
+	mH4tYPfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5ct-0000000H6e2-1llh;
-	Thu, 21 Aug 2025 13:46:47 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1up5f2-0000000H73s-0VCU;
+	Thu, 21 Aug 2025 13:49:00 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up33k-0000000Ggj1-1zBl
+	id 1up2LF-0000000GYim-04RH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 11:02:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LEENh/SpHYCG6QaqIa7GfK26Sf2qL2OZQkg7enHOkw3Nii6MCWJ4xr19oczAr7IN3M10pzO2TNqSmSzm7JhMui4OhfJoL2BaL/XlbDR78iupza4huAOU+MIeiulJqPKfhl8dzQKR+SuqB4JYbCk6dTRlWUzDi8HfSsnmgwUD5LDWhy2222/F44JECFQ649rSmkgOj+XuLUb06xetTlcrJXy52H9yL7t8Of7q/R6qcNTyRVHyHFVsvuy8ADIvpwRVdzJzMSEWQ3I0zIcTpzNlVu9K2J+WeFFO7p4Y7DR/8ScLAlhzARlFyQOvrwYw2rgc4wqFJ2scCrHPyIcnkTomyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HhrKMFo/VsPQqNjfXNjAqS46zReffM34GEnqjIuSzcA=;
- b=mSLSC+JI9fBIIFJtbf0M8nX3WQJiRHst+dL5O4X4dSmT3/mxSlQFHsM/DLRUP+/uK8er2BDbFy9EPv/jz2Wx+Y3ARHWPg8sUEP0vbb4iHwmitiaZBgqf7Dv9MS/DAsqX5wfuVsqA4OSI8RZ/vCsftZ1boYz8Tf2USI2K7foSIAQr5o4xVr8gIaMDbwwKx3C1b3KDNv8QqMoLIx7K5wPaCflzxA1RWracRAoyQo0kvzumyPaTra4BIWYLzLoPpDP4jJDbvuyUxlAlmgUjtYrhOQ84j6qKUB0EfGVLxXsQGilc+RR1FC//X66Uzax5avy4d4HTy6qBAtBzbqfFbEbjAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HhrKMFo/VsPQqNjfXNjAqS46zReffM34GEnqjIuSzcA=;
- b=g1KCLpTpEudigIQ+CjGjKSc+pvWlRKwasf6CC+EZRGeq+ErCaNqpccs8G/zr7tqmNPGZyQbewMLFiXeooYPJXzijFyoMXeikWbuCEQ6kxVf+WIcZlL1HQAcvE6xXbrtUtL0XVdnaYmG/pUfBWwnh267Q32uWrNan1Tr0loEGKPjpJPnWyDsZU8/BpRf9ePp871jEIdIBiQ0BxDWGdidgBis76346A8royB3D6tETaTxEBrAtKA4H6ASfO+XIG5irIP5kR33OTwm6grpU6FQbVZG8yC44Ye2Y7MfZKDw10+jp1EYcHM1b2WOfDU5KOa+Bt7uBixplVRGGdDoUMSYUcw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by VI0PR04MB11540.eurprd04.prod.outlook.com (2603:10a6:800:2c7::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Thu, 21 Aug
- 2025 11:02:14 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%4]) with mapi id 15.20.9052.014; Thu, 21 Aug 2025
- 11:02:14 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-Date: Thu, 21 Aug 2025 19:01:49 +0800
-Subject: [PATCH v2 1/5] dt-bindings: perf: fsl-imx-ddr: Add a compatible
- string fsl,imx94-ddr-pmu for i.MX94
+	Thu, 21 Aug 2025 10:16:22 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id 6AEDCEC01DC;
+	Thu, 21 Aug 2025 06:16:20 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Thu, 21 Aug 2025 06:16:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1755771380;
+	 x=1755857780; bh=iMvMUbqwzYMs+NFv5DBsdmg4oCEeEiFeKnSlIqNtn8M=; b=
+	MwylDu/r6/thFNHVvnFnXsv7H0tisLf3i64yPJl73lFhkX0K89OwIp7z5L/0qpAo
+	c4IGg94aw+j/Ah/iNQjbMH3oeOdsRwOt7SssyssdO3GZEcCJNzydLfxzPFtQvtoP
+	cOCkf/0xlW1jVTKavsrP8mZuZblAFHILmd+oM8AFmxjRKy6vcVNzkgvnpXuB5gxG
+	0S5QLIX2NK3nLL/v82ffaGhjUhqOjed7zUjLuqfXbMpz1k6THUTRDihtmq5ff22R
+	vjD/K6naJuoGFN8F6thKc6pZhKeX3ATz8zKEk7ATve2e54XgT9OBeOGliHy/lGcJ
+	gTb6XKwpwZvmyURE147g9Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1755771380; x=
+	1755857780; bh=iMvMUbqwzYMs+NFv5DBsdmg4oCEeEiFeKnSlIqNtn8M=; b=H
+	iXiqU1wXWz5ivEAQmabDd4c+zBB8necoB+R0whgu8QVOnB+/sBttD7iy+muxVGpl
+	2HC5LoUoiuPheSF/yr54WQgGvi56yrjLoHGD8S7l6YGBYdLlGR1TjysQb0OlnoR0
+	smxHTkVlj7oZstm0VbCSzdEwkezC1874Q/biftOLkRq71B9GeWwXTqGPYcA1qM/V
+	LXwTmSoX6sdMGqqtpsYiKHcddhPs2CgvOdiGM/mXPvAbmu++4mb22LdSR/0UArui
+	sMisLRDCixhlMniYRlpiKeuffrPwUqLDjH2Do2D1AqLK9Ez7d0RoRWtMf/Irn0og
+	zqWn6lzLa+/uLA2s4lOBw==
+X-ME-Sender: <xms:9PGmaHrmw-TWHOL2cLm9lQSlBZgxz6JiiB_SpM8Bk8jeRtg8cRgAnA>
+    <xme:9PGmaHnf4ikb6zHI94n1VvASJ2DKGOu0ZHxnBxY7Q-kr68OIppVpEuAgzAV57j-qD
+    ZZMME_uEz3esrB7lNE>
+X-ME-Received: <xmr:9PGmaBV8WQEMQTBoMRayPDfsk8sQLErP4V5eGX9uVENlj7Aw45Pl9daeC1RJmeikFdKrxvOAV6RAqyJBNJbnpOwmTagnv9MHnC4_LQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedtleejucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
+    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
+    hurdhnvghtpdhnsggprhgtphhtthhopeduvddpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvg
+    hrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgr
+    rhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtth
+    hopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdho
+    rhhgpdhrtghpthhtoheprhhosghinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpth
+    htohepjhhorhhoseeksgihthgvshdrohhrghdprhgtphhtthhopehiohhmmhhusehlihhs
+    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinh
+    hugidruggvvh
+X-ME-Proxy: <xmx:9PGmaLq92ipQEc0rknsPUOXNqpa2lh_TjutJTRtwL37Jwi-qN5Uhbg>
+    <xmx:9PGmaCUwugZBJ04YATvGtOgO6UQiCG5KwoZNaJ_6YHIT3WRuy2tqbw>
+    <xmx:9PGmaMGgkRahoRXSAcjwO4_woYoMKSI5RPbP1CYKHx_UmNMFaoR6hg>
+    <xmx:9PGmaJDLIKA4CqeTrdi-gqbNmnVMCMT3ed35-Ie2bxYOHOxI3gAafw>
+    <xmx:9PGmaM4J45ooUzlZLLphkNhNwBHBJ9xL_Rfbt4QcuI9ksRmyN8F8b9Ff>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 21 Aug 2025 06:16:19 -0400 (EDT)
+From: Janne Grunau <j@jannau.net>
+Date: Thu, 21 Aug 2025 12:16:00 +0200
+Subject: [PATCH v2 3/3] iommu/apple-dart: Add 4-level page table support
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-imx94-ddr-pmu-v2-1-052c6420605d@nxp.com>
-References: <20250821-imx94-ddr-pmu-v2-0-052c6420605d@nxp.com>
-In-Reply-To: <20250821-imx94-ddr-pmu-v2-0-052c6420605d@nxp.com>
-To: Frank Li <Frank.li@nxp.com>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, John Garry <john.g.garry@oracle.com>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Xu Yang <xu.yang_2@nxp.com>
+Message-Id: <20250821-apple-dart-4levels-v2-3-e39af79daa37@jannau.net>
+References: <20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net>
+In-Reply-To: <20250821-apple-dart-4levels-v2-0-e39af79daa37@jannau.net>
+To: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Joerg Roedel <joro@8bytes.org>, 
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>, Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755774118; l=1029;
- i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
- bh=6utQfHy4r+9CUoJKXGUjVkpMirtTXenRF5mLLtjKncM=;
- b=pbp6ak/rj5ilnIsxc1YsSkKRx3J0OowyQViLymC0f/gTL5oG364mPigbKC3G76EaJfcMiHAIa
- qzfUcwahcLsDDioJIkg7Sqqrw1veyM3r4BK/s3xG75cpaUByr9HNCvj
-X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
- pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
-X-ClientProxiedBy: SG2PR04CA0175.apcprd04.prod.outlook.com
- (2603:1096:4:14::13) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VI0PR04MB11540:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3c586c0-8703-42f1-fd93-08dde0a22f39
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|7416014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1VrVEQzcFIwWWd1eldyL3grWkpNZzI0S0F2NVVnSS94amZxZ0JFMmcxL3Jx?=
- =?utf-8?B?NTZLMW9HK2ttbTBBN3pzZkc5dXRMRWZJNlpkUG1YbE9hSmxmUVlsb2g0cGNP?=
- =?utf-8?B?SUVSdUdQNkdhQ3BiRUFPYjl2dHlKT1VyUDdiaFM0RWt5a2o2azE5Vk1FeFNv?=
- =?utf-8?B?TW1LOThROXRrajlWWkd1WkR2OHlJWlhnKzF5dHNJZGtOdW9zU05jMlBtR0pR?=
- =?utf-8?B?ZGN2Y21KRTZmNHluMzlRbDJuQWdzRzM0SWxEcXZJTG5wMElYWVNDbkF6dENK?=
- =?utf-8?B?Tm1wSGhRYU5Da2FHVWl4V2dLTHBYMTcycm9jaWl2OGpxWXlXKzRQN3VOdUVp?=
- =?utf-8?B?TXFQYjJtT2ZBWGlQVDdNUVVGSk5qQUVKTitiQmRQaC85YTJNK0VZc1hOUTIv?=
- =?utf-8?B?czJMcmNYQnd2d2tIVmFrMkdwSTJGamZyd2JiMG1BMEZ0V08raHB3NXo1RFls?=
- =?utf-8?B?TU4welQvRkdUZzNtVFJhbDhOVkRnWVl4ZGgxc00wLy9RUytDcWQvMEJ4b1Iz?=
- =?utf-8?B?RXZiV0JkSit0MVZWU1BlTzVCUmZqOGRaRUd4c29IRXJvQ04zWXF1NUxHRGtn?=
- =?utf-8?B?bUkySE9UNkdYL3E4eGEvNjBHU2pTVVZ4bERRdVQwWDRVQ0hVUTN1UXhZSjB0?=
- =?utf-8?B?YUVhSGxwMGtJa1R0MEt5eGpINmlvRlVaTm5NSGFYejRqK2ZIbFpCL1dnUjhN?=
- =?utf-8?B?aHBxaXVnb3QxYmFEU3RrR0FTaFJhcEw4bVVoY2Q2OGlFd2hpMSszekozWWdW?=
- =?utf-8?B?YnVIOG92SFZpRWUyRFJqc3pIRVl1VVpTVEdEUlJ1K2ZqWjV0U0lKcWFUNHlG?=
- =?utf-8?B?Yi9tOUdhQW96WmI0TnQ1dU1yVkFvZXBlclNKYVBPUWdmZW9ZTXNINUdyY2Zv?=
- =?utf-8?B?ZG83TmhLT0VOZi9aOGtINlNSQStTc1BiUDZERmlobURjeWhZYzBZb2lHUGdY?=
- =?utf-8?B?YWVSNHEzOHZnM0hHL3ZKeCtKODR4cnp1d2pXbElRM2FobUQzSjU1NjNTclZi?=
- =?utf-8?B?WEd0dGlScjJxY3FiMnBDOXRhY3NKbjlaVXYxckZWUTVRSmFtcFQyQnVtdmhJ?=
- =?utf-8?B?YUVzdkNzc0hJZTNxcnNkTElnRzU4ODNJbVd5bzBCZGZYN1RoWS9DSTRZSkhV?=
- =?utf-8?B?ZVVYYXZuYVE1elpNQkFSeEpITlIrYU1rU1Jib3k4MWhGRkcrRzNLN01PYlU2?=
- =?utf-8?B?N2thRnRsZENtRnMzRnBFRTl4K09tS0VXWVlYNzZ1TDg4T2R0bW84a3I1SGw1?=
- =?utf-8?B?Nmt6dnhaMVNSL0tValp3bjlkakVLNUdUd1FhMFpLaVowSkEvV29YbndCTENS?=
- =?utf-8?B?dFBsaExSL01ISnlXSy9OYTlTSGV3MTd0OHRGcElxYWdPeG5LcTY5WldsU0Zr?=
- =?utf-8?B?U0d4UUFLVTFKZGJMbFFMWldLYXhYMlNQbUNUMW1qNUVOYnQxb21heGNJa09C?=
- =?utf-8?B?Z3k3RktTNEtpVi9SWVl6RmwwRHVjNkRGeHhDVW9mWDNwdGp1Slh1SE02SHdG?=
- =?utf-8?B?NlRlRVRBdUNqRXRIYWh4a0xKai9yVUwzRzZlQVVubkI0aW9LMjAwVXVHT21S?=
- =?utf-8?B?OUJHa2xNQzR0ZHhGTm9PTmJwNTVCbityclFRQkZvekRkUkZvdkROSnYxZ3Jv?=
- =?utf-8?B?QUFLTEVJMTUyYVNtUlVoQ0Jseld2cm9CSTE5ZnpNKzBNemxrb01MMklzK2RQ?=
- =?utf-8?B?SDhEdG54MW5hcnZnOEhWTmFvQVBheG1tQmNMT1hQUGFvUWtrTmEvVmdNMHNI?=
- =?utf-8?B?TlFSMW1mZVhrSERWWFlJM0Q3bXBJME5wNXB5dnFmOWMwNkNqc2pxSXovQXc2?=
- =?utf-8?B?amxxV3Z1T0lubkNHancxUUU0QWpYN1IwaFoyVjVjMjZqSll0Y2hoQVlHaXdZ?=
- =?utf-8?B?eDNwZ1R2Z1NNVmJNSjhTOWJ0SWR4VitiNWh0Z0RWMDV1RTdUN1NibSt5b245?=
- =?utf-8?B?dHRRWFNDUDg5RTI5VGs4SGxza0tlNEx4R3lzMWNPendwM0Y4Q2RkQjNjZUpt?=
- =?utf-8?Q?zDQsytafibnqcnFQnIg9LnVdihR3vo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGkyOVBQVXFKVGRyb3RidncyTUcwbHZDUmdlZlg2UStTbTNzQWVnMERwd3Jk?=
- =?utf-8?B?OEJLb3hhSTFqVFRvRkEwOVB2NnNRcDZQWXdOdExSeVdvQk93US9hU3kvRjE2?=
- =?utf-8?B?WWJxbjBSOTRjMnF3SUJRcTNtNWhZUUd0bW9Mb2VoaXo4a1JiQzVPNkVwNXZS?=
- =?utf-8?B?VjhJbDZvbXE3RzByQTc4MElLR2NRNUYxeXJobGJWVjJiUDA2RkxMSU5KY0F0?=
- =?utf-8?B?L0N0N1JiOUM2NDlxRlpHbGo0TElqNkJQYlllYkt4Z2lqdm10S3h1UE40L3Vq?=
- =?utf-8?B?bitaUjJZbXVFSG8wL0ZrdDZocFVHNTUwVnVMTjFWSjVON0w3NElCZ0VxUi9u?=
- =?utf-8?B?UUljaXQxTjhmaXQvZ0h1R3N2RVVseU44K3I5QS9Pd1l0c3NZOFZhbFJvS2hz?=
- =?utf-8?B?dURXTk1jTzU2SGRBcVVSa0VNbzhQbk9QWjBzVDVEdjExQms0bHZXTUtxeHZa?=
- =?utf-8?B?MXNaSzJzVGVyYXBSOHVlYTd6azNCQVprV1JNUU1WSmd3WjhnNVpDWjBPcFNC?=
- =?utf-8?B?SVJScE9SNU1rbm1JRmdTb2ZkbGF4b2prT2V3Yk1aSTRoVWh3Z3RJa1pFS25E?=
- =?utf-8?B?emFIVUV4a2FQM29JZXdIWHp5R3dIa2FFWUxWY3BoRmVnNFZkclRSa1NicjJn?=
- =?utf-8?B?ekpYVjkxWUxuZGdQcG0vS2psZEFJZE02QjhxSFpSQVprVVpvdWk3eWtsaUps?=
- =?utf-8?B?eHdXbXduNWpOYk9xUHltcm5WcE9jTDhTaHZTd3FkU3ZJcmNCVlJQd3JXV2kx?=
- =?utf-8?B?WTRMSkxsejIzcXRFNi9OSFdjdDlqbU9MZ0JvNXdsb2czeUc5OUFJa0JkSVFt?=
- =?utf-8?B?Y0wvUEpBNXBPRHlXMG4xMWhETk9GWElJRTF0eWY0YnNyL0Z0VDJmdzJZek9R?=
- =?utf-8?B?MTQ1OEZVaFZWSG1TR2RCZUF3NnFod09yWjZ5TXFkYWdCRUxaTmE0OGJZK2xt?=
- =?utf-8?B?OW8rQjQ3OEdvUkFjaVpRaFdpOEdHVjBDbURGR3RFajF4OTYyUHc2ZWN3K2FR?=
- =?utf-8?B?bnAvUU91VlIvMFNBMGErTWZXeW5CNkpnU1hIWGpmSzNkcGJKMFNKTlpRaGhI?=
- =?utf-8?B?MXYySndVUS9UcWdjZk4vakVrTzdpcFVuTTBvQjdZSW54cUgybVFtT1VxdHJm?=
- =?utf-8?B?NngwbmRxcTFoOGd6VVhvOTNtOFRGenAzdkxWU1dqUE9FT21aSU1FZURnTXB0?=
- =?utf-8?B?MUxST0QxK3JDRER3OW1IWWRBSEtlclNSUEE2T2JMcUpvbzJBNjlJcHRVQ3Rh?=
- =?utf-8?B?T2xiY1lrMjkvYWpMK1FRTndpRU5Bb1pLRlpaRnRNZjRaeUJhN1JsWGNpSlJS?=
- =?utf-8?B?dStwaXhrc2NkT1pTS2FJc2kyRWFITmZWb2F1aVNvTXd4aVVTRFJhWmZzM0xM?=
- =?utf-8?B?djJJd29vZzVGby9FcFFtQ29sa0dQcHl3RG11OFIxTVRENXJPVXRMNXJFUXpD?=
- =?utf-8?B?QnB3SDhHME1GN3hHTGx2NE1zZmw2b0U2aVpvR3plZHk2anpFNFZlaWFrbm5G?=
- =?utf-8?B?NUJuYmhVbFJVT0RSNUdBVkhEb3J4dU1Cc0dCN2NvdDNvSkxWWENCc0daZlRp?=
- =?utf-8?B?TWF6eThVV0FZK1kzdmpRL2VoZGZId0RRbXYyb3NJNk1tYW0rSFg2K1lGNXRZ?=
- =?utf-8?B?UUo3SGVCOWI2RXJWWVU0cFBXRkpIM25La3JyT3RDbndZdGZzaTU2ZFZvOXFW?=
- =?utf-8?B?L2JhSUJkQ1ByUWc3Wm10bUQ1cXdJbXJESDVmV291Q1B4U3M2aDhPRXFvc0F3?=
- =?utf-8?B?N2psa2c3OVNSWU9VVmt2d1U2RXg5WVBiUm5yWFFicXZWdjl5SHBWZ1I0UG5m?=
- =?utf-8?B?UmliakdsU0JhQXcwY01WYi9uRy9naVNSblQzQ3d5K2tkNHRqSmM2REZ4Wm9p?=
- =?utf-8?B?N3NhMnpYRUVwbml4ZWdES1pTREw0dkZGcjJFdU4yeWFKVnMvNUkzcHFvNWRG?=
- =?utf-8?B?VTRBeXZUbnhybkNJeis4ZlVZblJxOG5LdURkc0EvMUlvMWtMS253V1dlejUr?=
- =?utf-8?B?WFpKc3NCMHl5VjU0VDYxdWpGS3kyaE92NlQyVzVYQjVtVm1sQ3ArT2x5VzBY?=
- =?utf-8?B?ZUJ5dHh1WWdVTUtjWXArY1dFZDdnQW9KTGdnOEVJU2s4SERZSFpJZm4xTDVj?=
- =?utf-8?Q?szbQnAJ6ivi+ThPjQ1sDSmHhE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3c586c0-8703-42f1-fd93-08dde0a22f39
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 11:02:13.9488
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PBLODqv8vKDSB5DG9En6PBDJQz9mb+er22UI1Chbk2ohuWWWZpy5FOB6HwaJsPiLixFQcCv4KLKYGz22StKkPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11540
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4651; i=j@jannau.net;
+ s=yk2024; h=from:subject:message-id;
+ bh=X3gkHJGczXXUrwmJq+dtwcmyPTUZEqB4c8Tpzbc+JsA=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhoxlH1/xWwoWGDCeWaNb09pjxp9hpzx3CcsZoS0vtoUz7
+ 1dlfs/QUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCIxXxj+x/DvNxQ/Ii9w4d/c
+ Nfm3WKe3Jc0Ue3u++33B87yzGtqtRxj+Wc/97DX/2c9nzcl2u6X5oy6sifpesWuyWUmMz+RLcY5
+ 3GQA=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_040220_507892_A2915281 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250821_031621_132659_F98464F6 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,35 +126,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX94 has a DDR Performance Monitor Unit which is compatible with i.MX93.
-This will add a compatible for i.MX94.
+From: Hector Martin <marcan@marcan.st>
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+The T8110 variant DART implementation on T602x SoCs indicates an IAS of
+42, which requires an extra page table level. The extra level is
+optional, but let's implement it.
 
+Later it might be useful to restrict this based on the actual attached
+devices, since most won't need that much address space anyway.
+
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Janne Grunau <j@jannau.net>
+Reviewed-by: Sven Peter <sven@kernel.org>
 ---
-Changes in v2:
- - modify subject
----
- Documentation/devicetree/bindings/perf/fsl-imx-ddr.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/iommu/apple-dart.c | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/perf/fsl-imx-ddr.yaml b/Documentation/devicetree/bindings/perf/fsl-imx-ddr.yaml
-index 8597ea625edba5d0e2a3373ae6cd45bb1ba351cc..d2e578d6b83b8847c7a0ca9d5aeb208a90e2fa6a 100644
---- a/Documentation/devicetree/bindings/perf/fsl-imx-ddr.yaml
-+++ b/Documentation/devicetree/bindings/perf/fsl-imx-ddr.yaml
-@@ -33,6 +33,7 @@ properties:
-       - items:
-           - enum:
-               - fsl,imx91-ddr-pmu
-+              - fsl,imx94-ddr-pmu
-               - fsl,imx95-ddr-pmu
-           - const: fsl,imx93-ddr-pmu
+diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+index e72a93e78e26ca61b233c83d439dbdfadf040fc6..9696c8f143876416b10f812423aa5bd8986bfc88 100644
+--- a/drivers/iommu/apple-dart.c
++++ b/drivers/iommu/apple-dart.c
+@@ -133,6 +133,7 @@
+ #define DART_T8110_TCR                  0x1000
+ #define DART_T8110_TCR_REMAP            GENMASK(11, 8)
+ #define DART_T8110_TCR_REMAP_EN         BIT(7)
++#define DART_T8110_TCR_FOUR_LEVEL       BIT(3)
+ #define DART_T8110_TCR_BYPASS_DAPF      BIT(2)
+ #define DART_T8110_TCR_BYPASS_DART      BIT(1)
+ #define DART_T8110_TCR_TRANSLATE_ENABLE BIT(0)
+@@ -177,6 +178,7 @@ struct apple_dart_hw {
+ 	u32 tcr_enabled;
+ 	u32 tcr_disabled;
+ 	u32 tcr_bypass;
++	u32 tcr_4level;
  
+ 	u32 ttbr;
+ 	u32 ttbr_valid;
+@@ -217,6 +219,7 @@ struct apple_dart {
+ 	u32 pgsize;
+ 	u32 num_streams;
+ 	u32 supports_bypass : 1;
++	u32 four_level : 1;
+ 
+ 	struct iommu_group *sid2group[DART_MAX_STREAMS];
+ 	struct iommu_device iommu;
+@@ -305,13 +308,19 @@ static struct apple_dart_domain *to_dart_domain(struct iommu_domain *dom)
+ }
+ 
+ static void
+-apple_dart_hw_enable_translation(struct apple_dart_stream_map *stream_map)
++apple_dart_hw_enable_translation(struct apple_dart_stream_map *stream_map, int levels)
+ {
+ 	struct apple_dart *dart = stream_map->dart;
++	u32 tcr = dart->hw->tcr_enabled;
+ 	int sid;
+ 
++	if (levels == 4)
++		tcr |= dart->hw->tcr_4level;
++
++	WARN_ON(levels != 3 && levels != 4);
++	WARN_ON(levels == 4 && !dart->four_level);
+ 	for_each_set_bit(sid, stream_map->sidmap, dart->num_streams)
+-		writel(dart->hw->tcr_enabled, dart->regs + DART_TCR(dart, sid));
++		writel(tcr, dart->regs + DART_TCR(dart, sid));
+ }
+ 
+ static void apple_dart_hw_disable_dma(struct apple_dart_stream_map *stream_map)
+@@ -569,7 +578,8 @@ apple_dart_setup_translation(struct apple_dart_domain *domain,
+ 	for (; i < stream_map->dart->hw->ttbr_count; ++i)
+ 		apple_dart_hw_clear_ttbr(stream_map, i);
+ 
+-	apple_dart_hw_enable_translation(stream_map);
++	apple_dart_hw_enable_translation(stream_map,
++					 pgtbl_cfg->apple_dart_cfg.n_levels);
+ 	stream_map->dart->hw->invalidate_tlb(stream_map);
+ }
+ 
+@@ -614,7 +624,7 @@ static int apple_dart_finalize_domain(struct apple_dart_domain *dart_domain,
+ 	dart_domain->domain.pgsize_bitmap = pgtbl_cfg.pgsize_bitmap;
+ 	dart_domain->domain.geometry.aperture_start = 0;
+ 	dart_domain->domain.geometry.aperture_end =
+-		(dma_addr_t)DMA_BIT_MASK(dart->ias);
++		(dma_addr_t)DMA_BIT_MASK(pgtbl_cfg.ias);
+ 	dart_domain->domain.geometry.force_aperture = true;
+ 
+ 	dart_domain->finalized = true;
+@@ -807,6 +817,8 @@ static int apple_dart_of_xlate(struct device *dev,
+ 	if (cfg_dart) {
+ 		if (cfg_dart->pgsize != dart->pgsize)
+ 			return -EINVAL;
++		if (cfg_dart->ias != dart->ias)
++			return -EINVAL;
+ 	}
+ 
+ 	cfg->supports_bypass &= dart->supports_bypass;
+@@ -1137,6 +1149,7 @@ static int apple_dart_probe(struct platform_device *pdev)
+ 		dart->ias = FIELD_GET(DART_T8110_PARAMS3_VA_WIDTH, dart_params[2]);
+ 		dart->oas = FIELD_GET(DART_T8110_PARAMS3_PA_WIDTH, dart_params[2]);
+ 		dart->num_streams = FIELD_GET(DART_T8110_PARAMS4_NUM_SIDS, dart_params[3]);
++		dart->four_level = dart->ias > 36;
+ 		break;
+ 	}
+ 
+@@ -1169,9 +1182,9 @@ static int apple_dart_probe(struct platform_device *pdev)
+ 
+ 	dev_info(
+ 		&pdev->dev,
+-		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d] initialized\n",
++		"DART [pagesize %x, %d streams, bypass support: %d, bypass forced: %d, AS %d -> %d] initialized\n",
+ 		dart->pgsize, dart->num_streams, dart->supports_bypass,
+-		dart->pgsize > PAGE_SIZE);
++		dart->pgsize > PAGE_SIZE, dart->ias, dart->oas);
+ 	return 0;
+ 
+ err_sysfs_remove:
+@@ -1292,6 +1305,7 @@ static const struct apple_dart_hw apple_dart_hw_t8110 = {
+ 	.tcr_enabled = DART_T8110_TCR_TRANSLATE_ENABLE,
+ 	.tcr_disabled = 0,
+ 	.tcr_bypass = DART_T8110_TCR_BYPASS_DAPF | DART_T8110_TCR_BYPASS_DART,
++	.tcr_4level = DART_T8110_TCR_FOUR_LEVEL,
+ 
+ 	.ttbr = DART_T8110_TTBR,
+ 	.ttbr_valid = DART_T8110_TTBR_VALID,
 
 -- 
-2.34.1
+2.50.1
 
 
