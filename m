@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AA32CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CE0CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfPOWbVRUC2ftEQ8/ZhtZEj1I9GSOS1lR3GmPpWbzms=; b=Tik3ML8qPBkx5TSSEgM0Dv20c9
-	ah3tNLTQoxhfj0fCOE3+2x8yM33+ewQqFKcxm/vDP1FqivjTSjnjGOxnelI4757TACRWKfe93eNs6
-	tG4xS+aByjLlVUk6hEGw3g0CdXlcp6dqpp3ApO+iq2prf6Xh1eCDKYfjPOAGKKy3iS+3eJj1y0AyQ
-	VcpAVkLLJuQVgmpBC8NgvUbLC8H7jeIVNP5wKQhU4mk9zaAtKINzMUjYNcYzdb2Xq+4LDuf9mY2Ej
-	loLn9xIgWNL/RJ6QEzn5weGccdf9CJ6Sm1Kns/mElRhnGev0aDLSZjZLn/RqbKN5psQl3Ivb8ZLDu
-	8meZGRfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FNRluRRDHKe0YK+zSW5IoCwbe6CrICaUE6zkiO+/jlk=; b=31m7LOysX+Y4gMXnmwJ+b++sem
+	vUpfndabeHCp6DNnxuNCckTvnobh43P5qqdctxlORhlAWavmW4FsjIjPYMQWhEUC7gxI0q8J0ydPs
+	k2HsBN6eWDmVmqyyd9BDQIazkg342ZVVAjsOP17o/bdxi9vmx8V7MgddEoYMgp0nwva52W4H/6aoO
+	R2HtphF8PZy2Vu/phtLGnYpjLYjtFepaijVn3q4y0XgDprVzY6HfR8XVcNmqPTt4odrqirtkug31R
+	Ea88XGD58L1TlPYoVYddFTmb2zLS+PqHk+bGfxyhhGWjb/ZjB2yxVIuopZgVpwRq0y7gtPws28UX5
+	H8cplRqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1lk-0000000GQBk-2Myi;
-	Thu, 21 Aug 2025 09:39:40 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
+	id 1up1m9-0000000GQm8-0xsa;
+	Thu, 21 Aug 2025 09:40:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozQR-0000000G3kU-1cVS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:09:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=RfPOWbVRUC2ftEQ8/ZhtZEj1I9GSOS1lR3GmPpWbzms=;
-	b=B4Ps3rxA5lTLKOMX9qz4KLmfQrRInSuwWyASzKpE8BzdORqUVxYMRs7LRTHMd7
-	SAziTySrOi108CliGQfaDT4Jng65U7PMGDioaXIl/eTKtTdsMJYgjIf4kMP7bXMD
-	JW8f3za/C4lYET9Jp2+PH+kM1G2bjYBqw+5h88X9xYpJY=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAHe3sUxqZoZKcNAw--.5607S3;
-	Thu, 21 Aug 2025 15:09:10 +0800 (CST)
-Date: Thu, 21 Aug 2025 15:09:08 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Martin Kepplinger <martink@posteo.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
-	kernel@pengutronix.de, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: dts: imx8mp: add idle cooling devices to cpu
- core
-Message-ID: <aKbGFMnmM4OHiimg@dragon>
-References: <20250715055903.1806961-1-martink@posteo.de>
+	id 1uozkZ-0000000G6uB-01IE;
+	Thu, 21 Aug 2025 07:30:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 63C3A5C5C0C;
+	Thu, 21 Aug 2025 07:30:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D869C4CEED;
+	Thu, 21 Aug 2025 07:30:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755761417;
+	bh=vxlY/X8dtM1EGO1feIikldcljazKbwBz1ntaXK3cUpU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=q97ul9Ozfed6vNpxwGCGCpJMgRcuiAvswkhCRQbdWAFXt4dVe1ucLVPd4Mdmjv8Q6
+	 FV+Egb9unFMjK3NlU2eiA9LRsUonhKNDhF0iLQormve3cdIM0PXHTJP0DGpbfXu0H3
+	 aPpkqbqQglfni0SyYuPI9Ym4BhcSNPQFig+CrxXS51+LKYt+eQ4LAZZKIIlrf8/RaE
+	 k3xE7clHFNWfX4vFDpZm8nEnHS2yUmdyWUYc/nzrkpDmDUNIQC1RYp9igzIaLMD3/O
+	 j4M/OFbOp8t/YQYCpG7rqItsqn2++bZj2ulhgTnNJ8TldYriooq4B68EcbLulA16CK
+	 k0vj578P3qyyg==
+Message-ID: <376a8f00-e803-4ab1-a54e-6535e41ebaee@kernel.org>
+Date: Thu, 21 Aug 2025 09:30:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250715055903.1806961-1-martink@posteo.de>
-X-CM-TRANSID: Mc8vCgAHe3sUxqZoZKcNAw--.5607S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tF13XF18WFy8Xw1Uuw48JFb_yoW8ZrWUpr
-	48uwn5W3Wvgr47C3yaqwnYkrnY9ws5tFW5Wr12gryfK345Zr90gayYyF13Wr18Xw18ua1f
-	ZF4avryI9r4DJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UyCJQUUUUU=
-X-Originating-IP: [117.81.240.235]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNhZ632imxhaGowAA3+
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] dt-bindings: clock: mediatek: Add power-domains
+ property
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Julien Massot <julien.massot@collabora.com>
+Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ikjoon Jang <ikjn@chromium.org>,
+ Enric Balletbo i Serra <eballetbo@kernel.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>,
+ Eugen Hristev <eugen.hristev@linaro.org>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Julien Massot <jmassot@collabora.com>, Sean Wang <sean.wang@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org
+References: <20250820-mtk-dtb-warnings-v2-0-cf4721e58f4e@collabora.com>
+ <20250820-mtk-dtb-warnings-v2-1-cf4721e58f4e@collabora.com>
+ <20250821-whimsical-mustang-of-champagne-ca7a7d@kuoka>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250821-whimsical-mustang-of-champagne-ca7a7d@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_000931_758835_26A5D5B4 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250821_003019_131021_DF2EC12A 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,78 +131,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 05:59:22AM +0000, Martin Kepplinger wrote:
-> The thermal framework can use the cpu-idle-states as
-> described for imx8mp as an alternative or in parallel to
-> cpufreq.
+On 21/08/2025 09:16, Krzysztof Kozlowski wrote:
+> On Wed, Aug 20, 2025 at 03:44:52PM +0200, Julien Massot wrote:
+>> The mt8183-mfgcfg node uses a power domain in its device tree node.
+>> To prevent schema validation warnings, add the optional `power-domains`
+>> property to the binding schema for mediatek syscon clocks.
+>>
+>> Fixes: 1781f2c46180 ("arm64: dts: mediatek: mt8183: Add power-domains property to mfgcfg")
 > 
-> Add the DT node to the cpu so the cooling devices will be present
-> and the thermal zone descriptions can use them.
+> Checkpatch complains here, but more important - where is explanation of
+> dropped tag?
 > 
-> Signed-off-by: Martin Kepplinger <martink@posteo.de>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> index bb24dba7338ea..66e1a27d6eed9 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -80,6 +80,11 @@ A53_0: cpu@0 {
->  			operating-points-v2 = <&a53_opp_table>;
->  			#cooling-cells = <2>;
->  			cpu-idle-states = <&cpu_pd_wait>;
-> +			cpu0_therm: thermal-idle {
-
-Have a newline between properties and child node.
-
-Shawn
-
-> +				#cooling-cells = <2>;
-> +				duration-us = <10000>;
-> +				exit-latency-us = <700>;
-> +			};
->  		};
->  
->  		A53_1: cpu@1 {
-> @@ -98,6 +103,11 @@ A53_1: cpu@1 {
->  			operating-points-v2 = <&a53_opp_table>;
->  			#cooling-cells = <2>;
->  			cpu-idle-states = <&cpu_pd_wait>;
-> +			cpu1_therm: thermal-idle {
-> +				#cooling-cells = <2>;
-> +				duration-us = <10000>;
-> +				exit-latency-us = <700>;
-> +			};
->  		};
->  
->  		A53_2: cpu@2 {
-> @@ -116,6 +126,11 @@ A53_2: cpu@2 {
->  			operating-points-v2 = <&a53_opp_table>;
->  			#cooling-cells = <2>;
->  			cpu-idle-states = <&cpu_pd_wait>;
-> +			cpu2_therm: thermal-idle {
-> +				#cooling-cells = <2>;
-> +				duration-us = <10000>;
-> +				exit-latency-us = <700>;
-> +			};
->  		};
->  
->  		A53_3: cpu@3 {
-> @@ -134,6 +149,11 @@ A53_3: cpu@3 {
->  			operating-points-v2 = <&a53_opp_table>;
->  			#cooling-cells = <2>;
->  			cpu-idle-states = <&cpu_pd_wait>;
-> +			cpu3_therm: thermal-idle {
-> +				#cooling-cells = <2>;
-> +				duration-us = <10000>;
-> +				exit-latency-us = <700>;
-> +			};
->  		};
->  
->  		A53_L2: l2-cache0 {
-> -- 
-> 2.39.5
+> But this tag appeared? It wasn't even given!
 > 
+> You remove public tags and add tags never given on the lists.
 
+I found Angelo's tag, but still dropping other acks is not explained.
+
+Best regards,
+Krzysztof
 
