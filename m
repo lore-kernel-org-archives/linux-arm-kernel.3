@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E1FBCA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117FECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YuQZHh/5I/+ZxLcLKvlHxM6rBuApcg0gP5KQuEHQPgA=; b=uTNFZ+RaFf8SS159YYa1lQNjmj
-	+fv+o3oJy/fgqwln8Jppp/zoJE2dwWW/HkrYI/K2Yl7aKAvb79cE3iATfPJDZ8qbNgYmksKxnhqTA
-	kSxOD30i0NGlt/1RTztv6FjWauCQyrECZ21vGMROcPcQcibAcudJEVxtMMncQiGsbx8mTIbAkLo8T
-	cL/VgwQlwq30GMTyqnIg36OJ2e22oTM1dYhSqLygmIm190nlOwih6fxAycgyouYuwOI/g6JNAc72k
-	1duNCH15LPhK/rdGJbQGMZ8+xaFES4zvcd3sbhbHsoALuec5c5RW44ODh96IJSya2FQ/k2NXZuJEm
-	7Q5BNcvg==;
+	bh=zFT6WngKMwHZUnIYZ6NFySqzw0d5WuAMHkLFTx3V41Q=; b=HkbezAVGVDTK07k7fkPC38fJ3n
+	wveVnw+dXlMnoVm8dQ5xIhobh4rT13UK7IhUbwHIULEPRVGX3YJ903BYDtkAzPCIZ9VaW6xle3oHB
+	2fD3AWsCkdyAEesddExy4enVKwY/Y0T5nEnGV+Y0qZiZLOGRR/KcbDXQxxfiJ306lrnzDu5QTHb20
+	GrN1ECR+cLe1M4o6KjTsxnXNj8Nz5AjDet8C9zN9jYcC0onEWJxWiwUGdKR3mRKXt6AVXnSVGrZ7Z
+	+9EznEOn3yAFvsr8X08LmlCV4r6RcVHNvSdLdMfWpxSoOcz44DvzoJdXywTAI6ua/L1NNfQz3m3GT
+	FIqpPigg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1wZ-0000000GVt8-17vr;
-	Thu, 21 Aug 2025 09:50:51 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1up1zA-0000000GWMG-0DVn;
+	Thu, 21 Aug 2025 09:53:32 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0RT-0000000GCgk-10Tg
+	id 1up0RT-0000000GCgl-2o9R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:14:40 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45a1b0cb0aaso5265275e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:38 -0700 (PDT)
+	Thu, 21 Aug 2025 08:14:41 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1ac1bf0dso4185105e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755764077; x=1756368877; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755764078; x=1756368878; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YuQZHh/5I/+ZxLcLKvlHxM6rBuApcg0gP5KQuEHQPgA=;
-        b=RImN0f00QUVfaTiyl/dL+2HD3HAoM6RIAAON8m+nArlCM/MNG/wAwycknm5h5t7m9Y
-         4inneNvAwxeHNYITAz1eBApDd7RbxbthRLF8tz21z5iSoTZ8Mv+auhFDMTZeaGfX+SHT
-         lmTUrSh1bd2//p8DXSIw6u3zirtB29gTGRUnCperLaGgFVr4nFTUBAhnFbFDMn9ayt4V
-         vL32TsmzHhfwEzMksH0XdpqfRYptjhXW1NwFmmEs7f4MXF9OhNuDc884lOibOhiFs4jz
-         BwMUTz0MlbZPkyCdXisHpYGDvxn25F6hxv2I3C9Ts9FqGzzwyKOcT83Iu6u0tYNw1Iq6
-         6tGQ==
+        bh=zFT6WngKMwHZUnIYZ6NFySqzw0d5WuAMHkLFTx3V41Q=;
+        b=eFLsz0NbcLrAYTQWz0PfTDDyPt/F4LhtsK5NOT6soD4k4wgUj+TZs0pL4f7zu+3LfC
+         yI74CU65mtsNGPbXI505uTvwRbT+ASqlz3bSRK1dTo1JDACg7m8tWQ291OVTizjjBHer
+         iUdxJHQ979yme3L8/HLji0+5Imm5yJVwq+7MWAH9yYabAqofwtjFZ/sZmH7hevrfDxNk
+         60vJoXAc1A3F62cKR2KhrLYDc1Vpcx9mvwJMFizJHAgGdcq7CDUNMwCgn+Yj5iGdgLfV
+         vwpP74cKKt3eEP1YfGt48r9mlVcM8vtSLB8d2HqnkUcDMgQhSDrCsar926U1IN+s4BSQ
+         v0tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755764077; x=1756368877;
+        d=1e100.net; s=20230601; t=1755764078; x=1756368878;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YuQZHh/5I/+ZxLcLKvlHxM6rBuApcg0gP5KQuEHQPgA=;
-        b=eJrXc7lY8WVn8R4VDQ1uaGKOHEkO99wUlKV4XLB3hChX0tG/rCLZYq3z+xwNpz0QdP
-         Lbvcgsp/784ux89EbEojpl/Iodw2Lf+RztdZhI2qpa/a8MHDtKqVryiXcaajbGbGLcba
-         I9fwJOvFdkS3/ldV3qu9Z+uSFCjgRsu2yR5RExMssX+KZIdm3IG/DFVY9m00AsXJcz0l
-         9E9kX64V1CyE8P3TC4dHjZEAMgDrBpkhdVq6km+39OQVwdItzloNSbHpkHdWu1uv1Hv6
-         Iyb22SEvIHW76JcNS1JEvBZZopJGm00h3pm3EU3Yw6ywly+/Xs6jEPareWbe7e3KfRnS
-         dGlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXcBzuwe1vGj3QNoc4trWd1+PhUoHisBWOFw2x8b29Og5qvKDz6zvrla0bS75M/o2+0/RlqjwR7cQiHNkrF9jqE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQq20Nj2K3kKSARshaHi1cxUtuIYvP+S+68+EthyV9F+jJb9KN
-	YFMIIYqIlfZ3v/C6B9BprEMeiaPKTEG8aaH9soiIpP2CyiQxVmLRB+BCEKxXO2/ZXYHkmaBFRJz
-	SxThTHynk869C3Kea5SNoxA==
-X-Google-Smtp-Source: AGHT+IFMMEtGICfKL2zb2gyZ0RFhYHt6HTY8hUaeQd7Rm7nNHdZUXNjhKqLZBjHKkTE99BTV5Bzs4Nkm6UF9G/4v
-X-Received: from wmqa4.prod.google.com ([2002:a05:600c:3484:b0:459:dbaa:93b0])
+        bh=zFT6WngKMwHZUnIYZ6NFySqzw0d5WuAMHkLFTx3V41Q=;
+        b=G9sFfxf3vYsIsj5horH5SHBaZO+hrgQkTVDQasMCJ9mfOHHtGrEBz4BjpuyM+4vmDp
+         66S0w6w8hbNreMthZa64GQq7iZuYY8eNKWKFMu6L0B47h8DaUzw/0DcKjUFncRhU7JxF
+         gQYIAEWPdZj+otAVPGtdMAbiAhUycfszkONjK2hADDQU7J9rI0rwQ/YgVBVokSJLyeKv
+         PonJ2bOIhlpVpThcysNoNUGEj6xRxAqvh7SJi8gql9nbJS6gGQXLKN76OvZ2WqYBG3a3
+         Wc0moKpdctPT/nXOaj47MocQQV+j1QM2NbhhOLCB1We3mAIedKOZjr8aF5BhUMzC7ePp
+         9n8g==
+X-Forwarded-Encrypted: i=1; AJvYcCVbHyQ1axTMzdxHA9Ib3/Hju1IWPeaoh6/gBtcU4Sd4pAD8TarJ5b0mLr8uhicyf4enOFqxlh1UBbsEwFqku4o7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLj0kVvIZpE51N0NX/trGkJ+40SDv97WVG1OlcYuZQKxccfY5I
+	3FmQbUKzvNkmCm6JbBIkOKrW+ANsfqmrrF8WsFqktZqmD7nqrtFSoW5/+kDXwjhOBv159aKe/mf
+	BvQ7SCgTohUr23vrKb1KfGw==
+X-Google-Smtp-Source: AGHT+IFAQlXPyTnG3JiChKe5DFLBDr2rP8AXh2IodHFt8ePrOH2SUaDoS3AE4kl8mvBz78HTv39+GgQn9/pGZ7FM
+X-Received: from wmti5.prod.google.com ([2002:a05:600c:8b85:b0:458:715c:51a1])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b19:b0:459:e025:8c40 with SMTP id 5b1f17b1804b1-45b4d7f0ddamr12544005e9.10.1755764077591;
- Thu, 21 Aug 2025 01:14:37 -0700 (PDT)
-Date: Thu, 21 Aug 2025 09:14:00 +0100
+ 2002:a05:600c:4710:b0:456:189e:223a with SMTP id 5b1f17b1804b1-45b4d9ea7c9mr10900275e9.10.1755764078269;
+ Thu, 21 Aug 2025 01:14:38 -0700 (PDT)
+Date: Thu, 21 Aug 2025 09:14:01 +0100
 In-Reply-To: <20250821081412.1008261-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250821081412.1008261-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.rc2.233.g662b1ed5c5-goog
-Message-ID: <20250821081412.1008261-13-vdonnefort@google.com>
-Subject: [PATCH v6 12/24] tracing: selftests: Add trace remote tests
+Message-ID: <20250821081412.1008261-14-vdonnefort@google.com>
+Subject: [PATCH v6 13/24] tracing: load/unload page callbacks for simple_ring_buffer
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -74,12 +74,11 @@ To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	jstultz@google.com, qperret@google.com, will@kernel.org, 
 	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-kselftest@vger.kernel.org
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_011439_283883_B638F110 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20250821_011439_707580_6AF629F7 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,307 +93,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exercise the tracefs interface for trace remote with a set of tests to
-check:
+Add load/unload callback used for each admitted page in the ring-buffer.
+This will be later useful for the pKVM hypervisor which uses a different
+VA space and need to dynamically map/unmap the ring-buffer pages.
 
-  * loading/unloading (unloading.tc)
-  * reset (reset.tc)
-  * size changes (buffer_size.tc)
-  * event integrity (trace_pipe)
-
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kselftest@vger.kernel.org
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
-new file mode 100644
-index 000000000000..60bf431ccc91
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/buffer_size.tc
-@@ -0,0 +1,24 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote buffer size
+diff --git a/include/linux/simple_ring_buffer.h b/include/linux/simple_ring_buffer.h
+index d6761dc2f404..e74707f10b93 100644
+--- a/include/linux/simple_ring_buffer.h
++++ b/include/linux/simple_ring_buffer.h
+@@ -47,4 +47,12 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
+ int simple_ring_buffer_enable_tracing(struct simple_rb_per_cpu *cpu_buffer, bool enable);
+ int simple_ring_buffer_swap_reader_page(struct simple_rb_per_cpu *cpu_buffer);
+ int simple_ring_buffer_reset(struct simple_rb_per_cpu *cpu_buffer);
 +
-+. $TEST_DIR/remotes/functions
++int __simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer,
++			      struct simple_buffer_page *bpages,
++			      const struct ring_buffer_desc *desc,
++			      void *(*load_page)(unsigned long va),
++			      void (*unload_page)(void *va));
++void __simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer,
++				 void (*unload_page)(void *));
+ #endif
+diff --git a/kernel/trace/simple_ring_buffer.c b/kernel/trace/simple_ring_buffer.c
+index 3efdb895d77a..56b4701979ba 100644
+--- a/kernel/trace/simple_ring_buffer.c
++++ b/kernel/trace/simple_ring_buffer.c
+@@ -64,7 +64,7 @@ static void simple_bpage_reset(struct simple_buffer_page *bpage)
+ 	local_set(&bpage->page->commit, 0);
+ }
+ 
+-static void simple_bpage_init(struct simple_buffer_page *bpage, unsigned long page)
++static void simple_bpage_init(struct simple_buffer_page *bpage, void *page)
+ {
+ 	INIT_LIST_HEAD(&bpage->list);
+ 	bpage->page = (struct buffer_data_page *)page;
+@@ -290,10 +290,15 @@ int simple_ring_buffer_reset(struct simple_rb_per_cpu *cpu_buffer)
+ 	return 0;
+ }
+ 
+-int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_buffer_page *bpages,
+-			    const struct ring_buffer_desc *desc)
++int __simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer,
++			      struct simple_buffer_page *bpages,
++			      const struct ring_buffer_desc *desc,
++			      void *(*load_page)(unsigned long va),
++			      void (*unload_page)(void *va))
+ {
+ 	struct simple_buffer_page *bpage = bpages;
++	int ret = 0;
++	void *page;
+ 	int i;
+ 
+ 	/* At least 1 reader page and one head */
+@@ -302,15 +307,22 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
+ 
+ 	memset(cpu_buffer, 0, sizeof(*cpu_buffer));
+ 
+-	cpu_buffer->bpages = bpages;
++	cpu_buffer->meta = load_page(desc->meta_va);
++	if (!cpu_buffer->meta)
++		return -EINVAL;
+ 
+-	cpu_buffer->meta = (void *)desc->meta_va;
+ 	memset(cpu_buffer->meta, 0, sizeof(*cpu_buffer->meta));
+ 	cpu_buffer->meta->meta_page_size = PAGE_SIZE;
+ 	cpu_buffer->meta->nr_subbufs = cpu_buffer->nr_pages;
+ 
+ 	/* The reader page is not part of the ring initially */
+-	simple_bpage_init(bpage, desc->page_va[0]);
++	page = load_page(desc->page_va[0]);
++	if (!page) {
++		unload_page(cpu_buffer->meta);
++		return -EINVAL;
++	}
 +
-+test_buffer_size()
-+{
-+    echo 0 > tracing_on
-+    assert_unloaded
++	simple_bpage_init(bpage, page);
+ 	bpage->id = 0;
+ 
+ 	cpu_buffer->nr_pages = 1;
+@@ -320,7 +332,13 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
+ 	cpu_buffer->head_page = bpage + 1;
+ 
+ 	for (i = 1; i < desc->nr_page_va; i++) {
+-		simple_bpage_init(++bpage, desc->page_va[i]);
++		page = load_page(desc->page_va[i]);
++		if (!page) {
++			ret = -EINVAL;
++			break;
++		}
 +
-+    echo 4096 > buffer_size_kb
-+    echo 1 > tracing_on
-+    assert_loaded
++		simple_bpage_init(++bpage, page);
+ 
+ 		bpage->list.next = &(bpage + 1)->list;
+ 		bpage->list.prev = &(bpage - 1)->list;
+@@ -329,6 +347,14 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
+ 		cpu_buffer->nr_pages = i + 1;
+ 	}
+ 
++	if (ret) {
++		for (i--; i >= 0; i--)
++			unload_page((void *)desc->page_va[i]);
++		unload_page(cpu_buffer->meta);
 +
-+    echo 0 > tracing_on
-+    echo 7 > buffer_size_kb
++		return ret;
++	}
++
+ 	/* Close the ring */
+ 	bpage->list.next = &cpu_buffer->tail_page->list;
+ 	cpu_buffer->tail_page->list.prev = &bpage->list;
+@@ -336,19 +362,46 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
+ 	/* The last init'ed page points to the head page */
+ 	simple_bpage_set_head_link(bpage);
+ 
++	cpu_buffer->bpages = bpages;
++
+ 	return 0;
+ }
+ 
+-void simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer)
++static void *__load_page(unsigned long page)
+ {
++	return (void *)page;
 +}
 +
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+    setup_remote_test
-+    test_buffer_size
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/functions b/tools/testing/selftests/ftrace/test.d/remotes/functions
-new file mode 100644
-index 000000000000..504a495b3b1b
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/functions
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: GPL-2.0
++static void __unload_page(void *page) { }
 +
-+setup_remote()
++int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_buffer_page *bpages,
++			    const struct ring_buffer_desc *desc)
 +{
-+	local name=$1
-+
-+	[ -e $TRACING_DIR/remotes/$name/write_event ] || exit_unresolved
-+
-+	cd remotes/$name/
-+	echo 0 > tracing_on
-+	clear_trace
-+	echo 7 > buffer_size_kb
-+	echo 0 > events/enable
-+	echo 1 > events/$name/selftest/enable
-+	echo 1 > tracing_on
++	return __simple_ring_buffer_init(cpu_buffer, bpages, desc, __load_page, __unload_page);
 +}
 +
-+setup_remote_test()
++void __simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer,
++				 void (*unload_page)(void *))
 +{
-+	[ -d $TRACING_DIR/remotes/test/ ] || modprobe remote_test || exit_unresolved
++	int p;
 +
-+	setup_remote "test"
+ 	if (!simple_rb_loaded(cpu_buffer))
+ 		return;
+ 
+ 	simple_rb_enable_tracing(cpu_buffer, false);
+ 
++	unload_page(cpu_buffer->meta);
++	for (p = 0; p < cpu_buffer->nr_pages; p++)
++		unload_page(cpu_buffer->bpages[p].page);
++
+ 	cpu_buffer->bpages = 0;
+ }
+ 
++void simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer)
++{
++	return __simple_ring_buffer_unload(cpu_buffer, __unload_page);
 +}
 +
-+assert_loaded()
-+{
-+	grep -q "(loaded)" buffer_size_kb
-+}
-+
-+assert_unloaded()
-+{
-+	grep -q "(unloaded)" buffer_size_kb
-+}
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/reset.tc
-new file mode 100644
-index 000000000000..93d6eb2a807f
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/reset.tc
-@@ -0,0 +1,105 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote reset
-+
-+. $TEST_DIR/remotes/functions
-+
-+get_cpu_ids()
-+{
-+    sed -n 's/^processor\s*:\s*\([0-9]\+\).*/\1/p' /proc/cpuinfo
-+}
-+
-+dump_trace()
-+{
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+    cat trace_pipe > $output &
-+    pid=$!
-+    sleep 1
-+    kill -1 $pid
-+
-+    echo $output
-+}
-+
-+check_reset()
-+{
-+    write_event_path="write_event"
-+    taskset=""
-+
-+    clear_trace
-+
-+    # Is the buffer empty?
-+    output=$(dump_trace)
-+    test $(wc -l $output | cut -d ' ' -f1) -eq 0
-+
-+    if $(echo $(pwd) | grep -q "per_cpu/cpu"); then
-+        write_event_path="../../write_event"
-+        cpu_id=$(echo $(pwd) | sed -e 's/.*per_cpu\/cpu//')
-+        taskset="taskset -c $cpu_id"
-+    fi
-+    rm $output
-+
-+    # Can we properly write a new event?
-+    $taskset echo 7890 > $write_event_path
-+    output=$(dump_trace)
-+    test $(wc -l $output | cut -d ' ' -f1) -eq 1
-+    grep -q "id=7890" $output
-+    rm $output
-+}
-+
-+test_global_interface()
-+{
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+
-+    # Confidence check
-+    echo 123456 > write_event
-+    output=$(dump_trace)
-+    grep -q "id=123456" $output
-+    rm $output
-+
-+    # Reset single event
-+    echo 1 > write_event
-+    check_reset
-+
-+    # Reset lost events
-+    for i in $(seq 1 10000); do
-+        echo 1 > write_event
-+    done
-+    check_reset
-+}
-+
-+test_percpu_interface()
-+{
-+    [ "$(get_cpu_ids | wc -l)" -ge 2 ] || return 0
-+
-+    for cpu in $(get_cpu_ids); do
-+        taskset -c $cpu echo 1 > write_event
-+    done
-+
-+    check_non_empty=0
-+    for cpu in $(get_cpu_ids); do
-+        cd per_cpu/cpu$cpu/
-+
-+        if [ $check_non_empty -eq 0 ]; then
-+            check_reset
-+            check_non_empty=1
-+        else
-+            # Check we have only reset 1 CPU
-+            output=$(dump_trace)
-+            test $(wc -l $output | cut -d ' ' -f1) -eq 1
-+            rm $output
-+        fi
-+        cd -
-+    done
-+}
-+
-+test_reset()
-+{
-+    test_global_interface
-+    test_percpu_interface
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+    setup_remote_test
-+    test_reset
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
-new file mode 100644
-index 000000000000..f4bd2b3655e0
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/trace_pipe.tc
-@@ -0,0 +1,57 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote trace_pipe
-+
-+. $TEST_DIR/remotes/functions
-+
-+test_trace_pipe()
-+{
-+    echo 0 > tracing_on
-+    assert_unloaded
-+
-+    echo 1024 > buffer_size_kb
-+    echo 1 > tracing_on
-+    assert_loaded
-+
-+    output=$(mktemp /tmp/remote_test.XXXXXX)
-+
-+    cat trace_pipe > $output &
-+    pid=$!
-+
-+    for i in $(seq 1 1000); do
-+        echo $i > write_event
-+    done
-+
-+    echo 0 > tracing_on
-+    sleep 1
-+    kill $pid
-+
-+    prev_ts=0 # TODO: Init with proper clock value
-+    prev_id=0
-+
-+    # Only keep <timestamp> <id>
-+    sed -i -e 's/\[[0-9]*\]\s*\([0-9]*.[0-9]*\): [a-z]* id=\([0-9]*\)/\1 \2/' $output
-+
-+    IFS=$'\n'
-+    for line in $(cat $output); do
-+        ts=$(echo $line | cut -d ' ' -f 1)
-+        id=$(echo $line | cut -d ' ' -f 2)
-+
-+        test $(echo "$ts>$prev_ts" | bc) -eq 1
-+        test $id -eq $((prev_id + 1))
-+
-+        prev_ts=$ts
-+        prev_id=$id
-+    done
-+
-+    test $prev_id -eq 1000
-+
-+    rm $output
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+
-+    setup_remote_test
-+    test_trace_pipe
-+fi
-diff --git a/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
-new file mode 100644
-index 000000000000..99f97e100fde
---- /dev/null
-+++ b/tools/testing/selftests/ftrace/test.d/remotes/unloading.tc
-@@ -0,0 +1,40 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+# description: Test trace remote unloading
-+
-+. $TEST_DIR/remotes/functions
-+
-+test_unloading()
-+{
-+    # No reader, writing
-+    assert_loaded
-+
-+    # No reader, no writing
-+    echo 0 > tracing_on
-+    assert_unloaded
-+
-+    # 1 reader, no writing
-+    cat trace_pipe &
-+    pid=$!
-+    sleep 1
-+    assert_loaded
-+    kill $pid
-+    assert_unloaded
-+
-+    # No reader, no writing, events
-+    echo 1 > tracing_on
-+    echo 1 > write_event
-+    echo 0 > tracing_on
-+    assert_loaded
-+
-+    # Test reset
-+    clear_trace
-+    assert_unloaded
-+}
-+
-+if [ -z "$SOURCE_REMOTE_TEST" ]; then
-+    set -e
-+
-+    setup_remote_test
-+    test_unloading
-+fi
+ int simple_ring_buffer_enable_tracing(struct simple_rb_per_cpu *cpu_buffer, bool enable)
+ {
+ 	if (!simple_rb_loaded(cpu_buffer))
 -- 
 2.51.0.rc2.233.g662b1ed5c5-goog
 
