@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982F7CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE1ECA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gXwvijigmKUOoVJ0Fsp55b+fT4AozqAMlLlDLT75WaI=; b=ffEB5oXxBcX3s+8yjONEr37U6Y
-	jP1lwvvJqEjkY3eLcC9CoUdVGA/zlBxqauDyGP1P8BEeCYO7LD7wBah+ejImfzAtlNdgQA9wGklNt
-	89fCUJaXBulosAdpEb1sQbdGyq7jmGwywRE9uClJXzxLi13mTFdVSPoD59ic6bzaRtZC5BO5t1tjJ
-	xVJMtC8F4k4f/CldEmZQYHBSWEwLTF4C6a16k8rlPTv6NLgphGZdf+WIFWLhPUs8ucXfFctwIqji8
-	h/rQJwYNjceoAQf3XImQAo4AUYalt86oCW9v2bIxeAKNaubtA8X23VGZGskB/OEtz+lIM+x0A5ZPF
-	Qbc8i8tg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=; b=fW35dRJ5N0IlvX
+	OE6kNhRD0EYshcCk0T7k3uqm6FslIIqWmYcFIE2W9aGr2m8B2rP4bCpu5QuRui24+ksubFmVfnu/1
+	7HL3XN7rlYC3j3TVqrcmJWeIgMo7YisDXUcHthvcxdLkOUe3ajVlfUKNJqZpBlBhNG64P0ETwzBX3
+	f1p6xZZOQ3AcIbShbNYf0SqNMny8MMvH6sD4710/Dfmfp42K/vXyTqgC8FzSC370vRrlLv4Q3X6rE
+	OP7K0nz/P9bUdmjQ+KA4m5++eHPksJJEJFPh9UHAQBfldQ8y5F7y11dDhwmXaRxPfYtN2ond7bX1T
+	UHCfjJCxnAxkkSTyBf0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1n5-0000000GSKd-0GXx;
-	Thu, 21 Aug 2025 09:41:03 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1up1n8-0000000GSQw-1zDH;
+	Thu, 21 Aug 2025 09:41:07 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up09D-0000000GA49-1KBJ
+	id 1up0AE-0000000GALc-2eQX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:55:53 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1up097-00073K-Sf; Thu, 21 Aug 2025 09:55:41 +0200
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Thu, 21 Aug 2025 09:55:28 +0200
-Subject: [PATCH 1/5] dt-bindings: vendor-prefixes: Add JuTouch Technology
- Co, Ltd
+	Thu, 21 Aug 2025 07:56:52 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1755763009;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=;
+	b=OwS5Z+2sRowPnuwoMRmdCEST/rk1jg+FqeXzKunDEkEoQ/ElZ1QHyfjyNCxRxkG0TaNv/v
+	HCiwqUI4MA/RgreOcaPOL1pvV1q4WJ2URLB+zKGrZV7zgf/Qbb9VhtuSqfBc5/fA869f9T
+	brUYdCXzURsNfOKW9OVU6ePnTRP8DFzn7yk92gs9Fhni8+qAf1xwYfytGm3azvtgk4fmLx
+	HtjhJGqzxtXAppkrCs3TnRTTVDcr2sKa89kvNRp/zW/4AHh7LXWwQlW+gDR3Ff385y7oeM
+	yvyxAB05yC4/+CArYknDhQDKhPLsqZB/v8r928LVxt0tNdyuvTUkTNyRWVCeKw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1755763009;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=;
+	b=pcseysWdxT0feFT+CR+MGviNCt1/2WmXDJPR3gu7TtTJzzPjET06k8uyj1X7rjquAvEBQp
+	CoPsbF3gKF+k51Bg==
+Subject: [PATCH 0/3] arm64: uapi: Provide correct __BITS_PER_LONG for the
+ compat vDSO
+Date: Thu, 21 Aug 2025 09:56:43 +0200
+Message-Id: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-1-b492ef807d12@pengutronix.de>
-References: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de>
-In-Reply-To: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Steffen Trumtrar <s.trumtrar@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADvRpmgC/x3MTQrCMBAG0KuUWTsQQ3/Uq0gXsf1SB2wSZkoRS
+ u9ucPk27yCDCowezUGKXUxyqrheGpreIS1gmavJO9+5m3e8z5Y56Nq3POW1hI1fslmBfnJauI3
+ dPWBA7DFQPYoiyvf/P8fz/AFOR/mrbwAAAA==
+X-Change-ID: 20250820-vdso-arm64-compat-bitsperlong-4f59ae7ef6e7
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: John Stultz <jstultz@google.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755763005; l=898;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=FtgeFYaDlptcACR44zN8/uEJ15VLyaL5sLAi8t0tqwg=;
+ b=cQoS+W7yx1HdLENzCa9chzj4mcTqwVSeZKJmiTYpFutzIQBXQDMV8Pu/Mw4tsk3hB6r6GZ6qQ
+ MemqYTqF37VBb0wqFqy7qwCqmc6oHu+DYu2hcihLlsviBu94OOA1DRV
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_005547_360646_9D7AECB7 
-X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-CacheID: sfid-20250821_005650_805339_1CC663A7 
+X-CRM114-Status: UNSURE (   7.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,32 +90,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-JuTouch is a chinese touch screen supplier dedicated to manufacturing
-high-end touch display products for the global industrial market.
-(www.jutouch.com)
+The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG is
+always '64' even when used from the compat vDSO. In that case __GENMASK()
+does an illegal bitshift, invoking undefined behaviour.
 
-Add a vendor prefix for it.
+The first patch should go into the 6.17 tree.
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Thomas Weißschuh (3):
+      arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
+      arm64: vdso32: Stop suppressing warnings
+      arm64: vdso32: Respect -Werror from kbuild
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 77160cd47f54079a39f35b570d69f7c4c2274724..074e2ce9025dfa5ff76f7df3a743c2dd2f9ccd93 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -799,6 +799,8 @@ patternProperties:
-     description: JOZ BV
-   "^jty,.*":
-     description: JTY
-+  "^jutouch,.*":
-+    description: JuTouch Technology Co., Ltd.
-   "^kam,.*":
-     description: Kamstrup A/S
-   "^karo,.*":
+ arch/arm64/include/uapi/asm/bitsperlong.h |  5 +++++
+ arch/arm64/kernel/vdso32/Makefile         | 13 +------------
+ 2 files changed, 6 insertions(+), 12 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250820-vdso-arm64-compat-bitsperlong-4f59ae7ef6e7
 
+Best regards,
 -- 
-2.49.0
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
 
