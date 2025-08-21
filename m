@@ -4,92 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC8B9CA0FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC448CA0FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLSpwY6RNF1An/589ykdgqwqMQlC8m6DMs4VS5fCzsA=; b=26QVmfmfuAv1fmijsJ5ceblLyO
-	mFvoeLq+z34NyFiHPPqp9a6EIp26KSMXmAfncvH3ObptYm8f/xEF2mGyxdk0QKRzpNVGaHPMiGEWN
-	zWGKTKrNRnyJW/hE//18ZeYg6IQZOyM+mbIaRuEaKmh4WRk9L+zTPccafA+//+RvJ8mh9PLS1WnZo
-	c2gkLO55jHfAw1HBlii7LiU4gno3D37UI62Xdtn2hcf8qHfn904H6Lc4j9Uiu7x5EDoFTjANZEQYv
-	VPv+OzVSS5h5d4282/qLtT0O/21tw6MWDNQzRaIwTUgzyqAhzzy1f5hq0jRZcateL2aeVKPG2uDlL
-	Z3NGZNyA==;
+	bh=bmT4+9q+WF2xuKvhWm+16FMNcdazw5pWXArjlhN4f28=; b=Waju9iDjGR/tLecFqcndbDrh/5
+	KfTdVVlo3fkGwincvXWCvbP6JKKWCHJIOasv1Xl627HQ7cypXvQvghMNk1GfG0ae7RbSGyVZ0A7AX
+	Mt8tBGqTmX2XZcrXZJw3NEmIY06r3+1qP6Ce5ieS3cU2ue5hxj9+XC4hiPNXct8qeytftyVfuNwp8
+	oVFLvJspekCXwS1qKzgeEjvb3ErhfmsWHXQC7PqvyASNPdYWdP9D8gEfKjmXwTOeUzD7WzyMpAbe2
+	aaMYIJqOWoHRzshFeaBYAsQkgTC1N2QqfwH5o09ihjXtCVXJAgIor2EZNtlgJXtyXN5kO4IDbWwPp
+	ccUMZitQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDsv-00000000kg6-0soE;
-	Thu, 21 Aug 2025 22:35:53 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1upDsu-00000000kfY-2Sr4;
+	Thu, 21 Aug 2025 22:35:52 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7K1-0000000HPbs-0i2b
+	id 1up7Jk-0000000HPaP-3QMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 15:35:26 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b49b56a3f27so202430a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 08:35:24 -0700 (PDT)
+	Thu, 21 Aug 2025 15:35:10 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-afcb7a3a085so192920566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 08:35:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755790524; x=1756395324; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1755790507; x=1756395307; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zLSpwY6RNF1An/589ykdgqwqMQlC8m6DMs4VS5fCzsA=;
-        b=VO6thcMD6RFT4NpC3qBKlJbEyCMnbDMbpEnuw6IJPgwlkQa380tmgrFfXAFO7O1zX2
-         5jGvVYDN5wrOURHxW1mO4SrMHsxS6A56z40G34prcuEyK5hWQmTfTgXLtGjULPHVAzah
-         1MbWEMR6T6Ao5WxKnKcODChp/svTLR5rFjviACgFzK26S+pm4A6VLkXmzjr2Re4xXHLA
-         g+d4cJbaulv6ZUdxKMtXAXOBBipm7Hsvzs3teE/oll0ynLsn+GE4Q05d0qiAsnITse78
-         XjkXRKYwJhqdCNLvTMmDhOF0WqjfyjT2TSjYdZ+6WtP4AYSkEl+8JKjnN1zAWUPa93yI
-         xFvQ==
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bmT4+9q+WF2xuKvhWm+16FMNcdazw5pWXArjlhN4f28=;
+        b=YoODzjb5vf8qDkoTV3+CG1Gpvz4kN8CL0q4W7qE7GITNBFrqubbMJBDEuCI9J21oM0
+         t6VNhaHHJt0LcljQIIPi2ycxa/Z+1dnCkRTEQcgFzkAqmeDVxNhVWO8yXC7EEb0F6SAg
+         tbEnBtRkfBhrmoldNgvMrZ1ykeR2oCPtO1XxG6J5cbdsUW85zL22OEJDByXXlcTHZnG5
+         bsRaRfAtj8OF4+xY5L0WjHhFY6ni4tSPUYXghjKj+ROzLKkvzdIWhCs+NJLUlnErXI7B
+         pkGuWFVluuQkripVLHwP6JRNgLfdPGB5YVx61pU3O5jL5aYuUUv+4FXQjq1NaHsnVM7o
+         lmxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755790524; x=1756395324;
+        d=1e100.net; s=20230601; t=1755790507; x=1756395307;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zLSpwY6RNF1An/589ykdgqwqMQlC8m6DMs4VS5fCzsA=;
-        b=TNXUl0RBpajXzb7kYCi4tRdAmCMi2VMYscSgIr2u5kz2JE1FVMboyDIqLdq+vtFgl9
-         9q++VhIdDWmsaJHT1AAlvGemzFy4GpFPP0MrtKNa2mehStFpYLgH3tF1L6BJRlPigmfL
-         QPeR52zrHYYqBXbwEscXXW6Y42l9QpgvOpKtna/K5Wirfrgttqm+dxLcEQj/mB9XD//9
-         6LWb0BQtMdtNbXtDpyBZS8+BEz6u7A1gEjoddLgkgzUTYVZzd0/61Dqo4XmZc2gTZ2Oq
-         dcAstrhQXKJ2kK77XQ1IjrP5e3t0IFd2pBmPFQTVmaKEdeV4RACkjgI12q5S287aGBBf
-         9xtg==
-X-Forwarded-Encrypted: i=1; AJvYcCV/ARsFEOTVfavpRe76ZRlN9vP2ugDq7ZdiBA+cGehcsggCe3Q1YzIOnPEiRy0xl5QvHqnQNXwfVg/OD/sHAKJJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTU4JDiTuIdcV8LdizzsNP4zOTsDa9yYN9cHK0Rg43O7TPuewy
-	B95ubwwh6CwdzaUFE/aH4IfX+H1kp18GW+Rx94uCMBy/J20TI4qLGt2F
-X-Gm-Gg: ASbGncvh4dcXIiQUPW4psD3q4p/CGUwl4nJBQfvl+n5VHBxvz3oAuvGHGJpJg2jSeBj
-	hRcjsrQrS/lm3/K0VkDXy2Xi0jqrvODDipB7tweDmVUvzQSJuz1NUpUjj6eu7KuWnTT+wXXv7+p
-	i0YLDjTKahGg/Q2Ehoa7RnR5SCW6cQlG04CgQyX2aWpXqV3Lu7v0jCn2oXbabQ6ovXuY81rqTR6
-	iRM0Gq4z0jYHiBlymCQSQV8poLnV1ytcPhNWAFMrP6ZMR44Bb11+GWh0KUlm7KnbYe06j1hteyx
-	dnXrtDbxvdDfWsY9491MJSIUmUsbBC55FXV6UrVSNpw+04x/iGNzj9XQY+2clXGiyLWmoeYMbSR
-	CFYsO1DOu1F4dlVXI9ac3fI2dO7DSXVv59WFZzzJnA8FYHN8r5Qo6j52f
-X-Google-Smtp-Source: AGHT+IGXKIXj6g5EIXQ9klworLSEI351sbS/X/g2LHpU43eKp02xoQkOVKpnvsmP/2hLrsV8ESH69A==
-X-Received: by 2002:a17:903:2ad0:b0:234:8ef1:aa7b with SMTP id d9443c01a7336-245fec06a22mr40906125ad.20.1755790524220;
-        Thu, 21 Aug 2025 08:35:24 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-325154999f1sm73194a91.25.2025.08.21.08.35.23
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bmT4+9q+WF2xuKvhWm+16FMNcdazw5pWXArjlhN4f28=;
+        b=iJ01cA5mEINvJvaVkHDNQw/TcPat8Jcjq8UcspHxsyO7Yj9p7a4oxci+V1NhTdiFBP
+         bIGs9VEy+8AN4EmNIDUF4moQjIjhVG7AQNmq7OAVwlK7GHuXAun2AIo82upSijj1hozs
+         A21c7cd+KZXibLPfQqD9RJ5crYjCVyz/Nk8UfkRh9/UoAfuOpg+rXzVpohTmZnih3GbM
+         rGkyvBsEr3hi0V30hUSfLr8HDf8EoMXBqhe2he0/pXUpPn9vBaQb33eN+gww66CHvw00
+         mWFLH8vr8yzYu8P06JIx1Qdg+i/9SOeSNCamifq72HtCwVFVU4Xu7yd4cAD+Q8QIwSnQ
+         xcMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVJOMaz7Eke14xBi+MDLZ9OSyzqRXgOzpBonn7EbPBblQFXb6NJmO2760v9/rgECQ5qGVC+x8Q5x0vhVhgfJxVo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5PiAZ54dDNDqq5ZMEs1VD7/mOsfRjfMhoqnHEM2uZ+nJndcQI
+	tbeaDhSKQDGf5C3PzhW63pF0i/AzlWbqhXqEsiQ8PusKC0iMxjp1cuK5rX5LNGgOf1I=
+X-Gm-Gg: ASbGncsprrf+0k+TB8tZXatkKzNxc2E+BrkNuy+begGmEubF0j/JPW5U3OlsJKPfRJb
+	0FsjjxA7MYrqSoCQVToJcehBTvQ1C8Xm9hiK1/bBlc2fQg5pOB1I4Rqofd72AbG1/OJc/jn6vfX
+	9FU7eaPKvFbN7m1RyEsRohnQzJ5XHA0W5T6RJ3I7Jq3P/+j5YhgM9yUQL/24c6bIUjY+e1zbFmK
+	jMoswGYGwl+rAde6E5QO7GCP+po8GkaVA+E+noawkqTs8C9hO4H80MNkx3/gLtIKSOIA0WSdO1b
+	zDg95QSjIBks0JLJYVfOp7XoOX98Uh2mQ7CWLSeKRg6GXlTDJ4Y1tqonn7vvPXa27xNyBstT4UW
+	JJqu7rnxqwC06CK6DlKcYcpQrJlVX3uRZdohta/m6okdrxJLkikHZGDWLpaLH
+X-Google-Smtp-Source: AGHT+IE6i6MAcGkPSHSM0qg6lud9wFnrIlBRLuMIlOpoA2gcWkZO7oMKz2wMyUruTfC+VDFOVZS35A==
+X-Received: by 2002:a17:907:86a7:b0:af9:d7ba:4dd7 with SMTP id a640c23a62f3a-afe074c7c05mr256732966b.0.1755790507054;
+        Thu, 21 Aug 2025 08:35:07 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded539d39sm399697766b.110.2025.08.21.08.35.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 08:35:23 -0700 (PDT)
-Date: Thu, 21 Aug 2025 08:35:23 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Sangwook Shin <sw617.shin@samsung.com>
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	semen.protsenko@linaro.org, dongil01.park@samsung.com,
-	khwan.seo@samsung.com, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/5] watchdog: s3c2410_wdt: Increase max timeout value
- of watchdog
-Message-ID: <d41f8009-7a9d-4c46-b7f7-c8c86abd2e5c@roeck-us.net>
-References: <20250818021826.623830-1-sw617.shin@samsung.com>
- <CGME20250818022433epcas2p1bf8e6a335be945822721b8db1e9571e9@epcas2p1.samsung.com>
- <20250818021826.623830-4-sw617.shin@samsung.com>
+        Thu, 21 Aug 2025 08:35:06 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 21 Aug 2025 17:36:59 +0200
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, iivanov@suse.de, svarbanov@suse.de,
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v3 2/3] pinctrl: bcm: Add STB family pin controller driver
+Message-ID: <aKc9G9owEfYD-_qM@apocalypse>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <bb746d2fd50ecbb9963438fae8601c2e4901a126.1754922935.git.andrea.porta@suse.com>
+ <6d812c08-341f-4f7f-a9ed-4545217cb8a8@gmx.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250818021826.623830-4-sw617.shin@samsung.com>
+In-Reply-To: <6d812c08-341f-4f7f-a9ed-4545217cb8a8@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_083525_209932_68CFA99C 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20250821_083508_861199_BE1793BC 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 11:18:24AM +0900, Sangwook Shin wrote:
-> Increase max_timeout value from 55s to 3665038s (1018h 3min 58s) with
-> 38400000 frequency system if the system has 32-bit WTCNT register.
-> 
-> cat /sys/class/watchdog/watchdog0/max_timeout
-> 3665038
-> 
-> [    0.330082] s3c2410-wdt 10060000.watchdog_cl0: Heartbeat: count=1099511400000, timeout=3665038, freq=300000
-> [    0.330087] s3c2410-wdt 10060000.watchdog_cl0: Heartbeat: timeout=3665038, divisor=256, count=1099511400000 (fffffc87)
-> [    0.330127] s3c2410-wdt 10060000.watchdog_cl0: starting watchdog timer
-> [    0.330134] s3c2410-wdt 10060000.watchdog_cl0: Starting watchdog: count=0xfffffc87, wtcon=0001ff39
-> [    0.330319] s3c2410-wdt 10060000.watchdog_cl0: watchdog active, reset enabled, irq disabled
-> 
-> If the system has a 32-bit WTCNT, add QUIRK_HAS_32BIT_CNT to its quirk flags,
-> and it will operate with a 32-bit counter. If not, it will operate with a 16-bit
-> counter like in the previous version.
-> 
-> Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+Hi Stefan,
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+On 11:18 Tue 19 Aug     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> Am 11.08.25 um 16:46 schrieb Andrea della Porta:
+> > From: "Ivan T. Ivanov" <iivanov@suse.de>
+> > 
+> > This driver provide pin muxing and configuration functionality
+> > for BCM2712 SoC used by RPi5. According to [1] this chip is an
+> > instance of the one used in Broadcom STB  product line.
+> i'm not sure about the whole driver naming. The cover letter describe it as
+> "pin control driver for BCM2712 SoC", but this patch is described as "STB
+> family pin controller driver". So as a reviewer, I'm a little bit confused
+> of the domain of this driver. Is it for a single SoC or really for a whole
+> family of many SoCs?
 
-> ---
->  drivers/watchdog/s3c2410_wdt.c | 26 +++++++++++++++++++-------
->  1 file changed, 19 insertions(+), 7 deletions(-)
+It seems that this is indeed a whole family of which BCM2712 is the (first?)
+incarnation. I'm not really aware whether there exist other physical
+implementations but I'll amend the comment accordingly.
+Please also see:
+https://lore.kernel.org/lkml/d6ab66cf-09ac-4f53-9102-11f207d16db5@broadcom.com/
+
+Many thanks,
+Andrea
+
 > 
-> diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-> index 1e8cf0299713..d983cbcb975c 100644
-> --- a/drivers/watchdog/s3c2410_wdt.c
-> +++ b/drivers/watchdog/s3c2410_wdt.c
-> @@ -34,7 +34,8 @@
->  #define S3C2410_WTCNT		0x08
->  #define S3C2410_WTCLRINT	0x0c
->  
-> -#define S3C2410_WTCNT_MAXCNT	0xffff
-> +#define S3C2410_WTCNT_MAXCNT_16	0xffff
-> +#define S3C2410_WTCNT_MAXCNT_32	0xffffffff
->  
->  #define S3C2410_WTCON_RSTEN		BIT(0)
->  #define S3C2410_WTCON_INTEN		BIT(2)
-> @@ -124,6 +125,10 @@
->   * %QUIRK_HAS_DBGACK_BIT: WTCON register has DBGACK_MASK bit. Setting the
->   * DBGACK_MASK bit disables the watchdog outputs when the SoC is in debug mode.
->   * Debug mode is determined by the DBGACK CPU signal.
-> + *
-> + * %QUIRK_HAS_32BIT_CNT: WTDAT and WTCNT are 32-bit registers. With these
-> + * 32-bit registers, larger values will be set, which means that larger timeouts
-> + * value can be set.
->   */
->  #define QUIRK_HAS_WTCLRINT_REG			BIT(0)
->  #define QUIRK_HAS_PMU_MASK_RESET		BIT(1)
-> @@ -131,6 +136,7 @@
->  #define QUIRK_HAS_PMU_AUTO_DISABLE		BIT(3)
->  #define QUIRK_HAS_PMU_CNT_EN			BIT(4)
->  #define QUIRK_HAS_DBGACK_BIT			BIT(5)
-> +#define QUIRK_HAS_32BIT_CNT			BIT(6)
->  
->  /* These quirks require that we have a PMU register map */
->  #define QUIRKS_HAVE_PMUREG \
-> @@ -199,6 +205,7 @@ struct s3c2410_wdt {
->  	struct notifier_block	freq_transition;
->  	const struct s3c2410_wdt_variant *drv_data;
->  	struct regmap *pmureg;
-> +	u32 max_cnt;
->  };
->  
->  static const struct s3c2410_wdt_variant drv_data_s3c2410 = {
-> @@ -412,7 +419,7 @@ static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
->  {
->  	const unsigned long freq = s3c2410wdt_get_freq(wdt);
->  	const u64 n_max = (u64)(S3C2410_WTCON_PRESCALE_MAX + 1) *
-> -			S3C2410_WTCON_MAXDIV * S3C2410_WTCNT_MAXCNT;
-> +			S3C2410_WTCON_MAXDIV * wdt->max_cnt;
->  	u64 t_max = div64_ul(n_max, freq);
->  
->  	if (t_max > UINT_MAX)
-> @@ -572,7 +579,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
->  {
->  	struct s3c2410_wdt *wdt = watchdog_get_drvdata(wdd);
->  	unsigned long freq = s3c2410wdt_get_freq(wdt);
-> -	unsigned int count;
-> +	unsigned long count;
->  	unsigned int divisor = 1;
->  	unsigned long wtcon;
->  
-> @@ -582,7 +589,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
->  	freq = DIV_ROUND_UP(freq, 128);
->  	count = timeout * freq;
->  
-> -	dev_dbg(wdt->dev, "Heartbeat: count=%d, timeout=%d, freq=%lu\n",
-> +	dev_dbg(wdt->dev, "Heartbeat: count=%lu, timeout=%d, freq=%lu\n",
->  		count, timeout, freq);
->  
->  	/* if the count is bigger than the watchdog register,
-> @@ -590,8 +597,8 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
->  	   actually make this value
->  	*/
->  
-> -	if (count >= 0x10000) {
-> -		divisor = DIV_ROUND_UP(count, 0xffff);
-> +	if (count > wdt->max_cnt) {
-> +		divisor = DIV_ROUND_UP(count, wdt->max_cnt);
->  
->  		if (divisor > S3C2410_WTCON_PRESCALE_MAX + 1) {
->  			dev_err(wdt->dev, "timeout %d too big\n", timeout);
-> @@ -599,7 +606,7 @@ static int s3c2410wdt_set_heartbeat(struct watchdog_device *wdd,
->  		}
->  	}
->  
-> -	dev_dbg(wdt->dev, "Heartbeat: timeout=%d, divisor=%d, count=%d (%08x)\n",
-> +	dev_dbg(wdt->dev, "Heartbeat: timeout=%d, divisor=%d, count=%lu (%08lx)\n",
->  		timeout, divisor, count, DIV_ROUND_UP(count, divisor));
->  
->  	count = DIV_ROUND_UP(count, divisor);
-> @@ -807,6 +814,11 @@ static int s3c2410wdt_probe(struct platform_device *pdev)
->  	if (IS_ERR(wdt->src_clk))
->  		return dev_err_probe(dev, PTR_ERR(wdt->src_clk), "failed to get source clock\n");
->  
-> +	if (wdt->drv_data->quirks & QUIRK_HAS_32BIT_CNT)
-> +		wdt->max_cnt = S3C2410_WTCNT_MAXCNT_32;
-> +	else
-> +		wdt->max_cnt = S3C2410_WTCNT_MAXCNT_16;
-> +
->  	wdt->wdt_device.min_timeout = 1;
->  	wdt->wdt_device.max_timeout = s3c2410wdt_max_timeout(wdt);
->  
-> -- 
-> 2.25.1
+> I'm asking because all the other BCM pinctrl drivers are mostly SoC specific
+> and not really general for a product line.
 > 
+> In the former case, I would expect a driver name like pinctrl-bcm2712 to
+> make it more clear.
 > 
+> Best regards
 
