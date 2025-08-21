@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019E1CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D19F2CA0FE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cpXaZMqjSZbAgdwg8mSDEftWCWDwoNsLUW2Eef19G38=; b=FHM1g0pCAUkhCJwihFkc4aRdc9
-	9Ef1riEJOXVtHpdNgvOog26gHOq8q+24zRybywBy526C//MskpbcwTJEeChpoGCsXygQRZ62VwMNL
-	US6JnWS+reOatA3Jr5USXC6n183hYLAY2Lv1pCW0Enf0zH8mzjIZ7JdRxN32jdop0S5DhvFDPTFFo
-	fy/+gFhwHpy3BD8bdE9XsmdGyfaRgeisUihhJTilsMjmBWP+14hUGD5mzEoVg8TaDHwZIFywJrzZ+
-	otRkiE/DC98OGuju/PeZCTAgg8I8qbM6/+QKUBv/YlrEDjX2ienG1J+8Y5h2aTZnZgfutskBA1/9s
-	iTnsikQA==;
+	bh=4krmg4JXjLKtpYmqMRKt6bOgkbyEd7a3mU/xQ1uDPHc=; b=SnxX2Aa8mSWsgoO4yxfvP6Lku+
+	cXAcYKl0jGRSWkp4RdxEAAp20UeUvrrVRpjyybmlE4FZ2YzhNoHShKOS6Ihs/vUpHvCh0VwsGKz0W
+	OeqmsEyn87kGbpkFELjb3HTti2AO4heoFyT+LgW3orJu1MUSYnq3QUNOBa0M5EFcTEtGjfki44J2T
+	yqmWZhPRPzcx1JF4/88ZIXWFqYxYWlZQPDZTTI/Blh2RzUXwpa5p6utAHshgyYT5r476t+rPivA8I
+	1Hx+lyIZHr/2NAihyx8cQi6Kbp+E53kkXL+NnrBUNG/vhrP8TXdumnlL7bdEknGIQA/tkQF92vYVq
+	kuTyNG8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAhe-00000000EHl-3CPV;
-	Thu, 21 Aug 2025 19:12:02 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1upAhr-00000000EUj-1g8Y;
+	Thu, 21 Aug 2025 19:12:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5HO-0000000H2qR-46HI;
-	Thu, 21 Aug 2025 13:24:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=cpXaZMqjSZbAgdwg8mSDEftWCWDwoNsLUW2Eef19G38=; b=aXqgfhv8eg6zEIGtl21VggWx5Z
-	us+jnh526lU0meVen16i2u0Nzg/J148die1WZMebLepoq/W05DUw4lXttx+AGOaW8OdafpUnqUSbc
-	HFDoJYaEKkD83dETjzus75JXBkQZ1ol9ale5AOPta2u1D6wSsw9cPgyojjEWL6Wbyh5U=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1up5H1-005SGu-S5; Thu, 21 Aug 2025 15:24:11 +0200
-Date: Thu, 21 Aug 2025 15:24:11 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Hsun Lai <i@chainsx.cn>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, inindev@gmail.com, quentin.schulz@cherry.de,
-	jonas@kwiboo.se, sfr@canb.auug.org.au,
-	nicolas.frattaroli@collabora.com, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	krzysztof.kozlowski@linaro.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v1 2/2] arm64: dts: rockchip: add DTs for 100ASK DShanPi
- A1
-Message-ID: <40b212df-2a55-48d5-8479-07c2de7b7cd6@lunn.ch>
-References: <20250821110942.172150-1-i@chainsx.cn>
- <20250821110942.172150-3-i@chainsx.cn>
+	id 1up5hC-0000000H7Un-0wpM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 21 Aug 2025 13:51:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=4krmg4JXjLKtpYmqMRKt6bOgkbyEd7a3mU/xQ1uDPHc=; b=QtqhxcDAxGteaIJ5EqN4FsXOVS
+	l9Fy8W8lSugPtQinmkcDfhI9wgwGMoLynByola6DJo4bntJckd+sZuciVMkYFMI/M7JmUdvm5xLqF
+	/BLTW2yG99QAV255vat9tfgr79HROFmZvHIWqcTYEtGCN6QcHYjDZx/+Phjef8ef15tbZ/pMjtbjE
+	Z32fhlIFabdT/mo/GX/jHzerYVnlSh33waYavkDy3jOoAkusT8w39iYsLVSqG7KzIh+ZJNQCIoWhU
+	cEwcPYTdtt3hVi69EJBi8HzfPbjoy1tdy8q6ZPR8y/IBuxr6P/77ZdKCH6RePRwafSiOMeq3bT0mB
+	avrDhOXQ==;
+Received: from szxga01-in.huawei.com ([45.249.212.187])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up5h8-00000000a4n-2Cu1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 13:51:12 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c74Tk5QB1z14MX7;
+	Thu, 21 Aug 2025 21:50:50 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1AA75140279;
+	Thu, 21 Aug 2025 21:50:55 +0800 (CST)
+Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 21 Aug 2025 21:50:54 +0800
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 21 Aug 2025 21:50:54 +0800
+From: Yushan Wang <wangyushan12@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <robin.murphy@arm.com>, <yangyicong@huawei.com>,
+	<Jonathan.Cameron@huawei.com>, <liuyonglong@huawei.com>,
+	<wanghuiqiang@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <hejunhao3@h-partners.com>
+Subject: [PATCH v2 8/9] Documentation: hisi-pmu: Fix of minor format error
+Date: Thu, 21 Aug 2025 21:50:48 +0800
+Message-ID: <20250821135049.2010220-9-wangyushan12@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20250821135049.2010220-1-wangyushan12@huawei.com>
+References: <20250821135049.2010220-1-wangyushan12@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821110942.172150-3-i@chainsx.cn>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_062435_018152_BC4BD999 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_145111_113340_AE99874A 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy0>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth0m0_miim
-> +		     &eth0m0_tx_bus2
-> +		     &eth0m0_rx_bus2
-> +		     &eth0m0_rgmii_clk
-> +		     &eth0m0_rgmii_bus>;
-> +	status = "okay";
-> +};
-> +
-> +&gmac1 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy1>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth1m0_miim
-> +		     &eth1m0_tx_bus2
-> +		     &eth1m0_rx_bus2
-> +		     &eth1m0_rgmii_clk
-> +		     &eth1m0_rgmii_bus
-> +		     &ethm0_clk1_25m_out>;
-> +	status = "okay";
-> +};
+The inline path of sysfs should be placed in literal blocks to make
+documentation look better.
 
-> +&mdio0 {
-> +	rgmii_phy0: phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gmac0_rst>;
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio0 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
-> +
-> +&mdio1 {
-> +	rgmii_phy1: phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		clocks = <&cru REFCLKO25M_GMAC1_OUT>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gmac1_rst>;
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio0 RK_PC5 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
+Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+---
+ Documentation/admin-guide/perf/hisi-pmu.rst | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-For these nodes only:
+diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+index 48992a0b8e94..a307bce2f5c5 100644
+--- a/Documentation/admin-guide/perf/hisi-pmu.rst
++++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+@@ -18,9 +18,10 @@ HiSilicon SoC uncore PMU driver
+ Each device PMU has separate registers for event counting, control and
+ interrupt, and the PMU driver shall register perf PMU drivers like L3C,
+ HHA and DDRC etc. The available events and configuration options shall
+-be described in the sysfs, see:
++be described in the sysfs, see::
++
++/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>
+ 
+-/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>.
+ The "perf list" command shall list the available events from sysfs.
+ 
+ Each L3C, HHA and DDRC is registered as a separate PMU with perf. The PMU
+-- 
+2.33.0
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
 
