@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E141CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F49CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mEkJ8k90af9rk1xrJudZfUzbC4RekW3u8QNTq2Nc4tA=; b=EJ8WgxxXDmvVhF
-	g6RRVx3IpaozEr+xnTgfXI82Aj0pJ228ch2wWk5gqKS2LJiNKGcLkM/x8g/rrJiNrvTdpBDrP9mi/
-	3o8qUM1kwZRTgDatGpwdxokWnGXDKKo5UvaXEeOemOBJ7mr34DRpoYmraF2N1wLRp9ctYH5mZ0Nlc
-	v/4HCMJ+owHrgF0OkVafhtBxXzeV4pBXQsmvz8oVQQCGTQ5cFqXWFWN8oPkvd7A+e0x44lCM0iO5s
-	LkQYTOrGGRnO21LCxxWOYSgqay3XUXrp4WKS8HDay63tqX3eYIQ+j8wFD3zlvle0jAGchOHewQub2
-	45S5zc6pAMeLCqPxgItQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=da/8blPdc7an+kGARCdQES/DHgSzQkfS6RaqdB41Veg=; b=aprYRQ5zDdrRTsJXpJzsGZdFZI
+	F4BICHanJ6U91nhfPzJAnJwKooW8oyl9xvbNGDU7Be7q/24og9qcbZJlM2NcSniLxVSVH4mVhR5Zu
+	bV5Vh5Qhc9wAfVOHdmwZfxdXSust+86afxVtFPrYUJOUabDgdUWZKGi10HtFulHSrwAlSz+f4lee1
+	rG9qiJnhutO9kEaAJzra1pCUg6SuDdoyr3a33ACVYVQRsqRGLo5qxetNegU0ZiwpNaUCrn5LScL7M
+	fiGKV7PbdSW5SZgZAhsxyBB3Md3atX33cvyIB4X+RfMcGJe9T5KfRlgX1yUPfWcyuXgjBUw47fUmz
+	5vIb6JMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upAup-00000000Iva-2z1V;
-	Thu, 21 Aug 2025 19:25:39 +0000
-Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
+	id 1upAxQ-00000000J7j-2MID;
+	Thu, 21 Aug 2025 19:28:20 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up6yV-0000000HJwn-0Mp8
+	id 1up6yV-0000000HJwY-14Xa
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 21 Aug 2025 15:13:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
 	s=mail; t=1755789186;
-	bh=qodkbxh+3qRl8JdkLf1RKw+tBZAn05xOsGyllQXNnGg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=rMl2rQX8INuqKsgnuQBfCdmNBfgPoXTiAPULHv5yMpPUDWGF5M/p/4kePW701WDNb
-	 akDC5b7bfvENcanirtjI/lZXR3RSsHlsAOf5rkezr5aG/KHgfuDqirXH2ZMVoCOuHw
-	 KnSOpY52cEtlb6tLq35IBPRe97670ldMLXXpCgSQ=
+	bh=6EpRJ0Xfy+QCs9ctVXp6cVbyBNBAtx5211b7njYkhrs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=RmuQ0Fx8PSY+jFpL9QaWEv+rmRSQFMwzxujYPwDofuO7aO4a0NGmy6IP9y3EHo3tE
+	 bZFRGIzus5kUT4WITHxwPbVxf7OA6g2tg4vW2Tv78goo8B5SI5jSCUamkTU484slwU
+	 fKwYAKLz1AvEUyy70SfybLakPNRkhz14Z9Jwr7DU=
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Subject: [PATCH 0/2] kselftest/arm64/gcs: Cleanups for basic-gcs.c
-Date: Thu, 21 Aug 2025 17:13:01 +0200
-Message-Id: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
+Date: Thu, 21 Aug 2025 17:13:02 +0200
+Subject: [PATCH 1/2] kselftest/arm64/gcs: Correctly check return value when
+ disabling GCS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAH03p2gC/x3LQQqAIBBA0avIrBtQSZKuEi3SphoIDQciCO+et
- Hx8/gtChUlgVC8Uulk4pwbTKYjHknZCXpvBauu0twZTPjlE3KPgxg8JGhO3wXkXwtBD265Cf2j
- XNNf6AbBcKthiAAAA
-X-Change-ID: 20250821-nolibc-gcs-fixes-11cf7585bb74
+Message-Id: <20250821-nolibc-gcs-fixes-v1-1-88519836c915@weissschuh.net>
+References: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
+In-Reply-To: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
  Thiago Jung Bauermann <thiago.bauermann@linaro.org>, 
@@ -53,17 +52,16 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755789186; l=531;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755789186; l=984;
  i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
- bh=qodkbxh+3qRl8JdkLf1RKw+tBZAn05xOsGyllQXNnGg=;
- b=JE6FOoDOazDnOVA+XQS69RfeWKq/hWoXA6Jd8c9cGQo5lFQSmvSmfnwzVENC5di3S9qg8Tlt4
- X8UnVcDnx/5Dhjc0y8ukmX67x/BfIsqNhqI+OMtXnbFIqJfQm1OniiM
+ bh=6EpRJ0Xfy+QCs9ctVXp6cVbyBNBAtx5211b7njYkhrs=;
+ b=11Pm092QniwA1C7akmN/woe12MP6+ssB98JgfCEkl6lfy9QfgApnV3kEZCvBBgBbKkm0rjuW0
+ AXoNaBLBMTfAWs8kkzmX7fq7gdjKCw5Is5MNRGwyWB8EFR51dmT8Ph6
 X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
  pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_081311_268692_0444AD3C 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_081311_441112_C8AD58FC 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two small cleanups.
+The return value was not assigned to 'ret', so the check afterwards
+does not do anything.
 
+Fixes: 3d37d4307e0f ("kselftest/arm64: Add very basic GCS test program")
 Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
 ---
-Thomas Weißschuh (2):
-      kselftest/arm64/gcs: Correctly check return value when disabling GCS
-      kselftest/arm64/gcs: Use nolibc's getauxval()
+ tools/testing/selftests/arm64/gcs/basic-gcs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- tools/testing/selftests/arm64/gcs/basic-gcs.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250821-nolibc-gcs-fixes-11cf7585bb74
+diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+index 54f9c888249d74451e1432280a395156ce72e56c..100d2a983155f7347a19b2b8b88f9494dc6a51d5 100644
+--- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
++++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+@@ -410,7 +410,7 @@ int main(void)
+ 	}
+ 
+ 	/* One last test: disable GCS, we can do this one time */
+-	my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
++	ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
+ 	if (ret != 0)
+ 		ksft_print_msg("Failed to disable GCS: %d\n", ret);
+ 
 
-Best regards,
 -- 
-Thomas Weißschuh <linux@weissschuh.net>
+2.50.1
 
 
