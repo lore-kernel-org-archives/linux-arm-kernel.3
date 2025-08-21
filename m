@@ -4,110 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714C5CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 03:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB20CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 03:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOEidWIYFOcPQc5k2cWSdnWss7AqeJmy+kRLikq18m4=; b=OiwMWdzsQvgVPj24aQBVsCwll+
-	sortgIh48I2IBr20oPEceQXKce5VYUZ9UEKN40//X78EJNVjqEfLAGeKRDtnjcAC8CPno8zwf/eYJ
-	dT/oynIVyLABOVBF/dmR+2/IYWmQ/ZXYFHDYtnbSelq0lo3Z2SueeXgHpjojiwGPqiEdSjMZ/odwC
-	hjzDAamE4Ui6dAxJLG8L6aCNYiQjrCU8gRowozD9vTTEHkrQaHaDyIw3UjC3xgH6vGpdzovT0piwL
-	k7az96qwkhWdDeGjXStdEayGGL+1T6O7249Et5sfh1LpnLdo1n3iCW42lYXVYiW/zJwHy5UKy+mMv
-	pE78Ofrg==;
+	bh=oFEGbbG9vuv1+XubWypEttTMi6N6Jq7oeRJFb4KHVfY=; b=arIcUkkJrKyUGkSEQlxtx9DWPh
+	3ZUl+mgRP++xhaQtB7uHYe/VFEmFxptuRvx26whX6z2KqRay5YhQvYs1ac5paY12gtzJKeyCIqlmy
+	wpHJ8RYxcLYQEgN5BfLWqY+UlanNiir9RxuUYUy4frMBR0PTFsW1agVCg03F0XKEs+TQXuGtATQmO
+	p113h5isZD8OLhzluog9n/2yGceRfDs6fJTVAT4jPraTt+eRZUbMb9Wd6ZXsVJamazd/H4fY8eu85
+	5odjfah8Zlvks8wKGc/NIzHNX6SUWeXtZp6DubVTKJk0eUsTIs7yc7TTbdQfMF0eWPD+gCu27Vwxo
+	69iTS8bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIWa-00000001OZh-0IWa;
-	Fri, 22 Aug 2025 03:33:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1upIZu-00000001PPg-2hfV;
+	Fri, 22 Aug 2025 03:36:34 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upD77-00000000gvF-3gEK
+	id 1upDpE-00000000kMR-12w9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:46:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755812788;
+	Thu, 21 Aug 2025 22:32:06 +0000
+Date: Thu, 21 Aug 2025 15:31:52 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1755815520;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=UOEidWIYFOcPQc5k2cWSdnWss7AqeJmy+kRLikq18m4=;
-	b=K8Ah7uDhCPqerNmb4nVEJWvyZZyKKUflA1cziygM+Ve249/l3ZGLl0TvvteiC9CWnLSe/x
-	vE1yJrRTtG2RgqcEjgiY67nZ95glF0HthDVB77wIeXy0mDgUlFPkJQaIfIJmP/+YdAd/P5
-	9H53nhE9FSWOgdCF7WLqqo1+UpkJw/c=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-641-uyQRpXnROpKwlMLlk7Dx_g-1; Thu, 21 Aug 2025 17:46:27 -0400
-X-MC-Unique: uyQRpXnROpKwlMLlk7Dx_g-1
-X-Mimecast-MFC-AGG-ID: uyQRpXnROpKwlMLlk7Dx_g_1755812786
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4b2955f64b1so44705691cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:46:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755812786; x=1756417586;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UOEidWIYFOcPQc5k2cWSdnWss7AqeJmy+kRLikq18m4=;
-        b=JyxW2dUVag5SZZxeakUjhKEuy7HIeaeY9Gp4ompkJoMEA/93cZxd0FjVoYviu5kFi2
-         p6reyalg3g3vRf/D4qzkJetNSecfpP+3lZaKSIFzCQU0J4WzJX9qXiiGa66NG7eNJ3ot
-         y2z4HPlf/Kg4NwINO5p2/K1CC6TZX3JHL9zx9a3LiuuPdwyG0CCBxXU74WRPK1En6IJD
-         F+fuFV/KhtttC5lok5acMug8S8iMwYMPz9y6/bjWIzvsy5ykulzuMK/vhe0xN5qvmOFV
-         xMSQ2YxVXyPMQnW8sh/lpGnsa97Ry/+LpGXuHJo3y7X4WjvImuaKlCfFD2J53Rp5jUH5
-         adrg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0LuNisW+oU7XURjlGR0ogLAfABv7aWm4r0tdO3lWc0ZO6X081+a4zDRVLLcWZPgM4ZMApNRyzgeu5WUzoEnQL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvRymjwz+z4G3eGe2cTmja9vf/58If7k7jLRQj/+vzUXLiMmUr
-	9DVYUiQQ95oUjsZVdp0dcC9ZRvxY2EiI9pfq/QXWteJt/u7t3L2Tt66mC6U5pQLs/YhutV22QBm
-	bfnB1c2wNCpFMAbzh0yka5MpXPRJQ21Bejr29U2ri224/dGafoJbct/dm/LDc998DGF6gqoFv7b
-	AL
-X-Gm-Gg: ASbGncuWdIjutUhuVvm+yaftL5BqbXUVTtqyTMXDKoMISezkxRRD4xWfedDXBPPVPC1
-	g/V4Rne2ADH8Y8FeZNsrAKVbSF9UWGMPUUdJMJnYD3IJt5AVpIUzbJfeAlMTRm8KeBAWHxpiMw9
-	n7J0s+ewo4lQAKSsjM/bH8ksKbVy3GqnWS9uOiDkNrbLMi79fyLB+HOXj9awpZ0fq5/y3iRzq2a
-	8VUX1w+mHrw0tCmg596GiZ2MVNOign32SIiMZLf8roYpzXNhUEYRcYSDR47TAUzoW8KxxSDU8/y
-	3hslAbe64qgmKOuGiJ0uR875oy5SGvScn5XDOYWYdsM4kVkRBtcBBS8IVmjWkk7IxDG2zAiy5Wv
-	ihXCRHTzFasaPo1rY3fQ=
-X-Received: by 2002:ac8:5812:0:b0:4b0:73db:f81b with SMTP id d75a77b69052e-4b2aaa1a378mr10332731cf.10.1755812786467;
-        Thu, 21 Aug 2025 14:46:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGM/f6AWKsD/uiuSUkJzb9jNkg9oqjjxZOXqxlVkr171nvQa2lEbcNla+IOhlEltLwBQr891g==
-X-Received: by 2002:ac8:5812:0:b0:4b0:73db:f81b with SMTP id d75a77b69052e-4b2aaa1a378mr10332491cf.10.1755812786097;
-        Thu, 21 Aug 2025 14:46:26 -0700 (PDT)
-Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e87e020514sm1201852885a.17.2025.08.21.14.46.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 14:46:25 -0700 (PDT)
-Date: Thu, 21 Aug 2025 17:46:19 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/21] clk: remove unneeded 'fast_io' parameter in
- regmap_config
-Message-ID: <aKeTq1lJ549a2jnQ@x1>
-References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
- <20250813161517.4746-3-wsa+renesas@sang-engineering.com>
+	bh=oFEGbbG9vuv1+XubWypEttTMi6N6Jq7oeRJFb4KHVfY=;
+	b=hjrNecBBoBWsKWTqEpFNnL+iVXrbWpNYn9MFE86Hjj9HjdbamZiTL06lrzvtFamG9v4Wv4
+	rrSvmoyOB+TWNaAkyALNXOJrbgAhJE2dmzauDVGvPIYJRfdYheZw6vDXdaaOZycSw47tIB
+	7Yv9fNk7SuYSS+W/V0ht2XEqKPoiXHA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	James Houghton <jthoughton@google.com>
+Subject: Re: [RFC PATCH 05/16] KVM: arm64: Introduce "struct kvm_page_fault"
+ for tracking abort state
+Message-ID: <aKeeRynpwFTSONfm@linux.dev>
+References: <20250821210042.3451147-1-seanjc@google.com>
+ <20250821210042.3451147-6-seanjc@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20250813161517.4746-3-wsa+renesas@sang-engineering.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rlhcW_7fhosL7EVwUXafC-bMTUiHChBzRrBSmE1WeJs_1755812786
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20250821210042.3451147-6-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_144629_981299_312975AD 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20250821_153204_558000_37C2164E 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +70,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wolfram,
+Hey Sean,
 
-On Wed, Aug 13, 2025 at 06:14:48PM +0200, Wolfram Sang wrote:
-> When using MMIO with regmap, fast_io is implied. No need to set it
-> again.
+On Thu, Aug 21, 2025 at 02:00:31PM -0700, Sean Christopherson wrote:
+> Add and use a kvm_page_fault structure to track state when handling a
+> guest abort.  Collecting everything in a single structure will enable a
+> variety of cleanups (reduce the number of params passed to helpers), and
+> will pave the way toward using "struct kvm_page_fault" in arch-neutral KVM
+> code, e.g. to consolidate logic for KVM_EXIT_MEMORY_FAULT.
 > 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> No functional change intended.
+> 
+> Cc: James Houghton <jthoughton@google.com>
+> Link: https://lore.kernel.org/all/20250618042424.330664-1-jthoughton@google.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
-> No dependencies, can be applied directly to the subsystem tree. Buildbot is
-> happy, too.
+>  arch/arm64/include/asm/kvm_host.h |  18 ++++
+>  arch/arm64/kvm/mmu.c              | 143 ++++++++++++++----------------
+>  2 files changed, 87 insertions(+), 74 deletions(-)
 > 
->  drivers/clk/actions/owl-common.c  | 1 -
->  drivers/clk/clk-axm5516.c         | 1 -
->  drivers/clk/nxp/clk-lpc32xx.c     | 1 -
->  drivers/clk/qcom/a53-pll.c        | 1 -
->  drivers/clk/qcom/a7-pll.c         | 1 -
->  drivers/clk/qcom/apss-ipq-pll.c   | 1 -
->  drivers/clk/qcom/clk-cbf-8996.c   | 1 -
->  drivers/clk/qcom/clk-cpu-8996.c   | 1 -
->  drivers/clk/qcom/hfpll.c          | 1 -
->  drivers/clk/qcom/ipq-cmn-pll.c    | 1 -
->  drivers/clk/thead/clk-th1520-ap.c | 1 -
->  11 files changed, 11 deletions(-)
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 2f2394cce24e..4623cbc1edf4 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -413,6 +413,24 @@ struct kvm_vcpu_fault_info {
+>  	u64 disr_el1;		/* Deferred [SError] Status Register */
+>  };
+>  
+> +struct kvm_page_fault {
+> +	const u64 esr;
+> +	const bool exec;
+> +	const bool write;
+> +	const bool is_perm;
 
-These all look good to me.
+Hmm... these might be better represented as predicates that take a
+pointer to this struct and we just compute it based on ESR. That'd have
+the benefit in the arch-neutral code where 'struct kvm_page_fault' is an
+opaque type and we don't need to align field names/types.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+> +	phys_addr_t fault_ipa; /* The address we faulted on */
+> +	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
 
-Should drivers/clk/sprd/common.c also be updated as well?
+NYC, but this also seems like a good opportunity to rename + retype
+these guys. Specifically:
 
-Brian
+	fault_ipa => ipa
+	ipa => canonical_ipa
 
+would clarify these and align with the verbiage we currently use to talk
+about nested.
+
+Thanks,
+Oliver
 
