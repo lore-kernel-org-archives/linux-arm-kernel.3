@@ -4,119 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEF7CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 13:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D234ACA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 13:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHxcorhp5czLlBBNNIvPxeZEYbfShmd+8rRbKqHVLQc=; b=pT7O1br0++xEppsl5SccG+6p2F
-	XL6Ij1zi2k0shnt1ITOPFxxWcHxim/Ykx48kULGGNJX9qGF543FYyA9Eq3lZcHFuwf4QVoVXgVmFG
-	Xqbn0MmCRfLi07BpL78MGtrQHnVsHcDdbxlSFZYph2CINeXrW1vBR7VvB/MmlseyvjiyJ7rlRSJTd
-	rUFekeoUAAiaT8CjT3MjvdbqawU6efa4N3YErGyW/103eNquBT9Y9yEUfKAhS/O6yF8eM1PE8+96I
-	T3NTQtym8imuoWIpUhLrNi1t74vceWPX2iKFkcNxX0KwWJdmh1OPjRJnVJ+/gF0kKgNoVDqAuYHBu
-	V4yxGdHw==;
+	bh=mhHOq1OTw3SsBQaFttUcBpiTA8zpQkRkowu1bheecks=; b=EaUcSkd09VdeGzXAczv+tOgOno
+	rv43CLCzW4H4wzzxkhmCMuN4jEw1jHApnyRuBdtPdAIIhziBlVnsledrII1Qlv+0vXL+B5g9fMw0O
+	w8jd63CVGODY7T8OPibqyHsHHT/JTSW/KgkrXfOH814T1dDxop1jdQyddT1MVqn4nzROhc1Fhibjw
+	JVnjdcw/R7eEOfyJY9s0ySwJR2USdkbP/dli9bBFpcApA2SvXO/PJvTGen2LN6DGJ0rYe8H1d8KCe
+	4zTytmHHMOEyYxxwgHB+WCFA3UKoRKgXkSBnA823Y2MPv4aLkKlQ1rCvveW8g20voYS6sVOBnmKCz
+	O3d9vilQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4uo-0000000GyeG-3nCE;
-	Thu, 21 Aug 2025 13:01:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1up4xO-0000000Gz4p-3g8T;
+	Thu, 21 Aug 2025 13:03:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1lv-0000000GQJH-2lBw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 09:39:53 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57L8uf03028719;
-	Thu, 21 Aug 2025 11:39:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	kHxcorhp5czLlBBNNIvPxeZEYbfShmd+8rRbKqHVLQc=; b=x54WHZWtHoVtnKSh
-	GwXIq32qEehSt5QN4pnCvtl8/TiFHUGkCVxLDpTAaQktot64B36wulxk1ei+r5EB
-	q4oJU0m5ApNcrcGtHJTtGKf8JmVGtpf2P+Nqv7T7elfSWoaqyewnWBbT/y30hkyM
-	QztQ5odjdA0mMraCkgbl+w7JGJlgWV4xAyEG9fI/kLcwVxziU/qGhGPxTAw20d6i
-	hM/4vG1IQ1AxUrf3PLjbdmzhAQKlbABlritN7UG4B85uzMmfNcd9IrPQzWD/XlfS
-	/PHF7fjxPPYQDRwv1ACERxT7tPpV8bBLheQgLG2lpZ+jXslc/76fxC3S4Xlo4gTt
-	cUUJxA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wnyun-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Aug 2025 11:39:25 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 50FE64002D;
-	Thu, 21 Aug 2025 11:36:50 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C3FF873DB4E;
-	Thu, 21 Aug 2025 11:35:26 +0200 (CEST)
-Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 11:35:25 +0200
-Message-ID: <ea6b8999-4f5d-4cc2-b92b-b0776c2b1363@foss.st.com>
-Date: Thu, 21 Aug 2025 11:35:24 +0200
+	id 1up1m3-0000000GQal-17O9;
+	Thu, 21 Aug 2025 09:40:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D6F7644559;
+	Thu, 21 Aug 2025 09:39:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A77C9C116C6;
+	Thu, 21 Aug 2025 09:39:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755769197;
+	bh=9xUmbVQEMPreNhlqJGOMpcviTh+j9TmH8hQ5UrB4JO8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ho9fAYlX/7B/r2TSrrOUz80WAC5u1O8aEA8bL/7l4JpH8LlRGe9p7BN/yr+aJ5di1
+	 Xf8LUJHB+RRLP/5wGN35XXWpIXagc58kp8bLkp+mMAgcwcjqOYtGRpvQOu/AOfMcHR
+	 DyCBHx94ysFAxNmzRCpu7MJU3DqFuQDKkbynvInS1Sx+sSRZQTwGl7JaT5lEcmkUkQ
+	 a/JFm/CqPKfFkN6mhqcRcdNWHo8sDrOwpqljBE5JBG8H9/om7D/CzSx3otGfxovqMX
+	 GZJNoOdpJ45MHWN8lN5nv5KAXhmTWPSZowh08N7Ja0JYpx2K30cJWgVOVWTNbErii5
+	 AT1A7l0RJYTUA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB142383BF5B;
+	Thu, 21 Aug 2025 09:40:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] drm/stm/dw_mipi_dsi-stm: convert from round_rate()
- to determine_rate()
-To: Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Shawn Guo
-	<shawnguo@kernel.org>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        "Pengutronix
- Kernel Team" <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Rob Clark
-	<robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        "Abhinav
- Kumar" <abhinav.kumar@linux.dev>,
-        Jessica Zhang
-	<jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten
-	<marijn.suijten@somainline.org>,
-        Raphael Gallais-Pou
-	<raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Chen-Yu Tsai
-	<wens@csie.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland
-	<samuel@sholland.org>, Stephen Boyd <sboyd@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <freedreno@lists.freedesktop.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-sunxi@lists.linux.dev>
-References: <20250811-drm-clk-round-rate-v2-0-4a91ccf239cf@redhat.com>
- <20250811-drm-clk-round-rate-v2-6-4a91ccf239cf@redhat.com>
-Content-Language: en-US
-From: Yannick FERTRE <yannick.fertre@foss.st.com>
-In-Reply-To: <20250811-drm-clk-round-rate-v2-6-4a91ccf239cf@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.178]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-21_02,2025-08-20_03,2025-03-28_01
+Subject: Re: [PATCH net] net: airoha: ppe: Do not invalid PPE entries in case
+ of SW hash collision
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175576920651.962267.9015249362878728671.git-patchwork-notify@kernel.org>
+Date: Thu, 21 Aug 2025 09:40:06 +0000
+References: <20250818-airoha-en7581-hash-collision-fix-v1-1-d190c4b53d1c@kernel.org>
+In-Reply-To: <20250818-airoha-en7581-hash-collision-fix-v1-1-d190c4b53d1c@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, michal.kubiak@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_023951_974640_766725E4 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250821_023959_425375_4E417125 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,74 +76,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
+Hello:
 
-thanks for the patch.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+On Mon, 18 Aug 2025 11:58:25 +0200 you wrote:
+> SW hash computed by airoha_ppe_foe_get_entry_hash routine (used for
+> foe_flow hlist) can theoretically produce collisions between two
+> different HW PPE entries.
+> In airoha_ppe_foe_insert_entry() if the collision occurs we will mark
+> the second PPE entry in the list as stale (setting the hw hash to 0xffff).
+> Stale entries are no more updated in airoha_ppe_foe_flow_entry_update
+> routine and so they are removed by Netfilter.
+> Fix the problem not marking the second entry as stale in
+> airoha_ppe_foe_insert_entry routine if we have already inserted the
+> brand new entry in the PPE table and let Netfilter remove real stale
+> entries according to their timestamp.
+> Please note this is just a theoretical issue spotted reviewing the code
+> and not faced running the system.
+> 
+> [...]
 
-Le 11/08/2025 à 12:56, Brian Masney a écrit :
-> The round_rate() clk ops is deprecated, so migrate this driver from
-> round_rate() to determine_rate() using the Coccinelle semantic patch
-> on the cover letter of this series.
->
-> Acked-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> Signed-off-by: Brian Masney <bmasney@redhat.com>
-> ---
->   drivers/gpu/drm/stm/dw_mipi_dsi-stm.c | 14 ++++++++------
->   1 file changed, 8 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c b/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-> index 2c7bc064bc66c6a58903a207cbe8091a14231c2b..58eae6804cc82d174323744206be7046568b905c 100644
-> --- a/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-> +++ b/drivers/gpu/drm/stm/dw_mipi_dsi-stm.c
-> @@ -274,8 +274,8 @@ static unsigned long dw_mipi_dsi_clk_recalc_rate(struct clk_hw *hw,
->   	return (unsigned long)pll_out_khz * 1000;
->   }
->   
-> -static long dw_mipi_dsi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
-> -				       unsigned long *parent_rate)
-> +static int dw_mipi_dsi_clk_determine_rate(struct clk_hw *hw,
-> +					  struct clk_rate_request *req)
->   {
->   	struct dw_mipi_dsi_stm *dsi = clk_to_dw_mipi_dsi_stm(hw);
->   	unsigned int idf, ndiv, odf, pll_in_khz, pll_out_khz;
-> @@ -283,14 +283,14 @@ static long dw_mipi_dsi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
->   
->   	DRM_DEBUG_DRIVER("\n");
->   
-> -	pll_in_khz = (unsigned int)(*parent_rate / 1000);
-> +	pll_in_khz = (unsigned int)(req->best_parent_rate / 1000);
->   
->   	/* Compute best pll parameters */
->   	idf = 0;
->   	ndiv = 0;
->   	odf = 0;
->   
-> -	ret = dsi_pll_get_params(dsi, pll_in_khz, rate / 1000,
-> +	ret = dsi_pll_get_params(dsi, pll_in_khz, req->rate / 1000,
->   				 &idf, &ndiv, &odf);
->   	if (ret)
->   		DRM_WARN("Warning dsi_pll_get_params(): bad params\n");
-> @@ -298,7 +298,9 @@ static long dw_mipi_dsi_clk_round_rate(struct clk_hw *hw, unsigned long rate,
->   	/* Get the adjusted pll out value */
->   	pll_out_khz = dsi_pll_get_clkout_khz(pll_in_khz, idf, ndiv, odf);
->   
-> -	return pll_out_khz * 1000;
-> +	req->rate = pll_out_khz * 1000;
-> +
-> +	return 0;
->   }
->   
->   static int dw_mipi_dsi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-> @@ -351,7 +353,7 @@ static const struct clk_ops dw_mipi_dsi_stm_clk_ops = {
->   	.disable = dw_mipi_dsi_clk_disable,
->   	.is_enabled = dw_mipi_dsi_clk_is_enabled,
->   	.recalc_rate = dw_mipi_dsi_clk_recalc_rate,
-> -	.round_rate = dw_mipi_dsi_clk_round_rate,
-> +	.determine_rate = dw_mipi_dsi_clk_determine_rate,
->   	.set_rate = dw_mipi_dsi_clk_set_rate,
->   };
->   
->
+Here is the summary with links:
+  - [net] net: airoha: ppe: Do not invalid PPE entries in case of SW hash collision
+    https://git.kernel.org/netdev/net/c/9f6b606b6b37
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
