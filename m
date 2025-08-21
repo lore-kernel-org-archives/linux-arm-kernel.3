@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE1ECA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7C2CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=; b=fW35dRJ5N0IlvX
-	OE6kNhRD0EYshcCk0T7k3uqm6FslIIqWmYcFIE2W9aGr2m8B2rP4bCpu5QuRui24+ksubFmVfnu/1
-	7HL3XN7rlYC3j3TVqrcmJWeIgMo7YisDXUcHthvcxdLkOUe3ajVlfUKNJqZpBlBhNG64P0ETwzBX3
-	f1p6xZZOQ3AcIbShbNYf0SqNMny8MMvH6sD4710/Dfmfp42K/vXyTqgC8FzSC370vRrlLv4Q3X6rE
-	OP7K0nz/P9bUdmjQ+KA4m5++eHPksJJEJFPh9UHAQBfldQ8y5F7y11dDhwmXaRxPfYtN2ond7bX1T
-	UHCfjJCxnAxkkSTyBf0w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=; b=pofo16Iii5iAiEV8PlNjKlUJBY
+	TtvMzKf+ZwkZ4+O+SBpijaIVr00hLKYUykhO+ev8HdcyO5cU9DW1uJqpnzKIkLafKCcVRiYKSUger
+	KXbFU4f13wM3luW9NseK7WKoGwpWaaAQTFrsgyPZn3zj0i1QqJb2H7qRaFZWkDFAv4S8v/0wGdaw7
+	wcxrdBLmc2SBwgasH9uweezMQnKgRf7gK62MCFSa9oWmflVpgx4Xzb8e8MIo6LThACOCY9leW6tMT
+	UegxDzcqHlUOcHiwCUMP7Yo5kj6MA7x7ULm1mOakAbPYkZ8ydvGctxKn2RC9PcPA8b6Frkewh0J4e
+	dqUllf+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1n8-0000000GSQw-1zDH;
-	Thu, 21 Aug 2025 09:41:07 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1up1nD-0000000GSXB-3G7j;
+	Thu, 21 Aug 2025 09:41:11 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0AE-0000000GALc-2eQX
+	id 1up0AH-0000000GAM7-0UCY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:56:52 +0000
+	Thu, 21 Aug 2025 07:56:54 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1755763009;
+	s=2020; t=1755763010;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=;
-	b=OwS5Z+2sRowPnuwoMRmdCEST/rk1jg+FqeXzKunDEkEoQ/ElZ1QHyfjyNCxRxkG0TaNv/v
-	HCiwqUI4MA/RgreOcaPOL1pvV1q4WJ2URLB+zKGrZV7zgf/Qbb9VhtuSqfBc5/fA869f9T
-	brUYdCXzURsNfOKW9OVU6ePnTRP8DFzn7yk92gs9Fhni8+qAf1xwYfytGm3azvtgk4fmLx
-	HtjhJGqzxtXAppkrCs3TnRTTVDcr2sKa89kvNRp/zW/4AHh7LXWwQlW+gDR3Ff385y7oeM
-	yvyxAB05yC4/+CArYknDhQDKhPLsqZB/v8r928LVxt0tNdyuvTUkTNyRWVCeKw==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=;
+	b=H+CnCdjd6lpe6sysQTEYx7JoBc7gUd7yqoTXHWwDnYDNWqHQWhJDZkF/7Z1m8eoooFoLIb
+	4ONKeYMLeD1qZ7Vst5585Wv7xvy4+3zBoIIMORWMOhxQhmR76M44IA3JACSUKlGPXfszeX
+	KpqDgEpkjD4bi6BPbyZ33u6EGkJP1nuIGbB8m/0YxIaJHhxFhrv5sPS1eORfzfF4JMFay0
+	JRkqbSm938V6Kk7i3I45+/rT1MV8lodVQHeII3YwNu4wGIi3DVjlE3c2voDQPl3qgypvv0
+	rth9HRa/EmVHYMjzhZy2YAK18v1fT8usqJ81B5K1R0hwLl35MFEXvWYdQ29gHg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1755763009;
+	s=2020e; t=1755763010;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=78N5yAzXn9F4cMxhSTaeDyetjjEQj7TQb3kpzPri+ps=;
-	b=pcseysWdxT0feFT+CR+MGviNCt1/2WmXDJPR3gu7TtTJzzPjET06k8uyj1X7rjquAvEBQp
-	CoPsbF3gKF+k51Bg==
-Subject: [PATCH 0/3] arm64: uapi: Provide correct __BITS_PER_LONG for the
- compat vDSO
-Date: Thu, 21 Aug 2025 09:56:43 +0200
-Message-Id: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dZDGVKXmK0DrP73XUwG7R5KbZVQj8LTgpIzpeD1RI90=;
+	b=VHD7/huPGIBLHZ0WUatDCVttPmtxuhxsxAl13SRQ0PwP/Pr2K8Ev+hDU6Oq4X09R2YR23a
+	YhKqHTUda3fecEBA==
+Date: Thu, 21 Aug 2025 09:56:45 +0200
+Subject: [PATCH 2/3] arm64: vdso32: Stop suppressing warnings
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIADvRpmgC/x3MTQrCMBAG0KuUWTsQQ3/Uq0gXsf1SB2wSZkoRS
- u9ucPk27yCDCowezUGKXUxyqrheGpreIS1gmavJO9+5m3e8z5Y56Nq3POW1hI1fslmBfnJauI3
- dPWBA7DFQPYoiyvf/P8fz/AFOR/mrbwAAAA==
-X-Change-ID: 20250820-vdso-arm64-compat-bitsperlong-4f59ae7ef6e7
+Message-Id: <20250821-vdso-arm64-compat-bitsperlong-v1-2-700bcabe7732@linutronix.de>
+References: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
+In-Reply-To: <20250821-vdso-arm64-compat-bitsperlong-v1-0-700bcabe7732@linutronix.de>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
  Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
@@ -65,16 +64,16 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: John Stultz <jstultz@google.com>, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755763005; l=898;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755763005; l=1932;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=FtgeFYaDlptcACR44zN8/uEJ15VLyaL5sLAi8t0tqwg=;
- b=cQoS+W7yx1HdLENzCa9chzj4mcTqwVSeZKJmiTYpFutzIQBXQDMV8Pu/Mw4tsk3hB6r6GZ6qQ
- MemqYTqF37VBb0wqFqy7qwCqmc6oHu+DYu2hcihLlsviBu94OOA1DRV
+ bh=n2qRj27gMV9HtrK57nk2Kj0O4VPuGEHIaNui3njxil0=;
+ b=hrJA2V3Iy/r5NOoKeqjug/i0yJoFJEzzZgrEcad1UejfeMjHC3zloJ0dWqbWIKBsroLpH4YcF
+ xf7nz6xP71MB5ixHNKa7ccT8sq+zwk4u1Q0/d6MiNmsDy9HbwqHt2H6
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_005650_805339_1CC663A7 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20250821_005653_307579_AB16ECA6 
+X-CRM114-Status: UNSURE (   9.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,28 +89,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic vDSO library uses the UAPI headers. On arm64 __BITS_PER_LONG is
-always '64' even when used from the compat vDSO. In that case __GENMASK()
-does an illegal bitshift, invoking undefined behaviour.
+These warnings don't seem to trigger anymore. Probably due to the
+introduction of the vdso/ header namespace. Nowadays these suppression
+only hide real problems.
 
-The first patch should go into the 6.17 tree.
+Re-enable the warnings.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Thomas Weißschuh (3):
-      arm64: uapi: Provide correct __BITS_PER_LONG for the compat vDSO
-      arm64: vdso32: Stop suppressing warnings
-      arm64: vdso32: Respect -Werror from kbuild
+ arch/arm64/kernel/vdso32/Makefile | 12 ------------
+ 1 file changed, 12 deletions(-)
 
- arch/arm64/include/uapi/asm/bitsperlong.h |  5 +++++
- arch/arm64/kernel/vdso32/Makefile         | 13 +------------
- 2 files changed, 6 insertions(+), 12 deletions(-)
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250820-vdso-arm64-compat-bitsperlong-4f59ae7ef6e7
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index f2dfdc7dc8185bc045907283b68ab18fed980312..fd80123bc8e620d868040a61244e83575d855e35 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -21,8 +21,6 @@ endif
+ 
+ cc32-option = $(call try-run,\
+         $(CC_COMPAT) $(1) -c -x c /dev/null -o "$$TMP",$(1),$(2))
+-cc32-disable-warning = $(call try-run,\
+-	$(CC_COMPAT) -W$(strip $(1)) -c -x c /dev/null -o "$$TMP",-Wno-$(strip $(1)))
+ 
+ # We cannot use the global flags to compile the vDSO files, the main reason
+ # being that the 32-bit compiler may be older than the main (64-bit) compiler
+@@ -74,16 +72,6 @@ VDSO_CFLAGS += $(call cc32-option,-Werror=strict-prototypes)
+ VDSO_CFLAGS += -Werror=date-time
+ VDSO_CFLAGS += $(call cc32-option,-Werror=incompatible-pointer-types)
+ 
+-# The 32-bit compiler does not provide 128-bit integers, which are used in
+-# some headers that are indirectly included from the vDSO code.
+-# This hack makes the compiler happy and should trigger a warning/error if
+-# variables of such type are referenced.
+-VDSO_CFLAGS += -D__uint128_t='void*'
+-# Silence some warnings coming from headers that operate on long's
+-# (on GCC 4.8 or older, there is unfortunately no way to silence this warning)
+-VDSO_CFLAGS += $(call cc32-disable-warning,shift-count-overflow)
+-VDSO_CFLAGS += -Wno-int-to-pointer-cast
+-
+ # Compile as THUMB2 or ARM. Unwinding via frame-pointers in THUMB2 is
+ # unreliable.
+ ifeq ($(CONFIG_THUMB2_COMPAT_VDSO), y)
 
-Best regards,
 -- 
-Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+2.50.1
 
 
