@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E045CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA25CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyXtN74VkBaQLErnP6Oirfq2yZX1obNwJfBjqV4IEtw=; b=gySMYIZS0iiOVd9i6iWPiInAUQ
-	o1pt8c5GKLVOhJwOfNPrpHOXbLbjXCXh0NRVt1ZXZsMP56imE3GIrOPbmH/qSU0mBXMkXtR7S0Ptl
-	deUEjxvOX6eoAPA674YWNLNZBiBBLWJ/oGDKLkXEC90NYxygJqY6I6r31FPrYHFrRxTYV1JDWqsZd
-	GwIcI0hUBiO2ShlYcS3tEgVIQsnxhR/SOQf+KUI+WvSOL18kA4tyntZK7r8PxMOxyhHqvKvQgQOZd
-	IOpZ2qYStFZmkZ6ghHv13uUv4k1gUbD/2xJogo/Nx9mCyu6GmMxnszyuZ5FTNYfYZTOYdioocJUEs
-	PXMEzlIQ==;
+	bh=ZdcQq0ODeLvFcyZ8c1y1bdz85c9KQB/TPqgiMZRTnJo=; b=nKoWS2C3szEYDEYX6V8R3MrLx0
+	beaJvaSowU4t8j6t/DCV45fILki3HUIuQm9WL7W7YN79vaExuC13k0qsppjju/KDCnw8NvRl4fcXg
+	cehTnjBLnOVDj8K47ENdS4qauyRudunUJ9CDrWAez8VhLG7uD3rAZNNK9Wzt2mrjg9QBx+6zN7VMN
+	JJZou7T9UCpcdvOkGZFS3jmsM+BUX/fW3+NBfJrBosxySsNpBTcJC0kUycrZ5Qexx80HoYXSQ++0k
+	qTlgMEgs94g+v2kHJlkREqhuLBv/Q78hfen6NxL5UxIMdZeP9uGhHY61L2QkFg+R4Aedp9VUa8haR
+	hc4s3KLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7En-0000000HM7t-2XUb;
-	Thu, 21 Aug 2025 15:30:01 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1up7Ef-0000000HM1C-0rZr;
+	Thu, 21 Aug 2025 15:29:53 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3Dc-0000000GiM7-1uma
+	id 1up2qq-0000000Gewn-33jX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 11:12:34 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57LAg3FV015986;
-	Thu, 21 Aug 2025 13:12:20 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	kyXtN74VkBaQLErnP6Oirfq2yZX1obNwJfBjqV4IEtw=; b=H7T03kvYX0IT6lpa
-	KX8qLkMNB74dElBoq0a78nBv6n+ZCMzvfT4WkXIY/OVPUHHur0qSPwuonYqvxIYw
-	HdNq93xtjGC1epAKUaAT4KS9r86adubWIBU7X7IS4MSyZxo38KZ+mOihi7jFhR3q
-	+s4RXHXLdefKIClBiDzR40b+CDY7t29VJUp+I/7vdNUitseSysLA9z//0mb076kc
-	nsccQJQB+2j641TCNfgjxSSIBcVqDcW0xGU/UW0RdEjZA/Zo1mYqFSL6FNN1Nin0
-	F5wuQFt/5uoeFqDZvchvVlqJ/Cgf+COtd/ABQhnzXAeZFPd9URURErLrz5dcd+WO
-	IrdGeQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nj3v3n8j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 21 Aug 2025 13:12:20 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 12CA440046;
-	Thu, 21 Aug 2025 13:10:52 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5F83574E7BF;
-	Thu, 21 Aug 2025 13:09:56 +0200 (CEST)
-Received: from localhost (10.252.7.99) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 13:09:56 +0200
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Thu, 21 Aug 2025 13:08:56 +0200
-Subject: [PATCH v4 06/13] dt-bindings: arm: stm32: add required
- #clock-cells property
+	Thu, 21 Aug 2025 10:49:02 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57LAmFE23352350;
+	Thu, 21 Aug 2025 05:48:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755773295;
+	bh=ZdcQq0ODeLvFcyZ8c1y1bdz85c9KQB/TPqgiMZRTnJo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=kvtVQWY40B45uP1NmaZBuN+EuM78tEdP7xLQ47B+vp4LKGI78Io5SaBPkCqJ+Z+wV
+	 W8nk7I5i+I3rRLA8ddtPkKMkx9rO/yrAOGXKsHUHmjnGXGEX2mXXHw6gFAdzq63b5a
+	 +RcjA8x5Rb48WrKrmNNPxDoweF4ily0EFQPOIJTE=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57LAmFl81899798
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 21 Aug 2025 05:48:15 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 21
+ Aug 2025 05:48:14 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 21 Aug 2025 05:48:14 -0500
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57LAm7OG2038086;
+	Thu, 21 Aug 2025 05:48:08 -0500
+Message-ID: <d2015724-416b-4222-aa85-88c0c5f9160c@ti.com>
+Date: Thu, 21 Aug 2025 16:18:07 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 5/6] net: ti: icssg-prueth: Add AF_XDP zero copy
+ for RX
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <namcao@linutronix.de>, <jacob.e.keller@intel.com>,
+        <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
+        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
+        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20250818112424.3068643-1-m-malladi@ti.com>
+ <20250818112424.3068643-6-m-malladi@ti.com>
+ <20250819073558.2c996b6d@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <20250819073558.2c996b6d@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250821-drm-misc-next-v4-6-7060500f8fd3@foss.st.com>
-References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
-In-Reply-To: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
-To: Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.252.7.99]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-21_03,2025-08-20_03,2025-03-28_01
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_041232_786461_EC1F2B44 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_034900_974660_49052055 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +97,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
-subsystem through a multiplexer.  Since it only provides a single clock,
-the cell value is 0.
+Hi Jakub,
 
-Doing so allows the clock consumers to reach the peripheral and gate the
-clock accordingly.
+On 8/19/25 20:05, Jakub Kicinski wrote:
+> On Mon, 18 Aug 2025 16:54:23 +0530 Meghana Malladi wrote:
+>> @@ -1332,6 +1350,13 @@ static int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags)
+>>   		}
+>>   	}
+>>   
+>> +	if (flags & XDP_WAKEUP_RX) {
+>> +		if (!napi_if_scheduled_mark_missed(&emac->napi_rx)) {
+>> +			if (likely(napi_schedule_prep(&emac->napi_rx)))
+>> +				__napi_schedule(&emac->napi_rx);
+>> +		}
+>> +	}
+>> +
+>>   	return 0;
+> 
+> I suspect this series is generated against old source or there's
+> another conflicting series in flight, because git ends up applying
+> this chunk to prueth_xsk_pool_disable() :S
+> 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
----
- .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
- 1 file changed, 21 insertions(+), 10 deletions(-)
+That's interesting. I have directly applied these patches locally on the 
+tip of net-next (62a2b3502573 "net: openvswitch: Use for_each_cpu() 
+where appropriate") And everything gets applied cleanly and I couldn't 
+reproduce the issue you mentioned above. Can you tell me on top of which 
+commit you tried applying this series ? Or I wonder if this happened 
+because I posted this series from my net tree instead of net-next. Does 
+it make sense to re-post the same patches from net-next tree ?
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -36,20 +36,31 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  "#clock-cells":
-+    const: 0
-+
- required:
-   - compatible
-   - reg
- 
--if:
--  properties:
--    compatible:
--      contains:
--        enum:
--          - st,stm32mp157-syscfg
--          - st,stm32f4-gcan
--then:
--  required:
--    - clocks
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - st,stm32mp157-syscfg
-+              - st,stm32f4-gcan
-+    then:
-+      required:
-+        - clocks
-+  - if:
-+      properties:
-+        compatible:
-+          const: st,stm32mp25-syscfg
-+    then:
-+      required:
-+        - "#clock-cells"
- 
- additionalProperties: false
- 
+> Before you proceed with AF_XDP could you make this driver build under
+> COMPILE_TEST on x86? This is very easy to miss, luckily we got an off
+> list report but its pure luck. And obviously much more effort for the
+> maintainers to investigate than if it was caught by the CI.
 
--- 
-2.25.1
+I have tried what you have suggested and these are the logs for the 
+same: 
+https://gist.github.com/MeghanaMalladiTI/8a3f64773d96e58aec48aca78c1bc98c
+
+ICSSG driver as a module has been compiled without any errors but 
+encountered few linking errors due to some missing symbols from another 
+module (CONFIG_TI_K3_UDMA). I included this module in the next iteration 
+and tried compiling but facing some build failures, logs: 
+https://gist.github.com/MeghanaMalladiTI/f7ed3958b5ab2b2be479151254015ff0
+
+I think it is safe to assume ICSSG as a driver build on x86 doesn't have 
+build regressions, thoughts ? Also is this something which needs to be 
+done by us everytime we are posting some feature upstream or does Kernel 
+CI take care of it ?
 
 
