@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65659CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38C7CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W22EIU0wPmFpDoLsMyxYOVfGPptW7NH7wCZxoNxRvyE=; b=kkAFikQr4/Td2l4KawgY0pjmkZ
-	nqTi/E1VtweA4EEFZbM9N4x0PXYiWsG9sl7iJ+9W6cXVMwmLMnSwqxB8m8efF0zWwO1ltJHSYn46Y
-	krhu2rSwTyfOBSyxrq8kicXgiNZLbIXGyKWfgIG7ezES2Tih37VQILsUfT+tlesGg/KiA9nSRUSOR
-	nlonXqpsg3ZirNhCoHpChcxhtOmPkBBdxY6+MFnP7bpZC4TmltJ4mPxPprGzfvJUKKxlxe7SO+9lo
-	RNjXp+uRwDfvviUJ6rHWhsKoUdnjrlOllkoymZNBZxJD9t64NhV2AO/cldhAfW5rdNBvtA19XxXUM
-	J2eVwBZQ==;
+	bh=7jqXM3IQFmwL7/KyPBrOmBEtNR7claVQSXPHpFSy3Pw=; b=4OetcGLMmzQCkHYXhYL7RWfqGj
+	JOdvEr8J9qYNL/lRAwwZmnYrFBDuLjaYkzJiBYVA6Rb4HCcMgMah8dHpwEzBNGbmJc6ML2VNgmb7Z
+	cLDfEtFkCXp07IolKUvFU1DoG525mPSq9J65I8tfUcdih4F+zqdxE8ENnsQ7b1HwvFc3Xvk1PlEMs
+	NTPoQ68+JtEeMdp+I+kILGMxf5hJg3JE3uv848/BXcH27ifu444Dwnf62zR7DiLVkXLHwT6yWp+/h
+	BwklNu1R+jUwSybL64n+rQ7ewUdOiCcGhxEqPyBQO6lUNRWa9r3jhv7ZIaHGLoV7nm5rnl1V0W1KW
+	0WGaNjlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3Fh-0000000Gin7-02Jk;
-	Thu, 21 Aug 2025 11:14:41 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1up3IH-0000000GjH7-3YX4;
+	Thu, 21 Aug 2025 11:17:21 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0RL-0000000GCeM-14GU
+	id 1up0RN-0000000GCel-2wgg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:14:32 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45b4e345ce4so1105095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:30 -0700 (PDT)
+	Thu, 21 Aug 2025 08:14:34 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-45a1b05d31cso3266965e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:14:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755764069; x=1756368869; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755764071; x=1756368871; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=W22EIU0wPmFpDoLsMyxYOVfGPptW7NH7wCZxoNxRvyE=;
-        b=Y92FU3E/0EM39/DCudBepDFUKYtHkiAt36nUJ5kOZEc0W1+v8//sNt4utK+4hUVpmV
-         5cvxct4WvF0TQG2L8+ATOn2eoyOMTmvFMN1PVBupG3vx5EPwULNgSu0Rai/KZvbssstZ
-         OtYMBUjznqYUEMRpkQXIt3yq/WeeLqBK20qvuYS8vqoPnMObxIK9wbYF9OwOaR6IL5gZ
-         jaYwJQVk0r1YFl/plkgh/HXJzbovPkq9XTCzVg58u9LskeNO7Waj+qgyw2Tx60H2CDKh
-         qi5dsa/nASsKVymLS9ZK/KEhaaDyuPO36bid/Rcw8XCw10lsO5AVE1S/8TS87ISBkmik
-         IAvg==
+        bh=7jqXM3IQFmwL7/KyPBrOmBEtNR7claVQSXPHpFSy3Pw=;
+        b=BXrtgeZFSRE53Vcs2a8KulMbjhM2sqe8M1kBNsd+XVzDI5vcj8vz4JcdnJwNcSNSQ6
+         D9TMGUHxL4b2tZgNBLxHUH6hr3urAAJUWoG6KuCQYu4EClD+GvgtgQaiCrDZWnd25ZFM
+         QCLaa53GY26FocV/pZBTPSEQUjenByh+EuzPdDMnk+hPmErc0+cI+1pw65qVwXM/DbkP
+         jQR3RDVy2e4Tqm1MsRjy3eZaRsC3Xq70z/1SE6+WNEzN0UIy/8JFk/gs72ky5taBcpQg
+         Rxq6a5w9dJewrng7AdIc6dmX8B/HGrbMJrTCJ7CwS8wk7rnKLyyhwcl7fyn4AqWuOtrD
+         WVhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755764069; x=1756368869;
+        d=1e100.net; s=20230601; t=1755764071; x=1756368871;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=W22EIU0wPmFpDoLsMyxYOVfGPptW7NH7wCZxoNxRvyE=;
-        b=LiCRvpCLnGJQB8r4P1nyYSXPiz+5NONhxNwp7Ywx8r25xK1AAtax62Gm6DLNMqsm9F
-         NdzoJnKgkB2/jZqbdEjpWN6NPsGwEXcxzJqgOaoHGlso+PK9FH9PlzEBshRiTfrzqcdL
-         Cq8VYeADUdI8xGQT+Ez5bs7Z2IfnL2VVdIHEKdDvP9eqhetLSdCAe3oYRkCLuJAK8naB
-         iw3y8ALXKFt67jaKPd0OU22qp4v6Azun51S1Kz7Z0/8P8XPY6qPG/V7b6QWIbGTYAKNG
-         mJzrPA4ykwQtE5vixA2tqCV29QqleP9eZBu+3TxLaF6fBQAyOYENClZQX1sEumohK1ZL
-         letw==
-X-Forwarded-Encrypted: i=1; AJvYcCVYga1bkbb1fAeTxCotlqjq92I53Yz7k4Yp6wEn79oEsEPZ8nM6I9VsfAGxKRnMAnKJfS+OyQG5z8DBh0zQxIV4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrqFx2vy/6pGUZyRxeAoZ4evcQshjmMSMA6H9k6IqTHSaW3/KX
-	WGmF9C38EFHL1ZxqiZTp60FUnkF0vdPRJ9YbHUXkEBBuOF2z/LJorJygGr/ytS6hhI1couWWHSi
-	6qOXcjCEto/emvazeoBczew==
-X-Google-Smtp-Source: AGHT+IGI2PiIkbSjwFuAaWOED7yQoO70q9rCSdloyFzMisfBtQbkBFdm8+ayz44OpgWngOd+05LdDZJ9I7+dIhEE
-X-Received: from wmqa19.prod.google.com ([2002:a05:600c:3493:b0:459:dbaa:93a6])
+        bh=7jqXM3IQFmwL7/KyPBrOmBEtNR7claVQSXPHpFSy3Pw=;
+        b=sqwLsag7SajGA2LaLUCY5i446i7RVdGW8uQ1UDZNhFTDaN3ZqRpUzfjk5WKysOBFMV
+         tG3BnWftY1OMz2/bxoYbwwG9xoLjoAKO5edoKAHOF9HQxtTjYfH+b6M6UYnQf4IRWgke
+         Johp0BGMbHtdSHnhcE3dCuHQdyaZ4+c0Uhse8VWGGDuY3q9591cSmC5BbFs7uIzUAg1Z
+         bqC6lpKKK6QdxVEEmRv3+0el4tqjskYCw7yAB0VHXoJL7mWBdKV6sYMSCWhMy5IQ3axn
+         KQK7aSYlQX/eLiOoGj8GZ9UYtGGJT+LEyAHP77bVbmCcXSQ8EkEo53wGKrjuEqNxNMH5
+         YZPw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrlY0OBu9x+0XK8PfVDa8QlmOeLdKIacAaiYaH/lbiYGnuZz86KCYVtHz9DO+M7MbLd2nmJi1ifrHUeYSjQCtE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnjtxY1UPTVVXEEAqRHESZ+bE44zb8URf3Y/eAdoPQUrdzd3hU
+	hzWCDn+Hzb32WITkoRKhZDoHkeKqvlqAdc9+O/cNnQjX5EQWMNn/MCsmzMzUA9dGaJZvXzjzAYr
+	YB0rVOtFkjmGYG2eni1250g==
+X-Google-Smtp-Source: AGHT+IE+BeKNnnBgP2hFtel0lnCMgkmekl+cgM70ekcw14+86Zb79b7FW6ixmJANsDqQXBnK6UuwhPfLQJtGZ17a
+X-Received: from wmti5.prod.google.com ([2002:a05:600c:8b85:b0:458:715c:51a1])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d22:b0:43c:fe5e:f040 with SMTP id 5b1f17b1804b1-45b4fd1fc01mr922155e9.23.1755764069522;
- Thu, 21 Aug 2025 01:14:29 -0700 (PDT)
-Date: Thu, 21 Aug 2025 09:13:54 +0100
+ 2002:a05:600c:19cb:b0:456:1e5a:8879 with SMTP id 5b1f17b1804b1-45b4d7da9b7mr13059725e9.9.1755764071698;
+ Thu, 21 Aug 2025 01:14:31 -0700 (PDT)
+Date: Thu, 21 Aug 2025 09:13:55 +0100
 In-Reply-To: <20250821081412.1008261-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250821081412.1008261-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.rc2.233.g662b1ed5c5-goog
-Message-ID: <20250821081412.1008261-7-vdonnefort@google.com>
-Subject: [PATCH v6 06/24] tracing: Add events to trace remotes
+Message-ID: <20250821081412.1008261-8-vdonnefort@google.com>
+Subject: [PATCH v6 07/24] tracing: Add events/ root files to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_011431_296765_4078A412 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20250821_011433_741821_814FB944 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,256 +93,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An event is predefined point in the writer code that allows to log
-data. Following the same scheme as kernel events, add remote events,
-described to user-space within the events/ tracefs directory found in
-the corresponding trace remote.
-
-Remote events are expected to be described during the trace remote
-registration.
-
-Add also a .enable_event callback for trace_remote to toggle the event
-logging, if supported.
+Just like for the kernel events directory, add 'enable', 'header_page'
+and 'header_event' at the root of the trace remote events/ directory.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
-index 82d26d97a536..4cf8efa83578 100644
---- a/include/linux/trace_remote.h
-+++ b/include/linux/trace_remote.h
-@@ -5,6 +5,7 @@
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 8044cb23ef88..17f77653b926 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -604,7 +604,8 @@ int ring_buffer_print_page_header(struct trace_buffer *buffer, struct trace_seq
+ 	trace_seq_printf(s, "\tfield: char data;\t"
+ 			 "offset:%u;\tsize:%u;\tsigned:%u;\n",
+ 			 (unsigned int)offsetof(typeof(field), data),
+-			 (unsigned int)buffer->subbuf_size,
++			 (unsigned int)(buffer ? buffer->subbuf_size :
++						 PAGE_SIZE - BUF_PAGE_HDR_SIZE),
+ 			 (unsigned int)is_signed_type(char));
  
- #include <linux/dcache.h>
- #include <linux/ring_buffer.h>
-+#include <linux/trace_remote_event.h>
- 
- struct trace_remote_callbacks {
- 	int	(*init)(struct dentry *d, void *priv);
-@@ -14,9 +15,11 @@ struct trace_remote_callbacks {
- 	int	(*enable_tracing)(bool enable, void *priv);
- 	int	(*swap_reader_page)(unsigned int cpu, void *priv);
- 	int	(*reset)(unsigned int cpu, void *priv);
-+	int	(*enable_event)(unsigned short id, bool enable, void *priv);
- };
- 
--int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
-+int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv,
-+			  struct remote_event *events, size_t nr_events);
- int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t size,
- 			      const struct cpumask *cpumask);
- void trace_remote_free_buffer(struct trace_buffer_desc *desc);
-diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
-new file mode 100644
-index 000000000000..a4449008a075
---- /dev/null
-+++ b/include/linux/trace_remote_event.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _LINUX_TRACE_REMOTE_EVENTS_H
-+#define _LINUX_TRACE_REMOTE_EVENTS_H
-+
-+struct trace_remote;
-+struct trace_event_fields;
-+
-+struct remote_event_hdr {
-+	unsigned short	id;
-+};
-+
-+#define REMOTE_EVENT_NAME_MAX 30
-+struct remote_event {
-+	char				name[REMOTE_EVENT_NAME_MAX];
-+	unsigned short			id;
-+	bool				enabled;
-+	struct trace_remote		*remote;
-+	struct trace_event_fields	*fields;
-+	char				*print_fmt;
-+	void				(*print)(void *evt, struct trace_seq *seq);
-+};
-+#endif
+ 	return !trace_seq_has_overflowed(s);
 diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-index 8f8eb1f1e889..822cdd76e334 100644
+index 822cdd76e334..5065b162c8ef 100644
 --- a/kernel/trace/trace_remote.c
 +++ b/kernel/trace/trace_remote.c
-@@ -24,6 +24,7 @@ struct trace_remote_iterator {
- 	struct delayed_work		poll_work;
- 	unsigned long			lost_events;
- 	u64				ts;
-+	struct remote_event_hdr		*evt;
- 	int				cpu;
- 	int				evt_cpu;
- };
-@@ -33,6 +34,10 @@ struct trace_remote {
- 	void				*priv;
- 	struct trace_buffer		*trace_buffer;
- 	struct trace_buffer_desc	*trace_buffer_desc;
-+	struct dentry			*dentry;
-+	struct eventfs_inode		*eventfs;
-+	struct remote_event		*events;
-+	unsigned long			nr_events;
- 	unsigned long			trace_buffer_size;
- 	struct ring_buffer_remote	rb_remote;
- 	struct mutex			lock;
-@@ -155,7 +160,8 @@ static void trace_remote_reset(struct trace_remote *remote, int cpu)
- static ssize_t
- tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
- {
--	struct trace_remote *remote = filp->private_data;
-+	struct seq_file *seq = filp->private_data;
-+	struct trace_remote *remote = seq->private;
- 	unsigned long val;
- 	int ret;
- 
-@@ -184,7 +190,8 @@ DEFINE_SHOW_STORE_ATTRIBUTE(tracing_on);
- static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
- 				    loff_t *ppos)
- {
--	struct trace_remote *remote = filp->private_data;
-+	struct seq_file *seq = filp->private_data;
-+	struct trace_remote *remote = seq->private;
- 	unsigned long val;
- 	int ret;
- 
-@@ -265,16 +272,19 @@ static struct trace_remote_iterator *trace_remote_iter(struct trace_remote *remo
- static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
- {
- 	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
-+	struct ring_buffer_event *rb_evt;
- 	int cpu = iter->cpu;
- 
- 	if (cpu != RING_BUFFER_ALL_CPUS) {
- 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
- 			return false;
- 
--		if (!ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events))
-+		rb_evt = ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events);
-+		if (!rb_evt)
- 			return false;
- 
- 		iter->evt_cpu = cpu;
-+		iter->evt = (struct remote_event_hdr *)&rb_evt->array[1];
- 		return true;
- 	}
- 
-@@ -286,7 +296,8 @@ static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
- 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
- 			continue;
- 
--		if (!ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events))
-+		rb_evt = ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events);
-+		if (!rb_evt)
- 			continue;
- 
- 		if (ts >= iter->ts)
-@@ -294,14 +305,18 @@ static bool trace_remote_iter_next(struct trace_remote_iterator *iter)
- 
- 		iter->ts = ts;
- 		iter->evt_cpu = cpu;
-+		iter->evt = (struct remote_event_hdr *)&rb_evt->array[1];
- 		iter->lost_events = lost_events;
- 	}
- 
- 	return iter->ts != U64_MAX;
- }
- 
-+static struct remote_event *trace_remote_find_event(struct trace_remote *remote, unsigned short id);
-+
- static int trace_remote_iter_print(struct trace_remote_iterator *iter)
- {
-+	struct remote_event *evt;
- 	unsigned long usecs_rem;
- 	u64 ts = iter->ts;
- 
-@@ -315,6 +330,12 @@ static int trace_remote_iter_print(struct trace_remote_iterator *iter)
- 	trace_seq_printf(&iter->seq, "[%03d]\t%5llu.%06lu: ", iter->evt_cpu,
- 			 ts, usecs_rem);
- 
-+	evt = trace_remote_find_event(iter->remote, iter->evt->id);
-+	if (!evt)
-+		trace_seq_printf(&iter->seq, "UNKNOWN id=%d\n", iter->evt->id);
-+	else
-+		evt->print(iter->evt, &iter->seq);
-+
- 	return trace_seq_has_overflowed(&iter->seq) ? -EOVERFLOW : 0;
- }
- 
-@@ -466,6 +487,8 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 			goto err;
- 	}
- 
-+	remote->dentry = remote_d;
-+
+@@ -710,10 +710,118 @@ static int remote_event_callback(const char *name, umode_t *mode, void **data,
  	return 0;
- 
- err:
-@@ -479,7 +502,11 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 	return -ENOMEM;
  }
  
--int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
-+static int trace_remote_register_events(const char *remote_name, struct trace_remote *remote,
-+					struct remote_event *events, size_t nr_events);
-+
-+int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv,
-+			  struct remote_event *events, size_t nr_events)
- {
- 	struct trace_remote *remote;
- 	int ret;
-@@ -499,6 +526,13 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
- 		return -ENOMEM;
- 	}
- 
-+	ret = trace_remote_register_events(name, remote, events, nr_events);
-+	if (ret) {
-+		pr_err("Failed to register events for trace remote '%s' (%d)\n",
-+		       name, ret);
-+		return ret;
-+	}
-+
- 	ret = cbs->init ? cbs->init(remote->dentry, priv) : 0;
- 	if (ret)
- 		pr_err("Init failed for trace remote '%s' (%d)\n", name, ret);
-@@ -561,3 +595,220 @@ int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t size,
- 	trace_remote_free_buffer(desc);
- 	return -ENOMEM;
- }
-+
-+static int
-+trace_remote_enable_event(struct trace_remote *remote, struct remote_event *evt, bool enable)
++static ssize_t remote_events_dir_enable_write(struct file *filp, const char __user *ubuf,
++					      size_t count, loff_t *ppos)
 +{
-+	int ret;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (evt->enabled == enable)
-+		return 0;
-+
-+	ret = remote->cbs->enable_event(evt->id, enable, remote->priv);
-+	if (ret)
-+		return ret;
-+
-+	evt->enabled = enable;
-+
-+	return 0;
-+}
-+
-+static int remote_event_enable_show(struct seq_file *s, void *unused)
-+{
-+	struct remote_event *evt = s->private;
-+
-+	seq_printf(s, "%d\n", evt->enabled);
-+
-+	return 0;
-+}
-+
-+static ssize_t remote_event_enable_write(struct file *filp, const char __user *ubuf,
-+					 size_t count, loff_t *ppos)
-+{
-+	struct seq_file *seq = filp->private_data;
-+	struct remote_event *evt = seq->private;
-+	struct trace_remote *remote = evt->remote;
++	struct trace_remote *remote = file_inode(filp)->i_private;
 +	u8 enable;
-+	int ret;
++	int i, ret;
 +
 +	ret = kstrtou8_from_user(ubuf, count, 10, &enable);
 +	if (ret)
@@ -350,179 +133,118 @@ index 8f8eb1f1e889..822cdd76e334 100644
 +
 +	guard(mutex)(&remote->lock);
 +
-+	ret = trace_remote_enable_event(remote, evt, enable);
-+	if (ret)
-+		return ret;
++	for (i = 0; i < remote->nr_events; i++) {
++		struct remote_event *evt = &remote->events[i];
++
++		trace_remote_enable_event(remote, evt, enable);
++	}
 +
 +	return count;
 +}
-+DEFINE_SHOW_STORE_ATTRIBUTE(remote_event_enable);
 +
-+static int remote_event_id_show(struct seq_file *s, void *unused)
++static const struct file_operations remote_events_dir_enable_fops = {
++	.write = remote_events_dir_enable_write,
++};
++
++static ssize_t
++remote_events_dir_header_page_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
 +{
-+	struct remote_event *evt = s->private;
++	struct trace_seq *s;
++	int ret;
 +
-+	seq_printf(s, "%d\n", evt->id);
++	s = kmalloc(sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return -ENOMEM;
 +
-+	return 0;
++	trace_seq_init(s);
++
++	ring_buffer_print_page_header(NULL, s);
++	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
++	kfree(s);
++
++	return ret;
 +}
-+DEFINE_SHOW_ATTRIBUTE(remote_event_id);
 +
-+static int remote_event_format_show(struct seq_file *s, void *unused)
++static const struct file_operations remote_events_dir_header_page_fops = {
++	.read = remote_events_dir_header_page_read,
++};
++
++static ssize_t
++remote_events_dir_header_event_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
 +{
-+	size_t offset = sizeof(struct remote_event_hdr);
-+	struct remote_event *evt = s->private;
-+	struct trace_event_fields *field;
++	struct trace_seq *s;
++	int ret;
 +
-+	seq_printf(s, "name: %s\n", evt->name);
-+	seq_printf(s, "ID: %d\n", evt->id);
-+	seq_puts(s,
-+		 "format:\n\tfield:unsigned short common_type;\toffset:0;\tsize:2;\tsigned:0;\n\n");
++	s = kmalloc(sizeof(*s), GFP_KERNEL);
++	if (!s)
++		return -ENOMEM;
 +
-+	field = &evt->fields[0];
-+	while (field->name) {
-+		seq_printf(s, "\tfield:%s %s;\toffset:%zu;\tsize:%u;\tsigned:%d;\n",
-+			   field->type, field->name, offset, field->size,
-+			   !field->is_signed);
-+		offset += field->size;
-+		field++;
-+	}
++	trace_seq_init(s);
 +
-+	if (field != &evt->fields[0])
-+		seq_puts(s, "\n");
++	ring_buffer_print_entry_header(s);
++	ret = simple_read_from_buffer(ubuf, cnt, ppos, s->buffer, trace_seq_used(s));
++	kfree(s);
 +
-+	seq_printf(s, "print fmt: %s\n", evt->print_fmt);
-+
-+	return 0;
++	return ret;
 +}
-+DEFINE_SHOW_ATTRIBUTE(remote_event_format);
 +
-+static int remote_event_callback(const char *name, umode_t *mode, void **data,
-+				 const struct file_operations **fops)
++static const struct file_operations remote_events_dir_header_event_fops = {
++	.read = remote_events_dir_header_event_read,
++};
++
++static int remote_events_dir_callback(const char *name, umode_t *mode, void **data,
++				      const struct file_operations **fops)
 +{
 +	if (!strcmp(name, "enable")) {
-+		*mode = TRACEFS_MODE_WRITE;
-+		*fops = &remote_event_enable_fops;
++		*mode = 0200;
++		*fops = &remote_events_dir_enable_fops;
 +		return 1;
 +	}
 +
-+	if (!strcmp(name, "id")) {
++	if (!strcmp(name, "header_page")) {
 +		*mode = TRACEFS_MODE_READ;
-+		*fops = &remote_event_id_fops;
++		*fops = &remote_events_dir_header_page_fops;
 +		return 1;
 +	}
 +
-+	if (!strcmp(name, "format")) {
++	if (!strcmp(name, "header_event")) {
 +		*mode = TRACEFS_MODE_READ;
-+		*fops = &remote_event_id_fops;
++		*fops = &remote_events_dir_header_event_fops;
 +		return 1;
 +	}
 +
 +	return 0;
 +}
 +
-+static int trace_remote_init_eventfs(const char *remote_name, struct trace_remote *remote,
-+				     struct remote_event *evt)
-+{
-+	struct eventfs_inode *eventfs = remote->eventfs;
-+	static struct eventfs_entry entries[] = {
+ static int trace_remote_init_eventfs(const char *remote_name, struct trace_remote *remote,
+ 				     struct remote_event *evt)
+ {
+ 	struct eventfs_inode *eventfs = remote->eventfs;
++	static struct eventfs_entry dir_entries[] = {
 +		{
 +			.name		= "enable",
-+			.callback	= remote_event_callback,
++			.callback	= remote_events_dir_callback,
 +		}, {
-+			.name		= "id",
-+			.callback	= remote_event_callback,
++			.name		= "header_page",
++			.callback	= remote_events_dir_callback,
 +		}, {
-+			.name		= "format",
-+			.callback	= remote_event_callback,
++			.name		= "header_event",
++			.callback	= remote_events_dir_callback,
 +		}
 +	};
-+	bool eventfs_create = false;
-+
-+	if (!eventfs) {
-+		eventfs = eventfs_create_events_dir("events", remote->dentry, NULL, 0, NULL);
-+		if (IS_ERR(eventfs))
-+			return PTR_ERR(eventfs);
-+
-+		/*
-+		 * Create similar hierarchy as local events even if a single system is supported at
-+		 * the moment
-+		 */
-+		eventfs = eventfs_create_dir(remote_name, eventfs, NULL, 0, NULL);
-+		if (IS_ERR(eventfs))
-+			return PTR_ERR(eventfs);
-+
-+		remote->eventfs = eventfs;
-+		eventfs_create = true;
-+	}
-+
-+	eventfs = eventfs_create_dir(evt->name, eventfs, entries, ARRAY_SIZE(entries), evt);
-+	if (IS_ERR(eventfs)) {
-+		if (eventfs_create) {
-+			eventfs_remove_events_dir(remote->eventfs);
-+			remote->eventfs = NULL;
-+		}
-+		return PTR_ERR(eventfs);
-+	}
-+
-+	return 0;
-+}
-+
-+static int trace_remote_attach_events(struct trace_remote *remote, struct remote_event *events,
-+				      size_t nr_events)
-+{
-+	int i;
-+
-+	for (i = 0; i < nr_events; i++) {
-+		struct remote_event *evt = &events[i];
-+
-+		if (evt->remote)
-+			return -EEXIST;
-+
-+		evt->remote = remote;
-+
-+		/* We need events to be sorted for efficient lookup */
-+		if (i && evt->id <= events[i - 1].id)
-+			return -EINVAL;
-+	}
-+
-+	remote->events = events;
-+	remote->nr_events = nr_events;
-+
-+	return 0;
-+}
-+
-+static int trace_remote_register_events(const char *remote_name, struct trace_remote *remote,
-+					struct remote_event *events, size_t nr_events)
-+{
-+	int i, ret;
-+
-+	ret = trace_remote_attach_events(remote, events, nr_events);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < nr_events; i++) {
-+		struct remote_event *evt = &events[i];
-+
-+		ret = trace_remote_init_eventfs(remote_name, remote, evt);
-+		if (ret)
-+			pr_warn("Failed to init eventfs for event '%s' (%d)",
-+				evt->name, ret);
-+	}
-+
-+	return 0;
-+}
-+
-+static int __cmp_events(const void *id, const void *evt)
-+{
-+	return (long)id - ((struct remote_event *)evt)->id;
-+}
-+
-+static struct remote_event *trace_remote_find_event(struct trace_remote *remote, unsigned short id)
-+{
-+	return bsearch((const void *)(unsigned long)id, remote->events, remote->nr_events,
-+		       sizeof(*remote->events), __cmp_events);
-+}
+ 	static struct eventfs_entry entries[] = {
+ 		{
+ 			.name		= "enable",
+@@ -729,7 +837,8 @@ static int trace_remote_init_eventfs(const char *remote_name, struct trace_remot
+ 	bool eventfs_create = false;
+ 
+ 	if (!eventfs) {
+-		eventfs = eventfs_create_events_dir("events", remote->dentry, NULL, 0, NULL);
++		eventfs = eventfs_create_events_dir("events", remote->dentry, dir_entries,
++						    ARRAY_SIZE(dir_entries), remote);
+ 		if (IS_ERR(eventfs))
+ 			return PTR_ERR(eventfs);
+ 
 -- 
 2.51.0.rc2.233.g662b1ed5c5-goog
 
