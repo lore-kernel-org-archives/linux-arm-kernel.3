@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AC2CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E6ACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 06:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=0Ji1ni3lqJJ6sLSu/MDL3dnPIR
-	dTHwAMEudYrMYZ+AAWiCgTUF3rksPoBzWXyZieIlgJcgeKysWUHKJOK1B2vVr9uKVf4SAuAmbcQfE
-	Jl2SPrJkFS32O7iGmGFPay4D6vubGHMBUHL6N8DTdCpGY2f1lMJpJdk7nESD4PgqG+5lY8dpPp8Oo
-	7VJLvpSB+SBHqgudT3hFrjSTExqy35cF698E3pUo5whP/gIj5BFK9rB7p7/0+TcUhZXx1Puj3HqWu
-	EwkMLWyeMK+eMarEpkAms3o1/rJjRXpXoYUwLtBUde2ZlVL4qRU6sS0ukXvUKwedFzc/4ePfPEVra
-	MyrB0EwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rErWGumZLu4gwIsfX6lXxOGxFuhRmHleVgPyO8kQS3o=; b=0+sxdjcPX9LRXxDknAJJFJ8a3J
+	yrEsQIN7p1DgCU9zfqWykmUF6d90NjbA/QKfaaK9573CqJR74m+LN2eQ0pI6BVlu55AVi4GthJxCL
+	tj/UNpD93KkdAD+WjCw8yJ5H5WZ1XnWH8o+CrLJjt+KN5eFKqdWdpf3ZnrlfqKV05qXEOyuaBYbS7
+	G4eMt5yq5Ny7prJVLZu27zRs7KlN4Css0OYq9wQii5WxZEuoAZISypGMj0ENk+Qgbzw8BkK/TEku4
+	HaUKv026cnN2l/wVGr6NM+ubR1H0aCHJYXgFTBHd7G4svoY0RQD3rACEwB+QoUeclrletK+DqYHUs
+	hFA1cIig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyh1-0000000FwiE-47Rv;
-	Thu, 21 Aug 2025 06:22:35 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1uoyjb-0000000Fwwf-2zuw;
+	Thu, 21 Aug 2025 06:25:15 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoyWM-0000000FvJf-0E49
+	id 1uoyX4-0000000FvSS-2b70
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 06:11:35 +0000
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E129D1400057;
-	Thu, 21 Aug 2025 02:11:32 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Thu, 21 Aug 2025 02:11:32 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1755756692; x=
-	1755843092; bh=GAZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=o
-	IOyJiKLgOucJBtq7FFGsyqDg9sdK9DoMd+FAu1fyQ26x1nDtZuLzjiD3QuBV/9Xg
-	C5W+QSlVH4ytQM8LUIJA38zkPJJFU2m55m2lB9kalYH4b7AooMSX6/JnoS3er45n
-	eMOCDhKfPXA4pE/qxrDS5r03pYnfGXfqcQtBKD9Odn5pYQoEQIZonFhbvvoSBHwN
-	6SMZ6K7st/ZDMhRtcGbDt4C7Wd0LiNxK2NMtZWYtLd9smSPWaGN+yAgW441Css4z
-	C9090UMtPIv/g8U8Gp56BtvJ5d1MLD4i4sxi7CS1QBK0nVOTWM+2DArxPbEhoqEl
-	SJt188LZ9DhlE7EzIj2Mw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1755756692; x=1755843092; bh=G
-	AZjNYlYoUxbND97FHyJPKGZ9OtZP5oe5PR+eT/X57o=; b=Ac/78oHKHPxGpfgSU
-	7PCSjEBKFMnM/URsMY9+TDjtCcfhjg4kdqsQMiA/VZEXdR9ykaDwNCIsfeSaIh9q
-	ilXBTzwWjxuz2n1LCGI6HKJUzVQzOSV6LZSW3kPNTJv5/CWeYimkxXyn37RPdEWP
-	PlQSSs1JKMldxP545nxcCwBpZWGf9IbiiGjN2R4EzEhorZdzZIZlDSOch8DvRnuL
-	DH0TNyL0odx6P1s9uR9wncFrLQTKAI/uJmYJlwGPqbaJw5MMiby0FPyjm7vk1xRJ
-	LBAm0CLt5Uir2PPiMHUIYITgAFfq/qkZ15QiO7IIDPm4c2SL36nVB2VO4UboPSPl
-	P4Ycg==
-X-ME-Sender: <xms:lLimaF_Hx7JGsuFNCDWxszHj9kEq20f4IjMNDcVBl_Zy0bmRBgtF2w>
-    <xme:lLimaAeOhkxLl6Yjqf3yHZvzs-AfiLE4aWb5xbtiDnbNKIU8NWcKfwnYtiZzvwdox
-    aeA9ZZP3BZGn4GJ6Rw>
-X-ME-Received: <xmr:lLimaEyjDKxw-jEmX1h3rf7lWiTs3haXdUVa-ilEfypSQH4iCbZ7c2bUnyONYwVQoBY-iK3eib4Sud4fK2RKti6v3nmrVxIGOzOn87igzV312BJThpKqYzVGlzK9xy2XM2k7z-hejxlBH71VSaLxcJP4dHE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedtgeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrthhhvgif
-    ucfotgeurhhiuggvuceomhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghuqeenucggtf
-    frrghtthgvrhhnpefhffeuheetudekveejvdeiveffheejieethefhfeekheegffelfeel
-    jedukefgveenucffohhmrghinhepthhrrghvvghrshgvrdgtohhmrdgruhenucevlhhush
-    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehmrghtthesthhrrghv
-    vghrshgvrdgtohhmrdgruhdpnhgspghrtghpthhtohepkedpmhhouggvpehsmhhtphhouh
-    htpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrh
-    gruggvrggurdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhr
-    ghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
-    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehmrghtthesthhrrghvvghrshgvrdgtohhmrdgruh
-X-ME-Proxy: <xmx:lLimaFKkRZXtOops8bSwVVMAwbxALyWA0d1c8hc1UKrGskBGIQNWvg>
-    <xmx:lLimaGFYbcUFQPmQha2CgiA7LWH4JvVUxMY8S4zgm7Bgp4kE8CFtvQ>
-    <xmx:lLimaB_34WWuVo_0_vNAAfMVc-qh3Zwn5GZ5cJ2WdJjt7UwpoKeaew>
-    <xmx:lLimaGLIcSlZj_qtsfBTRtUGezX9jnX2UhqDnBsGId_rMSp5BkKbLA>
-    <xmx:lLimaL2JUkdcbE1J_wsw1Ej16bm3cB2BAMx6iEmYnDE8xkOP9DKqgCKo>
-Feedback-ID: i426947f3:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 21 Aug 2025 02:11:29 -0400 (EDT)
-From: Mathew McBride <matt@traverse.com.au>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Shawn Guo <shawnguo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v3 2/2] arm: dts: freescale: ten64: add board controller binding
-Date: Thu, 21 Aug 2025 16:11:15 +1000
-Message-ID: <20250821061115.18254-3-matt@traverse.com.au>
-X-Mailer: git-send-email 2.45.1
-In-Reply-To: <20250821061115.18254-1-matt@traverse.com.au>
-References: <20250813023435.27776-2-matt@traverse.com.au>
- <20250821061115.18254-1-matt@traverse.com.au>
+	Thu, 21 Aug 2025 06:12:19 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 573EF1F967;
+	Thu, 21 Aug 2025 08:12:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1755756737;
+	bh=rErWGumZLu4gwIsfX6lXxOGxFuhRmHleVgPyO8kQS3o=; h=From:To:Subject;
+	b=cFE8T77pvcGGVJmwfcXad9fpSzJgRG5tXoWvAjOUqPkWZwb9aEOINBoC1svyqtVs6
+	 cIbxleeF9U9c9BdadbJSl9mqYUn9vqO4XjUUckakgPO2SkIFpkzIiD7/RuOjWwLWgB
+	 riZVdNIcIxXq+6FnvS0ZA2ajzIlUAJXLYuUVDtptrXeDGtSynfh4RElCX6H1T5tWvr
+	 lElNS8Ty3fdOHFGT93z5GC/w1DLiYvJrIXvv4R5GGRTJxpOd5yJefAB4N7z94BV/KH
+	 X/G0YMh9lTeyLuz0QqlnHdk6gRyWDxaTU6w3tmf0SY6BdawJmmQtm6Ie1AbB7ZhyS6
+	 dq4focRSoKbDw==
+Date: Thu, 21 Aug 2025 08:12:14 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Beleswar Padhi <b-padhi@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com,
+	u-kumar1@ti.com, hnagalla@ti.com, jm@ti.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Jo_o Paulo Gon_alves <joao.goncalves@toradex.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Max Krummenacher <max.krummenacher@toradex.com>,
+	Andrejs Cainikovs <andrejs.cainikovs@toradex.com>
+Subject: Re: [PATCH 18/33] arm64: dts: ti: k3-am62-verdin: Add missing cfg
+ for TI IPC Firmware
+Message-ID: <20250821061214.GC7503@francesco-nb>
+References: <20250814223839.3256046-1-b-padhi@ti.com>
+ <20250814223839.3256046-19-b-padhi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814223839.3256046-19-b-padhi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_231134_162799_EFA5568B 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250820_231218_810998_C0CA416E 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board (micro)controller[1] is responsible for functions such as
-power supply sequencing, SoC reset as well as serial/MAC address storage,
-bootcount and scratch registers.
+On Fri, Aug 15, 2025 at 04:08:24AM +0530, Beleswar Padhi wrote:
+> The wkup_r5fss0_core0_memory_region is used to store the text/data
+> sections of the Device Manager (DM) firmware itself and is necessary for
+> platform boot. Whereas the wkup_r5fss0_core0_dma_memory_region is used
+> for allocating the Virtio buffers needed for IPC with the DM core which
+> could be optional. The labels were incorrectly used in the
+> k3-am62-verdin.dtsi file. Correct the firmware memory region label.
+> 
+> Currently, only mailbox node is enabled with FIFO assignment for a
+> single M4F remote core. However, there are no users of the enabled
+> mailboxes. Add the missing carveouts for WKUP R5F and MCU M4F remote
+> processors, and enable those by associating to the above carveout and
+> mailboxes. This config aligns with other AM62 boards and can be
+> refactored out later.
 
-There is currently no Linux kernel driver for this controller, however,
-there is a driver in U-Boot which utilises this binding.
-
-[1] https://ten64doc.traverse.com.au/hardware/microcontroller/
-
-Signed-off-by: Mathew McBride <matt@traverse.com.au>
----
- arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-index 3a11068f2212f..71765ec91745e 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-@@ -253,6 +253,10 @@ usbhub: usb-hub@2d {
- 		reg = <0x2d>;
- 	};
- 
-+	uc: board-controller@7e {
-+		compatible = "traverse,ten64-controller";
-+		reg = <0x7e>;
-+	};
- };
- 
- &i2c2 {
--- 
-2.45.1
+Are these memory ranges fine with 512MB DDR memory?
 
 
