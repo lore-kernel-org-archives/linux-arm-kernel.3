@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDD4CA0FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D8CCA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 00:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F//dNsf765+zWMqPOL3BTjSfYbLZtm5MUs2oW6VjGnM=; b=HUwn2UbotcoFoXpZKkws1t4RVm
-	9T8D/7rd2ApauEZeX7K/Wl/Gtom6nHSsHaokd7iurS/3XZ0KrIJnqhp/U1uuY7GYzZxrLpSUdvofz
-	VJMSmZqrz00/nOCtGfMl4BodEt902CLUmnsIfr/AEMF1oanLuhZyYckYfOLb0iiiiTjS3aJSeBcZS
-	azpP67ZJbGTprviERB4Di9h14TPtpyZUpddMOLJQW3QNtdpGaT62009G502hPElXxTY1u+/9HzI1D
-	Vw57uV+YHOCNIgbhe3vcDE6GVLxTQVNQALGj0baywRUX24/a+iuv5328tLEG158Ds8XxlbSXWU4/6
-	SHxWpv3A==;
+	bh=0L3vM6YLmg9pq/ypW1IqncbW6S6DkPhBxKBhDP3z0o0=; b=GDy3AzBPBT7ZecYJFw1ynRs7zL
+	t7dJyyNzBiosFUQc/6Rw6hZMglxVJvZdhKph0QmlH6nr/CQcVcRZgUIyuXl8sQZZ1Fys9uhI2M8Wx
+	dzvnG5K4W01DM2i/dRgf3dk+HlZmeZn7tsWTqrjrp4wQLiPkrnporkF4+8U/2nBuBw/FrXWyVC9Hm
+	+K97svRkIr/XDVS/E1TnSOhkz5exewtUKcqrEmfgI3fc7K5jqWfRsNaFcWbba55VNYH56l/vDJGCQ
+	EfGXR92Br2Gbqa59DZya2VGh139pO58mrRN6sCOILneHDU66FNSim1U5rqAleIFVgP2P41Mse6plS
+	XLhAVAPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFcV-000000011XQ-40Sc;
-	Fri, 22 Aug 2025 00:27:03 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1upFcW-000000011Xk-2C8Z;
+	Fri, 22 Aug 2025 00:27:04 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up8N2-0000000HZHD-2vJz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 16:42:37 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 90996250;
-	Thu, 21 Aug 2025 18:41:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755794495;
-	bh=mz/fzJfmTWZ3LEOoonwuE3DtZoZyUjRc0Upb01ff0/s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UkVD6LzPl7FviU9HWcFXl+NqtHgD8s/cXbhJhTU0pUpl9UP78ZfzW6Z0AA/9CEj9S
-	 lrPPftwEJ2KHqe7VOKaJjxgmATDyX92cRxpcokCc6ic9cxPZ8zA4sUckubRjexP6LW
-	 LXI5VgowhlmEXMyFB2eGzm84WdvPUJ+LQ3tcOR54=
-Date: Thu, 21 Aug 2025 19:42:11 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	id 1up8QX-0000000HZth-2BCH;
+	Thu, 21 Aug 2025 16:46:14 +0000
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfout.phl.internal (Postfix) with ESMTP id 4A4F0EC0787;
+	Thu, 21 Aug 2025 12:46:12 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-07.internal (MEProxy); Thu, 21 Aug 2025 12:46:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1755794772; x=1755881172; bh=0L3vM6YLmg
+	9pq/ypW1IqncbW6S6DkPhBxKBhDP3z0o0=; b=Ng7N4n9hWaKAXoCUELKodmIoji
+	oDL3Zzpv7nQCCsaclA0XaLOjXCyXp5c6tn54FhoT3QrxEtGRpF/P4Z/CAcq14OJR
+	/BLDh4Y5OVUvMxcE8qZnzEEjzq+hjmbbY8fMuyc6bCWqPpYWmYlpfeWZHXnAOWA8
+	+Zt2E4RTMAbjOp1yReYdCwymgE2UXV1FQ8/a12O+RrQK3pjZMyxEnKQG6Gs2YJhs
+	wWmw5COkxZzWq5tlC225WBY77NwedNmQJhZyTR0eFntmo7rBe7ANiHYI5t2Zn4vl
+	SVLYkck3kIP1XfGIZRCRei4h5rfFtbqQ516kp5whyjPCnKlUD/q5EwXfdV/A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1755794772; x=1755881172; bh=0L3vM6YLmg9pq/ypW1IqncbW6S6DkPhBxKB
+	hDP3z0o0=; b=OSYTZMdMAIaG24G5LpRZuVxYDMHEnqIZNPTIkiKpV/6nKgIx49S
+	fGLl2phjvaJ+Bubu2ZbsSY2QBZk3KM0i4LCiwnRhsDjrEiW1pX93GFLxU69c0wWc
+	IrgqarCbu5oyv4l2qFxIsRrg8ywScwMbubQZXMiOCJRL1yq9FpQmKjbyINYoB41a
+	5CggNO9p9DkUw/qSm3Sd03LZhuSkvQU3KKlM97fvw44hNWQeJMaB9U53pUAiwm1v
+	TIaNkV6sae5rNkwvfPDu/ujAOXX4cR5GFAZp4rvmcg9jP8dfeZhzk/X8iUH8Y3fJ
+	1AbOkF2uDxu95rhV7uMbpbnbQ72PVesZM/w==
+X-ME-Sender: <xms:U02naD1N0U4V6oV3luaKuJXxkv0zi0v6MnhWUXbm4UcDjFzVZxDjtA>
+    <xme:U02naPyX0r1a-0rYWFWGTsV2EhBJAIpcy3nqA9cDzCFN1SB-DE0AjmF5g2KC2e_RB
+    8kD-gYPmUflUcm_Iyw>
+X-ME-Received: <xmr:U02naFoI-v70Z4EWn51BxGS4H7ZZec5W_gZOC-ALfJEclI_XWcD_ZE51OBloEypSOPEhYljIIoCGZ2YGgcF0HiW-zm2KGAWsSqo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduiedujeehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepudelpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepghhrvghgkhhhsehlih
+    hnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsggrlhgs
+    iheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvg
+    highdrihhopdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohep
+    vhhkohhulheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:U02naFUjWm7bqMbHMqhQOCBhCTseEZUUqtqp52JO8fKZz8P1qoCuSg>
+    <xmx:U02naMr_1gCuchPPYb_lPU7gPd33-HA5ykGlwbhi5ub0OkizlWaajQ>
+    <xmx:U02naJGGXIlio0tWiw2kv2dxlo_bRfyM7IUSQTIlc135VcoQnhlV6w>
+    <xmx:U02naOtFBjO-D_11veXXRj35ifrFUX03GuGhNW1JFbdYuu5srvLD5A>
+    <xmx:VE2naLhO1Uz_DBEYnjSUo92ko0qwruBAvn3Kka33EQIKTm_9aTB1P2JV>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 21 Aug 2025 12:46:11 -0400 (EDT)
+Date: Thu, 21 Aug 2025 18:46:10 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 12/12] arm64: dts: imx8mp: Specify the number of
- channels for CSI-2 receivers
-Message-ID: <20250821164211.GC29629@pendragon.ideasonboard.com>
-References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
- <20250821000944.27849-13-laurent.pinchart@ideasonboard.com>
- <aKdCp9INuUeQVFbV@lizhi-Precision-Tower-5810>
+	Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH RFC 13/22] usb: typec: tipd: Read USB4, Thunderbolt and
+ DisplayPort status for cd321x
+Message-ID: <20250821164610.GF1270980@robin.jannau.net>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-13-172beda182b8@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aKdCp9INuUeQVFbV@lizhi-Precision-Tower-5810>
+In-Reply-To: <20250821-atcphy-6-17-v1-13-172beda182b8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_094236_872993_E19D7CE6 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250821_094613_627139_97A0E6EF 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +122,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 12:00:39PM -0400, Frank Li wrote:
-> On Thu, Aug 21, 2025 at 03:09:44AM +0300, Laurent Pinchart wrote:
-> > The CSI-2 receivers in the i.MX8MP have 3 output channels. Specify this
-> > in the device tree, to enable support for more than one channel in
-> > drivers.
+On Thu, Aug 21, 2025 at 03:39:05PM +0000, Sven Peter wrote:
+> CD321x supports various alternate modes and stores information once
+> these are entered into separate status registers. Read those when they
+> are active when reading TPS_DATA_STATUS to prepare supporting these.
 > 
-> dt descript hardware, not driver
-
-Yes, but the whole point is to make use of the information in drivers
-:-)
-
-I'll just drop the "in drivers" part.
-
-> Specify this to reflect actual hardware feature.
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  drivers/usb/typec/tipd/core.c | 81 ++++++++++++++++++++++++++++++++++++++++---
+>  1 file changed, 77 insertions(+), 4 deletions(-)
 > 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> 
-> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > index bb24dba7338e..1e52840078df 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > @@ -1764,6 +1764,7 @@ mipi_csi_0: csi@32e40000 {
-> >  				assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_250M>,
-> >  							 <&clk IMX8MP_CLK_24M>;
-> >  				power-domains = <&media_blk_ctrl IMX8MP_MEDIABLK_PD_MIPI_CSI2_1>;
-> > +				fsl,num-channels = <3>;
-> >  				status = "disabled";
-> >
-> >  				ports {
-> > @@ -1799,6 +1800,7 @@ mipi_csi_1: csi@32e50000 {
-> >  				assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_250M>,
-> >  							 <&clk IMX8MP_CLK_24M>;
-> >  				power-domains = <&media_blk_ctrl IMX8MP_MEDIABLK_PD_MIPI_CSI2_2>;
-> > +				fsl,num-channels = <3>;
-> >  				status = "disabled";
-> >
-> >  				ports {
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index 51b0f3be8b66a743ddc3ea96c1b25f597a1e8f6c..59d270eb50ea3dc49ad32ff71f8354e23c1083c9 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -35,14 +35,19 @@
+>  #define TPS_REG_INT_MASK2		0x17
+>  #define TPS_REG_INT_CLEAR1		0x18
+>  #define TPS_REG_INT_CLEAR2		0x19
+> -#define TPS_REG_SYSTEM_POWER_STATE	0x20
+>  #define TPS_REG_STATUS			0x1a
+> +#define TPS_REG_SYSTEM_POWER_STATE	0x20
+> +#define TPS_REG_USB4_STATUS		0x24
+> +#define TPS_REG_DP_SID_STATUS		0x58
 
--- 
-Regards,
+TPS_REG_DP_SID_STATUS is added twice, below in the correct order
 
-Laurent Pinchart
+>  #define TPS_REG_SYSTEM_CONF		0x28
+>  #define TPS_REG_CTRL_CONF		0x29
+>  #define TPS_REG_BOOT_STATUS		0x2D
+>  #define TPS_REG_POWER_STATUS		0x3f
+>  #define TPS_REG_PD_STATUS		0x40
+>  #define TPS_REG_RX_IDENTITY_SOP		0x48
+> +#define TPS_REG_CF_VID_STATUS		0x5e
+> +#define TPS_REG_DP_SID_STATUS		0x58
+
+here
+
+Janne
 
