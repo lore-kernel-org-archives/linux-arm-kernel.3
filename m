@@ -4,163 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF093CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9394CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cVqIvHRUGAIk18t1cGbdXV4kxRnWuMrsyECLpBLIFtk=; b=J2KHA5KpRFId+LhOhqzw1cmvNR
-	zOEaAQ405s2SIHXLYcrhUPH9Ngt9JgmcJQDAn029gys3u5aL6LvbfoJpITF7n+FbC7YDGcwTvb8kP
-	08CPHJN+3sVVCpqVyt4fNcNPvqPN198dgeUrh26Deg2L5hdWkZ7thIfEzfBXCbne5SSDMuucgFNuk
-	yqZ//IHk4ddiQVc8v5cU+NHqLZg7ORNBqE1xLaNAI3XbHC6P7rm0ULzfB/+SLMATxGvh4l/JfRkz1
-	1DXvm3r9exM9tvaJMaYG+0LozX57HxzrJYKhP8UCUNjt09wjEnAn+1UwXlriVB7cHp0NP3Z+R+1nF
-	ffYbERFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1OzCbQvQjiE1jobblYoJbta+xq+evis9vcFR/bpUs3A=; b=h0di026JjkTTwoi4MPhKxcs8FE
+	QvoF1O/5K2kP1PhGatQYdjts6Cq3Vopca8NeQ/HH0V2wSBgnOOQIgjXn+W02+o2bhFQlkdDQbJKpe
+	xbs+f943SKRQUHoGarnP/xn5Ab9+EPcujQKRXrQtCi0NUpn9iZVl7ZIWPu/iVyzxmA5ABj7ubVIii
+	osC0Ir1WlOc5yg11WIRwsNBrOlaI0rsZE3hIx+L2oI8s5PT6arsawfi3TtoptOCrXOcbsQ2fxXNfw
+	wZsgZV/OrZHiNE39+JNOeDD6SBafSbSeDB6k3n3WNJhP0iWQAo1vC7/pWX4Uyup8G+379mS2QQHIh
+	caJpcz1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upF1B-00000000xfy-2NkU;
-	Thu, 21 Aug 2025 23:48:29 +0000
-Received: from mail-mw2nam12on20608.outbound.protection.outlook.com ([2a01:111:f403:200a::608] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1upF1k-00000000xjl-2rWY;
+	Thu, 21 Aug 2025 23:49:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upA9w-00000000BWA-1eTu;
-	Thu, 21 Aug 2025 18:37:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nxNWGVXXjY/dwoVsc3BEwfjvs0zD8HsMAxR7sUcDmKbOpJ2Aat6K6YB0jrWUAru4k7IakBUE8r8gsNmKhqwE82l9meqhCmMu8+Vr0G2xJKAzKWfgBX0NkF0WmgagrbUEinpQvYQv2QtGyDRVtRzWl+clndDbADbtt91TC+zXqq3c3hhN4jXC/cd14copYYi+QWrCWHCKz/Lbf9azgdQUSSUu1FrcJYGGLBIRqlgoUBwGaEwWZ9OGmku3vfb2LbNe0XgLU7y45YPfv7Q+j9WepFph4SHhOMojRbIbRvCTayUpr+G7ZP4HjOdVhiDeZeaSWMPJvhiAeaPdHuYAknCQeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cVqIvHRUGAIk18t1cGbdXV4kxRnWuMrsyECLpBLIFtk=;
- b=wc7gUOfNk/ZTEyMtFMJTtTQgzj2jrrAyF2uAfsY5VABvxWd71kgNYxL4NNNYbF/QEkSI3eIvEw34DWQd/Ydwd8ZSgiaiMQoDmPkZ6I4aYBLf5UfuuaYWzv8NhpovU/gmGV6kNbyu8WErQOTlCn/PlnzIlOiZ0AjEjVX9exak8b5/mNmoSIDsB0YnpdkVpN6CKyb9gyEAStEwDME2mACIedHJoRieIJu5X8H6lowd1Ef1TONQ8m2cSGP4/DljH5dZlRvZEwcjwRg5uTV92CArS46+QemOaETMU4sih0nYtpEM9kxINqNadpQAyBDHbUgmAWw9AvQbNuAnRTQP0H+hHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cVqIvHRUGAIk18t1cGbdXV4kxRnWuMrsyECLpBLIFtk=;
- b=dOWbRllUEgmEYzuLYxroRHhuKGNVmvpVDg6xGLfvLPpoBhxR9yFxFVM9tPA2bCYaRBZ1sURw1zUOVTDtDAcEPPoTZOKnK68TOiQT4N+0OMoJCui4t969cWR6yge+W8I1QE2JuwN+srZ4N9GHPMwW6lktP+0/BM0Ti3eN2GqclLZ9Fjk0gcUgVjzS/4JbIFTn/IoH3ddmhGTrL8pQ5fVRNGZNZhg9F+k7YTDBXPGT//AzmxrgrO5dUF+I+9+6cthErMM4QI+2xXJG9F2wyeTykuZBvxDK4jak+pxzUlopXo0MQjJ5yywQQzckXcHSgY+tKlf+D05f+swMHoUPb0ywSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY8PR12MB7340.namprd12.prod.outlook.com (2603:10b6:930:50::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.25; Thu, 21 Aug
- 2025 18:37:06 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.9031.024; Thu, 21 Aug 2025
- 18:37:06 +0000
-Date: Thu, 21 Aug 2025 15:37:04 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: robin.murphy@arm.com, joro@8bytes.org, bhelgaas@google.com,
-	will@kernel.org, robin.clark@oss.qualcomm.com, yong.wu@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	rafael@kernel.org, lenb@kernel.org, kevin.tian@intel.com,
-	yi.l.liu@intel.com, baolu.lu@linux.intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org,
-	patches@lists.linux.dev, pjaroszynski@nvidia.com, vsethi@nvidia.com,
-	helgaas@kernel.org, etzhao1900@gmail.com
-Subject: Re: [PATCH v3 3/5] iommu: Add iommu_get_domain_for_dev_locked()
- helper
-Message-ID: <20250821183704.GP802098@nvidia.com>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <a69557026b7e2353bae67104bbe6a88f0682305e.1754952762.git.nicolinc@nvidia.com>
- <20250818143949.GO802098@nvidia.com>
- <aKNhIr08fK+xIYcg@Asurada-Nvidia>
- <20250818234241.GF802098@nvidia.com>
- <aKQG9/skig6F8LdQ@Asurada-Nvidia>
- <20250819125249.GG802098@nvidia.com>
- <aKSyzI9Xz3J0nhfk@Asurada-Nvidia>
- <20250821131304.GM802098@nvidia.com>
- <aKc5niDWTwaCInH2@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aKc5niDWTwaCInH2@Asurada-Nvidia>
-X-ClientProxiedBy: DM6PR08CA0016.namprd08.prod.outlook.com
- (2603:10b6:5:80::29) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1up7Oe-0000000HQe4-1Opn;
+	Thu, 21 Aug 2025 15:40:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=1OzCbQvQjiE1jobblYoJbta+xq+evis9vcFR/bpUs3A=; b=G/giWimGE1iRqP3jJVwBlRIh9g
+	3lKXbk0rI91dZ8bCvlSyV+vQQKBaouwUODUDZWzolAKp+MXmoqCoawrsNrm908ZZdcHmhIXBZmCA7
+	mrTWzHP7ks95cki3Q7zLGNeidpbo3F0ygBpZzzsGeTy9WFEhiN0wiEkQ+J7v2xYzvRO+wp3cpGWXM
+	25l/F0UtDIUW81QbFCib29w015AO5HcLlLQPVHDzQ1wHHycNna/RnB5ip5ACmTUMiPRsNSGjT2LWN
+	izh/79tsYV5+jEkp4p7MNYrBoI2WTfZQcPgVsoKlzleRYnljuynpv4iky9gdM5S/sRddOBAeytDWq
+	jOngCOnQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up7Oa-00000000bK8-3kTW;
+	Thu, 21 Aug 2025 15:40:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E49E841A1F;
+	Thu, 21 Aug 2025 15:40:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 374A8C2BCC4;
+	Thu, 21 Aug 2025 15:40:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755790804;
+	bh=vklN4/w2hbW7rNLgTYVlAI33wbeeVkY8FZwbhVtsJVg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=tAw+xFUduHWkahyOaAhbPExukBZjrLPXq92a1OoG0AUbsQgti7TToFv2d9ZOjC9nU
+	 MpUpwBPyeExSw0QHPHHmmcDGR/hY+bXq9KAud+ulRNdRQnY30mADGuz0DvTnMMP8q0
+	 /Iy5DSPakV5HwaR9Gv1rrAMPFjhQRm54fBPfZEWlCUU1qnluL2tkSuvXNBSSD+TRr1
+	 ljA2+qKNofgRHGlUzso4/rg9937OCqIiXF2Q/muCRN5DW7O+dn4j/O603tNrVz7vbZ
+	 GfrRWVe51j0ilOkrAxmyhr6KLNNxE+hslkkJVriFs9a138ljii+y7sIhTnDrVDzNWZ
+	 3zcQL30PFMOtA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 28668CA0FE7;
+	Thu, 21 Aug 2025 15:40:04 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Thu, 21 Aug 2025 15:39:12 +0000
+Subject: [PATCH RFC 20/22] soc: apple: Add hardware tunable support
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB7340:EE_
-X-MS-Office365-Filtering-Correlation-Id: cce18cd4-ccee-499d-d03a-08dde0e1ba9e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EACZZ0vFxT+KKmAqKdQkBdu7Xlm1DT3rqnZtt3ZHJGL20OGuC2EYsGfVE+A8?=
- =?us-ascii?Q?q/8jsQF+YP/9X8Ot3kaXRi6h9ye6/K3u1le3rjv9N4yqymsVys0qflbUILb0?=
- =?us-ascii?Q?NxJLe6PXkVqw7T6R2pFM9xHmtLLqrRON5uDBZ/GUNtCPtkIPkS8bvNKi9YU6?=
- =?us-ascii?Q?OoSY0yIR9mpT+X5vomiubWjEzpzRwbcDR7K/yhrx3HVfzr6Xjd4LPLBiFWwG?=
- =?us-ascii?Q?2rVf50liqCDsY6dG5bVN3/CKCkbnpJRjtTwChDwyCvcS1xk6JUvUS1b2Dg0T?=
- =?us-ascii?Q?tWcNx1FQWitgos8uw8sPRVrIljea71tK2ju1g9FDiZmWok3GWuQGTTftCuuG?=
- =?us-ascii?Q?gA9L1J/Kxkr2tn1j2+T54j5rBuUX4prU9F6MS86x7OmD4rPPNLWJr07Ian8s?=
- =?us-ascii?Q?hY/IQNE7SjW83KTooCyXUtDW8n2H9ofqalmA0tbMsiupu+t/awlyFdupMEB5?=
- =?us-ascii?Q?vwz7LH7fjmdKrojJQ7vMzoW9sAa3isjK1xihrYpj4aqPKf0PBlY4gvlNfysN?=
- =?us-ascii?Q?N26wRdfLE9YGGAs414d1j5KXN4Mqxf9px7R28FO8dxe0OCWkVY1a5PuGuJLA?=
- =?us-ascii?Q?ClKm/9I5ihd4DwCeJMdhEPdcaTwCliEXaN/A1HDySW+LvblPNAx55BAMqc8H?=
- =?us-ascii?Q?cF7wADFlcrY7ytjvOEyz20prRtFGGzTlrX0ZUqOe4DGgJDZ7yHwe/TnRDHKl?=
- =?us-ascii?Q?evm1Or/0l3vLMp5JL9KOF3eJ37dLwox27+TLAh2upQurAKzX8xgVGVurenpt?=
- =?us-ascii?Q?CVhobzhlQtUEwujtXdBAxwYyC9/cA52m7sjS4WrJvwFPGptueeER9pd5bdLy?=
- =?us-ascii?Q?X5D3o/K3kwZNHg46Q3tPyTOtv1DCfaYMh9U3nEE2TXQaLlL8Y2dPOk6aZ2k7?=
- =?us-ascii?Q?O123MxbA2WO+nsArUEmZvM3MsCcCd2cRuxX+buJMM4X75x7V4MVKy9Dk6u8I?=
- =?us-ascii?Q?1brzTGrHpQxAYOxfK6+d+ZDgOD2hMHYV3rOLuCn0eWClWFnyASuSQbUxzk3Q?=
- =?us-ascii?Q?2wM4Z4sdXw52hneH0rYpaNoL9PD38TMQDrT88kqiLfZjR6PTpoUaiGDIZ93P?=
- =?us-ascii?Q?t8iOJzSEdoigfLPkh+qDRIJlYrLyVKB9LCXiLyqibc9D8dmFnLxjbRswMSq2?=
- =?us-ascii?Q?4I++f60Qm/S4eyBYJ5Z5F9+/5hD69JJSVMiI99HXeqEb2oysfNHwlmf3xmcE?=
- =?us-ascii?Q?JuKXIIm8SxnfWKy447WGSkVcF6mOiTYaIeHyhWt0OEu2NzVofGwDChpevJ78?=
- =?us-ascii?Q?x0Y9iaP8nhtN5Kcve8RpyehVkpJbtl/sEDskQBIugtMHEOobi7CzozPxVjgl?=
- =?us-ascii?Q?Qx6BbQ1NBJI5l3PEsmPd61yEL2IM98+yUf7ZifTgMQhCVS+JoftqaT3ExrVd?=
- =?us-ascii?Q?dodMiNsg7kBuFhFO1sg+kSFTbDKWn5DAvNUw29p1luegjFpCT4KA7Sxx1sY5?=
- =?us-ascii?Q?TAd7OSETRiI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FI6Q68YLrUrpJfi+iiMwsG7wwYPutIgbpto6YKklKspsadXE/DQgfpAmKWZV?=
- =?us-ascii?Q?3oN6UbwuKoUMIfIPxQAPgnpYz/81cIuPTpaP0g0BRrnrGyb3BTYvu1FQsE/j?=
- =?us-ascii?Q?DM3GvjHBAy1tszNFiPqOjPZUUIIcIyumx+opSaKhponWT2+028F+pH4uNjHy?=
- =?us-ascii?Q?o+v5dsx3ipWp+7VVM1WQKHRaJ2IQxdj90D2pnKZXPLbq2Yykc2qtULzMQnKF?=
- =?us-ascii?Q?Q7oC30FKiRZ/xTdxlugh1PBx/DGfgCQFXxbDQ7Jz/YX7kyv3qm6mae+iPC3o?=
- =?us-ascii?Q?GsjkLJB+1zqlrnTzgrvqqaEOB8emPWTJufTnvLVDW/b8K9IxyqTo8B7ltiPI?=
- =?us-ascii?Q?Q8avYaujOU/dzqWyPEi0Q8fj2vGC08sfUD4d2UVC8eUX65KKr737TFSaSoKQ?=
- =?us-ascii?Q?Neocm6ewszmbIFrrEgYH38xijA6z6j5L5QcMkoRdBLjZ2U0J2/QgM3YmPBSP?=
- =?us-ascii?Q?3NnNH0OoqpUgyWRu2j0FsaACFg3Ncni8YA2lyFXGkPSM/lc0FUde5sWUJtL6?=
- =?us-ascii?Q?M0nujN630YiORDFNfqL4ndSctXb9mXD6tsBJd44NnuvDbSsmdOD86mkjqHRq?=
- =?us-ascii?Q?aWEsByHxlL3WAxmDCmjP0vVfGi9GvODzfv6s7UDJdMdHEtyE+Hlr9cHVO5Ba?=
- =?us-ascii?Q?edT61Ns8COcNukTnztBNWjeqmZQMvw/dyD14QzhE34Z8XwkJNDW37pkT0TN1?=
- =?us-ascii?Q?AbtctDyxgFm+TpnVEkeZAmckSRgUVabCH01m31ILpE4xBG1hCNXdewjP6ISl?=
- =?us-ascii?Q?3XIOFjUela6NkwejhDHWCpNMNywuKB4po2Ihgp6nenO2Cpxh7ohCmAUWyvRv?=
- =?us-ascii?Q?gsB93scgwrREN5kDjC7RjcgTmv1jk68Ebda7FHGA/SVz4dsPT5A7Wl5IeKyd?=
- =?us-ascii?Q?L+ybFvQS0JNUgirAX6FPh7LmDC9BPCuScU0Z6F3GbZvnKsMnaWNba9HVQ+x9?=
- =?us-ascii?Q?d8GvBw0eGSw7mheaJ5svWFCswnGVodRET2LukSecTXQpYduXljB5/KWhiNun?=
- =?us-ascii?Q?OfeWi8osYE46LKOp7zeEooOlb0UFZJeV0+uYRlGqbqtGAwl7xpVIDh+emwVb?=
- =?us-ascii?Q?GzjFh6pKuNhD4ZQHLSc88vJ+Ro96xZ2/SbfWPG4Bvw82PmLHYhmUZlH7wpNT?=
- =?us-ascii?Q?jVSkrL0InlXeoFVrVGPq7MkTuk519yl49IjEmLwzj9cJT8s5aCLA13IdE04G?=
- =?us-ascii?Q?HUWl0BCREqGTUybu8AuCODBVAvMbh9rLaZak/3ahHspdIBgYAMpolTDnHCsV?=
- =?us-ascii?Q?UxRYKXXrk2lS6XK0pCocsHqhP1PoqnEw+JsQXMDFLeU7c7cUmliEPHy40EtG?=
- =?us-ascii?Q?ZB/M+aXilFiM8x1KHR2tgG7KCdoG48BpC16QgKQaQxlkt9zEdcLOwWZJnTJ+?=
- =?us-ascii?Q?LXcee4vAsqp1iF9ElBZATR2LlLTTSHTDf6NXxcPSJOxlO1I3uzBvi28IqoZF?=
- =?us-ascii?Q?eBQY05wFNiX6t2RsKZwUCtSgl9XJt5RxeJaNl/iwHyrKpdiCYbc0WUX3AcwN?=
- =?us-ascii?Q?4Szoj69j2zPpKcwtJ57nL0zsXBunucfWqn2s0XWkMM5VBE/4wXbjVmyBGWGw?=
- =?us-ascii?Q?kovmlH6Xhl6ZhQgVn/XvS0607t3OkMb2fOSAgN0e?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cce18cd4-ccee-499d-d03a-08dde0e1ba9e
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 18:37:06.1295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vs1ErMQy38d8Tl9tMUO1GbV8jVAsOC5tFeWx9aihJuikn+CZ2LiU7zkLVqiWHh0H
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7340
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250821-atcphy-6-17-v1-20-172beda182b8@kernel.org>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+In-Reply-To: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Felipe Balbi <balbi@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6361; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=vklN4/w2hbW7rNLgTYVlAI33wbeeVkY8FZwbhVtsJVg=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8Zy21PV4iZzXpfc0TPWYvT0/nIx9ueWn9s2MSiGzV+wq
+ 3PZic03OkpYGMQ4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQATKb7CyPCkcbqJ7JuLEkmz
+ GQsYm1WZ/gfP4DiiZfVrhvfthdsfbv/J8OP35dRP5QF28fv/v5s9keVIj4O/1YYbfVMs/nf/tnu
+ 9hAcA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_113712_614107_5D63F534 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250821_164009_445668_507E96EA 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,29 +109,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 08:22:06AM -0700, Nicolin Chen wrote:
-> I should have pasted the full piece:
-> drivers/gpu/drm/tegra/drm.c-960-	/*
-> drivers/gpu/drm/tegra/drm.c:961:	 * If the host1x client is already attached to an IOMMU domain that is
-> drivers/gpu/drm/tegra/drm.c-962-	 * not the shared IOMMU domain, don't try to attach it to a different
-> drivers/gpu/drm/tegra/drm.c-963-	 * domain. This allows using the IOMMU-backed DMA API.
-> drivers/gpu/drm/tegra/drm.c-964-	 */
-> drivers/gpu/drm/tegra/drm.c-965-	if (domain && domain->type != IOMMU_DOMAIN_IDENTITY &&
-> drivers/gpu/drm/tegra/drm.c-966-	    domain != tegra->domain)
-> 
-> So, the check is two-fold:
-> 1) is attached
-> 2) is the shared IOMMU domain (tegra->domain?)
+Various hardware, like the Type-C PHY or the Thunderbolt/USB4 NHI,
+present on Apple SoCs need machine-specific tunables passed from our
+bootloader m1n1 to the device tree. Add generic helpers so that we
+don't have to duplicate this across multiple drivers.
 
-Yea
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/soc/apple/Kconfig         |  4 ++
+ drivers/soc/apple/Makefile        |  3 ++
+ drivers/soc/apple/tunable.c       | 77 +++++++++++++++++++++++++++++++++++++++
+ include/linux/soc/apple/tunable.h | 64 ++++++++++++++++++++++++++++++++
+ 4 files changed, 148 insertions(+)
 
- iommu_is_domain_currently_attached(dev, tegra->domain)
+diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
+index 6388cbe1e56b5a9d90acad3ee2377ed6ac0d207d..f266b70fd9620cc940dc685f7eb2972c21a361df 100644
+--- a/drivers/soc/apple/Kconfig
++++ b/drivers/soc/apple/Kconfig
+@@ -41,6 +41,10 @@ config APPLE_SART
+ 
+ 	  Say 'y' here if you have an Apple SoC.
+ 
++config APPLE_TUNABLE
++	tristate
++	depends on ARCH_APPLE || COMPILE_TEST
++
+ endmenu
+ 
+ endif
+diff --git a/drivers/soc/apple/Makefile b/drivers/soc/apple/Makefile
+index 4d9ab8f3037b7159771d8817fa507ba29f99ae10..0b85ab61aefe131349a67d0aa80204edd8e89925 100644
+--- a/drivers/soc/apple/Makefile
++++ b/drivers/soc/apple/Makefile
+@@ -8,3 +8,6 @@ apple-rtkit-y = rtkit.o rtkit-crashlog.o
+ 
+ obj-$(CONFIG_APPLE_SART) += apple-sart.o
+ apple-sart-y = sart.o
++
++obj-$(CONFIG_APPLE_TUNABLE) += apple-tunable.o
++apple-tunable-y = tunable.o
+diff --git a/drivers/soc/apple/tunable.c b/drivers/soc/apple/tunable.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..3d9d47b3861f6fea637a3c82f270e5d321b1a48e
+--- /dev/null
++++ b/drivers/soc/apple/tunable.c
+@@ -0,0 +1,77 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple Silicon hardware tunable support
++ *
++ * Each tunable is a list with each entry containing a offset into the MMIO
++ * region, a mask of bits to be cleared and a set of bits to be set. These
++ * tunables are passed along by the previous boot stages and vary from device
++ * to device such that they cannot be hardcoded in the individual drivers.
++ *
++ * Copyright (C) The Asahi Linux Contributors
++ */
++
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/soc/apple/tunable.h>
++
++int devm_apple_parse_tunable(struct device *dev, struct device_node *np,
++			     struct apple_tunable *tunable, const char *name)
++{
++	struct property *prop;
++	const __le32 *p = NULL;
++	int i;
++
++	prop = of_find_property(np, name, NULL);
++	if (!prop) {
++		dev_err(dev, "tunable %s not found\n", name);
++		return -ENOENT;
++	}
++
++	if (prop->length % (3 * sizeof(u32)))
++		return -EINVAL;
++
++	tunable->sz = prop->length / (3 * sizeof(u32));
++	tunable->values = devm_kcalloc(dev, tunable->sz,
++				       sizeof(*tunable->values), GFP_KERNEL);
++	if (!tunable->values) {
++		tunable->sz = 0;
++		return -ENOMEM;
++	}
++
++	for (i = 0; i < tunable->sz; ++i) {
++		p = of_prop_next_u32(prop, p, &tunable->values[i].offset);
++		p = of_prop_next_u32(prop, p, &tunable->values[i].mask);
++		p = of_prop_next_u32(prop, p, &tunable->values[i].value);
++	}
++
++	return 0;
++}
++EXPORT_SYMBOL(devm_apple_parse_tunable);
++
++void devm_apple_free_tunable(struct device *dev, struct apple_tunable *tunable)
++{
++	devm_kfree(dev, tunable->values);
++	tunable->sz = 0;
++}
++EXPORT_SYMBOL(devm_apple_free_tunable);
++
++void apple_apply_tunable(void __iomem *regs, struct apple_tunable *tunable)
++{
++	size_t i;
++
++	for (i = 0; i < tunable->sz; ++i) {
++		u32 val, old_val;
++
++		val = old_val = readl_relaxed(regs + tunable->values[i].offset);
++		val &= ~tunable->values[i].mask;
++		val |= tunable->values[i].value;
++		if (val != old_val)
++			writel_relaxed(val, regs + tunable->values[i].offset);
++	}
++}
++EXPORT_SYMBOL(apple_apply_tunable);
++
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_AUTHOR("Sven Peter <sven@svenpeter.dev>");
++MODULE_DESCRIPTION("Apple Silicon hardware tunable support");
+diff --git a/include/linux/soc/apple/tunable.h b/include/linux/soc/apple/tunable.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..4a149f0f210d0b4b9e17c213f0482e8fbe02355f
+--- /dev/null
++++ b/include/linux/soc/apple/tunable.h
+@@ -0,0 +1,64 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++/*
++ * Apple Silicon hardware tunable support
++ *
++ * Each tunable is a list with each entry containing a offset into the MMIO
++ * region, a mask of bits to be cleared and a set of bits to be set. These
++ * tunables are passed along by the previous boot stages and vary from device
++ * to device such that they cannot be hardcoded in the individual drivers.
++ *
++ * Copyright (C) The Asahi Linux Contributors
++ */
++
++#ifndef _LINUX_SOC_APPLE_TUNABLE_H_
++#define _LINUX_SOC_APPLE_TUNABLE_H_
++
++#include <linux/device.h>
++#include <linux/types.h>
++
++/*
++ * Struct to store a Apple Silicon hardware tunable.
++ *
++ * sz: number of [offset, mask, value] tuples stored in values.
++ * values: array containing the hardware tunables.
++ */
++struct apple_tunable {
++	size_t sz;
++	struct {
++		u32 offset;
++		u32 mask;
++		u32 value;
++	} *values;
++};
++
++/*
++ * Parse an array of hardware tunables from the device tree.
++ *
++ * Return 0 on success, -ENOMEM if the allocation failed and -ENOENT if the
++ * tunable could not be found or was in an invalid format.
++ *
++ * dev: Device node used for devm_kzalloc internally.
++ * np: Device node which contains the tunable array.
++ * tunable: Pointer to where the parsed tunables will be stored.
++ * name: Name of the device tree property which contains the tunables.
++ */
++int devm_apple_parse_tunable(struct device *dev, struct device_node *np,
++			     struct apple_tunable *tunable, const char *name);
++
++/*
++ * Apply a previously loaded hardware tunable.
++ *
++ * regs: MMIO to which the tunable will be applied.
++ * tunable: Pointer to the tunable.
++ */
++void apple_apply_tunable(void __iomem *regs, struct apple_tunable *tunable);
++
++/*
++ * Manually frees a previous allocated tunable.
++ *
++ * dev: Device node used for devm_apple_parse_tunable
++ * tunable: Tunable allocaated by devm_apple_parse_tunable
++ */
++void devm_apple_free_tunable(struct device *dev, struct apple_tunable *tunable);
++
++#endif
 
-> Overall, I feel this would be a big project yet arguably for a low
-> reward..
+-- 
+2.34.1
 
-Indeed, we can drop a FIXME comment there and leave it as the last
-user or something perhaps
 
-Jason
 
