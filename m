@@ -4,86 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF19FCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A744CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=; b=ytIISKVMWtwCw94v/IssQMvJt5
-	gvEFihHd8NGrMdmagXlJZBpDs1B6Q3KGxeLHX/0grV3cOFAY/1yE/3Aey4gFNf5qsLxdp30/BB/4i
-	JQt76YFGC3AIO4fUVrWrTzQQpIanu29d1Oe5JgH7iMnCWjrJnU3q3NGI6aFsL2OGFFxFahkXxOmK1
-	KsHBd9REt2E2QLv6MHE6O+cXIjPD91VXgaCo1zRMC3z6I3SbCUV+HOdCYqsGcgRQuRIvamX6m7q4S
-	jt9bmvSlr4hDlHT/1epGzBtPgxl5i+scb3BjNilPXfAz/Z/KU32gKXEeWt+Rc0d3I8nHOwmuNM2+J
-	H6tgA55g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HQeRNUwsTzSYgCXoFkVy9afiZXbW9eSb3Xz5g5K0FZQ=; b=wWeMmSxfqIsonuoOcWoqLC/euL
+	H0G7Mjz8duxjo3EUMTvC85EJlhd666DglCtOOeBscJzj45bJabmY0hJkVMIuP91Mpff15HC7PUlVs
+	UijyIVbPZ8wi7SPcG6lX6H657/i0R7crTx2rDVhXvGdQFKwdBB+597gbJYyiQW1neRTMf9Fo6t3/L
+	k1k4+KmceEzpsk8i1MN+a+vbBQcKgPlFNg2qaoqXNvpods6QTnBq/qiAa4+3mloOs1PEBL56U3qJ4
+	N8zq4g7cT6P+cB2u0uzOkVbZ9c1GrWXUGgyQZPDSV/MufDfFALrtj+xGAFLDvZaB3yMnRRnznCg1Q
+	pvTZIVRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uowBc-0000000Fgyo-0Pgg;
-	Thu, 21 Aug 2025 03:42:00 +0000
-Received: from mail-pl1-f178.google.com ([209.85.214.178])
+	id 1uowNN-0000000FkHL-3DH7;
+	Thu, 21 Aug 2025 03:54:09 +0000
+Received: from mail-mw2nam10on2096.outbound.protection.outlook.com ([40.107.94.96] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow8t-0000000Ffmb-113Y;
-	Thu, 21 Aug 2025 03:39:13 +0000
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2445811e19dso4426795ad.1;
-        Wed, 20 Aug 2025 20:39:10 -0700 (PDT)
+	id 1uowKk-0000000Fjwe-115C
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 03:51:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VFFUy6oV1w5CGBi267GVJkChvZK4zNZcpVp8eiz/MwTVjuumXF0QrZo4+/uJD73Gg0t3Q7LwrKdvrHDX1U64Nj1GLh5I7/Rn+GQ3AvwAWJzBJUdJ0e1E6zZVYryDgLJNDGo4foVzBEONCzwn3QortMoOxfzHwt/i9pKJ8RYc/HoS4ActNpDfOYPv8dlIKQjM+QauFEmya+iB6fwY4NhUWgxkT6MdugZMWSmfJg/CZd36CC+aZr/cs9ZJDfNI6AWA4lzK6G8gvjCz/u340t1iaLTnRp6OUUFLZ2u8wjitYhzdRdh3sulQA7k6nQqR4sRkWP5/FByoyRtiSas3eG8liw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HQeRNUwsTzSYgCXoFkVy9afiZXbW9eSb3Xz5g5K0FZQ=;
+ b=QE0PlXRF9I2KnwSnWf7pVVbq02K2z7ZTs/+Z6elxzW+Kgq43+l4ei2+OfFo6btEYyLKcHYnUTqgJZXTbU55TKnPI1JDHuGTGnRBHBX0WwrCnpiTi+iBuQRKmnOl42stsnIKHcclxYHWfK2ktpnLDOaFKiNroEe+J1Ih1XldoBnGqUirE28gUoPgd221NyZ2hDMsF+Jd7ayXSM2U4FjRG0WlzVfviGC8ALFLVKZjjOYVMXncOhHZpYAvCLQe41eLaebqx0R/9GZNGs1eM+O0iHbfj6PmuiBEgxISux/YL8KfQUla0aXTlyXts+xwPS5+bNy0oWzxNnQbVQilGJEgr5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755747550; x=1756352350; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=;
-        b=IclCbMStF3huiGFIfEPVwm6sNK8ChEWIq2bBfg4RwRLooLgqHJEagzyTIJ74ScC/sk
-         VVjPGs5e9ZyV8K5jIZeRfZEPvSK4uRT9gZwARRPLk4mDOh9RKyXWZirubL5r7qRntcTj
-         gapj99AC8UOZm9MaIuXyYssr+GeOFmCKT2gyQKtwQfs5m/Q/1abA6VBXhvBZ4/HeblXH
-         Ht6z5Y1PrNiYyxYBlEtqINzIAO/GnxZZdO1jNfDZyUPN37CI0sZiqMDP/mUZ93dsmYle
-         l+O2s4ErwtbFGYNK+x8DBjjB6QunKn4wVX2JqcMnifGYSzuD8Uc6AZZklNcuH+xqatgt
-         LoKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755747550; x=1756352350;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z8uyqtJucGRhHAMPSIQ7cb4WnZTqHSO1ebBr3H7uCas=;
-        b=GuOhnb5pX0JhpeahBj4Z9SNZSzzmTFZm0rUY3JkgYNr0TYS964DXfnH0Tj9bYoLjXJ
-         LdteN4ksYyxEQ8Z0DNb6eqPjqsGKPCOPbWJwRoQvqx5geR3GOR8+8gK1uQhqYRP+FThL
-         FaDwXCZWnsSTjPXK5C0VBImILNiT9q1S1s9rKTPVDvKcYiBnx6dnD18CYz/7vCp8PwzS
-         yjQVukWm/2x3hqMt5p/pL4+DDG4L3A65y0v+ABPpUnG8oJ+7S47vrUkpQplhp0X0tg1X
-         gH2wB19vmZBBL5V7sRPlYbZmAGxip5eobwGUae2tcCoi5wIukKykQ3DJMHbfMHyuPyBc
-         OEMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW5HzHj2qiUnujYjpRVjQKykL7SnLWogPGN4OOIc8+gMulqoobmWpf42HbNg6CVClb1oa5QBD8N4IU1MwCo@lists.infradead.org, AJvYcCXMnTLreHrWv1EOSS2VjhiyYZPwapfFfrYd1LGinkLYWhbwbHpx7BqAV/COvq/4IoSZqFjnjmDVNjxGvscDCsZ6pg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxK1O9l8zI9hDt2PIxqprDlvwe0MD2dDYLBLlxyWbBEtSPxGZ9
-	vM90kT14zut09SS0X6Yvg7i3ksADNZ1YLSvKVT4ypPc8X1Y2PBBiwMYoXVUzAA==
-X-Gm-Gg: ASbGncsJM0iazY6/jOAaHFf8RmOQiUm0DADNqC4bRWRWsnT0upnSYCy1opQ2gLO4EKY
-	2MPS579ta+WI4Y+z7SS4bRSLKKXDqUsPMSSqhiMwE9H/JryZI6NM//WjEw0/QJKo7fzaAY38Kjw
-	KLFZcAdLWmBjnW0BIM52HyYrEjnuCLLXkH2KZdMYk5OND3DgtNVJZxgEA7/d2mdWJAu3mgR0kbB
-	392tSKWtHXOQeSrydP2YAoRJPOvOlGOUKrKJnpMF6rjwzFj7ubk50YeylIvpP+2WFM1o22YnKyN
-	mnJfqEL/Vxh9Fcv61VwP1GWz9b3ubd4NhFXt4e87l4cgM0TZBscF0WLVCGfNSHXA29Dpd6n9PEw
-	jME/Q
-X-Google-Smtp-Source: AGHT+IHwuUrsCGRj99hLQ285uZapEb5o3oL6q6U0D5DJlzBFxoN/jLfLD8vBbPMDeM4DW+vxhrlf4Q==
-X-Received: by 2002:a17:902:d50b:b0:242:fba2:b8e4 with SMTP id d9443c01a7336-245ff87d7cbmr15536745ad.56.1755747549584;
-        Wed, 20 Aug 2025 20:39:09 -0700 (PDT)
-Received: from archlinux.lan ([2601:644:8200:acc7::1f6])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d524c88sm6799386b3a.76.2025.08.20.20.39.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Aug 2025 20:39:09 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-wireless@vger.kernel.org
-Cc: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
-	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE)
-Subject: [PATCH ath-next] wifi: ath9k: simplify eeprom format strings
-Date: Wed, 20 Aug 2025 20:39:08 -0700
-Message-ID: <20250821033908.638871-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.50.1
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HQeRNUwsTzSYgCXoFkVy9afiZXbW9eSb3Xz5g5K0FZQ=;
+ b=VooRY4fq+q1AABHwzhtDLBsueMiYJ9+RzUvXL1cNdfOCiZPKDMdYDDI/JgKNj8CkzeGQjw3xPzLGRLcJr7DUE6wcEma29EEyEqZDS6f9dmOfHtTpKe4Yrfnwac6UMj4Hak3DmExIVjjRWcPlDmM3+NmbVKlpWs4XisBC4C+SmdU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
+ CH7PR01MB9026.prod.exchangelabs.com (2603:10b6:610:24b::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.14; Thu, 21 Aug 2025 03:51:21 +0000
+Received: from MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
+ ([fe80::13ba:df5b:8558:8bba%6]) with mapi id 15.20.9052.013; Thu, 21 Aug 2025
+ 03:51:21 +0000
+Date: Wed, 20 Aug 2025 20:51:18 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+    "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+    linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ACPI: AGDI: Add interrupt signaling mode support
+In-Reply-To: <20250818065437.85905-1-fj1078ii@aa.jp.fujitsu.com>
+Message-ID: <a6d5d830-b1f2-c14b-7753-82f35baec8b4@os.amperecomputing.com>
+References: <20250818065437.85905-1-fj1078ii@aa.jp.fujitsu.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR03CA0292.namprd03.prod.outlook.com
+ (2603:10b6:303:b5::27) To MW4PR01MB6228.prod.exchangelabs.com
+ (2603:10b6:303:76::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|CH7PR01MB9026:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2183fc2e-551b-4192-6dfe-08dde065fd8c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YKOZDqNEADhWk8WX6LRaa1gQ6/E3pyuXWu+tDW0uVEa3yblC8M5olwvy+wgx?=
+ =?us-ascii?Q?8GTvbH5wUAiXwnbR98NDMv+Dbrgt4M6xnTNhBE10Spbgw8FTbTCF0WwESkfE?=
+ =?us-ascii?Q?yZHmC/Ts4ucXP7VbRcMO8TqFy4znVuXH/ZOWHnplbaEfGfGLiooWIMbx9K/Y?=
+ =?us-ascii?Q?zZn8VUcp7poRI2cNQG8fzw79c3tpRK2dYOmt/CO/EUG20naxS+ImCWT+Ru+7?=
+ =?us-ascii?Q?9BmdULC7Mmb5vUCATLtMsgYCmijIsHw/kMX9CvMXurhqV1SBB1QyNsJQdyPd?=
+ =?us-ascii?Q?WJKz29zX0Lk2ltuIjDyGZUWAbEEM+vXPM1pCT9hrGsAx5GGZEgEE8mAwfThK?=
+ =?us-ascii?Q?mJYr4Ady0/14mVZeSanlpmytIp3rtUZdCfS3GW2qoZdpYKO2W3IeDDjxUMWs?=
+ =?us-ascii?Q?TZUMBLHO11uENfZEEunH1j2ytEAvlI41ZbDlnXnUFKEyJGqId2T6y5a1ra4f?=
+ =?us-ascii?Q?Cv86qr63gHScS1fEgm2TFYHJ2yJwy7CTpXlvYJtYIscH1TQ5VoXFWh49SPli?=
+ =?us-ascii?Q?ye4xIPos5TDSbiT31ONm6XFc30GdqewhySMkYCww8fdL3EvSjuNDXWY7KsEu?=
+ =?us-ascii?Q?OzURDwdFeIjvz4GVOBem4YDzuwKkuWu7nXEi3W/hp2J6MP25FEwOXUehwIW8?=
+ =?us-ascii?Q?l3uETse0ivLGvD4Bet03TO3iO411T3IDS4hwgXm+BytFeiLD20Iu5POZF+Qk?=
+ =?us-ascii?Q?IZE2173kQHB64JzISZHk6eszSZRi9eaiX3luabDBmPR031FBd3iILouSlAIo?=
+ =?us-ascii?Q?EJHFDYJfDA7x+Lr5oJMbC7z1YDiFPEgxpe3qLg7qXj5X8PXeMb8RfkbLPc6K?=
+ =?us-ascii?Q?vlE7H5r+wizBoPDW/52AYYtVTAFYvBvZJdBsEQCJ/l4t0coKwtihZztS7de7?=
+ =?us-ascii?Q?amWbZbzJvtj8izb/kEerGC+wN7CR9rp5iZO+aeq8gxFoteGdFUMfOUDVWV5h?=
+ =?us-ascii?Q?bNGRSNOzGJ3l+shEoV/tcPjKOJ8ECMxAunYFHs4TXhmbe9lDzUCjUyK/lRGH?=
+ =?us-ascii?Q?Nu48nz+tk7Kcn5YjoWjfAjZZoSDsyxQ8aHyY1oUNTZvcXM39hR6En9vAjQv8?=
+ =?us-ascii?Q?j3z61Y59Ql9KnV28w36m8Zr7TNtSV+dq1wdLjDgHdRjpaAebmZ3t0LyBCZoa?=
+ =?us-ascii?Q?BJXoDX5dC38nmhXBxL65Xu5MMmNu0VVWPS8gvJwePQ36Jcc3m1QQUamwDbSB?=
+ =?us-ascii?Q?te+wCM7KO0OIaUfU2qmRX8w2pNNrcYmjsbvgYaKxD6jXJmTD5vXKKSxMV7SO?=
+ =?us-ascii?Q?23cfgqXW0nSiBl970IZqH6ZoGYX6P7pX+j8gRrSbv1F1f19aAlD9vjt7ZI0O?=
+ =?us-ascii?Q?VUYdREdRMnTGfUQ3bdluRS6D2entaZAo0ki048icuCgo8PgaK++kJrpDMzQf?=
+ =?us-ascii?Q?gC4o61usJvswxGOx06nh7/9214qQ4uOoYmAXogkEvraDfHpUoEYcygBsClrT?=
+ =?us-ascii?Q?qQc8yhaPdlWqqbWJ3QP/2VaCZ2OJkrAAc1Lr5ve7bSILYmpwFUZcWA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JK1UbsVVyLxaUCw+ATaKH1GUwR15JHTrHb8jwa6EMVR4s493g5EFBqbHiRja?=
+ =?us-ascii?Q?6mC5NWqJ4DbOLtJNk9gS76FgoFycBY4X+N3+mwhknzhkZj2Vwphi9rXLh+zb?=
+ =?us-ascii?Q?V1c91zwPbQsLfX8NVPY8YBdGeoZqNxFJf6lLnnVFXizQ+DLZl5uc692srAhu?=
+ =?us-ascii?Q?qrgIgN+mm1LX9ACmi68CF6joRc8gD7UURDQdKcFa9XaDkQYyUBKn27M9mBl+?=
+ =?us-ascii?Q?O9O/IZWh8oMnadFJSS6kMMAp9Rycqhx2m3YfiEWU/u0LQWQ6ti3JVLWAQR6X?=
+ =?us-ascii?Q?1km0b5oCFKx6Z3oepKxv333udu0YM78v92puAvYXbCdctGPxw2IqymEewV5G?=
+ =?us-ascii?Q?eLTiZAvVa5VpvydRxMCqhML21+9WGdXMIv++Pbr4fE2cVn1GUyF6kzLh1DBt?=
+ =?us-ascii?Q?/aZRDGjNfQEg6aze/IKSka5qkdM9HOe29o+9XwzjClSN1Qv4EUKhRwJFfqyx?=
+ =?us-ascii?Q?Lk/K9v/nEYF5wxpKgJoV5mFZQWNdeQrCEnLdgqV4SEQ09py3CVDHBrTiqu6L?=
+ =?us-ascii?Q?/sYw5s5eEdnQz5zsjCX+/q/8KcnOvyVvM0ns1gW7J9Deb/TOk5fm+6kT4e1l?=
+ =?us-ascii?Q?iwsYpHJF340yl6DS5K6dTpZ2XHEjWE5QhHllGL9nf4yiqXNhfhDTB7qN3Vjk?=
+ =?us-ascii?Q?O1PhJtbc7gIh4wyu/3GQay/smtVz8+dP4szkRxYDsRqt7UFMKOiMs5QjsfH2?=
+ =?us-ascii?Q?p8i571FMKA/6acWiVC7KV3gsHxlqY4g6CrLE/FKLFUxHJrLeu2lJ1Gimz+OH?=
+ =?us-ascii?Q?RfAdcOzdek6WbEtZnDm9vG8QxTQ0PKzs2GLK13KIxhtonH1B7hpfTarFVpYG?=
+ =?us-ascii?Q?Driskc+E/K3x+y+KjC0OhzDqingu0VhhzcKRLzkeNE2D5BRnMrJa16IpQrRx?=
+ =?us-ascii?Q?X0ors+rTysK6pQQrYXFbfqLab5tWZkajKzXURh4ba43LSKJStY43oCVOkBEV?=
+ =?us-ascii?Q?IZpMtYuLJQKY898Jn8GtR7GRHiQFdof5OCiQTx67RO0tSDOtjIVDiAWzNVA+?=
+ =?us-ascii?Q?vqV6rx6EiMAwOm7Nc0+KKWrN0T9+2E5t/SIzRC3C0L0Id72PXYSbd1kmghEF?=
+ =?us-ascii?Q?6S83YU20Ip59KaCsRXiZUoNW9RIgK/IC3r6y6lFYx8vrrhr3XpnApoh4ncmt?=
+ =?us-ascii?Q?AZKw3euZklkdX+1hC8ECL41iZfmn6RPG8LIZGKfCD19CpShvmASqSs9QHNy2?=
+ =?us-ascii?Q?H/GwuL7t11uLYR/XA+sFQHyEVcfhP6vol/JufUXf7Icy0llX15Gpv4f+qwjF?=
+ =?us-ascii?Q?KYbtlMggX5j38Cy0nRMHrau+EUHgRW/Q6D2SOJjTKgrXaGyajZpROcsoS6Cb?=
+ =?us-ascii?Q?VaeiHh/JRHzB0yxbCGmpFTJGLheAmFyOfkmECz/pj+rSvABDD/IX38FgpBaI?=
+ =?us-ascii?Q?yGFRYZKxNml+rVZcfS5iDzLc/FH3iUm1N0bQYklbOOz73+Db/M8ZeURRnvqg?=
+ =?us-ascii?Q?2xcuwdI89GJ/wmBrnn2toVMLRM0EyRuMG7zaANzJgIcipKPlaaIClWwQiGmT?=
+ =?us-ascii?Q?Koh8g3OO0MNjOtUjdiwRbrzpoUuXRlV35AzbfAKM4sXjonbrtNLhNs1LlaA5?=
+ =?us-ascii?Q?o7bCvC+sJ0RYfqea+9zlGcQebo9ZipUniJyX9waP7t2awsfWY8uI7LBobgnD?=
+ =?us-ascii?Q?CplBatn0hovbLbtB8B8iozU=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2183fc2e-551b-4192-6dfe-08dde065fd8c
+X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 03:51:20.9861
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HjQ1b9/8Q9ZknnHCgNQLokw55b5fIHeWv8AMi8zL3lDfCTDdWaeV5n+byW1To800UNdqRjOk0wCoF50LCVDMHCf5FKXw1M1vGZVq0VwAi6TW0y7ODRbZP5PwDaGHGC9y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH7PR01MB9026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_203911_370157_14A68D36 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250820_205126_329018_1C727857 
+X-CRM114-Status: GOOD (  33.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +160,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm is already used here so might as well simplify the whole function
-with devm_kasprintf.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/net/wireless/ath/ath9k/ath9k.h                |  2 +-
- drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c | 11 +----------
- drivers/net/wireless/ath/ath9k/init.c                 |  7 +++----
- drivers/net/wireless/ath/ath9k/rng.c                  |  4 ++--
- 4 files changed, 7 insertions(+), 17 deletions(-)
+Hi Kazuhiro
 
-diff --git a/drivers/net/wireless/ath/ath9k/ath9k.h b/drivers/net/wireless/ath/ath9k/ath9k.h
-index 6e38aa7351e3..60aac2c50409 100644
---- a/drivers/net/wireless/ath/ath9k/ath9k.h
-+++ b/drivers/net/wireless/ath/ath9k/ath9k.h
-@@ -1076,7 +1076,7 @@ struct ath_softc {
- #ifdef CONFIG_ATH9K_HWRNG
- 	struct hwrng rng_ops;
- 	u32 rng_last;
--	char rng_name[sizeof("ath9k_65535")];
-+	const char *rng_name;
- #endif
- };
- 
-diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
-index fe1013a3a588..c4f8d1f98369 100644
---- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
-+++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
-@@ -140,19 +140,10 @@ static void owl_fw_cb(const struct firmware *fw, void *context)
- static const char *owl_get_eeprom_name(struct pci_dev *pdev)
- {
- 	struct device *dev = &pdev->dev;
--	char *eeprom_name;
- 
- 	dev_dbg(dev, "using auto-generated eeprom filename\n");
- 
--	eeprom_name = devm_kzalloc(dev, EEPROM_FILENAME_LEN, GFP_KERNEL);
--	if (!eeprom_name)
--		return NULL;
--
--	/* this should match the pattern used in ath9k/init.c */
--	scnprintf(eeprom_name, EEPROM_FILENAME_LEN, "ath9k-eeprom-pci-%s.bin",
--		  dev_name(dev));
--
--	return eeprom_name;
-+	return devm_kasprintf(dev, GFP_KERNEL, "ath9k-eeprom-pci-%s.bin", dev_name(dev));
- }
- 
- static void owl_nvmem_work(struct work_struct *work)
-diff --git a/drivers/net/wireless/ath/ath9k/init.c b/drivers/net/wireless/ath/ath9k/init.c
-index ee951493e993..04903b5c611f 100644
---- a/drivers/net/wireless/ath/ath9k/init.c
-+++ b/drivers/net/wireless/ath/ath9k/init.c
-@@ -625,7 +625,7 @@ static int ath9k_of_init(struct ath_softc *sc)
- 	struct ath_hw *ah = sc->sc_ah;
- 	struct ath_common *common = ath9k_hw_common(ah);
- 	enum ath_bus_type bus_type = common->bus_ops->ath_bus_type;
--	char eeprom_name[100];
-+	const char *eeprom_name;
- 	int ret;
- 
- 	if (!of_device_is_available(np))
-@@ -635,9 +635,8 @@ static int ath9k_of_init(struct ath_softc *sc)
- 
- 	if (of_property_read_bool(np, "qca,no-eeprom")) {
- 		/* ath9k-eeprom-<bus>-<id>.bin */
--		scnprintf(eeprom_name, sizeof(eeprom_name),
--			  "ath9k-eeprom-%s-%s.bin",
--			  ath_bus_type_to_string(bus_type), dev_name(ah->dev));
-+		eeprom_name = devm_kasprintf(ah->dev, GFP_KERNEL, "ath9k-eeprom-%s-%s.bin",
-+					     ath_bus_type_to_string(bus_type), dev_name(ah->dev));
- 
- 		ret = ath9k_eeprom_request(sc, eeprom_name);
- 		if (ret)
-diff --git a/drivers/net/wireless/ath/ath9k/rng.c b/drivers/net/wireless/ath/ath9k/rng.c
-index e1def77591c6..7d549d18f605 100644
---- a/drivers/net/wireless/ath/ath9k/rng.c
-+++ b/drivers/net/wireless/ath/ath9k/rng.c
-@@ -103,8 +103,8 @@ void ath9k_rng_start(struct ath_softc *sc)
- 	if (!AR_SREV_9300_20_OR_LATER(ah))
- 		return;
- 
--	snprintf(sc->rng_name, sizeof(sc->rng_name), "ath9k_%u",
--		 (atomic_inc_return(&serial) - 1) & U16_MAX);
-+	sc->rng_name = devm_kasprintf(sc->dev, GFP_KERNEL, "ath9k_%u",
-+				      (atomic_inc_return(&serial) - 1) & U16_MAX);
- 	sc->rng_ops.name = sc->rng_name;
- 	sc->rng_ops.read = ath9k_rng_read;
- 	sc->rng_ops.quality = 320;
--- 
-2.50.1
+On Mon, 18 Aug 2025, Kazuhiro Abe wrote:
+> AGDI has two types of signaling modes: SDEI and interrupt.
+> Currently, the AGDI driver only supports SDEI.
+> Therefore, add support for interrupt singaling mode
+> The interrupt vector is retrieved from the AGDI table, and call panic
+> function when an interrupt occurs.
+> SDEI & Interrupt mode is not supported.
+>
+> Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+> ---
+> drivers/acpi/arm64/agdi.c | 114 +++++++++++++++++++++++++++++++++++---
+> include/acpi/actbl2.h     |   4 +-
+> 2 files changed, 110 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+> index e0df3daa4abf0..c514bb874c5d3 100644
+> --- a/drivers/acpi/arm64/agdi.c
+> +++ b/drivers/acpi/arm64/agdi.c
+> @@ -16,7 +16,11 @@
+> #include "init.h"
+>
+> struct agdi_data {
+> +	unsigned char flags;
+> 	int sdei_event;
+> +	unsigned int gsiv;
+> +	bool use_nmi;
+> +	int irq;
+> };
+>
+> static int agdi_sdei_handler(u32 sdei_event, struct pt_regs *regs, void *arg)
+> @@ -48,6 +52,55 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+> 	return 0;
+> }
+>
+> +static irqreturn_t agdi_interrupt_handler_nmi(int irq, void *dev_id)
+> +{
+> +	nmi_panic(NULL, "Arm Generic Diagnostic Dump and Reset NMI Interrupt event issued\n");
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static irqreturn_t agdi_interrupt_handler_irq(int irq, void *dev_id)
+> +{
+> +	panic("Arm Generic Diagnostic Dump and Reset Interrupt event issued\n");
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int agdi_interrupt_probe(struct platform_device *pdev,
+> +				struct agdi_data *adata)
+> +{
+> +	unsigned long irq_flags;
+> +	int ret;
+> +	int irq;
+> +
+> +	irq = acpi_register_gsi(NULL, adata->gsiv, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_HIGH);
+> +	if (irq < 0) {
+> +		dev_err(&pdev->dev, "cannot register GSI#%d (%d)\n", adata->gsiv, irq);
+> +		return irq;
+> +	}
+> +
+> +	irq_flags = IRQF_PERCPU | IRQF_NOBALANCING | IRQF_NO_AUTOEN |
+> +		    IRQF_NO_THREAD;
+> +	/* try NMI first */
+> +	ret = request_nmi(irq, &agdi_interrupt_handler_nmi, irq_flags,
+> +			  "agdi_interrupt_nmi", NULL);
+> +	if (ret) {
+> +		ret = request_irq(irq, &agdi_interrupt_handler_irq,
+> +				  irq_flags, "agdi_interrupt_irq", NULL);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "cannot register IRQ %d\n", ret);
+> +			acpi_unregister_gsi(adata->gsiv);
+> +			return ret;
+> +		}
+> +		enable_irq(irq);
+> +		adata->irq = irq;
+> +	} else {
+> +		enable_nmi(irq);
+> +		adata->irq = irq;
+> +		adata->use_nmi = true;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> static int agdi_probe(struct platform_device *pdev)
+> {
+> 	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+> @@ -55,12 +108,20 @@ static int agdi_probe(struct platform_device *pdev)
+> 	if (!adata)
+> 		return -EINVAL;
+>
+> -	return agdi_sdei_probe(pdev, adata);
+> +	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		return agdi_sdei_probe(pdev, adata);
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		return agdi_interrupt_probe(pdev, adata);
+> +	}
+> +
+> +	return 0;
+> }
+>
+> -static void agdi_remove(struct platform_device *pdev)
+> +static void agdi_sdei_remove(struct platform_device *pdev,
+> +			     struct agdi_data *adata)
+> {
+> -	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+> 	int err, i;
+>
+> 	err = sdei_event_disable(adata->sdei_event);
+> @@ -83,6 +144,34 @@ static void agdi_remove(struct platform_device *pdev)
+> 			adata->sdei_event, ERR_PTR(err));
+> }
+>
+> +static void agdi_interrupt_remove(struct platform_device *pdev,
+> +				  struct agdi_data *adata)
+> +{
+> +	if (adata->irq != -1) {
+> +		if (adata->use_nmi)
+> +			free_nmi(adata->irq, NULL);
+> +		else
+> +			free_irq(adata->irq, NULL);
+> +
+> +		acpi_unregister_gsi(adata->gsiv);
+> +	}
+> +}
+> +
+> +static void agdi_remove(struct platform_device *pdev)
+> +{
+> +	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+> +
+> +	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		agdi_sdei_remove(pdev, adata);
+> +		break;
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		agdi_interrupt_remove(pdev, adata);
+> +		break;
+> +	}
+> +}
+> +
+> static struct platform_driver agdi_driver = {
+> 	.driver = {
+> 		.name = "agdi",
+> @@ -94,7 +183,7 @@ static struct platform_driver agdi_driver = {
+> void __init acpi_agdi_init(void)
+> {
+> 	struct acpi_table_agdi *agdi_table;
+> -	struct agdi_data pdata;
+> +	struct agdi_data pdata = {0};
+> 	struct platform_device *pdev;
+> 	acpi_status status;
+>
+> @@ -103,12 +192,23 @@ void __init acpi_agdi_init(void)
+> 	if (ACPI_FAILURE(status))
+> 		return;
+>
+> -	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
+> -		pr_warn("Interrupt signaling is not supported");
+> +	switch (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
+> +	case ACPI_AGDI_SIGNALING_MODE_SDEI:
+> +		pdata.sdei_event = agdi_table->sdei_event;
+> +		break;
+> +
+> +	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
+> +		pdata.gsiv = agdi_table->gsiv;
+> +		break;
+> +
+> +	default:
+> +		pr_warn("Signaling mode(%d) is not supported",
+> +			agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK);
+> 		goto err_put_table;
+> 	}
+>
+> -	pdata.sdei_event = agdi_table->sdei_event;
+> +	pdata.irq = -1;
+> +	pdata.flags = agdi_table->flags;
+>
+> 	pdev = platform_device_register_data(NULL, "agdi", 0, &pdata, sizeof(pdata));
+> 	if (IS_ERR(pdev))
+> diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+> index 048f5f47f8b88..9ddbdd772f139 100644
+> --- a/include/acpi/actbl2.h
+> +++ b/include/acpi/actbl2.h
+> @@ -339,7 +339,9 @@ struct acpi_table_agdi {
+>
+> /* Mask for Flags field above */
+>
+> -#define ACPI_AGDI_SIGNALING_MODE (1)
+> +#define ACPI_AGDI_SIGNALING_MODE_MASK (3)
+> +#define ACPI_AGDI_SIGNALING_MODE_SDEI (0)
+> +#define ACPI_AGDI_SIGNALING_MODE_INTERRUPT (1)
+>
+> /*******************************************************************************
+>  *
 
+Like Hanjun mentioned, these should go through ACPICA project. When you do 
+that could you also add the SDEI flag to the other places, which are 
+needed for iasl to be able to decode AGDI tables. You can find them if you 
+take a look at my patch in ACPICA project.
+
+Cheers, Ilkka
+
+> -- 
+> 2.43.0
+>
+>
+>
 
