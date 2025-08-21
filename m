@@ -4,144 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8ADCCA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347B7CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVNPJhOrNiBpB3sN0+Cs40vDumQQrkCZPkw3xartbAQ=; b=oB506lY7ZDmpnGfi29dXzOphiy
-	zwA+re2yrriRwhk5JQIRogTl4mJj+mimaOUYCW1EF4m1OAIu+qZFZBcCqsNyecv+IoKwIKNmQOpGc
-	heg6btShhYOwxDk19iUaFhnOhQO0m1oOaoLXXJ/PB77WNr7ZQ02nxPYyvlZFOtHh7U5WHOKb11vzo
-	fujtX/7PTIhCFiXa7k442ASq5BtdX1ybIecTAFrJmrHJxu+e1cdPj0wB3WAqp98IxJ09KQrm3ffHb
-	Va2Ne0Ioe4gQFjvozi06xIln8B8bjm/2g8fN13Gu60nOyd+2wmX9/pEBQ6RwWlCzlP7r11tBOXBS4
-	tNBgPtaA==;
+	bh=XT+9a8dZc6CcvXzZepsQfZonqTnnksInThWm+Nbha0k=; b=eJaouPME+aXt1o6DPa88d7fjmi
+	652I+S9H8vMpKYEPdH/YY43ecDaF0YHeH/6pkO4SPCrHNPWR9vbNFLwniGJ/3nF6GENGDfFBssZzy
+	RnPsvxbuTjv9z5qSC7pm+tw/cSyNc8W0sulsEyb4DTRFUCoVByXFqPUXQJAJwzrpXDe9IicWpVCn3
+	UGsM5VEqQ/U4stJLC4WSGTIQDQYTXbb/VOaa6j8DP+fMxTHI2UMTIj7nqzHoJ+LEDpJkomniJnRdz
+	/ShVGlEIq6Z8C9bwCNATSIEJrbhsnJ9WCXmCdcovQc5Pi6QZ58cdUWqtTWQFs3gaWlYWRfS7OfvC4
+	QlKWPTzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3Q2-0000000GkWF-0xpN;
-	Thu, 21 Aug 2025 11:25:22 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1up3Sc-0000000Gkwg-0Hc1;
+	Thu, 21 Aug 2025 11:28:02 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up0YA-0000000GDcZ-3HuQ
+	id 1up0fP-0000000GFiN-3G0D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:21:36 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 872BE1F38C;
-	Thu, 21 Aug 2025 08:21:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755764491; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sVNPJhOrNiBpB3sN0+Cs40vDumQQrkCZPkw3xartbAQ=;
-	b=ojL3hv0+Cz5kOEdN4DbnIvpgTxBNACToQWvmnRob7Z18EsVZae/jT/hAzCEVT/GnqJZeGJ
-	A30OH/GyNxsK7IIBYNlBNtnYOdHt77Zla8owTJLZRNXx7ctShxHjxCg1xmBJpG9JIUuSIz
-	02sO3vOw2hMmiTOjpMaCt68UL64DYFg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755764491;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sVNPJhOrNiBpB3sN0+Cs40vDumQQrkCZPkw3xartbAQ=;
-	b=silvKyGuAnokhhUaEEzmSznREBsKoTliqahF5VMMZ4l75i8SekmW0VXvmIXisLAeLH9PgX
-	w0NPwF2aszrszfCA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ojL3hv0+;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=silvKyGu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1755764491; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sVNPJhOrNiBpB3sN0+Cs40vDumQQrkCZPkw3xartbAQ=;
-	b=ojL3hv0+Cz5kOEdN4DbnIvpgTxBNACToQWvmnRob7Z18EsVZae/jT/hAzCEVT/GnqJZeGJ
-	A30OH/GyNxsK7IIBYNlBNtnYOdHt77Zla8owTJLZRNXx7ctShxHjxCg1xmBJpG9JIUuSIz
-	02sO3vOw2hMmiTOjpMaCt68UL64DYFg=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1755764491;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sVNPJhOrNiBpB3sN0+Cs40vDumQQrkCZPkw3xartbAQ=;
-	b=silvKyGuAnokhhUaEEzmSznREBsKoTliqahF5VMMZ4l75i8SekmW0VXvmIXisLAeLH9PgX
-	w0NPwF2aszrszfCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A051613867;
-	Thu, 21 Aug 2025 08:21:30 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id kU3vJArXpmg+EwAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Thu, 21 Aug 2025 08:21:30 +0000
-Message-ID: <bf833878-3e81-4f42-9bd0-0c22d1fd7b02@suse.de>
-Date: Thu, 21 Aug 2025 11:21:30 +0300
+	Thu, 21 Aug 2025 08:29:05 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-afcb74bef86so11892666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:29:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755764942; x=1756369742; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=XT+9a8dZc6CcvXzZepsQfZonqTnnksInThWm+Nbha0k=;
+        b=Askk14pBpElIfkmZhSgqejykN9nEjTPwzPqS7pd3NRrfHDzDDIY6WX6t/Z256zkYlf
+         6kfoCbBWU5zHJC+f/MvtGsuAeAZRc08fFFG2BgneW+mQxDW0pqjTbQbmESRGURnn26Ul
+         Xk6iOJNz8EPH1TYc9F+YeIBCpO9gRKRqPAquchM3vVh7PBCmCpzLkoAIYkhABOuSbqGl
+         IiVfmuxuipiXGcTJAlMfR0IySGktLgKao2NXdZSduWjeMxMNSlXe8A8hyHbi2oQwnkY8
+         hYObVSEsGq/rzvb1tIWgXZqezHaZv7UofExM8tR9rSNT1xSFjlS6Sk2J2+zXcqV5mpel
+         1O4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755764942; x=1756369742;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XT+9a8dZc6CcvXzZepsQfZonqTnnksInThWm+Nbha0k=;
+        b=r2wWpaNimvewN4Fp1rlqmLeZzMRQT6Mj1uHNSg6O3C4xA1vYGpbI0XU/G7DC6x+Ded
+         Lbtohc+iZ6Yo+WoKPx8y5RmYV61qHjUt9DGOUF5EOKLwCbCWF9mlcWnteosdsrZ2ZXUJ
+         fEvnHLbVMBKXyTvcau22vspMcMBDMCmFIYIQX/35x/lmy5jCw86NOHefbWtWSBiq2qK2
+         HkO5Mn4HEFstuzOiXJOcyUt9x+YsS2lJ9MwQs3bC7sSoPwfCjxeJsh+esdJtsJ2gM1Ek
+         pyDww39RFEe0XLJ6mr9fu2vrSiiU2l4g4T49nQmtnJP30wvJGhL9ZMbcuXR8AsC/iFul
+         46TQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW4MeuvQj5U8BhWBWN65r4kW3w6SY/CGf69pq1cDz9gU7lzd9/ep5eD+BxbCIaomOHfYAqkC68jKjL9MfIvt4aS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZc6S2U/IetbN+5dClV71LO+Y44VppKSV1b96H208eFwMU2JLg
+	S1njQC17aaCJHc83HiOfGNZkQ8CLV+vHpEM+OWa2oJeSrYAbNDfrDPkerQ9RxvrGsiM=
+X-Gm-Gg: ASbGncsTHAXdt0PPn6rah6/3r9LdyMcyyBS8wcwD/MD5TRN3gj6I/gkb6QBDJHHbOS3
+	j2EzkbEXp31KMXxGKFBGDzAdJ5gOBNcZVWi5W5c6whkuK94aL/f820480pqxfZQUXos6glzNt/U
+	zdrtjips3L7toGWZyybxsYoK2UVBDo/SvNIqKQxW1gehzO+JhUCnu7euNErstpYsFJWV9H/ucz/
+	mDmIhMVCysCuhkkWAiPVQXcOoSk3NVKfOJ2FWwGqsnhOLhKw957AiVDFHRGKLQmKaDi5uK/K7tz
+	mx2ij4g3dQpRTfz7qwRXJaZyBhQjDlm2tcTwJ/6M0AGE4quX3VVRWz1bID1xEDPRmMk9HctbmkP
+	+kuX9+XgSdLnAp8jlsy+YR8qEVH1CQTaDQ4ZP7t4wQ40=
+X-Google-Smtp-Source: AGHT+IHUT+pHfpmntUXj9uBUGhsiBcXhCpz8NqBaqPJXee9T83AmytajEw850sVhRqSbUCYA/OYJMg==
+X-Received: by 2002:a17:906:b283:b0:ae3:bd92:e6aa with SMTP id a640c23a62f3a-afe07b82e55mr60442566b.6.1755764942021;
+        Thu, 21 Aug 2025 01:29:02 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded537f98sm347074266b.104.2025.08.21.01.29.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 Aug 2025 01:29:01 -0700 (PDT)
+Message-ID: <a59908c9-38d8-492d-9e3f-5560d272689b@linaro.org>
+Date: Thu, 21 Aug 2025 10:29:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] net: cadence: macb: Set upper 32bits of DMA ring
- buffer
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v6] dt-bindings: firmware: arm,scmi: allow multiple
+ instances
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ Deepti Jaggi <quic_djaggi@quicinc.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Andrea della Porta <andrea.porta@suse.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Phil Elwell
- <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250815135911.1383385-1-svarbanov@suse.de>
- <20250815135911.1383385-2-svarbanov@suse.de>
- <37427c1a-68af-4c50-ac6d-da5ee135c260@microchip.com>
+ <conor+dt@kernel.org>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@oss.qualcomm.com,
+ Nikunj Kela <quic_nkela@quicinc.com>
+References: <20250730-8255-scmi-v6-1-a7d8ba19aded@quicinc.com>
+ <e5c5c2da-ae77-4738-9f0f-33c51111f91c@quicinc.com> <aKbTKq04umCgS_eL@pluto>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <37427c1a-68af-4c50-ac6d-da5ee135c260@microchip.com>
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <aKbTKq04umCgS_eL@pluto>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 872BE1F38C
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	TAGGED_RCPT(0.00)[dt,netdev];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	MIME_TRACE(0.00)[0:+];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.de:+]
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_012135_125564_C131E190 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20250821_012903_824154_9639524A 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,61 +152,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On 8/19/25 11:29 AM, Nicolas Ferre wrote:
-> On 15/08/2025 at 15:59, Stanimir Varbanov wrote:
->> In case of rx queue reset and 64bit capable hardware, set the upper
->> 32bits of DMA ring buffer address.
-> 
-> Very nice finding! Thanks.
-> 
->> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> 
-> A "Fixes" tag might be interesting here.
-
-Looks like the commit is:
-
-9ba723b081a2d ("net: macb: remove BUG_ON() and reset the queue to handle
-RX errors")
-
-
-> 
->> ---
->>   drivers/net/ethernet/cadence/macb_main.c | 5 +++++
->>   1 file changed, 5 insertions(+)
+On 21/08/2025 10:04, Cristian Marussi wrote:
+> On Wed, Aug 20, 2025 at 11:44:26AM -0700, Deepti Jaggi wrote:
 >>
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/
->> ethernet/cadence/macb_main.c
->> index ce95fad8cedd..41c0cbb5262e 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -1635,6 +1635,11 @@ static int macb_rx(struct macb_queue *queue,
-
-
-Also, the patch-set is adding a GEM variant but current patch is fixing
-MACB. Could you please help us with testing on MACB and provide Tested-by?
-
->> struct napi_struct *napi,
+>> On 7/30/25 14:30, Deepti Jaggi wrote:
+>>> From: Nikunj Kela <quic_nkela@quicinc.com>
+>>>
+> 
+> Hi,
+> 
+>>> Allow multiple SCMI instances by extending the scmi node name to include
+>>> an instance number suffix.
+>>>
+>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+>>> Signed-off-by: Nikunj Kela <quic_nkela@quicinc.com>
+>>> Signed-off-by: Deepti Jaggi <quic_djaggi@quicinc.com>
+>>> ---
+>>> Changes in v6:
+>>>          - Dropped 'this change' from description
+>>> 	- Link to v5: https://lore.kernel.org/all/20250423005824.3993256-1-quic_djaggi@quicinc.com
+>>>
+>>> Changes in v5:
+>>>          - Added Reviewed-by tag
+>>> 	- Link to v4: https://lore.kernel.org/all/20240910163456.2383372-1-quic_nkela@quicinc.com
+>>>
+>>> Changes in v4:
+>>>          - Dropped 'virtual' from subject and description
+>>> 	- Link to v3: https://lore.kernel.org/all/20240905201217.3815113-1-quic_nkela@quicinc.com
+>>>
+>>> Changes in v3:
+>>>          - Added Reviewed-by tag
+>>>          - Removed the patch from original series[1]
+>>>
+>>> Changes in v2:
+>>>          - Fixed scmi nodename pattern
+>>>
+>>> [1]: https://lore.kernel.org/all/20240903220240.2594102-1-quic_nkela@quicinc.com/
+>>> ---
+>>>   Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>>> index abbd62f1fed0993ab98fa44bdb9a0575f8e1c78e..be817fd9cc34b14009a3b1d69e78b802215571b6 100644
+>>> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>>> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+>>> @@ -27,7 +27,7 @@ anyOf:
+>>>   properties:
+>>>     $nodename:
+>>> -    const: scmi
+>>> +    pattern: '^scmi(-[0-9]+)?$'
+>>>     compatible:
+>>>       oneOf:
+>>>
+>>> ---
+>>> base-commit: 0b90c3b6d76ea512dc3dac8fb30215e175b0019a
+>>> change-id: 20250728-8255-scmi-ed963ef8f155
 >>
->>                  macb_init_rx_ring(queue);
->>                  queue_writel(queue, RBQP, queue->rx_ring_dma);
-> 
-> For the sake of consistency, I would add lower_32_bits() to this call,
-> as I see it for each use of RBQP or TBQP.
-> 
->> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
->> +               if (bp->hw_dma_cap & HW_DMA_CAP_64B)
->> +                       macb_writel(bp, RBQPH,
->> +                                   upper_32_bits(queue->rx_ring_dma));
->> +#endif
->>
->>                  macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
-> 
-> Best regards,
->   Nicolas
-> 
+>> Gentle ping!!
 
-regards,
-~Stan
+You cannot ping gently while screaming!!! (you see how gentle this feels?)
+
+>> Could you please review the patch?
+>>
+> 
+> I thought this was already reviewed/acked and merged since ages....
+> ...also the wording-change in the commit message LGTM.
+> 
+> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+
+It was. Twice! This is just unjustified ping.
+
+Best regards,
+Krzysztof
 
