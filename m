@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13E3CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DA8CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 11:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipM60zkIS0QNv16XfEDyhkR9uYtuFPpDW8RH88hyb/A=; b=IDCxFC57AXeI0UparBr+mE84QS
-	ad4uXw3X5v3/sfkJHMWxAFp+bnqLhmz0TNNCR4sqcGVswTJJVgxcoXnJ5YU8tK8h2d1yggwsVxk2g
-	Mz99RA2bs3eaawaQ+9aFRZzstHrmVA47+gip+MZpWP7m7ef8y76b+nDvQtpE3F+Bbxfk4iEtGXkd4
-	J5KFNHZ+Zs/A6ROjYD/JC6H/5su2Smly8654T3ej43/86PWwPxp238erOe0k8DygyXiZ+yoDpj7Tt
-	Ce9K1SBeb071n/dmONFEEZb4cxQZQME4pNWf+SpsU3Zr3H4UPmPS7tWrj3Lpm3idUFDThgS0DAkAj
-	4wE4POiA==;
+	bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=; b=ZTD6EefxqNqk9EygfVO1Fltg1X
+	mslyeG9EZG9frA3lMNm7A4mvf89y5OL0vHeL9L9rEaZE3ZnsIB/D9JGFvY7KtMzo3QQB6uZEyzK9c
+	7Zek5fy8107z61BR+hCnwMCOdR8uuRMgq0hzkesPbEOXojNxAeHmZa7O+laU6JHDBrUYL0+LMPwVZ
+	wNDX2nd8A7f0Fi3TKWcFpJOzz6TXavnPduh24Y1FYdbo5CPJjaKMVspcYoHBNcTMJ2KwNRbhyHqHF
+	hak5kxIlYJJzYlUjPEY4xs2TE13WWwrWRiDR2HHHClClzofhVnsl1cKqSace/TkX4pn6WcIZOYDlA
+	1LQ3gGJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up3ki-0000000GnX6-28X9;
-	Thu, 21 Aug 2025 11:46:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up122-0000000GJX9-2dJ3
+	id 1up3nJ-0000000Gnyl-1KHF;
+	Thu, 21 Aug 2025 11:49:25 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up13l-0000000GJpg-06sM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 08:52:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFDC4168F;
-	Thu, 21 Aug 2025 01:52:17 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 339333F58B;
-	Thu, 21 Aug 2025 01:52:24 -0700 (PDT)
-Date: Thu, 21 Aug 2025 09:52:21 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Deepti Jaggi <quic_djaggi@quicinc.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel@oss.qualcomm.com,
-	Nikunj Kela <quic_nkela@quicinc.com>
-Subject: Re: [PATCH v6] dt-bindings: firmware: arm,scmi: allow multiple
- instances
-Message-ID: <aKbeRVsLpXcpiyHb@pluto>
-References: <20250730-8255-scmi-v6-1-a7d8ba19aded@quicinc.com>
- <e5c5c2da-ae77-4738-9f0f-33c51111f91c@quicinc.com>
- <aKbTKq04umCgS_eL@pluto>
- <a59908c9-38d8-492d-9e3f-5560d272689b@linaro.org>
+	Thu, 21 Aug 2025 08:54:14 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-244580591b0so5975535ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 01:54:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1755766451; x=1756371251; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=;
+        b=Tpd9kFnheYUSsbeRm+9ybc4CAPHImnVa3hqkZpk5jfkKkw7pEHBlYJF5ZGQfSoLy3a
+         kEjqQ6yT7idHPdgZRJq5y9u9SGgCh0bSfpVhEFhm5uJTn75WGja/FFv0XEVJUarjhWfk
+         XBY1dAGo3FdK0HspLnjYyUWvb3Yoocatrx5IgXgDjaQO9MNoi633aYN5zJKqpjazZHLS
+         T1vhA7Z/0q9kIW/3iPzt3phbYGU0kE/+dctP7aWzvwtVI1g2BczciEhogXMJl+HhEpwR
+         JTJAx8W80PliUY9Q6r1r3/s2USkGxcVSAH8kCcuZFMRh+DFE4LLxLxV2NtjT5gJGmqI6
+         ilFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755766451; x=1756371251;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PDwM7xFUlPs+9+76w2+0oYaXgXFtT0j/TV/VcSqIHPw=;
+        b=TXR/6M0j2iWBsuIiwQqQXx32CrYdRkVNPuVppOfqiDEiizrYXtEoYYxCzMqnV+UcHC
+         AVq83e84Mbqgn47AtexrzH5Rf3tZLk9mwOOZ0B3470kFfi4UZA/IRU1Da+naOluJG+c1
+         alQh3bS+znqa2EQZHe5GjHz1KQ97Xn2AD1E4l8G3u8/n5WmBaV8M4izxnYrcm42U3AnI
+         OMkOKaUMrDG6hDKmnUnD+tmRUNapJx/JM4m//TlM8Bw9lTttbeE+WJgCLWXiRUefj0Nj
+         Y3T0GTWZCxstMJ5QECfdyep7nvXodSlXsSxCynwPVqd0L6DTLyukriyO3lS1Md1T4+pq
+         ZkjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxdtyrsljcL2TOsnIHsLiObmaA9A815DFFrLpr4x8APSkYwP8CdY//UDkQLsvGaOuWc+AJi/aXQDSyJlW85nbc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtcx3BG9yI7lojKjatmeHP0KKlvm/sWAq5u54sQAadeYGgcqx4
+	j64LNgxW7fE7e+jCDSbGr8qKOrTb5VuLp8eCzWDNuIwkcdJKjpuJu7PbaxvW5pFJOqmTjLp2IlU
+	IzME7tJLbOWVOyFvTWr619uIjdbY6COtlRA9RDePN
+X-Gm-Gg: ASbGncsLj/AallOD2LQLHIteLEG2izl4t+/QLiHnA/qRLqtiol/7NLS01MkvoVfgQLL
+	Wf+gZnk7ZuBvONkR73zGWmIdtajFfkNOdD13vfun+NFIgGwpk6i42KD5kTfuUHSmNEF62haAunv
+	ldRtu9O0nCU3r+KijBtu5OekITkmh/aUL2h1qhuWu2/4+VSqSnfVTUo66iilyP5HebYMvRx8t5v
+	ARYcCP6tgK0Y6lDSHc1R/XK
+X-Google-Smtp-Source: AGHT+IEOJ+GiHnoM0xXwePeIaKaKu+bZ/GYxKzuA6yTE5qBa74SEtPQ+etUTrmOlcSdW9xiNKjgOpyr6oyET1zwx1W4=
+X-Received: by 2002:a17:903:46c3:b0:246:570:2d93 with SMTP id
+ d9443c01a7336-24605703276mr19916595ad.59.1755766451273; Thu, 21 Aug 2025
+ 01:54:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a59908c9-38d8-492d-9e3f-5560d272689b@linaro.org>
+References: <20250801092720.1845282-1-verhaegen@google.com>
+ <20250801092720.1845282-4-verhaegen@google.com> <aJGNgphPCTuE7FFD@vaman>
+In-Reply-To: <aJGNgphPCTuE7FFD@vaman>
+From: George Verhaegen <verhaegen@google.com>
+Date: Thu, 21 Aug 2025 10:53:44 +0200
+X-Gm-Features: Ac12FXzXjgkmnFwjD3_zb-Ps1Osi-BQvLWpKMG84-DK22RezOWC3UFnJT0qOukE
+Message-ID: <CAAntYmKu_tsm1D9koxCZmHpBMQYhrt-HxNBYFeWz6rCqdMZqPg@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+	Bard Liao <yung-chuan.liao@linux.intel.com>, 
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	kernel-team@android.com, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-arm-msm@vger.kernel.org, sound-open-firmware@alsa-project.org, 
+	linux-arm-kernel@lists.infradead.org, Miller Liang <millerliang@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_015226_753444_3BEF59E0 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20250821_015413_065881_29260506 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,84 +106,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 10:29:00AM +0200, Krzysztof Kozlowski wrote:
-> On 21/08/2025 10:04, Cristian Marussi wrote:
-> > On Wed, Aug 20, 2025 at 11:44:26AM -0700, Deepti Jaggi wrote:
-> >>
-> >> On 7/30/25 14:30, Deepti Jaggi wrote:
-> >>> From: Nikunj Kela <quic_nkela@quicinc.com>
-> >>>
-> > 
-> > Hi,
-> > 
-> >>> Allow multiple SCMI instances by extending the scmi node name to include
-> >>> an instance number suffix.
-> >>>
-> >>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> >>> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> >>> Signed-off-by: Nikunj Kela <quic_nkela@quicinc.com>
-> >>> Signed-off-by: Deepti Jaggi <quic_djaggi@quicinc.com>
-> >>> ---
-> >>> Changes in v6:
-> >>>          - Dropped 'this change' from description
-> >>> 	- Link to v5: https://lore.kernel.org/all/20250423005824.3993256-1-quic_djaggi@quicinc.com
-> >>>
-> >>> Changes in v5:
-> >>>          - Added Reviewed-by tag
-> >>> 	- Link to v4: https://lore.kernel.org/all/20240910163456.2383372-1-quic_nkela@quicinc.com
-> >>>
-> >>> Changes in v4:
-> >>>          - Dropped 'virtual' from subject and description
-> >>> 	- Link to v3: https://lore.kernel.org/all/20240905201217.3815113-1-quic_nkela@quicinc.com
-> >>>
-> >>> Changes in v3:
-> >>>          - Added Reviewed-by tag
-> >>>          - Removed the patch from original series[1]
-> >>>
-> >>> Changes in v2:
-> >>>          - Fixed scmi nodename pattern
-> >>>
-> >>> [1]: https://lore.kernel.org/all/20240903220240.2594102-1-quic_nkela@quicinc.com/
-> >>> ---
-> >>>   Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
-> >>>   1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> >>> index abbd62f1fed0993ab98fa44bdb9a0575f8e1c78e..be817fd9cc34b14009a3b1d69e78b802215571b6 100644
-> >>> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> >>> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> >>> @@ -27,7 +27,7 @@ anyOf:
-> >>>   properties:
-> >>>     $nodename:
-> >>> -    const: scmi
-> >>> +    pattern: '^scmi(-[0-9]+)?$'
-> >>>     compatible:
-> >>>       oneOf:
-> >>>
-> >>> ---
-> >>> base-commit: 0b90c3b6d76ea512dc3dac8fb30215e175b0019a
-> >>> change-id: 20250728-8255-scmi-ed963ef8f155
-> >>
-> >> Gentle ping!!
-> 
-> You cannot ping gently while screaming!!! (you see how gentle this feels?)
-> 
-> >> Could you please review the patch?
-> >>
-> > 
-> > I thought this was already reviewed/acked and merged since ages....
-> > ...also the wording-change in the commit message LGTM.
-> > 
-> > Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> It was. Twice! This is just unjustified ping.
+On Tue, 5 Aug 2025 at 06:50, Vinod Koul <vkoul@kernel.org> wrote:
+> >  static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
+> > -             struct snd_compr_avail *avail)
+> > +                                struct snd_compr_avail64 *avail)
+> >  {
+> > -     struct snd_compr_tstamp64 tstamp64 = { 0 };
+> > -
+> >       memset(avail, 0, sizeof(*avail));
+> > -     snd_compr_update_tstamp(stream, &tstamp64);
+> > -     snd_compr_tstamp32_from_64(&avail->tstamp, &tstamp64);
+> > +     snd_compr_update_tstamp(stream, &avail->tstamp);
+> >       /* Still need to return avail even if tstamp can't be filled in */
+> >
+> >       if (stream->runtime->total_bytes_available == 0 &&
+> > @@ -233,32 +230,47 @@ static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
+> >       }
+> >
+> >       avail->avail = stream->runtime->total_bytes_available -
+> > -                     stream->runtime->total_bytes_transferred;
+> > +                    stream->runtime->total_bytes_transferred;
+>
+> Lets not do formatting changes in current patch please
 
-I'd like to add a new tag at this point.
+I'm happy to revert the formatting changes. Are you only referring to
+the alignment of the subtraction operation (avail->avail), or
+something else too? Note that the second line of the function
+signature of snd_compr_calc_avail got re-aligned by clang-format due
+to an actual change (type change to struct snd_compr_avail64) so I
+assume the re-alignment here is OK, but please confirm.
 
-Reviewed-!!-by-!!: Cristian Marussi <cristian.marussi@arm.com>
+> >       if (stream->direction == SND_COMPRESS_PLAYBACK)
+> >               avail->avail = stream->runtime->buffer_size - avail->avail;
+> >
+> > -     pr_debug("ret avail as %llu\n", avail->avail);
+> > +     pr_debug("ret avail as %zu\n", (size_t)avail->avail);
+> >       return avail->avail;
+> >  }
+> >
+> >  static inline size_t snd_compr_get_avail(struct snd_compr_stream *stream)
+> >  {
+> > -     struct snd_compr_avail avail;
+> > +     struct snd_compr_avail64 avail;
+> >
+> >       return snd_compr_calc_avail(stream, &avail);
+> >  }
+> >
+> > -static int
+> > -snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
+> > +static void snd_compr_avail32_from_64(struct snd_compr_avail *avail32,
+> > +                                   const struct snd_compr_avail64 *avail64)
+> >  {
+> > -     struct snd_compr_avail ioctl_avail;
+> > +     avail32->avail = avail64->avail;
+> > +     snd_compr_tstamp32_from_64(&avail32->tstamp, &avail64->tstamp);
+> > +}
+> > +
+> > +static int snd_compr_ioctl_avail(struct snd_compr_stream *stream,
+> > +                              unsigned long arg, bool is_32bit)
+> > +{
+> > +     struct snd_compr_avail64 ioctl_avail64;
+> > +     struct snd_compr_avail ioctl_avail32;
+> >       size_t avail;
+> > +     const void *copy_from = &ioctl_avail64;
+> > +     size_t copy_size = sizeof(ioctl_avail64);
+> >
+> >       if (stream->direction == SND_COMPRESS_ACCEL)
+> >               return -EBADFD;
+> >
+> > -     avail = snd_compr_calc_avail(stream, &ioctl_avail);
+> > -     ioctl_avail.avail = avail;
+> > +     avail = snd_compr_calc_avail(stream, &ioctl_avail64);
+> > +     ioctl_avail64.avail = avail;
+> > +     if (is_32bit) {
+> > +             snd_compr_avail32_from_64(&ioctl_avail32, &ioctl_avail64);
+> > +             copy_from = &ioctl_avail32;
+> > +             copy_size = sizeof(ioctl_avail32);
+> > +     }
+>
+> Same comment as previous patch
 
-:P
+As agreed in the previous patch, will leave as is.
 
-Cheers,
-Cristian
+Thanks,
+George
 
