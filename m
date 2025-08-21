@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA2CCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 17:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D44CA0FE2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 19:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6AwYAdLe44pys5Ry5RSwhd07Xp+hbvu1esrmSpPeng=; b=ybVzAZmj6AF3x8ogEwv1cP8vi3
-	/ZrUIeWfbuogKOOQlIMhZZhawnaCjBPQ1h/8rnSBSUmrucoSPLfDkq7S7c3lCVzFJtU9Dg91AZJ4S
-	A+OgM7ow0NQ/wVYkzhZqhIen1TdRiFy5LkGTFFRQ7EF0yySUYb+71z+BT5C2oJOSmRVIvMwGKVpc/
-	k9lN67i5g4go1j1M3A72Yvf6y+HRofACoemKseJI5ZPehMZIrpo5v8pDf/8PK9ud73BI2IPJ3PaDs
-	SrX8NqsDlFzGxEzyJPRO0gje1GkV/oewGyoVO8cRNnCEP3FP3rXltjpooUBbaBZFi0sbp+NE6WQSB
-	zn42aC5Q==;
+	bh=HX8AXiqzk9UzfJ/QXXVaTYJdzpXeRO7RDfiv6gtOnVk=; b=zTpgDTNs4ivys8iW3DrJMry+7a
+	3eituozao6fY4D3eqAUxHbkZHnlQvd7A8TfXmu2rowiPXnsz7ZO+CzjDWls0wDyOUfzY+rWUlacAg
+	nx5IPIOj4s25AUEpkcqDw8Cbe8NpVRNj1OC+N+nVOKzZMjJxY6O6u5HG2DjWJNni8d4sm8ZKOIh1H
+	byJ3HB4PhClhmyCjSHFg142nRAE/fieZoxKVr1mwLvrlVoQ/QZoXS1iLB2sscMAYP/kUDsbGr/6N2
+	6L/6iao+2Jde2y1Y4Bpn9xSy93bXgoqHSC65aD8iOgI0FiKx7c+rK0Ju2tXPZmPoe14sP/csTQE2i
+	WOGRpv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up9Uy-000000007Uf-2wjM;
-	Thu, 21 Aug 2025 17:54:52 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1upAhf-00000000EHu-2YBb;
+	Thu, 21 Aug 2025 19:12:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5Ei-0000000H2XG-23V3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 13:21:49 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1up5ER-0000UN-IZ; Thu, 21 Aug 2025 15:21:31 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1up5EP-001Q3r-0n;
-	Thu, 21 Aug 2025 15:21:29 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1up5EP-0082gA-0L;
-	Thu, 21 Aug 2025 15:21:29 +0200
-Date: Thu, 21 Aug 2025 15:21:29 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Varun Sethi <V.Sethi@nxp.com>,
-	Sahil Malhotra <sahil.malhotra@nxp.com>
-Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
- EdgeLock Enclave
-Message-ID: <20250821132129.hwnnqdagalvxw2uk@pengutronix.de>
-References: <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
- <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
- <20250630121722.wviidlggt7hguyt7@pengutronix.de>
- <087b8689-7443-4720-a94c-160edd31a5da@kontron.de>
- <AM9PR04MB8604C05882605EDB4913DA089549A@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250714094124.e6fnkrocnqagbm22@pengutronix.de>
- <AM9PR04MB8604EFCC5400DEBB7DF0CF49952DA@AM9PR04MB8604.eurprd04.prod.outlook.com>
- <20250806132701.fouikyuqtzdsxqwh@pengutronix.de>
- <AM9PR04MB8604A636762E81DF9EA9A9B89532A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+	id 1up5Hj-0000000H2tM-0GHY;
+	Thu, 21 Aug 2025 13:24:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 04044A58385;
+	Thu, 21 Aug 2025 13:24:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DFE2C4CEEB;
+	Thu, 21 Aug 2025 13:24:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755782693;
+	bh=76ReIJtXJzBwzWrjJa65Ko+8l//Yi0hjkZIdqxBBBC4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=RnBgB5CTZ17kmiwkBbDAExo7pQlNQ7peebeeq092niVb2vM+IwmJxsaCAvlOS3f1A
+	 1KXPgaHqN2qA+FxKYuTun7TaAYGIOyMoiJwznaRPhIPEf4jTowAINPvQa5U5Y/q2cm
+	 31QZA8P9XHmdskehrqJbo59m7Mlp3EwsKBWt55rxDk06koyNoMi+dS8TV3XLfBuySg
+	 BUN7JtkuVLrS9PAtC2+onlSRb59amhYyTZUBKjLNryTjslMPmnQOlFeQij1/xLGXTP
+	 g87wdPfMA2peIEu6ojeGdw+oPlXqMg0JJ2c5MCSOLr2n2eQ+fqaYHiBWU7p3uiloB5
+	 8ovoQJMVlfSvA==
+Date: Thu, 21 Aug 2025 08:24:52 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM9PR04MB8604A636762E81DF9EA9A9B89532A@AM9PR04MB8604.eurprd04.prod.outlook.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: flora.fu@mediatek.com, chunkuang.hu@kernel.org, broonie@kernel.org, 
+ linux-gpio@vger.kernel.org, mripard@kernel.org, 
+ louisalexis.eyraud@collabora.com, mchehab@kernel.org, 
+ kyrie.wu@mediatek.corp-partner.google.com, lgirdwood@gmail.com, 
+ linux-kernel@vger.kernel.org, dmitry.torokhov@gmail.com, 
+ conor+dt@kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, amergnat@baylibre.com, 
+ netdev@vger.kernel.org, tiffany.lin@mediatek.com, 
+ linux-input@vger.kernel.org, airlied@gmail.com, linux-clk@vger.kernel.org, 
+ jeesw@melfas.com, yunfei.dong@mediatek.com, linus.walleij@linaro.org, 
+ sean.wang@kernel.org, linux-media@vger.kernel.org, 
+ linux-sound@vger.kernel.org, tzimmermann@suse.de, 
+ andrew-ct.chen@mediatek.com, minghsiu.tsai@mediatek.com, simona@ffwll.ch, 
+ kuba@kernel.org, jmassot@collabora.com, devicetree@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, houlong.wei@mediatek.com, 
+ angelogioacchino.delregno@collabora.com, andrew+netdev@lunn.ch, 
+ support.opensource@diasemi.com, maarten.lankhorst@linux.intel.com, 
+ ck.hu@mediatek.com, matthias.bgg@gmail.com, pabeni@redhat.com, 
+ p.zabel@pengutronix.de, edumazet@google.com, krzk+dt@kernel.org, 
+ davem@davemloft.net, dri-devel@lists.freedesktop.org
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250820171302.324142-5-ariel.dalessandro@collabora.com>
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-5-ariel.dalessandro@collabora.com>
+Message-Id: <175578240744.3438740.13033328475024605529.robh@kernel.org>
+Subject: Re: [PATCH v1 04/14] net: dt-bindings: Convert Marvell 8897/8997
+ bindings to YAML
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_062148_527638_659E0837 
-X-CRM114-Status: GOOD (  33.00  )
+X-CRM114-CacheID: sfid-20250821_062455_227416_6A33F872 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,99 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-08-21, Pankaj Gupta wrote:
+
+On Wed, 20 Aug 2025 14:12:52 -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for Marvell 8897/8997
+> (sd8897/sd8997) bluetooth devices controller to a YAML schema.
 > 
+> While here, bindings for "usb1286,204e" (USB interface) are dropped from
+> the YAML definition as these are currently documented in file:
 > 
-> > On 25-08-06, Pankaj Gupta wrote:
-> > > > On 25-07-09, Pankaj Gupta wrote:
-> > > > > > Am 30.06.25 um 14:17 schrieb Marco Felsch:
-> > 
-> > ...
-> > 
-> > > > Lockdown: For a verified boot setup you need to burn an eFuse at
-> > > > some
-> > > point,
-> > > > to tell the bootROM to boot only correct verified firmware images.
-> > > >
-> > > > After this lockdown it's no longer possible to burn eFuses from the
-> > > > REE
-> > > albeit
-> > > > the production line setup still requires the support.
-> > > >
-> > > Understood. ELE access from both secure and non-secure world is fixed
-> > > in Q3 release.
-> > > User can be able to modify eFuses via OPTEE.
-> > 
-> > Splitting the read and write between two drivers is even worse.
+> - Documentation/devicetree/bindings/net/btusb.txt
 > 
-> This could be use-case dependent. Depends on how customer will deploy its
-> solution.
-
-I don't get this. You introduce even more segmentation if the read-path
-uses another driver than the write-path and if this is optional.
-
-> > Can you please point out why you can't just move the driver parts into the
-> > tee? I do see many advantages if only op-tee is used:
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> ---
+>  .../bindings/net/marvell,sd8897-bt.yaml       | 91 +++++++++++++++++++
+>  .../bindings/net/marvell-bt-8xxx.txt          | 83 -----------------
+>  2 files changed, 91 insertions(+), 83 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/net/marvell,sd8897-bt.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/net/marvell-bt-8xxx.txt
 > 
-> The ELE's KEY derivation function takes account of world from where, the
-> operations are requested.
-> - The key derived from secure world and from non-secure world will be
-> different.
 
-Which is correct and no reason for not having an OP-TEE only solution.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> There are different use-case for ELE accesses from both the worlds.
->
-> Using OPTEE ELE driver for Linux specific ELE-HSM requests, it will add
-> significant overhead.
->
-> Usecases like Transparent TLS offload while securing the secrets in HSM,
-> would incur additional overhead.
+yamllint warnings/errors:
 
-Of course, the ELE communication itself will be faster if Linux
-communicates directly with the ELE instead of going through OP-TEE.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/marvell,sd8897-bt.yaml: marvell,wakeup-gap-ms: missing type definition
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/marvell,sd8897-bt.example.dtb: bluetooth@2 (marvell,sd8897-bt): marvell,wakeup-gap-ms: b'\x00d' is not of type 'object', 'integer', 'array', 'boolean', 'null'
+	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
 
-But to be honest I don't think that the ELE usage itself is much faster
-than using OP-TEE and the ARMv8 Crypto-Extensions.
+doc reference errors (make refcheckdocs):
+Warning: Documentation/devicetree/bindings/net/btusb.txt references a file that doesn't exist: Documentation/devicetree/bindings/net/marvell-bt-8xxx.txt
+Documentation/devicetree/bindings/net/btusb.txt: Documentation/devicetree/bindings/net/marvell-bt-8xxx.txt
 
-For the ELE you need to:
- - setup the context (incl. the message and all mailbox mechanism)
- - wait for the ELE to be accessible (only one ELE, only one
-   normal-world MU).
- - transfered the messages to/from the ELE
- - the ELE processing should be equal to the CPU processing time
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250820171302.324142-5-ariel.dalessandro@collabora.com
 
-(Side note: What is the ELE behavior if the secure-world stresses the
-ELE? Is there a MU priority so the normal-world MU may get blocked
-(never addressed) or are both MUs scheduled in round-robin?)
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-For OP-TEE you need to:
- - setup the context
- - switch the CPU mode
- - make use of ARMv8 Crypte-Extensions
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-On i.MX8M, which uses the CAAM (the ELE predecessor), we can verify that
-the ARMv8 crypto extensions are much faster than the crypto-engine
-itself. Therefore the CAAM is mostly unused.
+pip3 install dtschema --upgrade
 
-Are there measurements/application-notes that show that the usage of the
-ELE is more performant than using the crypto-extensions?
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-> IOT-cases where real-time encrypted feed from sensors, will take latency
-> hit.
-
-Does the ELE support inline en-/decryption? If not, I don't think so.
-
-The data needs to be read from the CPU first, afterwards it needs to be
-prepared for the ELE and transfered to/from the ELE. Also there is just
-a single ELE with a single normal-world MU, so you need to handle
-concurrent access if there are multiple ELE-users
-(sensor+tls-offloading).
-
-If CPU is used, the data still needs to be read from the communication
-interface but afterwards doesn't need to be passed to another IP. Also
-there are multiple CPUs.
-
-Regards,
-  Marco
 
