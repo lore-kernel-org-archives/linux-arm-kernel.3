@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45173CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111A8CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dDruC6iw3EJwORfpY8MHfyohIHz8lNWLx1YR5ATtrc=; b=PSZe6gOjgtz8VQW8v9gKs9nG7T
-	rTfeKGCQXG4kBZZkFx/pYQHVo1YWxclLaL5DIKvkAQ+Kj18ea2GPtb50w0ntSeZdGL+ACEdk9N5Qm
-	zuCcQgrbt8SpYcTbRNCA9s+YYAflrKgN8uv0ChZaHa341CeyZGomc1EX66BPUgG9fTDOGTPg3nttx
-	Lidl2ut0kjyP7qFdwm89z1Nl11HDoa8iCAwmiz06wvtkZhJI23rr6NJhk5P88aZ0ODmlxfxRhu3U8
-	oSBHbn7KI4R12YFZyp1m6PMt9R5lPsgbqi3RwECzRNCc+HygHj0gUTt1ChvAx6QUdc22yoLJG24qb
-	cDo60c+A==;
+	bh=XixqfOM9J0PoFklUsB1rnwvB9KfR6W1/d+d5wu0FUJU=; b=uyEsWtZQSgZVQGmonE8GL50pRB
+	7oFP/R69YLUlSlMKY16SYpl2c8ToQjjuMKM17FD4NGB173LZUErFJ4uk2/qlrFpTPsswUzXnD1jTH
+	W/fqZ0vV5w+rx/+Arn+y7i2GmRxvX+vbSv3GcRYboBDm2fCB5ge6FNc4VD0TvV4R7xeegLFjtwJMj
+	cMlgLwF6MLdCiEwE/k+PHLkfUN2HhmDLvKRuJuVLL5fGSr/Z5ZSVOSDdWVLhnf21aUaIiFySEsKDX
+	J6hWlgSMq3YmoPxeGU1Ho8jU2fCdiozMC8iTPs+ZqjGm8m+y3qF65dt9NSKW1gtxOMcPQQXwiB7P8
+	4mnq6pjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozQL-0000000G3ix-1IdF;
-	Thu, 21 Aug 2025 07:09:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uozSv-0000000G3zd-2d2k;
+	Thu, 21 Aug 2025 07:12:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoz71-0000000G0Fz-2zfQ;
-	Thu, 21 Aug 2025 06:49:28 +0000
+	id 1uoz7h-0000000G0QK-1Y1v;
+	Thu, 21 Aug 2025 06:50:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B97F7A5762B;
-	Thu, 21 Aug 2025 06:49:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57B0C4CEED;
-	Thu, 21 Aug 2025 06:49:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6ABB60200;
+	Thu, 21 Aug 2025 06:50:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3939C4CEED;
+	Thu, 21 Aug 2025 06:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755758966;
-	bh=+dDruC6iw3EJwORfpY8MHfyohIHz8lNWLx1YR5ATtrc=;
+	s=k20201202; t=1755759008;
+	bh=u+lsxovfQh47JM2+/dnFIH86HtbVMZEaPA79GiUi060=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gnz7iZd/BdECzBP5MOTF9P/jh0Oi3LHdU3YrbPKWmAylyObxiuwvHv8NJi6M18NMa
-	 /iD93nWQZV4BBt47V3bsFUKncJuTQlkOdZx8JhvIonYEV1i0LWg5+rT6kcsm8G3DaC
-	 7YeXIPbhBMCyfPTSovYxY1/vk8medqxI6Ya/HQIxUJ6mPKE9zVdmGEkgi49CGV38MZ
-	 PszApBGc88nJXjTXgeAAc0CV6C7G3bo85VjTC4Ii66fhfS9fR5iMql0EC5wHJiwTFQ
-	 UT4oHtIaZNifYwUzzuNQkc7Nvfxsk1PpdEV4eOwVdxGE5EaslH3fosSKGbV9bAEvS9
-	 MNQAEvAr61Tpw==
-Date: Thu, 21 Aug 2025 08:49:22 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Mark Brown <broonie@kernel.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>, Ray Liu <ray.liu@airoha.com>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Martin Kurbanov <mmkurbanov@salutedevices.com>,
-	Takahiro Kuwano <Takahiro.Kuwano@infineon.com>,
-	Cheng Ming Lin <chengminglin@mxic.com.tw>,
-	linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Subject: Re: [PATCH RESEND v2 4/4] spi: spi-airoha-snfi: return an error for
- continuous mode dirmap creation cases
-Message-ID: <aKbBclHYmjI_H3jq@lore-rh-laptop>
-References: <20250814065423.3980305-1-mikhail.kshevetskiy@iopsys.eu>
- <20250814065423.3980305-5-mikhail.kshevetskiy@iopsys.eu>
- <78542bbe-1def-4aca-8424-cc26542d9762@sirena.org.uk>
- <e8f77b06-b47c-456e-8671-ac8ae573af64@iopsys.eu>
- <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
+	b=rWtcNuVzxcYsC34AHmhjHBgxMf2ouycBh5sbTI6IqDcMDOs4NOiAHwDiinq/rRFcp
+	 Zgxpz9CoVE/6w1hlonzqs0taKH8bD0I8vlzYiEt0rlghWXCLkBz2/+nKPXojDrxuwI
+	 NvUDXL8TsapMRtBVOYosrNgG2uUt6SsgcjjGQLyBXlIESLxLYwakv0ozJOyxoC7ZxP
+	 292JeFide5WNt2qdhGCgu7c9WFuVYhx+jp++UHpQXyr1Q2DfXXvb0zrWJ8fzlizFG3
+	 T2t4mnu9y1ueNesgpAAJrCut//SNpr/e7hd8Ru35/r+G3fPuwK+ByZsWf3r01mj1Vf
+	 MJolRnW5Wm8EQ==
+Date: Thu, 21 Aug 2025 08:50:06 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
+	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
+	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, davem@davemloft.net, 
+	dmitry.torokhov@gmail.com, edumazet@google.com, flora.fu@mediatek.com, 
+	houlong.wei@mediatek.com, jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com, 
+	krzk+dt@kernel.org, kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com, 
+	lgirdwood@gmail.com, linus.walleij@linaro.org, louisalexis.eyraud@collabora.com, 
+	maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, mchehab@kernel.org, 
+	minghsiu.tsai@mediatek.com, mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
+	robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch, 
+	support.opensource@diasemi.com, tiffany.lin@mediatek.com, tzimmermann@suse.de, 
+	yunfei.dong@mediatek.com, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v1 07/14] dt-bindings: display: mediatek,ufoe: Add
+ mediatek,gce-client-reg property
+Message-ID: <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-8-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fQ/mndwu5rqbmfjT"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_234927_827689_FEC4B11C 
-X-CRM114-Status: GOOD (  16.93  )
+In-Reply-To: <20250820171302.324142-8-ariel.dalessandro@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 20, 2025 at 02:12:55PM -0300, Ariel D'Alessandro wrote:
+> Current, the DT bindings for Mediatek UFOe (Unified Frame Optimization
+> engine) is missing the mediatek,gce-client-reg property. Add it and
 
---fQ/mndwu5rqbmfjT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Why is it missing? If the binding is complete, it cannot be missing...
 
-> Am 14.08.25 um 17:33 schrieb Mikhail Kshevetskiy:
-> >=20
-> > On 14.08.2025 18:29, Mark Brown wrote:
-> >> On Thu, Aug 14, 2025 at 09:54:23AM +0300, Mikhail Kshevetskiy wrote:
-> >>> This driver can accelerate single page operations only, thus
-> >>> continuous reading mode should not be used.
-> >>>
-> >>> Continuous reading will use sizes up to the size of one erase block.
-> >>> This size is much larger than the size of single flash page. Use this
-> >>> difference to identify continuous reading and return an error.
-> >> This seems like it just applies anyway regardless of the rest of the
-> >> series?
-> >=20
-> > Could you provide a link? I do not see this in upstream linux repo.
->=20
-> Mark asked if this could be applied without the other patches of this
-> series through his SPI tree and I think that is indeed correct. The
-> other patches are still being reviewed and applied via the MTD tree.
+> update the example as well.
+> 
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> ---
+>  .../bindings/display/mediatek/mediatek,ufoe.yaml      | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+> index 61a5e22effbf2..ecb4c0359fec3 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+> @@ -64,6 +64,14 @@ properties:
+>        - port@0
+>        - port@1
+>  
+> +  mediatek,gce-client-reg:
+> +    description: The register of client driver can be configured by gce with
+> +      4 arguments defined in this property, such as phandle of gce, subsys id,
+> +      register offset and size. Each GCE subsys id is mapping to a client
 
-Can you please add the following Fixes tag?
+Don't explain what DT syntax is. We all know, so that's completely
+redundant description. Explain the purpose. Explain Arguments with sechema - items.
 
-Fixes: a403997c12019 ("spi: airoha: add SPI-NAND Flash controller driver")
+Best regards,
+Krzysztof
 
-Regards,
-Lorenzo
-
---fQ/mndwu5rqbmfjT
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKbBbwAKCRA6cBh0uS2t
-rK9SAP4/fA0AATBO9QcF9hsrFQCmlkwxxrHcvQqs0F8yCLHidgD+M3A/bqxivvA8
-dgQx6GY/EeGvfXJ4S0LIK2YiItbX7gk=
-=6qIu
------END PGP SIGNATURE-----
-
---fQ/mndwu5rqbmfjT--
 
