@@ -4,101 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556AFCA0FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C49CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 15:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kww3Z8XQpKUqnrzv3IhCXTW3D/QqhIcasmUvK1+uYck=; b=nmLnKQjkhug/rUEnozwcdc1xgw
-	OzZ3p4Bu0ycKohTfQA3PfOlBHiD98Zu3mSkRKuxdgfLbxurluVbT7OeBFt4m7c6mpkmN/uVKz/OKy
-	jah7+QyqusteR3WXr+8ujgIFe3BbWFiFKUTViG3CC4eVeAwl5qH/EiHbVYWy1RuZiA2lrxLIoHnY5
-	NPQK4CxgfbvxIGjRhfGmTcEnxdt/tzBZBFphxqAoNP3CN4336G7xIG782WYdiaPvHIDo5z70cNBSJ
-	SF3zDJDpQrUZlVggShGzN3gDAxvhKBy/Bs8ut1v7P8opojQiAZhSaubpAGjskIdTOQtUv7AF7LzkB
-	KisH7l5A==;
+	bh=vavK3n4jLICQXkojNkvAyvhmVEYhEWu/wrFccniUBwM=; b=fe6n09DLDpZCPIRCstj4HAE1wo
+	QK9hxNs2Izyewc80TDrBrNi1P5gvO4Ei/nylDVNa8tmR57ERZ92/rXh4v0X18PWMOprNCn1eOvUIX
+	ZxK+TF6ELWQoxEfsuoMlfzs56a7VStJOoNSUs++kTwqGXBSlBd5Wcv2A21+9fUv27BC+UqNG7ZzaH
+	kamiFR/1Z2YPrr8a9rKL6EsVXZ0I2Px0FYRvO+uhVdOdAaofpCPVswFSEqol5r1/90ZvdwgqndPx9
+	YIeyNsmBkdAyCOpet9/u/OCQVeBYZGdYEw1fFJDPsvSw+6U5GGHqhKn8VkjD4Cef0LiLtuAINRsPu
+	61bt2Ygg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up7PV-0000000HQr2-2net;
-	Thu, 21 Aug 2025 15:41:05 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up4hp-0000000Gwt3-0xli;
-	Thu, 21 Aug 2025 12:47:50 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-afcb7a3b3a9so129135366b.2;
-        Thu, 21 Aug 2025 05:47:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755780467; x=1756385267; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kww3Z8XQpKUqnrzv3IhCXTW3D/QqhIcasmUvK1+uYck=;
-        b=g7+8XQ9c+8WMrB24m5pfsg2NADeppZ2YTmwOad7RL8Lqz5z19Sq6r872C7BnQ3VdGi
-         1exetMVr2YivK/1lkoK3hUGQJv9ZBYG38QATQ76XPsulzqqFbf4Zk+cGSvsMu0r2ll5a
-         lBvauaMT1Go2tkuz1oPyRh1EBlvxUzHoo234mv83VagWH8FV6s/hK7/Y3fMZvziy0si6
-         6dc3bdjwozd5ayqf+++KCeXv6c6nSPsvkULgZzmBA8Alj6FOxpvhCqob11ZNwyavbEVU
-         yR6jvU8qYOTz4WgR/VRgT4E/BrCcDPjrZvw81mYgU58896ic0osNP0+VeH5loQoFVflo
-         5ouA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755780467; x=1756385267;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Kww3Z8XQpKUqnrzv3IhCXTW3D/QqhIcasmUvK1+uYck=;
-        b=Ssf9hF2OjHwu+EFbgaBn+Hs+6Qn38o/ixunGQLiua9oj0AEMb+3Ql6aX71Xmxw4yFo
-         63Y1HvybiprHStphR7dn5KkbBMI+jQ8qoNEBbywCcvMs/E9E6K0S2qNv+TNj3uwWkvcY
-         afQt7o6WiIt+CCddWKBOjQ4SBS+/h+dAvk04/kgYzTcsDGUAjNY7iZgaDsqFK9R/9Dar
-         epiDqdqr9J0p6zHftFtNBIrUzUlRcgqIB0M+AjmtrKljg+mEEWSgs7ac1D7//o4T7A7z
-         EDESOjYuysddMhVlgDceEMZ7vhC4zJx5N5KWnu5SRJVqY7L2xX4yAb+MoEE2U5fXyf3+
-         5c+A==
-X-Forwarded-Encrypted: i=1; AJvYcCVUiEXVCSNPuXGvNYHPLhZRD2rnw+HG2uXJzi08UecWWT3hsKvIZeT9sGuG4TQVwlYokZO71Ns7n5OzKMfoxRYqUQ==@lists.infradead.org, AJvYcCXB4B4JBgq81r+6nm5bM6nIOhXZpE8eJxtqEQ+pvNdkicQKHYYvKqoEiVzuGRmR39CddyxbAcFRKxvkPIqW@lists.infradead.org, AJvYcCXIcgZhy8L3sESp94jz8oyhCX/6yb+iqe1HWzyAyUWs9n49TF/019P9djy8oyGysGInB0Bm97lD789E1kwUqk4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyxwoteV7QYpCUD9y2aEa39fAxchh82fzVqhFq9slrOPmcj3hE
-	0G2bVk7z6YRn4dyxmaOI3UkQQ09hFSq0cAgKyb2iv56RcmltmgXRscMgNAQiRZMnOMPtCEmeMvJ
-	GImoj2p0KXpUoQeIKRt6fRHeBn8aXik4=
-X-Gm-Gg: ASbGncv/sUNhZkcrRVz1tyJa4Z/rn6pzSZUSVAltq78jTPXGH63cMJxmjJEi2ojcpgr
-	FPYYZ3JapQk09PuRVIZCx8DB5cPfb2Vrf8MDSrh5ujkOkDOStAbAlhzRN5+woNpA9462KQuX1ym
-	DcuXaUMHiWeqLfB0y5rTqOCNCL7XHYeE4+OS/qmjkAcva3vlU4GW1KerFEHIz4slWzfv324CY0w
-	M5WigUj7w==
-X-Google-Smtp-Source: AGHT+IEPEbjECYdBW0nd8xX8lWG/FeWz08nR/1JcSgRS+BCimYdArukTA+i3b9djOGPovIzmf+wskUZ5f9vMyM/jPZM=
-X-Received: by 2002:a17:907:9711:b0:ae3:5e27:8e66 with SMTP id
- a640c23a62f3a-afe07a7efc8mr229517766b.27.1755780467264; Thu, 21 Aug 2025
- 05:47:47 -0700 (PDT)
+	id 1up7S7-0000000HRQQ-1ZHZ;
+	Thu, 21 Aug 2025 15:43:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up3UL-0000000GlDS-2Aaf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 11:29:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 780B7152B;
+	Thu, 21 Aug 2025 04:29:38 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E7603F58B;
+	Thu, 21 Aug 2025 04:29:44 -0700 (PDT)
+Message-ID: <fb782326-06d6-4e3d-9614-6f5798dafee4@arm.com>
+Date: Thu, 21 Aug 2025 12:29:43 +0100
 MIME-Version: 1.0
-References: <20250821080723.525379-1-zhao.xichao@vivo.com> <CAHp75VeDvK8cOr=rVGj_hVX5YzXM-UqrWRBgUrhiA1wzYn7C_w@mail.gmail.com>
- <CAKv63uvfHYATd7ZFweZ0LMfTLt-idHVgYJqOV8PvzaNeigbt9w@mail.gmail.com>
-In-Reply-To: <CAKv63uvfHYATd7ZFweZ0LMfTLt-idHVgYJqOV8PvzaNeigbt9w@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 21 Aug 2025 15:47:10 +0300
-X-Gm-Features: Ac12FXyAa-NWG2kjb3jWIL5sg7tG4bcy5ylXKO82itEKrqXswF6DvDsUv85LdDQ
-Message-ID: <CAHp75VdL9kV2fyi63zqPZnW4CaeYPmJ74tmGEgU=M7FSYBv0ww@mail.gmail.com>
-Subject: Re: [PATCH 0/7] iio: Remove dev_err_probe() if error is -ENOMEM
-To: Crt Mori <cmo@melexis.com>
-Cc: Xichao Zhao <zhao.xichao@vivo.com>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Andreas Klinger <ak@it-klinger.de>, Haibo Chen <haibo.chen@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Marius Cristea <marius.cristea@microchip.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Francesco Dolcini <francesco@dolcini.it>, 
-	=?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>, 
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Gustavo Silva <gustavograzs@gmail.com>, 
-	Tomasz Duszynski <tomasz.duszynski@octakon.com>, Jagath Jog J <jagathjog1996@gmail.com>, 
-	Per-Daniel Olsson <perdaniel.olsson@axis.com>, Waqar Hameed <waqar.hameed@axis.com>, 
-	Yasin Lee <yasin.lee.x@gmail.com>, Julien Stephan <jstephan@baylibre.com>, 
-	"open list:IIO SUBSYSTEM AND DRIVERS" <linux-iio@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:NXP i.MX 7D/6SX/6UL/93 AND VF610 ADC DRIVER" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Amlogic Meson SoC support" <linux-amlogic@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/6] KVM: arm64: Get rid of ARM64_FEATURE_MASK()
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Cornelia Huck <cohuck@redhat.com>
+References: <20250817202158.395078-1-maz@kernel.org>
+ <20250817202158.395078-7-maz@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250817202158.395078-7-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_054749_274782_B9038CE8 
-X-CRM114-Status: UNSURE (   6.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_042949_714869_589FADBC 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,14 +68,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 2:50=E2=80=AFPM Crt Mori <cmo@melexis.com> wrote:
->
-> Sorry duplicate - as I commented on driver.
+Hi Marc,
 
-Yep, answered there.
+On 8/17/25 21:21, Marc Zyngier wrote:
+> The ARM64_FEATURE_MASK() macro was a hack introduce whilst the
+> automatic generation of sysreg encoding was introduced, and was
+> too unreliable to be entirely trusted.
+> 
+> We are in a better place now, and we could really do without this
+> macro. Get rid of it altogether.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>   arch/arm64/include/asm/sysreg.h               |  3 --
+>   arch/arm64/kvm/arm.c                          |  8 ++--
+>   arch/arm64/kvm/sys_regs.c                     | 40 +++++++++----------
+>   tools/arch/arm64/include/asm/sysreg.h         |  3 --
+>   .../selftests/kvm/arm64/aarch32_id_regs.c     |  2 +-
+>   .../selftests/kvm/arm64/debug-exceptions.c    | 12 +++---
+>   .../testing/selftests/kvm/arm64/no-vgic-v3.c  |  4 +-
+>   .../selftests/kvm/arm64/page_fault_test.c     |  6 +--
+>   .../testing/selftests/kvm/arm64/set_id_regs.c |  8 ++--
+>   .../selftests/kvm/arm64/vpmu_counter_access.c |  2 +-
+>   .../selftests/kvm/lib/arm64/processor.c       |  6 +--
+>   11 files changed, 44 insertions(+), 50 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index d5b5f2ae1afaa..6604fd6f33f45 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1142,9 +1142,6 @@
+>   
+>   #define ARM64_FEATURE_FIELD_BITS	4
+While you're at it, consider getting rid of ARM64_FEATURE_FIELD_BITS 
+too. This is only used in the set_id_regs.c selftest.
+>   
+> -/* Defined for compatibility only, do not add new users. */
+> -#define ARM64_FEATURE_MASK(x)	(x##_MASK)
+> -
+>   #ifdef __ASSEMBLY__
+>   
+>   	.macro	mrs_s, rt, sreg
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 888f7c7abf547..5bf101c869c9a 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2408,12 +2408,12 @@ static u64 get_hyp_id_aa64pfr0_el1(void)
+>   	 */
+>   	u64 val = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+>   
+> -	val &= ~(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV2) |
+> -		 ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV3));
+> +	val &= ~(ID_AA64PFR0_EL1_CSV2 |
+> +		 ID_AA64PFR0_EL1_CSV3);
+>   
+> -	val |= FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV2),
+> +	val |= FIELD_PREP(ID_AA64PFR0_EL1_CSV2,
+>   			  arm64_get_spectre_v2_state() == SPECTRE_UNAFFECTED);
+> -	val |= FIELD_PREP(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_CSV3),
+> +	val |= FIELD_PREP(ID_AA64PFR0_EL1_CSV3,
+>   			  arm64_get_meltdown_state() == SPECTRE_UNAFFECTED);
+>   
+>   	return val;
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index e149786f8bde0..00a485180c4eb 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1617,18 +1617,18 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>   		break;
+>   	case SYS_ID_AA64ISAR1_EL1:
+>   		if (!vcpu_has_ptrauth(vcpu))
+> -			val &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_APA) |
+> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_API) |
+> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPA) |
+> -				 ARM64_FEATURE_MASK(ID_AA64ISAR1_EL1_GPI));
+> +			val &= ~(ID_AA64ISAR1_EL1_APA |
+> +				 ID_AA64ISAR1_EL1_API |
+> +				 ID_AA64ISAR1_EL1_GPA |
+> +				 ID_AA64ISAR1_EL1_GPI);
+>   		break;
+>   	case SYS_ID_AA64ISAR2_EL1:
+>   		if (!vcpu_has_ptrauth(vcpu))
+> -			val &= ~(ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_APA3) |
+> -				 ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_GPA3));
+> +			val &= ~(ID_AA64ISAR2_EL1_APA3 |
+> +				 ID_AA64ISAR2_EL1_GPA3);
+>   		if (!cpus_have_final_cap(ARM64_HAS_WFXT) ||
+>   		    has_broken_cntvoff())
+> -			val &= ~ARM64_FEATURE_MASK(ID_AA64ISAR2_EL1_WFxT);
+> +			val &= ~ID_AA64ISAR2_EL1_WFxT;
+>   		break;
+>   	case SYS_ID_AA64ISAR3_EL1:
+>   		val &= ID_AA64ISAR3_EL1_FPRCVT | ID_AA64ISAR3_EL1_FAMINMAX;
+> @@ -1644,7 +1644,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>   		       ID_AA64MMFR3_EL1_S1PIE;
+>   		break;
+>   	case SYS_ID_MMFR4_EL1:
+> -		val &= ~ARM64_FEATURE_MASK(ID_MMFR4_EL1_CCIDX);
+> +		val &= ~ID_MMFR4_EL1_CCIDX;
+>   		break;
+>   	}
+>   
+> @@ -1830,22 +1830,22 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+>   	u64 pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+>   
+>   	if (!kvm_has_mte(vcpu->kvm)) {
+> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);
+> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac);
+> +		val &= ~ID_AA64PFR1_EL1_MTE;
+> +		val &= ~ID_AA64PFR1_EL1_MTE_frac;
+>   	}
+>   
+>   	if (!(cpus_have_final_cap(ARM64_HAS_RASV1P1_EXTN) &&
+>   	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
+> -		val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RAS_frac);
+> -
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);
+> -	val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);
+> +		val &= ~ID_AA64PFR1_EL1_RAS_frac;
+> +
+> +	val &= ~ID_AA64PFR1_EL1_SME;
+> +	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
+> +	val &= ~ID_AA64PFR1_EL1_NMI;
+> +	val &= ~ID_AA64PFR1_EL1_GCS;
+> +	val &= ~ID_AA64PFR1_EL1_THE;
+> +	val &= ~ID_AA64PFR1_EL1_MTEX;
+> +	val &= ~ID_AA64PFR1_EL1_PFAR;
+> +	val &= ~ID_AA64PFR1_EL1_MPAM_frac;
+>   
+>   	return val;
+>   }
+> diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
+> index 690b6ebd118f4..65f2759ea27a3 100644
+> --- a/tools/arch/arm64/include/asm/sysreg.h
+> +++ b/tools/arch/arm64/include/asm/sysreg.h
+> @@ -1080,9 +1080,6 @@
+>   
+>   #define ARM64_FEATURE_FIELD_BITS	4
+>   
+> -/* Defined for compatibility only, do not add new users. */
+> -#define ARM64_FEATURE_MASK(x)	(x##_MASK)
+> -
+>   #ifdef __ASSEMBLY__
+>   
+>   	.macro	mrs_s, rt, sreg
+> diff --git a/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c b/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
+> index cef8f7323ceb8..713005b6f508e 100644
+> --- a/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/aarch32_id_regs.c
+> @@ -146,7 +146,7 @@ static bool vcpu_aarch64_only(struct kvm_vcpu *vcpu)
+>   
+>   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
+>   
+> -	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
+> +	el0 = FIELD_GET(ID_AA64PFR0_EL1_EL0, val);
+>   	return el0 == ID_AA64PFR0_EL1_EL0_IMP;
+>   }
+>   
+> diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> index e34963956fbc9..1d431de8729c5 100644
+> --- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> +++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> @@ -116,12 +116,12 @@ static void reset_debug_state(void)
+>   
+>   	/* Reset all bcr/bvr/wcr/wvr registers */
+>   	dfr0 = read_sysreg(id_aa64dfr0_el1);
+> -	brps = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_BRPs), dfr0);
+> +	brps = FIELD_GET(ID_AA64DFR0_EL1_BRPs, dfr0);
+>   	for (i = 0; i <= brps; i++) {
+>   		write_dbgbcr(i, 0);
+>   		write_dbgbvr(i, 0);
+>   	}
+> -	wrps = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_WRPs), dfr0);
+> +	wrps = FIELD_GET(ID_AA64DFR0_EL1_WRPs, dfr0);
+>   	for (i = 0; i <= wrps; i++) {
+>   		write_dbgwcr(i, 0);
+>   		write_dbgwvr(i, 0);
+> @@ -418,7 +418,7 @@ static void guest_code_ss(int test_cnt)
+>   
+>   static int debug_version(uint64_t id_aa64dfr0)
+>   {
+> -	return FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_DebugVer), id_aa64dfr0);
+> +	return FIELD_GET(ID_AA64DFR0_EL1_DebugVer, id_aa64dfr0);
+>   }
+>   
+>   static void test_guest_debug_exceptions(uint8_t bpn, uint8_t wpn, uint8_t ctx_bpn)
+> @@ -539,14 +539,14 @@ void test_guest_debug_exceptions_all(uint64_t aa64dfr0)
+>   	int b, w, c;
+>   
+>   	/* Number of breakpoints */
+> -	brp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_BRPs), aa64dfr0) + 1;
+> +	brp_num = FIELD_GET(ID_AA64DFR0_EL1_BRPs, aa64dfr0) + 1;
+>   	__TEST_REQUIRE(brp_num >= 2, "At least two breakpoints are required");
+>   
+>   	/* Number of watchpoints */
+> -	wrp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_WRPs), aa64dfr0) + 1;
+> +	wrp_num = FIELD_GET(ID_AA64DFR0_EL1_WRPs, aa64dfr0) + 1;
+>   
+>   	/* Number of context aware breakpoints */
+> -	ctx_brp_num = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_CTX_CMPs), aa64dfr0) + 1;
+> +	ctx_brp_num = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, aa64dfr0) + 1;
+>   
+>   	pr_debug("%s brp_num:%d, wrp_num:%d, ctx_brp_num:%d\n", __func__,
+>   		 brp_num, wrp_num, ctx_brp_num);
+> diff --git a/tools/testing/selftests/kvm/arm64/no-vgic-v3.c b/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
+> index ebd70430c89de..f222538e60841 100644
+> --- a/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
+> +++ b/tools/testing/selftests/kvm/arm64/no-vgic-v3.c
+> @@ -54,7 +54,7 @@ static void guest_code(void)
+>   	 * Check that we advertise that ID_AA64PFR0_EL1.GIC == 0, having
+>   	 * hidden the feature at runtime without any other userspace action.
+>   	 */
+> -	__GUEST_ASSERT(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_GIC),
+> +	__GUEST_ASSERT(FIELD_GET(ID_AA64PFR0_EL1_GIC,
+>   				 read_sysreg(id_aa64pfr0_el1)) == 0,
+>   		       "GICv3 wrongly advertised");
+>   
+> @@ -165,7 +165,7 @@ int main(int argc, char *argv[])
+>   
+>   	vm = vm_create_with_one_vcpu(&vcpu, NULL);
+>   	pfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
+> -	__TEST_REQUIRE(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_GIC), pfr0),
+> +	__TEST_REQUIRE(FIELD_GET(ID_AA64PFR0_EL1_GIC, pfr0),
+>   		       "GICv3 not supported.");
+>   	kvm_vm_free(vm);
+>   
+> diff --git a/tools/testing/selftests/kvm/arm64/page_fault_test.c b/tools/testing/selftests/kvm/arm64/page_fault_test.c
+> index dc6559dad9d86..4ccbd389d1336 100644
+> --- a/tools/testing/selftests/kvm/arm64/page_fault_test.c
+> +++ b/tools/testing/selftests/kvm/arm64/page_fault_test.c
+> @@ -95,14 +95,14 @@ static bool guest_check_lse(void)
+>   	uint64_t isar0 = read_sysreg(id_aa64isar0_el1);
+>   	uint64_t atomic;
+>   
+> -	atomic = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64ISAR0_EL1_ATOMIC), isar0);
+> +	atomic = FIELD_GET(ID_AA64ISAR0_EL1_ATOMIC, isar0);
+>   	return atomic >= 2;
+>   }
+>   
+>   static bool guest_check_dc_zva(void)
+>   {
+>   	uint64_t dczid = read_sysreg(dczid_el0);
+> -	uint64_t dzp = FIELD_GET(ARM64_FEATURE_MASK(DCZID_EL0_DZP), dczid);
+> +	uint64_t dzp = FIELD_GET(DCZID_EL0_DZP, dczid);
+>   
+>   	return dzp == 0;
+>   }
+> @@ -195,7 +195,7 @@ static bool guest_set_ha(void)
+>   	uint64_t hadbs, tcr;
+>   
+>   	/* Skip if HA is not supported. */
+> -	hadbs = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR1_EL1_HAFDBS), mmfr1);
+> +	hadbs = FIELD_GET(ID_AA64MMFR1_EL1_HAFDBS, mmfr1);
+>   	if (hadbs == 0)
+>   		return false;
+>   
+> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> index d3bf9204409c3..36d40c267b994 100644
+> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> @@ -594,8 +594,8 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
+>   	 */
+>   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
+>   
+> -	mte = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE), val);
+> -	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
+> +	mte = FIELD_GET(ID_AA64PFR1_EL1_MTE, val);
+> +	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
+>   	if (mte != ID_AA64PFR1_EL1_MTE_MTE2 ||
+>   	    mte_frac != ID_AA64PFR1_EL1_MTE_frac_NI) {
+>   		ksft_test_result_skip("MTE_ASYNC or MTE_ASYMM are supported, nothing to test\n");
+> @@ -612,7 +612,7 @@ static void test_user_set_mte_reg(struct kvm_vcpu *vcpu)
+>   	}
+>   
+>   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR1_EL1));
+> -	mte_frac = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac), val);
+> +	mte_frac = FIELD_GET(ID_AA64PFR1_EL1_MTE_frac, val);
+>   	if (mte_frac == ID_AA64PFR1_EL1_MTE_frac_NI)
+>   		ksft_test_result_pass("ID_AA64PFR1_EL1.MTE_frac=0 accepted and still 0xF\n");
+>   	else
+> @@ -774,7 +774,7 @@ int main(void)
+>   
+>   	/* Check for AARCH64 only system */
+>   	val = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64PFR0_EL1));
+> -	el0 = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0), val);
+> +	el0 = FIELD_GET(ID_AA64PFR0_EL1_EL0, val);
+>   	aarch64_only = (el0 == ID_AA64PFR0_EL1_EL0_IMP);
+>   
+>   	ksft_print_header();
+> diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> index f16b3b27e32ed..a0c4ab8391559 100644
+> --- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> +++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
+> @@ -441,7 +441,7 @@ static void create_vpmu_vm(void *guest_code)
+>   
+>   	/* Make sure that PMUv3 support is indicated in the ID register */
+>   	dfr0 = vcpu_get_reg(vpmu_vm.vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64DFR0_EL1));
+> -	pmuver = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), dfr0);
+> +	pmuver = FIELD_GET(ID_AA64DFR0_EL1_PMUVer, dfr0);
+>   	TEST_ASSERT(pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF &&
+>   		    pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP,
+>   		    "Unexpected PMUVER (0x%x) on the vCPU with PMUv3", pmuver);
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> index 9d69904cb6084..eb115123d7411 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> @@ -573,15 +573,15 @@ void aarch64_get_supported_page_sizes(uint32_t ipa, uint32_t *ipa4k,
+>   	err = ioctl(vcpu_fd, KVM_GET_ONE_REG, &reg);
+>   	TEST_ASSERT(err == 0, KVM_IOCTL_ERROR(KVM_GET_ONE_REG, vcpu_fd));
+>   
+> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN4), val);
+> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN4, val);
+>   	*ipa4k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN4_NI,
+>   					ID_AA64MMFR0_EL1_TGRAN4_52_BIT);
+>   
+> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN64), val);
+> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN64, val);
+>   	*ipa64k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN64_NI,
+>   					ID_AA64MMFR0_EL1_TGRAN64_IMP);
+>   
+> -	gran = FIELD_GET(ARM64_FEATURE_MASK(ID_AA64MMFR0_EL1_TGRAN16), val);
+> +	gran = FIELD_GET(ID_AA64MMFR0_EL1_TGRAN16, val);
+>   	*ipa16k = max_ipa_for_page_size(ipa, gran, ID_AA64MMFR0_EL1_TGRAN16_NI,
+>   					ID_AA64MMFR0_EL1_TGRAN16_52_BIT);
+>   
 
+-- 
+Thanks,
 
---=20
-With Best Regards,
-Andy Shevchenko
+Ben
+
 
