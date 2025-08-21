@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7651DCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0D2CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 23:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL9PKhJekEhSXNWUDcEOIhh2dmhgVbWzerNgTI7h9Ew=; b=tuOiSbKVKUb+e5nP1izpU8SNGL
-	WqUivnaTVzILA9S4oyZmr5mlUlRmJtR1szbbRVswr7MPktNraSuSkBt+u4wgHUjY4B29fO9yPzOpF
-	Z91Kq3k3K2XrAFlWLuL+8jUTlpIRdwn/2fsohTriDIHzvYpS+r7+W8VdSyS+NIktxyxN4VVOESsTd
-	nMHxIGhoBWwVbjWEmgXNlByEyBSAhyqTYkQvzPefYQ1sC7Efw/3h3quortZu+HKw75JppMbwuffIA
-	ivukgWR+YKdnKaYV/rzswdPEOjJLEG1KwaE5Rn7P1Sk8u3jFStTvHvSNtLPZ/FVrfoviAa0et2H4x
-	SBuer6Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3/dQIN/6bQs5cMkEYR2kGWQIOG8oSziPJNK6u+M3TKI=; b=3RG/IY71yWpI88XEVFZSjUMwD6
+	eU4fggrHPvqNBT2rMUXFa97C9gVCP5pbuLBDHs1d+g66ETt1rwpCSELZhG2oDHBP0d9vF47UB+4sB
+	25Gfp9XFMQ8fTIQaXdwlcrTC3K6diMn6fd9q4nroEnPNuFYEBQZ+JFjCLPsG8YOVvEBbrxSHu/oDC
+	cL+oP9SxE+YWZUxdAehczWh4RoOOeBMptr0YkPMfeyxZz/2+J++fPtx+77xLif3h0swduDLX++iT9
+	5V3EMHm588wXqO17lzz2nY6lJMzykZTbWGuCeZQ3GqspVSqPi9h4PA/5Ux7q88SI9b7wk6iV+INFq
+	Wmqv5u1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upEE6-00000000sbj-22wa;
-	Thu, 21 Aug 2025 22:57:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up91d-000000003gH-3yDc
+	id 1upEGg-00000000sri-13up;
+	Thu, 21 Aug 2025 23:00:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1up91z-000000003ij-3VoK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 17:24:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C4A4152B;
-	Thu, 21 Aug 2025 10:24:25 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D7F023F59E;
-	Thu, 21 Aug 2025 10:24:29 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	maz@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 5/5] arm64: make the per-task SCTLR2_EL1
-Date: Thu, 21 Aug 2025 18:24:08 +0100
-Message-Id: <20250821172408.2101870-6-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250821172408.2101870-1-yeoreum.yun@arm.com>
-References: <20250821172408.2101870-1-yeoreum.yun@arm.com>
+	Thu, 21 Aug 2025 17:24:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E73B0601F8;
+	Thu, 21 Aug 2025 17:24:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB0EC4CEEB;
+	Thu, 21 Aug 2025 17:24:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755797094;
+	bh=3/dQIN/6bQs5cMkEYR2kGWQIOG8oSziPJNK6u+M3TKI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TbbRsU2FbjHzWD8HhM2bCrBS0hMiRzteNS9o3F40QEvuuGSIZ0EhnGRscZ8uDMONG
+	 IL5cT9ZTjmrSovM0Conzjx4X7ZkmqUyrKXrGjDq51s6e93LQ0IZkRdngZTBfFdeahN
+	 rF9N8MCZ2RChmIK1IH4hQo+LkEzbQ/NrrK98DOpPaEZnjlHMyMZSEMPMhU4NDp/UfS
+	 Ae2nl/nJe2VGlaS74QhlNI2cnUGMclBz/OFMYysAMvO0HCU0ysVMSzrNG4usoHO4fr
+	 72fy4rgAhRmcnp/m2cBscXutwTuRKhmxinX3AcXrc38HnD4FFiiL/rbXP8+/PQDTO+
+	 6BQRSXmOsuong==
+Date: Thu, 21 Aug 2025 18:24:50 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Thiago Jung Bauermann <thiago.bauermann@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] kselftest/arm64/gcs: Use nolibc's getauxval()
+Message-ID: <d5a26257-769e-4ad4-8d6c-723529b66aec@sirena.org.uk>
+References: <20250821-nolibc-gcs-fixes-v1-0-88519836c915@weissschuh.net>
+ <20250821-nolibc-gcs-fixes-v1-2-88519836c915@weissschuh.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_102434_021729_47472CC8 
-X-CRM114-Status: GOOD (  10.16  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aTcioaIg2uzKW47S"
+Content-Disposition: inline
+In-Reply-To: <20250821-nolibc-gcs-fixes-v1-2-88519836c915@weissschuh.net>
+X-Cookie: Warp 7 -- It's a law we can live with.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +74,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some bits in SCTLR2_EL1 that control system behavior can be
-configured on a per-task basis (e.g., fields related to FEAT_CPA2).
-To support future use of these fields, SCTLR2_EL1 is maintained
-per task.
 
-On platforms without FEAT_SCTLR2 support, there is no functional
-change and only minimal performance overhead.
+--aTcioaIg2uzKW47S
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/processor.h | 3 +++
- arch/arm64/kernel/process.c        | 9 +++++++++
- 2 files changed, 12 insertions(+)
+On Thu, Aug 21, 2025 at 05:13:03PM +0200, Thomas Wei=DFschuh wrote:
+> Nolibc now does have getauxval(), use it.
 
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 61d62bfd5a7b..e066116735c6 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -184,6 +184,7 @@ struct thread_struct {
- 	u64			mte_ctrl;
- #endif
- 	u64			sctlr_user;
-+	u64			sctlr2_user;
- 	u64			svcr;
- 	u64			tpidr2_el0;
- 	u64			por_el0;
-@@ -258,6 +259,8 @@ static inline void task_set_sve_vl_onexec(struct task_struct *task,
- 	(SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
- 	 SCTLR_EL1_TCF0_MASK)
- 
-+#define SCTLR2_USER_MASK	(0)
-+
- static inline void arch_thread_struct_whitelist(unsigned long *offset,
- 						unsigned long *size)
- {
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 96482a1412c6..e54f192c0629 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -698,6 +698,11 @@ void update_sctlr_el1(u64 sctlr)
- 	isb();
- }
- 
-+static void update_sctlr2_el1(u64 sctlr2)
-+{
-+	sysreg_clear_set_s(SYS_SCTLR2_EL1, SCTLR2_USER_MASK, sctlr2);
-+}
-+
- /*
-  * Thread switching.
-  */
-@@ -737,6 +742,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	if (prev->thread.sctlr_user != next->thread.sctlr_user)
- 		update_sctlr_el1(next->thread.sctlr_user);
- 
-+	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2) &&
-+	    prev->thread.sctlr2_user != next->thread.sctlr2_user)
-+		update_sctlr2_el1(next->thread.sctlr2_user);
-+
- 	/* the actual thread switch */
- 	last = cpu_switch_to(prev, next);
- 
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
+--aTcioaIg2uzKW47S
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAminVmEACgkQJNaLcl1U
+h9AVxQf6A1M5k78zL2oHUCa1XHXmZ2SNKsaRCAl+dwv0NAAGZVrcPpptgN6brFHI
+2wmu+akQQ4ySojXlKtQZ9N1huH8OhNU3KB+OdPQTQkz7rI6u9LN47eZNRDW3I6cd
+X//TqDY3s0/a+nYkBDvWWEW4/BicZ2NP0BQiafY0JjioM7Oz5H3TjXwRDsDP44/2
+WmcsLUmySNoCcAP85z8m7X2t9btxDKFvcg9VadNJKSeOH1DFhRaoPMODtosGzzv/
+4hdiBqn+n1m25AdceKsRDCyOjcBJjvKz7a7LwTCJBtt2swGrLU/zZ9VhSuSUYv3N
+PQd9ZCJsh3vYd7SKImd3L5vEL2TX5w==
+=DLpa
+-----END PGP SIGNATURE-----
+
+--aTcioaIg2uzKW47S--
 
