@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC50ECA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45173CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqiJ/jMNBMqMYlpzrFgRn681Dz3/kRO47SwEnG6WV5I=; b=VmS1LTKP6XS9ZtmVrxvbrVA08c
-	wjWw6kwe8nrXxvodK5n1sGUFoLRWIVOm6lefnw0NP8F2JBOMannas/JEWtDk6rkEluKOfQgkwMQTJ
-	VE0DM6pNjrfg9mvOY3oEO8ev+sl9pGu4bTmqLXyFZwTQwOEhodX0MI1jC33rzwlF/hnZu4Edlu44R
-	m+80ROeRmOKuSP4Y/nQcRslx9VS1V6vcgYOJkljQ+8V9SE/4ttPsYbeXU6Ondv3bVhGHOJvk2X633
-	L4D9N2gjEukXxDu57IS08rv5GzwLz6JWonRFVCmv7jBA78jyvm+BPA0ncDKOYCOCTklhLsVF80dbQ
-	8Y3koVzQ==;
+	bh=+dDruC6iw3EJwORfpY8MHfyohIHz8lNWLx1YR5ATtrc=; b=PSZe6gOjgtz8VQW8v9gKs9nG7T
+	rTfeKGCQXG4kBZZkFx/pYQHVo1YWxclLaL5DIKvkAQ+Kj18ea2GPtb50w0ntSeZdGL+ACEdk9N5Qm
+	zuCcQgrbt8SpYcTbRNCA9s+YYAflrKgN8uv0ChZaHa341CeyZGomc1EX66BPUgG9fTDOGTPg3nttx
+	Lidl2ut0kjyP7qFdwm89z1Nl11HDoa8iCAwmiz06wvtkZhJI23rr6NJhk5P88aZ0ODmlxfxRhu3U8
+	oSBHbn7KI4R12YFZyp1m6PMt9R5lPsgbqi3RwECzRNCc+HygHj0gUTt1ChvAx6QUdc22yoLJG24qb
+	cDo60c+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozNl-0000000G3Qv-2KXe;
-	Thu, 21 Aug 2025 07:06:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uozQL-0000000G3ix-1IdF;
+	Thu, 21 Aug 2025 07:09:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoz5O-0000000FzxT-4AiB;
-	Thu, 21 Aug 2025 06:47:47 +0000
+	id 1uoz71-0000000G0Fz-2zfQ;
+	Thu, 21 Aug 2025 06:49:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E4516020E;
-	Thu, 21 Aug 2025 06:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A86CC4CEED;
-	Thu, 21 Aug 2025 06:47:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B97F7A5762B;
+	Thu, 21 Aug 2025 06:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57B0C4CEED;
+	Thu, 21 Aug 2025 06:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755758866;
-	bh=EgAT92RP54AVFDysaOd0tnqQ0Olfa0hsk+q5u3ZXcIk=;
+	s=k20201202; t=1755758966;
+	bh=+dDruC6iw3EJwORfpY8MHfyohIHz8lNWLx1YR5ATtrc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aqcqPhjBCH3w3+IQwS0SA20txlfmzkg6a/TxfrTGgl/ynO4VpKzEFt7sQXN7d/3ON
-	 m7322CvkaqBwGtYP/p+8/1apRnMXxAnfGiwjmsxLYmhEFREU8sXYpJa5Fiz5venMd2
-	 qh7xz0Sfth3pqIEvb3tIsCjdiER9Ok9oh9lbAOFs888RcZzz78ZX91fliLIdCk/gkX
-	 hY/JA809J+Qz1PHKvdtx6B5bJrfzy5KKyK0s6Nq2nSW1MnKz2cCa6IeL4Qe+pHUkUT
-	 fKQYfgXQ0jKDIH1tNyJM40B6JAZui3GS7k6S5tDV621OZMIpvyCqCHWsUJ9+c2M4o+
-	 zjvGNfCxO9YYw==
-Date: Thu, 21 Aug 2025 08:47:43 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
-	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
-	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, davem@davemloft.net, 
-	dmitry.torokhov@gmail.com, edumazet@google.com, flora.fu@mediatek.com, 
-	houlong.wei@mediatek.com, jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com, 
-	krzk+dt@kernel.org, kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com, 
-	lgirdwood@gmail.com, linus.walleij@linaro.org, louisalexis.eyraud@collabora.com, 
-	maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, mchehab@kernel.org, 
-	minghsiu.tsai@mediatek.com, mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
-	robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch, 
-	support.opensource@diasemi.com, tiffany.lin@mediatek.com, tzimmermann@suse.de, 
-	yunfei.dong@mediatek.com, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v1 02/14] media: dt-bindings: Convert MediaTek mt8173-vpu
- bindings to YAML
-Message-ID: <20250821-piquant-rapid-bear-8cedc0@kuoka>
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-3-ariel.dalessandro@collabora.com>
+	b=Gnz7iZd/BdECzBP5MOTF9P/jh0Oi3LHdU3YrbPKWmAylyObxiuwvHv8NJi6M18NMa
+	 /iD93nWQZV4BBt47V3bsFUKncJuTQlkOdZx8JhvIonYEV1i0LWg5+rT6kcsm8G3DaC
+	 7YeXIPbhBMCyfPTSovYxY1/vk8medqxI6Ya/HQIxUJ6mPKE9zVdmGEkgi49CGV38MZ
+	 PszApBGc88nJXjTXgeAAc0CV6C7G3bo85VjTC4Ii66fhfS9fR5iMql0EC5wHJiwTFQ
+	 UT4oHtIaZNifYwUzzuNQkc7Nvfxsk1PpdEV4eOwVdxGE5EaslH3fosSKGbV9bAEvS9
+	 MNQAEvAr61Tpw==
+Date: Thu, 21 Aug 2025 08:49:22 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Mark Brown <broonie@kernel.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>, Ray Liu <ray.liu@airoha.com>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Martin Kurbanov <mmkurbanov@salutedevices.com>,
+	Takahiro Kuwano <Takahiro.Kuwano@infineon.com>,
+	Cheng Ming Lin <chengminglin@mxic.com.tw>,
+	linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 4/4] spi: spi-airoha-snfi: return an error for
+ continuous mode dirmap creation cases
+Message-ID: <aKbBclHYmjI_H3jq@lore-rh-laptop>
+References: <20250814065423.3980305-1-mikhail.kshevetskiy@iopsys.eu>
+ <20250814065423.3980305-5-mikhail.kshevetskiy@iopsys.eu>
+ <78542bbe-1def-4aca-8424-cc26542d9762@sirena.org.uk>
+ <e8f77b06-b47c-456e-8671-ac8ae573af64@iopsys.eu>
+ <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fQ/mndwu5rqbmfjT"
 Content-Disposition: inline
-In-Reply-To: <20250820171302.324142-3-ariel.dalessandro@collabora.com>
+In-Reply-To: <a18185a0-407c-4a1c-b915-fec9b3283b87@kontron.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250820_234927_827689_FEC4B11C 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +85,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 02:12:50PM -0300, Ariel D'Alessandro wrote:
-> Convert the existing text-based DT bindings for Mediatek MT8173 Video Processor
-> Unit to a YAML schema.
 
-DT schema, not YAML. Don't say YAML at all, neither here nor in subject.
+--fQ/mndwu5rqbmfjT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Also looks not wrapped...
+> Am 14.08.25 um 17:33 schrieb Mikhail Kshevetskiy:
+> >=20
+> > On 14.08.2025 18:29, Mark Brown wrote:
+> >> On Thu, Aug 14, 2025 at 09:54:23AM +0300, Mikhail Kshevetskiy wrote:
+> >>> This driver can accelerate single page operations only, thus
+> >>> continuous reading mode should not be used.
+> >>>
+> >>> Continuous reading will use sizes up to the size of one erase block.
+> >>> This size is much larger than the size of single flash page. Use this
+> >>> difference to identify continuous reading and return an error.
+> >> This seems like it just applies anyway regardless of the rest of the
+> >> series?
+> >=20
+> > Could you provide a link? I do not see this in upstream linux repo.
+>=20
+> Mark asked if this could be applied without the other patches of this
+> series through his SPI tree and I think that is indeed correct. The
+> other patches are still being reviewed and applied via the MTD tree.
 
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> ---
->  .../bindings/media/mediatek,mt8173-vpu.yaml   | 76 +++++++++++++++++++
->  .../bindings/media/mediatek-vpu.txt           | 31 --------
->  2 files changed, 76 insertions(+), 31 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
->  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-vpu.txt
-> 
-> diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
-> new file mode 100644
-> index 0000000000000..44f5d7cc44042
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/mediatek,mt8173-vpu.yaml
-> @@ -0,0 +1,76 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/mediatek,mt8173-vpu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Mediatek MT8173 Video Processor Unit
-> +
-> +maintainers:
-> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> +
-> +description:
-> +  Video Processor Unit is a HW video controller. It controls HW Codec including
-> +  H.264/VP8/VP9 Decode, H.264/VP8 Encode and Image Processor (scale/rotate/color convert).
+Can you please add the following Fixes tag?
 
-Please wrap code according to the preferred limit expressed in Kernel
-coding style (checkpatch is not a coding style description, but only a
-tool).  However don't wrap blindly (see Kernel coding style).
+Fixes: a403997c12019 ("spi: airoha: add SPI-NAND Flash controller driver")
 
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt8173-vpu
-> +
-> +  reg:
-> +    minItems: 2
+Regards,
+Lorenzo
 
-No, from where do you get such syntax?
+--fQ/mndwu5rqbmfjT
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +
-> +  reg-names:
-> +    items:
-> +      - const: tcm
-> +      - const: cfg_reg
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: main
-> +
-> +  memory-region:
-> +    description:
-> +      phandle to a node describing reserved memory used by VPU
-> +      (see bindings/reserved-memory/reserved-memory.txt)
+-----BEGIN PGP SIGNATURE-----
 
-Drop, redundant description.
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKbBbwAKCRA6cBh0uS2t
+rK9SAP4/fA0AATBO9QcF9hsrFQCmlkwxxrHcvQqs0F8yCLHidgD+M3A/bqxivvA8
+dgQx6GY/EeGvfXJ4S0LIK2YiItbX7gk=
+=6qIu
+-----END PGP SIGNATURE-----
 
-Best regards,
-Krzysztof
-
+--fQ/mndwu5rqbmfjT--
 
