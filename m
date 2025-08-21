@@ -4,79 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EBBCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD02CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 04:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t56KCQK2GXd4bcu8tEhPvChuR1HmDcWVAdoQ7kOw4Pg=; b=FDFCxSNq9pLEXY0orElzGrD8mi
-	fxXznkJAziExTbhV1DIkKJBtMdkvkZJ0pGtIPqVhYhWXA0Ba8XKYmypQ3rwG1uCpDoampZkkKJhVB
-	wRue/rErWY2M/XUrJUie2iBXDwbPZ/PklrXz+U1v5QTBOWPrjeLYLNFckt9V2Q7TM4aV7RvcTO8iW
-	65HEjZXqogqhu8TH2k4WlXzMiAeI3AazpbKMm/aaHo0e8mP+WSYxVTLVr/rqHlNUNtdgXenKC7Qs7
-	Jr+ueISdwXcgHw/LPXpFmJgnnqfUh/bk8pI/p2DiJVDOYkH2Ligl2QGw1ztqd3j1iez2nBFEHgsPg
-	Ns4bihHQ==;
+	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=; b=LN7zXEfIkNxkPSGqWZ8geX2stn
+	eMtPDjsUUBvrUPUhBIW8qmZEnZ7mTQNlLXv0dQyKiaoCD5+w+diaDQqT+wGdd6LPPeLTxIud4T0QE
+	FDKRDMnmGO223HGcHXPFaPjnEekg3vfMoGOtGLyiET2ite4IpOWDUGlJgXsyOzXX/M1NBCsq+s4bn
+	jomYbo9hkl0BQ0KBgZ5V9vADEw8T5/LCp3hgiN9L/ndoT1spSd6PLK/ZZlCO/lEJiaDhlZ8IF0dv+
+	3vaBDe73BXRlTE0waITkzPqjEvZwhkvJOvVUz1PoZ3yejQ8a+cCNcdgaTRI7Fc+5RooqHKLmOzAyS
+	8e0WzopA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJ0Z-00000001StH-0UhL;
-	Fri, 22 Aug 2025 04:04:07 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1upJ3a-00000001TLP-3v6y;
+	Fri, 22 Aug 2025 04:07:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCPD-00000000be1-1SSo
+	id 1upBaf-00000000OF4-2Cad
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 21 Aug 2025 20:08:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=; b=CEOIsL+ehyeq2oUxCrCByBC+o3
+	LARu7KEIqy90lkzxcJIQeO2L/i3dXhAMhJ6HIuUCPzCVVUp1YqydHCu4gzm3dalhH9R5DGNHUX6aY
+	bsmlsNoOhkM7UDg/AmwwAj2wSu6zHe5p1umTkliCfDTbrKbdoF2B2YaHstEUFB+lt4aPuQEG7S/J0
+	hxbRnB7ZOt0ab78+4lCN7puGyzsIkH06j2LUOqUVXYmHznz9kmGAr/Zk8Faie4TNp696gzQMWpPVA
+	TAJ1N+MxUpshOX91c98YiGcrAXfrAS5gYjuaBUMX+XEG+R1t9QoVMFguj4BmEn0BU7+YCrke8DO4k
+	JzXWEIcQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upBaX-00000000fFm-3lXB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:01:08 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-323266ce853so2694883a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810066; x=1756414866; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=t56KCQK2GXd4bcu8tEhPvChuR1HmDcWVAdoQ7kOw4Pg=;
-        b=oFAJ1ypnIxMLelFxt9a+sePruowx0lnrYWjI+lMpD8CQ+/5BfM1CXcHnWNXyfu66X+
-         ZN6SWlvPfHkKBUloDetv4+ZlkmlHyWDzcwy1MGw1z4zrEwkVsDpj9hPKwJQH57KJT4eG
-         kWIxoBET+6+wETs6ukSsYVgn+qExaCtC+8y+RB8EpCTey0wtgTPGGcrJXrku72pAul+3
-         Lwhb/eJ0vA6BnniwXD/jfe7g+nBxalZP33HizhPhiOBQZ7AXztIKFc4bFtkq/Fnyf92B
-         X9UDcEAXU7KieqnSZXqcEp5nX5FTFVxmKiBj81AY+3LGEpCECPSlelcfVHNCLpvSQhGY
-         5dOg==
+	Thu, 21 Aug 2025 20:08:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755806924;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
+	b=Sbqter2nKK4C2zMH3KFaXwxJMxo8wEcDZC1qjozRr0fsz/vODO31s0RNZlnTJ7K98TT7U5
+	sxC+r8Cp6Jjp0E064f32FdY3EU9sTPES/RJ0Xc/0zb4ewjf30BgoTki6vw7Ct1RKZA+OpY
+	16lQOdiYeNwqV4kfd0yYKmZSr2QptNs=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755806924;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
+	b=Sbqter2nKK4C2zMH3KFaXwxJMxo8wEcDZC1qjozRr0fsz/vODO31s0RNZlnTJ7K98TT7U5
+	sxC+r8Cp6Jjp0E064f32FdY3EU9sTPES/RJ0Xc/0zb4ewjf30BgoTki6vw7Ct1RKZA+OpY
+	16lQOdiYeNwqV4kfd0yYKmZSr2QptNs=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-536-I9S9_x9xM0qvB1aiCy3wcg-1; Thu, 21 Aug 2025 16:08:41 -0400
+X-MC-Unique: I9S9_x9xM0qvB1aiCy3wcg-1
+X-Mimecast-MFC-AGG-ID: I9S9_x9xM0qvB1aiCy3wcg_1755806920
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-45a1b0c5366so7719595e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 13:08:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810066; x=1756414866;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t56KCQK2GXd4bcu8tEhPvChuR1HmDcWVAdoQ7kOw4Pg=;
-        b=MzkiKVgWuWn9voPGTnYjWCK1+VhRqxOWBvQ+vM8ldbb5lV8i8rXke371jwSXJpNIg4
-         R5ACgTGViFArmh0sSNs26Z5sha0+FXlabFq1LuUWlJHWRj9jSRaEbCZMNZJ9idVC/c5e
-         OEnScYcoCR22J/2HQuTTxiHzCzqi+IodqfAvVRlsXwgPsmKFQUAfcMTqXf9krbihxz98
-         c0Y0gook0nW3fjJC1EmPJRO/hX3dNt15SSJ5JaBbVzRxgT3BnFZfuD6+oBj5oJvjq5fD
-         L0d3Tr7sHt0IutTbZjfAqNpOBxDpvImGkWrJ4aTopmZoPgJ+vuxjSVrPp/nX1QQupcRb
-         CfEg==
-X-Gm-Message-State: AOJu0YwsFRpVAu34xxIoF4kPNDFUf6eDgEttlvhR8HOlPWTOEHhEdy1h
-	FnXTQ1ErvQT/tzkzHxhcAaxsSWWW34XraxrLHN7TMy8goN0E2FqkxAbrUrpCRIzGrQozB467W59
-	P78yRpA==
-X-Google-Smtp-Source: AGHT+IHw3LANQDrDBKlkNtf6KJxEKR/eCogvGRPA0UduHlT9s+jfszYqmwrEB+leKuJDHCpQZAg5jVQxoNk=
-X-Received: from pjbof13.prod.google.com ([2002:a17:90b:39cd:b0:31f:6a10:6ea6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:17d2:b0:311:f684:d3cd
- with SMTP id 98e67ed59e1d1-32515ef7240mr1204526a91.12.1755810066413; Thu, 21
- Aug 2025 14:01:06 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:38 -0700
-In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250821210042.3451147-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-13-seanjc@google.com>
-Subject: [RFC PATCH 12/16] KVM: arm64: Move VMA-related information into
- "struct kvm_page_fault"
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sean Christopherson <seanjc@google.com>, 
-	James Houghton <jthoughton@google.com>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1755806920; x=1756411720;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OnKBChYNBt6k7pWFZ1VK2zlCQ3hhOdGhc0x5VCAB6rA=;
+        b=Bt9THeJbQq2BVqmlk1qs/UlRRH4TfPgaUrmRA2pZStwewswcOCTRDTZuHVJXc7zQOa
+         djof3auIIu17ViQ3k7tFNN11DGP0JeifsmiDtxq1ubMv8UUBM9yfAktOZROnR6Pk5hak
+         oYB5lzNPXsQ/bNidCUWIm6l8JAoDyC+oH0AjfwHccoiTxUTXpz5QtBIEQGHx8azaQZLl
+         VtWM1lsQl+Ren1ZGGrodgIngA/e5DkXqZEB5cml8X5HjY6bShTUX1v+N+eJTONVlkT1D
+         O75cby5Hd75AfeNLqMW9yHOmZcbLG9PpIIt1m7fdVag+t3CgDkNYpeoAk1gjd8wbrwIa
+         2mBg==
+X-Forwarded-Encrypted: i=1; AJvYcCU76D/EaOPKeh9Ub1Zq3hjMQTW96wnMXb227P37K9QeN7vaxOccTBbqlSOAEl5UpbXAcFG4xYSGNJsUEK5ax7Jk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL7009SU8NSVPGenEdJVnVUjep/dGz1mhWnCnAwMmhG5xytGpW
+	urcRKkLUr1AVPhyhvFzBhKKXeMnW8JK2mcdNxKy2VR0pjHwTN0Fcv0FzimJCSdJeGWH9ImkHOhx
+	qbtZsbmMncXPfFKKMT7Xgst4JprtOmzppuEJhpyV+h2PZKHBC68bHDhZzM/4YVsrevVC9QlW3HY
+	aT
+X-Gm-Gg: ASbGncsWYa8EHREPVRvVt0ulcsvsVslvkMp0MkU+Kyd+dR1HSHe2fukgFncw6l0z8lz
+	h5LSFiuLwG/WhHK6YoSzLSyKMSmEWuJKR6SxA2uLNQpwH1BfMn+l3GHbtgO88EE3/RJyVayam7C
+	LbqcjeOEkuq3rcL6svmNXubRKm08Xj2XL0uJkqTeU3g4hpUKbF0KDAmhNNC/EEcHBcY/93bN+GS
+	9cLrroayjWmSNCi7ppFyCJB5QcfEEsunbPGDQT28NoVLSMbuNMsPIBJM7rabyam6tqym/amVwxX
+	p8+kxDS+TEMel8t8EQi/DP53eFgSfKIDY1THvPTZEChvR0LJt+oW+zCsgoSjFV/6cJ+Dbj99ord
+	z33M/VnAwDMuZhqtQ0CUxvw==
+X-Received: by 2002:a05:6000:2405:b0:3a4:e841:b236 with SMTP id ffacd0b85a97d-3c5dc735246mr192372f8f.33.1755806920390;
+        Thu, 21 Aug 2025 13:08:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFrWn9aM0C/1GZBHvF1UL+fKz7WhllpDdsBGpm2GmVOIF4Yc/dULhABMcTdk4u9sLFplZdR3g==
+X-Received: by 2002:a05:6000:2405:b0:3a4:e841:b236 with SMTP id ffacd0b85a97d-3c5dc735246mr192328f8f.33.1755806919917;
+        Thu, 21 Aug 2025 13:08:39 -0700 (PDT)
+Received: from localhost (p200300d82f26ba0008036ec5991806fd.dip0.t-ipconnect.de. [2003:d8:2f26:ba00:803:6ec5:9918:6fd])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3c0771c166bsm12920369f8f.33.2025.08.21.13.08.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 Aug 2025 13:08:39 -0700 (PDT)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: David Hildenbrand <david@redhat.com>,
+	Alexander Potapenko <glider@google.com>,
+	Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Christoph Lameter <cl@gentwo.org>,
+	Dennis Zhou <dennis@kernel.org>,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	iommu@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	kasan-dev@googlegroups.com,
+	kvm@vger.kernel.org,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-arm-kernel@axis.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	netdev@vger.kernel.org,
+	Oscar Salvador <osalvador@suse.de>,
+	Peter Xu <peterx@redhat.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Tejun Heo <tj@kernel.org>,
+	virtualization@lists.linux.dev,
+	Vlastimil Babka <vbabka@suse.cz>,
+	wireguard@lists.zx2c4.com,
+	x86@kernel.org,
+	Zi Yan <ziy@nvidia.com>
+Subject: [PATCH RFC 33/35] kfence: drop nth_page() usage
+Date: Thu, 21 Aug 2025 22:06:59 +0200
+Message-ID: <20250821200701.1329277-34-david@redhat.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250821200701.1329277-1-david@redhat.com>
+References: <20250821200701.1329277-1-david@redhat.com>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 3ZKiWm3BgzEHsTfxMj1IHCYwajt_jkE4v09IUbpHg_k_1755806920
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140107_389003_D61C5FEA 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20250821_210846_310638_4CA156E7 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,240 +177,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stash the "outputs" from parsing the VMA associated with an abort in
-kvm_page_fault.  This will allow moving the mmap_lock-protected section to
-a separate helper without needing a pile of out-parameters.
+We want to get rid of nth_page(), and kfence init code is the last user.
 
-Deliberately place "pagesize" outside of the "vma" sub-structure, as KVM
-manipulates (restricts) the pagesize based on other state, i.e. it's not a
-strict representation of the VMA.
+Unfortunately, we might actually walk a PFN range where the pages are
+not contiguous, because we might be allocating an area from memblock
+that could span memory sections in problematic kernel configs (SPARSEMEM
+without SPARSEMEM_VMEMMAP).
 
-No functional change intended.
+We could check whether the page range is contiguous
+using page_range_contiguous() and failing kfence init, or making kfence
+incompatible these problemtic kernel configs.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+Let's keep it simple and simply use pfn_to_page() by iterating PFNs.
+
+Cc: Alexander Potapenko <glider@google.com>
+Cc: Marco Elver <elver@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>
+Signed-off-by: David Hildenbrand <david@redhat.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  9 +++++
- arch/arm64/kvm/mmu.c              | 67 +++++++++++++++----------------
- 2 files changed, 41 insertions(+), 35 deletions(-)
+ mm/kfence/core.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ec6473007fb9..4d131be08d8d 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -430,6 +430,15 @@ struct kvm_page_fault {
- 	unsigned long hva;
- 	kvm_pfn_t pfn;
- 	struct page *page;
-+
-+	struct {
-+		vm_flags_t vm_flags;
-+		short pageshift;
-+
-+		bool is_cacheable;
-+	} vma;
-+
-+	long pagesize;
- };
- 
- /*
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index b85968019dd4..aa6ee72bef51 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1470,18 +1470,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+diff --git a/mm/kfence/core.c b/mm/kfence/core.c
+index 0ed3be100963a..793507c77f9e8 100644
+--- a/mm/kfence/core.c
++++ b/mm/kfence/core.c
+@@ -594,15 +594,15 @@ static void rcu_guarded_free(struct rcu_head *h)
+  */
+ static unsigned long kfence_init_pool(void)
  {
- 	int ret = 0;
- 	bool writable, force_pte = false;
--	bool is_vma_cacheable;
- 	bool s2_force_noncacheable = false;
- 	unsigned long mmu_seq;
- 	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
--	short vma_shift;
- 	void *memcache;
- 	bool logging_active = memslot_is_logging(fault->slot);
--	long vma_pagesize;
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt;
--	vm_flags_t vm_flags;
- 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
+-	unsigned long addr;
+-	struct page *pages;
++	unsigned long addr, pfn, start_pfn, end_pfn;
+ 	int i;
  
- 	VM_BUG_ON(fault->write && fault->exec);
-@@ -1532,12 +1528,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 */
- 	if (logging_active) {
- 		force_pte = true;
--		vma_shift = PAGE_SHIFT;
-+		fault->vma.pageshift = PAGE_SHIFT;
- 	} else {
--		vma_shift = get_vma_page_shift(vma, fault->hva);
-+		fault->vma.pageshift = get_vma_page_shift(vma, fault->hva);
- 	}
+ 	if (!arch_kfence_init_pool())
+ 		return (unsigned long)__kfence_pool;
  
--	switch (vma_shift) {
-+	switch (fault->vma.pageshift) {
- #ifndef __PAGETABLE_PMD_FOLDED
- 	case PUD_SHIFT:
- 		if (fault_supports_stage2_huge_mapping(fault, PUD_SIZE))
-@@ -1545,23 +1541,23 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		fallthrough;
- #endif
- 	case CONT_PMD_SHIFT:
--		vma_shift = PMD_SHIFT;
-+		fault->vma.pageshift = PMD_SHIFT;
- 		fallthrough;
- 	case PMD_SHIFT:
- 		if (fault_supports_stage2_huge_mapping(fault, PMD_SIZE))
- 			break;
- 		fallthrough;
- 	case CONT_PTE_SHIFT:
--		vma_shift = PAGE_SHIFT;
-+		fault->vma.pageshift = PAGE_SHIFT;
- 		force_pte = true;
- 		fallthrough;
- 	case PAGE_SHIFT:
- 		break;
- 	default:
--		WARN_ONCE(1, "Unknown vma_shift %d", vma_shift);
-+		WARN_ONCE(1, "Unknown VMA page shift %d", fault->vma.pageshift);
- 	}
- 
--	vma_pagesize = 1UL << vma_shift;
-+	fault->pagesize = 1UL << fault->vma.pageshift;
- 
- 	if (fault->nested) {
- 		unsigned long max_map_size;
-@@ -1587,7 +1583,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 			max_map_size = PAGE_SIZE;
- 
- 		force_pte = (max_map_size == PAGE_SIZE);
--		vma_pagesize = min(vma_pagesize, (long)max_map_size);
-+		fault->pagesize = min(fault->pagesize, (long)max_map_size);
- 	}
+ 	addr = (unsigned long)__kfence_pool;
+-	pages = virt_to_page(__kfence_pool);
++	start_pfn = PHYS_PFN(virt_to_phys(__kfence_pool));
++	end_pfn = start_pfn + KFENCE_POOL_SIZE / PAGE_SIZE;
  
  	/*
-@@ -1595,16 +1591,15 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * ensure we find the right PFN and lay down the mapping in the right
- 	 * place.
+ 	 * Set up object pages: they must have PGTY_slab set to avoid freeing
+@@ -612,12 +612,13 @@ static unsigned long kfence_init_pool(void)
+ 	 * fast-path in SLUB, and therefore need to ensure kfree() correctly
+ 	 * enters __slab_free() slow-path.
  	 */
--	if (vma_pagesize == PMD_SIZE || vma_pagesize == PUD_SIZE) {
--		fault->fault_ipa &= ~(vma_pagesize - 1);
--		fault->ipa &= ~(vma_pagesize - 1);
-+	if (fault->pagesize == PMD_SIZE || fault->pagesize == PUD_SIZE) {
-+		fault->fault_ipa &= ~(fault->pagesize - 1);
-+		fault->ipa &= ~(fault->pagesize - 1);
- 	}
+-	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
+-		struct slab *slab = page_slab(nth_page(pages, i));
++	for (pfn = start_pfn; pfn != end_pfn; pfn++) {
++		struct slab *slab;
  
- 	fault->gfn = fault->ipa >> PAGE_SHIFT;
+ 		if (!i || (i % 2))
+ 			continue;
  
--	vm_flags = vma->vm_flags;
--
--	is_vma_cacheable = kvm_vma_is_cacheable(vma);
-+	fault->vma.vm_flags = vma->vm_flags;
-+	fault->vma.is_cacheable = kvm_vma_is_cacheable(vma);
++		slab = page_slab(pfn_to_page(pfn));
+ 		__folio_set_slab(slab_folio(slab));
+ #ifdef CONFIG_MEMCG
+ 		slab->obj_exts = (unsigned long)&kfence_metadata_init[i / 2 - 1].obj_exts |
+@@ -664,11 +665,13 @@ static unsigned long kfence_init_pool(void)
+ 	return 0;
  
- 	/* Don't use the VMA after the unlock -- it may have vanished */
- 	vma = NULL;
-@@ -1624,7 +1619,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 				       fault->write ? FOLL_WRITE : 0,
- 				       &writable, &fault->page);
- 	if (fault->pfn == KVM_PFN_ERR_HWPOISON) {
--		kvm_send_hwpoison_signal(fault->hva, vma_shift);
-+		kvm_send_hwpoison_signal(fault->hva, fault->vma.pageshift);
- 		return 0;
- 	}
- 	if (is_error_noslot_pfn(fault->pfn))
-@@ -1634,8 +1629,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * Check if this is non-struct page memory PFN, and cannot support
- 	 * CMOs. It could potentially be unsafe to access as cachable.
- 	 */
--	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(fault->pfn)) {
--		if (is_vma_cacheable) {
-+	if (fault->vma.vm_flags & (VM_PFNMAP | VM_MIXEDMAP) &&
-+	    !pfn_is_map_memory(fault->pfn)) {
-+		if (fault->vma.is_cacheable) {
- 			/*
- 			 * Whilst the VMA owner expects cacheable mapping to this
- 			 * PFN, hardware also has to support the FWB and CACHE DIC
-@@ -1653,9 +1649,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		} else {
- 			/*
- 			 * If the page was identified as device early by looking at
--			 * the VMA flags, vma_pagesize is already representing the
-+			 * the VMA flags, fualt->pagesize is already representing the
- 			 * largest quantity we can map.  If instead it was mapped
--			 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-+			 * via __kvm_faultin_pfn(), fualt->pagesize is set to PAGE_SIZE
- 			 * and must not be upgraded.
- 			 *
- 			 * In both cases, we don't let transparent_hugepage_adjust()
-@@ -1704,22 +1700,22 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * If we are not forced to use page mapping, check if we are
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
--	if (vma_pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
-+	if (fault->pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
- 		if (fault->is_perm && fault->granule > PAGE_SIZE)
--			vma_pagesize = fault->granule;
-+			fault->pagesize = fault->granule;
- 		else
--			vma_pagesize = transparent_hugepage_adjust(kvm, fault);
-+			fault->pagesize = transparent_hugepage_adjust(kvm, fault);
+ reset_slab:
+-	for (i = 0; i < KFENCE_POOL_SIZE / PAGE_SIZE; i++) {
+-		struct slab *slab = page_slab(nth_page(pages, i));
++	for (pfn = start_pfn; pfn != end_pfn; pfn++) {
++		struct slab *slab;
  
--		if (vma_pagesize < 0) {
--			ret = vma_pagesize;
-+		if (fault->pagesize < 0) {
-+			ret = fault->pagesize;
- 			goto out_unlock;
- 		}
- 	}
- 
- 	if (!fault->is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
--		if (vm_flags & VM_MTE_ALLOWED) {
--			sanitise_mte_tags(kvm, fault->pfn, vma_pagesize);
-+		if (fault->vma.vm_flags & VM_MTE_ALLOWED) {
-+			sanitise_mte_tags(kvm, fault->pfn, fault->pagesize);
- 		} else {
- 			ret = -EFAULT;
- 			goto out_unlock;
-@@ -1733,7 +1729,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		prot |= KVM_PGTABLE_PROT_X;
- 
- 	if (s2_force_noncacheable) {
--		if (vm_flags & VM_ALLOW_ANY_UNCACHED)
-+		if (fault->vma.vm_flags & VM_ALLOW_ANY_UNCACHED)
- 			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
- 		else
- 			prot |= KVM_PGTABLE_PROT_DEVICE;
-@@ -1747,7 +1743,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * permissions only if vma_pagesize equals fault->granule. Otherwise,
- 	 * kvm_pgtable_stage2_map() should be called to change block size.
- 	 */
--	if (fault->is_perm && vma_pagesize == fault->granule) {
-+	if (fault->is_perm && fault->pagesize == fault->granule) {
- 		/*
- 		 * Drop the SW bits in favour of those stored in the
- 		 * PTE, which will be preserved.
-@@ -1755,9 +1751,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		prot &= ~KVM_NV_GUEST_MAP_SZ;
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault->fault_ipa, prot, flags);
- 	} else {
--		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault->fault_ipa, vma_pagesize,
--					     __pfn_to_phys(fault->pfn), prot,
--					     memcache, flags);
-+		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault->fault_ipa,
-+							 fault->pagesize,
-+							 __pfn_to_phys(fault->pfn),
-+							 prot, memcache, flags);
- 	}
- 
- out_unlock:
+ 		if (!i || (i % 2))
+ 			continue;
++
++		slab = page_slab(pfn_to_page(pfn));
+ #ifdef CONFIG_MEMCG
+ 		slab->obj_exts = 0;
+ #endif
 -- 
-2.51.0.261.g7ce5a0a67e-goog
+2.50.1
 
 
