@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3A6CA0EED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C9ECA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 05:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D8XicYgOjiTvvGGkoe6RWU7q2u/gG9EiLOqy/Vb5XKI=; b=OxpxHvVwRGNP7eje3RyVeLwsXg
-	GHChYrUesBY2XJkbhaf0Y/OfmMsWyFaptejpQDw+SwwB7k0SoCK8CloC/dnaSA2sVgquq7wpchLIx
-	uVprhQ4Z1Cq5HyRK3zcPLHM8Jmb4LC402NUJiZcIGdZ6SxTMTmE2v/bCK2IIQRENNnCQ2TB31calx
-	3NR+BFwzpFjdSQo+5xMmKAXB8d2QZ0G3f4r+0/Z+OTvPV0JKn4qJouiUulEENJMjd4Xw4A/EJ6512
-	TUqSExKzzWmXKfGLkbeaDpy0qOG6Scm7UHWrd9EsrjBOjY8w/fB3j1CsvO4pGnORz7oBfUq4U1HoJ
-	qKKjURDw==;
+	bh=qXmLwUY9C7bldWxXkdv6SGUaN80t+rG6y4XBjFWYAXI=; b=smpYufixEI2q3FOdwhVXaezcMm
+	OVXf/cZkEVYBlfPSrbsGT0WVCE625OdKxxlZpqlAliLuxX8jUYAqJCChEYWYHjAQjBC9dqaiE8mJK
+	sPteht6+0V97m/V8qm+wFTw14uLwDjjOdi70DG3ooD+IA4kpIydQ8uCxjIgno0YvYnpNzzLVrlLxb
+	XiYXMzjPZMr+jSmgwuaCNM6EhtGuYGSIOdtIDiaJ5GGl2oxc4tdNYtZPKI/A8PuQYKqLyS4SDKk6E
+	5qC2N52WTBjewyNbRzfH0wBdHjxbcgAZIBy84id18O1kMcWAsOPi+M9/aKfE+80Xne5N2rlJ8gPag
+	Tt2rHh4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKPi-00000001arM-2sWK;
-	Fri, 22 Aug 2025 05:34:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upKPh-00000001aqw-31HP;
+	Fri, 22 Aug 2025 05:34:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDww-00000000pGy-0Fxv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 21 Aug 2025 22:40:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=D8XicYgOjiTvvGGkoe6RWU7q2u/gG9EiLOqy/Vb5XKI=; b=g6jD4jnNqT6HW54aCbqN8Aeu5X
-	ICTLuNjpCuzTjFyyN8czG1TYHlGDTfF+wLcA/U1FeZgu0szQNIMWU81BVx94cqQlyaTwiF//hAsBs
-	wt9zxdTm94fG8lBi3/FBqw3em4Bn0j5e6IlnSYCl9IIBdepKSnR9l6WLI5eUyvBGIV9n1aERFddp+
-	knq9oOMu+6R1vDi691UfNykqv89E1hXD8JexHhHHl2kQ2UFIPfejBg0EZAhREU8yqzOy6yyngHNdW
-	KP81phJd9+hueauUaWM06oK/VyWVJr1RkfbKewWsuTs+nF83M3PPZYOHdPXM3spsi+mK8QzRw4qb3
-	SEo/chwQ==;
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDwr-00000000h08-2vXz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 22:40:00 +0000
-Date: Thu, 21 Aug 2025 15:39:19 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1755815986;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D8XicYgOjiTvvGGkoe6RWU7q2u/gG9EiLOqy/Vb5XKI=;
-	b=uf+yKkk0lkGd+LdPilwoJoT6fqhHqMP/fkewlLpiiG2lFzUdETqfLTLzi2b+NE41mz1azY
-	7Vuef5ZskjXR4AsBJPQaepxaFMN53Pg1JtVAdE28ie1oEpQbgm/e3lDIf6yP1arsITF6y6
-	831T4jz9a7i4vLtWE2OkvPeS6koNX2Q=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	James Houghton <jthoughton@google.com>
-Subject: Re: [RFC PATCH 00/16] KVM: arm64: Add "struct kvm_page_fault"
-Message-ID: <aKegF0XyrDF1Z5w4@linux.dev>
-References: <20250821210042.3451147-1-seanjc@google.com>
+	id 1upDwn-00000000p7I-2I9a;
+	Thu, 21 Aug 2025 22:40:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E5D144C5F;
+	Thu, 21 Aug 2025 22:39:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D6D8C116C6;
+	Thu, 21 Aug 2025 22:39:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755815992;
+	bh=6+cneP8xDnuU5FHp6ZE4wpE6pWPQvWdqGAQj+wxVZj8=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JWroQvBlvJj3n3GQj85XFCVw1RomjL3x/nkCU4RTbgYO65e9E7eN8T3+QPp8VPUDi
+	 5rUdQz4i7YpZV3cCkF7fVvd7pwkI3tNbYHvFIXRy6kzneXEeRzPwmgcq9Izgv+1Oin
+	 DYtwhazNI783UY+RndJ8i50KtG02lJ9LORgbBg4URyKshly+QMkwzjoku368tF3oaZ
+	 PV3k43WFiYPE7Y++y+OTu+0uMBSP/3l5S9OJPdkyW4Abcy/2DT/Pf4bj95pe5H6liF
+	 DiK8e+cKE+CBABkBpqThiec+t13OK8+NseaAbugSa7K8jOzA6hreQ1LeUfYpPCllxW
+	 aST3CoSeeDmUA==
+Date: Thu, 21 Aug 2025 17:39:51 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
-X-Migadu-Flow: FLOW_OUT
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Neal Gompa <neal@gompa.dev>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org, 
+ Felipe Balbi <balbi@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Janne Grunau <j@jannau.net>, devicetree@vger.kernel.org, 
+ Vinod Koul <vkoul@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+To: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
+References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
+Message-Id: <175581575858.1136316.14856911628324128636.robh@kernel.org>
+Subject: Re: [PATCH RFC 02/22] dt-bindings: usb: Add Apple dwc3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_233958_507127_5023C1A2 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250821_153953_749163_762B52BF 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,21 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 02:00:26PM -0700, Sean Christopherson wrote:
-> Add an arm64 version of "struct kvm_page_fault" to (hopefully) tidy up
-> the abort path, and to pave the way for things like KVM Userfault[*] that
-> want to consume kvm_page_fault in arch-neutral code.
-> 
-> This is essentially one giant nop of code shuffling.
-> 
-> RFC as this is only compile-tested.  I didn't want to spend time testing
-> until I got feedback on whether or not y'all are amenable to the general idea.
 
-I appreciate the improved scoping around things like mmap lock, so this
-seems like a net-win in terms of readability. Just want to clarify the
-way this gets consumed from arch-neutral code and actually read in
-detail.
+On Thu, 21 Aug 2025 15:38:54 +0000, Sven Peter wrote:
+> Apple Silicon uses Synopsys DesignWare dwc3 based USB controllers for
+> their Type-C ports.
+> 
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  .../devicetree/bindings/usb/apple,dwc3.yaml        | 82 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  1 +
+>  2 files changed, 83 insertions(+)
+> 
 
-Thanks,
-Oliver
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/usb/apple,dwc3.yaml:33:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+./Documentation/devicetree/bindings/usb/apple,dwc3.yaml:40:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/apple,dwc3.example.dtb: usb@82280000 (apple,t8103-dwc3): 'resets' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/apple,dwc3.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/apple,dwc3.example.dtb: usb@82280000 (apple,t8103-dwc3): 'power-domains' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/apple,dwc3.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
