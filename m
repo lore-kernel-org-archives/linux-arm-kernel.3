@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E1D4CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E71CA0FE0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 03:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3dFA+Nojd0Ciw7PGaQs+cTHb1NwD90EsZgC6viTG7hk=; b=GYKPAdg8RTkgW/tsJNw7LPzSBT
-	xl+R4q1/V2uhXwzUTJyAtFZ5VSyzJ8Zi2nfZum5l+s5/6EGaJh/4Oe8AZSA4Sn/oebc7zbr5kHqnB
-	tuc76eL5i/xrm6vuthz5sdQ5dUHNnHH8woHJ8vzY9/KXs4o92H3ZGTpVZg0zEUtPIHqLZZ1Tye3zh
-	VEFPJ5k2dfXa9JSOJTQeD8ELS4EMYkThCSPlmclZAZbxEtbravar2+P8pSjKMy/cGbSUgrj3gKd74
-	+kqsFijZ6AqKxJYPHXLyGUCGKliUSZ95+XNb1YI5zDB7/9/ia6oss3960YIZZIIsf8oxr87IViSct
-	Uf/ouwKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bwhbXFqvfTOLpFgnOpIyfl7cPje7A4ufU6fEcZsEouc=; b=3e5dOG9IRTsv4AFpU5wMwqOc5Q
+	2PZEXmDoalWwX1+eiuZxjDsOdzhL2xUM9GnnkWiAYwXfQJgf/m10A/rrr7MKlMUq11KTicHEMGUfU
+	293KeiimNrNmT3aswJ4hXsVSydM2D77+7PTi75bF9jc2/GUIp5xdiA/Vjp5yfNSVVgLuFLw9a0YNr
+	iCAhCKXD1hlgHHsR2SCbvMb1t08hDtZoHoZihPB9Xaz8bSR9bVci9fru4COJjiy4RfFWlcAHgT8me
+	vLsp0dsNE9NEm1QY7FOigJ65zEvG/oSyIYQh9bKsdSjmAAU8REH0k5hNJ1WSRg1V58O2ygI1eNHFC
+	JnhrrBvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uow7c-0000000FdbL-2bEg;
-	Thu, 21 Aug 2025 03:37:52 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uow7V-0000000FdVL-3KO3;
+	Thu, 21 Aug 2025 03:37:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uossu-0000000FHNV-0uja
+	id 1uosqR-0000000FGyh-1gGX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 00:10:29 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3ADE719E7;
-	Thu, 21 Aug 2025 02:09:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755734968;
-	bh=0nzu8oC3ffmv9rpSEMOZQJ9N9DYkxzrSgeJVZpSNZ2k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=T2XwGjKY1G8EOe/98cekbYAiP7GM1P46xs9cuYTWxSO0nCW7AtJK51sGPNevOfihi
-	 NJfDCBj1FN1ADZbDePxnigZ0/x12cbG95OuXLiEdBDU0MdZwL74UBaWcPihA981dvk
-	 PwV+oZdzz1AQFR1OoxrbT9rEfU2pebkQWbagzOj4=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Thu, 21 Aug 2025 00:07:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C1FF261446;
+	Thu, 21 Aug 2025 00:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCFFC4CEE7;
+	Thu, 21 Aug 2025 00:07:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755734874;
+	bh=c47+fMWeDw96kRkQrYoUXjIWccy+0mVTu7/4RDUErVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dL6rtiBAFhyMJxcIoWiQkGRYy9OMELDo37o6D+6qYXEkDPigImN/LKO+hNSpPmM7Y
+	 Zn+9vyJhWwTRQDIMi2KRVzvbogEMyt1XuDTf4yh29aSvODa59AjjyK9LBXD/PSpNzB
+	 qjnTQufuJYw6ByM210NgYFrK4spA3idE9VxaoCT+vLLPz1M3LvnweCzROWxT6VQ+Ng
+	 GtoevQnHbPsWpFxpRtcI/ClxAQHgul/d5uh3CN+SdO9AV2LTMa/6RiZGBJYPzxfeWd
+	 8cgTbkn45VW+9cK85GkrJFTxmSLYQB6oRFgmjjX7ge0snUhVNyRplNa3mCLLfjCweh
+	 gZrSecoSJY+Gg==
+Date: Wed, 20 Aug 2025 19:07:48 -0500
+From: Rob Herring <robh@kernel.org>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 12/12] arm64: dts: imx8mp: Specify the number of channels for CSI-2 receivers
-Date: Thu, 21 Aug 2025 03:09:44 +0300
-Message-ID: <20250821000944.27849-13-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
-References: <20250821000944.27849-1-laurent.pinchart@ideasonboard.com>
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	"open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)..." <linux-input@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [RESEND v2 1/1] dt-bindings: input: convert lpc32xx-key.txt to
+ yaml format
+Message-ID: <20250821000748.GA1767841-robh@kernel.org>
+References: <20250818183814.3603308-1-Frank.Li@nxp.com>
+ <ddcd3af2-534d-4708-9f7d-e301a91373ab@mleia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250820_171028_394917_D3676829 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ddcd3af2-534d-4708-9f7d-e301a91373ab@mleia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CSI-2 receivers in the i.MX8MP have 3 output channels. Specify this
-in the device tree, to enable support for more than one channel in
-drivers.
+On Mon, Aug 18, 2025 at 11:02:58PM +0300, Vladimir Zapolskiy wrote:
+> On 8/18/25 21:38, Frank Li wrote:
+> > Convert lpc32xx-key.txt to yaml format.
+> > 
+> > Additional changes:
+> > - set maximum of key-row(column) to 4.
+> > - add ref to matrix-keymap.yaml.
+> > 
+> > Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> 
+> FWIW I'm fine, if this change enters over linux-input, otherwise I'll send it
+> in a PR to linux-arm-kernel/for-next.
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+The input subsystem is the default.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index bb24dba7338e..1e52840078df 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -1764,6 +1764,7 @@ mipi_csi_0: csi@32e40000 {
- 				assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_250M>,
- 							 <&clk IMX8MP_CLK_24M>;
- 				power-domains = <&media_blk_ctrl IMX8MP_MEDIABLK_PD_MIPI_CSI2_1>;
-+				fsl,num-channels = <3>;
- 				status = "disabled";
- 
- 				ports {
-@@ -1799,6 +1800,7 @@ mipi_csi_1: csi@32e50000 {
- 				assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_250M>,
- 							 <&clk IMX8MP_CLK_24M>;
- 				power-domains = <&media_blk_ctrl IMX8MP_MEDIABLK_PD_MIPI_CSI2_2>;
-+				fsl,num-channels = <3>;
- 				status = "disabled";
- 
- 				ports {
--- 
-Regards,
-
-Laurent Pinchart
+Rob
 
 
