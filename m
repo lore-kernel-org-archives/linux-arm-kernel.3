@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C3CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 03:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC94CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 03:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxt6rTMqHrWA9f8ahxcPmdPJmqaCbIUP8K6s+gPHJdY=; b=JNUcc816FaKTTu8wZEYsJsDFtG
-	Q6N7jVOwp1I5Zgnf0T6Pt3FtSP1g90/HSE17oy9w8WEuwr5rfH7nKvngd5KrLKI04dCAldoO6rdKn
-	94lw/LbXZXce2dO9w9NkyEHYgfvlZIrwC2kn7B5xjgiVoYZasJ8yXVJQQHLZOKQRCp/H7OkR83IDn
-	L90pmb+SrD2Fqx28enkWBVHqz0S/dTPNy7lx307FTrg3TKzbPYBAFKcBFMXoxe+XuWjy5hAp5GMpj
-	fmTKgJadoniyhimuXENErLHqJ0vZhlxBBQM52L1V7Mt1WTdfNW9EPmW8iWcv4Gbt0GTc/93i29f6w
-	o151mV7g==;
+	bh=raIzGhW7lpJoGFirZ1c9kEw1ZuKCVqeLv2nD/b2/YKU=; b=xQBEshPPstwFd8I99uVAIT3OP7
+	bJ646SgaEtLdI1futA2htOZck/cFB3G5OxW33pjvdHJK1/hFXTPyl+QH0XhkmpIixkVO/j3Ogiuk0
+	yOHxFx3dlcFatJiBda9s5GauAAoO5kg6btax99IfFSurNTVtJ71QerMJu8jMVrhgfQy3YyTAdt8U/
+	w+O7PcM/m3mAHLldpIIykn4uIAey2Cl73GlMsNTIFPutrva1axiHlz+3/Ejpid9ACJ5LEmcEMAbBH
+	OihaaVS6tu4vt/n7DyM2PGvxR8MoAZxz81qQUckcji6hKg/GwC7g8QK8Kkph7kCal7MR7NY2Dtx4U
+	KvO/9IDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upI8D-00000001LRu-1kvs;
-	Fri, 22 Aug 2025 03:07:57 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1upIDQ-00000001M5j-27bO;
+	Fri, 22 Aug 2025 03:13:20 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCPG-00000000bfP-3Pkp
+	id 1upCPK-00000000bgn-0fPF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:01:11 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-76e54a1646aso1567249b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:10 -0700 (PDT)
+	Thu, 21 Aug 2025 21:01:15 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-324e6a1a414so2224693a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810070; x=1756414870; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755810073; x=1756414873; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=fxt6rTMqHrWA9f8ahxcPmdPJmqaCbIUP8K6s+gPHJdY=;
-        b=D25ZcgNVpZR5H+CUnwXoYyZB78BmOEp4kLGzKnpphWHe9PCOdgQhrX4zOXxjz1Wtxv
-         ALMpyLLCdvLZHFRkgzO+j64zVmHE7NBDydskzCqmPgEyhBB4DdSFA4gsvcNHi092VBWP
-         QEu6V0jQYi8BhyJT7zezF1w3sFMypxx9k+5ZaegDXgZByZPDLqUM1yKIMUJNaJiI85Ss
-         A1PGIoY3ULRWPHSq3PNNVS3CB/tQtu00Na2QEnd8aNXeXAl79i1CA15Lj/BKQj4DdRdq
-         gTjn6PGfp1/TDlubgwHGw2X827kLonlvgXJEwjIjwCGbo9719gOtNLlLvnRd7e23m1Js
-         fZuQ==
+        bh=raIzGhW7lpJoGFirZ1c9kEw1ZuKCVqeLv2nD/b2/YKU=;
+        b=owPS7QBAdkMjBmf6h9YQkrQystCgWARWmcbubwXvikrA0I+RL+eTv1FDNtHR54z+Rs
+         3fWYub6Ub/yNDKeLMfRyQyD5FQ+c1YU2yB/qyi+VqllxGXJtSkD0N/tRMURZc6r0oNbR
+         qFZIis3XSKCyHdhMA7ZnXPnoYkkGQmKME5dZhgcqvfIWK13gBocfStc7DXYwEnpZOWiv
+         uByWd6fsfIRfX57y4pzM62CXVq0QM33zZ/gXM111Mc8JDqwiJl0JxDj076EqNebzYRlW
+         YnMHuDPgWlwFgCAMR0EJrn5EyJ1NlUbjthUxdsnRThrUZC1aJ2dm290GfsX9PnNYRLmI
+         5Jzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810070; x=1756414870;
+        d=1e100.net; s=20230601; t=1755810073; x=1756414873;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=fxt6rTMqHrWA9f8ahxcPmdPJmqaCbIUP8K6s+gPHJdY=;
-        b=MzzViGX2aicwjPAKhHBmIajN3UnXIMtSEW9YLKHYhOwiWXHb4nfzghZIrDSBg7ZCp0
-         49blD1ias8LqaAfjL8u53lTgGcaUCoYkwyJnFrPPtPrZYWWYWVqKdgCh3DAl69vSFaF+
-         /lrCysl19W2bsoa2rWkXfAGafnCkS3NdPUGbys+UuGHk/18jHlYHV5ry9BbH03N6h42w
-         xdJSxezbFdgmN4qtFKniT2/9o/DwVxrcaMEl0pSLKOzBzpf8hP3SassXrbRuEXccA0Q9
-         VG/+wn1HHtGJPmyL9sra87PCKtxbcV7FLpo8pizlJ2n4fXC7xvZLCn+SBrmU5wRr3Mp1
-         9lYQ==
-X-Gm-Message-State: AOJu0Yy6hQOekrkZzScj017oEWTX3KFadMo+26AbYfpLCkA0rqsw5WOc
-	Vt7WsVizGb8xKdOf3irfkGJnWSthP/hNDa0exraj8tKzK9peibBxZ7jbwJ/myrRLiiF5nBy1CDo
-	0vGXQMA==
-X-Google-Smtp-Source: AGHT+IFn+EYj/FE0ePzblUKFMdEC+BFGAdYI0PBx7I9mvhQoZZjMBZ5mHJyHtUrO2Tk/q3sQHu7NuwUXWEg=
-X-Received: from pfbbd13.prod.google.com ([2002:a05:6a00:278d:b0:76e:8abf:185a])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7489:b0:240:130e:d781
- with SMTP id adf61e73a8af0-24340c10ac7mr756815637.17.1755810069751; Thu, 21
- Aug 2025 14:01:09 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:40 -0700
+        bh=raIzGhW7lpJoGFirZ1c9kEw1ZuKCVqeLv2nD/b2/YKU=;
+        b=Vh+wFAm2T6+qArCPMf5Vn54ZNOdJJK/FH5Ud2h6gie6GnJv+idCuCmvxqseVW0JQAj
+         I4dqGCPj1enhkHgBP+/XzAy8QmtrBO3hxMSR9h4xfuqLZTnZcrEJJrsEsFG9u7PO4RNY
+         lF6P0wO3/fpH/m0P/E6qSOWjD96PSXOXSIXf/3m78oeAXs6tXF2ajiqau+xVpK2EVExi
+         naDTDnKWCQhNfcBd15HVamDs97cMbFz2PMnNPNnWtGPxHXT1JW3oSkGENdB3jOliMENM
+         s8KV1vRcY8c2vIMOIZfWxuGZE7QYS04cJCQkaph+YF0zjJ6Kl0V3EjLEM4N2GXrJHE7S
+         Uq8g==
+X-Gm-Message-State: AOJu0YzWNkgS4Ccrm7vt4IHnESBaZSullZs2C5KJa9WWHqnJpKNg/vwO
+	DNTnx2fAfDqDuWDdADuRQY4J2n4W5tN7jYm1IOUKEcwwdw9l2xMBxHaQa6ud+o7vjHQUJ3rKCUH
+	HlQp4IA==
+X-Google-Smtp-Source: AGHT+IFblgzDSGtA8EPOlO44N2jRty+RipPpxQzb/XSsK78s9IItTWN33FoV1VAgZIXu+UmzYrewPt9GIfA=
+X-Received: from pjgg5.prod.google.com ([2002:a17:90b:57c5:b0:321:76a2:947c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1d4e:b0:321:1348:4438
+ with SMTP id 98e67ed59e1d1-324eed210damr5152464a91.7.1755810073194; Thu, 21
+ Aug 2025 14:01:13 -0700 (PDT)
+Date: Thu, 21 Aug 2025 14:00:42 -0700
 In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250821210042.3451147-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-15-seanjc@google.com>
-Subject: [RFC PATCH 14/16] KVM: arm64: Track "forced" information in "struct kvm_page_fault"
+Message-ID: <20250821210042.3451147-17-seanjc@google.com>
+Subject: [RFC PATCH 16/16] KVM: arm64: Don't bother nullifying "vma" in mem
+ abort path
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
@@ -74,8 +75,9 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140110_851631_A4ECF8E9 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250821_140114_196898_DBDBCFBC 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,128 +93,29 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the abort handler's local "force_pte" and "s2_force_noncacheable"
-variables into "struct kvm_page_fault" in anticipation of moving the
-mmap_lock-protected code to a separate helper.
-
-No functional change intended.
+Now that the local "vma" in kvm_gather_fault_vma_info() will naturally go
+out of scope when mmap_lock is dropped, don't bother nullifying the
+variable.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h |  3 +++
- arch/arm64/kvm/mmu.c              | 22 +++++++++++-----------
- 2 files changed, 14 insertions(+), 11 deletions(-)
+ arch/arm64/kvm/mmu.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 6a99f7fa065d..fa52546bf870 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -440,6 +440,9 @@ struct kvm_page_fault {
- 	} vma;
- 
- 	long pagesize;
-+
-+	bool force_pte;
-+	bool s2_force_noncacheable;
- };
- 
- /*
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 575a4f9f2583..fec3a6aeabd0 100644
+index ea326d66f027..435582e997ce 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1469,8 +1469,7 @@ static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
- static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- {
- 	int ret = 0;
--	bool writable, force_pte = false;
--	bool s2_force_noncacheable = false;
-+	bool writable;
- 	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
- 	void *memcache;
-@@ -1526,7 +1525,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * memslots.
- 	 */
- 	if (logging_active) {
--		force_pte = true;
-+		fault->force_pte = true;
- 		fault->vma.pageshift = PAGE_SHIFT;
- 	} else {
- 		fault->vma.pageshift = get_vma_page_shift(vma, fault->hva);
-@@ -1548,7 +1547,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		fallthrough;
- 	case CONT_PTE_SHIFT:
- 		fault->vma.pageshift = PAGE_SHIFT;
--		force_pte = true;
-+		fault->force_pte = true;
- 		fallthrough;
- 	case PAGE_SHIFT:
- 		break;
-@@ -1561,7 +1560,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	if (fault->nested) {
- 		unsigned long max_map_size;
+@@ -1559,9 +1559,6 @@ static int kvm_gather_fault_vma_info(struct kvm_vcpu *vcpu,
+ 	fault->vma.vm_flags = vma->vm_flags;
+ 	fault->vma.is_cacheable = kvm_vma_is_cacheable(vma);
  
--		max_map_size = force_pte ? PAGE_SIZE : PUD_SIZE;
-+		max_map_size = fault->force_pte ? PAGE_SIZE : PUD_SIZE;
- 
- 		WARN_ON_ONCE(fault->ipa != kvm_s2_trans_output(fault->nested));
- 
-@@ -1581,7 +1580,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		else if (max_map_size >= PAGE_SIZE && max_map_size < PMD_SIZE)
- 			max_map_size = PAGE_SIZE;
- 
--		force_pte = (max_map_size == PAGE_SIZE);
-+		fault->force_pte = (max_map_size == PAGE_SIZE);
- 		fault->pagesize = min(fault->pagesize, (long)max_map_size);
- 	}
- 
-@@ -1656,7 +1655,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 			 * In both cases, we don't let transparent_hugepage_adjust()
- 			 * change things at the last minute.
- 			 */
--			s2_force_noncacheable = true;
-+			fault->s2_force_noncacheable = true;
- 		}
- 	} else if (logging_active && !fault->write) {
- 		/*
-@@ -1666,7 +1665,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		writable = false;
- 	}
- 
--	if (fault->exec && s2_force_noncacheable)
-+	if (fault->exec && fault->s2_force_noncacheable)
- 		return -ENOEXEC;
- 
+-	/* Don't use the VMA after the unlock -- it may have vanished */
+-	vma = NULL;
+-
  	/*
-@@ -1699,7 +1698,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * If we are not forced to use page mapping, check if we are
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
--	if (fault->pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
-+	if (fault->pagesize == PAGE_SIZE &&
-+	    !(fault->force_pte || fault->s2_force_noncacheable)) {
- 		if (fault->is_perm && fault->granule > PAGE_SIZE)
- 			fault->pagesize = fault->granule;
- 		else
-@@ -1711,7 +1711,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		}
- 	}
- 
--	if (!fault->is_perm && !s2_force_noncacheable && kvm_has_mte(kvm)) {
-+	if (!fault->is_perm && !fault->s2_force_noncacheable && kvm_has_mte(kvm)) {
- 		/* Check the VMM hasn't introduced a new disallowed VMA */
- 		if (fault->vma.vm_flags & VM_MTE_ALLOWED) {
- 			sanitise_mte_tags(kvm, fault->pfn, fault->pagesize);
-@@ -1727,7 +1727,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	if (fault->exec)
- 		prot |= KVM_PGTABLE_PROT_X;
- 
--	if (s2_force_noncacheable) {
-+	if (fault->s2_force_noncacheable) {
- 		if (fault->vma.vm_flags & VM_ALLOW_ANY_UNCACHED)
- 			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
- 		else
+ 	 * Read mmu_invalidate_seq so that KVM can detect if the results of
+ 	 * vma_lookup() or __kvm_faultin_pfn() become stale prior to
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
