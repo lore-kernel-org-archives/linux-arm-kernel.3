@@ -4,79 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DD4CA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A16CA0EED
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 05:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WFOpvpsT1MnunRLl4T+BHRi0vN/i3KJyyI1xXmPrPlw=; b=nl+hLuuA/SI/iMiktcpmn63APL
-	K3RWShK+5mZc827lTTp2Wr/aG1Ie8J0UoyofXq6mRCKqZQL4AcTYT1adXfDAVxWM0qiG0guEzPSeY
-	0ayuoyf+WNUZGfK+I+FAa/kPVjyf4gvpaw/o/anZDsIlSZdNmnbdj6lClW5hqufEK5cj4g2UWnyQl
-	Puf4rXkZzAHGPv+9Myik3w221zSdZpAKV8/U4V3VpPHEl2R/mwPqqJUYXfnIQSoX/yHU2nQ4L85Tj
-	WL3Uo3bUCFfGcdW2pDd9tqA5Mnlpn2jbQ5WR88y7j6daDc5wDt4vO1XreG1loXgb2rEYghu2dMKr6
-	GNt9u6+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qlz3chFHBOFTr/RgbiC7pxggip52D9SCkMXHpZXcpjQ=; b=HPClz0FOuT7NxdwNQfw9BNERHp
+	GZ3q+INTaOygYF+PNnJwASVU2BjaqHitYL5YJ7Flw6Rnb8elgfq18LY4A4ZKxPM7hh4lN4iBRJA59
+	WJfLSYaQ0RlbODlWheYyorbRXQE8U2xgZedbK8DED1OGa6vhMo6uyfqtSFAsy6hcXWHJ0Ca+Nxkoe
+	2d/a1pLzSvjODxQ4uYtau3LvK0XZnDKcQEMgL9bz9/8k+JEuCq6DezaFER/YHVWpGgJASThw8rS1P
+	Jzzcnley7yn/4exem0V62UJg6Y0AQe8zZfahuhWGgMhUaynEN6D7tiu3vrWaoAGJW1JP/eCA10pmB
+	/IooI10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKPg-00000001app-04rx;
-	Fri, 22 Aug 2025 05:34:08 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1upKPf-00000001api-20Ce;
+	Fri, 22 Aug 2025 05:34:07 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCPI-00000000bfy-2gU2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:01:14 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b4741e1cde6so1126871a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810071; x=1756414871; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=WFOpvpsT1MnunRLl4T+BHRi0vN/i3KJyyI1xXmPrPlw=;
-        b=om/+iK1AKKsKvpXOunVBmYv0xqT6T07A18J8HxkIgrPJp+F9R8IHttIsd+oaOqYqao
-         Y0YKsvTmS/N/W2WO9L7PGJZBbwOYjEPaAuih/YyWFQe8l4miSznvSXrziOUH24CxyLD3
-         z8dTU5Twvhk1+zYyLBnLH4OBcdLLVzT08KiNJhPG4AwHjmt7f6+YoK1OkqQ/VO8cAZnn
-         7nhsb035k+KuIVFJeDsEExC2Jq7ZMAiYyZjcQ6/GXEmJQ6ZPQMmxQD+E1jGm9+gmE4fF
-         oJgGHtxgK2wgr1JfmN9uy+ggIJ9TthG9hYK/RYRf+W0t4VAFymk+xIK8JU21DLZFoKCS
-         K/5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810071; x=1756414871;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WFOpvpsT1MnunRLl4T+BHRi0vN/i3KJyyI1xXmPrPlw=;
-        b=awAryPrzCniEnXrgy/XBTj4zslb5CUBHNBu1bsSlbBHAdYSxpHyqRXQJ2A+CCFJOq2
-         Ex36MC0BwbgqhDQ7WRwy328GZDL/p3yK2H8c9xZH2zKfC2eo452yfvz2P0rSvOF0ZSpa
-         qXv83ndBV0dBrjDZmkJHw0zBdiFLsCjGlMqyp4Ec1LGl0fhtGlTiqWoiNEYXZXTr06xH
-         B4z8wGoZbnlzsRYynLcE1KKV0w1KmktiS5AP202UWgG4uCQ03UBlG1AgbHvi3R+eAJzA
-         vRsQbAuMbQRFFSRLMGHs6WJVPgmrLeVyUy6NAveFEhSKyGYofmLQt2IkpMFoTfBqteXJ
-         eRww==
-X-Gm-Message-State: AOJu0YzJGidQ6CnrFRIzrPjQ7RmbZ7/FrGs/IEA2lUl5Hz1SlSfRE1cB
-	7hehGZnl1TZaxpgPxN8UKoaUZwWCKNxpf1CY4fi8/zNk9z0nBAe6JgS0M8kfBrs7Yx/mBkCW25x
-	81oLFZQ==
-X-Google-Smtp-Source: AGHT+IH2D5yvxXbQMYKp9CQ1/YsbKvTYEoUYMROb+eewLnOLV2mjTAu7kJckUk9DqMy3wtdy3hZnzxFFxu8=
-X-Received: from pghz18.prod.google.com ([2002:a63:e112:0:b0:b42:8a4c:7b14])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:2446:b0:240:1fb6:d335
- with SMTP id adf61e73a8af0-24340db0419mr735886637.37.1755810071501; Thu, 21
- Aug 2025 14:01:11 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:41 -0700
-In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250821210042.3451147-1-seanjc@google.com>
-X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-16-seanjc@google.com>
-Subject: [RFC PATCH 15/16] KVM: arm64: Extract mmap_lock-protected code to
- helper for user mem aborts
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Sean Christopherson <seanjc@google.com>, 
-	James Houghton <jthoughton@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1upBhp-00000000Q5L-1q2f;
+	Thu, 21 Aug 2025 20:16:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AbcmgJLr+5PZ8WaptSwUlBiZZfhOzt1OTlq1nqXz1vgLkGxhqGMHmMxgJnU/ZU6aY8hgQyLY7sVskwW2wL2Ith7oalv04NMSU0WyUnfGDET7dyfNnCpWpYCviqZJt2L71f13bom7qoZshODQMU33BZ7BZthnJ8HLmnMtEU0QKBd1iFMsnF3RFE16bpfzekqpLs3uAW1YC9TdmSHb0ALulGUzdmsXB3W03w1TCeHycyvs+Iy789Q5XCpkdmQyV5TTXtCVfrtzo+yoNKv++Egp1d7OxTzGHPVUVM3zE+042J1Oidg5L1DriWQodpLm0sbArZBn1Jn1MU3w0fEMLpmsqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qlz3chFHBOFTr/RgbiC7pxggip52D9SCkMXHpZXcpjQ=;
+ b=I64VTtb+DNO/5tBy4yUuAEbbJNLJW7bJIxWhCqZjSV+Dy/1LVNojHNRtNxx53CSm9Mt9zLTkqg+tbgAa0qOwlYOEZTo8vkMMWtdJvXGVoPo3SVOcNGdcKy0fb+USb2WWRuafVmpjNUjMN5MwDIlMrVNmjv2vPRVXvRtComZiL3OcafT/6xWwKxNtf7jKZSw4UE1wlaGlnF+co1FAA1Pz5QHB+6jwqhqpRKxt1deEquvKpEFfPpIxeU5iMjE4l+BJi/Y92Qy5/f3z3ZJEnO569IA8ldsU/Km7OtLH0oRMO2zQ+VgkHnTZRSnyDpeKZJ8zkR2Dt9BPWmwZ/RsJM/6XrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qlz3chFHBOFTr/RgbiC7pxggip52D9SCkMXHpZXcpjQ=;
+ b=JvFSkWSYJjgBAW3FqsOdW3eXzy02NnWaUeLFoSsYIkUyRnrvRDFVybUeL6SosG8GTas8K5mVz8ZjECfuEYZ/ENy0SK2Sx1GRNnRGYepzVjTKj0g7uSIZ5GVVzJaBCoH+xVXARQYbnki+yPV7amwtrEherZwftbW4XK4/ORyRbM/9jTfXS5LnuL+qvnn0MhF48aHbDZdNUjCrubwmKMTYNgppng1FlPYJDq3xNw3R5M6K6AfVrq5tOJM0GG9k6E3ezHAL0YieK7crmaMRlt6c5hR05PDik+Hi3EbjlwrN+tjwgKql3hIo6b4QMxQKl3YYqMyq1konbuNcgUQTCDSAsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VI1PR04MB7181.eurprd04.prod.outlook.com (2603:10a6:800:12a::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Thu, 21 Aug
+ 2025 20:16:08 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Thu, 21 Aug 2025
+ 20:16:08 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 00/31] media: add imx93 mipi/controller csi support
+Date: Thu, 21 Aug 2025 16:15:35 -0400
+Message-Id: <20250821-95_cam-v3-0-c9286fbb34b9@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGh+p2gC/0WMQQ6DIBQFr2L+ujQfVJCueo+maQCxslAMNMTGe
+ PeiTetyXt7MAtEGZyNcigWCTS46P2YoTwWYXo1PS1ybGRiyGjlyIuuHUQPRojIoK9XSTkM+T8F
+ 2bt5Dt3vm3sWXD++9m+i2fhMC6S+RKEFiaiqYVrpshL6O83Q2foAtkNghNdj8JZalSjPZKS6pV
+ OKQ1nX9AKiQ+iXPAAAA
+X-Change-ID: 20250606-95_cam-b74c094ad1fb
+To: Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Alice Yuan <alice.yuan@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Steve Longerbeam <slongerbeam@gmail.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ linux-staging@lists.linux.dev, Frank Li <Frank.Li@nxp.com>, 
+ Luis Oliveira <lolivei@synopsys.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755807361; l=5178;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=q7Jvs2EN3t/l6UXEPaNVwoXg5HqJCZIE4OJFnrsBk20=;
+ b=ZSYoEdDn91JexL8ffb8KCZbxOLIrbNk4caERxSLshuJNu1+OlUNhDBqH63DB3NXcl1Zhifpzn
+ k7HkYwqm1CSBbbXA85ppyII7JfSvQNLSEj43xxz/JVmpmubiA6jyzmJ
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR03CA0338.namprd03.prod.outlook.com
+ (2603:10b6:a03:39c::13) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VI1PR04MB7181:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a96f8a4-f27d-4000-019a-08dde0ef90ab
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c2U0Ni8yNjhReU0wM3p6WktpZnpPVzNBZkd6N2dJWk03VVE1N0lCdHA4Qmtn?=
+ =?utf-8?B?M2N5alhJazRlL3pTcnBlSHcya0F1QWMwLy91UFZYSTNxTURZSFV4Um9lc0di?=
+ =?utf-8?B?Z1VDbW5TVHQ3Z0RuSW52RGNMYmFqeUFqV25Cb0t2VzVBa2xwcGFUaFhEbm1a?=
+ =?utf-8?B?UmpEZGc2YXNCclZWdWpuenA0aXNxZy9ybXV5cW1XZ29hUzg2SXROUUhUekNv?=
+ =?utf-8?B?OEdLekNlSlJUUERvWnNJYmtXUklDRzBXNmg4SjBERTFyVUhDTVZBbFRiK2FI?=
+ =?utf-8?B?R0dIWjBaUlBWazd2MTZJUElSbkhDOE5BdG5OakNaVGlYZ0ZKWG5vSEFHODQ0?=
+ =?utf-8?B?NS9wNUlzREs0S2FqTzh6ZWRYYmtaS2x3TE43eldqcGloazUxOEJtdThqamIr?=
+ =?utf-8?B?SkUrTndLc3IwMGxwUm5FTkhrYzdaZUg5MnRqMXdpMFNEZDV6NC9BWUdrRmRK?=
+ =?utf-8?B?ZUNUYTR3ZHZGUE5yQnVJNHA0V3RlUWlDS1NEbmpEbmZKYTN4VktPOGIwYnJB?=
+ =?utf-8?B?RGUzNDZYYmwzRWRqKzlmV2EwK2FYSHkySXZpNUdmZFpUaUEwc1Q1UEViNnJj?=
+ =?utf-8?B?NGxEWS9IeFZqekJHUDQ0czQ5aHhvbGNwMy8vcUQ2VnBWYk5LLzVKYkVlY3Iv?=
+ =?utf-8?B?WGx2K0JqOEJEOVpsRmREM0ZYS25WZjNtR29zbGZmaXpnclBuRFVCRFh2SS9x?=
+ =?utf-8?B?Q0tMMmlMcTRUa0UwbFpqc1B6NklGVzJXWGJNaHlwcm1SSGFxNHdaTldRUmIy?=
+ =?utf-8?B?aGE1YmEwNmxHV0UrMCtNV0xTdTEyOUQ0Z1BoQ3Z6c3BxRkJua21KZGZrWHRt?=
+ =?utf-8?B?d29iK3RqVGYxYi9pTnIrLzhZNHBocWMzK1o3R1RkWWUraWpxV0hjQ1NaOUl0?=
+ =?utf-8?B?OGpURFd3MUhob2NuY0t5czNZMktZaDN5b0MyMzNrVThSOEk5dHRodWkrRE9K?=
+ =?utf-8?B?ZTFwYUZmSjZWcUNnSTIxRyszZVp5cU5XQ1VBS1VzTjlyRVhvODBiR1l0N09r?=
+ =?utf-8?B?S1UyQ2M3WXpHalZQUU81VDB6WTJMT2JFN3UxRjBHOW9DdzcvblRZaHRsVVVJ?=
+ =?utf-8?B?VUI3cDRsM09aZXdQSTFVMWUzNXUrSFExNDBTS1dVUm8wT0xWaUl5QmZNME1u?=
+ =?utf-8?B?VkM0ZEw1Y2MwSENDZklWaVBSUFNXS082Vy9WM2tsZ0dQZzlRa010YUhYUmJ3?=
+ =?utf-8?B?YWd3MWs5T0tBVVRqcW02NjBJYUczOGVnRWpSb0djcXc2dE00QnprSlJwL1lK?=
+ =?utf-8?B?ekJJSFFMVWY4Vm90L016RGZXbjlPaWxpeXdDVk03d0x1RVpqTDRZSjE3bVZL?=
+ =?utf-8?B?MWdaTTNlYWxiM0J3RytWcnNvaks2bkpZL1U1NDlpQk1LRHRiQnBzckRSZ3BU?=
+ =?utf-8?B?eDlHT2VPb3NDZUo0QTVmQ0NSMGJKVllnTHNZT0dERTBBQndFK1hRRCttNXE0?=
+ =?utf-8?B?QzI0VnZXU2t4Ri9VZ3c4RVpyQWJLSVZHWGFOQzNoOFN0YklCL3JadmNKVmJh?=
+ =?utf-8?B?UFBBa0U2Z2Y4OWR4ZWJmQTlmVHNrWTRwKzZlcThIbnNxWmVyRG91bFFqSXJL?=
+ =?utf-8?B?SVZFYzh3ZWJuTVVqTmFUWlRjQUFGbWdaelB2NVNTbUYyQUs5NXlxOVYwT3pY?=
+ =?utf-8?B?dm9DRWlQRzU5bVIwNTkrb1A2NjNkWDZKZ0JReWQ5VkJOa2lDM1p4MVFYczZ1?=
+ =?utf-8?B?NGRKNG1pRVVHWFBMQzFOa1ZQZC96cmNiVzQ2eWtBNVNNME1Xd0FXYlpsbGRH?=
+ =?utf-8?B?ZE55YXE3M2l6ekh1eGVXVVAvc3lndTF2OVE5bGhpVyswSzlGTzIrb1Byc1Ix?=
+ =?utf-8?B?bDR3LytlRUlGZWNjTGtDcmJRT2JBNGluMzFIbUxvcmhrc1RpOVgxU2JtMC8w?=
+ =?utf-8?B?QWhMS2pQdE5mbmZHbTNzdUM0NkVuU1UwVzRtSmZJZkswRWxxT0swcFNEWGxF?=
+ =?utf-8?B?MzkwSEpNcFZYdURWRXRUeGN3bU15YmlNQ0Z0RE1RZ2wzcjM4K3dqeXdyNk50?=
+ =?utf-8?B?WXh2eEZpa0xraWovbWw0ZEpmMHM3YXNKRHZBU0pnVzhjdXFiV3lFaEpRMTFw?=
+ =?utf-8?Q?w4Coa5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?czc0YXNXWHZwNFFSblJRSVBaZCtTV080RnlSRlNBNkQySndRb0dLVlo1OWx4?=
+ =?utf-8?B?K2dWY0xxd1NMSzNrOVhHMzRUenF4Wm9sYjFlVDd0QkVoVmlwK2FoNGhkdFdP?=
+ =?utf-8?B?cHVrVEZiSmZPdWxmeU9KV0RhQ0YwQ2Q2RkdmNHpNbzIrRjJxVmhiNzBleERG?=
+ =?utf-8?B?cmRFN2o0cGUzL3VubGhQajNtdk1IemdrN1cvQXFFTHBHVkFuejZaa2JVY21X?=
+ =?utf-8?B?bDdOUTNUMTdwM3ozM2YyRWxYR3IyMWJSYk9zVHM5NG8yblRIS2d5d0FNWG9N?=
+ =?utf-8?B?RFJqeGN4aEIwV1hYQWhhb05MT0FXdk5STHhYUjN4NWVNK3Q1eFFIRkhzdDFW?=
+ =?utf-8?B?aVoxNkt2QVVzQlhOSTR3NmEwYlVqTWY4TU9EeE43MXh3bjRKSm5oQ3RiK3BL?=
+ =?utf-8?B?NHNkS2F4djZTVVpSMExQTFJQN3FZaG00czgzWC95TDRZVXR4NWFPRmtmS3ZF?=
+ =?utf-8?B?cWZVQ3dBZGxmNDFVWXZaV1VQNFZma1pJZmRCc0JRTkFwZUl0bE9YNk9zZVlZ?=
+ =?utf-8?B?WFVPRVFEeE1oSGJXRTFXNWxwQnY1cjNySWlmSFpsWmNRTjBmeFFiR0taS28z?=
+ =?utf-8?B?OUdBRTUzRG9ZTWFBb1BjMzZFQ3VJYWlOOW9qSmZMYWZWZHpxVWl1WHo0Ykwr?=
+ =?utf-8?B?OGladXVXS3czS0w2NnhZL1JoTDNTbS9hOExOcmRIV0hWUUtDRlVHVmlFTVdN?=
+ =?utf-8?B?VnhvMWlocHFsd2JKdVpGcTJSRTVwZUxFdzJlY0NSWGxqQVFYWUl2QmdKNjQ3?=
+ =?utf-8?B?anBJMGthMzVndWR4MDBKWGE1UzV0bklCNEx1aUtRaXFoeWVMZG9waTRZcWFS?=
+ =?utf-8?B?VzZNL243Y2VSYVc0TDVmWm1kY3lHUWJLRW9YcXdaaFI1NVdlbWxRWWkrUGV2?=
+ =?utf-8?B?WXlpWWs4VkRTaUQ5MUdvZ2svUmcvZWIyc2s1aUhSbHlDTmk4MDFPelhWbVhs?=
+ =?utf-8?B?SlNndGZUWlo2RnpoOWVUZUpjWVhqOHJIWlpKbDM0dlkya2djaVZYMVFwK1BF?=
+ =?utf-8?B?a3lzaHJsMkZqc1ZWTDNWNWR2WFFLY2g0czB0N3ZTUE1IOXc2bUYyZ09SWDJk?=
+ =?utf-8?B?YlBibEVnUnJwVGN3NXlGSE9weDRsZWlXYXJsTEt4Uko2OXZmc2ZrenVVN0cx?=
+ =?utf-8?B?SzJ5SHQ4WEtYSFVJRVYyYWJhSEhJdko3RjZocGdpdTBkb0p3RklLVlZYdlll?=
+ =?utf-8?B?TzhXdDhEdHdCTmcySWhTUWUwK1owdDdhRzh4VWhYNmo1am4vSTdmOXlLdU1Y?=
+ =?utf-8?B?bUVKUnkwMFRMR1diVllvMjVyV3R0Y1JjT0pBd0NLcHRzM3hnYlhnMkdodjJF?=
+ =?utf-8?B?RU9iK2NJVUhoVXMvL0hiY1Zkd1dqNzhHblRvemJzUm9IcEMyMVYvV1J5ZnY4?=
+ =?utf-8?B?dURMUW1ESVpLMFN0TmVYRTVseFppOHBsdk5DRmtjTEFhMjBrYUxBNDlWS1FW?=
+ =?utf-8?B?S2k3c2lld1E1TzlzQjJMRHkySFNiMWdnblc4aGRaaDErd3VGa1VGeHBHOHJI?=
+ =?utf-8?B?YmNwSUZ6VHFqWTlmS1BNWDVvSUhLTjJ5TTVWSGpXMVcyaTBrYlRLSXdJQXJa?=
+ =?utf-8?B?c3R6emZGZ3lwaWNPY2JETzZsOHljNlZ6NHU5cTZ4VmlwKzB2R2FzL3oyZEdM?=
+ =?utf-8?B?Q0xLZ1VNd3NTeWxMMEVxMFJ0THFCVjFYaUNIL3N0emNJcE1RNEU0MTJNMElF?=
+ =?utf-8?B?N0RUbnJEakpYL3UrWWFpMmc3akRUWFhHUTVzeHZLa1ZTSFMwc09lOXRLUS9T?=
+ =?utf-8?B?ZUxUVDJRdXg5R01HOWRTb3dkQllsN0hqYS94MGNOWVBIVHA3MEo2a0syYngv?=
+ =?utf-8?B?akdCWDYyT01uNzh6TjZXeFdWZGhqdVFmdUJnNCtjNkJtcUgrbll3SFRLbnBj?=
+ =?utf-8?B?SnkxQ09VTkJYMjJ1cDhDODdGWjJncm5YM2dzaVo0cEtPZ2E2VkdJZHE5Wm5y?=
+ =?utf-8?B?M0tFTE9lanBCV0hreDFQanBQa210V3RWeWFsck9JQzl5VDVuUDRpMkJXdEI0?=
+ =?utf-8?B?OC9acDFoSTlDam5neTlXY1dIS3RIdkJiY1V5T0dVdWRhUUJKNTVxRFQrVExs?=
+ =?utf-8?B?dTNoeTFpMnBCdjF2ZnRPMDl2VEJ4ak5uM0h1NmlWYnJPZ2pUR2ozeUluRFlw?=
+ =?utf-8?Q?q06oM2u9WH9B/xhOw460FIoHX?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a96f8a4-f27d-4000-019a-08dde0ef90ab
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 20:16:08.7505
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2geG9m5YESAslvx/ydFh2TwzHAAlnvU5kt1NYO6V6eZSxVCi7aog72CPIzSf9s+zIFLg0Dkw5On2UY/m1HO1ZQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7181
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140112_681863_EA550EE8 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250821_131617_648247_E482C5F6 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,145 +199,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Factor out the mmap_lock-protected portion of user_mem_abort() to a new
-helper, partly to make user_mem_abort() easier to follow, but mostly so
-that the scope of the mmap_lock-protected code is more explicitly bounded.
+Totally rewrite CSI part driver compared to V1.
 
-No functional change intended.
+This only includes CSI related patches.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+DTS part: see https://lore.kernel.org/imx/20250701-95_cam-v1-6-c5172bab387b@nxp.com/
+PHY part: see https://lore.kernel.org/imx/20250701-95_cam-v1-4-c5172bab387b@nxp.com/
+AP1302 part: see https://lore.kernel.org/imx/20250701-95_cam-v1-7-c5172bab387b@nxp.com/
+	upstream: https://lore.kernel.org/imx/20250623-ap1302-v3-0-c9ca5b791494@nxp.com/
+
+First 3 patches add some common helper function to simple code and remove
+duplicated code in difference CSI2 drivers.
+
+Clean up stage imx6 old version csi2 driver, and prepare create common
+dw csi2 library for difference IP version.
+
+Move stage driver under driver/media/synosis.
+
+Create simple platform driver for common dw csi2 use case.
+
+TODO:
+	1. create bus, to probe phy driver under "test_if" interface for
+specific phys under CSI2.
+	2. support to combine phy, (which connect to both dw CSI and DSI's
+test_if). Need use DSI's test_if to config combo phy to switch to RX mode.
+and also need config RX part's phy register by use CSI's testif.
+	3. move other vendor's csi driver to use this common DWC CSI
+library.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/kvm/mmu.c | 96 ++++++++++++++++++++++++--------------------
- 1 file changed, 52 insertions(+), 44 deletions(-)
+Changes in v3:
+- update binding doc
+- combine two add helper function's patch to one. and use media_bus_fmt_info
+data structure.
+- Link to v2: https://lore.kernel.org/r/20250808-95_cam-v2-0-4b29fa6919a7@nxp.com
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index fec3a6aeabd0..ea326d66f027 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1466,47 +1466,10 @@ static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
- 	}
- }
- 
--static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-+static int kvm_gather_fault_vma_info(struct kvm_vcpu *vcpu,
-+				     struct kvm_page_fault *fault)
- {
--	int ret = 0;
--	bool writable;
--	struct kvm *kvm = vcpu->kvm;
- 	struct vm_area_struct *vma;
--	void *memcache;
--	bool logging_active = memslot_is_logging(fault->slot);
--	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
--	struct kvm_pgtable *pgt;
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
--
--	VM_BUG_ON(fault->write && fault->exec);
--
--	if (fault->is_perm && !fault->write && !fault->exec) {
--		kvm_err("Unexpected L2 read permission error\n");
--		return -EFAULT;
--	}
--
--	if (!is_protected_kvm_enabled())
--		memcache = &vcpu->arch.mmu_page_cache;
--	else
--		memcache = &vcpu->arch.pkvm_memcache;
--
--	/*
--	 * Permission faults just need to update the existing leaf entry,
--	 * and so normally don't require allocations from the memcache. The
--	 * only exception to this is when dirty logging is enabled at runtime
--	 * and a write fault needs to collapse a block entry into a table.
--	 */
--	if (!fault->is_perm || (logging_active && fault->write)) {
--		int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
--
--		if (!is_protected_kvm_enabled())
--			ret = kvm_mmu_topup_memory_cache(memcache, min_pages);
--		else
--			ret = topup_hyp_memcache(memcache, min_pages);
--
--		if (ret)
--			return ret;
--	}
- 
- 	/*
- 	 * Let's check if we will get back a huge page backed by hugetlbfs, or
-@@ -1520,11 +1483,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		return -EFAULT;
- 	}
- 
--	/*
--	 * logging_active is guaranteed to never be true for VM_PFNMAP
--	 * memslots.
--	 */
--	if (logging_active) {
-+	/* Logging is guaranteed to never be active for VM_PFNMAP memslots. */
-+	if (memslot_is_logging(fault->slot)) {
- 		fault->force_pte = true;
- 		fault->vma.pageshift = PAGE_SHIFT;
- 	} else {
-@@ -1613,6 +1573,54 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	fault->mmu_seq = vcpu->kvm->mmu_invalidate_seq;
- 	mmap_read_unlock(current->mm);
- 
-+	return 0;
-+}
-+
-+static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-+{
-+	int ret = 0;
-+	bool writable;
-+	struct kvm *kvm = vcpu->kvm;
-+	void *memcache;
-+	bool logging_active = memslot_is_logging(fault->slot);
-+	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
-+	struct kvm_pgtable *pgt;
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
-+
-+	VM_BUG_ON(fault->write && fault->exec);
-+
-+	if (fault->is_perm && !fault->write && !fault->exec) {
-+		kvm_err("Unexpected L2 read permission error\n");
-+		return -EFAULT;
-+	}
-+
-+	if (!is_protected_kvm_enabled())
-+		memcache = &vcpu->arch.mmu_page_cache;
-+	else
-+		memcache = &vcpu->arch.pkvm_memcache;
-+
-+	/*
-+	 * Permission faults just need to update the existing leaf entry,
-+	 * and so normally don't require allocations from the memcache. The
-+	 * only exception to this is when dirty logging is enabled at runtime
-+	 * and a write fault needs to collapse a block entry into a table.
-+	 */
-+	if (!fault->is_perm || (logging_active && fault->write)) {
-+		int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
-+
-+		if (!is_protected_kvm_enabled())
-+			ret = kvm_mmu_topup_memory_cache(memcache, min_pages);
-+		else
-+			ret = topup_hyp_memcache(memcache, min_pages);
-+
-+		if (ret)
-+			return ret;
-+	}
-+
-+	ret = kvm_gather_fault_vma_info(vcpu, fault);
-+	if (ret)
-+		return ret;
-+
- 	fault->pfn = __kvm_faultin_pfn(fault->slot, fault->gfn,
- 				       fault->write ? FOLL_WRITE : 0,
- 				       &writable, &fault->page);
--- 
-2.51.0.261.g7ce5a0a67e-goog
+Changes in v2:
+- totally rewrite, see above section
+- Link to v1: https://lore.kernel.org/r/20250701-95_cam-v1-0-c5172bab387b@nxp.com
+
+---
+Eugen Hristev (1):
+      dt-bindings: media: add DW MIPI CSI-2 Host support
+
+Frank Li (30):
+      media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
+      media: v4l2-common: Add helper function media_bus_fmt_to_csi2_(bpp|dt)()
+      media: staging: media: imx6-mipi-csi2: replace space with tab for alignment
+      media: staging: media: imx6-mipi-csi2: use devm_add_action_or_reset() to simplify code
+      media: staging: media: imx6-mipi-csi2: use devm_clk_bulk_get_all() to fetch clocks
+      media: staging: media: imx6-mipi-csi2: use devm_mutex_init() to simplify code
+      media: staging: media: imx6-mipi-csi2: use guard() to simplify code
+      media: staging: media: imx6-mipi-csi2: use register structure to match hardware
+      media: staging: media: imx6-mipi-csi2: use devm_platform_ioremap_resource() simplify code
+      media: staging: media: imx6-mipi-csi2: move probe part to imx6-csi2.c
+      media: staging: media: imx6-mipi-csi2: move sd imx6's specific initialization into imx6-sci2.c
+      media: staging: media: imx6-mipi-csi2: move csi2ipu_gasket_init() to imx6-csi2.c
+      media: staging: media: imx6-mipi-csi2: move number pad macro define into imx6-csi2.c
+      media: staging: media: imx6-mipi-csi2: move dphy init part to imx6-csi2.c
+      media: staging: media: imx6-mipi-csi2: use runtime_pm frame to control clks
+      media: synopsys: move imx6-mipi-csi2.c to synopsys/mipi-csi2.c
+      media: synopsys: csi2: Remove deprecated s_stream and use v4l2_subdev_pad_ops
+      media: synopsys: csi2: Add phy interface support
+      media: synopsys: csi2: Add basic v150* version register
+      media: synopsys: csi2: Add irq support to record error count
+      media: synopsys: csi2: Handle alignment requirement for width
+      media: synopsys: csi2: Add register prefix to register field definitions
+      media: synopsys: csi2: Add need_dphy_reset in config
+      media: synopsys: csi2: Add default simple dw_csi2_subdev_init_state
+      media: synopsys: csi2: Add v150 lane stop state register bit define
+      media: synopsys: csi2: use standard v4l2_subdev_get_fmt() function
+      media: synopsys: csi2: Add customize get_frame_desc() callback
+      media: synopsys: csi2: Add Image Pixel Interface (IPI) support for v150
+      media: synopsys: csi2: Remove source pad connected check at dw_csi2_enable_streams()
+      media: synopsys: csi2: Add simple synopsys platform driver
+
+ .../bindings/media/snps,dw-mipi-csi2-v150.yaml     |  151 +++
+ MAINTAINERS                                        |    1 +
+ drivers/media/platform/synopsys/Kconfig            |   20 +
+ drivers/media/platform/synopsys/Makefile           |    3 +
+ drivers/media/platform/synopsys/mipi-csi2-simple.c |   75 ++
+ drivers/media/platform/synopsys/mipi-csi2.c        | 1260 ++++++++++++++++++++
+ drivers/media/v4l2-core/v4l2-common.c              |  149 +++
+ drivers/staging/media/imx/Kconfig                  |    1 +
+ drivers/staging/media/imx/Makefile                 |    2 +-
+ drivers/staging/media/imx/imx6-csi2.c              |  181 +++
+ drivers/staging/media/imx/imx6-mipi-csi2.c         |  846 -------------
+ include/media/dw-mipi-csi2.h                       |  120 ++
+ include/media/mipi-csi2.h                          |   30 +
+ include/media/v4l2-common.h                        |   30 +
+ 14 files changed, 2022 insertions(+), 847 deletions(-)
+---
+base-commit: ad0a162e543964443feec3a6a9395a64fe6c35c9
+change-id: 20250606-95_cam-b74c094ad1fb
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
