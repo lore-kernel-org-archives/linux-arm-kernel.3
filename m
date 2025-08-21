@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A26CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982F7CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 09:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pK6TKWTL+Dm2+mMNk11vPEabAY6SicVRhbVbvZZOd0g=; b=xDKr3ZBwJJNil/ZH4ANA7N4bZx
-	0vzyfIV23q6hU+g/ZdvUUmNak/QVFJSAdpee8fH0ldGyYzM0TIX/khGJR7CGqvydLnqG2ObBfMBGt
-	oYh1s+jTovgzPTFegp2+bbRLKLBCVUpREegEI08ZHlMPQ3+u2ccu5udWOdi+Ryj/GDIZDezz7SNsG
-	NhUzIAoYMc+ZWl85pVSGlIGfPojenTkGNbtZ94lNyZwoTZOUkrlN3eiSjHV98Gki+3bncR3vPwY9s
-	67UngXOPNqLu0BWJnrzZvUMSsf24/X7Qcn1ugSGT1YLHVARgutixlNUV1QCQcTw/F05E8Eww29waB
-	Mg/AMOxA==;
+	bh=gXwvijigmKUOoVJ0Fsp55b+fT4AozqAMlLlDLT75WaI=; b=ffEB5oXxBcX3s+8yjONEr37U6Y
+	jP1lwvvJqEjkY3eLcC9CoUdVGA/zlBxqauDyGP1P8BEeCYO7LD7wBah+ejImfzAtlNdgQA9wGklNt
+	89fCUJaXBulosAdpEb1sQbdGyq7jmGwywRE9uClJXzxLi13mTFdVSPoD59ic6bzaRtZC5BO5t1tjJ
+	xVJMtC8F4k4f/CldEmZQYHBSWEwLTF4C6a16k8rlPTv6NLgphGZdf+WIFWLhPUs8ucXfFctwIqji8
+	h/rQJwYNjceoAQf3XImQAo4AUYalt86oCW9v2bIxeAKNaubtA8X23VGZGskB/OEtz+lIM+x0A5ZPF
+	Qbc8i8tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1n1-0000000GSDj-0acj;
-	Thu, 21 Aug 2025 09:40:59 +0000
+	id 1up1n5-0000000GSKd-0GXx;
+	Thu, 21 Aug 2025 09:41:03 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up09F-0000000GA7A-3ydl
+	id 1up09D-0000000GA49-1KBJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 07:55:52 +0000
+	Thu, 21 Aug 2025 07:55:53 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1up09C-00073K-0N; Thu, 21 Aug 2025 09:55:46 +0200
+	id 1up097-00073K-Sf; Thu, 21 Aug 2025 09:55:41 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Thu, 21 Aug 2025 09:55:32 +0200
-Subject: [PATCH 5/5] arm64: dts: imx8mp-skov: support new 10" panel board
+Date: Thu, 21 Aug 2025 09:55:28 +0200
+Subject: [PATCH 1/5] dt-bindings: vendor-prefixes: Add JuTouch Technology
+ Co, Ltd
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-5-b492ef807d12@pengutronix.de>
+Message-Id: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-1-b492ef807d12@pengutronix.de>
 References: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de>
 In-Reply-To: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,8 +62,9 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_005549_995299_99296FBF 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250821_005547_360646_9D7AECB7 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board is similar to the already upstream
-imx8mp-skov-recv-tian-g07017.dts but uses a different 10" panel with a
-different touch controller.
+JuTouch is a chinese touch screen supplier dedicated to manufacturing
+high-end touch display products for the global industrial market.
+(www.jutouch.com)
+
+Add a vendor prefix for it.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 ---
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../imx8mp-skov-revc-jutouch-jt101tm023.dts        | 79 ++++++++++++++++++++++
- 2 files changed, 80 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 23535ed47631ca8f9db65bec5c07b6a7a7e36525..b0f98d60553d968820db45c06418ac671753df4b 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -226,6 +226,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..676c604fb4e5093af48f4de62a890700095ccf01
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt101tm023.dts
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include "imx8mp-skov-reva.dtsi"
-+
-+/ {
-+	model = "SKOV IMX8MP CPU revC - JuTouch JT101TM023";
-+	compatible = "skov,imx8mp-skov-revc-jutouch-jt101tm023", "fsl,imx8mp";
-+
-+	panel {
-+		compatible = "jutouch,jt101tm023";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
-+
-+		port {
-+			in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	touchscreen@2a {
-+		compatible = "eeti,exc81w32";
-+		reg = <0x2a>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1280>;
-+		touchscreen-size-y = <800>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
-+	assigned-clock-rates = <0>, <506800000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&in_lvds0>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&reg_tft_vcom {
-+	regulator-min-microvolt = <3160000>;
-+	regulator-max-microvolt = <3160000>;
-+	voltage-table = <3160000 73>;
-+	status = "okay";
-+};
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 77160cd47f54079a39f35b570d69f7c4c2274724..074e2ce9025dfa5ff76f7df3a743c2dd2f9ccd93 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -799,6 +799,8 @@ patternProperties:
+     description: JOZ BV
+   "^jty,.*":
+     description: JTY
++  "^jutouch,.*":
++    description: JuTouch Technology Co., Ltd.
+   "^kam,.*":
+     description: Kamstrup A/S
+   "^karo,.*":
 
 -- 
 2.49.0
