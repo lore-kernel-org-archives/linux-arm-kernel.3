@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111A8CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DD4CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XixqfOM9J0PoFklUsB1rnwvB9KfR6W1/d+d5wu0FUJU=; b=uyEsWtZQSgZVQGmonE8GL50pRB
-	7oFP/R69YLUlSlMKY16SYpl2c8ToQjjuMKM17FD4NGB173LZUErFJ4uk2/qlrFpTPsswUzXnD1jTH
-	W/fqZ0vV5w+rx/+Arn+y7i2GmRxvX+vbSv3GcRYboBDm2fCB5ge6FNc4VD0TvV4R7xeegLFjtwJMj
-	cMlgLwF6MLdCiEwE/k+PHLkfUN2HhmDLvKRuJuVLL5fGSr/Z5ZSVOSDdWVLhnf21aUaIiFySEsKDX
-	J6hWlgSMq3YmoPxeGU1Ho8jU2fCdiozMC8iTPs+ZqjGm8m+y3qF65dt9NSKW1gtxOMcPQQXwiB7P8
-	4mnq6pjQ==;
+	bh=bOPorWl5Uhit+PYqtGOxV4ZjgLuFoKweoFQEWjf558M=; b=olWZdGLA/K8YdoeKz9cmNeb8CA
+	tpqq8pKOe4rUKrqLwAf9Qm3S1bWYn6xUo3Md/wSOjREEhLTo6gygKmw5D4a8kcYTHUngtmxslPFnZ
+	ZZPedF37HvDw63UqwoAHFMcKeBQivN7i0G2sWfmZ9Chb8mtBgdaf2SQ7kcXYhTf/HNgPmHFKDEZ93
+	EO9/kr1hYa6DLJhFpiat+IINeyKPt3ezfHVKuY4Osw9Ka7mQLGGHQ+L+VeXe7v+BXS82lbXguuvO5
+	NVB4aoYiB6ZKdziFibqKzj7vkdQY7+slqmcajvvHBCK50BhjFZJ6MFDxHFTjD70jmwBiemQ8ABPXH
+	MMRdYsiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozSv-0000000G3zd-2d2k;
-	Thu, 21 Aug 2025 07:12:05 +0000
+	id 1uozVW-0000000G4RN-1KgZ;
+	Thu, 21 Aug 2025 07:14:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoz7h-0000000G0QK-1Y1v;
-	Thu, 21 Aug 2025 06:50:09 +0000
+	id 1uozAc-0000000G0xA-3mim;
+	Thu, 21 Aug 2025 06:53:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6ABB60200;
-	Thu, 21 Aug 2025 06:50:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3939C4CEED;
-	Thu, 21 Aug 2025 06:50:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 016B0601D7;
+	Thu, 21 Aug 2025 06:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22860C4CEED;
+	Thu, 21 Aug 2025 06:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755759008;
-	bh=u+lsxovfQh47JM2+/dnFIH86HtbVMZEaPA79GiUi060=;
+	s=k20201202; t=1755759189;
+	bh=Bq9tP1dBXwQ3sRC4YKUxmHUFPSXpyXHLlJKSZ1attcQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rWtcNuVzxcYsC34AHmhjHBgxMf2ouycBh5sbTI6IqDcMDOs4NOiAHwDiinq/rRFcp
-	 Zgxpz9CoVE/6w1hlonzqs0taKH8bD0I8vlzYiEt0rlghWXCLkBz2/+nKPXojDrxuwI
-	 NvUDXL8TsapMRtBVOYosrNgG2uUt6SsgcjjGQLyBXlIESLxLYwakv0ozJOyxoC7ZxP
-	 292JeFide5WNt2qdhGCgu7c9WFuVYhx+jp++UHpQXyr1Q2DfXXvb0zrWJ8fzlizFG3
-	 T2t4mnu9y1ueNesgpAAJrCut//SNpr/e7hd8Ru35/r+G3fPuwK+ByZsWf3r01mj1Vf
-	 MJolRnW5Wm8EQ==
-Date: Thu, 21 Aug 2025 08:50:06 +0200
+	b=Qs7XcmMvSsV7ZlsJpkSxU/mY6+27bCRXN2nW1JYMEkIZbbbxqeCb++SHayuZouPBe
+	 pXLdV6i4y+uV93jaiaeZXB1iriW3zE/bbKi69plgG3xa5OIs0Qi76qhRmK7VU1E6ss
+	 LtnBtwtwFnfX6J44cs071lPZ9x5vD+8uwLd7zPounkMciOpdxkDvBvqh8jlNUP8dii
+	 u2f72i1+0PrrVy50oULnOBet9AcjJiPjRXovxGrycQLyhLCkK3Ylvj06fa/HZTKOhm
+	 8BZFUH4yFIxuQlwwigXeCGWanttsE4WFa/g75aoSrNq3PTsRHEf2r+EsWQcMVJMPEe
+	 J0JNPZ+l1tSHA==
+Date: Thu, 21 Aug 2025 08:53:07 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
@@ -59,15 +59,15 @@ Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
 	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
 	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
 	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v1 07/14] dt-bindings: display: mediatek,ufoe: Add
- mediatek,gce-client-reg property
-Message-ID: <20250821-wandering-vermilion-pigeon-b8c9f0@kuoka>
+Subject: Re: [PATCH v1 10/14] regulator: dt-bindings: Convert Dialog
+ Semiconductor DA9211 Regulators to YAML
+Message-ID: <20250821-practical-coyote-of-hail-d2fddb@kuoka>
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-8-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-11-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250820171302.324142-8-ariel.dalessandro@collabora.com>
+In-Reply-To: <20250820171302.324142-11-ariel.dalessandro@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +82,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 02:12:55PM -0300, Ariel D'Alessandro wrote:
-> Current, the DT bindings for Mediatek UFOe (Unified Frame Optimization
-> engine) is missing the mediatek,gce-client-reg property. Add it and
+On Wed, Aug 20, 2025 at 02:12:58PM -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for Dialog Semiconductor DA9211
+> Voltage Regulators family to a YAML schema. Examples are simplified, as
+> these are all equal.
 
-Why is it missing? If the binding is complete, it cannot be missing...
+Also not wrapped... fix your editor to recognize how commits are
+written.
 
-> update the example as well.
 > 
 > Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 > ---
->  .../bindings/display/mediatek/mediatek,ufoe.yaml      | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-> index 61a5e22effbf2..ecb4c0359fec3 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-> @@ -64,6 +64,14 @@ properties:
->        - port@0
->        - port@1
->  
-> +  mediatek,gce-client-reg:
-> +    description: The register of client driver can be configured by gce with
-> +      4 arguments defined in this property, such as phandle of gce, subsys id,
-> +      register offset and size. Each GCE subsys id is mapping to a client
 
-Don't explain what DT syntax is. We all know, so that's completely
-redundant description. Explain the purpose. Explain Arguments with sechema - items.
+...
+
+> +---
+> +$id: http://devicetree.org/schemas/regulator/dlg,da9211.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: |
+
+Drop |
+
+> +  Dialog Semiconductor DA9211/DA9212/DA9213/DA9223/DA9214/DA9224/DA9215/DA9225
+> +  Voltage Regulator
+> +
+> +maintainers:
+> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - "dlg,da9211"
+> +      - "dlg,da9212"
+> +      - "dlg,da9213"
+> +      - "dlg,da9223"
+> +      - "dlg,da9214"
+> +      - "dlg,da9224"
+> +      - "dlg,da9215"
+> +      - "dlg,da9225"
+
+No quotes. I don't think this was ever tested.
+
+Also, keep it properly ordered
+
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  regulators:
+> +    type: object
+> +    additionalProperties: false
+> +    description: |
+
+Drop |
+
+> +      List of regulators provided by the device
+> +
+> +    patternProperties:
+> +      "^BUCK([A-B])$":
+
+[AB]
+
+> +        type: object
+> +        $ref: regulator.yaml#
+> +        description: |
+> +          Properties for a single BUCK regulator
+> +
+> +        properties:
+> +          regulator-initial-mode:
+> +            items:
+> +              enum: [ 1, 2, 3 ]
+> +            description: Defined in include/dt-bindings/regulator/dlg,da9211-regulator.h
+> +
+> +          regulator-allowed-modes:
+> +            items:
+> +              enum: [ 1, 2, 3 ]
+> +            description: Defined in include/dt-bindings/regulator/dlg,da9211-regulator.h
+> +
+> +          enable-gpios:
+> +            maxItems: 1
+> +            description: Specify a valid GPIO for platform control of the regulator
+
+Drop description, obvious.
+
+> +
+> +        unevaluatedProperties: false
+
+For nested blocks this goes after $ref: regulator.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - regulators
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/regulator/dlg,da9211-regulator.h>
+> +
+> +    i2c1 {
+
+i2c
+
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        da9212: da9212@68 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
 
 Best regards,
 Krzysztof
