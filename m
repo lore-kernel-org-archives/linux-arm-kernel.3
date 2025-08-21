@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386A3CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AA7CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 02:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nw5kiI6YvAO2RXGdtpyjseVagbE32KnshmO9YLBiZhk=; b=JWaE190enfFpC26pZm70f+alnN
-	cPtJq6mCC4CTZ9hgPXCgTjALlJQ2uLZ/oaI0GuZkzFaDqAtH0zMXCRSMIp4QcUYK5tFsfaVcdGi0F
-	8a0kmfvt1B6br7Su6p7ySedFl0N/hDGcXVu2vtWvZ/H6M3mHz9a50C1Ca8X6E7Q68h483pxdatWZD
-	9ndWzNPA2xnZaVN58J2oA8/Rz9Yj9XboL82jJj8+DxGTC77brO0tXQuyBh4tLpKMbcpLkwg2MF49Z
-	XTxQdwvz/fRhjYvjM92x7qC/2QTXCH1oKjM+Lse42MDUxqIJfZszRLZ6bB3e7SWsCQwLxblFpgVU6
-	2ncuwfZQ==;
+	bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=; b=PGb0yMh7XGgLD7OeZ0YM1wXm8X
+	qRiTOeQRxyeoXBL+2Ug2UigfUzlDgChd6uJP4hGGhM4oxq9vyjLAyur/rklpkCyD+mS2iXkVbtSe4
+	7jGWWUfaRrpGER5VcI4egrJ2RCPjbrVYcG+uLVQemaJlXS56f7nTO8GzQhE5Vd0xEVf9ZeAWBgENp
+	udRdEkz2R5JxpfFtUVtoZ4Wn8iXv6NyRboNzhdZONSZJhG4PMSp7c6aDSsxqgXvzz+xE2NUf9eavP
+	La8QM0MXhO2j2JHOyUdAOAxp+h7O6qMADJw8M1wUXSlvGsyfT8cL9MctOxIr1GuiErZptZTioPko9
+	s/r52jFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHv5-00000001Jve-0RN7;
-	Fri, 22 Aug 2025 02:54:23 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1upHxf-00000001KAG-3dk6;
+	Fri, 22 Aug 2025 02:57:03 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upCP8-00000000baM-1iB9
+	id 1upCPA-00000000bbx-0tb1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 21:01:04 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-76e7ef21d52so2894720b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:01 -0700 (PDT)
+	Thu, 21 Aug 2025 21:01:05 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32515e8e4cbso579626a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 14:01:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1755810061; x=1756414861; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1755810063; x=1756414863; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=nw5kiI6YvAO2RXGdtpyjseVagbE32KnshmO9YLBiZhk=;
-        b=tgV3jCKjH254/MjS1d2jBXgDkz81vdMzf1Owt+84vhbTl8lWkl8u9MOMzdje6BBglr
-         2arJm1Ok5PI/c4uWThxfSpjYCnE94Rr/H5MSY3reNdk/DCOKcHu54h6h+OCjjB7jKcXU
-         +K2DkYC0OsEO6UcgolG+fl+w1Uy9iX4MhRBzOscOopck4rGyZbn2tIFUkd9I4YWekLdK
-         mU7Ob97/uCIOy74XD1W0uAURqiW9dBd/afoxzEYI+7T+tZRS9QYtnqMzqTVLsr3EwxXE
-         JDLCoOkRbxAyumMUvXGnjAm4WiR2g/BTVl2gNqr6s5Hm2mYF8I7WQk7NkJ0ZOmn7XOkc
-         RfWw==
+        bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=;
+        b=aXd2zVC3SBAYX90gktvIljE0DpOjTH50BTUQcCnSA4u0ybxQvQA9DPauv39hKgB81P
+         0DJJqVKyMFjiFzBffjwEjG3h8X8O5tF5wnT29avWMiwK8+7+z8xkU9Jy0zVhqXBwA8v0
+         73+X/C5epxfTmHwUq/qmv0BWDuRMljxceduy3Itt3d/0rnGpuF8X1Q3slYyxrL5+wr2q
+         ecB82uZpRYB34CC/VNN3ggI8guTr0vvEz8wXYnD/v/IYkhLWqnk77sUOrgVVs5RIIgOJ
+         C/fWBbBikabA2Yg7wiLja+9/9te2gD+yNdLeYM5g5gz08Wwa4JJh9/jWhKe8slxTk7RH
+         G3hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755810061; x=1756414861;
+        d=1e100.net; s=20230601; t=1755810063; x=1756414863;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nw5kiI6YvAO2RXGdtpyjseVagbE32KnshmO9YLBiZhk=;
-        b=pQvFaKrdyXv02ck7SVQtbeXJ+JMtUI0itJ0Og5wmH+agqhLsaTaPWSN6Ntw30/E8U/
-         3s6VocIsWJAwRZjOIA7tRjuMRkhotRoHwCxRCJE+oNVWqvPVgYkw0qT+YBeUUL8WtAJO
-         OWGuV+ZnAftEOrpvxURL0BsXMkQ2LDLdZ2y3qPPDOFrgHtpSDl8Z9TPVvkebnGh/U/hm
-         OplBOY1GZfiVrGN45D9n5iV5PyxWdv7Rngt8PqSfSclOW13Cb6nHnMVEjbdq6kn8OO47
-         ILUmJvoHuAN4MM3NkgLNsQUdxEtChXLaw1WK26PGHNI5kL+ZeJB18MZlAlgD+x+JZjO6
-         BR5w==
-X-Gm-Message-State: AOJu0YxMiD/xb3c/BZiB3AFXIKce7EU+zZjNTLVSwD9EZU2uvAzImLiJ
-	ibxzCynJquFYTxiT1hV0/naq31uE4Z+beras87qxwjwcJI8659l7HNI+ZyMpe8qiGe2EtscVuNr
-	1nxf10g==
-X-Google-Smtp-Source: AGHT+IGle6xFEs66cx8IStkT7ygYTzBQ/CVc9BMQ/qOuDjmd3FaQf765ZcadOYjVlZz3dCJkQZna0ErFQAI=
-X-Received: from pgww17.prod.google.com ([2002:a05:6a02:2c91:b0:b42:189a:ccf8])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:1582:b0:240:9126:2bde
- with SMTP id adf61e73a8af0-24340d5e4cemr792496637.46.1755810061454; Thu, 21
- Aug 2025 14:01:01 -0700 (PDT)
-Date: Thu, 21 Aug 2025 14:00:35 -0700
+        bh=AynODOx7TIbccej4ZjLdZ9RTKEuSncfsehCPn6XLS1g=;
+        b=xJ0UGmde5ypitmw5w0u+8SQWsY2ahNEeEbQGfI+rx8VW8gRUSvXinxyI9URrUyFAMZ
+         pv27AmBh2s+ipuTmtsQha33Goukzj4whN3cdrx/Ke2kck7nvesPzqdyZuMhuJyMp+aKI
+         fzZM9bmW7C7hcNu6/hB+m1g3mFW3Y27Dl0PNKXZ9dlEpptADWA2WQb4Qu6hVC3BCt63J
+         1y0VTa6+ZjLw819JqBYr9r6OLTx2l53iBzw12SkZNKazfrLnXOp96lpT60u1J+XU4veS
+         2k3zcX5Ebdlu1jBjbxi05zYoxFDRy7LBU/sTfxNpjKvn0/PIyuo3odEjaZUlSwuXA4cf
+         el5Q==
+X-Gm-Message-State: AOJu0YzuJmpZIJwy0D0844/CFnBaRvEI2jOjRpxry1G5swwoHwEGO+aQ
+	/E2vUNT/SzC4VitK8jP2msuUicfGOIIK+816xoFPqhTlLRJFUVLZcZJGY9iHlBVv5zvV0//ApXy
+	zpimpUw==
+X-Google-Smtp-Source: AGHT+IEVYwl5YEkw1vqENiDixKFNtOSSF5og6sdGONTLhDTmarsazTWsy/GXacXJvdeMD+BKnVg4vh8e0tk=
+X-Received: from pjbsd14.prod.google.com ([2002:a17:90b:514e:b0:321:78e7:57fb])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1b4c:b0:31e:d929:5ca5
+ with SMTP id 98e67ed59e1d1-32515e2230emr1041388a91.1.1755810063041; Thu, 21
+ Aug 2025 14:01:03 -0700 (PDT)
+Date: Thu, 21 Aug 2025 14:00:36 -0700
 In-Reply-To: <20250821210042.3451147-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250821210042.3451147-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.261.g7ce5a0a67e-goog
-Message-ID: <20250821210042.3451147-10-seanjc@google.com>
-Subject: [RFC PATCH 09/16] KVM: arm64: Track perm fault granule in "struct kvm_page_fault"
+Message-ID: <20250821210042.3451147-11-seanjc@google.com>
+Subject: [RFC PATCH 10/16] KVM: arm64: Drop local vfio_allow_any_uc, use
+ vm_flags snapshot
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
@@ -74,8 +75,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_140102_472318_8601D94E 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20250821_140104_252948_7C163418 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,107 +92,47 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add permission fault granule information to "struct kvm_page_fault", to
-help capture that the granule is a property of the fault, and to make the
-information readily available, e.g. without needing to be explicitly
-passed if it's needed by a helper.
-
-Opportunistically drop kvm_vcpu_trap_get_perm_fault_granule() and simply
-grab the granule from the passed-in ESR.
+Drop user_mem_abort()'s local vfio_allow_any_uc variable and instead use
+the vm_flags snapshot.
 
 No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  9 ---------
- arch/arm64/include/asm/kvm_host.h    |  1 +
- arch/arm64/kvm/mmu.c                 | 13 ++++++-------
- 3 files changed, 7 insertions(+), 16 deletions(-)
+ arch/arm64/kvm/mmu.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 8065f54927cb..93e7a0bad0fb 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -449,15 +449,6 @@ bool kvm_vcpu_trap_is_translation_fault(const struct kvm_vcpu *vcpu)
- 	return esr_fsc_is_translation_fault(kvm_vcpu_get_esr(vcpu));
- }
- 
--static inline
--u64 kvm_vcpu_trap_get_perm_fault_granule(const struct kvm_vcpu *vcpu)
--{
--	unsigned long esr = kvm_vcpu_get_esr(vcpu);
--
--	BUG_ON(!esr_fsc_is_permission_fault(esr));
--	return esr_fsc_perm_fault_granule(esr);
--}
--
- static __always_inline bool kvm_vcpu_abt_issea(const struct kvm_vcpu *vcpu)
- {
- 	switch (kvm_vcpu_trap_get_fault(vcpu)) {
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 4623cbc1edf4..ec6473007fb9 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -418,6 +418,7 @@ struct kvm_page_fault {
- 	const bool exec;
- 	const bool write;
- 	const bool is_perm;
-+	const u64  granule;
- 
- 	phys_addr_t fault_ipa; /* The address we faulted on */
- 	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
 diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index c6aadd8baa18..10c73494d505 100644
+index 10c73494d505..e1375296940b 100644
 --- a/arch/arm64/kvm/mmu.c
 +++ b/arch/arm64/kvm/mmu.c
-@@ -1483,14 +1483,12 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	short vma_shift;
- 	void *memcache;
- 	bool logging_active = memslot_is_logging(fault->slot);
--	long vma_pagesize, fault_granule;
-+	long vma_pagesize;
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt;
- 	vm_flags_t vm_flags;
- 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
+@@ -1476,7 +1476,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	int ret = 0;
+ 	bool writable, force_pte = false;
+ 	bool mte_allowed, is_vma_cacheable;
+-	bool s2_force_noncacheable = false, vfio_allow_any_uc = false;
++	bool s2_force_noncacheable = false;
+ 	unsigned long mmu_seq;
+ 	struct kvm *kvm = vcpu->kvm;
+ 	struct vm_area_struct *vma;
+@@ -1608,8 +1608,6 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	fault->gfn = fault->ipa >> PAGE_SHIFT;
+ 	mte_allowed = kvm_vma_mte_allowed(vma);
  
--	if (fault->is_perm)
--		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
- 	VM_BUG_ON(fault->write && fault->exec);
+-	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
+-
+ 	vm_flags = vma->vm_flags;
  
- 	if (fault->is_perm && !fault->write && !fault->exec) {
-@@ -1715,8 +1713,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	 * backed by a THP and thus use block mapping if possible.
- 	 */
- 	if (vma_pagesize == PAGE_SIZE && !(force_pte || s2_force_noncacheable)) {
--		if (fault->is_perm && fault_granule > PAGE_SIZE)
--			vma_pagesize = fault_granule;
-+		if (fault->is_perm && fault->granule > PAGE_SIZE)
-+			vma_pagesize = fault->granule;
+ 	is_vma_cacheable = kvm_vma_is_cacheable(vma);
+@@ -1741,7 +1739,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 		prot |= KVM_PGTABLE_PROT_X;
+ 
+ 	if (s2_force_noncacheable) {
+-		if (vfio_allow_any_uc)
++		if (vm_flags & VM_ALLOW_ANY_UNCACHED)
+ 			prot |= KVM_PGTABLE_PROT_NORMAL_NC;
  		else
- 			vma_pagesize = transparent_hugepage_adjust(kvm, fault);
- 
-@@ -1754,10 +1752,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 
- 	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
--	 * permissions only if vma_pagesize equals fault_granule. Otherwise,
-+	 * permissions only if vma_pagesize equals fault->granule. Otherwise,
- 	 * kvm_pgtable_stage2_map() should be called to change block size.
- 	 */
--	if (fault->is_perm && vma_pagesize == fault_granule) {
-+	if (fault->is_perm && vma_pagesize == fault->granule) {
- 		/*
- 		 * Drop the SW bits in favour of those stored in the
- 		 * PTE, which will be preserved.
-@@ -1806,6 +1804,7 @@ static int __kvm_handle_guest_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa
- 		.write = kvm_is_write_fault(vcpu),
- 		.exec  = kvm_vcpu_trap_is_exec_fault(vcpu),
- 		.is_perm = esr_fsc_is_permission_fault(esr),
-+		.granule = esr_fsc_is_permission_fault(esr) ? esr_fsc_perm_fault_granule(esr) : 0,
- 	};
- 	struct kvm_s2_trans nested_trans;
- 	bool writable;
+ 			prot |= KVM_PGTABLE_PROT_DEVICE;
 -- 
 2.51.0.261.g7ce5a0a67e-goog
 
