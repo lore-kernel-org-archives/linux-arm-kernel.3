@@ -4,173 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E418CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 14:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302F5CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 14:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PWo3edWAiGjufwhN1yZGm6tjgJo12yilXiV/OqI7hyk=; b=SkRNa81Lw3789gsMglVMsyXrBp
-	xXD8yBBdKYjDuywdVpQbofEztJruYolHsC3fJ5oe+XiMcZ1tiLzrNrPm+XJiFJ7U5bmjjF9nrUs9h
-	1vP6b8Q8RRg9xm3wpFuTsWeR7b0K0K+he0RrMncnAavyQGjE7d5LIDc2crzbyBla/9ZawBCvyXa+3
-	E7MmnmUK53mBd8hayeBLrL3sh3tzOHERkSwmrgNOtj+YF2+WjAFAvNVE+VMX6TTclMV4PbvO6/C/1
-	l9kst+ArAo79coYrvw/o3GktGJwM1B21hMGnsMj+4x3mGb1xm9PxBjjawqAC9VYed9VcLDPwjLoW6
-	Jq4uOBtA==;
+	bh=/ojUaTpvSXrb1YYw6X/ClOYy1t7RbcHRqQubeSVaCHY=; b=TKFARtuoPLCfIuBwa1mUAKJFJ7
+	AHH1BI0MO4qZ2DIq4krMMA6NAMupTXWioaKyVS+xS+fDBtDmWNxy7lfRptgDvWKyvRkGHFinMf/hJ
+	w0trGz+u6cmpM9VPGxKZ+TH/zACgGyZ3khIi2bEaYYtqHP9kKuro8kDtx53urKVkinlpqLo5zlwdA
+	ToZkojPc9mGMbBA86QkGzL3JiSOEP2to0+W+gXlHM+n2LGmRQe4WrgpmySZ1WC0kfUxFFKoWLvmXb
+	X1KfFHqyadDs4j3L+l9SY3u+rcu9+88PAwbAXKqP5U3wctgdLp3Xl5gq6nNk7B1/tAmhSDKzCvVDx
+	g8xRdeSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up5tZ-0000000HA5X-0G05;
+	id 1up5tZ-0000000HA66-2oSN;
 	Thu, 21 Aug 2025 14:04:01 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up1Wr-0000000GOJu-0x2O
+	id 1up1gP-0000000GPPU-3kX4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 09:24:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oxBI+H3X4s53BhHKWGQrybir4I3/npKRMR46RJqnAjqBxCZXATicpezOBLqmWaxlcniS9Sj8NzO4bYjLAxxHXGc8rgvCSCOHH4xg0IQslaM+m1y05gK80is6kz89q4+Z8X2KaT1QuxP3UyZd+iZxLpWdiIioi/UTT9y7Bb24WG8bDKBVzLXdzGU2czRBBjsoWOziA81VvTJXA1kCxF1qrmLTOUxBUEadkNO0GV9sKd2ZnpSVrrU5KXk+d0OWPx4XXd7Vlq0S+MGLg2J60o2EEXL6y9XDXnT1mnCIhV3zif+V4Gn8cnZlgEEncGHgkybn9GvNn1Mev4vV7Nhrc0m5xA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PWo3edWAiGjufwhN1yZGm6tjgJo12yilXiV/OqI7hyk=;
- b=JOCOilc7sqk6yJwbiTtLFU88p4EDAks5bUfqelKZ9vwuobwj9Ov9ZjkskuF7exkdbWebroG0JSf1R2wOplyC/j3K/6f6Vi48dv0zJS4T9PwOl/Ydp9BVd6FPfve4F8Lj2RfOcQ+rKFMLwWrFjHB9bd/xY8GsuHhlC6rQcWskGhB9hxiRiT1o0YkivDB/2Nb+OxDZPZdsqeeC7h0pQJxnelHqbq69zSpH+LL/21yFiHMz+NxmYeZMX26VuIazNSoJlSsfatIToCcvySDwASybX2D/2YbzRSl6QbhJzJKKamGACmrLgZDHl9ygbyohGxukZa6m82ECNAQbz95qu1Yhow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PWo3edWAiGjufwhN1yZGm6tjgJo12yilXiV/OqI7hyk=;
- b=Zq8N514CFp3h7Orl+hRxZyB1HQEYhUjFy2iS/oio4Cz7vE2s+YeBcFRFKOQSGumoKkD7Qdaq2gNW610RkiSPZ1ffFaTMdUPAW6/ptVOCqwLz/ugEzufaHd8Zl4DD2xkL2qIZo2rv6JyyR/hmR9Ee8t+ZlgTZYBXtY30UStnxcGICOSoyEc3FFK1zYHy4j0UODTjnnpgN53AjBqaw6pc61engO+DElxq1jS2InhJ5BRuGXRCW0Bwm/pNCSz5xEYzeKiPak/hW2bG3hvedvU++26Z9HgxvxZmis5MPmAuPU2SMmfOFGAwtCoygHzbOC79+EzCPuND569qbLeGyZswmaQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by AM9PR04MB8682.eurprd04.prod.outlook.com (2603:10a6:20b:43d::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
- 2025 09:24:10 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9052.013; Thu, 21 Aug 2025
- 09:24:10 +0000
-Message-ID: <218903ea-82fa-45f8-9826-481ded93281a@oss.nxp.com>
-Date: Thu, 21 Aug 2025 17:24:02 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: imx-jpeg: Fix JPEG encoder ready race condition
-To: Marek Vasut <marek.vasut@mailbox.org>, linux-media@vger.kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mirela Rabulea <mirela.rabulea@nxp.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250820162938.209892-1-marek.vasut@mailbox.org>
- <4a8531f9-801b-4744-8821-923961211199@oss.nxp.com>
- <1a25c41e-1139-41da-b056-50be47016138@mailbox.org>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <1a25c41e-1139-41da-b056-50be47016138@mailbox.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI1PR02CA0057.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::10) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Thu, 21 Aug 2025 09:34:11 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-afcb7a7bad8so114249266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 02:34:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1755768848; x=1756373648; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/ojUaTpvSXrb1YYw6X/ClOYy1t7RbcHRqQubeSVaCHY=;
+        b=aNDQaLbhHlMc0uf//bmYRKmfIWbUtZVDFmj9Xnzjrdr4x7V6MgGzLuo9cmjU4cu1CN
+         aG2PESsHW0mlq8dc4E6sjnVk5jjDJ3qwaZVhmKA2FJ9BMAZ99HUhQrrke8UupGCmXEuF
+         OHrRPQ085dWmrE/rAK0vbVkRvXd7hqySo4OpWLCNSqC5Opdp25LasIoZYJRw43quW8Yb
+         RKnClBGYcIf9kTDKyeAIIayICo6Q43B3mKyFh8Q45AHxfZKEeNlaBFqdL99iR7JO5MQG
+         UP4Ozb6FYZtoWFPbMB8QdigKeNIZbjVb77xaOqBDXxr9k2DD0Cmi0voFZIizCTKCj8LQ
+         EMBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755768848; x=1756373648;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/ojUaTpvSXrb1YYw6X/ClOYy1t7RbcHRqQubeSVaCHY=;
+        b=DHg0LMwF8bfnPDgw89QjvvSY6CsOwBuoPDvhPBrmN6YyYSER2ApHsbHirdF2kZpppe
+         AOlM9fX1BeyAZKkKo+jFJLSxNI8HNCOym/f02A4M/pIB6PrN8H5VWvb54n3S5TSqs24u
+         R3EG3SC7AR1s4mpZ0rKehRXERN85dTh1DR/ANIod5gJilI51ob2oxmcdkrQDenJxapT1
+         6IaxTeatfmx31/zR+wGVdJzSbWMB2V5RaAa1gioGVgk3m5pz1ssMHQ2c2E/N8Bx90qvp
+         YQu0N1akubDLggLvjAMJveqJrTKRaVH7YwyHj4aFPtniQHugSf/+hVa6U2uE67z+zJKl
+         HXCg==
+X-Forwarded-Encrypted: i=1; AJvYcCUSfw6if16RE32eq+qENUccF7eR/MTkfQLJh125HDUyClFkYx0iwLxWKcLK6xbe2z5UYBZcNSPbjsaHvVlgGhyZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSTOjUzbL6FDq2oUvwaCX6x7ln19+W/yfmZWS6mQNHf845zQwE
+	B7qKjfDjWKojliDOVDlvvmO4BaL9q65YnOA6wYZFdmj52LRZ7406AS0Cj77CSKwPqSNzhqlg17H
+	rOhuxFh8=
+X-Gm-Gg: ASbGncvFBhdEZxxfShZwOke6IRmjxIKJSORKku4KOeNcw7s+vTdIj99jd7cseSX1CvS
+	bkZOwCXEsIopX4INTumtWYgvqmdTWV7zi9ZuCjlp7ayIPDEnh5hSf5cFX8phCHHmXx2PgQbw5fY
+	uVTAwOJqowd2cNOU/UufWcsJy9MqkFCOHYH0BS2V56JiQWXlYCRqdt86HndGWsyGbVFOf0q3OTW
+	KcufOpnp6BYZMNE6mvo54bZyx7SI38pIFwc4WjFYbZzZXMbNu7kjEoHqe3H7CFhkHJ78ZrrPJ4t
+	pWKrUQa0H25M/fI/hnhTLuN4HgQKBCOKy6AbnOs8igmaG5UIoSHra9EkYfVshI60hej6D4wU+0s
+	SDFbekjItGlwGWmX7BrsNbkJgzad/O0HB+lU9Uh2XfaTUUBBdQFi95OX4DsHf
+X-Google-Smtp-Source: AGHT+IGPCUQP85VmKt4U/J+vg5UYsiEcQk49TrIi2gpsuaTBNikjE5BQOCAgsWj7wUzO+PxhtVD0Ow==
+X-Received: by 2002:a17:906:6a0c:b0:ae0:c943:785c with SMTP id a640c23a62f3a-afe07b35df2mr161258766b.35.1755768847653;
+        Thu, 21 Aug 2025 02:34:07 -0700 (PDT)
+Received: from localhost (host-79-36-0-44.retail.telecomitalia.it. [79.36.0.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2bc305sm350000666b.18.2025.08.21.02.34.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Aug 2025 02:34:07 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 21 Aug 2025 11:35:59 +0200
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	florian.fainelli@broadcom.com, wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, iivanov@suse.de, mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: Re: [PATCH v3 3/3] arm64: defconfig: Enable BCM2712 on-chip pin
+ controller driver
+Message-ID: <aKbofxfSKO4oGKHG@apocalypse>
+References: <cover.1754922935.git.andrea.porta@suse.com>
+ <04c67a8fc50f2688fd3a6616bc03b3ac4d4977fb.1754922935.git.andrea.porta@suse.com>
+ <570088fa-2861-487a-a2db-2d1d87d700f6@suse.de>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AM9PR04MB8682:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3f65e31-f234-4a9c-ac96-08dde0947c16
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZTNUUGRLUWZ4b1ZBM2xscjNSV3dzOUpJbzMra0ZTWkcwaHgydXlEZ0xNVVRp?=
- =?utf-8?B?b3h6L3UvZDVQaXlVYVZETlUybm01Nnp4aHdIN3BWNG5SVGZJUnFsZWVFZDNO?=
- =?utf-8?B?VTVNdVdvaEF4c3ozdXQzZUl3QStkY05UUHA4QzQ4SW1iSWlqYkc5UlVpa0V3?=
- =?utf-8?B?K25LNEp3VTlCOVNva1FZdEJML3Nwb01RcytDNnRscFRmRlRIRXF6TnU4U0xG?=
- =?utf-8?B?TVFiVzc5VUg4eG9VNE00NHR1L09lSzdaYmFkMllpSWl6VjE0cHZoQmJ5YjJv?=
- =?utf-8?B?MkFZaE5jUHoxdzZsL3F2ck1vQnpubWhGTlBNM0RTejREaXQ0WGFQNndLV0tV?=
- =?utf-8?B?b2kzODBuU1h2djdJVENKRlA2bkJnWk00NDdhbGxaaHZOeVRvN1EzclJFMDhX?=
- =?utf-8?B?RXE4eFQ2aWc4T2loUENFUlNRU2FrLytLQ2dFTU56T1lib1pUZ3hBTVlrb1Zm?=
- =?utf-8?B?WHRRR1hiKzV1UnVQQURCZTFISXp0RzBtK01KMDdFVWhxRWRnL1BQNnNxeHpN?=
- =?utf-8?B?UTM2cWE2NjR5SmI5MlkxZGlkSzdXenc0SHhYQVEwZTlpVFlFL1RQUHUxeXdn?=
- =?utf-8?B?YUt6U25Sc29oWFhQSXVXczQyY1JZSEF2M2FrVXF3UVFtdTVXQ21EelQ4eXY3?=
- =?utf-8?B?aTJYempHVGRqNXk4UjlDWTd6RW52OXdFMXZmT241M0lCYkk4THBqTkNmNlQy?=
- =?utf-8?B?dDJyNFBxZGE4SmtjTC9hKzA2c3lvYmMxeEhGRk9XVmJDWG5iR1NEVURpU3hz?=
- =?utf-8?B?TUFXM0JocTNHb3NMaWNiUG5hbW1hbk84TXY0eVJNc3kxelZzMzMxcFAwNFhO?=
- =?utf-8?B?TjVTTS9ndkdqZVE5MC9ZckpzaGwvbTh5VEJCYUcxckQ4cCtNRmtnZ0tkb0JN?=
- =?utf-8?B?cnpmNEthWk1ySGdpU04wZGNpNzQvUjNQVVZYWWFheUhyYTRZTnpuN2IzZWRt?=
- =?utf-8?B?WWIzK1JSUnZWenZWU1FaRFhlT2JaZmFyVUMwZlMxYzM1ZkhqZzg2NTB2bDlB?=
- =?utf-8?B?c1pORTZPMm5wdUdqckFQR3MzNmcvM0tYYlJyLzZnQkNkM1VWYWVpeFFHaWp3?=
- =?utf-8?B?bXFvNXZxUG1mN3hYZFoyNStIMmVTSGFvRXozMFZQTXZIK3U0aThESUZIbEdG?=
- =?utf-8?B?TFZ2QW5VOTgxUTlHQmNjNUVkY0pBZUVWb1ZveWFkQXRQZ21FVk80cUI0QUpp?=
- =?utf-8?B?U3lkU1FEZWJRUGRwTGoyeC9VL1EzM1ZZeDlwVTBKVFA1RzV1VHNBQjVieHpL?=
- =?utf-8?B?a1JXTzFES2xGbzhLTG5RMC9xUGQ0R2xtQXUwRjYyOC9XS3diU3VQWk1EemxC?=
- =?utf-8?B?cHg0cnN5Nk9pOWdBME1SdmVWWjNjS1J2SE1rOVJIaFFWbW9FSTVjWUkzcm16?=
- =?utf-8?B?ZDB0SVJJcksyN1dSQlo4L0hzUzJ6R1ZkRkl4WmRoOHVQRitiZDdzVmN3UHhq?=
- =?utf-8?B?RGoxTGtTUTRzeGxPdTNrWWUrRGF0Ymw4QUVBVCt1a2MyTURHNjBLMkEzNWtz?=
- =?utf-8?B?enF4TEErYmNDMGNTaEo4QVp2RnBFU1Mxb3YyV3phS2hmT3lJZ1AzUE92VWU4?=
- =?utf-8?B?a053Yi9SWkZlUmpicCsydzhmV2hBM3plOW9FWXhHSmU4dU1wcXZxSmh2NVht?=
- =?utf-8?B?N2ZDcGIzWTFOK1NpNGg0b1pZVzJyK3Z3QWRhU2Z3MUZMTUZRSjM4WEVWNkRC?=
- =?utf-8?B?VW9SQnIyZHliTlEvS3ZHQTI2MVgvVm5Cd0RrNXFRNG1rSk8wUE8ycE95S3VQ?=
- =?utf-8?B?QkcyeEtGTTFhT0lXdi80QW1lakZjQVpBU1JQOUdTVzRERHdsQ1d3bzNCbUJa?=
- =?utf-8?B?eDdwWmxXMEpueWIwQ25JNnI0WTAvY2VFM01pbE02N3pOL3psOWg2M1lmekhO?=
- =?utf-8?B?RGgyamY3VlQvb2x1L2VLY0hLUE8vVEMveGtXcGROMWcxL0FxOE1PLzdGOVdj?=
- =?utf-8?Q?K0KGhmuyFGY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGo2cFJ5QXMzaU02NFRDckkzSjJqbEZseHc5SkE3blBXOHZHKzNXVmdaMTVI?=
- =?utf-8?B?b0NJczBFVk1ta0EyczhFd0FHbUVBU1cxYWxyaGtGK0tHWTFRelU5ZEp4SzFC?=
- =?utf-8?B?MEpZZTBKMVNucVhVQy9mYnRFMUZBcytpRE53MmZpWlhOU0xBeG8xaHRaaEw4?=
- =?utf-8?B?d050OFFMQnRRVVdrZHd5dFcxcXZLbkI0c05RTVJaMzhuYUxSaS9UNmtDQUZs?=
- =?utf-8?B?VTlTSE1ZVGJORmVHVkxsbWpudFN2WEVNNjNuelBKVHBqbENNcE5CMEl1ejhn?=
- =?utf-8?B?TER3ZU92bDkxa0twY0hDbU1FWGE0SnlJZy96aU1rQ1lFampUVW15ckluenVF?=
- =?utf-8?B?TVhuUzFqTXlNTFNVKytZTjFqcDBWZ1BEYUZoL0g1RXYxd3FGamU5MzRBWUw4?=
- =?utf-8?B?bUlRYnBEbWxIazVaQXlDemhsUk9WUFA3bzRmeCtMSnBTUTErWnBqYWM4WTIy?=
- =?utf-8?B?UDRiUWVNcS9idmpKZHE1Rk9QTnNyZS82a2lQSGtnelhqbzlTSFRZdVZrOHJT?=
- =?utf-8?B?RTNlalJNZFZEdkE1UGVxdytkN1JBd1Z6TE00d0FqaDQwVHFKQnYvbjJIVTdV?=
- =?utf-8?B?VWFQVThUVkVjcEt4Z1FJbFlaWWw0MHhFRGhGVlBnSU9oOC9lckxXcjc1NUpM?=
- =?utf-8?B?WHNBTE12THZMVDNuN2pKbmF1RjMxT2pSQ29iclJBS2ZOOS9iSkh6eHl0UU1R?=
- =?utf-8?B?MkJJcmRoSk1FbytsaWQvdkYySFJ5MlhQWGpOYU1aK2VFa3ZhMlBFbjNDb091?=
- =?utf-8?B?WUsyS3FKM2QzVlplUG1PRUU5bTFXczhaQi9hRk1IZTJEcHJvUS9sMFlCazJF?=
- =?utf-8?B?MFREZ09kMmNhZTBESUVqRkFacWtGVjlTbHNPeDIzRlR3UUtnYWhDVzFWT1Ji?=
- =?utf-8?B?TFhZa0doUFk0RlQ0amQzSnlBcGw5aEljN1Z2S0NTT0xEQXpoOE14TkhtNExG?=
- =?utf-8?B?SUFLQytYNFZJUVB2dWpQVzEwWVM4UUZHbWU2czhlcGtwTHBTd3cxRkE2UWEv?=
- =?utf-8?B?cUI4WU5MVW1lMEVSSFU1dHR5VUdBS0h0anhPSXk2cUtNK3hSWU1scE1Gckpr?=
- =?utf-8?B?MHNrK2RtNDJuKzFyeXYvckdwdG5KVVF1UXVRelZOamhtNjZzUmd4U293QU52?=
- =?utf-8?B?aWdkSmU5emYzRDRlVVZOY3hxeGhiR1VqblQ0WVZleTFjRzB4c2JGV2U5NHBL?=
- =?utf-8?B?bnFaQmg4S29rcWhUNG84TVNqdnorK1ZleVR0b081S2cyNXR1aWE1NWVyc09C?=
- =?utf-8?B?b2JYeVBTQS8wYllVNlI5SS9rWmZCT0ZHUlhESkRVRU5ueWdnaG1JZFdHVGhI?=
- =?utf-8?B?ODBMeUhnZTRYWjM5WE9jN3lGY0JySjZkRVdkT1JET0VuM1c5YnN3bkdFT29n?=
- =?utf-8?B?TkdSb2JFWUcwYmJud2djdDRxUU9nNmhpcWRJUkZaVWl0SWUydHl3ZTVISlQ3?=
- =?utf-8?B?M1BVd2lvNk13ZkMyei9ZdEl5UEFDUTZFaFNEUEZYNzVHeG1XSyszNnF1blkv?=
- =?utf-8?B?VFVXY2U4TE9lYisvc2xrZVA2WjlYamN5WW02V2VUMXk0T1QrbEpHY09yMDFL?=
- =?utf-8?B?a2kwcFdBZ0NnOTRKbldlYVlLUEREcWRrUVBxek15SjVGb2szanB5VkhGTm5D?=
- =?utf-8?B?RVpud3YyaTZiU3pGdGJPZmE3YndnaVRmbHpIVHcrNm44eVBFVC91UWlraUdF?=
- =?utf-8?B?VmMyMlMwYXRQdTJnZ3N6QTNRZ0hER3RLcDZEdHlRTGFJYU15Uk1GdzNZRlBk?=
- =?utf-8?B?dkhSY1cvTUZQWURtVDhlMFIycnp6Qi95OWY3eDhCdXZTZTZLUldQNnRFcjgx?=
- =?utf-8?B?VFNJd1I2bGlQU3pEMkJqTkFKei9mdlAvZGxZR1V4QTUyUlRMYks0dkR4ZlVS?=
- =?utf-8?B?azUrWkcvd21lMkZ6OGNob1FKTFRHRWxTVUhDamJUdHE0V01GYSt6TFJTU2FX?=
- =?utf-8?B?aGszN1J3L3FYaUF4SjhmNjlyUWNnaXVwTGdwTTR5RzliVEVsTjBqL3dtWEwv?=
- =?utf-8?B?aXVKWVJnbWpZR3kyaW9vMmJ0clpNZFpxamRvdTN3aFVaM2ZNYzlXL05Ja1Np?=
- =?utf-8?B?ZHQ2UHpqbG9iQmd1ZlJYdnU2QWhzbXpXSXFtYUdKYjQ2ZkhLQjZMQVBDMno3?=
- =?utf-8?Q?gKzH1f8tYNnesQlIl7G6m/a/z?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3f65e31-f234-4a9c-ac96-08dde0947c16
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 09:24:10.2928
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s/Qbi9/UTl6vVaKuzfvqzIA3UpgUmuZ49bpof79+eVcsBbREZETDxe48iUehCPTALARaC/TUBVmq97PBcCgiNw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8682
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <570088fa-2861-487a-a2db-2d1d87d700f6@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_022417_274093_143289C6 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20250821_023409_935584_500BA359 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,99 +109,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Hi Stanimir,
 
-On 8/21/2025 4:59 PM, Marek Vasut wrote:
-> On 8/21/25 9:06 AM, Ming Qian(OSS) wrote:
->> Hi Marek,
+On 10:25 Tue 19 Aug     , Stanimir Varbanov wrote:
+> Hi Andrea,
 > 
-> Hi,
+> On 8/11/25 5:46 PM, Andrea della Porta wrote:
+> > Select the on-chip pin controller driver for BCM2712 SoC.
+> > 
+> > On RapsberryPi 5 devices it is primarily needed to operate the
+> > bluetooth and WiFi devices, to configure the uSD interface
+> > and the power button.
+> > 
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  arch/arm64/configs/defconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index 58f87d09366c..fafcd7851eb2 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -592,6 +592,7 @@ CONFIG_SPI_TEGRA114=m
+> >  CONFIG_SPI_SPIDEV=m
+> >  CONFIG_SPMI=y
+> >  CONFIG_SPMI_MTK_PMIF=m
+> > +CONFIG_PINCTRL_BRCMSTB=y
 > 
->> On 8/21/2025 12:29 AM, Marek Vasut wrote:
->>> [You don't often get email from marek.vasut@mailbox.org. Learn why 
->>> this is important at https://aka.ms/LearnAboutSenderIdentification ]
->>>
->>> The current mxc_jpeg_job_ready() implementation works for JPEG decode
->>> side of this IP, it does not work at all for the JPEG encode side. The
->>> JPEG encode side does not change ctx->source_change at all, therefore
->>> the mxc_jpeg_source_change() always returns right away and the encode
->>> side somehow works.
->>>
->>> However, this is susceptible to a race condition between 
->>> mxc_jpeg_dec_irq()
->>> and mxc_jpeg_start_streaming(), where mxc_jpeg_start_streaming() might
->>> start decoding another frame before mxc_jpeg_dec_irq() indicates 
->>> completion
->>> of encoding of current frame. Add new state, MXC_JPEG_ENC_DONE, which is
->>> set in three locations, first when streaming starts to indicate the 
->>> encoder
->>> is ready to start processing a frame, second in mxc_jpeg_dec_irq() 
->>> when the
->>> encoder finishes encoding current frame, and third in 
->>> mxc_jpeg_dec_irq() in
->>> case of an error so the encoder can proceed with encoding another frame.
->>>
->>> Update mxc_jpeg_job_ready() to check whether the encoder is in this new
->>> MXC_JPEG_ENC_DONE state before reporting the encoder is ready to encode
->>> new frame.
->>>
->>
->> The jpeg encoder and jpeg decoder are 2 different devices, so they won't
->> compete with each other.
+> Have you tried as module and part of initramfs?
+
+Yes, it works.
+
+Thanks,
+Andrea
+
 > 
-> I know.
-> 
->> For encoder, we always want mxc_jpeg_job_ready() to return true.
-> 
-> For encoder, mxc_jpeg_job_ready() currently returns !ctx- 
->  >source_change , which is only set by decoder side of the driver. This 
-> seems wrong.
-> 
-
-That is what we want, the ctx->source_change of encoder is never set, so
-mxc_jpeg_job_ready() will always return true.
-If you think this is not clear enough, maybe the following code is
-enough:
-
-	if (jpeg->mode == MXC_JPEG_ENCODE)
-		return 1;
-
-
->> And v4l2_m2m has ensured that there will be no race condition between
->> mxc_jpeg_dec_irq() and mxc_jpeg_start_streaming().
->>
->> After v4l2_m2m_job_finish() is called in the mxc_jpeg_dec_irq(),
->> then it is possible to start encoding the next frame.
-> This part would be true if the IRQ function couldn't be called by 
-> anything except end of configuration or end of encoding, but it can be 
-> triggered by other things, like AXI READ error IRQ.
-
-The mxc_jpeg_dec_irq() has filtered out the irrelevant interrupts:
-
-	ctx = v4l2_m2m_get_curr_priv(jpeg->m2m_dev);
-	if (WARN_ON(!ctx))
-		goto job_unlock;
-
-	if (slot != ctx->slot) {
-		/* TODO investigate when adding multi-instance support */
-		dev_warn(dev, "IRQ slot %d != context slot %d.\n",
-			 slot, ctx->slot);
-		goto job_unlock;
-	}
-
-	if (!jpeg->slot_data.used)
-		goto job_unlock;
-
-
-In other cases, it means the v4l2 m2m job has been started, we just need
-to call v4l2_m2m_job_finish()
-
-If CONFIG ERROR occurs, driver still call
-v4l2_m2m_job_finish().
-
-So I don't think this patch changes anything.
-
-Regards,
-Ming
-
+> ~Stan
 
