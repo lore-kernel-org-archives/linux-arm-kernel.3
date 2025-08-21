@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5B6CA0EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30082CA0EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 07:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HGOm25qUl9vuhZbo6e1871qgU9amlRVti6anmYOi/MY=; b=TLIFJrf5gXiBoGi/WysHITC40h
-	sWbQcDCF+ygrsVBbTjFfW2JCjJ6jZwr23DhWNnOrqAorAORBfjesUVkqQujOWzYZKaBm9pAHdXNDi
-	NQEdI2AJYF2iqAZ4g4aVEWW97l1OgM0Z+AIbCBOMTcNqg2sIR46H2psO14l7WQf9p/HGDiZG8AOtC
-	srg7Cmd1lbpE+eZNALc7zpetEpJlQaLGrD1h1GQDMZuGUzp+940ydyywIhCLeUae8uBCKEUK/QxXq
-	51LwJhfLwziDw3gkw+aaCqsxuosHKxP0hwlZBsXW5gd6fAwXaBmo38SlRz9IR8w0Sfm74gBW1hAQf
-	YIyi20+w==;
+	bh=R5SlkqaSNYvkI2vn6LWVlDQt2oeUKoK3se/zF6xp0yU=; b=Mu/YcmEGIm5L4ckOvLIdzstmoG
+	Fn7d69zqG5VC1RTicTNd5di2oJ+8qdOBtaqH2sLE8jvfstvEK9322nY+z317EcLmD0wFf8c1MXfTn
+	b7+W5As/Qjs4xBPAO4wUtFd4u83aPMczcS7IKXncqccxkYWhZu6KSD9541cy+f41nhMqYilk+WtRO
+	J7d0oW932t3uRE/6QzFqcDwyCfDrNbNzrJZ2bPtbDuhcAhLLwBOo8o5jh6DGqe5/LIlCL0F4/FaCm
+	CNf/BJNLpyaZZ0K8C7DTfGkeNiJktPovnLc8DU1RD2Dg0/o+CNU/+TCpftn5GHaDfEvnG5j3YX9ff
+	9CUTLDxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uozdf-0000000G5mI-0ABA;
-	Thu, 21 Aug 2025 07:23:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uozgE-0000000G6Cr-3JkJ;
+	Thu, 21 Aug 2025 07:25:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uoz1K-0000000Fz2y-00ab;
-	Thu, 21 Aug 2025 06:43:34 +0000
+	id 1uozFh-0000000G1fW-3Sp9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 Aug 2025 06:58:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3826D601E9;
-	Thu, 21 Aug 2025 06:43:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5356EC4CEED;
-	Thu, 21 Aug 2025 06:43:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BB27601D7;
+	Thu, 21 Aug 2025 06:58:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 490E1C4CEED;
+	Thu, 21 Aug 2025 06:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755758612;
-	bh=zaVWerZTZLJ8YGpnqDKef0xiQVpqgGGNlE3XojBrVrQ=;
+	s=k20201202; t=1755759504;
+	bh=mZ4FUqwpeliFM+BfIUJKWhmDxAE2ZXgT86u5GAWrTAA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RlbxLLphD3s6EoJ5D3WCBJhkvpXfyxmkM+Qya8AKcXeBnVJLqM3Vsrc3PdaE1oGl/
-	 Qo+edh7KSJ0kTQEF7CnlEohahPoHRRs2dickP/uGTguIIdLZVFlS2b52/8ecx5Nk/m
-	 7T2LcSdChTzPHT3itMuL39yH6al0pQprxVmGFsBW9p+lMgWfXyVZWtte+oZjqxv2Uz
-	 sksMu6TvOONzSOEaSF9B1dAWw/J39W6ARtM4nHVYp3KwZbqb9VuE1HT0enMMEDhCZW
-	 i8kxRu1EZ2sYpSQHNpCitTBsBoN1OR7Lkjq536twpmdXapSiVtjLmM2GbVlIRiytW9
-	 +hYeRC8retWSA==
-Date: Thu, 21 Aug 2025 08:43:30 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch, 
-	andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com, broonie@kernel.org, 
-	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org, davem@davemloft.net, 
-	dmitry.torokhov@gmail.com, edumazet@google.com, flora.fu@mediatek.com, 
-	houlong.wei@mediatek.com, jeesw@melfas.com, jmassot@collabora.com, kernel@collabora.com, 
-	krzk+dt@kernel.org, kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com, 
-	lgirdwood@gmail.com, linus.walleij@linaro.org, louisalexis.eyraud@collabora.com, 
-	maarten.lankhorst@linux.intel.com, matthias.bgg@gmail.com, mchehab@kernel.org, 
-	minghsiu.tsai@mediatek.com, mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com, 
-	robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch, 
-	support.opensource@diasemi.com, tiffany.lin@mediatek.com, tzimmermann@suse.de, 
-	yunfei.dong@mediatek.com, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v1 03/14] dt-bindings: arm: mediatek: mmsys: Add
- assigned-clocks/rates properties
-Message-ID: <20250821-electric-kestrel-of-awe-cb89dc@kuoka>
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-4-ariel.dalessandro@collabora.com>
+	b=FsRpfLjOy3xC581SFRPJeAyZkyycZvl6aPn2IFA5QoPv9IeStQDToqlAa5mlJqPQL
+	 89USDd4HGTiTtFM46F85AMnbO0B9pwrv1rES7j9hr4QJaQ32GjXhTKk/qum4+WCaOL
+	 9YQ9Nej5JXVLvyMMJ5af2Q79KlBdLYxYt/+URZC2BVZaTeWN8RDe9L/ETsdIfNFizm
+	 IjsXai0Q5igBl+5vgvQKLv76aykaU4ZImTGOxDJ2gi/xXbV5VTfJr+fn6HiceIp67x
+	 yIEb5mXLA+7xUGuW1wI/g5uoBYo/sV8sE0QS1RbHr1f6vyMUSFvAgC9U1NvqUN4XLJ
+	 cO8TVfCtXw5BQ==
+Date: Thu, 21 Aug 2025 08:58:20 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
+Message-ID: <aKbDjIZhJuWo3yFu@lore-rh-laptop>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="1AUHNkd+gHsq61gf"
 Content-Disposition: inline
-In-Reply-To: <20250820171302.324142-4-ariel.dalessandro@collabora.com>
+In-Reply-To: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +71,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 02:12:51PM -0300, Ariel D'Alessandro wrote:
-> Current, the DT bindings for MediaTek mmsys controller is missing the
-> assigned-clocks and assigned-clocks-rates properties. Add these and
 
-No, they do not miss them. I don't understand why you are adding these.
+--1AUHNkd+gHsq61gf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> update the example as well.
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> ---
->  .../devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
-> index 3f4262e93c789..d045d366eb8e2 100644
-> --- a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
-> +++ b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
-> @@ -68,6 +68,12 @@ properties:
->        of the power controller specified by phandle. See
->        Documentation/devicetree/bindings/power/power-domain.yaml for details.
->  
-> +  assigned-clocks:
-> +    maxItems: 1
-> +
-> +  assigned-clock-rates:
-> +    maxItems: 1
-> +
+> This patch series greatly improve airoha snfi driver and fix a
+> number of serious bug.
+>=20
+> Fixed bugs:
+>  * Fix reading/writing of flashes with more than one plane per lun
+>  * Fix inability to read/write oob area
+>  * Fill the buffer with 0xff before writing
+>  * Fix reading of flashes supporting continuous reading mode
+>  * Fix error paths
+>=20
+> Improvements:
+>  * Add support of dual/quad wires spi modes in exec_op().
+>  * Support of dualio/quadio flash reading commands
+>  * Remove dirty hack that reads flash page settings from SNFI registers
+>    during driver startup
+>=20
+> Unfortunately I am unable to test the driver with linux at the moment,
+> so only the following testing was done:
 
-Drop both, completely redundant and not actually in the scope of the binding.
+It seems to me this is quite an important rework of the driver. I would pre=
+fer
+to have some test results for this series. Are you able to run mtd_test ker=
+nel
+module for testing?
 
-Best regards,
-Krzysztof
+Regards,
+Lorenzo
 
+>  * Driver compiles without error.
+>  * All changes were tested with corresponding u-boot driver. U-Boot
+>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
+>    additional fixes for continuous mode.
+>=20
+> Changes v2:
+>  * minor fix
+>  * add comments to code
+>=20
+> Changes v3:
+>  * add patch to prevent continuous reading
+>=20
+> Mikhail Kshevetskiy (14):
+>   spi: airoha: return an error for continuous mode dirmap creation cases
+>   spi: airoha: remove unnecessary restriction length
+>   spi: airoha: add support of dual/quad wires spi modes
+>   spi: airoha: remove unnecessary switch to non-dma mode
+>   spi: airoha: unify dirmap read/write code
+>   spi: airoha: switch back to non-dma mode in the case of error
+>   spi: airoha: fix reading/writing of flashes with more than one plane
+>     per lun
+>   spi: airoha: support of dualio/quadio flash reading commands
+>   spi: airoha: allow reading/writing of oob area
+>   spi: airoha: buffer must be 0xff-ed before writing
+>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
+>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG and
+>     REG_SPI_NFI_SECCUS_SIZE registers
+>   spi: airoha: set custom sector size equal to flash page size
+>   spi: airoha: avoid reading flash page settings from SNFI registers
+>     during driver startup
+>=20
+>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++-----------------
+>  1 file changed, 260 insertions(+), 248 deletions(-)
+>=20
+> --=20
+> 2.50.1
+>=20
+
+--1AUHNkd+gHsq61gf
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKbDiQAKCRA6cBh0uS2t
+rJDmAP9GGuvSZEogcCj+X2sKTBaavTRJxM26qOSQDYgAAIL4nQD9HS0AIcUP+7jg
+0doMcxD0fGbfIx1hqOoVPVYE1CgCWAc=
+=YwyO
+-----END PGP SIGNATURE-----
+
+--1AUHNkd+gHsq61gf--
 
