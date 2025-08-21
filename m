@@ -4,151 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB100CA0FE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3788CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 Aug 2025 22:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AfC818ldoO+wuxLprsTPM079vZ+cF5TseRpZdVgzgCc=; b=FJ2D9yaatYc0BGWhyf1ongc7TO
-	D24dk1xI8cVO+i7G91q9qjkeIP+wiYqN65knvnQ14qI2sVpyETc7slNPA0Ui/SI/zZfHvYhLSjWWt
-	xSrAgPxNPdXYmimmjm0CeyRDKj5qE3jZ3o+LaoryclCqhnLBVny8KeVe5ZYXt6R5Cu5Bn1QeeLyPl
-	aupjV3dAp/vumqcEWDrupy/knIMwl0BKFy98JmCyPCUADyWsvP9gvlHzxvbsBeAHZoSyBlUuB+2/G
-	GZDnQ9tvG9pDA/xqVpVez5VedNmqq0z28nLM6pkTYfu/qaVfYnTD+rkIqHjQNohcsCpWMa/0pz374
-	6Ytw2C7w==;
+	bh=2ZMkN5YvHpJeNte42wZOPpEqbuPgRtmnzX3DDrAk664=; b=EXLVEI5BFsEiP2u76iyh87hQKO
+	mqVPS9hXWk6mwap0ME9c0nibdJfZpxORvvDeZEHntLnCnK+aZfH2CSQ6tCmnffZ8dnasESeI06W+m
+	khJUmdEavVIn1tVOc411/fdZdqytpjOc05go+mktDFCq3aFrnfTlbMjxs8vHRcBqJ6ZAygqvA9W5j
+	Q4bjHEAUqluAwKdjtb4df+tKbeLCN4C0bhAlbEeZ0nAlsRCxEiurAQLdjrtYamYM7r1QfIUm90GGp
+	FoNqRnOARoiKqojmSNecJFaTxY4tJxc8HFH+/X1JqYy1LSyjpG5UqyvJGaUxjoDs7kDDd+1Gaza3d
+	jKqW8jmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDsq-00000000kbo-2LJW;
-	Thu, 21 Aug 2025 22:35:48 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1upDst-00000000kf5-46nd;
+	Thu, 21 Aug 2025 22:35:51 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1up6pK-0000000HInu-2RS3
+	id 1up7JQ-0000000HPWG-3fE7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 Aug 2025 15:03:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wZde8ZZzfMYCS08K+gc0MPgZm2y5PIVbSzU1xwF9sxugSG/d0QFMc5K+mpOgj772eI/uByBXSPLFarxeX382dxOkCYdZq3IHKPGWyElhl2FPacj9Sk95w03KUOmxqSWHKvguzzv1JvzQjUI80b4VJ73pglZPvG8bz201cVzU29zgktNemtUoE0/FAhfSIyfdwRipQAjWi559MiwkkGBdnXHYFYgULL+DouEOBdt1IHos8cIc6qYSCVaehNPrRegpPxekik5XtTp4sIvbdP8kAjvOp8OEGr9CQemMyuKr3duoLSKyFreUg49q+L1DAyjVvXKjGXc2zW6P+P+SYYBa4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AfC818ldoO+wuxLprsTPM079vZ+cF5TseRpZdVgzgCc=;
- b=S4neb2/vUW7YGLfcG2SpsMmh+ZYHIwnyeSnMeJQVUuSFmV3mFIFwI8+LxPfJ6w1jQvjNgurAmGMpGiBKf4I9nkNDkDHo/DRWExdxhniZBhpx58hNG/SUcNfGYwtvuWYnQPVWqlpfjAODVImPw4DNQzJqKHY2JiDB1oe6CcWgDpZ/I7TUd8sZzYqPK4vBMbnDPlM25RuznKkGgeGrTz9VI0Zq9dl7Yi0I++FjsT27dKEAPWGfp3R67b63ySVlHJNomYs1I4mVS0b7EFrhKbG4l5d5uPUjD1Z4P7RK30gdq2YJfjPyxnzG19qecqBUv5xj+F8tgSMJgxNJ/AvBoK/glA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AfC818ldoO+wuxLprsTPM079vZ+cF5TseRpZdVgzgCc=;
- b=a4IVIWah65taKH8iQGHjd9pBXG+8GMNGtGbUj3f7h5p47CkAkUWKI1H6HgNckOa50ZNN77GWeQvFCNGSzyIwy0pWgZ+h+cKNOFR50VCfchMiqivtdrm9Z5Nxd8UNJ96XkGks5rwJpcZqSQ+bLe8MeAs//wMIOMQNGKYUgcX922NJ8zRNYeLxSzzUowK295BWpuGqj9PJnGFFDpqc5PhVv6vJmHEu2h5xHmEj5PRpMPogzlE8IQA/uBfdKXJyrK5f0qZbirP4Bx80UmNnhhvROVPGZvQl5CqUCwzAq1Xgy9/XpvI1+f2jymJWRW9sGzkrUmDXFL8mmkEog3gyR4BFcw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM9PR04MB8585.eurprd04.prod.outlook.com (2603:10a6:20b:438::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Thu, 21 Aug
- 2025 15:03:37 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Thu, 21 Aug 2025
- 15:03:37 +0000
-Date: Thu, 21 Aug 2025 11:03:30 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: imx95-19x19-evk: correct the phy setting for
- flexcan1/2
-Message-ID: <aKc1Qg9aiVsKfMft@lizhi-Precision-Tower-5810>
-References: <20250819-can-dts-fix-v1-1-e43e7d98a544@nxp.com>
- <aKSdOeeS04waVwTg@lizhi-Precision-Tower-5810>
+	Thu, 21 Aug 2025 15:34:49 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2449788923eso8905055ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 08:34:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755790488; x=1756395288; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2ZMkN5YvHpJeNte42wZOPpEqbuPgRtmnzX3DDrAk664=;
+        b=InVQl4dRunp4mCFGUg9ZRAvLAtgdw+h0XRlCSMM0Oo1KCobTOQfzTtQ90nJXuDkSI0
+         zORoQB1JYTgRu0d2Pu9M/h3xZfyUe90zmvSDgc/AIZWoi5DjE0NBT5DNmCZeELYX8sxs
+         X5r/YR0Filcow6/UxODUS8PnUsqsT2D4mI+Pd6/1yxjYuWeAal/Um7f3/dIhcvjlqOFP
+         SX/aIOmUvbIxCzSqqiEnoxaRk35epa7jheV5rStu2fndZJWtIDvr1ZEHGeVuanmb530n
+         rTdHnAnogDdNg61SMua94YNK+dMltSjqQujjUAz5x4SeCVJXA/mjAzDcD3s6dxx5dBdk
+         /b7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755790488; x=1756395288;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2ZMkN5YvHpJeNte42wZOPpEqbuPgRtmnzX3DDrAk664=;
+        b=GdO4cSFRmlqnBdMehUSoBq7WpHZVVixxtyvwgWrCRed93/nsZZnFqefykPVFO3jX3C
+         x2XRQFOGEnCcV6e3lq4qvUjTJndJMSC6/yiKLjUr/FVon+GfBJd+CHzHxLiKmqBov/2N
+         oxYCk+f346vih/f61Gki5MhX5xuDiVv0JLOZwcROrTmkzeX2Jq7aB+mNKuFbjdEWDtOK
+         RiPkWmoYKP2wsYiBKeeaB5jXOSuHwZtkbzPld57fsJBb7+pgtlvn5d+keR2ZBNXXbN/c
+         ee3T8jTENFggOUONpp8jgkaVsTKbDp48F8OqdxvclDr7Rfbx9WQjv4iJ++oIE44B23Gj
+         UV9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVLiPRKcNwf65SYFfISBOt3jsX3h0BLvqeJit4036bU0c7l8UpY28iQHIQ+QP+Ze5v0niOXhNMhftn5tCHfHlTx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUz2zIZKf1iVY95NY6llprH12fQI2PRen4d6VZNh91q4sE3IDi
+	1tFF9wOcDU1HeVO5dHUQfJARqZ203mdk9CBvwkO8hrS75Rm1+Mp2NxAx
+X-Gm-Gg: ASbGncuB+ROpNWCjamd1el2inlZrr67NHCDytYbfPGoanNXwat+gkqrOAvvTAf5fPp3
+	00YKQGecmD+i8lHyXIbRofaMWdX2JVQgJUsG5noGLPp/FTasBOS/QaLKvpD9KPF10ASETpmobVh
+	zoYkCTiSr6dWuy87QUFWr3u7MAuaFoU9Oyni0GP3XPwnKNDYcJYf97Y9o3ayCCDU8zV2OATuRu3
+	zXRI/WoiOpYaApbld/h2PntQ1uchzaa6e+SD4i22r+vrOGDlB9iQh3FESWRgcQonUrwajKjEL/v
+	ploW/3xYGui1AGKghgkD2z9nFHkSGwlq5hOufLfhBwMVGyKm5oRQ3+Ck9Xm0h9M582IWMxcA8Sx
+	eXeIziF8LqjBe9Q9qEREadNUtu8b71w2fG1H49qdNClooqA==
+X-Google-Smtp-Source: AGHT+IGy7lLN0XbKBJzGbkOJWP5hCwPYT0HFzGwRoCFGoJH3tmocfSIP7t5zy9AEvNNLlOYoQuCGcg==
+X-Received: by 2002:a17:902:f54c:b0:240:11cd:8502 with SMTP id d9443c01a7336-245fec04caamr35159015ad.13.1755790487983;
+        Thu, 21 Aug 2025 08:34:47 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245ed4c745dsm58574395ad.73.2025.08.21.08.34.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Aug 2025 08:34:47 -0700 (PDT)
+Date: Thu, 21 Aug 2025 08:34:46 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Sangwook Shin <sw617.shin@samsung.com>
+Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+	semen.protsenko@linaro.org, dongil01.park@samsung.com,
+	khwan.seo@samsung.com, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 2/5] watchdog: s3c2410_wdt: Fix max_timeout being
+ calculated larger
+Message-ID: <f7f009c8-3f7b-4493-9120-d45d42a8c5e9@roeck-us.net>
+References: <20250818021826.623830-1-sw617.shin@samsung.com>
+ <CGME20250818022433epcas2p3fc48febfa6729645af6ebd088937c80c@epcas2p3.samsung.com>
+ <20250818021826.623830-3-sw617.shin@samsung.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aKSdOeeS04waVwTg@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: BY1P220CA0009.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::7) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB8585:EE_
-X-MS-Office365-Filtering-Correlation-Id: 325eb20d-23d4-4de5-1cc2-08dde0c3e843
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bFVUMSlqCyDXkcqhIcOYxViBFhhePYuZQz0+g8O6ygrCoMjnh1XjZ0sgi1m/?=
- =?us-ascii?Q?cdK1YD1oOh6KHxRd5AVk94KfZPdZdfbqtdCeA8kQmyPJrDOqyveK5yqNPS7t?=
- =?us-ascii?Q?t5fwMbUFZGWofBs3lcnZYodOSZlguSAW83wbWzLcjI5UuHSj53h1c8x5QuYY?=
- =?us-ascii?Q?J6cM+loY9za+OmK22Rv3GWGW4Fpk913seYE4dG1il8znOr7es+xhA4seZZN5?=
- =?us-ascii?Q?lj0WcSxywYyxmTEHY1iKeFkXQgOBUBV5NVdf3igZDa0nddIqo+XqhU0d9zBl?=
- =?us-ascii?Q?I6j3ALw9Tpd2/qY4ahdz4ofnr0YMWvew0D6sCcgbK7thaUW9i1H5CU6pyhdo?=
- =?us-ascii?Q?71hrTTmyF5xnHeuqdYfeSdRaI5i6qMcODUTG8UXe/tBnvkNrw8O53ZG1g5CO?=
- =?us-ascii?Q?rx3o07EtjptGR5x2TnvHuNrfnFwPjmg99WpWE10ApGnB0x/8cdVgJyybjKWJ?=
- =?us-ascii?Q?Pa74rnpcluiloeq+0vDER0EvtL3oV8C6YtO1Rt8VMjb/enQyz/MnFz2Zh8mQ?=
- =?us-ascii?Q?uvz94jdlQLHAZOJQwVmAmMuh31p+KNtMZey+Iob1929mbhs/QOHPRXhRkkkV?=
- =?us-ascii?Q?CgdwIabRrzf1zr3W7Wzomzg1vAb5Q9xK49uqKBQsg6WN1gjAdtwbsg/6xKY5?=
- =?us-ascii?Q?IfiRTQqX2L44p4Ap7kUGzWHcC191NZeeUlmSLnUuMTLLp9B52td7prg41nPI?=
- =?us-ascii?Q?k7TxAH6nuZDP6zU8wbT3IS9lIENtDWNaHZDuQS5UjRgRbdVy2OX/70ESV0d8?=
- =?us-ascii?Q?6aiOsacjiUWCSec1K4nB2tLppXFkznXQlpVlUgrVTRPkYbXSipPZmmlneVzr?=
- =?us-ascii?Q?70WVsXrq8Kujemym+KtmYlWXnYLsFGbGTL7pgRu2ZPWvBn4gXCPvhRKyDqxN?=
- =?us-ascii?Q?jGt5QRDVTM7kCfXFtqmWSQ/EOEltHSHZoADCQQ7PXhUkNFmPmqYITjKaNmR+?=
- =?us-ascii?Q?tMsO5m6VVj8RX9v2vMvlqf913RRorYFyJer6z2oZupOT67tAicoksRtvLNdT?=
- =?us-ascii?Q?pli7060R+M05XYp2e8VdIweMsXmcmTfnNLHYOitDEE8D9tpEl8JlOoprVDNu?=
- =?us-ascii?Q?mXdkyAPsSjpShQnnf08aBuYCYcM3xxdCj4n7DJZuuvTpF//mfeWYDLzVO4D8?=
- =?us-ascii?Q?RbG3OLN/qN5kEETGpQdIHIl7KBXzktsHcFeVys6p3E74kA7FDL4OjS+kXe4y?=
- =?us-ascii?Q?/VIcGlPz08L7gQWdef4YqD+xzShJsgGtthtDv0MEGeQgcanOc7nmyHgOgX0Y?=
- =?us-ascii?Q?C428UnrGZuMaoRdUAljDgeudc85fIc3cM9BDEIz/wJRBzc0aK9A3/TgcdlxM?=
- =?us-ascii?Q?z9/zT/v6TruvzN6HAmk076KqmfzZI389NHWR5I/MARz3D8X9sLDLcUe3uQX4?=
- =?us-ascii?Q?OashCZSRRgHA+rmBasiOkc44ma+35PqJBq2IZy8aZh6SL2g9yLyaEva1wRK6?=
- =?us-ascii?Q?CKYWPOSFfEUjo4wNicvQ46jEBHjiKyaDBK/GN5kMqPDHjY1Iso9Oa9odZtvN?=
- =?us-ascii?Q?apT07PzmqkerVZ0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ArqXpmwyRoj7fxHo9fxNsf0zLrQ25O4py+JGoLpgsdcq1JhnnX+/asx2SAoH?=
- =?us-ascii?Q?AchhTMF4v5ONdcasNHrXjx9bTnAlfdSh4+RFhh0LvpoRdKvUKmsB7z1zCTiY?=
- =?us-ascii?Q?Ov+coxFgXBshnHYRVX4dvjsQDMonP48FBKbfMN7/6TvHmFDVQl5eLkJf4m9H?=
- =?us-ascii?Q?VEfB6KnsP8uc82vS+yl/fFuhT3voX3k4AqhRlZFqzWC5cwUN+dsHoWLt53+6?=
- =?us-ascii?Q?CWK5RYlNPqUNuXWzM60ttNm8XC5EYfYElfTGmb4nYalWnBwWXd3C0K9w0Uz8?=
- =?us-ascii?Q?jm6Vw84bf5TqzRsPUCEnVRL+Q0SeY41kxDZhgzBHIh6tud2urnKuNw1glVvc?=
- =?us-ascii?Q?/kPKUMT3dl7ZGd/C+1x+dFU+UXWc7SAA71PKLix93l3zQn6mm7wXnFMxcTp8?=
- =?us-ascii?Q?qoISeT/caHoD+Dc8oR38G+qoCJ2YBG551/f25HaEOtfP5Jy752Qk+IJaOxmc?=
- =?us-ascii?Q?QFXE+dVI9+4sdQ7R+4UQrrnOLFMzc7eKvrpHJARk4IW2fdhohPZSvkRRjtHa?=
- =?us-ascii?Q?8iC2zQFYErS6DbeXeV8CgPLZ9SuW+gLuoj7VV4PJHELwwrMZ2zE0eB6SFbdi?=
- =?us-ascii?Q?y/huO2h0trQOtT36hcVNYSy+Xb8ho+jCnlqfnjfTRVDPi+ykXzITZhfYNr8i?=
- =?us-ascii?Q?7fSKpkCECD2pqyI9ph/MB14aAa5c1bL1q99m1FS10mvc4PZSlR06LUPC+T30?=
- =?us-ascii?Q?+/r/HjqeEqTQCYcM7Dx3vMd61V0oKMB2ZZFj0rfRGBBeuQyYrGk+UWhn2n/c?=
- =?us-ascii?Q?ZuQbnhepIO5Ygr1IxpgxCYDRYXcQBDN1ejZ+Ge2quHQ3PPbATvlZ0h5hxEBz?=
- =?us-ascii?Q?xci4FDN7bAUotUZFyt5CcgRn2HAs1oi/VVA9QnhMYKzPq8A8PoO+EltYl5cY?=
- =?us-ascii?Q?e8ECVk8qYSmb+61Bv/0C0oqrXgE37VisNyJTHHiX5WlD7HyTe4gxUOm3ZA88?=
- =?us-ascii?Q?+PoVG9Hz6vT6uC581qsdFOJCrR7jvpDYeg06MljQwiSFy+pEwycul2QkSjBX?=
- =?us-ascii?Q?QoXBBKCBiOY2a+groUiUgWIB2iWIiwVEjadKEKItPUVwgGOcTRPm/I7ynh0p?=
- =?us-ascii?Q?CJYR1vXYFOVJlkZsz9J6IwhKr1VX9v9S9aKwVjyN76kAOCFf8zXa04OKcIuI?=
- =?us-ascii?Q?zNEciBjPsqYBt184AH1E6W/DPsQWRmBLXNp7EN+hsCUk8sz5Wd2W3sRNrW17?=
- =?us-ascii?Q?ZC6lqMzoOebXg3sW92GbTSJRWBsqpOYUrieidXJZcbLwuqLUKBsQ3x8Xj152?=
- =?us-ascii?Q?AtIsuGDYigwXqJypiwh5PNBqcbD0J9NGslqqBrE7nNDN5czR+L0Bp5car1OM?=
- =?us-ascii?Q?fkXMmjbmL58+l9xeZVT4BupX4PLmQ9rrxIk90zx9SF4C2rghsbFUiR8xJYgk?=
- =?us-ascii?Q?TmpXFa8IbWCJkPWaNV4phUDya+prAjl8XAqtqQS1iK20cWFg57ZcNZ28GXgH?=
- =?us-ascii?Q?RkoseSPM6+7z3Z/Jm9SMHWbRpYKuENho6/B0+durOX4RjMLuKUliAtcn9K53?=
- =?us-ascii?Q?6djpLDzs5LNogy520UQYBuQUCa58CzlUHb6eMzLQUwblzRnov/x8pvZmmFS4?=
- =?us-ascii?Q?/SsDr2tcwbBsDFXW7GrcaYYpCbYwddIdP3+XZuUz?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 325eb20d-23d4-4de5-1cc2-08dde0c3e843
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2025 15:03:37.7925
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PJGGSPzN++UaZAq4R5ICBt2RB7oWK9k9s1UlUzOomnXgEB5PAlQ3YWaZ+LDK3i1xV8zZWINZWb/iqoEtGs+kLQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8585
+In-Reply-To: <20250818021826.623830-3-sw617.shin@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_080342_621992_74251495 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20250821_083448_911452_2CB6E99F 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,63 +104,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 11:50:17AM -0400, Frank Li wrote:
-> On Tue, Aug 19, 2025 at 10:43:37AM +0800, Haibo Chen wrote:
-> > 1, the phy support up to 8Mbit/s databitrate for CAN FD.
-> >    refer to product data sheet:
-> >      https://www.nxp.com/docs/en/data-sheet/TJA1463.pdf
-> > 2, the standby pin of the phy is ACTIVE_LOW.
-> > 3, the phy of flexcan2 connect the standby/en pin to PCAL6408 on i2c4 bus.
-> >
-> > Fixes: 02b7adb791e1 ("arm64: dts: imx95-19x19-evk: add adc0 flexcan[1,2] i2c[2,3] uart5 spi3 and tpm3")
-> > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 10 +++++-----
-> >  1 file changed, 5 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> > index 2f949a0d48d2d8066388884703c3b3cd678f16e1..9d034275c847606919af8ee4a80a00599abf4d8b 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-> > @@ -80,17 +80,17 @@ linux_cma: linux,cma {
-> >  	flexcan1_phy: can-phy0 {
-> >  		compatible = "nxp,tjr1443";
-> >  		#phy-cells = <0>;
-> > -		max-bitrate = <1000000>;
-> > +		max-bitrate = <8000000>;
-> >  		enable-gpios = <&i2c6_pcal6416 6 GPIO_ACTIVE_HIGH>;
-> > -		standby-gpios = <&i2c6_pcal6416 5 GPIO_ACTIVE_HIGH>;
-> > +		standby-gpios = <&i2c6_pcal6416 5 GPIO_ACTIVE_LOW>;
->
-> It use go though CAN phy.
+On Mon, Aug 18, 2025 at 11:18:23AM +0900, Sangwook Shin wrote:
+> Fix the issue of max_timeout being calculated larger than actual value.
+> The calculation result of freq / (S3C2410_WTCON_PRESCALE_MAX + 1) /
+> S3C2410_WTCON_MAXDIV is smaller than the actual value because the remainder
+> is discarded during the calculation process. This leads to a larger
+> calculated value for max_timeout compared to the actual settable value.
+> To resolve this issue, the order of calculations in the computation process
+> has been adjusted.
+> 
+> Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
 
-Sorry, I mass up. It is correct.
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->
-> Frank
-> >  	};
-> >
-> >  	flexcan2_phy: can-phy1 {
-> >  		compatible = "nxp,tjr1443";
-> >  		#phy-cells = <0>;
-> > -		max-bitrate = <1000000>;
-> > -		enable-gpios = <&i2c6_pcal6416 4 GPIO_ACTIVE_HIGH>;
-> > -		standby-gpios = <&i2c6_pcal6416 3 GPIO_ACTIVE_HIGH>;
-> > +		max-bitrate = <8000000>;
-> > +		enable-gpios = <&i2c4_gpio_expander_21 4 GPIO_ACTIVE_HIGH>;
-> > +		standby-gpios = <&i2c4_gpio_expander_21 3 GPIO_ACTIVE_LOW>;
-> >  	};
-> >
-> >  	reg_vref_1v8: regulator-1p8v {
-> >
-> > ---
-> > base-commit: 3ac864c2d9bb8608ee236e89bf561811613abfce
-> > change-id: 20250819-can-dts-fix-62ac1d02c007
-> >
-> > Best regards,
-> > --
-> > Haibo Chen <haibo.chen@nxp.com>
-> >
+> ---
+>  drivers/watchdog/s3c2410_wdt.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+> index 95f7207e390a..1e8cf0299713 100644
+> --- a/drivers/watchdog/s3c2410_wdt.c
+> +++ b/drivers/watchdog/s3c2410_wdt.c
+> @@ -27,6 +27,7 @@
+>  #include <linux/mfd/syscon.h>
+>  #include <linux/regmap.h>
+>  #include <linux/delay.h>
+> +#include <linux/math64.h>
+>  
+>  #define S3C2410_WTCON		0x00
+>  #define S3C2410_WTDAT		0x04
+> @@ -410,9 +411,14 @@ static inline unsigned long s3c2410wdt_get_freq(struct s3c2410_wdt *wdt)
+>  static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
+>  {
+>  	const unsigned long freq = s3c2410wdt_get_freq(wdt);
+> +	const u64 n_max = (u64)(S3C2410_WTCON_PRESCALE_MAX + 1) *
+> +			S3C2410_WTCON_MAXDIV * S3C2410_WTCNT_MAXCNT;
+> +	u64 t_max = div64_ul(n_max, freq);
+>  
+> -	return S3C2410_WTCNT_MAXCNT / (freq / (S3C2410_WTCON_PRESCALE_MAX + 1)
+> -				       / S3C2410_WTCON_MAXDIV);
+> +	if (t_max > UINT_MAX)
+> +		t_max = UINT_MAX;
+> +
+> +	return t_max;
+>  }
+>  
+>  static int s3c2410wdt_disable_wdt_reset(struct s3c2410_wdt *wdt, bool mask)
+> -- 
+> 2.25.1
+> 
+> 
 
