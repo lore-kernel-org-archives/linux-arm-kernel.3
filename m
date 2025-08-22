@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E99CA0EFC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F372FCA0EED
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1MSjRRE6yUSWPMHEAUcp2VekQ/i3BRrfkltmpMLCjI=; b=E5goLpx7opcFstuAFV/BJxpcjh
-	+wPJwu7ES8qsbfo4avzrxU5MUmxlkvJrtkXo9Np0WI8WcUIvRhh7c/M4llJevffUn93ELZdiLDCV9
-	lqyrM2bLbyD42TxiM7eIm9rvhImEXeJGbXPEvRqq8VbILiD+Z/GuM4eoHN7kGly5uQGSG84UAyFlV
-	WTc+HsfD14Xj9j2cnn8//8g5sJj26mZ5mVju0vfVGrDdWjXnB2zlwxxQwwI7IBWZ7dgnXxhaZb7ZC
-	1/Q4FE6p85sRYs4/IYf4kBd49xIhUXzgau5c8EsSfXCHmfyoRx3uMO3Sw2gSdA4NaMGNzK0D8ePnu
-	VrdF/erQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FQHWCj2G7uE0VQTePlKYzggszJQgMhjnofu5HSi2Vew=; b=qllLW+FyyaMmwBzhOEYlm/00ay
+	Rrul3dGVylP1rzOGOfPAs64mkZ8WH9JtAXY2U80oT1TT33FL/nY6U3aWice0SYU6bKIKSyyzucO0Q
+	9usG3tWjjr5xAxQTAKjeuo+RW290t6Nk6PkJlGCu4Idhu8IY26s8t2LHbN8jDQgKIlImK9MU43LRI
+	E3jApVCgJsVu25ZM4sMriIBblzuiLLvXUjF9HmgzZ0sqqR7pSemaiGHsJpQ6d0rRrXw8ary1wyv8D
+	Zp0yUIVfMIRMa5MbnLsIS0iQEDm99i1HtNaxrFiZ+Zg6aY46wC7aABamdWDvf5UnoA4rKObPBC+Al
+	jUBQq3Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPrE-00000002Imx-34uN;
-	Fri, 22 Aug 2025 11:22:56 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1upPrD-00000002Il0-2j8k;
+	Fri, 22 Aug 2025 11:22:55 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIKZ-00000001NMd-0fhU;
-	Fri, 22 Aug 2025 03:20:45 +0000
+	id 1upII3-00000001MXD-0Pbc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 03:18:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=FQHWCj2G7uE0VQTePlKYzggszJQgMhjnofu5HSi2Vew=; b=5OuwMnFk8XspHeSWT5qjK0jRrg
+	C0ctkC7F0t/TaaLvA8Rr/qlr4y6DSI/6ALz5iiVOM4Uf4PUAurNE49I9LOCAHJClYQK3D+vGHkPse
+	NOT9YoUvBtM6e8cRThEI7IZ4FAJqJrCOXw5YOaKpl45cH8SYNgZzrHQ8wAVoZsVq7jno=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1upIHZ-005X48-JB; Fri, 22 Aug 2025 05:17:37 +0200
+Date: Fri, 22 Aug 2025 05:17:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
+	jszhang@kernel.org, jan.petrous@oss.nxp.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
+Subject: Re: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700
+ ethernet driver
+Message-ID: <548973df-2fa8-4502-9f7c-668d0eeb16c6@lunn.ch>
+References: <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
+ <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
+ <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
+ <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
+ <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
+ <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
+ <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
+ <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
+ <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
+ <3261748c.629.198cfa3bc10.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1755832841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r1MSjRRE6yUSWPMHEAUcp2VekQ/i3BRrfkltmpMLCjI=;
-	b=oEPWH/gzrsp0qyfpLjduleSsCJb5NJaDYPeQ5XRapK/9fSiqFDHXyoAUnFzYvmb7xO9/vQ
-	Lf4kmy4bIuCpsJUApQHN19NVC5u2P4dMDr9gXb3G0Rw/qZBHAvNb2uuEXxMDQoUjL4SK8C
-	QKd6jpXXxL30QWV3paSXwCV1xb98C8FbK1zxlUPuo2DLMQf7I4WmOjeDz+5swCz4hCne8y
-	OxLPVHTDuYPUqrf5Ere4y4rpId+jusXSoAjMyh06xH56khmJcCGUP3iC9QWLYNArR+fVFl
-	wvE/61iNjD3lqt/CkUCkdHwLI8LkON9qs1sUe1dMOnfo9ZQv5Z5JFJrsw/mpPA==
-Date: Fri, 22 Aug 2025 05:20:40 +0200
-From: Dragan Simic <dsimic@manjaro.org>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
- <lukasz.luba@arm.com>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Diederik de Haas
- <didi.debian@cknow.org>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- kernel@collabora.com
-Subject: Re: [PATCH v2 3/3] dt-bindings: thermal: rockchip: tighten grf
- requirements
-In-Reply-To: <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
-References: <20250820-thermal-rockchip-grf-warning-v2-0-c7e2d35017b8@kernel.org>
- <20250820-thermal-rockchip-grf-warning-v2-3-c7e2d35017b8@kernel.org>
-Message-ID: <9ca53c3ee08a0e1c25adf916376f9a65@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3261748c.629.198cfa3bc10.Coremail.lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_202043_365092_B16B5DE0 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250821_201807_133293_85D5A221 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,53 +89,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Sebastian,
+> We re-tuned and verified that setting the TXD and RXD delays to 0 and
+> configuring TXEN and RXDV to 0 yielded the same hardware performance as
+> long as we only applied delays (e.g. 200ps) to TXCLK and RXCLK.
 
-On 2025-08-20 19:40, Sebastian Reichel wrote:
-> Instead of having an optional rockchip,grf property, forbid using it on
-> platforms without registers in a GRF being needed for thermal 
-> monitoring
-> and make it mandatory on the platforms actually needing it.
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../devicetree/bindings/thermal/rockchip-thermal.yaml     | 15 
-> +++++++++++++++
->  1 file changed, 15 insertions(+)
+This is in addition to phy-mode = 'rgmii-id'?
 
-Thanks for the patch!  It matches what's already presented in your
-patch 2/3, so it's looking good to me. Please feel free to include
+> Therefore, in the next patch, we will drop the vendor-specific properties
+> (e.g. eswin,dly-param-*) and keep only the standard attributes, namely
+> rx-internal-delay-ps and tx-internal-delay-ps.
+> Is this correct?
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+Yes, 200ps is a small tuning value, when the PHY adds the 2ns. This is
+O.K.
 
-> diff --git
-> a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> index
-> 573f447cc26ed7100638277598b0e745d436fd01..9fa5c4c49d76e3a689f31797875124e7fb30d3df
-> 100644
-> --- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-> @@ -119,6 +119,21 @@ required:
->    - resets
-> 
->  allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,px30-tsadc
-> +              - rockchip,rk3366-tsadc
-> +              - rockchip,rk3399-tsadc
-> +              - rockchip,rk3568-tsadc
-> +    then:
-> +      required:
-> +        - rockchip,grf
-> +    else:
-> +      properties:
-> +        rockchip,grf: false
->    - if:
->        not:
->          properties:
+	Andrew
 
