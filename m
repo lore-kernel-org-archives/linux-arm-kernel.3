@@ -4,153 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BCACA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A21ACA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sOg9yBVnKXtQW1qiQWx896srMKcez1QafqjQ/RaukKM=; b=pDawUSfv4CVIhHWXa9Y7C/R++f
-	R8C87R+AwPmR5QFDnwg0MO4RT2YyDJbypyi/JMPmlXnZwqEzJIJQIVClc7qn7jrVosFQCiRMzZN6N
-	bINIEcBqif55MMwa3Z9GNEuqKacjbG3FA+LIeyeWhfqJvKeUil9OkziqC3r9MOiyYCLHD1UYd6Ie/
-	Y/sYxbFbtbc40gfUOJTbUruH3a1NZR9auYuczi2mDbjFD9egoG64GmaA7tHQOHy5PWmuJ978LAlF3
-	gPalmSDLDxMyGy84ZD4qlWrEBCDw7aue+54LRhnjMQ9ow/LYw6MsH/g12LsqRBTEmutg8BOQt7YKk
-	Zk/nGjPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kuafhKkU4Fs1aGW8xoqs6Yf+975XHmOPTE1/sKVulnY=; b=MNDe0+uz68O8xiNQ788qTDBDmS
+	5mpNCLfQFS39m7h+Vgh6xh8KgvUarjQ+/jQO0XKO/cXTZzCEQFOOitUxX/4AzrR5FJ9LTv/irtKcO
+	oZGmFFLubK5OHgAn4VgmXigQu7GMgX+IxXC3ACXBU4fsgRfOAuBCt9ho5xigmDN/EWU+7CidMj077
+	XS4jc/G60gcvob5J0rJreirhyh/MVjDDkXIMVCc1+2RzDpNMbwvydpaxxQwjACjgz7yp2PDrZJafp
+	I4hS5RjvIrLo6ojcApbHlwG22b8qTRrrdU9JBMvcfW/nUtOJ/luWkE2kVaVtuBzCBbpjzhz8EwgVv
+	gzUrm+AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjTH-00000004KY5-3uSP;
-	Sat, 23 Aug 2025 08:19:31 +0000
-Received: from mail-dm6nam11on20717.outbound.protection.outlook.com ([2a01:111:f403:2415::717] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1upjTU-00000004Kn4-3LZr;
+	Sat, 23 Aug 2025 08:19:45 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upXEY-00000003MMd-2QTy
+	id 1upXwi-00000003Pi1-1i49
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 19:15:31 +0000
+	Fri, 22 Aug 2025 20:01:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h1DKUgas+E9HVKw6uRlMEsqOem98Pv2dqeCfxc4dOCWwRzO9B+/H6pn3jdqX0aG6nuRZ90LwBiFISHTIJWlJsoJTk5o2PxxWSJLDbMwRn3qACLCvXniOzh59Qo2akRUflpd7tDJbHsbB0CTyxz4hlWs2+mvdBTohLhNERdMMIvhWhA4B5xfjj3WBrLjgEoSLQwSTOr5kePFqYne2jerhQ4WdoiWyxnSn3YMWlB1sKCrBjhoEqimoLjPtE0ngdpdssPaG+Gql6VhxJcCxT2i/hVCtc5HhtgF7d6v0780hBT6/9JXQm9w2LCsqy1QXZ+zbHkm9jHNfoz/IyTDimLZAJA==
+ b=R001cSQqGcYNP+sH2D0JoMmrpPM+clRRUiyfImRg93gm4T9fO+MIpLH77cT06nTgwONwmWUK8jwKNR0zkpDcx7gUxTK20Su50H7aCcncVWDwe6rKt3f5IUdgl5tvxfK3iWnp8F4ZCxqKnzccQZ+pcGddZiJfpkfTi2VgMF52M7NIXvCWdqaFnf4OLu+WQbSxFJFxu/hikiRCpFbtQPC0FGYFEsptH/FARhdW9nnkLzNcGwghZybGpNxmOysFFR780tzsIH6z4TH5QEmIZsLlddbOXeLDeQiYfSESVJ/pI5UP6aXVoesNgGV5GuwvY66GcSSbFQ7GRZbRnLGRemN+cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sOg9yBVnKXtQW1qiQWx896srMKcez1QafqjQ/RaukKM=;
- b=iTmeHrFNkYhLW9hYY/SvHEy6JsiZMzNFPiDgfCd1vZWxenyZX51w/mf0ilCuQ9nkEACrOSKWFWqprGpWWmFb2ldYBOcyjD33FGiXVxBg99Tx5KJLovwR92ofjOziIRUdaMAqL7a7fkvMoBZRIExKPVoUaGLVyKDJk1kXHN2Qedw8eArtMqlcUzPk+EiSFQ4m/VBUYlZK+IDbQFOsReACDwlfEo1ZvbxnnvqnDniQiFCny2TLJ4tJCBV+HLLa3eaNu9BV0LroKBffxjlIqM7nG1BxgMeUrzTuUeIh+oX+pUnxe/wzWi/RsxiZxRtHcA58kBYdu634cCy7xfkkLKXgtw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 50.233.182.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ bh=kuafhKkU4Fs1aGW8xoqs6Yf+975XHmOPTE1/sKVulnY=;
+ b=lbzRZGVO+g89x/X8B8mj2De5Q7GHG/zuxsS0cITr7rqiZPzcUIriT5pDCnMmdKuPLa9KsrpBK4XjTTRNS7rg8cDdKA3fn6xxkd2ontnJ4fJa5ZdnLRIA4rhShFR78Zwy+Xx8RaVJIK4H4CgTV2OM9pc2LlWaSoqY6VRoPoifmNptvOqWQeGpzB9QxJOA8NOfhHnefg+H5TMDGUP/Yzi2gOC4DK6CGOfxuzOjzfixMwWW1S5G+DAPuPtXtmbd30DegUukNi6c4mZdHYcRc9Pi30MxkMAIMSZxVU2/9alhOllaQhbYi8/iEYZtEfaOHR/5ODPuYr+aYb6dait0uLwcoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sOg9yBVnKXtQW1qiQWx896srMKcez1QafqjQ/RaukKM=;
- b=Po9x6PMny7fZ+zSyaPleyaseBvyZ4qsVFiUIsgDP2ESK2cjiMF3wCRstpmXrVWyRFuJNyWml/UWsE5oO/+BFVgG83JxA6EqYhZAKR/sWKVhFzkx52DVtuInEHecR/Ga8OkGIqm9MZvUu1b+aiz63HW7bSoR1X4p8mAviQbdIst4weK9ZoFyW4kKyu1327SgbAK8Q9Fl5J91cYK1m3IXg5vUFifKFG6HL7BH1gDYIaqLVHTPl7/68iUFtahNemUwqY6IoGnieqJdnWfIZSD34eziJSlRFXJ7S4umOZ+RfO5YD2Xm9CMSrmAx6fY7S+OSogLOgh44ONbU++mUhBYxseg==
-Received: from BN8PR04CA0015.namprd04.prod.outlook.com (2603:10b6:408:70::28)
- by SA1PR18MB4536.namprd18.prod.outlook.com (2603:10b6:806:1e3::9) with
+ bh=kuafhKkU4Fs1aGW8xoqs6Yf+975XHmOPTE1/sKVulnY=;
+ b=BbsI30N71BAIhudtuQfpXeSnRPRbxo4/ArgVORnOUDMuf98diIuXmQw1Sy71MxfutSF+1VKMi11rySXczX5KTpSPoE17HJhqVXCdzPl+4XaGffOeVqB0cSi66VMFMUzwQNsh72q3vbB22YniIMhWU+xNgHBAQNRT4QH3dq35/xiibND3XfIHJrR2+A7c9KsZd7NYHAudGRNCBIX2TKiUkxwBR6kJjWwCLyHT0NvHIh8I1629oUgFLinLTQXCdeBGjPsGE95fquvPh8z4if1OXIpPz5XAUH367pvJf5VJ+oix1kNS9o4XdEK+vO0rG/EjwvU1TdE5xkglrv2QSiAxTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by PAWPR08MB9829.eurprd08.prod.outlook.com (2603:10a6:102:2e6::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Fri, 22 Aug
- 2025 19:15:24 +0000
-Received: from BL6PEPF00020E65.namprd04.prod.outlook.com
- (2603:10b6:408:70:cafe::f7) by BN8PR04CA0015.outlook.office365.com
- (2603:10b6:408:70::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.19 via Frontend Transport; Fri,
- 22 Aug 2025 19:15:23 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 50.233.182.194 as permitted sender)
- receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.1.1];
-Received: from [127.0.1.1] (50.233.182.194) by
- BL6PEPF00020E65.mail.protection.outlook.com (10.167.249.26) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.8
- via Frontend Transport; Fri, 22 Aug 2025 19:15:22 +0000
-From: Harshit Shah <hshah@axiado.com>
-Date: Fri, 22 Aug 2025 12:15:10 -0700
-Subject: [PATCH v2] arm64: dts: axiado: Add missing UART aliases
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
+ 2025 20:00:59 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Fri, 22 Aug 2025
+ 20:00:59 +0000
+Message-ID: <29d6503d-9e34-4d64-aacb-32f36152ce9c@iopsys.eu>
+Date: Fri, 22 Aug 2025 23:00:57 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
+ <aKbDjIZhJuWo3yFu@lore-rh-laptop>
+ <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
+ <aKcEYn_hX0ZIusne@lore-rh-laptop>
+ <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
+ <aKgSY7bOrC8-qZE3@lore-rh-laptop>
+ <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
+ <aKhtP1G7as9b2c4f@lore-rh-laptop>
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Content-Language: en-US, ru-RU
+In-Reply-To: <aKhtP1G7as9b2c4f@lore-rh-laptop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR0P281CA0072.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:49::9) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-axiado-ax3000-missing-serial-alias-v2-1-54052d75467b@axiado.com>
-X-B4-Tracking: v=1; b=H4sIAL3BqGgC/42Oyw6CMBBFf4V07Zg+JFBX/odhMbYVJgGqLRIM4
- d8tYOLW1eTc5N4zM4sukIvsnM0suJEi+T6BPGTMNNjXDsgmZpLLnJdCAU6E1qejOOfQUYzU17C
- uYAvYEkZQ2pxKrQp+Q83S0CO4O02b5FrtHNzzlVzDL2woDj68t0dGsaZfpxT/OEcBAnJZWF1oo
- xzyy146Gt+xalmWD9LGHS3qAAAA
-X-Change-ID: 20250813-axiado-ax3000-missing-serial-alias-39c489370ba9
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Harshit Shah <hshah@axiado.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1201; i=hshah@axiado.com;
- h=from:subject:message-id; bh=FgphQcoG+DlnEqB4jfkdWUB3Ga7nEjUCjRTnSibHBmw=;
- b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBoqMHJze8NOuKI4fxX1G4hk4mM0teEp4eqAQRmw
- bwGI1bBUYGJAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaKjByQAKCRDxWHMRoTLV
- +7YUC/4+xFdGQml/ARkX4JQHa3iIX3v8/xwWfDcs1/jVwFbJXIhxgTbxbLcoPxCG4Sad11YdgML
- ZY05FZkXCBoxHvYQ10py4IkNco1HPgRmnF4BMKhJWmLNprLH02+WjmLNLrXkQgoouz6oTVJuswQ
- taW890qKHvEJf+2sSBpXjZxY714nvbxP20bTmYSo+uZwNsh0q0QD8ucaTaMMiDgooOk7RuDMWDB
- wuK9RR2mhg+Ql5s0SCHturZgXOmpPLrLsWGUvd6SxcvWwdXI1x+1qcPI7XzIW+9ZrM0oZJXul6T
- 7yNMBkd4nBkvjjExKHssWG4Inr3G7VKMLszl5mLRh7s80aenjdHuxQO+MBaW42e0nuz3iWagmdz
- xeUb8+cfBdCZPFD6jY8CdcW75JAvp1x3TzeP1m+lMwlqScSsLYmqaGwRqrlEU+HY5C2lCBnwuGV
- q/WZP5Vk7OldHSdrvgC+DjNK1UuKspMMCuTdYofxYyVmPD83hRb53YCh1oWPbH0Et08/Y=
-X-Developer-Key: i=hshah@axiado.com; a=openpgp;
- fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E65:EE_|SA1PR18MB4536:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04668c8b-3d82-4be2-3e1f-08dde1b03e38
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|PAWPR08MB9829:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f533de6-102a-489d-c449-08dde1b69d08
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UW1QZmd6ME9oWmpJSVNiVUMvTURMQkVpNno5OHE1N2xNV2d1ZVd1WXNJTWFy?=
- =?utf-8?B?RThJRUpxOEc5RDQxdTM0Yzg2cnlrSFpYWUY3TEc1cFp0L0l0anFhWW9RSnU1?=
- =?utf-8?B?WDVJdndWV25VNjZDMXZYOFlubUx0L2pueXNaNTU5cHVHMlY4OGtUTSs0UWpt?=
- =?utf-8?B?ZktPYlNzdzRBK01YbGFHcStmb25QWWtNQ3BhN1hlc2NmbmtyWTh4bHdEd3Nm?=
- =?utf-8?B?R3AwMGQzS3Zna3hEVjdxTUpQVy9RZzZrTmNvQmNJU3k0aU5xdTZOdnhTT0ZB?=
- =?utf-8?B?RzdjaHlMclNEMXhjdUQyNmpaM0RpZ0p5SDVSYVpmUGI5RXlwYTlxaVEyelpw?=
- =?utf-8?B?eWZSaWFESGdMck5UWENGNDA1UThUMDd5ZjFhYStkSlhBWG82TG1kWVM4RkdU?=
- =?utf-8?B?STlvc0JpTVBXVzdvQjM5Y1pENzFVVXZYNExvVjNXQU9ZeW1mVGtIVzRONUxF?=
- =?utf-8?B?dU5BMTR3WEdxWFpybVlOV3M2SkxWUXVkSyswbHIzVGdpY0VvTU0zd01zWStz?=
- =?utf-8?B?M0xObmtOT2IvMFo2OGFiRjNIVWVVV29mTllOSm1GelJYTFhuUEhSSkVpUSs2?=
- =?utf-8?B?ZnJZUWt1L2d6WG1SZTJ1MWk1bmt2WGNORUxYY0x1N0wzS2ZTenpXeDhtWEYv?=
- =?utf-8?B?OFpBM2YvNWc0aytWbnJIWUx3S2RaVXRodzUxSXlRb2FZWW1CMllsT29HcDlE?=
- =?utf-8?B?bE1hNGMweC8yTUluSFE0Nnl5bHlibHJsWnU0akY1NHFzZmF6MzRwSW1jNGRS?=
- =?utf-8?B?a2xVeWJNSStzUFI5cTZTb0JKcVcwK1hLanVGS3ZGR3dRTW45SUpiWVV2YUdI?=
- =?utf-8?B?M2Jock1BMHpHOHBHM25HaTNjSWk5a3ZTcWRMYmd3ZnZzSDFyU3hNc0krejRG?=
- =?utf-8?B?a0Z3T2pKeXJKNmVuMkZXdS9Ha0FhRW1GdmxmT3ZZOFBZWXF0bVZKb0MzdGYw?=
- =?utf-8?B?QXVCdzBFRnZVbHd1NG5qV09tRG0vZjdYMC9PbjVJSjVXekdMTzRnOVUvYStQ?=
- =?utf-8?B?TUthSHQwRUJRVW9Obkh2MmRva3Z3U1J4TVhuVXN2alh0RmlFZDBoQU9wVjlH?=
- =?utf-8?B?SFp6Mi9wTEx2d01pdTBNMUlPMWoxSUdjdkg1RHRteXBGck9rSzNpaDZSMFpx?=
- =?utf-8?B?SkF1clVsbC9xc1F2b0FyNVVjQXRCdGlNSiswNGgwZ2pjZXY0Ti8rMGhYdlp6?=
- =?utf-8?B?NjNydThma3hERVErZ0VnTEkrcHgwVXI2Y2JXbUxRWHRjNDQxQkhoR0EvZnR0?=
- =?utf-8?B?L0tjOGJNbmdXMEdyTFZKQUdvZklyVnB4Q1ZqN3FoWmZvU01kdEN2Y2U2WjNn?=
- =?utf-8?B?d1NDZ2VLRENPSGZkSVhyT0NFSzVsTzlqVi9VZCsrMVBvQm9MZ3ZXdlErdGVP?=
- =?utf-8?B?OUxHeCtZWGpEd3VzUTZHc0J1NkZ1a2xIMGNZZWZwaGEwM1RHeHdCUFRLb2RI?=
- =?utf-8?B?VjB5NnFMK2ltL1h1SU54b3FTNWMwSW82cHc4M21jeFA1d0lDbUNzc3NtSkdy?=
- =?utf-8?B?cEloem9RWUtOb0lWU1hxKzVrOHpsbWNMTkgxNndKME1CS2Qya0dFL01ZYWtl?=
- =?utf-8?B?VVVBNFAxdmI0SlhzdWEraHdiZVZpbEtJOEdQK1FlY1BOcDdjOWlRSCsyb3h6?=
- =?utf-8?B?Mk5IaHRBSmxyNTZVNTFrR01KTDhNTWdiUVE1cUlNUFphSVhISHpnZHpUUWs1?=
- =?utf-8?B?aEJnWE5yRW02QU1xS3lOY2J2dmdKa3RxbFJ5Y0loay9BOVMwV1VWWlVSS1lz?=
- =?utf-8?B?MXZDUUd5M0Z4OStudmhIdXhjaWNmK0hiamdxekFjL1dBMmV3U0RyN1UwV2pD?=
- =?utf-8?B?S25wem4ybjRTY2NRRXUreXB4aW5YZEFvbUU0YnZqb21PbTI0ZjZsZ3p6aElI?=
- =?utf-8?B?UERzZHVueUFOUDh5dVFURU9FOWdSbGQ0bkpSUCtQYTh1d0duR3hjNVRIMjVO?=
- =?utf-8?B?eE9TeEliVlZqWWZlM2dIV1REWVZERjQxMVdtQVh4MEMxdGduMWJGZWMvbjcr?=
- =?utf-8?B?WUhoM3RJWWhOQlR5V1owbFptU0gzRlQ3NmNoYVFYSUxady9DSzRZanFuLzNG?=
- =?utf-8?Q?H3glh+?=
-X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.1.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 19:15:22.3124
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmlwZEMvN0dUeXJodjVKanFUbU51QWlIUmtHRDBRUHFGeDFrK2RIT1RPVDVZ?=
+ =?utf-8?B?Y2p2MkxNZE8zcDdjMlZ4YnVZM3VwckttZVFiWGpwMDV6LzMrSXVMazZiQjJW?=
+ =?utf-8?B?UjBBME9KaGtCU3pBL0ZEN3B2UFBkZmJ3aEdlTWxsVjNodi9SWmhyWStVWUxC?=
+ =?utf-8?B?R1NaeWYwQjJzdERhL2x6TTlRM1VpRmNaSzRTTVJJS2ZRVlg1S2gzQTh1R1hZ?=
+ =?utf-8?B?ZklsdEtMOEZVNzl4WGxEa3JVUnIzMHUxQXlnTDFrNUJDdEh0M1VDdloyQXlD?=
+ =?utf-8?B?TVppcG5iay9qRjlDUHVWb0h2VWJrdUs4VHN0QkloVmRIbm1iM2xJOTVCajFj?=
+ =?utf-8?B?Qk8rczdLT1JmRFdPTXBNWm15L25ZQjdmTWV2OGE5dlI5T0dMbWI5S2svV1Nx?=
+ =?utf-8?B?SkVhUElmbFdoRnNoTnF2L3U4MHZROG1yQnBFc3lXRDJGTysvT0FiV3VsYzRw?=
+ =?utf-8?B?OEVuTHpkLzB2dlVBc3MzczBzUHdMQ0tJNEZHdHU0dGo1R0VOOWpWa09veVNK?=
+ =?utf-8?B?aGl2Q1VXdWdOMFVsR2IrUFdjbnQzTDc0M1J6REMveGlCa0ZZZTErUmdRaVRX?=
+ =?utf-8?B?NDlrUzBCa1BWbkN0NUc4Nng1MDYweVNoUDFEWFJJbllkOFM3dytSNE9oTmRp?=
+ =?utf-8?B?akxZem9mR0pxMFNQMWFTdnllbDREMTVWZUt6NE4xUGVadThoRDJOdDhmajd5?=
+ =?utf-8?B?VlNQNVMrVU1JaFU4YnV1RXdKTlpiWThhVGsvQ0s3L1JjWWlFckprczdHTWRK?=
+ =?utf-8?B?YlNtc1crdkJJdU5jWHZ2Z3R3SThVS0lQTms2SW84R3QwUXR4ZUZxcWZoMVNN?=
+ =?utf-8?B?SUhKN2EvTVdvZHRCQ2hXUndSMlBsbkwzQ1JBN3BvaDJVSCtPNTM3a1NuSVJ3?=
+ =?utf-8?B?NkgySEFkcVdhaUVlNzJlbXZpVkMySDllUVJ6L2oxQkp4Q2ZaM0d6M3RMdXZ2?=
+ =?utf-8?B?L3lNM2p0dXdVSU83dE1lQ2FadTN3eTJvbDNraHFXbTFaT0MyTVFpR1B6b1Rq?=
+ =?utf-8?B?WnFma0Y3TjZld1lXTDkvTElVRWExOXdvNVpJQml2a1NOWFJDckhidE81aEgr?=
+ =?utf-8?B?MWIzb3hGTzQ2OXovNW5pWk9BQ2xjN1lad3ZRSFdvQTZBVlVHL3lGM3FzaUky?=
+ =?utf-8?B?eE1CMnpBeU1xYkczU0NhcDdEQ2QyZmRDZnpSSTJHNkdNeEVzRlFLcFhZeDNx?=
+ =?utf-8?B?T3gyQk1pcDJCMjRBa1FyVVZxSGNxNXhEdUFyT2YrcTBXellXd2hyZWdhSGk1?=
+ =?utf-8?B?RE11YzJxd3dFb1JsM2ZiYjFsY09pMVRXUHc0U1czaE0vYm0zbU00TFkzZVlp?=
+ =?utf-8?B?OVkyS0NGbU5jZlRRM0VKc0lQblNXWVEvNVFsNEtpckVrMkJ3d1lqc3d4eTNw?=
+ =?utf-8?B?djFQTzAwa2R5RFJ5dUtxbGp0KzRwYkpOOFdsbG50VEhtanUydjQ5c2xXWWJu?=
+ =?utf-8?B?WG9ud293VEJkTDlCUE4wdkxqRVQyK25zckpXUXFWdk9BSzI4N0liOEdvTEVw?=
+ =?utf-8?B?TnlPejlQaUNEZHdxUHNVSFlyRC9BZFF1dGIycjVicXJPSlFxZG15T1ZPR3R0?=
+ =?utf-8?B?eGVHY05kR0N6Y0xaOURsS05Wc1IwbjJnaVRaSGVLdFFQZExFRFZWTG1WRXgy?=
+ =?utf-8?B?RmxHYnBVUWRTVHVqSFJBL2s3dHNMWCtOcEtzRFpRa3pyYzdQNFM3T3R5aTVH?=
+ =?utf-8?B?c3oveExINGVCWllGL1o5YU9GRTkzb3RXWlpwSHlTYThhME8xcXdkdVAzZXJo?=
+ =?utf-8?B?MnY3R2VVbyt5Z3U5STdhU25QcERkVXJrNXpEODc5dWRPNnEzdDlyZDBrV3Q2?=
+ =?utf-8?B?YzJ5US9LNjJGVUlWRjByRWdyZHlqdVlKbnFTQy9EWitaU2hMZU10V2RZVzVj?=
+ =?utf-8?B?L1kwckNHN29keUtwYk41VFRmTGhnMkprdXFlR1NjYTgwRzhidlpFS251d3ow?=
+ =?utf-8?Q?2zsq4962EUg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bjM5U0REMnhwUHZsQkhHUnNkRzcwV2RmL3FtbG5xVDNheE1YRW1DTDdJYXdk?=
+ =?utf-8?B?ZXZMeWVJaStxa2pnWHludEJMRkhYQkJ3UGd4dnZVNkpka3FjL2p1a0IweW5p?=
+ =?utf-8?B?dlNnNjJNY3dGWEJVLzZUTk1qb0VmTTJvdC9lYVNjWnRiR2VkU1lFeEdFOWRN?=
+ =?utf-8?B?d3pST1ZoWHJyYWpOblA1cFozT3d4a1RPZXh5R0RRUmFrSEZMN0t3R1cvamxN?=
+ =?utf-8?B?Y1hmT0VudnJuM0pzTVppVWxkamtaMDR4MVF2d0FLYUxjM3MvbDVSNGk3RXJy?=
+ =?utf-8?B?aDVnK3VXN3FjUEhITzVNclpURFRUd29kNDlqRTVQS0N3cHJjQ1ZjblFka1Iy?=
+ =?utf-8?B?UHFvMjNxQm9lU0ttYTczWW9XdHVGTzBLY2pGcTJuYXlQWmZSVlBXUmw5amdx?=
+ =?utf-8?B?SEF6eG5HVi9VMzVvV0U1NlBsVmdNcCtQaGRtZnVmbXFQeWtqd3N6Mk9kVll4?=
+ =?utf-8?B?K09mZ3ltTm51eGtnR3dlNVFxbUh6RXlGYXdSMThhTVNUZEtzaDhCeTY5ZUI3?=
+ =?utf-8?B?WHBlZ0RMcjgyT0hzZnpnYktYVGk1TmRreS9pZnBQSHRSYk42dnd6K2RIMXl2?=
+ =?utf-8?B?d05OQWx4b2puTmd2d2ZoRHlGRlMvWTg0UTFpY2gydjl0S0xLdkVBcng4RTdh?=
+ =?utf-8?B?OUFBeitGSHBQRFZvVWRZeGxhTlZaNy9hQ3NKL1VtTktyblFIQ2V5VExJMFJW?=
+ =?utf-8?B?Tm41a1JDR1IycllYME5EMWV5SDQ0SVVtWlhpdDJOV2d5aU4xMVFjT2xmRUgv?=
+ =?utf-8?B?TTVONCs0aWY2b2dralFrSDMzU0o5UElraHUvRlltZ3djS2tBdW5lRm9QMklK?=
+ =?utf-8?B?bndvSG9LMDNsWGovODc3WmRmUkJqcDk1STNaYnNLM2FldTZxZXFKMURMcS9s?=
+ =?utf-8?B?dnNyRTllQUZwK0MwaWJqVlkxV0Y5NktpaWV5bVdPRTR5dmFaRFdZRUZ4OVpv?=
+ =?utf-8?B?RE5PSXhnczZUOFVwUTQ5aWp1VEg2dDdlZVFVa0xlRG8xUTJTQWxFUzN3V2ZM?=
+ =?utf-8?B?RlhUVTAxYWdKYXZCYURvZVZKcTEvVzlybVUxMmFSMTFJMFIvY203VFJxSHox?=
+ =?utf-8?B?MHVUQitObWhWMzk3UHJtR2QwWjJPU0RiL2Y5cUpxbExJMHlVOEh3NTh0ckZM?=
+ =?utf-8?B?Ny9BSU9nMXBnc05OVlliS3lnSm9qaDhOU2s1ayt4YkxBbVZhUXBYYkEzbFlQ?=
+ =?utf-8?B?c0dVVDE2WllOT1ZqQzdOM1JtZkxCNkNWY2RxeGhwdEFYbjZlRDB4NHZnL2Mz?=
+ =?utf-8?B?S2h5YjRSdmJTejFSeGdLRTRPVC9ET2xNVTFobW9XeHFhU3JQMmRKcFVVTk5w?=
+ =?utf-8?B?azRwcDNGeHNld0FqNEJ3L0lyS1pkZTYydlUvcjZhMk5FODIrMkZjWkhxVktx?=
+ =?utf-8?B?UWxxSXIxZmRCSm1lLzg5WHNDYjBXSCtjKzBEQnFIR25IZUpYaFp0OHdBT1Nv?=
+ =?utf-8?B?Z3J4cno1QjZ2S0NjVkhYN1E4Z1hnSUxmT0lZVjU4TzdkVGR0NFFMOVlwNCtM?=
+ =?utf-8?B?ZmJ5NEx3OGdRM3NRRUx3N1dBNUlxdTBZOHEzTTZKS3hVRkM0ZEdoeTBZOXVW?=
+ =?utf-8?B?UWwyKzdlSU0xUVZDNEpRMU1MMkZ2Lzk2cU5OWitjbHVSazQyOFlxRkgzYWdN?=
+ =?utf-8?B?aG1mNElZQ1o3Y0srQ2dyREFrcmxBRUhmUzArVUtsdU9zdXJFWlZkSkIzUkFZ?=
+ =?utf-8?B?dHF2SzdJV0QwNGxrdVhpc3JhUTZiSERNQ1lWVGh4alNUVGVqVjNaRDdiazFJ?=
+ =?utf-8?B?VEVPUytoM2w4dGtjaG1LRCs5UWJLSTBQYnFqd0JLV3ZROFYvQnBKT3djUkZq?=
+ =?utf-8?B?Zzc5K0F1YmdSM2c1bHNxTEJNakcrOVZGQjVTNlB1OFVjKys3ZnJKMDFwTkJy?=
+ =?utf-8?B?OFVlMXk5azh0UGJIZ1hJRk1XUGlOS3B1aXM0YjZjVXRjU21xalNsaHBHSSs5?=
+ =?utf-8?B?dDduTUF6TU9YZ2lHTmt3WGUrZFZUNWY0amptc3h1UnNRWVR5SUF6WGdQbWJ6?=
+ =?utf-8?B?OUgzR1FDazZtVnFyV0M3bmtvY1VnM1dqWEg2K3c5MWt6WXJLdGROQzJIMDBJ?=
+ =?utf-8?B?N3VldkdSdnpGd29DZWVWOWd2aXBTSjFDR0xpSHk1Y204M09aRXNObUVuTThD?=
+ =?utf-8?B?WmpjTEVRUW8zdzhZWTJ2ZjRRbGYxaTV0eVY1R3BaYjYyMWJuR1JGaWhBQXBT?=
+ =?utf-8?Q?zRh9w6YTve7eZhVwib553wA=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f533de6-102a-489d-c449-08dde1b69d08
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 20:00:59.3525
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04668c8b-3d82-4be2-3e1f-08dde1b03e38
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.1.1]]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E65.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR18MB4536
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DWhxuns8oLgSGngHrK8l2fpcn7hSkqdCjvt5z6O+7KBBXcH1ft0SkAjsxmGQNGax8at3OcW0CxFAvhZT/5ju6jIGGfGUDLT4F41Vj7mg8/Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9829
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_121530_622637_80B1DB56 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250822_130108_980451_D98A90C2 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,42 +184,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes: 1f7055779001 ("arm64: dts: axiado: Add initial support for AX3000 SoC and eval board")
-Axiado AX3000 EVK has total of 4 UART ports. Add missing alias for uart0,
-uart1, uart2.
+patch 3 (spi: airoha: add support of dual/quad wires spi modes) is
+necessary for non-dma reading. This can happen if dirmap creation fails
+by some reason. In this case the kernel uses exec_op() handler to
+execute dirmap requests.
 
-This fixes the probe failures on the remaining UARTs.
+According to dtb the device supports dualwire operations, so dualwire
+commands issued for cache reading. Unfortunately  exec_op() handler does
+not supports dual/quad operations, so flash reading fails. Here is the
+corresponding boot log
+-----------------------------------------------------
+[    2.980719] spi-nand spi0.0: Micron SPI NAND was found.
+[    2.986040] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size:
+2048, OOB size: 128
+[    2.994709] 2 fixed-partitions partitions found on MTD device spi0.0
+[    3.001075] Creating 2 MTD partitions on "spi0.0":
+[    3.005862] 0x000000000000-0x000000020000 : "bl2"
+[    3.011272] 0x000000020000-0x000010000000 : "ubi"
+...
+[    6.195594] ubi0: attaching mtd1
+[   13.338398] ubi0: scanning is finished
+[   13.342188] ubi0 error: ubi_read_volume_table: the layout volume was
+not found
+[   13.349784] ubi0 error: ubi_attach_mtd_dev: failed to attach mtd1,
+error -22
+[   13.356897] UBI error: cannot attach mtd1
+-------------------------------------------------------
 
-Signed-off-by: Harshit Shah <hshah@axiado.com>
----
-Changes in v2:
-- Add missing "Fixes:" tag in commit msg
-- Link to v1: https://lore.kernel.org/r/20250821-axiado-ax3000-missing-serial-alias-v1-1-527d979c3ea0@axiado.com
----
- arch/arm64/boot/dts/axiado/ax3000-evk.dts | 3 +++
- 1 file changed, 3 insertions(+)
+If dma=off, but patch-3 is applied -- everything works (but slowly).
 
-diff --git a/arch/arm64/boot/dts/axiado/ax3000-evk.dts b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
-index 92101c5b534bfac8b463adaa1c4f0d4367d01e21..b86e969625573bf92bdd5e4435ea571dd7500de2 100644
---- a/arch/arm64/boot/dts/axiado/ax3000-evk.dts
-+++ b/arch/arm64/boot/dts/axiado/ax3000-evk.dts
-@@ -14,6 +14,9 @@ / {
- 	#size-cells = <2>;
- 
- 	aliases {
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
- 		serial3 = &uart3;
- 	};
- 
+Here is a patch to disable DMA operations:
 
----
-base-commit: 8742b2d8935f476449ef37e263bc4da3295c7b58
-change-id: 20250813-axiado-ax3000-missing-serial-alias-39c489370ba9
+ --- a/drivers/spi/spi-airoha-snfi.c
++++ b/drivers/spi/spi-airoha-snfi.c
+@@ -618,6 +618,7 @@ static int airoha_snand_dirmap_create(struct
+spi_mem_dirmap_desc *desc)
+        if (desc->info.offset + desc->info.length > U32_MAX)
+                return -EINVAL;
+ 
++       return -E2BIG;
 
-Best regards,
--- 
-Harshit Shah <hshah@axiado.com>
+        if (!airoha_snand_supports_op(desc->mem, &desc->info.op_tmpl))
+                return -EOPNOTSUPP;
 
+
+
+On 22.08.2025 16:14, Lorenzo Bianconi wrote:
+>> On 22.08.2025 09:46, Lorenzo Bianconi wrote:
+>>>> On 21.08.2025 14:34, Lorenzo Bianconi wrote:
+>>>>>> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
+>>>>>>>> This patch series greatly improve airoha snfi driver and fix a
+>>>>>>>> number of serious bug.
+>>>>>>>>
+>>>>>>>> Fixed bugs:
+>>>>>>>>  * Fix reading/writing of flashes with more than one plane per lun
+>>>>>>>>  * Fix inability to read/write oob area
+>>>>>>>>  * Fill the buffer with 0xff before writing
+>>>>>>>>  * Fix reading of flashes supporting continuous reading mode
+>>>>>>>>  * Fix error paths
+>>>>>>>>
+>>>>>>>> Improvements:
+>>>>>>>>  * Add support of dual/quad wires spi modes in exec_op().
+>>>>>>>>  * Support of dualio/quadio flash reading commands
+>>>>>>>>  * Remove dirty hack that reads flash page settings from SNFI registers
+>>>>>>>>    during driver startup
+>>>>>>>>
+>>>>>>>> Unfortunately I am unable to test the driver with linux at the moment,
+>>>>>>>> so only the following testing was done:
+>>>>>>> It seems to me this is quite an important rework of the driver. I would prefer
+>>>>>>> to have some test results for this series. Are you able to run mtd_test kernel
+>>>>>>> module for testing?
+>>>>>> I'll try to build latest openwrt with this patches  and mtd_test kernel
+>>>>>> module and try it on one of our boards.
+>>>>> what board are you using for testing? If it is based on Airoha-7581 you could
+>>>>> use the following repo for testing.
+>>>>>
+>>>>> https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-stable
+>>>>>
+>>>>> Regards,
+>>>>> Lorenzo
+>>>> What tests do you suggest to run?
+>>> IIRC I run all of them. Can you please report even if there are some
+>>> improvements (or penalties) in read/write speed
+>> Do you mean to run it twice? with patches and without?
+> I mean I would suggest to check if there are any difference in read/write
+> speed (so yes, you need a baseline).
+>
+> Regards,
+> Lorenzo
+>
+>>>> I have a single flash I boot from. It have only 2 mtd partitions:
+>>>>
+>>>> [    2.980849] spi-nand spi0.0: Micron SPI NAND was found.
+>>>> [    2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size:
+>>>> 2048, OOB size: 128
+>>>> [    2.994493] 2 fixed-partitions partitions found on MTD device spi0.0
+>>>> [    3.000856] Creating 2 MTD partitions on "spi0.0":
+>>>> [    3.005651] 0x000000000000-0x000000020000 : "bl2"
+>>>> [    3.011247] 0x000000020000-0x000010000000 : "ubi"
+>>>>
+>>>> Most of tests are destructive. So If I use "bl2" or "ubi" partition for
+>>>> test, next time I will be unable to boot :-(
+>>> yes, I flashed the device after carrying out the test.
+>>>
+>>> Regards,
+>>> Lorenzo
+>>>
+>>>> Do you suggest to patch u-boot & linux to have more mtd partitions?
+>>>>
+>>>> This is the results of the only read-only test I found.
+>>>>
+>>>> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
+>>>> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=1
+>>>> [  159.121706]
+>>>> [  159.123220] =================================================
+>>>> [  159.129053] mtd_readtest: MTD device: 1
+>>>> [  159.132898] mtd_readtest: MTD device size 268304384, eraseblock size
+>>>> 131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
+>>>> 64, OOB size 128
+>>>> [  159.147008] mtd_test: scanning for bad eraseblocks
+>>>> [  159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
+>>>> [  159.157549] mtd_readtest: testing page read
+>>>>
+>>>> Mikhail
+>>>>
+>>>>>> Actually patches can be divided on to parts:
+>>>>>> * fixes of current driver (patches 1-10)
+>>>>>> * change of behavior to avoid reading flash page settings from SNFI
+>>>>>> registers during driver startup (patches 11-14)
+>>>>>>
+>>>>>> The changes are based on the code we are using for more than 3 years. I
+>>>>>> adapt it to latest linux/u-boot code.
+>>>>>>
+>>>>>> Up to now the only known issue appears on en7523 chips only. Here a
+>>>>>> corresponding patch description (not added to this series)
+>>>>>> ====================================================== spi: airoha:
+>>>>>> en7523: workaround flash damaging if UART_TXD was short to GND We found
+>>>>>> that some serial console may pull TX line to GROUND during board boot
+>>>>>> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
+>>>>>> booting in RESERVED boot mode. It was found that some flashes operates
+>>>>>> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definitely
+>>>>>> affected by the issue, Winbond flashes are NOT affected. Details:
+>>>>>> -------- DMA reading of odd pages on affected flashes operates
+>>>>>> incorrectly. Page reading offset (start of the page) on hardware level
+>>>>>> is replaced by 0x10. Thus results in incorrect data reading. Usage of
+>>>>>> UBI make things even worse. Any attempt to access UBI leads to ubi
+>>>>>> damaging. As result OS loading becomes impossible. Non-DMA reading is
+>>>>>> OK. =======================================================
+>>>>>>
+>>>>>> Regards,
+>>>>>> Mikhail
+>>>>>>
+>>>>>>
+>>>>>>> Regards,
+>>>>>>> Lorenzo
+>>>>>>>
+>>>>>>>>  * Driver compiles without error.
+>>>>>>>>  * All changes were tested with corresponding u-boot driver. U-Boot
+>>>>>>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
+>>>>>>>>    additional fixes for continuous mode.
+>>>>>>>>
+>>>>>>>> Changes v2:
+>>>>>>>>  * minor fix
+>>>>>>>>  * add comments to code
+>>>>>>>>
+>>>>>>>> Changes v3:
+>>>>>>>>  * add patch to prevent continuous reading
+>>>>>>>>
+>>>>>>>> Mikhail Kshevetskiy (14):
+>>>>>>>>   spi: airoha: return an error for continuous mode dirmap creation cases
+>>>>>>>>   spi: airoha: remove unnecessary restriction length
+>>>>>>>>   spi: airoha: add support of dual/quad wires spi modes
+>>>>>>>>   spi: airoha: remove unnecessary switch to non-dma mode
+>>>>>>>>   spi: airoha: unify dirmap read/write code
+>>>>>>>>   spi: airoha: switch back to non-dma mode in the case of error
+>>>>>>>>   spi: airoha: fix reading/writing of flashes with more than one plane
+>>>>>>>>     per lun
+>>>>>>>>   spi: airoha: support of dualio/quadio flash reading commands
+>>>>>>>>   spi: airoha: allow reading/writing of oob area
+>>>>>>>>   spi: airoha: buffer must be 0xff-ed before writing
+>>>>>>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
+>>>>>>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG and
+>>>>>>>>     REG_SPI_NFI_SECCUS_SIZE registers
+>>>>>>>>   spi: airoha: set custom sector size equal to flash page size
+>>>>>>>>   spi: airoha: avoid reading flash page settings from SNFI registers
+>>>>>>>>     during driver startup
+>>>>>>>>
+>>>>>>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++-----------------
+>>>>>>>>  1 file changed, 260 insertions(+), 248 deletions(-)
+>>>>>>>>
+>>>>>>>> -- 
+>>>>>>>> 2.50.1
+>>>>>>>>
 
