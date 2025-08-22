@@ -4,69 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32BBCA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A105ECA0EFA
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=; b=vlayvPW6xitynfRNtTahVbgn3Q
-	M4WesdSZ/LpqGyapHkB2U/0NwV5VtKllv0d2YhHjtWUYR2OuYkjcsybdV/1qOgEAyfm+kfdwId61L
-	JOay/mbxgDRfAXQqMc3S2IuP+olYvdyhy4pCMg5ZwnI80mNTUR29FK5n2BAPnhnLRb1bIYSB2q08X
-	yEInjE76hesOrLhzZ/6HEi+dlQrVjM6NefEGJh7Fj6AqJeG3WsZWrOkDg8u+FlCSdcicjNDGq5PQu
-	CftD3kQimVElz9VKE9xAaXMpaEzNb5j7WACi78BSFPKK/Tm5WWgKX3DHJj1JHcC/qTkjwGd/xoL6v
-	PQf4LFZA==;
+	bh=fwrR/T3hJ0k4Yy4mDwBSBvC8MzVLkNsX3p2twa7fO3Q=; b=QAjI144l4YpplTB5H+kN93Na7Q
+	IFdHM4+MmkMYMWAT4mFLWLnLH19XqIheB27XwfaHctB5T8wiBajUmRBktWpjA9oPJ3mjU1BOOsVtX
+	InORTWS6T8iYUqXrHcPjF8RkX0o6l0AJjTYcGst070FM09gjT5SDDOzfRQ6UFr+k1AVSseO8hFGCe
+	lrmKX08sstkEC4o0aSOMAZGjAm+Ms7PrTLRkIrAGxLp1jmRK0m/ByiICnRN89p2QAJuniV7QCfmAc
+	FTOLYQenn6PFpSMUiw/RYDSv6UZRsB2w4Quf4t/aETsBnHrsQ+hDLSDRXhwhfwWt8aIyUI6ph4U7E
+	9iCi4GbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uplob-00000004f9s-2EFx;
-	Sat, 23 Aug 2025 10:49:41 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uploU-00000004f0F-1CLA;
+	Sat, 23 Aug 2025 10:49:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZhL-00000003Zbm-3i3d
+	id 1upSzq-00000002sIl-0tRf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 14:44:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:To:From:Date:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fwrR/T3hJ0k4Yy4mDwBSBvC8MzVLkNsX3p2twa7fO3Q=; b=Pw9OHLenpGA+Nr66paAhl/O4kd
+	UJdYDhABGh0V0YxYB3qMOY2Pe9nFEZALzbNQ7ebdg+29hjb4YZ4KRdh819HK55EcjPVk55dChZS2m
+	wGZi2GTrnyXl+XWE9bXNIc8iRGYb6FVDgpuTupSrStbF9iEBWJGJ5JYXilsNhFDNgdXdz+JKmmhL7
+	qw0Cplyez3duKaVDOl1icwMH0bCB5GysNQ+sS2g/H1bpStDuLw9KDWnsXdaKwVwRJGfimqc+Z73OY
+	0skNRz9k74gPo+YlTR9hCdAs74SbWPyOprh1Y33Br+L/ewhUIda9XijNOa2c8zcfKZ3QLAIvjs79A
+	5KSVQW5Q==;
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upSzm-00000000xUh-3LAa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 21:53:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755899596; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DaeXgqa2mfRAFXQsvYwFnGOx5N/UdDLKPRI4H35tJwQx+SwVAMnl0amneiS5XBvLn1OTE0Xpxl+ajk5yMdjEGmslbLGRV2U0QZynDlZ1uCaoo8YtNx3EDWBAjWd+aQYXrgT9lvThlHsOx/4pV6T2kjE+LJ72rAgB3pUSDjuJXEA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755899596; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=; 
-	b=bZ1yeQlkjA1buILpzDbO1uU4/+W0ZCFzleflKEKwpEL2fx+rLE4nVogYYyT3IVed3c3Azh8F9uKmJ2PTWei0kwPZir70CLK6ngk0owgYeySKL6QFgD8D+K5kaTwO1lVtS+/hhlVW1soSQ06sW4O6d6wFAezH6aIlxELR9AvIRlc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755899596;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=;
-	b=iSaUa7a2jNmxQGqe7vXbTWhQ/nmEra/4nn8lzccL0eqk3c1NKO3Lyu0hJ0YJtvCN
-	PfHdixcUHSL4GNliUGu095teO9PJZt2EwBvsdLVYuRK9hYmyUKEsrpP8UCsxsFyN2Iv
-	1AyfHKI5yCLvXxh8skcZWeTEK1n/n3jM8PHvB4io=
-Received: by mx.zohomail.com with SMTPS id 1755899594556961.1841976736891;
-	Fri, 22 Aug 2025 14:53:14 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 3A4AE1808AD; Fri, 22 Aug 2025 23:53:11 +0200 (CEST)
-Date: Fri, 22 Aug 2025 23:53:11 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: defconfig: enable backlight device class
-Message-ID: <fozbq6otnko75e4zfsad4c3qp7zgh5n3r4yj3swjd24dxdg4ue@krbmtduwdapm>
-References: <20250408134249.1131127-1-alexander.stein@ew.tq-group.com>
- <2385138.ElGaqSPkdT@steina-w>
-MIME-Version: 1.0
+	Fri, 22 Aug 2025 14:44:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ORESvRNmoVYBVnM+gSSt6me1jF1S3CLGMrimParHJRwXwEw0QBD/ekO69uTH8+DUj9ZlQPq577h64YdHOWmfgvF5BSQQx/k/+T4ZsiDowHDue3UGfIA3DhqeS6Rvjq58I9jG9gTB3p1yz4PjjZuAHDGOH9wMqKuY59gGrPLoMQxioeH6KZQMnZBHWMYxwjrg7KwkBybZNPX7fQxRh4AQgYHrk9UZ42nC0AUp+oGPGUNRqnjVd2mpQCJ3pgW810GVTOF2S7Wo26B3ihMZiihIINbRMBojXlrTDXvMacEGVmOTAyWJWScrFxAI0FMOUKS3GFRm0DdUAfY78jilIZ+rzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fwrR/T3hJ0k4Yy4mDwBSBvC8MzVLkNsX3p2twa7fO3Q=;
+ b=mrm+Jf+CwDCgHgeeKFQBOOcgSsTLwadEFnVKbzyVQ6XKYznq8EuyC13mTiN01KI0z+q2X9f8chRy3PtL/hvSWvkFknv25+3zTz4HNCCeO6AM/3j6k9DNqSpb+A5sXBP3C2crFZ7goLIMH5qQINg7GgvF8U79IZNmHTCWJb2m3MKmfsFtM2GZqL76IsLzcsGOMsY0dReKtOTlT1gizFgEZqHZd6ZDRjxBOBQdRaAzfDrIfUifqHpnJsEUuG2JkHAwQZLcY5/fdozrxbwy3t3741gK0XIjIDpxUGHHgS7KHZCHfskBC6m3wHpuiRL1szhzhvQIolAHyK4yn1g+rK/UfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fwrR/T3hJ0k4Yy4mDwBSBvC8MzVLkNsX3p2twa7fO3Q=;
+ b=X5fe7XD6ZZgWJqVRIMoevshzAAV0U1tbwY4wGAlJCNmVvMASjq897IgfE+xqZ91toePr4+feE/8DQm4Tn3xOSoZ5JZMaLvBfJjwXSuj3CxX/WVR+jQ5qngIc7giCH5Jxa/LH6dRxSG88zvF9/x17QnPgvFBq8NwSj1iO/h7o8o/RvrvfN6ZrAIAYSgB6hu/aj7btF2jm600/U7iCh6e3pGNX9KEvAEVkVajt6HA1iPlTLeSYa/t11+k/xKzltZKr1bZwyK14pI7ZPyZVwlKieF0KgdkYn3lSdcCsa9zhF7PlR3/wpEjLWG/puTGaUmxoCXVUuebEggAjrcPRhR8Smw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.16; Fri, 22 Aug
+ 2025 14:43:51 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Fri, 22 Aug 2025
+ 14:43:51 +0000
+Date: Fri, 22 Aug 2025 10:43:45 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Vladimir Zapolskiy <vz@mleia.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>
+Subject: Re: [PATCH 00/11] ARM: dts: nxp: clean lpc18xx DTB check warning
+Message-ID: <aKiCIZf0eG2F0nvr@lizhi-Precision-Tower-5810>
+References: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2385138.ElGaqSPkdT@steina-w>
-X-ZohoMailClient: External
+In-Reply-To: <20250706-lpc18xxx_dts-v1-0-7ae8cdfe8d7d@nxp.com>
+X-ClientProxiedBy: PH7PR13CA0010.namprd13.prod.outlook.com
+ (2603:10b6:510:174::20) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|VI1PR04MB7055:EE_
+X-MS-Office365-Filtering-Correlation-Id: 963e6e83-cf86-475e-69a8-08dde18a4f97
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|7416014|376014|19092799006|38350700014|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HtfLdwchwrmS5B0vIoG1ZQXft9n6R1Bw1y16dcJt1uFuTRJCo/zlCh4+RGLe?=
+ =?us-ascii?Q?S5Q/EYgFyb/nzkrb3UPwSndAL+oP65mR3raLrQhdnuk1tfe8M7qE273Di3Vl?=
+ =?us-ascii?Q?nZDWM1DxOVE1YdO3c77MalGeeIcGRd/eJ8fizGiSdR3DMfHssF1M1dqDIu+U?=
+ =?us-ascii?Q?anLxY23s9PUpLx5qJuEEr5Fbhi7SOBwWO8XhD9VBo4RkUYtmu/leOx4CB1RH?=
+ =?us-ascii?Q?88QJcMIg/TJL+IhkYheUORqEoeH5+9CxbcqGJn1ZOtC3PeMQzXDF+bCIlV2g?=
+ =?us-ascii?Q?m4WJeN0VATT1x5BQsLT6HC5OYR4FjZfC0S72Kd36iH4kRQUg0hfxBddeqOXl?=
+ =?us-ascii?Q?IlYG+zXD0G+73nZ3cV7p4ssV4eEQn70hCXMTIFlB220GbrBdyi1ODDrOjHAl?=
+ =?us-ascii?Q?1H0Q7XMWLnnK3C8a3txHaBgcATx1zb/gPE+646ioIH38ZXm1xuhzZwDOyH2x?=
+ =?us-ascii?Q?B0zfjYReSsaJrArOtKR0FyN7UeJ+syOiXBZotz0MVpqwwc5/WwRPcsEqIRzB?=
+ =?us-ascii?Q?mwxMJN07xTCe3Jnrd/Nm11liPSz0dtOvS2cAqHnH0k4DHMfS+ezfC4zdeZuo?=
+ =?us-ascii?Q?qf5ouHly1Ly2x7RMAneQC4OMtysNT7+blfFjl59O5IHTNUlsmBjLcM0xx5kl?=
+ =?us-ascii?Q?ibZl3CZnLLUuhuRhEBxvH74bAVVggbivLd4GLdsnIw30pAwHl6SYA3w35mJb?=
+ =?us-ascii?Q?AeC+BVDy1Um+S3gXlcwBNzTcKNBGYHoIGtjVXYvwLBrCgNhPpaZsSQIRS5DA?=
+ =?us-ascii?Q?85aNnCXONBNSeuWj+1m+NFTJcvxsh8mdn8dQpTK+rFvHR5Zwj+9YzRlNoRM3?=
+ =?us-ascii?Q?mw3o4SNgMwRDaWGa3eUPiD1NQ0NSgk3cCZsOuyZc8yMQy9erFU/tvDTcCQjV?=
+ =?us-ascii?Q?zwRRVeWOTby3ERN9tlPn59pKPvOHz/y+8N6k1GIKrw0iyQwaviAs3z1qpb9o?=
+ =?us-ascii?Q?Q3AqgCFpcx1S6lQWSwW/X9AxdQIHCYZnThAx23S0nQUNxT5Op6UulYWSvXZc?=
+ =?us-ascii?Q?aWbSAPs54yjGgnBrpHN3selx7tUdpgBQhqDnE1HLL9ASrNkS8TWYyx3pV2Vd?=
+ =?us-ascii?Q?jGUbThQuSEgOlmfi7tVSF3aUPd40bkioU+YEi02okkk+/KGIcTAbDR+2Vdci?=
+ =?us-ascii?Q?V9It0kmgFkDULbvcyGbhBNfO/orxYHrmSUCmXNNUtaMbS3O1h3A0/OWted+f?=
+ =?us-ascii?Q?k4b2VCGLhTmwPqY1LI9g9EdHRoLWSgb88zkTAgFIf+43MlnERgQPphG9tqx/?=
+ =?us-ascii?Q?ky8i4kdTQOHzbWcy18q1zSmyg/Hs1xjP4hIv2ZajWxgjLfAHeOtRFGrjgaV/?=
+ =?us-ascii?Q?XFuyIdTO0ZepHxU62vRiPn8nwsM8Cgcj8O2sNQ+yPPXSGNYf4Bd8m6uTihVC?=
+ =?us-ascii?Q?QJmOlUqcoBIh7bC0JAOx8RQzjIF4eNm60IbF1y7xCU62hkMNaXuZ9w5wrbUp?=
+ =?us-ascii?Q?NofL8odjZ7yYTTJ6xd4Zlrr03AfV+TYwbyf3l2Bqvpb+kHMTfsYenFILZxf7?=
+ =?us-ascii?Q?FLw3ZgKT37frh7rgq1/pchr2vQFouTqTgRDE?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(7416014)(376014)(19092799006)(38350700014)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k3KRiRIiiWt4GBsGg1PdDlQ3/Z5Ge9PQaKIwzTrj6xON/8a7rtOfNjSXe4C7?=
+ =?us-ascii?Q?VhZ6q2nsiRiJziUuAXtD4HH6K7B2TzVNnino0nObZQlleMzGDvSjfEzzPCXm?=
+ =?us-ascii?Q?MgK52E5S/rbcSyn0KRty8qdMawrSJ3ArdyVIkrLRlX/4qJQFRdc5Xnz6SOfK?=
+ =?us-ascii?Q?2Mo9T4noUfz9xOnN0pnJAiYZALh8bSeKpFNSo+kdMydjckMbIA2NbVVLp05b?=
+ =?us-ascii?Q?KvtbdGakvtnlZ/JvrMcYRzuf45K1O73lDDoYbg0HwihZHCFPYbbKM1kF/rFi?=
+ =?us-ascii?Q?txfrgHiGQlx6Pwc2SZ0jH+OZhyfdhyscm7tcy/6gGn3Qau4puBlIu6V11OCj?=
+ =?us-ascii?Q?SJ8YzM+NQwIp85FyMAr+oxyboandWIqAVIBIOArDz2aQKpRhiieYfMjAvvag?=
+ =?us-ascii?Q?xvGUkwEK7mFGmdFo6TtSpepENl3GoWq+0eawDk7LPG0pJDlfh+mdf5qYVeog?=
+ =?us-ascii?Q?w4miRagghPjia9tGgvujKmWr5xU88/dlFL51daDFVSayAFmbghbSTVa7i/wT?=
+ =?us-ascii?Q?9f8EGMCENZNF8re064nYUjwzPuf8YOkQq3+Kzz1tkJvx/M+ZvMwScrU+KFj5?=
+ =?us-ascii?Q?VbYijGb+MFJclvgxTemg1wzXz9RflLauL5G7YaEsnVCZXVZcuqg/Yc9xn1Dc?=
+ =?us-ascii?Q?5bgkHRFtosRxZLuWAHtCKdfiHVDfzITbmp7vWTVokKl0OkzjsDn5m13mwUtd?=
+ =?us-ascii?Q?kZXAn4HbHi3rf0OCHYUGXXwcVxtROD3plaYEad5pGHd0vRpQsfYC+h7mUXJy?=
+ =?us-ascii?Q?1cVhqw5JNqQ4D3CTeNBlhaD12WOpGpyuJo4nocrO5/iXY62SviwVbdvERqFl?=
+ =?us-ascii?Q?dKe0sSEuujQrYsvbpO+EjgepD0R55bDMP9Ti8Te6vLtLklmJb6Rfc9++FjfM?=
+ =?us-ascii?Q?+Unlhypek/NFEZFydki00nYrPVzLO4q2OfyCMhy/KJDHy3BhdDdu0qoiT2fr?=
+ =?us-ascii?Q?Z7PpTm/JRS0V1ZnBv+LyswP6i30NEqRPOp/mLcrCRwB2AI6ORwn4iAihk5NE?=
+ =?us-ascii?Q?Mv2FfjwMdgidi35HdbEVG2dzptfrCsWxSefE9+jlur14nDXy4Ow+65jg4PcW?=
+ =?us-ascii?Q?fwAiY2h4Z6mUIx/netBPHHAGADjn1oPyMHbxdwEVMpVMkycxV6QsH3pGxkhT?=
+ =?us-ascii?Q?tIfW73oDpL3X+L+SMCO1ea2bp9ibsSbuKCjibCrGOHgOcxZXRBBTlHazcvvA?=
+ =?us-ascii?Q?Kw90Q6zBjWZjG3Z+FJaakLjXF1q2wvKOGTf1JhjoElymqV9XUUJHcfL09LhK?=
+ =?us-ascii?Q?cwi2HGQT1F5yOMyqjRehluLo824ixpS1rLYQoDjBm98XtCrSAIqFdDBsilb7?=
+ =?us-ascii?Q?ehDxE6xuX0l3LTvspcW/+Q5vlnkymnE095fNgoZRjyIGslnh5C33Q45Y5op8?=
+ =?us-ascii?Q?GEZ2A5lNP9Iua7RuA/zWf09X2bb8gmwErl8+Eb+IJf57fci0Ju7VEvisWjjA?=
+ =?us-ascii?Q?FdXs3wy4E4c0VxZDZZEAg0XE9cccufXlr/0pIU8D/ChyknyIT6q2FhjTB9x6?=
+ =?us-ascii?Q?ejYcbRJPpuV2hrcLB5yIsm5oxEOnIdcrtMIRrGWV9XUS5vTDx1XnRa3fqDES?=
+ =?us-ascii?Q?QKtjyAiI3Gezm8ekmOJOXuUTjqjKcQWewd0rKr+M?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 963e6e83-cf86-475e-69a8-08dde18a4f97
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:43:51.5425
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kATZf28QiH9ZsTKriOam1N00Tk56a/eDFHna4l4IgJBts+4IuLbyx8lLEC54vWabyA3AvDuRiAFLT1AIlB3ZSg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_145323_988933_4408227B 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20250822_154358_992270_FF2BE376 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +173,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sun, Jul 06, 2025 at 02:46:56PM -0400, Frank Li via B4 Relay wrote:
+> There are 3 dt-binding patch wait for pick.
+> [1] https://lore.kernel.org/imx/20250617-hound-of-improbable-intensity-e7c3c9@kuoka/
+> [2] https://lore.kernel.org/imx/174916907717.3619367.3745642154654809311.robh@kernel.org/
+> [3] https://lore.kernel.org/imx/175087864578.2055525.4510390315154712025.robh@kernel.org/
+>
+> lpc18xx related DTB warnings reduce to 0.
 
-On Fri, Aug 22, 2025 at 03:55:12PM +0200, Alexander Stein wrote:
-> Am Dienstag, 8. April 2025, 15:42:48 CEST schrieb Alexander Stein:
-> > CONFIG_DRM_PANEL_SIMPLE is enabled in this config. But it depends on
-> > CONFIG_BACKLIGHT_CLASS_DEVICE which is only transitively enabled by
-> > DRM_NOUVEAU, iff DRM_NOUVEAU_BACKLIGHT is enabled as well.
-> > As simple-panel depends on backlight, enable this in defconfig as well.
-> > 
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  arch/arm64/configs/defconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> > index 65ec5a5be407d..b70257878812e 100644
-> > --- a/arch/arm64/configs/defconfig
-> > +++ b/arch/arm64/configs/defconfig
-> > @@ -963,6 +963,7 @@ CONFIG_DRM_POWERVR=m
-> >  CONFIG_FB=y
-> >  CONFIG_FB_EFI=y
-> >  CONFIG_FB_MODE_HELPERS=y
-> > +CONFIG_BACKLIGHT_CLASS_DEVICE=m
-> >  CONFIG_BACKLIGHT_PWM=m
-> >  CONFIG_BACKLIGHT_LP855X=m
-> >  CONFIG_LOGO=y
-> > 
-> 
-> gentle ping. Any feedback?
+Vladimir Zapolskiy and arnd:
 
-You want to resend with updated mail destination:
+	I asked shawn, these are not owned by him.
 
-https://lore.kernel.org/all/20250818-arm64-defconfig-v1-1-f589553c3d72@collabora.com/
+	who will pickup these patches?
 
-Greetings,
+Frank Li
 
--- Sebastian
+>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Frank Li (11):
+>       ARM: dts: lpc18xx: rename node name flash-controller to spi
+>       ARM: dts: lpc18xx: rename node name mmcsd to mmc
+>       ARM: dts: lpc4350-hitex-eval: change node name flash to flash@0
+>       ARM: dts: lpc18xx: swap clock-names bic and cui
+>       ARM: dts: lpc: add #address-cells and #size-cells for sram node
+>       ARM: dts: lpc: add cfg surfix in pinctrl child node
+>       ARM: dts: lpc4357-myd-lpc4357: add power-supply for innolux,at070tn92
+>       ARM: dts: lpc: change node name 'button[0-9]' to button-[0-9]'
+>       ARM: dts: lpc4357-myd-lpc4357: change node name mdio0 to mdio
+>       ARM: dts: lpc18xx: add #address-cell and #szie-cell for spi flash controller
+>       ARM: dts: lpc18xx: add missed arm,num-irq-priority-bits
+>
+>  arch/arm/boot/dts/nxp/lpc/lpc18xx.dtsi             | 14 ++++++++++----
+>  arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dts         |  6 +++---
+>  arch/arm/boot/dts/nxp/lpc/lpc4350-hitex-eval.dts   | 22 +++++++++++++---------
+>  arch/arm/boot/dts/nxp/lpc/lpc4350.dtsi             |  9 +++++++++
+>  .../arm/boot/dts/nxp/lpc/lpc4357-ea4357-devkit.dts | 21 +++++++++++----------
+>  arch/arm/boot/dts/nxp/lpc/lpc4357-myd-lpc4357.dts  |  6 ++++--
+>  arch/arm/boot/dts/nxp/lpc/lpc4357.dtsi             |  9 +++++++++
+>  7 files changed, 59 insertions(+), 28 deletions(-)
+> ---
+> base-commit: bb0fde92b56b76f7a0c90a6e9d9f050919fa835e
+> change-id: 20250706-lpc18xxx_dts-b2137216e6c0
+>
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
+>
+>
 
