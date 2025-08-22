@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DE7CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3848FCA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auFfhLAHPUsxE9iJFWDgyUb0v5Pep7y3U3F/9J9quSM=; b=yNWUtjjDYuU/rh6bIdQTyGd6RH
-	VChWon2fNzAlwQspWW12lKgjdYJZodRd94rDkgUnzWkMCin/pSfs/Ftd3a7DG5cl2jz0Nr5hlD2S/
-	7hnlAESu/6CIhYinn0m64sTN0nfAbwobAekPGpEOz6QGAc5uGYON/AX88hOxbKPcPqrPbpeSlE0xC
-	4kCOVsoAHt3Qh+xhO6zEyHw0F2hy90Fzyppbze2ea3Cu9/sfvPcs7Xf/Wie+xo7NEdrFIV3LRA2Wr
-	Wbfv2rtoz8FcmLi+5eLoJG1ZuLhFmqGSnVuUxGEpLm///SUwd9zq1YwK5Pc/aMEv9aGrnv/BZTK4r
-	brS5q7fw==;
+	bh=Ts24JBBdBdyyJOKN3NR5NASyjA2J0qcuP9PP1smFeMo=; b=maoGf9LW1/z3lV0SUbi5ZIC6II
+	A1s9XVWDQDWBo9vRmsQzIIciLprfEfuSYFft0kfmhNDzBDremmVKPjjhwmiX8935T+3iu3qFBTPHS
+	m2GQTJdEDp0ZBxsNqgaXOqMcNiqlBBp9lC+4M4HUDODvddPvwFy9AVsykK+oA+R4eZs6qopiRpNFy
+	mUzVLsoDM8+W+g6gIDW5tfXd1SiFE+F2cSlRhRivCZhNG66tkf+r9zZKSN4T481C372ZepwRSbr/q
+	B8WRnA6+yg5v8G2SLdbT//rbzMAxo6cKyJedoREwq45FRoOCE8DmwMvhGw7yiuidp7fZn5UXsFSmC
+	hU2a7ZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkeS-00000004T9X-18VM;
-	Sat, 23 Aug 2025 09:35:08 +0000
+	id 1upkeT-00000004TAp-0oSt;
+	Sat, 23 Aug 2025 09:35:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTjf-000000031ZO-3EQP
+	id 1upTjl-000000031Zs-2CzS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:31:24 +0000
+	Fri, 22 Aug 2025 15:31:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F6E327DC;
-	Fri, 22 Aug 2025 08:31:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE21027DD;
+	Fri, 22 Aug 2025 08:31:20 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDF8F3F63F;
-	Fri, 22 Aug 2025 08:31:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 951433F63F;
+	Fri, 22 Aug 2025 08:31:23 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,17 +72,17 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 03/33] ACPI / PPTT: Add a helper to fill a cpumask from a processor container
-Date: Fri, 22 Aug 2025 15:29:44 +0000
-Message-Id: <20250822153048.2287-4-james.morse@arm.com>
+Subject: [PATCH 04/33] ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear levels
+Date: Fri, 22 Aug 2025 15:29:45 +0000
+Message-Id: <20250822153048.2287-5-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083123_894472_1C119421 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20250822_083129_680620_73A797A2 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,145 +97,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PPTT describes CPUs and caches, as well as processor containers.
-The ACPI table for MPAM describes the set of CPUs that can access an MSC
-with the UID of a processor container.
+acpi_count_levels() passes the number of levels back via a pointer argument.
+It also passes this to acpi_find_cache_level() as the starting_level, and
+preserves this value as it walks up the cpu_node tree counting the levels.
 
-Add a helper to find the processor container by its id, then walk
-the possible CPUs to fill a cpumask with the CPUs that have this
-processor container as a parent.
+This means the caller must initialise 'levels' due to acpi_count_levels()
+internals. The only caller acpi_get_cache_info() happens to have already
+initialised levels to zero, which acpi_count_levels() depends on to get the
+correct result.
 
-CC: Dave Martin <dave.martin@arm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Two results are passed back from acpi_count_levels(), unlike split_levels,
+levels is not optional.
+
+Split these two results up. The mandatory 'levels' is always returned,
+which hides the internal details from the caller, and avoids having
+duplicated initialisation in all callers. split_levels remains an
+optional argument passed back.
+
+Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
+
 ---
 Changes since RFC:
- * Dropped has_leaf_flag dodging of acpi_pptt_leaf_node()
- * Added missing : in kernel-doc
- * Made helper return void as this never actually returns an error.
+ * Made acpi_count_levels() return the levels value.
 ---
- drivers/acpi/pptt.c  | 86 ++++++++++++++++++++++++++++++++++++++++++++
- include/linux/acpi.h |  3 ++
- 2 files changed, 89 insertions(+)
+ drivers/acpi/pptt.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index 54676e3d82dd..4791ca2bdfac 100644
+index 4791ca2bdfac..8f9b9508acba 100644
 --- a/drivers/acpi/pptt.c
 +++ b/drivers/acpi/pptt.c
-@@ -298,6 +298,92 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
- 	return NULL;
+@@ -181,10 +181,10 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+  * levels and split cache levels (data/instruction).
+  * @table_hdr: Pointer to the head of the PPTT table
+  * @cpu_node: processor node we wish to count caches for
+- * @levels: Number of levels if success.
+  * @split_levels:	Number of split cache levels (data/instruction) if
+- *			success. Can by NULL.
++ *			success. Can be NULL.
+  *
++ * Returns number of levels.
+  * Given a processor node containing a processing unit, walk into it and count
+  * how many levels exist solely for it, and then walk up each level until we hit
+  * the root node (ignore the package level because it may be possible to have
+@@ -192,14 +192,18 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+  * split cache levels (data/instruction) that exist at each level on the way
+  * up.
+  */
+-static void acpi_count_levels(struct acpi_table_header *table_hdr,
+-			      struct acpi_pptt_processor *cpu_node,
+-			      unsigned int *levels, unsigned int *split_levels)
++static int acpi_count_levels(struct acpi_table_header *table_hdr,
++			     struct acpi_pptt_processor *cpu_node,
++			     unsigned int *split_levels)
+ {
++	int starting_level = 0;
++
+ 	do {
+-		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
++		acpi_find_cache_level(table_hdr, cpu_node, &starting_level, split_levels, 0, 0);
+ 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+ 	} while (cpu_node);
++
++	return starting_level;
  }
  
-+/**
-+ * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT processor node
-+ * @table_hdr:		A reference to the PPTT table.
-+ * @parent_node:	A pointer to the processor node in the @table_hdr.
-+ * @cpus:		A cpumask to fill with the CPUs below @parent_node.
-+ *
-+ * Walks up the PPTT from every possible CPU to find if the provided
-+ * @parent_node is a parent of this CPU.
-+ */
-+static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
-+				     struct acpi_pptt_processor *parent_node,
-+				     cpumask_t *cpus)
-+{
-+	struct acpi_pptt_processor *cpu_node;
-+	u32 acpi_id;
-+	int cpu;
-+
-+	cpumask_clear(cpus);
-+
-+	for_each_possible_cpu(cpu) {
-+		acpi_id = get_acpi_id_for_cpu(cpu);
-+		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
-+
-+		while (cpu_node) {
-+			if (cpu_node == parent_node) {
-+				cpumask_set_cpu(cpu, cpus);
-+				break;
-+			}
-+			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
-+		}
-+	}
-+}
-+
-+/**
-+ * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
-+ *                                       processor containers
-+ * @acpi_cpu_id:	The UID of the processor container.
-+ * @cpus:		The resulting CPU mask.
-+ *
-+ * Find the specified Processor Container, and fill @cpus with all the cpus
-+ * below it.
-+ *
-+ * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
-+ * Container, they may exist purely to describe a Private resource. CPUs
-+ * have to be leaves, so a Processor Container is a non-leaf that has the
-+ * 'ACPI Processor ID valid' flag set.
-+ *
-+ * Return: 0 for a complete walk, or an error if the mask is incomplete.
-+ */
-+void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
-+{
-+	struct acpi_pptt_processor *cpu_node;
-+	struct acpi_table_header *table_hdr;
-+	struct acpi_subtable_header *entry;
-+	unsigned long table_end;
-+	acpi_status status;
-+	bool leaf_flag;
-+	u32 proc_sz;
-+
-+	cpumask_clear(cpus);
-+
-+	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
-+	if (ACPI_FAILURE(status))
-+		return;
-+
-+	table_end = (unsigned long)table_hdr + table_hdr->length;
-+	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
-+			     sizeof(struct acpi_table_pptt));
-+	proc_sz = sizeof(struct acpi_pptt_processor);
-+	while ((unsigned long)entry + proc_sz <= table_end) {
-+		cpu_node = (struct acpi_pptt_processor *)entry;
-+		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
-+		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
-+			leaf_flag = acpi_pptt_leaf_node(table_hdr, cpu_node);
-+			if (!leaf_flag) {
-+				if (cpu_node->acpi_processor_id == acpi_cpu_id)
-+					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
-+			}
-+		}
-+		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
-+				     entry->length);
-+	}
-+
-+	acpi_put_table(table_hdr);
-+}
-+
- static u8 acpi_cache_type(enum cache_type type)
- {
- 	switch (type) {
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 1c5bb1e887cd..f97a9ff678cc 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
- int find_acpi_cpu_topology_cluster(unsigned int cpu);
- int find_acpi_cpu_topology_package(unsigned int cpu);
- int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
-+void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
- #else
- static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
- {
-@@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
- {
- 	return -EINVAL;
- }
-+static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
-+						     cpumask_t *cpus) { }
- #endif
+ /**
+@@ -731,7 +735,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+ 	if (!cpu_node)
+ 		return -ENOENT;
  
- void acpi_arch_init(void);
+-	acpi_count_levels(table, cpu_node, levels, split_levels);
++	*levels = acpi_count_levels(table, cpu_node, split_levels);
+ 
+ 	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
+ 		 *levels, split_levels ? *split_levels : -1);
 -- 
 2.20.1
 
