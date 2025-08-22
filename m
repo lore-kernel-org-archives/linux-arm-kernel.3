@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F91CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCD1CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ntITPX/yKgnZ1Q6Dq8rTG0b/dRN6+Si7W2upKYFSU0=; b=bwy0hhe16VDz33o/dXgcfKzpDF
-	qmsbkEt7zLFmO4vu1czX0+rMNTgVXdJJMneV04Wejt6nh7qJuhvfBQ2jU5GpJGf7mSPy4p8GfXBTG
-	rhNtBRnGfv0A9nOEm2eQFPNNRJI4T1DqvpkbGZV+fGXOrsS75aeQLsZESYBXCmfP4YLHN9g5RioJc
-	1oX4ryDkCQJwM4UmiWp4w1TcvXTR2gMkqkgZJ98wk2qNMqeiR+jD6EFf2E5zoUExO4pLr5ARk3pMS
-	GJXnTebJe5e+50oY+lamiG6un8EHmP21S9Yg/ejo3AX22B3y8zC0IJk3Ah2VtJ3ZFV9LUz6M8jiRn
-	UTpJY1xA==;
+	bh=X/I/B1Xgl4R7nkzvCP7ov1Z9+wk36ipL18Hy/fu/bOM=; b=PAAkiQYSDd2jIzr+8Ei9nUrcqC
+	8bvvgR8oY2PsSqDo9U//AYp6qoYIhYzml/yd0BVlpW7yrPtehr/IjQPq+GZgs7k3/e2aY8+8nqA5c
+	nTH5Ujq6Uj6mXuKa9FGzcs2qpDq+wVD3/JRIHP00MXASNY4w088VpKzDnQra7Mic6ydiW0ejov8yH
+	lHp/sLdDF2AHjIrlh0b0RIT6lyJR2sXY0KDSVp/xzZL1vzjyDDDKCK1ajCp283Cd4NB9RgRUQo5b1
+	v/sl4s1BL4Lna1mHmxbQ4lxLf/dzarjR6JuMhY5M3Wl94lU6Bks31GvnGhHxU1bapCHqQiR8ogxIE
+	oNghzH8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphm9-00000003zRP-2fb6;
-	Sat, 23 Aug 2025 06:30:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uphmC-00000003zYT-42Bs;
+	Sat, 23 Aug 2025 06:30:56 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRcm-00000002b2y-29Rq
+	id 1upRrn-00000002dP3-0K0F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:16:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DC4240443;
-	Fri, 22 Aug 2025 13:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE105C113D0;
-	Fri, 22 Aug 2025 13:16:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755868568;
-	bh=Z4N7E/ATatKbH4cDH2pW0yLzLs+JwnGudzv9sEzmXkk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u9qqJqF8cxZ+yFm28exnxYClwNlCvshsNwzS1xiCidbwyZoVkRRzZvSevHaF8YOmh
-	 sR6bx5S/N7uXWz6G3HjIIXI7Qi7zE3vUhQ9vHZVcXurFBb6vn8YE9ZzEy6yiiuCnQp
-	 AthcgRTahTHUS2Pw5Nav8zyJ+BqRmZ70gMbpc4CAjjF2CLHE0jlJasdqlowrU+PNun
-	 X51QbgWaT1DGE5MKOvcjqA3WvhBPeOddaAcreT6vVjdLhHYIBcgP8dJbE2uxeIxe7u
-	 Xf3dVMnlHlbO6uvKILUzZv3oC34639BIeey/PhcKuhGj0HoOmnb7kP2c6H0AQW+1NU
-	 HycDVuyq1jDNw==
-From: Michael Walle <mwalle@kernel.org>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Lee Jones <lee@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	linux-watchdog@vger.kernel.org
-Subject: [PATCH v1 6/7] hwmon: sl28cpld: add SMARC-sAM67 support
-Date: Fri, 22 Aug 2025 15:15:30 +0200
-Message-Id: <20250822131531.1366437-7-mwalle@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250822131531.1366437-1-mwalle@kernel.org>
-References: <20250822131531.1366437-1-mwalle@kernel.org>
+	Fri, 22 Aug 2025 13:31:40 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-afcb78d1695so27832166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:31:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755869497; x=1756474297; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=X/I/B1Xgl4R7nkzvCP7ov1Z9+wk36ipL18Hy/fu/bOM=;
+        b=eT0Sbgtw2+QP8HbaWJewszfQ32BeF/0ySfy0p+0/xvP+CHzNE6UmAHADtPlgdVCMB3
+         dZDuaZtBkGen3CQaAql/EiVBFNGP3GerYz/Ukq/VbKpcRuhi/ZviX9Xgv+e2xSQWb2XD
+         9dsD1ZpGbTZrIZa2mjSLD1DHoKCntop5issvZlpZOZeTGQcwC9AJlLdH+yojMnSjGPvb
+         JJTQN0CnsoRDRb0ctk8BP8dJDmoMwYC9VPcf3rMa8kNe4I+fLobxKvjZ5CR7n1QuwS0E
+         xj154eOejxutal19X+p5H9EvFDaohZEtNjU6kgNdlaS7m+JMQiRDt5TnJ8stbi72G8uo
+         yGoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755869497; x=1756474297;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X/I/B1Xgl4R7nkzvCP7ov1Z9+wk36ipL18Hy/fu/bOM=;
+        b=Uepz9/ooBitWHDgE7LdOVWMOzLLSJgiUeRsf2WfhHbgPvumo3Mwsner/Pj8hYsZVL5
+         SXA3nKrJE4e8h4gY4/NmZYvBsW+dXlLS0bJSghxnOTcP3OKUkPwyQ6OPb6Rgy9Q7idxE
+         HKZPQVLmj9YmiFNz5Z26yp4iFhngQMvtdc19/OWa+bEMT7SzIA64KotBeZwMnpD0gNEh
+         bXMLuwzdsFnstlGbZX/EbX5IVPZQOf6U7Wb5xxrzBYsq6E00QUA/64icQxwEGRhC/omL
+         mCE9mI+TGI6zuyC6UAkK6k0VoNchS+/eV1HiC/VEXFdkE6oD5fhaQx/46UFB83tFyGOf
+         XnOg==
+X-Gm-Message-State: AOJu0Yyt3/rOdjo9n9tKCOPI+SwrMAr+LdtQpgPCb/FKT8CbPOKYSqwL
+	Zv9qIzsNilwVUPUEE6UlZ5LwlMg80d6Rf5SU9uFFtcED7vkjtTZhckDOs0r5l+n3Y1Y=
+X-Gm-Gg: ASbGnct8kBYQoTdpHLJqii0/osYl0rqInhqNKLuzfaoI0EZmhPvuvmxHVUZMlNVJGe9
+	s/WLxiYSbWUJ26zVUhgLong0GxxapIhODuE14THI+0AQz2APyRzUNAuQLW+jC8RzgS0tpRXo+bw
+	NxqUkCDDsufOdXJgL4NReH3GU6OJXgk4rT0L5+Ct8gX3zkKeilmMas7/sbg7m0u6WkIoafCNjwM
+	6GSHuArmtwh8TrN2uaYIX36tBahKwGwKbRa0ab9NXA8RKJP+W12Gqtm2YKNOJHD06ZEWqPxBsRz
+	Hi9rmvaLt5ug/9TG0/dxQDSwHgmfWsu3cvVJSdDil6P1edVMXE5I5AgR9yiMPez1lWA5nQHmzJA
+	xP+DwJ6nGw4gGJpufPaHcGVgRx5SIlS66XZ5Qj+8=
+X-Google-Smtp-Source: AGHT+IEyDwCsxl5L5Q6zhJRuvce0siTKlXqOHugCi96LaphpN2o879tF+yGlsn9uhsI+1vutjC60fg==
+X-Received: by 2002:a17:906:c10e:b0:af9:5903:3696 with SMTP id a640c23a62f3a-afe28ec8575mr159462866b.2.1755869497446;
+        Fri, 22 Aug 2025 06:31:37 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf24bc40dsm554863066b.109.2025.08.22.06.31.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Aug 2025 06:31:36 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Fri, 22 Aug 2025 15:31:19 +0200
+Subject: [PATCH 10/10] arm64: dts: imx8: Use GIC_SPI for interrupt-map for
+ readability
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250822-b4-dts-interrupt-address-cells-imx-v1-10-f1b479da9340@linaro.org>
+References: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
+In-Reply-To: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3812;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=ZgO6eUDKdzkFk380nvHSCOPF+LK4HXHq8MSxWowHtBQ=;
+ b=owEBbAKT/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHEo8ebRuqypCpa68Mh2v7d5MUvPuEcsRySCX
+ 9cVV2D5SWeJAjIEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxKAAKCRDBN2bmhouD
+ 12G3D/j2os04TAukiAzO4cVt0bZ4ODbfZ8ElQZZugArIYddeU7K0aLR9h7anhmfB246YsCfa3/C
+ 5/XJ+YY/5EqzjywJxDY+IH1cSgK4UBy86W/JdbBkCLBkBxlu9qJp/LT8itKBaX6u1BwubCI0No1
+ tJXCN/v+RPVZCs00QXh9ej1sXS/U9bbR70h8TETqgmc1mZXdVGxXBRml0MJ5BfUnreCl+i1+uK6
+ Cp3MtFnsapo66aWskhohC+jcv//WLG/6LHJ2PKUzzrRI9YYG+09NPABlEwXy4PnoHMUjxXNm1Yx
+ F8vCgZOmZ0dPAbxz2vZa7ibb9vV4JZz6RYC8OvZU5p9ZUTC07odvybnVT15f7m3kOMUIX6lE64b
+ P5XCDPwwi40TIlKH/OKgAJmY/1gk9BU9BwD/8W2oSbaQseb/yPhhaRrJyKVoS5OeNduIsUjRkX/
+ oBaY0EREk9kNocGp7kQ0V62RzkaD3dmSUFZFjxpWh//WAdH4XCOvjNxOF6BdwKfW79i6nKULuXs
+ 2plT0/ALA4dCbqEpE+9KQYQXPFRBAfp62NOFq2+vdDr/8qKyowWrbc/INq82kPAt4SCsNVVKPb0
+ E+36ERJGOKX3vyRKxiLDo2EIh4EypzaCmh6079MF0qHBrG0+5gfPi2B3fxPoKL30U8I/MB0IlMH
+ 1XEuQclU7/FOi
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_061608_596926_459D09B2 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250822_063139_120275_681657A8 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +121,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The on-board uC on the SMARC-sAM67 board is compatible with the older
-CPLD implementation on the SMARC-sAL28 board, but has different sensors,
-namely two voltage sensors and one temperature sensor. Add support for it.
+Decoding interrupt-map is tricky, because it consists of five
+components.  Use known GIC_SPI define in final interrupt specifier
+component makes easier to read.
 
-Signed-off-by: Michael Walle <mwalle@kernel.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/hwmon/sl28cpld-hwmon.c | 76 ++++++++++++++++++++++++++++++++--
- 1 file changed, 73 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi    |  8 ++++----
+ arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi |  8 ++++----
+ arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi  | 16 ++++++++--------
+ 3 files changed, 16 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/hwmon/sl28cpld-hwmon.c b/drivers/hwmon/sl28cpld-hwmon.c
-index 454cc844fb9d..670308d9b72f 100644
---- a/drivers/hwmon/sl28cpld-hwmon.c
-+++ b/drivers/hwmon/sl28cpld-hwmon.c
-@@ -18,6 +18,9 @@
- #define   FAN_SCALE_X8		BIT(7)
- #define   FAN_VALUE_MASK	GENMASK(6, 0)
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+index 9b8b1380c4c2bb25f691d72a0217915cf3824889..469de8b536b5866ea83cc0542941039996ae5f23 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-hsio.dtsi
+@@ -68,10 +68,10 @@ pcieb: pcie@5f010000 {
+ 		clock-names = "dbi", "mstr", "slv";
+ 		bus-range = <0x00 0xff>;
+ 		device_type = "pci";
+-		interrupt-map = <0 0 0 1 &gic 0 105 4>,
+-				<0 0 0 2 &gic 0 106 4>,
+-				<0 0 0 3 &gic 0 107 4>,
+-				<0 0 0 4 &gic 0 108 4>;
++		interrupt-map = <0 0 0 1 &gic GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 2 &gic GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 3 &gic GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 4 &gic GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-map-mask = <0 0 0 0x7>;
+ 		num-lanes = <1>;
+ 		num-viewport = <4>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi
+index bbc6abb0fdf25b650dacb8dfcbbbe5dac9ed5cce..ec466e4d7df5467803243404795a9a6a1da890b2 100644
+--- a/arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi
+@@ -42,10 +42,10 @@ pcie0: pcie@5f010000 {
+ 		#interrupt-cells = <1>;
+ 		interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-names = "msi";
+-		interrupt-map = <0 0 0 1 &gic 0 47 4>,
+-				<0 0 0 2 &gic 0 48 4>,
+-				<0 0 0 3 &gic 0 49 4>,
+-				<0 0 0 4 &gic 0 50 4>;
++		interrupt-map = <0 0 0 1 &gic GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 2 &gic GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 3 &gic GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 4 &gic GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-map-mask = <0 0 0 0x7>;
+ 	};
  
-+#define SA67MCU_VOLTAGE(n)	(0x00 + ((n) * 2))
-+#define SA67MCU_TEMP(n)		(0x04 + ((n) * 2))
-+
- struct sl28cpld_hwmon {
- 	struct regmap *regmap;
- 	u32 offset;
-@@ -75,8 +78,71 @@ static const struct hwmon_chip_info sl28cpld_hwmon_chip_info = {
- 	.info = sl28cpld_hwmon_info,
- };
- 
-+static int sa67mcu_hwmon_read(struct device *dev,
-+			      enum hwmon_sensor_types type, u32 attr,
-+			      int channel, long *input)
-+{
-+	struct sl28cpld_hwmon *hwmon = dev_get_drvdata(dev);
-+	unsigned int offset;
-+	u8 reg[2];
-+	int ret;
-+
-+	switch (type) {
-+	case hwmon_in:
-+		switch (attr) {
-+		case hwmon_in_input:
-+			offset = hwmon->offset + SA67MCU_VOLTAGE(channel);
-+			break;
-+		default:
-+			return -EOPNOTSUPP;
-+		}
-+		break;
-+	case hwmon_temp:
-+		switch (attr) {
-+		case hwmon_temp_input:
-+			offset = hwmon->offset + SA67MCU_TEMP(channel);
-+			break;
-+		default:
-+			return -EOPNOTSUPP;
-+		}
-+		break;
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+
-+	/* Reading the low byte will capture the value */
-+	ret = regmap_bulk_read(hwmon->regmap, offset, reg, ARRAY_SIZE(reg));
-+	if (ret)
-+		return ret;
-+
-+	*input = reg[1] << 8 | reg[0];
-+
-+	/* Temperatures are s16 and in 0.1degC steps. */
-+	if (type == hwmon_temp)
-+		*input = sign_extend32(*input, 15) * 100;
-+
-+	return 0;
-+}
-+
-+static const struct hwmon_channel_info * const sa67mcu_hwmon_info[] = {
-+	HWMON_CHANNEL_INFO(in, HWMON_I_INPUT, HWMON_I_INPUT),
-+	HWMON_CHANNEL_INFO(temp, HWMON_T_INPUT),
-+	NULL
-+};
-+
-+static const struct hwmon_ops sa67mcu_hwmon_ops = {
-+	.visible = 0444,
-+	.read = sa67mcu_hwmon_read,
-+};
-+
-+static const struct hwmon_chip_info sa67mcu_hwmon_chip_info = {
-+	.ops = &sa67mcu_hwmon_ops,
-+	.info = sa67mcu_hwmon_info,
-+};
-+
- static int sl28cpld_hwmon_probe(struct platform_device *pdev)
- {
-+	const struct hwmon_chip_info *chip_info;
- 	struct sl28cpld_hwmon *hwmon;
- 	struct device *hwmon_dev;
- 	int ret;
-@@ -84,6 +150,10 @@ static int sl28cpld_hwmon_probe(struct platform_device *pdev)
- 	if (!pdev->dev.parent)
- 		return -ENODEV;
- 
-+	chip_info = device_get_match_data(&pdev->dev);
-+	if (!chip_info)
-+		return -EINVAL;
-+
- 	hwmon = devm_kzalloc(&pdev->dev, sizeof(*hwmon), GFP_KERNEL);
- 	if (!hwmon)
- 		return -ENOMEM;
-@@ -97,8 +167,7 @@ static int sl28cpld_hwmon_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 
- 	hwmon_dev = devm_hwmon_device_register_with_info(&pdev->dev,
--				"sl28cpld_hwmon", hwmon,
--				&sl28cpld_hwmon_chip_info, NULL);
-+				"sl28cpld_hwmon", hwmon, chip_info, NULL);
- 	if (IS_ERR(hwmon_dev))
- 		dev_err(&pdev->dev, "failed to register as hwmon device");
- 
-@@ -106,7 +175,8 @@ static int sl28cpld_hwmon_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id sl28cpld_hwmon_of_match[] = {
--	{ .compatible = "kontron,sl28cpld-fan" },
-+	{ .compatible = "kontron,sl28cpld-fan", .data = &sl28cpld_hwmon_chip_info },
-+	{ .compatible = "kontron,sa67mcu-hwmon", .data = &sa67mcu_hwmon_chip_info },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, sl28cpld_hwmon_of_match);
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
+index 50c0f6b0f0bdc2bd6fd3a19e08d1b7a723353783..bd6e0aa27efe90d3489c16c705d508028b268ee7 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
+@@ -30,10 +30,10 @@ pcie0: pciea: pcie@5f000000 {
+ 		clock-names = "dbi", "mstr", "slv";
+ 		bus-range = <0x00 0xff>;
+ 		device_type = "pci";
+-		interrupt-map = <0 0 0 1 &gic 0 73 4>,
+-				<0 0 0 2 &gic 0 74 4>,
+-				<0 0 0 3 &gic 0 75 4>,
+-				<0 0 0 4 &gic 0 76 4>;
++		interrupt-map = <0 0 0 1 &gic GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 2 &gic GIC_SPI 74 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 3 &gic GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 4 &gic GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-map-mask = <0 0 0 0x7>;
+ 		num-lanes = <1>;
+ 		num-viewport = <4>;
+@@ -80,10 +80,10 @@ pcie1: pcieb: pcie@5f010000 {
+ 		clock-names = "dbi", "mstr", "slv";
+ 		bus-range = <0x00 0xff>;
+ 		device_type = "pci";
+-		interrupt-map = <0 0 0 1 &gic 0 105 4>,
+-				<0 0 0 2 &gic 0 106 4>,
+-				<0 0 0 3 &gic 0 107 4>,
+-				<0 0 0 4 &gic 0 108 4>;
++		interrupt-map = <0 0 0 1 &gic GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 2 &gic GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 3 &gic GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>,
++				<0 0 0 4 &gic GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
+ 		interrupt-map-mask = <0 0 0 0x7>;
+ 		num-lanes = <1>;
+ 		num-viewport = <4>;
+
 -- 
-2.39.5
+2.48.1
 
 
