@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A31FCA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EE25CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmtEoeQlWuqYko7mqBv9pQr3Zd1olsc1MAqj9gtJ+xo=; b=30Bea+uxjE34NQETWLlPW7nBQf
-	R2WX+lZMBXj4fYKcR7C3sCKX86K2GZHwG0UMCBsO/PAxXBikr/B49E92g87Nm/xzh+I2CnhRP5xTO
-	N/2e6mw8jouFhkLx4T1Gxh/Nn2rn24XiasRNyjNbPRoywO9oPWk5SLMba81BYjR7yEoDehANeSw2x
-	7yCFwvlk0YjxXQlY5jaaBN31DQbtcOkY35CZZy0kw/nyMJmKzq2o1cqN9kHE1/PgF1JPWHsmKAEsv
-	Q6wk5MOR4VeQ5V2e3iThK+/vpXN/V9dYPXJRJmZ6nQPbCh46qIA8I8IdyF01su2RQ/NX6f/myynET
-	x/5RTgEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xhd4zX0xr/bjx+0XpdiN833qSdKEzeUKgasarfH8c44=; b=Fb4e9153N6q+HVOlj9q3FYdigw
+	P4GkjvkTWHC3BMnAwBT8qS5iiNkc03d0cZFwKO6MaPPzM+9O3DT7w3oaw8AucSRrFKkgdBF5VIRFd
+	UPuoY/hACsUHfhmBlQua9UwcGYg+neBPqP3xY/5SeuGdlYAxFTDeJFxsvqkyyCdTy8oIM0uH9AdTk
+	7+kDNZyiqV5+/yBWON/8jGxFMCRxofY5VKYZARd3ZAGmGet6Xufjm3cotGKwCrTtwGm9tkLd3PMaf
+	LXQAkegMlRHqbERywCkDmgzcp7ndYAfUFy3PJpQSlavqXrLFGSpXWwYNxOKoYm2nbA2LHpAzfXsFY
+	c5uRR3Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZbB-00000003XKe-2VB4;
-	Fri, 22 Aug 2025 21:47:01 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1upZbL-00000003XWq-1GPo;
+	Fri, 22 Aug 2025 21:47:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upO2p-000000022Xm-3VfC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:26:50 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250822092638epoutp04f4ec0854a37fc53040efaa6e93eae7d7~eDKL31j6B1738017380epoutp04c
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 09:26:38 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250822092638epoutp04f4ec0854a37fc53040efaa6e93eae7d7~eDKL31j6B1738017380epoutp04c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755854798;
-	bh=nmtEoeQlWuqYko7mqBv9pQr3Zd1olsc1MAqj9gtJ+xo=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=HCpzWZv55h4/Y3Rnp1lf4B3OehmY2sv1WXATu/E8TIH9xI1JiUvdMJc96nTLLOTrU
-	 NRHX6Gwhywx84a6gjxknJR5WU9QgJaMZz/nqalCscox3T28UUmNW0e/crGbjBh8VjW
-	 yXPFJoLzQYdYkxChWMST6TkzFwJK96nYt7OdC1Q4=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250822092637epcas5p29a7dd2208e947a9732298efc46494f7e~eDKK4z4X51122911229epcas5p27;
-	Fri, 22 Aug 2025 09:26:37 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4c7ZZP0Mkqz6B9m5; Fri, 22 Aug
-	2025 09:26:37 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250822092636epcas5p41d4c9c6511ed7d0194c95e651ba0d6b3~eDKJrf--63154431544epcas5p4e;
-	Fri, 22 Aug 2025 09:26:36 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250822092633epsmtip197617a5a4f4d248d605769bfa26a2454~eDKGnqxap0570405704epsmtip1Z;
-	Fri, 22 Aug 2025 09:26:33 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <johan@kernel.org>,
-	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>
-Cc: <oe-kbuild-all@lists.linux.dev>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <202508220553.lm7ExAxG-lkp@intel.com>
-Subject: RE: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy for
- ExynosAutov920
-Date: Fri, 22 Aug 2025 14:56:32 +0530
-Message-ID: <006f01dc1346$db4edf50$91ec9df0$@samsung.com>
+	id 1upO9i-000000023l8-2KMS;
+	Fri, 22 Aug 2025 09:33:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 05D8C60263;
+	Fri, 22 Aug 2025 09:33:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 281C9C113D0;
+	Fri, 22 Aug 2025 09:33:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755855233;
+	bh=l/Mx1B8W3cmAkQuq0/d3MKrqsLFHRjyPr8nhD/OLtq0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qW8Dkhm50XyxlTPMvx55jL4RnR3x8r5pj34wFRwmGzkdty04mftV1GHHALpktBWG2
+	 JvRyRTQOGAAJlDnm0MPFfbM7RMiPv/E7bfGMlNFGqumhPqqYrOkG3Own1BOmnKdmhg
+	 jAKbQqlaOvj3kuJPTgubvk5Rm/pjYd5LOk7TP0fypKuRb20WXtHLkj7lyizx4n5Y/2
+	 jUUe29woLYmRD5K1NytUiu/O6GLVLwNQuoBlFqkqCguypfotlahlckKJiTTWac1XJX
+	 wcNXXq2KmnsXJjkSZx59ji1v+aaDLbwghzDGLD4vI/nxZKeM4CiCB9D18IUcxx9Yc1
+	 7GRLI4UbKJfJg==
+Date: Fri, 22 Aug 2025 11:33:51 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Diederik de Haas <didi.debian@cknow.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Collabora Kernel Team <kernel@collabora.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	stable@kernel.org
+Subject: Re: [PATCH v2 2/7] dt-bindings: phy: rockchip-inno-csi-dphy: make
+ power-domains non-required
+Message-ID: <20250822-chirpy-capuchin-of-apotheosis-1133fc@kuoka>
+References: <20250616-rk3588-csi-dphy-v2-0-7a94f079b712@collabora.com>
+ <20250616-rk3588-csi-dphy-v2-2-7a94f079b712@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHdPSQ+XjFsLeZLd+6ieGPrJFm5GwFxhWqcAlQOQPW0Tc8gUA==
-Content-Language: en-in
-X-CMS-MailID: 20250822092636epcas5p41d4c9c6511ed7d0194c95e651ba0d6b3
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250821212909epcas5p3cfcff210863febc2410cf661172be683
-References: <20250821073703.2498302-7-pritam.sutar@samsung.com>
-	<CGME20250821212909epcas5p3cfcff210863febc2410cf661172be683@epcas5p3.samsung.com>
-	<202508220553.lm7ExAxG-lkp@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_022648_530268_BDC5BA16 
-X-CRM114-Status: GOOD (  29.57  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250616-rk3588-csi-dphy-v2-2-7a94f079b712@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,264 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, 
+On Tue, Aug 19, 2025 at 01:00:36AM +0200, Michael Riesch wrote:
+> There are variants of the Rockchip Innosilicon CSI DPHY (e.g., the RK3568
+> variant) that are powered on by default as they are part of the ALIVE power
+> domain.
+> Remove 'power-domains' from the required properties in order to avoid false
+> negatives.
+> 
+> Fixes: 22c8e0a69b7f ("dt-bindings: phy: add compatible for rk356x to rockchip-inno-csi-dphy")
+> Cc: stable@kernel.org
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> index 5ac994b3c0aa..42da616ae2e3 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> @@ -57,7 +57,6 @@ required:
+>    - clocks
+>    - clock-names
+>    - '#phy-cells'
+> -  - power-domains
 
-> -----Original Message-----
-> From: kernel test robot <lkp@intel.com>
-> Sent: 22 August 2025 02:58 AM
-> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>; vkoul@kernel.org;
-> kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
-> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
-> peter.griffin@linaro.org; kauschluss@disroot.org;
-> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
-> johan@kernel.org; m.szyprowski@samsung.com; s.nawrocki@samsung.com
-> Cc: oe-kbuild-all@lists.linux.dev; linux-phy@lists.infradead.org;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
-> rosa.pila@samsung.com; dev.tailor@samsung.com;
-> faraz.ata@samsung.com; muhammed.ali@samsung.com;
-> selvarasu.g@samsung.com
-> Subject: Re: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy for
-> ExynosAutov920
-> 
-> Hi Pritam,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on robh/for-next] [also build test WARNING on
-> krzk/for-next linus/master v6.17-rc2 next-20250821] [If your patch is
-applied
-> to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://protect2.fireeye.com/v1/url?k=07116f39-666ac5ae-0710e476-
-> 74fe4860001d-17dff89291ad3b5b&q=1&e=45b4f292-bcb1-4614-86a0-
-> c790a47fb814&u=https%3A%2F%2Fgithub.com%2Fintel-lab-
-> lkp%2Flinux%2Fcommits%2FPritam-Manohar-Sutar%2Fdt-bindings-phy-
-> samsung-usb3-drd-phy-add-ExynosAutov920-HS-phy-
-> compatible%2F20250821-153122
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git
-for-
-> next
-> patch link:    https://lore.kernel.org/r/20250821073703.2498302-7-
-> pritam.sutar%40samsung.com
-> patch subject: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy
-> for ExynosAutov920
-> config: arc-randconfig-001-20250822 (https://download.01.org/0day-
-> ci/archive/20250822/202508220553.lm7ExAxG-lkp@intel.com/config)
-> compiler: arc-linux-gcc (GCC) 8.5.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-
-> ci/archive/20250822/202508220553.lm7ExAxG-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new
-version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes:
-> | https://lore.kernel.org/oe-kbuild-all/202508220553.lm7ExAxG-lkp@intel.
-> | com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
-> 'exynosautov920_usb31drd_cr_write':
-> >> drivers/phy/samsung/phy-exynos5-usbdrd.c:2167:17: warning: unused
-> >> variable 'dev' [-Wunused-variable]
->      struct device *dev = phy_drd->dev;
->                     ^~~
->    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
-> 'exynosautov920_usb31drd_port_phy_ready':
-> >> drivers/phy/samsung/phy-exynos5-usbdrd.c:2137:6: warning: 'reg' is
-> >> used uninitialized in this function [-Wuninitialized]
->      reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
->      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->        PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
->        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    during RTL pass: mach
->    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
-> 'exynos5_usbdrd_phy_probe':
->    drivers/phy/samsung/phy-exynos5-usbdrd.c:3056:1: internal compiler
-> error: in arc_ifcvt, at config/arc/arc.c:9110
->     }
->     ^
->    Please submit a full bug report,
->    with preprocessed source if appropriate.
->    See <https://gcc.gnu.org/bugs/> for instructions.
-> 
-> 
-> vim +/dev +2167 drivers/phy/samsung/phy-exynos5-usbdrd.c
-> 
->   2125
->   2126	static void
->   2127	exynosautov920_usb31drd_port_phy_ready(struct
-> exynos5_usbdrd_phy *phy_drd)
->   2128	{
->   2129		struct device *dev = phy_drd->dev;
->   2130		void __iomem *reg_phy = phy_drd->reg_phy;
->   2131		static const unsigned int timeout_us = 20000;
->   2132		static const unsigned int sleep_us = 40;
->   2133		u32 reg;
->   2134		int err;
->   2135
->   2136		/* Clear cr_para_con */
-> > 2137		reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
->   2138
-> 	PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
->   2139		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
->   2140		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2141		writel(0x0, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1);
->   2142		writel(0x0, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
->   2143
->   2144		exynosautov920_usb31drd_cr_clk(phy_drd, true);
->   2145		exynosautov920_usb31drd_cr_clk(phy_drd, false);
->   2146
->   2147		/*
->   2148		 * The maximum time from phy reset de-assertion to
-de-
-> assertion of
->   2149		 * tx/rx_ack can be as high as 5ms in fast
-simulation mode.
->   2150		 * Time to phy ready is < 20ms
->   2151		 */
->   2152		err = readl_poll_timeout(reg_phy +
->   2153
-> 	EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0,
->   2154				reg, !(reg &
-> PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK),
->   2155				sleep_us, timeout_us);
->   2156		if (err)
->   2157			dev_err(dev, "timed out waiting for
-rx/tx_ack:
-> %#.8x\n", reg);
->   2158
->   2159		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
->   2160		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2161	}
->   2162
->   2163	static void
->   2164	exynosautov920_usb31drd_cr_write(struct exynos5_usbdrd_phy
-> *phy_drd,
->   2165					 u16 addr, u16 data)
->   2166	{
-> > 2167		struct device *dev = phy_drd->dev;
->   2168		void __iomem *reg_phy = phy_drd->reg_phy;
->   2169		u32 cnt = 0;
->   2170		u32 reg;
->   2171
->   2172		/* Pre Clocking */
->   2173		reg = readl(reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2174		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
->   2175		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2176
->   2177		/*
->   2178		 * tx clks must be available prior to assertion of
-tx req.
->   2179		 * tx pstate p2 to p0 transition directly is not
-permitted.
->   2180		 * tx clk ready must be asserted synchronously on tx
-clk prior
->   2181		 * to internal transmit clk alignment sequence in
-the phy
->   2182		 * when entering from p2 to p1 to p0.
->   2183		 */
->   2184		do {
->   2185			exynosautov920_usb31drd_cr_clk(phy_drd,
-true);
->   2186			exynosautov920_usb31drd_cr_clk(phy_drd,
-false);
->   2187			cnt++;
->   2188		} while (cnt < 15);
->   2189
->   2190		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
->   2191		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2192
->   2193		/*
->   2194		 * tx data path is active when tx lane is in p0
-state
->   2195		 * and tx data en asserted. enable cr_para_wr_en.
->   2196		 */
->   2197		reg = readl(reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
->   2198		reg &= ~PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA;
->   2199		reg |=
-> FIELD_PREP(PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA, data) |
->   2200			PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN;
->   2201		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
->   2202
->   2203		/* write addr */
->   2204		reg = readl(reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2205		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR;
->   2206		reg |=
-> FIELD_PREP(PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR, addr) |
->   2207			PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
->   2208			PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
->   2209		writel(reg, reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2210
->   2211		/* check cr_para_ack*/
->   2212		cnt = 0;
->   2213		do {
->   2214			/*
->   2215			 * data symbols are captured by phy on
-rising edge of
-> the
->   2216			 * tx_clk when tx data enabled.
->   2217			 * completion of the write cycle is
-acknowledged by
-> assertion
->   2218			 * of the cr_para_ack.
->   2219			 */
->   2220			exynosautov920_usb31drd_cr_clk(phy_drd,
-true);
->   2221			reg = readl(reg_phy +
-> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
->   2222			if ((reg &
-> PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK))
->   2223				break;
->   2224
->   2225			exynosautov920_usb31drd_cr_clk(phy_drd,
-false);
->   2226
->   2227			/*
->   2228			 * wait for minimum of 10 cr_para_clk cycles
-after phy
-> reset
->   2229			 * is negated, before accessing control regs
-to allow
-> for
->   2230			 * internal resets.
->   2231			 */
->   2232			cnt++;
->   2233		} while (cnt < 10);
->   2234
->   2235		if (cnt < 10)
->   2236			exynosautov920_usb31drd_cr_clk(phy_drd,
-false);
->   2237	}
->   2238
-> 
-> --
-> 0-DAY CI Kernel Test Service
-> https://protect2.fireeye.com/v1/url?k=96757503-f70edf94-9674fe4c-
-> 74fe4860001d-38e3f56dae8e119d&q=1&e=45b4f292-bcb1-4614-86a0-
-> c790a47fb814&u=https%3A%2F%2Fgithub.com%2Fintel%2Flkp-tests%2Fwiki
+This could then be restricted per each variant in if:then:.
 
-Will post v7 with the fixes for these warnings.
-
-Thank you.
-
-Regards,
-Pritam
-
+Best regards,
+Krzysztof
 
 
