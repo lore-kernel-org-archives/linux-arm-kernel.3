@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D12ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA4BCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2cZoUfgkotYBfwCd9bzUchwfMJiwu5pth1Mws1afl8=; b=DnIMuZ/yo0z95soqS2o2ZUL5nU
-	U6sbDf2wQF9YL8pRD5Z7v+WCw/9BdmpWm03CF9rrzkHcxdP7AMryCi5sr4OTFQsDr5utA9K1y+dlj
-	8C3NbV4GC0cPEGftdrNbxjrGB/UkK06ZStm+sTFrHkWZnv3GZGJGGzyEuH6HYbrBRvY91jbbJmw1Z
-	vMig5l0ogGXiQgd08+zft0et2wo+APkWZ5yAAFG/dkR5lXGEKA9TdAndIx0kruq+d9IHYhPDG33U/
-	VbFt9JiaLcQOHTsCw43sIGZLEt7QZej6DOT5U9wPNF1daHai4fqjS4RT+inpmUYPJZMP3yugcKNP/
-	7kdDkt4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JlvpC1cI/jxGWRlTIAmfgsWt0cwo0YM7bK/IGnl9rKc=; b=SC1NL6aC57ywtWIHK54R22Th5l
+	lQIGDqVJKANyrhpcxrXEodwyJOKPcrTalC7HzR6fk8e2ZS4xdS1SObofY//xujbb6Bk8DR5j2NlcI
+	CjGFySc/byZx59EM0jHR+sjoSbMzzOd0cKL5Yi3JXi7LGtmO1hnLq/fqNyo7BhwBfsASuqgWmrFwW
+	jIX4VIDew4hA6yXfpD/foMm3F7aIO2HxplgYzGWCX7+cSq4odSKJy6eoxnSUpMzRMxsScv5nWZPqN
+	ej2WKVYjQMCgLd93VbNJ3iQ2omcIgWv66gi8x+tcj0wzdESgtDrLyOZcLmXNT/+U/apn+C+heffx7
+	XeHAhSNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphlz-00000003z8a-1RbT;
-	Sat, 23 Aug 2025 06:30:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uphm1-00000003zDN-361y;
+	Sat, 23 Aug 2025 06:30:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRbQ-00000002aq3-101Y
+	id 1upRcU-00000002az0-2OSe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:14:45 +0000
+	Fri, 22 Aug 2025 13:15:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0D2543B1C;
-	Fri, 22 Aug 2025 13:14:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4F8EC4CEED;
-	Fri, 22 Aug 2025 13:14:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 09FFB6026D;
+	Fri, 22 Aug 2025 13:15:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77463C113CF;
+	Fri, 22 Aug 2025 13:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755868483;
-	bh=DzXyLBZ7QPagtt1qn6sgzGt1lv1clT6z3MmdtXAvGK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hpzartIMsfjSTMmq6S3F6xaJKmmCnwiFz19U8qxEwdk5zkVC29SLlSo8HMXUYjXZu
-	 2AZ93yl7VBVUj4ILfAilqS97axJu+T9zJWjSKWtW3PJ7s3WE/vMPSXgOnJs/FKR74f
-	 SbAUyuJZyygJnzODW5U/a/77vGJDhe2hOvYBBrGcOOIyRShUQL2nkhjVhE6IZbDDv7
-	 Q5VkZnGMjaWDB5wpxahqK/e00W7yFiYdMhg4QhKlD6rl1dXhFqNJNB3ni4gV7MB/yp
-	 49/v7XL/AsVUDempxX8jEVXs88oGoBU9PoduB84uCSMsoAEJ/2sT+CjdlmLOVCA5Un
-	 xRpZdV3csM5hQ==
-Date: Fri, 22 Aug 2025 15:14:39 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	s=k20201202; t=1755868549;
+	bh=5edwIv2wGdGR2+Ign0FEjaM0t9DIY3ags+xEJ31/G64=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=omhht5mX9/geLecs1wdPpTwfso24JHFSn8NH5Y1RsNLTEZFrvoinVWsb8XaAgyz/K
+	 VoGZGIEocDVi6Ef9vWx8XM9V2jr0V9wc3jJji0ycuUDe3VtnLdFvUaQgLsWuiRCJlk
+	 CPsQBnBgzcIQykxQoH5G/L8Vf5HUJbbFFektpSxEAjlnVYoyGl8NIWQAD3fCWt4K3+
+	 5Yd+PX9CAQvIuPvJaYC6rDYED1vTCR7+HiW0932tWT/vaaPFiejqFRHs4UnaNozCsk
+	 I+4Z5DljalRxr4tBLCT9vB9FCpjlArZjexNMT3sJVNucuJsTmvOU78T1mx/JKbVq+q
+	 ubkxprkrhmuJg==
+From: Michael Walle <mwalle@kernel.org>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Lee Jones <lee@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
-Message-ID: <aKhtP1G7as9b2c4f@lore-rh-laptop>
-References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
- <aKbDjIZhJuWo3yFu@lore-rh-laptop>
- <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
- <aKcEYn_hX0ZIusne@lore-rh-laptop>
- <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
- <aKgSY7bOrC8-qZE3@lore-rh-laptop>
- <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
+	linux-hwmon@vger.kernel.org,
+	linux-watchdog@vger.kernel.org
+Subject: [PATCH v1 1/7] dt-bindings: arm: ti: Add bindings for Kontron SMARC-sAM67 module
+Date: Fri, 22 Aug 2025 15:15:25 +0200
+Message-Id: <20250822131531.1366437-2-mwalle@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250822131531.1366437-1-mwalle@kernel.org>
+References: <20250822131531.1366437-1-mwalle@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LEAJ68iQGD2dyhpF"
-Content-Disposition: inline
-In-Reply-To: <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_061444_321015_562A4C22 
-X-CRM114-Status: GOOD (  41.01  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,199 +82,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add devicetree bindings for the AM67 based Kontron SMARC-sAM67
+module.
 
---LEAJ68iQGD2dyhpF
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Michael Walle <mwalle@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
->=20
-> On 22.08.2025 09:46, Lorenzo Bianconi wrote:
-> >> On 21.08.2025 14:34, Lorenzo Bianconi wrote:
-> >>>> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
-> >>>>>> This patch series greatly improve airoha snfi driver and fix a
-> >>>>>> number of serious bug.
-> >>>>>>
-> >>>>>> Fixed bugs:
-> >>>>>>  * Fix reading/writing of flashes with more than one plane per lun
-> >>>>>>  * Fix inability to read/write oob area
-> >>>>>>  * Fill the buffer with 0xff before writing
-> >>>>>>  * Fix reading of flashes supporting continuous reading mode
-> >>>>>>  * Fix error paths
-> >>>>>>
-> >>>>>> Improvements:
-> >>>>>>  * Add support of dual/quad wires spi modes in exec_op().
-> >>>>>>  * Support of dualio/quadio flash reading commands
-> >>>>>>  * Remove dirty hack that reads flash page settings from SNFI regi=
-sters
-> >>>>>>    during driver startup
-> >>>>>>
-> >>>>>> Unfortunately I am unable to test the driver with linux at the mom=
-ent,
-> >>>>>> so only the following testing was done:
-> >>>>> It seems to me this is quite an important rework of the driver. I w=
-ould prefer
-> >>>>> to have some test results for this series. Are you able to run mtd_=
-test kernel
-> >>>>> module for testing?
-> >>>> I'll try to build latest openwrt with this patches=A0 and mtd_test k=
-ernel
-> >>>> module and try it on one of our boards.
-> >>> what board are you using for testing? If it is based on Airoha-7581 y=
-ou could
-> >>> use the following repo for testing.
-> >>>
-> >>> https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-st=
-able
-> >>>
-> >>> Regards,
-> >>> Lorenzo
-> >> What tests do you suggest to run?
-> > IIRC I run all of them. Can you please report even if there are some
-> > improvements (or penalties) in read/write speed
-> Do you mean to run it twice? with patches and without?
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index e80c653fa438..af41f1541850 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -181,6 +181,7 @@ properties:
+         items:
+           - enum:
+               - beagle,am67a-beagley-ai
++              - kontron,sa67             # Kontron SMARC-sAM67 board
+               - ti,j722s-evm
+           - const: ti,j722s
+ 
+-- 
+2.39.5
 
-I mean I would suggest to check if there are any difference in read/write
-speed (so yes, you need a baseline).
-
-Regards,
-Lorenzo
-
-> >
-> >> I have a single flash I boot from. It have only 2 mtd partitions:
-> >>
-> >> [=A0=A0=A0 2.980849] spi-nand spi0.0: Micron SPI NAND was found.
-> >> [=A0=A0=A0 2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, pa=
-ge size:
-> >> 2048, OOB size: 128
-> >> [=A0=A0=A0 2.994493] 2 fixed-partitions partitions found on MTD device=
- spi0.0
-> >> [=A0=A0=A0 3.000856] Creating 2 MTD partitions on "spi0.0":
-> >> [=A0=A0=A0 3.005651] 0x000000000000-0x000000020000 : "bl2"
-> >> [=A0=A0=A0 3.011247] 0x000000020000-0x000010000000 : "ubi"
-> >>
-> >> Most of tests are destructive. So If I use "bl2" or "ubi" partition for
-> >> test, next time I will be unable to boot :-(
-> > yes, I flashed the device after carrying out the test.
-> >
-> > Regards,
-> > Lorenzo
-> >
-> >> Do you suggest to patch u-boot & linux to have more mtd partitions?
-> >>
-> >> This is the results of the only read-only test I found.
-> >>
-> >> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
-> >> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=3D1
-> >> [=A0 159.121706]
-> >> [=A0 159.123220] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-> >> [=A0 159.129053] mtd_readtest: MTD device: 1
-> >> [=A0 159.132898] mtd_readtest: MTD device size 268304384, eraseblock s=
-ize
-> >> 131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
-> >> 64, OOB size 128
-> >> [=A0 159.147008] mtd_test: scanning for bad eraseblocks
-> >> [=A0 159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
-> >> [=A0 159.157549] mtd_readtest: testing page read
-> >>
-> >> Mikhail
-> >>
-> >>>> Actually patches can be divided on to parts:
-> >>>> * fixes of current driver (patches 1-10)
-> >>>> * change of behavior to avoid reading flash page settings from SNFI
-> >>>> registers during driver startup (patches 11-14)
-> >>>>
-> >>>> The changes are based on the code we are using for more than 3 years=
-=2E I
-> >>>> adapt it to latest linux/u-boot code.
-> >>>>
-> >>>> Up to now the only known issue appears on en7523 chips only. Here a
-> >>>> corresponding patch description (not added to this series)
-> >>>> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D spi: airoha:
-> >>>> en7523: workaround flash damaging if UART_TXD was short to GND We fo=
-und
-> >>>> that some serial console may pull TX line to GROUND during board boot
-> >>>> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
-> >>>> booting in RESERVED boot mode. It was found that some flashes operat=
-es
-> >>>> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definit=
-ely
-> >>>> affected by the issue, Winbond flashes are NOT affected. Details:
-> >>>> -------- DMA reading of odd pages on affected flashes operates
-> >>>> incorrectly. Page reading offset (start of the page) on hardware lev=
-el
-> >>>> is replaced by 0x10. Thus results in incorrect data reading. Usage of
-> >>>> UBI make things even worse. Any attempt to access UBI leads to ubi
-> >>>> damaging. As result OS loading becomes impossible. Non-DMA reading is
-> >>>> OK. =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> >>>>
-> >>>> Regards,
-> >>>> Mikhail
-> >>>>
-> >>>>
-> >>>>> Regards,
-> >>>>> Lorenzo
-> >>>>>
-> >>>>>>  * Driver compiles without error.
-> >>>>>>  * All changes were tested with corresponding u-boot driver. U-Boot
-> >>>>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
-> >>>>>>    additional fixes for continuous mode.
-> >>>>>>
-> >>>>>> Changes v2:
-> >>>>>>  * minor fix
-> >>>>>>  * add comments to code
-> >>>>>>
-> >>>>>> Changes v3:
-> >>>>>>  * add patch to prevent continuous reading
-> >>>>>>
-> >>>>>> Mikhail Kshevetskiy (14):
-> >>>>>>   spi: airoha: return an error for continuous mode dirmap creation=
- cases
-> >>>>>>   spi: airoha: remove unnecessary restriction length
-> >>>>>>   spi: airoha: add support of dual/quad wires spi modes
-> >>>>>>   spi: airoha: remove unnecessary switch to non-dma mode
-> >>>>>>   spi: airoha: unify dirmap read/write code
-> >>>>>>   spi: airoha: switch back to non-dma mode in the case of error
-> >>>>>>   spi: airoha: fix reading/writing of flashes with more than one p=
-lane
-> >>>>>>     per lun
-> >>>>>>   spi: airoha: support of dualio/quadio flash reading commands
-> >>>>>>   spi: airoha: allow reading/writing of oob area
-> >>>>>>   spi: airoha: buffer must be 0xff-ed before writing
-> >>>>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGE=
-FMT
-> >>>>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CN=
-FG and
-> >>>>>>     REG_SPI_NFI_SECCUS_SIZE registers
-> >>>>>>   spi: airoha: set custom sector size equal to flash page size
-> >>>>>>   spi: airoha: avoid reading flash page settings from SNFI registe=
-rs
-> >>>>>>     during driver startup
-> >>>>>>
-> >>>>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++------------=
------
-> >>>>>>  1 file changed, 260 insertions(+), 248 deletions(-)
-> >>>>>>
-> >>>>>> --=20
-> >>>>>> 2.50.1
-> >>>>>>
-
---LEAJ68iQGD2dyhpF
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKhtPAAKCRA6cBh0uS2t
-rNtoAP45qevD9fzswegzdm4QNheBWtzMmFfN6H5SL30tWFHTCgEA7XYEgYXlmkSy
-qAkG0JIXX5OXzfE7JomcgI+UAg5pcgA=
-=9+YL
------END PGP SIGNATURE-----
-
---LEAJ68iQGD2dyhpF--
 
