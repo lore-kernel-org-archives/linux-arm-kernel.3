@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1113CA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1803ECA0EFF
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nb1ynEMRV5Oei9oKJLBfatZd50oqLhlNcCEbjrFG+7I=; b=ZehJm1MipuXBa3uYfeWEg2XS67
-	Q/7qClj4IoGyjTvL2i3ciJdGXllutk2Ny6Avg5vr3cyUbsYOyqjdX2xtRi5Ffvf4dQ7YDU1xJ0XuN
-	qgF2ktARPWopCNrQjfj3KAStM+4ebhCRdRmnz5CnnjLJU9gxYLrmlmfBzpGqGyvpVmNQSjtgkzJNG
-	YHUD8XnMR5lQInPThwLM9XHY1aQigS5IGWhHwR9DE1m0x96TQYjF0rrdbwNqpRDlhZMMU3IVd4skX
-	J+aaWzlRJ8GoHJIAGUd4pXOV/nQPKLnEPIURnSUNFrLcuWaZhuf/EdUJSj59fxL8kWP7/vXOmdiSy
-	zdJc4Fcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cOKB+NAHGAfABDYrskKFmhDq3h2K4aBPnquDjgmo7go=; b=lUloJ6WaWtyjcbuCn66Eu4PSUi
+	eGkdVEWbp3AY7aJECCqGZzc/+uAodwdCeS/80TSE1bmcPrwJK+pXQA2QND52rcubqcejFCWuUX6WX
+	mKuTqoNRXrFaCWx/EdCXBwKRO9jWwwF83DWEU9ArJg9cHFIBOaZqo8o5a1iaNTXms8axEbR1l5nK3
+	NnCs29NQR3Nig8wiMar6GpFpVZbMSarOu0JXsfw5s7KJaHPMB0pBzHFmLEoTIH37vxtBgTnRu2ViF
+	f0EuplQ2K7ltGTfBbxozKYzSCO9GMXRTcAVBDuG8aOOQkCEpgn8Hw5sfXv86tMKD3wnXwpWFLEER/
+	r0r0ykLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uploR-00000004exy-07TQ;
-	Sat, 23 Aug 2025 10:49:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSfs-00000002oZL-31bs
+	id 1uploV-00000004f1x-3Ozy;
+	Sat, 23 Aug 2025 10:49:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTk8-000000031f4-2J9W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:23:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 291F5601E7;
-	Fri, 22 Aug 2025 14:23:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A69C4CEED;
-	Fri, 22 Aug 2025 14:23:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755872603;
-	bh=p12u8vR8qiv7q0T3C6sATwxvsQ21DT4TNvgeIZFALCw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n7wztDtcoLnf4euD7YyiSJ6Cdw+vq/HiDC9PejmzhDILhI5g/hqEWfEcH/TSTfLCQ
-	 g2UNAq+U18UTfNxZDh2bE1OW9Lms79Y+NQeyEbH3ud8oGwfFz3eBAQr6bSdhW7rV0l
-	 sr0FF7pECu1A11xgznHzRZitNnzwMdlsry+l1gqRRQkG7q45UQ2RO40dQvXmpHT3Cw
-	 d1fuNYFlmygAZ7kLZC1R1w0I9LT6tfq92XQCOoWYG8oJoYtzuZlLDPtC1iufG1R7Qc
-	 4Mlc0O6v9m9egfm9IuuSQ73DJllJbjPQnSJ3hI5LdqM/kHAtoBNBotcXP2FlvbzqVH
-	 jmToV1ArHKQvQ==
-Date: Fri, 22 Aug 2025 09:23:22 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Salih Erim <salih.erim@amd.com>
-Cc: jic23@kernel.org, devicetree@vger.kernel.org, andy@kernel.org,
-	linux-kernel@vger.kernel.org, conall.ogriofa@amd.com,
-	nuno.sa@analog.com, dlechner@baylibre.com, krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	michal.simek@amd.com
-Subject: Re: [PATCH v2] MAINTAINERS: Update xilinx-ams driver maintainers
-Message-ID: <175587260151.3622268.4895714822866786813.robh@kernel.org>
-References: <20250820100519.2272509-1-salih.erim@amd.com>
+	Fri, 22 Aug 2025 15:31:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73C5C15A1;
+	Fri, 22 Aug 2025 08:31:43 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 457F43F63F;
+	Fri, 22 Aug 2025 08:31:46 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 08/33] ACPI / MPAM: Parse the MPAM table
+Date: Fri, 22 Aug 2025 15:29:49 +0000
+Message-Id: <20250822153048.2287-9-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250820100519.2272509-1-salih.erim@amd.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250822_083152_683312_61F3A27E 
+X-CRM114-Status: GOOD (  31.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,18 +97,470 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add code to parse the arm64 specific MPAM table, looking up the cache
+level from the PPTT and feeding the end result into the MPAM driver.
 
-On Wed, 20 Aug 2025 11:05:19 +0100, Salih Erim wrote:
-> Anand left AMD/Xilinx some time ago. Salih and Connall are new
-> maintainers of xilinx-ams driver.
-> 
-> Signed-off-by: Salih Erim <salih.erim@amd.com>
-> ---
->  Documentation/devicetree/bindings/iio/adc/xlnx,zynqmp-ams.yaml | 3 ++-
->  MAINTAINERS                                                    | 3 ++-
->  2 files changed, 4 insertions(+), 2 deletions(-)
-> 
+CC: Carl Worth <carl@os.amperecomputing.com>
+Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+Signed-off-by: James Morse <james.morse@arm.com>
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes since RFC:
+ * Used DEFINE_RES_IRQ_NAMED() and friends macros.
+ * Additional error handling.
+ * Check for zero sized MSC.
+ * Allow table revisions greater than 1. (no spec for revision 0!)
+ * Use cleanup helpers to retrive ACPI tables, which allows some functions
+   to be folded together.
+---
+ arch/arm64/Kconfig          |   1 +
+ drivers/acpi/arm64/Kconfig  |   3 +
+ drivers/acpi/arm64/Makefile |   1 +
+ drivers/acpi/arm64/mpam.c   | 331 ++++++++++++++++++++++++++++++++++++
+ drivers/acpi/tables.c       |   2 +-
+ include/linux/arm_mpam.h    |  46 +++++
+ 6 files changed, 383 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/acpi/arm64/mpam.c
+ create mode 100644 include/linux/arm_mpam.h
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 658e47fc0c5a..e51ccf1da102 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
+ 
+ config ARM64_MPAM
+ 	bool "Enable support for MPAM"
++	select ACPI_MPAM if ACPI
+ 	help
+ 	  Memory Partitioning and Monitoring is an optional extension
+ 	  that allows the CPUs to mark load and store transactions with
+diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
+index b3ed6212244c..f2fd79f22e7d 100644
+--- a/drivers/acpi/arm64/Kconfig
++++ b/drivers/acpi/arm64/Kconfig
+@@ -21,3 +21,6 @@ config ACPI_AGDI
+ 
+ config ACPI_APMT
+ 	bool
++
++config ACPI_MPAM
++	bool
+diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
+index 05ecde9eaabe..9390b57cb564 100644
+--- a/drivers/acpi/arm64/Makefile
++++ b/drivers/acpi/arm64/Makefile
+@@ -4,6 +4,7 @@ obj-$(CONFIG_ACPI_APMT) 	+= apmt.o
+ obj-$(CONFIG_ACPI_FFH)		+= ffh.o
+ obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
+ obj-$(CONFIG_ACPI_IORT) 	+= iort.o
++obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
+ obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
+ obj-$(CONFIG_ARM_AMBA)		+= amba.o
+ obj-y				+= dma.o init.o
+diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+new file mode 100644
+index 000000000000..e55fc2729ac5
+--- /dev/null
++++ b/drivers/acpi/arm64/mpam.c
+@@ -0,0 +1,331 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (C) 2025 Arm Ltd.
++
++/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
++
++#define pr_fmt(fmt) "ACPI MPAM: " fmt
++
++#include <linux/acpi.h>
++#include <linux/arm_mpam.h>
++#include <linux/bits.h>
++#include <linux/cpu.h>
++#include <linux/cpumask.h>
++#include <linux/platform_device.h>
++
++#include <acpi/processor.h>
++
++/*
++ * Flags for acpi_table_mpam_msc.*_interrupt_flags.
++ * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
++ */
++#define ACPI_MPAM_MSC_IRQ_MODE_MASK                    BIT(0)
++#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                    GENMASK(2, 1)
++#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                   0
++#define ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER BIT(3)
++#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID               BIT(4)
++
++static bool frob_irq(struct platform_device *pdev, int intid, u32 flags,
++		     int *irq, u32 processor_container_uid)
++{
++	int sense;
++
++	if (!intid)
++		return false;
++
++	if (FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags) !=
++	    ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
++		return false;
++
++	sense = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE_MASK, flags);
++
++	/*
++	 * If the GSI is in the GIC's PPI range, try and create a partitioned
++	 * percpu interrupt.
++	 */
++	if (16 <= intid && intid < 32 && processor_container_uid != ~0) {
++		pr_err_once("Partitioned interrupts not supported\n");
++		return false;
++	}
++
++	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
++	if (*irq <= 0) {
++		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
++			    intid);
++		return false;
++	}
++
++	return true;
++}
++
++static void acpi_mpam_parse_irqs(struct platform_device *pdev,
++				 struct acpi_mpam_msc_node *tbl_msc,
++				 struct resource *res, int *res_idx)
++{
++	u32 flags, aff;
++	int irq;
++
++	flags = tbl_msc->overflow_interrupt_flags;
++	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
++	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
++		aff = tbl_msc->overflow_interrupt_affinity;
++	else
++		aff = ~0;
++	if (frob_irq(pdev, tbl_msc->overflow_interrupt, flags, &irq, aff))
++		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
++
++	flags = tbl_msc->error_interrupt_flags;
++	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
++	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
++		aff = tbl_msc->error_interrupt_affinity;
++	else
++		aff = ~0;
++	if (frob_irq(pdev, tbl_msc->error_interrupt, flags, &irq, aff))
++		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
++}
++
++static int acpi_mpam_parse_resource(struct mpam_msc *msc,
++				    struct acpi_mpam_resource_node *res)
++{
++	int level, nid;
++	u32 cache_id;
++
++	switch (res->locator_type) {
++	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
++		cache_id = res->locator.cache_locator.cache_reference;
++		level = find_acpi_cache_level_from_id(cache_id);
++		if (level <= 0) {
++			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
++			return -EINVAL;
++		}
++		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
++				       level, cache_id);
++	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
++		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
++		if (nid == NUMA_NO_NODE)
++			nid = 0;
++		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
++				       255, nid);
++	default:
++		/* These get discovered later and treated as unknown */
++		return 0;
++	}
++}
++
++int acpi_mpam_parse_resources(struct mpam_msc *msc,
++			      struct acpi_mpam_msc_node *tbl_msc)
++{
++	int i, err;
++	struct acpi_mpam_resource_node *resources;
++
++	resources = (struct acpi_mpam_resource_node *)(tbl_msc + 1);
++	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
++		err = acpi_mpam_parse_resource(msc, &resources[i]);
++		if (err)
++			return err;
++	}
++
++	return 0;
++}
++
++static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
++				     struct platform_device *pdev,
++				     u32 *acpi_id)
++{
++	bool acpi_id_valid = false;
++	struct acpi_device *buddy;
++	char hid[16], uid[16];
++	int err;
++
++	memset(&hid, 0, sizeof(hid));
++	memcpy(hid, &tbl_msc->hardware_id_linked_device,
++	       sizeof(tbl_msc->hardware_id_linked_device));
++
++	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
++		*acpi_id = tbl_msc->instance_id_linked_device;
++		acpi_id_valid = true;
++	}
++
++	err = snprintf(uid, sizeof(uid), "%u",
++		       tbl_msc->instance_id_linked_device);
++	if (err >= sizeof(uid))
++		return acpi_id_valid;
++
++	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
++	if (buddy)
++		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
++
++	return acpi_id_valid;
++}
++
++static int decode_interface_type(struct acpi_mpam_msc_node *tbl_msc,
++				 enum mpam_msc_iface *iface)
++{
++	switch (tbl_msc->interface_type) {
++	case 0:
++		*iface = MPAM_IFACE_MMIO;
++		return 0;
++	case 0xa:
++		*iface = MPAM_IFACE_PCC;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int __init acpi_mpam_parse(void)
++{
++        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
++	char *table_end, *table_offset = (char *)(table + 1);
++	struct property_entry props[4]; /* needs a sentinel */
++	struct acpi_mpam_msc_node *tbl_msc;
++	int next_res, next_prop, err = 0;
++	struct acpi_device *companion;
++	struct platform_device *pdev;
++	enum mpam_msc_iface iface;
++	struct resource res[3];
++	char uid[16];
++	u32 acpi_id;
++
++	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
++		return 0;
++
++	if (IS_ERR(table))
++		return 0;
++
++	if (table->revision < 1)
++		return 0;
++
++	table_end = (char *)table + table->length;
++
++	while (table_offset < table_end) {
++		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
++		table_offset += tbl_msc->length;
++
++		/*
++		 * If any of the reserved fields are set, make no attempt to
++		 * parse the msc structure. This will prevent the driver from
++		 * probing all the MSC, meaning it can't discover the system
++		 * wide supported partid and pmg ranges. This avoids whatever
++		 * this MSC is truncating the partids and creating a screaming
++		 * error interrupt.
++		 */
++		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2)
++			continue;
++
++		if (!tbl_msc->mmio_size)
++			continue;
++
++		if (decode_interface_type(tbl_msc, &iface))
++			continue;
++
++		next_res = 0;
++		next_prop = 0;
++		memset(res, 0, sizeof(res));
++		memset(props, 0, sizeof(props));
++
++		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
++		if (!pdev) {
++			err = -ENOMEM;
++			break;
++		}
++
++		if (tbl_msc->length < sizeof(*tbl_msc)) {
++			err = -EINVAL;
++			break;
++		}
++
++		/* Some power management is described in the namespace: */
++		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
++		if (err > 0 && err < sizeof(uid)) {
++			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
++			if (companion)
++				ACPI_COMPANION_SET(&pdev->dev, companion);
++		}
++
++		if (iface == MPAM_IFACE_MMIO) {
++			res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
++							       tbl_msc->mmio_size,
++							       "MPAM:MSC");
++		} else if (iface == MPAM_IFACE_PCC) {
++			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
++								tbl_msc->base_address);
++			next_prop++;
++		}
++
++		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
++		err = platform_device_add_resources(pdev, res, next_res);
++		if (err)
++			break;
++
++		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
++							tbl_msc->max_nrdy_usec);
++
++		/*
++		 * The MSC's CPU affinity is described via its linked power
++		 * management device, but only if it points at a Processor or
++		 * Processor Container.
++		 */
++		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
++			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
++								acpi_id);
++		}
++
++		err = device_create_managed_software_node(&pdev->dev, props,
++							  NULL);
++		if (err)
++			break;
++
++		/* Come back later if you want the RIS too */
++		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
++		if (err)
++			break;
++
++		err = platform_device_add(pdev);
++		if (err)
++			break;
++	}
++
++	if (err)
++		platform_device_put(pdev);
++
++	return err;
++}
++
++int acpi_mpam_count_msc(void)
++{
++        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
++	char *table_end, *table_offset = (char *)(table + 1);
++	struct acpi_mpam_msc_node *tbl_msc;
++	int count = 0;
++
++	if (IS_ERR(table))
++		return 0;
++
++	if (table->revision < 1)
++		return 0;
++
++	tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
++	table_end = (char *)table + table->length;
++
++	while (table_offset < table_end) {
++		if (!tbl_msc->mmio_size)
++			continue;
++
++		if (tbl_msc->length < sizeof(*tbl_msc))
++			return -EINVAL;
++
++		count++;
++
++		table_offset += tbl_msc->length;
++		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
++	}
++
++	return count;
++}
++
++/*
++ * Call after ACPI devices have been created, which happens behind acpi_scan_init()
++ * called from subsys_initcall(). PCC requires the mailbox driver, which is
++ * initialised from postcore_initcall().
++ */
++subsys_initcall_sync(acpi_mpam_parse);
+diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
+index fa9bb8c8ce95..835e3795ede3 100644
+--- a/drivers/acpi/tables.c
++++ b/drivers/acpi/tables.c
+@@ -408,7 +408,7 @@ static const char table_sigs[][ACPI_NAMESEG_SIZE] __nonstring_array __initconst
+ 	ACPI_SIG_PSDT, ACPI_SIG_RSDT, ACPI_SIG_XSDT, ACPI_SIG_SSDT,
+ 	ACPI_SIG_IORT, ACPI_SIG_NFIT, ACPI_SIG_HMAT, ACPI_SIG_PPTT,
+ 	ACPI_SIG_NHLT, ACPI_SIG_AEST, ACPI_SIG_CEDT, ACPI_SIG_AGDI,
+-	ACPI_SIG_NBFT };
++	ACPI_SIG_NBFT, ACPI_SIG_MPAM };
+ 
+ #define ACPI_HEADER_SIZE sizeof(struct acpi_table_header)
+ 
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+new file mode 100644
+index 000000000000..0edefa6ba019
+--- /dev/null
++++ b/include/linux/arm_mpam.h
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Copyright (C) 2025 Arm Ltd. */
++
++#ifndef __LINUX_ARM_MPAM_H
++#define __LINUX_ARM_MPAM_H
++
++#include <linux/acpi.h>
++#include <linux/types.h>
++
++struct mpam_msc;
++
++enum mpam_msc_iface {
++	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
++	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
++};
++
++enum mpam_class_types {
++	MPAM_CLASS_CACHE,       /* Well known caches, e.g. L2 */
++	MPAM_CLASS_MEMORY,      /* Main memory */
++	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
++};
++
++#ifdef CONFIG_ACPI_MPAM
++/* Parse the ACPI description of resources entries for this MSC. */
++int acpi_mpam_parse_resources(struct mpam_msc *msc,
++			      struct acpi_mpam_msc_node *tbl_msc);
++
++int acpi_mpam_count_msc(void);
++#else
++static inline int acpi_mpam_parse_resources(struct mpam_msc *msc,
++					    struct acpi_mpam_msc_node *tbl_msc)
++{
++	return -EINVAL;
++}
++
++static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
++#endif
++
++static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
++				  enum mpam_class_types type, u8 class_id,
++				  int component_id)
++{
++	return -EINVAL;
++}
++
++#endif /* __LINUX_ARM_MPAM_H */
+-- 
+2.20.1
 
 
