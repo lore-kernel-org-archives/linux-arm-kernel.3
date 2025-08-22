@@ -4,66 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F69CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC922CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RmmjsNt+QaTP4ejLwyozkeKeqHwTgQ0cq4UfMW/WQNw=; b=2yhveLVBYLwOkKn7iXpd5swc84
-	gG/fcgk6y1hVUYsoKyyTPTqWn7+DxK/CUPjXGIAGC1JGox5LK8RX/GU03743miXkeo0J4u+ckgbR4
-	FhvsB4kcQjTZGLX3WCrSaJPHyKhC7Bc5OkNi2Uswp15IPuMFOBzREkfXE8xkJLuY+sk3JGtdadNOg
-	RL3rzPuO78ky5GPbxR09SbmV+GfRoWNrKud+NN5NFJaKqDPhumc6d+d0IueIIbRWRGajcrq8+SRZc
-	OQkzHV+ggjnEsdd3MoXeP0K5XMSDC3wQxznKkFK2Q4RCZ7SenZeHtN5RTiUGQvo/xkWjNrHu9leMJ
-	QTTAh8qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LFegvcXYIsyG0l74FfopqsYeql9kyIbUdAisVCoNnuk=; b=r1oNeJ50Hws9fmQUs6TpJU/fBA
+	94101Lo4bqhvvR4ol7REmkGMvgedmaYCAaHIQO7dwLiLE1FisaDbsQOtJArlzcmihzyBVPGVVQK/E
+	aXd20no+WDoerX7xCmU4Wn2zS8NOZpC5UtKHu/gl5EBs9zi6C7DoW1KAq6Kt+zQKIKj3PsFkfSofa
+	gL2541Xtfn6nLfNpYJq4zRaYOhZBAxxwz8XydLl+A4KCTqsq+cMYW8NrqsBWONV7lZmaWc7APSdVi
+	Qk26cVzK2eUAjyYWa+nexUkseAkWLIhia/QnbDayszozidYoY/nJju1S8xEgrSnFEKVnc6I//9cpH
+	OwHpPEfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQoR-00000002TbG-2zAu;
-	Fri, 22 Aug 2025 12:24:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1upQr1-00000002TuX-1oSu;
+	Fri, 22 Aug 2025 12:26:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLYG-00000001jfQ-1PqX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 06:47:05 +0000
+	id 1upLbV-00000001kFk-1DEv;
+	Fri, 22 Aug 2025 06:50:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D35105C41F6;
-	Fri, 22 Aug 2025 06:47:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F62C4CEF1;
-	Fri, 22 Aug 2025 06:47:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B594160262;
+	Fri, 22 Aug 2025 06:50:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67AA3C4CEF1;
+	Fri, 22 Aug 2025 06:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755845223;
-	bh=pgdQoQpkKmouBhmB/S83yq7pnMsP7sTE0C4LmNARxTg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SBaQGSq8QQ/C2T41lmBISqdWNNFv6c806ZGjBbOLbC+SK651cFMYXiNnYsscAOkIb
-	 xqpdQOOLFYFABLpfs1WSWn0X8jtPieRPnAC/VBS2I2QUOpgU1CdvR86LFLOi3inDUJ
-	 C35LeREUIyevau0MwbuXbomFMYpO8xzP/+CDSjpqEY8/fBBour2yOgag/qJOrCqhP7
-	 Pq21jIK3spbfHsSPVNJM/XD7VYgMSoSDkbmeddlH4gAnJ1AJXBz4Ivzw9hXnflIzLm
-	 EIhbFstqPN/ojSfHXWXtjXgnUiB9e3ft/NBZ64gpc14qCVneIVumcnjz2WpLWRUPE+
-	 jt3zH/oGo/D7w==
-Date: Fri, 22 Aug 2025 08:46:59 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
-Message-ID: <aKgSY7bOrC8-qZE3@lore-rh-laptop>
-References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
- <aKbDjIZhJuWo3yFu@lore-rh-laptop>
- <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
- <aKcEYn_hX0ZIusne@lore-rh-laptop>
- <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
+	s=k20201202; t=1755845424;
+	bh=fE6O0DX19/nGzBYHCylohxJrltte2YRGoNjaD4F+RAI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KuPRzbtXXJ44Jl+lMFwqfKJkd61CM5D00QUrOlJcDgJesMG4hjjExByi0qx4Cr9lW
+	 HtJCgez45YDOQ8cIY7wSLGYCmeMrD/+QqdKv57cftqo8oXlD2JHsxGnzuDTLPSbrfB
+	 j6QvxWdRlMgl/Y0fsdvlWfwileVl+wEwabtwJEZlYHaM8teEHaZ4/ZjBlOy5NfC1zu
+	 InGMef5bY4Uzs0yNe6sFVCCNWpZgvK5rqkG+l29ZumXQNmC/LkVGJRNLM97PJ0w2WY
+	 +DL9k8HGG+9NskRCRTu87XhWo+s9LOfbylkuSYXqMhrepBx4Kw7FazS2Qh/OAuBb+d
+	 cVvSOtrOcy1xg==
+Message-ID: <e7875f70-2b79-48e0-a63b-caf6f1fd287b@kernel.org>
+Date: Fri, 22 Aug 2025 08:50:17 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2ZbTqGGtz4KCqJOZ"
-Content-Disposition: inline
-In-Reply-To: <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_234704_456992_B79269D1 
-X-CRM114-Status: GOOD (  41.03  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC
+ warning
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Jim Quinlan <jim2101024@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ kwilczynski@kernel.org, Manivannan Sadhasivam <mani@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iivanov@suse.de,
+ svarbanov@suse.de, mbrugger@suse.com,
+ Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell
+ <phil@raspberrypi.com>, kernel test robot <lkp@intel.com>
+References: <20250812085037.13517-1-andrea.porta@suse.com>
+ <4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
+ <aKc5nMT1xXpY03ip@apocalypse>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aKc5nMT1xXpY03ip@apocalypse>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,184 +126,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/08/2025 17:22, Andrea della Porta wrote:
+> Hi Krzysztof,
+> 
+> On 10:55 Tue 12 Aug     , Krzysztof Kozlowski wrote:
+>> On 12/08/2025 10:50, Andrea della Porta wrote:
+>>> The devicetree compiler is complaining as follows:
+>>>
+>>> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (unit_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges property, but no unit name
+>>> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_nexus' was unexpected)
+>>
+>> Please trim the paths.
+> 
+> Ack.
+> 
+>>
+>>>
+>>> Add the optional node that fix this to the DT binding.
+>>>
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4-lkp@intel.com/
+>>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+>>> ---
+>>>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++++++
+>>>  1 file changed, 9 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>>> index 812ef5957cfc..7d8ba920b652 100644
+>>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+>>> @@ -126,6 +126,15 @@ required:
+>>>  allOf:
+>>>    - $ref: /schemas/pci/pci-host-bridge.yaml#
+>>>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: brcm,bcm2712-pcie
+>>> +    then:
+>>> +      properties:
+>>> +        rp1_nexus:
+>>
+>> No, you cannot document post-factum... This does not follow DTS coding
+>> style.
+> 
+> I think I didn't catch what you mean here: would that mean that
+> we cannot resolve that warning since we cannot add anything to the
+> binding?
 
---2ZbTqGGtz4KCqJOZ
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I meant, you cannot use a warning from the code you recently introduced
+as a reason to use incorrect style.
 
->=20
-> On 21.08.2025 14:34, Lorenzo Bianconi wrote:
-> >> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
-> >>>> This patch series greatly improve airoha snfi driver and fix a
-> >>>> number of serious bug.
-> >>>>
-> >>>> Fixed bugs:
-> >>>>  * Fix reading/writing of flashes with more than one plane per lun
-> >>>>  * Fix inability to read/write oob area
-> >>>>  * Fill the buffer with 0xff before writing
-> >>>>  * Fix reading of flashes supporting continuous reading mode
-> >>>>  * Fix error paths
-> >>>>
-> >>>> Improvements:
-> >>>>  * Add support of dual/quad wires spi modes in exec_op().
-> >>>>  * Support of dualio/quadio flash reading commands
-> >>>>  * Remove dirty hack that reads flash page settings from SNFI regist=
-ers
-> >>>>    during driver startup
-> >>>>
-> >>>> Unfortunately I am unable to test the driver with linux at the momen=
-t,
-> >>>> so only the following testing was done:
-> >>> It seems to me this is quite an important rework of the driver. I wou=
-ld prefer
-> >>> to have some test results for this series. Are you able to run mtd_te=
-st kernel
-> >>> module for testing?
-> >> I'll try to build latest openwrt with this patches=A0 and mtd_test ker=
-nel
-> >> module and try it on one of our boards.
-> > what board are you using for testing? If it is based on Airoha-7581 you=
- could
-> > use the following repo for testing.
-> >
-> > https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-stab=
-le
-> >
-> > Regards,
-> > Lorenzo
-> What tests do you suggest to run?
+Fixing warning is of course fine and correct, but for the code recently
+introduced and which bypassed ABI review it is basically like new review
+of new ABI.
 
-IIRC I run all of them. Can you please report even if there are some
-improvements (or penalties) in read/write speed?
+This needs standard review practice, so you need to document WHY you
+need such node. Warning is not the reason here why you are doing. If
+this was part of original patchset, like it should have been, you would
+not use some imaginary warning as reason, right?
 
-> I have a single flash I boot from. It have only 2 mtd partitions:
->=20
-> [=A0=A0=A0 2.980849] spi-nand spi0.0: Micron SPI NAND was found.
-> [=A0=A0=A0 2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page =
-size:
-> 2048, OOB size: 128
-> [=A0=A0=A0 2.994493] 2 fixed-partitions partitions found on MTD device sp=
-i0.0
-> [=A0=A0=A0 3.000856] Creating 2 MTD partitions on "spi0.0":
-> [=A0=A0=A0 3.005651] 0x000000000000-0x000000020000 : "bl2"
-> [=A0=A0=A0 3.011247] 0x000000020000-0x000010000000 : "ubi"
->=20
-> Most of tests are destructive. So If I use "bl2" or "ubi" partition for
-> test, next time I will be unable to boot :-(
+So provide reason why you need here this dedicated child, what is that
+child representing.
 
-yes, I flashed the device after carrying out the test.
+Otherwise I can suggest: drop the child and DTSO, this also solves the
+warning...
 
-Regards,
-Lorenzo
+> 
+> Regarding rp1_nexus, you're right I guess it should be
+> rp1-nexus as per DTS coding style.
+> 
+>>
+>> Also:
+>>
+>> Node names should be generic. See also an explanation and list of
+>> examples (not exhaustive) in DT specification:
+>> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> 
+> In this case it could be difficult: we need to search for a DT node
 
-> Do you suggest to patch u-boot & linux to have more mtd partitions?
->=20
-> This is the results of the only read-only test I found.
->=20
-> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
-> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=3D1
-> [=A0 159.121706]
-> [=A0 159.123220] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D
-> [=A0 159.129053] mtd_readtest: MTD device: 1
-> [=A0 159.132898] mtd_readtest: MTD device size 268304384, eraseblock size
-> 131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
-> 64, OOB size 128
-> [=A0 159.147008] mtd_test: scanning for bad eraseblocks
-> [=A0 159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
-> [=A0 159.157549] mtd_readtest: testing page read
->=20
-> Mikhail
->=20
-> >> Actually patches can be divided on to parts:
-> >> * fixes of current driver (patches 1-10)
-> >> * change of behavior to avoid reading flash page settings from SNFI
-> >> registers during driver startup (patches 11-14)
-> >>
-> >> The changes are based on the code we are using for more than 3 years. I
-> >> adapt it to latest linux/u-boot code.
-> >>
-> >> Up to now the only known issue appears on en7523 chips only. Here a
-> >> corresponding patch description (not added to this series)
-> >> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D spi: airoha:
-> >> en7523: workaround flash damaging if UART_TXD was short to GND We found
-> >> that some serial console may pull TX line to GROUND during board boot
-> >> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
-> >> booting in RESERVED boot mode. It was found that some flashes operates
-> >> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definitely
-> >> affected by the issue, Winbond flashes are NOT affected. Details:
-> >> -------- DMA reading of odd pages on affected flashes operates
-> >> incorrectly. Page reading offset (start of the page) on hardware level
-> >> is replaced by 0x10. Thus results in incorrect data reading. Usage of
-> >> UBI make things even worse. Any attempt to access UBI leads to ubi
-> >> damaging. As result OS loading becomes impossible. Non-DMA reading is
-> >> OK. =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D
-> >>
-> >> Regards,
-> >> Mikhail
-> >>
-> >>
-> >>> Regards,
-> >>> Lorenzo
-> >>>
-> >>>>  * Driver compiles without error.
-> >>>>  * All changes were tested with corresponding u-boot driver. U-Boot
-> >>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
-> >>>>    additional fixes for continuous mode.
-> >>>>
-> >>>> Changes v2:
-> >>>>  * minor fix
-> >>>>  * add comments to code
-> >>>>
-> >>>> Changes v3:
-> >>>>  * add patch to prevent continuous reading
-> >>>>
-> >>>> Mikhail Kshevetskiy (14):
-> >>>>   spi: airoha: return an error for continuous mode dirmap creation c=
-ases
-> >>>>   spi: airoha: remove unnecessary restriction length
-> >>>>   spi: airoha: add support of dual/quad wires spi modes
-> >>>>   spi: airoha: remove unnecessary switch to non-dma mode
-> >>>>   spi: airoha: unify dirmap read/write code
-> >>>>   spi: airoha: switch back to non-dma mode in the case of error
-> >>>>   spi: airoha: fix reading/writing of flashes with more than one pla=
-ne
-> >>>>     per lun
-> >>>>   spi: airoha: support of dualio/quadio flash reading commands
-> >>>>   spi: airoha: allow reading/writing of oob area
-> >>>>   spi: airoha: buffer must be 0xff-ed before writing
-> >>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
-> >>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG=
- and
-> >>>>     REG_SPI_NFI_SECCUS_SIZE registers
-> >>>>   spi: airoha: set custom sector size equal to flash page size
-> >>>>   spi: airoha: avoid reading flash page settings from SNFI registers
-> >>>>     during driver startup
-> >>>>
-> >>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++--------------=
----
-> >>>>  1 file changed, 260 insertions(+), 248 deletions(-)
-> >>>>
-> >>>> --=20
-> >>>> 2.50.1
-> >>>>
+Search like in driver? That's wrong, you should be searching by compatible.
 
---2ZbTqGGtz4KCqJOZ
-Content-Type: application/pgp-signature; name=signature.asc
+> starting from the DT root and using generic names like pci@0,0 or
+> dev@0,0 could possibly led to conflicts with other peripherals.
+> That's why I chose a specific name.
 
------BEGIN PGP SIGNATURE-----
+Dunno, depends what can be there, but you do not get a specific
+(non-generic) device node name for a generic PCI device or endpoint.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKgSYAAKCRA6cBh0uS2t
-rCkLAQCXPfNkfjRYbh1mtbx8El7/T7e7Gh35r5YXdJopc728nAD/SYvKdetOGOSV
-nyQzX0+J8Iixf9sztahWg2BVOfRtzQY=
-=VzuW
------END PGP SIGNATURE-----
 
---2ZbTqGGtz4KCqJOZ--
+
+Best regards,
+Krzysztof
 
