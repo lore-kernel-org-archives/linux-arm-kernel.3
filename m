@@ -4,60 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4727CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E55DCA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHGTe7z2X8VhNkwBjYC+POamvLkfxWgR48fLTVRtZcw=; b=iYQu6RraqkDRh7D5FQNLUQD3br
-	/MlzbOlcTcrVKxcSZHq5wy1R05itaO7QPGE6aYDoTB3AcpNBKYBTrRDeWsHA6/shMCmUorlPJ+734
-	uz8oI+CIJGSAh3t1MzxIczZYpTTf2+1TFAT+a8v7HWwgpU7F68GUMUWV1SfftRHMme1VkVYvBs06Z
-	hvcgJA/ubc+Bfy/VSV1yKA4G5u/IqvnzFHOwVYTd1FnpeMAvX06Iic8EH5jnXUe6AE5EeDiKz59xE
-	la2AzWaonfw7ElqvFCRdiz3vaEPSZkRV/P3B7Pc3V2rjKizAyDYtANxqhu2EKaf6BOeIhN5k0+ZCB
-	rZ4Cp/dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGbeZuqspzRioDGrdvKPMUoTcNPF7/XnoWtRoGzbxwQ=; b=ipjZ+bFkjSmPqv2EQqIFjyZyxu
+	6qRwXRGKRHozvuXEweHPGhXyHuwXcRAvjLCjckNUGS+dbcy6Ib9kyYKXODdrEhGcRbinFG9xXwPA0
+	/eQOXVNtmtMTSMUOFNv8k4gL0SlmX0QvxJieW64Dozd45FN8plInh7KO8hKZhrJVkG6a4VJufvWaM
+	T2eyxGObUeqOdRMHAHgs0LYLViiInY7nYZmU4snhn84UNV0MNqJ6HrzV791vt8n0d28A3wa/UKNS9
+	+Q9Xa9fxO2l4lukFkfMtgJq8zHZkGv4AKSrI8CMHLcJOw77hpyp1jcvnYWT+Lio2Q7KxLfvqBfLM9
+	eDiC2wWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjTp-00000004LRB-235N;
-	Sat, 23 Aug 2025 08:20:05 +0000
-Received: from mail-m16.yeah.net ([1.95.21.17])
+	id 1upjTt-00000004LZ8-2Psm;
+	Sat, 23 Aug 2025 08:20:09 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upO8o-000000023XP-3wVl
+	id 1upRCA-00000002XA4-3nam
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:33:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=bHGTe7z2X8VhNkwBjYC+POamvLkfxWgR48fLTVRtZcw=;
-	b=aOygQgkooXvr4XzEcpTOuE1/Zwc7ECheoiXTrTD15h+kpJYOhPe0RD191+8wyq
-	4U0ajuZTkae81jsumFF/hSuJImH2sEDStGSiD5nCBVjRQYGUS3+iFexh/fznJ21/
-	y7IdWGPrkikqoKxC7HCQaJqzfW8ylAe3glUbJtVvNDvyM=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgDnX_k2OahoS3soAw--.11369S3;
-	Fri, 22 Aug 2025 17:32:39 +0800 (CST)
-Date: Fri, 22 Aug 2025 17:32:37 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org, stefan@agner.ch, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org
-Subject: Re: [PATCH] ARM: dts: vf: Change the NAND controller node name
-Message-ID: <aKg5NQH09gNqYicc@dragon>
-References: <20250819194018.2850727-1-festevam@gmail.com>
+	Fri, 22 Aug 2025 12:48:40 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MCgmp0005067;
+	Fri, 22 Aug 2025 14:48:29 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	TGbeZuqspzRioDGrdvKPMUoTcNPF7/XnoWtRoGzbxwQ=; b=4t5an2Ivhpfv44vd
+	pS602YSZFg2zu/Ma53LpeLjt9uVgcrxM/zA9mrYjWj9md+D50UqoNLMtyrHBVThD
+	ns2T8NhfiIJCji7gnXToOWLv4qUmlUMqBllMGf2MY9BnjwOeLh5CgH3UMjdRkuSU
+	jvmo7fQ6ukEBWck3EDHSq1y5zZYveTyPQ86nsPnvY6gLUxRFeauBIYCOfihhJfWL
+	dIjBrHGib5QXRPnevSicyqCidUtqNAxfN8vlggmd/fbqe6Oav96TABlTaKr2kWQe
+	T4UFAa1zB6vmq3QL4LBz0qeJFizbY7ncMbp7ZnZMtDWG0iSXjT0bdR6/cRbgG4El
+	snQJ0g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nd5xs6qd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Aug 2025 14:48:29 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7D0E540048;
+	Fri, 22 Aug 2025 14:47:14 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8279A71DB2B;
+	Fri, 22 Aug 2025 14:46:17 +0200 (CEST)
+Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
+ 2025 14:46:16 +0200
+Message-ID: <13ae9184-e835-476c-a96c-df8cd94c6e4b@foss.st.com>
+Date: Fri, 22 Aug 2025 14:46:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819194018.2850727-1-festevam@gmail.com>
-X-CM-TRANSID: Ms8vCgDnX_k2OahoS3soAw--.11369S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU84E_DUUUU
-X-Originating-IP: [117.81.240.235]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIhefBWioOTcFoAAA3E
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 04/13] dt-bindings: display: st,stm32mp25-lvds: add
+ access-controllers property
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
+ <20250821-drm-misc-next-v4-4-7060500f8fd3@foss.st.com>
+Content-Language: en-US
+From: Yannick FERTRE <yannick.fertre@foss.st.com>
+In-Reply-To: <20250821-drm-misc-next-v4-4-7060500f8fd3@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.178]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_023259_271743_29EAADD7 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_054839_202210_8DCC28EC 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,16 +113,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 04:40:18PM -0300, Fabio Estevam wrote:
-> fsl,vf610-nfc.yaml references nand-controller.yaml, which only allows the
-> node to be 'nand-controller'.
-> 
-> Change it accordingly to fix the following dt-schema warning: 
-> 
-> $nodename:0: 'nand@400e0000' does not match '^nand-controller(@.*)?'
-> 
-> Signed-off-by: Fabio Estevam <festevam@gmail.com>
+Hi Raphael,
 
-Applied, thanks!
+Thanks for the patch.
 
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+
+Le 21/08/2025 à 13:08, Raphael Gallais-Pou a écrit :
+> access-controllers is an optional property that allows a peripheral to
+> refer to one or more domain access controller(s).
+>
+> This property is added when the peripheral is under the STM32 firewall
+> controller.  It allows an accurate representation of the hardware, where
+> the peripheral is connected to a firewall bus.  The firewall can then
+> check the peripheral accesses before allowing its device to probe.
+>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>   Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
+>   1 file changed, 3 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> index 74e61d95370c299130410cdaae833514324c3e8f..05a73bbc246a8994b6aabf7c2cd9dca773232be4 100644
+> --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+> @@ -59,6 +59,9 @@ properties:
+>     resets:
+>       maxItems: 1
+>   
+> +  access-controllers:
+> +    maxItems: 1
+> +
+>     ports:
+>       $ref: /schemas/graph.yaml#/properties/ports
+>   
+>
 
