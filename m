@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F58CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 311D7CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/A3ktddHCOVpJeZQNetYvzFzGrqcN09SXIXDuSyH2Zs=; b=MtklpERi6deerrnzdEO8/UChYD
-	pOulJBm44v3pbtLexCm/p6SUKYqU1LiWSX9U8vFR3F282Z0Woh3ZcBOWMK/8BJbhKyxrOXjEmy8as
-	nx3AACSYL79aJak2rGyFu0gmjOXHxvUQ7MXkdJW4VLKkBquRgf2Vvpnm5vIY+zBdtg/ITcv1RFilF
-	TAk+lkBwTRWZcaEW+nx2Ax+f99PFbFgqYbTN6hoEEijNFqon8I738K6ijVJ4KUG96UJsd7amVQ/Jl
-	ZK5TDyK69lfu1XPc+ewopH0K9KNMTs98zTVuP1voDO6s/h2fba+ACMzeb/5JauR/tP3AmX4m237Xg
-	8vAiiJiA==;
+	bh=AZMUo7WLXMOMQHzwFbOsQWPJOJMT7XainwvPXkjTvQ0=; b=X/TKeegCCSHWr8+cwZSuHMeUTF
+	I/UfriqBiBkZw40Sm7ZPfkZSwk8kcjeRdr7+hbu4LcmG+RZyvwXrFrXTpDh4WE74+WX7lOoihIBH5
+	y7xDitk+xnMdJ7q+phATeHhPQ9SuuXq4RNMp29fa6tq4CVDZUvzetrzpMix7vLaJAtOcjSZ5oJuQT
+	ReFroEKSPC/WLOAEu9MixH1+C6HcQ2WU/9war3ks13VMMNC0Iua2yngq3/rTs3dUVpxcWIoEqZl1e
+	E2iVE46SALQVs0sVG27+qjK6SkFkyl4equIvMAgd+8f8vCKja0w+XjEvwkNY106hujv8gEvp5+J9j
+	EMz6Ys0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQLw-00000002P4q-21Md;
-	Fri, 22 Aug 2025 11:54:40 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1upQOW-00000002PLt-2oAL;
+	Fri, 22 Aug 2025 11:57:20 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLS7-00000001iK7-2jN7;
+	id 1upLS7-00000001iJq-2pAj;
 	Fri, 22 Aug 2025 06:40:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=/A
-	3ktddHCOVpJeZQNetYvzFzGrqcN09SXIXDuSyH2Zs=; b=I8xITWGbwewgMV+rbj
-	4ovTonhakdPJ+a+2GIqdXpI4RCutabnx+kPqAGkZvGY7diKMU1n3yfSJ3X4UJe3j
-	5/g7vLQjTHDeLnoiMx+8bYIB3jYOFZ0TbI0oGHrJ2bmy2l21WsJTvSx8xyZ4ycpw
-	RrINmrGjAtpbrI1zGz7Bg+yjk=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=AZ
+	MUo7WLXMOMQHzwFbOsQWPJOJMT7XainwvPXkjTvQ0=; b=GS8Ck+mPGVyjDQ/fpi
+	+kmcJ7CZ+tipU5bW12VurVk0HpEKdlSeADsLSPXCbzVQIyIqYKHWBzvKYaW5wW1V
+	4KlkT1uo3DKNvUYpag1BBLanNKxSSOzyRwlyPfT1SlbhedwcgXwu2LdXh7/FKYLd
+	6ahCgrKoURcJry7jCKJLKbnX0=
 Received: from ProDesk.. (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S10;
-	Fri, 22 Aug 2025 14:40:26 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S3;
+	Fri, 22 Aug 2025 14:40:14 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -55,25 +55,24 @@ Cc: hjc@rock-chips.com,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v7 08/10] arm64: dts: rockchip: Add DP1 for rk3588
-Date: Fri, 22 Aug 2025 14:39:52 +0800
-Message-ID: <20250822063959.692098-9-andyshrk@163.com>
+Subject: [PATCH v7 01/10] dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
+Date: Fri, 22 Aug 2025 14:39:45 +0800
+Message-ID: <20250822063959.692098-2-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
 References: <20250822063959.692098-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S10
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZrWDCry7Kr17CF4kXFy5urg_yoW8WF4Dpw
-	nrurZ3WrW8uF1Sq3sxt34kXrZ8A3Z5CFZrKr1xK3W8Kr1Sqr92k34akrZ3C34UXr17XwsF
-	kFsxtry8KF4qy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jwvtZUUUUU=
+X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWryfKrWfCryDXFW7uF13twb_yoWrCF4xpa
+	n3CFZ8JrW09Fy7Xa95tF1kCrsYqw4kA3y7tw1xXw17tr4agFyYgw1a9rn8Z3srGFnrZay2
+	9FW7u34xtw47Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jz4E_UUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMwWxXmioB5f6uQAAsK
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hmxXmioDHlwegAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_234043_997449_6508A315 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_234044_050597_52247B8C 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +89,181 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-The DP1 is compliant with the DisplayPort Specification
-Version 1.4, and share the USBDP combo PHY1 with USB 3.1
-HOST1 controller.
+The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX
+controller. And this DPTX controller need share a USBDP PHY with
+the USB 3.0 OTG controller during operation.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 ---
 
-(no changes since v1)
+(no changes since v2)
 
- .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Changes in v2:
+- Link to V1: https://lore.kernel.org/linux-rockchip/20250223113036.74252-1-andyshrk@163.com/
+- Fix a character encoding issue
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-index 90414486e466f..691fe941d53a1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-@@ -210,6 +210,36 @@ i2s10_8ch: i2s@fde00000 {
- 		status = "disabled";
- 	};
- 
-+	dp1: dp@fde60000 {
-+		compatible = "rockchip,rk3588-dp";
-+		reg = <0x0 0xfde60000 0x0 0x4000>;
-+		interrupts = <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru PCLK_DP1>, <&cru CLK_AUX16M_1>,
-+			 <&cru CLK_DP1>, <&cru MCLK_I2S8_8CH_TX>,
-+			 <&cru MCLK_SPDIF5_DP1>;
-+		clock-names = "apb", "aux", "hdcp", "i2s", "spdif";
-+		assigned-clocks = <&cru CLK_AUX16M_1>;
-+		assigned-clock-rates = <16000000>;
-+		resets = <&cru SRST_DP1>;
-+		phys = <&usbdp_phy1 PHY_TYPE_DP>;
-+		power-domains = <&power RK3588_PD_VO0>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
+ .../display/rockchip/rockchip,dw-dp.yaml      | 150 ++++++++++++++++++
+ 1 file changed, 150 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+new file mode 100644
+index 0000000000000..a8a0087179972
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+@@ -0,0 +1,150 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-dp.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
++title: Rockchip DW DisplayPort Transmitter
 +
-+			dp1_in: port@0 {
-+				reg = <0>;
-+			};
++maintainers:
++  - Andy Yan <andy.yan@rock-chips.com>
 +
-+			dp1_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
++description: |
++  The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX controller
++  which is compliant with the DisplayPort Specification Version 1.4 with the
++  following features:
 +
- 	hdmi1: hdmi@fdea0000 {
- 		compatible = "rockchip,rk3588-dw-hdmi-qp";
- 		reg = <0x0 0xfdea0000 0x0 0x20000>;
++  * DisplayPort 1.4a
++  * Main Link: 1/2/4 lanes
++  * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
++  * AUX channel 1Mbps
++  * Single Stream Transport(SST)
++  * Multistream Transport (MST)
++  * Type-C support (alternate mode)
++  * HDCP 2.2, HDCP 1.3
++  * Supports up to 8/10 bits per color component
++  * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
++  * Pixel clock up to 594MHz
++  * I2S, SPDIF audio interface
++
++allOf:
++  - $ref: /schemas/sound/dai-common.yaml#
++
++properties:
++  compatible:
++    enum:
++      - rockchip,rk3588-dp
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: Peripheral/APB bus clock
++      - description: DisplayPort AUX clock
++      - description: HDCP clock
++      - description: I2S interface clock
++      - description: SPDIF interfce clock
++
++  clock-names:
++    items:
++      - const: apb
++      - const: aux
++      - const: hdcp
++      - const: i2s
++      - const: spdif
++
++  phys:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video port for RGB/YUV input.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Video port for DP output.
++
++    required:
++      - port@0
++      - port@1
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  "#sound-dai-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - phys
++  - ports
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/phy/phy.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/power/rk3588-power.h>
++    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
++
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      dp@fde50000 {
++        compatible = "rockchip,rk3588-dp";
++        reg = <0x0 0xfde50000 0x0 0x4000>;
++        interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
++        clocks = <&cru PCLK_DP0>, <&cru CLK_AUX16M_0>,
++        <&cru CLK_DP0>, <&cru MCLK_I2S4_8CH_TX>,
++        <&cru MCLK_SPDIF2_DP0>;
++        clock-names = "apb", "aux", "hdcp", "i2s", "spdif";
++        assigned-clocks = <&cru CLK_AUX16M_0>;
++        assigned-clock-rates = <16000000>;
++        resets = <&cru SRST_DP0>;
++        phys = <&usbdp_phy0 PHY_TYPE_DP>;
++        power-domains = <&power RK3588_PD_VO0>;
++        #sound-dai-cells = <0>;
++
++
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          port@0 {
++            reg = <0>;
++
++            dp0_in_vp2: endpoint {
++              remote-endpoint = <&vp2_out_dp0>;
++            };
++          };
++
++          port@1 {
++            reg = <1>;
++
++            dp0_out_con0: endpoint {
++              remote-endpoint = <&dp_con0_in>;
++            };
++          };
++        };
++      };
++    };
 -- 
 2.43.0
 
