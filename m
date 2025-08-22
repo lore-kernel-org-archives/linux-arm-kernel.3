@@ -4,106 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1CDCA0EFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C50CA0FE9
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3058HaZG35cX2XZ/Uwrd0jvSVLQONoV7sGcI/Au62/4=; b=4maO8YZHvrEBrdyXDT8TLFMJUu
-	dj4Zeu308CJW3A3suzWYjQBZggHE1LTT9Pqf3lDx1+aoAh3WDSV2XExLRcfbkk2Yd3GLVyzgRcK+S
-	pi711i6jFduUBi9hhLSbevAqyZhLvVgVrSW1AKqW/gMBng3rybuGCXebMqIR4X+yyovfXY/WO/N1z
-	zAQ3+dNVurp4QOwfJOnlQwjtltsXoUCsPHMpYwzInwREWW8ap80/l7BfDG8ylFfG5KdtUP7P5ahHa
-	cU9Tj3OfM2IEZz/CRGoCzupKq3VYuTNVBw5G1CeYTdFAAt8/YVpjtEI52pOBdRMXFastDNFQIapKg
-	pcmbAvqw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=; b=EGV2MuY/S5dp9hfuvRTlYuGdGO
+	MSmi7AAMtsOUg8nOeUvWZEBAIQr+97i4xU0QwaFpxA5T3ddv6WicGsNytSMoyQYIKP/ZJIUK7ZW8g
+	OPOlq7LFPSGO/zZT7WCgcgRk3FU4L1bWR4vcyWgNHjWkiBH9p/6+fvouQcvDKfXcocSOKH6X2sTkA
+	amHHUyARuwlVBOq+RQf6b4jdfS39PfUqGklVNIm6kdko8pnKDLyeGNjfHVjo/wTXQOH7f+J8LvQAX
+	mAamqX3IGaceXq09gBHVKhKY7KKdk46eMgs0//8mhhG5vB2w+AynnnvnHJnVvAqA+XxcrEEF8gQHw
+	liCs5XQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkdx-00000004SKd-2c8O;
-	Sat, 23 Aug 2025 09:34:37 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1upkdy-00000004SLJ-1MAV;
+	Sat, 23 Aug 2025 09:34:38 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRtY-00000002df4-1Xom
+	id 1upRtf-00000002dgY-2E4i
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:33:29 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-afcb7a96309so30051966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:33:28 -0700 (PDT)
+	Fri, 22 Aug 2025 13:33:36 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-afcb79fb221so27971266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:33:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755869607; x=1756474407; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3058HaZG35cX2XZ/Uwrd0jvSVLQONoV7sGcI/Au62/4=;
-        b=TUsMfsyRi6Dlg3X4OhBd+HunIKYY5MZ9FAUpjrrZPTaOrW9dIFVQR+TM0Qhio884YF
-         Wfc6dUmt7wFyT6ha8VRo/BpSpWWLb8hqK/YJ1sHJ2tb72K8FjHKdY4M2iCUwebM2UhWX
-         1SEX5ihhLTAa8gkMltK24I/Otkaj2xo3uMzEUkfjyMolMpl8hPuH+/bgIFRTFKbLJB03
-         pwwIO3C2b10o3snz9AQBvobmesaeivCwX8wf7MyUjDlBfvFjanW1HvuP6xhTf4XhLyxl
-         7joX2x01bUCpSusUnCECzUAyEYVi2+gzdjS3/R1Joynh0XfRqZdIvyRXuY59cXmozgMI
-         yFXA==
+        d=linaro.org; s=google; t=1755869614; x=1756474414; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=;
+        b=vAvqVSQ6ScMRxw0557C4PU0vkb7tb0PrC9gj9VnV8Xk08IklnQSyRZgnqBUL3XIIRE
+         iwmyYgTURKWpnjVPjWWixwmmVgc+RHzGx8YVven7ww73rZ8FgMOi7STwxoCWySPd/M3r
+         kuE3/b0WQfK0xPFvEMDVMgF0WLyu93sF6oxK5JYj4xbcdR0iA9HUQZWngHrSDbFfA1Lq
+         QuxVnAU7nZpL3MZWA1L2EEQCZu0grqO6cVjgbdIbh8lUQnSsHPfaWH29vBdGDpHLDYRu
+         hB0kWJUx6OVVH/GfffhRVY0Juo12GcUGGqKOMijsz2EIQ00nHsTnf7AiE5NGJE5Ffcgx
+         /vZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755869607; x=1756474407;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3058HaZG35cX2XZ/Uwrd0jvSVLQONoV7sGcI/Au62/4=;
-        b=FZ6xOkzrZCb07JzGVcSXwC+fDnn6IiqrmuQlXI+OniIAZTEBRHo612apefXV//+F4r
-         MKtQDjJJbtHDtWCHnFhvtxQtZCp9eXK7Guk6hQhrnQj4ECKc4iQTrjxx21zLhlJ4mTUd
-         lXFzbUO0EIHO9F24HL/fnBB3LhD7p61XmboIMEw76mpbF/k+te4Ps/2NeXFdiE9emlyV
-         i6w1VEiN7dDxwXfojTcpr2ObdiTl2BAkUqvlQB9D++y11tGcH/vKI3sA8w6Jj2ZXOIyZ
-         nOHbP/yr8H9W5tRaSCf2OYyHREqzkiOHymv1wKOkJRKuDsjeEAOgWGPgmaOcxoPwTCBk
-         R5mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQu3tSQddEQb5jA4xHJ3Uuk6tjijZmSOqM4Vs4RTsNzTLBQxppcB0ONFRV9UJZfHUfjETAA+C020T9342Q+lu9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV4MKkUqzXLgTy+4c+t3JxDKCgC/rWWHWa+9p+fTX4HknIVng8
-	dY1lksZx+sqadNDEFiy1pUDSaZy/Cv+We1QAqEfIyKRaAY+Qm9E5EX9ZE52rqYMZqeY=
-X-Gm-Gg: ASbGncuqXcRqd8BhNfAF6grw5wQrrLtUkLoZOuV0o/wsg4GGWT4zOiqIrd5wyyvoxIc
-	6BGGOLbIf9bryJJxEoIC6E9o0HKDzuJumEVVIWpONEMK9MokKYOkByUYdbZNpHjO+A4jyPK4qPJ
-	mE8GaaLsmxoQ83ly0zV30qFVGKWY76zss+Z3OQ9HOnBd7pFTnEp2rJvgNu0uBDhSuS0D4j4Qq6U
-	56AKwpwPirft9YYuEbTwxxGUDVTWXfU2Zs/Ywx2tbmVdTUbCcF9dAXSh05grsuEWED963XEmQiz
-	oL1DS+V6s0LfSkC2lKjzNlcXWDDmO5+pRn5U1QQUEm729niQvwRcvARJTfRAcC1yHo0zjDNREgR
-	//UQsWZksSiyF2PdBwCa4LQyqKPuY1tfSvA==
-X-Google-Smtp-Source: AGHT+IHtKcirQUNL1ochiiGTM0PZ2Bt/BmKBeNyJh4I1dwfz3kGNntqYqko2Rsyvv1A1m6TLYS8O2w==
-X-Received: by 2002:a17:907:7216:b0:ae3:5d47:634 with SMTP id a640c23a62f3a-afe294cf1c5mr145812166b.9.1755869606944;
-        Fri, 22 Aug 2025 06:33:26 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755869614; x=1756474414;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=;
+        b=N5DVCvLeGZfPQHkp57bWU9i9t7diwEByBDP5QXKAg+ZaKm3y7wwn+TEYIzwiQcYtc5
+         JRx35peooNS+bSjvJnQQNQoT/GyuEAZO86wOULoYZ46ObYtr6At/+WRUelAhD2hsEjh9
+         VlWxDTt4f5aP/O/E7yY13DsurLPxhl+dij99XyIV/M4pK/ghdYGiNxaxah1r00JeMBFp
+         IupMBPoR8HSg+yg+0JSQ9TvUDjmjJ4v+EODD+kD/EcHCsestDNtxT9ruLlaXRidZJAnk
+         pJtwobCgnqhpUR2qQnYDXjWqCyV8WPhh3RrJBUyEpvqDLgLbdKyiZW2C+nI/MDCxXvro
+         pk2g==
+X-Forwarded-Encrypted: i=1; AJvYcCU4L0JVy2uu7g/5EU0XqszkBTuq7G7u0ybg3BikxYAUwXCjdb6H1YYa1V8xLn3vDfeGdoQeLnQ2fmlgR4/PNZMk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6aTiV/D8DLQexq+fpLqqcHKTa39ZhO6kOIaF4fojSxNPKhiz9
+	aCnsZBJvCLgpNtsSM7l30Bka7A2d4zIYvlgqtg5lC5DrzJwbi7tybEOoGMaJNkV7Wgo=
+X-Gm-Gg: ASbGncspd9FHvliDgq0fL2FpABK6Mt746Ut5VC7aeb6HBptmHy3unOCHvPvgQZ1D7OV
+	blIt2qtpfhCL8QslR73BroAhTnqqg+7E2lTfRNP61zgV5CEuuyoGlMygxyobxo/tlinTY/fv0QB
+	6pkaw1mzMFJkgLrVVMp4rMxbgFdd7vg4Z2nVH/6/kfnAuxOSzMDriJpnI3LEdSMtAZ1s9VaML4e
+	giCnytZ/ewyHAh70G96Xz6OIM+9qhlIgcpv8tc2IU7KyOHqrWy/4E9vQsh1qp4dq9xLa4BUlkFO
+	6LRRD91vBhgG9LgfRKoVOXqtsiVMhHtCcPXhvQo/r0vtJESMzBMi5kwXoHOw5CPJDAvCnPB3d/z
+	y7MXDRCyX+0xpv8yNPU8sCCzzXoQNfME9yu7kEwRjnWSC
+X-Google-Smtp-Source: AGHT+IH6qN1ECW4QhALM/CQ2NPhMzvX4p6uWPEhQ/UIi/ACqTxT43/7Yi0lQIdrNUOwBtpfwLUzTRw==
+X-Received: by 2002:a17:907:3c84:b0:af9:8748:2bb0 with SMTP id a640c23a62f3a-afe29513efcmr141558866b.10.1755869614096;
+        Fri, 22 Aug 2025 06:33:34 -0700 (PDT)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2ba366sm608881866b.19.2025.08.22.06.33.25
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2bc305sm599477566b.18.2025.08.22.06.33.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 06:33:26 -0700 (PDT)
+        Fri, 22 Aug 2025 06:33:33 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] arm64: dts: socionext: uniphier-pxs3: Add default PCI interrup controller address cells
-Date: Fri, 22 Aug 2025 15:33:20 +0200
-Message-ID: <20250822133318.312232-4-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] arm64: dts: marvell: armada-37xx: Add default PCI interrup controller address cells
+Date: Fri, 22 Aug 2025 15:33:30 +0200
+Message-ID: <20250822133329.312326-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250822133318.312232-3-krzysztof.kozlowski@linaro.org>
-References: <20250822133318.312232-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1341; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=uBeC7mf3PEPAn8sqeu6dfy6yJmrTEpravF6dwOWks5A=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHGfPYEoemcZVLD4Ece0pw3e1Jo0vFzQUD1it
- D4nvDRASLCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxnwAKCRDBN2bmhouD
- 178GD/4sByR6xe9j+oId4fS0kvEgS9z1k/ZNzGSDZe3LgAwxWrP+5ljp9HzwtDXaN6F5wLnwPYA
- foNLnSk8eZOHPj6aPdD4ysyDuymgIwRkivr/lAXDY0FiDs8Sri6ZFWWEAqqUIWGkwzueNbBBN1a
- Rm8harZWIvx5fuBnhd/PxGnUDL2FFHdJgWutJN6ukqmJzhzMBmuOJOoj/VArkF94RTJ+c+1t2Gw
- hxvgPYo6Hvk0XGvcWeJ4oDSFV1PFn8Knb3usTgVtu9WGIosNhGTXRgtma1t5Wfaynahr4V6hFRC
- GfN6+nT9echcgT8n/uzaAK+XBdVuxuoorC4avRaPrphHESCKQehLYOivAV7XKPESaoWkm0L+tFN
- d9VkQhXaLcOsKgqdkIcsaWFxUI1BaIazkWZp2wYf/JnCf8Drh9Zjy5F+espmHAdw5O7mEtNGm3I
- tZeH86BOk6jBKdsi8YuyDXNE1Hyj3pG/b4vNQaaHt/wO1PmS3o9t2t68+Be8FPILcto9V+/z+V8
- oCabngK6rrg9CqiORmq0N3XYIYIyj/lIoOwfRU/RESaTjoLRwJIkzprDG28uNbqHigUfrg1yDy3
- Pd8PlzLVA+H7YhfdDsbwCDNV4CtrbnNQkyN3Mn4ly/x4S5gLm5e+ihiM9uQcTQ1ZshpAoLpggzn LFZYDPjTPEPisZA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1233; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=bYTViSflE79ust8qCI2yDDQ/7mxRvAWLwJ0TYax5i3U=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHGpSFTnv6/ZCbMEgpskXgih8YmZE9bFTXExE
+ TbqLeUQ6+mJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxqQAKCRDBN2bmhouD
+ 1/h4EACGmhvfHw298PPgaoyMuUONYIZb7OIY6Hxa+VVRj7HsQUDJxh3f1xDS5l/iph70RiN19sB
+ Kk0+LSi5o5I9h7mlvKPVi0IgyW3FdFCZeh3tBR+Y8R46DWEX1Am1nIyWvY6yp/aqE0LtteiR3QB
+ YKRhq83zCDQyIIsLFWB3KzIJkyG3U9zv++wDyh2lwVC8WSlxjbaPb78ZHlijIwDUnWuf/g/VgiG
+ 4UStLpkvFuq8+5uHk+i3krKNIebHhDbZzflBBIsi82BdJWKyqRAJCb9NJ9wL1nrCqgB853oDI0v
+ 5Pnr2OntXmT/lZIburftXiEw74NHd3JPF6BFubFmOdJAmi7CLXz0EWNcaN9K1pR864A5O8Yz3xd
+ dMr8jpAK9yfldJ0mxqoZL/TpJeZo6NNBKK3emOhj9DQJU0k7Q7caixecUcTc16eFgJQ2jYbLCBx
+ cUlzKY7ECvVkCPK2vf0+/QNdQRFQO1IsgZVmdt2OnrVlpGHQnS9kvruScv1KqQFeHTayOplag4S
+ WSkAwpbLhGYY7WZSbxY5A2kTX0cLJboYQgyHvud0w1nBCl6T69OktFRSE72PSEOOKNyqaza91Db
+ O8hypdE6X6G2xxfFtWE63z5gIwBkEwQ5kew7ffBpfx6L0MdxtelNYePEqT5jHAj3GvOQq/FuwKb jvDBV47J8p3fYUQ==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_063328_404700_202B36F8 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250822_063335_566157_4C8D225D 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,8 +119,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Add missing address-cells 0 to the PCI interrupt node to silence W=1
 warning:
 
-  uniphier-pxs3.dtsi:915.4-918.29: Warning (interrupt_map): /soc@0/pcie@66000000:interrupt-map:
-    Missing property '#address-cells' in node /soc@0/pcie@66000000/legacy-interrupt-controller, using 0 as fallback
+  armada-37xx.dtsi:518.4-521.29: Warning (interrupt_map): /soc/pcie@d0070000:interrupt-map:
+    Missing property '#address-cells' in node /soc/pcie@d0070000/interrupt-controller, using 0 as fallback
 
 Value '0' is correct because:
 1. GIC interrupt controller does not have children,
@@ -133,21 +131,21 @@ Value '0' is correct because:
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi | 1 +
+ arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi b/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-index d6e3cc6fdb25..4d6c3c2dbea6 100644
---- a/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-+++ b/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-@@ -921,6 +921,7 @@ pcie: pcie@66000000 {
- 
- 			pcie_intc: legacy-interrupt-controller {
+diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+index 75b0fdc3efb2..c612317043ea 100644
+--- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
+@@ -524,6 +524,7 @@ pcie0: pcie@d0070000 {
+ 			pcie_intc: interrupt-controller {
  				interrupt-controller;
-+				#address-cells = <0>;
  				#interrupt-cells = <1>;
- 				interrupt-parent = <&gic>;
- 				interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
++				#address-cells = <0>;
+ 			};
+ 		};
+ 	};
 -- 
 2.48.1
 
