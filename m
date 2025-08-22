@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA64CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376F6CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=agdn/RAQDJQQoWnCyKzSd4rst1Gx7C8Y3yrv42mmj6M=; b=uyC15NuHrnW7djWB6/1zcmjtbN
-	rSuKLKOrfq0LBFa6ZxFs+nxbqoOWm9p/EpVqZKG7AqQvVVTZa2Bn6fcNWFuJciNMfiOOvfQTIAFo2
-	VHoy93wETc2SCC4DIY+SkR/RUPSz+8EFTTohBlh6SBbD6JhRU3rqovDANyRyj5wmQrT3o1S/WuF7N
-	UkXw2/PgoBQLx0/XOsfhWnNEfK4xxRqAwpmIPu1ptyUyTIfd7e12n0509VvO2e3K2okyXjLZ3IJ4Z
-	+F+aKqcTb+7tHZRHSXcQFLcaQ6iKF1dEz1Ix0u142VKZfTVDl0kG2CiERbfRoXPVrLHkaKl/SjeGY
-	8quo+uuw==;
+	bh=j+gx5ZNCMsuG+9EZ8S5YZHwkusVOhHhpz+xIEdXsfkY=; b=hWoMfm5O4/lyvLe42XB2I8GWoh
+	G4aCz9zVpL1yzTwV59Jc7QuaNiKxMngZN85GBoiX0l7Hkg2OllmxyKWEJACLed5jNdL4KlgtjRO3U
+	/tevw6TBr7U6+NdhqXMtCtKWW7xisSpGmkwdqL55wZxJKy+lew7T+4YfPQRPAogcYbDpUWnHVyWeh
+	oOCQkXnKUNf/AdSX5gRbHx63/SjOtnfcikDVfCaohHzXIDrJQZHLctpdTaNj+39aOjJ0cc9KcZtYC
+	7v22RsvWc6sTwGPtPV7uP5SDYqJ4eIwOU/UcWJpWSNrEtkNqe4WLefYwQey8jsG2rVGHCq5myavCR
+	KcpgWz9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLaH-00000001jw1-0W9O;
-	Fri, 22 Aug 2025 06:49:09 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1upLaJ-00000001jww-2jDP;
+	Fri, 22 Aug 2025 06:49:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFda-000000012Sn-1G3e
+	id 1upGzj-00000001Bbd-0anH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 01:55:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=j+gx5ZNCMsuG+9EZ8S5YZHwkusVOhHhpz+xIEdXsfkY=; b=oO1HWRSaU0OWDbtjq0g/nrMdLs
+	/YBbDIbQKvtOzn6icY9+LqNrhRu6JguWAXXZE0Stu12cy0Iw223lOqLQjjkj8ShTvkBYgPqgoudqT
+	UOwMntiO2KEj7aJgKBk36jamY1yoy0j0wf/QZVWBdO5X1wz60/mm+87EJZRaUQ+piWOfcOTiJuJjW
+	BTytd77QzLe3oJn8NWjwLQ8hpFhk4OrKTUUC4WITaGy8WcndAwhqMq+qRx26XcU9OLu9lhFZdCbI9
+	J1QmMdodFqz6K2JYYZ2TyLpi/QqirdarxGNUZvkRvgp3LJdMO+QZ2/ngAUtg/JAJlkve/t5gRE0Mw
+	Mb98PfFQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upGze-00000000jor-0awt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 00:28:11 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 91405E45;
-	Fri, 22 Aug 2025 02:27:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755822429;
-	bh=+2uWvTejnO4/xaa6TvzNFbU4t/8EQu/bspQi8hgNTO8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LgoOF8xmTKrMDrwAjbKOYsxnvJwczW2j/2HxaE2Al3p1/Kto52r86mry7cEJeTzjl
-	 Ga3ej6rzjn05u/PDMss/iKmuESWjYADz43NRM/XFTtTp0XYrYRrrR23X0lWV7+guj3
-	 xuW54gMrSCjJ7hKhY/aYgxyvN7Pdw/FPjuzBUY44=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Inbaraj E <inbaraj.e@samsung.com>,
-	Isaac Scott <isaac.scott@ideasonboard.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Martin Kepplinger <martink@posteo.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 07/13] media: imx-mipi-csis: Fix field alignment in register dump
-Date: Fri, 22 Aug 2025 03:27:27 +0300
-Message-ID: <20250822002734.23516-8-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
-References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
+	Fri, 22 Aug 2025 01:55:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4DF2FA58764;
+	Fri, 22 Aug 2025 01:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3E43C4CEED;
+	Fri, 22 Aug 2025 01:54:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755827694;
+	bh=LDt1xNEXDV4dCIkz7nCmkUUILCzxDoXGLDJ0dFTAhvY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=rQ1QAK+ejMF2UsJTYMuGaQ+IUgv6wAQRUG1tk9AKVHc5EzOuBwatDMV2fTFBvZn5i
+	 87J0trOaDm015XUoetk1CWfbiu72sypzgCtoDDeLo2MplMOpClXboXPx6n2LAwQtlI
+	 urSrhJtfcvsQNLTXMWNHZlSdzZn6nPjNjCh8wiSrdzNVuZmFKpDz2gWbssytXP0xQj
+	 hdnvytjfOnWU3HcUfPGND+WYEGAsoZY9VUQyhlP5r9Uwm2klEWv/HyQ1KXx1U6urkO
+	 5xfvPPiAcsEbwTvMO0C7wpnFfhQ+O9tGhCETceauxB6SJXbA+ztvKYRHrFoqC6JPof
+	 Bf1ng3cyhJTxg==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 22 Aug 2025 02:53:36 +0100
+Subject: [PATCH v7 07/29] KVM: arm64: Pay attention to FFR parameter in SVE
+ save and load
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250822-kvm-arm64-sme-v7-7-7a65d82b8b10@kernel.org>
+References: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+In-Reply-To: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1028; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=LDt1xNEXDV4dCIkz7nCmkUUILCzxDoXGLDJ0dFTAhvY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop829BfoReXLtofNQ/kSrhSNQrNRdpaxmFkV/T
+ Frm4XVS2POJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNvQAKCRAk1otyXVSH
+ 0IjhB/sF1Ys0WLO7A1A82RVjg1EGqd6NKiYg5AvJPYIvoPas6kpQsDCY2maqTagJ+xiueDoTxRm
+ HJ+ZMnY0BudQLN8nXcOQRjKKhn59JQHrd+pJp2OPk6mjp7ev5SCENSoVRunepqOEGx1Yid805UO
+ +ikcucvpnAOHOhDQofC22vWssdqMANC0G2iE1fVRSVJy9f/Svs+TlZknaG1Psh6GoqBv65WFtAj
+ 8ZyObioXb69XxEJXUIGvn4HL40otAYtrv+4XDSkIS9qOt8NgMXM2iIzVSGDgNaMDRUyoplONbqH
+ xY//UrwfZs8HibaGIExxej3MEd3vb49SGNGl3BJ+12BEj139
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_172810_482157_3C18A907 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250822_025502_959541_4268662C 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +107,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 95a1379004cb ("media: staging: media: imx: imx7-mipi-csis: Dump
-MIPI_CSIS_FRAME_COUNTER_CH0 register") forgot to increase the maximum
-register name length, resulting in misalignment of names printed in the
-kernel log. Fix it.
+The hypervisor copies of the SVE save and load functions are prototyped
+with third arguments specifying FFR should be accessed but the assembly
+functions overwrite whatever is supplied to unconditionally access FFR.
+Remove this and use the supplied parameter.
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This has no effect currently since FFR is always present for SVE but will
+be important for SME.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/media/platform/nxp/imx-mipi-csis.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/fpsimd.S | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 50f6f4468f7b..346599b7a517 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -892,7 +892,7 @@ static int mipi_csis_dump_regs(struct mipi_csis_device *csis)
+diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
+index e950875e31ce..6e16cbfc5df2 100644
+--- a/arch/arm64/kvm/hyp/fpsimd.S
++++ b/arch/arm64/kvm/hyp/fpsimd.S
+@@ -21,13 +21,11 @@ SYM_FUNC_START(__fpsimd_restore_state)
+ SYM_FUNC_END(__fpsimd_restore_state)
  
- 	for (i = 0; i < ARRAY_SIZE(registers); i++) {
- 		cfg = mipi_csis_read(csis, registers[i].offset);
--		dev_info(csis->dev, "%14s: 0x%08x\n", registers[i].name, cfg);
-+		dev_info(csis->dev, "%17s: 0x%08x\n", registers[i].name, cfg);
- 	}
+ SYM_FUNC_START(__sve_restore_state)
+-	mov	x2, #1
+ 	sve_load 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_restore_state)
  
- 	pm_runtime_put(csis->dev);
+ SYM_FUNC_START(__sve_save_state)
+-	mov	x2, #1
+ 	sve_save 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_save_state)
+
 -- 
-Regards,
-
-Laurent Pinchart
+2.39.5
 
 
