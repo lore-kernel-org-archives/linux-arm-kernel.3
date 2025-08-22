@@ -4,63 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E684FCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12487CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GS/zqLZ7qyXkT4joWGssYQK3kGFHcKwQnTldwg/vqrg=; b=3V/qN1428t1YbsuZOVSI9cVhFI
-	KOfF5/4hJ0aprXHtCPxaIAZk96DFGxrPB/Vt4V1/xQ1Ob1D2y4lQ7RSGH86GScHKSTxNIzXgvR/Pu
-	7uPLPSeJFwJ7MbEMtqz6S6vovU3btX8joyptRR7tiwkMqA9qTu6/CUEjNRDILK/i6kf85fxQGNmYB
-	R6cxhnYOrYROmCBhyq1uDl5oFKYHksRb80ckxwbdgXxzXV+hkEI/pBtUEtY9+LsbUReZkMfatummm
-	8ChwdRG8ojEEy6quJZHZKwGnw8Kz9oK8MRcpHQd47o1M1i4TdvYGMoNHxm0RBvvWcJYS0D0VMAa84
-	21lmnpPg==;
+	bh=TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=sVehMUeInURFgfSwjoMhReax4s
+	TQ8kQDC//xXemUs2ycMq+KjrSZdX9YZAVXvOVemqdU3odMaV4Ur93IR2Vh3zmSi+TdsKe+yvEPkiw
+	jOVYV7IGA92pyyznhuGgKGWGaWVMKhhLpSt2lxmh+VKttJ6WkXMV00qe/SGcnT/KDEA4XhmKeLxqP
+	JxDxV5PY08Ee4pTtVrnRKzSDXmIuy6H9NqXItL8E++ovYjdvggbRew0vIC5lf/CaDQSXzEnSQzuVb
+	3mzGylOiFJ/Yz6BkAlsZRR9hunaF7EUqJJhgykf+Qr/+y3hrKOCaR5jzjesX7EnEWd3tndky5LtUs
+	7xUSjhtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphnF-0000000418p-0CyA;
-	Sat, 23 Aug 2025 06:32:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uphnK-000000041E3-0vkJ;
+	Sat, 23 Aug 2025 06:32:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSue-00000002rG1-11nD;
-	Fri, 22 Aug 2025 14:38:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB8C26026B;
-	Fri, 22 Aug 2025 14:38:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23E83C113CF;
-	Fri, 22 Aug 2025 14:38:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755873519;
-	bh=0ohbEUcDQtMZ8LIN1dVF0ofMoZ/hGdLyI2kAkLh7ZKA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=V/o4d2lQpWluTRU64SKjomir38I8NJi6S9ntSkoEbKRY6tqm/4BPvkiVX5b8wSp3H
-	 +CarlZrKKN46utWL+/QSTCo1IXlBGvkLMHYHOZErae2Z3VlxJoYXn8sQnjlvdoz0x9
-	 6cJ17jsyLDY69OMlZJTFrw2aBaa75ACZI0OzNe3DGktGuzAddCX1Mc1mEnomi3XDN/
-	 l+03Fiw9Az8B2Kuv73xg6F8CGQLujZBdr4EusRr2d6oyE+mAIm79qatpEcUceo7B9b
-	 Z5dDy6ck95qOJc9iMv7sscc40h1F+T+AYsyhBxFarpl1Py5S8YLEZaLr95urPyCgpe
-	 62NWVl87KI1lg==
-Date: Fri, 22 Aug 2025 07:38:38 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 2/3] net: airoha: Add airoha_ppe_dev struct
- definition
-Message-ID: <20250822073838.7da185f9@kernel.org>
-In-Reply-To: <aKh9_g7mgvFxMdAz@lore-rh-laptop>
-References: <20250819-airoha-en7581-wlan-rx-offload-v1-0-71a097e0e2a1@kernel.org>
-	<20250819-airoha-en7581-wlan-rx-offload-v1-2-71a097e0e2a1@kernel.org>
-	<20250821183453.4136c5d3@kernel.org>
-	<aKgVEYMftYgdynxw@lore-rh-laptop>
-	<20250822070440.71bdd804@kernel.org>
-	<aKh9_g7mgvFxMdAz@lore-rh-laptop>
+	id 1upSuh-00000002rH0-0tyl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 14:38:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=e5qUVll1ilRxrA9GDfbNHIXz77
+	4+S3aAhQPnNdOrcyPUufp1xPg1BmMTSwVeUGY6eIHR6YvWy+09abxAeKO9R8KAYzm0HOLEZtL5bcJ
+	6bw/bbxHY0nHIYqjM6trWBbsQmu2+s4gPIXommhzPtFII4Z+4FRsQMowA7+m7RXL4GYQzLjyQFK8/
+	sDrqVbVKL6MVPNf/gJKsqJKIjdqchENltFM+yDSDdaQLZAeV9AjdXxVFCXuUTfW0+y0UWiNGCIenY
+	rRQb3oPa01X4o4+mEBYWQD9/bk+UWa3iRWTCn/UD5CxHGzvc7oQzAqW1H8WmialgP/kxwLR5cmNQs
+	6HUrwzqw==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upSue-00000000xCC-0vFz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 14:38:42 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MD4vwo030182;
+	Fri, 22 Aug 2025 16:38:31 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=6EjT3OZmaSs+Geeu
+	PZPIokYlKvmBp8iiPmPDwmzIWK3FHJGxTwhmk2iidhhupaY80829Hnk8BR6GHK0I
+	7k9lDxsfFlOA7yj3wfIUbJqdkGokdsRZF7D3grNuc6TLvAheDxNvx32h95RtiA27
+	Ux7uEFqTD5v1xVMhE/XN0UctOKjUsDlXujlVWndKJO7xc1uqSdUkMpuUtdHkN/m0
+	RzW4QjOZYWYMnk1jVjdrGqVp717UkbikPDQ/kFw5EH2pf6UwzkH2q1DcA+OzVO5g
+	g6d/58THAPLZ0Rinj441u3JEUU2RPxCCtLMo/vMNJvMAHTTkxJpLxu5P45HWl6cx
+	9zwbcA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wu2uu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Aug 2025 16:38:31 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0D8DB4004C;
+	Fri, 22 Aug 2025 16:37:02 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A8FF1726F17;
+	Fri, 22 Aug 2025 16:35:54 +0200 (CEST)
+Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
+ 2025 16:35:54 +0200
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Date: Fri, 22 Aug 2025 16:34:18 +0200
+Subject: [PATCH v5 09/13] arm64: dts: st: add ltdc support on stm32mp251
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250822-drm-misc-next-v5-9-9c825e28f733@foss.st.com>
+References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+To: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.130.74.180]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250822_153840_511538_A6310D03 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +126,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 16:26:06 +0200 Lorenzo Bianconi wrote:
-> > > I moved the of_node_put() here (and in the if branch) in order to fix a similar
-> > > issue fixed by Alok for airoha_npu.  
-> > 
-> > Ah, didn't notice it in the print..
-> > maybe remove the empty line between the of_find_device.. and the null
-> > check on pdev then?  
-> 
-> I am fine with it. I did it this way just to be consistent with NPU code:
-> https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/airoha/airoha_npu.c#L403
-> Do you want me to post v3?
+The LCD-TFT Display Controller (LTDC) handles display composition,
+scaling and rotation.  It provides a parallel digital RGB flow to be
+used by display interfaces.
 
-Nah, it's fine.
+Add the LTDC node.
+
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+---
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 303abf915b8e489671b51a8c832041c14a42ecb8..372a99d9cc5c3730e8fbeddeb6134a3b18d938b6 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -1576,6 +1576,18 @@ dcmipp: dcmipp@48030000 {
+ 				status = "disabled";
+ 			};
+ 
++			ltdc: display-controller@48010000 {
++				compatible = "st,stm32mp251-ltdc";
++				reg = <0x48010000 0x400>;
++				interrupts = <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>;
++				clocks = <&rcc CK_KER_LTDC>, <&rcc CK_BUS_LTDC>;
++				clock-names = "lcd", "bus";
++				resets = <&rcc LTDC_R>;
++				access-controllers = <&rifsc 80>;
++				status = "disabled";
++			};
++
+ 			combophy: phy@480c0000 {
+ 				compatible = "st,stm32mp25-combophy";
+ 				reg = <0x480c0000 0x1000>;
+
+-- 
+2.25.1
+
 
