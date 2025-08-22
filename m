@@ -4,111 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76DACA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267A6CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bS3pk4A3vwWotpGEwKef8o97dm0WRz75Dj7bwTZ/WIk=; b=rI18pcTsXrF/ono7fEXgZVkeJL
-	GPHRAHDvc5SH9vvhwMXdNgkeJYtxYDGn6xC73THgmRtrRtv2+qiuYbcMCpfRHzeyMIRQpGy2PsC7G
-	amReg/cMP0JkNTlXlXO+hLyGnVcBM3DLTcZ/5uV6Tcj1SdoTZ5yHSJhlQUh2SU4k/lV5plw1e1jEr
-	AkRi5vpaxNNuU2ZVFmMhse9JwESt515cwEwUOkiiCX835Uj//fc8KQArIRyurHZJlAguS+t6klKUo
-	8rYxf0tCAMpVchCkccDK9yw3QsgrCJoMT5vnjbCaNZMrFNrm0303VosAJakUTYijwpI34a3W//wUi
-	KDiK1HCA==;
+	bh=jej3aJ8IFvIF8AyttCo/qPRnqjbgdGwXRZCRrkjvQAU=; b=AnWOinIu1edIOy0eoEK+WQDLG0
+	eDsO98a/MXsBjtAK6A7YZkvcVJlCM/o7QTyH8F1mxRdVxpcOikw3jqI+yvH0HF1qqE6t9qrpeYyvj
+	kDLvH3pQT2UAGtPjX67qiFC02OwXF0SNtSP8H2o1jkggEepOOSZC7yEDJT+RZEWP9dIpU1NJ2T9Jh
+	w9BWWngenRms6RweIlQksS9QZ08UbzLgxdN0NmspYglkBm6iDioUDyDLQfajvuu9uU4nnOIfyZb7o
+	N5juwLwbtQNqtCsBuGULYNVbWNQgYe8PU0meRy+pzTrv1Guoh5JS7XwHzWkIDfWyNYA89+LnvA/62
+	mrpI6KEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphkH-00000003wdi-3Afj;
-	Sat, 23 Aug 2025 06:28:57 +0000
-Received: from mail-ed1-f50.google.com ([209.85.208.50])
+	id 1uphkJ-00000003wga-26rM;
+	Sat, 23 Aug 2025 06:28:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQfF-00000002RqR-2eYa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 12:14:38 +0000
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-61a54560c1fso281959a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 05:14:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755864876; x=1756469676; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bS3pk4A3vwWotpGEwKef8o97dm0WRz75Dj7bwTZ/WIk=;
-        b=kTgxTqIJsJHBJ8v9I2lKNQH7ZgZ3Ly6nqonLg95uBZmfKRND2puE9osoGSS3NKbx1p
-         uv4YQzq0vYXv6Kob3exwh2fj9WmQ4GMnVnsATqIeCJLj/Ru8Gepze9oGhpjWRe1xFy9k
-         FGyorSlbjlhkpqjl76e8HL8W0QWfPabmPXlK1hGNdHQ81DAy60VoaVY1EF9pShJTzy0z
-         rUwl60lgk/kOtoG1+K5WLggqJxAwJN0z2PxMZAYgxa3+MIjQCWylgw56Da5F0x5L465L
-         bdyVoC5ymgzIwg2OikrScDEXvU/xCNd46gAyYgcBlK5PE2bu8uEQTyKfa4Z2PG/aWSRz
-         Zs9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755864876; x=1756469676;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bS3pk4A3vwWotpGEwKef8o97dm0WRz75Dj7bwTZ/WIk=;
-        b=FPpPDv8XhrHLUs9F5VGdMGhG4NSVJt1kIldIL2JFmHH3ti2+20ABcwxS82T8whaPjD
-         hjOHQk+cSigqxBYHRkdOyQ04D4gwXyeLWFMhUI4wLmRbwjh32gvwR1S6z2Bw/m2SE7Vx
-         lTHWg6UpwrBhRKtG53R0T+klk1yGTXu7x7JMWSXG+xkro4AmnaWpzvW+sRDs0MIMqTq4
-         j3lD2q8rJxj6LA7qCpZUGFjPplr4GbKUQYGldN3pJFWB0mXHh5HwFB6PrUo8UiGa+AXC
-         uXXkS9w6t9vZ4XFVHXN2MY9Dr1+cl8gg+l37Tja4MDK7rBJMb8JA90sE5gm2XJeccDs9
-         i5ow==
-X-Forwarded-Encrypted: i=1; AJvYcCUfwjodFASWUZQEFi3EFRHHbTzZxz/FaAVEvr7YzLMWuyekVmtmU30FX4hoHnt+Gc05YA8eoKos05E/d4FnVQ5b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE4E7tonU9fpogsG6ELLtEgIe5UjBUyLOL+6UN5EkQWUOW7XB+
-	l35/o3bOKaonX0stb6HRwqD9HM58QGsKBCV0ZSHc176DUpe/RcqLaAN8mcZy99Vw3Ts=
-X-Gm-Gg: ASbGnctnPXablPV4rVfNk65sz9r9Ih3KCPrZDi3qq07OBliUwBowla42oyk+xheM6wn
-	XlpCam/IlXn0h29pu7rrvwAyGeiZj+RyqS+pg8eNDM0SZ30cTrDpPkJpvbN0ASw08EsfHJ0Mj5Y
-	JAmtdKMXH0JflSjfFpnVfcnDhOjHrsXpIeNjXTqQ7U71z9FBgK1iuo6GI5sGPIk8hzzf02xvQPz
-	ye3E0k3kgDQVSSe9i2+WXJwd10QJ3Egr6VuTQjDv6S7jOhUBkUDSTIkCRiUpS30KHphUB47IHC7
-	8mCNUP+n7FDHqeDiZxO6mqOffp8DL0vWh3grj5xmZr0S760rbL1D5Zz87LGnbiDzNOK6IYmCBuB
-	cWfczMOJ3gpzaZGDEaC2rIvYUhmN7uIOOlMxN3oU+Xlgz
-X-Google-Smtp-Source: AGHT+IEs5KmocG/KlG2h0mSlEdpjChfOeNLb5C+4lvVluwFDeR16CG9SFzVcRYZbx4Bk+B/miczFYA==
-X-Received: by 2002:a05:6402:34c3:b0:61b:cadd:d84 with SMTP id 4fb4d7f45d1cf-61c1b2193c5mr1231624a12.0.1755864875727;
-        Fri, 22 Aug 2025 05:14:35 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61a75778c5dsm6842065a12.31.2025.08.22.05.14.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 05:14:35 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	linux-fsd@tesla.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 4/4] arm64: dts: exynos2200: Add default GIC address cells
-Date: Fri, 22 Aug 2025 14:14:27 +0200
-Message-ID: <20250822121423.228500-8-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250822121423.228500-5-krzysztof.kozlowski@linaro.org>
-References: <20250822121423.228500-5-krzysztof.kozlowski@linaro.org>
+	id 1upQgr-00000002S9T-2dut;
+	Fri, 22 Aug 2025 12:16:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1755864978; x=1787400978;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3Ea7W0dwKnTlVfxRkgXHCe2WVUuOP11xif5wEmfOclM=;
+  b=vK5SYRbKb8No+twO1Sq/8UVyGGoMYlqLdRLXXXu9ztsq6jncKmbOo6+1
+   shICueE5ZQ4WPleKmL/zDvaZghDlWQaE+u9ieMCIsnjUwRoNB5xSsFAML
+   13tsQRaR8XKfOhdjh1jl1S8g3/fiqGnUhenhPxrauL5K01M5yW2mZPavj
+   lCkvcCYxzC0deYNxd9Z7//5REpw3fq1Qvs5xMI3OM5y/p0f/CcAtMZJLs
+   V46810FIpF5xktsoxzvJlpvRyJvTGG8Ag5PxjKcJuU8CqUVHg8g11yZKD
+   UMs6z8VDWk+nnVcFfK3JLbqdLTYlUOSMzcOe/LUnGDlTEudkfjk/8ZcOg
+   A==;
+X-CSE-ConnectionGUID: jcwXdTWwTtyRRk6+L1Fb/g==
+X-CSE-MsgGUID: /sDrhHoERLykyKvbaKhrcg==
+X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
+   d="scan'208";a="276922450"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Aug 2025 05:16:13 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 22 Aug 2025 05:15:51 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Fri, 22 Aug 2025 05:15:47 -0700
+Message-ID: <bc7b0167-7514-4aad-a4dd-bd1d9929e99b@microchip.com>
+Date: Fri, 22 Aug 2025 14:15:46 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=863; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=Xg8fbeULkVAunNHSuMSzm27A8P/HmltLuUUNMaXdfUY=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqF8iqytdsSKdAQp7OV0wh+MN7sQXLAODPAJWe
- RxyvnA72wKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhfIgAKCRDBN2bmhouD
- 1/FrD/9T8gtPfLYVVMoSMObYA+o3SUHEGhUwlrr6NN6OsRErI+9TnP2Q60WHSUBrmH1Vch3Us/B
- egXQwdy5DAy94htJnu9b1V/jPaM6OfVsOOPCW+2hJZR0bBo3a8DRn2Wsh/KJRLhswIO9cA3EOUX
- zhz1blWRGOpRavXkXC32Q2zE+73l/OVNrKzOdAlt2t2Pzwyc4pmkptaEm4UKR3CIqAdBK8lkPAw
- 5WXFs1090LyabpZhqMwaLKxg+l97LUfrico+E/8eez/UP0dIzbgPF4wz3dj/LOWohZVCR4TDHvT
- 77VPH/BA/3UsW3pUVSKsgl4/TRDQG6rZHfHOzGtmxMNfJYIfc0JwhYdJqig/nyNGOQiFtNdgF5N
- YO0A7jVXw/Ut721AguDqg3J4/7kZEprvgjXIna38iX6WCi82RupWRtIFu/IdrFGcfmPv4iCICDr
- ew0O3vZr3wdD311zj77Os6N+Gm5hHnr52YyKqm1QNo2uny5P4oq5QPRo0GYt1T2K3cweGPn+8Tx
- 6mHu6xRaGKidjX98H5ACEwF11d4vZvRZQhaDPDJtG5R/YRheG1N7XNTZ8RVH8vss71G+TFpxr3D
- Nhedh15zAS1ym05PrHCcBiXqDhMyBXDF81XmMRaMomjHbmUyK3r5Sq6xPOKqBwL7tIkeIOqg9Mm Dl45IID/LarMebQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] dt-bindings: net: cdns,macb: Add compatible for
+ Raspberry Pi RP1
+To: Stanimir Varbanov <svarbanov@suse.de>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+	<jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor.dooley@microchip.com>
+References: <20250822093440.53941-1-svarbanov@suse.de>
+ <20250822093440.53941-3-svarbanov@suse.de>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250822093440.53941-3-svarbanov@suse.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_051437_669624_A3E2EBB3 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250822_051617_723353_428396DF 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,27 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing address-cells 0 to GIC interrupt node.  Value '0' is correct
-because GIC interrupt controller does not have children.
+On 22/08/2025 at 11:34, Stanimir Varbanov wrote:
+> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> 
+> The Raspberry Pi RP1 chip has the Cadence GEM ethernet
+> controller, so add a compatible string for it.
+> 
+> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm64/boot/dts/exynos/exynos2200.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-index 6b5ac02d010f..b1fe315b40fd 100644
---- a/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-@@ -273,6 +273,7 @@ gic: interrupt-controller@10200000 {
- 			reg = <0x0 0x10200000 0x0 0x10000>,     /* GICD */
- 			      <0x0 0x10240000 0x0 0x200000>;    /* GICR * 8 */
- 
-+			#address-cells = <0>;
- 			#interrupt-cells = <4>;
- 			interrupt-controller;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
--- 
-2.48.1
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   Documentation/devicetree/bindings/net/cdns,macb.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> index 559d0f733e7e..0591da97d434 100644
+> --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
+> @@ -54,6 +54,7 @@ properties:
+>             - cdns,np4-macb             # NP4 SoC devices
+>             - microchip,sama7g5-emac    # Microchip SAMA7G5 ethernet interface
+>             - microchip,sama7g5-gem     # Microchip SAMA7G5 gigabit ethernet interface
+> +          - raspberrypi,rp1-gem       # Raspberry Pi RP1 gigabit ethernet interface
+>             - sifive,fu540-c000-gem     # SiFive FU540-C000 SoC
+>             - cdns,emac                 # Generic
+>             - cdns,gem                  # Generic
+> --
+> 2.47.0
+> 
 
 
