@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8083CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CDD0CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ihFpZK8Kweu8myYJpFk/JCzFIlJuPsYFn1vhCIEfLGM=; b=Ezue0x8c+9TGanPWTqK7Mh8cnH
-	S8JEXq37gfZwMgTMe2sPvuY+wq1I8DDDpqzWRXxZcboYOSVs42rvF8neDA/IXrYjJcEfT05LMSy0+
-	EKFqHoAK5hCyMYAjtLND3U9igeULeiddCxZOdmPuHJobD+SNxz82uZJ4KabI/ONq7rasiCVn4Jwt3
-	YrZ5xKoeCHY1afC4BkEveG3Irje566/vw1bFdoDjHiLKT7+iwWGiDbE3mNnsYVL4mrboskrWStKV6
-	MDvvTCp5gu9Bb0JoGGbSqURA2rkkLxeW3JuhiFYWvG4jywMpSKAGBv3Bnlld3Bng/mmDvHpTkp48i
-	nUn6mAmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATJu5IW6o9czFCpcKz++53lkS+0C3ST+UjmKJE/B+3E=; b=qLEZdq+hyof4Ccl7DGFmWeCYV0
+	UWfWT/A1hAQVcAzR/qB9b73Hs12QAA+IcZkVKV2Vi4Yt2gTX1AgAhXvVZ4bLGS7MrnbywMqwDjEDf
+	VlZaFq4OVLG0fzdb5y9fOCf42+YbT2mUD49cDfo5a1cuzMNroKgyrQZ3NoUMqPgtVioxAYFH5Q4IE
+	UB+dI5AL5HtDEgDgKeRu9GItfutCSyHPmiNnusysAWMt8Sjt90lUeYDZJjDknlpMYFtippDgb+wfI
+	Hvw21lSEv1umy4K5rMa6AJAMP/oIOkdRo6UfcXnKqd6J/dzF/1aMsDQSWamVwLPajnPDRIAAppjPp
+	gEUNx0zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTDx-00000002uqi-1X8W;
-	Fri, 22 Aug 2025 14:58:37 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1upTGZ-00000002vXB-3TEM;
+	Fri, 22 Aug 2025 15:01:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOHt-000000025DC-0FS3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:42:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=ihFpZK8Kweu8myYJpFk/JCzFIlJuPsYFn1vhCIEfLGM=;
-	b=lfBTSx1kHGgbahgmu7uyxhXzEjK2ENgY0l2K9oOt/sRitUvMIAOaMjPc762zAg
-	38N0PZDK8KP5tAU2sme1f1qaB+WCp/3AVLk1/fNlKH4iZ/VfCI49wvamYLnPyZg8
-	gj38z2SxqvD+LGtpOHwCUZDDrdev56xaSDij0LlCogecI=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgBXd5JjO6hoMRQWAw--.62618S3;
-	Fri, 22 Aug 2025 17:41:57 +0800 (CST)
-Date: Fri, 22 Aug 2025 17:41:55 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Agner <stefan@agner.ch>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH 4/4] ARM: dts: vfxxx: add arm,num-irq-priority-bits for
- nvic
-Message-ID: <aKg7Y0sjZtJpYLT_@dragon>
-References: <20250819-vfxxx_warning-v1-0-080930d8e1ea@nxp.com>
- <20250819-vfxxx_warning-v1-4-080930d8e1ea@nxp.com>
+	id 1upOIq-000000025Mq-2VQD;
+	Fri, 22 Aug 2025 09:43:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1755855800; x=1787391800;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=XvLLjO10ZjfDDDyrr6k2ma2BhF/RNPJ4DSCV+fvgoPg=;
+  b=LshUZKoSprOctQu0cB1Xev8iZQzvK0/9/LeGVHhzwNQzxqcDjzuPCVzA
+   8bPRSAKXnIj7TsKOIMtrKNrLAl910OXqJqrl3c6GwA7ZhSILiWFf4wxDy
+   hGlIVb4Cx1bCxgPCW2fjBAqByAyyZ9g2pgEU426ybWYos1ffWv5ukTF99
+   qhyidE4VhTHAaM1nKf+MwleGzxirF07vdwGPhYppNy0eDR2wP6+n8lG6d
+   EVsn69HVpVPrTokWs8hvR3VjpYfmtw5iOT73Yq0UtT/AH1bnoFj7MjPmz
+   RU2nuZSsUdgGtKv7o50FRoqs1C5LCPsrCnqvUGg6qL+ftwbMy1oiGGLL9
+   w==;
+X-CSE-ConnectionGUID: LGcmkA5hT8qi7s/85J+MnQ==
+X-CSE-MsgGUID: YHj2pwobRuWKcPBmUWDZiQ==
+X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
+   d="scan'208";a="51127577"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Aug 2025 02:43:16 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 22 Aug 2025 02:42:54 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Fri, 22 Aug 2025 02:42:50 -0700
+Message-ID: <73371973-d6b4-418c-a51c-2e89abab61e8@microchip.com>
+Date: Fri, 22 Aug 2025 11:42:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250819-vfxxx_warning-v1-4-080930d8e1ea@nxp.com>
-X-CM-TRANSID: M88vCgBXd5JjO6hoMRQWAw--.62618S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7GFWrCw1UXFyrKryxWw4kJFb_yoWkGrcEvw
-	4Ig3WrGF4kCFnIqr1UKwn3J3sayw1rArZ7G3409r1UJFyaqayrJ3ZrKayfJrn8CF4UKFZ8
-	t3ySqr4Yka4a9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbzwZ5UUUUU==
-X-Originating-IP: [117.81.240.235]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNwUskWioO2WmGQAA3u
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring
+ buffer
+To: Stanimir Varbanov <svarbanov@suse.de>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+	<jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	<stable@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>
+References: <20250822093440.53941-1-svarbanov@suse.de>
+ <20250822093440.53941-2-svarbanov@suse.de>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250822093440.53941-2-svarbanov@suse.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_024221_422609_96DFEEC2 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250822_024320_644543_E46B886D 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +98,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 19, 2025 at 03:44:09PM -0400, Frank Li wrote:
-> Add arm,num-irq-priority-bits(4) for nvic to fix below CHECK_DTB warnings:
->   arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dtb: interrupt-controller@e000e100 (arm,armv7m-nvic): 'arm,num-irq-priority-bits' is a required property
-> 	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,nvic.yaml#
+On 22/08/2025 at 11:34, Stanimir Varbanov wrote:
+> In case of rx queue reset and 64bit capable hardware, set the upper
+> 32bits of DMA ring buffer address.
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Cc: stable@vger.kernel.org # v4.6+
+> Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue to handle RX errors")
+> Credits-to: Phil Elwell <phil@raspberrypi.com>
+> Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
+> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+Looks good to me: thanks!
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+
 > ---
->  arch/arm/boot/dts/nxp/vf/vf610m4.dtsi | 4 ++++
->  1 file changed, 4 insertions(+)
+> v1 -> v2:
+>   - Added credits.
+>   - Use lower_32_bits() for RBQP register writes for consistency (Nicolas).
+>   - Added Fixes tag.
 > 
-> diff --git a/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi b/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi
-> index 2bb331a87721000880cebeb81dd3c00febfbed3c..ccb5deb4e9528fe005a5691347d4a3852fa52ca3 100644
-> --- a/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi
-> +++ b/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi
-> @@ -52,6 +52,10 @@ / {
->  	aliases { };
->  };
->  
-> +&nvic {
-> +	arm,num-irq-priority-bits = <4>;
-> +};
-> +
->  &mscm_ir {
->  	interrupt-parent = <&nvic>;
->  };
-
-Should probably add it here in name of order.  Fixed it up and applied.
-
-Shawn
-
+>   drivers/net/ethernet/cadence/macb_main.c | 6 +++++-
+>   1 file changed, 5 insertions(+), 1 deletion(-)
 > 
-> -- 
-> 2.34.1
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+> index ce95fad8cedd..36717e7e5811 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, struct napi_struct *napi,
+>                  macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
+> 
+>                  macb_init_rx_ring(queue);
+> -               queue_writel(queue, RBQP, queue->rx_ring_dma);
+> +               queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_dma));
+> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
+> +               if (bp->hw_dma_cap & HW_DMA_CAP_64B)
+> +                       macb_writel(bp, RBQPH, upper_32_bits(queue->rx_ring_dma));
+> +#endif
+> 
+>                  macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
+> 
+> --
+> 2.47.0
 > 
 
 
