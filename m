@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D5E4CA0EED
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AC8CA0FED
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+9n/fNoI1OQHD/K82RkaijhTlpLwSUdKN96WR85o0s=; b=StJpHujud4XCxCWSFG9O406Aum
-	KkYCR2rG8qun7sWbImSLa82GGxYkBfmob5nomdGJzPEndPcoUEh7c8k8hO/l05P0b02JyqMXz2gxt
-	n8jqNfoQBJ8Kbqv2yQ0L6y/zWZFz1s8Mjk7zuxTXu3FWOON9aDPJlCBvh8W9CsUHofQRgDSIhV/V/
-	xqG/Sq7ajSVYVtVu1iGcPv20MwNusBbU1DupuSR6sC/vGpqz/IQl6XXg0ufivfXJ5/MJ8jMblN8dm
-	ov0rcc6IBKfcH0DAjD7bNmx7YNGYhwDD8mj8FUaoJ2lNrHRNbJ52lfWqeqXEaYePenDSHhZdJ/r+x
-	hlJ/Uhqg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ALB0nFIb/R8bcwvO4nrmAL3ustrxB+LLhQObz+LN3Ac=; b=Znyn0Chkh6LFv7i/idndTCYtgP
+	29UjypvVV5Ynpx206kztyepLUSNfD5LMK2xfeSfafPa4FsktQfudooatas7UufqBKeQb/vcE21QsC
+	VYGgGMCXCCVvco7d1jcew9HJKHQyjXJwm0O39K+fCJvay/12C9m/hsp7TyRNpIG9eYvg0SocOjjtx
+	Y5K3TME4cSno/ZqqmApHZQBVdzkxJUbnv0uAZ+gf24Liic8qHKHyN3jpHiYunqyalmxLp7WvARTi9
+	jM9wgu2V4No5Tv1dt3jdmvRYEg2TirMFkjuRMjUuOEN7cLFOPDYafJPgNeymvZxOvh2bK6/db6XZ+
+	qvsGPVuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSad-00000002jyT-2PSs;
-	Fri, 22 Aug 2025 14:17:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1upSae-00000002jze-2tFC;
+	Fri, 22 Aug 2025 14:18:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKWo-00000001bnQ-2MgL;
-	Fri, 22 Aug 2025 05:41:30 +0000
+	id 1upKWo-00000001bnM-0Z6S;
+	Fri, 22 Aug 2025 05:41:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78EA460256;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FBB643DAC;
 	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 12898C116B1;
-	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E4FA4C4CEF1;
+	Fri, 22 Aug 2025 05:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755841289;
-	bh=MQ9NuAWPDpPyLjcRYr12dzgmrw8Z7IvytBTk8yXQ46c=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Dty9wqERTz8vOs3UY0ho/3Q4MGtTRVuuy2iHbUKQiqalYrpnhSZHOP1xJB48b/Xbt
-	 gH/jDqKwi47QrvPCt0qF02zlWWL2L0PF+iIkG/7Gy8dEsRp22LcHqRODiKgq9BAg1F
-	 dBChAPqDNG3z+f9J3MA05C981C4N+P6nEXt4JZIOA6s+Jwjkb9mAbHbNJsNH0DkLhB
-	 /q32TYECsMOtrlLCd0JLY9OlugYwpASGn9BiTbZsu5YfNe5D0I6kmtu4A4Qi3lUgrS
-	 ti/iqNcftmftxYNUriYYkEAjMDJ5MK3COi20xLGMLwLLVMH1Xc1iwN9vTuSzcP1iRG
-	 VLJzfPKsmk8ag==
+	bh=SWllvQUuWXUiZ37XKVOHkxwQQPRk+5jHJR1X7QQbqWU=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=C5j435qr4Pj8VO0GCMmm/0ypKQMl7HSaVhfYN5xCQH/qpPo9DacK5T5F9oS+M0TKp
+	 8H1h8ty/DB1Zkz7xbceBqro39/dRNmgI69ehsKsG3CnUmUpYBejhyMkrChVkcAkJA6
+	 eGCVhz+jMl42iemjHiz3QytcNtmJq6AJvRuKAyFbKo7keecwUaG89HqysDFknHZxuc
+	 Adet3E4iRgKeRl4k+aFHRnSoMYYQnj7pEJeBZD+xU8KStkZDQ/ypOf9D72AlvSzUIk
+	 p+fGI6tNeTGH1Crq4/TXoZAYkjXD72DBKG28qb8qC9krbAhf9PzJgUr5EbCwQV2+XF
+	 DsqzeK65yyBEA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 03AC6CA0FE4;
-	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DB9EFCA0EFF;
+	Fri, 22 Aug 2025 05:41:28 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Fri, 22 Aug 2025 13:39:56 +0800
-Subject: [PATCH 2/5] pmdomain: amlogic: Add support for S6 S7 S7D power
- domains controller
+Subject: [PATCH 0/5] Power: Add power domain driver for S6 S7 S7D
+Date: Fri, 22 Aug 2025 13:39:54 +0800
+Message-Id: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-pm-s6-s7-s7d-v1-2-82e3f3aff327@amlogic.com>
-References: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
-In-Reply-To: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAKoCqGgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDCyMD3YJc3WIz3WJzIErRtTQ1SDM3MkhMTDZLUQJqKShKTcusABsXHVt
+ bCwC3esbIXgAAAA==
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -65,16 +65,20 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-pm@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
  "hongyu.chen1" <hongyu.chen1@amlogic.com>
 X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1755841286; l=4719;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755841286; l=1213;
  i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=f2m0nsIUf/owC+/pGLzsEn5pyQIYJ6wrUlxsJFTx2lE=;
- b=pwitmZC4ygGsQN/beTX1T2nbDqayrzpNTwBhuxE50uUBEkMZv8EqkL5nsYtHy9Vdkv1dgMiy9
- RdOGT7HWMBPDcBeSx54/4CPNhf8ng0FiM8VoH5ixsmzJLEe5bvfICsR
+ bh=SWllvQUuWXUiZ37XKVOHkxwQQPRk+5jHJR1X7QQbqWU=;
+ b=v6zP1X1MiyNWQVfGhjRcfGOC0lt9iG/FSAbPc+2Df+zqZf0YLjimp7/DcF5ze+DfN5jFWSfkw
+ C5A8U4wNBWFDDsajqvt6DFrIfF7N0vlKPmgrOvHh1HqITJru5NZz9yJ
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
  auth_id=107
 X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250821_224130_196870_0FF5E5E9 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,147 +94,33 @@ Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "hongyu.chen1" <hongyu.chen1@amlogic.com>
+Add power controller driver support for Amlogic S6 S7 S7D SoC.
 
-Add support for the S6 S7 S7D power controller, whose registers are
-in the secure domain and should be accessed via SMC.
-
-Signed-off-by: hongyu.chen1 <hongyu.chen1@amlogic.com>
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/pmdomain/amlogic/meson-secure-pwrc.c | 95 ++++++++++++++++++++++++++++
- 1 file changed, 95 insertions(+)
+hongyu.chen1 (5):
+      dt-bindings: power: add Amlogic S6 S7 S7D power domains
+      pmdomain: amlogic: Add support for S6 S7 S7D power domains controller
+      arm64: dts: amlogic: s6: add power domain controller node
+      arm64: dts: amlogic: s7: add power domain controller node
+      arm64: dts: amlogic: s7d: add power domain controller node
 
-diff --git a/drivers/pmdomain/amlogic/meson-secure-pwrc.c b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-index e8bda60078c4..1d2f371d2d7f 100644
---- a/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-+++ b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
-@@ -16,6 +16,9 @@
- #include <dt-bindings/power/amlogic,t7-pwrc.h>
- #include <dt-bindings/power/amlogic,a4-pwrc.h>
- #include <dt-bindings/power/amlogic,a5-pwrc.h>
-+#include <dt-bindings/power/amlogic,s6-pwrc.h>
-+#include <dt-bindings/power/amlogic,s7-pwrc.h>
-+#include <dt-bindings/power/amlogic,s7d-pwrc.h>
- #include <linux/arm-smccc.h>
- #include <linux/firmware/meson/meson_sm.h>
- #include <linux/module.h>
-@@ -201,6 +204,71 @@ static const struct meson_secure_pwrc_domain_desc s4_pwrc_domains[] = {
- 	SEC_PD(S4_AUDIO,	0),
- };
- 
-+static const struct meson_secure_pwrc_domain_desc s6_pwrc_domains[] = {
-+	SEC_PD(S6_DSPA,		0),
-+	SEC_PD(S6_DOS_HEVC,	0),
-+	SEC_PD(S6_DOS_VDEC,	0),
-+	SEC_PD(S6_VPU_HDMI,	0),
-+	SEC_PD(S6_U2DRD,	0),
-+	SEC_PD(S6_U3DRD,	0),
-+	SEC_PD(S6_SD_EMMC_C,	0),
-+	SEC_PD(S6_GE2D,		0),
-+	SEC_PD(S6_AMFC,		0),
-+	SEC_PD(S6_VC9000E,	0),
-+	SEC_PD(S6_DEWARP,	0),
-+	SEC_PD(S6_VICP,		0),
-+	SEC_PD(S6_SD_EMMC_A,	0),
-+	SEC_PD(S6_SD_EMMC_B,	0),
-+	/* ETH is for ethernet online wakeup, and should be always on */
-+	SEC_PD(S6_ETH,		GENPD_FLAG_ALWAYS_ON),
-+	SEC_PD(S6_PCIE,		0),
-+	SEC_PD(S6_NNA_4T,	0),
-+	SEC_PD(S6_AUDIO,	0),
-+	SEC_PD(S6_AUCPU,	0),
-+	SEC_PD(S6_ADAPT,	0),
-+};
-+
-+static const struct meson_secure_pwrc_domain_desc s7_pwrc_domains[] = {
-+	SEC_PD(S7_DOS_HEVC,	0),
-+	SEC_PD(S7_DOS_VDEC,	0),
-+	SEC_PD(S7_VPU_HDMI,	0),
-+	SEC_PD(S7_USB_COMB,	0),
-+	SEC_PD(S7_SD_EMMC_C,	0),
-+	SEC_PD(S7_GE2D,		0),
-+	SEC_PD(S7_SD_EMMC_A,	0),
-+	SEC_PD(S7_SD_EMMC_B,	0),
-+	/* ETH is for ethernet online wakeup, and should be always on */
-+	SEC_PD(S7_ETH,		GENPD_FLAG_ALWAYS_ON),
-+	SEC_PD(S7_AUCPU,	0),
-+	SEC_PD(S7_AUDIO,	0),
-+};
-+
-+static const struct meson_secure_pwrc_domain_desc s7d_pwrc_domains[] = {
-+	SEC_PD(S7D_DOS_HCODEC,	0),
-+	SEC_PD(S7D_DOS_HEVC,	0),
-+	SEC_PD(S7D_DOS_VDEC,	0),
-+	SEC_PD(S7D_VPU_HDMI,	0),
-+	SEC_PD(S7D_USB_U2DRD,	0),
-+	SEC_PD(S7D_USB_U2H,	0),
-+	SEC_PD(S7D_SSD_EMMC_C,	0),
-+	SEC_PD(S7D_GE2D,	0),
-+	SEC_PD(S7D_AMFC,	0),
-+	SEC_PD(S7D_EMMC_A,	0),
-+	SEC_PD(S7D_EMMC_B,	0),
-+	/* ETH is for ethernet online wakeup, and should be always on */
-+	SEC_PD(S7D_ETH,		GENPD_FLAG_ALWAYS_ON),
-+	SEC_PD(S7D_AUCPU,	0),
-+	SEC_PD(S7D_AUDIO,	0),
-+	/* SRAMA is used as ATF runtime memory, and should be always on */
-+	SEC_PD(S7D_SRAMA,	GENPD_FLAG_ALWAYS_ON),
-+	/* DMC0 is for DDR PHY ana/dig and DMC, and should be always on */
-+	SEC_PD(S7D_DMC0,	GENPD_FLAG_ALWAYS_ON),
-+	/* DMC1 is for DDR PHY ana/dig and DMC, and should be always on */
-+	SEC_PD(S7D_DMC1,	GENPD_FLAG_ALWAYS_ON),
-+	/* DDR should be always on */
-+	SEC_PD(S7D_DDR,		GENPD_FLAG_ALWAYS_ON),
-+};
-+
- static const struct meson_secure_pwrc_domain_desc t7_pwrc_domains[] = {
- 	SEC_PD(T7_DSPA,		0),
- 	SEC_PD(T7_DSPB,		0),
-@@ -367,6 +435,21 @@ static const struct meson_secure_pwrc_domain_data meson_secure_s4_pwrc_data = {
- 	.count = ARRAY_SIZE(s4_pwrc_domains),
- };
- 
-+static const struct meson_secure_pwrc_domain_data amlogic_secure_s6_pwrc_data = {
-+	.domains = s6_pwrc_domains,
-+	.count = ARRAY_SIZE(s6_pwrc_domains),
-+};
-+
-+static const struct meson_secure_pwrc_domain_data amlogic_secure_s7_pwrc_data = {
-+	.domains = s7_pwrc_domains,
-+	.count = ARRAY_SIZE(s7_pwrc_domains),
-+};
-+
-+static const struct meson_secure_pwrc_domain_data amlogic_secure_s7d_pwrc_data = {
-+	.domains = s7d_pwrc_domains,
-+	.count = ARRAY_SIZE(s7d_pwrc_domains),
-+};
-+
- static const struct meson_secure_pwrc_domain_data amlogic_secure_t7_pwrc_data = {
- 	.domains = t7_pwrc_domains,
- 	.count = ARRAY_SIZE(t7_pwrc_domains),
-@@ -393,6 +476,18 @@ static const struct of_device_id meson_secure_pwrc_match_table[] = {
- 		.compatible = "amlogic,meson-s4-pwrc",
- 		.data = &meson_secure_s4_pwrc_data,
- 	},
-+	{
-+		.compatible = "amlogic,s6-pwrc",
-+		.data = &amlogic_secure_s6_pwrc_data,
-+	},
-+	{
-+		.compatible = "amlogic,s7-pwrc",
-+		.data = &amlogic_secure_s7_pwrc_data,
-+	},
-+	{
-+		.compatible = "amlogic,s7d-pwrc",
-+		.data = &amlogic_secure_s7d_pwrc_data,
-+	},
- 	{
- 		.compatible = "amlogic,t7-pwrc",
- 		.data = &amlogic_secure_t7_pwrc_data,
+ .../bindings/power/amlogic,meson-sec-pwrc.yaml     |  3 +
+ arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        | 10 +++
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        | 10 +++
+ arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       | 10 +++
+ drivers/pmdomain/amlogic/meson-secure-pwrc.c       | 95 ++++++++++++++++++++++
+ include/dt-bindings/power/amlogic,s6-pwrc.h        | 29 +++++++
+ include/dt-bindings/power/amlogic,s7-pwrc.h        | 20 +++++
+ include/dt-bindings/power/amlogic,s7d-pwrc.h       | 27 ++++++
+ 8 files changed, 204 insertions(+)
+---
+base-commit: ffeebf7587f518a3717fad308cf735adbbcaba97
+change-id: 20250820-pm-s6-s7-s7d-950f720aac6d
 
+Best regards,
 -- 
-2.37.1
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
 
 
