@@ -4,108 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E19CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F8FCA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+/3XqC9O5lqfeiA7jEpapMypPzqJuRm5i4h79cnVCQ=; b=b1/V2NqQHkR9AQrzlufhINRGAO
-	NLZBcv4u0pwEbUho9sEKuvQ0xX7GiRZIiqWPQflASrFzFWPZ1L/zvEqVi0FcTt0Gx2Zls6EXVdfqY
-	VY3kRqF7BY7fyEO0ApXRXaR5PRzhdWa7YSsDoDQiW4Tr1cOL8EKe04fs144Xt07a6DQsHR7kkfsah
-	Fakf1bRClPjmviDjim29BdeiBeVqv8wpqK6zfh41wTpQoCR4Ps+BCkUGIOw+gRYcw8SnUgwh3ak7n
-	0UZBJ6sMRooF+rLXPcXHi5gOY8RxtsUXh1Ain7FFv4AXlG6WUgOUUYhW4n9uHhM6SM1VzngC4S55C
-	ufNLYWLQ==;
+	bh=8tFo5essobaEqsDYPH/x0r8jtOSnXE2VLtt1WA7iAnw=; b=BSDwtzIBR9/LOxpUnJhXL9dKj8
+	jtKmnyGVdbQ0cRoilS9a3yq1nz8+BCLn/BLXTJxbOwcJ3fWQtMI9kzQ9OK7fG+oew53XQ6sFFr5CI
+	QJ2zKDnBr3KfhdgFmm++LORKq31WE2oMThtFXGZJbxRDAPETc7pudgTAYaBH4aEsZ4BYWZj9sGZ0y
+	hYNjL9RdiyC+bpMpHhFLRRiw2uI6H+ZYctl4Noxj8BuV/CH94B6F9GPTEKjJarLYE5Y7PkGqejJ6Z
+	w0tHs/dRFWRpVtJLMFYliQ2txhfTdfJLW+B3AAfJpZFenX8g8fq1YWsSmBxOdbFCvbWkQ3rvJ5cvH
+	8Q8kXYww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkdu-00000004SHy-3boM;
-	Sat, 23 Aug 2025 09:34:34 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1upkds-00000004SG0-3PZv;
+	Sat, 23 Aug 2025 09:34:33 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRri-00000002dNK-3R1t
+	id 1upRqA-00000002d9u-0Sny
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:31:35 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-afdf4bb0e5cso31555066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:31:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755869493; x=1756474293; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=O+/3XqC9O5lqfeiA7jEpapMypPzqJuRm5i4h79cnVCQ=;
-        b=GqNfq9HIEHYAoKSak/BWGt2rqpHhKDe3sOavbgspz+vhZyzDoJEWbQKCO6wEM4SNwk
-         SfgxV9e85SebZ5RvXqSPsvzoYpZd6istRD6nJlGOzs/SyP7FU00dT1RIl5VG5uMp9WPh
-         Lmra4dbaylV463kQ/2H9YkREaTva35f/TCwRvBkdf1lQImEaLJxf8uHHYbQ7opb5C8A0
-         t1cAfuG19jPAKbBH1v76hPDe7qFO3xkNIQXYUJcWd2uGch0bM7wDahMDRQCHmQWYZrH4
-         EeVXLicAlzMo3GaeWNgpIifRMwBDNjXll4rByWBFaK6jhcuHheFRcPDOIKBuSMLW5qW1
-         oY3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755869493; x=1756474293;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O+/3XqC9O5lqfeiA7jEpapMypPzqJuRm5i4h79cnVCQ=;
-        b=fKw1L1m288i3GSNusg0ZPbF0fpQDuwQ7wET1UW3eg1xq5LTbB3AZ1SXgaz2FRWYY8P
-         sgozjzMA3Nv9D1q0KbzDLahAX4BTLIouphu00q8xCJKNqRzFjO8knj3OoS7uVaXFEchJ
-         g73B9DSO5n9Dvso4rJ8c9J0X1tDRrnBvdtDsY7DOqPhZQkzxXZZqjG1qfkVX4kqFDn/p
-         s8OJpWBIr1Cank7Y8y7TPSvTZ1dYohZuXi2yoBmSgWCQIDAKfgX0GE43FT8J6YHy1bUX
-         x7agH3HKi+oogALMN8PhLYR6LRqw1cIcpf7psz41lzm4gRWwP4NbSZlQFTwHsWsrPElz
-         255Q==
-X-Gm-Message-State: AOJu0YwBw8pD6yZwsjrYfZLBNpPsGCh8JAAFu6VCHpls5aD62pGv2rkO
-	nazBJex9owTDdAP057Uo9A1v5pEYMA+Cr4TdsP/3e0vch97uruVLG36X1A5tUSp0gwg=
-X-Gm-Gg: ASbGnctkO8riH3c8O5/NE3f5X0EDVLYAW0Evyx4GEaOB3qYWE3fsAK5Mf/38WR6v+iO
-	7ELr14v64kNMIUAmwI9FpQLemt9Cpom8kzohu39/xanri1WaGhNYBA5pxom540U9fFnH89GTKMb
-	PeWTDgOTY+3IoI4316FurhNCr1bYiHiSDFHjdiNhPouXmj5qBrZL2f6FLl7MXvnUmEgVfjCXMuX
-	BlAGanwL4qfwYigvo7N+GwGgnRfrJlglywK4vU0LsMQi6X4kvyNQhENpGAXyQeQAw8vvoo0GYyS
-	DlRg2tn/YS6Oxjz0yHEoeYhGetGnHMEw0Y4o1It4LHtzNiamF4Md1kZHUQG44mb4qOnXJeqrucL
-	EvDBGEdPn1IXrijZ9poo55z+2L6+h1dkOjcviasY=
-X-Google-Smtp-Source: AGHT+IGv7fFkgXyf3+soUZrw4vUGsNAYnhF5jPzx8yt72j1BLMthgE61ET3nwo62H4P4NqEQzXSWRw==
-X-Received: by 2002:a17:907:2686:b0:af9:3397:ee9d with SMTP id a640c23a62f3a-afe28f60bfamr149944766b.3.1755869493213;
-        Fri, 22 Aug 2025 06:31:33 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf24bc40dsm554863066b.109.2025.08.22.06.31.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 06:31:32 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 22 Aug 2025 15:31:16 +0200
-Subject: [PATCH 07/10] arm64: dts: imx8mq: Add default GIC address cells
+	Fri, 22 Aug 2025 13:29:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1755869398; x=1787405398;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=JmipXnXVqs0bo7rBOQEowa8CcQd7VSNge6eEHRVSm0g=;
+  b=CoN1EBNRuApjOIBGwSTCqkl0wNtrGw5KGLH8BQQhSyf7HzfoA13gq6Bq
+   3qvKZR4tJAl0/24VteAr6ZVutVUDi62aYUiOfD/MmRnfA8yqGTX7IKPrx
+   LXXZoVMra8Rc4papdCtciEOdx1RpfOGvgQdgfyty3LCfnexTlyX6ZT5Uv
+   d67Z3HJDSNRHU96bl/lhDyYocJ2QzrPVQCNstHiXo0+X9o13UWBiUUKpT
+   SnVPiqinPAPWD0c8ibXWjuu2eAsUf38ykGjmIRz4+abD3RTcIH1pZloxr
+   NWiQITEk+GyYO0gylzJL91Je+MZ/hb1MkjMcLZdDJL+2SCApMnqdsY8Ok
+   Q==;
+X-CSE-ConnectionGUID: dttGCdfnRrSwT0WQldL3yA==
+X-CSE-MsgGUID: AeSCvjSPQYS0LsPuRv0RiQ==
+X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
+   d="scan'208";a="276925274"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Aug 2025 06:29:56 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 22 Aug 2025 06:29:25 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Fri, 22 Aug 2025 06:29:21 -0700
+Message-ID: <76b1062f-a4e3-4392-9549-86d63616a5ca@microchip.com>
+Date: Fri, 22 Aug 2025 15:29:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 1/9] arm64: Add config for Microchip SoC platforms
+To: Robert Marko <robert.marko@sartura.hr>, <linux@armlinux.org.uk>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <olivia@selenic.com>,
+	<herbert@gondor.apana.org.au>, <davem@davemloft.net>,
+	<andi.shyti@kernel.org>, <lee@kernel.org>, <broonie@kernel.org>,
+	<gregkh@linuxfoundation.org>, <jirislaby@kernel.org>, <arnd@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-crypto@vger.kernel.org>, <linux-i2c@vger.kernel.org>,
+	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+	<o.rempel@pengutronix.de>, <daniel.machon@microchip.com>
+CC: <luka.perkov@sartura.hr>
+References: <20250813174720.540015-1-robert.marko@sartura.hr>
+ <20250813174720.540015-2-robert.marko@sartura.hr>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20250813174720.540015-2-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-b4-dts-interrupt-address-cells-imx-v1-7-f1b479da9340@linaro.org>
-References: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
-In-Reply-To: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
-To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1401;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=9aGPRqF3hU3LhHMJ5AKmjiN2YyxcsRNqdApXK8jOBCE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHElcNZBJwVVoVferD3+Ha+vRMM/Yxaj3iOuX
- ndH63U9FAaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxJQAKCRDBN2bmhouD
- 10X/D/48aejT48pDsDMcPM2RnZNjcDN50dVq1bQ31lwG1aErEMVxN7xy/aIU54uRE8a1JAdMWL4
- pVQKTkVJzM9DlzkY83kNNUh5agl27PtDyQ+pM27g3ZNU3uQQIGF7EDt1Nzlc9MGKtJN0DQ63qcC
- Qmyj0yLBCpSuyD5wh/CUh8Re08HOJvxdWKghvffYt1NNHnm3K1kP1fyR1PfHNhImMcmhpNc85zR
- Kp5gLcNSxsWFa9VEYXHhZuFNUi2+UPoFdrsTgbJAzSfapIxW3g8BbQ4CzZGkTrI3KtQ29kPyM+D
- bP0DC0vMAiOmkG9CLT+AujHSVUi364vqMFOOZ2GOSpvLNOTXHLipnwdHJkBDMjYEo5UJmq+xhLt
- fGblRgCLiQm7Weav9a9TR7xdjXB7aLrnSAKB0j3eeqblgZEE2iYG9KnIVyfEpnDPeV8D050knca
- xyJN4Cx6rB61FPv9KxFVCLL7IvDPwk0PRrQHaTjgfNw8WHWmssVH5yQjPQK5CJH2NVwRNWBqnxa
- QF7Jrs2hGiGAFvnmdYFgp7AbjOzbfnGe/Ya0HSzbRq4ANwnmGT9KAUN5YrtLyq6iBQK0/8JZCvT
- JyaPu35vcRb8esRoFPgb6m5Ev4KQHv+qDKFQiDJa9SJ9i/N09E6EG4XPGAkaXXKYATRRP69svZG
- +h0aCa505lvd3jQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_063134_861465_9FA0A3FB 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250822_062958_271885_7DFF98A1 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,38 +95,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing address-cells 0 to GIC interrupt node to silence W=1
-warning:
+On 13/08/2025 at 19:44, Robert Marko wrote:
+> Currently, Microchip SparX-5 SoC is supported and it has its own symbol.
+> 
+> However, this means that new Microchip platforms that share drivers need
+> to constantly keep updating depends on various drivers.
+> 
+> So, to try and reduce this lets add ARCH_MICROCHIP symbol that drivers
+> could instead depend on.
+> 
+> LAN969x is being worked on and it will be added under ARCH_MICROCHIP.
+> 
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 
-  imx8mq.dtsi:1746.4-1749.43: Warning (interrupt_map): /soc@0/pcie@33800000:interrupt-map:
-    Missing property '#address-cells' in node /soc@0/interrupt-controller@38800000, using 0 as fallback
+Ok, according to the compromise that we discussed during v8 that's fine 
+with me:
+Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Value '0' is correct because:
-1. GIC interrupt controller does not have children,
-2. interrupt-map property (in PCI node) consists of five components and
-   the fourth component "parent unit address", which size is defined by
-   '#address-cells' of the node pointed to by the interrupt-parent
-   component, is not used (=0)
+Thanks Robert! Regards,
+   Nicolas
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm64/boot/dts/freescale/imx8mq.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-index c9040d1131a80941474806da0741df18bd36b2c8..607962f807bebe52d55976019a210738fa6bb339 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-@@ -1890,6 +1890,7 @@ gic: interrupt-controller@38800000 {
- 			      <0x31000000 0x2000>,	/* GICC */
- 			      <0x31010000 0x2000>,	/* GICV */
- 			      <0x31020000 0x2000>;	/* GICH */
-+			#address-cells = <0>;
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-
--- 
-2.48.1
+> ---
+> Changes in v9:
+> * Make ARCH_MICROCHIP hidden symbol that is selected by SparX-5 directly,
+> this avoids breaking existing configs with ARCH_SPARX5
+> 
+>   arch/arm64/Kconfig.platforms | 36 ++++++++++++++++++++++--------------
+>   1 file changed, 22 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index a88f5ad9328c..bfea380100a6 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -131,20 +131,6 @@ config ARCH_EXYNOS
+>          help
+>            This enables support for ARMv8 based Samsung Exynos SoC family.
+> 
+> -config ARCH_SPARX5
+> -       bool "Microchip Sparx5 SoC family"
+> -       select PINCTRL
+> -       select DW_APB_TIMER_OF
+> -       help
+> -         This enables support for the Microchip Sparx5 ARMv8-based
+> -         SoC family of TSN-capable gigabit switches.
+> -
+> -         The SparX-5 Ethernet switch family provides a rich set of
+> -         switching features such as advanced TCAM-based VLAN and QoS
+> -         processing enabling delivery of differentiated services, and
+> -         security through TCAM-based frame processing using versatile
+> -         content aware processor (VCAP).
+> -
+>   config ARCH_K3
+>          bool "Texas Instruments Inc. K3 multicore SoC architecture"
+>          select SOC_TI
+> @@ -186,6 +172,28 @@ config ARCH_MESON
+>            This enables support for the arm64 based Amlogic SoCs
+>            such as the s905, S905X/D, S912, A113X/D or S905X/D2
+> 
+> +menu "Microchip SoC support"
+> +
+> +config ARCH_MICROCHIP
+> +       bool
+> +
+> +config ARCH_SPARX5
+> +       bool "Microchip Sparx5 SoC family"
+> +       select PINCTRL
+> +       select DW_APB_TIMER_OF
+> +       select ARCH_MICROCHIP
+> +       help
+> +         This enables support for the Microchip Sparx5 ARMv8-based
+> +         SoC family of TSN-capable gigabit switches.
+> +
+> +         The SparX-5 Ethernet switch family provides a rich set of
+> +         switching features such as advanced TCAM-based VLAN and QoS
+> +         processing enabling delivery of differentiated services, and
+> +         security through TCAM-based frame processing using versatile
+> +         content aware processor (VCAP).
+> +
+> +endmenu
+> +
+>   config ARCH_MMP
+>          bool "Marvell MMP SoC Family"
+>          select PINCTRL
+> --
+> 2.50.1
+> 
 
 
