@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E8FCA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D9ADCA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O9q6iG++/55RQMII1NqU9QCk4wVuM1zE8AJlHawN1lw=; b=09K4JR8MoRjxVqikqOmacn+WQp
-	FNLera5XWq3euDi+kQ0Mj79tC7UhIA0bBmJk0z7xE95/N4fdz3ZLRmQzOkRheTszjXfpeafLHZoQv
-	Qz2WbajhysRCIkIwzBS1wQkDYuzJORCYnpi3IxyjyZA5xA17gMW6TkJJJrfozH2wfuMJ01uerFZLn
-	DUmEXuM7GMKc/iY1xTYaBHJn+TyKGti5JZ202b/M+KhBi7v3T6NxLxT8dp5uFxYa6YSQDMau+2Hyo
-	vICjC/SlrV2xNQkqvcADJnvBsp6P5NzTeN76r5CU8EyuRswd4rxl1rPcETRp9Lgch/Is+RNCgALjp
-	bt43nutw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=13uyK1WLkkJWQnCXhwaNVxQ4g+5FLa3gYjiKyQUA6aA=; b=2hnZOugi9fTqrVMUhj5j3Xgm2+
+	yzApdJk20mzXPK/VafL3RDpHbtmG5uAUfEklfDFCy0c8KrgL+c29grbRhJ63kT4Pj/4KhwRm+1y7z
+	PDwHyxAiTOyHeniIQMRwXgkh1bwMME0wuFFe7dJ4PUOlDv2QxZaZruoNaBJ+UJqREC67dmDWX3Svr
+	4wgiVgHde8AhmKvIyhVOSFdZM+rXmwWrpl7zOp9rHugJ601HiGoL4hogXO/BLg+ZWQpZCboPm6cUC
+	nwvJcQhZx7UnPU5Ec0xkIwKkUu3MW+JQI6uSqRVZ/PtBY6//pANgtGIlBgvQqOvGhhNPqiVD2OBab
+	kkG37uAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPql-00000002I3R-2sJD;
-	Fri, 22 Aug 2025 11:22:27 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHVd-00000001HMO-0r3h;
-	Fri, 22 Aug 2025 02:28:06 +0000
-X-UUID: 7e09d9587efd11f09eb0dd999d3936bf-20250821
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=O9q6iG++/55RQMII1NqU9QCk4wVuM1zE8AJlHawN1lw=;
-	b=dEyUYiOn04GMHS41JYdy0sRsL79X8ejWhgDp8pE81Pw4Jpz4hMxh2twI+mFIXGM9w52LDYzbGFGjC61Js9X6N78v/AfskIgdCkiraUxTsa/cYw223PEmIpSdE4QsV1y3QU5zu3L5t9ZX3gFcF4T2LiFDka6SKZc9L7Dko0WM7l4=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:f49b34ce-5c43-4ada-ac53-fb9eb3cd498b,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:308e667a-966c-41bd-96b5-7d0b3c22e782,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7e09d9587efd11f09eb0dd999d3936bf-20250821
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <jjian.zhou@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1064293561; Thu, 21 Aug 2025 19:12:45 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 22 Aug 2025 10:12:41 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 22 Aug 2025 10:12:40 +0800
-From: Jjian Zhou <jjian.zhou@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
-	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
-	<jjian.zhou@mediatek.com>
-Subject: [PATCH v5 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-Date: Fri, 22 Aug 2025 10:12:09 +0800
-Message-ID: <20250822021217.1598-3-jjian.zhou@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250822021217.1598-1-jjian.zhou@mediatek.com>
-References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
+	id 1upPqn-00000002I4Y-21yg;
+	Fri, 22 Aug 2025 11:22:29 +0000
+Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upHfc-00000001IVH-3tPZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 02:38:27 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Fri, 22 Aug 2025 10:37:50 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Fri, 22 Aug 2025 10:37:50 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Andrew Lunn" <andrew@lunn.ch>
+Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
+	jszhang@kernel.org, jan.petrous@oss.nxp.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
+Subject: Re: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700
+ ethernet driver
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
+References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
+ <20250703092015.1200-1-weishangjuan@eswincomputing.com>
+ <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
+ <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
+ <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
+ <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
+ <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
+ <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
+ <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
+ <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
+ <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Message-ID: <3261748c.629.198cfa3bc10.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TAJkCgB3jg8A2KdoOMjBAA--.11545W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAQECDGinSfUNAAABsx
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_192805_252042_DAA938BA 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20250821_193825_150136_3A256F55 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,271 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add mtk-vcp-mailbox driver to support the communication with
-VCP remote microprocessor.
-
-Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
----
- drivers/mailbox/Kconfig                 |   9 ++
- drivers/mailbox/Makefile                |   2 +
- drivers/mailbox/mtk-vcp-mailbox.c       | 174 ++++++++++++++++++++++++
- include/linux/mailbox/mtk-vcp-mailbox.h |  32 +++++
- 4 files changed, 217 insertions(+)
- create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
- create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
-
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 02432d4a5ccd..c28bdb855663 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -294,6 +294,15 @@ config MTK_CMDQ_MBOX
- 	  critical time limitation, such as updating display configuration
- 	  during the vblank.
-
-+config MTK_VCP_MBOX
-+	tristate "MediaTek VCP Mailbox Support"
-+	depends on ARCH_MEDIATEK || COMPILE_TEST
-+	help
-+	  Say yes here to add support for the MediaTek VCP mailbox driver.
-+	  The mailbox implementation provides access from the application
-+	  processor to Video Companion Processor Unit.
-+	  If unsure say N.
-+
- config ZYNQMP_IPI_MBOX
- 	tristate "Xilinx ZynqMP IPI Mailbox"
- 	depends on ARCH_ZYNQMP && OF
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 98a68f838486..07278871d254 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -63,6 +63,8 @@ obj-$(CONFIG_MTK_ADSP_MBOX)	+= mtk-adsp-mailbox.o
-
- obj-$(CONFIG_MTK_CMDQ_MBOX)	+= mtk-cmdq-mailbox.o
-
-+obj-$(CONFIG_MTK_VCP_MBOX)	+= mtk-vcp-mailbox.o
-+
- obj-$(CONFIG_ZYNQMP_IPI_MBOX)	+= zynqmp-ipi-mailbox.o
-
- obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
-diff --git a/drivers/mailbox/mtk-vcp-mailbox.c b/drivers/mailbox/mtk-vcp-mailbox.c
-new file mode 100644
-index 000000000000..6f48215896d2
---- /dev/null
-+++ b/drivers/mailbox/mtk-vcp-mailbox.c
-@@ -0,0 +1,174 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2025 MediaTek Corporation. All rights reserved.
-+ * Author: Jjian Zhou <jjian.zhou.@mediatek.com>
-+ */
-+
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/mailbox/mtk-vcp-mailbox.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+struct mtk_vcp_mbox_priv {
-+	void __iomem *base;
-+	struct device *dev;
-+	struct mbox_controller mbox;
-+	const struct mtk_vcp_mbox_cfg *cfg;
-+	struct mtk_ipi_info ipi_recv;
-+};
-+
-+struct mtk_vcp_mbox_cfg {
-+	u32 set_in;
-+	u32 clr_out;
-+};
-+
-+static inline struct mtk_vcp_mbox_priv *get_mtk_vcp_mbox_priv(struct mbox_controller *mbox)
-+{
-+	return container_of(mbox, struct mtk_vcp_mbox_priv, mbox);
-+}
-+
-+static irqreturn_t mtk_vcp_mbox_irq_thread(int irq, void *data)
-+{
-+	struct mbox_chan *chan = data;
-+	struct mtk_vcp_mbox_priv *priv = get_mtk_vcp_mbox_priv(chan->mbox);
-+
-+	/* get irq status */
-+	priv->ipi_recv.irq_status = readl(priv->base + priv->cfg->clr_out);
-+
-+	__ioread32_copy(priv->ipi_recv.msg, priv->base, MBOX_SLOT_MAX_SIZE / 4);
-+
-+	mbox_chan_received_data(chan, &priv->ipi_recv);
-+
-+	/* clear irq status */
-+	writel(priv->ipi_recv.irq_status, priv->base + priv->cfg->clr_out);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static struct mbox_chan *mtk_vcp_mbox_xlate(struct mbox_controller *mbox,
-+					    const struct of_phandle_args *sp)
-+{
-+	if (sp->args_count)
-+		return NULL;
-+
-+	return mbox->chans;
-+}
-+
-+static int mtk_vcp_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct mtk_vcp_mbox_priv *priv = get_mtk_vcp_mbox_priv(chan->mbox);
-+	struct mtk_ipi_info *ipi_info = data;
-+	u32 status;
-+
-+	if (!ipi_info->msg) {
-+		dev_err(priv->dev, "msg buffer is NULL.\n");
-+		return -EINVAL;
-+	}
-+
-+	status = readl(priv->base + priv->cfg->set_in) & BIT(ipi_info->index);
-+	if (status) {
-+		dev_warn(priv->dev, "mailbox IPI %d is busy.\n", ipi_info->id);
-+		return -EBUSY;
-+	}
-+
-+	if (ipi_info->slot_ofs + ipi_info->len > MBOX_SLOT_MAX_SIZE)
-+		return -EINVAL;
-+	__iowrite32_copy(priv->base + ipi_info->slot_ofs, ipi_info->msg,
-+			 ipi_info->len);
-+
-+	writel(BIT(ipi_info->index), priv->base + priv->cfg->set_in);
-+
-+	return 0;
-+}
-+
-+static bool mtk_vcp_mbox_last_tx_done(struct mbox_chan *chan)
-+{
-+	struct mtk_ipi_info *ipi_info = chan->active_req;
-+	struct mtk_vcp_mbox_priv *priv = get_mtk_vcp_mbox_priv(chan->mbox);
-+
-+	return !(readl(priv->base + priv->cfg->set_in) & BIT(ipi_info->index));
-+}
-+
-+static const struct mbox_chan_ops mtk_vcp_mbox_chan_ops = {
-+	.send_data	= mtk_vcp_mbox_send_data,
-+	.last_tx_done	= mtk_vcp_mbox_last_tx_done,
-+};
-+
-+static int mtk_vcp_mbox_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mtk_vcp_mbox_priv *priv;
-+	struct mbox_controller *mbox;
-+	int ret, irq;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+	mbox = &priv->mbox;
-+	mbox->dev = dev;
-+	mbox->ops = &mtk_vcp_mbox_chan_ops;
-+	mbox->txdone_irq = false;
-+	mbox->txdone_poll = true;
-+	mbox->of_xlate = mtk_vcp_mbox_xlate;
-+	mbox->num_chans = 1;
-+	mbox->chans = devm_kzalloc(dev, sizeof(*mbox->chans), GFP_KERNEL);
-+	if (!mbox->chans)
-+		return -ENOMEM;
-+
-+	priv->ipi_recv.msg = devm_kzalloc(dev, MBOX_SLOT_MAX_SIZE, GFP_KERNEL);
-+	if (!priv->ipi_recv.msg)
-+		return -ENOMEM;
-+
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	priv->cfg = of_device_get_match_data(dev);
-+	if (!priv->cfg)
-+		return -EINVAL;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_threaded_irq(dev, irq, NULL,
-+					mtk_vcp_mbox_irq_thread, IRQF_ONESHOT,
-+					dev_name(dev), mbox->chans);
-+	if (ret < 0)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	return devm_mbox_controller_register(dev, &priv->mbox);
-+}
-+
-+static const struct mtk_vcp_mbox_cfg mt8196_cfg = {
-+	.set_in		= 0x100,
-+	.clr_out	= 0x10C,
-+};
-+
-+static const struct of_device_id mtk_vcp_mbox_of_match[] = {
-+	{ .compatible = "mediatek,mt8196-vcp-mbox", .data = &mt8196_cfg },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, mtk_vcp_mbox_of_match);
-+
-+static struct platform_driver mtk_vcp_mbox_driver = {
-+	.probe		= mtk_vcp_mbox_probe,
-+	.driver = {
-+		.name	= "mtk_vcp_mbox",
-+		.of_match_table = mtk_vcp_mbox_of_match,
-+	},
-+};
-+module_platform_driver(mtk_vcp_mbox_driver);
-+
-+MODULE_AUTHOR("Jjian Zhou <jjian.zhou@mediatek.com>");
-+MODULE_DESCRIPTION("MTK VCP Mailbox Controller");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/mailbox/mtk-vcp-mailbox.h b/include/linux/mailbox/mtk-vcp-mailbox.h
-new file mode 100644
-index 000000000000..143fb0d06e30
---- /dev/null
-+++ b/include/linux/mailbox/mtk-vcp-mailbox.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ */
-+
-+#ifndef __MTK_VCP_MAILBOX_H__
-+#define __MTK_VCP_MAILBOX_H__
-+
-+#define MBOX_SLOT_MAX_SIZE	0x100 /* mbox max slot size */
-+
-+/**
-+ * struct mtk_ipi_info - mailbox message info for mtk-vcp-mailbox
-+ * @msg: The share buffer between IPC and mailbox driver
-+ * @len: Message length
-+ * @id: This is for identification purposes and not actually used
-+ *	by the mailbox hardware.
-+ * @index: The signal number of the mailbox message.
-+ * @slot_ofs: Data slot offset.
-+ * @irq_status: Captures incoming signals for the RX path.
-+ *
-+ * It is used between IPC with mailbox driver.
-+ */
-+struct mtk_ipi_info {
-+	void *msg;
-+	u32 len;
-+	u32 id;
-+	u32 index;
-+	u32 slot_ofs;
-+	u32 irq_status;
-+};
-+
-+#endif
---
-2.46.0
-
+RGVhciBBbmRyZXcgTHVubiwKVGhhbmsgeW91IGZvciB5b3VyIHZhbHVhYmxlIGFuZCBwcm9mZXNz
+aW9uYWwgc3VnZ2VzdGlvbnMuClBsZWFzZSBmaW5kIG91ciBxdWVzdGlvbnMgYW5kIGV4cGxhbmF0
+aW9ucyBlbWJlZGRlZCBiZWxvdyB5b3VyIGNvbW1lbnRzCmluIHRoZSBvcmlnaW5hbCBlbWFpbC4K
+CkJlc3QgcmVnYXJkcywKCkxpIFpoaQpFc3dpbiBDb21wdXRpbmcKCgoKCgo+IC0tLS0t5Y6f5aeL
+6YKu5Lu2LS0tLS0KPiDlj5Hku7bkuro6ICJBbmRyZXcgTHVubiIgPGFuZHJld0BsdW5uLmNoPgo+
+IOWPkemAgeaXtumXtDoyMDI1LTA3LTMxIDIxOjMxOjUyICjmmJ/mnJ/lm5spCj4g5pS25Lu25Lq6
+OiDmnY7lv5cgPGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20+Cj4g5oqE6YCBOiB3ZWlzaGFuZ2p1
+YW5AZXN3aW5jb21wdXRpbmcuY29tLCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVt
+bG9mdC5uZXQsIGVkdW1hemV0QGdvb2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcm9iaEBrZXJu
+ZWwub3JnLCBrcnprK2R0QGtlcm5lbC5vcmcsIGNvbm9yK2R0QGtlcm5lbC5vcmcsIG5ldGRldkB2
+Z2VyLmtlcm5lbC5vcmcsIGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnLCBsaW51eC1rZXJuZWxA
+dmdlci5rZXJuZWwub3JnLCBtY29xdWVsaW4uc3RtMzJAZ21haWwuY29tLCBhbGV4YW5kcmUudG9y
+Z3VlQGZvc3Muc3QuY29tLCBybWsra2VybmVsQGFybWxpbnV4Lm9yZy51aywgeW9uZy5saWFuZy5j
+aG9vbmdAbGludXguaW50ZWwuY29tLCB2bGFkaW1pci5vbHRlYW5AbnhwLmNvbSwganN6aGFuZ0Br
+ZXJuZWwub3JnLCBqYW4ucGV0cm91c0Bvc3MubnhwLmNvbSwgcHJhYmhha2FyLm1haGFkZXYtbGFk
+LnJqQGJwLnJlbmVzYXMuY29tLCBpbm9jaGlhbWFAZ21haWwuY29tLCBib29uLmtoYWkubmdAYWx0
+ZXJhLmNvbSwgZGZ1c3RpbmlAdGVuc3RvcnJlbnQuY29tLCAweDEyMDdAZ21haWwuY29tLCBsaW51
+eC1zdG0zMkBzdC1tZC1tYWlsbWFuLnN0b3JtcmVwbHkuY29tLCBsaW51eC1hcm0ta2VybmVsQGxp
+c3RzLmluZnJhZGVhZC5vcmcsIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5jb20sIGxpbm1pbkBlc3dp
+bmNvbXB1dGluZy5jb20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBzLmNvbQo+IOS4u+mimDog
+UmU6IFJlOiBSZTogUmU6IFJlOiBbUEFUQ0ggdjMgMi8yXSBldGhlcm5ldDogZXN3aW46IEFkZCBl
+aWM3NzAwIGV0aGVybmV0IGRyaXZlcgo+IAo+ID4gPiBZb3UgaGFyZHdhcmUgaGFzIGEgbG90IG9m
+IGZsZXhpYmlsaXR5LCBidXQgbm9uZSBvZiBpZiBzaG91bGQgYWN0dWFsbHkKPiA+ID4gYmUgbmVl
+ZGVkLCBpZiB5b3UgZm9sbG93IHRoZSBzdGFuZGFyZC4KPiA+ID4gCj4gPiA+IFNvIHBoeS1tb2Rl
+ID0gInJnbWlpLWlkIjsgc2hvdWxkIGJlIGFsbCB5b3UgbmVlZCBmb3IgbW9zdCBib2FyZHMuCj4g
+PiA+IEV2ZXJ5dGhpbmcgZWxzZSBzaG91bGQgYmUgb3B0aW9uYWwsIHdpdGggc2Vuc2libGUgZGVm
+YXVsdHMuCj4gPiA+IAo+ID4gCj4gPiBPbiBvdXIgcGxhdGZvcm0sIHRoZSB2ZW5kb3Itc3BlY2lm
+aWMgYXR0cmlidXRlcyBlc3dpbixkbHktcGFyYW0tKiB3ZXJlCj4gPiBpbml0aWFsbHkgaW50cm9k
+dWNlZCB0byBjb21wZW5zYXRlIGZvciBib2FyZC1zcGVjaWZpYyB2YXJpYXRpb25zIGluIFJHTUlJ
+Cj4gPiBzaWduYWwgdGltaW5nLCBwcmltYXJpbHkgZHVlIHRvIGRpZmZlcmVuY2VzIGluIFBDQiB0
+cmFjZSBsZW5ndGhzLgo+IAo+IFNvIGl0IHNlZW1zIGxpa2UsIGJlY2F1c2UgeW91IGhhdmUgdGhl
+IGZsZXhpYmlsaXR5IGluIHRoZSBoYXJkd2FyZSwKPiB5b3UgZGVzaWduZWQgeW91ciBQQ0IgcG9v
+cmx5LCBicmVha2luZyB0aGUgc3RhbmRhcmQsIHNvIG5vdyBtdXN0IGhhdmUKPiB0aGVzZSBwcm9w
+ZXJ0aWVzLiAgSXQgd291bGQgb2YgYmVlbiBtdWNoIGJldHRlciBpZiB5b3UgaGFkIHN0dWNrIHRv
+Cj4gdGhlIHN0YW5kYXJkLi4uCj4gCj4gUGxlYXNlIGVuc3VyZSB5b3VyIGRlZmF1bHQgdmFsdWVz
+LCB3aGVuIG5vdGhpbmcgaXMgc3BlY2lmaWVkIGluIERULAo+IGNvcnJlc3BvbmQgdG8gYSBib2Fy
+ZCB3aGljaCBhY3R1YWxseSBmdWxmaWxzIHRoZSBzdGFuZGFyZC4gVGhlIG5leHQKPiBib2FyZCB3
+aGljaCBpcyBtYWRlIHVzaW5nIHRoaXMgZGV2aWNlIGNhbiB0aGVuIGF2b2lkIGhhdmluZyBhbnl0
+aGluZwo+IHNwZWNpYWwgaW4gdGhlcmUgRFQgYmxvYi4KPiAKPiA+IFRoZXNlIGF0dHJpYnV0ZXMg
+YWxsb3cgZmluZS1ncmFpbmVkLCBwZXItc2lnbmFsIGRlbGF5IGNvbnRyb2wgZm9yIFJYRCwgVFhE
+LAo+ID4gVFhFTiwgUlhEViwgUlhDTEssIGFuZCBUWENMSywgYmFzZWQgb24gZW1waXJpY2FsbHkg
+ZGVyaXZlZCBvcHRpbWFsIHBoYXNlCj4gPiBzZXR0aW5ncy4KPiA+IEluIG91ciBleHBlcmllbmNl
+LCBzZXR0aW5nIHBoeS1tb2RlID0gInJnbWlpLWlkIiBhbG9uZSwgYWxvbmcgd2l0aCBvbmx5Cj4g
+PiB0aGUgc3RhbmRhcmQgcHJvcGVydGllcyByeC1pbnRlcm5hbC1kZWxheS1wcyBhbmQgdHgtaW50
+ZXJuYWwtZGVsYXktcHMsCj4gPiBoYXMgcHJvdmVuIGluc3VmZmljaWVudCB0byBtZWV0IG91ciBo
+YXJkd2FyZSdzIHRpbWluZyByZXF1aXJlbWVudHMuCj4gCj4gWW91IGRvbid0IG5lZWQgdmVuZG9y
+IHByb3BlcnRpZXMgZm9yIFJYQ0xLIGFuZCBUWENMSywgdGhhdCBpcyB3aGF0Cj4gdHgtaW50ZXJu
+YWwtZGVsYXktcHMgYW5kIHJ4LWludGVybmFsLWRlbGF5LXBzIGRvLiBUaGV5IGNoYW5nZSB0aGUK
+PiBjbG9jayBzaWduYWwgcmVsYXRpdmUgdG8gVFggYW5kIFJYIGRhdGEuIFNvIHlvdSBvbmx5IG5l
+ZWQgcHJvcGVydGllcwo+IGZvciBUWEVOIGFuZCBSWERWLiBZb3Ugc2hvdWxkIHByb2JhYmx5IGNh
+bGwgdGhlc2UKPiBlc3dpbix0eGVuLWludGVybmFsLWRlbGF5LXBzIGFuZCBlc3dpbixyeGR2LWlu
+dGVybmFsLWRlbGF5LXBzLiAgSW4gdGhlCj4gYmluZGluZyB5b3UgbmVlZCB0byBjbGVhcmx5IGRl
+ZmluZSB3aGF0IHRoZXNlIG1lYW4sIGZvciB5b3VyIGhhcmR3YXJlLAo+IGkuZS4gIHdoYXQgaXMg
+dGhlIGRlbGF5IHJlbGF0aXZlIHRvPwo+IAo+ID4gMS4gU2V0dGluZyBhbGwgZGVsYXkgcGFyYW1l
+dGVycyAoUlhELCBUWEQsIFRYRU4sIFJYRFYsIFJYQ0xLLCBhbmQgVFhDTEspCj4gPiAgICB1c2lu
+ZyB2ZW5kb3Itc3BlY2lmaWMgYXR0cmlidXRlc8KgZXN3aW4sZGx5LXBhcmFtLSouCj4gPiAgICBl
+LmcuCj4gPiAgICBlc3dpbixkbHktcGFyYW0tMTAwMG0gPSA8MHgyMDIwMjAyMCAweDk2MjA1QTIw
+IDB4MjAyMDIwMjA+Owo+ID4gMi4gU2V0dGluZyBkZWxheSBwYXJhbWV0ZXJzIChSWEQsIFRYRCwg
+VFhFTiwgUlhEVikgdXNpbmcgdmVuZG9yLXNwZWNpZmljCj4gPiAgICBhdHRyaWJ1dGVzwqBlc3dp
+bixkbHktcGFyYW0tKsKgLCBSWENMSyB1c2luZyByeC1pbnRlcm5hbC1kZWxheS1wcyBhbmQKPiA+
+ICAgIFRYQ0xLIHVzaW5nIHR4LWludGVybmFsLWRlbGF5LXBzLgo+ID4gICAgZS5nCj4gPiAgICBl
+c3dpbixkbHktcGFyYW0tMTAwMG0gPSA8MHgyMDIwMjAyMCAweDgwMjAwMDIwIDB4MjAyMDIwMjA+
+Owo+ID4gICAgcngtaW50ZXJuYWwtZGVsYXktcHMgPSA8OTAwMD47Cj4gPiAgICB0eC1pbnRlcm5h
+bC1kZWxheS1wcyA9IDwyMjAwPjsKPiAKPiBOZWl0aGVyLiBEVCBzaG91bGQgbm90IGNvbnRhaW4g
+SFcgdmFsdWVzIHlvdSBwb2tlIGludG8gcmVnaXN0ZXJzLiBUaGV5Cj4gc2hvdWxkIGJlIFNJIHVz
+aW5nLCBpbiB0aGlzIGNhc2UsIHBpY28gc2Vjb25kcy4gRnJvbSB0aGVzZSBkZWxheXMgaW4KPiBw
+aWNvc2Vjb25kcywgaGF2ZSB0aGUgZHJpdmVyIGNhbGN1bGF0ZSB3aGF0IHZhbHVlcyBzaG91bGQg
+YmUgd3JpdHRlbgo+IGludG8gdGhlIHJlZ2lzdGVycy4KPiAKPiBBbmQgdGhlc2UgZGVsYXkgdmFs
+dWVzIGFyZSB1bmxpa2VseSB0byBiZSBjb3JyZWN0LiBZb3UgYXJlIHVzaW5nCj4gcmdtaWktaWQs
+IHNvIHRoZSBQSFkgaXMgYWRkaW5nIDJucy4gWW91IHdhbnQgdGhlIE1BQyB0byBtYWtlIHNtYWxs
+Cj4gdHVuaW5nIGFkanVzdG1lbnRzLCBzbyAyMDAgY291bGQgYmUgcmVhc29uYWJsZSwgYnV0IDkw
+MDBwcyBpcyB3YXkgdG9vCj4gYmlnLgo+IAoKV2UgcmUtdHVuZWQgYW5kIHZlcmlmaWVkIHRoYXQg
+c2V0dGluZyB0aGUgVFhEIGFuZCBSWEQgZGVsYXlzIHRvIDAgYW5kCmNvbmZpZ3VyaW5nIFRYRU4g
+YW5kIFJYRFYgdG8gMCB5aWVsZGVkIHRoZSBzYW1lIGhhcmR3YXJlIHBlcmZvcm1hbmNlIGFzCmxv
+bmcgYXMgd2Ugb25seSBhcHBsaWVkIGRlbGF5cyAoZS5nLiAyMDBwcykgdG8gVFhDTEsgYW5kIFJY
+Q0xLLgpUaGVyZWZvcmUsIGluIHRoZSBuZXh0IHBhdGNoLCB3ZSB3aWxsIGRyb3AgdGhlIHZlbmRv
+ci1zcGVjaWZpYyBwcm9wZXJ0aWVzCihlLmcuIGVzd2luLGRseS1wYXJhbS0qKSBhbmQga2VlcCBv
+bmx5IHRoZSBzdGFuZGFyZCBhdHRyaWJ1dGVzLCBuYW1lbHkKcngtaW50ZXJuYWwtZGVsYXktcHMg
+YW5kIHR4LWludGVybmFsLWRlbGF5LXBzLgpJcyB0aGlzIGNvcnJlY3Q/Cgo+IAlBbmRyZXcK
 
