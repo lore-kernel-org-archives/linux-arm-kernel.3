@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6093BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FADACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=keM8FZ6KRUpmCdaqfX/W6LPu+GVLL1SCkuysb5xQQ5g=; b=IDTlsqDbuGI3cdGS4Eomfwu4W9
-	j1suBdLJkDVsLed6oexiMzgb8agVxXNUjkS+/FCTM2dZKgxgNVWwLjvcB2AHMFspC05wMngVOE8UZ
-	QBbANvS4mkv3nOz7AudNynCgFD7h7D3AwJZyqFKIWj9kwLjGSDEF9bRSx8YdgZLjZdPOubI10r8iD
-	fFWnpYaQlB/BBh5lSMKQ5uzL08z6Y75xtU0u22v6YSNuGCXbsbk7e4HZ+BLCCtggNpB/cDR6imh4g
-	1xdNmfaCTD8gr2M2xIc9zBA3o29UcOKLRZ7Yo57SwH2EzvjhfI2rS/Cjss2jKJKxmsBfk9dIFVd9e
-	wjIJho+g==;
+	bh=Zx90QVm6GzzZTR1BgRYVVtW+V2nRWjdVuhddzxz8SwA=; b=FAaNfRGHJj7fJoZQ2CAGVTLN6g
+	bSWddNmBjLfUkfW1HD/7JdBKFqcV2JA1B3yi9SFwzhkIrSbSK4sVaOaPt+nXNa448fVKVQ08bG+eK
+	veojF2Zzk9IuRu0hHUGLJ1bz/iFEPk1aC7MR5N/nJZUg6EhHTwP2O7rT9SWVvmY3UXCkUKSbXZkuu
+	P5zj/jgR5mFlmFQsIcTvtg7IqXIq3gsSAacRuaoIUdAUs8TxpJ9FukJPSv20bfpHt0Tgej+1V4Hpw
+	sib9Jg+j3NABs6FCv05clBabGmPRf88/2YXbke0hRDxhci5t21OnGiES8YEIULcoynGmzaJTROCYX
+	JXijbS5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphuB-00000004AUQ-0J5z;
-	Sat, 23 Aug 2025 06:39:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uphuG-00000004Aa7-0aYC;
+	Sat, 23 Aug 2025 06:39:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upU2P-000000036jk-0dmF;
-	Fri, 22 Aug 2025 15:50:46 +0000
+	id 1upU4a-0000000377t-08pm;
+	Fri, 22 Aug 2025 15:53:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 686615C70B4;
-	Fri, 22 Aug 2025 15:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BF9C4CEED;
-	Fri, 22 Aug 2025 15:50:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 02EC6A58AFA;
+	Fri, 22 Aug 2025 15:52:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8FAC4CEED;
+	Fri, 22 Aug 2025 15:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755877844;
-	bh=PRjr1oyN1prDBOKUZ34iupM5Ee2Kn6LvfPBZpedTizo=;
+	s=k20201202; t=1755877978;
+	bh=GZcqAUhind1yPvp4zhhO0FBJJvpJTi5iPD/E6Y6N6GE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NLkvEcDi7va6d8wofQYB7lrrIzy/EqQpNAQJUXQsL0j3e4syTR+r96SoHaJ3jAtJR
-	 7ZckKnr3dczWN36y3PWZAxXyGK69AGZvU7vIBerBELyyjgoLDbNNAcCkA8nodPxDjG
-	 o1EdFfnjI81c9N6hD5URN/3efElktMnJn31DHEJ4tSXKO/4iuxY9Zquzh9Lsue3hJv
-	 Q28Oexi2b1PJzAUXESiyT7HeH2V0N8GEeoQZVSqffF15OnUhUTMiLeyN1JcqQQOYJK
-	 1CcJOJM3mQhb74Hc88k0wxqQw9O3jxOtLRx8iGcXvDWmSZ17ssaR/zBJ0ECkedrAtH
-	 kWisP7d7d+0oQ==
-Date: Fri, 22 Aug 2025 10:50:42 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=tBUykIQBRStiihtAnJe0AVIVB3jiv164suytchNLOiHzXp4/+sT3VdYIWELtCxQ/S
+	 k+XB53PnA2SVEHhRTUS7U4pZc/6+NTJUkZY7CKASmPvQ9QpYCcufIcSzgpR7NWVkSi
+	 jp9XGx5f+pZpXKidRSPAs6K+jdBokudQq0L+JSHKIQsakl6rBCtx53/+fKmRYU7AE5
+	 FMyFc2btLCA2xVryygJW3jkoBWIeiRMncRcBrhZrVRERgO/U1xU0HV1QVl4Lxov6FV
+	 dzjxYmwhLLY/zdK180LgDdUc1uFpRhZ4yyM60sjdxOlRcDnYbBAtClKHQaXm10ebIj
+	 AcsRl3MiOJs+A==
+Date: Fri, 22 Aug 2025 10:52:57 -0500
+From: Rob Herring <robh@kernel.org>
 To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, mripard@kernel.org, mchehab@kernel.org,
-	airlied@gmail.com, amergnat@baylibre.com,
-	linux-sound@vger.kernel.org, p.zabel@pengutronix.de,
-	linux-gpio@vger.kernel.org, matthias.bgg@gmail.com,
-	kyrie.wu@mediatek.corp-partner.google.com,
-	linux-input@vger.kernel.org, kuba@kernel.org, conor+dt@kernel.org,
-	linux-mediatek@lists.infradead.org, yunfei.dong@mediatek.com,
-	kernel@collabora.com, lgirdwood@gmail.com,
-	minghsiu.tsai@mediatek.com, edumazet@google.com,
-	jmassot@collabora.com, simona@ffwll.ch,
-	louisalexis.eyraud@collabora.com, support.opensource@diasemi.com,
-	chunkuang.hu@kernel.org, andrew-ct.chen@mediatek.com,
-	dmitry.torokhov@gmail.com, andrew+netdev@lunn.ch,
-	tzimmermann@suse.de, maarten.lankhorst@linux.intel.com,
-	jeesw@melfas.com, broonie@kernel.org, davem@davemloft.net,
-	houlong.wei@mediatek.com, flora.fu@mediatek.com, pabeni@redhat.com,
-	linux-clk@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
+	andrew-ct.chen@mediatek.com,
+	angelogioacchino.delregno@collabora.com, broonie@kernel.org,
+	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org,
+	davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
+	flora.fu@mediatek.com, houlong.wei@mediatek.com, jeesw@melfas.com,
+	jmassot@collabora.com, kernel@collabora.com, krzk+dt@kernel.org,
+	kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com,
+	lgirdwood@gmail.com, linus.walleij@linaro.org,
+	louisalexis.eyraud@collabora.com, maarten.lankhorst@linux.intel.com,
+	matthias.bgg@gmail.com, mchehab@kernel.org,
+	minghsiu.tsai@mediatek.com, mripard@kernel.org,
+	p.zabel@pengutronix.de, pabeni@redhat.com, sean.wang@kernel.org,
+	simona@ffwll.ch, support.opensource@diasemi.com,
+	tiffany.lin@mediatek.com, tzimmermann@suse.de,
+	yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
-	angelogioacchino.delregno@collabora.com, sean.wang@kernel.org,
-	tiffany.lin@mediatek.com, ck.hu@mediatek.com, krzk+dt@kernel.org,
-	linus.walleij@linaro.org
-Subject: Re: [PATCH v1 12/14] dt-bindings: soc: mediatek: pwrap: Add
- power-domains property
-Message-ID: <175587784167.3865517.1055280782148729337.robh@kernel.org>
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH v1 13/14] dt-bindings: input/touchscreen: Convert MELFAS
+ MIP4 Touchscreen to YAML
+Message-ID: <20250822155257.GA3865729-robh@kernel.org>
 References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-13-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-14-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250820171302.324142-13-ariel.dalessandro@collabora.com>
+In-Reply-To: <20250820171302.324142-14-ariel.dalessandro@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_085045_229062_D41395FD 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_085300_204574_D47C7E06 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,18 +92,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 20 Aug 2025 14:13:00 -0300, Ariel D'Alessandro wrote:
-> Currently, the DT bindings for Mediatek PMIC Wrapper is missing the
-> power-domains property, which is used in the MT8173 E1 evaluation board
-> as it needs USB power domain.
+On Wed, Aug 20, 2025 at 02:13:01PM -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for MELFAS MIP4 Touchscreen
+> controller to a YAML schema.
 > 
 > Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 > ---
->  .../bindings/soc/mediatek/mediatek,pwrap.yaml     | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
+>  .../input/touchscreen/melfas,mip4_ts.yaml     | 55 +++++++++++++++++++
+>  .../input/touchscreen/melfas_mip4.txt         | 20 -------
+>  2 files changed, 55 insertions(+), 20 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/input/touchscreen/melfas_mip4.txt
 > 
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml b/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+> new file mode 100644
+> index 0000000000000..170fd4212467e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/melfas,mip4_ts.yaml
+> @@ -0,0 +1,55 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/input/touchscreen/melfas,mip4_ts.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MELFAS MIP4 Touchscreen
+> +
+> +maintainers:
+> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: "melfas,mip4_ts"
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Drop quotes. With that,
 
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
