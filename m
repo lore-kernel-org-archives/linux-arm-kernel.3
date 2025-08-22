@@ -4,91 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC57CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD4DCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=; b=mn5fYU1oxyy0K5tzbJYDrXI+9v
-	W5aSbtyNVgUvaBf2phWXjNMLXi4mO0HRpqawmwyIo+RuQn5QXUvv40GZ5UtAPhZfIcB0WiS/w/+Lr
-	+WwoNhqqUCXUb/Ks7snK+o+xyJOjZ2KXRJ2OkLR/hpd1QsxbP6EEZatLhQtGfzN44RAMwB9oER3cJ
-	Rw6+4MSgDrluMgMzH99if3MlGxYxxMGRd1IZT5JcfISuPiXi+ZBd6baatQEjFqnCfRJE5B1wVfipr
-	t86UzyGiLwGrfjlEA2c5hse4wkVrGXAPL13kVi6z87KLr7c91AmUpLonSUQLTr2NDKEWhz/w/xj4m
-	aS7yxzPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=; b=eMHrVAHJw7vQxAfAhew7ux34ff
+	lyhj6K4lDJQypl/tomEq7K929Efm5ifVsbM2LfMtF/Z9Bu1nsF8dY5dj6XgncIwQ7abab1rMYieL0
+	R2PzI8qF1Xh2R96F6qbZp0H+xB01Fw6Evb4fCG4oGdf7HLdWl+NgItFha2XvdH8RQX8jSItszSmcm
+	aWU8JqA+twi+Vyk1cr1wCEtWPSN+SeW3GXFisKGQlIUFkKMoyqUmT9WF1klDYRI0UjzqmlrIqQ0RE
+	L5Lote03oAmcfhn/8AwfPtXxlNOQgRFOVznIadSahLeXiKPvJArVgYV8tCpDIKwlPI+JwEqfZoMCv
+	YcZkvgYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSat-00000002kMu-2jQA;
-	Fri, 22 Aug 2025 14:18:15 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1upSaZ-00000002jvA-275W;
+	Fri, 22 Aug 2025 14:17:55 +0000
+Received: from mail-bn1nam02on2086.outbound.protection.outlook.com ([40.107.212.86] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKuj-00000001eZT-26s1
+	id 1upJqi-00000001XnJ-2L2m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 06:06:14 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-76e4fc419a9so1703156b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 23:06:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755842772; x=1756447572; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=;
-        b=k7BGRKat6whcwf9LcCL2aqlZIcIgwCW2jVeWBxnhFIcyVHZDFFtCCbOt6tYijYE9i/
-         EOVlnhslqxdMXc8kKBIzFXnJycdfgqeNOAOP5mEhUrrLVJWoCBDf50hbvJ2DLFcVjH6u
-         5dSe0NsKmW4C8YjjsZcGbT0MDhqM45nBYHf5OcN3tkDoqkkNOmPSOQfNZKoZF0YznBuX
-         c8zTq3KC0/zRPX7P4dO+s9xBRU0H815BMP41+mvdPm8c2zGozpOJd8qaLwsT2f69vPg9
-         h8bYNNR+fimggSrtoh8JFjWNa9EhZ1vYiH098ujA2U1D/P7Bemj26v71+lhLhcAOoxd5
-         OZMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755842772; x=1756447572;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=;
-        b=qkXBs2DD6qY/uotHl4fSjmd4TCcsawlwtwTOmb6uYPW6sDuK9iNdAir6/iBuhBwlqQ
-         hMEHh3ckXDvymhCYQaRtguVpo2rxAWnozwAqPlq4CJ+3vgSOA7uThk4KM9tX29TZDDyO
-         GTFp8An9UIFg9CfjJtSmAzibmMrJyBZvE9FWr/k0p6eYHP2ZEwuLzKIIg2x5Vyf4Jm5J
-         C/MXrO5VJL25AtSlfYVib+HJF2QPXTzj7qrtuxQVVzmMuOrFVPqfZmsfXwzkUexi8vs1
-         GotqqKDwmMY4iGI8RrjqasEuJx/sfNd9BK3jVckbQ0KqkNGRQeBLUS7UbW6JpfpaSf/M
-         IgRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUO7ukcAuo+PCctgXYdd80JPm0NgeyG8ooroc15P3Qf8j6bFaGw/GKsy1wnnH8ENQshDoze2YYjdXhhsVv/wXlK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgSA+HREWgNEiGEg5V2xdunV46j9uZ2oVZPk49+GPYMCGJkRa0
-	ARulgVlk0VdtvA4Y7nQ4dTtWm7Rsi4gVpNyC6QbewJfBAaV8mSQLzi2ICRAzHhZYuTo=
-X-Gm-Gg: ASbGncuYeh9IzBi25mX6y5aoYsHskUOU+kvcY26rlpD9DWk01QfFO0O33dHvNwGWtaI
-	5XSxmY17I8YoZN5jQghrDpiBtxoDThfdHO28nciU4mi1+wlTNSRitcGbKXICUtaPchcC8X9X8ji
-	fhSGCgF1H42+kyOqS5dbPVsUEvn9vY5mHQuzY8odgS9cRSs4V39oHGnUycBP+WtFF5TRObEWCpc
-	32r9PnXBEXqWgkWV7FuLyXq6D7a9VpWB7ONyrorPjvODSUwxl1ADf+I1gutEeJY1aXJyA5CQFC7
-	2QcThm4wpdAhC2kBeXHgUPQzAWPDq1eYaAuOHajjYuyDXL8xfgwOaZQSUKTzAX5lNZmqfS1doKA
-	AlAcfvp6fEAndpvVM6SYm5UHg
-X-Google-Smtp-Source: AGHT+IGryQhx7NkdJSDc5m5rZZNOBqLyR8DTgK4iIdr8kRPK/dFFCXNh+UbON3GVXLnVhVtonBLu0g==
-X-Received: by 2002:a05:6a20:3ca6:b0:243:78a:829d with SMTP id adf61e73a8af0-24340e4640dmr2844133637.54.1755842772379;
-        Thu, 21 Aug 2025 23:06:12 -0700 (PDT)
-Received: from localhost ([122.172.87.165])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-325154999f1sm1475868a91.25.2025.08.21.23.06.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 23:06:11 -0700 (PDT)
-Date: Fri, 22 Aug 2025 11:36:09 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Judith Mendez <jm@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Bryan Brattlof <bb@ti.com>, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH 0/3] OPP: Support more speed grades and silicon revisions
-Message-ID: <20250822060609.djvsm5nmryit5ypl@vireshk-i7>
-References: <20250818192632.2982223-1-jm@ti.com>
+	Fri, 22 Aug 2025 04:58:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PgboJkImWtKDyDc4gdORfeLcjA4jiaN+43DVqZTcK3I4xXiOTyRdhMf4G1xVLYngEavrqp9mPIXB5qUwabpbKmeqA5v/4pzFbUTmgEXd6j8ZiDqEFnAEfS52bs0IEQeAcyvETH5hdEYKu78U67wJy1iq9vScVEfZuLC91WdEBTjRL56Te28rRmpOOFARPTwLAvarNsET9P4R47jkKcgoNXNVj4aDk02jlGiPhuchclF40KyvRB2qQmxCrn/fTa8Mi2pDxO3xTTXtQNCib15lTP8aZn3xILhVIhcu8PIg3eMKf7Cgr5yYZMjmvEyQnUZKG1dtTf7EZpM0HY1eQlkwmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=;
+ b=wqTAbREKEYUBg0NkDT6a/CzK3M+l6o7jYSeUE31l+SEjS13sj2SiuLIR+TkptqxUL40P68LTAMWoIbOchKuHlmNNA9rnM0fz8/Bp4kJiLqx3NZa+PJ336Ig6CaCzlVT5YY9xkQpVCXfeXX+vRs/Kul5ao5SK7X/YBrMyBqgXZovSb4csWhX3Mw+zRTwIgvZGfqfH/Db3JM03EzN6Jnq8+8TbV4Odce9yKn73DFaQaSFgRgPjMZCIm4ALS99gBlme8m0IwjqD9OXuUBUzwv2jT/9GQNTCKZN7KzkaxuNDxwezydQbpKSLNeV0bFzsaixMMzPOB1LyAdFxEba0vseWcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=;
+ b=W6/JVrUpgM9H3JP0wuElI8sFuxikaLwjl0t1CYJjMhL82OadgC1+pbe3bdRW+GrgnXEjDhy1PsPumjETgeK+xyZArjh6bxGTkDQD+XHfiEWGa6/EuF9YQgM8tOtoegTvNp5LPSzo/zY8QC4Hvz2SOTJu02puuWSZsWoFaHriFmY=
+Received: from BY3PR03CA0022.namprd03.prod.outlook.com (2603:10b6:a03:39a::27)
+ by IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
+ 2025 04:57:42 +0000
+Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
+ (2603:10b6:a03:39a:cafe::c9) by BY3PR03CA0022.outlook.office365.com
+ (2603:10b6:a03:39a::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.16 via Frontend Transport; Fri,
+ 22 Aug 2025 04:57:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
+Received: from SATLEXMB03.amd.com (165.204.84.17) by
+ SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 04:57:41 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
+ 2025 23:57:37 -0500
+Received: from xhdharinit40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
+ Transport; Thu, 21 Aug 2025 23:57:36 -0500
+From: Harini T <harini.t@amd.com>
+To: <jassisinghbrar@gmail.com>, <michal.simek@amd.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<git@amd.com>, Harini T <harini.t@amd.com>
+Subject: [PATCH 0/3] mailbox: zynqmp-ipi: Improve resource cleanup on driver unbind
+Date: Fri, 22 Aug 2025 10:27:29 +0530
+Message-ID: <20250822045732.1068103-1-harini.t@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818192632.2982223-1-jm@ti.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB03.amd.com: harini.t@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|IA0PR12MB8301:EE_
+X-MS-Office365-Filtering-Correlation-Id: 294dc233-44f4-4204-c25c-08dde1386cb7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8rkK4Nb3W15qjHf/wnr5VTrI8YYt5uu0SrEKSD/UcSpXqk1DAp1lBZE9+DWL?=
+ =?us-ascii?Q?c+ViHOSZlmqq1sDP8L90Oco/OXkQtwMr0Z5rxryVReldtdcLAJI7igytjqdi?=
+ =?us-ascii?Q?neb2CblGbu4YjfEVk5snE/Ep+l1GyOUTz22ATimzEFCIKoEhRpQI02Eaw0Q1?=
+ =?us-ascii?Q?ivJc+emtUXAZEtg84Qd2KTNuOIAwAFniRsPlwe2HJNkH+o/yhqUlFI8A52in?=
+ =?us-ascii?Q?R41BnqDjKrXPsyHr0yV+2DjwYOTaK/ZoUTqkoqzObjmXsKKErj2U5p0wvVt+?=
+ =?us-ascii?Q?/TYEB89hkOGIkzUPz1b6J6dzhP2TsCbi0TIQhiFQF177KWn+89EalHULVZDU?=
+ =?us-ascii?Q?94y/fawrHn15zEoBmo9FcyDB1pRZ7oJvI2sw8NjJ2DTEJPevR1bgtZZ/uw+L?=
+ =?us-ascii?Q?DMYi9VcMDlyY/JgL/eHPbn/YsGe8zDeK2tr3fP0NsCR6NLySATNzLIC6DbgZ?=
+ =?us-ascii?Q?DjI2Y8relJIY+zsu5lJ7neMLwa4Qp5l12+XCRVZ+rc17SjayxGeXCEmtY7WW?=
+ =?us-ascii?Q?GBerv32zm4sienwgIBVEAe8HIggngaL9mE0SPp308+qFGjbOMLPBF++VNzKD?=
+ =?us-ascii?Q?XPh8gujuNM0Ua7NwFvF1X8ybER/p2tObJL/rf+sTKg2Nu14ViF4fKdbfUGqO?=
+ =?us-ascii?Q?6PY06bbEM1zrxKkjIfZkcBMfR2DLX03fxyOZgJjLFP0zkx6xnDoHLcc7DokY?=
+ =?us-ascii?Q?6v7zTg4Z7kIEBTQ/HQS/p2ujRNDXtElg23ElcQjexwKUxmzYHMWISrBlu+dk?=
+ =?us-ascii?Q?ABRoGiXXMsBVx7XRpVzcISQowOjOlOlDu0LpQlAe7HKBY74T2j8QXnyCrTjD?=
+ =?us-ascii?Q?icuqXykDGPSVS/GyugxMqflCC5Z8G+z6ljHM+aAssdEbwL82My+O1wQmmPpo?=
+ =?us-ascii?Q?wBBATc/vX2TE9E+oLirGLvZNk0rbWqEftPLrqyVdRIydMUY2rWE+3OJDNMxS?=
+ =?us-ascii?Q?QJ6pcCHlYpwfy63+mxkoRylpon+1uR5k0+vVssr8ZYyTILELA1F7q4+WjMvZ?=
+ =?us-ascii?Q?5EATTJe9+/pIHdEaHul/nJVgEVP84EysG4cRSuOhl7i5d4+s3Lwhq/r4dZhK?=
+ =?us-ascii?Q?f13mD1orYVksL3cmslu0/UXzGYTd8cyRwlzEzqf8nMon+LfDRc6GJg7GVKXB?=
+ =?us-ascii?Q?TxVuCiGrSp+zz34DRRSplXOQgXv6VOcbyYLOllN0VTYRuputwe1NwjiKQrSP?=
+ =?us-ascii?Q?Q0jIVQDq9ip5AvUOanD83KOI9l9IUNURINPonmXUwQibvZRLCfLcYER/opWB?=
+ =?us-ascii?Q?GGX4ZfSeAu+YFw8A8JGzuN+tYOikIBNUcvFUrXoJyjcvSb4C77QwZU0VFToT?=
+ =?us-ascii?Q?Opb1ONJwUuw3LDGwuFNHaQyBmLAn0jLv4kfNPITWOKUw5ClLgWarxnMgmeFV?=
+ =?us-ascii?Q?eCv+BoeAPip2kKnSqNudqNMkguc5B+nqiCzMrnLx8XW+bTQLc1n4ms68wUvI?=
+ =?us-ascii?Q?dYhzeqpEEEabb/Ec6wMUohhFh3moKwHuiHm1wyawiuTpgbLksd4X9ibv10XW?=
+ =?us-ascii?Q?WUQN6AEeCyOviyQGsqQtUwP19obgDhl3Dz+7?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 04:57:41.3523
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 294dc233-44f4-4204-c25c-08dde1386cb7
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8301
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_230613_546777_CD884389 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250821_215800_589947_786681EC 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,26 +144,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18-08-25, 14:26, Judith Mendez wrote:
-> As the AM62x, AM62ax, and AM62px SoC families mature, more speed
-> grades are established and more silicon revisions are released. This
-> patch series adds support for more speed grades on AM62Px SoCs in
-> ti-cpufreq. Also allow all silicon revisions across AM62x, AM62Px,
-> and AM62Ax SoCs to use the already established OPPs and instead determine
-> approprate OPP application with speed grade efuse parsing.
-> 
-> Also fix 1GHz OPP which according to device datasheet [0], also supports
-> speed grade "O".
-> 
-> [0] https://www.ti.com/lit/gpn/am62p
-> 
-> Judith Mendez (3):
->   cpufreq: ti: Support more speed grades on AM62Px SoC
->   cpufreq: ti: Allow all silicon revisions to support OPPs
->   arm64: dts: ti: k3-am62p: Fix supported hardware for 1GHz OPP
+1. Remove redundant mbox_controller_unregister() call, as
+device_unregister() already handles controller cleanup.
+2. Fix the mailbox cleanup loop to prevent out-of-bounds array access by
+starting at num_mboxes-1.
+3. Fix SGI resource cleanup by using an explicit irq_type field for
+reliable SGI detection, replacing the unreliable IRQ number check.
 
-Applied. Thanks.
+
+Harini T (3):
+  mailbox: zynqmp-ipi: Remove redundant mbox_controller_unregister()
+    call
+  mailbox: zynqmp-ipi: Fix out-of-bounds access in mailbox cleanup loop
+  mailbox: zynqmp-ipi: Fix SGI cleanup on unbind
+
+ drivers/mailbox/zynqmp-ipi-mailbox.c | 24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
 
 -- 
-viresh
+2.43.0
+
 
