@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B653CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089D7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HSw7u892uK9pOwYfNWTezRSyhoIRXLbpe9Q0DR9kRpo=; b=x0q9uS6166KfrtZeVOToyZW1ms
-	Ot6SFd6DelkE3SvCFw/atPdbUcZ0ojXPCeV2tHnLqTQTjuXE+We9ZJxyKjXY9zx+hJNBFc5GEpxBi
-	XEd+4tIHn/l2oVWWW3svDWBGlswkjt6c3gvzt+hJBFA8K+wsLemOe0Aq89ny9cZ5rzKM3HNIvP7pK
-	r9bN7rzWfANoqB10akVGXvT/n5MrzRWO34CALsPPykYqQfKcWlfwPjBrxje1OUzjInjLfgjOUbXtN
-	/UBGHnU4hRrUnHM5RB+HL7KuPpvLZvtVLv7QosHLsuoFUTics4brsvM4VI+CU9JQgDFLY65yPYB5y
-	THCTvwMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lET1kWbDLqrIbol+G/CIjHWw2OZjsq9g7OfEHWdvLhI=; b=QstaEYb9XIjLHmrw04akppZK5F
+	Ii9YA3UWK3Mz4/GYqeyocI8eLvoBCNhoI1x36E+DAMG+/a+zgD+EbSHar1KSCKOIdxF491fvvIvzk
+	ZdQXcV9HLefPCfLp4ESxG6iCqysnFpaYD8KCFEjxvkdNOQEPt3Kb5umADJoorpP38ZXqxUenauWxM
+	2Lv5AJ2x/t+GvXYZ23xChsL/vA6YxWegyK2QR7TAkWzzPE45Q62HtVJXfl6RXY4bJDrkxoxF19dbm
+	vezZfyCGcXJftuPn4WobQTN1GNAN0YFkeyvnWBH9iCOqBhAPvybMPS7s/MZwWBjGJ5eVeQWadnm1V
+	DgRWd28g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphjx-00000003wDm-2K7X;
-	Sat, 23 Aug 2025 06:28:37 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uphk0-00000003wHf-0X5Y;
+	Sat, 23 Aug 2025 06:28:40 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQWJ-00000002Q5P-2MVh;
-	Fri, 22 Aug 2025 12:05:24 +0000
-X-UUID: 43df01ba7f5011f09f706fa2197c6ceb-20250822
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=HSw7u892uK9pOwYfNWTezRSyhoIRXLbpe9Q0DR9kRpo=;
-	b=I0Sn6igwBT/XXd4G3ztU+ZPM5rkzoDYgyzMfL0PNgjnJPpQ6bO6VhqsE/x0KaLWOjKt8kyrCAG7RdCfsAJ0Hx0r5w4ZchniWkNq0lyrf1vwpRvkGCSmM7uMFPtrG6xLluRoMSCTUR00y75HImANIaDNMMz3CxEfxazvJd1WpePQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:fd441383-7bc3-4ef8-92d9-8093ec12e65c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:0728826d-c2f4-47a6-876f-59a53e9ecc6e,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
-	nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 43df01ba7f5011f09f706fa2197c6ceb-20250822
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <liankun.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 141997010; Fri, 22 Aug 2025 05:05:16 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 22 Aug 2025 20:05:12 +0800
-Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 22 Aug 2025 20:05:11 +0800
-From: Liankun Yang <liankun.yang@mediatek.com>
-To: <chunkuang.hu@kernel.org>, <p.zabel@pengutronix.de>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <mac.shen@mediatek.com>,
-	<peng.liu@mediatek.com>, <liankun.yang@mediatek.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 1/1] drm/mediatek: Adjust bandwidth limit for DP
-Date: Fri, 22 Aug 2025 20:04:54 +0800
-Message-ID: <20250822120506.15486-1-liankun.yang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1upQZq-00000002QoL-2cUF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 12:09:06 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250822120856epoutp03b8038151e30a48a693e2720407512748~eFX4XpY992049320493epoutp03P
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 12:08:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250822120856epoutp03b8038151e30a48a693e2720407512748~eFX4XpY992049320493epoutp03P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755864536;
+	bh=lET1kWbDLqrIbol+G/CIjHWw2OZjsq9g7OfEHWdvLhI=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=WolNusklP2tPVeQsUUFTpoi76gsovm194InhNOSHq7mcJKNAWfjDLXOI/ZsAGcYVx
+	 FMiMVYEDvjWIBDc3I9lvLlQ6817/HP1S6GCI6+jAncykr9Tp110dKjjfk5pGP/k7dk
+	 G22xA6VX6fFjKHMwEuh0mG4d5NRCJcB2N1L+nvMA=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250822120855epcas5p396d2099360b9ba11aa5a33fc9502af6a~eFX3h5JrT2585025850epcas5p3L;
+	Fri, 22 Aug 2025 12:08:55 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4c7f9f16r4z2SSKb; Fri, 22 Aug
+	2025 12:08:54 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250822120853epcas5p15497652f90d08bf64646bac341be80e8~eFX1qy8Mg2210422104epcas5p1D;
+	Fri, 22 Aug 2025 12:08:53 +0000 (GMT)
+Received: from FDSFTE411 (unknown [107.122.81.184]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250822120848epsmtip184aef53aafea6c576ae0dbebc5b6f376~eFXxPWsKW0871608716epsmtip1j;
+	Fri, 22 Aug 2025 12:08:48 +0000 (GMT)
+From: "Ravi Patel" <ravi.patel@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <jesper.nilsson@axis.com>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s.nawrocki@samsung.com>,
+	<cw00.choi@samsung.com>, <alim.akhtar@samsung.com>,
+	<linus.walleij@linaro.org>, <tomasz.figa@gmail.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <arnd@arndb.de>
+Cc: <ksk4725@coasia.com>, <kenkim@coasia.com>, <pjsin865@coasia.com>,
+	<gwk1013@coasia.com>, <hgkim05@coasia.com>, <mingyoungbo@coasia.com>,
+	<smn1196@coasia.com>, <pankaj.dubey@samsung.com>, <shradha.t@samsung.com>,
+	<inbaraj.e@samsung.com>, <swathi.ks@samsung.com>,
+	<hrishikesh.d@samsung.com>, <dj76.yang@samsung.com>,
+	<hypmean.kim@samsung.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-arm-kernel@axis.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<soc@lists.linux.dev>
+In-Reply-To: <ceb20624-7405-40c5-9c29-1a7339e0cca4@kernel.org>
+Subject: RE: [PATCH v2 02/10] clk: samsung: Add clock PLL support for
+ ARTPEC-8 SoC
+Date: Fri, 22 Aug 2025 17:38:47 +0530
+Message-ID: <000301dc135d$86ed30d0$94c79270$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGJY/8wx4BImu0YLFPVfwpfqUmFNgKGrjAaAcRz3scCHvrcAQFBK/RJtNaTkzA=
+Content-Language: en-in
+X-CMS-MailID: 20250822120853epcas5p15497652f90d08bf64646bac341be80e8
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250821124024epcas5p349dda3c9e0523cc07acf2889476beeb1
+References: <20250710002047.1573841-1-ksk4725@coasia.com>
+	<20250821123310.94089-1-ravi.patel@samsung.com>
+	<CGME20250821124024epcas5p349dda3c9e0523cc07acf2889476beeb1@epcas5p3.samsung.com>
+	<20250821123310.94089-3-ravi.patel@samsung.com>
+	<ceb20624-7405-40c5-9c29-1a7339e0cca4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_050523_619156_D626D634 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20250822_050904_926919_99A32837 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,157 +109,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By adjusting the order of link training and relocating it to HPD,
-link training can identify the usability of each lane in the current link.
 
-It also supports handling signal instability and weakness due to
-environmental issues, enabling the acquisition of a stable bandwidth
-for the current link. Subsequently, DP work can proceed based on
-the actual maximum bandwidth.
 
-It should training in the hpd event thread.
-Check the mode with lane count and link rate of training.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk@kernel.org>
+> Sent: 22 August 2025 12:02
+> To: Ravi Patel <ravi.patel@samsung.com>; jesper.nilsson@axis.com; mturquette@baylibre.com; sboyd@kernel.org;
+> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; s.nawrocki@samsung.com; cw00.choi@samsung.com;
+> alim.akhtar@samsung.com; linus.walleij@linaro.org; tomasz.figa@gmail.com; catalin.marinas@arm.com; will@kernel.org;
+> arnd@arndb.de
+> Cc: ksk4725@coasia.com; kenkim@coasia.com; pjsin865@coasia.com; gwk1013@coasia.com; hgkim05@coasia.com;
+> mingyoungbo@coasia.com; smn1196@coasia.com; pankaj.dubey@samsung.com; shradha.t@samsung.com;
+> inbaraj.e@samsung.com; swathi.ks@samsung.com; hrishikesh.d@samsung.com; dj76.yang@samsung.com;
+> hypmean.kim@samsung.com; linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
+> soc@vger.kernel.org; linux-arm-kernel@axis.com; linux-clk@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> gpio@vger.kernel.org; soc@lists.linux.dev
+> Subject: Re: [PATCH v2 02/10] clk: samsung: Add clock PLL support for ARTPEC-8 SoC
+> 
+> On 21/08/2025 14:32, Ravi Patel wrote:
+> > +
+> > +static const struct clk_ops samsung_pll1031x_clk_ops = {
+> > +	.recalc_rate = samsung_pll1031x_recalc_rate,
+> > +	.round_rate = samsung_pll_round_rate,
+> 
+> 
+> This will conflict with round_rate drop, so might need rebasing. Please
+> follow up discussion or decisions in the round rate patchset.
 
-If we're eDP and capabilities were already parsed we can skip
-reading again because eDP panels aren't hotpluggable hence the
-caps and training information won't ever change in a boot life
+Thanks for review. Yes, I can see conflicts with below patch 
+https://lore.kernel.org/linux-samsung-soc/20250811-clk-for-stephen-round-rate-v1-99-b3bf97b038dc@redhat.com/
 
-Therefore, bridge typec judgment is required for edp training in
-atomic_enable function.
+Since merging strategy of round_rate patches are not clear as of now, will wait for couple of days before posting v3.
+Request to review other patches also.
 
-Signed-off-by: Liankun Yang <liankun.yang@mediatek.com>
----
-Change in V6:
-- Fixed power on in atomic enable.
-- Fixed parse capability for edp.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20250630080824.7107-1-liankun.yang@mediatek.com/
+Thanks,
+Ravi
 
-Change in V5:
-- Fixed the issue that the 4th version of the patch caused DP to have no screen.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20250625095446.31726-1-liankun.yang@mediatek.com/
-
-Change in V4:
-- Tested the internal eDP display on MT8195 Tomato and it is fine.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20250318140236.13650-2-liankun.yang@mediatek.com/
-
-Change in V3:
-- Remove 'mtk_dp->enabled = false" in atomic disable.
-- Remove 'mtk_dp->enabled = true" in atomic enable.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20241025083036.8829-4-liankun.yang@mediatek.com/
-
-Change in V2:
-- Adjust DP training timing.
-- Adjust parse capabilities timing.
-- Add power on/off for connect/disconnect.
-Per suggestion from the previous thread:
-https://patchwork.kernel.org/project/linux-mediatek/patch/20240315015233.2023-1-liankun.yang@mediatek.com/
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 41 ++++++++++++++++++++++++-------
- 1 file changed, 32 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index bef6eeb30d3e..384496e49118 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1976,6 +1976,7 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
- 	struct mtk_dp *mtk_dp = dev;
- 	unsigned long flags;
- 	u32 status;
-+	int ret;
- 
- 	if (mtk_dp->need_debounce && mtk_dp->train_info.cable_plugged_in)
- 		msleep(100);
-@@ -1994,9 +1995,28 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
- 			memset(&mtk_dp->info.audio_cur_cfg, 0,
- 			       sizeof(mtk_dp->info.audio_cur_cfg));
- 
-+			mtk_dp->enabled = false;
-+			/* power off aux */
-+			mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
-+					   DP_PWR_STATE_BANDGAP_TPLL,
-+					   DP_PWR_STATE_MASK);
-+
- 			mtk_dp->need_debounce = false;
- 			mod_timer(&mtk_dp->debounce_timer,
- 				  jiffies + msecs_to_jiffies(100) - 1);
-+		} else {
-+			mtk_dp_aux_panel_poweron(mtk_dp, true);
-+
-+			ret = mtk_dp_parse_capabilities(mtk_dp);
-+			if (ret)
-+				drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
-+
-+			/* Training */
-+			ret = mtk_dp_training(mtk_dp);
-+			if (ret)
-+				drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
-+
-+			mtk_dp->enabled = true;
- 		}
- 	}
- 
-@@ -2167,7 +2187,8 @@ static const struct drm_edid *mtk_dp_edid_read(struct drm_bridge *bridge,
- 	 * Parse capability here to let atomic_get_input_bus_fmts and
- 	 * mode_valid use the capability to calculate sink bitrates.
- 	 */
--	if (mtk_dp_parse_capabilities(mtk_dp)) {
-+	if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP &&
-+	    mtk_dp_parse_capabilities(mtk_dp)) {
- 		drm_err(mtk_dp->drm_dev, "Can't parse capabilities\n");
- 		drm_edid_free(drm_edid);
- 		drm_edid = NULL;
-@@ -2355,6 +2376,7 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 					struct drm_atomic_state *state)
- {
- 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
-+	bool enabled = mtk_dp->enabled;
- 	int ret;
- 
- 	mtk_dp->conn = drm_atomic_get_new_connector_for_encoder(state,
-@@ -2365,13 +2387,16 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
- 	}
- 
--	mtk_dp_aux_panel_poweron(mtk_dp, true);
-+	if (!enabled)
-+		mtk_dp_aux_panel_poweron(mtk_dp, true);
- 
--	/* Training */
--	ret = mtk_dp_training(mtk_dp);
--	if (ret) {
--		drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
--		goto power_off_aux;
-+	if (mtk_dp->data->bridge_type == DRM_MODE_CONNECTOR_eDP) {
-+		/* Training */
-+		ret = mtk_dp_training(mtk_dp);
-+		if (ret) {
-+			drm_err(mtk_dp->drm_dev, "Training failed, %d\n", ret);
-+			goto power_off_aux;
-+		}
- 	}
- 
- 	ret = mtk_dp_video_config(mtk_dp);
-@@ -2391,7 +2416,6 @@ static void mtk_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		       sizeof(mtk_dp->info.audio_cur_cfg));
- 	}
- 
--	mtk_dp->enabled = true;
- 	mtk_dp_update_plugged_status(mtk_dp);
- 
- 	return;
-@@ -2406,7 +2430,6 @@ static void mtk_dp_bridge_atomic_disable(struct drm_bridge *bridge,
- {
- 	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
- 
--	mtk_dp->enabled = false;
- 	mtk_dp_update_plugged_status(mtk_dp);
- 	mtk_dp_video_enable(mtk_dp, false);
- 	mtk_dp_audio_mute(mtk_dp, true);
--- 
-2.45.2
+> 
+> Best regards,
+> Krzysztof
 
 
