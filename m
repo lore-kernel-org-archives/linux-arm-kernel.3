@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6098CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81128CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cOKB+NAHGAfABDYrskKFmhDq3h2K4aBPnquDjgmo7go=; b=rX3CM9UQdZtacCnyvN71mvAKF5
-	f3TRECPx4Bhvz1GC0I4MRbdECiic9cDxIzmgtuDBL7YiSOpzmPd+KcMuUNvhm/vxwm6Z8ft+paE1l
-	O4husdib5OGwsPormWhM1UGCkZ9HTuK+9j9UXfjc+KvpHiMaf7TyR6946Bdcsg0dyP2rtKVDSMGi8
-	PW60316Zuv0FVWaRQyiW18q7t7BXPwTwNaBDAaT+G/xJoPZAK/1j0zDHEmuL/F5EavrRCVa4y4N9v
-	dZnZXIFS4OLAuOVuajaIac70ALKd5PUvUF/eY6gL63JxTF/e8LQkvjDSJ2rQyqv//t1nA17lLGfE7
-	ivuynIjQ==;
+	bh=un+oR+fP5qbABzOy+weU6zIeK55bE2EYdezd1qwdPAc=; b=3rIUc2ie3kBbcS6JBwQQVoO9lx
+	ZOX94Yh8008FXmuo9NQWNjeS0x2fk/VP/M2ScgTwViaNvaM5S4DdW2pp6JQdxtqPFfXmbvhNMTYut
+	1/QdSYIXYpzwbxtBGrGCrGFykYwVhxL6BZVqtqGAelESlJlYdIOcH2a5zbWsVOHCBv9YsJCv7mygT
+	TEH13RbJGCN7xr/Zttsisaos3tDcSDaO2rWeEJku0b/PPlm+s6FQOKvix3pDnGDaP33YCQqdyTVzJ
+	zyLjt1DsR4/uSu1evpra2X1CzuRgdAtuWc9VsbgbzAGI4YqK52nYwbJdPT0qzmPtq/BXMDPJRuTtR
+	iNinUPKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphsh-000000048ad-1Y5i;
-	Sat, 23 Aug 2025 06:37:39 +0000
+	id 1uphsj-000000048da-2jGU;
+	Sat, 23 Aug 2025 06:37:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTnN-000000033T3-0FjI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 15:35:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=un+oR+fP5qbABzOy+weU6zIeK55bE2EYdezd1qwdPAc=; b=AB0+7bgaMlsj0ziDmOGLDCBUUk
+	fciUIadrVheuOJLCm79qOK1OXYHkq+lnRn1xgNy1cMUXIkUk6iPIZVgkFkTEs+/SYlVs+cGSszVkP
+	PjU4+IQxh2spcmLETnI5J/V8MmFhFt91MOas33uHMBLHFkYre5dcpAG2f2Rts2lHK98QGU78+zWdr
+	nWUKMURyR3sFGomHjzCVCakA55UfC/21koOSitQQlm/p+B4DvNjvINNBQHKJS/tf4NjATrqmV5Ygy
+	VLdh5nQ2pa3vyUg9+QKTgUB/9lHKHaFaAw1SSGip7l/H8as26FylRJmjD93tuxWFlO64ZYCZ/PJNq
+	EvSnjSRQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTnD-000000033Dt-30Sh
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTnJ-00000000yq5-2Ywc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:35:06 +0000
+	Fri, 22 Aug 2025 15:35:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0838E2880;
-	Fri, 22 Aug 2025 08:34:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C30F27B5;
+	Fri, 22 Aug 2025 08:35:00 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF5D93F63F;
-	Fri, 22 Aug 2025 08:34:57 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CDFD3F63F;
+	Fri, 22 Aug 2025 08:35:03 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,17 +87,17 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 08/33] ACPI / MPAM: Parse the MPAM table
-Date: Fri, 22 Aug 2025 15:30:23 +0000
-Message-Id: <20250822153048.2287-43-james.morse@arm.com>
+Subject: [PATCH 09/33] dt-bindings: arm: Add MPAM MSC binding
+Date: Fri, 22 Aug 2025 15:30:24 +0000
+Message-Id: <20250822153048.2287-44-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083503_878431_28225ECC 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20250822_163510_020741_CB73480C 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,469 +112,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add code to parse the arm64 specific MPAM table, looking up the cache
-level from the PPTT and feeding the end result into the MPAM driver.
+From: Rob Herring <robh@kernel.org>
 
-CC: Carl Worth <carl@os.amperecomputing.com>
-Link: https://developer.arm.com/documentation/den0065/3-0bet/?lang=en
+The binding is designed around the assumption that an MSC will be a
+sub-block of something else such as a memory controller, cache controller,
+or IOMMU. However, it's certainly possible a design does not have that
+association or has a mixture of both, so the binding illustrates how we can
+support that with RIS child nodes.
+
+A key part of MPAM is we need to know about all of the MSCs in the system
+before it can be enabled. This drives the need for the genericish
+'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
+until a h/w specific driver potentially enables the h/w.
+
+Cc: James Morse <james.morse@arm.com>
+Signed-off-by: Rob Herring <robh@kernel.org>
 Signed-off-by: James Morse <james.morse@arm.com>
-
 ---
 Changes since RFC:
- * Used DEFINE_RES_IRQ_NAMED() and friends macros.
- * Additional error handling.
- * Check for zero sized MSC.
- * Allow table revisions greater than 1. (no spec for revision 0!)
- * Use cleanup helpers to retrive ACPI tables, which allows some functions
-   to be folded together.
+ * Syntax(?) corrections supplied by Rob.
+ * Culled some context in the example.
 ---
- arch/arm64/Kconfig          |   1 +
- drivers/acpi/arm64/Kconfig  |   3 +
- drivers/acpi/arm64/Makefile |   1 +
- drivers/acpi/arm64/mpam.c   | 331 ++++++++++++++++++++++++++++++++++++
- drivers/acpi/tables.c       |   2 +-
- include/linux/arm_mpam.h    |  46 +++++
- 6 files changed, 383 insertions(+), 1 deletion(-)
- create mode 100644 drivers/acpi/arm64/mpam.c
- create mode 100644 include/linux/arm_mpam.h
+ .../devicetree/bindings/arm/arm,mpam-msc.yaml | 200 ++++++++++++++++++
+ 1 file changed, 200 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 658e47fc0c5a..e51ccf1da102 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
- 
- config ARM64_MPAM
- 	bool "Enable support for MPAM"
-+	select ACPI_MPAM if ACPI
- 	help
- 	  Memory Partitioning and Monitoring is an optional extension
- 	  that allows the CPUs to mark load and store transactions with
-diff --git a/drivers/acpi/arm64/Kconfig b/drivers/acpi/arm64/Kconfig
-index b3ed6212244c..f2fd79f22e7d 100644
---- a/drivers/acpi/arm64/Kconfig
-+++ b/drivers/acpi/arm64/Kconfig
-@@ -21,3 +21,6 @@ config ACPI_AGDI
- 
- config ACPI_APMT
- 	bool
-+
-+config ACPI_MPAM
-+	bool
-diff --git a/drivers/acpi/arm64/Makefile b/drivers/acpi/arm64/Makefile
-index 05ecde9eaabe..9390b57cb564 100644
---- a/drivers/acpi/arm64/Makefile
-+++ b/drivers/acpi/arm64/Makefile
-@@ -4,6 +4,7 @@ obj-$(CONFIG_ACPI_APMT) 	+= apmt.o
- obj-$(CONFIG_ACPI_FFH)		+= ffh.o
- obj-$(CONFIG_ACPI_GTDT) 	+= gtdt.o
- obj-$(CONFIG_ACPI_IORT) 	+= iort.o
-+obj-$(CONFIG_ACPI_MPAM) 	+= mpam.o
- obj-$(CONFIG_ACPI_PROCESSOR_IDLE) += cpuidle.o
- obj-$(CONFIG_ARM_AMBA)		+= amba.o
- obj-y				+= dma.o init.o
-diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
 new file mode 100644
-index 000000000000..e55fc2729ac5
+index 000000000000..d984817b3385
 --- /dev/null
-+++ b/drivers/acpi/arm64/mpam.c
-@@ -0,0 +1,331 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Copyright (C) 2025 Arm Ltd.
-+
-+/* Parse the MPAM ACPI table feeding the discovered nodes into the driver */
-+
-+#define pr_fmt(fmt) "ACPI MPAM: " fmt
-+
-+#include <linux/acpi.h>
-+#include <linux/arm_mpam.h>
-+#include <linux/bits.h>
-+#include <linux/cpu.h>
-+#include <linux/cpumask.h>
-+#include <linux/platform_device.h>
-+
-+#include <acpi/processor.h>
-+
-+/*
-+ * Flags for acpi_table_mpam_msc.*_interrupt_flags.
-+ * See 2.1.1 Interrupt Flags, Table 5, of DEN0065B_MPAM_ACPI_3.0-bet.
-+ */
-+#define ACPI_MPAM_MSC_IRQ_MODE_MASK                    BIT(0)
-+#define ACPI_MPAM_MSC_IRQ_TYPE_MASK                    GENMASK(2, 1)
-+#define ACPI_MPAM_MSC_IRQ_TYPE_WIRED                   0
-+#define ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER BIT(3)
-+#define ACPI_MPAM_MSC_IRQ_AFFINITY_VALID               BIT(4)
-+
-+static bool frob_irq(struct platform_device *pdev, int intid, u32 flags,
-+		     int *irq, u32 processor_container_uid)
-+{
-+	int sense;
-+
-+	if (!intid)
-+		return false;
-+
-+	if (FIELD_GET(ACPI_MPAM_MSC_IRQ_TYPE_MASK, flags) !=
-+	    ACPI_MPAM_MSC_IRQ_TYPE_WIRED)
-+		return false;
-+
-+	sense = FIELD_GET(ACPI_MPAM_MSC_IRQ_MODE_MASK, flags);
-+
-+	/*
-+	 * If the GSI is in the GIC's PPI range, try and create a partitioned
-+	 * percpu interrupt.
-+	 */
-+	if (16 <= intid && intid < 32 && processor_container_uid != ~0) {
-+		pr_err_once("Partitioned interrupts not supported\n");
-+		return false;
-+	}
-+
-+	*irq = acpi_register_gsi(&pdev->dev, intid, sense, ACPI_ACTIVE_HIGH);
-+	if (*irq <= 0) {
-+		pr_err_once("Failed to register interrupt 0x%x with ACPI\n",
-+			    intid);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static void acpi_mpam_parse_irqs(struct platform_device *pdev,
-+				 struct acpi_mpam_msc_node *tbl_msc,
-+				 struct resource *res, int *res_idx)
-+{
-+	u32 flags, aff;
-+	int irq;
-+
-+	flags = tbl_msc->overflow_interrupt_flags;
-+	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
-+	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
-+		aff = tbl_msc->overflow_interrupt_affinity;
-+	else
-+		aff = ~0;
-+	if (frob_irq(pdev, tbl_msc->overflow_interrupt, flags, &irq, aff))
-+		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "overflow");
-+
-+	flags = tbl_msc->error_interrupt_flags;
-+	if (flags & ACPI_MPAM_MSC_IRQ_AFFINITY_VALID &&
-+	    flags & ACPI_MPAM_MSC_IRQ_AFFINITY_PROCESSOR_CONTAINER)
-+		aff = tbl_msc->error_interrupt_affinity;
-+	else
-+		aff = ~0;
-+	if (frob_irq(pdev, tbl_msc->error_interrupt, flags, &irq, aff))
-+		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
-+}
-+
-+static int acpi_mpam_parse_resource(struct mpam_msc *msc,
-+				    struct acpi_mpam_resource_node *res)
-+{
-+	int level, nid;
-+	u32 cache_id;
-+
-+	switch (res->locator_type) {
-+	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
-+		cache_id = res->locator.cache_locator.cache_reference;
-+		level = find_acpi_cache_level_from_id(cache_id);
-+		if (level <= 0) {
-+			pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
-+			return -EINVAL;
-+		}
-+		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
-+				       level, cache_id);
-+	case ACPI_MPAM_LOCATION_TYPE_MEMORY:
-+		nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
-+		if (nid == NUMA_NO_NODE)
-+			nid = 0;
-+		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
-+				       255, nid);
-+	default:
-+		/* These get discovered later and treated as unknown */
-+		return 0;
-+	}
-+}
-+
-+int acpi_mpam_parse_resources(struct mpam_msc *msc,
-+			      struct acpi_mpam_msc_node *tbl_msc)
-+{
-+	int i, err;
-+	struct acpi_mpam_resource_node *resources;
-+
-+	resources = (struct acpi_mpam_resource_node *)(tbl_msc + 1);
-+	for (i = 0; i < tbl_msc->num_resource_nodes; i++) {
-+		err = acpi_mpam_parse_resource(msc, &resources[i]);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
-+static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
-+				     struct platform_device *pdev,
-+				     u32 *acpi_id)
-+{
-+	bool acpi_id_valid = false;
-+	struct acpi_device *buddy;
-+	char hid[16], uid[16];
-+	int err;
-+
-+	memset(&hid, 0, sizeof(hid));
-+	memcpy(hid, &tbl_msc->hardware_id_linked_device,
-+	       sizeof(tbl_msc->hardware_id_linked_device));
-+
-+	if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
-+		*acpi_id = tbl_msc->instance_id_linked_device;
-+		acpi_id_valid = true;
-+	}
-+
-+	err = snprintf(uid, sizeof(uid), "%u",
-+		       tbl_msc->instance_id_linked_device);
-+	if (err >= sizeof(uid))
-+		return acpi_id_valid;
-+
-+	buddy = acpi_dev_get_first_match_dev(hid, uid, -1);
-+	if (buddy)
-+		device_link_add(&pdev->dev, &buddy->dev, DL_FLAG_STATELESS);
-+
-+	return acpi_id_valid;
-+}
-+
-+static int decode_interface_type(struct acpi_mpam_msc_node *tbl_msc,
-+				 enum mpam_msc_iface *iface)
-+{
-+	switch (tbl_msc->interface_type) {
-+	case 0:
-+		*iface = MPAM_IFACE_MMIO;
-+		return 0;
-+	case 0xa:
-+		*iface = MPAM_IFACE_PCC;
-+		return 0;
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static int __init acpi_mpam_parse(void)
-+{
-+        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-+	char *table_end, *table_offset = (char *)(table + 1);
-+	struct property_entry props[4]; /* needs a sentinel */
-+	struct acpi_mpam_msc_node *tbl_msc;
-+	int next_res, next_prop, err = 0;
-+	struct acpi_device *companion;
-+	struct platform_device *pdev;
-+	enum mpam_msc_iface iface;
-+	struct resource res[3];
-+	char uid[16];
-+	u32 acpi_id;
-+
-+	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
-+		return 0;
-+
-+	if (IS_ERR(table))
-+		return 0;
-+
-+	if (table->revision < 1)
-+		return 0;
-+
-+	table_end = (char *)table + table->length;
-+
-+	while (table_offset < table_end) {
-+		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-+		table_offset += tbl_msc->length;
-+
-+		/*
-+		 * If any of the reserved fields are set, make no attempt to
-+		 * parse the msc structure. This will prevent the driver from
-+		 * probing all the MSC, meaning it can't discover the system
-+		 * wide supported partid and pmg ranges. This avoids whatever
-+		 * this MSC is truncating the partids and creating a screaming
-+		 * error interrupt.
-+		 */
-+		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2)
-+			continue;
-+
-+		if (!tbl_msc->mmio_size)
-+			continue;
-+
-+		if (decode_interface_type(tbl_msc, &iface))
-+			continue;
-+
-+		next_res = 0;
-+		next_prop = 0;
-+		memset(res, 0, sizeof(res));
-+		memset(props, 0, sizeof(props));
-+
-+		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);
-+		if (!pdev) {
-+			err = -ENOMEM;
-+			break;
-+		}
-+
-+		if (tbl_msc->length < sizeof(*tbl_msc)) {
-+			err = -EINVAL;
-+			break;
-+		}
-+
-+		/* Some power management is described in the namespace: */
-+		err = snprintf(uid, sizeof(uid), "%u", tbl_msc->identifier);
-+		if (err > 0 && err < sizeof(uid)) {
-+			companion = acpi_dev_get_first_match_dev("ARMHAA5C", uid, -1);
-+			if (companion)
-+				ACPI_COMPANION_SET(&pdev->dev, companion);
-+		}
-+
-+		if (iface == MPAM_IFACE_MMIO) {
-+			res[next_res++] = DEFINE_RES_MEM_NAMED(tbl_msc->base_address,
-+							       tbl_msc->mmio_size,
-+							       "MPAM:MSC");
-+		} else if (iface == MPAM_IFACE_PCC) {
-+			props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
-+								tbl_msc->base_address);
-+			next_prop++;
-+		}
-+
-+		acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
-+		err = platform_device_add_resources(pdev, res, next_res);
-+		if (err)
-+			break;
-+
-+		props[next_prop++] = PROPERTY_ENTRY_U32("arm,not-ready-us",
-+							tbl_msc->max_nrdy_usec);
-+
-+		/*
-+		 * The MSC's CPU affinity is described via its linked power
-+		 * management device, but only if it points at a Processor or
-+		 * Processor Container.
-+		 */
-+		if (parse_msc_pm_link(tbl_msc, pdev, &acpi_id)) {
-+			props[next_prop++] = PROPERTY_ENTRY_U32("cpu_affinity",
-+								acpi_id);
-+		}
-+
-+		err = device_create_managed_software_node(&pdev->dev, props,
-+							  NULL);
-+		if (err)
-+			break;
-+
-+		/* Come back later if you want the RIS too */
-+		err = platform_device_add_data(pdev, tbl_msc, tbl_msc->length);
-+		if (err)
-+			break;
-+
-+		err = platform_device_add(pdev);
-+		if (err)
-+			break;
-+	}
-+
-+	if (err)
-+		platform_device_put(pdev);
-+
-+	return err;
-+}
-+
-+int acpi_mpam_count_msc(void)
-+{
-+        struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-+	char *table_end, *table_offset = (char *)(table + 1);
-+	struct acpi_mpam_msc_node *tbl_msc;
-+	int count = 0;
-+
-+	if (IS_ERR(table))
-+		return 0;
-+
-+	if (table->revision < 1)
-+		return 0;
-+
-+	tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-+	table_end = (char *)table + table->length;
-+
-+	while (table_offset < table_end) {
-+		if (!tbl_msc->mmio_size)
-+			continue;
-+
-+		if (tbl_msc->length < sizeof(*tbl_msc))
-+			return -EINVAL;
-+
-+		count++;
-+
-+		table_offset += tbl_msc->length;
-+		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-+	}
-+
-+	return count;
-+}
-+
-+/*
-+ * Call after ACPI devices have been created, which happens behind acpi_scan_init()
-+ * called from subsys_initcall(). PCC requires the mailbox driver, which is
-+ * initialised from postcore_initcall().
-+ */
-+subsys_initcall_sync(acpi_mpam_parse);
-diff --git a/drivers/acpi/tables.c b/drivers/acpi/tables.c
-index fa9bb8c8ce95..835e3795ede3 100644
---- a/drivers/acpi/tables.c
-+++ b/drivers/acpi/tables.c
-@@ -408,7 +408,7 @@ static const char table_sigs[][ACPI_NAMESEG_SIZE] __nonstring_array __initconst
- 	ACPI_SIG_PSDT, ACPI_SIG_RSDT, ACPI_SIG_XSDT, ACPI_SIG_SSDT,
- 	ACPI_SIG_IORT, ACPI_SIG_NFIT, ACPI_SIG_HMAT, ACPI_SIG_PPTT,
- 	ACPI_SIG_NHLT, ACPI_SIG_AEST, ACPI_SIG_CEDT, ACPI_SIG_AGDI,
--	ACPI_SIG_NBFT };
-+	ACPI_SIG_NBFT, ACPI_SIG_MPAM };
- 
- #define ACPI_HEADER_SIZE sizeof(struct acpi_table_header)
- 
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-new file mode 100644
-index 000000000000..0edefa6ba019
---- /dev/null
-+++ b/include/linux/arm_mpam.h
-@@ -0,0 +1,46 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (C) 2025 Arm Ltd. */
-+
-+#ifndef __LINUX_ARM_MPAM_H
-+#define __LINUX_ARM_MPAM_H
-+
-+#include <linux/acpi.h>
-+#include <linux/types.h>
-+
-+struct mpam_msc;
-+
-+enum mpam_msc_iface {
-+	MPAM_IFACE_MMIO,	/* a real MPAM MSC */
-+	MPAM_IFACE_PCC,		/* a fake MPAM MSC */
-+};
-+
-+enum mpam_class_types {
-+	MPAM_CLASS_CACHE,       /* Well known caches, e.g. L2 */
-+	MPAM_CLASS_MEMORY,      /* Main memory */
-+	MPAM_CLASS_UNKNOWN,     /* Everything else, e.g. SMMU */
-+};
-+
-+#ifdef CONFIG_ACPI_MPAM
-+/* Parse the ACPI description of resources entries for this MSC. */
-+int acpi_mpam_parse_resources(struct mpam_msc *msc,
-+			      struct acpi_mpam_msc_node *tbl_msc);
-+
-+int acpi_mpam_count_msc(void);
-+#else
-+static inline int acpi_mpam_parse_resources(struct mpam_msc *msc,
-+					    struct acpi_mpam_msc_node *tbl_msc)
-+{
-+	return -EINVAL;
-+}
-+
-+static inline int acpi_mpam_count_msc(void) { return -EINVAL; }
-+#endif
-+
-+static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
-+				  enum mpam_class_types type, u8 class_id,
-+				  int component_id)
-+{
-+	return -EINVAL;
-+}
-+
-+#endif /* __LINUX_ARM_MPAM_H */
++++ b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+@@ -0,0 +1,200 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/arm,mpam-msc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
++
++description: |
++  The Arm MPAM specification can be found here:
++
++  https://developer.arm.com/documentation/ddi0598/latest
++
++maintainers:
++  - Rob Herring <robh@kernel.org>
++
++properties:
++  compatible:
++    items:
++      - const: arm,mpam-msc                   # Further details are discoverable
++      - const: arm,mpam-memory-controller-msc
++
++  reg:
++    maxItems: 1
++    description: A memory region containing registers as defined in the MPAM
++      specification.
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: error (optional)
++      - description: overflow (optional, only for monitoring)
++
++  interrupt-names:
++    oneOf:
++      - items:
++          - enum: [ error, overflow ]
++      - items:
++          - const: error
++          - const: overflow
++
++  arm,not-ready-us:
++    description: The maximum time in microseconds for monitoring data to be
++      accurate after a settings change. For more information, see the
++      Not-Ready (NRDY) bit description in the MPAM specification.
++
++  numa-node-id: true # see NUMA binding
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++patternProperties:
++  '^ris@[0-9a-f]$':
++    type: object
++    additionalProperties: false
++    description:
++      RIS nodes for each RIS in an MSC. These nodes are required for each RIS
++      implementing known MPAM controls
++
++    properties:
++      compatible:
++        enum:
++            # Bulk storage for cache
++          - arm,mpam-cache
++            # Memory bandwidth
++          - arm,mpam-memory
++
++      reg:
++        minimum: 0
++        maximum: 0xf
++
++      cpus:
++        description:
++          Phandle(s) to the CPU node(s) this RIS belongs to. By default, the parent
++          device's affinity is used.
++
++      arm,mpam-device:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description:
++          By default, the MPAM enabled device associated with a RIS is the MSC's
++          parent node. It is possible for each RIS to be associated with different
++          devices in which case 'arm,mpam-device' should be used.
++
++    required:
++      - compatible
++      - reg
++
++required:
++  - compatible
++  - reg
++
++dependencies:
++  interrupts: [ interrupt-names ]
++
++additionalProperties: false
++
++examples:
++  - |
++    L3: cache-controller@30000000 {
++        compatible = "arm,dsu-l3-cache", "cache";
++        cache-level = <3>;
++        cache-unified;
++
++        ranges = <0x0 0x30000000 0x800000>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@10000 {
++            compatible = "arm,mpam-msc";
++
++            /* CPU affinity implied by parent cache node's  */
++            reg = <0x10000 0x2000>;
++            interrupts = <1>, <2>;
++            interrupt-names = "error", "overflow";
++            arm,not-ready-us = <1>;
++        };
++    };
++
++    mem: memory-controller@20000 {
++        compatible = "foo,a-memory-controller";
++        reg = <0x20000 0x1000>;
++
++        #address-cells = <1>;
++        #size-cells = <1>;
++        ranges;
++
++        msc@21000 {
++            compatible = "arm,mpam-memory-controller-msc", "arm,mpam-msc";
++            reg = <0x21000 0x1000>;
++            interrupts = <3>;
++            interrupt-names = "error";
++            arm,not-ready-us = <1>;
++            numa-node-id = <1>;
++        };
++    };
++
++    iommu@40000 {
++        reg = <0x40000 0x1000>;
++
++        ranges;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@41000 {
++            compatible = "arm,mpam-msc";
++            reg = <0 0x1000>;
++            interrupts = <5>, <6>;
++            interrupt-names = "error", "overflow";
++            arm,not-ready-us = <1>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            ris@2 {
++                compatible = "arm,mpam-cache";
++                reg = <0>;
++                // TODO: How to map to device(s)?
++            };
++        };
++    };
++
++    msc@80000 {
++        compatible = "foo,a-standalone-msc";
++        reg = <0x80000 0x1000>;
++
++        clocks = <&clks 123>;
++
++        ranges;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@10000 {
++            compatible = "arm,mpam-msc";
++
++            reg = <0x10000 0x2000>;
++            interrupts = <7>;
++            interrupt-names = "overflow";
++            arm,not-ready-us = <1>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            ris@0 {
++                compatible = "arm,mpam-cache";
++                reg = <0>;
++                arm,mpam-device = <&L2_0>;
++            };
++
++            ris@1 {
++                compatible = "arm,mpam-memory";
++                reg = <1>;
++                arm,mpam-device = <&mem>;
++            };
++        };
++    };
++
++...
 -- 
 2.20.1
 
