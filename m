@@ -4,84 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280B0CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D86CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cwcx/LLJrt6Uufc15KwGlNwi/lfz0dnv+k38+ZDJcSY=; b=yrXfQW5Z5iva+rD6J00siHpkTX
-	scf+X3XEpIpKXBrZNyjLUCVzaD+yTcMj4O9No0Z9PfbX19M+OaR3JO2srvwzkJqzlh91psghRveLX
-	G55e2/CFK97zmGAepy7Gl8Xy5fBAcxO5jyQsclIrXhLx/FbdLrIBBgBqlzTNp02y1sS4ZRdGj2Uc3
-	O5p4FF+2DMo+3egyyFf9i7iDrTIqKbmwXnRBkde69fo5B+qpelj4+UJbY7jv1JsmOZeMST0nlG/p/
-	fXc2vdducP06vZQcic4tzOtI+EMM1i+JdXyxCppG21HpQHzLMpOZh08Xc2ZQ+oz/ZKr8je24sPm5F
-	OuufkALA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eJvTKEyEbzhmekaQhrASqnfJY8OZgIJPjxsG4VBPz2I=; b=MXyFCz0DDiQaCYELehbLlTvc+n
+	WAV1twH4rBpF+10AVL5+oml7HzU7LZwmrSBLAHQePY4ObzFN8CaiavfzCZ6+yKxav3bVXa0i4YY0n
+	j4PXGRnulxklGULn7NvWg8NSkVdAzzZfFBZVyo/maGd55dxddv0nzhohHvMvYiqPRzDflKO9YSKHP
+	v/U8+tSRVykf80nMx1RMkboHffMeTmdM68RCHuXZC+TNdGDBLG7tbiCcLeHVc9+TjDUtD86pI+QnS
+	SiRd8iGsJ2gqbC/DBi4kP5k/4QoNFsSqzrtXsaoeq5SQSF6b2VwIUtanVlB6tcCQmKVrduD9ff5bJ
+	HCFuewqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTJx-00000002wFP-34j4;
-	Fri, 22 Aug 2025 15:04:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1upTPA-00000002xJA-0t38;
+	Fri, 22 Aug 2025 15:10:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOZj-000000028sW-08oZ
+	id 1upOwB-00000002BaG-0qxQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 10:00:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8C8CBC8EC4A;
-	Fri, 22 Aug 2025 10:00:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5D6EC604AD;
-	Fri, 22 Aug 2025 10:00:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A5F881C228674;
-	Fri, 22 Aug 2025 12:00:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1755856837; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Cwcx/LLJrt6Uufc15KwGlNwi/lfz0dnv+k38+ZDJcSY=;
-	b=ItRoWf+nQG+M1Lwn65p6sSiFvXticGD8sE6THoM6h5mfmlo7E4wkegkFFkjxRCAwAkUCfN
-	CQa8DEr0JLLoRNie6KJNmW9nX6t2FXMO7cWRWiu7TmZWDWavLcFL99MzRh5mVdLp26oxws
-	C9vjARs1PMfQLc6AmBRwRkYJ4YTgskKbs3sbcaYVN06Mh/N9p8I9yxpwIFJfHi9mqNsWP4
-	18bAYde0DtCt+xGLSjy5vDV+JEj2lrOGb1w7yV5ulK7qARF24SNN36deyBEyb30HsmSpTI
-	kMOFKyjteZTcNTPx4CN4LktKK88tP+2UqH31hIPWUahG+5E3gXtULCLf/hUtKQ==
-Message-ID: <fb499f87-141b-4098-9011-37ec273a07dd@bootlin.com>
-Date: Fri, 22 Aug 2025 11:59:57 +0200
+	Fri, 22 Aug 2025 10:24:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755858237;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eJvTKEyEbzhmekaQhrASqnfJY8OZgIJPjxsG4VBPz2I=;
+	b=DbOyIrT0oo3LaxWkFj22kgDGX32LmZAJ6K90PumU/WTQ1QrCv57MdnQJWOEVVRJ2RYkUhX
+	07wLcaedNudYfRpzD50tdzwd5JJVEoQrnMcOrG0vPRwAxIKcrBoHHQYvwkyj4OI8d5hOfo
+	fC9Mc8reo21nbwEfUbVMSXfPd0nQzHY=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-62-zEQVB6VSMjegHgJ3iC8VOA-1; Fri, 22 Aug 2025 06:23:56 -0400
+X-MC-Unique: zEQVB6VSMjegHgJ3iC8VOA-1
+X-Mimecast-MFC-AGG-ID: zEQVB6VSMjegHgJ3iC8VOA_1755858236
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e864817cb8so812062185a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 03:23:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755858236; x=1756463036;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eJvTKEyEbzhmekaQhrASqnfJY8OZgIJPjxsG4VBPz2I=;
+        b=tKZ9k0Bc9SYrMmrWEKuD9Ddh4zmm/bQZ2WdRpTMu99xA5IDMHTR0gX7XUABM39EFOJ
+         Qq10maPLT8L2IU/YreZryVSfe1Lb9+5VJay7xf7pQc49tWuT/o5fkCDaZsXIKK2MGcEs
+         rg/upEmFMjEX0Az+ealgxIhgW/hVISUqj6HHF7g+rMqIXEV0MkmLYAS6coaOYRady+uN
+         uKxP/MCFFlhQtRGcPNG910nnyS/DCw9+8/qr0f0Jg9X3MUz0XG3EryRaGhnbmRtwabpV
+         AD+TlYy0SxZvloI5opaGhAnd8R44GsH9+HgRJALfp1LIoWLWDMf34gMkzsYWKe4S2hfS
+         9U+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXbL9JjtVQnxps2VkLUHMbKw+2jl929QXYi9ucRWu/2ZNh3RnYWTx9WwEDo0icX+Pdn/qfmi3If74yQMvc0l88w@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVx3JuL0wSzuqB+AZ4qySdUWCy5x+1BegSEVsgUYLO7aRlxXaf
+	ABbqNq3t4EUh3n1F8b5S9qxIt4/2pOmRvzkYWLWz8nID75YQ2aVwhwztWiYwqVql/3X1qb5iSPH
+	dZ+7aBe9u9JuZccLeO8OXbQntKYiru+GOtxmr3fDe0DB8eoWtrNfuGfaCpLBLOmNRxCP6T8QTR1
+	im
+X-Gm-Gg: ASbGnctr7vvDyrezZ+U0ywa2+tsRH0od0USyRa0QOJw5QygovbrdeMCjfTT9fYJ/TDt
+	gf6XFO62CQ4ppBQol6QmMgj7g/n+Pg5dsNRGlL9/k8jlJWBjNvUhFY84KgAZYMReCdEDxsv6s3I
+	W90U4YcOLs8OLrY6GQFDC0kHIBrscpWXHrdKr4ObQpTlnk9nlOOzBxaNGZD5n+gNPqpXnAS5UVR
+	WLVeSUvALPuBxDc2C6buD1n9itUJ1Z3Mjjr+/VEwn3Souk5d9w8yECWf1IWjRKaUsJwzJxGHp44
+	C90BG7L2/RKVCb5o4LDq/mn5WKM1rphLR5p9e6RAqIVal9qL28NxjEJm7E1NOVs+3+180sAyfsV
+	O9ozzYfgB0zP1fzk+HVM=
+X-Received: by 2002:a05:620a:2985:b0:7ea:61e:3ce with SMTP id af79cd13be357-7ea11515112mr250142385a.4.1755858235947;
+        Fri, 22 Aug 2025 03:23:55 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGzbF5my1f7sWP1hvt+Ae8lWAWkUFPWkmMGpX8yUvMXDR4PmNo9Qp3wmQyKLcPE30uIWwQ98Q==
+X-Received: by 2002:a05:620a:2985:b0:7ea:61e:3ce with SMTP id af79cd13be357-7ea11515112mr250139985a.4.1755858235417;
+        Fri, 22 Aug 2025 03:23:55 -0700 (PDT)
+Received: from x1 (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7eb1123ce2asm16520885a.65.2025.08.22.03.23.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Aug 2025 03:23:54 -0700 (PDT)
+Date: Fri, 22 Aug 2025 06:23:52 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	willmcvicker@google.com, kernel-team@android.com
+Subject: Re: [PATCH 3/3] clk: samsung: add Exynos ACPM clock driver
+Message-ID: <aKhFOHFGKPYXgIri@x1>
+References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
+ <20250819-acpm-clk-v1-3-6bbd97474671@linaro.org>
+ <aKdmurrT1pFtLSI8@x1>
+ <720799b1-04ce-46da-b643-1adbdfc661e6@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP
- handling for PHY drivers
-To: kernel test robot <lkp@intel.com>, davem@davemloft.net
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Rob Herring <robh@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>
-References: <20250814135832.174911-9-maxime.chevallier@bootlin.com>
- <202508151058.jqJsn9VB-lkp@intel.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <202508151058.jqJsn9VB-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <720799b1-04ce-46da-b643-1adbdfc661e6@linaro.org>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: khzCWdLzcNY7md-EnA4rUNPK-e8Ba4ZNpqHcls-2IZU_1755858236
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_030047_217023_04585123 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250822_032359_344878_C0581D62 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +123,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Tudor,
 
+On Fri, Aug 22, 2025 at 09:14:03AM +0100, Tudor Ambarus wrote:
+> On 8/21/25 7:34 PM, Brian Masney wrote:
+> > On Tue, Aug 19, 2025 at 11:45:38AM +0000, Tudor Ambarus wrote:
+> >> +static long acpm_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+> >> +				unsigned long *parent_rate)
+> >> +{
+> >> +	/*
+> >> +	 * We can't figure out what rate it will be, so just return the
+> >> +	 * rate back to the caller. acpm_clk_recalc_rate() will be called
+> >> +	 * after the rate is set and we'll know what rate the clock is
+> >> +	 * running at then.
+> >> +	 */
+> >> +	return rate;
+> >> +}
+> > 
+> > ...
+> > 
+> >> +
+> >> +static const struct clk_ops acpm_clk_ops = {
+> >> +	.recalc_rate = acpm_clk_recalc_rate,
+> >> +	.round_rate = acpm_clk_round_rate,
+> >> +	.set_rate = acpm_clk_set_rate,
+> >> +};
+> > 
+> > The round_rate clk op is deprecated. Please convert this over to use
+> > determine_rate.
+> 
+> I can do that, sure. Shall I also update the kdoc for round_rate(), mark it
+> as deprecated and add your Suggested-by tag? It would help other newcomers.
 
-On 15/08/2025 05:25, kernel test robot wrote:
-> Hi Maxime,
->
-> kernel test robot noticed the following build warnings:
->
-> [auto build test WARNING on net-next/main]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20250814-221559
-> base:   net-next/main
-> patch link:    https://lore.kernel.org/r/20250814135832.174911-9-maxime.chevallier%40bootlin.com
-> patch subject: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP handling for PHY drivers
-> config: i386-randconfig-013-20250815 (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/config)
-> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202508151058.jqJsn9VB-lkp@intel.com/
->
-> All warnings (new ones prefixed by >>):
->
->>> drivers/net/phy/phy_device.c:1625:47: warning: variable 'iface' is uninitialized when used here [-Wuninitialized]
->      1625 |                 return port->ops->configure_mii(port, true, iface);
->           |                                                             ^~~~~
->     drivers/net/phy/phy_device.c:1597:2: note: variable 'iface' is declared here
->      1597 |         phy_interface_t iface;
->           |         ^
->     1 warning generated.
->
-That's completly wrong indeed... I had an extra question to ask to Russell
-wrt. that feature, then forgot about it and sent the series...
+I am working to remove round_rate from the clk core and the various
+drivers. Your driver just needs to be updated similar to this:
 
-I'll address that then
+https://lore.kernel.org/all/20250710-clk-imx-round-rate-v1-10-5726f98e6d8d@redhat.com/
 
-Maxime
+Brian
+
 
