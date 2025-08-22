@@ -4,81 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F74CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8ACECA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wF1ylDXFmSCDCWt+ugfOeabac+MMovP6GAcpIG+yjw0=; b=ZpsRHCb8QBqEzP6lkpWJHtGkVU
-	yQswfA4u4JoaUuqKxbDj46NDtiri1aHDUcKMYB5bZJqyo5O8P3JC7XSzUQElyCPjZZZ1vznfYbDOj
-	LLHbFmJZBb6AUO8o/Kkd5IqBjEmzItQqzxYm7YsRt3Lc9YnRDvNtNG/J5RElKMuFRVvxAk3T7MXiI
-	1/9psK3+r1V7a7CpdPNbtWWm0eljzPhgA5BkTJ26whFLO4TwUg+grqQYg2v2cOXUEKqQft9UH0TbF
-	yMsfloa9qzjX/vdXhWfXGcyKsgl+yxi1nrSt4uAKmLWVDLSzhax/xEzk8fjn9qY1C+sXRKIaqtHrn
-	YOz6gV1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/7xOSwJphIMsw3CKAft/PT9jaALDWq3FdRhmlz0wJRc=; b=PNUg1uM25ljsRjFpFYqSQuh0Dy
+	3xHiOYCv9n4ujxt5YSQ3dtSW97fufzvWayHQBf2K4KD3kmuH6Ru1+WfqOznJcM46mZWV3ScpxbLcn
+	dFQW4NR5o0GXQnPtqc5r/drSNrFO98J3c4IyliqHALfdeEdUrWvilYv/lBWOtWHwOwFo+mCZO50SC
+	jHI3Lv36k/CLL7CttpEfhqyeieLfaPXhzBu+F5YDptuw2XDYt7ISolOZxsECbzSjYI1uYeJf9f5Zj
+	ivSsKm1JfcS5GGaMW+hqQB+Kr1+pjQxXrGimEyDcyjELR+aaiW+rPiuFjcab6RcxnE5DTTxduf2AS
+	5dTRTqBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPrO-00000002J5q-3IZq;
-	Fri, 22 Aug 2025 11:23:06 +0000
-Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upIQ8-00000001Nyn-09tM
+	id 1upPrQ-00000002J8O-0AaT;
+	Fri, 22 Aug 2025 11:23:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upIUs-00000001OTe-3qDT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 03:31:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=/7xOSwJphIMsw3CKAft/PT9jaALDWq3FdRhmlz0wJRc=; b=IATVnsJJ5UCLrloV7E3HlMevsm
+	jj9fBXrbS91n/BM0fp1+iNdiMePBN53dMALqXOJ4OrU9KfpIdhZ9DL4nEcR9xXFzw9HaeVGIwqnIq
+	5FjBH47qrqWlg4njyUfWjL3GMgX2GSXS8CWPXMDyDCTeTBb0BEWDYSO/zxZVdt+TKILDgunugHwf1
+	+15GgiEwK7ElsEZXCguX8P2YZjwmJs9cS111uJ+4V+/U9/64bm6YvXGik8xycf8i85Dc2nTW1Y22T
+	JfY5fE8OXQm8vr+gVQCF27nAItuK6U02ZRpJh8OavMZs7RodUFVJr/SergDNALartAr0rhyQXXM7M
+	iSS5sCng==;
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upIUo-00000000moV-1kqv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 03:26:30 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Fri, 22 Aug 2025 11:26:02 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Fri, 22 Aug 2025 11:26:02 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
-	jszhang@kernel.org, jan.petrous@oss.nxp.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
-	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
-Subject: Re: Re: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add
- eic7700 ethernet driver
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <548973df-2fa8-4502-9f7c-668d0eeb16c6@lunn.ch>
-References: <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
- <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
- <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
- <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
- <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
- <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
- <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
- <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
- <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
- <3261748c.629.198cfa3bc10.Coremail.lizhi2@eswincomputing.com>
- <548973df-2fa8-4502-9f7c-668d0eeb16c6@lunn.ch>
-Content-Transfer-Encoding: base64
+	Fri, 22 Aug 2025 03:31:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eCZhhfrLJxaYYE3ygwV0nvPK3PHKqlimIApbEeoEgC65JcOUyIa5112nvZ91tWYaKGKlVwfJdpWLN+mNOgOdJpOVgFvCLKxkPUBBd1gjg4v9E1GmnnfCd0jyUJqytB+BqQVGGgUgrmNUSVNWrB0D5PyPmmguA/GlVXb7Qx4lljY91qlermDaIye8Lobfs4hvIDVrAJj+15GSq2ThiFyVx8k6xyDyNXuYP4QMKuyZL+hI2nGrQOD2Wvuv/Gn68GG0zRu1cmRYEBUdKplw+qsE+ri/XhfGqT3lfX9ndPIyCU4RjtW1n/z2ptESzDtwhbsSnrtb2KpU69yLGLqZYF4ehw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/7xOSwJphIMsw3CKAft/PT9jaALDWq3FdRhmlz0wJRc=;
+ b=iW2crTGCLQbh1NNp6cam32cZqD2Jd/SX3K3rAUKnnOlL6vu+F+rsqz5PEGZ4/8KirrxA599z7m1vxYZf5udYj/1Bga3f+ho9fP03dRqN5mspdifXOoIT80Xgcjgji3dWJJGDbLPwQgvsCq1d8twzSVvUDAOUtQcD2F2Mz6o1wpg4FegQTREV8Pf4FJKnOFXw0kFW5SXCP8iUbSbN7WO1SSlieqnKQ+nxFiPrJNUWG1eAJEzIM+HXbP4TgpaQj7WBCSs5VO1wbwnO1yMFZFSJE3WfxordmaDno75pYTUI+ArBT3kyVA7ILryWNIt4oNjdyG45HQIkYO4CjRVgp0w7dg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/7xOSwJphIMsw3CKAft/PT9jaALDWq3FdRhmlz0wJRc=;
+ b=Gk63N034hpGmVyFl+e30mmyxGYM2fLPMEEQLVAMcqWy5RfmybgERk8US2twSQga3aOjhIK/OQvOCqmhNKQmlXJU78zzToCjY5TpCTSo9U1y8TM4E066OAKSsX0mrONJZi9R4W+Vzz2KfoR7UMqw4gVR0oz8paHwkAibricxzhYOIdiaVr3IS4XPnNUIDobgMQZDIEEAly0St6QHLq00bnG/9HetxgAb4Z9BzNvLgCq1/JJBwW2k1pYmDQbrLArXpF4+L/aB9P1nL4TwEbwqk5lmsY09JIjTZ5LIf0nyL5sA3//IiTmAxBUqIJycv9asjlSISSfspIk6yLUhs5mgzjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by DB9PR08MB7399.eurprd08.prod.outlook.com (2603:10a6:10:371::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Fri, 22 Aug
+ 2025 03:31:08 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Fri, 22 Aug 2025
+ 03:31:06 +0000
+Message-ID: <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
+Date: Fri, 22 Aug 2025 06:31:03 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
+ <aKbDjIZhJuWo3yFu@lore-rh-laptop>
+ <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
+ <aKcEYn_hX0ZIusne@lore-rh-laptop>
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Content-Language: en-US, ru-RU
+In-Reply-To: <aKcEYn_hX0ZIusne@lore-rh-laptop>
 Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MI0P293CA0006.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:44::17) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-Message-ID: <1935a8ad.648.198cfcfdcb1.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: TAJkCgDH3g9L46do9c3BAA--.11720W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgECDGinSk8OdAABs8
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DB9PR08MB7399:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3d02e80-025b-474b-5465-08dde12c5429
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnN0b25GWWtlL0M3b2NWcmswckp4TjhiRmUzc1NBSnE3US9ycmJqYWV4a0da?=
+ =?utf-8?B?d3paWnFOa3F0Njc5ek1HZEJHQ04vblBTNjgybEQxUWFBUmlCeU9MbzloQnpl?=
+ =?utf-8?B?VGc1VGJnWlNwajRtejlPOHF0OWp6dTZpSzdtUWpDVHllbE5LR2tZeG8wdkVY?=
+ =?utf-8?B?QXZNa2hSTTdlMjVtdnVQanFUcEVwR2gxUXhydExDQ1pWSmVqdERtbTVmMWly?=
+ =?utf-8?B?NXJKY1V2ZWVEbmFQblltNlBGY3hzaGZSeXlFdkliM3hzN3BTOC9Pck5QekpN?=
+ =?utf-8?B?SDI5WWorVGpZT2ZlWjdrYkdVbWttVHFRSmJGcnNFY2hyRFpEVHBSdXQ3YlVp?=
+ =?utf-8?B?MkxycEFQT21XclN1NkNnaDI2WEgrdjB1YjI0emo2S0FpaWRJV3Fzb09WQUY5?=
+ =?utf-8?B?WkloRmhIOFN6NFF2QUhZNVgzLy9DcDluREppcUJLWHdVcHFUZzlBTFZCQ3F1?=
+ =?utf-8?B?dys3MysySzhhRDQzemZJSnM2Z0xKclZDVFA2c0p3Z3J6Z29QTTh1aDBwek51?=
+ =?utf-8?B?dExEZ3ZtaHNjVkJFVmhrMjB6UUNNVUYvVjhPYTQyZkM5Z0RDUk5UWktsbEgz?=
+ =?utf-8?B?R1ZzQ3hJMHNKZ2hSdEhHZnpwT0k0WVc1NUpiU2dhSnREeWhzNno1RVB1YkxT?=
+ =?utf-8?B?YlAwckVIeFJvNkt2OU94OURDR3lCUDdyamJPaFlhMkhITlNmU3ZsVE1sSGt5?=
+ =?utf-8?B?NHVBamZ2T1N6VmtKV09lN3VHK2xFT0tXQ2ZhUUtoT1ZVbXlZbHBjUCtYdkE1?=
+ =?utf-8?B?aGFjUzBadGdlM0FlN1V2OHg0b3VCdTJzanFSNGVHanlmc2p4NmNvRm9vYjlU?=
+ =?utf-8?B?N2dnZ1B0RmJHaHVZNlpHOFRCOUZCSEZOcTVlZmxUUEYrV2QzMXFycklLWC9W?=
+ =?utf-8?B?Q01DSGJYTjVKN2lVNTJJSktlOE1pUkMydEZ1azVJdWRGZkVzZkQrNWNXNW93?=
+ =?utf-8?B?amxQeE5Lblp1SXVyTWNQODl4R0o0bHdtSnBidk1NUnVYVWs1WUpGVUJHREp6?=
+ =?utf-8?B?OVJZL21pc1M0NFVHaDg3YVhvSFJadkZWZGdkak9lWUNZaE9GK3Zlenc0YmRx?=
+ =?utf-8?B?Z01CTmNmZWVWYTIrNlJYK280NnQwNFFvMmgrUDdETFNOQVVpZjFPbXpQMTRH?=
+ =?utf-8?B?NEgzb00wM2hRMEFQbldLOVdQQlFSL01lVWVmaDI4RVgzZ0tET2JoMFM2YWNq?=
+ =?utf-8?B?R3BzdWl4WWdSU0liRnFab3JTT3hIaEFTSE4yTUFuSGpwZmpwTGI5alR1aU9u?=
+ =?utf-8?B?N1BmalVVKzNoVEt2TWhEczgyNzIrMW1XeHlhUllaTlFwQlVXLzNYWUpqWGlM?=
+ =?utf-8?B?WmxiTXVCT3hVRmpwWEF6YnRDcno0UVdweWVSQjhCdzJNdE1oaURYNWFQYTVx?=
+ =?utf-8?B?bFk1M0tuc0ROcWZ6UWlwaXNUeEJteDF2MlgyWW1HRlVuUTNaZ0xBVHI4bzlu?=
+ =?utf-8?B?VkZRazByUXlVWlhOYkc2WU01VDl0R2RlWWpFZGhiZ0RMMXI0YWNVRjVZQWZW?=
+ =?utf-8?B?TlI4bkcrenljelFuYk40ZnptR3ZWbkU0YW5DRmx6OXFwWjlRTWpVeU9GMHhl?=
+ =?utf-8?B?eUY4cDcwRE1KMkZiVnAzZnNUZmdSVW9SNlNpbDB4RXc3UjRCUVZiV3EvcDVL?=
+ =?utf-8?B?SlNJSjhzTzJXaE9oSlJYdkNhUVRJK1FWdmc1R3JtSG4vYUVOcVc1b3dEMUNu?=
+ =?utf-8?B?M0JuZC9VNWlqbkJxT0lYZ2J6bklHV3U1cm5JVU1FS2d4cnBuOW8wanRvUm5K?=
+ =?utf-8?B?cy9ualFtSC92OWJsZHJBRDVDa09IajgxbmJSWDFSUmJxQzBmaUVhQ2ZrTTdR?=
+ =?utf-8?B?ZzdZR1YxZThqS2lMT21zZlY2T0ZmOTNwNXVGeUh2YlIyRFRhNjF0NmJQVnNM?=
+ =?utf-8?B?OVpVQUFDdVJqcXg1YVNOSkxCc29wZGdtZzVOTlV1Rk41ajUzdnFzd08xdmZU?=
+ =?utf-8?Q?2Hb606zltYI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WExMbXpqNXp2WkNyZ2tEaFRlL3JwMGhhQ2lEOXRKdTJrTk5aTFpETDlpRTNl?=
+ =?utf-8?B?YTkvQ1R0M2YvNW4xQkR0RGJObit6aGVuc3JxTVZabEpTc20vanZUSFdhczQ0?=
+ =?utf-8?B?Q0JQSStpQmFlOTNGN2l4c1VLVEFZczBBN2JZNkhCQUwzOS8vbVJDUkg2YnBE?=
+ =?utf-8?B?ZlBvV3ZyOUxGOVoxS3ptMnhBOGJMWmw1Ky9pSktxT2F3SzBiRzJhK2p0VXBT?=
+ =?utf-8?B?WXdyTWl3K2ZGOE5lb0lkRGxmTWR3ZlN0ZCtRbGZNL0RlYzUxWnRrQzdNMHl2?=
+ =?utf-8?B?UWtkMXhuM2J6em5Dekhia1ZkY1IrYzRXdWhENlQyaFIzbSsrMG44TUorOUVI?=
+ =?utf-8?B?N3MrRE50K0kxN2k4d0dCTiswR1JuTEFvaU1CbmhqTCtHYVZCaWxDTHhXK09M?=
+ =?utf-8?B?ODN0djVtTkorL2FLYnNocGNLcVRLdnpOUXVkOUx0bTVLRDVVZTFWcUEyNXVN?=
+ =?utf-8?B?a0pjVDZTdjhrNCtyYXNBUm1XWWtHNGczY0ExN1hoS1pwTldOTGNUMG4yUytO?=
+ =?utf-8?B?WTZUaE9IZ2JRQURWVHdVYWttNzVvV1gvWXhhd0RCdUVHTDd2d05ybjVIZU1M?=
+ =?utf-8?B?WjQ0M1dMUm56ZEZTWHFPaXQ2YUt4MEdRWWRmblBUMnpCcHd0REEvM2Y0Y3BF?=
+ =?utf-8?B?MlVzdkNtL29SaHVuMUJxMGVoU3pYSFZCV2grNFVtbmxodE1BL0JJMnpjaFlT?=
+ =?utf-8?B?ajJqMkdoV01Ibk51bDUyN05mMTFwY3UrTUpxbmNwejBFdlJzd3hFaGo0eVFs?=
+ =?utf-8?B?UldxVm9jRFVnc1lrbHVPS0ZiSFA5U2laNUhzc0pydjFaRVdSSkNEK0tZcmlh?=
+ =?utf-8?B?MXlydmp0NWk0Rkd5RjJMdU12U1B3QlFtbTk5bTF1REJjT0Y5d3E5a1VGUUNs?=
+ =?utf-8?B?c2d0SFEzM0NmTUZtZXl1amplb2h2TkRia1djaE1vbHN3TWs5N1QxZ2VUTTk2?=
+ =?utf-8?B?YUUzcTBTVko5aHNtdWxhWmtLT0hjMkRDQnZaOXRSNmxQYnJBSWtQT1R3NjIv?=
+ =?utf-8?B?UC9UWUJDWitXUUl6T2lMbTNZTm9ld1UyampveWY3WWZ6QzJDWERKekZQMitn?=
+ =?utf-8?B?WG1RclQvNDUwM3pWeml3UmhmUWZjNVg0cUNkUGs4L2dSMFo5dU1PMjkydlJ6?=
+ =?utf-8?B?bjVQZWtJdVQ1Y09PL0FUbEdqaGduL3d2ZzBORFNYK0ZnRFN1UXNOemdPMzU3?=
+ =?utf-8?B?bEw1eXBObGp2SXcvQTZjdE9aTDhleURUL25DamFsM2N6S1hoWTY0emgxck4x?=
+ =?utf-8?B?UGp1ditjVkI0NStXUkxyU05Ob1h5dFJZbEtJSTUyZ3l0Z0s0ZSsxNGRKUTdL?=
+ =?utf-8?B?Y2ZCZjVTckxEbWZ1Qm1PZURlRG1SMG1MdGs3R3U3RGprZHhvMVI4eUZzdUJW?=
+ =?utf-8?B?UjBGczk1dFY1RFhDTW85em9uSnhIdTFWMm1qdDYrUFc0K2VLMXNTN09XZUhF?=
+ =?utf-8?B?NzRtdm1qcjBaR1l3MkVjRGtlVThXbzV1MmwyK0w1eUhDSVpTY0Z4WldoeUE3?=
+ =?utf-8?B?aHpBUUZHNVM4RzNuZkJIVHNTVXVDcFR6Z050bCt2WnlWNjJza2pIQVRDSk95?=
+ =?utf-8?B?M2p1T3p1YUFQdUg2Z25USHAwdHNYdjZDYzhSenprNzlMYUk1SGRjQ1F2cXF3?=
+ =?utf-8?B?TFptMkR6VTVGd2lqQmdiaDN6NzZRcVZZdytUWUVLSkI5SXVWYVA4L1A1T2FI?=
+ =?utf-8?B?Z1o3cnJySS9HK1hmRUpSVTExSmZqQ21EUGZWUmNCaHpFYmtGTUIyRS9VWHg1?=
+ =?utf-8?B?NTBWb0dZbUlOVWlYWThFaG9QR05ZT0xQYkJ5eG5KRHBPY3ZnUEt4T3NOTmdj?=
+ =?utf-8?B?MFdPRlFVOXpxS1podStoRUNCQWZrcTJ6TUc2SmZSZTNRYVMrTUllcU4xN1Nr?=
+ =?utf-8?B?bFF0bTdMVEY1OTlsSzFaS2MzNCt2VGd1UncxZHFVWHlZSUlRYnNlcXQ5TFhT?=
+ =?utf-8?B?RjlTR0FrajhzMXI4aUVLNzdua3JEMG9wRjJWSVpCdi9jL3k3NXhoRXZsd1FH?=
+ =?utf-8?B?RjJNZzJTaThsWGV1TjRBKy96WHFCZ2syaUZlU2dqOWdndEM0a0wzWG9VK2VQ?=
+ =?utf-8?B?UnlRaGo1Q091Yi8zbkR0U3UvVDVNbGdGNHV1WVdCcnBybnJHVnQyQlNFMmZw?=
+ =?utf-8?B?ZUFsbFBRZ0V6RS9TUjloVFpTMFNsZEw3WlFwQnljVGlYeHlBTVl0d0lvcmFq?=
+ =?utf-8?Q?aKF1Guj75YRAUi0R8M5TQA4=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3d02e80-025b-474b-5465-08dde12c5429
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 03:31:06.5509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g07MksaZQZfQskSiBTYglKSBIKYNYyuJ/NhwRcEjzFzGIpBK7aXRMpdAoqOTDxxlXMzo7zDBwILeFqpJj8cJP3ZjaqArm/Mo9baGPXHZQak=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB7399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_202628_332628_6F7339CD 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_043119_318161_D68C78CC 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,38 +195,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RGVhciBBbmRyZXcgTHVubiwKVGhhbmsgeW91IGZvciB5b3VyIHZhbHVhYmxlIGFuZCBwcm9mZXNz
-aW9uYWwgc3VnZ2VzdGlvbnMuClBsZWFzZSBmaW5kIG91ciBleHBsYW5hdGlvbnMgZW1iZWRkZWQg
-YmVsb3cgeW91ciBjb21tZW50cyBpbiB0aGUKb3JpZ2luYWwgZW1haWwuCgpCZXN0IHJlZ2FyZHMs
-CgpMaSBaaGkKRXN3aW4gQ29tcHV0aW5nCgoKPiAtLS0tLeWOn+Wni+mCruS7ti0tLS0tCj4g5Y+R
-5Lu25Lq6OiAiQW5kcmV3IEx1bm4iIDxhbmRyZXdAbHVubi5jaD4KPiDlj5HpgIHml7bpl7Q6MjAy
-NS0wOC0yMiAxMToxNzozNyAo5pif5pyf5LqUKQo+IOaUtuS7tuS6ujog5p2O5b+XIDxsaXpoaTJA
-ZXN3aW5jb21wdXRpbmcuY29tPgo+IOaKhOmAgTogd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5n
-LmNvbSwgYW5kcmV3K25ldGRldkBsdW5uLmNoLCBkYXZlbUBkYXZlbWxvZnQubmV0LCBlZHVtYXpl
-dEBnb29nbGUuY29tLCBrdWJhQGtlcm5lbC5vcmcsIHJvYmhAa2VybmVsLm9yZywga3J6aytkdEBr
-ZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBuZXRkZXZAdmdlci5rZXJuZWwub3JnLCBk
-ZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywg
-bWNvcXVlbGluLnN0bTMyQGdtYWlsLmNvbSwgYWxleGFuZHJlLnRvcmd1ZUBmb3NzLnN0LmNvbSwg
-cm1rK2tlcm5lbEBhcm1saW51eC5vcmcudWssIHlvbmcubGlhbmcuY2hvb25nQGxpbnV4LmludGVs
-LmNvbSwgdmxhZGltaXIub2x0ZWFuQG54cC5jb20sIGpzemhhbmdAa2VybmVsLm9yZywgamFuLnBl
-dHJvdXNAb3NzLm54cC5jb20sIHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNv
-bSwgaW5vY2hpYW1hQGdtYWlsLmNvbSwgYm9vbi5raGFpLm5nQGFsdGVyYS5jb20sIGRmdXN0aW5p
-QHRlbnN0b3JyZW50LmNvbSwgMHgxMjA3QGdtYWlsLmNvbSwgbGludXgtc3RtMzJAc3QtbWQtbWFp
-bG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3Jn
-LCBuaW5neXVAZXN3aW5jb21wdXRpbmcuY29tLCBsaW5taW5AZXN3aW5jb21wdXRpbmcuY29tLCBw
-aW5rZXNoLnZhZ2hlbGFAZWluZm9jaGlwcy5jb20KPiDkuLvpopg6IFJlOiBSZTogUmU6IFJlOiBS
-ZTogUmU6IFtQQVRDSCB2MyAyLzJdIGV0aGVybmV0OiBlc3dpbjogQWRkIGVpYzc3MDAgZXRoZXJu
-ZXQgZHJpdmVyCj4gCj4gPiBXZSByZS10dW5lZCBhbmQgdmVyaWZpZWQgdGhhdCBzZXR0aW5nIHRo
-ZSBUWEQgYW5kIFJYRCBkZWxheXMgdG8gMCBhbmQKPiA+IGNvbmZpZ3VyaW5nIFRYRU4gYW5kIFJY
-RFYgdG8gMCB5aWVsZGVkIHRoZSBzYW1lIGhhcmR3YXJlIHBlcmZvcm1hbmNlIGFzCj4gPiBsb25n
-IGFzIHdlIG9ubHkgYXBwbGllZCBkZWxheXMgKGUuZy4gMjAwcHMpIHRvIFRYQ0xLIGFuZCBSWENM
-Sy4KPiAKPiBUaGlzIGlzIGluIGFkZGl0aW9uIHRvIHBoeS1tb2RlID0gJ3JnbWlpLWlkJz8KPiAK
-Clllcywgb3VyIHJlLXR1bmluZyBhbmQgdmVyaWZpY2F0aW9uIHdlcmUgcGVyZm9ybWVkIHdpdGgg
-cGh5LW1vZGUgc2V0IHRvCnJnbWlpLWlkLgoKPiA+IFRoZXJlZm9yZSwgaW4gdGhlIG5leHQgcGF0
-Y2gsIHdlIHdpbGwgZHJvcCB0aGUgdmVuZG9yLXNwZWNpZmljIHByb3BlcnRpZXMKPiA+IChlLmcu
-IGVzd2luLGRseS1wYXJhbS0qKSBhbmQga2VlcCBvbmx5IHRoZSBzdGFuZGFyZCBhdHRyaWJ1dGVz
-LCBuYW1lbHkKPiA+IHJ4LWludGVybmFsLWRlbGF5LXBzIGFuZCB0eC1pbnRlcm5hbC1kZWxheS1w
-cy4KPiA+IElzIHRoaXMgY29ycmVjdD8KPiAKPiBZZXMsIDIwMHBzIGlzIGEgc21hbGwgdHVuaW5n
-IHZhbHVlLCB3aGVuIHRoZSBQSFkgYWRkcyB0aGUgMm5zLiBUaGlzIGlzCj4gTy5LLgo+IAo+IAlB
-bmRyZXcK
+
+On 21.08.2025 14:34, Lorenzo Bianconi wrote:
+>> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
+>>>> This patch series greatly improve airoha snfi driver and fix a
+>>>> number of serious bug.
+>>>>
+>>>> Fixed bugs:
+>>>>  * Fix reading/writing of flashes with more than one plane per lun
+>>>>  * Fix inability to read/write oob area
+>>>>  * Fill the buffer with 0xff before writing
+>>>>  * Fix reading of flashes supporting continuous reading mode
+>>>>  * Fix error paths
+>>>>
+>>>> Improvements:
+>>>>  * Add support of dual/quad wires spi modes in exec_op().
+>>>>  * Support of dualio/quadio flash reading commands
+>>>>  * Remove dirty hack that reads flash page settings from SNFI registers
+>>>>    during driver startup
+>>>>
+>>>> Unfortunately I am unable to test the driver with linux at the moment,
+>>>> so only the following testing was done:
+>>> It seems to me this is quite an important rework of the driver. I would prefer
+>>> to have some test results for this series. Are you able to run mtd_test kernel
+>>> module for testing?
+>> I'll try to build latest openwrt with this patches  and mtd_test kernel
+>> module and try it on one of our boards.
+> what board are you using for testing? If it is based on Airoha-7581 you could
+> use the following repo for testing.
+>
+> https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-stable
+>
+> Regards,
+> Lorenzo
+What tests do you suggest to run?
+I have a single flash I boot from. It have only 2 mtd partitions:
+
+[    2.980849] spi-nand spi0.0: Micron SPI NAND was found.
+[    2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size:
+2048, OOB size: 128
+[    2.994493] 2 fixed-partitions partitions found on MTD device spi0.0
+[    3.000856] Creating 2 MTD partitions on "spi0.0":
+[    3.005651] 0x000000000000-0x000000020000 : "bl2"
+[    3.011247] 0x000000020000-0x000010000000 : "ubi"
+
+Most of tests are destructive. So If I use "bl2" or "ubi" partition for
+test, next time I will be unable to boot :-(
+Do you suggest to patch u-boot & linux to have more mtd partitions?
+
+This is the results of the only read-only test I found.
+
+root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
+root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=1
+[  159.121706]
+[  159.123220] =================================================
+[  159.129053] mtd_readtest: MTD device: 1
+[  159.132898] mtd_readtest: MTD device size 268304384, eraseblock size
+131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
+64, OOB size 128
+[  159.147008] mtd_test: scanning for bad eraseblocks
+[  159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
+[  159.157549] mtd_readtest: testing page read
+
+Mikhail
+
+>> Actually patches can be divided on to parts:
+>> * fixes of current driver (patches 1-10)
+>> * change of behavior to avoid reading flash page settings from SNFI
+>> registers during driver startup (patches 11-14)
+>>
+>> The changes are based on the code we are using for more than 3 years. I
+>> adapt it to latest linux/u-boot code.
+>>
+>> Up to now the only known issue appears on en7523 chips only. Here a
+>> corresponding patch description (not added to this series)
+>> ====================================================== spi: airoha:
+>> en7523: workaround flash damaging if UART_TXD was short to GND We found
+>> that some serial console may pull TX line to GROUND during board boot
+>> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
+>> booting in RESERVED boot mode. It was found that some flashes operates
+>> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definitely
+>> affected by the issue, Winbond flashes are NOT affected. Details:
+>> -------- DMA reading of odd pages on affected flashes operates
+>> incorrectly. Page reading offset (start of the page) on hardware level
+>> is replaced by 0x10. Thus results in incorrect data reading. Usage of
+>> UBI make things even worse. Any attempt to access UBI leads to ubi
+>> damaging. As result OS loading becomes impossible. Non-DMA reading is
+>> OK. =======================================================
+>>
+>> Regards,
+>> Mikhail
+>>
+>>
+>>> Regards,
+>>> Lorenzo
+>>>
+>>>>  * Driver compiles without error.
+>>>>  * All changes were tested with corresponding u-boot driver. U-Boot
+>>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
+>>>>    additional fixes for continuous mode.
+>>>>
+>>>> Changes v2:
+>>>>  * minor fix
+>>>>  * add comments to code
+>>>>
+>>>> Changes v3:
+>>>>  * add patch to prevent continuous reading
+>>>>
+>>>> Mikhail Kshevetskiy (14):
+>>>>   spi: airoha: return an error for continuous mode dirmap creation cases
+>>>>   spi: airoha: remove unnecessary restriction length
+>>>>   spi: airoha: add support of dual/quad wires spi modes
+>>>>   spi: airoha: remove unnecessary switch to non-dma mode
+>>>>   spi: airoha: unify dirmap read/write code
+>>>>   spi: airoha: switch back to non-dma mode in the case of error
+>>>>   spi: airoha: fix reading/writing of flashes with more than one plane
+>>>>     per lun
+>>>>   spi: airoha: support of dualio/quadio flash reading commands
+>>>>   spi: airoha: allow reading/writing of oob area
+>>>>   spi: airoha: buffer must be 0xff-ed before writing
+>>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
+>>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG and
+>>>>     REG_SPI_NFI_SECCUS_SIZE registers
+>>>>   spi: airoha: set custom sector size equal to flash page size
+>>>>   spi: airoha: avoid reading flash page settings from SNFI registers
+>>>>     during driver startup
+>>>>
+>>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++-----------------
+>>>>  1 file changed, 260 insertions(+), 248 deletions(-)
+>>>>
+>>>> -- 
+>>>> 2.50.1
+>>>>
 
