@@ -4,100 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624D8CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA31CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4pYdqJuAzYUBYGLZvAHsnWM97Hp3xHmy6gGSOZhTl0=; b=Hwj/sdXVJSzBZEdoez2/mBTU8e
-	DoiPdY3WOpKavLGtkWotLWdgep/ONaIzmzhRFyYwlKlZays+rBu1i1C3xZpsVh6j4QmZ9xhVfsY5V
-	EVe8c4UIhVgYWnHiAxSGlnAtGZGMqE+6mm7cMZyi93JCO/OECXNWWtA7rciNC1xYPvdSXAltU0BYo
-	oe0pCjW2K6kbPpJfS23jme8BYwfEh15ajZrwoNtmf0vXce9g3zuCgjsE6trzUwKY1IBtqbS5Bowcq
-	F7DKVaHa6lGnrLbqccqhIGP0z0XblFfJdm/tXxb0FHtEf60CTK4Jc9Xna8dhf/8S4x12OuhgRjYS3
-	YrekOu7A==;
+	bh=+TB1L+FQUyzl0MZXwgPCTGStPNNRpx5XfsGy8ZsCSSo=; b=L8YeWWdPSvS/tuDZ0DDwsdWVA8
+	HJk5O0ndBI0sIY8MH6woiZd2tgcXxfynbnOAwUFe/XAnbP0j3OuFyT65qUeLB49JkmD8GKGIWmwkt
+	bYUO6pYcI9JexbjOXXwGVvnWb8rIfghHFX6A7o9ktTbFn2TtNMv1n0L6rJ4w6Dy9GqPvy9w6bnwmq
+	ueEJuwzQElzTDT40CuaI1f0Eu2IWXfzQ6hdCJ2WWCdsDgZTsuchnok9MMWqFFXhVCuknMuJAhnhLH
+	NhG0EFQa8lHdAro3KTTHKVyp5UkXrmFH5q+4mRc5TPNtAqvHxGpuT/GEcJyN+a3uBY6Jukf7mx+NS
+	d5t9ILpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphlt-00000003ywY-0XoA;
-	Sat, 23 Aug 2025 06:30:37 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uphlu-00000003yzQ-1nHP;
+	Sat, 23 Aug 2025 06:30:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRY8-00000002aXa-47do
+	id 1upRYW-00000002aZb-0lEV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 13:11:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+TB1L+FQUyzl0MZXwgPCTGStPNNRpx5XfsGy8ZsCSSo=; b=mUTa54lGE6qv0xKVWCFLXgoucJ
+	iuBGnb+Or+1Tm7Br6u3JfTL7NpueffvTA+zhwhpeecxxRyeCvCQ+WOrBR/Q0DadsncazRQYKzm3rD
+	xt2+I2vUf+tMrdva2ZfrtATZKwJ6VUbvNvIVug3cZVK5YeSaFFMoGoilM72VRaRx/UP75De8gjJIr
+	0PMQNWLw7NE5mLvT1aIHIheltV+bOn+UNIfkx4eiVItG4lQ6kwMsoQu5zsd17eV/1cR3LQvIVt+44
+	X81utX12zsm3+pMFhRmZclaSwh/uHPwRAPWyoD9sBq2C97RU9REt8GhASg+J6bTZ0Uox5zBLqi+H0
+	vBPSihlw==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upRYS-00000000vAL-3inG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:11:22 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MCCaeX015941;
-	Fri, 22 Aug 2025 15:11:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	B4pYdqJuAzYUBYGLZvAHsnWM97Hp3xHmy6gGSOZhTl0=; b=sm++KblT0vJdhu/X
-	xpsgsy8lD9wXrhreSVLSBAtXvdBHIfmWKkBS1wuwTe/6PWel5AzEmcLpZMJOAqIP
-	lkY1KdnfrzieOgZ09ggEIaWPSdc+TyLimjZjQOq51CN0mfaRzSVtCo+0mE0jB2Xs
-	F1bAPglIEIb8MCDtEsyc0DhTZpbtvPvRhb8f+D7jOUS7uF4FwBnaTbXfF8GVt624
-	EMgwNxTea9UynQvLx1X+5dfZJmfOfAaahFe3JHRvnAv1mU5Es9shzQdG9LEXMDLh
-	Rd789ZhVXr9hQFyCZLJfnHZvj1gmlEH/8blMCP4z+P8JF2lnGlS2RG3jTUT+qBDZ
-	uX+evw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n70dk7g3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 15:11:09 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5460840050;
-	Fri, 22 Aug 2025 15:09:56 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 975616CA48F;
-	Fri, 22 Aug 2025 15:08:58 +0200 (CEST)
-Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 15:08:57 +0200
-Message-ID: <44b7b47d-a42c-499d-a760-f34d2740ff8c@foss.st.com>
-Date: Fri, 22 Aug 2025 15:08:57 +0200
+	Fri, 22 Aug 2025 13:11:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1183F1A0D24;
+	Fri, 22 Aug 2025 13:11:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CADDA604AD;
+	Fri, 22 Aug 2025 13:11:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 65ED51C22A1CE;
+	Fri, 22 Aug 2025 15:11:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1755868291; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=+TB1L+FQUyzl0MZXwgPCTGStPNNRpx5XfsGy8ZsCSSo=;
+	b=PC3Si3dL073tGT7/St5ggmnQp5llUhCaOW88SWlw/wJdhJK0qLNY3/bfS3+VOR63HOCzw6
+	ZTfzYrzxkZV2ekIAovNo0pwhw6oHhsqzyRFSq5iLv/TuJO2I47JXntjDUZ4Onmw11r1dTw
+	a5/fp10LoYpW+SLzGb40Qx0TrK2gjNIqfZf149Ec4SpwA9OBvKQpwbfTwZ4mXcR8kkFOU9
+	3+E0HoDcAZZYVI5MS6YRCH64k/zyiQZd4w8quC8xy4VWvyFYZG8XQWjVb/AYe8+xigGbwE
+	oxC2CovGbpXqY2x+6iaVBsOhleAS45dqt9yta+uiE+atcB694BA+4esUs6+dYw==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Frank Wunderlich
+ <frank-w@public-files.de>
+Cc: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Subject: Re: [PATCH v2] ARM64: dts: mcbin: fix SATA ports on Macchiatobin
+In-Reply-To: <E1up9Jw-00BbOE-VC@rmk-PC.armlinux.org.uk>
+References: <E1up9Jw-00BbOE-VC@rmk-PC.armlinux.org.uk>
+Date: Fri, 22 Aug 2025 15:11:26 +0200
+Message-ID: <87sehj5wn5.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 11/13] arm64: dts: st: add lvds support on stm32mp255
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
- <20250821-drm-misc-next-v4-11-7060500f8fd3@foss.st.com>
-Content-Language: en-US
-From: Yannick FERTRE <yannick.fertre@foss.st.com>
-In-Reply-To: <20250821-drm-misc-next-v4-11-7060500f8fd3@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.178]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_061121_321332_0E20E53C 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250822_141141_052043_54921BEA 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raphael,
+"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> writes:
 
-Thanks for the patch.
-
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
-
-Le 21/08/2025 à 13:09, Raphael Gallais-Pou a écrit :
-> The LVDS is used on STM32MP2 as a display interface.
+> Booting 6.16 on the Macchiatobin, I discover that I can no longer
+> access my disks, and thus the userspace boot fails. The cause appears
+> to be that one of the SATA controllers doesn't have any ports:
 >
-> Add the LVDS node.
+> [    1.190312] ahci f4540000.sata: supply ahci not found, using dummy reg=
+ulator
+> [    1.196255] ahci f4540000.sata: supply phy not found, using dummy regu=
+lator
+> [    1.202026] ahci f4540000.sata: No port enabled
 >
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> This is as a result of the blamed commit below which added a default
+> disabled status to the .dtsi, but didn't properly update the mcbin
+> dtsi file. Fix this regression.
+>
+> Fixes: 30023876aef4 ("arm64: dts: marvell: only enable complete sata node=
+s")
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Applied on mvebu/fixes
+
+Thanks,
+
+Gregory
+
 > ---
->   arch/arm64/boot/dts/st/stm32mp255.dtsi | 14 +++++++++++++-
->   1 file changed, 13 insertions(+), 1 deletion(-)
+>  arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/dts/st/stm32mp255.dtsi
-> index 48a95af1741c42300195b753b710e714abc60d96..433a0aabe72e5a449ec03fb984a8684c5d5d75a2 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
-> @@ -12,6 +12,18 @@ &ltdc {
->   };
->   
->   &rifsc {
-> +	lvds: lvds@48060000 {
-> +		compatible = "st,stm32mp255-lvds", "st,stm32mp25-lvds";
-> +		#clock-cells = <0>;
-> +		reg = <0x48060000 0x2000>;
-> +		clocks = <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
-> +		clock-names = "pclk", "ref";
-> +		resets = <&rcc LVDS_R>;
-> +		access-controllers = <&rifsc 84>;
-> +		power-domains = <&CLUSTER_PD>;
-> +		status = "disabled";
-> +	};
-> +
->   	vdec: vdec@480d0000 {
->   		compatible = "st,stm32mp25-vdec";
->   		reg = <0x480d0000 0x3c8>;
-> @@ -28,4 +40,4 @@ venc: venc@480e0000 {
->   		clocks = <&rcc CK_BUS_VENC>;
->   		access-controllers = <&rifsc 90>;
->   	};
-> -};
-> \ No newline at end of file
-> +};
+> diff --git a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi b/arch/ar=
+m64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> index 6170ca8f908f..8c7db2e87e30 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtsi
+> @@ -388,11 +388,13 @@ &cp1_sata0 {
+>  	/* CPS Lane 1 - U32 */
+>  	sata-port@0 {
+>  		phys =3D <&cp1_comphy1 0>;
+> +		status =3D "okay";
+>  	};
+>=20=20
+>  	/* CPS Lane 3 - U31 */
+>  	sata-port@1 {
+>  		phys =3D <&cp1_comphy3 1>;
+> +		status =3D "okay";
+>  	};
+>  };
+>=20=20
+> --=20
+> 2.30.2
 >
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
