@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340F4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA5ACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBLghRpDnKN0bEo3TKQupICpm0Ote+xiP5+E9br8q0Y=; b=x/xFClvba+/tDyKoiGRoZwrCOU
-	+eMkkIzxz7BM0uj1bK6cVlg1Ic+Fj8K/CihFJ2/LWOEib7J0SahrKQX0z4u0YLaosy36MSfkov3VG
-	1tx9KIALmHET0bJPOrZsZKEkIMJvgh1f9BerKiqEmwLoZVkIV7Y6M5OgL0e66Vw6w/TqojUBeaKrc
-	9HFdgpAsScOnQEh5NGpHEcBcP3R/zgNRx9lbR90ll1wXIB/0LsChNiUI82+RNMnT7TN5ygwGNgRdT
-	YeecDBW1Y7Ae7xDSCXNhydGPl+mnOgwTFERAqVaJdum7uiW7euOYSGW2EZ9/DGcTs1mJfYauEr251
-	mNl+kNGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UB7AAPoapUY7Kj91k2jqmcn/6MAZNGlpIcC5Kc7IaiE=; b=WLUASVCtWyzG15DQ23cYlqG3L4
+	VZwB1czpV37Wogt1Cw8qvKD3nPPEMcRMyHWpilvi9cGNNQlY9i1nl7/qpHxA5uOgWlnO7r2+Hyelp
+	eZJf5UfSS3NAhlTubsNMXoWpDvo15YQ8CcoVSb6pOlIJ5gGwcfo9VtDMPauTRDZhQlItOV0gVjKtq
+	Dsjg4Np1Jk8CPLjcj378Iy5A3VXPL+9gPlM7uqg1zcA3NDodIMTEiXczzzR9k31N3R7rqTYO9T+1v
+	/3Fl1LsbWwpCd472cYBV4nnyhyWD500vsK6c7woN1danfkC0ac4osFquePpRfHq2EqjKZZXpoT1/t
+	MlORHyFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphrf-000000046zG-3Tw4;
-	Sat, 23 Aug 2025 06:36:35 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTbt-000000030E5-0JKt
+	id 1uphro-000000047EG-09tM;
+	Sat, 23 Aug 2025 06:36:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTjM-000000031Wi-3IFf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:23:22 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57MFNDLW754277;
-	Fri, 22 Aug 2025 10:23:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755876193;
-	bh=VBLghRpDnKN0bEo3TKQupICpm0Ote+xiP5+E9br8q0Y=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=TXKpmGyNM/uEgtR/FgNT1eyTAgohzC8a0+t3WtH1M+Lonyf8qw4QaIwjX1sAcA+0n
-	 DgdLthlfRL+3SOyGBP/GnTDuO05NUOTKNsG7bONu3Tir7cpqZO/eHIROJ5sKCW1GMQ
-	 AWfqUHFzQ1ApqFB6aeZ2J7QhQDCCdYPzMAspzGV0=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57MFNDMG2793766
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 22 Aug 2025 10:23:13 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
- Aug 2025 10:23:13 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 22 Aug 2025 10:23:13 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57MFNDV33741978;
-	Fri, 22 Aug 2025 10:23:13 -0500
-Date: Fri, 22 Aug 2025 10:23:13 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Michael Walle <mwalle@kernel.org>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Jean Delvare <jdelvare@suse.com>,
-        Guenter
- Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>,
-        Srinivas Kandagatla
-	<srini@kernel.org>,
-        Wim Van Sebroeck <wim@linux-watchdog.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-hwmon@vger.kernel.org>,
-        <linux-watchdog@vger.kernel.org>
-Subject: Re: [PATCH v1 0/7] Initial Kontron SMARC-sAM67 support
-Message-ID: <20250822152313.vjzjtzik2q5ek5kq@sadly>
-References: <20250822131531.1366437-1-mwalle@kernel.org>
+	Fri, 22 Aug 2025 15:31:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3481215A1;
+	Fri, 22 Aug 2025 08:30:53 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 21EC13F63F;
+	Fri, 22 Aug 2025 08:30:56 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 00/33] arm_mpam: Add basic mpam driver
+Date: Fri, 22 Aug 2025 15:29:41 +0000
+Message-Id: <20250822153048.2287-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250822131531.1366437-1-mwalle@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_082321_272394_AEA9382B 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20250822_083104_910009_8245240A 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +95,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:15-20250822, Michael Walle wrote:
-> Now that the PMIC support is there, we can finally, upstream the
-> support for this board. Besides the usual device tree, this
-> patchset contains the support for the on-board house keeping MCU. It
-> make extensive reuse of the drivers for the former SMARC-sAL28
-> board. Besides different hwmon sensors, all the dt binding patches
-> will just add a board specific compatible (in addition to the old
-> sl28 compatible) to make any future board specific quirks possible.
-> 
-> I'm aware that there is a patch [1] which moves the sl28cpld MFD
-> schema to a different directory. Once that patch is merged, I'll
-> repost this series. But I already want to get some early feedback.
-> 
-> [1] https://lore.kernel.org/r/20250822075712.27314-2-krzysztof.kozlowski@linaro.org/
-> 
-> Michael Walle (7):
->   dt-bindings: arm: ti: Add bindings for Kontron SMARC-sAM67 module
->   dt-bindings: mfd: sl28cpld: add sa67mcu compatible
->   dt-bindings: hwmon: sl28cpld: add sa67mcu compatible
->   dt-bindings: watchdog: add SMARC-sAM67 support
->   dt-bindings: nvmem: sl28cpld: add sa67mcu compatible
->   hwmon: sl28cpld: add SMARC-sAM67 support
->   arm64: dts: ti: Add support for Kontron SMARC-sAM67
+Hello,
 
-Since this goes through multiple maintainers, may I suggest the
-following strategy?
+This is just enough MPAM driver for the ACPI and DT pre-requisites.
+It doesn't contain any of the resctrl code, meaning you can't actually drive it
+from user-space yet. Becuase of that, its hidden behind CONFIG_EXPERT.
+This will change once the user interface is connected up.
 
-for this window:
-* send dts and board binding changes dropping the nodes that are yet to
- be upstream
-* send the compatible changes to each of the maintainers
+This is the initial group of patches that allows the resctrl code to be built
+on top. Including that will increase the number of trees that may need to
+coordinate, so breaking it up make sense.
 
-Next window:
-* add the nodes based on acceptance of the driver bindings
+The locking looks very strange - but is influenced by the 'mpam-fb' firmware
+interface specification that is still alpha. That thing needs to wait for an
+interrupt after every system register write, which significantly impacts the
+driver. Some features just won't work, e.g. reading the monitor registers via
+perf.
+The aim is to not have to make invasive changes to the locking to support the
+firmware interface, hence it looks strange from day-1.
 
-This removes multiple maintainers needing to give me immutable tags etc.
+I've not found a platform that can test all the behaviours around the monitors,
+so this is where I'd expect the most bugs.
 
-What do you think?
-> 
->  .../devicetree/bindings/arm/ti/k3.yaml        |    1 +
->  .../hwmon/kontron,sl28cpld-hwmon.yaml         |    1 +
->  .../bindings/mfd/kontron,sl28cpld.yaml        |    7 +-
->  .../nvmem/layouts/kontron,sl28-vpd.yaml       |    7 +-
->  .../watchdog/kontron,sl28cpld-wdt.yaml        |    7 +-
->  arch/arm64/boot/dts/ti/Makefile               |    6 +
->  .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1092 +++++++++++++++++
->  .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   19 +
->  .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   24 +
->  drivers/hwmon/sl28cpld-hwmon.c                |   76 +-
->  10 files changed, 1234 insertions(+), 6 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso
-> 
-> -- 
-> 2.39.5
-> 
+The MPAM spec that describes all the system and MMIO registers can be found here:
+https://developer.arm.com/documentation/ddi0598/db/?lang=en
+(Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+ This document has the best overview)
+
+The expectation is this will go via the arm64 tree.
+
+
+This series is based on v6.17-rc2, and can be retrieved from:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driver/rv1
+
+The rest of the driver can be found here:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.17-rc2
+
+What is MPAM? Set your time-machine to 2020:
+https://lore.kernel.org/lkml/20201030161120.227225-1-james.morse@arm.com/
+
+This series was previously posted here:
+[RFC] lore.kernel.org/r/20250711183648.30766-2-james.morse@arm.com
+
+
+Bugs welcome,
+Thanks,
+
+James Morse (29):
+  cacheinfo: Expose the code to generate a cache-id from a device_node
+  drivers: base: cacheinfo: Add helper to find the cache size from
+    cpu+level
+  ACPI / PPTT: Add a helper to fill a cpumask from a processor container
+  ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear
+    levels
+  ACPI / PPTT: Find cache level by cache-id
+  ACPI / PPTT: Add a helper to fill a cpumask from a cache_id
+  arm64: kconfig: Add Kconfig entry for MPAM
+  ACPI / MPAM: Parse the MPAM table
+  arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
+  arm_mpam: Add the class and component structures for ris firmware
+    described
+  arm_mpam: Add MPAM MSC register layout definitions
+  arm_mpam: Add cpuhp callbacks to probe MSC hardware
+  arm_mpam: Probe MSCs to find the supported partid/pmg values
+  arm_mpam: Add helpers for managing the locking around the mon_sel
+    registers
+  arm_mpam: Probe the hardware features resctrl supports
+  arm_mpam: Merge supported features during mpam_enable() into
+    mpam_class
+  arm_mpam: Reset MSC controls from cpu hp callbacks
+  arm_mpam: Add a helper to touch an MSC from any CPU
+  arm_mpam: Extend reset logic to allow devices to be reset any time
+  arm_mpam: Register and enable IRQs
+  arm_mpam: Use a static key to indicate when mpam is enabled
+  arm_mpam: Allow configuration to be applied and restored during cpu
+    online
+  arm_mpam: Probe and reset the rest of the features
+  arm_mpam: Add helpers to allocate monitors
+  arm_mpam: Add mpam_msmon_read() to read monitor value
+  arm_mpam: Track bandwidth counter state for overflow and power
+    management
+  arm_mpam: Add helper to reset saved mbwu state
+  arm_mpam: Add kunit test for bitmap reset
+  arm_mpam: Add kunit tests for props_mismatch()
+
+Rob Herring (1):
+  dt-bindings: arm: Add MPAM MSC binding
+
+Rohit Mathew (2):
+  arm_mpam: Probe for long/lwd mbwu counters
+  arm_mpam: Use long MBWU counters if supported
+
+Shanker Donthineni (1):
+  arm_mpam: Add support for memory controller MSC on DT platforms
+
+ .../devicetree/bindings/arm/arm,mpam-msc.yaml |  200 ++
+ arch/arm64/Kconfig                            |   19 +
+ drivers/Kconfig                               |    2 +
+ drivers/Makefile                              |    1 +
+ drivers/acpi/arm64/Kconfig                    |    3 +
+ drivers/acpi/arm64/Makefile                   |    1 +
+ drivers/acpi/arm64/mpam.c                     |  331 ++
+ drivers/acpi/pptt.c                           |  230 +-
+ drivers/acpi/tables.c                         |    2 +-
+ drivers/base/cacheinfo.c                      |   19 +-
+ drivers/resctrl/Kconfig                       |   24 +
+ drivers/resctrl/Makefile                      |    4 +
+ drivers/resctrl/mpam_devices.c                | 2909 +++++++++++++++++
+ drivers/resctrl/mpam_internal.h               |  692 ++++
+ drivers/resctrl/test_mpam_devices.c           |  390 +++
+ include/linux/acpi.h                          |   26 +
+ include/linux/arm_mpam.h                      |   56 +
+ include/linux/cacheinfo.h                     |   16 +
+ 18 files changed, 4911 insertions(+), 14 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+ create mode 100644 drivers/acpi/arm64/mpam.c
+ create mode 100644 drivers/resctrl/Kconfig
+ create mode 100644 drivers/resctrl/Makefile
+ create mode 100644 drivers/resctrl/mpam_devices.c
+ create mode 100644 drivers/resctrl/mpam_internal.h
+ create mode 100644 drivers/resctrl/test_mpam_devices.c
+ create mode 100644 include/linux/arm_mpam.h
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.20.1
+
 
