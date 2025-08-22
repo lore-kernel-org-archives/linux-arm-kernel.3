@@ -4,65 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CF4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA7ECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tgKCHfUmztrSWVKtHdc3pQd1aPvk/aywUlMe/qhMzDY=; b=LPBLBZlcvSi63kAOxWxD8+9l3S
-	eGlHk/9PdT78dmKjjV3RYOv/cARqMHSj8yY3fMRelz+y9pdAg6i8Edeoz/3CY4H+JfK6LB6hHWFo8
-	ko8Kanw3zjm+2XLbL3qGR6AhL9u39qusuqkT+O5rMcA5jCtYZfD6+gJ/ZUMxe0Wr4lAwUcP5ZDHW2
-	MDV6VeYaj+ZjNthnWshBvbkpCET1XNSnRJX9KdLKOvklev0TpFeJ5E/9JMaeAeFLYlOxZ1BkorB65
-	UZDkCSEhSei6AiqKrZDbf7jxrd0imUSkyaSaSP7n3SDNDnXBkVKRd0Xdcisyk5EmTqvnYIz9EJvV0
-	y1t3ybIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=; b=Dv2s9Wajus/WBJUnqavy0YnvaU
+	0NyMjQJqsKKbZzo7M8s//273j2NCjkRr6aG6aynjLR0Ltap3t5AcgjzBUuRhTCwuY7hemeDwSsd1R
+	7HRp3w0i1c6vMZvqiQTh+j7mAM2vL6F4J3PNOCQe4HxvOpU3but5fm9fzGYo1hR43dtxFxqkW05kQ
+	K2UFIG09p3vqPk6rElKVc2+pSeFasFDIVkgHKxzNrCiEKj+uLJmiv3WDw0umSJRdDivxoQfmdGgkI
+	wFvXzM5gd0eua5L6VyVsOKqAOroFGDph7d7CsCUgQywJsOnKhUU4lmu093ieAjN7I764vG9oIQAbr
+	2nDvn+bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphmO-00000003ztK-3w2a;
-	Sat, 23 Aug 2025 06:31:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uphmS-00000003zzW-0bFs;
+	Sat, 23 Aug 2025 06:31:12 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSNM-00000002i9o-2tpD
+	id 1upSPW-00000002iUx-3Ile
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:04:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 60E9DA558B8;
-	Fri, 22 Aug 2025 14:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5975C4CEED;
-	Fri, 22 Aug 2025 14:04:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755871455;
-	bh=fedKWDUCFw6sDYSvu9stQDvSI1wsHoWAuIqdks8aTTU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=lCGeFWmNalegk6Ivok+cS6qPc446TA+WpF0a17y4MMUmH75owIr3qn1ONLF2ZnY4s
-	 dWv8EAo5M/HWVRNp1RFZ2WPJPmVUe3ofMq76VyqhzgyxrTjNsAZLsvajA5V/pE+1Fe
-	 7u/xymksvDxH0dx7mja+y8TRFv4I8ozpSn+RclnurYx19xh+mjAzYxJT220jS701xO
-	 YdqW/+GqdQaaLQ+QBtl7P5T8BCZuST+2KjaVZF0fgUYh2os/fz1yQBZ1ZkDPnBIWEL
-	 H5KeX8HRjGdCTcN4Qh/syN15j6OHrGLMsxd9GonmYR0Za4UI2wthKgQe9HRMYeZgjY
-	 cp2PI6yqFTx9A==
-From: Will Deacon <will@kernel.org>
-To: stable@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [STABLE] [PATCH] KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix
-Date: Fri, 22 Aug 2025 15:04:02 +0100
-Message-Id: <20250822140402.2688-1-will@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Fri, 22 Aug 2025 14:06:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vKN5UaRlKCZ4W1LL454CzUrOAWVetm72snA3bdLLcL7L1dT8ehNHFsP3KQP5GbZ3Em4craz6dDR+BzAe0wWsDbyaxrdQdEQzqaRVEEOgva4dLIg/2h5UdUm3MQ5fFVf6JSQfdWdLBDLZh78sZ4BoWJONsTHLIfizMD502OQR2bBOZvE5Tz5ACOoUSq5BQN3T8wkMJSRco1Lay5AMSyj6nrarfOSa2oNGlEPPlgo129Bq6KDJiUoeXYKCSdfky7nJod87Ju0Hpx9WP/lSWdv95in1qxaiDwh/EwzKAzl0uGDe502ekwMU8y6qSd3KYZluiNro5zuVVxUuJ55b0QOQpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=;
+ b=iCiKhjx4XvfL/RcsF/CUr5FTW5WEgp2prsFzrzmVrcM1BR0HBJgBxlRPmUDPZsA9ZCiD2X32kzHBm+tv0NW7PhIwNKvHDRQRw+eU+EFQH10OpV3v3SYk13mhewY1bTl6CtSNAXZ2XMd1/DWlXkeBv9rN9Nen6Opzjh/f1Nwv2Ed7Ye1MDZ9RzIxEpdD7JTwTQLQtrlIE7YQRb9psfOMDId6Yyb8o1TZgc8P8vCT5u3HT8C5S0U3eWnyXHRfIeS/swhy44MtiJIo2MRhN2pb0k+gvoKfqB0IVD+lVwukaYBjbq3VTXXiilud0IW8CyH9DbRUK3/rmlLs7sGQbhOGnow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=;
+ b=d+2NdJcBXQKc50U02IsgUhHmp8jJ+ZKYq75KItPtx1tjxtd+AMILsjmPKiz/mSQcXooF4yB8X07hwd3aINs1ubiB7sqhyXAZU9scaFDd2WLhggt/yBqZnlqhC1NjaXI9SGPyR9Tmi+KddO76EZPTfObw4RbaS/bcQr68nDdkyBT0zI1qocsghVRC8jNXb5g7HBB9SVmUTYnbUdg5wD8593KHokTPhWjc1xjJoOIbFCgWa4mhA5rz3MI14YjCZKNCOWPxBelpx7o4Sry3CtzqKC8aTaOXq9lWNM0d5/markNkJJILAheAAnvin4Z3BqcVO5i+VJHQISsUwl2ALn13/w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by GV4PR04MB11306.eurprd04.prod.outlook.com (2603:10a6:150:297::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.17; Fri, 22 Aug
+ 2025 14:06:23 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Fri, 22 Aug 2025
+ 14:06:23 +0000
+Date: Fri, 22 Aug 2025 10:06:14 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
+ i.MX8ULP compatible string
+Message-ID: <aKh5VnsKNSFO8GzY@lizhi-Precision-Tower-5810>
+References: <20250822-csi2_imx8ulp-v2-0-26a444394965@nxp.com>
+ <20250822-csi2_imx8ulp-v2-1-26a444394965@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250822-csi2_imx8ulp-v2-1-26a444394965@nxp.com>
+X-ClientProxiedBy: PH7P220CA0126.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::11) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV4PR04MB11306:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2aef625e-ba3a-4dd6-469f-08dde18513c8
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cIyd9UcA0csNeqQTqMa0vp1o3CSWN/4XQlL57hTk0HL+vUrNCRyrtR3XUtjb?=
+ =?us-ascii?Q?hrEbi1dnCoSWn72SikvVCvROQC+2o1jn1oNlWdsAKECEhPBnbNZa3joC9GsF?=
+ =?us-ascii?Q?IuQHqQFV09EKlCIx/aQiNCfiNhalvowBg+YcOiQHHwl9PIC1GGYeepiYNTpZ?=
+ =?us-ascii?Q?Efj2emZb/4C894GOJbDujeR5qKSO86QtqMNTG82gkMzv5fXqirwW0mpdEjLD?=
+ =?us-ascii?Q?llmOHomNmyPrC1o0ZNtFi1ONnmuCgtjspGeeFibp0cigXftNDn9GvFrZOEZp?=
+ =?us-ascii?Q?yCZGzAy9ADiA0HXZUjTosdSoZT/L4kXG4eA2Mb6vExhL+9+2Twdw+V3VmFy5?=
+ =?us-ascii?Q?eyC1ov+8ER5ZWZKwRZGppxcPVHPtfecUHla7bgQDeXMRXVSa2oe+vXedvZ8p?=
+ =?us-ascii?Q?VC/N/52G/4fApKDCr10HbXlGHHdphmuJkUJnmTAJnjUYE4SZKeFhq2IfCKUL?=
+ =?us-ascii?Q?4TpXYa3PmNQhnsMVO8A9bWNs9/VV+Dbu3M0peEP8g/L2oMAqYeDfDugTm4Mg?=
+ =?us-ascii?Q?ZwxK7c6pqdkLD7kGFX9tVVuNyk/JB9NIEq5fjolySRQgpMw1aAr7o8RbhyFC?=
+ =?us-ascii?Q?QTMcqxkeV/ILTWWL4k8aazqNdJr86/T5CMOYof/C3EG/OVqVAwo5zbiclqqQ?=
+ =?us-ascii?Q?N4qRDAHXvmo0wcCZYw3wZZontSRTAhLmYBhCYJp5Z8et5uWbXLcP0dcqqEmf?=
+ =?us-ascii?Q?JS4wnqrk/XtkwuemLOF3kEPfeXVOMFppiqMSaAq6Ei0v4c6SI9OzQDvCG+TR?=
+ =?us-ascii?Q?6iEC1GwYHoEHrJIsSbkMfglJA6z7zoGIJSbOPusk+0tFkPhev9pxV0gBf+Q9?=
+ =?us-ascii?Q?+rC9u95+LNeKHNi+9RJceBvm+gjlPO/bKjeIaKeDP49/3x2sAoxhi8iaT34m?=
+ =?us-ascii?Q?zd4SKttFD5OWPIJPZnTPjg0mRX2wxvzmnePKN2VIySsreRvwoEdMET8ePTUY?=
+ =?us-ascii?Q?gwcwcy4qbzMzsqBwvxMN6pEDC469KTK0iz0MJUKA+WYO+LjgPKLbGHmJgQcx?=
+ =?us-ascii?Q?A+45uZs6jai92Q45Jtbh0WO9E4U/DyCnLVBDmChAG1HIdQ0XnQC1KT92L9Ca?=
+ =?us-ascii?Q?5SFXsAqdkf9iioZOp0Aw8daPYoVS1En8QEGAL+Ov64AP8NLCi/QswUPn8qIz?=
+ =?us-ascii?Q?nloyISLVcuuOR1ktXFem0Q8bj+cTvMy3y4vO0PnWqWcD7N3NsHqY5J9c65y3?=
+ =?us-ascii?Q?+cGGtgFgv0cYNXKJaptDBolTSzWk3lfXnHVLEo/OcwF6b8W9FcH+hd70IGU0?=
+ =?us-ascii?Q?PvI3NxKh1zuG0APTioy1pMfgtYGUURAo5rBrGGSqGRN20Tuz2r+dX3IJyo//?=
+ =?us-ascii?Q?2IaitHEp7uPXJdRZ9IAf7LS7OaTytYiEZUgQ/Cr1b8TD9Xv2Xw/1y0sTpZ8g?=
+ =?us-ascii?Q?4NeYgTsKTUiGpi7i0U9CVu7K/hbCwP9rtQn+M+BqM5TfjSWcxJvlVy4NZBHx?=
+ =?us-ascii?Q?B7TKedMz4w6jAlz00NDTTPV9MRinMmUMud3vzES0WBCJqix9BLtl7Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sh/Fj8D2KstmPdN/Mgg7Fs5imKWuKkxuXTyi9JGHHIu830Jk1rEiHXBe6S2W?=
+ =?us-ascii?Q?zmeZ3ppV0r+WMm50y7O4OVaob79zzZktEIBOGMcIeBg6L3U+Pq9mnpX+zZNz?=
+ =?us-ascii?Q?WeEKpSmr0vRsw44fnNoXeraSQX2zDhd/NmZAOOLLnBZOjtMXOAz3d7J8uwoU?=
+ =?us-ascii?Q?4FlL6ofQiRogmKSmSU9Rc/KhzKFdNmn9ThbbXh2/zc4FGv2kiO0sdOtxoOqw?=
+ =?us-ascii?Q?x5ie2N7O72J4ST0ekqh/4CeytfLlLGSaSNU3DqjS65ZUJpdgqe2yUcsJ5b3F?=
+ =?us-ascii?Q?lx86QhcF1GH2lV4SnDPZJzp607hUVGWE2kVhj+a4UmTQweGYmyalz8yZj/i/?=
+ =?us-ascii?Q?c4ernQaq1pYWyvyGn778mk24gImrr/oc9f306ekpmobl3vpdz96C09pQ6hWn?=
+ =?us-ascii?Q?RHeyQ3gtyOkw3GenvpgXuJ2i2w8awkzeSM1SpjqQ65t0Qtg3NaMkhuH+3hpV?=
+ =?us-ascii?Q?tqHRSiNXmTkvxkhhbnn+SBsWG2lsnKtaQoRMoh+GoMmMHhw4+5USN/02F8oD?=
+ =?us-ascii?Q?/mlhxKNrYEL7r/uflgPOa77CWDIJ10FqaxM9WiJ1/yNiU0XB5M4/OOLcwPLK?=
+ =?us-ascii?Q?S0OUrjSV6HKi+47M7TxRBlzTDizgy8X9gw8ErrIvnskjI14FJD7+pdnVDgaJ?=
+ =?us-ascii?Q?jEahofS7B+HVoK4vVUURc0BZ5M0N4jvkhNNgYN++jxr5YlZr60sfGSymjpsN?=
+ =?us-ascii?Q?d6a63620NYmZvpatmb7OM113RmaOV4hhEqSiXLyYbdXbhmzYGzW/b7Q4A3c3?=
+ =?us-ascii?Q?LD+BYChnM56rsT3YL3v6tgu+J6mw2PU6H76nbFf0E73z/OW148FYa6Utaba/?=
+ =?us-ascii?Q?fBhzf0ZpTl8RothtzF+XA3PWFTg1Accfkrvl7ZitLlwFqTM1Ka0l9tM+Bist?=
+ =?us-ascii?Q?oDdkgHwAqb4EQhhb1nX6tBVb8pWED6qzd1fYhZUcq68LWdGtgLBvJWAU48jP?=
+ =?us-ascii?Q?HHFroSXzh0ONtit9TkbAJVOtrl0fHwoXi4F8Pcj/q1HIcwdKdqc75yA+LSzh?=
+ =?us-ascii?Q?dQcX7Bw2NEeh3NGVQmp/qzcrluIVhDhR9ShimafYjFyiKtPViLW9HFmDkIpN?=
+ =?us-ascii?Q?8bDRD1zayvuQxWtd7Y64uZL9vXlM6ZsAw/Lopr3fN7+y6wwiWgUBLCUOF320?=
+ =?us-ascii?Q?sCPqJdIXMVYPrh+qKNZE3IYi8h00WNHGqDi0Z1ik4ok2lKYly9ETR6wCYvbg?=
+ =?us-ascii?Q?BX5Ji+oo180RdtmP6enVniAG23kd5bDf/ZbioUWhCoGaM1IF/N4eRfIreClV?=
+ =?us-ascii?Q?Y2bQv5FRaGcIIHPioYMEkU5KaRyf0GZxNKjxoxVsDfw/GD0hChRRrQK5+SX2?=
+ =?us-ascii?Q?F7vjMfO+3q/lYuQEV0NPlyLrZMYsAAD/G/S0/hCbWnAjcRy9WKJtFFM+Ieha?=
+ =?us-ascii?Q?PdIwSWMgsAXy81SCmpXSI9Zdk/5J06RSMR9PxodhLvHN/ytoE7csHT8XNQjU?=
+ =?us-ascii?Q?nTjHe1EN+KpMJYK2yHA8VhZXeC1HO43g/wUT0bFp9G8QDHFfR5mnFq5gDowm?=
+ =?us-ascii?Q?5G65yMUHGQgt4USmouyHhp8+qo0w03IxTtWhhG4zW8pfBm3bmn+f3F93B1gY?=
+ =?us-ascii?Q?orXjqklk3lkHFLULxs5SFgz8yyHb/b9D/4OwP2nt?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2aef625e-ba3a-4dd6-469f-08dde18513c8
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:06:23.6902
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 61xTQ8hfZ1Ak259/Kafh8PzmuQFPCkpq3aerTsbgVn/RDoH/IqTQi/9YfuL00cj/zSi5K3hjUzfli4yLx3dUqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11306
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_070416_856767_5260B520 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250822_070630_830039_7E3C1AF2 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +170,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally save+flush
-host FPSIMD/SVE/SME state") relies on interrupts being disabled during
-fpsimd_save_and_flush_cpu_state() so that a softirq cannot be taken
-while the host floating point context is being saved and potentially try
-to use kernel-mode NEON.
+On Fri, Aug 22, 2025 at 06:50:12PM +0800, Guoniu Zhou wrote:
+> The CSI-2 receiver in the i.MX8ULP is almost identical to the version
+> present in the i.MX8QXP/QM. But have different reset and clock design,
+> so add a device-specific compatible string for i.MX8ULP to handle the
+> difference.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 42 ++++++++++++++++++++--
+>  1 file changed, 40 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> index 3389bab266a9adbda313c8ad795b998641df12f3..ca485d1d596c274eb7e1f3cdc39c61bb54cc0685 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> @@ -21,7 +21,9 @@ properties:
+>            - fsl,imx8mq-mipi-csi2
+>            - fsl,imx8qxp-mipi-csi2
+>        - items:
+> -          - const: fsl,imx8qm-mipi-csi2
+> +          - enum:
+> +              - fsl,imx8ulp-mipi-csi2
+> +              - fsl,imx8qm-mipi-csi2
+>            - const: fsl,imx8qxp-mipi-csi2
+>
+>    reg:
+> @@ -39,12 +41,19 @@ properties:
+>                       clock that the RX DPHY receives.
+>        - description: ui is the pixel clock (phy_ref up to 333Mhz).
+>                       See the reference manual for details.
+> +      - description: pclk is the lpav bus clock of i.MX8ULP. It provides
+> +                     clock to CSI_REG module.
+> +                     (see section "4.5.4 Peripheral clock diagrams,
+> +                      Figure 76 MIPI CSI clocking" in IMX8ULPRM REV1)
+> +    minItems: 3
+>
+>    clock-names:
+>      items:
+>        - const: core
+>        - const: esc
+>        - const: ui
+> +      - const: pclk
+> +    minItems: 3
+>
+>    power-domains:
+>      maxItems: 1
+> @@ -125,19 +134,48 @@ required:
+>    - ports
+>
+>  allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8ulp-mipi-csi2
+> +    then:
+> +      properties:
+> +        reg:
+> +          minItems: 2
+> +        resets:
+> +          maxItems: 2
+> +          minItems: 2
+> +        clocks:
+> +          minItems: 4
+> +        clock-names:
+> +          minItems: 4
+> +
 
-Unfortunately, stable kernels without 9b19700e623f ("arm64: fpsimd: Drop
-unneeded 'busy' flag") leave interrupts enabled in
-fpsimd_save_and_flush_cpu_state() and so the BUG_ON(!may_use_simd()) in
-kernel_neon_begin() has been observed to trigger in real-world usage:
+Add
+    else
+      properties:
+        clocks:
+          - maxItems: 3
+        clock-names
+          - maxItems: 3
 
- |  kernel BUG at arch/arm64/kernel/fpsimd.c:1904!
- |  Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
- |
- |  Call trace:
- |   kernel_neon_begin+0xdc/0x12c
- |   ...
- |   crypto_aead_decrypt+0x5c/0x6c
- |   seqiv_aead_decrypt+0x88/0x9c
- |   crypto_aead_decrypt+0x5c/0x6c
- |   esp_input+0x280/0x364
- |   xfrm_input+0x6ac/0x16f8
- |   ...
- |   net_rx_action+0x13c/0x31c
- |   handle_softirqs+0x124/0x3d0
- |   __do_softirq+0x14/0x20
- |   ____do_softirq+0x10/0x20
- |   call_on_irq_stack+0x3c/0x74
- |   do_softirq_own_stack+0x1c/0x2c
- |   __irq_exit_rcu+0x54/0xb4
- |   irq_exit_rcu+0x10/0x1c
- |   el1_interrupt+0x38/0x58
- |   el1h_64_irq_handler+0x18/0x24
- |   el1h_64_irq+0x68/0x6c
- |   fpsimd_save+0xe4/0x130
- |   kvm_arch_vcpu_load_fp+0x2c/0x58
- |   kvm_arch_vcpu_load+0x88/0x26c
- |   kvm_sched_in+0x2c/0x3c
+to keep the same restriction for other compatible string
 
-Given that 9b19700e623f ("arm64: fpsimd: Drop unneeded 'busy' flag") is
-not a fix in its own right, has non-trivial dependencies and is a
-reasonably invasive change to the in-kernel use of fpsimd, opt instead
-for a simple fix to use the softirq-safe {get,put}_cpu_fpsimd_context()
-helpers in fpsimd_save_and_flush_cpu_state().
+Frank
 
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Lee Jones <lee@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: <stable@vger.kernel.org> # 5.15.y, 6.1.y and 6.6.y
-Fixes: 806d5c1e1d2e ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state") # 6.6.y
-Fixes: 04c50cc23a49 ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state") # 6.1.y
-Fixes: 5289ac43b69c ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state") # 5.15.y
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/fpsimd.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+>    - if:
+>        properties:
+>          compatible:
+>            contains:
+>              enum:
+>                - fsl,imx8qxp-mipi-csi2
+> +          not:
+> +            contains:
+> +              enum:
+> +                - fsl,imx8ulp-mipi-csi2
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index a1e0cc5353fb..d0d836448a76 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1876,10 +1876,10 @@ void fpsimd_save_and_flush_cpu_state(void)
- 	if (!system_supports_fpsimd())
- 		return;
- 	WARN_ON(preemptible());
--	__get_cpu_fpsimd_context();
-+	get_cpu_fpsimd_context();
- 	fpsimd_save();
- 	fpsimd_flush_cpu_state();
--	__put_cpu_fpsimd_context();
-+	put_cpu_fpsimd_context();
- }
- 
- #ifdef CONFIG_KERNEL_MODE_NEON
--- 
-2.51.0.rc2.233.g662b1ed5c5-goog
 
+>      then:
+>        properties:
+>          reg:
+>            minItems: 2
+>          resets:
+>            maxItems: 1
+> -    else:
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8mq-mipi-csi2
+> +    then:
+>        properties:
+>          reg:
+>            maxItems: 1
+>
+> --
+> 2.34.1
+>
 
