@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8136FCA0EE4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB83CA0FE1
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kvDVPw7OS3PnQ1V26p/rxq78OrrZUETtAXGrIZiRbxE=; b=PdqmMOHbYadr4s
-	8rzxGdCh2Mz4pFsqRtMfe+1uwEN4FJMleL+RTTKdwVCiEYO3YPCa+sbRV/tw2vSbsHwFJRKDwzG4B
-	ITIRbn1HqjIAAM4dwJuix1IrTCS7mXWlR4dEW6mI1jH8VEMOgUxtjkKzQT5D20bj2dd5RZtdwk0Xz
-	t7CmuSWbIY5Ezjlfh/qdIQewPUFCZgzwbcAWTJOeJBjBMrgk+D0w+aiqyYiMNmZXCoBckjUDDzFJa
-	BBQBAGqX2K7M14hIGkiwxdF0KHD//0Wev/3K3dKdfv9DYw3FCilsni1OrlAQAPJ6PD4CH4Zrr03Ci
-	kABSdyro79e6xrVRw2Lg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=0PtaUA6Sozh4gQj3jCj42kkzxA
+	nR0GWj00P0k4Su3c2yeUXrl7p8QAi87ESd6jyD5+hHus53lrQIf50CvUvf6NSrMTigASxzvgyM1jI
+	pNkO2u8i8CmEHfNHFPUA5IMX1WskCO3McllRTUdtkjqhNopPOLvL8IQ+wY2d4miZ+s+FnLNRzwjEc
+	HgVZUM3H/LVDhZuMv154dF1HvlPYZzVI9CO3NZvaORItqwv2LtLUbMmEUbAomYaYIkIf2fQcU+GHI
+	7QUcCqv6HZAwt2wzNlBIn7ewO1BaOV2BUEuKPmJpNE8LYOEUXh929iEh1iJ32nYtDijj/i7j8ugsC
+	4SpdRBww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphrI-000000046Mz-0k1u;
-	Sat, 23 Aug 2025 06:36:12 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uphrJ-000000046PK-3qqh;
+	Sat, 23 Aug 2025 06:36:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSuU-00000002rDy-1FaD
+	id 1upSub-00000002rFX-3Ga3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 14:38:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=o1RUGpz4fK5OIiHIGDeDG4TSzs
+	OJB4HAapvQQ6Y6FrZwhk08KT1wNhXqow+1CL1VYOSChgZa89U6N2r7OOgkJQNNoHX3U9cVorE7Njj
+	LYoQOAsxSBeesENX6MIzojgWjmP8k4XqW+Qb+5ouup1L6QPRKnZhF+ECyKShLKgbDPtGGmQagzTQc
+	6nkUoYnE/NrDEWpJ9tM4LJNVjFha/bDKN5ZUiwzwrKaFOoFnibBkU++DyyRmjT/v1ETDpr27Wc1N0
+	vqG6j1QF+EZZMwBSzh+HGBA3fl5dE8qUfQZHW+y86NziCrOuDHvYzq0WQP4lHy7wJWVVkA9YRUCSQ
+	x7ZHM+TA==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upSuY-00000000x9x-3jWD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:38:31 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MD2rZu032472;
-	Fri, 22 Aug 2025 16:38:18 +0200
+	Fri, 22 Aug 2025 14:38:36 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MEW3dA017575;
+	Fri, 22 Aug 2025 16:38:25 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=kvDVPw7OS3PnQ1V26p/rxq
-	78OrrZUETtAXGrIZiRbxE=; b=hHsKHjpbzRyD7j4iMh4bveco9GYoQNAvI82Yfa
-	DNV38i6YBdEkjBPsaOtr55C/CsxDj4WMqNE5KKv31BfyuBXjBPZv1YYyGxdykaqM
-	IL16n9XMnuJZuQT67I8kynORQolVMjAezyP6lS1vxvHw0bhmbXRiUtpopQkA73M0
-	WKvEvuafXvSvfPY2u7HVe5+IRJFnd+8y6//ooe1tnh2PO3fKoAiZ6wVw1sSxZzvQ
-	kgk8qDiFw1oVBFkbFg6hvxeVN0q0eDLo//PuR0NrDbNonUt6J6vSYX8qB/hzDCEB
-	WCzeE2VibazqhkuQljJsuVMTRjzMP7UzYqTZhoAdP+NGvSPA==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=UOjjXn3mr+r4BTJe
+	2hmSh6Pnm7bVn8X8bPOH7gPr1k5VG5wtyYWE0JQz9TRNChgq79/OPyp7/cKjAuse
+	XUas3xwgwbHIXPgAaj6qy7PFJi5oSNtX+hAEXRUFpJYMozskIS5JOJmES1ZDSOrs
+	1znbq2yTI8LWJG6oDkUzO6XT3I3+AFDUt4N9M4KKVI49NNEdGwwlBlov0S8+B1Yj
+	AEmcfwLevVtPFOKRzxVX8NdO3x3JOazQi0xEaMsHyGmiF5304bOZaaJHo0xCS5GX
+	M3GtgM9tOwxE5wXqOero0snKRrDlmjTFLoxdgFJT+APjp1x0xMdYmLtEJZkd8UyU
+	9Z8g6w==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n70dkga5-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nd5xshmu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 16:38:17 +0200 (MEST)
+	Fri, 22 Aug 2025 16:38:25 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 508C340048;
-	Fri, 22 Aug 2025 16:36:51 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5FBC54004A;
+	Fri, 22 Aug 2025 16:36:55 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 317A8726CB6;
-	Fri, 22 Aug 2025 16:35:49 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0FD39726F18;
+	Fri, 22 Aug 2025 16:35:54 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 16:35:48 +0200
+ 2025 16:35:53 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Subject: [PATCH v5 00/13] Enable display support for STM32MP25
-Date: Fri, 22 Aug 2025 16:34:09 +0200
-Message-ID: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+Date: Fri, 22 Aug 2025 16:34:17 +0200
+Subject: [PATCH v5 08/13] drm/stm: ltdc: handle lvds pixel clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAOF/qGgC/2XMOw7CMBBF0a0g1xiNx+NPqNgHogj+gIskyI4iE
- MreMVAAoXxPOvfOSsgpFLZd3VkOUypp6OtQ6xVz57Y/BZ583QwBFWhhuM8d71JxvA/XkVMbCbQ
- TjlRk1VxyiOn66u0PdZ9TGYd8e+Un8XzfJYNqUZoEB96qxpINGl1sdnEoZVPGjRs69mxN+PFW4
- NJj9UJi9JZIS2/+vfz2zdLL6oGEko2x4eiP/56+PIqlp+oNaFAA0UYvf/08zw9aXGnKbAEAAA=
- =
-X-Change-ID: 20250617-drm-misc-next-4af406c1c45f
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250822-drm-misc-next-v5-8-9c825e28f733@foss.st.com>
+References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
         Philippe Cornu
 	<philippe.cornu@foss.st.com>,
@@ -88,8 +100,7 @@ To: Yannick Fertre <yannick.fertre@foss.st.com>,
 	<christophe.roullier@foss.st.com>
 CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 X-Mailer: b4 0.14.2
 X-Originating-IP: [10.130.74.180]
 X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
@@ -98,8 +109,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_073830_626732_9240A7D7 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250822_153835_125139_6AEF2951 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,132 +125,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series aims to add and enable sufficient LVDS display support for
-STM32MP257F-EV1 board.
+From: Yannick Fertre <yannick.fertre@foss.st.com>
 
-LVDS is the default use case to drive a display panel on STM32MP257F-EV,
-even though DSI panels will be supported in the near future.
+Handle LVDS pixel clock.
 
-The LTDC needs a pixel rate in sync with the bridge currently in use.
-For that both DSI and LVDS bridges need to declare an internal clock and
-become clock provider to the mux. The mux then selects the reference
-clock for the LTDC pixel rate generation.
+The LTDC operates with multiple clock domains for register access,
+requiring all clocks to be provided during read/write operations.  This
+imposes a dependency between the LVDS and LTDC to access correctly all
+LTDC registers.  And because both IPs' pixel rates must be synchronized,
+the LTDC has to handle the LVDS clock.
 
-For now this mux is handled internally in the LTDC, while waiting for
-the STM32 clock framework to merge a 'clk-mux' based on the SYSCFG.
-This explains the link done in the patch [7/8] between the LVDS,
-providing the reference clock for the LTDC internals.
-
-  +----------+              |\
-  |  DSI PHY |------------->| \           +------------+
-  |          |ck_dsi_phy    |  |          |            |
-  +----------+              |  |--------->|    LTDC    |
-  +----------+              |  |pixel_clk |            |
-  | LVDS PHY |------------->|  |          +------------+
-  |          |clk_pix_lvds  |  |
-  +----------+              |  |
-                            |  |
-   ck_ker_ltdc ------------>| /
-                            |/|
-                              └- SYSCFG
-
-Clock selection applies as follow:
-- 0b00: Selects ck_dsi_phy
-- 0b01: Selects clk_pix_lvds
-- 0b10: Selects ck_ker_ltdc (for parallel or DSI display).
-- 0b11: Reserved
-
-The reset value of the register controlling the mux is 0b01, meaning
-that the default clock assigned is the clk_pix_lvds.  This causes two
-things:
-
-- In order to get basic display on the LVDS encoder, like intended,
-nothing has to be done on this mux within the LTDC driver (which for now
-explains the unused syscfg phandle on the LTDC node in the device-tree).
-
-- 'pixel_clk' is dependent from 'clk_pix_lvds' because of the LTDC clock
-domains.  They also need to be sync to get a coherent pixel rate though
-the display clock tree (which explains the LVDS phandle on the LTDC node
-in the device-tree).
-
+Signed-off-by: Yannick Fertre <yannick.fertre@foss.st.com>
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
-Changes in v5:
-- Documentation:
-  - LTDC: Clamp correctly min/maxItems value (again)
-- Add Yannick's trailers where relevant except in patch [01/13] which
-  has been modified
-- Link to v4: https://lore.kernel.org/r/20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com
+ drivers/gpu/drm/stm/ltdc.c | 22 +++++++++++++++++++++-
+ drivers/gpu/drm/stm/ltdc.h |  1 +
+ 2 files changed, 22 insertions(+), 1 deletion(-)
 
-Changes in v4:
-- Documentation:
-  - LTDC: Add "st,stm32mp255-ltdc" compatible.  After internal
-    discussion, we came to the solution that the LTDC on STM32MP255 SoC
-    needs its own compatible, since it does have the same amount of
-    clocks than on STM32MP251 SoC.
-- Devicetree:
-  - Add "st,stm32mp255" compatible on corresponding dtsi
-- Drivers:
-  - LTDC: Handle "st,stm32mp255" compatible
-- Remove Rob's r-b from patch [01/13] since it was modified.
-- Link to v3: https://lore.kernel.org/r/20250819-drm-misc-next-v3-0-04153978ebdb@foss.st.com
+diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+index 17548dd3484a0a3e1015c58c752b80f8892a0ff7..f84a9a8590f0653e422798ff61804d7c3966caef 100644
+--- a/drivers/gpu/drm/stm/ltdc.c
++++ b/drivers/gpu/drm/stm/ltdc.c
+@@ -837,6 +837,12 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
+ 	int target_max = target + CLK_TOLERANCE_HZ;
+ 	int result;
+ 
++	if (ldev->lvds_clk) {
++		result = clk_round_rate(ldev->lvds_clk, target);
++		drm_dbg_driver(crtc->dev, "lvds pixclk rate target %d, available %d\n",
++			       target, result);
++	}
++
+ 	result = clk_round_rate(ldev->pixel_clk, target);
+ 
+ 	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
+@@ -1878,6 +1884,8 @@ void ltdc_suspend(struct drm_device *ddev)
+ 	clk_disable_unprepare(ldev->pixel_clk);
+ 	if (ldev->bus_clk)
+ 		clk_disable_unprepare(ldev->bus_clk);
++	if (ldev->lvds_clk)
++		clk_disable_unprepare(ldev->lvds_clk);
+ }
+ 
+ int ltdc_resume(struct drm_device *ddev)
+@@ -1895,8 +1903,16 @@ int ltdc_resume(struct drm_device *ddev)
+ 
+ 	if (ldev->bus_clk) {
+ 		ret = clk_prepare_enable(ldev->bus_clk);
+-		if (ret)
++		if (ret) {
+ 			drm_err(ddev, "failed to enable bus clock (%d)\n", ret);
++			return ret;
++		}
++	}
++
++	if (ldev->lvds_clk) {
++		ret = clk_prepare_enable(ldev->lvds_clk);
++		if (ret)
++			drm_err(ddev, "failed to prepare lvds clock\n");
+ 	}
+ 
+ 	return ret;
+@@ -1981,6 +1997,10 @@ int ltdc_load(struct drm_device *ddev)
+ 		}
+ 	}
+ 
++	ldev->lvds_clk = devm_clk_get(dev, "lvds");
++	if (IS_ERR(ldev->lvds_clk))
++		ldev->lvds_clk = NULL;
++
+ 	rstc = devm_reset_control_get_exclusive(dev, NULL);
+ 
+ 	mutex_init(&ldev->err_lock);
+diff --git a/drivers/gpu/drm/stm/ltdc.h b/drivers/gpu/drm/stm/ltdc.h
+index ddfa8ae61a7ba5dc446fae647562d0ec8e6953e1..17b51a7ce28eee5de6d24ca943ca3b1f48695dfd 100644
+--- a/drivers/gpu/drm/stm/ltdc.h
++++ b/drivers/gpu/drm/stm/ltdc.h
+@@ -48,6 +48,7 @@ struct ltdc_device {
+ 	void __iomem *regs;
+ 	struct regmap *regmap;
+ 	struct clk *pixel_clk;	/* lcd pixel clock */
++	struct clk *lvds_clk;	/* lvds pixel clock */
+ 	struct clk *bus_clk;	/* bus clock */
+ 	struct mutex err_lock;	/* protecting error_status */
+ 	struct ltdc_caps caps;
 
-Changes in v3:
-- Rebased on latest drm-misc-next
-- Documentation:
-  - LTDC: Clamp correctly min/maxItems value
-  - LVDS: Remove second 'items' keyword
-- Add Krzysztof's trailer where relevant
-- Link to v2: https://lore.kernel.org/r/20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com
-
-Changes in v2:
-- Documentation:
-  - Add support for new compatible "st,stm32mp255-lvds"
-  - Change LTDC compatible for SoC compliant one
-  - Make clearer LTDC clock-names property
-- Devicetree:
-  - Change compatible according to the documentation
-  - Change clock and clock-names order to match documentation (and avoid
-    warnings)
-- Drivers:
-  - Change LTDC compatible
-- Add Rob's trailer where relevant
-- Link to v1: https://lore.kernel.org/r/20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com
-
----
-Raphael Gallais-Pou (11):
-      dt-bindings: display: st: add two new compatibles to LTDC device
-      dt-bindings: display: st,stm32-ltdc: add access-controllers property
-      dt-bindings: display: st: add new compatible to LVDS device
-      dt-bindings: display: st,stm32mp25-lvds: add access-controllers property
-      dt-bindings: display: st,stm32mp25-lvds: add power-domains property
-      dt-bindings: arm: stm32: add required #clock-cells property
-      arm64: dts: st: add ltdc support on stm32mp251
-      arm64: dts: st: add ltdc support on stm32mp255
-      arm64: dts: st: add lvds support on stm32mp255
-      arm64: dts: st: add clock-cells to syscfg node on stm32mp251
-      arm64: dts: st: enable display support on stm32mp257f-ev1 board
-
-Yannick Fertre (2):
-      drm/stm: ltdc: support new hardware version for STM32MP25 SoC
-      drm/stm: ltdc: handle lvds pixel clock
-
- .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 ++++++---
- .../devicetree/bindings/display/st,stm32-ltdc.yaml | 55 ++++++++++++++-
- .../bindings/display/st,stm32mp25-lvds.yaml        | 13 +++-
- arch/arm64/boot/dts/st/stm32mp251.dtsi             | 19 ++++++
- arch/arm64/boot/dts/st/stm32mp255.dtsi             | 20 +++++-
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         | 79 ++++++++++++++++++++++
- drivers/gpu/drm/stm/drv.c                          | 12 +++-
- drivers/gpu/drm/stm/ltdc.c                         | 58 +++++++++++++++-
- drivers/gpu/drm/stm/ltdc.h                         |  6 ++
- 9 files changed, 275 insertions(+), 18 deletions(-)
----
-base-commit: c8cea4371e5eca30cda8660aabb337747dabc51d
-change-id: 20250617-drm-misc-next-4af406c1c45f
-
-Best regards,
 -- 
-Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+2.25.1
 
 
