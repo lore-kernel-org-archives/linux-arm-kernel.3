@@ -4,132 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD4DCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705BECA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=; b=eMHrVAHJw7vQxAfAhew7ux34ff
-	lyhj6K4lDJQypl/tomEq7K929Efm5ifVsbM2LfMtF/Z9Bu1nsF8dY5dj6XgncIwQ7abab1rMYieL0
-	R2PzI8qF1Xh2R96F6qbZp0H+xB01Fw6Evb4fCG4oGdf7HLdWl+NgItFha2XvdH8RQX8jSItszSmcm
-	aWU8JqA+twi+Vyk1cr1wCEtWPSN+SeW3GXFisKGQlIUFkKMoyqUmT9WF1klDYRI0UjzqmlrIqQ0RE
-	L5Lote03oAmcfhn/8AwfPtXxlNOQgRFOVznIadSahLeXiKPvJArVgYV8tCpDIKwlPI+JwEqfZoMCv
-	YcZkvgYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgRqmJtyyZZKh40pf/48v4y890uKqUZvohs/c2O01aE=; b=bycqMltxws4qCgFQ+td9EO1Fud
+	xWiN9LjeKxFQBgXA3+7LfLgDfu9pQyzcGjx+oeD324IXfkVWAIhuABN3cWA6sj9ZHHw0I01tp5TIC
+	msrtOlfqLQOxH7vndvZSkNmmxxzJKASRGLfVQtucgv1VlVc8xd0dslG0qMumauz5Rmdhzuq5hgDBE
+	UCK0vr6HzGG6AKo4VKx6pBCNCxTukxYYNEn8tta7UsUOyUGMBC3WZ7T0XJrg2WeMF5SZyg1avhGhG
+	N7l93IuFUi87yXxBTNypiJ4t7Ll9oGdDwb/HeiXhbg0Z5TQYNXvmaRTClktohQACk/a79h5Z1O4qg
+	4bYkuECA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSaZ-00000002jvA-275W;
-	Fri, 22 Aug 2025 14:17:55 +0000
-Received: from mail-bn1nam02on2086.outbound.protection.outlook.com ([40.107.212.86] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1upSbC-00000002kiT-2QdT;
+	Fri, 22 Aug 2025 14:18:34 +0000
+Received: from mail-co1nam11on2061a.outbound.protection.outlook.com ([2a01:111:f403:2416::61a] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJqi-00000001XnJ-2L2m
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 04:58:01 +0000
+	id 1upL2m-00000001fUA-2q7N;
+	Fri, 22 Aug 2025 06:14:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PgboJkImWtKDyDc4gdORfeLcjA4jiaN+43DVqZTcK3I4xXiOTyRdhMf4G1xVLYngEavrqp9mPIXB5qUwabpbKmeqA5v/4pzFbUTmgEXd6j8ZiDqEFnAEfS52bs0IEQeAcyvETH5hdEYKu78U67wJy1iq9vScVEfZuLC91WdEBTjRL56Te28rRmpOOFARPTwLAvarNsET9P4R47jkKcgoNXNVj4aDk02jlGiPhuchclF40KyvRB2qQmxCrn/fTa8Mi2pDxO3xTTXtQNCib15lTP8aZn3xILhVIhcu8PIg3eMKf7Cgr5yYZMjmvEyQnUZKG1dtTf7EZpM0HY1eQlkwmQ==
+ b=SkrnCsbPJItYSA44cv+Q3qGS+D1a/iu3bFFDwqt5JtFCNb+JjAEY/9qE5Rnle+cjTjldIMTRa1V5hAChHdvdTBCy0HDXz04G28aNqzswBGG9b3z4IfXqhgd5JL5Vq3I4VuMM/11z4Vcku3bbptxCPfGyiFpnBkWbTlFPI5RjCuUSP5vltffsAZQ1R0sVPmN8EMQWI7yXhiwF4U4q9L+WuveIRvSfZOr5rPiMYFtRrKwEDSDL8vi8NYZaCYzoTBw1BLsAGr04SjSla+Wx21OBg+EieH5J2hhid60aaBXDdIXsDmN3Ujx1Uh+cfSwNwyzsGG0x23LyQPH/eaAKXSd5aQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=;
- b=wqTAbREKEYUBg0NkDT6a/CzK3M+l6o7jYSeUE31l+SEjS13sj2SiuLIR+TkptqxUL40P68LTAMWoIbOchKuHlmNNA9rnM0fz8/Bp4kJiLqx3NZa+PJ336Ig6CaCzlVT5YY9xkQpVCXfeXX+vRs/Kul5ao5SK7X/YBrMyBqgXZovSb4csWhX3Mw+zRTwIgvZGfqfH/Db3JM03EzN6Jnq8+8TbV4Odce9yKn73DFaQaSFgRgPjMZCIm4ALS99gBlme8m0IwjqD9OXuUBUzwv2jT/9GQNTCKZN7KzkaxuNDxwezydQbpKSLNeV0bFzsaixMMzPOB1LyAdFxEba0vseWcA==
+ bh=TgRqmJtyyZZKh40pf/48v4y890uKqUZvohs/c2O01aE=;
+ b=JTJhRPILZUpC7RruSmzGErNjnjPM3dJUFL2Qe+BqYvNqytozQTDbMF4ILdS+I4BTqRAGfi+zgqvHNE5FDgXygFbA/Aa6hQjhFqGByXlwKCPRRDrBC6VGwEteWBHnN4MBLhS70pBWlCetIsjaDULFcMTDM5FI7vePZLbSX0mC58jGV1oxqq9idCPZDf5RTemq3XLdVE9O+3BEmPF+KXGIUGLrQRj8rTh8lHHIskVtMevKcnpwc8Yy+IJAEQThYWKxXVkBqD5V0yEUlfzJ854RukCyBaLhowroYOI1Kf+qX1q8WnFLCwr9gp4W+T8W7PSbvpNJXFuyiZLnZ2ZhxQiPuA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ 216.228.117.160) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j2OX6qUgR1h89VADHjRqRJlLslPfGf6J5uC23jUY6W4=;
- b=W6/JVrUpgM9H3JP0wuElI8sFuxikaLwjl0t1CYJjMhL82OadgC1+pbe3bdRW+GrgnXEjDhy1PsPumjETgeK+xyZArjh6bxGTkDQD+XHfiEWGa6/EuF9YQgM8tOtoegTvNp5LPSzo/zY8QC4Hvz2SOTJu02puuWSZsWoFaHriFmY=
-Received: from BY3PR03CA0022.namprd03.prod.outlook.com (2603:10b6:a03:39a::27)
- by IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
- 2025 04:57:42 +0000
-Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
- (2603:10b6:a03:39a:cafe::c9) by BY3PR03CA0022.outlook.office365.com
- (2603:10b6:a03:39a::27) with Microsoft SMTP Server (version=TLS1_3,
+ bh=TgRqmJtyyZZKh40pf/48v4y890uKqUZvohs/c2O01aE=;
+ b=t5cw1JpbZ2aD1ppKt9P6Fsd/GmIqh59FgdjYOTKhbb9GoPfvpBmsQJIlhWjiX7AjWArAFXFX6JvjUNne/5NbxN1whyQ0uePg34iWTelVemwSw+qdV+vA30CGc3BEmcm6GCRuC2rr5rJz8GXtXU+CWXZ4Q/Ih8zTDTFr3mpAqFkITN4YToyMzN4309sVt99erWc95RC5rKSDsi7MdGpFUPvJAaLiC8FaFOFHVqS/i0xzCjTj92fPf8hfS1LogmloWb68Pu/trKfrfVbKwKcdGwnNib6MPx85DTDEdkcCLWZgJhTPWI9fX9od+lchk6MgIEEvh8Nqg/MgxLw61wfmBcw==
+Received: from DM5PR07CA0054.namprd07.prod.outlook.com (2603:10b6:4:ad::19) by
+ DM4PR12MB5795.namprd12.prod.outlook.com (2603:10b6:8:62::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.15; Fri, 22 Aug 2025 06:14:27 +0000
+Received: from DS1PEPF00017094.namprd03.prod.outlook.com
+ (2603:10b6:4:ad:cafe::93) by DM5PR07CA0054.outlook.office365.com
+ (2603:10b6:4:ad::19) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.16 via Frontend Transport; Fri,
- 22 Aug 2025 04:57:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 04:57:41 +0000
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 23:57:37 -0500
-Received: from xhdharinit40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 21 Aug 2025 23:57:36 -0500
-From: Harini T <harini.t@amd.com>
-To: <jassisinghbrar@gmail.com>, <michal.simek@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<git@amd.com>, Harini T <harini.t@amd.com>
-Subject: [PATCH 0/3] mailbox: zynqmp-ipi: Improve resource cleanup on driver unbind
-Date: Fri, 22 Aug 2025 10:27:29 +0530
-Message-ID: <20250822045732.1068103-1-harini.t@amd.com>
-X-Mailer: git-send-email 2.43.0
+ 22 Aug 2025 06:14:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00017094.mail.protection.outlook.com (10.167.17.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 06:14:27 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 21 Aug
+ 2025 23:14:13 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 21 Aug
+ 2025 23:14:12 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 21 Aug 2025 23:14:10 -0700
+Date: Thu, 21 Aug 2025 23:14:09 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Ethan Zhao <etzhao1900@gmail.com>
+CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <bhelgaas@google.com>,
+	<jgg@nvidia.com>, <will@kernel.org>, <robin.clark@oss.qualcomm.com>,
+	<yong.wu@mediatek.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <thierry.reding@gmail.com>,
+	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <kevin.tian@intel.com>, <yi.l.liu@intel.com>,
+	<baolu.lu@linux.intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-msm@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <patches@lists.linux.dev>,
+	<pjaroszynski@nvidia.com>, <vsethi@nvidia.com>, <helgaas@kernel.org>
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <aKgKsXmVWS5NZdUn@Asurada-Nvidia>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+ <d6b852bc-328a-41af-b125-e250c72c0d22@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB03.amd.com: harini.t@amd.com does not designate
- permitted sender hosts)
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <d6b852bc-328a-41af-b125-e250c72c0d22@gmail.com>
+X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|IA0PR12MB8301:EE_
-X-MS-Office365-Filtering-Correlation-Id: 294dc233-44f4-4204-c25c-08dde1386cb7
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017094:EE_|DM4PR12MB5795:EE_
+X-MS-Office365-Filtering-Correlation-Id: 20684c77-740c-4935-81a9-08dde1432609
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8rkK4Nb3W15qjHf/wnr5VTrI8YYt5uu0SrEKSD/UcSpXqk1DAp1lBZE9+DWL?=
- =?us-ascii?Q?c+ViHOSZlmqq1sDP8L90Oco/OXkQtwMr0Z5rxryVReldtdcLAJI7igytjqdi?=
- =?us-ascii?Q?neb2CblGbu4YjfEVk5snE/Ep+l1GyOUTz22ATimzEFCIKoEhRpQI02Eaw0Q1?=
- =?us-ascii?Q?ivJc+emtUXAZEtg84Qd2KTNuOIAwAFniRsPlwe2HJNkH+o/yhqUlFI8A52in?=
- =?us-ascii?Q?R41BnqDjKrXPsyHr0yV+2DjwYOTaK/ZoUTqkoqzObjmXsKKErj2U5p0wvVt+?=
- =?us-ascii?Q?/TYEB89hkOGIkzUPz1b6J6dzhP2TsCbi0TIQhiFQF177KWn+89EalHULVZDU?=
- =?us-ascii?Q?94y/fawrHn15zEoBmo9FcyDB1pRZ7oJvI2sw8NjJ2DTEJPevR1bgtZZ/uw+L?=
- =?us-ascii?Q?DMYi9VcMDlyY/JgL/eHPbn/YsGe8zDeK2tr3fP0NsCR6NLySATNzLIC6DbgZ?=
- =?us-ascii?Q?DjI2Y8relJIY+zsu5lJ7neMLwa4Qp5l12+XCRVZ+rc17SjayxGeXCEmtY7WW?=
- =?us-ascii?Q?GBerv32zm4sienwgIBVEAe8HIggngaL9mE0SPp308+qFGjbOMLPBF++VNzKD?=
- =?us-ascii?Q?XPh8gujuNM0Ua7NwFvF1X8ybER/p2tObJL/rf+sTKg2Nu14ViF4fKdbfUGqO?=
- =?us-ascii?Q?6PY06bbEM1zrxKkjIfZkcBMfR2DLX03fxyOZgJjLFP0zkx6xnDoHLcc7DokY?=
- =?us-ascii?Q?6v7zTg4Z7kIEBTQ/HQS/p2ujRNDXtElg23ElcQjexwKUxmzYHMWISrBlu+dk?=
- =?us-ascii?Q?ABRoGiXXMsBVx7XRpVzcISQowOjOlOlDu0LpQlAe7HKBY74T2j8QXnyCrTjD?=
- =?us-ascii?Q?icuqXykDGPSVS/GyugxMqflCC5Z8G+z6ljHM+aAssdEbwL82My+O1wQmmPpo?=
- =?us-ascii?Q?wBBATc/vX2TE9E+oLirGLvZNk0rbWqEftPLrqyVdRIydMUY2rWE+3OJDNMxS?=
- =?us-ascii?Q?QJ6pcCHlYpwfy63+mxkoRylpon+1uR5k0+vVssr8ZYyTILELA1F7q4+WjMvZ?=
- =?us-ascii?Q?5EATTJe9+/pIHdEaHul/nJVgEVP84EysG4cRSuOhl7i5d4+s3Lwhq/r4dZhK?=
- =?us-ascii?Q?f13mD1orYVksL3cmslu0/UXzGYTd8cyRwlzEzqf8nMon+LfDRc6GJg7GVKXB?=
- =?us-ascii?Q?TxVuCiGrSp+zz34DRRSplXOQgXv6VOcbyYLOllN0VTYRuputwe1NwjiKQrSP?=
- =?us-ascii?Q?Q0jIVQDq9ip5AvUOanD83KOI9l9IUNURINPonmXUwQibvZRLCfLcYER/opWB?=
- =?us-ascii?Q?GGX4ZfSeAu+YFw8A8JGzuN+tYOikIBNUcvFUrXoJyjcvSb4C77QwZU0VFToT?=
- =?us-ascii?Q?Opb1ONJwUuw3LDGwuFNHaQyBmLAn0jLv4kfNPITWOKUw5ClLgWarxnMgmeFV?=
- =?us-ascii?Q?eCv+BoeAPip2kKnSqNudqNMkguc5B+nqiCzMrnLx8XW+bTQLc1n4ms68wUvI?=
- =?us-ascii?Q?dYhzeqpEEEabb/Ec6wMUohhFh3moKwHuiHm1wyawiuTpgbLksd4X9ibv10XW?=
- =?us-ascii?Q?WUQN6AEeCyOviyQGsqQtUwP19obgDhl3Dz+7?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 04:57:41.3523
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c7EWgqX+O0j6epS8boWfDsSkn5d4PDsY34sDQ+458CqtPwaiOaaGppl9eNLI?=
+ =?us-ascii?Q?909LalIX46dBHkAR4rInJH9XoTmLjoe6ByCidCSvtQSR+cjjLWEC9X64Snz3?=
+ =?us-ascii?Q?EFBzHPQAnEBx+4LCH0d7CQPuh8F27vpnHiQOQn0/GeZ9Xea59EOz1jKpDVUe?=
+ =?us-ascii?Q?tWa+Ny7eRQ9EXF5yqKlRSyfKo6sNC978+a+rsgRvIHQtfNyTotj9/w40egZe?=
+ =?us-ascii?Q?6WFlwmCQPCYQ+XZlifFOSLlpxectizqTqM49rZ2ASkK9Se8FftJIHX6UXqp5?=
+ =?us-ascii?Q?TzRj0aaUBDOfgOhFwKDZ52X4aiWlNbzBCD854h60tTxDaeaxlihNlBHfiNY3?=
+ =?us-ascii?Q?fuajqPs8Gk24SI6EkagRbkEkE6P4L8ihztO2RIFRkNkpDNC7uCOluV/inGbU?=
+ =?us-ascii?Q?6Rt0E6Cm1XtXCrgR+0KkXbJv6xnPfJs700m+ImPs3cQVA3cUkMXnlXjEqq+C?=
+ =?us-ascii?Q?GEITzsa1qJZy4ecZMeH9k/lHwavsQ7BkYuK/sr74HksZo6RzzGFiCTmZuSRA?=
+ =?us-ascii?Q?5Ln4qBZXDEm8PHe5mOommJqVmXN6FyidRenNK/xuC7hnEFoIojX/cKx1HY+P?=
+ =?us-ascii?Q?uT0GGHqPHg99dBUzflDxazbqQEh2dJu9kjslcJOvIXRfYLHAtB+kH07oOB6G?=
+ =?us-ascii?Q?yz6NakqB8xBErm0rnchZ87WxeWXo1YKRKNEcJvpVIJC2m2bP7IekE46AcUkE?=
+ =?us-ascii?Q?lVVtxAKO9ggK3Y+eYxdcGsYNY/LMYxQKioJ+rFZDslQuPysXrc7uB03uG42K?=
+ =?us-ascii?Q?lB0S6yMEv9QoTaG9N5aIEYOEzgtx+9sqDxkY7bdZGkjM32TJrYc2WPhd21WY?=
+ =?us-ascii?Q?Bkh1EhEGK1qrIJtWWBwK0yccjHOAt5EwK3kGMxGVET2Qzc1af8Q2nQqxQ8Ve?=
+ =?us-ascii?Q?IAq8kRBezFe2CYiwjCwomosMlbzclav0RJf6JBUp4GrRJTRzwU2yaGNtXXoA?=
+ =?us-ascii?Q?ROvtnCHIAtAFbBONmY6NDDG06bOGG8JAc4GkHgi4FPZO4cIwax6gMcf5ALBl?=
+ =?us-ascii?Q?oxkfxlhp6jmQ+XOUlyeVvq/t4j682wSa1/QEQB6IecSvkcDUUMLqGAW5sPSc?=
+ =?us-ascii?Q?4JtsVDjrDyu7w9TgggeTihGokJjXGKokxDoiqkk7lpfohlrcU5sI8yjggHET?=
+ =?us-ascii?Q?cQK5Qo2siv0W74fk+SEBeRejGO9xvRcvdlUrE6DZ5hfYibfiTYat3tNiELTv?=
+ =?us-ascii?Q?UB4zF1db22XVz8u1ePgiSZ+0JWSu8MTVlkoC+gvGKu+9Js1hq4HyGgDiqvrp?=
+ =?us-ascii?Q?h6cfFdHe0OBwl9i8hq266VBp9nougMPj/q1fGSR+tzHapS3tMGuNRph+A6nh?=
+ =?us-ascii?Q?X902Bz9dN/OZDlYhuTm5OMykX/c3fomc63LNdzbNqApO3RsvshzKsPp3bVxe?=
+ =?us-ascii?Q?OwL2eGjdhsgdkLagIhgCYiKyUaRyeLjwTqhM/fH46ogsSd3+p21RAd84aDYJ?=
+ =?us-ascii?Q?znxsWYCngoa9LcWLWArr1tS/LG8wOy/FaoJa7EFGnOTzqHqrM8Vs0/0b9yUv?=
+ =?us-ascii?Q?8c6Q8vm62zVarmiedEtMRALvPnaI2ZV6hCLW?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 06:14:27.2134
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 294dc233-44f4-4204-c25c-08dde1386cb7
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20684c77-740c-4935-81a9-08dde1432609
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017094.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8301
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5795
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_215800_589947_786681EC 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_231432_727557_3A66EFDC 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,24 +162,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. Remove redundant mbox_controller_unregister() call, as
-device_unregister() already handles controller cleanup.
-2. Fix the mailbox cleanup loop to prevent out-of-bounds array access by
-starting at num_mboxes-1.
-3. Fix SGI resource cleanup by using an explicit irq_type field for
-reliable SGI detection, replacing the unreliable IRQ number check.
+On Wed, Aug 20, 2025 at 11:18:52AM +0800, Ethan Zhao wrote:
+> On 8/20/2025 5:59 AM, Nicolin Chen wrote:
+> >   b) multiple pci_devs; single RID
+> > 
+> >      In this case, FLR only resets one device, while the IOMMU-
+> >      level reset will block the entire RID (i.e. all devices),
+> >      since they share the single translation tunnel. This could
+> >      break the siblings, if they aren't also being reset along.
 
+> Yup, such alias devices might not have ATS cap. because of they
+> are PCI devices or they share the RID(BDF), so checking ATS cap
+> condition might be useful here to skip the prepare()/done()
 
-Harini T (3):
-  mailbox: zynqmp-ipi: Remove redundant mbox_controller_unregister()
-    call
-  mailbox: zynqmp-ipi: Fix out-of-bounds access in mailbox cleanup loop
-  mailbox: zynqmp-ipi: Fix SGI cleanup on unbind
+Yea, I agree, yet I think we need it to be "sure" than "might"?
 
- drivers/mailbox/zynqmp-ipi-mailbox.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+So perhaps we should check alias too. Given that all alias devices
+in this case share the same RID and reside in the same iommu_group,
+we could iterate the group devices for pci_devs_are_dma_aliases().
 
--- 
-2.43.0
+> > > 2. Reset PF when its VFs are actvie.
+> > 
+> >   c) multiple pci_devs with their own RIDs
+> > 
+> >      In this case, either FLR or IOMMU only resets the PF. That
+> >      being said, VFs might be affected since PF is resetting?
+> >      If there is an issue, I don't see it coming from the IOMMU-
+> >      level reset..
 
+> Each of the PF and its VFs has it owns RID(BDF), but the VFs' life
+> depends on the living of PF, resetting PF, means all its VFs are
+> lost.
+> 
+> There is no processing logic about PF and its VFs in FLR() yet.
+> my understanding the upper layer callers should consider the
+> complexity of such case.
+> 
+> While we introducing the connection of IOMMU & device in FLR(),
+> seems we brought some of the logic from the outside to the inside
+> part.
+> 
+> One method might we don't handle PF either by explicit checking its
+> VF configuration existing to skip prepare()/done() ? till we have
+> much clearer handling logic about it.
+
+That sounds a good one to start with.
+
+The prepare()/done() functions can internally bypass for devices:
+
+	if (!pci_ats_supported(pci_dev) || pci_sriov_get_totalvfs(pci_dev))
+		return 0;
+	/* And check alias too */
+
+Thanks
+Nicolin
 
