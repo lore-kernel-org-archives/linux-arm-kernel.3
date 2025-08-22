@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315D8CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7EECA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twVR4aLcjBcIxVR1vTBIjLNrHaf5X700fq4KHmsJOG0=; b=0DQ1pscu7W+DLp5U/DG4LBEHPR
-	YdSNs71QYoEiZocrG3gtrlgMLIM7r2bcuewpggECX2e86ybNSs7tA9h7vQ5rCfO1iYWvKGFok4fsk
-	GlwpI5yWrkWayVDUtEjxrGi/P6BtrTqIJvubBzhJwGEhpWoffdCueJTzS0Uo+NLTeXDrAGUkunLYz
-	1yjYQTA9uIQ4z2Q7DgqCmlXKuK8rJuj+yOhQUO3ClC2pIZrXFM9G6ZKaz4mAKr7rKPLwNEFlR3Uws
-	hLySG8jlazZ8fY+Cry6+JkvOYEZjMK85F03VVHUMSyp7ryMoMQ0ZXw+H6ySV+ltJ6I0azQpigx3fK
-	ZPrX1EqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2/Z7AQaALVvEWhQ6ZXNpSTA/Gnv5SxuZNVgMdoe1R10=; b=rcDWaDMnuP2diy
+	55aOi2qmvo7zt13jRPVEqH8FJt3FJTDGlif6ycOiTshSMRlSwCgTm9xtY+hSRteJyxK1zrsSVhmMf
+	RGNh3nrcgY/Uo8lQ+ub54jN+cJngcGnvLIEbkrCrHdz9HBFJjx2zoHZkWb4Gwi3NOD+B87EIEifXZ
+	E1TGcYZBpZuRYDIxcAfsihlbWHMc9C1PYNAvDW29Eo963B/F3Mxe/2cz3rIVp0IWCW/WUqdEVcJcJ
+	qjVVNBafXFff2Jg894aSygXNuDACYJo1OXbYta//L10YIdtwAMXdHi/ob01rB19DZTufsxhATT/P9
+	7EmWWorCOl3mBNJ08hgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphkd-00000003x6m-2406;
-	Sat, 23 Aug 2025 06:29:19 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uphkf-00000003xAU-2P3b;
+	Sat, 23 Aug 2025 06:29:21 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upR6N-00000002WOR-2sR9
+	id 1upRAD-00000002WqS-0tUi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 12:42:41 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MAlQTX029436;
-	Fri, 22 Aug 2025 14:42:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	twVR4aLcjBcIxVR1vTBIjLNrHaf5X700fq4KHmsJOG0=; b=DWOSEnndEyapOE0z
-	yWh2HktcvWlWZHVAPSNECRWV9xXMgfYF7sqZT8Z2rsta6lW0rXJw8LNtyBfBr88I
-	EjmcFYbHkTQo1adZ3IoFV9EbKceqAGe/Is5mk+s+UtPf1Ul4dnJ7R4gX8CLtAUaz
-	6D3xgF49WDwaxSKr1YsRUa1iAjNXnrMaaAk1UymjBCxqK7L+cIk/m2IDKOzMD/nR
-	t3xoV8acdLP+gFoBMdoEuih82fSSX6v+FFgzkvFqkDrPrrFr1mRGnwWl9n3s+Pnc
-	EokqKutOd6JyCkITN1c4i1AomgidgH6dX8ZFXPjoyKmFMFc/d9aecxFkeBwuf4Rh
-	33Q5/A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n7656-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 14:42:27 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3126F4004A;
-	Fri, 22 Aug 2025 14:41:08 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6DC5F71CEE0;
-	Fri, 22 Aug 2025 14:40:14 +0200 (CEST)
-Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 14:40:13 +0200
-Message-ID: <e2a69447-a34c-4e2e-9bbc-3975b9ef08b7@foss.st.com>
-Date: Fri, 22 Aug 2025 14:40:12 +0200
+	Fri, 22 Aug 2025 12:46:38 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57MCkQIN252257;
+	Fri, 22 Aug 2025 07:46:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755866786;
+	bh=2/Z7AQaALVvEWhQ6ZXNpSTA/Gnv5SxuZNVgMdoe1R10=;
+	h=From:To:Subject:Date;
+	b=C7tUhWqJ7fmXy+d+V6sOOIOApA5kMVGCDjCtK63z3YMXQr03xHi4kM5nML3SmRZ2T
+	 ZXahxHHidF11BCI/jp6XdEYgLtV/ijze9cSpjXnqOaY27+tbRWathpULTCx4lEZZ5r
+	 j03tLe80FwUMRWVacoLoNjBTi6Un5vPwYA/My+WY=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57MCkQcN2709225
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 22 Aug 2025 07:46:26 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
+ Aug 2025 07:46:25 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 22 Aug 2025 07:46:25 -0500
+Received: from hkshenoy.dhcp.ti.com (hkshenoy.dhcp.ti.com [172.24.235.208])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57MCkMjP3847096;
+	Fri, 22 Aug 2025 07:46:23 -0500
+From: Harikrishna Shenoy <h-shenoy@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+Subject: [PATCH] arm64: dts: ti: k3-j721e-main: Add DSI and DPHY-TX
+Date: Fri, 22 Aug 2025 18:16:22 +0530
+Message-ID: <20250822124622.1424473-1-h-shenoy@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/13] dt-bindings: display: st,stm32-ltdc: add
- access-controllers property
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
- <20250821-drm-misc-next-v4-2-7060500f8fd3@foss.st.com>
-Content-Language: en-US
-From: Yannick FERTRE <yannick.fertre@foss.st.com>
-In-Reply-To: <20250821-drm-misc-next-v4-2-7060500f8fd3@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.178]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_054239_987690_53DB1FCD 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250822_054637_384546_5EF6D0CB 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,41 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raphael,
+From: Rahul T R <r-ravikumar@ti.com>
 
-Thanks for the patch.
+TI's J721E SoC supports a DPI to DSI video signal conversion bridge on
+it's platform bus. The IP is from Cadence, and it has a custom TI
+wrapper around it to facilitate integration.
 
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+This IP takes the DPI video signals from DSS and alongwith the DPHY IP,
+it transmits DSI video signals out of the SoC.
 
+Add support for DSI bridge and the DPHY-TX.
 
-Le 21/08/2025 à 13:08, Raphael Gallais-Pou a écrit :
-> access-controllers is an optional property that allows a peripheral to
-> refer to one or more domain access controller(s).
->
-> This property is added when the peripheral is under the STM32 firewall
-> controller.  It allows an accurate representation of the hardware, where
-> the peripheral is connected to a firewall bus.  The firewall can then check
-> the peripheral accesses before allowing its device to probe.
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> ---
->   Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml | 3 +++
->   1 file changed, 3 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
-> index bcedcfef5427f5725a0473c09628e70d172c8f58..e27347acee5dacf56cb3971d4b62c34dfc64d7e2 100644
-> --- a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
-> +++ b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
-> @@ -41,6 +41,9 @@ properties:
->     resets:
->       maxItems: 1
->   
-> +  access-controllers:
-> +    maxItems: 1
-> +
->     port:
->       $ref: /schemas/graph.yaml#/properties/port
->       description: |
->
+Signed-off-by: Rahul T R <r-ravikumar@ti.com>
+Signed-off-by: Jayesh Choudhary <j-choudhary@ti.com>
+Signed-off-by: Harikrishna Shenoy <h-shenoy@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-j721e-main.dtsi | 31 +++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+index ab3666ff4297..d65b6fcae338 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721e-main.dtsi
+@@ -1887,6 +1887,37 @@ port@4 {
+ 		};
+ 	};
+ 
++	dphy2: phy@4480000 {
++		compatible = "ti,j721e-dphy";
++		reg = <0x00 0x04480000 0x00 0x1000>;
++		clocks = <&k3_clks 296 1>, <&k3_clks 296 3>;
++		clock-names = "psm", "pll_ref";
++		#phy-cells = <0>;
++		power-domains = <&k3_pds 296 TI_SCI_PD_EXCLUSIVE>;
++		assigned-clocks = <&k3_clks 296 3>;
++		assigned-clock-parents = <&k3_clks 296 4>;
++		assigned-clock-rates = <19200000>;
++		status = "disabled";
++	};
++
++	dsi0: dsi@4800000 {
++		compatible = "ti,j721e-dsi";
++		reg = <0x00 0x04800000 0x00 0x100000>, <0x00 0x04710000 0x00 0x100>;
++		clocks = <&k3_clks 150 1>, <&k3_clks 150 5>;
++		clock-names = "dsi_p_clk", "dsi_sys_clk";
++		power-domains = <&k3_pds 150 TI_SCI_PD_EXCLUSIVE>;
++		interrupt-parent = <&gic500>;
++		interrupts = <GIC_SPI 600 IRQ_TYPE_LEVEL_HIGH>;
++		phys = <&dphy2>;
++		phy-names = "dphy";
++		status = "disabled";
++
++		dsi0_ports: ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++
+ 	dss: dss@4a00000 {
+ 		compatible = "ti,j721e-dss";
+ 		reg =
+-- 
+2.34.1
+
 
