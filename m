@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81818CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA04CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgBFliTDKwmIpHEQSp2WmIajwTvb4lT5HLJmcqSr1Dw=; b=s/qItvGSpQdpKN3VTIOVelDai2
-	bFwI+f3ZLlXUGz47tSTVZD0p+VvWSzrOudwPJqOcBwvHQAPSlFMqz0RAVj/SvhgHlEOqPc4yS1RIu
-	InDm1y5pcA7rY/FCtjyl18vF8S5fzpU7sOwZNbTxzk903S1TMBD1wNLxbHC2Ey9IEvOOCk5gVt4Pw
-	Wpaun7Ggjk69tLRgMrwVlLkGxJcXgA7VwG/B/4tR/F2VcPtANRR6YTbXRevtXj7scsaG+ksADAEv/
-	+qLIZOubMhtKJWJyxQGiLFQ6Z570zrUpt4JWh5lb65bTZg5cI3mWkpJIR2MdExtPvRj2NYmTvrvYM
-	3Pg/WHrQ==;
+	bh=MV0Ct85gyScjHk0GsUflblQAQOaKL5XWOYBAt2ARp78=; b=BAbdMM1ud4BTr/HFZ3bWRV1qYI
+	DN4E7WZ7vaZNMDjxAZg7KvG7Mp9vkrEultlp81wYOmPqrXYfPdFQzmNzC1jyuGo/PYgD1Icp/cNW9
+	sA+qKkk9TdhNBYYO/HXANiLZFGvLHr5qx2x42cQ5jAHzuB3hqZlSx2JY8/ub4z1S1LCx0+wjIie8p
+	FjA/wUDB8EDqL+WG+EPTkfhm5GH8fbLNAC0Khulg+vvpKCdO9V7ytIAQWNf1hBY0ZJrna2dM1FyaI
+	GYHCOvQ3ijYfIiYEf22HWo5Dn8gfwqXfN1xBOQvmVrLJGw5Vt/niUFhvJ4Y+NT2w4foq9oPdLJWx6
+	Yx1U3dHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphsO-0000000488f-1U9p;
-	Sat, 23 Aug 2025 06:37:20 +0000
+	id 1uphsU-000000048Hx-2smB;
+	Sat, 23 Aug 2025 06:37:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTm8-0000000322u-1evO
+	id 1upTmJ-00000003256-3nop
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:33:57 +0000
+	Fri, 22 Aug 2025 15:34:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9846B27B5;
-	Fri, 22 Aug 2025 08:33:47 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E645227DC;
+	Fri, 22 Aug 2025 08:33:58 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C4363F63F;
-	Fri, 22 Aug 2025 08:33:50 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B90BD3F63F;
+	Fri, 22 Aug 2025 08:34:01 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -71,18 +71,19 @@ Cc: James Morse <james.morse@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 30/33] arm_mpam: Use long MBWU counters if supported
-Date: Fri, 22 Aug 2025 15:30:11 +0000
-Message-Id: <20250822153048.2287-31-james.morse@arm.com>
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: [PATCH 32/33] arm_mpam: Add kunit test for bitmap reset
+Date: Fri, 22 Aug 2025 15:30:13 +0000
+Message-Id: <20250822153048.2287-33-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083356_526166_AF43EF6C 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250822_083408_035349_D966F752 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,163 +98,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohit Mathew <rohit.mathew@arm.com>
+The bitmap reset code has been a source of bugs. Add a unit test.
 
-If the 44 bit (long) or 63 bit (LWD) counters are detected on probing
-the RIS, use long/LWD counter instead of the regular 31 bit mbwu
-counter.
+This currently has to be built in, as the rest of the driver is
+builtin.
 
-Only 32bit accesses to the MSC are required to be supported by the
-spec, but these registers are 64bits. The lower half may overflow
-into the higher half between two 32bit reads. To avoid this, use
-a helper that reads the top half multiple times to check for overflow.
-
-Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
-[morse: merged multiple patches from Rohit]
+Suggested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
-Changes since RFC:
- * Commit message wrangling.
- * Refer to 31 bit counters as opposed to 32 bit (registers).
----
- drivers/resctrl/mpam_devices.c | 89 ++++++++++++++++++++++++++++++----
- 1 file changed, 80 insertions(+), 9 deletions(-)
+ drivers/resctrl/Kconfig             | 13 ++++++
+ drivers/resctrl/mpam_devices.c      |  4 ++
+ drivers/resctrl/test_mpam_devices.c | 68 +++++++++++++++++++++++++++++
+ 3 files changed, 85 insertions(+)
+ create mode 100644 drivers/resctrl/test_mpam_devices.c
 
+diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+index dff7b87280ab..f5e0609975e4 100644
+--- a/drivers/resctrl/Kconfig
++++ b/drivers/resctrl/Kconfig
+@@ -4,8 +4,21 @@ config ARM64_MPAM_DRIVER
+ 	bool "MPAM driver for System IP, e,g. caches and memory controllers"
+ 	depends on ARM64_MPAM && EXPERT
+ 
++menu "ARM64 MPAM driver options"
++
+ config ARM64_MPAM_DRIVER_DEBUG
+ 	bool "Enable debug messages from the MPAM driver."
+ 	depends on ARM64_MPAM_DRIVER
+ 	help
+ 	  Say yes here to enable debug messages from the MPAM driver.
++
++config MPAM_KUNIT_TEST
++	bool "KUnit tests for MPAM driver " if !KUNIT_ALL_TESTS
++	depends on KUNIT=y
++	default KUNIT_ALL_TESTS
++	help
++	  Enable this option to run tests in the MPAM driver.
++
++	  If unsure, say N.
++
++endmenu
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 2ab7f127baaa..8fbcf6eb946a 100644
+index 65c30ebfe001..4cf5aae88c53 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1002,6 +1002,48 @@ struct mon_read {
- 	int				err;
- };
- 
-+static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
-+{
-+	return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props) ||
-+		mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
-+}
-+
-+static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
-+{
-+	int retry = 3;
-+	u32 mbwu_l_low;
-+	u64 mbwu_l_high1, mbwu_l_high2;
-+
-+	mpam_mon_sel_lock_held(msc);
-+
-+	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
-+	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
-+
-+	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-+	do {
-+		mbwu_l_high1 = mbwu_l_high2;
-+		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
-+		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-+
-+		retry--;
-+	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
-+
-+	if (mbwu_l_high1 == mbwu_l_high2)
-+		return (mbwu_l_high1 << 32) | mbwu_l_low;
-+	return MSMON___NRDY_L;
-+}
-+
-+static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
-+{
-+	mpam_mon_sel_lock_held(msc);
-+
-+	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
-+	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
-+
-+	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
-+	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-+}
-+
- static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 				   u32 *flt_val)
- {
-@@ -1058,6 +1100,7 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- static void clean_msmon_ctl_val(u32 *cur_ctl)
- {
- 	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
-+	*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
+@@ -2903,3 +2903,7 @@ static int __init mpam_msc_driver_init(void)
  }
- 
- static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-@@ -1080,7 +1123,11 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 	case mpam_feat_msmon_mbwu:
- 		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
--		mpam_write_monsel_reg(msc, MBWU, 0);
-+		if (mpam_ris_has_mbwu_long_counter(m->ris))
-+			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-+		else
-+			mpam_write_monsel_reg(msc, MBWU, 0);
+ /* Must occur after arm64_mpam_register_cpus() from arch_initcall() */
+ subsys_initcall(mpam_msc_driver_init);
 +
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
- 
- 		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-@@ -1095,8 +1142,13 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 
- static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
- {
--	/* TODO: scaling, and long counters */
--	return GENMASK_ULL(30, 0);
-+	/* TODO: implement scaling counters */
-+	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props))
-+		return GENMASK_ULL(62, 0);
-+	else if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props))
-+		return GENMASK_ULL(43, 0);
-+	else
-+		return GENMASK_ULL(30, 0);
- }
- 
- /* Call with MSC lock held */
-@@ -1138,10 +1190,24 @@ static void __ris_msmon_read(void *arg)
- 		now = FIELD_GET(MSMON___VALUE, now);
- 		break;
- 	case mpam_feat_msmon_mbwu:
--		now = mpam_read_monsel_reg(msc, MBWU);
--		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
--			nrdy = now & MSMON___NRDY;
--		now = FIELD_GET(MSMON___VALUE, now);
-+		/*
-+		 * If long or lwd counters are supported, use them, else revert
-+		 * to the 31 bit counter.
-+		 */
-+		if (mpam_ris_has_mbwu_long_counter(ris)) {
-+			now = mpam_msc_read_mbwu_l(msc);
-+			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-+				nrdy = now & MSMON___NRDY_L;
-+			if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, rprops))
-+				now = FIELD_GET(MSMON___LWD_VALUE, now);
-+			else
-+				now = FIELD_GET(MSMON___L_VALUE, now);
-+		} else {
-+			now = mpam_read_monsel_reg(msc, MBWU);
-+			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
-+				nrdy = now & MSMON___NRDY;
-+			now = FIELD_GET(MSMON___VALUE, now);
-+		}
- 
- 		if (nrdy)
- 			break;
-@@ -1433,8 +1499,13 @@ static int mpam_save_mbwu_state(void *arg)
- 		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
- 
--		val = mpam_read_monsel_reg(msc, MBWU);
--		mpam_write_monsel_reg(msc, MBWU, 0);
-+		if (mpam_ris_has_mbwu_long_counter(ris)) {
-+			val = mpam_msc_read_mbwu_l(msc);
-+			mpam_msc_zero_mbwu_l(msc);
-+		} else {
-+			val = mpam_read_monsel_reg(msc, MBWU);
-+			mpam_write_monsel_reg(msc, MBWU, 0);
-+		}
- 
- 		cfg->mon = i;
- 		cfg->pmg = FIELD_GET(MSMON_CFG_MBWU_FLT_PMG, cur_flt);
++#ifdef CONFIG_MPAM_KUNIT_TEST
++#include "test_mpam_devices.c"
++#endif
+diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+new file mode 100644
+index 000000000000..8e9d6c88171c
+--- /dev/null
++++ b/drivers/resctrl/test_mpam_devices.c
+@@ -0,0 +1,68 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (C) 2024 Arm Ltd.
++/* This file is intended to be included into mpam_devices.c */
++
++#include <kunit/test.h>
++
++static void test_mpam_reset_msc_bitmap(struct kunit *test)
++{
++	char *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
++	struct mpam_msc fake_msc;
++	u32 *test_result;
++
++	if (!buf)
++		return;
++
++	fake_msc.mapped_hwpage = buf;
++	fake_msc.mapped_hwpage_sz = SZ_16K;
++	cpumask_copy(&fake_msc.accessibility, cpu_possible_mask);
++
++	mutex_init(&fake_msc.part_sel_lock);
++	mutex_lock(&fake_msc.part_sel_lock);
++
++	test_result = (u32 *)(buf + MPAMCFG_CPBM);
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 0);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 1);
++	KUNIT_EXPECT_EQ(test, test_result[0], 1);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 16);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 32);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 0);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mpam_reset_msc_bitmap(&fake_msc, MPAMCFG_CPBM, 33);
++	KUNIT_EXPECT_EQ(test, test_result[0], 0xffffffff);
++	KUNIT_EXPECT_EQ(test, test_result[1], 1);
++	test_result[0] = 0;
++	test_result[1] = 0;
++
++	mutex_unlock(&fake_msc.part_sel_lock);
++}
++
++static struct kunit_case mpam_devices_test_cases[] = {
++	KUNIT_CASE(test_mpam_reset_msc_bitmap),
++	{}
++};
++
++static struct kunit_suite mpam_devices_test_suite = {
++	.name = "mpam_devices_test_suite",
++	.test_cases = mpam_devices_test_cases,
++};
++
++kunit_test_suites(&mpam_devices_test_suite);
 -- 
 2.20.1
 
