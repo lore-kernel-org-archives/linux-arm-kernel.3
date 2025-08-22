@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CB1CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D12ACA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=in6GxO8ZSmjbjrF1pJYwhSUIzTBhlvMfmgcVDvnltp8=; b=kdBtvlFVfr7nrc+KZyGPcK55kG
-	+MbgxJ/iChEweC9x++CBkKDsA0wRF86MM4zFzddXGmsHQUHiXysfpR4nQOhI7h7UGXMD/oFf5xqcc
-	xBaru1KoHR7XIROySaVnmowttttzgY6Je0k8lK4C0eJkUQ+Q/+swcLTcGdw+EC1BeuN/h7WDqJbPj
-	a+p6nvsv6+dDKG27lIGxn0V4JQO6YHN7ESXNqW6VD6OIH9oYyZRcP27CC63eXTvNoK64Swuec1IHL
-	+EBpCWBl4q6/LsXmpGz2piuMGoi2LsxHoIBcW4zgjQndqT1yrXJLAyFGrwBpjqERiCLAyBrpbLE9v
-	BVVEweBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x2cZoUfgkotYBfwCd9bzUchwfMJiwu5pth1Mws1afl8=; b=DnIMuZ/yo0z95soqS2o2ZUL5nU
+	U6sbDf2wQF9YL8pRD5Z7v+WCw/9BdmpWm03CF9rrzkHcxdP7AMryCi5sr4OTFQsDr5utA9K1y+dlj
+	8C3NbV4GC0cPEGftdrNbxjrGB/UkK06ZStm+sTFrHkWZnv3GZGJGGzyEuH6HYbrBRvY91jbbJmw1Z
+	vMig5l0ogGXiQgd08+zft0et2wo+APkWZ5yAAFG/dkR5lXGEKA9TdAndIx0kruq+d9IHYhPDG33U/
+	VbFt9JiaLcQOHTsCw43sIGZLEt7QZej6DOT5U9wPNF1daHai4fqjS4RT+inpmUYPJZMP3yugcKNP/
+	7kdDkt4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphlv-00000003z2P-3gib;
-	Sat, 23 Aug 2025 06:30:39 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uphlz-00000003z8a-1RbT;
+	Sat, 23 Aug 2025 06:30:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRYo-00000002aas-1qTN
+	id 1upRbQ-00000002aq3-101Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:12:03 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MD6IEv005413;
-	Fri, 22 Aug 2025 15:11:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	in6GxO8ZSmjbjrF1pJYwhSUIzTBhlvMfmgcVDvnltp8=; b=y2H6Fw/H7iuNqAHM
-	c1QQ9sEQ5bcb9CSfE/1HFjzQqEyXJu9Lkdg2z+BHakPXbZN0OxJW9FhxBLlOqtQt
-	bUXVbxKu4n882gCHVPMJDxQQQqQphNGBkw7t9RmK+xwVpFfjpAjjkUuV3sumXcoG
-	P1Mtwmw/GwWWmrX12RO/GJ/6DOd0KBt2sM90tVUVYqtXiX9M/uGFrINDoMi3k270
-	eVyJMn9Jd6DwTEQTADxrkC0yFMJR0a72Js8mZV8swz1d9Ptm2KPGAeu8fMK3UtLe
-	oiMbf3Iflu+RZSjQeSqUzhmzfn4O8h0jg061v21cftlA9XQ1tUD2Eklhq6t3yexk
-	gAQm8g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n70dk7jy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 15:11:50 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 817BB4004A;
-	Fri, 22 Aug 2025 15:10:32 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D75487206EB;
-	Fri, 22 Aug 2025 15:09:35 +0200 (CEST)
-Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 15:09:34 +0200
-Message-ID: <7b482e44-5c41-4c2a-b8eb-431da1bdff8d@foss.st.com>
-Date: Fri, 22 Aug 2025 15:09:34 +0200
+	Fri, 22 Aug 2025 13:14:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B0D2543B1C;
+	Fri, 22 Aug 2025 13:14:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4F8EC4CEED;
+	Fri, 22 Aug 2025 13:14:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755868483;
+	bh=DzXyLBZ7QPagtt1qn6sgzGt1lv1clT6z3MmdtXAvGK8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hpzartIMsfjSTMmq6S3F6xaJKmmCnwiFz19U8qxEwdk5zkVC29SLlSo8HMXUYjXZu
+	 2AZ93yl7VBVUj4ILfAilqS97axJu+T9zJWjSKWtW3PJ7s3WE/vMPSXgOnJs/FKR74f
+	 SbAUyuJZyygJnzODW5U/a/77vGJDhe2hOvYBBrGcOOIyRShUQL2nkhjVhE6IZbDDv7
+	 Q5VkZnGMjaWDB5wpxahqK/e00W7yFiYdMhg4QhKlD6rl1dXhFqNJNB3ni4gV7MB/yp
+	 49/v7XL/AsVUDempxX8jEVXs88oGoBU9PoduB84uCSMsoAEJ/2sT+CjdlmLOVCA5Un
+	 xRpZdV3csM5hQ==
+Date: Fri, 22 Aug 2025 15:14:39 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
+Message-ID: <aKhtP1G7as9b2c4f@lore-rh-laptop>
+References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
+ <aKbDjIZhJuWo3yFu@lore-rh-laptop>
+ <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
+ <aKcEYn_hX0ZIusne@lore-rh-laptop>
+ <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
+ <aKgSY7bOrC8-qZE3@lore-rh-laptop>
+ <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/13] arm64: dts: st: add clock-cells to syscfg node
- on stm32mp251
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
- <20250821-drm-misc-next-v4-12-7060500f8fd3@foss.st.com>
-Content-Language: en-US
-From: Yannick FERTRE <yannick.fertre@foss.st.com>
-In-Reply-To: <20250821-drm-misc-next-v4-12-7060500f8fd3@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.178]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LEAJ68iQGD2dyhpF"
+Content-Disposition: inline
+In-Reply-To: <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_061202_763238_125A6D8D 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250822_061444_321015_562A4C22 
+X-CRM114-Status: GOOD (  41.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,32 +80,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raphael,
 
-Thanks for the patch.
+--LEAJ68iQGD2dyhpF
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+>=20
+> On 22.08.2025 09:46, Lorenzo Bianconi wrote:
+> >> On 21.08.2025 14:34, Lorenzo Bianconi wrote:
+> >>>> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
+> >>>>>> This patch series greatly improve airoha snfi driver and fix a
+> >>>>>> number of serious bug.
+> >>>>>>
+> >>>>>> Fixed bugs:
+> >>>>>>  * Fix reading/writing of flashes with more than one plane per lun
+> >>>>>>  * Fix inability to read/write oob area
+> >>>>>>  * Fill the buffer with 0xff before writing
+> >>>>>>  * Fix reading of flashes supporting continuous reading mode
+> >>>>>>  * Fix error paths
+> >>>>>>
+> >>>>>> Improvements:
+> >>>>>>  * Add support of dual/quad wires spi modes in exec_op().
+> >>>>>>  * Support of dualio/quadio flash reading commands
+> >>>>>>  * Remove dirty hack that reads flash page settings from SNFI regi=
+sters
+> >>>>>>    during driver startup
+> >>>>>>
+> >>>>>> Unfortunately I am unable to test the driver with linux at the mom=
+ent,
+> >>>>>> so only the following testing was done:
+> >>>>> It seems to me this is quite an important rework of the driver. I w=
+ould prefer
+> >>>>> to have some test results for this series. Are you able to run mtd_=
+test kernel
+> >>>>> module for testing?
+> >>>> I'll try to build latest openwrt with this patches=A0 and mtd_test k=
+ernel
+> >>>> module and try it on one of our boards.
+> >>> what board are you using for testing? If it is based on Airoha-7581 y=
+ou could
+> >>> use the following repo for testing.
+> >>>
+> >>> https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-st=
+able
+> >>>
+> >>> Regards,
+> >>> Lorenzo
+> >> What tests do you suggest to run?
+> > IIRC I run all of them. Can you please report even if there are some
+> > improvements (or penalties) in read/write speed
+> Do you mean to run it twice? with patches and without?
 
-Le 21/08/2025 à 13:09, Raphael Gallais-Pou a écrit :
-> Make the syscfg node a clock provider so clock consumers can reach child
-> clocks through device-tree.
->
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> ---
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 1 +
->   1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index b44ff221e0da968be104ff8195f9bef79c90c57a..24823bbfee31f15e813573ad1a0c4f67a125ce51 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -1874,6 +1874,7 @@ exti1: interrupt-controller@44220000 {
->   		syscfg: syscon@44230000 {
->   			compatible = "st,stm32mp25-syscfg", "syscon";
->   			reg = <0x44230000 0x10000>;
-> +			#clock-cells = <0>;
->   		};
->   
->   		pinctrl: pinctrl@44240000 {
->
+I mean I would suggest to check if there are any difference in read/write
+speed (so yes, you need a baseline).
+
+Regards,
+Lorenzo
+
+> >
+> >> I have a single flash I boot from. It have only 2 mtd partitions:
+> >>
+> >> [=A0=A0=A0 2.980849] spi-nand spi0.0: Micron SPI NAND was found.
+> >> [=A0=A0=A0 2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, pa=
+ge size:
+> >> 2048, OOB size: 128
+> >> [=A0=A0=A0 2.994493] 2 fixed-partitions partitions found on MTD device=
+ spi0.0
+> >> [=A0=A0=A0 3.000856] Creating 2 MTD partitions on "spi0.0":
+> >> [=A0=A0=A0 3.005651] 0x000000000000-0x000000020000 : "bl2"
+> >> [=A0=A0=A0 3.011247] 0x000000020000-0x000010000000 : "ubi"
+> >>
+> >> Most of tests are destructive. So If I use "bl2" or "ubi" partition for
+> >> test, next time I will be unable to boot :-(
+> > yes, I flashed the device after carrying out the test.
+> >
+> > Regards,
+> > Lorenzo
+> >
+> >> Do you suggest to patch u-boot & linux to have more mtd partitions?
+> >>
+> >> This is the results of the only read-only test I found.
+> >>
+> >> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
+> >> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=3D1
+> >> [=A0 159.121706]
+> >> [=A0 159.123220] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+> >> [=A0 159.129053] mtd_readtest: MTD device: 1
+> >> [=A0 159.132898] mtd_readtest: MTD device size 268304384, eraseblock s=
+ize
+> >> 131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
+> >> 64, OOB size 128
+> >> [=A0 159.147008] mtd_test: scanning for bad eraseblocks
+> >> [=A0 159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
+> >> [=A0 159.157549] mtd_readtest: testing page read
+> >>
+> >> Mikhail
+> >>
+> >>>> Actually patches can be divided on to parts:
+> >>>> * fixes of current driver (patches 1-10)
+> >>>> * change of behavior to avoid reading flash page settings from SNFI
+> >>>> registers during driver startup (patches 11-14)
+> >>>>
+> >>>> The changes are based on the code we are using for more than 3 years=
+=2E I
+> >>>> adapt it to latest linux/u-boot code.
+> >>>>
+> >>>> Up to now the only known issue appears on en7523 chips only. Here a
+> >>>> corresponding patch description (not added to this series)
+> >>>> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D spi: airoha:
+> >>>> en7523: workaround flash damaging if UART_TXD was short to GND We fo=
+und
+> >>>> that some serial console may pull TX line to GROUND during board boot
+> >>>> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
+> >>>> booting in RESERVED boot mode. It was found that some flashes operat=
+es
+> >>>> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definit=
+ely
+> >>>> affected by the issue, Winbond flashes are NOT affected. Details:
+> >>>> -------- DMA reading of odd pages on affected flashes operates
+> >>>> incorrectly. Page reading offset (start of the page) on hardware lev=
+el
+> >>>> is replaced by 0x10. Thus results in incorrect data reading. Usage of
+> >>>> UBI make things even worse. Any attempt to access UBI leads to ubi
+> >>>> damaging. As result OS loading becomes impossible. Non-DMA reading is
+> >>>> OK. =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> >>>>
+> >>>> Regards,
+> >>>> Mikhail
+> >>>>
+> >>>>
+> >>>>> Regards,
+> >>>>> Lorenzo
+> >>>>>
+> >>>>>>  * Driver compiles without error.
+> >>>>>>  * All changes were tested with corresponding u-boot driver. U-Boot
+> >>>>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
+> >>>>>>    additional fixes for continuous mode.
+> >>>>>>
+> >>>>>> Changes v2:
+> >>>>>>  * minor fix
+> >>>>>>  * add comments to code
+> >>>>>>
+> >>>>>> Changes v3:
+> >>>>>>  * add patch to prevent continuous reading
+> >>>>>>
+> >>>>>> Mikhail Kshevetskiy (14):
+> >>>>>>   spi: airoha: return an error for continuous mode dirmap creation=
+ cases
+> >>>>>>   spi: airoha: remove unnecessary restriction length
+> >>>>>>   spi: airoha: add support of dual/quad wires spi modes
+> >>>>>>   spi: airoha: remove unnecessary switch to non-dma mode
+> >>>>>>   spi: airoha: unify dirmap read/write code
+> >>>>>>   spi: airoha: switch back to non-dma mode in the case of error
+> >>>>>>   spi: airoha: fix reading/writing of flashes with more than one p=
+lane
+> >>>>>>     per lun
+> >>>>>>   spi: airoha: support of dualio/quadio flash reading commands
+> >>>>>>   spi: airoha: allow reading/writing of oob area
+> >>>>>>   spi: airoha: buffer must be 0xff-ed before writing
+> >>>>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGE=
+FMT
+> >>>>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CN=
+FG and
+> >>>>>>     REG_SPI_NFI_SECCUS_SIZE registers
+> >>>>>>   spi: airoha: set custom sector size equal to flash page size
+> >>>>>>   spi: airoha: avoid reading flash page settings from SNFI registe=
+rs
+> >>>>>>     during driver startup
+> >>>>>>
+> >>>>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++------------=
+-----
+> >>>>>>  1 file changed, 260 insertions(+), 248 deletions(-)
+> >>>>>>
+> >>>>>> --=20
+> >>>>>> 2.50.1
+> >>>>>>
+
+--LEAJ68iQGD2dyhpF
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKhtPAAKCRA6cBh0uS2t
+rNtoAP45qevD9fzswegzdm4QNheBWtzMmFfN6H5SL30tWFHTCgEA7XYEgYXlmkSy
+qAkG0JIXX5OXzfE7JomcgI+UAg5pcgA=
+=9+YL
+-----END PGP SIGNATURE-----
+
+--LEAJ68iQGD2dyhpF--
 
