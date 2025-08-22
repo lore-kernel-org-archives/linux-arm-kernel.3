@@ -4,47 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91769CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED10CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RqOeP/Ar0gyZQ4XQGjoEh1J3Z7+XBRkqohq5EYgwM/g=; b=G3miBt/1zTbCuyi7qnD5TB7sx4
-	H3MYbmtu4iOGdF9hpjsQnQZxwsMTxaSg2M9hOCLNLZQKO3ooRisxWrz+IdkSlZitG8fltmRNwwIga
-	gPazfZlAtSc7L0mR2JB5UqWdC6uLGgA1V2mIPJo2JpGkaAPVgX0hu4C8nlNMlX/SVoDvAuOZDLhuM
-	Ft/oVDej8F289DWrCHVgvsfSr1X2pc3rm9VAEn4haVm32Uu4EllqHOVjliWID20Ijjk0BWKxvfAJD
-	DafcnFz+9rJYaZcFp704/PUUbILBUCVJgdQ5qoNxjrcRk/LP3+3/t6d4h9NffvsG8vfk/ysrI6lRa
-	OprEqiSw==;
+	bh=H/1S7DDo5ejBxzJdRig49Rht9iTPiAfim4WL9ZDXSqU=; b=49eCd9AT+r1oZZxbiebUJIeWil
+	AHQ+wkVtFxFdaze0j9VcMHWAAMkP13Vi7uvlSoKkrZCgFuof0bp5GUn8plImpbaBLwhgY14tpjgWG
+	cPxTnpwv1ga+ITouHI/firDdeBmjW1LpMoJx0K6I40OCFTC3hrPCenkP9x9EgnaVvF9pMdMMrjdiK
+	lrvwq6O5OKK7wEh+/qXhusS8doARK3B/haLz11caVwto72fa5zAbQ3gyKy8/xDXNL4Auz5fL+tnY/
+	/3JMAzCYGDrl3SroBf+VCAfZb21r990wfZqNU/ap98620+xnNya+9Y+UF/tUs7hkJt7Nzqt/WU33w
+	NN4Z/TbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTnI-000000033Mt-3VWL;
-	Fri, 22 Aug 2025 15:35:08 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1upTnJ-000000033OQ-3FOF;
+	Fri, 22 Aug 2025 15:35:09 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOAz-000000023xZ-2ywd
+	id 1upOB4-000000023zj-1plc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:35:15 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Fri, 22 Aug 2025 09:35:19 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id DEF4921D7D;
-	Fri, 22 Aug 2025 09:35:10 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 382FE1F445;
+	Fri, 22 Aug 2025 09:35:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755855314; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H/1S7DDo5ejBxzJdRig49Rht9iTPiAfim4WL9ZDXSqU=;
+	b=YVEY+EGodZKOmVAVQ0gO2Ch0wCOuQ8tkiZKsZEHzP7rDC6aFp9R69INz0Q1fZBIyryz0iT
+	qs5WOUDYB6VesUBZmcx7MNxFvjKcqK952rR0gBFrXQsYiSkvoFscRLOGaPW89jCoU/Bvq1
+	7jqdy9kgoZYJbmOJvlyf7F3SOzGAqLw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755855314;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H/1S7DDo5ejBxzJdRig49Rht9iTPiAfim4WL9ZDXSqU=;
+	b=lDGNN0xyT0vUW7cYQ1+/IbmDMlmD6z38FKMKU2aJkdg7yD9Sa9pOE69PuRRKQPnT0BycV/
+	ON0Qkf5e1ohdTdBg==
+Authentication-Results: smtp-out2.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1755855314; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H/1S7DDo5ejBxzJdRig49Rht9iTPiAfim4WL9ZDXSqU=;
+	b=YVEY+EGodZKOmVAVQ0gO2Ch0wCOuQ8tkiZKsZEHzP7rDC6aFp9R69INz0Q1fZBIyryz0iT
+	qs5WOUDYB6VesUBZmcx7MNxFvjKcqK952rR0gBFrXQsYiSkvoFscRLOGaPW89jCoU/Bvq1
+	7jqdy9kgoZYJbmOJvlyf7F3SOzGAqLw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1755855314;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=H/1S7DDo5ejBxzJdRig49Rht9iTPiAfim4WL9ZDXSqU=;
+	b=lDGNN0xyT0vUW7cYQ1+/IbmDMlmD6z38FKMKU2aJkdg7yD9Sa9pOE69PuRRKQPnT0BycV/
+	ON0Qkf5e1ohdTdBg==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D323C13A31;
-	Fri, 22 Aug 2025 09:35:09 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2BB3B139B7;
+	Fri, 22 Aug 2025 09:35:13 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id oOxBMc05qGihMAAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 22 Aug 2025 09:35:09 +0000
+	id AO1kCNE5qGihMAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 22 Aug 2025 09:35:13 +0000
 From: Stanimir Varbanov <svarbanov@suse.de>
 To: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -68,31 +104,43 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jonathan Bell <jonathan@raspberrypi.com>,
 	Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	Stanimir Varbanov <svarbanov@suse.de>,
-	stable@vger.kernel.org,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring buffer
-Date: Fri, 22 Aug 2025 12:34:36 +0300
-Message-ID: <20250822093440.53941-2-svarbanov@suse.de>
+Subject: [PATCH v2 4/5] arm64: dts: rp1: Add ethernet DT node
+Date: Fri, 22 Aug 2025 12:34:39 +0300
+Message-ID: <20250822093440.53941-5-svarbanov@suse.de>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250822093440.53941-1-svarbanov@suse.de>
 References: <20250822093440.53941-1-svarbanov@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
+X-Spamd-Result: default: False [-5.30 / 50.00];
 	REPLY(-4.00)[];
-	TAGGED_RCPT(0.00)[dt,netdev]
-X-Rspamd-Queue-Id: DEF4921D7D
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TAGGED_RCPT(0.00)[dt,netdev];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
+	R_RATELIMIT(0.00)[to_ip_from(RL7mwea5a3cdyragbzqhrtit3y)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_023513_893084_EF1E3DEA 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250822_023518_626761_61277ED4 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +155,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case of rx queue reset and 64bit capable hardware, set the upper
-32bits of DMA ring buffer address.
+Add macb GEM ethernet DT node.
 
-Cc: stable@vger.kernel.org # v4.6+
-Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue to handle RX errors")
-Credits-to: Phil Elwell <phil@raspberrypi.com>
-Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
 Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
-v1 -> v2: 
- - Added credits.
- - Use lower_32_bits() for RBQP register writes for consistency (Nicolas).
- - Added Fixes tag.
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
- drivers/net/ethernet/cadence/macb_main.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index ce95fad8cedd..36717e7e5811 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, struct napi_struct *napi,
- 		macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
- 
- 		macb_init_rx_ring(queue);
--		queue_writel(queue, RBQP, queue->rx_ring_dma);
-+		queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_dma));
-+#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
-+		if (bp->hw_dma_cap & HW_DMA_CAP_64B)
-+			macb_writel(bp, RBQPH, upper_32_bits(queue->rx_ring_dma));
-+#endif
- 
- 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
- 
+diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+index 5002a375eb0b..6bdc304c5f24 100644
+--- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
++++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+@@ -39,4 +39,20 @@ rp1_gpio: pinctrl@400d0000 {
+ 			     <1 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <2 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
++
++	rp1_eth: ethernet@40100000 {
++		compatible = "raspberrypi,rp1-gem";
++		reg = <0x00 0x40100000  0x0 0x4000>;
++		interrupts = <6 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>,
++			 <&rp1_clocks RP1_CLK_SYS>,
++			 <&rp1_clocks RP1_CLK_ETH>,
++			 <&rp1_clocks RP1_CLK_ETH_TSU>;
++		clock-names = "pclk", "hclk", "tx_clk", "tsu_clk";
++		local-mac-address = [00 00 00 00 00 00];
++		status = "disabled";
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++	};
+ };
 -- 
 2.47.0
 
