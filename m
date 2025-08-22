@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E648CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B93CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rhs5lfnCklt2Yr93A2wNvEAaQilhu0cFdXOgANlFWBw=; b=145fq42eqWturd7aQfeGEa9I7O
-	WxKVd369m+GCkq5vw5WseQeVudtpsf86XIfXLS2FOectPbHO4/znvLdrC6h5T5xKlMt8Gw5g1viPH
-	padX7Mix/Xzy+XoOooE5v7UeFlr5O+8O3QLz3kKlbZWQCWZgJzgj1RrMTNeKftnJgq5dlIb8w41ZE
-	Cmf8C2eM/97gNls4bBr9YAdDHILQGUq92tToObTTIFqQSO9XqP6p+yyqboRSuseLIDyeEzeqKviV3
-	uElDcEqx7Vel0utq7zIcjM98eV8EuiTRtyIT/nb1u1Q373A+/BjYfo5cF7TCnlfmlTNwdnUltiO/z
-	lt7IAQyw==;
+	bh=y/+Nqxv2EXoA6oD9t0LtSWt8FP64fuGC6kJRGWPtpNo=; b=orGR1NM1BXcA5wpDo0RV1GPAbn
+	qQtDBJytyEQI5/WRP0pDM6GY5q9U6USHuOfHv+XmOT0SU2wD3fFnF06cJ/reE6enE6qxbFq0lxPg/
+	+XxhRg7ObmHIUR/HK873xHBXRbik2Zd0f8l79s6EB8dbLy6+GZNrE6khHIO1AfHKjNKf/V+AaJmnT
+	b7WARKfMXIcMpkbHBWkm9HCac6MUGCeVzcP1NgeYUtSafkhZN3S3qqPVlxKCqbQaQ8uj5pgJxtESw
+	cqwedwWN2JBkqG7FOHmppgnlhcKtpjP0kaoKD4FeGtMswFMF0oP2F3dPdrLomK1iU7YpSpj7o3ctr
+	37SrKUmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upht6-0000000499g-0X1d;
-	Sat, 23 Aug 2025 06:38:04 +0000
+	id 1uphtD-000000049I3-2c5M;
+	Sat, 23 Aug 2025 06:38:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTo2-000000034Lu-2PSB
+	id 1upToE-000000034SV-0FQG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:35:55 +0000
+	Fri, 22 Aug 2025 15:36:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01BDA2880;
-	Fri, 22 Aug 2025 08:35:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E5382880;
+	Fri, 22 Aug 2025 08:35:57 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C77773F63F;
-	Fri, 22 Aug 2025 08:35:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1EEBA3F63F;
+	Fri, 22 Aug 2025 08:35:59 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,18 +72,18 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [PATCH 17/33] arm_mpam: Probe the hardware features resctrl supports
-Date: Fri, 22 Aug 2025 15:30:32 +0000
-Message-Id: <20250822153048.2287-52-james.morse@arm.com>
+	Rohit Mathew <Rohit.Mathew@arm.com>
+Subject: [PATCH 19/33] arm_mpam: Reset MSC controls from cpu hp callbacks
+Date: Fri, 22 Aug 2025 15:30:34 +0000
+Message-Id: <20250822153048.2287-54-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083554_689629_9681F67D 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20250822_083606_176797_9E4BCB07 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,294 +98,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expand the probing support with the control and monitor types
-we can use with resctrl.
+When a CPU comes online, it may bring a newly accessible MSC with
+it. Only the default partid has its value reset by hardware, and
+even then the MSC might not have been reset since its config was
+previously dirtyied. e.g. Kexec.
 
-CC: Dave Martin <Dave.Martin@arm.com>
+Any in-use partid must have its configuration restored, or reset.
+In-use partids may be held in caches and evicted later.
+
+MSC are also reset when CPUs are taken offline to cover cases where
+firmware doesn't reset the MSC over reboot using UEFI, or kexec
+where there is no firmware involvement.
+
+If the configuration for a RIS has not been touched since it was
+brought online, it does not need resetting again.
+
+To reset, write the maximum values for all discovered controls.
+
+CC: Rohit Mathew <Rohit.Mathew@arm.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
 Changes since RFC:
- * Made mpam_ris_hw_probe_hw_nrdy() more in C.
- * Added static assert on features bitmap size.
+ * Last bitmap write will always be non-zero.
+  * Dropped READ_ONCE() - teh value can no longer change.
 ---
- drivers/resctrl/mpam_devices.c  | 156 +++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_internal.h |  54 +++++++++++
- 2 files changed, 209 insertions(+), 1 deletion(-)
+ drivers/resctrl/mpam_devices.c  | 121 ++++++++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h |   8 +++
+ 2 files changed, 129 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 012e09e80300..290a04f8654f 100644
+index bb62de6d3847..c1f01dd748ad 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -102,7 +102,7 @@ static LLIST_HEAD(mpam_garbage);
- 
- static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
- {
--	WARN_ON_ONCE(reg > msc->mapped_hwpage_sz);
-+	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
- 
- 	return readl_relaxed(msc->mapped_hwpage + reg);
-@@ -131,6 +131,20 @@ static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 va
- }
- #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
- 
-+static inline u32 _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg)
-+{
-+	mpam_mon_sel_lock_held(msc);
-+	return __mpam_read_reg(msc, reg);
-+}
-+#define mpam_read_monsel_reg(msc, reg) _mpam_read_monsel_reg(msc, MSMON_##reg)
-+
-+static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
-+{
-+	mpam_mon_sel_lock_held(msc);
-+	__mpam_write_reg(msc, reg, val);
-+}
-+#define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
-+
- static u64 mpam_msc_read_idr(struct mpam_msc *msc)
- {
- 	u64 idr_high = 0, idr_low;
-@@ -643,6 +657,139 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
- 	return found;
+@@ -7,6 +7,7 @@
+ #include <linux/atomic.h>
+ #include <linux/arm_mpam.h>
+ #include <linux/bitfield.h>
++#include <linux/bitmap.h>
+ #include <linux/cacheinfo.h>
+ #include <linux/cpu.h>
+ #include <linux/cpumask.h>
+@@ -849,8 +850,115 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 	return 0;
  }
  
-+/*
-+ * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
-+ * of NRDY, software can use this bit for any purpose" - so hardware might not
-+ * implement this - but it isn't RES0.
-+ *
-+ * Try and see what values stick in this bit. If we can write either value,
-+ * its probably not implemented by hardware.
-+ */
-+static bool _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc_ris * ris, u32 mon_reg)
++static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
 +{
-+	u32 now;
-+	u64 mon_sel;
-+	bool can_set, can_clear;
-+	struct mpam_msc *msc = ris->vmsc->msc;
++	u32 num_words, msb;
++	u32 bm = ~0;
++	int i;
 +
-+	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
-+		return false;
-+
-+	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
-+		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-+	_mpam_write_monsel_reg(msc, mon_reg, mon_sel);
-+
-+	_mpam_write_monsel_reg(msc, mon_reg, MSMON___NRDY);
-+	now = _mpam_read_monsel_reg(msc, mon_reg);
-+	can_set = now & MSMON___NRDY;
-+
-+	_mpam_write_monsel_reg(msc, mon_reg, 0);
-+	now = _mpam_read_monsel_reg(msc, mon_reg);
-+	can_clear = !(now & MSMON___NRDY);
-+	mpam_mon_sel_inner_unlock(msc);
-+
-+	return (!can_set || !can_clear);
-+}
-+
-+#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg)			\
-+        _mpam_ris_hw_probe_hw_nrdy(_ris, MSMON_##_mon_reg)
-+
-+static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
-+{
-+	int err;
-+	struct mpam_msc *msc = ris->vmsc->msc;
-+	struct mpam_props *props = &ris->props;
-+
-+	lockdep_assert_held(&msc->probe_lock);
 +	lockdep_assert_held(&msc->part_sel_lock);
 +
-+	/* Cache Portion partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
-+		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
++	if (wd == 0)
++		return;
 +
-+		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
-+		if (props->cpbm_wd)
-+			mpam_set_feature(mpam_feat_cpor_part, props);
-+	}
++	/*
++	 * Write all ~0 to all but the last 32bit-word, which may
++	 * have fewer bits...
++	 */
++	num_words = DIV_ROUND_UP(wd, 32);
++	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm))
++		__mpam_write_reg(msc, reg, bm);
 +
-+	/* Memory bandwidth partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
-+		u32 mbw_features = mpam_read_partsel_reg(msc, MBW_IDR);
++	/*
++	 * ....and then the last (maybe) partial 32bit word. When wd is a
++	 * multiple of 32, msb should be 31 to write a full 32bit word.
++	 */
++	msb = (wd - 1) % 32;
++	bm = GENMASK(msb, 0);
++	__mpam_write_reg(msc, reg, bm);
++}
 +
-+		/* portion bitmap resolution */
-+		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-+		if (props->mbw_pbm_bits &&
-+		    FIELD_GET(MPAMF_MBW_IDR_HAS_PBM, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_part, props);
++static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
++{
++	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
++	struct mpam_msc *msc = ris->vmsc->msc;
++	struct mpam_props *rprops = &ris->props;
 +
-+		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-+		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_max, props);
-+	}
++	mpam_assert_srcu_read_lock_held();
 +
-+	/* Performance Monitoring */
-+	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
-+		u32 msmon_features = mpam_read_partsel_reg(msc, MSMON_IDR);
++	mutex_lock(&msc->part_sel_lock);
++	__mpam_part_sel(ris->ris_idx, partid, msc);
++
++	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
++		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
++
++	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
++		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
++
++	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
++		mpam_write_partsel_reg(msc, MBW_MIN, 0);
++
++	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
++		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
++
++	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
++		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
++	mutex_unlock(&msc->part_sel_lock);
++}
++
++static void mpam_reset_ris(struct mpam_msc_ris *ris)
++{
++	u16 partid, partid_max;
++
++	mpam_assert_srcu_read_lock_held();
++
++	if (ris->in_reset_state)
++		return;
++
++	spin_lock(&partid_max_lock);
++	partid_max = mpam_partid_max;
++	spin_unlock(&partid_max_lock);
++	for (partid = 0; partid < partid_max; partid++)
++		mpam_reset_ris_partid(ris, partid);
++}
++
++static void mpam_reset_msc(struct mpam_msc *msc, bool online)
++{
++	int idx;
++	struct mpam_msc_ris *ris;
++
++	mpam_assert_srcu_read_lock_held();
++
++	mpam_mon_sel_outer_lock(msc);
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_srcu(ris, &msc->ris, msc_list, srcu_read_lock_held(&mpam_srcu)) {
++		mpam_reset_ris(ris);
 +
 +		/*
-+		 * If the firmware max-nrdy-us property is missing, the
-+		 * CSU counters can't be used. Should we wait forever?
++		 * Set in_reset_state when coming online. The reset state
++		 * for non-zero partid may be lost while the CPUs are offline.
 +		 */
-+		err = device_property_read_u32(&msc->pdev->dev,
-+					       "arm,not-ready-us",
-+					       &msc->nrdy_usec);
-+
-+		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
-+			u32 csumonidr;
-+
-+			csumonidr = mpam_read_partsel_reg(msc, CSUMON_IDR);
-+			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
-+			if (props->num_csu_mon) {
-+				bool hw_managed;
-+
-+				mpam_set_feature(mpam_feat_msmon_csu, props);
-+
-+				/* Is NRDY hardware managed? */
-+				mpam_mon_sel_outer_lock(msc);
-+				hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, CSU);
-+				mpam_mon_sel_outer_unlock(msc);
-+				if (hw_managed)
-+					mpam_set_feature(mpam_feat_msmon_csu_hw_nrdy, props);
-+			}
-+
-+			/*
-+			 * Accept the missing firmware property if NRDY appears
-+			 * un-implemented.
-+			 */
-+			if (err && mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, props))
-+				pr_err_once("Counters are not usable because not-ready timeout was not provided by firmware.");
-+		}
-+		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
-+			bool hw_managed;
-+			u32 mbwumonidr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
-+
-+			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumonidr);
-+			if (props->num_mbwu_mon)
-+				mpam_set_feature(mpam_feat_msmon_mbwu, props);
-+
-+			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumonidr))
-+				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
-+
-+			/* Is NRDY hardware managed? */
-+			mpam_mon_sel_outer_lock(msc);
-+			hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, MBWU);
-+			mpam_mon_sel_outer_unlock(msc);
-+			if (hw_managed)
-+				mpam_set_feature(mpam_feat_msmon_mbwu_hw_nrdy, props);
-+
-+			/*
-+			 * Don't warn about any missing firmware property for
-+			 * MBWU NRDY - it doesn't make any sense!
-+			 */
-+		}
++		ris->in_reset_state = online;
 +	}
++	srcu_read_unlock(&mpam_srcu, idx);
++	mpam_mon_sel_outer_unlock(msc);
 +}
 +
- static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ static int mpam_cpu_online(unsigned int cpu)
  {
- 	u64 idr;
-@@ -663,6 +810,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 
- 	idr = mpam_msc_read_idr(msc);
- 	mutex_unlock(&msc->part_sel_lock);
++	int idx;
++	struct mpam_msc *msc;
 +
- 	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
- 
- 	/* Use these values so partid/pmg always starts with a valid value */
-@@ -683,6 +831,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 		ris = mpam_get_or_create_ris(msc, ris_idx);
- 		if (IS_ERR(ris))
- 			return PTR_ERR(ris);
-+		ris->idr = idr;
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
++		if (!cpumask_test_cpu(cpu, &msc->accessibility))
++			continue;
 +
-+		mutex_lock(&msc->part_sel_lock);
-+		__mpam_part_sel(ris_idx, 0, msc);
-+		mpam_ris_hw_probe(ris);
-+		mutex_unlock(&msc->part_sel_lock);
- 	}
- 
- 	spin_lock(&partid_max_lock);
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index c6f087f9fa7d..9f6cd4a68cce 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -136,6 +136,56 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
- 		lockdep_assert_preemption_enabled();
++		if (atomic_fetch_inc(&msc->online_refs) == 0)
++			mpam_reset_msc(msc, true);
++	}
++	srcu_read_unlock(&mpam_srcu, idx);
++
+ 	return 0;
  }
  
-+/*
-+ * When we compact the supported features, we don't care what they are.
-+ * Storing them as a bitmap makes life easy.
-+ */
-+typedef u16 mpam_features_t;
-+
-+/* Bits for mpam_features_t */
-+enum mpam_device_features {
-+	mpam_feat_ccap_part = 0,
-+	mpam_feat_cpor_part,
-+	mpam_feat_mbw_part,
-+	mpam_feat_mbw_min,
-+	mpam_feat_mbw_max,
-+	mpam_feat_mbw_prop,
-+	mpam_feat_msmon,
-+	mpam_feat_msmon_csu,
-+	mpam_feat_msmon_csu_capture,
-+	mpam_feat_msmon_csu_hw_nrdy,
-+	mpam_feat_msmon_mbwu,
-+	mpam_feat_msmon_mbwu_capture,
-+	mpam_feat_msmon_mbwu_rwbw,
-+	mpam_feat_msmon_mbwu_hw_nrdy,
-+	mpam_feat_msmon_capt,
-+	MPAM_FEATURE_LAST,
-+};
-+static_assert(BITS_PER_TYPE(mpam_features_t) >= MPAM_FEATURE_LAST);
-+#define MPAM_ALL_FEATURES      ((1 << MPAM_FEATURE_LAST) - 1)
-+
-+struct mpam_props {
-+	mpam_features_t		features;
-+
-+	u16			cpbm_wd;
-+	u16			mbw_pbm_bits;
-+	u16			bwa_wd;
-+	u16			num_csu_mon;
-+	u16			num_mbwu_mon;
-+};
-+
-+static inline bool mpam_has_feature(enum mpam_device_features feat,
-+				    struct mpam_props *props)
-+{
-+	return (1 << feat) & props->features;
-+}
-+
-+static inline void mpam_set_feature(enum mpam_device_features feat,
-+				    struct mpam_props *props)
-+{
-+	props->features |= (1 << feat);
-+}
-+
- struct mpam_class {
- 	/* mpam_components in this class */
- 	struct list_head	components;
-@@ -175,6 +225,8 @@ struct mpam_vmsc {
- 	/* mpam_msc_ris in this vmsc */
- 	struct list_head	ris;
+@@ -886,6 +994,19 @@ static int mpam_discovery_cpu_online(unsigned int cpu)
  
-+	struct mpam_props	props;
+ static int mpam_cpu_offline(unsigned int cpu)
+ {
++	int idx;
++	struct mpam_msc *msc;
 +
- 	/* All RIS in this vMSC are members of this MSC */
- 	struct mpam_msc		*msc;
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
++		if (!cpumask_test_cpu(cpu, &msc->accessibility))
++			continue;
++
++		if (atomic_dec_and_test(&msc->online_refs))
++			mpam_reset_msc(msc, false);
++	}
++	srcu_read_unlock(&mpam_srcu, idx);
++
+ 	return 0;
+ }
  
-@@ -186,6 +238,8 @@ struct mpam_vmsc {
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index a2b0ff411138..466d670a01eb 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -5,6 +5,7 @@
+ #define MPAM_INTERNAL_H
  
- struct mpam_msc_ris {
+ #include <linux/arm_mpam.h>
++#include <linux/atomic.h>
+ #include <linux/cpumask.h>
+ #include <linux/io.h>
+ #include <linux/llist.h>
+@@ -43,6 +44,7 @@ struct mpam_msc {
+ 	struct pcc_mbox_chan	*pcc_chan;
+ 	u32			nrdy_usec;
+ 	cpumask_t		accessibility;
++	atomic_t		online_refs;
+ 
+ 	/*
+ 	 * probe_lock is only take during discovery. After discovery these
+@@ -248,6 +250,7 @@ struct mpam_msc_ris {
  	u8			ris_idx;
-+	u64			idr;
-+	struct mpam_props	props;
+ 	u64			idr;
+ 	struct mpam_props	props;
++	bool			in_reset_state;
  
  	cpumask_t		affinity;
  
+@@ -267,6 +270,11 @@ struct mpam_msc_ris {
+ extern struct srcu_struct mpam_srcu;
+ extern struct list_head mpam_classes;
+ 
++static inline void mpam_assert_srcu_read_lock_held(void)
++{
++	WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
++}
++
+ /* System wide partid/pmg values */
+ extern u16 mpam_partid_max;
+ extern u8 mpam_pmg_max;
 -- 
 2.20.1
 
