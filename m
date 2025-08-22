@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B73ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68715CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xx8od5jh0EAN2GpLqQyWXi97qHP4eXKRM1o7wX2U5B8=; b=Hacq88ASkuPbDFvfSW8t019u6R
-	SFgmZsyVc2DBxmnlobv83CkW6HIqmUj9E6Z9ei5aztRISHftu5U6iJaen0pZoegU1LmXtIpDccfvp
-	W38bWoBSV65b2o+3Lw18ij5V8g1qV0cDdpQwG7girBl7cL9zg3DIiIetMoZFEdWOlpd3meOri1L6J
-	Y/GuvLAHXnRZFERD38oBwLHG8iZrvXxeWPBFGqXSm5Co7e5lGZfowBQpy9eFm2a6smJrQJnYtkLGv
-	YOmzrEszgb3z0L9mIWXf0Ce+I7SrsAEcf15dsQ5afiSUsl7LA9K+EnQs7xdce7sZdw/QGqq96JNL+
-	0HYfusxg==;
+	bh=un+oR+fP5qbABzOy+weU6zIeK55bE2EYdezd1qwdPAc=; b=kc5CMI415ldljtCeTPkWVOG/f4
+	epJRe+1aiT0ZhjtGh1dvMBlSXsl8OifsKI14xyFp3BEM9ryfZ0Teiural/BvKi0CtoSBjdd0Tjqf7
+	W0saOw+FeggT5ft0kbmwsfgzZdkYueUOASOUvlVniGhmwVqO7Yo33acZYsQtkPuyhuGbEz7Fa19Xh
+	g/rvCLfDMiq65aiMWSwuI7IudtFJ9/rgeszByiE5DdurDFHP1G+YGS/MlIc+y0N+9HFrImdfOl9D5
+	rhjW+A6zcA9W86fphl/e2/OUhEvFXeXoe5ua2wusIho5RXme+szbsi1jclitwJ/bxRKgUqMZfTs8n
+	VbXTFGbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkeW-00000004TGG-1BuG;
-	Sat, 23 Aug 2025 09:35:12 +0000
+	id 1upkeZ-00000004TL8-41sZ;
+	Sat, 23 Aug 2025 09:35:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTk2-000000031d1-1bgQ
+	id 1upTkE-000000031gV-0qD6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:31:47 +0000
+	Fri, 22 Aug 2025 15:31:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B83B8288E;
-	Fri, 22 Aug 2025 08:31:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E19115A1;
+	Fri, 22 Aug 2025 08:31:49 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A36E53F63F;
-	Fri, 22 Aug 2025 08:31:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00FD33F63F;
+	Fri, 22 Aug 2025 08:31:51 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,17 +72,17 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 07/33] arm64: kconfig: Add Kconfig entry for MPAM
-Date: Fri, 22 Aug 2025 15:29:48 +0000
-Message-Id: <20250822153048.2287-8-james.morse@arm.com>
+Subject: [PATCH 09/33] dt-bindings: arm: Add MPAM MSC binding
+Date: Fri, 22 Aug 2025 15:29:50 +0000
+Message-Id: <20250822153048.2287-10-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083146_468256_8A44FEAA 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250822_083158_322979_AACE90C1 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +97,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bulk of the MPAM driver lives outside the arch code because it
-largely manages MMIO devices that generate interrupts. The driver
-needs a Kconfig symbol to enable it, as MPAM is only found on arm64
-platforms, that is where the Kconfig option makes the most sense.
+From: Rob Herring <robh@kernel.org>
 
-This Kconfig option will later be used by the arch code to enable
-or disable the MPAM context-switch code, and registering the CPUs
-properties with the MPAM driver.
+The binding is designed around the assumption that an MSC will be a
+sub-block of something else such as a memory controller, cache controller,
+or IOMMU. However, it's certainly possible a design does not have that
+association or has a mixture of both, so the binding illustrates how we can
+support that with RIS child nodes.
 
+A key part of MPAM is we need to know about all of the MSCs in the system
+before it can be enabled. This drives the need for the genericish
+'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
+until a h/w specific driver potentially enables the h/w.
+
+Cc: James Morse <james.morse@arm.com>
+Signed-off-by: Rob Herring <robh@kernel.org>
 Signed-off-by: James Morse <james.morse@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 ---
- arch/arm64/Kconfig | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Changes since RFC:
+ * Syntax(?) corrections supplied by Rob.
+ * Culled some context in the example.
+---
+ .../devicetree/bindings/arm/arm,mpam-msc.yaml | 200 ++++++++++++++++++
+ 1 file changed, 200 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index e9bbfacc35a6..658e47fc0c5a 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2060,6 +2060,23 @@ config ARM64_TLB_RANGE
- 	  ARMv8.4-TLBI provides TLBI invalidation instruction that apply to a
- 	  range of input addresses.
- 
-+config ARM64_MPAM
-+	bool "Enable support for MPAM"
-+	help
-+	  Memory Partitioning and Monitoring is an optional extension
-+	  that allows the CPUs to mark load and store transactions with
-+	  labels for partition-id and performance-monitoring-group.
-+	  System components, such as the caches, can use the partition-id
-+	  to apply a performance policy. MPAM monitors can use the
-+	  partition-id and performance-monitoring-group to measure the
-+	  cache occupancy or data throughput.
+diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+new file mode 100644
+index 000000000000..d984817b3385
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+@@ -0,0 +1,200 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/arm,mpam-msc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	  Use of this extension requires CPU support, support in the
-+	  memory system components (MSC), and a description from firmware
-+	  of where the MSC are in the address space.
++title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
 +
-+	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
++description: |
++  The Arm MPAM specification can be found here:
 +
- endmenu # "ARMv8.4 architectural features"
- 
- menu "ARMv8.5 architectural features"
++  https://developer.arm.com/documentation/ddi0598/latest
++
++maintainers:
++  - Rob Herring <robh@kernel.org>
++
++properties:
++  compatible:
++    items:
++      - const: arm,mpam-msc                   # Further details are discoverable
++      - const: arm,mpam-memory-controller-msc
++
++  reg:
++    maxItems: 1
++    description: A memory region containing registers as defined in the MPAM
++      specification.
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: error (optional)
++      - description: overflow (optional, only for monitoring)
++
++  interrupt-names:
++    oneOf:
++      - items:
++          - enum: [ error, overflow ]
++      - items:
++          - const: error
++          - const: overflow
++
++  arm,not-ready-us:
++    description: The maximum time in microseconds for monitoring data to be
++      accurate after a settings change. For more information, see the
++      Not-Ready (NRDY) bit description in the MPAM specification.
++
++  numa-node-id: true # see NUMA binding
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++patternProperties:
++  '^ris@[0-9a-f]$':
++    type: object
++    additionalProperties: false
++    description:
++      RIS nodes for each RIS in an MSC. These nodes are required for each RIS
++      implementing known MPAM controls
++
++    properties:
++      compatible:
++        enum:
++            # Bulk storage for cache
++          - arm,mpam-cache
++            # Memory bandwidth
++          - arm,mpam-memory
++
++      reg:
++        minimum: 0
++        maximum: 0xf
++
++      cpus:
++        description:
++          Phandle(s) to the CPU node(s) this RIS belongs to. By default, the parent
++          device's affinity is used.
++
++      arm,mpam-device:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description:
++          By default, the MPAM enabled device associated with a RIS is the MSC's
++          parent node. It is possible for each RIS to be associated with different
++          devices in which case 'arm,mpam-device' should be used.
++
++    required:
++      - compatible
++      - reg
++
++required:
++  - compatible
++  - reg
++
++dependencies:
++  interrupts: [ interrupt-names ]
++
++additionalProperties: false
++
++examples:
++  - |
++    L3: cache-controller@30000000 {
++        compatible = "arm,dsu-l3-cache", "cache";
++        cache-level = <3>;
++        cache-unified;
++
++        ranges = <0x0 0x30000000 0x800000>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@10000 {
++            compatible = "arm,mpam-msc";
++
++            /* CPU affinity implied by parent cache node's  */
++            reg = <0x10000 0x2000>;
++            interrupts = <1>, <2>;
++            interrupt-names = "error", "overflow";
++            arm,not-ready-us = <1>;
++        };
++    };
++
++    mem: memory-controller@20000 {
++        compatible = "foo,a-memory-controller";
++        reg = <0x20000 0x1000>;
++
++        #address-cells = <1>;
++        #size-cells = <1>;
++        ranges;
++
++        msc@21000 {
++            compatible = "arm,mpam-memory-controller-msc", "arm,mpam-msc";
++            reg = <0x21000 0x1000>;
++            interrupts = <3>;
++            interrupt-names = "error";
++            arm,not-ready-us = <1>;
++            numa-node-id = <1>;
++        };
++    };
++
++    iommu@40000 {
++        reg = <0x40000 0x1000>;
++
++        ranges;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@41000 {
++            compatible = "arm,mpam-msc";
++            reg = <0 0x1000>;
++            interrupts = <5>, <6>;
++            interrupt-names = "error", "overflow";
++            arm,not-ready-us = <1>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            ris@2 {
++                compatible = "arm,mpam-cache";
++                reg = <0>;
++                // TODO: How to map to device(s)?
++            };
++        };
++    };
++
++    msc@80000 {
++        compatible = "foo,a-standalone-msc";
++        reg = <0x80000 0x1000>;
++
++        clocks = <&clks 123>;
++
++        ranges;
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        msc@10000 {
++            compatible = "arm,mpam-msc";
++
++            reg = <0x10000 0x2000>;
++            interrupts = <7>;
++            interrupt-names = "overflow";
++            arm,not-ready-us = <1>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            ris@0 {
++                compatible = "arm,mpam-cache";
++                reg = <0>;
++                arm,mpam-device = <&L2_0>;
++            };
++
++            ris@1 {
++                compatible = "arm,mpam-memory";
++                reg = <1>;
++                arm,mpam-device = <&mem>;
++            };
++        };
++    };
++
++...
 -- 
 2.20.1
 
