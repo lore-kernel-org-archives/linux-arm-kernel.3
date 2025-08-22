@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5801DCA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DE7CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1I8u9xZyArfke8NFAOrJRZCKODw+0YzgRZABhPnQa4=; b=SrLK/V75afFnsgSe+pbBZUUite
-	zLjERRhOceGrtjWjnzg23E/cEg6/lOv1lt01VAVXd0PQr81bPDQJ33gfdNA9LHaTOVhQUV11w1Zws
-	uhI8Nmc1ByO0eZEOVK9A3Mo4v0riClKJdj6ehgMp1oaxYg9ImKeEckKeyUmVtSM1fTs1odOwS8wum
-	T3QjqlONRDt21DhhCx7hZnrVFXWq4NML5EnJlb5m8fYzhPLhcWSuR46gol5Jw4VDIPJRXgFMXdDh6
-	jwC4SRCTACS/LxwfoUdeX3YNMwfXRxgAtfM11Oi/8bJxpyHUkyYXw4F5tEfDjg25Rvdza7tlp2JS2
-	7t2fQB6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=auFfhLAHPUsxE9iJFWDgyUb0v5Pep7y3U3F/9J9quSM=; b=yNWUtjjDYuU/rh6bIdQTyGd6RH
+	VChWon2fNzAlwQspWW12lKgjdYJZodRd94rDkgUnzWkMCin/pSfs/Ftd3a7DG5cl2jz0Nr5hlD2S/
+	7hnlAESu/6CIhYinn0m64sTN0nfAbwobAekPGpEOz6QGAc5uGYON/AX88hOxbKPcPqrPbpeSlE0xC
+	4kCOVsoAHt3Qh+xhO6zEyHw0F2hy90Fzyppbze2ea3Cu9/sfvPcs7Xf/Wie+xo7NEdrFIV3LRA2Wr
+	Wbfv2rtoz8FcmLi+5eLoJG1ZuLhFmqGSnVuUxGEpLm///SUwd9zq1YwK5Pc/aMEv9aGrnv/BZTK4r
+	brS5q7fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkeR-00000004T8j-3yTh;
-	Sat, 23 Aug 2025 09:35:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTg5-000000030rQ-42v9;
-	Fri, 22 Aug 2025 15:27:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FD7B601E7;
-	Fri, 22 Aug 2025 15:27:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95AB4C4CEF4;
-	Fri, 22 Aug 2025 15:27:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755876460;
-	bh=0qR8BCWLBcRlRrpkcs+atUvi5PdtJ50YHK9esf5ZAKk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CMSA8/iNRQzGZkbIDx5A4cJNOwmFhybJqReMu4HdwOVn3PNotQlsB8AgT+yFZA8Y8
-	 tXDvC072J+TRehmdgF6MQY8T9LhOc8Vm8r28olhGEPc9En2no+wNDu0dVCg2CmWd50
-	 VDF4ewu4MW0eWpp/VV3ju+VCox+NXDJKc5r3/Tt5bBkHB/AdI2MAkYGs2yDcmuxBr5
-	 hcRW5ZzeP6W5XkLDFTOtzNceF2yrK9Br6VLgJmKNP6QZnYnlUbDho/SCHAoD5sdcAx
-	 wQt2gTTeyRZX4my8A32bD2sZ4a3Ym/R4GffRVx6rLGX5yIxOwM3XEG7ZllyzhSW098
-	 +DeEOtb4E7cHQ==
-Date: Fri, 22 Aug 2025 18:27:22 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Christoph Lameter <cl@gentwo.org>, Dennis Zhou <dennis@kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>, dri-devel@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org, iommu@lists.linux.dev,
-	io-uring@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
-	kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	linux-arm-kernel@axis.com, linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org, linux-ide@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Marco Elver <elver@google.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
-	Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
-	virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
-	wireguard@lists.zx2c4.com, x86@kernel.org, Zi Yan <ziy@nvidia.com>
-Subject: Re: [PATCH RFC 09/35] mm/mm_init: make memmap_init_compound() look
- more like prep_compound_page()
-Message-ID: <aKiMWoZMyXYTAPJj@kernel.org>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-10-david@redhat.com>
+	id 1upkeS-00000004T9X-18VM;
+	Sat, 23 Aug 2025 09:35:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTjf-000000031ZO-3EQP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 15:31:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F6E327DC;
+	Fri, 22 Aug 2025 08:31:15 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDF8F3F63F;
+	Fri, 22 Aug 2025 08:31:17 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 03/33] ACPI / PPTT: Add a helper to fill a cpumask from a processor container
+Date: Fri, 22 Aug 2025 15:29:44 +0000
+Message-Id: <20250822153048.2287-4-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250821200701.1329277-10-david@redhat.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250822_083123_894472_1C119421 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +97,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 10:06:35PM +0200, David Hildenbrand wrote:
-> Grepping for "prep_compound_page" leaves on clueless how devdax gets its
-> compound pages initialized.
-> 
-> Let's add a comment that might help finding this open-coded
-> prep_compound_page() initialization more easily.
-> 
-> Further, let's be less smart about the ordering of initialization and just
-> perform the prep_compound_head() call after all tail pages were
-> initialized: just like prep_compound_page() does.
-> 
-> No need for a lengthy comment then: again, just like prep_compound_page().
-> 
-> Note that prep_compound_head() already does initialize stuff in page[2]
-> through prep_compound_head() that successive tail page initialization
-> will overwrite: _deferred_list, and on 32bit _entire_mapcount and
-> _pincount. Very likely 32bit does not apply, and likely nobody ever ends
-> up testing whether the _deferred_list is empty.
-> 
-> So it shouldn't be a fix at this point, but certainly something to clean
-> up.
-> 
-> Signed-off-by: David Hildenbrand <david@redhat.com>
-> ---
->  mm/mm_init.c | 13 +++++--------
->  1 file changed, 5 insertions(+), 8 deletions(-)
-> 
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index 5c21b3af216b2..708466c5b2cc9 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -1091,6 +1091,10 @@ static void __ref memmap_init_compound(struct page *head,
->  	unsigned long pfn, end_pfn = head_pfn + nr_pages;
->  	unsigned int order = pgmap->vmemmap_shift;
->  
-> +	/*
-> +	 * This is an open-coded prep_compound_page() whereby we avoid
-> +	 * walking pages twice by initializing them in the same go.
-> +	 */
+The PPTT describes CPUs and caches, as well as processor containers.
+The ACPI table for MPAM describes the set of CPUs that can access an MSC
+with the UID of a processor container.
 
-While on it, can you also mention that prep_compound_page() is not used to
-properly set page zone link?
+Add a helper to find the processor container by its id, then walk
+the possible CPUs to fill a cpumask with the CPUs that have this
+processor container as a parent.
 
-With this
+CC: Dave Martin <dave.martin@arm.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
+---
+Changes since RFC:
+ * Dropped has_leaf_flag dodging of acpi_pptt_leaf_node()
+ * Added missing : in kernel-doc
+ * Made helper return void as this never actually returns an error.
+---
+ drivers/acpi/pptt.c  | 86 ++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/acpi.h |  3 ++
+ 2 files changed, 89 insertions(+)
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
->  	__SetPageHead(head);
->  	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++) {
->  		struct page *page = pfn_to_page(pfn);
-> @@ -1098,15 +1102,8 @@ static void __ref memmap_init_compound(struct page *head,
->  		__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
->  		prep_compound_tail(head, pfn - head_pfn);
->  		set_page_count(page, 0);
-> -
-> -		/*
-> -		 * The first tail page stores important compound page info.
-> -		 * Call prep_compound_head() after the first tail page has
-> -		 * been initialized, to not have the data overwritten.
-> -		 */
-> -		if (pfn == head_pfn + 1)
-> -			prep_compound_head(head, order);
->  	}
-> +	prep_compound_head(head, order);
->  }
->  
->  void __ref memmap_init_zone_device(struct zone *zone,
-> -- 
-> 2.50.1
-> 
-
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index 54676e3d82dd..4791ca2bdfac 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -298,6 +298,92 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
+ 	return NULL;
+ }
+ 
++/**
++ * acpi_pptt_get_child_cpus() - Find all the CPUs below a PPTT processor node
++ * @table_hdr:		A reference to the PPTT table.
++ * @parent_node:	A pointer to the processor node in the @table_hdr.
++ * @cpus:		A cpumask to fill with the CPUs below @parent_node.
++ *
++ * Walks up the PPTT from every possible CPU to find if the provided
++ * @parent_node is a parent of this CPU.
++ */
++static void acpi_pptt_get_child_cpus(struct acpi_table_header *table_hdr,
++				     struct acpi_pptt_processor *parent_node,
++				     cpumask_t *cpus)
++{
++	struct acpi_pptt_processor *cpu_node;
++	u32 acpi_id;
++	int cpu;
++
++	cpumask_clear(cpus);
++
++	for_each_possible_cpu(cpu) {
++		acpi_id = get_acpi_id_for_cpu(cpu);
++		cpu_node = acpi_find_processor_node(table_hdr, acpi_id);
++
++		while (cpu_node) {
++			if (cpu_node == parent_node) {
++				cpumask_set_cpu(cpu, cpus);
++				break;
++			}
++			cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
++		}
++	}
++}
++
++/**
++ * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
++ *                                       processor containers
++ * @acpi_cpu_id:	The UID of the processor container.
++ * @cpus:		The resulting CPU mask.
++ *
++ * Find the specified Processor Container, and fill @cpus with all the cpus
++ * below it.
++ *
++ * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
++ * Container, they may exist purely to describe a Private resource. CPUs
++ * have to be leaves, so a Processor Container is a non-leaf that has the
++ * 'ACPI Processor ID valid' flag set.
++ *
++ * Return: 0 for a complete walk, or an error if the mask is incomplete.
++ */
++void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
++{
++	struct acpi_pptt_processor *cpu_node;
++	struct acpi_table_header *table_hdr;
++	struct acpi_subtable_header *entry;
++	unsigned long table_end;
++	acpi_status status;
++	bool leaf_flag;
++	u32 proc_sz;
++
++	cpumask_clear(cpus);
++
++	status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
++	if (ACPI_FAILURE(status))
++		return;
++
++	table_end = (unsigned long)table_hdr + table_hdr->length;
++	entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
++			     sizeof(struct acpi_table_pptt));
++	proc_sz = sizeof(struct acpi_pptt_processor);
++	while ((unsigned long)entry + proc_sz <= table_end) {
++		cpu_node = (struct acpi_pptt_processor *)entry;
++		if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
++		    cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
++			leaf_flag = acpi_pptt_leaf_node(table_hdr, cpu_node);
++			if (!leaf_flag) {
++				if (cpu_node->acpi_processor_id == acpi_cpu_id)
++					acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
++			}
++		}
++		entry = ACPI_ADD_PTR(struct acpi_subtable_header, entry,
++				     entry->length);
++	}
++
++	acpi_put_table(table_hdr);
++}
++
+ static u8 acpi_cache_type(enum cache_type type)
+ {
+ 	switch (type) {
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 1c5bb1e887cd..f97a9ff678cc 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -1541,6 +1541,7 @@ int find_acpi_cpu_topology(unsigned int cpu, int level);
+ int find_acpi_cpu_topology_cluster(unsigned int cpu);
+ int find_acpi_cpu_topology_package(unsigned int cpu);
+ int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
++void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
+ #else
+ static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
+ {
+@@ -1562,6 +1563,8 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+ {
+ 	return -EINVAL;
+ }
++static inline void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id,
++						     cpumask_t *cpus) { }
+ #endif
+ 
+ void acpi_arch_init(void);
 -- 
-Sincerely yours,
-Mike.
+2.20.1
+
 
