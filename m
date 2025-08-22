@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F21CA0FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B482CA0FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9Pc+PAihK6OLwpz+8d8MSEkFl3S9CIiabPdvcTk9v8=; b=0SZLSsXo8VTIKZFiYHHPUsLlDl
-	FiE7k1wAhG+HXzMfUQ8cU2iWjc0sPlbeffoPWvucCNxSi1rSv/uZjEucsE0L+pLAhMbLJgitPmavZ
-	n3VgEp/hLfCNQdVgY0qNIaQmF4Hm01EDysAluTXPc2h7g48R+1lec0mm37qlahQROpSuzaCY6/xkD
-	rSnQ2MB/UCm7GKHyoGsao7Nyh5MqFaWWrZ49njiK9ZJrR3t7kKhMpjsEbo5IUhj2mjxFis/3D5Seg
-	t55Dy390dpTszTQxSaQU8QXMK7+S0vQJyHzvN2CRn6Qzj8WtEkzSMr/OlV99QwzQhTDiFYTKjjmj2
-	B/tjCBZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=; b=PyF85FyVuJ3zAWpaM/0Pu0eH/5
+	bKsFW0XLCbcefVnKdxgULLhK4BQyn6QyID5ZB3PtSZxgeUvcLQrrxyN8h/7OY3VGZXCza0sm8z81u
+	n+Wc/EWhAMG9ruxiPP/VXUE2w+ZdFhURJxSIa9PFhfmfPhzEmERxK9FE6CQQ6enqVmMATpBhGmIiv
+	RP3qSYtODAnMt9uG4aFtCrNYAVjDHAE8cur2PrL2c817vVyYEo23gtcFOa3G290mGTe4PbHkktvfJ
+	5BTl86lXKXlOqKF4KnVjJab5ENBaJ8p41TEvHzILJmG/FyrMP6HmsI9B/cd4C0SLcsbR2MNsrX1H1
+	uUSdFtzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkfQ-00000004Ujj-1WES;
-	Sat, 23 Aug 2025 09:36:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1upkfU-00000004Uqf-397h;
+	Sat, 23 Aug 2025 09:36:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upV1X-00000003Cg0-3iVD;
-	Fri, 22 Aug 2025 16:53:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ABC345C7146;
-	Fri, 22 Aug 2025 16:53:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63074C4CEED;
-	Fri, 22 Aug 2025 16:53:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755881634;
-	bh=J9Pc+PAihK6OLwpz+8d8MSEkFl3S9CIiabPdvcTk9v8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LdwyCWqjwop9mnpY+v/oAFKE3edAqepKLXQyUCy+vtjyb2zYUljXfdkuHphvlPc/I
-	 +Kl51TGtHpjk3Q3OVh2CV1ldi5R2qJd4CVYGz+9gjIJ/h6B2VwEOOlD9zdrya8lZQG
-	 WvoLJ7goU1Ys8sswVHb4SvXRjUCcd+5yIoqQwwbt+nqNO64RbJFETce6bkOgePh3Qe
-	 7ydnMdv6M7Hm3ZEOgqrmWoevoiC74nZ0Q95wLSJeqmYxJ/IPacNb/mqzswQZXXW7XT
-	 8JSapDmG0hbvchp5AX5pg16yrniIRKfg3uktLojhRtWVUi58jkIOzXfay+7TarTS3v
-	 lr1WlxWh2e/1g==
-Date: Fri, 22 Aug 2025 17:53:49 +0100
-From: Conor Dooley <conor@kernel.org>
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jianxin Pan <jianxin.pan@amlogic.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, "hongyu.chen1" <hongyu.chen1@amlogic.com>
-Subject: Re: [PATCH 1/5] dt-bindings: power: add Amlogic S6 S7 S7D power
- domains
-Message-ID: <20250822-gala-contents-4f16558dcd68@spud>
-References: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
- <20250822-pm-s6-s7-s7d-v1-1-82e3f3aff327@amlogic.com>
+	id 1upVje-00000003FeE-1llh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 17:39:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=; b=owi6R8EP5Rq0PvxnqZaVuLdUR8
+	wsepIdJGW5tOL3t57oGxhLYnqkb8K4c2BKJ6xyzk0DJgLKTHpnYdvQbDYr/umHmQbB5YvKlM1vGCg
+	yYKxI0Ww/u1eJcl7bf4GUHSl+FyIwviM787Hn61KK9x+/yxzD9G3fTHe+em7B1kKh/rZxmbotPj0F
+	k1W4DU1eisezp+20mAIewJMVfVdauQhtqsjNv2Xn/LkZZTUyaxeFoiEnGPiKEFMB09fACMgXGp6AK
+	XmRAQE2tpSyBROoY4IeBSB0+QSGiEPQSbN1FXKA6PPgydmW+V2rqMGBA6iGuo4riUwKko9v5MPyB+
+	Eu+K2rWw==;
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upVjb-000000013HH-0YrQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 17:39:29 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57MHdDTg299741;
+	Fri, 22 Aug 2025 12:39:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755884353;
+	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=StjMwzwVLVDe40mulHlLMB/LS+E0mfIWI6dPqG3qcqRYLkOXRNINtgiW0Yb3khtZP
+	 EcV3Mlx1iwu/KMlqC8SK3YRsG6wuS9hAeMjp6raftH98LLC2rP8sRun5DJ1jpfLgR+
+	 D1GFZjCuShnGbbCx8PnBcSOJGOjKWpGqis6t5168=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57MHdDpk3077731
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 22 Aug 2025 12:39:13 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
+ Aug 2025 12:39:12 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 22 Aug 2025 12:39:12 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57MHdCxq3898888;
+	Fri, 22 Aug 2025 12:39:12 -0500
+Message-ID: <c05c0a13-e7af-4fc0-9363-b629b2c48201@ti.com>
+Date: Fri, 22 Aug 2025 12:39:12 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/+Hljh53Ey6WSwxk"
-Content-Disposition: inline
-In-Reply-To: <20250822-pm-s6-s7-s7d-v1-1-82e3f3aff327@amlogic.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] PATCH: firmware: ti_sci: Add trace events to TI SCI
+To: Jon Cormier <jcormier@criticallink.com>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Santosh
+ Shilimkar <ssantosh@kernel.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Masami
+ Hiramatsu <mhiramat@kernel.org>,
+        Mathieu Desnoyers
+	<mathieu.desnoyers@efficios.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-trace-kernel@vger.kernel.org>
+References: <20250820-linux_master_ti_sci_trace-v1-0-2a69c0abf55e@criticallink.com>
+ <e11fd419-1095-471e-a57f-fc5ff7ce713a@ti.com>
+ <CADL8D3aR_ecr4q54cX7yfr_aDPA7NhXmLhkiHjUY9MjNZeg78Q@mail.gmail.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <CADL8D3aR_ecr4q54cX7yfr_aDPA7NhXmLhkiHjUY9MjNZeg78Q@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_095355_957121_F9CF0056 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_183927_653348_741727FE 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +110,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/22/25 11:05 AM, Jon Cormier wrote:
+> On Wed, Aug 20, 2025 at 4:04 PM Andrew Davis <afd@ti.com> wrote:
+>>
+>> On 8/20/25 1:10 PM, Jonathan Cormier wrote:
+>>> Add trace events to help debug and measure the speed of the
+>>> communication channel.
+>>>
+>>> Add parsing of the messages types but I am not sure how to parse the
+>>> flags, since the REQ and RESP flags conflict. Left as seperate commit to
+>>
+>> The REQ and RESP flags should be handled by different TRACE_EVENTs. Right
+>> now you only dump the content of the response messages (the ones in
+>> rx_callback), also tracing what is sent is just as important, so you
+>> might want to add slightly different ti_sci_msg_dump EVENT for the
+>> sending side which uses the different REQ flag parser.
+> 
+> 
+> Does it make sense to have seperate trace events, one that only decode
+> the hdrs and ones that also include the buffers?
+> 
+> I'm bothered by the code duplication, but am trying to convince myself
+> it doesn't matter.
+> 
+> Currently, with the above updates, if you enabled all the traces,
+> you'd see something like:
+> 
+> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000402 status=0
+> [15.xxxxxxx] ti_sci_tx_msg_dump: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000402 data=<data>
+> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0
+> [15.xxxxxxx] ti_sci_rx_msg_dump: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 data=<data>
+> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0
+> 
+> Presumably if you were worried about timing, you'd disable the
+> msg_dumps, avoiding the extra memcpy's.  And if you only cared about
+> the data being sent, you'd only enable the msg_dumps.  Does this make
+> sense / is it worth the extra trace calls?
+> 
+> Or removing the buffer decoding in the msg_dumps, removes the duplication:
+> 
+> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000402 status=0
+> [15.xxxxxxx] ti_sci_msg_dump: data=<data>
+> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0
+> [15.xxxxxxx] ti_sci_msg_dump: data=<data>
+> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0
+> 
 
---/+Hljh53Ey6WSwxk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I like this one ^^^ but I'd also just remove the `ti_sci_rx_callback`
+trace, the contents would always be the same as `ti_sci_xfer_end`.
 
+This way you have two sets of symmetrical trace events, a "begin" and "end"
+that can be used for timing measurements, and a dump message for "send" and
+"receive" that would help with debugging based on the message contents.
 
+As for the code duplication in the send/receive traces, I'm not sure
+what can be done, these trace macros already confuse me enough without
+trying to optimize them :)
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Andrew
 
---/+Hljh53Ey6WSwxk
-Content-Type: application/pgp-signature; name="signature.asc"
+> Or do condense the trace calls so they all have the data into something like:
+> 
+> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000402 status=0  data=<data>
+> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0 data=<data>
+> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
+> flags=00000002 status=0
+> 
+> Simplifying the code in the trace header.
+>>
+>>
+>> Andrew
+>>
+>>> make it easier to drop or make changes depending on comments.  The two
+>>> commits should squash easily.
+>>>
+>>> Nishanth Menon and Vignesh Raghavendra requested I send this patch
+>>> upstream.
+>>>
+>>> Signed-off-by: Jonathan Cormier <jcormier@criticallink.com>
+>>> ---
+>>> Jonathan Cormier (2):
+>>>         firmware: ti_sci: Add trace events
+>>>         firmware: ti_sci: trace: Decode message types
+>>>
+>>>    MAINTAINERS                     |   1 +
+>>>    drivers/firmware/Makefile       |   3 +
+>>>    drivers/firmware/ti_sci.c       |  11 +++
+>>>    drivers/firmware/ti_sci_trace.h | 146 ++++++++++++++++++++++++++++++++++++++++
+>>>    4 files changed, 161 insertions(+)
+>>> ---
+>>> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
+>>> change-id: 20250709-linux_master_ti_sci_trace-91fd2af65dca
+>>>
+>>> Best regards,
+>>
+> 
+> 
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKignQAKCRB4tDGHoIJi
-0mN9AQDE4nlsgOE9D3gmaacJI+/i2rKetx2wsfYbDyeZK3FRzQD+NFyZz67qC78e
-nDNCV2Nrhip+LAe9vQttb4M7UTiWxAk=
-=MTEB
------END PGP SIGNATURE-----
-
---/+Hljh53Ey6WSwxk--
 
