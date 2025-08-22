@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF18CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0E4CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYFCllVdYlsUiQsiZBERtJ2uKrYs3woOfUdNvXrRNqA=; b=kF5G/9krG8VXIDC8vZQ79RC96o
-	xWbEtcxVwCxlA4v2GmdAgTVkLjl2S53km1QYhjb62MHnyk/qza3D1BNPePgi4lp8VCNX4OJ972VIm
-	w//hnmxAlYhWRNiONzpVy8Kl1SJ45aq1YpbMZtm9x7zW+1NtRLukK+sZUaaNqagt4A71FwzMF6h7j
-	/UbwgSDz/nZyohdiNcRUp767W80Qm72mlGw37wriSFSYdD69wHltyroSwLaQKtRVZFDJaqHCXm6Ds
-	80oUPA4Lv33f+syUTPmJY/HZF2An9OMEHiF9yzs4Ybe2VX83+raWK91uiD8Kit5z9Ov++MbgY55Fs
-	Zjfbqb9g==;
+	bh=7m4LttuFeoCH8waWnd0sdxbtC8CJgww1Wx6P0x+seds=; b=2qdHZTlVVWWXQZKO8s4FQsoTBB
+	PBgNlCodQZlCYQFNkQy8ookzqK+Z8fi0dJn/UHOZEUNL7fv+RyUiauh0V60YnqR827QkmFr96Z8ko
+	xjrPW+Ne40Xkf0J0nm2E7oq0QlTJwVG5Rtlp8DFU88Xjxtb2iOxy0tl+5t9CiGd3FP8pFXTFuVpYy
+	e1pJqJtortOtkPEFzfMOE4a9gg2j+26ocYasO9OjjosnvUyVBuNvVFSgg5Gcr+geJKh5zSLJjjLDf
+	seI5d3VXrDkSIcxLwZUfl04T/wgeLHWKbT5UUZzb7mFV8vKuOILBPcvQMD438tY63LKyfE82VNhIO
+	NjT9jDPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphs8-000000047l1-2Up0;
-	Sat, 23 Aug 2025 06:37:04 +0000
+	id 1uphs9-000000047nD-31U8;
+	Sat, 23 Aug 2025 06:37:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTlD-000000031tM-3xyD
+	id 1upTlO-000000031uV-05oW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:33:01 +0000
+	Fri, 22 Aug 2025 15:33:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25C3A2880;
-	Fri, 22 Aug 2025 08:32:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B546E27DD;
+	Fri, 22 Aug 2025 08:32:56 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17D423F63F;
-	Fri, 22 Aug 2025 08:32:53 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A722B3F63F;
+	Fri, 22 Aug 2025 08:32:59 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,17 +72,17 @@ Cc: James Morse <james.morse@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 20/33] arm_mpam: Add a helper to touch an MSC from any CPU
-Date: Fri, 22 Aug 2025 15:30:01 +0000
-Message-Id: <20250822153048.2287-21-james.morse@arm.com>
+Subject: [PATCH 21/33] arm_mpam: Extend reset logic to allow devices to be reset any time
+Date: Fri, 22 Aug 2025 15:30:02 +0000
+Message-Id: <20250822153048.2287-22-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083300_069286_25B948B1 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20250822_083310_154841_CDD23B9F 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,86 +97,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resetting RIS entries from the cpuhp callback is easy as the
-callback occurs on the correct CPU. This won't be true for any other
-caller that wants to reset or configure an MSC.
+cpuhp callbacks aren't the only time the MSC configuration may need to
+be reset. Resctrl has an API call to reset a class.
+If an MPAM error interrupt arrives it indicates the driver has
+misprogrammed an MSC. The safest thing to do is reset all the MSCs
+and disable MPAM.
 
-Add a helper that schedules the provided function if necessary.
-Prevent the cpuhp callbacks from changing the MSC state by taking the
-cpuhp lock.
+Add a helper to reset RIS via their class. Call this from mpam_disable(),
+which can be scheduled from the error interrupt handler.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 37 +++++++++++++++++++++++++++++++---
- 1 file changed, 34 insertions(+), 3 deletions(-)
+ drivers/resctrl/mpam_devices.c  | 62 +++++++++++++++++++++++++++++++--
+ drivers/resctrl/mpam_internal.h |  1 +
+ 2 files changed, 61 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index c1f01dd748ad..759244966736 100644
+index 759244966736..3516cbe8623e 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -906,20 +906,51 @@ static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
- 	mutex_unlock(&msc->part_sel_lock);
- }
- 
--static void mpam_reset_ris(struct mpam_msc_ris *ris)
-+/*
-+ * Called via smp_call_on_cpu() to prevent migration, while still being
-+ * pre-emptible.
-+ */
-+static int mpam_reset_ris(void *arg)
- {
+@@ -915,8 +915,6 @@ static int mpam_reset_ris(void *arg)
  	u16 partid, partid_max;
-+	struct mpam_msc_ris *ris = arg;
+ 	struct mpam_msc_ris *ris = arg;
  
- 	mpam_assert_srcu_read_lock_held();
- 
+-	mpam_assert_srcu_read_lock_held();
+-
  	if (ris->in_reset_state)
--		return;
-+		return 0;
+ 		return 0;
  
- 	spin_lock(&partid_max_lock);
- 	partid_max = mpam_partid_max;
- 	spin_unlock(&partid_max_lock);
- 	for (partid = 0; partid < partid_max; partid++)
- 		mpam_reset_ris_partid(ris, partid);
+@@ -1569,6 +1567,66 @@ static void mpam_enable_once(void)
+ 	       mpam_partid_max + 1, mpam_pmg_max + 1);
+ }
+ 
++static void mpam_reset_component_locked(struct mpam_component *comp)
++{
++	int idx;
++	struct mpam_msc *msc;
++	struct mpam_vmsc *vmsc;
++	struct mpam_msc_ris *ris;
 +
-+	return 0;
++	might_sleep();
++	lockdep_assert_cpus_held();
++
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
++		msc = vmsc->msc;
++
++		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
++			if (!ris->in_reset_state)
++				mpam_touch_msc(msc, mpam_reset_ris, ris);
++			ris->in_reset_state = true;
++		}
++	}
++	srcu_read_unlock(&mpam_srcu, idx);
++}
++
++static void mpam_reset_class_locked(struct mpam_class *class)
++{
++	int idx;
++	struct mpam_component *comp;
++
++	lockdep_assert_cpus_held();
++
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_rcu(comp, &class->components, class_list)
++		mpam_reset_component_locked(comp);
++	srcu_read_unlock(&mpam_srcu, idx);
++}
++
++static void mpam_reset_class(struct mpam_class *class)
++{
++	cpus_read_lock();
++	mpam_reset_class_locked(class);
++	cpus_read_unlock();
 +}
 +
 +/*
-+ * Get the preferred CPU for this MSC. If it is accessible from this CPU,
-+ * this CPU is preferred. This can be preempted/migrated, it will only result
-+ * in more work.
++ * Called in response to an error IRQ.
++ * All of MPAMs errors indicate a software bug, restore any modified
++ * controls to their reset values.
 + */
-+static int mpam_get_msc_preferred_cpu(struct mpam_msc *msc)
++void mpam_disable(void)
 +{
-+	int cpu = raw_smp_processor_id();
++	int idx;
++	struct mpam_class *class;
 +
-+	if (cpumask_test_cpu(cpu, &msc->accessibility))
-+		return cpu;
-+
-+	return cpumask_first_and(&msc->accessibility, cpu_online_mask);
++	idx = srcu_read_lock(&mpam_srcu);
++	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
++				 srcu_read_lock_held(&mpam_srcu))
++		mpam_reset_class(class);
++	srcu_read_unlock(&mpam_srcu, idx);
 +}
 +
-+static int mpam_touch_msc(struct mpam_msc *msc, int (*fn)(void *a), void *arg)
-+{
-+	lockdep_assert_irqs_enabled();
-+	lockdep_assert_cpus_held();
-+	mpam_assert_srcu_read_lock_held();
-+
-+	return smp_call_on_cpu(mpam_get_msc_preferred_cpu(msc), fn, arg, true);
- }
+ /*
+  * Enable mpam once all devices have been probed.
+  * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 466d670a01eb..b30fee2b7674 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -281,6 +281,7 @@ extern u8 mpam_pmg_max;
  
- static void mpam_reset_msc(struct mpam_msc *msc, bool online)
-@@ -932,7 +963,7 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
- 	mpam_mon_sel_outer_lock(msc);
- 	idx = srcu_read_lock(&mpam_srcu);
- 	list_for_each_entry_srcu(ris, &msc->ris, msc_list, srcu_read_lock_held(&mpam_srcu)) {
--		mpam_reset_ris(ris);
-+		mpam_touch_msc(msc, &mpam_reset_ris, ris);
+ /* Scheduled work callback to enable mpam once all MSC have been probed */
+ void mpam_enable(struct work_struct *work);
++void mpam_disable(void);
  
- 		/*
- 		 * Set in_reset_state when coming online. The reset state
+ int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+ 				   cpumask_t *affinity);
 -- 
 2.20.1
 
