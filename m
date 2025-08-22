@@ -4,104 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CDCCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3C6CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BFHOC0io9g0o+2fapfpOBebq2bCjMy1h8J+xiMNdOIU=; b=JWFrZDbT2SEdwWywqm/wx9Nvd+
-	aRHTblkQ2tDD3cwkapknYQCCQMTsYxPn/WtIKYxt5cAy57iBHvKWWLjGu0rKL1gb7rZTkOwmLCTaj
-	YnTCoNqP/jIJ9z8QWX5N2LzYXdsW9P2c7jKYVfAY5w7i2yvD55WXOUJ2ZrEw85CkWMsL4hgegXngm
-	b7kOC5dqhjp3re6ex+RbTq+7FBrHikbK/eg2iiauDz/vGZWwU50pdKLFeV4mER7hfz3vd6GSjBk+0
-	DVM3HZJJNZ0YdFmCMRlvX9r8DMdJtdS2l0bE/WssFsQRzknv7ksHN15ZiJ1wV4pB53F0UFfln6q19
-	2k3kH51A==;
+	bh=plBpRxzOXh1Cs6ihly2kzk0+EpaX0QDgSfgHTsuw0DU=; b=mCxNIggUP7VfUgbOlp9d9Xgup1
+	m2yQooHMLX6RJHDex9VDFvDKbth86p8560XoSfDfC3ivNKihvfv0z/T6UYleHlX4oJ78kZKavQHau
+	rqFwzfoedpq03oGZzyWGaj8LmozMyTmX5r+MScg3dBN/GNmhTuIjsDBl8ul1Fxk0MbOS0Ao759OHa
+	pnmax0YxPtxviW+ozak2hvuNBK0YdK06Yey+aNURoRvwjO6uANyDFpZkQ7BKgdAHI0Kkv1bXrcapP
+	G0uYUQr/CAn3sSdZl+lsx/vKHaBWe2PriFnZMWA1/r0wnpBfhfCCv9v+M8D5M+u+LR/i/unCONFIC
+	YNzrjgKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkdw-00000004SJS-1Hba;
+	id 1upkdw-00000004SK5-4AqY;
 	Sat, 23 Aug 2025 09:34:36 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRtK-00000002ddB-38EE
+	id 1upRtW-00000002deW-2FdX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:33:15 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-61c297e8306so36513a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:33:14 -0700 (PDT)
+	Fri, 22 Aug 2025 13:33:27 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6188b7895e9so356202a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:33:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755869593; x=1756474393; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1755869605; x=1756474405; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BFHOC0io9g0o+2fapfpOBebq2bCjMy1h8J+xiMNdOIU=;
-        b=OGAdhr6urSt5ViaFQd5B4jiZImZIzp4Ix4DjWMZSbgF9y9rlt2It8RI+qAe3COjTib
-         54xVNhMF47TrtOkPAcMKC+i6Md51/wLTMrCJWfuYYwlg4j5VWViYBVh7uBiEu0acbOMX
-         jP/E/xhC9C0bYXr+U/GvNhcRcxWSiXzhZqxdhErWoX0Qhcpgeau7G8ZGAHT09yCWnvgu
-         G8P78zTr3BoER4vikciwjU+xDw3vLMkKj701k+m8RT12loMZK3HA6asTSzWpjhvr5ofz
-         mHgAYG/1mRGlstduIenY/eFnduuNtS8M7g5wqoGT8z09B4LtEmxB2w4Czyl/AAGvU2TV
-         U7Ew==
+        bh=plBpRxzOXh1Cs6ihly2kzk0+EpaX0QDgSfgHTsuw0DU=;
+        b=YveilCugH68gaUFbCTsIU4VCJ0qBacuOIkmj84f4DNNjMna+orX6xCLCg8BjhayOew
+         NYe0fUl92NjZoVK2xf5YdhoXqpO9nCKg/cshmGxkbcJA4tm6R1hz1jYLbb58zUyeu/XW
+         PySz4HQBb6//8/XZXLv5I6bK5NC3hFzskvjJ8azTcXmixgPTgi3UnDSjWLspBPKugBCN
+         47oo05mzKdhvy5r4x/iKpTpsIRxHKMecAkbf0G/1Y4pWFO3BpM60zt7LcgVGtDW796s5
+         6QpuojyjP6D0t7qo3Uk4eWkXykXg+rcUDSnEIf5XhkpQhSgmhrM+4CYbRqwRQBRwnzHa
+         GeFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755869593; x=1756474393;
+        d=1e100.net; s=20230601; t=1755869605; x=1756474405;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BFHOC0io9g0o+2fapfpOBebq2bCjMy1h8J+xiMNdOIU=;
-        b=g/0IhJiF1z7596gD600LXSX9tvZrljpcZ+utTPjJHyLstxNfd17ZHkbngHD6K/td1D
-         vbGieqA19nrHwFkpmy0VSP0SPHJufAip+1YjR7NrarRzCEI3/XiM65wr/M/mL5c5rfS2
-         zvHzIjd6N1ZyPBPz7DvZE4SiJwjDRVmdofQHxArvsKy9L386M+A8tli2qnmnF1Lf57L/
-         DE0B5CpN6vjxenhtDYs/14QJePIJE3aHAFjTKIUEYYRL4jeeTF9AsLf0DI/KPOowlj4r
-         CUzXLtZc2gkH80HelItesmHkgaVOyKDjwJiSFllDoVusKRHGqYiQ7MFjTzINYPbANKkd
-         Egng==
-X-Forwarded-Encrypted: i=1; AJvYcCXjk84KOcCxe0SqABaPWdZjlYEhulFRSsKzazdG8zdsicsLUiMe1dzGcyi6xjmE3kb54NxDbUjm6Zb4GgekJ2iu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYq2lSCShWeGy4s0o9MrCo7oWO2fvieAg7S37SOE/Z8w7B1ciU
-	h1yjrtO/Z0t0CfxCUtzjMN9hvealPGYwHjeok/4PZzlBG3jtqTNA5HoGMfdiaLu1Pgw=
-X-Gm-Gg: ASbGncsfgAD9Lc2PWyjNltncn9UXt9/jGE6z6rhyh7+rgrmpdPF7wzlPc4LzfJRAG8g
-	aBZo+vGIGmzORbm0hk4S8+ss9rCNu+6evMywGbz6H30L1bWqF456KJUMr9ry0TUO+uMa9oZMUIt
-	govDJVz2pJ/5VA4t08D7SQZNnBCbV7WzgwQUc8OIfaDkyRK7SM9D2AkvmVPEV2WhekTfRDOkUG0
-	m9qA5gy9Q8xTTiWKUbGRYYoYAh8n83oCMcSEXRV8PIel0whaDs7/BV0Izldo8VvjqgRSf3sieep
-	v07pD+8mVkBREawqKvEXNkf4yUoH2g0vSnqZrVC0tXRPZTBUHRpWMyTuIXanKKrREchUZvb2sjY
-	vf7E3eyDell4bJJwIPf/2TEYVRG71CugbZQ==
-X-Google-Smtp-Source: AGHT+IF0Xwlv3Rrf/C03hmGVd0k/7kdYNfMsfW7Jcb6mh78D7QdfCpUt2d6qVO+BaDy74Ko7HCfWgg==
-X-Received: by 2002:a05:6402:348e:b0:61c:22bc:b207 with SMTP id 4fb4d7f45d1cf-61c22bcb3c6mr799727a12.0.1755869593007;
-        Fri, 22 Aug 2025 06:33:13 -0700 (PDT)
+        bh=plBpRxzOXh1Cs6ihly2kzk0+EpaX0QDgSfgHTsuw0DU=;
+        b=GqWdOB86WLXEuycgyDDoxg/jF22WScGZuHp3zoARP6Y/SeJ+Lq828xyW8RXi1owglR
+         CYxOhNHX3JuqoAeewxueFFZLxbGeDcAQTRT+FtPtJRIAySmdFrQ8WYYt1eInUEOiEBp6
+         LmkdccUr3DqqCwFUb9D0mYRw0Zm2QMj470pRhI5J1+eM226BVengdnyWaLoxdHRDbez3
+         RmZ0uL1PNoXUZhFcxR3uVuDYquSG9ZjzUYNiDqEjkAs4t1A3ATfoDxHlmbIHwmPIePNS
+         xOgTJGKXpJluQ0LARmYmUsJbH92NsvmsYd0axJY+4gizWKbuFIvHKzdpA2M+wpUPpH0L
+         V+Xg==
+X-Forwarded-Encrypted: i=1; AJvYcCVISwRsTqAxc4De/cr3QH003qo0f2tqXxM/SaY8cTTRie1vcuC+f0T5q405sMlYcerF9bfWFcZLawjsu0LzQDOK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx782SuGx0/EHzI1UraBUOFToS1GnUdqcww77y7XINEIC7VY5+w
+	LIWDBSkMhH7pzVRhzbw9nYXtbl8imtcLCkzkL5bhUTAilJry0uocYi6t0GaZJ350cHc=
+X-Gm-Gg: ASbGncuxlRgmuhs+9SInndoC24Ehy4bVnOWyO14quKS4S68Ta4kMzQHW9efMK695rWM
+	1V2uhc8tXj7+eHzXH+vkGxCPROkqzzfAkgc1cmhXcdnfvq/T4npbBH9vRbLLViwVRCarXyL01XX
+	9MCQtyBn7WDhqVVyG/qNQclVVYs1RFGc7Yq0V243M+BIemSSYQClz89DhE0cvFnAl+WX1XQxRtE
+	N8HDOMq5StXrQY3El9EUBLTKdCrGG6m8PGskaKiM4TodRUXm2bS4lC8XHPU7y3mTVB5quTvEya4
+	XM5Na8Lz+MYPZZAM8eeAStwrYMzYdGfE0b/AXaatq5Si5XKTyGst0TqLTbIrvxfZcZYEqDhOS2d
+	IncJcwMAybl2gnAGNJXrvk/yYaCkEMpYFsg==
+X-Google-Smtp-Source: AGHT+IHG72D11u5IdJuYzQxDRkzR4OlLZS8XqeeHSUIp4lu16BBZfsKFUUmkkTFaUI4Lrd1NwdPo8Q==
+X-Received: by 2002:a17:907:9405:b0:af9:5a1c:fee5 with SMTP id a640c23a62f3a-afe2874f3eemr157584566b.0.1755869604966;
+        Fri, 22 Aug 2025 06:33:24 -0700 (PDT)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-61a7577462esm6984160a12.36.2025.08.22.06.33.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2ba366sm608881866b.19.2025.08.22.06.33.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 06:33:12 -0700 (PDT)
+        Fri, 22 Aug 2025 06:33:24 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
 	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] arm64: dts: ti: k3-j721s2: Add default PCI interrup controller address cells
-Date: Fri, 22 Aug 2025 15:33:10 +0200
-Message-ID: <20250822133309.312189-2-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] arm64: dts: socionext: uniphier-ld20: Add default PCI interrup controller address cells
+Date: Fri, 22 Aug 2025 15:33:19 +0200
+Message-ID: <20250822133318.312232-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1312; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=wBmo3kbfIxIyD5dwKOQGVZ3JiT7ZOos1M4ntpCsT3Gk=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHGVWUdwHDptTGA7iZdCDsmkuIdKy3wqepGPC
- pE/eGTH/JqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxlQAKCRDBN2bmhouD
- 1/MsD/wMWffWNAolAGwnNwVa1nFOJuOBrzvBM7+J2lxF14EKnnzhoffbj1ynFHes38QTRNQt9Fg
- 5CqG5wh5hsDzK55ejAqrYcUH8VL59ukHeNR7ocJk9cDJaHHVU2hDRIo+vs/Htf2q8/kyAqqEvn6
- A+y49RYhdtbUUmh24+79Chh5xgG4UDwv2uI1xQ46fMe8ivN3CssmIpkDjjdv716gie0UwSRMqX6
- Z2ZFha/fSk1hD+wzBjxvC3uPnIwbnriOu0UbirFDNQKXGOlLAc4Qp6hm/gxCQHdISimMkeP+u3w
- foHEPu6pz3GfOGyf+2X0ZLrkBKw0B5hlUQoMSKuLlvrm146PI/AtZ3+z27uN6Ov60UP2Dd3ALT1
- ILNAs1tcps4nejlvC5D44+2a+7RbWO2Ki2vzQX3rWJZ7dlxkQ9rW75Em9COPW8w2y+nQ9X3etQZ
- SBrwiW4LtsRyn1VOlt3gvY/teUb8t45zbaM0CXpzp+hXQBX7xwg9KEeiQJJ/R9fiMcwHp1GTZHW
- LtlDALgoFxqR8RLEiJfSeVUjsTpWgg7ZtZSxSLh1NsMDLqbUslj4BZbiUBT8IUxG4P7WLSNLFa7
- ociB55Pln/NEiDm6pbHMRUAViGnfW0KbmIJ+Gu6uhX7rtk2qd/J5iJZIBeJ3eDQ5r6x85eAgVur 8yKAxa/NzFEgsdg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1341; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=/M26qPH1NPziTh0Tbmf9sXdkHY+iN5CemaBMwSON+uA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHGe8ukZiKdW9GXbdlR449mVvImtqaLWDZRib
+ uARzocBq/uJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxngAKCRDBN2bmhouD
+ 18wmD/4g58pwxpUSfvmYnBNwgp53IbqJp2Z1TU+ZoB/MN1/V8S81fvV9w4BI2luvOKtasYkb8FR
+ f3qyubbQQzCBoH7QBbn/8Pw3DMUgoxlAxpaM+DrgKGF+XM1oC+R/qef8vaqBBxiCFGWrBm9Xp2W
+ zv8axs1FC+7p2srxUx605mAiMYUhOC6CruL72Z+IV3I3TpixyDDHD0fiWd0BTypL+cFcVWKJNmb
+ Cw0Njd2LeLUHORFkA3A400iFs131n0hg3/DHDWPY37zWbGOCkKrL6Hpq5rlC3uTLAMzHll1SaBO
+ T44+i4ycF7Eek6ALQJkzntoAuaBJ5FnINMdbEOQOeU4GscaZh7mmItaPjYaFWaaRrXQRQLLaUIt
+ KBwASmC4Z5DvsT95DoltGs+z4MHuSROWNxWh3uVNeIwVdzOdSeA6Ui6gMq5DL9OkLSCDJAhhcr7
+ QZWKNXsDR2HS5BaEMPLjF8Z2RXKfLVU0BoT6WCQVi/scGcPiWKfD5+jw1BWp9TFmUR5L5J//HOD
+ OPkGXfibgJBQ5BHgAW5yOMSCxulI9w9ZoNRFCqlIOteLENRJBQY0ezpP5dwZK+6seW8kRhjmvxd
+ A9j1KvyKIs/Aso9V4faQS7C8SBiGaQ3SlXtOSstFIKgwrQ7bjooPTeM4JZoRVTUHDD7liSPhSaV 8KFajmmyQrv/dNw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_063314_781519_11C9B154 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250822_063326_573429_2B35262A 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,8 +118,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Add missing address-cells 0 to the PCI interrupt node to silence W=1
 warning:
 
-  k3-j721s2-main.dtsi:1431.3-1434.29: Warning (interrupt_map): /bus@100000/pcie@2910000:interrupt-map:
-    Missing property '#address-cells' in node /bus@100000/pcie@2910000/interrupt-controller, using 0 as fallback
+  uniphier-ld20.dtsi:941.4-944.29: Warning (interrupt_map): /soc@0/pcie@66000000:interrupt-map:
+    Missing property '#address-cells' in node /soc@0/pcie@66000000/legacy-interrupt-controller, using 0 as fallback
 
 Value '0' is correct because:
 1. GIC interrupt controller does not have children,
@@ -131,21 +130,21 @@ Value '0' is correct because:
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 1 +
+ arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-index 726374dc8795..0ad752975acd 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-@@ -1437,6 +1437,7 @@ pcie1_rc: pcie@2910000 {
+diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi b/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
+index 335093da6573..875b93856a64 100644
+--- a/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
++++ b/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
+@@ -947,6 +947,7 @@ pcie: pcie@66000000 {
  
- 		pcie1_intc: interrupt-controller {
- 			interrupt-controller;
-+			#address-cells = <0>;
- 			#interrupt-cells = <1>;
- 			interrupt-parent = <&gic500>;
- 			interrupts = <GIC_SPI 324 IRQ_TYPE_EDGE_RISING>;
+ 			pcie_intc: legacy-interrupt-controller {
+ 				interrupt-controller;
++				#address-cells = <0>;
+ 				#interrupt-cells = <1>;
+ 				interrupt-parent = <&gic>;
+ 				interrupts = <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
 -- 
 2.48.1
 
