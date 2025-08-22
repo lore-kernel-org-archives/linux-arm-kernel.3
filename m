@@ -4,77 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D50BCA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07751CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tqa3Jtb+wXhw2XIjpcld703BSkxqJFVzJEXH38I5E8c=; b=juQdWKocvExzL89Lm0lQR+8gSU
-	1z6MMYl8pmI8wMYLOx4cs+wgyFVeOswDmY7JNHVZnHfe8W84LngLiWfoAzWBBhMRACOsDBdTRu5fs
-	kQN20gBfwI/Mv/qJgxNTFMv1fjgVDg/ZjdJDi4lle9NRdITqPazmLLK3ycpFUImbtjAS/7mr+zZfe
-	qsnZudM2yMtSdt6Q4OW2ricpw1J8iOgLsc/VN8EDe9wnHRAf1OjyKbhE8NN4cQKsxVjVGE61jPulw
-	il76aDKwA+twLyVPV/jMZEdO+WFS5koejbEuW/a8OfGYHqv0W/FWkkY99s6Tmh7EnrOx6wIDesREW
-	0qDcvldQ==;
+	bh=yjQX70QV7aMacku8VI7h9UTkT8ZkJjhi9sDK0Kq7u90=; b=W/wwvvdmSJGAZsZaqy/e3sWUc3
+	1K8EIpX/SShSfgyPPo1C5k8eSGxRNYf8SbLp7eT5HY6sRXV6HTd9h+r1j2289hIDB8xrwIp0RzCEQ
+	EA12quFmHvDzX70nNa4Dq1ve7ra9sP11bXq9STAvhiDpnkopmnNwbPuhmfhZNt/nRZRLB5izjPXeG
+	qwLGZofAY7+6h91VhXwyFIsZr4awJjX4LRPfiQlDaNSK/oh/xvw15XnKiolZY55rkFJlTOp0pgVNa
+	u6cOEpUv9y9cfrQR674Oofe5zJZCNGT5ZvoSAeFaNsEntBOH1vuaegW1cVTXDobGb+/WKrepkiWJk
+	H7HdhWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphr4-0000000464u-1y5b;
-	Sat, 23 Aug 2025 06:35:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uphr6-0000000468R-3czS;
+	Sat, 23 Aug 2025 06:36:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSJY-00000002hbU-2i2m
+	id 1upSuH-00000002rB4-1hYz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 14:38:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=yjQX70QV7aMacku8VI7h9UTkT8ZkJjhi9sDK0Kq7u90=; b=WFwvlInuvlECA/8KKJ0E5je3Io
+	HTD+jlP7+3Y8KjXWtinF7FCEgCwEdr2lUCpCH5CQiOoELXhk2IQMWJBF8TZcbo8beNiMPG+IwL4cM
+	fkzye0vm+3A3jZvVxnK2CKQispS1NUAaHAzfYDmEMdjEdHGw+cT/dM+PfT29o7Vm/XoRDt+6xBo08
+	a14Ve1FBXj5Dr+K1tSYCimc3leBFEYycRVzuf5bQpSOKs/SOfp/FqelsOCf/32OKHqnW71QfgJlLt
+	o1dsjwuXQVJNmDmaaxYdljj5OvVG5eQIncp3gKSMoxv8ARt5dPiT28dv9vjrCJ5ircXh/ieqEqt0g
+	KAUo5HBA==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upSuE-00000000x5J-2DS7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:00:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E548AA57B27;
-	Fri, 22 Aug 2025 14:00:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10A0DC4CEED;
-	Fri, 22 Aug 2025 14:00:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755871219;
-	bh=NhcqNJcEWkTWGz8ovLpQi/hjQY3as5SmrOYUySgeg2E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pkOPw/WHe5B9a4j3FhXTTUyx/m4orDiZW+owegOeFJg3JhJTsM/i/35kfS2vO1ujh
-	 i6vIKqxsz4hm02PfMUhJK6hKGbg4TBRldoCfDxzZJjZSoP1pbeGshY+mwMbolz612G
-	 W3jH/tu707bGd5eT0GLly11JcMATjFRVYt7U2FT5MW21iGAIulz+piRLK10Hb6+Dje
-	 zma9YLw9ntGnz/zU6iWzEp3CVo1MvOttpOV4jDw0rlUzKeeWihIr2aG42kyBc8QEuG
-	 Bq73EDU+U0BxDy9V8+uW+4eboZ+DnYkj/XYoPQepHoH1NOXVpc2yjAKo2M1FhyWsjA
-	 4rA4pDSw/WfBg==
-Date: Fri, 22 Aug 2025 07:00:18 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Cc: Rohan G Thomas via B4 Relay
- <devnull+rohan.g.thomas.altera.com@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Serge Semin <fancer.lancer@gmail.com>,
- Romain Gantois <romain.gantois@bootlin.com>, Jose Abreu
- <Jose.Abreu@synopsys.com>, Ong Boon Leong <boon.leong.ong@intel.com>,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Matthew
- Gerlach <matthew.gerlach@altera.com>
-Subject: Re: [PATCH net-next v2 3/3] net: stmmac: Set CIC bit only for TX
- queues with COE
-Message-ID: <20250822070018.35692c26@kernel.org>
-In-Reply-To: <0f391b0a-6e9d-4581-9f3a-48e67ea90b31@altera.com>
-References: <20250816-xgmac-minor-fixes-v2-0-699552cf8a7f@altera.com>
-	<20250816-xgmac-minor-fixes-v2-3-699552cf8a7f@altera.com>
-	<20250819182207.5d7b2faa@kernel.org>
-	<22947f6b-03f3-4ee5-974b-aa4912ea37a3@altera.com>
-	<20250820085446.61c50069@kernel.org>
-	<20250820085652.5e4aa8cf@kernel.org>
-	<feb15456-2a16-4323-9d69-16aa842603f2@altera.com>
-	<20250821071739.2e05316a@kernel.org>
-	<0f391b0a-6e9d-4581-9f3a-48e67ea90b31@altera.com>
+	Fri, 22 Aug 2025 14:38:16 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MCrMmf000963;
+	Fri, 22 Aug 2025 16:38:01 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	yjQX70QV7aMacku8VI7h9UTkT8ZkJjhi9sDK0Kq7u90=; b=wHQdDEG0GTlX3HJH
+	DMgSe7k9QJJJjqmNo8k68EQD/e4lhp493SvJCrUv/6oB4DaXK7RAj2wkmZtxWowC
+	EQNAslVI2nDlNGSMmIABSR1gyVLfcnkwmwLTL0OspFSBBdmqz4K2ThFUn/gvJbIK
+	hr0ChQscGqGWjLHMZwGReEQii50WGhTRNNIJDEz+3BgMoVUJKo3jwp0uh0rzdJzr
+	OdHZnvdCB325Ah7Z/JVHhjRb40Jd9m1ZQiN8Cb2wJzWH2yEDl4zXTW5tAo1tNLrm
+	6UrsLNNatNoJL3YaA1CG+kEbKQyKzzROD0GRWkWEV8bbYTjyt1LpGrkamWL8XKZA
+	OuhfwQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n7hnb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Aug 2025 16:38:01 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E24B540046;
+	Fri, 22 Aug 2025 16:36:47 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 382BF726F13;
+	Fri, 22 Aug 2025 16:35:52 +0200 (CEST)
+Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
+ 2025 16:35:51 +0200
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Date: Fri, 22 Aug 2025 16:34:14 +0200
+Subject: [PATCH v5 05/13] dt-bindings: display: st,stm32mp25-lvds: add
+ power-domains property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250822-drm-misc-next-v5-5-9c825e28f733@foss.st.com>
+References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
+To: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.130.74.180]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_070020_755459_6438EFEC 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250822_153814_688255_DD20443E 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,24 +127,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Aug 2025 18:19:01 +0530 G Thomas, Rohan wrote:
-> On 8/21/2025 7:47 PM, Jakub Kicinski wrote:
-> >> Currently, in the stmmac driver, even though tmo_request_checksum is not
-> >> implemented, checksum offloading is still effectively enabled for AF_XDP
-> >> frames, as CIC bit for tx desc are set, which implies checksum
-> >> calculation and insertion by hardware for IP packets. So, I'm thinking
-> >> it is better to keep it as false only for queues that do not support
-> >> COE.  
-> > Oh, so the device parses the packet and inserts the checksum whether
-> > user asked for it or not? Damn, I guess it may indeed be too late
-> > to fix, but that certainly_not_ how AF_XDP is supposed to work.
-> > The frame should not be modified without user asking for it..  
-> 
-> Yes, I also agreed. But since not sure, currently any XDP applications
-> are benefiting from hw checksum, I think it's more reasonable to keep
-> csum flag as false only for queues that do not support COE, while
-> maintaining current behavior for queues that do support it. Please let
-> me know if you think otherwise.
+STM32 LVDS peripheral may be in a power domain.  Allow an optional
+single 'power-domains' entry for STM32 LVDS devices.
 
-Agreed.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+---
+ Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+index 05a73bbc246a8994b6aabf7c2cd9dca773232be4..14e042156179cb2f2d906422eaff6840da3c91ea 100644
+--- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+@@ -62,6 +62,9 @@ properties:
+   access-controllers:
+     maxItems: 1
+ 
++  power-domains:
++    maxItems: 1
++
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+ 
+
+-- 
+2.25.1
+
 
