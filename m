@@ -4,59 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BB5CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6633CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBO9hRElv9wXeqmRoBExVMWjj1R0p5q0Oq5nzcBJb3M=; b=L0pc8eQD21ilnojjmoCvQ5khky
-	n3wqcHjPONFckJBa3zV0fPOTfiJZVvspkwvjaWrkSybBe+c/pkWFI/hZwsO570SWKDNGZJm8cx8Ym
-	izMREigSiY16XA8nqplKdltkS4vmOZm449hS6C/Rlq1Ix2T8S6G5r2Sx2jH+iEsa0y/tbDPBfE7hA
-	yFW43srG8UxbVsjz+m66ugtAPJI0Ho++gGu4CqXCAxj8GYnGOxl/RGbwlBgt7BhxA4IePQgwF7VO5
-	PVi7ZLEtcsgSNEj6SeiZyLkP1iviJquecdQvFxcrWqGXWtaN8/5IvkepFJtiezvgQcQk7e9QMrInz
-	nUbzBUEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=; b=rdHAhKSTz2ajGrbMHrCAbC2AWp
+	hONP3L3awarzifyOCDmbODZsLlk7hIVaxZbRjnOwy6NWT7Qb6b2GanJ8As4kdGBWItyOKiAL1YK/9
+	D0Gb5RA5IM8hiEhZi5cb+zwLWxdORM5pCST3FNDPQWDZdQRzy6xMnTqCevcKbqiJsydXx1/YUrWYT
+	OBlYe/944dzsZSbev/MQ4eZITfbtV2pmCzzCff6TMQgLMX2TALa6lTHIH74M+0Klu8c38xKZurvG5
+	cefAhsdJTfAWcgkCJYBOcKSclIbFPa0qzQh2lwZgX4jASsa3ZmWg8sHRSrNnGAYkjsmeOSw4H6dCT
+	ti7oCITQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTRl-00000002y3A-20uP;
-	Fri, 22 Aug 2025 15:12:53 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1upTUM-00000002yh1-3riL;
+	Fri, 22 Aug 2025 15:15:34 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOwT-00000002BdJ-0xv5
+	id 1upOzJ-00000002CEj-2hjF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 10:24:19 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 7D5231F00064
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 10:24:03 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 9C220B01C5E; Fri, 22 Aug 2025 10:24:01 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id C43A7B01C52;
-	Fri, 22 Aug 2025 10:23:59 +0000 (UTC)
-Date: Fri, 22 Aug 2025 12:23:57 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Samuel Holland <samuel@sholland.org>
-Subject: Re: [PATCH] drm/sun4i: Cleanup v3s mixer config fields ordering and
- indentation
-Message-ID: <aKhFPRP8ILNkKAvy@shepard>
-References: <20250704154149.3464461-1-paulk@sys-base.io>
+	Fri, 22 Aug 2025 10:27:14 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-afcb7a16441so289863566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 03:27:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755858432; x=1756463232; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=;
+        b=NxNDrd6lp2rehZlF39htXRuAo7Lcyh1x0kQMpGZyLD+g5xGBSl7VJlH281SpuGAZtN
+         BBJiu4Mk3WOen638vmR2SbqaG6avi1qla+H2LnNGWxy7alI3EF3elUaA1GrxCaHSdSn5
+         cfjWUAsGRFP5mrLjN/scmXwg4SWjTwUNj1BZ0WEWg/sa7o3m0ypDKujWqPKa9ikcsCWG
+         zrBhN+mQ4TePrrKHxXkbd0+guACLpqfi9p3V6yM94vCYRjTXkvwQI4MNjh8LhU9rVsYJ
+         EtyqXDIlFwDljpUTuCaLwQMBYe2j3Ato5Z3fohhBccLX/fV38YKPutu6Gd8HkbsDLg1z
+         zd5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755858432; x=1756463232;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=;
+        b=qg6dOkwrbHZWX8j+U8GCQrRaWU58WMFR34yegdpq1YzBJh4tzm7V0Zo4obiCoNwqcR
+         TAbUWduZI82szdagyuGedFeTe9Vhq+9bhj/EgGsGJRNW1q4vA+/ma0BnL3OrJwzZuhxy
+         F8HqvGebaW2BVL+a4S3tOMezfqfpz3/a/2mYzIxBrW58R3TXG82U2l1nEHdMh8/QqSfN
+         BEtPeAsw2n4VVN0xa9aVR4vWi20SlsGPWX9BYRQ4v86NdskGlsElGDZxVXXU/5VNVvu3
+         8q8L9cC+TiyGmLob2ho2635hpkauFrZ0gZwY67+LKmzDzGdYJ4MTWIXbDitK/XkXGAcW
+         xvmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXim7k+a9mv9PzbDeDXnAetRKhhNLdfw4O/aJr3/knFFE1ohn5l7ytIK7Pbd004iMcLxAT52spmpjM0q+NEW+9W@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpfMdU2tHbIL8PpTI7nWkTjfJnhB0HsnUIrRg3Q4kciS71EOc3
+	9IROFTTt/U0vk+vFnJOdeA+/KrbmBc0NYLERF5ThyEeDKYM0MsvObsr9DEmyl9e1kcc=
+X-Gm-Gg: ASbGncvMhH8fgMSjTX+lzaun5zcFLszximQfMYgzXkzVagwzIWCQSauHB94cq8282KQ
+	Na9LLlbtM3VRx4ud1wx70d3u1E/vUc5xUgj/YN+6lk9qo9jFZGOrES9P02Sy3JzTLSbyS/AMuCO
+	w9sQtAADUf3zQ7LxUjhBYQXFNh0F+fg22uVqe5vJMIZMpINRViP1NwUaMHDUFK/9UKBxsyRT+C9
+	dqCeIyPBGkDhpzbpeeGEZkC1S5DsCuXGV//lJTkDr4YXOQGPLnIqX8XthQsizI3qfTMnDVfRbCI
+	LzTZqAhTh+ZgdxoKGgUzr95mwFVUvym9u9Ea7sZi0q+seBSwMHahY58+sG77XVMWPGmea1c3j1q
+	dhch6QVrMBC6oftS6cZAuqK8wAqQN3zIb
+X-Google-Smtp-Source: AGHT+IEjRd6Tx5sKZi6OWN0Ddp+BLYTOG0lrQ3ub++Nybf0iOaCMKeFsTfA36+kF67hMQ9sg6CmMMA==
+X-Received: by 2002:a17:907:3f11:b0:aec:76c6:6ef6 with SMTP id a640c23a62f3a-afe29605d34mr191833466b.50.1755858431819;
+        Fri, 22 Aug 2025 03:27:11 -0700 (PDT)
+Received: from [172.20.10.10] ([213.233.104.29])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded4ca67fsm585912066b.92.2025.08.22.03.27.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 Aug 2025 03:27:11 -0700 (PDT)
+Message-ID: <493a072e-352c-4e96-b58b-04b56fa56dc0@linaro.org>
+Date: Fri, 22 Aug 2025 11:27:09 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MlV5q36HRY4ckIBP"
-Content-Disposition: inline
-In-Reply-To: <20250704154149.3464461-1-paulk@sys-base.io>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] clk: samsung: add Exynos ACPM clock driver
+To: Brian Masney <bmasney@redhat.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ willmcvicker@google.com, kernel-team@android.com
+References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
+ <20250819-acpm-clk-v1-3-6bbd97474671@linaro.org> <aKdmurrT1pFtLSI8@x1>
+ <720799b1-04ce-46da-b643-1adbdfc661e6@linaro.org> <aKhFOHFGKPYXgIri@x1>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <aKhFOHFGKPYXgIri@x1>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_032417_460128_1F33E2F9 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250822_032713_700870_04D93F49 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,85 +112,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---MlV5q36HRY4ckIBP
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Hi,
+On 8/22/25 11:23 AM, Brian Masney wrote:
+> Hi Tudor,
+> 
+> On Fri, Aug 22, 2025 at 09:14:03AM +0100, Tudor Ambarus wrote:
+>> On 8/21/25 7:34 PM, Brian Masney wrote:
+>>> On Tue, Aug 19, 2025 at 11:45:38AM +0000, Tudor Ambarus wrote:
+>>>> +static long acpm_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+>>>> +				unsigned long *parent_rate)
+>>>> +{
+>>>> +	/*
+>>>> +	 * We can't figure out what rate it will be, so just return the
+>>>> +	 * rate back to the caller. acpm_clk_recalc_rate() will be called
+>>>> +	 * after the rate is set and we'll know what rate the clock is
+>>>> +	 * running at then.
+>>>> +	 */
+>>>> +	return rate;
+>>>> +}
+>>>
+>>> ...
+>>>
+>>>> +
+>>>> +static const struct clk_ops acpm_clk_ops = {
+>>>> +	.recalc_rate = acpm_clk_recalc_rate,
+>>>> +	.round_rate = acpm_clk_round_rate,
+>>>> +	.set_rate = acpm_clk_set_rate,
+>>>> +};
+>>>
+>>> The round_rate clk op is deprecated. Please convert this over to use
+>>> determine_rate.
+>>
+>> I can do that, sure. Shall I also update the kdoc for round_rate(), mark it
+>> as deprecated and add your Suggested-by tag? It would help other newcomers.
+> 
+> I am working to remove round_rate from the clk core and the various
 
-On Fri 04 Jul 25, 17:41, Paul Kocialkowski wrote:
-> The v3s mixer config definition is a bit messy. Tidy it up.
-> No function change is intended.
+ah, great. Thanks for the pointer!
 
-This patch didn't make it in the previous cycle.
-Would it be possible to pick it up this time?
+> drivers. Your driver just needs to be updated similar to this:
+> 
+> https://lore.kernel.org/all/20250710-clk-imx-round-rate-v1-10-5726f98e6d8d@redhat.com/
+> 
+> Brian
+> 
 
-Thanks!
-
-Paul
-
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->  drivers/gpu/drm/sun4i/sun8i_mixer.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/=
-sun8i_mixer.c
-> index 8b41d33baa30..674b55f218fc 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-> @@ -670,12 +670,12 @@ static const struct sun8i_mixer_cfg sun8i_r40_mixer=
-1_cfg =3D {
->  };
-> =20
->  static const struct sun8i_mixer_cfg sun8i_v3s_mixer_cfg =3D {
-> -	.vi_num =3D 2,
-> -	.ui_num =3D 1,
-> -	.scaler_mask =3D 0x3,
-> -	.scanline_yuv =3D 2048,
-> -	.ccsc =3D CCSC_MIXER0_LAYOUT,
-> -	.mod_rate =3D 150000000,
-> +	.ccsc		=3D CCSC_MIXER0_LAYOUT,
-> +	.mod_rate	=3D 150000000,
-> +	.scaler_mask	=3D 0x3,
-> +	.scanline_yuv	=3D 2048,
-> +	.ui_num		=3D 1,
-> +	.vi_num		=3D 2,
->  };
-> =20
->  static const struct sun8i_mixer_cfg sun20i_d1_mixer0_cfg =3D {
-> --=20
-> 2.49.0
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---MlV5q36HRY4ckIBP
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmioRT0ACgkQhP3B6o/u
-lQzkTg//WFiyxqhfUY6FczVWL/ImHTtICZrkvrBZX0dJV2uHqYzypnnyT6NxmMxk
-SDXCSLmVFsSMoND1aiqS5dc4eYOPlSmo/hpJib1+nfo+1VTrB7dgafngaUpgcEXh
-JBfaN92tUfhO+Aw/XSDY3Bh1vdYJt4LH/IfSpN7OFnULBw6/VVwVkOYUm/UvSFzf
-RUGZ3WCqf/N9pVUDCTV8uRU104hhbZk8l6N4afTKcR3X6ol399SLZzZz+7y0UJWl
-fU9229JlB9ndl1Pg5LsQz/eclJA0KFNAe6+EN1lHxDqReaiAtziTtIVzgdQLtpga
-AUYSqY9oVinh0Bl2ENP5MmFFCBTduNN6/HK6IXH6wPIdMUpmU24w/Rw+MtUl/c4+
-xkZ5L6U5idcFfEW/R+Tv8fyOVeCLXxDGg0gAhyo6wcf9k2HKDI1IV/FVeCaCs5wD
-ztKSieqm6mr6xBIvdL9vKeLEAik1AmlNkpYQo4HFirxRCr+M/UlUeFf3NSlWhfx4
-9WyDwMcctDD8ESW3V2Q3oYAPmQPh84oX2uMDyd19djNwcy+rxwvWmQc4X4ESFZDe
-nE7BYg6g1UvJlLBIpWxEACNoX+oBJ/AIVtReJmmWB2wXFpTTZo5jOobrDnYHxOe1
-ck45AXtCLJVrvt+LfBPR3XxAYalBQfW6zYsLjXUh+OlC7yq9Giw=
-=aSaL
------END PGP SIGNATURE-----
-
---MlV5q36HRY4ckIBP--
 
