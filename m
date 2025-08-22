@@ -4,80 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E87CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72725CA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RAY+0tzjsGQGvSUVxkpYyULcO6q210VE10H6K3CyYWs=; b=BMS+YVjDzk2ZhTnyGgkvhD6opV
-	uR8K8Gtyle+4PHo88nvMQ9TJ+e1Cp/Pumk7+I5uPfKixM503qTrMrzqVgpMBkC55MwUVJmnyx953p
-	WM09s3y+q6J37U747Mj5t7GrySDuru9WH2hUSat6by7lQM7tMqpq/d1cBHz2GRUExnxZN4GQdDJET
-	2o1qURPQufM/uyd8061OnxLwk2U7ooIKyPuWkU9Miuvs7P3GSY6PzjmoXCXU+8UsYuBgDd+Ra+3zw
-	9xjcPQ+ICFXhPWh4XkASOCIOS057iG75oEFvuxE6bPDgQFwwV4jgAPWXEpVGX7mJUV3J7H5k4TBFI
-	sXFhVkrg==;
+	bh=fIHVDF8QQlCks9V6F+liau1sTtCG+DcsAV1IQLLMJbw=; b=hQF9/haqfb9pNVATcsY0PKkbvV
+	S3Z6ffv77VGXTYiISxuVF7tNZmRGqY9mq/4/WbbJVWUKBXeyYLdc03j38/v/Fbs6gybNygjqxDzSa
+	nhCqz8oiDm2WNfUuEpzsehZZlU40hJwEh0c8ixiQ64AiFGFyqVJH568vq54bQWJYinRGWYw3Uepko
+	ZFlFf9pqvmpwX5TfdZ9/ZzRlYVDPZJ96QDShsgGHfv1SKggBsfdJrcWI9snU0vrahhxQAz4aQz2z6
+	Tpm7Ndev80oX4CgioiD7IyRBROFTMZzs7OSX64LuL1+I2OCphxQ6RQJUbwojNRWIKpF8Xt4V/6ll5
+	T0s2l6fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphoP-000000042ho-3PNA;
-	Sat, 23 Aug 2025 06:33:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uphoR-000000042lK-44ZQ;
+	Sat, 23 Aug 2025 06:33:16 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTT7-00000002yPg-1mrC;
-	Fri, 22 Aug 2025 15:14:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C32D15C6EDA;
-	Fri, 22 Aug 2025 15:14:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28AE3C4CEED;
-	Fri, 22 Aug 2025 15:14:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755875656;
-	bh=LonE3rEgRMxIVsYfDjiHDPQfYMJ4W3TyT5tCihgHym0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lcdvgiT329HDpoh0VCPKjLOr0moxcH5cK28AAxLH4+gdXwe82hWMy5dQXf+hxi+SJ
-	 e5skJ6Ap3UNK0hxPe/1QnheFWVpdsPDuOEyu/CscLYWgU30HdVoKiMx0zfj5Wy/CwO
-	 cSBIRzhdLMkd6X6u2lLgcYTDtvl9pespreueOrlccrxtDtXBmjc4D3yOKhl7LjVwQ5
-	 WRahCkYy+4d50YdUNM+F8DB4LPVIQUwhjRHIh6Ac0h1fO7vCZVT1jWiRh9yW8JCFOw
-	 AZM9juQBSX/GvY2Z50e0J5uHQ1wlVf5cHwNZOkZXtCySwR9zTYxtOWABXBHT5B2nDf
-	 L8Yg2tntKVzEQ==
-Date: Fri, 22 Aug 2025 10:14:15 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
-	andrew-ct.chen@mediatek.com,
-	angelogioacchino.delregno@collabora.com, broonie@kernel.org,
-	chunkuang.hu@kernel.org, ck.hu@mediatek.com, conor+dt@kernel.org,
-	davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
-	flora.fu@mediatek.com, houlong.wei@mediatek.com, jeesw@melfas.com,
-	jmassot@collabora.com, kernel@collabora.com, krzk+dt@kernel.org,
-	kuba@kernel.org, kyrie.wu@mediatek.corp-partner.google.com,
-	lgirdwood@gmail.com, linus.walleij@linaro.org,
-	louisalexis.eyraud@collabora.com, maarten.lankhorst@linux.intel.com,
-	matthias.bgg@gmail.com, mchehab@kernel.org,
-	minghsiu.tsai@mediatek.com, mripard@kernel.org,
-	p.zabel@pengutronix.de, pabeni@redhat.com, sean.wang@kernel.org,
-	simona@ffwll.ch, support.opensource@diasemi.com,
-	tiffany.lin@mediatek.com, tzimmermann@suse.de,
-	yunfei.dong@mediatek.com, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v1 05/14] sound: dt-bindings: Convert MediaTek RT5650
- codecs bindings to YAML
-Message-ID: <20250822151415.GA3819434-robh@kernel.org>
-References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
- <20250820171302.324142-6-ariel.dalessandro@collabora.com>
+	id 1upTVb-00000002yyQ-1203;
+	Fri, 22 Aug 2025 15:16:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BQP5Qyxz3Ly0DVkkCKA6vTn/ygnoxbSTLCd59EFXYBRUOpZgVODgiTzVIHrTfyAdWe3wM1sXvlt3vUZ2w3qKPTyg/lQSEXPNImuNxU20YZ/Gni5loFbY0Y/MNwKdyN3BjpCJmkS9e1b6gnqXiwGPsd8gAVFoSDyaffOdxL+lThVKngVB+rKYHA31xFIPhSERQ9b1fkDs+ZGRQrLcY1DLuU0UJCTv4Evf/UOmZKzNWqLxub5W/t9ZpcpBf9dGmuwR+YTJMxD4eqjDzcpsiLUr0D1EmGhCNqUCiyTpCddnHLtrvMrb5DYVlwZP5i2aTG3TRShXVH8imbN+F8xUqeKlvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fIHVDF8QQlCks9V6F+liau1sTtCG+DcsAV1IQLLMJbw=;
+ b=lJiEnG2XL+MbHdV1whpjq/Nqcx/y5jQOv9Yk2cjJVNV4gU4GjZZ431bJrXcLgxaRfG5r0kIO4EIXoiZQy8VZ3x6V4HFXeg5FTFBh4MlRNm0jgPjAQLsiBJFdFGuEYuUH/3D1sBm+Al6MLOwFHrqXMbnE6OyNEACsc5SELsj3tq4oiAKAE2f8K3snmBDFbdT71y8up51SSIcPx6/mSP7Kyl2LiPzFO85hI0NiHdl6SwZoAsqgjwvjQ/2+7+MgYO4mgf+KRqJQs3oE/AYNH05oo87SAd+PO2sr/DsDHghCvVvy17AmjlL5Q7IoHl3IOt6T754NNSaqkDrzMXYc7isUcA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fIHVDF8QQlCks9V6F+liau1sTtCG+DcsAV1IQLLMJbw=;
+ b=GKya4y1VLh/cCNr3t6J6eAwR2EV3fPdSSqrEZq/EJb3UqUb+htGq1ggtrWZY7kJiXruRZyAMBxg5CClj7P72L/Mh9fZrg9PjhHJUwmybWN+WJM9AdC57u1TFarmv2QvoVaSK2DrCT4Do3kTHguHZi1+QireiPvucbxhYQ4LCpdw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by PA2PR04MB10374.eurprd04.prod.outlook.com (2603:10a6:102:41e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.17; Fri, 22 Aug
+ 2025 15:16:38 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1%4]) with mapi id 15.20.9052.014; Fri, 22 Aug 2025
+ 15:16:38 +0000
+Message-ID: <d784230e-49f4-49e9-be4a-bc7c00020cfb@cherry.de>
+Date: Fri, 22 Aug 2025 17:16:37 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: enable NPU on rk3588-tiger
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250812085213.1071106-1-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250812085213.1071106-1-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0057.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cc::6) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250820171302.324142-6-ariel.dalessandro@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|PA2PR04MB10374:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11d5f50c-77aa-42b9-96f1-08dde18ee3e8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|10070799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SEtJMDNtaTMzOWhZcllRMFE5ay9acXM4ZFBLZTczWWtkNm1aZzIyZm42ZTh0?=
+ =?utf-8?B?MTFsSmtyVU5wZDZDL0JOZ3UxUVdYSkFFdUw1Nzg4RE94ZHY5VHgrMVZMbW04?=
+ =?utf-8?B?NUR2TVhlMS8xREJnRmdjYTc3K0hZQXQ2bysvc2RwODBxQWZFVGlYSUZ4eHNv?=
+ =?utf-8?B?UkhwMlNKVjYrQ1dITWU4ZlVBaVVBTTlHM2JaM2NlRVZ3WE1HQTVyTjlVME5n?=
+ =?utf-8?B?UHE5UW1VbXVKY21nQlpLbjBVYlRxMFNyOUtQMXk5MmZZVFBHdWd5SG1zT0t3?=
+ =?utf-8?B?ZnRGNFY5Wi9TeDRyeWFFZXpvY0c3OUJSOFdLb3RaSlJBamRYK1Z2SGtjMTZU?=
+ =?utf-8?B?TWpKTzVSU3hYZjdCS0N1ci9wN05pcXVBNllicnBobVB3N2hBVEViamdIb0hj?=
+ =?utf-8?B?M1hFdnNIcGY1RS8vWi9FVHNMaXVKK0Jva2sxTGZBU1dTdVExb2VXblVMVG84?=
+ =?utf-8?B?dXZ3cngxQlBER1NGTEMwaWxDNDVWeHJxSFJxNUVJWXA3T25ZSmJBS0M0TUh5?=
+ =?utf-8?B?NVpRTnhnNmszL3hIZ0J3UUVUM1JveGE3clNTcDdzbWRDNEtQdHZKcHhsR1R4?=
+ =?utf-8?B?bGlHb3d1aE9Ea3pYZ0s4bjl6U28vWUNERlVrS1J0VUg0WXlDZGZRMzhocHNC?=
+ =?utf-8?B?c2YyRjJvV3VDcktjZk1aYVE1a0Z6Y3BIZmNySUNscnlpUUpsN0x3bURkYjhV?=
+ =?utf-8?B?MEJGZzVtdU96VHdjbnlycmdQQUxVd2RWTEVKZ3VvVVUvM3BHVDhWT01YN3J1?=
+ =?utf-8?B?ZEQzdy9kYVliVi9qNm1tS2VJM1h5RlVSUDhKOWs2REg0TkFIcTZWcXFVdDFE?=
+ =?utf-8?B?Um1obE84Tko1L2VhVWhCZkdBOVJ3ajRYd0crYUd1MnIrZHZydkpmTGNsWkha?=
+ =?utf-8?B?d0tVZkZVUzRwVGYrU1FXaFB3N3F3QXBuWFdjbzFCMk4rZU9PUUl5SStaT1ZF?=
+ =?utf-8?B?a2s3ak52QXRjeW5wem40RTZkczZBVngzTVpFZmxmb2FnVHhWMFU4dDNiM0xh?=
+ =?utf-8?B?QWJLSU5FQmFlR3BXMWRqTng2MFJNQjVETEVSWWlIZjJ2akRxcWlyN0pCN3FM?=
+ =?utf-8?B?SzlybDdWSW11dHZTMGdVVkxDekU4SjFUT3JvN0NBMWczVll2V0JiRHJQcUc4?=
+ =?utf-8?B?TVM2LytBcTJvN0dmRzUvc093OU1PMEpzYndNdFFnTGxRTlRnOC9vN0F1NXRR?=
+ =?utf-8?B?MTVQWHlBQkVzQzVSSTk5cXFxQzRPL21CYS9raG12QzN3THZlZFgrTW9NbThl?=
+ =?utf-8?B?TVZLZ3ViSVEzak5kc1FJSHRJTDQ0c01XMnlZaUoraDZkUWpBTk9JN21qTGtR?=
+ =?utf-8?B?SUJUdEY5V2pGcVg4V3p6c0xQWnVJeUJ6WktVQU55aitjNmRvcmM1RXZsU21C?=
+ =?utf-8?B?Zkp5bXJWZ1ZaNGxFT0U2N1NsaldKdThsRHZFK2hNcWtKT0Z1QjR0ajJ4SmJa?=
+ =?utf-8?B?V2ZLcEZmUlZJR0xxWFMxVitoM0F3Nzhzb0ROb2duMUl5L2VKV3lmNmpnSU1M?=
+ =?utf-8?B?L1FPa2pLMEt2Uk9LYXpOYW5zRWg0alF6TFBuYXRNSEpOb00xQUhHbk11T0Z0?=
+ =?utf-8?B?cWVBZmMwQ2ZDdm80M2pNbTQ1eGJZdk43TmNpV3V2WWhuajVPeklrRUlYMnNl?=
+ =?utf-8?B?QThLMFlaMUo3VzNWbmZnVGVuMXIrcFRrbkI4Vk82L1AwUFNNL3lZNDdpUUZV?=
+ =?utf-8?B?UFA2Q041ZFMzZHVid1Z4bHBNeXJET1ptcndmbExtbU94TW4wc1JzdThIK1l1?=
+ =?utf-8?B?R3N2cHF5SExBYy9MZW4rTzZwY0tHZXFuVjRDbUtWcUEwWFFDYkEyZWVLaWp6?=
+ =?utf-8?B?RGQraEl3ZmFvNE1xa1dRcFlVc2d1elpkdndNQURUdTZuNVRFL0JJb09za2E5?=
+ =?utf-8?B?TEwydXZsZTREbDJkbjVSbDVQWlNlRm9PWjFSWkR6UTR3UlJTRzV0U1ZvSmZq?=
+ =?utf-8?Q?CEFU+yhJwwk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(10070799003)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dzVRUndXcDl3NkhRd09ieXZrOGY1UFdwaml5T0UxQU5mcVJwS3Vtd09QclRy?=
+ =?utf-8?B?QjcxOG9odFRPS1lUSVhzTmZ3YitXcU8wR0pWS1AvNWV2akx5NE1zeisyUkNy?=
+ =?utf-8?B?MFZzRWllSFZFK2J4b2dYWjNyOHpiT3JoVUpOcVd6YlhjcGJTVjJGQXNaUkdi?=
+ =?utf-8?B?T29kblREUzFHckMwK3M5YmJlTGU3K0NDRmx6Snk4UG1OUTBRcE05VUFpYUJr?=
+ =?utf-8?B?anJpNGhGYzFVQkp4OGFCVlJHeGoxT01oajNEeDg5cHVaU1NWSFA1SzZvMUEw?=
+ =?utf-8?B?b3JyQUpaaWJ2emJXTDc5Wm80V0Qzczk1STV2dFRDVUVhQW9LNFdDbWpXcEhV?=
+ =?utf-8?B?blh2Qm5QVFdqTS9WMU1veDZET1Q0c2ltVTIzNTQ4TUM5WU05WWgzNDhnZTFk?=
+ =?utf-8?B?VW5jSnE2V0tuYjdlUjBqSjhzOTg3NjZuY1lUZWlnNlIvYjdrSlp1NkFnRUN4?=
+ =?utf-8?B?ZkUyTHdhTEc2T1E3ZDJXdGgwNm5IbWZyZWJka2t3Z3B3YlJ2dUpxeDdERFlk?=
+ =?utf-8?B?M0MrSHk5TWgwbVZBL1ZYVUZ3aFgySWVtdDNtQWRZZGdPSlhHMzlUcjFHS2xT?=
+ =?utf-8?B?MVVWdER3T3FXTUpybFU2UGwzdDFpVmtpeitQNWlJZC9nQVhUSTkxc3Nta2pV?=
+ =?utf-8?B?cjc2QnBZYWJqdDZVN3VFc2x6dHhIdFNGVlRtN21OY1JDWHBqYlNScnpndEdh?=
+ =?utf-8?B?WWplOXdFWllIemNWMWFpY2N3dWRZaGRCK2dFTkJMQjFQSnNobS8ya3dCUXBh?=
+ =?utf-8?B?MFRoQmpQU2phSzVrakRuN2phQkY5VnN5WUZaUnFacHdmcjU0b0g5TkFpVlh0?=
+ =?utf-8?B?TlRLMlR3a0srMzBDaGlIRzRRSlZITkh1S2FreFA3TC9wWXFSNk5HWkhzUzBm?=
+ =?utf-8?B?bHpjemRaNGJoUkpWd0ZSRm52bVlsUjM0b21mNFdOSjNQN2xlNk1QZUhkWVhq?=
+ =?utf-8?B?a2RYRm45Z2pmdkNMYUJzeEg0Q3E4RGptdGwvQlBVN29NOHRYRlZCeU1SeHRn?=
+ =?utf-8?B?MzNRdEVvWDRhS25JZHJGeDFOWHlhQ0U1TUxxZEdYem9YRXBNYkl0L29QQU1k?=
+ =?utf-8?B?aUtOU0NRcDl3RzhjM0Y1WkRxaTE2czB0aHhuaXljQVVMVVcyNUE0Um05cVZI?=
+ =?utf-8?B?VjVGd3VEUnljR3JLQzB2WE9YcVcxT3k3QktnOCtrd1RKaG54dHpidU83cVFC?=
+ =?utf-8?B?UlNSNXE4bTAvNDdpZ0Zsc3QzOUJJZ3czQjM5ZzFvSGJpbzBZRkNxaWJiZzVl?=
+ =?utf-8?B?cjNMUlhJQWwzaWNYTGVaZEVvRXVCZ2VHcWJhbzNrZ3pNNnYrRlYvNzd0R0tK?=
+ =?utf-8?B?WGh3Qk1sMktXejdLeFkxbGNjd3pqWkw2WUU2ODkzaE5SZ1N5bzF5RXQzenhL?=
+ =?utf-8?B?cVljWkRBMldNMUFtWk8zdFZkV1hsQit6c0VBdjlQWmFHZXJYNVdwaEswRVJj?=
+ =?utf-8?B?dVlKV2FsTEVXb3ovK1VBMGFBVDFRV0RlRUJpM0lXeEg0c3JBTGJxRTl1N1Vo?=
+ =?utf-8?B?NXpUUFJ2NUc5ZW1ReW1JaVdIT2V1RGhMMFBMWlhZWFJnQnlFWnJnNEpWcHlK?=
+ =?utf-8?B?QUx5ZTZpcUJiejRIYlptcGwvM2NrTzFIYmVkVmZWLzZuTzRKTnU0c05kb1Nl?=
+ =?utf-8?B?ZCtlWFRxS2FRSURrT01pYm5HMEpnUHB3SW9LTkZiY3V5T2tiQUg1d3ZJcmZ0?=
+ =?utf-8?B?MjF3WWdrSDhoQzAxSDAzdThJM3hoUjhLZlpzUUh0bFN1YWRJZnVnTEtwSmlE?=
+ =?utf-8?B?cCtmOGxwN0wxWEpINWJadG02YUhaSVhuRGFPTDZranVEaGo4Rk1MVjFYR0Za?=
+ =?utf-8?B?ckRUSXdSeklKZUZiZ3o5TE9TRDhzalRuQlZpU3p5aUtpZUN1dUdJYmgrV05Q?=
+ =?utf-8?B?dnB3L0lwaGF5MlI1U1VHYUtEcUJ2RXFwUWIyOGsrNGhhNHk4SzdEeFBsQTNo?=
+ =?utf-8?B?Y242ZWhIajh3OW84aFl5QnVrNWJGV3g2MTlFdXI3TWhvVGk2aldxd2FUTmJY?=
+ =?utf-8?B?VmwxTm5qajZWLzhBUStIVWNNV1UwbURxZHduUWlPMG56L3plVXp3M3ladDNx?=
+ =?utf-8?B?UWlCMnJybnFkazVWMzhUR0k3TUFITHN5cExlL1B4Yk5RaVcrUlBjdXp5WUR5?=
+ =?utf-8?B?WXRSaTd0eW4ybndLeVpQNVFNaEV1WEVMRk9jRU1lR2JkcFRmVS9kaVY0eDhK?=
+ =?utf-8?B?aHh0eWRONVVuNHk5YU96aWdLRklFTm1IVFkxTTFzQkYyS3JHUWgyL3JNRk5r?=
+ =?utf-8?B?MGJlaGhsV09QSHpuVkJ6ZnNrcnFBPT0=?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11d5f50c-77aa-42b9-96f1-08dde18ee3e8
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 15:16:38.4363
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: POOaBjILUOydC8TpubSg3FvHtUhJBpw9sLPi2akv9MqnyKDnjOnrgfI01UYN4T4SPZlVvd5vxVKwU3XUBfNNMvTYDMgOHY3X/712aWpMfQk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10374
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_081417_542879_E73CE482 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250822_081651_321249_EE53D274 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,141 +176,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 02:12:53PM -0300, Ariel D'Alessandro wrote:
-> Convert the existing text-based DT bindings for Mediatek MT8173 RT5650
-> codecs to a YAML schema.
+Hi Heiko,
+
+On 8/12/25 10:52 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> Enable the NPU cores and their mmus and wire up the supply-regulator.
+> The regulator itself was already defined, but it does not need to be
+> always on - the npu can control it.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 > ---
->  .../sound/mediatek,mt8173-rt5650.yaml         | 73 +++++++++++++++++++
->  .../bindings/sound/mt8173-rt5650.txt          | 31 --------
->  2 files changed, 73 insertions(+), 31 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
->  delete mode 100644 Documentation/devicetree/bindings/sound/mt8173-rt5650.txt
+>   .../arm64/boot/dts/rockchip/rk3588-tiger.dtsi | 35 ++++++++++++++++++-
+>   1 file changed, 34 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
-> new file mode 100644
-> index 0000000000000..36e4f9c4c3d62
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8173-rt5650.yaml
-> @@ -0,0 +1,73 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/mediatek,mt8173-rt5650.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Mediatek MT8173 with RT5650 codecs and HDMI via I2S
-> +
-> +maintainers:
-> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: "mediatek,mt8173-rt5650"
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+> index f4bebd25e938..9859f31d2894 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
+> @@ -194,7 +194,6 @@ vdd_npu_s0: regulator@42 {
+>   		reg = <0x42>;
+>   		fcs,suspend-voltage-selector = <1>;
+>   		regulator-name = "vdd_npu_s0";
+> -		regulator-always-on;
+>   		regulator-boot-on;
 
-Drop quotes.
+I'm not sure we need this property?
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  mediatek,audio-codec:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description:
-> +      The phandles of rt5650 codecs and of the HDMI encoder node.
-> +    minItems: 2
-> +
-> +  mediatek,platform:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      The phandle of MT8173 ASoC platform.
-> +
-> +  mediatek,mclk:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      The MCLK source.
-> +      0: external oscillator, MCLK = 12.288M
-> +      1: internal source from mt8173, MCLK = sampling rate * 256
-> +
-> +  codec-capture:
-> +    description: Subnode of rt5650 codec capture.
-> +    type: object
-> +
-> +    properties:
-> +      sound-dai:
-> +        maxItems: 1
-> +        description: phandle of the CPU DAI
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - mediatek,audio-codec
-> +  - mediatek,platform
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    sound: sound {
+The binding states:
 
-Drop unused label.
+"""
+       This property is intended to only be used for regulators where
+       software cannot read the state of the regulator.
+"""
 
-> +        compatible = "mediatek,mt8173-rt5650";
-> +        mediatek,audio-codec = <&rt5650 &hdmi0>;
-> +        mediatek,platform = <&afe>;
-> +        pinctrl-names = "default";
-> +        pinctrl-0 = <&aud_i2s2>;
-> +
-> +        mediatek,mclk = <1>;
-> +        codec-capture {
-> +            sound-dai = <&rt5650 1>;
-> +        };
-> +    };
-> +
-> +...
-> diff --git a/Documentation/devicetree/bindings/sound/mt8173-rt5650.txt b/Documentation/devicetree/bindings/sound/mt8173-rt5650.txt
-> deleted file mode 100644
-> index 29dce2ac8773a..0000000000000
-> --- a/Documentation/devicetree/bindings/sound/mt8173-rt5650.txt
-> +++ /dev/null
-> @@ -1,31 +0,0 @@
-> -MT8173 with RT5650 CODECS and HDMI via I2S
-> -
-> -Required properties:
-> -- compatible : "mediatek,mt8173-rt5650"
-> -- mediatek,audio-codec: the phandles of rt5650 codecs
-> -                        and of the hdmi encoder node
-> -- mediatek,platform: the phandle of MT8173 ASoC platform
-> -
-> -Optional subnodes:
-> -- codec-capture : the subnode of rt5650 codec capture
-> -Required codec-capture subnode properties:
-> -- sound-dai: audio codec dai name on capture path
-> -  <&rt5650 0> : Default setting. Connect rt5650 I2S1 for capture. (dai_name = rt5645-aif1)
-> -  <&rt5650 1> : Connect rt5650 I2S2 for capture. (dai_name = rt5645-aif2)
-> -
-> -- mediatek,mclk: the MCLK source
-> -  0 : external oscillator, MCLK = 12.288M
-> -  1 : internal source from mt8173, MCLK = sampling rate*256
-> -
-> -Example:
-> -
-> -	sound {
-> -		compatible = "mediatek,mt8173-rt5650";
-> -		mediatek,audio-codec = <&rt5650 &hdmi0>;
-> -		mediatek,platform = <&afe>;
-> -		mediatek,mclk = <0>;
-> -		codec-capture {
-> -			sound-dai = <&rt5650 1>;
-> -		};
-> -	};
-> -
-> -- 
-> 2.50.1
-> 
+but the rk860 we use here can report its state if I read the driver 
+properly.
+
+If that is correct the same "mistake" was done for other RK3588 boards 
+which enabled the NPU recently.
+
+The diff makes sense compared to other RK3588 boards' recent NPU support 
+addition so I guess this is fine :)
+
+I am currently unable to test this though but considering that this is 
+an IP within the SoC which only differs between different boards by its 
+regulator feeding the controller(s) and that this change looks in sync 
+with our hardware design, I guess we don't need to wait for me to be 
+able to test this :)
+
+Same remarks for the next patch in the series.
+
+Cheers,
+Quentin
 
