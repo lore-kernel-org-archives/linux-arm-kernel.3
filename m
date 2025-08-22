@@ -4,158 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA7ECA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B07DCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=; b=Dv2s9Wajus/WBJUnqavy0YnvaU
-	0NyMjQJqsKKbZzo7M8s//273j2NCjkRr6aG6aynjLR0Ltap3t5AcgjzBUuRhTCwuY7hemeDwSsd1R
-	7HRp3w0i1c6vMZvqiQTh+j7mAM2vL6F4J3PNOCQe4HxvOpU3but5fm9fzGYo1hR43dtxFxqkW05kQ
-	K2UFIG09p3vqPk6rElKVc2+pSeFasFDIVkgHKxzNrCiEKj+uLJmiv3WDw0umSJRdDivxoQfmdGgkI
-	wFvXzM5gd0eua5L6VyVsOKqAOroFGDph7d7CsCUgQywJsOnKhUU4lmu093ieAjN7I764vG9oIQAbr
-	2nDvn+bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GhYj/acZbzvp6itCIOSZqwQM79EgYoKNQzfU5FPfgP0=; b=F9dn4ksHqNxoG1xr1bG9R2oaiq
+	qo2wzh/CbF+2H4MMfEqzjrP38DwkeigHKwCeWPpQ7OhdLQKCvvvgwTg5MjFczsB3RRIgX8b6MVBf5
+	w2kbicNp7tfbkoPuch7Jl0T6yHq27wHpWQ2KuJkNtK44C/nDPAQv6b49xCxV3MCo+sezLUZIxBP9k
+	Jabkk6Kbc93vFG4/MRI6UgPk5YwYJ54xdGbK3f0C8XDS4MUxCGobxgcaEPtLn/eh3i9zyqDAY4FUU
+	bOCOjQOw3ID0u0o2sRPkXHOXnlEg/9mEnmcyDkvMYRa4RWzL4ceuek0uFGVzni9CymxCR5UdXWSl3
+	xj0uNuEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphmS-00000003zzW-0bFs;
-	Sat, 23 Aug 2025 06:31:12 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uphmV-0000000406C-2oKW;
+	Sat, 23 Aug 2025 06:31:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSPW-00000002iUx-3Ile
+	id 1upSVO-00000002jFm-0FmG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:06:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vKN5UaRlKCZ4W1LL454CzUrOAWVetm72snA3bdLLcL7L1dT8ehNHFsP3KQP5GbZ3Em4craz6dDR+BzAe0wWsDbyaxrdQdEQzqaRVEEOgva4dLIg/2h5UdUm3MQ5fFVf6JSQfdWdLBDLZh78sZ4BoWJONsTHLIfizMD502OQR2bBOZvE5Tz5ACOoUSq5BQN3T8wkMJSRco1Lay5AMSyj6nrarfOSa2oNGlEPPlgo129Bq6KDJiUoeXYKCSdfky7nJod87Ju0Hpx9WP/lSWdv95in1qxaiDwh/EwzKAzl0uGDe502ekwMU8y6qSd3KYZluiNro5zuVVxUuJ55b0QOQpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=;
- b=iCiKhjx4XvfL/RcsF/CUr5FTW5WEgp2prsFzrzmVrcM1BR0HBJgBxlRPmUDPZsA9ZCiD2X32kzHBm+tv0NW7PhIwNKvHDRQRw+eU+EFQH10OpV3v3SYk13mhewY1bTl6CtSNAXZ2XMd1/DWlXkeBv9rN9Nen6Opzjh/f1Nwv2Ed7Ye1MDZ9RzIxEpdD7JTwTQLQtrlIE7YQRb9psfOMDId6Yyb8o1TZgc8P8vCT5u3HT8C5S0U3eWnyXHRfIeS/swhy44MtiJIo2MRhN2pb0k+gvoKfqB0IVD+lVwukaYBjbq3VTXXiilud0IW8CyH9DbRUK3/rmlLs7sGQbhOGnow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3C1E8RA58E9cOH5Wf+B+E+qYmlTNp2l9Cs4ov6ItMCU=;
- b=d+2NdJcBXQKc50U02IsgUhHmp8jJ+ZKYq75KItPtx1tjxtd+AMILsjmPKiz/mSQcXooF4yB8X07hwd3aINs1ubiB7sqhyXAZU9scaFDd2WLhggt/yBqZnlqhC1NjaXI9SGPyR9Tmi+KddO76EZPTfObw4RbaS/bcQr68nDdkyBT0zI1qocsghVRC8jNXb5g7HBB9SVmUTYnbUdg5wD8593KHokTPhWjc1xjJoOIbFCgWa4mhA5rz3MI14YjCZKNCOWPxBelpx7o4Sry3CtzqKC8aTaOXq9lWNM0d5/markNkJJILAheAAnvin4Z3BqcVO5i+VJHQISsUwl2ALn13/w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GV4PR04MB11306.eurprd04.prod.outlook.com (2603:10a6:150:297::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.17; Fri, 22 Aug
- 2025 14:06:23 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Fri, 22 Aug 2025
- 14:06:23 +0000
-Date: Fri, 22 Aug 2025 10:06:14 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@nxp.com>
-Cc: Rui Miguel Silva <rmfrfs@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] media: dt-bindings: nxp,imx8mq-mipi-csi2: Add
- i.MX8ULP compatible string
-Message-ID: <aKh5VnsKNSFO8GzY@lizhi-Precision-Tower-5810>
-References: <20250822-csi2_imx8ulp-v2-0-26a444394965@nxp.com>
- <20250822-csi2_imx8ulp-v2-1-26a444394965@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822-csi2_imx8ulp-v2-1-26a444394965@nxp.com>
-X-ClientProxiedBy: PH7P220CA0126.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:327::11) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 22 Aug 2025 14:12:35 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:7c3d:a283:5570:ad9a])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 87E05107;
+	Fri, 22 Aug 2025 16:11:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755871892;
+	bh=eWyHTNPyXXQTwGqX7/AETmMv+tv/+e2h9VfrGlMc2eA=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=FH7lNwBhjbPfSluv7VkKqcpkjlA497mC0Y/6o21YHQl4uyniNWyK4K8Tgw8qNtlmn
+	 gWmNFBm0tF9DrtNh6R2VJ8RruSj6FKrmM7l9kL4OWwitQzdLGUAGpBYXH2KREn3wc9
+	 tRyvND5011PXMVvbOSWmtJzzEzHL/T6H8hho7Fks=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV4PR04MB11306:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2aef625e-ba3a-4dd6-469f-08dde18513c8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cIyd9UcA0csNeqQTqMa0vp1o3CSWN/4XQlL57hTk0HL+vUrNCRyrtR3XUtjb?=
- =?us-ascii?Q?hrEbi1dnCoSWn72SikvVCvROQC+2o1jn1oNlWdsAKECEhPBnbNZa3joC9GsF?=
- =?us-ascii?Q?IuQHqQFV09EKlCIx/aQiNCfiNhalvowBg+YcOiQHHwl9PIC1GGYeepiYNTpZ?=
- =?us-ascii?Q?Efj2emZb/4C894GOJbDujeR5qKSO86QtqMNTG82gkMzv5fXqirwW0mpdEjLD?=
- =?us-ascii?Q?llmOHomNmyPrC1o0ZNtFi1ONnmuCgtjspGeeFibp0cigXftNDn9GvFrZOEZp?=
- =?us-ascii?Q?yCZGzAy9ADiA0HXZUjTosdSoZT/L4kXG4eA2Mb6vExhL+9+2Twdw+V3VmFy5?=
- =?us-ascii?Q?eyC1ov+8ER5ZWZKwRZGppxcPVHPtfecUHla7bgQDeXMRXVSa2oe+vXedvZ8p?=
- =?us-ascii?Q?VC/N/52G/4fApKDCr10HbXlGHHdphmuJkUJnmTAJnjUYE4SZKeFhq2IfCKUL?=
- =?us-ascii?Q?4TpXYa3PmNQhnsMVO8A9bWNs9/VV+Dbu3M0peEP8g/L2oMAqYeDfDugTm4Mg?=
- =?us-ascii?Q?ZwxK7c6pqdkLD7kGFX9tVVuNyk/JB9NIEq5fjolySRQgpMw1aAr7o8RbhyFC?=
- =?us-ascii?Q?QTMcqxkeV/ILTWWL4k8aazqNdJr86/T5CMOYof/C3EG/OVqVAwo5zbiclqqQ?=
- =?us-ascii?Q?N4qRDAHXvmo0wcCZYw3wZZontSRTAhLmYBhCYJp5Z8et5uWbXLcP0dcqqEmf?=
- =?us-ascii?Q?JS4wnqrk/XtkwuemLOF3kEPfeXVOMFppiqMSaAq6Ei0v4c6SI9OzQDvCG+TR?=
- =?us-ascii?Q?6iEC1GwYHoEHrJIsSbkMfglJA6z7zoGIJSbOPusk+0tFkPhev9pxV0gBf+Q9?=
- =?us-ascii?Q?+rC9u95+LNeKHNi+9RJceBvm+gjlPO/bKjeIaKeDP49/3x2sAoxhi8iaT34m?=
- =?us-ascii?Q?zd4SKttFD5OWPIJPZnTPjg0mRX2wxvzmnePKN2VIySsreRvwoEdMET8ePTUY?=
- =?us-ascii?Q?gwcwcy4qbzMzsqBwvxMN6pEDC469KTK0iz0MJUKA+WYO+LjgPKLbGHmJgQcx?=
- =?us-ascii?Q?A+45uZs6jai92Q45Jtbh0WO9E4U/DyCnLVBDmChAG1HIdQ0XnQC1KT92L9Ca?=
- =?us-ascii?Q?5SFXsAqdkf9iioZOp0Aw8daPYoVS1En8QEGAL+Ov64AP8NLCi/QswUPn8qIz?=
- =?us-ascii?Q?nloyISLVcuuOR1ktXFem0Q8bj+cTvMy3y4vO0PnWqWcD7N3NsHqY5J9c65y3?=
- =?us-ascii?Q?+cGGtgFgv0cYNXKJaptDBolTSzWk3lfXnHVLEo/OcwF6b8W9FcH+hd70IGU0?=
- =?us-ascii?Q?PvI3NxKh1zuG0APTioy1pMfgtYGUURAo5rBrGGSqGRN20Tuz2r+dX3IJyo//?=
- =?us-ascii?Q?2IaitHEp7uPXJdRZ9IAf7LS7OaTytYiEZUgQ/Cr1b8TD9Xv2Xw/1y0sTpZ8g?=
- =?us-ascii?Q?4NeYgTsKTUiGpi7i0U9CVu7K/hbCwP9rtQn+M+BqM5TfjSWcxJvlVy4NZBHx?=
- =?us-ascii?Q?B7TKedMz4w6jAlz00NDTTPV9MRinMmUMud3vzES0WBCJqix9BLtl7Q=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sh/Fj8D2KstmPdN/Mgg7Fs5imKWuKkxuXTyi9JGHHIu830Jk1rEiHXBe6S2W?=
- =?us-ascii?Q?zmeZ3ppV0r+WMm50y7O4OVaob79zzZktEIBOGMcIeBg6L3U+Pq9mnpX+zZNz?=
- =?us-ascii?Q?WeEKpSmr0vRsw44fnNoXeraSQX2zDhd/NmZAOOLLnBZOjtMXOAz3d7J8uwoU?=
- =?us-ascii?Q?4FlL6ofQiRogmKSmSU9Rc/KhzKFdNmn9ThbbXh2/zc4FGv2kiO0sdOtxoOqw?=
- =?us-ascii?Q?x5ie2N7O72J4ST0ekqh/4CeytfLlLGSaSNU3DqjS65ZUJpdgqe2yUcsJ5b3F?=
- =?us-ascii?Q?lx86QhcF1GH2lV4SnDPZJzp607hUVGWE2kVhj+a4UmTQweGYmyalz8yZj/i/?=
- =?us-ascii?Q?c4ernQaq1pYWyvyGn778mk24gImrr/oc9f306ekpmobl3vpdz96C09pQ6hWn?=
- =?us-ascii?Q?RHeyQ3gtyOkw3GenvpgXuJ2i2w8awkzeSM1SpjqQ65t0Qtg3NaMkhuH+3hpV?=
- =?us-ascii?Q?tqHRSiNXmTkvxkhhbnn+SBsWG2lsnKtaQoRMoh+GoMmMHhw4+5USN/02F8oD?=
- =?us-ascii?Q?/mlhxKNrYEL7r/uflgPOa77CWDIJ10FqaxM9WiJ1/yNiU0XB5M4/OOLcwPLK?=
- =?us-ascii?Q?S0OUrjSV6HKi+47M7TxRBlzTDizgy8X9gw8ErrIvnskjI14FJD7+pdnVDgaJ?=
- =?us-ascii?Q?jEahofS7B+HVoK4vVUURc0BZ5M0N4jvkhNNgYN++jxr5YlZr60sfGSymjpsN?=
- =?us-ascii?Q?d6a63620NYmZvpatmb7OM113RmaOV4hhEqSiXLyYbdXbhmzYGzW/b7Q4A3c3?=
- =?us-ascii?Q?LD+BYChnM56rsT3YL3v6tgu+J6mw2PU6H76nbFf0E73z/OW148FYa6Utaba/?=
- =?us-ascii?Q?fBhzf0ZpTl8RothtzF+XA3PWFTg1Accfkrvl7ZitLlwFqTM1Ka0l9tM+Bist?=
- =?us-ascii?Q?oDdkgHwAqb4EQhhb1nX6tBVb8pWED6qzd1fYhZUcq68LWdGtgLBvJWAU48jP?=
- =?us-ascii?Q?HHFroSXzh0ONtit9TkbAJVOtrl0fHwoXi4F8Pcj/q1HIcwdKdqc75yA+LSzh?=
- =?us-ascii?Q?dQcX7Bw2NEeh3NGVQmp/qzcrluIVhDhR9ShimafYjFyiKtPViLW9HFmDkIpN?=
- =?us-ascii?Q?8bDRD1zayvuQxWtd7Y64uZL9vXlM6ZsAw/Lopr3fN7+y6wwiWgUBLCUOF320?=
- =?us-ascii?Q?sCPqJdIXMVYPrh+qKNZE3IYi8h00WNHGqDi0Z1ik4ok2lKYly9ETR6wCYvbg?=
- =?us-ascii?Q?BX5Ji+oo180RdtmP6enVniAG23kd5bDf/ZbioUWhCoGaM1IF/N4eRfIreClV?=
- =?us-ascii?Q?Y2bQv5FRaGcIIHPioYMEkU5KaRyf0GZxNKjxoxVsDfw/GD0hChRRrQK5+SX2?=
- =?us-ascii?Q?F7vjMfO+3q/lYuQEV0NPlyLrZMYsAAD/G/S0/hCbWnAjcRy9WKJtFFM+Ieha?=
- =?us-ascii?Q?PdIwSWMgsAXy81SCmpXSI9Zdk/5J06RSMR9PxodhLvHN/ytoE7csHT8XNQjU?=
- =?us-ascii?Q?nTjHe1EN+KpMJYK2yHA8VhZXeC1HO43g/wUT0bFp9G8QDHFfR5mnFq5gDowm?=
- =?us-ascii?Q?5G65yMUHGQgt4USmouyHhp8+qo0w03IxTtWhhG4zW8pfBm3bmn+f3F93B1gY?=
- =?us-ascii?Q?orXjqklk3lkHFLULxs5SFgz8yyHb/b9D/4OwP2nt?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2aef625e-ba3a-4dd6-469f-08dde18513c8
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:06:23.6902
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 61xTQ8hfZ1Ak259/Kafh8PzmuQFPCkpq3aerTsbgVn/RDoH/IqTQi/9YfuL00cj/zSi5K3hjUzfli4yLx3dUqA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11306
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250822002734.23516-13-laurent.pinchart@ideasonboard.com>
+References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com> <20250822002734.23516-13-laurent.pinchart@ideasonboard.com>
+Subject: Re: [PATCH v3 12/13] media: imx-mipi-csis: Initial support for multiple output channels
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, Inbaraj E <inbaraj.e@samsung.com>, Isaac Scott <isaac.scott@ideasonboard.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Martin Kepplinger <martink@posteo.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, linux-media@vger.kernel.org
+Date: Fri, 22 Aug 2025 16:12:29 +0200
+Message-ID: <175587194958.3267892.1867589061945207489@localhost>
+User-Agent: alot/0.12.dev8+g2c003385c862.d20250602
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_070630_830039_7E3C1AF2 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20250822_071234_384340_621CFCB7 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,119 +66,509 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 06:50:12PM +0800, Guoniu Zhou wrote:
-> The CSI-2 receiver in the i.MX8ULP is almost identical to the version
-> present in the i.MX8QXP/QM. But have different reset and clock design,
-> so add a device-specific compatible string for i.MX8ULP to handle the
-> difference.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+Hi Laurent,
+
+Thank you for the patch.
+
+Quoting Laurent Pinchart (2025-08-22 02:27:32)
+> Some CSIS instances feature more than one output channel. Update
+> register macros accordingly, parse the number of channels from the
+> device tree, and update register dumps and event counters to log
+> per-channel data.
+>=20
+> Support for routing virtual channels and data types to output channels
+> through the subdev internal routing API will come later.
+>=20
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 > ---
->  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 42 ++++++++++++++++++++--
->  1 file changed, 40 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> index 3389bab266a9adbda313c8ad795b998641df12f3..ca485d1d596c274eb7e1f3cdc39c61bb54cc0685 100644
-> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> @@ -21,7 +21,9 @@ properties:
->            - fsl,imx8mq-mipi-csi2
->            - fsl,imx8qxp-mipi-csi2
->        - items:
-> -          - const: fsl,imx8qm-mipi-csi2
-> +          - enum:
-> +              - fsl,imx8ulp-mipi-csi2
-> +              - fsl,imx8qm-mipi-csi2
->            - const: fsl,imx8qxp-mipi-csi2
->
->    reg:
-> @@ -39,12 +41,19 @@ properties:
->                       clock that the RX DPHY receives.
->        - description: ui is the pixel clock (phy_ref up to 333Mhz).
->                       See the reference manual for details.
-> +      - description: pclk is the lpav bus clock of i.MX8ULP. It provides
-> +                     clock to CSI_REG module.
-> +                     (see section "4.5.4 Peripheral clock diagrams,
-> +                      Figure 76 MIPI CSI clocking" in IMX8ULPRM REV1)
-> +    minItems: 3
->
->    clock-names:
->      items:
->        - const: core
->        - const: esc
->        - const: ui
-> +      - const: pclk
-> +    minItems: 3
->
->    power-domains:
->      maxItems: 1
-> @@ -125,19 +134,48 @@ required:
->    - ports
->
->  allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx8ulp-mipi-csi2
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +        resets:
-> +          maxItems: 2
-> +          minItems: 2
-> +        clocks:
-> +          minItems: 4
-> +        clock-names:
-> +          minItems: 4
+> Changes since v1:
+>=20
+> - Update more per-channel registers
+> - Update commit message
+> ---
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 239 +++++++++++++--------
+>  1 file changed, 152 insertions(+), 87 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/p=
+latform/nxp/imx-mipi-csis.c
+> index e1588990beda..ee8e541dcb1d 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -54,7 +54,7 @@
+> =20
+>  /* CSIS common control */
+>  #define MIPI_CSIS_CMN_CTRL                     0x04
+> -#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW       BIT(16)
+> +#define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(n)    BIT((n) + 16)
+>  #define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT  BIT(10)
+>  #define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)      ((n) << 8)
+>  #define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK    GENMASK(9, 8)
+> @@ -64,12 +64,9 @@
+> =20
+>  /* CSIS clock control */
+>  #define MIPI_CSIS_CLK_CTRL                     0x08
+> -#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH3(x)        ((x) << 28)
+> -#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH2(x)        ((x) << 24)
+> -#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH1(x)        ((x) << 20)
+> -#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(x)        ((x) << 16)
+> +#define MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL(n, x) ((x) << ((n) * 4 + 16))
+>  #define MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MASK     GENMASK(7, 4)
+> -#define MIPI_CSIS_CLK_CTRL_WCLK_SRC            BIT(0)
+> +#define MIPI_CSIS_CLK_CTRL_WCLK_SRC(n)         BIT(n)
+> =20
+>  /* CSIS Interrupt mask */
+>  #define MIPI_CSIS_INT_MSK                      0x10
+> @@ -97,12 +94,12 @@
+>  #define MIPI_CSIS_INT_SRC_ODD_AFTER            BIT(28)
+>  #define MIPI_CSIS_INT_SRC_ODD                  (0x3 << 28)
+>  #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA       (0xf << 28)
+> -#define MIPI_CSIS_INT_SRC_FRAME_START          BIT(24)
+> -#define MIPI_CSIS_INT_SRC_FRAME_END            BIT(20)
+> +#define MIPI_CSIS_INT_SRC_FRAME_START(n)       BIT((n) + 24)
+> +#define MIPI_CSIS_INT_SRC_FRAME_END(n)         BIT((n) + 20)
+>  #define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)                BIT((n) + 16)
+> -#define MIPI_CSIS_INT_SRC_ERR_LOST_FS          BIT(12)
+> -#define MIPI_CSIS_INT_SRC_ERR_LOST_FE          BIT(8)
+> -#define MIPI_CSIS_INT_SRC_ERR_OVER             BIT(4)
+> +#define MIPI_CSIS_INT_SRC_ERR_LOST_FS(n)       BIT((n) + 12)
+> +#define MIPI_CSIS_INT_SRC_ERR_LOST_FE(n)       BIT((n) + 8)
+> +#define MIPI_CSIS_INT_SRC_ERR_OVER(n)          BIT((n) + 4)
+>  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG                BIT(3)
+>  #define MIPI_CSIS_INT_SRC_ERR_ECC              BIT(2)
+>  #define MIPI_CSIS_INT_SRC_ERR_CRC              BIT(1)
+> @@ -204,23 +201,23 @@
+>  /* Debug control register */
+>  #define MIPI_CSIS_DBG_CTRL                     0xc0
+>  #define MIPI_CSIS_DBG_INTR_MSK                 0xc4
+> -#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT  BIT(25)
+> -#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE       BIT(24)
+> -#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE  BIT(20)
+> -#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME BIT(16)
+> -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE                BIT(12)
+> -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS                BIT(8)
+> -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL  BIT(4)
+> -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE  BIT(0)
+> +#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT          BIT(25)
+> +#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE               BIT(24)
+> +#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE(n)       BIT((n) + 20)
+> +#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME(n)      BIT((n) + 16)
+> +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE(n)             BIT((n) + 12)
+> +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS(n)             BIT((n) + 8)
+> +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL(n)       BIT((n) + 4)
+> +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE(n)       BIT((n) + 0)
+>  #define MIPI_CSIS_DBG_INTR_SRC                 0xc8
+> -#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT  BIT(25)
+> -#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE       BIT(24)
+> -#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE  BIT(20)
+> -#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME BIT(16)
+> -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE                BIT(12)
+> -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS                BIT(8)
+> -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL  BIT(4)
+> -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE  BIT(0)
+> +#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT          BIT(25)
+> +#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE               BIT(24)
+> +#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(n)       BIT((n) + 20)
+> +#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(n)      BIT((n) + 16)
+> +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(n)             BIT((n) + 12)
+> +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(n)             BIT((n) + 8)
+> +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(n)       BIT((n) + 4)
+> +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(n)       BIT((n) + 0)
+> =20
+>  #define MIPI_CSIS_FRAME_COUNTER_CH(n)          (0x0100 + (n) * 4)
+> =20
+> @@ -229,8 +226,11 @@
+>  #define MIPI_CSIS_PKTDATA_EVEN                 0x3000
+>  #define MIPI_CSIS_PKTDATA_SIZE                 SZ_4K
+> =20
+> +#define MIPI_CSIS_MAX_CHANNELS                 4
 > +
+>  struct mipi_csis_event {
+>         bool debug;
+> +       unsigned int channel;
+>         u32 mask;
+>         const char * const name;
+>         unsigned int counter;
+> @@ -238,36 +238,70 @@ struct mipi_csis_event {
+> =20
+>  static const struct mipi_csis_event mipi_csis_events[] =3D {
+>         /* Errors */
+> -       { false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),       "SOT 0 Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),       "SOT 1 Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),       "SOT 2 Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),       "SOT 3 Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,         "Lost Frame Start=
+ Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,         "Lost Frame End E=
+rror" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_OVER,            "FIFO Overflow Er=
+ror" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,       "Wrong Configurat=
+ion Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_ECC,             "ECC Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_CRC,             "CRC Error" },
+> -       { false, MIPI_CSIS_INT_SRC_ERR_ID,              "Unknown ID Error=
+" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,  "Data Type Not Su=
+pported" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,       "Data Type Ignore=
+d" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,  "Frame Size Error=
+" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME, "Truncated Frame"=
+ },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE,        "Early Frame End"=
+ },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS,        "Early Frame Star=
+t" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),            "SOT 0 Er=
+ror" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),            "SOT 1 Er=
+ror" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),            "SOT 2 Er=
+ror" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),            "SOT 3 Er=
+ror" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_LOST_FS(0),           "Lost Fra=
+me Start Error 0" },
+> +       { false, 1, MIPI_CSIS_INT_SRC_ERR_LOST_FS(1),           "Lost Fra=
+me Start Error 1" },
+> +       { false, 2, MIPI_CSIS_INT_SRC_ERR_LOST_FS(2),           "Lost Fra=
+me Start Error 2" },
+> +       { false, 3, MIPI_CSIS_INT_SRC_ERR_LOST_FS(3),           "Lost Fra=
+me Start Error 3" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_LOST_FE(0),           "Lost Fra=
+me End Error 0" },
+> +       { false, 1, MIPI_CSIS_INT_SRC_ERR_LOST_FE(1),           "Lost Fra=
+me End Error 1" },
+> +       { false, 2, MIPI_CSIS_INT_SRC_ERR_LOST_FE(2),           "Lost Fra=
+me End Error 2" },
+> +       { false, 3, MIPI_CSIS_INT_SRC_ERR_LOST_FE(3),           "Lost Fra=
+me End Error 3" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_OVER(0),              "FIFO Ove=
+rflow Error 0" },
+> +       { false, 1, MIPI_CSIS_INT_SRC_ERR_OVER(1),              "FIFO Ove=
+rflow Error 1" },
+> +       { false, 2, MIPI_CSIS_INT_SRC_ERR_OVER(2),              "FIFO Ove=
+rflow Error 2" },
+> +       { false, 3, MIPI_CSIS_INT_SRC_ERR_OVER(3),              "FIFO Ove=
+rflow Error 3" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,            "Wrong Co=
+nfiguration Error" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_ECC,                  "ECC Erro=
+r" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_CRC,                  "CRC Erro=
+r" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ERR_ID,                   "Unknown =
+ID Error" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,       "Data Typ=
+e Not Supported" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,            "Data Typ=
+e Ignored" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(0),    "Frame Si=
+ze Error 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(1),    "Frame Si=
+ze Error 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(2),    "Frame Si=
+ze Error 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(3),    "Frame Si=
+ze Error 3" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(0),   "Truncate=
+d Frame 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(1),   "Truncate=
+d Frame 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(2),   "Truncate=
+d Frame 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(3),   "Truncate=
+d Frame 3" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(0),          "Early Fr=
+ame End 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(1),          "Early Fr=
+ame End 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(2),          "Early Fr=
+ame End 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(3),          "Early Fr=
+ame End 3" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(0),          "Early Fr=
+ame Start 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(1),          "Early Fr=
+ame Start 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(2),          "Early Fr=
+ame Start 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(3),          "Early Fr=
+ame Start 3" },
+>         /* Non-image data receive events */
+> -       { false, MIPI_CSIS_INT_SRC_EVEN_BEFORE,         "Non-image data b=
+efore even frame" },
+> -       { false, MIPI_CSIS_INT_SRC_EVEN_AFTER,          "Non-image data a=
+fter even frame" },
+> -       { false, MIPI_CSIS_INT_SRC_ODD_BEFORE,          "Non-image data b=
+efore odd frame" },
+> -       { false, MIPI_CSIS_INT_SRC_ODD_AFTER,           "Non-image data a=
+fter odd frame" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_EVEN_BEFORE,              "Non-imag=
+e data before even frame" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_EVEN_AFTER,               "Non-imag=
+e data after even frame" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ODD_BEFORE,               "Non-imag=
+e data before odd frame" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_ODD_AFTER,                "Non-imag=
+e data after odd frame" },
+>         /* Frame start/end */
+> -       { false, MIPI_CSIS_INT_SRC_FRAME_START,         "Frame Start" },
+> -       { false, MIPI_CSIS_INT_SRC_FRAME_END,           "Frame End" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,  "VSYNC Falling Ed=
+ge" },
+> -       { true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,  "VSYNC Rising Edg=
+e" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_FRAME_START(0),           "Frame St=
+art 0" },
+> +       { false, 1, MIPI_CSIS_INT_SRC_FRAME_START(1),           "Frame St=
+art 1" },
+> +       { false, 2, MIPI_CSIS_INT_SRC_FRAME_START(2),           "Frame St=
+art 2" },
+> +       { false, 3, MIPI_CSIS_INT_SRC_FRAME_START(3),           "Frame St=
+art 3" },
+> +       { false, 0, MIPI_CSIS_INT_SRC_FRAME_END(0),             "Frame En=
+d 0" },
+> +       { false, 1, MIPI_CSIS_INT_SRC_FRAME_END(1),             "Frame En=
+d 1" },
+> +       { false, 2, MIPI_CSIS_INT_SRC_FRAME_END(2),             "Frame En=
+d 2" },
+> +       { false, 3, MIPI_CSIS_INT_SRC_FRAME_END(3),             "Frame En=
+d 3" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(0),    "VSYNC Fa=
+lling Edge 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(1),    "VSYNC Fa=
+lling Edge 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(2),    "VSYNC Fa=
+lling Edge 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(3),    "VSYNC Fa=
+lling Edge 3" },
+> +       { true, 0, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(0),    "VSYNC Ri=
+sing Edge 0" },
+> +       { true, 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(1),    "VSYNC Ri=
+sing Edge 1" },
+> +       { true, 2, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(2),    "VSYNC Ri=
+sing Edge 2" },
+> +       { true, 3, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(3),    "VSYNC Ri=
+sing Edge 3" },
+>  };
+> =20
+> -#define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
+> +#define MIPI_CSIS_NUM_EVENTS           ARRAY_SIZE(mipi_csis_events)
+> +#define MIPI_CSIS_NUM_ERROR_EVENTS     (MIPI_CSIS_NUM_EVENTS - 20)
 
-Add
-    else
-      properties:
-        clocks:
-          - maxItems: 3
-        clock-names
-          - maxItems: 3
+Why is that (MIPI_CSIS_NUM_EVENTS - 20)? Should that just be 20?
 
-to keep the same restriction for other compatible string
+The rest looks fine to me.
 
-Frank
+Best regards,
+Stefan
 
->    - if:
->        properties:
->          compatible:
->            contains:
->              enum:
->                - fsl,imx8qxp-mipi-csi2
-> +          not:
-> +            contains:
-> +              enum:
-> +                - fsl,imx8ulp-mipi-csi2
-
-
->      then:
->        properties:
->          reg:
->            minItems: 2
->          resets:
->            maxItems: 1
-> -    else:
+> =20
+>  enum mipi_csis_clk {
+>         MIPI_CSIS_CLK_PCLK,
+> @@ -299,7 +333,9 @@ struct mipi_csis_device {
+>         struct clk_bulk_data *clks;
+>         struct reset_control *mrst;
+>         struct regulator *mipi_phy_regulator;
 > +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx8mq-mipi-csi2
-> +    then:
->        properties:
->          reg:
->            maxItems: 1
->
-> --
-> 2.34.1
+>         const struct mipi_csis_info *info;
+> +       unsigned int num_channels;
+> =20
+>         struct v4l2_subdev sd;
+>         struct media_pad pads[CSIS_PADS_NUM];
+> @@ -654,8 +690,8 @@ static void mipi_csis_set_params(struct mipi_csis_dev=
+ice *csis,
+>                         MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
+> =20
+>         val =3D mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+> -       val |=3D MIPI_CSIS_CLK_CTRL_WCLK_SRC;
+> -       val |=3D MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(15);
+> +       val |=3D MIPI_CSIS_CLK_CTRL_WCLK_SRC(0);
+> +       val |=3D MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL(0, 15);
+>         val &=3D ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MASK;
+>         mipi_csis_write(csis, MIPI_CSIS_CLK_CTRL, val);
+> =20
+> @@ -672,7 +708,7 @@ static void mipi_csis_set_params(struct mipi_csis_dev=
+ice *csis,
+>         /* Update the shadow register. */
+>         val =3D mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+>         mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
+> -                       val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW |
+> +                       val | MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW(0) |
+>                         MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL);
+>  }
+> =20
+> @@ -763,16 +799,19 @@ static irqreturn_t mipi_csis_irq_handler(int irq, v=
+oid *dev_id)
+> =20
+>         /* Update the event/error counters */
+>         if ((status & MIPI_CSIS_INT_SRC_ERRORS) || csis->debug.enable) {
+> -               for (i =3D 0; i < MIPI_CSIS_NUM_EVENTS; i++) {
+> +               for (i =3D 0; i < ARRAY_SIZE(csis->events); i++) {
+>                         struct mipi_csis_event *event =3D &csis->events[i=
+];
+> =20
+> +                       if (event->channel >=3D csis->num_channels)
+> +                               continue;
+> +
+>                         if ((!event->debug && (status & event->mask)) ||
+>                             (event->debug && (dbg_status & event->mask)))
+>                                 event->counter++;
+>                 }
+>         }
+> =20
+> -       if (status & MIPI_CSIS_INT_SRC_FRAME_START)
+> +       if (status & MIPI_CSIS_INT_SRC_FRAME_START(0))
+>                 mipi_csis_queue_event_sof(csis);
+> =20
+>         spin_unlock_irqrestore(&csis->slock, flags);
+> @@ -849,7 +888,7 @@ static void mipi_csis_clear_counters(struct mipi_csis=
+_device *csis)
+>  static void mipi_csis_log_counters(struct mipi_csis_device *csis, bool n=
+on_errors)
+>  {
+>         unsigned int num_events =3D non_errors ? MIPI_CSIS_NUM_EVENTS
+> -                               : MIPI_CSIS_NUM_EVENTS - 8;
+> +                               : MIPI_CSIS_NUM_ERROR_EVENTS;
+>         unsigned int counters[MIPI_CSIS_NUM_EVENTS];
+>         unsigned long flags;
+>         unsigned int i;
+> @@ -860,45 +899,67 @@ static void mipi_csis_log_counters(struct mipi_csis=
+_device *csis, bool non_error
+>         spin_unlock_irqrestore(&csis->slock, flags);
+> =20
+>         for (i =3D 0; i < num_events; ++i) {
+> +               const struct mipi_csis_event *event =3D &csis->events[i];
+> +
+> +               if (event->channel >=3D csis->num_channels)
+> +                       continue;
+> +
+>                 if (counters[i] > 0 || csis->debug.enable)
+>                         dev_info(csis->dev, "%s events: %d\n",
+> -                                csis->events[i].name,
+> -                                counters[i]);
+> +                                event->name, counters[i]);
+>         }
+>  }
+> =20
+> +struct mipi_csis_reg_info {
+> +       u32 addr;
+> +       unsigned int offset;
+> +       const char * const name;
+> +};
+> +
+> +static void mipi_csis_dump_channel_reg(struct mipi_csis_device *csis,
+> +                                      const struct mipi_csis_reg_info *r=
+eg,
+> +                                      unsigned int channel)
+> +{
+> +       dev_info(csis->dev, "%16s%u: 0x%08x\n", reg->name, channel,
+> +                mipi_csis_read(csis, reg->addr + channel * reg->offset));
+> +}
+> +
+>  static int mipi_csis_dump_regs(struct mipi_csis_device *csis)
+>  {
+> -       static const struct {
+> -               u32 offset;
+> -               const char * const name;
+> -       } registers[] =3D {
+> -               { MIPI_CSIS_CMN_CTRL, "CMN_CTRL" },
+> -               { MIPI_CSIS_CLK_CTRL, "CLK_CTRL" },
+> -               { MIPI_CSIS_INT_MSK, "INT_MSK" },
+> -               { MIPI_CSIS_DPHY_STATUS, "DPHY_STATUS" },
+> -               { MIPI_CSIS_DPHY_CMN_CTRL, "DPHY_CMN_CTRL" },
+> -               { MIPI_CSIS_DPHY_SCTRL_L, "DPHY_SCTRL_L" },
+> -               { MIPI_CSIS_DPHY_SCTRL_H, "DPHY_SCTRL_H" },
+> -               { MIPI_CSIS_ISP_CONFIG_CH(0), "ISP_CONFIG_CH0" },
+> -               { MIPI_CSIS_ISP_RESOL_CH(0), "ISP_RESOL_CH0" },
+> -               { MIPI_CSIS_SDW_CONFIG_CH(0), "SDW_CONFIG_CH0" },
+> -               { MIPI_CSIS_SDW_RESOL_CH(0), "SDW_RESOL_CH0" },
+> -               { MIPI_CSIS_DBG_CTRL, "DBG_CTRL" },
+> -               { MIPI_CSIS_FRAME_COUNTER_CH(0), "FRAME_COUNTER_CH0" },
+> +       static const struct mipi_csis_reg_info common_registers[] =3D {
+> +               { MIPI_CSIS_CMN_CTRL, 0, "CMN_CTRL" },
+> +               { MIPI_CSIS_CLK_CTRL, 0, "CLK_CTRL" },
+> +               { MIPI_CSIS_INT_MSK, 0, "INT_MSK" },
+> +               { MIPI_CSIS_DPHY_STATUS, 0, "DPHY_STATUS" },
+> +               { MIPI_CSIS_DPHY_CMN_CTRL, 0, "DPHY_CMN_CTRL" },
+> +               { MIPI_CSIS_DPHY_SCTRL_L, 0, "DPHY_SCTRL_L" },
+> +               { MIPI_CSIS_DPHY_SCTRL_H, 0, "DPHY_SCTRL_H" },
+> +               { MIPI_CSIS_DBG_CTRL, 0, "DBG_CTRL" },
+> +       };
+> +       static const struct mipi_csis_reg_info channel_registers[] =3D {
+> +               { MIPI_CSIS_ISP_CONFIG_CH(0), 0x10, "ISP_CONFIG_CH" },
+> +               { MIPI_CSIS_ISP_RESOL_CH(0), 0x10, "ISP_RESOL_CH" },
+> +               { MIPI_CSIS_SDW_CONFIG_CH(0), 0x10, "SDW_CONFIG_CH" },
+> +               { MIPI_CSIS_SDW_RESOL_CH(0), 0x10, "SDW_RESOL_CH" },
+> +               { MIPI_CSIS_FRAME_COUNTER_CH(0), 4, "FRAME_COUNTER_CH" },
+>         };
+> -
+> -       unsigned int i;
+> -       u32 cfg;
+> =20
+>         if (!pm_runtime_get_if_in_use(csis->dev))
+>                 return 0;
+> =20
+>         dev_info(csis->dev, "--- REGISTERS ---\n");
+> =20
+> -       for (i =3D 0; i < ARRAY_SIZE(registers); i++) {
+> -               cfg =3D mipi_csis_read(csis, registers[i].offset);
+> -               dev_info(csis->dev, "%17s: 0x%08x\n", registers[i].name, =
+cfg);
+> +       for (unsigned int i =3D 0; i < ARRAY_SIZE(common_registers); i++)=
+ {
+> +               const struct mipi_csis_reg_info *reg =3D &common_register=
+s[i];
+> +
+> +               dev_info(csis->dev, "%17s: 0x%08x\n", reg->name,
+> +                        mipi_csis_read(csis, reg->addr));
+> +       }
+> +
+> +       for (unsigned int chan =3D 0; chan < csis->num_channels; chan++) {
+> +               for (unsigned int i =3D 0; i < ARRAY_SIZE(channel_registe=
+rs); ++i)
+> +                       mipi_csis_dump_channel_reg(csis, &channel_registe=
+rs[i],
+> +                                                  chan);
+>         }
+> =20
+>         pm_runtime_put(csis->dev);
+> @@ -1421,6 +1482,12 @@ static int mipi_csis_parse_dt(struct mipi_csis_dev=
+ice *csis)
+> =20
+>         of_property_read_u32(node, "clock-frequency", &csis->clk_frequenc=
+y);
+> =20
+> +       csis->num_channels =3D 1;
+> +       of_property_read_u32(node, "fsl,num-channels", &csis->num_channel=
+s);
+> +       if (csis->num_channels < 1 || csis->num_channels > MIPI_CSIS_MAX_=
+CHANNELS)
+> +               return dev_err_probe(csis->dev, -EINVAL,
+> +                                    "Invalid fsl,num-channels value\n");
+> +
+>         return 0;
+>  }
+> =20
+> @@ -1444,10 +1511,8 @@ static int mipi_csis_probe(struct platform_device =
+*pdev)
+> =20
+>         /* Parse DT properties. */
+>         ret =3D mipi_csis_parse_dt(csis);
+> -       if (ret < 0) {
+> -               dev_err(dev, "Failed to parse device tree: %d\n", ret);
+> +       if (ret < 0)
+>                 return ret;
+> -       }
+> =20
+>         /* Acquire resources. */
+>         csis->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
+>=20
 >
 
