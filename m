@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12487CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACF2CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=sVehMUeInURFgfSwjoMhReax4s
-	TQ8kQDC//xXemUs2ycMq+KjrSZdX9YZAVXvOVemqdU3odMaV4Ur93IR2Vh3zmSi+TdsKe+yvEPkiw
-	jOVYV7IGA92pyyznhuGgKGWGaWVMKhhLpSt2lxmh+VKttJ6WkXMV00qe/SGcnT/KDEA4XhmKeLxqP
-	JxDxV5PY08Ee4pTtVrnRKzSDXmIuy6H9NqXItL8E++ovYjdvggbRew0vIC5lf/CaDQSXzEnSQzuVb
-	3mzGylOiFJ/Yz6BkAlsZRR9hunaF7EUqJJhgykf+Qr/+y3hrKOCaR5jzjesX7EnEWd3tndky5LtUs
-	7xUSjhtw==;
+	bh=nFSGBWKbEisL0GA89uJu/dinOOx4UXpGBMk98ODpMrM=; b=W5nyrpvPTjy0APe7DzAnZaqaK2
+	vd83jOQ+kL0zC1zRQKHfVrUlN5vRZKrN+KWxUw8K1QN1/mlrWAick5QcIx4YeTitrYWl3KPAxcAXY
+	WVzN3o0ajSU89jF0uADuTFKVszSv+n/VxI26hqWDUcAIU0k31te0n8JcX9f6mc132AS2RRoL9Ef9T
+	pv66698XDz8HH6HmZiR0SlYra0xkHT+HxRmyKgaTXwxdEv+UL2LDdRA7dgkzSzwHz+U1t88/dfjsZ
+	cEniZHaqQHTQRQ5PAnkUbBtX1bEThf2gY3GbmnjoQOToq15/0GB3d4pzWylw+HunPlIuTfdu4Yo/W
+	N40mTQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphnK-000000041E3-0vkJ;
-	Sat, 23 Aug 2025 06:32:06 +0000
+	id 1uphnO-000000041IU-0VVk;
+	Sat, 23 Aug 2025 06:32:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSuh-00000002rH0-0tyl
+	id 1upSum-00000002rIV-2VkI
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 14:38:43 +0000
+	Fri, 22 Aug 2025 14:38:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=e5qUVll1ilRxrA9GDfbNHIXz77
-	4+S3aAhQPnNdOrcyPUufp1xPg1BmMTSwVeUGY6eIHR6YvWy+09abxAeKO9R8KAYzm0HOLEZtL5bcJ
-	6bw/bbxHY0nHIYqjM6trWBbsQmu2+s4gPIXommhzPtFII4Z+4FRsQMowA7+m7RXL4GYQzLjyQFK8/
-	sDrqVbVKL6MVPNf/gJKsqJKIjdqchENltFM+yDSDdaQLZAeV9AjdXxVFCXuUTfW0+y0UWiNGCIenY
-	rRQb3oPa01X4o4+mEBYWQD9/bk+UWa3iRWTCn/UD5CxHGzvc7oQzAqW1H8WmialgP/kxwLR5cmNQs
-	6HUrwzqw==;
+	bh=nFSGBWKbEisL0GA89uJu/dinOOx4UXpGBMk98ODpMrM=; b=UIiHs1QbD/JPCdJfkxV/OTzXB5
+	uzy6d3aNjNraDRQcXvtHzdxxw0Jqzl0HGGwOe7hbHgdX6mumDfeiA9x+Xwk2layFnVUi+1iL6s256
+	5vEWcL6ap3feSHYiMuSHPz91rP2uZn6jJwrH0qGO6DJ2vz0etkei3BhydwWkGRgkS/y6eZLtNOpLB
+	P1h42Md+XTAMfYu1v93Y1r2G/oP77C/PYdYKO2YwLJQ17qvM0glKRqZtwEjOd+2NsisGLrfDpEnbe
+	8t57zh86eH56ZvndQR1csZYG4yLmzluUdTzMRcRayhvDBQKB1WIaNypXX9bSVzltK2mDJNf92Sbfq
+	v/v0TUFA==;
 Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSue-00000000xCC-0vFz
+	id 1upSuj-00000000xCv-27Vr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:38:42 +0000
+	Fri, 22 Aug 2025 14:38:47 +0000
 Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MD4vwo030182;
-	Fri, 22 Aug 2025 16:38:31 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MER31c031320;
+	Fri, 22 Aug 2025 16:38:36 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	TbYhtjbyyUq8JFdKJZCzhk/KCFpFJgt2NILClH56gSI=; b=6EjT3OZmaSs+Geeu
-	PZPIokYlKvmBp8iiPmPDwmzIWK3FHJGxTwhmk2iidhhupaY80829Hnk8BR6GHK0I
-	7k9lDxsfFlOA7yj3wfIUbJqdkGokdsRZF7D3grNuc6TLvAheDxNvx32h95RtiA27
-	Ux7uEFqTD5v1xVMhE/XN0UctOKjUsDlXujlVWndKJO7xc1uqSdUkMpuUtdHkN/m0
-	RzW4QjOZYWYMnk1jVjdrGqVp717UkbikPDQ/kFw5EH2pf6UwzkH2q1DcA+OzVO5g
-	g6d/58THAPLZ0Rinj441u3JEUU2RPxCCtLMo/vMNJvMAHTTkxJpLxu5P45HWl6cx
-	9zwbcA==
+	nFSGBWKbEisL0GA89uJu/dinOOx4UXpGBMk98ODpMrM=; b=x9YeUNOCjMyxblz5
+	SvRnedv2j6u5BOF9tzNFwOrEYplwvdNxIFMR06shl2/SCukira4v69ukbSfPbMzQ
+	BBQtKRiUmos/deoBxbk+mmdF3sgtFJFDOgSJjJoGv75nsVk6Jrq9u81oY7YeNS1d
+	0NsWYwUJXSJDIrBRJJagRVxiD0rwX9xRcqWAImlrg8yUbxmIptJi5diT0pev0vrL
+	g7AopyB5TsTDucxPQ4B4z6XMEygFVjsBydZFv1A4TiH/QDITyc61OGb67gxyNart
+	5FNU+3fYn1PBlz5GRf5cmjt2djxuaCVJ73pgcPaXHnuhUgtOaFKVkhH1TAaMFXdh
+	ICyKKA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wu2uu-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wu2v8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 16:38:31 +0200 (MEST)
+	Fri, 22 Aug 2025 16:38:36 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0D8DB4004C;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 160124004D;
 	Fri, 22 Aug 2025 16:37:02 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A8FF1726F17;
-	Fri, 22 Aug 2025 16:35:54 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E6BA6726F1E;
+	Fri, 22 Aug 2025 16:35:55 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 16:35:54 +0200
+ 2025 16:35:55 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Fri, 22 Aug 2025 16:34:18 +0200
-Subject: [PATCH v5 09/13] arm64: dts: st: add ltdc support on stm32mp251
+Date: Fri, 22 Aug 2025 16:34:20 +0200
+Subject: [PATCH v5 11/13] arm64: dts: st: add lvds support on stm32mp255
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250822-drm-misc-next-v5-9-9c825e28f733@foss.st.com>
+Message-ID: <20250822-drm-misc-next-v5-11-9c825e28f733@foss.st.com>
 References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
 In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -109,9 +109,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_153840_511538_A6310D03 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_153845_958258_9FF7A6A2 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,41 +125,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LCD-TFT Display Controller (LTDC) handles display composition,
-scaling and rotation.  It provides a parallel digital RGB flow to be
-used by display interfaces.
+The LVDS is used on STM32MP2 as a display interface.
 
-Add the LTDC node.
+Add the LVDS node.
 
 Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp255.dtsi | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 303abf915b8e489671b51a8c832041c14a42ecb8..372a99d9cc5c3730e8fbeddeb6134a3b18d938b6 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -1576,6 +1576,18 @@ dcmipp: dcmipp@48030000 {
- 				status = "disabled";
- 			};
+diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+index 48a95af1741c42300195b753b710e714abc60d96..433a0aabe72e5a449ec03fb984a8684c5d5d75a2 100644
+--- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
+@@ -12,6 +12,18 @@ &ltdc {
+ };
  
-+			ltdc: display-controller@48010000 {
-+				compatible = "st,stm32mp251-ltdc";
-+				reg = <0x48010000 0x400>;
-+				interrupts = <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
-+					<GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LTDC>, <&rcc CK_BUS_LTDC>;
-+				clock-names = "lcd", "bus";
-+				resets = <&rcc LTDC_R>;
-+				access-controllers = <&rifsc 80>;
-+				status = "disabled";
-+			};
+ &rifsc {
++	lvds: lvds@48060000 {
++		compatible = "st,stm32mp255-lvds", "st,stm32mp25-lvds";
++		#clock-cells = <0>;
++		reg = <0x48060000 0x2000>;
++		clocks = <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
++		clock-names = "pclk", "ref";
++		resets = <&rcc LVDS_R>;
++		access-controllers = <&rifsc 84>;
++		power-domains = <&CLUSTER_PD>;
++		status = "disabled";
++	};
 +
- 			combophy: phy@480c0000 {
- 				compatible = "st,stm32mp25-combophy";
- 				reg = <0x480c0000 0x1000>;
+ 	vdec: vdec@480d0000 {
+ 		compatible = "st,stm32mp25-vdec";
+ 		reg = <0x480d0000 0x3c8>;
+@@ -28,4 +40,4 @@ venc: venc@480e0000 {
+ 		clocks = <&rcc CK_BUS_VENC>;
+ 		access-controllers = <&rifsc 90>;
+ 	};
+-};
+\ No newline at end of file
++};
 
 -- 
 2.25.1
