@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F97FCA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32BBCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q7l0AQz//vE0hNZnM6EqLIuembsn1Ix1V2LO/7KsBg8=; b=rML0Serr6WF67MIWe/fr7oa5WS
-	+rFu/G6mdSUqq9+uFhr0jq0Cp+FyjtHRvcUQ3X/U4frSsJv6HR6kqI7L0Y/eBN4Gi3z9fQ4TCp/fp
-	0hyp/Xay7SqaxziUpzsYcuyGs3l82cRnznqbOOzsKH5iEW+ELm9F1yWZHVDGSxGSaS/pLJnt2A/V4
-	teKwdhrpyGXgHn5IbB9zu1t0blypXSHTcDjyNHrRyhgA46QffRjQ0uQSi62QYzZBZ0Ghl9U8aiZ2T
-	ysGhQIryKJsTyysWNhyXSfywDBsZ1wLV+igmV2I5qTe820fcMTSTCtrXRJfJHDnqPIy/+EOJ56hKn
-	uhm5JMMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=; b=vlayvPW6xitynfRNtTahVbgn3Q
+	M4WesdSZ/LpqGyapHkB2U/0NwV5VtKllv0d2YhHjtWUYR2OuYkjcsybdV/1qOgEAyfm+kfdwId61L
+	JOay/mbxgDRfAXQqMc3S2IuP+olYvdyhy4pCMg5ZwnI80mNTUR29FK5n2BAPnhnLRb1bIYSB2q08X
+	yEInjE76hesOrLhzZ/6HEi+dlQrVjM6NefEGJh7Fj6AqJeG3WsZWrOkDg8u+FlCSdcicjNDGq5PQu
+	CftD3kQimVElz9VKE9xAaXMpaEzNb5j7WACi78BSFPKK/Tm5WWgKX3DHJj1JHcC/qTkjwGd/xoL6v
+	PQf4LFZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uploa-00000004f7w-1Hf5;
-	Sat, 23 Aug 2025 10:49:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTo8-000000034Ph-19LG
+	id 1uplob-00000004f9s-2EFx;
+	Sat, 23 Aug 2025 10:49:41 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upZhL-00000003Zbm-3i3d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:36:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FF6C15A1;
-	Fri, 22 Aug 2025 08:35:51 -0700 (PDT)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 83B103F63F;
-	Fri, 22 Aug 2025 08:35:54 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: James Morse <james.morse@arm.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com,
-	lcherian@marvell.com,
-	bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>,
-	peternewman@google.com,
-	dfustini@baylibre.com,
-	amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 18/33] arm_mpam: Merge supported features during mpam_enable() into mpam_class
-Date: Fri, 22 Aug 2025 15:30:33 +0000
-Message-Id: <20250822153048.2287-53-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
+	Fri, 22 Aug 2025 21:53:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755899596; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DaeXgqa2mfRAFXQsvYwFnGOx5N/UdDLKPRI4H35tJwQx+SwVAMnl0amneiS5XBvLn1OTE0Xpxl+ajk5yMdjEGmslbLGRV2U0QZynDlZ1uCaoo8YtNx3EDWBAjWd+aQYXrgT9lvThlHsOx/4pV6T2kjE+LJ72rAgB3pUSDjuJXEA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755899596; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=; 
+	b=bZ1yeQlkjA1buILpzDbO1uU4/+W0ZCFzleflKEKwpEL2fx+rLE4nVogYYyT3IVed3c3Azh8F9uKmJ2PTWei0kwPZir70CLK6ngk0owgYeySKL6QFgD8D+K5kaTwO1lVtS+/hhlVW1soSQ06sW4O6d6wFAezH6aIlxELR9AvIRlc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755899596;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=klrRb34wKjAx4QD4DOsPfFa5Y+y4vc9xPa3T8I/olE8=;
+	b=iSaUa7a2jNmxQGqe7vXbTWhQ/nmEra/4nn8lzccL0eqk3c1NKO3Lyu0hJ0YJtvCN
+	PfHdixcUHSL4GNliUGu095teO9PJZt2EwBvsdLVYuRK9hYmyUKEsrpP8UCsxsFyN2Iv
+	1AyfHKI5yCLvXxh8skcZWeTEK1n/n3jM8PHvB4io=
+Received: by mx.zohomail.com with SMTPS id 1755899594556961.1841976736891;
+	Fri, 22 Aug 2025 14:53:14 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 3A4AE1808AD; Fri, 22 Aug 2025 23:53:11 +0200 (CEST)
+Date: Fri, 22 Aug 2025 23:53:11 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm64: defconfig: enable backlight device class
+Message-ID: <fozbq6otnko75e4zfsad4c3qp7zgh5n3r4yj3swjd24dxdg4ue@krbmtduwdapm>
+References: <20250408134249.1131127-1-alexander.stein@ew.tq-group.com>
+ <2385138.ElGaqSPkdT@steina-w>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2385138.ElGaqSPkdT@steina-w>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083600_398749_FACBC2E0 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20250822_145323_988933_4408227B 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,280 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To make a decision about whether to expose an mpam class as
-a resctrl resource we need to know its overall supported
-features and properties.
+Hi,
 
-Once we've probed all the resources, we can walk the tree
-and produce overall values by merging the bitmaps. This
-eliminates features that are only supported by some MSC
-that make up a component or class.
+On Fri, Aug 22, 2025 at 03:55:12PM +0200, Alexander Stein wrote:
+> Am Dienstag, 8. April 2025, 15:42:48 CEST schrieb Alexander Stein:
+> > CONFIG_DRM_PANEL_SIMPLE is enabled in this config. But it depends on
+> > CONFIG_BACKLIGHT_CLASS_DEVICE which is only transitively enabled by
+> > DRM_NOUVEAU, iff DRM_NOUVEAU_BACKLIGHT is enabled as well.
+> > As simple-panel depends on backlight, enable this in defconfig as well.
+> > 
+> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > ---
+> >  arch/arm64/configs/defconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index 65ec5a5be407d..b70257878812e 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -963,6 +963,7 @@ CONFIG_DRM_POWERVR=m
+> >  CONFIG_FB=y
+> >  CONFIG_FB_EFI=y
+> >  CONFIG_FB_MODE_HELPERS=y
+> > +CONFIG_BACKLIGHT_CLASS_DEVICE=m
+> >  CONFIG_BACKLIGHT_PWM=m
+> >  CONFIG_BACKLIGHT_LP855X=m
+> >  CONFIG_LOGO=y
+> > 
+> 
+> gentle ping. Any feedback?
 
-If bitmap properties are mismatched within a component we
-cannot support the mismatched feature.
+You want to resend with updated mail destination:
 
-Care has to be taken as vMSC may hold mismatched RIS.
+https://lore.kernel.org/all/20250818-arm64-defconfig-v1-1-f589553c3d72@collabora.com/
 
-Signed-off-by: James Morse <james.morse@arm.com>
----
- drivers/resctrl/mpam_devices.c  | 215 ++++++++++++++++++++++++++++++++
- drivers/resctrl/mpam_internal.h |   8 ++
- 2 files changed, 223 insertions(+)
+Greetings,
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 290a04f8654f..bb62de6d3847 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1186,8 +1186,223 @@ static struct platform_driver mpam_msc_driver = {
- 	.remove = mpam_msc_drv_remove,
- };
- 
-+/* Any of these features mean the BWA_WD field is valid. */
-+static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
-+{
-+	if (mpam_has_feature(mpam_feat_mbw_min, props))
-+		return true;
-+	if (mpam_has_feature(mpam_feat_mbw_max, props))
-+		return true;
-+	if (mpam_has_feature(mpam_feat_mbw_prop, props))
-+		return true;
-+	return false;
-+}
-+
-+#define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
-+	helper(parent) &&						\
-+	((helper(child) && (parent)->field != (child)->field) ||	\
-+	 (!helper(child) && !(alias)))
-+
-+#define MISMATCHED_FEAT(parent, child, feat, field, alias)		     \
-+	mpam_has_feature((feat), (parent)) &&				     \
-+	((mpam_has_feature((feat), (child)) && (parent)->field != (child)->field) || \
-+	 (!mpam_has_feature((feat), (child)) && !(alias)))
-+
-+#define CAN_MERGE_FEAT(parent, child, feat, alias)			\
-+	(alias) && !mpam_has_feature((feat), (parent)) &&		\
-+	mpam_has_feature((feat), (child))
-+
-+/*
-+ * Combine two props fields.
-+ * If this is for controls that alias the same resource, it is safe to just
-+ * copy the values over. If two aliasing controls implement the same scheme
-+ * a safe value must be picked.
-+ * For non-aliasing controls, these control different resources, and the
-+ * resulting safe value must be compatible with both. When merging values in
-+ * the tree, all the aliasing resources must be handled first.
-+ * On mismatch, parent is modified.
-+ */
-+static void __props_mismatch(struct mpam_props *parent,
-+			     struct mpam_props *child, bool alias)
-+{
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
-+		parent->cpbm_wd = child->cpbm_wd;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
-+				   cpbm_wd, alias)) {
-+		pr_debug("%s cleared cpor_part\n", __func__);
-+		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
-+		parent->cpbm_wd = 0;
-+	}
-+
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
-+		parent->mbw_pbm_bits = child->mbw_pbm_bits;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
-+				   mbw_pbm_bits, alias)) {
-+		pr_debug("%s cleared mbw_part\n", __func__);
-+		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
-+		parent->mbw_pbm_bits = 0;
-+	}
-+
-+	/* bwa_wd is a count of bits, fewer bits means less precision */
-+	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
-+		parent->bwa_wd = child->bwa_wd;
-+	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
-+				     bwa_wd, alias)) {
-+		pr_debug("%s took the min bwa_wd\n", __func__);
-+		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
-+	}
-+
-+	/* For num properties, take the minimum */
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
-+		parent->num_csu_mon = child->num_csu_mon;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
-+				   num_csu_mon, alias)) {
-+		pr_debug("%s took the min num_csu_mon\n", __func__);
-+		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
-+	}
-+
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
-+		parent->num_mbwu_mon = child->num_mbwu_mon;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
-+				   num_mbwu_mon, alias)) {
-+		pr_debug("%s took the min num_mbwu_mon\n", __func__);
-+		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
-+	}
-+
-+	if (alias) {
-+		/* Merge features for aliased resources */
-+		parent->features |= child->features;
-+	} else {
-+		/* Clear missing features for non aliasing */
-+		parent->features &= child->features;
-+	}
-+}
-+
-+/*
-+ * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
-+ * For 'num' properties we can just take the minimum.
-+ * For properties where the mismatched unused bits would make a difference, we
-+ * nobble the class feature, as we can't configure all the resources.
-+ * e.g. The L3 cache is composed of two resources with 13 and 17 portion
-+ * bitmaps respectively.
-+ */
-+static void
-+__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
-+{
-+	struct mpam_props *cprops = &class->props;
-+	struct mpam_props *vprops = &vmsc->props;
-+
-+	lockdep_assert_held(&mpam_list_lock); /* we modify class */
-+
-+	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
-+		 dev_name(&vmsc->msc->pdev->dev),
-+		 (long)cprops->features, (long)vprops->features);
-+
-+	/* Take the safe value for any common features */
-+	__props_mismatch(cprops, vprops, false);
-+}
-+
-+static void
-+__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
-+{
-+	struct mpam_props *rprops = &ris->props;
-+	struct mpam_props *vprops = &vmsc->props;
-+
-+	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
-+
-+	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
-+		 dev_name(&vmsc->msc->pdev->dev),
-+		 (long)vprops->features, (long)rprops->features);
-+
-+	/*
-+	 * Merge mismatched features - Copy any features that aren't common,
-+	 * but take the safe value for any common features.
-+	 */
-+	__props_mismatch(vprops, rprops, true);
-+}
-+
-+/*
-+ * Copy the first component's first vMSC's properties and features to the
-+ * class. __class_props_mismatch() will remove conflicts.
-+ * It is not possible to have a class with no components, or a component with
-+ * no resources. The vMSC properties have already been built.
-+ */
-+static void mpam_enable_init_class_features(struct mpam_class *class)
-+{
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_component *comp;
-+
-+	comp = list_first_entry_or_null(&class->components,
-+					struct mpam_component, class_list);
-+	if (WARN_ON(!comp))
-+		return;
-+
-+	vmsc = list_first_entry_or_null(&comp->vmsc,
-+					struct mpam_vmsc, comp_list);
-+	if (WARN_ON(!vmsc))
-+		return;
-+
-+	class->props = vmsc->props;
-+}
-+
-+static void mpam_enable_merge_vmsc_features(struct mpam_component *comp)
-+{
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_msc_ris *ris;
-+	struct mpam_class *class = comp->class;
-+
-+	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-+		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
-+			__vmsc_props_mismatch(vmsc, ris);
-+			class->nrdy_usec = max(class->nrdy_usec,
-+					       vmsc->msc->nrdy_usec);
-+		}
-+	}
-+}
-+
-+static void mpam_enable_merge_class_features(struct mpam_component *comp)
-+{
-+	struct mpam_vmsc *vmsc;
-+	struct mpam_class *class = comp->class;
-+
-+	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
-+		__class_props_mismatch(class, vmsc);
-+}
-+
-+/*
-+ * Merge all the common resource features into class.
-+ * vmsc features are bitwise-or'd together, this must be done first.
-+ * Next the class features are the bitwise-and of all the vmsc features.
-+ * Other features are the min/max as appropriate.
-+ *
-+ * To avoid walking the whole tree twice, the class->nrdy_usec property is
-+ * updated when working with the vmsc as it is a max(), and doesn't need
-+ * initialising first.
-+ */
-+static void mpam_enable_merge_features(struct list_head *all_classes_list)
-+{
-+	struct mpam_class *class;
-+	struct mpam_component *comp;
-+
-+	lockdep_assert_held(&mpam_list_lock);
-+
-+	list_for_each_entry(class, all_classes_list, classes_list) {
-+		list_for_each_entry(comp, &class->components, class_list)
-+			mpam_enable_merge_vmsc_features(comp);
-+
-+		mpam_enable_init_class_features(class);
-+
-+		list_for_each_entry(comp, &class->components, class_list)
-+			mpam_enable_merge_class_features(comp);
-+	}
-+}
-+
- static void mpam_enable_once(void)
- {
-+	mutex_lock(&mpam_list_lock);
-+	mpam_enable_merge_features(&mpam_classes);
-+	mutex_unlock(&mpam_list_lock);
-+
- 	/*
- 	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
- 	 * longer change.
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 9f6cd4a68cce..a2b0ff411138 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -186,12 +186,20 @@ static inline void mpam_set_feature(enum mpam_device_features feat,
- 	props->features |= (1 << feat);
- }
- 
-+static inline void mpam_clear_feature(enum mpam_device_features feat,
-+				      mpam_features_t *supported)
-+{
-+	*supported &= ~(1 << feat);
-+}
-+
- struct mpam_class {
- 	/* mpam_components in this class */
- 	struct list_head	components;
- 
- 	cpumask_t		affinity;
- 
-+	struct mpam_props	props;
-+	u32			nrdy_usec;
- 	u8			level;
- 	enum mpam_class_types	type;
- 
--- 
-2.20.1
-
+-- Sebastian
 
