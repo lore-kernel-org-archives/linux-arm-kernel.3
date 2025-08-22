@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04816CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 07:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF53CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fijTtLibDyQSw8J3LqG20hzaIyXCb/78mdsjlxSiNJ4=; b=Y13wc55FKF+UcC0L0U/pLrb8aO
-	HCPKK9Ajl7oO6C79TnySVSylDlxMcGi6PGjXubySAivs8Zms2mfE8m9nvBk4SypRYPvzjHHdg7v+n
-	5aKDXORu1S9CwL5vMkk6uCZbKE0feh15R8MkzTOWSWSzEg2zc5LN/SDoiz1OmEP28V5LLLyeOjyIY
-	UUg7CQKCMw0ijGxs8MPq0rdeBPPL1fb6ajbvDC0DuBnykomvn4D33bHNxZkX+6Til10V+MZ8h7tqY
-	sStUMxTeNe8QmMpZRqmAIPWA+RKxSZwFukwMXn6e/3DrIma1LfkWEkuLUjA0rzrR9gtMVh7b76sbH
-	tBPqI05A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yvGMV188YiibtGuznHf40d1pmt+2SAT1gXmJIlT35ZM=; b=OFR9kCKgHnM8+Yfi9HERZS+XpE
+	Ql3wyxtle15HivWKhA03U57HWqDD4JTIB7NM4oL46+Jy4/8Sk9RU0Vzp+B1bAkKeQPqR3mLTZbSu+
+	4qDWlVYdKKVGdr6mUgg3lHBBSCGsxjYT0VEKOvpCI3SN3YYooeWMHU8RpitUCqYu2epyyFEMXX8IC
+	JuJjpjnXUJKMfQGM1Nv703Fx3JjXOjjXQaMYaDUbKEdO0ea1AI5VoUxptcRk9Z6fMF3FhmKEdOkyQ
+	Yr5AR36yzGdIG1qlZQ6Ys51MdX1pzfMdaapdZ+VUZUE2q1o6+Cf8Fk4l4u89h0nQdcenxFXsYsJCP
+	3Dj9pO0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upMXM-00000001rJ0-4756;
-	Fri, 22 Aug 2025 07:50:12 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1upPqh-00000002I0J-02F4;
+	Fri, 22 Aug 2025 11:22:23 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHGY-00000001F1g-15ux;
-	Fri, 22 Aug 2025 02:12:31 +0000
-X-UUID: 73287af87efd11f09eb0dd999d3936bf-20250821
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=fijTtLibDyQSw8J3LqG20hzaIyXCb/78mdsjlxSiNJ4=;
-	b=KEa6/+2unfckDbGc9lGkdEQp9XQCZyi8vM7bUdyXcHHP4LmvdHM6gP2Agnu7lloXDVNsct8T9CSrW1I/HPfGWPySvdJhf2a3SUgHSc/Sp7keaTWW4ioYlqxEDAH9KVAsgN6d/fKRB0tB3mluCJmXsDFliP1fCG9J2mwQggdLgMc=;
-X-CID-P-RULE: Spam_GS6885AD
-X-CID-O-INFO: VERSION:1.3.3,REQID:6f7dd4b0-fbde-4455-9ed5-92b955ba76e1,IP:0,UR
-	L:25,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Spam_GS6885AD,ACT
-	ION:quarantine,TS:125
-X-CID-META: VersionHash:f1326cf,CLOUDID:f629be44-18c5-4075-a135-4c0afe29f9d6,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|801,TC:-5,Content:3|15|50,EDM:
-	-3,IP:nil,URL:11|97|99|83|106|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULN,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 73287af87efd11f09eb0dd999d3936bf-20250821
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <jjian.zhou@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1582693969; Thu, 21 Aug 2025 19:12:27 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 22 Aug 2025 10:12:23 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 22 Aug 2025 10:12:22 +0800
-From: Jjian Zhou <jjian.zhou@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
-	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
-	<jjian.zhou@mediatek.com>
-Subject: [PATCH v5 1/2] dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox document
-Date: Fri, 22 Aug 2025 10:12:08 +0800
-Message-ID: <20250822021217.1598-2-jjian.zhou@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250822021217.1598-1-jjian.zhou@mediatek.com>
-References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
+	id 1upFXl-000000011A2-00vF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 00:22:10 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7e8704c52b3so176450585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 17:22:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=libre.computer; s=google; t=1755822128; x=1756426928; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yvGMV188YiibtGuznHf40d1pmt+2SAT1gXmJIlT35ZM=;
+        b=fe9Ey2BOKS9f5bkWaQC9uTQvEudHxw9Qr/hAAUFo55AHuQz11JXS3k1Y2duUTuX4cV
+         7iPvnSboC804ZnTWLcJCXDfuN9h3rMe/fiTDUT1mCmORb6bCEuWPNIJWgWj6bT9foVi5
+         EUwjmzXhX/fEEDehbogpjoiOWgfS1iwlBgPDR4AbrjqZgcQAGKsPZpZwBD9s0ZwXQoMc
+         R5ZJZqHN8NLTTH0UG2EapAKppiMWsYjJNzNGMeyqcS4dARuitoo6ADi25xwcUBCj0Yir
+         AM39cfNW0Jk9iObwvo9kXBbp9qGrSnbkaBrtZnXk0eJstQFMhNz466Wrng2+EZJFrYOO
+         Vnhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755822128; x=1756426928;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yvGMV188YiibtGuznHf40d1pmt+2SAT1gXmJIlT35ZM=;
+        b=eqRgEQCL0Ov6AV89fM7DDcuUSejiE/KSIpM+krbYV+Cn44hoHcyO5JrfLpANMQhWz4
+         cok2F3wSsGJyRTE4ohuP9/S3mUDO2nUB9biugFAykoIzWJM45nv6jCpLNDz54J8JA6lX
+         W8aJK1xDQIJVN6CQb3YHqglElKJ4PKrGFvi9BDskmeZTkUBkpG9U0X1Xv6wSntIx1f62
+         CAsNl7zhiOw/K70w421BWscCxLLhxKuh7e+7h9vkR0SaNQFUzkhlBK7NAGU6s+dYzgjA
+         Yu5iV75xrW9KB/INgJvjnByAjrEZoSv51HiLDh9AbEX4DTX9y5k0zzfvKG2D6QCzPUJ/
+         bKvA==
+X-Forwarded-Encrypted: i=1; AJvYcCW5UR2dajMedRir6gYOcddzrF1v3UhBbtX/JSlOGzNb1GAxjoaX8itOtdVOKOh6GTa+kRDZ576/7tc2JP3Iz/YQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCtiW+sKgpvXBrloijr6zbNZ1uUjcqofoFbDSprZqG5EZyAtF1
+	fwZXdwvrd3Oa3RTMVbtBvy0OOTW9jJfxMgeXw5MsAHN5tExVWCMKJmb9Nm0MFrrujA==
+X-Gm-Gg: ASbGncuyOENZQ22Nk5aLz8hu0qHayvaDJKSRcUHh2yuXQKJtbtKvkV5K/mP1KRZxFrI
+	QiUxPzw+hu2PNBeIveLA5E89RllQBlZZ2GHZpd73IWB4Cv7DKiYhtXEJyeM3r8FofIrU98u0nUk
+	YEmBBXFWIwEJ54A2jn047WtDNZWwTY6MIsHXu6QeRqJph82Gqdf81Bp98FwTJtUZcBscwESXjsi
+	tyIW0AVfPKytbItJOxnx1J1VzpeniIxkpZ2p73x7+eiqLm+o1ApMybYXTLuVSj5nBGSP5GZHnn1
+	5mH0wIGPkYroc0rkgLUQgCj0aO72Q6vTz8zqRSMDDo7yQ5zsYrmwTiq3Bl2tlTo2U/B4jjHLYl1
+	EcEkE4bkYaAe68lAKA/hOZjM1QyeM9mlwnNSrcS4o
+X-Google-Smtp-Source: AGHT+IGHm6rZ2RaOlXfMgFSf4U8z7KV1Q+DwlLKsqiFCn1DG+L7TJ0TPCwJKMIb2sZIk+AiQv0UV3A==
+X-Received: by 2002:a05:620a:3195:b0:7e8:2989:1149 with SMTP id af79cd13be357-7ea1103a64fmr184064785a.49.1755822127818;
+        Thu, 21 Aug 2025 17:22:07 -0700 (PDT)
+Received: from localhost ([2607:fb91:3b82:29b4:add9:bee5:e413:378f])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7e87e075df5sm1228228685a.30.2025.08.21.17.22.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Aug 2025 17:22:07 -0700 (PDT)
+From: Da Xue <da@libre.computer>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jian Hu <jian.hu@amlogic.com>
+Cc: Da Xue <da@libre.computer>,
+	linux-amlogic@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] clk: meson-g12a: fix bit range for fixed sys and hifi pll
+Date: Thu, 21 Aug 2025 20:22:02 -0400
+Message-ID: <20250822002203.1979235-1-da@libre.computer>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_191230_299794_593CC73B 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20250821_172209_056179_5A770DFB 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,74 +104,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
-messages through 64 32-bit wide registers. It has 32 interrupt vectors in
-either direction for signalling purposes.
+The bit range 17:0 does not match the datasheet for A311D / S905D3.
+Change the bit range to 18:0 for FIX and HIFI PLLs to match datasheet.
 
-This adds a binding for Mediatek VCP mailbox.
+The frac field is missing for sys pll so add that as well.
 
-Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+Patched:
+
++ sudo cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq \
+/sys/devices/system/cpu/cpufreq/policy2/cpuinfo_cur_freq
+996999
+500000
++ sudo cat /sys/kernel/debug/meson-clk-msr/measure_summary
++ grep -i '\(sys_\|hifi_\|fixed_\)pll'
+ hifi_pll                      0    +/-1562Hz
+ sys_pll_div16                 0    +/-1562Hz
+ sys_pll_cpub_div16            0    +/-1562Hz
++ sudo cat /sys/kernel/debug/clk/clk_summary
++ grep -i '\(sys_\|hifi_\|fixed_\)pll'
+    hifi_pll_dco                     0       0        0        0
+       hifi_pll                      0       0        0        0
+    sys_pll_dco                      1       1        0        3999999985
+       sys_pll                       0       0        0        499999999
+          sys_pll_div16_en           0       0        0        499999999
+             sys_pll_div16           0       0        0        31249999
+    fixed_pll_dco                    1       1        1        3987999985
+       fixed_pll                     3       3        1        1993999993
+
+Unpatch:
+
++ sudo cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq \
+/sys/devices/system/cpu/cpufreq/policy2/cpuinfo_cur_freq
+1000000
+500000
++ sudo cat /sys/kernel/debug/meson-clk-msr/measure_summary
++ grep -i '\(sys_\|hifi_\|fixed_\)pll'
+ hifi_pll                      0    +/-1562Hz
+ sys_pll_div16                 0    +/-1562Hz
+ sys_pll_cpub_div16            0    +/-1562Hz
++ sudo cat /sys/kernel/debug/clk/clk_summary
++ grep -i '\(sys_\|hifi_\|fixed_\)pll'
+    hifi_pll_dco                     0       0        0        0
+       hifi_pll                      0       0        0        0
+    sys_pll_dco                      1       1        0        4800000000
+       sys_pll                       0       0        0        1200000000
+          sys_pll_div16_en           0       0        0        1200000000
+             sys_pll_div16           0       0        0        75000000
+    fixed_pll_dco                    1       1        1        3999999939
+       fixed_pll                     3       3        1        1999999970
+
+Fixes: 085a4ea93d54 ("clk: meson: g12a: add peripheral clock controller")
+Signed-off-by: Da Xue <da@libre.computer>
 ---
- .../mailbox/mediatek,mt8196-vcp-mbox.yaml     | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+ drivers/clk/meson/g12a.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
-new file mode 100644
-index 000000000000..7b1c5165e64e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/mediatek,mt8196-vcp-mbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek Video Companion Processor (VCP) mailbox
-+
-+maintainers:
-+  - Jjian Zhou <Jjian.Zhou@mediatek.com>
-+
-+description:
-+  The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
-+  messages through 64 32-bit wide registers. It has 32 interrupt vectors in
-+  either direction for signalling purposes.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-vcp-mbox
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#mbox-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - "#mbox-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    mailbox@31b80000 {
-+        compatible = "mediatek,mt8196-vcp-mbox";
-+        reg = <0x31b80000 0x1000>;
-+        interrupts = <GIC_SPI 789 IRQ_TYPE_LEVEL_HIGH 0>;
-+        #mbox-cells = <0>;
-+    };
+diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+index 66f0e817e416..f78cca619ca5 100644
+--- a/drivers/clk/meson/g12a.c
++++ b/drivers/clk/meson/g12a.c
+@@ -157,7 +157,7 @@ static struct clk_regmap g12a_fixed_pll_dco = {
+ 		.frac = {
+ 			.reg_off = HHI_FIX_PLL_CNTL1,
+ 			.shift   = 0,
+-			.width   = 17,
++			.width   = 19,
+ 		},
+ 		.l = {
+ 			.reg_off = HHI_FIX_PLL_CNTL0,
+@@ -223,6 +223,11 @@ static struct clk_regmap g12a_sys_pll_dco = {
+ 			.shift   = 10,
+ 			.width   = 5,
+ 		},
++		.frac = {
++			.reg_off = HHI_SYS_PLL_CNTL1,
++			.shift   = 0,
++			.width   = 19,
++		},
+ 		.l = {
+ 			.reg_off = HHI_SYS_PLL_CNTL0,
+ 			.shift   = 31,
+@@ -1901,7 +1906,7 @@ static struct clk_regmap g12a_hifi_pll_dco = {
+ 		.frac = {
+ 			.reg_off = HHI_HIFI_PLL_CNTL1,
+ 			.shift   = 0,
+-			.width   = 17,
++			.width   = 19,
+ 		},
+ 		.l = {
+ 			.reg_off = HHI_HIFI_PLL_CNTL0,
 -- 
-2.46.0
+2.47.2
 
 
