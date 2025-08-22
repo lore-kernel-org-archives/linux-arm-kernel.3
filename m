@@ -4,121 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1062CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63199CA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOpJPekpfelyREArAYNkitEcgcq+yeDKNUJVlyr128s=; b=kzY4zysM8Mfx9mil8+NM3ZJIsm
-	rklWfjngZygDEJBZTrEQvtubUtCf5rMtj+IAHUvhBozSZhIUmU0MibcRs1wPVGFGq1vrWjlPdgDow
-	A6wbufhc0IeaBzIcMZQTRRCt/gx21CTlLU901K32piDDkNpI0MEouTS5Ss+680mKBjHqfRebfCK7b
-	rsAM+4zjczU25vAQBdRfyKZkSqu9p94SHOfD4bwybx1VkTTqoXEPJxWvhF9QZLyITobv6glkG7zPa
-	9h5xKLviKssbihNyv9G+P5nbITvnKiQpyk5RExnBICiDDfRqdooePGo9uYqZGBoZpEoQHSV8L+PvZ
-	7rwpTe6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zSaBx6ZMpvbi8an/DIsinjDx4qcpumfHMlxHMB027a8=; b=Gzq+yUl9gUi+78olGjgEDFOM/o
+	2I6WGU+3XqrNZ437PMGkLgtlmRcAptmL24GSGmLfzToaI+y3lTf4BzshOwf8CoQYnNkpF9L40EwQ0
+	eJwVpq2C/thk0omliBYqBbXII51XDQ/dMZQydmLTiG+Ke/ewDFkdENCyuSbWQCgV5rPYEn6oF49gH
+	WTfPzrrbbOmMlbqCFl5zTU6HgFh1LsciozGJCzFGB6FahzzorQRpcxzTjIvzWxMNL8wzEUcNUEfYc
+	H67nc2aYewzhRkLnKgSB/axrEHXjAlRC2tLqH6yL1tTfUkK+c/Zb8brvDDsUlNwyWPXJVeyj+NKFs
+	2SmOMnBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZau-00000003Wzl-3R7P;
+	id 1upZau-00000003Wze-1FAb;
 	Fri, 22 Aug 2025 21:46:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+Received: from mail-dm6nam04on20604.outbound.protection.outlook.com ([2a01:111:f403:2409::604] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLQa-00000001iCB-1RbP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 06:39:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AE65D5C6215;
-	Fri, 22 Aug 2025 06:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4775C4CEF1;
-	Fri, 22 Aug 2025 06:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755844747;
-	bh=9dBmEU03SovoA9hX+z1h03ERnwmP9cygR1p8I8nnokY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ipy6AnWM1qZQ5VjH5qsEC0y62f3B3BG/JPjKUSNfD+jZsnUHdTNOQzrLpFi26hwzz
-	 BgbnhjeiPd2mt7/XSiwvJYqCoSKMx8u5X3EvD/T6Lv8WSLvXUQ7k3U7CRMUL3NRksb
-	 ypwYu7N02o3aLeGjwjSCFrC6tsNbjHRnaKCYjCUL+/L70ayISAlryVkErSN5vVg6Ka
-	 D8wN886AkmxNI4ET/dnR4b+qYZwDSHbOXO4PTAuS6bU4kpo9xL0GzojCPtroUO8J1w
-	 /E8ZgyiXnQpsi553fH/p1Em5uIMuJx1hSKJwPWH4r3G38cRgK3hhb/PYJTEzGMv5Rh
-	 IeDfiqIRjI7cQ==
-Message-ID: <3a936b3b-0599-4b0a-83a8-52b899c24125@kernel.org>
-Date: Fri, 22 Aug 2025 08:38:57 +0200
+	id 1upLNY-00000001hv6-3z2k;
+	Fri, 22 Aug 2025 06:36:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W9l8v/r2LaCp6Ltu5WaGe77XYXbDQNBTPxbbHUuHykcqzhGB2QcQg+3hZGzxhKcl6qJZAH2rC4VYCNjCdGugJylNF6BODxwx3rnUCFn3ZRO+Gayut3ReL247xrNs+9JdvWgu6BLJq1+4b6N0AW1QrylXrUKv4Md2SL5P2+JLtL5PS0WxVTMgPEBgekU5S61PuYnQrg7/AJZ0pznrPKclYAGVBxzUeFQpgql9m8nEk6Pm/jyBfx2mtNT9AA4EN3dC/Zw+EnshWD7GDEJAPfTWJeywcyZ1mWT405WKG3cu4tkk+X//4TD+qcPVDz/ycvdxHsiEPYqBk+I0ad0rJuliAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zSaBx6ZMpvbi8an/DIsinjDx4qcpumfHMlxHMB027a8=;
+ b=VlmOudrxTzS2ph5z5eGL54X1kquqBZTF3/mbMvNZpWEclmGeUkn93nizCSaUjI55a9EmN3Na8bSlvOGCHwGB0Ux/XMbYUOWXLR71h5skMRw3FQ4OCnq9BPqx8kHK6oo0oXSTWtxtuSu9UfiZff9jKFT4T3PTjAWN3ithnkHzN1PbVVT5pXGC9hchiX+5Zm91rN8HGrGD+8DU6jJkmoP7rMJBP9uVf5Go0slAJsZCqnEX2doPG/cbITqhaokV4i2i+xWbVmzcnToEQIAq9DbuoBeQFDdPeDU1jaCdNp14McbyNcdgYeHL9T3fJj1tImxuQXWHzUOQxjqNqzliEZ5oow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zSaBx6ZMpvbi8an/DIsinjDx4qcpumfHMlxHMB027a8=;
+ b=M8YQS/SDHjbfRSGIdPlzKLNmRnds+kpCe0ErLj6+d5xylS9DZY99dOdzqGHBR5W2pu3ACmvFHHtXOsux9MjgiixODhw+I6PqOaNcCHNir2ov4D8wOwih1iozRkKAgTJ+HZ2aWqX/MBizFsRR2yQhz/uLCKLpHurvqeghwbYOBvFfOucXxGCJygbrUxNgqCB2nNfVDEmBacGYL4RfxCp4rLAMEpuA0m+CQL+mWd1e3ayZ6JJwEL5x27PC71p1RpU9lWeR1KyXE4W3cpEoXGEbNw4TJl+ze6WL8alEYclKcGhKcOs1rexcBH6U8JVf+wlWSfT2NCVpIybgKS9lVq2PqA==
+Received: from SA0PR11CA0077.namprd11.prod.outlook.com (2603:10b6:806:d2::22)
+ by SA1PR12MB6773.namprd12.prod.outlook.com (2603:10b6:806:258::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
+ 2025 06:35:49 +0000
+Received: from SN1PEPF000252A1.namprd05.prod.outlook.com
+ (2603:10b6:806:d2:cafe::af) by SA0PR11CA0077.outlook.office365.com
+ (2603:10b6:806:d2::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.17 via Frontend Transport; Fri,
+ 22 Aug 2025 06:35:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF000252A1.mail.protection.outlook.com (10.167.242.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 06:35:49 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 21 Aug
+ 2025 23:35:31 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 21 Aug
+ 2025 23:35:31 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 21 Aug 2025 23:35:29 -0700
+Date: Thu, 21 Aug 2025 23:35:27 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Ethan Zhao <etzhao1900@gmail.com>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <bhelgaas@google.com>, <will@kernel.org>,
+	<robin.clark@oss.qualcomm.com>, <yong.wu@mediatek.com>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
+	<rafael@kernel.org>, <lenb@kernel.org>, <kevin.tian@intel.com>,
+	<yi.l.liu@intel.com>, <baolu.lu@linux.intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
+	<helgaas@kernel.org>
+Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
+ device
+Message-ID: <aKgPr3mUcIsd1iuT@Asurada-Nvidia>
+References: <cover.1754952762.git.nicolinc@nvidia.com>
+ <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
+ <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
+ <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
+ <20250821130741.GL802098@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] arm64: dts: exynos: axis: Add initial ARTPEC-8
- SoC support
-To: Ravi Patel <ravi.patel@samsung.com>, jesper.nilsson@axis.com,
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, linus.walleij@linaro.org,
- tomasz.figa@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- arnd@arndb.de
-Cc: ksk4725@coasia.com, kenkim@coasia.com, pjsin865@coasia.com,
- gwk1013@coasia.com, hgkim05@coasia.com, mingyoungbo@coasia.com,
- smn1196@coasia.com, pankaj.dubey@samsung.com, shradha.t@samsung.com,
- inbaraj.e@samsung.com, swathi.ks@samsung.com, hrishikesh.d@samsung.com,
- dj76.yang@samsung.com, hypmean.kim@samsung.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@axis.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
- <20250821123310.94089-1-ravi.patel@samsung.com>
- <CGME20250821124055epcas5p4d1072e9b4ef29587e0fd8606bc1abc4f@epcas5p4.samsung.com>
- <20250821123310.94089-9-ravi.patel@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250821123310.94089-9-ravi.patel@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250821130741.GL802098@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A1:EE_|SA1PR12MB6773:EE_
+X-MS-Office365-Filtering-Correlation-Id: cca042d2-1c0e-4496-2be8-08dde1462254
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZZ4dsTPs/jiTU4IzPa9jyKumxU+3mch7NtrjaFEH/bTk2AaqPEBHVJyGWtB7?=
+ =?us-ascii?Q?3eNpQgQTWjpBZCmNpQratT4Pbi5PeR7IOua2305HEOtXuBqjDE/4VahNI+gl?=
+ =?us-ascii?Q?bxNNPGU3HqWwhdPZKDplkv/QcVkVhfFRP1sHGVtqpaiLonY2+DabDzpx7PHm?=
+ =?us-ascii?Q?v1w1JFXNai0agi8MGYt1z5aWIDPRGUrbHtTQf5WDILxpVl4RAT58N3FzYzPz?=
+ =?us-ascii?Q?E4pluT3n4E3MJXZaeIoBS88aSIaidSgdbdU07nWlJ6JhJIpdQ82W7yZ05VNy?=
+ =?us-ascii?Q?ueLUsIs8t6EtByCoj3R9oSSHAYkO2lHAf6/emSrQc1mThjwEo2EmOML3ZGFU?=
+ =?us-ascii?Q?LkGaQ5wQyE1G4QnQiYryGJ+AUANN3p6nAiR9ycxvQLCJokAssmWpUn8RDJrE?=
+ =?us-ascii?Q?Pu5qZ/iAYK6IIvgrSecWwj3HAZhTojIpa5FgeauZ5SEVe5Mlf3aUQI2bC997?=
+ =?us-ascii?Q?Cl5MBJZ2mPbG4j95UNFV5gSEac2CiSfw7kqotXZsTBjSbcGhLlEFOqT5h1oT?=
+ =?us-ascii?Q?UK/mYbR6g096T0zPJoWifh0zRcOstMq6qbjKwz4vAOkVh7Nux1KMe0KSm/fK?=
+ =?us-ascii?Q?C6zMnzDtzjI7jSGSttL4vYjWcGJVbE59W9IBIJ2H3yYLMX3MC+zLYXKdtIHn?=
+ =?us-ascii?Q?v1u7XlDQkpCk3Hb7E3A8n5u6lbuoic+L/8q/91Nv5iOllQC41ZXA/bDlic5i?=
+ =?us-ascii?Q?iFArhPSxpNig1cITCEMWWhPbh9yl88rc7r6K8/P95zEWA8zQPajG3x/OYphn?=
+ =?us-ascii?Q?TzdfTtfyfZ+ZaKDdudkuD7dW8IKY/e3M+RRHTvtWubpOLCOxFDJ7ZT/ZiVzf?=
+ =?us-ascii?Q?igLlx41Bkyp+As73B6wcuPJ+F0IU9V/BV1zEomz7A+ebVZc1WGzhfqFoKer1?=
+ =?us-ascii?Q?xjvc8eENkV6foh4M/8gvZa3FNuvWaGq2ydm23uCpV1Cl3IMxn1z43B7DK2Mz?=
+ =?us-ascii?Q?reWvThrHlNA3S17/NnPLMHRWXoh9Jekl8sYJN8Vv4WvgA6JJEqtfPIJs5QkA?=
+ =?us-ascii?Q?GFHOC+/b3haFZmzb0zLhT8EumKVNVgneq88cG3m0s6xrtvX4uUKpN1ak4SHz?=
+ =?us-ascii?Q?AcCC6/J8Y90If/qnjHl8cJpUOIuwR76j3oK+qhmH3oometCXInxCsl8k2N+a?=
+ =?us-ascii?Q?GuwM9yUk+54RHFZC0tAJo1pUdmEJC+J9SVJVSxBknH858tfL6f/7/Adu2RUU?=
+ =?us-ascii?Q?pLO6F2bQMrw6OpNfwGnR0mcJNsNZ1BaAFkF9A+QQAwVdKm1QPcHjCe4C7ARH?=
+ =?us-ascii?Q?l6WAPJhVfdysaC1rcUQPEhdDW1viFEZMRvy02raO3xkdpBMY0DO9O/IfAP+c?=
+ =?us-ascii?Q?kE+s+0SN9O59VZOYENa2qhFCfVTh4u5QzRU01ntBogjthMj1E675NT+jt2/M?=
+ =?us-ascii?Q?kvdC5bR6rcKUqt5PCxUEfesa0PwRyKkQy6D3tJKJ08qcruSXz6Wy61qIGSUf?=
+ =?us-ascii?Q?iZTe4aFGuXFv+RnErRVq2eD/vQEeGsx9LDGBVMeYFNDau9Qoo9O1iXFxL0BD?=
+ =?us-ascii?Q?M279IbBLpjtah4/VibLPDSsyaLiRrUI0Hqus?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 06:35:49.5128
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cca042d2-1c0e-4496-2be8-08dde1462254
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_233908_469368_4DE81095 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_233600_999736_6F8059D9 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,32 +164,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2025 14:32, Ravi Patel wrote:
-> From: SungMin Park <smn1196@coasia.com>
+On Thu, Aug 21, 2025 at 10:07:41AM -0300, Jason Gunthorpe wrote:
+> On Tue, Aug 19, 2025 at 02:59:07PM -0700, Nicolin Chen wrote:
+> >  c) multiple pci_devs with their own RIDs
+> > 
+> >     In this case, either FLR or IOMMU only resets the PF. That
+> >     being said, VFs might be affected since PF is resetting?
+> >     If there is an issue, I don't see it coming from the IOMMU-
+> >     level reset..
 > 
-> Add initial device tree support for Axis ARTPEC-8 SoC.
+> It would still allow the ATS issue from the VF side. The VF could be
+> pushing an invalidation during the PF reset that will get clobbered.
 > 
-> This SoC contains 4 Cortex-A53 CPUs and several other peripheral IPs.
-> 
-> Signed-off-by: SungMin Park <smn1196@coasia.com>
-> Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
-> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-...
+> I haven't fully checked but I think Linux doesn't really (easially?)
+> allow resetting a PF while a VF is present...
 
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+Hmm, what if the PF encountered some fault? Does Linux have a choice
+not to reset PF?
 
-No CPU mask?
+> Arguably if the PF is reset the VFs should have their translations
+> blocked too.
 
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +};
+Yea, that sounds plausible to me. But, prior to that (an IOMMU-level
+reset), should VFs be first reset at the PCI level?
 
-
-Best regards,
-Krzysztof
+Thanks
+Nicolin
 
