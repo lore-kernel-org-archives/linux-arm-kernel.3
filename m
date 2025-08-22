@@ -4,91 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92421CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 059A6CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQxFfMbVY694nwqT/Zr69fBeRewrLZzBFyNEZe7ythI=; b=kEgG5JQAeZ4XDAq2jLrbc8XNGc
-	GctodT7EQb19HlGrFMtM1bTICbeEVm+XVpMwO+6CIeIYi15OqS1lmQXD9iOWK2RVo+FROITKpt8iZ
-	rQjQW379YD28CuahOBb6edNoWOyd9Lu0dGahMShCKkAWHhq7jzYt95qIaej+8/a+z45134gpRwcgL
-	g4aI0+kdZug8lGtsZ692PkRG54hc+Qcv0L3ZxToyUcpi5XG0G/7SzYnPK4KnA8iWcyLx47gv/9uBy
-	VZ/3TK7Fi+bqs8ZF3GS/9TPkBLtD8xBw8ZyVup2f02XYwz+OoN4A2ePs2MT4hAwizZAaXfjSv6NEg
-	mpFqMbwA==;
+	bh=wWh8PyGxlWxe5MHSxxwSqq6RuwtxVFP35Vd46MU/svw=; b=FADalwW6E4xAOcG+P5Hy2vjg4l
+	Sd7b+HWTsQXik8SkfZpi3H0I0RtXwnlZPofBq6vIcdQYwWGSgI0YTAxumXy4xkiznG9zzThJRUVtH
+	3uO3M5ZnQZyAfR86Z805yc4rZHpEIjr8iCSAF6ngEnR4HkHLIhUjwHQVjwTJooOdR1yI50BM+wt0a
+	cW49skv/u2mC17KU5P2XpYHhXlAjW8RGluMzGOSliop66wGHuS72/66h6e8thyt+EUZFgu8YnHA4G
+	aZRXk7J1/1BMMtycOqaGHB/esfgu+bx0Utb5UHxjpFYY0d7k16WyTJLnZXzOqXU6NScnGbAIs/C37
+	bP6PW2UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphrR-000000046Zc-01rV;
-	Sat, 23 Aug 2025 06:36:21 +0000
-Received: from mail-pl1-f170.google.com ([209.85.214.170])
+	id 1uphrT-000000046cD-0CDC;
+	Sat, 23 Aug 2025 06:36:23 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTHE-00000002vlk-3v3r
+	id 1upTIv-00000002w5R-0hRT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:02:02 +0000
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2445813f6d1so3405335ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 08:02:00 -0700 (PDT)
+	Fri, 22 Aug 2025 15:03:46 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-619487c8865so5752431a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 08:03:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755875023; x=1756479823; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wWh8PyGxlWxe5MHSxxwSqq6RuwtxVFP35Vd46MU/svw=;
+        b=uvSCpib0cOvbojcrGw2nFyDjSfI7qBGhZpi4pRGfdiQBByHtY/zMcqoHb4cQH7fWJj
+         qSfD4YhNLx1/tmV2baNJXzBeGWDbt/ORgL+m/m9DcmmG2js0b44etuNApxLlMijWBVEB
+         y/T7sucpc5mqIaQJdk/uQz/P0RkrqPU1jR5NwxR1le9oTZEFbKG/728r/9gPcV5pxfr0
+         51g51XVG6xBlws7eTotRzKb8MlyZJF0R3oy7S/TfHmtd/vEx8Lvp+q9+U1Ic2Nh40c6E
+         1NuEjCf2UZOEV4NhuG7WPHx4nJrnjsSYWPhIDuPVscjREVlgLdWlyYzynzgD8enPBgAS
+         usUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755874920; x=1756479720;
-        h=content-transfer-encoding:in-reply-to:organization:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qQxFfMbVY694nwqT/Zr69fBeRewrLZzBFyNEZe7ythI=;
-        b=VxrzOn2UWbbjvQhG7WOvnfigi8tmjYvGedURsxjEXbdXVAfPZW6LQJ2oSrn9BqN88t
-         CR3CRvho0+tUm6PAuEdeZVrH3JDL9ETXNC9Yfq50PBKBICgKrSsf20JcGB8NnBtaixce
-         PISDnas4y0FFkgpey9EwgY0paVa9Go9/FmJPOwO++JlaYXE/dkF3UY0u2qkJuFgDFGns
-         wsk+aDnPmlZ3+Vbhs7hmc025A5/GW2cbHVgOUFiPSc8xLPbJBGachzYlU8ACe2TNMMwF
-         tjA7gWvTCUoa2uAZ41pJtHt8NX6m5meV3EHKy3OjOseI8PCjPRCVucnlBHzk/hXle3E0
-         pAEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVlEsLmqGkQNzw20ioH4dvvIVFL/l1CehFEEJnHiG0EaEtOchROww0uAs0uLllLu8Cacx/Rdu+PPKdJh9PM1U2o@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxKAgrHGjpvQEmodTAxn1JVN8fMaMCavbOkOfdDXPZy1BEp6h+
-	29WG2ESfGASsZ/JNNGBQDjPhdVUxQzV2DuP3XDsuUnEfiRP9s+TQUpYL
-X-Gm-Gg: ASbGncvhQNKFzfNPnA/s27AgDVo9fu58kBsLukKFQMLoFl7Vbxye+BTlJuc2nSg9f30
-	JWjHJHVJCgX6p8oKvZnmgcVrp8WO2l0aBNI5wDEgv3b91xfz+BJP1z5UNYv49t5n7xDWtcaXl27
-	Tcc0z1ur7YBb4evCkmMCqYfe79UvJYYiKs3n9JiuEwzdL4G1HVl3zS+xMPlTMKKo5US1gacfbVo
-	HbGE3Sodb0CX10oLw/jAVw7XGv4mGL6OvK/Ao4cdCE2tTPAC/XsB5X7WwgAqs+tSP5G2VCd/Xik
-	sz9p52BTCYx2MrV1ndAdWHiChwxk/j6XYO3Levz4t8H2AStQDRnrEQumz0WuiwhQ1c2aeZ3K5u4
-	Tva5u/KPIe5zwwX+QeBpceM7ItaCN43h3UUiYlzvs/yqM7u4rYa0KMgckjPsSShkV7iT7mUuvVZ
-	qgNRLfd9uVXMqe8nK7JQ==
-X-Google-Smtp-Source: AGHT+IG8h+rTjIYpDUhkLX0FKz+yq6EYhXDcqOADp2zpIy/mkPHlai6jtgygN4ifJj/kHfxfd3C9eg==
-X-Received: by 2002:a17:902:e5c8:b0:245:f5fd:8eea with SMTP id d9443c01a7336-2462ef8af80mr24163935ad.8.1755874918990;
-        Fri, 22 Aug 2025 08:01:58 -0700 (PDT)
-Received: from [192.168.50.136] ([118.32.98.101])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-245ed53e779sm85642335ad.160.2025.08.22.08.01.53
+        d=1e100.net; s=20230601; t=1755875023; x=1756479823;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wWh8PyGxlWxe5MHSxxwSqq6RuwtxVFP35Vd46MU/svw=;
+        b=Nn82w70UO4nSQU7YDAoEsoHQcH1cfICNkM/9jtpryU5zoV4VVUMzqFerR8xXc2GiKd
+         oaQV1fphrjRAPEGFYwsn8Bo4ccRGQ8pXJwkEilp2G5VcXWbJqI57uSArREldXZKmam64
+         nlG995534PMRjQFc88bKj33ymDSRjU2RawOiwn/qUMXjnWBsKaCf23ookKBFUt/F0+tR
+         bXMltWznxMfMV7KBKKwbR/T3dlJqcpeJMiV4bfDIslD0weU2lFH9EdBQUDX9EGY1yZw1
+         WZ1UbF40esoXfiRRVvNNdPmG6chNEJpynNhdoi4X7ghOM9+67tqNCZuwzts9mn2MpQNK
+         2LbA==
+X-Forwarded-Encrypted: i=1; AJvYcCUM6pgysYKwcgXXA1ON4tqhMwL3bBT5geaWtZoajdnrtHPrJsvTcP30zKmRtnQwUCUzcSOfRfEDldSIirtKbEBF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0t7LUIfeji90yQpD2BTEHYvB3pIcbOAolYqHvrRUDnvshnx3W
+	zrhRHWLc6JBmwBfwdsZ5CyRG7q0r9C/HgaWq7LYhg5W0K+zZiBJc9QfD7dENwI3Je94=
+X-Gm-Gg: ASbGnctP/nP1lTQQreoqF6cMYnAqqO4TiDIkOXUXF4I516NA1y7q1E0I0LM01YU5vtN
+	dKczPU9W/8LqnI4UHqnZOfgs20FPkdSXNKetirXN49drkStjYBzizFJ5Sh0SMeqFvWzShMNvD98
+	zV1+vtezwVac9/nBTF+COlsW7U7c8MGfTGrDIIjxj/Z756EmTinWOxfGfHnB/2rZzm+o9q8AkPk
+	hrgHi4YhHhgnUPyHljc8ttddrBLRGNnsOPxy8ETR7vZ+pdxdCjX00DQKM7vC2E7//6PQ86JGjDS
+	B1qCKjNzDBsg3kXzvyqLGLDSieqpLPxaLQ+UAuT+D/D8hXUoMEyguU+JpGcxJjdcoKxg1e3j0JT
+	cAZws03JUpnpSUImNAjjNX7gsHG+Fx1Oj
+X-Google-Smtp-Source: AGHT+IHFLMYgpEsUwExR4khNq/wCqpieQpwMLNU5LCmqz1CCYVCENyfpLn38R54b4utgze14geVJgw==
+X-Received: by 2002:a17:906:7305:b0:af9:8739:10ca with SMTP id a640c23a62f3a-afe0b497404mr587666966b.28.1755875023083;
+        Fri, 22 Aug 2025 08:03:43 -0700 (PDT)
+Received: from [172.20.10.10] ([213.233.104.29])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded539d2esm621862866b.113.2025.08.22.08.03.39
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Aug 2025 08:01:58 -0700 (PDT)
-Message-ID: <e935e36a-1c5f-4706-830c-95cf6d9e6dc7@kzalloc.com>
-Date: Sat, 23 Aug 2025 00:01:51 +0900
+        Fri, 22 Aug 2025 08:03:42 -0700 (PDT)
+Message-ID: <ebea336e-c43f-4519-b2c6-4f8812e29448@linaro.org>
+Date: Fri, 22 Aug 2025 16:03:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf: arm64: Sync ESR_ELx_EC_* macros in
- arm64_exception_types.h with esr.h
-To: Leo Yan <leo.yan@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250814151452.618765-2-ysk@kzalloc.com>
- <20250821113825.GA745271@e132581.arm.com>
+Subject: Re: [PATCH 1/3] dt-bindings: firmware: google,gs101-acpm-ipc: add
+ clocks node
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ willmcvicker@google.com, kernel-team@android.com
+References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
+ <20250819-acpm-clk-v1-1-6bbd97474671@linaro.org>
+ <20250822135521.GA3487754-robh@kernel.org>
 Content-Language: en-US
-From: Yunseong Kim <ysk@kzalloc.com>
-Organization: kzalloc
-In-Reply-To: <20250821113825.GA745271@e132581.arm.com>
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250822135521.GA3487754-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_080200_972439_24ADB553 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250822_080345_210394_D20BAB18 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,80 +112,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for the review Leo!
+Hi, Rob,
 
-On 8/21/25 8:38 PM, Leo Yan wrote:
-> Hi,
+On 8/22/25 2:55 PM, Rob Herring wrote:
+> On Tue, Aug 19, 2025 at 11:45:36AM +0000, Tudor Ambarus wrote:
+>> The firmware exposes clocks that can be controlled via the ACPM
+>> interface. Describe the clocks exposed by the APM firmware.
 > 
-> On Thu, Aug 14, 2025 at 03:14:53PM +0000, Yunseong Kim wrote:
->> Update perf util arm64_exception_types.h to match the exception class
->> macros defined in tools/arch/arm64/include/asm/esr.h. This ensures
->> consistency between perf tooling and the kernel header definitions for
->> ESR_ELx_EC_* values.
->>
->> Signed-off-by: Yunseong Kim <ysk@kzalloc.com>
-> 
-> Thanks for working on this.
-> 
-> This patch still misses couple macros, please see below.
+> ACPM? APM is Advanced Power Management aka the predecessor to ACPI?
 
-I nearly missed that. Appreciate your checking.
+ACPM (Alive Clock and Power Manager) is a firmware that operates on the                                 
+APM (Active Power Management) module that handles overall power management                              
+activities. APM is built around a GREBE processor.
 
->> ---
->>  tools/perf/arch/arm64/util/arm64_exception_types.h | 9 ++++++---
->>  1 file changed, 6 insertions(+), 3 deletions(-)
->>
->> diff --git a/tools/perf/arch/arm64/util/arm64_exception_types.h b/tools/perf/arch/arm64/util/arm64_exception_types.h
->> index 27c981ebe401..29931bf19062 100644
->> --- a/tools/perf/arch/arm64/util/arm64_exception_types.h
->> +++ b/tools/perf/arch/arm64/util/arm64_exception_types.h
->> @@ -33,7 +33,7 @@
->>  #define ESR_ELx_EC_PAC		(0x09)	/* EL2 and above */
->>  /* Unallocated EC: 0x0A - 0x0B */
-> 
-> #define ESR_ELx_EC_OTHER	(0x0A)
-> 
->>  #define ESR_ELx_EC_CP14_64	(0x0C)
->> -/* Unallocated EC: 0x0d */
->> +#define ESR_ELx_EC_BTI		(0x0D)
->>  #define ESR_ELx_EC_ILL		(0x0E)
->>  /* Unallocated EC: 0x0F - 0x10 */
->>  #define ESR_ELx_EC_SVC32	(0x11)
->> @@ -46,7 +46,10 @@
->>  #define ESR_ELx_EC_SYS64	(0x18)
->>  #define ESR_ELx_EC_SVE		(0x19)
->>  #define ESR_ELx_EC_ERET		(0x1a)	/* EL2 only */
->> -/* Unallocated EC: 0x1b - 0x1E */
->> +/* Unallocated EC: 0x1B */
->> +#define ESR_ELx_EC_FPAC		(0x1C)	/* EL1 and above */
->> +#define ESR_ELx_EC_SME		(0x1D)
->> +/* Unallocated EC: 0x1E */
->>  #define ESR_ELx_EC_IMP_DEF	(0x1f)	/* EL3 only */
->>  #define ESR_ELx_EC_IABT_LOW	(0x20)
->>  #define ESR_ELx_EC_IABT_CUR	(0x21)
->> @@ -55,7 +58,7 @@
->>  #define ESR_ELx_EC_DABT_LOW	(0x24)
->>  #define ESR_ELx_EC_DABT_CUR	(0x25)
->>  #define ESR_ELx_EC_SP_ALIGN	(0x26)
->> -/* Unallocated EC: 0x27 */
->> +#define ESR_ELx_EC_MOPS		(0x27)
->>  #define ESR_ELx_EC_FP_EXC32	(0x28)
->>  /* Unallocated EC: 0x29 - 0x2B */
->>  #define ESR_ELx_EC_FP_EXC64	(0x2C)
-> 
-> #define ESR_ELx_EC_GCS		(0x2D)
-> 
-> Thanks,
-> Leo
-> 
->> -- 
->> 2.50.0
->>
+In linux we have an ACPM protocol driver that communicates with the firmware
+via mailbox channels. It's similar to arm,scmi if you want.
 
-I’ve sent out patch v2, Thanks everyone!
-
-Best regards,
-Yunseong Kim
-
-
+Cheers,
+ta
 
