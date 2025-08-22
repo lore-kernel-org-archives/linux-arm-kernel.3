@@ -4,157 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB6ACA0FE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB03CA0EFF
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=boZdHyLKv9fHHp8DsjCZqFA4XJWGGGF5nTK+IyCz5Is=; b=ycMvWrbzC4VAR269qPR2Llyrvt
-	fPWftYsaDbuNrfSrlB093PjmohlI1/Ou81U6jVJJKScbWaANrZwZVnA8eTODAN0zmbAdBt8ezFjnv
-	yzZF5/6Gb4ZTjrESLF/7y4wxBLu0sUvPuppf7sWMLw7O7n7I32j74hBz1fO7rCORU2yUxcAGgfNEH
-	PCC0AfZnrPbSKisIMp0X1/DpufEAJV3uOpZqp502dCAd7oS+kFX6aipj4Ds/yNeUMp/f2zmZeZQFp
-	3GPIW4IKrejpMpQCAjyuTZNIy+q+RmRerH5ADWP9lh8ViiElY4LMqwudbbPnYjbj2RV2pfk691Dwy
-	YcdWILPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ts24JBBdBdyyJOKN3NR5NASyjA2J0qcuP9PP1smFeMo=; b=1GmfJxBGZdmcfMsSh79+koHmEo
+	VzhZfJ87RhhlIzzncJZTCC+k9db+fS/Xa9Ig9aXoSCkz5Q4npSGtx/sJBJl720Gi1MqmKqhGWZwdC
+	UTpXKIXC2rWt2/JqUNCipx2SYdfPbO2txWLk+dizf0A45IzrZDYpnVZtkfPKy9Ag88ydq6QVirKpo
+	MaPdErFxRe0Flic9TybDgxz+PRRoRfitQpO+v2tJI+0ID6DTUyQV+ODy8nJ5dVwNCrvLlxAtcq8MH
+	3kYp0GRGpynB85F0l7G8gP6jeCIlbSB87Obnweks/b/jFmB0+GYzZI0dXG507M7EJ35/Jrv6y78uR
+	jjAu6VvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uploQ-00000004exp-1U4u;
-	Sat, 23 Aug 2025 10:49:30 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uploZ-00000004f7E-3KJc;
+	Sat, 23 Aug 2025 10:49:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSbi-00000002lIy-1o5i
+	id 1upTmv-000000032jM-2LvV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 15:34:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Ts24JBBdBdyyJOKN3NR5NASyjA2J0qcuP9PP1smFeMo=; b=OndPP6kNpKooOY/frCh4Pf8SU3
+	3DrMM4hWSpx5PA7S/gLO/NDSmKX9fe8Zldth+Zg/O7tuoi6BkaO6UALtd5rLmjLQJ3h68mYPHDVOQ
+	T9nU3hdgodJ6ttlK4yWzj5wb5X0QjUIChCfYBLshT/rOCOKZEtAOWie3VRHMHsw1MzBYO2AnGChRs
+	yy5PAr/FXYdHMPhSom1XkWn7Bvx4aou8/XKURDx1GjPuDZt1IVbdS7mpxy+iNDr4zwUPUpQ/UndAD
+	xFbYq//d2lB8i8p8DPmrbJHGPpatwT8ZSgnxhTTGF/O9WbI6vTVdfG0yjLwRV6KyHoybrVDZhKxps
+	l0VnmpzA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTmr-00000000yiF-43LX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:19:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dgFPDutr9WtFBPCj4nobjMW/z7+CMp6/NqPXikaM73YJvhimyie2KinScgoRn/7Bv2lRJYFDJATwBX5bCLC0FavTJ6CGyPpOitxHsSK6GHIUVpvmjc0hJ9je/PFETZ0kp+Wgw1m6llhVFzvpmAovIccovtDM3MaF17xXx6WHh+KtM9fV6gbG08fpEsGfLJS5R1T2DPBPCnl/YLvgmB9qCGamZ0PclDm90enn2nW72ZWyeArG1ueFv2EOuFyFlpl5jWWJKlJrW9UN3ShVZ7CIGS4D3tUVSzOxE65b/+HYzOvsZRUaxsCITuvOXNQ6VnSuHDs9b8d7miPTt9n8KG5lVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=boZdHyLKv9fHHp8DsjCZqFA4XJWGGGF5nTK+IyCz5Is=;
- b=kT/1lvdJEXMRqZhhI58sABgAGu0VOBV7wmWC1PRapfQL1eS2D/R0ytORoTVUHptc5MaRR/cwXEwmCGHkfBkneV0/RqWJiTFon5CY74ApK7Pz1EkQ2Mjggu3+5bsS8zALPgcg61C+mgBMGl2SmXzNdt+qxM03kiCA+3lJyBvNG8G8HkP9WDw/yI9+0KOM8YLN1zkhqQxA+7XGAzCV81LOpPqmnovtyYSWC7jf+rI4nKa9wY2WzK+5l1b7/ayLji9StJc5aZ+SsvIZaJiukRUdJipIo0uwNRTUyrRoWE7KPheo4baTggVk3XdzWb2+f8wVj/F/IbpDlHp7IDsDuIeXZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=boZdHyLKv9fHHp8DsjCZqFA4XJWGGGF5nTK+IyCz5Is=;
- b=anm8UUv1Cewm+KWzSN7npOMjccZ+1Quq3NrafVu0B96iQLDv5rUUUoZCK1TfFi7tnXI1zVPYm27EbkGm/iwuEex5hlLVNBTlT6vwWTqbRDN8F+/k87jyPU74SOfSZCpLXc4n5PyuDYlww6CPg30AHFjyjWt7fKJFEDojUkfM8EG50Yqd3YCwAbyg6AQVAQ1qllFpp5pO9iCFynERlaaRM/WthdP8pSZKopa/reLMhe9CSfBs8Uj0hHghjd+REqnzKFzekeAg1pp4ybLGzMKZjOyEPP8/2tzGFG2YCuKP/3Ba5c2PUUcx0r5GANRoqQVI+jNO85UZKAQEAp2olga6EA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PAXPR04MB8767.eurprd04.prod.outlook.com (2603:10a6:102:20e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.16; Fri, 22 Aug
- 2025 14:18:37 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Fri, 22 Aug 2025
- 14:18:37 +0000
-Date: Fri, 22 Aug 2025 10:18:28 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Inbaraj E <inbaraj.e@samsung.com>,
-	Isaac Scott <isaac.scott@ideasonboard.com>,
+	Fri, 22 Aug 2025 15:34:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 818A015A1;
+	Fri, 22 Aug 2025 08:34:32 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 703143F63F;
+	Fri, 22 Aug 2025 08:34:35 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Martin Kepplinger <martink@posteo.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 12/13] media: imx-mipi-csis: Initial support for
- multiple output channels
-Message-ID: <aKh8NG1lHKyAEoct@lizhi-Precision-Tower-5810>
-References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
- <20250822002734.23516-13-laurent.pinchart@ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822002734.23516-13-laurent.pinchart@ideasonboard.com>
-X-ClientProxiedBy: BY5PR17CA0071.namprd17.prod.outlook.com
- (2603:10b6:a03:167::48) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 04/33] ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear levels
+Date: Fri, 22 Aug 2025 15:30:19 +0000
+Message-Id: <20250822153048.2287-39-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB8767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 860cfaa5-9e21-49b5-a1bb-08dde186c8d6
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MRpCXMMU+UbfIqGv+2THhig92K1PWWiubakNTrvC3GT2P1F5KQRSLGql7fCx?=
- =?us-ascii?Q?czz7JqFo5mbzJXvN2ppsW2I+IfdVd54uzZu5qA9H/ffyOpRBwtsBi1lf3Fuz?=
- =?us-ascii?Q?bJWdGl/QI/VNmxw/tWfb4ZZbYUtZww51/645KzbOp/CXGts8Sq7oq5gVXQvz?=
- =?us-ascii?Q?o4e0icvOE+U4yceG8aNp7uk/jG7oEI3vXJgF2lkhVYSJcIOSxKpdx16LdIDN?=
- =?us-ascii?Q?f74eNDFAJGMcYHXIelUfFYIYgvTQetMiwJRtvjISt4ixkKl+yhqCxztIyBn5?=
- =?us-ascii?Q?Oitnz9GJYbx9XedHB44g3PYClRdaycfF6jvO8pl+uU8URCOb5N+fsHHX21aZ?=
- =?us-ascii?Q?DIy0cYjHicfMaTVhbEGVeUkTSvd9Dmwd1we+wXnp6A+B7F9TPlX34Cofx2/K?=
- =?us-ascii?Q?KjXC8G/GR6s+asDdcFw742xD3WOegpSOBfxqOdIHchXosB4MEZkM1kf62Vbs?=
- =?us-ascii?Q?pMneszOKKa4II9vUxMFpXtOCLWqJtM9SvVlldYi6O7DiDDOQUG6W3ElWOx9C?=
- =?us-ascii?Q?mdUAJ8XNfian9o3023OjJOlVuB2uJFE9thWvxo4XqVvNx+KOEwFXcH1WYz9e?=
- =?us-ascii?Q?nccxfm8I8fH74VZpXq7wDK5Dr2EdVUHihZ7mqmlcnpCtEXqVeaaMKP8WDzIc?=
- =?us-ascii?Q?mrHAHzTuPjpHRbMmqKEsNqLEb1Sw6BnXgbRFDYp00fBfLu+iEDgOdJO8uueb?=
- =?us-ascii?Q?/85ckd38GvZ/E4FJDze/IVVip2w5uX3Gif+fv8F04U4GDcinbUnpBb8Wbfxz?=
- =?us-ascii?Q?loVskgffbk4FtIepAVRo9GjbymjfycU93Ghh3NCeTk4C8EbOSENn77Rnt0JS?=
- =?us-ascii?Q?Y2dDmJf/IfhJxm6eGl6IUX0OddxCMXtwZ807lYf8GtzQtm9oI1WvQREks4Ms?=
- =?us-ascii?Q?/ulluIdNdErkdd6aSZZzdqXQj92WNBwr7rN5dgN6QpcPzrPFUb4lQMjP4Mhc?=
- =?us-ascii?Q?38/oG1qqULbawa6GwfAHAWJQ3Vejn+Q3g/Jlo2f+g4HD14q4AbSX6KpY30Kd?=
- =?us-ascii?Q?NRdqMhzfYbikeAlK+8+9Wv9C439TgZUnXjNU8VPrM9XlhA/tqVUfdraz0Zqx?=
- =?us-ascii?Q?M7d3EnVG0VqMSR144ZB55TkzkWeAl0v7puZBQH2i7IFxFYl03rz1UVrqHAy+?=
- =?us-ascii?Q?+Qft+RpVqRQmy6rPWbRSnNYsBbC/YYE349WndsVXxFLpQwYlv2l8T4AeJQm3?=
- =?us-ascii?Q?p0zDwfIuxN7TuXpUpWMSuPr0XJpL8s0nFyCjShayul4br9QYo47MEIpMdO54?=
- =?us-ascii?Q?od+KzoA6pVFI/fvIRCeJU4zDwPX7IOTN23cFKNA8VYPqdMTKXCVTXgwcVCMp?=
- =?us-ascii?Q?QzCsSDEdtON31ZHMwS+yU4iEJ4n4GQWiLCuCtK9mFsW/IUgwDlQI2WugnzL0?=
- =?us-ascii?Q?lNIt+i+VgGrry2FoD7O36k1wjWliT3kyZkz15KCAdNd0aC+MQ6OhDOsJUvzk?=
- =?us-ascii?Q?JruMflugFbebSg52Xv/aVUU8W3nOGUNHlzQsO05CCFt5IKg5Tkp1iw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?01Sp6Myfv+4u9JcpDu/0CQsHthrt1oYAS+uewhha9hKgDWg++WzpwLUS0glI?=
- =?us-ascii?Q?FlCUYxI87Ie9t/TyG70ToPl8ZRA6TPKMT0d2eKwb+5PIFuO8g/1qsPI4AFSo?=
- =?us-ascii?Q?7MPnnEEHsxI1Pv7Q+OYyORZXLZBgY85NFmA8A+qJEdAGi6wI60lLAfWqpibG?=
- =?us-ascii?Q?zRRQtg325bKx+S/5gYmgkWlSEmuNIVwkVZ8l9Kj3nw0TIQXU+D+0nqscG7/k?=
- =?us-ascii?Q?3feB3qxP8RTBpez3WHnEaelKlLGmg4bre46GlhJ2yonbGiP6Lr3hfn4ICW1Q?=
- =?us-ascii?Q?26ke9qWg3xMjRh8HPIXcinyme99VvGmoCt3OAJjAKOwVBWg9tOq0tMl0Re6H?=
- =?us-ascii?Q?9nbeagGuMNsj9hLQknGsHVeUZt6VScbyq/OF35UDlBv9gkx8qT2rkduVl0Y2?=
- =?us-ascii?Q?v8IvJ5OYHWFpXFPdqj1XvCfIyfIkOIr1niOb9c943tR9Czq3YOx9E5hZ/lBu?=
- =?us-ascii?Q?6ce+tAJ6hjn3mGdxR5Qxy3218V4NIxHj1YIg0WiuWCFWjcWjFIS/J/FkLzFv?=
- =?us-ascii?Q?WtELPEnHMJvszh204++pnl05siQ3w4mw5Ocvb6oHJjLOTt+Sk3qx3ktS4Vqb?=
- =?us-ascii?Q?Ngc4gjlqg+D6o79JvrHrhyDj56afEt4Ljc9GNUedpyLGzC/+Trqp+YppviIE?=
- =?us-ascii?Q?avmb5BuKH4aDDKX25pLfVaQdOQk53Jh4O3OyDb8wKpibq4kFRm0ucDdSiDQW?=
- =?us-ascii?Q?cnWkKpSkkddFfxvUDW0InqKPVX8xrSENxL9iwaQh3GjBGepVIlF9Bw6qeDtL?=
- =?us-ascii?Q?kHejsSdRFMnMFcfo1PSzsgSMnWoUY9J65NKPtl1CORfxGlb1sr8lSSM0lAj5?=
- =?us-ascii?Q?C6vsvAzRScbqRkfYmd/YMT50kT/IiSRZu+ncvB0KfkibxIt42JrBL0HVRMAA?=
- =?us-ascii?Q?PFSodscY4udjXcoDHtkCIvfFBr6NnzizVQ23qoyifLgjzOlt7+8LLfQ7XrYJ?=
- =?us-ascii?Q?rfiHQjN3A3yZIItMgPl/nu8N5YHbXAYGXgMXGbSXUa1dhoUGbyGydBhc0yog?=
- =?us-ascii?Q?36vLiDnWnyWIUjpvXmjoofNhVe8sfCNUcOuc/x8whlehQDg25xF/TuoVwSFN?=
- =?us-ascii?Q?pqgVIU4FFxZh7OKcyJtV66M47p1aOSIT3uDSU0TO16wGjF1fphSBf9P0Qlof?=
- =?us-ascii?Q?cWOvvP67IKeefAl7mIHdBTHr1pLiSThEK09CEUpgXnraUckNXF5TD8zkRdUj?=
- =?us-ascii?Q?q0H7jq+S0X/+WCQBXMZDx9JE0GtZmiBMuxlp343h9YWXQ+MQPZlnbu1yUblZ?=
- =?us-ascii?Q?uXixBLZEVgML+EtanpOiXVDm9lrZOOcI3wKEwRCZcny2D4t8uNgUamuuF3Z/?=
- =?us-ascii?Q?u/IOuQ+1lQDKmR2wfD5pP9JPoiJEiPuedb5wsYJGxSLfU1ZIHQbQQW+Jla1K?=
- =?us-ascii?Q?/ksIUXBOy96Mq8w69I5iUgP3IPA41wI3CVxfhBBF0u2m1ciZRBotLmYBEUu5?=
- =?us-ascii?Q?lOVMbe5qLwngHPHKnSUoG8C5sqMfGJWgYCS8Q04fZvF75O1fSuB+RefRDWD5?=
- =?us-ascii?Q?Qh+vrZkBPP5+/JmfagzuyVdhSP4qsKTYtEG3tPxMcbg9XZ4/7XRKmsofX+GY?=
- =?us-ascii?Q?5yqq5hiuptNRHTsiVxiIIQFQlC82scWNjysvgN2S?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 860cfaa5-9e21-49b5-a1bb-08dde186c8d6
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:18:36.9927
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UxIPFZaBNCksNWGNRegtybuChI4GxzxjD/BXzYCFzg9cmq8GE42Y80S/1X9GfFR82SifdeCF/iCq4pa8nxKWGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8767
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_071906_548735_8E827481 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250822_163442_369976_AEBA1B67 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,50 +112,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 03:27:32AM +0300, Laurent Pinchart wrote:
-> Some CSIS instances feature more than one output channel. Update
-> register macros accordingly, parse the number of channels from the
-> device tree, and update register dumps and event counters to log
-> per-channel data.
->
-> Support for routing virtual channels and data types to output channels
-> through the subdev internal routing API will come later.
->
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
-> Changes since v1:
->
-> - Update more per-channel registers
-> - Update commit message
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 239 +++++++++++++--------
->  1 file changed, 152 insertions(+), 87 deletions(-)
-...
-> +		return dev_err_probe(csis->dev, -EINVAL,
-> +				     "Invalid fsl,num-channels value\n");
-> +
->  	return 0;
->  }
->
-> @@ -1444,10 +1511,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
->
->  	/* Parse DT properties. */
->  	ret = mipi_csis_parse_dt(csis);
-> -	if (ret < 0) {
-> -		dev_err(dev, "Failed to parse device tree: %d\n", ret);
-> +	if (ret < 0)
->  		return ret;
-> -	}
+acpi_count_levels() passes the number of levels back via a pointer argument.
+It also passes this to acpi_find_cache_level() as the starting_level, and
+preserves this value as it walks up the cpu_node tree counting the levels.
 
-I think this change is not belong to this patch.
+This means the caller must initialise 'levels' due to acpi_count_levels()
+internals. The only caller acpi_get_cache_info() happens to have already
+initialised levels to zero, which acpi_count_levels() depends on to get the
+correct result.
 
-Frank
->
->  	/* Acquire resources. */
->  	csis->regs = devm_platform_ioremap_resource(pdev, 0);
-> --
-> Regards,
->
-> Laurent Pinchart
->
+Two results are passed back from acpi_count_levels(), unlike split_levels,
+levels is not optional.
+
+Split these two results up. The mandatory 'levels' is always returned,
+which hides the internal details from the caller, and avoids having
+duplicated initialisation in all callers. split_levels remains an
+optional argument passed back.
+
+Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Signed-off-by: James Morse <james.morse@arm.com>
+
+---
+Changes since RFC:
+ * Made acpi_count_levels() return the levels value.
+---
+ drivers/acpi/pptt.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index 4791ca2bdfac..8f9b9508acba 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -181,10 +181,10 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+  * levels and split cache levels (data/instruction).
+  * @table_hdr: Pointer to the head of the PPTT table
+  * @cpu_node: processor node we wish to count caches for
+- * @levels: Number of levels if success.
+  * @split_levels:	Number of split cache levels (data/instruction) if
+- *			success. Can by NULL.
++ *			success. Can be NULL.
+  *
++ * Returns number of levels.
+  * Given a processor node containing a processing unit, walk into it and count
+  * how many levels exist solely for it, and then walk up each level until we hit
+  * the root node (ignore the package level because it may be possible to have
+@@ -192,14 +192,18 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+  * split cache levels (data/instruction) that exist at each level on the way
+  * up.
+  */
+-static void acpi_count_levels(struct acpi_table_header *table_hdr,
+-			      struct acpi_pptt_processor *cpu_node,
+-			      unsigned int *levels, unsigned int *split_levels)
++static int acpi_count_levels(struct acpi_table_header *table_hdr,
++			     struct acpi_pptt_processor *cpu_node,
++			     unsigned int *split_levels)
+ {
++	int starting_level = 0;
++
+ 	do {
+-		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
++		acpi_find_cache_level(table_hdr, cpu_node, &starting_level, split_levels, 0, 0);
+ 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+ 	} while (cpu_node);
++
++	return starting_level;
+ }
+ 
+ /**
+@@ -731,7 +735,7 @@ int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
+ 	if (!cpu_node)
+ 		return -ENOENT;
+ 
+-	acpi_count_levels(table, cpu_node, levels, split_levels);
++	*levels = acpi_count_levels(table, cpu_node, split_levels);
+ 
+ 	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
+ 		 *levels, split_levels ? *split_levels : -1);
+-- 
+2.20.1
+
 
