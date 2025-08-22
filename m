@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021D8CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67C0CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQIqNjTVj1GHbqmaXq7xQzF58NYgXBpjqOdxPM1igPE=; b=IJItiCEDMKBBHPpwYhHJkz4KWY
-	tF1/b/gXLRFbL/mwaTqSQyVKRVgsTn9aiHncZqTpCimH71cFK7zr37tq5en6IWM+dVvkJCP4d5BKy
-	ulS7abbLX4kxMcix7Te3Go1MYgW61HjnJjp29zv2qYVga+K6Xp8/T2fhIL2pIaWEhqIXB7cLlytpb
-	9g96jv8ns/VbBhgKoWwG9P9R1VDzYfcsNE55SzJmYDB6+3e4pLGaAjoLQWL7lZ06z1szb27lDqzVv
-	0IrQlZ0lpP7LfnGOAMNm8wfGNybIKuF9LXvERzhtm0+hAur2TwcmQK+gf89Tu0jARaPIdsprc1Gil
-	6+uNI7kw==;
+	bh=si7oxUCNBZpRcWXPHUnuUquDQHw6MwDHtqdfni+tQ/g=; b=k13CLD6Mi/dEgC1WPn5Hoi7Hh9
+	fqHA2jdL8dxmpQAGPuex6HYnKUe5oZBMZnLjcXnjOhDA8Bk9SE9dwyMcDRAkEDXh4lmY1fnzi81QJ
+	XE8im/e3YNoyhGZMoKiIA9rgCHeDEPe5DXpSlC3BjgsZTlNDTYLoLfj2cK773bemQYT59GLitB5xQ
+	FBf9mCjE4RmOiDk3KEwR4Y6Q9nL9BaEyo1iapVnWgKt4cWlegNNvD+VUP3uJj4yPR69RQ1PNS/S6n
+	sM9MZ/Hb+nZpZcvYXOoFGzR8r/P8tWTUZp2H+2mPPwtYqgaB8KP4S+dlEMBxU1bQuH+Ya2sd4R+nF
+	F1+QS7Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQGZ-00000002O0r-1rat;
-	Fri, 22 Aug 2025 11:49:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1upQGa-00000002O2g-3Ink;
+	Fri, 22 Aug 2025 11:49:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upM68-00000001nvt-1uMn;
-	Fri, 22 Aug 2025 07:22:05 +0000
+	id 1upM84-00000001oDw-0hfc;
+	Fri, 22 Aug 2025 07:24:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D813C5C5950;
-	Fri, 22 Aug 2025 07:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F136FC113D0;
-	Fri, 22 Aug 2025 07:22:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 59BC860266;
+	Fri, 22 Aug 2025 07:24:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B8F5C4CEF4;
+	Fri, 22 Aug 2025 07:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755847323;
-	bh=9FEAxH3+AuZBvYVKXXR2QRHxEq4KpWqmux1TYKe6B8c=;
+	s=k20201202; t=1755847443;
+	bh=WuDthur/naSlz9x9SdcEfVIvLuh26ZaWEM8NRd6Pykk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=utA5OxOBW3wrcfUPDWJiVKWH7kUQEfDzLbyiCVlbCix33FrRPrMxlMzVoPR6S8Urn
-	 pqFFq4qNFXiw1XXRFXDPrx1MXlW3npksb6kFkmRjtDMwLKaa1038S0g6N8PSlpmLta
-	 Y8y7Gkbtxp6S0/0rcI4QFwHmsTeTwAcxOPTobpAEFRVWtg4pVaDqNYbixEPhPZBpIh
-	 OoGUkFBvk/q2Bu6j24BBeQp8vMoqYbFdEM528eeseV5vSkzjR9wjjGyUtx53gR9jj9
-	 hkpDBeK7kkjaQk8CMpO/PJ0AxdM8Z/iASISn0X4l0bw+ltsNZ1Z+g+mGuOMSpgj7m6
-	 ACKNdRw7Vw8jg==
-Date: Fri, 22 Aug 2025 09:22:00 +0200
+	b=Stzro7ufnPBe9angyz46enQdBWHrKwFmd9T/VQcGvILXha1ulT3tW8OKmepm4mWZj
+	 1j2TWmF3Sp0JkrV2MAOi3A28voPvdLBM/rw5MP2PZuI59lCJ4tiwEp+XNAxfgX8GYR
+	 atgzOKqF4XCDTz3v/K7fqG5c7h3pmYohSBCww0HLHGBXibjeNXehjrJpdqMiKYKcZX
+	 pMDWngELOgsdI/k+3H/6z79sqlBxIEKBsE7eE6De905l6ReWId2yH2y8IBJ14WgE2L
+	 buLW/+xWUg5qKgc4o3w+xSw1XGi1b1Loe0h8UwFYiyisucKcINC+GvSxK3nHOsdWMY
+	 2QIIWsh96WG1Q==
+Date: Fri, 22 Aug 2025 09:24:00 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Sven Peter <sven@kernel.org>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -53,18 +53,14 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-phy@lists.infradead.org
-Subject: Re: [PATCH RFC 01/22] dt-bindings: usb: snps,dwc3: Allow multiple
- iommus
-Message-ID: <20250822-skinny-clay-harrier-64dc58@kuoka>
+Subject: Re: [PATCH RFC 02/22] dt-bindings: usb: Add Apple dwc3
+Message-ID: <20250822-banana-ferret-of-opposition-0bcfad@kuoka>
 References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-1-172beda182b8@kernel.org>
+ <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250821-atcphy-6-17-v1-1-172beda182b8@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_002204_531974_EBB4F3CF 
-X-CRM114-Status: GOOD (  14.02  )
+In-Reply-To: <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +75,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 21, 2025 at 03:38:53PM +0000, Sven Peter wrote:
-> Apple's dwc3 variant requires two iommus.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  Documentation/devicetree/bindings/usb/snps,dwc3.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> index 4380bb6fa2f08a475b557e80467abc2861f622e2..6d35dcc605c01977f4fc6fdb6f12976f1cef2b9e 100644
-> --- a/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> +++ b/Documentation/devicetree/bindings/usb/snps,dwc3.yaml
-> @@ -60,7 +60,7 @@ properties:
->    dma-coherent: true
->  
->    iommus:
-> -    maxItems: 1
+On Thu, Aug 21, 2025 at 03:38:54PM +0000, Sven Peter wrote:
+> +
+> +  The common content of the node is defined in snps,dwc3.yaml.
+
+Drop sentence, redundant. Schema tells that.
+
+...
+
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  iommus:
 > +    maxItems: 2
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +unevaluatedProperties: false
 
-Never tested. You anyway need specific constraints.
+This goes after required.
 
->  
->    power-domains:
->      description:
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - iommus
+> +  - resets
+> +  - power-domains
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/apple-aic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    usb@82280000 {
+> +      compatible = "apple,t8103-dwc3", "snps,dwc3";
+> +      reg = <0x82280000 0x10000>;
+> +      interrupts = <AIC_IRQ 777 IRQ_TYPE_LEVEL_HIGH>;
+> +      iommus = <&dwc3_0_dart_0 0>, <&dwc3_0_dart_1 1>;
+> +
+> +      dr_mode = "otg";
+> +      usb-role-switch;
+> +      role-switch-default-mode = "host";
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fe168477caa45799dfe07de2f54de6d6a1ce0615..0e085cb0762f765958d67be61ae0d3d773503431 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2399,6 +2399,7 @@ F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+>  F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+>  F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+>  F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+> +F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
+>  F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+>  F:	arch/arm64/boot/dts/apple/
+>  F:	drivers/bluetooth/hci_bcm4377.c
 > 
 > -- 
 > 2.34.1
