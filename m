@@ -4,100 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCACCCA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0B8CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJVEVHQF5pr9BGboWJab/5hf088ZC2OEhk357P8nepk=; b=F0h7EcjzipC1ktkGedpPnVbHzr
-	UzqCEJNdE/pexacop/h7ju6yod6RslMDiX3bt5KHXWC6XIXUbnBv336dor7koGC+xK+3r2oOONeZg
-	QlECrL1L47FP7l1glVy8UADiMwE13SnyNjtRWDlksgrr3Qkt/G4rxK+5Gab9yWaScVzvwvmFFbAX/
-	2bUdqPhyCAqw0Q2ErJpDsL0NzXlJ86FTvwkuDou6If4fuKBRd+mF6eC+wOgdV3ChYlOPhSZ20WNJR
-	6CbILkxtFcGucduz5xIMlAH8vEuNRW8JC7y8laNuE+6j4jsK9e0BfUtZ3e4bu/xbc7PvWZorD/1aO
-	UV+hrD0g==;
+	bh=TqNbHZRcfPtenRRmClNSaYPPGu0G5xAMA+3q9ZY42u4=; b=A1ppOqJBPsyTh8MxSBVXZGjYbC
+	GHZMRUw+wyNDZgHF3uLpLG5GFR5yrdtUd38VXNMgc5gBVTH8DaOEVJvuSezaKC85fSGiBFMUgrqsF
+	eJC+RdhL1/z/OYNkGwORQ++R7NITb1tIKwtEd3zjQed+x+NH2eIMtPHIvDN5WkBJ/WTTdvqU/F+mM
+	+to3lZDjHxFxF8crBgaKiWAiSGiCauX1ibJl4KEoruFmeHhbo99Wm2t+1upPxA2qQjYWkjksjXzSY
+	xajhb2V8G6I/lggO3kdymKST29tU0oF5Pye3BiS+5Eu6/k1di6SPst5ZCgsjfz9P1WhcQ5kJAX2iU
+	RTGK+9UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphle-00000003yYo-04fI;
-	Sat, 23 Aug 2025 06:30:22 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uphll-00000003yk7-1lXn;
+	Sat, 23 Aug 2025 06:30:29 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRMk-00000002Z1v-0QTx
+	id 1upRVT-00000002aEV-0BJR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 12:59:35 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MB4cNS006702;
-	Fri, 22 Aug 2025 14:59:21 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	eJVEVHQF5pr9BGboWJab/5hf088ZC2OEhk357P8nepk=; b=Nfs7u0K7OlORz/Pc
-	D6Sp9pLBly1bVFLlKKcXt7nNlZ5eXZOoOd/qZd4N+VnZuxcjgEGKSBv/03cE56zg
-	s84BseNPmH/f+YN7NSapfJKf+23PI0iJ600LKTygRkXTD61x4zSjNS+nVdEanN4X
-	8UkYHvd8+MLYSy7DR2s0f/KcAiDAUmDmoD4YLeuK6xE/njAeRga+/hPk3wUdKicd
-	AYGrS4YgsgAXP51YZsHDT0rzu8Wcl0w8TW0adxRh5IV844+RUSm3e2z6rKjqHfg4
-	Gfe46MB+fUE/+Psv+l70rV0hwLzDDvCaflRKi6JueVyZ40yvhK7L5Sd3om1Vs46U
-	5/8iOA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nj3v88b7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 14:59:21 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 880E04002D;
-	Fri, 22 Aug 2025 14:57:35 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 967FE5EFA17;
-	Fri, 22 Aug 2025 14:56:34 +0200 (CEST)
-Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 14:56:33 +0200
-Message-ID: <6bc77ea8-c664-45ff-886a-aefc79767253@foss.st.com>
-Date: Fri, 22 Aug 2025 14:56:33 +0200
+	Fri, 22 Aug 2025 13:08:37 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 9E2644E40BA8;
+	Fri, 22 Aug 2025 13:08:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 59FFF604AD;
+	Fri, 22 Aug 2025 13:08:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0FDCD1C22D316;
+	Fri, 22 Aug 2025 15:08:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1755868110; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=TqNbHZRcfPtenRRmClNSaYPPGu0G5xAMA+3q9ZY42u4=;
+	b=ReiU5eCrKGWkEjja6xxkaTwPoRvb7IVY0ojhE7MBOmIAMAe0jRB8jF7uadLQ4vVaBIqu3R
+	J5eeeEDBa0ZJfrPrQZ3TbzN3xPInorEsLyz1M5N9w5lD2wr3pxtQieJTwjEa9lGKfwVuPp
+	DQcf73EDIYm8OpWrTRmS1IJYA+7XzaHNV4c3pzCAO2GenFFcTZJx/JKYstO/bw4yozpYsS
+	0azze71VcN24gvOTme/q1KZuh5/jpv6ynZIxsEl5BO3OHGLhwrom6oKBa2WVEIUSbXc0up
+	HlN3CP0R1dwC+iSTchpcBUEiXlrOEl/u/faXfEGeLKc1SRo+agPRwhAJ08ol/Q==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Jihed Chaibi <jihed.chaibi.dev@gmail.com>, andrew@lunn.ch,
+ sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, jihed.chaibi.dev@gmail.com
+Subject: Re: [PATCH] ARM: dts: armada-370-db: Fix stereo audio input routing
+ on Armada 370
+In-Reply-To: <20250723224504.70862-1-jihed.chaibi.dev@gmail.com>
+References: <20250723224504.70862-1-jihed.chaibi.dev@gmail.com>
+Date: Fri, 22 Aug 2025 15:08:25 +0200
+Message-ID: <87v7mf5ws6.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/13] drm/stm: ltdc: handle lvds pixel clock
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
- <20250821-drm-misc-next-v4-8-7060500f8fd3@foss.st.com>
-Content-Language: en-US
-From: Yannick FERTRE <yannick.fertre@foss.st.com>
-In-Reply-To: <20250821-drm-misc-next-v4-8-7060500f8fd3@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.178]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_055934_423774_B863A248 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20250822_060835_218989_A6910FDF 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,96 +77,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raphael,
+Jihed Chaibi <jihed.chaibi.dev@gmail.com> writes:
 
-Thanks for the patch.
+> The simple-audio-card configuration for the Armada 370 development
+> board incorrectly routed the left channel signal ("AIN1L") to both
+> sides of the stereo "In Jack".
+>
+> This commit corrects the typo for the right channel, changing the
+> second "AIN1L" entry to "AIN1R" to enable proper stereo input
+> recording.
+>
+> Signed-off-by: Jihed Chaibi <jihed.chaibi.dev@gmail.com>
 
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+Applied on mvebu/fixes
 
-Le 21/08/2025 à 13:08, Raphael Gallais-Pou a écrit :
-> From: Yannick Fertre <yannick.fertre@foss.st.com>
->
-> Handle LVDS pixel clock.
->
-> The LTDC operates with multiple clock domains for register access,
-> requiring all clocks to be provided during read/write operations.  This
-> imposes a dependency between the LVDS and LTDC to access correctly all
-> LTDC registers.  And because both IPs' pixel rates must be synchronized,
-> the LTDC has to handle the LVDS clock.
->
-> Signed-off-by: Yannick Fertre <yannick.fertre@foss.st.com>
-> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Thanks,
+
+Gregory
+
 > ---
->   drivers/gpu/drm/stm/ltdc.c | 22 +++++++++++++++++++++-
->   drivers/gpu/drm/stm/ltdc.h |  1 +
->   2 files changed, 22 insertions(+), 1 deletion(-)
+>  arch/arm/boot/dts/marvell/armada-370-db.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
-> index 17548dd3484a0a3e1015c58c752b80f8892a0ff7..f84a9a8590f0653e422798ff61804d7c3966caef 100644
-> --- a/drivers/gpu/drm/stm/ltdc.c
-> +++ b/drivers/gpu/drm/stm/ltdc.c
-> @@ -837,6 +837,12 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
->   	int target_max = target + CLK_TOLERANCE_HZ;
->   	int result;
->   
-> +	if (ldev->lvds_clk) {
-> +		result = clk_round_rate(ldev->lvds_clk, target);
-> +		drm_dbg_driver(crtc->dev, "lvds pixclk rate target %d, available %d\n",
-> +			       target, result);
-> +	}
-> +
->   	result = clk_round_rate(ldev->pixel_clk, target);
->   
->   	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
-> @@ -1878,6 +1884,8 @@ void ltdc_suspend(struct drm_device *ddev)
->   	clk_disable_unprepare(ldev->pixel_clk);
->   	if (ldev->bus_clk)
->   		clk_disable_unprepare(ldev->bus_clk);
-> +	if (ldev->lvds_clk)
-> +		clk_disable_unprepare(ldev->lvds_clk);
->   }
->   
->   int ltdc_resume(struct drm_device *ddev)
-> @@ -1895,8 +1903,16 @@ int ltdc_resume(struct drm_device *ddev)
->   
->   	if (ldev->bus_clk) {
->   		ret = clk_prepare_enable(ldev->bus_clk);
-> -		if (ret)
-> +		if (ret) {
->   			drm_err(ddev, "failed to enable bus clock (%d)\n", ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	if (ldev->lvds_clk) {
-> +		ret = clk_prepare_enable(ldev->lvds_clk);
-> +		if (ret)
-> +			drm_err(ddev, "failed to prepare lvds clock\n");
->   	}
->   
->   	return ret;
-> @@ -1981,6 +1997,10 @@ int ltdc_load(struct drm_device *ddev)
->   		}
->   	}
->   
-> +	ldev->lvds_clk = devm_clk_get(dev, "lvds");
-> +	if (IS_ERR(ldev->lvds_clk))
-> +		ldev->lvds_clk = NULL;
-> +
->   	rstc = devm_reset_control_get_exclusive(dev, NULL);
->   
->   	mutex_init(&ldev->err_lock);
-> diff --git a/drivers/gpu/drm/stm/ltdc.h b/drivers/gpu/drm/stm/ltdc.h
-> index ddfa8ae61a7ba5dc446fae647562d0ec8e6953e1..17b51a7ce28eee5de6d24ca943ca3b1f48695dfd 100644
-> --- a/drivers/gpu/drm/stm/ltdc.h
-> +++ b/drivers/gpu/drm/stm/ltdc.h
-> @@ -48,6 +48,7 @@ struct ltdc_device {
->   	void __iomem *regs;
->   	struct regmap *regmap;
->   	struct clk *pixel_clk;	/* lcd pixel clock */
-> +	struct clk *lvds_clk;	/* lvds pixel clock */
->   	struct clk *bus_clk;	/* bus clock */
->   	struct mutex err_lock;	/* protecting error_status */
->   	struct ltdc_caps caps;
+> diff --git a/arch/arm/boot/dts/marvell/armada-370-db.dts b/arch/arm/boot/=
+dts/marvell/armada-370-db.dts
+> index a7dc4c04d..a9a05d826 100644
+> --- a/arch/arm/boot/dts/marvell/armada-370-db.dts
+> +++ b/arch/arm/boot/dts/marvell/armada-370-db.dts
+> @@ -119,7 +119,7 @@ sound {
+>  			"Out Jack", "HPL",
+>  			"Out Jack", "HPR",
+>  			"AIN1L", "In Jack",
+> -			"AIN1L", "In Jack";
+> +			"AIN1R", "In Jack";
+>  		status =3D "okay";
+>=20=20
+>  		simple-audio-card,dai-link@0 {
+> --=20
+> 2.39.5
 >
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
