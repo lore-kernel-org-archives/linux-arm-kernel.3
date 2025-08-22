@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E65CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AEDCA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdRuwvgpdfkzMUyKr6tHlpFHvNuuCdXxV4D+HC6QaMA=; b=rhu4SNgxdqBoXLv7COj0RMpxTO
-	pfWpt85WLtTtEXPRdFH4HIqaQL0CNnQEItjggdQslyvRSj6qfSGMQPq5z4oah6h19d8IqoB0abJG+
-	iT0qt19DXhX9dOujVoDPkMOxcWxWMEIokr2tBpwsh6tyBb8SsrXInH7XwYjHSNuCc3uD3Q5vzMgZZ
-	pjobD0l4IjHRCKu+IYUP0W4q8eJb4bAi1WEJTJVa3rI2MHmpMgb2dFq9de+nUqERhZGt2sE/o3vK5
-	td74xSi+4HYaJaPVtYedcevs0Chu5zvMKCJTyTdOEq7oMKAZEfvta2Zq8uOC71+jv1EtJWY6jD44b
-	RzK47hjw==;
+	bh=fdRuwvgpdfkzMUyKr6tHlpFHvNuuCdXxV4D+HC6QaMA=; b=KMwUt4muym31HUZ4jYvswV54W9
+	jdDElNxKHv2yBAR65uuuZhahCCCBMpazYdkW3YeFE8DKmbiB0GNZh2vGtjC3bbSqak6knd41xS+mp
+	2mRlEtmjA0kdAZkKuJ9hukN0Y4r7N9kGdEVddaZDVdIgF78xuHTsb1xBUr/ZbBx1QdBkOJu+mbqeN
+	orpYKgOEkhZ8MfvmSdHdfamioQKca3P5UO/L9dm8+3rh94iNyz1oWwApQ/LD3NYO7tqOI2Fy8zxxz
+	7+wONm1N3tZegXQtJyyppjTcFIbcZxI4v47xwG1c+Vw7y30eS97SFY558K3YAiR5yrtBhO+Q61Jng
+	iyet3jlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphlf-00000003yau-0RKY;
-	Sat, 23 Aug 2025 06:30:23 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uphlh-00000003ydu-0TkA;
+	Sat, 23 Aug 2025 06:30:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRNI-00000002Z7S-0EKA
+	id 1upROi-00000002ZIE-0M04
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 Aug 2025 13:01:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=fdRuwvgpdfkzMUyKr6tHlpFHvNuuCdXxV4D+HC6QaMA=; b=I4ebJ0FM4YL4jTdSyEIQbNusz7
+	yJZigOBW9tl0JT52l+Z2MyhjCf1+H1beiyvrZgRrs2VLbDUdojaYf7Ey/pcd154CT2gP5MHzZx2IQ
+	qrCRMKxePqJ1TIAcud1qAr/g0tFiYmzRQhT3smJq0siDjigIhdFwlapJQpc8KjwTFnzT5DF5fv7/e
+	SAoYFn4XCgkTr9o4I+1AmbRQb01brAGyQ7TBb05r8EENOXFyx2IpIisj7AFOwDU19GUotzyVluzxK
+	A9Sp8GcuOZXIwuuYdfscOSvG1cnWSZ26mlbcWorGs28AqkvybV44tveMEDt6C99TxqS9QVmnQgwY7
+	6cAUK5sQ==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upROe-00000000uw4-3ozH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:00:09 +0000
+	Fri, 22 Aug 2025 13:01:34 +0000
 Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MCoe7v030096;
-	Fri, 22 Aug 2025 14:59:56 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MBsrtt005113;
+	Fri, 22 Aug 2025 15:01:17 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	fdRuwvgpdfkzMUyKr6tHlpFHvNuuCdXxV4D+HC6QaMA=; b=KI/XT+6MJhFi2WeZ
-	w5MTkk1UGOx796nFOR/zy+WvJGJudHm7jyOVRGMaXPZ8w3xyHBktOam8O+P/3qVX
-	VHDVymxUsP8rpSaly0cSlknRRPL6vW9aO4zwzjIUFMukfMXWBkOUO/R1oZ8meTeE
-	+3JvIr4Rbjysy0r1W0Q/J9U7xURtq1A05uWJ4tvY912gefWrZ6GZBa/HvUhyXXpX
-	HxiAMdLAgdqNKPU1FHAuEoJ9zVdZywDzhv7Qk6PQCRxrdKDMtOL2kaUPbwAAgvuw
-	htF5OKdOLwYHZctSLYtibJWJz5iaAjqC+/wUYlz1RUa9qnLm8+DKybMjl1Az8Lhr
-	hFtBYg==
+	fdRuwvgpdfkzMUyKr6tHlpFHvNuuCdXxV4D+HC6QaMA=; b=o9+d1jyddJZsZv7j
+	YYAMjp+cD2GsmtQUtGB0unOVKx/w4zZh5slX3aR4Di3d34rcX6sEGcppkS4sXh86
+	NTJMIxsroEnJcrFpC30b4Dku4THlEyd7qm27cQmnZB9zqJJM31Z7lXiQG9mzVZst
+	33G8e6rLFVrY3ejEVIIo532Ms7LWZxTW3LgwdYEP/DEpJpPBXf0kXhwfo4+vCGqO
+	N9emJ6Flm5G9rHUP0DRCl/6HLCUQKYidXhdACf5R8UIV0EW59DNy1/R9NwrMNpBJ
+	mBlYjzFx2bxbPJ2dx/5/lOFgCpL3ZVzq0OAc3uouW9A8ot/uyG2rFyKz8jjWkD5d
+	kaJBIg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n77uc-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48np7n7801-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 14:59:56 +0200 (MEST)
+	Fri, 22 Aug 2025 15:01:17 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 23DE04004B;
-	Fri, 22 Aug 2025 14:58:38 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DDE8E4002D;
+	Fri, 22 Aug 2025 14:59:59 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4281871EE31;
-	Fri, 22 Aug 2025 14:57:40 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1B58571EE06;
+	Fri, 22 Aug 2025 14:59:03 +0200 (CEST)
 Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
  (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 14:57:39 +0200
-Message-ID: <7278430c-0b01-4a35-b1c0-b906e6cf464a@foss.st.com>
-Date: Fri, 22 Aug 2025 14:57:38 +0200
+ 2025 14:59:02 +0200
+Message-ID: <03b4732e-1545-470a-b6ce-bda68c7477d4@foss.st.com>
+Date: Fri, 22 Aug 2025 14:59:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 09/13] arm64: dts: st: add ltdc support on stm32mp251
@@ -96,8 +111,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_060008_361122_5FD7CD7F 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250822_140133_104173_CC2CECAB 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
