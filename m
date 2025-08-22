@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E14CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3459CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8d+wooMnY2WYKP9i1iBb2mStniBrlOevQvWAQwCUla8=; b=NOrXLsj8P4bWegcNnsUCg/PVha
-	SkwJgTqbqS8J1w78c36GGSiGlPEJSyxYwPMsKUxHyAOdYFQKIVCJIY3bRPJmpf59KfkGvdM75NybL
-	8U2lNMfdLlPQ5Hg9Rn67Dqj4iw5T9yDTB6jaSrSe5nVboH7MwjVvBcZcoHczL1d1Q0U2Dxrr3AQAn
-	zxa25v9nzz1qIp5ecc4BOHKdUJ8/5RCva4mwv60itMbsvZ9U5l+gSENdZTC0VTaiJTA1F0O9g4kcR
-	bluzkGujd87HtnjTXljQNSfOZym6+bfW9mgRESFJaAqmPRjtpt/AP+QvrjBDud5TBWl3ssCcS3nrY
-	IG7gMN0A==;
+	bh=b2xneINNbnv88ImQ+PFAtqtpTNXumUXt4/TktLHvQ6M=; b=uUfIpoOZSjBjAqiB0i+0BZkgyo
+	AC9WAo4YA/1o0szHEDDL0R6PZq/WLPFbG2nakEANyzyXbh6t1Auo4pESyOehk/90jHkC+MI+fMw5X
+	m2zFoRh4IFTGKPF1dWeL0vthDXIhypvW8vaXQRo73vUbsONpLNSbEdGn/1T2aUsHjcwQMnJ3MV89F
+	vPmk94sqyhz74+CQRFeBvtfC8cWev/pOpXpWny1T5iZ4/wKAAtxstv4r2z0mY6e0A2lpx4Noy5h2T
+	kKCmkQ4PBglIgwczbMIUKsopaqTLH1buc2FZZNNnhYrWGB+soACmaK7m+1qtsfOPTJheZvXS1zSox
+	SPsAtU3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLNN-00000001htd-11dj;
-	Fri, 22 Aug 2025 06:35:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1upLPw-00000001i83-4Bqe;
+	Fri, 22 Aug 2025 06:38:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upGzP-00000001BWH-2s4a
+	id 1upGzT-00000001BXM-0JIK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 01:54:48 +0000
+	Fri, 22 Aug 2025 01:54:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CF60DA58767;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9150F5C06EA;
+	Fri, 22 Aug 2025 01:54:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E16CCC113D0;
 	Fri, 22 Aug 2025 01:54:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3040EC4CEED;
-	Fri, 22 Aug 2025 01:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755827686;
-	bh=d5H7XLcR4Rtj+Rj6OZQAl1e1bSehEWOuVd1drKJeL5c=;
+	s=k20201202; t=1755827690;
+	bh=dbI2jtQQauIA3bdjDRznGzLHLedqf9IfSzISWZL55Y8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=tibW+k5SwC+EQm8WETK8o5ITo8euhu5ASLP6FreYV63JafnswXALSlNjA5fe0BBUF
-	 utSEukgiYNWb9rkXIO1sltM19IZux+zjdKo0ghJcqZy0BsXULblGupdC9rsILKQea0
-	 2hZfYIXE/paPuG6XPOM2M0JIoK4FfC365vCZICUQXTx6pf+6npuiMla1120UivYIVd
-	 NemCtEqTe6FSaaDKfTJaI1d0A0ki2CHwZOsLUgNo+qKCmB554CAH0lar8dKJuLNxjd
-	 e0YazioxY9CAmiA4qZvtRpX9RW3W2s/DHxZyT4dQNgmwFYnNZEhpy7MQO789AGnIXy
-	 nywxNayD6D5iA==
+	b=hjW7ydp/ascrbwXrcytmv5A9A1QEEN67C+Y5WX5OBY3/PYu9k8RL7QbbRZ3A9cF87
+	 zvHTJdrUz+BxWe3Oo3pKkXRjOlbISZf0JhWVrDdcLIPgv0t9O8QJG8MglnenJ1r4L4
+	 Yif+4ocwkGzHJ9n55EdJsFiBKMbmjJn280S0X3Ku4458uAsp3oN+dRXdN+imOr4yQs
+	 CbIkHI7jrNc0cuB1br7jKSQPZrpWyjB2UZlMbFiH3nuJbbRr/7yG4sHhgZN1S2aUy9
+	 1eETb+eeKfs7gFAO5W260jW5v1hCuQOH5HTm3Mx15CUoonxniSs1EyqwYt/R06LSwk
+	 CastnJw58rfbQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 22 Aug 2025 02:53:34 +0100
-Subject: [PATCH v7 05/29] arm64/fpsimd: Determine maximum virtualisable SME
- vector length
+Date: Fri, 22 Aug 2025 02:53:35 +0100
+Subject: [PATCH v7 06/29] KVM: arm64: Introduce non-UNDEF FGT control
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-kvm-arm64-sme-v7-5-7a65d82b8b10@kernel.org>
+Message-Id: <20250822-kvm-arm64-sme-v7-6-7a65d82b8b10@kernel.org>
 References: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
 In-Reply-To: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -63,20 +62,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2177; i=broonie@kernel.org;
- h=from:subject:message-id; bh=d5H7XLcR4Rtj+Rj6OZQAl1e1bSehEWOuVd1drKJeL5c=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop8280CPUlyvzjydHYRql5QRxrmhiav3FGPaDs
- n+EnHbXasCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNvAAKCRAk1otyXVSH
- 0KRVB/wPGSAtQ4s7ogb6sHyi03Q7frhO+eVSnrjqlh6UjiulblrEjYQ7wSeyZTfca1wam4DKPI0
- 95VzhCW05qMVQMxAgL+SQwE9ACbEw5rW4lirttju1CI9uhSLeXZo0FA0BIthS1Q6mIa3Jqd6Np2
- FN/aBsF3co7dWb2CoSuHOGxiBnVPnkbRgTtECO3aqeIuqHpQPUV2tFQ1bdw40kFH3qxfgoQD/1/
- 6a+WWCldm9UV/yNVifW+6Oz2or7emXDQRckHyCcI7TPwl20PoJ5RaZr6b6Za4BQ/1XUSR5nCvHw
- U3UjS069dgR6Prii3dKV1mKfBMZzLPZmAFu3Z1D/Cp5AZcqa
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2799; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dbI2jtQQauIA3bdjDRznGzLHLedqf9IfSzISWZL55Y8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop829zOsFUMjKA1Q+FQQwAiqq9AB2vWjQjAPE2
+ u9JV2QclT6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNvQAKCRAk1otyXVSH
+ 0CJDB/9j0rvgLnZvq7G9tLdHgMeGcVymfgbIkxBZuMivsNHRGROfGH4orSwWGmYihtCtFbjPm+j
+ uAgEjOrR03z3Zp+lXbyNnG7zSDiMMS0yRZ4Xxje+HUVTN23JD59V1OIx6W30F4FhIU2La5UhiY6
+ vGPLnuBCDShNugj/oJR4HqR0EzyxuQS0jUqH/R/Csn4SajUTfdw2JVT5E0E6KX+09Wbw07f8tsV
+ /Wq1P3h3y5MUScUQ6iD+huxr8aPoHUtSIjn12pOMtCErdSm9pHnjmQDI2AjPL3Q+f/Wv2IiaIJv
+ olwGfxzvFeQrkbaK/+kKYtb3j7j8UeKtQZm9j85taCkAp3FN
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_185447_860373_694AC2E7 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250821_185451_202155_1748AD2D 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,64 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As with SVE we can only virtualise SME vector lengths that are supported by
-all CPUs in the system, implement similar checks to those for SVE. Since
-unlike SVE there are no specific vector lengths that are architecturally
-required the handling is subtly different, we report a system where this
-happens with a maximum vector length of -1.
+We have support for determining a set of fine grained traps to enable for
+the guest which is tied to the support for injecting UNDEFs for undefined
+features. This means that we can't use the mechanism for system registers
+which should be present but need emulation, such as SMPRI_EL1 which should
+be accessible when SME is present but if SME priority support is absent
+SMPRI_EL1.Priority should be RAZ.
+
+Add an additional set of fine grained traps fgt, mirroring the existing fgu
+array. We use the same format where we always set the bit for the trap in
+the array as for FGU. This makes it clear what is being explicitly managed
+and keeps the code consistent.
+
+We do not convert the handling of ARM_WORKAROUND_AMPERE_ACO3_CPU_38 to this
+mechanism since this only enables a write trap and when implementing the
+existing UNDEF that we would share the read and write trap enablement (this
+being the overwhelmingly common case).
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_host.h       | 6 ++++++
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 7 ++++---
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index de2897d6208c..fbc586813f6a 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1244,7 +1244,8 @@ void cpu_enable_sme(const struct arm64_cpu_capabilities *__always_unused p)
- void __init sme_setup(void)
- {
- 	struct vl_info *info = &vl_info[ARM64_VEC_SME];
--	int min_bit, max_bit;
-+	DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
-+	int min_bit, max_bit, b;
- 
- 	if (!system_supports_sme())
- 		return;
-@@ -1274,12 +1275,32 @@ void __init sme_setup(void)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 2f2394cce24e..b501c2880ba2 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -302,6 +302,12 @@ struct kvm_arch {
  	 */
- 	set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
+ 	u64 fgu[__NR_FGT_GROUP_IDS__];
  
-+	bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
-+		      SVE_VQ_MAX);
++	/*
++	 * Additional FGTs to enable for the guests, eg. for emulated
++	 * registers,
++	 */
++	u64 fgt[__NR_FGT_GROUP_IDS__];
 +
-+	b = find_last_bit(tmp_map, SVE_VQ_MAX);
-+	if (b >= SVE_VQ_MAX)
-+		/* All VLs virtualisable */
-+		info->max_virtualisable_vl = SVE_VQ_MAX;
-+	else if (b == SVE_VQ_MAX - 1)
-+		/* No virtualisable VLs */
-+		info->max_virtualisable_vl = -1;
-+	else
-+		info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b +  1));
-+
-+	if (info->max_virtualisable_vl > info->max_vl)
-+		info->max_virtualisable_vl = info->max_vl;
-+
- 	pr_info("SME: minimum available vector length %u bytes per vector\n",
- 		info->min_vl);
- 	pr_info("SME: maximum available vector length %u bytes per vector\n",
- 		info->max_vl);
- 	pr_info("SME: default vector length %u bytes per vector\n",
- 		get_sme_default_vl());
-+
-+	/* KVM decides whether to support mismatched systems. Just warn here: */
-+	if (info->max_virtualisable_vl < info->max_vl)
-+		pr_warn("SME: unvirtualisable vector lengths present\n");
- }
+ 	/*
+ 	 * Stage 2 paging state for VMs with nested S2 using a virtual
+ 	 * VMID.
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 84ec4e100fbb..d5620e02787f 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -283,9 +283,9 @@ static inline void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
+ 		id;							\
+ 	})
  
- void sme_suspend_exit(void)
+-#define compute_undef_clr_set(vcpu, kvm, reg, clr, set)			\
++#define compute_trap_clr_set(vcpu, kvm, trap, reg, clr, set)		\
+ 	do {								\
+-		u64 hfg = kvm->arch.fgu[reg_to_fgt_group_id(reg)];	\
++		u64 hfg = kvm->arch.trap[reg_to_fgt_group_id(reg)];	\
+ 		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
+ 		set |= hfg & m->mask;					\
+ 		clr |= hfg & m->nmask;					\
+@@ -301,7 +301,8 @@ static inline void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
+ 		if (is_nested_ctxt(vcpu))				\
+ 			compute_clr_set(vcpu, reg, c, s);		\
+ 									\
+-		compute_undef_clr_set(vcpu, kvm, reg, c, s);		\
++		compute_trap_clr_set(vcpu, kvm, fgu, reg, c, s);	\
++		compute_trap_clr_set(vcpu, kvm, fgt, reg, c, s);	\
+ 									\
+ 		val = m->nmask;						\
+ 		val |= s;						\
 
 -- 
 2.39.5
