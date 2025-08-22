@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267A6CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE16CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jej3aJ8IFvIF8AyttCo/qPRnqjbgdGwXRZCRrkjvQAU=; b=AnWOinIu1edIOy0eoEK+WQDLG0
-	eDsO98a/MXsBjtAK6A7YZkvcVJlCM/o7QTyH8F1mxRdVxpcOikw3jqI+yvH0HF1qqE6t9qrpeYyvj
-	kDLvH3pQT2UAGtPjX67qiFC02OwXF0SNtSP8H2o1jkggEepOOSZC7yEDJT+RZEWP9dIpU1NJ2T9Jh
-	w9BWWngenRms6RweIlQksS9QZ08UbzLgxdN0NmspYglkBm6iDioUDyDLQfajvuu9uU4nnOIfyZb7o
-	N5juwLwbtQNqtCsBuGULYNVbWNQgYe8PU0meRy+pzTrv1Guoh5JS7XwHzWkIDfWyNYA89+LnvA/62
-	mrpI6KEw==;
+	bh=T6mgh6btBywzlp/e+SiWkYAG5i8x7Ry7OTIJ2BWMvmI=; b=vI0WbFjvJyM5WGaZiuTRG0xARh
+	xj02rKtDRHknt1DApSIX5RlT3MTcs0c0YbtHWFOF+0MOdiHhzWfmhNXQSaB6yISjPttUkjXIwEeKp
+	/M6XvvmwsZJ5qxBJPnXNO8Qh9dULuTJKEb7GBJexuu8YegLsoisqHogp8y4Z51thHepdwcZt9Lop0
+	htUsxzJcmwgWh0Gab+/zseeZ/S03ZtEVKH9ygHjTFjxz10YJtFSwJRCgVvZepzP2KhPvhKpFaG8hy
+	n9Tv4XhKZNL+2qe8pAZf6jPaMqtsVehLrkqMI2/cfDHVAhbTqLEQiyQ7Tqrg52iB9V79qitOnDLt8
+	ZSNBklBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphkJ-00000003wga-26rM;
-	Sat, 23 Aug 2025 06:28:59 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uphkR-00000003wqk-1JRw;
+	Sat, 23 Aug 2025 06:29:07 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQgr-00000002S9T-2dut;
-	Fri, 22 Aug 2025 12:16:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1755864978; x=1787400978;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=3Ea7W0dwKnTlVfxRkgXHCe2WVUuOP11xif5wEmfOclM=;
-  b=vK5SYRbKb8No+twO1Sq/8UVyGGoMYlqLdRLXXXu9ztsq6jncKmbOo6+1
-   shICueE5ZQ4WPleKmL/zDvaZghDlWQaE+u9ieMCIsnjUwRoNB5xSsFAML
-   13tsQRaR8XKfOhdjh1jl1S8g3/fiqGnUhenhPxrauL5K01M5yW2mZPavj
-   lCkvcCYxzC0deYNxd9Z7//5REpw3fq1Qvs5xMI3OM5y/p0f/CcAtMZJLs
-   V46810FIpF5xktsoxzvJlpvRyJvTGG8Ag5PxjKcJuU8CqUVHg8g11yZKD
-   UMs6z8VDWk+nnVcFfK3JLbqdLTYlUOSMzcOe/LUnGDlTEudkfjk/8ZcOg
-   A==;
-X-CSE-ConnectionGUID: jcwXdTWwTtyRRk6+L1Fb/g==
-X-CSE-MsgGUID: /sDrhHoERLykyKvbaKhrcg==
-X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
-   d="scan'208";a="276922450"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Aug 2025 05:16:13 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 22 Aug 2025 05:15:51 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Fri, 22 Aug 2025 05:15:47 -0700
-Message-ID: <bc7b0167-7514-4aad-a4dd-bd1d9929e99b@microchip.com>
-Date: Fri, 22 Aug 2025 14:15:46 +0200
+	id 1upQs2-00000002U2Y-1Kk3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 12:27:52 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MC4SMI030214;
+	Fri, 22 Aug 2025 14:27:31 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	T6mgh6btBywzlp/e+SiWkYAG5i8x7Ry7OTIJ2BWMvmI=; b=eU7Rkse6g+EGMn01
+	HitdPnhSEHnufAZ0JgTvzgW3Q/AOoAGt0d8wfy/t2cVf4Uzi1VHgxgFB1FG9Ofkh
+	mcMd+97Jbj23wfYuU3kWa6kYvetNs0GCmMXsGFLS2Fo8M8f4AAkxXK2ZOGTApndd
+	0V/9DwWrgCsoA7ukdSLCipC+T67sIzhZb2sxnIkVGji/SJdaaf/y1viFsk4wWmrf
+	+guu1XtiLFvvKsiUIOeDG3t39bwpHfwNmo8HhPSlQhsfxYHhoNeSmxlerNEb3qeU
+	P6LnZwkc39bpjgzn2awbLDDAFnxK8MuscdQEfcU2Ft7oNqqSqyDWavmoNq+RNFIL
+	a7f0cA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wtnr0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Aug 2025 14:27:31 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E456240044;
+	Fri, 22 Aug 2025 14:26:14 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A698F71CE44;
+	Fri, 22 Aug 2025 14:25:40 +0200 (CEST)
+Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
+ 2025 14:25:40 +0200
+Message-ID: <2f0186da-89ad-4c56-b8e9-928226b95f10@foss.st.com>
+Date: Fri, 22 Aug 2025 14:25:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] dt-bindings: net: cdns,macb: Add compatible for
- Raspberry Pi RP1
-To: Stanimir Varbanov <svarbanov@suse.de>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
-	<jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor.dooley@microchip.com>
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-3-svarbanov@suse.de>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20250822093440.53941-3-svarbanov@suse.de>
+Subject: Re: [PATCH] drm/stm: ltdc: unify log system
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250821130356.883553-1-raphael.gallais-pou@foss.st.com>
+Content-Language: en-US
+From: Yannick FERTRE <yannick.fertre@foss.st.com>
+In-Reply-To: <20250821130356.883553-1-raphael.gallais-pou@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.178]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_051617_723353_428396DF 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250822_052750_931546_73368C48 
+X-CRM114-Status: UNSURE (   4.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +102,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 at 11:34, Stanimir Varbanov wrote:
-> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> 
-> The Raspberry Pi RP1 chip has the Cadence GEM ethernet
-> controller, so add a compatible string for it.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Hi Raphael,
 
-Reviewed-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Thanks for the patch.
 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->   Documentation/devicetree/bindings/net/cdns,macb.yaml | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/cdns,macb.yaml b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-> index 559d0f733e7e..0591da97d434 100644
-> --- a/Documentation/devicetree/bindings/net/cdns,macb.yaml
-> +++ b/Documentation/devicetree/bindings/net/cdns,macb.yaml
-> @@ -54,6 +54,7 @@ properties:
->             - cdns,np4-macb             # NP4 SoC devices
->             - microchip,sama7g5-emac    # Microchip SAMA7G5 ethernet interface
->             - microchip,sama7g5-gem     # Microchip SAMA7G5 gigabit ethernet interface
-> +          - raspberrypi,rp1-gem       # Raspberry Pi RP1 gigabit ethernet interface
->             - sifive,fu540-c000-gem     # SiFive FU540-C000 SoC
->             - cdns,emac                 # Generic
->             - cdns,gem                  # Generic
-> --
-> 2.47.0
-> 
+Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
 
+
+Le 21/08/2025 à 15:03, Raphael Gallais-Pou a écrit :
+> -	DRM_DEBUG_DRIVER("\n");
+> +	drm_dbg_driver(ddev, "\n");
 
