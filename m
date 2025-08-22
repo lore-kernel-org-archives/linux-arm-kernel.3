@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E629BCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48E6CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h88O4dZwxfFg63Pi6AQ85/YvjoNhwX4BJiQNP+yOVJw=; b=VNzAvYqpO02JSu+6oW1LE23Fk2
-	TJvUbezJ6D1k0cN/0CgDQLjz92wr4qwpA3+2s241fcnpSL6GAOdLWOjkR0qhydd0/tvhu74lFWLwN
-	jkBGBBqc9/RvKWpYTo0MICGx1f8TIToqj17zTN+gV2y6xQiI6zHC6SY7axHsGEH6aX8Y54T6N+B1p
-	7mNev6kALx1QjDk5Nla9MH09mLJOI5/5xTecTPXuuOeW3q8EpJPlFbIZBVqzvpiJPCvUVIJgXYhGO
-	OL40IRwVlCcHRidpSDE1L3CQx9ungxjZZw7fj9Vs7q45Ekhh3g+gdv1rMia8sUZtERvv+PGjSJbT5
-	OGUa8sNQ==;
+	bh=HANX8SGyUYTMmygkXUKgrV9E1KMjquu/Hj3lDx24v3U=; b=KVOXbXxtndp+6IdIh8KKBDS8zf
+	AIp8CdOQIG/4Bv0eBfOoT7JNyXgxYgZ7rswogrWUwdeuW/PH1AnDzQ83RPUAR9MNZJi+P6lRIzfkW
+	4MxGc0orBHSesVH6MmQ430vnT4ntMO5sUzryaln4bx7eZPY5H7LP5JhaRvE4OBHHONHAWneIvCxm7
+	NIOHNNMlc2WzjKvXdwn/N3UP1dh6pXQgeSFGgOo+AuoHFCKjDqU1guOqjVPcHk7uEzxl+A6jhvaN8
+	9sZEXO117ghPfJn6wUCmcQTBbKfmA1e/BZzo24a+88mAoQKiGZMvtHrvaxUcXymjU++RzJYeLIQkK
+	4xemX7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQe3-00000002Rdm-0ewD;
-	Fri, 22 Aug 2025 12:13:23 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1upQgd-00000002S5Z-44Qt;
+	Fri, 22 Aug 2025 12:16:03 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLSB-00000001iNx-1wGV;
-	Fri, 22 Aug 2025 06:40:48 +0000
+	id 1upLSB-00000001iMO-4AJw;
+	Fri, 22 Aug 2025 06:40:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=h8
-	8O4dZwxfFg63Pi6AQ85/YvjoNhwX4BJiQNP+yOVJw=; b=lX79IJznDtGZJ4/KpD
-	vjNxpE4Si3NCrcoLhVQ8OmEX9vUSC0NMQYC5Ady/j0P0BhWwtcTeUGfmlycHFh3d
-	mXQPTzVAlI3p7/BkUOLWC+n927tp+yrSX3mPdwLDKWTzcOl0njbhc+2AqWdBH3gk
-	h2KzYceg6UGaZmEJuJVJxM5Ck=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=HA
+	NX8SGyUYTMmygkXUKgrV9E1KMjquu/Hj3lDx24v3U=; b=OleJAlpXnekUIDBtyH
+	Be7UdN73GWIk4WY8BPu/RFFWmg8rmJ4d5tDpua7GM0a8pjeiyvOLXIKap+HsMzr0
+	Kxm/i6ApnkeBP0TjJikkuvZnFpgvZFXGCfRGBrnKWRo2inLdlrz/eI9HelknoINw
+	y9OJdAs+q+nL8M62ttc5T7cEQ=
 Received: from ProDesk.. (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S12;
-	Fri, 22 Aug 2025 14:40:28 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S11;
+	Fri, 22 Aug 2025 14:40:27 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -55,24 +55,24 @@ Cc: hjc@rock-chips.com,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v7 10/10] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
-Date: Fri, 22 Aug 2025 14:39:54 +0800
-Message-ID: <20250822063959.692098-11-andyshrk@163.com>
+Subject: [PATCH v7 09/10] arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
+Date: Fri, 22 Aug 2025 14:39:53 +0800
+Message-ID: <20250822063959.692098-10-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
 References: <20250822063959.692098-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S12
-X-Coremail-Antispam: 1Uf129KBjvJXoW7CrykKw18Xw43uF4kCrWkXrb_yoW8KrWrpF
-	nF9rs5GryxuryYqw1FvF1kZFs8Krs5ua93Jr1aqry0yFW7Xas5K3WrWr9YqFyjvF1xXw4a
-	yr4kXa4j93WDXFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j2iihUUUUU=
+X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S11
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ur48WF43Gr1rWFyfKrWUtwb_yoW8CryDp3
+	ZxArsYgFZ7urWUJ3sYyF4xJrZ8Crs5ua97Jr13Z34akF47Was3twn3GrnYkryjvFs3Xayr
+	Kr4kZasF9F1DXaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jwHUDUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMxWxXmioB5f7BwAAsl
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gCxXmioDHlx2wAAsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_234047_839154_641AB746 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20250821_234048_395047_89CBFDA6 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,115 +90,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-The HDMI0(Port next to Headphone Jack) is drived by DP1 on rk3588
-via RA620(a dp2hdmi converter).
-
-Add related dt nodes to enable it.
-
-Note: ROCKCHIP_VOP2_EP_DP1 is defined as 11 in dt-binding header,
-but it will trigger a dtc warning like "graph node unit address
-error, expected "b"" if we use it directly after endpoint, so we
-use "b" instead here.
+Enable the Mini DisplayPort on this board.
+Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
+but it will trigger a dtc warning like "graph node unit address error,
+expected "a"" if we use it directly after endpoint, so we use "a"
+instead here.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 ---
 
-(no changes since v3)
+(no changes since v2)
 
-Changes in v3:
-- Add RA620 into bridge chain.
+Changes in v2:
+- Sort in alphabetical order
 
- .../boot/dts/rockchip/rk3588-rock-5-itx.dts   | 59 +++++++++++++++++++
- 1 file changed, 59 insertions(+)
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-index 7de17117df7ae..903ad42f97177 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-@@ -57,6 +57,29 @@ analog-sound {
- 			  "Headphone", "Headphones";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+index b2947b36fadaf..d7557e61390b9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+@@ -39,6 +39,18 @@ chosen {
+ 		stdout-path = "serial2:1500000n8";
  	};
  
-+	bridge {
-+		compatible = "radxa,ra620";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			port@0 {
-+				reg = <0>;
-+				hdmi_bridge_in: endpoint {
-+					remote-endpoint = <&dp1_out_con>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+
-+				hdmi_bridge_out: endpoint {
-+					remote-endpoint = <&hdmi_con_in>;
-+				};
-+			};
-+		};
-+	};
-+
- 	gpio-leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
-@@ -73,6 +96,17 @@ hdd-led2 {
- 		};
- 	};
- 
-+	hdmi0-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
++	dp-con {
++		compatible = "dp-connector";
++		label = "DP OUT";
++		type = "mini";
 +
 +		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_bridge_out>;
++			dp_con_in: endpoint {
++				remote-endpoint = <&dp0_out_con>;
 +			};
 +		};
 +	};
 +
- 	hdmi1-con {
+ 	hdmi-con {
  		compatible = "hdmi-connector";
- 		type = "a";
-@@ -268,6 +302,24 @@ &cpu_l3 {
- 	cpu-supply = <&vdd_cpu_lit_s0>;
+ 		type = "d";
+@@ -215,6 +227,24 @@ &cpu_b2 {
+ 	cpu-supply = <&vdd_cpu_big1_s0>;
  };
  
-+&dp1 {
++&dp0 {
 +	status = "okay";
++	pinctrl-0 = <&dp0m0_pins>;
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&dp1m0_pins>;
 +};
 +
-+&dp1_in {
-+	dp1_in_vp2: endpoint {
-+		remote-endpoint = <&vp2_out_dp1>;
++&dp0_in {
++	dp0_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp0>;
 +	};
 +};
 +
-+&dp1_out {
-+	dp1_out_con: endpoint {
-+		remote-endpoint = <&hdmi_bridge_in>;
++&dp0_out {
++	dp0_out_con: endpoint {
++		remote-endpoint = <&dp_con_in>;
 +	};
 +};
 +
  &gpu {
  	mali-supply = <&vdd_gpu_s0>;
  	status = "okay";
-@@ -1261,3 +1313,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
- 		remote-endpoint = <&hdmi1_in_vp1>;
+@@ -890,3 +920,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi0_in_vp0>;
  	};
  };
 +
 +&vp2 {
-+	vp2_out_dp1: endpoint@b {
-+		reg = <ROCKCHIP_VOP2_EP_DP1>;
-+		remote-endpoint = <&dp1_in_vp2>;
++	vp2_out_dp0: endpoint@a {
++		reg = <ROCKCHIP_VOP2_EP_DP0>;
++		remote-endpoint = <&dp0_in_vp2>;
 +	};
 +};
 -- 
