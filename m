@@ -4,95 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2726CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0189CCA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LpW5veLMLPdr6OKMte0tGA4PuK4ym/yIcC2Y9SUMkpQ=; b=hru4b9I2Z3usDS8Xu8c/wzpNbm
-	64MC1Fr0PZcBzvRBW1P3X02vnZbABXhE51AKkwv7TmxxFWPDiMacxTG7UrjTHUfd5b7vi+9SE+R2f
-	UVHU5QQPb6SDvYkUzdtm2EL7sXipdisRV4n0QTaELdMsis9yOBO93HRGwPvi9DdbYtyueHO8PeTmH
-	4pny67K0jaj531Xols8cwlRP15InfxjgRcsWpUBTgWQucjrAQapiXt5XxLgjpoeCnMavkUzcae5NC
-	gdUQPkl6N95ErpyE6OHgqWs4lQHVcCXDIsCQCr28a7K0AyrzyJ3PwtTsXFIyYxB7cFJkrASo9hxCn
-	Go+bQgCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=64KB2WQ1Bfj2Y9HR5CLOoIg1BdIgZkCgmY+Q8Ay0Ngk=; b=y8G2SIziCziJIOT2xXyqugjUC2
+	rPIcfPfwjWRwFI6k+4HIgFUwJ2xGJmOV439PvXNIY/tYrzD73BWi+YsFYaUL+MtV1KIDuUFaQrkK4
+	5h5BNAfEMCplSm3EQMTj2EhENoSDm+e1UFyljAiE4UjPSmqLkQNDGb66ArSgzoqYhZK4d0PcILijo
+	hi2ANALqcgskifnrzoXSNyrRQluCz2FDX2XPdiete600J+MbEddGBU+pG2st26PDBfTES8Q5fIdX3
+	ZViSUIQeGnS85itP8Q+9w/N1OWYu2nPbDQucqkeFiwk344oS31BlDem5arJGFGhlIksOmK5JbsU3x
+	t221jnQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upThM-0000000316w-3FyJ;
-	Fri, 22 Aug 2025 15:29:00 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1upTjx-000000031c8-2zEw;
+	Fri, 22 Aug 2025 15:31:41 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upP4w-00000002CvB-1NXf
+	id 1upPMS-00000002F5F-0yan
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 10:33:04 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-88432dc61d8so172761639f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 03:33:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1755858781; x=1756463581; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LpW5veLMLPdr6OKMte0tGA4PuK4ym/yIcC2Y9SUMkpQ=;
-        b=BQD2VNoaAvRwlQX3l7UcD8bkMlj0S6fJIDz1ZXNrMOIHS52bgvaP411ln1wzIRZFOA
-         0EfHRWlpeM/rBiejfKha/l4sJZyy9XPaB6ZIgvRlhcjCKVZFpJevl5nxxtDLgaIymuSc
-         xj6Ts0riLERBs19ufFyt7MS8F8s9Xp+JsWOeKy9voYiAVbe0IK9Ek5FY4KsTMe7Lzenk
-         6JkzibKqxP9PWie8Q3gVIk/WQ/I22zN+oCDDmruUeJQtNg4QUcASthK6d16UM+FbEzDL
-         CFe5cMs3YmfVQARuJCaKG1osmEqyu2iGMM/fvc2pfiKNyv2Pbi5GMfjpJ1To/mRVpWxq
-         Qnww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755858781; x=1756463581;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LpW5veLMLPdr6OKMte0tGA4PuK4ym/yIcC2Y9SUMkpQ=;
-        b=a7hL+iIUHnDh3BtU6uf2Wg/1A3TFwaHuymuN8ioeVMrlxUQ2doODttVq7RO/QViX9X
-         0kbzgq8DZ4QaeI0MtGGi5aJOhMGtjn72RK0OZ8xI0xrTZ1gV5YiVoLvRTWg4c7YMJiWp
-         D99q569R2gLOuiZBb5zgvzpaYSkwc906Xi4BgfUafsDvvapmxoKl7aaTq1q1So17DEje
-         vFxEivE4PIezZPLh7unHaELDasSdE2dSNssGMZmV0S0CD8bkLUlZthwGAWjrUaw6JkF9
-         MCc5rRc9RblK5guDikEnqCVaRng6X19lEvrA8ukL/mP/9xobcGd++ZHqvxnb1RWDvdLe
-         ZlnA==
-X-Forwarded-Encrypted: i=1; AJvYcCU1UlaZgFYKuFF6gatp5TLNVR/SUqfko+nCeM+P4hplPPRC/XDCrJgAaP47kO7ue7emercptXduII3pzFWcjcMx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD8dHMgu8RePPnRdHBGoRD6eUc5VjE9YWXd/OVcem56++Pvzzk
-	8lRSrgniClG8UtGXP+PugCGCslCqXyQeg4fhpWe0zk1dBroaX7l58w4aVhYSsF1ZLzlYDbr8U5M
-	IVsRp6RqGUMntYulprWgZs1o04gC1YDWikM9Uv5zr1w==
-X-Gm-Gg: ASbGncu3c+2GqWOft0aS+Y957tAZWlYUdrb/h+7vSHovpVHxOZp25vemH+cROE1AOau
-	g06XJb6cXIgz6a/Z3pfNOFGYUVKAdpLgWT4S5wYPbw8dcyNwqFcwAZE91KAwBKF7pDzVlrkPqj3
-	1kJmEAQIuZWMPD5Gx5MB5p/iqlLiMnnM03m6Y3hAdM4YjhHw2ABI6z6/sR02/4SksNIz9jABmXI
-	OJMpQng
-X-Google-Smtp-Source: AGHT+IFxa3sIYy8GmbrliB9vOURhQsISjHNbjP8q123c5R9HRTAMf+tU9qbPOd1N7VsCfi+G9RwFcCmvT1G6Qpsac28=
-X-Received: by 2002:a05:6e02:1607:b0:3e3:fd25:f6a with SMTP id
- e9e14a558f8ab-3e921a5c447mr39155945ab.11.1755858780756; Fri, 22 Aug 2025
- 03:33:00 -0700 (PDT)
+	Fri, 22 Aug 2025 10:51:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aARXUmg7kQ4XP3f+bRzF+1F2PDZAbNcgdxhWzilhN5dkV4MhbRLkomntJkjhjPcGtgZ+E9PKSUlrb1cBsmIlKXFZmYXcTW57zmJS40H1tiwZffeH/DJDGVuY9lrtRiGWqdjYSEYnO5rsJfKXGquL5x7PdzAx5OpC6nmlGmsaiJ3BG8nDwYWqgOZWwJhKve40a6hLyiGm4RTt86hNUbT0YpMcH9k+f6ZQfwtK7FfIZdckzlp0hsTeuZDOCY8FbdSmpDSlgUyhlDbwxexQePsJsRB1AMnCJ13W10d9HeCjQYKbg2T3+pAvRU2E+H8jIBqeQLe9Cp8J+dHZsOpHIdmiZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=64KB2WQ1Bfj2Y9HR5CLOoIg1BdIgZkCgmY+Q8Ay0Ngk=;
+ b=nmCRCbog2CGaAfRlq/WCbao76wymajunmaUp43mja9wEDs2zodNDNszDl/FnjyDj0VP1/uKFFmxEFAAJ4eYJZN0tGydlifB/FCINHxmGmL7whjIDQ0AeYPjFmD+Wk/3Fg5yA3DpEZ5iJ86e2IqpPXRLgdZ2Pofkdzo/mQ2bAGLmt9DPApTWnCH0kjNpSPu6vtu9x/XQ71FCDiKSgsJ8+ZRtnEE1o8Eo/bgzoPco8n8Y53/pI850mgVpKMjjsd9TV50O6INHXrR+yROg+bc8jk8wwSGYYCqv7rEV0Vx3kQgRvjzkAnTu++l6WeDUGlYbNm73vFPWqnbfaC+rHILAqOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=64KB2WQ1Bfj2Y9HR5CLOoIg1BdIgZkCgmY+Q8Ay0Ngk=;
+ b=MbqHqXrCh1SVo00HLV+FMkgnSG6mm6ZMEeABXH5Qx9db5VvC6XErU/RrxceYEchwSXkmCgpoYtftGQ5pmikReWgFE2TFXqk7egNCW3W4yDhltOB+raJFI4nEd12+UFdsLnAuQOjCVJlJLVMuOOCU2/U59AdxuRXV5ic6jBL3430UlGv97XER6MyiQR83Frdt1P6/L+ZjjKhLlS0nn7DFl7PauTE2LPEO2cVpynuHpgpzA9VYYtyIX132nzwB2T/7B5v+pZDtzAaUGLGBr1Dt+KdZlp75Q/7IyavYgEA1L0zrmwuAKTQovP4stCJc1ijsm+jcRTOtKOV1MuRaWaMxhw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by PAXPR04MB8207.eurprd04.prod.outlook.com (2603:10a6:102:1cd::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
+ 2025 10:50:59 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9052.011; Fri, 22 Aug 2025
+ 10:50:59 +0000
+From: Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: [PATCH v2 0/4] Add MIPI CSI-2 support for i.MX8ULP
+Date: Fri, 22 Aug 2025 18:50:11 +0800
+Message-Id: <20250822-csi2_imx8ulp-v2-0-26a444394965@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGNLqGgC/03MSw6CMBRA0a2QN7ZNP0KKI/ZhjIF+6EukJa01R
+ MLerY4cnsG9O2Sb0Ga4NDsk+8KMMVSIUwPaj2G2BE01CCZapnhPdEZxx2VT5bGS3kxSdcZ0k3F
+ QkzVZh9tvd71VuxQX8vTJjv8T8R0JSTnjvTy3hJO5xICFvn0sQ8yZhm2lOi5wHB9zqfjooQAAA
+ A==
+X-Change-ID: 20250819-csi2_imx8ulp-9db386dd6bdf
+To: Rui Miguel Silva <rmfrfs@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Frank Li <Frank.Li@nxp.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755859853; l=1290;
+ i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=+vinw9I1dtlYj7lSxfFJQrmNhWP5LNJsecXywOmwGcU=;
+ b=RHNJGNFBmaSHXbruDMc+jUYbiTdZyxgLfEEvOw9dLnjeFauWzO63ACrdXbTwoNEg6UMoCoiqu
+ X+ngIvmBXvWAIF0IE6chl/ijNfkDx0Tzd3zXVCJU4xqVJ9+Q3I0T/Pk
+X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SG2PR01CA0140.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::20) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-17-seanjc@google.com>
-In-Reply-To: <20250806195706.1650976-17-seanjc@google.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 22 Aug 2025 16:02:49 +0530
-X-Gm-Features: Ac12FXz94_OmeQku-x70DMZyHIHAiBydPtfIxKmb7IUME7_u-QmNy8EiX87dBF4
-Message-ID: <CAAhSdy3Ee1K7kfwFUhdcjoe+c4oi06Tm+Jo7CE2ycqHjuBou-A@mail.gmail.com>
-Subject: Re: [PATCH v5 16/44] KVM: Add a simplified wrapper for registering
- perf callbacks
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
-	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|PAXPR04MB8207:EE_
+X-MS-Office365-Filtering-Correlation-Id: 22eb1863-c720-46b9-7ec9-08dde169c6e7
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NHZiSVlnRjhjbkNpZnEyWEpiZldibnNEK0taMS84UjlkTDhYQnAwaTBWK3J4?=
+ =?utf-8?B?WmVqaVZHd3kxUHdhM1JrSHcwMWVtNmN6VHl2K1JUQ1gvMGVHT3Q4MFl5QU9r?=
+ =?utf-8?B?bjY2Nk5NRTFoQnFmOEpiWmFjd1YrUUdNWkdTOVFIeThOejJpT0p1TDFUTkox?=
+ =?utf-8?B?U1lleEFIc2xUS3dYTmQxZXhZRkpzMjF3NmdGbjNwZHRhRmJNd2hUWGoxMzhY?=
+ =?utf-8?B?Y0ZndnM0V3UySTcyNzNLeTNjdlJYalZkREpvQ3hSSkJ1MklzdFVGOXppOFV2?=
+ =?utf-8?B?SE1yRmthZitManRKZmo2em9FZ05YbFB2Z29Ob1RvNEZiY2JnL1ZxUzhVZGps?=
+ =?utf-8?B?L2JWZUtFWE9PQy9hVUErQ2x3ZUNlZllZT25IRXhvMjROb1hsWnZWYzk4TFNY?=
+ =?utf-8?B?VXpsczk0ZlNVbjFqcENUbm1MYnRucTM3d2xSMFUySk5RdFZnaDV3bmJkeDVF?=
+ =?utf-8?B?KzZrUFdpNDQyTzFtU2FwcmVKNWQ0TlMvb3VEbjVUNDBDbWMwdENzeGZwRGUx?=
+ =?utf-8?B?Wm1xbjhuUEFVOXBPaE9xdXlGZWs1NDREbURmSUlnQldtZFR5NW83MGN3dGx4?=
+ =?utf-8?B?em55RlhMbzVJZk9XZ3JPU2ROWGY3MnhFaDg0b1Z6dDYvVExRSVRrSE5iWkoz?=
+ =?utf-8?B?SzVYaGI2WjR6VDYwbHMwYmRzeFBvTUZUakN0SThxVjgwTzBhMXpZTFh4SjFT?=
+ =?utf-8?B?L2gvUEEzL3ZpOFROd2FtQWtiM2txb1owWTBQT1MxcEc0Tlg3bWhlMUdPVUN0?=
+ =?utf-8?B?SGROdVhCendCQXE1dFNJZS9KdUl0L0Q4a2dBQTB3d0x3ZUwrQUdhU0tkVm1U?=
+ =?utf-8?B?QjMyWFZUNUxDWWVkS0trMGk4SkNMYmlmYzR1Q2dDaDZxT3JXZjM2RGxhNEpH?=
+ =?utf-8?B?VlFOREt5VWQrdEgyRmVXOTdDb2JwOGFZeW5nMVBJZFdJbkJEelNnL2M1MVU5?=
+ =?utf-8?B?bm1Gai82WFR5cGxoTXI0Mytvd1RtZFJtUUFBYXJSanBHdkxrcVoyQW9oQlly?=
+ =?utf-8?B?Y1I3cy9XWHNzTzBkNHM1eFp3ZlBPdHphbnVwbW9tQkVSa1U0TElZWE01eGpY?=
+ =?utf-8?B?Qnd6K2x2bTYwYjZ1bFFXTy9PRzBkaTJtZUZwQWJheHlTbkh0YTA1L2NNdE54?=
+ =?utf-8?B?aXJFZG1tNEs4Y0duUjRLaHRNRHRMSTE5T0ducjJSb1hWU2FVNFM0WjQ0QXla?=
+ =?utf-8?B?ZU56ZGRIbmFlc3RCM1YwQ21hY0c2Z2lEelRtY3FJdkpXZlZZdmtrRStudU82?=
+ =?utf-8?B?R3VwTGhjQ0ZMVUIzN0FuanpNektoeTN4R2hTUThITE1xbG5wMXJKMTk3MlRF?=
+ =?utf-8?B?NTFRYTdLM2l4emFWN0V6dHIwdkY4cDAwQVNzU2FQVUFVbysrVkozVTd2QXl6?=
+ =?utf-8?B?cjkxZWs4OHNXMXVaVC9SVHAySFRxaDVETkdCS1h3RWE2dG5PZVpPdDlWTTJx?=
+ =?utf-8?B?WGxTRWM2SHNsK2xZR05tc092Uy85TmJxTWtJVjNZMkJxRmNZVEYxTE9HMUI2?=
+ =?utf-8?B?QWpjU1JHZll6UjNMSVczTGJRenIzMHYySmdJMXVRNUJvOUx6K2FwTXdqdXpn?=
+ =?utf-8?B?aWRPVm5PdUpLaTdRaEZ4MkgxdmM2SVJOeEdNT0Z6RyttSGhsWUI0bHA1ZDNp?=
+ =?utf-8?B?RnJVejZGTUtVV21wcUJSVVZzY0xXSVArZ1doRVMrN3Y5TmYrTnB3WlVuN2kr?=
+ =?utf-8?B?aHpaZjVPSjZhYUZTY2V2alMzZGZJVFlHUWJnbnRmRE5GOG45b215M1FSYXJv?=
+ =?utf-8?B?SWl0Rzd0MlJJLzFQTGJMZlBlekEyZDdiWitCZktRaEZ4dnI1SkVHVGE0dWZE?=
+ =?utf-8?B?N0Y2TVBkclZEdEczZWpEK212bGJNcWN5dEdFQWV0N20rN3preENZN1pXNVdk?=
+ =?utf-8?B?TFpnNEVKNXdyRDYyU3Q2ZHdxWlpQS2hTZ3lyVm5tY084M3VGWllDOGFxZm16?=
+ =?utf-8?B?T0trL2hXMkdPYWRrb1Z2Vk02ejdZNjZnQ1lJM0F6ZTVtdVpOVEVVUStlejdD?=
+ =?utf-8?B?V0Y2TFR0NWdSUW5aUXRialNIb0VSR1NjajQxd1oyc1R3ZktySmdtRnJTVjNN?=
+ =?utf-8?Q?xAZsva?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OW5aRWVqVVN0MmQvcG11KzRsbm03bDBtNktwdno2bittd1orMVZuZXZ3N3FW?=
+ =?utf-8?B?cFArLzdIK0tWWFhrZmFFeW9tbzFuaUYrZ2lPSnBWMW1DeDlNVmxLVy8xRDJw?=
+ =?utf-8?B?MzhuVXV6Wk9hKzhJNG8wTEt5dUVtU2FIdHA1OEU2cWFOSEV6N3FvbmJyQlNG?=
+ =?utf-8?B?QXBWZWc4by9HMjcyZ29YRElUSnZrMWdWc0JoemZ5MU9lZFhFOFA0T1lYek1M?=
+ =?utf-8?B?WHhRTXpmMW1tVUFleWdtKy9iK000dnlFNTlCSVEvVmJIbGIzaW5RaEFDSG9S?=
+ =?utf-8?B?c0c3TUlvb0taV2J4V1N3ZUpKR0pUMjJhWHpKWWxkaks4VzlFeDVYNjJmcnda?=
+ =?utf-8?B?c2U0TVlibVdJRUh3cW9tR2RTY3hkQnBvZ3FDenFwZjVrdEZNWXFhbTY1cERw?=
+ =?utf-8?B?WFM3d3FCOTlCdkpJbi9HOTJJa1FoRW0wZXE2UVpMU0N2WlQ5MS96K2pHNyt1?=
+ =?utf-8?B?TGpzNWczcnpsUkpJaTU4UUoxdUhwZnZCZ0NzOEJtTHRyWCtGejdGeXZvNmNI?=
+ =?utf-8?B?UlRvVkozQ09mQktuNytZNGJzOGNVSGNhQXNnK1BvREpZQkV4cU16Z3FFWVpz?=
+ =?utf-8?B?MVZDNGluTUNEMkNtTzVtaElDNVFZMlhkUG9RMmdOOEpsTVZzSGZrWW5vWUVr?=
+ =?utf-8?B?bE5mNnFYb3BPUDZ6S0ZFcCtFdmhQMDFpVWlRWFhzZ0kzeC9hb2dvQi94MkJS?=
+ =?utf-8?B?SmhKb3U3dUUrcmlRN3ZKbEN5UnBEbkRvWHk3ajVCVnNjcUxJbzdPb2ptZ3dE?=
+ =?utf-8?B?eER3WUQzaDJJNWx4bzNJMjBhREkvWjlXeHhaUlZGdXBQcmpKa2sxcWtMUVcy?=
+ =?utf-8?B?R2NFeS9neFFyRmJOYVlEcTdUZUFjbkZjUlFDTjROaExLcnRudHdVTUx5OVdU?=
+ =?utf-8?B?QU9FRnFrNS90WS9odTRMY1ZNTlZ4UFJhdTFaQ1N2eDRqTXdkY2VWd0lWbHZN?=
+ =?utf-8?B?Qy9qbUJkbitSd1dPVDAwYk1la21LZ3ljbndqd2RabDdKWW5SOFNrNjdUdFE3?=
+ =?utf-8?B?cm1weFhITFY2dnQ4NWFkLzlWc2JGVE1TT3oyRTllWjFkMndMTmlNZXB1QUVl?=
+ =?utf-8?B?UGRrTVRTU0o2TlEyTjZ5azhTek9BS3hTQkdkbU9peVdHSVdjR0xienh0SnJ6?=
+ =?utf-8?B?WGpNdzhGUnVQeXYxOXV0RGE4bkltUXFCQjRXVWdnWkRPZk9xaUk4am82OElV?=
+ =?utf-8?B?WTJWUllmbjhHODE3UWNzb3BPckt0eXhmVkRVbFRHVG5kcnV0b08xTnB6Skt4?=
+ =?utf-8?B?YklKeXoyTjRNL1ZsejBvKzV2TWQ1MzVSMVBVM2IySFYzWklJUTJJK0xyMXFC?=
+ =?utf-8?B?bTNMcnlIWk5aY2JtcEJLSlZGVS9VNTl4U3BDR25JT3JJOHRxRytsNFZwWmp2?=
+ =?utf-8?B?cmlsdG41YVBvTm8xUGtNY2RycWdvL25qcjVGUFBOYlk5djQvQkFYY3RzK3hR?=
+ =?utf-8?B?a2hnRE04UmZud2ZjZEU0eWNyaFZZYWpNcm9hdDNmKzZBWWI1dHZjTGdYZGJo?=
+ =?utf-8?B?NkEzSXUzbFltQkVSdmlXV3lNZkowSW9PTVpvVUJQYVJEK3BuU2lFdUF6ME1P?=
+ =?utf-8?B?bkZWMjB4U0tQT2ZkWXBQRnliZzJHRU8xZ2R5eStSeUEvNHY4bnB3aEpzb0FF?=
+ =?utf-8?B?ZFhvK2ZNVHZNekg1YTJ2cUgrbzVLUXBEMkNlQ2VRTUFsRTMzYm9UT20ycWFS?=
+ =?utf-8?B?cHJKRXFSVWxaaStxMHJQMlhvRG11c205QmsxYnVtRFVzNHRjRHhNNDNuR0xD?=
+ =?utf-8?B?OVBvZi9HZmxGRHVUWnphN0hhUkNVdFQxQ2M5RjhtYkpKckFRZmdpUVpyQjU0?=
+ =?utf-8?B?bDVkSHZnc0pkWVVGOHVTVlZmb2lna3liTVBzZTZ0cldxQWYyNFFHZSs2WHZZ?=
+ =?utf-8?B?RnFsWDVwc1JVWXQvV1ExZGx6VFZUT2JNUGpTVk1GZmN3ZSsrUy81aUNhYkRi?=
+ =?utf-8?B?VFNuL2lXL1RjdXNML3N2aEJpVm9yS05yTGRSdmdzWTUxK2VzWmRYd3pWbTJr?=
+ =?utf-8?B?dENqSkRlUlNHSitQOVBPaGI2aHdkSzJOSHg1dlB5WklYQytxVlVrMGtiQVVV?=
+ =?utf-8?B?ZjRrQTZJaEw5Y0JEanUveTVva2QzWXc5UjNoV3JOVWlBTTUwSlAvNjRMZVlt?=
+ =?utf-8?Q?8vHxSLrgNC5+353/ulYzCiVEG?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22eb1863-c720-46b9-7ec9-08dde169c6e7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 10:50:59.1402
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FsMXTFSbrugNIMAW2L0M1PTPPlr/ZKmn7XQ0/vQY/48mbbmDWNh+SG+QFl8WIpznhlHCH7nxeuwQOXC+FW6Dkg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_033302_574778_11A4B707 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20250822_035108_277524_D452FAC0 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,134 +197,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 7, 2025 at 1:27=E2=80=AFAM Sean Christopherson <seanjc@google.c=
-om> wrote:
->
-> Add a parameter-less API for registering perf callbacks in anticipation o=
-f
-> introducing another x86-only parameter for handling mediated PMU PMIs.
->
-> No functional change intended.
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+The serial adds MIPI CSI-2 support for i.MX8ULP.
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+Changes in v2:
+- Add more description about pclk clock.
+- Change minItems/maxItems to 2 for resets property.
+- Better to handle "fsl,imx8ulp-mipi-csi2" variant.
+- Move comment to the top of reset_control_deassert().
+- Move dts patch as the last one.
+- Add "fsl,imx8qxp-mipi-csi2" to compatible string list of csi node.
+- Remove patch 5 in v1.
+- Link to v1: https://lore.kernel.org/all/20250812081923.1019345-1-guoniu.zhou@oss.nxp.com
 
-Regards,
-Anup
+---
+Guoniu Zhou (4):
+      media: dt-bindings: nxp,imx8mq-mipi-csi2: Add i.MX8ULP compatible string
+      media: imx8mq-mipi-csi2: Use devm_clk_bulk_get_all() to fetch clocks
+      media: imx8mq-mipi-csi2: Explicitly release reset
+      arm64: dts: imx8ulp: Add CSI and ISI Nodes
 
-> ---
->  arch/arm64/kvm/arm.c      |  2 +-
->  arch/loongarch/kvm/main.c |  2 +-
->  arch/riscv/kvm/main.c     |  2 +-
->  arch/x86/kvm/x86.c        |  2 +-
->  include/linux/kvm_host.h  | 11 +++++++++--
->  virt/kvm/kvm_main.c       |  5 +++--
->  6 files changed, 16 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 888f7c7abf54..6c604b5214f2 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -2328,7 +2328,7 @@ static int __init init_subsystems(void)
->         if (err)
->                 goto out;
->
-> -       kvm_register_perf_callbacks(NULL);
-> +       kvm_register_perf_callbacks();
->
->  out:
->         if (err)
-> diff --git a/arch/loongarch/kvm/main.c b/arch/loongarch/kvm/main.c
-> index 80ea63d465b8..f62326fe29fa 100644
-> --- a/arch/loongarch/kvm/main.c
-> +++ b/arch/loongarch/kvm/main.c
-> @@ -394,7 +394,7 @@ static int kvm_loongarch_env_init(void)
->         }
->
->         kvm_init_gcsr_flag();
-> -       kvm_register_perf_callbacks(NULL);
-> +       kvm_register_perf_callbacks();
->
->         /* Register LoongArch IPI interrupt controller interface. */
->         ret =3D kvm_loongarch_register_ipi_device();
-> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-> index 67c876de74ef..cbe842c2f615 100644
-> --- a/arch/riscv/kvm/main.c
-> +++ b/arch/riscv/kvm/main.c
-> @@ -159,7 +159,7 @@ static int __init riscv_kvm_init(void)
->                 kvm_info("AIA available with %d guest external interrupts=
-\n",
->                          kvm_riscv_aia_nr_hgei);
->
-> -       kvm_register_perf_callbacks(NULL);
-> +       kvm_register_perf_callbacks();
->
->         rc =3D kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
->         if (rc) {
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 5af2c5aed0f2..d80bbd5e0859 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -9689,7 +9689,7 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *op=
-s)
->                 set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
->  #endif
->
-> -       kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
-> +       __kvm_register_perf_callbacks(ops->handle_intel_pt_intr, NULL);
->
->         if (IS_ENABLED(CONFIG_KVM_SW_PROTECTED_VM) && tdp_mmu_enabled)
->                 kvm_caps.supported_vm_types |=3D BIT(KVM_X86_SW_PROTECTED=
-_VM);
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 15656b7fba6c..20c50eaa0089 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -1731,10 +1731,17 @@ static inline bool kvm_arch_intc_initialized(stru=
-ct kvm *kvm)
->  #ifdef CONFIG_GUEST_PERF_EVENTS
->  unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu);
->
-> -void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void));
-> +void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void)=
-,
-> +                                  void (*mediated_pmi_handler)(void));
-> +
-> +static inline void kvm_register_perf_callbacks(void)
-> +{
-> +       __kvm_register_perf_callbacks(NULL, NULL);
-> +}
-> +
->  void kvm_unregister_perf_callbacks(void);
->  #else
-> -static inline void kvm_register_perf_callbacks(void *ign) {}
-> +static inline void kvm_register_perf_callbacks(void) {}
->  static inline void kvm_unregister_perf_callbacks(void) {}
->  #endif /* CONFIG_GUEST_PERF_EVENTS */
->
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index ecafab2e17d9..d477a7fda0ae 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -6429,10 +6429,11 @@ static struct perf_guest_info_callbacks kvm_guest=
-_cbs =3D {
->         .handle_mediated_pmi    =3D NULL,
->  };
->
-> -void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void))
-> +void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void)=
-,
-> +                                  void (*mediated_pmi_handler)(void))
->  {
->         kvm_guest_cbs.handle_intel_pt_intr =3D pt_intr_handler;
-> -       kvm_guest_cbs.handle_mediated_pmi =3D NULL;
-> +       kvm_guest_cbs.handle_mediated_pmi =3D mediated_pmi_handler;
->
->         perf_register_guest_info_callbacks(&kvm_guest_cbs);
->  }
-> --
-> 2.50.1.565.gc32cd1483b-goog
->
+ .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 42 +++++++++++++-
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi         | 67 ++++++++++++++++++++++
+ drivers/media/platform/nxp/imx8mq-mipi-csi2.c      | 60 ++++++-------------
+ 3 files changed, 124 insertions(+), 45 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250819-csi2_imx8ulp-9db386dd6bdf
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@nxp.com>
+
 
