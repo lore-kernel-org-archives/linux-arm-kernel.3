@@ -4,160 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33868CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0164ACA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSZGv0FmqbwS+LbUjwsmHIWyPW6CsRO2Uw3DePhj1zA=; b=vwwrN8fZpe8/+t4kGPvsYnHcJL
-	TgCSI7/M9cUaJqCFGXN308J69rsxJLx+UxxCEmEFpKsm+epntSlSZfSuSPAm7eQUZSS0scovmu2BR
-	+wLSqQvNrtd7pvc/fBaWIvp26LEoMR+9LuCogVmWUI3mr9JmrjLjXvihm2MrAJ31Nk6GnLThU7dkd
-	BeeMZeoxMHH+IjR8ruVyMTqio8TcQZ0A8iw9e1khT72w8I66DhBGXNLCmPvXyigzlodLNTQ9mILpz
-	Kv1GntyX8HhApe2JsZABVNSQkao/0c2xerXvNMTBrB5zf8qP1yR1LSG78zHbHbpwZihMoHGEwNPlR
-	gCQHOb7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szsFJQd7FpONlwOm+0H1IEbNubvgFFPa2+Vofeysjbs=; b=Ngfcipmeh8jRRo2fclP9eOIwPK
+	Sra89wU40pvlAgW2w+8To2cgD1R23H/A2hYJq5RSZKAs2Rv3bk5Bkvj2ymycf4UH9+ivjQF0imBQU
+	mtaIQanv7LqRIFIXllviUXoHgIltOh7UOOrTqop8cN+8NThK+97W1SIWP+h4ywCdNRU0e8f3FWePO
+	8JAcxJlgXriOd6VnCO4ZSdq0wwElMRdx6J3X1jkp2zjyZif4aqSpTrh5FuDvWAoIgTjhcazeny1Rh
+	zDp1et+5/Ju2+hfU8pEE6FRDXBuNTmwLgYv6F5lkbCVdgNbbVKZkJGIRNRWEjju42VsGjO4oDHGJf
+	TuxRBK+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTmt-000000032gV-1OK3;
-	Fri, 22 Aug 2025 15:34:43 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1upTn1-000000032tb-2Q5Y;
+	Fri, 22 Aug 2025 15:34:51 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upNOD-00000001yHR-1Cc4
+	id 1upNeL-000000020Ew-0EPl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 08:44:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P0p31pY/at8+usz9OSajjkfIX+/waOAUEOR1AJFChx0145gihpe0FIzopV9YU8VJQHjPSj4+sPhBfpbzrPVFh6rLdv2er1DOD6k9mp6TyYvvTUuxcBa58ks74NL1b8WKaGHTehmJbdylRtQPoiHRoxVh/gjEdr+qrdDxJolIkBsBebrD62xe+pJ/1PFs34iqSWgihqaXqcMVxKf7WBfipX8JyJomO9pB5bIh3NfFSeTmYXD5FOvwtVsn2b6QfRClNjZiOMIxNlu1bnOK7XhKEGPiiEV7zZceRrqFk+mF983GoAMR6S+pcf4RNfZe5IVUqRan/jYxmXdY09l/i7snQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NSZGv0FmqbwS+LbUjwsmHIWyPW6CsRO2Uw3DePhj1zA=;
- b=cuhDGzhL2pi2/Pc6zytsurtoUh55iFbiiuyffTuwq86jEQYe4MXpkOYehcmv1bo1HnfvNnW0PdNBnhAfb0LXBJzDOcvJGgla0Xxr8Qen1bkgzBuVsnoiWBTKEeNo3ajGTbYDTmDr4VqS0p3KzvUWZykOk5PglUFWPdssr1XIQCyET2pgrhvb5wzpPdSgg8/5+Xsp9fKPW4V4CA8gXsGLTTj8WD7LWZ0uT4zcS62JJMYe78bOeL2AT7XUQZta9H/Z8hJhEoL+TZKtO3H7yOFlKio1yh3ETQF5Q447kDP9d6mKnZied47GlQQTR7RhaQllcb09AuEoRKWFWY3ympaiOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NSZGv0FmqbwS+LbUjwsmHIWyPW6CsRO2Uw3DePhj1zA=;
- b=gkBx5DCrfrOKqW6qPRRpzl2I3KUs3aO/ermoXqAkBV2alwe/icjD6DMNyQZQPegIjR3yiwXexdwziOmM8/arqpWyOZ9Feg9g56JhzmkOp6sY+Qr7bT7amiasfRKr9ui+lwmG2+abIzmjmeRG+ux5po1RP9zzf8BlL/SIkMZi2P/sm06RT2sUOFze7r0/mzzhUgQlUJoOWFsvsBAjc/F0MouS/wQ24x8wVrcjbUbYccJKGAaw1FCVmJIYezSs3Cf3osoOjVnPc9Tq05ql5CDXg9FSyV5VPDFv3p/lylcfukuoOYwgeIDkVsuyhqGCmQPGF4HWURPp++xvHq+aXnygQw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
- 2025 08:44:44 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9052.014; Fri, 22 Aug 2025
- 08:44:43 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v4 3/6] PCI: imx6: Don't poll LTSSM state of i.MX6QP PCIe in PM operations
-Date: Fri, 22 Aug 2025 16:43:38 +0800
-Message-Id: <20250822084341.3160738-4-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250822084341.3160738-1-hongxing.zhu@nxp.com>
-References: <20250822084341.3160738-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0047.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::15) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Fri, 22 Aug 2025 09:01:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=szsFJQd7FpONlwOm+0H1IEbNubvgFFPa2+Vofeysjbs=;
+	b=d5WraUMZ95QQRPkROwQ+DJ10P6fMlQcaMqqvkrYcaC/eItrxon8v3z4g0R4o6c
+	tKl8zjkrKgYXpRmu3VT7nhgMDiZwIYAAqifwv6nWO0t5uFl2jeNidrBtao33Oljz
+	cQp1nV2sa0bJzLlxaJYFKZmFsHVu/9w7rWF7KQID7148I=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgD3H9PLMahoWSkcAw--.15940S3;
+	Fri, 22 Aug 2025 17:01:01 +0800 (CST)
+Date: Fri, 22 Aug 2025 17:00:59 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, kernel@dh-electronics.com
+Subject: Re: [PATCH] arm64: dts: imx8mp: Fix missing microSD slot vqmmc on DH
+ electronics i.MX8M Plus DHCOM
+Message-ID: <aKgxy6tmlw28awes@dragon>
+References: <20250810160340.10042-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA4PR04MB7630:EE_
-X-MS-Office365-Filtering-Correlation-Id: dde3536f-b015-4892-f9de-08dde1582421
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CE3gOVI7N+yC8CUd5pzTTE8esSH8SZVBS4cFhxprw27xdK6cwS+TfbyCn4HV?=
- =?us-ascii?Q?D5wMulyZAwsQieQ4VT1INqH9FHfHjlWmf38jSgcIUsQvD3bcrAawBRDgmpsC?=
- =?us-ascii?Q?D36HYI8pQjiTLY5KmxiNYHGWIutgi7LmbSvs8vpmpc1MUJn+w/fpcNHjIL7W?=
- =?us-ascii?Q?etbR2Symc+GMel4XPMUFoQdYz2hLNtFY58335K9XWINh/GyzpojE4jLLSsnt?=
- =?us-ascii?Q?9+BquKeqPZK+0/TCFJiK6V2PJhzeDnOfjoD/wN8YBC5x94G4xXCJBI3ljezH?=
- =?us-ascii?Q?s9wAW/DRnnxXE3bncBniHxe+iLRPp0Rf726mL1ny5uYaMmBY0CVM3wJ4+raZ?=
- =?us-ascii?Q?x1HRbDCVX5iyd1mvacY7gcTdKdxEl+P2to0ZLoWZOEPZiqXfdXnKJDHOWwlP?=
- =?us-ascii?Q?3GJRTHJM5FzDCcGf7b+mvgqFS2nAorbFbK4EG9U80r5VZHprOe20VGkdOqv7?=
- =?us-ascii?Q?9OIwu33CCjTg9H7hP8Nxro1WF19Updx6BBG/bX+qTVJ3o4a6I1zwemCBkCED?=
- =?us-ascii?Q?7pZK4EM6O3H5CXq261X6nkIRUmeqZwhHM0+TIzDfkZ45o8mI1sGvEU3gyCx0?=
- =?us-ascii?Q?FE2g/ZPUA3/c4x289NFZFuBw800bY/DQ81xwSFVA2L1i7f/F8zUkw4jcv9JA?=
- =?us-ascii?Q?7Clc1SfMvB6Ed8GQvDmD0Cvl5rRExv6UI6AkPNXG7fsykD1074AtYLHzOB/u?=
- =?us-ascii?Q?iR93oXSeQAod0Tk3EOEX5jEp9M+RR6XwAbEbB8hdyP/259oXXNVLmNa004TT?=
- =?us-ascii?Q?VJYiXqkTgnPsxTkNAffv6vsoeWPbsZGi+Cr2lEMKVxa+KoU4RU71DkYB0kms?=
- =?us-ascii?Q?+8r8h9Mf9vmlMeVkYv6m2Kg2XBLoZSfQaRX9EuEz2ck7adUoQuxOFbIumgTz?=
- =?us-ascii?Q?9g+ER/EKAQYzEF+bYa0p/2gINV/+GaowHnMWpA90PdStTUVq5oraXWucTPHy?=
- =?us-ascii?Q?24Odr/JNWqBrk6FSWDNyRwtXpYQrKEjXSwj3e6uq5+5F+686xa6+mSmJ9Dij?=
- =?us-ascii?Q?HgrPgNZqhcPQ5FVUrbjpRYHnglLwpAzgUwytQrC5/uLxagacLShlGGQPOWse?=
- =?us-ascii?Q?pPpYt5BQyMOcI47u+D6+T62hsPrFGDS780RZr+2eJmhArPsbKojdV+faRVBa?=
- =?us-ascii?Q?4JE2jaGTEDQkbnt3Fg6Bj6I/6U7PhpbsEdR53LsOuCf8dYsSDwZ0CV1obUHu?=
- =?us-ascii?Q?RJ5UXRzK40N+q9X+qkZfvMhZmChCxnxKhZvmLV/FoxTFNnAzdCACCHIYOY3B?=
- =?us-ascii?Q?82bZ9TKYS66aRcCPGSVupcdPbtKSNGIdV+sInq4iWVfA/nd1R7/FOAxmzCfw?=
- =?us-ascii?Q?dOFUrAWAwJ6jheGogpFGGfbO5G8wouKEfHobRFbOYQJIbYk9bTQzam/WOyM7?=
- =?us-ascii?Q?SbKbN0x6GJj7X50Lx6JNKILKLLk5uA8AvX9NuRFO6V3N951yHkdhDHRk8s4F?=
- =?us-ascii?Q?iwhA6MIuC53u50lvbrbCIdvVloeuZXijCEoMeO1pAipHhb+jg/oWm6sy7gzW?=
- =?us-ascii?Q?Ae5+TOFbPUbCYKI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4OE2a0yP7x17xgUrAzRq6TejH6401SYV6YivQWqnOKSMdIxuj2XPfK3y9Knh?=
- =?us-ascii?Q?pdhR2NvhgiPhQSPwvpntHnhLijVSohRrUwqExrDiuXVUdwLpf9QfCD8VQgvi?=
- =?us-ascii?Q?n5mwgQ6fqitDa7S/vfvvNuaUzs53tVJTE7RHdUYLviAqm46fqhMDZwCDJTIJ?=
- =?us-ascii?Q?YdI9DgQHYsHyLXE+Oa9NvCygmssf+81fEGtciba85ERs4Y57cLPyZv1uYtSj?=
- =?us-ascii?Q?RRNxXwTgJ8iKtUECBy/aBiv4hzKVBwU17gwegFsFLu3fy9Vqym+TNEOPNkcP?=
- =?us-ascii?Q?L03qiRIJh15o1CiGnNG9VvFWgb5SRJZPi/1F32RMjf6aAkNWWyUmZO//PSyk?=
- =?us-ascii?Q?1mgtZM6KtymXXfBkZRuMqNsv1EmtwdNCEr2z0ChXTa29fb0o+focypxNtUON?=
- =?us-ascii?Q?s6das35+ceyr+S+AHlVa0W4BO0+cmDQZR59j+j0B4yc51fLEB+JLtZeBZSdw?=
- =?us-ascii?Q?ViPiYbdafPGqYNlJ8pbPTVVNYGryx9SkeXGePn5NfBhpIh4nfoQfcTx0xFGN?=
- =?us-ascii?Q?BdEuR3uIfypEqutBgNhsg4Sn/w1Mz+Lz88ZD1LBxd55RV6PT+aRlRGLZUPGy?=
- =?us-ascii?Q?9pufyuoBXGeDWQiH2d6f/RNUcUV6VgUk1SAqP+LRrDqp4qKXO3GSYm+cPWvN?=
- =?us-ascii?Q?/55S0zZrstf9vlO+36ohIEgZnGxJVS3RKOdIVxR3Bt8P5zVhJITLGfC8/v9P?=
- =?us-ascii?Q?y3DVbpFFRF0rui6iTEocC9I3VOW1PncVGYiJA0ajBv0Ct1bZxmGRn1fsmbFf?=
- =?us-ascii?Q?vfYpmGDjD7lsCztgey9Ei5ldllG5YBzNgm1gGZQKdBMoHkpkx/Rz9vAW5X6S?=
- =?us-ascii?Q?hQeSbTS8I1KpmIkvX/a+rXLuA6IvuPuzOMH355fVXiGfE2AUu1848Sv6vjuM?=
- =?us-ascii?Q?xiUns89momxTamjCvqZWhtj6UkOq5i0xAVooKMkIbvMR9E4aOi6gWQXMuTEQ?=
- =?us-ascii?Q?WMRMy41hH+b4qeWNdOmsI1ROfLXkMAbVVNM3QdllxGnjsKcA8AbW5dsWvmp0?=
- =?us-ascii?Q?8MermmKsZppeVOTfvKYVjufsOVusmeGEgPugrf1k8Be4VMUJv3IK+RNuhFko?=
- =?us-ascii?Q?0wWQb3w9oUYZyhz9igQ/zd/2mv8P5Jq3FQqlWnF74j+xjozCrP4lWf7Cjgud?=
- =?us-ascii?Q?AWHCYk9lLtwDewWC9z+3TAS5Cu5Xmby7LrqUslMCg1hcf6bETXKgwHJy0UkQ?=
- =?us-ascii?Q?OZ/37E5SI1JwX4w+2NVDjY68J+bpvJ8m583EBjLctVOEj+gSJte/HASSiuz+?=
- =?us-ascii?Q?NGqIHq+ISELn9I30WXvksyHv5bH2rfs7O3RQYAwnnxuLIwIltVmvziH9azaE?=
- =?us-ascii?Q?UDlKogZA/OPKymY+1UJY5dQ9QyjNHp3u/DBly2Kusq8CiT9tMd2kNwMCEgxS?=
- =?us-ascii?Q?t19VQHji8QSCxac2Tt8JYIW4t068Vrov2FULz6e9RMuCYFGVqYbTBuM0enoE?=
- =?us-ascii?Q?Fr6PYZirgbnQ4nD0JKDPuOS9zXnwTtxkZ0Wwa0ekPGxTBCA4Cp6AOpKbXEbe?=
- =?us-ascii?Q?hHmISTclH/k+UdIe+ncqtKMeV7eAI8IvO0Vo+N6P2EFZlBU+AglxPyi6p5/N?=
- =?us-ascii?Q?dr1++QIWOYuT9+KWAIybSGUJe4aSZN1AWDj3oasT?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dde3536f-b015-4892-f9de-08dde1582421
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 08:44:43.8097
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nCSzTmd71aSy/lJ4sTUsl1NmwFnVyGYAqZ076OtePpxv2dGgHHGZ2b5woWyePVRJzQyWrkN4UbbGlfvDlEd0OQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7630
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250810160340.10042-1-marek.vasut@mailbox.org>
+X-CM-TRANSID: Mc8vCgD3H9PLMahoWSkcAw--.15940S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUeLvtDUUUU
+X-Originating-IP: [117.81.240.235]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNQ3DKWioMc2g0gAA3c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_014449_327629_DCB56B02 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250822_020129_470514_EBBA9303 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,53 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
-Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+On Sun, Aug 10, 2025 at 06:03:07PM +0200, Marek Vasut wrote:
+> Add missing microSD slot vqmmc-supply property, otherwise the kernel
+> might shut down LDO5 regulator and that would power off the microSD
+> card slot, possibly while it is in use. Add the property to make sure
+> the kernel is aware of the LDO5 regulator which supplies the microSD
+> slot and keeps the LDO5 enabled.
+> 
+> Fixes: 8d6712695bc8 ("arm64: dts: imx8mp: Add support for DH electronics i.MX8M Plus DHCOM and PDK2")
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 
-It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
-a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
-Synchronization.
-
-The LTSSM states of i.MX6QP PCIe are inaccessible after the PME_Turn_Off
-is kicked off. To handle this case, don't poll L2 state and add one max
-10ms delay if QUIRK_NOL2POLL_IN_PM flag is existing in suspend.
-
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 80e48746bbaf6..18b97bd0462bb 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -125,6 +125,7 @@ struct imx_pcie_drvdata {
- 	enum imx_pcie_variants variant;
- 	enum dw_pcie_device_mode mode;
- 	u32 flags;
-+	u32 quirk;
- 	int dbi_length;
- 	const char *gpr;
- 	const u32 ltssm_off;
-@@ -1765,6 +1766,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	pci->quirk_flag = imx_pcie->drvdata->quirk;
- 	pci->use_parent_dt_ranges = true;
- 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
- 		ret = imx_add_pcie_ep(imx_pcie, pdev);
-@@ -1849,6 +1851,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
- 		.enable_ref_clk = imx6q_pcie_enable_ref_clk,
- 		.core_reset = imx6qp_pcie_core_reset,
- 		.ops = &imx_pcie_host_ops,
-+		.quirk = QUIRK_NOL2POLL_IN_PM,
- 	},
- 	[IMX7D] = {
- 		.variant = IMX7D,
--- 
-2.37.1
+Applied, thanks!
 
 
