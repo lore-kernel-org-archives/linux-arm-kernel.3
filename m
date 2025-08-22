@@ -4,80 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19057CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327E6CA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7uyxXfVTQcNb2/a0bA71NPXNGG4e9FHIdmke8w19dQ=; b=F4NiAMyKpsIvpVv5VjcCb09l2a
-	OrqXT5h7CFNKVFJOsZn53yy9BuZGCv/BqcrQ3kJcx92Gual5S3gYgIzOspb3RLdRrZ8sQ9KxOxWzb
-	b3KuwpYWNbIe3YyufLAr3YVJ2axvgM9gA51B5+Zq0IRHJRI0gXAPC1M4Qmi0VAFO3u9NNlv29AKld
-	Z9+m3qaaSQEeJ07YJ+fZae2tFNs3ByBKfU17isY95KFuqxp/HggUBKGJ2IGm7PQCmOkjxRJApcMB7
-	Q+VaPvqc07g9q4wZoSR7vDbKrm1hYlAUvZ4SEPOtTjrUY9p+ShuGS2wmpMUSZSLnIPu9rc/sRAhEC
-	b5m/CZ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0xEHhpDr5Ii0lNf94Y5NJ7HClkQVYYRlfEovqbGqyo=; b=aKaJ5hW4KvPeYdfn7Brl05tvNM
+	edAfRG5gpMPp5USnlfs9jLelcl0RwFwMGc6SssL6Pmig4RRDJgYXtvbEpmd6lE4plXZ6+ltTl+itw
+	7ZRps6xiGhka1ZOAmU+EJ9HRHBPhCAW9UZnsmstJfp2ix1oERJNIMj/MZRWTUMEsiDmRPef6lVvpQ
+	tTaBlh/M6pP2RlkeTynfWULRJuoxRYDQiMOT1FG8u6DVKvoK6uD/gr/GouMiot9dcLy7cNt7kUy31
+	FFKNmGp+Rn0cxfPBWk5UsDp3RT8n6CEFZu58FTk5dmqH/ULk4hgxM1L8WrEFgYnp3S8RIp5rp19uy
+	BFjWX4zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphlW-00000003yL8-0kLV;
-	Sat, 23 Aug 2025 06:30:14 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uphlY-00000003yPk-2Aw8;
+	Sat, 23 Aug 2025 06:30:16 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRHG-00000002YIs-3DU4;
-	Fri, 22 Aug 2025 12:53:56 +0000
-X-UUID: 0d677e087f5711f09f706fa2197c6ceb-20250822
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=e7uyxXfVTQcNb2/a0bA71NPXNGG4e9FHIdmke8w19dQ=;
-	b=SylXc/jxy7KjATA2486Kg6mPGI+cf7J5eBiNFU5f2vigsoPwf6+6T79VBCV+w1tP30ADGnk1CKO7kCT8WDYLupN9OvjjP7n7fe3fuBvBuNqYr0lAXYyV8f83wGh2VPsZsm+2Ibv+43umsITCOaOJrq9sUCxNwjpQWw/Eo0Of6uY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:66a6f9a6-72f4-497a-a203-41fc1c24b643,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:f1326cf,CLOUDID:04566c7a-966c-41bd-96b5-7d0b3c22e782,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0d677e087f5711f09f706fa2197c6ceb-20250822
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1979679045; Fri, 22 Aug 2025 05:53:51 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 22 Aug 2025 20:53:47 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 22 Aug 2025 20:53:46 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
- Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH v7 09/10] ASoC: mediatek: mt8196: add machine driver with nau8825
-Date: Fri, 22 Aug 2025 20:52:38 +0800
-Message-ID: <20250822125301.12333-10-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250822125301.12333-1-darren.ye@mediatek.com>
-References: <20250822125301.12333-1-darren.ye@mediatek.com>
+	id 1upRHQ-00000002YKe-1xrb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 12:54:05 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MCc12j019648;
+	Fri, 22 Aug 2025 14:53:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	J0xEHhpDr5Ii0lNf94Y5NJ7HClkQVYYRlfEovqbGqyo=; b=yrD/44iTpG6d7ZWH
+	wgrtFXahyjJZvdUKlQCA4ddPj0sRoExjds+LljZRRBiQ0y5Vs/RqnX2RPKD2rdDX
+	+GeUDKKbq7pQs/fLkoAEqA5Yeqe8/6eqSnCqTBNKQ0mtxwfBV0O+TdGXuQQy6i5T
+	b7YzugGDY6bL8EsJ47ZHyg71QYyP5uHOWfV/rJUC6VK7Wkoe06e1YqwP9DtWCbba
+	TrjmsxWD8z3bziyn0nc+6/2MiDX8U8Fz96kcXVgve5t7mje+bzwOoQRSQvKeQFWl
+	dqXpLwcKhVex7DPC1lghryENCpzYxpQ52mfnxGufdt2SODr8pacM8ut7eUqqT787
+	RhXNaA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48n81wtrcs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 Aug 2025 14:53:50 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5314C40044;
+	Fri, 22 Aug 2025 14:52:36 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B0FF66C67BC;
+	Fri, 22 Aug 2025 14:51:24 +0200 (CEST)
+Received: from [10.48.87.178] (10.48.87.178) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
+ 2025 14:51:23 +0200
+Message-ID: <09c20af0-e33f-4325-9cf5-249cb2f31b38@foss.st.com>
+Date: Fri, 22 Aug 2025 14:51:23 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/13] dt-bindings: arm: stm32: add required
+ #clock-cells property
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250821-drm-misc-next-v4-0-7060500f8fd3@foss.st.com>
+ <20250821-drm-misc-next-v4-6-7060500f8fd3@foss.st.com>
+Content-Language: en-US
+From: Yannick FERTRE <yannick.fertre@foss.st.com>
+In-Reply-To: <20250821-drm-misc-next-v4-6-7060500f8fd3@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Originating-IP: [10.48.87.178]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_055354_833042_2FE89DEF 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20250822_055404_770406_DED6E535 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,932 +113,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+Hi Raphael,
 
-Add support for mt8196 board with nau8825.
+Thanks for the patch.
+Reviewed-by: Yannick Fertre <yannick.fertre@foss.st.com>
 
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
----
- sound/soc/mediatek/Kconfig                 |  20 +
- sound/soc/mediatek/mt8196/Makefile         |   2 +
- sound/soc/mediatek/mt8196/mt8196-nau8825.c | 868 +++++++++++++++++++++
- 3 files changed, 890 insertions(+)
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-nau8825.c
-
-diff --git a/sound/soc/mediatek/Kconfig b/sound/soc/mediatek/Kconfig
-index 7003d71b847c..2889600652a0 100644
---- a/sound/soc/mediatek/Kconfig
-+++ b/sound/soc/mediatek/Kconfig
-@@ -332,4 +332,24 @@ config SND_SOC_MT8196
- 	  Select Y if you have such device.
- 	  If unsure select "N".
- 
-+config SND_SOC_MT8196_NAU8825
-+	tristate "ASoc Audio driver for MT8196 with NAU8825 and I2S codec"
-+	depends on SND_SOC_MT8196
-+	depends on I2C
-+	select SND_SOC_HDMI_CODEC
-+	select SND_SOC_DMIC
-+	select SND_SOC_NAU8315
-+	select SND_SOC_NAU8825
-+	select SND_SOC_RT5645
-+	select SND_SOC_RT5682_I2C
-+	select SND_SOC_RT5682S
-+	select SND_SOC_TAS2781_COMLIB
-+	select SND_SOC_TAS2781_FMWLIB
-+	select SND_SOC_TAS2781_I2C
-+	help
-+	  This adds support for ASoC machine driver for MediaTek MT8196
-+	  boards with the NAU8825 and other I2S audio codecs.
-+	  Select Y if you have such device.
-+	  If unsure select "N".
-+
- endmenu
-diff --git a/sound/soc/mediatek/mt8196/Makefile b/sound/soc/mediatek/mt8196/Makefile
-index 0c6a018190a2..91de200071d7 100644
---- a/sound/soc/mediatek/mt8196/Makefile
-+++ b/sound/soc/mediatek/mt8196/Makefile
-@@ -10,3 +10,5 @@ snd-soc-mt8196-afe-objs += \
- 
- obj-$(CONFIG_SND_SOC_MT8196) += snd-soc-mt8196-afe.o
- 
-+# machine driver
-+obj-$(CONFIG_SND_SOC_MT8196_NAU8825) += mt8196-nau8825.o
-diff --git a/sound/soc/mediatek/mt8196/mt8196-nau8825.c b/sound/soc/mediatek/mt8196/mt8196-nau8825.c
-new file mode 100644
-index 000000000000..e6184c36415e
---- /dev/null
-+++ b/sound/soc/mediatek/mt8196/mt8196-nau8825.c
-@@ -0,0 +1,868 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ *  mt8196-nau8825.c  --  mt8196 nau8825 ALSA SoC machine driver
-+ *
-+ *  Copyright (c) 2025 MediaTek Inc.
-+ *  Author: Darren Ye <darren.ye@mediatek.com>
-+ */
-+
-+#include <linux/input.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/pm_runtime.h>
-+
-+#include <sound/soc.h>
-+#include <sound/jack.h>
-+#include <sound/pcm_params.h>
-+
-+#include "mt8196-afe-common.h"
-+
-+#include "../../codecs/nau8825.h"
-+#include "../../codecs/rt5682s.h"
-+
-+#include "../common/mtk-soc-card.h"
-+#include "../common/mtk-dsp-sof-common.h"
-+#include "../common/mtk-soundcard-driver.h"
-+#include "../common/mtk-afe-platform-driver.h"
-+
-+#define NAU8825_HS_PRESENT	BIT(0)
-+#define RT5682S_HS_PRESENT	BIT(1)
-+#define RT5650_HS_PRESENT	BIT(2)
-+
-+/*
-+ * Nau88l25
-+ */
-+#define NAU8825_CODEC_DAI  "nau8825-hifi"
-+
-+/*
-+ * Rt5682s
-+ */
-+#define RT5682S_CODEC_DAI     "rt5682s-aif1"
-+
-+/*
-+ * Rt5650
-+ */
-+#define RT5650_CODEC_DAI     "rt5645-aif1"
-+
-+#define SOF_DMA_DL1 "SOF_DMA_DL1"
-+#define SOF_DMA_DL_24CH "SOF_DMA_DL_24CH"
-+#define SOF_DMA_UL0 "SOF_DMA_UL0"
-+#define SOF_DMA_UL1 "SOF_DMA_UL1"
-+#define SOF_DMA_UL2 "SOF_DMA_UL2"
-+
-+enum mt8196_jacks {
-+	MT8196_JACK_HEADSET,
-+	MT8196_JACK_DP,
-+	MT8196_JACK_HDMI,
-+	MT8196_JACK_MAX,
-+};
-+
-+static struct snd_soc_jack_pin mt8196_dp_jack_pins[] = {
-+	{
-+		.pin = "DP",
-+		.mask = SND_JACK_AVOUT,
-+	},
-+};
-+
-+static struct snd_soc_jack_pin mt8196_hdmi_jack_pins[] = {
-+	{
-+		.pin = "HDMI",
-+		.mask = SND_JACK_AVOUT,
-+	},
-+};
-+
-+static struct snd_soc_jack_pin nau8825_jack_pins[] = {
-+	{
-+		.pin    = "Headphone Jack",
-+		.mask   = SND_JACK_HEADPHONE,
-+	},
-+	{
-+		.pin    = "Headset Mic",
-+		.mask   = SND_JACK_MICROPHONE,
-+	},
-+};
-+
-+static const struct snd_kcontrol_new mt8196_dumb_spk_controls[] = {
-+	SOC_DAPM_PIN_SWITCH("Ext Spk"),
-+};
-+
-+static const struct snd_soc_dapm_widget mt8196_dumb_spk_widgets[] = {
-+	SND_SOC_DAPM_SPK("Ext Spk", NULL),
-+};
-+
-+static const struct snd_soc_dapm_widget mt8196_nau8825_widgets[] = {
-+	SND_SOC_DAPM_HP("Headphone Jack", NULL),
-+	SND_SOC_DAPM_MIC("Headset Mic", NULL),
-+	SND_SOC_DAPM_SPK("Ext Spk", NULL),
-+	SND_SOC_DAPM_SINK("DP"),
-+};
-+
-+static const struct snd_kcontrol_new mt8196_nau8825_controls[] = {
-+	SOC_DAPM_PIN_SWITCH("Headphone Jack"),
-+	SOC_DAPM_PIN_SWITCH("Headset Mic"),
-+};
-+
-+#define EXT_SPK_AMP_W_NAME "Ext_Speaker_Amp"
-+
-+static struct snd_soc_card mt8196_nau8825_soc_card;
-+
-+static const struct snd_soc_dapm_widget mt8196_nau8825_card_widgets[] = {
-+	/* SOF Uplink */
-+	SND_SOC_DAPM_MIXER("SOF_DMA_UL0", SND_SOC_NOPM, 0, 0, NULL, 0),
-+	SND_SOC_DAPM_MIXER("SOF_DMA_UL1", SND_SOC_NOPM, 0, 0, NULL, 0),
-+	SND_SOC_DAPM_MIXER("SOF_DMA_UL2", SND_SOC_NOPM, 0, 0, NULL, 0),
-+
-+	/*
-+	 * SOF Downlink
-+	 * the widgets on the machine driver cannot use the parameter with kcontrol
-+	 * because the widget domain is its platform driver. so sof downlink route
-+	 * is written in the i2s dai driver.
-+	 */
-+};
-+
-+static const struct snd_soc_dapm_route mt8196_nau8825_card_routes[] = {
-+	/* SOF Uplink */
-+	{"SOF_DMA_UL0", NULL, "UL0_CH1"},
-+	{"SOF_DMA_UL0", NULL, "UL0_CH2"},
-+	/* SOF Uplink */
-+	{"SOF_DMA_UL1", NULL, "UL1_CH1"},
-+	{"SOF_DMA_UL1", NULL, "UL1_CH2"},
-+	/* SOF Uplink */
-+	{"SOF_DMA_UL2", NULL, "UL2_CH1"},
-+	{"SOF_DMA_UL2", NULL, "UL2_CH2"},
-+};
-+
-+static const struct snd_kcontrol_new mt8196_nau8825_card_controls[] = {
-+	SOC_DAPM_PIN_SWITCH(EXT_SPK_AMP_W_NAME),
-+};
-+
-+/*
-+ * define mtk_spk_i2s_mck node in dts when need mclk,
-+ * BE i2s need assign snd_soc_ops = mt8196_nau8825_i2s_ops
-+ */
-+static int mt8196_nau8825_i2s_hw_params(struct snd_pcm_substream *substream,
-+					struct snd_pcm_hw_params *params)
-+{
-+	struct snd_soc_pcm_runtime *rtd = substream->private_data;
-+	unsigned int rate = params_rate(params);
-+	unsigned int mclk_fs_ratio = 128;
-+	unsigned int mclk_fs = rate * mclk_fs_ratio;
-+	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
-+
-+	return snd_soc_dai_set_sysclk(cpu_dai,
-+				      0, mclk_fs, SND_SOC_CLOCK_OUT);
-+}
-+
-+static const struct snd_soc_ops mt8196_nau8825_i2s_ops = {
-+	.hw_params = mt8196_nau8825_i2s_hw_params,
-+};
-+
-+static int mt8196_dptx_hw_params(struct snd_pcm_substream *substream,
-+				 struct snd_pcm_hw_params *params)
-+{
-+	struct snd_soc_pcm_runtime *rtd = substream->private_data;
-+	unsigned int rate = params_rate(params);
-+	unsigned int mclk_fs_ratio = 256;
-+	unsigned int mclk_fs = rate * mclk_fs_ratio;
-+	struct snd_soc_dai *dai = snd_soc_rtd_to_cpu(rtd, 0);
-+
-+	return snd_soc_dai_set_sysclk(dai, 0, mclk_fs, SND_SOC_CLOCK_OUT);
-+}
-+
-+static const struct snd_soc_ops mt8196_dptx_ops = {
-+	.hw_params = mt8196_dptx_hw_params,
-+};
-+
-+static int mt8196_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,
-+				  struct snd_pcm_hw_params *params)
-+{
-+	dev_info(rtd->dev, "fix format to 32bit\n");
-+
-+	/* fix BE i2s format to 32bit, clean param mask first */
-+	snd_mask_reset_range(hw_param_mask(params, SNDRV_PCM_HW_PARAM_FORMAT),
-+			     0, SNDRV_PCM_FORMAT_LAST);
-+
-+	params_set_format(params, SNDRV_PCM_FORMAT_S32_LE);
-+	return 0;
-+}
-+
-+static int mt8196_sof_be_hw_params(struct snd_pcm_substream *substream,
-+				   struct snd_pcm_hw_params *params)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_component *cmpnt_afe = NULL;
-+	struct snd_soc_pcm_runtime *runtime;
-+
-+	/* find afe component */
-+	for_each_card_rtds(rtd->card, runtime) {
-+		cmpnt_afe = snd_soc_rtdcom_lookup(runtime, AFE_PCM_NAME);
-+		if (cmpnt_afe) {
-+			dev_info(rtd->dev, "component->name: %s\n", cmpnt_afe->name);
-+			break;
-+		}
-+	}
-+
-+	if (cmpnt_afe && !pm_runtime_active(cmpnt_afe->dev)) {
-+		dev_err(rtd->dev, "afe pm runtime is not active!!\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct snd_soc_ops mt8196_sof_be_ops = {
-+	.hw_params = mt8196_sof_be_hw_params,
-+};
-+
-+static const struct sof_conn_stream g_sof_conn_streams[] = {
-+	{
-+		.sof_link = "AFE_SOF_DL1",
-+		.sof_dma = SOF_DMA_DL1,
-+		.stream_dir = SNDRV_PCM_STREAM_PLAYBACK
-+	},
-+	{
-+		.sof_link = "AFE_SOF_DL_24CH",
-+		.sof_dma = SOF_DMA_DL_24CH,
-+		.stream_dir = SNDRV_PCM_STREAM_PLAYBACK
-+	},
-+	{
-+		.sof_link = "AFE_SOF_UL0",
-+		.sof_dma = SOF_DMA_UL0,
-+		.stream_dir = SNDRV_PCM_STREAM_CAPTURE
-+	},
-+	{
-+		.sof_link = "AFE_SOF_UL1",
-+		.sof_dma = SOF_DMA_UL1,
-+		.stream_dir = SNDRV_PCM_STREAM_CAPTURE
-+	},
-+	{
-+		.sof_link = "AFE_SOF_UL2",
-+		.sof_dma = SOF_DMA_UL2,
-+		.stream_dir = SNDRV_PCM_STREAM_CAPTURE
-+	},
-+};
-+
-+/* FE */
-+SND_SOC_DAILINK_DEFS(playback1,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("DL1")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(playback_24ch,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("DL_24CH")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(capture0,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("UL0")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(capture1,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("UL1")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(capture2,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("UL2")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(playback_hdmi,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("HDMI")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(playback2,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("DL2")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(capture_cm0,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("UL_CM0")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+/* BE */
-+SND_SOC_DAILINK_DEFS(ap_dmic,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("AP_DMIC")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(ap_dmic_ch34,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("AP_DMIC_CH34")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(ap_dmic_multich,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("AP_DMIC_MULTICH")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(i2sin6,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("I2SIN6")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(i2sout3,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("I2SOUT3")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(i2sout4,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("I2SOUT4")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(i2sout6,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("I2SOUT6")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(tdm_dptx,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("TDM_DPTX")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(AFE_SOF_DL_24CH,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("SOF_DL_24CH")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(AFE_SOF_DL1,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("SOF_DL1")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(AFE_SOF_UL0,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("SOF_UL0")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(AFE_SOF_UL1,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("SOF_UL1")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+SND_SOC_DAILINK_DEFS(AFE_SOF_UL2,
-+		     DAILINK_COMP_ARRAY(COMP_CPU("SOF_UL2")),
-+		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
-+		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
-+
-+static struct snd_soc_dai_link mt8196_nau8825_dai_links[] = {
-+	/*
-+	 * The SOF topology expects PCM streams 0~4 to be available
-+	 * for the SOF PCM streams. Put the SOF BE definitions here
-+	 * so that the PCM device numbers are skipped over.
-+	 * (BE dailinks do not have PCM devices created.)
-+	 */
-+	{
-+		.name = "AFE_SOF_DL_24CH",
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ops = &mt8196_sof_be_ops,
-+		SND_SOC_DAILINK_REG(AFE_SOF_DL_24CH),
-+	},
-+	{
-+		.name = "AFE_SOF_DL1",
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ops = &mt8196_sof_be_ops,
-+		SND_SOC_DAILINK_REG(AFE_SOF_DL1),
-+	},
-+	{
-+		.name = "AFE_SOF_UL0",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ops = &mt8196_sof_be_ops,
-+		SND_SOC_DAILINK_REG(AFE_SOF_UL0),
-+	},
-+	{
-+		.name = "AFE_SOF_UL1",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ops = &mt8196_sof_be_ops,
-+		SND_SOC_DAILINK_REG(AFE_SOF_UL1),
-+	},
-+	{
-+		.name = "AFE_SOF_UL2",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ops = &mt8196_sof_be_ops,
-+		SND_SOC_DAILINK_REG(AFE_SOF_UL2),
-+	},
-+	/* Front End DAI links */
-+	{
-+		.name = "HDMI_FE",
-+		.stream_name = "HDMI Playback",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+			    SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.playback_only = 1,
-+		SND_SOC_DAILINK_REG(playback_hdmi),
-+	},
-+	{
-+		.name = "DL2_FE",
-+		.stream_name = "DL2 Playback",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+			    SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.playback_only = 1,
-+		SND_SOC_DAILINK_REG(playback2),
-+	},
-+	{
-+		.name = "UL_CM0_FE",
-+		.stream_name = "UL_CM0 Capture",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+			    SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.capture_only = 1,
-+		SND_SOC_DAILINK_REG(capture_cm0),
-+	},
-+	{
-+		.name = "DL_24CH_FE",
-+		.stream_name = "DL_24CH Playback",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+				SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.playback_only = 1,
-+		SND_SOC_DAILINK_REG(playback_24ch),
-+	},
-+	{
-+		.name = "DL1_FE",
-+		.stream_name = "DL1 Playback",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+				SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.playback_only = 1,
-+		SND_SOC_DAILINK_REG(playback1),
-+	},
-+	{
-+		.name = "UL0_FE",
-+		.stream_name = "UL0 Capture",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+				SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.capture_only = 1,
-+		SND_SOC_DAILINK_REG(capture0),
-+	},
-+	{
-+		.name = "UL1_FE",
-+		.stream_name = "UL1 Capture",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+				SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.capture_only = 1,
-+		SND_SOC_DAILINK_REG(capture1),
-+	},
-+	{
-+		.name = "UL2_FE",
-+		.stream_name = "UL2 Capture",
-+		.trigger = {SND_SOC_DPCM_TRIGGER_PRE,
-+				SND_SOC_DPCM_TRIGGER_PRE},
-+		.dynamic = 1,
-+		.capture_only = 1,
-+		SND_SOC_DAILINK_REG(capture2),
-+	},
-+	/* Back End DAI links */
-+	{
-+		.name = "I2SIN6_BE",
-+		.dai_fmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_CBC_CFC
-+			| SND_SOC_DAIFMT_GATED,
-+		.ops = &mt8196_nau8825_i2s_ops,
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ignore_suspend = 1,
-+		.be_hw_params_fixup = mt8196_hw_params_fixup,
-+		SND_SOC_DAILINK_REG(i2sin6),
-+	},
-+	{
-+		.name = "I2SOUT4_BE",
-+		.dai_fmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_CBC_CFC
-+			| SND_SOC_DAIFMT_GATED,
-+		.ops = &mt8196_nau8825_i2s_ops,
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ignore_suspend = 1,
-+		.ignore_pmdown_time = 1,
-+		.be_hw_params_fixup = mt8196_hw_params_fixup,
-+		SND_SOC_DAILINK_REG(i2sout4),
-+	},
-+	{
-+		.name = "I2SOUT6_BE",
-+		.dai_fmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_CBC_CFC
-+			| SND_SOC_DAIFMT_GATED,
-+		.ops = &mt8196_nau8825_i2s_ops,
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ignore_suspend = 1,
-+		.be_hw_params_fixup = mt8196_hw_params_fixup,
-+		SND_SOC_DAILINK_REG(i2sout6),
-+	},
-+	{
-+		.name = "AP_DMIC_BE",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ignore_suspend = 1,
-+		SND_SOC_DAILINK_REG(ap_dmic),
-+	},
-+	{
-+		.name = "AP_DMIC_CH34_BE",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ignore_suspend = 1,
-+		SND_SOC_DAILINK_REG(ap_dmic_ch34),
-+	},
-+	{
-+		.name = "AP_DMIC_MULTICH_BE",
-+		.no_pcm = 1,
-+		.capture_only = 1,
-+		.ignore_suspend = 1,
-+		SND_SOC_DAILINK_REG(ap_dmic_multich),
-+	},
-+	{
-+		.name = "TDM_DPTX_BE",
-+		.dai_fmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_CBC_CFC
-+			| SND_SOC_DAIFMT_GATED,
-+		.ops = &mt8196_dptx_ops,
-+		.be_hw_params_fixup = mt8196_hw_params_fixup,
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ignore_suspend = 1,
-+		SND_SOC_DAILINK_REG(tdm_dptx),
-+	},
-+	{
-+		.name = "I2SOUT3_BE",
-+		.dai_fmt = SND_SOC_DAIFMT_I2S | SND_SOC_DAIFMT_CBC_CFC
-+			| SND_SOC_DAIFMT_GATED,
-+		.ops = &mt8196_nau8825_i2s_ops,
-+		.no_pcm = 1,
-+		.playback_only = 1,
-+		.ignore_suspend = 1,
-+		SND_SOC_DAILINK_REG(i2sout3),
-+	},
-+};
-+
-+static int mt8196_dumb_amp_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct snd_soc_card *card = rtd->card;
-+	int ret = 0;
-+
-+	ret = snd_soc_dapm_new_controls(&card->dapm, mt8196_dumb_spk_widgets,
-+					ARRAY_SIZE(mt8196_dumb_spk_widgets));
-+	if (ret) {
-+		dev_err(rtd->dev, "unable to add Dumb Speaker dapm, ret %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_soc_add_card_controls(card, mt8196_dumb_spk_controls,
-+					ARRAY_SIZE(mt8196_dumb_spk_controls));
-+	if (ret) {
-+		dev_err(rtd->dev, "unable to add Dumb card controls, ret %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt8196_dptx_codec_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct mtk_soc_card_data *soc_card_data = snd_soc_card_get_drvdata(rtd->card);
-+	struct snd_soc_jack *jack = &soc_card_data->card_data->jacks[MT8196_JACK_DP];
-+	struct snd_soc_component *component = snd_soc_rtd_to_codec(rtd, 0)->component;
-+	int ret = 0;
-+
-+	ret = snd_soc_card_jack_new_pins(rtd->card, "DP Jack", SND_JACK_AVOUT,
-+					 jack, mt8196_dp_jack_pins,
-+					 ARRAY_SIZE(mt8196_dp_jack_pins));
-+	if (ret) {
-+		dev_err(rtd->dev, "new jack failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_soc_component_set_jack(component, jack, NULL);
-+	if (ret) {
-+		dev_err(rtd->dev, "set jack failed on %s (ret=%d)\n",
-+			component->name, ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt8196_hdmi_codec_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct mtk_soc_card_data *soc_card_data = snd_soc_card_get_drvdata(rtd->card);
-+	struct snd_soc_jack *jack = &soc_card_data->card_data->jacks[MT8196_JACK_HDMI];
-+	struct snd_soc_component *component = snd_soc_rtd_to_codec(rtd, 0)->component;
-+	int ret = 0;
-+
-+	ret = snd_soc_card_jack_new_pins(rtd->card, "HDMI Jack", SND_JACK_AVOUT,
-+					 jack, mt8196_hdmi_jack_pins,
-+					 ARRAY_SIZE(mt8196_hdmi_jack_pins));
-+	if (ret) {
-+		dev_err(rtd->dev, "new jack failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_soc_component_set_jack(component, jack, NULL);
-+	if (ret) {
-+		dev_err(rtd->dev, "set jack failed on %s (ret=%d)\n",
-+			component->name, ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt8196_headset_codec_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct snd_soc_card *card = rtd->card;
-+	struct mtk_soc_card_data *soc_card_data = snd_soc_card_get_drvdata(card);
-+	struct snd_soc_jack *jack = &soc_card_data->card_data->jacks[MT8196_JACK_HEADSET];
-+	struct snd_soc_component *component = snd_soc_rtd_to_codec(rtd, 0)->component;
-+	int ret;
-+	int type;
-+
-+	ret = snd_soc_dapm_new_controls(&card->dapm, mt8196_nau8825_widgets,
-+					ARRAY_SIZE(mt8196_nau8825_widgets));
-+	if (ret) {
-+		dev_err(rtd->dev, "unable to add nau8825 card widget, ret %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_soc_add_card_controls(card, mt8196_nau8825_controls,
-+					ARRAY_SIZE(mt8196_nau8825_controls));
-+	if (ret) {
-+		dev_err(rtd->dev, "unable to add nau8825 card controls, ret %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = snd_soc_card_jack_new_pins(rtd->card, "Headset Jack",
-+					 SND_JACK_HEADSET | SND_JACK_BTN_0 |
-+					 SND_JACK_BTN_1 | SND_JACK_BTN_2 |
-+					 SND_JACK_BTN_3,
-+					 jack,
-+					 nau8825_jack_pins,
-+					 ARRAY_SIZE(nau8825_jack_pins));
-+	if (ret) {
-+		dev_err(rtd->dev, "Headset Jack creation failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	snd_jack_set_key(jack->jack, SND_JACK_BTN_0, KEY_PLAYPAUSE);
-+	snd_jack_set_key(jack->jack, SND_JACK_BTN_1, KEY_VOICECOMMAND);
-+	snd_jack_set_key(jack->jack, SND_JACK_BTN_2, KEY_VOLUMEUP);
-+	snd_jack_set_key(jack->jack, SND_JACK_BTN_3, KEY_VOLUMEDOWN);
-+
-+	type = SND_JACK_HEADSET | SND_JACK_BTN_0 | SND_JACK_BTN_1 | SND_JACK_BTN_2 | SND_JACK_BTN_3;
-+	ret = snd_soc_component_set_jack(component, jack, (void *)&type);
-+
-+	if (ret) {
-+		dev_err(rtd->dev, "Headset Jack call-back failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+};
-+
-+static void mt8196_headset_codec_exit(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct snd_soc_component *component = snd_soc_rtd_to_codec(rtd, 0)->component;
-+
-+	snd_soc_component_set_jack(component, NULL, NULL);
-+}
-+
-+static int mt8196_nau8825_hw_params(struct snd_pcm_substream *substream,
-+				    struct snd_pcm_hw_params *params)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_dai *codec_dai = snd_soc_rtd_to_codec(rtd, 0);
-+	unsigned int rate = params_rate(params);
-+	unsigned int bit_width = params_width(params);
-+	int clk_freq, ret;
-+
-+	clk_freq = rate * 2 * bit_width;
-+
-+	/* Configure clock for codec */
-+	ret = snd_soc_dai_set_sysclk(codec_dai, NAU8825_CLK_FLL_BLK, 0,
-+				     SND_SOC_CLOCK_IN);
-+	if (ret < 0) {
-+		dev_err(codec_dai->dev, "can't set BCLK clock %d\n", ret);
-+		return ret;
-+	}
-+
-+	/* Configure pll for codec */
-+	ret = snd_soc_dai_set_pll(codec_dai, 0, 0, clk_freq,
-+				  params_rate(params) * 256);
-+	if (ret < 0) {
-+		dev_err(codec_dai->dev, "can't set BCLK: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct snd_soc_ops mt8196_nau8825_ops = {
-+	.hw_params = mt8196_nau8825_hw_params,
-+};
-+
-+static int mt8196_rt5682s_i2s_hw_params(struct snd_pcm_substream *substream,
-+					struct snd_pcm_hw_params *params)
-+{
-+	struct snd_soc_pcm_runtime *rtd = substream->private_data;
-+	struct snd_soc_card *card = rtd->card;
-+	struct snd_soc_dai *cpu_dai = snd_soc_rtd_to_cpu(rtd, 0);
-+	struct snd_soc_dai *codec_dai = snd_soc_rtd_to_codec(rtd, 0);
-+	unsigned int rate = params_rate(params);
-+	int bitwidth;
-+	int ret;
-+
-+	bitwidth = snd_pcm_format_width(params_format(params));
-+	if (bitwidth < 0) {
-+		dev_err(card->dev, "invalid bit width: %d\n", bitwidth);
-+		return bitwidth;
-+	}
-+
-+	ret = snd_soc_dai_set_tdm_slot(codec_dai, 0x00, 0x0, 0x2, bitwidth);
-+	if (ret) {
-+		dev_err(card->dev, "failed to set tdm slot\n");
-+		return ret;
-+	}
-+
-+	ret = snd_soc_dai_set_pll(codec_dai, RT5682S_PLL1, RT5682S_PLL_S_BCLK1,
-+				  rate * 32, rate * 512);
-+	if (ret) {
-+		dev_err(card->dev, "failed to set pll\n");
-+		return ret;
-+	}
-+
-+	dev_info(card->dev, "%s set mclk rate: %d\n", __func__, rate * 512);
-+
-+	ret = snd_soc_dai_set_sysclk(codec_dai, RT5682S_SCLK_S_MCLK,
-+				     rate * 512, SND_SOC_CLOCK_IN);
-+	if (ret) {
-+		dev_err(card->dev, "failed to set sysclk\n");
-+		return ret;
-+	}
-+
-+	return snd_soc_dai_set_sysclk(cpu_dai, 0, rate * 512,
-+				      SND_SOC_CLOCK_OUT);
-+}
-+
-+static const struct snd_soc_ops mt8196_rt5682s_i2s_ops = {
-+	.hw_params = mt8196_rt5682s_i2s_hw_params,
-+};
-+
-+static int mt8196_nau8825_soc_card_probe(struct mtk_soc_card_data *soc_card_data, bool legacy)
-+{
-+	struct snd_soc_card *card = soc_card_data->card_data->card;
-+	struct snd_soc_dai_link *dai_link;
-+	bool init_nau8825 = false;
-+	bool init_rt5682s = false;
-+	bool init_rt5650 = false;
-+	bool init_dumb = false;
-+	int i;
-+
-+	dev_info(card->dev, "legacy: %d\n", legacy);
-+
-+	for_each_card_prelinks(card, i, dai_link) {
-+		if (strcmp(dai_link->name, "TDM_DPTX_BE") == 0) {
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+				dai_link->init = mt8196_dptx_codec_init;
-+		} else if (strcmp(dai_link->name, "I2SOUT3_BE") == 0) {
-+			if (dai_link->num_codecs &&
-+			    strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai"))
-+				dai_link->init = mt8196_hdmi_codec_init;
-+		} else if (strcmp(dai_link->name, "I2SOUT6_BE") == 0 ||
-+			   strcmp(dai_link->name, "I2SIN6_BE") == 0) {
-+			if (!strcmp(dai_link->codecs->dai_name, NAU8825_CODEC_DAI)) {
-+				dai_link->ops = &mt8196_nau8825_ops;
-+				if (!init_nau8825) {
-+					dai_link->init = mt8196_headset_codec_init;
-+					dai_link->exit = mt8196_headset_codec_exit;
-+					init_nau8825 = true;
-+				}
-+			} else if (!strcmp(dai_link->codecs->dai_name, RT5682S_CODEC_DAI)) {
-+				dai_link->ops = &mt8196_rt5682s_i2s_ops;
-+				if (!init_rt5682s) {
-+					dai_link->init = mt8196_headset_codec_init;
-+					dai_link->exit = mt8196_headset_codec_exit;
-+					init_rt5682s = true;
-+				}
-+			} else if (!strcmp(dai_link->codecs->dai_name, RT5650_CODEC_DAI)) {
-+				dai_link->ops = &mt8196_rt5682s_i2s_ops;
-+				if (!init_rt5650) {
-+					dai_link->init = mt8196_headset_codec_init;
-+					dai_link->exit = mt8196_headset_codec_exit;
-+					init_rt5650 = true;
-+				}
-+			} else {
-+				if (strcmp(dai_link->codecs->dai_name, "snd-soc-dummy-dai")) {
-+					if (!init_dumb) {
-+						dai_link->init = mt8196_dumb_amp_init;
-+						init_dumb = true;
-+					}
-+				}
-+			}
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct mtk_sof_priv mt8196_sof_priv = {
-+	.conn_streams = g_sof_conn_streams,
-+	.num_streams = ARRAY_SIZE(g_sof_conn_streams),
-+};
-+
-+static struct snd_soc_card mt8196_nau8825_soc_card = {
-+	.owner = THIS_MODULE,
-+	.dai_link = mt8196_nau8825_dai_links,
-+	.num_links = ARRAY_SIZE(mt8196_nau8825_dai_links),
-+	.dapm_widgets = mt8196_nau8825_card_widgets,
-+	.num_dapm_widgets = ARRAY_SIZE(mt8196_nau8825_card_widgets),
-+	.dapm_routes = mt8196_nau8825_card_routes,
-+	.num_dapm_routes = ARRAY_SIZE(mt8196_nau8825_card_routes),
-+	.controls = mt8196_nau8825_card_controls,
-+	.num_controls = ARRAY_SIZE(mt8196_nau8825_card_controls),
-+};
-+
-+static const struct mtk_soundcard_pdata mt8196_nau8825_card = {
-+	.card_name = "mt8196_nau8825",
-+	.card_data = &(struct mtk_platform_card_data) {
-+		.card = &mt8196_nau8825_soc_card,
-+		.num_jacks = MT8196_JACK_MAX,
-+		.flags = NAU8825_HS_PRESENT
-+	},
-+	.sof_priv = &mt8196_sof_priv,
-+	.soc_probe = mt8196_nau8825_soc_card_probe,
-+};
-+
-+static const struct mtk_soundcard_pdata mt8196_rt5682s_card = {
-+	.card_name = "mt8196_rt5682s",
-+	.card_data = &(struct mtk_platform_card_data) {
-+		.card = &mt8196_nau8825_soc_card,
-+		.num_jacks = MT8196_JACK_MAX,
-+		.flags = RT5682S_HS_PRESENT
-+	},
-+	.sof_priv = &mt8196_sof_priv,
-+	.soc_probe = mt8196_nau8825_soc_card_probe,
-+};
-+
-+static const struct mtk_soundcard_pdata mt8196_rt5650_card = {
-+	.card_name = "mt8196_rt5650",
-+	.card_data = &(struct mtk_platform_card_data) {
-+		.card = &mt8196_nau8825_soc_card,
-+		.num_jacks = MT8196_JACK_MAX,
-+		.flags = RT5650_HS_PRESENT
-+	},
-+	.sof_priv = &mt8196_sof_priv,
-+	.soc_probe = mt8196_nau8825_soc_card_probe,
-+};
-+
-+static const struct of_device_id mt8196_nau8825_dt_match[] = {
-+	{.compatible = "mediatek,mt8196-nau8825-sound", .data = &mt8196_nau8825_card,},
-+	{.compatible = "mediatek,mt8196-rt5682s-sound", .data = &mt8196_rt5682s_card,},
-+	{.compatible = "mediatek,mt8196-rt5650-sound", .data = &mt8196_rt5650_card,},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, mt8196_nau8825_dt_match);
-+
-+static struct platform_driver mt8196_nau8825_driver = {
-+	.driver = {
-+		.name = "mt8196-nau8825",
-+		.of_match_table = mt8196_nau8825_dt_match,
-+		.pm = &snd_soc_pm_ops,
-+	},
-+	.probe = mtk_soundcard_common_probe,
-+};
-+module_platform_driver(mt8196_nau8825_driver);
-+
-+/* Module information */
-+MODULE_DESCRIPTION("MT8196 nau8825 ALSA SoC machine driver");
-+MODULE_AUTHOR("Darren Ye <darren.ye@mediatek.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("mt8196 nau8825 soc card");
-+
--- 
-2.45.2
-
+Le 21/08/2025 à 13:08, Raphael Gallais-Pou a écrit :
+> On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
+> subsystem through a multiplexer.  Since it only provides a single clock,
+> the cell value is 0.
+>
+> Doing so allows the clock consumers to reach the peripheral and gate the
+> clock accordingly.
+>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+> ---
+>   .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
+>   1 file changed, 21 insertions(+), 10 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> index ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232 100644
+> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+> @@ -36,20 +36,31 @@ properties:
+>     clocks:
+>       maxItems: 1
+>   
+> +  "#clock-cells":
+> +    const: 0
+> +
+>   required:
+>     - compatible
+>     - reg
+>   
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        enum:
+> -          - st,stm32mp157-syscfg
+> -          - st,stm32f4-gcan
+> -then:
+> -  required:
+> -    - clocks
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - st,stm32mp157-syscfg
+> +              - st,stm32f4-gcan
+> +    then:
+> +      required:
+> +        - clocks
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: st,stm32mp25-syscfg
+> +    then:
+> +      required:
+> +        - "#clock-cells"
+>   
+>   additionalProperties: false
+>   
+>
 
