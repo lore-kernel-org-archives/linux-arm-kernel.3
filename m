@@ -4,111 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8D4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158CBCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=fAKXgS6b4/anMFTEPboqaDY66c
-	QYW2OhnzFgha7ZRrVMHhRCEJr61ENOlxNZon6tTGeBd3v/DCdQsZI2wa7QwMkZ+m40/vs0jL5GN/I
-	J18ux7Ss9Y8hgWSTmmxwDDocoKpDDCGlurxIPGc/x1Oa+P6B1iqLl4HpIk5Obz+5ZrIrMFVvg+6+T
-	pfU2zeLSc2t8bpfaVEgdDRWX0a1hkIQrvSZeo3z0QOGCWF18vQJY1qTaXyix9LjYf8wzZOPE3KG/U
-	FiHAAJ7yLvm5jeqr3eUW70yT5+jbrVz1KeU0/E/COEnVZa1ANWqs7RJRuyth09gm4LR1AHl3vZhI7
-	h1XxJTPg==;
+	bh=lLPWBbvJzifuSCPGTnAy7x/NBrhVR2Sch+UbydDDTnc=; b=ZYuvfmaCUHaxxcijIASur83tn1
+	mGnETZNmG2evQCux/eGGtrRrIEKM50XNt/Rx3UpKjrhX7iKPshmeLDjn79wSe8YI40OXLnX1oJkyp
+	Mbarjk4RE1if2AEwkYDHgU4UVEVuxnDNj2tw/3pJz3R6K1cw9KJpxZMwHXqfY5rxWSMSAOYpdHC0w
+	jCmiVoFa2XPRJdE+GehMloz9I9k1ZgPHODGqFakFL4DCWnZvL0BMxikW8q4M4mBMjc5PTV5zLsXOh
+	Si5ekxYciLRhDy22WM8ms6a19LSCLKQJ1Mm0NRTfWzWBQt5DLTkRCSn0drmXQcKm4W/SHABomCBm9
+	5CIg2hXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphpm-000000044Z5-1ZYB;
-	Sat, 23 Aug 2025 06:34:38 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uphpu-000000044j8-038N;
+	Sat, 23 Aug 2025 06:34:46 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRpc-00000002ctE-1o6K
+	id 1upRrZ-00000002dKS-1hmn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:29:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=ATP/C1su7SFlbFGETT0ntW5lYI
-	28r27HTWBXMaaVGqO5orv8rQtKlJPN9mAQ6pgRWWfgLBS2OFe6DSEDzW3YJXsUpNZ9GfsjX8Pfn1E
-	cEeVz6OTAw1yzy0gVe2Warydpp51hRuy1W45dNUxxfRL0Cw8RVmv+7zqIHil5C6I1U3wqjCkYlRLU
-	XTeRzFZtYIuWyFqUJeXiYhupTs4KVq1sageYvoAaN+eMfzzAhUcoupSuAZwf+GGjOtfAiM85zyq6G
-	1Tg35duFe/1izNuarAYC5IrroazxSyaOwh531W4sxYd6mZ3ITjxEIuTh8WUerCrnQzSz5nHc/v/jl
-	v2WpqeCw==;
-Received: from [122.175.9.182] (port=12892 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1upRot-00000000S6j-3rQv;
-	Fri, 22 Aug 2025 09:28:40 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	m-malladi@ti.com,
-	s.hauer@pengutronix.de,
-	afd@ti.com,
-	jacob.e.keller@intel.com,
-	horms@kernel.org,
-	johan@kernel.org,
-	m-karicheri2@ti.com,
-	s-anna@ti.com,
-	glaroque@baylibre.com,
-	saikrishnag@marvell.com,
-	kory.maincent@bootlin.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	alok.a.tiwari@oracle.com,
-	bastien.curutchet@bootlin.com,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v14 1/5] dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for AM57xx, AM43xx and AM33xx SOCs
-Date: Fri, 22 Aug 2025 18:55:56 +0530
-Message-ID: <20250822132758.2771308-2-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250822132758.2771308-1-parvathi@couthit.com>
-References: <20250822132758.2771308-1-parvathi@couthit.com>
+	Fri, 22 Aug 2025 13:31:26 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-afcb78d1695so27829766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:31:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755869484; x=1756474284; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lLPWBbvJzifuSCPGTnAy7x/NBrhVR2Sch+UbydDDTnc=;
+        b=Ar+eWLoFFPsOYCxnEm2itZahunUmh58s44BfgHEK+VM4kgi23/Pxxxnn8eG9KNo9hF
+         nkTNUFWIX420zWAwTsXplIyvaZ7CJMXwaCM1cKmuIeaLUmqdc2t7e4ipMlyKWwFV2Gf8
+         z9DPrSwzjFzg21T4X5rRFsioCEZ04KgbnnBSY81cKi2l02fFS8olRGtmyYjRAJTuwPAK
+         girxEbcJ3jk+rLJ2zh91v0M6kpaLyErwO2QY4eo4/vpGc1ZOkua4OwdRNm3QPbMvVU2g
+         jf8C1XcJAa42Hyef5XBw7/yi6FARlcKzWyL1JXa/YzhJEnUzpBKXGR700TI9diTMEoqO
+         eBsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755869484; x=1756474284;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lLPWBbvJzifuSCPGTnAy7x/NBrhVR2Sch+UbydDDTnc=;
+        b=MrynhQlgRTN8oRnyfWP2T4UDvTn9RLnY5607W/p0vY5kLePMOzkZH/1fYH9+LWiVsg
+         l59FgeASadD26nUCjXYQkOn4Ff3Q/5nq005hadE+auaGSHPbErBWra5HqHE1ysrGJ8tM
+         ZGDKKMTEYurOuEtwsmGT85o/iXmtRh5d4ZW8oUPINtDJQjXp5cC/LCr+lr8vdb4og4cZ
+         WHjXWirIGlea0sTkh+wEqBmXe8dHeoODLeupm9fn8X0lEBQ+tpcsCeL51rOD7VJgsESC
+         j70ajUAp0MXzmKoglaRIqTC0qXGB/P4IUcmHfW7Cp0kgxGtgnMbPgyh7zVl5trENOyiM
+         cHLA==
+X-Gm-Message-State: AOJu0YwinIaTG4n2GqxTOS4CVm+STW8NF8OLIPe2doNy0t+rt2EzOLfF
+	Cs8IxTeeFg8ovWm2mZyCO3Q1lLg3Vw/KmnABSlOmnWQ7W5Z/vMJQ5HH60SGbdntiR1w=
+X-Gm-Gg: ASbGnctAi8pDyeDIsi/LdDz8S8ODYi2R3Z3MyOaF42tR5i7h0fXUIvBkWTUqJ0g34ZN
+	vXxSHmQSVvOBa41wVGR5JUGvjxEektWvxgm1khfNe6O91B/ITYj+q/YqaQSs2AnHfxvroZPAnEf
+	kcUtWJupaCQyw1uFkTjKsqG9CVZNp4XPX9GsofFUngp5E23o/WaH6cCN1AJZ32VcOIggbYUrKgE
+	v/s/L3t44xQs8OIXcAuyGy5gMI9BMqR3GGQvHSMA7wFl/vsapktxWV687/ShHaaOpnyB6gYDqZ3
+	3Eo5SGZfvlea1lm+9nRq84TwvEHdYt+kai4KtpfJuHf+QiagOVDPRrtAPslkDn+M7WBDC5g/fm2
+	1xGEut62TEnANIGlxeK6lBS0iHd3DuoA5sp0uDl0=
+X-Google-Smtp-Source: AGHT+IGye/ypxcYwHYTg5+3IuOjm1+gEOjzMVOKls45nzJUtB1Xa9O00N+ETVyA5ZLC+lUcykguCIw==
+X-Received: by 2002:a17:907:7fa3:b0:ad8:9207:b436 with SMTP id a640c23a62f3a-afe29048212mr148055166b.5.1755869483728;
+        Fri, 22 Aug 2025 06:31:23 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf24bc40dsm554863066b.109.2025.08.22.06.31.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Aug 2025 06:31:23 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Fri, 22 Aug 2025 15:31:10 +0200
+Subject: [PATCH 01/10] arm64: dts: fsl-ls1012a: Add default GIC address
+ cells
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250822-b4-dts-interrupt-address-cells-imx-v1-1-f1b479da9340@linaro.org>
+References: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
+In-Reply-To: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
+To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1322;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=3SVpgon+i1YQeIuy3oRoxPKfUy9lcns76Zkt/Y4NV+k=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHEgiIiD6BglCYSYhzqb8B01pZD6xzH72ddRt
+ SeeZP/7jl6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxIAAKCRDBN2bmhouD
+ 16+GEACReaQu8HmfvIKNpHLlEbY6YYh0s0nof4k3fX9yB1JvLMmDUYQa2XucniT/Jjqxn/FpXnc
+ 1Oc9F8wHgQ7A9tfonoMlLWbMY+n2dy4ZPKsQ7127kXGUnPs40RoNloVb5C+YJprflb4cPT4kFY1
+ hD1mLDtmN39cN26PQSkK1cOChLCJ9MkuQ8oig7UmltQO0YU6azgpYcgfrmivxdt/mVD7fWiCddc
+ 9b1/FkvhKrt0ftpy8WXriKE03cZMgKeFczZrMOB+Cn0NzzevCXi2c9AnTx+cfJsOF4QrGMAx/Kv
+ 7PmwHYJZ7FWwLo3rx87JZ+NxFVJAuN0GhZl/eoWfXQR3FbnrZRo/XI5b6M/PKMoLLwoa2PmWElA
+ Ss1Me+3WYH1tQXKprVqtvkdzlBrhPsDUAivEDiNSJQVPeMdocN2eMwj+qyrr1p4NICMUx6rnHTH
+ VJKUFko2xx2xtgkxiEieJ8qhfDOaJTC/MgBquy33kn5/t44wFV8rJj/oPfggEGGgF3TcGoEb5PJ
+ BfY8Uq10AX3UWhY+O1/yDV+/xblulpI6ckf40CL2GGeCsxatWkvHaSc2WuHvjFrQcEvQLxS8kkX
+ Z2ju3N74J7IDTL+m8izQAEQCxEHMNXg3NWV+YuO4atriqT+vRBz88c0WTTe6qJGJfEij014Q+ns
+ i5V0vR3VPO+IctQ==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_062924_519702_9925F2EB 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250822_063125_450448_E6F4BB9E 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,350 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Documentation update for the newly added "pruss2_eth" device tree
-node and its dependencies along with compatibility for PRU-ICSS
-Industrial Ethernet Peripheral (IEP), PRU-ICSS Enhanced Capture
-(eCAP) peripheral and using YAML binding document for AM57xx SoCs.
+Add missing address-cells 0 to GIC interrupt node to silence W=1
+warning:
 
-Co-developed-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+  fsl-ls1012a.dtsi:548.4-551.32: Warning (interrupt_map): /soc/pcie@3400000:interrupt-map:
+    Missing property '#address-cells' in node /interrupt-controller@1400000, using 0 as fallback
+
+Value '0' is correct because:
+1. GIC interrupt controller does not have children,
+2. interrupt-map property (in PCI node) consists of five components and
+   the fourth component "parent unit address", which size is defined by
+   '#address-cells' of the node pointed to by the interrupt-parent
+   component, is not used (=0)
+
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../devicetree/bindings/net/ti,icss-iep.yaml  |  10 +-
- .../bindings/net/ti,icssm-prueth.yaml         | 233 ++++++++++++++++++
- .../bindings/net/ti,pruss-ecap.yaml           |  32 +++
- .../devicetree/bindings/soc/ti/ti,pruss.yaml  |   9 +
- 4 files changed, 281 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
- create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-index e36e3a622904..ea2659d90a52 100644
---- a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-@@ -8,6 +8,8 @@ title: Texas Instruments ICSS Industrial Ethernet Peripheral (IEP) module
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
+index dd479889658d452142e6d50b507147ba91c799af..fc3e138077b86cd5e3cf95c3d336cb3c6e1c45ef 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
+@@ -87,6 +87,7 @@ pmu {
  
- maintainers:
-   - Md Danish Anwar <danishanwar@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
- 
- properties:
-   compatible:
-@@ -17,9 +19,11 @@ properties:
-               - ti,am642-icss-iep
-               - ti,j721e-icss-iep
-           - const: ti,am654-icss-iep
--
--      - const: ti,am654-icss-iep
--
-+      - enum:
-+          - ti,am654-icss-iep
-+          - ti,am5728-icss-iep
-+          - ti,am4376-icss-iep
-+          - ti,am3356-icss-iep
- 
-   reg:
-     maxItems: 1
-diff --git a/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
-new file mode 100644
-index 000000000000..a98ad45ca66f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
-@@ -0,0 +1,233 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ti,icssm-prueth.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments ICSSM PRUSS Ethernet
-+
-+maintainers:
-+  - Roger Quadros <rogerq@ti.com>
-+  - Andrew F. Davis <afd@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
-+
-+description:
-+  Ethernet based on the Programmable Real-Time Unit and Industrial
-+  Communication Subsystem.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,am57-prueth     # for AM57x SoC family
-+      - ti,am4376-prueth   # for AM43x SoC family
-+      - ti,am3359-prueth   # for AM33x SoC family
-+
-+  sram:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to OCMC SRAM node
-+
-+  ti,mii-rt:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to the MII_RT peripheral for ICSS
-+
-+  ti,iep:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to IEP (Industrial Ethernet Peripheral) for ICSS
-+
-+  ti,ecap:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to Enhanced Capture (eCAP) event for ICSS
-+
-+  interrupts:
-+    items:
-+      - description: High priority Rx Interrupt specifier.
-+      - description: Low priority Rx Interrupt specifier.
-+
-+  interrupt-names:
-+    items:
-+      - const: rx_hp
-+      - const: rx_lp
-+
-+  ethernet-ports:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      '#address-cells':
-+        const: 1
-+      '#size-cells':
-+        const: 0
-+
-+    patternProperties:
-+      ^ethernet-port@[0-1]$:
-+        type: object
-+        description: ICSSM PRUETH external ports
-+        $ref: ethernet-controller.yaml#
-+        unevaluatedProperties: false
-+
-+        properties:
-+          reg:
-+            items:
-+              - enum: [0, 1]
-+            description: ICSSM PRUETH port number
-+
-+          interrupts:
-+            maxItems: 3
-+
-+          interrupt-names:
-+            items:
-+              - const: rx
-+              - const: emac_ptp_tx
-+              - const: hsr_ptp_tx
-+
-+        required:
-+          - reg
-+
-+    anyOf:
-+      - required:
-+          - ethernet-port@0
-+      - required:
-+          - ethernet-port@1
-+
-+required:
-+  - compatible
-+  - sram
-+  - ti,mii-rt
-+  - ti,iep
-+  - ti,ecap
-+  - ethernet-ports
-+  - interrupts
-+  - interrupt-names
-+
-+allOf:
-+  - $ref: /schemas/remoteproc/ti,pru-consumer.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS2 */
-+    pruss2_eth: pruss2-eth {
-+      compatible = "ti,am57-prueth";
-+      ti,prus = <&pru2_0>, <&pru2_1>;
-+      sram = <&ocmcram1>;
-+      ti,mii-rt = <&pruss2_mii_rt>;
-+      ti,iep = <&pruss2_iep>;
-+      ti,ecap = <&pruss2_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss2_intc>;
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss2_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss2_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss2_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss2_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS1 */
-+    pruss1_eth: pruss1-eth {
-+      compatible = "ti,am4376-prueth";
-+      ti,prus = <&pru1_0>, <&pru1_1>;
-+      sram = <&ocmcram>;
-+      ti,mii-rt = <&pruss1_mii_rt>;
-+      ti,iep = <&pruss1_iep>;
-+      ti,ecap = <&pruss1_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss1_intc>;
-+
-+      pinctrl-0 = <&pruss1_eth_default>;
-+      pinctrl-names = "default";
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss1_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss1_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss1_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss1_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS */
-+    pruss_eth: pruss-eth {
-+      compatible = "ti,am3359-prueth";
-+      ti,prus = <&pru0>, <&pru1>;
-+      sram = <&ocmcram>;
-+      ti,mii-rt = <&pruss_mii_rt>;
-+      ti,iep = <&pruss_iep>;
-+      ti,ecap = <&pruss_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss_intc>;
-+
-+      pinctrl-0 = <&pruss_eth_default>;
-+      pinctrl-names = "default";
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-diff --git a/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
-new file mode 100644
-index 000000000000..42f217099b2e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
-@@ -0,0 +1,32 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ti,pruss-ecap.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments PRU-ICSS Enhanced Capture (eCAP) event module
-+
-+maintainers:
-+  - Murali Karicheri <m-karicheri2@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
-+
-+properties:
-+  compatible:
-+    const: ti,pruss-ecap
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pruss2_ecap: ecap@30000 {
-+        compatible = "ti,pruss-ecap";
-+        reg = <0x30000 0x60>;
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-index 927b3200e29e..b5336bcbfb01 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-@@ -251,6 +251,15 @@ patternProperties:
- 
-     type: object
- 
-+  ecap@[a-f0-9]+$:
-+    description:
-+      PRU-ICSS has a Enhanced Capture (eCAP) event module which can generate
-+      and capture periodic timer based events which will be used for features
-+      like RX Pacing to rise interrupt when the timer event has occurred.
-+      Each PRU-ICSS instance has one eCAP module irrespective of SOCs.
-+    $ref: /schemas/net/ti,pruss-ecap.yaml#
-+    type: object
-+
-   mii-rt@[a-f0-9]+$:
-     description: |
-       Real-Time Ethernet to support multiple industrial communication protocols.
+ 	gic: interrupt-controller@1400000 {
+ 		compatible = "arm,gic-400";
++		#address-cells = <0>;
+ 		#interrupt-cells = <3>;
+ 		interrupt-controller;
+ 		reg = <0x0 0x1401000 0 0x1000>, /* GICD */
+
 -- 
-2.43.0
+2.48.1
 
 
