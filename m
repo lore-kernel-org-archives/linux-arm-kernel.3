@@ -4,103 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC70CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE598CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SIKMURTzGnc0o3Eec57Nl0ZpPfL0lnmgxqpSyQAZbI4=; b=47SWEjxTX7YUj3Of4cItGdwGf3
-	ha0oixkfx+UN6rzE6ttcTaLjy77meSaH6l5y6cyHY2UizoJjfPUE4P3itkSzPIWW38wMQVhOQhjsE
-	7E+LEFQN919xZhg9F3oGmfOKgREjr6pbCv9MKP3N9vKelJ9wXmGQOVeDs6+m90ba+c/9rdm9UHWEy
-	U7d2dg2w95KbxIiTjo6MqltT4mGMlTrBWfcX8rV0WcKplhjjcyWWnh0/vL5tU0TAvJYB8JWumRg+1
-	9s+dXtp7OhwOlTxmuqa8ERALCIyFlbmLvr5cgWIRDbKUTu2Uveh99oXDQ7+IhY7aic1dYkrzixqhq
-	fHn8nSmw==;
+	bh=/UZny0nmt2vMBkU2e/gpL3R9Mx0QIOy020xV8xd0zVI=; b=WpEjEw1d9cGk3IOYv942nU27OJ
+	lKJAmaCNrIbc/oWGDzz7XMb41dFU5EP6vnxzivzsXZz/C2FkwTNxN/t41kPpSWsEUpd2Um8w7T5NX
+	ERV4AwKQcfdWuymBV0Z/2dL0fJRt+Rr/9w4gu7ASz9SuGLdE/2SjFbvqVsaNweT0//C6linFrQiFT
+	/dryErB+m9zvXhXNDR96oV/KE6nS8pzobZxpXHxVDx+bxnfyqJOJfm/iy9m52ho0ssnrK1AGtDyKR
+	nibRAaCd1n0+0+0IcsiRPHI/TolwXd1S6zA7jTe5nC81fVTitfr2OZ1hR9M4e8VIYIQy2uAzjkdWV
+	nY5BCujQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphoV-000000042qo-2buQ;
-	Sat, 23 Aug 2025 06:33:19 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1uphp3-000000043e3-3joF;
+	Sat, 23 Aug 2025 06:33:53 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTVu-00000002z3t-1l8u
+	id 1upO6C-0000000233r-3X12
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:17:11 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45a1b0990b2so16822505e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 08:17:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1755875829; x=1756480629; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SIKMURTzGnc0o3Eec57Nl0ZpPfL0lnmgxqpSyQAZbI4=;
-        b=OpcwMXB3HCz3dk0DenZRKV3qn4A2h4flotsm/M43+yvwWuCfo7SaYNjBwynLeHullK
-         3MQWql1133YC+4tpL0H/8+cKYAXMlA5jx46chgDEXgTDvJhtYw1hnxQrqdlWXzJOFnu5
-         UiXrmlCJRKfn1MOn8JQDWBbLtnC+aCcJ6QD4dme615yKJoC8BhF4P96mOumWflIrAeO9
-         jKmC0iU0prRV9pvXuZ/W9W6u7+h4c3icYa6MxUrkO1l9KRrf93SyAutz6vXlPVlBEMKL
-         sVzcG6irtU1tAcMH4ES1lEZUCYNhbq/U41NfCgs/3Fn7Jsp5IoL3ci3QfNqkW5aVsIeo
-         6ByA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755875829; x=1756480629;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIKMURTzGnc0o3Eec57Nl0ZpPfL0lnmgxqpSyQAZbI4=;
-        b=begTKHR5Nzl3qTm9PHFoZsJz1Sb2sy0wgwZq6BeQ4UUnl6FtihAPRsjbtFLY+M+ScG
-         Fq371y4Bc+qWc1vjsEhlrv8gNkPwUm1wtpPRihwKOmU2bFtofm02E2V83AucIFqN1lSB
-         HPbQFw5eVKbk2/E9inWrBNAIRH0MMLEvgjHz+FWe7bjVAFrqPpUE7BMQVFDEiNwP/ppP
-         gJ2yHF2BloJ8CWP/62esHcuSG6a8ltmqY4piFqv4+EC3UrEL8Zv2x9PFFdU8IXWTX7Nm
-         0ECnru9oJhnFd9CDF9OwQrtBatG5nqnB8b19bTgpAo1+NFbl13aERrIFJmMWsPD7Ov9T
-         GrKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWDLp1cw4j5F4SWBfHf3H7gkPRHff9N08wjnsuhRNCwesc50Mk1bvww2I2wkHofGI0QByLYnykUpJLoofZP1JET@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfGsFyPlaoWcVMnCln7AtwTJ13X4l0BeiAqKYGmN9nqU20bOxc
-	IFLN+URguyw/0EvXwMbA6O9UWw/1tNk85+44dh1kTqpPBOGfbUSHhoeVc/pScsjmVYY=
-X-Gm-Gg: ASbGnct4D9BFZOf/q3rDNLVUNa8GVL9mM9DPeFOyu2q3St4SjEVXAhcouaHjkbAyY8O
-	q6MZPXc2lvJit9guOPsNH3Bz6oRMXGd0BEfcv3JjU73zIw4For5LDb0hIxbCYNmeo+0gLehLcgc
-	DcWUg/SetpD3P5O6UyNamINeudBpPAGVE1txcjkwQNtqJXgufGkUoPw1L8tNw6ExCDAFQypdNaO
-	eVzscZZenXFUD2QJyeNAMpc20cxDzBg14sNynD5/j9cD0rwY5fg9QW7PzVveAa5fMTdTbTa3Ip0
-	h53XXCV5sHMfWpInTlS4AoWU9SsgqFy04CrGZ0KKyNB52upmct4q6X3nIlVtnJiacPSCENE4iXh
-	t9R1+8KTjk5R1Wfc6M0TH+DnithI/IA==
-X-Google-Smtp-Source: AGHT+IFfCxlBLYp46j2up+4x50Ih1kKtjjCCeP9uWttzOiVuvk9BH4ASeoYU65ehdDMkjUePa7z9oA==
-X-Received: by 2002:a05:6000:40dd:b0:3b9:10ed:e6eb with SMTP id ffacd0b85a97d-3c5dac17469mr2333176f8f.8.1755875828487;
-        Fri, 22 Aug 2025 08:17:08 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3c52121313asm5508248f8f.57.2025.08.22.08.17.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Aug 2025 08:17:07 -0700 (PDT)
-Message-ID: <770e936b-2c4c-4554-a567-6e7b0f688512@tuxon.dev>
-Date: Fri, 22 Aug 2025 18:17:06 +0300
+	Fri, 22 Aug 2025 09:30:18 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250822093010epoutp0250ac71d4f78690006f2a74ceb07957cf~eDNRN4POs0178801788epoutp02o
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 09:30:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250822093010epoutp0250ac71d4f78690006f2a74ceb07957cf~eDNRN4POs0178801788epoutp02o
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755855010;
+	bh=/UZny0nmt2vMBkU2e/gpL3R9Mx0QIOy020xV8xd0zVI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KspxgxsTX4TCaH/kI7B3FiCoebY2C/QwexF5hEphgpwJmwcyX9DPoqUn9Tq3s9Zdu
+	 KUExtZAB6quu0rbvSdjeqNvL5SZsb0gC55m5cxAd52rbRVJGCnozN7D7e9otWCZ3AW
+	 BomZXP6DtHsU7154fqGM6m1yBF2mGwq7RqJN1YR4=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250822093010epcas5p4db619c0e6cb35c784f0f67dcec6f63ea~eDNQq1pdH1315013150epcas5p4M;
+	Fri, 22 Aug 2025 09:30:10 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4c7ZfT13Pqz6B9m6; Fri, 22 Aug
+	2025 09:30:09 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250822093008epcas5p218f9f9a5381a716b5b8e0c4b23e4b3bf~eDNPSC-fN1655716557epcas5p2D;
+	Fri, 22 Aug 2025 09:30:08 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250822093005epsmtip229ae5445f3c8672966c8d22df05031b4~eDNMTiRZd0037000370epsmtip2R;
+	Fri, 22 Aug 2025 09:30:05 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	ivo.ivanov.ivanov1@gmail.com, igor.belwon@mentallysanemainliners.org,
+	johan@kernel.org, m.szyprowski@samsung.com, s.nawrocki@samsung.com,
+	pritam.sutar@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com
+Subject: [PATCH v7 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Fri, 22 Aug 2025 15:08:40 +0530
+Message-Id: <20250822093845.1179395-2-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250822093845.1179395-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] dt-bindings: net: cdns,macb: Add compatible for
- Raspberry Pi RP1
-To: Stanimir Varbanov <svarbanov@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Andrea della Porta <andrea.porta@suse.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor.dooley@microchip.com>
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-3-svarbanov@suse.de>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20250822093440.53941-3-svarbanov@suse.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250822093008epcas5p218f9f9a5381a716b5b8e0c4b23e4b3bf
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250822093008epcas5p218f9f9a5381a716b5b8e0c4b23e4b3bf
+References: <20250822093845.1179395-1-pritam.sutar@samsung.com>
+	<CGME20250822093008epcas5p218f9f9a5381a716b5b8e0c4b23e4b3bf@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_081710_479058_1FA5C941 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_023017_190879_EF7180DE 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,19 +99,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This SoC has USB2.0 phy and supports only UTMI+ interface. This phy
+requires two clocks, named as "phy" and "ref". The required supplies for
+this phy are vdd075_usb20(0.75v), vdd18_usb20(1.8v), vdd33_usb20(3.3v).
 
+Add a dedicated compatible string for USB HS phy found in this SoC.
 
-On 22.08.2025 12:34, Stanimir Varbanov wrote:
-> From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> 
-> The Raspberry Pi RP1 chip has the Cadence GEM ethernet
-> controller, so add a compatible string for it.
-> 
-> Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+---
+ .../bindings/phy/samsung,usb3-drd-phy.yaml    | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index e906403208c0..e238fd0c9f6c 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -34,6 +34,7 @@ properties:
+       - samsung,exynos7870-usbdrd-phy
+       - samsung,exynos850-usbdrd-phy
+       - samsung,exynos990-usbdrd-phy
++      - samsung,exynosautov920-usbdrd-phy
+ 
+   clocks:
+     minItems: 1
+@@ -110,6 +111,12 @@ properties:
+   vddh-usbdp-supply:
+     description: VDDh power supply for the USB DP phy.
+ 
++  dvdd075-usb20-supply:
++    description: 0.75V power supply for the USB 2.0 phy.
++
++  vdd18-usb20-supply:
++    description: 1.8V power supply for the USB 2.0 phy.
++
+ required:
+   - compatible
+   - clocks
+@@ -219,6 +226,7 @@ allOf:
+               - samsung,exynos7870-usbdrd-phy
+               - samsung,exynos850-usbdrd-phy
+               - samsung,exynos990-usbdrd-phy
++              - samsung,exynosautov920-usbdrd-phy
+     then:
+       properties:
+         clocks:
+@@ -235,6 +243,22 @@ allOf:
+ 
+         reg-names:
+           maxItems: 1
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynosautov920-usbdrd-phy
++    then:
++      required:
++        - dvdd075-usb20-supply
++        - vdd18-usb20-supply
++        - vdd33-usb20-supply
++
++    else:
++      properties:
++        dvdd075-usb20-supply: false
++        vdd18-usb20-supply: false
+ 
+ unevaluatedProperties: false
+ 
+-- 
+2.34.1
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
