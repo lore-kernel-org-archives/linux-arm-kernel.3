@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C663CA0EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CD0CA0FE8
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,67 +12,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/f4pyol3RN0+J86dhVH8T2VCAyqMMjU3h162wFO7pfk=; b=hYQIV4S1SCbwUzg0p1VcI9Z7Qm
-	nnHedOfqM2VFDv+jUJ+yCXkrqQ9JFDssKHtvmfU+zQggXlFz5YgMWLkWE8viA3qGSPZhTmrS66z0D
-	+Do7c5ZzxfNYWo+u+e3RdpV++wVvKkP9Mnlh2RLP7623l5OSTU1oySIpqwN5cWspH+iNYdqAkNg6S
-	M7E8zXcYriL9wbp2eNq2kbYwDrKYzpJiuVae3qNEfpuZgZUvW5LNyJZoiB8lzsvXPO+ITgC5lRzo5
-	EIMnwhx246A95hN4Lvcxclbu+3kndV2TwIeaIZOnmqlTjmW8Ac1KGLY5y1ljm0HiHzCyRXV7FD42T
-	v/2kuVWg==;
+	bh=X2IEjcATmZpSD2ir9CJuLBpahYky8S7Kv1XpSSpNmgY=; b=z/6W889EAzk/uzv+RvgJn9v5Dt
+	lFCrHqB85gWFai0htEmClCJIujEO3NWQ8gCUbjA1JtUUwT7M4SJXqozJGtcCliBmnIb8LKyVHTAJc
+	QOj+Inc3+oPinlRuWUyf8CxWA8k3hGLVsYHall/4oiDLMRauzQCffEN3oym4cm6QpIs0GBkKM0cWU
+	qWDoSZUnO1LsSDsrVtt68y+DGsHK+daj+nvNWDLw+0DwRlZKEva+q/MILsMgHPW5oAtdWlRfC8y2V
+	Xw1oC7gKYXHF7TPJIEZFQjzbF5VP2DRtVmcbumD/eslXaGdm45Jx1H1wPf1uXYhC07esbOfNcLiQ9
+	fpShfRuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjTM-00000004KbW-0jUL;
-	Sat, 23 Aug 2025 08:19:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1upjTN-00000004Kcg-1qaf;
+	Sat, 23 Aug 2025 08:19:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upXc9-00000003OJZ-0EJm
+	id 1upXdS-00000003OQO-1s4T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 19:39:54 +0000
+	Fri, 22 Aug 2025 19:41:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3866D419C5;
-	Fri, 22 Aug 2025 19:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5934C4CEED;
-	Fri, 22 Aug 2025 19:39:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C5F8544C39;
+	Fri, 22 Aug 2025 19:41:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D118C4CEED;
+	Fri, 22 Aug 2025 19:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755891592;
-	bh=dg74KSkRhAtNHcxY1z8fkqMzfxeeOVWbECFvFRXHLSM=;
+	s=k20201202; t=1755891673;
+	bh=wnhJq56I7lMIJYREykBLr5qAtnaHGCueson7w3C/oLI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rXpJdOxLNycUvIsw2gMPg9zMyrLykVSU8bb4RU5BVW/xSq/Vls3DtK2GulvNfNh9p
-	 /rpm9efCsTWFz55az9lBRAVaMmZiGzjSsotLl8YIGj4dj0OL1EqiXNjVaBvR/chQHn
-	 FJwOBlmJrRSZv1V9sGHuFLwlhgpHSqv3rIKsjVAOvH/4dU0x0AWtCEAxY9LzMV8N8T
-	 lOEPz2/kOoJUySu0oi7CU5zLpNuTGEadrKYU279/tloaEh9YOUYVRhJmsPl6CKPWmx
-	 SC8vBb2xd29j9VoS+ye0Hqo7k0xubgxT4jOs15OBMDOUSw0agE3Ivnzt8NlGqhTNQu
-	 uk8aLClwGeRfg==
-Date: Fri, 22 Aug 2025 14:39:51 -0500
+	b=abcpVINMN7hAw4gMuShkqK4UrCQv1uKT0Wyrl3U7OP9WjTQRFns6EWed77LhxeE15
+	 vbyfM4XOx6kEaZln9hMTveq01+2/6VmegTjOUy+RIBNZhlvAKw0flOkK9tHxn4CRZL
+	 xHO5iUy+/55RWm8DAuzfqLdO7PIvONvlPV9B7JKKqGP7hi6pvAKn6K35Kj2N3rPgZO
+	 5dtfyWJB3KbmeUiNNb7shnYSxcPGUYEtRh4r0PYasdps7gsPgQbnLimyGXXgt+t3r7
+	 v7CVb6AEMm/sqGn59ePp0rbTFFkl5qPDQ7Lm5+YuVQcw04LbB29GZuUqCztnVMictT
+	 cPHO4/Z5VSpjQ==
+Date: Fri, 22 Aug 2025 14:41:12 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Ravi Patel <ravi.patel@samsung.com>
-Cc: swathi.ks@samsung.com, linux-arm-kernel@axis.com, krzk@kernel.org,
-	conor+dt@kernel.org, linux-gpio@vger.kernel.org,
-	hypmean.kim@samsung.com, linux-kernel@vger.kernel.org,
-	krzk+dt@kernel.org, hrishikesh.d@samsung.com, pjsin865@coasia.com,
-	pankaj.dubey@samsung.com, linux-samsung-soc@vger.kernel.org,
-	kenkim@coasia.com, linus.walleij@linaro.org, soc@lists.linux.dev,
-	dj76.yang@samsung.com, linux-arm-kernel@lists.infradead.org,
-	cw00.choi@samsung.com, smn1196@coasia.com, jesper.nilsson@axis.com,
-	shradha.t@samsung.com, catalin.marinas@arm.com, arnd@arndb.de,
-	mingyoungbo@coasia.com, gwk1013@coasia.com, tomasz.figa@gmail.com,
-	s.nawrocki@samsung.com, will@kernel.org, linux-clk@vger.kernel.org,
-	mturquette@baylibre.com, hgkim05@coasia.com, ksk4725@coasia.com,
-	devicetree@vger.kernel.org, inbaraj.e@samsung.com, sboyd@kernel.org,
-	alim.akhtar@samsung.com
-Subject: Re: [PATCH v2 01/10] dt-bindings: clock: Add ARTPEC-8 clock
- controller
-Message-ID: <175589159077.191700.15798343255656756009.robh@kernel.org>
+Cc: pjsin865@coasia.com, inbaraj.e@samsung.com, s.nawrocki@samsung.com,
+	linux-clk@vger.kernel.org, hrishikesh.d@samsung.com,
+	pankaj.dubey@samsung.com, cw00.choi@samsung.com,
+	jesper.nilsson@axis.com, tomasz.figa@gmail.com,
+	shradha.t@samsung.com, sboyd@kernel.org, alim.akhtar@samsung.com,
+	swathi.ks@samsung.com, devicetree@vger.kernel.org,
+	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+	mingyoungbo@coasia.com, linux-kernel@vger.kernel.org, arnd@arndb.de,
+	soc@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
+	conor+dt@kernel.org, krzk@kernel.org, hgkim05@coasia.com,
+	linux-arm-kernel@axis.com, linux-gpio@vger.kernel.org,
+	smn1196@coasia.com, gwk1013@coasia.com, hypmean.kim@samsung.com,
+	kenkim@coasia.com, linus.walleij@linaro.org,
+	catalin.marinas@arm.com, will@kernel.org, dj76.yang@samsung.com,
+	ksk4725@coasia.com, mturquette@baylibre.com
+Subject: Re: [PATCH v2 06/10] dt-bindings: arm: Convert Axis board/soc
+ bindings to json-schema
+Message-ID: <175589167241.193457.14325190564820337424.robh@kernel.org>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
  <20250821123310.94089-1-ravi.patel@samsung.com>
- <CGME20250821124019epcas5p42ac6e6abe1d3c8c9d69331596e51ad48@epcas5p4.samsung.com>
- <20250821123310.94089-2-ravi.patel@samsung.com>
+ <CGME20250821124045epcas5p37f0a50fb18e6f468a7c57ab406795419@epcas5p3.samsung.com>
+ <20250821123310.94089-7-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250821123310.94089-2-ravi.patel@samsung.com>
+In-Reply-To: <20250821123310.94089-7-ravi.patel@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_123953_120604_D1E716C3 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250822_124114_504430_C559DE37 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +90,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 21 Aug 2025 18:02:45 +0530, Ravi Patel wrote:
-> From: Hakyeong Kim <hgkim05@coasia.com>
+On Thu, 21 Aug 2025 18:02:50 +0530, Ravi Patel wrote:
+> Convert Axis SoC bindings to DT schema format using json-schema.
+> Existing bindings supports ARTPEC-6 SoC and board.
 > 
-> Add dt-schema for Axis ARTPEC-8 SoC clock controller.
-> 
-> The Clock Management Unit (CMU) has a top-level block CMU_CMU
-> which generates clocks for other blocks.
-> 
-> Add device-tree binding definitions for following CMU blocks:
-> - CMU_CMU
-> - CMU_BUS
-> - CMU_CORE
-> - CMU_CPUCL
-> - CMU_FSYS
-> - CMU_IMEM
-> - CMU_PERI
-> 
-> Signed-off-by: Hakyeong Kim <hgkim05@coasia.com>
+> Signed-off-by: SungMin Park <smn1196@coasia.com>
 > Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
 > Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 > ---
->  .../bindings/clock/axis,artpec8-clock.yaml    | 213 ++++++++++++++++++
->  include/dt-bindings/clock/axis,artpec8-clk.h  | 169 ++++++++++++++
->  2 files changed, 382 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/axis,artpec8-clock.yaml
->  create mode 100644 include/dt-bindings/clock/axis,artpec8-clk.h
+>  .../devicetree/bindings/arm/axis.txt          | 13 ---------
+>  .../devicetree/bindings/arm/axis.yaml         | 29 +++++++++++++++++++
+>  2 files changed, 29 insertions(+), 13 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/arm/axis.txt
+>  create mode 100644 Documentation/devicetree/bindings/arm/axis.yaml
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
