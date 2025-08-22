@@ -4,88 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0CECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C0CCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VAVbxvKFmubmCFIV/MmqSVaMXCvHJLOw/8uDYKGFsdk=; b=VpQixJvaCUmvfCN1B60wPpewaF
-	AJEidx3AsM6JQt3fk/vgXyemQ27SJyq+dRaBtA0fKjYN9S+4lId1LKO8N1QAl6TmYyz+5pjyIzXfX
-	i4gZdFUYJwyerfxjd7g/tCzjHRY+2EmJP18pY51tHFQig5DgFiYbCdZY1WkXetjxrMatBreItbOUH
-	p2GSMPnul7DPPKzRbWIJJ46LRX1ZjzpuHrmuJOyqyw7SluH4A4cBF2bXYQr8jnHb2sE/BXCeRDKjG
-	9N+2rnlA3JR3FQzO9hQhZiN1bsROfggLGT23hfkFss44NLV1Bz/A+nH55/Nq+LbUaSxmkVjFuCkkO
-	v/Y5oiKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2kF+UHt3RQZ9sKwYUnht3JJb3AN4kfQFQklzuuzACdw=; b=YjnioG7/gSqlKp6Hv+PyxJkH4/
+	S2IGYEbQ1xPoRe3fyoDbfC/ClqyVm6fvZTlcd9vdymm9yTlUWT9xJrDOvszURjLbPmayx7Q5bfsdE
+	q8iGNppqeDVgeGACbZ2EmzGFVjDJUdfskyAC98lLMHGc9WR9+cytwiBm+6GmlrGtegoWoquTDd3nm
+	xrrGwPN9ChpnEmToMCiAQChkdrcg3/eDkY+X5Eb2VJDuiyANNS8rj+VGjzbqpzc9Oz42V/OPAde7P
+	n8RiXRTUxmCIAtF36I6AUrZx0LGkekGal3Us+nAbVLYS5pXJHe71K+UX/QmegpMDYBuNx49RUALif
+	upBt/KHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphxa-00000004EtJ-336h;
-	Sat, 23 Aug 2025 06:42:42 +0000
-Received: from mail-yb1-xb2f.google.com ([2607:f8b0:4864:20::b2f])
+	id 1uphxh-00000004Eyo-2OCy;
+	Sat, 23 Aug 2025 06:42:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upWWs-00000003JT1-43Jv
+	id 1upWYh-00000003JcH-3R0n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 18:30:24 +0000
-Received: by mail-yb1-xb2f.google.com with SMTP id 3f1490d57ef6-e94f7232b30so2513821276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 11:30:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=criticallink.com; s=google; t=1755887421; x=1756492221; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VAVbxvKFmubmCFIV/MmqSVaMXCvHJLOw/8uDYKGFsdk=;
-        b=OfJceEC0Q5DupP0L3hbn8Gak+bEE7g2H3NqT0fuNVRmouXTKRxLQ+E2hyFjoIqt30y
-         wm7mkXXE1mkThASIVCB/cm+BTSf4wSNLQed2JFKqcB+hYYVin+/w/bZnvdE/nnlVZ3z5
-         zYyIR7J3SUIb7uhsxxbh44ZPswF8MreGnp9yuD4LgeIeVXacvdSwwoei+dzQxjhlkD9L
-         rzEUPk9isd+Tj0u54jG+0uPEK9kl+onAEZz7pHp7VXl5LlUoTXCcqyoO8cHnuwUvRJl8
-         5GA8/AvyZ/zSWJXOSWH46WBzbdHTGDm5S61JWcJJnhW0IiDbHw7wDf3xiOqjCSD+a/ha
-         0GPA==
+	Fri, 22 Aug 2025 18:32:16 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MHUjYX030174
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 18:32:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=2kF+UHt3RQZ9sKwYUnht3JJb
+	3AN4kfQFQklzuuzACdw=; b=HKw7bP4SgHZje4mEEpfk1z3YhOK/4j7A8Fbaw8Tz
+	6kTekaTVK50xtp+mTMkKWGprk7V4i8P0sQf5OjbCSXWdLGDPBye6e4Hh6fBp1dMz
+	ewG1ZZXU9izkXM7D9Pp2cI3SzrodO0rSr3TMaXkT/pycqmbaN/9VSohd6q+keLQ/
+	9CPEiWVBInMyX6j47qsl/ihYz6zP67lWJS+NqpmawHwpJsoIHlFWRBwroJbZ3COy
+	YsuXRwXtV7QhvgROmphYmH1redEOuP4Al6568+u7qq1a4BOCOZZv5L43i+4fPTWG
+	i7pzLbLOaeezuvqMUh48mTxmpkRSG7SgJ9WdfwlsdBUVog==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48pw0yr67x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 18:32:15 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70d7c7e972eso56248306d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 11:32:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755887421; x=1756492221;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VAVbxvKFmubmCFIV/MmqSVaMXCvHJLOw/8uDYKGFsdk=;
-        b=qJeXQvt63NUn84J4p0ws0pNQ8UHWk09P2hpUMq5hN92P9c+qzafyhCOeCkWBIcndLh
-         BXFZ1C3QLKWxYSGFn6UdS5f3WZ2fQMoj1DwKvXDc1PcvMPt8XCIArm8uVbCv9SLFUpic
-         MdW1J+k6GgVDeLcZ1FM+zh9rqZw6w0pabxZJ2iEC0Adv0JWPOfnwgtOnUM0FqZUOeNgh
-         N00/YKWNXJn2K2pfon9yRAYqoMlNROPHK1ptr0Nv1d6TSxx6f6+3+ZVGgBTa958nxxUD
-         21RM7PMtxBI9rs/IK/uvDLSTblf2XYNG5Q2L3E8GqgxFoQ50CtTZD7PTno5UIzGWlCO5
-         LiUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWRl+9gnrQkgsMpsLd0cUBwIiucQWBTFbgW2uWWgwST7jxvA36huaEjAw1a42LUmpmZ2SMKcvrL8tJfLYGbCAMX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7CkWW5+kOzivQosssBbIOJFy3VclA6FgB98zqs8BdLXuIrZiU
-	Mib1cfnyIM/9BePYDXss/NwwQYGDSGTGjNOINa6Wb4lnjXzJX8mmW56ZRySfECMeSURt+wqwVxL
-	MuL97wV5IDzR+yNKnCYJEg0uLhVSvYQ7exNSrBugw
-X-Gm-Gg: ASbGncshyrNGzeiMEp0uvbJp5d8yJRxhuS6H7dSrO550CzD+E94Fw4FsIOCjywZbUZx
-	dh5xstNvWuUOFS4quJaYjUeKOeKiFDKF+9YLOv0lxgpiXqCnERfnPzri9dS2u+Mz7caLJPnEqFR
-	Tf6oQ17KTYPfuPAdd51ocdZpR4TliKar3IkZ3Bf4KJIixWqKJCBXxL8VVhS9EJ2ND7A5klaHNlU
-	9rO5FIcdX9R5xmR
-X-Google-Smtp-Source: AGHT+IFpulQoP2yus1YpJjiAq8SECqslg0G79YGF/MlaiCfrGmAd1Wfa+eDPH6ROAf0AXOkQJfJYAMY5NjQ+s8WZELw=
-X-Received: by 2002:a05:6902:1285:b0:e8f:e526:fda9 with SMTP id
- 3f1490d57ef6-e951c23d0femr4833724276.22.1755887421462; Fri, 22 Aug 2025
- 11:30:21 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755887534; x=1756492334;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2kF+UHt3RQZ9sKwYUnht3JJb3AN4kfQFQklzuuzACdw=;
+        b=py6I7tp7JFzrVTHQ/GX3W+V2gF3H/0FmbQ8fINC3s7URpgQ9RRibT/C+Mtsjjt6q4a
+         AH2+NxUdk2rJ3o3NOPYGHavGmyLx3GTxHE4lWxQSXKpIOnAopWBVqPcf1QMoiaF3sWLz
+         0EHaYR2fsC7bD+ePbZad6yw1bkVMkw6N5pCQjowBjX0j1zhro/t48DRYUb00kpThsGs8
+         eeZT1beSWr98r7TD2jzXZJga+nUhcO6sE9arzgDrJrj1ip/NN4kvKcqWee1MYu9P0Dxc
+         pWwGd8eC2lmlrbx8krwFeS89Tl+PjLb152BMaDX0SIBNldUZmij3+dPf4RGG5fhilPlr
+         RN+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVcqWa4w/WEd3zhc/OSQxPdzn5xIpClqmyW/Qw4yU0oU7c8abxgE+vHLiwE/R1xAET5n8NaB/8UOH/iT+ZfVzK+@lists.infradead.org
+X-Gm-Message-State: AOJu0YztfeKiHaqVDQaBCspUWjpFlcW/yhMc1qVDCQXhTCLcgnsydaur
+	83R1LNN9Q9a81xbU4cDR4zoJI8lvTjZ7nc6O0iY9yerLJMPt6KL85IbI9Zwe/bnQyhJpZLYf2uC
+	7Ka3cFQokQDdaxbiyP7SteGVJOgLVGYnG6lJ3s1bfAxDrTS67vMms3o3wRojwGtgXYMdJVdu7Ou
+	8/sA==
+X-Gm-Gg: ASbGncvfTAZLrn2KWYUX/cnpdSbFUcH3lf+zxB82oKDInZHL/yg4AIkJfb/xHHlOb46
+	Z2g8yYkYp3pzZk4y4/p9CWZlT/8KjS04TRds93o3d2H83B33DmSJeq4enn4CjJ2jS12r92+Qw7V
+	H8Kg9+neW6iHSvursTEwpd1Jg1Qle/IpHK/H3KBM+hLpPgfFtosVTTax4Ead5sj5rWwyBe8z61v
+	Jrm+r2tfpCIlXGt4UuJtK4IUdJt1wjk16ZIdo99vCmRdj3fcxuGtzOdbZ43f+cXILDtTs4cZ02q
+	+OBjctAHiYwslS4YI/InHhhjVMyhgcQqNpySFsLD6fBoZEyxRC0iGQQZakY83wEbuTPtQ44YmAN
+	rm95FaMh7Vnb7doVJeGDJ+Jihsoyrqoc6lrYagpKiYvf4zmd/an91
+X-Received: by 2002:a05:6214:2463:b0:70d:8549:a9dc with SMTP id 6a1803df08f44-70d971ecba5mr45207826d6.46.1755887533678;
+        Fri, 22 Aug 2025 11:32:13 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEGUwecfBarwnXQpcnjnUt1xcMPQBcCSeakWpQc5KmvE+AdTu302f3u+QjNzhIWHgctycCfdw==
+X-Received: by 2002:a05:6214:2463:b0:70d:8549:a9dc with SMTP id 6a1803df08f44-70d971ecba5mr45207446d6.46.1755887533192;
+        Fri, 22 Aug 2025 11:32:13 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55f35bfcb27sm96296e87.19.2025.08.22.11.32.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Aug 2025 11:32:12 -0700 (PDT)
+Date: Fri, 22 Aug 2025 21:32:10 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Thierry Reding <thierry.reding@gmail.com>,
+        Sam Ravnborg <sam@ravnborg.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/5] drm/panel: simple: add JuTouch JT101TM023
+Message-ID: <4gyzjoshra7mwkagkhbk2uzxsfeb57ufkr2qilppunka4cem7n@zf7rm75hdd2n>
+References: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-0-b492ef807d12@pengutronix.de>
+ <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-3-b492ef807d12@pengutronix.de>
 MIME-Version: 1.0
-References: <20250820-linux_master_ti_sci_trace-v1-0-2a69c0abf55e@criticallink.com>
- <e11fd419-1095-471e-a57f-fc5ff7ce713a@ti.com> <CADL8D3aR_ecr4q54cX7yfr_aDPA7NhXmLhkiHjUY9MjNZeg78Q@mail.gmail.com>
- <c05c0a13-e7af-4fc0-9363-b629b2c48201@ti.com>
-In-Reply-To: <c05c0a13-e7af-4fc0-9363-b629b2c48201@ti.com>
-From: Jon Cormier <jcormier@criticallink.com>
-Date: Fri, 22 Aug 2025 14:30:09 -0400
-X-Gm-Features: Ac12FXwko-lHWrKeX_HXwKQRgoNpj8lFRexnA4jkRYcVCsmVQHRfYtBjR82Lv-o
-Message-ID: <CADL8D3aMOcuWY+5wy92Vvd=WK4kgOiSz2z+OEoUtwL_6Z8CDVw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] PATCH: firmware: ti_sci: Add trace events to TI SCI
-To: Andrew Davis <afd@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250821-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v1-3-b492ef807d12@pengutronix.de>
+X-Authority-Analysis: v=2.4 cv=Z6bsHGRA c=1 sm=1 tr=0 ts=68a8b7af cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=Acj4BH8ZA6BBt8B7gSkA:9 a=CjuIK1q_8ugA:10
+ a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-GUID: pV6KTu8RlXF6Z9uAtgG3W5a5FyJpvIhT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODIyMDE2MCBTYWx0ZWRfX4eq6vyYFKB2G
+ z1k4W0SfjijCUZOuyA3LLNUGy9nn23EsweR/usZimqF/DjmXuKoYOaVL7Ig1uFj9QqH9yRrGMWj
+ HXwFeqxS3jALkYMgufMwOkHhiFQofI3CtOcCpP9J9es2VxYGzKuSmG1Ww60ZbsIuOC42k5+Ej44
+ 1BucK5LdFtseitD8hhDOAPdeDOvEPjd7W52b2Tbzl9KS4rQiCRQ4fsgnscHchV8FA7T37w0VLUx
+ nDc/woNdOYmdueOhP9R6vn8DdIr0ZTwFom41sy5Fj500ljgyO/4hjoySQfU5JeR03OU4vwhfjEd
+ Sw7w5hQtQn84EtTntredjVYqEtq5t42l7UR75tVuhMud6IDufUwRgP6LU/dKnBFH9HkcEBeb5dK
+ q5Auaz3w
+X-Proofpoint-ORIG-GUID: pV6KTu8RlXF6Z9uAtgG3W5a5FyJpvIhT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0
+ suspectscore=0 phishscore=0 adultscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508220160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_113023_006654_3DDD87BC 
-X-CRM114-Status: GOOD (  41.28  )
+X-CRM114-CacheID: sfid-20250822_113215_859956_59423E8C 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,161 +141,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 1:39=E2=80=AFPM Andrew Davis <afd@ti.com> wrote:
->
-> On 8/22/25 11:05 AM, Jon Cormier wrote:
-> > On Wed, Aug 20, 2025 at 4:04=E2=80=AFPM Andrew Davis <afd@ti.com> wrote=
-:
-> >>
-> >> On 8/20/25 1:10 PM, Jonathan Cormier wrote:
-> >>> Add trace events to help debug and measure the speed of the
-> >>> communication channel.
-> >>>
-> >>> Add parsing of the messages types but I am not sure how to parse the
-> >>> flags, since the REQ and RESP flags conflict. Left as seperate commit=
- to
-> >>
-> >> The REQ and RESP flags should be handled by different TRACE_EVENTs. Ri=
-ght
-> >> now you only dump the content of the response messages (the ones in
-> >> rx_callback), also tracing what is sent is just as important, so you
-> >> might want to add slightly different ti_sci_msg_dump EVENT for the
-> >> sending side which uses the different REQ flag parser.
-> >
-> >
-> > Does it make sense to have seperate trace events, one that only decode
-> > the hdrs and ones that also include the buffers?
-> >
-> > I'm bothered by the code duplication, but am trying to convince myself
-> > it doesn't matter.
-> >
-> > Currently, with the above updates, if you enabled all the traces,
-> > you'd see something like:
-> >
-> > [15.579036] ti_sci_xfer_begin: type=3DSET_DEVICE_STATE host=3D0C seq=3D=
-00
-> > flags=3D00000402 status=3D0
-> > [15.xxxxxxx] ti_sci_tx_msg_dump: type=3DSET_DEVICE_STATE host=3D0C seq=
-=3D00
-> > flags=3D00000402 data=3D<data>
-> > [15.587595] ti_sci_rx_callback: type=3DSET_DEVICE_STATE host=3D0C seq=
-=3D00
-> > flags=3D00000002 status=3D0
-> > [15.xxxxxxx] ti_sci_rx_msg_dump: type=3DSET_DEVICE_STATE host=3D0C seq=
-=3D00
-> > flags=3D00000002 data=3D<data>
-> > [15.606135] ti_sci_xfer_end: type=3DSET_DEVICE_STATE host=3D0C seq=3D00
-> > flags=3D00000002 status=3D0
-> >
-> > Presumably if you were worried about timing, you'd disable the
-> > msg_dumps, avoiding the extra memcpy's.  And if you only cared about
-> > the data being sent, you'd only enable the msg_dumps.  Does this make
-> > sense / is it worth the extra trace calls?
-> >
-> > Or removing the buffer decoding in the msg_dumps, removes the duplicati=
-on:
-> >
-> > [15.579036] ti_sci_xfer_begin: type=3DSET_DEVICE_STATE host=3D0C seq=3D=
-00
-> > flags=3D00000402 status=3D0
-> > [15.xxxxxxx] ti_sci_msg_dump: data=3D<data>
-> > [15.587595] ti_sci_rx_callback: type=3DSET_DEVICE_STATE host=3D0C seq=
-=3D00
-> > flags=3D00000002 status=3D0
-> > [15.xxxxxxx] ti_sci_msg_dump: data=3D<data>
-> > [15.606135] ti_sci_xfer_end: type=3DSET_DEVICE_STATE host=3D0C seq=3D00
-> > flags=3D00000002 status=3D0
-> >
->
-> I like this one ^^^ but I'd also just remove the `ti_sci_rx_callback`
+On Thu, Aug 21, 2025 at 09:55:30AM +0200, Steffen Trumtrar wrote:
+> Add JuTouch Technology JT101TM023 10" 1280x800 LVDS panel support.
+> 
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> ---
+>  drivers/gpu/drm/panel/panel-simple.c | 35 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
 
-Sounds good
->
-> trace, the contents would always be the same as `ti_sci_xfer_end`.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 
-So in TI's 6.12 branch, there is a response_expected variable which
-skips waiting for a response message. Indicating that there won't
-always be a rx buffer.  If I keep the rx_callback scheme, it cleanly
-handles both cases without changes.
-However if I change xfer_end to track the rx buffer, sometimes it
-won't have a header to parse. Or sometimes it will use the TX header
-and sometimes it would be the RX header, which would be confusing.
-
-I could keep and move the ti_sci_rx_callback trace into ti_sci_do_xfer
-(-> ti_sci_xfer_rx), right after the completion and timeout check.
-This would keep all the tracing in this one function, though if
-someone wanted to know if there is lost time in waiting on the
-completion it wouldn't be tracked.
-
-https://lore.kernel.org/all/20241220114118.uwi5bsefxnue46re@lcpd911/
->
->
-> This way you have two sets of symmetrical trace events, a "begin" and "en=
-d"
-> that can be used for timing measurements, and a dump message for "send" a=
-nd
-> "receive" that would help with debugging based on the message contents.
->
-> As for the code duplication in the send/receive traces, I'm not sure
-> what can be done, these trace macros already confuse me enough without
-> trying to optimize them :)
->
-> Andrew
->
-> > Or do condense the trace calls so they all have the data into something=
- like:
-> >
-> > [15.579036] ti_sci_xfer_begin: type=3DSET_DEVICE_STATE host=3D0C seq=3D=
-00
-> > flags=3D00000402 status=3D0  data=3D<data>
-> > [15.587595] ti_sci_rx_callback: type=3DSET_DEVICE_STATE host=3D0C seq=
-=3D00
-> > flags=3D00000002 status=3D0 data=3D<data>
-> > [15.606135] ti_sci_xfer_end: type=3DSET_DEVICE_STATE host=3D0C seq=3D00
-> > flags=3D00000002 status=3D0
-> >
-> > Simplifying the code in the trace header.
-> >>
-> >>
-> >> Andrew
-> >>
-> >>> make it easier to drop or make changes depending on comments.  The tw=
-o
-> >>> commits should squash easily.
-> >>>
-> >>> Nishanth Menon and Vignesh Raghavendra requested I send this patch
-> >>> upstream.
-> >>>
-> >>> Signed-off-by: Jonathan Cormier <jcormier@criticallink.com>
-> >>> ---
-> >>> Jonathan Cormier (2):
-> >>>         firmware: ti_sci: Add trace events
-> >>>         firmware: ti_sci: trace: Decode message types
-> >>>
-> >>>    MAINTAINERS                     |   1 +
-> >>>    drivers/firmware/Makefile       |   3 +
-> >>>    drivers/firmware/ti_sci.c       |  11 +++
-> >>>    drivers/firmware/ti_sci_trace.h | 146 ++++++++++++++++++++++++++++=
-++++++++++++
-> >>>    4 files changed, 161 insertions(+)
-> >>> ---
-> >>> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
-> >>> change-id: 20250709-linux_master_ti_sci_trace-91fd2af65dca
-> >>>
-> >>> Best regards,
-> >>
-> >
-> >
->
-
-
---=20
-Jonathan Cormier
-Senior Software Engineer
-
-Voice:  315.425.4045 x222
-
-http://www.CriticalLink.com
-6712 Brooklawn Parkway, Syracuse, NY 13211
+-- 
+With best wishes
+Dmitry
 
