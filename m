@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE21CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38342CA0EFC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 12:08:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R7lVxMHBGqRXSFM3wkc9nmiY62qEr5W27qh0df8q1wc=; b=ABJcfawpBJn353gHU5iT2X+FYf
-	ggqlICV/xTy2/lRpXj8VcbqdOtiS95gsPG4fCD8klsePlqDYMLcaM89HdP+lVyLj7fs6YSP2qlp21
-	uEXv0BAgNT1E/vE0bpsf8BPHAiywZlGghCg/EBuD/ZZRBBCdO71fhPtoLTaGe64dSAhbvaNZPItLC
-	gv8dedyCeA0Tm79aldGagZdAtO+HXqsxGOQ/UyvksDOV6goxdqgmlerRDX9/hUaN+Y0SCMiNNAxyy
-	Wn1miaZrKSCdA/T0QDYvgkl3G7wb2D/0e1XjQFACmUyiwjPBdlFeg+0cXFwPs7FXMfLcS6imvKIZN
-	meGrtZlg==;
+	bh=vB8wLIz0WHvujVMHowKC0Q/8HNa8Qgp3eo7drb5rVz4=; b=AHIIJen10HDloXi16gDHP3MjWB
+	D4zjEf7aIHAmxBni1GuMiqcSo8jFGLpn8Hlwhzx0NKte8/XRTuZndac6JoPNhQ43OfFMCcBeJyRvs
+	1o5bfP/5VLm1aHnp+gNK0LkpZA7EdZ1rSK0bsINgdrknFF4JnrYN+4A7W80aL7HKyOyIqdg3dCRKP
+	rpmOWCzVyg0Hvjou/tj2nWeOSgTgGAGoHGNsaE434nf8xUfxcwSV7XFCJIfd1OBu9mJqDZHzNCKuD
+	xb44UknrS5jHZ4Kir4B0in14sz+Am+Y4Ws3D+yxhH+f8r0LBuqm1Lsg0yCAIY7Q/EaN/7spRszrs2
+	tuHg+ngQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQTg-00000002Pk5-43aP;
-	Fri, 22 Aug 2025 12:02:41 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1upQYs-00000002QYc-1Ypf;
+	Fri, 22 Aug 2025 12:08:02 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLS8-00000001iKf-1WeE;
-	Fri, 22 Aug 2025 06:40:46 +0000
+	id 1upLS9-00000001iLw-3XSa;
+	Fri, 22 Aug 2025 06:40:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=R7
-	lVxMHBGqRXSFM3wkc9nmiY62qEr5W27qh0df8q1wc=; b=OyE6Pn5kjDPrTYHFiq
-	HQ+QIf94JAj9um1+9Eb97peJCCI9cny0v2c1bjEPFCucr+eDwrp5nN7RxL/+sole
-	M2ta5l5sC7WS4SJ0+fI/kDYPuapkm3Mfbs4TZ+IB+zfp5dvRQIxvEJ3KrIGDS2Qm
-	aQXUwD2ZW8rRUOHUoJARbV+GI=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=vB
+	8wLIz0WHvujVMHowKC0Q/8HNa8Qgp3eo7drb5rVz4=; b=HbEYuUzWyYvZFnk9Ui
+	Qr+ESbU85K/WGsI1ioQY8ekkpNtSJS6d3WKn17qa/aSmga29et++dqBhNNzn11o4
+	fbLMKB044YCb4QR8Z9KwkTd3h69ECyjYyXSWwH4ljNGW5JABnBBpLMM43uXKuYUb
+	AnYrDHI++qt1TMYS+RL4tO47E=
 Received: from ProDesk.. (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S9;
-	Fri, 22 Aug 2025 14:40:25 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgAn9_zCEKhoYtibAA--.23257S7;
+	Fri, 22 Aug 2025 14:40:22 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -54,25 +54,26 @@ Cc: hjc@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v7 07/10] arm64: dts: rockchip: Add DP0 for rk3588
-Date: Fri, 22 Aug 2025 14:39:51 +0800
-Message-ID: <20250822063959.692098-8-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v7 05/10] dt-bindings: display: simple-bridge: Add ra620 compatible
+Date: Fri, 22 Aug 2025 14:39:49 +0800
+Message-ID: <20250822063959.692098-6-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250822063959.692098-1-andyshrk@163.com>
 References: <20250822063959.692098-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S9
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw18CFyUCFyxJF1kJw4DXFb_yoW8WrWrp3
-	ZrCrZ3XrW8uF12q39xK34ktrZ8Aan5CFZ5Kr17Gry0kr4Sqr9FkryfKr13C34DXr47ZwsF
-	vFs3tryxKF4DAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jwvtZUUUUU=
+X-CM-TRANSID: PigvCgAn9_zCEKhoYtibAA--.23257S7
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZw1UZrWxKw4DCw4kKF18Grg_yoWDAFc_X3
+	Z7Aw1UJr1FqasYgFs8ZFs7Gry3Xw48KrWrCr10yrs7Ar4S934DKa97J34rGr1rAF1I9Fn7
+	ur1fW39rCwsrujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8NdbUUUUUU==
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEhSxXmioCP3PbgAAs9
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMx2xXmioB5f6TAAAsn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_234044_796068_8E1130DB 
-X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-CacheID: sfid-20250821_234046_223050_4283B1A5 
+X-CRM114-Status: UNSURE (   7.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,60 +91,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-The DP0 is compliant with the DisplayPort Specification
-Version 1.4, and share the USBDP combo PHY0 with USB 3.1
-HOST0 controller.
+RA620 is a DP to HDMI bridge converter from RADXA, which first
+found be used on ROCK 5 ITX.
+
+This chip can be used without involving software.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 ---
 
-(no changes since v1)
+(no changes since v3)
 
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Changes in v3:
+- First introduced in this version.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 70f03e68ba550..b8bcf450e9153 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1472,6 +1472,36 @@ dsi1_out: port@1 {
- 		};
- 	};
- 
-+	dp0: dp@fde50000 {
-+		compatible = "rockchip,rk3588-dp";
-+		reg = <0x0 0xfde50000 0x0 0x4000>;
-+		interrupts = <GIC_SPI 161 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru PCLK_DP0>, <&cru CLK_AUX16M_0>,
-+			 <&cru CLK_DP0>, <&cru MCLK_I2S4_8CH_TX>,
-+			 <&cru MCLK_SPDIF2_DP0>;
-+		clock-names = "apb", "aux", "hdcp", "i2s", "spdif";
-+		assigned-clocks = <&cru CLK_AUX16M_0>;
-+		assigned-clock-rates = <16000000>;
-+		resets = <&cru SRST_DP0>;
-+		phys = <&usbdp_phy0 PHY_TYPE_DP>;
-+		power-domains = <&power RK3588_PD_VO0>;
-+		#sound-dai-cells = <0>;
-+		status = "disabled";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dp0_in: port@0 {
-+				reg = <0>;
-+			};
-+
-+			dp0_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
-+
- 	hdmi0: hdmi@fde80000 {
- 		compatible = "rockchip,rk3588-dw-hdmi-qp";
- 		reg = <0x0 0xfde80000 0x0 0x20000>;
+ .../devicetree/bindings/display/bridge/simple-bridge.yaml        | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
+index 43cf4df9811a5..421f99ca42d9b 100644
+--- a/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/simple-bridge.yaml
+@@ -28,6 +28,7 @@ properties:
+       - enum:
+           - adi,adv7123
+           - dumb-vga-dac
++          - radxa,ra620
+           - ti,opa362
+           - ti,ths8134
+           - ti,ths8135
 -- 
 2.43.0
 
