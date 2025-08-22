@@ -4,100 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6805CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3F0CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYFCllVdYlsUiQsiZBERtJ2uKrYs3woOfUdNvXrRNqA=; b=fZ90V/pcxgxhi4MOyFzGqS/L3l
-	T9XygPoe+OB4GXaMC2LQX9j/tEpkaY6/PNtFZxXlMPGL2Kn2rQ3vn1jX3ZDhTYYMaO7uzb4Mu+dbN
-	QYjaEkrgfzNwkgbI4z/fM6Sua/ITtEnQmF6/NGHpKMS/NgjowjBBHUXeAIeSbo/Mq5dY7Kk4MXRNH
-	BRaQrTvhfxj0uC8VMlYoIqD+iDqmQCUEtF0ocJ3Zjrz+C+gkp7F5wXFMmsb/jwlmiw12CbjZ2SDUY
-	B+CI2IkqqvRKljbj+JIA2tX2LDf8Tcg/DhodKTwthDgGXyKLMJQaaljJwj8CGbj8sqOCkZ649xMrC
-	oqtD7Ibg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=wdeejnjgmwcBIRs7F/fNBtVj8QKR4gAxEw8aPn/gFWI=; b=uAcuEQidCGyE4y
+	w1YoPezyk+hvMPcc0ydy3PmWjtoYSFVn9uJEGXTz1PUr0e7Pjy7VAPIk5DNxY/rtjq9LzRx3o4xz7
+	CNuBKkU3RPVNoE+bIcYG9bpymQ5WHUzgZ2x0oNskut2gp9MdIRDJiY7OvHcvZsyQnKO/08FW/3zTL
+	b37PDj9PE8+HFsPQgh7slFksxrESB3tQxzepf7PZeudcShAJaFx46L1QAXqPxdSEdUZvthVP7EAq2
+	MYEBS4hpkT+v45ncNIwvmmVLDv1BO0xJaXHBIcGZrbX+qIG/HGDJoKhLKGr+eXgFR2+esTQMe6mHa
+	NUYdXSKsXS9A/ZcZSjPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphtG-000000049LD-1hvB;
-	Sat, 23 Aug 2025 06:38:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uphtK-000000049QF-0EBt;
+	Sat, 23 Aug 2025 06:38:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upToN-000000034W4-0ePy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 15:36:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=rYFCllVdYlsUiQsiZBERtJ2uKrYs3woOfUdNvXrRNqA=; b=Mrsi/biPpLda+sItYRx8GzuSOq
-	iiKESzeIivff1HxP8LNrOLzlj2UyqYjVRmiOnm7cnxMuKebQPcAmnBxBQugg/FL4/iWQke/RaEiw+
-	tD3qif3qQlaJOkSn2spAKr1cvZpsHoLBDKI/fOXjr7eKj3rXbhJVQtYMkiCaK5jiS5HD2VdkjGqxz
-	vM3Mw3YEyInoiEInP3sd+OuGgIY8TrHhHcmtGpgVS5UYVdNzu96w9Pmqjo7EIdcmxCEVnz6lXn7T+
-	o6cG1yCoKKaTLPFbSScNvqXQia0lB2++XoHHo58bHIPgsic1TJEHlNvV16Yk7B1U6LBcHeGiopEye
-	RRmmFP8g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upToJ-00000000yzE-3v9b
+	id 1upToM-000000034W3-48mg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:36:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCCD115A1;
-	Fri, 22 Aug 2025 08:36:02 -0700 (PDT)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF8E33F63F;
-	Fri, 22 Aug 2025 08:36:05 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: James Morse <james.morse@arm.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com,
-	lcherian@marvell.com,
-	bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>,
-	peternewman@google.com,
-	dfustini@baylibre.com,
-	amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 20/33] arm_mpam: Add a helper to touch an MSC from any CPU
-Date: Fri, 22 Aug 2025 15:30:35 +0000
-Message-Id: <20250822153048.2287-55-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
+	Fri, 22 Aug 2025 15:36:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A80D44618;
+	Fri, 22 Aug 2025 15:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9AE6C4CEED;
+	Fri, 22 Aug 2025 15:36:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755876974;
+	bh=M4axMQs8H13c09qWo6K3CitPMFiulFvZkPJOaBof5qk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Gkm3JskIl9AEISSDTxGOPEQ5Ekw+yO/AvQdomznGVF8QhL2AKSjB9ug0fr1l8cDAC
+	 R5sn0gLRNWsiAEXDV/8IqKrKhmFhfaIV0eZ2Ifeh4tLF63tK6IWjZnREefRXi/M03D
+	 sonYkEFxAHk5WnTO9vZYeGm/kLZ++fqGgDYfTihFHvZFAojKUxRz39rTZqvajG+zmS
+	 C5cdC9xRurIk0OtWquWGUHHvSsQMbdCi9wn8LX+sUhjGWTlzoGERhtdVdDoJXui0e5
+	 RMD+nlwye1ZCE/pFkHY1ti7fjopPKBrl36OGkQOSbkQ95P59TCZ58RYnkJ70Qa5E+H
+	 M8+0Xh8w08Hdg==
+Date: Fri, 22 Aug 2025 10:36:11 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>,
+	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: =?utf-8?B?5Zue6KaG?= =?utf-8?Q?=3A?= [PATCH v2 09/10] PCI:
+ aspeed: Add ASPEED PCIe RC driver
+Message-ID: <20250822153611.GA684739@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SEYPR06MB5134692DCCFD55F5ABD812F39D3DA@SEYPR06MB5134.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_163612_492244_3EA9E111 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250822_083615_077519_DC338C78 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,87 +88,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resetting RIS entries from the cpuhp callback is easy as the
-callback occurs on the correct CPU. This won't be true for any other
-caller that wants to reset or configure an MSC.
+On Fri, Aug 22, 2025 at 07:00:25AM +0000, Jacky Chou wrote:
+> > v1 posting was
+> > https://lore.kernel.org/r/20250613033001.3153637-1-jacky_chou@aspeedtech
+> > .com
+> > Links to previous postings are helpful in the cover letter.
+> > 
+> > On Tue, Jul 15, 2025 at 11:43:19AM +0800, Jacky Chou wrote:
+> > > Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
+> > > initialization, reset, clock, IRQ domain, and MSI domain setup.
+> > > Implement platform-specific setup and register configuration for
+> > > ASPEED. And provide PCI config space read/write and INTx/MSI interrupt
+> > > handling.
 
-Add a helper that schedules the provided function if necessary.
-Prevent the cpuhp callbacks from changing the MSC state by taking the
-cpuhp lock.
+> > > +#define MAX_MSI_HOST_IRQS	64
+> > > +#define PCIE_RESET_CONFIG_DEVICE_WAIT_MS	500
+> > 
+> > Where does this value come from?  Is there a generic value from
+> > drivers/pci/pci.h you can use?
+> 
+> We check the PCIe specification to find these contents.
+>
+> "With a Downstream Port that supports Link speeds greater than 5.0
+> GT/s, software must wait a minimum of 100 ms after Link training
+> completes before sending a Configuration Request to the device
+> immediately below that Port."
+>
+> So, we think delay 500ms to let kernel issue the first configuration
+> command is enough after deassert PERST.
 
-Signed-off-by: James Morse <james.morse@arm.com>
----
- drivers/resctrl/mpam_devices.c | 37 +++++++++++++++++++++++++++++++---
- 1 file changed, 34 insertions(+), 3 deletions(-)
+Isn't this PCIE_RESET_CONFIG_WAIT_MS?
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index c1f01dd748ad..759244966736 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -906,20 +906,51 @@ static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
- 	mutex_unlock(&msc->part_sel_lock);
- }
- 
--static void mpam_reset_ris(struct mpam_msc_ris *ris)
-+/*
-+ * Called via smp_call_on_cpu() to prevent migration, while still being
-+ * pre-emptible.
-+ */
-+static int mpam_reset_ris(void *arg)
- {
- 	u16 partid, partid_max;
-+	struct mpam_msc_ris *ris = arg;
- 
- 	mpam_assert_srcu_read_lock_held();
- 
- 	if (ris->in_reset_state)
--		return;
-+		return 0;
- 
- 	spin_lock(&partid_max_lock);
- 	partid_max = mpam_partid_max;
- 	spin_unlock(&partid_max_lock);
- 	for (partid = 0; partid < partid_max; partid++)
- 		mpam_reset_ris_partid(ris, partid);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Get the preferred CPU for this MSC. If it is accessible from this CPU,
-+ * this CPU is preferred. This can be preempted/migrated, it will only result
-+ * in more work.
-+ */
-+static int mpam_get_msc_preferred_cpu(struct mpam_msc *msc)
-+{
-+	int cpu = raw_smp_processor_id();
-+
-+	if (cpumask_test_cpu(cpu, &msc->accessibility))
-+		return cpu;
-+
-+	return cpumask_first_and(&msc->accessibility, cpu_online_mask);
-+}
-+
-+static int mpam_touch_msc(struct mpam_msc *msc, int (*fn)(void *a), void *arg)
-+{
-+	lockdep_assert_irqs_enabled();
-+	lockdep_assert_cpus_held();
-+	mpam_assert_srcu_read_lock_held();
-+
-+	return smp_call_on_cpu(mpam_get_msc_preferred_cpu(msc), fn, arg, true);
- }
- 
- static void mpam_reset_msc(struct mpam_msc *msc, bool online)
-@@ -932,7 +963,7 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
- 	mpam_mon_sel_outer_lock(msc);
- 	idx = srcu_read_lock(&mpam_srcu);
- 	list_for_each_entry_srcu(ris, &msc->ris, msc_list, srcu_read_lock_held(&mpam_srcu)) {
--		mpam_reset_ris(ris);
-+		mpam_touch_msc(msc, &mpam_reset_ris, ris);
- 
- 		/*
- 		 * Set in_reset_state when coming online. The reset state
--- 
-2.20.1
+I prefer to use #defines from the PCI core whenever possible because
+it makes it easier to ensure that all drivers include the required
+delays.
 
+> > > +#define PCIE_RESET_CONFIG_RC_WAIT_MS		10
+> > 
+> > Ditto.  If it's an Aspeed-specific value, can you point to the
+> > source in the Aspeed datasheet?
+> 
+> This delay is set to ensure that the RC internal settings are
+> completely reset.  We do not put its usage in our datasheet.
+
+The "PCIE_" prefix suggests something required by the PCIe base spec.
+If this is an Aspeed-specific value, perhaps remove the "PCIE_"
+prefix?
+
+> > > +static int aspeed_ast2700_child_config(struct pci_bus *bus, unsigned int
+> > devfn,
+> > > +				       int where, int size, u32 *val,
+> > > +				       bool write)
+> > > +{
+> > > +	struct aspeed_pcie *pcie = bus->sysdata;
+> > > +	u32 bdf_offset, status, cfg_val;
+> > > +	int ret;
+> > > +
+> > > +	bdf_offset = aspeed_pcie_get_bdf_offset(bus, devfn, where);
+> > > +
+> > > +	cfg_val = CRG_PAYLOAD_SIZE;
+> > > +	if (write)
+> > > +		cfg_val |= (bus->number == 1) ? CRG0_WRITE_FMTTYPE :
+> > CRG1_WRITE_FMTTYPE;
+> > > +	else
+> > > +		cfg_val |= (bus->number == 1) ? CRG0_READ_FMTTYPE :
+> > > +CRG1_READ_FMTTYPE;
+> > 
+> > I don't think you should assume that bus 0 is the root bus.  The root bus
+> > number should come from the DT bus-range.
+
+Just making sure you saw this part since you didn't mention it.
+
+Bjorn
 
