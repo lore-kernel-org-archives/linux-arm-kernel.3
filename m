@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A8BFCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10164CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 06:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZX4OjsTPIenekJTKQ0K5s2WoSLk9Qk2/dcNY46w6GOA=; b=1lhWhN0OASZ9APe2N/Ex08j56D
-	pHgCa2F98JEN0KxSOm2AMd02PfCgNXFPI7MbqDwpU+n92V15K3p1QW0Owq1ZG5cVr8PsUyMPc5HNb
-	LzgijDd6uvclRPSIHvFk7dAhzgiGeJbEAQx49wviHs9iKyXvQdkppk5t9FQGBiBZUkzeAyjnFvlP6
-	VU9bEt+yNiK+/FB6tLi/iVJOcmXYZaFJj3cnJfNC6d0p5B+Cw9s3dtEBDIsl6fzMtEefq2h2iuCvI
-	TV2V24+5Cl2xXOGvOjmILUV6g/lfMT06XqKJEscfH4gR0UgTWpe441oKhDBc8PdeDRu2tSoyN1KP5
-	IOszT08w==;
+	bh=f/Jfz7S7/Ez3B3we92zq7VEpURs2Qbf/NXfEjWLd4qE=; b=W/o/NaRK/1Ueskd1hT0vqMN25m
+	7uZan1vEXAHG5NTJvcE5Tlhgn1/DU4tKAuz7SVJByzQ0K1TA32hSo3gmNQAxMDfZWWlzi5y0V/CpY
+	3wmP8LU29hsMn7VTXzBGIaqFLckcDU9Tx22dfaL9G5hthA0Xc/NQDc16wP3ctwCG+ujTogb90aRBP
+	wMWTxMSX5VGq5frkgKREtZFAmMEiJKzGandifSvWTaltDnYdV3CcR0X6lo8nN99jYlkU6o9HadvLo
+	XKehNDMetZsxG1HR9Z7LlHvdFTTrKIbjNQ6mz1TNcadWaBa/pG6MbamhfbgTrCpiKWpLRYxRU94TQ
+	+7roo52A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLaG-00000001jvy-2rxA;
-	Fri, 22 Aug 2025 06:49:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1upLcu-00000001kPq-2AM5;
+	Fri, 22 Aug 2025 06:51:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upFdX-000000012Qt-1BW8
+	id 1upGzl-00000001Bcb-3aO6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 00:28:08 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 86E7578E;
-	Fri, 22 Aug 2025 02:27:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755822426;
-	bh=dOaHyCDUDzxUe1iu2eGKkVea8QsgSYUANuutZCzeE7c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kqGVBW9KmI3Isky6vtR4nl9TznSUUcs49/aAn+fRkK+NY0qPnh3hY1aabPLuspE74
-	 J1k4HfYlzoabu9HlAp2l/d50Jy+gcRywJ0HSYJ1laUUEZjWyl4A5CjMC2pldxAxg8r
-	 xcCTY+8TreiJjSBY6+f83A7hDBREYIM+2iq8FubQ=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Inbaraj E <inbaraj.e@samsung.com>,
-	Isaac Scott <isaac.scott@ideasonboard.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Martin Kepplinger <martink@posteo.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 05/13] media: imx-mipi-csis: Rename register macros to match reference manual
-Date: Fri, 22 Aug 2025 03:27:25 +0300
-Message-ID: <20250822002734.23516-6-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
-References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
+	Fri, 22 Aug 2025 01:55:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B8F45C6418;
+	Fri, 22 Aug 2025 01:55:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F80EC4CEEB;
+	Fri, 22 Aug 2025 01:55:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755827708;
+	bh=syt/RShWgXU9dy1JZh2eOSAyZGqhM0UCo5LVYbwVY3g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=qT3sroW7QOscHIDuV397YnVh6J+VKfZttVfoTDuyondvItY/9n1FR6vmsrbGr78bP
+	 uTswIDoJt5jVoLqPCS/t+kLaoLf+RHUxvNI4VGSbYocpSJ0BofzQwGP+lH10DWkS/n
+	 8UHEqZD/5zUOe65PtrxE1GAbSe9VU9+rH6q7ROrBtRVc+0FLvKG8zI8E6j9CrxGlQO
+	 gev8IWlYC8N5p8wqIPAyRFAj5cw8vYi+uGffo0BeOs3CSnBTyyVYLkWCUV5//FLo78
+	 SNKr4X0YC6A9wFXFBrJi0o7SCrHNvlhB0k4QbHwkL4bpLElmMaGtFgwjCfYMuo1T34
+	 24Rg4l9uEzX4A==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 22 Aug 2025 02:53:40 +0100
+Subject: [PATCH v7 11/29] KVM: arm64: Document the KVM ABI for SME
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250822-kvm-arm64-sme-v7-11-7a65d82b8b10@kernel.org>
+References: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+In-Reply-To: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-cff91
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13384; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=syt/RShWgXU9dy1JZh2eOSAyZGqhM0UCo5LVYbwVY3g=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop83BMU9bt++mCb0zXk+fxPwMjP7YPwVgb5Dn5
+ dp0oi6tBOKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNwQAKCRAk1otyXVSH
+ 0P8fB/9Io9GdHFLicY58I/zR+WfU68tD1XMRyrN0tV8r7SnSKeyQXc00mRATTnUPm/CXh9bXpWZ
+ 2fCMg492FJz7FiGoNBX44kMlCZk21yShO9kFLP8y2kLeWz8ZjiE1Q0MLj2MRKvwsQ8PJxVi5LMX
+ xqEo0TZix/EH6uF6NuwuoS4u31iBCWr0rMHccJz/CTmRWZW+A6O5LiqfnLgbVkyQrxWUadR4WGg
+ t4eGRrNN9CGwcU7jdX6oFZye/GShDbZw4k65X2ruWIQtk8mAesl1GY+MqoXc1A898B8C8NlH9iM
+ HLgFSf5vAfiokO+leiATddHZHfxYZiYDLVv5myVBEofUaShH
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_172807_469213_8B597CDD 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250821_185509_989311_3220B59B 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,205 +90,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CSIS driver uses register macro names that do not match the
-reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
-is integrated. Rename them to match the documentation, making the code
-easier to read alongside the reference manuals.
+SME, the Scalable Matrix Extension, is an arm64 extension which adds
+support for matrix operations, with core concepts patterned after SVE.
 
-One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
-which led to the corresponding event being logged as "Unknown Error".
-The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
-as "Unknown ID error". Update the event description accordingly.
+SVE introduced some complication in the ABI since it adds new vector
+floating point registers with runtime configurable size, the size being
+controlled by a prameter called the vector length (VL). To provide control
+of this to VMMs we offer two phase configuration of SVE, SVE must first be
+enabled for the vCPU with KVM_ARM_VCPU_INIT(KVM_ARM_VCPU_SVE), after which
+vector length may then be configured but the configurably sized floating
+point registers are inaccessible until finalized with a call to
+KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE) after which the configurably sized
+registers can be accessed.
 
-While at it, also replace a few *_OFFSET macros with parametric macros
-for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
-MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
+SME introduces an additional independent configurable vector length
+which as well as controlling the size of the new ZA register also
+provides an alternative view of the configurably sized SVE registers
+(known as streaming mode) with the guest able to switch between the two
+modes as it pleases.  There is also a fixed sized register ZT0
+introduced in SME2. As well as streaming mode the guest may enable and
+disable ZA and (where SME2 is available) ZT0 dynamically independently
+of streaming mode. These modes are controlled via the system register
+SVCR.
 
-No functional change intended.
+We handle the configuration of the vector length for SME in a similar
+manner to SVE, requiring initialization and finalization of the feature
+with a pseudo register controlling the available SME vector lengths as for
+SVE. Further, if the guest has both SVE and SME then finalizing one
+prevents further configuration of the vector length for the other.
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Where both SVE and SME are configured for the guest we always present
+the SVE registers to userspace as having the larger of the configured
+maximum SVE and SME vector lengths, discarding extra data at load time
+and zero padding on read as required if the active vector length is
+lower. Note that this means that enabling or disabling streaming mode
+while the guest is stopped will not zero Zn or Pn as it will when the
+guest is running, but it does allow SVCR, Zn and Pn to be read and
+written in any order.
+
+Userspace access to ZA and (if configured) ZT0 is always available, they
+will be zeroed when the guest runs if disabled in SVCR and the value
+read will be zero if the guest stops with them disabled. This mirrors
+the behaviour of the architecture, enabling access causes ZA and ZT0 to
+be zeroed, while allowing access to SVCR, ZA and ZT0 to be performed in
+any order.
+
+If SME is enabled for a guest without SVE then the FPSIMD Vn registers
+must be accessed via the low 128 bits of the SVE Zn registers as is the
+case when SVE is enabled. This is not ideal but allows access to SVCR and
+the registers in any order without duplication or ambiguity about which
+values should take effect. This may be an issue for VMMs that are
+unaware of SME on systems that implement it without SVE if they let SME
+be enabled, the lack of access to Vn may surprise them, but it seems
+like an unusual implementation choice.
+
+For SME unware VMMs on systems with both SVE and SME support the SVE
+registers may be larger than expected, this should be less disruptive
+than on a system without SVE as they will simply ignore the high bits of
+the registers.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Changes since v2:
+ Documentation/virt/kvm/api.rst | 117 +++++++++++++++++++++++++++++------------
+ 1 file changed, 82 insertions(+), 35 deletions(-)
 
-- Drop MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE
-- Restore usage of BIT() for MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT
----
- drivers/media/platform/nxp/imx-mipi-csis.c | 68 +++++++++++-----------
- 1 file changed, 35 insertions(+), 33 deletions(-)
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 6aa40ee05a4a..71f46b342641 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -406,7 +406,7 @@ Errors:
+              instructions from device memory (arm64)
+   ENOSYS     data abort outside memslots with no syndrome info and
+              KVM_CAP_ARM_NISV_TO_USER not enabled (arm64)
+-  EPERM      SVE feature set but not finalized (arm64)
++  EPERM      SVE or SME feature set but not finalized (arm64)
+   =======    ==============================================================
+ 
+ This ioctl is used to run a guest virtual cpu.  While there are no
+@@ -2600,12 +2600,12 @@ Specifically:
+   0x6020 0000 0010 00d5 FPCR        32  fp_regs.fpcr
+ ======================= ========= ===== =======================================
+ 
+-.. [1] These encodings are not accepted for SVE-enabled vcpus.  See
+-       :ref:`KVM_ARM_VCPU_INIT`.
++.. [1] These encodings are not accepted for SVE enabled vcpus.  See
++       :ref:`KVM_ARM_VCPU_INIT`.  They are also not accepted when SME is
++       enabled without SVE and the vcpu is in streaming mode.
+ 
+        The equivalent register content can be accessed via bits [127:0] of
+-       the corresponding SVE Zn registers instead for vcpus that have SVE
+-       enabled (see below).
++       the corresponding SVE Zn registers in these cases (see below).
+ 
+ arm64 CCSIDR registers are demultiplexed by CSSELR value::
+ 
+@@ -2636,24 +2636,34 @@ arm64 SVE registers have the following bit patterns::
+   0x6050 0000 0015 060 <slice:5>        FFR bits[256*slice + 255 : 256*slice]
+   0x6060 0000 0015 ffff                 KVM_REG_ARM64_SVE_VLS pseudo-register
+ 
+-Access to register IDs where 2048 * slice >= 128 * max_vq will fail with
+-ENOENT.  max_vq is the vcpu's maximum supported vector length in 128-bit
+-quadwords: see [2]_ below.
++arm64 SME registers have the following bit patterns:
++
++  0x6080 0000 0017 00 <n:5> <slice:5>   ZA.H[n] bits[2048*slice + 2047 : 2048*slice]
++  0x60XX 0000 0017 0100                 ZT0
++  0x6060 0000 0017 fffe                 KVM_REG_ARM64_SME_VLS pseudo-register
++
++Access to Z, P or ZA register IDs where 2048 * slice >= 128 * max_vq
++will fail with ENOENT.  max_vq is the vcpu's maximum supported vector
++length in 128-bit quadwords: see [2]_ below.
++
++Access to the ZA and ZT0 registers is only available if SVCR.ZA is set
++to 1.
+ 
+ These registers are only accessible on vcpus for which SVE is enabled.
+ See KVM_ARM_VCPU_INIT for details.
+ 
+-In addition, except for KVM_REG_ARM64_SVE_VLS, these registers are not
+-accessible until the vcpu's SVE configuration has been finalized
+-using KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE).  See KVM_ARM_VCPU_INIT
+-and KVM_ARM_VCPU_FINALIZE for more information about this procedure.
++In addition, except for KVM_REG_ARM64_SVE_VLS and
++KVM_REG_ARM64_SME_VLS, these registers are not accessible until the
++vcpu's SVE and SME configuration has been finalized using
++KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC).  See KVM_ARM_VCPU_INIT and
++KVM_ARM_VCPU_FINALIZE for more information about this procedure.
+ 
+-KVM_REG_ARM64_SVE_VLS is a pseudo-register that allows the set of vector
+-lengths supported by the vcpu to be discovered and configured by
+-userspace.  When transferred to or from user memory via KVM_GET_ONE_REG
+-or KVM_SET_ONE_REG, the value of this register is of type
+-__u64[KVM_ARM64_SVE_VLS_WORDS], and encodes the set of vector lengths as
+-follows::
++KVM_REG_ARM64_SVE_VLS and KVM_ARM64_VCPU_SME_VLS are pseudo-registers
++that allows the set of vector lengths supported by the vcpu to be
++discovered and configured by userspace.  When transferred to or from
++user memory via KVM_GET_ONE_REG or KVM_SET_ONE_REG, the value of this
++register is of type __u64[KVM_ARM64_SVE_VLS_WORDS], and encodes the
++set of vector lengths as follows::
+ 
+   __u64 vector_lengths[KVM_ARM64_SVE_VLS_WORDS];
+ 
+@@ -2665,19 +2675,25 @@ follows::
+ 	/* Vector length vq * 16 bytes not supported */
+ 
+ .. [2] The maximum value vq for which the above condition is true is
+-       max_vq.  This is the maximum vector length available to the guest on
+-       this vcpu, and determines which register slices are visible through
+-       this ioctl interface.
++       max_vq.  This is the maximum vector length currently available to
++       the guest on this vcpu, and determines which register slices are
++       visible through this ioctl interface.
++
++       If SME is supported then the max_vq used for the Z and P registers
++       then while SVCR.SM is 1 this vector length will be the maximum SME
++       vector length available for the guest, otherwise it will be the
++       maximum SVE vector length available.
+ 
+ (See Documentation/arch/arm64/sve.rst for an explanation of the "vq"
+ nomenclature.)
+ 
+-KVM_REG_ARM64_SVE_VLS is only accessible after KVM_ARM_VCPU_INIT.
+-KVM_ARM_VCPU_INIT initialises it to the best set of vector lengths that
+-the host supports.
++KVM_REG_ARM64_SVE_VLS and KVM_REG_ARM_SME_VLS are only accessible
++after KVM_ARM_VCPU_INIT.  KVM_ARM_VCPU_INIT initialises them to the
++best set of vector lengths that the host supports.
+ 
+-Userspace may subsequently modify it if desired until the vcpu's SVE
+-configuration is finalized using KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE).
++Userspace may subsequently modify these registers if desired until the
++vcpu's SVE and SME configuration is finalized using
++KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC).
+ 
+ Apart from simply removing all vector lengths from the host set that
+ exceed some value, support for arbitrarily chosen sets of vector lengths
+@@ -2685,8 +2701,8 @@ is hardware-dependent and may not be available.  Attempting to configure
+ an invalid set of vector lengths via KVM_SET_ONE_REG will fail with
+ EINVAL.
+ 
+-After the vcpu's SVE configuration is finalized, further attempts to
+-write this register will fail with EPERM.
++After the vcpu's SVE or SME configuration is finalized, further
++attempts to write these registers will fail with EPERM.
+ 
+ arm64 bitmap feature firmware pseudo-registers have the following bit pattern::
+ 
+@@ -3469,6 +3485,7 @@ The initial values are defined as:
+ 	- General Purpose registers, including PC and SP: set to 0
+ 	- FPSIMD/NEON registers: set to 0
+ 	- SVE registers: set to 0
++	- SME registers: set to 0
+ 	- System registers: Reset to their architecturally defined
+ 	  values as for a warm reset to EL1 (resp. SVC) or EL2 (in the
+ 	  case of EL2 being enabled).
+@@ -3512,7 +3529,7 @@ Possible features:
+ 
+ 	- KVM_ARM_VCPU_SVE: Enables SVE for the CPU (arm64 only).
+ 	  Depends on KVM_CAP_ARM_SVE.
+-	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE):
++	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC):
+ 
+ 	   * After KVM_ARM_VCPU_INIT:
+ 
+@@ -3520,7 +3537,7 @@ Possible features:
+ 	        initial value of this pseudo-register indicates the best set of
+ 	        vector lengths possible for a vcpu on this host.
+ 
+-	   * Before KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE):
++	   * Before KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC}):
+ 
+ 	      - KVM_RUN and KVM_GET_REG_LIST are not available;
+ 
+@@ -3533,11 +3550,40 @@ Possible features:
+ 	        KVM_SET_ONE_REG, to modify the set of vector lengths available
+ 	        for the vcpu.
+ 
+-	   * After KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_SVE):
++	   * After KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC):
+ 
+ 	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
+ 	        no longer be written using KVM_SET_ONE_REG.
+ 
++	- KVM_ARM_VCPU_SME: Enables SME for the CPU (arm64 only).
++	  Depends on KVM_CAP_ARM_SME.
++	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC):
++
++	   * After KVM_ARM_VCPU_INIT:
++
++	      - KVM_REG_ARM64_SME_VLS may be read using KVM_GET_ONE_REG: the
++	        initial value of this pseudo-register indicates the best set of
++	        vector lengths possible for a vcpu on this host.
++
++	   * Before KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC}):
++
++	      - KVM_RUN and KVM_GET_REG_LIST are not available;
++
++	      - KVM_GET_ONE_REG and KVM_SET_ONE_REG cannot be used to access
++	        the scalable architectural SVE registers
++	        KVM_REG_ARM64_SVE_ZREG(), KVM_REG_ARM64_SVE_PREG() or
++	        KVM_REG_ARM64_SVE_FFR, the matrix register
++		KVM_REG_ARM64_SME_ZA() or the LUT register KVM_REG_ARM64_ZT();
++
++	      - KVM_REG_ARM64_SME_VLS may optionally be written using
++	        KVM_SET_ONE_REG, to modify the set of vector lengths available
++	        for the vcpu.
++
++	   * After KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_VEC):
++
++	      - the KVM_REG_ARM64_SME_VLS pseudo-register is immutable, and can
++	        no longer be written using KVM_SET_ONE_REG.
++
+ 	- KVM_ARM_VCPU_HAS_EL2: Enable Nested Virtualisation support,
+ 	  booting the guest from EL2 instead of EL1.
+ 	  Depends on KVM_CAP_ARM_EL2.
+@@ -5120,11 +5166,12 @@ Errors:
+ 
+ Recognised values for feature:
+ 
+-  =====      ===========================================
+-  arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
+-  =====      ===========================================
++  =====      ==============================================================
++  arm64      KVM_ARM_VCPU_VEC (requires KVM_CAP_ARM_SVE or KVM_CAP_ARM_SME)
++  arm64      KVM_ARM_VCPU_SVE (alias for KVM_ARM_VCPU_VEC)
++  =====      ==============================================================
+ 
+-Finalizes the configuration of the specified vcpu feature.
++Finalizes the configuration of the specified vcpu features.
+ 
+ The vcpu must already have been initialised, enabling the affected feature, by
+ means of a successful :ref:`KVM_ARM_VCPU_INIT <KVM_ARM_VCPU_INIT>` call with the
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 894d12fef519..ce889c436cb1 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -55,13 +55,12 @@
- /* CSIS common control */
- #define MIPI_CSIS_CMN_CTRL			0x04
- #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
--#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
-+#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	BIT(10)
-+#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
-+#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
- #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
--#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
--#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
--
--#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
--#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
-+#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
-+#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
- 
- /* CSIS clock control */
- #define MIPI_CSIS_CLK_CTRL			0x08
-@@ -87,7 +86,7 @@
- #define MIPI_CSIS_INT_MSK_ERR_WRONG_CFG		BIT(3)
- #define MIPI_CSIS_INT_MSK_ERR_ECC		BIT(2)
- #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
--#define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
-+#define MIPI_CSIS_INT_MSK_ERR_ID		BIT(0)
- 
- /* CSIS Interrupt source */
- #define MIPI_CSIS_INT_SRC			0x14
-@@ -107,7 +106,7 @@
- #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
- #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
- #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
--#define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
-+#define MIPI_CSIS_INT_SRC_ERR_ID		BIT(0)
- #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
- 
- /* D-PHY status control */
-@@ -123,8 +122,8 @@
- #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
- #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
- #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
--#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
--#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
-+#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_CLK	BIT(6)
-+#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_DAT	BIT(5)
- #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
- #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_CLK	BIT(0)
- #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE		(0x1f << 0)
-@@ -179,21 +178,23 @@
- #define MIPI_CSIS_ISPCFG_PIXEL_MODE_SINGLE	(0 << 12)
- #define MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL	(1 << 12)
- #define MIPI_CSIS_ISPCFG_PIXEL_MODE_QUAD	(2 << 12)	/* i.MX8M[MNP] only */
--#define MIPI_CSIS_ISPCFG_PIXEL_MASK		(3 << 12)
--#define MIPI_CSIS_ISPCFG_ALIGN_32BIT		BIT(11)
--#define MIPI_CSIS_ISPCFG_FMT(fmt)		((fmt) << 2)
--#define MIPI_CSIS_ISPCFG_FMT_MASK		(0x3f << 2)
-+#define MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK	(3 << 12)
-+#define MIPI_CSIS_ISPCFG_PARALLEL		BIT(11)
-+#define MIPI_CSIS_ISPCFG_DATAFORMAT(fmt)	((fmt) << 2)
-+#define MIPI_CSIS_ISPCFG_DATAFORMAT_MASK	(0x3f << 2)
- 
- /* ISP Image Resolution register */
- #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
-+#define MIPI_CSIS_ISP_RESOL_VRESOL(n)		((n) << 16)
-+#define MIPI_CSIS_ISP_RESOL_HRESOL(n)		((n) << 0)
- #define CSIS_MAX_PIX_WIDTH			0xffff
- #define CSIS_MAX_PIX_HEIGHT			0xffff
- 
- /* ISP SYNC register */
- #define MIPI_CSIS_ISP_SYNC_CH(n)		(0x48 + (n) * 0x10)
--#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET	18
--#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET	12
--#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET	0
-+#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(n)	((n) << 18)
-+#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(n)	((n) << 12)
-+#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(n)	((n) << 0)
- 
- /* ISP shadow registers */
- #define MIPI_CSIS_SDW_CONFIG_CH(n)		(0x80 + (n) * 0x10)
-@@ -246,7 +247,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
- 	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
- 	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
- 	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
--	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
-+	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
- 	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
- 	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
- 	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
-@@ -517,7 +518,7 @@ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
- 	u32 val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
- 
- 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
--			val | MIPI_CSIS_CMN_CTRL_RESET);
-+			val | MIPI_CSIS_CMN_CTRL_SW_RESET);
- 	usleep_range(10, 20);
- }
- 
-@@ -527,9 +528,9 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
- 	if (on)
--		val |= MIPI_CSIS_CMN_CTRL_ENABLE;
-+		val |= MIPI_CSIS_CMN_CTRL_CSI_EN;
- 	else
--		val &= ~MIPI_CSIS_CMN_CTRL_ENABLE;
-+		val &= ~MIPI_CSIS_CMN_CTRL_CSI_EN;
- 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
-@@ -549,8 +550,8 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
- 
- 	/* Color format */
- 	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
--	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
--		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
-+	val &= ~(MIPI_CSIS_ISPCFG_PARALLEL | MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK |
-+		 MIPI_CSIS_ISPCFG_DATAFORMAT_MASK);
- 
- 	/*
- 	 * YUV 4:2:2 can be transferred with 8 or 16 bits per clock sample
-@@ -568,12 +569,13 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
- 	if (csis_fmt->data_type == MIPI_CSI2_DT_YUV422_8B)
- 		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
- 
--	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
-+	val |= MIPI_CSIS_ISPCFG_DATAFORMAT(csis_fmt->data_type);
- 	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
- 
- 	/* Pixel resolution */
--	val = format->width | (format->height << 16);
--	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
-+	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0),
-+			MIPI_CSIS_ISP_RESOL_VRESOL(format->height) |
-+			MIPI_CSIS_ISP_RESOL_HRESOL(format->width));
- }
- 
- static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
-@@ -633,10 +635,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
- 	u32 val;
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
--	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
--	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
-+	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK;
-+	val |= MIPI_CSIS_CMN_CTRL_LANE_NUMBER(lanes - 1);
- 	if (csis->info->version == MIPI_CSIS_V3_3)
--		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
-+		val |= MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT;
- 	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
- 
- 	__mipi_csis_set_format(csis, format, csis_fmt);
-@@ -645,10 +647,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
- 			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
- 			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
- 
--	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
--	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
--	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
--	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
-+	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0),
-+			MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(0) |
-+			MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(0) |
-+			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
- 
- 	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
- 	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
 -- 
-Regards,
-
-Laurent Pinchart
+2.39.5
 
 
