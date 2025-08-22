@@ -4,77 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06B7CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6613CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9tHPqKKnRlf/2yoYaU51ff9krR9hR2OUkjvBjZR7nbs=; b=2whyI5xs4/MzMXrRTORREEpZvB
-	7jG+8d4N5X/j/Up5TEYW70ji5yv7HGCwZsctyDMWSjXvHEqSoaKo7LkP9Qj0bt32Tkh8E+YP2kGXS
-	q8hmO6cj0Kbgor6aSAGHVbqldDJHlG35SzuPCVTgxddaRPGWJg5SeIyhOnTpt/mf/1fNSU61ms6tG
-	/Ks4gl8GO8YBFY9jU3Zxf0IJxpEZpNuE6HPxk+SqRU/2lCBWZJVmWchsVxV4YZ95ulg2RZQGDN6UZ
-	dVNyQ2n4m2zI+gSicdy+1SrGf15bRjUlBg2xxM/JXtQ7FRdKYi1UDPgCThTF+eW3kHhpMBF/BXNHD
-	M64UaSaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lK2rpx2/MgP0xYg1oquRCVSwjELamQjKBbWlfVvpC0E=; b=X6yOcp2TOFiQDtaXGS4GbePaON
+	2R3aJK0alxmleYkdRfV/G4CEwORS9OAh3OeXny2wNOp3FE7R1bVrWLVbPuk9uYHalDFPeT57d4dMW
+	E827xVRnKT9jCIWL6Tn5T9GJLZ63UTHzw6F/Qo4Z1vTQqEY6RoeZiP3VEwc7qwbjmqjjBQo8AeAM6
+	/p59ZZZ19zju5nWHJfAsaZD/EkB7F/aAJi4P/s58uKf9FXnfGSXRDS9DIveLjc2vAom4ehFQT0UMF
+	n/1bERM05qPRrB75u3XkxLAudjA0glX6ZbRfAMW4g2YadZoweZJV/oPlMmNVGl0kdAIZOAWrvTUqs
+	ws0etfHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSbb-00000002lAU-2Hwy;
-	Fri, 22 Aug 2025 14:18:59 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1upSbp-00000002lVD-2bGl;
+	Fri, 22 Aug 2025 14:19:13 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLA4-00000001gRz-3Q0T
+	id 1upMHA-00000001pEf-3HgS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 06:22:06 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57M6LvPp186577;
-	Fri, 22 Aug 2025 01:21:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755843717;
-	bh=9tHPqKKnRlf/2yoYaU51ff9krR9hR2OUkjvBjZR7nbs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=dUou/LpX8uNa3HvO0F+Tq/zAfHL4I1JJB3OnLNEzOvy3pP0vqtk3b/PUCshyEVRUr
-	 0mlBM704WiDbJ9EgwcbQgn5NCh1oiDVuY+V8xH/I5pCqK2f0SBeo3HVAaUcRxXRZQD
-	 dLtKH13IqLeVzdR6B7L/zjmwxk8pVpudZnyWJRsE=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57M6Lvxf2699211
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 22 Aug 2025 01:21:57 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
- Aug 2025 01:21:56 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 22 Aug 2025 01:21:57 -0500
-Received: from [172.24.233.249] (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57M6LpGm3090508;
-	Fri, 22 Aug 2025 01:21:52 -0500
-Message-ID: <eaf4c015-a9e2-486b-a5ca-f98ce2146866@ti.com>
-Date: Fri, 22 Aug 2025 11:51:51 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Add cpufreq and USB support for AM62D2
-To: Nishanth Menon <nm@ti.com>, "Raghavendra, Vignesh" <vigneshr@ti.com>
-CC: <praneeth@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <rafael@kernel.org>,
-        <viresh.kumar@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
-        <afd@ti.com>, <bb@ti.com>, <s-vadapalli@ti.com>
-References: <20250820083331.3412378-1-p-bhagat@ti.com>
- <20250821122741.eqrwystfey7nwvym@outfit>
-Content-Language: en-US
-From: Paresh Bhagat <p-bhagat@ti.com>
-In-Reply-To: <20250821122741.eqrwystfey7nwvym@outfit>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	Fri, 22 Aug 2025 07:33:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DH90AGlYOcRPJzeqStFLZscTA+jR4+dwjkUVPfFurLOygSe1dCC7pQw29CAKX4sdRBRFjfRvDPFnsm/yFyVPZvQBuk5qNeNJ+G8cDEGPfm4LM4hnDVie7dtn8P7KgntMksSSHLV0/g7/xa4i+I1K5WnfIdn5pfzMJgWD4jeGKj29HIOnlZ1nTbxh1aI6MiR0sDpZDEh0PmY6wMXjp/XJ1luU46eTMc0QJmPg57UQntpHrXHrDBgjC2lHGH0afHKrSRhNLXgiQrkb/riTmj0ZL0vHhUB1q/OU66B3lrZHI9Iw3toaGIyajNfKzcgL6CBiQA8mtNbPayfQC6IdPFE0pA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lK2rpx2/MgP0xYg1oquRCVSwjELamQjKBbWlfVvpC0E=;
+ b=Q7hMkcswBiuEPpRHWae4SaNRW3n5nLpcokixTZfpM2YcpZQrFKhlwADL+JcjuRu+MMP+BLTyUtwY4qU6o2f8k4FBFwGmMBRkKKKUWj0oauiD6iGmdlPohVbNy3NZYxzLXpfLY9VkRZ9tDTcOASg0zj120/ov8APPAgl8bh5k9jsijCLkG7neiDu4djweC9XROn/bOMddYSX/NfmKZQMVDsNN7Z2rMkonZFGL3gJBZHDGnQsXW0ZGUuax2Zmo9mtrstF45nKpPebu1IKd6NuPCcexgxcgi7Uyg8cJI0H4xJ+UUjKwMdU6h2ph+0SHwkGWXRlldGRzsKffNuDQF8XRRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=technexion.com; dmarc=pass action=none
+ header.from=technexion.com; dkim=pass header.d=technexion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=technexion.onmicrosoft.com; s=selector2-technexion-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lK2rpx2/MgP0xYg1oquRCVSwjELamQjKBbWlfVvpC0E=;
+ b=tfT2hStyxx8XxDnkBg/iCVAVGHRhOncLN+wyMX5iIqaRWvlqd3suc9h3XyZ0B+jZCV9ZdtFtMCkXJwrnNmS3LDtGc5QySZfD/1+sRLUOjsaY0xpz9TWb37eWG2xiO8wAFOwDR6VJOXUNiSO+M3xZdFYscFFUY2m4FNkl5zhyjXo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=technexion.com;
+Received: from SEYPR03MB7464.apcprd03.prod.outlook.com (2603:1096:101:146::7)
+ by JH0PR03MB7493.apcprd03.prod.outlook.com (2603:1096:990:a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.16; Fri, 22 Aug
+ 2025 07:33:11 +0000
+Received: from SEYPR03MB7464.apcprd03.prod.outlook.com
+ ([fe80::7de8:115:8b5f:b071]) by SEYPR03MB7464.apcprd03.prod.outlook.com
+ ([fe80::7de8:115:8b5f:b071%4]) with mapi id 15.20.9052.014; Fri, 22 Aug 2025
+ 07:33:10 +0000
+From: Richard Hu <richard.hu@technexion.com>
+Subject: [PATCH v5 0/2] Add TechNexion EDM-G-IMX8M-PLUS SOM and WB-EDM-G
+ carrier board support
+Date: Fri, 22 Aug 2025 15:33:07 +0800
+Message-Id: <20250822-add-technexion-edm-g-imx8m-plus-som-v5-0-bf745447345a@technexion.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-B4-Tracking: v=1; b=H4sIADMdqGgC/43Q0Q6CIBQG4FdpXHcaogR21Xu0LgSOyRbixJjN+
+ e6hW6utLrz82eH7z85EAvYWAzntJtJjtMH6NgW+3xHdVO0NwZqUCaOM0yMtoDIGBtRNi2MaBTQ
+ ObmDdKB1090eA4B2IsjI1VXkpUJEkdT3WdlxbLteUGxsG3z/X0siW17fPN/mRAQWjeCWUwlzL4
+ vz5cdDekaUk5h9Y0HIbnCdYsMxkpdTIqPoLF18w23aRWCwbZ1rKjHNzrH83nuf5BTrrfOiNAQA
+ A
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Richard Hu <richard.hu@technexion.com>, 
+ Ray Chang <ray.chang@technexion.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755847989; l=3309;
+ i=richard.hu@technexion.com; s=20250604; h=from:subject:message-id;
+ bh=E8tbcirx+xj1hC/GOxtriVw6He7agO59iFWxEZJkRzI=;
+ b=u03f6AZWTK0rUFaTO427UK6mlWlW+SBu0EiO3ruZ1+Tp5kCBTBUUxXDaHVvV5qRWiLEcZHrRO
+ 1+6VDSyKZMCBJskqd+tejT9VnXeB28raAIs/QfgK2hHhGtlo3qwwcN3
+X-Developer-Key: i=richard.hu@technexion.com; a=ed25519;
+ pk=MKoW0/U0r4MjJdRNaq37Tb25KE1fzJUdMN0pa8XBJSA=
+X-ClientProxiedBy: TPYP295CA0050.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:8::12) To SEYPR03MB7464.apcprd03.prod.outlook.com
+ (2603:1096:101:146::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEYPR03MB7464:EE_|JH0PR03MB7493:EE_
+X-MS-Office365-Filtering-Correlation-Id: 780fecef-a0be-4d38-b2b8-08dde14e2548
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S3ZBUm1pT0lqSktGTjRkOHVWeHc2eWo5dU5aUFZ5TThMMnh1S0h0L1Bjd0pL?=
+ =?utf-8?B?ZldHTE1URDBXUDhvL0s4N1lSZTJoUHcyUVZWSk9KcWo2MHNNTzM2eExtc3hy?=
+ =?utf-8?B?bDdDWm9LQmJUTlNNMVlXc1NJRFpNQWFub2ZGM2Qvc24vQkd5UW1xVmFNN0dj?=
+ =?utf-8?B?ODNkR05uOUtrWnBJa3NuNUZxN21TT0U2Q1M5SUQrUlp5OUVoelFSZEtsVFRU?=
+ =?utf-8?B?UWhyWC9SS1F1dUwxU09oOENKaVdBTTFYaEZRSTdic09qMllnbG9mQXpVSkZq?=
+ =?utf-8?B?SkQ1TmNjUE1Vd3BqM2xxY2h3bjFEbGpIajNTQlB1LzMxOUM0WXBYS0duQ3lP?=
+ =?utf-8?B?SGFuWTA5V3RsRzM1QS9sSVlybnhHSFB6eGVYRHRKNnJQbE84SlRITDFVSVlj?=
+ =?utf-8?B?NzhSeHhKOTNSeEVScnB4cmRTaCtPTkp1MXBENWdHRFRzdDRUSHF0TmFFc0VB?=
+ =?utf-8?B?MVJPdVhkWDhVTm05M3FYVllBbE90b0c2SUlmUjFmcXJRbzByVzMxR3lSaHlP?=
+ =?utf-8?B?ZnRUK1h4RXhvZUhNSlA3bUx0U3ZsSU1nRGtJUFpHV1lvaUpzL2NZVFRpUldo?=
+ =?utf-8?B?UUkvbWZwRHZSZlFpelowV090SGk1b2lXYjg0NFJobU1sYWF5bk9QdXFIYStF?=
+ =?utf-8?B?OGg0QnVia0hqTkRXd2JpdDk4NFN3MmhBbWtGcjhXU2lYWkRGODNvTjgxTlBN?=
+ =?utf-8?B?dHprQmRPMitkNUdqdE9qS2RKRDBxLytON3lBbno2UmRxUGkzTUhTZHZvMy9s?=
+ =?utf-8?B?QVdKdmo3Z1hrS1Zsdk5vNmEyS3NLcnZpVUV1Z1Vta3lUeWl5L1dWV2Uwbm8z?=
+ =?utf-8?B?WlY5eHovZThFcnVuTzdXTUpacTR2R2w1Zk1uR1RSNGFLc3h5dW5LTzdSLzVU?=
+ =?utf-8?B?czJZYi9SSjBGNzIyYmpuYlhLU3JvMDlzRE95VUYvam1ETkxySnRQV0pSUTNw?=
+ =?utf-8?B?b2RZd0NCV3RlbmJ2S1F2ak8zTk42N3RuZXVKZlpuSkNCQk92Z1phMUNySC9Q?=
+ =?utf-8?B?bElKK1dZcGpvQ05ZQ1lwb01oc3J1UTRSSGl1NDZuTzBaQys3NTk3OHNPSzUy?=
+ =?utf-8?B?Z2dudnBNbVNXWlFNOEJ2MEJPN1pEU0gxaEtvQUR2RVBLRWQwTXVQTE15cHBO?=
+ =?utf-8?B?UGxlLzZQb2FYekYzZlRFUS81WUtBZXdDR2tyVUluVi9rOXJaUXNoL1RacVFr?=
+ =?utf-8?B?WFdVTndaN3paV2RjK3M2S1UxMFFzNDI1cytOT2dTVzR1NUxTYTIvK1R4S0dv?=
+ =?utf-8?B?c1NMS0pVOVI0c0Z0am9FdG5HZGliSDU2bTdva1VTT3VDckRSemdsbmkyVEUz?=
+ =?utf-8?B?Y3FLV3lmem85Q2huVzVKU3JWdWR6bEF6eHE3K2FSc2lmWXdZbCtQMFNUYXBH?=
+ =?utf-8?B?dEF1N0dCdUluc2Z2Z0pxc3FNNk0za2wwOXFBczQvTjU4MUwxaTEyL3VRNTZl?=
+ =?utf-8?B?RjVYOWo3eGxxTkZlSVA4UmZLZis5WE5Db2w1NlJRbUk3eFljb0RTWDVBdFRM?=
+ =?utf-8?B?UTBqU1Q3aCtVaUoyU2JBZElMWGFoc21oMWZNSlZhdG82MGJBYzBVSHNqV3hs?=
+ =?utf-8?B?eHhneHBIVUwydnJnN0tSOC9heXNOWkxUQlZiaGVzeWhZd2oxS3h3b0FqdzJO?=
+ =?utf-8?B?SFZKd2xIeGpiaWV6WmNjeTI1SDg1QjhvUGNDMmtCNHQwNjl1MisvSnRMZzR6?=
+ =?utf-8?B?djRYeXVRdmhudGZlVWQwNVZJdW9RYWU4bjN3WkpoQXFaTTdwQkdlYnIxV2tu?=
+ =?utf-8?B?ZmR6dko4RWduNlUrZXVEMGlQL2ErZXMrUVhCeWl2RUh5WTEwYVZ6djF3azl1?=
+ =?utf-8?B?eFh3OWZYcUF1b1pZWlZLcVQ2UTM0d3BKSit5dmM5cnpxY0ZPR0RQZHNlY251?=
+ =?utf-8?B?UU96b0YrTE9UTk5qRTlhaGlhMFFxRndjSk5KTTQvbENwem51dE5aMVd6UFJw?=
+ =?utf-8?B?TTd2bE52R1hNYWgzWFh6MXk5SDJocHZhMUhuRFlNc2l0Ry9XczJEeml6eWln?=
+ =?utf-8?B?QU85c0N6MG93PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB7464.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R3FWZC9pb1ZkRWx3ZVRJV3M3c3pueHNMV0ZZZkd5MlcreVBCbTZHSEV1U1Bw?=
+ =?utf-8?B?MTdkei9NUGVYQmNuRnlWT20wSGRDUUZwWHZVUDd3Wm9IaUtOM0p6WG9PSVRL?=
+ =?utf-8?B?QVBUQ1BocmNuVlc3aUFJbmJjejZvSFNaNUFoZXZ6QllvM29JMGJKUnlncFNE?=
+ =?utf-8?B?NnFvYXZlVnV3MkNmcDFrT2tCYnhRcm1PUlJIS3FJOC9ieEFUNk1qRVU2ZFho?=
+ =?utf-8?B?d2Z4ZEFHVVJ1RUQzSU83SHBqcE1BaURnVzNyQWxQMkVIOXAxYzhSQkloM1BZ?=
+ =?utf-8?B?NHp1QjFpODZ1bnNxSWhSYmFsUWwzbXpZT0I3dFJXYXRJVlZmZXZ1azFsNXo2?=
+ =?utf-8?B?MW10R3FKQlE0WmVPRmg1eDd3ZjRDV1VwZDJZZEdkQXlOcWRDbVZ2anBkL0Vp?=
+ =?utf-8?B?RHFJODJlNE84SGlQd1EwQnl0NVNsRnhrOVpFNktXcFg0TmV2c3RKOFZjZHdz?=
+ =?utf-8?B?TW1hN3kzY0ZQV2NTeVF2dUZ0d3ZtQ2l0bTBVTFRHRUwrenZTbGxLUytmcng0?=
+ =?utf-8?B?Rm44WDc3RzcrQkQwYkFORitBdVpUMFZVd2ZUVXExNnkxbGxQVGpLSjVmei9T?=
+ =?utf-8?B?ZFRaSEtsYmoycUM4N3phNTNoUXAyZVpPTmkyYkQ1d0oyYjg5TFROVUc4N0tp?=
+ =?utf-8?B?dlR1a1BaZ3BXbmpFWGg0bnZFQlR2V01qTkE5enZIMytrNGpVcWprNHU3Mmtp?=
+ =?utf-8?B?TTdRa2J3c25MQWNXeUMvMUdCRGhOYkNPU1lLYjdURnltY3VBRnNYYjhrQSsz?=
+ =?utf-8?B?cXNxaXVwMVpKS1p3WURXakdPUTg3cUp2YUljTTJER0pHRmRoaC8yZm9nVVVq?=
+ =?utf-8?B?ZmNMa25meThuQ2VFSFhrNmR2VFhTcGF6VkdtdjI2cFowVW5LVG5wZEZxM2gy?=
+ =?utf-8?B?ck93V3JCVmlyWm42S3Z4ems1b2FKOWIzOGdKeWxjWWJHZWFJck54VjM2eTJt?=
+ =?utf-8?B?LzRRQ3BZbmNNdTM1Q3Zwa2syS0R5L2RURFVWNWh0WVFqYWJmKzIxeTM0UHRR?=
+ =?utf-8?B?ZnlZOThVSU4wRytlVXczSzBadXorcTNSU0REcm5ZVjZ4MGE5bkRaV04wZFl2?=
+ =?utf-8?B?WHplNUl6SzYxR3dyVWo2bFlNSkpaUWwrRnBNRWQrTWhkNDRVWllTZ0dqN2Ji?=
+ =?utf-8?B?WGZ3cVU3SzdOZ0JuOW9mTm40dFFxYkd1Q1pid256K2t6U29nNDhaNC9RTDZ2?=
+ =?utf-8?B?aUpkeEVhQ0dLUFJmMDBVUUllc3cxRmpFZDNqRVI5R3VDYXB6emN1NXRCQmlj?=
+ =?utf-8?B?aXVGbkphNkQ2YnQzU3ZvMm1jNSt0Q3ZsNks4YVpYdVExeE1ENDJabUNXR2tl?=
+ =?utf-8?B?eVV1TVZEaW9zTzh6MjBZdWhlazJYMGxwWTdUNW5pR3JDWG1lMEcwckpmdm1R?=
+ =?utf-8?B?TWtUMWRsZHBlaE9INlUybUZQSFF0UmdVU2h1L1c0ajBWYzc3OHI4QnFRVnVK?=
+ =?utf-8?B?dTFUSWpkbDgwT3J6WEJINlJiRTdyR3FYYjdYSnU0aDhEb2x4YzZQeXpZUVll?=
+ =?utf-8?B?dXl2QWloODRlTWd4SEJqK29qeHNRUU8vZ1Z6U0pQOTY2NDJGMlU0S0hRZlhw?=
+ =?utf-8?B?SXpRN1M5WEhZSkpRQWV2eW83Ykk3ZXNkdTlOeGh1aExWaldnenpFWUFmbWlN?=
+ =?utf-8?B?NHZaQTExMlBPU0hZck9jT1c2Unp3emxBd0tONDkxNDZBaVJrQjFOVTVhbTdV?=
+ =?utf-8?B?d0poU0JvMmpjQ0tQaWVUL3EvU0FpWlVEQk9MZnBEd1FsT0U1QjhtQUpvMnBn?=
+ =?utf-8?B?Q3AzUDhPejhQTmJ5alEvZHM1a1d2YzF0eFVpL2tvM09sMS9KdFFtN3g2a1dz?=
+ =?utf-8?B?VG1QM2I2emNTRVowcWRtTUw1MDFmaXFMYVVmNjVXZk8rd3paVVB3VVdNNEsz?=
+ =?utf-8?B?VDlYMitXNk10c1pQVXFQM2tDNzJSaUZMbnYxUCtUQW5hU3JDODJEdzhXK0la?=
+ =?utf-8?B?UE0wb2tvcDBleHcySWdJN0VIbEtpc3ZzYk1wMXNYM2lrY1BBRUVCSWZucEdO?=
+ =?utf-8?B?T1VjUXpOV3Nsc3I4UDNaZGRkbnhQMFJYdEkrbG1tRFphSzQ3dmJmQkppYWZv?=
+ =?utf-8?B?S0xzLzlVakhSdmR6VmlxaTlBNkdHcjBrQkpia2EvVXJJSnd0VWdYcTRVVjZJ?=
+ =?utf-8?B?cS91SWh0cWVpdGxubkcvV0xXSUZvaVRodTd5cjh3SGtzTGxWemdCRG80MVlT?=
+ =?utf-8?B?RFE9PQ==?=
+X-OriginatorOrg: technexion.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 780fecef-a0be-4d38-b2b8-08dde14e2548
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB7464.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 07:33:10.6962
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5ee19679-b9a6-4497-8ed2-1eda849e753b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hJoviE3yzyzzDmAomgKLtjR8/aGVfBLAkNfz02bS2TdpgZWex5VvwSa3IEkLugVC5eINKAj+u7Y9ZnTbxe2GdoJ+lM31G5CG8cVkF/oYhWw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7493
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_232205_120026_5FDBF0C1 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20250822_003328_820520_C8A37155 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +193,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nishanth and Vignesh,
+Add initial support for TechNexion EDM-G-IMX8M-PLUS SOM and WB-EDM-G
+carrier board.
 
-On 21/08/25 17:57, Nishanth Menon wrote:
-> On 14:03-20250820, Paresh Bhagat wrote:
->> This patch series introduces following changes:
->>
->> * Patch 1 fixes the register length in main_pmx/padconfig for AM62D
->>   and AM62A.
->>
->> * Patch 2 enables USB support for AM62D2-EVM by adding pinmux and device
->>   tree nodes.
->>
->> * Patch 3 adds AM62D2 SoC to cpufreq-dt-platdev blacklist so that
->>   cpufreq is handled by the ti-cpufreq driver instead of the
->>   generic cpufreq-dt driver.
->>
->> * Patch 4 extends ti-cpufreq to register AM62D2 SoC support by
->>   reusing the am62a7_soc_data.
->>
->> Boot Logs-
->> https://gist.github.com/paresh-bhagat12/e29d33c3fd92ff17580edf1441ece9f9
->>
->> Tech Ref Manual-https://www.ti.com/lit/pdf/sprujd4
->> Schematics Link-https://www.ti.com/lit/zip/sprcal5
->>
->> Paresh Bhagat (3):
->>    arm64: dts: ti: k3-am62d2-evm: Enable USB support
->>    cpufreq: dt-platdev: Blacklist ti,am62d2 SoC
->>    cpufreq: ti: Add support for AM62D2
->>
->> Vibhore Vardhan (1):
->>    arm64: dts: ti: k3-am62a-main: Fix pinctrl properties
-> Please do not mix things up to maintainers. Please post patches #1,2
-> separately to DT maintainers - these do not have any relationship with
-> the rest of the driver patches.
+Changes in v5:
+- Address feedback from Krzysztof (thanks!)
 
+in patch 2/2:
+       - Rename 'native-hdmi-connector' to the standard 'hdmi-connector'.
 
-Thanks for the review. I will keep patches in separate series for 
-further set of patches.
+       - Correct the PMIC interrupt flag to use the proper DT binding
+         (IRQ_TYPE_LEVEL_LOW) instead of legacy macro.
 
->
->>   arch/arm64/boot/dts/ti/k3-am62a-main.dtsi |  2 +-
->>   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts  | 21 +++++++++++++++++++++
->>   drivers/cpufreq/cpufreq-dt-platdev.c      |  1 +
->>   drivers/cpufreq/ti-cpufreq.c              |  2 ++
->>   4 files changed, 25 insertions(+), 1 deletion(-)
->>
->> -- 
->> 2.34.1
->>
+       - Update the SPDX license identifier. 
+
+Changes in v4:
+- Incorporate review feedback from Shawn (thanks!) and apply further 
+  cleanups to DTS style and node naming.
+
+in patch 2/2:
+       - Addressed formatting issues by adding newlines and removing
+         unnecessary backslashes.
+
+       - Removed the lvds-backlight node for the optional display panel,
+         which will be handled by a device tree overlay.
+
+       - Aligned several node names with DT conventions. For example:
+         - `codec@1a` -> `audio-codec@1a`
+         - `gpio-leds` -> `leds`
+         - `pcie0-refclk` -> `clock-pcie-ref`
+         - `wlreg-on` -> `regulator-wl-reg-on`
+
+Changes in v3:
+- The changes address DT schema warnings, remove unused regulators, and
+  improve the overall structure.
+
+in patch 2/2:
+       - Fixed DT Schema Warnings: Renamed the i2c-gpio node to i2c-0 to
+         resolve a naming convention warning reported by Rob's checker.
+
+       - Removed Unused Regulators: Removed several unused regulator-fixed
+         nodes for LVDS, backlight, ethernet power, and the OTG VBUS, as
+         pointed out by Peng Fan (thanks!).
+
+       - Added EEPROM Nodes: Added device tree nodes for the EEPROMs
+         present on both the SOM and the baseboard.
+
+       - Node Reorganization: Relocated the iomuxc node to the end of the
+         device tree files for better readability.
+
+Change in V2:
+- Ensured accurate `To:` and `Cc:` addresses by utilizing
+  `b4 prep --auto-to-cc`. (Thanks to Krzysztof Kozlowski for the
+  tip on this command and helpful suggestion from Rob Herring).
+
+in patch 1/2:
+        - Add Acked-by tag.
+
+in patch 2/2:
+        - Generic Node Naming: Refactored device tree node names for I2C
+          GPIO expanders, the USB Type-C controller, and the PMIC to adhere
+          to generic naming conventions (e.g., `gpio@21`, `usb-typec@67`,
+          `pmic@25`).
+
+        - Removed Unused SPI Node: Eliminated the `spidev1` node due to an
+          incorrect and non-existent compatible string (`rohm,dh2228fv`).
+
+        - Minor formatting improvements (e.g., whitespace, indentation).
+
+Signed-off-by: Richard Hu <richard.hu@technexion.com>
+---
+Ray Chang (1):
+      dt-bindings: arm: fsl: Add EDM-G-IMX8M-PLUS SOM and WB-EDM-G carrier board
+
+Richard Hu (1):
+      arm64: dts: imx8mp: Add TechNexion EDM-G-IMX8M-PLUS SOM on WB-EDM-G carrier board
+
+ Documentation/devicetree/bindings/arm/fsl.yaml    |   7 +
+ arch/arm64/boot/dts/freescale/Makefile            |   1 +
+ arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 359 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-edm-g.dtsi   | 786 ++++++++++++++++++++++
+ 4 files changed, 1153 insertions(+)
+---
+base-commit: c17b750b3ad9f45f2b6f7e6f7f4679844244f0b9
+change-id: 20250604-add-technexion-edm-g-imx8m-plus-som-79adf0b397eb
+
+Best regards,
+-- 
+Richard Hu <richard.hu@technexion.com>
+
 
