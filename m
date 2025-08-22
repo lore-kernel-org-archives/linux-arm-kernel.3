@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F98CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3414CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L5BtZVJoY6cbJVddxrT48vM5l/1F53xO0z7w+QH6pk=; b=rs+kiPHbC2aR0TASmgn93fKcO2
-	1eOrV94K/WzTlUyeW0vXOn64uPZ9yR57N8coLNPN8BjbYyo1Tn1ZFQSjL3Gp/VBp0pUxdc/rLih8q
-	g78hauZXdm19rzg4sVkFuF0akkhip6cQYVhUeZ6tfXa8YSd4g5ojkUSpJ5bDbW8e2QPZrjVPk9emC
-	eZx01XmPIGb2zgXaQoSWcIfoeO2/ewHruqVgNbL2WPixWRQHCyp0mInTt2Ml/5gWHNL7+juaHJwL2
-	w0H2/q4lCKeirym2bYieDnkfdARmOc4TuqKEigNUO/wpE2/d9tvKQy4jFtkqb5IJeooOqz9ViprEF
-	hJQ06xRw==;
+	bh=ghHuu1JcsEx/abBvM0DHwqBRAb4911MAmD1hPpVi7ZU=; b=GGJw9hJeBKRihGqWC0UEEJhWEt
+	tYUTEchgcXE+myZQKoFIWW7lVlzBuOpWJbowAKgPFDm8Ty+q01BCBY+e4k4o1wWpuzQk0s1ETzoWK
+	JlS48GfRNd9DlY3kb2PEwqJrGQfVki1MJCNS85C7mc/SOIOcKBGu/bh79xqjn4EjF6waQdizOp5gC
+	AF4GY/eVEnfEfZM4Bue7gNgmv9wyhitbV8M2mMjAN7Cab0A8WdjtMRUvPgUEV9MBQwV+Cvh79m5bB
+	5c5IEalAq9RpGR9TFY6GjqqL+9sqRkZZ5FdsZn8ffGG3dut9eEVvuvrkAoFXTSHKJB7OqbbBQHUFZ
+	PxLBkrZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkeF-00000004SnP-0Yc6;
-	Sat, 23 Aug 2025 09:34:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1upkeI-00000004SsJ-1BC6;
+	Sat, 23 Aug 2025 09:34:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upT2c-00000002slX-2rEG;
-	Fri, 22 Aug 2025 14:46:55 +0000
+	id 1upT4N-00000002t8k-2wWX;
+	Fri, 22 Aug 2025 14:48:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B7BC5C6FE8;
-	Fri, 22 Aug 2025 14:46:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86587C4CEED;
-	Fri, 22 Aug 2025 14:46:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 125E760206;
+	Fri, 22 Aug 2025 14:48:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98C6FC4CEED;
+	Fri, 22 Aug 2025 14:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755874013;
-	bh=+LMAKVwOGszxRowkPXPHA9+jKYN9k/xShb+3HOShYDk=;
+	s=k20201202; t=1755874122;
+	bh=ooHxYeuqSlm0Lf7mTP8oPP3GNMH5wQGxRznp5cQihXI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gIuN8hF9wWDGShDvUOB2QK4Nd/qYdV1baMD1PWWrn0lgPIxFWci5eGIbdnbvjUyz8
-	 JCPZE8w7epY/TRHm9LS14Tmux3Pm7TvbCBbPxMskuHdpgKGBiENdgd9l271qVLiuIE
-	 lUJK25RtwR4AJPaYuhGy/tSFK7YbGAFnsKlDjrqAfWXnFwHMF8javBuwrQfC2E56MY
-	 RVQ4OytbvrMwrKfxwLiIDqvolz2QfoR68/ju5eqQ3YEUMRsM0dEGu/CpaOq9hoH7hK
-	 wqzkaTsIqJIdo6xQtm0bziemWvZIE7aDFGOznqFsW/nffenMl8Fz+cRLk6qXCLD4QA
-	 q2Ip/9UEuZ3oQ==
-Date: Fri, 22 Aug 2025 09:46:52 -0500
-From: Rob Herring <robh@kernel.org>
-To: Julien Massot <julien.massot@collabora.com>
-Cc: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ikjoon Jang <ikjn@chromium.org>,
-	Enric Balletbo i Serra <eballetbo@kernel.org>,
-	Chen-Yu Tsai <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Julien Massot <jmassot@collabora.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	b=V4YRcrn7MAkBEsW92XCJqFP0QJf2758UgsZPB/3N2tnPDuIJ02iRgH0kP6qkiN6X7
+	 vzPknftZUjtwtZURBWtOkdnvupxFjYIgPcFz1ZTmxdPwhHGHB3uKU0ijlG19Y4X1Io
+	 lBhQZhI6440fN316kLn06tsLLkSksK+bSP5AjzlLnU6A/ZM1S7yGPhN9Pe/zoegCfK
+	 t1r+OF5KZWh37SexS82xmytQxZZ0cwnNuBGc+n7ZsxoU7MF53+4XUVqiY+KgkthLQ/
+	 SVvkhzz2StS7ISJqLqRXQgvIFLJcUIUr69TNMlEZYRFDmj9asKpIreCP20oU4ncsHO
+	 pTeNBPGHQg7Fw==
+Date: Fri, 22 Aug 2025 09:48:41 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-kernel@vger.kernel.org, Arnaud Vrac <avrac@freebox.fr>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] ASoC: dt-binding: Convert MediaTek mt8183-mt6358
- bindings to YAML
-Message-ID: <20250822144652.GA3763665-robh@kernel.org>
-References: <20250820-mtk-dtb-warnings-v2-0-cf4721e58f4e@collabora.com>
- <20250820-mtk-dtb-warnings-v2-6-cf4721e58f4e@collabora.com>
+	Maxime Ripard <mripard@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+	Jonas Karlman <jonas@kwiboo.se>, Sandy Huang <hjc@rock-chips.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	dri-devel@lists.freedesktop.org, Andy Yan <andy.yan@rock-chips.com>,
+	Pierre-Hugues Husson <phhusson@freebox.fr>,
+	linux-rockchip@lists.infradead.org,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>, David Airlie <airlied@gmail.com>,
+	"H. Nikolaus Schaller" <hns@goldelico.com>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] dt-bindings: display: rockchip,dw-mipi-dsi:
+ Narrow clocks for rockchip,rk3288-mipi-dsi
+Message-ID: <175587411947.3790873.4860739653450800146.robh@kernel.org>
+References: <20250820-dt-bindings-display-v2-0-91e2ccba3d4e@linaro.org>
+ <20250820-dt-bindings-display-v2-3-91e2ccba3d4e@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250820-mtk-dtb-warnings-v2-6-cf4721e58f4e@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_074654_794603_170FEFAA 
-X-CRM114-Status: GOOD (  16.34  )
+In-Reply-To: <20250820-dt-bindings-display-v2-3-91e2ccba3d4e@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 20, 2025 at 03:44:57PM +0200, Julien Massot wrote:
-> Convert the existing text-based DT binding for MT8183 sound cards using
-> MT6358 and various other codecs to a YAML schema.
 
-In the subject (on all the patches), avoid saying 'binding' twice and I 
-prefer 'DT schema' over YAML. Lot's of things are YAML, but only one 
-thing is DT schema.
-
+On Wed, 20 Aug 2025 16:17:38 +0200, Krzysztof Kozlowski wrote:
+> The binding allows in top-level from one to four clocks and each variant
+> narrows the choice, but rockchip,rk3288-mipi-dsi missed the minItems.
 > 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
 > ---
->  .../sound/mediatek,mt8183_mt6358_ts3a227.yaml      | 59 ++++++++++++++++++++++
->  .../sound/mt8183-mt6358-ts3a227-max98357.txt       | 25 ---------
->  2 files changed, 59 insertions(+), 25 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..048fe62715d67d44daa08e75a63c782238815689
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8183_mt6358_ts3a227.yaml
-> @@ -0,0 +1,59 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/mediatek,mt8183_mt6358_ts3a227.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT8183 sound card with MT6358, TS3A227, and MAX98357/RT1015 codecs
-> +
-> +maintainers:
-> +  - Julien Massot <julien.massot@collabora.com>
-> +
-> +description:
-> +  Binding for MediaTek MT8183 SoC-based sound cards using the MT6358 codec,
+> Changes in v2:
+> 1. Fix subject typo
+> 2. Rb tag
+> ---
+>  .../devicetree/bindings/display/rockchip/rockchip,dw-mipi-dsi.yaml      | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
 
-Drop 'Binding for '.
+Applied, thanks!
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
-And thank you for jumping on all these Mediatek bindings.
-
-Rob
 
