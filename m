@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EB4CA0EFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD8DCA0EE4
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dh5Ztii3ALj027CEaw9F+IIDMJBha3hYvvYOGuItS1Q=; b=Mn/7qn2zpt4B7D7qxGzrE2uFsU
-	OULffRBpCkzJFrmGe2W2vKo0H8ClJdqJNx32vhCmWOLLJHbpahXZhP/WiXLgSNi2NYL6pnx40GO70
-	ItsxZqwVNiHYOYI1vWk6Gt+71WqXhfx5Npaokqtxy+o73DvO0rT4J0PBQJys9RzHfwq3lQUQTvv+t
-	Os/Vjxt4zTGXiL7Fo2YIMRqUHuze4SeilyF78vbj/G2ZxPyDk/B0VNvfno21IKhzS0Tw33i6RD/VV
-	nu9p9N5gpjsuA5TCfEDjPZ9kYwl/vP4DHZbPCntt0T9owKOZhqiWUMNaDkMCQtmm2fcXZOHDr4kc4
-	y2mPqe3A==;
+	bh=qW7WmMLmT/NE6gQVk4Ap5KDrKo2B8JVQ039X57gunxA=; b=hb2KAhg6TYYjVvZLQoHgZ6BuIE
+	C8IFg17QccoHoGJrcbXOYbbBWnfFG5d1lu0TUVdondyd2aACglbORumeSSkTE4t55mIINhTwT3ys+
+	VUjikxo1Ek7FGQAFnqrue6giZs/l/ElP1yfNUDn89XsgBgROB51+68vrelAY23OID6LxpG3dywyD9
+	rB8FvoC2wVteqXbJ8pqZ6zzlkvs77leeOZEOM2x5dP9TazPQyucOAv7wYfXhX/6YvNXKRhZUutPu4
+	LsniGMb0fFc/16srWs5Pam95A2sEi9gVRfIZrtxa4Lc6czz6QzXpTAyX/z9R570Xg2LIRsm4vpJwG
+	OOyzalGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upke8-00000004Sc3-0Txc;
-	Sat, 23 Aug 2025 09:34:48 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1upke7-00000004SaK-0mfl;
+	Sat, 23 Aug 2025 09:34:47 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSWb-00000002jSR-3PTB
+	id 1upSTr-00000002j1x-2h2T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:13:50 +0000
+	Fri, 22 Aug 2025 14:11:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S86JWxO0VYfTKLFsTBWeb7lEsomBW0TqvUrXs5IqCT3QTy1FDg/H6evPAtnNzL6xIsB09TaRyf1JpDG1hXQZfFrrv8EJnPpHXvvqO8ysM6mFP3sXmIdlgCIF2Oj1Wg1JSUU34Mx1gbhecO3wNlqbEtk+3RQlx5o2p5kqitSN/GT91BjnvincFvUXJGg0mYkZmB4y2Td5zRkMeo/xmel65rbMMWmpoYZw1pm2CXXz/3pGZB2w9PbXjIfq8Dh9dkHKnA/nCj1mwnMIcYc7QgbxWaNmBVczamZk9FVDSaBFQ86kqcVlvoBQqEJvg4Vy/fdQjVKPKr7lA3K1IKlfHRS6ug==
+ b=fIWr0rJ8GCQWAo47gzRmFhoK6BW4f33EtFaQ/9MCx4UpFNy0oxGLwi7HwU4w1krnne16Oe8SX9lomgTMm2+4pwaLlgvoYmkAmkrgDdUZJKfvIB3tCnSqovGrX53DTB7Rn/1+uAquFn0Ho8nlAVjf3RmTnVp2EZmes1Rk03ouNyIUCPWJ869rjZrsOsl/qckfv3dfPQEvlSzOiCtcwjq4IzFixUPC7X/dU95xj4z5wahtBEv4L4yTPG4bDRpeYClBVxiqt8lhVCiu8LQ9Lj+mOj1XbrqqPNAZTItauk4nTlcQ7vsbXibcD93417fLquNllbR3cQuVDTPTCiRap40tJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dh5Ztii3ALj027CEaw9F+IIDMJBha3hYvvYOGuItS1Q=;
- b=vuDKoox5pEcN0mvSgTm1oG1T1nb1/8YGQOZoXpMsCO76pd0wMX51y/JMcN2EtS7TwK4oXWXBfJCTbsC/bXbK8j09hU5q9k72Z6MQ8eue8kGOJdLvfqQ6TEIwLCxqE840k9rE9U28b2ktfmKkxpxQFssy20aIvzK0WH24zMzqr+OMl4T00oIIFWi18R+e4x13uVcutXnsutLCfoiMborAtRnLF54AGp9nRD0R2XS0+VNBZwygXP5LrANShuhPvjJssHZDtj32fWJytWiSPlMJGkHJsuHAjUb/AWed1C0aO02YzY/QjkmaZX8Lal3z6nukZyFTV3/MtDcf7KcoWqaOHA==
+ bh=qW7WmMLmT/NE6gQVk4Ap5KDrKo2B8JVQ039X57gunxA=;
+ b=Xt40E4B5A9kChINHF2nmiRYX3ecsDNd/VK7S2rp9FUAQ+damcvi3scqYquQtUDBZRWT1Vxl9j+JZFoqRylcID6RJqQijZYk018PtICOcqG/5L6CHg3D0JlNmEr5s+6oIGVg4KGiJHr5BL7g3sU5RdnpwlqMo62nDqosBgvweOhD1Om7BrrYrrA8wnSBZYwcbUBxicwVkMqDb6hZVzJIdRsBKjf3o8Nvb4Z7xbPLm8j5Yq0F4TLhvn+rdeU2JcWCJg9BRjuAPj+1Lj5lzyPgcudz0aCXZ74HFLSxTTIqOmfg30LFc+aCr/ip2kbNbJOTlZ0WWCvmsA145wdiahHUIkg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dh5Ztii3ALj027CEaw9F+IIDMJBha3hYvvYOGuItS1Q=;
- b=B7IkArN8eBLkNqCWUID+MIFy94WyUu+hsMhRBWTLELNEC+QyKS1K2E1av879Sxqykb+JFLKih/kWBRTm/mkxulJauzBDNbcfThKZ+jk01PSnYdW+kYS1/XR97UyjfbkfAYJRjR0isIZ9bS/iBIL3kfM1xO8VmPHvLt616Tk9+Csya/k5xHjb9h+Qw56J9MLR99V2DsFMh95CfvXHN4FRFJrNjZS8L1/GkffbJh94ai70b0Syu1sXdKgc/9dM5l93ibCBuRQKCKTnEMEJSgXZIuKEWxwIaHXwV5xK3BBcYxtB0qi9FgyQwBgo18auLUIS0Uy6roE/D3Z3knsAIiQCag==
+ bh=qW7WmMLmT/NE6gQVk4Ap5KDrKo2B8JVQ039X57gunxA=;
+ b=nO9UJgj4wdRacceIawAxwna4nQy0PqZ2Zba7wGiMglUBciKyaSzA6IeB5zLhi3B7MDRCrjNccTDh+GXKJOOK2oYo7n0kxQZwztfZXv10s3KqUir9Hr7ARJribRG8p7IiyMZnO2fdF9HFlOdzIzmALe3fbO1bKET4nes1efXrZQXiDSMixqRHljhMkVKs0DCJTRBT8zzJU2GxPNpo0e3GrauVqxCDXojK2S5T6uBRpfVwI8JTVZLrpFyaV4xqY51IMW/D/b3hhnFRNqEieN88MG06yXemenomCgr/UwjIX+wxBcblwJulR1R9Be2H2E7p6ODWdTlVGG+K9as552OnBA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AM9PR04MB7682.eurprd04.prod.outlook.com (2603:10a6:20b:2db::13) with
+ by AS8PR04MB8993.eurprd04.prod.outlook.com (2603:10a6:20b:42c::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Fri, 22 Aug
- 2025 14:13:43 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.17; Fri, 22 Aug
+ 2025 14:10:48 +0000
 Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
  ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9052.012; Fri, 22 Aug 2025
- 14:13:43 +0000
-Date: Fri, 22 Aug 2025 10:13:34 -0400
+ 14:10:48 +0000
+Date: Fri, 22 Aug 2025 10:10:39 -0400
 From: Frank Li <Frank.li@nxp.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Cc: linux-media@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
@@ -68,93 +68,93 @@ Cc: linux-media@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 06/13] media: imx-mipi-csis: Use GENMASK for all
- register field masks
-Message-ID: <aKh7DmnEB2KChVol@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v3 05/13] media: imx-mipi-csis: Rename register macros to
+ match reference manual
+Message-ID: <aKh6X2vLWT68rVAb@lizhi-Precision-Tower-5810>
 References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
- <20250822002734.23516-7-laurent.pinchart@ideasonboard.com>
+ <20250822002734.23516-6-laurent.pinchart@ideasonboard.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250822002734.23516-7-laurent.pinchart@ideasonboard.com>
-X-ClientProxiedBy: SJ0PR05CA0066.namprd05.prod.outlook.com
- (2603:10b6:a03:332::11) To DB9PR04MB9626.eurprd04.prod.outlook.com
+In-Reply-To: <20250822002734.23516-6-laurent.pinchart@ideasonboard.com>
+X-ClientProxiedBy: BYAPR07CA0012.namprd07.prod.outlook.com
+ (2603:10b6:a02:bc::25) To DB9PR04MB9626.eurprd04.prod.outlook.com
  (2603:10a6:10:309::18)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AM9PR04MB7682:EE_
-X-MS-Office365-Filtering-Correlation-Id: eda22f30-d536-4ecc-d7d7-08dde18619ba
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB8993:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1064e2d4-36ef-4a25-57d5-08dde185b166
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|19092799006|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BUoburOnw+/1bDnPiA3xgIrMG1YQfa2dLB0cZO5yccRiOVdSg2Aypnp86jmQ?=
- =?us-ascii?Q?BLkdxOfEbW/3mjvPIehLuGw2KO0iAmIRXRn0OYAz5OLk1CyTQtSz8jWwpkWi?=
- =?us-ascii?Q?LLTOJL8WgbKeAaC60kTogEpMhkCQXZsXnrnD+QyStGnfuJhxXWiRiu0KMVDO?=
- =?us-ascii?Q?QVvW9Y2XRtyuYg7OZx0To85cWRKlgAz2cWdZW6kNiHhsUn37WbAltumCSKny?=
- =?us-ascii?Q?jcHGKGD0nD32BZICtszK/QTkKmu+A+3SnD/tPEdK9h6ztmAxldiLtMgGcwtc?=
- =?us-ascii?Q?XOkEIRk/TJW5qehOkX55JdbLZ131qeAkxyOpqwt4V+IUj26o15a5iVOZSNVT?=
- =?us-ascii?Q?VLJYPTaIv9GjCaAphMVQ4HArA2DlMeaFGcs5QcptdOHJZzK2s7ewZWL6cRZ1?=
- =?us-ascii?Q?Zu6o03tg0mDFQELR3x738demYLV4bfaR6pKVpoi7LiqyaUY8/0oe0S38NoEj?=
- =?us-ascii?Q?j64Z4STKc0DXnyC2PoM6ik4PswSXhRWM6VJxb5iuvgaBMrx8Rmm6IHlKxULD?=
- =?us-ascii?Q?DW1w0G+i7x3okM5rLaNXXIFnZYghnVmIp5/Uw1xjRHMjhpNsBmHt4LTEPXcf?=
- =?us-ascii?Q?ccO2GhQ/ljyK7YOLfhAz4z0ZnmVsgCNz5c8bzvB19LBs9pu5q3eDYOr46vz4?=
- =?us-ascii?Q?3L6cCAdIBQB6fsjiujk0eQxW7lVaZyQSJ/MsYa/7dL9tapn0urkKg1QTjq5O?=
- =?us-ascii?Q?fBvQpeq4YmFkHQsGdSnKTWzJnGlxVYtkuocSeUvVWdsh+C3ixcjXD2GB4xmB?=
- =?us-ascii?Q?8NlaxztTlsgxuhTFJRbRzGV1cGeX9+S2W59+qLfZ7C1yuJs8nz+GdutIcCuq?=
- =?us-ascii?Q?jTsj4u4fUHY46nLXPEaYiMsPDy+sScwHOLMkaM0GpKo61ywgUMylDpqiiLP9?=
- =?us-ascii?Q?hDtsGTNtMjo73i2hFC2Sk3QwT53wGzwZn8kSAKKBBQQY1wZxzGCpD06q3JIG?=
- =?us-ascii?Q?qafYwX0UJq3ClrNjfKOVeqdL3ZzKdJGpOTRw82DI/X1qW8nQHzTBOPDyIVYl?=
- =?us-ascii?Q?+4q5hlPH5o117AIT2Bf1H6A2eDGq1yz+vbcBTcTan+EFw4xjAu33XftucQMo?=
- =?us-ascii?Q?TytdoKV1wnaJcvvGr41r81c0B2Zqmtc6YaUXefmtBCUuG2PgI+BjJrCrq2SU?=
- =?us-ascii?Q?6IGiOOLASEmLFfepCBO6ybCMYZKgozNZsB03V3x+j65DyWqRF5axEXihGskd?=
- =?us-ascii?Q?0jbqTPpXbCoFkbGtzE+hPCoZ54B6D2wg0ODnDnDms0YQUrsZ710Rh4gxpckO?=
- =?us-ascii?Q?A4wHLqk8KmkMJFZRXQM0m+WfF9uzwHGrK9Z6uWVhDQyZwoF+UC05+H+wRxsI?=
- =?us-ascii?Q?7wJOk6t2npgNfhEWvy6Pg/dNE85vjYelU0XmIHdnKuNgVoXNA7KE7HdYbRYw?=
- =?us-ascii?Q?KcjfJguxzN6XBlZlGuYd1US+hYa2yhoB976z2JtD9bhbn1vrZl9brfcs9IXT?=
- =?us-ascii?Q?q+7/9CbrioE8eKaDXKxNxSqQ18qc02jmVGubsMfTSMdorftZAzdLVA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(19092799006)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|19092799006|52116014|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+TaJUTTjURaCGH9bIJVCOnpZIcy5ug/0QRhmShN1yRIx9URLSyr+c/lMMlNr?=
+ =?us-ascii?Q?x+1sNIAA8PSm3/+oiGsdRmzzxOC4zIqt9ntWy8FXGbk5dvZnoUwdflmf/Cb6?=
+ =?us-ascii?Q?UyHQdkOnqVBiXnkDMFQRdxbROkCWFeZa9eSrOEVq9b2bkGHtS+W8nMiBZqwx?=
+ =?us-ascii?Q?U+IXUCaCCUgqeYYYf75h9VtYgGIUvYQZOkSK+y0IutcKv0V6nDMEkgG4FXZ8?=
+ =?us-ascii?Q?1qeyP0mJMD2vUTHYfCBZWDietLRTRUDmbvBTiSsUru4equBSDiQXQV/fCVlV?=
+ =?us-ascii?Q?KbWQV86XheHqiIFjuYQDeOv866iHuwuovpVkUO8ZAdeO3jMm3Q4iExgiZ7be?=
+ =?us-ascii?Q?8nPM6WkaHYtiKNnrBF5/19TDHrEsByn2V9cQS2Zz9b+dt9Uy+eT6Q5oo2QK7?=
+ =?us-ascii?Q?skywKRi3p/89vi14Gt+lNMXPnn6egPAqnwhA8XqWs0GCH9PVfk+Wtevuslin?=
+ =?us-ascii?Q?oZMSYBXcqmt50ZpTQcWlFr+2NMKxzijbjYbBmcEOaIGpcT5LCHI6G8WG60vc?=
+ =?us-ascii?Q?a7X7K2j5eQUmrzwPEeK0Ng4h16n/gI5V5YxYm0XFiPrhJ6BRxmaZz61nJmYK?=
+ =?us-ascii?Q?/StGG+YR+pGvu/0fphfJlXIZZMzm3SKHkOB2r1KdaPbp3JUQrpx448IfNH4Y?=
+ =?us-ascii?Q?Kw5fbY0pNozBvOqYu905/k0lX5qToTUWHXSr6t9gipAyCON7dwtded+CueLm?=
+ =?us-ascii?Q?59KB3VxALH9fRCgYzbGBjCMPG3gshv80x1qkP6esaglcK6J+Dv5/9E0knvLj?=
+ =?us-ascii?Q?Y687yttsccC50Wffndj63nShucPXGYQKVSXEdY40xxOPUhG/RZ/l7OEGTIMa?=
+ =?us-ascii?Q?d9XeG8yuJlJZSSvGXo7PJyRXhSjiWOI+s7V3pXZ4iXBUkL/cE78bcjaZl0GB?=
+ =?us-ascii?Q?sjSOq77TqRGBOjQLgP41gmS+UTEcyY/2fiv9rewRrnA1vommdAGom8ZDzg75?=
+ =?us-ascii?Q?92hBpia6DqkHNXo3w/+Pms6V2qoD4eOrvqAUab67Ts5X4VJP+1W7s9gAuJLs?=
+ =?us-ascii?Q?4llsvgBps8mH3fVxU9r6Q51V2jmIZmim9R60hayM8m3dB+pLp+ausSaknaZs?=
+ =?us-ascii?Q?mPelREvkhmjwN+efC+HOpgpU2uWpkviSm7TX6rbWC/3wAR+ZQZn61EnpoAVP?=
+ =?us-ascii?Q?rijDgE/yTo8UZPia18u7rra0G7RGLg4gMQs7sfo06SfzJlmhVLwBh/6Hf/0A?=
+ =?us-ascii?Q?2osFLo3BaEsMTFRxKh5jAb4s1MOH037tLPoDkFLO8vUC5EyZuGHMdLX0o4si?=
+ =?us-ascii?Q?TJxl57sRlFFk4S18H5XSs3PI6mXGzDk2m0MPC7iOOyUbnIm75qoJkNPx3tJH?=
+ =?us-ascii?Q?zuYRpsAAmtNER/UxHs6qWkuAajnnjZfGMVwwM6DXkmqvpr/O3ZtOBWn6GCue?=
+ =?us-ascii?Q?akgnfuMoXxuXbcttuqF8iLrhUkFXlD35FjNJKSCF2VBz65XEHTVJxsBpMCvX?=
+ =?us-ascii?Q?XKFj673/+djciU8rT2V0BsyeGhFzcPBbnj87THATd4T0G+jm2h7nTQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(19092799006)(52116014)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bqXFvkJ98N9PelTR7tNt56lWxSLP+YY62V/fiAWIOiWjZJTUFjy7eWzrNlzb?=
- =?us-ascii?Q?Ep3rOMj8K1teJ9eTAqMRbQCPh1tXxfz6k9DUYe7+goThcj5+FXl5+ADMPUC1?=
- =?us-ascii?Q?LBw/+8y02gRm+OzWzoEe6ltNrkdbm36jUwQAVS3m2IlME3Fb2glKASYTIXWk?=
- =?us-ascii?Q?vSDWYE6UVrs4tmly0cG1svWMDvwA0Gx0Ik+g47sSXv3iam+xu9k/gFmUrT35?=
- =?us-ascii?Q?vmb6/c+ybciYKwUmJJszNeTjJ5IMUTJ3MrS2oD9y2KWBZD6mBQuyVcialAkx?=
- =?us-ascii?Q?EDeYqC8AqrZHoD7k0tI9AwKlkS1y474YRNRT1LjBCkORhdogZ9w23w1VFNTO?=
- =?us-ascii?Q?WpeDpUY/Mfhj548PQvxl8uQUrshuVDBfy1AMNaCx4LNvr/tZcf2PhBtd4gY7?=
- =?us-ascii?Q?+Xp6cmAou/vTrByeDSkS9XBA7I3jRqwyC+45F6fw8htM4UoWZFXSglQKJVUQ?=
- =?us-ascii?Q?r4Zyppxyn5yTn8Qs06Z/WCnLvEINewyLrCh1Zsn8zKViQJzEWVmCKUdxGs5w?=
- =?us-ascii?Q?HvZ4pFyZ4UK5grdn3Q5+2vhe8o8oNLMrmQZN6YSk6EiCCPXMq40tws/y2HJ1?=
- =?us-ascii?Q?Rwgk5EXva5sa7d/6rvBXxRRNoWNzVvl9YOnkBGJwWx6CPoNTe/LmSJVOc4hi?=
- =?us-ascii?Q?I/b7ZYOuS3vS3yZzz7M7FdbGteRvNCPQjgExr9/AZkueQFflAmHmZtm7GGom?=
- =?us-ascii?Q?AYE/Vx3Eq4MUQhMgOyZQtzRs/DHgstLS7ZdmbAzqJbCZWdSi762MfbgvNYZt?=
- =?us-ascii?Q?qstiCH1hSWqPkQkeQjysNlFAd96W98/CpZhKtKab0glyJ+oxxHtKhSUENOHz?=
- =?us-ascii?Q?Ea6KD/URB1POTczKrdaNWrilt0l/GOa0CVr80wh25ZGxkByPJiRQ8PbSk+UP?=
- =?us-ascii?Q?GTB6mwTb0cqyXv56C4wXB0tC7tptJ41FEgsKxUsgqItAYD3hVht/NN+72DYA?=
- =?us-ascii?Q?tEQlxJFsl4AWtK7ybYuWFsBSJM9m6IDWMi8uMvUJpZf4m0XaCOkubVPTtcPY?=
- =?us-ascii?Q?mpGxy+RpgKj9z56aq7THQryJD4c0vOcuXzy2UAp6xv2N7fUBn2/s38YXg+ob?=
- =?us-ascii?Q?ECyLJtgSnJcJysynHvuBZYCEXPzxEXAtCK31BXAi9tZ2DdVU5AhrPmAnttRX?=
- =?us-ascii?Q?pTFYYSC1SaEkdTxCWeVzYMQJwyfSLHeU8zeOaH1dq5mzgHLmF3lMdFHeDOOJ?=
- =?us-ascii?Q?/euj/Sy/Nxe/c3J93Nh0jzfKno+0kRvzC/7yAJhffBbyp1gZD8OOcwN8b4qT?=
- =?us-ascii?Q?2iKhQ6LclGlQDrhcBaK64lBovO2lrfvOz+Uz1mSD91tF7tDEu5xrlCTDu0xj?=
- =?us-ascii?Q?E3xfh5QgymDUQthUs8g6xUF3dFpyS2L8OEmdeZMNxn8W1VrDcy7hUTnze+Tj?=
- =?us-ascii?Q?J0dKIN+EaN0FqnF0glF65PmHqGX+qhe/2ZEcLBNFnSauIleQBHXoALQQaLqR?=
- =?us-ascii?Q?LjJTgOyz5YFVkUD6AHY1XLiChJ4RyUqPKbi+lZ64rPwQrNrETEAkPdEeNhNP?=
- =?us-ascii?Q?XFUxCXRoUmNFwf+0jSjZgaM8QX6eYvEYtJ3FMxrrq/sKSB+dYF6BIlq65Lea?=
- =?us-ascii?Q?QsYQKQVO23k+F3CoL/kXTbyalgOhlzO8yVW6GbuE?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6EusVjjgU1vvcfmPxvGWBxRgAr78+E6BzJHvaz5JIND4ucNzDEr4BP+U4AfO?=
+ =?us-ascii?Q?qjWMEv5PmS0hMQzlFOjgDabp6b6Tl4P3jH1mv3beg2Tso695zaD672h3hpdO?=
+ =?us-ascii?Q?Tbz2buSi0qcxIkexTO+yzpifhTpQe8bhMe/q0wLG7BzkYyVcBUZH42lESH1p?=
+ =?us-ascii?Q?W7r842V3p91vWEzDenBVrBrSw77rrJtyp9IODSYQxiiZEX6U/Jequnx/36Da?=
+ =?us-ascii?Q?CuwWUv2sJdybq9rnCIehgVoVFHyNFKLfXh3DHGYPVGxsyq3PBN4KfTHTgivt?=
+ =?us-ascii?Q?xF7ShmqDqu24Vqe1wqqM2jD/7fF2NOuJCO2BkJimzK0MB3ly/Ahecd896dV8?=
+ =?us-ascii?Q?BFT5Bqz1StN4rhCRxT4ehG7NbPv8TyWLhGvitkprVVoJclh3F1Bpz1rlVla/?=
+ =?us-ascii?Q?As/LH7oT4ZSF52cWn7rFa0fJHgyS0IAjbIfRW6CoT1H2u7MRu9YS7tC45cts?=
+ =?us-ascii?Q?h9VXcRd4euXEGT1K+w3qnUhuXYN1Mp+Z0s0LEjiG2HIsDsek9KA+8xurezIr?=
+ =?us-ascii?Q?q4VHeILlcQNuUKgIRTjtaEQ87Dig2nZobaD4XX9dGXx9fQIKn56URZb4wXk/?=
+ =?us-ascii?Q?qAWDt9av8P3iE+DHVi192KwIoJM4f2Q5wqlygSiPQBGtQiXkPUlzJMMAdUNd?=
+ =?us-ascii?Q?TweVbSQ/TpPpbk21WjehBTwX2WDe9OCnraguv81jgKelNNcQK6fyy6xJh3B2?=
+ =?us-ascii?Q?6sLgt5Qo4KIyUQf5ogXTYFJuFNrg/GeY+nkaCERj3gO4SEb4SNoka2r1kxMg?=
+ =?us-ascii?Q?4nUXM+p2nIV+7rSgA/LGgUoe+kBczde5o4N/qSqDsEKn06dU+/pFhFh77Xgj?=
+ =?us-ascii?Q?kPVYX33g/NFJS1zBqxIprb6ON3+aieB33+CVTMR1lqrABasqZb0/SB1eWXOq?=
+ =?us-ascii?Q?YnFylTJcRYengERHqzDtXeQ0gEZFXAGWk+8A/v/HCCm148uIATADVAzkON/f?=
+ =?us-ascii?Q?yQAviQfIw7Xg+ax2zhIBuuIwDX7Uy+4rqUb0g6MXLAZYVOi666LvRDzcO1PD?=
+ =?us-ascii?Q?IIUgqfs3D2H0Gc+vrZKAeLLP54O1DSy1qlMy/wLUfd//BA2NgNCobYr1wMzx?=
+ =?us-ascii?Q?T322D91aBQhUgZDcrMkvBDrs0Sp7PM0Qd65nFpb27xHdOTCuqg+vcnKNCXMt?=
+ =?us-ascii?Q?HDJrTZaw5EQVV6BfpMpnYD66eM6Z+dvHJAe8H4TobnzydkRNTef5+4xaO3ky?=
+ =?us-ascii?Q?gp0Ra9CJ8PtchObPGbIelaMbHzHv87N6IkICwpTNE+7jRXPvStWhekzH7dgv?=
+ =?us-ascii?Q?R6tYkwUUPrZrH7pFKbYUIieFGvhDlxWIGMTpcbiE148tdleVoXIPmalvnepY?=
+ =?us-ascii?Q?DQSh/GrquP72/P9BJe04UKUeAPF6Gw36BMiPUeIkvNt6UVu/knh+RsLl+B2+?=
+ =?us-ascii?Q?/pryhkwYASMf0VMeXFuLofn82RJvpFPCp3AG7fADVZvs5j7FNboRtLdtPi2o?=
+ =?us-ascii?Q?FS70FurRuUZ7v24WN/O5FAiQkcQL3ykzb3BnlbtCVXWgzBvRH5MIBqVb0Ay7?=
+ =?us-ascii?Q?RNdj4ikAJ0yc+QkhV+f+S8xEGt4Hh5qRL+tPNmvr58wjE99ZWd4eoA07zPU7?=
+ =?us-ascii?Q?KswvbSJoAspYAszEozDtfYY6/uc/Uu/4Uy7XKBRX?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eda22f30-d536-4ecc-d7d7-08dde18619ba
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1064e2d4-36ef-4a25-57d5-08dde185b166
 X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:13:43.1606
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 14:10:48.1246
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tMgpk6OMTd1waqofANjkDgpT1OFqAP8pjBy+YJWYkiPUN8bmXAfwlvY9zq2lkSLajbM6M9F735xHEZQLtUbh4Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7682
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5A/IRa0DmDFmb8+dIgZxhVw4JadtUfBuAiZtGG7isIyE9n85T0RwKXkPQYl4JT4Ds5TfqVgZiabHlgjvYBBnSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8993
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_071349_847755_8F579259 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250822_071059_853891_A67EA658 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,44 +169,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 03:27:26AM +0300, Laurent Pinchart wrote:
-> Multiple register field mask macros use GENMASK, while other define the
-> mask value manually. Standardize on GENMASK everywhere, as well as on
-> the _MASK suffix to name the macros. This improves consistency and helps
-> with readability.
+On Fri, Aug 22, 2025 at 03:27:25AM +0300, Laurent Pinchart wrote:
+> The CSIS driver uses register macro names that do not match the
+> reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
+> is integrated. Rename them to match the documentation, making the code
+> easier to read alongside the reference manuals.
 >
-> No functional change is intended.
+> One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
+> which led to the corresponding event being logged as "Unknown Error".
+> The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
+> as "Unknown ID error". Update the event description accordingly.
 >
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
+> While at it, also replace a few *_OFFSET macros with parametric macros
+> for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
+> MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
 >
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index ce889c436cb1..50f6f4468f7b 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -57,7 +57,7 @@
-
-...
->
->  /* ISP Image Resolution register */
->  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
-> @@ -655,7 +655,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
->  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
->  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
->  	val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(15);
-> -	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK;
-> +	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MASK;
-
-nit: if need create new verison, I suggest add "change MSK to MASK"
-informaiton at commit message.
+> No functional change intended.
 
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->  	mipi_csis_write(csis, MIPI_CSIS_CLK_CTRL, val);
 >
->  	mipi_csis_write(csis, MIPI_CSIS_DPHY_BCTRL_L,
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+> Changes since v2:
+>
+> - Drop MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE
+> - Restore usage of BIT() for MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT
+> ---
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 68 +++++++++++-----------
+>  1 file changed, 35 insertions(+), 33 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> index 894d12fef519..ce889c436cb1 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -55,13 +55,12 @@
+>  /* CSIS common control */
+>  #define MIPI_CSIS_CMN_CTRL			0x04
+>  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
+> -#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
+> +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	BIT(10)
+> +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
+> +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
+>  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
+> -#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
+> -#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
+> -
+> -#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
+> -#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
+> +#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
+> +#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
+>
+>  /* CSIS clock control */
+>  #define MIPI_CSIS_CLK_CTRL			0x08
+> @@ -87,7 +86,7 @@
+>  #define MIPI_CSIS_INT_MSK_ERR_WRONG_CFG		BIT(3)
+>  #define MIPI_CSIS_INT_MSK_ERR_ECC		BIT(2)
+>  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
+> -#define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
+> +#define MIPI_CSIS_INT_MSK_ERR_ID		BIT(0)
+>
+>  /* CSIS Interrupt source */
+>  #define MIPI_CSIS_INT_SRC			0x14
+> @@ -107,7 +106,7 @@
+>  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
+>  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
+>  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
+> -#define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
+> +#define MIPI_CSIS_INT_SRC_ERR_ID		BIT(0)
+>  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
+>
+>  /* D-PHY status control */
+> @@ -123,8 +122,8 @@
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
+> -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
+> -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
+> +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_CLK	BIT(6)
+> +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_DAT	BIT(5)
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_CLK	BIT(0)
+>  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE		(0x1f << 0)
+> @@ -179,21 +178,23 @@
+>  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_SINGLE	(0 << 12)
+>  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL	(1 << 12)
+>  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_QUAD	(2 << 12)	/* i.MX8M[MNP] only */
+> -#define MIPI_CSIS_ISPCFG_PIXEL_MASK		(3 << 12)
+> -#define MIPI_CSIS_ISPCFG_ALIGN_32BIT		BIT(11)
+> -#define MIPI_CSIS_ISPCFG_FMT(fmt)		((fmt) << 2)
+> -#define MIPI_CSIS_ISPCFG_FMT_MASK		(0x3f << 2)
+> +#define MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK	(3 << 12)
+> +#define MIPI_CSIS_ISPCFG_PARALLEL		BIT(11)
+> +#define MIPI_CSIS_ISPCFG_DATAFORMAT(fmt)	((fmt) << 2)
+> +#define MIPI_CSIS_ISPCFG_DATAFORMAT_MASK	(0x3f << 2)
+>
+>  /* ISP Image Resolution register */
+>  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
+> +#define MIPI_CSIS_ISP_RESOL_VRESOL(n)		((n) << 16)
+> +#define MIPI_CSIS_ISP_RESOL_HRESOL(n)		((n) << 0)
+>  #define CSIS_MAX_PIX_WIDTH			0xffff
+>  #define CSIS_MAX_PIX_HEIGHT			0xffff
+>
+>  /* ISP SYNC register */
+>  #define MIPI_CSIS_ISP_SYNC_CH(n)		(0x48 + (n) * 0x10)
+> -#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET	18
+> -#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET	12
+> -#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET	0
+> +#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(n)	((n) << 18)
+> +#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(n)	((n) << 12)
+> +#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(n)	((n) << 0)
+>
+>  /* ISP shadow registers */
+>  #define MIPI_CSIS_SDW_CONFIG_CH(n)		(0x80 + (n) * 0x10)
+> @@ -246,7 +247,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
+>  	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
+> -	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
+> +	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
+>  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
+>  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
+>  	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
+> @@ -517,7 +518,7 @@ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
+>  	u32 val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+>
+>  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
+> -			val | MIPI_CSIS_CMN_CTRL_RESET);
+> +			val | MIPI_CSIS_CMN_CTRL_SW_RESET);
+>  	usleep_range(10, 20);
+>  }
+>
+> @@ -527,9 +528,9 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
+>
+>  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+>  	if (on)
+> -		val |= MIPI_CSIS_CMN_CTRL_ENABLE;
+> +		val |= MIPI_CSIS_CMN_CTRL_CSI_EN;
+>  	else
+> -		val &= ~MIPI_CSIS_CMN_CTRL_ENABLE;
+> +		val &= ~MIPI_CSIS_CMN_CTRL_CSI_EN;
+>  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
+>
+>  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
+> @@ -549,8 +550,8 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+>
+>  	/* Color format */
+>  	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
+> -	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
+> -		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
+> +	val &= ~(MIPI_CSIS_ISPCFG_PARALLEL | MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK |
+> +		 MIPI_CSIS_ISPCFG_DATAFORMAT_MASK);
+>
+>  	/*
+>  	 * YUV 4:2:2 can be transferred with 8 or 16 bits per clock sample
+> @@ -568,12 +569,13 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+>  	if (csis_fmt->data_type == MIPI_CSI2_DT_YUV422_8B)
+>  		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
+>
+> -	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
+> +	val |= MIPI_CSIS_ISPCFG_DATAFORMAT(csis_fmt->data_type);
+>  	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
+>
+>  	/* Pixel resolution */
+> -	val = format->width | (format->height << 16);
+> -	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
+> +	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0),
+> +			MIPI_CSIS_ISP_RESOL_VRESOL(format->height) |
+> +			MIPI_CSIS_ISP_RESOL_HRESOL(format->width));
+>  }
+>
+>  static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
+> @@ -633,10 +635,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+>  	u32 val;
+>
+>  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> -	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
+> -	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
+> +	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK;
+> +	val |= MIPI_CSIS_CMN_CTRL_LANE_NUMBER(lanes - 1);
+>  	if (csis->info->version == MIPI_CSIS_V3_3)
+> -		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
+> +		val |= MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT;
+>  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
+>
+>  	__mipi_csis_set_format(csis, format, csis_fmt);
+> @@ -645,10 +647,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+>  			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
+>  			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
+>
+> -	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
+> -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
+> -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
+> -	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
+> +	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0),
+> +			MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(0) |
+> +			MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(0) |
+> +			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
+>
+>  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+>  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
 > --
 > Regards,
 >
