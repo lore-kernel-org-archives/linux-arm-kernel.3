@@ -4,135 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543F8CA0FE8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885D4CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxvNl4o9iPjTrIbuxab8nu9TULq2c4h8SRbyqOreRhM=; b=knd00QrZm4N89b1ZpuCXXxBUaQ
-	GslyKkUdwafiBuIZguoWn6i1HPBkHdxcZEkaX7i6S1zh6ePrr3p6JZ23GVNJdPT77vhL64nM+0EBl
-	7g+6XuuhFBlgxeh3yYTVdFJapdnlHecG1mhleveJGYki6glV1ZU2kKvSg4Gg4RcY1lY5NKI3eFvfC
-	H7LfCx3i90pccJCeIk7SSv6hRxwrR0Abzm3di9YP1mX2+rxy+h3Sr9MWCr9m+pYINjbIqrZgDPiRj
-	sSguHNI7NA/epq+AGZKE2DdwB1ugvQQHEfEsyX175Emii1IJcRNgB2WonegGi9b/+tzeyMVt6rzGW
-	THFGXdAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IM3uGwa2TkuaGuX4am1wfBWG36uO2RNmi9YCTv2nIa0=; b=whaJy0JkDKOduu1xWpUjW35GAr
+	ACr7105CbTK44/vU13MfcH0cAZd8gOE7iQcFi1V5yW67jG1GNZq0k9gymeFylUDM6obyGC6QmUKCW
+	8NniqskwU4fnmQ7EcpV3lhE+BCrGCUypOKrtNMK2TOLKtcg+T2sK1qy7+7TqZ0WXzpfNsiNFk2qzk
+	4EZ3jpkIkTycWABb7UR/FI17RamIHBTnwcS4s7/uDU2k9XDGs5CvFJnVwI4nxlbfg/VR9Rzd46ed+
+	3YD4vu+Mshg8vaP0j8lPN7gnVXHphRyjWLfndpVJ/ivmBgNxBgaI4Zf7zO2Li+f4VrLR0kA5HfoU6
+	46nR+qsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSaY-00000002juu-1Lwp;
-	Fri, 22 Aug 2025 14:17:54 +0000
-Received: from mail-bn7nam10on20608.outbound.protection.outlook.com ([2a01:111:f403:2009::608] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1upSai-00000002k5P-1iIs;
+	Fri, 22 Aug 2025 14:18:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJqZ-00000001Xlc-49a4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 04:57:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p29UBcYRpOehwdK1nXLy4qZGXsd4yH6t+2EvouS1jZ4VTx42EE+64ygDpR6aLfjkZnKxss1Dc32cw8koXHG+KdgUzo5QUut55C0KKJVxifTmgFhFQZt8QxNGsSasVeSTWybJbidrxRJTpQnaMICwJZt9c5BmkEI/rnU6hEte5XR5u2pVot2Uq6lpI/C+NI+WhpgrbGMb691Tv7btcEker9+hKpntP2fBeC2Fpy78KIxYvJvZwbyUhzCWtiqLOhEAIHxRo7xvVLtFXVxptnCrG0621suyGyuW4AqYpqQH6C1C4hWkTXd5+0rfC1CWs/vhzUw/k9fXyeMua25NzAsigA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qxvNl4o9iPjTrIbuxab8nu9TULq2c4h8SRbyqOreRhM=;
- b=PkO716FYhjQ6HGGjfWdnpCY6BKmBi6fuAyIDOBuE+fZTJm62tgShTdGEES/oWfpWrWP/K+Do5jYH7H4NTKA8OG29mnWfgyV2K6hUMjEmGj+9GZ+nrO9nFuGT90CU94eLmRE8UrjVRpmDAX/tFouj+quHbj/UCRfySJUeLkst8s2QXgFw/i4UaNvdJaY+2zvQqTD8oPv3pGNItmtx0ZBOzB62dCOEk1eXemg2evY+BElyZWVOhrWdORamkIN9QrZaKuUWy+GmJwE/PzsHkfMZHN9+aidkSvNrhWoA1QwMARnFOBpuOuFlTHP8oIqoSFzvESnuYGA8EozjaeybJ1Jc+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qxvNl4o9iPjTrIbuxab8nu9TULq2c4h8SRbyqOreRhM=;
- b=S2n/ylojduI+hLZ/9LNB/3ha20RMnWFs6LtPU0D0F1C2Dc0CQbCvc+wT/QWglTonZN8lsU+61Jfg8RxL0EKd6/5km0eEYY8Xhk0gl0sv/Ph2Z03D/YSk7GDR4BuaDTZdMZ7M4eRh0JnIUAMQhB/P4y3of+3HfeeUzaze0Q6tyfo=
-Received: from BY3PR03CA0021.namprd03.prod.outlook.com (2603:10b6:a03:39a::26)
- by DM6PR12MB4073.namprd12.prod.outlook.com (2603:10b6:5:217::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
- 2025 04:57:44 +0000
-Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
- (2603:10b6:a03:39a:cafe::aa) by BY3PR03CA0021.outlook.office365.com
- (2603:10b6:a03:39a::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.18 via Frontend Transport; Fri,
- 22 Aug 2025 04:57:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 04:57:44 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 21 Aug
- 2025 23:57:43 -0500
-Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.1748.10; Thu, 21 Aug
- 2025 21:57:42 -0700
-Received: from xhdharinit40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Thu, 21 Aug 2025 23:57:40 -0500
-From: Harini T <harini.t@amd.com>
-To: <jassisinghbrar@gmail.com>, <michal.simek@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<git@amd.com>, Harini T <harini.t@amd.com>
-Subject: [PATCH 2/3] mailbox: zynqmp-ipi: Fix out-of-bounds access in mailbox cleanup loop
-Date: Fri, 22 Aug 2025 10:27:31 +0530
-Message-ID: <20250822045732.1068103-3-harini.t@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250822045732.1068103-1-harini.t@amd.com>
-References: <20250822045732.1068103-1-harini.t@amd.com>
+	id 1upKWw-00000001boz-2H4v;
+	Fri, 22 Aug 2025 05:41:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=IM3uGwa2TkuaGuX4am1wfBWG36uO2RNmi9YCTv2nIa0=; b=jNzX1ryzZTXMTVj5LfZbieeuSo
+	zCyFfdKdh9tmT2EeufRdrpX+YCiumZcH9LVngEfTugdBDKRFSZsleKrV3MRlcbqFzwrzUy5k4w0/X
+	5u4pgNRayAtlzj2j6wchMv55Ja8co+uPTZSyuUWNxb/sWrhfnl8JfiVlCcwT6xVNZf8lf069D+iYp
+	OMNQmsE96Ecu5XLVmdEAtvMwi8TAIqHU7HJ3uYf6OpNtqspEOmRfPbtlevyLq8DAnSFPP+/oh0JE9
+	PSmkXPfNL2Ki33PxcUGn2FeRKDHhfeQBir+qRxF+sziCJBFjAGjl1I8K2TMKofZrvCf9RIfbc14ee
+	/TVvv4Hw==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upKWs-00000000qYM-2cOb;
+	Fri, 22 Aug 2025 05:41:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F62644D36;
+	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 35F65C19424;
+	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755841289;
+	bh=q26G8rY/yZxO41j2xn0EyyR4ny+JDENIwRMkvg4w+oE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=YWPqCCbce2TXBlmjKsaYLv09yUF129Nd3IXQr9GOs3zg1mGrnywVqjqmT7OB2ydq+
+	 r7Q72X9Ss4nRax5iTWUQD9LrBoquxLQZ9pjNCKIPp1h/1Zrjrutr8UcJ9RojefRVLO
+	 155qejoBXjstryIOYR62R1+xQHQJX0o/sPAHRRYOTbt5usLENwhU7ugHn38SGWrx0K
+	 hZBhZksOY8eGNqi4WDUNR6amMLkvwz5t6J3GypHaafwUY0ikZ7Db98f1GCJyWrhaRF
+	 G996J9/C/s/Znvr16OMb57fHCCBIL5zxY/SsZqcKIJkLZIg+EuK9zJ7/UFGbvSvQIB
+	 QEzsgOw4D06yA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C5B4CA0EFF;
+	Fri, 22 Aug 2025 05:41:29 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Fri, 22 Aug 2025 13:39:59 +0800
+Subject: [PATCH 5/5] arm64: dts: amlogic: s7d: add power domain controller
+ node
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|DM6PR12MB4073:EE_
-X-MS-Office365-Filtering-Correlation-Id: 151183e5-5c87-4940-a919-08dde1386e9f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wbP8PywmCYKzHt6tSHeUB0BswYKnHpZZIG7ZI6U/n5iBK+xWClBB07mha8zG?=
- =?us-ascii?Q?udVnr+9N7XP4FVnZc+lMawfF5yLEAULQQAq0xTi1r0q+gGFqv4dvXNEAMBN2?=
- =?us-ascii?Q?k1FXNNjqif+LgXNQddZw60B4G0i+SmR1GIMk1idultY33H8WW5kqKLIbbyoG?=
- =?us-ascii?Q?qAKQrgtVyhjiLNVWEO80J1HVfr1G+nZ8VCdXur4wUvyZcarwEuYcDCkCGofm?=
- =?us-ascii?Q?d2eR5kM8v07GSh+pvJuhe3qGa0fSoLEqzSzqOM7DqjOKBGqcvN0CsvtqgoVe?=
- =?us-ascii?Q?OFJ4ifNGa+GVrXxuOU8VgrIx9qI5kiiC2vI4fzE1T7X0fxEiyGAZqneA/bEd?=
- =?us-ascii?Q?tOc4S0B0NFSf4VAQzhfAcuSqvH4N6w3sbmkwWcO7zqv/SkK9q5NnRo1Ig8Xv?=
- =?us-ascii?Q?d+i0A36H1+I1YEhdYH/DAaGpu0p7bORKVUAnSZHCBkk1CCe+mVhhl25fTzd0?=
- =?us-ascii?Q?dnGV42zuz3901514ZUEiuTU2Ziu/hEh+jBvaullDBrvwozWJOFyM3p8+MKBN?=
- =?us-ascii?Q?M0pIRa7PwdVYlm5busuxoJ8XRB4H/7NV20pxE4Z30zR0+Q6d2DVpqz6g51D6?=
- =?us-ascii?Q?lGnyEAHSd+xC8bdgUkjHmBEfmPVqhBONNkbxOmMZ9sO8++phUKsdq1l38by+?=
- =?us-ascii?Q?SodACghwg+VzpSkMbAwNYaokTlqlq/WenuQygN0qaeRiBnPMax6W8vUpW2+C?=
- =?us-ascii?Q?Y1fQNnEQ1fyA3CGwi3idCjF0UwZvFLeZEq1k8cygxCUHI4rS2n6RaE3K3E5M?=
- =?us-ascii?Q?QW0+l4Jpa67UOGiP//b18q34kCK73/gKEsw1NBGAGF7qVqaHCwByHlMcNGKI?=
- =?us-ascii?Q?3VFWTpGy98w4YkGin3HcBi2TIV6Mw+0sXAQCHLQlTQyptgiRv+w0tolrMA8y?=
- =?us-ascii?Q?8yW8en0tLl6ts+WzYHxdbEWMI62v7X3jq0Fyo7H8ivWgd+c0+CiEFVcFKETR?=
- =?us-ascii?Q?F445M4fHUZMu7DkVIpFUYEgIc6shV5rmQ2LaS5k45+8xy/UPEMoIGH5xLD/h?=
- =?us-ascii?Q?7balGR3vavySP1+qns9isU+KTzkM/PExyCHX258nTpbX/eydjRxxEj52+ww7?=
- =?us-ascii?Q?+0lM/b9EwvoOwglr396W98WQXFuVBv61WGZDtdO0oujeMfqpDGaHt1CSM/rm?=
- =?us-ascii?Q?0NcK6H4mHMh2qjpGHuPDyjr9MewE6y1D7ToPjw4SMXPsCe+Ypb9BkiWxeqzC?=
- =?us-ascii?Q?monTPC6K+Qv7ZF8vytxtXjuvHDqeSaEoDKUc5mhMlw5Whxvg35DiAjUxP21s?=
- =?us-ascii?Q?T8h1cFFUTnpfuWmT8jixpsWvwoADTwJXIPQleI2jizB7VhwhJ6BfK2ZPg5YR?=
- =?us-ascii?Q?//Il2tsIeyerX110TdMVN2HrYk+7TUedkuYLtlJBhlnPbrQjvhPAgf0HqMNa?=
- =?us-ascii?Q?VwO2bEic/bHZpdRp1Uepz9ejrmRmMpIMvyGscdcVT5yXSHIXd2zWrI05jQLb?=
- =?us-ascii?Q?APTDGmX+EdJtxbUvIWN8Gs68Yf7RswTZ/b1n2pOCPnN3LkW7lAmQHaAHNDva?=
- =?us-ascii?Q?YQqtL4+AuPyHEoqEu4Bh5fH8YhSYy4iV2sUH?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 04:57:44.3835
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 151183e5-5c87-4940-a919-08dde1386e9f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4073
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250822-pm-s6-s7-s7d-v1-5-82e3f3aff327@amlogic.com>
+References: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
+In-Reply-To: <20250822-pm-s6-s7-s7d-v1-0-82e3f3aff327@amlogic.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jianxin Pan <jianxin.pan@amlogic.com>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ "hongyu.chen1" <hongyu.chen1@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755841286; l=1126;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=F3DI1ogP18md6om9oJnkr6Qx94X86wm1hH073PtNhiw=;
+ b=UTBvqx5lDN8I3xs1OuAWV2aGNtBoLnpVVnLb1uKQWs+18TabxePARl+cb3YJVjQdWDHm//7l6
+ g8zqxGWO9CbAeMCbeVw3FBbyXciArP6U74hOtKEYt1E4rSVLRVDtg9o
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_215752_030041_69EB66B6 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250822_064135_187847_AA5B3999 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,31 +104,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix mailbox cleanup loop that accesses array out-of-bounds by starting
-at num_boxes instead of numb_boxes-1 for 0-indexed arrays.
+From: "hongyu.chen1" <hongyu.chen1@amlogic.com>
 
-Signed-off-by: Harini T <harini.t@amd.com>
+Add power domain controller node for Amlogic S7D SoC.
+
+Signed-off-by: hongyu.chen1 <hongyu.chen1@amlogic.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/mailbox/zynqmp-ipi-mailbox.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
-index bdcc6937ee30..3b806d1f89bb 100644
---- a/drivers/mailbox/zynqmp-ipi-mailbox.c
-+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
-@@ -891,7 +891,7 @@ static void zynqmp_ipi_free_mboxes(struct zynqmp_ipi_pdata *pdata)
- 		xlnx_mbox_cleanup_sgi(pdata);
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
+index c4d260d5bb58..f1c2e91ec6c5 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
+@@ -7,6 +7,7 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/pinctrl/amlogic,pinctrl.h>
++#include <dt-bindings/power/amlogic,s7d-pwrc.h>
  
- 	i = pdata->num_mboxes;
--	for (; i >= 0; i--) {
-+	for (i--; i >= 0; i--) {
- 		ipi_mbox = &pdata->ipi_mboxes[i];
- 		if (device_is_registered(&ipi_mbox->dev))
- 			device_unregister(&ipi_mbox->dev);
+ / {
+ 	cpus {
+@@ -43,6 +44,15 @@ cpu3: cpu@300 {
+ 
+ 	};
+ 
++	sm: secure-monitor {
++		compatible = "amlogic,meson-gxbb-sm";
++
++		pwrc: power-controller {
++			compatible = "amlogic,s7d-pwrc";
++			#power-domain-cells = <1>;
++		};
++	};
++
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+
 -- 
-2.43.0
+2.37.1
+
 
 
