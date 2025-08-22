@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CD0CA0FE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5CDCA0FE9
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,69 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2IEjcATmZpSD2ir9CJuLBpahYky8S7Kv1XpSSpNmgY=; b=z/6W889EAzk/uzv+RvgJn9v5Dt
-	lFCrHqB85gWFai0htEmClCJIujEO3NWQ8gCUbjA1JtUUwT7M4SJXqozJGtcCliBmnIb8LKyVHTAJc
-	QOj+Inc3+oPinlRuWUyf8CxWA8k3hGLVsYHall/4oiDLMRauzQCffEN3oym4cm6QpIs0GBkKM0cWU
-	qWDoSZUnO1LsSDsrVtt68y+DGsHK+daj+nvNWDLw+0DwRlZKEva+q/MILsMgHPW5oAtdWlRfC8y2V
-	Xw1oC7gKYXHF7TPJIEZFQjzbF5VP2DRtVmcbumD/eslXaGdm45Jx1H1wPf1uXYhC07esbOfNcLiQ9
-	fpShfRuA==;
+	bh=G3HF9SwZ/kD86dwQoW4/jM66szRtAPMeKvjYCq5NQnE=; b=AKcUOmV7cPvX8yYv3U17S3Zqyv
+	c4xmr6kT6KogWnZ0PpZjgAyXgKfOvQxj6CU3bMSWkwU4zfRQNObjjdk5TVjrTQiNzH3lZM6enuAhF
+	Ycv8AKaeHS+4KvtvBhR3XjGx7bGhHw3ikGsvXIo9mDzhP4aWlc8AMFx2WWjoRcTCRKlavyVRyBxve
+	sZFCIGF3ZUoAGkClrvT36tL3fSZct8UWKqSSDBX5SXO+pqEIQZv3Rhfc/mlpx8Bh6zpy8NE7E4Zjx
+	8In68kBs8XgcI3a55oyp9NGG6k44b5U8X8Vu06ivxHHak0eG5N8ZfY1miz0pxTSD/aRllXTkzJIL0
+	0qD5hSZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjTN-00000004Kcg-1qaf;
-	Sat, 23 Aug 2025 08:19:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1upjTM-00000004KcH-3R2I;
+	Sat, 23 Aug 2025 08:19:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upXdS-00000003OQO-1s4T
+	id 1upXcc-00000003OMk-1aS2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 19:41:15 +0000
+	Fri, 22 Aug 2025 19:40:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5F8544C39;
-	Fri, 22 Aug 2025 19:41:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D118C4CEED;
-	Fri, 22 Aug 2025 19:41:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 65F7C6023F;
+	Fri, 22 Aug 2025 19:40:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E66A2C4CEED;
+	Fri, 22 Aug 2025 19:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755891673;
-	bh=wnhJq56I7lMIJYREykBLr5qAtnaHGCueson7w3C/oLI=;
+	s=k20201202; t=1755891621;
+	bh=KtVNSI3n9Eo/JyZH6l2EiTQ2eYL8W/635pYYJ4jBuvs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=abcpVINMN7hAw4gMuShkqK4UrCQv1uKT0Wyrl3U7OP9WjTQRFns6EWed77LhxeE15
-	 vbyfM4XOx6kEaZln9hMTveq01+2/6VmegTjOUy+RIBNZhlvAKw0flOkK9tHxn4CRZL
-	 xHO5iUy+/55RWm8DAuzfqLdO7PIvONvlPV9B7JKKqGP7hi6pvAKn6K35Kj2N3rPgZO
-	 5dtfyWJB3KbmeUiNNb7shnYSxcPGUYEtRh4r0PYasdps7gsPgQbnLimyGXXgt+t3r7
-	 v7CVb6AEMm/sqGn59ePp0rbTFFkl5qPDQ7Lm5+YuVQcw04LbB29GZuUqCztnVMictT
-	 cPHO4/Z5VSpjQ==
-Date: Fri, 22 Aug 2025 14:41:12 -0500
+	b=FEpyDBGj4IkEi7MrvVMXP+ihv8WBLGzwByWxwkkH0Me1aSeYHMdvEvBH2lpiyk1Nr
+	 OWzl1+UyRdtFhhblgrlNuRlpmnRCMZWz+oNpSrvne4yiRt33PYORAAgXWfZJNgZWf+
+	 jJeF5sO8V/Oiv7+ImaxmD0u0VNL06Km4nUV/Mvov0/ai83PObHw23omgCC3kwJoaeK
+	 oiLVUnUMzjeMvwIyQlekT9z0XQcryAs1eEBj0GEokzZxR76larKb0vOqdclB52gNFO
+	 rXhbKXjCiKrv2/jxnT6mYzKlOWsEVx0E8bi45bW58nRjN2SdOeT9J4N4o3/4c3lJSv
+	 45agHxWxkFhUA==
+Date: Fri, 22 Aug 2025 14:40:20 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Ravi Patel <ravi.patel@samsung.com>
-Cc: pjsin865@coasia.com, inbaraj.e@samsung.com, s.nawrocki@samsung.com,
-	linux-clk@vger.kernel.org, hrishikesh.d@samsung.com,
-	pankaj.dubey@samsung.com, cw00.choi@samsung.com,
-	jesper.nilsson@axis.com, tomasz.figa@gmail.com,
-	shradha.t@samsung.com, sboyd@kernel.org, alim.akhtar@samsung.com,
-	swathi.ks@samsung.com, devicetree@vger.kernel.org,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	mingyoungbo@coasia.com, linux-kernel@vger.kernel.org, arnd@arndb.de,
-	soc@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
-	conor+dt@kernel.org, krzk@kernel.org, hgkim05@coasia.com,
-	linux-arm-kernel@axis.com, linux-gpio@vger.kernel.org,
-	smn1196@coasia.com, gwk1013@coasia.com, hypmean.kim@samsung.com,
-	kenkim@coasia.com, linus.walleij@linaro.org,
-	catalin.marinas@arm.com, will@kernel.org, dj76.yang@samsung.com,
-	ksk4725@coasia.com, mturquette@baylibre.com
-Subject: Re: [PATCH v2 06/10] dt-bindings: arm: Convert Axis board/soc
- bindings to json-schema
-Message-ID: <175589167241.193457.14325190564820337424.robh@kernel.org>
+Cc: cw00.choi@samsung.com, mingyoungbo@coasia.com,
+	linux-arm-kernel@lists.infradead.org, alim.akhtar@samsung.com,
+	krzk+dt@kernel.org, linux-arm-kernel@axis.com,
+	pankaj.dubey@samsung.com, hypmean.kim@samsung.com, sboyd@kernel.org,
+	krzk@kernel.org, linus.walleij@linaro.org, hgkim05@coasia.com,
+	conor+dt@kernel.org, jesper.nilsson@axis.com, smn1196@coasia.com,
+	hrishikesh.d@samsung.com, inbaraj.e@samsung.com,
+	s.nawrocki@samsung.com, linux-samsung-soc@vger.kernel.org,
+	tomasz.figa@gmail.com, mturquette@baylibre.com,
+	linux-gpio@vger.kernel.org, dj76.yang@samsung.com,
+	catalin.marinas@arm.com, soc@lists.linux.dev, gwk1013@coasia.com,
+	arnd@arndb.de, will@kernel.org, pjsin865@coasia.com,
+	kenkim@coasia.com, swathi.ks@samsung.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	shradha.t@samsung.com, ksk4725@coasia.com
+Subject: Re: [PATCH v2 04/10] dt-bindings: pinctrl: samsung: Add compatible
+ for ARTPEC-8 SoC
+Message-ID: <175589161947.192356.7959159186855408462.robh@kernel.org>
 References: <20250710002047.1573841-1-ksk4725@coasia.com>
  <20250821123310.94089-1-ravi.patel@samsung.com>
- <CGME20250821124045epcas5p37f0a50fb18e6f468a7c57ab406795419@epcas5p3.samsung.com>
- <20250821123310.94089-7-ravi.patel@samsung.com>
+ <CGME20250821124034epcas5p350aeb42b9065fcbc3d9f713df1649574@epcas5p3.samsung.com>
+ <20250821123310.94089-5-ravi.patel@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250821123310.94089-7-ravi.patel@samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_124114_504430_C559DE37 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250821123310.94089-5-ravi.patel@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +86,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 21 Aug 2025 18:02:50 +0530, Ravi Patel wrote:
-> Convert Axis SoC bindings to DT schema format using json-schema.
-> Existing bindings supports ARTPEC-6 SoC and board.
+On Thu, 21 Aug 2025 18:02:48 +0530, Ravi Patel wrote:
+> From: SeonGu Kang <ksk4725@coasia.com>
 > 
-> Signed-off-by: SungMin Park <smn1196@coasia.com>
+> Document the compatible string for ARTPEC-8 SoC pinctrl block,
+> which is similar to other Samsung SoC pinctrl blocks.
+> 
 > Signed-off-by: SeonGu Kang <ksk4725@coasia.com>
 > Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
 > ---
->  .../devicetree/bindings/arm/axis.txt          | 13 ---------
->  .../devicetree/bindings/arm/axis.yaml         | 29 +++++++++++++++++++
->  2 files changed, 29 insertions(+), 13 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/arm/axis.txt
->  create mode 100644 Documentation/devicetree/bindings/arm/axis.yaml
+>  Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
