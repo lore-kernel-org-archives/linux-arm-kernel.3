@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CB6CA0EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ACA3CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y9PgfzlZAvSWVRluzRE+sTTXFHsSdjHEV58R22WBfMQ=; b=V2ji/N6yD4GKUaZHyRWdxga2e+
-	HMu3rm8XQXycIhrUVm9RFjymwB3j11OK2cpxDhw1erWf1LGNtKFeeiHDVLbRbS3M9wPnMErHcJrWe
-	2aDeNnu636qJ2ori/VEdrZt/2s7t0X8lu87u+3Nr5kwTJZFfuraVbU8yQaAwVQO0wfxv0p5BjyLbL
-	KdiLZaELpniEUajtnrDfz2dimkrKk+k0TzLp/t6NJV5u6iQa5yPJV7TCXalnL/vl4ru5AVUMBTui7
-	EDrFvl7FWinaANeBzDfwy4kSlnhSfB8mjipHxeUQvLv1L/8w4j4xznxb2M5ZxAHEkJD36Tvn9lS95
-	TVROu+rw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d/PtowZWncD7g5yzTgjrgtYoRGlVEb75A6E0NAaBaiE=; b=W4/nuEU+d8I6YGeGGi//mT7UDP
+	chKNlePtpxk0Ixk3qizXRj520LUNJgXvjBp0RWnawS3aELnoFtDHmYHVV/Jtnx9ls6AkTXEktjiWs
+	zfnwyam7k6x/kOOnsk3+DyaRRoEZHkUk2QobHvaTqwQwHJQAPxACLUjaLTPPkk/Rm1gsQHDc8dYj8
+	kxTSEwA9Co4oPtZjsZSKiUTBJ1I1Rn3Xfx4GiDAiytdfkjyNNIhbWX80Wud7fb2vvFE2obEUULJ1t
+	rpaQVtzPgjh1CLNZXSE01xOT7pu1Nf8dtlpk2g1zDk6RIxSIFmyP9iRLlY7drb305AA4/D1FxO7oD
+	5YDfDzhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upQG0-00000002Mx0-0RrK;
-	Fri, 22 Aug 2025 11:48:32 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1upQG1-00000002MxX-0eB9;
+	Fri, 22 Aug 2025 11:48:33 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upJBb-00000001UAI-3VEE
+	id 1upJF1-00000001UU3-3hj1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 04:15:33 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b4755f37c3eso1401700a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 21:15:31 -0700 (PDT)
+	Fri, 22 Aug 2025 04:19:05 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b477029ea5eso1596239a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 21:19:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755836131; x=1756440931; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=y9PgfzlZAvSWVRluzRE+sTTXFHsSdjHEV58R22WBfMQ=;
-        b=Ox/Yfc6pvdNDmpocMgP36qDtmDL5wx+brzXt4dvjNTzh30tnRG++rayr7x5dxSZVI1
-         4i6jBZtrc3Sewbv/2/LDr2lcFV3rylvQCo6Cej0nEDnrBB9Ev0XMuoe2A8I03Bsrd8p/
-         ZxFiIpt20HpscQz7I1kbzUx/+GcN3OeI4vH8l0A2vdiNg+A/4i9Bp1aNCE0rGUMLVBT8
-         nV+jehj09ghifkw5Bv8oLUqNnVrBatlqT+nkv79hqVDI5Ci5A6Mcsm0RWlpeABPw5YVS
-         J5C8yETX00D9cXdnLZAXWCZPkDpBxCHiZr0K4vcdqDuNJVjzkKOJzoEw3ItCZyEfEO08
-         V5vA==
+        d=gmail.com; s=20230601; t=1755836343; x=1756441143; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d/PtowZWncD7g5yzTgjrgtYoRGlVEb75A6E0NAaBaiE=;
+        b=ac5GZDc+gDev+ngE4SD6HMEG0DQcYOq5n2dtElSiGeXR4vtJkURh5pIuGoCOQE703n
+         6xv7eCgPwz1Df5gJBVVETocEJAXW3tH40MbBB6/mVoXzX7Kw1X6w33qEvNR9y708KR0+
+         XUKhunbUDxm98kLXFy5UIlF1Jaml4ikQE6InClgcjh388i7Ygt2yf5Og053hMlh8WxI5
+         dVpv9LAPvuDXoO6v1CKI6a3yHltba4SYXeBKmvng/XiMjdwpeih3Xi1e8ez7faRc9fDb
+         6dwb1z7rkY6d/DyB1KikMBa1F5Jpj/9SvMLXV9KiJFpOyEYhOG4bbe9LIfVuyIZW173i
+         fLog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755836131; x=1756440931;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=y9PgfzlZAvSWVRluzRE+sTTXFHsSdjHEV58R22WBfMQ=;
-        b=R7M6Pt9mF0xktyWxyaviLhhuosx67RjNWJhw4E/M4C57YNr3gQwOGR8Ofn7dt1KV/3
-         BkRIg4/wf8IWwruUENhTEgBZ5JAnqsqwfTbUpZrSwh9wDP5iydBedz7OxN4Ndoj+moKv
-         oKv22Zqixov2At96aDgQHBU6pztmteT7LxUFSpYutV/2sB6VSCGv0WcH8sg0hIcZpeF1
-         5U5sFh25kHvPxN0qMmuofuWtA3xJBrb174Mh0mWFXZDvcxJuwMGJA+fQNbOLMGt9YxJB
-         bIk5wlCLlTkhTCD3SATT+7bB8w/Oj9lvP0z4ZbEz2BgAk4mc8rASQ5zX7/hw4JgCg1yv
-         ToFA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpnmWYgrFqwmoOtiAJo16987+Ymfk2tMytumiH1iVsJWTCurpyRfFi0OalIbBQ1S2yc39F47ygXGWBsP/T99+j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpYTBLWHZ/7DKd+5IUTdmo2cGXZ3hd2laIvn5rMKIaRhRBAEeo
-	p8JoDts4iPH7TZlz6QgQqRlBn0Wu/qDVPDvBpO2cJPghkkngvRTK14V0
-X-Gm-Gg: ASbGncsnDZ69YAVgx4ClCVQcbWCAanw7zgrOaARU+HtdFcy4w8xQEX+iht6Y+XBIe0g
-	LFY1qX4F2dYJyGCBXibsMaaSdqpbdG2YyZecNZH9LB6ei517e8YUftGqfzJDzGJReC4LPIfB0d9
-	0NW22mvQGW3f4KRY0vfuKIyaDHgdAIltmztlBCaNmeMQc12Bhj3QnyYUAA3tCbfW2DCJfXH2f2k
-	5HsdGJrNPuxmoEJxyJcjS2D0shcMSCHxdVKs2mZg45W4cY3Mwj14NwSlevBorcUckW3nlzMGsZe
-	6EYah0K2XH0HEVBc0cbAOeF+5wUMq1Rmnk2v0x+bgFQL3H997hHCU1NbCQj/Mq3c2LTwLdeVA8r
-	IrjKZAJdAee71QyybmpqAIrOTJkgqIwH4AGBKEi7dkvo+BT74nbheCSRc3X1hdHCheHmjVTCh
-X-Google-Smtp-Source: AGHT+IF2iOxGEWh6lnAwzbIYm3vEYhNMhGnrxwiHW2mktl6Jf+S+uzXvJvANfSUHzslgaQzZWAH6DQ==
-X-Received: by 2002:a17:903:2282:b0:242:abc2:7f1e with SMTP id d9443c01a7336-2462ee02c31mr22915745ad.22.1755836130612;
-        Thu, 21 Aug 2025 21:15:30 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1755836343; x=1756441143;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d/PtowZWncD7g5yzTgjrgtYoRGlVEb75A6E0NAaBaiE=;
+        b=odeDt3nxdgXD31SdT4TgE9XIRrY5Dn+05FiT2GRcJqsq8ScN6kwTrKNPlELopoSfRw
+         q7J+G34nK60/W0p5SPLd641WoqgOBCP7dv7LAluNQidtv1Bhz7cFtAM6Y1H+Q57cWcsN
+         f6rn9E8D/E6HwXEB2hSDlaKZV6zQY87UJFuWQlgvocc8h9HP6/RHr3ZRHeUbj2W3qnP0
+         x8b//6SxsJUz0JMRI+Jp/86RaSYw+w/aGzXx9qtswe0EPoj/nmMSLFoKY6+mOFen4THr
+         XyveKy3nGtCSx8ZYTwYpKJqPl6CrDC/OwqHgjZj0V3p9Heh4zEAo/FjlTK064ekEf7Ou
+         mlZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAJWQ93UKtc94r/f3wHfUKFzm+yQbcbAEc6059BNOiGdvD4nHIsZfSrp/7shbdHI4CVR0b8jewylq1x0cJPGq+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHSDQyHEJBiS2TOb2uut9/Yc6MkqXVzkCEbsBERFkVobq08Txh
+	hUwbXsYDaP48Q1bmEBhIsB1mvOymyHajeBorycnZkNMbm+xpwys/h7vM
+X-Gm-Gg: ASbGnctBovqCh/lVdQHcst2oQoLemvkZVpuMf7FxytBi0Um4cw/EiF/gaactdZubQsX
+	6dhsHfXSpKlRiGsI8oZ9vvZh0sIOGc/51RZ1uwdmjMXEGY6kd+5I5v4cCHU8QdwJ28BaEM8eot5
+	EkpG68I3HbvfhfWXQZ0qK6mbzZS722i9QEXK9g7P+y81WuLxreX8glq22F8zNZEtYhMtSoUzLni
+	3gN7ILtlCnqKS4iNAhnCfylT9QIFaLNoJi3h9N4w6kNMNkJBYYpLtXNheoQoKetKUrcXFmE/PoS
+	Mj7x6ddJ0ozEtd6kqgVzg9dr9QGd26nMQPdqK2rDHt+qCRc0DSOWa/IvH2cQe9fOxTNdYWb7tM0
+	Q0fgJHK9c2v8jltGltNhNHs9SgyoLwmviXpS9TWXr6bAZh+EiTNaQZ7zC1XXo0g==
+X-Google-Smtp-Source: AGHT+IHNKJplTG9Jy38Tlom7qmiWaoZeBRK6WRgraG0jbKbTwm9Axuv3DgJMIKeBlkJFFWOqnZNZLg==
+X-Received: by 2002:a17:902:db0c:b0:240:483:dc3a with SMTP id d9443c01a7336-2462edee860mr24421865ad.12.1755836343119;
+        Thu, 21 Aug 2025 21:19:03 -0700 (PDT)
 Received: from luna.turtle.lan ([2601:1c2:c184:dc00:ba38:b533:dcf5:1e7a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-325123e4751sm1189587a91.1.2025.08.21.21.15.29
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76e7d1375a3sm9534559b3a.43.2025.08.21.21.19.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 21:15:30 -0700 (PDT)
+        Thu, 21 Aug 2025 21:19:02 -0700 (PDT)
 From: Sam Edwards <cfsworks@gmail.com>
 X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
@@ -82,17 +83,18 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Joey Gouly <joey.gouly@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Sam Edwards <CFSworks@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64/boot: Zero-initialize idmap PGDs before use
-Date: Thu, 21 Aug 2025 21:15:26 -0700
-Message-ID: <20250822041526.467434-1-CFSworks@gmail.com>
+	Sam Edwards <CFSworks@gmail.com>
+Subject: [PATCH 1/3] arm64: mm: Cast start/end markers to char *, not u64
+Date: Thu, 21 Aug 2025 21:15:36 -0700
+Message-ID: <20250822041538.467514-2-CFSworks@gmail.com>
 X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250822041538.467514-1-CFSworks@gmail.com>
+References: <20250822041538.467514-1-CFSworks@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_211531_876539_1F0E2E17 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250821_211903_935232_F0F41DFE 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,87 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In early boot, Linux creates identity virtual->physical address mappings
-so that it can enable the MMU before full memory management is ready.
-To ensure some available physical memory to back these structures,
-vmlinux.lds reserves some space (and defines marker symbols) in the
-middle of the kernel image. However, because they are defined outside of
-PROGBITS sections, they aren't pre-initialized -- at least as far as ELF
-is concerned.
+There are a few memset() calls in map_kernel.c that cast marker-symbol
+addresses to u64 in order to perform pointer subtraction (range size
+computation).
 
-In the typical case, this isn't actually a problem: the boot image is
-prepared with objcopy, which zero-fills the gaps, so these structures
-are incidentally zero-initialized (an all-zeroes entry is considered
-absent, so zero-initialization is appropriate).
+Cast them with (char *) instead, aligning with idiomatic C pointer
+arithmetic.
 
-However, that is just a happy accident: the `vmlinux` ELF output
-authoritatively represents the state of memory at entry. If the ELF
-says a region of memory isn't initialized, we must treat it as
-uninitialized. Indeed, certain bootloaders (e.g. Broadcom CFE) ingest
-the ELF directly -- sidestepping the objcopy-produced image entirely --
-and therefore do not initialize the gaps. This results in the early boot
-code crashing when it attempts to create identity mappings.
+This patch provably has no effect at runtime: I have verified that
+.text of vmlinux is identical after this change.
 
-Therefore, add boot-time zero-initialization for the following:
-- __pi_init_idmap_pg_dir..__pi_init_idmap_pg_end
-- idmap_pg_dir
-- reserved_pg_dir
-- tramp_pg_dir # Already done, but this patch corrects the size
-
-Note, swapper_pg_dir is already initialized (by copy from idmap_pg_dir)
-before use, so this patch does not need to address it.
-
-Cc: stable@vger.kernel.org
 Signed-off-by: Sam Edwards <CFSworks@gmail.com>
 ---
- arch/arm64/kernel/head.S | 12 ++++++++++++
- arch/arm64/mm/mmu.c      |  3 ++-
- 2 files changed, 14 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/pi/map_kernel.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index ca04b338cb0d..0c3be11d0006 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -86,6 +86,18 @@ SYM_CODE_START(primary_entry)
- 	bl	record_mmu_state
- 	bl	preserve_boot_args
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index 0f4bd7771859..2b3047860230 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -179,7 +179,7 @@ static void __init remap_idmap_for_lpa2(void)
+ 	 * Don't bother with the FDT, we no longer need it after this.
+ 	 */
+ 	memset(init_idmap_pg_dir, 0,
+-	       (u64)init_idmap_pg_end - (u64)init_idmap_pg_dir);
++	       (char *)init_idmap_pg_end - (char *)init_idmap_pg_dir);
  
-+	adrp	x0, reserved_pg_dir
-+	add	x1, x0, #PAGE_SIZE
-+0:	str	xzr, [x0], 8
-+	cmp	x0, x1
-+	b.lo	0b
-+
-+	adrp	x0, __pi_init_idmap_pg_dir
-+	adrp	x1, __pi_init_idmap_pg_end
-+1:	str	xzr, [x0], 8
-+	cmp	x0, x1
-+	b.lo	1b
-+
- 	adrp	x1, early_init_stack
- 	mov	sp, x1
- 	mov	x29, xzr
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 34e5d78af076..aaf823565a65 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -761,7 +761,7 @@ static int __init map_entry_trampoline(void)
- 	pgprot_val(prot) &= ~PTE_NG;
+ 	create_init_idmap(init_idmap_pg_dir, mask);
+ 	dsb(ishst);
+@@ -188,7 +188,7 @@ static void __init remap_idmap_for_lpa2(void)
+ 	set_ttbr0_for_lpa2((u64)init_idmap_pg_dir);
  
- 	/* Map only the text into the trampoline page table */
--	memset(tramp_pg_dir, 0, PGD_SIZE);
-+	memset(tramp_pg_dir, 0, PAGE_SIZE);
- 	__create_pgd_mapping(tramp_pg_dir, pa_start, TRAMP_VALIAS,
- 			     entry_tramp_text_size(), prot,
- 			     pgd_pgtable_alloc_init_mm, NO_BLOCK_MAPPINGS);
-@@ -806,6 +806,7 @@ static void __init create_idmap(void)
- 	u64 end   = __pa_symbol(__idmap_text_end);
- 	u64 ptep  = __pa_symbol(idmap_ptes);
+ 	/* wipe the temporary ID map from memory */
+-	memset(init_pg_dir, 0, (u64)init_pg_end - (u64)init_pg_dir);
++	memset(init_pg_dir, 0, (char *)init_pg_end - (char *)init_pg_dir);
+ }
  
-+	memset(idmap_pg_dir, 0, PAGE_SIZE);
- 	__pi_map_range(&ptep, start, end, start, PAGE_KERNEL_ROX,
- 		       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
- 		       __phys_to_virt(ptep) - ptep);
+ static void __init map_fdt(u64 fdt)
+@@ -242,7 +242,7 @@ asmlinkage void __init early_map_kernel(u64 boot_status, void *fdt)
+ 	map_fdt((u64)fdt);
+ 
+ 	/* Clear BSS and the initial page tables */
+-	memset(__bss_start, 0, (u64)init_pg_end - (u64)__bss_start);
++	memset(__bss_start, 0, (char *)init_pg_end - (char *)__bss_start);
+ 
+ 	/* Parse the command line for CPU feature overrides */
+ 	chosen = fdt_path_offset(fdt, chosen_str);
 -- 
 2.49.1
 
