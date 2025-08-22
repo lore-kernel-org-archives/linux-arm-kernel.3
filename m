@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F9D4CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81818CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwcXnZQxv2/OxONlT8EyRqVCEPu6yCiWVak4EZYZy6I=; b=KKVOrRfcjH4SsmrAm76dBQeBdG
-	qu6B0FYVs8th0V9IlQ1EbIQVynO+SsTekwUzBOZ8U88Uon3VmLInq7oL2EvY5WpnUdmb7uio2ZGM6
-	ADzeW338v4I+y2JMshrJ8Epp8O2yzETEuvGKc6cZd2yubNZGrj83/KVf2b5eSu4xfFmpw9MT2romB
-	Nh7ElNFJImVOas7exJnyytjtHuWdAK0yhgvTTS9PY2t7ceRZuhxG76M9RKBezLhAouVxCYfI0ZDzR
-	uW9SRIoDG1itw5fDtT0O+/kQAmkxvF1s1booN86LJCOq5bMmBbkY6gMjcxfVw5Rr6pYcK3dX6qV8y
-	L6pSFbWw==;
+	bh=GgBFliTDKwmIpHEQSp2WmIajwTvb4lT5HLJmcqSr1Dw=; b=s/qItvGSpQdpKN3VTIOVelDai2
+	bFwI+f3ZLlXUGz47tSTVZD0p+VvWSzrOudwPJqOcBwvHQAPSlFMqz0RAVj/SvhgHlEOqPc4yS1RIu
+	InDm1y5pcA7rY/FCtjyl18vF8S5fzpU7sOwZNbTxzk903S1TMBD1wNLxbHC2Ey9IEvOOCk5gVt4Pw
+	Wpaun7Ggjk69tLRgMrwVlLkGxJcXgA7VwG/B/4tR/F2VcPtANRR6YTbXRevtXj7scsaG+ksADAEv/
+	+qLIZOubMhtKJWJyxQGiLFQ6Z570zrUpt4JWh5lb65bTZg5cI3mWkpJIR2MdExtPvRj2NYmTvrvYM
+	3Pg/WHrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphsF-000000047wh-33vr;
-	Sat, 23 Aug 2025 06:37:11 +0000
+	id 1uphsO-0000000488f-1U9p;
+	Sat, 23 Aug 2025 06:37:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTlg-000000031xI-15qE
+	id 1upTm8-0000000322u-1evO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:33:29 +0000
+	Fri, 22 Aug 2025 15:33:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B9B627DD;
-	Fri, 22 Aug 2025 08:33:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9846B27B5;
+	Fri, 22 Aug 2025 08:33:47 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CDA43F63F;
-	Fri, 22 Aug 2025 08:33:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C4363F63F;
+	Fri, 22 Aug 2025 08:33:50 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -71,21 +71,18 @@ Cc: James Morse <james.morse@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rohit Mathew <Rohit.Mathew@arm.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [PATCH 25/33] arm_mpam: Probe and reset the rest of the features
-Date: Fri, 22 Aug 2025 15:30:06 +0000
-Message-Id: <20250822153048.2287-26-james.morse@arm.com>
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 30/33] arm_mpam: Use long MBWU counters if supported
+Date: Fri, 22 Aug 2025 15:30:11 +0000
+Message-Id: <20250822153048.2287-31-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083328_389358_7F477829 
-X-CRM114-Status: GOOD (  24.11  )
+X-CRM114-CacheID: sfid-20250822_083356_526166_AF43EF6C 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,329 +97,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MPAM supports more features than are going to be exposed to resctrl.
-For partid other than 0, the reset values of these controls isn't
-known.
+From: Rohit Mathew <rohit.mathew@arm.com>
 
-Discover the rest of the features so they can be reset to avoid any
-side effects when resctrl is in use.
+If the 44 bit (long) or 63 bit (LWD) counters are detected on probing
+the RIS, use long/LWD counter instead of the regular 31 bit mbwu
+counter.
 
-PARTID narrowing allows MSC/RIS to support less configuration space than
-is usable. If this feature is found on a class of device we are likely
-to use, then reduce the partid_max to make it usable. This allows us
-to map a PARTID to itself.
+Only 32bit accesses to the MSC are required to be supported by the
+spec, but these registers are 64bits. The lower half may overflow
+into the higher half between two 32bit reads. To avoid this, use
+a helper that reads the top half multiple times to check for overflow.
 
-CC: Rohit Mathew <Rohit.Mathew@arm.com>
-CC: Zeng Heng <zengheng4@huawei.com>
-CC: Dave Martin <Dave.Martin@arm.com>
+Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+[morse: merged multiple patches from Rohit]
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_devices.c  | 175 ++++++++++++++++++++++++++++++++
- drivers/resctrl/mpam_internal.h |  16 ++-
- 2 files changed, 189 insertions(+), 2 deletions(-)
+Changes since RFC:
+ * Commit message wrangling.
+ * Refer to 31 bit counters as opposed to 32 bit (registers).
+---
+ drivers/resctrl/mpam_devices.c | 89 ++++++++++++++++++++++++++++++----
+ 1 file changed, 80 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 8f6df2406c22..aedd743d6827 100644
+index 2ab7f127baaa..8fbcf6eb946a 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -213,6 +213,15 @@ static void __mpam_part_sel(u8 ris_idx, u16 partid, struct mpam_msc *msc)
- 	__mpam_part_sel_raw(partsel, msc);
- }
+@@ -1002,6 +1002,48 @@ struct mon_read {
+ 	int				err;
+ };
  
-+static void __mpam_intpart_sel(u8 ris_idx, u16 intpartid, struct mpam_msc *msc)
++static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
 +{
-+	u32 partsel = FIELD_PREP(MPAMCFG_PART_SEL_RIS, ris_idx) |
-+		      FIELD_PREP(MPAMCFG_PART_SEL_PARTID_SEL, intpartid) |
-+		      MPAMCFG_PART_SEL_INTERNAL;
-+
-+	__mpam_part_sel_raw(partsel, msc);
++	return (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props) ||
++		mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props));
 +}
 +
- int mpam_register_requestor(u16 partid_max, u8 pmg_max)
++static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
++{
++	int retry = 3;
++	u32 mbwu_l_low;
++	u64 mbwu_l_high1, mbwu_l_high2;
++
++	mpam_mon_sel_lock_held(msc);
++
++	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
++	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
++
++	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
++	do {
++		mbwu_l_high1 = mbwu_l_high2;
++		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
++		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
++
++		retry--;
++	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
++
++	if (mbwu_l_high1 == mbwu_l_high2)
++		return (mbwu_l_high1 << 32) | mbwu_l_low;
++	return MSMON___NRDY_L;
++}
++
++static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
++{
++	mpam_mon_sel_lock_held(msc);
++
++	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
++	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
++
++	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
++	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
++}
++
+ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ 				   u32 *flt_val)
  {
- 	int err = 0;
-@@ -743,10 +752,35 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	int err;
- 	struct mpam_msc *msc = ris->vmsc->msc;
- 	struct mpam_props *props = &ris->props;
-+	struct mpam_class *class = ris->vmsc->comp->class;
- 
- 	lockdep_assert_held(&msc->probe_lock);
- 	lockdep_assert_held(&msc->part_sel_lock);
- 
-+	/* Cache Capacity Partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
-+		u32 ccap_features = mpam_read_partsel_reg(msc, CCAP_IDR);
-+
-+		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
-+		if (props->cmax_wd &&
-+		    FIELD_GET(MPAMF_CCAP_IDR_HAS_CMAX_SOFTLIM, ccap_features))
-+			mpam_set_feature(mpam_feat_cmax_softlim, props);
-+
-+		if (props->cmax_wd &&
-+		    !FIELD_GET(MPAMF_CCAP_IDR_NO_CMAX, ccap_features))
-+			mpam_set_feature(mpam_feat_cmax_cmax, props);
-+
-+		if (props->cmax_wd &&
-+		    FIELD_GET(MPAMF_CCAP_IDR_HAS_CMIN, ccap_features))
-+			mpam_set_feature(mpam_feat_cmax_cmin, props);
-+
-+		props->cassoc_wd = FIELD_GET(MPAMF_CCAP_IDR_CASSOC_WD, ccap_features);
-+
-+		if (props->cassoc_wd &&
-+		    FIELD_GET(MPAMF_CCAP_IDR_HAS_CASSOC, ccap_features))
-+			mpam_set_feature(mpam_feat_cmax_cassoc, props);
-+	}
-+
- 	/* Cache Portion partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
- 		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
-@@ -769,6 +803,31 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
- 		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
- 			mpam_set_feature(mpam_feat_mbw_max, props);
-+
-+		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MIN, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_min, props);
-+
-+		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_PROP, mbw_features))
-+			mpam_set_feature(mpam_feat_mbw_prop, props);
-+	}
-+
-+	/* Priority partitioning */
-+	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
-+		u32 pri_features = mpam_read_partsel_reg(msc, PRI_IDR);
-+
-+		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
-+		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
-+			mpam_set_feature(mpam_feat_intpri_part, props);
-+			if (FIELD_GET(MPAMF_PRI_IDR_INTPRI_0_IS_LOW, pri_features))
-+				mpam_set_feature(mpam_feat_intpri_part_0_low, props);
-+		}
-+
-+		props->dspri_wd = FIELD_GET(MPAMF_PRI_IDR_DSPRI_WD, pri_features);
-+		if (props->dspri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_DSPRI, pri_features)) {
-+			mpam_set_feature(mpam_feat_dspri_part, props);
-+			if (FIELD_GET(MPAMF_PRI_IDR_DSPRI_0_IS_LOW, pri_features))
-+				mpam_set_feature(mpam_feat_dspri_part_0_low, props);
-+		}
- 	}
- 
- 	/* Performance Monitoring */
-@@ -832,6 +891,21 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 			 */
- 		}
- 	}
-+
-+	/*
-+	 * RIS with PARTID narrowing don't have enough storage for one
-+	 * configuration per PARTID. If these are in a class we could use,
-+	 * reduce the supported partid_max to match the number of intpartid.
-+	 * If the class is unknown, just ignore it.
-+	 */
-+	if (FIELD_GET(MPAMF_IDR_HAS_PARTID_NRW, ris->idr) &&
-+	    class->type != MPAM_CLASS_UNKNOWN) {
-+		u32 nrwidr = mpam_read_partsel_reg(msc, PARTID_NRW_IDR);
-+		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
-+
-+		mpam_set_feature(mpam_feat_partid_nrw, props);
-+		msc->partid_max = min(msc->partid_max, partid_max);
-+	}
+@@ -1058,6 +1100,7 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
+ static void clean_msmon_ctl_val(u32 *cur_ctl)
+ {
+ 	*cur_ctl &= ~MSMON_CFG_x_CTL_OFLOW_STATUS;
++	*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
  }
  
- static int mpam_msc_hw_probe(struct mpam_msc *msc)
-@@ -929,13 +1003,29 @@ static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 				      struct mpam_config *cfg)
- {
-+	u32 pri_val = 0;
-+	u16 cmax = MPAMCFG_CMAX_CMAX;
- 	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
- 	struct mpam_msc *msc = ris->vmsc->msc;
- 	struct mpam_props *rprops = &ris->props;
-+	u16 dspri = GENMASK(rprops->dspri_wd, 0);
-+	u16 intpri = GENMASK(rprops->intpri_wd, 0);
- 
- 	mutex_lock(&msc->part_sel_lock);
- 	__mpam_part_sel(ris->ris_idx, partid, msc);
- 
-+	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
-+		/* Update the intpartid mapping */
-+		mpam_write_partsel_reg(msc, INTPARTID,
-+				       MPAMCFG_INTPARTID_INTERNAL | partid);
+ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+@@ -1080,7 +1123,11 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 	case mpam_feat_msmon_mbwu:
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+-		mpam_write_monsel_reg(msc, MBWU, 0);
++		if (mpam_ris_has_mbwu_long_counter(m->ris))
++			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
++		else
++			mpam_write_monsel_reg(msc, MBWU, 0);
 +
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+ 
+ 		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+@@ -1095,8 +1142,13 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+ 
+ static u64 mpam_msmon_overflow_val(struct mpam_msc_ris *ris)
+ {
+-	/* TODO: scaling, and long counters */
+-	return GENMASK_ULL(30, 0);
++	/* TODO: implement scaling counters */
++	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, &ris->props))
++		return GENMASK_ULL(62, 0);
++	else if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, &ris->props))
++		return GENMASK_ULL(43, 0);
++	else
++		return GENMASK_ULL(30, 0);
+ }
+ 
+ /* Call with MSC lock held */
+@@ -1138,10 +1190,24 @@ static void __ris_msmon_read(void *arg)
+ 		now = FIELD_GET(MSMON___VALUE, now);
+ 		break;
+ 	case mpam_feat_msmon_mbwu:
+-		now = mpam_read_monsel_reg(msc, MBWU);
+-		if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
+-			nrdy = now & MSMON___NRDY;
+-		now = FIELD_GET(MSMON___VALUE, now);
 +		/*
-+		 * Then switch to the 'internal' partid to update the
-+		 * configuration.
++		 * If long or lwd counters are supported, use them, else revert
++		 * to the 31 bit counter.
 +		 */
-+		__mpam_intpart_sel(ris->ris_idx, partid, msc);
-+	}
-+
- 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
- 		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
- 			mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
-@@ -964,6 +1054,29 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
++		if (mpam_ris_has_mbwu_long_counter(ris)) {
++			now = mpam_msc_read_mbwu_l(msc);
++			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
++				nrdy = now & MSMON___NRDY_L;
++			if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, rprops))
++				now = FIELD_GET(MSMON___LWD_VALUE, now);
++			else
++				now = FIELD_GET(MSMON___L_VALUE, now);
++		} else {
++			now = mpam_read_monsel_reg(msc, MBWU);
++			if (mpam_has_feature(mpam_feat_msmon_mbwu_hw_nrdy, rprops))
++				nrdy = now & MSMON___NRDY;
++			now = FIELD_GET(MSMON___VALUE, now);
++		}
  
- 	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
- 		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
-+
-+	if (mpam_has_feature(mpam_feat_cmax_cmax, rprops))
-+		mpam_write_partsel_reg(msc, CMAX, cmax);
-+
-+	if (mpam_has_feature(mpam_feat_cmax_cmin, rprops))
-+		mpam_write_partsel_reg(msc, CMIN, 0);
-+
-+	if (mpam_has_feature(mpam_feat_intpri_part, rprops) ||
-+	    mpam_has_feature(mpam_feat_dspri_part, rprops)) {
-+		/* aces high? */
-+		if (!mpam_has_feature(mpam_feat_intpri_part_0_low, rprops))
-+			intpri = 0;
-+		if (!mpam_has_feature(mpam_feat_dspri_part_0_low, rprops))
-+			dspri = 0;
-+
-+		if (mpam_has_feature(mpam_feat_intpri_part, rprops))
-+			pri_val |= FIELD_PREP(MPAMCFG_PRI_INTPRI, intpri);
-+		if (mpam_has_feature(mpam_feat_dspri_part, rprops))
-+			pri_val |= FIELD_PREP(MPAMCFG_PRI_DSPRI, dspri);
-+
-+		mpam_write_partsel_reg(msc, PRI, pri_val);
-+	}
-+
- 	mutex_unlock(&msc->part_sel_lock);
- }
+ 		if (nrdy)
+ 			break;
+@@ -1433,8 +1499,13 @@ static int mpam_save_mbwu_state(void *arg)
+ 		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+ 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
  
-@@ -1529,6 +1642,16 @@ static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
- 	return false;
- }
+-		val = mpam_read_monsel_reg(msc, MBWU);
+-		mpam_write_monsel_reg(msc, MBWU, 0);
++		if (mpam_ris_has_mbwu_long_counter(ris)) {
++			val = mpam_msc_read_mbwu_l(msc);
++			mpam_msc_zero_mbwu_l(msc);
++		} else {
++			val = mpam_read_monsel_reg(msc, MBWU);
++			mpam_write_monsel_reg(msc, MBWU, 0);
++		}
  
-+/* Any of these features mean the CMAX_WD field is valid. */
-+static bool mpam_has_cmax_wd_feature(struct mpam_props *props)
-+{
-+	if (mpam_has_feature(mpam_feat_cmax_cmax, props))
-+		return true;
-+	if (mpam_has_feature(mpam_feat_cmax_cmin, props))
-+		return true;
-+	return false;
-+}
-+
- #define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
- 	helper(parent) &&						\
- 	((helper(child) && (parent)->field != (child)->field) ||	\
-@@ -1583,6 +1706,23 @@ static void __props_mismatch(struct mpam_props *parent,
- 		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
- 	}
- 
-+	if (alias && !mpam_has_cmax_wd_feature(parent) && mpam_has_cmax_wd_feature(child)) {
-+		parent->cmax_wd = child->cmax_wd;
-+	} else if (MISMATCHED_HELPER(parent, child, mpam_has_cmax_wd_feature,
-+				     cmax_wd, alias)) {
-+		pr_debug("%s took the min cmax_wd\n", __func__);
-+		parent->cmax_wd = min(parent->cmax_wd, child->cmax_wd);
-+	}
-+
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cmax_cassoc, alias)) {
-+		parent->cassoc_wd = child->cassoc_wd;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cmax_cassoc,
-+				   cassoc_wd, alias)) {
-+		pr_debug("%s cleared cassoc_wd\n", __func__);
-+		mpam_clear_feature(mpam_feat_cmax_cassoc, &parent->features);
-+		parent->cassoc_wd = 0;
-+	}
-+
- 	/* For num properties, take the minimum */
- 	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
- 		parent->num_csu_mon = child->num_csu_mon;
-@@ -1600,6 +1740,41 @@ static void __props_mismatch(struct mpam_props *parent,
- 		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
- 	}
- 
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_intpri_part, alias)) {
-+		parent->intpri_wd = child->intpri_wd;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_intpri_part,
-+				   intpri_wd, alias)) {
-+		pr_debug("%s took the min intpri_wd\n", __func__);
-+		parent->intpri_wd = min(parent->intpri_wd, child->intpri_wd);
-+	}
-+
-+	if (CAN_MERGE_FEAT(parent, child, mpam_feat_dspri_part, alias)) {
-+		parent->dspri_wd = child->dspri_wd;
-+	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_dspri_part,
-+				   dspri_wd, alias)) {
-+		pr_debug("%s took the min dspri_wd\n", __func__);
-+		parent->dspri_wd = min(parent->dspri_wd, child->dspri_wd);
-+	}
-+
-+	/* TODO: alias support for these two */
-+	/* {int,ds}pri may not have differing 0-low behaviour */
-+	if (mpam_has_feature(mpam_feat_intpri_part, parent) &&
-+	    (!mpam_has_feature(mpam_feat_intpri_part, child) ||
-+	     mpam_has_feature(mpam_feat_intpri_part_0_low, parent) !=
-+	     mpam_has_feature(mpam_feat_intpri_part_0_low, child))) {
-+		pr_debug("%s cleared intpri_part\n", __func__);
-+		mpam_clear_feature(mpam_feat_intpri_part, &parent->features);
-+		mpam_clear_feature(mpam_feat_intpri_part_0_low, &parent->features);
-+	}
-+	if (mpam_has_feature(mpam_feat_dspri_part, parent) &&
-+	    (!mpam_has_feature(mpam_feat_dspri_part, child) ||
-+	     mpam_has_feature(mpam_feat_dspri_part_0_low, parent) !=
-+	     mpam_has_feature(mpam_feat_dspri_part_0_low, child))) {
-+		pr_debug("%s cleared dspri_part\n", __func__);
-+		mpam_clear_feature(mpam_feat_dspri_part, &parent->features);
-+		mpam_clear_feature(mpam_feat_dspri_part_0_low, &parent->features);
-+	}
-+
- 	if (alias) {
- 		/* Merge features for aliased resources */
- 		parent->features |= child->features;
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 70cba9f22746..23445aedbabd 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -157,16 +157,23 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
-  * When we compact the supported features, we don't care what they are.
-  * Storing them as a bitmap makes life easy.
-  */
--typedef u16 mpam_features_t;
-+typedef u32 mpam_features_t;
- 
- /* Bits for mpam_features_t */
- enum mpam_device_features {
--	mpam_feat_ccap_part = 0,
-+	mpam_feat_cmax_softlim,
-+	mpam_feat_cmax_cmax,
-+	mpam_feat_cmax_cmin,
-+	mpam_feat_cmax_cassoc,
- 	mpam_feat_cpor_part,
- 	mpam_feat_mbw_part,
- 	mpam_feat_mbw_min,
- 	mpam_feat_mbw_max,
- 	mpam_feat_mbw_prop,
-+	mpam_feat_intpri_part,
-+	mpam_feat_intpri_part_0_low,
-+	mpam_feat_dspri_part,
-+	mpam_feat_dspri_part_0_low,
- 	mpam_feat_msmon,
- 	mpam_feat_msmon_csu,
- 	mpam_feat_msmon_csu_capture,
-@@ -176,6 +183,7 @@ enum mpam_device_features {
- 	mpam_feat_msmon_mbwu_rwbw,
- 	mpam_feat_msmon_mbwu_hw_nrdy,
- 	mpam_feat_msmon_capt,
-+	mpam_feat_partid_nrw,
- 	MPAM_FEATURE_LAST,
- };
- static_assert(BITS_PER_TYPE(mpam_features_t) >= MPAM_FEATURE_LAST);
-@@ -187,6 +195,10 @@ struct mpam_props {
- 	u16			cpbm_wd;
- 	u16			mbw_pbm_bits;
- 	u16			bwa_wd;
-+	u16			cmax_wd;
-+	u16			cassoc_wd;
-+	u16			intpri_wd;
-+	u16			dspri_wd;
- 	u16			num_csu_mon;
- 	u16			num_mbwu_mon;
- };
+ 		cfg->mon = i;
+ 		cfg->pmg = FIELD_GET(MSMON_CFG_MBWU_FLT_PMG, cur_flt);
 -- 
 2.20.1
 
