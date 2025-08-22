@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CDD0CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280B0CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATJu5IW6o9czFCpcKz++53lkS+0C3ST+UjmKJE/B+3E=; b=qLEZdq+hyof4Ccl7DGFmWeCYV0
-	UWfWT/A1hAQVcAzR/qB9b73Hs12QAA+IcZkVKV2Vi4Yt2gTX1AgAhXvVZ4bLGS7MrnbywMqwDjEDf
-	VlZaFq4OVLG0fzdb5y9fOCf42+YbT2mUD49cDfo5a1cuzMNroKgyrQZ3NoUMqPgtVioxAYFH5Q4IE
-	UB+dI5AL5HtDEgDgKeRu9GItfutCSyHPmiNnusysAWMt8Sjt90lUeYDZJjDknlpMYFtippDgb+wfI
-	Hvw21lSEv1umy4K5rMa6AJAMP/oIOkdRo6UfcXnKqd6J/dzF/1aMsDQSWamVwLPajnPDRIAAppjPp
-	gEUNx0zA==;
+	bh=Cwcx/LLJrt6Uufc15KwGlNwi/lfz0dnv+k38+ZDJcSY=; b=yrXfQW5Z5iva+rD6J00siHpkTX
+	scf+X3XEpIpKXBrZNyjLUCVzaD+yTcMj4O9No0Z9PfbX19M+OaR3JO2srvwzkJqzlh91psghRveLX
+	G55e2/CFK97zmGAepy7Gl8Xy5fBAcxO5jyQsclIrXhLx/FbdLrIBBgBqlzTNp02y1sS4ZRdGj2Uc3
+	O5p4FF+2DMo+3egyyFf9i7iDrTIqKbmwXnRBkde69fo5B+qpelj4+UJbY7jv1JsmOZeMST0nlG/p/
+	fXc2vdducP06vZQcic4tzOtI+EMM1i+JdXyxCppG21HpQHzLMpOZh08Xc2ZQ+oz/ZKr8je24sPm5F
+	OuufkALA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTGZ-00000002vXB-3TEM;
-	Fri, 22 Aug 2025 15:01:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1upTJx-00000002wFP-34j4;
+	Fri, 22 Aug 2025 15:04:50 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOIq-000000025Mq-2VQD;
-	Fri, 22 Aug 2025 09:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1755855800; x=1787391800;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=XvLLjO10ZjfDDDyrr6k2ma2BhF/RNPJ4DSCV+fvgoPg=;
-  b=LshUZKoSprOctQu0cB1Xev8iZQzvK0/9/LeGVHhzwNQzxqcDjzuPCVzA
-   8bPRSAKXnIj7TsKOIMtrKNrLAl910OXqJqrl3c6GwA7ZhSILiWFf4wxDy
-   hGlIVb4Cx1bCxgPCW2fjBAqByAyyZ9g2pgEU426ybWYos1ffWv5ukTF99
-   qhyidE4VhTHAaM1nKf+MwleGzxirF07vdwGPhYppNy0eDR2wP6+n8lG6d
-   EVsn69HVpVPrTokWs8hvR3VjpYfmtw5iOT73Yq0UtT/AH1bnoFj7MjPmz
-   RU2nuZSsUdgGtKv7o50FRoqs1C5LCPsrCnqvUGg6qL+ftwbMy1oiGGLL9
-   w==;
-X-CSE-ConnectionGUID: LGcmkA5hT8qi7s/85J+MnQ==
-X-CSE-MsgGUID: YHj2pwobRuWKcPBmUWDZiQ==
-X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
-   d="scan'208";a="51127577"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Aug 2025 02:43:16 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 22 Aug 2025 02:42:54 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Fri, 22 Aug 2025 02:42:50 -0700
-Message-ID: <73371973-d6b4-418c-a51c-2e89abab61e8@microchip.com>
-Date: Fri, 22 Aug 2025 11:42:49 +0200
+	id 1upOZj-000000028sW-08oZ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 10:00:49 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8C8CBC8EC4A;
+	Fri, 22 Aug 2025 10:00:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5D6EC604AD;
+	Fri, 22 Aug 2025 10:00:38 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A5F881C228674;
+	Fri, 22 Aug 2025 12:00:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1755856837; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Cwcx/LLJrt6Uufc15KwGlNwi/lfz0dnv+k38+ZDJcSY=;
+	b=ItRoWf+nQG+M1Lwn65p6sSiFvXticGD8sE6THoM6h5mfmlo7E4wkegkFFkjxRCAwAkUCfN
+	CQa8DEr0JLLoRNie6KJNmW9nX6t2FXMO7cWRWiu7TmZWDWavLcFL99MzRh5mVdLp26oxws
+	C9vjARs1PMfQLc6AmBRwRkYJ4YTgskKbs3sbcaYVN06Mh/N9p8I9yxpwIFJfHi9mqNsWP4
+	18bAYde0DtCt+xGLSjy5vDV+JEj2lrOGb1w7yV5ulK7qARF24SNN36deyBEyb30HsmSpTI
+	kMOFKyjteZTcNTPx4CN4LktKK88tP+2UqH31hIPWUahG+5E3gXtULCLf/hUtKQ==
+Message-ID: <fb499f87-141b-4098-9011-37ec273a07dd@bootlin.com>
+Date: Fri, 22 Aug 2025 11:59:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring
- buffer
-To: Stanimir Varbanov <svarbanov@suse.de>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rpi-kernel@lists.infradead.org>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
-	<jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	<stable@vger.kernel.org>, Andrew Lunn <andrew@lunn.ch>
-References: <20250822093440.53941-1-svarbanov@suse.de>
- <20250822093440.53941-2-svarbanov@suse.de>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20250822093440.53941-2-svarbanov@suse.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP
+ handling for PHY drivers
+To: kernel test robot <lkp@intel.com>, davem@davemloft.net
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Rob Herring <robh@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20250814135832.174911-9-maxime.chevallier@bootlin.com>
+ <202508151058.jqJsn9VB-lkp@intel.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <202508151058.jqJsn9VB-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_024320_644543_E46B886D 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250822_030047_217023_04585123 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 at 11:34, Stanimir Varbanov wrote:
-> In case of rx queue reset and 64bit capable hardware, set the upper
-> 32bits of DMA ring buffer address.
-> 
-> Cc: stable@vger.kernel.org # v4.6+
-> Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue to handle RX errors")
-> Credits-to: Phil Elwell <phil@raspberrypi.com>
-> Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
-> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Looks good to me: thanks!
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-> ---
-> v1 -> v2:
->   - Added credits.
->   - Use lower_32_bits() for RBQP register writes for consistency (Nicolas).
->   - Added Fixes tag.
-> 
->   drivers/net/ethernet/cadence/macb_main.c | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index ce95fad8cedd..36717e7e5811 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, struct napi_struct *napi,
->                  macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
-> 
->                  macb_init_rx_ring(queue);
-> -               queue_writel(queue, RBQP, queue->rx_ring_dma);
-> +               queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_dma));
-> +#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
-> +               if (bp->hw_dma_cap & HW_DMA_CAP_64B)
-> +                       macb_writel(bp, RBQPH, upper_32_bits(queue->rx_ring_dma));
-> +#endif
-> 
->                  macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
-> 
-> --
-> 2.47.0
-> 
+On 15/08/2025 05:25, kernel test robot wrote:
+> Hi Maxime,
+>
+> kernel test robot noticed the following build warnings:
+>
+> [auto build test WARNING on net-next/main]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Maxime-Chevallier/dt-bindings-net-Introduce-the-ethernet-connector-description/20250814-221559
+> base:   net-next/main
+> patch link:    https://lore.kernel.org/r/20250814135832.174911-9-maxime.chevallier%40bootlin.com
+> patch subject: [PATCH net-next v11 08/16] net: phy: Introduce generic SFP handling for PHY drivers
+> config: i386-randconfig-013-20250815 (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/config)
+> compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250815/202508151058.jqJsn9VB-lkp@intel.com/reproduce)
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202508151058.jqJsn9VB-lkp@intel.com/
+>
+> All warnings (new ones prefixed by >>):
+>
+>>> drivers/net/phy/phy_device.c:1625:47: warning: variable 'iface' is uninitialized when used here [-Wuninitialized]
+>      1625 |                 return port->ops->configure_mii(port, true, iface);
+>           |                                                             ^~~~~
+>     drivers/net/phy/phy_device.c:1597:2: note: variable 'iface' is declared here
+>      1597 |         phy_interface_t iface;
+>           |         ^
+>     1 warning generated.
+>
+That's completly wrong indeed... I had an extra question to ask to Russell
+wrt. that feature, then forgot about it and sent the series...
 
+I'll address that then
+
+Maxime
 
