@@ -4,104 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C50CA0FE9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682E5CA0FE8
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=; b=EGV2MuY/S5dp9hfuvRTlYuGdGO
-	MSmi7AAMtsOUg8nOeUvWZEBAIQr+97i4xU0QwaFpxA5T3ddv6WicGsNytSMoyQYIKP/ZJIUK7ZW8g
-	OPOlq7LFPSGO/zZT7WCgcgRk3FU4L1bWR4vcyWgNHjWkiBH9p/6+fvouQcvDKfXcocSOKH6X2sTkA
-	amHHUyARuwlVBOq+RQf6b4jdfS39PfUqGklVNIm6kdko8pnKDLyeGNjfHVjo/wTXQOH7f+J8LvQAX
-	mAamqX3IGaceXq09gBHVKhKY7KKdk46eMgs0//8mhhG5vB2w+AynnnvnHJnVvAqA+XxcrEEF8gQHw
-	liCs5XQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u1nIEzQAHzexEwe1eBw6VP9QOhuA5DOvKet0k5mUpZU=; b=DcKT5KjxfK7oCGJK26pa0FcyCA
+	pkOQ/V7cq5bi0QvUOb9fpq2N1PipKAiUOx4n+X2HGVJT1I32Xr7SD8lUhfWLWHN78wW0rttjN/K5x
+	ikjB/NXOenyo4UivjfDBMQv3I1XrQBAYC+IqFj3wHcjzGN6Os/uU5m52mpFw27HTSAR5xJoCx2UmM
+	YeFNf33izUXms9AeS+LkmDXve74z5cm2swstg+apCoob6a7Al61oPPywtcOW6tctUm+uO6puEOB0C
+	SngqhhgOMplkjbBZrJY1OB+UHuRxaQhpNUWAzg9Nd4DBNuXdNIPr/d9nJ9JJmcgxbIrmFdQZO8C29
+	3cnFBeVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkdy-00000004SLJ-1MAV;
-	Sat, 23 Aug 2025 09:34:38 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1upke2-00000004SS8-2qtT;
+	Sat, 23 Aug 2025 09:34:42 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRtf-00000002dgY-2E4i
+	id 1upRzi-00000002eR7-28YY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:33:36 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-afcb79fb221so27971266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:33:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755869614; x=1756474414; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=;
-        b=vAvqVSQ6ScMRxw0557C4PU0vkb7tb0PrC9gj9VnV8Xk08IklnQSyRZgnqBUL3XIIRE
-         iwmyYgTURKWpnjVPjWWixwmmVgc+RHzGx8YVven7ww73rZ8FgMOi7STwxoCWySPd/M3r
-         kuE3/b0WQfK0xPFvEMDVMgF0WLyu93sF6oxK5JYj4xbcdR0iA9HUQZWngHrSDbFfA1Lq
-         QuxVnAU7nZpL3MZWA1L2EEQCZu0grqO6cVjgbdIbh8lUQnSsHPfaWH29vBdGDpHLDYRu
-         hB0kWJUx6OVVH/GfffhRVY0Juo12GcUGGqKOMijsz2EIQ00nHsTnf7AiE5NGJE5Ffcgx
-         /vZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755869614; x=1756474414;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dATF9pVYzR6PVe5YTtaWkcMACjJixdOaKzuNOuuEyYU=;
-        b=N5DVCvLeGZfPQHkp57bWU9i9t7diwEByBDP5QXKAg+ZaKm3y7wwn+TEYIzwiQcYtc5
-         JRx35peooNS+bSjvJnQQNQoT/GyuEAZO86wOULoYZ46ObYtr6At/+WRUelAhD2hsEjh9
-         VlWxDTt4f5aP/O/E7yY13DsurLPxhl+dij99XyIV/M4pK/ghdYGiNxaxah1r00JeMBFp
-         IupMBPoR8HSg+yg+0JSQ9TvUDjmjJ4v+EODD+kD/EcHCsestDNtxT9ruLlaXRidZJAnk
-         pJtwobCgnqhpUR2qQnYDXjWqCyV8WPhh3RrJBUyEpvqDLgLbdKyiZW2C+nI/MDCxXvro
-         pk2g==
-X-Forwarded-Encrypted: i=1; AJvYcCU4L0JVy2uu7g/5EU0XqszkBTuq7G7u0ybg3BikxYAUwXCjdb6H1YYa1V8xLn3vDfeGdoQeLnQ2fmlgR4/PNZMk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6aTiV/D8DLQexq+fpLqqcHKTa39ZhO6kOIaF4fojSxNPKhiz9
-	aCnsZBJvCLgpNtsSM7l30Bka7A2d4zIYvlgqtg5lC5DrzJwbi7tybEOoGMaJNkV7Wgo=
-X-Gm-Gg: ASbGncspd9FHvliDgq0fL2FpABK6Mt746Ut5VC7aeb6HBptmHy3unOCHvPvgQZ1D7OV
-	blIt2qtpfhCL8QslR73BroAhTnqqg+7E2lTfRNP61zgV5CEuuyoGlMygxyobxo/tlinTY/fv0QB
-	6pkaw1mzMFJkgLrVVMp4rMxbgFdd7vg4Z2nVH/6/kfnAuxOSzMDriJpnI3LEdSMtAZ1s9VaML4e
-	giCnytZ/ewyHAh70G96Xz6OIM+9qhlIgcpv8tc2IU7KyOHqrWy/4E9vQsh1qp4dq9xLa4BUlkFO
-	6LRRD91vBhgG9LgfRKoVOXqtsiVMhHtCcPXhvQo/r0vtJESMzBMi5kwXoHOw5CPJDAvCnPB3d/z
-	y7MXDRCyX+0xpv8yNPU8sCCzzXoQNfME9yu7kEwRjnWSC
-X-Google-Smtp-Source: AGHT+IH6qN1ECW4QhALM/CQ2NPhMzvX4p6uWPEhQ/UIi/ACqTxT43/7Yi0lQIdrNUOwBtpfwLUzTRw==
-X-Received: by 2002:a17:907:3c84:b0:af9:8748:2bb0 with SMTP id a640c23a62f3a-afe29513efcmr141558866b.10.1755869614096;
-        Fri, 22 Aug 2025 06:33:34 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded2bc305sm599477566b.18.2025.08.22.06.33.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 06:33:33 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] arm64: dts: marvell: armada-37xx: Add default PCI interrup controller address cells
-Date: Fri, 22 Aug 2025 15:33:30 +0200
-Message-ID: <20250822133329.312326-3-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Fri, 22 Aug 2025 13:39:52 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250822133945epoutp015cbc5046e2679532bb52b826ce3919fb~eGnLIpjHf0583705837epoutp01T
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 13:39:45 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250822133945epoutp015cbc5046e2679532bb52b826ce3919fb~eGnLIpjHf0583705837epoutp01T
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755869985;
+	bh=u1nIEzQAHzexEwe1eBw6VP9QOhuA5DOvKet0k5mUpZU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=YpMiv/9zvNnJVVTqDCQFz8ApOBDdjhGp5prNSGmskCpeGTCMbkWiyn3wFR5uZuKXD
+	 J8bh6I+edk0r0H1aJ8MTy2GLsjoE3hQcgepGQ+L9bfurpJbtGDWb1soIpc0GV/w/lc
+	 dKW1V/MRwVJlxcj/SO9oZASAAVnPikD0WB2KRNNg=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250822133943epcas5p3db3194b4f778165c369f994cc9fb349f~eGnKIRpRe2325823258epcas5p3h;
+	Fri, 22 Aug 2025 13:39:43 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4c7hBR05d6z6B9m4; Fri, 22 Aug
+	2025 13:39:43 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250822133942epcas5p37a9e03d4cefed84c9f458f47b648d929~eGnIVLNXg2325823258epcas5p3c;
+	Fri, 22 Aug 2025 13:39:42 +0000 (GMT)
+Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250822133937epsmtip1fcccb1ff7946a18f9bda033b67ce9139~eGnEmK2i82772327723epsmtip1D;
+	Fri, 22 Aug 2025 13:39:37 +0000 (GMT)
+From: "Inbaraj E" <inbaraj.e@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
+	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
+	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
+	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
+	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
+	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
+Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
+	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>,
+	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>
+In-Reply-To: <ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
+Subject: RE: [PATCH v2 03/12] dt-bindings: media: nxp: Add support for FSD
+ SoC
+Date: Fri, 22 Aug 2025 19:09:36 +0530
+Message-ID: <00d001dc136a$36ad7230$a4085690$@samsung.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1233; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=bYTViSflE79ust8qCI2yDDQ/7mxRvAWLwJ0TYax5i3U=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHGpSFTnv6/ZCbMEgpskXgih8YmZE9bFTXExE
- TbqLeUQ6+mJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxqQAKCRDBN2bmhouD
- 1/h4EACGmhvfHw298PPgaoyMuUONYIZb7OIY6Hxa+VVRj7HsQUDJxh3f1xDS5l/iph70RiN19sB
- Kk0+LSi5o5I9h7mlvKPVi0IgyW3FdFCZeh3tBR+Y8R46DWEX1Am1nIyWvY6yp/aqE0LtteiR3QB
- YKRhq83zCDQyIIsLFWB3KzIJkyG3U9zv++wDyh2lwVC8WSlxjbaPb78ZHlijIwDUnWuf/g/VgiG
- 4UStLpkvFuq8+5uHk+i3krKNIebHhDbZzflBBIsi82BdJWKyqRAJCb9NJ9wL1nrCqgB853oDI0v
- 5Pnr2OntXmT/lZIburftXiEw74NHd3JPF6BFubFmOdJAmi7CLXz0EWNcaN9K1pR864A5O8Yz3xd
- dMr8jpAK9yfldJ0mxqoZL/TpJeZo6NNBKK3emOhj9DQJU0k7Q7caixecUcTc16eFgJQ2jYbLCBx
- cUlzKY7ECvVkCPK2vf0+/QNdQRFQO1IsgZVmdt2OnrVlpGHQnS9kvruScv1KqQFeHTayOplag4S
- WSkAwpbLhGYY7WZSbxY5A2kTX0cLJboYQgyHvud0w1nBCl6T69OktFRSE72PSEOOKNyqaza91Db
- O8hypdE6X6G2xxfFtWE63z5gIwBkEwQ5kew7ffBpfx6L0MdxtelNYePEqT5jHAj3GvOQq/FuwKb jvDBV47J8p3fYUQ==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQF6bLd9AsRKNAMBJ/ZVhLKIV+Nw
+Content-Language: en-in
+X-CMS-MailID: 20250822133942epcas5p37a9e03d4cefed84c9f458f47b648d929
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946
+References: <20250814140943.22531-1-inbaraj.e@samsung.com>
+	<CGME20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946@epcas5p4.samsung.com>
+	<20250814140943.22531-4-inbaraj.e@samsung.com>
+	<ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_063335_566157_4C8D225D 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250822_063950_864393_F68AE8B1 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,37 +106,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing address-cells 0 to the PCI interrupt node to silence W=1
-warning:
 
-  armada-37xx.dtsi:518.4-521.29: Warning (interrupt_map): /soc/pcie@d0070000:interrupt-map:
-    Missing property '#address-cells' in node /soc/pcie@d0070000/interrupt-controller, using 0 as fallback
+Hi Krzysztof,
 
-Value '0' is correct because:
-1. GIC interrupt controller does not have children,
-2. interrupt-map property (in PCI node) consists of five components and
-   the fourth component "parent unit address", which size is defined by
-   '#address-cells' of the node pointed to by the interrupt-parent
-   component, is not used (=0)
+Thanks for the review.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm64/boot/dts/marvell/armada-37xx.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+>=20
+> Explain the hardware.
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-index 75b0fdc3efb2..c612317043ea 100644
---- a/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-+++ b/arch/arm64/boot/dts/marvell/armada-37xx.dtsi
-@@ -524,6 +524,7 @@ pcie0: pcie@d0070000 {
- 			pcie_intc: interrupt-controller {
- 				interrupt-controller;
- 				#interrupt-cells = <1>;
-+				#address-cells = <0>;
- 			};
- 		};
- 	};
--- 
-2.48.1
+I'll explain in the next patchset.
+
+>=20
+> >
+> > Signed-off-by: Inbaraj E <inbaraj.e=40samsung.com>
+> > ---
+> >  .../bindings/media/nxp,imx-mipi-csi2.yaml     =7C 88 ++++++++++++++---=
+--
+> >  1 file changed, 68 insertions(+), 20 deletions(-)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > index 03a23a26c4f3..802fb1bd150d 100644
+> > --- a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > +++ b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > =40=40 -14,7 +14,7 =40=40 description: =7C-
+> >    The NXP i.MX7 and i.MX8 families contain SoCs that include a MIPI CS=
+I-2
+> >    receiver IP core named CSIS. The IP core originates from Samsung, an=
+d
+> may be
+> >    compatible with some of the Exynos4 and S5P SoCs. i.MX7 SoCs use
+> > CSIS version
+> > -  3.3, and i.MX8 SoCs use CSIS version 3.6.3.
+> > +  3.3, i.MX8 SoCs use CSIS version 3.6.3 and FSD SoC uses CSIS version=
+ 4.3.
+> >
+> >    While the CSI-2 receiver is separate from the MIPI D-PHY IP core, th=
+e PHY
+> is
+> >    completely wrapped by the CSIS and doesn't expose a control
+> > interface of its =40=40 -26,6 +26,7 =40=40 properties:
+> >        - enum:
+> >            - fsl,imx7-mipi-csi2
+> >            - fsl,imx8mm-mipi-csi2
+> > +          - tesla,fsd-mipi-csi2
+>=20
+>=20
+> Isn't this Samsung CSI IP?=20
+
+Yes, it is Samsung CSI IP.
+
+Why are you adding it to NXP?
+
+Samsung CSIS IP core present in Exynos(samsung/exynos4-is/mipi-csis.c) seri=
+es is
+completely different from the one in the Tesla FSD SoC. However, it is comp=
+atible
+with the samsung CSIS IP used in the NXP SoC. For better code reusability, =
+I am
+integrating it with the NXP imx-mipi-csis driver.
+
+=20
+> Nothing in commit, msg helps me to understand that.
+
+I'll explain the same in commit description as well.
+
+>=20
+
+> >        - items:
+> >            - enum:
+> >                - fsl,imx8mp-mipi-csi2
+> > =40=40 -38,24 +39,21 =40=40 properties:
+> >      maxItems: 1
+> >
+> >    clocks:
+> > -    minItems: 3
+> > -    items:
+> > -      - description: The peripheral clock (a.k.a. APB clock)
+> > -      - description: The external clock (optionally used as the pixel =
+clock)
+> > -      - description: The MIPI D-PHY clock
+> > -      - description: The AXI clock
+> > +    minItems: 2
+> > +    maxItems: 4
+> >
+> >    clock-names:
+> > -    minItems: 3
+> > -    items:
+> > -      - const: pclk
+> > -      - const: wrap
+> > -      - const: phy
+> > -      - const: axi
+> > +    minItems: 2
+> > +    maxItems: 4
+> >
+> >    power-domains:
+> >      maxItems: 1
+> >
+> > +  samsung,syscon-csis:
+>=20
+> samsung, so not nxp. Even more confusing.
+>=20
+
+I used samsung,syscon-csis because the system controller on Tesla FSD
+follows Samsung's sysreg design.
+
+>=20
+> Best regards,
+> Krzysztof
+
+Regards,
+Inbaraj E
 
 
