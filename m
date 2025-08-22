@@ -4,170 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE38CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B672ECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbzkyc84FtUfM5Y52KD5POzjnw3BC64XYufs1hqRFUs=; b=3K4Z368bm1+FqQ/+Y8Mer01Ueh
-	47KYG1xa/gXKy5H6usez6Pt+Y/YAbbo9li3YhwYDEoSCMKVo2fg27+R7f/u8WSSMRIfWuGnTqihV2
-	7xV3LozcqNdqGhKfnQENj85DrrgR9pJptQsY9p7GwWH8vJqFfCqtrJRJEetIoUnhCQgQKxBZthear
-	piDdoJnT36Kqqf6eapARjsMzd31woE8ktaAPanaiYyuFoFcGP4Pi2MZKWCy9EjkewWBEuukPhhVPL
-	25BAPsWAFkE356XAtSm3XBfyARsRXcmKLebTRJ23IhcRDqCwNJ/KWZeGHsfpjTV+/pgU4tVx3uPqu
-	oBFbayfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SfbHPH5Jjp8Rpz5+ZFUkvP8crb1ywqdy8VPh1hjPgaM=; b=P9d3Z5a4UqZ7qyNidtrN5/9mTK
+	otAs0B6YQ8cdSsFooqE1ndsRkXt4IieEOUxBCW6VM4HCiX1Ltv7E12NFeFju2jxS699+f5Jh6ryFB
+	aYkV4IQV+FkStDm5YiIxUH492TNQPhBkTg3A9OShld4QxxMS40MIMwfFYiX1nqlTRFYejTkG6S0EV
+	gReacZ1qBnKoffRA9OfKzdP/rv4ePNGqVxIvPCygc8E2rk5JTGbjI9hZWK3Th0zmO8Jp/1Bk+kmNt
+	TokIbCbE6LM96CKkwYu3tZxpfBLto8hYXCbsbQv7LiSyto1Iku+JHLo7vQSqZkH4EC5+M8wCUzBZx
+	fIUgnx3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZcc-00000003Yyk-17F0;
-	Fri, 22 Aug 2025 21:48:30 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uphjf-00000003w0Q-3qXk;
+	Sat, 23 Aug 2025 06:28:19 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPqq-00000002I5g-0SO5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 11:22:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SfwQxjniATmgWoiCoxNQEgN5h3uC8SmR32WtugJYVp504RoKmw6qocGusbLZ1YVBtM6rDO6xbhwCE6IWw2qLQTHULugE7X6mJ9FygkUk1RZxapbbS98FCzBzVYZA+7lB35f4QcLmrMC2JFkyKgojSSARchwRwFRgrsG4sSqMij7HPB+J8BSxY2P+zkCeAgKCo1Y+hrs7hRF5L3RN+5BGRa1/pCDGtamOZnVEjq5BRKTHgpz0XAKK0/S4mynLke5PApHuTTavTHRrq0a1UAmCFaBnP2heA4XFvRrMWjsTTeBma3L3kIl9h/LF30aSgenJqCzoG9TIOyrrB8Tun5cf7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tbzkyc84FtUfM5Y52KD5POzjnw3BC64XYufs1hqRFUs=;
- b=uaqvO7V3MWNM/eQ5/9MEQ14uqT9h340JbbB6v93fU0ZN8xNfaUFeGIR8x8cUSxkA8KmkpFr8LzOI1U7Nz+ZnxaePUBRNH7769LkqV8DhYazEnBgYN+j8DiNyh1qR1fms7ih6u5beZ+XzC3Ms5IcAgpPrq6JWKTPqZo64joLXOgKF0T12IfpqbfGA6wkk9Ms3ZO+Fe4+AnJE0TWylbsAun+CeLN5wzrPDut+1Gpu7xghP1yjlLnJzvMb5SW9cYBPXnyDy+Kl7y3hukFa8PUbxrLoIWfufgwq/RpK07zvvdX2BNbw373aOrd5fKGswGoWeiLF5JZA3Lh1m4MCdu+rE7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tbzkyc84FtUfM5Y52KD5POzjnw3BC64XYufs1hqRFUs=;
- b=ANk2s219RO57Vyn5/Hd9LixTdh5Bz5PMvYI4cEENfY/dgiAb2mDUnPQw8/Fxjyox1CLr4Ihew1SDSaBhCawYJWcP8xBQD/K9o00w6vCZG6EsTk/gxtWENfuu87j0xaKbTpRJU4HNFPeRobSfYBOHlJA4LU89FLvScIGS08ib2NZwvkCcLfTrNNFWsQA60UvEcKxRxzifjhw6Tk4pcOelbzoTnFomZefG96ijGu1rdMMXt4qD6XOaXVKFkespI/wPAWVheVkAg95Vpm4nieFgmwZu7mMcWQmdDOa+DqsrdTFRqNDBcFRtIf6lbrkYk802WpGGZWLaQW6WLHqWwGoHzA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS4PR08MB7878.eurprd08.prod.outlook.com (2603:10a6:20b:51d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.13; Fri, 22 Aug
- 2025 11:22:24 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Fri, 22 Aug 2025
- 11:22:24 +0000
-Message-ID: <1d053317-24a6-4bba-aa30-ad42460ec19b@iopsys.eu>
-Date: Fri, 22 Aug 2025 14:22:21 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/14] spi: airoha: driver fixes & improvements
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>
-References: <20250820123317.728148-1-mikhail.kshevetskiy@iopsys.eu>
- <aKbDjIZhJuWo3yFu@lore-rh-laptop>
- <7bca8089-09ad-4550-93d1-35a365bcd167@iopsys.eu>
- <aKcEYn_hX0ZIusne@lore-rh-laptop>
- <eaea681a-cda8-4066-a58b-61a35e2b8b55@iopsys.eu>
- <aKgSY7bOrC8-qZE3@lore-rh-laptop>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <aKgSY7bOrC8-qZE3@lore-rh-laptop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0348.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f4::7) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1upPzW-00000002LWz-1COM;
+	Fri, 22 Aug 2025 11:31:31 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45a1b05fe23so11578385e9.1;
+        Fri, 22 Aug 2025 04:31:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755862288; x=1756467088; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SfbHPH5Jjp8Rpz5+ZFUkvP8crb1ywqdy8VPh1hjPgaM=;
+        b=R7qBqRliMTkC3ymidULCskOi+2hMSStFzHuOOig05wSfWi8RNFpqXZ5ufm4LV+vJvx
+         ya2T8n9cE9FSKFjK9jLqAox6d3rnPyqDKfyPptBceU5UMrzwYc4RmgW0UaOTKoeTFgcg
+         jsBUWIAuhu/Sif6P3+opwwAHvszwoESU+lt6tmRMK2fR/0v/F9Brg2Hw5UkI4zsO2I7A
+         Kz02ZHG1bXyEwNcAXDYkPveCoMUhW6MRLdl0Sc0d4Ad5i+uO0d+DhWb7DaRRM6yV9lT6
+         VW0gS77CVSCCxguxaWNyAnkBZiW3w+fCm9jnptnUGHPR9iXcS+8N6+pnUjet4UYZgK5K
+         YARg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755862288; x=1756467088;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SfbHPH5Jjp8Rpz5+ZFUkvP8crb1ywqdy8VPh1hjPgaM=;
+        b=aPVT9jrrKa//Fwzi9DF+mmRvjAKigXrTmYOeSno2qBu+qZvaGg6KY9QUOl+PlbH/j9
+         iy6XDQwlXhdA7gDz1iQJy/+ModdMR4OGD/bm2PWiiGvoeNoFanoLTqabImZk2mUPxEHt
+         0yZUKZQJVdysAJb2o0UVcuY7sUPpkjUogUHcpyOOqeFhpwF31Cx4S8D1sOIefo9080Yx
+         06OsvPu91j3PGZU4rJFsvcBQwSnbngvi8xbB7JC7KHDlpHHqyiF6Qnhjd0rYYbrt/Dxe
+         FHqAu+4iUhHJ+uuuZ5pXfSl/N6w6j5nj3ILbDkiZmlnVBgwQfnxqsrKrboyBYsEAdoQv
+         AKgw==
+X-Forwarded-Encrypted: i=1; AJvYcCU6X3tfZy6qSctDPtZsGLIb7pEDwDxfqOY9eQblgs1mWPn7E8q9GP8KKL6+axgrx8AWvAreBT2kwYcuIaI=@lists.infradead.org, AJvYcCWXo/sRgfg334YI1OD6mlA66QIZukEWUUDt/bQDWfr27MMkNolh8oPnK5/fyn3t7OIMRU4cF4L2t/ZRcYoQdJj8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh/awO8jUbGaJdMUEf86BhqXXNxlmlNPJalkK6QL4g87je1l/8
+	775GKTrv0f23lFTYqn4600rE6jKk5gVKLAyRY281uCQnZtjHbUpT45Z2
+X-Gm-Gg: ASbGncul+qZs1/80VKaZ8n5V30dWzjm+0yIEdH/Ho6BfHY6V9iD+Lt93q5uCA1g/so4
+	1khN9OkceU4/P+d/8dSIJfNgHXfIkxatpxrTU1mv+imPGg4MgaCQ2VcsYcZX1I9P8+XQj4V6Hnd
+	qGQ7Y6gmnWkDeUmf9707C6/fWHzx4j2rThTkQkIoolxj4yKf+35BdzFe0O4e+90aa4Zgjv/jaLd
+	46O6RHiyi/4BQWldfkbkGwdsdofmEKLjTki4TOLqFTywmD/mJxCj3TCk9IGUAPOJIlSPYq1LJO9
+	QSNJV7TPuqHGOGK3xc0YQNhXczjD4U64QGlAq6R63m+dxTNv/K5jGXsmkMPE4r5F9UnoKzfU6Xz
+	MTvgSNQog1p7omh6fkk5TG7SHoWCk3KvMkyY80K992dF80mKcd2lduGs=
+X-Google-Smtp-Source: AGHT+IGRxFKrTZ5eDvBkmi1zEgN6s0gJ3t3AoyWptSyZJnQ5Bb32czELomyx9FMDxkr1p0nFemiRbQ==
+X-Received: by 2002:a05:600c:4747:b0:459:e094:92cb with SMTP id 5b1f17b1804b1-45b517ad81bmr24844685e9.12.1755862287996;
+        Fri, 22 Aug 2025 04:31:27 -0700 (PDT)
+Received: from ?IPV6:2620:10d:c096:325:77fd:1068:74c8:af87? ([2620:10d:c092:600::1:1b93])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45b50e4241dsm35921185e9.24.2025.08.22.04.31.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 Aug 2025 04:31:27 -0700 (PDT)
+Message-ID: <b5b08ad3-d8cd-45ff-9767-7cf1b22b5e03@gmail.com>
+Date: Fri, 22 Aug 2025 12:32:58 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS4PR08MB7878:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9a9b293f-a221-49c8-d59f-08dde16e2a9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZitncjR1MTVraWhGaDlJMGYzOWpHcFpJYWhtTk03blh6dlg1c3l5Z2MxK3Vy?=
- =?utf-8?B?MVNqNklXRGhxb3hyODJQeVpIK0c2T2JrZC9IZTk3eXk4L1BTTEYzMmd1NlV4?=
- =?utf-8?B?eWk1N2I2QVpDdUJVTm5WV29ZZENyMGlRVkxtMmMvL3pOclMybzhvUzVzUVZO?=
- =?utf-8?B?M0NYcHBCRU1mSi9Mc2UxYnh1M0JTQll4azZpbXlSSzV2UjQwUS9jSzNzc0Rz?=
- =?utf-8?B?dXVCbW5LL1FEV1IwOWRxSXdRV1RNTzBiZ011amVFQURlRGl3OUhQbEpDbXdQ?=
- =?utf-8?B?UFpqdWNaOXVWdm9RZFFsZ0JIcUdUZVFKa2ZvemdXTEp0Yk9FV2wwQ2hHTUNa?=
- =?utf-8?B?MXRxaWw4dUJxY1l2WnFjcnlaMlhOekYwWDd3RzFIZVBISGIzSjIvQ2NyVlpl?=
- =?utf-8?B?OGorTngvdDNOUGlhdW9GcEZ1TGFNUG9iVTdUT1NkVDZJVGxaT3RUdmhiTzQ0?=
- =?utf-8?B?ZkNranppNUxLdTJ3bWJwOHVWaVQ4V3ZpKzJ3OG41UktRakF2ckJyOTB5OXdK?=
- =?utf-8?B?L0loTUtjbm9nbFM0aTg2T011cVY5RHBxa3ppUUlDT3dtU3hqSFFNNHQ4RThM?=
- =?utf-8?B?aG4yT1FQYkV6QUpPRnpBY0liMFZKcm5DWGtCYlBrSEhqR21URENJRVlwQ200?=
- =?utf-8?B?V290eTFQaWMwYlBsL2lDS0NhODNQVHBqK2hoS2dsN0xmZU42ZFRxcXVNRGYw?=
- =?utf-8?B?ZDdXUTloUTdLYTVNVVZCeEt6ZHQ0UklobnVtOXl4eTFpRFZoRFZRWnNJUkpy?=
- =?utf-8?B?QldGQWVHd1JzMVV1bkFRd0diY01NR2x0RkFqSkxDNFJZaFdPYUhJbVd4QTdx?=
- =?utf-8?B?VjBzUjMzZjFnTEIrSXRqMnBNRTMxS2JHSjUya3R4RWtzM0lyNEhZbmlLejJn?=
- =?utf-8?B?OTVFTExHRURwbllXZ2o2NWJFS0x0QUx2cmJ3RXlVU3o3UHNTbUpwNkhTT0Zu?=
- =?utf-8?B?bzl2Y09ib25ReGtFZUdNMGFlM1gvR0VBTWdHUG1VczNBTE1lMzdXMDdOLzhF?=
- =?utf-8?B?cTk4NVUzSHJxcjF4Qi9SbUZYektBN1NoWmVyMkZNdmpNZ08zOCtpdmo1SVRS?=
- =?utf-8?B?Mjh6NGE2cjJPNVB1enJiaVJmamdUeS9TWjNwN2RGT3BLSzl1UmVRais2NmdN?=
- =?utf-8?B?bER2ZnQyRC9NY1E1M1U4WEttTUdBdjh4dmMrSE9WQUdFNnJuTnUrbjdLUW9z?=
- =?utf-8?B?VlNJWkRaRDk4S3JRclBtUW02M09MKzMyWUdRSmRHKzVBbmJuei9qQ2tkV1dh?=
- =?utf-8?B?a0xOUXlUejg5a2RlQ1dGYXNtaUZrb0NHeGkvZU1XL2QvU2NibmZkSWpsNHJT?=
- =?utf-8?B?eUlUWmRzYnVLclJPazlxTW5kaDdhMWhjQ2RkQ1FVTDJsVHo5cGtQd2d1ZjBn?=
- =?utf-8?B?Sm5HaGRJcCthRDkzU1U0Y2RYRXVWTjE4UlpLRlJHSGVYUVFqWGwybk4rUmVa?=
- =?utf-8?B?R1NpTWRPNjlMVU5nZkwxSnBGbVlQVU1YZFExaTExUnFMSnhrWUZjcWJramN5?=
- =?utf-8?B?Y1BoV0hEOEI3VHozRWlndXIyb292NG80bHNlWWVEOHFWcENMLzRyOWR5RFM0?=
- =?utf-8?B?LzZBbG9rRGNYNzZIRU5SYk1Sa25WeE1hN0hJaHVhdFN4Wno1WVZpaEJCYnZW?=
- =?utf-8?B?VWJQUmJlZEZIdlFKQnMrUW5lcGNmN1VJb2kxWEdkQXo5OHRiMkVnNTVsa0JG?=
- =?utf-8?B?Q25lVFpEanlKOEtmOCtBaVUyWmVZMFBoQW9GalBPZlU0bGJpTmJrbDRQVUpV?=
- =?utf-8?B?bmw4RXY3L0cwMGJyMmRiNXNzZHhFR1JtRjlDVTB3TCt6bVIyM1cyOEdqaDQ0?=
- =?utf-8?B?bWJ0V3pnZkJBQkppOXpEU1JzdVJMUko4bTJScXpKYXNiTmZwTi9PT1dIMEsx?=
- =?utf-8?B?Rkw0TmlUWGdGam5VKzl1NHJiWGhUQW5QYjA0cFBTOEU4QWFNUktVanhvNVNp?=
- =?utf-8?Q?8Be+oOv16LI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGZNZmRlZkpXcjFsYnY3Sk1KaEVVYTkvMlAzYUhqVjJjUzZLdjMvS1hBaS84?=
- =?utf-8?B?U1k5OTMvekJ2MzZFd2J0Um1mUHhrRk9kVzJFWko0UFBLL3NwbFptOStOYkVI?=
- =?utf-8?B?Y1hFOUh2bWxIazFEYnZ4U25hNWIzV3hXYmdPbW8zYXB0NS9VMzBFQWRTcTU1?=
- =?utf-8?B?THlDZ0JPckx3RjhpM21WS1pPOUNMSFZPWE5RNEllK3dQVFdIcXJRSktidlh6?=
- =?utf-8?B?SzdMVVQxWjA4aWFDNnJTaXFBUFh5Q1RuZEVyZDdNb3JQL28zcDMvMEJ0anFi?=
- =?utf-8?B?SFNXdElqWmlTTnVDbEQxZE96azQwc2NsWHlmRmVrd25pRkI3cjdlQ2lmUDJK?=
- =?utf-8?B?aWQxbStPQmNkUE1tMWl3RTY5QXZEaVpMN05MMGYvQXJDbVgxam1MRGtnb0tU?=
- =?utf-8?B?MlowY2Y3QlhQRG1PdVJCWGo2ZDB6M25kS212TlFRbXpCUU5oaUw3NnVXWkhq?=
- =?utf-8?B?d1BXQ3ZGLy9saFlaWTdaY3BaMkpCK0FhQmlKVjFCYTVnSFRHVGJsb01nYk1w?=
- =?utf-8?B?a0ZxVGR2NXRsRmRQQ0VmVWY1OTZtamt2SlNQSE1YcGtIL2FkVHpvNHNWcUFL?=
- =?utf-8?B?b1Z6Z2FtZXBsNTdTbDJEVWlkUXA4WmpENjdpMkRybDFkNWxoTU5WZTBUcnFh?=
- =?utf-8?B?WndFYjVtMmM3Um1kbnIvK1l6bkxuL1BySGhNVDlXMVFFeC92eGljMGNJNTla?=
- =?utf-8?B?Uyt2RmRKQXd6dnhVMFljSWliRUYyZFcrdTV6dWtFbW5jOXZnbVpDNUYzN2Ro?=
- =?utf-8?B?YWtETndPRC94cXd4OVdLcjhLMmZaVHJoRXZhS3pvb2xieXVUUG9kOFBSay9r?=
- =?utf-8?B?YXE1V3pVaGpyMzc4dklyZU91djNIeGljSEh1bnRseno4UmZ2U1BraGFKMXl4?=
- =?utf-8?B?c1JCaW9DTGlmM0JieG9zNUFHdkNlNjVnNko1SUdtaUd0T2JCemlKQnM4d0ZT?=
- =?utf-8?B?djZ3eW5GTHFxRSt3NUpiNGk4UEpoamYyZmNKU1pBQ2N4ejA5QlZwajdJNktI?=
- =?utf-8?B?YVQvSVdlc1dGQjhQT3A4VUNUNkc4NDdlZU1JVzFWL29Fczluamg1QnJWUk05?=
- =?utf-8?B?K3d4Qy9HUnpwcHloaUxJS1ZFa2NhVkcrU2R0UzZnRXpiM2daZ2FFRzkvaTdh?=
- =?utf-8?B?RXY5REphNEJZc1FCR3NQbTI1RHE3YW5KNm1pd0tHN3BPeHowdWsrYjQ1K2lS?=
- =?utf-8?B?QmFIRHFuYmlsbVJxWXIrZU9kWUc5Mk5vaWhHUkM2ZHZMeDhuWlFGbm1GenJH?=
- =?utf-8?B?SnlEVytJUEd3azhBVzdEQUV1djJQNEZMWEp1aG1KWHkxaFlOV0JXeVM1ZG5H?=
- =?utf-8?B?RVMybThGQ1JXeHZiclZkQTJPK0MyNjJSclU1Z3F3YTFFZzk1ZU1BSzk3b3dY?=
- =?utf-8?B?S29ISEdFY1JpSXYzcVNreStMc3BIckJHMXlKeXVtb2Q2SGVFUEFmeWpMSE52?=
- =?utf-8?B?S2tCejk0V2ZtOU1rWTF3bHNabitGb1NEeW1FYytUTUhOTmpLY0tsRzNYM3lR?=
- =?utf-8?B?TmhQSlJjNWpOMEwrRWxmL2dPVUVFNnhkVi80dG83ajV2TS9zeGZaMEFObTIy?=
- =?utf-8?B?bTV3clZTY0J0TUROcWtuWU4xVVdWbVJxUkxVd3IrcHJ6aHlsL3YvU0I2TGJ0?=
- =?utf-8?B?cEVTMDFheXdjcWFYVkF1Rkh0Znh5eEZnSzZTSTg5aEZZS2Y5REhzMzFnaEN5?=
- =?utf-8?B?bXk2dEk1VUVjSHpIVEx4T1Z4SG5iQUFFNDJKQWpnbXpEVldPR0ZlU0VKbVJa?=
- =?utf-8?B?Tjl4b0NGYTJhTkxHRitGYUs1S3ZsZ1h0MUZ0dEp1cTJnWkJrOUdZc3lqLzBF?=
- =?utf-8?B?OFhTaGNIRFo2NE80RFNHcUNydlMzMHUyL2lUQVZLZ2dEVXYrMnZkWENnZnhy?=
- =?utf-8?B?VFNoR09hcG1oWnBGSE1LekRzUGdTRWF3ZEVCZEZPVWRLeTVEcjZyWm80ZHJZ?=
- =?utf-8?B?blJVL1VISXVpZmU4cmdyUjNMelgyQ2RKbXk0K0VsQ0ZsRVAzUjIrUFA2QVlJ?=
- =?utf-8?B?Z2RDVUd5eUl3NWxvd2ZCK0R2Mkh2MXdodjhZZmcvTHlyMXFHZXVVRTBIcENE?=
- =?utf-8?B?NitCU3V0RXRwN2xTUU8ydjhxM3YxSGt0NFZMY0dlQXgycTFVTnVLYjBIMUli?=
- =?utf-8?B?VTg3UWVzaW0zeVNCemtEZFhJWGlsTjBZV0dLMC80MEs2QWV6WWxqRTNXNWZa?=
- =?utf-8?Q?vwPHie44cTKmmA2U2JJhT78=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a9b293f-a221-49c8-d59f-08dde16e2a9d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 11:22:23.8442
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UcqmB5aRV7Oemt+j0rzy4nppYf4/1QiQIyjyXgnQMvB2QkUgqbz1qNCXeKvQJhDeZwYN7ye3Pg2g8ZxXcecd3Cs/PS8D6daNAAk/1ak3FHY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7878
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 18/35] io_uring/zcrx: remove "struct io_copy_cache"
+ and one nth_page() usage
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Jens Axboe <axboe@kernel.dk>, Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ John Hubbard <jhubbard@nvidia.com>, kasan-dev@googlegroups.com,
+ kvm@vger.kernel.org, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
+ Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
+ Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
+ Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
+ Zi Yan <ziy@nvidia.com>
+References: <20250821200701.1329277-1-david@redhat.com>
+ <20250821200701.1329277-19-david@redhat.com>
+Content-Language: en-US
+From: Pavel Begunkov <asml.silence@gmail.com>
+In-Reply-To: <20250821200701.1329277-19-david@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_042232_551509_45C6C301 
-X-CRM114-Status: GOOD (  27.47  )
+X-CRM114-CacheID: sfid-20250822_043130_332354_5D56FD1D 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,146 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/21/25 21:06, David Hildenbrand wrote:
+> We always provide a single dst page, it's unclear why the io_copy_cache
+> complexity is required.
 
-On 22.08.2025 09:46, Lorenzo Bianconi wrote:
->> On 21.08.2025 14:34, Lorenzo Bianconi wrote:
->>>> On 21.08.2025 09:58, Lorenzo Bianconi wrote:
->>>>>> This patch series greatly improve airoha snfi driver and fix a
->>>>>> number of serious bug.
->>>>>>
->>>>>> Fixed bugs:
->>>>>>  * Fix reading/writing of flashes with more than one plane per lun
->>>>>>  * Fix inability to read/write oob area
->>>>>>  * Fill the buffer with 0xff before writing
->>>>>>  * Fix reading of flashes supporting continuous reading mode
->>>>>>  * Fix error paths
->>>>>>
->>>>>> Improvements:
->>>>>>  * Add support of dual/quad wires spi modes in exec_op().
->>>>>>  * Support of dualio/quadio flash reading commands
->>>>>>  * Remove dirty hack that reads flash page settings from SNFI registers
->>>>>>    during driver startup
->>>>>>
->>>>>> Unfortunately I am unable to test the driver with linux at the moment,
->>>>>> so only the following testing was done:
->>>>> It seems to me this is quite an important rework of the driver. I would prefer
->>>>> to have some test results for this series. Are you able to run mtd_test kernel
->>>>> module for testing?
->>>> I'll try to build latest openwrt with this patches  and mtd_test kernel
->>>> module and try it on one of our boards.
->>> what board are you using for testing? If it is based on Airoha-7581 you could
->>> use the following repo for testing.
->>>
->>> https://github.com/Ansuel/openwrt/tree/openwrt-24.10-airoha-an7581-stable
->>>
->>> Regards,
->>> Lorenzo
->> What tests do you suggest to run?
-> IIRC I run all of them. Can you please report even if there are some
-> improvements (or penalties) in read/write speed
-Do you mean to run it twice? with patches and without?
->
->> I have a single flash I boot from. It have only 2 mtd partitions:
->>
->> [    2.980849] spi-nand spi0.0: Micron SPI NAND was found.
->> [    2.986102] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size:
->> 2048, OOB size: 128
->> [    2.994493] 2 fixed-partitions partitions found on MTD device spi0.0
->> [    3.000856] Creating 2 MTD partitions on "spi0.0":
->> [    3.005651] 0x000000000000-0x000000020000 : "bl2"
->> [    3.011247] 0x000000020000-0x000010000000 : "ubi"
->>
->> Most of tests are destructive. So If I use "bl2" or "ubi" partition for
->> test, next time I will be unable to boot :-(
-> yes, I flashed the device after carrying out the test.
->
-> Regards,
-> Lorenzo
->
->> Do you suggest to patch u-boot & linux to have more mtd partitions?
->>
->> This is the results of the only read-only test I found.
->>
->> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_test.ko
->> root@OpenWrt:/lib/modules/6.6.79# insmod mtd_readtest.ko dev=1
->> [  159.121706]
->> [  159.123220] =================================================
->> [  159.129053] mtd_readtest: MTD device: 1
->> [  159.132898] mtd_readtest: MTD device size 268304384, eraseblock size
->> 131072, page size 2048, count of eraseblocks 2047, pages per eraseblock
->> 64, OOB size 128
->> [  159.147008] mtd_test: scanning for bad eraseblocks
->> [  159.152141] mtd_test: scanned 2047 eraseblocks, 0 are bad
->> [  159.157549] mtd_readtest: testing page read
->>
->> Mikhail
->>
->>>> Actually patches can be divided on to parts:
->>>> * fixes of current driver (patches 1-10)
->>>> * change of behavior to avoid reading flash page settings from SNFI
->>>> registers during driver startup (patches 11-14)
->>>>
->>>> The changes are based on the code we are using for more than 3 years. I
->>>> adapt it to latest linux/u-boot code.
->>>>
->>>> Up to now the only known issue appears on en7523 chips only. Here a
->>>> corresponding patch description (not added to this series)
->>>> ====================================================== spi: airoha:
->>>> en7523: workaround flash damaging if UART_TXD was short to GND We found
->>>> that some serial console may pull TX line to GROUND during board boot
->>>> time. Airoha uses TX line as one of it's BOOT pins. This will lead to
->>>> booting in RESERVED boot mode. It was found that some flashes operates
->>>> incorrectly in RESERVED mode. Micron and Skyhigh flashes are definitely
->>>> affected by the issue, Winbond flashes are NOT affected. Details:
->>>> -------- DMA reading of odd pages on affected flashes operates
->>>> incorrectly. Page reading offset (start of the page) on hardware level
->>>> is replaced by 0x10. Thus results in incorrect data reading. Usage of
->>>> UBI make things even worse. Any attempt to access UBI leads to ubi
->>>> damaging. As result OS loading becomes impossible. Non-DMA reading is
->>>> OK. =======================================================
->>>>
->>>> Regards,
->>>> Mikhail
->>>>
->>>>
->>>>> Regards,
->>>>> Lorenzo
->>>>>
->>>>>>  * Driver compiles without error.
->>>>>>  * All changes were tested with corresponding u-boot driver. U-Boot
->>>>>>    SpiNAND driver was modified as well to match linux-6.17-rc2 with
->>>>>>    additional fixes for continuous mode.
->>>>>>
->>>>>> Changes v2:
->>>>>>  * minor fix
->>>>>>  * add comments to code
->>>>>>
->>>>>> Changes v3:
->>>>>>  * add patch to prevent continuous reading
->>>>>>
->>>>>> Mikhail Kshevetskiy (14):
->>>>>>   spi: airoha: return an error for continuous mode dirmap creation cases
->>>>>>   spi: airoha: remove unnecessary restriction length
->>>>>>   spi: airoha: add support of dual/quad wires spi modes
->>>>>>   spi: airoha: remove unnecessary switch to non-dma mode
->>>>>>   spi: airoha: unify dirmap read/write code
->>>>>>   spi: airoha: switch back to non-dma mode in the case of error
->>>>>>   spi: airoha: fix reading/writing of flashes with more than one plane
->>>>>>     per lun
->>>>>>   spi: airoha: support of dualio/quadio flash reading commands
->>>>>>   spi: airoha: allow reading/writing of oob area
->>>>>>   spi: airoha: buffer must be 0xff-ed before writing
->>>>>>   spi: airoha: avoid setting of page/oob sizes in REG_SPI_NFI_PAGEFMT
->>>>>>   spi: airoha: reduce the number of modification of REG_SPI_NFI_CNFG and
->>>>>>     REG_SPI_NFI_SECCUS_SIZE registers
->>>>>>   spi: airoha: set custom sector size equal to flash page size
->>>>>>   spi: airoha: avoid reading flash page settings from SNFI registers
->>>>>>     during driver startup
->>>>>>
->>>>>>  drivers/spi/spi-airoha-snfi.c | 508 +++++++++++++++++-----------------
->>>>>>  1 file changed, 260 insertions(+), 248 deletions(-)
->>>>>>
->>>>>> -- 
->>>>>> 2.50.1
->>>>>>
+Because it'll need to be pulled outside the loop to reuse the page for
+multiple copies, i.e. packing multiple fragments of the same skb into
+it. Not finished, and currently it's wasting memory.
+
+Why not do as below? Pages there never cross boundaries of their folios.
+
+Do you want it to be taken into the io_uring tree?
+
+diff --git a/io_uring/zcrx.c b/io_uring/zcrx.c
+index e5ff49f3425e..18c12f4b56b6 100644
+--- a/io_uring/zcrx.c
++++ b/io_uring/zcrx.c
+@@ -975,9 +975,9 @@ static ssize_t io_copy_page(struct io_copy_cache *cc, struct page *src_page,
+  
+  		if (folio_test_partial_kmap(page_folio(dst_page)) ||
+  		    folio_test_partial_kmap(page_folio(src_page))) {
+-			dst_page = nth_page(dst_page, dst_offset / PAGE_SIZE);
++			dst_page += dst_offset / PAGE_SIZE;
+  			dst_offset = offset_in_page(dst_offset);
+-			src_page = nth_page(src_page, src_offset / PAGE_SIZE);
++			src_page += src_offset / PAGE_SIZE;
+  			src_offset = offset_in_page(src_offset);
+  			n = min(PAGE_SIZE - src_offset, PAGE_SIZE - dst_offset);
+  			n = min(n, len);
+
+-- 
+Pavel Begunkov
+
 
