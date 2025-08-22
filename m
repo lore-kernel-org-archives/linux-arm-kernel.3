@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB4ACA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6093BCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vA8s7aQFwDxDyukCwmSTUpU2I1yk+deZP1Y3uxaGXjU=; b=bEC/56/Elx9ZXg7ICyQAQyehqi
-	zZgpg2dpwG0uhRFtutV7SLIb+qSOg4QrAsn6A9h/WegegQlq2qj+nDHFmjxzb80Mt2HKfb70E47bC
-	USMK0Xy1s4GWCmBNrFrtkuGD7O+qFGvgYfgKyVArkXW7/GtgdDJgPufK92i0w4VVevtzaqihx6FPt
-	68GB7lEjUgGm6bpnd7jKsj9Akt4TISgQY169SwkmhxKJd5APbQaY0pcORIaYc4CGxnkftN2q5Obyx
-	mtGEGDbh9TOBUmOB/TlIh9CmvqE9iA26HR3ZA5ePMVwW5exfsOH5L2r2Zy+tBf0wVTizIEw6CWry4
-	w+MzDg4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=keM8FZ6KRUpmCdaqfX/W6LPu+GVLL1SCkuysb5xQQ5g=; b=IDTlsqDbuGI3cdGS4Eomfwu4W9
+	j1suBdLJkDVsLed6oexiMzgb8agVxXNUjkS+/FCTM2dZKgxgNVWwLjvcB2AHMFspC05wMngVOE8UZ
+	QBbANvS4mkv3nOz7AudNynCgFD7h7D3AwJZyqFKIWj9kwLjGSDEF9bRSx8YdgZLjZdPOubI10r8iD
+	fFWnpYaQlB/BBh5lSMKQ5uzL08z6Y75xtU0u22v6YSNuGCXbsbk7e4HZ+BLCCtggNpB/cDR6imh4g
+	1xdNmfaCTD8gr2M2xIc9zBA3o29UcOKLRZ7Yo57SwH2EzvjhfI2rS/Cjss2jKJKxmsBfk9dIFVd9e
+	wjIJho+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphu1-00000004AGn-0GXu;
-	Sat, 23 Aug 2025 06:39:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uphuB-00000004AUQ-0J5z;
+	Sat, 23 Aug 2025 06:39:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTpo-000000034lh-469V
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 15:37:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=vA8s7aQFwDxDyukCwmSTUpU2I1yk+deZP1Y3uxaGXjU=; b=YMEW4ZQqvNPLR9vbVKy/LLkAJh
-	Bg9130TmI7n/ay3nl6l3NcV+pWLRTgWbe91/lS9IakA6lh0u0tyVeafDCQ57Pqufn9gbQAsBVgrVo
-	0do+AibrrXiI21O1bFkpHeAMaCdXBtsp8FXFtA38m3KC6wIiN6AMG8PseBU5Z7HJqxc70P8Dc+49q
-	ZFIUpddnXcIu4E6Ua9/OjH9qvG8W5DX3Qkq8+aHahoUTsRjDMBEROVbZmX+pmdhJ2Eo+udyc9UkOg
-	zzuxIkqr42LVMkhxFWZcL6eZc6DYUZMYYBg44wp6Rj6Pw9XKz4hljgK3C8qjn6U99F+GF3dlMlDun
-	AXcz6x7A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTpe-00000000z9B-46ir
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:37:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFF652880;
-	Fri, 22 Aug 2025 08:37:16 -0700 (PDT)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B04383F63F;
-	Fri, 22 Aug 2025 08:37:19 -0700 (PDT)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
+	id 1upU2P-000000036jk-0dmF;
+	Fri, 22 Aug 2025 15:50:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 686615C70B4;
+	Fri, 22 Aug 2025 15:50:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BF9C4CEED;
+	Fri, 22 Aug 2025 15:50:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755877844;
+	bh=PRjr1oyN1prDBOKUZ34iupM5Ee2Kn6LvfPBZpedTizo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NLkvEcDi7va6d8wofQYB7lrrIzy/EqQpNAQJUXQsL0j3e4syTR+r96SoHaJ3jAtJR
+	 7ZckKnr3dczWN36y3PWZAxXyGK69AGZvU7vIBerBELyyjgoLDbNNAcCkA8nodPxDjG
+	 o1EdFfnjI81c9N6hD5URN/3efElktMnJn31DHEJ4tSXKO/4iuxY9Zquzh9Lsue3hJv
+	 Q28Oexi2b1PJzAUXESiyT7HeH2V0N8GEeoQZVSqffF15OnUhUTMiLeyN1JcqQQOYJK
+	 1CcJOJM3mQhb74Hc88k0wxqQw9O3jxOtLRx8iGcXvDWmSZ17ssaR/zBJ0ECkedrAtH
+	 kWisP7d7d+0oQ==
+Date: Fri, 22 Aug 2025 10:50:42 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, mripard@kernel.org, mchehab@kernel.org,
+	airlied@gmail.com, amergnat@baylibre.com,
+	linux-sound@vger.kernel.org, p.zabel@pengutronix.de,
+	linux-gpio@vger.kernel.org, matthias.bgg@gmail.com,
+	kyrie.wu@mediatek.corp-partner.google.com,
+	linux-input@vger.kernel.org, kuba@kernel.org, conor+dt@kernel.org,
+	linux-mediatek@lists.infradead.org, yunfei.dong@mediatek.com,
+	kernel@collabora.com, lgirdwood@gmail.com,
+	minghsiu.tsai@mediatek.com, edumazet@google.com,
+	jmassot@collabora.com, simona@ffwll.ch,
+	louisalexis.eyraud@collabora.com, support.opensource@diasemi.com,
+	chunkuang.hu@kernel.org, andrew-ct.chen@mediatek.com,
+	dmitry.torokhov@gmail.com, andrew+netdev@lunn.ch,
+	tzimmermann@suse.de, maarten.lankhorst@linux.intel.com,
+	jeesw@melfas.com, broonie@kernel.org, davem@davemloft.net,
+	houlong.wei@mediatek.com, flora.fu@mediatek.com, pabeni@redhat.com,
+	linux-clk@vger.kernel.org, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: James Morse <james.morse@arm.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com,
-	lcherian@marvell.com,
-	bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>,
-	peternewman@google.com,
-	dfustini@baylibre.com,
-	amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Rafael Wysocki <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 33/33] arm_mpam: Add kunit tests for props_mismatch()
-Date: Fri, 22 Aug 2025 15:30:48 +0000
-Message-Id: <20250822153048.2287-68-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
-References: <20250822153048.2287-1-james.morse@arm.com>
+	dri-devel@lists.freedesktop.org,
+	angelogioacchino.delregno@collabora.com, sean.wang@kernel.org,
+	tiffany.lin@mediatek.com, ck.hu@mediatek.com, krzk+dt@kernel.org,
+	linus.walleij@linaro.org
+Subject: Re: [PATCH v1 12/14] dt-bindings: soc: mediatek: pwrap: Add
+ power-domains property
+Message-ID: <175587784167.3865517.1055280782148729337.robh@kernel.org>
+References: <20250820171302.324142-1-ariel.dalessandro@collabora.com>
+ <20250820171302.324142-13-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250820171302.324142-13-ariel.dalessandro@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_163738_096693_CCCCB5B7 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250822_085045_229062_D41395FD 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,385 +94,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When features are mismatched between MSC the way features are combined
-to the class determines whether resctrl can support this SoC.
 
-Add some tests to illustrate the sort of thing that is expected to
-work, and those that must be removed.
+On Wed, 20 Aug 2025 14:13:00 -0300, Ariel D'Alessandro wrote:
+> Currently, the DT bindings for Mediatek PMIC Wrapper is missing the
+> power-domains property, which is used in the MT8173 E1 evaluation board
+> as it needs USB power domain.
+> 
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> ---
+>  .../bindings/soc/mediatek/mediatek,pwrap.yaml     | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
 
-Signed-off-by: James Morse <james.morse@arm.com>
----
- drivers/resctrl/mpam_internal.h     |   8 +-
- drivers/resctrl/test_mpam_devices.c | 322 ++++++++++++++++++++++++++++
- 2 files changed, 329 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index bbf0306abc82..6e973be095f8 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -18,6 +18,12 @@
- 
- DECLARE_STATIC_KEY_FALSE(mpam_enabled);
- 
-+#ifdef CONFIG_MPAM_KUNIT_TEST
-+#define PACKED_FOR_KUNIT __packed
-+#else
-+#define PACKED_FOR_KUNIT
-+#endif
-+
- static inline bool mpam_is_enabled(void)
- {
- 	return static_branch_likely(&mpam_enabled);
-@@ -209,7 +215,7 @@ struct mpam_props {
- 	u16			dspri_wd;
- 	u16			num_csu_mon;
- 	u16			num_mbwu_mon;
--};
-+} PACKED_FOR_KUNIT;
- 
- #define mpam_has_feature(_feat, x)	((1 << (_feat)) & (x)->features)
- 
-diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
-index 8e9d6c88171c..ef39696e7ff8 100644
---- a/drivers/resctrl/test_mpam_devices.c
-+++ b/drivers/resctrl/test_mpam_devices.c
-@@ -4,6 +4,326 @@
- 
- #include <kunit/test.h>
- 
-+/*
-+ * This test catches fields that aren't being sanitised - but can't tell you
-+ * which one...
-+ */
-+static void test__props_mismatch(struct kunit *test)
-+{
-+	struct mpam_props parent = { 0 };
-+	struct mpam_props child;
-+
-+	memset(&child, 0xff, sizeof(child));
-+	__props_mismatch(&parent, &child, false);
-+
-+	memset(&child, 0, sizeof(child));
-+	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-+
-+	memset(&child, 0xff, sizeof(child));
-+	__props_mismatch(&parent, &child, true);
-+
-+	KUNIT_EXPECT_EQ(test, memcmp(&parent, &child, sizeof(child)), 0);
-+}
-+
-+static void test_mpam_enable_merge_features(struct kunit *test)
-+{
-+	/* o/` How deep is your stack? o/` */
-+	struct list_head fake_classes_list;
-+	struct mpam_class fake_class = { 0 };
-+	struct mpam_component fake_comp1 = { 0 };
-+	struct mpam_component fake_comp2 = { 0 };
-+	struct mpam_vmsc fake_vmsc1 = { 0 };
-+	struct mpam_vmsc fake_vmsc2 = { 0 };
-+	struct mpam_msc fake_msc1 = { 0 };
-+	struct mpam_msc fake_msc2 = { 0 };
-+	struct mpam_msc_ris fake_ris1 = { 0 };
-+	struct mpam_msc_ris fake_ris2 = { 0 };
-+	struct platform_device fake_pdev = { 0 };
-+
-+#define RESET_FAKE_HIEARCHY()	do {				\
-+	INIT_LIST_HEAD(&fake_classes_list);			\
-+								\
-+	memset(&fake_class, 0, sizeof(fake_class));		\
-+	fake_class.level = 3;					\
-+	fake_class.type = MPAM_CLASS_CACHE;			\
-+	INIT_LIST_HEAD_RCU(&fake_class.components);		\
-+	INIT_LIST_HEAD(&fake_class.classes_list);		\
-+								\
-+	memset(&fake_comp1, 0, sizeof(fake_comp1));		\
-+	memset(&fake_comp2, 0, sizeof(fake_comp2));		\
-+	fake_comp1.comp_id = 1;					\
-+	fake_comp2.comp_id = 2;					\
-+	INIT_LIST_HEAD(&fake_comp1.vmsc);			\
-+	INIT_LIST_HEAD(&fake_comp1.class_list);			\
-+	INIT_LIST_HEAD(&fake_comp2.vmsc);			\
-+	INIT_LIST_HEAD(&fake_comp2.class_list);			\
-+								\
-+	memset(&fake_vmsc1, 0, sizeof(fake_vmsc1));		\
-+	memset(&fake_vmsc2, 0, sizeof(fake_vmsc2));		\
-+	INIT_LIST_HEAD(&fake_vmsc1.ris);			\
-+	INIT_LIST_HEAD(&fake_vmsc1.comp_list);			\
-+	fake_vmsc1.msc = &fake_msc1;				\
-+	INIT_LIST_HEAD(&fake_vmsc2.ris);			\
-+	INIT_LIST_HEAD(&fake_vmsc2.comp_list);			\
-+	fake_vmsc2.msc = &fake_msc2;				\
-+								\
-+	memset(&fake_ris1, 0, sizeof(fake_ris1));		\
-+	memset(&fake_ris2, 0, sizeof(fake_ris2));		\
-+	fake_ris1.ris_idx = 1;					\
-+	INIT_LIST_HEAD(&fake_ris1.msc_list);			\
-+	fake_ris2.ris_idx = 2;					\
-+	INIT_LIST_HEAD(&fake_ris2.msc_list);			\
-+								\
-+	fake_msc1.pdev = &fake_pdev;				\
-+	fake_msc2.pdev = &fake_pdev;				\
-+								\
-+	list_add(&fake_class.classes_list, &fake_classes_list);	\
-+} while (0)
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	mutex_lock(&mpam_list_lock);
-+
-+	/* One Class+Comp, two RIS in one vMSC with common features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = NULL;
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cpbm_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class+Comp, two RIS in one vMSC with non-overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = NULL;
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc1.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cmax_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	/* Multiple RIS within one MSC controlling the same resource can be mismatched */
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_vmsc1.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-+	KUNIT_EXPECT_EQ(test, fake_vmsc1.props.cmax_wd, 4);
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 4);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class+Comp, two MSC with overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp1;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cpbm_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class+Comp, two MSC with non-overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp1;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cmax_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	/*
-+	 * Multiple RIS in different MSC can't the same resource, mismatched
-+	 * features can not be supported.
-+	 */
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class+Comp, two MSC with incompatible overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp1;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-+	mpam_set_feature(mpam_feat_mbw_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_mbw_part, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 5;
-+	fake_ris2.props.cpbm_wd = 3;
-+	fake_ris1.props.mbw_pbm_bits = 5;
-+	fake_ris2.props.mbw_pbm_bits = 3;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	/*
-+	 * Multiple RIS in different MSC can't the same resource, mismatched
-+	 * features can not be supported.
-+	 */
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_mbw_part, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-+	KUNIT_EXPECT_EQ(test, fake_class.props.mbw_pbm_bits, 0);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class+Comp, two MSC with overlapping features that need tweaking */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = NULL;
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp1;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp1.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_mbw_min, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_mbw_min, &fake_ris2.props);
-+	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cmax_cmax, &fake_ris2.props);
-+	fake_ris1.props.bwa_wd = 5;
-+	fake_ris2.props.bwa_wd = 3;
-+	fake_ris1.props.cmax_wd = 5;
-+	fake_ris2.props.cmax_wd = 3;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	/*
-+	 * Multiple RIS in different MSC can't the same resource, mismatched
-+	 * features can not be supported.
-+	 */
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_class.props));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cmax_cmax, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.bwa_wd, 3);
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 3);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class Two Comp with overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = &fake_class;
-+	list_add(&fake_comp2.class_list, &fake_class.components);
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp2;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cpbm_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 4);
-+
-+	RESET_FAKE_HIEARCHY();
-+
-+	/* One Class Two Comp with non-overlapping features */
-+	fake_comp1.class = &fake_class;
-+	list_add(&fake_comp1.class_list, &fake_class.components);
-+	fake_comp2.class = &fake_class;
-+	list_add(&fake_comp2.class_list, &fake_class.components);
-+	fake_vmsc1.comp = &fake_comp1;
-+	list_add(&fake_vmsc1.comp_list, &fake_comp1.vmsc);
-+	fake_vmsc2.comp = &fake_comp2;
-+	list_add(&fake_vmsc2.comp_list, &fake_comp2.vmsc);
-+	fake_ris1.vmsc = &fake_vmsc1;
-+	list_add(&fake_ris1.vmsc_list, &fake_vmsc1.ris);
-+	fake_ris2.vmsc = &fake_vmsc2;
-+	list_add(&fake_ris2.vmsc_list, &fake_vmsc2.ris);
-+
-+	mpam_set_feature(mpam_feat_cpor_part, &fake_ris1.props);
-+	mpam_set_feature(mpam_feat_cmax_cmin, &fake_ris2.props);
-+	fake_ris1.props.cpbm_wd = 4;
-+	fake_ris2.props.cmax_wd = 4;
-+
-+	mpam_enable_merge_features(&fake_classes_list);
-+
-+	/*
-+	 * Multiple components can't control the same resource, mismatched features can
-+	 * not be supported.
-+	 */
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cpor_part, &fake_class.props));
-+	KUNIT_EXPECT_FALSE(test, mpam_has_feature(mpam_feat_cmax_cmin, &fake_class.props));
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cpbm_wd, 0);
-+	KUNIT_EXPECT_EQ(test, fake_class.props.cmax_wd, 0);
-+
-+	mutex_unlock(&mpam_list_lock);
-+
-+#undef RESET_FAKE_HIEARCHY
-+}
-+
- static void test_mpam_reset_msc_bitmap(struct kunit *test)
- {
- 	char *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
-@@ -57,6 +377,8 @@ static void test_mpam_reset_msc_bitmap(struct kunit *test)
- 
- static struct kunit_case mpam_devices_test_cases[] = {
- 	KUNIT_CASE(test_mpam_reset_msc_bitmap),
-+	KUNIT_CASE(test_mpam_enable_merge_features),
-+	KUNIT_CASE(test__props_mismatch),
- 	{}
- };
- 
--- 
-2.20.1
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
