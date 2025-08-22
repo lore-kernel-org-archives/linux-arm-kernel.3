@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB83CA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616CECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=0PtaUA6Sozh4gQj3jCj42kkzxA
-	nR0GWj00P0k4Su3c2yeUXrl7p8QAi87ESd6jyD5+hHus53lrQIf50CvUvf6NSrMTigASxzvgyM1jI
-	pNkO2u8i8CmEHfNHFPUA5IMX1WskCO3McllRTUdtkjqhNopPOLvL8IQ+wY2d4miZ+s+FnLNRzwjEc
-	HgVZUM3H/LVDhZuMv154dF1HvlPYZzVI9CO3NZvaORItqwv2LtLUbMmEUbAomYaYIkIf2fQcU+GHI
-	7QUcCqv6HZAwt2wzNlBIn7ewO1BaOV2BUEuKPmJpNE8LYOEUXh929iEh1iJ32nYtDijj/i7j8ugsC
-	4SpdRBww==;
+	bh=63KYvJNL4tqb9W50rpUtT3l2hlYXYEYhSRYlan6wZT8=; b=Ru3jkmRCx0X3px3VuF2bOjocod
+	6ylSqsr2OZuzvqXeQHFpxFFauuaksG1e+Tkh29dyBwol06g8dcW5aOanAQofkiOACfaEtjMFUWijS
+	SDK2KhQmo1JqL334xsugeXbdhHUitOdgkhO8htsx6oYMm4Q9QT6HcMHaICioeAe8PxXH4JD26sTbb
+	dh+JNIQHe5I4oCwSuWd3mjq9WH9BX2Ek4Oy3aMh1u/Y6Ce9D4U7UZM87YjiVxkTKXsuCeZXCWMfV3
+	9P4pYzD/ZmpuB6+C5IHsyevPPSoUaSr88PXRebXW/KN1Q8uIfpP115oR2nPoq7AOdAivs423bZXIF
+	EdbpGYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphrJ-000000046PK-3qqh;
-	Sat, 23 Aug 2025 06:36:13 +0000
+	id 1uphrL-000000046R0-0LsE;
+	Sat, 23 Aug 2025 06:36:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSub-00000002rFX-3Ga3
+	id 1upSuc-00000002rFa-20LL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 14:38:37 +0000
+	Fri, 22 Aug 2025 14:38:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
 	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=o1RUGpz4fK5OIiHIGDeDG4TSzs
-	OJB4HAapvQQ6Y6FrZwhk08KT1wNhXqow+1CL1VYOSChgZa89U6N2r7OOgkJQNNoHX3U9cVorE7Njj
-	LYoQOAsxSBeesENX6MIzojgWjmP8k4XqW+Qb+5ouup1L6QPRKnZhF+ECyKShLKgbDPtGGmQagzTQc
-	6nkUoYnE/NrDEWpJ9tM4LJNVjFha/bDKN5ZUiwzwrKaFOoFnibBkU++DyyRmjT/v1ETDpr27Wc1N0
-	vqG6j1QF+EZZMwBSzh+HGBA3fl5dE8qUfQZHW+y86NziCrOuDHvYzq0WQP4lHy7wJWVVkA9YRUCSQ
-	x7ZHM+TA==;
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	bh=63KYvJNL4tqb9W50rpUtT3l2hlYXYEYhSRYlan6wZT8=; b=pkEVhgqqRocyrQkhyclwHWew9w
+	1wSo3433fa2SfecME8bZDU9XFMDN56tObWm1+Aggt8X76YaXrCJ24elRRFdaTSEBHxEXBnZJJMFOY
+	mG1PNHMy2BqiV8GKp4dNu7krCF3LPw9TPgpq+6z8aaLAk4Ks5JBrEbLnFJDBK0yQO92WrrWHDvYIK
+	8lxRRacV56PG6wlwQ3dnXUqavWSbC0ZquBrcPoeZJSHRtIf27cns/oceahtcexCbKasliQu6URJiZ
+	OCBRNhJBdyfQTfjlfutcnK4VmkjJEEX3zn1nT6wiVIfBeUQuwyq+4Qcg0z6u6Tua21ad65xC9WfV2
+	d3AsREJw==;
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSuY-00000000x9x-3jWD
+	id 1upSuZ-00000000xAB-2IYg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:38:36 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MEW3dA017575;
+	Fri, 22 Aug 2025 14:38:37 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MEXa4U015372;
 	Fri, 22 Aug 2025 16:38:25 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	tb63wGgl66XJrSdpJFzgbrvT8Sty+d5zvKlUcKZpBbE=; b=UOjjXn3mr+r4BTJe
-	2hmSh6Pnm7bVn8X8bPOH7gPr1k5VG5wtyYWE0JQz9TRNChgq79/OPyp7/cKjAuse
-	XUas3xwgwbHIXPgAaj6qy7PFJi5oSNtX+hAEXRUFpJYMozskIS5JOJmES1ZDSOrs
-	1znbq2yTI8LWJG6oDkUzO6XT3I3+AFDUt4N9M4KKVI49NNEdGwwlBlov0S8+B1Yj
-	AEmcfwLevVtPFOKRzxVX8NdO3x3JOazQi0xEaMsHyGmiF5304bOZaaJHo0xCS5GX
-	M3GtgM9tOwxE5wXqOero0snKRrDlmjTFLoxdgFJT+APjp1x0xMdYmLtEJZkd8UyU
-	9Z8g6w==
+	63KYvJNL4tqb9W50rpUtT3l2hlYXYEYhSRYlan6wZT8=; b=qQv5DmjAUqAibjCL
+	GOkys2hAZhKjsw5d1NH+1IcCH+++Cuu7g4A4+gp3DAeZfn2sm4je6sN5nYxAkhnC
+	gmfdX7iYQb2TKjnhuARixBh6JnQzrvNg62EvbarBWevzWMEd1xsmMr4R0ih26UVK
+	62uO330NYmdYWeAHjpwaEdfy9jDHHe3GBKgWLlxvzuiLP/983pheGJFiA3t4J7Z/
+	zMxHFtwbsJZEk110nLiDtZ0MxJgwXKHBE4szqwUoXFXMhm5TdHVcAKe0osaUE9gL
+	qZYlUzMI0dJhKk+Mw1fxCnmOFU3Hxduh7qYW1fD9ENcQaiA3C3W5DTC2bXgGSr2E
+	PliL1A==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nd5xshmu-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nj3v8jg2-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 22 Aug 2025 16:38:25 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5FBC54004A;
-	Fri, 22 Aug 2025 16:36:55 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8D84540047;
+	Fri, 22 Aug 2025 16:36:50 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0FD39726F18;
-	Fri, 22 Aug 2025 16:35:54 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D04F6726F12;
+	Fri, 22 Aug 2025 16:35:52 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 16:35:53 +0200
+ 2025 16:35:52 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Fri, 22 Aug 2025 16:34:17 +0200
-Subject: [PATCH v5 08/13] drm/stm: ltdc: handle lvds pixel clock
+Date: Fri, 22 Aug 2025 16:34:15 +0200
+Subject: [PATCH v5 06/13] dt-bindings: arm: stm32: add required
+ #clock-cells property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250822-drm-misc-next-v5-8-9c825e28f733@foss.st.com>
+Message-ID: <20250822-drm-misc-next-v5-6-9c825e28f733@foss.st.com>
 References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
 In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -109,8 +110,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_153835_125139_6AEF2951 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250822_153835_823086_C5ACF30C 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,91 +127,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yannick Fertre <yannick.fertre@foss.st.com>
+On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
+subsystem through a multiplexer.  Since it only provides a single clock,
+the cell value is 0.
 
-Handle LVDS pixel clock.
+Doing so allows the clock consumers to reach the peripheral and gate the
+clock accordingly.
 
-The LTDC operates with multiple clock domains for register access,
-requiring all clocks to be provided during read/write operations.  This
-imposes a dependency between the LVDS and LTDC to access correctly all
-LTDC registers.  And because both IPs' pixel rates must be synchronized,
-the LTDC has to handle the LVDS clock.
-
-Signed-off-by: Yannick Fertre <yannick.fertre@foss.st.com>
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Yannick Fertre <yannick.fertre@foss.st.com>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- drivers/gpu/drm/stm/ltdc.c | 22 +++++++++++++++++++++-
- drivers/gpu/drm/stm/ltdc.h |  1 +
- 2 files changed, 22 insertions(+), 1 deletion(-)
+ .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
-index 17548dd3484a0a3e1015c58c752b80f8892a0ff7..f84a9a8590f0653e422798ff61804d7c3966caef 100644
---- a/drivers/gpu/drm/stm/ltdc.c
-+++ b/drivers/gpu/drm/stm/ltdc.c
-@@ -837,6 +837,12 @@ ltdc_crtc_mode_valid(struct drm_crtc *crtc,
- 	int target_max = target + CLK_TOLERANCE_HZ;
- 	int result;
+diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+index ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+@@ -36,20 +36,31 @@ properties:
+   clocks:
+     maxItems: 1
  
-+	if (ldev->lvds_clk) {
-+		result = clk_round_rate(ldev->lvds_clk, target);
-+		drm_dbg_driver(crtc->dev, "lvds pixclk rate target %d, available %d\n",
-+			       target, result);
-+	}
++  "#clock-cells":
++    const: 0
 +
- 	result = clk_round_rate(ldev->pixel_clk, target);
+ required:
+   - compatible
+   - reg
  
- 	DRM_DEBUG_DRIVER("clk rate target %d, available %d\n", target, result);
-@@ -1878,6 +1884,8 @@ void ltdc_suspend(struct drm_device *ddev)
- 	clk_disable_unprepare(ldev->pixel_clk);
- 	if (ldev->bus_clk)
- 		clk_disable_unprepare(ldev->bus_clk);
-+	if (ldev->lvds_clk)
-+		clk_disable_unprepare(ldev->lvds_clk);
- }
+-if:
+-  properties:
+-    compatible:
+-      contains:
+-        enum:
+-          - st,stm32mp157-syscfg
+-          - st,stm32f4-gcan
+-then:
+-  required:
+-    - clocks
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - st,stm32mp157-syscfg
++              - st,stm32f4-gcan
++    then:
++      required:
++        - clocks
++  - if:
++      properties:
++        compatible:
++          const: st,stm32mp25-syscfg
++    then:
++      required:
++        - "#clock-cells"
  
- int ltdc_resume(struct drm_device *ddev)
-@@ -1895,8 +1903,16 @@ int ltdc_resume(struct drm_device *ddev)
+ additionalProperties: false
  
- 	if (ldev->bus_clk) {
- 		ret = clk_prepare_enable(ldev->bus_clk);
--		if (ret)
-+		if (ret) {
- 			drm_err(ddev, "failed to enable bus clock (%d)\n", ret);
-+			return ret;
-+		}
-+	}
-+
-+	if (ldev->lvds_clk) {
-+		ret = clk_prepare_enable(ldev->lvds_clk);
-+		if (ret)
-+			drm_err(ddev, "failed to prepare lvds clock\n");
- 	}
- 
- 	return ret;
-@@ -1981,6 +1997,10 @@ int ltdc_load(struct drm_device *ddev)
- 		}
- 	}
- 
-+	ldev->lvds_clk = devm_clk_get(dev, "lvds");
-+	if (IS_ERR(ldev->lvds_clk))
-+		ldev->lvds_clk = NULL;
-+
- 	rstc = devm_reset_control_get_exclusive(dev, NULL);
- 
- 	mutex_init(&ldev->err_lock);
-diff --git a/drivers/gpu/drm/stm/ltdc.h b/drivers/gpu/drm/stm/ltdc.h
-index ddfa8ae61a7ba5dc446fae647562d0ec8e6953e1..17b51a7ce28eee5de6d24ca943ca3b1f48695dfd 100644
---- a/drivers/gpu/drm/stm/ltdc.h
-+++ b/drivers/gpu/drm/stm/ltdc.h
-@@ -48,6 +48,7 @@ struct ltdc_device {
- 	void __iomem *regs;
- 	struct regmap *regmap;
- 	struct clk *pixel_clk;	/* lcd pixel clock */
-+	struct clk *lvds_clk;	/* lvds pixel clock */
- 	struct clk *bus_clk;	/* bus clock */
- 	struct mutex err_lock;	/* protecting error_status */
- 	struct ltdc_caps caps;
 
 -- 
 2.25.1
