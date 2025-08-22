@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0164ACA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91769CA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szsFJQd7FpONlwOm+0H1IEbNubvgFFPa2+Vofeysjbs=; b=Ngfcipmeh8jRRo2fclP9eOIwPK
-	Sra89wU40pvlAgW2w+8To2cgD1R23H/A2hYJq5RSZKAs2Rv3bk5Bkvj2ymycf4UH9+ivjQF0imBQU
-	mtaIQanv7LqRIFIXllviUXoHgIltOh7UOOrTqop8cN+8NThK+97W1SIWP+h4ywCdNRU0e8f3FWePO
-	8JAcxJlgXriOd6VnCO4ZSdq0wwElMRdx6J3X1jkp2zjyZif4aqSpTrh5FuDvWAoIgTjhcazeny1Rh
-	zDp1et+5/Ju2+hfU8pEE6FRDXBuNTmwLgYv6F5lkbCVdgNbbVKZkJGIRNRWEjju42VsGjO4oDHGJf
-	TuxRBK+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RqOeP/Ar0gyZQ4XQGjoEh1J3Z7+XBRkqohq5EYgwM/g=; b=G3miBt/1zTbCuyi7qnD5TB7sx4
+	H3MYbmtu4iOGdF9hpjsQnQZxwsMTxaSg2M9hOCLNLZQKO3ooRisxWrz+IdkSlZitG8fltmRNwwIga
+	gPazfZlAtSc7L0mR2JB5UqWdC6uLGgA1V2mIPJo2JpGkaAPVgX0hu4C8nlNMlX/SVoDvAuOZDLhuM
+	Ft/oVDej8F289DWrCHVgvsfSr1X2pc3rm9VAEn4haVm32Uu4EllqHOVjliWID20Ijjk0BWKxvfAJD
+	DafcnFz+9rJYaZcFp704/PUUbILBUCVJgdQ5qoNxjrcRk/LP3+3/t6d4h9NffvsG8vfk/ysrI6lRa
+	OprEqiSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTn1-000000032tb-2Q5Y;
-	Fri, 22 Aug 2025 15:34:51 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1upTnI-000000033Mt-3VWL;
+	Fri, 22 Aug 2025 15:35:08 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upNeL-000000020Ew-0EPl
+	id 1upOAz-000000023xZ-2ywd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:01:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=szsFJQd7FpONlwOm+0H1IEbNubvgFFPa2+Vofeysjbs=;
-	b=d5WraUMZ95QQRPkROwQ+DJ10P6fMlQcaMqqvkrYcaC/eItrxon8v3z4g0R4o6c
-	tKl8zjkrKgYXpRmu3VT7nhgMDiZwIYAAqifwv6nWO0t5uFl2jeNidrBtao33Oljz
-	cQp1nV2sa0bJzLlxaJYFKZmFsHVu/9w7rWF7KQID7148I=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgD3H9PLMahoWSkcAw--.15940S3;
-	Fri, 22 Aug 2025 17:01:01 +0800 (CST)
-Date: Fri, 22 Aug 2025 17:00:59 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fri, 22 Aug 2025 09:35:15 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DEF4921D7D;
+	Fri, 22 Aug 2025 09:35:10 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
+	none
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D323C13A31;
+	Fri, 22 Aug 2025 09:35:09 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id oOxBMc05qGihMAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Fri, 22 Aug 2025 09:35:09 +0000
+From: Stanimir Varbanov <svarbanov@suse.de>
+To: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, kernel@dh-electronics.com
-Subject: Re: [PATCH] arm64: dts: imx8mp: Fix missing microSD slot vqmmc on DH
- electronics i.MX8M Plus DHCOM
-Message-ID: <aKgxy6tmlw28awes@dragon>
-References: <20250810160340.10042-1-marek.vasut@mailbox.org>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	stable@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH v2 1/5] net: cadence: macb: Set upper 32bits of DMA ring buffer
+Date: Fri, 22 Aug 2025 12:34:36 +0300
+Message-ID: <20250822093440.53941-2-svarbanov@suse.de>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250822093440.53941-1-svarbanov@suse.de>
+References: <20250822093440.53941-1-svarbanov@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250810160340.10042-1-marek.vasut@mailbox.org>
-X-CM-TRANSID: Mc8vCgD3H9PLMahoWSkcAw--.15940S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUeLvtDUUUU
-X-Originating-IP: [117.81.240.235]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNQ3DKWioMc2g0gAA3c
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[];
+	TAGGED_RCPT(0.00)[dt,netdev]
+X-Rspamd-Queue-Id: DEF4921D7D
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_020129_470514_EBBA9303 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_023513_893084_EF1E3DEA 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 06:03:07PM +0200, Marek Vasut wrote:
-> Add missing microSD slot vqmmc-supply property, otherwise the kernel
-> might shut down LDO5 regulator and that would power off the microSD
-> card slot, possibly while it is in use. Add the property to make sure
-> the kernel is aware of the LDO5 regulator which supplies the microSD
-> slot and keeps the LDO5 enabled.
-> 
-> Fixes: 8d6712695bc8 ("arm64: dts: imx8mp: Add support for DH electronics i.MX8M Plus DHCOM and PDK2")
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+In case of rx queue reset and 64bit capable hardware, set the upper
+32bits of DMA ring buffer address.
 
-Applied, thanks!
+Cc: stable@vger.kernel.org # v4.6+
+Fixes: 9ba723b081a2 ("net: macb: remove BUG_ON() and reset the queue to handle RX errors")
+Credits-to: Phil Elwell <phil@raspberrypi.com>
+Credits-to: Jonathan Bell <jonathan@raspberrypi.com>
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v1 -> v2: 
+ - Added credits.
+ - Use lower_32_bits() for RBQP register writes for consistency (Nicolas).
+ - Added Fixes tag.
+
+ drivers/net/ethernet/cadence/macb_main.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index ce95fad8cedd..36717e7e5811 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -1634,7 +1634,11 @@ static int macb_rx(struct macb_queue *queue, struct napi_struct *napi,
+ 		macb_writel(bp, NCR, ctrl & ~MACB_BIT(RE));
+ 
+ 		macb_init_rx_ring(queue);
+-		queue_writel(queue, RBQP, queue->rx_ring_dma);
++		queue_writel(queue, RBQP, lower_32_bits(queue->rx_ring_dma));
++#ifdef CONFIG_ARCH_DMA_ADDR_T_64BIT
++		if (bp->hw_dma_cap & HW_DMA_CAP_64B)
++			macb_writel(bp, RBQPH, upper_32_bits(queue->rx_ring_dma));
++#endif
+ 
+ 		macb_writel(bp, NCR, ctrl | MACB_BIT(RE));
+ 
+-- 
+2.47.0
 
 
