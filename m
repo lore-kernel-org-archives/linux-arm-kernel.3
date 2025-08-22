@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68715CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 922ECCA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=un+oR+fP5qbABzOy+weU6zIeK55bE2EYdezd1qwdPAc=; b=kc5CMI415ldljtCeTPkWVOG/f4
-	epJRe+1aiT0ZhjtGh1dvMBlSXsl8OifsKI14xyFp3BEM9ryfZ0Teiural/BvKi0CtoSBjdd0Tjqf7
-	W0saOw+FeggT5ft0kbmwsfgzZdkYueUOASOUvlVniGhmwVqO7Yo33acZYsQtkPuyhuGbEz7Fa19Xh
-	g/rvCLfDMiq65aiMWSwuI7IudtFJ9/rgeszByiE5DdurDFHP1G+YGS/MlIc+y0N+9HFrImdfOl9D5
-	rhjW+A6zcA9W86fphl/e2/OUhEvFXeXoe5ua2wusIho5RXme+szbsi1jclitwJ/bxRKgUqMZfTs8n
-	VbXTFGbA==;
+	bh=onbNJPxG/jyn3iFa/4GVdUJi5GeO0HdyiU4c12uy7Nw=; b=TTQ58ODQv39mYrJeyaSt+hOz9b
+	uS8+7KxvvuZk9Rof5SsW8OnJvO1zIiTNkCmJPXoLWEm6kiBAJs2IuP/edyL6jslFqeXUie3l1x6MT
+	YE34JnMKTInDR/NYVhhq3Ou6anBK78TowGzx9+L9Kx3MjPx4mbjmLZ++yT9qWn1HQ79B53RjCSCLq
+	wohyuRmpK3En9maq9nDPcMKR+SVvS+/ucZ52dPSensyipqmWtONG7PTABj9Etri9O+e7o0pl1QAay
+	RAY295pENSyW/6NDdTUyhWqpC1rNS1zJHBQBtXIKG0PGA+PbjMHd403kblurUQ0fukJ5Sq9yp311M
+	oiPyme5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkeZ-00000004TL8-41sZ;
-	Sat, 23 Aug 2025 09:35:15 +0000
+	id 1upkee-00000004TT6-3S3M;
+	Sat, 23 Aug 2025 09:35:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTkE-000000031gV-0qD6
+	id 1upTkg-000000031mg-065G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 15:31:59 +0000
+	Fri, 22 Aug 2025 15:32:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E19115A1;
-	Fri, 22 Aug 2025 08:31:49 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 434D32880;
+	Fri, 22 Aug 2025 08:32:17 -0700 (PDT)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00FD33F63F;
-	Fri, 22 Aug 2025 08:31:51 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 139773F63F;
+	Fri, 22 Aug 2025 08:32:19 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -71,18 +71,19 @@ Cc: James Morse <james.morse@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: [PATCH 09/33] dt-bindings: arm: Add MPAM MSC binding
-Date: Fri, 22 Aug 2025 15:29:50 +0000
-Message-Id: <20250822153048.2287-10-james.morse@arm.com>
+	Danilo Krummrich <dakr@kernel.org>,
+	Lecopzer Chen <lecopzerc@nvidia.com>
+Subject: [PATCH 14/33] arm_mpam: Add cpuhp callbacks to probe MSC hardware
+Date: Fri, 22 Aug 2025 15:29:55 +0000
+Message-Id: <20250822153048.2287-15-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
 References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_083158_322979_AACE90C1 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250822_083226_150508_C869A86F 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,237 +98,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rob Herring <robh@kernel.org>
+Because an MSC can only by accessed from the CPUs in its cpu-affinity
+set we need to be running on one of those CPUs to probe the MSC
+hardware.
 
-The binding is designed around the assumption that an MSC will be a
-sub-block of something else such as a memory controller, cache controller,
-or IOMMU. However, it's certainly possible a design does not have that
-association or has a mixture of both, so the binding illustrates how we can
-support that with RIS child nodes.
+Do this work in the cpuhp callback. Probing the hardware will only
+happen before MPAM is enabled, walk all the MSCs and probe those we can
+reach that haven't already been probed.
 
-A key part of MPAM is we need to know about all of the MSCs in the system
-before it can be enabled. This drives the need for the genericish
-'arm,mpam-msc' compatible. Though we can't assume an MSC is accessible
-until a h/w specific driver potentially enables the h/w.
+Later once MPAM is enabled, this cpuhp callback will be replaced by
+one that avoids the global list.
 
-Cc: James Morse <james.morse@arm.com>
-Signed-off-by: Rob Herring <robh@kernel.org>
+Enabling a static key will also take the cpuhp lock, so can't be done
+from the cpuhp callback. Whenever a new MSC has been probed schedule
+work to test if all the MSCs have now been probed.
+
+CC: Lecopzer Chen <lecopzerc@nvidia.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
-Changes since RFC:
- * Syntax(?) corrections supplied by Rob.
- * Culled some context in the example.
----
- .../devicetree/bindings/arm/arm,mpam-msc.yaml | 200 ++++++++++++++++++
- 1 file changed, 200 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
+ drivers/resctrl/mpam_devices.c  | 144 +++++++++++++++++++++++++++++++-
+ drivers/resctrl/mpam_internal.h |   8 +-
+ 2 files changed, 147 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
-new file mode 100644
-index 000000000000..d984817b3385
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/arm,mpam-msc.yaml
-@@ -0,0 +1,200 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/arm,mpam-msc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 5baf2a8786fb..9d6516f98acf 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -4,6 +4,7 @@
+ #define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+ 
+ #include <linux/acpi.h>
++#include <linux/atomic.h>
+ #include <linux/arm_mpam.h>
+ #include <linux/cacheinfo.h>
+ #include <linux/cpu.h>
+@@ -21,6 +22,7 @@
+ #include <linux/slab.h>
+ #include <linux/spinlock.h>
+ #include <linux/types.h>
++#include <linux/workqueue.h>
+ 
+ #include <acpi/pcc.h>
+ 
+@@ -39,6 +41,16 @@ struct srcu_struct mpam_srcu;
+ /* MPAM isn't available until all the MSC have been probed. */
+ static u32 mpam_num_msc;
+ 
++static int mpam_cpuhp_state;
++static DEFINE_MUTEX(mpam_cpuhp_state_lock);
 +
-+title: Arm Memory System Resource Partitioning and Monitoring (MPAM)
++/*
++ * mpam is enabled once all devices have been probed from CPU online callbacks,
++ * scheduled via this work_struct. If access to an MSC depends on a CPU that
++ * was not brought online at boot, this can happen surprisingly late.
++ */
++static DECLARE_WORK(mpam_enable_work, &mpam_enable);
 +
-+description: |
-+  The Arm MPAM specification can be found here:
+ /*
+  * An MSC is a physical container for controls and monitors, each identified by
+  * their RIS index. These share a base-address, interrupts and some MMIO
+@@ -78,6 +90,22 @@ LIST_HEAD(mpam_classes);
+ /* List of all objects that can be free()d after synchronise_srcu() */
+ static LLIST_HEAD(mpam_garbage);
+ 
++static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
++{
++	WARN_ON_ONCE(reg > msc->mapped_hwpage_sz);
++	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
 +
-+  https://developer.arm.com/documentation/ddi0598/latest
++	return readl_relaxed(msc->mapped_hwpage + reg);
++}
 +
-+maintainers:
-+  - Rob Herring <robh@kernel.org>
++static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
++{
++	lockdep_assert_held_once(&msc->part_sel_lock);
++	return __mpam_read_reg(msc, reg);
++}
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: arm,mpam-msc                   # Further details are discoverable
-+      - const: arm,mpam-memory-controller-msc
++#define mpam_read_partsel_reg(msc, reg)        _mpam_read_partsel_reg(msc, MPAMF_##reg)
 +
-+  reg:
-+    maxItems: 1
-+    description: A memory region containing registers as defined in the MPAM
-+      specification.
+ #define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
+ 
+ static struct mpam_vmsc *
+@@ -511,9 +539,84 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+ 	return err;
+ }
+ 
+-static void mpam_discovery_complete(void)
++static int mpam_msc_hw_probe(struct mpam_msc *msc)
++{
++	u64 idr;
++	int err;
 +
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: error (optional)
-+      - description: overflow (optional, only for monitoring)
++	lockdep_assert_held(&msc->probe_lock);
 +
-+  interrupt-names:
-+    oneOf:
-+      - items:
-+          - enum: [ error, overflow ]
-+      - items:
-+          - const: error
-+          - const: overflow
++	mutex_lock(&msc->part_sel_lock);
++	idr = mpam_read_partsel_reg(msc, AIDR);
++	if ((idr & MPAMF_AIDR_ARCH_MAJOR_REV) != MPAM_ARCHITECTURE_V1) {
++		pr_err_once("%s does not match MPAM architecture v1.x\n",
++			    dev_name(&msc->pdev->dev));
++		err = -EIO;
++	} else {
++		msc->probed = true;
++		err = 0;
++	}
++	mutex_unlock(&msc->part_sel_lock);
 +
-+  arm,not-ready-us:
-+    description: The maximum time in microseconds for monitoring data to be
-+      accurate after a settings change. For more information, see the
-+      Not-Ready (NRDY) bit description in the MPAM specification.
++	return err;
++}
 +
-+  numa-node-id: true # see NUMA binding
++static int mpam_cpu_online(unsigned int cpu)
+ {
+-	pr_err("Discovered all MSC\n");
++	return 0;
++}
 +
-+  '#address-cells':
-+    const: 1
++/* Before mpam is enabled, try to probe new MSC */
++static int mpam_discovery_cpu_online(unsigned int cpu)
++{
++	int err = 0;
++	struct mpam_msc *msc;
++	bool new_device_probed = false;
 +
-+  '#size-cells':
-+    const: 0
++	mutex_lock(&mpam_list_lock);
++	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
++		if (!cpumask_test_cpu(cpu, &msc->accessibility))
++			continue;
 +
-+patternProperties:
-+  '^ris@[0-9a-f]$':
-+    type: object
-+    additionalProperties: false
-+    description:
-+      RIS nodes for each RIS in an MSC. These nodes are required for each RIS
-+      implementing known MPAM controls
++		mutex_lock(&msc->probe_lock);
++		if (!msc->probed)
++			err = mpam_msc_hw_probe(msc);
++		mutex_unlock(&msc->probe_lock);
 +
-+    properties:
-+      compatible:
-+        enum:
-+            # Bulk storage for cache
-+          - arm,mpam-cache
-+            # Memory bandwidth
-+          - arm,mpam-memory
++		if (!err)
++			new_device_probed = true;
++		else
++			break; // mpam_broken
++	}
++	mutex_unlock(&mpam_list_lock);
 +
-+      reg:
-+        minimum: 0
-+        maximum: 0xf
++	if (new_device_probed && !err)
++		schedule_work(&mpam_enable_work);
 +
-+      cpus:
-+        description:
-+          Phandle(s) to the CPU node(s) this RIS belongs to. By default, the parent
-+          device's affinity is used.
++	return err;
++}
 +
-+      arm,mpam-device:
-+        $ref: /schemas/types.yaml#/definitions/phandle
-+        description:
-+          By default, the MPAM enabled device associated with a RIS is the MSC's
-+          parent node. It is possible for each RIS to be associated with different
-+          devices in which case 'arm,mpam-device' should be used.
++static int mpam_cpu_offline(unsigned int cpu)
++{
++	return 0;
++}
 +
-+    required:
-+      - compatible
-+      - reg
++static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
++					  int (*offline)(unsigned int offline))
++{
++	mutex_lock(&mpam_cpuhp_state_lock);
++	if (mpam_cpuhp_state) {
++		cpuhp_remove_state(mpam_cpuhp_state);
++		mpam_cpuhp_state = 0;
++	}
 +
-+required:
-+  - compatible
-+  - reg
++	mpam_cpuhp_state = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "mpam:online",
++					     online, offline);
++	if (mpam_cpuhp_state <= 0) {
++		pr_err("Failed to register cpuhp callbacks");
++		mpam_cpuhp_state = 0;
++	}
++	mutex_unlock(&mpam_cpuhp_state_lock);
+ }
+ 
+ static int mpam_dt_count_msc(void)
+@@ -772,7 +875,7 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	if (!err && fw_num_msc == mpam_num_msc)
+-		mpam_discovery_complete();
++		mpam_register_cpuhp_callbacks(&mpam_discovery_cpu_online, NULL);
+ 
+ 	if (err && msc)
+ 		mpam_msc_drv_remove(pdev);
+@@ -795,6 +898,41 @@ static struct platform_driver mpam_msc_driver = {
+ 	.remove = mpam_msc_drv_remove,
+ };
+ 
++static void mpam_enable_once(void)
++{
++	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
 +
-+dependencies:
-+  interrupts: [ interrupt-names ]
++	pr_info("MPAM enabled\n");
++}
 +
-+additionalProperties: false
++/*
++ * Enable mpam once all devices have been probed.
++ * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
++ * Also scheduled when new devices are probed when new CPUs come online.
++ */
++void mpam_enable(struct work_struct *work)
++{
++	static atomic_t once;
++	struct mpam_msc *msc;
++	bool all_devices_probed = true;
 +
-+examples:
-+  - |
-+    L3: cache-controller@30000000 {
-+        compatible = "arm,dsu-l3-cache", "cache";
-+        cache-level = <3>;
-+        cache-unified;
++	/* Have we probed all the hw devices? */
++	mutex_lock(&mpam_list_lock);
++	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
++		mutex_lock(&msc->probe_lock);
++		if (!msc->probed)
++			all_devices_probed = false;
++		mutex_unlock(&msc->probe_lock);
 +
-+        ranges = <0x0 0x30000000 0x800000>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
++		if (!all_devices_probed)
++			break;
++	}
++	mutex_unlock(&mpam_list_lock);
 +
-+        msc@10000 {
-+            compatible = "arm,mpam-msc";
++	if (all_devices_probed && !atomic_fetch_inc(&once))
++		mpam_enable_once();
++}
 +
-+            /* CPU affinity implied by parent cache node's  */
-+            reg = <0x10000 0x2000>;
-+            interrupts = <1>, <2>;
-+            interrupt-names = "error", "overflow";
-+            arm,not-ready-us = <1>;
-+        };
-+    };
+ /*
+  * MSC that are hidden under caches are not created as platform devices
+  * as there is no cache driver. Caches are also special-cased in
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 6e0982a1a9ac..a98cca08a2ef 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -49,6 +49,7 @@ struct mpam_msc {
+ 	 * properties become read-only and the lists are protected by SRCU.
+ 	 */
+ 	struct mutex		probe_lock;
++	bool			probed;
+ 	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+ 	u32			ris_max;
+ 
+@@ -59,14 +60,14 @@ struct mpam_msc {
+ 	 * part_sel_lock protects access to the MSC hardware registers that are
+ 	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+ 	 * by RIS).
+-	 * If needed, take msc->lock first.
++	 * If needed, take msc->probe_lock first.
+ 	 */
+ 	struct mutex		part_sel_lock;
+ 
+ 	/*
+ 	 * mon_sel_lock protects access to the MSC hardware registers that are
+ 	 * affeted by MPAMCFG_MON_SEL.
+-	 * If needed, take msc->lock first.
++	 * If needed, take msc->probe_lock first.
+ 	 */
+ 	struct mutex		outer_mon_sel_lock;
+ 	raw_spinlock_t		inner_mon_sel_lock;
+@@ -147,6 +148,9 @@ struct mpam_msc_ris {
+ extern struct srcu_struct mpam_srcu;
+ extern struct list_head mpam_classes;
+ 
++/* Scheduled work callback to enable mpam once all MSC have been probed */
++void mpam_enable(struct work_struct *work);
 +
-+    mem: memory-controller@20000 {
-+        compatible = "foo,a-memory-controller";
-+        reg = <0x20000 0x1000>;
-+
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges;
-+
-+        msc@21000 {
-+            compatible = "arm,mpam-memory-controller-msc", "arm,mpam-msc";
-+            reg = <0x21000 0x1000>;
-+            interrupts = <3>;
-+            interrupt-names = "error";
-+            arm,not-ready-us = <1>;
-+            numa-node-id = <1>;
-+        };
-+    };
-+
-+    iommu@40000 {
-+        reg = <0x40000 0x1000>;
-+
-+        ranges;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+
-+        msc@41000 {
-+            compatible = "arm,mpam-msc";
-+            reg = <0 0x1000>;
-+            interrupts = <5>, <6>;
-+            interrupt-names = "error", "overflow";
-+            arm,not-ready-us = <1>;
-+
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ris@2 {
-+                compatible = "arm,mpam-cache";
-+                reg = <0>;
-+                // TODO: How to map to device(s)?
-+            };
-+        };
-+    };
-+
-+    msc@80000 {
-+        compatible = "foo,a-standalone-msc";
-+        reg = <0x80000 0x1000>;
-+
-+        clocks = <&clks 123>;
-+
-+        ranges;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+
-+        msc@10000 {
-+            compatible = "arm,mpam-msc";
-+
-+            reg = <0x10000 0x2000>;
-+            interrupts = <7>;
-+            interrupt-names = "overflow";
-+            arm,not-ready-us = <1>;
-+
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ris@0 {
-+                compatible = "arm,mpam-cache";
-+                reg = <0>;
-+                arm,mpam-device = <&L2_0>;
-+            };
-+
-+            ris@1 {
-+                compatible = "arm,mpam-memory";
-+                reg = <1>;
-+                arm,mpam-device = <&mem>;
-+            };
-+        };
-+    };
-+
-+...
+ int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+ 				   cpumask_t *affinity);
+ 
 -- 
 2.20.1
 
