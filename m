@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08E7CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCE9CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zuwbF9eB3t485vQKBVN40mCG9D/kAybvLkn5/BUf8wY=; b=o9k46CrEYi9eAwMQOKyWgxVrxS
-	PI2FeSsoeF1QGFjGJm0byF1c5rHSYpgHgMy6YlvNc2Qf7Vjaci3RcOG0dFEJRyA1kv9rL83ypZXlG
-	5jUiAe590j5CKO2clnVO6w054fmvHB53fkmIUqtrq4RFF2moSOxmWqkHyNQH0nDCXzpeBp/X+W+0b
-	+FFCHoOsic9GF08xlpNMd0ZBXuwU9xvPpDrtFL/Lf168cBek2PAkcpHmvv1yc7OiRo7X74VFbBdpL
-	tOVa2uNJwieTetXDYgLFNTylQw8TQQtdYLPiO7sUnrHEKRnT2xxDEZfKUcT24Z3GfK4IWcHlmv/Cr
-	93O7XetA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vk+Vft+FY8iaRLLaOZ3HBsVpqh3sXMCnKyfCefpECp4=; b=HUD5l8E/MwC06SoVS+mNTAni6D
+	nxR7ns5s0abkPOOr330ioYEwd0lsKbtub9OFxHtpunZ1z65u17iazEEdu5BIWsEVHfqo0QG1F2I0A
+	91nsXNtSSyc7oRYEORCkuamU2D2FaAEwbjrQ93F1FcPtdpdF4bjjVeuS4/CZolnwHhEbt+KXuqz5z
+	b4rPpEG8gZ37SbPyYLwxOfmKC2l0XSLF4qN51Kxxeb9vsrc6AlzvK933eexfpZ76ybHMruxVGud85
+	OLp3FjVdprXIkVflFH6iPjy9ITy/HEdB7LpXSP085WWkZj7M8mo+FxaEkHhKMdGhNyoDcEX90Ueca
+	qF8phyhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkgF-00000004W98-0bGZ;
-	Sat, 23 Aug 2025 09:36:59 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1upkgK-00000004WIE-2jPg;
+	Sat, 23 Aug 2025 09:37:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upaLy-00000003bbv-03mN;
-	Fri, 22 Aug 2025 22:35:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755902122; x=1787438122;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=R5PaTuYrgUIRNnUfVveRfz0LrC26l6MrG1wU0QZXikE=;
-  b=iqjNhe5OiU9p5ROQxaRmNJHGkiI1tM6jawwDtNOObUvjr0lm+ICwaI6c
-   Z0tGPEEiRO1nRUkSWH5eVOBATEKvzEFkNcqaCUahuCm/5WWVZ4wJLvswr
-   Y+IXRR5BJazDHKbcQRaUh4OkGUyEJDnByGA4P+at87P9Im3XPI3LBBk1R
-   zfuHNrn+EJqJngYRZ5Dv4xSD+n22pAitFqx/LfPnhLqICVNKSewafdZJe
-   rdNY5xFctmHl/CV7c0ovPgd2SIvFsLLypdAEjn+VhGOnmOh7negB9Go7u
-   N76/OjDHBo4kWG6Sp1YN24MVUm6WRKiavHqZQcTfRmrc/cDjjR8haeul6
-   Q==;
-X-CSE-ConnectionGUID: okyIvHAXSQ+nlih/fnkXzw==
-X-CSE-MsgGUID: S66dYBbdTMupHIRTmo9lvg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11529"; a="62046732"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="62046732"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2025 15:35:18 -0700
-X-CSE-ConnectionGUID: 6jX73bC2T3Opq9Yjcn+fYQ==
-X-CSE-MsgGUID: ILGDVUOPTqi4GxU0i/InIw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="173076860"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 22 Aug 2025 15:35:16 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1upaLp-000LtD-3C;
-	Fri, 22 Aug 2025 22:35:13 +0000
-Date: Sat, 23 Aug 2025 06:34:41 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 2/3] net: airoha: Add airoha_ppe_dev struct
- definition
-Message-ID: <202508230602.GmZrkmas-lkp@intel.com>
-References: <20250822-airoha-en7581-wlan-rx-offload-v2-2-8a76e1d3fec2@kernel.org>
+	id 1upahA-00000003cvs-40yb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 22:57:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 58EAA601D3;
+	Fri, 22 Aug 2025 22:57:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1160C4CEED;
+	Fri, 22 Aug 2025 22:57:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755903436;
+	bh=MllpE7EOiK57XkYC3Q0CVPiFqSbds9CUyBPa1yFXM5g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Td2gekp76Ho02tvvrbx7Vlo1iciPPdsxDPPV7wU6Ylea/HMKF3IEqkR2FA02F/KWA
+	 0wtRgOKeWe2QuLErwPDVNpfU4yu3RXEc/Pgpj6pNu6smrLAtxUrTfTaDUPvgI07EZN
+	 Uug0+oe/THvd0u3wEwG8kmHkwm/OohZy5BwUvvwZqmw3oxgfltS7lT2sLCQmMWmNO7
+	 qgfSftAoDZLhP99vGRM0ANqLC71PgtT3uTxSKtjJFSfJnO41BJdIrcC7P1xhCwCjly
+	 8nlXKf2KAw0/xfp0UEUFOwclvHFqYsscv3SAMc3yl/lH2mxeM1ilMQgNO5Fh9eH6XY
+	 +dI9xqob0svfg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH v2] dt-binding: thermal: Convert marvell,armada-ap806-thermal to DT schema
+Date: Fri, 22 Aug 2025 17:57:00 -0500
+Message-ID: <20250822225701.766947-1-robh@kernel.org>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250822-airoha-en7581-wlan-rx-offload-v2-2-8a76e1d3fec2@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_153522_122225_0E2DE28B 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,50 +77,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Convert the Marvell Armada AP80x/CP110 thermal binding to schema. It is
+a straight forward conversion.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+v2:
+ - Mention the SEI connection
+---
+ .../arm/marvell/ap80x-system-controller.txt   | 39 ----------------
+ .../arm/marvell/cp110-system-controller.txt   | 43 -----------------
+ .../thermal/marvell,armada-ap806-thermal.yaml | 46 +++++++++++++++++++
+ 3 files changed, 46 insertions(+), 82 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
 
-[auto build test ERROR on a7bd72158063740212344fad5d99dcef45bc70d6]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/net-airoha-Rely-on-airoha_eth-struct-in-airoha_ppe_flow_offload_cmd-signature/20250822-151720
-base:   a7bd72158063740212344fad5d99dcef45bc70d6
-patch link:    https://lore.kernel.org/r/20250822-airoha-en7581-wlan-rx-offload-v2-2-8a76e1d3fec2%40kernel.org
-patch subject: [PATCH net-next v2 2/3] net: airoha: Add airoha_ppe_dev struct definition
-config: powerpc64-randconfig-003-20250823 (https://download.01.org/0day-ci/archive/20250823/202508230602.GmZrkmas-lkp@intel.com/config)
-compiler: powerpc64-linux-gcc (GCC) 10.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250823/202508230602.GmZrkmas-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508230602.GmZrkmas-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/net/ethernet/airoha/airoha_eth.h:16,
-                    from drivers/net/ethernet/airoha/airoha_npu.c:15:
->> include/linux/soc/airoha/airoha_offload.h:31:15: error: unknown type name 'airoha_ppe_dev'
-      31 | static inline airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
-         |               ^~~~~~~~~~~~~~
-
-
-vim +/airoha_ppe_dev +31 include/linux/soc/airoha/airoha_offload.h
-
-    24	
-    25	static inline int airoha_ppe_dev_setup_tc_block_cb(struct airoha_ppe_dev *dev,
-    26							   void *type_data)
-    27	{
-    28		return dev->ops.setup_tc_block_cb(dev, type_data);
-    29	}
-    30	#else
-  > 31	static inline airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
-    32	{
-    33		return NULL;
-    34	}
-    35	
-
+diff --git a/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt b/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
+index c83245065d44..72de11bd2ef0 100644
+--- a/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
++++ b/Documentation/devicetree/bindings/arm/marvell/ap80x-system-controller.txt
+@@ -115,45 +115,6 @@ ap_syscon: system-controller@6f4000 {
+ SYSTEM CONTROLLER 1
+ ===================
+ 
+-Thermal:
+---------
+-
+-For common binding part and usage, refer to
+-Documentation/devicetree/bindings/thermal/thermal*.yaml
+-
+-The thermal IP can probe the temperature all around the processor. It
+-may feature several channels, each of them wired to one sensor.
+-
+-It is possible to setup an overheat interrupt by giving at least one
+-critical point to any subnode of the thermal-zone node.
+-
+-Required properties:
+-- compatible: must be one of:
+-  * marvell,armada-ap806-thermal
+-- reg: register range associated with the thermal functions.
+-
+-Optional properties:
+-- interrupts: overheat interrupt handle. Should point to line 18 of the
+-  SEI irqchip. See interrupt-controller/interrupts.txt
+-- #thermal-sensor-cells: shall be <1> when thermal-zones subnodes refer
+-  to this IP and represents the channel ID. There is one sensor per
+-  channel. O refers to the thermal IP internal channel, while positive
+-  IDs refer to each CPU.
+-
+-Example:
+-ap_syscon1: system-controller@6f8000 {
+-	compatible = "syscon", "simple-mfd";
+-	reg = <0x6f8000 0x1000>;
+-
+-	ap_thermal: thermal-sensor@80 {
+-		compatible = "marvell,armada-ap806-thermal";
+-		reg = <0x80 0x10>;
+-		interrupt-parent = <&sei>;
+-		interrupts = <18>;
+-		#thermal-sensor-cells = <1>;
+-	};
+-};
+-
+ Cluster clocks:
+ ---------------
+ 
+diff --git a/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt b/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
+index 9d5d70c98058..54ff9f218328 100644
+--- a/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
++++ b/Documentation/devicetree/bindings/arm/marvell/cp110-system-controller.txt
+@@ -189,46 +189,3 @@ CP110_LABEL(syscon0): system-controller@440000 {
+ 	};
+ 
+ };
+-
+-SYSTEM CONTROLLER 1
+-===================
+-
+-Thermal:
+---------
+-
+-The thermal IP can probe the temperature all around the processor. It
+-may feature several channels, each of them wired to one sensor.
+-
+-It is possible to setup an overheat interrupt by giving at least one
+-critical point to any subnode of the thermal-zone node.
+-
+-For common binding part and usage, refer to
+-Documentation/devicetree/bindings/thermal/thermal*.yaml
+-
+-Required properties:
+-- compatible: must be one of:
+-  * marvell,armada-cp110-thermal
+-- reg: register range associated with the thermal functions.
+-
+-Optional properties:
+-- interrupts-extended: overheat interrupt handle. Should point to
+-  a line of the ICU-SEI irqchip (116 is what is usually used by the
+-  firmware). The ICU-SEI will redirect towards interrupt line #37 of the
+-  AP SEI which is shared across all CPs.
+-  See interrupt-controller/interrupts.txt
+-- #thermal-sensor-cells: shall be <1> when thermal-zones subnodes refer
+-  to this IP and represents the channel ID. There is one sensor per
+-  channel. O refers to the thermal IP internal channel.
+-
+-Example:
+-CP110_LABEL(syscon1): system-controller@6f8000 {
+-	compatible = "syscon", "simple-mfd";
+-	reg = <0x6f8000 0x1000>;
+-
+-	CP110_LABEL(thermal): thermal-sensor@70 {
+-		compatible = "marvell,armada-cp110-thermal";
+-		reg = <0x70 0x10>;
+-		interrupts-extended = <&CP110_LABEL(icu_sei) 116 IRQ_TYPE_LEVEL_HIGH>;
+-		#thermal-sensor-cells = <1>;
+-	};
+-};
+diff --git a/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml b/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
+new file mode 100644
+index 000000000000..2c370317a40e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/thermal/marvell,armada-ap806-thermal.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thermal/marvell,armada-ap806-thermal.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Marvell Armada AP80x/CP110 thermal management
++
++maintainers:
++  - Miquel Raynal <miquel.raynal@bootlin.com>
++
++properties:
++  compatible:
++    enum:
++      - marvell,armada-ap806-thermal
++      - marvell,armada-ap807-thermal
++      - marvell,armada-cp110-thermal
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    description:
++      Overheat interrupt. The interrupt is connected thru a System Error
++      Interrupt (SEI) controller.
++    maxItems: 1
++
++  '#thermal-sensor-cells':
++    description: Cell represents the channel ID. There is one sensor per
++      channel. O refers to the thermal IP internal channel.
++    const: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    thermal-sensor@80 {
++        compatible = "marvell,armada-ap806-thermal";
++        reg = <0x80 0x10>;
++        interrupts = <18>;
++        #thermal-sensor-cells = <1>;
++    };
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
