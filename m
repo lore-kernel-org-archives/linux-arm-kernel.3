@@ -4,160 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C520CA0FE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A31FCA0EEB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 21:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wiD1Xw5ggHe75SY0VUkEQ5k0ohXKS9HkkB/Bh0Nqmsw=; b=NYKJs29Ck8xYoxoxyIl5quUHF9
-	C0ERZgX76GbQ5MEKKyeXifzR4RekBeSg+3Q1LedSvks3dqku9gtj5j+NfWTZcAZhOSCjWjNggxPnD
-	wwSKHXprx06TdEuKpdTbNEY/0ehY2LlKgScwyeZYN7xDde8kVCyKE/AaST5AktSY1zWa/AnqBryrA
-	xr2n1F9Xp5QA/S84sA37zSbbN/l5xXZ4JhhQ2/Pk0WgKgkk246SBtkFGSYj37a35OwshcfdR1wosc
-	gIp6UqrSZvXB/potLrSqn/aPRt1IHGqfq16oXR9H9ElIYj56+7J0WKW90ScZV2eX019VWSJdUWcD9
-	huMybVZw==;
+	bh=nmtEoeQlWuqYko7mqBv9pQr3Zd1olsc1MAqj9gtJ+xo=; b=30Bea+uxjE34NQETWLlPW7nBQf
+	R2WX+lZMBXj4fYKcR7C3sCKX86K2GZHwG0UMCBsO/PAxXBikr/B49E92g87Nm/xzh+I2CnhRP5xTO
+	N/2e6mw8jouFhkLx4T1Gxh/Nn2rn24XiasRNyjNbPRoywO9oPWk5SLMba81BYjR7yEoDehANeSw2x
+	7yCFwvlk0YjxXQlY5jaaBN31DQbtcOkY35CZZy0kw/nyMJmKzq2o1cqN9kHE1/PgF1JPWHsmKAEsv
+	Q6wk5MOR4VeQ5V2e3iThK+/vpXN/V9dYPXJRJmZ6nQPbCh46qIA8I8IdyF01su2RQ/NX6f/myynET
+	x/5RTgEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upZaw-00000003X0P-0eA1;
-	Fri, 22 Aug 2025 21:46:46 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1upZbB-00000003XKe-2VB4;
+	Fri, 22 Aug 2025 21:47:01 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upNO6-00000001yEY-0Vfk
+	id 1upO2p-000000022Xm-3VfC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 08:44:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fdrbo3vi51AzqH5JMGtKH9oLhIwHCP5cqo4VGsBIFYM4IJhLcDGHTnZ+DECc4ACohw8OssEh9VFkUlpErIxeJXL/1LhE8X1TeaLPejUgrkWp3Nl7CS7DY/cWq8l7hdBcwG4vftTX4ct3pHLhWgKmO/tc7OCcCQsHr2qJbMI49yj0wbIBNeIKakeame+iY4am4mQMFEf+pVmPR+egvz37HOsd1lDYtic6TLBG0ArOrLOufo4FuFVOSwKxxKvJlLcz3DDAG0TpOdXWfqK+BJ3tdJaGe3rG2dIfoJ9onlBQsDBk3jTmXRZTpK4ZqNoq36TjJLo/i/lpUJryYzqzFakA0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wiD1Xw5ggHe75SY0VUkEQ5k0ohXKS9HkkB/Bh0Nqmsw=;
- b=ZXZIVcGceOWiLn5v/iUP4GeX4thgTJxmcq9SpcmNRbSLNafJ2hwUf1FJ+0JViSyMcUBuRzFiMjmjGwOfaNw1BDqFVtMlVuQg8GGm7K3nJVuldYWHzp/mlrg7Qk5YOBW54Dje2/vB0P7VyZYZUWn2xavlZY+zwboKCsEHAlxRSrRk6ZTfysevxLLXqm8+sIX8lKJWyB5ODAM/c5e+OS3J7G10WqRpz6HtPInX+BChaBMY3e0v2J/mbY8SWpcbvzJWDMsQCyEEkrM9fSp257D6PFlI56rCMMKunhtvc5RRPwtEopdYUYBs1n5opx4oX2i3OlA8tKMOZNJNGMnCsPgXBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wiD1Xw5ggHe75SY0VUkEQ5k0ohXKS9HkkB/Bh0Nqmsw=;
- b=IaOxk+Z/bf142N//tYOxC15d8f9HCJTZSlBbRVFFHUSSJgT1oZOKMTym4TKiPksh57HDYha5M/V2ThzwlTBfd9xM4qtC1nDfI/1Nh3M/YJUylDIgct+hIDEH+lodwH19LZMCEPPGeFHq6ZkK0aMpSVppapSpmE/LMU09dX2JnchLmIzzipXBWjEqra1fhlEl9PnN/LziGyKzR4TiunvuqzrbuaVeZBkHymymu6Ic8rua9KifwABvpqKqVrj9uezUL4rMlJB1LDv50T9chvCyc5Zkm5NiJxGzlCU1ZnsK2TGml0DhOm5njtl8V8P6kGlmS8VmAmMP39BBu43uhQ7yig==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.15; Fri, 22 Aug
- 2025 08:44:38 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%4]) with mapi id 15.20.9052.014; Fri, 22 Aug 2025
- 08:44:38 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v4 2/6] PCI: dwc: Don't poll L2 if QUIRK_NOL2POLL_IN_PM is existing in suspend
-Date: Fri, 22 Aug 2025 16:43:37 +0800
-Message-Id: <20250822084341.3160738-3-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250822084341.3160738-1-hongxing.zhu@nxp.com>
-References: <20250822084341.3160738-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0047.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::15) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Fri, 22 Aug 2025 09:26:50 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250822092638epoutp04f4ec0854a37fc53040efaa6e93eae7d7~eDKL31j6B1738017380epoutp04c
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 09:26:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250822092638epoutp04f4ec0854a37fc53040efaa6e93eae7d7~eDKL31j6B1738017380epoutp04c
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1755854798;
+	bh=nmtEoeQlWuqYko7mqBv9pQr3Zd1olsc1MAqj9gtJ+xo=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=HCpzWZv55h4/Y3Rnp1lf4B3OehmY2sv1WXATu/E8TIH9xI1JiUvdMJc96nTLLOTrU
+	 NRHX6Gwhywx84a6gjxknJR5WU9QgJaMZz/nqalCscox3T28UUmNW0e/crGbjBh8VjW
+	 yXPFJoLzQYdYkxChWMST6TkzFwJK96nYt7OdC1Q4=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250822092637epcas5p29a7dd2208e947a9732298efc46494f7e~eDKK4z4X51122911229epcas5p27;
+	Fri, 22 Aug 2025 09:26:37 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4c7ZZP0Mkqz6B9m5; Fri, 22 Aug
+	2025 09:26:37 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250822092636epcas5p41d4c9c6511ed7d0194c95e651ba0d6b3~eDKJrf--63154431544epcas5p4e;
+	Fri, 22 Aug 2025 09:26:36 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250822092633epsmtip197617a5a4f4d248d605769bfa26a2454~eDKGnqxap0570405704epsmtip1Z;
+	Fri, 22 Aug 2025 09:26:33 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: <vkoul@kernel.org>, <kishon@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <johan@kernel.org>,
+	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>
+Cc: <oe-kbuild-all@lists.linux.dev>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <202508220553.lm7ExAxG-lkp@intel.com>
+Subject: RE: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy for
+ ExynosAutov920
+Date: Fri, 22 Aug 2025 14:56:32 +0530
+Message-ID: <006f01dc1346$db4edf50$91ec9df0$@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|PA4PR04MB7630:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d0a949d-945d-494a-64d2-08dde1582127
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1t3NBikaq1wBmC9ayOzSv2wgpH8vJ/ywbXag8gVtRhs9PRXCV4LJaPsw1XpB?=
- =?us-ascii?Q?qzSYN6GOWFUsEjbeif+smhvDE22gTqt4QJ+TvTqXQaBV8xVfNlf7DWujVEVG?=
- =?us-ascii?Q?6UReS/kTgaKimQ8kqRmTcfM7o7whpEyA0Aykn5RQ3l2KHkp962XVRfEfSf34?=
- =?us-ascii?Q?mjIlybfu5tmf43a3IF0DnDeN9KibvPN35gtHmoL44eGqKsKYCq7pSSOY3MZJ?=
- =?us-ascii?Q?fFQz9uuNRl3X4fA6VyoK76EkxuVusW+qOM+vGKhW1xHixSmKQr7HQU2ZHSks?=
- =?us-ascii?Q?zO3AVW416HVHebnXAYPih8RBZwuOycRR12igtcZtvE8ev+1VJG2rv/mCFOYi?=
- =?us-ascii?Q?DJ/IWcbKykp/zpdZ9tuvQ/SM1UxA8iZl0qczvuzgFzUt1iUzqDG+gx3Yknw8?=
- =?us-ascii?Q?0yi0jejLyq1IJt+MeYlynB9YzOFErsAcFE9BkREy8TXRz7MIxVIQpM/dI+Dz?=
- =?us-ascii?Q?s7USs0in/Ou0mJMumFPY21ZHToh2I1NTXGfmM63OvTAOSkGXRvGHd1uqSC/R?=
- =?us-ascii?Q?XWjr5TjzmS/S0vpNAiRSVJM9iJN3zMPGe8hlkC6RFjbl+GH+qWosdEepJQFF?=
- =?us-ascii?Q?h9ibujgNvMXco83u6pRDrBaVvyjJGJpbIkFENkC1UnWpsp2HfErETDrqBBGD?=
- =?us-ascii?Q?SAihii/WxDF7H3eER77TddhcfFwzCjB9EgvH+XoWsgJ23c0vZQk5VRTUjsjc?=
- =?us-ascii?Q?AfyGqbd8/IFGmqA8TfNgWObFoqnQfibewh5tnGKRAdLfiJkDj70/V+I6fy0s?=
- =?us-ascii?Q?RmHjjTJApBJbVcbXr9zPT9N2TuLm0iBakRP6iMUICNUCE26OwhzaeFJpUnlM?=
- =?us-ascii?Q?6OOKRF3I84lw/cHWXecucccbrNepjdArK/qzmvRKyrP+seY11hM8SGxPKxDi?=
- =?us-ascii?Q?IbmTG1ObyZcu+wv0Fj+5z/a9VNYLoIr9Td9GwGwXnQIW3f/hKaTmKSMPqDMf?=
- =?us-ascii?Q?58Vm6Yt43BU1d9QjA4Gf48Ztg5RkBu0HZYzByPeKHIaYcHop6+GAlDtQaHhn?=
- =?us-ascii?Q?eYz3flMjf+gdICxSSmEwPxgj8cym6HTWudVZ4IvninQX2L96IhEvAm8+e54j?=
- =?us-ascii?Q?/pcRf5sZTaEhE5dvF+RV1zre9Zy4Fcp34umjHcMxgfuqUUfFOFe00ZKVhUMy?=
- =?us-ascii?Q?mEGTB8w/MEWC32FIFUcD2c9osxpDkjFioSagtxiQvpldILp9WRj7RV/mg21m?=
- =?us-ascii?Q?OZvTDTIZtTrjoaKMjp/m2rFWjUNZzpIyODl+KVt+HuWfrbiC534cLe4gC6JB?=
- =?us-ascii?Q?tGhuYgWwojj+WRwWeNJ/SJjqZZkvtCY73leQoOXM9eFfWagKkFFM1m//eWfL?=
- =?us-ascii?Q?yNYWnp6YloQbzUAIMcpz6zV3KtnPtKWcuh6qciiZC7D8YOW7WD+jSpAp+leN?=
- =?us-ascii?Q?AdUHo8SaCwL2OU66d54QBfcTQNq9Co00nFIbZwEIUgYIJ2vfkOFGL1WMJ1cF?=
- =?us-ascii?Q?n2uOdXEQ1Daqsy2cYjHpM5KfSFgcMvjFommgY2EDAMh/D3f7neyV2ONg2GPi?=
- =?us-ascii?Q?VWNSve3plsADNI4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JGqwhpwjCG9QwYJwZKxrQvAW7gFju+jrzyKGTi7wMGdliOpSlyMStJm1daZs?=
- =?us-ascii?Q?m/SusH5lE51VsXi2BHOV+HZkIHgNSQrnD6f3zMMkKZu12hBb4gUadlUbvnAD?=
- =?us-ascii?Q?+1VBJpTMWLGKcr52HbWBWM/wzwSU0Dzcj/eflFpxKHNdYI6WA2sMiF/w5gRr?=
- =?us-ascii?Q?JR4TORfZtUsY8i1SSZXl9VR/NAD0HVos6PYI1SkvnTif1r5bQPDfWSze5d50?=
- =?us-ascii?Q?2narVLZ6ymQFUZLC+f7dYa09a5WKpr+sR2scwCs9vFnL+v9SHtAtf5+3FlUp?=
- =?us-ascii?Q?I3mNPVFePLKOBpZhgVjNK1UA09fanX6Wk6FPgELo2YUVq9A8tqGS7WEuS+r0?=
- =?us-ascii?Q?fhiF4wbStA2ox9bt0aXf+x3DZUD4qhFp7KKrkawcd0M43jg3hXglIfaBHkTf?=
- =?us-ascii?Q?pwSIMinrZ8Dq3K9Rq4VItghW5nIj5ILPIRUWLXI4cvy8rk70Iz+0KxnfrP+X?=
- =?us-ascii?Q?Mmh9cw9EhudcY38JYq+URQtM+utwtZSYLpNlgZoqPmLHH88asszolGzES36b?=
- =?us-ascii?Q?4CZD1AxDobpJdWBRb0H7/S/tljQqwQtY8Jakw6ctfk1jt/4/m5I4SggG+L/8?=
- =?us-ascii?Q?frSATe51Fd+qhuNQ/opOs7SiFJIVRH5uiQStwcwcjzTZusm9FW8ov/o+zjy9?=
- =?us-ascii?Q?FVb7GnJwAELKWcWH0MiXQLihii+qORICAXU0lZznPxroK6FvI1sdsRlTBRFb?=
- =?us-ascii?Q?oYqnCQL41GhE2Rq9erVR8Ku4cu5/N/Cc4e+9DYq3T7/vD1MRiBDVXcE3dWzS?=
- =?us-ascii?Q?xtJjAYSLILLQHbZSu4XqB2/XeyLl07brveM2VDjvi9k5Lc74FPD9IYFh4uh6?=
- =?us-ascii?Q?TWTybOloIm2GfTHbNLrc53XJWOGKzpGHIRetCe8cfBq0NYJu8m2Z3RReZ0iH?=
- =?us-ascii?Q?31NY+WxIc1iGvGodS+fRCcXvnH9iKtwd0daMCIn26nQDMCoZ2KmE+gYQwXLA?=
- =?us-ascii?Q?fVoVZehvK2ff/djukIiWCgIS4WrrlnlBUkSiyfjIRjUdT/eUSlX1LhqmkhEH?=
- =?us-ascii?Q?3t8vsS0vBa/fO8BomSJVVDngcMoz3d4aJi+4ubMjJvbikYwdDKTW4eUzxvrJ?=
- =?us-ascii?Q?oDrqBqIYmmUU6dS4UR7DSLgdf+VLYoeY84k3jaock/84ohvRjTOmygQkrT49?=
- =?us-ascii?Q?UeSWNcdSvfhM3kFKMHkNR4NtKicYFWtJipKNCQJwVxbamQ5MvcnnivOhjCpB?=
- =?us-ascii?Q?t+G84BFOJLTLMfFot7cZeHWYG1r3o3+01EYdmMID1x5hjfm92E6WJNRcaoDC?=
- =?us-ascii?Q?h1z9q+xHaSnAd5q4GHrxZSHuXaV4QiMWUJWUIu+hmyqTF99YKJMv4thpEyGa?=
- =?us-ascii?Q?Sdb6uzBUhD8DQnJOwva9dilyCkWJ6FRJDLMkZj2jPJhloF8vnJ1fAleDrvgT?=
- =?us-ascii?Q?X3OjTKPbu28x+UkAqcnT9D6iF6QCwWC/qfVBxGJiAqL1SwgHPyffBT2Cmjkr?=
- =?us-ascii?Q?U7D3id6LQWmezf4oKQz134/r2/9ybssraTIK65tMvKpie1iLAYuRI/2zT9jI?=
- =?us-ascii?Q?POHLcK3d591cpSDaC107EzNlzt4oRjN3iL3LEhBE4HPNb5YNGjiblewZZO3T?=
- =?us-ascii?Q?SP7tz0AHt1blyMMs3Gdh3aHC3XAXxsQQCNMzyhTO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d0a949d-945d-494a-64d2-08dde1582127
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 08:44:38.7874
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 52x8T4MmK/Y7ftMEN43tGnTk3lENbO3v1LTBhkQAzGTR7WaE0A529FeDzCJFwqviSx6gA0tUpysf/ePEtwG8Vg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7630
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQHdPSQ+XjFsLeZLd+6ieGPrJFm5GwFxhWqcAlQOQPW0Tc8gUA==
+Content-Language: en-in
+X-CMS-MailID: 20250822092636epcas5p41d4c9c6511ed7d0194c95e651ba0d6b3
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250821212909epcas5p3cfcff210863febc2410cf661172be683
+References: <20250821073703.2498302-7-pritam.sutar@samsung.com>
+	<CGME20250821212909epcas5p3cfcff210863febc2410cf661172be683@epcas5p3.samsung.com>
+	<202508220553.lm7ExAxG-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_014442_161304_6EF850B4 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250822_022648_530268_BDC5BA16 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,103 +102,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management State Flow
-Diagram. Both L0 and L2/L3 Ready can be transferred to LDn directly.
+Hi, 
 
-It's harmless to let dw_pcie_suspend_noirq() proceed suspend after the
-PME_Turn_Off is sent out, whatever the LTSSM state is in L2 or L3 after
-a recommended 10ms max wait refer to PCIe r6.0, sec 5.3.3.2.1 PME
-Synchronization.
+> -----Original Message-----
+> From: kernel test robot <lkp@intel.com>
+> Sent: 22 August 2025 02:58 AM
+> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>; vkoul@kernel.org;
+> kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
+> peter.griffin@linaro.org; kauschluss@disroot.org;
+> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+> johan@kernel.org; m.szyprowski@samsung.com; s.nawrocki@samsung.com
+> Cc: oe-kbuild-all@lists.linux.dev; linux-phy@lists.infradead.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
+> rosa.pila@samsung.com; dev.tailor@samsung.com;
+> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+> selvarasu.g@samsung.com
+> Subject: Re: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy for
+> ExynosAutov920
+> 
+> Hi Pritam,
+> 
+> kernel test robot noticed the following build warnings:
+> 
+> [auto build test WARNING on robh/for-next] [also build test WARNING on
+> krzk/for-next linus/master v6.17-rc2 next-20250821] [If your patch is
+applied
+> to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://protect2.fireeye.com/v1/url?k=07116f39-666ac5ae-0710e476-
+> 74fe4860001d-17dff89291ad3b5b&q=1&e=45b4f292-bcb1-4614-86a0-
+> c790a47fb814&u=https%3A%2F%2Fgithub.com%2Fintel-lab-
+> lkp%2Flinux%2Fcommits%2FPritam-Manohar-Sutar%2Fdt-bindings-phy-
+> samsung-usb3-drd-phy-add-ExynosAutov920-HS-phy-
+> compatible%2F20250821-153122
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git
+for-
+> next
+> patch link:    https://lore.kernel.org/r/20250821073703.2498302-7-
+> pritam.sutar%40samsung.com
+> patch subject: [PATCH v6 6/6] phy: exynos5-usbdrd: support SS combo phy
+> for ExynosAutov920
+> config: arc-randconfig-001-20250822 (https://download.01.org/0day-
+> ci/archive/20250822/202508220553.lm7ExAxG-lkp@intel.com/config)
+> compiler: arc-linux-gcc (GCC) 8.5.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-
+> ci/archive/20250822/202508220553.lm7ExAxG-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new
+version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes:
+> | https://lore.kernel.org/oe-kbuild-all/202508220553.lm7ExAxG-lkp@intel.
+> | com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
+> 'exynosautov920_usb31drd_cr_write':
+> >> drivers/phy/samsung/phy-exynos5-usbdrd.c:2167:17: warning: unused
+> >> variable 'dev' [-Wunused-variable]
+>      struct device *dev = phy_drd->dev;
+>                     ^~~
+>    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
+> 'exynosautov920_usb31drd_port_phy_ready':
+> >> drivers/phy/samsung/phy-exynos5-usbdrd.c:2137:6: warning: 'reg' is
+> >> used uninitialized in this function [-Wuninitialized]
+>      reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
+>      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>        PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
+>        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    during RTL pass: mach
+>    drivers/phy/samsung/phy-exynos5-usbdrd.c: In function
+> 'exynos5_usbdrd_phy_probe':
+>    drivers/phy/samsung/phy-exynos5-usbdrd.c:3056:1: internal compiler
+> error: in arc_ifcvt, at config/arc/arc.c:9110
+>     }
+>     ^
+>    Please submit a full bug report,
+>    with preprocessed source if appropriate.
+>    See <https://gcc.gnu.org/bugs/> for instructions.
+> 
+> 
+> vim +/dev +2167 drivers/phy/samsung/phy-exynos5-usbdrd.c
+> 
+>   2125
+>   2126	static void
+>   2127	exynosautov920_usb31drd_port_phy_ready(struct
+> exynos5_usbdrd_phy *phy_drd)
+>   2128	{
+>   2129		struct device *dev = phy_drd->dev;
+>   2130		void __iomem *reg_phy = phy_drd->reg_phy;
+>   2131		static const unsigned int timeout_us = 20000;
+>   2132		static const unsigned int sleep_us = 40;
+>   2133		u32 reg;
+>   2134		int err;
+>   2135
+>   2136		/* Clear cr_para_con */
+> > 2137		reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
+>   2138
+> 	PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
+>   2139		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+>   2140		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2141		writel(0x0, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1);
+>   2142		writel(0x0, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+>   2143
+>   2144		exynosautov920_usb31drd_cr_clk(phy_drd, true);
+>   2145		exynosautov920_usb31drd_cr_clk(phy_drd, false);
+>   2146
+>   2147		/*
+>   2148		 * The maximum time from phy reset de-assertion to
+de-
+> assertion of
+>   2149		 * tx/rx_ack can be as high as 5ms in fast
+simulation mode.
+>   2150		 * Time to phy ready is < 20ms
+>   2151		 */
+>   2152		err = readl_poll_timeout(reg_phy +
+>   2153
+> 	EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0,
+>   2154				reg, !(reg &
+> PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK),
+>   2155				sleep_us, timeout_us);
+>   2156		if (err)
+>   2157			dev_err(dev, "timed out waiting for
+rx/tx_ack:
+> %#.8x\n", reg);
+>   2158
+>   2159		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
+>   2160		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2161	}
+>   2162
+>   2163	static void
+>   2164	exynosautov920_usb31drd_cr_write(struct exynos5_usbdrd_phy
+> *phy_drd,
+>   2165					 u16 addr, u16 data)
+>   2166	{
+> > 2167		struct device *dev = phy_drd->dev;
+>   2168		void __iomem *reg_phy = phy_drd->reg_phy;
+>   2169		u32 cnt = 0;
+>   2170		u32 reg;
+>   2171
+>   2172		/* Pre Clocking */
+>   2173		reg = readl(reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2174		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+>   2175		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2176
+>   2177		/*
+>   2178		 * tx clks must be available prior to assertion of
+tx req.
+>   2179		 * tx pstate p2 to p0 transition directly is not
+permitted.
+>   2180		 * tx clk ready must be asserted synchronously on tx
+clk prior
+>   2181		 * to internal transmit clk alignment sequence in
+the phy
+>   2182		 * when entering from p2 to p1 to p0.
+>   2183		 */
+>   2184		do {
+>   2185			exynosautov920_usb31drd_cr_clk(phy_drd,
+true);
+>   2186			exynosautov920_usb31drd_cr_clk(phy_drd,
+false);
+>   2187			cnt++;
+>   2188		} while (cnt < 15);
+>   2189
+>   2190		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+>   2191		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2192
+>   2193		/*
+>   2194		 * tx data path is active when tx lane is in p0
+state
+>   2195		 * and tx data en asserted. enable cr_para_wr_en.
+>   2196		 */
+>   2197		reg = readl(reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+>   2198		reg &= ~PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA;
+>   2199		reg |=
+> FIELD_PREP(PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA, data) |
+>   2200			PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN;
+>   2201		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+>   2202
+>   2203		/* write addr */
+>   2204		reg = readl(reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2205		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR;
+>   2206		reg |=
+> FIELD_PREP(PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR, addr) |
+>   2207			PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
+>   2208			PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+>   2209		writel(reg, reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2210
+>   2211		/* check cr_para_ack*/
+>   2212		cnt = 0;
+>   2213		do {
+>   2214			/*
+>   2215			 * data symbols are captured by phy on
+rising edge of
+> the
+>   2216			 * tx_clk when tx data enabled.
+>   2217			 * completion of the write cycle is
+acknowledged by
+> assertion
+>   2218			 * of the cr_para_ack.
+>   2219			 */
+>   2220			exynosautov920_usb31drd_cr_clk(phy_drd,
+true);
+>   2221			reg = readl(reg_phy +
+> EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+>   2222			if ((reg &
+> PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK))
+>   2223				break;
+>   2224
+>   2225			exynosautov920_usb31drd_cr_clk(phy_drd,
+false);
+>   2226
+>   2227			/*
+>   2228			 * wait for minimum of 10 cr_para_clk cycles
+after phy
+> reset
+>   2229			 * is negated, before accessing control regs
+to allow
+> for
+>   2230			 * internal resets.
+>   2231			 */
+>   2232			cnt++;
+>   2233		} while (cnt < 10);
+>   2234
+>   2235		if (cnt < 10)
+>   2236			exynosautov920_usb31drd_cr_clk(phy_drd,
+false);
+>   2237	}
+>   2238
+> 
+> --
+> 0-DAY CI Kernel Test Service
+> https://protect2.fireeye.com/v1/url?k=96757503-f70edf94-9674fe4c-
+> 74fe4860001d-38e3f56dae8e119d&q=1&e=45b4f292-bcb1-4614-86a0-
+> c790a47fb814&u=https%3A%2F%2Fgithub.com%2Fintel%2Flkp-tests%2Fwiki
 
-The LTSSM states are inaccessible on i.MX6QP and i.MX7D after the
-PME_Turn_Off is sent out.
+Will post v7 with the fixes for these warnings.
 
-To support this case, don't poll L2 state and apply a simple delay of
-PCIE_PME_TO_L2_TIMEOUT_US(10ms) if the QUIRK_NOL2POLL_IN_PM flag is set
-in suspend.
+Thank you.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- .../pci/controller/dwc/pcie-designware-host.c | 34 +++++++++++++------
- drivers/pci/controller/dwc/pcie-designware.h  |  4 +++
- 2 files changed, 28 insertions(+), 10 deletions(-)
+Regards,
+Pritam
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 1e130091d62a0..85740400a8d0d 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -1017,15 +1017,29 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
- 			return ret;
- 	}
- 
--	ret = read_poll_timeout(dw_pcie_get_ltssm, val,
--				val == DW_PCIE_LTSSM_L2_IDLE ||
--				val <= DW_PCIE_LTSSM_DETECT_WAIT,
--				PCIE_PME_TO_L2_TIMEOUT_US/10,
--				PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
--	if (ret) {
--		/* Only log message when LTSSM isn't in DETECT or POLL */
--		dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
--		return ret;
-+	if (dwc_quirk(pci, QUIRK_NOL2POLL_IN_PM)) {
-+		/*
-+		 * Add the QUIRK_NOL2_POLL_IN_PM case to avoid the read hang,
-+		 * when LTSSM is not powered in L2/L3/LDn properly.
-+		 *
-+		 * Refer to PCIe r6.0, sec 5.2, fig 5-1 Link Power Management
-+		 * State Flow Diagram. Both L0 and L2/L3 Ready can be
-+		 * transferred to LDn directly. On the LTSSM states poll broken
-+		 * platforms, add a max 10ms delay refer to PCIe r6.0,
-+		 * sec 5.3.3.2.1 PME Synchronization.
-+		 */
-+		mdelay(PCIE_PME_TO_L2_TIMEOUT_US/1000);
-+	} else {
-+		ret = read_poll_timeout(dw_pcie_get_ltssm, val,
-+					val == DW_PCIE_LTSSM_L2_IDLE ||
-+					val <= DW_PCIE_LTSSM_DETECT_WAIT,
-+					PCIE_PME_TO_L2_TIMEOUT_US/10,
-+					PCIE_PME_TO_L2_TIMEOUT_US, false, pci);
-+		if (ret) {
-+			/* Only log message when LTSSM isn't in DETECT or POLL */
-+			dev_err(pci->dev, "Timeout waiting for L2 entry! LTSSM: 0x%x\n", val);
-+			return ret;
-+		}
- 	}
- 
- 	/*
-@@ -1041,7 +1055,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
- 
- 	pci->suspended = true;
- 
--	return ret;
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(dw_pcie_suspend_noirq);
- 
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index 00f52d472dcdd..4e5bf6cb6ce80 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -295,6 +295,9 @@
- /* Default eDMA LLP memory size */
- #define DMA_LLP_MEM_SIZE		PAGE_SIZE
- 
-+#define QUIRK_NOL2POLL_IN_PM		BIT(0)
-+#define dwc_quirk(pci, val)		(pci->quirk_flag & val)
-+
- struct dw_pcie;
- struct dw_pcie_rp;
- struct dw_pcie_ep;
-@@ -504,6 +507,7 @@ struct dw_pcie {
- 	const struct dw_pcie_ops *ops;
- 	u32			version;
- 	u32			type;
-+	u32			quirk_flag;
- 	unsigned long		caps;
- 	int			num_lanes;
- 	int			max_link_speed;
--- 
-2.37.1
 
 
