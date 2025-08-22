@@ -4,109 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5B5CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E99DCA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHSlakyKxrjNUT7S6VUafjxhT54zInLD1iFLeYFLDh8=; b=DA8vsmHGuA3rxl6yw+pp572MOY
-	5yM7w58U4dITDB1a82sLrOnq5fPRam7rX+EYPIfz0wCpCXMxBA2e169JFI5SuEdGhzAshzZ7xWsLL
-	xadmTkLwcXBuVyW4FjbFtyzd+1Yv4XQ6T/IPLyxAyIx9zC5jAC4tBmhwUKMvMdIteS6eg2QJNWOpz
-	jihVpmjlmhYI1nQapieuaxN3pLZ2wNS0p+iDxd0R5fPa+HEy1Y7EVVoXbvIXrehHN3T6eU+x/tLH5
-	/OTyEQq9p54t6Nz/JUQYgFC/RPGwtYWroG5AP3GrapCHFSz09LnkaJLoxqoYchsoJ8eSu2J1tW0OE
-	PC1DZ1cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AtTpKVUrrZWtxsaE3XNcl8fBkP2fQZlgHoCoWUccQ8U=; b=CaK+LYwQl59AFoXHOblA46uN4s
+	sDgktvPsQCTIcKTEI8KGBUdiHZON3sChjEmQsOaDlHy/1V/vEqupBiTdDPdvhd+YlbTAFs4NloloY
+	hVLsNa2ptuMdviGGCgu7vppKG9dwrWGixeAlFowrNw0eX0jJZ36P4yCeNxhnmB11mm/5++WfAOOkw
+	xNel862SzMT0rvjQiSNiKHEv1qbDcCQPYd9yuDumScXl80If7/yGVbT3e3fYmvoUBv6Jz+04psCUS
+	as2fPd3W+64QTfbvQENmzI7p1dCt/tHNOXH5I1Rqh61+PM0C88sSLvX5mW9ELfmG+YTacPtGCN0XU
+	YzTQ8HFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphqK-000000045DR-3AoD;
-	Sat, 23 Aug 2025 06:35:12 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uphqN-000000045G5-0dBo;
+	Sat, 23 Aug 2025 06:35:15 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upRrk-00000002dNg-0H2D
+	id 1upRuX-00000002dph-2SN0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 13:31:37 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-afcb7a5cff3so34375566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:31:35 -0700 (PDT)
+	Fri, 22 Aug 2025 13:34:30 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-6188b668b52so312282a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 06:34:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755869495; x=1756474295; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qHSlakyKxrjNUT7S6VUafjxhT54zInLD1iFLeYFLDh8=;
-        b=WMyIEhwmbQ+ZgKPcVKSXXEe77HkZSuIX81ZFz1TTj7WgoYjxu/blTqvujHxPcjQ2iF
-         WFedwWhdr3AkBcdylbQx+CvhfOGcqTgFpgRpzVg6SSbAivO8zbzcG3Sm1DL3TemdZYH2
-         31APcERHv3/C8NJD8SBva4jnKUYYDCZkCPBY5EcdSSyo76ca8pW4CFZ0FVASD/IMbuKo
-         wbISrgxhzmXYgtg5b2b+eMDEV7kDxPoVV4a1kJVUS6bqBBvDfeiOX2RTMRzsMHiSsjWj
-         98MTxjI33sDh/a96irsdCdnKaSI/UGNBdgTdE63r4fJyfWH/amI3I1XKudNWqzi9rE98
-         UGTQ==
+        d=linaro.org; s=google; t=1755869668; x=1756474468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AtTpKVUrrZWtxsaE3XNcl8fBkP2fQZlgHoCoWUccQ8U=;
+        b=kxgUVD/39gAyw+eLPteGozgWZhQ0akkVRJlTOK6tPA3NY7cZfh9wql2fFpZYSFzmhQ
+         Y4t3gISSp8oi/TQRHfMWcRnZeExXJ/OkfFRP5FcafYYefKf2+bLGDU6zFA1eWXoobpoK
+         8JvYdoSw70w3zCiGDzLT661b2sU+QlBPWbbuTqfxM+LSbTkB6gObvnVE8pJ3JYr7powV
+         gsYfuRJr90tbL3jvXfNhr2X0CRMuOP57VFkqaClqzV+kBRNFCNZNxsNO6aK0sUHW5dZK
+         MMGaPlALIUbjOkRiF7EFuD3aqcRuVrVKFq0wBG7W2NlMJfj+HPDGf8W9jmVBfIKxLwkt
+         6Vrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755869495; x=1756474295;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qHSlakyKxrjNUT7S6VUafjxhT54zInLD1iFLeYFLDh8=;
-        b=ezb3y6PSNJmZGB26IL1E0UQZZtU9OobawMRTzYZCqRmP1vHDwNuVI9RJcu66wfwHrm
-         j3RYWB3dbeWuhEumB9hxvezw+8YeJDBPrY6Fy/nysSuaJscYN2geUZDExVXe18hBAbqm
-         diaE08AVqvbxpoA4CKEVGko4RWNbvareF2GrRAAnx0Z+ybKrMJyTAN9SN0ezcsGMFuGV
-         2xT1+gLsTRYn0hPEZ/f277RjhWjlJW+aBtTkjGBenFMU+gSePcoHhGvSIAC68yIEzQCF
-         yKSri583z4tVMIGK61ytf3XQRv2sms2coyjci/NE59eRc5E2SLpV2i9JN1mstIx5a977
-         B+PA==
-X-Gm-Message-State: AOJu0YzNHmW2120oWTyjW5yTAqgcxB874WzMW08fRQKxIeWSPNXICxEO
-	LLB7R7z0Hvl3aVbfrI0QzdsraDKxC2gQlV7SJYj3e7XQmGR/BZNFiqJQvnwLiU4uHXDFPqfSpbE
-	+EdzR
-X-Gm-Gg: ASbGncuMU/bXA60Q+gnkFcxUmrdatf2PPawfrvPI6xTmh5TbBRSMOmp4LiNJFbOWP30
-	p1imVXUAE+FpL0T5IzycPKeGyPOlixZSZ2akdIfT8TFgTAhsi2pWLjVuWl1FlrhMuzzKQHNuFSc
-	+zjhjL8TA7nLcN7oKTAgB8ZVVIxIaE+gvi5nd34y9+IIrevHY8+oPPQ72pRHG33fn/yfoadkXxf
-	dEaNZ5g3mIcN3uBigLol4XkBlcdFjdFHhvAex6ToexBvQHbcoMlKKeDYsC3IN6DWrMJADaUHI+w
-	7g8qyc+1+OWr2knqs4B9kSJ0K2y2BeWzOGmVA1dYv5uCb8BcZKgznpt4K5ocBoCxYkfkWwR1+aT
-	xrIhkmLEDU85f9rwp8JAhmoXFZkLi1eakO+Bci/U=
-X-Google-Smtp-Source: AGHT+IFH99GO8Rglk9z1kVj4gHZfOeJnVrjz3zilZUHOkV9zKxf8NlcHsbBnTMmSCOB1kQdl0LkccA==
-X-Received: by 2002:a17:907:7b8c:b0:ae0:ba0e:ae59 with SMTP id a640c23a62f3a-afe2943ebfemr132325066b.7.1755869494660;
-        Fri, 22 Aug 2025 06:31:34 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afdf24bc40dsm554863066b.109.2025.08.22.06.31.33
+        d=1e100.net; s=20230601; t=1755869668; x=1756474468;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AtTpKVUrrZWtxsaE3XNcl8fBkP2fQZlgHoCoWUccQ8U=;
+        b=OIQzn8pQtN6LmnkzgRe8OFpMnJTtxH+fBIgsZal6FeMuUDe4zSGFLEDMrLyH/MpuvZ
+         MUcIV+58r1/H0AdJT3FMRjVC4eGsNYtCG4PUgctzb0e54QuhZZxshnTFQVcTVDY2btKY
+         C1cDEbUJaOWycylol6t3w2cjBun301T10werSUcnvkDRpoXL9J2f/ug9cx06IeFTyUvz
+         iNHxUPIbjtchZexOGZQEQyceMapSKajdhfT79k4aRAKSGq0GBLH49BmtH10hML3wze7+
+         ZqQPB7ZVOXeEeRLwFhGSTk6zbkozVqJlGEwI5EWP0/1Hgfipx9Kzm1rfwigqTatORvX0
+         ZSQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHQ4t4dFjDl1mCnwznlYtB4lYWzgMGN+a6i1a0ydzSxhxYir7x4B2FRE/cfvQTDfqEWavLlZ2YEcltLjkTxb2R@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEUKo9iFeI8vbSaz2o3fyGv0bgzKhf9HIOA6BjFIj8wYhjKsOo
+	dPXuxPlicLkrFt0sssbssDaGbZXwKm8M3VbQDCELGBMhGjDC8KKTl8Pk74BR/KnHHr0=
+X-Gm-Gg: ASbGnctDIz13IkTBHNRpgVxd2XBpigWaCtgUxzCKvWWcl7OeLJh8l4bBuPbGJhBJDYR
+	ng5/KriJstHRpo5XZmEsBnB0Ux+Rrrt8Ttu6lbSRT5x1wWN/PRp+UDrUo2+XVskgHLHpGhVKWag
+	76hLUGCrVTM9Ttwm8HyGQzSqIX7dpiYMv84tF4bNmEo0RxVm87Oeo/ZUenrm2vDTBjH++HSUqMx
+	plf3iUV+kFIfQSAbUAMwCDo6UJi2CM6gKSH20+wER+wL9a7YCS0MQkrLYm90Gkq9agtafhvKjMh
+	G5X5xs7UhhLlnV8Unj6vKWhkIYiuswRFwaCnVK8wb2/Qf6d6go6IF4Ya0Gc97vcsWzV2F1TEVff
+	7q//gakXGrbZiObD0uZBJuhRWb+8aUhVHyQ==
+X-Google-Smtp-Source: AGHT+IHyPW5NgrCRagEyLACFGuB7+uhylut2VWju0IRcaH4EtwnYWwcFk/zuHnAseVuD7vXuzF2thg==
+X-Received: by 2002:a17:907:94c9:b0:ad8:8c0c:bb3d with SMTP id a640c23a62f3a-afe28f08b6cmr138535066b.3.1755869668029;
+        Fri, 22 Aug 2025 06:34:28 -0700 (PDT)
+Received: from kuoka.. ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded3020cbsm610986766b.31.2025.08.22.06.34.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Aug 2025 06:31:33 -0700 (PDT)
+        Fri, 22 Aug 2025 06:34:27 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 22 Aug 2025 15:31:17 +0200
-Subject: [PATCH 08/10] arm64: dts: imx8qm: Add default GIC address cells
+To: Antoine Tenart <atenart@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] arm64: dts: amazon: alpine-v2: Add default GIC address cells
+Date: Fri, 22 Aug 2025 15:34:24 +0200
+Message-ID: <20250822133423.312621-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-b4-dts-interrupt-address-cells-imx-v1-8-f1b479da9340@linaro.org>
-References: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
-In-Reply-To: <20250822-b4-dts-interrupt-address-cells-imx-v1-0-f1b479da9340@linaro.org>
-To: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1418;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=kHSR3OBfxE0kL9LgZuy6tb09v4e6Fk2998ktGFCNaNE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHEmpXOBhphAMxpNv9K4iWFobvh3z5y2FOtCm
- oc8Bat2eRuJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhxJgAKCRDBN2bmhouD
- 1zvTD/0cT8GVrN4h/fVwVC9D8PivWS1iPCVzB1oOviTi/ZPILeFCCt2UiG8SZTY5AHKpyFrCKBr
- y7r5VnQ9k7POV0GkdF6cr6Rx0kudWl4Auhxq7ljxJ3SgQ6q/sbyiIWaqbsIa4vVS8Ul65R5mgSn
- HWrLun9VAVRgCyRoR8fvkqyuk6rOP7THvuAOtiudMDyRHEBWl0xw4dD04mXY0TROWpHwlmQykoo
- SnrfYpXxDmunvQ3EddTUce+v9o7lb09/PkaC/4BkqJF9WofBhpx+A5WWC0xPdtiOdO3RKThEIvc
- KIFPBTEM9nOVfqHIOZ1EG80xO+cweeADF0tPU/lHMhXbhr4XgrUXnmi0mum8ifop7YeqBgGNiDG
- eV9uoWroZ4Uvg6FN8LDXCgmfUmhlRlR1A3I1v9maOZhV2ojio1j2dx83Xk+TZeFeLyfb7h7U0oe
- 7XtohEOhkEdeR9Y8NresyjZWLoyXYWhV3JAvVIll5sFWqWimk8PqAPRAn9Z6x5YkWHUvIiHyHyc
- bjZfi3NJhcS/uXvZE+qMaAfQAG960emuj0Tfj/MVQLRPmX1gA0Y+Rmqv0o0qbtJdgsk02i0Xwfb
- 8b+uMpM2Ur591EvypbdpzjlyzSbnriMvUMYgHhv8/Kyvt1geFiEIh3+3S8Y2lZzxjNUjEkqROCI
- EsXQufp2TZc5omg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1269; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=tyU5PFf0gSlmc6T4OX+FawiNzX4PdYFtA22/rM0+roc=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoqHHfELWc05SkwOsVBGBcKQXp6Y93jBQ2qJ97g
+ Q0o5Iy2rQiJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaKhx3wAKCRDBN2bmhouD
+ 1xt/EACXLCSkFmZebqljwxXYnk2YlY9ntN9zgdTE2izATGlbDmWlBaPPVTHzdI/JiX3dkM2Bol4
+ AfyDL/lYvqflqBto5GLqCGhTNbJ7eKk7b7bkXxp5S7kI8XShQFk7CVdOcQf2byUtHo0yr8sFYMb
+ 1iUCrT5lVZud7qF/WAVN3/g5m21HJ78wkfgi80jFISnB5CyLLUmzonnsfgER1lqBaDHYEUMjIxk
+ vFlh0sMk/3pZdg0eegriBDktPyypCW7qDO9JmD7Pyc2TvoTNm9s+3r7jp3XyX3XX1EGBz1oynxo
+ 3SHZYGnSsX3uQKhSGhxECeASapKr88yTK7mOFQS9sORg2nMnH8bu0bntEBtKcN41T950EbD7gry
+ eHkGl+/T2PEaFq144GyWp07tezX/l+GLSqLK+xD+JdfUUiyMAeaLsxcASGvdoVUzl6mBAm5l+7s
+ kxtz+mAhAFReeFT1DpelH1SRMqSHZ6GXT3TBlnCh/MliW0Z0ovfIcI8mK3f6YkVxaIYwN7w2JBN
+ jkLIchwiO4zGkNpkGa7xQsLV1230UNeK5wjZzkq8MPDoZ/UnqKelPjCWvzfYqFJ6BsXlwQcAqd4
+ UhAAvgG1uWhrDMSqKf+09BG/zmT6omfmddRIEFpqLCrokU0IDEtVQuA13Kr07cYnAWmsYbuhP1E 8v9LSY0erntWa9A==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_063136_105670_F6266A5F 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250822_063429_620677_B9AD2283 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,8 +117,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Add missing address-cells 0 to GIC interrupt node to silence W=1
 warning:
 
-  imx8qm-ss-hsio.dtsi:83.3-86.28: Warning (interrupt_map): /bus@5f000000/pcie@5f010000:interrupt-map:
-    Missing property '#address-cells' in node /interrupt-controller@51a00000, using 0 as fallback
+  alpine-v2.dtsi:138.4-139.33: Warning (interrupt_map): /soc/pci@fbc00000:interrupt-map:
+    Missing property '#address-cells' in node /soc/interrupt-controller@f0200000, using 0 as fallback
 
 Value '0' is correct because:
 1. GIC interrupt controller does not have children,
@@ -136,22 +129,21 @@ Value '0' is correct because:
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/freescale/imx8qm.dtsi | 1 +
+ arch/arm64/boot/dts/amazon/alpine-v2.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm.dtsi b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-index 827e1365b5dae438d4628852ed6884aa846eb89b..5206ca82eaf642a32299147e9c1b45704075e2b2 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
-@@ -245,6 +245,7 @@ gic: interrupt-controller@51a00000 {
- 		      <0x0 0x52000000 0 0x2000>,  /* GICC */
- 		      <0x0 0x52010000 0 0x1000>,  /* GICH */
- 		      <0x0 0x52020000 0 0x20000>; /* GICV */
-+		#address-cells = <0>;
- 		#interrupt-cells = <3>;
- 		interrupt-controller;
- 		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-
+diff --git a/arch/arm64/boot/dts/amazon/alpine-v2.dtsi b/arch/arm64/boot/dts/amazon/alpine-v2.dtsi
+index 5a72f0b64247..f49209fddbbb 100644
+--- a/arch/arm64/boot/dts/amazon/alpine-v2.dtsi
++++ b/arch/arm64/boot/dts/amazon/alpine-v2.dtsi
+@@ -123,6 +123,7 @@ gic: interrupt-controller@f0200000 {
+ 			      <0x0 0xf0120000 0x0 0x2000>;	/* GICH */
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-controller;
++			#address-cells = <0>;
+ 			#interrupt-cells = <3>;
+ 		};
+ 
 -- 
 2.48.1
 
