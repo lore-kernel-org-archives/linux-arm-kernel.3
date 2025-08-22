@@ -4,102 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B99CA0EEB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58EF0CA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWL8xcF7WKTOi45jYYLZmoRTspol7DyytXRl9MIDIl4=; b=2vYGCPAxN5MxIYrqBfAh359o77
-	d6rIvwm6QOqqYW4JHtz0/H/rIvCGHVpFRUGuQMrUctjQM5tBEPYDmd3ZbqNZJV/3s8p4RKXRMgDIS
-	o2XFkDmZ5xI6LLVFNVCUmgd5iJr3Nae1yLJfgVjz98hysgMOBOVk4FGxZc8WOlnToxoMFeQqfIZD8
-	hjgYXCwlqgPKpWjh+GZDJJlW9yewsgn5FTHJc4o9WpriVu1B1/8mayepL7d9i7u1I0DaK6+tPWVx+
-	mv3suGGyW1B7k3RsosOoRvTV2QWYjh8PLgni8VnS2vuErDKBTHWset6utNhupLGIujTqEWoRkYKLm
-	qk0AzOJQ==;
+	bh=nw8ohyhCIivmRzOTKCA7xfSlw2OuK1cyJ695tI9ZHOI=; b=DqoNcHxZV/G1AXGPfXL1aBxGe3
+	aSHKqzVHBLKLzg0FI9JJu5hG5SxFl4PAlLSK64cpCTkxQcjHWcwn7AGYSGDT22GBNc0IgtaY1Ac73
+	VEv09fTp78ujDQsvBPqL2Bh+owj3NTKS4KVXhwF4gVeDcHFMNW3ifCrNAi/LNQrtLGICbd0ERLwNe
+	aOOuFbNNoZuvC1ZkF+zTw6QPFcTKBD5BmEy5mUojrO/RI+99tBV6h5O4gHBrqnU4qSUdvuwBr3/6p
+	DOQCMKSa3C9JZpkSGBrOy8yrqFGNQyA4B1EFDx56B5Xy+BTpjy5VJZRzwT4cQVR9Kr6FjkwKMo2fB
+	hNM01fRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSvm-00000002rU0-0lyd;
-	Fri, 22 Aug 2025 14:39:50 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1upT3Z-00000002sug-2ErX;
+	Fri, 22 Aug 2025 14:47:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upODO-000000024Qo-0g7z
+	id 1upOFw-000000024nJ-2Jxt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 09:37:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1755855462; x=1787391462;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=QgkFZGSFeP9Tyb5OkVgiydGAskriNxja1kg0ydQsDXg=;
-  b=naRzsWM91Mp3pDnCsDgGcRBw/IdgpQ6aE9w8XYfQfnK9p9P+ryshEyOf
-   lC9qv68KIbw9/B8VOVCmNSQvwOnHi+6i1qgldJTd2ZQKuICn4DD9XHS6D
-   xQO03ptlsPwgRw7gJCsg6cYo6a1+vieo4Ml+kafFd1AFT8bBU1Kc8avf/
-   iRouylDQ0ui4KULq/odhrRVHViSwfwqJwXGMJVVEa7eeOm/6BFqwgz3vJ
-   OkGv/z7yP16rEfCRlCmz+Gc6zrbvoeuZ57oioesC2/zlvBleDgEAy7h83
-   JfM7gNACQzmJ6bjh7yLlDbP8hmFwrOa/JGgMTVB+2LGkKPsx8lLXZfMLR
-   g==;
-X-CSE-ConnectionGUID: pKsPmSWORgOTtG3PbVFWxQ==
-X-CSE-MsgGUID: 3bY3bIE+TRyZKyYDVt7KMA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11529"; a="69599507"
-X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
-   d="scan'208";a="69599507"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2025 02:37:40 -0700
-X-CSE-ConnectionGUID: a6JIz9UlT9KH8DjMxcDzxA==
-X-CSE-MsgGUID: EEY/MKcBRMWw+7H5MhgVDg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,309,1747724400"; 
-   d="scan'208";a="167907690"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2025 02:37:33 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1upODB-00000007TlT-0od7;
-	Fri, 22 Aug 2025 12:37:29 +0300
-Date: Fri, 22 Aug 2025 12:37:28 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Dixit Parmar <dixitparmar19@gmail.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Haibo Chen <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Cai Huoqing <cai.huoqing@linux.dev>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andreas Klinger <ak@it-klinger.de>, Crt Mori <cmo@melexis.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/10] iio: Drop unnecessary -ENOMEM messages
-Message-ID: <aKg6WP361s6gcUTD@smile.fi.intel.com>
-References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
- <CAHp75VeTD5Y1bi-jYyfRnCPDfB4=WO+QF1uK5MSaSq=oUUMFdQ@mail.gmail.com>
- <CAFmh=S3x+SsuW79MdN6gE66CSK7smvbBy=22j=c9jGVOns6PiA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFmh=S3x+SsuW79MdN6gE66CSK7smvbBy=22j=c9jGVOns6PiA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_023742_246336_3CE8E9E6 
-X-CRM114-Status: GOOD (  18.32  )
+	Fri, 22 Aug 2025 09:40:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 926E260268;
+	Fri, 22 Aug 2025 09:40:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F3BC4CEED;
+	Fri, 22 Aug 2025 09:40:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755855617;
+	bh=WliF9Pv+T2msM6jeX79r2lfVXxYoeSLxljPsWjKXP6w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BsZ3eFy4A4W8aWlFqpso3FdTHT/UAesmL+roY8O+AJBpMbBrd+k1nfKt0nxp2o0H6
+	 0bSLOTrQpK+xxYJKZMaw+8d74FwMbKpTFQPKt/lpcaDskjMih1+z9I/ApJpwy++nOZ
+	 RbDvgrk88tiWlPJo9iUitZwx7qF19Ch7OskgrEfW7fpjxjBYcsGvc9P5kQONnlc/bz
+	 KbmdDoGBJoVRKZJswgJa9S846sxfVxD1qJmN4qAkDYdsNCtDkbpf5NrvmiNo8wCHqu
+	 pdZyxrEHG80j3RtCyxBBgV1T1ouMVedlIljCtHkyuL8djrJ72XzTgVaj3OSOPsGbMx
+	 VMJVwGGDs0gKg==
+Received: from host86-149-246-145.range86-149.btcentralplus.com ([86.149.246.145] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1upOFl-00A3zP-Ht;
+	Fri, 22 Aug 2025 10:40:09 +0100
+Date: Fri, 22 Aug 2025 10:40:07 +0100
+Message-ID: <87a53rk83s.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: nv: Allow shadow stage 2 read fault
+In-Reply-To: <20250822031853.2007437-1-r09922117@csie.ntu.edu.tw>
+References: <20250822031853.2007437-1-r09922117@csie.ntu.edu.tw>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 86.149.246.145
+X-SA-Exim-Rcpt-To: r09922117@csie.ntu.edu.tw, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,37 +87,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 02:58:34PM +0530, Dixit Parmar wrote:
-> On Fri, Aug 22, 2025 at 11:49 AM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
-> > I don't understand. Don't you have a subscription to linux-iio@ ML?
-> > https://lore.kernel.org/linux-iio/CAHp75VdL9kV2fyi63zqPZnW4CaeYPmJ74tmGEgU=M7FSYBv0ww@mail.gmail.com/T/#t
-> > If you found something new, please base it on that series as it was
-> > already sent and reviewed.
+Hey Wei-Lin,
 
-> Thanks. I do have subscription to linux-iio@ML and did check the patch
-> series you mentioned.
-> That patch series by Xichao Zhao removes dev_err_probe() for -ENOMEM
-> cases whereas
-> this series is targeting slightly different cleanup of removing the
-> plain dev_err() log messages
-> that are there for -ENOMEM.
+On Fri, 22 Aug 2025 04:18:53 +0100,
+Wei-Lin Chang <r09922117@csie.ntu.edu.tw> wrote:
+> 
+> We don't expect to ever encounter a stage-2 read permission fault,
+> because read permission is always granted when mapping stage-2. However,
+> this isn't certainly the case when NV is involved. The key is the shadow
+> mapping built for L2 must have the same or stricter permissions than
+> those that L1 built for L2, hence opening the possibility of mappings
+> without read permission.
+> 
+> Let's continue handling the read fault if we're handling a shadow
+> stage-2 fault, instead of erroring out.
+> 
+> The following illustrates an example, vertical lines stand for either
+> L0, L1, or L2 running, with left: L0, middle: L1, and right: L2.
+> Horizontal arrows stand for traps and erets between them.
+> 
+> '''
+> L0                               L1                               L2
+>                                                L2                 |
+>                                                writes to an L2 PA |
+> |<----------------------------------------------------------------|
+> |
+> | L0
+> | finds no mapping in
+> | L1's s2pt for L2
+> |
+> | L0
+> | injects data abort
+> |------------------------------->|
+>                                  | L1
+>                                  | for whatever reason
+>                                  | treats this abort specially,
+>                                  | only gives it W permission
+>                                  |
+>        eret traps to L0          |
+> |<-------------------------------|
+> |
+> |      eret back to L2
+> |---------------------------------------------------------------->|
+>                                                                   |
+>                                                    L2             |
+>                                                    writes to same |
+>                                                    L2 PA (replay) |
+> |<----------------------------------------------------------------|
+> |
+> | L0
+> | finds mapping in s2pt that
+> | L1 built for L2, create
+> | shadow mapping for L2,
+> | but only gives it W to match
+> | what L1 had given
+> |
+> |
+> |      eret back to L2
+> |---------------------------------------------------------------->|
+>                                                                   |
+>                                                    L2             |
+>                                                    writes to same |
+>                                                    L2 PA (replay) |
+>                                                    success        |
+> |<----------------------------------------------------------------|
+> |
+> |
+> |------------------------------->| L1
+>                                  | for some reason, relaxes
+>                                  | L2's permission from W
+>                                  | to RW, AND, doesn't flush
+>                                  | TLB
+>                                  |
+>        eret traps to L0          |
+> |<-------------------------------|
+> |
+> |      eret back to L2
+> |---------------------------------------------------------------->|
+>                                                                   |
+>                                                     L2            |
+>                                                     read to L2 PA |
+> |<----------------------------------------------------------------|
+> | stage-2 read fault
+> |
+> '''
+> 
+> Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
 
-I see, makes sense.
+Excellent detective work! Bonus points for the ASCII art -- I'm not
+sure how practical it will be to keep it in the final commit, but this
+definitely helps understanding the issue.
 
-> As far as I can see, both the series are modifying completely
-> different driver files without overlapping changes.
-> Since the objectives are related but independent and addressing
-> different type of change, I thought to keep
-> these patches in different patch series and have clear differentiation.
-> Although to establish similarity it would have made more sense If I
-> would have added the link to that patch series here.
+> ---
+> 
+> I am able to trigger this error with a modified L1 KVM, but I do realize
+> this requires L1 to be very strange (or even just wrong) so I understand
+> if we don't want to handle this kind of edge case. On the other hand,
+> could there also be other ways to trigger this that I have not thought
+> of?
+> 
+> Another thing is that this change lets L1 get away with not flushing the
+> TLB, but TLBs are ephemeral so it's fine in this aspect, however I'm not
+> sure if there are other considerations.
 
-With this clarification it indeed may be applied independently.
+Well, it depends whose TLBs we're talking about. The CPU TLBs are
+definitely ephemeral. But the KVM-managed TLBs (aka the shadow S2) is
+pretty static, and I am a bit worried to relax this.
+
+What would happen on actual HW? L1 would take a S2 fault, because the
+TLBs are out of sync with the S2 PTs. And yes, maybe the TLB pressure
+woulds make it so that it works *sometimes*, but there wouldn't be any
+guarantee of forward progress as long as EL2 doesn't issue a TLBI.
+
+I reckon we should implement that particular behaviour whenever
+possible, and handle permission faults early, possibly ahead of the
+guest S2 walk (the way we handle VNCR_EL2 faults is IMO a good model).
+
+This would imply taking the guest's S2 permission at face value, and
+only drop W permission when the memslot is RO -- you'd then need to
+keep track of the original W bit somewhere. And that's where things
+become much harder, because KVM can decide to remap arbitrary ranges
+of IPA space as RO, which implies we should track the W bit at all
+times, most likely as one of the SW bits in the PTE.
+
+We'll need exactly that if we ever want to implement the
+Hardware-managed Dirty Bit, but I have the feeling we need an actual
+design for this, and not a quick hack. Your approach is therefore the
+correct one for the time being.
+
+> 
+> ---
+>  arch/arm64/kvm/mmu.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 1c78864767c5c..41017ca579b19 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1508,8 +1508,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
+>  	VM_BUG_ON(write_fault && exec_fault);
+>  
+> -	if (fault_is_perm && !write_fault && !exec_fault) {
+> -		kvm_err("Unexpected L2 read permission error\n");
+> +	if (fault_is_perm && !write_fault && !exec_fault && !nested) {
+> +		kvm_err("Unexpected S2 read permission error\n");
+>  		return -EFAULT;
+>  	}
+>  
+
+Honestly, I'd rather kill this check altogether rather than adding
+another condition to it -- I suggested it to Fuad a while ago. This is
+the first time we ever see it firing, and I don't think it is bringing
+much.
+
+Thanks,
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Jazz isn't dead. It just smells funny.
 
