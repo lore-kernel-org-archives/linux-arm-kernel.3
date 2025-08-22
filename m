@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690E3CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC57CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=muTLR+uO1apVyAZkBbYYZe6gE3Jd5HWWcO3c7R6cA9g=; b=ZNJTMn1jF1VkFRiu1cLm1cG3Pg
-	oBzDY8fi59D6L2biJu9+GEgwMpKOypwhSUPDQ7sSBRI7+fiYOjw8ZWqrkImYbbr2ZwaXRdZeBRcv1
-	19jFuj3A7OHbGg8zKjXTp4Wyk54IMwCiHMzU816YRDFsGRq5JxP7BLLHIK8XqyHcyqdlSDlldRG4R
-	fehKq/SwRGrGPEiS/xDSBjOyLs03aF9Awqw0wGJ2R6Q6hQz2mReokzhZ88XzvE8OMdRDIR6K18JcI
-	j+O7wJg7QUtmLovCwxWWHEUvNob1Lu6zFsnmjrQgxrxUqO5xkNSFVA00APaKmymojUasfi/F5VT0u
-	2Qfvun+A==;
+	bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=; b=mn5fYU1oxyy0K5tzbJYDrXI+9v
+	W5aSbtyNVgUvaBf2phWXjNMLXi4mO0HRpqawmwyIo+RuQn5QXUvv40GZ5UtAPhZfIcB0WiS/w/+Lr
+	+WwoNhqqUCXUb/Ks7snK+o+xyJOjZ2KXRJ2OkLR/hpd1QsxbP6EEZatLhQtGfzN44RAMwB9oER3cJ
+	Rw6+4MSgDrluMgMzH99if3MlGxYxxMGRd1IZT5JcfISuPiXi+ZBd6baatQEjFqnCfRJE5B1wVfipr
+	t86UzyGiLwGrfjlEA2c5hse4wkVrGXAPL13kVi6z87KLr7c91AmUpLonSUQLTr2NDKEWhz/w/xj4m
+	aS7yxzPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSao-00000002kG9-3sFJ;
-	Fri, 22 Aug 2025 14:18:11 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1upSat-00000002kMu-2jQA;
+	Fri, 22 Aug 2025 14:18:15 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKoc-00000001ddl-2b2o
+	id 1upKuj-00000001eZT-26s1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 05:59:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=muTL
-	R+uO1apVyAZkBbYYZe6gE3Jd5HWWcO3c7R6cA9g=; b=CD4BCs1PRkjTCCYhPycc
-	34kdjEOjYanOh4U654+aGn6BZHBbuPF+jcC/cv2aS8DWV8Jct4EOIkwCUOs0WgHR
-	seR6tPavlBgjL3wwmOISzO9W8uvnhAJHNUDRBxm9pN1dgVA4fdyTjunEhDCnUokO
-	tB00CVhfMFWHhQFHD9kg91SWyAdPqZ7J6pkoslduLsz/z0M74LR7DRpikfxMuYt2
-	q6OmOHPTWk+doXL6W57nrnVLbA53X+sSSnl1a/j0gTKB8/gaEo4t6+3HReiK0Rjj
-	pSHe2u2FILIEH55eX2T0BF8My1ZxsW2P74nrg0vyNFnzpHHZUKfn4Y2OEMkK3JDt
-	2A==
-Received: (qmail 3778719 invoked from network); 22 Aug 2025 07:59:46 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 22 Aug 2025 07:59:46 +0200
-X-UD-Smtp-Session: l3s3148p1@KHGr6e08GtDUtcd1
-Date: Fri, 22 Aug 2025 07:59:45 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-actions@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/21] clk: remove unneeded 'fast_io' parameter in
- regmap_config
-Message-ID: <aKgHUXzK_iSfjP7Q@shikoro>
-References: <20250813161517.4746-1-wsa+renesas@sang-engineering.com>
- <20250813161517.4746-3-wsa+renesas@sang-engineering.com>
- <aKeTq1lJ549a2jnQ@x1>
+	Fri, 22 Aug 2025 06:06:14 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-76e4fc419a9so1703156b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 23:06:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1755842772; x=1756447572; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=;
+        b=k7BGRKat6whcwf9LcCL2aqlZIcIgwCW2jVeWBxnhFIcyVHZDFFtCCbOt6tYijYE9i/
+         EOVlnhslqxdMXc8kKBIzFXnJycdfgqeNOAOP5mEhUrrLVJWoCBDf50hbvJ2DLFcVjH6u
+         5dSe0NsKmW4C8YjjsZcGbT0MDhqM45nBYHf5OcN3tkDoqkkNOmPSOQfNZKoZF0YznBuX
+         c8zTq3KC0/zRPX7P4dO+s9xBRU0H815BMP41+mvdPm8c2zGozpOJd8qaLwsT2f69vPg9
+         h8bYNNR+fimggSrtoh8JFjWNa9EhZ1vYiH098ujA2U1D/P7Bemj26v71+lhLhcAOoxd5
+         OZMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755842772; x=1756447572;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aRj4gWuvSe9KJNF2HvWgOVVCeMpYCcJ3nSN/Zd2LcHQ=;
+        b=qkXBs2DD6qY/uotHl4fSjmd4TCcsawlwtwTOmb6uYPW6sDuK9iNdAir6/iBuhBwlqQ
+         hMEHh3ckXDvymhCYQaRtguVpo2rxAWnozwAqPlq4CJ+3vgSOA7uThk4KM9tX29TZDDyO
+         GTFp8An9UIFg9CfjJtSmAzibmMrJyBZvE9FWr/k0p6eYHP2ZEwuLzKIIg2x5Vyf4Jm5J
+         C/MXrO5VJL25AtSlfYVib+HJF2QPXTzj7qrtuxQVVzmMuOrFVPqfZmsfXwzkUexi8vs1
+         GotqqKDwmMY4iGI8RrjqasEuJx/sfNd9BK3jVckbQ0KqkNGRQeBLUS7UbW6JpfpaSf/M
+         IgRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUO7ukcAuo+PCctgXYdd80JPm0NgeyG8ooroc15P3Qf8j6bFaGw/GKsy1wnnH8ENQshDoze2YYjdXhhsVv/wXlK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgSA+HREWgNEiGEg5V2xdunV46j9uZ2oVZPk49+GPYMCGJkRa0
+	ARulgVlk0VdtvA4Y7nQ4dTtWm7Rsi4gVpNyC6QbewJfBAaV8mSQLzi2ICRAzHhZYuTo=
+X-Gm-Gg: ASbGncuYeh9IzBi25mX6y5aoYsHskUOU+kvcY26rlpD9DWk01QfFO0O33dHvNwGWtaI
+	5XSxmY17I8YoZN5jQghrDpiBtxoDThfdHO28nciU4mi1+wlTNSRitcGbKXICUtaPchcC8X9X8ji
+	fhSGCgF1H42+kyOqS5dbPVsUEvn9vY5mHQuzY8odgS9cRSs4V39oHGnUycBP+WtFF5TRObEWCpc
+	32r9PnXBEXqWgkWV7FuLyXq6D7a9VpWB7ONyrorPjvODSUwxl1ADf+I1gutEeJY1aXJyA5CQFC7
+	2QcThm4wpdAhC2kBeXHgUPQzAWPDq1eYaAuOHajjYuyDXL8xfgwOaZQSUKTzAX5lNZmqfS1doKA
+	AlAcfvp6fEAndpvVM6SYm5UHg
+X-Google-Smtp-Source: AGHT+IGryQhx7NkdJSDc5m5rZZNOBqLyR8DTgK4iIdr8kRPK/dFFCXNh+UbON3GVXLnVhVtonBLu0g==
+X-Received: by 2002:a05:6a20:3ca6:b0:243:78a:829d with SMTP id adf61e73a8af0-24340e4640dmr2844133637.54.1755842772379;
+        Thu, 21 Aug 2025 23:06:12 -0700 (PDT)
+Received: from localhost ([122.172.87.165])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-325154999f1sm1475868a91.25.2025.08.21.23.06.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Aug 2025 23:06:11 -0700 (PDT)
+Date: Fri, 22 Aug 2025 11:36:09 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Judith Mendez <jm@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Bryan Brattlof <bb@ti.com>, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH 0/3] OPP: Support more speed grades and silicon revisions
+Message-ID: <20250822060609.djvsm5nmryit5ypl@vireshk-i7>
+References: <20250818192632.2982223-1-jm@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aKeTq1lJ549a2jnQ@x1>
+In-Reply-To: <20250818192632.2982223-1-jm@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_225954_924000_B38A68E6 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250821_230613_546777_CD884389 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +103,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brian,
-
-> These all look good to me.
+On 18-08-25, 14:26, Judith Mendez wrote:
+> As the AM62x, AM62ax, and AM62px SoC families mature, more speed
+> grades are established and more silicon revisions are released. This
+> patch series adds support for more speed grades on AM62Px SoCs in
+> ti-cpufreq. Also allow all silicon revisions across AM62x, AM62Px,
+> and AM62Ax SoCs to use the already established OPPs and instead determine
+> approprate OPP application with speed grade efuse parsing.
 > 
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
+> Also fix 1GHz OPP which according to device datasheet [0], also supports
+> speed grade "O".
+> 
+> [0] https://www.ti.com/lit/gpn/am62p
+> 
+> Judith Mendez (3):
+>   cpufreq: ti: Support more speed grades on AM62Px SoC
+>   cpufreq: ti: Allow all silicon revisions to support OPPs
+>   arm64: dts: ti: k3-am62p: Fix supported hardware for 1GHz OPP
 
-Thank you!
+Applied. Thanks.
 
-> Should drivers/clk/sprd/common.c also be updated as well?
-
-Yes. I wrote in the cover-letter that a few occasions couldn't be
-automated with my coccinelle script because of the indirection. I will
-fix the remaining few ones manually, but I didn't get to that until now.
-
-Happy hacking,
-
-   Wolfram
-
+-- 
+viresh
 
