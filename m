@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BEECA0FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62E8CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 06:32:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXVYC0AdsjZP2euUO1U7QZk0RRDGdK2Vzwc3AXoC1dA=; b=KMmGRRWar42h0O/KB1mJuThLVl
-	7vhcML4KQJLCkxF0fWw6ZaA93tjY8Smqwop2MpifR6VoCf/kBYZteWfD6irh2ipwekHfmDO9O5wlJ
-	uZJjzj2jB+hWYSldc9cqg4D36YQRMK39GhEQ16hlKQ5LlDthet3i+vG4fqI9FNI2NJDpA+er5hyRz
-	kn+ymPglj+mv2RgNAcFXuvQ8WpsER4LmbfVmJwvx8LjvC1/wNVJCvDSjlFHzIYo9azSW5stI2XRM1
-	cfNJztRx3wW+/9Zoy19ERLaxh5KO5JzorNPUd+Xqz4bYR2m/twMnZ+bTxQBCgH9SdGj8LdsIGxojq
-	UXwNzjjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Td32NxIPL+IEwVqMVLYrBlw6zsQetTKe2zlFGKNC4j8=; b=O761HgHtxKM16uZMLXAmZPL1y3
+	Q557EtIlq5RJQpReebpLML8VZGG47KjHFKu4nqw8HhYBmMSsbSunubAeQ7UeSzkiR0smxx5nGV2pk
+	Ofqz1yWnofnjKtbfpknmcFSB6khgd9lvz78Eb6OaLU3hE1kuBa2K4OY+Rk4GfWuwpjLNcoq/0BfrA
+	B7bKG6yDbC2NKfiskqMDx3PsPJIKjTxDV0ctn4IA5oQLrdyGLlQmltlw/lHBs1bYOXs94Hj4hpJbm
+	238jeTRuwza0TDs+SOgv248aX50+0a7B+LAgYmLiqLqfOsAN56P3k2PGmObiusRbOlllGDxBT6GHg
+	kmCyZUpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uphnX-000000041U0-20fT;
-	Sat, 23 Aug 2025 06:32:19 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uphnY-000000041Vf-1Soe;
+	Sat, 23 Aug 2025 06:32:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSw3-00000002rZi-1zVk
+	id 1upSwa-00000002rhV-2Nd9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:40:08 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57MEXa4a015372;
-	Fri, 22 Aug 2025 16:39:55 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	yXVYC0AdsjZP2euUO1U7QZk0RRDGdK2Vzwc3AXoC1dA=; b=KwODd6+Bhcqmq19y
-	KCXIu5+EpZkD3z2usXDA/SCAUx5cEOI32TN+AwBEDhnxAvxVSwdyaXBf+H1G16hI
-	6rz9xSBN2IloUoHWpeMyrBHYiq7ZBjKCn2Vi16BC1DS+lwxOIlinMpgpECPS2jcy
-	UK105687qwWSvcSOCvN6VEvo97JyK9KbGgDNJpvS4HjcBELYNCbGP2qVvl6eLlIz
-	MGRU29d+LSAj4nHe9iPiOrQOI2Izh1igzFviCWvljZR5rYW+owMp/pCyftXoG88u
-	1zdHmta3cBDXo4YZovQp/OQ+BT/Db3c/A7HfbB7q9rKEWqIa2TtPeJBnc0DMa3iW
-	cP65Hw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48nj3v8jn0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 22 Aug 2025 16:39:55 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BACB74005D;
-	Fri, 22 Aug 2025 16:38:41 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 21C3A726F1A;
-	Fri, 22 Aug 2025 16:35:57 +0200 (CEST)
-Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 22 Aug
- 2025 16:35:56 +0200
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Fri, 22 Aug 2025 16:34:22 +0200
-Subject: [PATCH v5 13/13] arm64: dts: st: enable display support on
- stm32mp257f-ev1 board
+	Fri, 22 Aug 2025 14:40:41 +0000
+Received: from pendragon.ideasonboard.com (unknown [205.220.129.245])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 9890A446;
+	Fri, 22 Aug 2025 16:39:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755873579;
+	bh=zj1rzy6SxpiP5UVa3GXGQh4rqI+RlENYyvwupRYye2w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a96PCwbnYqWy9NzgoA0H+Hu4BubTkJXJ9AEyZpFPhWugKANdrz9tW2LJoNkQZpo9S
+	 EdJ/TSUDS5dk+nV22AwEfaEtaY5DYyNCM53HtsoB+x77heo5/KQGJ/b4qav2yw/vDi
+	 YnenV043is+sSKtBZSEXYgdcFQ/YD9Rmw4PtpLcM=
+Date: Fri, 22 Aug 2025 17:40:00 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: linux-media@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Inbaraj E <inbaraj.e@samsung.com>,
+	Isaac Scott <isaac.scott@ideasonboard.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Martin Kepplinger <martink@posteo.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Purism Kernel Team <kernel@puri.sm>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 06/13] media: imx-mipi-csis: Use GENMASK for all
+ register field masks
+Message-ID: <20250822144000.GA22572@pendragon.ideasonboard.com>
+References: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
+ <20250822002734.23516-7-laurent.pinchart@ideasonboard.com>
+ <aKh7DmnEB2KChVol@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250822-drm-misc-next-v5-13-9c825e28f733@foss.st.com>
-References: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
-In-Reply-To: <20250822-drm-misc-next-v5-0-9c825e28f733@foss.st.com>
-To: Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.130.74.180]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-22_04,2025-08-20_03,2025-03-28_01
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aKh7DmnEB2KChVol@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_074007_802558_B580DF14 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_074040_741800_F9A3D693 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,125 +80,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the following IPs on stm32mp257f-ev1 in order to get display:
-   * LTDC
-   * LVDS
-   * WSVGA LVDS panel (1024x600)
-   * Panel LVDS backlight as GPIO backlight
-   * ILI2511 i2c touchscreen
+Hi Frank,
 
-Acked-by: Yannick Fertre <yannick.fertre@foss.st.com>
-Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 79 ++++++++++++++++++++++++++++++
- 1 file changed, 79 insertions(+)
+On Fri, Aug 22, 2025 at 10:13:34AM -0400, Frank Li wrote:
+> On Fri, Aug 22, 2025 at 03:27:26AM +0300, Laurent Pinchart wrote:
+> > Multiple register field mask macros use GENMASK, while other define the
+> > mask value manually. Standardize on GENMASK everywhere, as well as on
+> > the _MASK suffix to name the macros. This improves consistency and helps
+> > with readability.
+> >
+> > No functional change is intended.
+> >
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 12 ++++++------
+> >  1 file changed, 6 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index ce889c436cb1..50f6f4468f7b 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -57,7 +57,7 @@
+> 
+> ...
+> >
+> >  /* ISP Image Resolution register */
+> >  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
+> > @@ -655,7 +655,7 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+> >  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
+> >  	val |= MIPI_CSIS_CLK_CTRL_CLKGATE_TRAIL_CH0(15);
+> > -	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MSK;
+> > +	val &= ~MIPI_CSIS_CLK_CTRL_CLKGATE_EN_MASK;
+> 
+> nit: if need create new verison, I suggest add "change MSK to MASK"
+> informaiton at commit message.
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 836b1958ce65fb72c99d634a92af3efaf9844d76..2958ad413b0675575d84942e193a16f80197b88e 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -86,6 +86,43 @@ mm_ospi1: mm-ospi@60000000 {
- 			no-map;
- 		};
- 	};
-+
-+	panel_lvds: display {
-+		compatible = "edt,etml0700z9ndha", "panel-lvds";
-+		enable-gpios = <&gpiog 15 GPIO_ACTIVE_HIGH>;
-+		backlight = <&panel_lvds_backlight>;
-+		power-supply = <&scmi_v3v3>;
-+		status = "okay";
-+
-+		width-mm = <156>;
-+		height-mm = <92>;
-+		data-mapping = "vesa-24";
-+
-+		panel-timing {
-+			clock-frequency = <54000000>;
-+			hactive = <1024>;
-+			vactive = <600>;
-+			hfront-porch = <150>;
-+			hback-porch = <150>;
-+			hsync-len = <21>;
-+			vfront-porch = <24>;
-+			vback-porch = <24>;
-+			vsync-len = <21>;
-+		};
-+
-+		port {
-+			lvds_panel_in: endpoint {
-+				remote-endpoint = <&lvds_out0>;
-+			};
-+		};
-+	};
-+
-+	panel_lvds_backlight: backlight {
-+		compatible = "gpio-backlight";
-+		gpios = <&gpioi 5 GPIO_ACTIVE_HIGH>;
-+		default-on;
-+		status = "okay";
-+	};
- };
- 
- &arm_wdt {
-@@ -183,6 +220,15 @@ imx335_ep: endpoint {
- 			};
- 		};
- 	};
-+
-+	ili2511: ili2511@41 {
-+		compatible = "ilitek,ili251x";
-+		reg = <0x41>;
-+		interrupt-parent = <&gpioi>;
-+		interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpiog 14 GPIO_ACTIVE_LOW>;
-+		status = "okay";
-+	};
- };
- 
- &i2c8 {
-@@ -230,6 +276,39 @@ timer {
- 	};
- };
- 
-+&ltdc {
-+	status = "okay";
-+
-+	port {
-+		ltdc_ep0_out: endpoint {
-+			remote-endpoint = <&lvds_in>;
-+		};
-+	};
-+};
-+
-+&lvds {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			lvds_in: endpoint {
-+				remote-endpoint = <&ltdc_ep0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			lvds_out0: endpoint {
-+				remote-endpoint = <&lvds_panel_in>;
-+			};
-+		};
-+	};
-+};
-+
- &rtc {
- 	status = "okay";
- };
+The information is there already, the commit message already states
+"Standardize [...] on the _MASK suffix to name the macros".
+
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> 
+> >  	mipi_csis_write(csis, MIPI_CSIS_CLK_CTRL, val);
+> >
+> >  	mipi_csis_write(csis, MIPI_CSIS_DPHY_BCTRL_L,
 
 -- 
-2.25.1
+Regards,
 
+Laurent Pinchart
 
