@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6633CCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC19ACA0EEB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 15:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=; b=rdHAhKSTz2ajGrbMHrCAbC2AWp
-	hONP3L3awarzifyOCDmbODZsLlk7hIVaxZbRjnOwy6NWT7Qb6b2GanJ8As4kdGBWItyOKiAL1YK/9
-	D0Gb5RA5IM8hiEhZi5cb+zwLWxdORM5pCST3FNDPQWDZdQRzy6xMnTqCevcKbqiJsydXx1/YUrWYT
-	OBlYe/944dzsZSbev/MQ4eZITfbtV2pmCzzCff6TMQgLMX2TALa6lTHIH74M+0Klu8c38xKZurvG5
-	cefAhsdJTfAWcgkCJYBOcKSclIbFPa0qzQh2lwZgX4jASsa3ZmWg8sHRSrNnGAYkjsmeOSw4H6dCT
-	ti7oCITQ==;
+	bh=v8a3z04Uh0u/uSmoBokGI0Tk49vBcGLpTfeWGAwsaHM=; b=PXL99q9ElSPo9RlfFEtBICI6gp
+	yHBTI10So0a6Xs3HIUk5VAjGpfqcgLUraA2/6sgwpbt8k0v6aMKZwHGj1JLX2WpOVA2RDS+V/mcmc
+	1Uug54Bw9gBJTtse1L6Qaoc1GVm3KO93j7En6N8aFXaORlb8fXqITUhvytLhWlKEolchh9l7PCbf7
+	pVzheQm/AL+i513+lcQPmTkv7PUx8505k87IbknHBoOiOtdq83+iNheKHMNdkjK6YfAbGf8Mn3v1Q
+	vTloIde4AIQcP2bUsRlKRsEf/z2bzVp74spLuUXTlsEHi1vDYZ5R19mcLTqNSdSR11ln6Adk7S04g
+	loQ7oexA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upTUM-00000002yh1-3riL;
-	Fri, 22 Aug 2025 15:15:34 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1upTXu-00000002zPv-3WMi;
+	Fri, 22 Aug 2025 15:19:14 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upOzJ-00000002CEj-2hjF
+	id 1upL7j-00000001g9s-1PB1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 10:27:14 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-afcb7a16441so289863566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 03:27:13 -0700 (PDT)
+	Fri, 22 Aug 2025 06:19:40 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-afcb7a3a085so286526366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 23:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1755858432; x=1756463232; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=;
-        b=NxNDrd6lp2rehZlF39htXRuAo7Lcyh1x0kQMpGZyLD+g5xGBSl7VJlH281SpuGAZtN
-         BBJiu4Mk3WOen638vmR2SbqaG6avi1qla+H2LnNGWxy7alI3EF3elUaA1GrxCaHSdSn5
-         cfjWUAsGRFP5mrLjN/scmXwg4SWjTwUNj1BZ0WEWg/sa7o3m0ypDKujWqPKa9ikcsCWG
-         zrBhN+mQ4TePrrKHxXkbd0+guACLpqfi9p3V6yM94vCYRjTXkvwQI4MNjh8LhU9rVsYJ
-         EtyqXDIlFwDljpUTuCaLwQMBYe2j3Ato5Z3fohhBccLX/fV38YKPutu6Gd8HkbsDLg1z
-         zd5g==
+        d=gmail.com; s=20230601; t=1755843578; x=1756448378; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v8a3z04Uh0u/uSmoBokGI0Tk49vBcGLpTfeWGAwsaHM=;
+        b=Ep8nreTObWh0Jn3rg0iYYjnoKP5ypdfUDdQy1mR8qIIbXAUxBdSvhyPOEB4HcXU3Vv
+         Yc58O8xRMV2e68Pzg0XICx4/OWAeAHlGvPZ4JRrkA2Gb2+n4gIEE+9FMFJkaQhmiQkg5
+         55RfNOBY5taduvH66AEq5kXYGahyqzw7PM2JkEuvtHeP17xU7dAKY5bm2G2Mv/DvxQ4H
+         r3h3cdltYYoNquDZEsAfDWuZed6C9VEdZLI6nS584r9kpShtFTwpVgfCVL8X38LyizEv
+         DoRtmYnJzXg0yPYdiztiUKD9pWL1qxVb8KMCnW8sq8cisiLPqRE5rkjcEWPB0hGqNjTI
+         0LxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755858432; x=1756463232;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cd5s72x9mZV/+O9tEQqldJerG6gz6k4UPw65u8py8ZY=;
-        b=qg6dOkwrbHZWX8j+U8GCQrRaWU58WMFR34yegdpq1YzBJh4tzm7V0Zo4obiCoNwqcR
-         TAbUWduZI82szdagyuGedFeTe9Vhq+9bhj/EgGsGJRNW1q4vA+/ma0BnL3OrJwzZuhxy
-         F8HqvGebaW2BVL+a4S3tOMezfqfpz3/a/2mYzIxBrW58R3TXG82U2l1nEHdMh8/QqSfN
-         BEtPeAsw2n4VVN0xa9aVR4vWi20SlsGPWX9BYRQ4v86NdskGlsElGDZxVXXU/5VNVvu3
-         8q8L9cC+TiyGmLob2ho2635hpkauFrZ0gZwY67+LKmzDzGdYJ4MTWIXbDitK/XkXGAcW
-         xvmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXim7k+a9mv9PzbDeDXnAetRKhhNLdfw4O/aJr3/knFFE1ohn5l7ytIK7Pbd004iMcLxAT52spmpjM0q+NEW+9W@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpfMdU2tHbIL8PpTI7nWkTjfJnhB0HsnUIrRg3Q4kciS71EOc3
-	9IROFTTt/U0vk+vFnJOdeA+/KrbmBc0NYLERF5ThyEeDKYM0MsvObsr9DEmyl9e1kcc=
-X-Gm-Gg: ASbGncvMhH8fgMSjTX+lzaun5zcFLszximQfMYgzXkzVagwzIWCQSauHB94cq8282KQ
-	Na9LLlbtM3VRx4ud1wx70d3u1E/vUc5xUgj/YN+6lk9qo9jFZGOrES9P02Sy3JzTLSbyS/AMuCO
-	w9sQtAADUf3zQ7LxUjhBYQXFNh0F+fg22uVqe5vJMIZMpINRViP1NwUaMHDUFK/9UKBxsyRT+C9
-	dqCeIyPBGkDhpzbpeeGEZkC1S5DsCuXGV//lJTkDr4YXOQGPLnIqX8XthQsizI3qfTMnDVfRbCI
-	LzTZqAhTh+ZgdxoKGgUzr95mwFVUvym9u9Ea7sZi0q+seBSwMHahY58+sG77XVMWPGmea1c3j1q
-	dhch6QVrMBC6oftS6cZAuqK8wAqQN3zIb
-X-Google-Smtp-Source: AGHT+IEjRd6Tx5sKZi6OWN0Ddp+BLYTOG0lrQ3ub++Nybf0iOaCMKeFsTfA36+kF67hMQ9sg6CmMMA==
-X-Received: by 2002:a17:907:3f11:b0:aec:76c6:6ef6 with SMTP id a640c23a62f3a-afe29605d34mr191833466b.50.1755858431819;
-        Fri, 22 Aug 2025 03:27:11 -0700 (PDT)
-Received: from [172.20.10.10] ([213.233.104.29])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-afded4ca67fsm585912066b.92.2025.08.22.03.27.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 Aug 2025 03:27:11 -0700 (PDT)
-Message-ID: <493a072e-352c-4e96-b58b-04b56fa56dc0@linaro.org>
-Date: Fri, 22 Aug 2025 11:27:09 +0100
+        d=1e100.net; s=20230601; t=1755843578; x=1756448378;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=v8a3z04Uh0u/uSmoBokGI0Tk49vBcGLpTfeWGAwsaHM=;
+        b=h+weBYw68lukNFe2rVPaEuLYfCinNn0dItZgcfUh8ZHT3q4lmi4tyzYqIJLpN7mPrQ
+         uqghnMzPmM98MEmgW3PcOhFuqP6Rg8djGo0iV0atmJdmy9gH6y9Nz3QqMMi7QYecgtyT
+         +O4K3UVYxPKcTRKGQGayTlVUUKyrFLhY+rpH6GQyqrfI8VYAzjTTg8GX/B8uFzDpn21w
+         XLFaoPTlfMHAapVdHoYNFLsggeTO4lztjzYhO+b1dxQDlnljmwe9Lhnnf/0nq+K6FxWB
+         3oBAAyFFJNNtY9Ugj45nvmJVnqgjCISBb4Fe8g1RGyljShamN5INlJRR3gRd35xin90j
+         hOFg==
+X-Forwarded-Encrypted: i=1; AJvYcCVhOYeXH1SxVh5vDTyKU4otrtUVS+ou4PC4m2XtlAYvdlC3/WMJpLU6/dTFLWYgGXuX/3hjVrBU5H6WEwdDuLlS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI7qFLqXg72h58+XnIY2nxa/2xsk0TL/pwjdyZihPsVxLvyHGl
+	w7Jso6B5HSc9EtcJQYbS7AwpZVjkbCYEZk3bfbr/T8kMNbuikwP9ZZ5aEq2dwQEmEA0uICmvkOX
+	Z/vRO+i1U0/O0sN5nblNami62n6DVm7s=
+X-Gm-Gg: ASbGncsv82ucAIzGeywjcPid2aH/K1KGJ9rlMBQIx1NI91Fl57oDpeaIVfFHS/6pmvh
+	WNkjvoGEDXcbYSQraW5Zdo+TX+Oef0H8NNPf4w/jSKeAFL/+zsWVGPhfBDCKHrPnI8iF8H+TBHT
+	pO3hVynsTahEZsKXgoodBbQh2g5uGTeKxoU9eNcgJEfBRIZGd3Loqie1reNKbO6RZzuTzLsN70/
+	IpdqTOvmJy934awwQ==
+X-Google-Smtp-Source: AGHT+IE+QSuwTRWNnEst85zd/nVk0XCWCT3dBHW+V785HwC5spF07O83YE3tf7aS5P/QoM3Upoe1DUKm+4/yzGTsmC4=
+X-Received: by 2002:a17:907:1c17:b0:af9:1184:68b3 with SMTP id
+ a640c23a62f3a-afe296358ebmr171036766b.55.1755843577528; Thu, 21 Aug 2025
+ 23:19:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] clk: samsung: add Exynos ACPM clock driver
-To: Brian Masney <bmasney@redhat.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- willmcvicker@google.com, kernel-team@android.com
-References: <20250819-acpm-clk-v1-0-6bbd97474671@linaro.org>
- <20250819-acpm-clk-v1-3-6bbd97474671@linaro.org> <aKdmurrT1pFtLSI8@x1>
- <720799b1-04ce-46da-b643-1adbdfc661e6@linaro.org> <aKhFOHFGKPYXgIri@x1>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <aKhFOHFGKPYXgIri@x1>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
+In-Reply-To: <20250822-enomam_logs-v1-0-db87f2974552@gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Fri, 22 Aug 2025 09:19:01 +0300
+X-Gm-Features: Ac12FXwT5-FuVxm-aLv8k_QiDyCdQQYyidQq38gD1A8xq-6f9ed_haxl-pVwx0A
+Message-ID: <CAHp75VeTD5Y1bi-jYyfRnCPDfB4=WO+QF1uK5MSaSq=oUUMFdQ@mail.gmail.com>
+Subject: Re: [PATCH 00/10] iio: Drop unnecessary -ENOMEM messages
+To: Dixit Parmar <dixitparmar19@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Haibo Chen <haibo.chen@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Cai Huoqing <cai.huoqing@linux.dev>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andreas Klinger <ak@it-klinger.de>, 
+	Crt Mori <cmo@melexis.com>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_032713_700870_04D93F49 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250821_231939_374446_065340C9 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +108,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 22, 2025 at 6:50=E2=80=AFAM Dixit Parmar <dixitparmar19@gmail.c=
+om> wrote:
+>
+> The drivers do not require their own error messages for error
+> -ENOMEM, memory allocation failures. So remove the dev_err
+> messages from the probe().
+> With these patches, all the iio drivers now has uniform handling
+> of the -ENOMEM while device_allocation and trigger_allocation
+> calls.
 
+I don't understand. Don't you have a subscription to linux-iio@ ML?
+https://lore.kernel.org/linux-iio/CAHp75VdL9kV2fyi63zqPZnW4CaeYPmJ74tmGEgU=
+=3DM7FSYBv0ww@mail.gmail.com/T/#t
+If you found something new, please base it on that series as it was
+already sent and reviewed.
 
-On 8/22/25 11:23 AM, Brian Masney wrote:
-> Hi Tudor,
-> 
-> On Fri, Aug 22, 2025 at 09:14:03AM +0100, Tudor Ambarus wrote:
->> On 8/21/25 7:34 PM, Brian Masney wrote:
->>> On Tue, Aug 19, 2025 at 11:45:38AM +0000, Tudor Ambarus wrote:
->>>> +static long acpm_clk_round_rate(struct clk_hw *hw, unsigned long rate,
->>>> +				unsigned long *parent_rate)
->>>> +{
->>>> +	/*
->>>> +	 * We can't figure out what rate it will be, so just return the
->>>> +	 * rate back to the caller. acpm_clk_recalc_rate() will be called
->>>> +	 * after the rate is set and we'll know what rate the clock is
->>>> +	 * running at then.
->>>> +	 */
->>>> +	return rate;
->>>> +}
->>>
->>> ...
->>>
->>>> +
->>>> +static const struct clk_ops acpm_clk_ops = {
->>>> +	.recalc_rate = acpm_clk_recalc_rate,
->>>> +	.round_rate = acpm_clk_round_rate,
->>>> +	.set_rate = acpm_clk_set_rate,
->>>> +};
->>>
->>> The round_rate clk op is deprecated. Please convert this over to use
->>> determine_rate.
->>
->> I can do that, sure. Shall I also update the kdoc for round_rate(), mark it
->> as deprecated and add your Suggested-by tag? It would help other newcomers.
-> 
-> I am working to remove round_rate from the clk core and the various
-
-ah, great. Thanks for the pointer!
-
-> drivers. Your driver just needs to be updated similar to this:
-> 
-> https://lore.kernel.org/all/20250710-clk-imx-round-rate-v1-10-5726f98e6d8d@redhat.com/
-> 
-> Brian
-> 
-
+--=20
+With Best Regards,
+Andy Shevchenko
 
