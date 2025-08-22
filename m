@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA0DCA0FEC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD31CA0FE9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 11:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHOsZL5h3AOX8Ev+qfsTMnxg8y5sgs76/JGMQGQVcN8=; b=OTz5vytN4ic3k8TqgONNc1+1Sp
-	C1Hh5ecCQDv2FqR9OuJM1CKAhmF5UjImMPh886No1BGS/UkD/p+8z6/pXmGN/hgORSUx2htTsgODX
-	OTxXjW5iZIFyA8qFp9p1CALhwbjG6ivZtYFC9gxqkcNKyTNIU3TNV3IVi+wOYgc6MZbRKKuISJ8Yk
-	NxvDhT31hUzpAC9qMb5J9KxLo72dxhvmwbYssHUZcR5NTKAVscfDrxcBwfTeCiNpHhT2rh6RKs/A8
-	+S2FDIl5Jwe6tzaSCFxmie5iUs/yQnHGQfh5QUeBx9icO/uKim3E1DVMCJA56U2j2qGvHUgE2WRrR
-	WwofwqvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5bQKcGZPGlffL4xllSsfKrdEOsWOcECNuw+3JH48HP0=; b=nVl9bnchhndLyjiN5Oa0angGDU
+	GCx5NmMaXh+JeTsf4UeOabAhmEW9cAQgTkqpayq2z/+0tY/SQrX1zS3Vo4HnQVmXa/wvaIo5iEDjo
+	bqdEHn9akXwBVoRVeGBgVhD3lCCtmNOJ8CrWYwkRwdpfMINhByg92CPO201nLKVWMjjxr8FivvhXH
+	0AgKrFJ+l7zHIKGsq7uj9B6rDM8vn8z09YX7+tX3hVZygQl41a3rgGH46DwzfKIBZs7mouDq2xra6
+	HAI5UBV7vufDo/fh4R3VU0En6aYzU+Q7rxdF4mi1NUSPPO0/QdSsvvDUSj6we0uOUDEQScahul/gc
+	i3BDDEeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upPqo-00000002I5G-0ZZR;
-	Fri, 22 Aug 2025 11:22:30 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1upPqj-00000002I29-2z9O;
+	Fri, 22 Aug 2025 11:22:25 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upHlw-00000001J7u-0BLI
+	id 1upFdT-000000012M1-3LB9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 02:44:57 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b476c67c5easo1143207a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 Aug 2025 19:44:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755830695; x=1756435495; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uHOsZL5h3AOX8Ev+qfsTMnxg8y5sgs76/JGMQGQVcN8=;
-        b=VHsQ3z4/uMihfloBVwa7WuNl5rers8cnD2/RDVY5FdQLUUm0uaouWRrAwgU8Tr2Msb
-         01dSlGghGP3HVz/8dhZzzG76ldga2JElDjVMa93ndJIXehVVgezbGv309sUgTln0aRbo
-         pVgRCjw8/D7gBk3RL3GmyZ+bdixbdLZvqczv4xVQwReLnI986Q2lhZQljUM/nObW99gv
-         cvxuY+wkOtiU3I/i441X4qN154z86+m5TNxtBGyKC9trgqb0RRK0Hfr7pU1uVKKVBF/Y
-         sBviWsUcj5ifWuxbVCVbuNzZ6pwdli2J7dUlq0zPyFZD+3405qKd7ZfNuI2NjLIHi1rM
-         Va3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755830695; x=1756435495;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uHOsZL5h3AOX8Ev+qfsTMnxg8y5sgs76/JGMQGQVcN8=;
-        b=m/SYDUrUh1bylah8zTGoMa0C0BduFKhWBIVx/zFkk3EQNDtRib+ZBCO8cT7wiYYCZH
-         gxtIcVIHCVl6Hv60EJM3xsw4c+4WXE1nwQTBnBG2p72GJD8p+FiyeJOhtMPAyCrcgOPe
-         c+ixc2nY3rSEyHx+ok8WIsNnhU3BzVBNSZjJvKvqxLHEILeUcjYa9zyaVL+WwfvQmpNb
-         32D8ksR7S+1Scm/Ens2BO+yHb3WI1FLfAcUhTf5dPVRI7S9+bzltlxdcrt+ahZ+0tvOY
-         kgyAvRzCCteLY49kx5TEMfGE0WP2zSexupevZyXS2GCu1QdPUHPyuBt0fvuWYlLxQPml
-         Eang==
-X-Forwarded-Encrypted: i=1; AJvYcCXs0NaskvFaIPQPaf+eZNlUxGuSNJ7ONje4R8g+c0awFLrgv3qHYygn0eGvo/Xr+XKEFPzOd+M3N+hbzQZhHydx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8DohfQxsPTPqUx+uCMrrlq8ag/FcMMazFOQHt70iuqt86DcLC
-	EqZCy4wVhgaYARdOeh4Mv6OD9QfeMe5pWRReEBHxIgfaVeVd5X9ePYIh
-X-Gm-Gg: ASbGncs1nhWioOMCuodIrToWQP6TwERy0SHcVW1GsRjlZFNScATCdmYeKyrtJXc3Y6U
-	jXE2l8z8P4WNWbABKudi4ZAtFHFyOy/95rRYDpjLUVFgLUnlYq6uiBibdEys0Ammfr61c5DTFNI
-	XadLD0M6jvREsJp44HMXk9+i3YiEUorcimlMdtGziivtMKdhX6WGHv0sL7KKVc7H5m90W40YLls
-	UlMQpqNbis9PmtdAe/dTQNj8DiwNJ21M0eUR3d/emlbbFaauFYZ9NY+oq3959NRO4Oi7Bj/L3PF
-	w8FwbQHO7n4TF4c8dAQMx4ynJI06OAL/kY9I6OsXazyG8zHtE3ZYAQ/wqxh4uD+3u+XSmcIvyvH
-	UrHQLFV4ZtBmJaFYY51Tm6HIii/TuJP86
-X-Google-Smtp-Source: AGHT+IG/bG+rHH6H4KxhjjaxQycZZAweGpYfTMuCllHKApJ6KI6vKWQZMMacqTWR/3qipm3upk4BaQ==
-X-Received: by 2002:a05:6a20:2450:b0:243:78a:82d2 with SMTP id adf61e73a8af0-24340e2aeddmr1948063637.31.1755830694893;
-        Thu, 21 Aug 2025 19:44:54 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:9cb2:179:b04b:be48])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-77033785903sm262094b3a.66.2025.08.21.19.44.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Aug 2025 19:44:54 -0700 (PDT)
-Date: Thu, 21 Aug 2025 19:44:51 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
-	"open list:INPUT (KEYBOARD, MOUSE, JOYSTICK, TOUCHSCREEN)..." <linux-input@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
-Subject: Re: [RESEND v2 1/1] dt-bindings: input: convert lpc32xx-key.txt to
- yaml format
-Message-ID: <x43o5o4pcmhoudaeoklzanvivvwgytyrubvfwjfigcplaizgzm@ll5mq3nzsgnb>
-References: <20250818183814.3603308-1-Frank.Li@nxp.com>
+	Fri, 22 Aug 2025 00:28:06 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 77C36228;
+	Fri, 22 Aug 2025 02:26:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755822418;
+	bh=hvocuKs0+lw53BxD/QtBS2ovnPYm5W3zP08TmRzB3Eg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=F9J1ksJ7ShlCf2QiTyLFtXUeecI3jn8g0Iz2Er3pQMMVky6EqM+YG/3wic5ZcHmes
+	 Ig0cgiOtD4ZwGmuDsP2Z9aFJM+Lan6d6bw/EvDiXutQkUQyJI13MhicK+Ti+xHmFnT
+	 M1miaP9s/xGxH4eg0qcKUWf9ZRFoBizFbAQaEUEM=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Inbaraj E <inbaraj.e@samsung.com>,
+	Isaac Scott <isaac.scott@ideasonboard.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Martin Kepplinger <martink@posteo.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 00/13] media: imx-mipi-csis: Cleanups and debugging improvements
+Date: Fri, 22 Aug 2025 03:27:20 +0300
+Message-ID: <20250822002734.23516-1-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250818183814.3603308-1-Frank.Li@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_194456_081989_44ED95BE 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250821_172804_014045_8906C376 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,18 +78,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 18, 2025 at 02:38:13PM -0400, Frank Li wrote:
-> Convert lpc32xx-key.txt to yaml format.
-> 
-> Additional changes:
-> - set maximum of key-row(column) to 4.
-> - add ref to matrix-keymap.yaml.
-> 
-> Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Hello,
 
-Applied, thank you.
+This patch series bring a few miscellaneous improvements to the
+imx-mipi-csis driver, and in particular improves the debugging
+infrastructure.
 
+Patch 01/13 starts by making the v4l2_get_link_freq() function accept a
+const media_pad argument. This conflicts with [1], I don't mind rebasing
+on top of it. Sakari, if you plan to get that patch merged soon, feel
+free to take 01/13 too.
+
+The next three patches, 02/13 to 04/13, are small cleanups. Patch 05/13
+then aligns the code with the reference manual for register field names,
+increasing readability of the driver when read alongside the hardware
+documentation. Patch 06/13 (new in this version) also improves the
+register macros by standardizing usage of GENMASK. Patch 07/13 fixes a
+small alignment issue in register dumps, and patch 08/13 logs per-lane
+start of transmission error instead of supporting the first data lane
+only, easing debugging of D-PHY issues.
+
+The next two patches deprecate the clock-frequency DT property, which
+shouldn't have been added in the first place. Patch 09/13 improves
+handling of the clock frequency in the driver, and patch 10/13
+deprecates the property in the DT bindings. The driver still supports
+the property to ensure backward compatibility.
+
+The last three patches introduce support for multiple output channels
+and wire it up in the debugging infrastructure. The CSIS IP core
+supports up to 4 output channels, with the number of instantiated
+channels being a property of the SoC integration. So far, only the
+i.MX8MP is known to have multiple output channels. Patch 11/13 adds a
+corresponding DT property, and patch 12/13 adds initial support for that
+property in the driver, and uses it to dump per-channel registers and
+event counters. Finally, patch 13/13 sets the property in the i.MX8MP
+DT.
+
+[1] https://lore.kernel.org/linux-media/20250819094533.2335-3-sakari.ailus@linux.intel.com
+
+Laurent Pinchart (13):
+  media: v4l2-common: Constify media_pad argument to
+    v4l2_get_link_freq()
+  media: imx-mipi-csis: Simplify access to source pad
+  media: imx-mipi-csis: Standardize const keyword placement
+  media: imx-mipi-csis: Shorten name of subdev state variables
+  media: imx-mipi-csis: Rename register macros to match reference manual
+  media: imx-mipi-csis: Use GENMASK for all register field masks
+  media: imx-mipi-csis: Fix field alignment in register dump
+  media: imx-mipi-csis: Log per-lane start of transmission errors
+  media: imx-mipi-csis: Only set clock rate when specified in DT
+  dt-bindings: media: nxp,imx-mipi-csi2: Mark clock-frequency as
+    deprecated
+  dt-bindings: media: nxp,imx-mipi-csi2: Add fsl,num-channels property
+  media: imx-mipi-csis: Initial support for multiple output channels
+  arm64: dts: imx8mp: Specify the number of channels for CSI-2 receivers
+
+ .../bindings/media/nxp,imx-mipi-csi2.yaml     |  18 +-
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |   2 +
+ drivers/media/platform/nxp/imx-mipi-csis.c    | 353 +++++++++++-------
+ drivers/media/v4l2-core/v4l2-common.c         |   2 +-
+ include/media/v4l2-common.h                   |   3 +-
+ 5 files changed, 232 insertions(+), 146 deletions(-)
+
+
+base-commit: a75b8d198c55e9eb5feb6f6e155496305caba2dc
 -- 
-Dmitry
+Regards,
+
+Laurent Pinchart
+
 
