@@ -4,154 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDF3CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADE3CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 08:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XqsAVqx2D9fPf18hSHoZHOjMqFsEIFJD0EpmkHZBGjU=; b=mSilVhwEDn8+5ARJ0rKRpKNEwt
-	TmbaLTUe2yTItVxc72BMipOpjRF2AKx8QTdJIUQv1fe59Lb3PYh8KbiZU6MUPS+P92WUg+Kx6iXm1
-	PaFy5YcODqUANa5Mxt8d9Ttdo1pSwfdtHnxlyDGSGTCwiC+Y6CSt1Aw22cAXN8g53CgtLJ8Di9whH
-	fpBYs3rybHGEcj9+GZ/LcexZnY6PUb4E8HQeCjw0/dwUdGh4G3KIEMC6xe9hK7fPR7zQJOBGVe7ab
-	MzPjM3PR8Q7qTigiMYKzdyxAWqT6hROHCCoIIGcwySbdhh2/pm4fweV7C/a0kcTYDAVa45Nd5tMja
-	eZ1ziUbQ==;
+	bh=jfIU0fuoE9yXlwzwCsY58yVMK25YpgK8FBL6dKXlTGM=; b=PoIE3F6SEXYltMmGo8+f+MAtOJ
+	ltt/PpCefBGP/rkucJR7BkNYJU6z1M6Wdf+/Hl2EL/Bsx7/a+JibkS/eP8IsiGTnaNLJksnDRrte1
+	IpW4KsfDAKhNe9d7G4HYz30kEidfNRtCpiuxHbZzsFjE6HnviwKKNitgyKhiEwpzdlIzOVWt1zCIa
+	6govFmNAej+WhG8Gc7NghBQK+ayd7uI9ohFF+GTTNJUn3QbZz2EaN2Vf7FVBMio/guIZD/3ysxinK
+	/JBJP/38fYUGL/qfamDckQCL6qTOjjsuRd4m+UAttT5j3s8wubzZj52hkpnYLUhysMPw7Nrf+QcYx
+	0Q3Lsjgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upjTG-00000004KXa-3QcI;
-	Sat, 23 Aug 2025 08:19:30 +0000
-Received: from mail-mw2nam12on20614.outbound.protection.outlook.com ([2a01:111:f403:200a::614] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1upjTd-00000004L36-0Noj;
+	Sat, 23 Aug 2025 08:19:54 +0000
+Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upWrb-00000003Kgo-219M;
-	Fri, 22 Aug 2025 18:51:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pTWsjEZ+/0EndzCwcvH9w6ArGbgEdDKdzl8eSaAz9xg9deOnQc8GD6vZfr57eVu6Bs3eIqxRb1/aKZVR8mQk87Vd42HkAZdR7FPEh5VJA7/+VANH6thE6t5o6NbjgL2dnmDtctI8CYRzq+M0F33TGcTxvuuzA8jnMV+zVHE+xyR5KQ39J/DTbRHlmguo9vtaeLQ35RRX2lG821oyXn2J5xZKnRm4uIesM3dTDf5UOLLVO3qXZzamVx6PcTv3y6ZpzvHWausFWi/jSXOgG0MykGgncousvTyAYgi3ixAd1HfwOq4mB+8fj+N9w9L6Mlmd2p3ZoB+SpHg6G5pBcz72fg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XqsAVqx2D9fPf18hSHoZHOjMqFsEIFJD0EpmkHZBGjU=;
- b=c27a7TbfigbI4OkO9I8N9C2JO/JOKOvX1ua9M5DKDv2HlqcBo2Y60l2KGgUMt324hS/s14TETlul9zfFaTxIJ49oTaBfsp/pXg+wUhpWgf0BaEV96nG3JLOeNv4ox8WP/v3UAPppt/vS3WYqva09z/J6epa/xrf8Xb87p4DUIQpARhkro8GypH7dzeTza4AC2VdylJfwMW/p1/JSBMHVWAiV4ueuHq+Z33ckc+uYJT1EuI411KVeHcQSD/a8jqEca/jdpwrvj5uBqiGhX3eF0pDW58+A1PzcFTmtnM6IOmXaedeFkIVPpcxycPVrGiyOsjoTgcsm9l10gC9iwp9U9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XqsAVqx2D9fPf18hSHoZHOjMqFsEIFJD0EpmkHZBGjU=;
- b=RjEAWOvJg8Fu0AGHqv+UtRlOiU6BrBAXL0eiEP9HETxmxyKg1FirCZ3DCqgr2cNRpIfkSFWJ5Tcuvwz4ZuvfGBbaorj1SbO/ohnpal6UNvxe+M2esQ6e1kLOf+j16B3QpDgZ9HBBt+B4ICzLRDA+RBPk8M9EStpY8PpHC4E+BgTk0yfYDtEhXzh0b+GriCuEgVVIrkfM6Ex8ybGYWxbJcRvtwvrt41NhRhhCdwK1PkSaPrGjmeyhia6RiKHDaSLLE8NulPDTtQtAKIg1UHce/nDRzUrnoGdL7kiSAIrKkkD1YChuuL4JODJbaB1gDrNaMWlJBB4zPksOjW+AkUW+zg==
-Received: from MW4PR02CA0003.namprd02.prod.outlook.com (2603:10b6:303:16d::30)
- by DS4PR12MB9658.namprd12.prod.outlook.com (2603:10b6:8:280::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.14; Fri, 22 Aug
- 2025 18:51:24 +0000
-Received: from CO1PEPF000042AA.namprd03.prod.outlook.com
- (2603:10b6:303:16d:cafe::92) by MW4PR02CA0003.outlook.office365.com
- (2603:10b6:303:16d::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9052.18 via Frontend Transport; Fri,
- 22 Aug 2025 18:51:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CO1PEPF000042AA.mail.protection.outlook.com (10.167.243.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9052.8 via Frontend Transport; Fri, 22 Aug 2025 18:51:23 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 22 Aug
- 2025 11:51:02 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 22 Aug
- 2025 11:51:01 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 22 Aug 2025 11:50:59 -0700
-Date: Fri, 22 Aug 2025 11:50:58 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Ethan Zhao <etzhao1900@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <will@kernel.org>,
-	<robin.clark@oss.qualcomm.com>, <yong.wu@mediatek.com>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<rafael@kernel.org>, <lenb@kernel.org>, <kevin.tian@intel.com>,
-	<yi.l.liu@intel.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
-	<helgaas@kernel.org>
-Subject: Re: [PATCH v3 5/5] pci: Suspend iommu function prior to resetting a
- device
-Message-ID: <aKi8EqEp1DKG+h38@Asurada-Nvidia>
-References: <cover.1754952762.git.nicolinc@nvidia.com>
- <3749cd6a1430ac36d1af1fadaa4d90ceffef9c62.1754952762.git.nicolinc@nvidia.com>
- <550635db-00ce-410e-add0-77c1a75adb11@gmail.com>
- <aKTzq6SLGB22Xq5b@Asurada-Nvidia>
- <20250821130741.GL802098@nvidia.com>
- <aKgPr3mUcIsd1iuT@Asurada-Nvidia>
- <20250822140821.GE1311579@nvidia.com>
+	id 1upYnt-00000003Sb4-3Eb6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 20:56:08 +0000
+DKIM-Signature: a=rsa-sha256; bh=jfIU0fuoE9yXlwzwCsY58yVMK25YpgK8FBL6dKXlTGM=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1755896103; v=1; x=1756328103;
+ b=DJQSXnrcX1KtXFD8wN/IsWAeXiCKnnn69GH/KEJ8BExviuHhDhgNduzZ4liRcUICrKbL8W2N
+ pO8i7R+txU/wZSYMNRNtNWYFPdDbJ3Z1IIsaRL2ln0OdCUQglEMuQI2pA3Rm91tZPhTiW8OI/vi
+ BLgWP8MoT8TQCaiBDXJB2kdBLl28Yt2TL5osaCRM4ZYKKfPB3HarwCjt9pkDDw0L15SQZJZ0qPk
+ 098W7wjKzHXepBiTHHF3EpS9d9FU3erH5/TcFi58UNKCPONunJkaBtN7rgvvK/VdifKBsAkBghW
+ tdwOVaFmp/ScFDObBX+vJ5gMSk5hKIH9+r2X/V5UQGLsQ==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id b22c5fac; Fri, 22 Aug 2025 22:55:03 +0200
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] clk: mmp: Add PXA1908 power domain driver
+Date: Fri, 22 Aug 2025 22:55:02 +0200
+Message-ID: <6193521.lOV4Wx5bFT@radijator>
+In-Reply-To: <CAPDyKFoHWNuSmnN0e=QR73r0Ea-XJogbB8S3K+_=VRovzXL2Sw@mail.gmail.com>
+References: <20250821-pxa1908-genpd-v2-0-eba413edd526@dujemihanovic.xyz>
+ <20250821-pxa1908-genpd-v2-3-eba413edd526@dujemihanovic.xyz>
+ <CAPDyKFoHWNuSmnN0e=QR73r0Ea-XJogbB8S3K+_=VRovzXL2Sw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250822140821.GE1311579@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042AA:EE_|DS4PR12MB9658:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c9d1356-26f5-4af7-21e8-08dde1ace464
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F9NqNtOQk/XokkfZEOw6E09rWDMnPzWrkLZ6Zy26tNzb2zWG+yZ4ZOOGIrRy?=
- =?us-ascii?Q?OOVS2vR4nr+G1oykLPvNivO7z6tk1VXYdCJ1W18Bl/pdQiLWYKMpn3rPAyrm?=
- =?us-ascii?Q?uaC6jKfNyV/fZnNxixvPafcSanajs0v6R09XpmTqhknpqolCjSX4CU7tpPGk?=
- =?us-ascii?Q?oSKOTdHpk/VbaqFmPqpAsyKgR2AnNBP1s5rB3gNFhuKd2ZigIhztk4kcbHeU?=
- =?us-ascii?Q?OVw3HQoBtfXHjyG3b/dZdqLsLewLy662iLMl1sPof8pehXLKizpbVpH38Eed?=
- =?us-ascii?Q?1Mw/4RGVExlN9DFw1AsZADwsaTuTbveoG5mY9D67fhWqeok+kP94xTPHm26+?=
- =?us-ascii?Q?hJyxjqpviUuHRH2uinFZ8u3yrk8ARIm3WfVMI8PCiO8HBJ4qnUK624XmiYa9?=
- =?us-ascii?Q?jK2+KEtGG0ISahiZb21ThzLHYb1yeCeJ2Q3InPDinCOYXxRe5jUJekJq5jxR?=
- =?us-ascii?Q?TX7L27YG7IWbrhhg6R7wOMrgO+0UL638+CiQEzHfhCF6k8hpwoP0YeM8nkl5?=
- =?us-ascii?Q?w6u0rgJNaAG9tfZL/ayj8apoNyBgh9FDhw3kkFBBYJ7kmSde98fHd6QqFB8C?=
- =?us-ascii?Q?hP9mNsfr2MP3g04ziDFRHFGZgpGOtsVV/YRcVEznkCLpmVU3cTHazsffRlsm?=
- =?us-ascii?Q?cLuYSyUBz3e1ApMnrsTQiq0vwwX5I6Pw8NeL2L756Fmute1bWDPcsK8Vb+VK?=
- =?us-ascii?Q?BvH9scCS/MmC5zHUpP7yYy7jgknbU/oSWCmxhvRoUT3YrEjQEYALeDCVPlV9?=
- =?us-ascii?Q?4CghCW1RdptgsTmxzQ2tcctLOUYKLww6GZgx6yD+EzCmqcU5p1BMQ1GsiLJ1?=
- =?us-ascii?Q?wRUUtFfzH+lAoSqoOwOXxqS5EO7PPttMbQoKsiXy7TZ+vYBben/2fFIFg7yn?=
- =?us-ascii?Q?LhjZEG8UdWJVFZdFCyMmVWSoWovBtJCZ0MX49nu2lNxPKfzyMFIy45WjNBQQ?=
- =?us-ascii?Q?fniVgHXEiK+Z//uQt41ySM0rRAIE6gkQna/qIn71Q1rzjZoY4F30bKuZ4OK6?=
- =?us-ascii?Q?Xn0PHAzPmhjLQ3JL43pam/dIfu3UPm1zh9cE24Vn+Y53WfrN/QvptCGxUKvu?=
- =?us-ascii?Q?UBte+0EYMC6QFf+b9Bebp7bgW4rnURFPlJz1JJ8+zkixrIMNdrLqXD99eDSo?=
- =?us-ascii?Q?qzmWtmeQZHAInMnBA7BMhtVoa/jxuKMe/BKqSjuhJ7FmYbjtygKyYpqHBnFY?=
- =?us-ascii?Q?ne9eeGVNIaSG6JVMcyMmSH7OriOQI26hs2P+vm1zXvAQf4SphbH5BPuZcojq?=
- =?us-ascii?Q?5FH7h5pt61bWEWF4sWawU0I0dgakZHD8gpw7RjC7HKWldEqJjWpFw9WP61Oe?=
- =?us-ascii?Q?NDZSqKHn2sLb54zOayn6YfsCbZYV72yskXUjBU8ehdWjrZdTquFChsU/Av9e?=
- =?us-ascii?Q?FgL8e1NbhFB6U8RihNEASIrZBZEklNQH9xYtpvUVNU2fJCSWgp4UtAlNMlyF?=
- =?us-ascii?Q?qNqZqSIzERLtTvX478NZ5iSq9y4llOn/7i/oplz+MZm44nH4Gz7Y/gdqDk89?=
- =?us-ascii?Q?qka5toPAmz3+MnqmSNI9mGWa9TN9WeYWtDY8?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2025 18:51:23.7474
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c9d1356-26f5-4af7-21e8-08dde1ace464
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AA.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9658
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_115147_526650_360B74FD 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20250822_135606_810193_64ED7589 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,70 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 22, 2025 at 11:08:21AM -0300, Jason Gunthorpe wrote:
-> On Thu, Aug 21, 2025 at 11:35:27PM -0700, Nicolin Chen wrote:
-> > On Thu, Aug 21, 2025 at 10:07:41AM -0300, Jason Gunthorpe wrote:
-> > > On Tue, Aug 19, 2025 at 02:59:07PM -0700, Nicolin Chen wrote:
-> > > >  c) multiple pci_devs with their own RIDs
-> > > > 
-> > > >     In this case, either FLR or IOMMU only resets the PF. That
-> > > >     being said, VFs might be affected since PF is resetting?
-> > > >     If there is an issue, I don't see it coming from the IOMMU-
-> > > >     level reset..
-> > > 
-> > > It would still allow the ATS issue from the VF side. The VF could be
-> > > pushing an invalidation during the PF reset that will get clobbered.
-> > > 
-> > > I haven't fully checked but I think Linux doesn't really (easially?)
-> > > allow resetting a PF while a VF is present...
-> > 
-> > Hmm, what if the PF encountered some fault? Does Linux have a choice
-> > not to reset PF?
+On Friday, 22 August 2025 11:36:02 Central European Summer Time Ulf Hansson 
+wrote:
+> By looking at the implementation of the power-domain code below, it
+> seems to me that this code is better maintained within the pmdomain
+> subsystem (drivers/pmdomain/pxa perhaps). May I suggest that you move
+> it there.
 > 
-> Upon more reflect I guess outside VFIO I seem to remember the SRIOV
-> reset to the PFs will clobber the VFs too and then restore the SRIOV
-> configuration in config space to bring them back.
+> I guess the easiest way to do this is to export the
+> pxa1908_pd_register() function - but you could explore using the
+> auxiliary bus too, to instantiate a power-domain driver as an
+> auxiliary driver.
 
-Yea, I see ci_restore_iov_state() called in pci_restore_state().
+The auxiliary bus was exactly what I needed, thanks. As for the path, I think 
+drivers/pmdomain/marvell would be a better fit and I'll go with that if you 
+don't object.
 
-> > > Arguably if the PF is reset the VFs should have their translations
-> > > blocked too.
-> > 
-> > Yea, that sounds plausible to me. But, prior to that (an IOMMU-level
-> > reset), should VFs be first reset at the PCI level?
-> 
-> PF reset of a SRIOV PF disables the VFs and effectively resets them
-> already.
+Regards,
+--
+Duje
 
-Yea, I was expecting something like a SW reset routine, for each VF,
-which would invoke iommu_dev_reset_prepare/_done() individually.
 
-Without that, iommu_dev_reset_prepare/_done() has to iterate all VFs
-internally and block them.
-
-> But reaching out to mangle the translation of the VFs means you do
-> have to take care not to disrupt anything else the VF owning driver is
-> doing since it is fully unaware of this. Ie it could be reattaching to
-> something else concurrently.
-
-Hmm, and this is tricky now..
-
-The current version allows deferring the concurrent attach during a
-reset. But, as Kevin pointed out, we may have no choice but to fail
-any concurrent attach with -EBUSY, because a deferred attach might
-fail due to incompatibility triggering a WARN_ON only in done().
-
-This isn't likely a problem for PF, as we can expect its driver not
-to do an insane concurrent attach during a reset. But it would be a
-very sane case for a VF. So if its driver doesn't retry or defer an
-EBUSY-ed attach properly, it would not be restored successfully..
-
-It feels like we need a no-fail re-attach operation, or at least an
-unlikely-to-fail one. I recall years ago we tried a can_attach op
-to test the compatibility but it didn't get merged. Maybe we'd need
-it so that a concurrent attach can test compatibility, allowing the
-re-attach in iommu_dev_reset_done() to more likely succeed.
-
-Thanks
-Nicolin
 
