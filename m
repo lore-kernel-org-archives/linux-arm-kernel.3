@@ -4,111 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F0CCA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E746CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogCeTPYlXkjdxXndEDCLOGNi1frDdFQk3tY7DrC34Kw=; b=S2O5KIR/+KFytJftGz16PiVxR+
-	4nikX6TXbiILByv9wu5KVqbd/LStDwgY0FB9s97YvdggZrILIKbZktSz94IuysB+foIKKoYv3r7Ox
-	EZ8iZuhKyuE/l2jmnYB75JHMpk0OY8g2M46yuYwjTBXsFPQtdECLSQpEsQ7xZT2vztQmdjZt7eBwP
-	gxXiGp1o4en7fKupgO4BoGam0x+wDRwRphigVPVm3WmcjIqA+0KwU/K8RYRY6ktS5z+aOcPDthniT
-	mNltPQi1A/uPL1mesguugoyTvra5BVLMXSI0sGj8wZyUCA1W8YQcwk2h+bTTh14tFw0DqRAXWRMZr
-	BUjSuevw==;
+	bh=FlqpTuHTQTETV8zKZeEWpQgLPeSxApO/c3IKJlefJN8=; b=yjKzC89KS8EsHehHG+8KVsIidc
+	wRuVwpJ1AuToOMwB2S4C3IyWu1/xNf9GGwc17xEYvmUyo5+3wLChXJ+RflXiD24YsLtmlVRxHSASV
+	Etd9asgzbXYcbm7uYyUqkRTMOPeDUuuypyjqgCE+rLuQ5k6h04DUSFtzXC5PbxGXNKemb1MdH3Dft
+	4s3qdQg8Na9ZZkqqxja/p2K/TZPDFJ6MfYG6Za5M1yTnAoCvtj34g/BnyMy5d9unIYLyVIGwfwVPg
+	eS0ROYZ69JUTtev15JpAcBUA4J+di9gArkDzLgDsNAwG2BSlFtWOMkIwGc6eg1p0mLuGRBTn0N7UK
+	H9IoORCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uploS-00000004eyd-0rif;
-	Sat, 23 Aug 2025 10:49:32 +0000
-Received: from server.couthit.com ([162.240.164.96])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upSxO-00000002rtd-3Y84
+	id 1uploW-00000004f2M-0EuD;
+	Sat, 23 Aug 2025 10:49:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1upTkJ-000000031iB-1lJy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 14:41:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=ogCeTPYlXkjdxXndEDCLOGNi1frDdFQk3tY7DrC34Kw=; b=0E/0dDMaSKuIb9r74ZksrE0BOF
-	3GcTq46No9CzgrfApcxPZR9gcA7CwWarY3Taa6kO+p0SNWNW6Z9FrWB/LOxzdX7w7NbqS27cqtV8E
-	Rwusq4/hqCTttxHYuL0Xsm85r+PrrZXiJ1k50tQ8Sxmhg40C9IMCNeEYLmrEDS41E0kwtj6rrJq4i
-	k41j8fmOPpJmnSrQka9TXcWbFcB6Z88SbogvmUMz0cEPuvlYVhR9uy2c3clUvYx+OwSVxvZgI49ei
-	VyynXGxLlkTiIYaTkMls30C1tNQd3XNG74a8iIGIaM0iQRSJzeEjLB+zTEUyHbOO+unBBiZ0sBXxR
-	asa34hyw==;
-Received: from [122.175.9.182] (port=23827 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1upSxJ-00000000TZI-3RQE;
-	Fri, 22 Aug 2025 10:41:26 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	m-malladi@ti.com,
-	s.hauer@pengutronix.de,
-	afd@ti.com,
-	jacob.e.keller@intel.com,
-	horms@kernel.org,
-	johan@kernel.org,
-	m-karicheri2@ti.com,
-	s-anna@ti.com,
-	glaroque@baylibre.com,
-	saikrishnag@marvell.com,
-	kory.maincent@bootlin.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	alok.a.tiwari@oracle.com,
-	bastien.curutchet@bootlin.com,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v14 4/5] net: ti: icssm-prueth: Adds link detection, RX and TX support.
-Date: Fri, 22 Aug 2025 20:09:16 +0530
-Message-ID: <20250822144023.2772544-5-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250822132758.2771308-1-parvathi@couthit.com>
-References: <20250822132758.2771308-1-parvathi@couthit.com>
+	Fri, 22 Aug 2025 15:32:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D08427DC;
+	Fri, 22 Aug 2025 08:31:54 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 904113F63F;
+	Fri, 22 Aug 2025 08:31:57 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>
+Subject: [PATCH 10/33] arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
+Date: Fri, 22 Aug 2025 15:29:51 +0000
+Message-Id: <20250822153048.2287-11-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250822153048.2287-1-james.morse@arm.com>
+References: <20250822153048.2287-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_074130_949164_8FA93ED1 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20250822_083203_561151_CF31E065 
+X-CRM114-Status: GOOD (  36.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,905 +97,507 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
+Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+only be accessible from those CPUs, and they may not be online.
+Touching the hardware early is pointless as MPAM can't be used until
+the system-wide common values for num_partid and num_pmg have been
+discovered.
 
-Changes corresponding to link configuration such as speed and duplexity.
-IRQ and handler initializations are performed for packet reception.Firmware
-receives the packet from the wire and stores it into OCMC queue. Next, it
-notifies the CPU via interrupt. Upon receiving the interrupt CPU will
-service the IRQ and packet will be processed by pushing the newly allocated
-SKB to upper layers.
+Start with driver probe/remove and mapping the MSC.
 
-When the user application want to transmit a packet, it will invoke
-sys_send() which will in turn invoke the PRUETH driver, then it will write
-the packet into OCMC queues. PRU firmware will pick up the packet and
-transmit it on to the wire.
-
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+CC: Carl Worth <carl@os.amperecomputing.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/net/ethernet/ti/icssm/icssm_prueth.c | 647 ++++++++++++++++++-
- drivers/net/ethernet/ti/icssm/icssm_prueth.h |  49 ++
- 2 files changed, 695 insertions(+), 1 deletion(-)
+Changes since RFC:
+ * Check for status=broken DT devices.
+ * Moved all the files around.
+ * Made Kconfig symbols depend on EXPERT
+---
+ arch/arm64/Kconfig              |   1 +
+ drivers/Kconfig                 |   2 +
+ drivers/Makefile                |   1 +
+ drivers/resctrl/Kconfig         |  11 ++
+ drivers/resctrl/Makefile        |   4 +
+ drivers/resctrl/mpam_devices.c  | 336 ++++++++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h |  62 ++++++
+ 7 files changed, 417 insertions(+)
+ create mode 100644 drivers/resctrl/Kconfig
+ create mode 100644 drivers/resctrl/Makefile
+ create mode 100644 drivers/resctrl/mpam_devices.c
+ create mode 100644 drivers/resctrl/mpam_internal.h
 
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 0b934b05f83d..398454db9271 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -35,6 +35,14 @@
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e51ccf1da102..ea3c54e04275 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
  
- #define TX_START_DELAY		0x40
- #define TX_CLK_DELAY_100M	0x6
-+#define HR_TIMER_TX_DELAY_US	100
-+
-+static void icssm_prueth_write_reg(struct prueth *prueth,
-+				   enum prueth_mem region,
-+				   unsigned int reg, u32 val)
-+{
-+	writel_relaxed(val, prueth->mem[region].va + reg);
-+}
+ config ARM64_MPAM
+ 	bool "Enable support for MPAM"
++	select ARM64_MPAM_DRIVER
+ 	select ACPI_MPAM if ACPI
+ 	help
+ 	  Memory Partitioning and Monitoring is an optional extension
+diff --git a/drivers/Kconfig b/drivers/Kconfig
+index 4915a63866b0..3054b50a2f4c 100644
+--- a/drivers/Kconfig
++++ b/drivers/Kconfig
+@@ -251,4 +251,6 @@ source "drivers/hte/Kconfig"
  
- /* Below macro is for 1528 Byte Frame support, to Allow even with
-  * Redundancy tag
-@@ -297,6 +305,17 @@ static void icssm_prueth_init_ethernet_mode(struct prueth *prueth)
- 	icssm_prueth_hostinit(prueth);
- }
+ source "drivers/cdx/Kconfig"
  
-+static void icssm_prueth_port_enable(struct prueth_emac *emac, bool enable)
-+{
-+	struct prueth *prueth = emac->prueth;
-+	void __iomem *port_ctrl;
-+	void __iomem *ram;
++source "drivers/resctrl/Kconfig"
 +
-+	ram = prueth->mem[emac->dram].va;
-+	port_ctrl = ram + PORT_CONTROL_ADDR;
-+	writeb(!!enable, port_ctrl);
-+}
-+
- static int icssm_prueth_emac_config(struct prueth_emac *emac)
- {
- 	struct prueth *prueth = emac->prueth;
-@@ -304,6 +323,13 @@ static int icssm_prueth_emac_config(struct prueth_emac *emac)
- 	void __iomem *dram_base;
- 	void __iomem *mac_addr;
- 	void __iomem *dram;
-+	void __iomem *sram;
-+
-+	/* PRU needs local shared RAM address for C28 */
-+	sharedramaddr = ICSS_LOCAL_SHARED_RAM;
-+	/* PRU needs real global OCMC address for C30*/
-+	ocmcaddr = (u32)prueth->mem[PRUETH_MEM_OCMC].pa;
-+	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
+ endmenu
+diff --git a/drivers/Makefile b/drivers/Makefile
+index b5749cf67044..f41cf4eddeba 100644
+--- a/drivers/Makefile
++++ b/drivers/Makefile
+@@ -194,5 +194,6 @@ obj-$(CONFIG_HTE)		+= hte/
+ obj-$(CONFIG_DRM_ACCEL)		+= accel/
+ obj-$(CONFIG_CDX_BUS)		+= cdx/
+ obj-$(CONFIG_DPLL)		+= dpll/
++obj-y				+= resctrl/
  
- 	/* PRU needs local shared RAM address for C28 */
- 	sharedramaddr = ICSS_LOCAL_SHARED_RAM;
-@@ -329,6 +355,9 @@ static int icssm_prueth_emac_config(struct prueth_emac *emac)
- 	memcpy_toio(dram, queue_descs[emac->port_id],
- 		    sizeof(queue_descs[emac->port_id]));
- 
-+	emac->rx_queue_descs = sram + HOST_QUEUE_DESC_OFFSET;
-+	emac->tx_queue_descs = dram;
+ obj-$(CONFIG_S390)		+= s390/
+diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+new file mode 100644
+index 000000000000..dff7b87280ab
+--- /dev/null
++++ b/drivers/resctrl/Kconfig
+@@ -0,0 +1,11 @@
++# Confusingly, this is everything but the CPU bits of MPAM. CPU here means
++# CPU resources, not containers or cgroups etc.
++config ARM64_MPAM_DRIVER
++	bool "MPAM driver for System IP, e,g. caches and memory controllers"
++	depends on ARM64_MPAM && EXPERT
 +
- 	/* Set in constant table C28 of PRU0 to ICSS Shared memory */
- 	pru_rproc_set_ctable(emac->pru, PRU_C28, sharedramaddr);
- 
-@@ -343,8 +372,13 @@ static void icssm_emac_adjust_link(struct net_device *ndev)
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	struct phy_device *phydev = emac->phydev;
-+	struct prueth *prueth = emac->prueth;
- 	bool new_state = false;
-+	enum prueth_mem region;
- 	unsigned long flags;
-+	u32 port_status = 0;
-+	u32 txcfg, mask;
-+	u32 delay;
- 
- 	spin_lock_irqsave(&emac->lock, flags);
- 
-@@ -367,8 +401,32 @@ static void icssm_emac_adjust_link(struct net_device *ndev)
- 		emac->link = 0;
- 	}
- 
--	if (new_state)
-+	if (new_state) {
- 		phy_print_status(phydev);
-+		region = emac->dram;
++config ARM64_MPAM_DRIVER_DEBUG
++	bool "Enable debug messages from the MPAM driver."
++	depends on ARM64_MPAM_DRIVER
++	help
++	  Say yes here to enable debug messages from the MPAM driver.
+diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+new file mode 100644
+index 000000000000..92b48fa20108
+--- /dev/null
++++ b/drivers/resctrl/Makefile
+@@ -0,0 +1,4 @@
++obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
++mpam-y						+= mpam_devices.o
 +
-+		/* update phy/port status information based on PHY values*/
-+		if (emac->link) {
-+			port_status |= PORT_LINK_MASK;
++cflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+new file mode 100644
+index 000000000000..a0d9a699a6e7
+--- /dev/null
++++ b/drivers/resctrl/mpam_devices.c
+@@ -0,0 +1,336 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (C) 2025 Arm Ltd.
 +
-+			icssm_prueth_write_reg(prueth, region, PHY_SPEED_OFFSET,
-+					       emac->speed);
++#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
 +
-+			delay = TX_CLK_DELAY_100M;
-+			delay = delay << PRUSS_MII_RT_TXCFG_TX_CLK_DELAY_SHIFT;
-+			mask = PRUSS_MII_RT_TXCFG_TX_CLK_DELAY_MASK;
++#include <linux/acpi.h>
++#include <linux/arm_mpam.h>
++#include <linux/cacheinfo.h>
++#include <linux/cpu.h>
++#include <linux/cpumask.h>
++#include <linux/device.h>
++#include <linux/errno.h>
++#include <linux/gfp.h>
++#include <linux/list.h>
++#include <linux/lockdep.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/printk.h>
++#include <linux/slab.h>
++#include <linux/spinlock.h>
++#include <linux/srcu.h>
++#include <linux/types.h>
 +
-+			if (emac->port_id)
-+				txcfg = PRUSS_MII_RT_TXCFG1;
-+			else
-+				txcfg = PRUSS_MII_RT_TXCFG0;
++#include <acpi/pcc.h>
 +
-+			regmap_update_bits(prueth->mii_rt, txcfg, mask, delay);
-+		}
++#include "mpam_internal.h"
 +
-+		writeb(port_status, prueth->mem[region].va +
-+		       PORT_STATUS_OFFSET);
-+	}
- 
- 	if (emac->link) {
- 	       /* reactivate the transmit queue if it is stopped */
-@@ -382,6 +440,416 @@ static void icssm_emac_adjust_link(struct net_device *ndev)
- 	spin_unlock_irqrestore(&emac->lock, flags);
- }
- 
-+static unsigned int
-+icssm_get_buff_desc_count(const struct prueth_queue_info *queue)
-+{
-+	unsigned int buffer_desc_count;
-+
-+	buffer_desc_count = queue->buffer_desc_end -
-+			    queue->buffer_desc_offset;
-+	buffer_desc_count /= BD_SIZE;
-+	buffer_desc_count++;
-+
-+	return buffer_desc_count;
-+}
-+
-+static void icssm_get_block(struct prueth_queue_desc __iomem *queue_desc,
-+			    const struct prueth_queue_info *queue,
-+			    int *write_block, int *read_block)
-+{
-+	*write_block = (readw(&queue_desc->wr_ptr) -
-+			queue->buffer_desc_offset) / BD_SIZE;
-+	*read_block = (readw(&queue_desc->rd_ptr) -
-+		       queue->buffer_desc_offset) / BD_SIZE;
-+}
-+
-+/**
-+ * icssm_emac_rx_irq - EMAC Rx interrupt handler
-+ * @irq: interrupt number
-+ * @dev_id: pointer to net_device
-+ *
-+ * EMAC Interrupt handler - we only schedule NAPI and not process any packets
-+ * here.
-+ *
-+ * Return: IRQ_HANDLED if the interrupt handled
++/*
++ * mpam_list_lock protects the SRCU lists when writing. Once the
++ * mpam_enabled key is enabled these lists are read-only,
++ * unless the error interrupt disables the driver.
 + */
-+static irqreturn_t icssm_emac_rx_irq(int irq, void *dev_id)
++static DEFINE_MUTEX(mpam_list_lock);
++static LIST_HEAD(mpam_all_msc);
++
++static struct srcu_struct mpam_srcu;
++
++/* MPAM isn't available until all the MSC have been probed. */
++static u32 mpam_num_msc;
++
++static void mpam_discovery_complete(void)
 +{
-+	struct net_device *ndev = (struct net_device *)dev_id;
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+
-+	if (likely(netif_running(ndev))) {
-+		/* disable Rx system event */
-+		disable_irq_nosync(emac->rx_irq);
-+		napi_schedule(&emac->napi);
-+	}
-+
-+	return IRQ_HANDLED;
++	pr_err("Discovered all MSC\n");
 +}
 +
-+/**
-+ * icssm_prueth_tx_enqueue - queue a packet to firmware for transmission
-+ *
-+ * @emac: EMAC data structure
-+ * @skb: packet data buffer
-+ * @queue_id: priority queue id
-+ *
-+ * Return: 0 (Success)
-+ */
-+static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-+				   struct sk_buff *skb,
-+				   enum prueth_queue_id queue_id)
++static int mpam_dt_count_msc(void)
 +{
-+	struct prueth_queue_desc __iomem *queue_desc;
-+	const struct prueth_queue_info *txqueue;
-+	struct net_device *ndev = emac->ndev;
-+	unsigned int buffer_desc_count;
-+	int free_blocks, update_block;
-+	bool buffer_wrapped = false;
-+	int write_block, read_block;
-+	void *src_addr, *dst_addr;
-+	int pkt_block_size;
-+	void __iomem *dram;
-+	int txport, pktlen;
-+	u16 update_wr_ptr;
-+	u32 wr_buf_desc;
-+	void *ocmc_ram;
++	int count = 0;
++	struct device_node *np;
 +
-+	dram = emac->prueth->mem[emac->dram].va;
-+	if (eth_skb_pad(skb)) {
-+		if (netif_msg_tx_err(emac) && net_ratelimit())
-+			netdev_err(ndev, "packet pad failed\n");
-+		return -ENOMEM;
++	for_each_compatible_node(np, NULL, "arm,mpam-msc") {
++		if (of_device_is_available(np))
++			count++;
 +	}
 +
-+	/* which port to tx: MII0 or MII1 */
-+	txport = emac->tx_port_queue;
-+	src_addr = skb->data;
-+	pktlen = skb->len;
-+	/* Get the tx queue */
-+	queue_desc = emac->tx_queue_descs + queue_id;
-+	txqueue = &queue_infos[txport][queue_id];
-+
-+	buffer_desc_count = icssm_get_buff_desc_count(txqueue);
-+
-+	/* the PRU firmware deals mostly in pointers already
-+	 * offset into ram, we would like to deal in indexes
-+	 * within the queue we are working with for code
-+	 * simplicity, calculate this here
-+	 */
-+	icssm_get_block(queue_desc, txqueue, &write_block, &read_block);
-+
-+	if (write_block > read_block) {
-+		free_blocks = buffer_desc_count - write_block;
-+		free_blocks += read_block;
-+	} else if (write_block < read_block) {
-+		free_blocks = read_block - write_block;
-+	} else { /* they are all free */
-+		free_blocks = buffer_desc_count;
-+	}
-+
-+	pkt_block_size = DIV_ROUND_UP(pktlen, ICSS_BLOCK_SIZE);
-+	if (pkt_block_size > free_blocks) /* out of queue space */
-+		return -ENOBUFS;
-+
-+	/* calculate end BD address post write */
-+	update_block = write_block + pkt_block_size;
-+
-+	/* Check for wrap around */
-+	if (update_block >= buffer_desc_count) {
-+		update_block %= buffer_desc_count;
-+		buffer_wrapped = true;
-+	}
-+
-+	/* OCMC RAM is not cached and write order is not important */
-+	ocmc_ram = (__force void *)emac->prueth->mem[PRUETH_MEM_OCMC].va;
-+	dst_addr = ocmc_ram + txqueue->buffer_offset +
-+		   (write_block * ICSS_BLOCK_SIZE);
-+
-+	/* Copy the data from socket buffer(DRAM) to PRU buffers(OCMC) */
-+	if (buffer_wrapped) { /* wrapped around buffer */
-+		int bytes = (buffer_desc_count - write_block) * ICSS_BLOCK_SIZE;
-+		int remaining;
-+
-+		/* bytes is integral multiple of ICSS_BLOCK_SIZE but
-+		 * entire packet may have fit within the last BD
-+		 * if pkt_info.length is not integral multiple of
-+		 * ICSS_BLOCK_SIZE
-+		 */
-+		if (pktlen < bytes)
-+			bytes = pktlen;
-+
-+		/* copy non-wrapped part */
-+		memcpy(dst_addr, src_addr, bytes);
-+
-+		/* copy wrapped part */
-+		src_addr += bytes;
-+		remaining = pktlen - bytes;
-+		dst_addr = ocmc_ram + txqueue->buffer_offset;
-+		memcpy(dst_addr, src_addr, remaining);
-+	} else {
-+		memcpy(dst_addr, src_addr, pktlen);
-+	}
-+
-+       /* update first buffer descriptor */
-+	wr_buf_desc = (pktlen << PRUETH_BD_LENGTH_SHIFT) &
-+		       PRUETH_BD_LENGTH_MASK;
-+	writel(wr_buf_desc, dram + readw(&queue_desc->wr_ptr));
-+
-+	/* update the write pointer in this queue descriptor, the firmware
-+	 * polls for this change so this will signal the start of transmission
-+	 */
-+	update_wr_ptr = txqueue->buffer_desc_offset + (update_block * BD_SIZE);
-+	writew(update_wr_ptr, &queue_desc->wr_ptr);
-+
-+	return 0;
++	return count;
 +}
 +
-+void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
-+			     struct prueth_packet_info *pkt_info)
++static int mpam_dt_parse_resource(struct mpam_msc *msc, struct device_node *np,
++				  u32 ris_idx)
 +{
-+	pkt_info->start_offset = false;
++	int err = 0;
++	u32 level = 0;
++	unsigned long cache_id;
++	struct device_node *cache;
 +
-+	pkt_info->shadow = !!(buffer_descriptor & PRUETH_BD_SHADOW_MASK);
-+	pkt_info->port = (buffer_descriptor & PRUETH_BD_PORT_MASK) >>
-+			 PRUETH_BD_PORT_SHIFT;
-+	pkt_info->length = (buffer_descriptor & PRUETH_BD_LENGTH_MASK) >>
-+			   PRUETH_BD_LENGTH_SHIFT;
-+	pkt_info->broadcast = !!(buffer_descriptor & PRUETH_BD_BROADCAST_MASK);
-+	pkt_info->error = !!(buffer_descriptor & PRUETH_BD_ERROR_MASK);
-+	pkt_info->sv_frame = false;
-+	pkt_info->lookup_success = !!(buffer_descriptor &
-+				      PRUETH_BD_LOOKUP_SUCCESS_MASK);
-+	pkt_info->flood = !!(buffer_descriptor & PRUETH_BD_SW_FLOOD_MASK);
-+	pkt_info->timestamp = !!(buffer_descriptor & PRUETH_BD_TIMESTAMP_MASK);
-+}
-+
-+/**
-+ * icssm_emac_rx_packet - EMAC Receive function
-+ *
-+ * @emac: EMAC data structure
-+ * @bd_rd_ptr: Buffer descriptor read pointer
-+ * @pkt_info: packet information structure
-+ * @rxqueue: Receive queue information structure
-+ *
-+ * Get a packet from receive queue
-+ *
-+ * Return: 0 (Success)
-+ */
-+int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
-+			 struct prueth_packet_info *pkt_info,
-+			 const struct prueth_queue_info *rxqueue)
-+{
-+	struct net_device *ndev = emac->ndev;
-+	unsigned int buffer_desc_count;
-+	int read_block, update_block;
-+	unsigned int actual_pkt_len;
-+	bool buffer_wrapped = false;
-+	void *src_addr, *dst_addr;
-+	u16 start_offset = 0;
-+	struct sk_buff *skb;
-+	int pkt_block_size;
-+	void *ocmc_ram;
-+
-+	/* the PRU firmware deals mostly in pointers already
-+	 * offset into ram, we would like to deal in indexes
-+	 * within the queue we are working with for code
-+	 * simplicity, calculate this here
-+	 */
-+	buffer_desc_count = icssm_get_buff_desc_count(rxqueue);
-+	read_block = (*bd_rd_ptr - rxqueue->buffer_desc_offset) / BD_SIZE;
-+	pkt_block_size = DIV_ROUND_UP(pkt_info->length, ICSS_BLOCK_SIZE);
-+
-+	/* calculate end BD address post read */
-+	update_block = read_block + pkt_block_size;
-+
-+	/* Check for wrap around */
-+	if (update_block >= buffer_desc_count) {
-+		update_block %= buffer_desc_count;
-+		if (update_block)
-+			buffer_wrapped = true;
-+	}
-+
-+	/* calculate new pointer in ram */
-+	*bd_rd_ptr = rxqueue->buffer_desc_offset + (update_block * BD_SIZE);
-+
-+	/* Pkt len w/ HSR tag removed, If applicable */
-+	actual_pkt_len = pkt_info->length - start_offset;
-+
-+	/* Allocate a socket buffer for this packet */
-+	skb = netdev_alloc_skb_ip_align(ndev, actual_pkt_len);
-+	if (!skb) {
-+		if (netif_msg_rx_err(emac) && net_ratelimit())
-+			netdev_err(ndev, "failed rx buffer alloc\n");
-+		return -ENOMEM;
-+	}
-+
-+	dst_addr = skb->data;
-+
-+	/* OCMC RAM is not cached and read order is not important */
-+	ocmc_ram = (__force void *)emac->prueth->mem[PRUETH_MEM_OCMC].va;
-+
-+	/* Get the start address of the first buffer from
-+	 * the read buffer description
-+	 */
-+	src_addr = ocmc_ram + rxqueue->buffer_offset +
-+		   (read_block * ICSS_BLOCK_SIZE);
-+	src_addr += start_offset;
-+
-+	/* Copy the data from PRU buffers(OCMC) to socket buffer(DRAM) */
-+	if (buffer_wrapped) { /* wrapped around buffer */
-+		int bytes = (buffer_desc_count - read_block) * ICSS_BLOCK_SIZE;
-+		int remaining;
-+		/* bytes is integral multiple of ICSS_BLOCK_SIZE but
-+		 * entire packet may have fit within the last BD
-+		 * if pkt_info.length is not integral multiple of
-+		 * ICSS_BLOCK_SIZE
-+		 */
-+		if (pkt_info->length < bytes)
-+			bytes = pkt_info->length;
-+
-+		/* If applicable, account for the HSR tag removed */
-+		bytes -= start_offset;
-+
-+		/* copy non-wrapped part */
-+		memcpy(dst_addr, src_addr, bytes);
-+
-+		/* copy wrapped part */
-+		dst_addr += bytes;
-+		remaining = actual_pkt_len - bytes;
-+
-+		src_addr = ocmc_ram + rxqueue->buffer_offset;
-+		memcpy(dst_addr, src_addr, remaining);
-+		src_addr += remaining;
-+	} else {
-+		memcpy(dst_addr, src_addr, actual_pkt_len);
-+		src_addr += actual_pkt_len;
-+	}
-+
-+	if (!pkt_info->sv_frame) {
-+		skb_put(skb, actual_pkt_len);
-+
-+		/* send packet up the stack */
-+		skb->protocol = eth_type_trans(skb, ndev);
-+		netif_receive_skb(skb);
-+	} else {
-+		dev_kfree_skb_any(skb);
-+	}
-+
-+	/* update stats */
-+	ndev->stats.rx_bytes += actual_pkt_len;
-+	ndev->stats.rx_packets++;
-+
-+	return 0;
-+}
-+
-+static int icssm_emac_rx_packets(struct prueth_emac *emac, int budget)
-+{
-+	struct prueth_queue_desc __iomem *queue_desc;
-+	const struct prueth_queue_info *rxqueue;
-+	struct prueth *prueth = emac->prueth;
-+	struct net_device_stats *ndevstats;
-+	struct prueth_packet_info pkt_info;
-+	int start_queue, end_queue;
-+	void __iomem *shared_ram;
-+	u16 bd_rd_ptr, bd_wr_ptr;
-+	u16 update_rd_ptr;
-+	u8 overflow_cnt;
-+	u32 rd_buf_desc;
-+	int used = 0;
-+	int i, ret;
-+
-+	ndevstats = &emac->ndev->stats;
-+	shared_ram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+
-+	start_queue = emac->rx_queue_start;
-+	end_queue = emac->rx_queue_end;
-+
-+	/* skip Rx if budget is 0 */
-+	if (!budget)
-+		return 0;
-+
-+	/* search host queues for packets */
-+	for (i = start_queue; i <= end_queue; i++) {
-+		queue_desc = emac->rx_queue_descs + i;
-+		rxqueue = &queue_infos[PRUETH_PORT_HOST][i];
-+
-+		overflow_cnt = readb(&queue_desc->overflow_cnt);
-+		if (overflow_cnt > 0) {
-+			emac->ndev->stats.rx_over_errors += overflow_cnt;
-+			/* reset to zero */
-+			writeb(0, &queue_desc->overflow_cnt);
-+		}
-+
-+		bd_rd_ptr = readw(&queue_desc->rd_ptr);
-+		bd_wr_ptr = readw(&queue_desc->wr_ptr);
-+
-+		/* while packets are available in this queue */
-+		while (bd_rd_ptr != bd_wr_ptr) {
-+			/* get packet info from the read buffer descriptor */
-+			rd_buf_desc = readl(shared_ram + bd_rd_ptr);
-+			icssm_parse_packet_info(prueth, rd_buf_desc, &pkt_info);
-+
-+			if (pkt_info.length <= 0) {
-+				/* a packet length of zero will cause us to
-+				 * never move the read pointer ahead, locking
-+				 * the driver, so we manually have to move it
-+				 * to the write pointer, discarding all
-+				 * remaining packets in this queue. This should
-+				 * never happen.
-+				 */
-+				update_rd_ptr = bd_wr_ptr;
-+				ndevstats->rx_length_errors++;
-+			} else if (pkt_info.length > EMAC_MAX_FRM_SUPPORT) {
-+				/* if the packet is too large we skip it but we
-+				 * still need to move the read pointer ahead
-+				 * and assume something is wrong with the read
-+				 * pointer as the firmware should be filtering
-+				 * these packets
-+				 */
-+				update_rd_ptr = bd_wr_ptr;
-+				ndevstats->rx_length_errors++;
-+			} else {
-+				update_rd_ptr = bd_rd_ptr;
-+				ret = icssm_emac_rx_packet(emac, &update_rd_ptr,
-+							   &pkt_info, rxqueue);
-+				if (ret)
-+					return used;
-+				used++;
++	do {
++		if (of_device_is_compatible(np, "arm,mpam-cache")) {
++			cache = of_parse_phandle(np, "arm,mpam-device", 0);
++			if (!cache) {
++				pr_err("Failed to read phandle\n");
++				break;
 +			}
++		} else if (of_device_is_compatible(np->parent, "cache")) {
++			cache = of_node_get(np->parent);
++		} else {
++			/* For now, only caches are supported */
++			cache = NULL;
++			break;
++		}
 +
-+			/* after reading the buffer descriptor we clear it
-+			 * to prevent improperly moved read pointer errors
-+			 * from simply looking like old packets.
-+			 */
-+			writel(0, shared_ram + bd_rd_ptr);
++		err = of_property_read_u32(cache, "cache-level", &level);
++		if (err) {
++			pr_err("Failed to read cache-level\n");
++			break;
++		}
 +
-+			/* update read pointer in queue descriptor */
-+			writew(update_rd_ptr, &queue_desc->rd_ptr);
-+			bd_rd_ptr = update_rd_ptr;
++		cache_id = cache_of_calculate_id(cache);
++		if (cache_id == ~0UL) {
++			err = -ENOENT;
++			break;
++		}
 +
-+			/* all we have room for? */
-+			if (used >= budget)
-+				return used;
++		err = mpam_ris_create(msc, ris_idx, MPAM_CLASS_CACHE, level,
++				      cache_id);
++	} while (0);
++	of_node_put(cache);
++
++	return err;
++}
++
++static int mpam_dt_parse_resources(struct mpam_msc *msc, void *ignored)
++{
++	int err, num_ris = 0;
++	const u32 *ris_idx_p;
++	struct device_node *iter, *np;
++
++	np = msc->pdev->dev.of_node;
++	for_each_child_of_node(np, iter) {
++		ris_idx_p = of_get_property(iter, "reg", NULL);
++		if (ris_idx_p) {
++			num_ris++;
++			err = mpam_dt_parse_resource(msc, iter, *ris_idx_p);
++			if (err) {
++				of_node_put(iter);
++				return err;
++			}
 +		}
 +	}
 +
-+	return used;
++	if (!num_ris)
++		mpam_dt_parse_resource(msc, np, 0);
++
++	return err;
 +}
 +
-+static int icssm_emac_napi_poll(struct napi_struct *napi, int budget)
-+{
-+	struct prueth_emac *emac = container_of(napi, struct prueth_emac, napi);
-+	int num_rx;
-+
-+	num_rx = icssm_emac_rx_packets(emac, budget);
-+
-+	if (num_rx < budget && napi_complete_done(napi, num_rx))
-+		enable_irq(emac->rx_irq);
-+
-+	return num_rx;
-+}
-+
- static int icssm_emac_set_boot_pru(struct prueth_emac *emac,
- 				   struct net_device *ndev)
- {
-@@ -411,6 +879,21 @@ static int icssm_emac_set_boot_pru(struct prueth_emac *emac,
- 			   fw_name, ret);
- 		return ret;
- 	}
-+	return ret;
-+}
-+
-+static int icssm_emac_request_irqs(struct prueth_emac *emac)
-+{
-+	struct net_device *ndev = emac->ndev;
-+	int ret;
-+
-+	ret = request_irq(emac->rx_irq, icssm_emac_rx_irq,
-+			  IRQF_TRIGGER_HIGH,
-+			  ndev->name, ndev);
-+	if (ret) {
-+		netdev_err(ndev, "unable to request RX IRQ\n");
-+		return ret;
-+	}
- 
- 	return ret;
- }
-@@ -441,10 +924,29 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 	if (ret)
- 		return ret;
- 
-+	ret = icssm_emac_request_irqs(emac);
-+	if (ret)
-+		goto rproc_shutdown;
-+
-+	napi_enable(&emac->napi);
-+
- 	/* start PHY */
- 	phy_start(emac->phydev);
-+
-+	/* enable the port and vlan */
-+	icssm_prueth_port_enable(emac, true);
-+
- 	prueth->emac_configured |= BIT(emac->port_id);
-+
-+	if (netif_msg_drv(emac))
-+		dev_notice(&ndev->dev, "started\n");
-+
- 	return 0;
-+
-+rproc_shutdown:
-+	rproc_shutdown(emac->pru);
-+
-+	return ret;
- }
- 
- /**
-@@ -458,18 +960,123 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- static int icssm_emac_ndo_stop(struct net_device *ndev)
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+
-+	prueth->emac_configured &= ~BIT(emac->port_id);
-+
-+	/* disable the mac port */
-+	icssm_prueth_port_enable(emac, false);
- 
- 	/* stop PHY */
- 	phy_stop(emac->phydev);
- 
-+	napi_disable(&emac->napi);
-+	hrtimer_cancel(&emac->tx_hrtimer);
-+
-+	/* stop the PRU */
- 	rproc_shutdown(emac->pru);
- 
-+	/* free rx interrupts */
-+	free_irq(emac->rx_irq, ndev);
-+
-+	if (netif_msg_drv(emac))
-+		dev_notice(&ndev->dev, "stopped\n");
-+
- 	return 0;
- }
- 
-+/* VLAN-tag PCP to priority queue map for EMAC/Switch/HSR/PRP used by driver
-+ * Index is PCP val / 2.
-+ *   low  - pcp 0..3 maps to Q4 for Host
-+ *   high - pcp 4..7 maps to Q3 for Host
-+ *   low  - pcp 0..3 maps to Q2 (FWD Queue) for PRU-x
-+ *   where x = 1 for PRUETH_PORT_MII0
-+ *             0 for PRUETH_PORT_MII1
-+ *   high - pcp 4..7 maps to Q1 (FWD Queue) for PRU-x
++/*
++ * An MSC can control traffic from a set of CPUs, but may only be accessible
++ * from a (hopefully wider) set of CPUs. The common reason for this is power
++ * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
++ * the corresponding cache may also be powered off. By making accesses from
++ * one of those CPUs, we ensure this isn't the case.
 + */
-+static const unsigned short emac_pcp_tx_priority_queue_map[] = {
-+	PRUETH_QUEUE4, PRUETH_QUEUE4,
-+	PRUETH_QUEUE3, PRUETH_QUEUE3,
-+	PRUETH_QUEUE2, PRUETH_QUEUE2,
-+	PRUETH_QUEUE1, PRUETH_QUEUE1,
-+};
-+
-+static u16 icssm_prueth_get_tx_queue_id(struct prueth *prueth,
-+					struct sk_buff *skb)
++static int update_msc_accessibility(struct mpam_msc *msc)
 +{
-+	u16 vlan_tci, pcp;
++	struct device_node *parent;
++	u32 affinity_id;
 +	int err;
 +
-+	err = vlan_get_tag(skb, &vlan_tci);
-+	if (likely(err))
-+		pcp = 0;
-+	else
-+		pcp = (vlan_tci & VLAN_PRIO_MASK) >> VLAN_PRIO_SHIFT;
++	if (!acpi_disabled) {
++		err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
++					       &affinity_id);
++		if (err)
++			cpumask_copy(&msc->accessibility, cpu_possible_mask);
++		else
++			acpi_pptt_get_cpus_from_container(affinity_id,
++							  &msc->accessibility);
 +
-+	/* Below code (pcp >>= 1) is made common for all
-+	 * protocols (i.e., EMAC, RSTP, HSR and PRP)*
-+	 * pcp value 0,1 will be updated to 0 mapped to QUEUE4
-+	 * pcp value 2,3 will be updated to 1 mapped to QUEUE4
-+	 * pcp value 4,5 will be updated to 2 mapped to QUEUE3
-+	 * pcp value 6,7 will be updated to 3 mapped to QUEUE3
-+	 */
-+	pcp >>= 1;
-+
-+	return emac_pcp_tx_priority_queue_map[pcp];
-+}
-+
-+/**
-+ * icssm_emac_ndo_start_xmit - EMAC Transmit function
-+ * @skb: SKB pointer
-+ * @ndev: EMAC network adapter
-+ *
-+ * Called by the system to transmit a packet - we queue the packet in
-+ * EMAC hardware transmit queue
-+ *
-+ * Return: enum netdev_tx
-+ */
-+static enum netdev_tx icssm_emac_ndo_start_xmit(struct sk_buff *skb,
-+						struct net_device *ndev)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	int ret;
-+	u16 qid;
-+
-+	qid = icssm_prueth_get_tx_queue_id(emac->prueth, skb);
-+	ret = icssm_prueth_tx_enqueue(emac, skb, qid);
-+	if (ret) {
-+		if (ret != -ENOBUFS && netif_msg_tx_err(emac) &&
-+		    net_ratelimit())
-+			netdev_err(ndev, "packet queue failed: %d\n", ret);
-+		goto fail_tx;
++		return 0;
 +	}
 +
-+	ndev->stats.tx_packets++;
-+	ndev->stats.tx_bytes += skb->len;
-+	dev_kfree_skb_any(skb);
-+
-+	return NETDEV_TX_OK;
-+
-+fail_tx:
-+	if (ret == -ENOBUFS) {
-+		netif_stop_queue(ndev);
-+		hrtimer_start(&emac->tx_hrtimer,
-+			      us_to_ktime(HR_TIMER_TX_DELAY_US),
-+			      HRTIMER_MODE_REL_PINNED);
-+		ret = NETDEV_TX_BUSY;
++	/* This depends on the path to of_node */
++	parent = of_get_parent(msc->pdev->dev.of_node);
++	if (parent == of_root) {
++		cpumask_copy(&msc->accessibility, cpu_possible_mask);
++		err = 0;
 +	} else {
-+		/* error */
-+		ndev->stats.tx_dropped++;
-+		ret = NET_XMIT_DROP;
++		err = -EINVAL;
++		pr_err("Cannot determine accessibility of MSC: %s\n",
++		       dev_name(&msc->pdev->dev));
 +	}
++	of_node_put(parent);
 +
-+	return ret;
++	return err;
 +}
 +
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = icssm_emac_ndo_open,
- 	.ndo_stop = icssm_emac_ndo_stop,
-+	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
- };
- 
- /* get emac_port corresponding to eth_node name */
-@@ -508,6 +1115,17 @@ static int icssm_prueth_node_mac(struct device_node *eth_node)
- 		return PRUETH_MAC_INVALID;
- }
- 
-+static enum hrtimer_restart icssm_emac_tx_timer_callback(struct hrtimer *timer)
++static int fw_num_msc;
++
++static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
 +{
-+	struct prueth_emac *emac =
-+			container_of(timer, struct prueth_emac, tx_hrtimer);
-+
-+	if (netif_queue_stopped(emac->ndev))
-+		netif_wake_queue(emac->ndev);
-+
-+	return HRTIMER_NORESTART;
++	/* TODO: wake up tasks blocked on this MSC's PCC channel */
 +}
 +
- static int icssm_prueth_netdev_init(struct prueth *prueth,
- 				    struct device_node *eth_node)
- {
-@@ -539,16 +1157,37 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
- 	/* by default eth_type is EMAC */
- 	switch (port) {
- 	case PRUETH_PORT_MII0:
-+		emac->tx_port_queue = PRUETH_PORT_QUEUE_MII0;
++static void mpam_msc_drv_remove(struct platform_device *pdev)
++{
++	struct mpam_msc *msc = platform_get_drvdata(pdev);
 +
-+		/* packets from MII0 are on queues 1 through 2 */
-+		emac->rx_queue_start = PRUETH_QUEUE1;
-+		emac->rx_queue_end = PRUETH_QUEUE2;
++	if (!msc)
++		return;
 +
- 		emac->dram = PRUETH_MEM_DRAM0;
- 		emac->pru = prueth->pru0;
- 		break;
- 	case PRUETH_PORT_MII1:
-+		emac->tx_port_queue = PRUETH_PORT_QUEUE_MII1;
++	mutex_lock(&mpam_list_lock);
++	mpam_num_msc--;
++	platform_set_drvdata(pdev, NULL);
++	list_del_rcu(&msc->glbl_list);
++	synchronize_srcu(&mpam_srcu);
++	devm_kfree(&pdev->dev, msc);
++	mutex_unlock(&mpam_list_lock);
++}
 +
-+		/* packets from MII1 are on queues 3 through 4 */
-+		emac->rx_queue_start = PRUETH_QUEUE3;
-+		emac->rx_queue_end = PRUETH_QUEUE4;
++static int mpam_msc_drv_probe(struct platform_device *pdev)
++{
++	int err;
++	struct mpam_msc *msc;
++	struct resource *msc_res;
++	void *plat_data = pdev->dev.platform_data;
 +
- 		emac->dram = PRUETH_MEM_DRAM1;
- 		emac->pru = prueth->pru1;
- 		break;
- 	default:
- 		return -EINVAL;
- 	}
++	mutex_lock(&mpam_list_lock);
++	do {
++		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
++		if (!msc) {
++			err = -ENOMEM;
++			break;
++		}
 +
-+	emac->rx_irq = of_irq_get_byname(eth_node, "rx");
-+	if (emac->rx_irq < 0) {
-+		ret = emac->rx_irq;
-+		if (ret != -EPROBE_DEFER)
-+			dev_err(prueth->dev, "could not get rx irq\n");
-+		goto free;
++		mutex_init(&msc->probe_lock);
++		mutex_init(&msc->part_sel_lock);
++		mutex_init(&msc->outer_mon_sel_lock);
++		raw_spin_lock_init(&msc->inner_mon_sel_lock);
++		msc->id = mpam_num_msc++;
++		msc->pdev = pdev;
++		INIT_LIST_HEAD_RCU(&msc->glbl_list);
++		INIT_LIST_HEAD_RCU(&msc->ris);
++
++		err = update_msc_accessibility(msc);
++		if (err)
++			break;
++		if (cpumask_empty(&msc->accessibility)) {
++			pr_err_once("msc:%u is not accessible from any CPU!",
++				    msc->id);
++			err = -EINVAL;
++			break;
++		}
++
++		if (device_property_read_u32(&pdev->dev, "pcc-channel",
++					     &msc->pcc_subspace_id))
++			msc->iface = MPAM_IFACE_MMIO;
++		else
++			msc->iface = MPAM_IFACE_PCC;
++
++		if (msc->iface == MPAM_IFACE_MMIO) {
++			void __iomem *io;
++
++			io = devm_platform_get_and_ioremap_resource(pdev, 0,
++								    &msc_res);
++			if (IS_ERR(io)) {
++				pr_err("Failed to map MSC base address\n");
++				err = PTR_ERR(io);
++				break;
++			}
++			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
++			msc->mapped_hwpage = io;
++		} else if (msc->iface == MPAM_IFACE_PCC) {
++			msc->pcc_cl.dev = &pdev->dev;
++			msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
++			msc->pcc_cl.tx_block = false;
++			msc->pcc_cl.tx_tout = 1000; /* 1s */
++			msc->pcc_cl.knows_txdone = false;
++
++			msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
++								 msc->pcc_subspace_id);
++			if (IS_ERR(msc->pcc_chan)) {
++				pr_err("Failed to request MSC PCC channel\n");
++				err = PTR_ERR(msc->pcc_chan);
++				break;
++			}
++		}
++
++		list_add_rcu(&msc->glbl_list, &mpam_all_msc);
++		platform_set_drvdata(pdev, msc);
++	} while (0);
++	mutex_unlock(&mpam_list_lock);
++
++	if (!err) {
++		/* Create RIS entries described by firmware */
++		if (!acpi_disabled)
++			err = acpi_mpam_parse_resources(msc, plat_data);
++		else
++			err = mpam_dt_parse_resources(msc, plat_data);
 +	}
 +
- 	/* get mac address from DT and set private and netdev addr */
- 	ret = of_get_ethdev_address(eth_node, ndev);
- 	if (!is_valid_ether_addr(ndev->dev_addr)) {
-@@ -579,6 +1218,11 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
- 	ndev->dev.of_node = eth_node;
- 	ndev->netdev_ops = &emac_netdev_ops;
- 
-+	netif_napi_add(ndev, &emac->napi, icssm_emac_napi_poll);
++	if (!err && fw_num_msc == mpam_num_msc)
++		mpam_discovery_complete();
 +
-+	hrtimer_setup(&emac->tx_hrtimer, &icssm_emac_tx_timer_callback,
-+		      CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
++	if (err && msc)
++		mpam_msc_drv_remove(pdev);
 +
- 	return 0;
- free:
- 	emac->ndev = NULL;
-@@ -603,6 +1247,7 @@ static void icssm_prueth_netdev_exit(struct prueth *prueth,
- 
- 	phy_disconnect(emac->phydev);
- 
-+	netif_napi_del(&emac->napi);
- 	prueth->emac[mac] = NULL;
- }
- 
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index f1d1deef888f..6201276986de 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -20,6 +20,12 @@
- 
- /* PRUSS local memory map */
- #define ICSS_LOCAL_SHARED_RAM	0x00010000
-+#define EMAC_MAX_PKTLEN		(ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN)
-+/* Below macro is for 1528 Byte Frame support, to Allow even with
-+ * Redundancy tag
-+ */
-+#define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + \
-+			      ICSSM_LRE_TAG_SIZE)
- 
- /* PRU Ethernet Type - Ethernet functionality (protocol
-  * implemented) provided by the PRU firmware being loaded.
-@@ -76,6 +82,32 @@ struct prueth_queue_info {
- 	u16 buffer_desc_end;
- };
- 
-+/**
-+ * struct prueth_packet_info - Info about a packet in buffer
-+ * @start_offset: start offset of the frame in the buffer for HSR/PRP
-+ * @shadow: this packet is stored in the collision queue
-+ * @port: port packet is on
-+ * @length: length of packet
-+ * @broadcast: this packet is a broadcast packet
-+ * @error: this packet has an error
-+ * @sv_frame: indicate if the frame is a SV frame for HSR/PRP
-+ * @lookup_success: src mac found in FDB
-+ * @flood: packet is to be flooded
-+ * @timestamp: Specifies if timestamp is appended to the packet
-+ */
-+struct prueth_packet_info {
-+	bool start_offset;
-+	bool shadow;
-+	unsigned int port;
-+	unsigned int length;
-+	bool broadcast;
-+	bool error;
-+	bool sv_frame;
-+	bool lookup_success;
-+	bool flood;
-+	bool timestamp;
++	return err;
++}
++
++static const struct of_device_id mpam_of_match[] = {
++	{ .compatible = "arm,mpam-msc", },
++	{},
++};
++MODULE_DEVICE_TABLE(of, mpam_of_match);
++
++static struct platform_driver mpam_msc_driver = {
++	.driver = {
++		.name = "mpam_msc",
++		.of_match_table = of_match_ptr(mpam_of_match),
++	},
++	.probe = mpam_msc_drv_probe,
++	.remove = mpam_msc_drv_remove,
 +};
 +
- /* In switch mode there are 3 real ports i.e. 3 mac addrs.
-  * however Linux sees only the host side port. The other 2 ports
-  * are the switch ports.
-@@ -162,17 +194,25 @@ struct prueth_private_data {
- struct prueth_emac {
- 	struct prueth *prueth;
- 	struct net_device *ndev;
-+	struct napi_struct napi;
- 
- 	struct rproc *pru;
- 	struct phy_device *phydev;
-+	struct prueth_queue_desc __iomem *rx_queue_descs;
-+	struct prueth_queue_desc __iomem *tx_queue_descs;
- 
- 	int link;
- 	int speed;
- 	int duplex;
-+	int rx_irq;
- 
-+	enum prueth_port_queue_id tx_port_queue;
-+	enum prueth_queue_id rx_queue_start;
-+	enum prueth_queue_id rx_queue_end;
- 	enum prueth_port port_id;
- 	enum prueth_mem dram;
- 	const char *phy_id;
-+	u32 msg_enable;
- 	u8 mac_addr[6];
- 	phy_interface_t phy_if;
- 
-@@ -180,6 +220,8 @@ struct prueth_emac {
- 	 * during link configuration
- 	 */
- 	spinlock_t lock;
++/*
++ * MSC that are hidden under caches are not created as platform devices
++ * as there is no cache driver. Caches are also special-cased in
++ * update_msc_accessibility().
++ */
++static void mpam_dt_create_foundling_msc(void)
++{
++	int err;
++	struct device_node *cache;
 +
-+	struct hrtimer tx_hrtimer;
- };
- 
- struct prueth {
-@@ -201,4 +243,11 @@ struct prueth {
- 	size_t ocmc_ram_size;
- 	u8 emac_configured;
- };
++	for_each_compatible_node(cache, NULL, "cache") {
++		err = of_platform_populate(cache, mpam_of_match, NULL, NULL);
++		if (err)
++			pr_err("Failed to create MSC devices under caches\n");
++	}
++}
 +
-+void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
-+			     struct prueth_packet_info *pkt_info);
-+int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
-+			 struct prueth_packet_info *pkt_info,
-+			 const struct prueth_queue_info *rxqueue);
++static int __init mpam_msc_driver_init(void)
++{
++	if (!system_supports_mpam())
++		return -EOPNOTSUPP;
 +
- #endif /* __NET_TI_PRUETH_H */
++	init_srcu_struct(&mpam_srcu);
++
++	if (!acpi_disabled)
++		fw_num_msc = acpi_mpam_count_msc();
++	else
++		fw_num_msc = mpam_dt_count_msc();
++
++	if (fw_num_msc <= 0) {
++		pr_err("No MSC devices found in firmware\n");
++		return -EINVAL;
++	}
++
++	if (acpi_disabled)
++		mpam_dt_create_foundling_msc();
++
++	return platform_driver_register(&mpam_msc_driver);
++}
++subsys_initcall(mpam_msc_driver_init);
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+new file mode 100644
+index 000000000000..07e0f240eaca
+--- /dev/null
++++ b/drivers/resctrl/mpam_internal.h
+@@ -0,0 +1,62 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++// Copyright (C) 2024 Arm Ltd.
++
++#ifndef MPAM_INTERNAL_H
++#define MPAM_INTERNAL_H
++
++#include <linux/arm_mpam.h>
++#include <linux/cpumask.h>
++#include <linux/io.h>
++#include <linux/mailbox_client.h>
++#include <linux/mutex.h>
++#include <linux/resctrl.h>
++#include <linux/sizes.h>
++
++struct mpam_msc {
++	/* member of mpam_all_msc */
++	struct list_head        glbl_list;
++
++	int			id;
++	struct platform_device *pdev;
++
++	/* Not modified after mpam_is_enabled() becomes true */
++	enum mpam_msc_iface	iface;
++	u32			pcc_subspace_id;
++	struct mbox_client	pcc_cl;
++	struct pcc_mbox_chan	*pcc_chan;
++	u32			nrdy_usec;
++	cpumask_t		accessibility;
++
++	/*
++	 * probe_lock is only take during discovery. After discovery these
++	 * properties become read-only and the lists are protected by SRCU.
++	 */
++	struct mutex		probe_lock;
++	unsigned long		ris_idxs[128 / BITS_PER_LONG];
++	u32			ris_max;
++
++	/* mpam_msc_ris of this component */
++	struct list_head	ris;
++
++	/*
++	 * part_sel_lock protects access to the MSC hardware registers that are
++	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
++	 * by RIS).
++	 * If needed, take msc->lock first.
++	 */
++	struct mutex		part_sel_lock;
++
++	/*
++	 * mon_sel_lock protects access to the MSC hardware registers that are
++	 * affeted by MPAMCFG_MON_SEL.
++	 * If needed, take msc->lock first.
++	 */
++	struct mutex		outer_mon_sel_lock;
++	raw_spinlock_t		inner_mon_sel_lock;
++	unsigned long		inner_mon_sel_flags;
++
++	void __iomem		*mapped_hwpage;
++	size_t			mapped_hwpage_sz;
++};
++
++#endif /* MPAM_INTERNAL_H */
 -- 
-2.43.0
+2.20.1
 
 
