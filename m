@@ -4,67 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD64ECA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 07:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273A7CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 07:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWOR5JAU3kynwk179ZOfk/fB/owyMlGNcIo7VmVSNCk=; b=Lrkr3r19TseqsXCTnat8/B8XHG
-	eO4G1oWsWeGO1xImBkC9U+GIEYlqDaDPdnwApxFg68CMyCiL1+Jl7FeEbGWbDMJ1We9OSV3Y6oBzg
-	jmHAlFwL8u9dgA0Gd+TQfUTvJJrAr74LrUgZXFIbZ3XqdfcW9IKtRZ3W+Vejt3T1gu8SUMlGu+dWt
-	9aDaqVqCvKbvLrfpp7aA8Lpxa3+hfqtaXiSn1Zp+HBQ766+RXCXtJidkDgPRsALN/9LVecG5ejxf4
-	k8urQ3L5IbrP0esLZ4An+7y9ft6Pg2Um5Ui9hhDJgd/sZcpeQIJVFBFGBVPZs2iOTlVH+U5+saXTw
-	iaUQBQvA==;
+	bh=iTOnYZFLkfdWX5mXxYaZWrKAd2btjaQEGUSqE21aWz0=; b=SPti/BLR2Q3yVW88ofmkX6LPcx
+	ENR/R0n9wNRQ4v0VgmBIYzUUb3KW5co3mW7fwXc+kikdMsxhEmYCYPC+kl2bEuh7Z4gnH6TODHrhV
+	P/jsATrwD6cieGAtgUy/pXPJupftPAQVjx4M8EVozPbNIdhITTpoZcOS/uoj89m6rTvieyjKAyQ5w
+	sVP7A4Zx5QiHA1BqbkFCiEth2EXB27m7t8BrxxizNXA0ekyr6f/0RE8JVrS9ez9Vtb9bhu9Lpskpz
+	uXdc8v49xAqWXn5rMnx6B1a6sdHvBcZWLIPnd7AGJix10HHpxOSQv6GB3QRUIIPS+teyMUvo1DFv5
+	9gjHpH3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upMC9-00000001ohe-48F4;
-	Fri, 22 Aug 2025 07:28:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upMEq-00000001p3S-0NQR;
+	Fri, 22 Aug 2025 07:31:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upH0d-00000001Brc-1WTZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 01:56:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tWOR5JAU3kynwk179ZOfk/fB/owyMlGNcIo7VmVSNCk=; b=k5Sn5dC2pbYlSbNkobjG3SSBBL
-	caDo2SEFwPkk2XYrl7Lpkhgg0R2Rb+auIoxMayZotx/U1Yf64bfD8zb2bnSViaLIMLa7S7swyUeFo
-	D8cUEghK1UT2FBFRuUFB2YGI1V7+6pDQwYH6fYjy3dclSmFgHjSMp+kfluol39ZZGX0hN3oL33Kp6
-	rXkcJ/nBOZ+x/f/6ExgTzJn+MzqXN62CvW2SB18qdh3yyn320o7K1XdruaxWTzMbBdCoD7G4GWojA
-	L2cy+u9Ltx2CC9NP7BX7MPh5jFzehfaGbLpuG8WUOrfSplBc0pyZS5htb/uHvWQZCSM2rikgKRsic
-	6mzIOgZw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upH0T-00000000jt3-2LHx
+	id 1upH0f-00000001BsV-1VTO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 01:55:57 +0000
+	Fri, 22 Aug 2025 01:56:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5DC2D5C48FA;
-	Fri, 22 Aug 2025 01:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C7EC116B1;
-	Fri, 22 Aug 2025 01:55:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1AFAB4404E;
+	Fri, 22 Aug 2025 01:56:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6900C4CEED;
+	Fri, 22 Aug 2025 01:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755827750;
-	bh=K/O9CttzW0zt3QhDrAZF6NQXIZmkZnmyhsSNH3lWRrU=;
+	s=k20201202; t=1755827765;
+	bh=ApIjPu6tr41pN88JrHKurRe18MYIB0RS0vVGxBjI5iI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HqfTMJEIIm0RVp8DdAwJ+7iOeQtGnXVoOOecL9qzpJ0rGiAk9eG5mToRPG9SUMT+m
-	 KVEZc3EJgTO1NVp4flTSaBHr0ZX0M3TqrAHeFyJ9lzLQcI4rR1oHCYv7lPVEIL82/Q
-	 pqCNkHMRuvnF6FKOOr+T0PvEICS2YMP8BT3pYFtyEEOYHZZxwwG32rq5CmJ+HUV2sN
-	 95FdQFPFrXG4DxzufZm/vwTMnfOodVp9+3NzKTyWDHEK3YrGLGBN0HiPIfRweZ65cA
-	 Q17cxZTsQfO8k+A3IDWZgKcSNZoJjiathuDmGZzKyDBi1FZlrcsauiOSQ9yIWY8nvv
-	 l4iuD6pt5aKDg==
+	b=qwK4r9Py1WNdLXRolIsS2xDD8JZJhqzFwqK+ySVueAtJyHFnEQPFhxQfXvud2TzED
+	 AYF1c7+e2p11M2YJHpEuisx5nOTdu2hxjXXLVmBSqYAdD2lS3WYP/oKCAA1QX++V1q
+	 XVjl8YMs/q4b3awokyte6bcF5GeVev3zYfeQlVraKxZQuOFRobv0CWwxSddUljpBDh
+	 m8wu3T/SfYqaCtXCwNljFPSugY4tG0M/0FJj1yxzeeOJNR/5f3nAkCS9mWbLb5OfHM
+	 tWcyM4e5vZLk0/lrGq0g+hJmxHkjNDi2K4tkjymW4vzCLvgrK6TDntzNJie2XU/dxb
+	 CgVMyZBlGmuWQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 22 Aug 2025 02:53:51 +0100
-Subject: [PATCH v7 22/29] KVM: arm64: Flush register state on writes to
- SVCR.SM and SVCR.ZA
+Date: Fri, 22 Aug 2025 02:53:55 +0100
+Subject: [PATCH v7 26/29] KVM: arm64: Expose SME to nested guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-kvm-arm64-sme-v7-22-7a65d82b8b10@kernel.org>
+Message-Id: <20250822-kvm-arm64-sme-v7-26-7a65d82b8b10@kernel.org>
 References: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
 In-Reply-To: <20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -78,20 +62,20 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-cff91
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3621; i=broonie@kernel.org;
- h=from:subject:message-id; bh=K/O9CttzW0zt3QhDrAZF6NQXIZmkZnmyhsSNH3lWRrU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop83JJXqzXqJ5OVr99ci+V6a3vGPLFRimUnWeH
- SqoJHNeNkqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNyQAKCRAk1otyXVSH
- 0KcDCACFKvDYoPHrzdlHonB/UTvZ8IgbysGU4q7TsbxOb/15KCQ3dSgpF8h+AZv0rf/dtANxjvK
- ASSmvXR17WouQrUCoLU3WV4fYAPsouahjr2mWOW0t2VoX/CKHVZy23Vxb0zQlf+PvjuYJisW+LN
- E0yK6rcJk7oXRjKG/+YBdtx/HvCmmTD6g3huORstNbALGrrjSyYfEw5MdkfeURJa4tASPsWxcZt
- Sr3Au71YQW1bJoydFA+pT/9oYz4eYRSkgBQx7Ca14IecKv8TiGOmy76zaH0q/9UeqELUveAU6ds
- SWtLBtLuaYWbRgryRPEjE8WEOsY09f1hWKF18jB1fc56XlP9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1234; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ApIjPu6tr41pN88JrHKurRe18MYIB0RS0vVGxBjI5iI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBop83MctByn9lZGlMQrCOz++sZYZV3/BxfsPz/F
+ KPOJwdzE3qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaKfNzAAKCRAk1otyXVSH
+ 0F8yB/sFH7V+bkn2VfS0isUHveeJS62fiiB5c3YS3JAVQ41jZpkvIm2k6AAkqorbB6LxXiwdkrZ
+ rx3xTr8Q3KUrjWok7+55CSTU8K/SNKwH2OYYXXYsFKjEPtA7KN+Aaw63IUzqgSmDrovAOUH6SI+
+ 5Yu0HHJ9CyKK/ghNSJD8QwerdqfyQXeZXucZ62++Yq/02G1e+wJTAyIC2tvqGYcoTEE5z0aKR9D
+ VAdEUMAvWAo68qn1FSBneDg6JvJr+TB57KF1XNmpEvHVn5MCTCe8SF7laOSI+ekUFdbhhT1GS/b
+ V2ByGttxzG+ZONQtxG4WC8NuL7b3NowIv5Z0Gmfe//B90HqX
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_025556_272561_09C8BDC0 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250821_185605_421918_33516106 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,105 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Writes to the physical SVCR.SM and SVCR.ZA change the state of PSTATE.SM
-and PSTATE.ZA, causing other floating point state to reset. Emulate this
-behaviour for writes done via the KVM userspace ABI.
+With support for context switching SME state in place allow access to SME
+in nested guests.
 
-Setting PSTATE.ZA to 1 causes ZA and ZT0 to be reset to 0, these are stored
-in sme_state. Setting PSTATE.ZA to 0 causes ZA and ZT0 to become inaccesible
-so no reset is needed.
+The SME floating point state is handled along with all the other floating
+point state, SME specific floating point exceptions are directed into the
+same handlers as other floating point exceptions with NV specific handling
+for the vector lengths already in place.
 
-Any change in PSTATE.SM causes the V, Z, P, FFR and FPMR registers to be
-reset to 0 and FPSR to be reset to 0x800009f.
+TPIDR2_EL0 is context switched along with the other TPIDRs as part of the
+main guest register context switch.
+
+SME priority support is currently masked from all guests including nested
+ones.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h | 24 ++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c         | 29 ++++++++++++++++++++++++++++-
- 2 files changed, 52 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/nested.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ebc516fe09db..8e5c16372b83 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1144,6 +1144,30 @@ struct kvm_vcpu_arch {
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 153b3e11b115..804694f2dc9a 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1458,9 +1458,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		break;
  
- #define vcpu_sve_state_size(vcpu) sve_state_size_from_vl((vcpu)->arch.max_vl[ARM64_VEC_SVE])
+ 	case SYS_ID_AA64PFR1_EL1:
+-		/* Only support BTI, SSBS, CSV2_frac */
++		/* Only support BTI, SSBS, SME, CSV2_frac */
+ 		val &= (ID_AA64PFR1_EL1_BT	|
+ 			ID_AA64PFR1_EL1_SSBS	|
++			ID_AA64PFR1_EL1_SME	|
+ 			ID_AA64PFR1_EL1_CSV2_frac);
+ 		break;
  
-+#define vcpu_sme_state(vcpu) (kern_hyp_va((vcpu)->arch.sme_state))
-+
-+#define sme_state_size_from_vl(vl, sme2) ({				\
-+	size_t __size_ret;						\
-+	unsigned int __vq;						\
-+									\
-+	if (WARN_ON(!sve_vl_valid(vl))) {				\
-+		__size_ret = 0;						\
-+	} else {							\
-+		__vq = sve_vq_from_vl(vl);				\
-+		__size_ret = ZA_SIG_REGS_SIZE(__vq);			\
-+		if (sme2)						\
-+			__size_ret += ZT_SIG_REG_SIZE;			\
-+	}								\
-+									\
-+	__size_ret;							\
-+})
-+
-+#define vcpu_sme_state_size(vcpu) ({					\
-+	unsigned long __vl;						\
-+	__vl = (vcpu)->arch.max_vl[ARM64_VEC_SME];			\
-+	sme_state_size_from_vl(__vl, vcpu_has_sme2(vcpu));		\
-+})
-+
- /*
-  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
-  * memory backed version of a register, and not the one most recently
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 7284705a5f0a..0752e119c056 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -788,6 +788,33 @@ static unsigned int hidden_visibility(const struct kvm_vcpu *vcpu,
- 	return REG_HIDDEN;
- }
- 
-+static int set_svcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
-+		    u64 val)
-+{
-+	u64 old = __vcpu_sys_reg(vcpu, rd->reg);
-+
-+	if (val & SVCR_RES0)
-+		return -EINVAL;
-+
-+	if ((val & SVCR_ZA) && !(old & SVCR_ZA) && vcpu->arch.sme_state)
-+		memset(vcpu->arch.sme_state, 0, vcpu_sme_state_size(vcpu));
-+
-+	if ((val & SVCR_SM) != (old & SVCR_SM)) {
-+		memset(vcpu->arch.ctxt.fp_regs.vregs, 0,
-+		       sizeof(vcpu->arch.ctxt.fp_regs.vregs));
-+
-+		if (vcpu->arch.sve_state)
-+			memset(vcpu->arch.sve_state, 0,
-+			       vcpu_sve_state_size(vcpu));
-+
-+		__vcpu_assign_sys_reg(vcpu, FPMR, 0);
-+		vcpu->arch.ctxt.fp_regs.fpsr = 0x800009f;
-+	}
-+
-+	__vcpu_assign_sys_reg(vcpu, rd->reg, val);
-+	return 0;
-+}
-+
- static unsigned int pmu_visibility(const struct kvm_vcpu *vcpu,
- 				   const struct sys_reg_desc *r)
- {
-@@ -3248,7 +3275,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 		    CTR_EL0_DminLine_MASK |
- 		    CTR_EL0_L1Ip_MASK |
- 		    CTR_EL0_IminLine_MASK),
--	{ SYS_DESC(SYS_SVCR), undef_access, reset_val, SVCR, 0, .visibility = sme_visibility  },
-+	{ SYS_DESC(SYS_SVCR), undef_access, reset_val, SVCR, 0, .visibility = sme_visibility, .set_user = set_svcr },
- 	{ SYS_DESC(SYS_FPMR), undef_access, reset_val, FPMR, 0, .visibility = fp8_visibility },
- 
- 	{ PMU_SYS_REG(PMCR_EL0), .access = access_pmcr, .reset = reset_pmcr,
 
 -- 
 2.39.5
