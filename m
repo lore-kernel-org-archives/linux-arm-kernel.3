@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B482CA0FEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1EACA0EFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=; b=PyF85FyVuJ3zAWpaM/0Pu0eH/5
-	bKsFW0XLCbcefVnKdxgULLhK4BQyn6QyID5ZB3PtSZxgeUvcLQrrxyN8h/7OY3VGZXCza0sm8z81u
-	n+Wc/EWhAMG9ruxiPP/VXUE2w+ZdFhURJxSIa9PFhfmfPhzEmERxK9FE6CQQ6enqVmMATpBhGmIiv
-	RP3qSYtODAnMt9uG4aFtCrNYAVjDHAE8cur2PrL2c817vVyYEo23gtcFOa3G290mGTe4PbHkktvfJ
-	5BTl86lXKXlOqKF4KnVjJab5ENBaJ8p41TEvHzILJmG/FyrMP6HmsI9B/cd4C0SLcsbR2MNsrX1H1
-	uUSdFtzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DLiGvD4WvAmDK4qXbOgWhzUKoNjE8ylXtnD26InYrBE=; b=iigXJxVC7CXCaeCFygi2KPNuxE
+	MwY9obo5Jdxvgb/NOAvyYI+axBqd2TUiZmQ7PVDIBfNF8yKoe14ulf8dLrAVn+Bxad+Ft+jMT6RoG
+	bOsnUwpMipczv8+lEZCTUnOjRZEsmQYuZA+FP9GjyOA9GOJW2M9WT5pW3IdfMGdcKwWrLePEfW73F
+	ZnJkVMzFHtiM78ifab6afLAMY+gUhKUvLopUOOSzZWxxf2x/cJIrGLh5Ac4Cyvw7PDYUqik7A6arv
+	OknclHnowjXwLEY8tcqevEz0dA67I2HEvcB9WH2noCAPfwOOJIRwYT5KvHu9dyuuZW6kaAB158IKx
+	nGiYcydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkfU-00000004Uqf-397h;
-	Sat, 23 Aug 2025 09:36:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1upkfR-00000004Um9-3ZMl;
+	Sat, 23 Aug 2025 09:36:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upVje-00000003FeE-1llh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 Aug 2025 17:39:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=; b=owi6R8EP5Rq0PvxnqZaVuLdUR8
-	wsepIdJGW5tOL3t57oGxhLYnqkb8K4c2BKJ6xyzk0DJgLKTHpnYdvQbDYr/umHmQbB5YvKlM1vGCg
-	yYKxI0Ww/u1eJcl7bf4GUHSl+FyIwviM787Hn61KK9x+/yxzD9G3fTHe+em7B1kKh/rZxmbotPj0F
-	k1W4DU1eisezp+20mAIewJMVfVdauQhtqsjNv2Xn/LkZZTUyaxeFoiEnGPiKEFMB09fACMgXGp6AK
-	XmRAQE2tpSyBROoY4IeBSB0+QSGiEPQSbN1FXKA6PPgydmW+V2rqMGBA6iGuo4riUwKko9v5MPyB+
-	Eu+K2rWw==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upVjb-000000013HH-0YrQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 Aug 2025 17:39:29 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57MHdDTg299741;
-	Fri, 22 Aug 2025 12:39:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755884353;
-	bh=EQHjqdGHZGwz5jlXpEQ4A8fr2g0aWp9TNlx/qZj0tAM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=StjMwzwVLVDe40mulHlLMB/LS+E0mfIWI6dPqG3qcqRYLkOXRNINtgiW0Yb3khtZP
-	 EcV3Mlx1iwu/KMlqC8SK3YRsG6wuS9hAeMjp6raftH98LLC2rP8sRun5DJ1jpfLgR+
-	 D1GFZjCuShnGbbCx8PnBcSOJGOjKWpGqis6t5168=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57MHdDpk3077731
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 22 Aug 2025 12:39:13 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
- Aug 2025 12:39:12 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 22 Aug 2025 12:39:12 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57MHdCxq3898888;
-	Fri, 22 Aug 2025 12:39:12 -0500
-Message-ID: <c05c0a13-e7af-4fc0-9363-b629b2c48201@ti.com>
-Date: Fri, 22 Aug 2025 12:39:12 -0500
+	id 1upV33-00000003CnN-2uTH;
+	Fri, 22 Aug 2025 16:55:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 216B260203;
+	Fri, 22 Aug 2025 16:55:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B93C4CEED;
+	Fri, 22 Aug 2025 16:55:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755881728;
+	bh=7g181+bcvmLk/IDiMD7z/zBWKVLYMZ0k6iVC20G+ROU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ImHNmKrYF8feUzVfNj1IWZo1oWQKNNbn3adjTQoB1nDREjxrrJUwJELiMyBlaqIL/
+	 v6zubrgaab66AjgCvKChDKdkLevu7F63S9hi/fn/5N4SW4kw97wMMIfnzTss/54dmD
+	 xjJADDAz6ldRqQdkK9w39f6HrEhYsnfZpy6SuUkFSiYDibUg5w9/uy5EV4GQeoYx6y
+	 vDTphXQuMOR0x/TeuO5EmSio6vWckZDaZUieXz4d8Zxq93S/BXdGjHW800HeyDCcZv
+	 XY4iacRP9+leHrAcB0ZqwWEmQAPMvAr65AjNjx48yTytmQpfuX7uMBJuC7RcFKMzzH
+	 5PSKGfZAW8Bvw==
+Date: Fri, 22 Aug 2025 17:55:22 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Aswath Govindraju <a-govindraju@ti.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	Haibo Chen <haibo.chen@nxp.com>, linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/6] dt-bindings: phy: ti,tcan104x-can: Document NXP
+ TJA1051/1048
+Message-ID: <20250822-crop-ungreased-6494d68e388e@spud>
+References: <20250822-can-v1-0-c075f702adea@nxp.com>
+ <20250822-can-v1-1-c075f702adea@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] PATCH: firmware: ti_sci: Add trace events to TI SCI
-To: Jon Cormier <jcormier@criticallink.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Masami
- Hiramatsu <mhiramat@kernel.org>,
-        Mathieu Desnoyers
-	<mathieu.desnoyers@efficios.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-trace-kernel@vger.kernel.org>
-References: <20250820-linux_master_ti_sci_trace-v1-0-2a69c0abf55e@criticallink.com>
- <e11fd419-1095-471e-a57f-fc5ff7ce713a@ti.com>
- <CADL8D3aR_ecr4q54cX7yfr_aDPA7NhXmLhkiHjUY9MjNZeg78Q@mail.gmail.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <CADL8D3aR_ecr4q54cX7yfr_aDPA7NhXmLhkiHjUY9MjNZeg78Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_183927_653348_741727FE 
-X-CRM114-Status: GOOD (  27.81  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LL4e6z1aL4fxQ/Er"
+Content-Disposition: inline
+In-Reply-To: <20250822-can-v1-1-c075f702adea@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,111 +84,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/22/25 11:05 AM, Jon Cormier wrote:
-> On Wed, Aug 20, 2025 at 4:04 PM Andrew Davis <afd@ti.com> wrote:
->>
->> On 8/20/25 1:10 PM, Jonathan Cormier wrote:
->>> Add trace events to help debug and measure the speed of the
->>> communication channel.
->>>
->>> Add parsing of the messages types but I am not sure how to parse the
->>> flags, since the REQ and RESP flags conflict. Left as seperate commit to
->>
->> The REQ and RESP flags should be handled by different TRACE_EVENTs. Right
->> now you only dump the content of the response messages (the ones in
->> rx_callback), also tracing what is sent is just as important, so you
->> might want to add slightly different ti_sci_msg_dump EVENT for the
->> sending side which uses the different REQ flag parser.
-> 
-> 
-> Does it make sense to have seperate trace events, one that only decode
-> the hdrs and ones that also include the buffers?
-> 
-> I'm bothered by the code duplication, but am trying to convince myself
-> it doesn't matter.
-> 
-> Currently, with the above updates, if you enabled all the traces,
-> you'd see something like:
-> 
-> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000402 status=0
-> [15.xxxxxxx] ti_sci_tx_msg_dump: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000402 data=<data>
-> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0
-> [15.xxxxxxx] ti_sci_rx_msg_dump: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 data=<data>
-> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0
-> 
-> Presumably if you were worried about timing, you'd disable the
-> msg_dumps, avoiding the extra memcpy's.  And if you only cared about
-> the data being sent, you'd only enable the msg_dumps.  Does this make
-> sense / is it worth the extra trace calls?
-> 
-> Or removing the buffer decoding in the msg_dumps, removes the duplication:
-> 
-> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000402 status=0
-> [15.xxxxxxx] ti_sci_msg_dump: data=<data>
-> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0
-> [15.xxxxxxx] ti_sci_msg_dump: data=<data>
-> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0
-> 
 
-I like this one ^^^ but I'd also just remove the `ti_sci_rx_callback`
-trace, the contents would always be the same as `ti_sci_xfer_end`.
+--LL4e6z1aL4fxQ/Er
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This way you have two sets of symmetrical trace events, a "begin" and "end"
-that can be used for timing measurements, and a dump message for "send" and
-"receive" that would help with debugging based on the message contents.
+On Fri, Aug 22, 2025 at 12:05:28PM +0800, Peng Fan wrote:
+> The TJA1051 is a high-speed CAN transceiver which is a pin-compatible
+> alternative for TI TCAN1043 with Sleep mode supported, and has a compatib=
+le
+> programming model, therefore use ti,tcan1043 as fallback compatible.
+>=20
+> The TJA1048 is a dual high-speed CAN transceiver with Sleep mode supporte=
+d.
+>=20
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  .../devicetree/bindings/phy/ti,tcan104x-can.yaml   | 29 ++++++++++++++++=
++++---
+>  1 file changed, 26 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b=
+/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> index 4a8c3829d85d3c4a4963750d03567c1c345beb91..de4ab204ec86f91e84eba8f1a=
+6343ed137e5cd71 100644
+> --- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> +++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
+> @@ -19,18 +19,21 @@ properties:
+>            - enum:
+>                - microchip,ata6561
+>            - const: ti,tcan1042
+> +      - items:
+> +          - enum:
+> +              - nxp,tja1051
+> +          - const: ti,tcan1043
+>        - enum:
+>            - ti,tcan1042
+>            - ti,tcan1043
+> +          - nxp,tja1048
+>            - nxp,tjr1443
+> =20
+> -  '#phy-cells':
+> -    const: 0
+> +  '#phy-cells': true
+> =20
+>    standby-gpios:
+>      description:
+>        gpio node to toggle standby signal on transceiver
+> -    maxItems: 1
 
-As for the code duplication in the send/receive traces, I'm not sure
-what can be done, these trace macros already confuse me enough without
-trying to optimize them :)
+Please put the outtermost constraints here and narrow it down in the
+else.
 
-Andrew
+> =20
+>    enable-gpios:
+>      description:
+> @@ -53,6 +56,26 @@ required:
+>    - compatible
+>    - '#phy-cells'
+> =20
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: nxp,tja1048
+> +
+> +    then:
+> +      properties:
+> +        '#phy-cells':
+> +          const: 1
+> +        standby-gpios:
+> +          maxItems: 2
+> +    else:
+> +      properties:
+> +        '#phy-cells':
+> +          const: 0
+> +        standby-gpios:
+> +          maxItems: 1
+> +
+>  additionalProperties: false
+> =20
+>  examples:
+>=20
+> --=20
+> 2.37.1
+>=20
 
-> Or do condense the trace calls so they all have the data into something like:
-> 
-> [15.579036] ti_sci_xfer_begin: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000402 status=0  data=<data>
-> [15.587595] ti_sci_rx_callback: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0 data=<data>
-> [15.606135] ti_sci_xfer_end: type=SET_DEVICE_STATE host=0C seq=00
-> flags=00000002 status=0
-> 
-> Simplifying the code in the trace header.
->>
->>
->> Andrew
->>
->>> make it easier to drop or make changes depending on comments.  The two
->>> commits should squash easily.
->>>
->>> Nishanth Menon and Vignesh Raghavendra requested I send this patch
->>> upstream.
->>>
->>> Signed-off-by: Jonathan Cormier <jcormier@criticallink.com>
->>> ---
->>> Jonathan Cormier (2):
->>>         firmware: ti_sci: Add trace events
->>>         firmware: ti_sci: trace: Decode message types
->>>
->>>    MAINTAINERS                     |   1 +
->>>    drivers/firmware/Makefile       |   3 +
->>>    drivers/firmware/ti_sci.c       |  11 +++
->>>    drivers/firmware/ti_sci_trace.h | 146 ++++++++++++++++++++++++++++++++++++++++
->>>    4 files changed, 161 insertions(+)
->>> ---
->>> base-commit: d7b8f8e20813f0179d8ef519541a3527e7661d3a
->>> change-id: 20250709-linux_master_ti_sci_trace-91fd2af65dca
->>>
->>> Best regards,
->>
-> 
-> 
+--LL4e6z1aL4fxQ/Er
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKig+gAKCRB4tDGHoIJi
+0sReAP4445tmzdmWf3M79UC6PC+yh6cXgLj78yyz/06rdvDc2AEA1jcyL7+qJdVg
+IM3RILZrUyw345YkF5EtQPKxBWu8dQM=
+=tBaH
+-----END PGP SIGNATURE-----
+
+--LL4e6z1aL4fxQ/Er--
 
