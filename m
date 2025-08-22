@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDDFCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD00CA0EED
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 14:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WFeFiCTp4hGgnI6J2j3pWdkKfwQlbPab/4wEdITdYfs=; b=PUWYtk3e8zUuV0fCFha+32f7HK
-	QtmOcRg1IlQQEFYKgA7i+zjq+fEVNPH/AIaiOO8oY8WO0B+yLQNuOCBP/L+Z0nEZuuJcgkhlLdDOj
-	Dje9QhoG5izL677+oYgRgiZBLlnnfMkuwqcMcJEH28lJHK3+mF+u6hojOHKOWsjIuDCKShDQtvxgP
-	/SdpzPr66j5bP/fzaABk06viwOXblGxIWENDBY2FUm78o4Cu7VM07q49iKW4OUFvONFjJR+nBeIAQ
-	I9nbJPPyno8Kof9jd+h8cYwkulp41p9+aqqEThVdJs36Fx04MFAMwx3d0bLljvRKnb5WEce4/R8XE
-	lyoxFpww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UTPa4c49LdfPMjZyUaXFF+HjOoejuOd56tJpRsEObJU=; b=hsJxU/8ecc+RsDsAoy26Cjk/qB
+	2SuPITejP3HbxH0A8I9nJ7P82VBJk3F1RTNP3Sot4HeABRyWZkrYyiUeR6ZTGBjex4iF0u7weZ+Fv
+	e0xEfHfh4xWIu+PYafidzxJOHKsCI4ydB7pdwEsoKPshwjO68kim/+H9L+UxLb78IRuaBA903wPXh
+	AfwnlEUATKpgWuHKZabwfPpaXOenCx5/sLAA30weIy7LjYhjDCPrXiU0vR3Q0w35YxsLy78I6JnU0
+	3BnLfg4zwitflLVD1ZhejIU4B3HgSxf/pCXUmY5LofgW5Mjd9zxDeSowKP7pPtn90z4rlwiVbEYyI
+	vhP/jBvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upScS-00000002mLW-1w64;
-	Fri, 22 Aug 2025 14:19:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1upScX-00000002mU4-0GNN;
+	Fri, 22 Aug 2025 14:19:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upLza-00000001n6p-2MGD;
-	Fri, 22 Aug 2025 07:15:19 +0000
+	id 1upMfQ-00000001s0X-3Q6S;
+	Fri, 22 Aug 2025 07:58:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B5CB1A408FA;
-	Fri, 22 Aug 2025 07:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1228AC4CEF4;
-	Fri, 22 Aug 2025 07:15:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EDBC460263;
+	Fri, 22 Aug 2025 07:58:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DC6CC4CEF1;
+	Fri, 22 Aug 2025 07:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755846917;
-	bh=jOPT4g+C/W0j/c4BchUoKCE5cSxUQH7bPgzSvRV446Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aE2S00tTBEVHG9x4kYg7IW+3DrRPqKEevLNmY9U+W1jWEmKoQAu5EtEJtmMWIckbM
-	 1dfdPWo/VA2C11+ube+x4bC++5qV8/7jYsNZzyM7D3eyGEWpc6gGGj2LDL+kGjDtZZ
-	 0ejBlVkikQ4VLy7IKKn8tY91yF2IrzT0kD1ZdqdtpfNr2mdsvggg7+4f3JXdUWGUq8
-	 hCmr3DORgWzeb7Va7tzilP5rEnkJlpmxWZGmojMMQyyb3jxWs1M4cunlFfw5SI+ooP
-	 1ym2TupVmrSvCNLXR8QA+kyKMD4foWpiDWkWDKAqV9V1Bea7CFUii7qmaWNo2+uGRJ
-	 hc4VVLCM9yQRQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 22 Aug 2025 09:14:50 +0200
-Subject: [PATCH net-next v2 3/3] net: airoha: Introduce check_skb callback
- in ppe_dev ops
+	s=k20201202; t=1755849511;
+	bh=Ic6PVseco7YUJ8wYEstg8CtOnWLOrVI1ECZNeO34Qes=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CPLcFWmIxPLVNhqJEwBoSDp0zB/gcFblbe5q+Tlg1+pt/QzDARCXJWMFBaen/AtnA
+	 O6dBLrX0xnPHYsztCxM3D8clirEE0srRySAengcBC+F2S8aLnIBnrnXnUMJP325ivh
+	 8o89BJf9hxbfhWZb4CKD/E5sb2C1jR6lafoV6YSmFL9peYz/pvgw4b8TCn4COQvZfg
+	 MarhT5PatESobSxWIhMKy9XplyXaQBVdjlWrdWPvAq1dbcCfd7rnTIMRjeRPwpUMqr
+	 f04lwgKQwgC+ayxHdwmwKljauAZITXP4mnyS4OPwGPmV7hxHhWqSGcMCnCFbOJzSKH
+	 wHM2BTiGlgiFA==
+Date: Fri, 22 Aug 2025 09:58:29 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jjian Zhou <jjian.zhou@mediatek.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v5 1/2] dt-bindings: mailbox: mediatek,mt8196-vcp-mbox:
+ add mtk vcp-mbox document
+Message-ID: <20250822-notorious-lively-wren-c4540a@kuoka>
+References: <20250822021217.1598-1-jjian.zhou@mediatek.com>
+ <20250822021217.1598-2-jjian.zhou@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250822-airoha-en7581-wlan-rx-offload-v2-3-8a76e1d3fec2@kernel.org>
-References: <20250822-airoha-en7581-wlan-rx-offload-v2-0-8a76e1d3fec2@kernel.org>
-In-Reply-To: <20250822-airoha-en7581-wlan-rx-offload-v2-0-8a76e1d3fec2@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_001518_750078_1C81F957 
-X-CRM114-Status: GOOD (  14.98  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250822021217.1598-2-jjian.zhou@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,216 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Export airoha_ppe_check_skb routine in ppe_dev ops. check_skb callback
-will be used by the MT76 driver in order to offload the traffic received
-by the wlan NIC and forwarded to the ethernet one.
-Add rx_wlan parameter to airoha_ppe_check_skb routine signature.
+On Fri, Aug 22, 2025 at 10:12:08AM +0800, Jjian Zhou wrote:
+> The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
+> messages through 64 32-bit wide registers. It has 32 interrupt vectors in
+> either direction for signalling purposes.
+> 
+> This adds a binding for Mediatek VCP mailbox.
+> 
+> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+> ---
+>  .../mailbox/mediatek,mt8196-vcp-mbox.yaml     | 49 +++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c  |  3 ++-
- drivers/net/ethernet/airoha/airoha_eth.h  |  8 ++------
- drivers/net/ethernet/airoha/airoha_ppe.c  | 25 ++++++++++++++-----------
- include/linux/soc/airoha/airoha_offload.h | 20 ++++++++++++++++++++
- 4 files changed, 38 insertions(+), 18 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 5a04f90dd3de47ae0ee8e90bfe221618076297e6..81ea01a652b9c545c348ad6390af8be873a4997f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -698,7 +698,8 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 
- 		reason = FIELD_GET(AIROHA_RXD4_PPE_CPU_REASON, msg1);
- 		if (reason == PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED)
--			airoha_ppe_check_skb(eth->ppe, q->skb, hash);
-+			airoha_ppe_check_skb(&eth->ppe->dev, q->skb, hash,
-+					     false);
- 
- 		done++;
- 		napi_gro_receive(&q->napi, q->skb);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 9060b1d2814e0e4023d42a05ecb5265212df588f..77fd13d466dcd235a3ab39a488aa26d8f793cf77 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -229,10 +229,6 @@ struct airoha_hw_stats {
- 	u64 rx_len[7];
- };
- 
--enum {
--	PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED = 0x0f,
--};
--
- enum {
- 	AIROHA_FOE_STATE_INVALID,
- 	AIROHA_FOE_STATE_UNBIND,
-@@ -622,8 +618,8 @@ static inline bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
--void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
--			  u16 hash);
-+void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
-+			  u16 hash, bool rx_wlan);
- int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index a73ce673fd37034dd62c6cb710cda6690bc5ca6a..30453e3fab0fe9ff6cfbb4a740502c9b3b19d7d1 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -616,7 +616,7 @@ static bool airoha_ppe_foe_compare_entry(struct airoha_flow_table_entry *e,
- 
- static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
- 				       struct airoha_foe_entry *e,
--				       u32 hash)
-+				       u32 hash, bool rx_wlan)
- {
- 	struct airoha_foe_entry *hwe = ppe->foe + hash * sizeof(*hwe);
- 	u32 ts = airoha_ppe_get_timestamp(ppe);
-@@ -639,7 +639,8 @@ static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
- 		goto unlock;
- 	}
- 
--	airoha_ppe_foe_flow_stats_update(ppe, npu, hwe, hash);
-+	if (!rx_wlan)
-+		airoha_ppe_foe_flow_stats_update(ppe, npu, hwe, hash);
- 
- 	if (hash < PPE_SRAM_NUM_ENTRIES) {
- 		dma_addr_t addr = ppe->foe_dma + hash * sizeof(*hwe);
-@@ -665,7 +666,7 @@ static void airoha_ppe_foe_remove_flow(struct airoha_ppe *ppe,
- 		e->data.ib1 &= ~AIROHA_FOE_IB1_BIND_STATE;
- 		e->data.ib1 |= FIELD_PREP(AIROHA_FOE_IB1_BIND_STATE,
- 					  AIROHA_FOE_STATE_INVALID);
--		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash);
-+		airoha_ppe_foe_commit_entry(ppe, &e->data, e->hash, false);
- 		e->hash = 0xffff;
- 	}
- 	if (e->type == FLOW_TYPE_L2_SUBFLOW) {
-@@ -704,7 +705,7 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
- static int
- airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
- 				    struct airoha_flow_table_entry *e,
--				    u32 hash)
-+				    u32 hash, bool rx_wlan)
- {
- 	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
- 	struct airoha_foe_entry *hwe_p, hwe;
-@@ -745,14 +746,14 @@ airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
- 	}
- 
- 	hwe.bridge.data = e->data.bridge.data;
--	airoha_ppe_foe_commit_entry(ppe, &hwe, hash);
-+	airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
- 
- 	return 0;
- }
- 
- static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
- 					struct sk_buff *skb,
--					u32 hash)
-+					u32 hash, bool rx_wlan)
- {
- 	struct airoha_flow_table_entry *e;
- 	struct airoha_foe_bridge br = {};
-@@ -785,7 +786,7 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
- 		if (!airoha_ppe_foe_compare_entry(e, hwe))
- 			continue;
- 
--		airoha_ppe_foe_commit_entry(ppe, &e->data, hash);
-+		airoha_ppe_foe_commit_entry(ppe, &e->data, hash, rx_wlan);
- 		commit_done = true;
- 		e->hash = hash;
- 	}
-@@ -797,7 +798,7 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
- 	e = rhashtable_lookup_fast(&ppe->l2_flows, &br,
- 				   airoha_l2_flow_table_params);
- 	if (e)
--		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash);
-+		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash, rx_wlan);
- unlock:
- 	spin_unlock_bh(&ppe_lock);
- }
-@@ -1301,9 +1302,10 @@ int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data)
- 	return err;
- }
- 
--void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
--			  u16 hash)
-+void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
-+			  u16 hash, bool rx_wlan)
- {
-+	struct airoha_ppe *ppe = dev->priv;
- 	u16 now, diff;
- 
- 	if (hash > PPE_HASH_MASK)
-@@ -1315,7 +1317,7 @@ void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
- 		return;
- 
- 	ppe->foe_check_time[hash] = now;
--	airoha_ppe_foe_insert_entry(ppe, skb, hash);
-+	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
- }
- 
- void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port)
-@@ -1405,6 +1407,7 @@ int airoha_ppe_init(struct airoha_eth *eth)
- 		return -ENOMEM;
- 
- 	ppe->dev.ops.setup_tc_block_cb = airoha_ppe_setup_tc_block_cb;
-+	ppe->dev.ops.check_skb = airoha_ppe_check_skb;
- 	ppe->dev.priv = ppe;
- 
- 	foe_size = PPE_NUM_ENTRIES * sizeof(struct airoha_foe_entry);
-diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
-index e05ded67c9e6fb89940e5b152f14c6ea0d7c6c49..4da562d0e4db6899d53f95b90a2a4ef2c63c974c 100644
---- a/include/linux/soc/airoha/airoha_offload.h
-+++ b/include/linux/soc/airoha/airoha_offload.h
-@@ -9,10 +9,17 @@
- #include <linux/spinlock.h>
- #include <linux/workqueue.h>
- 
-+enum {
-+	PPE_CPU_REASON_HIT_UNBIND_RATE_REACHED = 0x0f,
-+};
-+
- struct airoha_ppe_dev {
- 	struct {
- 		int (*setup_tc_block_cb)(struct airoha_ppe_dev *dev,
- 					 void *type_data);
-+		void (*check_skb)(struct airoha_ppe_dev *dev,
-+				  struct sk_buff *skb, u16 hash,
-+				  bool rx_wlan);
- 	} ops;
- 
- 	void *priv;
-@@ -27,6 +34,13 @@ static inline int airoha_ppe_dev_setup_tc_block_cb(struct airoha_ppe_dev *dev,
- {
- 	return dev->ops.setup_tc_block_cb(dev, type_data);
- }
-+
-+static inline void airoha_ppe_dev_check_skb(struct airoha_ppe_dev *dev,
-+					    struct sk_buff *skb,
-+					    u16 hash, bool rx_wlan)
-+{
-+	dev->ops.check_skb(dev, skb, hash, rx_wlan);
-+}
- #else
- static inline airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
- {
-@@ -42,6 +56,12 @@ static inline int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev,
- {
- 	return -EOPNOTSUPP;
- }
-+
-+static inline void airoha_ppe_dev_check_skb(struct airoha_ppe_dev *dev,
-+					    struct sk_buff *skb, u16 hash,
-+					    bool rx_wlan)
-+{
-+}
- #endif
- 
- #define NPU_NUM_CORES		8
-
--- 
-2.50.1
+Best regards,
+Krzysztof
 
 
