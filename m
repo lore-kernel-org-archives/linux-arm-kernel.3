@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C9ECA0EEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F3CCA0EFF
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 Aug 2025 05:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXmLwUY9C7bldWxXkdv6SGUaN80t+rG6y4XBjFWYAXI=; b=smpYufixEI2q3FOdwhVXaezcMm
-	OVXf/cZkEVYBlfPSrbsGT0WVCE625OdKxxlZpqlAliLuxX8jUYAqJCChEYWYHjAQjBC9dqaiE8mJK
-	sPteht6+0V97m/V8qm+wFTw14uLwDjjOdi70DG3ooD+IA4kpIydQ8uCxjIgno0YvYnpNzzLVrlLxb
-	XiYXMzjPZMr+jSmgwuaCNM6EhtGuYGSIOdtIDiaJ5GGl2oxc4tdNYtZPKI/A8PuQYKqLyS4SDKk6E
-	5qC2N52WTBjewyNbRzfH0wBdHjxbcgAZIBy84id18O1kMcWAsOPi+M9/aKfE+80Xne5N2rlJ8gPag
-	Tt2rHh4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucW5TqvXSFl4ARAEgmgO1++0Jhipt96vounQfr6Zybo=; b=1p4ArjbbKUdpA0G6ph9nIJZJcK
+	V50UA5S6+KYWsBF7MYDLwPrjKlZn6rr2N54GfpxLFVsm7Sh0Wn341W2g+WaOTmTUREH5KA9EczLBr
+	dqgfdt2leP/eW3SJ1usJEqW5rf9PS5qvilMSSYFB6tm73DTCKEQE5yt3T2u32ETBS7YDnjnyXoTu3
+	v0ZL3FD++8yMo1+3K2pBHoIRBz5sE9UddzkpL3nJoi//RyNyQtU02f/yHqchbm6U7t1OlL+LAbNDr
+	SUrdOj6rms1cvnTxuYMGRMOsI+es1w1JnQmZ1J91HR2y0rrVpHqRbn1bGXVCMxeGQYuzbTspubC/K
+	RxorB24g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upKPh-00000001aqw-31HP;
-	Fri, 22 Aug 2025 05:34:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1upKPj-00000001asF-3shK;
+	Fri, 22 Aug 2025 05:34:11 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upDwn-00000000p7I-2I9a;
-	Thu, 21 Aug 2025 22:40:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E5D144C5F;
-	Thu, 21 Aug 2025 22:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D6D8C116C6;
-	Thu, 21 Aug 2025 22:39:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755815992;
-	bh=6+cneP8xDnuU5FHp6ZE4wpE6pWPQvWdqGAQj+wxVZj8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=JWroQvBlvJj3n3GQj85XFCVw1RomjL3x/nkCU4RTbgYO65e9E7eN8T3+QPp8VPUDi
-	 5rUdQz4i7YpZV3cCkF7fVvd7pwkI3tNbYHvFIXRy6kzneXEeRzPwmgcq9Izgv+1Oin
-	 DYtwhazNI783UY+RndJ8i50KtG02lJ9LORgbBg4URyKshly+QMkwzjoku368tF3oaZ
-	 PV3k43WFiYPE7Y++y+OTu+0uMBSP/3l5S9OJPdkyW4Abcy/2DT/Pf4bj95pe5H6liF
-	 DiK8e+cKE+CBABkBpqThiec+t13OK8+NseaAbugSa7K8jOzA6hreQ1LeUfYpPCllxW
-	 aST3CoSeeDmUA==
-Date: Thu, 21 Aug 2025 17:39:51 -0500
+	id 1upFEU-00000000zKj-0w2j
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 Aug 2025 00:02:16 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1755820931;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ucW5TqvXSFl4ARAEgmgO1++0Jhipt96vounQfr6Zybo=;
+	b=JT73iF4rjnd4Iy29P/fnGsFVmZ0yBnBwk5yn05z2bblCN/Z9ixfOS9rERLTbPQvUMP/DCq
+	W6QZBWJwRk6XAT0CHe4j+jLmYlyion1XoXC8E1WyOpJaG/nlXm1DBvApM7Y4iJblp3V/bm
+	v/xo5pRaZktkHiPEVv4RxstIblUeIjY=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: Re: [PATCH v3 0/6] KVM: arm64: FEAT_RASv1p1 support and RAS selection
+Date: Thu, 21 Aug 2025 17:01:59 -0700
+Message-Id: <175582091318.1266576.11766063075536898345.b4-ty@linux.dev>
+In-Reply-To: <20250817202158.395078-1-maz@kernel.org>
+References: <20250817202158.395078-1-maz@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Neal Gompa <neal@gompa.dev>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org, 
- Felipe Balbi <balbi@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Janne Grunau <j@jannau.net>, devicetree@vger.kernel.org, 
- Vinod Koul <vkoul@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-To: Sven Peter <sven@kernel.org>
-In-Reply-To: <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
-References: <20250821-atcphy-6-17-v1-0-172beda182b8@kernel.org>
- <20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org>
-Message-Id: <175581575858.1136316.14856911628324128636.robh@kernel.org>
-Subject: Re: [PATCH RFC 02/22] dt-bindings: usb: Add Apple dwc3
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250821_153953_749163_762B52BF 
-X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-CacheID: sfid-20250821_170214_687554_5A300ACA 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,45 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 21 Aug 2025 15:38:54 +0000, Sven Peter wrote:
-> Apple Silicon uses Synopsys DesignWare dwc3 based USB controllers for
-> their Type-C ports.
+On Sun, 17 Aug 2025 21:21:52 +0100, Marc Zyngier wrote:
+> This is the next iteration of this series trying to plug some of our
+> RAS holes (no pun intended...). See [1] for the original series.
 > 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  .../devicetree/bindings/usb/apple,dwc3.yaml        | 82 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 83 insertions(+)
+> The difference with the previous drop is that we don't try to expose a
+> canonical encoding RASv1p1. Which means you must migrate between
+> similar implementations for now.
 > 
+> [...]
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Applied to fixes, thanks!
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/usb/apple,dwc3.yaml:33:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
-./Documentation/devicetree/bindings/usb/apple,dwc3.yaml:40:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
+[1/6] arm64: Add capability denoting FEAT_RASv1p1
+      https://git.kernel.org/kvmarm/kvmarm/c/8049164653c6
+[2/6] KVM: arm64: Handle RASv1p1 registers
+      https://git.kernel.org/kvmarm/kvmarm/c/d7b3e23f945b
+[3/6] KVM: arm64: Ignore HCR_EL2.FIEN set by L1 guest's EL2
+      https://git.kernel.org/kvmarm/kvmarm/c/9049fb1227a2
+[4/6] KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
+      https://git.kernel.org/kvmarm/kvmarm/c/1fab657cb2a0
+[5/6] KVM: arm64: Make ID_AA64PFR1_EL1.RAS_frac writable
+      https://git.kernel.org/kvmarm/kvmarm/c/7a765aa88e34
+[6/6] KVM: arm64: Get rid of ARM64_FEATURE_MASK()
+      https://git.kernel.org/kvmarm/kvmarm/c/0843e0ced338
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/apple,dwc3.example.dtb: usb@82280000 (apple,t8103-dwc3): 'resets' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/apple,dwc3.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/apple,dwc3.example.dtb: usb@82280000 (apple,t8103-dwc3): 'power-domains' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/apple,dwc3.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250821-atcphy-6-17-v1-2-172beda182b8@kernel.org
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--
+Best,
+Oliver
 
