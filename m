@@ -4,93 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6397ACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 12:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2983CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 12:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iH6hgTPw7EB8v1igevb2sHc8YeKV98oq0HbpxzaPbH8=; b=X5KXe46lL9kH9bQZdZv5YGqvBW
-	kIo/+Kl0YLu5yi9LqD5vxrCZUD7xR+9OWQdfegFb+wiNNjH0xTHcvjtP7yVfk1lq6V03ck3pWlrTS
-	LMB3f5enI4SL2ICS6qKjTFiM9NWMqpjLxh2TGSeFhH2Ke9TQSJRI4B+XX4Z1CcRn5G6YucjKM3AaR
-	qyObaYJ2FmBqs7dpOHxSuoUe/4cZMo7RaOY6EYwFFM7obLrXGk+MVCR2sJWOolH56voQJcn0aDPFR
-	kzI6ec13f4sKlGJ3bACxb2sNxvXKVMD926lNi64orqAh2390G1tHiiOuWZGmXE6WDy5wJPpB3accd
-	OQQq4dcQ==;
+	bh=on2OC+T1CdiAvJg9vZDrGg/lj5RdAlVRPcvMF8cGJsI=; b=WwN4UZCoRYqJauWbBDvwQ2VixH
+	qFcGcQOJUHQTPcIB4CVglRkne7UwtQKnWsXXNtI0loqxghWVeb118B8HlzGuMd6L1kAuvnd+Nitk0
+	RCIFaFCnJtvX6rA4LC3x8lcvGP6ebG54QoS4BMJkwSF/kXZZgXy1I+qEpUdBS3A6TxWrTKD8QlEbe
+	XPTwNxHfZF0t6hWpXxssHps177LK9iyXq4IjbtCstuq7M3IWcvMfJl/eXsuAVV89Z+MX+UVpULCPR
+	zTua+xuMcA+spTFeWmfYiAC0fyXNnqIB0aIN87zUIBbLRgE2+NTJmsA0Ib8grfCquTUkVW18Szao8
+	wNSrEqIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upmx4-00000004jXN-0Tmn;
-	Sat, 23 Aug 2025 12:02:30 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1upmz0-00000004jmF-1jNa;
+	Sat, 23 Aug 2025 12:04:30 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upmuO-00000004jIT-3Jrh
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 11:59:47 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250823115939epoutp026660c0b7e1ba3363f6d201c0968dfbc8~eY5EmEqGi1027010270epoutp02Z
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 Aug 2025 11:59:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250823115939epoutp026660c0b7e1ba3363f6d201c0968dfbc8~eY5EmEqGi1027010270epoutp02Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1755950379;
-	bh=iH6hgTPw7EB8v1igevb2sHc8YeKV98oq0HbpxzaPbH8=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Cbu8brKPTHiSPUck8omOCZ+4XX6eADeAYqycHNAjNyUT8G4ZH2DM4TVYp5uWVmmvu
-	 LNVVfGnhJAPRWMOg40TQh+rG6A7rCTqgO0NxyH34+z4gdYYdIyLb9JNBIto+riJsUF
-	 rkVV+YBObGH0Qo25e7emKlkPmDKFaymXeRJYniCk=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250823115938epcas5p2a6483ded6bd42ae2b0c2a1058f77a3cd~eY5D0z5D91074810748epcas5p20;
-	Sat, 23 Aug 2025 11:59:38 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4c8FwT6tQ4z6B9m9; Sat, 23 Aug
-	2025 11:59:37 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250823115937epcas5p1f853b0000848b6d8b15b9008429e7b4a~eY5COYS6T0189601896epcas5p1H;
-	Sat, 23 Aug 2025 11:59:37 +0000 (GMT)
-Received: from FDSFTE196 (unknown [107.116.189.214]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250823115933epsmtip227d8435bfceb85f01b212483a05c141f~eY4_g2_fd2947029470epsmtip2V;
-	Sat, 23 Aug 2025 11:59:33 +0000 (GMT)
-From: "Inbaraj E" <inbaraj.e@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <s.hauer@pengutronix.de>,
-	<shawnguo@kernel.org>, <cw00.choi@samsung.com>, <rmfrfs@gmail.com>,
-	<laurent.pinchart@ideasonboard.com>, <martink@posteo.de>,
-	<mchehab@kernel.org>, <linux-fsd@tesla.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <pankaj.dubey@samsung.com>,
-	<shradha.t@samsung.com>, <ravi.patel@samsung.com>
-Cc: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <alim.akhtar@samsung.com>,
-	<linux-samsung-soc@vger.kernel.org>, <kernel@puri.sm>,
-	<kernel@pengutronix.de>, <festevam@gmail.com>,
-	<linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-In-Reply-To: 
-Subject: RE: [PATCH v2 12/12] media: fsd-csis: Add support for FSD CSIS DMA
-Date: Sat, 23 Aug 2025 17:29:32 +0530
-Message-ID: <00e401dc1425$65ea9490$31bfbdb0$@samsung.com>
+	id 1uplpC-00000004fl8-3gWV;
+	Sat, 23 Aug 2025 10:50:21 +0000
+Received: from localhost.localdomain (unknown [119.122.212.9])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 205a25682;
+	Sat, 23 Aug 2025 18:50:08 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: i@chainsx.cn
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH v1 2/2] arm64: dts: rockchip: add DTs for 100ASK DShanPi A1
+Date: Sat, 23 Aug 2025 18:50:01 +0800
+Message-Id: <20250823105001.970560-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250821110942.172150-3-i@chainsx.cn>
+References: <20250821110942.172150-3-i@chainsx.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQK5oFMD+tt4mLQU5V9KgVyIDaUIUQLOIzgLAmiUCqAC0LEeUbJ0pR0QgAAo+XA=
-Content-Language: en-in
-X-CMS-MailID: 20250823115937epcas5p1f853b0000848b6d8b15b9008429e7b4a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250814141103epcas5p14516cbe45c21d28ba9e231da99940aa1
-References: <20250814140943.22531-1-inbaraj.e@samsung.com>
-	<CGME20250814141103epcas5p14516cbe45c21d28ba9e231da99940aa1@epcas5p1.samsung.com>
-	<20250814140943.22531-13-inbaraj.e@samsung.com>
-	<b1f59033-12d0-4395-85f1-e296a5dbca5f@kernel.org> 
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98d68cccdf03a2kunm9dc74748625589
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQ0tLVkNDHUxDSRkZSRpPTlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSVVCWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09LVUpLS1VLWQ
+	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_045945_490395_A829C36E 
-X-CRM114-Status: GOOD (  37.50  )
+X-CRM114-CacheID: sfid-20250823_035019_128398_F284A9BC 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,233 +71,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pinctrl/rockchip.h>
+> +#include <dt-bindings/pwm/pwm.h>
 
-> -----Original Message-----
-> From: Inbaraj E <inbaraj.e@samsung.com>
-> Sent: 23 August 2025 17:20
-> To: 'Krzysztof Kozlowski' <krzk@kernel.org>; 'mturquette@baylibre.com'
-> <mturquette@baylibre.com>; 'sboyd@kernel.org' <sboyd@kernel.org>;
-> 'robh@kernel.org' <robh@kernel.org>; 'krzk+dt@kernel.org'
-> <krzk+dt@kernel.org>; 'conor+dt@kernel.org' <conor+dt@kernel.org>;
-> 's.nawrocki@samsung.com' <s.nawrocki@samsung.com>;
-> 's.hauer@pengutronix.de' <s.hauer@pengutronix.de>;
-> 'shawnguo@kernel.org' <shawnguo@kernel.org>;
-> 'cw00.choi@samsung.com' <cw00.choi@samsung.com>; 'rmfrfs@gmail.com'
-> <rmfrfs@gmail.com>; 'laurent.pinchart@ideasonboard.com'
-> <laurent.pinchart@ideasonboard.com>; 'martink@posteo.de'
-> <martink@posteo.de>; 'mchehab@kernel.org' <mchehab@kernel.org>;
-> 'linux-fsd@tesla.com' <linux-fsd@tesla.com>; 'will@kernel.org'
-> <will@kernel.org>; 'catalin.marinas@arm.com' <catalin.marinas@arm.com>;
-> 'pankaj.dubey@samsung.com' <pankaj.dubey@samsung.com>;
-> 'shradha.t@samsung.com' <shradha.t@samsung.com>;
-> 'ravi.patel@samsung.com' <ravi.patel@samsung.com>
-> Cc: 'linux-clk@vger.kernel.org' <linux-clk@vger.kernel.org>;
-> 'devicetree@vger.kernel.org' <devicetree@vger.kernel.org>; 'linux-
-> kernel@vger.kernel.org' <linux-kernel@vger.kernel.org>;
-> 'alim.akhtar@samsung.com' <alim.akhtar@samsung.com>; 'linux-samsung-
-> soc@vger.kernel.org' <linux-samsung-soc@vger.kernel.org>;
-> 'kernel@puri.sm' <kernel@puri.sm>; 'kernel@pengutronix.de'
-> <kernel@pengutronix.de>; 'festevam@gmail.com' <festevam@gmail.com>;
-> 'linux-media@vger.kernel.org' <linux-media@vger.kernel.org>;
-> 'imx@lists.linux.dev' <imx@lists.linux.dev>; 'linux-arm-
-> kernel@lists.infradead.org' <linux-arm-kernel@lists.infradead.org>
-> Subject: RE: [PATCH v2 12/12] media: fsd-csis: Add support for FSD CSIS DMA
-> 
-> Hi Krzysztof,
-> 
-> Thanks for the review.
-> 
-> >
-> > On 14/08/2025 16:09, Inbaraj E wrote:
-> > > FSD CSIS IP bundles DMA engine for receiving frames from MIPI-CSI2 bus.
-> > > Add support internal DMA controller to capture the frames.
-> > >
-> > > Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
-> >
-> > I commented on order of patches and got more surprise - final driver
-> > patch after DTS defconfig. It's really wrong order.
-> 
-> I'll fix in next patchset.
-> 
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -3334,6 +3334,14 @@ S:	Maintained
-> > >  F:	Documentation/devicetree/bindings/media/samsung,s5p-mfc.yaml
-> > >  F:	drivers/media/platform/samsung/s5p-mfc/
-> > >
-> > > +ARM/SAMSUNG FSD BRIDGE DRIVER
-> >
-> > TESLA FSD BRIDGE DRIVER
-> > (because ARM/foo are only SoC maintainer entries)
-> >
-> 
-> I'll change in next patchset.
-> 
-> > > +M:	Inbaraj E <inbaraj.e@samsung.com>
-> > > +L:	linux-arm-kernel@lists.infradead.org (moderated for non-
-> > subscribers)
-> >
-> > Replace above list with samsung-soc list.
-> >
-> 
-> I'll change in next patchset.
-> 
-> > > +L:	linux-media@vger.kernel.org
-> > > +S:	Maintained
-> > >  source "drivers/media/platform/samsung/exynos-gsc/Kconfig"
-> > >  source "drivers/media/platform/samsung/exynos4-is/Kconfig"
-> > > +
-> > > +config VIDEO_FSD_CSIS
-> >
-> > VIDEO_TSLA_FSD_CSIS
-> 
-> I'll change in next patchset.
-> 
-> >
-> > > +	tristate "FSD SoC MIPI-CSI2 media controller driver"
-> > > +	depends on VIDEO_DEV && VIDEO_V4L2_SUBDEV_API
-> > > +	depends on HAS_DMA
-> > > +	depends on OF
-> >
-> > OF seems unneeded dependency
-> >
-> > But you miss ARCH_TESLA_FSD instead.
-> >
-> >
-> 
-> I'll remove OF and add ARCH_TESLA_FSD in next patchset.
-> 
-> > > +	select VIDEOBUF2_DMA_CONTIG
-> > > +	select V4L2_FWNODE
-> > > +	help
-> > > +	  This is a video4linux2 driver for FSD SoC MIPI-CSI2 Rx.
-> >
-> > Tesla FSD
-> 
-> I'll add in next patchset.
-> 
-> > > new file mode 100644
-> > > index 000000000000..74f46038d506
-> > > --- /dev/null
-> > > +++ b/drivers/media/platform/samsung/fsd-csis/fsd-csis.c
-> > > @@ -0,0 +1,1709 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > +/*
-> > > + * Copyright (c) 2022-2025 Samsung Electronics Co., Ltd.
-> > > + *             https://www.samsung.com
-> > > + *
-> > > + * FSD CSIS V4L2 Capture driver for FSD SoC.
-> >
-> > "Tesla FSD" in both places
-> 
-> I'll change in next patchset.
-> 
-> >
-> > > + */
-> > > +
-> > > +#include <linux/clk.h>
-> > > +#include <linux/pm_runtime.h>
-> > > +#include <linux/regmap.h>
-> > > +#include <media/v4l2-device.h>
-> > > +#include <media/v4l2-ioctl.h>
-> > > +#include <media/videobuf2-dma-contig.h> #include <media/v4l2-mc.h>
-> >
-> > How can you depend on OF if there is no single OF header?
-> 
-> > > +
-> > > +	ret = devm_request_irq(dev, irq,
-> > > +			csis_irq_handler, IRQF_SHARED, pdev->name, csis);
-> >
-> > Please align these (checkpatch --strict)
-> 
-> I'll fix in next patchset
-> 
-> >
-> > > +
-> > > +	ret = fsd_csis_clk_get(csis);
-> > > +	if (ret < 0)
-> > > +		return ret;
-> > > +
-> > > +	pm_runtime_enable(dev);
-> > > +	if (!pm_runtime_enabled(dev)) {
-> >
-> > That's odd code. Why?
-> >
-> > > +		ret = fsd_csis_runtime_resume(dev);
-> >
-> > Even more questions why?
-> 
+It seems that pwm is not used?
 
-Sorry I made typo here
+> +	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_12v0_dcin";
+> +		regulator-always-on;
+> +		regulator-boot-on;
 
- If CONFIG_PM is disabled, the clocks are enabled manually in the driver
- through fsd_csis_runtime_resume API.
- 
- If CONFIG_PM is enabled, the clocks are managed through the PM runtime
- framework.
- 
-> Can you please help me understand what wrong here?
-> 
-> >
-> > > +		if (ret < 0)
-> > > +			return ret;
-> > > +	}
-> > > +
-> > > +	platform_set_drvdata(pdev, csis);
-> > > +
-> > > +	ret = fsd_csis_enable_pll(csis);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	ret = fsd_csis_media_init(csis);
-> > > +	if (ret)
-> > > +		return ret;
-> >
-> > I think you miss clean up of csis->pll completely. Just use
-> > devm_clk_get_enabled and convert everything here to devm.
-> >
-> >
-> 
-> I'll fix in next patchset.
-> 
-> > > +
-> > > +	ret = fsd_csis_async_register(csis);
-> > > +	if (ret)
-> > > +		goto err_media_cleanup;
-> > > +
-> > > +	return 0;
-> > > +
-> > > +err_media_cleanup:
-> > > +	fsd_csis_media_cleanup(csis);
-> >
-> > Also this...
-> >
-> 
-> if fsd_csis_media_init fails, the cleanup is handled internally.
-> Here, cleanup is used only for fsd_csis_async_register failure.
-> 
-> can you please help me understand what is wrong here?
-> 
-> > > +
-> > > +	return ret;
-> > > +}
-> > > +
-> > > +static void fsd_csis_remove(struct platform_device *pdev) {
-> > > +	struct fsd_csis *csis = platform_get_drvdata(pdev);
-> > > +
-> > > +static struct platform_driver fsd_csis_driver = {
-> > > +	.probe		= fsd_csis_probe,
-> > > +	.remove		= fsd_csis_remove,
-> > > +	.driver		= {
-> > > +		.name		= FSD_CSIS_MODULE_NAME,
-> > > +		.of_match_table = of_match_ptr(fsd_csis_of_match),
-> >
-> > Drop of_match_ptr, it is not really correct.
-> 
-> Will drop in next patchset.
-> 
-> Regards,
-> Inbaraj E
+> +	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_1v1_nldo_s3";
+> +		regulator-boot-on;
+> +		regulator-always-on;
+
+The order of properties should be consistent, e.g.
+```
+		regulator-name = ...;
+		regulator-always-on;
+		regulator-boot-on;
+```
+
+> +	vcc3v3_pcie: regulator-vcc3v3-pcie {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio1 RK_PB7 GPIO_ACTIVE_HIGH>;
+
+`gpios = ...`
+
+> +&combphy1_psu {
+> +	status = "okay";
+> +};
+> +
+> +&combphy0_ps {
+> +	status = "okay";
+> +};
+
+combphy0 should be above combphy1
+
+> +&gmac0 {
+> +	phy-mode = "rgmii-id";
+> +	clock_in_out = "output";
+
+clock_in_out should be above phy-mode
+
+> +&gmac1 {
+> +	phy-mode = "rgmii-id";
+> +	clock_in_out = "output";
+
+Same here.
+
+> ...
+> +&i2c1 {
+> +	status = "okay";
+> +
+> +	pmic@23 {
+> ...
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+
+gpio-xxx should be above interrupt
+
+> +		regulators {
+> +			vdd_cpu_big_s0: dcdc-reg1 {
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-min-microvolt = <550000>;
+> +				regulator-max-microvolt = <950000>;
+> +				regulator-ramp-delay = <12500>;
+> +				regulator-name = "vdd_cpu_big_s0";
+> +				regulator-enable-ramp-delay = <400>;
+
+It would be better to add a blank line here.
+
+> +				regulator-state-mem {
+> +					regulator-off-in-suspend;
+> +				};
+> +			};
+> ...
+
+> +&i2c4 {
+> ...
+> +		#sound-dai-cells = <0>;
+
+This should be put last.
+
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&sai1m0_mclk>;
+> +	};
+> +};
+> ...
+
+> +&pinctrl {
+> +	gmac {
+> +		gmac0_rst: gmac0-rst {
+> +			rockchip,pins = <0 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+
+It would be better to add a blank line here.
+
+> +		gmac1_rst: gmac1-rst {
+> +			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
+> +		};
+> +	};
+> ...
+
+> +&sdmmc {
+> +	bus-width = <4>;
+> +	cap-mmc-highspeed;
+> +	cap-sd-highspeed;
+> +	disable-wp;
+> +	max-frequency = <200000000>;
+> +	no-sdio;
+> +	no-mmc;
+
+cap-mmc-highspeed and no-mmc are mutually exclusive.
+And the sdmmc controller supports sdio devices.
+
+> +&u2phy0_otg {
+> +	status = "okay";
+
+Maybe lack of phy-supply?
+And the usb node is not enabled?
+
+--
+2.25.1
+
 
 
