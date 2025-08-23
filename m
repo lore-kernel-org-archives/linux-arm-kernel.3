@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED16CA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 19:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C92CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 21:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mw7qDMq4IWv3isIdSX8wUcFvOZfQTQyXCeO+c5P2T+M=; b=th1M3xDQNRKgMnOY642oBkeRzl
-	zBXlqWVwn3+CtwEmkFCqp9uS4fgQQlt6Esx1WeYyOmpkYwzeCrot70ixK3ILGVI8mW5PMdRhMlhHa
-	4tqtoJiiq4h1dx80AxdyWaRWYsAOE8hX7MEcFk0+XjMBS2BtyvRSPkCzNeH94ndrluqQBsL+ZXU4g
-	fNtKgLflaFW6kr8REiLt49fCGdz+5lE/eq4qNEwvQHDXLzACOOY9noYghYlw6TX6+JYktkQ3DPvr8
-	Kb6kCj8xfAZ4PXwx5yj4qGudGuvd28Uaiw1zjtaHNuK6vjhbP8jgGcE8HNeQMgbAIY+rbZW6tlfOy
-	hol+17ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3f0+4Vh1MwZCJAgeds3L4wK1Y2nN5MFSu2EhurxFoGY=; b=4cd0FX4Ot8E3sIliN3Iz8WeTYM
+	FrS2OJmkkz1qMKtWZyqIFsBpMklcbjbQqati2kDFXKeyutDDXP2P44+eiXNyzpnUnFiiDyy0A4OaR
+	5u2WEXSBGkdzmkkQSrWF6+tkCoRtDsHvvyUDPYSYtWpTeaLu1K6SyIsAQPIJ0eLHT+tBzcoxMHxrd
+	569ng8X5bW87LHBH212+kmkQ9f2d1yZg8+x8GTNbkSP/CnZCTPLWaBq6pCRwhgonkBCv5IDo+n/2X
+	/MXNbToYh9nOJkyyhzVTBzh77rq06cTKp7DLUhfJ9jiVzYI1x8dpRvMYCHipoqZx1j3/dndzcEKso
+	Wxr5iAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upu58-00000005FeZ-07Oz;
-	Sat, 23 Aug 2025 19:39:18 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1upvog-00000005IqM-2DGs;
+	Sat, 23 Aug 2025 21:30:26 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upu1A-00000005FPS-3hAH
+	id 1upvm3-00000005IkW-2Tty
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 19:35:14 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1755977710;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mw7qDMq4IWv3isIdSX8wUcFvOZfQTQyXCeO+c5P2T+M=;
-	b=kpjjSYAsTSUY3GXZCMttuvjGqpNgxP+ddkVzLzo/ix0+flOM+MxhZ+KsSWkki/X+1aiwlK
-	6J0DavZA+6BKF/xQLanEnIvPZVqtj71VOCJYpzPq4cKhoqvB7oH2HSumqbBxYiJSxKDujx
-	ZZzUhnGMznWT/EZnIC6pd5giuTQFIe4/dY85Q5ksrhrYCIF9laJtv36kHTCvmLmjXss4TZ
-	UdY8IDoF38IXcsZ5MxYzDaOCNBOKs0EiU1b565/PVVzi8AqP8oCfUoRvH/Lf3RXdJrmLZY
-	Q3LDWgEnGDM4zErpZrbUlFWWI3b43X6ACV25JKXEBr0YwyV1/gImImVYTVe4MQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1755977710;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mw7qDMq4IWv3isIdSX8wUcFvOZfQTQyXCeO+c5P2T+M=;
-	b=LhBHeOCd5VeYkfaw+9+QtECtxroT5M1Y5XwXSvzEZe/huRteaZZNKHV6o26rJRLLbdzo41
-	ReW+aTBm+jypKJBQ==
-To: Edgar Bonet <bonet@grenoble.cnrs.fr>, Geert Uytterhoeven
- <geert@linux-m68k.org>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Huacai Chen <chenhuacai@kernel.org>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>
-Subject: Re: [ISSUE + PATCH] Interrupts were enabled early by spinlock guard
-In-Reply-To: <877byt4yub.ffs@tglx>
-References: <280dd506-e1fc-4d2e-bdc4-98dd9dca6138@grenoble.cnrs.fr>
- <CAMuHMdWJ3im+k9uQgRhUh52Z_tJ+KQjAGY_Y8FjbEu6gB=0UKw@mail.gmail.com>
- <62be0896-6c90-4a27-81cb-7bd897d0e6f2@grenoble.cnrs.fr>
- <877byt4yub.ffs@tglx>
-Date: Sat, 23 Aug 2025 21:35:09 +0200
-Message-ID: <874itx4ys2.ffs@tglx>
+	Sat, 23 Aug 2025 21:27:44 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b49d98691faso163653a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 Aug 2025 14:27:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755984462; x=1756589262; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3f0+4Vh1MwZCJAgeds3L4wK1Y2nN5MFSu2EhurxFoGY=;
+        b=R5K6zgi8YOMFoYMhMo47WHPC9kzPHCUR6A8t7nBliaIKG0KuEY/Z5f6ZtKTq+c9YUR
+         UDxjDSTk00JekHXi8WrOgAjrxY4HaBUFVchVUpX9unXxlnvwBZL4xRYAnMaxUHEBfCR+
+         d8MY7xFYCZxc7CnzSpOokjqwrVfEg698QiqVflYBEm/WwbWXVksfUsFDe3SsyNUB6zTA
+         mrppLh/hKd/1LKBZQi8P31lBD0GppDL2UGb7ySd8XW8rit9762KwLCgq1kEuvjTCQqMo
+         K8oorqeDK6TnQUtscWna1t6dsjqImFlVsTR0XrOEZkyRFY2CZtUd8TFXSyXENwNG3/9t
+         Y64g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755984462; x=1756589262;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3f0+4Vh1MwZCJAgeds3L4wK1Y2nN5MFSu2EhurxFoGY=;
+        b=JWTigodqf1NodoOsxR8B8q24waOTUCMZOMQ69CBW9DL5IX79cRf+YidhNBRhx2kVyg
+         Y7jjrql/neWuROPxuWlIAE8A9ljtoeGvrcFXWEfwS4ss+9Tv9nnZZPUjTXkyGupEjZVX
+         Aa4ZQT+BNi9ydNcY86qbOuwX3081dzIp2dsr/gbSeU2FFdfR8bWg5lYPHeplP8zJMnCX
+         CcerzC6Y6K4faIxZCLr9i6r4aHkh26PcHRJDMpt+l2mgAR9UHoopVHhYQo991HYoJLbX
+         Q0s7Fjk0RSQZYYzsv50MyIT+8I01F7V99L0KpSQcl5So7B9feAKtxw88lbhm+bwVm/wl
+         /jtw==
+X-Forwarded-Encrypted: i=1; AJvYcCWoRwoQtrDJsdtvMEI8V+0wfg7XbOnlDtm2Wew1sRJel6S/dfBV6++3qeCfacoPKvthnHDTUlNTnlKVUgg2nQ3/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGAPVnMDgS9JTZo+UWKe0fnB2305i8pIvZNBTIvO+We4na742l
+	L55aMXyllzM5ypox748Wiv4wsm38XdUZuyPU+11w+S8GHG7YuXBAg0QZ
+X-Gm-Gg: ASbGncuwYeUWIRsbmOba7gWu6gCpm8BKckSRB8UYY/5Fr3srdfBVL8b3etjBDu6zQvS
+	VHYwv/o+w1upHijKTooBvQ8fS8xMh+OnCxNssnpaL2IACAPmRM9nP/PPhh4A2df3VqHh0pgWnkJ
+	ROY6P2Wx0HEqltTqwvYxkbO5PAfK+7gYZyn5RTzvpDXNtWNLA0z/RYUscAeEnnJFnl1PKvApJI+
+	Kd73R0hV+ae4hobhj8UPB4UKQmeVhE6tutafT1B+0D0zbG2olD+yE51nO4znjpSprbZSRL7GsJU
+	k+uoZSXWxxotppGPwVxmn/3k0uJjWv27A1Djmnz25Y16dYUyvxlFKOAbkjM44w3E0YPbsBe1NAA
+	tcUBsujQhbpr4ie0VgBbwm+/StnVaBd4/M3U6x+UklH3B3T1onJCY
+X-Google-Smtp-Source: AGHT+IG+vW5JGkKEGGGdp4Hd6sF1BS7DCoubVeclZE2QYEcmrjSVeoAj24TqBkympTdtodtDi+cCqg==
+X-Received: by 2002:a17:903:17c3:b0:242:cfc7:1fd6 with SMTP id d9443c01a7336-2462ef446cdmr79305085ad.32.1755984462256;
+        Sat, 23 Aug 2025 14:27:42 -0700 (PDT)
+Received: from fedora ([172.59.162.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466889de85sm28982615ad.153.2025.08.23.14.27.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 23 Aug 2025 14:27:41 -0700 (PDT)
+From: Alex Tran <alex.t.tran@gmail.com>
+To: linus.walleij@linaro.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Alex Tran <alex.t.tran@gmail.com>
+Subject: [PATCH] arch/arm/boot/dts/st/ste-ux500-samsung: dts bluetooth wakeup interrupt
+Date: Sat, 23 Aug 2025 14:27:32 -0700
+Message-ID: <20250823212732.356620-1-alex.t.tran@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_123513_064066_89D7BBC7 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250823_142743_633045_C46E77D9 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +100,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 23 2025 at 21:33, Thomas Gleixner wrote:
-> On Thu, Aug 14 2025 at 17:28, Edgar Bonet wrote:
->>> I think the conversions in
->>> drivers/irqchip/irq-atmel-aic.c:aic_irq_domain_xlate() and
->>> drivers/irqchip/irq-loongson-liointc.c:liointc_set_type()
->>> are also wrong, and need a similar change.
->
->> The one in irq-atmel-aic.c looks indeed strikingly similar.
->
-> Yes. My bad.
->
-> I missed the fact, that this can be invoked during early boot when
-> interrupts are still disabled. After early boot they are always enabled
-> when xlate() is invoked.
->
->> The one in irq-loongson-liointc.c is slightly different
->> though. Instead of:
->>
->>     irq_gc_lock_irqsave() -> guard(raw_spinlock_irq)
->>
->> it does:
->>
->>     irq_gc_lock_irqsave() -> guard(raw_spinlock)
->>
->> I don't know what the implications are though.
->
-> That's in the set_type() callback which is always invoked with the
-> interrupt decriptor lock held and interrupts disabled, so doing the
-> 'save/restore' dance there is pointless.
->
-> Can you send a patch for that atmel-aic thing too please?
+Interrupt support on host wakeup gpio for ste-ux500-samsung bluetooth.
 
-Nah. Let me just fold it into your patch and be done with it.
+Signed-off-by: Alex Tran <alex.t.tran@gmail.com>
+---
+ arch/arm/boot/dts/st/ste-ux500-samsung-codina-tmo.dts | 5 +++--
+ arch/arm/boot/dts/st/ste-ux500-samsung-codina.dts     | 5 +++--
+ arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts     | 5 +++--
+ 3 files changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-codina-tmo.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-codina-tmo.dts
+index c623cc35c5ea..03c679164c11 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-codina-tmo.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-codina-tmo.dts
+@@ -383,8 +383,9 @@ bluetooth {
+ 				/* BT_WAKE on GPIO199 */
+ 				device-wakeup-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
+ 				/* BT_HOST_WAKE on GPIO97 */
+-				/* FIXME: convert to interrupt */
+-				host-wakeup-gpios = <&gpio3 1 GPIO_ACTIVE_HIGH>;
++				interrupt-parent = <&gpio3>;
++				interrupts = <1 IRQ_TYPE_EDGE_RISING>;
++				interrupt-names = "host-wakeup";
+ 				/* BT_RST_N on GPIO209 */
+ 				reset-gpios = <&gpio6 17 GPIO_ACTIVE_LOW>;
+ 				pinctrl-names = "default";
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-codina.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-codina.dts
+index 2355ca6e9ad6..bedffd969ec9 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-codina.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-codina.dts
+@@ -475,8 +475,9 @@ bluetooth {
+ 				/* BT_WAKE on GPIO199 */
+ 				device-wakeup-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
+ 				/* BT_HOST_WAKE on GPIO97 */
+-				/* FIXME: convert to interrupt */
+-				host-wakeup-gpios = <&gpio3 1 GPIO_ACTIVE_HIGH>;
++				interrupt-parent = <&gpio3>;
++				interrupts = <1 IRQ_TYPE_EDGE_RISING>;
++				interrupt-names = "host-wakeup";
+ 				/* BT_RST_N on GPIO209 */
+ 				reset-gpios = <&gpio6 17 GPIO_ACTIVE_LOW>;
+ 				pinctrl-names = "default";
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
+index 229f7c32103c..64562a3a262c 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
+@@ -481,8 +481,9 @@ bluetooth {
+ 				/* BT_WAKE on GPIO199 */
+ 				device-wakeup-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
+ 				/* BT_HOST_WAKE on GPIO97 */
+-				/* FIXME: convert to interrupt */
+-				host-wakeup-gpios = <&gpio3 1 GPIO_ACTIVE_HIGH>;
++				interrupt-parent = <&gpio3>;
++				interrupts = <1 IRQ_TYPE_EDGE_RISING>;
++				interrupt-names = "host-wakeup";
+ 				/* BT_RST_N on GPIO209 */
+ 				reset-gpios = <&gpio6 17 GPIO_ACTIVE_LOW>;
+ 				pinctrl-names = "default";
+-- 
+2.51.0
+
 
