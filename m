@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3702CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D07CA0FE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZSqradjoNYlEMEbm1ZzV1lrstXti0Rv6XGYgH3hP2f4=; b=HuY2xOAKUKZqgh
-	V7s4JxvkBgUaHQ0psA6QG9iREZlgnUeKX2+7m7p+hUK3QRMkXYbbTC0MTndAU9IFVCzLSRaXijVKH
-	tHmojUyd87kEREBRNUn2x+HzY4MZgWe6xLbF2DzKvE7zSt0xTi+C0KLfwIUgffRRXcGeuNYqCnAkb
-	LZ4danhVEtr1+kxPNyEd5Mf0MPDLObJKkHnwEnM3EVhNx+YNtZI70jGD8/u8DH9FYkmRet79N6Xtc
-	O4XoqyPZdFIZCrZBo+BbKEV0CRS4wwyRDw2E73TA9CNrOhw3+2z4phdF2ykifa1iFvq4oPKLcj0Xz
-	Kr4qOGg2CoURQv4qMVXw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VgIm++i1qFPmoxJFVFPXj81kuR0lHv2aMwuMe0GA1Ng=; b=g0IcQaHZClZziKUGTlrstjrCLl
+	oqZlIMizNxM7bs1JwtAGrYOl1LhwaAzzaKP2CGjqraKQCo89joSoKgRtclZFgviTj9FDaFAesPosx
+	qwAzs2p9FEshXV6JV7Kgyu6HV8/LmIVQm+pV/UEMRP9xQTbVV879fE8nxVTPm+Bug2X2GqU1lYjcl
+	BuB1AR9MmMnp7CoiDh9RyewmKwbKxq5zH599z4zk0cpAZhc+6PNQ9IRHCvJmSpDNTloi6hEIqhOtR
+	lQCgOE9fByjWEE+KxnS0Yk3cgG2IvapzfdNv1NyDhdUh614EYBOgntdoCVVVZ6yJanM0x0t/ETjkr
+	ryWqxdaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uplLO-00000004cnB-0Ofq;
+	id 1uplLO-00000004cnT-2XdF;
 	Sat, 23 Aug 2025 10:19:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upj72-00000004JQp-13Md;
-	Sat, 23 Aug 2025 07:56:32 +0000
+	id 1upj72-00000004JQt-3v8M;
+	Sat, 23 Aug 2025 07:56:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=ZSqradjoNYlEMEbm1ZzV1lrstXti0Rv6XGYgH3hP2f4=; b=kag9FYfChUNkIwac6Q4QDJIkoL
-	xcKy2ETWtdEudf48Po1nDdErtOhdMH6VGfWlViKqc3Dpha6hIkFeKkf8SpbTdsXSkHmVa8FCfBbVA
-	xC+685zJeBjIp3KB2inhuRRx3ZcuJ1Dhyvl8SGm2ayU09ZyQFBs7IgrTi/8yqftW7v0XoDT/UQxq3
-	4Gdawg5GTNu0Aq1QLi/UbD78mmniha7LKljJhX9i9Bf7WZLsAV4bkumd9GRQrzQ0RkehN7fxnchiW
-	jr8Du+vv+0yr24dv0QyHesMpZHDRNsQOOZxWEETMNlCpdGnGlsE+8eQ5WSZ0d5aQhc3i+emwFSDvu
-	dRwLZqvg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=VgIm++i1qFPmoxJFVFPXj81kuR0lHv2aMwuMe0GA1Ng=; b=MmYIN8vIT4lihEMVSUf+rXv1FZ
+	ztlzhM8Vx6WyetQsvhQ8pPYzrWPw/NrqUSX6IyvpLoJwFh1MchtHGWdmCkmmls739q7KR9ZpgAn1C
+	j0cYm3S5IQCRxpnQZPQ2dd65R892lMqDN+jmtG+Wvx+fQUDAJOZo4SZMtvKEaKa9IEuefMQDcC5fW
+	XHGERhcc2G4Q6nv+IZdVrAsj6TeLMKaDX5GrugcGk2EWQxCI7Ij/9F4tFtm68vJhKkEAevb5EaZzI
+	1pyblP35z0Wb7sJruVh0u+vwjaP7t4zERtvchvYaJjgNZOmGi40vbDTu+KkWKXymZuubkuuwZYjXc
+	w38jXO9Q==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upj6y-00000001L5A-3omQ;
+	id 1upj6z-00000001L5C-44O0;
 	Sat, 23 Aug 2025 07:56:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 009D0408B9;
-	Sat, 23 Aug 2025 07:56:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73F99C4CEE7;
-	Sat, 23 Aug 2025 07:56:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E801B44E79;
+	Sat, 23 Aug 2025 07:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EE63C4CEE7;
+	Sat, 23 Aug 2025 07:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755935784;
-	bh=jH/zfECS1KSBq9y+UHL0sl+KGHKSrnJ/X+waTIEZKUs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=WyQpAI8W8xXT2XCFMrkjkY3lqT3p0RkvOk1Ku7XJ/l2f52GHpOzG3g7yAELI9pOZD
-	 EWEUzAIoMXh7IMRDUVGkhAvJF6BwMJ6ei8KmZNnY+bKURE6GFx89IH/zPjbPpToE5Y
-	 e0y4Oueij+R+/GAIy3lsA8FB/cVHAGBDpsJaOdNI0y8/kdMki+Qa+yWldOesesTNip
-	 tG/bDgH6an8Qa9FAMyCodDOhalNmjwj8vvFyxynQ1wEHF7DQzmiz48aP6StHnFOM1x
-	 iBd3k60anVS4YJijSNu8hVJT/6E3OujL4n6Gb0UYAgS2e+od5t7IrgQO0qUh5yDGc1
-	 JtN4RagS/HsCg==
+	s=k20201202; t=1755935787;
+	bh=bUhhisMpwunCiVpJimsogShTnS7b3lFsORIaZ4diA6I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=cmBcOvufqRiTIVI2CcRlHEkYOr9lQEMA+fzMI9PSFqFWxHhwLZMRrGVemG833UKyS
+	 2/zkTP3+JIkkKhoHjWn/j16HKtzH8gmYmRdb5CemGDQOwXD4pzF0JsOa9hKqwyxHNk
+	 kQ+yu4ZmzLMwJjG2PpvDsH7kN7WRCAiLxdr4mOzFokoqqeMJyeL5lUsUZsGJXFjRRv
+	 pYy7SxlK3i85hWDlwz9pQHohRtwAtdKZkPsYGUZVhF0L+HXya76UvAqxz56XBis9hi
+	 KSmLgtW8kK4YApjb6SXrjn/YhuJskKxmVrE+SA7KF3InKB9oSvFZdywPn9ZxMrCTi/
+	 NslgmI3XzSYqg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v3 0/3] net: airoha: Add PPE support for RX wlan
- offload
-Date: Sat, 23 Aug 2025 09:56:01 +0200
-Message-Id: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
+Date: Sat, 23 Aug 2025 09:56:02 +0200
+Subject: [PATCH net-next v3 1/3] net: airoha: Rely on airoha_eth struct in
+ airoha_ppe_flow_offload_cmd signature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABF0qWgC/43NQQ6CMBCF4auYrh3TDkLBlfcwLiYwhUbSmtZUD
- OHuFla60uX/Ft+bReRgOYrTbhaBk43WuxzFfifagVzPYLvcAiWWslYNkA1+IGCny1rBcyQHYQJ
- vzOipA4VsTFW1BoujyMY9sLHT5l+uuQcbHz68truk1vVfOSmQoBXJRrNkJHW+cXA8HnzoxUon/
- OAQf3GYuZp0xaorDLf4xS3L8gbmzAWiGgEAAA==
-X-Change-ID: 20250819-airoha-en7581-wlan-rx-offload-12eff66cf234
+Message-Id: <20250823-airoha-en7581-wlan-rx-offload-v3-1-f78600ec3ed8@kernel.org>
+References: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
+In-Reply-To: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -76,9 +73,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_085629_203334_7829732C 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_085630_401842_868E61DD 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +89,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the missing bits to airoha ppe driver to offload traffic received
-by the MT76 driver (wireless NIC) and forwarded by the Packet Processor
-Engine (PPE) to the ethernet interface.
+Rely on airoha_eth struct in airoha_ppe_flow_offload_cmd routine
+signature and in all the called subroutines.
+This is a preliminary patch to introduce flowtable offload for traffic
+received by the wlan NIC and forwarded to the ethernet one.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v3:
-- Fix compilation error when CONFIG_NET_AIROHA is not enabled
-- Link to v2: https://lore.kernel.org/r/20250822-airoha-en7581-wlan-rx-offload-v2-0-8a76e1d3fec2@kernel.org
+ drivers/net/ethernet/airoha/airoha_ppe.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-Changes in v2:
-- Rebase on top of net-next main branch
-- Link to v1: https://lore.kernel.org/r/20250819-airoha-en7581-wlan-rx-offload-v1-0-71a097e0e2a1@kernel.org
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 0d5cd3a13a3ee3d877f344ee0644d76d1c9df74a..36b45e98279a1d18ef0c7e185d8fca7b32c70436 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -935,11 +935,10 @@ static int airoha_ppe_entry_idle_time(struct airoha_ppe *ppe,
+ 	return airoha_ppe_get_entry_idle_time(ppe, e->data.ib1);
+ }
+ 
+-static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 					   struct flow_cls_offload *f)
+ {
+ 	struct flow_rule *rule = flow_cls_offload_flow_rule(f);
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 	struct airoha_flow_data data = {};
+ 	struct net_device *odev = NULL;
+@@ -1136,10 +1135,9 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
+ 	return err;
+ }
+ 
+-static int airoha_ppe_flow_offload_destroy(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_destroy(struct airoha_eth *eth,
+ 					   struct flow_cls_offload *f)
+ {
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 
+ 	e = rhashtable_lookup(&eth->flow_table, &f->cookie,
+@@ -1182,10 +1180,9 @@ void airoha_ppe_foe_entry_get_stats(struct airoha_ppe *ppe, u32 hash,
+ 	rcu_read_unlock();
+ }
+ 
+-static int airoha_ppe_flow_offload_stats(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_stats(struct airoha_eth *eth,
+ 					 struct flow_cls_offload *f)
+ {
+-	struct airoha_eth *eth = port->qdma->eth;
+ 	struct airoha_flow_table_entry *e;
+ 	u32 idle;
+ 
+@@ -1209,16 +1206,16 @@ static int airoha_ppe_flow_offload_stats(struct airoha_gdm_port *port,
+ 	return 0;
+ }
+ 
+-static int airoha_ppe_flow_offload_cmd(struct airoha_gdm_port *port,
++static int airoha_ppe_flow_offload_cmd(struct airoha_eth *eth,
+ 				       struct flow_cls_offload *f)
+ {
+ 	switch (f->command) {
+ 	case FLOW_CLS_REPLACE:
+-		return airoha_ppe_flow_offload_replace(port, f);
++		return airoha_ppe_flow_offload_replace(eth, f);
+ 	case FLOW_CLS_DESTROY:
+-		return airoha_ppe_flow_offload_destroy(port, f);
++		return airoha_ppe_flow_offload_destroy(eth, f);
+ 	case FLOW_CLS_STATS:
+-		return airoha_ppe_flow_offload_stats(port, f);
++		return airoha_ppe_flow_offload_stats(eth, f);
+ 	default:
+ 		break;
+ 	}
+@@ -1288,7 +1285,6 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
+ {
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+-	struct flow_cls_offload *cls = type_data;
+ 	struct airoha_eth *eth = port->qdma->eth;
+ 	int err = 0;
+ 
+@@ -1297,7 +1293,7 @@ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
+ 	if (!eth->npu)
+ 		err = airoha_ppe_offload_setup(eth);
+ 	if (!err)
+-		err = airoha_ppe_flow_offload_cmd(port, cls);
++		err = airoha_ppe_flow_offload_cmd(eth, type_data);
+ 
+ 	mutex_unlock(&flow_offload_mutex);
+ 
 
----
-Lorenzo Bianconi (3):
-      net: airoha: Rely on airoha_eth struct in airoha_ppe_flow_offload_cmd signature
-      net: airoha: Add airoha_ppe_dev struct definition
-      net: airoha: Introduce check_skb callback in ppe_dev ops
-
- drivers/net/ethernet/airoha/airoha_eth.c  |   7 +-
- drivers/net/ethernet/airoha/airoha_eth.h  |  12 ++--
- drivers/net/ethernet/airoha/airoha_npu.c  |   1 -
- drivers/net/ethernet/airoha/airoha_ppe.c  | 112 +++++++++++++++++++++++-------
- include/linux/soc/airoha/airoha_offload.h |  55 +++++++++++++++
- 5 files changed, 150 insertions(+), 37 deletions(-)
----
-base-commit: b1c92cdf5af3198e8fbc1345a80e2a1dff386c02
-change-id: 20250819-airoha-en7581-wlan-rx-offload-12eff66cf234
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.50.1
 
 
