@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FBACA0EFA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F730CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 10:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKynfVIsI2xZbIeppqfuUUSb4ZKPXEyCl3Cv9gMJVaU=; b=e5i6gVW9Q3+CdQ1QzA/E/03wjJ
-	+dzVS5RK3oMc70ebMzkqxI4z5t8e6e7g1XcmcbuaifY4eusZNYDWz4CYD3TReI/EqEyeA2PTa2iS6
-	wLtKTtHRpD19hBtllaOE9YeX6owjx27nOpIkAKFy6VuYqR9R3zhV/FWJiC8qARcTKjFAADokprlKm
-	WtF95AQWNrEI6svdXj+Uih9E4YPOL1yZziOTa0JgRtfsd+bQnmsg0z1N6asKwmVauxW9YBJ2QUuq/
-	RZ/xckYZjDYtoJOA22qzZasRXY+YsjWg8JgeVc37/num5lQCXwGAzEB22hVQn0Yq40VTe3Ct74JWP
-	dYjVH8xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AC1CvCMf0QYxJhP8tXRBBu45jhcU07pLSmc9GHkVHFE=; b=S0tbd0FqTvkTd4vHtWstDAjobt
+	xDQo8zoM25Iv0KlSEgdD9FlQQz1tLI8y6bQBqZdEvjBgdkWYtkKvw4hgw978fAeHDhH4Xxz6gLCnI
+	QsybEkVDqJA7hZqrj9DCMT/19CeHyQCBN1XqhyAdnqVvTtcqEXbURyUfuOW5BnzWRMRDlKgaBFnrQ
+	8/h6qL69pWKjfubFUngIhNPVdEJpq2YFHgu8n5vo+kDY59NrsYIk+Jp5MzbHc3p8dlvnTM5zWeKgu
+	4Ic/FyjtYkKFmxF+FmGgx3oPRqUMBFCg3FOc6Rdg4vFam6w/2Bkue0eLAduNxA4ED7zMvWq3Mwx0G
+	uyaDUT+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uplLP-00000004cnm-0WXc;
-	Sat, 23 Aug 2025 10:19:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uplLR-00000004cpY-0mx3;
+	Sat, 23 Aug 2025 10:19:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upj72-00000004JQn-13yH;
-	Sat, 23 Aug 2025 07:56:33 +0000
+	id 1upjcy-00000004ONx-0Dku
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 23 Aug 2025 08:29:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1FBBA587C5;
-	Sat, 23 Aug 2025 07:56:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B8D5C4CEE7;
-	Sat, 23 Aug 2025 07:56:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E759240A8D;
+	Sat, 23 Aug 2025 08:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33B16C4CEE7;
+	Sat, 23 Aug 2025 08:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755935790;
-	bh=mFlS6xDh6YbQB873Z8bOtUOwU/01IL17lLA+sGy9uJI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XLPDOMPObXlhuk+bN09Untz1pjbstk+4QkNnQ0CN4KtspXIV9ixOX8nBBsx+A0SiB
-	 4N8301QF7hjeEgtUJ8iH0WBoIc/eP9K3v4496Gy1M/5qx4HQocg3Wsv4dIVDmD16op
-	 ZXEREkcwSjg7Elz4MEb0Jimiu3DB0GcgxihyEUQ1qvFftL6VmpcP6rxPaFA0H+KSs6
-	 blTp5t27rQAB9HXz6RMNVZ349J9VezVD7WXV1IDdCB1fz3dAQdkdRo/BOtMT14DSnE
-	 UUle8cZRFzKwmxhRk0XgEdkyK3xNIDeUsqEn25Cy7G8Q0EmHiol/5ThHXgf+bjm3AT
-	 3b2i3ck5ZJwcw==
+	s=k20201202; t=1755937770;
+	bh=3V+aClYI3aaQ5gU13ezDYqzZA3Gf8IZDs3ACDxjVH54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r6DfwwQEuXHptokfcHZgzpy1FPB8Lw5RAhifx7kjkok4nGqqWegfLoZfun7QAebkA
+	 GAaRqU42NU7euJbXTV4l9IMSukcUTIGtxFng0dMnQep22C4rqbUwrDbBL2JnyBX7XH
+	 bLjkVLqrtfWVjC2+00I0t9Crgs05tRTWr8/ZGo0NaeqEHLwxKqU0owqkHt5PcnzvA5
+	 1agzOoiefZdz6m1ZTEqpBNXJCtC90Zz+47il2570TKzlrkn6XR5LKnl6yHuZQROuA/
+	 fi/9X0XXUnGJC4JzRVvWRQPtrtMUYQP7fZ3dBdgharG7Z8ITCInR3yiVk3I2Z41+dg
+	 FLPQM/0JXtKuQ==
+Date: Sat, 23 Aug 2025 10:29:26 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 23 Aug 2025 09:56:03 +0200
-Subject: [PATCH net-next v3 2/3] net: airoha: Add airoha_ppe_dev struct
- definition
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+	Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 04/13] spi: airoha: remove unnecessary switch to
+ non-dma mode
+Message-ID: <aKl75s_6ueJ3Wulc@lore-rh-laptop>
+References: <aKgSY7bOrC8-qZE3@lore-rh-laptop>
+ <20250823001626.3641935-1-mikhail.kshevetskiy@iopsys.eu>
+ <20250823001626.3641935-5-mikhail.kshevetskiy@iopsys.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250823-airoha-en7581-wlan-rx-offload-v3-2-f78600ec3ed8@kernel.org>
-References: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
-In-Reply-To: <20250823-airoha-en7581-wlan-rx-offload-v3-0-f78600ec3ed8@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="AhtF45ahqs6p77op"
+Content-Disposition: inline
+In-Reply-To: <20250823001626.3641935-5-mikhail.kshevetskiy@iopsys.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_005632_443422_DDB61CB7 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250823_012932_113980_F619D9C1 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,234 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce airoha_ppe_dev struct as container for PPE offload callbacks
-consumed by the MT76 driver during flowtable offload for traffic
-received by the wlan NIC and forwarded to the wired one.
-Add airoha_ppe_setup_tc_block_cb routine to PPE offload ops for MT76
-driver.
-Rely on airoha_ppe_dev pointer in airoha_ppe_setup_tc_block_cb
-signature.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c  |  4 +-
- drivers/net/ethernet/airoha/airoha_eth.h  |  4 +-
- drivers/net/ethernet/airoha/airoha_npu.c  |  1 -
- drivers/net/ethernet/airoha/airoha_ppe.c  | 67 +++++++++++++++++++++++++++++--
- include/linux/soc/airoha/airoha_offload.h | 35 ++++++++++++++++
- 5 files changed, 104 insertions(+), 7 deletions(-)
+--AhtF45ahqs6p77op
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index e6b802e3d84493508d2dbd248fb1cbfa9ace468f..5a04f90dd3de47ae0ee8e90bfe221618076297e6 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2599,13 +2599,15 @@ static int airoha_dev_setup_tc_block_cb(enum tc_setup_type type,
- 					void *type_data, void *cb_priv)
- {
- 	struct net_device *dev = cb_priv;
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct airoha_eth *eth = port->qdma->eth;
- 
- 	if (!tc_can_offload(dev))
- 		return -EOPNOTSUPP;
- 
- 	switch (type) {
- 	case TC_SETUP_CLSFLOWER:
--		return airoha_ppe_setup_tc_block_cb(dev, type_data);
-+		return airoha_ppe_setup_tc_block_cb(&eth->ppe->dev, type_data);
- 	case TC_SETUP_CLSMATCHALL:
- 		return airoha_dev_tc_matchall(dev, type_data);
- 	default:
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 9f721e2b972f0e547978419701caf532df664910..9060b1d2814e0e4023d42a05ecb5265212df588f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -13,6 +13,7 @@
- #include <linux/kernel.h>
- #include <linux/netdevice.h>
- #include <linux/reset.h>
-+#include <linux/soc/airoha/airoha_offload.h>
- #include <net/dsa.h>
- 
- #define AIROHA_MAX_NUM_GDM_PORTS	4
-@@ -546,6 +547,7 @@ struct airoha_gdm_port {
- #define AIROHA_RXD4_FOE_ENTRY		GENMASK(15, 0)
- 
- struct airoha_ppe {
-+	struct airoha_ppe_dev dev;
- 	struct airoha_eth *eth;
- 
- 	void *foe;
-@@ -622,7 +624,7 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, struct sk_buff *skb,
- 			  u16 hash);
--int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data);
-+int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
- void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port);
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 1a6b191ae0b0bba2dc0a011b9da4eb5f4686783e..e1d131d6115c10b40a56b63427eec59ea587d22a 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -11,7 +11,6 @@
- #include <linux/of_platform.h>
- #include <linux/of_reserved_mem.h>
- #include <linux/regmap.h>
--#include <linux/soc/airoha/airoha_offload.h>
- 
- #include "airoha_eth.h"
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 36b45e98279a1d18ef0c7e185d8fca7b32c70436..03d9b1f24bb34008b36d9590ec355f4503f9b01c 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -6,8 +6,9 @@
- 
- #include <linux/ip.h>
- #include <linux/ipv6.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
- #include <linux/rhashtable.h>
--#include <linux/soc/airoha/airoha_offload.h>
- #include <net/ipv6.h>
- #include <net/pkt_cls.h>
- 
-@@ -1282,10 +1283,10 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
- 	return err;
- }
- 
--int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data)
-+int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data)
- {
--	struct airoha_gdm_port *port = netdev_priv(dev);
--	struct airoha_eth *eth = port->qdma->eth;
-+	struct airoha_ppe *ppe = dev->priv;
-+	struct airoha_eth *eth = ppe->eth;
- 	int err = 0;
- 
- 	mutex_lock(&flow_offload_mutex);
-@@ -1338,6 +1339,61 @@ void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port)
- 		     PPE_UPDMEM_WR_MASK | PPE_UPDMEM_REQ_MASK);
- }
- 
-+struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
-+{
-+	struct platform_device *pdev;
-+	struct device_node *np;
-+	struct airoha_eth *eth;
-+
-+	np = of_parse_phandle(dev->of_node, "airoha,eth", 0);
-+	if (!np)
-+		return ERR_PTR(-ENODEV);
-+
-+	pdev = of_find_device_by_node(np);
-+	if (!pdev) {
-+		dev_err(dev, "cannot find device node %s\n", np->name);
-+		of_node_put(np);
-+		return ERR_PTR(-ENODEV);
-+	}
-+	of_node_put(np);
-+
-+	if (!try_module_get(THIS_MODULE)) {
-+		dev_err(dev, "failed to get the device driver module\n");
-+		goto error_pdev_put;
-+	}
-+
-+	eth = platform_get_drvdata(pdev);
-+	if (!eth)
-+		goto error_module_put;
-+
-+	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER)) {
-+		dev_err(&pdev->dev,
-+			"failed to create device link to consumer %s\n",
-+			dev_name(dev));
-+		goto error_module_put;
-+	}
-+
-+	return &eth->ppe->dev;
-+
-+error_module_put:
-+	module_put(THIS_MODULE);
-+error_pdev_put:
-+	platform_device_put(pdev);
-+
-+	return ERR_PTR(-ENODEV);
-+}
-+EXPORT_SYMBOL_GPL(airoha_ppe_get_dev);
-+
-+void airoha_ppe_put_dev(struct airoha_ppe_dev *dev)
-+{
-+	struct airoha_ppe *ppe = dev->priv;
-+	struct airoha_eth *eth = ppe->eth;
-+
-+	module_put(THIS_MODULE);
-+	put_device(eth->dev);
-+}
-+EXPORT_SYMBOL_GPL(airoha_ppe_put_dev);
-+
- int airoha_ppe_init(struct airoha_eth *eth)
- {
- 	struct airoha_ppe *ppe;
-@@ -1347,6 +1403,9 @@ int airoha_ppe_init(struct airoha_eth *eth)
- 	if (!ppe)
- 		return -ENOMEM;
- 
-+	ppe->dev.ops.setup_tc_block_cb = airoha_ppe_setup_tc_block_cb;
-+	ppe->dev.priv = ppe;
-+
- 	foe_size = PPE_NUM_ENTRIES * sizeof(struct airoha_foe_entry);
- 	ppe->foe = dmam_alloc_coherent(eth->dev, foe_size, &ppe->foe_dma,
- 				       GFP_KERNEL);
-diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
-index 117c63c2448d2bd2a5c108c5baa56a39f6974d91..4b4b8b9e426dbc555bec4438b5e110cd235d2edc 100644
---- a/include/linux/soc/airoha/airoha_offload.h
-+++ b/include/linux/soc/airoha/airoha_offload.h
-@@ -9,6 +9,41 @@
- #include <linux/spinlock.h>
- #include <linux/workqueue.h>
- 
-+struct airoha_ppe_dev {
-+	struct {
-+		int (*setup_tc_block_cb)(struct airoha_ppe_dev *dev,
-+					 void *type_data);
-+	} ops;
-+
-+	void *priv;
-+};
-+
-+#if (IS_BUILTIN(CONFIG_NET_AIROHA) || IS_MODULE(CONFIG_NET_AIROHA))
-+struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev);
-+void airoha_ppe_put_dev(struct airoha_ppe_dev *dev);
-+
-+static inline int airoha_ppe_dev_setup_tc_block_cb(struct airoha_ppe_dev *dev,
-+						   void *type_data)
-+{
-+	return dev->ops.setup_tc_block_cb(dev, type_data);
-+}
-+#else
-+static inline struct airoha_ppe_dev *airoha_ppe_get_dev(struct device *dev)
-+{
-+	return NULL;
-+}
-+
-+static inline void airoha_ppe_put_dev(struct airoha_ppe_dev *dev)
-+{
-+}
-+
-+static inline int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev,
-+					       void *type_data)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif
-+
- #define NPU_NUM_CORES		8
- #define NPU_NUM_IRQ		6
- #define NPU_RX0_DESC_NUM	512
+> The code switches to dma at the start of dirmap operation and returns
+> to non-dma at the end of dirmap operation, so an additional switch to
+> non-dma at the start of dirmap write is not required.
 
--- 
-2.50.1
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
+>=20
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> ---
+>  drivers/spi/spi-airoha-snfi.c | 3 ---
+>  1 file changed, 3 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+> index d64a687c07de..1ebf7def7ba7 100644
+> --- a/drivers/spi/spi-airoha-snfi.c
+> +++ b/drivers/spi/spi-airoha-snfi.c
+> @@ -812,9 +812,6 @@ static ssize_t airoha_snand_dirmap_write(struct spi_m=
+em_dirmap_desc *desc,
+>  	int err;
+> =20
+>  	as_ctrl =3D spi_controller_get_devdata(spi->controller);
+> -	err =3D airoha_snand_set_mode(as_ctrl, SPI_MODE_MANUAL);
+> -	if (err < 0)
+> -		return err;
+> =20
+>  	memcpy(txrx_buf + offs, buf, len);
+>  	dma_addr =3D dma_map_single(as_ctrl->dev, txrx_buf, SPI_NAND_CACHE_SIZE,
+> --=20
+> 2.50.1
+>=20
+
+--AhtF45ahqs6p77op
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaKl75AAKCRA6cBh0uS2t
+rAr3AP9T2QJKhkVGX6NfCc6oaN5Oe1P5X3lrZiNltQ+HB+JXXAEA5nwNp4mEd3JS
+TXd4xaqIwU7iCVKk9KDIHkZzPeKrJwc=
+=Q08H
+-----END PGP SIGNATURE-----
+
+--AhtF45ahqs6p77op--
 
