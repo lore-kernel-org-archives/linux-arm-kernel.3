@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED04CA0EFF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3767CA0EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 09:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+MLiM7EUbI3t1OpzggJOR4OBB9Y1zswUtgZzzSde6c=; b=IfFP7M9D1PAMdEksyDcf+h4IdQ
-	BYMLUTl518CBVHV7pwIHE/xhdiH0eS5FSSvQFuKeasgoVXsEgSGIp9Y3B2/ajAtAu+5lVjpbCpsq5
-	ItsosZsbMtOcHrMGj1rfHN0JtlbEERi9sJjfslzqrkFtJ/5Crs0vf3GXQcsL5mUmgF2WlCqIaupiK
-	k+kDLfLXGxCLkg2GmiEB6L8kfnn5zth36VclKBBKk0HPVXv3jb1UYZB5Pj15FGPlsu65fUzqQBNAl
-	6p6qB7BPYKTdl2u0OzdE59A5DEXDPaRCBSi3edZssVK5DxhmeuxNS1Nxv7DyEWG86w/53c/tn23bl
-	6blvsTJg==;
+	bh=QqumeEmO4Hx86KLVWkSoquZafUAkAj4dwVn2wF9Dw9U=; b=PjYI4tGVllaXrEDWVO+H5sinij
+	PJuuVWtQI6pLSQRgV5sRfle5/4AtEIpp3Hvjgn8Q8E/wwT/9R/7cqKEoTEqNMUuZ/JTeVF/CTYofy
+	zwnNyc4hVR9N+Fq9b4awNDZVdRQRRlXFx6iETu3oBOPFvFsWotPZAbzTNS7yJbY189cUS0JkXkXvZ
+	uDf0KLPN9AD68rJ2P3wNXw4wkXjHsOqcCRGzBe7E7eqOxCffX9xDqOF0RhD+ITVE1ttIk/zhDfSQ5
+	fARLZTG1+KpQyuKzChSyXUHaaFAY685RPwVtnSYLwmsqEM7NxU2xs6BHpGRKisxSPqNVMoTD+oTBo
+	qqgaz2DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upkgs-00000004XLZ-3i34;
-	Sat, 23 Aug 2025 09:37:38 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1upkgt-00000004XNR-31ab;
+	Sat, 23 Aug 2025 09:37:39 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upeqm-00000003q6A-0ozc
+	id 1upf0T-00000003qZV-2GV3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 03:23:29 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57N3NPuG848517;
-	Fri, 22 Aug 2025 22:23:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1755919405;
-	bh=w+MLiM7EUbI3t1OpzggJOR4OBB9Y1zswUtgZzzSde6c=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=xT1HTvgmryKpZp2SfvfspbTM1qf14V+ebRa/z11qjn5L1XO7V1OfhnScOvAEbChvx
-	 igPR8Pnj360KqppOf7VJ8wJvU8ajsNZHcWIw4gsEk9Vm9a6cuT6Ipab1D5ei00EpqQ
-	 Q3GqXgNlGnih99IhQ8NC6QczNY46G8M91u8rHOmU=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57N3NPFl3726678
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 22 Aug 2025 22:23:25 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 22
- Aug 2025 22:23:24 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 22 Aug 2025 22:23:24 -0500
-Received: from localhost (ula0502350.dhcp.ti.com [172.24.233.249])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57N3NNjF288146;
-	Fri, 22 Aug 2025 22:23:24 -0500
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am62d2-evm: Enable USB support
-Date: Sat, 23 Aug 2025 08:53:04 +0530
-Message-ID: <20250823032304.1085775-3-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250823032304.1085775-1-p-bhagat@ti.com>
-References: <20250823032304.1085775-1-p-bhagat@ti.com>
+	Sat, 23 Aug 2025 03:33:30 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b47173749dbso1918800a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 Aug 2025 20:33:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755920008; x=1756524808; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QqumeEmO4Hx86KLVWkSoquZafUAkAj4dwVn2wF9Dw9U=;
+        b=nnwqJcz8fnrlljOpIy6Io8waQPoK/nOb+OZQuERduL2LmJuXow22gU9Z49I2dV0Lhr
+         pBm9dfKwbv3A/yLxGaGx+oTrGpfBTMbvhHw+UHEGhr9KdvtFowJHPB26L/vaQH0Olg+9
+         7wAaG4bPK7P25wegfq2yxlohBxi2TVYGTZ0+JWsR6h2gIt51C81c/9daVFdcOav0232P
+         ZKbWsAic+EnSbw3zJCIrPMHezsPiKRzInq1JugLB9OiC7D8su1Oua0rpqBLNMXZSlcZx
+         RTqX16k4m5mB5jQK3Z4IrWODEjI7RrB4L/JFNe0iAW6iG9zDBs8/SkoJ46MCW+RoHBIX
+         NeQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755920008; x=1756524808;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QqumeEmO4Hx86KLVWkSoquZafUAkAj4dwVn2wF9Dw9U=;
+        b=qrasWY08t7UHlw0ilNVndk3MEzPh/7BWh1BvmjcAm8swqaSp+Njjbc61pBoNmAj+lY
+         dWOnSTdStcLLCG53k73mVWOyr5eDSGAcxR6uIinYy55JRSGsTq5vZo45y+4zGlxm+Uz3
+         t+/E4GGQqk3r2GceK/uf9iS0QI8X0BkL/Zg4LnV3CQGwwVO0tr4TIf7B9/JEE4TWtNMN
+         Y6nw2d3Xr3ynT+1DfYsHexGN1lbAjYANRUq9LyuwbQbEpgoHq1zc6CGWuDAsHoCHINBm
+         nJsLAPnTtrM6fIFtBmcw7cxgIMIWFvLqslOgTHcK33tl7QV7P7/kg8nM7lK4gUp9Tkwv
+         3iPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVrf6PFzPw2I3VPpazFxtp0tXV7ELBsvPIyVYlDi1cfV5Fu4JMh1fXuwAftO8pzpUrvwm3h4mp/9K4jQ0orqrRm@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm80AWgeTuUnckAT97xiSv23M3GRCklMvre3qs7GV+wY0HWQH7
+	r3UT0AhoLkaqkE7shmSDYBlhdLLQCPBxJtFXYERZJDL9lwdr5v4L1SRB
+X-Gm-Gg: ASbGncufwCLX4znzX5EEOrustyG2Yjhyg+e5+AuoVDYwtpxtwrQ7mb4V4q7j347MInI
+	JaG3EcYOA+8TZNIOdNYCNJpblC2kzsoH+KHNHVaz3/f8s+P+eR4xBh5NIHIlDyin1IT4Mp7CJc7
+	mECdSW49ToH8dg6nSTSH1my+KZmYapCaVDV+Z3Y1FDyWb9VSmdeIAbwcWTdrccVinUXm6Vkcp8T
+	fLiCNZqBUyV53wU45/rW3hE/dcf1atXwGoNGbVEhm02M0MDrNL/jOhyC+mxonEGjr4MFeZCKLR4
+	6eyzS3TPS4mlq2tuSzSxezc/qIgDsJ2Ot0fiXFK+fWdLZNtKs3kAeDl/MLvggLEa9tM2QIjORx6
+	6lEdODQHFOywNreupd5Hk0VdBpvfcI5NjgQZVpEieKR/60RbupeQLHnTzRTQU5HKyp2qPvywkXD
+	lWMeovg5iUMCzfk8iM1KS+
+X-Google-Smtp-Source: AGHT+IFNO6qfKHbLRi+OpQWp6841qH14Emm/wJaX729M23KqjGDOidxlZhEBKjGLIE2PeRR5ofMyBw==
+X-Received: by 2002:a17:903:320d:b0:242:a3fc:5917 with SMTP id d9443c01a7336-2462ede290dmr67089965ad.2.1755920008250;
+        Fri, 22 Aug 2025 20:33:28 -0700 (PDT)
+Received: from setsuna.localnet (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2466887fc80sm10166575ad.124.2025.08.22.20.33.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Aug 2025 20:33:27 -0700 (PDT)
+From: James Calligeros <jcalligeros99@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Jean Delvare <jdelvare@suse.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Guenter Roeck <linux@roeck-us.net>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-input@vger.kernel.org
+Subject: Re: [PATCH 4/8] hwmon: Add Apple Silicon SMC hwmon driver
+Date: Sat, 23 Aug 2025 13:33:20 +1000
+Message-ID: <5792171.kQq0lBPeGt@setsuna>
+In-Reply-To: <56e1f496-a4c7-46a5-bd74-0412c1fd7207@roeck-us.net>
+References: <20250819-macsmc-subdevs-v1-0-57df6c3e5f19@gmail.com>
+ <20250819-macsmc-subdevs-v1-4-57df6c3e5f19@gmail.com>
+ <56e1f496-a4c7-46a5-bd74-0412c1fd7207@roeck-us.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250822_202328_326329_1E2FCDED 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250822_203329_583059_F04C88FD 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,64 +110,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinmux configuration for USB1 interface and enable the node for
-functionality. Also enable data transfer on USB0, on existing power
-delivery configuration.
+Hi Guenter,
 
-Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+On Wednesday, 20 August 2025 2:02:58=E2=80=AFam Australian Eastern Standard=
+ Time Guenter Roeck wrote:
+> On 8/19/25 04:47, James Calligeros wrote:
+> > +/*
+> > + * Many sensors report their data as IEEE-754 floats. No other SMC
+> > function uses + * them.
+> > + */
+> > +static int macsmc_hwmon_read_f32_scaled(struct apple_smc *smc, smc_key
+> > key, +					int *p, int scale)
+> > +{
+> > +	u32 fval;
+> > +	u64 val;
+> > +	int ret, exp;
+> > +
+> > +	ret =3D apple_smc_read_u32(smc, key, &fval);
+> > +	if (ret < 0)
+> > +		return ret;
+> > +
+> > +	val =3D ((u64)((fval & FLT_MANT_MASK) | BIT(23)));
+> > +	exp =3D ((fval >> 23) & 0xff) - FLT_EXP_BIAS - FLT_MANT_BIAS;
+> > +	if (scale < 0) {
+> > +		val <<=3D 32;
+> > +		exp -=3D 32;
+> > +		val /=3D -scale;
+>=20
+> I am quiter sure that this doesn't compile on 32 bit builds.
+>=20
+I don't see why not. We're not doing any 64-bit math on pointers, so we sho=
+uld
+be safe here. Regardless, this driver depends on MFD_MACSMC, which depends =
+on
+ARCH_APPLE, which is an ARM64 platform, so this driver shouldn't be compiled
+during a 32-bit build anyway.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index daea18b0bc61..9704c2d97f43 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -367,6 +367,12 @@ usr_led_pins_default: usr-led-default-pins {
- 			AM62DX_IOPAD(0x0244, PIN_INPUT, 7) /* (D18) MMC1_SDWP.GPIO1_49 */
- 		>;
- 	};
-+
-+	main_usb1_pins_default: main-usb1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x0258, PIN_OUTPUT, 0) /* (D19) USB1_DRVVBUS */
-+		>;
-+	};
- };
- 
- &mcu_gpio0 {
-@@ -499,6 +505,11 @@ &main_uart0 {
- 	status = "okay";
- };
- 
-+&usbss0 {
-+	status = "okay";
-+	ti,vbus-divider;
-+};
-+
- &usb0 {
- 	usb-role-switch;
- 
-@@ -509,6 +520,16 @@ usb0_hs_ep: endpoint {
- 	};
- };
- 
-+&usbss1 {
-+	status = "okay";
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_usb1_pins_default>;
-+};
-+
- &cpsw3g {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_rgmii1_pins_default>,
--- 
-2.34.1
+
+> > +
+> > +	ret =3D of_property_read_string(fan_node, "apple,key-id", &now);
+> > +	if (ret) {
+> > +		dev_err(dev, "apple,key-id not found in fan node!");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	ret =3D macsmc_hwmon_parse_key(dev, smc, &fan->now, now);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	if (!of_property_read_string(fan_node, "label", &label))
+> > +		strscpy_pad(fan->label, label, sizeof(fan->label));
+> > +	else
+> > +		strscpy_pad(fan->label, now, sizeof(fan->label));
+> > +
+> > +	fan->attrs =3D HWMON_F_LABEL | HWMON_F_INPUT;
+> > +
+> > +	ret =3D of_property_read_string(fan_node, "apple,fan-minimum", &min);
+> > +	if (ret)
+> > +		dev_warn(dev, "No minimum fan speed key for %s", fan->label);
+> > +	else {
+> > +		if (!macsmc_hwmon_parse_key(dev, smc, &fan->min, min))
+> > +			fan->attrs |=3D HWMON_F_MIN;
+>=20
+> Above the error from macsmc_hwmon_parse_key() results in an abort,
+> here the error is logged in the function and ignored.
+>=20
+> Either it is an error or it isn't. Ignoring errors is not acceptable.
+> Dumping error messages and ignoring the error is even less acceptable.
+>=20
+The only strictly required key for fan speed monitoring is apple,key-id,
+which is why it is the only one that causes an early return when parsing
+it fails. If we don't have keys in the DT for min, max, target and mode,
+then all that means is we can't enable manual fan speed control. I don't
+see how making a failure to read these keys non-blocking is unacceptable
+in this context. If this is about the dev_err print in parse_key, then
+I can just get rid of that and have the parse_key callers do it when it's
+actually a blocking error.
+
+Regards,
+James
+
+
+
+
+
 
 
