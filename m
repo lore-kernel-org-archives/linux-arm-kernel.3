@@ -4,170 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4F3CA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 13:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8BBCCA0FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 14:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFyHytACELyW66MRMfidmLJ3YMVyCY28ip/UKFh8DsY=; b=uRG2BlZGrtfnuzMTuR8bW4Gr0k
-	3kycvLHt7lFS6oZ56vEGx+gF+SpBob9khFe3nJAOiHSojL4pdc5lQdXcbC3V/VZAoMroXSjilbh5e
-	C9gkesC+4SE5eEpjLsPUf+R2mxDCFixNI1+fyDkV++zYDltfvI60OtIB+i2rOz9DdhH4D72hEHTZS
-	iswH/URdSG+rloduxXmKqtBuJWU9AwFcC5FsfNdU2C0qzcpk/csG+c8/5w+elm2eWJgyzsckLzu13
-	0ZEVyHOvsSC4jyO8r3i2wodz2cttUIp9kr9bnSpTRjEgerNWTzsSovcovwckdnTy3D1xaVML5Mh7y
-	66KW/5Gg==;
+	bh=caleFy4kbE+uvk+Sc3e36cq0k2w5/jsAIKa0fhdNasQ=; b=49FanxBAtlS7c4WgEcS6sjNC5x
+	6PV5LjYD+IofEr5+SqbMVMegxYI+gEr1M65iDsFImwaVrO1s9pZKAcOx10SHlWK6oQaI7kJqwKfpA
+	cDIRoOvQFO8x1asTnDJNZObbtgHFzLXsE8aL4ic/f9CTFXNF34fZN20DAGHHwrhwnKdWqk/at7Faa
+	p7ukiQI1cDIRXfVZJftiso+3zbHkcacOn9XogVLFnH2E9PCm4yNHH5t62JobxreF8DVFu0VxnuKxF
+	6ShZDwWRJY+/VhZ8AdxihNHC3AToXWToGeMyrgklSsyprZ2h7mXB+VHKWrlIDbmE4HrB056EOs3N2
+	7O65pllQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upol1-00000004p0C-258s;
-	Sat, 23 Aug 2025 13:58:11 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uposN-00000004pOj-47BW;
+	Sat, 23 Aug 2025 14:05:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upohT-00000004omN-267e
+	id 1upopj-00000004pGz-22ks
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 13:54:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MHxfcVkpxFBcF12ugyZnB+1YaqJGjgyy8BOa9wZzp8c7CujBWZKWdHSb0M948Q1stJjXELWdSI4/KWRhK7JjIpOZmXtMSBxz5JizUDuZfhvDTbNelVEtOzZX8Cb9L8jStVw+prKGyxL+fdjScu92viyujtcgVKtImwR+JDqtWfnHZaKWh4gL1xHFUPATlA7xZvk9xqq3tNO1g4v+IB+AnlvMjEOh9PVUEX8xa7zDQ5QRAlv/qHuExSm8fy0mgrP7NI8DFKyO2DJbsWYoJrxI0qa4AxYBUulMz72gGXFLs6CLaFYxYZfBe1Pma2P7muyW9Rv4tPVX3hNpBh+LCXvMAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KFyHytACELyW66MRMfidmLJ3YMVyCY28ip/UKFh8DsY=;
- b=FYdUmerL32xqLYaNmlv5HtHN+yCJZRI7e3uaj1KA13xMmG2a9IoOtYd1o8ewJxWx7Gd7H38s6SJjJp7HsTAGrlP/09wTL62h7VMw9YMEseMK7riD7JzghE2LWaYIxLklFyzf7ieZy92pr3KpweAu0qruIZ9FgbXQhGZIVMeQZjRahfVSpOmW5bcBIC9Fj1WHmiheeIWAFe9mjUZ5LCDf0ci6JNuvbefKgNfI1Z6kAJAdvSzt4q6zUmDk1C8tpLg+B8yDZe3KfBMwDCoc+IDTg2tiTCT7DLvdphIwmsd8doFNWY+eNz21yxBL6xUuSH/w+OeU5/rliiOKJJtvXDaG7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KFyHytACELyW66MRMfidmLJ3YMVyCY28ip/UKFh8DsY=;
- b=aF5+4LAwBIJFyINeudAreKdob1wI03KiCPKOxWekFMP9FJoQi0NEFxyUJQuluhmllo8X757j4aGjjn98cNmglzJydFrvHewKPwSaJ0BBAg5TK6zR3RngYE9+m6DNCRaUrtXZaMGevNdV8I0VPxaeQZk9BfhhlRe3qM3DohBu9x8f8W32icDnOvqNR6+XZrIgL8IVhJooFbSJ9aWpUjJ0asekXKruuW/1FLT45KLz37En+8CGHVSPqbptHNo71dZbjV4hTPh1JN+a1YwL+pz1Dj4ift7wtzMQFNjbopZYK5S9ZazKAXebQRXM8KX3NG8DFO/btuZeDHq/1XT5+PeifA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS4PR08MB7904.eurprd08.prod.outlook.com (2603:10a6:20b:51f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9052.17; Sat, 23 Aug
- 2025 13:54:29 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.9031.018; Sat, 23 Aug 2025
- 13:54:29 +0000
-Message-ID: <68130d82-edbe-4e23-9538-733f9c52123c@iopsys.eu>
-Date: Sat, 23 Aug 2025 16:54:27 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/13] spi: airoha: add support of dual/quad wires spi
- modes
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
- Jyothi Kumar Seerapu <quic_jseerapu@quicinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <aKgSY7bOrC8-qZE3@lore-rh-laptop>
- <20250823001626.3641935-1-mikhail.kshevetskiy@iopsys.eu>
- <20250823001626.3641935-4-mikhail.kshevetskiy@iopsys.eu>
- <aKl43hTJJVqRE3Rt@lore-rh-laptop>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <aKl43hTJJVqRE3Rt@lore-rh-laptop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: GVX0EPF0001A052.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:401::4a1) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	Sat, 23 Aug 2025 14:03:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AFFCF5C4187;
+	Sat, 23 Aug 2025 14:02:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1EA3C4CEF4;
+	Sat, 23 Aug 2025 14:02:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755957778;
+	bh=caleFy4kbE+uvk+Sc3e36cq0k2w5/jsAIKa0fhdNasQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q2dJWl3OewBdvZspyrkXJtc/pEAkGEL4Kp6j+9pW5g+tFVxg3KGCcs5TcDAWs+niW
+	 fn2auyv+V4wuRNYNz0NNeMuHm+aZwfjkeH93f+g06aMy5fgL5SoOwNcCcVYSGCZdoC
+	 pS4IjgdDGFQa9BkbOihvhiadlsHHRxPGJRSv3t/sRhA2SA0fpPWkyNkCCf2wOcM8uY
+	 VvIr4xh00jrqwAhjYTNmBjZgpk57DUNF0/z/8CCHlHa0036LNAGD/oTgddYGD1KE8d
+	 h6Hc2446PDOBlGTW6w4apuFUSAQwuQIJehVWm7n1ENp2W7Yr3n5iKVg++lDjVuZlbx
+	 Rf6mKqLS7qOzQ==
+Date: Sat, 23 Aug 2025 15:02:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: soc: fsl,imx-iomuxc-gpr: Document i.MX53
+Message-ID: <20250823-shimmer-conceded-35d10a7b5264@spud>
+References: <20250822120241.26419-1-festevam@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS4PR08MB7904:EE_
-X-MS-Office365-Filtering-Correlation-Id: 015a762d-6418-4a56-9220-08dde24c9464
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y2p4alI4c2hLSjQ0bDNqUG00QklmN2x4bG9DRFAvQXVJZHRGTEYwc3pEcFJE?=
- =?utf-8?B?THRTRnhoczlmYXU1aXpteU94OHJpbDlLVXVReklGVFk3UlpqcWNyck9qNVN1?=
- =?utf-8?B?OGNQMXZJWEJNbGdiU2VSelA4MnJ5ckRIY1lxV3lqMVFwcElpR1Z2NWVQV2ds?=
- =?utf-8?B?Z0FTOTY5YmNoM0xvRThjWDM4V0dKd2dSZVdETFlKc01JczJ6a1d0dkpMWkxi?=
- =?utf-8?B?RFJoU0VLRXBJRE4vbDRWMXFCeHg3SHJTSTlYYSs4UGJpaUdtbXdYVng5SGZn?=
- =?utf-8?B?d3RLWFVyS2ZXRFYyN2pMdTdwSytNb3NXOFV0T2t4c1hkTkNuaHQzM2FSR3lu?=
- =?utf-8?B?U2xmT1RIUG9qb2ZXcGo1azRNTCt4em00VTBHOTlub3NYeGJkMjcyZFhBU01a?=
- =?utf-8?B?cDRCbEoxdllEZ25JVmVtck5pRVRTWUpnTkwvSXEzYlJYOGttVnFvNjhJNVRn?=
- =?utf-8?B?VVVBc1hVaVROMWRyVXVQR3NHOHQ3L0FxL3NScTRaaElMME1wTnlyNFNUTXR3?=
- =?utf-8?B?S2VRZkZtU0FiWkMwS0gzZEU5a0dzNE1zcmNGVHViMk5KZk1WOVVJaDc1WGMx?=
- =?utf-8?B?Y2swbzZuVFEyNjE1OEdZYy9jVExQOHVJeThYWkxLZXI5cWF4U1pFbDBPSHM0?=
- =?utf-8?B?K0J1b3cvMURiWXVvMUwzSTMxZzdOTkhXQzlvaURjazJ3aVZ0b3Qzc2VyYU42?=
- =?utf-8?B?UnJiakcrU1EyMURMRWk2WDFuWXMzckhkeFJOMCtYYWxxRlc0dmt0YTdEaFRa?=
- =?utf-8?B?UTk5azRhcXBJTUZGTGNZTCtOSC9vZ3VHUlUrblhRS3ppZmpPOGF3TXkxQi9o?=
- =?utf-8?B?Z3RvNjYyNDdZd21XOEE2WUdJTUdNQ0p2VHVwYzI3R1VuSGRzYy8ydXA4bE1u?=
- =?utf-8?B?NGdlcm1hSDJSRkVZMEhURnVIZW5KNUFXOXFMc0Vsc1FBTXZzR01IMHR2dENL?=
- =?utf-8?B?c2tVaERXYnVQelA0QndWUWR3T0p4bXRxNnYvUE02ck85cGNGTnNEMnFreSt1?=
- =?utf-8?B?UHZCdzdIMVVCR0gzNzNQV1RmTUVVOFJ4elJqVE1sT2EyYnBSdGNhaUM2UVAw?=
- =?utf-8?B?dWN6dVI4OEE0bEhYUlM4RVJaMDNoQmMwN1FnekFDMG9LWkxCa0pqZmhtcG5r?=
- =?utf-8?B?TU9jMzVRZEZ5OENDemR6SlEwa3A5ekQvVVZYM25Zd0ZNRFBRTGhiaEx5N1VC?=
- =?utf-8?B?VWVJcTR1bzhiWEtrUFlrbVd5ZDlCQ0JHcUhtNlZCTkt4dWZzRTExSVRLN0x0?=
- =?utf-8?B?R0p4dzhEaGo5QlM0b3BtenNkRnBFL0lRZlFBS3U0WElTdTlyMW44bnUySlpD?=
- =?utf-8?B?ZVNRVnJjenFwNmNSRUFrdWtORTNUdG5TNzlGRlp2VkZuaW1JNy9rSjdiNXRQ?=
- =?utf-8?B?Rmw0dDZ6MEpDRUtkakEydm5CNmVaME51czluUVNwMUVkTHhtdmxnVlkvZFlL?=
- =?utf-8?B?elZ3amhyd2RURXYzUDE1b2Eyb011YmR2bEcyakNCRytYOWk0aW45NWNxY2tl?=
- =?utf-8?B?d0tWcmxDaElETlcxNHpBVytkaURyNTdRYVB0d1dBSjlPeWJ2emNEWjYxMElT?=
- =?utf-8?B?b3ZDTmNUYlcxQ1I5UmJleXcwcXV4QzhReklZVFBldGJyM0JhN0JTdCt5UU4z?=
- =?utf-8?B?bHB5bkdxWTVMNlFjL0FJNWFRYTZNZGpQKzBoeXRyVUYvVFdhTFFBSEEvQkNM?=
- =?utf-8?B?MkZoRTFLbHNCMHloRFBodFYzQkZLcnNleEg1am1xV29aSlgzRzhlMFdPM0RI?=
- =?utf-8?B?TEZoZ0E3QXhna0ZJUTErRlRxaE11L2hRT01xaGYrcytaZ3ZzWGdyT0xnRnI0?=
- =?utf-8?B?eVBYdXNUaDJkV1poYkc5WENjd0Y2WkViSGtrWEIvNlpsY01kUExURHVLS0lp?=
- =?utf-8?B?ZXYrRmZ5WlAwcThqeTdGVDRrM1Y1bFJoaWZFQzVKNGpKZUhMaU1aaURVc1E4?=
- =?utf-8?Q?S3ECuJ6r6JQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c2E4RnJ4WGlzZXM5Q09vMjVIZ3pVajRvQVlKTnc1bVB1VURJUDd5ODZERTZM?=
- =?utf-8?B?cm9aaHUwclBtTDVUTytrbTl4L0FXRUtDNG4wMGZlQ3J1Y2lrV0dpSTVjTFlR?=
- =?utf-8?B?ODQ1dUhuUVZHQnc4bGpqR1QzRXp6ektjOWZFN1orc0RJa0NoSjZwZVBzcFN3?=
- =?utf-8?B?TFprVktuR2lLMVF2ZUtYbjZMZUZ6bU5qWVkwYXhRRnN1bVkxSzJCdFBqbUY0?=
- =?utf-8?B?RHhxK0x2NkVQWUloTUh3MkR3MGlib3lRbHl4TElLTks4S3oxeEFmTCtEZzJ3?=
- =?utf-8?B?RE9xbmRPY1BPRVMva0VjVXVaekZXUHdvbFk4RGNQQ2hmbk5icEE3MklBeTV1?=
- =?utf-8?B?cnpRWDBnaUNDNkJydFd2bWl1dHhvRTFOMkhNY2c3dTdxWHlLRjQ4WE9CdjV6?=
- =?utf-8?B?Q2R1dmFFdzFINGZIMjREUVB0NEJJeE9UR095T0lvU21iUEZPQUFJUjJsOEpM?=
- =?utf-8?B?OU50OHBaWnY1U0lTdUpuc3ZuQmh0ZlFYRWxvUytCcUxLdHhJMmlYUEVHOHl0?=
- =?utf-8?B?VHV0K0MxTjI3bVAzaFZiTDNJeHllZTU3dWY0dkRGRzFMVXpvT1ZCNGsrZm1a?=
- =?utf-8?B?M0g5UGJJakJQR1dFZ0NNZUlhR2luY1lSNEhWdExKVHNMY3VncGhUZk85YTdr?=
- =?utf-8?B?djJSWitaekF3SFFwYjVZTk0zZVdob0N2ZlgxMzArSGJtbjN4UitORW5TVGNs?=
- =?utf-8?B?Ui84SVdGaW9lTmdSYkVsc0toSFpmUHFhYmpkQkFUdHhjUXo2RmU0QVpnVFRK?=
- =?utf-8?B?ckIxWVJBRExURFh5UGk5ejYyUmVlcHZwbFRlRGdTcDljUEtEeXhwQmVSdjJE?=
- =?utf-8?B?aVBhblN2L2ZyKzBGQXN5cGh6d1doMm94a0lIR0V6UDV3YllLRkdxaWx3azBn?=
- =?utf-8?B?ZTNEZlBGeDV3TnhEVURSbXMvM3gyWXZRWlNuaFNweW1zMWdJT3hMY0lnMjUv?=
- =?utf-8?B?TndIT3B0bGM3anZXdEEweEQwWU1vOE1ncEdwY01WRkgweEtPMlhLRWxzMlZT?=
- =?utf-8?B?clN1WVUzbDNhczd6cnE1aUZzWjZPQ3RCdU1mdWl5bC9zQzcyMkowbnBNbFAw?=
- =?utf-8?B?blczeHM0VUJxdTlwUjYvYXB5dW80OFE5WkVJMnNVbDZXZWFEdmZiUEVNdWlY?=
- =?utf-8?B?b0lOb2xWNmVHOVpNNjRsN2VDSm9zVkg4cldqc1FMYURYN0s5cmlDQkJyOUVN?=
- =?utf-8?B?ZVFiazNvZER6RmVWVEdpaFUwR0ZHd1hzcnFpV3dJUTFFbE16QzVoWDFSeG5w?=
- =?utf-8?B?ZkM3d1JPVG5MTjN4SGF5dWszOVFQNHpTMEU1YlhNR3lIWC80a0VYUERiSjFm?=
- =?utf-8?B?N1NHVmNMclc1ellmbEJzSzFrdEhHTXZpblZLZ1NDZ0hQaVpKRFZKSEo5bVBE?=
- =?utf-8?B?aGtYQ2k1NEJsQVlPd1FVR2ZUZDNiT2FHVHJsMTRmdjRPT0dnYXh4d1ZwelJx?=
- =?utf-8?B?NkVpM3pSOXJkbUVPbFl2a1FHNzV1V0UwOWtFcmZkT0o1VzAveGhmdGlkbDho?=
- =?utf-8?B?enBMRTh5Ri9tb0JWQ3lNK21nOGpDeWk4aW5lNytPbDU2V0NjOUozS25zTzZJ?=
- =?utf-8?B?dHpNT1BnVTFNVjhUYnV3czBKNUY4MlhrblE0N1hNK202RmJRekVkSG5jUU4z?=
- =?utf-8?B?allYSU5PL25MSEd0V2MxaUZPWEVIMkxlaGRMMDhPcEQ4N1k1UjFSOVgyWHJI?=
- =?utf-8?B?alNUK0d4Y25UckRVMHExS0kxcXQ2WUxOeC9FVTM0VHZnQVRDdExTYUF6M0lu?=
- =?utf-8?B?blM2cWFOMGl4RzhFelNoODUxZ0o4VFNiNWc1OXRIT1lkTnQwdm1ReEtnL1BY?=
- =?utf-8?B?N2lIdm4vWDlveUk3NVdHUzRvd3BIT2dkclY0eCt0a2R0Zm01VzJNUmxDR1Bp?=
- =?utf-8?B?NjNHNEpwUkxsNWc5UU5mZ2JUWXlSK2RkUzBhUW9DT1JuVll1Y1E4ZGIwWnlG?=
- =?utf-8?B?enJuNytTTjBaVXBTZ2FjcGZvLzlzN2tWcVNGWE5hN2RrZGE5TCt5aWU5V1Ba?=
- =?utf-8?B?UUhoeDlFQytRSzYxM082c3NLL2JRY1duUzI2M3lvbStOMDliRnVTYjVPOFI3?=
- =?utf-8?B?T0RXM3czcHBuSnF2akhVc1dpeDF0QjBrK0t3VWZjbnZINmNFRzJITnhUYllj?=
- =?utf-8?B?bGtnNGlXRW1IeVZ5d1FxMDFQbFFDVTlHSzd6Qi9hTHp5VjE5UTJpWVBseGkw?=
- =?utf-8?Q?w1WTQdqmQnKRgsNaZg7KQKQ=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 015a762d-6418-4a56-9220-08dde24c9464
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2025 13:54:29.2560
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KEGslcy0cp9tUOnjsGpqjfMf1wOFUIJ8tOSDqeDss5X3AqxEJTYQT+s7o1qtycWk1WY1JeJMmCcXuKswxypDntK7oH06BulN8jy+r8BQWQ0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7904
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="C1ZqRzwRJhwxXUSo"
+Content-Disposition: inline
+In-Reply-To: <20250822120241.26419-1-festevam@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_065431_698287_7DA95EE3 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250823_070303_556172_FEA3025E 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,171 +75,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 23.08.2025 11:16, Lorenzo Bianconi wrote:
-> [...]
->> -static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
->> -				   const u8 *data, int len)
->> +static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl,
->> +				   const u8 *data, int len, int buswidth)
->>  {
->>  	int i, data_len;
->> +	u8 cmd;
->> +
->> +	switch (buswidth) {
->> +	case 0:
->> +	case 1:
->> +		cmd = SNAND_FIFO_TX_BUSWIDTH_SINGLE;
->> +		break;
->> +	case 2:
->> +		cmd = SNAND_FIFO_TX_BUSWIDTH_DUAL;
->> +		break;
->> +	case 4:
->> +		cmd = SNAND_FIFO_TX_BUSWIDTH_QUAD;
->> +		break;
->> +	default:
->> +		return -EINVAL;
->> +	}
-> Since this is used in airoha_snand_write_data() and in airoha_snand_read_data()
-> I guess you can define a routine for it.
+--C1ZqRzwRJhwxXUSo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-It's not the same. It looks similar, but different constants are used
-for rx and tx cases.
 
->
->>  
->>  	for (i = 0; i < len; i += data_len) {
->>  		int err;
->> @@ -409,16 +433,32 @@ static int airoha_snand_write_data(struct airoha_snand_ctrl *as_ctrl, u8 cmd,
->>  	return 0;
->>  }
->>  
->> -static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl, u8 *data,
->> -				  int len)
->> +static int airoha_snand_read_data(struct airoha_snand_ctrl *as_ctrl,
->> +				  u8 *data, int len, int buswidth)
->>  {
->>  	int i, data_len;
->> +	u8 cmd;
->> +
->> +	switch (buswidth) {
->> +	case 0:
->> +	case 1:
->> +		cmd = SNAND_FIFO_RX_BUSWIDTH_SINGLE;
->> +		break;
->> +	case 2:
->> +		cmd = SNAND_FIFO_RX_BUSWIDTH_DUAL;
->> +		break;
->> +	case 4:
->> +		cmd = SNAND_FIFO_RX_BUSWIDTH_QUAD;
->> +		break;
->> +	default:
->> +		return -EINVAL;
->> +	}
->>  
->>  	for (i = 0; i < len; i += data_len) {
->>  		int err;
->>  
->>  		data_len = min(len - i, SPI_MAX_TRANSFER_SIZE);
->> -		err = airoha_snand_set_fifo_op(as_ctrl, 0xc, data_len);
->> +		err = airoha_snand_set_fifo_op(as_ctrl, cmd, data_len);
->>  		if (err)
->>  			return err;
->>  
->> @@ -895,12 +935,27 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
->>  static int airoha_snand_exec_op(struct spi_mem *mem,
->>  				const struct spi_mem_op *op)
->>  {
->> -	u8 data[8], cmd, opcode = op->cmd.opcode;
->>  	struct airoha_snand_ctrl *as_ctrl;
->> -	int i, err;
->> +	char buf[20], *data;
->> +	int i, err, op_len, addr_len, dummy_len;
-> nit: can you please respect the 'reverse christmas tree' here?
-will fix
->
->>  
->>  	as_ctrl = spi_controller_get_devdata(mem->spi->controller);
->>  
->> +	op_len = op->cmd.nbytes;
->> +	addr_len = op->addr.nbytes;
->> +	dummy_len = op->dummy.nbytes;
->> +
->> +	if (op_len + dummy_len + addr_len > sizeof(buf))
->> +		return -EIO;
->> +
->> +	data = buf;
->> +	for (i = 0; i < op_len; i++)
->> +		*data++ = op->cmd.opcode >> (8 * (op_len - i - 1));
->> +	for (i = 0; i < addr_len; i++)
->> +		*data++ = op->addr.val >> (8 * (addr_len - i - 1));
->> +	for (i = 0; i < dummy_len; i++)
->> +		*data++ = 0xff;
->> +
->>  	/* switch to manual mode */
->>  	err = airoha_snand_set_mode(as_ctrl, SPI_MODE_MANUAL);
->>  	if (err < 0)
->> @@ -911,40 +966,40 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
->>  		return err;
->>  
->>  	/* opcode */
->> -	err = airoha_snand_write_data(as_ctrl, 0x8, &opcode, sizeof(opcode));
->> +	data = buf;
->> +	err = airoha_snand_write_data(as_ctrl, data, op_len,
->> +				      op->cmd.buswidth);
->>  	if (err)
->>  		return err;
->>  
->>  	/* addr part */
->> -	cmd = opcode == SPI_NAND_OP_GET_FEATURE ? 0x11 : 0x8;
->> -	put_unaligned_be64(op->addr.val, data);
->> -
->> -	for (i = ARRAY_SIZE(data) - op->addr.nbytes;
->> -	     i < ARRAY_SIZE(data); i++) {
->> -		err = airoha_snand_write_data(as_ctrl, cmd, &data[i],
->> -					      sizeof(data[0]));
->> +	data += op_len;
->> +	if (addr_len) {
->> +		err = airoha_snand_write_data(as_ctrl, data, addr_len,
->> +					      op->addr.buswidth);
->>  		if (err)
->>  			return err;
->>  	}
->>  
->>  	/* dummy */
->> -	data[0] = 0xff;
->> -	for (i = 0; i < op->dummy.nbytes; i++) {
->> -		err = airoha_snand_write_data(as_ctrl, 0x8, &data[0],
->> -					      sizeof(data[0]));
->> +	data += addr_len;
->> +	if (dummy_len) {
->> +		err = airoha_snand_write_data(as_ctrl, data, dummy_len,
->> +					      op->dummy.buswidth);
->>  		if (err)
->>  			return err;
->>  	}
->>  
->>  	/* data */
->> -	if (op->data.dir == SPI_MEM_DATA_IN) {
->> -		err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
->> -					     op->data.nbytes);
->> -		if (err)
->> -			return err;
->> -	} else {
->> -		err = airoha_snand_write_data(as_ctrl, 0x8, op->data.buf.out,
->> -					      op->data.nbytes);
->> +	if (op->data.nbytes) {
->> +		if (op->data.dir == SPI_MEM_DATA_IN)
->> +			err = airoha_snand_read_data(as_ctrl, op->data.buf.in,
->> +						     op->data.nbytes,
->> +						     op->data.buswidth);
->> +		else
->> +			err = airoha_snand_write_data(as_ctrl, op->data.buf.out,
->> +						      op->data.nbytes,
->> +						      op->data.buswidth);
->>  		if (err)
->>  			return err;
->>  	}
->> -- 
->> 2.50.1
->>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+--C1ZqRzwRJhwxXUSo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaKnKDgAKCRB4tDGHoIJi
+0twtAQDhBDDAYhVJmau4HmLAEuC6wDq0to3phN8IMEFZVeNB+QEA1cljqSj4WxWU
+ONvIfhtDTCppLOw2os+kUlIBdwNkcg8=
+=4Euf
+-----END PGP SIGNATURE-----
+
+--C1ZqRzwRJhwxXUSo--
 
