@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AC65CA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 15:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9EECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 15:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UVkrlwX0Df80zD//FVF4x9wZZLY3nl+OHtut+gxyos=; b=h8opHXVwj4OLJvrawK9+lJo8iJ
-	8mFwHXfCwJoO6ybmNEMSjPM25GdnDg2jT6hzE79m4C5ciRguC3QDi+cAJpJQ3+hYkLlTHAVU9ZhA1
-	PRngcoASelAoK250BYS0TzVVnOC3mUjlCkBJEsVMDiYPM/FugGGN+AcYothnCZQAlRSrtHJDJmV+m
-	G7OdubJwzWCeFeubvxtn8PWMhKdtnswnFL6lF5S2yPq7s5bXcTZEHcYkvGkC96lYgDW4cK3IeEwOn
-	gKR/eKMK2U66GJXF5HAfz9uaLTeR6AI02G7oyJ0EpAj61IDHET3fv1UvialaGa8nOComxo/5WL1t0
-	Eg5wYhRA==;
+	bh=O634nJKO6arL/3q166YJAk3dSxm+zvoJv4RQTTdWoyU=; b=tAm9Z2k2C5Qmf7Um0UIAJNH7KZ
+	cYLUm1PoZgE8HVe9D5cGsBP7FhujPWX5IPL+/ZYAwUpKmqKHjRXYqZfEcq+W8GXPa0i/ARfl1Tl8R
+	9RdGE74uWmmngS9MSdalcp45wiU19f8lP35hrS6h89ZJtt6noeWD4ca8im0YLa0IoKTwWmGxW1KNV
+	6oBFOaUmSKexYIA03CgXNnlEV9Q0HAqfK25aBItw/M/vBTxilZwQUEzkkomnJ1W1JVz3IhyRmZOP4
+	lK6E/XdLHeTuR1fvZB0/bmmvOZepQ4LCyYbZN2iRYHRlj6wig+Mjdpjl82CNo16e7DXmbLX2DHRf7
+	LKvUKxGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqNh-00000004vov-4BBr;
-	Sat, 23 Aug 2025 15:42:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1upqQI-00000004w0e-3PkD;
+	Sat, 23 Aug 2025 15:44:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqGR-00000004vFK-0X2e
+	id 1upqJd-00000004vSu-0nL4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 15:34:44 +0000
+	Sat, 23 Aug 2025 15:38:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8547DA58AB2;
-	Sat, 23 Aug 2025 15:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD388C4CEE7;
-	Sat, 23 Aug 2025 15:34:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 746F443B8F;
+	Sat, 23 Aug 2025 15:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C55C4CEE7;
+	Sat, 23 Aug 2025 15:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755963281;
-	bh=smODDh1I/z4J2Rz0rLaPqbEcVncrApWFPaGQeDaybjU=;
+	s=k20201202; t=1755963476;
+	bh=66jtfWo50Yf+QiuM7SUi4SewiNY27XCmgKtBWfLSqlU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H68xi/cKhBaNbSn/ZOW6Wo/FFNehEUDv98PfTVU5mUiq3GasDvK9gQkc/zhhBjaQF
-	 A8QhYjzztd/r4jKdTFaCZ3rzrMVhQkQ0SzcXzouQVQS/3rETl9+UPejA4TwEccOSBI
-	 uOl2pypBhSjXPB25TqVKpMbPZ6WQYMj2G4NqWDkbzVfTLlSqwsvrnh9fFtYrEtdwMb
-	 CDDmwCy5bVTQQDecmzm7QvinpKPBiaIQd15O3gM3uxGdMHbySOIr8SJAZLPHFqZe0X
-	 damgraVk4TVTCUU6i2Ar4RaphxfVwFUoNxHw8KnOusSyX4UGvqnfAR9YIgh5v57Drd
-	 RkfORTa2xtaZA==
-Message-ID: <4af38093-007e-4bfc-8439-0c3dc84012d8@kernel.org>
-Date: Sat, 23 Aug 2025 17:34:33 +0200
+	b=hRlwP/QWXWGTarL8Fdrt7rY9UBbedIC7J8iQ2Q2bGA7nBsTTErQRqwe8/tZuGlAn7
+	 yOL+QmL6yTQqHGdUarC7dB+qnU6QvKkoWeYE/vjrKb51vAp9Su7CWgHf2j2yV38YQ1
+	 GTQrOLgw+iO3trQIKepeWI71wqAID2ZOq1QHVs+ewKnElqSSAF6W6j9//nuSX9Es2G
+	 o5odXJoTWp9bb5Q0NtOvxI9wYkxD1Eau5zFYcBs0JoZgEBrP3trrvpyPrCFzGyqIYp
+	 t40B2PHaURU1XhEk9rRF5JvBQ8M4yXUZC7oceP8D3KyQQ/3dEoh82xq3lczPFLu1s1
+	 32gVDR4L+NMTg==
+Message-ID: <926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
+Date: Sat, 23 Aug 2025 17:37:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] media: fsd-csis: Add support for FSD CSIS DMA
+Subject: Re: [PATCH v2 03/12] dt-bindings: media: nxp: Add support for FSD SoC
 To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
@@ -60,10 +60,12 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141103epcas5p14516cbe45c21d28ba9e231da99940aa1@epcas5p1.samsung.com>
- <20250814140943.22531-13-inbaraj.e@samsung.com>
- <b1f59033-12d0-4395-85f1-e296a5dbca5f@kernel.org>
- <00e301dc1424$033ed5a0$09bc80e0$@samsung.com>
+ <CGME20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946@epcas5p4.samsung.com>
+ <20250814140943.22531-4-inbaraj.e@samsung.com>
+ <ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
+ <00d001dc136a$36ad7230$a4085690$@samsung.com>
+ <7b7f6958-3178-4c6f-8be3-f52ef77464f7@kernel.org>
+ <00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +111,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <00e301dc1424$033ed5a0$09bc80e0$@samsung.com>
+In-Reply-To: <00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_083443_299462_CCB0DB18 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250823_083801_265519_F0388929 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,80 +132,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/08/2025 13:49, Inbaraj E wrote:
+On 22/08/2025 16:00, Inbaraj E wrote:
+>> On 22/08/2025 15:39, Inbaraj E wrote:
+>>>>>
+>>>>>    power-domains:
+>>>>>      maxItems: 1
+>>>>>
+>>>>> +  samsung,syscon-csis:
+>>>>
+>>>> samsung, so not nxp. Even more confusing.
+>>>>
+>>>
+>>> I used samsung,syscon-csis because the system controller on Tesla FSD
+>>> follows Samsung's sysreg design.
 >>
->>> +
->>> +	ret = fsd_csis_clk_get(csis);
->>> +	if (ret < 0)
->>> +		return ret;
->>> +
->>> +	pm_runtime_enable(dev);
->>> +	if (!pm_runtime_enabled(dev)) {
->>
->> That's odd code. Why?
->>
->>> +		ret = fsd_csis_runtime_resume(dev);
->>
->> Even more questions why?
+>> OK, this is property for Tesla though, so please use tesla prefix.
 > 
-> If CONFIG_PM is enabled, the clocks are enabled manually in the
-> driver through fsd_csis_runtime_resume API.
-> 
-> If CONFIG_PM is enabled, the clocks are managed through the PM
-> runtime framework.
-> 
-> Can you please help me understand what wrong here?
+> Using tesla,syscon-csis results in a "prefix not found" issue when running dtbs_check
+Because you develop on ancient, 10 year old downstream kernel?
 
-I think I see such code for the first time, so wrong is doing something
-common in completely unusual way.
+You really do not try enough and this is just wasting our time.
 
-> 
->>
->>> +		if (ret < 0)
->>> +			return ret;
->>> +	}
->>> +
->>> +	platform_set_drvdata(pdev, csis);
->>> +
->>> +	ret = fsd_csis_enable_pll(csis);
->>> +	if (ret)
->>> +		return ret;
->>> +
->>> +	ret = fsd_csis_media_init(csis);
->>> +	if (ret)
->>> +		return ret;
->>
->> I think you miss clean up of csis->pll completely. Just use
->> devm_clk_get_enabled and convert everything here to devm.
->>
->>
-> 
-> I'll fix in next patchset.
-> 
->>> +
->>> +	ret = fsd_csis_async_register(csis);
->>> +	if (ret)
->>> +		goto err_media_cleanup;
->>> +
->>> +	return 0;
->>> +
->>> +err_media_cleanup:
->>> +	fsd_csis_media_cleanup(csis);
->>
->> Also this...
->>
-> 
-> if fsd_csis_media_init fails, the cleanup is handled internally.
+Please think and really carefully check your replies. What prefix do you
+have in compatible? This command:
+git grep tesla, | wc -l
 
-What does it mean internally?
+gives '99' results including obviously vendor prefix.
 
-> Here, cleanup is used only for fsd_csis_async_register failure.
-> 
-> can you please help me understand what is wrong here?
-
-Yeah, you leak clock resources.
-
-
+So your warning is basically impossible or your code is just broken.
+Don't just ask maintainers on every little trouble you have. You must
+debug it. Not we.
 
 Best regards,
 Krzysztof
