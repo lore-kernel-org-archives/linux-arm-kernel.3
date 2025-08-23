@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B713BCA0EED
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 16:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2BECA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 16:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYNvLzsjfbloPi88Zn0sDgQb9PTA7ICXbHQLU987Ung=; b=Miqf7EScVIDxhjGA0wNyqazDrY
-	NLJAxseWtJslnCbnM6afTrpwOrsgGes0eS1PGuIzHMdltIDSZgJO/jvIHaCwQgLEojYBCbbMpWZng
-	t3D4QTjtyFz9dkR8FQiTbN4cymd5j0x+n5Bs/X+j/i7eKj86+iV3Ri4+QXpAap4qsLZTrTiRqxLEL
-	I3hyO7S0kn6estCk3tG+W29Tf6yuHX+ld+DGPzcwFDGxPNTZ+nMfPBGLflSkh1YBCjAuPyo3k3/ih
-	kSsxpjXzxxzQnP35NBQHhv2+uqnaHkqyHuBqgQ2/bXCrQFfpYDtYBDU7QTjdxFoxIwArf+sT2LPSH
-	2kpchmRg==;
+	bh=/+bxILbhuFV0cRVkE2tzfJsAihBqJy0sa+auNbq0bbc=; b=IGpZA8qwuXUw3HKkyEBFpLpv6c
+	7xoKGcYyE3C/Xq07X3RGXq1rMGigIeAFQ7zx1s8WKmmCkIwtpaWCjKrDNjvFNiQow18oAKIr/s5dU
+	HxKMtcPZIjK/t3MWc6Og0zPnrQhqDUbMIK9Hgb70eIKjf4H35D5hGy12TUQ/7kF4DFok2/Iic8Bvo
+	n5xmjN50pPRuI5XETE8uJqyWX2yhnZDriQxoy957AqjEb9Qmxbr8U6/VJXAx1NMDT1NnoOjCsNxRD
+	pgYRQPhN/PJ89OZvEFNiXK4CGIR/eXslTkgSFVGhWNgK53GftbIkP4JIISfVgaZJ2qYXwJIaRixsL
+	bkd5n1Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqhl-00000004xuS-3P7y;
-	Sat, 23 Aug 2025 16:02:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1upqkN-00000004yXb-2iO5;
+	Sat, 23 Aug 2025 16:05:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqca-00000004wtf-0ayu
+	id 1upqcc-00000004wtq-03AC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 15:57:36 +0000
+	Sat, 23 Aug 2025 15:57:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0472860007;
-	Sat, 23 Aug 2025 15:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32563C4CEF4;
-	Sat, 23 Aug 2025 15:57:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A5B75C4D9D;
+	Sat, 23 Aug 2025 15:57:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ECF9C4CEE7;
+	Sat, 23 Aug 2025 15:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755964653;
-	bh=E48rlK5pCrVw6V8uNmmSVbPCOsKOLgsmZrs0oelkBrQ=;
+	s=k20201202; t=1755964657;
+	bh=Zfl9ZZXjm6An0uUR0To5lSMsxmxg8ZEzVzG4zWVYhDw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=e+Ji7du8ydO9/dwQfjyld222hzFjdhjYrIvtRdRNvFPZFHGdxsk5LcRWCE49ic4Vg
-	 ObIuK1wHAB2PClhbQreZrtNPQn8788uz5RmBzfuNfPzDoNvQDhAUS8xu/20ZQqdx6A
-	 HyOihXrEniYo1JgARPz0OPRETDZWTWAnMsA1BvnyzpWoJ2PIROsU6YtCuWSxEu5cct
-	 NPsp0xgLNluknacqGbr88rDYSE/nnaBHwvAOQw1BmyJvnyei6J0sKr1gbpSkxGgyz0
-	 wnvU+2m6s+GOwsU/+KStUvm8RwOTi26kyHuxaBdOtSYjhcmtf7GAPPozK8X/H5qGdO
-	 +mdCQiDgDoJyA==
+	b=lM3k5ucPnOzynMqVL3YGtLdH/EtayFQWggN/8VKlg7jvTAQjjDDRraeV8LOy3ow2z
+	 xJglU4cN2L2IcIghFU0HELbyhflNHTLBwCGZ/gkeAq/QB2k9awwyPXD3DIsy8pCytK
+	 nKlqJohWqQogPlzegr1N2WFlwtocnGe7PXs/rQdT+JvBKbdWiGTsW9fdRzPHKSRVYI
+	 6+GdsIX2C6iTaaudAcJJCzscYaIGdtHLI3xhsn9uSyEzcobHs0Z01UuSfYzW8CjYUT
+	 SCRk80MzKIB7bGJr4/ZO5ljfZdg7YZzqp6XryYX31YTpGSIZYT4/OPZ8X97r2cvWDx
+	 wH8hDxX5Yuv6A==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Vinod Koul <vkoul@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -52,14 +52,18 @@ Cc: dmaengine@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 01/14] dmaengine: dma350: Fix CH_CTRL_USESRCTRIGIN definition
-Date: Sat, 23 Aug 2025 23:39:56 +0800
-Message-ID: <20250823154009.25992-2-jszhang@kernel.org>
+Subject: [PATCH 02/14] dmaengine: dma350: Add missing dch->coherent setting
+Date: Sat, 23 Aug 2025 23:39:57 +0800
+Message-ID: <20250823154009.25992-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250823154009.25992-1-jszhang@kernel.org>
 References: <20250823154009.25992-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250823_085738_090584_7A1FAD91 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per the arm-dma350 TRM, The CH_CTRL_USESRCTRIGIN is BIT(25).
+The dch->coherent setting is missing.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
- drivers/dma/arm-dma350.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/dma/arm-dma350.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
-index 9efe2ca7d5ec..bf3962f00650 100644
+index bf3962f00650..24cbadc5f076 100644
 --- a/drivers/dma/arm-dma350.c
 +++ b/drivers/dma/arm-dma350.c
-@@ -58,7 +58,7 @@
+@@ -587,6 +587,7 @@ static int d350_probe(struct platform_device *pdev)
+ 	for (int i = 0; i < nchan; i++) {
+ 		struct d350_chan *dch = &dmac->channels[i];
  
- #define CH_CTRL			0x0c
- #define CH_CTRL_USEDESTRIGIN	BIT(26)
--#define CH_CTRL_USESRCTRIGIN	BIT(26)
-+#define CH_CTRL_USESRCTRIGIN	BIT(25)
- #define CH_CTRL_DONETYPE	GENMASK(23, 21)
- #define CH_CTRL_REGRELOADTYPE	GENMASK(20, 18)
- #define CH_CTRL_XTYPE		GENMASK(11, 9)
++		dch->coherent = coherent;
+ 		dch->base = base + DMACH(i);
+ 		writel_relaxed(CH_CMD_CLEAR, dch->base + CH_CMD);
+ 
 -- 
 2.50.0
 
