@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9EECA0EE4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 15:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8A7CA0EE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 Aug 2025 15:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O634nJKO6arL/3q166YJAk3dSxm+zvoJv4RQTTdWoyU=; b=tAm9Z2k2C5Qmf7Um0UIAJNH7KZ
-	cYLUm1PoZgE8HVe9D5cGsBP7FhujPWX5IPL+/ZYAwUpKmqKHjRXYqZfEcq+W8GXPa0i/ARfl1Tl8R
-	9RdGE74uWmmngS9MSdalcp45wiU19f8lP35hrS6h89ZJtt6noeWD4ca8im0YLa0IoKTwWmGxW1KNV
-	6oBFOaUmSKexYIA03CgXNnlEV9Q0HAqfK25aBItw/M/vBTxilZwQUEzkkomnJ1W1JVz3IhyRmZOP4
-	lK6E/XdLHeTuR1fvZB0/bmmvOZepQ4LCyYbZN2iRYHRlj6wig+Mjdpjl82CNo16e7DXmbLX2DHRf7
-	LKvUKxGQ==;
+	bh=sp9Fwlp5vR3qv+8aPcSWowrMQzl0dd+8oxkxBXjsn0s=; b=uph5tfuXC/P7tVUbjGvz48RaAy
+	GB4GXmHtV6Ycee/kz1VU2Nmb6hSo00n4LQBIE3OVneKRojjzZOXpCjvIc/v9KNq4ofoIyHGASab8k
+	F9OLxG5PujluWGJk4J8J3DJKdrJ1+f9jrZFDSbERbh3YlHCfkeQJlGud184EFEfY19c86HBLshhXx
+	d5qQuWmZ/yziHk3fpYK6WBSYkomeuF/kHDZvQDMcUcR51m9cIzQlz5CEBkMIF2ijjP16JDNcmm4nf
+	pJRC7ospVz8a+YZgG++6iZVEfDBC+Lox7j/3a3lu6TrxwI7W45jDaVgxD55tCrSsrC0ExhKbAFvnI
+	MJ+ffuMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqQI-00000004w0e-3PkD;
-	Sat, 23 Aug 2025 15:44:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1upqSu-00000004wBV-2fZU;
+	Sat, 23 Aug 2025 15:47:36 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1upqJd-00000004vSu-0nL4
+	id 1upqLK-00000004vdO-1DaD
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 Aug 2025 15:38:02 +0000
+	Sat, 23 Aug 2025 15:39:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 746F443B8F;
-	Sat, 23 Aug 2025 15:37:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0C55C4CEE7;
-	Sat, 23 Aug 2025 15:37:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 023095C473A;
+	Sat, 23 Aug 2025 15:39:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02549C4CEE7;
+	Sat, 23 Aug 2025 15:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755963476;
-	bh=66jtfWo50Yf+QiuM7SUi4SewiNY27XCmgKtBWfLSqlU=;
+	s=k20201202; t=1755963584;
+	bh=eCWEVQ/IDr6HBl39bDbTJnSVhaF7UusUbAAetwjFyRI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hRlwP/QWXWGTarL8Fdrt7rY9UBbedIC7J8iQ2Q2bGA7nBsTTErQRqwe8/tZuGlAn7
-	 yOL+QmL6yTQqHGdUarC7dB+qnU6QvKkoWeYE/vjrKb51vAp9Su7CWgHf2j2yV38YQ1
-	 GTQrOLgw+iO3trQIKepeWI71wqAID2ZOq1QHVs+ewKnElqSSAF6W6j9//nuSX9Es2G
-	 o5odXJoTWp9bb5Q0NtOvxI9wYkxD1Eau5zFYcBs0JoZgEBrP3trrvpyPrCFzGyqIYp
-	 t40B2PHaURU1XhEk9rRF5JvBQ8M4yXUZC7oceP8D3KyQQ/3dEoh82xq3lczPFLu1s1
-	 32gVDR4L+NMTg==
-Message-ID: <926e9bb2-cdde-4048-9ae2-159d088aa935@kernel.org>
-Date: Sat, 23 Aug 2025 17:37:47 +0200
+	b=Q2lhz6drHJ+EAZhnkvrZi1FMwLk+q78p3rpldJ6qe0h6jqFMYqCSqrUJkMkCDqwhs
+	 ajHCtO96f77lUToL/LHN71Tnuv3qiGhh+c7qZlN+5tdXqte/C/gi9JmieS/DhbPfBw
+	 YEPI7HAmtbOEoXk3Wrl8cHYdIJl5T5TRghNA36n2fEX8nc47h09JfUrLI2xmYU8EIO
+	 cXs7ky52lZ7k2MrsZMmIa/00pmuAtMKHggo7yeSOvqER/Gd9lOK32YuPUnNnXNy9sx
+	 ohKy5bLrvihQjfnYk4PoIzp+65mVKiArkJdE/XxhRyDnwdaCfUg9mzzODl5cl/1UH7
+	 2h0I6Nv7BFIhQ==
+Message-ID: <41434afa-fecd-4507-bcca-735d358ac925@kernel.org>
+Date: Sat, 23 Aug 2025 17:39:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/12] dt-bindings: media: nxp: Add support for FSD SoC
+Subject: Re: [PATCH v2 04/12] arm64: dts: fsd: Add CSI nodes
 To: Inbaraj E <inbaraj.e@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  s.nawrocki@samsung.com, s.hauer@pengutronix.de, shawnguo@kernel.org,
@@ -60,12 +60,10 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  festevam@gmail.com, linux-media@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
 References: <20250814140943.22531-1-inbaraj.e@samsung.com>
- <CGME20250814141014epcas5p410d41ede7e8ae4f3cf8db6d041d03946@epcas5p4.samsung.com>
- <20250814140943.22531-4-inbaraj.e@samsung.com>
- <ac9769af-9ab6-4b48-9890-ec3bcda3b180@kernel.org>
- <00d001dc136a$36ad7230$a4085690$@samsung.com>
- <7b7f6958-3178-4c6f-8be3-f52ef77464f7@kernel.org>
- <00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
+ <CGME20250814141019epcas5p2f957b934d5b60d4649cf9c6abd6969d5@epcas5p2.samsung.com>
+ <20250814140943.22531-5-inbaraj.e@samsung.com>
+ <1919de68-99ea-47f7-b3d2-cae4611f9c52@kernel.org>
+ <00d101dc136c$aa037020$fe0a5060$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,13 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <00d201dc136d$1fdd6bc0$5f984340$@samsung.com>
+In-Reply-To: <00d101dc136c$aa037020$fe0a5060$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250823_083801_265519_F0388929 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250823_083946_406153_CC07C9EC 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +129,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/08/2025 16:00, Inbaraj E wrote:
->> On 22/08/2025 15:39, Inbaraj E wrote:
->>>>>
->>>>>    power-domains:
->>>>>      maxItems: 1
->>>>>
->>>>> +  samsung,syscon-csis:
->>>>
->>>> samsung, so not nxp. Even more confusing.
->>>>
->>>
->>> I used samsung,syscon-csis because the system controller on Tesla FSD
->>> follows Samsung's sysreg design.
->>
->> OK, this is property for Tesla though, so please use tesla prefix.
+On 22/08/2025 15:57, Inbaraj E wrote:
 > 
-> Using tesla,syscon-csis results in a "prefix not found" issue when running dtbs_check
-Because you develop on ancient, 10 year old downstream kernel?
+> Hi Krzysztof,
+> 
+> Thanks for the review.
+> 
+>>
+>> On 14/08/2025 16:09, Inbaraj E wrote:
+>>> There is a csi dma and csis interface that bundles together to allow
+>>
+>> CSI DMA?
+>> What is CSIS?
+>>
+>>> csi2 capture.
+>>
+>> CSI2?
+> 
+> CSIS stands for Camera Serial Interface Slave.
 
-You really do not try enough and this is just wasting our time.
+Googling for "MIPI CSIS" gives me 0 results, so I still claim this is
+not a generic name.
 
-Please think and really carefully check your replies. What prefix do you
-have in compatible? This command:
-git grep tesla, | wc -l
+> 
+> Samsung v4.3 CSIS IP bundles both the CSIS link operation and the CSIS
+> DMA operation. The DMA-related operation are referred to as CSIS DMA and
+> are handled by the fsd-csis driver. The link related operations are
+> referred to simply as CSIS and are integrated into imx-mipi-csis driver.
+> 
+> I'll update the commit message and commit description accordingly,
+> and maintain consistency across the patches.
+> 
+>>
+>>>
+>>> Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
+>>> ---
+>>>  arch/arm64/boot/dts/tesla/fsd-evb.dts |  96 +++++
+>>> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+>>> @@ -493,6 +493,558 @@ clock_mfc: clock-controller@12810000 {
+>>>  			clock-names = "fin_pll";
+>>>  		};
+>>>
+>>> +		mipicsis0: mipi-csis@12640000 {
+>>
+>> Messed ordering. See DTS coding style.
+> 
+> I'll fix the ordering in next patchset.
+> 
+>>
+>> Node names should be generic. See also an explanation and list of examples
+>> (not exhaustive) in DT specification:
+>> https://protect2.fireeye.com/v1/url?k=a30d23f8-c28636dd-a30ca8b7-
+>> 74fe485cbff6-ee12f8a711c584c8&q=1&e=b96506d8-2d5d-4303-b9e8-
+>> 0e1189db1585&u=https%3A%2F%2Fdevicetree-
+>> specification.readthedocs.io%2Fen%2Flatest%2Fchapter2-devicetree-
+>> basics.html%23generic-names-recommendation
+>>
+> 
+> There is no generic name directly related to CSI apart from camera. That's
+> why I used mipi-csis. If preferred, I can move the name to csis or simply csi.
+> Please let me know which one is more appropriate.
 
-gives '99' results including obviously vendor prefix.
-
-So your warning is basically impossible or your code is just broken.
-Don't just ask maintainers on every little trouble you have. You must
-debug it. Not we.
+I don't think you really tried to solve this. How this device is called
+in all other vendors?
 
 Best regards,
 Krzysztof
